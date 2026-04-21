@@ -1,53 +1,49 @@
 'use strict';
 /**
- * Elisha and the blind Syrian army — 2 Kings 6:18-23 (KJV).
- *
- * Verse 6:21 (shall I smite them?) omitted from taps — summarized in paragraphs for a calmer tone.
+ * Elisha and the blind Syrian army (gentle) — 2 Kings 6:18-23 (KJV). Library key: elishaBlindArmy
  */
 
 module.exports = {
   kjvRef: '2 Kings 6:18-23 (KJV)',
   verseExcerpt:
     'Thou shalt not smite them: wouldest thou smite those whom thou hast taken captive with thy sword and with thy bow? set bread and water before them, that they may eat and drink, and go to their master. — 2 Kings 6:22 (KJV)',
-  readAlongTitle: 'Read along',
-  hintAboveQuiz: 'Read slowly. Tap each part when you are ready.',
+  readAlongTitle: 'God Protects Elisha with Kindness',
+  quizWrongHumilityHint:
+    'Listen again — follow me to Samaria, open their eyes, bread and water instead of fighting.',
+  hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
   readAlongSections: [
     {
       text:
         'And when they came down to him, Elisha prayed unto the LORD, and said, Smite this people, I pray thee, with blindness. And he smote them with blindness according to the word of Elisha.',
-      caption: 'Smite this people with blindness — according to the word of Elisha',
+      caption: 'Elisha prayed — the Lord smote them with blindness',
       image: 'panel-jesus-1.svg'
     },
     {
       text:
         'And Elisha said unto them, This is not the way, neither is this the city: follow me, and I will bring you to the man whom ye seek. But he led them to Samaria.',
-      caption: 'Follow me — he led them to Samaria',
+      caption: 'Follow me — he led them safely to Samaria',
       image: 'panel-jesus-1.svg'
     },
     {
       text:
         'And it came to pass, when they were come into Samaria, that Elisha said, LORD, open the eyes of these men, that they may see. And the LORD opened their eyes, and they saw; and, behold, they were in the midst of Samaria.',
-      caption: 'Open the eyes of these men — they were in the midst of Samaria',
+      caption: 'Lord, open their eyes — they were in the midst of Samaria',
       image: 'panel-jesus-2.svg'
     },
     {
       text:
-        'And he answered, Thou shalt not smite them: wouldest thou smite those whom thou hast taken captive with thy sword and with thy bow? set bread and water before them, that they may eat and drink, and go to their master.',
-      caption: 'Thou shalt not smite them — set bread and water before them',
-      image: 'panel-jesus-2.svg'
-    },
-    {
-      text:
-        'And he prepared great provision for them: and when they had eaten and drunk, he sent them away, and they went to their master. So the bands of Syria came no more into the land of Israel.',
-      caption: 'They did eat and drink — the bands of Syria came no more',
+        'And the king of Israel said unto Elisha, when he saw them, My father, shall I smite them? shall I smite them? And he answered, Thou shalt not smite them: wouldest thou smite those whom thou hast taken captive with thy sword and with thy bow? set bread and water before them, that they may eat and drink, and go to their master. And he prepared great provision for them: and when they had eaten and drunk, he sent them away, and they went to their master. So the bands of Syria came no more into the land of Israel.',
+      caption: 'Thou shalt not smite — great provision; they ate, drank, and went in peace',
       image: 'panel-jesus-3.svg'
     }
   ],
   paragraphs: [
-    'The Syrian army came down to take Elisha. Elisha prayed, Smite this people, I pray thee, with blindness — and the Lord smote them with blindness according to the word of Elisha.',
-    'Elisha said, This is not the way, neither is this the city: follow me. He led them to Samaria. When they came into Samaria, he prayed, Lord, open the eyes of these men, that they may see — and they saw they were in the midst of Samaria.',
-    'The king of Israel asked, Shall I smite them? Elisha answered, Thou shalt not smite them — set bread and water before them, that they may eat and drink, and go to their master. Great provision was made; when they had eaten and drunk, they were sent away in peace. So the bands of Syria came no more into the land of Israel. For you: God can protect His servants and show mercy even to those who came as enemies.',
-    'Reference: 2 Kings 6:18-23 (KJV).'
+    'The Syrian army came to Dothan to take Elisha. Elisha prayed, Lord, I pray thee, smite this people with blindness — and the Lord smote them with blindness.',
+    'Elisha said to them, This is not the way, neither is this the city: follow me, and I will bring you to the man whom ye seek. He led them safely to Samaria.',
+    'When they came to Samaria, Elisha prayed, Lord, open the eyes of these men, that they may see. The Lord opened their eyes, and they saw they were in the midst of Samaria.',
+    'The king of Israel asked Elisha, Shall I smite them? Elisha answered, Thou shalt not smite them — set bread and water before them, that they may eat and drink, and go to their master.',
+    'So the king prepared a great feast for them, and they ate and drank, and then went back to their master in peace. The Lord protected Elisha and showed mercy even to his enemies through kindness.',
+    'For you: God protects His servants — He can turn enemies toward kindness and peace.'
   ],
   quizHeading: 'Quiz — think it through',
   questions: [
@@ -114,9 +110,9 @@ module.exports = {
   prayer:
     'Lord, thank You for protection and for mercy. Help us show kindness too. Amen.',
   imagePrompts: [
-    'Simple peaceful black-and-white line-art young children bold thick outlines Elisha calm hands raised Syrian soldiers eyes closed walking Samaria city gates soft background road minimal ages 3-8 coloring page',
+    'Simple peaceful black-and-white line-art young children bold thick outlines Elisha standing calmly hands raised in prayer Syrian soldiers beside him eyes gently closed calm peaceful faces city Samaria background open gates thick bold outlines large open spaces robe armor faces ground soft road city walls minimal merciful protective mood leading safely kindness no weapons raised no fear plenty white space ages 3-8 coloring page no text',
     'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Smite with blindness follow me',
-    'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Open the eyes of these men Samaria',
+    'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Open the eyes Samaria',
     'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Thou shalt not smite bread and water',
     'Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Great provision ate and drank peace'
   ]

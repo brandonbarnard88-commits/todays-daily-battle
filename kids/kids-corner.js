@@ -170,7 +170,10 @@
       lazarus: 'lazarus',
       jesusLazarus: 'lazarus',
       tenLepers: 'healLeper',
-      healLeper: 'healLeper'
+      healLeper: 'healLeper',
+      manBornBlind: 'healBlind',
+      healBlind: 'healBlind',
+      jesusHealsBlind: 'healBlind'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -204,6 +207,8 @@
     if (low.indexOf('marysit') >= 0 || low === 'marysit') return 'maryMartha';
     if (low.indexOf('jesuslazarus') >= 0 || low === 'jesuslazarus') return 'lazarus';
     if (low.indexOf('tenlepers') >= 0 || low.indexOf('ten-lepers') >= 0) return 'tenLepers';
+    if (low.indexOf('manbornblind') >= 0 || low === 'manbornblind') return 'healBlind';
+    if (low.indexOf('healblind') >= 0 || low === 'healblind' || low.indexOf('jesushealsblind') >= 0) return 'healBlind';
     if (low.indexOf('goodsamaritan') >= 0 || low === 'goodsamaritan') return 'goodSamaritan';
     if (low.indexOf('samaritan') >= 0) return 'good-samaritan';
     return '';
@@ -3011,19 +3016,26 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 5:1–16</text>'
       ),
 
-      /* ── Week 5: Jesus Heal Blind (68) ── */
+      /* ── Week 5 gentle: Man born blind — clay, hope, Siloam (John 9:1–38) ── */
       healBlind: svg(
         ground() +
-        person(155, 178, 12, 35) +
-        '<path d="M148 192 Q140 200 142 212" ' + s + ' stroke-width="2.5"/>' +
-        '<ellipse cx="152" cy="172" rx="8" ry="6" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<ellipse cx="158" cy="172" rx="8" ry="6" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M148 170 Q156 162 164 168" ' + s + ' stroke-width="2"/>' +
-        person(245, 168, 13, 40) +
-        '<path d="M236 184 Q225 195 230 208" ' + s + ' stroke-width="2.5"/>' +
-        '<path d="M232 192 Q228 200 232 208" ' + s + ' stroke-width="2"/>' +
-        sun(330, 45, 20) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 9:6</text>'
+        '<path d="M0 248 Q200 232 400 248" ' + s + ' stroke-width="1.6" opacity="0.35"/>' +
+        sun(48, 50, 15) +
+        cloud(272, 38) +
+        '<ellipse cx="115" cy="239" rx="52" ry="11" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<circle cx="115" cy="166" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M106 170 Q115 164 124 170" ' + s + ' stroke-width="1.4"/>' +
+        '<ellipse cx="110" cy="166" rx="1.5" ry="2" fill="#111"/>' +
+        '<ellipse cx="120" cy="166" rx="1.5" ry="2" fill="#111"/>' +
+        '<path d="M115 186 L115 224" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M115 200 L92 232 M115 200 L138 232" ' + s + ' stroke-width="2.4"/>' +
+        '<path d="M103 194 L86 182 M127 194 L144 182" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="108" cy="164" rx="9" ry="6" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="122" cy="164" rx="9" ry="6" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        person(268, 152, 13, 34) +
+        '<path d="M252 176 Q210 170 182 160" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M176 152 L168 158" ' + s + ' stroke-width="1.8"/>' +
+        '<text x="200" y="290" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 9:1–38</text>'
       ),
 
       /* ── Week 5: Jesus Calm Storm already exists (jesusCalmsStorm) ── */
@@ -4720,6 +4732,7 @@
     jesusSermonMount: 'mustardSeed',
     jesusHealsBlind: 'healBlind',
     healBlind: 'healBlind',
+    manBornBlind: 'healBlind',
     jesusBlessKids: 'jesusBlessKids',
     /* ── Week 6 ── */
     jesusParableSower: 'parableSower',
@@ -6459,7 +6472,7 @@
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
-        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'tenLepers', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
+        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
         'resurrection', 'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus',
         'parableTalents', 'armorOfGod', 'heavenPromise', 'jonah'

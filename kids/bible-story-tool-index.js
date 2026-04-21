@@ -1137,6 +1137,36 @@
     "kw": "paralytic palsy roof mark 2 faith forgive friends capernaum bed heal son"
   },
   {
+    "key": "manBornBlind",
+    "title": "Jesus Gives Sight to a Man Who Was Born Blind",
+    "kjvRef": "John 9:1–38",
+    "who": "Jesus",
+    "to": "The blind man — and us",
+    "apply": "Jesus opens blind eyes and helps us see who He really is.",
+    "theme": "Miracles",
+    "kw": "born blind john 9 siloam clay wash see miracle believe jesus"
+  },
+  {
+    "key": "healBlind",
+    "title": "Jesus Gives Sight to a Man Who Was Born Blind",
+    "kjvRef": "John 9:1–38",
+    "who": "Jesus",
+    "to": "The blind man — and us",
+    "apply": "Jesus opens blind eyes and helps us see who He really is.",
+    "theme": "Miracles",
+    "kw": "born blind john 9 siloam clay wash see miracle believe jesus"
+  },
+  {
+    "key": "jesusHealsBlind",
+    "title": "Jesus Gives Sight to a Man Who Was Born Blind",
+    "kjvRef": "John 9:1–38",
+    "who": "Jesus",
+    "to": "The blind man — and us",
+    "apply": "Jesus opens blind eyes and helps us see who He really is.",
+    "theme": "Miracles",
+    "kw": "born blind john 9 siloam clay wash see miracle believe jesus"
+  },
+  {
     "key": "jesusTemple",
     "title": "Jesus Goes to His Father’s House",
     "kjvRef": "Luke 2:41–52",
@@ -1145,16 +1175,6 @@
     "apply": "Even as a boy, Jesus loved being in His Father’s house — and He honors His parents.",
     "theme": "Love",
     "kw": "jesus temple jerusalem passover luke 2 teachers twelve father business obedient mary joseph"
-  },
-  {
-    "key": "healBlind",
-    "title": "Jesus Heals a Blind Man",
-    "kjvRef": "John 9",
-    "who": "Jesus",
-    "to": "The blind man",
-    "apply": "Jesus opens our eyes—in our hearts too! Ask Him to help you see.",
-    "theme": "Miracles",
-    "kw": "blind heal mud john 9 eyes wash see miracle"
   },
   {
     "key": "noblemanSon",
@@ -1205,16 +1225,6 @@
     "apply": "Jesus heals us and is happy when we remember to say thank you.",
     "theme": "Miracles",
     "kw": "ten lepers mercy heal luke 17 thankful priests samaria galilee faith jesus"
-  },
-  {
-    "key": "jesusHealsBlind",
-    "title": "Jesus Heals the Man Born Blind",
-    "kjvRef": "John 9",
-    "who": "Jesus",
-    "to": "The blind man (and us)",
-    "apply": "Jesus has power to help us see truth — and to trust Him when others question.",
-    "theme": "Miracles",
-    "kw": "blind born blind john 9 siloam mud clay see miracle pharisees"
   },
   {
     "key": "jesusBaptism",

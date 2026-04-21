@@ -14,13 +14,13 @@ Generated: **2026-04-20** (run `npm run kids:audit-read-quiz-sources` to refresh
 
 | Category | Count |
 |----------|------:|
-| Total `bibleStories` keys | 298 |
-| **Handcrafted** full-pack override | 62 |
-| **Generator** (`buildPack`) | 236 |
-| …with non-empty `narration:` in battle | 17 |
-| …no narration (alt + apply path) | 219 |
+| Total `bibleStories` keys | 308 |
+| **Handcrafted** full-pack override | 81 |
+| **Generator** (`buildPack`) | 229 |
+| …with non-empty `narration:` in battle | 16 |
+| …no narration (alt + apply path) | 213 |
 
-## Handcrafted keys (62)
+## Handcrafted keys (81)
 
 Shared packs (same object used for two library cards each):
 
@@ -30,6 +30,7 @@ Shared packs (same object used for two library cards each):
 Keys:
 
 - `abigailWise`
+- `absalomRebellion`
 - `achan`
 - `battleOfAi`
 - `bronzeSerpent`
@@ -37,6 +38,7 @@ Keys:
 - `david`
 - `davidAbigail`
 - `davidAnointed`
+- `davidBathsheba`
 - `davidCave`
 - `davidGoliath`
 - `davidHarp`
@@ -50,20 +52,34 @@ Keys:
 - `elijahHoreb`
 - `elijahRavens`
 - `elijahWidow`
+- `elishaBlindArmy`
+- `elishaBones`
+- `elishaChariots`
+- `elishaFinal`
+- `elishaFloatingAxe`
 - `elishaMiracles`
 - `elishaOil`
+- `elishaPoisonStew`
 - `elishaShunammite`
+- `ezraReturn`
 - `fallOfJericho`
+- `gehaziGreed`
 - `gideonFleece`
 - `gideonMidianites`
 - `goldenCalf`
 - `hannahPrayer`
 - `jerichoWalls`
+- `jobSuffering`
 - `jordanCrossing`
 - `joshuaCharge`
 - `joshuaJordan`
 - `manna`
+- `mephibosheth`
 - `mosesBush`
+- `naaman`
+- `naamanDip`
+- `naamanHealed`
+- `nehemiahWalls`
 - `passoverLamb`
 - `psalm23`
 - `psalm23Shepherd`
@@ -76,6 +92,7 @@ Keys:
 - `ruthNaomi`
 - `ruthRedemption`
 - `ruthThreshing`
+- `samariaSiege`
 - `samson`
 - `samsonBirth`
 - `samsonDelilah`
@@ -84,6 +101,7 @@ Keys:
 - `samuelBirth`
 - `samuelCall`
 - `samuelCalls`
+- `shunammiteReturn`
 - `solomonTemple`
 - `solomonTwoMothers`
 - `solomonWisdom`
@@ -91,8 +109,9 @@ Keys:
 - `sunStandsStill`
 - `tabernacle`
 - `tenCommandments`
+- `widowOil`
 
-## Generator keys with `narration:` (17)
+## Generator keys with `narration:` (16)
 
 - `creationLight`
 - `daniel`
@@ -107,12 +126,11 @@ Keys:
 - `lazarus`
 - `mosesBaby`
 - `mosesSea`
-- `naamanDip`
 - `noah`
 - `ruthGlean`
 - `tenPlagues`
 
-## Generator keys without narration — alt/apply only (219)
+## Generator keys without narration — alt/apply only (213)
 
 - `abrahamIsaac`
 - `actsApollosPriscilla`
@@ -153,7 +171,6 @@ Keys:
 - `dragonFight`
 - `earlyChurchLife`
 - `elijahFireFromHeaven`
-- `elishaFloatingAxe`
 - `emmausRoad`
 - `estherBanquet`
 - `estherCrown`
@@ -161,7 +178,6 @@ Keys:
 - `euniceMother`
 - `everyKneeBow`
 - `ezekielValleyBones`
-- `ezraReturn`
 - `faithMountain`
 - `faithMustard`
 - `forgive70x7`
@@ -209,7 +225,6 @@ Keys:
 - `jesusTemptation`
 - `jesusTriumphalEntry`
 - `jesusWalksWater`
-- `jobSuffering`
 - `johnBaptist`
 - `johnBaptize`
 - `johnFirstLetter`
@@ -239,8 +254,6 @@ Keys:
 - `miriamSong`
 - `mosesStaffSnake`
 - `mustardSeed`
-- `naaman`
-- `nehemiahWalls`
 - `newEarth`
 - `newHeaven`
 - `noNight`
@@ -329,7 +342,6 @@ Keys:
 - `trial`
 - `weddingWine`
 - `widowMite`
-- `widowOil`
 - `widowsMite`
 - `worryBirds`
 - `zacchaeus`

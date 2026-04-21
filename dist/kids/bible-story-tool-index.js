@@ -247,16 +247,6 @@
     "kw": "judas betrayal kiss matthew 26 mark 14 fail"
   },
   {
-    "key": "jesusBirth",
-    "title": "Birth of Jesus",
-    "kjvRef": "Luke 2; Matthew 1–2",
-    "who": "God",
-    "to": "The whole world",
-    "apply": "Jesus came humbly as a baby to save us — God with us. Christmas is God's greatest gift.",
-    "theme": "Miracles",
-    "kw": "jesus birth manger shepherds angels bethlehem luke 2 matthew 2 wise men christmas"
-  },
-  {
     "key": "cainAbel",
     "title": "Cain & Abel",
     "kjvRef": "Genesis 4",
@@ -275,6 +265,16 @@
     "apply": "When screens shout “look at me,” look up first—Jesus made you, saved you, and gets the first place in your day.",
     "theme": "Obedience",
     "kw": "colossians christ supreme creation church above mercy peace"
+  },
+  {
+    "key": "ezraReturn",
+    "title": "Coming Home to Worship",
+    "kjvRef": "Ezra 1:1–11; 3:1–6",
+    "who": "The LORD",
+    "to": "His people — after long years away",
+    "apply": "God remembers you. He can turn a king’s heart and bring you home to thank and praise Him.",
+    "theme": "Obedience",
+    "kw": "ezra cyrus exile return temple ezra 1 ezra 3 altar jerusalem persia worship"
   },
   {
     "key": "creation",
@@ -317,16 +317,6 @@
     "kw": "daniel lion lions den pray protect"
   },
   {
-    "key": "danielLionsDen",
-    "title": "Daniel in the Lions' Den",
-    "kjvRef": "Daniel 6",
-    "who": "God",
-    "to": "Daniel",
-    "apply": "Keep talking to God — He hears you and can hush every fear.",
-    "theme": "Miracles",
-    "kw": "daniel lions den pray daniel 6 law babylon angel"
-  },
-  {
     "key": "danielPray",
     "title": "Daniel Prays Three Times a Day",
     "kjvRef": "Daniel 6",
@@ -335,6 +325,16 @@
     "apply": "Nothing should stop you from praying! God sees your faithfulness.",
     "theme": "Obedience",
     "kw": "daniel pray window daniel 6 law brave lions"
+  },
+  {
+    "key": "danielLionsDen",
+    "title": "Daniel Trusts God in the Lions’ Den",
+    "kjvRef": "Daniel 6:1–23",
+    "who": "The LORD",
+    "to": "Daniel — and every heart that prays",
+    "apply": "Keep talking to God every day. He hears you and can keep you safe when you trust Him.",
+    "theme": "Miracles",
+    "kw": "daniel lions den pray daniel 6 daniel 6:22 law babylon angel darius living God shut the lions mouths"
   },
   {
     "key": "davidAbigail",
@@ -438,23 +438,53 @@
   },
   {
     "key": "davidKing",
-    "title": "David Becomes King",
-    "kjvRef": "2 Samuel 5:1-5, 9-12",
+    "title": "David Becomes King — David Is Anointed King",
+    "kjvRef": "2 Samuel 5:1-12",
     "who": "The LORD",
     "to": "Israel — and every heart that waits on God",
-    "apply": "The long road led to a thankful crown: God placed David where He promised. When answers take time, the Lord is still working.",
+    "apply": "God kept His promise to David. When the LORD lifts someone up, He is with them — we can trust His timing and His kindness.",
     "theme": "Obedience",
     "kw": "david king david becomes king king over israel anointed david king hebron jerusalem city of david strong hold of zion 2 samuel 5 2 sam 5 bone and thy flesh thirty years old reigned forty years seven years and six months thirty and three years lord god of hosts established him king"
   },
   {
+    "key": "mephibosheth",
+    "title": "David Shows Kindness to Mephibosheth",
+    "kjvRef": "2 Samuel 9:1-13",
+    "who": "David — and the Lord",
+    "to": "Every heart that feels small — and every listener",
+    "apply": "God loves when we remember friends and make room for others — especially when someone feels small. Jesus welcomes us to His table too.",
+    "theme": "Love",
+    "kw": "mephibosheth david kindness jonathan king's table fear not lodebar ziba 2 samuel 9 2 sam 9 shew him kindness dead dog jonathan's son lame jerusalem restore house of saul"
+  },
+  {
     "key": "davidCave",
-    "title": "David Spares Saul in the Cave",
+    "title": "David Spares Saul — David Trusts God",
     "kjvRef": "1 Samuel 24:1-22",
     "who": "David",
     "to": "Every heart learning mercy",
-    "apply": "David could have hurt Saul, but he honored the king God had anointed. God sees when we choose kindness over revenge — ask Him for a gentle heart.",
+    "apply": "David could have hurt Saul, but he honored the king God had anointed. God helps us show mercy even when others are unkind — ask Him for a gentle heart.",
     "theme": "Protection",
     "kw": "david saul cave engedi wild goats skirt robe anointed lord's anointed spare mercy heart smote 1 samuel 24 cover his feet sheepcotes thou art more righteous"
+  },
+  {
+    "key": "davidBathsheba",
+    "title": "David's Repentance and God's Mercy",
+    "kjvRef": "2 Samuel 11:1-27; 12:1-13; Psalm 51:1-12",
+    "who": "The LORD",
+    "to": "Every heart that says sorry — and every listener",
+    "apply": "When we do wrong, we can tell God we are sorry — He is merciful and forgives. He can give us a clean heart.",
+    "theme": "Love",
+    "kw": "david bathsheba repentance mercy psalm 51 psalms 51 create in me a clean heart blot out my transgressions have mercy upon me nathan i have sinned against the lord put away thy sin contrite heart 2 samuel 12 2 sam 12 lovingkindness forgiveness"
+  },
+  {
+    "key": "absalomRebellion",
+    "title": "David's Sadness and God's Care",
+    "kjvRef": "2 Samuel 15:1-37; 16:15-23; 19:1-15",
+    "who": "The LORD",
+    "to": "Every heart that feels sad — and every listener",
+    "apply": "God is close when we cry. We can tell Him everything and trust Him to care for us.",
+    "theme": "Protection",
+    "kw": "absalom absalom rebellion david fled mount of olives mount olivet weeping ahithophel foolishness kidron 2 samuel 15 2 sam 15 2 samuel 19 david's sadness trust god returned to jerusalem gilgal jordan"
   },
   {
     "key": "deborahBarak",
@@ -497,16 +527,6 @@
     "kw": "dorcas raise acts 9 peter clothes poor widow life"
   },
   {
-    "key": "elijahFire",
-    "title": "Elijah & Fire on Carmel",
-    "kjvRef": "1 Kings 18:17-39",
-    "who": "The LORD",
-    "to": "Israel — and every heart that wonders who is truly God",
-    "apply": "He answered Elijah’s prayer with fire from heaven — calm awe, not noise: The LORD, he is the God. Trust Him first.",
-    "theme": "Miracles",
-    "kw": "elijah mount carmel carmel baal fire altar 1 kings 18 1 kings 18:17 1 kings 18:21 1 kings 18:24 1 kings 18:36 1 kings 18:38 two opinions answereth by fire prophets of baal ahab"
-  },
-  {
     "key": "elijahRavens",
     "title": "Elijah & the Ravens",
     "kjvRef": "1 Kings 17:1-7",
@@ -515,16 +535,6 @@
     "apply": "God commanded the ravens — morning and evening. He still knows how to feed His children.",
     "theme": "Miracles",
     "kw": "elijah ravens cherith brook 1 kings 17 bread flesh ahab"
-  },
-  {
-    "key": "elijahHoreb",
-    "title": "Elijah & the Still Small Voice",
-    "kjvRef": "1 Kings 19:9-18",
-    "who": "The LORD",
-    "to": "Elijah — and every tired heart that needs a gentle word",
-    "apply": "God was not in the wind, earthquake, or fire — but He spoke in a still small voice. Listen quietly; He is near.",
-    "theme": "Love",
-    "kw": "elijah horeb mount horeb still small voice still small 1 kings 19 1 kings 19:12 1 kings 19:9 cave mantle earthquake jealous for the lord seven thousand baal"
   },
   {
     "key": "elijahWidow",
@@ -537,16 +547,6 @@
     "kw": "elijah widow widow of zarephath zarephath zidon barrel of meal cruse of oil handful of meal 1 kings 17 1 kings 17:8 gathering sticks little cake sustain thee"
   },
   {
-    "key": "elijahFireFromHeaven",
-    "title": "Elijah on Mount Carmel",
-    "kjvRef": "1 Kings 18",
-    "who": "God",
-    "to": "Israel",
-    "apply": "There is only one true God. He hears when we pray — trust Him, not pretend gods.",
-    "theme": "Miracles",
-    "kw": "elijah carmel baal 1 kings 18 fire altar ahab jezebel"
-  },
-  {
     "key": "elijahChariot",
     "title": "Elijah Taken Up in the Fiery Chariot",
     "kjvRef": "2 Kings 2:1-14",
@@ -557,64 +557,24 @@
     "kw": "elijah elisha chariot fire 2 kings 2 whirlwind heaven jordan mantle double portion gilgal bethel jericho"
   },
   {
-    "key": "elishaBlindArmy",
-    "title": "Elisha and the Blind Syrian Army",
-    "kjvRef": "2 Kings 6:18-23",
-    "who": "The LORD",
-    "to": "Elisha, the king of Israel, and the Syrian army",
-    "apply": "God can protect His servants and show mercy — even kindness to those who came as enemies.",
-    "theme": "Love",
-    "kw": "elisha blind syrian syrian army blindness samaria 2 kings 6 2 kings 6:18 2 kings 6:22 smite with blindness open the eyes of these men bread and water thou shalt not smite great provision dothan"
-  },
-  {
-    "key": "elishaChariots",
-    "title": "Elisha and the Chariots of Fire",
-    "kjvRef": "2 Kings 6:8-17",
-    "who": "The LORD",
-    "to": "Elisha's servant — and every afraid heart",
-    "apply": "When trouble looks big, God's help is bigger than we see yet — ask Him to open your eyes to trust Him.",
-    "theme": "Protection",
-    "kw": "elisha chariots of fire dothan 2 kings 6 2 kings 6:16 2 kings 6:17 fear not open his eyes they that be with us syria servant of the man of God horses and chariots mountain"
-  },
-  {
-    "key": "elishaFloatingAxe",
-    "title": "Elisha and the Floating Axe Head",
-    "kjvRef": "2 Kings 6:1-7",
-    "who": "The LORD",
-    "to": "a worried builder — through Elisha",
-    "apply": "God cares about honest, everyday troubles — even a small, borrowed thing. Tell Him what you need.",
-    "theme": "Miracles",
-    "kw": "elisha floating axe axe head axe jordan 2 kings 6 2 kings 6:1 2 kings 6:6 sons of the prophets borrowed iron did swim stick beam man of God"
-  },
-  {
-    "key": "elishaPoisonStew",
-    "title": "Elisha and the Poisoned Stew",
-    "kjvRef": "2 Kings 4:38-41",
-    "who": "The LORD",
-    "to": "the sons of the prophets — through Elisha",
-    "apply": "God cares about daily needs — He can make what looked harmful become safe when we trust Him.",
-    "theme": "Miracles",
-    "kw": "elisha poisoned stew death in the pot gilgal pottage great pot wild gourds meal 2 kings 4 2 kings 4:38 2 kings 4:41 sons of the prophets seethe no harm in the pot"
-  },
-  {
     "key": "elijahElijahElisha",
-    "title": "Elisha Plows the Field",
+    "title": "Elisha Follows Elijah",
     "kjvRef": "1 Kings 19:19-21",
     "who": "Elisha",
-    "to": "God — through Elijah's call",
-    "apply": "Elisha did not rush past home — he honored his parents, then rose and followed. God blesses willing, orderly obedience.",
+    "to": "God — through Elijah’s call",
+    "apply": "Elisha honored his parents, then rose and followed with a willing heart. God calls us to follow Him one step at a time.",
     "theme": "Obedience",
-    "kw": "elisha plows elijah calls elisha cast his mantle twelve yoke of oxen abelmeholah son of shaphat 1 kings 19 1 kings 19:19 1 kings 19:20 1 kings 19:21 kiss my father and my mother ministered unto him plowing oxen"
+    "kw": "elisha follows elijah elisha plows elijah calls elisha cast his mantle twelve yoke of oxen abelmeholah son of shaphat 1 kings 19 1 kings 19:19 1 kings 19:20 1 kings 19:21 kiss my father and my mother ministered unto him plowing oxen willing heart"
   },
   {
     "key": "elishaShunammite",
-    "title": "Elisha Raises the Shunammite's Son",
+    "title": "Elisha Prays and the Boy Lives",
     "kjvRef": "2 Kings 4:8-37",
     "who": "The LORD",
     "to": "A mother, a prophet, and a child — through Elisha",
-    "apply": "God hears prayer. When sorrow feels heavy, He can bring back joy — nothing is too hard for Him.",
+    "apply": "God hears when we pray. He cares for families — hospitality, faith, and tender mercy that brings life and joy.",
     "theme": "Miracles",
-    "kw": "elisha shunammite shunem great woman 2 kings 4 2 kings 4:8 2 kings 4:16 2 kings 4:35 little chamber man of God sneezed seven times take up thy son raise miracle"
+    "kw": "elisha elisha prays boy lives shunammite shunem great woman kind woman 2 kings 4 2 kings 4:8 2 kings 4:16 2 kings 4:35 little chamber man of God mount carmel sneezed seven times take up thy son miracle gentle passed by hospitality"
   },
   {
     "key": "elishaMiracles",
@@ -637,34 +597,44 @@
     "kw": "elisha elisha last words joash king of israel 2 kings 13 2 kings 13:14 2 kings 13:17 take bow and arrows arrow of the lord deliverance from syria open the window eastward chariot of israel smite upon the ground man of god elisha died"
   },
   {
-    "key": "estherFast",
-    "title": "Esther Fasts and Goes to the King",
-    "kjvRef": "Esther 4–5",
-    "who": "God",
-    "to": "Esther",
-    "apply": "Fast, pray, then go! God gives courage to those who seek Him first.",
-    "theme": "Obedience",
-    "kw": "esther fast esther 4 scepter pray brave mordecai"
+    "key": "estherCrown",
+    "title": "Esther Becomes Queen",
+    "kjvRef": "Esther 2:1–17",
+    "who": "The LORD",
+    "to": "Esther (and every heart He places on purpose)",
+    "apply": "The Lord can place His children in special places for special times — and He watches over them with love.",
+    "theme": "Protection",
+    "kw": "esther crown queen vashti persia esther 2 palace beautiful kind favour watch"
   },
   {
     "key": "esther",
-    "title": "Esther Saves Her People",
-    "kjvRef": "Esther 2–7",
-    "who": "God",
-    "to": "Esther (queen who saved her people)",
-    "apply": "Esther was chosen to be queen. When bad men wanted to hurt God's people, her uncle told her, 'Who knows? Maybe you were made queen for such a time as this.' Esther bravely went to the king and asked for help. God used her to save her people! You are where you are for a reason. Be brave when it matters.",
+    "title": "Esther Helps Her People",
+    "kjvRef": "Esther 4:1–17; 5:1–8; 7:1–10",
+    "who": "The LORD",
+    "to": "Esther and His people in Persia",
+    "apply": "God hears when we pray together. He can give courage to speak truth and turn a king’s heart to save many.",
     "theme": "Protection",
-    "kw": "esther queen king brave save such a time"
+    "kw": "esther queen mordecai haman fast banquet such a time esther 4 esther 5 esther 7 persia save brave"
+  },
+  {
+    "key": "estherFast",
+    "title": "Esther Prays and Fasts for Her People",
+    "kjvRef": "Esther 4:1–17",
+    "who": "The LORD",
+    "to": "Esther and every heart that asks Him for help",
+    "apply": "The Lord hears when His children pray and fast and ask for help — and He gives courage for the next step.",
+    "theme": "Obedience",
+    "kw": "esther fast pray mordecai haman such a time if i perish esther 4 three days brave help"
   },
   {
     "key": "estherBanquet",
-    "title": "Esther's Banquet",
-    "kjvRef": "Esther 5–7",
-    "who": "God",
-    "to": "Esther (through timing)",
-    "apply": "God gives you the right moment! Be ready—He orders the steps.",
+    "title": "Esther Saves Her People at the Banquet",
+    "kjvRef": "Esther 5:1–8; 7:1–10",
+    "who": "The LORD",
+    "to": "Esther and every heart that prays for courage to speak",
+    "apply": "The Lord hears when His children pray — and He can help us speak the truth at the right time to help others.",
     "theme": "Protection",
-    "kw": "esther banquet haman esther 7 king courage reveal"
+    "kw": "esther banquet haman king truth save pray esther 5 esther 7 people courage"
   },
   {
     "key": "euniceMother",
@@ -685,16 +655,6 @@
     "apply": "One day everyone will know Jesus is Lord! Choose to bow your heart to Him now—gladly.",
     "theme": "Obedience",
     "kw": "knee bow philippians 2 every tongue lord throne praise glory"
-  },
-  {
-    "key": "ezraReturn",
-    "title": "Ezra Return",
-    "kjvRef": "Ezra 1–10; Nehemiah 8–9",
-    "who": "God",
-    "to": "His people",
-    "apply": "God still brings people home to Himself. His Word shows us how to walk with Him again.",
-    "theme": "Obedience",
-    "kw": "ezra cyrus exile return temple ezra 1 law jerusalem persia"
   },
   {
     "key": "faithMustard",
@@ -727,16 +687,6 @@
     "kw": "jericho walls trumpets joshua 6 march obey shout ark faith victory"
   },
   {
-    "key": "fieryFurnace",
-    "title": "Fiery Furnace",
-    "kjvRef": "Daniel 3",
-    "who": "God",
-    "to": "Shadrach, Meshach, and Abednego",
-    "apply": "Shadrach, Meshach, and Abednego refused to bow to a statue. They were thrown into a hot furnace, but God walked with them and kept them safe. When you're in a tough or scary situation, God is right there with you—He never leaves you alone.",
-    "theme": "Miracles",
-    "kw": "fiery furnace shadrach meshach abednego fire angel daniel 3"
-  },
-  {
     "key": "forgive70x7",
     "title": "Forgive Seventy Times Seven",
     "kjvRef": "Matthew 18:21–35",
@@ -767,16 +717,6 @@
     "kw": "gethsemane garden prayer matthew 26 mark 14 luke 22"
   },
   {
-    "key": "gehaziGreed",
-    "title": "Gehazi and Honest Hearts",
-    "kjvRef": "2 Kings 5:20-27",
-    "who": "The LORD",
-    "to": "Elisha’s servant — and every tempted heart",
-    "apply": "God sees the heart. Truth and thankfulness to Him are better than silver or gold.",
-    "theme": "Obedience",
-    "kw": "gehazi gehazi elisha 2 kings 5 2 kings 5:20 2 kings 5:25 2 kings 5:26 whence comest thou went no whither mine heart with thee two talents mount ephraim sons of the prophets receive money naaman gifts elisha servant syrian"
-  },
-  {
     "key": "gideonFleece",
     "title": "Gideon's Fleece",
     "kjvRef": "Judges 6:11-40",
@@ -797,6 +737,36 @@
     "kw": "gideon 300 midian midianites judges 7 trumpet pitcher torch lamp jar victory obey sword of the lord"
   },
   {
+    "key": "elijahFire",
+    "title": "God Answers by Fire",
+    "kjvRef": "1 Kings 18:17-39",
+    "who": "The LORD",
+    "to": "Israel — and every heart that wonders who is truly God",
+    "apply": "God answered by fire when Elijah prayed — calm, awe-filled wonder: the LORD alone is the true God. He hears when we call on Him.",
+    "theme": "Miracles",
+    "kw": "elijah mount carmel carmel god answers by fire baal fire altar 1 kings 18 1 kings 18:17 1 kings 18:21 1 kings 18:24 1 kings 18:36 1 kings 18:38 two opinions answereth by fire prophets of baal ahab the lord he is the god"
+  },
+  {
+    "key": "elijahFireFromHeaven",
+    "title": "God Answers by Fire",
+    "kjvRef": "1 Kings 18:17-39",
+    "who": "The LORD",
+    "to": "Israel",
+    "apply": "There is only one true God. He answered Elijah’s prayer — and He hears when we call on Him.",
+    "theme": "Miracles",
+    "kw": "elijah carmel god answers by fire baal 1 kings 18 fire altar ahab jezebel two opinions"
+  },
+  {
+    "key": "ezekielValleyBones",
+    "title": "God Can Make Dry Bones Live",
+    "kjvRef": "Ezekiel 37:1–14",
+    "who": "God",
+    "to": "His people — and every heart that needs hope",
+    "apply": "God can make what is dead and dry come to life again. He is stronger than anything.",
+    "theme": "Miracles",
+    "kw": "ezekiel dry bones valley ezekiel 37 prophet life gods word army breath hope miracle"
+  },
+  {
     "key": "samariaSiege",
     "title": "God Feeds His People at Samaria",
     "kjvRef": "2 Kings 6:24-7:20",
@@ -805,6 +775,106 @@
     "apply": "God can feed His people when things look impossible — trust His promise one day at a time.",
     "theme": "Miracles",
     "kw": "samaria siege of samaria samaria siege besieged samaria gate of samaria fine flour barley shekel windows in heaven noise of chariots syrians fled spoiled the tents 2 kings 6 2 kings 6:24 2 kings 7 2 kings 7:1 2 kings 7:16 elisha benhadad famine samaria"
+  },
+  {
+    "key": "jonahVine",
+    "title": "God Gives Jonah a Second Chance",
+    "kjvRef": "Jonah 1:1–17; 2:1–10; 3:1–10",
+    "who": "God",
+    "to": "Jonah — and every heart that needs forgiveness",
+    "apply": "God is kind and gives us second chances when we are sorry.",
+    "theme": "Love",
+    "kw": "jonah nineveh fish mercy sorry prayer obey second chance storm jonah 1 jonah 2 jonah 3"
+  },
+  {
+    "key": "elishaFloatingAxe",
+    "title": "God Makes the Iron Swim",
+    "kjvRef": "2 Kings 6:1-7",
+    "who": "The LORD",
+    "to": "a worried young man — through Elisha",
+    "apply": "God cares about small, honest needs — even a borrowed tool — so you can tell Him everything.",
+    "theme": "Miracles",
+    "kw": "elisha god makes the iron swim floating axe axe head axe jordan 2 kings 6 2 kings 6:1 2 kings 6:6 sons of the prophets borrowed iron did swim stick beam man of God gentle everyday"
+  },
+  {
+    "key": "elishaPoisonStew",
+    "title": "God Makes the Stew Safe",
+    "kjvRef": "2 Kings 4:38-41",
+    "who": "The LORD",
+    "to": "the sons of the prophets — through Elisha",
+    "apply": "God cares for everyday meals — He made the stew safe so His servants could eat without fear.",
+    "theme": "Miracles",
+    "kw": "elisha god makes the stew safe stew safe gilgal pottage great pot wild gourds meal 2 kings 4 2 kings 4:38 2 kings 4:41 sons of the prophets death in the pot no harm in the pot bring meal gentle"
+  },
+  {
+    "key": "isaiahMessianic",
+    "title": "God Promises a Savior",
+    "kjvRef": "Isaiah 9:2–7",
+    "who": "God",
+    "to": "every heart that needs hope",
+    "apply": "God promised a Savior who brings light and joy — and He always keeps His promises.",
+    "theme": "Love",
+    "kw": "isaiah prophet isaiah 9 wonderful counsellor prince of peace savior promise light child jesus"
+  },
+  {
+    "key": "malachiMessage",
+    "title": "God Promises to Send a Messenger",
+    "kjvRef": "Malachi 3:1; 4:5–6",
+    "who": "God",
+    "to": "His people — and every heart listening for His promise",
+    "apply": "God always keeps His promises, even when it feels quiet.",
+    "theme": "Love",
+    "kw": "malachi prophet messenger promise john the baptist savior malachi 3 malachi 4 love hope quiet faithful"
+  },
+  {
+    "key": "elishaBlindArmy",
+    "title": "God Protects Elisha with Kindness",
+    "kjvRef": "2 Kings 6:18-23",
+    "who": "The LORD",
+    "to": "Elisha, the king of Israel, and the Syrian army",
+    "apply": "The Lord protected Elisha and showed mercy even to his enemies — kindness instead of fighting.",
+    "theme": "Love",
+    "kw": "elisha god protects elisha with kindness blind syrian syrian army blindness samaria 2 kings 6 2 kings 6:18 2 kings 6:22 smite with blindness open the eyes of these men bread and water thou shalt not smite great provision dothan kindness gentle mercy"
+  },
+  {
+    "key": "elijahHoreb",
+    "title": "God Speaks in a Still Small Voice",
+    "kjvRef": "1 Kings 19:9-18",
+    "who": "The LORD",
+    "to": "Elijah — and every tired heart that needs a gentle word",
+    "apply": "The loud things passed — then God spoke in a still small voice. He often speaks gently; listen with a quiet heart.",
+    "theme": "Love",
+    "kw": "elijah horeb mount horeb god speaks in a still small voice still small voice still small 1 kings 19 1 kings 19:12 1 kings 19:9 cave mantle earthquake jealous for the lord seven thousand baal what doest thou here"
+  },
+  {
+    "key": "fieryFurnace",
+    "title": "God Walks with His Servants in the Fire",
+    "kjvRef": "Daniel 3:1–30",
+    "who": "The LORD",
+    "to": "Shadrach, Meshach, and Abednego — and every heart that trusts Him",
+    "apply": "Even in a hard place, God is with us. We can tell Him we trust Him and stand for what is right.",
+    "theme": "Miracles",
+    "kw": "fiery furnace shadrach meshach abednego fire angel daniel 3 son of god golden image"
+  },
+  {
+    "key": "danielFieryFurnace",
+    "title": "God Walks with His Servants in the Fire",
+    "kjvRef": "Daniel 3:1–30",
+    "who": "The LORD",
+    "to": "Shadrach, Meshach, and Abednego — and every heart that trusts Him",
+    "apply": "Even in a hard place, God is with us. We can tell Him we trust Him and stand for what is right.",
+    "theme": "Miracles",
+    "kw": "shadrach meshach abednego furnace daniel 3 fire bow nebuchadnezzar son of god golden image"
+  },
+  {
+    "key": "elishaChariots",
+    "title": "God’s Army Protects Elisha",
+    "kjvRef": "2 Kings 6:8-17",
+    "who": "The LORD",
+    "to": "Elisha’s servant — and every afraid heart",
+    "apply": "God’s army is always greater — ask Him to open your eyes and help you trust Him.",
+    "theme": "Protection",
+    "kw": "elisha gods army protects elisha chariots of fire dothan 2 kings 6 2 kings 6:16 2 kings 6:17 fear not open his eyes they that be with us syria servant of the man of God horses and chariots mountain gentle protection"
   },
   {
     "key": "elishaBones",
@@ -825,16 +895,6 @@
     "apply": "God is bigger than any giant! Face your fears—He's with you.",
     "theme": "Protection",
     "kw": "goliath challenge david 1 samuel 17 giant brave faith"
-  },
-  {
-    "key": "goodSamaritan",
-    "title": "Good Samaritan",
-    "kjvRef": "Luke 10",
-    "who": "Jesus",
-    "to": "A man who asked \"Who is my neighbor?\"",
-    "apply": "Love your neighbor—help anyone! Be kind to people who need you.",
-    "theme": "Love",
-    "kw": "good samaritan neighbor help stranger bandage luke 10"
   },
   {
     "key": "hannahSamuel",
@@ -907,6 +967,16 @@
     "kw": "hebrews faith abel enoch noah abraham heroes obey"
   },
   {
+    "key": "gehaziGreed",
+    "title": "Honest Hearts Are Better Than Silver",
+    "kjvRef": "2 Kings 5:20-27",
+    "who": "The LORD",
+    "to": "Elisha’s servant — and every tempted heart",
+    "apply": "God sees the heart. Truth and thankfulness to Him are better than silver or gold.",
+    "theme": "Obedience",
+    "kw": "gehazi gehazi elisha 2 kings 5 2 kings 5:20 2 kings 5:25 2 kings 5:26 whence comest thou went no whither mine heart with thee two talents mount ephraim sons of the prophets receive money naaman gifts elisha servant syrian"
+  },
+  {
     "key": "alphaOmega",
     "title": "I Am the Alpha and Omega",
     "kjvRef": "Revelation 1:8, 11, 17–18",
@@ -915,16 +985,6 @@
     "apply": "God started everything and He finishes it! He has the first word and the last word.",
     "theme": "Obedience",
     "kw": "alpha omega revelation 1 beginning end lord eternal"
-  },
-  {
-    "key": "isaiahMessianic",
-    "title": "Isaiah's Messianic Prophecies",
-    "kjvRef": "Isaiah 7:14; 9:6–7; 53:4–6",
-    "who": "God",
-    "to": "us",
-    "apply": "God said what He would do — and Jesus came. You can trust every promise in His Word.",
-    "theme": "Love",
-    "kw": "isaiah prophet immanuel jesus isaiah 7 isaiah 9 isaiah 53 promise"
   },
   {
     "key": "jacobLadder",
@@ -947,16 +1007,6 @@
     "kw": "jael tent sisera judges 4 peg courage victory"
   },
   {
-    "key": "jairus",
-    "title": "Jairus' Daughter Raised",
-    "kjvRef": "Mark 5:21–43",
-    "who": "Jesus",
-    "to": "Jairus and his daughter",
-    "apply": "Jesus is never too late! Keep believing even when it seems impossible.",
-    "theme": "Miracles",
-    "kw": "jairus daughter raise mark 5 talitha cumi miracle faith"
-  },
-  {
     "key": "jamesFaithWorks",
     "title": "James — Faith That Helps",
     "kjvRef": "James 2:14–26",
@@ -968,13 +1018,13 @@
   },
   {
     "key": "jeremiahWeeping",
-    "title": "Jeremiah the Weeping Prophet",
-    "kjvRef": "Lamentations 1–5",
-    "who": "God",
-    "to": "Jeremiah (and us)",
-    "apply": "Even when things feel broken, God's mercies are new — great is His faithfulness.",
+    "title": "Jeremiah Loves God's People",
+    "kjvRef": "Jeremiah 1:1–10; 13:17",
+    "who": "The LORD",
+    "to": "Jeremiah — and every heart that feels sad for others",
+    "apply": "The Lord cares when His people are sad — and He stays close to those who love Him.",
     "theme": "Obedience",
-    "kw": "jeremiah prophet lamentations jeremiah 1 youth weep jerusalem"
+    "kw": "jeremiah prophet tears weep love gods word listen jeremiah 1 jeremiah 13 sad help"
   },
   {
     "key": "jesusAscension",
@@ -997,6 +1047,36 @@
     "kw": "jesus children bless mark 10 kids kingdom come"
   },
   {
+    "key": "jairus",
+    "title": "Jesus Brings a Girl Back to Life",
+    "kjvRef": "Mark 5:21–43",
+    "who": "Jesus",
+    "to": "Jairus, his daughter, and us",
+    "apply": "Jesus has power over sickness and even over death — and He cares for little children. Keep believing Him.",
+    "theme": "Miracles",
+    "kw": "jairus daughter arise mark 5 talitha cumi damsel believe miracle faith children"
+  },
+  {
+    "key": "lazarus",
+    "title": "Jesus Brings Lazarus Back to Life",
+    "kjvRef": "John 11:1–44",
+    "who": "Jesus",
+    "to": "Mary, Martha, Lazarus, and us",
+    "apply": "Jesus has power over death and brings hope and life. Many who saw believed in Him — we can trust Him too.",
+    "theme": "Miracles",
+    "kw": "lazarus bethany raised come forth resurrection life john 11 mary martha tomb believe"
+  },
+  {
+    "key": "jesusLazarus",
+    "title": "Jesus Brings Lazarus Back to Life",
+    "kjvRef": "John 11:1–44",
+    "who": "Jesus",
+    "to": "Mary, Martha, Lazarus, and us",
+    "apply": "Jesus has power over death and brings hope and life. Many who saw believed in Him — we can trust Him too.",
+    "theme": "Miracles",
+    "kw": "lazarus bethany raised come forth resurrection life john 11 mary martha tomb believe"
+  },
+  {
     "key": "jesusCallingDisciples",
     "title": "Jesus Calls Disciples",
     "kjvRef": "Matthew 4:18–22; Luke 5:1–11",
@@ -1007,64 +1087,164 @@
     "kw": "disciples fishers of men sea of galilee peter andrew matthew 4 luke 5 nets"
   },
   {
+    "key": "jesusDisciples",
+    "title": "Jesus Calls His Helpers",
+    "kjvRef": "Matthew 4:18–22",
+    "who": "Jesus",
+    "to": "Peter, Andrew, James, John — and everyone who listens",
+    "apply": "Jesus calls ordinary people — kids too! — to be with Him and help tell others God’s love.",
+    "theme": "Love",
+    "kw": "jesus disciples fishers of men sea of galilee peter andrew james john matthew 4 nets follow me"
+  },
+  {
     "key": "jesusCalmsStorm",
-    "title": "Jesus Calms the Storm",
+    "title": "Jesus Calms the Wind and the Waves",
     "kjvRef": "Mark 4:35–41",
     "who": "Jesus",
     "to": "His disciples (and us)",
-    "apply": "The disciples were scared in a big storm, but Jesus spoke and the wind and waves obeyed Him. He asked them, 'Why are you so afraid?' Jesus is with you in every storm. When you feel scared, call on Him—He can bring peace.",
+    "apply": "Jesus is stronger than any storm. When you feel scared, tell Him — He can make your heart calm and safe.",
     "theme": "Miracles",
-    "kw": "jesus storm boat waves peace matthew 8 mark 4"
+    "kw": "jesus storm boat waves peace be still mark 4 faith wind sea disciples"
+  },
+  {
+    "key": "jesusWaterWine",
+    "title": "Jesus Does His First Miracle",
+    "kjvRef": "John 2:1–11",
+    "who": "Jesus",
+    "to": "The servants — the wedding guests — and everyone who listens",
+    "apply": "Jesus can do wonderful things when we trust and do what He says.",
+    "theme": "Miracles",
+    "kw": "jesus wedding cana wine water waterpots john 2 miracle mary servants first miracle"
   },
   {
     "key": "jesusFeeds5000",
-    "title": "Jesus Feeds 5,000",
-    "kjvRef": "John 6:1–14",
+    "title": "Jesus Feeds a Hungry Crowd",
+    "kjvRef": "Matthew 14:13–21",
     "who": "Jesus",
-    "to": "The 5,000 people (and us)",
-    "apply": "Jesus feeds everyone—He cares! Give God what you have—He can multiply it!",
+    "to": "The multitude — the disciples — and us",
+    "apply": "Jesus can take a little and make it enough for everyone. Bring what you have to Him.",
     "theme": "Miracles",
-    "kw": "jesus feeds 5000 bread fish miracle matthew 14 john 6"
+    "kw": "jesus feeds 5000 loaves fishes bread fish miracle matthew 14 give ye them to eat twelve baskets boy"
+  },
+  {
+    "key": "jesusHealsParalytic",
+    "title": "Jesus Forgives and Heals a Man Who Could Not Walk",
+    "kjvRef": "Mark 2:1–12",
+    "who": "Jesus",
+    "to": "The sick of the palsy — his friends — and everyone who listens",
+    "apply": "Jesus can forgive sins and make sick people well. Keep bringing people to Him in prayer and love.",
+    "theme": "Miracles",
+    "kw": "paralytic palsy roof mark 2 faith forgive friends capernaum bed heal son"
+  },
+  {
+    "key": "manBornBlind",
+    "title": "Jesus Gives Sight to a Man Who Was Born Blind",
+    "kjvRef": "John 9:1–38",
+    "who": "Jesus",
+    "to": "The blind man — and us",
+    "apply": "Jesus opens blind eyes and helps us see who He really is.",
+    "theme": "Miracles",
+    "kw": "born blind john 9 siloam clay wash see miracle believe jesus"
   },
   {
     "key": "healBlind",
-    "title": "Jesus Heals a Blind Man",
-    "kjvRef": "John 9",
+    "title": "Jesus Gives Sight to a Man Who Was Born Blind",
+    "kjvRef": "John 9:1–38",
     "who": "Jesus",
-    "to": "The blind man",
-    "apply": "Jesus opens our eyes—in our hearts too! Ask Him to help you see.",
+    "to": "The blind man — and us",
+    "apply": "Jesus opens blind eyes and helps us see who He really is.",
     "theme": "Miracles",
-    "kw": "blind heal mud john 9 eyes wash see miracle"
-  },
-  {
-    "key": "healLeper",
-    "title": "Jesus Heals Ten Lepers",
-    "kjvRef": "Luke 17",
-    "who": "Jesus",
-    "to": "The lepers",
-    "apply": "Jesus heals and cleans us inside! Always say thank you to Him.",
-    "theme": "Miracles",
-    "kw": "leper heal luke 17 mercy clean thankful ten"
+    "kw": "born blind john 9 siloam clay wash see miracle believe jesus"
   },
   {
     "key": "jesusHealsBlind",
-    "title": "Jesus Heals the Man Born Blind",
-    "kjvRef": "John 9",
+    "title": "Jesus Gives Sight to a Man Who Was Born Blind",
+    "kjvRef": "John 9:1–38",
     "who": "Jesus",
-    "to": "The blind man (and us)",
-    "apply": "Jesus has power to help us see truth — and to trust Him when others question.",
+    "to": "The blind man — and us",
+    "apply": "Jesus opens blind eyes and helps us see who He really is.",
     "theme": "Miracles",
-    "kw": "blind born blind john 9 siloam mud clay see miracle pharisees"
+    "kw": "born blind john 9 siloam clay wash see miracle believe jesus"
+  },
+  {
+    "key": "jesusTemple",
+    "title": "Jesus Goes to His Father’s House",
+    "kjvRef": "Luke 2:41–52",
+    "who": "Jesus",
+    "to": "Mary, Joseph, and everyone who listens",
+    "apply": "Even as a boy, Jesus loved being in His Father’s house — and He honors His parents.",
+    "theme": "Love",
+    "kw": "jesus temple jerusalem passover luke 2 teachers twelve father business obedient mary joseph"
+  },
+  {
+    "key": "noblemanSon",
+    "title": "Jesus Heals a Boy from Far Away",
+    "kjvRef": "John 4:46–54",
+    "who": "Jesus",
+    "to": "The nobleman — and everyone who listens",
+    "apply": "Jesus can heal even when He is far away. His word is true — trust Him like this father did.",
+    "theme": "Miracles",
+    "kw": "nobleman son cana capernaum john 4 heal believe thy son liveth same hour servants household"
+  },
+  {
+    "key": "witheredHand",
+    "title": "Jesus Heals a Man on the Sabbath",
+    "kjvRef": "Mark 3:1–6",
+    "who": "Jesus",
+    "to": "The man with the withered hand — and everyone watching",
+    "apply": "Jesus does good and shows love every day, because He cares for people. We can trust Him and be kind too.",
+    "theme": "Miracles",
+    "kw": "withered hand sabbath synagogue mark 3 stretch forth heal jesus mercy good hand"
+  },
+  {
+    "key": "centurionServant",
+    "title": "Jesus Heals a Soldier's Servant from Far Away",
+    "kjvRef": "Matthew 8:5–13",
+    "who": "Jesus",
+    "to": "The centurion — and everyone who listens",
+    "apply": "Jesus can heal with just a word when people trust Him — His word is true and kind.",
+    "theme": "Miracles",
+    "kw": "centurion servant capernaum matthew 8 faith speak the word great faith heal selfsame hour trust"
+  },
+  {
+    "key": "tenLepers",
+    "title": "Jesus Heals Ten Men and One Says Thank You",
+    "kjvRef": "Luke 17:11–19",
+    "who": "Jesus",
+    "to": "The men — and us",
+    "apply": "Jesus heals us and is happy when we remember to say thank you.",
+    "theme": "Miracles",
+    "kw": "ten lepers mercy heal luke 17 thankful priests samaria galilee faith jesus"
+  },
+  {
+    "key": "healLeper",
+    "title": "Jesus Heals Ten Men and One Says Thank You",
+    "kjvRef": "Luke 17:11–19",
+    "who": "Jesus",
+    "to": "The men — and us",
+    "apply": "Jesus heals us and is happy when we remember to say thank you.",
+    "theme": "Miracles",
+    "kw": "ten lepers mercy heal luke 17 thankful priests samaria galilee faith jesus"
   },
   {
     "key": "jesusBaptism",
-    "title": "Jesus Is Baptized",
-    "kjvRef": "Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22",
+    "title": "Jesus Is Baptized by John",
+    "kjvRef": "Matthew 3:13–17",
     "who": "God the Father",
-    "to": "Jesus (and us)",
-    "apply": "God called Jesus His beloved Son — we can listen to Jesus and trust Him.",
-    "theme": "Obedience",
-    "kw": "jesus baptism baptized jordan john dove matthew 3 mark 1 luke 3 spirit"
+    "to": "Jesus — and everyone who listens",
+    "apply": "God the Father was pleased with Jesus — we can listen to Him and trust Him.",
+    "theme": "Love",
+    "kw": "jesus baptism baptized jordan john the baptist dove matthew 3 beloved son heaven spirit well pleased"
+  },
+  {
+    "key": "jesusBirth",
+    "title": "Jesus Is Born in Bethlehem",
+    "kjvRef": "Luke 2:1–20",
+    "who": "God",
+    "to": "The whole world — everyone Jesus came to love",
+    "apply": "God sent His own Son as a baby so He could be with us.",
+    "theme": "Love",
+    "kw": "jesus bethlehem manger stable shepherds angels mary joseph luke 2 saviour christmas good tidings baby jesus"
   },
   {
     "key": "jesusTempt",
@@ -1077,6 +1257,16 @@
     "kw": "jesus temptation desert matthew 4 devil bread scripture word"
   },
   {
+    "key": "samaritanWoman",
+    "title": "Jesus Offers Living Water",
+    "kjvRef": "John 4:1–42",
+    "who": "Jesus",
+    "to": "The Samaritan woman — and everyone who listens",
+    "apply": "Jesus offers the water of life to everyone who is thirsty in their heart — He is kind to all.",
+    "theme": "Love",
+    "kw": "samaritan woman well john 4 living water gift of God samaria believe christ tell"
+  },
+  {
     "key": "jesusCrucifixion",
     "title": "Jesus on the Cross",
     "kjvRef": "Matthew 27; Mark 15; Luke 23; John 19",
@@ -1087,14 +1277,104 @@
     "kw": "crucifixion cross golgotha forgive finished matthew 27 john 19 luke 23"
   },
   {
-    "key": "jesusTemple",
-    "title": "Jesus Teaches in the Temple",
-    "kjvRef": "Luke 2:41–52",
+    "key": "jesusTempted",
+    "title": "Jesus Says No to Wrong Things",
+    "kjvRef": "Matthew 4:1–11",
     "who": "Jesus",
-    "to": "The teachers (and us)",
-    "apply": "Jesus loved God's house and Word even as a boy—so can you!",
+    "to": "The Father — and everyone who listens",
+    "apply": "Jesus always chose to obey His Father — we can trust God’s Word when wrong ideas come.",
     "theme": "Obedience",
-    "kw": "jesus temple teaching luke 2 elders wisdom boy father"
+    "kw": "jesus temptation wilderness matthew 4 bread stones scripture it is written worship angels forty days"
+  },
+  {
+    "key": "jesusSermon",
+    "title": "Jesus Teaches How to Live God’s Way",
+    "kjvRef": "Matthew 5:1–16",
+    "who": "Jesus",
+    "to": "His disciples and the crowds — and everyone who listens",
+    "apply": "Jesus wants us to live in ways that please God and help others — love Him, love people, let your light shine.",
+    "theme": "Love",
+    "kw": "jesus sermon on the mount beatitudes matthew 5 blessed meek merciful light of the world love neighbor mountain"
+  },
+  {
+    "key": "parableSower",
+    "title": "Jesus Tells a Story About Good Soil",
+    "kjvRef": "Matthew 13:1–23",
+    "who": "Jesus",
+    "to": "The crowds by the sea — and us",
+    "apply": "Jesus wants our hearts to be like good soil so His words can grow in us. Listen to God’s Word.",
+    "theme": "Protection",
+    "kw": "sower parable seeds soil good soil grow word hear matthew 13 mark 4 wayside thorns fruit"
+  },
+  {
+    "key": "parablePearl",
+    "title": "Jesus Tells About a Pearl Worth Everything",
+    "kjvRef": "Matthew 13:45–46",
+    "who": "Jesus",
+    "to": "The people (and us)",
+    "apply": "God’s kingdom is so wonderful it is worth everything. Finding Jesus is like the most beautiful pearl in the whole world.",
+    "theme": "Love",
+    "kw": "pearl pearls merchant great price kingdom of heaven sold all bought matthew 13 parable jesus worth everything"
+  },
+  {
+    "key": "mustardSeed",
+    "title": "Jesus Tells About a Tiny Seed That Grows Big",
+    "kjvRef": "Matthew 13:31–32",
+    "who": "Jesus",
+    "to": "The people (and us)",
+    "apply": "God’s kingdom starts small like a seed and grows big. Listen to Jesus — let His kingdom grow in your heart.",
+    "theme": "Obedience",
+    "kw": "mustard seed kingdom of heaven grain sowed field tree birds branches matthew 13 grow least greatest among herbs"
+  },
+  {
+    "key": "jesusParableMustardSeed",
+    "title": "Jesus Tells About a Tiny Seed That Grows Big",
+    "kjvRef": "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
+    "who": "Jesus",
+    "to": "His disciples (and us)",
+    "apply": "God’s kingdom starts small like a seed and grows big. Listen to Jesus — let His kingdom grow in your heart.",
+    "theme": "Obedience",
+    "kw": "mustard seed kingdom of heaven grain sowed field tree birds branches matthew 13 mark 4 luke 13 grow"
+  },
+  {
+    "key": "parableHiddenTreasure",
+    "title": "Jesus Tells About a Treasure Worth Everything",
+    "kjvRef": "Matthew 13:44",
+    "who": "Jesus",
+    "to": "The people (and us)",
+    "apply": "God’s kingdom is so wonderful it is worth everything. Finding Jesus is the best treasure in the whole world.",
+    "theme": "Love",
+    "kw": "hidden treasure kingdom of heaven treasure field found joy sell buy field matthew 13 parable jesus worth everything"
+  },
+  {
+    "key": "goodSamaritan",
+    "title": "Jesus Tells About Helping Others",
+    "kjvRef": "Luke 10:25–37",
+    "who": "Jesus",
+    "to": "The lawyer (and us)",
+    "apply": "Jesus wants us to show kindness and help anyone who needs it, even people who are different from us.",
+    "theme": "Love",
+    "kw": "good samaritan helping others neighbour mercy compassion Jerusalem Jericho priest levite inn go and do likewise luke 10 love your neighbour jesus"
+  },
+  {
+    "key": "lostSheep",
+    "title": "Jesus Tells About the Lost Sheep",
+    "kjvRef": "Luke 15:3–7",
+    "who": "Jesus",
+    "to": "The people (and us)",
+    "apply": "Jesus is like that good shepherd — He loves us and will keep looking for us when we are lost.",
+    "theme": "Love",
+    "kw": "lost sheep parable shepherd ninety-nine shoulders rejoicing luke 15 repenteth joy in heaven find jesus good shepherd"
+  },
+  {
+    "key": "parableLostSheep",
+    "title": "Jesus Tells About the Lost Sheep",
+    "kjvRef": "Luke 15:3–7",
+    "who": "Jesus",
+    "to": "The people (and us)",
+    "apply": "Jesus is like that good shepherd — He loves us and will keep looking for us when we are lost.",
+    "theme": "Love",
+    "kw": "lost sheep parable shepherd ninety-nine shoulders rejoicing luke 15 repenteth joy in heaven find jesus good shepherd"
   },
   {
     "key": "jesus",
@@ -1107,14 +1387,44 @@
     "kw": "jesus shepherd children love lamb"
   },
   {
+    "key": "maryMartha",
+    "title": "Jesus Visits Mary and Martha",
+    "kjvRef": "Luke 10:38–42",
+    "who": "Jesus",
+    "to": "Mary, Martha, and us",
+    "apply": "Jesus wants us to spend time listening to Him — that is the most important thing.",
+    "theme": "Obedience",
+    "kw": "mary martha bethany listen feet one thing good part needful luke 10 jesus word"
+  },
+  {
+    "key": "marthaServe",
+    "title": "Jesus Visits Mary and Martha",
+    "kjvRef": "Luke 10:38–42",
+    "who": "Jesus",
+    "to": "Mary, Martha, and us",
+    "apply": "Jesus wants us to spend time listening to Him — that is the most important thing.",
+    "theme": "Obedience",
+    "kw": "mary martha bethany listen feet one thing good part needful luke 10 jesus word"
+  },
+  {
+    "key": "marySit",
+    "title": "Jesus Visits Mary and Martha",
+    "kjvRef": "Luke 10:38–42",
+    "who": "Jesus",
+    "to": "Mary, Martha, and us",
+    "apply": "Jesus wants us to spend time listening to Him — that is the most important thing.",
+    "theme": "Obedience",
+    "kw": "mary martha bethany listen feet one thing good part needful luke 10 jesus word"
+  },
+  {
     "key": "jesusWalksWater",
-    "title": "Jesus Walks on Water",
+    "title": "Jesus Walks on the Sea",
     "kjvRef": "Matthew 14:22–33",
     "who": "Jesus",
-    "to": "His disciples (and us)",
-    "apply": "Jesus walks on waves—He lifts us! Keep your eyes on Him—don't be afraid!",
+    "to": "His disciples — Peter — and us",
+    "apply": "Jesus is stronger than the wind and the waves. When we are afraid, we can call to Him and He will help us.",
     "theme": "Miracles",
-    "kw": "jesus walks water peter waves matthew 14"
+    "kw": "jesus walks on water peter boat waves lord save me matthew 14 be not afraid faith sea"
   },
   {
     "key": "jesusFirstMiracle",
@@ -1148,13 +1458,13 @@
   },
   {
     "key": "jobSuffering",
-    "title": "Job's Suffering",
-    "kjvRef": "Job 2",
-    "who": "God",
-    "to": "Job",
-    "apply": "You can trust God in hard times! He always comes through for those who hold on.",
+    "title": "Job Trusts God When He Is Sad",
+    "kjvRef": "Job 1:1–22; 2:11–13",
+    "who": "The LORD",
+    "to": "Job — and every heart that feels sad",
+    "apply": "We can still love and trust God when we feel sad — He is near, and He hears us when we pray.",
     "theme": "Protection",
-    "kw": "job suffering boils friends job 2 trust faith restore"
+    "kw": "job trust sad friends job 1 job 2 lord gave bless faith quiet weep"
   },
   {
     "key": "johnBaptize",
@@ -1205,16 +1515,6 @@
     "apply": "Jonah ran from God, but God sent a big fish to swallow him. Jonah prayed, and God saved him. Jonah learned to obey. God gives us second chances too! When you make a mistake, pray and turn back to God—He loves you and forgives.",
     "theme": "Obedience",
     "kw": "jonah whale fish obey nineveh"
-  },
-  {
-    "key": "jonahVine",
-    "title": "Jonah and the Vine",
-    "kjvRef": "Jonah 4",
-    "who": "God",
-    "to": "Jonah",
-    "apply": "God loves everyone—even people we think don't deserve it. So should we!",
-    "theme": "Love",
-    "kw": "jonah vine worm jonah 4 nineveh anger mercy"
   },
   {
     "key": "josephCoat",
@@ -1337,26 +1637,6 @@
     "kw": "last supper bread wine luke 22 matthew 26 passover"
   },
   {
-    "key": "lazarus",
-    "title": "Lazarus Raised",
-    "kjvRef": "John 11:1–44",
-    "who": "Jesus",
-    "to": "Mary, Martha, and Lazarus",
-    "apply": "Lazarus was dead for 4 days, but Jesus called him out of the tomb. Lazarus came back to life! Jesus has power over death. When we feel sad or hopeless, Jesus can bring new life and hope. Trust Him—He is the resurrection and the life.",
-    "theme": "Miracles",
-    "kw": "lazarus raised dead come out alive john 11"
-  },
-  {
-    "key": "jesusLazarus",
-    "title": "Lazarus, Come Forth",
-    "kjvRef": "John 11:1–44",
-    "who": "Jesus",
-    "to": "Mary, Martha, Lazarus (and us)",
-    "apply": "Jesus is the resurrection and the life — nothing is too dead for Him to reach.",
-    "theme": "Miracles",
-    "kw": "lazarus john 11 resurrection life mary martha tomb miracle"
-  },
-  {
     "key": "revelationLetters",
     "title": "Letters to the Seven Churches",
     "kjvRef": "Revelation 1–3",
@@ -1397,16 +1677,6 @@
     "kw": "lost coin parable silver luke 15 search repent joy heaven"
   },
   {
-    "key": "lostSheep",
-    "title": "Lost Sheep",
-    "kjvRef": "Luke 15",
-    "who": "Jesus",
-    "to": "People who wondered about God's love",
-    "apply": "Jesus finds lost sheep—you're never lost! God searches for you!",
-    "theme": "Love",
-    "kw": "lost sheep parable shepherd luke 15 find rejoice"
-  },
-  {
     "key": "loveChapter",
     "title": "Love Is Patient and Kind",
     "kjvRef": "1 Corinthians 13",
@@ -1437,16 +1707,6 @@
     "kw": "lydia purple acts 16 cloth believe baptize heart open"
   },
   {
-    "key": "malachiMessage",
-    "title": "Malachi's Message",
-    "kjvRef": "Malachi 1–4",
-    "who": "God",
-    "to": "His people",
-    "apply": "God loves you — give Him your whole heart, not leftovers. He keeps every promise.",
-    "theme": "Obedience",
-    "kw": "malachi prophet offerings elijah malachi 4 love temple old testament"
-  },
-  {
     "key": "manna",
     "title": "Manna from Heaven",
     "kjvRef": "Exodus 16:1-36",
@@ -1455,16 +1715,6 @@
     "apply": "God rained bread from heaven every morning—small, sweet manna, enough for each day. He fed His people for forty years until they reached the land He promised. When you worry about tomorrow, trust Him; He still gives daily bread—and Jesus is the true bread of life.",
     "theme": "Miracles",
     "kw": "manna bread heaven desert exodus 16 wilderness forty years honey wafers food provide"
-  },
-  {
-    "key": "marthaServe",
-    "title": "Martha Serves Jesus",
-    "kjvRef": "",
-    "who": "Jesus",
-    "to": "Martha",
-    "apply": "Don't be so busy you miss being with Jesus! Choose His presence first—then serve.",
-    "theme": "Obedience",
-    "kw": "martha serve luke 10 busy kitchen best mary one thing"
   },
   {
     "key": "maryAnoint",
@@ -1485,16 +1735,6 @@
     "apply": "Jesus knows your name and calls you! He is always the first to find His own.",
     "theme": "Love",
     "kw": "mary magdalene tomb john 20 risen gardener name love"
-  },
-  {
-    "key": "marySit",
-    "title": "Mary Sits at Jesus' Feet",
-    "kjvRef": "",
-    "who": "Jesus",
-    "to": "Mary (and us)",
-    "apply": "Sit with Jesus! Listening to Him is the most important thing you can do each day.",
-    "theme": "Obedience",
-    "kw": "mary sit listen luke 10 feet better thing jesus word"
   },
   {
     "key": "dragonFight",
@@ -1548,23 +1788,23 @@
   },
   {
     "key": "naamanHealed",
-    "title": "Naaman Is Healed of Leprosy",
-    "kjvRef": "2 Kings 5:1-15",
+    "title": "Naaman Obeys and Is Made Clean",
+    "kjvRef": "2 Kings 5:1-14",
     "who": "The LORD",
     "to": "Naaman — through Elisha’s word",
-    "apply": "God’s healing often comes through simple obedience — even when pride wants a louder way.",
+    "apply": "God heals when we obey simply and humbly — skin made clean like a little child’s.",
     "theme": "Obedience",
-    "kw": "naaman naaman healed 2 kings 5 2 kings 5:1 2 kings 5:10 2 kings 5:14 jordan seven times leprosy elisha little maid samaria wash and be clean syria"
+    "kw": "naaman naaman obeys naaman healed 2 kings 5 2 kings 5:1 2 kings 5:10 2 kings 5:14 jordan seven times leprosy elisha little maid samaria wash and be clean syria little child servants gentle seventh dip"
   },
   {
     "key": "naaman",
-    "title": "Naaman Is Healed of Leprosy",
-    "kjvRef": "2 Kings 5:1-15",
+    "title": "Naaman Obeys and Is Made Clean",
+    "kjvRef": "2 Kings 5:1-14",
     "who": "The LORD",
     "to": "Naaman — through Elisha’s word",
-    "apply": "God’s healing often comes through simple obedience — even when pride wants a louder way.",
+    "apply": "God heals when we obey simply and humbly — skin made clean like a little child’s.",
     "theme": "Obedience",
-    "kw": "naaman naaman healed 2 kings 5 2 kings 5:1 2 kings 5:10 2 kings 5:14 jordan seven times leprosy elisha little maid samaria wash and be clean syria"
+    "kw": "naaman naaman obeys naaman healed 2 kings 5 2 kings 5:1 2 kings 5:10 2 kings 5:14 jordan seven times leprosy elisha little maid samaria wash and be clean syria little child servants gentle seventh dip"
   },
   {
     "key": "naamanDip",
@@ -1578,13 +1818,13 @@
   },
   {
     "key": "nehemiahWalls",
-    "title": "Nehemiah Rebuilds the Walls",
-    "kjvRef": "Nehemiah 1–6",
-    "who": "God",
-    "to": "Nehemiah and Israel",
-    "apply": "Pray, then work! God helps us rebuild what's broken — even when others mock.",
+    "title": "Nehemiah and the People Rebuild Together",
+    "kjvRef": "Nehemiah 1:1–4; 2:1–20; 3:1–32",
+    "who": "The LORD",
+    "to": "Nehemiah and the people of Jerusalem",
+    "apply": "God hears prayer and helps His people work together to restore what was broken — with thankful hearts.",
     "theme": "Obedience",
-    "kw": "nehemiah walls jerusalem nehemiah 1 nehemiah 4 artaxerxes rebuild pray sword 52 days"
+    "kw": "nehemiah walls jerusalem nehemiah 1 nehemiah 2 nehemiah 3 artaxerxes rebuild pray teamwork gates"
   },
   {
     "key": "newHeaven",
@@ -1655,16 +1895,6 @@
     "apply": "Use what God gave you—grow it! Don't hide your gifts—use them!",
     "theme": "Obedience",
     "kw": "talents parable money servants matthew 25 gifts"
-  },
-  {
-    "key": "parableSower",
-    "title": "Parable of the Sower",
-    "kjvRef": "Matthew 13:1–23",
-    "who": "Jesus",
-    "to": "The crowds (and us)",
-    "apply": "Plant good words—grow strong! Let God's word take root in your heart!",
-    "theme": "Protection",
-    "kw": "sower parable seeds soil grow matthew 13 mark 4"
   },
   {
     "key": "paulBarnabas",
@@ -2057,16 +2287,6 @@
     "kw": "priscilla tent aquila acts 18 paul work church teach"
   },
   {
-    "key": "prodigalSon",
-    "title": "Prodigal Son",
-    "kjvRef": "Luke 15:11–32",
-    "who": "Jesus",
-    "to": "People who wondered if God forgives",
-    "apply": "God welcomes you home! No matter what you did, come back—He runs to meet you!",
-    "theme": "Love",
-    "kw": "prodigal son run away come back party forgiveness luke 15"
-  },
-  {
     "key": "psalm23Shepherd",
     "title": "Psalm 23 — The Lord Is My Shepherd",
     "kjvRef": "Psalm 23:1-6",
@@ -2085,16 +2305,6 @@
     "apply": "This psalm is a quiet place to breathe — the Shepherd knows you, leads you, and will not leave you. Read it slowly; each line is true.",
     "theme": "Love",
     "kw": "psalm 23 psalms 23 ps 23 the lord is my shepherd shepherd still waters green pastures valley of the shadow of death fear no evil thou art with me rod and staff cup runneth over goodness and mercy dwell in the house of the lord david psalm comfort psalm"
-  },
-  {
-    "key": "estherCrown",
-    "title": "Queen Esther's Courage",
-    "kjvRef": "Esther 2:15–18",
-    "who": "God",
-    "to": "Esther",
-    "apply": "God puts you where you are for a reason! Be brave—maybe it's for such a time as this.",
-    "theme": "Protection",
-    "kw": "esther crown queen esther 5 scepter courage save"
   },
   {
     "key": "rahab",
@@ -2387,14 +2597,14 @@
     "kw": "sermon on the mount beatitudes matthew 5 matthew 6 matthew 7 golden rule light of the world"
   },
   {
-    "key": "shepherdsStar",
-    "title": "Shepherds and the Star",
-    "kjvRef": "Luke 2",
+    "key": "simeonAnna",
+    "title": "Simeon and Anna See the Promised Savior",
+    "kjvRef": "Luke 2:22–38",
     "who": "God",
-    "to": "The shepherds",
-    "apply": "God shares good news first with humble people! Run to Jesus—everyone is invited.",
+    "to": "Simeon, Anna, and everyone who waits on Him",
+    "apply": "God keeps His promises — and brings joy when people see the Savior.",
     "theme": "Love",
-    "kw": "shepherds star angels luke 2 bethlehem birth glory"
+    "kw": "simeon anna temple jerusalem baby jesus mary joseph salvation luke 2 promise praise worship"
   },
   {
     "key": "crossCarry",
@@ -2418,23 +2628,23 @@
   },
   {
     "key": "solomonWisdom",
-    "title": "Solomon Asks for Wisdom",
+    "title": "Solomon Asks God for a Wise Heart",
     "kjvRef": "1 Kings 3:5-15",
     "who": "The LORD",
     "to": "Young Solomon — and every listener",
-    "apply": "God smiled on a king who asked for wisdom before wealth. When you pray, ask God for a heart that loves what is right — He is glad to give it.",
+    "apply": "God is pleased when we ask for a wise and understanding heart. When you pray, ask Him for what honors Him — He answers with kindness.",
     "theme": "Obedience",
-    "kw": "solomon solomon wisdom ask for wisdom understanding heart 1 kings 3 1 kings 3:5 1 kings 3:9 1 kings 3:12 dream gibeon ask what i shall give thee little child discern between good and bad speech pleased the lord riches and honour ark of the covenant jerusalem david my father"
+    "kw": "solomon solomon wisdom ask for wisdom understanding heart 1 kings 3 1 kings 3:5 1 kings 3:9 1 kings 3:12 dream gibeon ask what i shall give thee little child discern between good and bad speech pleased the lord riches and honour ark of the covenant jerusalem david my father wise heart"
   },
   {
     "key": "solomonTemple",
-    "title": "Solomon Builds the Temple",
+    "title": "Solomon Builds God's House",
     "kjvRef": "1 Kings 6:1-14; 8:1-13, 22-30",
     "who": "The LORD",
-    "to": "Israel — and every heart that prays",
-    "apply": "God's glory filled the house Solomon built — yet heaven itself cannot hold Him. He still bends low to hear prayer; we meet Him with reverence and thanks.",
+    "to": "Israel — and every heart that worships",
+    "apply": "God’s presence filled the house His people built with glad hearts. When we love Him and gather to praise Him, He draws near — we can come with joy and thanks.",
     "theme": "Obedience",
-    "kw": "solomon temple builds the temple house of the lord 1 kings 6 1 kings 8 1 kings 6:1 1 kings 8:10 1 kings 8:11 ark of the covenant most holy place cloud filled the house glory of the lord priests could not stand there is no god like thee heaven of heavens cannot contain thee pray toward this house when thou hearest forgive jerusalem cedar cherubims"
+    "kw": "solomon temple builds the temple solomon builds god's house house of the lord 1 kings 6 1 kings 8 1 kings 6:1 1 kings 8:10 1 kings 8:11 ark of the covenant most holy place cloud filled the house glory of the lord priests could not stand there is no god like thee thick darkness heaven of heavens cannot contain thee pray toward this house when thou hearest forgive jerusalem cedar cherubims glad gifts"
   },
   {
     "key": "revelationSongsAndHarvest",
@@ -2567,14 +2777,14 @@
     "kw": "tomb empty risen matthew 28 angel stone resurrection"
   },
   {
-    "key": "danielFieryFurnace",
-    "title": "The Fiery Furnace",
-    "kjvRef": "Daniel 3",
-    "who": "God",
-    "to": "Shadrach, Meshach, and Abednego",
-    "apply": "Stand for what is right — God is with you even when it gets hot.",
-    "theme": "Miracles",
-    "kw": "shadrach meshach abednego furnace daniel 3 fire bow nebuchadnezzar"
+    "key": "prodigalSon",
+    "title": "The Father Who Welcomes His Son Home",
+    "kjvRef": "Luke 15:11–32",
+    "who": "Jesus",
+    "to": "The people (and us)",
+    "apply": "God is like that loving father — He is always ready to welcome us when we come back to Him.",
+    "theme": "Love",
+    "kw": "prodigal son father two sons forgiveness welcome home ran to meet him lost and found alive again luke 15 parable party kiss jesus"
   },
   {
     "key": "fourHorsemen",
@@ -2665,26 +2875,6 @@
     "apply": "Jesus gave us a way to remember His death until He comes — His body and blood for us.",
     "theme": "Love",
     "kw": "last supper passover bread cup covenant luke 22 matthew 26 remembrance judas"
-  },
-  {
-    "key": "mustardSeed",
-    "title": "The Mustard Seed",
-    "kjvRef": "Matthew 13",
-    "who": "Jesus",
-    "to": "His disciples",
-    "apply": "Faith as small as a seed can move mountains! Don't give up—keep trusting.",
-    "theme": "Obedience",
-    "kw": "mustard seed faith tree matthew 13 kingdom grow small"
-  },
-  {
-    "key": "jesusParableMustardSeed",
-    "title": "The Mustard Seed Kingdom",
-    "kjvRef": "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
-    "who": "Jesus",
-    "to": "His disciples (and us)",
-    "apply": "God's kingdom starts small but grows big — and your faith can grow too.",
-    "theme": "Obedience",
-    "kw": "mustard seed kingdom matthew 13 mark 4 luke 13 faith grow tree"
   },
   {
     "key": "newEarth",
@@ -2785,6 +2975,16 @@
     "apply": "When God warns, He is giving people time to turn—don’t harden your heart; say sorry and follow Jesus today.",
     "theme": "Miracles",
     "kw": "revelation trumpets wormwood judgment repent kingdom christ"
+  },
+  {
+    "key": "shepherdsStar",
+    "title": "The Shepherds Find Baby Jesus",
+    "kjvRef": "Luke 2:8–20",
+    "who": "God",
+    "to": "The shepherds — and everyone who hears the good news",
+    "apply": "The good news of Jesus is for everyone.",
+    "theme": "Love",
+    "kw": "shepherds angels bethlehem manger good tidings saviour luke 2 glory joy peace baby jesus"
   },
   {
     "key": "armorShield",
@@ -2907,6 +3107,16 @@
     "kw": "widow mite coins mark 12 offering give heart all"
   },
   {
+    "key": "wiseMen",
+    "title": "The Wise Men Follow the Star",
+    "kjvRef": "Matthew 2:1–12",
+    "who": "God",
+    "to": "The wise men — and everyone who comes to worship Jesus",
+    "apply": "People from far away can come to worship Jesus.",
+    "theme": "Love",
+    "kw": "wise men magi star bethlehem mary jesus gold frankincense myrrh worship matthew 2 gifts baby jesus"
+  },
+  {
     "key": "revelationWomanDragon",
     "title": "The Woman & the Dragon",
     "kjvRef": "Revelation 12",
@@ -2915,16 +3125,6 @@
     "apply": "The dragon still lies—but Jesus already won at the cross. Tell the truth about Him; don’t love comfort more than Christ.",
     "theme": "Miracles",
     "kw": "revelation woman dragon michael lamb blood testimony child"
-  },
-  {
-    "key": "samaritanWoman",
-    "title": "The Woman at the Well",
-    "kjvRef": "",
-    "who": "Jesus",
-    "to": "The Samaritan woman",
-    "apply": "Jesus talks to everyone—even those people ignore! He offers living water to all.",
-    "theme": "Love",
-    "kw": "samaritan woman well john 4 water living water believe tell"
   },
   {
     "key": "thessaloniansHope",
@@ -2945,16 +3145,6 @@
     "apply": "It's okay to have questions! Jesus is patient—keep coming back to Him.",
     "theme": "Obedience",
     "kw": "thomas doubt john 20 hands believe risen faith"
-  },
-  {
-    "key": "jesusHealsParalytic",
-    "title": "Through the Roof to Jesus",
-    "kjvRef": "Mark 2:1–12",
-    "who": "Jesus",
-    "to": "The sick of the palsy (and his friends)",
-    "apply": "When you bring someone to Jesus in prayer — and keep trying — He can forgive and heal.",
-    "theme": "Miracles",
-    "kw": "paralytic palsy roof mark 2 faith forgive mat friends capernaum"
   },
   {
     "key": "timothyYouthExample",
@@ -3005,16 +3195,6 @@
     "apply": "Jesus came as the promised King — we can welcome Him with praise and make room for Him in our hearts.",
     "theme": "Protection",
     "kw": "hosanna palm sunday donkey colt jerusalem matthew 21 king temple"
-  },
-  {
-    "key": "ezekielValleyBones",
-    "title": "Valley of Dry Bones",
-    "kjvRef": "Ezekiel 37:1–14",
-    "who": "God",
-    "to": "His people",
-    "apply": "Nothing is too dead or dry for God. He can make your heart alive again.",
-    "theme": "Miracles",
-    "kw": "ezekiel bones valley ezekiel 37 life spirit prophet"
   },
   {
     "key": "battleOfAi",

@@ -5364,33 +5364,35 @@
       kjvRef: 'Matthew 5–7',
       kidContext: { who: 'Jesus', to: 'The crowds (and us)', apply: 'Jesus shows God\'s way to live — hear His words and put them into practice, like building on a rock.' }
     },
-    healBlind: {
-      title: 'Jesus Heals a Blind Man',
+    manBornBlind: {
+      title: 'Jesus Gives Sight to a Man Who Was Born Blind',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'A man is born blind' },
-        { src: 'panel-noah-2.svg', alt: 'Jesus puts mud on his eyes' },
-        { src: 'panel-noah-3.svg', alt: 'He washes and sees—I was blind, now I see!' }
+        { src: 'panel-noah-1.svg', alt: 'Works of God — Jesus makes clay and puts it on the eyes of a man born blind' },
+        { src: 'panel-noah-2.svg', alt: 'Go, wash in the pool of Siloam — the man obeys' },
+        { src: 'panel-noah-3.svg', alt: 'He sees — “I was blind, but now I see” — “Lord, I believe”' }
       ],
-      caption: 'Swipe to see Jesus open blind eyes! 👁️',
+      caption: 'Swipe to see clay, washing, sight — Jesus opens eyes and hearts. 👁️',
       videoId: '',
       videoTitle: '',
-      keywords: ['blind', 'heal', 'mud', 'john 9', 'eyes', 'wash', 'see', 'miracle'],
-      kjvRef: 'John 9',
-      kidContext: { who: 'Jesus', to: 'The blind man', apply: 'Jesus opens our eyes—in our hearts too! Ask Him to help you see.' }
-    },
-    jesusHealsBlind: {
-      title: 'Jesus Heals the Man Born Blind',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus makes clay and anoints a blind man\'s eyes' },
-        { src: 'panel-noah-2.svg', alt: 'The man washes in the pool of Siloam' },
-        { src: 'panel-noah-3.svg', alt: 'He sees — "One thing I know: I was blind, now I see!"' }
+      keywords: [
+        'born blind',
+        'john 9',
+        'siloam',
+        'clay',
+        'wash',
+        'see',
+        'miracle',
+        'believe',
+        'jesus'
       ],
-      caption: 'Swipe to see Jesus open eyes — so God\'s works shine! 👁️',
-      videoId: '',
-      videoTitle: '',
-      keywords: ['blind', 'born blind', 'john 9', 'siloam', 'mud', 'clay', 'see', 'miracle', 'pharisees'],
-      kjvRef: 'John 9',
-      kidContext: { who: 'Jesus', to: 'The blind man (and us)', apply: 'Jesus has power to help us see truth — and to trust Him when others question.' }
+      kjvRef: 'John 9:1–38',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The blind man — and us',
+        apply: 'Jesus opens blind eyes and helps us see who He really is.'
+      },
+      narration:
+        "Jesus Gives Sight to a Man Who Was Born Blind — John 9:1–38. And as Jesus passed by, he saw a man which was blind from his birth. And his disciples asked him, saying, Master, who did sin, this man, or his parents, that he was born blind? Jesus answered, Neither hath this man sinned, nor his parents: but that the works of God should be made manifest in him. When he had thus spoken, he spat on the ground, and made clay of the spittle, and he anointed the eyes of the blind man with the clay, And said unto him, Go, wash in the pool of Siloam. He went his way therefore, and washed, and came seeing. The neighbours said, Is not this he that sat and begged? But he said, I am he… I was blind, but now I see. And Jesus said unto him, Dost thou believe on the Son of God? He answered and said, Who is he, Lord, that I might believe on him? And Jesus said unto him, Thou hast both seen him, and it is he that talketh with thee. And he said, Lord, I believe. And he worshipped him. For you: Jesus opens blind eyes and helps us see who He really is."
     },
     jesusHealsParalytic: {
       title: 'Jesus Forgives and Heals a Man Who Could Not Walk',
@@ -7882,6 +7884,9 @@
     bibleStories.jesusLazarus = bibleStories.lazarus;
     /** Legacy key — same gentle card as tenLepers (loops, older links). */
     bibleStories.healLeper = bibleStories.tenLepers;
+    /** Legacy keys — same gentle John 9 card (library / older links). */
+    bibleStories.healBlind = bibleStories.manBornBlind;
+    bibleStories.jesusHealsBlind = bibleStories.manBornBlind;
     window.TDB_BIBLE_STORIES = bibleStories;
     window.TDB_BIBLE_STORY_KEYS = Object.keys(bibleStories);
     try {
@@ -8022,7 +8027,7 @@
       /* Week 5 */
       'angelMary', 'shepherdsStar', 'wiseMen', 'simeonAnna', 'jesusManger', 'jesusTemple', 'johnBaptist', 'johnBaptize',
       'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusSermon', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
-      'jesusHealsBlind', 'jesusBlessKids',
+      'manBornBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusFeeds5000', 'jesusWalksWater',
       'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
@@ -11182,7 +11187,7 @@
     centurionServant: 'Miracles',
     jesusTemptation: 'Obedience',
     jesusTempt: 'Obedience', weddingWine: 'Miracles', jesusFirstMiracle: 'Miracles', jesusCallingDisciples: 'Obedience',
-    jesusSermonMount: 'Obedience', healBlind: 'Miracles', jesusHealsBlind: 'Miracles', jesusBlessKids: 'Love',
+    jesusSermonMount: 'Obedience', manBornBlind: 'Miracles', healBlind: 'Miracles', jesusHealsBlind: 'Miracles', jesusBlessKids: 'Love',
     /* Week 6 */
     jesusHealsParalytic: 'Miracles', witheredHand: 'Miracles', mustardSeed: 'Obedience',
     jesusParableSower: 'Protection', jesusParableMustardSeed: 'Obedience', jesusParableGoodShepherd: 'Love',

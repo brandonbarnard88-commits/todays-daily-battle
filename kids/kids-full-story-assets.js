@@ -522,6 +522,11 @@
       webm: '/media/kids-stories/heal-blind.webm',
       captionsVtt: '/media/kids-stories/heal-blind.vtt'
     },
+    manBornBlind: {
+      mp4: '/media/kids-stories/heal-blind.mp4',
+      webm: '/media/kids-stories/heal-blind.webm',
+      captionsVtt: '/media/kids-stories/heal-blind.vtt'
+    },
     healLeper: {
       mp4: '/media/kids-stories/heal-leper.mp4',
       webm: '/media/kids-stories/heal-leper.webm',
@@ -663,9 +668,9 @@
       captionsVtt: '/media/kids-stories/jesus-great-commission.vtt'
     },
     jesusHealsBlind: {
-      mp4: '/media/kids-stories/jesus-heals-blind.mp4',
-      webm: '/media/kids-stories/jesus-heals-blind.webm',
-      captionsVtt: '/media/kids-stories/jesus-heals-blind.vtt'
+      mp4: '/media/kids-stories/heal-blind.mp4',
+      webm: '/media/kids-stories/heal-blind.webm',
+      captionsVtt: '/media/kids-stories/heal-blind.vtt'
     },
     jesusHealsParalytic: {
       mp4: '/media/kids-stories/jesus-heals-paralytic.mp4',

@@ -78,6 +78,7 @@
  * Jesus visits Mary and Martha — Luke 10:38–42 (gentle): buildMaryMarthaReadQuiz() (library key: maryMartha; alias marthaServe, marySit).
  * Jesus brings Lazarus back to life — John 11:1–44 (gentle): buildLazarusReadQuiz() (library key: lazarus; alias jesusLazarus).
  * Ten lepers — Luke 17:11–19 (gentle): buildTenLepersReadQuiz() (library key: tenLepers; alias healLeper).
+ * Man born blind — John 9:1–38 (gentle): buildManBornBlindReadQuiz() (library key: manBornBlind; alias healBlind, jesusHealsBlind).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
  * Esther’s banquet — brave truth (Esther 5:1–8; 7:1–10): full read-along + quiz in buildEstherBanquetReadQuiz().
@@ -9581,6 +9582,144 @@ function buildTenLepersReadQuiz() {
   };
 }
 
+/** Man born blind — clay, Siloam, I was blind but now I see, believest (gentle). Library key: manBornBlind */
+function buildManBornBlindReadQuiz() {
+  return {
+    kjvRef: 'John 9:1–38 (KJV) — gentle summary for little hearts',
+    verseExcerpt: 'One thing I know, that, whereas I was blind, now I see. — John 9:25 (KJV)',
+    readAlongTitle: 'Jesus Gives Sight to a Man Who Was Born Blind',
+    quizWrongHumilityHint:
+      'Listen again — born blind; disciples; sin; works of God; clay; spittle; Siloam; wash; neighbours; Pharisees; Son of God; Lord; believe.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus saw a man who had been blind since he was born.',
+      'His disciples asked, “Master, who did sin, this man, or his parents, that he was born blind?”',
+      'Jesus answered, “Neither hath this man sinned, nor his parents: but that the works of God should be made manifest in him.”',
+      'Jesus made clay with the dirt and spit, put it on the man’s eyes, and said, “Go, wash in the pool of Siloam.”',
+      'The man went, washed, and came back seeing!',
+      'The neighbors were amazed and asked, “Is not this he that sat and begged?”',
+      'The man said, “I was blind, but now I see.”',
+      'When the Pharisees asked how he received his sight, he simply said, “He put clay on my eyes, and I washed, and do see.”',
+      'Later Jesus found the man and asked, “Dost thou believe on the Son of God?”',
+      'The man answered, “Lord, I believe.” And he worshipped Jesus.',
+      'Jesus opens blind eyes and helps us see who He really is.',
+      'Reference: John 9:1–38 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus saw a man who was born blind.',
+        caption: 'That the works of God…',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'Jesus put clay on his eyes.',
+        caption: 'Anointed the eyes',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'He said, “Go wash in the pool of Siloam.”',
+        caption: 'Go, wash',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'The man washed and came back seeing!',
+        caption: 'Came seeing',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'He said, “I was blind, but now I see.”',
+        caption: 'Now I see',
+        image: 'panel-noah-3.svg'
+      },
+      {
+        text: 'Jesus helps us see who He is.',
+        caption: 'Lord, I believe',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'John 9:1–38', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: John 9:1–38.)'
+      },
+      {
+        question: 'What did Jesus tell the man to do after He put clay on his eyes?',
+        choices: [
+          'Wash in the pool of Siloam.',
+          'Run away from home.',
+          'Hide behind a tree forever.',
+          'Never speak to anyone.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 9:7.',
+        wrongFeedback:
+          'Think about where Jesus sent him next. (Answer: pool of Siloam… wash.)'
+      },
+      {
+        question: 'Which line matches the man’s simple honest truth after he could see?',
+        choices: [
+          '“One thing I know: I was blind, but now I see.”',
+          '“I have never heard of Jesus.”',
+          '“Nothing changed at all.”',
+          '“I only want to be angry.”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that heart line belongs to John 9.',
+        wrongFeedback:
+          'Choose the honest line from God’s Word. (Answer: blind… now I see.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'Jesus asked him, “Dost thou believe on the Son of God?” and the man said, “Lord, I believe.”',
+          'A giant carrot taught the lesson.',
+          'Everyone pretended to be statues.',
+          'The pool turned into soup.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that lines up with the end of John 9 in this gentle summary.',
+        wrongFeedback:
+          'Cross out the joke answers. Which matches John 9? (Answer: believe… Lord.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Thank Jesus that He helps us truly see Him — and ask Him to open my heart to trust Him today.',
+          'Never thank God.',
+          'Only look at what is dark.',
+          'Forget every promise of God.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which honors Jesus as the One who opens eyes—heart and soul? (Answer: thank… see Him.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage:
+      "Great job reading Jesus Gives Sight to a Man Who Was Born Blind with God's Word today.",
+    takeaway: 'Jesus opens blind eyes and helps us see who He really is.',
+    prayer:
+      'Lord Jesus, help me see You clearly and trust You with my whole heart. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children: Jesus gently putting clay on the eyes of a man who was born blind The man is sitting with a hopeful face thick bold outlines with large open spaces on Jesus robe the man robe and the ground for easy coloring soft road and gentle sky with minimal lines kind and healing mood focus on Jesus giving sight clean minimal no scary blindness or mud plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Works of God — gentle mission (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Clay on eyes — obey and go (faith)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Pool of Siloam — wash (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Came seeing — joy (wonder)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Neighbors amazed — honest answer (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Pharisees ask — clay, wash, see (courage)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Son of God — Lord, I believe (love)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -9703,5 +9842,6 @@ module.exports = {
   maryMartha: buildMaryMarthaReadQuiz(),
   lazarus: buildLazarusReadQuiz(),
   tenLepers: buildTenLepersReadQuiz(),
+  manBornBlind: buildManBornBlindReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

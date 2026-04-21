@@ -69,6 +69,7 @@
   "hannahPray": "hannahPray",
   "hannahPrayer": "hannahPrayer",
   "healBlind": "healBlind",
+  "manBornBlind": "healBlind",
   "healLeper": "healLeper",
   "holySpiritPentecost": "pentecost",
   "isaiahMessianic": "isaiahMessianic",

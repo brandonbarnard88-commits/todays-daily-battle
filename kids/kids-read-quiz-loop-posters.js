@@ -116,6 +116,7 @@
     hannahSamuel: 40,
     samuelBirth: 173,
     healBlind: 72,
+    manBornBlind: 72,
     healLeper: 73,
     tenLepers: 73,
     holySpiritPentecost: 91,

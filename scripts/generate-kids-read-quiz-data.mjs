@@ -610,6 +610,13 @@ if (merged.lazarus && !merged.jesusLazarus) {
 if (merged.tenLepers && !merged.healLeper) {
   merged.healLeper = merged.tenLepers;
 }
+/** healBlind / jesusHealsBlind — same gentle pack as manBornBlind (library / legacy keys). */
+if (merged.manBornBlind && !merged.healBlind) {
+  merged.healBlind = merged.manBornBlind;
+}
+if (merged.manBornBlind && !merged.jesusHealsBlind) {
+  merged.jesusHealsBlind = merged.manBornBlind;
+}
 
 const keys = Object.keys(merged).sort((a, b) => a.localeCompare(b));
 const jsonBody = JSON.stringify(merged, null, 2);

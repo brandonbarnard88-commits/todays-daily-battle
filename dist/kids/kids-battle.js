@@ -1228,32 +1228,77 @@
         "Jesus Feeds a Hungry Crowd — Matthew 14:13–21. When Jesus heard of it, he departed thence by ship into a desert place apart: and when the people had heard thereof, they followed him on foot out of the cities. And Jesus went forth, and saw a great multitude, and was moved with compassion toward them, and he healed their sick. And when it was evening, his disciples came to him, saying, This is a desert place, and the time is now past; send the multitude away, that they may go into the villages, and buy themselves victuals. But Jesus said unto them, They need not depart; give ye them to eat. And they say unto him, We have here but five loaves, and two fishes. He said, Bring them hither to me. And he commanded the multitude to sit down on the grass, and took the five loaves, and the two fishes, and looking up to heaven, he blessed, and brake, and gave the loaves to his disciples, and the disciples to the multitude. And they did all eat, and were filled: and they took up of the fragments that remained twelve baskets full. And they that had eaten were about five thousand men, beside women and children. For you: Jesus can take a little and make it enough — trust Him with what you have."
     },
     goodSamaritan: {
-      title: 'Good Samaritan',
+      title: 'Jesus Tells About Helping Others',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Man hurt on the road' },
-        { src: 'panel-david-2.svg', alt: 'Samaritan stops to help' },
-        { src: 'panel-david-3.svg', alt: 'Love your neighbor—help anyone!' }
+        { src: 'panel-noah-1.svg', alt: 'A man was hurt on the road from Jerusalem to Jericho — priest and Levite passed by' },
+        { src: 'panel-noah-2.svg', alt: 'A Samaritan had compassion — bound up his wounds with oil and wine' },
+        { src: 'panel-noah-3.svg', alt: 'He set him on his own beast, brought him to an inn — Go, and do thou likewise' }
       ],
-      caption: 'Swipe to see the Good Samaritan help a stranger! 🤝',
+      caption:
+        'Swipe to see mercy on the road — bound up, cared for, “Go, and do thou likewise.” 🤝',
       videoId: 'juBnHljnB0I',
       videoTitle: 'The Good Samaritan – Bible Story for Kids!',
-      keywords: ['good samaritan', 'neighbor', 'help', 'stranger', 'bandage', 'luke 10'],
-      kjvRef: 'Luke 10',
-      kidContext: { who: 'Jesus', to: 'A man who asked "Who is my neighbor?"', apply: 'Love your neighbor—help anyone! Be kind to people who need you.' }
+      keywords: [
+        'good samaritan',
+        'helping others',
+        'neighbour',
+        'mercy',
+        'compassion',
+        'Jerusalem',
+        'Jericho',
+        'priest',
+        'levite',
+        'inn',
+        'go and do likewise',
+        'luke 10',
+        'love your neighbour',
+        'jesus'
+      ],
+      kjvRef: 'Luke 10:25–37',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The lawyer (and us)',
+        apply:
+          'Jesus wants us to show kindness and help anyone who needs it, even people who are different from us.'
+      },
+      narration:
+        "Jesus Tells About Helping Others — Luke 10:25–37. And, behold, a certain lawyer stood up, and tempted him, saying, Master, what shall I do to inherit eternal life? He said unto him, What is written in the law? how readest thou? And he answering said, Thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy strength, and with all thy mind; and thy neighbour as thyself. And Jesus said unto him, Thou hast answered right: this do, and thou shalt live. But he, willing to justify himself, said unto Jesus, And who is my neighbour? And Jesus answering said, A certain man went down from Jerusalem to Jericho, and fell among thieves, which stripped him of his raiment, and wounded him, and departed, leaving him half dead. And by chance there came down a certain priest that way: and when he saw him, he passed by on the other side. And likewise a Levite, when he was at the place, came and looked on him, and passed by on the other side. But a certain Samaritan, as he journeyed, came where he was: and when he saw him, he had compassion on him, And went to him, and bound up his wounds, pouring in oil and wine, and set him on his own beast, and brought him to an inn, and took care of him. And on the morrow when he departed, he took out two pence, and gave them to the host, and said unto him, Take care of him; and whatsoever thou spendest more, when I come again, I will repay thee. Which now of these three, thinkest thou, was neighbour unto him that fell among the thieves? And he said, He that shewed mercy on him. Then said Jesus unto him, Go, and do thou likewise. For you: Jesus wants us to show kindness and help anyone who needs it, even people who are different from us."
     },
     prodigalSon: {
-      title: 'Prodigal Son',
+      title: 'The Father Who Welcomes His Son Home',
       panels: [
-        { src: 'panel-jonah-1.svg', alt: 'Son runs away with his money' },
-        { src: 'panel-jonah-2.svg', alt: 'Son comes back sorry' },
-        { src: 'panel-jonah-3.svg', alt: 'Father runs to welcome him home!' }
+        { src: 'panel-noah-1.svg', alt: 'A father had two sons — the younger asked for his share and went far away' },
+        { src: 'panel-noah-2.svg', alt: 'He spent all and was hungry — he arose and went to his father' },
+        { src: 'panel-noah-3.svg', alt: 'While he was yet a great way off, his father ran and fell on his neck and kissed him' }
       ],
-      caption: 'Swipe to see the father welcome his son home! 🏠',
+      caption:
+        'Swipe to see the father run to his son — dead… alive again; lost… and is found. God welcomes us when we come home. 🏠',
       videoId: '29qEf9afdcA',
       videoTitle: 'The Prodigal Son – Bible Stories for Kids!',
-      keywords: ['prodigal', 'son', 'run away', 'come back', 'party', 'forgiveness', 'luke 15'],
+      keywords: [
+        'prodigal son',
+        'father',
+        'two sons',
+        'forgiveness',
+        'welcome home',
+        'ran to meet him',
+        'lost and found',
+        'alive again',
+        'luke 15',
+        'parable',
+        'party',
+        'kiss',
+        'jesus'
+      ],
       kjvRef: 'Luke 15:11–32',
-      kidContext: { who: 'Jesus', to: 'People who wondered if God forgives', apply: 'God welcomes you home! No matter what you did, come back—He runs to meet you!' }
+      kidContext: {
+        who: 'Jesus',
+        to: 'The people (and us)',
+        apply:
+          'God is like that loving father — He is always ready to welcome us when we come back to Him.'
+      },
+      narration:
+        "The Father Who Welcomes His Son Home — Luke 15:11–32. And he said, A certain man had two sons: And the younger of them said to his father, Father, give me the portion of goods that falleth to me. And he divided unto them his living. And not many days after the younger son gathered all together, and took his journey into a far country, and there wasted his substance with riotous living. And when he had spent all, there arose a mighty famine in that land; and he began to be in want. And he went and joined himself to a citizen of that country; and he sent him into his fields to feed swine. And he would fain have filled his belly with the husks that the swine did eat: and no man gave unto him. And when he came to himself, he said, How many hired servants of my father's have bread enough and to spare, and I perish with hunger! I will arise and go to my father, and will say unto him, Father, I have sinned against heaven, and before thee, And am no more worthy to be called thy son: make me as one of thy hired servants. And he arose, and came to his father. But when he was yet a great way off, his father saw him, and had compassion, and ran, and fell on his neck, and kissed him. And the son said unto him, Father, I have sinned against heaven, and in thy sight, and am no more worthy to be called thy son. But the father said to his servants, Bring forth the best robe, and put it on him; and put a ring on his hand, and shoes on his feet: And bring hither the fatted calf, and kill it; and let us eat, and be merry: For this my son was dead, and is alive again; he was lost, and is found. And they began to be merry. For you: God is like that loving father — He is always ready to welcome us when we come back to Him."
     },
     zacchaeus: {
       title: 'Zacchaeus',
@@ -1268,21 +1313,6 @@
       keywords: ['zacchaeus', 'tree', 'short', 'jesus calls', 'luke 19', 'tax collector'],
       kjvRef: 'Luke 19:1–10',
       kidContext: { who: 'Jesus', to: 'Zacchaeus (a short man in a tree)', apply: 'Jesus sees you—even if you\'re small! He knows your name and wants to be your friend!' }
-    },
-    lazarus: {
-      title: 'Lazarus Raised',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: "Mary and Martha sad – Lazarus is dead" },
-        { src: 'panel-jesus-2.svg', alt: "Jesus at the tomb – Calling Lazarus out" },
-        { src: 'panel-jesus-3.svg', alt: "Lazarus walking out alive – Jesus has power over death" }
-      ],
-      caption: 'Swipe to see Jesus give life—don\'t be sad! ✨',
-      videoId: '1FT04jjh3Q8',
-      videoTitle: 'Jesus Raised Lazarus – God\'s Story!',
-      keywords: ['lazarus', 'raised', 'dead', 'come out', 'alive', 'john 11'],
-      kjvRef: 'John 11:1–44',
-      kidContext: { who: 'Jesus', to: 'Mary, Martha, and Lazarus', apply: "Lazarus was dead for 4 days, but Jesus called him out of the tomb. Lazarus came back to life! Jesus has power over death. When we feel sad or hopeless, Jesus can bring new life and hope. Trust Him—He is the resurrection and the life." },
-      narration: "Lazarus Rise – John 11:43-44. Lazarus was very sick, and his sisters Mary and Martha sent for Jesus. But Jesus waited. When He arrived, Lazarus had died and was in the tomb for 4 days. Jesus went to the tomb and said, 'Lazarus, come forth!' Lazarus came out, still wrapped in grave clothes. Jesus said, 'Loose him, and let him go.' Everyone was amazed—Jesus has power over death! For you: When things feel dead or hopeless, Jesus can bring new life. He is the resurrection. Trust Him with your hardest days—He has power to make things new."
     },
     resurrection: {
       title: 'Resurrection',
@@ -5334,33 +5364,35 @@
       kjvRef: 'Matthew 5–7',
       kidContext: { who: 'Jesus', to: 'The crowds (and us)', apply: 'Jesus shows God\'s way to live — hear His words and put them into practice, like building on a rock.' }
     },
-    healBlind: {
-      title: 'Jesus Heals a Blind Man',
+    manBornBlind: {
+      title: 'Jesus Gives Sight to a Man Who Was Born Blind',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'A man is born blind' },
-        { src: 'panel-noah-2.svg', alt: 'Jesus puts mud on his eyes' },
-        { src: 'panel-noah-3.svg', alt: 'He washes and sees—I was blind, now I see!' }
+        { src: 'panel-noah-1.svg', alt: 'Works of God — Jesus makes clay and puts it on the eyes of a man born blind' },
+        { src: 'panel-noah-2.svg', alt: 'Go, wash in the pool of Siloam — the man obeys' },
+        { src: 'panel-noah-3.svg', alt: 'He sees — “I was blind, but now I see” — “Lord, I believe”' }
       ],
-      caption: 'Swipe to see Jesus open blind eyes! 👁️',
+      caption: 'Swipe to see clay, washing, sight — Jesus opens eyes and hearts. 👁️',
       videoId: '',
       videoTitle: '',
-      keywords: ['blind', 'heal', 'mud', 'john 9', 'eyes', 'wash', 'see', 'miracle'],
-      kjvRef: 'John 9',
-      kidContext: { who: 'Jesus', to: 'The blind man', apply: 'Jesus opens our eyes—in our hearts too! Ask Him to help you see.' }
-    },
-    jesusHealsBlind: {
-      title: 'Jesus Heals the Man Born Blind',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus makes clay and anoints a blind man\'s eyes' },
-        { src: 'panel-noah-2.svg', alt: 'The man washes in the pool of Siloam' },
-        { src: 'panel-noah-3.svg', alt: 'He sees — "One thing I know: I was blind, now I see!"' }
+      keywords: [
+        'born blind',
+        'john 9',
+        'siloam',
+        'clay',
+        'wash',
+        'see',
+        'miracle',
+        'believe',
+        'jesus'
       ],
-      caption: 'Swipe to see Jesus open eyes — so God\'s works shine! 👁️',
-      videoId: '',
-      videoTitle: '',
-      keywords: ['blind', 'born blind', 'john 9', 'siloam', 'mud', 'clay', 'see', 'miracle', 'pharisees'],
-      kjvRef: 'John 9',
-      kidContext: { who: 'Jesus', to: 'The blind man (and us)', apply: 'Jesus has power to help us see truth — and to trust Him when others question.' }
+      kjvRef: 'John 9:1–38',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The blind man — and us',
+        apply: 'Jesus opens blind eyes and helps us see who He really is.'
+      },
+      narration:
+        "Jesus Gives Sight to a Man Who Was Born Blind — John 9:1–38. And as Jesus passed by, he saw a man which was blind from his birth. And his disciples asked him, saying, Master, who did sin, this man, or his parents, that he was born blind? Jesus answered, Neither hath this man sinned, nor his parents: but that the works of God should be made manifest in him. When he had thus spoken, he spat on the ground, and made clay of the spittle, and he anointed the eyes of the blind man with the clay, And said unto him, Go, wash in the pool of Siloam. He went his way therefore, and washed, and came seeing. The neighbours said, Is not this he that sat and begged? But he said, I am he… I was blind, but now I see. And Jesus said unto him, Dost thou believe on the Son of God? He answered and said, Who is he, Lord, that I might believe on him? And Jesus said unto him, Thou hast both seen him, and it is he that talketh with thee. And he said, Lord, I believe. And he worshipped him. For you: Jesus opens blind eyes and helps us see who He really is."
     },
     jesusHealsParalytic: {
       title: 'Jesus Forgives and Heals a Man Who Could Not Walk',
@@ -5583,19 +5615,37 @@
       kjvRef: 'John 10:1–18',
       kidContext: { who: 'Jesus', to: 'His sheep (and us)', apply: 'Listen for Jesus\' voice — He loves you, leads you, and laid down His life for you.' }
     },
-    healLeper: {
-      title: 'Jesus Heals Ten Lepers',
+    tenLepers: {
+      title: 'Jesus Heals Ten Men and One Says Thank You',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Ten lepers call out: Jesus, have mercy!' },
-        { src: 'panel-noah-2.svg', alt: 'Jesus says: Go show yourselves to the priest' },
-        { src: 'panel-noah-3.svg', alt: 'As they go—all ten are clean!' }
+        { src: 'panel-noah-1.svg', alt: 'Ten men stand afar off — Jesus, Master, have mercy on us!' },
+        { src: 'panel-noah-2.svg', alt: 'Jesus says — Go shew yourselves unto the priests; as they go they are healed' },
+        { src: 'panel-noah-3.svg', alt: 'One runs back thanking Jesus — Thy faith hath made thee whole' }
       ],
-      caption: 'Swipe to see Jesus heal ten lepers—be thankful! 🙌',
+      caption: 'Swipe to see mercy, healing, and one thankful heart — say thank you to Jesus. 🙌',
       videoId: '',
       videoTitle: '',
-      keywords: ['leper', 'heal', 'luke 17', 'mercy', 'clean', 'thankful', 'ten'],
-      kjvRef: 'Luke 17',
-      kidContext: { who: 'Jesus', to: 'The lepers', apply: 'Jesus heals and cleans us inside! Always say thank you to Him.' }
+      keywords: [
+        'ten lepers',
+        'mercy',
+        'heal',
+        'luke 17',
+        'thankful',
+        'priests',
+        'samaria',
+        'galilee',
+        'faith',
+        'jesus'
+      ],
+      kjvRef: 'Luke 17:11–19',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The men — and us',
+        apply:
+          'Jesus heals us and is happy when we remember to say thank you.'
+      },
+      narration:
+        "Jesus Heals Ten Men and One Says Thank You — Luke 17:11–19. And it came to pass, as he went to Jerusalem, that he passed through the midst of Samaria and Galilee. And as he entered into a certain village, there met him ten men that were lepers, which stood afar off: And they lifted up their voices, and said, Jesus, Master, have mercy on us. And when he saw them, he said unto them, Go shew yourselves unto the priests. And it came to pass, that, as they went, they were cleansed. And one of them, when he saw that he was healed, turned back, and with a loud voice glorified God, And fell down on his face at his feet, giving him thanks: and he was a Samaritan. And Jesus answering said, Were there not ten cleansed? but where are the nine? There are not found that returned to give glory to God, save this stranger. And he said unto him, Arise, go thy way: thy faith hath made thee whole. For you: Jesus loves a thankful heart — remember to say thank you to Him."
     },
     jairus: {
       title: 'Jesus Brings a Girl Back to Life',
@@ -7447,31 +7497,39 @@
       narration:
         "Jesus Heals a Soldier's Servant from Far Away — Matthew 8:5–13. And when Jesus was entered into Capernaum, there came unto him a centurion, beseeching him, And saying, Lord, my servant lieth at home sick of the palsy, grievously tormented. And Jesus saith unto him, I will come and heal him. The centurion answered and said, Lord, I am not worthy that thou shouldest come under my roof: but speak the word only, and my servant shall be healed. For I am a man under authority, having soldiers under me: and I say to this man, Go, and he goeth; and to another, Come, and he cometh; and to my servant, Do this, and he doeth it. When Jesus heard it, he marvelled, and said to them that followed, Verily I say unto you, I have not found so great faith, no, not in Israel. And I say unto you, That many shall come from the east and west, and shall sit down with Abraham, and Isaac, and Jacob, in the kingdom of heaven. But the children of the kingdom shall be cast out into outer darkness: there shall be weeping and gnashing of teeth. And Jesus said unto the centurion, Go thy way; and as thou hast believed, so be it done unto thee. And his servant was healed in the selfsame hour. For you: trust Jesus' word — He is full of power and mercy."
     },
-    marthaServe: {
-      title: 'Martha Serves Jesus',
+    maryMartha: {
+      title: 'Jesus Visits Mary and Martha',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Martha busily prepares food for Jesus' },
-        { src: 'panel-noah-2.svg', alt: 'She asks: don\'t you care I\'m doing all this?' },
-        { src: 'panel-noah-3.svg', alt: 'Jesus says: one thing is needed—choose the best thing!' }
+        { src: 'panel-noah-1.svg', alt: 'Jesus comes to Mary and Martha’s house — welcome and quiet room' },
+        { src: 'panel-noah-2.svg', alt: 'Martha busies herself with serving — Mary sits at Jesus’ feet and hears His word' },
+        { src: 'panel-noah-3.svg', alt: 'Jesus answers gently — one thing is needful; Mary chose the good part' }
       ],
-      caption: 'Swipe to see what Jesus says about busyness and rest! 🍽️',
+      caption:
+        'Swipe to see Mary listen at Jesus’ feet — one needful thing, a quiet heart. 🏠',
       videoId: '',
       videoTitle: '',
-      keywords: ['martha', 'serve', 'luke 10', 'busy', 'kitchen', 'best', 'mary', 'one thing'],
-      kidContext: { who: 'Jesus', to: 'Martha', apply: 'Don\'t be so busy you miss being with Jesus! Choose His presence first—then serve.' }
-    },
-    marySit: {
-      title: 'Mary Sits at Jesus\' Feet',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Mary sits and listens to Jesus' },
-        { src: 'panel-noah-2.svg', alt: 'Martha is busy—Mary sits still' },
-        { src: 'panel-noah-3.svg', alt: 'Jesus says: Mary chose the better thing!' }
+      keywords: [
+        'mary',
+        'martha',
+        'bethany',
+        'listen',
+        'feet',
+        'one thing',
+        'good part',
+        'needful',
+        'luke 10',
+        'jesus',
+        'word'
       ],
-      caption: 'Swipe to see Mary choose the one thing that matters—listening! 👂',
-      videoId: '',
-      videoTitle: '',
-      keywords: ['mary', 'sit', 'listen', 'luke 10', 'feet', 'better thing', 'jesus', 'word'],
-      kidContext: { who: 'Jesus', to: 'Mary (and us)', apply: 'Sit with Jesus! Listening to Him is the most important thing you can do each day.' }
+      kjvRef: 'Luke 10:38–42',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Mary, Martha, and us',
+        apply:
+          'Jesus wants us to spend time listening to Him — that is the most important thing.'
+      },
+      narration:
+        "Jesus Visits Mary and Martha — Luke 10:38–42. Now it came to pass, as they went, that he entered into a certain village: and a certain woman named Martha received him into her house. And she had a sister called Mary, which also sat at Jesus' feet, and heard his word. But Martha was cumbered about much serving, and came to him, and said, Lord, dost thou not care that my sister hath left me to serve alone? Bid her therefore that she help me. And Jesus answered and said unto her, Martha, Martha, thou art careful and troubled about many things: But one thing is needful: and Mary hath chosen that good part, which shall not be taken away from her. For you: sit with Jesus! Listening to Him is the one needful thing."
     },
     dorcasRaise: {
       title: 'Dorcas Is Raised to Life',
@@ -7557,33 +7615,37 @@
     },
     /* ── Week 12 (145–160) ── */
     lazarus: {
-      title: 'Jesus Raises Lazarus',
+      title: 'Jesus Brings Lazarus Back to Life',
       panels: [
-        { src: 'panel-noah-1.svg', alt: "Mary and Martha sad – Lazarus is dead" },
-        { src: 'panel-noah-2.svg', alt: "Jesus at the tomb – Calling Lazarus out" },
-        { src: 'panel-noah-3.svg', alt: "Lazarus walking out alive – Jesus has power over death" }
+        { src: 'panel-noah-1.svg', alt: 'Bethany — Lazarus and his sisters Mary and Martha; Lazarus becomes very sick' },
+        { src: 'panel-noah-2.svg', alt: 'Jesus meets Martha — I am the resurrection, and the life' },
+        { src: 'panel-noah-3.svg', alt: 'Jesus calls “Lazarus, come forth” — he walks out alive; many believe' }
       ],
-      caption: 'Swipe to see Jesus raise Lazarus from the dead! 🪨',
+      caption: 'Swipe to see Jesus call Lazarus out — the resurrection and the life. ✨',
       videoId: '1FT04jjh3Q8',
       videoTitle: 'Jesus Raised Lazarus – God\'s Story!',
-      keywords: ['lazarus', 'raise', 'john 11', 'resurrection', 'mary', 'martha', 'come out'],
-      kjvRef: 'John 11:1–44',
-      kidContext: { who: 'Jesus', to: 'Mary and Martha (and us)', apply: "Lazarus was dead for 4 days, but Jesus called him out of the tomb. Lazarus came back to life! Jesus has power over death. When we feel sad or hopeless, Jesus can bring new life and hope. Trust Him—He is the resurrection and the life." },
-      narration: "Lazarus Rise – John 11:43-44. Lazarus was very sick, and his sisters Mary and Martha sent for Jesus. But Jesus waited. When He arrived, Lazarus had died and was in the tomb for 4 days. Jesus went to the tomb and said, 'Lazarus, come forth!' Lazarus came out, still wrapped in grave clothes. Jesus said, 'Loose him, and let him go.' Everyone was amazed—Jesus has power over death! For you: When things feel dead or hopeless, Jesus can bring new life. He is the resurrection. Trust Him with your hardest days—He has power to make things new."
-    },
-    jesusLazarus: {
-      title: 'Lazarus, Come Forth',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Mary and Martha send word — Lazarus is sick' },
-        { src: 'panel-noah-2.svg', alt: 'Jesus at the tomb — Lazarus, come forth' },
-        { src: 'panel-noah-3.svg', alt: 'Lazarus lives — many believe on Jesus' }
+      keywords: [
+        'lazarus',
+        'bethany',
+        'raised',
+        'come forth',
+        'resurrection',
+        'life',
+        'john 11',
+        'mary',
+        'martha',
+        'tomb',
+        'believe'
       ],
-      caption: 'Swipe to see Jesus call Lazarus out of the grave! ✨',
-      videoId: '',
-      videoTitle: '',
-      keywords: ['lazarus', 'john 11', 'resurrection', 'life', 'mary', 'martha', 'tomb', 'miracle'],
       kjvRef: 'John 11:1–44',
-      kidContext: { who: 'Jesus', to: 'Mary, Martha, Lazarus (and us)', apply: 'Jesus is the resurrection and the life — nothing is too dead for Him to reach.' }
+      kidContext: {
+        who: 'Jesus',
+        to: 'Mary, Martha, Lazarus, and us',
+        apply:
+          'Jesus has power over death and brings hope and life. Many who saw believed in Him — we can trust Him too.'
+      },
+      narration:
+        "Jesus Brings Lazarus Back to Life — John 11:1–44. Now a certain man was sick, named Lazarus, of Bethany, the town of Mary and her sister Martha. When Jesus heard that Lazarus was sick, He abode two days still in the same place where He was. Then said Jesus unto His disciples plainly, Lazarus is dead. When Jesus came, Lazarus had been in the grave four days. Then Martha, as soon as she heard that Jesus was coming, went and met Him. Martha saith unto Jesus, Lord, if thou hadst been here, my brother had not died. Jesus said unto her, I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live: And whosoever liveth and believeth in me shall never die. Believest thou this? When they came to the tomb where Lazarus was laid, Jesus cried with a loud voice, Lazarus, come forth. And he that was dead came forth, bound hand and foot with graveclothes: and his face was bound about with a napkin. Jesus saith unto them, Loose him, and let him go. Therefore many of the Jews which came to Mary, and had seen the things which Jesus did, believed on him. For you: Jesus has power over death and gives life — trust Him forever."
     },
     greatCommission: {
       title: 'The Great Commission',
@@ -7815,6 +7877,16 @@
     bibleStories.parableMustardSeed = bibleStories.mustardSeed;
     /** Same gentle card as lostSheep (library / journey naming). */
     bibleStories.parableLostSheep = bibleStories.lostSheep;
+    /** Same gentle card — Mary & Martha (Luke 10:38–42); legacy split keys. */
+    bibleStories.marthaServe = bibleStories.maryMartha;
+    bibleStories.marySit = bibleStories.maryMartha;
+    /** Same gentle Bethany miracle (library / journey naming). */
+    bibleStories.jesusLazarus = bibleStories.lazarus;
+    /** Legacy key — same gentle card as tenLepers (loops, older links). */
+    bibleStories.healLeper = bibleStories.tenLepers;
+    /** Legacy keys — same gentle John 9 card (library / older links). */
+    bibleStories.healBlind = bibleStories.manBornBlind;
+    bibleStories.jesusHealsBlind = bibleStories.manBornBlind;
     window.TDB_BIBLE_STORIES = bibleStories;
     window.TDB_BIBLE_STORY_KEYS = Object.keys(bibleStories);
     try {
@@ -7955,11 +8027,11 @@
       /* Week 5 */
       'angelMary', 'shepherdsStar', 'wiseMen', 'simeonAnna', 'jesusManger', 'jesusTemple', 'johnBaptist', 'johnBaptize',
       'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusSermon', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
-      'jesusHealsBlind', 'jesusBlessKids',
+      'manBornBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusFeeds5000', 'jesusWalksWater',
-      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'jesusParableGoodShepherd',
-      'mustardSeed', 'healLeper', 'jairus', 'transfigure', 'judasKiss',
+      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
+      'mustardSeed', 'tenLepers', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
       'jesusTriumphalEntry', 'jesusLastSupper', 'jesusGardenGethsemane', 'crossCarry', 'jesusCrucifixion',
       'tombEmpty', 'jesusResurrection', 'emmausRoad', 'thomasDoubt',
@@ -7977,8 +8049,8 @@
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
-      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'marthaServe',
-      'marySit', 'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'prodigalSon', 'maryMartha',
+      'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */
       'jesusLazarus', 'jesusGreatCommission', 'greatCommission', 'jesusAscension', 'pentecostTongues', 'armorBelt',
@@ -11115,11 +11187,11 @@
     centurionServant: 'Miracles',
     jesusTemptation: 'Obedience',
     jesusTempt: 'Obedience', weddingWine: 'Miracles', jesusFirstMiracle: 'Miracles', jesusCallingDisciples: 'Obedience',
-    jesusSermonMount: 'Obedience', healBlind: 'Miracles', jesusHealsBlind: 'Miracles', jesusBlessKids: 'Love',
+    jesusSermonMount: 'Obedience', manBornBlind: 'Miracles', healBlind: 'Miracles', jesusHealsBlind: 'Miracles', jesusBlessKids: 'Love',
     /* Week 6 */
     jesusHealsParalytic: 'Miracles', witheredHand: 'Miracles', mustardSeed: 'Obedience',
     jesusParableSower: 'Protection', jesusParableMustardSeed: 'Obedience', jesusParableGoodShepherd: 'Love',
-    healLeper: 'Miracles', jairus: 'Miracles',
+    tenLepers: 'Miracles', healLeper: 'Miracles', jairus: 'Miracles',
     transfigure: 'Miracles', judasKiss: 'Love',
     /* Week 7 */
     jesusTriumphalEntry: 'Protection', jesusLastSupper: 'Love', jesusGardenGethsemane: 'Protection',
@@ -11192,7 +11264,7 @@
     estherFast: 'Obedience', sarahPromise: 'Miracles', miriamSong: 'Love',
     /* Week 11 */
     annaProphet: 'Obedience', widowOil: 'Miracles', shunammiteReturn: 'Miracles', samariaSiege: 'Miracles', elishaFinal: 'Miracles', elishaBones: 'Miracles', persistentWidow: 'Obedience',
-    marthaServe: 'Obedience', marySit: 'Obedience',
+    maryMartha: 'Obedience', marthaServe: 'Obedience', marySit: 'Obedience',
     dorcasRaise: 'Miracles', phoebeDeacon: 'Obedience', juniaApostle: 'Obedience',
     loisTimothy: 'Love', euniceMother: 'Love', priscillaTent: 'Obedience',
     /* Week 12 */

@@ -139,7 +139,7 @@
       mosesBush: 'moses-red-sea',
       mosesBaby: 'baby-moses',
       creation: 'creation',
-      goodSamaritan: 'good-samaritan',
+      goodSamaritan: 'goodSamaritanMercy',
       wiseMen: 'jesus-children',
       simeonAnna: 'jesus-children',
       jesusTemple: 'jesus-children',
@@ -162,7 +162,18 @@
       parableHiddenTreasure: 'parableHiddenTreasure',
       parablePearl: 'parablePearl',
       lostSheep: 'parableLostSheep',
-      parableLostSheep: 'parableLostSheep'
+      parableLostSheep: 'parableLostSheep',
+      prodigalSon: 'prodigalSonWelcome',
+      maryMartha: 'maryMarthaVisit',
+      marthaServe: 'maryMarthaVisit',
+      marySit: 'maryMarthaVisit',
+      lazarus: 'lazarus',
+      jesusLazarus: 'lazarus',
+      tenLepers: 'healLeper',
+      healLeper: 'healLeper',
+      manBornBlind: 'healBlind',
+      healBlind: 'healBlind',
+      jesusHealsBlind: 'healBlind'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -190,6 +201,15 @@
     if (low.indexOf('parablehiddentreasure') >= 0 || low === 'parablehiddentreasure') return 'parableHiddenTreasure';
     if (low.indexOf('parablepearl') >= 0 || low === 'parablepearl') return 'parablePearl';
     if (low.indexOf('parablelostsheep') >= 0 || low === 'parablelostsheep') return 'parableLostSheep';
+    if (low.indexOf('prodigal') >= 0 || low === 'prodigalson') return 'prodigalSon';
+    if (low.indexOf('marymartha') >= 0 || low.indexOf('maryandmartha') >= 0) return 'maryMartha';
+    if (low.indexOf('marthaserve') >= 0 || low === 'marthaserve') return 'maryMartha';
+    if (low.indexOf('marysit') >= 0 || low === 'marysit') return 'maryMartha';
+    if (low.indexOf('jesuslazarus') >= 0 || low === 'jesuslazarus') return 'lazarus';
+    if (low.indexOf('tenlepers') >= 0 || low.indexOf('ten-lepers') >= 0) return 'tenLepers';
+    if (low.indexOf('manbornblind') >= 0 || low === 'manbornblind') return 'healBlind';
+    if (low.indexOf('healblind') >= 0 || low === 'healblind' || low.indexOf('jesushealsblind') >= 0) return 'healBlind';
+    if (low.indexOf('goodsamaritan') >= 0 || low === 'goodsamaritan') return 'goodSamaritan';
     if (low.indexOf('samaritan') >= 0) return 'good-samaritan';
     return '';
   }
@@ -2996,19 +3016,26 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 5:1–16</text>'
       ),
 
-      /* ── Week 5: Jesus Heal Blind (68) ── */
+      /* ── Week 5 gentle: Man born blind — clay, hope, Siloam (John 9:1–38) ── */
       healBlind: svg(
         ground() +
-        person(155, 178, 12, 35) +
-        '<path d="M148 192 Q140 200 142 212" ' + s + ' stroke-width="2.5"/>' +
-        '<ellipse cx="152" cy="172" rx="8" ry="6" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<ellipse cx="158" cy="172" rx="8" ry="6" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M148 170 Q156 162 164 168" ' + s + ' stroke-width="2"/>' +
-        person(245, 168, 13, 40) +
-        '<path d="M236 184 Q225 195 230 208" ' + s + ' stroke-width="2.5"/>' +
-        '<path d="M232 192 Q228 200 232 208" ' + s + ' stroke-width="2"/>' +
-        sun(330, 45, 20) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 9:6</text>'
+        '<path d="M0 248 Q200 232 400 248" ' + s + ' stroke-width="1.6" opacity="0.35"/>' +
+        sun(48, 50, 15) +
+        cloud(272, 38) +
+        '<ellipse cx="115" cy="239" rx="52" ry="11" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<circle cx="115" cy="166" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M106 170 Q115 164 124 170" ' + s + ' stroke-width="1.4"/>' +
+        '<ellipse cx="110" cy="166" rx="1.5" ry="2" fill="#111"/>' +
+        '<ellipse cx="120" cy="166" rx="1.5" ry="2" fill="#111"/>' +
+        '<path d="M115 186 L115 224" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M115 200 L92 232 M115 200 L138 232" ' + s + ' stroke-width="2.4"/>' +
+        '<path d="M103 194 L86 182 M127 194 L144 182" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="108" cy="164" rx="9" ry="6" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="122" cy="164" rx="9" ry="6" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        person(268, 152, 13, 34) +
+        '<path d="M252 176 Q210 170 182 160" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M176 152 L168 158" ' + s + ' stroke-width="1.8"/>' +
+        '<text x="200" y="290" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 9:1–38</text>'
       ),
 
       /* ── Week 5: Jesus Calm Storm already exists (jesusCalmsStorm) ── */
@@ -3139,18 +3166,90 @@
         '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 15:3–7</text>'
       ),
 
-      /* ── Week 6: Jesus Heal Leper (78) ── */
+      /* Week 6 gentle: Prodigal son — father runs, open arms, welcome home (Luke 15:11–32) */
+      prodigalSonWelcome: svg(
+        ground() +
+        hills() +
+        sun(52, 40, 18) +
+        cloud(300, 36) +
+        '<path d="M20 252 Q120 242 200 248 Q300 238 378 250" ' + s + ' stroke-width="2.2" fill="none"/>' +
+        '<rect x="288" y="188" width="72" height="62" rx="4" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<path d="M278 188 L324 154 L370 188" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<rect x="318" y="218" width="14" height="18" rx="1" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="62" cy="256" r="3.5" ' + sf + ' fill="white" stroke-width="1.3"/>' +
+        '<circle cx="76" cy="252" r="3" ' + sf + ' fill="white" stroke-width="1.2"/>' +
+        '<circle cx="118" cy="178" r="10" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<path d="M110 182 Q118 176 126 182" ' + s + ' stroke-width="1.2"/>' +
+        '<line x1="118" y1="188" x2="118" y2="232" ' + s + ' stroke-width="2.4"/>' +
+        '<line x1="118" y1="200" x2="98" y2="218" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="118" y1="200" x2="138" y2="212" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="118" y1="232" x2="108" y2="252" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="118" y1="232" x2="128" y2="252" ' + s + ' stroke-width="2.2"/>' +
+        '<circle cx="228" cy="162" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M220 166 Q228 172 236 166" ' + s + ' stroke-width="1.3"/>' +
+        '<circle cx="222" cy="160" r="1.1" fill="#111"/><circle cx="234" cy="160" r="1.1" fill="#111"/>' +
+        '<path d="M228 173 L242 205 L220 248 L242 248 Z" ' + sf + ' fill="white" stroke-width="2.6"/>' +
+        '<path d="M218 188 L188 168" ' + s + ' stroke-width="2.6"/>' +
+        '<path d="M238 185 L268 165" ' + s + ' stroke-width="2.6"/>' +
+        '<line x1="232" y1="248" x2="226" y2="268" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="248" y1="244" x2="258" y2="268" ' + s + ' stroke-width="2.2"/>' +
+        '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 15:11–32</text>'
+      ),
+
+      /* Week 6 gentle: Good Samaritan — kneeling mercy, traveler, donkey (Luke 10:25–37) */
+      goodSamaritanMercy: svg(
+        ground() +
+        hills() +
+        sun(48, 40, 17) +
+        cloud(292, 32) +
+        '<path d="M24 252 Q140 238 220 246 Q300 240 376 252" ' + s + ' stroke-width="2.2" fill="none"/>' +
+        '<ellipse cx="128" cy="228" rx="36" ry="14" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<circle cx="108" cy="214" r="10" ' + sf + ' fill="white" stroke-width="2.3"/>' +
+        '<path d="M100 218 Q108 212 116 218" ' + s + ' stroke-width="1.2"/>' +
+        '<line x1="95" y1="225" x2="118" y2="232" ' + s + ' stroke-width="1.6"/>' +
+        '<line x1="118" y1="232" x2="125" y2="248" ' + s + ' stroke-width="1.6"/>' +
+        '<circle cx="205" cy="178" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M198 182 Q205 188 212 182" ' + s + ' stroke-width="1.3"/>' +
+        '<circle cx="200" cy="176" r="1" fill="#111"/><circle cx="210" cy="176" r="1" fill="#111"/>' +
+        '<path d="M205 189 L198 218 L212 248 L188 252 L194 218 Z" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M188 205 L165 218" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M218 200 L128 222" ' + s + ' stroke-width="1.8"/>' +
+        '<path d="M130 220 L138 228 M136 218 L144 226" ' + s + ' stroke-width="1.4"/>' +
+        '<ellipse cx="312" cy="218" rx="42" ry="22" ' + sf + ' fill="white" stroke-width="2.6"/>' +
+        '<ellipse cx="292" cy="198" rx="14" ry="12" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<path d="M278 208 L278 248" ' + s + ' stroke-width="2"/>' +
+        '<path d="M328 208 L332 252" ' + s + ' stroke-width="2"/>' +
+        '<path d="M348 220 L352 250" ' + s + ' stroke-width="1.8"/>' +
+        '<path d="M268 232 L262 256" ' + s + ' stroke-width="1.8"/>' +
+        '<circle cx="68" cy="258" r="3" ' + sf + ' fill="white" stroke-width="1.2"/>' +
+        '<circle cx="348" cy="256" r="3" ' + sf + ' fill="white" stroke-width="1.2"/>' +
+        '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 10:25–37</text>'
+      ),
+
+      /* Week 6 gentle: Ten lepers — calling afar; one runs back with thanks (Luke 17:11–19) */
       healLeper: svg(
         ground() +
-        person(145, 195, 12, 35) +
-        '<path d="M138 210 Q128 220 130 235" ' + s + ' stroke-width="2.5"/>' +
-        '<path d="M132 205 Q120 210 118 222" ' + s + ' stroke-width="2"/>' +
-        '<path d="M155 205 Q148 215 150 225" ' + s + ' stroke-width="2"/>' +
-        person(258, 172, 13, 40) +
-        '<path d="M248 188 Q238 200 242 212" ' + s + ' stroke-width="2.5"/>' +
-        '<line x1="248" y1="188" x2="158" y2="210" ' + s + ' stroke-width="2.5" stroke-dasharray="5,3"/>' +
-        sun(330, 45, 20) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 17:14</text>'
+        hills() +
+        sun(46, 40, 15) +
+        '<path d="M32 254 Q200 234 368 254" ' + s + ' stroke-width="2" opacity="0.55"/>' +
+        person(74, 168, 7, 18) +
+        person(94, 172, 7, 18) +
+        person(114, 169, 7, 18) +
+        person(134, 171, 7, 18) +
+        person(154, 170, 7, 18) +
+        person(84, 188, 7, 16) +
+        person(104, 190, 7, 16) +
+        person(124, 188, 7, 16) +
+        person(144, 189, 7, 16) +
+        '<circle cx="66" cy="198" r="3" ' + sf + ' fill="white" stroke-width="1.3"/>' +
+        '<circle cx="178" cy="198" r="3" ' + sf + ' fill="white" stroke-width="1.3"/>' +
+        '<path d="M198 155 L188 138 M206 155 L216 138" ' + s + ' stroke-width="1.8"/>' +
+        person(205, 148, 9, 24) +
+        '<line x1="230" y1="188" x2="258" y2="178" ' + s + ' stroke-width="1.8" stroke-dasharray="4,3" opacity="0.65"/>' +
+        person(278, 138, 12, 32) +
+        '<path d="M268 152 L256 166" ' + s + ' stroke-width="2.2"/>' +
+        star(200, 28, 11) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 17:11–19</text>'
       ),
 
       /* ── Week 6 gentle: Jairus’ daughter — Jesus takes her hand (Mark 5:21–43) ── */
@@ -4115,33 +4214,29 @@
         '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 2:1–12</text>'
       ),
 
-      /* ── Week 11: Martha Serve (137) ── */
-      marthaServe: svg(
+      /* Week 11 gentle: Jesus visits Mary and Martha — quiet room, listening (Luke 10:38–42) */
+      maryMarthaVisit: svg(
         ground() +
-        '<rect x="60" y="90" width="280" height="170" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<path d="M60 128 L200 105 L340 128" ' + sf + ' fill="white" stroke-width="3"/>' +
-        person(155, 158, 12, 35) +
-        '<path d="M148 172 Q138 182 140 195" ' + s + ' stroke-width="2.5"/>' +
-        '<ellipse cx="215" cy="192" rx="28" ry="18" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M200 192 Q215 182 230 192" ' + s + ' stroke-width="2"/>' +
-        person(280, 162, 11, 32) +
-        '<path d="M272 175 Q265 185 268 198" ' + s + ' stroke-width="2.5"/>' +
-        sun(330, 45, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 10:40</text>'
-      ),
-
-      /* ── Week 11: Mary Sit (138) ── */
-      marySit: svg(
-        ground() +
-        '<rect x="60" y="90" width="280" height="170" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<path d="M60 128 L200 105 L340 128" ' + sf + ' fill="white" stroke-width="3"/>' +
-        person(255, 155, 13, 40) +
-        person(160, 200, 11, 32) +
-        '<path d="M152 215 Q145 226 148 238" ' + s + ' stroke-width="2.5"/>' +
-        '<path d="M170 217 Q158 228 162 240" ' + s + ' stroke-width="2.5"/>' +
-        '<path d="M162 215 Q185 205 255 175" ' + s + ' stroke-width="2.5" stroke-dasharray="4,3"/>' +
-        sun(330, 45, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 10:39</text>'
+        '<rect x="48" y="88" width="304" height="166" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M48 130 L200 102 L352 130" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<rect x="58" y="96" width="52" height="56" rx="3" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<line x1="84" y1="96" x2="84" y2="152" ' + s + ' stroke-width="1.6"/>' +
+        '<line x1="58" y1="124" x2="110" y2="124" ' + s + ' stroke-width="1.6"/>' +
+        '<line x1="110" y1="108" x2="126" y2="98" ' + s + ' stroke-width="1.2" opacity="0.7"/>' +
+        '<line x1="110" y1="124" x2="132" y2="124" ' + s + ' stroke-width="1.2" opacity="0.7"/>' +
+        '<line x1="110" y1="140" x2="126" y2="150" ' + s + ' stroke-width="1.2" opacity="0.7"/>' +
+        '<ellipse cx="210" cy="246" rx="130" ry="12" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="184" y="198" width="44" height="18" rx="3" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        person(204, 145, 12, 24) +
+        '<circle cx="148" cy="184" r="9" ' + sf + ' fill="white" stroke-width="2.3"/>' +
+        '<path d="M148 193 L148 204" ' + s + ' stroke-width="2.2"/>' +
+        '<ellipse cx="148" cy="218" rx="20" ry="12" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<line x1="134" y1="208" x2="162" y2="208" ' + s + ' stroke-width="2"/>' +
+        '<path d="M168 170 Q190 152 208 162" ' + s + ' stroke-width="1.8" stroke-dasharray="4,3" opacity="0.85"/>' +
+        person(286, 138, 11, 28) +
+        '<ellipse cx="272" cy="178" rx="16" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="278" y1="166" x2="274" y2="172" ' + s + ' stroke-width="1.8"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 10:38–42</text>'
       ),
 
       /* ── Week 11: Dorcas Raise (139) ── */
@@ -4227,19 +4322,31 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Acts 18:3</text>'
       ),
 
-      /* ── Week 12: Jesus Bethany — Lazarus (145) ── */
+      /* Week 12 gentle: Lazarus — Jesus calls, come forth; thankful sisters (John 11:1–44) */
       lazarus: svg(
-        ground() + hills() +
-        '<path d="M115 258 L115 178 Q200 148 285 178 L285 258" ' + sf + ' fill="white" stroke-width="4"/>' +
-        '<rect x="115" y="178" width="170" height="80" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="75" cy="200" r="48" ' + sf + ' fill="white" stroke-width="4"/>' +
-        person(200, 182, 12, 35) +
-        '<path d="M192 198 Q185 210 188 225" ' + s + ' stroke-width="2.5"/>' +
-        '<path d="M208 198 Q215 210 212 225" ' + s + ' stroke-width="2.5"/>' +
-        person(280, 162, 13, 38) +
-        '<path d="M272 175 Q262 185 266 198" ' + s + ' stroke-width="2.5"/>' +
-        star(200, 30, 14) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 11:43</text>'
+        ground() +
+        hills() +
+        sun(44, 40, 16) +
+        '<line x1="200" y1="38" x2="200" y2="118" ' + s + ' stroke-width="1.3" opacity="0.45"/>' +
+        '<line x1="200" y1="48" x2="150" y2="95" ' + s + ' stroke-width="1.2" opacity="0.4"/>' +
+        '<line x1="200" y1="48" x2="250" y2="95" ' + s + ' stroke-width="1.2" opacity="0.4"/>' +
+        '<path d="M108 262 L108 172 Q200 118 292 172 L292 262" ' + sf + ' fill="white" stroke-width="3.5"/>' +
+        '<rect x="108" y="172" width="184" height="90" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="78" cy="228" rx="24" ry="30" ' + sf + ' fill="white" stroke-width="2.6"/>' +
+        person(138, 148, 12, 34) +
+        '<path d="M152 180 L210 172" ' + s + ' stroke-width="2.6"/>' +
+        '<circle cx="220" cy="160" r="10" ' + sf + ' fill="white" stroke-width="2.3"/>' +
+        '<path d="M214 168 L214 168 Q220 172 226 168" ' + s + ' stroke-width="1.4"/>' +
+        '<path d="M214 178 L210 218" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="198" y1="188" x2="242" y2="188" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="198" y1="196" x2="240" y2="196" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="198" y1="204" x2="238" y2="204" ' + s + ' stroke-width="1.5"/>' +
+        '<path d="M210 218 L206 248" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M220 218 L232 246" ' + s + ' stroke-width="2.2"/>' +
+        person(276, 162, 10, 26) +
+        person(306, 166, 10, 26) +
+        star(200, 26, 12) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 11:1–44</text>'
       ),
 
       /* ── Week 12: Great Commission (146) ── */
@@ -4474,8 +4581,13 @@
   var OUTLINE_ALIAS = {
     /* ── legacy mappings ── */
     mosesBush: 'burningBush',
-    goodSamaritan: 'loveNeighbor',
-    prodigalSon: 'forgive70x7',
+    goodSamaritan: 'goodSamaritanMercy',
+    maryMartha: 'maryMarthaVisit',
+    marthaServe: 'maryMarthaVisit',
+    marySit: 'maryMarthaVisit',
+    maryMarthaVisit: 'maryMarthaVisit',
+    tenLepers: 'healLeper',
+    prodigalSon: 'prodigalSonWelcome',
     lostSheep: 'parableLostSheep',
     parableLostSheep: 'parableLostSheep',
     lastSupper: 'maryAnoint',
@@ -4609,6 +4721,9 @@
     parableHiddenTreasure: 'parableHiddenTreasure',
     parablePearl: 'parablePearl',
     parableLostSheep: 'parableLostSheep',
+    prodigalSon: 'prodigalSonWelcome',
+    prodigalSonWelcome: 'prodigalSonWelcome',
+    goodSamaritanMercy: 'goodSamaritanMercy',
     jesusTemptation: 'jesusTempt',
     jesusTempt: 'jesusTempt',
     weddingWine: 'weddingWine',
@@ -4617,12 +4732,14 @@
     jesusSermonMount: 'mustardSeed',
     jesusHealsBlind: 'healBlind',
     healBlind: 'healBlind',
+    manBornBlind: 'healBlind',
     jesusBlessKids: 'jesusBlessKids',
     /* ── Week 6 ── */
     jesusParableSower: 'parableSower',
     jesusParableMustardSeed: 'mustardSeed',
     jesusParableGoodShepherd: 'psalm23Shepherd',
     mustardSeed: 'mustardSeed',
+    tenLepers: 'healLeper',
     healLeper: 'healLeper',
     jairus: 'jairus',
     transfigure: 'transfigure',
@@ -4764,8 +4881,9 @@
     jairus: 'jairus',
     jesusWalksWater: 'jesusWalksWater',
     jesusFeeds5000: 'jesusFeeds5000',
-    marthaServe: 'marthaServe',
-    marySit: 'marySit',
+    maryMartha: 'maryMarthaVisit',
+    marthaServe: 'maryMarthaVisit',
+    marySit: 'maryMarthaVisit',
     dorcasRaise: 'dorcasRaise',
     phoebeDeacon: 'phoebeDeacon',
     juniaApostle: 'juniaApostle',
@@ -6354,7 +6472,7 @@
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
-        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
+        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
         'resurrection', 'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus',
         'parableTalents', 'armorOfGod', 'heavenPromise', 'jonah'

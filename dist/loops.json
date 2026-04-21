@@ -31,12 +31,12 @@
   },
   {
     "id": 4,
-    "title": "Daniel and the Lions",
+    "title": "Daniel Trusts God in the Lions’ Den",
     "file": "",
     "audio": "",
-    "ref": "Daniel 6:22",
+    "ref": "Daniel 6:1-23",
     "week": 0,
-    "kjvText": "My God hath sent his angel, and hath shut the lions' mouths.",
+    "kjvText": "My God hath sent his angel, and hath shut the lions' mouths, that they have not hurt me.",
     "libraryKey": "daniel"
   },
   {
@@ -101,22 +101,22 @@
   },
   {
     "id": 11,
-    "title": "Lazarus Rise",
+    "title": "Jesus Brings Lazarus Back to Life",
     "file": "",
     "audio": "",
-    "ref": "John 11:43-44",
+    "ref": "John 11:1–44",
     "week": 0,
     "kjvText": "And when he thus had spoken, he cried with a loud voice, Lazarus, come forth.",
     "libraryKey": "lazarus"
   },
   {
     "id": 12,
-    "title": "Jesus Calms the Boat",
+    "title": "Jesus Calms the Wind and the Waves",
     "file": "",
     "audio": "",
-    "ref": "Mark 4:39",
+    "ref": "Mark 4:35–41",
     "week": 0,
-    "kjvText": "And he arose, and rebuked the wind, and said unto the sea, Peace, be still.",
+    "kjvText": "And he arose, and rebuked the wind, and said unto the sea, Peace, be still. And the wind ceased, and there was a great calm.",
     "libraryKey": "jesusCalmsStorm"
   },
   {
@@ -166,7 +166,7 @@
   },
   {
     "id": 18,
-    "title": "Elijah and the Fire on Mount Carmel",
+    "title": "God Answers by Fire",
     "file": "",
     "audio": "",
     "ref": "1 Kings 18:17-39",
@@ -186,19 +186,20 @@
   },
   {
     "id": 20,
-    "title": "Fiery Furnace Three",
+    "title": "God Walks with His Servants in the Fire",
     "file": "",
     "audio": "",
-    "ref": "Daniel 3:25",
+    "ref": "Daniel 3:1-30",
     "week": 1,
-    "libraryKey": "fieryFurnace"
+    "libraryKey": "fieryFurnace",
+    "kjvText": "Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God."
   },
   {
     "id": 21,
-    "title": "Naaman Is Healed of Leprosy",
+    "title": "Naaman Obeys and Is Made Clean",
     "file": "",
     "audio": "",
-    "ref": "2 Kings 5:1-15",
+    "ref": "2 Kings 5:1-14",
     "week": 1,
     "kjvText": "Then went he down, and dipped himself seven times in Jordan, according to the saying of the man of God: and his flesh came again like unto the flesh of a little child, and he was clean.",
     "libraryKey": "naamanHealed"
@@ -416,7 +417,7 @@
   },
   {
     "id": 45,
-    "title": "Solomon Asks for Wisdom",
+    "title": "Solomon Asks God for a Wise Heart",
     "file": "",
     "audio": "",
     "ref": "1 Kings 3:5-15",
@@ -426,7 +427,7 @@
   },
   {
     "id": 46,
-    "title": "Elijah and the Ravens",
+    "title": "God Feeds Elijah",
     "file": "",
     "audio": "",
     "ref": "1 Kings 17:1-7",
@@ -436,7 +437,7 @@
   },
   {
     "id": 47,
-    "title": "Elijah and the Still Small Voice",
+    "title": "God Speaks in a Still Small Voice",
     "file": "",
     "audio": "",
     "ref": "1 Kings 19:9-18",
@@ -456,7 +457,7 @@
   },
   {
     "id": 49,
-    "title": "Elisha Raises the Shunammite's Son",
+    "title": "Elisha Prays and the Boy Lives",
     "file": "",
     "audio": "",
     "ref": "2 Kings 4:8-37",
@@ -475,20 +476,22 @@
   },
   {
     "id": 51,
-    "title": "Nehemiah Builds Wall",
+    "title": "Nehemiah and the People Rebuild Together",
     "file": "",
     "audio": "",
-    "ref": "Nehemiah 4:6",
+    "ref": "Nehemiah 1:1-4; 2:1-20; 3:1-32",
     "week": 4,
+    "kjvText": "And they said, Let us rise up and build. So they strengthened their hands for this good work.",
     "libraryKey": "nehemiahWalls"
   },
   {
     "id": 52,
-    "title": "Ezra Reads the Law",
+    "title": "Coming Home to Worship",
     "file": "",
     "audio": "",
-    "ref": "Nehemiah 8:8",
+    "ref": "Ezra 1:1-11; 3:1-6",
     "week": 4,
+    "kjvText": "Now in the first year of Cyrus king of Persia, that the word of the LORD by the mouth of Jeremiah might be accomplished, the LORD stirred up the spirit of Cyrus king of Persia, that he made a proclamation throughout all his kingdom, and put it also in writing, saying,",
     "libraryKey": "ezraReturn"
   },
   {
@@ -502,28 +505,28 @@
   },
   {
     "id": 54,
-    "title": "Isaiah Vision Throne",
+    "title": "God Promises a Savior",
     "file": "",
     "audio": "",
-    "ref": "Isaiah 6:1",
+    "ref": "Isaiah 9:2–7",
     "week": 4,
     "libraryKey": "isaiahMessianic"
   },
   {
     "id": 55,
-    "title": "Jeremiah Scroll",
+    "title": "Jeremiah Loves God's People",
     "file": "",
     "audio": "",
-    "ref": "Jeremiah 1:9",
+    "ref": "Jeremiah 1:1–10; 13:17",
     "week": 4,
     "libraryKey": "jeremiahWeeping"
   },
   {
     "id": 56,
-    "title": "Valley of Dry Bones",
+    "title": "God Can Make Dry Bones Live",
     "file": "",
     "audio": "",
-    "ref": "Ezekiel 37:10",
+    "ref": "Ezekiel 37:1–14",
     "week": 4,
     "libraryKey": "ezekielValleyBones"
   },
@@ -556,10 +559,10 @@
   },
   {
     "id": 60,
-    "title": "Malachi Sun of Healing",
+    "title": "God Promises to Send a Messenger",
     "file": "",
     "audio": "",
-    "ref": "Malachi 4:2",
+    "ref": "Malachi 3:1; 4:5–6",
     "week": 4,
     "libraryKey": "malachiMessage"
   },
@@ -574,39 +577,39 @@
   },
   {
     "id": 62,
-    "title": "Jesus Birth Manger",
+    "title": "Jesus Is Born in Bethlehem",
     "file": "",
     "audio": "",
-    "ref": "Luke 2:7",
+    "ref": "Luke 2:1–20",
     "week": 5,
     "libraryKey": "jesusBirth"
   },
   {
     "id": 63,
-    "title": "Shepherds and Angels",
+    "title": "The Shepherds Find Baby Jesus",
     "file": "",
     "audio": "",
-    "ref": "Luke 2:13-14",
+    "ref": "Luke 2:8–20",
     "week": 5,
     "libraryKey": "shepherdsStar"
   },
   {
     "id": 64,
-    "title": "Three Wise Men",
+    "title": "The Wise Men Follow the Star",
     "file": "",
     "audio": "",
-    "ref": "Matthew 2:11",
+    "ref": "Matthew 2:1–12",
     "week": 5,
-    "libraryKey": "jesusBirth"
+    "libraryKey": "wiseMen"
   },
   {
     "id": 65,
-    "title": "Jesus Temple at Twelve",
+    "title": "Simeon and Anna See the Promised Savior",
     "file": "",
     "audio": "",
-    "ref": "Luke 2:46",
+    "ref": "Luke 2:22–38",
     "week": 5,
-    "libraryKey": "annaProphet"
+    "libraryKey": "simeonAnna"
   },
   {
     "id": 66,
@@ -664,73 +667,73 @@
   },
   {
     "id": 72,
-    "title": "Jesus Heals Blind Man",
+    "title": "Jesus Gives Sight to a Man Who Was Born Blind",
     "file": "",
     "audio": "",
-    "ref": "John 9:7",
+    "ref": "John 9:1–38",
     "week": 5,
-    "libraryKey": "healBlind"
+    "libraryKey": "manBornBlind"
   },
   {
     "id": 73,
-    "title": "Jesus Heals Leper",
+    "title": "Jesus Heals Ten Men and One Says Thank You",
     "file": "",
     "audio": "",
-    "ref": "Luke 17:14",
+    "ref": "Luke 17:11–19",
     "week": 6,
-    "libraryKey": "healLeper"
+    "libraryKey": "tenLepers"
   },
   {
     "id": 74,
-    "title": "Jesus Feeds 5000",
+    "title": "Jesus Feeds a Hungry Crowd",
     "file": "",
     "audio": "",
-    "ref": "John 6:11",
-    "week": 6,
+    "ref": "Matthew 14:13–21",
+    "week": 5,
     "libraryKey": "jesusFeeds5000"
   },
   {
     "id": 75,
-    "title": "Jesus Walks on Water",
+    "title": "Jesus Walks on the Sea",
     "file": "",
     "audio": "",
-    "ref": "Matthew 14:29",
-    "week": 6,
+    "ref": "Matthew 14:22–33",
+    "week": 5,
     "libraryKey": "jesusWalksWater"
   },
   {
     "id": 76,
-    "title": "Parable of the Sower",
+    "title": "Jesus Tells a Story About Good Soil",
     "file": "",
     "audio": "",
-    "ref": "Matthew 13:8",
+    "ref": "Matthew 13:1–23",
     "week": 6,
     "libraryKey": "parableSower"
   },
   {
     "id": 77,
-    "title": "Good Samaritan",
+    "title": "Jesus Tells About Helping Others",
     "file": "",
     "audio": "",
-    "ref": "Luke 10:33",
+    "ref": "Luke 10:25–37",
     "week": 6,
     "libraryKey": "goodSamaritan"
   },
   {
     "id": 78,
-    "title": "Lost Sheep Found",
+    "title": "Jesus Tells About the Lost Sheep",
     "file": "",
     "audio": "",
-    "ref": "Luke 15:5",
+    "ref": "Luke 15:3–7",
     "week": 6,
     "libraryKey": "lostSheep"
   },
   {
     "id": 79,
-    "title": "Prodigal Son Return",
+    "title": "The Father Who Welcomes His Son Home",
     "file": "",
     "audio": "",
-    "ref": "Luke 15:20",
+    "ref": "Luke 15:11–32",
     "week": 6,
     "libraryKey": "prodigalSon"
   },
@@ -1123,11 +1126,11 @@
   },
   {
     "id": 123,
-    "title": "Jephthah's Daughter Dance",
+    "title": "Jesus Brings a Girl Back to Life",
     "file": "",
     "audio": "",
-    "ref": "Judges 11:34",
-    "week": 10,
+    "ref": "Mark 5:21–43",
+    "week": 5,
     "libraryKey": "jairus"
   },
   {
@@ -1241,12 +1244,12 @@
   },
   {
     "id": 136,
-    "title": "Mary and Martha",
+    "title": "Jesus Visits Mary and Martha",
     "file": "",
     "audio": "",
-    "ref": "Luke 10:42",
+    "ref": "Luke 10:38–42",
     "week": 11,
-    "libraryKey": "goodSamaritan"
+    "libraryKey": "maryMartha"
   },
   {
     "id": 137,
@@ -1322,10 +1325,10 @@
   },
   {
     "id": 145,
-    "title": "Jesus Enters Bethany",
+    "title": "Jesus Brings Lazarus Back to Life",
     "file": "",
     "audio": "",
-    "ref": "John 11:17",
+    "ref": "John 11:1–44",
     "week": 12,
     "libraryKey": "lazarus"
   },
@@ -1345,7 +1348,7 @@
     "audio": "",
     "ref": "Matthew 13:47",
     "week": 12,
-    "libraryKey": "parableSower"
+    "libraryKey": ""
   },
   {
     "id": 148,
@@ -1354,7 +1357,7 @@
     "audio": "",
     "ref": "Matthew 13:45-46",
     "week": 12,
-    "libraryKey": "parableSower"
+    "libraryKey": ""
   },
   {
     "id": 149,
@@ -1363,7 +1366,7 @@
     "audio": "",
     "ref": "Mark 8:9",
     "week": 12,
-    "libraryKey": "jesusFeeds5000"
+    "libraryKey": ""
   },
   {
     "id": 150,
@@ -1636,7 +1639,7 @@
   },
   {
     "id": 179,
-    "title": "Solomon Builds the Temple",
+    "title": "Solomon Builds God's House",
     "file": "",
     "audio": "",
     "ref": "1 Kings 6:1-14; 8:1-13, 22-30",
@@ -1646,7 +1649,7 @@
   },
   {
     "id": 180,
-    "title": "Elijah and the Widow of Zarephath",
+    "title": "God Multiplies the Widow's Oil and Meal",
     "file": "",
     "audio": "",
     "ref": "1 Kings 17:8-16",
@@ -1656,7 +1659,7 @@
   },
   {
     "id": 181,
-    "title": "Elijah Calls Elisha in the Field",
+    "title": "Elisha Follows Elijah",
     "file": "",
     "audio": "",
     "ref": "1 Kings 19:19-21",
@@ -1676,7 +1679,7 @@
   },
   {
     "id": 183,
-    "title": "Elisha and the Floating Axe Head",
+    "title": "God Makes the Iron Swim",
     "file": "",
     "audio": "",
     "ref": "2 Kings 6:1-7",
@@ -1686,7 +1689,7 @@
   },
   {
     "id": 184,
-    "title": "Elisha and the Chariots of Fire",
+    "title": "God’s Army Protects Elisha",
     "file": "",
     "audio": "",
     "ref": "2 Kings 6:8-17",
@@ -1696,7 +1699,7 @@
   },
   {
     "id": 185,
-    "title": "Elisha and the Poisoned Stew",
+    "title": "God Makes the Stew Safe",
     "file": "",
     "audio": "",
     "ref": "2 Kings 4:38-41",
@@ -1706,7 +1709,7 @@
   },
   {
     "id": 186,
-    "title": "Elisha and the Blind Syrian Army",
+    "title": "God Protects Elisha with Kindness",
     "file": "",
     "audio": "",
     "ref": "2 Kings 6:18-23",
@@ -1716,7 +1719,7 @@
   },
   {
     "id": 187,
-    "title": "Gehazi and Honest Hearts",
+    "title": "Honest Hearts Are Better Than Silver",
     "file": "",
     "audio": "",
     "ref": "2 Kings 5:20-27",
@@ -1773,5 +1776,161 @@
     "week": 12,
     "libraryKey": "elishaBones",
     "kjvText": "And it came to pass, as they were burying a man, that, behold, they spied a band of men; and they cast the man into the sepulchre of Elisha: and when the man was let down, and touched the bones of Elisha, he revived, and stood up on his feet."
+  },
+  {
+    "id": 193,
+    "title": "David Shows Kindness to Mephibosheth",
+    "file": "",
+    "audio": "",
+    "ref": "2 Samuel 9:1-13",
+    "week": 12,
+    "libraryKey": "mephibosheth",
+    "kjvText": "And David said unto him, Fear not: for I will surely shew thee kindness for Jonathan thy father's sake, and will restore thee all the land of Saul thy father; and thou shalt eat bread at my table continually."
+  },
+  {
+    "id": 194,
+    "title": "David's Sadness and God's Care",
+    "file": "",
+    "audio": "",
+    "ref": "2 Samuel 15:1-37; 16:15-23; 19:1-15",
+    "week": 12,
+    "libraryKey": "absalomRebellion",
+    "kjvText": "And David said, O LORD, I pray thee, turn the counsel of Ahithophel into foolishness."
+  },
+  {
+    "id": 195,
+    "title": "David's Repentance and God's Mercy",
+    "file": "",
+    "audio": "",
+    "ref": "2 Samuel 11:1-27; 12:1-13; Psalm 51:1-12",
+    "week": 12,
+    "libraryKey": "davidBathsheba",
+    "kjvText": "Create in me a clean heart, O God; and renew a right spirit within me."
+  },
+  {
+    "id": 196,
+    "title": "Jesus Goes to His Father's House",
+    "file": "",
+    "audio": "",
+    "ref": "Luke 2:41–52",
+    "week": 5,
+    "libraryKey": "jesusTemple"
+  },
+  {
+    "id": 197,
+    "title": "Jesus Is Baptized by John",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 3:13–17",
+    "week": 5,
+    "libraryKey": "jesusBaptism"
+  },
+  {
+    "id": 198,
+    "title": "Jesus Calls His Helpers",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 4:18–22",
+    "week": 5,
+    "libraryKey": "jesusDisciples"
+  },
+  {
+    "id": 199,
+    "title": "Jesus Does His First Miracle",
+    "file": "",
+    "audio": "",
+    "ref": "John 2:1–11",
+    "week": 5,
+    "libraryKey": "jesusWaterWine"
+  },
+  {
+    "id": 200,
+    "title": "Jesus Says No to Wrong Things",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 4:1–11",
+    "week": 5,
+    "libraryKey": "jesusTempted"
+  },
+  {
+    "id": 201,
+    "title": "Jesus Teaches How to Live God’s Way",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 5:1–16",
+    "week": 5,
+    "libraryKey": "jesusSermon"
+  },
+  {
+    "id": 202,
+    "title": "Jesus Offers Living Water",
+    "file": "",
+    "audio": "",
+    "ref": "John 4:1–42",
+    "week": 5,
+    "libraryKey": "samaritanWoman"
+  },
+  {
+    "id": 203,
+    "title": "Jesus Heals a Boy from Far Away",
+    "file": "",
+    "audio": "",
+    "ref": "John 4:46–54",
+    "week": 5,
+    "libraryKey": "noblemanSon"
+  },
+  {
+    "id": 204,
+    "title": "Jesus Heals a Soldier's Servant from Far Away",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 8:5–13",
+    "week": 5,
+    "libraryKey": "centurionServant"
+  },
+  {
+    "id": 205,
+    "title": "Jesus Forgives and Heals a Man Who Could Not Walk",
+    "file": "",
+    "audio": "",
+    "ref": "Mark 2:1–12",
+    "week": 5,
+    "libraryKey": "jesusHealsParalytic"
+  },
+  {
+    "id": 206,
+    "title": "Jesus Heals a Man on the Sabbath",
+    "file": "",
+    "audio": "",
+    "ref": "Mark 3:1–6",
+    "week": 5,
+    "libraryKey": "witheredHand"
+  },
+  {
+    "id": 207,
+    "title": "Jesus Tells About a Tiny Seed That Grows Big",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 13:31–32",
+    "week": 6,
+    "libraryKey": "mustardSeed"
+  },
+  {
+    "id": 208,
+    "title": "Jesus Tells About a Treasure Worth Everything",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 13:44",
+    "week": 6,
+    "libraryKey": "parableHiddenTreasure"
+  },
+  {
+    "id": 209,
+    "title": "Jesus Tells About a Pearl Worth Everything",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 13:45–46",
+    "week": 6,
+    "libraryKey": "parablePearl"
   }
 ]

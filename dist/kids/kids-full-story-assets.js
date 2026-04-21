@@ -1,6 +1,6 @@
 /**
  * Full-length Bible story videos + WebVTT read-along.
- * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (307 stories).
+ * AUTO-GENERATED: keys match TDB_BIBLE_STORIES in kids-battle.js (310 stories).
  * Regenerate: node scripts/generate-kids-full-story-assets.js
  * Paths use kebab-case story keys under /media/kids-stories/
  * Playback is gated: add a key to FULL_STORY_LIVE_KEYS when mp4+vtt are deployed.
@@ -26,6 +26,11 @@
       mp4: '/media/kids-stories/abraham-isaac.mp4',
       webm: '/media/kids-stories/abraham-isaac.webm',
       captionsVtt: '/media/kids-stories/abraham-isaac.vtt'
+    },
+    absalomRebellion: {
+      mp4: '/media/kids-stories/absalom-rebellion.mp4',
+      webm: '/media/kids-stories/absalom-rebellion.webm',
+      captionsVtt: '/media/kids-stories/absalom-rebellion.vtt'
     },
     achan: {
       mp4: '/media/kids-stories/achan.mp4',
@@ -221,6 +226,11 @@
       mp4: '/media/kids-stories/david-anointed.mp4',
       webm: '/media/kids-stories/david-anointed.webm',
       captionsVtt: '/media/kids-stories/david-anointed.vtt'
+    },
+    davidBathsheba: {
+      mp4: '/media/kids-stories/david-bathsheba.mp4',
+      webm: '/media/kids-stories/david-bathsheba.webm',
+      captionsVtt: '/media/kids-stories/david-bathsheba.vtt'
     },
     davidCave: {
       mp4: '/media/kids-stories/david-cave.mp4',
@@ -512,7 +522,17 @@
       webm: '/media/kids-stories/heal-blind.webm',
       captionsVtt: '/media/kids-stories/heal-blind.vtt'
     },
+    manBornBlind: {
+      mp4: '/media/kids-stories/heal-blind.mp4',
+      webm: '/media/kids-stories/heal-blind.webm',
+      captionsVtt: '/media/kids-stories/heal-blind.vtt'
+    },
     healLeper: {
+      mp4: '/media/kids-stories/heal-leper.mp4',
+      webm: '/media/kids-stories/heal-leper.webm',
+      captionsVtt: '/media/kids-stories/heal-leper.vtt'
+    },
+    tenLepers: {
       mp4: '/media/kids-stories/heal-leper.mp4',
       webm: '/media/kids-stories/heal-leper.webm',
       captionsVtt: '/media/kids-stories/heal-leper.vtt'
@@ -587,6 +607,21 @@
       webm: '/media/kids-stories/jesus-baptism.webm',
       captionsVtt: '/media/kids-stories/jesus-baptism.vtt'
     },
+    jesusDisciples: {
+      mp4: '/media/kids-stories/jesus-calling-disciples.mp4',
+      webm: '/media/kids-stories/jesus-calling-disciples.webm',
+      captionsVtt: '/media/kids-stories/jesus-calling-disciples.vtt'
+    },
+    jesusWaterWine: {
+      mp4: '/media/kids-stories/jesus-first-miracle.mp4',
+      webm: '/media/kids-stories/jesus-first-miracle.webm',
+      captionsVtt: '/media/kids-stories/jesus-first-miracle.vtt'
+    },
+    jesusTempted: {
+      mp4: '/media/kids-stories/jesus-tempt.mp4',
+      webm: '/media/kids-stories/jesus-tempt.webm',
+      captionsVtt: '/media/kids-stories/jesus-tempt.vtt'
+    },
     jesusBirth: {
       mp4: '/media/kids-stories/jesus-birth.mp4',
       webm: '/media/kids-stories/jesus-birth.webm',
@@ -633,9 +668,9 @@
       captionsVtt: '/media/kids-stories/jesus-great-commission.vtt'
     },
     jesusHealsBlind: {
-      mp4: '/media/kids-stories/jesus-heals-blind.mp4',
-      webm: '/media/kids-stories/jesus-heals-blind.webm',
-      captionsVtt: '/media/kids-stories/jesus-heals-blind.vtt'
+      mp4: '/media/kids-stories/heal-blind.mp4',
+      webm: '/media/kids-stories/heal-blind.webm',
+      captionsVtt: '/media/kids-stories/heal-blind.vtt'
     },
     jesusHealsParalytic: {
       mp4: '/media/kids-stories/jesus-heals-paralytic.mp4',
@@ -678,6 +713,11 @@
       captionsVtt: '/media/kids-stories/jesus-resurrection.vtt'
     },
     jesusSermonMount: {
+      mp4: '/media/kids-stories/jesus-sermon-mount.mp4',
+      webm: '/media/kids-stories/jesus-sermon-mount.webm',
+      captionsVtt: '/media/kids-stories/jesus-sermon-mount.vtt'
+    },
+    jesusSermon: {
       mp4: '/media/kids-stories/jesus-sermon-mount.mp4',
       webm: '/media/kids-stories/jesus-sermon-mount.webm',
       captionsVtt: '/media/kids-stories/jesus-sermon-mount.vtt'
@@ -837,6 +877,11 @@
       webm: '/media/kids-stories/lost-sheep.webm',
       captionsVtt: '/media/kids-stories/lost-sheep.vtt'
     },
+    parableLostSheep: {
+      mp4: '/media/kids-stories/lost-sheep.mp4',
+      webm: '/media/kids-stories/lost-sheep.webm',
+      captionsVtt: '/media/kids-stories/lost-sheep.vtt'
+    },
     loveChapter: {
       mp4: '/media/kids-stories/love-chapter.mp4',
       webm: '/media/kids-stories/love-chapter.webm',
@@ -867,6 +912,11 @@
       webm: '/media/kids-stories/martha-serve.webm',
       captionsVtt: '/media/kids-stories/martha-serve.vtt'
     },
+    maryMartha: {
+      mp4: '/media/kids-stories/martha-serve.mp4',
+      webm: '/media/kids-stories/martha-serve.webm',
+      captionsVtt: '/media/kids-stories/martha-serve.vtt'
+    },
     maryAnoint: {
       mp4: '/media/kids-stories/mary-anoint.mp4',
       webm: '/media/kids-stories/mary-anoint.webm',
@@ -881,6 +931,11 @@
       mp4: '/media/kids-stories/mary-sit.mp4',
       webm: '/media/kids-stories/mary-sit.webm',
       captionsVtt: '/media/kids-stories/mary-sit.vtt'
+    },
+    mephibosheth: {
+      mp4: '/media/kids-stories/mephibosheth.mp4',
+      webm: '/media/kids-stories/mephibosheth.webm',
+      captionsVtt: '/media/kids-stories/mephibosheth.vtt'
     },
     miriamSong: {
       mp4: '/media/kids-stories/miriam-song.mp4',

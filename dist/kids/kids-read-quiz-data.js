@@ -1,6 +1,6 @@
 /**
  * Read-aloud story blocks + multiple-choice quiz (pedagogical wrong-answer hints).
- * Keys match TDB_BIBLE_STORIES (324 stories).
+ * Keys match TDB_BIBLE_STORIES (327 stories).
  * Regenerate: npm run kids:generate-read-quiz
  * Overrides: kids/read-quiz-handcrafted.cjs (Jericho; David & Goliath; Elisha bones; Ezra return; Nehemiah walls; Job read-along sections).
  *
@@ -144,9 +144,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 22",
-          "Luke 15:8–10",
-          "Job 1:1–22; 2:11–13",
-          "John 2:1–11"
+          "Matthew 5:1–16",
+          "Luke 24:50–53; Acts 1:6–11",
+          "Judges 7:1-22"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -465,10 +465,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Thessalonians 4:13–18; 5:16–24",
+          "Jeremiah 1:1–10; 13:17",
           "Acts 18:24–28",
-          "Luke 24:13–35",
-          "1 Samuel 13; 15"
+          "2 Kings 4:38-41",
+          "2 Kings 5:20-27"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -547,10 +547,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Esther 2:1–17",
+          "Acts 2:14–41",
           "Acts 25–26",
-          "Daniel 6:22",
-          "2 Kings 2:1-14"
+          "Matthew 13:31–32",
+          "Philemon 1"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -630,9 +630,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 17:22–34",
-          "1 Samuel 17:8–11, 16, 23–30",
-          "Luke 24:50–53; Acts 1:6–11",
-          "Matthew 28; Mark 16; Luke 24; John 20"
+          "2 Samuel 15:1-37; 16:15-23; 19:1-15",
+          "Matthew 26",
+          "1 Samuel 17:1-11, 32-51"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -713,10 +713,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 12:1–19",
-          "Romans–Philemon",
+          "Luke 10:25–37",
+          "Esther 2:1–17",
           "Acts 28:1–10",
-          "Revelation 17–18"
+          "Mark 10:13–16"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -797,9 +797,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 3",
-          "Judges 16:4-21",
-          "Revelation 20",
-          "Romans 16:1–2"
+          "2 Kings 13:14-19",
+          "1 Samuel 18:1-4; 20:1-42",
+          "Colossians 1:15–20; 3:1–4, 12–17"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -880,10 +880,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Kings 17:8-16",
-          "1 Samuel 16:1-13",
+          "Acts 27–28",
+          "John 4:46–54",
           "Revelation 1:8, 11, 17–18",
-          "Ezra 1:1–11; 3:1–6"
+          "Philippians 1:21; 2:5–11; 4:4–7, 13"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -964,10 +964,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 12:1–8",
-          "Jonah 1:1–17; 2:1–10; 3:1–10",
+          "Acts 5:12–16",
+          "Acts 28",
           "Revelation 22:12–13",
-          "Acts 13–14"
+          "Revelation 21–22"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1049,10 +1049,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 18:24–28",
+          "Luke 2:36–38",
           "Luke 1",
-          "2 Samuel 11:1-27; 12:1-13; Psalm 51:1-12",
-          "Exodus 3:1-15"
+          "Judges 4:1-16",
+          "Genesis 1"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1133,10 +1133,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 24:13–35",
-          "1 Thessalonians 4:13–18; 5:16–24",
+          "Mark 5:21–43",
+          "Jonah 1:1–17; 2:1–10; 3:1–10",
           "Luke 2:36–38",
-          "1 Samuel 13; 15"
+          "John 10:1–18"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1217,9 +1217,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
+          "Matthew 8:5–13",
           "1 Samuel 16:14-23",
           "2 Kings 6:8-17",
-          "Joshua 6:1-21",
           "Ephesians 6"
         ],
         "correctIndex": 3,
@@ -1299,9 +1299,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 13",
-          "Ruth 4:1-17",
-          "Acts 2:14–41",
+          "Revelation 1–22",
+          "Ruth 1",
+          "Acts 3",
           "Ephesians 6"
         ],
         "correctIndex": 3,
@@ -1383,10 +1383,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Kings 19:9-18",
+          "Acts 18:23–21:17",
           "Ephesians 6",
-          "1 Samuel 1:1-20",
-          "Philippians 2:8–11"
+          "Revelation 4–5",
+          "Matthew 6"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1467,9 +1467,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 7:8–13",
-          "Acts 12:1–19",
-          "Romans–Philemon",
+          "Acts 28:1–10",
+          "1 Samuel 18:1-4; 20:1-42",
+          "Colossians 1:15–20; 3:1–4, 12–17",
           "Ephesians 6"
         ],
         "correctIndex": 3,
@@ -1551,10 +1551,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 28; Mark 16; Luke 24; John 20",
-          "Luke 24:50–53; Acts 1:6–11",
+          "Jeremiah 1:1–10; 13:17",
+          "2 Kings 5:20-27",
           "Acts 1:6–11",
-          "Genesis 40"
+          "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1636,10 +1636,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Nehemiah 1:1–4; 2:1–20; 3:1–32",
+          "Daniel 6",
           "Numbers 22:1–20",
-          "Genesis 41",
-          "Acts 15:36–18:22"
+          "Philippians 2:8–11",
+          "1 Kings 19:9-18"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1722,9 +1722,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Numbers 23–24",
-          "Matthew 7",
-          "1 Timothy 1–6; 2 Timothy 1–4",
-          "Revelation 8–11"
+          "Acts 2:14–41",
+          "Philemon 1",
+          "Revelation 13"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -1805,10 +1805,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Mark 2:1–12",
-          "Acts 16:11–15",
+          "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
+          "Luke 2:8–20",
           "Numbers 22",
-          "Revelation 1"
+          "Ruth 2"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2008,10 +2008,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 4:1-16",
-          "Judges 6:11-40",
+          "1 Samuel 16:1-13",
+          "Ezra 1:1–11; 3:1–6",
           "Revelation 13:16–18",
-          "2 Kings 4:8-37"
+          "1 Kings 17:8-16"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2092,10 +2092,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Romans 3:23; 5:8; 6:23; 10:9–10",
+          "Revelation 17–18",
           "Matthew 26",
-          "John 20:24–29",
-          "1 Samuel 9–10"
+          "Luke 2:22–38",
+          "Ruth 1:1-18"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2418,9 +2418,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 4",
-          "Luke 15:3–7",
-          "Matthew 13:44",
-          "Acts 16:16–40"
+          "2 Kings 4:1-7",
+          "Ephesians 6",
+          "Luke 23"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2633,10 +2633,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 27–28",
+          "Genesis 39–40",
           "Colossians 1:15–20; 3:1–4, 12–17",
-          "Revelation 19",
-          "Philippians 1:21; 2:5–11; 4:4–7, 13"
+          "Acts 9:1–19",
+          "Luke 10:38–42"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2719,9 +2719,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 22",
-          "Judges 6:11-40",
-          "2 Kings 4:8-37",
-          "Judges 4:1-16"
+          "2 Kings 5:20-27",
+          "2 Kings 4:38-41",
+          "1 Samuel 16:11; 17:15, 34–37"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2801,10 +2801,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 4:46–54",
+          "Hebrews 11",
           "1 Corinthians 12",
-          "Philippians 1:21; 2:5–11; 4:4–7, 13",
-          "Acts 27–28"
+          "1 John 1–5",
+          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2886,9 +2886,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 15",
-          "2 Kings 5:1-14",
-          "Acts 28",
-          "Acts 5:12–16"
+          "Daniel 6:22",
+          "2 Kings 2:1-14",
+          "Esther 2:1–17"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -2970,10 +2970,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 20:7–12",
-          "Exodus 14:21-31",
+          "Numbers 13:1-33; 14:1-9",
+          "John 4:1–42",
           "Genesis 1",
-          "Acts 3"
+          "2 Kings 4:1-7"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3056,9 +3056,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 1:3",
-          "Acts 2:1–13",
-          "Matthew 18:21–35",
-          "Matthew 28:16–20; Mark 16:15–18"
+          "2 Kings 6:24-7:20",
+          "Revelation 21–22",
+          "1 Kings 3:5-15"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3138,9 +3138,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 23",
-          "Acts 19",
-          "Exodus 2:5",
-          "1 Peter 1–5"
+          "Mark 5:21–43",
+          "Galatians 5",
+          "John 10:1–18"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3220,9 +3220,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 27; Mark 15; Luke 23; John 19",
-          "Job 1:1–22; 2:11–13",
-          "John 2:1–11",
-          "Luke 15:8–10"
+          "Genesis 4",
+          "Acts 17:22–34",
+          "1 Samuel 16:14-23"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3305,9 +3305,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Daniel 6:22",
-          "Nehemiah 1:1–4; 2:1–20; 3:1–32",
-          "Jude 1",
-          "Acts 15:36–18:22"
+          "Genesis 1",
+          "Luke 2:36–38",
+          "the Bible"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -3650,9 +3650,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Daniel 6",
-          "1 Samuel 1",
-          "Mark 10:13–16",
-          "2 Timothy 1:5–7; 3:15"
+          "1 Samuel 1–2",
+          "Matthew 14:13–21",
+          "Ezekiel 37:1–14"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -4936,9 +4936,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 18:6-11, 17-19:17",
-          "2 Samuel 15:1-37; 16:15-23; 19:1-15",
-          "Exodus 20:1-17",
-          "1 Samuel 1:21-28; 2:1-11, 18-21"
+          "2 Kings 5:20-27",
+          "2 Kings 4:38-41",
+          "1 Samuel 16:11; 17:15, 34–37"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5019,10 +5019,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 John 1–5",
-          "Matthew 28:16–20; Mark 16:15–18",
+          "Esther 5:1–8; 7:1–10",
+          "Acts 2:42–47",
           "1 Samuel 18:6-11, 17-19:17",
-          "1 Corinthians 13"
+          "1 Samuel 17:8–11, 16, 23–30"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5104,9 +5104,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 16:11; 17:15, 34–37",
-          "Genesis 6–9",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
-          "Acts 27"
+          "Matthew 5–7",
+          "Matthew 3:13–17",
+          "Genesis 41:41"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5309,10 +5309,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 6:18-23",
-          "Luke 17",
+          "Luke 24",
+          "Luke 24:50–53; Acts 1:6–11",
           "the Bible",
-          "Matthew 17:20; Mark 11:23–24"
+          "Judges 7:1-22"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5394,9 +5394,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 17:20; Mark 11:23–24",
-          "Luke 17",
-          "2 Kings 6:18-23",
+          "Numbers 23–24",
+          "Daniel 6:22",
+          "Luke 19:1–10",
           "Acts 9:36–43"
         ],
         "correctIndex": 3,
@@ -5479,9 +5479,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "2 Kings 13:14-19",
-          "1 Samuel 16:14-23",
-          "Matthew 8:5–13"
+          "Philemon 1",
+          "Matthew 13:31–32",
+          "Jude 1"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -5562,9 +5562,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 12",
-          "1 Samuel 3:1-21",
-          "Exodus 7–12",
+          "Acts 27–28",
+          "Philippians 1:21; 2:5–11; 4:4–7, 13",
+          "Revelation 19",
           "Acts 2:42–47"
         ],
         "correctIndex": 3,
@@ -6021,9 +6021,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 2:22–38",
-          "Matthew 17:1–13",
-          "Revelation 22:12–13",
+          "2 Kings 5:1-14",
+          "Acts 28",
+          "Acts 5:12–16",
           "1 Kings 18:17-39"
         ],
         "correctIndex": 3,
@@ -7378,9 +7378,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ruth 1",
-          "Genesis 11",
-          "2 Kings 8:1-6",
+          "John 20:24–29",
+          "Genesis 4",
+          "Acts 17:22–34",
           "Luke 24"
         ],
         "correctIndex": 3,
@@ -7960,10 +7960,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 2:1–13",
-          "1 John 1–5",
+          "1 Samuel 1:21-28; 2:1-11, 18-21",
+          "Genesis 22",
           "2 Timothy 1:5–7; 3:15",
-          "Matthew 28:16–20; Mark 16:15–18"
+          "Exodus 20:1-17"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8044,10 +8044,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Judges 13:1-25",
-          "Luke 19:1–10",
+          "Revelation 6–8:1",
+          "Numbers 13:1-33; 14:1-9",
           "Philippians 2:8–11",
-          "Acts 7"
+          "John 4:1–42"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8379,10 +8379,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 32:1-8, 15-20, 30-32",
-          "Luke 24",
+          "Revelation 1:8, 11, 17–18",
+          "Genesis 11",
           "Matthew 17:20; Mark 11:23–24",
-          "Matthew; Mark; Luke; John (Gospels overview)"
+          "Revelation 22"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8463,10 +8463,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 1:1-20",
+          "2 Kings 4:8-37",
           "Matthew 17",
-          "1 Kings 18:17-39",
-          "2 Timothy 1:5–7; 3:15"
+          "Genesis 1",
+          "Judges 4:1-16"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8793,9 +8793,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 16:1-36",
-          "Exodus 12:1-14",
-          "Jonah 1:17",
+          "Philippians 2:8–11",
+          "1 Samuel 1–2",
+          "1 Kings 19:9-18",
           "Matthew 18:21–35"
         ],
         "correctIndex": 3,
@@ -8878,9 +8878,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Acts 16:11–15",
-          "Matthew 13:1–23",
-          "1 Timothy 1–6; 2 Timothy 1–4"
+          "Luke 10:38–42",
+          "Acts 9:1–19",
+          "Acts 2:4–21"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -8961,9 +8961,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Galatians 5",
-          "2 Timothy 4:6–8",
-          "2 Samuel 9:1-13",
-          "Genesis 37:3"
+          "1 Peter 1–5",
+          "Acts 19",
+          "Exodus 2:5"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9044,10 +9044,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 19",
+          "Revelation 1–3",
           "Matthew 26:36–46; Luke 22:44",
-          "Acts 27–28",
-          "Philippians 1:21; 2:5–11; 4:4–7, 13"
+          "Ephesians, Philippians, Colossians, Philemon",
+          "2 Peter 1–3"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9623,10 +9623,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 7",
-          "1 Timothy 1–6; 2 Timothy 1–4",
+          "Matthew 13:31–32",
+          "Jude 1",
           "1 Samuel 17:8–11, 16, 23–30",
-          "Revelation 8–11"
+          "Philemon 1"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9694,86 +9694,141 @@
     ]
   },
   "goodSamaritan": {
-    "kjvRef": "Luke 10",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Luke 10:25–37 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "Go, and do thou likewise. — Luke 10:37 (KJV)",
+    "readAlongTitle": "Jesus Tells About Helping Others",
+    "quizWrongHumilityHint": "Listen again — road; hurt; priest; Levite; Samaritan; compassion; bound up; inn; neighbour; mercy; likewise.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Good Samaritan (Luke 10).",
-      "Man hurt on the road Samaritan stops to help Love your neighbor—help anyone!"
+      "Jesus told a story about a man who was going down the road from Jerusalem to Jericho.",
+      "Robbers attacked him, took his things, and left him hurt on the side of the road.",
+      "A priest came by, saw the hurt man, and walked on the other side.",
+      "A Levite came by, looked at the man, and also passed by.",
+      "Then a Samaritan man came along.",
+      "Even though Samaritans and Jews usually did not like each other, the Samaritan felt sorry for the hurt man.",
+      "He stopped, bandaged the man’s wounds, put him on his own donkey, took him to an inn, and took care of him.",
+      "The next day he gave the innkeeper money and said, “Take care of him, and whatever you spend more, I will repay you when I come again.”",
+      "Jesus asked, “Which of these three was neighbour unto him that fell among the thieves?”",
+      "The answer was, “He that shewed mercy on him.”",
+      "Jesus said, “Go, and do thou likewise.”",
+      "Jesus wants us to show kindness and help anyone who needs it, even people who are different from us.",
+      "Reference: Luke 10:25–37 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "A man was hurt on the road.",
+        "caption": "Jerusalem to Jericho",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "A priest walked by without helping.",
+        "caption": "Passed by on the other side",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "A Levite also passed by.",
+        "caption": "Looked — and went on",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "A Samaritan man stopped and felt sorry.",
+        "caption": "He had compassion",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "He bandaged the man and took him to an inn.",
+        "caption": "Oil and wine — care at the inn",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Jesus said, “Go and do likewise.”",
+        "caption": "He that shewed mercy",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Jesus wants us to help anyone who needs it.",
+        "caption": "Love thy neighbour as thyself",
+        "image": "panel-noah-2.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 10",
-          "Nehemiah 1:1–4; 2:1–20; 3:1–32",
-          "Jude 1",
-          "Acts 15:36–18:22"
+          "Psalm 23",
+          "Luke 10:25–37",
+          "Jonah 1",
+          "Genesis 1"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Luke 10.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Luke 10:25–37.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "Who showed mercy and helped the hurt man?",
         "choices": [
-          "The Lord",
-          "Joshua",
-          "Paul",
-          "Jesus"
+          "The Samaritan — he had compassion, helped him, and took care of him.",
+          "Only the wind.",
+          "A picnic basket.",
+          "Nobody — everyone ran away forever."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Jesus’ story in Luke 10.",
+        "wrongFeedback": "Think about which person stopped and cared for the hurt man. (Answer: the Samaritan.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "Love your neighbor—help anyone! Be kind to people who need you.",
-          "We should hide from God when we mess up.",
-          "The Bible is only pretend stories.",
-          "God never hears when kids pray."
+          "We should never help strangers.",
+          "Jesus wants us to show kindness and help anyone who needs it — “Go, and do thou likewise.”",
+          "God only loves people who are exactly like us.",
+          "Mercy does not matter."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Love your neighbor—help anyone! Be kind to people who need you..)"
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread Jesus’ words “Go, and do thou likewise.” (Answer: kindness… help… likewise.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "A talking toaster became king of the city.",
-          "Man hurt on the road",
-          "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again."
+          "He that shewed mercy on him.",
+          "The donkey filed taxes.",
+          "The road turned into soup.",
+          "Everyone forgot how to walk."
         ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that wonder comes from God’s Word.",
+        "wrongFeedback": "Cross out the joke answers. Which matches Luke 10? (Answer: he that shewed mercy.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Love your neighbor—help anyone! Be kind to people who need you.",
-          "Only be kind to people who are exactly like us.",
-          "Ignore God until we are older.",
-          "Never say sorry when we do wrong."
+          "Ask Jesus to help us notice who needs help today — then show mercy in a small, real way.",
+          "Never think about kindness.",
+          "Hide when someone needs help.",
+          "Only grown-ups should care."
         ],
         "correctIndex": 0,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Love your neighbor—help anyone! Be kind to people who need you..)"
+        "wrongFeedback": "Think: which honors Jesus’ “likewise”? (Answer: notice needs… show mercy.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Good Samaritan with God's Word today.",
-    "takeaway": "Love your neighbor—help anyone! Be kind to people who need you.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Good Samaritan. Amen.",
+    "doneMessage": "Great job reading Jesus Tells About Helping Others with God's Word today.",
+    "takeaway": "Jesus wants us to show kindness and help anyone who needs it, even people who are different from us.",
+    "prayer": "Lord Jesus, thank You for showing us mercy. Help me love my neighbour and do likewise today. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Man hurt on the road (good samaritan)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Samaritan stops to help (neighbor)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Love your neighbor—help anyone! (help)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Man hurt on the road (stranger)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Samaritan stops to help (bandage)"
-    ]
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: a kind Samaritan man kneeling beside a hurt traveler on the road he is gently bandaging the man’s arm his donkey stands nearby thick bold outlines with large open spaces on the Samaritan robe the traveler robe the bandages and the road for easy coloring soft hills and a gentle sky with minimal lines kind and caring mood focus on helping someone who needs it clean minimal no scary robbers or blood plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky blue, friendly not scary, no text in image: Hurt on the road — gentle honesty (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky blue, friendly not scary, no text in image: Priest and Levite — passed by (pause)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky blue, friendly not scary, no text in image: Samaritan had compassion (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky blue, friendly not scary, no text in image: Bound up wounds — oil and wine (help)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky blue, friendly not scary, no text in image: Inn — rest and care (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky blue, friendly not scary, no text in image: Go and do likewise (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky blue, friendly not scary, no text in image: Who was neighbour? Mercy wins (hope)"
+    ],
+    "readAlongImages": []
   },
   "greatCommission": {
     "kjvRef": "Matthew 28:18–20",
@@ -9789,10 +9844,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 17",
+          "Numbers 21:1-9",
           "Matthew 28:18–20",
-          "1 Kings 17:8-16",
-          "Ezra 1:1–11; 3:1–6"
+          "Matthew 25",
+          "Acts 18:24–28"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -9873,9 +9928,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 22:12–13",
-          "1 Samuel 18:6-11, 17-19:17",
-          "1 Corinthians 12",
+          "Matthew 28:18–20",
+          "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19",
+          "Mark 4:35–41",
           "1 Samuel 1"
         ],
         "correctIndex": 3,
@@ -10087,9 +10142,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 1–2",
-          "Revelation 21",
-          "Matthew 17:20; Mark 11:23–24",
-          "2 Kings 6:18-23"
+          "Genesis 41",
+          "Acts 15:36–18:22",
+          "Nehemiah 1:1–4; 2:1–20; 3:1–32"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10156,175 +10211,6 @@
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Eli blesses Hannah—God hears her prayer (eli)"
     ]
   },
-  "healBlind": {
-    "kjvRef": "John 9",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
-    "paragraphs": [
-      "Jesus Heals a Blind Man (John 9).",
-      "A man is born blind Jesus puts mud on his eyes He washes and sees—I was blind, now I see!",
-      "Jesus opens our eyes—in our hearts too!",
-      "Ask Him to help you see."
-    ],
-    "quizHeading": "Quiz — think it through",
-    "questions": [
-      {
-        "question": "Where is this story found in the Bible?",
-        "choices": [
-          "John 9",
-          "1 Samuel 17:1-11, 32-51",
-          "1 Kings 17:1-7",
-          "Matthew 26"
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: John 9.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "Jude",
-          "The Holy Ghost",
-          "Jesus",
-          "The apostles"
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "The Bible is only pretend stories.",
-          "God never hears when kids pray.",
-          "Jesus opens our eyes—in our hearts too! Ask Him to help you see.",
-          "We should hide from God when we mess up."
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Jesus opens our eyes—in our hearts too! Ask Him to help you see..)"
-      },
-      {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
-        "choices": [
-          "A spaceship landed in the parking lot.",
-          "A talking toaster became king of the city.",
-          "Everyone decided to never sleep again.",
-          "A man is born blind"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
-      },
-      {
-        "question": "What is one good way to respond to God after this story?",
-        "choices": [
-          "Jesus opens our eyes—in our hearts too! Ask Him to help you see.",
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong.",
-          "Ignore God until we are older."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Jesus opens our eyes—in our hearts too! Ask Him to help you see..)"
-      }
-    ],
-    "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Jesus Heals a Blind Man with God's Word today.",
-    "takeaway": "Jesus opens our eyes—in our hearts too! Ask Him to help you see.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Jesus Heals a Blind Man. Amen.",
-    "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A man is born blind (blind)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus puts mud on his eyes (heal)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: He washes and sees—I was blind, now I see! (mud)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A man is born blind (john 9)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus puts mud on his eyes (eyes)"
-    ]
-  },
-  "healLeper": {
-    "kjvRef": "Luke 17",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
-    "paragraphs": [
-      "Jesus Heals Ten Lepers (Luke 17).",
-      "Ten lepers call out: Jesus, have mercy!",
-      "Jesus says: Go show yourselves to the priest As they go—all ten are clean!",
-      "Jesus heals and cleans us inside!",
-      "Always say thank you to Him."
-    ],
-    "quizHeading": "Quiz — think it through",
-    "questions": [
-      {
-        "question": "Where is this story found in the Bible?",
-        "choices": [
-          "Acts 5:12–16",
-          "Luke 17",
-          "2 Kings 6:24-7:20",
-          "Revelation 21–22"
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Luke 17.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "Jesus",
-          "Joshua",
-          "Paul",
-          "The crowds"
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "God never hears when kids pray.",
-          "Jesus heals and cleans us inside! Always say thank you to Him."
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Jesus heals and cleans us inside! Always say thank you to Him..)"
-      },
-      {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
-        "choices": [
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city.",
-          "Ten lepers call out: Jesus, have mercy!",
-          "A spaceship landed in the parking lot."
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
-      },
-      {
-        "question": "What is one good way to respond to God after this story?",
-        "choices": [
-          "Ignore God until we are older.",
-          "Jesus heals and cleans us inside! Always say thank you to Him.",
-          "Never say sorry when we do wrong.",
-          "Only be kind to people who are exactly like us."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Jesus heals and cleans us inside! Always say thank you to Him..)"
-      }
-    ],
-    "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Jesus Heals Ten Lepers with God's Word today.",
-    "takeaway": "Jesus heals and cleans us inside! Always say thank you to Him.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Jesus Heals Ten Lepers. Amen.",
-    "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Ten lepers call out: Jesus, have mercy! (leper)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus says: Go show yourselves to the priest (heal)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: As they go—all ten are clean! (luke 17)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Ten lepers call out: Jesus, have mercy! (mercy)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus says: Go show yourselves to the priest (clean)"
-    ]
-  },
   "heavenDoor": {
     "kjvRef": "the Bible",
     "hintAboveQuiz": "Use the comic pictures above while you read.",
@@ -10341,9 +10227,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "2 Kings 5:1-14",
-          "Acts 28",
-          "Joshua 24:14-15"
+          "Matthew 17:1–13",
+          "Revelation 22:12–13",
+          "1 Kings 6:1-14; 8:1-13, 22-30"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10424,10 +10310,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Malachi 3:1; 4:5–6",
+          "Acts 27–28",
           "Revelation 21",
-          "Titus 1–3",
-          "Matthew 25:14–30"
+          "Revelation 19",
+          "Philippians 1:21; 2:5–11; 4:4–7, 13"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10506,9 +10392,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 13:16–18",
-          "Daniel 6",
-          "1 Kings 19:9-18",
+          "Jonah 1:1–17; 2:1–10; 3:1–10",
+          "John 9:1–38",
+          "Matthew 13:1–23",
           "Hebrews 11"
         ],
         "correctIndex": 3,
@@ -10591,9 +10477,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 2:1–4",
-          "Psalm 23:1-6",
-          "Acts 13–14",
+          "Revelation 14–15",
+          "Judges 16:23-30",
+          "Acts 8:26–40",
           "Acts 2:1–13"
         ],
         "correctIndex": 3,
@@ -10799,10 +10685,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 13:31–32",
-          "Philemon 1",
+          "Acts 19",
+          "1 Peter 1–5",
           "Genesis 28:10–22",
-          "Genesis 37:28"
+          "Exodus 2:5"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -10884,9 +10770,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Acts 28:1–10",
-          "Matthew 8:5–13",
-          "1 Timothy 4:12"
+          "John 20:24–29",
+          "Acts 17:22–34",
+          "1 Samuel 18"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -11099,10 +10985,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 12:1–19",
+          "Esther 2:1–17",
           "James 2:14–26",
-          "Ruth 1:1-18",
-          "Revelation 17–18"
+          "Matthew 4:18–22; Luke 5:1–11",
+          "Luke 10:25–37"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -11421,9 +11307,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 39–40",
-          "Exodus 14:21-31",
-          "Matthew 5:1–16",
+          "Esther 4:1–17",
+          "Matthew 28:18–20",
+          "1 Kings 19:19-21",
           "Matthew; Mark; Luke; John (Gospels overview)"
         ],
         "correctIndex": 3,
@@ -11506,9 +11392,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 24:50–53; Acts 1:6–11",
-          "Jonah 1:17",
-          "Exodus 16:1-36",
-          "John 11:1–44"
+          "Genesis 22",
+          "Joshua 8:1-8, 18-23, 26-29",
+          "Exodus 20:1-17"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -11850,9 +11736,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Timothy 1:5–7; 3:15",
-          "1 Samuel 1",
-          "Matthew 4:18–22; Luke 5:1–11",
+          "Revelation 13:16–18",
+          "Daniel 6",
+          "1 Kings 19:9-18",
           "Mark 10:13–16"
         ],
         "correctIndex": 3,
@@ -11935,10 +11821,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 20",
+          "Acts 28:1–10",
           "Matthew 4:18–22; Luke 5:1–11",
-          "Joshua 10:12-14",
-          "Judges 16:4-21"
+          "1 Samuel 16:14-23",
+          "Matthew 8:5–13"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12155,10 +12041,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 6:1-7",
-          "Galatians 5",
+          "Luke 23",
+          "Acts 2:42–47",
           "Matthew 27; Mark 15; Luke 23; John 19",
-          "2 Samuel 5:1-12"
+          "Acts 1:6–11"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12506,10 +12392,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 28:1–10",
-          "1 Timothy 4:12",
+          "Luke 15:11–32",
+          "Acts 2",
           "John 2:1–11",
-          "Matthew 8:5–13"
+          "Matthew 19:16–22"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -12591,9 +12477,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
-          "John 20:1–18",
-          "Joshua 3:14-17; 4:1-7, 18-24",
+          "Numbers 13:1-33; 14:1-9",
+          "Ephesians 6",
+          "2 Kings 4:1-7",
           "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46"
         ],
         "correctIndex": 3,
@@ -12676,9 +12562,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 20:1-17",
-          "Revelation 13:16–18",
-          "2 Samuel 15:1-37; 16:15-23; 19:1-15",
+          "Acts 15:36–18:22",
+          "Revelation 6–8:1",
+          "Genesis 41",
           "Matthew 28:16–20; Mark 16:15–18"
         ],
         "correctIndex": 3,
@@ -12744,90 +12630,6 @@
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Lo, I am with you alway — preach the gospel to every creature (mark 16)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus on a mountain in Galilee — disciples worship Him (galilee)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: All power in heaven and earth — go, teach all nations, baptize (baptize)"
-    ]
-  },
-  "jesusHealsBlind": {
-    "kjvRef": "John 9",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
-    "paragraphs": [
-      "Jesus Heals the Man Born Blind (John 9).",
-      "Jesus makes clay and anoints a blind man's eyes The man washes in the pool of Siloam He sees.",
-      "\"One thing I know: I was blind, now I see!\" Jesus has power to help us see truth.",
-      "and to trust Him when others question."
-    ],
-    "quizHeading": "Quiz — think it through",
-    "questions": [
-      {
-        "question": "Where is this story found in the Bible?",
-        "choices": [
-          "Acts 2:42–47",
-          "1 Samuel 17:8–11, 16, 23–30",
-          "John 9",
-          "Esther 5:1–8; 7:1–10"
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: John 9.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "Jesus",
-          "The apostles",
-          "The Holy Ghost",
-          "Holy Spirit"
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "God never hears when kids pray.",
-          "Jesus has power to help us see truth — and to trust Him when others question."
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Jesus has power to help us see truth — and to trust Him when others question..)"
-      },
-      {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
-        "choices": [
-          "Jesus makes clay and anoints a blind man's eyes",
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city.",
-          "A spaceship landed in the parking lot."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
-      },
-      {
-        "question": "What is one good way to respond to God after this story?",
-        "choices": [
-          "Ignore God until we are older.",
-          "Never say sorry when we do wrong.",
-          "Jesus has power to help us see truth — and to trust Him when others question.",
-          "Only be kind to people who are exactly like us."
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Jesus has power to help us see truth — and to trust Him when others question..)"
-      }
-    ],
-    "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Jesus Heals the Man Born Blind with God's Word today.",
-    "takeaway": "Jesus has power to help us see truth — and to trust Him when others question.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Jesus Heals the Man Born Blind. Amen.",
-    "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus makes clay and anoints a blind man's eyes (blind)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The man washes in the pool of Siloam (born blind)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: He sees — \"One thing I know: I was blind, now I see!\" (john 9)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus makes clay and anoints a blind man's eyes (siloam)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The man washes in the pool of Siloam (mud)"
     ]
   },
   "jesusHealsParalytic": {
@@ -12982,9 +12784,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",
-          "Matthew 28",
-          "Luke 2:8–20",
-          "Genesis 3"
+          "Joshua 24:14-15",
+          "Matthew 4:1–11; Luke 4:1–13",
+          "Exodus 7:8–13"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13051,91 +12853,6 @@
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus breaks bread — This is My body (covenant)"
     ]
   },
-  "jesusLazarus": {
-    "kjvRef": "John 11:1–44",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
-    "paragraphs": [
-      "Lazarus, Come Forth (John 11:1–44). Mary and Martha send word.",
-      "Lazarus is sick Jesus at the tomb.",
-      "Lazarus, come forth Lazarus lives.",
-      "many believe on Jesus Jesus is the resurrection and the life.",
-      "nothing is too dead for Him to reach."
-    ],
-    "quizHeading": "Quiz — think it through",
-    "questions": [
-      {
-        "question": "Where is this story found in the Bible?",
-        "choices": [
-          "1 Kings 19:9-18",
-          "Philippians 2:8–11",
-          "1 Samuel 1:1-20",
-          "John 11:1–44"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: John 11:1–44.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "Jesus",
-          "God the Father",
-          "Philip",
-          "Jonathan"
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "God never hears when kids pray.",
-          "Jesus is the resurrection and the life — nothing is too dead for Him to reach.",
-          "We should hide from God when we mess up.",
-          "The Bible is only pretend stories."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Jesus is the resurrection and the life — nothing is too dead for Him to reach..)"
-      },
-      {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
-        "choices": [
-          "Mary and Martha send word — Lazarus is sick",
-          "Everyone decided to never sleep again.",
-          "A spaceship landed in the parking lot.",
-          "A talking toaster became king of the city."
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
-      },
-      {
-        "question": "What is one good way to respond to God after this story?",
-        "choices": [
-          "Ignore God until we are older.",
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong.",
-          "Jesus is the resurrection and the life — nothing is too dead for Him to reach."
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Jesus is the resurrection and the life — nothing is too dead for Him to reach..)"
-      }
-    ],
-    "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Lazarus, Come Forth with God's Word today.",
-    "takeaway": "Jesus is the resurrection and the life — nothing is too dead for Him to reach.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Lazarus, Come Forth. Amen.",
-    "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Mary and Martha send word — Lazarus is sick (lazarus)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus at the tomb — Lazarus, come forth (john 11)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Lazarus lives — many believe on Jesus (resurrection)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Mary and Martha send word — Lazarus is sick (life)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus at the tomb — Lazarus, come forth (mary)"
-    ]
-  },
   "jesusManger": {
     "kjvRef": "Luke 2:1–20",
     "hintAboveQuiz": "Use the comic pictures above while you read.",
@@ -13150,10 +12867,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Job 1:1–22; 2:11–13",
+          "Revelation 1–3",
           "Luke 2:1–20",
-          "John 4:46–54",
-          "Luke 15:8–10"
+          "1 Kings 3:16-28",
+          "Ruth 3:1-18"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13233,10 +12950,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 25",
-          "Acts 18:24–28",
+          "Genesis 22",
+          "Joshua 8:1-8, 18-23, 26-29",
           "John 10:1–18",
-          "Genesis 18:9–15"
+          "Exodus 20:1-17"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13317,9 +13034,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
-          "Genesis 6–9",
-          "Matthew 14:22–33",
+          "Revelation 22",
+          "2 Samuel 5:1-12",
+          "Revelation 1:8, 11, 17–18",
           "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19"
         ],
         "correctIndex": 3,
@@ -13403,9 +13120,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
-          "1 Kings 6:1-14; 8:1-13, 22-30",
-          "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16",
-          "Luke 1"
+          "Genesis 41:41",
+          "2 Samuel 9:1-13",
+          "2 Timothy 4:6–8"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13488,9 +13205,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 28; Mark 16; Luke 24; John 20",
-          "2 Kings 6:8-17",
-          "1 Samuel 16:14-23",
-          "Matthew 8:5–13"
+          "Esther 4:1–17",
+          "1 Kings 19:19-21",
+          "Daniel 3:1–30"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13695,10 +13412,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
-          "Matthew 14:22–33",
+          "the Bible",
+          "Genesis 1:3",
           "Matthew 5–7",
-          "Genesis 6–9"
+          "Luke 24"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -13911,9 +13628,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Daniel 6:22",
-          "Esther 2:1–17",
-          "2 Kings 2:1-14",
+          "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
+          "Luke 2:8–20",
+          "Ruth 2",
           "Matthew 4:1–11"
         ],
         "correctIndex": 3,
@@ -13993,10 +13710,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 9:36–43",
-          "Luke 23",
+          "John 10:1–18",
+          "Mark 5:21–43",
           "Matthew 4:1–11; Luke 4:1–13",
-          "Esther 4:1–17; 5:1–8; 7:1–10"
+          "Joshua 3:14-17; 4:1-7, 18-24"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14212,9 +13929,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 18:6-11, 17-19:17",
-          "2 Kings 2:19-22; 4:1-7",
+          "Revelation 22:12–13",
           "1 Corinthians 12",
+          "Matthew 17:1–13",
           "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19"
         ],
         "correctIndex": 3,
@@ -14689,10 +14406,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 11:1–44",
+          "Acts 25–26",
           "Luke 3; Matthew 3",
-          "2 Kings 5:20-27",
-          "Mark 5:21–43"
+          "1 Samuel 9–10",
+          "1 Thessalonians 4:13–18; 5:16–24"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14773,9 +14490,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 9:36–43",
-          "Esther 4:1–17; 5:1–8; 7:1–10",
-          "Luke 23",
+          "1 Samuel 13; 15",
+          "Matthew 25",
+          "Luke 24:13–35",
           "Matthew 3:13–17"
         ],
         "correctIndex": 3,
@@ -14856,10 +14573,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 18:1–3, 18–19",
-          "Titus 1–3",
+          "Acts 28:1–10",
+          "1 Timothy 4:12",
           "1 John 1–5",
-          "Revelation 12"
+          "Matthew 8:5–13"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -14939,9 +14656,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 1",
-          "Joshua 7:1-11",
-          "2 Kings 5:15-19",
-          "Luke 2:41–52"
+          "Ruth 2:1-17",
+          "1 Samuel 18",
+          "Exodus 14"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15021,10 +14738,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 19:16–22",
-          "Genesis 18:9–15",
+          "1 Samuel 17:1-11, 32-51",
+          "1 Kings 17:1-7",
           "2 John; 3 John",
-          "Luke 15:11–32"
+          "Matthew 26"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15106,10 +14823,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Galatians 5",
+          "Matthew 17:1–13",
           "Jonah 1:17",
-          "Mark 2:1–12",
-          "Isaiah 9:2–7"
+          "1 Corinthians 12",
+          "Revelation 22:12–13"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15434,9 +15151,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 5:12–16",
-          "Revelation 21–22",
-          "2 Kings 6:24-7:20",
+          "Numbers 22:1–20",
+          "Matthew 27; Mark 15; Luke 23; John 19",
+          "Acts 2:42–47",
           "Genesis 37:3"
         ],
         "correctIndex": 3,
@@ -15520,9 +15237,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 40",
-          "Ruth 1:1-18",
-          "Revelation 17–18",
-          "Luke 2:22–38"
+          "Matthew 17:1–13",
+          "1 Kings 6:1-14; 8:1-13, 22-30",
+          "Revelation 22:12–13"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15602,9 +15319,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 3:1-15",
-          "2 Samuel 11:1-27; 12:1-13; Psalm 51:1-12",
-          "2 Kings 6:18-23",
+          "Esther 2:1–17",
+          "Luke 10:25–37",
+          "Mark 10:13–16",
           "Genesis 39–40"
         ],
         "correctIndex": 3,
@@ -15687,9 +15404,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 41:41",
-          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
-          "Joshua 3:14-17; 4:1-7, 18-24",
-          "2 Samuel 9:1-13"
+          "Judges 6:11-40",
+          "Matthew; Mark; Luke; John (Gospels overview)",
+          "Matthew 28; Mark 16; Luke 24; John 20"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15772,9 +15489,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 37:28",
-          "Exodus 16:1-36",
-          "2 John; 3 John",
-          "Exodus 12:1-14"
+          "the Bible",
+          "Genesis 1:3",
+          "Luke 24"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -15856,9 +15573,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 1",
-          "1 Samuel 16:11; 17:15, 34–37",
-          "Acts 15",
+          "Matthew 13:31–32",
+          "Acts 2:14–41",
+          "Philemon 1",
           "Joshua 7:1-11"
         ],
         "correctIndex": 3,
@@ -16164,9 +15881,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 26",
-          "Ephesians, Philippians, Colossians, Philemon",
-          "2 Peter 1–3",
-          "2 Kings 5:15-19"
+          "Mark 12",
+          "Luke 2:36–38",
+          "1 Kings 3:5-15"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16245,10 +15962,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Numbers 22:1–20",
-          "Acts 2:42–47",
+          "Revelation 1:8, 11, 17–18",
+          "2 Samuel 5:1-12",
           "Jude 1",
-          "Matthew 27; Mark 15; Luke 23; John 19"
+          "Revelation 22"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16330,9 +16047,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Acts 2:42–47",
-          "Esther 5:1–8; 7:1–10",
-          "1 Samuel 17:8–11, 16, 23–30"
+          "Mark 2:1–12",
+          "2 John; 3 John",
+          "Acts 16:11–15"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16412,9 +16129,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "2 Kings 2:1-14",
-          "Matthew 27; Mark 15; Luke 23; John 19",
-          "Esther 2:1–17"
+          "Philippians 2:8–11",
+          "1 Kings 19:9-18",
+          "1 Samuel 1:1-20"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16496,9 +16213,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
-          "2 Kings 6:24-7:20",
-          "Revelation 21–22",
-          "Acts 5:12–16"
+          "Luke 2:1–20",
+          "1 Samuel 17:8–11, 16, 23–30",
+          "Esther 5:1–8; 7:1–10"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16566,89 +16283,133 @@
     ]
   },
   "lazarus": {
-    "kjvRef": "John 11:1–44",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "John 11:1–44 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "Jesus said unto her, I am the resurrection, and the life. — John 11:25 (KJV)",
+    "readAlongTitle": "Jesus Brings Lazarus Back to Life",
+    "quizWrongHumilityHint": "Listen again — Bethany; sick; died; four days; tomb; Martha; believe; resurrection; life; come forth; loose him; believe.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Lazarus Rise – John 11:43-44. Lazarus was very sick, and his sisters Mary and Martha sent for Jesus.",
-      "But Jesus waited. When He arrived, Lazarus had died and was in the tomb for 4 days.",
-      "Jesus went to the tomb and said, 'Lazarus, come forth!' Lazarus came out, still wrapped in grave clothes. Jesus said, 'Loose him, and let him go.' Everyone was amazed—Jesus has power over death!",
-      "For you: When things feel dead or hopeless, Jesus can bring new life. He is the resurrection.",
-      "Trust Him with your hardest days—He has power to make things new."
+      "Jesus had a friend named Lazarus who lived in Bethany with his sisters Mary and Martha.",
+      "Lazarus became very sick and died.",
+      "When Jesus came, Lazarus had been in the tomb for four days.",
+      "Mary and Martha were very sad.",
+      "Jesus said to Martha, “I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live.”",
+      "Then Jesus went to the tomb and said, “Lazarus, come forth.”",
+      "Lazarus walked out of the tomb, alive again!",
+      "Many people who saw this believed in Jesus.",
+      "Jesus has power over death and brings hope and life.",
+      "Reference: John 11:1–44 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Lazarus was very sick and died.",
+        "caption": "A hard day in Bethany",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Jesus came to the tomb.",
+        "caption": "Jesus draws near",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Jesus said, “I am the resurrection and the life.”",
+        "caption": "Believest thou this?",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Jesus called, “Lazarus, come forth.”",
+        "caption": "Come forth",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Lazarus walked out alive.",
+        "caption": "Loose him, and let him go",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Jesus has power over death.",
+        "caption": "Hope and life",
+        "image": "panel-noah-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 20:1-17",
-          "Revelation 13:16–18",
+          "Psalm 23",
           "John 11:1–44",
-          "2 Samuel 15:1-37; 16:15-23; 19:1-15"
+          "Jonah 1",
+          "Genesis 1"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: John 11:1–44.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: John 11:1–44.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "Who was Lazarus to Jesus in this gentle story?",
         "choices": [
-          "Jesus",
-          "Mary",
-          "David",
-          "Peter"
+          "A dear friend whose family loved Him — Mary and Martha’s brother.",
+          "A stranger Jesus never met.",
+          "Someone who lived in a book only.",
+          "A pretend person with no family."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
+        "correctFeedback": "Yes—that matches how John 11 introduces Lazarus of Bethany.",
+        "wrongFeedback": "Think: who were Mary and Martha to Lazarus? (Answer: friend… brother… sisters.)"
       },
       {
-        "question": "Which choice sounds most like what this story teaches?",
+        "question": "Which words did Jesus say to Martha about resurrection and life?",
         "choices": [
-          "God never hears when kids pray.",
-          "We should hide from God when we mess up.",
-          "The Bible is only pretend stories.",
-          "Lazarus was dead for 4 days, but Jesus called him out of the tomb. Lazarus came back to life! Jesus has power over death. When we feel sad…"
+          "“I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live.”",
+          "“Be careful for nothing.”",
+          "“Peace, be still.”",
+          "“Take no thought for your life.”"
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Lazarus was dead for 4 days, but Jesus called him out of the tomb. Lazarus came back to….)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that lines up with John 11:25 and God's truth.",
+        "wrongFeedback": "Reread Martha’s moment with Jesus in John 11. (Answer: resurrection… life… believeth.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "Mary and Martha sad – Lazarus is dead",
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city.",
-          "A spaceship landed in the parking lot."
+          "When Jesus called “Lazarus, come forth,” the one who was dead came out.",
+          "The tomb turned into a rocket.",
+          "Everyone forgot who Lazarus was.",
+          "Mary and Martha lived on the moon."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctFeedback": "Yes—that wonder comes from God’s Word.",
+        "wrongFeedback": "Cross out the joke answers. Which matches John 11? (Answer: come forth… came out.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Ignore God until we are older.",
-          "Never say sorry when we do wrong.",
-          "When things feel dead or hopeless, Jesus can bring new life. He is the resurrection. Trust Him with your hardest…",
-          "Only be kind to people who are exactly like us."
+          "Thank Jesus that He has power over death — and ask Him to help me trust Him with hard, sad days.",
+          "Never talk to God.",
+          "Only think about fear.",
+          "Forget what Jesus said."
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: When things feel dead or hopeless, Jesus can bring new life. He is the resurrection.….)"
+        "wrongFeedback": "Think: which honors Jesus as “the resurrection, and the life”? (Answer: thank… trust.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Lazarus Raised with God's Word today.",
-    "takeaway": "Lazarus was dead for 4 days, but Jesus called him out of the tomb. Lazarus came back to life! Jesus has power over death. When we feel sad or hopeless, Jesus can bring new life and hope. Trust…",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Lazarus Raised. Amen.",
+    "doneMessage": "Great job reading Jesus Brings Lazarus Back to Life with God's Word today.",
+    "takeaway": "Jesus has power over death and brings hope and life.",
+    "prayer": "Lord Jesus, thank You that You are the resurrection and the life. Help me trust You today. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Mary and Martha sad – Lazarus is dead (lazarus)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus at the tomb – Calling Lazarus out (raised)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Lazarus walking out alive – Jesus has power over death (dead)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Mary and Martha sad – Lazarus is dead (come out)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus at the tomb – Calling Lazarus out (alive)"
-    ]
+      "A simple peaceful black-and-white line-art scene for young children: Jesus standing outside the tomb calling Lazarus Lazarus is walking out wrapped in cloths with a happy alive face Mary and Martha stand nearby with thankful faces thick bold outlines with large open spaces on Jesus robe Lazarus cloths and the ground for easy coloring soft tomb opening and gentle hills with minimal lines hopeful and joyful mood focus on Jesus bringing Lazarus back to life clean minimal no fear or dark tomb plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Bethany — a friend is sick (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Four days — Jesus comes near (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Resurrection and life — Jesus speaks (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Come forth — call at the tomb (power)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Walking out — bound in graveclothes (alive)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Loose him — thankful hearts (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Many believed — hope spreads (love)"
+    ],
+    "readAlongImages": []
   },
   "loisTimothy": {
     "kjvRef": "the Bible",
@@ -16665,9 +16426,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Matthew 17:20; Mark 11:23–24",
-          "2 Kings 6:18-23",
-          "1 Samuel 16:1-13"
+          "Acts 18:1–3, 18–19",
+          "Titus 1–3",
+          "Matthew 25:14–30"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16749,9 +16510,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 15:8–10",
-          "Acts 16:16–40",
-          "Matthew 13:44",
-          "Luke 15:3–7"
+          "Revelation 22:12–13",
+          "Matthew 17:1–13",
+          "1 Kings 6:1-14; 8:1-13, 22-30"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16960,9 +16721,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Corinthians 13",
-          "Judges 4:1-16",
-          "2 Kings 4:8-37",
-          "Judges 6:11-40"
+          "Joshua 8:1-8, 18-23, 26-29",
+          "Daniel 6:1–23",
+          "1 Kings 18:17-39"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17044,10 +16805,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 14:13–21",
+          "2 John; 3 John",
           "the Bible",
-          "Matthew 17:20; Mark 11:23–24",
-          "Luke 17"
+          "Isaiah 9:2–7",
+          "Mark 2:1–12"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17129,9 +16890,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 16:11–15",
-          "Acts 9:1–19",
-          "Acts 2:4–21",
-          "John 20:1–18"
+          "1 Corinthians 12",
+          "1 Samuel 18:6-11, 17-19:17",
+          "Revelation 22:12–13"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17317,6 +17078,137 @@
     ],
     "readAlongImages": []
   },
+  "manBornBlind": {
+    "kjvRef": "John 9:1–38 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "One thing I know, that, whereas I was blind, now I see. — John 9:25 (KJV)",
+    "readAlongTitle": "Jesus Gives Sight to a Man Who Was Born Blind",
+    "quizWrongHumilityHint": "Listen again — born blind; disciples; sin; works of God; clay; spittle; Siloam; wash; neighbours; Pharisees; Son of God; Lord; believe.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Jesus saw a man who had been blind since he was born.",
+      "His disciples asked, “Master, who did sin, this man, or his parents, that he was born blind?”",
+      "Jesus answered, “Neither hath this man sinned, nor his parents: but that the works of God should be made manifest in him.”",
+      "Jesus made clay with the dirt and spit, put it on the man’s eyes, and said, “Go, wash in the pool of Siloam.”",
+      "The man went, washed, and came back seeing!",
+      "The neighbors were amazed and asked, “Is not this he that sat and begged?”",
+      "The man said, “I was blind, but now I see.”",
+      "When the Pharisees asked how he received his sight, he simply said, “He put clay on my eyes, and I washed, and do see.”",
+      "Later Jesus found the man and asked, “Dost thou believe on the Son of God?”",
+      "The man answered, “Lord, I believe.” And he worshipped Jesus.",
+      "Jesus opens blind eyes and helps us see who He really is.",
+      "Reference: John 9:1–38 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus saw a man who was born blind.",
+        "caption": "That the works of God…",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Jesus put clay on his eyes.",
+        "caption": "Anointed the eyes",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "He said, “Go wash in the pool of Siloam.”",
+        "caption": "Go, wash",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "The man washed and came back seeing!",
+        "caption": "Came seeing",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "He said, “I was blind, but now I see.”",
+        "caption": "Now I see",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Jesus helps us see who He is.",
+        "caption": "Lord, I believe",
+        "image": "panel-noah-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "John 9:1–38",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: John 9:1–38.)"
+      },
+      {
+        "question": "What did Jesus tell the man to do after He put clay on his eyes?",
+        "choices": [
+          "Wash in the pool of Siloam.",
+          "Run away from home.",
+          "Hide behind a tree forever.",
+          "Never speak to anyone."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches John 9:7.",
+        "wrongFeedback": "Think about where Jesus sent him next. (Answer: pool of Siloam… wash.)"
+      },
+      {
+        "question": "Which line matches the man’s simple honest truth after he could see?",
+        "choices": [
+          "“One thing I know: I was blind, but now I see.”",
+          "“I have never heard of Jesus.”",
+          "“Nothing changed at all.”",
+          "“I only want to be angry.”"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that heart line belongs to John 9.",
+        "wrongFeedback": "Choose the honest line from God’s Word. (Answer: blind… now I see.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "Jesus asked him, “Dost thou believe on the Son of God?” and the man said, “Lord, I believe.”",
+          "A giant carrot taught the lesson.",
+          "Everyone pretended to be statues.",
+          "The pool turned into soup."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that lines up with the end of John 9 in this gentle summary.",
+        "wrongFeedback": "Cross out the joke answers. Which matches John 9? (Answer: believe… Lord.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Thank Jesus that He helps us truly see Him — and ask Him to open my heart to trust Him today.",
+          "Never thank God.",
+          "Only look at what is dark.",
+          "Forget every promise of God."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which honors Jesus as the One who opens eyes—heart and soul? (Answer: thank… see Him.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Gives Sight to a Man Who Was Born Blind with God's Word today.",
+    "takeaway": "Jesus opens blind eyes and helps us see who He really is.",
+    "prayer": "Lord Jesus, help me see You clearly and trust You with my whole heart. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children: Jesus gently putting clay on the eyes of a man who was born blind The man is sitting with a hopeful face thick bold outlines with large open spaces on Jesus robe the man robe and the ground for easy coloring soft road and gentle sky with minimal lines kind and healing mood focus on Jesus giving sight clean minimal no scary blindness or mud plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Works of God — gentle mission (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Clay on eyes — obey and go (faith)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Pool of Siloam — wash (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Came seeing — joy (wonder)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Neighbors amazed — honest answer (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Pharisees ask — clay, wash, see (courage)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Son of God — Lord, I believe (love)"
+    ],
+    "readAlongImages": []
+  },
   "manna": {
     "kjvRef": "Exodus 16:4-5, 13-15, 31 (KJV)",
     "readAlongTitle": "Read along",
@@ -17433,91 +17325,6 @@
     ],
     "readAlongImages": []
   },
-  "marthaServe": {
-    "kjvRef": "the Bible",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
-    "paragraphs": [
-      "Martha Serves Jesus (the Bible).",
-      "Martha busily prepares food for Jesus She asks: don't you care I'm doing all this?",
-      "Jesus says: one thing is needed—choose the best thing!",
-      "Don't be so busy you miss being with Jesus!",
-      "Choose His presence first—then serve."
-    ],
-    "quizHeading": "Quiz — think it through",
-    "questions": [
-      {
-        "question": "Where is this story found in the Bible?",
-        "choices": [
-          "Genesis 1",
-          "the Bible",
-          "Luke 24",
-          "Judges 4:1-16"
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: the Bible.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "Jesus",
-          "Mary",
-          "David",
-          "Peter"
-        ],
-        "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "God never hears when kids pray.",
-          "Don't be so busy you miss being with Jesus! Choose His presence first—then serve."
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Don't be so busy you miss being with Jesus! Choose His presence first—then serve..)"
-      },
-      {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
-        "choices": [
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city.",
-          "Martha busily prepares food for Jesus",
-          "A spaceship landed in the parking lot."
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
-      },
-      {
-        "question": "What is one good way to respond to God after this story?",
-        "choices": [
-          "Ignore God until we are older.",
-          "Don't be so busy you miss being with Jesus! Choose His presence first—then serve.",
-          "Never say sorry when we do wrong.",
-          "Only be kind to people who are exactly like us."
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Don't be so busy you miss being with Jesus! Choose His presence first—then serve..)"
-      }
-    ],
-    "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Martha Serves Jesus with God's Word today.",
-    "takeaway": "Don't be so busy you miss being with Jesus! Choose His presence first—then serve.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Martha Serves Jesus. Amen.",
-    "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Martha busily prepares food for Jesus (martha)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: She asks: don't you care I'm doing all this? (serve)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus says: one thing is needed—choose the best thing! (luke 10)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Martha busily prepares food for Jesus (busy)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: She asks: don't you care I'm doing all this? (kitchen)"
-    ]
-  },
   "maryAnoint": {
     "kjvRef": "John 12:1–8",
     "hintAboveQuiz": "Use the comic pictures above while you read.",
@@ -17531,10 +17338,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 6",
+          "2 Kings 13:20-21",
           "John 12:1–8",
-          "Matthew 13:45–46",
-          "Acts 18:23–21:17"
+          "Genesis 4",
+          "1 Samuel 24:1-22"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17616,10 +17423,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Kings 3:5-15",
-          "2 Kings 4:1-7",
+          "Matthew; Mark; Luke; John (Gospels overview)",
+          "Matthew 28; Mark 16; Luke 24; John 20",
           "John 20:1–18",
-          "2 Kings 6:24-7:20"
+          "Judges 6:11-40"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17686,86 +17493,131 @@
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: She sees Jesus—mistakes Him for the gardener (gardener)"
     ]
   },
-  "marySit": {
-    "kjvRef": "the Bible",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+  "maryMartha": {
+    "kjvRef": "Luke 10:38–42 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "Mary hath chosen that good part, which shall not be taken away from her. — Luke 10:42 (KJV)",
+    "readAlongTitle": "Jesus Visits Mary and Martha",
+    "quizWrongHumilityHint": "Listen again — Bethany; Martha; Mary; feet; hear; careful; troubled; one thing; needful; good part; listen.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Mary Sits at Jesus' Feet (the Bible). Mary sits and listens to Jesus Martha is busy—Mary sits still Jesus says: Mary chose the better thing! Sit with Jesus! Listening to Him is the most important thing you can do each day."
+      "Jesus came to the home of two sisters, Mary and Martha.",
+      "Martha was busy getting everything ready for Jesus. She wanted the house to be clean and the meal to be just right.",
+      "Mary sat down at Jesus’ feet and listened to every word He said.",
+      "Martha became upset and said, “Lord, dost thou not care that my sister hath left me to serve alone? Bid her therefore that she help me.”",
+      "Jesus answered gently, “Martha, Martha, thou art careful and troubled about many things: but one thing is needful: and Mary hath chosen that good part, which shall not be taken away from her.”",
+      "Jesus wants us to spend time listening to Him, because that is the most important thing.",
+      "Reference: Luke 10:38–42 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus visited Mary and Martha’s house.",
+        "caption": "A quiet welcome",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Martha was busy getting everything ready.",
+        "caption": "Serving with care",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Mary sat at Jesus’ feet and listened.",
+        "caption": "Still… and listening",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Martha said, “Lord, tell my sister to help me.”",
+        "caption": "Dost thou not care?",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Jesus said gently, “Mary hath chosen that good part.”",
+        "caption": "One thing is needful",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Listening to Jesus is the most important thing.",
+        "caption": "The good part",
+        "image": "panel-noah-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Joshua 10:12-14",
-          "Judges 16:4-21",
-          "the Bible",
-          "1 Samuel 25:1-42"
+          "Psalm 23",
+          "Luke 10:38–42",
+          "Jonah 1",
+          "Genesis 1"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: the Bible.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Luke 10:38–42.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "What was Mary doing that Jesus called “the good part”?",
         "choices": [
-          "Philip",
-          "The LORD",
-          "God the Father",
-          "Jesus"
+          "She sat at Jesus’ feet and listened to His words.",
+          "She ran away from home.",
+          "She hid under a table.",
+          "She forgot Jesus was there."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Jesus’ gentle words in Luke 10.",
+        "wrongFeedback": "Think about what Mary chose while Martha was busy. (Answer: sat… listened.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "Sit with Jesus! Listening to Him is the most important thing you can do each day.",
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "God never hears when kids pray."
+          "Busy work is always wrong.",
+          "Time with Jesus — listening to Him — is the one needful thing; it will not be taken away.",
+          "We should never help at home.",
+          "Only grown-ups need God’s Word."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Sit with Jesus! Listening to Him is the most important thing you can do each day..)"
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread Jesus’ words about “one thing is needful” and “that good part.” (Answer: listen… needful.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "A talking toaster became king of the city.",
-          "Mary sits and listens to Jesus",
-          "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again."
+          "Mary hath chosen that good part, which shall not be taken away from her.",
+          "The bowl turned into a trampoline.",
+          "The house flew to the moon.",
+          "Nobody could hear anything."
         ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that wonder comes from God’s Word.",
+        "wrongFeedback": "Cross out the joke answers. Which matches Luke 10? (Answer: good part… not taken away.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Only be kind to people who are exactly like us.",
-          "Ignore God until we are older.",
-          "Sit with Jesus! Listening to Him is the most important thing you can do each day.",
-          "Never say sorry when we do wrong."
+          "Ask Jesus to help me sit still with Him today — even a little — and listen to His Word.",
+          "Never be kind at home.",
+          "Only rush and worry.",
+          "Hide from Jesus."
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Sit with Jesus! Listening to Him is the most important thing you can do each day..)"
+        "wrongFeedback": "Think: which honors Jesus’ “one thing is needful”? (Answer: listen… His Word.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Mary Sits at Jesus' Feet with God's Word today.",
-    "takeaway": "Sit with Jesus! Listening to Him is the most important thing you can do each day.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Mary Sits at Jesus' Feet. Amen.",
+    "doneMessage": "Great job reading Jesus Visits Mary and Martha with God's Word today.",
+    "takeaway": "Jesus wants us to spend time listening to Him, because that is the most important thing.",
+    "prayer": "Lord Jesus, thank You for calling me to sit with You. Help me choose the good part today. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Mary sits and listens to Jesus (mary)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Martha is busy—Mary sits still (sit)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus says: Mary chose the better thing! (listen)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Mary sits and listens to Jesus (luke 10)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Martha is busy—Mary sits still (feet)"
-    ]
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus sitting in a quiet room talking Mary is sitting at His feet listening with a peaceful face Martha stands nearby with a bowl in her hands thick bold outlines with large open spaces on Jesus robe Mary robe Martha robe and the floor for easy coloring soft house walls and gentle light from a window with minimal lines calm and listening mood focus on Mary choosing to sit with Jesus clean minimal no anger or busy mess plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Quiet house — Jesus welcomed (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Martha serving — getting things ready (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Mary at Jesus’ feet — listening (still)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Martha speaks — help me (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Jesus gentle — one thing needful (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Good part — not taken away (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Listen today — small quiet moment (hope)"
+    ],
+    "readAlongImages": []
   },
   "mephibosheth": {
     "kjvRef": "2 Samuel 9:1-13 (KJV)",
@@ -17904,10 +17756,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 25",
+          "Luke 24:13–35",
           "the Bible",
-          "Numbers 21:1-9",
-          "Acts 18:24–28"
+          "Matthew 25",
+          "1 Samuel 13; 15"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -17987,10 +17839,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 4:38-41",
-          "2 Kings 5:20-27",
+          "Judges 16:23-30",
+          "Acts 6:8–7:60",
           "Exodus 2:5",
-          "1 Samuel 16:11; 17:15, 34–37"
+          "Revelation 14–15"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18193,10 +18045,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ezekiel 37:1–14",
-          "Mark 4:35–41",
+          "Luke 15:3–7",
+          "Acts 27–28",
           "Exodus 14:21-31",
-          "1 Samuel 1–2"
+          "John 4:46–54"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18275,9 +18127,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Exodus 7:8–13",
-          "2 Samuel 11:1-27; 12:1-13; Psalm 51:1-12",
-          "2 Kings 6:18-23",
-          "Matthew 17:20; Mark 11:23–24"
+          "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19",
+          "Jude 1",
+          "2 Kings 5:15-19"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -18834,9 +18686,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 20:1–18",
-          "Acts 2:4–21",
-          "Acts 9:1–19",
+          "2 Kings 5:1-14",
+          "Acts 5:12–16",
+          "Acts 28",
           "the Bible"
         ],
         "correctIndex": 3,
@@ -18920,9 +18772,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "1 Samuel 16:11; 17:15, 34–37",
-          "2 Kings 4:8-37",
-          "Judges 6:11-40"
+          "1 Samuel 24:1-22",
+          "2 Kings 6:8-17",
+          "Joshua 6:1-21"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -19004,10 +18856,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Jude 1",
+          "2 Samuel 11:1-27; 12:1-13; Psalm 51:1-12",
           "Genesis 6–9",
-          "Acts 27",
-          "Nehemiah 1:1–4; 2:1–20; 3:1–32"
+          "Matthew 17:20; Mark 11:23–24",
+          "2 Kings 6:18-23"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -19223,9 +19075,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Genesis 37:28",
-          "Luke 2:41–52",
-          "Matthew 13:31–32"
+          "Genesis 1",
+          "Luke 2:36–38",
+          "Judges 4:1-16"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -19307,9 +19159,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 17",
-          "Job 1:1–22; 2:11–13",
-          "Matthew 14:13–21",
+          "Genesis 6–9",
+          "Acts 8:26–40",
+          "Acts 27",
           "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19"
         ],
         "correctIndex": 3,
@@ -19757,10 +19609,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Philippians 1:21; 2:5–11; 4:4–7, 13",
+          "2 Samuel 11:1-27; 12:1-13; Psalm 51:1-12",
           "Matthew 25:14–30",
-          "Genesis 6–9",
-          "Acts 27–28"
+          "Acts 25–26",
+          "Exodus 3:1-15"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -19956,9 +19808,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 2:5",
-          "Acts 20:7–12",
-          "Genesis 40",
+          "Matthew 13:44",
+          "Acts 18:23–21:17",
+          "Acts 16:11–15",
           "Acts 13–14"
         ],
         "correctIndex": 3,
@@ -20041,9 +19893,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
-          "Ruth 2",
-          "Luke 2:8–20",
+          "1 Kings 17:8-16",
+          "Ezra 1:1–11; 3:1–6",
+          "Revelation 21",
           "Acts 9:1–19"
         ],
         "correctIndex": 3,
@@ -20126,10 +19978,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Mark 4:35–41",
-          "1 Samuel 1–2",
+          "Exodus 7:8–13",
+          "Joshua 24:14-15",
           "Acts 9:1–19",
-          "Matthew 4:1–11; Luke 4:1–13"
+          "Philemon 1"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20208,10 +20060,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 13:31–32",
-          "Genesis 37:28",
+          "Acts 28:1–10",
+          "1 Timothy 4:12",
           "2 Timothy 4:6–8",
-          "Ephesians, Philippians, Colossians, Philemon"
+          "Matthew 8:5–13"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20293,9 +20145,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 19",
-          "Mark 10:13–16",
-          "Luke 2:41–52",
-          "1 Samuel 1"
+          "Esther 4:1–17; 5:1–8; 7:1–10",
+          "Exodus 32:1-8, 15-20, 30-32",
+          "Acts 9:36–43"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20375,10 +20227,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Kings 13:14-19",
+          "Matthew 14:22–33",
           "Acts 20:7–12",
-          "Acts 2:1–13",
-          "Matthew 18:21–35"
+          "2 Kings 5:15-19",
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20457,10 +20309,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 14",
-          "1 Samuel 18",
+          "2 Kings 5:20-27",
+          "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
           "Acts 13–14",
-          "Ruth 2:1-17"
+          "Jeremiah 1:1–10; 13:17"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20539,10 +20391,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 14–15",
-          "Judges 16:23-30",
+          "Revelation 12",
+          "1 Samuel 3:1-21",
           "Romans–Philemon",
-          "Acts 8:26–40"
+          "Acts 18:1–3, 18–19"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20621,9 +20473,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Kings 19:9-18",
-          "Philippians 2:8–11",
-          "Daniel 6",
+          "2 Kings 6:1-7",
+          "Galatians 5",
+          "2 Samuel 5:1-12",
           "Philemon 1"
         ],
         "correctIndex": 3,
@@ -20704,9 +20556,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Mark 10:13–16",
-          "Luke 2:41–52",
-          "Genesis 37:28",
+          "Matthew 7",
+          "Revelation 8–11",
+          "1 Samuel 1:21-28; 2:1-11, 18-21",
           "Ephesians, Philippians, Colossians, Philemon"
         ],
         "correctIndex": 3,
@@ -20787,9 +20639,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 28",
-          "Matthew 6",
-          "Revelation 4–5",
-          "Acts 18:23–21:17"
+          "Revelation 1:8, 11, 17–18",
+          "Revelation 22",
+          "Genesis 11"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20869,10 +20721,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 8:26–40",
+          "Luke 23",
           "Acts 15:36–18:22",
-          "Nehemiah 1:1–4; 2:1–20; 3:1–32",
-          "Acts 27"
+          "Matthew 2:1–12",
+          "Acts 1:6–11"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -20953,10 +20805,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 28:18–20",
+          "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
           "Acts 27",
-          "Matthew 5–7",
-          "Luke 2:1–20"
+          "John 12:1–8",
+          "Genesis 37:3"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21037,9 +20889,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 28:10–22",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",
-          "Matthew 26:36–46; Luke 22:44",
+          "Ezra 1:1–11; 3:1–6",
+          "Revelation 21",
+          "1 Kings 17:8-16",
           "Acts 27–28"
         ],
         "correctIndex": 3,
@@ -21122,10 +20974,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 28:1–10",
+          "1 Kings 17:8-16",
           "Acts 16:16–40",
-          "1 Samuel 16:14-23",
-          "Matthew 8:5–13"
+          "Revelation 21",
+          "Ezra 1:1–11; 3:1–6"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21205,10 +21057,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 18:1–3, 18–19",
-          "Revelation 12",
+          "Exodus 40:1-38",
+          "1 Samuel 25:1-42",
           "Acts 18:23–21:17",
-          "Titus 1–3"
+          "Judges 14:5-9"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21287,9 +21139,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 4:1–42",
-          "Numbers 13:1-33; 14:1-9",
-          "Revelation 6–8:1",
+          "Exodus 12:1-14",
+          "Acts 2:1–4",
+          "John 12:1–8",
           "1 Timothy 1–6; 2 Timothy 1–4"
         ],
         "correctIndex": 3,
@@ -21370,9 +21222,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Titus 1–3",
-          "Revelation 14–15",
-          "Judges 16:23-30",
-          "Acts 8:26–40"
+          "Luke 2:41–52",
+          "Genesis 37:28",
+          "Luke 2:1–20"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21453,9 +21305,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 2",
-          "1 Samuel 16:1-13",
-          "Numbers 21:1-9",
-          "1 Kings 17:8-16"
+          "Matthew 2:1–12",
+          "Acts 6:8–7:60",
+          "Acts 1:6–11"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21538,9 +21390,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 2:1–4",
-          "Genesis 37:3",
-          "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
-          "Matthew; Mark; Luke; John (Gospels overview)"
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",
+          "Genesis 28:10–22",
+          "Matthew 18:21–35"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21621,10 +21473,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 40:1-38",
-          "Joshua 8:1-8, 18-23, 26-29",
+          "Numbers 21:1-9",
+          "1 Kings 17:8-16",
           "Acts 2:4–21",
-          "Genesis 22"
+          "1 Samuel 16:1-13"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21705,10 +21557,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Ruth 2:1-17",
-          "Exodus 14",
+          "Acts 5:12–16",
+          "Ephesians, Philippians, Colossians, Philemon",
           "Luke 18:1–8",
-          "1 Samuel 18"
+          "Revelation 21–22"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21787,9 +21639,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 John; 3 John",
-          "Matthew 25:14–30",
-          "Malachi 3:1; 4:5–6",
+          "John 4:46–54",
+          "Romans 16:1–2",
+          "Acts 27–28",
           "1 Peter 1–5"
         ],
         "correctIndex": 3,
@@ -21870,10 +21722,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 17",
+          "2 Kings 4:8-37",
           "Acts 3",
-          "John 2:1–11",
-          "Revelation 21"
+          "Matthew; Mark; Luke; John (Gospels overview)",
+          "Judges 6:11-40"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -21953,10 +21805,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 28; Mark 16; Luke 24; John 20",
-          "Genesis 40",
+          "Acts 8:26–40",
+          "Revelation 14–15",
           "Acts 12:1–19",
-          "Luke 24:50–53; Acts 1:6–11"
+          "Acts 15:36–18:22"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -22038,10 +21890,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 28",
-          "Luke 2:8–20",
+          "Jude 1",
+          "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19",
           "Acts 2:14–41",
-          "Genesis 3"
+          "Matthew 13:31–32"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -22121,9 +21973,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 16:1-13",
-          "1 Kings 17:8-16",
-          "Ezra 1:1–11; 3:1–6",
+          "Ruth 2:1-17",
+          "1 Samuel 18",
+          "John 20:24–29",
           "2 Peter 1–3"
         ],
         "correctIndex": 3,
@@ -22205,10 +22057,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 22",
+          "Mark 2:1–12",
           "Acts 5:12–16",
-          "Judges 14:5-9",
-          "Exodus 40:1-38"
+          "Joshua 6:1-21",
+          "Isaiah 9:2–7"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -22290,9 +22142,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 41",
-          "Nehemiah 1:1–4; 2:1–20; 3:1–32",
-          "Acts 15:36–18:22",
-          "Jude 1"
+          "2 Kings 13:20-21",
+          "Matthew 17",
+          "1 Samuel 24:1-22"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -22373,9 +22225,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Philemon 1",
-          "Revelation 1–3",
-          "Acts 2:14–41",
+          "John 10:1–18",
+          "John 9:1–38",
+          "Jonah 1:1–17; 2:1–10; 3:1–10",
           "Acts 8:26–40"
         ],
         "correctIndex": 3,
@@ -22459,9 +22311,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 8:26–40",
-          "Matthew 17:20; Mark 11:23–24",
-          "2 Kings 6:18-23",
-          "Luke 17"
+          "Luke 19:1–10",
+          "Joshua 10:12-14",
+          "Numbers 23–24"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -22542,10 +22394,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Joshua 3:14-17; 4:1-7, 18-24",
-          "John 20:1–18",
+          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46",
+          "1 John 1–5",
           "Philippians 1:21; 2:5–11; 4:4–7, 13",
-          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19"
+          "Hebrews 11"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -22627,9 +22479,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Romans 16:1–2",
-          "John 4:46–54",
-          "Acts 27–28",
-          "Philippians 1:21; 2:5–11; 4:4–7, 13"
+          "1 Samuel 25:1-42",
+          "Numbers 22",
+          "Daniel 3:1–30"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -22711,9 +22563,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 6",
-          "Revelation 1:8, 11, 17–18",
-          "Genesis 11",
-          "Revelation 22"
+          "2 Samuel 11:1-27; 12:1-13; Psalm 51:1-12",
+          "Exodus 3:1-15",
+          "2 Kings 6:18-23"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -22795,10 +22647,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Jeremiah 1:1–10; 13:17",
-          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
+          "Revelation 12",
+          "1 Samuel 3:1-21",
           "Matthew 7",
-          "Judges 7:1-22"
+          "Acts 18:1–3, 18–19"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -22879,9 +22731,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Peter 1–3",
-          "Revelation 1–3",
-          "Ruth 3:1-18",
+          "Genesis 39–40",
+          "Luke 10:38–42",
+          "Acts 9:1–19",
           "Acts 18:24–28"
         ],
         "correctIndex": 3,
@@ -22963,9 +22815,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Timothy 4:6–8",
-          "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
-          "Luke 18:1–8",
+          "1 Samuel 17:8–11, 16, 23–30",
+          "Luke 2:41–52",
+          "Luke 2:1–20",
           "Acts 18:1–3, 18–19"
         ],
         "correctIndex": 3,
@@ -23034,88 +22886,139 @@
     ]
   },
   "prodigalSon": {
-    "kjvRef": "Luke 15:11–32",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Luke 15:11–32 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "For this my son was dead, and is alive again; he was lost, and is found. — Luke 15:24 (KJV)",
+    "readAlongTitle": "The Father Who Welcomes His Son Home",
+    "quizWrongHumilityHint": "Listen again — two sons; father; far away; spent all; arose; great way off; ran; kissed; alive again; found.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Prodigal Son (Luke 15:11–32).",
-      "Son runs away with his money Son comes back sorry Father runs to welcome him home!",
-      "God welcomes you home!",
-      "No matter what you did, come back—He runs to meet you!"
+      "Jesus told a story about a father who had two sons.",
+      "The younger son asked for his share of the money and went far away.",
+      "He spent all the money on foolish things and soon had nothing left.",
+      "He was hungry and sad.",
+      "He decided to go home and say he was sorry.",
+      "While he was still a long way off, his father saw him and ran to meet him.",
+      "The father hugged him and kissed him.",
+      "The father said: “For this my son was dead, and is alive again; he was lost, and is found.”",
+      "Then the father gave a big party to celebrate because his son had come home.",
+      "God is like that loving father — He is always ready to welcome us when we come back to Him.",
+      "Reference: Luke 15:11–32 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "A father had two sons.",
+        "caption": "Two sons",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The younger son went far away.",
+        "caption": "A far country",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "He spent all his money and was sad.",
+        "caption": "Hungry and sorry",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "He decided to go home and say sorry.",
+        "caption": "I will arise and go",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "His father saw him and ran to meet him.",
+        "caption": "While yet a great way off",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "The father hugged him and said, “My son is home!”",
+        "caption": "Fell on his neck — kissed him",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "God welcomes us when we come back to Him.",
+        "caption": "Alive again — was lost, and is found",
+        "image": "panel-noah-2.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Romans 16:1–2",
-          "Revelation 4–5",
-          "Judges 14:5-9",
-          "Luke 15:11–32"
+          "Psalm 23",
+          "Luke 15:11–32",
+          "Jonah 1",
+          "Genesis 1"
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Luke 15:11–32.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Luke 15:11–32.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "What did the father do when he saw his son while he was still a long way off?",
         "choices": [
-          "Jesus",
-          "Priscilla",
-          "John",
-          "Stephen"
+          "He ran to meet him and welcomed him with love.",
+          "He hid inside the house.",
+          "He sent a camel away forever.",
+          "He forgot how to walk."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
+        "correctFeedback": "Yes—that matches Jesus’ story of the loving father in Luke 15.",
+        "wrongFeedback": "Think about what happened when the father saw his son coming home. (Answer: ran… welcomed him.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "We should hide from God when we mess up.",
-          "God welcomes you home! No matter what you did, come back—He runs to meet you!",
-          "God never hears when kids pray.",
-          "The Bible is only pretend stories."
+          "God does not want us to come back to Him.",
+          "God is like a loving father who is always ready to welcome us when we come back to Him.",
+          "We should never say we are sorry.",
+          "Running is always wrong."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God welcomes you home! No matter what you did, come back—He runs to meet you!.)"
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the ending about the feast and “was lost, and is found.” (Answer: loving father… welcome us.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "Son runs away with his money",
-          "Everyone decided to never sleep again.",
-          "A spaceship landed in the parking lot.",
-          "A talking toaster became king of the city."
+          "For this my son was dead, and is alive again; he was lost, and is found.",
+          "The father turned into a pickle jar.",
+          "The party was only for camels.",
+          "Everyone forgot what a home is."
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctFeedback": "Yes—that wonder comes from God’s Word.",
+        "wrongFeedback": "Cross out the joke answers. Which matches Luke 15? (Answer: dead… alive again… lost… found.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Ignore God until we are older.",
-          "Only be kind to people who are exactly like us.",
-          "Never say sorry when we do wrong.",
-          "God welcomes you home! No matter what you did, come back—He runs to meet you!"
+          "Thank God for welcoming us like that father — tell Him we are sorry and glad to come home to Him.",
+          "Never think about God’s kindness.",
+          "Hide when we feel loved.",
+          "Only grown-ups need forgiveness."
         ],
-        "correctIndex": 3,
+        "correctIndex": 0,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God welcomes you home! No matter what you did, come back—He runs to meet you!.)"
+        "wrongFeedback": "Think: which honors God’s welcoming love? (Answer: thank God… sorry… come home.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Prodigal Son with God's Word today.",
-    "takeaway": "God welcomes you home! No matter what you did, come back—He runs to meet you!",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Prodigal Son. Amen.",
+    "doneMessage": "Great job reading The Father Who Welcomes His Son Home with God's Word today.",
+    "takeaway": "God is like that loving father — He is always ready to welcome us when we come back to Him.",
+    "prayer": "Lord, thank You for welcoming us home like the father in Jesus’ story. Help me trust Your love today. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Son runs away with his money (prodigal)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Son comes back sorry (son)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Father runs to welcome him home! (run away)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Son runs away with his money (come back)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Son comes back sorry (party)"
-    ]
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: a father running with open arms to hug his returning son the son has a sorry but hopeful face the father looks very happy thick bold outlines with large open spaces on the father robe the son robe and the ground for easy coloring soft road and gentle house in the background with minimal lines loving and welcoming mood focus on the father welcoming his son home clean minimal no fear or sadness shown strongly plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft amber and sky blue, friendly not scary, no text in image: Two sons — father's love (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft amber and sky blue, friendly not scary, no text in image: Far away — gentle honesty (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft amber and sky blue, friendly not scary, no text in image: Hungry heart — coming to himself (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft amber and sky blue, friendly not scary, no text in image: I will arise and go (return)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft amber and sky blue, friendly not scary, no text in image: Father ran — open arms (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft amber and sky blue, friendly not scary, no text in image: Hug and kiss — welcome home (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft amber and sky blue, friendly not scary, no text in image: Alive again — was lost, and is found (celebrate)"
+    ],
+    "readAlongImages": []
   },
   "psalm23": {
     "kjvRef": "Psalm 23:1-6 (KJV)",
@@ -23980,10 +23883,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 13:31–32",
+          "Genesis 40",
           "Exodus 14",
-          "Luke 2:41–52",
-          "Genesis 37:28"
+          "Matthew; Mark; Luke; John (Gospels overview)",
+          "Matthew 28; Mark 16; Luke 24; John 20"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24066,9 +23969,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
-          "2 Kings 2:19-22; 4:1-7",
-          "Matthew 26:36–46; Luke 22:44",
-          "Genesis 28:10–22"
+          "Matthew 4:18–22",
+          "Matthew 14:22–33",
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24149,9 +24052,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 1–22",
-          "Matthew 25",
-          "Acts 18:24–28",
-          "Numbers 21:1-9"
+          "Esther 4:1–17",
+          "Matthew 28:18–20",
+          "Matthew 4:18–22; Luke 5:1–11"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24233,9 +24136,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 17–18",
-          "Revelation 8–11",
-          "1 Samuel 1:21-28; 2:1-11, 18-21",
-          "Matthew 6"
+          "Acts 13–14",
+          "Acts 2:1–4",
+          "John 20:1–18"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24314,10 +24217,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 17–18",
-          "Acts 12:1–19",
+          "Daniel 6:22",
+          "Numbers 23–24",
           "Revelation 13",
-          "Ruth 4:1-17"
+          "2 Kings 2:1-14"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24399,9 +24302,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Genesis 28:10–22",
-          "Matthew 26:36–46; Luke 22:44",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26"
+          "Genesis 1",
+          "Luke 2:36–38",
+          "Judges 4:1-16"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24480,9 +24383,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Philemon 1",
-          "Acts 2:14–41",
-          "Matthew 13:31–32",
+          "Matthew 4:18–22",
+          "Matthew 14:22–33",
+          "1 Samuel 1:1-20",
           "Revelation 1–3"
         ],
         "correctIndex": 3,
@@ -24565,10 +24468,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Joshua 10:12-14",
-          "Numbers 22",
+          "Genesis 41",
+          "Judges 16:23-30",
           "Revelation 21–22",
-          "1 Samuel 25:1-42"
+          "Revelation 14–15"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24647,10 +24550,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 15:11–32",
-          "Acts 2",
+          "Matthew 17:20; Mark 11:23–24",
+          "2 Kings 6:18-23",
           "Revelation 21–22",
-          "Luke 24:13–35"
+          "Hebrews 11"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24732,9 +24635,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 6–8:1",
-          "Exodus 14",
-          "Ruth 2",
-          "Luke 2:8–20"
+          "2 Kings 6:18-23",
+          "Matthew 17:20; Mark 11:23–24",
+          "Hebrews 11"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24814,9 +24717,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 14–15",
-          "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
-          "Joshua 3:14-17; 4:1-7, 18-24",
-          "Jeremiah 1:1–10; 13:17"
+          "Esther 4:1–17; 5:1–8; 7:1–10",
+          "Exodus 32:1-8, 15-20, 30-32",
+          "Acts 9:36–43"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24895,10 +24798,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46",
+          "Mark 2:1–12",
           "Revelation 19",
-          "Luke 15:3–7",
-          "Luke 3; Matthew 3"
+          "Acts 16:11–15",
+          "2 John; 3 John"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -24979,10 +24882,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26:36–46; Luke 22:44",
-          "Genesis 28:10–22",
+          "2 Kings 13:20-21",
+          "Matthew 17",
           "Revelation 20",
-          "2 Kings 2:19-22; 4:1-7"
+          "1 Samuel 24:1-22"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25063,10 +24966,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Exodus 32:1-8, 15-20, 30-32",
-          "Esther 4:1–17; 5:1–8; 7:1–10",
+          "2 Kings 4:38-41",
+          "1 Samuel 18:6-11, 17-19:17",
           "the Bible",
-          "Matthew; Mark; Luke; John (Gospels overview)"
+          "2 Kings 5:20-27"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25148,9 +25051,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "2 Peter 1–3",
-          "Revelation 1–3",
-          "2 Kings 6:24-7:20",
+          "2 Kings 13:14-19",
+          "Matthew 18:21–35",
+          "Genesis 28:10–22",
           "Revelation 4–5"
         ],
         "correctIndex": 3,
@@ -25232,9 +25135,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Revelation 8–11",
-          "Joshua 8:1-8, 18-23, 26-29",
-          "Genesis 22",
-          "Exodus 40:1-38"
+          "Matthew 28; Mark 16; Luke 24; John 20",
+          "Matthew; Mark; Luke; John (Gospels overview)",
+          "Judges 6:11-40"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25315,9 +25218,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 16:11–15",
-          "1 Timothy 1–6; 2 Timothy 1–4",
-          "Matthew 13:1–23",
+          "Psalm 23:1-6",
+          "1 Samuel 9–10",
+          "Romans 3:23; 5:8; 6:23; 10:9–10",
           "Revelation 12"
         ],
         "correctIndex": 3,
@@ -25399,9 +25302,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Revelation 21",
-          "Job 1:1–22; 2:11–13",
-          "John 2:1–11",
+          "Luke 19:1–10",
+          "Daniel 6:22",
+          "Numbers 23–24",
           "Matthew 19:16–22"
         ],
         "correctIndex": 3,
@@ -25484,9 +25387,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "Joshua 7:1-11",
-          "Matthew 4:1–11",
-          "2 Kings 5:15-19"
+          "Revelation 13:16–18",
+          "2 Samuel 15:1-37; 16:15-23; 19:1-15",
+          "Daniel 6"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25566,9 +25469,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 24:13–35",
-          "Acts 9:1–19",
-          "John 20:1–18",
-          "Joshua 3:14-17; 4:1-7, 18-24"
+          "Revelation 1–3",
+          "2 Peter 1–3",
+          "Ephesians, Philippians, Colossians, Philemon"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25648,10 +25551,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 15",
-          "Luke 1",
+          "John 20:24–29",
+          "1 Samuel 18",
           "Romans 3:23; 5:8; 6:23; 10:9–10",
-          "1 Samuel 16:11; 17:15, 34–37"
+          "Acts 17:22–34"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -25850,9 +25753,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Thessalonians 4:13–18; 5:16–24",
-          "Exodus 3:1-15",
-          "Acts 25–26",
+          "Ruth 1",
+          "Matthew 28",
+          "2 Kings 8:1-6",
           "Ruth 2"
         ],
         "correctIndex": 3,
@@ -25935,9 +25838,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Mark 12",
-          "Genesis 1",
-          "Luke 2:36–38",
+          "1 Peter 1–5",
+          "Ruth 2",
+          "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
           "Ruth 1"
         ],
         "correctIndex": 3,
@@ -27572,9 +27475,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 18:9–15",
-          "Exodus 7–12",
-          "Joshua 7:1-26",
-          "1 Samuel 1:21-28; 2:1-11, 18-21"
+          "Acts 25–26",
+          "Exodus 3:1-15",
+          "1 Thessalonians 4:13–18; 5:16–24"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -27656,10 +27559,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 24:1-22",
+          "Ezra 1:1–11; 3:1–6",
           "the Bible",
-          "Joshua 6:1-21",
-          "2 Kings 6:8-17"
+          "John 2:1–11",
+          "Revelation 21"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -27741,9 +27644,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "1 Samuel 13; 15",
-          "Joshua 6:1-21",
-          "2 Kings 6:8-17",
-          "1 Samuel 16:14-23"
+          "1 Kings 6:1-14; 8:1-13, 22-30",
+          "Ruth 1:1-18",
+          "Revelation 17–18"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -27825,10 +27728,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "John 20:24–29",
+          "Jonah 1:17",
           "1 Samuel 9–10",
-          "Luke 24:13–35",
-          "1 Samuel 13; 15"
+          "Genesis 28:10–22",
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -27909,10 +27812,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Romans–Philemon",
+          "1 Corinthians 12",
           "1 Samuel 18",
-          "Revelation 17–18",
-          "Acts 12:1–19"
+          "2 Kings 2:19-22; 4:1-7",
+          "1 Samuel 18:6-11, 17-19:17"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -28837,10 +28740,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 13:1–23",
-          "1 Timothy 1–6; 2 Timothy 1–4",
+          "Matthew 13:1–23; Mark 4:1–20; Luke 8:4–15",
+          "Genesis 37:3",
           "Acts 6:8–7:60",
-          "Acts 16:11–15"
+          "Jeremiah 1:1–10; 13:17"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -28921,10 +28824,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 13–14",
-          "Psalm 23:1-6",
+          "Matthew 14:22–33",
+          "2 Kings 5:15-19",
           "Acts 6:8–7:60",
-          "Acts 2:1–4"
+          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -29006,9 +28909,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Acts 7",
-          "Matthew 26:36–46; Luke 22:44",
-          "Genesis 28:10–22",
-          "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26"
+          "1 Samuel 24:1-22",
+          "2 Kings 13:20-21",
+          "Matthew 17"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -29426,6 +29329,140 @@
     ],
     "readAlongImages": []
   },
+  "tenLepers": {
+    "kjvRef": "Luke 17:11–19 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "Arise, go thy way: thy faith hath made thee whole. — Luke 17:19 (KJV)",
+    "readAlongTitle": "Jesus Heals Ten Men and One Says Thank You",
+    "quizWrongHumilityHint": "Listen again — Samaria; Galilee; stood afar; mercy; priests; healed; glorified God; thanks; where are the nine; faith made whole; thank.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Jesus was walking along the road between Samaria and Galilee.",
+      "Ten men who had a skin disease called leprosy saw Him.",
+      "They stood far away and called, “Jesus, Master, have mercy on us!”",
+      "Jesus said to them, “Go shew yourselves unto the priests.”",
+      "As they went, they were healed.",
+      "One of them, when he saw that he was healed, turned back and with a loud voice glorified God.",
+      "He fell down on his face at Jesus’ feet and gave Him thanks.",
+      "Jesus said, “Were there not ten cleansed? but where are the nine? Arise, go thy way: thy faith hath made thee whole.”",
+      "Jesus heals us and is happy when we remember to say thank you.",
+      "Reference: Luke 17:11–19 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Ten men with a skin disease saw Jesus.",
+        "caption": "They stood afar off",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "They called, “Jesus, have mercy on us!”",
+        "caption": "Master, have mercy on us",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Jesus said, “Go show yourselves to the priests.”",
+        "caption": "Go shew yourselves unto the priests",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "As they went, they were healed.",
+        "caption": "Cleansed as they went",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "One man ran back and thanked Jesus.",
+        "caption": "He glorified God",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Jesus said, “Thy faith hath made thee whole.”",
+        "caption": "Where are the nine?",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Jesus is happy when we say thank you.",
+        "caption": "A thankful heart",
+        "image": "panel-noah-2.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Luke 17:11–19",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Luke 17:11–19.)"
+      },
+      {
+        "question": "What did the men call out to Jesus before they were healed?",
+        "choices": [
+          "“Jesus, Master, have mercy on us!”",
+          "“Bring us gold and toys.”",
+          "“Let us hide forever.”",
+          "“We do not need any help.”"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Luke 17:13.",
+        "wrongFeedback": "Think about the honest cry for mercy in Luke 17. (Answer: Master, have mercy.)"
+      },
+      {
+        "question": "What did Jesus tell them to do?",
+        "choices": [
+          "“Go shew yourselves unto the priests.”",
+          "“Stay far away forever.”",
+          "“Do not obey God.”",
+          "“Walk into the sea.”"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Jesus’ words in Luke 17:14.",
+        "wrongFeedback": "Reread what Jesus said before they were healed on the way. (Answer: show yourselves to the priests.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "Only one came back to give thanks — and Jesus praised his faith.",
+          "Ten dinosaurs built a tower.",
+          "The road turned into jelly.",
+          "Nobody was healed."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that lines up with Jesus’ “where are the nine?” and “thy faith hath made thee whole.”",
+        "wrongFeedback": "Cross out the joke answers. Which matches Luke 17? (Answer: one came back… thanks.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Thank Jesus for helping me — and remember to say thank you to Him today.",
+          "Never say thank you to anyone.",
+          "Forget what God did.",
+          "Only grown-ups should speak to Jesus."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which honors Jesus like the one who returned? (Answer: thank… remember.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Heals Ten Men and One Says Thank You with God's Word today.",
+    "takeaway": "Jesus heals us and is happy when we remember to say thank you.",
+    "prayer": "Lord Jesus, thank You for loving me and healing my heart. Help me remember to say thank You. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children: Ten men with skin trouble standing far away calling to Jesus One man is running back to Jesus with a thankful face and arms raised Jesus has a kind caring face thick bold outlines with large open spaces on Jesus robe the men robes and the road for easy coloring soft road and gentle hills with minimal lines thankful and healing mood focus on the one man saying thank you clean minimal no scary disease details plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and soft green hills, friendly not scary, no text in image: Afar off — mercy cry (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and soft green hills, friendly not scary, no text in image: Go shew yourselves — obey Jesus (faith)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and soft green hills, friendly not scary, no text in image: Cleansed as they went (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and soft green hills, friendly not scary, no text in image: One turns back — glorified God (worship)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and soft green hills, friendly not scary, no text in image: Thanks at Jesus’ feet (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and soft green hills, friendly not scary, no text in image: Where are the nine? (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and soft green hills, friendly not scary, no text in image: Faith made whole — say thank you (peace)"
+    ],
+    "readAlongImages": []
+  },
   "tenPlagues": {
     "kjvRef": "Exodus 7–12",
     "hintAboveQuiz": "Use the comic pictures above while you read.",
@@ -29441,10 +29478,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46",
-          "Exodus 7–12",
           "Joshua 6:1-21",
-          "Hebrews 11"
+          "Exodus 7–12",
+          "1 Samuel 16:14-23",
+          "2 Kings 6:8-17"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -29525,10 +29562,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Luke 3; Matthew 3",
-          "Luke 15:3–7",
+          "1 Corinthians 12",
+          "1 Samuel 18:6-11, 17-19:17",
           "Matthew 25",
-          "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46"
+          "Revelation 22:12–13"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -29608,10 +29645,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Esther 4:1–17",
+          "Esther 4:1–17; 5:1–8; 7:1–10",
           "1 Thessalonians 4:13–18; 5:16–24",
-          "Daniel 3:1–30",
-          "1 Kings 19:19-21"
+          "Luke 23",
+          "Acts 9:36–43"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -29689,10 +29726,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 15:36–18:22",
+          "Acts 20:7–12",
           "John 20:24–29",
-          "Revelation 6–8:1",
-          "Genesis 41"
+          "Revelation 1–22",
+          "Acts 3"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -29771,10 +29808,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Psalm 23:1-6",
-          "Luke 24:13–35",
+          "Galatians 5",
+          "Mark 5:21–43",
           "1 Timothy 4:12",
-          "Acts 2:1–4"
+          "2 Kings 6:1-7"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -29856,10 +29893,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Job 1:1–22; 2:11–13",
-          "Luke 15:8–10",
+          "Joshua 7:1-11",
+          "Exodus 14:21-31",
           "Matthew 28",
-          "John 2:1–11"
+          "Matthew 4:1–11"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -29939,10 +29976,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
-          "Ruth 2",
+          "Acts 2",
+          "Luke 15:11–32",
           "Genesis 11",
-          "1 Peter 1–5"
+          "Exodus 12:1-14"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -30020,10 +30057,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Joshua 10:12-14",
+          "1 Samuel 3:1-21",
           "Matthew 17:1–13",
-          "Revelation 20",
-          "Judges 16:4-21"
+          "Acts 18:1–3, 18–19",
+          "Revelation 12"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -30104,9 +30141,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 5:1–16",
-          "Exodus 14:21-31",
-          "Genesis 39–40",
+          "Matthew 25",
+          "Numbers 21:1-9",
+          "Acts 18:24–28",
           "the Bible"
         ],
         "correctIndex": 3,
@@ -30189,9 +30226,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "the Bible",
-          "2 Kings 5:15-19",
-          "Joshua 7:1-11",
-          "Matthew 4:1–11"
+          "1 Timothy 1–6; 2 Timothy 1–4",
+          "Matthew 13:1–23",
+          "John 9:1–38"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -30271,9 +30308,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Genesis 37:28",
-          "Philemon 1",
-          "Matthew 13:31–32",
+          "Exodus 20:1-17",
+          "Revelation 13:16–18",
+          "2 Samuel 15:1-37; 16:15-23; 19:1-15",
           "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16"
         ],
         "correctIndex": 3,
@@ -30356,9 +30393,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "John 2:1–11",
-          "1 Kings 17:8-16",
-          "Ezra 1:1–11; 3:1–6",
-          "1 Samuel 16:1-13"
+          "Acts 7",
+          "Mark 3:1–6",
+          "Judges 13:1-25"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -30439,10 +30476,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18",
-          "1 Peter 1–5",
+          "Matthew 19:16–22",
+          "Luke 15:11–32",
           "Mark 12",
-          "Ruth 2"
+          "Genesis 18:9–15"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -30647,9 +30684,9 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Acts 15",
-          "2 Kings 4:38-41",
-          "1 Samuel 16:11; 17:15, 34–37",
+          "1 Samuel 18",
+          "Acts 28:1–10",
+          "John 20:24–29",
           "Mark 12"
         ],
         "correctIndex": 3,
@@ -30987,9 +31024,9 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Matthew 6",
-          "Acts 12:1–19",
-          "Revelation 13",
-          "Romans–Philemon"
+          "John 20:24–29",
+          "Acts 17:22–34",
+          "1 Samuel 18"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -31070,10 +31107,10 @@
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Esther 5:1–8; 7:1–10",
-          "Acts 2:42–47",
+          "Philemon 1",
+          "Matthew 13:31–32",
           "Luke 19:1–10",
-          "1 Samuel 17:8–11, 16, 23–30"
+          "Acts 2:14–41"
         ],
         "correctIndex": 2,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -31743,6 +31780,783 @@
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Found — on his shoulders (joy)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Rejoice with friends — heaven’s joy (celebrate)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Jesus — good Shepherd for us (love)"
+    ],
+    "readAlongImages": []
+  },
+  "marthaServe": {
+    "kjvRef": "Luke 10:38–42 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "Mary hath chosen that good part, which shall not be taken away from her. — Luke 10:42 (KJV)",
+    "readAlongTitle": "Jesus Visits Mary and Martha",
+    "quizWrongHumilityHint": "Listen again — Bethany; Martha; Mary; feet; hear; careful; troubled; one thing; needful; good part; listen.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Jesus came to the home of two sisters, Mary and Martha.",
+      "Martha was busy getting everything ready for Jesus. She wanted the house to be clean and the meal to be just right.",
+      "Mary sat down at Jesus’ feet and listened to every word He said.",
+      "Martha became upset and said, “Lord, dost thou not care that my sister hath left me to serve alone? Bid her therefore that she help me.”",
+      "Jesus answered gently, “Martha, Martha, thou art careful and troubled about many things: but one thing is needful: and Mary hath chosen that good part, which shall not be taken away from her.”",
+      "Jesus wants us to spend time listening to Him, because that is the most important thing.",
+      "Reference: Luke 10:38–42 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus visited Mary and Martha’s house.",
+        "caption": "A quiet welcome",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Martha was busy getting everything ready.",
+        "caption": "Serving with care",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Mary sat at Jesus’ feet and listened.",
+        "caption": "Still… and listening",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Martha said, “Lord, tell my sister to help me.”",
+        "caption": "Dost thou not care?",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Jesus said gently, “Mary hath chosen that good part.”",
+        "caption": "One thing is needful",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Listening to Jesus is the most important thing.",
+        "caption": "The good part",
+        "image": "panel-noah-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Luke 10:38–42",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Luke 10:38–42.)"
+      },
+      {
+        "question": "What was Mary doing that Jesus called “the good part”?",
+        "choices": [
+          "She sat at Jesus’ feet and listened to His words.",
+          "She ran away from home.",
+          "She hid under a table.",
+          "She forgot Jesus was there."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Jesus’ gentle words in Luke 10.",
+        "wrongFeedback": "Think about what Mary chose while Martha was busy. (Answer: sat… listened.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "Busy work is always wrong.",
+          "Time with Jesus — listening to Him — is the one needful thing; it will not be taken away.",
+          "We should never help at home.",
+          "Only grown-ups need God’s Word."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread Jesus’ words about “one thing is needful” and “that good part.” (Answer: listen… needful.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "Mary hath chosen that good part, which shall not be taken away from her.",
+          "The bowl turned into a trampoline.",
+          "The house flew to the moon.",
+          "Nobody could hear anything."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that wonder comes from God’s Word.",
+        "wrongFeedback": "Cross out the joke answers. Which matches Luke 10? (Answer: good part… not taken away.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ask Jesus to help me sit still with Him today — even a little — and listen to His Word.",
+          "Never be kind at home.",
+          "Only rush and worry.",
+          "Hide from Jesus."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which honors Jesus’ “one thing is needful”? (Answer: listen… His Word.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Visits Mary and Martha with God's Word today.",
+    "takeaway": "Jesus wants us to spend time listening to Him, because that is the most important thing.",
+    "prayer": "Lord Jesus, thank You for calling me to sit with You. Help me choose the good part today. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus sitting in a quiet room talking Mary is sitting at His feet listening with a peaceful face Martha stands nearby with a bowl in her hands thick bold outlines with large open spaces on Jesus robe Mary robe Martha robe and the floor for easy coloring soft house walls and gentle light from a window with minimal lines calm and listening mood focus on Mary choosing to sit with Jesus clean minimal no anger or busy mess plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Quiet house — Jesus welcomed (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Martha serving — getting things ready (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Mary at Jesus’ feet — listening (still)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Martha speaks — help me (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Jesus gentle — one thing needful (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Good part — not taken away (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Listen today — small quiet moment (hope)"
+    ],
+    "readAlongImages": []
+  },
+  "marySit": {
+    "kjvRef": "Luke 10:38–42 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "Mary hath chosen that good part, which shall not be taken away from her. — Luke 10:42 (KJV)",
+    "readAlongTitle": "Jesus Visits Mary and Martha",
+    "quizWrongHumilityHint": "Listen again — Bethany; Martha; Mary; feet; hear; careful; troubled; one thing; needful; good part; listen.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Jesus came to the home of two sisters, Mary and Martha.",
+      "Martha was busy getting everything ready for Jesus. She wanted the house to be clean and the meal to be just right.",
+      "Mary sat down at Jesus’ feet and listened to every word He said.",
+      "Martha became upset and said, “Lord, dost thou not care that my sister hath left me to serve alone? Bid her therefore that she help me.”",
+      "Jesus answered gently, “Martha, Martha, thou art careful and troubled about many things: but one thing is needful: and Mary hath chosen that good part, which shall not be taken away from her.”",
+      "Jesus wants us to spend time listening to Him, because that is the most important thing.",
+      "Reference: Luke 10:38–42 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus visited Mary and Martha’s house.",
+        "caption": "A quiet welcome",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Martha was busy getting everything ready.",
+        "caption": "Serving with care",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Mary sat at Jesus’ feet and listened.",
+        "caption": "Still… and listening",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Martha said, “Lord, tell my sister to help me.”",
+        "caption": "Dost thou not care?",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Jesus said gently, “Mary hath chosen that good part.”",
+        "caption": "One thing is needful",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Listening to Jesus is the most important thing.",
+        "caption": "The good part",
+        "image": "panel-noah-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Luke 10:38–42",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Luke 10:38–42.)"
+      },
+      {
+        "question": "What was Mary doing that Jesus called “the good part”?",
+        "choices": [
+          "She sat at Jesus’ feet and listened to His words.",
+          "She ran away from home.",
+          "She hid under a table.",
+          "She forgot Jesus was there."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Jesus’ gentle words in Luke 10.",
+        "wrongFeedback": "Think about what Mary chose while Martha was busy. (Answer: sat… listened.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "Busy work is always wrong.",
+          "Time with Jesus — listening to Him — is the one needful thing; it will not be taken away.",
+          "We should never help at home.",
+          "Only grown-ups need God’s Word."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread Jesus’ words about “one thing is needful” and “that good part.” (Answer: listen… needful.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "Mary hath chosen that good part, which shall not be taken away from her.",
+          "The bowl turned into a trampoline.",
+          "The house flew to the moon.",
+          "Nobody could hear anything."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that wonder comes from God’s Word.",
+        "wrongFeedback": "Cross out the joke answers. Which matches Luke 10? (Answer: good part… not taken away.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Ask Jesus to help me sit still with Him today — even a little — and listen to His Word.",
+          "Never be kind at home.",
+          "Only rush and worry.",
+          "Hide from Jesus."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which honors Jesus’ “one thing is needful”? (Answer: listen… His Word.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Visits Mary and Martha with God's Word today.",
+    "takeaway": "Jesus wants us to spend time listening to Him, because that is the most important thing.",
+    "prayer": "Lord Jesus, thank You for calling me to sit with You. Help me choose the good part today. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus sitting in a quiet room talking Mary is sitting at His feet listening with a peaceful face Martha stands nearby with a bowl in her hands thick bold outlines with large open spaces on Jesus robe Mary robe Martha robe and the floor for easy coloring soft house walls and gentle light from a window with minimal lines calm and listening mood focus on Mary choosing to sit with Jesus clean minimal no anger or busy mess plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Quiet house — Jesus welcomed (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Martha serving — getting things ready (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Mary at Jesus’ feet — listening (still)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Martha speaks — help me (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Jesus gentle — one thing needful (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Good part — not taken away (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Listen today — small quiet moment (hope)"
+    ],
+    "readAlongImages": []
+  },
+  "jesusLazarus": {
+    "kjvRef": "John 11:1–44 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "Jesus said unto her, I am the resurrection, and the life. — John 11:25 (KJV)",
+    "readAlongTitle": "Jesus Brings Lazarus Back to Life",
+    "quizWrongHumilityHint": "Listen again — Bethany; sick; died; four days; tomb; Martha; believe; resurrection; life; come forth; loose him; believe.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Jesus had a friend named Lazarus who lived in Bethany with his sisters Mary and Martha.",
+      "Lazarus became very sick and died.",
+      "When Jesus came, Lazarus had been in the tomb for four days.",
+      "Mary and Martha were very sad.",
+      "Jesus said to Martha, “I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live.”",
+      "Then Jesus went to the tomb and said, “Lazarus, come forth.”",
+      "Lazarus walked out of the tomb, alive again!",
+      "Many people who saw this believed in Jesus.",
+      "Jesus has power over death and brings hope and life.",
+      "Reference: John 11:1–44 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Lazarus was very sick and died.",
+        "caption": "A hard day in Bethany",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Jesus came to the tomb.",
+        "caption": "Jesus draws near",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Jesus said, “I am the resurrection and the life.”",
+        "caption": "Believest thou this?",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Jesus called, “Lazarus, come forth.”",
+        "caption": "Come forth",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Lazarus walked out alive.",
+        "caption": "Loose him, and let him go",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Jesus has power over death.",
+        "caption": "Hope and life",
+        "image": "panel-noah-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "John 11:1–44",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: John 11:1–44.)"
+      },
+      {
+        "question": "Who was Lazarus to Jesus in this gentle story?",
+        "choices": [
+          "A dear friend whose family loved Him — Mary and Martha’s brother.",
+          "A stranger Jesus never met.",
+          "Someone who lived in a book only.",
+          "A pretend person with no family."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches how John 11 introduces Lazarus of Bethany.",
+        "wrongFeedback": "Think: who were Mary and Martha to Lazarus? (Answer: friend… brother… sisters.)"
+      },
+      {
+        "question": "Which words did Jesus say to Martha about resurrection and life?",
+        "choices": [
+          "“I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live.”",
+          "“Be careful for nothing.”",
+          "“Peace, be still.”",
+          "“Take no thought for your life.”"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that lines up with John 11:25 and God's truth.",
+        "wrongFeedback": "Reread Martha’s moment with Jesus in John 11. (Answer: resurrection… life… believeth.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "When Jesus called “Lazarus, come forth,” the one who was dead came out.",
+          "The tomb turned into a rocket.",
+          "Everyone forgot who Lazarus was.",
+          "Mary and Martha lived on the moon."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that wonder comes from God’s Word.",
+        "wrongFeedback": "Cross out the joke answers. Which matches John 11? (Answer: come forth… came out.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Thank Jesus that He has power over death — and ask Him to help me trust Him with hard, sad days.",
+          "Never talk to God.",
+          "Only think about fear.",
+          "Forget what Jesus said."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which honors Jesus as “the resurrection, and the life”? (Answer: thank… trust.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Brings Lazarus Back to Life with God's Word today.",
+    "takeaway": "Jesus has power over death and brings hope and life.",
+    "prayer": "Lord Jesus, thank You that You are the resurrection and the life. Help me trust You today. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children: Jesus standing outside the tomb calling Lazarus Lazarus is walking out wrapped in cloths with a happy alive face Mary and Martha stand nearby with thankful faces thick bold outlines with large open spaces on Jesus robe Lazarus cloths and the ground for easy coloring soft tomb opening and gentle hills with minimal lines hopeful and joyful mood focus on Jesus bringing Lazarus back to life clean minimal no fear or dark tomb plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Bethany — a friend is sick (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Four days — Jesus comes near (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Resurrection and life — Jesus speaks (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Come forth — call at the tomb (power)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Walking out — bound in graveclothes (alive)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Loose him — thankful hearts (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Many believed — hope spreads (love)"
+    ],
+    "readAlongImages": []
+  },
+  "healLeper": {
+    "kjvRef": "Luke 17:11–19 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "Arise, go thy way: thy faith hath made thee whole. — Luke 17:19 (KJV)",
+    "readAlongTitle": "Jesus Heals Ten Men and One Says Thank You",
+    "quizWrongHumilityHint": "Listen again — Samaria; Galilee; stood afar; mercy; priests; healed; glorified God; thanks; where are the nine; faith made whole; thank.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Jesus was walking along the road between Samaria and Galilee.",
+      "Ten men who had a skin disease called leprosy saw Him.",
+      "They stood far away and called, “Jesus, Master, have mercy on us!”",
+      "Jesus said to them, “Go shew yourselves unto the priests.”",
+      "As they went, they were healed.",
+      "One of them, when he saw that he was healed, turned back and with a loud voice glorified God.",
+      "He fell down on his face at Jesus’ feet and gave Him thanks.",
+      "Jesus said, “Were there not ten cleansed? but where are the nine? Arise, go thy way: thy faith hath made thee whole.”",
+      "Jesus heals us and is happy when we remember to say thank you.",
+      "Reference: Luke 17:11–19 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Ten men with a skin disease saw Jesus.",
+        "caption": "They stood afar off",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "They called, “Jesus, have mercy on us!”",
+        "caption": "Master, have mercy on us",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Jesus said, “Go show yourselves to the priests.”",
+        "caption": "Go shew yourselves unto the priests",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "As they went, they were healed.",
+        "caption": "Cleansed as they went",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "One man ran back and thanked Jesus.",
+        "caption": "He glorified God",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Jesus said, “Thy faith hath made thee whole.”",
+        "caption": "Where are the nine?",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Jesus is happy when we say thank you.",
+        "caption": "A thankful heart",
+        "image": "panel-noah-2.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Luke 17:11–19",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Luke 17:11–19.)"
+      },
+      {
+        "question": "What did the men call out to Jesus before they were healed?",
+        "choices": [
+          "“Jesus, Master, have mercy on us!”",
+          "“Bring us gold and toys.”",
+          "“Let us hide forever.”",
+          "“We do not need any help.”"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Luke 17:13.",
+        "wrongFeedback": "Think about the honest cry for mercy in Luke 17. (Answer: Master, have mercy.)"
+      },
+      {
+        "question": "What did Jesus tell them to do?",
+        "choices": [
+          "“Go shew yourselves unto the priests.”",
+          "“Stay far away forever.”",
+          "“Do not obey God.”",
+          "“Walk into the sea.”"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Jesus’ words in Luke 17:14.",
+        "wrongFeedback": "Reread what Jesus said before they were healed on the way. (Answer: show yourselves to the priests.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "Only one came back to give thanks — and Jesus praised his faith.",
+          "Ten dinosaurs built a tower.",
+          "The road turned into jelly.",
+          "Nobody was healed."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that lines up with Jesus’ “where are the nine?” and “thy faith hath made thee whole.”",
+        "wrongFeedback": "Cross out the joke answers. Which matches Luke 17? (Answer: one came back… thanks.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Thank Jesus for helping me — and remember to say thank you to Him today.",
+          "Never say thank you to anyone.",
+          "Forget what God did.",
+          "Only grown-ups should speak to Jesus."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which honors Jesus like the one who returned? (Answer: thank… remember.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Heals Ten Men and One Says Thank You with God's Word today.",
+    "takeaway": "Jesus heals us and is happy when we remember to say thank you.",
+    "prayer": "Lord Jesus, thank You for loving me and healing my heart. Help me remember to say thank You. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children: Ten men with skin trouble standing far away calling to Jesus One man is running back to Jesus with a thankful face and arms raised Jesus has a kind caring face thick bold outlines with large open spaces on Jesus robe the men robes and the road for easy coloring soft road and gentle hills with minimal lines thankful and healing mood focus on the one man saying thank you clean minimal no scary disease details plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and soft green hills, friendly not scary, no text in image: Afar off — mercy cry (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and soft green hills, friendly not scary, no text in image: Go shew yourselves — obey Jesus (faith)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and soft green hills, friendly not scary, no text in image: Cleansed as they went (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and soft green hills, friendly not scary, no text in image: One turns back — glorified God (worship)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and soft green hills, friendly not scary, no text in image: Thanks at Jesus’ feet (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and soft green hills, friendly not scary, no text in image: Where are the nine? (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and soft green hills, friendly not scary, no text in image: Faith made whole — say thank you (peace)"
+    ],
+    "readAlongImages": []
+  },
+  "healBlind": {
+    "kjvRef": "John 9:1–38 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "One thing I know, that, whereas I was blind, now I see. — John 9:25 (KJV)",
+    "readAlongTitle": "Jesus Gives Sight to a Man Who Was Born Blind",
+    "quizWrongHumilityHint": "Listen again — born blind; disciples; sin; works of God; clay; spittle; Siloam; wash; neighbours; Pharisees; Son of God; Lord; believe.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Jesus saw a man who had been blind since he was born.",
+      "His disciples asked, “Master, who did sin, this man, or his parents, that he was born blind?”",
+      "Jesus answered, “Neither hath this man sinned, nor his parents: but that the works of God should be made manifest in him.”",
+      "Jesus made clay with the dirt and spit, put it on the man’s eyes, and said, “Go, wash in the pool of Siloam.”",
+      "The man went, washed, and came back seeing!",
+      "The neighbors were amazed and asked, “Is not this he that sat and begged?”",
+      "The man said, “I was blind, but now I see.”",
+      "When the Pharisees asked how he received his sight, he simply said, “He put clay on my eyes, and I washed, and do see.”",
+      "Later Jesus found the man and asked, “Dost thou believe on the Son of God?”",
+      "The man answered, “Lord, I believe.” And he worshipped Jesus.",
+      "Jesus opens blind eyes and helps us see who He really is.",
+      "Reference: John 9:1–38 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus saw a man who was born blind.",
+        "caption": "That the works of God…",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Jesus put clay on his eyes.",
+        "caption": "Anointed the eyes",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "He said, “Go wash in the pool of Siloam.”",
+        "caption": "Go, wash",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "The man washed and came back seeing!",
+        "caption": "Came seeing",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "He said, “I was blind, but now I see.”",
+        "caption": "Now I see",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Jesus helps us see who He is.",
+        "caption": "Lord, I believe",
+        "image": "panel-noah-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "John 9:1–38",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: John 9:1–38.)"
+      },
+      {
+        "question": "What did Jesus tell the man to do after He put clay on his eyes?",
+        "choices": [
+          "Wash in the pool of Siloam.",
+          "Run away from home.",
+          "Hide behind a tree forever.",
+          "Never speak to anyone."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches John 9:7.",
+        "wrongFeedback": "Think about where Jesus sent him next. (Answer: pool of Siloam… wash.)"
+      },
+      {
+        "question": "Which line matches the man’s simple honest truth after he could see?",
+        "choices": [
+          "“One thing I know: I was blind, but now I see.”",
+          "“I have never heard of Jesus.”",
+          "“Nothing changed at all.”",
+          "“I only want to be angry.”"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that heart line belongs to John 9.",
+        "wrongFeedback": "Choose the honest line from God’s Word. (Answer: blind… now I see.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "Jesus asked him, “Dost thou believe on the Son of God?” and the man said, “Lord, I believe.”",
+          "A giant carrot taught the lesson.",
+          "Everyone pretended to be statues.",
+          "The pool turned into soup."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that lines up with the end of John 9 in this gentle summary.",
+        "wrongFeedback": "Cross out the joke answers. Which matches John 9? (Answer: believe… Lord.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Thank Jesus that He helps us truly see Him — and ask Him to open my heart to trust Him today.",
+          "Never thank God.",
+          "Only look at what is dark.",
+          "Forget every promise of God."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which honors Jesus as the One who opens eyes—heart and soul? (Answer: thank… see Him.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Gives Sight to a Man Who Was Born Blind with God's Word today.",
+    "takeaway": "Jesus opens blind eyes and helps us see who He really is.",
+    "prayer": "Lord Jesus, help me see You clearly and trust You with my whole heart. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children: Jesus gently putting clay on the eyes of a man who was born blind The man is sitting with a hopeful face thick bold outlines with large open spaces on Jesus robe the man robe and the ground for easy coloring soft road and gentle sky with minimal lines kind and healing mood focus on Jesus giving sight clean minimal no scary blindness or mud plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Works of God — gentle mission (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Clay on eyes — obey and go (faith)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Pool of Siloam — wash (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Came seeing — joy (wonder)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Neighbors amazed — honest answer (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Pharisees ask — clay, wash, see (courage)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Son of God — Lord, I believe (love)"
+    ],
+    "readAlongImages": []
+  },
+  "jesusHealsBlind": {
+    "kjvRef": "John 9:1–38 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "One thing I know, that, whereas I was blind, now I see. — John 9:25 (KJV)",
+    "readAlongTitle": "Jesus Gives Sight to a Man Who Was Born Blind",
+    "quizWrongHumilityHint": "Listen again — born blind; disciples; sin; works of God; clay; spittle; Siloam; wash; neighbours; Pharisees; Son of God; Lord; believe.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Jesus saw a man who had been blind since he was born.",
+      "His disciples asked, “Master, who did sin, this man, or his parents, that he was born blind?”",
+      "Jesus answered, “Neither hath this man sinned, nor his parents: but that the works of God should be made manifest in him.”",
+      "Jesus made clay with the dirt and spit, put it on the man’s eyes, and said, “Go, wash in the pool of Siloam.”",
+      "The man went, washed, and came back seeing!",
+      "The neighbors were amazed and asked, “Is not this he that sat and begged?”",
+      "The man said, “I was blind, but now I see.”",
+      "When the Pharisees asked how he received his sight, he simply said, “He put clay on my eyes, and I washed, and do see.”",
+      "Later Jesus found the man and asked, “Dost thou believe on the Son of God?”",
+      "The man answered, “Lord, I believe.” And he worshipped Jesus.",
+      "Jesus opens blind eyes and helps us see who He really is.",
+      "Reference: John 9:1–38 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus saw a man who was born blind.",
+        "caption": "That the works of God…",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "Jesus put clay on his eyes.",
+        "caption": "Anointed the eyes",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "He said, “Go wash in the pool of Siloam.”",
+        "caption": "Go, wash",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "The man washed and came back seeing!",
+        "caption": "Came seeing",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "He said, “I was blind, but now I see.”",
+        "caption": "Now I see",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "Jesus helps us see who He is.",
+        "caption": "Lord, I believe",
+        "image": "panel-noah-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "John 9:1–38",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: John 9:1–38.)"
+      },
+      {
+        "question": "What did Jesus tell the man to do after He put clay on his eyes?",
+        "choices": [
+          "Wash in the pool of Siloam.",
+          "Run away from home.",
+          "Hide behind a tree forever.",
+          "Never speak to anyone."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches John 9:7.",
+        "wrongFeedback": "Think about where Jesus sent him next. (Answer: pool of Siloam… wash.)"
+      },
+      {
+        "question": "Which line matches the man’s simple honest truth after he could see?",
+        "choices": [
+          "“One thing I know: I was blind, but now I see.”",
+          "“I have never heard of Jesus.”",
+          "“Nothing changed at all.”",
+          "“I only want to be angry.”"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that heart line belongs to John 9.",
+        "wrongFeedback": "Choose the honest line from God’s Word. (Answer: blind… now I see.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "Jesus asked him, “Dost thou believe on the Son of God?” and the man said, “Lord, I believe.”",
+          "A giant carrot taught the lesson.",
+          "Everyone pretended to be statues.",
+          "The pool turned into soup."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that lines up with the end of John 9 in this gentle summary.",
+        "wrongFeedback": "Cross out the joke answers. Which matches John 9? (Answer: believe… Lord.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Thank Jesus that He helps us truly see Him — and ask Him to open my heart to trust Him today.",
+          "Never thank God.",
+          "Only look at what is dark.",
+          "Forget every promise of God."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which honors Jesus as the One who opens eyes—heart and soul? (Answer: thank… see Him.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Gives Sight to a Man Who Was Born Blind with God's Word today.",
+    "takeaway": "Jesus opens blind eyes and helps us see who He really is.",
+    "prayer": "Lord Jesus, help me see You clearly and trust You with my whole heart. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children: Jesus gently putting clay on the eyes of a man who was born blind The man is sitting with a hopeful face thick bold outlines with large open spaces on Jesus robe the man robe and the ground for easy coloring soft road and gentle sky with minimal lines kind and healing mood focus on Jesus giving sight clean minimal no scary blindness or mud plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Works of God — gentle mission (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Clay on eyes — obey and go (faith)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Pool of Siloam — wash (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Came seeing — joy (wonder)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Neighbors amazed — honest answer (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Pharisees ask — clay, wash, see (courage)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky blue and warm sand, friendly not scary, no text in image: Son of God — Lord, I believe (love)"
     ],
     "readAlongImages": []
   }

@@ -170,6 +170,7 @@
   "samsonLion": "samsonLion",
   "samuelBirth": "samuelBirth",
   "samuelCalls": "samuelCall",
+  "sheepAndGoats": "sheepAndGoats",
   "shepherdsStar": "shepherdsStar",
   "shunammiteReturn": "shunammiteReturn",
   "simeonAnna": "simeonAnna",

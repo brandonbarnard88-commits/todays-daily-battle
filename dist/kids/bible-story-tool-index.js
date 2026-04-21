@@ -1417,6 +1417,16 @@
     "kw": "good samaritan helping others neighbour mercy compassion Jerusalem Jericho priest levite inn go and do likewise luke 10 love your neighbour jesus"
   },
   {
+    "key": "sheepAndGoats",
+    "title": "Jesus Tells About Helping People",
+    "kjvRef": "Matthew 25:31–40",
+    "who": "Jesus",
+    "to": "His disciples (and us)",
+    "apply": "When we help someone who is hungry, thirsty, lonely, cold, sick, or hurting, God sees it—and it honors Jesus.",
+    "theme": "Love",
+    "kw": "sheep goats least of these hungry thirsty stranger shepherd matthew 25 help love jesus"
+  },
+  {
     "key": "parableVineyardWorkers",
     "title": "Jesus Tells About the Generous Vineyard Owner",
     "kjvRef": "Matthew 20:1–16",

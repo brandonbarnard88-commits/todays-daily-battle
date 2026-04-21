@@ -1542,6 +1542,11 @@
       webm: '/media/kids-stories/ten-virgins.webm',
       captionsVtt: '/media/kids-stories/ten-virgins.vtt'
     },
+    sheepAndGoats: {
+      mp4: '/media/kids-stories/sheep-and-goats.mp4',
+      webm: '/media/kids-stories/sheep-and-goats.webm',
+      captionsVtt: '/media/kids-stories/sheep-and-goats.vtt'
+    },
     thessaloniansHope: {
       mp4: '/media/kids-stories/thessalonians-hope.mp4',
       webm: '/media/kids-stories/thessalonians-hope.webm',

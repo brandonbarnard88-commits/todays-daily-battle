@@ -298,6 +298,7 @@
     tenCommandments: 17,
     tenPlagues: 15,
     tenVirgins: 108,
+    sheepAndGoats: 215,
     trial: 87,
     thessaloniansHope: 90,
     thomasDoubt: 95,

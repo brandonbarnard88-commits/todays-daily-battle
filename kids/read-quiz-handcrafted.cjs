@@ -87,6 +87,7 @@
  * King’s wedding feast — Matthew 22:1–14 (gentle): buildParableWeddingFeastReadQuiz() (library key: parableWeddingFeast).
  * Talents — Matthew 25:14–30 (gentle): buildParableTalentsReadQuiz() (library key: parableTalents).
  * Ten virgins — Matthew 25:1–13 (gentle): buildTenVirginsReadQuiz() (library key: tenVirgins; alias parableTenVirgins in slug map).
+ * Sheep and goats (judgment, gentle — sheep on the right, help the least) — Matthew 25:31–40: buildSheepAndGoatsReadQuiz() (library key: sheepAndGoats; alias parableSheepAndGoats in slug map).
  * Zacchaeus — Luke 19:1–10 (gentle): buildZacchaeusReadQuiz() (library key: zacchaeus; alias jesusAndZacchaeus).
  * Man born blind — John 9:1–38 (gentle): buildManBornBlindReadQuiz() (library key: manBornBlind; alias healBlind, jesusHealsBlind).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
@@ -10786,6 +10787,135 @@ function buildTenVirginsReadQuiz() {
   };
 }
 
+/** Sheep and goats (gentle, Matthew 25:31–40 focus). Library key: sheepAndGoats */
+function buildSheepAndGoatsReadQuiz() {
+  return {
+    kjvRef: 'Matthew 25:31–40 (KJV) — gentle summary for little hearts',
+    verseExcerpt:
+      'Inasmuch as ye have done it unto one of the least of these my brethren, ye have done it unto me. — Matthew 25:40 (KJV)',
+    readAlongTitle: 'Jesus Tells About Helping People',
+    quizWrongHumilityHint:
+      'Listen again — Son of man; glory; nations; sheep; goats; right hand; blessed; hungry; thirsty; stranger; naked; sick; prison; least of these; done it unto me.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus told about the time when the Son of man shall come in His glory.',
+      'All the nations will be gathered before Him, and He will separate them like a shepherd separates the sheep from the goats.',
+      'He will put the sheep on His right hand and the goats on the left.',
+      'To those on His right He will say, “Come, ye blessed of my Father, inherit the kingdom prepared for you from the foundation of the world: for I was an hungred, and ye gave me meat: I was thirsty, and ye gave me drink: I was a stranger, and ye took me in: naked, and ye clothed me: I was sick, and ye visited me: I was in prison, and ye came unto me.”',
+      'The righteous will ask, “Lord, when saw we thee an hungred, and fed thee?”',
+      'Jesus will answer, “Verily I say unto you, Inasmuch as ye have done it unto one of the least of these my brethren, ye have done it unto me.”',
+      'Jesus says that when we help people who are hungry, thirsty, lonely, cold, sick, or in prison, we are really helping Him.',
+      'Reference: Matthew 25:31–40 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus will come in His glory — and all the nations will be gathered before Him.',
+        caption: 'The Son of man shall come in his glory',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'He will separate people like a shepherd separates the sheep from the goats.',
+        caption: 'As a shepherd divideth his sheep from the goats',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'To the sheep on His right He will say, “Come, ye blessed of my Father, inherit the kingdom…”',
+        caption: 'Come, ye blessed',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text:
+          '“For I was an hungred, and ye gave me meat: I was thirsty, and ye gave me drink: I was a stranger, and ye took me in.”',
+        caption: 'Ye gave me meat and drink',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text:
+          'The King will answer, “Inasmuch as ye have done it unto one of the least of these my brethren, ye have done it unto me.”',
+        caption: 'Ye have done it unto me',
+        image: 'panel-noah-3.svg'
+      },
+      {
+        text: 'Jesus says when we help others, we are helping Him.',
+        caption: 'Helping the least of these',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Matthew 25:31–40', 'Psalm 23', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 25:31–40.)'
+      },
+      {
+        question: 'Who will be separated like sheep and goats?',
+        choices: [
+          'The nations gathered before Him',
+          'Only one small town',
+          'Only the disciples in a boat',
+          'Nobody — it is pretend'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches the picture Jesus gives.',
+        wrongFeedback: 'Listen again: who is gathered? (Answer: the nations before Him.)'
+      },
+      {
+        question: 'What are some kind things the sheep on His right cared about?',
+        choices: [
+          'Giving food and drink, welcoming a stranger, clothing, visiting the sick, coming to the prisoner',
+          'Hiding from everyone in need',
+          'Only being kind on birthdays',
+          'Never sharing anything'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—Jesus lists real needs and real love.',
+        wrongFeedback: 'Think about hungry, thirsty, stranger, naked, sick, prison. (Answer: food, drink, welcome, clothes, visit, come.)'
+      },
+      {
+        question: 'What does Jesus say when His sheep wonder, “When did we see You?”',
+        choices: [
+          '“Inasmuch as ye have done it unto one of the least of these my brethren, ye have done it unto me.”',
+          '“It does not matter at all.”',
+          '“Only grown-ups can help.”',
+          '“Never talk to a neighbor.”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that is the heart of the story.',
+        wrongFeedback: 'Listen for “the least of these” and “done it unto me.” (Answer: least of these… unto me.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ask Jesus to help me love and help people in small brave ways — because that honors Him.',
+          'Forget about kindness until I am grown up.',
+          'Believe God never sees what we do.',
+          'Only think about myself.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback: 'Think: which choice matches “done it unto me”? (Answer: love and help people… honors Him.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Tells About Helping People with God's Word today.",
+    takeaway: 'When we help others in need, we are serving Jesus.',
+    prayer:
+      'Lord Jesus, please help me notice people who are hungry, lonely, cold, or sad — and help me love them like You. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art scene for young children: Jesus standing with open arms while a group of happy people bring food, water, and clothes to help others. One person is giving a coat to someone who looks cold. Thick, bold outlines with large open spaces on Jesus’ robe, the people’s robes, the food, water, and clothes for easy coloring. Soft ground and gentle sky with minimal lines. Kind and helping mood — focus on helping people as if helping Jesus. Clean, minimal, no fear, plenty of white space, age-appropriate for ages 3–8.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky and warm helping hands, friendly not scary, no text in image: Jesus — open arms (mercy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky and warm helping hands, friendly not scary, no text in image: Food and drink for hungry and thirsty (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky and warm helping hands, friendly not scary, no text in image: Welcome stranger — gentle coat (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky and warm helping hands, friendly not scary, no text in image: Least of these — done unto me (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sky and warm helping hands, friendly not scary, no text in image: Helping people — helping Jesus (joy)'
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Zacchaeus — Jesus sees him in the tree (gentle). Library key: zacchaeus; alias jesusAndZacchaeus */
 function buildZacchaeusReadQuiz() {
   return {
@@ -11187,6 +11317,7 @@ module.exports = {
   parableWeddingFeast: buildParableWeddingFeastReadQuiz(),
   parableTalents: buildParableTalentsReadQuiz(),
   tenVirgins: buildTenVirginsReadQuiz(),
+  sheepAndGoats: buildSheepAndGoatsReadQuiz(),
   goodSamaritan: buildParableGoodSamaritanReadQuiz(),
   maryMartha: buildMaryMarthaReadQuiz(),
   lazarus: buildLazarusReadQuiz(),

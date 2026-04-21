@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-21T16:59:59.033Z",
-  "surfacedRefCount": 2826,
-  "overrideCount": 2826,
+  "generatedAt": "2026-04-21T17:20:32.657Z",
+  "surfacedRefCount": 2827,
+  "overrideCount": 2827,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 208,
+      "refs": 209,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,7 +248,7 @@
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 191,
+      "refs": 192,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -272,7 +272,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 211,
+      "refs": 212,
       "pairs": 0
     },
     "memorize.html": {
@@ -2781,6 +2781,7 @@
     "Matthew 25:18",
     "Matthew 25:20",
     "Matthew 25:21",
+    "Matthew 25:31-40",
     "Matthew 25:41",
     "Matthew 25:46",
     "Matthew 26:14",
@@ -19856,6 +19857,14 @@
     "Matthew 25:21": {
       "general": {
         "plainExplanation": "Key idea: His lord said to him, Well done, you good and faithful servant: you hast been faithful over a few things, I will make you ruler over many things: enter you...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 25:31-40": {
+      "general": {
+        "plainExplanation": "Key idea: When the Son of man shall come in his glory, and all the holy angels with him, then shall he sit upon the throne of his glory: And before him shall be gathe...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"

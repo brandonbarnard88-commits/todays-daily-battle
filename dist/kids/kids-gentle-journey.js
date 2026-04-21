@@ -184,6 +184,7 @@
     'parableWeddingFeast',
     'parableTalents',
     'tenVirgins',
+    'sheepAndGoats',
     'widowMite',
     'widowsMite',
     'zacchaeus',

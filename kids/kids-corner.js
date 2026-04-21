@@ -3638,6 +3638,36 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 25:13</text>'
       ),
 
+      /* Matthew 25:31–40 — Jesus open arms; people bringing food, water, coat (gentle “helping”) */
+      sheepAndGoats: svg(
+        ground() +
+        '<rect x="0" y="0" width="400" height="135" fill="#eef3fb" stroke="none"/>' +
+        '<path d="M25 52 L45 48 L40 58 Z" fill="#dde3ef" stroke="#2a3140" stroke-width="1"/>' +
+        '<path d="M350 48 L372 44 L365 56 Z" fill="#dde3ef" stroke="#2a3140" stroke-width="1"/>' +
+        '<ellipse cx="88" cy="210" rx="22" ry="28" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<path d="M70 196 Q86 182 102 194 Q118 206 110 222" ' + s + ' stroke-width="2"/>' +
+        '<rect x="94" y="188" width="26" height="10" rx="2" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<line x1="70" y1="224" x2="70" y2="252" ' + s + ' stroke-width="2"/>' +
+        '<line x1="106" y1="224" x2="106" y2="252" ' + s + ' stroke-width="2"/>' +
+        person(200, 142, 18, 46) +
+        '<path d="M152 148 Q200 118 248 148" ' + s + ' stroke-width="2.2" fill="none"/>' +
+        '<path d="M152 158 Q200 132 248 158" ' + s + ' stroke-width="2.2" fill="none"/>' +
+        '<ellipse cx="312" cy="200" rx="20" ry="26" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<path d="M298 188 Q312 174 326 188" ' + s + ' stroke-width="1.8"/>' +
+        '<path d="M296 204 L316 194 L326 210" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<line x1="298" y1="226" x2="298" y2="252" ' + s + ' stroke-width="2"/>' +
+        '<line x1="326" y1="224" x2="326" y2="252" ' + s + ' stroke-width="2"/>' +
+        '<rect x="44" y="168" width="18" height="14" rx="2" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<line x1="53" y1="168" x2="53" y2="148" ' + s + ' stroke-width="1.6"/>' +
+        '<ellipse cx="53" cy="142" rx="6" ry="4" ' + sf + ' fill="white" stroke-width="1.2"/>' +
+        person(158, 188, 10, 28) +
+        '<line x1="168" y1="178" x2="188" y2="168" ' + s + ' stroke-width="1.8"/>' +
+        '<ellipse cx="196" cy="162" rx="8" ry="5" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        person(242, 192, 10, 28) +
+        sun(52, 42, 16) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 25:40</text>'
+      ),
+
       /* ── Week 8: Armor Shield (97) ── */
       armorShield: svg(
         ground() +
@@ -5034,6 +5064,8 @@
     paulSilas: 'paulSilas',
     tenVirgins: 'tenVirgins',
     parableTenVirgins: 'tenVirgins',
+    sheepAndGoats: 'sheepAndGoats',
+    parableSheepAndGoats: 'sheepAndGoats',
     /* ── Week 8 ── */
     armorShield: 'armorShield',
     armorSword: 'armorSword',
@@ -6696,7 +6728,7 @@
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
-        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'widowMite', 'widowsMite', 'zacchaeus',
+        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'widowMite', 'widowsMite', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
         'resurrection', 'roadToEmmaus', 'ascension',         'pentecost', 'stephen', 'paulDamascus',
         'armorOfGod', 'heavenPromise', 'jonah'

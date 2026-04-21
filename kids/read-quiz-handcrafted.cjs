@@ -100,6 +100,7 @@
  * Sadducees and the resurrection — Matthew 22:23–33 (gentle): buildSadduceesResurrectionReadQuiz() (library key: sadduceesResurrection).
  * Zacchaeus — Luke 19:1–10 (gentle): buildZacchaeusReadQuiz() (library key: zacchaeus; alias jesusAndZacchaeus).
  * Good Shepherd — John 10:1–18 (gentle): buildJesusParableGoodShepherdReadQuiz() (library key: jesusParableGoodShepherd).
+ * Mary anoints Jesus’ feet — John 12:1–8 (gentle): buildMaryAnointReadQuiz() (library key: maryAnoint).
  * Man born blind — John 9:1–38 (gentle): buildManBornBlindReadQuiz() (library key: manBornBlind; alias healBlind, jesusHealsBlind).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
@@ -9470,6 +9471,135 @@ function buildLazarusReadQuiz() {
   };
 }
 
+/** Mary anoints Jesus’ feet — Bethany supper, spikenard, Judas, let her alone (gentle). Library key: maryAnoint */
+function buildMaryAnointReadQuiz() {
+  return {
+    kjvRef: 'John 12:1–8 (KJV)',
+    verseExcerpt:
+      'Let her alone: against the day of my burying hath she kept this. — John 12:7 (KJV)',
+    readAlongTitle: "Mary Anoints Jesus' Feet",
+    quizWrongHumilityHint:
+      'Listen again — passover; Bethany; Lazarus; supper; Martha; served; spikenard; anointed; feet; hair; odour; Judas; pence; poor; thief; let her alone; burying; poor always.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Six days before the Passover, Jesus came to Bethany where Lazarus was — the one Jesus had raised from the dead. There they made Him a supper, and Martha served. Lazarus was one of them that sat at the table with Him.',
+      'Then took Mary a pound of ointment of spikenard, very costly, and anointed the feet of Jesus, and wiped His feet with her hair: and the house was filled with the odour of the ointment.',
+      'Then saith one of His disciples, Judas Iscariot, Why was not this ointment sold for three hundred pence, and given to the poor? This he said, not that he cared for the poor, but because he was a thief, and had the bag, and bare what was put therein.',
+      'Jesus said, Let her alone: against the day of my burying hath she kept this. For the poor always ye have with you; but me ye have not always.',
+      'Jesus treasures simple, heartfelt love — He saw Mary’s gift and defended her kindness.',
+      'Reference: John 12:1–8 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus came to Bethany to the home of Lazarus, Martha, and Mary. They made supper for Him.',
+        caption: 'Supper in Bethany',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Mary brought a very costly jar of sweet ointment.',
+        caption: 'Ointment of spikenard',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'She poured the ointment on Jesus’ feet and wiped them with her hair. The whole house smelled beautiful.',
+        caption: 'Filled with the odour',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Judas said the ointment should have been sold to help the poor.',
+        caption: 'Three hundred pence',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus said gently, Let her alone: against the day of my burying hath she kept this.',
+        caption: 'Let her alone',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Jesus knew Mary’s loving heart, and He defended her kindness.',
+        caption: 'Heartfelt love',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['John 12:1–8', 'Luke 10:38–42', 'John 11:1–44', 'Matthew 5'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: John 12:1–8.)'
+      },
+      {
+        question: 'What did Mary pour on Jesus’ feet?',
+        choices: [
+          'A pound of ointment of spikenard, very costly',
+          'Only plain water from a bucket',
+          'Sand from the road',
+          'Nothing — she only waved'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 12:3.',
+        wrongFeedback: 'Listen for “spikenard” and “ointment.” (Answer: costly spikenard ointment.)'
+      },
+      {
+        question: 'What did Mary use to wipe Jesus’ feet?',
+        choices: ['Her hair', 'A heavy blanket', 'A wooden board', 'She did not wipe them'],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 12:3.',
+        wrongFeedback: 'Listen for “wiped” and “hair.” (Answer: her hair.)'
+      },
+      {
+        question: 'Who complained that the ointment should have been sold for the poor?',
+        choices: ['Judas Iscariot', 'Martha only', 'Lazarus', 'Peter only'],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 12:4–6.',
+        wrongFeedback: 'Listen for “Judas” and “pence.” (Answer: Judas Iscariot.)'
+      },
+      {
+        question: 'What did Jesus say about Mary’s gift?',
+        choices: [
+          'Let her alone: against the day of my burying hath she kept this.',
+          'Throw the jar away forever.',
+          'Never love anyone at supper.',
+          'Do not speak to Lazarus.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 12:7.',
+        wrongFeedback: 'Listen for “let her alone.” (Answer: let her alone… burying… kept this.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Thank Jesus that He sees a loving heart — and give Him my best love in small, real ways.',
+          'Believe God only wants money.',
+          'Hide every kind thought from Jesus.',
+          'Never show love at home.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with love: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “heartfelt love” and “gift.” (Answer: thank Jesus… loving heart… best love.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Mary Anoints Jesus' Feet with God's Word today.",
+    takeaway:
+      'Jesus receives every gentle, loving gift we bring Him — He treasures simple, heartfelt love.',
+    prayer:
+      'Lord Jesus, thank You that You see my heart. Help me love You with my best today. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful calm atmosphere. Gentle Jesus sits at a simple supper table with a kind, peaceful face. Mary kneels quietly at His feet, pouring fragrant ointment from a small jar and gently wiping His feet with her long hair. A few friends (including Martha and Lazarus) sit nearby watching with calm, thankful expressions. Soft room walls, a low table, and a few dishes in the background with plenty of open floor space in the foreground for coloring. Focus: Mary’s loving gift to Jesus and His gentle defense of her. Style: clear, bold, tender, restful — never busy or dark.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamplight, friendly not scary, no text in image: Bethany supper — Martha serves — Lazarus at table (care)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamplight, friendly not scary, no text in image: Costly spikenard — Mary’s jar (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamplight, friendly not scary, no text in image: Anoint His feet — wipe with hair — sweet odour (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamplight, friendly not scary, no text in image: Judas — three hundred pence — poor (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamplight, friendly not scary, no text in image: Let her alone — day of my burying (mercy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamplight, friendly not scary, no text in image: Poor always — me ye have not always — tender heart (peace)'
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Ten lepers — mercy, healing as they go, one returns with thanks (gentle). Library key: tenLepers */
 function buildTenLepersReadQuiz() {
   return {
@@ -12851,6 +12981,7 @@ module.exports = {
   goodSamaritan: buildParableGoodSamaritanReadQuiz(),
   maryMartha: buildMaryMarthaReadQuiz(),
   lazarus: buildLazarusReadQuiz(),
+  maryAnoint: buildMaryAnointReadQuiz(),
   tenLepers: buildTenLepersReadQuiz(),
   manBornBlind: buildManBornBlindReadQuiz(),
   bethesda: buildBethesdaReadQuiz(),

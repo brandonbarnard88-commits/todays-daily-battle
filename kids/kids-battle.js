@@ -7443,16 +7443,47 @@
     maryAnoint: {
       title: 'Mary Anoints Jesus\' Feet',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Mary breaks open expensive perfume' },
-        { src: 'panel-noah-2.svg', alt: 'She pours it on Jesus\' feet and wipes with her hair' },
-        { src: 'panel-noah-3.svg', alt: 'Jesus says: what she did will be remembered forever!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Bethany supper — Martha serves; Lazarus at the table with Jesus'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Mary anoints Jesus\' feet with costly spikenard — wipes with her hair — house filled with the odour'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Judas murmurs about the poor — Jesus says, Let her alone — against the day of my burying hath she kept this'
+        }
       ],
-      caption: 'Swipe to see Mary\'s beautiful act of worship! 🌹',
+      caption: 'Swipe slowly — Jesus treasures Mary\'s loving gift and defends her gentle heart.',
       videoId: '',
       videoTitle: '',
-      keywords: ['mary', 'anoint', 'perfume', 'john 12', 'feet', 'worship', 'pour'],
+      keywords: [
+        'mary',
+        'bethany',
+        'lazarus',
+        'martha',
+        'spikenard',
+        'ointment',
+        'feet',
+        'hair',
+        'judas',
+        'let her alone',
+        'burying',
+        'john 12',
+        'passover',
+        'supper'
+      ],
       kjvRef: 'John 12:1–8',
-      kidContext: { who: 'Mary', to: 'Jesus', apply: 'Give Jesus your best—not just what\'s left! Extravagant love honors Him.' }
+      kidContext: {
+        who: 'Mary — and Jesus who receives her love',
+        to: 'Jesus — and everyone who wants to love Him with a whole heart',
+        apply:
+          'Jesus sees a loving heart and receives every gentle gift — we can give Him our best love, even on hard days.'
+      },
+      narration:
+        "Mary Anoints Jesus' Feet — John 12:1–8. Then Jesus six days before the passover came to Bethany, where Lazarus was which had been dead, whom he raised from the dead. There they made him a supper; and Martha served: but Lazarus was one of them that sat at the table with him. Then took Mary a pound of ointment of spikenard, very costly, and anointed the feet of Jesus, and wiped his feet with her hair: and the house was filled with the odour of the ointment. Then saith one of his disciples, Judas Iscariot, Simon's son, which should betray him, Why was not this ointment sold for three hundred pence, and given to the poor? This he said, not that he cared for the poor; but because he was a thief, and had the bag, and bare what was put therein. Then said Jesus, Let her alone: against the day of my burying hath she kept this. For the poor always ye have with you; but me ye have not always. For you: On hard days when you want to show Jesus how much you love Him, remember Mary. She gave Him her very best. Jesus sees your loving heart too, and He receives every gentle gift you bring Him. You can rest in His tender love."
     },
     /* ── Week 9 (109–120) ── */
     stephenStones: {

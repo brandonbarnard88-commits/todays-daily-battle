@@ -478,7 +478,7 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "David",
-          "Mary",
+          "Mary — and Jesus who receives her love",
           "Priscilla",
           "Peter"
         ],
@@ -893,7 +893,7 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Priscilla",
-          "Mary",
+          "Mary — and Jesus who receives her love",
           "David",
           "God"
         ],
@@ -1232,7 +1232,7 @@
           "David",
           "Peter",
           "Paul",
-          "Mary"
+          "Mary — and Jesus who receives her love"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -1820,7 +1820,7 @@
           "God",
           "God the Father",
           "Priscilla",
-          "Mary"
+          "Mary — and Jesus who receives her love"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -2023,7 +2023,7 @@
           "God",
           "God the Father",
           "Priscilla",
-          "Mary"
+          "Mary — and Jesus who receives her love"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -2237,7 +2237,7 @@
           "Jesus",
           "The LORD",
           "God the Father",
-          "Mary"
+          "Mary — and Jesus who receives her love"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -2945,7 +2945,7 @@
         "choices": [
           "Paul",
           "David",
-          "Mary",
+          "Mary — and Jesus who receives her love",
           "Peter"
         ],
         "correctIndex": 0,
@@ -3794,7 +3794,7 @@
           "David",
           "God",
           "Priscilla",
-          "Mary"
+          "Mary — and Jesus who receives her love"
         ],
         "correctIndex": 1,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -5707,7 +5707,7 @@
           "David",
           "Peter",
           "The Lord",
-          "Mary"
+          "Mary — and Jesus who receives her love"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -9241,7 +9241,7 @@
         "choices": [
           "Jesus",
           "David",
-          "Mary",
+          "Mary — and Jesus who receives her love",
           "Peter"
         ],
         "correctIndex": 0,
@@ -10042,7 +10042,7 @@
           "The LORD",
           "God the Father",
           "Jesus",
-          "Mary"
+          "Mary — and Jesus who receives her love"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -10264,7 +10264,7 @@
         "choices": [
           "God",
           "Priscilla",
-          "Mary",
+          "Mary — and Jesus who receives her love",
           "God the Father"
         ],
         "correctIndex": 0,
@@ -10812,7 +10812,7 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Priscilla",
-          "Mary",
+          "Mary — and Jesus who receives her love",
           "God",
           "God the Father"
         ],
@@ -15310,7 +15310,7 @@
         "choices": [
           "The LORD",
           "The apostles",
-          "Mary",
+          "Mary — and Jesus who receives her love",
           "John"
         ],
         "correctIndex": 3,
@@ -15561,7 +15561,7 @@
           "God",
           "Priscilla",
           "God the Father",
-          "Mary"
+          "Mary — and Jesus who receives her love"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -15887,7 +15887,7 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "God",
-          "Mary",
+          "Mary — and Jesus who receives her love",
           "Priscilla",
           "God the Father"
         ],
@@ -18057,87 +18057,140 @@
     "readAlongImages": []
   },
   "maryAnoint": {
-    "kjvRef": "John 12:1–8",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "John 12:1–8 (KJV)",
+    "verseExcerpt": "Let her alone: against the day of my burying hath she kept this. — John 12:7 (KJV)",
+    "readAlongTitle": "Mary Anoints Jesus' Feet",
+    "quizWrongHumilityHint": "Listen again — passover; Bethany; Lazarus; supper; Martha; served; spikenard; anointed; feet; hair; odour; Judas; pence; poor; thief; let her alone; burying; poor always.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Mary Anoints Jesus' Feet (John 12:1–8). Mary breaks open expensive perfume She pours it on Jesus' feet and wipes with her hair Jesus says: what she did will be remembered forever!",
-      "Give Jesus your best—not just what's left!",
-      "Extravagant love honors Him."
+      "Six days before the Passover, Jesus came to Bethany where Lazarus was — the one Jesus had raised from the dead. There they made Him a supper, and Martha served. Lazarus was one of them that sat at the table with Him.",
+      "Then took Mary a pound of ointment of spikenard, very costly, and anointed the feet of Jesus, and wiped His feet with her hair: and the house was filled with the odour of the ointment.",
+      "Then saith one of His disciples, Judas Iscariot, Why was not this ointment sold for three hundred pence, and given to the poor? This he said, not that he cared for the poor, but because he was a thief, and had the bag, and bare what was put therein.",
+      "Jesus said, Let her alone: against the day of my burying hath she kept this. For the poor always ye have with you; but me ye have not always.",
+      "Jesus treasures simple, heartfelt love — He saw Mary’s gift and defended her kindness.",
+      "Reference: John 12:1–8 (KJV)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus came to Bethany to the home of Lazarus, Martha, and Mary. They made supper for Him.",
+        "caption": "Supper in Bethany",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Mary brought a very costly jar of sweet ointment.",
+        "caption": "Ointment of spikenard",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "She poured the ointment on Jesus’ feet and wiped them with her hair. The whole house smelled beautiful.",
+        "caption": "Filled with the odour",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Judas said the ointment should have been sold to help the poor.",
+        "caption": "Three hundred pence",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jesus said gently, Let her alone: against the day of my burying hath she kept this.",
+        "caption": "Let her alone",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "Jesus knew Mary’s loving heart, and He defended her kindness.",
+        "caption": "Heartfelt love",
+        "image": "panel-jesus-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Kings 3:5-15",
           "John 12:1–8",
-          "Revelation 14–15",
-          "John 4:1–42"
-        ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: John 12:1–8.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "David — and the Lord",
-          "Priscilla",
-          "Mary",
-          "David"
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Mary.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "God never hears when kids pray.",
-          "We should hide from God when we mess up.",
-          "The Bible is only pretend stories.",
-          "Give Jesus your best—not just what's left! Extravagant love honors Him."
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Give Jesus your best—not just what's left! Extravagant love honors Him..)"
-      },
-      {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
-        "choices": [
-          "Mary breaks open expensive perfume",
-          "A talking toaster became king of the city.",
-          "Everyone decided to never sleep again.",
-          "A spaceship landed in the parking lot."
+          "Luke 10:38–42",
+          "John 11:1–44",
+          "Matthew 5"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the reference line in the story block. (Answer: John 12:1–8.)"
+      },
+      {
+        "question": "What did Mary pour on Jesus’ feet?",
+        "choices": [
+          "A pound of ointment of spikenard, very costly",
+          "Only plain water from a bucket",
+          "Sand from the road",
+          "Nothing — she only waved"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches John 12:3.",
+        "wrongFeedback": "Listen for “spikenard” and “ointment.” (Answer: costly spikenard ointment.)"
+      },
+      {
+        "question": "What did Mary use to wipe Jesus’ feet?",
+        "choices": [
+          "Her hair",
+          "A heavy blanket",
+          "A wooden board",
+          "She did not wipe them"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches John 12:3.",
+        "wrongFeedback": "Listen for “wiped” and “hair.” (Answer: her hair.)"
+      },
+      {
+        "question": "Who complained that the ointment should have been sold for the poor?",
+        "choices": [
+          "Judas Iscariot",
+          "Martha only",
+          "Lazarus",
+          "Peter only"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches John 12:4–6.",
+        "wrongFeedback": "Listen for “Judas” and “pence.” (Answer: Judas Iscariot.)"
+      },
+      {
+        "question": "What did Jesus say about Mary’s gift?",
+        "choices": [
+          "Let her alone: against the day of my burying hath she kept this.",
+          "Throw the jar away forever.",
+          "Never love anyone at supper.",
+          "Do not speak to Lazarus."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches John 12:7.",
+        "wrongFeedback": "Listen for “let her alone.” (Answer: let her alone… burying… kept this.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Never say sorry when we do wrong.",
-          "Give Jesus your best—not just what's left! Extravagant love honors Him.",
-          "Ignore God until we are older.",
-          "Only be kind to people who are exactly like us."
+          "Thank Jesus that He sees a loving heart — and give Him my best love in small, real ways.",
+          "Believe God only wants money.",
+          "Hide every kind thought from Jesus.",
+          "Never show love at home."
         ],
-        "correctIndex": 1,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Give Jesus your best—not just what's left! Extravagant love honors Him..)"
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with love: small, real, and pleasing to God.",
+        "wrongFeedback": "Think “heartfelt love” and “gift.” (Answer: thank Jesus… loving heart… best love.)"
       }
     ],
     "doneHeading": "You did it!",
     "doneMessage": "Great job reading Mary Anoints Jesus' Feet with God's Word today.",
-    "takeaway": "Give Jesus your best—not just what's left! Extravagant love honors Him.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Mary Anoints Jesus' Feet. Amen.",
+    "takeaway": "Jesus receives every gentle, loving gift we bring Him — He treasures simple, heartfelt love.",
+    "prayer": "Lord Jesus, thank You that You see my heart. Help me love You with my best today. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Mary breaks open expensive perfume (mary)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: She pours it on Jesus' feet and wipes with her hair (anoint)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus says: what she did will be remembered forever! (perfume)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Mary breaks open expensive perfume (john 12)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: She pours it on Jesus' feet and wipes with her hair (feet)"
-    ]
+      "A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful calm atmosphere. Gentle Jesus sits at a simple supper table with a kind, peaceful face. Mary kneels quietly at His feet, pouring fragrant ointment from a small jar and gently wiping His feet with her long hair. A few friends (including Martha and Lazarus) sit nearby watching with calm, thankful expressions. Soft room walls, a low table, and a few dishes in the background with plenty of open floor space in the foreground for coloring. Focus: Mary’s loving gift to Jesus and His gentle defense of her. Style: clear, bold, tender, restful — never busy or dark.",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamplight, friendly not scary, no text in image: Bethany supper — Martha serves — Lazarus at table (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamplight, friendly not scary, no text in image: Costly spikenard — Mary’s jar (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamplight, friendly not scary, no text in image: Anoint His feet — wipe with hair — sweet odour (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamplight, friendly not scary, no text in image: Judas — three hundred pence — poor (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamplight, friendly not scary, no text in image: Let her alone — day of my burying (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamplight, friendly not scary, no text in image: Poor always — me ye have not always — tender heart (peace)"
+    ],
+    "readAlongImages": []
   },
   "maryMagdalene": {
     "kjvRef": "John 20:1–18",
@@ -18501,7 +18554,7 @@
         "choices": [
           "God",
           "David",
-          "Mary",
+          "Mary — and Jesus who receives her love",
           "Peter"
         ],
         "correctIndex": 0,
@@ -21790,7 +21843,7 @@
           "David",
           "Peter",
           "Paul",
-          "Mary"
+          "Mary — and Jesus who receives her love"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -22206,7 +22259,7 @@
           "David",
           "Peter",
           "God",
-          "Mary"
+          "Mary — and Jesus who receives her love"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -22290,7 +22343,7 @@
         "choices": [
           "God",
           "David",
-          "Mary",
+          "Mary — and Jesus who receives her love",
           "Peter"
         ],
         "correctIndex": 0,
@@ -23122,7 +23175,7 @@
           "Priscilla",
           "David",
           "God",
-          "Mary"
+          "Mary — and Jesus who receives her love"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -23289,7 +23342,7 @@
         "choices": [
           "Peter",
           "David",
-          "Mary",
+          "Mary — and Jesus who receives her love",
           "Priscilla"
         ],
         "correctIndex": 0,
@@ -24048,7 +24101,7 @@
           "God",
           "Peter",
           "David",
-          "Mary"
+          "Mary — and Jesus who receives her love"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25200,7 +25253,7 @@
           "Priscilla",
           "God the Father",
           "God",
-          "Mary"
+          "Mary — and Jesus who receives her love"
         ],
         "correctIndex": 2,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25365,7 +25418,7 @@
       {
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
-          "Mary",
+          "Mary — and Jesus who receives her love",
           "David",
           "The LORD",
           "Jesus"
@@ -25785,7 +25838,7 @@
           "God",
           "God the Father",
           "Priscilla",
-          "Mary"
+          "Mary — and Jesus who receives her love"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
@@ -25865,7 +25918,7 @@
         "question": "Who do we mainly learn from or watch in this story?",
         "choices": [
           "Priscilla",
-          "Mary",
+          "Mary — and Jesus who receives her love",
           "David",
           "God"
         ],
@@ -26534,7 +26587,7 @@
         "choices": [
           "John",
           "The LORD",
-          "Mary",
+          "Mary — and Jesus who receives her love",
           "James"
         ],
         "correctIndex": 0,
@@ -31811,7 +31864,7 @@
           "God",
           "David",
           "Peter",
-          "Mary"
+          "Mary — and Jesus who receives her love"
         ],
         "correctIndex": 0,
         "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",

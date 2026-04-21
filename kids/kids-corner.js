@@ -4104,21 +4104,32 @@
         '<text x="200" y="290" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 19:5</text>'
       ),
 
-      /* ── Week 8: Mary Anoint (108) ── */
+      /* John 12:1–8 — Bethany supper; Mary kneels with spikenard; Jesus; Martha & Lazarus nearby */
       maryAnoint: svg(
         ground() +
-        '<rect x="60" y="90" width="280" height="175" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<path d="M60 130 L200 105 L340 130" ' + sf + ' fill="white" stroke-width="3"/>' +
-        person(200, 148, 13, 40) +
-        '<path d="M192 195 L183 215" ' + s + ' stroke-width="2.5"/>' +
-        person(155, 215, 11, 32) +
-        '<path d="M162 222 Q175 235 185 245" ' + s + ' stroke-width="2.5"/>' +
-        '<path d="M152 218 Q145 235 148 248" ' + s + ' stroke-width="2.5"/>' +
-        '<ellipse cx="178" cy="248" rx="14" ry="8" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M178 240 Q172 230 178 225 Q184 230 178 240" ' + s + ' stroke-width="2"/>' +
-        person(280, 175, 11, 32) +
-        sun(320, 45, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 12:3</text>'
+        '<rect x="44" y="54" width="312" height="188" rx="8" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="82" y="162" width="236" height="12" rx="5" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="124" cy="156" rx="15" ry="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="276" cy="156" rx="15" ry="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="200" cy="152" rx="19" ry="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(200, 88, 12, 24) +
+        '<line x1="186" y1="162" x2="186" y2="176" ' + s + ' stroke-width="2"/>' +
+        '<line x1="214" y1="162" x2="214" y2="176" ' + s + ' stroke-width="2"/>' +
+        person(112, 96, 10, 20) +
+        '<line x1="112" y1="162" x2="112" y2="182" ' + s + ' stroke-width="2"/>' +
+        person(288, 96, 10, 20) +
+        '<line x1="288" y1="162" x2="288" y2="182" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="200" cy="228" rx="24" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="200" cy="196" r="9" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="200" y1="205" x2="200" y2="224" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M192 210 L182 220 M208 210 L218 220" ' + s + ' stroke-width="2"/>' +
+        '<rect x="214" y="198" width="14" height="22" rx="4" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="218" y="192" width="6" height="8" rx="2" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M194 188 Q174 202 168 224" ' + s + ' stroke-width="2.8" opacity="0.9"/>' +
+        '<path d="M206 188 Q226 202 232 224" ' + s + ' stroke-width="2.8" opacity="0.9"/>' +
+        '<path d="M168 142 Q188 124 208 140" ' + s + ' stroke-width="1.5" stroke-dasharray="4 5" opacity="0.65"/>' +
+        '<path d="M232 142 Q212 124 192 140" ' + s + ' stroke-width="1.5" stroke-dasharray="4 5" opacity="0.65"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 12:3–7</text>'
       ),
 
       /* ── Week 9: Stephen Stones (109) ── */

@@ -1950,11 +1950,11 @@
     "key": "maryAnoint",
     "title": "Mary Anoints Jesus' Feet",
     "kjvRef": "John 12:1–8",
-    "who": "Mary",
-    "to": "Jesus",
-    "apply": "Give Jesus your best—not just what's left! Extravagant love honors Him.",
+    "who": "Mary — and Jesus who receives her love",
+    "to": "Jesus — and every child who wants to love Him with a whole heart",
+    "apply": "Jesus sees a loving heart and receives every gentle gift — we can give Him our best love, even on hard days.",
     "theme": "Love",
-    "kw": "mary anoint perfume john 12 feet worship pour"
+    "kw": "mary bethany lazarus martha spikenard ointment feet hair judas let her alone burying john 12 supper passover"
   },
   {
     "key": "maryMagdalene",

@@ -92,6 +92,7 @@
  * Temple cleansed — John 2:13–16 (gentle): buildJesusCleansesTempleReadQuiz() (library key: jesusCleansesTemple).
  * Greatest commandment — Matthew 22:35–40 (gentle): buildGreatestCommandmentReadQuiz() (library key: greatestCommandment).
  * Triumphal Entry — Matthew 21:1–11 (gentle): buildTriumphalEntryReadQuiz() (library key: triumphalEntry).
+ * Palm Sunday — Jesus rides into Jerusalem — Matthew 21:1–11 (+ harmony refs): buildPalmSundayReadQuiz() (library key: palmSunday).
  * Jesus weeps over Jerusalem — Luke 19:41–44 (gentle): buildJesusWeepsJerusalemReadQuiz() (library key: jesusWeepsJerusalem).
  * Fig tree and faith in prayer — Matthew 21:18–22 (gentle): buildFigTreeReadQuiz() (library key: figTree).
  * Jesus’ authority questioned — Matthew 21:23–27 (gentle): buildJesusAuthorityReadQuiz() (library key: jesusAuthority).
@@ -11608,6 +11609,153 @@ function buildTriumphalEntryReadQuiz() {
   };
 }
 
+/** Palm Sunday — Jesus rides into Jerusalem (gentle journey). Library key: palmSunday */
+function buildPalmSundayReadQuiz() {
+  return {
+    kjvRef: 'Matthew 21:1–11 (KJV); Mark 11:1–11; Luke 19:28–44; John 12:12–19',
+    verseExcerpt:
+      'Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord. — Matthew 21:9 (KJV)',
+    readAlongTitle: 'Jesus Rides into Jerusalem',
+    quizWrongHumilityHint:
+      'Listen again — Bethphage; Olives; two disciples; village; ass; colt; loose them; Lord hath need; clothes; branches; strawed; Hosanna; Son of David; city was moved; Who is this; prophet of Nazareth.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'And when they drew nigh unto Jerusalem, and were come to Bethphage, unto the mount of Olives, then sent Jesus two disciples, Saying unto them, Go into the village over against you, and straightway ye shall find an ass tied, and a colt with her: loose them, and bring them unto me. And if any man say ought unto you, ye shall say, The Lord hath need of them; and straightway he will send them.',
+      'All this was done, that it might be fulfilled which was spoken by the prophet, saying, Tell ye the daughter of Sion, Behold, thy King cometh unto thee, meek, and sitting upon an ass, and a colt the foal of an ass.',
+      'And the disciples went, and did as Jesus commanded them, And brought the ass, and the colt, and put on them their clothes, and they set him thereon.',
+      'And a very great multitude spread their garments in the way; others cut down branches from the trees, and strawed them in the way.',
+      'And the multitudes that went before, and that followed, cried, saying, Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest.',
+      'And when he was come into Jerusalem, all the city was moved, saying, Who is this? And the multitude said, This is Jesus the prophet of Nazareth of Galilee.',
+      'Jesus comes gently, riding on a donkey — we can welcome Him with simple, happy praise, even on ordinary or difficult days.',
+      'Reference: Matthew 21:1–11 (KJV) (also Mark 11:1–11; Luke 19:28–44; John 12:12–19)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus sent His friends to bring a young donkey for Him to ride.',
+        caption: 'The Lord hath need of them',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'The disciples brought the donkey and put their coats on its back.',
+        caption: 'They set Him thereon',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Jesus rode gently toward Jerusalem.',
+        caption: 'Thy King cometh… meek',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'People spread their coats on the road and waved palm branches.',
+        caption: 'Garments and branches',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'They shouted, Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest.',
+        caption: 'Hosanna in the highest',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'The whole city was stirred and asked, Who is this? The multitude said, This is Jesus the prophet of Nazareth of Galilee.',
+        caption: 'Who is this?',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: [
+          'Matthew 21:1–11 (with the same welcome told also in Mark, Luke, and John)',
+          'Jonah 1 only',
+          'Genesis 1 only',
+          'Revelation 20 only'
+        ],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the reference line in the story block. (Answer: Matthew 21:1–11 — also Mark, Luke, John.)'
+      },
+      {
+        question: 'What did Jesus tell His disciples to bring from the village?',
+        choices: [
+          'An ass tied, and a colt with her',
+          'A bag of gold only',
+          'A boat for the sea',
+          'Nothing — only to sing'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:2.',
+        wrongFeedback: 'Listen for “ass” and “colt.” (Answer: ass and colt.)'
+      },
+      {
+        question: 'What did many people spread on the road as Jesus rode?',
+        choices: [
+          'Their garments; and others cut down branches and strawed them in the way',
+          'Only cold water',
+          'Sharp stones to block the way',
+          'Nothing at all'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:8.',
+        wrongFeedback: 'Listen for “garments” and “branches.” (Answer: clothes and branches.)'
+      },
+      {
+        question: 'What did the multitudes cry as Jesus came?',
+        choices: [
+          'Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest.',
+          'We do not want the King.',
+          'Hide from the prophet.',
+          'Never speak kindly.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that joy matches Matthew 21:9.',
+        wrongFeedback: 'Listen again for “Hosanna” and “Son of David.” (Answer: Hosanna… Blessed is he….)'
+      },
+      {
+        question: 'When Jesus entered Jerusalem, what did the multitude say He was?',
+        choices: [
+          'This is Jesus the prophet of Nazareth of Galilee.',
+          'Only a stranger from far away.',
+          'A pretend story person.',
+          'Someone to run away from.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:11.',
+        wrongFeedback: 'Listen for “prophet of Nazareth.” (Answer: Jesus the prophet of Nazareth of Galilee.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Thank Jesus that He is gentle — welcome Him with a happy heart and simple praise today.',
+          'Believe God only loves loud people.',
+          'Hide every kind thought from Jesus.',
+          'Never wave a thankful hand to heaven.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with joy: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “welcome Jesus” and “praise.” (Answer: gentle… welcome… simple praise.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Rides into Jerusalem with God's Word today.",
+    takeaway:
+      'Jesus comes gently — we can welcome Him and praise Him with a peaceful, happy heart, like the people with palm branches.',
+    prayer:
+      'Lord Jesus, thank You for coming to us so gently. Help me welcome You and praise You today with a glad heart. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail. Gentle Jesus sits calmly on a young donkey in the center with a kind, peaceful face. Many happy people walk beside Him, spreading coats on the road and waving palm branches high. A few small children smile and wave branches. Soft city gates of Jerusalem in the background, light open sky, plenty of open road in the foreground. Joyful yet restful — never busy or dark. No text in the image.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and palm greens, friendly not scary, no text in image: Two friends fetch the colt — The Lord hath need (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and palm greens, friendly not scary, no text in image: Coats on the donkey — gentle ride (peace)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and palm greens, friendly not scary, no text in image: Garments and branches on the way (joy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and palm greens, friendly not scary, no text in image: Hosanna to the Son of David (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and palm greens, friendly not scary, no text in image: Who is this? — prophet of Nazareth (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and palm greens, friendly not scary, no text in image: Welcome Jesus with a glad heart (gentle praise)'
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Jesus weeps over Jerusalem — Luke 19:41–44 (gentle). Library key: jesusWeepsJerusalem */
 function buildJesusWeepsJerusalemReadQuiz() {
   return {
@@ -12982,6 +13130,7 @@ module.exports = {
   maryMartha: buildMaryMarthaReadQuiz(),
   lazarus: buildLazarusReadQuiz(),
   maryAnoint: buildMaryAnointReadQuiz(),
+  palmSunday: buildPalmSundayReadQuiz(),
   tenLepers: buildTenLepersReadQuiz(),
   manBornBlind: buildManBornBlindReadQuiz(),
   bethesda: buildBethesdaReadQuiz(),

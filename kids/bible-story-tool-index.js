@@ -2108,13 +2108,13 @@
   },
   {
     "key": "palmSunday",
-    "title": "Palm Sunday",
+    "title": "Jesus Rides into Jerusalem",
     "kjvRef": "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19",
-    "who": "The crowds",
-    "to": "Jesus (the King)",
-    "apply": "Hosanna! Jesus rides the donkey—welcome Him! He is the King of Kings!",
+    "who": "Jesus — and the multitudes who welcomed Him with joy",
+    "to": "Every child who wants to welcome Jesus with a peaceful, happy heart",
+    "apply": "Jesus is gentle and kind — we can praise Him and welcome Him with simple joy, even on hard or ordinary days.",
     "theme": "Protection",
-    "kw": "palm sunday hosanna donkey jerusalem matthew 21 luke 19"
+    "kw": "palm sunday hosanna triumphal entry donkey colt jerusalem garments branches son of david matthew 21 mark 11 luke 19 john 12"
   },
   {
     "key": "paulBarnabas",

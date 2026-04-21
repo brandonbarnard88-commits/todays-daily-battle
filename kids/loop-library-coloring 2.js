@@ -112,7 +112,7 @@
   "naamanHealed": "naamanHealed",
   "nehemiahWalls": "nehemiahWalls",
   "noah": "noah",
-  "palmSunday": "greatCommission",
+  "palmSunday": "palmSunday",
   "parableSower": "mustardSeed",
   "parableTalents": "richYoungRuler",
   "passoverLamb": "passoverLamb",

@@ -3817,6 +3817,42 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 21:9</text>'
       ),
 
+      /* Palm Sunday gentle journey — city gate, road, donkey, palms, little ones waving */
+      palmSunday: svg(
+        ground() +
+        '<rect x="52" y="54" width="296" height="44" rx="8" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<path d="M118 118 L118 90 Q200 66 282 90 L282 118" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<line x1="118" y1="118" x2="118" y2="172" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="282" y1="118" x2="282" y2="172" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="118" y1="172" x2="282" y2="172" ' + s + ' stroke-width="2"/>' +
+        '<line x1="64" y1="208" x2="336" y2="208" ' + s + ' stroke-width="2"/>' +
+        '<path d="M58 220 L200 208 L342 220" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="96" cy="216" rx="17" ry="6" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<ellipse cx="304" cy="216" rx="17" ry="6" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<ellipse cx="200" cy="226" rx="35" ry="13" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="170" cy="222" rx="7" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<line x1="200" y1="196" x2="200" y2="214" ' + s + ' stroke-width="2"/>' +
+        '<circle cx="200" cy="184" r="9" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<line x1="192" y1="190" x2="182" y2="196" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="208" y1="190" x2="218" y2="196" ' + s + ' stroke-width="1.8"/>' +
+        person(76, 176, 7, 16) +
+        '<path d="M68 168 L60 146 L56 150" ' + s + ' stroke-width="1.8"/>' +
+        '<path d="M84 166 L90 143 L94 148" ' + s + ' stroke-width="1.8"/>' +
+        person(324, 176, 7, 16) +
+        '<path d="M332 168 L340 146 L344 150" ' + s + ' stroke-width="1.8"/>' +
+        '<path d="M316 166 L310 143 L306 148" ' + s + ' stroke-width="1.8"/>' +
+        '<circle cx="106" cy="202" r="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<line x1="106" y1="207" x2="106" y2="220" ' + s + ' stroke-width="1.6"/>' +
+        '<path d="M100 212 L96 224 M112 212 L116 224" ' + s + ' stroke-width="1.5"/>' +
+        '<path d="M98 196 L104 186 L110 196" ' + s + ' stroke-width="1.5"/>' +
+        '<circle cx="294" cy="202" r="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<line x1="294" y1="207" x2="294" y2="220" ' + s + ' stroke-width="1.6"/>' +
+        '<path d="M288 212 L284 224 M300 212 L304 224" ' + s + ' stroke-width="1.5"/>' +
+        '<path d="M290 196 L296 186 L302 196" ' + s + ' stroke-width="1.5"/>' +
+        sun(48, 60, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 21:9–11</text>'
+      ),
+
       /* Luke 19:41–44 — gentle: donkey pause, city ahead, one soft tear, compassionate face */
       jesusWeepsJerusalem: svg(
         ground() +
@@ -5097,7 +5133,6 @@
     lostSheep: 'parableLostSheep',
     parableLostSheep: 'parableLostSheep',
     lastSupper: 'maryAnoint',
-    palmSunday: 'greatCommission',
     armorOfGod: 'armorOfGod',
     davidKindness: 'mephibosheth',
     davidRepentance: 'davidBathsheba',

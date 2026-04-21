@@ -128,7 +128,7 @@
   "nehemiahWalls": "nehemiahWalls",
   "noah": "noah",
   "noblemanSon": "noblemanSon",
-  "palmSunday": "greatCommission",
+  "palmSunday": "palmSunday",
   "parableHiddenTreasure": "parableHiddenTreasure",
   "parablePearl": "parablePearl",
   "parableSower": "parableSower",

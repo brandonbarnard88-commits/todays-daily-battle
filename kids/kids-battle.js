@@ -1700,18 +1700,52 @@
       kidContext: { who: 'Jesus', to: 'Us', apply: 'God searches for the lost like the woman searched for her coin. When one person turns to Him, heaven rejoices!' }
     },
     palmSunday: {
-      title: 'Palm Sunday',
+      title: 'Jesus Rides into Jerusalem',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Jesus rides a donkey' },
-        { src: 'panel-jesus-2.svg', alt: 'People wave palm branches' },
-        { src: 'panel-jesus-3.svg', alt: 'Hosanna! Welcome the King!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Jesus sends two disciples — ass and colt brought; garments laid; He sits on the colt'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'A very great multitude spreads garments and branches on the way — glad, welcoming faces'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Hosanna to the Son of David — the city asks Who is this? — Jesus the prophet of Nazareth of Galilee'
+        }
       ],
-      caption: 'Swipe to see Jesus ride the donkey—welcome Him! 🌿',
-      videoId: 'PCqqhfltyKM',
-      videoTitle: 'Palm Sunday – Jesus Enters Jerusalem!',
-      keywords: ['palm sunday', 'hosanna', 'donkey', 'jerusalem', 'matthew 21', 'luke 19'],
+      caption: 'Swipe slowly — clothes, branches, and glad Hosannas for Jesus who comes gently.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'palm sunday',
+        'hosanna',
+        'triumphal entry',
+        'donkey',
+        'colt',
+        'ass',
+        'jerusalem',
+        'bethphage',
+        'mount of olives',
+        'garments',
+        'branches',
+        'son of david',
+        'matthew 21',
+        'mark 11',
+        'luke 19',
+        'john 12',
+        'who is this'
+      ],
       kjvRef: 'Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19',
-      kidContext: { who: 'The crowds', to: 'Jesus (the King)', apply: 'Hosanna! Jesus rides the donkey—welcome Him! He is the King of Kings!' }
+      kidContext: {
+        who: 'Jesus — and the multitudes who welcomed Him with joy',
+        to: 'Every child who wants to welcome Jesus with a peaceful, happy heart',
+        apply:
+          'Jesus is gentle and kind — we can praise Him and welcome Him with simple joy, even on hard or ordinary days.'
+      },
+      narration:
+        "Jesus Rides into Jerusalem — Matthew 21:1–11. And when they drew nigh unto Jerusalem, and were come to Bethphage, unto the mount of Olives, then sent Jesus two disciples, Saying unto them, Go into the village over against you, and straightway ye shall find an ass tied, and a colt with her: loose them, and bring them unto me. And if any man say ought unto you, ye shall say, The Lord hath need of them; and straightway he will send them. All this was done, that it might be fulfilled which was spoken by the prophet, saying, Tell ye the daughter of Sion, Behold, thy King cometh unto thee, meek, and sitting upon an ass, and a colt the foal of an ass. And the disciples went, and did as Jesus commanded them, And brought the ass, and the colt, and put on them their clothes, and they set him thereon. And a very great multitude spread their garments in the way; others cut down branches from the trees, and strawed them in the way. And the multitudes that went before, and that followed, cried, saying, Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest. And when he was come into Jerusalem, all the city was moved, saying, Who is this? And the multitude said, This is Jesus the prophet of Nazareth of Galilee. For you: On hard days when you feel excited or when you want to welcome Jesus into your heart, remember the people waving palm branches. You can praise Him too with a happy heart. Jesus is gentle and kind, and He loves when you welcome Him. You can rest in His peaceful love."
     },
     triumphalEntry: {
       title: 'Jesus Rides into Jerusalem',

@@ -2442,21 +2442,32 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Daniel 6:10</text>'
       ),
 
-      /* ── Week 4: Esther Banquet (60) ── */
+      /* ── Esther banquet — table truth, soft palace window (Esther 5–7) ── */
       estherBanquet: svg(
         ground() +
-        '<rect x="80" y="95" width="240" height="160" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<path d="M80 138 L200 115 L320 138" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<path d="M110 255 Q150 235 200 235 Q250 235 290 255" ' + sf + ' fill="white" stroke-width="3"/>' +
-        person(200, 148, 13, 40) +
-        '<path d="M186 148 L186 128 L194 136 L200 122 L206 136 L214 128 L214 148 Z" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<line x1="190" y1="178" x2="165" y2="198" ' + s + ' stroke-width="3"/>' +
-        person(295, 155, 13, 38) +
-        '<rect x="282" y="146" width="26" height="10" rx="2" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M282 146 Q295 132 308 146" ' + s + ' stroke-width="2.5"/>' +
-        person(100, 165, 11, 32) +
-        sun(40, 45, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Esther 7:6</text>'
+        '<rect x="52" y="92" width="296" height="98" rx="8" ' +
+        sf +
+        ' fill="white" stroke-width="1.85"/>' +
+        '<path d="M110 92 L110 58 Q160 46 200 54 Q240 46 290 58 L290 92" ' +
+        sf +
+        ' fill="white" stroke-width="1.65"/>' +
+        '<ellipse cx="200" cy="64" rx="72" ry="15" ' + sf + ' fill="white" stroke-width="0.55" opacity="0.2"/>' +
+        '<line x1="200" y1="48" x2="200" y2="88" ' + s + ' stroke-width="0.65" stroke-dasharray="9,8" opacity="0.3"/>' +
+        '<line x1="174" y1="52" x2="166" y2="86" ' + s + ' stroke-width="0.55" stroke-dasharray="9,8" opacity="0.24"/>' +
+        '<line x1="226" y1="52" x2="234" y2="86" ' + s + ' stroke-width="0.55" stroke-dasharray="9,8" opacity="0.24"/>' +
+        '<ellipse cx="200" cy="218" rx="128" ry="24" ' + sf + ' fill="white" stroke-width="2.1"/>' +
+        '<ellipse cx="128" cy="210" rx="20" ry="7" ' + sf + ' fill="white" stroke-width="1.35"/>' +
+        '<ellipse cx="200" cy="214" rx="22" ry="7" ' + sf + ' fill="white" stroke-width="1.35"/>' +
+        '<ellipse cx="272" cy="210" rx="20" ry="7" ' + sf + ' fill="white" stroke-width="1.35"/>' +
+        person(128, 168, 10, 28) +
+        '<path d="M120 158 L125 146 L131 152 L137 146 L143 158 Z" ' + sf + ' fill="white" stroke-width="1.25"/>' +
+        '<path d="M134 188 L150 205" ' + s + ' stroke-width="1.6"/>' +
+        person(200, 162, 11, 30) +
+        person(272, 168, 10, 28) +
+        '<rect x="260" y="148" width="24" height="9" rx="2" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<path d="M260 148 Q272 138 284 148" ' + s + ' stroke-width="1.6"/>' +
+        sun(44, 44, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Esther 5–7</text>'
       ),
 
       /* ── Week 5: Angel Mary (61) ── */

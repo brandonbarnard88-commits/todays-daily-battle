@@ -628,13 +628,13 @@
   },
   {
     "key": "estherBanquet",
-    "title": "Esther's Banquet",
-    "kjvRef": "Esther 5–7",
-    "who": "God",
-    "to": "Esther (through timing)",
-    "apply": "God gives you the right moment! Be ready—He orders the steps.",
+    "title": "Esther Saves Her People at the Banquet",
+    "kjvRef": "Esther 5:1–8; 7:1–10",
+    "who": "The LORD",
+    "to": "Esther and every heart that prays for courage to speak",
+    "apply": "The Lord hears when His children pray — and He can help us speak the truth at the right time to help others.",
     "theme": "Protection",
-    "kw": "esther banquet haman esther 7 king courage reveal"
+    "kw": "esther banquet haman king truth save pray esther 5 esther 7 people courage feast"
   },
   {
     "key": "euniceMother",

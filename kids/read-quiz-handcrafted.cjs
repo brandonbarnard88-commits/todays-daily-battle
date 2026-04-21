@@ -46,6 +46,7 @@
  * Job trusts God (Job 1–2, gentle): full read-along + quiz in buildJobSufferingReadQuiz().
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
+ * Esther’s banquet — brave truth (Esther 5:1–8; 7:1–10): full read-along + quiz in buildEstherBanquetReadQuiz().
  */
 
 const davidReadQuizPack = require('./read-quiz-david-pack.cjs');
@@ -4463,6 +4464,109 @@ function buildEstherFastReadQuiz() {
   };
 }
 
+/** Esther’s banquet — invitation, truth, rescue (Esther 5:1–8; 7:1–10); gentle + quiz. Library key: estherBanquet */
+function buildEstherBanquetReadQuiz() {
+  return {
+    kjvRef: 'Esther 5:1–8; 7:1–10 (KJV)',
+    verseExcerpt:
+      'If it seem good unto the king, let the king and Haman come this day unto the banquet that I have prepared for him. — Esther 5:4 (KJV)',
+    readAlongTitle: 'Esther Saves Her People at the Banquet',
+    quizWrongHumilityHint:
+      'Listen again — Esther invited the king and Haman; she told the truth at the right time; the king stopped the plan; God saved His people.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Queen Esther invited the king and Haman to a special banquet.',
+      'At the right time she told the king about the wicked plan to hurt God’s people.',
+      'The king was angry with Haman and stopped the evil plan.',
+      'God used Queen Esther to save her people.',
+      'The Lord hears when His children pray and bravely speak the truth.',
+      'Reference: Esther 5:1–8; 7:1–10 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Esther invited the king and Haman to a banquet.',
+        caption: 'A special feast',
+        image: 'panel-jesus-1.svg'
+      },
+      { text: 'She told the king about the bad plan.', caption: 'Brave truth', image: 'panel-jesus-2.svg' },
+      { text: 'The king was angry with Haman.', caption: 'The king cared', image: 'panel-jesus-2.svg' },
+      { text: 'God used Esther to save her people.', caption: 'God saves', image: 'panel-jesus-3.svg' }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Esther 5:1–8; 7:1–10', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: Esther 5:1–8; 7:1–10.)'
+      },
+      {
+        question: 'Who do we mainly learn from or watch in this story?',
+        choices: ['God', 'A giant fish', 'Pharaoh', 'Goliath'],
+        correctIndex: 0,
+        correctFeedback: 'Right—God heard prayer and used Esther’s brave words to save many.',
+        wrongFeedback:
+          'Look for who turns the king’s heart and keeps His promises to His people. (Answer: God.)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'God never hears when kids pray.',
+          'The Bible is only pretend stories.',
+          'The Lord hears when we pray — and He helps us speak the truth at the right time.',
+          'We should hide from God when we mess up.'
+        ],
+        correctIndex: 2,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          'Reread the last paragraphs slowly. Which option matches God’s kindness and truth? (Answer: The Lord hears when we pray — and He helps us speak the truth at the right time.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'A spaceship landed in the parking lot.',
+          'Let us rise up and build.',
+          'Esther invited the king and Haman to come to the banquet she had prepared.',
+          'Everyone decided to never sleep again.'
+        ],
+        correctIndex: 2,
+        correctFeedback: 'Yes—that detail comes from the story God gave us.',
+        wrongFeedback:
+          'Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: Esther invited the king and Haman to come to the banquet she had prepared.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ignore God until we are older.',
+          'Pray, thank God for courageous truth, and ask Him for wise words when it is time to speak.',
+          'Never say sorry when we do wrong.',
+          'Only be kind to people who are exactly like us.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: does this choice show trust in a God who hears and helps? Pick the one that honors Him. (Answer: Pray, thank God for courageous truth, and ask Him for wise words when it is time to speak.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Esther Saves Her People at the Banquet with God's Word today.",
+    takeaway:
+      'The Lord hears when His children pray — and He can give courage to speak the truth that helps others.',
+    prayer:
+      'Lord, thank You that You hear us when we pray. Give us gentle courage to speak truth in love. Amen.',
+    imagePrompts: [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Queen Esther sitting at a banquet table with the king and Haman Esther has a gentle crown and kind face the king is listening to her thick bold outlines with large open spaces on Esther's robe the king's robe the table and plates for easy coloring soft palace walls and a window with light in the background with minimal lines brave and trusting mood focus on Esther bravely telling the truth so her people could be saved clean minimal no fear or anger plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Come to the banquet — the king and Haman (feast)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Esther speaks the truth God gives (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: God saves His people (rescue)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Prayer and courage together (esther)"
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Esther — courage, prayer, God’s protection (Esther 4–7); gentle taps + quiz. Library key: esther */
 function buildEstherReadQuiz() {
   return {
@@ -5078,6 +5182,7 @@ module.exports = {
   esther: buildEstherReadQuiz(),
   estherCrown: buildEstherCrownReadQuiz(),
   estherFast: buildEstherFastReadQuiz(),
+  estherBanquet: buildEstherBanquetReadQuiz(),
   danielLionsDen: buildDanielLionsDenReadQuiz(),
   fieryFurnace: buildFieryFurnaceReadQuiz(),
   danielFieryFurnace: buildFieryFurnaceReadQuiz(),

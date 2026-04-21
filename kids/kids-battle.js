@@ -4458,18 +4458,37 @@
       kidContext: { who: 'God', to: 'Daniel', apply: 'Nothing should stop you from praying! God sees your faithfulness.' }
     },
     estherBanquet: {
-      title: 'Esther\'s Banquet',
+      title: 'Esther Saves Her People at the Banquet',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Esther invites the king to a banquet' },
-        { src: 'panel-noah-2.svg', alt: 'Haman arrives thinking he\'s honored' },
-        { src: 'panel-noah-3.svg', alt: 'Esther reveals Haman\'s evil plan—he is shocked!' }
+        { src: 'panel-jesus-1.svg', alt: 'Esther prepares a special banquet — the king and Haman come' },
+        { src: 'panel-jesus-2.svg', alt: 'At the right time she tells the king God’s people are in danger' },
+        { src: 'panel-jesus-3.svg', alt: 'The king stops the wicked plan — God saves His people through Esther’s words' }
       ],
-      caption: 'Swipe to see Esther stand up for her people! 🍷',
+      caption: 'Swipe to see prayer, a welcome feast, and brave truth spoken in love.',
       videoId: '',
       videoTitle: '',
-      keywords: ['esther', 'banquet', 'haman', 'esther 7', 'king', 'courage', 'reveal'],
-      kjvRef: 'Esther 5–7',
-      kidContext: { who: 'God', to: 'Esther (through timing)', apply: 'God gives you the right moment! Be ready—He orders the steps.' }
+      keywords: [
+        'esther',
+        'banquet',
+        'haman',
+        'king',
+        'truth',
+        'save',
+        'pray',
+        'esther 5',
+        'esther 7',
+        'people',
+        'courage'
+      ],
+      kjvRef: 'Esther 5:1–8; 7:1–10',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Esther and every heart that prays for courage to speak',
+        apply:
+          'The Lord hears when His children pray — and He can help us speak the truth at the right time to help others.'
+      },
+      narration:
+        "Esther Saves Her People at the Banquet — Esther 5:1–8; 7:1–10. Queen Esther invited the king and Haman to a special banquet. At the right time she told the king how Haman’s plan would hurt all God’s people. The king stopped the evil plan. God used Esther to save her people. For you: the Lord hears when we pray, and He can give us courage to speak the truth in love when someone needs help."
     },
     /* ── Week 5 (61–72) ── */
     angelMary: {

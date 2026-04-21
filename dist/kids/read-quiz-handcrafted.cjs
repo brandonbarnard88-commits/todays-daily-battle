@@ -78,6 +78,12 @@
  * Jesus visits Mary and Martha — Luke 10:38–42 (gentle): buildMaryMarthaReadQuiz() (library key: maryMartha; alias marthaServe, marySit).
  * Jesus brings Lazarus back to life — John 11:1–44 (gentle): buildLazarusReadQuiz() (library key: lazarus; alias jesusLazarus).
  * Ten lepers — Luke 17:11–19 (gentle): buildTenLepersReadQuiz() (library key: tenLepers; alias healLeper).
+ * Pool of Bethesda — John 5:1–15 (gentle): buildBethesdaReadQuiz() (library key: bethesda).
+ * Unforgiving servant — Matthew 18:21–35 (gentle): buildUnforgivingServantReadQuiz() (library key: unforgivingServant; alias forgive70x7).
+ * Jesus welcomes the little children — Mark 10:13–16 (gentle): buildJesusBlessKidsReadQuiz() (library key: jesusBlessKids; alias jesusAndChildren).
+ * Rich young ruler — Mark 10:17–27 (gentle): buildRichYoungRulerReadQuiz() (library key: richYoungRuler).
+ * Workers in the vineyard — Matthew 20:1–16 (gentle): buildParableVineyardWorkersReadQuiz() (library key: parableVineyardWorkers).
+ * Zacchaeus — Luke 19:1–10 (gentle): buildZacchaeusReadQuiz() (library key: zacchaeus; alias jesusAndZacchaeus).
  * Man born blind — John 9:1–38 (gentle): buildManBornBlindReadQuiz() (library key: manBornBlind; alias healBlind, jesusHealsBlind).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
@@ -9497,7 +9503,7 @@ function buildTenLepersReadQuiz() {
       {
         text: 'Jesus is happy when we say thank you.',
         caption: 'A thankful heart',
-        image: 'panel-noah-2.svg'
+        image: 'panel-noah-3.svg'
       }
     ],
     quizHeading: 'Quiz — think it through',
@@ -9720,6 +9726,804 @@ function buildManBornBlindReadQuiz() {
   };
 }
 
+/** Pool of Bethesda — wait, Wilt thou be made whole?, rise and walk (gentle). Library key: bethesda */
+function buildBethesdaReadQuiz() {
+  return {
+    kjvRef: 'John 5:1–15 (KJV) — gentle summary for little hearts',
+    verseExcerpt: 'Jesus saith unto him, Rise, take up thy bed, and walk. — John 5:8 (KJV)',
+    readAlongTitle: 'Jesus Heals a Man Who Waited a Long Time',
+    quizWrongHumilityHint:
+      'Listen again — Bethesda; five porches; water; thirty-eight years; Wilt thou be made whole; no man; Rise; bed; walk; temple; sin no more; tell.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'In Jerusalem there was a pool called Bethesda.',
+      'Many sick people lay there waiting for the water to move, because they believed the first one in after the water moved would be healed.',
+      'A man had been sick for thirty-eight years and could not walk.',
+      'Jesus saw him and asked, “Wilt thou be made whole?”',
+      'The man said he had no one to help him into the pool.',
+      'Jesus said, “Rise, take up thy bed, and walk.”',
+      'The man was healed right away, picked up his bed, and walked.',
+      'Later Jesus found him in the temple and said, “Behold, thou art made whole: sin no more, lest a worse thing come unto thee.”',
+      'The man told the people that Jesus had healed him.',
+      'Jesus sees when we have waited a long time and He can make us well.',
+      'Reference: John 5:1–15 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'There was a pool called Bethesda.',
+        caption: 'By the sheep gate…',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'A man had been sick for thirty-eight years.',
+        caption: 'A long time',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'Jesus saw him and asked, “Wilt thou be made whole?”',
+        caption: 'Kind question',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'Jesus said, “Rise, take up thy bed, and walk.”',
+        caption: 'Immediately',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'The man was healed and walked.',
+        caption: 'Took up his bed',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'Jesus sees when we have waited a long time.',
+        caption: 'Made whole',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 119', 'John 5:1–15', 'Jonah 2', 'Genesis 12'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference. (Answer: John 5:1–15.)'
+      },
+      {
+        question: 'What was the pool called where sick people waited?',
+        choices: ['Bethesda', 'Siloam', 'Jordan', 'Galilee'],
+        correctIndex: 0,
+        correctFeedback: 'Yes—the pool called Bethesda in Jerusalem.',
+        wrongFeedback: 'Think: which pool is in this gentle story? (Answer: Bethesda.)'
+      },
+      {
+        question: 'What did Jesus tell the man to do?',
+        choices: [
+          '“Rise, take up thy bed, and walk.”',
+          '“Hide thy bed forever.”',
+          '“Never speak again.”',
+          '“Swim across the sea.”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 5:8.',
+        wrongFeedback: 'Listen for Jesus’ strong, kind command. (Answer: Rise… bed… walk.)'
+      },
+      {
+        question: 'Which gentle truth matches this story?',
+        choices: [
+          'Jesus sees when we have waited a long time — and He can make us well.',
+          'God forgets everyone who waits.',
+          'Waiting never matters.',
+          'Pools always fix every problem alone.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that is the heart of this gentle summary.',
+        wrongFeedback:
+          'Cross out the cold answers. Which matches Jesus in John 5? (Answer: sees when we have waited… well.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Thank Jesus that He sees me — ask Him to help me trust His timing and His care.',
+          'Never thank God.',
+          'Only complain.',
+          'Forget that He knows.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which honors Jesus as the One who sees waiting hearts? (Answer: thank… trust.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage:
+      "Great job reading Jesus Heals a Man Who Waited a Long Time with God's Word today.",
+    takeaway: 'Jesus sees when we have waited a long time — and He can make us well.',
+    prayer:
+      'Lord Jesus, thank You for seeing me. Help me trust You when I wait — and help me obey You with a thankful heart. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children: Jesus standing by the pool speaking kindly to a man who could not walk The man is sitting on his mat with a hopeful face Other people are sitting or lying nearby thick bold outlines with large open spaces on Jesus robe the man mat and the pool edge for easy coloring soft pool water and gentle temple walls with minimal lines kind and healing mood focus on Jesus healing the man who waited a long time clean minimal no fear or crowded sadness plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue water and warm stone, friendly not scary, no text in image: Pool of Bethesda — hopeful wait (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue water and warm stone, friendly not scary, no text in image: Thirty-eight years — Jesus sees (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue water and warm stone, friendly not scary, no text in image: Wilt thou be made whole? (kind)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue water and warm stone, friendly not scary, no text in image: Rise, take up thy bed (obey)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue water and warm stone, friendly not scary, no text in image: Walked — bed on shoulder (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue water and warm stone, friendly not scary, no text in image: Temple — made whole (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blue water and warm stone, friendly not scary, no text in image: Tell — Jesus healed him (love)"
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Jesus welcomes the little children — Mark 10:13–16 (gentle). Library key: jesusBlessKids; alias jesusAndChildren */
+function buildJesusBlessKidsReadQuiz() {
+  return {
+    kjvRef: 'Mark 10:13–16 (KJV)',
+    verseExcerpt:
+      'Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God. — Mark 10:14 (KJV)',
+    readAlongTitle: 'Jesus Welcomes the Little Children',
+    quizWrongHumilityHint:
+      'Listen again — children; touch; bless; disciples; rebuked; displeased; suffer; forbid not; kingdom; arms; blessed.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'People brought little children to Jesus so He could touch them and bless them.',
+      'The disciples thought the children were in the way and told the people to stop.',
+      'Jesus was not pleased.',
+      'He said, “Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God.”',
+      'Then He took the children in His arms, put His hands on them, and blessed them.',
+      'Jesus loves little children and wants them to come to Him.',
+      'Reference: Mark 10:13–16 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'People brought little children to Jesus.',
+        caption: 'That he should touch them',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'The disciples told them to stop.',
+        caption: 'His disciples rebuked those that brought them',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'Jesus said, “Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God.”',
+        caption: 'He was much displeased',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'He took them in His arms and blessed them.',
+        caption: 'Put his hands upon them',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'Jesus loves little children.',
+        caption: 'Of such is the kingdom of God',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Mark 10:13–16', 'Genesis 1', 'Jonah 1', 'Revelation 21'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the reference line in the story block. (Answer: Mark 10:13–16.)'
+      },
+      {
+        question: 'What did Jesus say about the little children?',
+        choices: [
+          '“Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God.”',
+          '“Hide away from Me forever.”',
+          '“Only grown-ups may pray.”',
+          '“Do not sing praise songs.”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Mark 10:14.',
+        wrongFeedback:
+          'Think about Jesus’ kind command in Mark 10. (Answer: Suffer the little children… kingdom of God.)'
+      },
+      {
+        question: 'What did Jesus do after He taught about the children?',
+        choices: [
+          'He took them up in His arms, put His hands upon them, and blessed them.',
+          'He sent every child away sad.',
+          'He told them never to come back.',
+          'He asked them to stop smiling.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Mark 10:16.',
+        wrongFeedback:
+          'Reread the ending: arms, hands, blessed. (Answer: took them up in his arms… blessed them.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'The disciples tried to turn the children away — and Jesus welcomed them.',
+          'A rocket landed in the grass.',
+          'The children built a tower to the moon.',
+          'Nobody came near Jesus.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that honest moment is part of Mark 10.',
+        wrongFeedback:
+          'Cross out the joke answers. Which matches the story? (Answer: disciples… Jesus welcomed them.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Come to Jesus in prayer — He loves little children and wants them to come to Him.',
+          'Decide prayer is only for adults.',
+          'Believe God is too busy for kids.',
+          'Hide feelings from God on purpose.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which matches Jesus’ welcome? (Answer: come to Jesus… loves little children.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Welcomes the Little Children with God's Word today.",
+    takeaway: 'Jesus loves little children and wants them to come to Him.',
+    prayer:
+      'Lord Jesus, thank You for welcoming children. Help me come to You and trust You today. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art scene for young children: Jesus sitting on the ground with open arms. Several little children are coming to Him with happy faces. One child is already in His lap. Thick, bold outlines with large open spaces on Jesus’ robe, the children’s clothes, and the ground for easy coloring. Soft grass and a gentle sky with minimal lines. Loving and welcoming mood — focus on Jesus welcoming the little children. Clean, minimal, no fear or scolding, plenty of white space, age-appropriate for ages 3–8.',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Children brought — that he should touch them (welcome)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Disciples rebuked — much displeased (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Suffer the little children — kingdom of God (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: In His arms — hands upon them (blessing)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Receive as a child — enter (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus loves you — come to Him (love)"
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Rich young ruler — Mark 10:17–27 (gentle). Library key: richYoungRuler */
+function buildRichYoungRulerReadQuiz() {
+  return {
+    kjvRef: 'Mark 10:17–27 (KJV)',
+    verseExcerpt:
+      'Then Jesus beholding him loved him, and said unto him, One thing thou lackest… take up the cross, and follow me. — Mark 10:21 (KJV)',
+    readAlongTitle: 'Jesus Talks with a Rich Young Man',
+    quizWrongHumilityHint:
+      'Listen again — running; kneeled; Good Master; eternal life; commandments; loved him; sell; treasure; cross; follow; grieved; riches; camel; needle; with God.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'A rich young ruler came running to Jesus and knelt down.',
+      'He asked, “Good Master, what shall I do that I may inherit eternal life?”',
+      'Jesus said, “Thou knowest the commandments…”',
+      'The young man said he had kept them all since he was a child.',
+      'Jesus looked at him and loved him.',
+      'He said, “One thing thou lackest: go thy way, sell whatsoever thou hast, and give to the poor, and thou shalt have treasure in heaven: and come, take up the cross, and follow me.”',
+      'The young man went away sad because he had great riches and did not want to give them up.',
+      'Jesus said to His disciples, “How hardly shall they that have riches enter into the kingdom of God!”',
+      'Jesus wants our hearts to love Him more than anything else.',
+      'Reference: Mark 10:17–27 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'A rich young man ran to Jesus and knelt down.',
+        caption: 'There came one running, and kneeled',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'He asked, “Good Master, what shall I do that I may inherit eternal life?”',
+        caption: 'Inherit eternal life',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'Jesus said, “Thou knowest the commandments.”',
+        caption: 'Honour thy father and mother',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'The young man said he had kept them.',
+        caption: 'From my youth',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'Jesus looked at him, loved him, and said to sell, give, take up the cross, and follow Him.',
+        caption: 'One thing thou lackest',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'Jesus wants our hearts to love Him most.',
+        caption: 'With God all things are possible',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Mark 10:17–27', 'Psalm 23', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Mark 10:17–27.)'
+      },
+      {
+        question: 'What did the young man first ask Jesus?',
+        choices: [
+          '“Good Master, what shall I do that I may inherit eternal life?”',
+          '“How do I become king of the city?”',
+          '“Please hide my toys forever.”',
+          '“Tell me only jokes.”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Mark 10:17.',
+        wrongFeedback: 'Think about the honest question he asked Jesus. (Answer: Good Master… eternal life.)'
+      },
+      {
+        question: 'Because Jesus loved him, what did Jesus call him to do next?',
+        choices: [
+          'Sell what he had, give to the poor, take up the cross, and follow Jesus.',
+          'Buy more riches quietly.',
+          'Refuse to talk to God again.',
+          'Only listen to friends who say what he wants to hear.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Mark 10:21.',
+        wrongFeedback:
+          'Reread Jesus’ “one thing thou lackest” words. (Answer: sell… give… cross… follow.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'The young man went away sad—because he cared greatly for his riches.',
+          'He turned into a balloon and floated away.',
+          'A zebra built the temple in one day.',
+          'Nobody spoke to Jesus at all.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Mark 10:22.',
+        wrongFeedback: 'Cross out the joke answers. Which matches God’s Word? (Answer: went away sad… riches.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ask Jesus to help me love Him more than stuff — and take one small honest step of obedience today.',
+          'Try to be perfect in my own strength alone.',
+          'Believe money is the only comfort.',
+          'Hide what I really love from God on purpose.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which matches Jesus’ heart-call? (Answer: love Him more than stuff… honest step.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Talks with a Rich Young Man with God's Word today.",
+    takeaway: 'Jesus wants our hearts to love Him more than anything else.',
+    prayer:
+      'Lord Jesus, please help me love You first—not money or things. Show me one honest step today. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art scene for young children: A rich young man kneeling before Jesus with a thoughtful face. Jesus has a kind, loving face and is speaking to him. Thick, bold outlines with large open spaces on the young man’s robe, Jesus’ robe, and the ground for easy coloring. Soft road and gentle sky with minimal lines. Kind and serious mood — focus on Jesus talking with the young man. Clean, minimal, no fear or sadness shown strongly, plenty of white space, age-appropriate for ages 3–8.',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and gentle sky, friendly not scary, no text in image: Running, kneeling — Good Master (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and gentle sky, friendly not scary, no text in image: Commandments — from my youth (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and gentle sky, friendly not scary, no text in image: Jesus loved him — one thing lackest (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and gentle sky, friendly not scary, no text in image: Treasure in heaven — take up the cross (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and gentle sky, friendly not scary, no text in image: Went away grieved — great possessions (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold road and gentle sky, friendly not scary, no text in image: Camel, needle — with God possible (love)"
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Workers in the vineyard — Matthew 20:1–16 (gentle). Library key: parableVineyardWorkers */
+function buildParableVineyardWorkersReadQuiz() {
+  return {
+    kjvRef: 'Matthew 20:1–16 (KJV) — gentle summary for little hearts',
+    verseExcerpt:
+      'Is it not lawful for me to do what I will with mine own? Is thine eye evil, because I am good? — Matthew 20:15 (KJV)',
+    readAlongTitle: 'Jesus Tells About the Generous Vineyard Owner',
+    quizWrongHumilityHint:
+      'Listen again — vineyard; penny; labourers; early; third hour; sixth; ninth; eleventh; steward; first last; friend; lawful; mine own; eye evil; good; generous.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus told a story about a man who owned a vineyard.',
+      'Early in the morning he went out and hired some workers for the day. He agreed to pay them one coin.',
+      'Later in the day he saw more people standing around with nothing to do. He hired them too and said he would pay them what was right.',
+      'He did this again at noon, at three o’clock, and even at five o’clock.',
+      'When evening came, the owner told his foreman to pay the workers, beginning with the last ones hired.',
+      'The workers who came at five o’clock each received one coin. The workers who had worked all day also received one coin.',
+      'They were upset and said, “These last worked only one hour, and you have made them equal to us who have borne the burden and heat of the day.”',
+      'The owner answered gently, “Friend, I do thee no wrong… Is it not lawful for me to do what I will with mine own? Is thine eye evil, because I am good?”',
+      'Jesus was teaching that God is generous and kind. He gives His love freely, and no one should be angry when God is good to others.',
+      'Reference: Matthew 20:1–16 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      {
+        text: 'A man owned a vineyard. Early in the morning he hired workers and agreed to pay them one coin.',
+        caption: 'Agreed for a penny a day',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'Later he hired more workers — at noon, at three, and even at five o’clock.',
+        caption: 'Whatsoever is right I will give',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'At evening he told his foreman to pay everyone, beginning with the last hired.',
+        caption: 'Beginning from the last unto the first',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'Those who came late and those who worked all day each received one coin.',
+        caption: 'Every man a penny',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'The first workers were upset. The owner answered gently — Is it lawful… Is thine eye evil, because I am good?',
+        caption: 'Friend, I do thee no wrong',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'God is generous and kind. We can be glad when God is good to others.',
+        caption: 'The Lord is good',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Matthew 20:1–16', 'Psalm 23', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 20:1–16.)'
+      },
+      {
+        question: 'What did the householder agree to pay the workers he hired first?',
+        choices: [
+          'A penny for the day',
+          'Only a hug',
+          'Nothing at all',
+          'A bag of rocks'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Jesus’ parable in Matthew 20.',
+        wrongFeedback: 'Think about what he agreed with the labourers for. (Answer: a penny for the day.)'
+      },
+      {
+        question: 'When evening came, how did he tell his steward to pay?',
+        choices: [
+          'Beginning from the last hired to the first',
+          'Only the people who whispered first',
+          'Without counting anyone',
+          'Only at breakfast time'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 20:8.',
+        wrongFeedback: 'Picture the line at payday. (Answer: beginning from the last unto the first.)'
+      },
+      {
+        question: 'Which choice sounds most like what the owner said about being good?',
+        choices: [
+          'Is thine eye evil, because I am good?',
+          'Everyone must be mean on purpose.',
+          'Kindness is pretend.',
+          'Nobody needs God.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that gentle answer comes from God’s Word.',
+        wrongFeedback: 'Listen again for the owner’s kind words. (Answer: …eye evil… I am good.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Thank God that He is generous — help me be glad when You are good to someone else, too.',
+          'Try to be angry at God on purpose.',
+          'Believe God never loves anyone.',
+          'Hide when someone else receives kindness.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which matches God’s generous heart? (Answer: thank God… glad when He is good to others.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage:
+      "Great job reading Jesus Tells About the Generous Vineyard Owner with God's Word today.",
+    takeaway:
+      'God is generous and kind. He gives His love freely — and we can rejoice when He is good to others.',
+    prayer:
+      'Lord, thank You for Your kindness. Help me be glad when You bless others — and help me trust Your generous heart. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art scene for young children: A kind vineyard owner standing with open hands giving coins to workers. Some workers are happy. The sun is shining gently. Thick, bold outlines with large open spaces on the owner’s robe, the workers’ robes, and the ground for easy coloring. Soft vineyard vines and hills with minimal lines. Kind and generous mood — focus on the owner being good to everyone. Clean, minimal, no anger or arguing, plenty of white space, age-appropriate for ages 3–8.',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green vines and gentle sky, friendly not scary, no text in image: Vineyard — penny agreed, workers sent (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green vines and gentle sky, friendly not scary, no text in image: More hired later — whatsoever is right (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green vines and gentle sky, friendly not scary, no text in image: Pay beginning last — every man a penny (fair)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green vines and gentle sky, friendly not scary, no text in image: First murmured — burden and heat of the day (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green vines and gentle sky, friendly not scary, no text in image: Friend, lawful — mine own; eye evil because I am good (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green vines and gentle sky, friendly not scary, no text in image: God generous — rejoice when God is good to others (love)"
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Zacchaeus — Jesus sees him in the tree (gentle). Library key: zacchaeus; alias jesusAndZacchaeus */
+function buildZacchaeusReadQuiz() {
+  return {
+    kjvRef: 'Luke 19:1–10 (KJV)',
+    verseExcerpt:
+      'For the Son of man is come to seek and to save that which was lost. — Luke 19:10 (KJV)',
+    readAlongTitle: 'Jesus Loves Zacchaeus',
+    quizWrongHumilityHint:
+      'Listen again — Jericho; short of stature; sycomore; Zacchaeus; make haste; come down; abide; joyfully; murmured; half; fourfold; salvation.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus was walking through Jericho.',
+      'A man named Zacchaeus was very short and wanted to see Jesus, but he could not see over the crowd.',
+      'Zacchaeus climbed up into a sycamore tree so he could see Jesus pass by.',
+      'When Jesus came to the tree, He looked up and said, “Zacchaeus, make haste, and come down; for to day I must abide at thy house.”',
+      'Zacchaeus came down quickly and was very happy.',
+      'The people were surprised because Zacchaeus had taken money that did not belong to him.',
+      'But Jesus loved him anyway.',
+      'Zacchaeus stood up and said, “Behold, Lord, the half of my goods I give to the poor; and if I have taken any thing from any man by false accusation, I restore him fourfold.”',
+      'Jesus said, “This day is salvation come to this house.”',
+      'Jesus sees us even when we feel small or hidden, and He loves us and changes our hearts.',
+      'Reference: Luke 19:1–10 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Zacchaeus was very short.',
+        caption: 'Little of stature',
+        image: 'panel-david-1.svg'
+      },
+      {
+        text: 'He climbed a tree to see Jesus.',
+        caption: 'Sycomore tree',
+        image: 'panel-david-1.svg'
+      },
+      {
+        text: 'Jesus looked up and said, “Zacchaeus, make haste, and come down; for to day I must abide at thy house.”',
+        caption: 'Jesus saw him',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text: 'Zacchaeus came down quickly and was happy.',
+        caption: 'Received him joyfully',
+        image: 'panel-david-2.svg'
+      },
+      {
+        text: 'Jesus said, “This day is salvation come to this house.”',
+        caption: 'Son of Abraham',
+        image: 'panel-david-3.svg'
+      },
+      {
+        text: 'Jesus sees us and loves us.',
+        caption: 'Seek and save the lost',
+        image: 'panel-david-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Luke 19:1–10', 'Matthew 5', 'Acts 2', 'Genesis 12'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Luke 19:1–10.)'
+      },
+      {
+        question: 'What did Jesus first say to Zacchaeus in the tree?',
+        choices: [
+          '“Zacchaeus, make haste, and come down; for to day I must abide at thy house.”',
+          '“Stay in the tree forever.”',
+          '“Do not speak to anyone.”',
+          '“Run away to another town.”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Luke 19:5.',
+        wrongFeedback: 'Think about Jesus’ kind invitation in Luke 19. (Answer: make haste… abide at thy house.)'
+      },
+      {
+        question: 'What good did Zacchaeus say he would do after meeting Jesus?',
+        choices: [
+          'Give half of his goods to the poor — and restore fourfold if he wronged anyone.',
+          'Hide everything he owned.',
+          'Never say sorry.',
+          'Only help people who clapped the loudest.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches his honest words in Luke 19:8.',
+        wrongFeedback: 'Reread what Zacchaeus promised God. (Answer: half… poor… fourfold.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'Jesus knew Zacchaeus by name — and wanted to be a guest at his home.',
+          'Zacchaeus rode a rocket through Jericho.',
+          'The tree grew candy instead of leaves.',
+          'Jesus could not see anyone in the crowd.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Luke 19:5–6.',
+        wrongFeedback: 'Cross out the joke answers. Which matches God’s Word? (Answer: knew his name… guest at his home.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Talk to Jesus honestly — He sees us, loves us, and can change our hearts.',
+          'Believe God only loves perfect people.',
+          'Stay hidden and never come to Him.',
+          'Try to earn God’s love by never making mistakes alone.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which matches Jesus seeking and saving the lost? (Answer: honest… sees us… change our hearts.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Loves Zacchaeus with God's Word today.",
+    takeaway:
+      'Jesus sees us even when we feel small or hidden, and He loves us and changes our hearts.',
+    prayer:
+      'Lord Jesus, You see me and know my name. Please change my heart and help me follow You today. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art scene for young children: Zacchaeus sitting in a tree looking down at Jesus. Jesus is standing below with a kind, inviting face and looking up at Zacchaeus. Thick, bold outlines with large open spaces on Zacchaeus’ robe, Jesus’ robe, the tree, and the ground for easy coloring. Soft road and gentle sky with minimal lines. Happy and welcoming mood — focus on Jesus seeing Zacchaeus and loving him. Clean, minimal, no fear, plenty of white space, age-appropriate for ages 3–8.',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and stone road, friendly not scary, no text in image: Jericho road — little of stature (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and stone road, friendly not scary, no text in image: Sycomore — climbed to see Jesus (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and stone road, friendly not scary, no text in image: Zacchaeus — make haste, come down (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and stone road, friendly not scary, no text in image: Joyfully received — abide at thy house (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and stone road, friendly not scary, no text in image: Half to poor — fourfold restored (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and stone road, friendly not scary, no text in image: Salvation — seek and save the lost (hope)"
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Parable of the unforgiving servant — king’s mercy, heart forgiveness (gentle). Library key: unforgivingServant */
+function buildUnforgivingServantReadQuiz() {
+  return {
+    kjvRef: 'Matthew 18:21–35 (KJV) — gentle summary for little hearts',
+    verseExcerpt:
+      'So likewise shall my heavenly Father do also unto you, if ye from your hearts forgive not every one his brother their trespasses. — Matthew 18:35 (KJV)',
+    readAlongTitle: 'Jesus Tells About Forgiving Others',
+    quizWrongHumilityHint:
+      'Listen again — king; account; debt; patience; forgave; fellowservant; throat; prison; wicked servant; compassion; heart; forgive.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus told a story about a king who was checking how much money his servants owed him.',
+      'One servant owed the king a huge amount of money — more than he could ever pay back.',
+      'The servant fell on his knees and begged, “Lord, have patience with me, and I will pay thee all.”',
+      'The king felt sorry for him and forgave the whole debt.',
+      'But that same servant went out and found another servant who owed him a very small amount.',
+      'He grabbed him by the throat and said, “Pay me what thou owest!”',
+      'The second servant begged for patience, but the first servant would not forgive him.',
+      'He had the man thrown into prison until he could pay.',
+      'When the king heard what had happened, he was very angry.',
+      'He called the first servant and said, “O thou wicked servant, I forgave thee all that debt because thou desiredst me: shouldest not thou also have had compassion on thy fellowservant?”',
+      'Then the king had the unforgiving servant punished.',
+      'Jesus said, “So likewise shall my heavenly Father do also unto you, if ye from your hearts forgive not every one his brother their trespasses.”',
+      'Jesus wants us to forgive others the way God forgives us.',
+      'Reference: Matthew 18:21–35 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      {
+        text: 'A servant owed the king a huge debt.',
+        caption: 'Ten thousand talents…',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'The servant begged for patience.',
+        caption: 'Have patience with me',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'The king forgave the whole debt.',
+        caption: 'Moved with compassion',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'The servant found another man who owed him a little.',
+        caption: 'A fellowservant',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'He would not forgive him and put him in prison.',
+        caption: 'Took by the throat',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'The king was angry and punished the unforgiving servant.',
+        caption: 'O thou wicked servant',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'Jesus wants us to forgive others.',
+        caption: 'From your hearts',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this parable found in the Bible?',
+        choices: ['Luke 15', 'Matthew 18:21–35', 'John 3', 'Psalm 23'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the reference line in the story block. (Answer: Matthew 18:21–35.)'
+      },
+      {
+        question: 'What did the king do first for the servant who owed a huge debt?',
+        choices: [
+          'He forgave the whole debt because the servant begged for patience.',
+          'He gave him a new horse.',
+          'He sent him on vacation forever.',
+          'He ignored him.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—the king showed great mercy first.',
+        wrongFeedback: 'Think: what happened at the throne before the servant went out? (Answer: forgave… debt.)'
+      },
+      {
+        question: 'What did the unforgiving servant do to the man who owed him little?',
+        choices: [
+          'He would not forgive him and had him thrown in prison.',
+          'He paid the man’s rent.',
+          'He invited him to a party and then forgot.',
+          'He shared all his toys.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that shows why Jesus told this story.',
+        wrongFeedback:
+          'Remember the sad turning point—throat, prison, no mercy. (Answer: would not forgive… prison.)'
+      },
+      {
+        question: 'Which line belongs to Jesus’ teaching in this gentle summary?',
+        choices: [
+          '“So likewise shall my heavenly Father do also unto you, if ye from your hearts forgive not…”',
+          '“Eat more dessert every day.”',
+          '“Hide when someone says sorry.”',
+          '“Never speak to family again.”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that heart line matches the end of the parable.',
+        wrongFeedback: 'Cross out silliness. Which calls us to forgive from the heart? (Answer: likewise… heavenly Father… forgive.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ask Jesus to help me forgive others the way He forgave me — starting small and honest.',
+          'Refuse to say sorry.',
+          'Only remember what hurt me.',
+          'Try to pay God back for grace by being perfect alone.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which matches Jesus’ “from your hearts” heart? (Answer: forgive… way He forgave me.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Tells About Forgiving Others with God's Word today.",
+    takeaway: 'Jesus wants us to forgive others the way God forgives us.',
+    prayer:
+      'Lord Jesus, You forgave me so much. Please help me forgive others from my heart. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children: A king sitting on his throne forgiving a servant who is kneeling and begging The servant looks thankful thick bold outlines with large open spaces on the king robe the servant robe and the floor for easy coloring soft throne room walls with minimal lines kind and forgiving mood focus on the king forgiving the big debt clean minimal no fear or anger plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: King reckons — huge debt (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: Have patience — loosed and forgiven (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: Fellowservant — pay me (sad)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: Prison — would not forgive (heavy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: King hears — pity on thee? (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: Heart forgiveness — heavenly Father (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft gold and stone arc, friendly not scary, no text in image: Jesus teaches — forgive brothers (love)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -9819,6 +10623,7 @@ module.exports = {
   simeonAnna: buildSimeonAnnaReadQuiz(),
   jesusTemple: buildJesusTempleReadQuiz(),
   jesusBaptism: buildJesusBaptismReadQuiz(),
+  jesusBlessKids: buildJesusBlessKidsReadQuiz(),
   jesusDisciples: buildJesusDisciplesReadQuiz(),
   jesusWaterWine: buildJesusWaterWineReadQuiz(),
   jesusTempted: buildJesusTemptedReadQuiz(),
@@ -9838,10 +10643,15 @@ module.exports = {
   parablePearl: buildParablePearlReadQuiz(),
   lostSheep: buildParableLostSheepReadQuiz(),
   prodigalSon: buildParableProdigalSonReadQuiz(),
+  richYoungRuler: buildRichYoungRulerReadQuiz(),
+  parableVineyardWorkers: buildParableVineyardWorkersReadQuiz(),
   goodSamaritan: buildParableGoodSamaritanReadQuiz(),
   maryMartha: buildMaryMarthaReadQuiz(),
   lazarus: buildLazarusReadQuiz(),
   tenLepers: buildTenLepersReadQuiz(),
   manBornBlind: buildManBornBlindReadQuiz(),
+  bethesda: buildBethesdaReadQuiz(),
+  unforgivingServant: buildUnforgivingServantReadQuiz(),
+  zacchaeus: buildZacchaeusReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

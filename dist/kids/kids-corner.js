@@ -3167,6 +3167,44 @@
         '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 13:45–46</text>'
       ),
 
+      /* Matthew 20:1–16 — generous vineyard owner, workers, pennies */
+      parableVineyardWorkers: svg(
+        ground() +
+        hills() +
+        sun(52, 44, 18) +
+        cloud(310, 30) +
+        /* vineyard rows */
+        '<path d="M40 228 Q80 212 120 228 Q160 212 200 228 Q240 212 280 228 Q320 212 360 228" ' +
+        s +
+        ' stroke-width="2" fill="none"/>' +
+        '<path d="M36 238 Q76 222 116 238 Q156 222 196 238 Q236 222 276 238 Q316 222 356 238" ' +
+        s +
+        ' stroke-width="1.6" fill="none" opacity="0.7"/>' +
+        '<path d="M60 218 L68 200 M100 218 L108 200 M150 218 L158 200 M250 218 L258 200 M300 218 L308 200" ' +
+        s +
+        ' stroke-width="1.4"/>' +
+        /* owner — open hands, coins */
+        person(200, 152, 12, 34) +
+        '<line x1="182" y1="198" x2="168" y2="208" ' +
+        s +
+        ' stroke-width="2"/>' +
+        '<line x1="218" y1="198" x2="232" y2="208" ' +
+        s +
+        ' stroke-width="2"/>' +
+        '<circle cx="164" cy="212" r="6" ' +
+        sf +
+        ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="236" cy="212" r="6" ' +
+        sf +
+        ' fill="white" stroke-width="1.8"/>' +
+        '<text x="164" y="215" text-anchor="middle" font-size="8" font-family="sans-serif" fill="#444">1</text>' +
+        '<text x="236" y="215" text-anchor="middle" font-size="8" font-family="sans-serif" fill="#444">1</text>' +
+        /* workers */
+        person(92, 198, 9, 26) +
+        person(318, 196, 9, 26) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 20:15</text>'
+      ),
+
       /* Week 6 gentle: Lost sheep — shepherd rejoicing, sheep on shoulders (Luke 15:3–7) */
       parableLostSheep: svg(
         ground() +
@@ -4811,6 +4849,7 @@
     parableMustardSeed: 'mustardSeed',
     parableHiddenTreasure: 'parableHiddenTreasure',
     parablePearl: 'parablePearl',
+    parableVineyardWorkers: 'parableVineyardWorkers',
     parableLostSheep: 'parableLostSheep',
     prodigalSon: 'prodigalSonWelcome',
     prodigalSonWelcome: 'prodigalSonWelcome',
@@ -6568,7 +6607,7 @@
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
-        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'widowsMite', 'zacchaeus',
+        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'widowsMite', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
         'resurrection', 'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus',
         'parableTalents', 'armorOfGod', 'heavenPromise', 'jonah'

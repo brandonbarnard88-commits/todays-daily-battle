@@ -1932,5 +1932,32 @@
     "ref": "Matthew 13:45–46",
     "week": 6,
     "libraryKey": "parablePearl"
+  },
+  {
+    "id": 210,
+    "title": "Jesus Heals a Man Who Waited a Long Time",
+    "file": "",
+    "audio": "",
+    "ref": "John 5:1–15",
+    "week": 5,
+    "libraryKey": "bethesda"
+  },
+  {
+    "id": 211,
+    "title": "Jesus Tells About Forgiving Others",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 18:21–35",
+    "week": 8,
+    "libraryKey": "unforgivingServant"
+  },
+  {
+    "id": 212,
+    "title": "Jesus Tells About the Generous Vineyard Owner",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 20:1–16",
+    "week": 6,
+    "libraryKey": "parableVineyardWorkers"
   }
 ]

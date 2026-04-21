@@ -132,6 +132,11 @@
       webm: '/media/kids-stories/beast-mark.webm',
       captionsVtt: '/media/kids-stories/beast-mark.vtt'
     },
+    bethesda: {
+      mp4: '/media/kids-stories/bethesda.mp4',
+      webm: '/media/kids-stories/bethesda.webm',
+      captionsVtt: '/media/kids-stories/bethesda.vtt'
+    },
     betrayal: {
       mp4: '/media/kids-stories/betrayal.mp4',
       webm: '/media/kids-stories/betrayal.webm',
@@ -448,6 +453,11 @@
       captionsVtt: '/media/kids-stories/fiery-furnace.vtt'
     },
     forgive70x7: {
+      mp4: '/media/kids-stories/forgive70x7.mp4',
+      webm: '/media/kids-stories/forgive70x7.webm',
+      captionsVtt: '/media/kids-stories/forgive70x7.vtt'
+    },
+    unforgivingServant: {
       mp4: '/media/kids-stories/forgive70x7.mp4',
       webm: '/media/kids-stories/forgive70x7.webm',
       captionsVtt: '/media/kids-stories/forgive70x7.vtt'

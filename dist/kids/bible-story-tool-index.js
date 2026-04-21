@@ -1397,6 +1397,16 @@
     "kw": "good samaritan helping others neighbour mercy compassion Jerusalem Jericho priest levite inn go and do likewise luke 10 love your neighbour jesus"
   },
   {
+    "key": "parableVineyardWorkers",
+    "title": "Jesus Tells About the Generous Vineyard Owner",
+    "kjvRef": "Matthew 20:1–16",
+    "who": "Jesus",
+    "to": "His disciples (and us)",
+    "apply": "God is generous and kind. He gives His love freely — and we can rejoice when He is good to others.",
+    "theme": "Love",
+    "kw": "vineyard labourers penny parable kingdom of heaven matthew 20 generous hire last first"
+  },
+  {
     "key": "lostSheep",
     "title": "Jesus Tells About the Lost Sheep",
     "kjvRef": "Luke 15:3–7",

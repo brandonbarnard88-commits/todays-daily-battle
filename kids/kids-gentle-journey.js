@@ -179,6 +179,7 @@
     'unforgivingServant',
     'persistentWidow',
     'richYoungRuler',
+    'parableVineyardWorkers',
     'widowMite',
     'widowsMite',
     'zacchaeus',

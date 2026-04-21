@@ -131,6 +131,7 @@
   "parablePearl": "parablePearl",
   "parableSower": "parableSower",
   "parableTalents": "richYoungRuler",
+  "parableVineyardWorkers": "parableVineyardWorkers",
   "passoverLamb": "passoverLamb",
   "paulDamascus": "paulDamascus",
   "paulShipwreck": "paulShipwreck",

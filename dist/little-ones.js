@@ -3,7 +3,7 @@
 
   var STORY_OPTIONS = {
     jesus: {
-      title: 'Jesus and the little children',
+      title: 'Jesus welcomes the little children',
       lead: 'A warm first stop when you want your child to feel safe, seen, and near to Jesus.',
       storyHref: '/kids/corner.html?story=jesus',
       colorHref: '/coloring.html?story=jesus',

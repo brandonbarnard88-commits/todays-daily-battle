@@ -82,6 +82,7 @@
  * Unforgiving servant — Matthew 18:21–35 (gentle): buildUnforgivingServantReadQuiz() (library key: unforgivingServant; alias forgive70x7).
  * Jesus welcomes the little children — Mark 10:13–16 (gentle): buildJesusBlessKidsReadQuiz() (library key: jesusBlessKids; alias jesusAndChildren).
  * Rich young ruler — Mark 10:17–27 (gentle): buildRichYoungRulerReadQuiz() (library key: richYoungRuler).
+ * Workers in the vineyard — Matthew 20:1–16 (gentle): buildParableVineyardWorkersReadQuiz() (library key: parableVineyardWorkers).
  * Zacchaeus — Luke 19:1–10 (gentle): buildZacchaeusReadQuiz() (library key: zacchaeus; alias jesusAndZacchaeus).
  * Man born blind — John 9:1–38 (gentle): buildManBornBlindReadQuiz() (library key: manBornBlind; alias healBlind, jesusHealsBlind).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
@@ -10114,6 +10115,139 @@ function buildRichYoungRulerReadQuiz() {
   };
 }
 
+/** Workers in the vineyard — Matthew 20:1–16 (gentle). Library key: parableVineyardWorkers */
+function buildParableVineyardWorkersReadQuiz() {
+  return {
+    kjvRef: 'Matthew 20:1–16 (KJV) — gentle summary for little hearts',
+    verseExcerpt:
+      'Is it not lawful for me to do what I will with mine own? Is thine eye evil, because I am good? — Matthew 20:15 (KJV)',
+    readAlongTitle: 'Jesus Tells About the Generous Vineyard Owner',
+    quizWrongHumilityHint:
+      'Listen again — vineyard; penny; labourers; early; third hour; sixth; ninth; eleventh; steward; first last; friend; lawful; mine own; eye evil; good; generous.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus told a story about a man who owned a vineyard.',
+      'Early in the morning he went out and hired some workers for the day. He agreed to pay them one coin.',
+      'Later in the day he saw more people standing around with nothing to do. He hired them too and said he would pay them what was right.',
+      'He did this again at noon, at three o’clock, and even at five o’clock.',
+      'When evening came, the owner told his foreman to pay the workers, beginning with the last ones hired.',
+      'The workers who came at five o’clock each received one coin. The workers who had worked all day also received one coin.',
+      'They were upset and said, “These last worked only one hour, and you have made them equal to us who have borne the burden and heat of the day.”',
+      'The owner answered gently, “Friend, I do thee no wrong… Is it not lawful for me to do what I will with mine own? Is thine eye evil, because I am good?”',
+      'Jesus was teaching that God is generous and kind. He gives His love freely, and no one should be angry when God is good to others.',
+      'Reference: Matthew 20:1–16 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      {
+        text: 'A man owned a vineyard. Early in the morning he hired workers and agreed to pay them one coin.',
+        caption: 'Agreed for a penny a day',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'Later he hired more workers — at noon, at three, and even at five o’clock.',
+        caption: 'Whatsoever is right I will give',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'At evening he told his foreman to pay everyone, beginning with the last hired.',
+        caption: 'Beginning from the last unto the first',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'Those who came late and those who worked all day each received one coin.',
+        caption: 'Every man a penny',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'The first workers were upset. The owner answered gently — Is it lawful… Is thine eye evil, because I am good?',
+        caption: 'Friend, I do thee no wrong',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'God is generous and kind. We can be glad when God is good to others.',
+        caption: 'The Lord is good',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Matthew 20:1–16', 'Psalm 23', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 20:1–16.)'
+      },
+      {
+        question: 'What did the householder agree to pay the workers he hired first?',
+        choices: [
+          'A penny for the day',
+          'Only a hug',
+          'Nothing at all',
+          'A bag of rocks'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Jesus’ parable in Matthew 20.',
+        wrongFeedback: 'Think about what he agreed with the labourers for. (Answer: a penny for the day.)'
+      },
+      {
+        question: 'When evening came, how did he tell his steward to pay?',
+        choices: [
+          'Beginning from the last hired to the first',
+          'Only the people who whispered first',
+          'Without counting anyone',
+          'Only at breakfast time'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 20:8.',
+        wrongFeedback: 'Picture the line at payday. (Answer: beginning from the last unto the first.)'
+      },
+      {
+        question: 'Which choice sounds most like what the owner said about being good?',
+        choices: [
+          'Is thine eye evil, because I am good?',
+          'Everyone must be mean on purpose.',
+          'Kindness is pretend.',
+          'Nobody needs God.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that gentle answer comes from God’s Word.',
+        wrongFeedback: 'Listen again for the owner’s kind words. (Answer: …eye evil… I am good.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Thank God that He is generous — help me be glad when You are good to someone else, too.',
+          'Try to be angry at God on purpose.',
+          'Believe God never loves anyone.',
+          'Hide when someone else receives kindness.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which matches God’s generous heart? (Answer: thank God… glad when He is good to others.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage:
+      "Great job reading Jesus Tells About the Generous Vineyard Owner with God's Word today.",
+    takeaway:
+      'God is generous and kind. He gives His love freely — and we can rejoice when He is good to others.',
+    prayer:
+      'Lord, thank You for Your kindness. Help me be glad when You bless others — and help me trust Your generous heart. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art scene for young children: A kind vineyard owner standing with open hands giving coins to workers. Some workers are happy. The sun is shining gently. Thick, bold outlines with large open spaces on the owner’s robe, the workers’ robes, and the ground for easy coloring. Soft vineyard vines and hills with minimal lines. Kind and generous mood — focus on the owner being good to everyone. Clean, minimal, no anger or arguing, plenty of white space, age-appropriate for ages 3–8.',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green vines and gentle sky, friendly not scary, no text in image: Vineyard — penny agreed, workers sent (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green vines and gentle sky, friendly not scary, no text in image: More hired later — whatsoever is right (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green vines and gentle sky, friendly not scary, no text in image: Pay beginning last — every man a penny (fair)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green vines and gentle sky, friendly not scary, no text in image: First murmured — burden and heat of the day (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green vines and gentle sky, friendly not scary, no text in image: Friend, lawful — mine own; eye evil because I am good (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green vines and gentle sky, friendly not scary, no text in image: God generous — rejoice when God is good to others (love)"
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Zacchaeus — Jesus sees him in the tree (gentle). Library key: zacchaeus; alias jesusAndZacchaeus */
 function buildZacchaeusReadQuiz() {
   return {
@@ -10510,6 +10644,7 @@ module.exports = {
   lostSheep: buildParableLostSheepReadQuiz(),
   prodigalSon: buildParableProdigalSonReadQuiz(),
   richYoungRuler: buildRichYoungRulerReadQuiz(),
+  parableVineyardWorkers: buildParableVineyardWorkersReadQuiz(),
   goodSamaritan: buildParableGoodSamaritanReadQuiz(),
   maryMartha: buildMaryMarthaReadQuiz(),
   lazarus: buildLazarusReadQuiz(),

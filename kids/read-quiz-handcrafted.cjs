@@ -96,6 +96,7 @@
  * Judas betrays Jesus — Matthew 26:14–16; 26:47–50 (gentle): buildBetrayalReadQuiz() (library keys: betrayal; judasKiss).
  * Last Supper — Matthew 26:17–30 (gentle): buildLastSupperReadQuiz() (library keys: lastSupper; jesusLastSupper).
  * Jesus prays in Gethsemane — Matthew 26:36–46 (gentle): buildGardenPrayerReadQuiz() (library keys: gardenPrayer; jesusGardenGethsemane).
+ * Jesus is arrested in the garden — Matthew 26:47–56 (gentle): buildJesusArrestReadQuiz() (library key: jesusArrest; aliases arrest, gethsemaneArrest in slug maps).
  * Jesus weeps over Jerusalem — Luke 19:41–44 (gentle): buildJesusWeepsJerusalemReadQuiz() (library key: jesusWeepsJerusalem).
  * Fig tree and faith in prayer — Matthew 21:18–22 (gentle): buildFigTreeReadQuiz() (library key: figTree).
  * Jesus’ authority questioned — Matthew 21:23–27 (gentle): buildJesusAuthorityReadQuiz() (library key: jesusAuthority).
@@ -12190,6 +12191,151 @@ function buildGardenPrayerReadQuiz() {
   };
 }
 
+/** Jesus arrested in the garden — Matthew 26:47–56 (gentle). Library key: jesusArrest */
+function buildJesusArrestReadQuiz() {
+  return {
+    kjvRef: 'Matthew 26:47–56 (KJV) (par. Mark 14:43–52; Luke 22:47–53; John 18:1–11)',
+    verseExcerpt: 'Friend, wherefore art thou come? — Matthew 26:50 (KJV)',
+    readAlongTitle: 'Jesus Is Arrested in the Garden',
+    quizWrongHumilityHint:
+      'Listen again — Judas; multitude; swords; staves; kiss; hold him fast; Hail master; Friend wherefore; laid hands; drew his sword; high priest; Put up again thy sword; twelve legions of angels; scriptures fulfilled; teaching in the temple; forsook; fled.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'And while he yet spake, lo, Judas, one of the twelve, came, and with him a great multitude with swords and staves, from the chief priests and elders of the people.',
+      'Now he that betrayed him gave them a sign, saying, Whomsoever I shall kiss, that same is he: hold him fast.',
+      'And forthwith he came to Jesus, and said, Hail, master; and kissed him. And Jesus said unto him, Friend, wherefore art thou come? Then came they, and laid hands on Jesus, and took him.',
+      'And, behold, one of them which were with Jesus stretched out his hand, and drew his sword, and struck a servant of the high priest\'s, and smote off his ear. Then said Jesus unto him, Put up again thy sword into his place: for all they that take the sword shall perish with the sword.',
+      'Thinkest thou that I cannot now pray to my Father, and he shall presently give me more than twelve legions of angels? But how then shall the scriptures be fulfilled, that thus it must be?',
+      'In that same hour said Jesus to the multitudes, Are ye come out as against a thief with swords and staves for to take me? I sat daily with you teaching in the temple, and ye laid no hold on me. But all this was done, that the scriptures of the prophets might be fulfilled. Then all the disciples forsook him, and fled.',
+      'Jesus stayed calm and strong because He was obeying His Father\'s plan — and He loves us still.',
+      'Reference: Matthew 26:47–56 (KJV) (parallel in Mark, Luke, and John)'
+    ],
+    readAlongSections: [
+      {
+        text: 'While Jesus prayed in the garden, Judas came with a crowd carrying torches and sticks.',
+        caption: 'A great multitude',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Judas gave a sign: he would kiss Jesus so the men would know who to take.',
+        caption: 'Whomsoever I shall kiss',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Judas came and kissed Jesus, and the men took hold of Him.',
+        caption: 'Friend, wherefore art thou come?',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'One of Jesus\' friends tried to help with a sword, but Jesus told him to put it away.',
+        caption: 'Put up again thy sword',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus said He could ask His Father for many angels, but the scriptures must be fulfilled.',
+        caption: 'Twelve legions of angels',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Jesus remained calm and strong because He was obeying His Father\'s plan.',
+        caption: 'Love that obeys',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: [
+          'Matthew 26:47–56 (also told in Mark, Luke, and John)',
+          'Genesis 1 only',
+          'Jonah 1 only',
+          'Revelation 20 only'
+        ],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 26:47–56.)'
+      },
+      {
+        question: 'How did Judas show the men which one was Jesus?',
+        choices: [
+          'He kissed Jesus.',
+          'He shouted very loudly only.',
+          'He painted a picture only.',
+          'He ran away first.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:48–49.',
+        wrongFeedback: 'Listen for the sign Judas gave. (Answer: He kissed Jesus.)'
+      },
+      {
+        question: 'What did Jesus say to the disciple who used a sword?',
+        choices: [
+          'Put up again thy sword into his place…',
+          'Fight everyone as hard as you can.',
+          'Hide the sword forever from God.',
+          'Never speak kindly.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:52.',
+        wrongFeedback: 'Listen for “Put up again thy sword.” (Answer: Put up again thy sword…)'
+      },
+      {
+        question: 'What could Jesus have asked His Father for?',
+        choices: [
+          'More than twelve legions of angels.',
+          'A bigger boat only.',
+          'No more prayer ever.',
+          'To never love anyone.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:53.',
+        wrongFeedback: 'Listen for “legions of angels.” (Answer: twelve legions of angels.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'The disciples forsook Jesus, and fled.',
+          'A whale drove a chariot.',
+          'The moon turned into soup.',
+          'Everyone moved to Mars.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches God\'s Word.',
+        wrongFeedback: 'Pick the true detail. (Answer: forsook him, and fled.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Remember Jesus stayed calm and kind on a very hard night — I can tell Him my feelings and rest in His love.',
+          'Believe God never cares.',
+          'Stay upset alone on purpose.',
+          'Never ask a grown-up for help.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with honesty: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “calm,” “kind,” and “tell Jesus.” (Answer: remember Jesus… rest in His love.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Is Arrested in the Garden with God's Word today.",
+    takeaway:
+      'Jesus was calm, kind, and obeyed His Father\'s plan — His strong, gentle love holds us on hard days too.',
+    prayer:
+      'Lord Jesus, thank You that You understand when I feel hurt or afraid. Help me rest in Your love. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful and calm atmosphere. Gentle Jesus stands calmly in the night garden with a kind and peaceful face, surrounded by a group of men with torches and simple staffs (no angry faces or raised weapons). Judas stands close, reaching gently toward Jesus. One disciple is shown putting a sword back (very soft lines, no blood or violence). Olive trees, soft moonlight, and grassy ground with plenty of open space around Jesus for coloring. Focus on the heart of the moment: Jesus standing strong and calm, knowing everything that would happen, and choosing to obey His Father. Style: clear, bold, tender, restful — never scary, dark, or violent.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues and olive greens, friendly not scary, no text in image: Garden night — torches and quiet crowd (calm)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues and olive greens, friendly not scary, no text in image: Judas\'s sign — a gentle kiss (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues and olive greens, friendly not scary, no text in image: Friend, wherefore art thou come? — Jesus kind and steady (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues and olive greens, friendly not scary, no text in image: Put up thy sword — peace, not fighting (gentleness)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues and olive greens, friendly not scary, no text in image: Twelve legions of angels — Jesus obeys the scriptures (trust)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues and olive greens, friendly not scary, no text in image: Calm in the Father\'s plan — strong, gentle love (hope)'
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Jesus weeps over Jerusalem — Luke 19:41–44 (gentle). Library key: jesusWeepsJerusalem */
 function buildJesusWeepsJerusalemReadQuiz() {
   return {
@@ -13571,6 +13717,9 @@ module.exports = {
   jesusLastSupper: buildLastSupperReadQuiz(),
   gardenPrayer: buildGardenPrayerReadQuiz(),
   jesusGardenGethsemane: buildGardenPrayerReadQuiz(),
+  jesusArrest: buildJesusArrestReadQuiz(),
+  arrest: buildJesusArrestReadQuiz(),
+  gethsemaneArrest: buildJesusArrestReadQuiz(),
   tenLepers: buildTenLepersReadQuiz(),
   manBornBlind: buildManBornBlindReadQuiz(),
   bethesda: buildBethesdaReadQuiz(),

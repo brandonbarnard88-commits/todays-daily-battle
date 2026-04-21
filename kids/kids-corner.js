@@ -5003,6 +5003,29 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 26:39–42</text>'
       ),
 
+      /* Matthew 26:47–56 — calm Jesus, moonlit garden, soft torches, Judas near, disciple sheathing sword (no gore) */
+      jesusArrest: svg(
+        ground() +
+        '<circle cx="312" cy="46" r="14" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M42 232 Q58 145 74 232 M330 230 Q346 142 362 230" ' + s + ' stroke-width="2.2"/>' +
+        person(200, 124, 12, 40) +
+        '<path d="M192 138 Q200 132 208 138" ' + s + ' stroke-width="1.5"/>' +
+        person(118, 152, 9, 28) +
+        '<line x1="132" y1="186" x2="186" y2="172" ' + s + ' stroke-width="1.8"/>' +
+        '<circle cx="268" cy="112" r="7" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<line x1="268" y1="119" x2="268" y2="158" ' + s + ' stroke-width="1.8"/>' +
+        '<circle cx="338" cy="108" r="7" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<line x1="338" y1="115" x2="338" y2="152" ' + s + ' stroke-width="1.8"/>' +
+        person(288, 158, 7, 22) +
+        person(318, 162, 7, 22) +
+        '<line x1="276" y1="248" x2="276" y2="178" ' + s + ' stroke-width="2"/>' +
+        '<line x1="352" y1="248" x2="352" y2="182" ' + s + ' stroke-width="2"/>' +
+        person(252, 168, 8, 24) +
+        '<line x1="244" y1="196" x2="228" y2="210" ' + s + ' stroke-width="1.6"/>' +
+        '<path d="M218 204 L232 198 L236 212 L222 218 Z" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 26:50–54</text>'
+      ),
+
       /* ── Week 12: Prayer Closet (150) ── */
       prayerCloset: svg(
         ground() +
@@ -5357,6 +5380,9 @@
     jesusAuthority: 'jesusAuthority',
     jesusLastSupper: 'lastSupper',
     jesusGardenGethsemane: 'gardenPrayer',
+    jesusArrest: 'jesusArrest',
+    arrest: 'jesusArrest',
+    gethsemaneArrest: 'jesusArrest',
     jesusCrucifixion: 'crucifixion',
     jesusResurrection: 'resurrection',
     crossCarry: 'crossCarry',
@@ -7090,7 +7116,7 @@
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
         'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'widowMite', 'widowsMite', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'zacchaeus', 'jesusParableGoodShepherd',
-        'lazarus', 'palmSunday', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
+        'lazarus', 'palmSunday', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'lastSupper', 'gardenPrayer', 'jesusArrest', 'betrayal', 'trial', 'crucifixion',
         'resurrection', 'roadToEmmaus', 'ascension',         'pentecost', 'stephen', 'paulDamascus',
         'armorOfGod', 'heavenPromise', 'jonah'
       ];

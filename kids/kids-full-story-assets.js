@@ -612,6 +612,11 @@
       webm: '/media/kids-stories/jesus-ascension.webm',
       captionsVtt: '/media/kids-stories/jesus-ascension.vtt'
     },
+    jesusArrest: {
+      mp4: '/media/kids-stories/jesus-arrest-garden.mp4',
+      webm: '/media/kids-stories/jesus-arrest-garden.webm',
+      captionsVtt: '/media/kids-stories/jesus-arrest-garden.vtt'
+    },
     jesusBaptism: {
       mp4: '/media/kids-stories/jesus-baptism.mp4',
       webm: '/media/kids-stories/jesus-baptism.webm',

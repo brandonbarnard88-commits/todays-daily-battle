@@ -207,6 +207,7 @@
     'jesusLastSupper',
     'gardenPrayer',
     'jesusGardenGethsemane',
+    'jesusArrest',
     'trial',
     'crossCarry',
     'crucifixion',

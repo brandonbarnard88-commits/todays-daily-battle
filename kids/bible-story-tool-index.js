@@ -2487,6 +2487,16 @@
     "kw": "gethsemane garden prayer watch cup Peter James John not as I will thy will be done matthew 26 mark 14 luke 22"
   },
   {
+    "key": "jesusArrest",
+    "title": "Jesus Is Arrested in the Garden",
+    "kjvRef": "Matthew 26:47–56 (par. Mark 14:43–52; Luke 22:47–53; John 18:1–11)",
+    "who": "Jesus",
+    "to": "Every child who feels hurt or afraid when hard or scary things happen",
+    "apply": "Jesus was calm and kind in the garden — He knows how we feel, and His strong, gentle love holds us safe.",
+    "theme": "Protection",
+    "kw": "arrest gethsemane garden Judas kiss multitude swords staves put up sword legions angels scriptures forsook fled matthew 26 mark 14 luke 22 john 18"
+  },
+  {
     "key": "priscillaTeach",
     "title": "Priscilla and Aquila Teach",
     "kjvRef": "Acts 18:24–28",

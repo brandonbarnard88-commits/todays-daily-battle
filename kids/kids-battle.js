@@ -2410,6 +2410,54 @@
       narration:
         "Jesus Prays in the Garden — Matthew 26:36–46. Then cometh Jesus with them unto a place called Gethsemane, and saith unto the disciples, Sit ye here, while I go and pray yonder. And he took with him Peter and the two sons of Zebedee, and began to be sorrowful and very heavy. Then saith he unto them, My soul is exceeding sorrowful, even unto death: tarry ye here, and watch with me. And he went a little further, and fell on his face, and prayed, saying, O my Father, if it be possible, let this cup pass from me: nevertheless not as I will, but as thou wilt. And he cometh unto the disciples, and findeth them asleep, and saith unto Peter, What, could ye not watch with me one hour? Watch and pray, that ye enter not into temptation: the spirit indeed is willing, but the flesh is weak. He went away again the second time, and prayed, saying, O my Father, if this cup may not pass away from me, except I drink it, thy will be done. And he came and found them asleep again: for their eyes were heavy. And he left them, and went away again, and prayed the third time, saying the same words. Then cometh he to his disciples, and saith unto them, Sleep on now, and take your rest: behold, the hour is at hand, and the Son of man is betrayed into the hands of sinners. Rise, let us be going: behold, he is at hand that doth betray me. For you: On the hardest days when you feel sad or scared about what might happen, remember Jesus in the garden. He prayed to His Father and said, Not as I will, but as thou wilt. Jesus understands hard feelings, and He chose to obey because He loves you. You can talk to God anytime and rest in His strong, gentle care."
     },
+    jesusArrest: {
+      title: 'Jesus Is Arrested in the Garden',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Judas leads a multitude with swords and staves — the kiss — Friend, wherefore art thou come? — they lay hands on Jesus'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'A sword is drawn — an ear smitten — Put up again thy sword — twelve legions of angels — the scriptures must be fulfilled'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Jesus speaks calmly to the multitudes — scriptures of the prophets fulfilled — all the disciples forsook him, and fled'
+        }
+      ],
+      caption: 'Swipe slowly — Jesus stays calm and strong; He obeys His Father\'s plan.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'arrest',
+        'gethsemane',
+        'garden',
+        'Judas',
+        'kiss',
+        'multitude',
+        'swords',
+        'staves',
+        'put up thy sword',
+        'legions of angels',
+        'scriptures fulfilled',
+        'forsook',
+        'fled',
+        'matthew 26',
+        'mark 14',
+        'luke 22',
+        'john 18'
+      ],
+      kjvRef: 'Matthew 26:47–56 (par. Mark 14:43–52; Luke 22:47–53; John 18:1–11)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child who feels hurt or afraid when hard or scary things happen',
+        apply:
+          'Jesus was calm and kind in the garden — He knows how we feel, and His strong, gentle love holds us safe.'
+      },
+      narration:
+        "Jesus Is Arrested in the Garden — Matthew 26:47–56. And while he yet spake, lo, Judas, one of the twelve, came, and with him a great multitude with swords and staves, from the chief priests and elders of the people. Now he that betrayed him gave them a sign, saying, Whomsoever I shall kiss, that same is he: hold him fast. And forthwith he came to Jesus, and said, Hail, master; and kissed him. And Jesus said unto him, Friend, wherefore art thou come? Then came they, and laid hands on Jesus, and took him. And, behold, one of them which were with Jesus stretched out his hand, and drew his sword, and struck a servant of the high priest's, and smote off his ear. Then said Jesus unto him, Put up again thy sword into his place: for all they that take the sword shall perish with the sword. Thinkest thou that I cannot now pray to my Father, and he shall presently give me more than twelve legions of angels? But how then shall the scriptures be fulfilled, that thus it must be? In that same hour said Jesus to the multitudes, Are ye come out as against a thief with swords and staves for to take me? I sat daily with you teaching in the temple, and ye laid no hold on me. But all this was done, that the scriptures of the prophets might be fulfilled. Then all the disciples forsook him, and fled. For you: On hard days when someone hurts your feelings or when scary things happen, remember Jesus in the garden. He was calm and kind even when Judas kissed Him and the men took Him away. Jesus knows how you feel, and He chose to go through hard things because He loves you so much. You can rest safe in His strong, gentle love."
+    },
     jesusCrucifixion: {
       title: 'Jesus on the Cross',
       panels: [
@@ -9031,7 +9079,7 @@
       'goodSamaritan', 'prodigalSon', 'zacchaeus', 'lazarus', 'resurrection', 'creation',
       'fallOfJericho', 'davidSheep', 'elijahFire', 'elishaOil', 'naamanHealed', 'jesusWalksWater',
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
-      'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
+      'richYoungRuler', 'widowsMite', 'gardenPrayer', 'jesusArrest', 'betrayal', 'trial', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
       'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'psalm23', 'psalm23Shepherd', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'parableTalents', 'armorOfGod',
       /* Week 1 */
@@ -9065,7 +9113,7 @@
       'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWickedHusbandmen', 'parableWeddingFeast', 'tributeToCaesar', 'sadduceesResurrection', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
       'mustardSeed', 'tenLepers', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
-      'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'jesusLastSupper', 'jesusGardenGethsemane', 'crossCarry', 'jesusCrucifixion',
+      'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'jesusLastSupper', 'jesusGardenGethsemane', 'jesusArrest', 'crossCarry', 'jesusCrucifixion',
       'tombEmpty', 'jesusResurrection', 'emmausRoad', 'thomasDoubt',
       'pentecost', 'holySpiritPentecost', 'peterPentecostSermon', 'earlyChurchLife', 'peterHealsLame', 'peterJailBreak', 'paulConversion', 'paulBarnabas', 'paulFirstJourney', 'councilJerusalem', 'paulSecondJourney', 'actsPaulMarsHill', 'paulThirdJourney', 'paulEphesus', 'actsApollosPriscilla', 'paulEutychus', 'pentecostFire', 'peterShadow', 'paulShipwreck', 'paulRome', 'actsPaulBeforeAgrippa', 'actsPaulMelita', 'paulLetters', 'paulPrisonEpistles', 'paulEndurance', 'paulTimothy', 'paulTitus', 'paulPhilemon', 'romansRoadKids', 'corinthiansOneBody', 'philippiansJoy', 'colossiansChristSupreme', 'thessaloniansHope', 'timothyYouthExample', 'hebrewsFaith', 'jamesFaithWorks', 'peterFirstLetter', 'peterSecondLetter', 'johnFirstLetter', 'judeWarning', 'revelationLetters', 'revelationSeals', 'revelationTrumpets', 'revelationBeasts', 'revelationThousandYears', 'revelationNewJerusalem', 'revelationWomanDragon', 'revelationSongsAndHarvest', 'revelationSupperAndKing', 'revelationBabylonFall', 'johnSecondThirdLetters', 'paulSilas', 'tenVirgins',
       /* Week 8 */
@@ -9695,6 +9743,13 @@
       )
     ) {
       return { type: 'carousel', story: 'jesusCleansesTemple' };
+    }
+    if (
+      /matthew 26:4[7-9]|matthew 26:5[0-6]|put up again thy sword|twelve legions of angels|friend,? wherefore art thou come|laid hands on jesus|servant of the high priest|scriptures of the prophets might be fulfilled|all the disciples forsook|john 18:1|john 18:10|jesus arrested|arrest.*garden|gethsemane.*arrest/i.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'jesusArrest' };
     }
     if (/gethsemane|garden.*prayer|matthew 26:36|mark 14:32/.test(low)) {
       return { type: 'carousel', story: 'gardenPrayer' };
@@ -12341,6 +12396,7 @@
     sadduceesResurrection: 'Obedience',
     jesusLastSupper: 'Love',
     jesusGardenGethsemane: 'Protection',
+    jesusArrest: 'Protection',
     crossCarry: 'Love', jesusCrucifixion: 'Love', tombEmpty: 'Miracles', jesusResurrection: 'Miracles', emmausRoad: 'Love', thomasDoubt: 'Obedience',
     pentecost: 'Miracles',
     holySpiritPentecost: 'Miracles',

@@ -1407,6 +1407,16 @@
     "kw": "wedding feast marriage matthew 22 king servants highways bidden come unto the marriage parable jesus invite"
   },
   {
+    "key": "tributeToCaesar",
+    "title": "Jesus Answers About Taxes",
+    "kjvRef": "Matthew 22:15–22",
+    "who": "Jesus",
+    "to": "The Pharisees, Herodians, and everyone who listens (including us)",
+    "apply": "We can honor what belongs to earthly rulers and give our hearts and worship to God — Jesus answers with gentle wisdom.",
+    "theme": "Obedience",
+    "kw": "tribute caesar penny render pharisees herodians matthew 22 matthew 22:21 image superscription marvelled god's things honest wisdom"
+  },
+  {
     "key": "parablePearl",
     "title": "Jesus Tells About a Pearl Worth Everything",
     "kjvRef": "Matthew 13:45–46",

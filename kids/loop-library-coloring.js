@@ -193,6 +193,7 @@
   "figTree": "figTree",
   "jesusAuthority": "jesusAuthority",
   "parableWickedHusbandmen": "parableWickedHusbandmen",
+  "tributeToCaesar": "tributeToCaesar",
   "unforgivingServant": "unforgivingServant",
   "widowOil": "widowOil",
   "widowsMite": "widowMite",

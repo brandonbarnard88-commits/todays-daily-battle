@@ -96,6 +96,7 @@
  * Fig tree and faith in prayer — Matthew 21:18–22 (gentle): buildFigTreeReadQuiz() (library key: figTree).
  * Jesus’ authority questioned — Matthew 21:23–27 (gentle): buildJesusAuthorityReadQuiz() (library key: jesusAuthority).
  * Wicked husbandmen / vineyard and the Son — Matthew 21:33–46 (gentle summary): buildParableWickedHusbandmenReadQuiz() (library key: parableWickedHusbandmen).
+ * Render to Caesar / tribute penny — Matthew 22:15–22 (gentle): buildTributeToCaesarReadQuiz() (library key: tributeToCaesar).
  * Zacchaeus — Luke 19:1–10 (gentle): buildZacchaeusReadQuiz() (library key: zacchaeus; alias jesusAndZacchaeus).
  * Man born blind — John 9:1–38 (gentle): buildManBornBlindReadQuiz() (library key: manBornBlind; alias healBlind, jesusHealsBlind).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
@@ -12021,6 +12022,142 @@ function buildParableWickedHusbandmenReadQuiz() {
   };
 }
 
+/** Render to Caesar — Matthew 22:15–22 (gentle). Library key: tributeToCaesar */
+function buildTributeToCaesarReadQuiz() {
+  return {
+    kjvRef: 'Matthew 22:15–22 (KJV)',
+    verseExcerpt:
+      'Render therefore unto Caesar the things which are Caesar’s; and unto God the things that are God’s. — Matthew 22:21 (KJV)',
+    readAlongTitle: 'Jesus Answers About Taxes',
+    quizWrongHumilityHint:
+      'Listen again — Pharisees; Herodians; Master; true; tribute; Caesar; penny; image; superscription; Render; marvelled; hypocrites; tempt.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'The Pharisees and Herodians came to Jesus to trap Him.',
+      'They said, Master, we know that thou art true, and teachest the way of God in truth… Tell us therefore, What thinkest thou? Is it lawful to give tribute unto Caesar, or not?',
+      'Jesus perceived their wickedness and said, Why tempt ye me, ye hypocrites? Shew me the tribute money.',
+      'They brought Him a penny.',
+      'He asked them, Whose is this image and superscription? They said, Caesar’s.',
+      'Jesus said unto them, Render therefore unto Caesar the things which are Caesar’s; and unto God the things which are God’s.',
+      'When they heard these words, they marvelled and left Him.',
+      'Jesus teaches us to give to God what belongs to God and to earthly rulers what belongs to them.',
+      'Reference: Matthew 22:15–22 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Some men came to Jesus with a question that was meant to trap Him.',
+        caption: 'A hard question',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'They asked, Is it lawful to give tribute unto Caesar, or not?',
+        caption: 'Tribute to Caesar?',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Jesus said, Shew me the tribute money.',
+        caption: 'Show me the coin',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'They brought Him a penny. He asked, Whose is this image and superscription? They said, Caesar’s.',
+        caption: 'Whose image?',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus said, Render therefore unto Caesar the things which are Caesar’s; and unto God the things which are God’s.',
+        caption: 'Caesar and God',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'They marvelled at His answer — Jesus teaches us with quiet wisdom.',
+        caption: 'Jesus answers with wisdom',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Matthew 22:15–22', 'Psalm 23', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 22:15–22.)'
+      },
+      {
+        question: 'Who came to Jesus with the question about tribute?',
+        choices: [
+          'The Pharisees and Herodians (with their disciples)',
+          'Only small children',
+          'Only shepherds',
+          'No one — Jesus was alone'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 22:15–16.',
+        wrongFeedback: 'Listen for “Pharisees” and “Herodians.” (Answer: Pharisees and Herodians.)'
+      },
+      {
+        question: 'What did Jesus ask them to show Him?',
+        choices: ['The tribute money (a penny)', 'A giant ladder', 'A boat', 'A bag of rocks'],
+        correctIndex: 0,
+        correctFeedback: 'Yes—Shew me the tribute money.',
+        wrongFeedback: 'Listen for “tribute money” and “penny.” (Answer: tribute money / penny.)'
+      },
+      {
+        question: 'What did Jesus say to do?',
+        choices: [
+          'Render unto Caesar the things which are Caesar’s; and unto God the things which are God’s.',
+          'Never obey anyone.',
+          'Hide every coin forever.',
+          'Only love money.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 22:21.',
+        wrongFeedback: 'Listen for “Render” and “Caesar” and “God.” (Answer: Caesar… and God…)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Love God with my whole heart and ask Jesus to help me do what is right and honest.',
+          'Stop caring about truth.',
+          'Believe God never speaks to children.',
+          'Pretend questions do not matter.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with honesty: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “God first” and “honest heart.” (Answer: love God… right and honest.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'They marvelled and went away after Jesus answered',
+          'The coin turned into a bird.',
+          'Everyone forgot how to walk.',
+          'A spaceship landed in the temple.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 22:22.',
+        wrongFeedback: 'Pick the true detail from God’s Word. (Answer: marvelled… went away.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Answers About Taxes with God's Word today.",
+    takeaway:
+      'Render unto Caesar and unto God — Jesus teaches us to honor God first and live with honest, wise hearts.',
+    prayer:
+      'Lord Jesus, thank You for wisdom that is kind and true. Help me love You first and do what is right today. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art scene for young children: Jesus standing calmly holding a large, simple coin (penny) while two robed men stand nearby with thoughtful, non-angry faces. Jesus has a wise, kind face. Thick, bold outlines with large open spaces on Jesus’ robe, the coin, the men’s robes, and the ground. Soft temple wall shapes in the background (few lines, rounded tops) and a gentle sky band. Wise and calm mood — focus on Jesus answering about taxes. Clean, minimal, no trap or arguing faces, plenty of white space, age-appropriate for ages 3–8.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Hard question — listening hearts (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Show the coin — honest look (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Whose image? — pause (mercy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Render to Caesar and to God (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Marvelled — gentle wisdom (peace)'
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Zacchaeus — Jesus sees him in the tree (gentle). Library key: zacchaeus; alias jesusAndZacchaeus */
 function buildZacchaeusReadQuiz() {
   return {
@@ -12432,6 +12569,7 @@ module.exports = {
   figTree: buildFigTreeReadQuiz(),
   jesusAuthority: buildJesusAuthorityReadQuiz(),
   parableWickedHusbandmen: buildParableWickedHusbandmenReadQuiz(),
+  tributeToCaesar: buildTributeToCaesarReadQuiz(),
   goodSamaritan: buildParableGoodSamaritanReadQuiz(),
   maryMartha: buildMaryMarthaReadQuiz(),
   lazarus: buildLazarusReadQuiz(),

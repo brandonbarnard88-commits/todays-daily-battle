@@ -782,6 +782,11 @@
       webm: '/media/kids-stories/jesus-vineyard-son.webm',
       captionsVtt: '/media/kids-stories/jesus-vineyard-son.vtt'
     },
+    tributeToCaesar: {
+      mp4: '/media/kids-stories/jesus-tribute-caesar.mp4',
+      webm: '/media/kids-stories/jesus-tribute-caesar.webm',
+      captionsVtt: '/media/kids-stories/jesus-tribute-caesar.vtt'
+    },
     jesusWalksWater: {
       mp4: '/media/kids-stories/jesus-walks-water.mp4',
       webm: '/media/kids-stories/jesus-walks-water.webm',

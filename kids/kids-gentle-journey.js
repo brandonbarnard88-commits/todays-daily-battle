@@ -194,6 +194,7 @@
     'figTree',
     'jesusAuthority',
     'parableWickedHusbandmen',
+    'tributeToCaesar',
     'zacchaeus',
     'jesusParableGoodShepherd',
     'lazarus',

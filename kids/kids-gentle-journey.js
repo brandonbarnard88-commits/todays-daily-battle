@@ -173,6 +173,7 @@
     'jesusParableMustardSeed',
     'parableHiddenTreasure',
     'parablePearl',
+    'parableLostSheep',
     'faithMustard',
     'faithMountain',
     'transfigure',

@@ -162,7 +162,8 @@ for (const [key, chunk] of byKey.entries()) {
 /** Legacy keys: same card as canonical story (matches read-quiz + deep links). */
 const ALIAS_TO_CANON = [
   ['naaman', 'naamanHealed'],
-  ['elishaOil', 'widowOil']
+  ['elishaOil', 'widowOil'],
+  ['parableLostSheep', 'lostSheep']
 ];
 for (let ai = 0; ai < ALIAS_TO_CANON.length; ai++) {
   const aliasKey = ALIAS_TO_CANON[ai][0];

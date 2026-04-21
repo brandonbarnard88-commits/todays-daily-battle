@@ -202,6 +202,7 @@
     parableSower: 76,
     parableHiddenTreasure: 208,
     parablePearl: 209,
+    parableLostSheep: 78,
     parableTalents: 107,
     passoverLamb: 30,
     paulBarnabas: 113,

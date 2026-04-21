@@ -1595,18 +1595,39 @@
         "Jesus Walks on the Sea — Matthew 14:22–33. And straightway Jesus constrained his disciples to get into a ship, and to go before him unto the other side, while he sent the multitudes away. And when he had sent the multitudes away, he went up into a mountain apart to pray: and when the evening was come, he was there alone. But the ship was now in the midst of the sea, tossed with waves: for the wind was contrary. And in the fourth watch of the night Jesus went unto them, walking on the sea. And when the disciples saw him walking on the sea, they were troubled, saying, It is a spirit; and they cried out for fear. But straightway Jesus spake unto them, saying, Be of good cheer; it is I; be not afraid. And Peter answered him and said, Lord, if it be thou, bid me come unto thee on the water. And he said, Come. And when Peter was come down out of the ship, he walked on the water, to go to Jesus. But when he saw the wind boisterous, he was afraid; and beginning to sink, he cried, saying, Lord, save me. And immediately Jesus stretched forth his hand, and caught him, and said unto him, O thou of little faith, wherefore didst thou doubt? And when they were come into the ship, the wind ceased. Then they that were in the ship came and worshipped him, saying, Of a truth thou art the Son of God. For you: Call on Jesus — He is stronger than any storm."
     },
     lostSheep: {
-      title: 'Lost Sheep',
+      title: 'Jesus Tells About the Lost Sheep',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Shepherd has 100 sheep' },
-        { src: 'panel-jesus-2.svg', alt: 'One is lost—he goes to find it' },
-        { src: 'panel-jesus-3.svg', alt: 'Found! Jesus finds lost sheep!' }
+        { src: 'panel-jesus-1.svg', alt: 'A shepherd had one hundred sheep — one little sheep was lost' },
+        { src: 'panel-jesus-2.svg', alt: 'He left the ninety-nine and looked until he found the one' },
+        { src: 'panel-jesus-3.svg', alt: 'He layeth it on his shoulders, rejoicing — carry it home with joy' }
       ],
-      caption: 'Swipe to see Jesus find the lost sheep—you\'re never lost! 🐑',
+      caption:
+        'Swipe to see the good shepherd find the one — carry it home with joy! Heaven rejoices over one sinner that repenteth. 🐑',
       videoId: 'CLpq2K-Jf0M',
       videoTitle: 'The Parable of the Lost Sheep – Animated Bible Story!',
-      keywords: ['lost sheep', 'parable', 'shepherd', 'luke 15', 'find', 'rejoice'],
-      kjvRef: 'Luke 15',
-      kidContext: { who: 'Jesus', to: 'People who wondered about God\'s love', apply: 'Jesus finds lost sheep—you\'re never lost! God searches for you!' }
+      keywords: [
+        'lost sheep',
+        'parable',
+        'shepherd',
+        'ninety-nine',
+        'shoulders',
+        'rejoicing',
+        'luke 15',
+        'repenteth',
+        'joy in heaven',
+        'find',
+        'jesus',
+        'good shepherd'
+      ],
+      kjvRef: 'Luke 15:3–7',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The people (and us)',
+        apply:
+          'Jesus is like that good shepherd — He loves us and will keep looking for us when we are lost.'
+      },
+      narration:
+        "Jesus Tells About the Lost Sheep — Luke 15:3–7. And he spake this parable unto them, saying, What man of you, having an hundred sheep, if he lose one of them, doth not leave the ninety and nine in the wilderness, and go after that which is lost, until he find it? And when he hath found it, he layeth it on his shoulders, rejoicing. And when he cometh home, he calleth together his friends and neighbours, saying unto them, Rejoice with me; for I have found my sheep which was lost. I say unto you, that likewise joy shall be in heaven over one sinner that repenteth, more than over ninety and nine just persons, which need no repentance. For you: Jesus is like that good Shepherd — He loves us and will keep looking for us when we are lost."
     },
     lostCoin: {
       title: 'Lost Coin',
@@ -7792,6 +7813,8 @@
     bibleStories.elishaOil = bibleStories.widowOil;
     /** Same gentle card as mustardSeed (library / journey naming). */
     bibleStories.parableMustardSeed = bibleStories.mustardSeed;
+    /** Same gentle card as lostSheep (library / journey naming). */
+    bibleStories.parableLostSheep = bibleStories.lostSheep;
     window.TDB_BIBLE_STORIES = bibleStories;
     window.TDB_BIBLE_STORY_KEYS = Object.keys(bibleStories);
     try {
@@ -7935,7 +7958,7 @@
       'jesusHealsBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusFeeds5000', 'jesusWalksWater',
-      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'jesusParableGoodShepherd',
+      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'jesusParableGoodShepherd',
       'mustardSeed', 'healLeper', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
       'jesusTriumphalEntry', 'jesusLastSupper', 'jesusGardenGethsemane', 'crossCarry', 'jesusCrucifixion',
@@ -7954,7 +7977,7 @@
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
-      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'marthaServe',
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'marthaServe',
       'marySit', 'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */
@@ -11040,7 +11063,7 @@
     goodSamaritan: 'Love', prodigalSon: 'Love', zacchaeus: 'Love', lazarus: 'Miracles', resurrection: 'Miracles',
     creation: 'Obedience', fallOfJericho: 'Obedience', davidSheep: 'Love', elijahFire: 'Miracles', elishaOil: 'Miracles',
     naamanHealed: 'Obedience', jesusWalksWater: 'Miracles', lostSheep: 'Love', lostCoin: 'Love', palmSunday: 'Protection', lastSupper: 'Love',
-    jesusTemptation: 'Obedience', parableSower: 'Protection', parableHiddenTreasure: 'Love', parablePearl: 'Love', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
+    jesusTemptation: 'Obedience', parableSower: 'Protection', parableHiddenTreasure: 'Love', parablePearl: 'Love', parableLostSheep: 'Love', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
     betrayal: 'Protection', trial: 'Protection', crucifixion: 'Love', roadToEmmaus: 'Love', ascension: 'Protection',
     pentecost: 'Miracles', stephen: 'Protection', paulDamascus: 'Protection', heavenPromise: 'Protection',
     ruthBoaz: 'Love', ruthThreshing: 'Love', ruthRedemption: 'Love', parableTalents: 'Obedience', armorOfGod: 'Obedience',

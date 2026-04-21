@@ -247,16 +247,6 @@
     "kw": "judas betrayal kiss matthew 26 mark 14 fail"
   },
   {
-    "key": "jesusBirth",
-    "title": "Jesus Is Born in Bethlehem",
-    "kjvRef": "Luke 2:1–20",
-    "who": "God",
-    "to": "The whole world — everyone Jesus came to love",
-    "apply": "God sent His own Son as a baby so He could be with us.",
-    "theme": "Love",
-    "kw": "jesus bethlehem manger stable shepherds angels mary joseph luke 2 saviour christmas good tidings baby jesus"
-  },
-  {
     "key": "cainAbel",
     "title": "Cain & Abel",
     "kjvRef": "Genesis 4",
@@ -607,14 +597,14 @@
     "kw": "elisha elisha last words joash king of israel 2 kings 13 2 kings 13:14 2 kings 13:17 take bow and arrows arrow of the lord deliverance from syria open the window eastward chariot of israel smite upon the ground man of god elisha died"
   },
   {
-    "key": "estherFast",
-    "title": "Esther Prays and Fasts for Her People",
-    "kjvRef": "Esther 4:1–17",
+    "key": "estherCrown",
+    "title": "Esther Becomes Queen",
+    "kjvRef": "Esther 2:1–17",
     "who": "The LORD",
-    "to": "Esther and every heart that asks Him for help",
-    "apply": "The Lord hears when His children pray and fast and ask for help — and He gives courage for the next step.",
-    "theme": "Obedience",
-    "kw": "esther fast pray mordecai haman such a time if i perish esther 4 three days brave help"
+    "to": "Esther (and every heart He places on purpose)",
+    "apply": "The Lord can place His children in special places for special times — and He watches over them with love.",
+    "theme": "Protection",
+    "kw": "esther crown queen vashti persia esther 2 palace beautiful kind favour watch"
   },
   {
     "key": "esther",
@@ -627,6 +617,16 @@
     "kw": "esther queen mordecai haman fast banquet such a time esther 4 esther 5 esther 7 persia save brave"
   },
   {
+    "key": "estherFast",
+    "title": "Esther Prays and Fasts for Her People",
+    "kjvRef": "Esther 4:1–17",
+    "who": "The LORD",
+    "to": "Esther and every heart that asks Him for help",
+    "apply": "The Lord hears when His children pray and fast and ask for help — and He gives courage for the next step.",
+    "theme": "Obedience",
+    "kw": "esther fast pray mordecai haman such a time if i perish esther 4 three days brave help"
+  },
+  {
     "key": "estherBanquet",
     "title": "Esther Saves Her People at the Banquet",
     "kjvRef": "Esther 5:1–8; 7:1–10",
@@ -634,7 +634,7 @@
     "to": "Esther and every heart that prays for courage to speak",
     "apply": "The Lord hears when His children pray — and He can help us speak the truth at the right time to help others.",
     "theme": "Protection",
-    "kw": "esther banquet haman king truth save pray esther 5 esther 7 people courage feast"
+    "kw": "esther banquet haman king truth save pray esther 5 esther 7 people courage"
   },
   {
     "key": "euniceMother",
@@ -757,6 +757,16 @@
     "kw": "elijah carmel god answers by fire baal 1 kings 18 fire altar ahab jezebel two opinions"
   },
   {
+    "key": "ezekielValleyBones",
+    "title": "God Can Make Dry Bones Live",
+    "kjvRef": "Ezekiel 37:1–14",
+    "who": "God",
+    "to": "His people — and every heart that needs hope",
+    "apply": "God can make what is dead and dry come to life again. He is stronger than anything.",
+    "theme": "Miracles",
+    "kw": "ezekiel dry bones valley ezekiel 37 prophet life gods word army breath hope miracle"
+  },
+  {
     "key": "samariaSiege",
     "title": "God Feeds His People at Samaria",
     "kjvRef": "2 Kings 6:24-7:20",
@@ -765,6 +775,16 @@
     "apply": "God can feed His people when things look impossible — trust His promise one day at a time.",
     "theme": "Miracles",
     "kw": "samaria siege of samaria samaria siege besieged samaria gate of samaria fine flour barley shekel windows in heaven noise of chariots syrians fled spoiled the tents 2 kings 6 2 kings 6:24 2 kings 7 2 kings 7:1 2 kings 7:16 elisha benhadad famine samaria"
+  },
+  {
+    "key": "jonahVine",
+    "title": "God Gives Jonah a Second Chance",
+    "kjvRef": "Jonah 1:1–17; 2:1–10; 3:1–10",
+    "who": "God",
+    "to": "Jonah — and every heart that needs forgiveness",
+    "apply": "God is kind and gives us second chances when we are sorry.",
+    "theme": "Love",
+    "kw": "jonah nineveh fish mercy sorry prayer obey second chance storm jonah 1 jonah 2 jonah 3"
   },
   {
     "key": "elishaFloatingAxe",
@@ -785,6 +805,26 @@
     "apply": "God cares for everyday meals — He made the stew safe so His servants could eat without fear.",
     "theme": "Miracles",
     "kw": "elisha god makes the stew safe stew safe gilgal pottage great pot wild gourds meal 2 kings 4 2 kings 4:38 2 kings 4:41 sons of the prophets death in the pot no harm in the pot bring meal gentle"
+  },
+  {
+    "key": "isaiahMessianic",
+    "title": "God Promises a Savior",
+    "kjvRef": "Isaiah 9:2–7",
+    "who": "God",
+    "to": "every heart that needs hope",
+    "apply": "God promised a Savior who brings light and joy — and He always keeps His promises.",
+    "theme": "Love",
+    "kw": "isaiah prophet isaiah 9 wonderful counsellor prince of peace savior promise light child jesus"
+  },
+  {
+    "key": "malachiMessage",
+    "title": "God Promises to Send a Messenger",
+    "kjvRef": "Malachi 3:1; 4:5–6",
+    "who": "God",
+    "to": "His people — and every heart listening for His promise",
+    "apply": "God always keeps His promises, even when it feels quiet.",
+    "theme": "Love",
+    "kw": "malachi prophet messenger promise john the baptist savior malachi 3 malachi 4 love hope quiet faithful"
   },
   {
     "key": "elishaBlindArmy",
@@ -957,16 +997,6 @@
     "kw": "alpha omega revelation 1 beginning end lord eternal"
   },
   {
-    "key": "isaiahMessianic",
-    "title": "God Promises a Savior",
-    "kjvRef": "Isaiah 9:2–7",
-    "who": "God",
-    "to": "every heart that needs hope",
-    "apply": "God promised a Savior who brings light and joy — and He always keeps His promises.",
-    "theme": "Love",
-    "kw": "isaiah prophet isaiah 9 wonderful counsellor prince of peace savior promise light child jesus"
-  },
-  {
     "key": "jacobLadder",
     "title": "Jacob's Ladder",
     "kjvRef": "Genesis 28:10–22",
@@ -987,16 +1017,6 @@
     "kw": "jael tent sisera judges 4 peg courage victory"
   },
   {
-    "key": "jairus",
-    "title": "Jesus Brings a Girl Back to Life",
-    "kjvRef": "Mark 5:21–43",
-    "who": "Jesus",
-    "to": "Jairus, his daughter, and us",
-    "apply": "Jesus has power over sickness and even over death — and He cares for little children. Keep believing Him.",
-    "theme": "Miracles",
-    "kw": "jairus daughter arise mark 5 talitha cumi damsel believe only believe children miracle faith"
-  },
-  {
     "key": "jamesFaithWorks",
     "title": "James — Faith That Helps",
     "kjvRef": "James 2:14–26",
@@ -1014,7 +1034,7 @@
     "to": "Jeremiah — and every heart that feels sad for others",
     "apply": "The Lord cares when His people are sad — and He stays close to those who love Him.",
     "theme": "Obedience",
-    "kw": "jeremiah prophet tears weep love gods word listen jeremiah 1 jeremiah 13 sad help care"
+    "kw": "jeremiah prophet tears weep love gods word listen jeremiah 1 jeremiah 13 sad help"
   },
   {
     "key": "jesusAscension",
@@ -1037,6 +1057,16 @@
     "kw": "jesus children bless mark 10 kids kingdom come"
   },
   {
+    "key": "jairus",
+    "title": "Jesus Brings a Girl Back to Life",
+    "kjvRef": "Mark 5:21–43",
+    "who": "Jesus",
+    "to": "Jairus, his daughter, and us",
+    "apply": "Jesus has power over sickness and even over death — and He cares for little children. Keep believing Him.",
+    "theme": "Miracles",
+    "kw": "jairus daughter arise mark 5 talitha cumi damsel believe miracle faith children"
+  },
+  {
     "key": "jesusCallingDisciples",
     "title": "Jesus Calls Disciples",
     "kjvRef": "Matthew 4:18–22; Luke 5:1–11",
@@ -1047,6 +1077,16 @@
     "kw": "disciples fishers of men sea of galilee peter andrew matthew 4 luke 5 nets"
   },
   {
+    "key": "jesusDisciples",
+    "title": "Jesus Calls His Helpers",
+    "kjvRef": "Matthew 4:18–22",
+    "who": "Jesus",
+    "to": "Peter, Andrew, James, John — and everyone who listens",
+    "apply": "Jesus calls ordinary people — kids too! — to be with Him and help tell others God’s love.",
+    "theme": "Love",
+    "kw": "jesus disciples fishers of men sea of galilee peter andrew james john matthew 4 nets follow me"
+  },
+  {
     "key": "jesusCalmsStorm",
     "title": "Jesus Calms the Wind and the Waves",
     "kjvRef": "Mark 4:35–41",
@@ -1054,7 +1094,17 @@
     "to": "His disciples (and us)",
     "apply": "Jesus is stronger than any storm. When you feel scared, tell Him — He can make your heart calm and safe.",
     "theme": "Miracles",
-    "kw": "jesus calms storm boat waves peace be still mark 4 master carest thou not wind sea obey faith disciples galilee"
+    "kw": "jesus storm boat waves peace be still mark 4 faith wind sea disciples"
+  },
+  {
+    "key": "jesusWaterWine",
+    "title": "Jesus Does His First Miracle",
+    "kjvRef": "John 2:1–11",
+    "who": "Jesus",
+    "to": "The servants — the wedding guests — and everyone who listens",
+    "apply": "Jesus can do wonderful things when we trust and do what He says.",
+    "theme": "Miracles",
+    "kw": "jesus wedding cana wine water waterpots john 2 miracle mary servants first miracle"
   },
   {
     "key": "jesusFeeds5000",
@@ -1064,7 +1114,27 @@
     "to": "The multitude — the disciples — and us",
     "apply": "Jesus can take a little and make it enough for everyone. Bring what you have to Him.",
     "theme": "Miracles",
-    "kw": "jesus feeds 5000 loaves fishes bread boy twelve baskets give ye them to eat matthew 14 miracle hungry crowd"
+    "kw": "jesus feeds 5000 loaves fishes bread fish miracle matthew 14 give ye them to eat twelve baskets boy"
+  },
+  {
+    "key": "jesusHealsParalytic",
+    "title": "Jesus Forgives and Heals a Man Who Could Not Walk",
+    "kjvRef": "Mark 2:1–12",
+    "who": "Jesus",
+    "to": "The sick of the palsy — his friends — and everyone who listens",
+    "apply": "Jesus can forgive sins and make sick people well. Keep bringing people to Him in prayer and love.",
+    "theme": "Miracles",
+    "kw": "paralytic palsy roof mark 2 faith forgive friends capernaum bed heal son"
+  },
+  {
+    "key": "jesusTemple",
+    "title": "Jesus Goes to His Father’s House",
+    "kjvRef": "Luke 2:41–52",
+    "who": "Jesus",
+    "to": "Mary, Joseph, and everyone who listens",
+    "apply": "Even as a boy, Jesus loved being in His Father’s house — and He honors His parents.",
+    "theme": "Love",
+    "kw": "jesus temple jerusalem passover luke 2 teachers twelve father business obedient mary joseph"
   },
   {
     "key": "healBlind",
@@ -1075,6 +1145,36 @@
     "apply": "Jesus opens our eyes—in our hearts too! Ask Him to help you see.",
     "theme": "Miracles",
     "kw": "blind heal mud john 9 eyes wash see miracle"
+  },
+  {
+    "key": "noblemanSon",
+    "title": "Jesus Heals a Boy from Far Away",
+    "kjvRef": "John 4:46–54",
+    "who": "Jesus",
+    "to": "The nobleman — and everyone who listens",
+    "apply": "Jesus can heal even when He is far away. His word is true — trust Him like this father did.",
+    "theme": "Miracles",
+    "kw": "nobleman son cana capernaum john 4 heal believe thy son liveth same hour servants household"
+  },
+  {
+    "key": "witheredHand",
+    "title": "Jesus Heals a Man on the Sabbath",
+    "kjvRef": "Mark 3:1–6",
+    "who": "Jesus",
+    "to": "The man with the withered hand — and everyone watching",
+    "apply": "Jesus does good and shows love every day, because He cares for people. We can trust Him and be kind too.",
+    "theme": "Miracles",
+    "kw": "withered hand sabbath synagogue mark 3 stretch forth heal jesus mercy good hand"
+  },
+  {
+    "key": "centurionServant",
+    "title": "Jesus Heals a Soldier's Servant from Far Away",
+    "kjvRef": "Matthew 8:5–13",
+    "who": "Jesus",
+    "to": "The centurion — and everyone who listens",
+    "apply": "Jesus can heal with just a word when people trust Him — His word is true and kind.",
+    "theme": "Miracles",
+    "kw": "centurion servant capernaum matthew 8 faith speak the word great faith heal selfsame hour trust"
   },
   {
     "key": "healLeper",
@@ -1104,47 +1204,17 @@
     "to": "Jesus — and everyone who listens",
     "apply": "God the Father was pleased with Jesus — we can listen to Him and trust Him.",
     "theme": "Love",
-    "kw": "jesus baptism baptized jordan john baptist dove matthew 3 beloved son spirit heaven well pleased voice"
+    "kw": "jesus baptism baptized jordan john the baptist dove matthew 3 beloved son heaven spirit well pleased"
   },
   {
-    "key": "jesusDisciples",
-    "title": "Jesus Calls His Helpers",
-    "kjvRef": "Matthew 4:18–22",
-    "who": "Jesus",
-    "to": "Peter, Andrew, James, John — and everyone who listens",
-    "apply": "Jesus calls people to be with Him and help tell others about God’s love.",
+    "key": "jesusBirth",
+    "title": "Jesus Is Born in Bethlehem",
+    "kjvRef": "Luke 2:1–20",
+    "who": "God",
+    "to": "The whole world — everyone Jesus came to love",
+    "apply": "God sent His own Son as a baby so He could be with us.",
     "theme": "Love",
-    "kw": "jesus disciples fishers of men sea galilee peter andrew james john nets follow me matthew 4 boat zebedee"
-  },
-  {
-    "key": "jesusWaterWine",
-    "title": "Jesus Does His First Miracle",
-    "kjvRef": "John 2:1–11",
-    "who": "Jesus",
-    "to": "The servants — the wedding guests — and everyone who listens",
-    "apply": "Jesus can do wonderful things when we trust and do what He says.",
-    "theme": "Miracles",
-    "kw": "jesus wedding cana water wine waterpots john 2 miracle mary servants first miracle governor feast obey"
-  },
-  {
-    "key": "jesusTempted",
-    "title": "Jesus Says No to Wrong Things",
-    "kjvRef": "Matthew 4:1–11",
-    "who": "Jesus",
-    "to": "The Father — and everyone who listens",
-    "apply": "Jesus always chose to obey His Father — we can trust God’s Word when wrong ideas come.",
-    "theme": "Obedience",
-    "kw": "jesus temptation wilderness matthew 4 forty days bread stones scripture it is written worship angels obey word"
-  },
-  {
-    "key": "jesusSermon",
-    "title": "Jesus Teaches How to Live God’s Way",
-    "kjvRef": "Matthew 5:1–16",
-    "who": "Jesus",
-    "to": "His disciples and the crowds — and everyone who listens",
-    "apply": "Jesus wants us to live in ways that please God and help others — love Him, love people, let your light shine.",
-    "theme": "Love",
-    "kw": "jesus sermon mount matthew 5 beatitudes blessed meek merciful light love neighbor mountain teach"
+    "kw": "jesus bethlehem manger stable shepherds angels mary joseph luke 2 saviour christmas good tidings baby jesus"
   },
   {
     "key": "jesusTempt",
@@ -1157,6 +1227,16 @@
     "kw": "jesus temptation desert matthew 4 devil bread scripture word"
   },
   {
+    "key": "samaritanWoman",
+    "title": "Jesus Offers Living Water",
+    "kjvRef": "John 4:1–42",
+    "who": "Jesus",
+    "to": "The Samaritan woman — and everyone who listens",
+    "apply": "Jesus offers the water of life to everyone who is thirsty in their heart — He is kind to all.",
+    "theme": "Love",
+    "kw": "samaritan woman well john 4 living water gift of God samaria believe christ tell"
+  },
+  {
     "key": "jesusCrucifixion",
     "title": "Jesus on the Cross",
     "kjvRef": "Matthew 27; Mark 15; Luke 23; John 19",
@@ -1167,14 +1247,94 @@
     "kw": "crucifixion cross golgotha forgive finished matthew 27 john 19 luke 23"
   },
   {
-    "key": "jesusTemple",
-    "title": "Jesus Goes to His Father’s House",
-    "kjvRef": "Luke 2:41–52",
+    "key": "jesusTempted",
+    "title": "Jesus Says No to Wrong Things",
+    "kjvRef": "Matthew 4:1–11",
     "who": "Jesus",
-    "to": "Mary, Joseph, and everyone who listens",
-    "apply": "Even as a boy, Jesus loved being in His Father’s house — and He honors His parents.",
+    "to": "The Father — and everyone who listens",
+    "apply": "Jesus always chose to obey His Father — we can trust God’s Word when wrong ideas come.",
+    "theme": "Obedience",
+    "kw": "jesus temptation wilderness matthew 4 bread stones scripture it is written worship angels forty days"
+  },
+  {
+    "key": "jesusSermon",
+    "title": "Jesus Teaches How to Live God’s Way",
+    "kjvRef": "Matthew 5:1–16",
+    "who": "Jesus",
+    "to": "His disciples and the crowds — and everyone who listens",
+    "apply": "Jesus wants us to live in ways that please God and help others — love Him, love people, let your light shine.",
     "theme": "Love",
-    "kw": "jesus temple jerusalem passover luke 2 teachers twelve father business mary joseph obedient boy"
+    "kw": "jesus sermon on the mount beatitudes matthew 5 blessed meek merciful light of the world love neighbor mountain"
+  },
+  {
+    "key": "parableSower",
+    "title": "Jesus Tells a Story About Good Soil",
+    "kjvRef": "Matthew 13:1–23",
+    "who": "Jesus",
+    "to": "The crowds by the sea — and us",
+    "apply": "Jesus wants our hearts to be like good soil so His words can grow in us. Listen to God’s Word.",
+    "theme": "Protection",
+    "kw": "sower parable seeds soil good soil grow word hear matthew 13 mark 4 wayside thorns fruit"
+  },
+  {
+    "key": "parablePearl",
+    "title": "Jesus Tells About a Pearl Worth Everything",
+    "kjvRef": "Matthew 13:45–46",
+    "who": "Jesus",
+    "to": "The people (and us)",
+    "apply": "God’s kingdom is so wonderful it is worth everything. Finding Jesus is like the most beautiful pearl in the whole world.",
+    "theme": "Love",
+    "kw": "pearl pearls merchant great price kingdom of heaven sold all bought matthew 13 parable jesus worth everything"
+  },
+  {
+    "key": "mustardSeed",
+    "title": "Jesus Tells About a Tiny Seed That Grows Big",
+    "kjvRef": "Matthew 13:31–32",
+    "who": "Jesus",
+    "to": "The people (and us)",
+    "apply": "God’s kingdom starts small like a seed and grows big. Listen to Jesus — let His kingdom grow in your heart.",
+    "theme": "Obedience",
+    "kw": "mustard seed kingdom of heaven grain sowed field tree birds branches matthew 13 grow least greatest among herbs"
+  },
+  {
+    "key": "jesusParableMustardSeed",
+    "title": "Jesus Tells About a Tiny Seed That Grows Big",
+    "kjvRef": "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
+    "who": "Jesus",
+    "to": "His disciples (and us)",
+    "apply": "God’s kingdom starts small like a seed and grows big. Listen to Jesus — let His kingdom grow in your heart.",
+    "theme": "Obedience",
+    "kw": "mustard seed kingdom of heaven grain sowed field tree birds branches matthew 13 mark 4 luke 13 grow"
+  },
+  {
+    "key": "parableHiddenTreasure",
+    "title": "Jesus Tells About a Treasure Worth Everything",
+    "kjvRef": "Matthew 13:44",
+    "who": "Jesus",
+    "to": "The people (and us)",
+    "apply": "God’s kingdom is so wonderful it is worth everything. Finding Jesus is the best treasure in the whole world.",
+    "theme": "Love",
+    "kw": "hidden treasure kingdom of heaven treasure field found joy sell buy field matthew 13 parable jesus worth everything"
+  },
+  {
+    "key": "lostSheep",
+    "title": "Jesus Tells About the Lost Sheep",
+    "kjvRef": "Luke 15:3–7",
+    "who": "Jesus",
+    "to": "The people (and us)",
+    "apply": "Jesus is like that good shepherd — He loves us and will keep looking for us when we are lost.",
+    "theme": "Love",
+    "kw": "lost sheep parable shepherd ninety-nine shoulders rejoicing luke 15 repenteth joy in heaven find jesus good shepherd"
+  },
+  {
+    "key": "parableLostSheep",
+    "title": "Jesus Tells About the Lost Sheep",
+    "kjvRef": "Luke 15:3–7",
+    "who": "Jesus",
+    "to": "The people (and us)",
+    "apply": "Jesus is like that good shepherd — He loves us and will keep looking for us when we are lost.",
+    "theme": "Love",
+    "kw": "lost sheep parable shepherd ninety-nine shoulders rejoicing luke 15 repenteth joy in heaven find jesus good shepherd"
   },
   {
     "key": "jesus",
@@ -1194,7 +1354,7 @@
     "to": "His disciples — Peter — and us",
     "apply": "Jesus is stronger than the wind and the waves. When we are afraid, we can call to Him and He will help us.",
     "theme": "Miracles",
-    "kw": "jesus walks water sea peter boat waves lord save me matthew 14 be not afraid faith son of god"
+    "kw": "jesus walks on water peter boat waves lord save me matthew 14 be not afraid faith sea"
   },
   {
     "key": "jesusFirstMiracle",
@@ -1234,7 +1394,7 @@
     "to": "Job — and every heart that feels sad",
     "apply": "We can still love and trust God when we feel sad — He is near, and He hears us when we pray.",
     "theme": "Protection",
-    "kw": "job trust sad friends job 1 job 2 lord gave blessed be grief faith quiet comfort"
+    "kw": "job trust sad friends job 1 job 2 lord gave bless faith quiet weep"
   },
   {
     "key": "johnBaptize",
@@ -1285,16 +1445,6 @@
     "apply": "Jonah ran from God, but God sent a big fish to swallow him. Jonah prayed, and God saved him. Jonah learned to obey. God gives us second chances too! When you make a mistake, pray and turn back to God—He loves you and forgives.",
     "theme": "Obedience",
     "kw": "jonah whale fish obey nineveh"
-  },
-  {
-    "key": "jonahVine",
-    "title": "God Gives Jonah a Second Chance",
-    "kjvRef": "Jonah 1:1–17; 2:1–10; 3:1–10",
-    "who": "God",
-    "to": "Jonah — and every heart that needs forgiveness",
-    "apply": "God is kind and gives us second chances when we are sorry.",
-    "theme": "Love",
-    "kw": "jonah nineveh fish mercy sorry prayer obey second chance storm jonah 1 jonah 2 jonah 3 kindness"
   },
   {
     "key": "josephCoat",
@@ -1477,16 +1627,6 @@
     "kw": "lost coin parable silver luke 15 search repent joy heaven"
   },
   {
-    "key": "lostSheep",
-    "title": "Lost Sheep",
-    "kjvRef": "Luke 15",
-    "who": "Jesus",
-    "to": "People who wondered about God's love",
-    "apply": "Jesus finds lost sheep—you're never lost! God searches for you!",
-    "theme": "Love",
-    "kw": "lost sheep parable shepherd luke 15 find rejoice"
-  },
-  {
     "key": "loveChapter",
     "title": "Love Is Patient and Kind",
     "kjvRef": "1 Corinthians 13",
@@ -1515,16 +1655,6 @@
     "apply": "God is the one who opens our hearts to believe! Ask Him to open yours.",
     "theme": "Obedience",
     "kw": "lydia purple acts 16 cloth believe baptize heart open"
-  },
-  {
-    "key": "malachiMessage",
-    "title": "God Promises to Send a Messenger",
-    "kjvRef": "Malachi 3:1; 4:5–6",
-    "who": "God",
-    "to": "His people — and every heart listening for His promise",
-    "apply": "God always keeps His promises, even when it feels quiet.",
-    "theme": "Love",
-    "kw": "malachi prophet messenger promise malachi 3 malachi 4 john the baptist savior hope love quiet faithful"
   },
   {
     "key": "manna",
@@ -1735,36 +1865,6 @@
     "apply": "Use what God gave you—grow it! Don't hide your gifts—use them!",
     "theme": "Obedience",
     "kw": "talents parable money servants matthew 25 gifts"
-  },
-  {
-    "key": "parableSower",
-    "title": "Jesus Tells a Story About Good Soil",
-    "kjvRef": "Matthew 13:1–23",
-    "who": "Jesus",
-    "to": "The crowds (and us)",
-    "apply": "Jesus wants our hearts to be like good soil so His words can grow in us.",
-    "theme": "Protection",
-    "kw": "sower parable seeds soil good soil word hear fruit matthew 13 mark 4"
-  },
-  {
-    "key": "parableHiddenTreasure",
-    "title": "Jesus Tells About a Treasure Worth Everything",
-    "kjvRef": "Matthew 13:44",
-    "who": "Jesus",
-    "to": "The people (and us)",
-    "apply": "God’s kingdom is so wonderful it is worth everything. Finding Jesus is the best treasure in the whole world.",
-    "theme": "Love",
-    "kw": "hidden treasure field kingdom heaven matthew 13 joy sell buy jesus parable"
-  },
-  {
-    "key": "parablePearl",
-    "title": "Jesus Tells About a Pearl Worth Everything",
-    "kjvRef": "Matthew 13:45–46",
-    "who": "Jesus",
-    "to": "The people (and us)",
-    "apply": "God’s kingdom is so wonderful it is worth everything. Finding Jesus is like the most beautiful pearl in the whole world.",
-    "theme": "Love",
-    "kw": "pearl merchant goodly pearls great price kingdom heaven matthew 13 sold all jesus parable"
   },
   {
     "key": "paulBarnabas",
@@ -2187,16 +2287,6 @@
     "kw": "psalm 23 psalms 23 ps 23 the lord is my shepherd shepherd still waters green pastures valley of the shadow of death fear no evil thou art with me rod and staff cup runneth over goodness and mercy dwell in the house of the lord david psalm comfort psalm"
   },
   {
-    "key": "estherCrown",
-    "title": "Esther Becomes Queen",
-    "kjvRef": "Esther 2:1–17",
-    "who": "The LORD",
-    "to": "Esther (and every heart He places on purpose)",
-    "apply": "The Lord can place His children in special places for special times — and He watches over them with love.",
-    "theme": "Protection",
-    "kw": "esther crown queen esther 2 palace persia vashti favour beautiful kind god watches"
-  },
-  {
     "key": "rahab",
     "title": "Rahab and the Scarlet Cord",
     "kjvRef": "Joshua 2:1-21",
@@ -2487,26 +2577,6 @@
     "kw": "sermon on the mount beatitudes matthew 5 matthew 6 matthew 7 golden rule light of the world"
   },
   {
-    "key": "shepherdsStar",
-    "title": "The Shepherds Find Baby Jesus",
-    "kjvRef": "Luke 2:8–20",
-    "who": "God",
-    "to": "The shepherds — and everyone who hears the good news",
-    "apply": "The good news of Jesus is for everyone.",
-    "theme": "Love",
-    "kw": "shepherds angels bethlehem manger good tidings saviour luke 2 glory joy peace baby jesus"
-  },
-  {
-    "key": "wiseMen",
-    "title": "The Wise Men Follow the Star",
-    "kjvRef": "Matthew 2:1–12",
-    "who": "God",
-    "to": "The wise men — and everyone who comes to worship Jesus",
-    "apply": "People from far away can come to worship Jesus.",
-    "theme": "Love",
-    "kw": "wise men magi star bethlehem mary jesus gold frankincense myrrh worship matthew 2 gifts baby jesus"
-  },
-  {
     "key": "simeonAnna",
     "title": "Simeon and Anna See the Promised Savior",
     "kjvRef": "Luke 2:22–38",
@@ -2514,7 +2584,7 @@
     "to": "Simeon, Anna, and everyone who waits on Him",
     "apply": "God keeps His promises — and brings joy when people see the Savior.",
     "theme": "Love",
-    "kw": "simeon anna temple jerusalem baby jesus mary joseph salvation luke 2 promise praise prophetess"
+    "kw": "simeon anna temple jerusalem baby jesus mary joseph salvation luke 2 promise praise worship"
   },
   {
     "key": "crossCarry",
@@ -2777,36 +2847,6 @@
     "kw": "last supper passover bread cup covenant luke 22 matthew 26 remembrance judas"
   },
   {
-    "key": "mustardSeed",
-    "title": "Jesus Tells About a Tiny Seed That Grows Big",
-    "kjvRef": "Matthew 13:31–32",
-    "who": "Jesus",
-    "to": "The people (and us)",
-    "apply": "God’s kingdom starts small like a seed and grows big. Listen to Jesus — let His kingdom grow in your heart.",
-    "theme": "Obedience",
-    "kw": "mustard seed kingdom heaven grain sowed field tree birds branches matthew 13 grow"
-  },
-  {
-    "key": "parableMustardSeed",
-    "title": "Jesus Tells About a Tiny Seed That Grows Big",
-    "kjvRef": "Matthew 13:31–32",
-    "who": "Jesus",
-    "to": "The people (and us)",
-    "apply": "God’s kingdom starts small like a seed and grows big. Listen to Jesus — let His kingdom grow in your heart.",
-    "theme": "Obedience",
-    "kw": "mustard seed kingdom parable matthew 13 tree birds branches grow"
-  },
-  {
-    "key": "jesusParableMustardSeed",
-    "title": "Jesus Tells About a Tiny Seed That Grows Big",
-    "kjvRef": "Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19",
-    "who": "Jesus",
-    "to": "His disciples (and us)",
-    "apply": "God’s kingdom starts small like a seed and grows big. Listen to Jesus — let His kingdom grow in your heart.",
-    "theme": "Obedience",
-    "kw": "mustard seed kingdom matthew 13 mark 4 luke 13 tree birds branches grow"
-  },
-  {
     "key": "newEarth",
     "title": "The New Earth",
     "kjvRef": "",
@@ -2905,6 +2945,16 @@
     "apply": "When God warns, He is giving people time to turn—don’t harden your heart; say sorry and follow Jesus today.",
     "theme": "Miracles",
     "kw": "revelation trumpets wormwood judgment repent kingdom christ"
+  },
+  {
+    "key": "shepherdsStar",
+    "title": "The Shepherds Find Baby Jesus",
+    "kjvRef": "Luke 2:8–20",
+    "who": "God",
+    "to": "The shepherds — and everyone who hears the good news",
+    "apply": "The good news of Jesus is for everyone.",
+    "theme": "Love",
+    "kw": "shepherds angels bethlehem manger good tidings saviour luke 2 glory joy peace baby jesus"
   },
   {
     "key": "armorShield",
@@ -3027,6 +3077,16 @@
     "kw": "widow mite coins mark 12 offering give heart all"
   },
   {
+    "key": "wiseMen",
+    "title": "The Wise Men Follow the Star",
+    "kjvRef": "Matthew 2:1–12",
+    "who": "God",
+    "to": "The wise men — and everyone who comes to worship Jesus",
+    "apply": "People from far away can come to worship Jesus.",
+    "theme": "Love",
+    "kw": "wise men magi star bethlehem mary jesus gold frankincense myrrh worship matthew 2 gifts baby jesus"
+  },
+  {
     "key": "revelationWomanDragon",
     "title": "The Woman & the Dragon",
     "kjvRef": "Revelation 12",
@@ -3035,36 +3095,6 @@
     "apply": "The dragon still lies—but Jesus already won at the cross. Tell the truth about Him; don’t love comfort more than Christ.",
     "theme": "Miracles",
     "kw": "revelation woman dragon michael lamb blood testimony child"
-  },
-  {
-    "key": "samaritanWoman",
-    "title": "Jesus Offers Living Water",
-    "kjvRef": "John 4:1–42",
-    "who": "Jesus",
-    "to": "The Samaritan woman — and everyone who listens",
-    "apply": "Jesus offers the water of life to everyone who is thirsty in their heart — He is kind to all.",
-    "theme": "Love",
-    "kw": "samaritan woman well john 4 living water gift of god samaria sychar jacob believe christ tell thirsty heart"
-  },
-  {
-    "key": "noblemanSon",
-    "title": "Jesus Heals a Boy from Far Away",
-    "kjvRef": "John 4:46–54",
-    "who": "Jesus",
-    "to": "The nobleman — and his whole household",
-    "apply": "Jesus can heal even when He is far away. His word is true — trust Him like this father did.",
-    "theme": "Miracles",
-    "kw": "nobleman son cana capernaum john 4 heal believe thy son liveth same hour servants household fever"
-  },
-  {
-    "key": "centurionServant",
-    "title": "Jesus Heals a Soldier's Servant from Far Away",
-    "kjvRef": "Matthew 8:5–13",
-    "who": "Jesus",
-    "to": "The centurion — and his household",
-    "apply": "Jesus can heal with just a word when people trust Him — His word is true and kind.",
-    "theme": "Miracles",
-    "kw": "centurion servant capernaum matthew 8 faith speak the word great faith heal palsy selfsame hour trust roman"
   },
   {
     "key": "thessaloniansHope",
@@ -3085,26 +3115,6 @@
     "apply": "It's okay to have questions! Jesus is patient—keep coming back to Him.",
     "theme": "Obedience",
     "kw": "thomas doubt john 20 hands believe risen faith"
-  },
-  {
-    "key": "jesusHealsParalytic",
-    "title": "Jesus Forgives and Heals a Man Who Could Not Walk",
-    "kjvRef": "Mark 2:1–12",
-    "who": "Jesus",
-    "to": "The sick of the palsy — his friends — and everyone who listens",
-    "apply": "Jesus can forgive sins and make sick people well. Keep bringing people to Him in prayer and love.",
-    "theme": "Miracles",
-    "kw": "paralytic palsy roof mark 2 faith forgive friends capernaum bed lowered son thy sins arise take up bed walk capernaum"
-  },
-  {
-    "key": "witheredHand",
-    "title": "Jesus Heals a Man on the Sabbath",
-    "kjvRef": "Mark 3:1–6",
-    "who": "Jesus",
-    "to": "The man with the withered hand — and everyone watching",
-    "apply": "Jesus does good and shows love every day, because He cares for people. We can trust Him and be kind too.",
-    "theme": "Miracles",
-    "kw": "withered hand sabbath synagogue mark 3 stretch forth heal mercy good save life stand forth restored whole"
   },
   {
     "key": "timothyYouthExample",
@@ -3155,16 +3165,6 @@
     "apply": "Jesus came as the promised King — we can welcome Him with praise and make room for Him in our hearts.",
     "theme": "Protection",
     "kw": "hosanna palm sunday donkey colt jerusalem matthew 21 king temple"
-  },
-  {
-    "key": "ezekielValleyBones",
-    "title": "God Can Make Dry Bones Live",
-    "kjvRef": "Ezekiel 37:1–14",
-    "who": "God",
-    "to": "His people — and every heart that needs hope",
-    "apply": "God can make what is dead and dry come to life again. He is stronger than anything.",
-    "theme": "Miracles",
-    "kw": "ezekiel dry bones valley ezekiel 37 prophet life gods word breath hope miracle army"
   },
   {
     "key": "battleOfAi",

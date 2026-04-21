@@ -57,7 +57,7 @@ const STORIES: Record<string, { title: string; talkAbout: string }> = {
   elishaOil: { title: "Elisha & the Widow's Oil", talkAbout: "God multiplies—He provides! Give God what you have—He can do more!" },
   naaman: { title: "Naaman & the River", talkAbout: "Obey God—get healed! Even when it seems simple, do what He says!" },
   jesusWalksWater: { title: "Jesus Walks on Water", talkAbout: "Keep your eyes on Him—don't be afraid!" },
-  lostSheep: { title: "Lost Sheep", talkAbout: "Jesus finds lost sheep—you're never lost! God searches for you!" },
+  lostSheep: { title: "Jesus Tells About the Lost Sheep", talkAbout: "Jesus is like the good shepherd — He loves us and keeps looking for us when we are lost." },
   palmSunday: { title: "Palm Sunday", talkAbout: "Hosanna! Jesus rides the donkey—welcome Him! He is the King of Kings!" },
   lastSupper: { title: "Last Supper", talkAbout: "Jesus shares bread—He loves us! Remember Him when you eat together!" },
   jesusTemptation: { title: "Jesus' Temptation", talkAbout: "When the devil lies, quote the Bible!" },

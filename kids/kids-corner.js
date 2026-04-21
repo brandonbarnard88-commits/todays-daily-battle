@@ -160,7 +160,9 @@
       mustardSeed: 'mustardSeed',
       parableMustardSeed: 'mustardSeed',
       parableHiddenTreasure: 'parableHiddenTreasure',
-      parablePearl: 'parablePearl'
+      parablePearl: 'parablePearl',
+      lostSheep: 'parableLostSheep',
+      parableLostSheep: 'parableLostSheep'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -187,6 +189,7 @@
     if (low.indexOf('parablemustardseed') >= 0 || low === 'parablemustardseed') return 'parableMustardSeed';
     if (low.indexOf('parablehiddentreasure') >= 0 || low === 'parablehiddentreasure') return 'parableHiddenTreasure';
     if (low.indexOf('parablepearl') >= 0 || low === 'parablepearl') return 'parablePearl';
+    if (low.indexOf('parablelostsheep') >= 0 || low === 'parablelostsheep') return 'parableLostSheep';
     if (low.indexOf('samaritan') >= 0) return 'good-samaritan';
     return '';
   }
@@ -3102,6 +3105,40 @@
         '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 13:45–46</text>'
       ),
 
+      /* Week 6 gentle: Lost sheep — shepherd rejoicing, sheep on shoulders (Luke 15:3–7) */
+      parableLostSheep: svg(
+        ground() +
+        hills() +
+        sun(48, 42, 18) +
+        cloud(296, 32) +
+        '<circle cx="64" cy="256" r="4" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<circle cx="74" cy="252" r="3.5" ' + sf + ' fill="white" stroke-width="1.3"/>' +
+        '<circle cx="332" cy="258" r="4" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<circle cx="342" cy="254" r="3.5" ' + sf + ' fill="white" stroke-width="1.3"/>' +
+        '<ellipse cx="92" cy="246" rx="8" ry="6" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="82" cy="240" r="5" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<ellipse cx="118" cy="248" rx="7" ry="5" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<circle cx="110" cy="242" r="4" ' + sf + ' fill="white" stroke-width="1.3"/>' +
+        '<ellipse cx="200" cy="134" rx="34" ry="14" ' + sf + ' fill="white" stroke-width="2.6"/>' +
+        '<circle cx="162" cy="128" r="13" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<path d="M152 124 Q160 116 168 124" ' + s + ' stroke-width="1.2"/>' +
+        '<circle cx="156" cy="120" r="1.1" fill="#111"/><circle cx="166" cy="120" r="1.1" fill="#111"/>' +
+        '<path d="M156 128 Q162 132 168 128" ' + s + ' stroke-width="1"/>' +
+        '<ellipse cx="170" cy="138" rx="5" ry="8" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<ellipse cx="230" cy="138" rx="5" ry="8" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<path d="M184 144 L182 168" ' + s + ' stroke-width="1.8"/>' +
+        '<path d="M216 144 L218 168" ' + s + ' stroke-width="1.8"/>' +
+        '<circle cx="200" cy="168" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M192 172 Q200 178 208 172" ' + s + ' stroke-width="1.4"/>' +
+        '<circle cx="194" cy="166" r="1.2" fill="#111"/><circle cx="206" cy="166" r="1.2" fill="#111"/>' +
+        '<path d="M200 179 L172 250 L228 250 Z" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<path d="M176 200 L156 152" ' + s + ' stroke-width="2.4"/>' +
+        '<path d="M224 200 L244 152" ' + s + ' stroke-width="2.4"/>' +
+        '<path d="M248 198 L252 120" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M252 120 Q258 112 264 118" ' + s + ' stroke-width="1.8"/>' +
+        '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 15:3–7</text>'
+      ),
+
       /* ── Week 6: Jesus Heal Leper (78) ── */
       healLeper: svg(
         ground() +
@@ -4439,7 +4476,8 @@
     mosesBush: 'burningBush',
     goodSamaritan: 'loveNeighbor',
     prodigalSon: 'forgive70x7',
-    lostSheep: 'psalm23Shepherd',
+    lostSheep: 'parableLostSheep',
+    parableLostSheep: 'parableLostSheep',
     lastSupper: 'maryAnoint',
     palmSunday: 'greatCommission',
     armorOfGod: 'armorOfGod',
@@ -4570,6 +4608,7 @@
     parableMustardSeed: 'mustardSeed',
     parableHiddenTreasure: 'parableHiddenTreasure',
     parablePearl: 'parablePearl',
+    parableLostSheep: 'parableLostSheep',
     jesusTemptation: 'jesusTempt',
     jesusTempt: 'jesusTempt',
     weddingWine: 'weddingWine',
@@ -6315,7 +6354,7 @@
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
-        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
+        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
         'resurrection', 'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus',
         'parableTalents', 'armorOfGod', 'heavenPromise', 'jonah'

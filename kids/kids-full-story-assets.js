@@ -867,6 +867,11 @@
       webm: '/media/kids-stories/lost-sheep.webm',
       captionsVtt: '/media/kids-stories/lost-sheep.vtt'
     },
+    parableLostSheep: {
+      mp4: '/media/kids-stories/lost-sheep.mp4',
+      webm: '/media/kids-stories/lost-sheep.webm',
+      captionsVtt: '/media/kids-stories/lost-sheep.vtt'
+    },
     loveChapter: {
       mp4: '/media/kids-stories/love-chapter.mp4',
       webm: '/media/kids-stories/love-chapter.webm',

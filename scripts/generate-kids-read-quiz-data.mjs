@@ -591,6 +591,10 @@ if (merged.davidBathsheba && !merged.davidRepentance) {
 if (merged.mustardSeed && !merged.parableMustardSeed) {
   merged.parableMustardSeed = merged.mustardSeed;
 }
+/** parableLostSheep — same gentle pack as lostSheep (library / journey naming). */
+if (merged.lostSheep && !merged.parableLostSheep) {
+  merged.parableLostSheep = merged.lostSheep;
+}
 
 const keys = Object.keys(merged).sort((a, b) => a.localeCompare(b));
 const jsonBody = JSON.stringify(merged, null, 2);

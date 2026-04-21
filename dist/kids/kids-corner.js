@@ -110,6 +110,9 @@
       davidJonathanFriendship: 'davidJonathan',
       davidAbigail: 'abigailWise',
       davidKing: 'davidKing',
+      mephibosheth: 'mephibosheth',
+      davidBathsheba: 'davidBathsheba',
+      absalomRebellion: 'absalomRebellion',
       solomonWisdom: 'solomonWisdom',
       solomonTwoMothers: 'solomonTwoMothers',
       solomonTemple: 'solomonTemple',
@@ -123,7 +126,7 @@
       goliathChallenge: 'david',
       noah: 'noah',
       jonah: 'jonah',
-      jonahVine: 'jonah',
+      jonahVine: 'jonahVine',
       daniel: 'daniel-lions',
       danielLionsDen: 'daniel-lions',
       danielPray: 'daniel-lions',
@@ -136,7 +139,30 @@
       mosesBush: 'moses-red-sea',
       mosesBaby: 'baby-moses',
       creation: 'creation',
-      goodSamaritan: 'good-samaritan'
+      goodSamaritan: 'good-samaritan',
+      wiseMen: 'jesus-children',
+      simeonAnna: 'jesus-children',
+      jesusTemple: 'jesus-children',
+      jesusBaptism: 'jesus-children',
+      jesusDisciples: 'jesusDisciples',
+      jesusWaterWine: 'jesusWaterWine',
+      jesusTempted: 'jesusTempted',
+      jesusSermon: 'jesusSermon',
+      samaritanWoman: 'samaritanWoman',
+      noblemanSon: 'noblemanSon',
+      centurionServant: 'centurionServant',
+      jesusHealsParalytic: 'jesusHealsParalytic',
+      witheredHand: 'witheredHand',
+      jairus: 'jairus',
+      jesusWalksWater: 'jesusWalksWater',
+      jesusFeeds5000: 'jesusFeeds5000',
+      parableSower: 'parableSower',
+      mustardSeed: 'mustardSeed',
+      parableMustardSeed: 'mustardSeed',
+      parableHiddenTreasure: 'parableHiddenTreasure',
+      parablePearl: 'parablePearl',
+      lostSheep: 'parableLostSheep',
+      parableLostSheep: 'parableLostSheep'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -150,6 +176,20 @@
     if (low.indexOf('moses') >= 0) return low.indexOf('baby') >= 0 ? 'baby-moses' : 'moses-red-sea';
     if (low.indexOf('redsea') >= 0 || low.indexOf('red_sea') >= 0) return 'moses-red-sea';
     if (low.indexOf('creation') >= 0 || low.indexOf('adam') >= 0) return 'creation';
+    if (low.indexOf('samaritanwoman') >= 0 || low === 'samaritanwoman') return 'samaritanWoman';
+    if (low.indexOf('noblemanson') >= 0 || low === 'noblemanson') return 'noblemanSon';
+    if (low.indexOf('centurionservant') >= 0 || low === 'centurionservant') return 'centurionServant';
+    if (low.indexOf('jesuscalmsstorm') >= 0 || low === 'jesuscalmsstorm') return 'jesusCalmsStorm';
+    if (low.indexOf('jesushealsparalytic') >= 0 || low === 'jesushealsparalytic') return 'jesusHealsParalytic';
+    if (low.indexOf('witheredhand') >= 0 || low === 'witheredhand') return 'witheredHand';
+    if (low.indexOf('jairus') >= 0 || low === 'jairus') return 'jairus';
+    if (low.indexOf('jesuswalkswater') >= 0 || low === 'jesuswalkswater') return 'jesusWalksWater';
+    if (low.indexOf('jesusfeeds5000') >= 0 || low === 'jesusfeeds5000') return 'jesusFeeds5000';
+    if (low.indexOf('parablesower') >= 0 || low === 'parablesower') return 'parableSower';
+    if (low.indexOf('parablemustardseed') >= 0 || low === 'parablemustardseed') return 'parableMustardSeed';
+    if (low.indexOf('parablehiddentreasure') >= 0 || low === 'parablehiddentreasure') return 'parableHiddenTreasure';
+    if (low.indexOf('parablepearl') >= 0 || low === 'parablepearl') return 'parablePearl';
+    if (low.indexOf('parablelostsheep') >= 0 || low === 'parablelostsheep') return 'parableLostSheep';
     if (low.indexOf('samaritan') >= 0) return 'good-samaritan';
     return '';
   }
@@ -349,33 +389,84 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Genesis 6–9</text>'
       ),
 
-      /* Jesus Calms the Storm */
+      /* Jesus calms the storm — gentle: calm coming to wind and waves (Mark 4:35–41) */
       jesusCalmsStorm: svg(
-        /* sky with storm lines */
-        '<line x1="30" y1="20" x2="60" y2="50" ' + s + ' stroke-width="3"/>' +
-        '<line x1="80" y1="10" x2="100" y2="45" ' + s + ' stroke-width="3"/>' +
-        '<line x1="320" y1="15" x2="290" y2="50" ' + s + ' stroke-width="3"/>' +
-        cloud(280, 30) +
-        cloud(60, 25) +
-        /* waves */
-        '<path d="M0 200 Q50 175 100 200 Q150 225 200 200 Q250 175 300 200 Q350 225 400 200 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<path d="M0 230 Q60 210 120 230 Q180 250 240 230 Q300 210 360 230 Q390 240 400 235" ' + s + ' stroke-width="2.5"/>' +
-        /* boat */
-        '<path d="M80 200 Q200 215 320 200 L300 240 L100 240 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
-        /* mast + sail */
-        '<line x1="200" y1="160" x2="200" y2="240" ' + s + ' stroke-width="3.5"/>' +
-        '<path d="M200 165 L240 185 L200 210 Z" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        /* disciples in boat */
-        person(130, 190, 10, 28) +
-        person(160, 190, 10, 28) +
-        person(255, 190, 10, 28) +
-        /* Jesus standing, arms outstretched */
-        '<circle cx="200" cy="175" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<line x1="200" y1="186" x2="200" y2="215" ' + s + ' stroke-width="2.5"/>' +
-        '<line x1="172" y1="196" x2="228" y2="196" ' + s + ' stroke-width="2.5"/>' +
-        '<line x1="200" y1="215" x2="190" y2="235" ' + s + ' stroke-width="2.5"/>' +
-        '<line x1="200" y1="215" x2="210" y2="235" ' + s + ' stroke-width="2.5"/>' +
-        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 4:39</text>'
+        cloud(52, 22) +
+        cloud(268, 26) +
+        '<path d="M20 48 Q200 38 380 48" ' + s + ' stroke-width="1.8" opacity="0.45"/>' +
+        '<path d="M0 210 Q100 198 200 206 Q300 198 400 210 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<path d="M0 228 Q80 220 160 228 Q240 236 320 228 Q360 224 400 230" ' + s + ' stroke-width="1.8" opacity="0.55"/>' +
+        '<path d="M0 242 Q120 236 200 244 Q280 236 400 242" ' + s + ' stroke-width="1.5" opacity="0.4"/>' +
+        '<path d="M88 206 Q200 218 312 206 L298 248 L102 248 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<line x1="200" y1="168" x2="200" y2="218" ' + s + ' stroke-width="2.8"/>' +
+        '<path d="M200 172 L228 188 L200 198 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(128, 198, 9, 24) +
+        person(158, 198, 9, 24) +
+        person(248, 198, 9, 24) +
+        '<circle cx="200" cy="162" r="10" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="200" y1="172" x2="200" y2="198" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="188" y1="182" x2="200" y2="172" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="212" y1="182" x2="200" y2="172" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="200" y1="198" x2="192" y2="214" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="200" y1="198" x2="208" y2="214" ' + s + ' stroke-width="2.2"/>' +
+        sun(332, 42, 16) +
+        '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 4:35–41</text>'
+      ),
+
+      /* Week 5 gentle: Withered hand — synagogue, Stretch forth (Mark 3:1–6) */
+      witheredHand: svg(
+        ground() +
+        '<rect x="48" y="88" width="304" height="160" rx="6" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M48 88 L200 58 L352 88" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M72 128 L328 128" ' + s + ' stroke-width="1.4" opacity="0.35"/>' +
+        '<line x1="200" y1="88" x2="200" y2="248" ' + s + ' stroke-width="1.6" opacity="0.28"/>' +
+        person(110, 152, 10, 30) +
+        '<line x1="120" y1="188" x2="175" y2="172" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="175" y1="172" x2="192" y2="165" ' + s + ' stroke-width="2.2"/>' +
+        '<ellipse cx="192" cy="162" rx="7" ry="6" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        person(275, 142, 12, 36) +
+        '<line x1="263" y1="184" x2="228" y2="198" ' + s + ' stroke-width="2.2"/>' +
+        sun(332, 42, 16) +
+        '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 3:1–6</text>'
+      ),
+
+      /* Week 5 gentle: Walk on the sea — Lord, save me (Matthew 14:22–33) */
+      jesusWalksWater: svg(
+        cloud(48, 22) +
+        cloud(262, 26) +
+        '<path d="M0 200 Q100 190 200 198 Q300 190 400 200 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<path d="M0 222 Q90 216 180 224 Q270 232 360 224 Q380 222 400 226" ' + s + ' stroke-width="1.5" opacity="0.42"/>' +
+        '<path d="M0 238 Q120 232 200 242 Q280 232 400 238" ' + s + ' stroke-width="1.3" opacity="0.32"/>' +
+        '<path d="M78 208 L322 208 L308 250 L92 250 Z" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        person(108, 212, 8, 22) +
+        person(132, 206, 8, 22) +
+        person(268, 206, 8, 22) +
+        person(292, 212, 8, 22) +
+        person(178, 118, 10, 28) +
+        '<ellipse cx="178" cy="248" rx="14" ry="5" ' + sf + ' fill="white" stroke-width="1.6" opacity="0.7"/>' +
+        person(248, 132, 11, 30) +
+        '<line x1="236" y1="166" x2="198" y2="188" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="198" y1="188" x2="188" y2="198" ' + s + ' stroke-width="2"/>' +
+        sun(332, 40, 14) +
+        '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 14:22–33</text>'
+      ),
+
+      /* Jesus calls helpers — Sea of Galilee, nets (Matthew 4:18–22) */
+      jesusDisciples: svg(
+        sun(332, 46, 15) +
+        cloud(44, 38) +
+        '<path d="M0 198 Q120 182 200 194 Q280 188 400 198 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<path d="M12 212 Q200 200 388 212" ' + s + ' stroke-width="2" opacity="0.42"/>' +
+        '<path d="M24 226 Q200 218 376 226" ' + s + ' stroke-width="1.7" opacity="0.35"/>' +
+        '<line x1="0" y1="247" x2="400" y2="247" ' + s + ' stroke-width="2.4"/>' +
+        person(92, 128, 11, 30) +
+        person(172, 134, 10, 26) +
+        person(202, 134, 10, 26) +
+        '<ellipse cx="48" cy="254" rx="34" ry="9" ' + sf + ' fill="white" stroke-width="1.9"/>' +
+        '<path d="M32 250 Q48 232 64 250 M42 244 L42 258 M36 246 L54 246" ' + s + ' stroke-width="1.7"/>' +
+        '<path d="M278 202 L322 197 L328 228 L284 233 Z" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<line x1="302" y1="197" x2="302" y2="218" ' + s + ' stroke-width="1.9"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 4:18–22</text>'
       ),
 
       /* Moses and the Red Sea */
@@ -410,40 +501,33 @@
         '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Exodus 14:21</text>'
       ),
 
-      /* Daniel in Lions Den */
+      /* Daniel in lions’ den — softest lions; soft opening light; folded hands (Daniel 6:1–23) */
       daniel: svg(
         ground() +
-        /* cave arch */
-        '<path d="M60 260 L60 140 Q200 60 340 140 L340 260" ' + sf + ' fill="white" stroke-width="4"/>' +
-        /* stone blocks */
-        '<rect x="55" y="230" width="30" height="30" ' + s + ' stroke-width="2"/>' +
-        '<rect x="315" y="230" width="30" height="30" ' + s + ' stroke-width="2"/>' +
-        /* Daniel kneeling */
-        '<circle cx="200" cy="165" r="13" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M200 178 L200 210 L185 235 M200 210 L215 235" ' + s + ' stroke-width="2.5"/>' +
-        '<line x1="182" y1="192" x2="218" y2="192" ' + s + ' stroke-width="2.5"/>' +
-        /* prayer hands */
-        '<path d="M200 192 L192 210 M200 192 L208 210" ' + s + ' stroke-width="2"/>' +
-        /* lion left */
-        '<ellipse cx="110" cy="220" rx="38" ry="26" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<circle cx="90" cy="205" r="20" ' + sf + ' fill="white" stroke-width="3"/>' +
-        /* mane */
-        '<circle cx="90" cy="205" r="28" ' + s + ' stroke-width="2" stroke-dasharray="4,3"/>' +
-        /* lion eyes */
-        '<circle cx="83" cy="201" r="3" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="97" cy="201" r="3" ' + sf + ' fill="white" stroke-width="2"/>' +
-        /* lion right */
-        '<ellipse cx="290" cy="220" rx="38" ry="26" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<circle cx="310" cy="205" r="20" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<circle cx="310" cy="205" r="28" ' + s + ' stroke-width="2" stroke-dasharray="4,3"/>' +
-        '<circle cx="303" cy="201" r="3" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="317" cy="201" r="3" ' + sf + ' fill="white" stroke-width="2"/>' +
-        /* angel light rays */
-        '<line x1="200" y1="80" x2="180" y2="140" ' + s + ' stroke-width="1.5" stroke-dasharray="5,4"/>' +
-        '<line x1="200" y1="80" x2="200" y2="145" ' + s + ' stroke-width="1.5" stroke-dasharray="5,4"/>' +
-        '<line x1="200" y1="80" x2="220" y2="140" ' + s + ' stroke-width="1.5" stroke-dasharray="5,4"/>' +
-        star(200, 75, 14) +
-        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Daniel 6:22</text>'
+        /* cave arch — gentle curve, whisper-thin stroke */
+        '<path d="M60 260 L60 145 Q200 68 340 145 L340 260" ' + sf + ' fill="white" stroke-width="1.95"/>' +
+        /* soft light — wider veil + glow + feather rays */
+        '<ellipse cx="200" cy="132" rx="92" ry="48" ' + sf + ' fill="white" stroke-width="0.48" opacity="0.12"/>' +
+        '<ellipse cx="200" cy="118" rx="58" ry="30" ' + sf + ' fill="white" stroke-width="0.9" opacity="0.33"/>' +
+        '<ellipse cx="200" cy="108" rx="44" ry="22" ' + sf + ' fill="white" stroke-width="1" opacity="0.68"/>' +
+        '<line x1="200" y1="46" x2="146" y2="136" ' + s + ' stroke-width="0.72" stroke-dasharray="14,13" opacity="0.28"/>' +
+        '<line x1="200" y1="46" x2="200" y2="140" ' + s + ' stroke-width="0.72" stroke-dasharray="14,13" opacity="0.28"/>' +
+        '<line x1="200" y1="46" x2="254" y2="136" ' + s + ' stroke-width="0.72" stroke-dasharray="14,13" opacity="0.28"/>' +
+        '<line x1="200" y1="46" x2="172" y2="126" ' + s + ' stroke-width="0.6" stroke-dasharray="12,14" opacity="0.22"/>' +
+        '<line x1="200" y1="46" x2="228" y2="126" ' + s + ' stroke-width="0.6" stroke-dasharray="12,14" opacity="0.22"/>' +
+        /* two lions — lightest restful outlines */
+        '<ellipse cx="108" cy="232" rx="48" ry="15" ' + sf + ' fill="white" stroke-width="1.08"/>' +
+        '<circle cx="84" cy="218" r="15" ' + sf + ' fill="white" stroke-width="0.98"/>' +
+        '<path d="M77 214 Q81 216 85 214 Q89 216 93 214" ' + s + ' stroke-width="0.52" fill="none"/>' +
+        '<ellipse cx="292" cy="232" rx="48" ry="15" ' + sf + ' fill="white" stroke-width="1.08"/>' +
+        '<circle cx="316" cy="218" r="15" ' + sf + ' fill="white" stroke-width="0.98"/>' +
+        '<path d="M309 214 Q313 216 317 214 Q321 216 325 214" ' + s + ' stroke-width="0.52" fill="none"/>' +
+        /* Daniel standing — folded hands in prayer */
+        person(200, 138, 12, 30) +
+        '<path d="M188 176 Q200 186 212 176" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="194" y1="178" x2="194" y2="188" ' + s + ' stroke-width="1.6"/>' +
+        '<line x1="206" y1="178" x2="206" y2="188" ' + s + ' stroke-width="1.6"/>' +
+        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Daniel 6:1–23</text>'
       ),
 
       /* Jonah and the Whale */
@@ -548,56 +632,99 @@
         '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Genesis 1:1</text>'
       ),
 
-      /* Fiery Furnace */
+      /* Fiery Furnace — thin walls, whisper-soft flames, softest fourth + arch light */
       fieryFurnace: svg(
         ground() +
-        /* furnace structure */
-        '<rect x="120" y="100" width="160" height="160" rx="8" ' + sf + ' fill="white" stroke-width="4"/>' +
-        /* furnace door */
-        '<path d="M165 260 L165 180 Q200 155 235 180 L235 260" ' + sf + ' fill="white" stroke-width="3"/>' +
-        /* flames outline */
-        '<path d="M145 260 Q130 220 150 190 Q160 215 155 235 Q170 200 165 170 Q185 205 180 230 Q195 185 200 155 Q205 185 220 230 Q215 200 235 170 Q230 200 245 235 Q240 215 250 190 Q270 220 255 260" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        /* three figures inside flames */
-        person(170, 185, 9, 25) +
-        person(200, 180, 9, 25) +
-        person(230, 185, 9, 25) +
-        /* angel (4th figure) */
-        '<circle cx="200" cy="145" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M182 150 Q170 135 182 125 Q192 135 200 148" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M218 150 Q230 135 218 125 Q208 135 200 148" ' + sf + ' fill="white" stroke-width="2"/>' +
-        /* spectators */
-        person(60, 200, 10, 28) +
-        person(340, 200, 10, 28) +
-        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Daniel 3:25</text>'
+        /* soft opening light above arch */
+        '<ellipse cx="200" cy="108" rx="80" ry="26" ' + sf + ' fill="none" stroke-width="0.8" opacity="0.3"/>' +
+        '<line x1="200" y1="78" x2="200" y2="118" ' + s + ' stroke-width="0.95" stroke-dasharray="7,6" opacity="0.4"/>' +
+        '<line x1="174" y1="84" x2="164" y2="124" ' + s + ' stroke-width="0.88" stroke-dasharray="7,6" opacity="0.36"/>' +
+        '<line x1="226" y1="84" x2="236" y2="124" ' + s + ' stroke-width="0.88" stroke-dasharray="7,6" opacity="0.36"/>' +
+        '<line x1="188" y1="76" x2="176" y2="112" ' + s + ' stroke-width="0.7" stroke-dasharray="8,8" opacity="0.28"/>' +
+        '<line x1="212" y1="76" x2="224" y2="112" ' + s + ' stroke-width="0.7" stroke-dasharray="8,8" opacity="0.28"/>' +
+        /* furnace — soft rounded box, thin arch */
+        '<rect x="88" y="88" width="224" height="182" rx="14" ' + sf + ' fill="white" stroke-width="2.65"/>' +
+        '<path d="M118 270 L118 118 Q200 92 282 118 L282 270" ' + sf + ' fill="white" stroke-width="1.92"/>' +
+        /* layered flames — softer strokes */
+        '<path d="M 88 270 Q 130 258 200 252 Q 270 258 312 270" ' + sf + ' fill="white" stroke-width="0.68"/>' +
+        '<path d="M 98 270 Q 140 250 200 242 Q 260 250 302 270" ' + sf + ' fill="white" stroke-width="0.78"/>' +
+        '<path d="M 92 270 Q 130 218 168 208 Q 200 198 232 208 Q 270 218 308 270" ' + sf + ' fill="white" stroke-width="0.98"/>' +
+        '<path d="M 108 270 Q 150 232 200 222 Q 250 232 292 270" ' + sf + ' fill="white" stroke-width="0.92"/>' +
+        '<path d="M 125 270 Q 168 245 200 238 Q 232 245 275 270" ' + sf + ' fill="white" stroke-width="0.82"/>' +
+        /* three friends */
+        person(148, 178, 9, 26) +
+        person(182, 176, 9, 26) +
+        person(216, 178, 9, 26) +
+        /* fourth — widest whisper halo, feather-light inner ring */
+        '<circle cx="252" cy="168" r="23" ' + sf + ' fill="none" stroke-width="0.55" opacity="0.34"/>' +
+        '<circle cx="252" cy="168" r="15" ' + sf + ' fill="none" stroke-width="0.65" opacity="0.62"/>' +
+        person(252, 180, 5.5, 18) +
+        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Daniel 3:1–30</text>'
       ),
 
-      /* Jesus Feeds 5000 */
+      /* Week 5 gentle: Loaves and fishes — hungry crowd (Matthew 14:13–21) */
       jesusFeeds5000: svg(
         ground() +
         hills() +
-        sun(350, 50, 22) +
-        /* basket with loaves */
-        '<path d="M155 220 Q155 195 200 195 Q245 195 245 220 Q245 240 200 245 Q155 240 155 220 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<path d="M155 210 Q200 200 245 210" ' + s + ' stroke-width="2"/>' +
-        /* fish */
-        '<path d="M165 225 Q178 218 188 225 Q178 232 165 225 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M162 225 L155 220 L162 230 Z" ' + sf + ' fill="white" stroke-width="1.5"/>' +
-        '<path d="M210 225 Q223 218 233 225 Q223 232 210 225 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M207 225 L200 220 L207 230 Z" ' + sf + ' fill="white" stroke-width="1.5"/>' +
-        /* bread rolls */
-        '<ellipse cx="200" cy="205" rx="12" ry="7" ' + sf + ' fill="white" stroke-width="2"/>' +
-        /* Jesus blessing */
-        '<circle cx="200" cy="148" r="13" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<line x1="200" y1="161" x2="200" y2="195" ' + s + ' stroke-width="2.5"/>' +
-        '<line x1="175" y1="172" x2="225" y2="172" ' + s + ' stroke-width="2.5"/>' +
-        /* crowd dots */
-        '<circle cx="100" cy="215" r="6" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="120" cy="220" r="6" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="80" cy="222" r="6" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="300" cy="215" r="6" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="320" cy="220" r="6" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="340" cy="215" r="6" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 6:11</text>'
+        sun(348, 48, 20) +
+        cloud(40, 38) +
+        '<ellipse cx="200" cy="248" rx="168" ry="22" ' + sf + ' fill="white" stroke-width="2.2" opacity="0.95"/>' +
+        '<path d="M52 248 Q120 238 200 242 Q280 238 348 248" ' + s + ' stroke-width="1.4" opacity="0.4"/>' +
+        person(168, 168, 11, 32) +
+        '<line x1="168" y1="200" x2="168" y2="232" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="156" y1="218" x2="180" y2="218" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="200" cy="228" rx="36" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="188" cy="218" rx="9" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="200" cy="216" rx="9" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="212" cy="218" rx="9" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="194" cy="224" rx="8" ry="4" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<ellipse cx="206" cy="224" rx="8" ry="4" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<path d="M178 212 Q188 200 200 205 Q212 200 222 212" ' + s + ' stroke-width="1.8"/>' +
+        '<path d="M210 212 Q220 200 232 212" ' + s + ' stroke-width="1.8"/>' +
+        person(118, 188, 8, 22) +
+        '<circle cx="92" cy="232" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="108" cy="236" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="124" cy="234" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="276" cy="234" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="292" cy="236" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="308" cy="232" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 14:13–21</text>'
+      ),
+
+      /* Week 6 gentle: Parable of the sower — farmer, path, rocks, thorns, good soil (Matthew 13:1–23) */
+      parableSower: svg(
+        ground() +
+        hills() +
+        sun(52, 44, 20) +
+        cloud(312, 38) +
+        person(92, 168, 11, 32) +
+        '<path d="M118 158 Q200 142 292 152" ' + s + ' stroke-width="1.8" stroke-dasharray="4,3" opacity="0.55"/>' +
+        '<circle cx="132" cy="154" r="2.2" ' + sf + ' fill="white" stroke-width="1.2"/>' +
+        '<circle cx="168" cy="150" r="2.2" ' + sf + ' fill="white" stroke-width="1.2"/>' +
+        '<circle cx="210" cy="148" r="2.2" ' + sf + ' fill="white" stroke-width="1.2"/>' +
+        '<circle cx="252" cy="152" r="2.2" ' + sf + ' fill="white" stroke-width="1.2"/>' +
+        /* path — bird, pecked seeds */
+        '<path d="M48 248 L92 248" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M62 232 L72 228 L68 238 Z" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="78" cy="244" r="2.5" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<circle cx="88" cy="248" r="2.5" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        /* rocky ground — small withered sprout */
+        '<path d="M108 248 L118 228 L128 248" ' + s + ' stroke-width="2"/>' +
+        '<line x1="112" y1="248" x2="124" y2="248" ' + s + ' stroke-width="2"/>' +
+        '<line x1="116" y1="248" x2="120" y2="236" ' + s + ' stroke-width="1.6"/>' +
+        /* thorns */
+        '<path d="M152 248 L162 222 L172 248 M168 248 L168 218" ' + s + ' stroke-width="2"/>' +
+        '<path d="M178 232 Q188 226 198 232" ' + s + ' stroke-width="1.6"/>' +
+        /* good soil — taller plants and fruit dots */
+        '<path d="M248 248 L248 188 M256 248 L262 178 M274 248 L282 182 M290 248 L298 176" ' + s + ' stroke-width="2.6"/>' +
+        '<ellipse cx="248" cy="182" rx="12" ry="8" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="262" cy="172" rx="10" ry="7" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<ellipse cx="282" cy="170" rx="10" ry="7" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<ellipse cx="298" cy="168" rx="9" ry="6" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<circle cx="240" cy="210" r="3" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<circle cx="268" cy="200" r="3" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<circle cx="292" cy="196" r="3" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 13:1–23</text>'
       ),
 
       /* ── Week 1: Moses Sea-Split (13) ── */
@@ -707,14 +834,26 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Exodus 20</text>'
       ),
 
-      /* Elijah and the ravens — Cherith (loop 46) */
+      /* God feeds Elijah — brook, ravens with bread, soft trees & rocks (loop 46) */
       elijahRavens: svg(
-        ground() +
+        ground() + hills() +
+        /* soft trees */
+        '<circle cx="48" cy="118" r="22" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<rect x="44" y="138" width="8" height="42" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="352" cy="112" r="24" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<rect x="348" y="132" width="8" height="48" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* rocks */
+        '<path d="M72 248 L82 228 L98 232 L108 248 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M312 248 L322 230 L338 234 L348 248 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        sun(52, 44, 16) + cloud(288, 40) +
         '<path d="M0 248 Q120 210 200 248 Q280 210 400 248" ' + s + ' stroke-width="2.5" fill="none"/>' +
         '<path d="M0 238 Q140 218 260 236 Q340 228 400 238" ' + s + ' stroke-width="1.8" fill="none"/>' +
-        /* brook */
+        /* brook + gentle ripples */
         '<path d="M15 252 Q100 244 200 250 Q300 244 385 252 L392 268 L8 268 Z" ' + sf + ' fill="white" stroke-width="2.5"/>' +
         '<path d="M25 250 Q120 242 200 248 Q280 242 375 250" ' + s + ' stroke-width="2"/>' +
+        '<path d="M40 258 Q100 252 160 258" ' + s + ' stroke-width="1.5" opacity="0.55"/>' +
+        '<path d="M220 258 Q280 252 340 258" ' + s + ' stroke-width="1.5" opacity="0.55"/>' +
+        '<path d="M120 262 Q200 256 280 262" ' + s + ' stroke-width="1.3" opacity="0.45"/>' +
         /* Elijah seated — thankful, calm */
         '<circle cx="200" cy="158" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
         '<path d="M188 152 Q200 148 212 152" ' + s + ' stroke-width="1.3"/>' +
@@ -722,106 +861,132 @@
         '<line x1="200" y1="170" x2="200" y2="192" ' + s + ' stroke-width="2.5"/>' +
         '<line x1="200" y1="180" x2="172" y2="188" ' + s + ' stroke-width="2.3"/>' +
         '<line x1="200" y1="180" x2="228" y2="188" ' + s + ' stroke-width="2.3"/>' +
-        /* bread & meat in hands */
-        '<ellipse cx="165" cy="182" rx="10" ry="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* bread & meat in hands — extra small loaf */
+        '<ellipse cx="162" cy="184" rx="9" ry="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="172" cy="178" rx="6" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
         '<rect x="218" y="176" width="14" height="9" rx="2" ' + sf + ' fill="white" stroke-width="2"/>' +
-        /* raven left — gentle, bringing food */
+        /* raven left — bread in beak */
         '<path d="M72 108 Q88 98 102 108 Q118 102 128 112 L120 122 Q100 118 88 124 Q78 118 72 108 Z" ' + sf + ' fill="white" stroke-width="2.2"/>' +
         '<path d="M128 112 L138 108 M120 118 L132 118" ' + s + ' stroke-width="1.8"/>' +
         '<ellipse cx="108" cy="118" rx="5" ry="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="122" cy="114" rx="6" ry="4" ' + sf + ' fill="white" stroke-width="1.6"/>' +
         /* raven right */
         '<path d="M328 108 Q312 98 298 108 Q282 102 272 112 L280 122 Q300 118 312 124 Q322 118 328 108 Z" ' + sf + ' fill="white" stroke-width="2.2"/>' +
         '<path d="M272 112 L262 108 M280 118 L268 118" ' + s + ' stroke-width="1.8"/>' +
         '<ellipse cx="292" cy="118" rx="5" ry="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="278" cy="114" rx="6" ry="4" ' + sf + ' fill="white" stroke-width="1.6"/>' +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kings 17:6</text>'
       ),
 
-      /* Elijah and the widow of Zarephath — meal & oil (loop 180) */
+      /* God multiplies oil and meal — widow pouring into jars, son helps, Elijah watches (loop 180) */
       elijahWidow: svg(
-        ground() +
-        '<path d="M0 248 Q120 220 200 248 Q280 220 400 248" ' + s + ' stroke-width="2" fill="none"/>' +
-        /* simple town gate / doorway */
-        '<rect x="48" y="118" width="120" height="132" rx="4" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<rect x="88" y="158" width="48" height="92" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
-        /* barrel + cruse */
-        '<ellipse cx="118" cy="228" rx="22" ry="18" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<ellipse cx="118" cy="218" rx="18" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<ellipse cx="158" cy="232" rx="10" ry="12" ' + sf + ' fill="white" stroke-width="2.2"/>' +
-        '<ellipse cx="158" cy="224" rx="7" ry="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
-        /* widow — hopeful, near barrel */
-        '<circle cx="95" cy="168" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M88 164 Q95 160 102 164" ' + s + ' stroke-width="1.2"/>' +
-        '<line x1="95" y1="179" x2="95" y2="218" ' + s + ' stroke-width="2.5"/>' +
-        '<line x1="95" y1="192" x2="72" y2="205" ' + s + ' stroke-width="2.2"/>' +
-        '<line x1="95" y1="192" x2="118" y2="200" ' + s + ' stroke-width="2.2"/>' +
-        '<line x1="95" y1="218" x2="82" y2="242" ' + s + ' stroke-width="2.2"/>' +
-        '<line x1="95" y1="218" x2="108" y2="242" ' + s + ' stroke-width="2.2"/>' +
-        /* small child — gentle hint near door */
-        person(132, 198, 7, 20) +
-        /* Elijah — kind face */
-        '<circle cx="288" cy="172" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M282 168 Q288 164 294 168" ' + s + ' stroke-width="1.2"/>' +
-        '<line x1="288" y1="183" x2="288" y2="232" ' + s + ' stroke-width="2.5"/>' +
-        '<line x1="288" y1="200" x2="262" y2="212" ' + s + ' stroke-width="2.2"/>' +
-        '<line x1="288" y1="200" x2="314" y2="208" ' + s + ' stroke-width="2.2"/>' +
-        '<line x1="288" y1="232" x2="274" y2="256" ' + s + ' stroke-width="2.2"/>' +
-        '<line x1="288" y1="232" x2="302" y2="256" ' + s + ' stroke-width="2.2"/>' +
-        /* sticks bundle hint */
-        '<line x1="210" y1="238" x2="218" y2="200" ' + s + ' stroke-width="2"/>' +
-        '<line x1="218" y1="236" x2="226" y2="202" ' + s + ' stroke-width="2"/>' +
+        ground() + hills() +
+        sun(48, 42, 15) + cloud(300, 38) +
+        /* house + doorway */
+        '<rect x="36" y="108" width="112" height="142" rx="5" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="72" y="158" width="44" height="92" rx="3" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        /* barrel by wall */
+        '<ellipse cx="118" cy="232" rx="20" ry="16" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<ellipse cx="118" cy="222" rx="16" ry="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* widow — kind smile, pouring from cruse */
+        '<circle cx="148" cy="162" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M140 158 Q148 154 156 158" ' + s + ' stroke-width="1.2"/>' +
+        '<path d="M138 162 Q148 168 158 162" ' + s + ' stroke-width="1.1" fill="none"/>' +
+        '<line x1="148" y1="173" x2="148" y2="218" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="148" y1="188" x2="128" y2="198" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="148" y1="188" x2="168" y2="182" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="148" y1="218" x2="136" y2="242" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="148" y1="218" x2="160" y2="242" ' + s + ' stroke-width="2.2"/>' +
+        /* small cruse tilted */
+        '<ellipse cx="128" cy="188" rx="8" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M120 182 L132 178" ' + s + ' stroke-width="1.8"/>' +
+        /* pour toward jars */
+        '<path d="M132 198 Q180 210 210 232" ' + s + ' stroke-width="1.6" opacity="0.55"/>' +
+        /* many jars — open tops for coloring */
+        '<ellipse cx="218" cy="244" rx="14" ry="8" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="218" cy="236" rx="10" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="248" cy="244" rx="14" ry="8" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="248" cy="236" rx="10" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="278" cy="244" rx="14" ry="8" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="278" cy="236" rx="10" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="308" cy="244" rx="14" ry="8" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="308" cy="236" rx="10" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="338" cy="244" rx="14" ry="8" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="338" cy="236" rx="10" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        /* son — helping, small smile */
+        person(178, 208, 7, 18) +
+        '<path d="M172 200 Q178 204 184 200" ' + s + ' stroke-width="1" fill="none"/>' +
+        /* Elijah — gentle watch */
+        person(88, 178, 10, 26) +
+        '<path d="M82 172 Q88 168 94 172" ' + s + ' stroke-width="1.1"/>' +
+        /* few sticks */
+        '<line x1="42" y1="248" x2="48" y2="218" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="50" y1="246" x2="56" y2="220" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="58" y1="248" x2="62" y2="222" ' + s + ' stroke-width="1.8"/>' +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kings 17:16</text>'
       ),
 
-      /* ── Week 1: Elijah Fire on Carmel (18) — gentle awe, soft heavenward flame */
+      /* ── Week 1: Elijah Fire on Carmel (18) — gentle awe, hands raised, soft fire, thankful faces */
       elijahFire: svg(
-        '<path d="M0 255 Q100 200 200 248 Q300 200 400 255" ' + s + ' stroke-width="2.5" fill="none"/>' +
+        ground() + hills() +
+        sun(48, 44, 16) + cloud(292, 38) +
         /* altar stones */
-        '<rect x="138" y="198" width="24" height="22" rx="2" ' + sf + ' fill="white" stroke-width="2.2"/>' +
-        '<rect x="162" y="198" width="24" height="22" rx="2" ' + sf + ' fill="white" stroke-width="2.2"/>' +
-        '<rect x="186" y="198" width="24" height="22" rx="2" ' + sf + ' fill="white" stroke-width="2.2"/>' +
-        '<rect x="150" y="176" width="52" height="22" rx="2" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<rect x="158" y="202" width="24" height="22" rx="2" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<rect x="182" y="202" width="24" height="22" rx="2" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<rect x="206" y="202" width="24" height="22" rx="2" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<rect x="170" y="180" width="52" height="22" rx="2" ' + sf + ' fill="white" stroke-width="2.2"/>' +
         /* wood / sacrifice hint */
-        '<path d="M168 172 L175 158 L182 172 M178 168 L188 155 L195 168" ' + s + ' stroke-width="2"/>' +
-        /* soft fire from heaven */
-        '<path d="M175 155 Q185 125 200 95 Q215 125 205 155 Q200 140 195 155 Q190 130 185 150" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M192 150 Q200 118 208 88 Q218 118 212 148" ' + sf + ' fill="white" stroke-width="1.8"/>' +
-        '<line x1="200" y1="78" x2="195" y2="95" ' + s + ' stroke-width="1.2" stroke-dasharray="4,3"/>' +
-        '<line x1="200" y1="78" x2="205" y2="95" ' + s + ' stroke-width="1.2" stroke-dasharray="4,3"/>' +
-        /* Elijah — praying, calm */
-        '<circle cx="108" cy="178" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M102 174 Q108 170 114 174" ' + s + ' stroke-width="1.2"/>' +
-        '<line x1="108" y1="189" x2="108" y2="248" ' + s + ' stroke-width="2.5"/>' +
-        '<line x1="108" y1="205" x2="88" y2="218" ' + s + ' stroke-width="2.2"/>' +
-        '<line x1="108" y1="205" x2="128" y2="218" ' + s + ' stroke-width="2.2"/>' +
-        '<line x1="108" y1="248" x2="96" y2="272" ' + s + ' stroke-width="2.2"/>' +
-        '<line x1="108" y1="248" x2="120" y2="272" ' + s + ' stroke-width="2.2"/>' +
-        /* distant watchers — small, calm */
-        person(288, 210, 7, 18) +
-        person(312, 212, 7, 18) +
-        person(336, 210, 7, 18) +
-        sun(52, 48, 16) +
+        '<path d="M188 176 L195 162 L202 176 M198 172 L208 159 L215 172" ' + s + ' stroke-width="2"/>' +
+        /* very soft fire from heaven — one smooth plume, no jagged spikes */
+        '<path d="M198 172 Q200 148 202 108 Q204 148 206 172 Q202 160 198 172" ' + sf + ' fill="white" stroke-width="1.9"/>' +
+        '<path d="M192 168 Q198 138 200 98 Q202 138 208 168" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<line x1="200" y1="88" x2="198" y2="102" ' + s + ' stroke-width="1" stroke-dasharray="5,4" opacity="0.65"/>' +
+        '<line x1="200" y1="88" x2="202" y2="102" ' + s + ' stroke-width="1" stroke-dasharray="5,4" opacity="0.65"/>' +
+        /* Elijah — calm, hands raised in prayer */
+        '<circle cx="98" cy="182" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M92 178 Q98 174 104 178" ' + s + ' stroke-width="1.2"/>' +
+        '<line x1="98" y1="193" x2="98" y2="248" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="98" y1="208" x2="72" y2="148" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="98" y1="208" x2="124" y2="148" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="98" y1="248" x2="86" y2="272" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="98" y1="248" x2="110" y2="272" ' + s + ' stroke-width="2.2"/>' +
+        /* thankful onlookers — small calm smiles */
+        person(262, 208, 7, 18) +
+        '<path d="M256 214 Q262 218 268 214" ' + s + ' stroke-width="1" fill="none"/>' +
+        person(286, 210, 7, 18) +
+        '<path d="M280 216 Q286 220 292 216" ' + s + ' stroke-width="1" fill="none"/>' +
+        person(310, 208, 7, 18) +
+        '<path d="M304 214 Q310 218 316 214" ' + s + ' stroke-width="1" fill="none"/>' +
+        person(334, 210, 7, 18) +
+        '<path d="M328 216 Q334 220 340 216" ' + s + ' stroke-width="1" fill="none"/>' +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kings 18:38</text>'
       ),
 
-      /* Elijah and the still small voice — Horeb, cave (loop 47) */
+      /* Elijah — still small voice (loop 47): gentle mountain, soft rays, mantle, no harsh storm */
       elijahHoreb: svg(
-        '<path d="M0 255 Q120 200 200 248 Q280 200 400 255" ' + s + ' stroke-width="2.5" fill="none"/>' +
-        /* cave arch */
-        '<path d="M60 260 L60 140 Q200 95 340 140 L340 260" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<ellipse cx="200" cy="155" rx="95" ry="48" ' + sf + ' fill="white" stroke-width="3"/>' +
-        /* soft light — still small */
-        '<line x1="200" y1="35" x2="200" y2="95" ' + s + ' stroke-width="1.5" stroke-dasharray="5,4"/>' +
-        '<line x1="185" y1="42" x2="192" y2="88" ' + s + ' stroke-width="1.2" stroke-dasharray="4,4"/>' +
-        '<line x1="215" y1="42" x2="208" y2="88" ' + s + ' stroke-width="1.2" stroke-dasharray="4,4"/>' +
-        '<circle cx="200" cy="28" r="10" ' + sf + ' fill="white" stroke-width="2"/>' +
-        /* Elijah at entrance — mantle to face */
-        '<circle cx="200" cy="198" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M168 188 Q200 175 232 188 Q228 210 200 215 Q172 210 168 188" ' + sf + ' fill="white" stroke-width="2.2"/>' +
-        '<line x1="200" y1="209" x2="200" y2="252" ' + s + ' stroke-width="2.5"/>' +
-        '<line x1="200" y1="225" x2="178" y2="238" ' + s + ' stroke-width="2.2"/>' +
-        '<line x1="200" y1="225" x2="222" y2="238" ' + s + ' stroke-width="2.2"/>' +
-        '<line x1="200" y1="252" x2="188" y2="278" ' + s + ' stroke-width="2.2"/>' +
-        '<line x1="200" y1="252" x2="212" y2="278" ' + s + ' stroke-width="2.2"/>' +
+        ground() + hills() +
+        sun(52, 40, 14) + cloud(268, 34) + cloud(88, 42) +
+        /* distant soft ridge */
+        '<path d="M20 248 Q120 218 200 242 Q280 220 380 248" ' + s + ' stroke-width="2" fill="none" opacity="0.75"/>' +
+        /* very soft breeze */
+        '<path d="M118 168 Q138 162 158 170 M122 178 Q138 174 154 182" ' + s + ' stroke-width="1.1" opacity="0.5"/>' +
+        /* soft light rays — still small */
+        '<circle cx="200" cy="24" r="9" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<line x1="200" y1="33" x2="200" y2="88" ' + s + ' stroke-width="1.3" stroke-dasharray="5,5" opacity="0.7"/>' +
+        '<line x1="178" y1="38" x2="190" y2="92" ' + s + ' stroke-width="1.1" stroke-dasharray="5,5" opacity="0.65"/>' +
+        '<line x1="222" y1="38" x2="210" y2="92" ' + s + ' stroke-width="1.1" stroke-dasharray="5,5" opacity="0.65"/>' +
+        '<line x1="158" y1="48" x2="176" y2="98" ' + s + ' stroke-width="1" stroke-dasharray="5,5" opacity="0.55"/>' +
+        '<line x1="242" y1="48" x2="224" y2="98" ' + s + ' stroke-width="1" stroke-dasharray="5,5" opacity="0.55"/>' +
+        /* gentle rock underfoot */
+        '<ellipse cx="188" cy="254" rx="38" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* Elijah — calm, mantle wrapped around face */
+        '<ellipse cx="188" cy="168" rx="20" ry="18" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<circle cx="188" cy="188" r="10" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<line x1="188" y1="198" x2="188" y2="248" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="188" y1="218" x2="168" y2="232" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="188" y1="218" x2="208" y2="232" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="188" y1="248" x2="176" y2="272" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="188" y1="248" x2="200" y2="272" ' + s + ' stroke-width="2.2"/>' +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kings 19:12</text>'
       ),
 
@@ -877,24 +1042,32 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kgs 2:21 · 4:4</text>'
       ),
 
-      /* Naaman healed — 2 Kings 5:14 (seventh dip, ripples, servant on bank) */
+      /* Naaman — seventh dip, Jordan, gentle ripples, servant on bank (2 Kings 5:14) */
       naamanHealed: svg(
+        ground() +
+        hills() +
+        sun(330, 42, 18) + cloud(72, 38) +
+        /* soft trees — minimal */
+        '<path d="M28 250 L34 222 L40 250 M48 250 L54 228 L60 250" ' + s + ' stroke-width="2"/>' +
+        '<path d="M348 250 L354 226 L360 250 M368 250 L374 232 L380 250" ' + s + ' stroke-width="2"/>' +
         '<path d="M0 200 Q50 180 100 200 Q150 220 200 200 Q250 180 300 200 Q350 220 400 200 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
-        /* soft ripples + splash */
+        /* soft ripples + splash — extra gentle rings */
         '<path d="M168 238 Q184 232 200 238 Q216 232 232 238" ' + s + ' stroke-width="1.4" fill="none"/>' +
         '<path d="M172 244 Q188 240 200 246 Q212 240 228 244" ' + s + ' stroke-width="1.2" fill="none" opacity="0.85"/>' +
+        '<path d="M160 250 Q178 244 200 252 Q222 244 240 250" ' + s + ' stroke-width="1.1" fill="none" opacity="0.7"/>' +
+        '<path d="M152 232 Q176 226 200 234 Q224 226 248 232" ' + s + ' stroke-width="1" fill="none" opacity="0.7"/>' +
+        '<path d="M176 256 Q200 250 224 256" ' + s + ' stroke-width="1" fill="none" opacity="0.55"/>' +
+        '<path d="M148 242 Q174 236 200 244 Q226 236 252 242" ' + s + ' stroke-width="0.9" fill="none" opacity="0.5"/>' +
         '<path d="M188 228 L192 222 M208 226 L212 220 M196 232 L200 224" ' + s + ' stroke-width="1.3"/>' +
         /* Naaman — seventh dip, calm joyful face */
         person(200, 158, 13, 34) +
-        '<path d="M192 142 Q200 148 208 142" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        '<path d="M190 144 Q200 154 210 144" ' + s + ' stroke-width="1.2" fill="none"/>' +
         '<path d="M188 168 L184 188 M212 168 L216 188" ' + s + ' stroke-width="2"/>' +
         '<ellipse cx="200" cy="248" rx="28" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
         /* servant on bank — kindly watching */
         person(72, 172, 10, 28) +
         '<path d="M68 156 Q74 158 80 156" ' + s + ' stroke-width="1.1" fill="none"/>' +
         '<path d="M72 200 L88 218" ' + s + ' stroke-width="2"/>' +
-        hills() +
-        sun(330, 45, 20) +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 5:14</text>'
       ),
 
@@ -912,25 +1085,29 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 5:15</text>'
       ),
 
-      /* Floating axe head — 2 Kings 6:1-7 (Jordan, ripples, stick on bank, thankful reach) */
+      /* Floating axe — gentle Jordan, extra ripples, stick on bank, thankful reach (2 Kings 6:6) */
       elishaFloatingAxe: svg(
         ground() + hills() +
-        sun(52, 42, 18) + cloud(300, 34) +
+        sun(52, 40, 16) + cloud(300, 34) + cloud(64, 40) +
         '<path d="M28 248 Q120 222 200 242 Q280 222 372 248" ' + s + ' stroke-width="2.5" fill="none"/>' +
         '<ellipse cx="200" cy="254" rx="150" ry="11" ' + sf + ' fill="white" stroke-width="2.2"/>' +
-        /* gentle ripples around floating iron */
+        /* gentle ripples — iron floating */
         '<path d="M218 232 Q232 228 246 232 M212 236 Q228 232 244 236" ' + s + ' stroke-width="1.4" fill="none" opacity="0.85"/>' +
+        '<path d="M200 240 Q218 234 236 240 M194 244 Q210 238 226 244" ' + s + ' stroke-width="1.2" fill="none" opacity="0.75"/>' +
+        '<path d="M176 236 Q200 228 224 236" ' + s + ' stroke-width="1.1" fill="none" opacity="0.65"/>' +
+        '<path d="M188 248 Q200 244 212 248" ' + s + ' stroke-width="1" fill="none" opacity="0.55"/>' +
+        '<path d="M160 242 Q178 238 196 244" ' + s + ' stroke-width="0.9" fill="none" opacity="0.5"/>' +
         /* stick resting on bank */
         '<line x1="72" y1="244" x2="98" y2="232" ' + s + ' stroke-width="2.6" stroke-linecap="round"/>' +
         /* Elisha — calm by the water */
         person(108, 158, 11, 32) +
         '<path d="M102 148 Q108 152 112 148" ' + s + ' stroke-width="1.2" fill="none"/>' +
-        /* floating iron — wedge + eye (readable as axe head) */
+        /* floating iron — axe head */
         '<ellipse cx="232" cy="228" rx="22" ry="10" ' + sf + ' fill="white" stroke-width="2.4"/>' +
         '<path d="M210 228 L248 228 M238 220 L242 236" ' + s + ' stroke-width="2"/>' +
         /* young man reaching — soft thankful smile */
         person(292, 168, 10, 28) +
-        '<path d="M288 152 Q294 154 300 152" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        '<path d="M284 152 Q292 158 300 152" ' + s + ' stroke-width="1.2" fill="none"/>' +
         '<path d="M292 196 L252 222" ' + s + ' stroke-width="2.4"/>' +
         '<path d="M248 218 L256 224 L250 230" ' + sf + ' fill="white" stroke-width="1.8"/>' +
         /* distant trees */
@@ -939,55 +1116,73 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 6:6</text>'
       ),
 
-      /* Chariots of fire — 2 Kings 6:14-17 (Dothan, Fear not, mountain full of fire) */
+      /* Chariots of fire — gentle hill, soft flames, calm Elisha + wondering servant (2 Kings 6:17) */
       elishaChariots: svg(
-        '<rect x="0" y="0" width="400" height="165" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="320" cy="38" r="22" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="72" cy="48" r="1.4" fill="#111"/><circle cx="98" cy="36" r="1.2" fill="#111"/><circle cx="128" cy="52" r="1.3" fill="#111"/>' +
-        '<circle cx="280" cy="58" r="1.2" fill="#111"/><circle cx="340" cy="72" r="1.1" fill="#111"/>' +
-        hills() +
-        /* distant chariot + flame hints (soft, dashed) */
-        '<ellipse cx="88" cy="118" rx="28" ry="10" ' + sf + ' fill="white" stroke-width="2" stroke-dasharray="5,4"/>' +
-        '<ellipse cx="312" cy="112" rx="28" ry="10" ' + sf + ' fill="white" stroke-width="2" stroke-dasharray="5,4"/>' +
-        '<path d="M78 128 L78 142 M98 128 L98 142" ' + s + ' stroke-width="1.8"/>' +
-        '<path d="M302 122 L302 136 M322 122 L322 136" ' + s + ' stroke-width="1.8"/>' +
-        '<circle cx="92" cy="108" r="6" ' + s + ' stroke-width="1.8" stroke-dasharray="4,3"/>' +
-        '<circle cx="318" cy="102" r="6" ' + s + ' stroke-width="1.8" stroke-dasharray="4,3"/>' +
-        '<path d="M0 200 Q100 175 200 200 Q300 225 400 200 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
-        person(200, 168, 11, 30) +
-        person(248, 172, 9, 26) +
-        '<circle cx="254" cy="158" r="2.5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
-        '<circle cx="260" cy="156" r="2.5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
-        '<path d="M248 188 L268 168" ' + s + ' stroke-width="2"/>' +
+        ground() + hills() +
+        sun(48, 40, 14) + cloud(268, 34) + cloud(88, 42) +
+        /* mountain ridge — space for fire of God */
+        '<path d="M20 210 Q100 95 200 125 Q300 88 380 210" ' + s + ' stroke-width="2.8" fill="none"/>' +
+        /* soft chariots of fire — gentle flame shapes, large open areas */
+        '<path d="M72 148 Q88 118 104 148 Q96 132 88 140 Q80 128 72 148" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M118 138 Q132 108 148 138 Q140 122 132 128 Q124 115 118 138" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M252 132 Q268 102 284 132 Q276 116 268 122 Q260 110 252 132" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M298 142 Q314 112 330 142 Q322 126 314 132 Q306 120 298 142" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M168 152 Q184 128 200 152 Q192 138 184 145 Q176 132 168 152" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<path d="M200 118 Q208 88 216 118 Q212 104 208 110 Q204 98 200 118" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<path d="M140 128 Q152 100 164 128 Q156 112 148 118" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<path d="M228 122 Q240 96 252 122 Q244 108 236 114" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        /* simple horse + wheel hints (dashed, not weapons) */
+        '<ellipse cx="95" cy="168" rx="20" ry="8" ' + sf + ' fill="white" stroke-width="1.8" stroke-dasharray="4,3"/>' +
+        '<ellipse cx="318" cy="164" rx="20" ry="8" ' + sf + ' fill="white" stroke-width="1.8" stroke-dasharray="4,3"/>' +
+        '<circle cx="108" cy="162" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="332" cy="158" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        /* foreground — Elisha calm, servant gentle wonder (softer mouth) */
+        person(178, 198, 11, 28) +
+        '<path d="M172 188 Q178 192 184 188" ' + s + ' stroke-width="1.1" fill="none"/>' +
+        person(238, 200, 9, 24) +
+        '<path d="M232 190 Q238 186 244 190" ' + s + ' stroke-width="1.1" fill="none"/>' +
+        '<path d="M238 216 L218 148" ' + s + ' stroke-width="1.8" stroke-dasharray="4,3" opacity="0.55"/>' +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 6:17</text>'
       ),
 
-      /* Blind Syrian army — 2 Kings 6:18-23 (prayer, Samaria, bread and water) */
+      /* Blind Syrian army — Elisha praying, soldiers eyes gently closed, open Samaria (2 Kings 6:18-23) */
       elishaBlindArmy: svg(
         ground() + hills() +
-        sun(48, 44, 18) + cloud(300, 34) +
-        /* city gates in distance */
-        '<rect x="300" y="168" width="72" height="52" rx="4" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M316 168 L316 148 Q334 138 352 148 L352 168" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M324 200 L324 220 M340 200 L340 220" ' + s + ' stroke-width="2"/>' +
-        '<path d="M60 258 Q200 228 340 258" ' + s + ' stroke-width="2" stroke-dasharray="6,4"/>' +
-        person(160, 158, 11, 32) +
-        '<path d="M152 168 L148 152 M168 168 L172 152" ' + s + ' stroke-width="2"/>' +
-        person(220, 162, 10, 28) +
-        '<path d="M220 148 Q228 152 232 158" ' + s + ' stroke-width="1.8"/>' +
-        '<path d="M208 158 L212 162 M232 158 L228 162" ' + s + ' stroke-width="1.5"/>' +
-        person(252, 164, 10, 28) +
-        '<path d="M252 150 Q260 154 264 160" ' + s + ' stroke-width="1.8"/>' +
-        '<path d="M240 160 L244 164 M264 160 L260 164" ' + s + ' stroke-width="1.5"/>' +
+        sun(48, 42, 16) + cloud(292, 34) + cloud(72, 40) +
+        /* Samaria — open gates */
+        '<rect x="288" y="162" width="88" height="58" rx="4" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M308 162 L308 138 Q332 128 356 138 L356 162" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M318 200 L318 218 M332 200 L332 218 M346 200 L346 218" ' + s + ' stroke-width="2"/>' +
+        '<path d="M52 258 Q200 232 348 258" ' + s + ' stroke-width="2" stroke-dasharray="6,4"/>' +
+        /* Elisha — hands raised in prayer */
+        person(148, 154, 11, 30) +
+        '<line x1="148" y1="176" x2="132" y2="148" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="148" y1="176" x2="164" y2="148" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M142 160 Q148 164 154 160" ' + s + ' stroke-width="1.1" fill="none"/>' +
+        /* soldiers — calm faces, closed eyes (soft arcs) */
+        person(212, 160, 10, 28) +
+        '<path d="M206 166 Q212 170 218 166 M206 170 Q212 172 218 170" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        '<path d="M206 176 Q212 178 218 176" ' + s + ' stroke-width="1" fill="none"/>' +
+        person(244, 162, 10, 28) +
+        '<path d="M238 168 Q244 172 250 168 M238 172 Q244 174 250 172" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        '<path d="M238 178 Q244 180 250 178" ' + s + ' stroke-width="1" fill="none"/>' +
+        person(276, 160, 10, 28) +
+        '<path d="M270 166 Q276 170 282 166 M270 170 Q276 172 282 170" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        '<path d="M270 176 Q276 178 282 176" ' + s + ' stroke-width="1" fill="none"/>' +
+        /* hint of feast — simple plates, no weapons */
+        '<ellipse cx="118" cy="258" rx="14" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="158" cy="258" rx="14" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 6:22</text>'
       ),
 
-      /* Poisoned stew — 2 Kings 4:38-41 (Gilgal, great pot, meal, no harm) */
+      /* Stew at Gilgal — meal, no harm (2 Kings 4:38-41); soft fire, thankful faces */
       elishaPoisonStew: svg(
         ground() + hills() +
         sun(52, 42, 16) + cloud(300, 36) +
-        /* fire under pot */
-        '<path d="M168 248 L172 232 L176 248 M188 248 L192 230 L196 248 M208 248 L212 234 L216 248" ' + s + ' stroke-width="2"/>' +
+        /* gentle fire under pot */
+        '<path d="M168 250 Q170 236 172 248 Q174 232 176 248 Q178 236 180 250" ' + s + ' stroke-width="1.6" fill="none"/>' +
+        '<path d="M188 250 Q190 234 192 248 Q194 230 196 248 Q198 234 200 250" ' + s + ' stroke-width="1.6" fill="none"/>' +
+        '<path d="M208 250 Q210 236 212 248 Q214 232 216 248 Q218 236 220 250" ' + s + ' stroke-width="1.6" fill="none"/>' +
         /* pot */
         '<ellipse cx="200" cy="218" rx="48" ry="14" ' + sf + ' fill="white" stroke-width="2.8"/>' +
         '<path d="M152 218 L152 188 Q200 175 248 188 L248 218" ' + sf + ' fill="white" stroke-width="2.8"/>' +
@@ -996,8 +1191,13 @@
         person(118, 148, 10, 28) +
         '<path d="M128 178 L188 200" ' + s + ' stroke-width="2.2"/>' +
         '<ellipse cx="108" cy="168" rx="8" ry="6" ' + sf + ' fill="white" stroke-width="2"/>' +
-        /* thankful watchers */
-        person(288, 158, 9, 26) + person(318, 162, 8, 24) +
+        /* thankful watchers — soft smiles */
+        person(288, 158, 9, 26) +
+        '<path d="M284 150 Q288 154 292 150" ' + s + ' stroke-width="1" fill="none"/>' +
+        person(318, 162, 8, 24) +
+        '<path d="M314 154 Q318 158 322 154" ' + s + ' stroke-width="1" fill="none"/>' +
+        person(258, 168, 8, 22) +
+        '<path d="M254 160 Q258 164 262 160" ' + s + ' stroke-width="1" fill="none"/>' +
         /* gourds on ground */
         '<ellipse cx="72" cy="258" rx="14" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
         '<ellipse cx="92" cy="262" rx="12" ry="7" ' + sf + ' fill="white" stroke-width="2"/>' +
@@ -1704,7 +1904,7 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Sam 16:13</text>'
       ),
 
-      /* David king — elders, horn of oil, city hint (library davidKing / loop 177) */
+      /* David king — gentle anointing: horn, thankful faces, soft hills, city wall (library davidKing / loop 177) */
       davidKing: svg(
         ground() + hills() +
         /* simple city wall silhouette */
@@ -1712,21 +1912,106 @@
           sf +
           ' fill="white" stroke-width="2.2"/>' +
         sun(52, 44, 16) + cloud(312, 34) +
-        /* David — humble face, crown outline */
+        /* David — calm face, crown outline */
         person(200, 170, 12, 34) +
         '<path d="M192 174 Q200 168 208 174" ' + s + ' stroke-width="1.5"/>' +
         '<circle cx="196" cy="172" r="1.6" fill="#111"/><circle cx="204" cy="172" r="1.6" fill="#111"/>' +
         '<path d="M184 146 L190 156 L196 148 L202 156 L208 148 L214 156 L220 146 L220 160 L184 160 Z" ' + sf + ' fill="white" stroke-width="2.2"/>' +
-        /* elder pours from horn */
+        /* elder — horn of oil, opening toward David */
         person(118, 180, 9, 28) +
         '<path d="M124 168 L128 154 L138 162 L132 176 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="130" cy="158" rx="5" ry="3" ' + sf + ' fill="white" stroke-width="1.4"/>' +
         '<path d="M132 162 Q165 172 192 176" ' + s + ' stroke-width="1.4" fill="none" opacity="0.55"/>' +
-        /* thankful elders */
+        /* thankful people — joyful small smiles */
+        person(56, 186, 7, 22) +
+        '<path d="M52 174 Q56 178 60 174" ' + s + ' stroke-width="1.1" fill="none"/>' +
         person(262, 184, 8, 24) +
         person(292, 186, 8, 22) +
         '<path d="M256 170 Q262 174 268 170" ' + s + ' stroke-width="1.2" fill="none"/>' +
         '<path d="M286 172 Q292 176 298 172" ' + s + ' stroke-width="1.2" fill="none"/>' +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Sam 5:3</text>'
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Sam 5:1-12</text>'
+      ),
+
+      /* David & Mephibosheth — king's table, meal, kindness (library mephibosheth / loop 193) */
+      mephibosheth: svg(
+        ground() +
+        '<rect x="48" y="92" width="304" height="110" rx="6" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<rect x="88" y="108" width="64" height="48" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M96 108 L104 118 M144 108 L136 118 M120 120 L120 150" ' + s + ' stroke-width="1.1" opacity="0.5"/>' +
+        '<rect x="72" y="198" width="256" height="16" rx="3" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="118" cy="218" rx="18" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="200" cy="218" rx="18" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="282" cy="218" rx="18" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* simple meal — bread + cup */
+        '<ellipse cx="118" cy="210" rx="10" ry="6" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M112 208 L124 208 M118 204 L118 212" ' + s + ' stroke-width="1.2"/>' +
+        '<ellipse cx="200" cy="210" rx="9" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="282" cy="208" rx="5" ry="7" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<ellipse cx="282" cy="200" rx="2" ry="1" ' + sf + ' fill="white" stroke-width="1.2"/>' +
+        person(118, 132, 11, 30) +
+        '<path d="M106 126 L112 118 L118 124 L124 118 L130 126 L130 136 L106 136 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M112 158 Q118 162 124 158" ' + s + ' stroke-width="1.1" fill="none"/>' +
+        '<path d="M128 170 Q188 162 248 172" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        '<circle cx="248" cy="172" r="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        person(268, 138, 10, 26) +
+        '<path d="M262 132 Q268 128 274 132" ' + s + ' stroke-width="1.1" fill="none"/>' +
+        '<path d="M268 200 L264 222 M272 200 L276 222" ' + s + ' stroke-width="1.8"/>' +
+        /* glad smile */
+        '<path d="M262 144 Q268 150 274 144" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        '<ellipse cx="118" cy="228" rx="22" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="278" cy="228" rx="22" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Sam 9:7</text>'
+      ),
+
+      /* David — honest prayer for mercy and a clean heart; soft light from above (library davidBathsheba / loop 195) */
+      davidBathsheba: svg(
+        ground() +
+        /* simple room */
+        '<rect x="36" y="72" width="328" height="168" rx="6" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        /* soft rays from above */
+        '<path d="M200 28 L168 120 M200 28 L200 118 M200 28 L232 120" ' + s + ' stroke-width="2" opacity="0.35"/>' +
+        '<path d="M200 32 L152 108 M200 32 L248 108" ' + s + ' stroke-width="1.6" opacity="0.28"/>' +
+        /* minimal window */
+        '<rect x="288" y="98" width="56" height="44" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="316" y1="98" x2="316" y2="142" ' + s + ' stroke-width="1.4" opacity="0.5"/>' +
+        '<line x1="288" y1="120" x2="344" y2="120" ' + s + ' stroke-width="1.4" opacity="0.5"/>' +
+        /* kneeling figure — peaceful, folded hands */
+        '<ellipse cx="200" cy="238" rx="52" ry="14" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<circle cx="200" cy="128" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M194 132 Q200 126 206 132" ' + s + ' stroke-width="1.3"/>' +
+        '<path d="M200 140 L200 188" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M188 154 L200 176 L212 154" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M194 176 L194 198 L206 176 L206 198" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M176 198 L176 228 M224 198 L224 228" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M176 228 Q200 242 224 228" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M192 188 L200 196 L208 188" ' + s + ' stroke-width="1.4" fill="none"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ps 51:10</text>'
+      ),
+
+      /* David — sad road, prayer on the hill; friends near (library absalomRebellion / loop 194) */
+      absalomRebellion: svg(
+        ground() +
+        hills() +
+        '<path d="M40 248 Q120 210 200 188 Q280 165 360 142" ' + s + ' stroke-width="2.2" fill="none" opacity="0.85"/>' +
+        /* soft trees */
+        '<circle cx="72" cy="118" r="22" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<rect x="68" y="138" width="8" height="42" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="328" cy="112" r="26" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<rect x="322" y="134" width="10" height="48" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* distant city */
+        '<path d="M300 198 L300 168 L308 172 L316 166 L324 170 L332 164 L340 168 L348 164 L348 198" ' + sf + ' fill="white" stroke-width="1.8" opacity="0.7"/>' +
+        sun(48, 44, 14) +
+        /* David — gentle sorrow, hands folded to pray */
+        person(198, 128, 11, 28) +
+        '<path d="M190 132 Q198 126 206 132" ' + s + ' stroke-width="1.3"/>' +
+        '<path d="M192 158 L192 172 M200 160 L200 172 M208 158 L208 172" ' + s + ' stroke-width="1.6"/>' +
+        '<path d="M194 168 L200 174 L206 168" ' + s + ' stroke-width="1.4" fill="none"/>' +
+        /* loyal friends */
+        person(128, 148, 8, 24) +
+        person(268, 150, 8, 24) +
+        '<path d="M124 140 Q128 144 132 140" ' + s + ' stroke-width="1" fill="none"/>' +
+        '<path d="M264 142 Q268 146 272 142" ' + s + ' stroke-width="1" fill="none"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Sam 15:31</text>'
       ),
 
       /* ── Week 3: Saul Spear (47) ── */
@@ -1743,39 +2028,36 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Samuel 18:11</text>'
       ),
 
-      /* ── Week 3: David spares Saul — Engedi cave (mercy, robe corner) ── */
+      /* ── Week 3: David spares Saul — Engedi cave (mercy, robe piece; no weapons) ── */
       davidCave: svg(
-        /* cave mouth — soft light from entrance right */
+        /* cave mouth — gentle light from entrance */
         '<path d="M20 280 L20 95 Q200 40 380 95 L380 280 Z" ' + sf + ' fill="white" stroke-width="3.5"/>' +
-        '<path d="M340 96 Q360 140 355 220" ' + s + ' stroke-width="2" opacity="0.45"/>' +
-        '<path d="M330 100 Q348 150 342 230" ' + s + ' stroke-width="1.5" opacity="0.35"/>' +
-        /* Saul resting — left, peaceful */
-        '<ellipse cx="118" cy="218" rx="36" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="118" cy="188" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M110 192 Q118 186 126 192" ' + s + ' stroke-width="1.2"/>' +
-        '<ellipse cx="118" cy="205" rx="22" ry="16" ' + sf + ' fill="white" stroke-width="2.2"/>' +
-        '<path d="M96 208 L96 232 M140 208 L140 232" ' + s + ' stroke-width="2.2"/>' +
-        /* robe skirt — small separated piece for clarity */
-        '<path d="M152 212 Q168 205 178 218 Q172 232 158 228 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
-        /* David kneeling — right of Saul, small blade to hem only */
-        '<circle cx="252" cy="178" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M246 182 Q252 176 258 182" ' + s + ' stroke-width="1.2"/>' +
-        '<circle cx="248" cy="176" r="1.1" fill="#111"/><circle cx="256" cy="176" r="1.1" fill="#111"/>' +
-        '<path d="M252 189 L248 228 L256 228 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M238 200 L232 222 M264 198 L268 218" ' + s + ' stroke-width="2"/>' +
-        '<line x1="248" y1="232" x2="242" y2="258" ' + s + ' stroke-width="2.2"/>' +
-        '<line x1="256" y1="232" x2="262" y2="258" ' + s + ' stroke-width="2.2"/>' +
-        /* tiny knife — low, toward hem only (not raised) */
-        '<line x1="210" y1="222" x2="228" y2="228" ' + s + ' stroke-width="1.6"/>' +
+        '<path d="M332 92 Q352 130 348 210" ' + s + ' stroke-width="2" opacity="0.4"/>' +
+        '<path d="M348 100 L372 82 M352 118 L378 104 M356 138 L380 124" ' + s + ' stroke-width="1.3" opacity="0.45"/>' +
+        /* Saul resting — left, peaceful distance */
+        '<ellipse cx="108" cy="222" rx="34" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="108" cy="192" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M102 196 Q108 190 114 196" ' + s + ' stroke-width="1.2"/>' +
+        '<ellipse cx="108" cy="208" rx="20" ry="14" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<path d="M88 210 L88 234 M128 210 L128 234" ' + s + ' stroke-width="2.2"/>' +
+        /* David standing calmly — holds small piece of robe */
+        person(268, 162, 11, 26) +
+        '<path d="M262 168 Q268 164 274 168" ' + s + ' stroke-width="1.1"/>' +
+        '<circle cx="265" cy="164" r="0.9" fill="#111"/><circle cx="272" cy="164" r="0.9" fill="#111"/>' +
+        /* small robe piece in hand */
+        '<path d="M232 188 L244 182 L248 196 L236 202 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Sam 24:6</text>'
       ),
 
       /* Shunammite son raised — chamber, prayer, warmth (2 Kings 4:33-36) */
       elishaShunammite: svg(
         '<rect x="52" y="72" width="296" height="178" rx="8" ' + sf + ' fill="white" stroke-width="2.8"/>' +
-        /* soft window light */
+        /* soft window light + gentle rays */
         '<path d="M72 92 L108 88 L108 148 L72 152 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
         '<path d="M78 98 L98 94 M82 120 L102 116 M86 138 L104 134" ' + s + ' stroke-width="1.2" opacity="0.5"/>' +
+        '<path d="M108 118 L128 108 M108 128 L132 122 M108 138 L130 134" ' + s + ' stroke-width="1.1" opacity="0.35"/>' +
+        '<path d="M72 110 L58 100 M76 125 L58 118 M74 140 L56 132" ' + s + ' stroke-width="1" opacity="0.3"/>' +
+        '<path d="M88 104 L82 96 M96 108 L90 100" ' + s + ' stroke-width="0.9" opacity="0.28"/>' +
         '<rect x="92" y="96" width="10" height="6" rx="1" ' + sf + ' fill="white" stroke-width="1.5"/>' +
         /* table + stool */
         '<rect x="72" y="168" width="56" height="10" rx="2" ' + sf + ' fill="white" stroke-width="2"/>' +
@@ -1783,9 +2065,9 @@
         /* bed */
         '<rect x="200" y="138" width="130" height="44" rx="4" ' + sf + ' fill="white" stroke-width="2.5"/>' +
         '<path d="M200 160 L330 160" ' + s + ' stroke-width="1.8"/>' +
-        /* child — peaceful, eyes opening */
+        /* child — peaceful, eyes beginning to open */
         '<ellipse cx="255" cy="150" rx="12" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="250" cy="148" r="1.4" fill="#111"/><circle cx="260" cy="148" r="1.4" fill="#111"/>' +
+        '<path d="M246 149 Q250 146 254 149 M256 149 Q260 146 264 149" ' + s + ' stroke-width="1.3" fill="none"/>' +
         '<path d="M248 154 Q256 158 264 154" ' + s + ' stroke-width="1.2"/>' +
         '<path d="M238 158 L272 158" ' + s + ' stroke-width="1.6"/>' +
         /* Elisha kneeling — hands raised */
@@ -1801,7 +2083,7 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 4:36</text>'
       ),
 
-      /* Gehazi — honest hearts (2 Kings 5:25-26) Elisha calm, gifts on ground */
+      /* Gehazi — honest hearts (2 Kings 5:25-26) Elisha calm, gifts on ground, Gehazi sorry-humble */
       gehaziGreed: svg(
         ground() + hills() +
         sun(48, 42, 16) + cloud(300, 34) +
@@ -1812,6 +2094,10 @@
         '<path d="M108 152 Q114 148 120 152" ' + s + ' stroke-width="1.1" fill="none"/>' +
         person(268, 172, 10, 30) +
         '<path d="M262 158 Q268 162 274 158" ' + s + ' stroke-width="1.1" fill="none"/>' +
+        /* gentle sorry posture — eyes down, hands together */
+        '<path d="M266 154 L262 158 M274 154 L278 158" ' + s + ' stroke-width="1"/>' +
+        '<path d="M262 188 L258 202 M274 188 L278 202" ' + s + ' stroke-width="1.6"/>' +
+        '<path d="M258 198 Q268 204 278 198" ' + s + ' stroke-width="1.4" fill="none"/>' +
         '<path d="M268 200 L252 218" ' + s + ' stroke-width="1.8"/>' +
         /* bundles + bags */
         '<ellipse cx="210" cy="238" rx="36" ry="12" ' + sf + ' fill="white" stroke-width="2"/>' +
@@ -1898,56 +2184,220 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 13:21</text>'
       ),
 
+      /* ── Elisha arc: God's power — bones (2 Kings 13:20–21) ── */
+      elishaBones: svg(
+        ground() +
+        hills() +
+        sun(340, 48, 18) +
+        '<path d="M80 210 Q120 175 160 200 Q200 185 240 200 Q280 178 320 210 L320 268 L80 268 Z" ' +
+        sf +
+        ' fill="white" stroke-width="3"/>' +
+        '<ellipse cx="200" cy="248" rx="28" ry="14" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M172 248 Q200 230 228 248" ' +
+        s +
+        ' stroke-width="2.5"/>' +
+        person(200, 148, 13, 36) +
+        '<path d="M188 152 L182 128 M212 152 L218 128" ' +
+        s +
+        ' stroke-width="2.5"/>' +
+        '<path d="M175 175 L165 158 M225 175 L235 158" ' +
+        s +
+        ' stroke-width="2.5"/>' +
+        person(95, 178, 11, 32) +
+        person(305, 178, 11, 32) +
+        '<circle cx="48" cy="208" r="16" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="44" y="218" width="8" height="22" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        '<circle cx="352" cy="210" r="14" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="348" y="218" width="8" height="24" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 13:21</text>'
+      ),
+
       /* ── Week 4: Jonah Whale already exists ── */
       /* ── Week 4: Daniel Lions already exists ── */
 
-      /* ── Week 4: Esther Crown (52) ── */
+      /* ── Esther crowned queen — palace light, king sets crown (Esther 2:1–17) ── */
       estherCrown: svg(
         ground() +
-        person(200, 165, 14, 42) +
-        '<path d="M186 162 L186 140 L194 148 L200 135 L206 148 L214 140 L214 162 Z" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<circle cx="200" cy="135" r="5" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="186" cy="140" r="4" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="214" cy="140" r="4" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<line x1="186" y1="190" x2="160" y2="210" ' + s + ' stroke-width="3.5"/>' +
-        '<polygon points="155,205 158,218 168,212" ' + sf + ' fill="white" stroke-width="2"/>' +
-        person(300, 155, 14, 42) +
-        '<rect x="286" y="145" width="28" height="12" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M286 145 Q300 128 314 145" ' + s + ' stroke-width="2.5"/>' +
-        sun(50, 45, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Esther 5:2</text>'
+        '<rect x="52" y="98" width="296" height="72" rx="8" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        '<path d="M110 98 L110 62 Q160 48 200 56 Q240 48 290 62 L290 98" ' +
+        sf +
+        ' fill="white" stroke-width="1.75"/>' +
+        '<ellipse cx="200" cy="68" rx="72" ry="16" ' + sf + ' fill="white" stroke-width="0.55" opacity="0.22"/>' +
+        '<line x1="200" y1="54" x2="200" y2="88" ' + s + ' stroke-width="0.65" stroke-dasharray="9,8" opacity="0.32"/>' +
+        '<line x1="176" y1="58" x2="168" y2="86" ' + s + ' stroke-width="0.55" stroke-dasharray="9,8" opacity="0.26"/>' +
+        '<line x1="224" y1="58" x2="232" y2="86" ' + s + ' stroke-width="0.55" stroke-dasharray="9,8" opacity="0.26"/>' +
+        person(175, 182, 11, 34) +
+        '<path d="M168 158 L172 150 L176 156 L180 150 L184 158 Z" ' + sf + ' fill="white" stroke-width="1.35"/>' +
+        '<path d="M150 192 L138 214 M200 192 L212 214" ' + s + ' stroke-width="1.75"/>' +
+        '<path d="M248 188 Q218 168 186 154" ' + s + ' stroke-width="1.5" fill="none" opacity="0.88"/>' +
+        person(298, 176, 12, 34) +
+        '<rect x="276" y="198" width="56" height="28" rx="5" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="290" y="162" width="34" height="16" rx="2" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        '<path d="M290 162 Q307 148 324 162" ' + s + ' stroke-width="2"/>' +
+        sun(48, 44, 16) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Esther 2:1–17</text>'
       ),
 
-      /* ── Week 4: Nehemiah Walls (53) ── */
+      /* Esther — simple crown, soft palace window light, queen before king (Esther 4–7) */
+      estherBrave: svg(
+        ground() +
+        '<rect x="52" y="98" width="296" height="72" rx="8" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        '<path d="M110 98 L110 62 Q160 48 200 56 Q240 48 290 62 L290 98" ' +
+        sf +
+        ' fill="white" stroke-width="1.75"/>' +
+        /* gentle window light above arch */
+        '<ellipse cx="200" cy="68" rx="72" ry="16" ' + sf + ' fill="white" stroke-width="0.55" opacity="0.22"/>' +
+        '<line x1="200" y1="54" x2="200" y2="88" ' + s + ' stroke-width="0.65" stroke-dasharray="9,8" opacity="0.32"/>' +
+        '<line x1="176" y1="58" x2="168" y2="86" ' + s + ' stroke-width="0.55" stroke-dasharray="9,8" opacity="0.26"/>' +
+        '<line x1="224" y1="58" x2="232" y2="86" ' + s + ' stroke-width="0.55" stroke-dasharray="9,8" opacity="0.26"/>' +
+        person(175, 182, 11, 34) +
+        /* small gentle crown — five soft peaks, lighter stroke */
+        '<path d="M168 158 L172 150 L176 156 L180 150 L184 158 Z" ' + sf + ' fill="white" stroke-width="1.45"/>' +
+        '<path d="M150 192 L138 214 M200 192 L212 214" ' + s + ' stroke-width="1.8"/>' +
+        person(298, 176, 12, 34) +
+        '<rect x="276" y="198" width="56" height="28" rx="5" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="290" y="162" width="34" height="16" rx="2" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        '<path d="M290 162 Q307 148 324 162" ' + s + ' stroke-width="2"/>' +
+        person(92, 194, 9, 28) +
+        sun(48, 44, 16) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Esther 4–7</text>'
+      ),
+
+      /* ── Week 4: Nehemiah — wall rising, teamwork, stones, soft gate, no weapons ── */
       nehemiahWalls: svg(
         ground() +
-        '<rect x="80" y="80" width="240" height="180" rx="4" ' + sf + ' fill="white" stroke-width="4"/>' +
-        '<rect x="88" y="68" width="30" height="20" ' + s + ' stroke-width="2.5"/>' +
-        '<rect x="138" y="68" width="30" height="20" ' + s + ' stroke-width="2.5"/>' +
-        '<rect x="182" y="68" width="30" height="20" ' + s + ' stroke-width="2.5"/>' +
-        '<rect x="232" y="68" width="30" height="20" ' + s + ' stroke-width="2.5"/>' +
-        '<rect x="282" y="68" width="30" height="20" ' + s + ' stroke-width="2.5"/>' +
-        person(180, 180, 12, 35) +
-        '<line x1="172" y1="198" x2="155" y2="245" ' + s + ' stroke-width="3.5"/>' +
-        '<polygon points="150,242 148,256 160,252" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M205 198 L215 235" ' + s + ' stroke-width="2.5"/>' +
-        person(60, 182, 10, 28) + person(320, 182, 10, 28) +
-        sun(330, 45, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Nehemiah 4:17</text>'
+        hills() +
+        sun(340, 48, 18) +
+        /* distant gate and city hint */
+        '<path d="M48 195 L48 168 M62 195 L62 168 M48 168 Q55 158 62 168" ' + s + ' stroke-width="2.2" fill="none"/>' +
+        '<rect x="72" y="158" width="34" height="20" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="108" y="150" width="34" height="20" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="144" y="142" width="34" height="20" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="180" y="135" width="34" height="20" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="216" y="128" width="34" height="20" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="248" y="122" width="34" height="18" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="92" cy="250" rx="16" ry="11" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="128" cy="254" rx="14" ry="9" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="300" cy="252" rx="15" ry="10" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        person(168, 188, 11, 32) +
+        person(95, 198, 10, 28) +
+        person(275, 195, 10, 28) +
+        person(218, 200, 9, 26) +
+        '<line x1="148" y1="212" x2="132" y2="228" ' +
+        s +
+        ' stroke-width="2"/>' +
+        '<line x1="248" y1="208" x2="262" y2="222" ' +
+        s +
+        ' stroke-width="2"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Nehemiah 2:18</text>'
       ),
 
-      /* ── Week 4: Job Suffering (54) ── */
+      /* ── Return from exile: Ezra 1 & 3 — thankful journey home, gates, altar smoke ── */
+      ezraReturn: svg(
+        ground() +
+        hills() +
+        sun(48, 44, 18) +
+        '<path d="M20 255 Q200 228 380 255" ' +
+        s +
+        ' stroke-width="2.5" stroke-dasharray="5,4"/>' +
+        /* open gate toward the city */
+        '<path d="M218 248 L218 198 M242 248 L242 198" ' + s + ' stroke-width="2.8"/>' +
+        '<path d="M218 198 Q230 188 242 198" ' + s + ' stroke-width="2.5" fill="none"/>' +
+        '<rect x="228" y="108" width="130" height="68" rx="6" ' +
+        sf +
+        ' fill="white" stroke-width="3"/>' +
+        '<path d="M248 176 L248 118 M268 176 L268 112 M288 176 L288 118 M308 176 L308 112" ' +
+        s +
+        ' stroke-width="2"/>' +
+        '<path d="M258 176 Q278 150 298 176" ' +
+        s +
+        ' stroke-width="2.5"/>' +
+        '<rect x="58" y="200" width="54" height="26" rx="4" ' +
+        sf +
+        ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M68 196 L74 178 M85 196 L88 172 M100 196 L96 178" ' +
+        s +
+        ' stroke-width="1.5" stroke-dasharray="2,2"/>' +
+        /* soft smoke from altar */
+        '<path d="M72 178 Q76 158 80 172 Q84 152 88 168" ' + s + ' stroke-width="1.4" fill="none" opacity="0.55"/>' +
+        '<path d="M92 180 Q96 162 100 176" ' + s + ' stroke-width="1.2" fill="none" opacity="0.45"/>' +
+        person(138, 188, 10, 28) +
+        person(165, 185, 11, 32) +
+        person(192, 187, 10, 28) +
+        person(118, 192, 9, 24) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ezra 3:6</text>'
+      ),
+
+      /* ── Job — sad but trusting; friends close, soft hills (Job 1–2) ── */
       jobSuffering: svg(
         ground() +
-        person(200, 185, 12, 35) +
-        '<path d="M188 188 Q178 195 180 208 Q186 215 190 210 Q185 220 188 228" ' + s + ' stroke-width="2.5"/>' +
-        '<path d="M212 188 Q222 195 220 208 Q214 215 210 210 Q215 220 212 228" ' + s + ' stroke-width="2.5"/>' +
-        '<path d="M192 200 Q188 208 190 215" ' + s + ' stroke-width="2"/>' +
-        '<path d="M208 200 Q212 208 210 215" ' + s + ' stroke-width="2"/>' +
-        person(80, 185, 11, 32) + person(105, 188, 10, 28) +
-        person(290, 185, 11, 32) + person(315, 188, 10, 28) +
-        cloud(160, 30) + cloud(60, 55) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Job 2:13</text>'
+        '<path d="M0 248 Q120 226 200 248 Q280 226 400 248" ' +
+        s +
+        ' stroke-width="2.2" fill="none" opacity="0.85"/>' +
+        '<path d="M0 255 Q100 238 200 255 Q300 238 400 255" ' +
+        s +
+        ' stroke-width="1.5" fill="none" opacity="0.55"/>' +
+        sun(48, 44, 15) +
+        '<ellipse cx="72" cy="52" rx="28" ry="14" ' +
+        sf +
+        ' fill="white" stroke-width="1.6" opacity="0.55"/>' +
+        '<ellipse cx="318" cy="56" rx="32" ry="15" ' +
+        sf +
+        ' fill="white" stroke-width="1.6" opacity="0.55"/>' +
+        '<ellipse cx="88" cy="252" rx="22" ry="12" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="318" cy="254" rx="20" ry="11" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="200" cy="258" rx="118" ry="13" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        person(200, 198, 12, 28) +
+        person(148, 202, 10, 26) +
+        person(178, 198, 10, 26) +
+        person(248, 202, 10, 26) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Job 1:21</text>'
       ),
 
       /* ── Week 4: Psalm 23 — shepherd, still water, sheep (psalm23 + psalm23Shepherd) ── */
@@ -1977,30 +2427,36 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ps 23:1</text>'
       ),
 
-      /* Solomon asks for wisdom — dream, light from heaven (1 Kings 3:5-15) */
+      /* Solomon asks for wisdom — kneeling prayer, stars, soft light, simple bed (1 Kings 3:5-15) */
       solomonWisdom: svg(
-        /* night ground */
-        '<rect x="0" y="248" width="400" height="52" ' + sf + ' fill="white" stroke-width="2"/>' +
-        /* star field */
-        '<circle cx="62" cy="48" r="2" fill="#222"/><circle cx="98" cy="72" r="1.5" fill="#222"/><circle cx="340" cy="58" r="2" fill="#222"/>' +
-        '<circle cx="310" cy="88" r="1.2" fill="#222"/><circle cx="128" cy="44" r="1.3" fill="#222"/><circle cx="268" cy="38" r="1.6" fill="#222"/>' +
-        /* gentle rays */
-        '<path d="M200 28 L188 120 M200 28 L200 125 M200 28 L212 120 M200 28 L175 105 M200 28 L225 105" ' +
+        ground() +
+        /* star field — wonder-filled night */
+        '<circle cx="42" cy="40" r="2" fill="#222"/><circle cx="78" cy="58" r="1.5" fill="#222"/>' +
+        '<circle cx="118" cy="36" r="1.3" fill="#222"/><circle cx="152" cy="52" r="1.6" fill="#222"/>' +
+        '<circle cx="88" cy="88" r="1.1" fill="#222"/><circle cx="200" cy="48" r="1.8" fill="#222"/>' +
+        '<circle cx="268" cy="42" r="2" fill="#222"/><circle cx="308" cy="64" r="1.4" fill="#222"/>' +
+        '<circle cx="342" cy="38" r="1.2" fill="#222"/><circle cx="358" cy="78" r="1.5" fill="#222"/>' +
+        '<circle cx="328" cy="102" r="1.1" fill="#222"/><circle cx="58" cy="108" r="1.2" fill="#222"/>' +
+        /* soft light from above */
+        '<path d="M200 20 L172 118 M200 20 L200 120 M200 20 L228 118 M200 20 L158 100 M200 20 L242 100 M200 24 L186 110 M200 24 L214 110" ' +
           s +
-          ' stroke-width="2" stroke-linecap="round" opacity="0.55"/>' +
-        /* simple resting mat */
-        '<rect x="118" y="232" width="100" height="10" rx="2" ' + sf + ' fill="white" stroke-width="2"/>' +
-        /* kneeling young king — humble */
-        '<ellipse cx="200" cy="248" rx="36" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<rect x="176" y="188" width="48" height="62" rx="5" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<circle cx="200" cy="170" r="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M192 164 Q200 158 208 164" ' + s + ' stroke-width="1.5"/>' +
-        '<circle cx="194" cy="168" r="1.5" fill="#111"/><circle cx="206" cy="168" r="1.5" fill="#111"/>' +
-        /* hands lifted lightly */
-        '<line x1="176" y1="210" x2="158" y2="198" ' + s + ' stroke-width="2"/>' +
-        '<line x1="224" y1="210" x2="242" y2="198" ' + s + ' stroke-width="2"/>' +
+          ' stroke-width="1.8" stroke-linecap="round" opacity="0.32"/>' +
+        /* simple bed — headboard + pillow (background, left) */
+        '<path d="M44 224 L44 166 L48 162 L102 162 L106 166 L106 224" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="50" y="186" width="58" height="30" rx="3" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="72" cy="194" rx="16" ry="7" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        /* kneeling young king — folded hands, humble */
+        '<ellipse cx="220" cy="242" rx="50" ry="14" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<circle cx="220" cy="132" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M214 136 Q220 130 226 136" ' + s + ' stroke-width="1.3"/>' +
+        '<path d="M220 144 L220 188" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M208 158 L220 174 L232 158" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M214 174 L214 196 L226 174 L226 196" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M196 198 L196 228 M244 198 L244 228" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M196 228 Q220 242 244 228" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M212 186 L220 194 L228 186" ' + s + ' stroke-width="1.4" fill="none"/>' +
         /* crown set aside */
-        '<path d="M268 228 L274 244 L280 228 L286 244 L292 228 L298 244 L304 228 L304 244 L268 244 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M302 226 L306 236 L310 226 L314 236 L318 226 L322 236 L326 226 L326 240 L302 240 Z" ' + sf + ' fill="white" stroke-width="1.8"/>' +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kgs 3:9</text>'
       ),
 
@@ -2021,50 +2477,57 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kgs 3:27</text>'
       ),
 
-      /* Elijah calls Elisha — oxen, field (1 Kings 19:19-21) */
+      /* Elijah calls Elisha — gentle field: mantle clear, oxen + plow, Elijah ahead (1 Kings 19:19-21) */
       elijahElijahElisha: svg(
         ground() + hills() +
-        sun(48, 44, 18) +
+        sun(48, 42, 16) + cloud(268, 38) +
         /* two oxen — yoke hint */
-        '<ellipse cx="95" cy="222" rx="32" ry="20" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<circle cx="72" cy="212" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<ellipse cx="145" cy="222" rx="32" ry="20" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<circle cx="122" cy="212" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<line x1="127" y1="218" x2="113" y2="218" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="88" cy="224" rx="30" ry="19" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="66" cy="214" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="138" cy="224" rx="30" ry="19" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="116" cy="214" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="121" y1="220" x2="108" y2="220" ' + s + ' stroke-width="2"/>' +
         /* plow */
-        '<path d="M155 235 L188 222 L198 242" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<line x1="188" y1="222" x2="178" y2="252" ' + s + ' stroke-width="2.5"/>' +
-        /* Elisha */
-        person(218, 186, 10, 28) +
-        /* mantle falling on shoulders */
-        '<path d="M200 178 Q218 168 236 178 Q232 198 218 202 Q204 198 200 178" ' + sf + ' fill="white" stroke-width="2.2"/>' +
-        /* Elijah passing by */
-        person(288, 178, 11, 30) +
-        '<path d="M268 188 Q248 182 228 192" ' + s + ' stroke-width="2"/>' +
+        '<path d="M148 236 L182 222 L192 242" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="182" y1="222" x2="172" y2="252" ' + s + ' stroke-width="2.5"/>' +
+        /* Elisha — mantle on shoulders (bold outline) */
+        person(210, 188, 10, 28) +
+        '<path d="M188 176 L232 176 L228 206 L194 210 Z" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<path d="M194 198 Q210 192 226 198" ' + s + ' stroke-width="2"/>' +
+        /* Elijah ahead — kind smile */
+        person(298, 176, 11, 30) +
+        '<path d="M292 182 Q298 186 304 182" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        '<path d="M248 194 Q272 188 286 200" ' + s + ' stroke-width="1.8" stroke-dasharray="4,4" opacity="0.55"/>' +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kings 19:19-21</text>'
       ),
 
-      /* Solomon builds the temple — glory cloud, prayer (1 Kings 8:10-11) */
+      /* Solomon builds God’s house — open doors, soft glory cloud, thankful people (1 Kings 8:10-11) */
       solomonTemple: svg(
         ground() + hills() +
         sun(52, 42, 16) + cloud(300, 36) +
-        /* temple — simple facade, open door */
-        '<rect x="118" y="118" width="164" height="132" rx="4" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<path d="M118 118 L200 88 L282 118" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<rect x="168" y="168" width="64" height="82" rx="3" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<line x1="168" y1="168" x2="168" y2="250" ' + s + ' stroke-width="2"/>' +
-        '<line x1="232" y1="168" x2="232" y2="250" ' + s + ' stroke-width="2"/>' +
-        /* pillars hint */
-        '<rect x="128" y="155" width="14" height="95" rx="2" ' + sf + ' fill="white" stroke-width="2.2"/>' +
-        '<rect x="258" y="155" width="14" height="95" rx="2" ' + sf + ' fill="white" stroke-width="2.2"/>' +
-        /* soft glory cloud inside doorway */
-        '<ellipse cx="200" cy="205" rx="38" ry="28" ' + sf + ' fill="white" stroke-width="2" opacity="0.95"/>' +
-        '<path d="M175 200 Q200 188 225 200 Q210 218 190 218 Q180 208 175 200" ' + sf + ' fill="white" stroke-width="1.5"/>' +
-        /* Solomon before the house — hands raised */
+        /* temple — wide open doors for easy coloring */
+        '<rect x="96" y="112" width="208" height="138" rx="5" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M96 112 L200 78 L304 112" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M152 170 L152 250 M248 170 L248 250" ' + s + ' stroke-width="2.2"/>' +
+        '<rect x="154" y="170" width="44" height="80" rx="2" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="202" y="170" width="44" height="80" rx="2" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="128" y="150" width="16" height="100" rx="2" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<rect x="256" y="150" width="16" height="100" rx="2" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        /* soft glory cloud — layered puffy lines inside */
+        '<ellipse cx="200" cy="208" rx="48" ry="34" ' + sf + ' fill="white" stroke-width="2" opacity="0.92"/>' +
+        '<path d="M165 202 Q185 188 200 198 Q215 188 235 202 Q228 222 200 228 Q172 222 165 202" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M178 212 Q200 200 222 212" ' + s + ' stroke-width="1.4" opacity="0.55"/>' +
+        '<path d="M172 218 Q200 206 228 218" ' + s + ' stroke-width="1.3" opacity="0.45"/>' +
+        /* Solomon — hands raised in prayer */
         person(200, 228, 11, 26) +
-        '<line x1="188" y1="218" x2="172" y2="202" ' + s + ' stroke-width="2"/>' +
-        '<line x1="212" y1="218" x2="228" y2="202" ' + s + ' stroke-width="2"/>' +
-        '<path d="M196 210 Q200 204 204 210" ' + s + ' stroke-width="1.2"/>' +
+        '<line x1="186" y1="218" x2="168" y2="194" ' + s + ' stroke-width="2"/>' +
+        '<line x1="214" y1="218" x2="232" y2="194" ' + s + ' stroke-width="2"/>' +
+        '<path d="M194 210 Q200 204 206 210" ' + s + ' stroke-width="1.2"/>' +
+        /* thankful people — simple glad smiles */
+        person(88, 218, 8, 22) +
+        '<path d="M82 208 Q88 212 94 208" ' + s + ' stroke-width="1" fill="none"/>' +
+        person(312, 218, 8, 22) +
+        '<path d="M306 208 Q312 212 318 208" ' + s + ' stroke-width="1" fill="none"/>' +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Kgs 8:11</text>'
       ),
 
@@ -2084,17 +2547,71 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">2 Kings 2:11</text>'
       ),
 
-      /* ── Week 4: Jonah Vine (58) ── */
+      /* ── Jonah — dry land, thankful heart, fish swims away gently (Jon. 1–3) ── */
       jonahVine: svg(
-        ground() + hills() +
-        person(200, 185, 12, 35) +
-        '<path d="M188 200 Q168 188 160 165 Q155 145 165 135 Q175 130 182 140 Q175 148 178 162 Q180 175 192 182" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M160 138 Q148 125 135 130 Q128 140 138 148" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M170 148 Q155 140 148 148 Q142 158 152 164" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M164 165 Q152 165 148 172 Q148 180 158 180" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M165 138 Q155 128 160 118 Q168 115 170 125" ' + sf + ' fill="white" stroke-width="2"/>' +
-        sun(320, 45, 22) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Jonah 4:7</text>'
+        ground() +
+        '<path d="M0 250 Q80 246 200 252 Q320 246 400 250" ' + s + ' stroke-width="2" fill="none" opacity="0.55"/>' +
+        /* sand */
+        '<path d="M0 252 L205 252 L200 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        /* calm water — soft waves only */
+        '<path d="M205 252 L400 252 L400 300 L205 300 Z" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<path d="M220 268 Q240 262 260 268 Q280 274 300 268 Q320 262 340 268 Q360 274 380 268" ' +
+        s +
+        ' stroke-width="1.1" fill="none" opacity="0.45"/>' +
+        '<path d="M230 276 Q255 272 280 276 Q305 280 330 276" ' + s + ' stroke-width="0.85" fill="none" opacity="0.35"/>' +
+        cloud(20, 28) +
+        cloud(300, 22) +
+        sun(72, 48, 18) +
+        /* gentle light toward Jonah */
+        '<line x1="120" y1="42" x2="135" y2="168" ' + s + ' stroke-width="0.5" stroke-dasharray="9,10" opacity="0.22"/>' +
+        '<line x1="100" y1="48" x2="118" y2="165" ' + s + ' stroke-width="0.45" stroke-dasharray="9,10" opacity="0.18"/>' +
+        /* Jonah — thankful, looking up */
+        person(138, 172, 11, 30) +
+        '<path d="M126 192 L112 168 M150 192 L164 168" ' + s + ' stroke-width="1.75"/>' +
+        '<path d="M132 178 Q138 174 144 178" ' + s + ' stroke-width="1" fill="none" opacity="0.75"/>' +
+        '<circle cx="133" cy="166" r="1.3" fill="#111" opacity="0.35"/><circle cx="143" cy="166" r="1.3" fill="#111" opacity="0.35"/>' +
+        /* fish swimming away — simple, friendly */
+        '<path d="M268 218 Q300 200 332 212 Q348 218 352 228 Q336 236 312 232 Q284 238 268 228 Q262 222 268 218 Z" ' +
+        sf +
+        ' fill="white" stroke-width="2"/>' +
+        '<path d="M268 222 Q254 218 246 228 Q252 234 260 232 Q266 228 268 222 Z" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="328" cy="216" r="5" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<circle cx="329" cy="215" r="2" fill="#111" opacity="0.25"/>' +
+        '<path d="M318 224 Q328 228 338 224" ' + s + ' stroke-width="1" fill="none" opacity="0.4"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Jonah 1–3</text>'
+      ),
+
+      /* ── Malachi — open hands, scroll, soft light (Mal. 3:1; 4:5–6) ── */
+      malachiMessage: svg(
+        ground() +
+        hills() +
+        '<path d="M0 250 Q120 236 200 250 Q280 236 400 250" ' +
+        s +
+        ' stroke-width="2" fill="none" opacity="0.72"/>' +
+        '<path d="M0 256 Q140 248 200 256 Q260 248 400 256" ' +
+        s +
+        ' stroke-width="1.25" fill="none" opacity="0.42"/>' +
+        '<ellipse cx="200" cy="50" rx="78" ry="17" ' +
+        sf +
+        ' fill="white" stroke-width="0.55" opacity="0.28"/>' +
+        '<line x1="200" y1="36" x2="200" y2="120" ' +
+        s +
+        ' stroke-width="0.42" stroke-dasharray="10,10" opacity="0.24"/>' +
+        '<line x1="176" y1="42" x2="184" y2="116" ' +
+        s +
+        ' stroke-width="0.38" stroke-dasharray="10,10" opacity="0.2"/>' +
+        '<line x1="224" y1="42" x2="216" y2="116" ' +
+        s +
+        ' stroke-width="0.38" stroke-dasharray="10,10" opacity="0.2"/>' +
+        person(200, 166, 12, 34) +
+        '<path d="M184 202 L166 184 M216 202 L234 184" ' + s + ' stroke-width="1.75"/>' +
+        '<rect x="188" y="198" width="26" height="15" rx="2" ' +
+        sf +
+        ' fill="white" stroke-width="1.4"/>' +
+        '<line x1="192" y1="204" x2="210" y2="204" ' + s + ' stroke-width="0.65"/>' +
+        '<line x1="192" y1="208" x2="206" y2="208" ' + s + ' stroke-width="0.65"/>' +
+        sun(332, 46, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Malachi 3–4</text>'
       ),
 
       /* ── Week 4: Daniel Pray (59) ── */
@@ -2112,21 +2629,122 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Daniel 6:10</text>'
       ),
 
-      /* ── Week 4: Esther Banquet (60) ── */
+      /* ── Esther banquet — table truth, soft palace window (Esther 5–7) ── */
       estherBanquet: svg(
         ground() +
-        '<rect x="80" y="95" width="240" height="160" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<path d="M80 138 L200 115 L320 138" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<path d="M110 255 Q150 235 200 235 Q250 235 290 255" ' + sf + ' fill="white" stroke-width="3"/>' +
-        person(200, 148, 13, 40) +
-        '<path d="M186 148 L186 128 L194 136 L200 122 L206 136 L214 128 L214 148 Z" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<line x1="190" y1="178" x2="165" y2="198" ' + s + ' stroke-width="3"/>' +
-        person(295, 155, 13, 38) +
-        '<rect x="282" y="146" width="26" height="10" rx="2" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M282 146 Q295 132 308 146" ' + s + ' stroke-width="2.5"/>' +
-        person(100, 165, 11, 32) +
-        sun(40, 45, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Esther 7:6</text>'
+        '<rect x="52" y="92" width="296" height="98" rx="8" ' +
+        sf +
+        ' fill="white" stroke-width="1.85"/>' +
+        '<path d="M110 92 L110 58 Q160 46 200 54 Q240 46 290 58 L290 92" ' +
+        sf +
+        ' fill="white" stroke-width="1.65"/>' +
+        '<ellipse cx="200" cy="64" rx="72" ry="15" ' + sf + ' fill="white" stroke-width="0.55" opacity="0.2"/>' +
+        '<line x1="200" y1="48" x2="200" y2="88" ' + s + ' stroke-width="0.65" stroke-dasharray="9,8" opacity="0.3"/>' +
+        '<line x1="174" y1="52" x2="166" y2="86" ' + s + ' stroke-width="0.55" stroke-dasharray="9,8" opacity="0.24"/>' +
+        '<line x1="226" y1="52" x2="234" y2="86" ' + s + ' stroke-width="0.55" stroke-dasharray="9,8" opacity="0.24"/>' +
+        '<ellipse cx="200" cy="218" rx="128" ry="24" ' + sf + ' fill="white" stroke-width="2.1"/>' +
+        '<ellipse cx="128" cy="210" rx="20" ry="7" ' + sf + ' fill="white" stroke-width="1.35"/>' +
+        '<ellipse cx="200" cy="214" rx="22" ry="7" ' + sf + ' fill="white" stroke-width="1.35"/>' +
+        '<ellipse cx="272" cy="210" rx="20" ry="7" ' + sf + ' fill="white" stroke-width="1.35"/>' +
+        person(128, 168, 10, 28) +
+        '<path d="M120 158 L125 146 L131 152 L137 146 L143 158 Z" ' + sf + ' fill="white" stroke-width="1.25"/>' +
+        '<path d="M134 188 L150 205" ' + s + ' stroke-width="1.6"/>' +
+        person(200, 162, 11, 30) +
+        person(272, 168, 10, 28) +
+        '<rect x="260" y="148" width="24" height="9" rx="2" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<path d="M260 148 Q272 138 284 148" ' + s + ' stroke-width="1.6"/>' +
+        sun(44, 44, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Esther 5–7</text>'
+      ),
+
+      /* ── Isaiah — promised child; soft light, scroll, gentle hills (Isaiah 9:2–7) ── */
+      isaiahMessianic: svg(
+        ground() +
+        '<path d="M0 250 Q120 228 200 250 Q280 228 400 250" ' +
+        s +
+        ' stroke-width="2" fill="none" opacity="0.78"/>' +
+        '<path d="M0 256 Q140 244 200 256 Q260 244 400 256" ' +
+        s +
+        ' stroke-width="1.35" fill="none" opacity="0.48"/>' +
+        '<ellipse cx="200" cy="46" rx="86" ry="20" ' +
+        sf +
+        ' fill="white" stroke-width="0.5" opacity="0.2"/>' +
+        '<line x1="200" y1="28" x2="200" y2="92" ' +
+        s +
+        ' stroke-width="0.6" stroke-dasharray="10,9" opacity="0.33"/>' +
+        '<line x1="170" y1="34" x2="158" y2="88" ' +
+        s +
+        ' stroke-width="0.5" stroke-dasharray="10,9" opacity="0.26"/>' +
+        '<line x1="230" y1="34" x2="242" y2="88" ' +
+        s +
+        ' stroke-width="0.5" stroke-dasharray="10,9" opacity="0.26"/>' +
+        person(200, 168, 12, 34) +
+        '<path d="M188 190 L172 202" ' + s + ' stroke-width="1.75"/>' +
+        '<path d="M212 190 L228 202" ' + s + ' stroke-width="1.75"/>' +
+        '<rect x="228" y="198" width="26" height="16" rx="3" ' +
+        sf +
+        ' fill="white" stroke-width="1.45"/>' +
+        '<line x1="232" y1="203" x2="250" y2="203" ' + s + ' stroke-width="0.75"/>' +
+        '<line x1="232" y1="208" x2="248" y2="208" ' + s + ' stroke-width="0.75"/>' +
+        sun(340, 48, 15) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Isaiah 9:2–7</text>'
+      ),
+
+      /* ── Jeremiah — kind tears, scroll, soft hills (Jer. 1; 13) ── */
+      jeremiahWeeping: svg(
+        ground() +
+        '<path d="M0 250 Q120 228 200 250 Q280 228 400 250" ' +
+        s +
+        ' stroke-width="2" fill="none" opacity="0.78"/>' +
+        '<path d="M0 256 Q140 242 200 256 Q260 242 400 256" ' +
+        s +
+        ' stroke-width="1.35" fill="none" opacity="0.48"/>' +
+        '<ellipse cx="72" cy="54" rx="30" ry="14" ' +
+        sf +
+        ' fill="white" stroke-width="1.5" opacity="0.52"/>' +
+        person(200, 192, 11, 26) +
+        '<path d="M189 206 L180 214 M211 206 L220 214" ' + s + ' stroke-width="1.6"/>' +
+        '<circle cx="193" cy="205" r="1.6" fill="#111" opacity="0.28"/>' +
+        '<path d="M194 206 Q195 210 194 213" ' + s + ' stroke-width="0.85" opacity="0.42"/>' +
+        '<rect x="212" y="214" width="28" height="18" rx="3" ' +
+        sf +
+        ' fill="white" stroke-width="1.45"/>' +
+        '<line x1="216" y1="220" x2="236" y2="220" ' + s + ' stroke-width="0.7"/>' +
+        '<line x1="216" y1="224" x2="232" y2="224" ' + s + ' stroke-width="0.7"/>' +
+        sun(332, 46, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Jeremiah 1; 13</text>'
+      ),
+
+      /* ── Ezekiel — valley, simple bone shapes, soft light from above (Ez. 37:1–14) ── */
+      ezekielValleyBones: svg(
+        ground() +
+        '<path d="M0 248 Q120 230 200 248 Q280 230 400 248" ' +
+        s +
+        ' stroke-width="2" fill="none" opacity="0.78"/>' +
+        '<path d="M0 254 Q140 242 200 254 Q260 242 400 254" ' +
+        s +
+        ' stroke-width="1.35" fill="none" opacity="0.46"/>' +
+        '<ellipse cx="200" cy="40" rx="52" ry="11" ' +
+        sf +
+        ' fill="white" stroke-width="0.85" opacity="0.38"/>' +
+        '<line x1="200" y1="24" x2="200" y2="98" ' +
+        s +
+        ' stroke-width="0.45" stroke-dasharray="10,9" opacity="0.28"/>' +
+        '<line x1="176" y1="30" x2="188" y2="104" ' +
+        s +
+        ' stroke-width="0.4" stroke-dasharray="10,9" opacity="0.22"/>' +
+        '<line x1="224" y1="30" x2="212" y2="104" ' +
+        s +
+        ' stroke-width="0.4" stroke-dasharray="10,9" opacity="0.22"/>' +
+        '<ellipse cx="88" cy="252" rx="20" ry="7" ' + sf + ' fill="white" stroke-width="1.7"/>' +
+        '<ellipse cx="128" cy="256" rx="14" ry="5" ' + sf + ' fill="white" stroke-width="1.45"/>' +
+        '<ellipse cx="52" cy="258" rx="11" ry="5" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<ellipse cx="305" cy="252" rx="18" ry="6" ' + sf + ' fill="white" stroke-width="1.65"/>' +
+        '<ellipse cx="270" cy="256" rx="12" ry="4" ' + sf + ' fill="white" stroke-width="1.35"/>' +
+        '<ellipse cx="345" cy="254" rx="15" ry="5" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        person(200, 170, 12, 34) +
+        sun(348, 46, 13) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ezekiel 37:1–14</text>'
       ),
 
       /* ── Week 5: Angel Mary (61) ── */
@@ -2145,19 +2763,69 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 1:28</text>'
       ),
 
-      /* ── Week 5: Shepherds Star (62) ── */
+      /* ── Shepherds — stable, manger, joy at finding Jesus (Luke 2:8–20) ── */
       shepherdsStar: svg(
-        ground() + hills() +
-        star(200, 35, 22) +
-        '<line x1="200" y1="57" x2="200" y2="100" ' + s + ' stroke-width="2.5" stroke-dasharray="4,3"/>' +
-        '<circle cx="198" cy="152" r="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M180 142 Q165 125 180 112 Q194 122 198 138" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M216 142 Q231 125 216 112 Q202 122 198 138" ' + sf + ' fill="white" stroke-width="2"/>' +
-        person(80, 188, 11, 32) + person(108, 192, 10, 28) +
-        '<ellipse cx="58" cy="228" rx="18" ry="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<circle cx="44" cy="220" r="10" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        person(290, 185, 10, 28) + person(320, 188, 10, 28) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 2:9</text>'
+        ground() +
+        '<path d="M72 262 L72 150 L200 106 L328 150 L328 262" ' + sf + ' fill="white" stroke-width="2.7"/>' +
+        '<path d="M72 150 L200 106 L328 150" ' + sf + ' fill="white" stroke-width="2.7"/>' +
+        '<rect x="170" y="186" width="76" height="42" rx="5" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="208" cy="202" r="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(118, 188, 9, 24) +
+        person(285, 188, 9, 24) +
+        person(88, 198, 9, 26) +
+        person(112, 202, 8, 24) +
+        person(302, 200, 9, 26) +
+        '<ellipse cx="52" cy="252" rx="14" ry="7" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<ellipse cx="348" cy="252" rx="14" ry="7" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<ellipse cx="72" cy="256" rx="12" ry="6" ' + sf + ' fill="white" stroke-width="1.45"/>' +
+        star(200, 48, 11) +
+        '<line x1="200" y1="62" x2="200" y2="118" ' + s + ' stroke-width="0.46" stroke-dasharray="7,7" opacity="0.24"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 2:8–20</text>'
+      ),
+
+      /* ── Wise men — star, kneeling worship, gifts (Matthew 2:1–12) ── */
+      wiseMen: svg(
+        ground() +
+        '<path d="M72 262 L72 150 L200 106 L328 150 L328 262" ' + sf + ' fill="white" stroke-width="2.7"/>' +
+        '<path d="M72 150 L200 106 L328 150" ' + sf + ' fill="white" stroke-width="2.7"/>' +
+        '<rect x="168" y="184" width="78" height="44" rx="5" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="207" cy="200" r="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M203 202 Q207 196 211 202" ' + s + ' stroke-width="1.5"/>' +
+        person(262, 174, 9, 22) +
+        '<ellipse cx="95" cy="234" rx="28" ry="13" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="95" cy="206" r="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="72" y="218" width="22" height="16" rx="2" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="200" cy="238" rx="30" ry="14" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="200" cy="208" r="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="186" y="222" width="18" height="12" rx="2" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="305" cy="234" rx="28" ry="13" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="305" cy="206" r="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="318" y="218" width="22" height="16" rx="2" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        star(200, 44, 14) +
+        '<line x1="200" y1="60" x2="200" y2="118" ' + s + ' stroke-width="0.5" stroke-dasharray="7,6" opacity="0.32"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 2:1–12</text>'
+      ),
+
+      /* ── Simeon & Anna — temple, arms, praise (Luke 2:22–38) ── */
+      simeonAnna: svg(
+        ground() +
+        '<rect x="70" y="72" width="260" height="188" rx="4" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<line x1="92" y1="72" x2="92" y2="260" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="308" y1="72" x2="308" y2="260" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M70 72 L200 50 L330 72" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<ellipse cx="200" cy="58" rx="56" ry="9" ' + sf + ' fill="white" stroke-width="1" opacity="0.42"/>' +
+        '<line x1="200" y1="67" x2="200" y2="128" ' + s + ' stroke-width="0.42" opacity="0.2"/>' +
+        '<line x1="175" y1="72" x2="168" y2="118" ' + s + ' stroke-width="0.38" opacity="0.18"/>' +
+        '<line x1="225" y1="72" x2="232" y2="118" ' + s + ' stroke-width="0.38" opacity="0.18"/>' +
+        person(102, 174, 9, 24) +
+        person(258, 174, 9, 24) +
+        person(172, 154, 11, 24) +
+        '<circle cx="204" cy="178" r="7" ' + sf + ' fill="white" stroke-width="1.9"/>' +
+        '<path d="M184 182 Q198 170 214 182" ' + s + ' stroke-width="1.8"/>' +
+        person(318, 166, 8, 20) +
+        '<line x1="306" y1="176" x2="292" y2="138" ' + s + ' stroke-width="2"/>' +
+        '<line x1="330" y1="176" x2="344" y2="138" ' + s + ' stroke-width="2"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 2:22–38</text>'
       ),
 
       /* ── Week 5: Jesus Manger (63) ── */
@@ -2174,22 +2842,46 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 2:7</text>'
       ),
 
-      /* ── Week 5: Jesus Temple (64) ── */
+      /* ── Jesus born — gentle stable, quiet animals, soft star (Luke 2:1–20) ── */
+      jesusBirth: svg(
+        ground() +
+        '<path d="M100 260 L100 142 L200 104 L300 142 L300 260" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<path d="M100 142 L200 104 L300 142" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<rect x="155" y="176" width="90" height="49" rx="6" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<circle cx="200" cy="190" r="10" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<path d="M196 192 Q200 187 204 192" ' + s + ' stroke-width="1.6"/>' +
+        person(118, 184, 10, 24) +
+        person(278, 184, 10, 24) +
+        '<ellipse cx="68" cy="250" rx="18" ry="8" ' + sf + ' fill="white" stroke-width="1.65"/>' +
+        '<ellipse cx="52" cy="244" rx="6" ry="7" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<ellipse cx="332" cy="250" rx="18" ry="8" ' + sf + ' fill="white" stroke-width="1.65"/>' +
+        '<ellipse cx="348" cy="244" rx="6" ry="7" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        star(200, 46, 12) +
+        '<line x1="200" y1="60" x2="200" y2="100" ' + s + ' stroke-width="0.5" stroke-dasharray="7,6" opacity="0.28"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 2:1–20</text>'
+      ),
+
+      /* ── Boy Jesus — temple, teachers, soft light (Luke 2:41–52) ── */
       jesusTemple: svg(
         ground() +
-        '<rect x="70" y="80" width="260" height="180" rx="4" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<line x1="90" y1="80" x2="90" y2="260" ' + s + ' stroke-width="3"/>' +
-        '<line x1="310" y1="80" x2="310" y2="260" ' + s + ' stroke-width="3"/>' +
-        '<path d="M70 80 L200 40 L330 80" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<line x1="110" y1="80" x2="110" y2="260" ' + s + ' stroke-width="2"/>' +
-        '<line x1="150" y1="80" x2="150" y2="260" ' + s + ' stroke-width="2"/>' +
-        '<line x1="250" y1="80" x2="250" y2="260" ' + s + ' stroke-width="2"/>' +
-        '<line x1="290" y1="80" x2="290" y2="260" ' + s + ' stroke-width="2"/>' +
-        person(200, 155, 11, 32) +
-        person(130, 168, 12, 35) + person(158, 172, 11, 32) +
-        person(248, 168, 12, 35) + person(272, 172, 11, 32) +
-        sun(335, 48, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 2:46</text>'
+        '<rect x="68" y="70" width="264" height="192" rx="4" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<line x1="88" y1="70" x2="88" y2="262" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="312" y1="70" x2="312" y2="262" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M68 70 L200 48 L332 70" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<line x1="128" y1="70" x2="128" y2="262" ' + s + ' stroke-width="1.6" opacity="0.65"/>' +
+        '<line x1="168" y1="70" x2="168" y2="262" ' + s + ' stroke-width="1.6" opacity="0.65"/>' +
+        '<line x1="232" y1="70" x2="232" y2="262" ' + s + ' stroke-width="1.6" opacity="0.65"/>' +
+        '<line x1="272" y1="70" x2="272" y2="262" ' + s + ' stroke-width="1.6" opacity="0.65"/>' +
+        '<ellipse cx="200" cy="56" rx="62" ry="10" ' + sf + ' fill="white" stroke-width="1" opacity="0.4"/>' +
+        '<line x1="200" y1="66" x2="200" y2="138" ' + s + ' stroke-width="0.4" opacity="0.2"/>' +
+        '<line x1="175" y1="70" x2="168" y2="120" ' + s + ' stroke-width="0.35" opacity="0.16"/>' +
+        '<line x1="225" y1="70" x2="232" y2="120" ' + s + ' stroke-width="0.35" opacity="0.16"/>' +
+        person(118, 168, 11, 30) +
+        person(282, 168, 11, 30) +
+        person(200, 158, 10, 26) +
+        person(158, 172, 10, 26) +
+        person(242, 172, 10, 26) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 2:41–52</text>'
       ),
 
       /* ── Week 5: John Baptize (65) ── */
@@ -2237,6 +2929,73 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 2:7</text>'
       ),
 
+      /* ── Cana: water to wine — six stone waterpots (John 2:1–11) ── */
+      jesusWaterWine: svg(
+        ground() +
+        '<rect x="44" y="82" width="312" height="172" rx="8" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<path d="M44 82 L200 62 L356 82" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<line x1="200" y1="66" x2="200" y2="112" ' + s + ' stroke-width="0.45" stroke-dasharray="10,8" opacity="0.22"/>' +
+        '<line x1="168" y1="72" x2="182" y2="104" ' + s + ' stroke-width="0.35" opacity="0.18"/>' +
+        '<line x1="232" y1="72" x2="218" y2="104" ' + s + ' stroke-width="0.35" opacity="0.18"/>' +
+        person(200, 118, 11, 30) +
+        person(118, 132, 9, 24) +
+        '<path d="M127 148 L118 178 Q130 188 142 178" ' + s + ' stroke-width="2.2" fill="none"/>' +
+        '<line x1="132" y1="168" x2="108" y2="218" ' + s + ' stroke-width="1.8"/>' +
+        person(292, 128, 9, 24) +
+        '<path d="M48 178 L46 238 Q62 246 78 238 L76 178 Q62 172 48 178 Z" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="62" cy="178" rx="15" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M98 178 L96 238 Q112 246 128 238 L126 178 Q112 172 98 178 Z" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="112" cy="178" rx="15" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M148 178 L146 238 Q162 246 178 238 L176 178 Q162 172 148 178 Z" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="162" cy="178" rx="15" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M224 178 L222 238 Q238 246 254 238 L252 178 Q238 172 224 178 Z" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="238" cy="178" rx="15" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M274 178 L272 238 Q288 246 304 238 L302 178 Q288 172 274 178 Z" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="288" cy="178" rx="15" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M324 178 L322 238 Q338 246 354 238 L352 178 Q338 172 324 178 Z" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="338" cy="178" rx="15" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        sun(330, 48, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 2:1–11</text>'
+      ),
+
+      /* ── Gentle: wilderness — Jesus obeys; soft hills, no scary figure (Matthew 4:1–11) ── */
+      jesusTempted: svg(
+        ground() +
+        '<path d="M0 248 Q120 200 200 218 Q280 205 400 228 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="2.6"/>' +
+        '<path d="M0 120 Q100 70 200 95 Q300 80 400 110 L400 248 L0 248 Z" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<path d="M20 248 Q200 225 380 248" ' + s + ' stroke-width="1.8" opacity="0.35"/>' +
+        sun(48, 52, 15) +
+        cloud(268, 42) +
+        person(200, 128, 12, 34) +
+        '<ellipse cx="95" cy="242" rx="24" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="318" cy="246" rx="28" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M72 218 Q76 200 80 218 M78 208 L78 228" ' + s + ' stroke-width="1.8"/>' +
+        '<path d="M332 214 Q336 198 340 214" ' + s + ' stroke-width="1.8"/>' +
+        '<circle cx="328" cy="108" r="11" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M314 104 Q328 96 342 104" ' + s + ' stroke-width="1.6"/>' +
+        '<line x1="328" y1="119" x2="328" y2="142" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="314" y1="128" x2="342" y2="128" ' + s + ' stroke-width="1.6"/>' +
+        '<path d="M300 118 L312 112 M344 112 L356 118" ' + s + ' stroke-width="1.4" opacity="0.85"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 4:1–11</text>'
+      ),
+
+      /* ── Gentle: Sermon on the Mount — hillside teaching (Matthew 5:1–16) ── */
+      jesusSermon: svg(
+        ground() +
+        '<path d="M0 200 Q90 150 200 168 Q310 145 400 188 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        sun(52, 46, 14) +
+        cloud(278, 36) +
+        '<ellipse cx="200" cy="232" rx="58" ry="16" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(200, 130, 12, 30) +
+        person(108, 162, 9, 22) +
+        person(142, 168, 9, 22) +
+        person(258, 165, 9, 22) +
+        person(298, 170, 9, 22) +
+        '<path d="M88 188 Q92 172 96 188 M94 178 L94 198" ' + s + ' stroke-width="1.6"/>' +
+        '<path d="M308 186 Q312 172 316 186" ' + s + ' stroke-width="1.6"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 5:1–16</text>'
+      ),
+
       /* ── Week 5: Jesus Heal Blind (68) ── */
       healBlind: svg(
         ground() +
@@ -2274,20 +3033,110 @@
 
       /* ── Week 6: Lost Sheep already exists ── */
 
-      /* ── Week 6: Mustard Seed (77) ── */
+      /* ── Week 6 gentle: Mustard seed — tiny seed, tall plant, birds (Matthew 13:31–32) ── */
       mustardSeed: svg(
         ground() +
-        '<line x1="200" y1="260" x2="200" y2="80" ' + s + ' stroke-width="4"/>' +
-        '<circle cx="200" cy="62" r="40" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<circle cx="165" cy="80" r="26" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<circle cx="235" cy="78" r="26" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<circle cx="148" cy="105" r="18" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="252" cy="102" r="18" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M168 80 Q172 74 180 80" ' + s + ' stroke-width="2"/>' +
-        '<path d="M218 78 Q224 72 230 78" ' + s + ' stroke-width="2"/>' +
-        '<ellipse cx="200" cy="270" rx="5" ry="3" ' + sf + ' fill="white" stroke-width="2"/>' +
-        sun(50, 45, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 13:32</text>'
+        hills() +
+        sun(52, 44, 20) +
+        cloud(318, 38) +
+        person(88, 170, 11, 32) +
+        '<path d="M108 162 Q118 158 124 166" ' + s + ' stroke-width="1.4"/>' +
+        '<ellipse cx="155" cy="256" rx="7" ry="5" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="172" cy="254" r="2.8" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<line x1="268" y1="258" x2="268" y2="92" ' + s + ' stroke-width="4"/>' +
+        '<circle cx="268" cy="58" r="42" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="232" cy="74" r="28" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="304" cy="72" r="28" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="248" cy="102" r="20" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="288" cy="100" r="20" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M236 88 L244 84 L252 88" ' + s + ' stroke-width="2"/>' +
+        '<path d="M276 94 L284 90 L292 94" ' + s + ' stroke-width="2"/>' +
+        '<path d="M256 68 L264 64 L272 68" ' + s + ' stroke-width="1.8"/>' +
+        '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 13:31–32</text>'
+      ),
+
+      /* Week 6 gentle: Hidden treasure in a field — joy, sell all, buy field (Matthew 13:44) */
+      parableHiddenTreasure: svg(
+        ground() +
+        hills() +
+        sun(52, 44, 20) +
+        cloud(312, 36) +
+        '<circle cx="70" cy="250" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="86" cy="246" r="6" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="318" cy="248" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="332" cy="244" r="6" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="168" cy="186" r="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M160 190 Q168 184 176 190" ' + s + ' stroke-width="1.4"/>' +
+        '<line x1="168" y1="200" x2="168" y2="232" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="168" y1="214" x2="145" y2="228" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="168" y1="214" x2="192" y2="224" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M154 232 L150 248 L178 248 L174 232 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="218" cy="252" rx="30" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="210" y="222" width="40" height="30" rx="4" ' + sf + ' fill="white" stroke-width="2.6"/>' +
+        '<path d="M210 222 L230 208 L250 222" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<line x1="220" y1="234" x2="240" y2="234" ' + s + ' stroke-width="1.8"/>' +
+        '<circle cx="224" cy="238" r="2" ' + sf + ' fill="white" stroke-width="1.2"/>' +
+        '<circle cx="236" cy="238" r="2" ' + sf + ' fill="white" stroke-width="1.2"/>' +
+        '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 13:44</text>'
+      ),
+
+      /* Week 6 gentle: Pearl of great price — merchant, one pearl, joy (Matthew 13:45–46) */
+      parablePearl: svg(
+        ground() +
+        hills() +
+        sun(50, 42, 20) +
+        cloud(300, 34) +
+        '<rect x="58" y="198" width="92" height="52" rx="6" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<line x1="58" y1="218" x2="150" y2="218" ' + s + ' stroke-width="1.6"/>' +
+        '<ellipse cx="78" cy="208" rx="10" ry="14" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="104" cy="210" rx="10" ry="14" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="128" cy="208" rx="10" ry="14" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="200" cy="168" r="16" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M192 176 Q200 170 208 176" ' + s + ' stroke-width="1.4"/>' +
+        '<line x1="200" y1="184" x2="200" y2="248" ' + s + ' stroke-width="2.8"/>' +
+        '<line x1="200" y1="204" x2="172" y2="220" ' + s + ' stroke-width="2.4"/>' +
+        '<line x1="200" y1="204" x2="228" y2="210" ' + s + ' stroke-width="2.4"/>' +
+        '<path d="M186 248 L182 262 L214 262 L210 248 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="218" cy="188" r="22" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<circle cx="218" cy="188" r="14" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M212 182 Q218 178 224 182" ' + s + ' stroke-width="1.2"/>' +
+        '<circle cx="248" cy="252" r="5" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<circle cx="268" cy="248" r="6" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 13:45–46</text>'
+      ),
+
+      /* Week 6 gentle: Lost sheep — shepherd rejoicing, sheep on shoulders (Luke 15:3–7) */
+      parableLostSheep: svg(
+        ground() +
+        hills() +
+        sun(48, 42, 18) +
+        cloud(296, 32) +
+        '<circle cx="64" cy="256" r="4" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<circle cx="74" cy="252" r="3.5" ' + sf + ' fill="white" stroke-width="1.3"/>' +
+        '<circle cx="332" cy="258" r="4" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<circle cx="342" cy="254" r="3.5" ' + sf + ' fill="white" stroke-width="1.3"/>' +
+        '<ellipse cx="92" cy="246" rx="8" ry="6" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="82" cy="240" r="5" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<ellipse cx="118" cy="248" rx="7" ry="5" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<circle cx="110" cy="242" r="4" ' + sf + ' fill="white" stroke-width="1.3"/>' +
+        '<ellipse cx="200" cy="134" rx="34" ry="14" ' + sf + ' fill="white" stroke-width="2.6"/>' +
+        '<circle cx="162" cy="128" r="13" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<path d="M152 124 Q160 116 168 124" ' + s + ' stroke-width="1.2"/>' +
+        '<circle cx="156" cy="120" r="1.1" fill="#111"/><circle cx="166" cy="120" r="1.1" fill="#111"/>' +
+        '<path d="M156 128 Q162 132 168 128" ' + s + ' stroke-width="1"/>' +
+        '<ellipse cx="170" cy="138" rx="5" ry="8" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<ellipse cx="230" cy="138" rx="5" ry="8" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<path d="M184 144 L182 168" ' + s + ' stroke-width="1.8"/>' +
+        '<path d="M216 144 L218 168" ' + s + ' stroke-width="1.8"/>' +
+        '<circle cx="200" cy="168" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M192 172 Q200 178 208 172" ' + s + ' stroke-width="1.4"/>' +
+        '<circle cx="194" cy="166" r="1.2" fill="#111"/><circle cx="206" cy="166" r="1.2" fill="#111"/>' +
+        '<path d="M200 179 L172 250 L228 250 Z" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<path d="M176 200 L156 152" ' + s + ' stroke-width="2.4"/>' +
+        '<path d="M224 200 L244 152" ' + s + ' stroke-width="2.4"/>' +
+        '<path d="M248 198 L252 120" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M252 120 Q258 112 264 118" ' + s + ' stroke-width="1.8"/>' +
+        '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 15:3–7</text>'
       ),
 
       /* ── Week 6: Jesus Heal Leper (78) ── */
@@ -2304,18 +3153,19 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 17:14</text>'
       ),
 
-      /* ── Week 6: Jairus Daughter (79) ── */
+      /* ── Week 6 gentle: Jairus’ daughter — Jesus takes her hand (Mark 5:21–43) ── */
       jairus: svg(
         '<rect x="60" y="60" width="280" height="200" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
         '<path d="M60 100 L200 78 L340 100" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<path d="M130 260 Q165 220 200 218 Q235 220 270 260" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<circle cx="200" cy="210" r="13" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M192 210 Q200 202 208 210" ' + s + ' stroke-width="2"/>' +
-        person(200, 148, 13, 40) +
-        '<path d="M192 162 L183 188 M208 162 L217 188" ' + s + ' stroke-width="2.5"/>' +
-        person(95, 170, 11, 32) + person(310, 170, 11, 32) +
+        '<path d="M130 260 Q165 222 200 220 Q235 222 270 260" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<circle cx="222" cy="192" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M214 192 Q222 184 230 192" ' + s + ' stroke-width="2"/>' +
+        person(158, 128, 12, 38) +
+        '<line x1="170" y1="172" x2="210" y2="188" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="170" y1="178" x2="212" y2="196" ' + s + ' stroke-width="2"/>' +
+        person(95, 168, 11, 32) + person(310, 168, 11, 32) +
         sun(320, 45, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 5:41</text>'
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 5:21–43</text>'
       ),
 
       /* ── Week 6: Jesus Transfigure (80) ── */
@@ -3093,19 +3943,33 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ruth 2:8</text>'
       ),
 
-      /* ── Week 10: Esther Fast (130) ── */
+      /* ── Esther prays and fasts — kneeling, soft window light, quiet room (Esther 4:1–17) ── */
       estherFast: svg(
         ground() +
-        person(200, 165, 13, 40) +
-        '<path d="M186 162 L186 140 L194 148 L200 135 L206 148 L214 140 L214 162 Z" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<line x1="190" y1="178" x2="162" y2="198" ' + s + ' stroke-width="3"/>' +
-        '<polygon points="158,194 155,207 166,204" ' + sf + ' fill="white" stroke-width="2"/>' +
-        person(80, 182, 10, 28) + person(105, 185, 10, 28) +
-        person(295, 182, 10, 28) + person(320, 185, 10, 28) +
-        '<path d="M88 178 Q100 168 108 175" ' + s + ' stroke-width="2"/>' +
-        '<path d="M305 178 Q317 168 325 175" ' + s + ' stroke-width="2"/>' +
-        sun(330, 45, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Esther 4:16</text>'
+        '<rect x="52" y="72" width="296" height="140" rx="8" ' +
+        sf +
+        ' fill="white" stroke-width="1.85"/>' +
+        /* window — gentle light */
+        '<rect x="68" y="86" width="96" height="78" rx="5" ' + sf + ' fill="white" stroke-width="1.55"/>' +
+        '<line x1="116" y1="86" x2="116" y2="164" ' + s + ' stroke-width="1.15"/>' +
+        '<line x1="68" y1="126" x2="164" y2="126" ' + s + ' stroke-width="1.15"/>' +
+        '<ellipse cx="116" cy="124" rx="44" ry="32" ' + sf + ' fill="white" stroke-width="0.45" opacity="0.2"/>' +
+        '<line x1="116" y1="92" x2="116" y2="158" ' + s + ' stroke-width="0.6" stroke-dasharray="10,9" opacity="0.35"/>' +
+        '<line x1="86" y1="98" x2="78" y2="148" ' + s + ' stroke-width="0.55" stroke-dasharray="10,9" opacity="0.28"/>' +
+        '<line x1="146" y1="98" x2="154" y2="148" ' + s + ' stroke-width="0.55" stroke-dasharray="10,9" opacity="0.28"/>' +
+        /* simple bed */
+        '<rect x="278" y="154" width="62" height="36" rx="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M278 154 L340 138 L340 154" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        /* kneeling cushion */
+        '<ellipse cx="220" cy="242" rx="40" ry="8" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        /* kneeling figure — folded hands */
+        '<circle cx="220" cy="172" r="11" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M220 183 L220 210 Q218 222 214 232" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M208 198 Q220 206 232 198" ' + s + ' stroke-width="1.85"/>' +
+        '<path d="M212 204 L220 212 L228 204" ' + s + ' stroke-width="1.65"/>' +
+        '<path d="M204 228 L196 244 M236 228 L244 244" ' + s + ' stroke-width="1.9"/>' +
+        sun(340, 44, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Esther 4:1–17</text>'
       ),
 
       /* ── Week 10: Sarah Promise (131) ── */
@@ -3185,18 +4049,70 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 18:5</text>'
       ),
 
-      /* ── Week 11: Samaritan Woman (136) ── */
+      /* ── Week 11: Samaritan Woman (136) — gentle well, living water (John 4:1–42) ── */
       samaritanWoman: svg(
         ground() + hills() +
         '<rect x="155" y="145" width="90" height="60" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
         '<path d="M155 175 L200 155 L245 175" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="200" cy="168" rx="28" ry="10" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M175 175 Q200 172 225 175" ' + s + ' stroke-width="1.4" opacity="0.4"/>' +
         '<line x1="200" y1="145" x2="200" y2="260" ' + s + ' stroke-width="2.5"/>' +
         person(140, 178, 12, 35) +
         '<path d="M132 192 Q120 202 122 215" ' + s + ' stroke-width="2.5"/>' +
+        '<ellipse cx="118" cy="248" rx="18" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="118" cy="238" rx="12" ry="4" ' + sf + ' fill="white" stroke-width="1.6"/>' +
         person(265, 168, 13, 38) +
         '<path d="M258 182 Q250 192 254 205" ' + s + ' stroke-width="2.5"/>' +
         sun(330, 45, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 4:10</text>'
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 4:1–42</text>'
+      ),
+
+      /* ── Week 5 gentle: Nobleman’s son — trust Jesus’ word (John 4:46–54) ── */
+      noblemanSon: svg(
+        ground() + hills() +
+        '<path d="M32 258 Q200 244 368 258" ' + s + ' stroke-width="2.2"/>' +
+        person(268, 148, 13, 40) +
+        '<path d="M258 162 Q248 172 252 188" ' + s + ' stroke-width="2.5"/>' +
+        '<circle cx="125" cy="182" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M125 193 L112 232 L98 256 L152 256 L138 232 Z" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M136 200 L248 175 M140 208 L255 185" ' + s + ' stroke-width="2.5"/>' +
+        sun(330, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 4:46–54</text>'
+      ),
+
+      /* ── Week 5 gentle: Centurion’s servant — great faith (Matthew 8:5–13) ── */
+      centurionServant: svg(
+        ground() + hills() +
+        '<path d="M32 258 Q200 244 368 258" ' + s + ' stroke-width="2.2"/>' +
+        person(268, 148, 13, 40) +
+        '<path d="M258 162 Q248 172 252 188" ' + s + ' stroke-width="2.5"/>' +
+        '<circle cx="125" cy="182" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M125 193 L112 232 L98 256 L152 256 L138 232 Z" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M136 200 L248 175 M140 208 L255 185" ' + s + ' stroke-width="2.5"/>' +
+        '<ellipse cx="340" cy="248" rx="22" ry="8" ' + sf + ' fill="white" stroke-width="1.8" opacity="0.85"/>' +
+        '<circle cx="340" cy="232" r="6" ' + sf + ' fill="white" stroke-width="1.6" opacity="0.85"/>' +
+        sun(330, 45, 18) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 8:5–13</text>'
+      ),
+
+      /* ── Week 5 gentle: Paralytic through the roof — forgive and heal (Mark 2:1–12) ── */
+      jesusHealsParalytic: svg(
+        ground() +
+        '<rect x="48" y="118" width="304" height="128" rx="5" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M48 118 L200 64 L352 118" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<ellipse cx="200" cy="88" rx="38" ry="18" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<path d="M132 88 L132 132 M165 86 L165 130 M235 86 L235 130 M268 88 L268 132" ' + s + ' stroke-width="1.8" opacity="0.75"/>' +
+        '<rect x="156" y="126" width="88" height="32" rx="4" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<ellipse cx="188" cy="138" rx="11" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="200" cy="208" r="12" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="200" y1="220" x2="200" y2="256" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="172" y1="232" x2="228" y2="232" ' + s + ' stroke-width="2.5"/>' +
+        person(92, 178, 9, 24) +
+        person(118, 168, 9, 22) +
+        person(282, 168, 9, 22) +
+        person(308, 178, 9, 24) +
+        sun(330, 48, 16) +
+        '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 2:1–12</text>'
       ),
 
       /* ── Week 11: Martha Serve (137) ── */
@@ -3557,15 +4473,17 @@
   /* Map less-common story keys to the closest outline */
   var OUTLINE_ALIAS = {
     /* ── legacy mappings ── */
-    jesusWalksWater: 'jesusCalmsStorm',
     mosesBush: 'burningBush',
-    parableSower: 'mustardSeed',
     goodSamaritan: 'loveNeighbor',
     prodigalSon: 'forgive70x7',
-    lostSheep: 'psalm23Shepherd',
+    lostSheep: 'parableLostSheep',
+    parableLostSheep: 'parableLostSheep',
     lastSupper: 'maryAnoint',
     palmSunday: 'greatCommission',
     armorOfGod: 'armorOfGod',
+    davidKindness: 'mephibosheth',
+    davidRepentance: 'davidBathsheba',
+    davidAbsalom: 'absalomRebellion',
     /* ── Week 1 ── */
     manna: 'manna',
     tenCommandments: 'tenCommandments',
@@ -3622,14 +4540,18 @@
     davidJonathan: 'davidJonathan',
     davidJonathanFriendship: 'davidJonathan',
     davidAnointed: 'davidAnointed',
-    davidKing: 'davidKing',
-    saulSpear: 'saulSpear',
+      davidKing: 'davidKing',
+      mephibosheth: 'mephibosheth',
+      davidBathsheba: 'davidBathsheba',
+      absalomRebellion: 'absalomRebellion',
+      saulSpear: 'saulSpear',
     davidCave: 'davidCave',
     /* ── Week 4 ── */
     elishaShunammite: 'elishaShunammite',
     gehaziGreed: 'gehaziGreed',
     estherCrown: 'estherCrown',
-    esther: 'estherCrown',
+    estherBrave: 'estherBrave',
+    esther: 'estherBrave',
     nehemiahWalls: 'nehemiahWalls',
     jobSuffering: 'jobSuffering',
     psalm23Shepherd: 'psalm23Shepherd',
@@ -3648,13 +4570,13 @@
     elishaChariots: 'elishaChariots',
     elishaBlindArmy: 'elishaBlindArmy',
     elishaPoisonStew: 'elishaPoisonStew',
-    isaiahMessianic: 'angelMary',
-    jeremiahWeeping: 'jobSuffering',
-    ezekielValleyBones: 'elishaShunammite',
+    isaiahMessianic: 'isaiahMessianic',
+    jeremiahWeeping: 'jeremiahWeeping',
+    ezekielValleyBones: 'ezekielValleyBones',
     danielFieryFurnace: 'fieryFurnace',
     danielLionsDen: 'daniel',
-    ezraReturn: 'nehemiahWalls',
-    malachiMessage: 'tenCommandments',
+    ezraReturn: 'ezraReturn',
+    malachiMessage: 'malachiMessage',
     johnBaptist: 'johnBaptize',
     jonahVine: 'jonahVine',
     danielPray: 'danielPray',
@@ -3662,11 +4584,31 @@
     /* ── Week 5 ── */
     angelMary: 'angelMary',
     shepherdsStar: 'shepherdsStar',
+    wiseMen: 'wiseMen',
+    simeonAnna: 'simeonAnna',
     jesusManger: 'jesusManger',
-    jesusBirth: 'jesusManger',
+    jesusBirth: 'jesusBirth',
     jesusTemple: 'jesusTemple',
     johnBaptize: 'johnBaptize',
-    jesusBaptism: 'johnBaptize',
+    jesusBaptism: 'jesusBaptism',
+    jesusDisciples: 'jesusDisciples',
+    jesusWaterWine: 'jesusWaterWine',
+    jesusTempted: 'jesusTempted',
+    jesusSermon: 'jesusSermon',
+    noblemanSon: 'noblemanSon',
+    centurionServant: 'centurionServant',
+    jesusHealsParalytic: 'jesusHealsParalytic',
+    jesusCalmsStorm: 'jesusCalmsStorm',
+    witheredHand: 'witheredHand',
+    jairus: 'jairus',
+    jesusWalksWater: 'jesusWalksWater',
+    jesusFeeds5000: 'jesusFeeds5000',
+    parableSower: 'parableSower',
+    mustardSeed: 'mustardSeed',
+    parableMustardSeed: 'mustardSeed',
+    parableHiddenTreasure: 'parableHiddenTreasure',
+    parablePearl: 'parablePearl',
+    parableLostSheep: 'parableLostSheep',
     jesusTemptation: 'jesusTempt',
     jesusTempt: 'jesusTempt',
     weddingWine: 'weddingWine',
@@ -3674,11 +4616,10 @@
     jesusCallingDisciples: 'jesusCalmsStorm',
     jesusSermonMount: 'mustardSeed',
     jesusHealsBlind: 'healBlind',
-    jesusHealsParalytic: 'healLeper',
     healBlind: 'healBlind',
     jesusBlessKids: 'jesusBlessKids',
     /* ── Week 6 ── */
-    jesusParableSower: 'mustardSeed',
+    jesusParableSower: 'parableSower',
     jesusParableMustardSeed: 'mustardSeed',
     jesusParableGoodShepherd: 'psalm23Shepherd',
     mustardSeed: 'mustardSeed',
@@ -3815,6 +4756,14 @@
     elishaBones: 'elishaBones',
     persistentWidow: 'persistentWidow',
     samaritanWoman: 'samaritanWoman',
+    noblemanSon: 'noblemanSon',
+    centurionServant: 'centurionServant',
+    jesusHealsParalytic: 'jesusHealsParalytic',
+    jesusCalmsStorm: 'jesusCalmsStorm',
+    witheredHand: 'witheredHand',
+    jairus: 'jairus',
+    jesusWalksWater: 'jesusWalksWater',
+    jesusFeeds5000: 'jesusFeeds5000',
     marthaServe: 'marthaServe',
     marySit: 'marySit',
     dorcasRaise: 'dorcasRaise',
@@ -4691,7 +5640,7 @@
     return /^\/media\/kids-stories\/[a-zA-Z0-9][a-zA-Z0-9._-]*\.(?:jpg|jpeg|png|webp|svg)$/i.test(s);
   }
 
-  /** Optional loop-library poster: /assets/loops/{1–160}.png only (matches loops.json ids). */
+  /** Optional loop-library poster: /assets/loops/{1–195}.png when shipped (read-quiz poster map). */
   function isSafeLoopPosterPath(src) {
     if (typeof src !== 'string') return false;
     var s = src.trim();
@@ -4701,7 +5650,7 @@
     var m = /^\/assets\/loops\/(\d{1,3})\.png$/i.exec(s);
     if (!m) return false;
     var n = parseInt(m[1], 10);
-    return n >= 1 && n <= 160;
+    return n >= 1 && n <= 195;
   }
 
   /** First comic panel from bibleStories (same files as the modal carousel). */
@@ -5125,7 +6074,7 @@
       if (!imageSources.length && window.TDB_READ_QUIZ_LOOP_POSTERS_ENABLED) {
         var posters = window.TDB_READ_QUIZ_LOOP_POSTERS || {};
         var lid = posters[key];
-        if (typeof lid === 'number' && lid === lid && lid >= 1 && lid <= 160) {
+        if (typeof lid === 'number' && lid === lid && lid >= 1 && lid <= 195) {
           var posterPath = '/assets/loops/' + Math.floor(lid) + '.png';
           if (isSafeLoopPosterPath(posterPath)) imageSources.push(posterPath);
         }
@@ -5402,10 +6351,10 @@
     : [
         'creation', 'adamEve', 'cainAbel', 'noah', 'towerBabel', 'abrahamIsaac', 'josephCoat', 'josephSold',
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
-        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
+        'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
         'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
-        'parableSower', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
+        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'richYoungRuler', 'widowsMite', 'zacchaeus',
         'lazarus', 'palmSunday', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
         'resurrection', 'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus',
         'parableTalents', 'armorOfGod', 'heavenPromise', 'jonah'

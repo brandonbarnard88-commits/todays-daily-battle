@@ -1007,77 +1007,225 @@
         "Samson and the Pillars – Judges 16:23-30. The lords of the Philistines gathered to offer sacrifice unto Dagon their god and to rejoice, for they said, Our god hath delivered Samson our enemy into our hand. When their hearts were merry, they called for Samson out of the prison house; he made them sport, and they set him between the pillars. Samson said unto the lad that held him by the hand, Suffer me that I may feel the pillars whereupon the house standeth, that I may lean upon them. Samson called unto the LORD, and said, O Lord GOD, remember me, I pray thee, and strengthen me, I pray thee, only this once, O God, that I may be at once avenged of the Philistines for my two eyes. He took hold of the two middle pillars, of the one with his right hand, and of the other with his left; and he said, Let me die with the Philistines. He bowed himself with all his might; and the house fell upon the lords, and upon all the people that were therein. So the dead which he slew at his death were more than they which he slew in his life. For you: God gave strength one last time — He still listens when we pray."
     },
     fieryFurnace: {
-      title: 'Fiery Furnace',
+      title: 'God Walks with His Servants in the Fire',
       panels: [
-        { src: 'panel-daniel-1.svg', alt: "Three friends refusing to bow – Standing for God" },
-        { src: 'panel-daniel-2.svg', alt: "Thrown into the fiery furnace – Heat so hot it kills soldiers" },
-        { src: 'panel-daniel-3.svg', alt: "Four men walking in the fire – God protects His friends" }
+        { src: 'panel-daniel-1.svg', alt: 'Big golden image — Shadrach, Meshach, and Abednego would not bow' },
+        { src: 'panel-daniel-2.svg', alt: 'The furnace heated seven times hotter — cast into the fire' },
+        { src: 'panel-daniel-3.svg', alt: 'Four loose in the fire — the form of the fourth like the Son of God' }
       ],
-      caption: 'Swipe to see God keep friends safe in the fire! 🔥',
+      caption: 'Swipe to see brave trust, soft flames, and the fourth walking with them unhurt.',
       videoId: 'kAzX-Icrbm0',
-      videoTitle: 'The Fiery Furnace – Shadrach, Meshach & Abednego!',
-      keywords: ['fiery furnace', 'shadrach', 'meshach', 'abednego', 'fire', 'angel', 'daniel 3'],
-      kjvRef: 'Daniel 3',
-      kidContext: { who: 'God', to: 'Shadrach, Meshach, and Abednego', apply: "Shadrach, Meshach, and Abednego refused to bow to a statue. They were thrown into a hot furnace, but God walked with them and kept them safe. When you're in a tough or scary situation, God is right there with you—He never leaves you alone." },
-      narration: "Fiery Furnace Three – Daniel 3:25. King Nebuchadnezzar made a huge gold statue and said everyone must bow to it or be thrown into a fiery furnace. Shadrach, Meshach, and Abednego loved God and said, 'We will not bow.' The king was furious and made the furnace seven times hotter. The soldiers who threw them in died from the heat. But the king looked in and saw four men walking around! The fourth looked like the Son of God. The three friends came out unharmed—no burns, no smoke smell. God was with them in the fire! For you: When you face hard times or pressure to do wrong, stand strong for God. He is with you in the fire and will protect you."
+      videoTitle: 'God Walks with His Servants in the Fire — Shadrach, Meshach & Abednego',
+      keywords: ['fiery furnace', 'shadrach', 'meshach', 'abednego', 'fire', 'angel', 'daniel 3', 'son of god', 'golden image'],
+      kjvRef: 'Daniel 3:1–30',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Shadrach, Meshach, and Abednego — and every heart that trusts Him',
+        apply:
+          'Even in a hard place, God is with us. We can tell Him we trust Him and stand for what is right.'
+      },
+      narration:
+        "God Walks with His Servants in the Fire — Daniel 3:1–30. The king of Babylon made a big golden image and commanded everyone to bow down and worship it when they heard the music. Shadrach, Meshach, and Abednego would not bow down. They told the king, If it be so, our God whom we serve is able to deliver us from the burning fiery furnace, and he will deliver us out of thine hand, O king. But if not, be it known unto thee, O king, that we will not serve thy gods, nor worship the golden image which thou hast set up. The king was very angry and commanded the furnace to be heated seven times hotter. The three men were thrown into the burning fiery furnace. The king looked and said, Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God. The three men came out of the fire, and no hair of their head was singed, neither were their coats changed, nor the smell of fire had passed on them. For you: The LORD walked with His servants in the fire and kept them safe because they trusted Him."
     },
     esther: {
-      title: 'Esther Saves Her People',
+      title: 'Esther Helps Her People',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Esther becomes queen – God puts her in place' },
-        { src: 'panel-jesus-2.svg', alt: 'Esther goes to the king – Brave when it mattered' },
-        { src: 'panel-jesus-3.svg', alt: 'God uses her to save the people – Such a time as this!' }
+        { src: 'panel-jesus-1.svg', alt: 'Chosen queen — Esther’s heart belongs to the LORD' },
+        { src: 'panel-jesus-2.svg', alt: 'Prayer and fasting — who knoweth whether thou art come… for such a time as this?' },
+        { src: 'panel-jesus-3.svg', alt: 'Brave words to the king — God turns the king’s heart to save His people' }
       ],
-      caption: 'Swipe to see Esther be brave—God uses you! 👑',
+      caption: 'Swipe to see prayer, courage, and God’s quiet protection for His people.',
       videoId: '7945Bh5iG_A',
       videoTitle: 'The Story of Esther – Bible Stories for Kids!',
-      keywords: ['esther', 'queen', 'king', 'brave', 'save', 'such a time'],
-      kjvRef: 'Esther 2–7',
-      kidContext: { who: 'God', to: 'Esther (queen who saved her people)', apply: "Esther was chosen to be queen. When bad men wanted to hurt God's people, her uncle told her, 'Who knows? Maybe you were made queen for such a time as this.' Esther bravely went to the king and asked for help. God used her to save her people! You are where you are for a reason. Be brave when it matters." },
-      narration: "Esther Saves Her People – Esther 4. Esther was a queen, but a bad man named Haman wanted to hurt all of God's people. Esther's uncle Mordecai said, 'Who knows? Maybe you were made queen for such a time as this.' Esther was scared—but she prayed and went to the king. She told him the truth. The king listened and stopped Haman. God used Esther to save her people! For you: God put you where you are for a reason. When it's hard to be brave, pray and step forward. He uses you."
+      keywords: [
+        'esther',
+        'queen',
+        'mordecai',
+        'haman',
+        'fast',
+        'banquet',
+        'such a time',
+        'esther 4',
+        'esther 5',
+        'esther 7',
+        'persia',
+        'save',
+        'brave'
+      ],
+      kjvRef: 'Esther 4:1–17; 5:1–8; 7:1–10',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Esther and His people in Persia',
+        apply:
+          'God hears when we pray together. He can give courage to speak truth and turn a king’s heart to save many.'
+      },
+      narration:
+        "Esther Helps Her People — Esther 4:1–17; 5:1–8; 7:1–10. The king of Persia chose Esther to be queen; she was Jewish, but the king did not know it. Haman planned to hurt all the Jewish people. Mordecai asked, who knoweth whether thou art come to the kingdom for such a time as this? Esther asked the Jews to fast and pray for her. Then she went to the king, and Esther answered, If it seem good unto the king, let the king and Haman come this day unto the banquet that I have prepared for him. At the right time she told the king about Haman’s wicked plan. The king was angry with Haman and stopped the evil plan. The Jewish people were saved. For you: God can use courage, prayer, and brave truth — even from one person — to help many."
     },
     jesusBirth: {
-      title: 'Birth of Jesus',
+      title: 'Jesus Is Born in Bethlehem',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Mary and Joseph travel to Bethlehem' },
-        { src: 'panel-jesus-2.svg', alt: 'Jesus born in a manger' },
-        { src: 'panel-jesus-3.svg', alt: 'Shepherds and angels celebrate!' }
+        { src: 'panel-jesus-1.svg', alt: 'Mary and Joseph travel to Bethlehem — no room at the inn' },
+        { src: 'panel-jesus-2.svg', alt: 'In a quiet stable, baby Jesus is wrapped and laid in a manger' },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Angels tell shepherds good tidings — they find Jesus, just as God promised'
+        }
       ],
-      caption: 'Swipe to see Jesus come as a baby—God loves us! 🎄',
+      caption: 'Swipe to see the night God’s Son was born — wonder, angels’ joy, and shepherds who hurried to worship.',
       videoId: 'v3656G6tWuI',
       videoTitle: 'The Story of Christmas – Jesus is Born!',
-      keywords: ['jesus', 'birth', 'manger', 'shepherds', 'angels', 'bethlehem', 'luke 2', 'matthew 2', 'wise men', 'christmas'],
-      kjvRef: 'Luke 2; Matthew 1–2',
-      kidContext: { who: 'God', to: 'The whole world', apply: 'Jesus came humbly as a baby to save us — God with us. Christmas is God\'s greatest gift.' }
+      keywords: [
+        'jesus',
+        'bethlehem',
+        'manger',
+        'stable',
+        'shepherds',
+        'angels',
+        'mary',
+        'joseph',
+        'luke 2',
+        'saviour',
+        'christmas',
+        'good tidings',
+        'baby jesus'
+      ],
+      kjvRef: 'Luke 2:1–20',
+      kidContext: {
+        who: 'God',
+        to: 'The whole world — everyone Jesus came to love',
+        apply: 'God sent His own Son as a baby so He could be with us.'
+      },
+      narration:
+        "Jesus Is Born in Bethlehem — Luke 2:1–20. Mary and Joseph went to Bethlehem. There was no room for them in the inn, so they stayed in a stable. That night Mary’s firstborn Son was born. She wrapped Him in soft cloths and laid Him in a manger. Shepherds keeping watch heard an angel say, Fear not: for, behold, I bring you good tidings of great joy… For unto you is born this day in the city of David a Saviour, which is Christ the Lord. A multitude of angels praised God — Glory to God in the highest, and on earth peace, good will toward men. The shepherds went with haste and found Mary and Joseph, and the babe lying in a manger, just as they had been told. For you: God sent His own Son as a baby so He could be with you."
     },
     jesusCalmsStorm: {
-      title: 'Jesus Calms the Storm',
+      title: 'Jesus Calms the Wind and the Waves',
       panels: [
-        { src: 'panel-jonah-1.svg', alt: "Storm raging on the lake – Disciples afraid in the boat" },
-        { src: 'panel-jonah-2.svg', alt: "Jesus sleeping in the storm – Trusting God" },
-        { src: 'panel-jonah-3.svg', alt: "Jesus speaking to the wind and waves – Peace, be still" }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Jesus and His friends in a boat — wind and waves rise on the sea'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'They wake Jesus — Master, carest thou not that we perish?'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Jesus says, Peace, be still — the wind and sea obey Him'
+        }
       ],
-      caption: 'Swipe to see Jesus calm the storm—trust Him! ⛵',
+      caption:
+        'Swipe to see Jesus calm the wind and the waves — His word brings peace. ⛵',
       videoId: 'uYLHqdSO9OY',
       videoTitle: 'Jesus Calms the Storm – Bible Story for Kids!',
-      keywords: ['jesus', 'storm', 'boat', 'waves', 'peace', 'matthew 8', 'mark 4'],
+      keywords: [
+        'jesus',
+        'storm',
+        'boat',
+        'waves',
+        'peace be still',
+        'mark 4',
+        'faith',
+        'wind',
+        'sea',
+        'disciples'
+      ],
       kjvRef: 'Mark 4:35–41',
-      kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: "The disciples were scared in a big storm, but Jesus spoke and the wind and waves obeyed Him. He asked them, 'Why are you so afraid?' Jesus is with you in every storm. When you feel scared, call on Him—He can bring peace." },
-      narration: "Jesus Calms the Boat – Mark 4:39. Jesus and His disciples were crossing the lake in a boat. A huge storm came up—waves crashed, wind howled, and the boat was filling with water. The disciples were terrified and woke Jesus, saying, 'Master, don't You care that we are perishing?' Jesus stood up and said to the wind and waves, 'Peace, be still.' Immediately the wind stopped, and there was a great calm. Jesus asked them, 'Why are you so fearful? How is it that you have no faith?' The disciples were amazed—'Even the wind and sea obey Him!' For you: When life feels stormy or scary, Jesus is right there with you. Call on Him—He has power to bring peace to your heart."
+      kidContext: {
+        who: 'Jesus',
+        to: 'His disciples (and us)',
+        apply:
+          'Jesus is stronger than any storm. When you feel scared, tell Him — He can make your heart calm and safe.'
+      },
+      narration:
+        "Jesus Calms the Wind and the Waves — Mark 4:35–41. And the same day, when the even was come, he saith unto them, Let us pass over unto the other side. And when they had sent away the multitude, they took him even as he was in the ship. And there were also with him other little ships. And there arose a great storm of wind, and the waves beat into the ship, so that it was now full. And he was in the hinder part of the ship, asleep on a pillow: and they awake him, and say unto him, Master, carest thou not that we perish? And he arose, and rebuked the wind, and said unto the sea, Peace, be still. And the wind ceased, and there was a great calm. And he said unto them, Why are ye so fearful? how is it that ye have no faith? And they feared exceedingly, and said one to another, What manner of man is this, that even the wind and the sea obey him? For you: Jesus is with you in every storm — call on Him; He brings peace."
+    },
+    witheredHand: {
+      title: 'Jesus Heals a Man on the Sabbath',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Jesus teaches in the synagogue — a man is there whose hand is withered'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Jesus asks, Is it lawful to do good on the sabbath days, or to do evil? to save life, or to kill?'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Jesus says, Stretch forth thine hand — and his hand was restored whole as the other'
+        }
+      ],
+      caption:
+        'Swipe to see Jesus heal with kindness in the synagogue — Stretch forth thine hand. ✋',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'withered hand',
+        'sabbath',
+        'synagogue',
+        'mark 3',
+        'stretch forth',
+        'heal',
+        'jesus',
+        'mercy',
+        'good',
+        'hand'
+      ],
+      kjvRef: 'Mark 3:1–6',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The man with the withered hand — and everyone watching',
+        apply:
+          'Jesus does good and shows love every day, because He cares for people. We can trust Him and be kind too.'
+      },
+      narration:
+        "Jesus Heals a Man on the Sabbath — Mark 3:1–6. And he entered again into the synagogue; and there was a man there which had his hand withered. And they watched him, whether he would heal him on the sabbath day; that they might accuse him. And he saith unto the man which had the withered hand, Stand forth. And he saith unto them, Is it lawful to do good on the sabbath days, or to do evil? to save life, or to kill? But they held their peace. And when he had looked round about on them, being grieved for the hardness of their hearts, he saith unto the man, Stretch forth thine hand. And he stretched it out: and his hand was restored whole as the other. For you: Jesus does good and cares for people — come to Him with your needs."
     },
     jesusFeeds5000: {
-      title: 'Jesus Feeds 5,000',
+      title: 'Jesus Feeds a Hungry Crowd',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Big crowd, one boy with bread and fish' },
-        { src: 'panel-noah-2.svg', alt: 'Jesus blesses the food' },
-        { src: 'panel-noah-3.svg', alt: 'Everyone eats—baskets left over!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'A great multitude — Give ye them to eat; a boy with five loaves and two fishes'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Jesus blessed the loaves and fishes, looking up to heaven — sit down on the grass'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'They all did eat and were filled — twelve baskets of fragments remained'
+        }
       ],
-      caption: 'Swipe to see Jesus feed everyone—He cares! 🍞🐟',
+      caption:
+        'Swipe to see Jesus bless a boy’s lunch until everyone is fed — He cares. 🍞🐟',
       videoId: 'S6rj9cAJrWE',
       videoTitle: 'Jesus Feeds the 5,000 – Saddleback Kids!',
-      keywords: ['jesus', 'feeds', '5000', 'bread', 'fish', 'miracle', 'matthew 14', 'john 6'],
-      kjvRef: 'John 6:1–14',
-      kidContext: { who: 'Jesus', to: 'The 5,000 people (and us)', apply: 'Jesus feeds everyone—He cares! Give God what you have—He can multiply it!' }
+      keywords: [
+        'jesus',
+        'feeds',
+        '5000',
+        'loaves',
+        'fishes',
+        'bread',
+        'fish',
+        'miracle',
+        'matthew 14',
+        'give ye them to eat',
+        'twelve baskets',
+        'boy'
+      ],
+      kjvRef: 'Matthew 14:13–21',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The multitude — the disciples — and us',
+        apply:
+          'Jesus can take a little and make it enough for everyone. Bring what you have to Him.'
+      },
+      narration:
+        "Jesus Feeds a Hungry Crowd — Matthew 14:13–21. When Jesus heard of it, he departed thence by ship into a desert place apart: and when the people had heard thereof, they followed him on foot out of the cities. And Jesus went forth, and saw a great multitude, and was moved with compassion toward them, and he healed their sick. And when it was evening, his disciples came to him, saying, This is a desert place, and the time is now past; send the multitude away, that they may go into the villages, and buy themselves victuals. But Jesus said unto them, They need not depart; give ye them to eat. And they say unto him, We have here but five loaves, and two fishes. He said, Bring them hither to me. And he commanded the multitude to sit down on the grass, and took the five loaves, and the two fishes, and looking up to heaven, he blessed, and brake, and gave the loaves to his disciples, and the disciples to the multitude. And they did all eat, and were filled: and they took up of the fragments that remained twelve baskets full. And they that had eaten were about five thousand men, beside women and children. For you: Jesus can take a little and make it enough — trust Him with what you have."
     },
     goodSamaritan: {
       title: 'Good Samaritan',
@@ -1249,19 +1397,20 @@
       }
     },
     elijahFire: {
-      title: 'Elijah & Fire on Carmel',
+      title: 'God Answers by Fire',
       panels: [
-        { src: 'panel-jonah-1.svg', alt: 'Mount Carmel — Elijah calls Israel to choose the LORD' },
-        { src: 'panel-jonah-2.svg', alt: 'Prophets of Baal call all day — no answer' },
+        { src: 'panel-jonah-1.svg', alt: 'If the Lord be God, follow him — the God that answereth by fire' },
+        { src: 'panel-jonah-2.svg', alt: 'The prophets of Baal call all day — no fire came' },
         { src: 'panel-jonah-3.svg', alt: 'Fire from heaven — The LORD, he is the God' }
       ],
-      caption: 'Swipe for Mount Carmel — God answered by fire; the LORD, he is the God.',
+      caption: 'Swipe for Mount Carmel — God answered Elijah’s prayer; the LORD, he is the God.',
       videoId: 'dKcQHonmOi8',
       videoTitle: 'Elijah and the Prophets of Baal – Bible Story!',
       keywords: [
         'elijah',
         'mount carmel',
         'carmel',
+        'god answers by fire',
         'baal',
         'fire',
         'altar',
@@ -1274,22 +1423,25 @@
         'two opinions',
         'answereth by fire',
         'prophets of baal',
-        'ahab'
+        'ahab',
+        'the lord he is the god'
       ],
       kjvRef: '1 Kings 18:17-39',
       kidContext: {
         who: 'The LORD',
         to: 'Israel — and every heart that wonders who is truly God',
         apply:
-          'He answered Elijah’s prayer with fire from heaven — calm awe, not noise: The LORD, he is the God. Trust Him first.'
-      }
+          'God answered by fire when Elijah prayed — calm, awe-filled wonder: the LORD alone is the true God. He hears when we call on Him.'
+      },
+      narration:
+        "God Answers by Fire – 1 Kings 18:17-39. The people were not sure who to worship. Elijah said, How long halt ye between two opinions? If the Lord be God, follow him. The God that answereth by fire, let him be God. The prophets of Baal called all day, but no fire came. Elijah repaired the altar of the Lord, put wood and the sacrifice, and poured water until all was wet. He prayed, LORD God of Abraham, Isaac, and of Israel, let it be known this day that thou art God in Israel. Then the fire of the LORD fell — it consumed the sacrifice, the wood, the stones, the dust, and licked up the water. The people fell on their faces: The LORD, he is the God. For you: The Lord is the true God who answers when we call on Him."
     },
     elijahHoreb: {
-      title: 'Elijah & the Still Small Voice',
+      title: 'God Speaks in a Still Small Voice',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Elijah in the cave at Horeb — What doest thou here?' },
-        { src: 'panel-noah-2.svg', alt: 'Wind, earthquake, fire — then a still small voice' },
-        { src: 'panel-noah-3.svg', alt: 'Elijah wraps his face — God speaks gently' }
+        { src: 'panel-noah-1.svg', alt: 'Elijah at Horeb — sad, and the LORD asks, What doest thou here?' },
+        { src: 'panel-noah-2.svg', alt: 'Wind, earthquake, fire passed — the LORD was not in them' },
+        { src: 'panel-noah-3.svg', alt: 'A still small voice — Elijah wraps his face; the LORD speaks gently' }
       ],
       caption: 'Swipe for Horeb — after the loud came a still small voice.',
       videoId: '',
@@ -1297,6 +1449,7 @@
       keywords: [
         'elijah horeb',
         'mount horeb',
+        'god speaks in a still small voice',
         'still small voice',
         'still small',
         '1 kings 19',
@@ -1307,27 +1460,31 @@
         'earthquake',
         'jealous for the lord',
         'seven thousand',
-        'baal'
+        'baal',
+        'what doest thou here'
       ],
       kjvRef: '1 Kings 19:9-18',
       kidContext: {
         who: 'The LORD',
         to: 'Elijah — and every tired heart that needs a gentle word',
         apply:
-          'God was not in the wind, earthquake, or fire — but He spoke in a still small voice. Listen quietly; He is near.'
-      }
+          'The loud things passed — then God spoke in a still small voice. He often speaks gently; listen with a quiet heart.'
+      },
+      narration:
+        "God Speaks in a Still Small Voice – 1 Kings 19:9-18. Elijah was sad and went to Mount Horeb. He lodged in a cave, and the LORD asked, What doest thou here, Elijah? The LORD told him to stand on the mount. A great wind came, but the LORD was not in the wind. An earthquake came, but the LORD was not in the earthquake. A fire came, but the LORD was not in the fire. After the fire came a still small voice. When Elijah heard it, he wrapped his face in his mantle and went out. The LORD spoke to him gently — and showed him faithful work ahead, and that seven thousand in Israel had not bowed unto Baal. For you: God often speaks in a quiet, tender way — lean in and listen."
     },
     elijahElijahElisha: {
-      title: 'Elisha Plows the Field',
+      title: 'Elisha Follows Elijah',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Twelve yoke of oxen — Elijah casts his mantle on Elisha' },
+        { src: 'panel-noah-1.svg', alt: 'Oxen in the field — Elijah casts his mantle on Elisha' },
         { src: 'panel-noah-2.svg', alt: 'Let me kiss my father and my mother — then I will follow thee' },
-        { src: 'panel-noah-3.svg', alt: 'He arose and went after Elijah — and ministered unto him' }
+        { src: 'panel-noah-3.svg', alt: 'He arose and followed — and ministered unto Elijah' }
       ],
-      caption: 'Swipe for the field where Elisha left the plow to follow God\'s call.',
+      caption: 'Swipe for the field — mantle, oxen, and a willing heart to follow God’s call.',
       videoId: '',
       videoTitle: '',
       keywords: [
+        'elisha follows elijah',
         'elisha plows',
         'elijah calls elisha',
         'cast his mantle',
@@ -1341,28 +1498,32 @@
         'kiss my father and my mother',
         'ministered unto him',
         'plowing',
-        'oxen'
+        'oxen',
+        'willing heart'
       ],
       kjvRef: '1 Kings 19:19-21',
       kidContext: {
         who: 'Elisha',
-        to: 'God — through Elijah\'s call',
+        to: 'God — through Elijah’s call',
         apply:
-          'Elisha did not rush past home — he honored his parents, then rose and followed. God blesses willing, orderly obedience.'
-      }
+          'Elisha honored his parents, then rose and followed with a willing heart. God calls us to follow Him one step at a time.'
+      },
+      narration:
+        "Elisha Follows Elijah – 1 Kings 19:19-21. Elijah found Elisha plowing with twelve yoke of oxen. Elijah passed by him and cast his mantle upon him. Elisha left the oxen, ran after Elijah, and said, Let me, I pray thee, kiss my father and my mother, and then I will follow thee. Elijah said, Go back again: for what have I done to thee? Elisha went back, took a yoke of oxen, slew them, boiled their flesh with the instruments, and gave unto the people, and they did eat. Then he arose, went after Elijah, and ministered unto him. For you: God calls us to follow Him with a willing heart."
     },
     naamanHealed: {
-      title: 'Naaman Is Healed of Leprosy',
+      title: 'Naaman Obeys and Is Made Clean',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'A great captain — a little maid points to God’s prophet' },
-        { src: 'panel-jesus-2.svg', alt: 'Wash in Jordan seven times — Wash, and be clean' },
-        { src: 'panel-jesus-3.svg', alt: 'Seven times in the river — clean like a little child' }
+        { src: 'panel-jesus-1.svg', alt: 'A little maid’s words — go to the prophet in Samaria' },
+        { src: 'panel-jesus-2.svg', alt: 'Wash in Jordan seven times — at first angry, then gentle counsel' },
+        { src: 'panel-jesus-3.svg', alt: 'Seven dips in the Jordan — clean like a little child' }
       ],
-      caption: 'Swipe to see God heal Naaman — simple obedience, gentle mercy.',
+      caption: 'Swipe for Naaman — little maid, gentle servants, seven dips, God’s kindness.',
       videoId: '8Y1Sh5bZAiM',
       videoTitle: "God's Story: Naaman – Bible Story for Kids!",
       keywords: [
         'naaman',
+        'naaman obeys',
         'naaman healed',
         '2 kings 5',
         '2 kings 5:1',
@@ -1375,45 +1536,98 @@
         'little maid',
         'samaria',
         'wash and be clean',
-        'syria'
+        'syria',
+        'little child',
+        'servants',
+        'gentle',
+        'seventh dip'
       ],
-      kjvRef: '2 Kings 5:1-15',
+      kjvRef: '2 Kings 5:1-14',
       kidContext: {
         who: 'The LORD',
         to: 'Naaman — through Elisha’s word',
         apply:
-          'God’s healing often comes through simple obedience — even when pride wants a louder way.'
+          'God heals when we obey simply and humbly — skin made clean like a little child’s.'
       },
       narration:
-        "Naaman Is Healed of Leprosy — 2 Kings 5:1-15. Naaman was captain of the king of Syria, a great man, but he was a leper. A little maid said, Would God my lord were with the prophet that is in Samaria! for he would recover him of his leprosy. Naaman came with horses and chariot and stood at the door of Elisha’s house. Elisha sent word, Go and wash in Jordan seven times, and thou shalt be clean. At first Naaman was wroth — but his servants said, If the prophet had bid thee do some great thing, wouldest thou not have done it? How much rather then, when he saith to thee, Wash, and be clean? Naaman dipped seven times; his flesh came again like unto the flesh of a little child, and he was clean. He returned and said, Behold, now I know that there is no God in all the earth, but in Israel. For you: Simple obedience brings cleansing — God is mighty to heal."
+        "Naaman Obeys and Is Made Clean — 2 Kings 5:1-14. Naaman was a great captain, but he had leprosy. A little maid from Israel told his wife, Would God my lord were with the prophet in Samaria! for he would recover him of his leprosy. Naaman went to Elisha’s house. Elisha sent a messenger saying, Go and wash in Jordan seven times, and thy flesh shall come again to thee, and thou shalt be clean. At first Naaman was angry and wanted to wash in his own rivers. His servants said gently, If the prophet had bid thee do some great thing, wouldest thou not have done it? How much rather then, when he saith to thee, Wash, and be clean? So Naaman dipped himself seven times in Jordan. His flesh came again like unto the flesh of a little child, and he was clean. The Lord used Elisha to show that simple obedience brings cleansing and healing. For you: Trust God’s simple way — He is kind."
     },
     jesusWalksWater: {
-      title: 'Jesus Walks on Water',
+      title: 'Jesus Walks on the Sea',
       panels: [
-        { src: 'panel-jonah-1.svg', alt: 'Disciples in boat, big waves' },
-        { src: 'panel-jonah-2.svg', alt: 'Jesus walks on the water' },
-        { src: 'panel-jonah-3.svg', alt: 'Peter walks too—Jesus lifts us!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Night on the sea — wind and waves; Jesus comes walking on the water'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Be of good cheer; it is I; be not afraid — Peter steps out toward Jesus'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Lord, save me — Jesus stretches forth His hand; the wind ceases'
+        }
       ],
-      caption: 'Swipe to see Jesus walk on waves—He lifts us! 🌊',
+      caption:
+        'Swipe to see Jesus walk on the sea — “Be not afraid” — He catches us when we call. 🌊',
       videoId: 'U69Ag6wEyB0',
       videoTitle: 'Jesus Walks on Water – Stories of the Bible!',
-      keywords: ['jesus', 'walks', 'water', 'peter', 'waves', 'matthew 14'],
+      keywords: [
+        'jesus',
+        'walks on water',
+        'peter',
+        'boat',
+        'waves',
+        'lord save me',
+        'matthew 14',
+        'be not afraid',
+        'faith',
+        'sea'
+      ],
       kjvRef: 'Matthew 14:22–33',
-      kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Jesus walks on waves—He lifts us! Keep your eyes on Him—don\'t be afraid!' }
+      kidContext: {
+        who: 'Jesus',
+        to: 'His disciples — Peter — and us',
+        apply:
+          'Jesus is stronger than the wind and the waves. When we are afraid, we can call to Him and He will help us.'
+      },
+      narration:
+        "Jesus Walks on the Sea — Matthew 14:22–33. And straightway Jesus constrained his disciples to get into a ship, and to go before him unto the other side, while he sent the multitudes away. And when he had sent the multitudes away, he went up into a mountain apart to pray: and when the evening was come, he was there alone. But the ship was now in the midst of the sea, tossed with waves: for the wind was contrary. And in the fourth watch of the night Jesus went unto them, walking on the sea. And when the disciples saw him walking on the sea, they were troubled, saying, It is a spirit; and they cried out for fear. But straightway Jesus spake unto them, saying, Be of good cheer; it is I; be not afraid. And Peter answered him and said, Lord, if it be thou, bid me come unto thee on the water. And he said, Come. And when Peter was come down out of the ship, he walked on the water, to go to Jesus. But when he saw the wind boisterous, he was afraid; and beginning to sink, he cried, saying, Lord, save me. And immediately Jesus stretched forth his hand, and caught him, and said unto him, O thou of little faith, wherefore didst thou doubt? And when they were come into the ship, the wind ceased. Then they that were in the ship came and worshipped him, saying, Of a truth thou art the Son of God. For you: Call on Jesus — He is stronger than any storm."
     },
     lostSheep: {
-      title: 'Lost Sheep',
+      title: 'Jesus Tells About the Lost Sheep',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Shepherd has 100 sheep' },
-        { src: 'panel-jesus-2.svg', alt: 'One is lost—he goes to find it' },
-        { src: 'panel-jesus-3.svg', alt: 'Found! Jesus finds lost sheep!' }
+        { src: 'panel-jesus-1.svg', alt: 'A shepherd had one hundred sheep — one little sheep was lost' },
+        { src: 'panel-jesus-2.svg', alt: 'He left the ninety-nine and looked until he found the one' },
+        { src: 'panel-jesus-3.svg', alt: 'He layeth it on his shoulders, rejoicing — carry it home with joy' }
       ],
-      caption: 'Swipe to see Jesus find the lost sheep—you\'re never lost! 🐑',
+      caption:
+        'Swipe to see the good shepherd find the one — carry it home with joy! Heaven rejoices over one sinner that repenteth. 🐑',
       videoId: 'CLpq2K-Jf0M',
       videoTitle: 'The Parable of the Lost Sheep – Animated Bible Story!',
-      keywords: ['lost sheep', 'parable', 'shepherd', 'luke 15', 'find', 'rejoice'],
-      kjvRef: 'Luke 15',
-      kidContext: { who: 'Jesus', to: 'People who wondered about God\'s love', apply: 'Jesus finds lost sheep—you\'re never lost! God searches for you!' }
+      keywords: [
+        'lost sheep',
+        'parable',
+        'shepherd',
+        'ninety-nine',
+        'shoulders',
+        'rejoicing',
+        'luke 15',
+        'repenteth',
+        'joy in heaven',
+        'find',
+        'jesus',
+        'good shepherd'
+      ],
+      kjvRef: 'Luke 15:3–7',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The people (and us)',
+        apply:
+          'Jesus is like that good shepherd — He loves us and will keep looking for us when we are lost.'
+      },
+      narration:
+        "Jesus Tells About the Lost Sheep — Luke 15:3–7. And he spake this parable unto them, saying, What man of you, having an hundred sheep, if he lose one of them, doth not leave the ninety and nine in the wilderness, and go after that which is lost, until he find it? And when he hath found it, he layeth it on his shoulders, rejoicing. And when he cometh home, he calleth together his friends and neighbours, saying unto them, Rejoice with me; for I have found my sheep which was lost. I say unto you, that likewise joy shall be in heaven over one sinner that repenteth, more than over ninety and nine just persons, which need no repentance. For you: Jesus is like that good Shepherd — He loves us and will keep looking for us when we are lost."
     },
     lostCoin: {
       title: 'Lost Coin',
@@ -1486,18 +1700,39 @@
       kidContext: { who: 'Jesus', to: 'Us (when we\'re tempted)', apply: "Jesus says no—use God's word! When the devil lies, quote the Bible!" }
     },
     parableSower: {
-      title: 'Parable of the Sower',
+      title: 'Jesus Tells a Story About Good Soil',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Farmer scatters seeds' },
-        { src: 'panel-noah-2.svg', alt: 'Seeds on path, rocks, thorns' },
-        { src: 'panel-noah-3.svg', alt: 'Good soil—seeds grow strong!' }
+        { src: 'panel-noah-1.svg', alt: 'A farmer went forth to sow — seeds by the wayside' },
+        { src: 'panel-noah-2.svg', alt: 'Stony ground and thorns — some sprang up but withered or were choked' },
+        { src: 'panel-noah-3.svg', alt: 'Good ground — brought forth fruit, some thirty, some sixty, some an hundred' }
       ],
-      caption: 'Swipe to see seeds grow—plant good words! 🌱',
+      caption: 'Swipe to see seeds on path, rocks, thorns, and good soil — God’s Word can grow. 🌱',
       videoId: 'Y01N77fQrTU',
       videoTitle: 'The Parable of the Sower – Animated Scripture Lesson!',
-      keywords: ['sower', 'parable', 'seeds', 'soil', 'grow', 'matthew 13', 'mark 4'],
+      keywords: [
+        'sower',
+        'parable',
+        'seeds',
+        'soil',
+        'good soil',
+        'grow',
+        'word',
+        'hear',
+        'matthew 13',
+        'mark 4',
+        'wayside',
+        'thorns',
+        'fruit'
+      ],
       kjvRef: 'Matthew 13:1–23',
-      kidContext: { who: 'Jesus', to: 'The crowds (and us)', apply: 'Plant good words—grow strong! Let God\'s word take root in your heart!' }
+      kidContext: {
+        who: 'Jesus',
+        to: 'The crowds by the sea — and us',
+        apply:
+          'Jesus wants our hearts to be like good soil so His words can grow in us. Listen to God’s Word.'
+      },
+      narration:
+        "Jesus Tells a Story About Good Soil — Matthew 13:1–23. The same day went Jesus out of the house, and sat by the sea side. And great multitudes were gathered together unto him, so that he went into a ship, and sat; and the whole multitude stood on the shore. And he spake many things unto them in parables, saying, Behold, a sower went forth to sow; And when he sowed, some seeds fell by the way side, and the fowls came and devoured them up: Some fell upon stony places, where they had not much earth: and forthwith they sprung up, because they had no deepness of earth: And when the sun was up, they were scorched; and because they had no root, they withered away. And some fell among thorns; and the thorns sprung up, and choked them: But other fell into good ground, and brought forth fruit, some an hundredfold, some sixtyfold, some thirtyfold. Who hath ears to hear, let him hear. Later Jesus explained that the seed is the word of the kingdom; the good ground is an honest and good heart, hearing the word, and keeping it, and bringing forth fruit with patience. For you: ask God to help you listen — let His Word grow in you like good soil."
     },
     richYoungRuler: {
       title: 'Rich Young Ruler',
@@ -2005,18 +2240,19 @@
       narration: "Ten Commandments – Exodus 20:1-17. God's people had come to the foot of Mount Sinai. A thick cloud covered the mountain, and there was thunder and lightning. The mountain shook, and the people were afraid. Moses went up the mountain to meet with God. God spoke: 'I am the Lord thy God, which have brought thee out of the land of Egypt, out of the house of bondage. Thou shalt have no other gods before me. Thou shalt not make unto thee any graven image. Thou shalt not take the name of the Lord thy God in vain. Remember the sabbath day, to keep it holy. Honour thy father and thy mother. Thou shalt not kill. Thou shalt not commit adultery. Thou shalt not steal. Thou shalt not bear false witness against thy neighbour. Thou shalt not covet thy neighbour's house, thou shalt not covet thy neighbour's wife, nor his manservant, nor his maidservant, nor his ox, nor his ass, nor any thing that is thy neighbour's.' God wrote these ten commandments on two tables of stone and gave them to Moses so His people would know how to love Him and love each other. The people stood far off, but Moses drew near to the thick darkness where God was. For you: God's commandments are a gift—they show us how to love Him first and care for others well."
     },
     elijahFire: {
-      title: 'Elijah and the Fire on Mount Carmel',
+      title: 'God Answers by Fire',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'All Israel gathers at Carmel — How long halt ye between two opinions?' },
-        { src: 'panel-david-2.svg', alt: 'The prophets of Baal call all day — no voice answers' },
-        { src: 'panel-david-3.svg', alt: 'Elijah prays — the fire of the LORD falls; the people worship' }
+        { src: 'panel-david-1.svg', alt: 'If the Lord be God, follow him — the God that answereth by fire' },
+        { src: 'panel-david-2.svg', alt: 'The prophets of Baal call all day — no fire came' },
+        { src: 'panel-david-3.svg', alt: 'Elijah prays — fire from heaven; The LORD, he is the God' }
       ],
-      caption: 'Swipe for Carmel — the LORD answered by fire; the LORD, he is the God.',
+      caption: 'Swipe for Mount Carmel — God answered Elijah’s prayer; the LORD, he is the God.',
       videoId: 'dKcQHonmOi8',
       videoTitle: 'Elijah and the Prophets of Baal – Bible Story!',
       keywords: [
         'elijah carmel',
         'elijah mount carmel',
+        'god answers by fire',
         'mount carmel',
         'fire from heaven',
         'altar',
@@ -2029,32 +2265,34 @@
         'two opinions',
         'answereth by fire',
         'prophets of baal',
-        'ahab'
+        'ahab',
+        'the lord he is the god'
       ],
       kjvRef: '1 Kings 18:17-39',
       kidContext: {
         who: 'The LORD',
         to: 'Elijah and all the people',
         apply:
-          'False gods stayed silent; the LORD answered by fire. When you pray in His name, He hears — and He alone is God.'
+          'God answered by fire when Elijah prayed — calm, awe-filled wonder: the LORD alone is the true God. He hears when we call on Him.'
       },
       narration:
-        "Elijah and the Fire on Mount Carmel – 1 Kings 18:17-39. Ahab met Elijah; the prophet called Israel to Carmel with the prophets of Baal. Elijah asked, How long halt ye between two opinions? If the LORD be God, follow him. The God that answereth by fire, let him be God. Baal’s prophets called from morning — no voice answered. At evening Elijah repaired the altar, set the sacrifice, poured water until the trench was full, and prayed: LORD God of Abraham, Isaac, and of Israel, let it be known this day that thou art God in Israel. Hear me, O LORD, that this people may know that thou art the LORD God. Then the fire of the LORD fell — it consumed the sacrifice, the wood, the stones, the dust, and licked up the water. The people fell on their faces: The LORD, he is the God. For you: The true God is near when we pray — put Him first, and trust His answer."
+        "God Answers by Fire – 1 Kings 18:17-39. The people were not sure who to worship. Elijah said, How long halt ye between two opinions? If the Lord be God, follow him. The God that answereth by fire, let him be God. The prophets of Baal called all day, but no fire came. Elijah repaired the altar of the Lord, put wood and the sacrifice, and poured water until all was wet. He prayed, LORD God of Abraham, Isaac, and of Israel, let it be known this day that thou art God in Israel. Then the fire of the LORD fell — it consumed the sacrifice, the wood, the stones, the dust, and licked up the water. The people fell on their faces: The LORD, he is the God. For you: The Lord is the true God who answers when we call on Him."
     },
     elijahHoreb: {
-      title: 'Elijah and the Still Small Voice',
+      title: 'God Speaks in a Still Small Voice',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'At Horeb — the word of the LORD in the cave' },
-        { src: 'panel-noah-2.svg', alt: 'Wind, earthquake, fire — then a still small voice' },
-        { src: 'panel-noah-3.svg', alt: 'Elijah wraps his face — seven thousand have not bowed to Baal' }
+        { src: 'panel-noah-1.svg', alt: 'Elijah at Horeb — sad, and the LORD asks, What doest thou here?' },
+        { src: 'panel-noah-2.svg', alt: 'Wind, earthquake, fire passed — the LORD was not in them' },
+        { src: 'panel-noah-3.svg', alt: 'A still small voice — Elijah wraps his face; the LORD speaks gently' }
       ],
-      caption: 'Swipe for Horeb — God spoke in a still small voice.',
+      caption: 'Swipe for Horeb — after the loud came a still small voice.',
       videoId: '',
       videoTitle: '',
       keywords: [
         'elijah horeb',
         'mount horeb',
         'mountain of god',
+        'god speaks in a still small voice',
         'still small voice',
         'still small',
         '1 kings 19',
@@ -2073,10 +2311,10 @@
         who: 'The LORD',
         to: 'Elijah — and every heart that needs quiet courage',
         apply:
-          'The LORD was not in the storm — but He met Elijah gently. He still speaks in quiet ways; listen for Him.'
+          'The loud things passed — then God spoke in a still small voice. He often speaks gently; listen with a quiet heart.'
       },
       narration:
-        "Elijah and the Still Small Voice – 1 Kings 19:9-18. Elijah lodged in a cave; the word of the LORD came: What doest thou here, Elijah? He told how he had been jealous for the LORD — and felt alone. Go forth, stand upon the mount before the LORD. The LORD passed by: a great wind rent the mountains — the LORD was not in the wind; an earthquake — the LORD was not in the earthquake; a fire — the LORD was not in the fire; and after the fire a still small voice. When Elijah heard it, he wrapped his face in his mantle and stood in the entering in of the cave. The LORD spoke again — and showed him faithful work ahead, and this comfort: Yet I have left me seven thousand in Israel, all the knees which have not bowed unto Baal. For you: When life feels loud inside, God can still speak softly — lean in and listen."
+        "God Speaks in a Still Small Voice – 1 Kings 19:9-18. Elijah was sad and went to Mount Horeb. He lodged in a cave, and the LORD asked, What doest thou here, Elijah? The LORD told him to stand on the mount. A great wind came, but the LORD was not in the wind. An earthquake came, but the LORD was not in the earthquake. A fire came, but the LORD was not in the fire. After the fire came a still small voice. When Elijah heard it, he wrapped his face in his mantle and went out. The LORD spoke to him gently — and showed him faithful work ahead, and that seven thousand in Israel had not bowed unto Baal. For you: God often speaks in a quiet, tender way — lean in and listen."
     },
     naamanDip: {
       title: 'Naaman Returns with Thanks',
@@ -2972,13 +3210,13 @@
       kidContext: { who: 'God', to: 'David', apply: 'When people are unkind, trust God! He is your protection.' }
     },
     davidCave: {
-      title: 'David Spares Saul in the Cave',
+      title: 'David Spares Saul — David Trusts God',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Engedi — Saul rests in the cave; David and his men in the sides of the cave' },
-        { src: 'panel-david-2.svg', alt: 'David cuts only the skirt of the robe — The LORD\'s anointed' },
-        { src: 'panel-david-3.svg', alt: 'The skirt in his hand — Saul weeps, Thou art more righteous than I' }
+        { src: 'panel-david-1.svg', alt: 'David and his men in the cave — Saul rests; a quiet day to show mercy' },
+        { src: 'panel-david-2.svg', alt: 'David honors the Lord\'s anointed — only the hem of the robe' },
+        { src: 'panel-david-3.svg', alt: 'David shows the robe — Saul\'s heart is touched; mercy wins' }
       ],
-      caption: 'Swipe to see mercy — David will not harm the king God chose.',
+      caption: 'Swipe to see David trust God — mercy for the king God chose.',
       videoId: '',
       videoTitle: '',
       keywords: [
@@ -3004,10 +3242,10 @@
         who: 'David',
         to: 'Every heart learning mercy',
         apply:
-          'David could have hurt Saul, but he honored the king God had anointed. God sees when we choose kindness over revenge — ask Him for a gentle heart.'
+          'David could have hurt Saul, but he honored the king God had anointed. God helps us show mercy even when others are unkind — ask Him for a gentle heart.'
       },
       narration:
-        "David Spares Saul in the Cave – 1 Samuel 24:1-22. Saul hunted David to the wilderness of Engedi. Saul entered a cave to rest, not knowing David and his men hid in its sides. David's men said the Lord had delivered the enemy into his hand — yet David would not kill Saul. He cut only the skirt of Saul's robe; then his heart smote him. He told his men, The LORD forbid that I should stretch forth mine hand against my lord, the LORD's anointed. When Saul left, David called after him and showed the piece of robe: The LORD judge between me and thee, but mine hand shall not be upon thee. Saul wept and said, Thou art more righteous than I. For you: Mercy honors God."
+        "David Trusts God in the Cave — 1 Samuel 24:1-22. Saul was jealous and chased David. David and his men hid in a cave. Saul came into the same cave to rest, not knowing they were there. David's men said this was the day the Lord had given Saul into David's hand — yet David said, I will not stretch forth mine hand against the Lord's anointed. He cut only a piece of Saul's robe; then his heart smote him. When Saul left, David called after him and showed the piece: I could have hurt thee, but I did not. Saul's heart was touched. For you: The Lord sees when we choose kindness."
     },
     hannahSamuel: {
       title: 'Hannah & Samuel',
@@ -3323,49 +3561,55 @@
     },
     /* ── Week 4 (49–60) ── */
     elishaShunammite: {
-      title: 'Elisha Raises the Shunammite\'s Son',
+      title: 'Elisha Prays and the Boy Lives',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'A little chamber on the wall — bed, table, stool, and candlestick for Elisha' },
-        { src: 'panel-jesus-2.svg', alt: 'Elisha prays — the child’s flesh waxes warm; he sneezes seven times' },
-        { src: 'panel-jesus-3.svg', alt: 'Take up thy son — the mother’s quiet joy' }
+        { src: 'panel-jesus-1.svg', alt: 'A little chamber for Elisha whenever he passed by — bed, table, stool, and candlestick' },
+        { src: 'panel-jesus-2.svg', alt: 'Elisha prays quietly — the child grows warm; he sneezes seven times and opens his eyes' },
+        { src: 'panel-jesus-3.svg', alt: 'Take up thy son — the mother holds her boy with joy' }
       ],
-      caption: 'Swipe to see God’s tender mercy — prayer, warmth, and take up thy son.',
+      caption: 'Swipe for the kind woman’s room, quiet prayer, and a mother’s joy — God’s tender care.',
       videoId: '',
       videoTitle: '',
       keywords: [
         'elisha',
+        'elisha prays',
+        'boy lives',
         'shunammite',
         'shunem',
         'great woman',
+        'kind woman',
         '2 kings 4',
         '2 kings 4:8',
         '2 kings 4:16',
         '2 kings 4:35',
         'little chamber',
         'man of God',
+        'mount carmel',
         'sneezed seven times',
         'take up thy son',
-        'raise',
-        'miracle'
+        'miracle',
+        'gentle',
+        'passed by',
+        'hospitality'
       ],
       kjvRef: '2 Kings 4:8-37',
       kidContext: {
         who: 'The LORD',
         to: 'A mother, a prophet, and a child — through Elisha',
         apply:
-          'God hears prayer. When sorrow feels heavy, He can bring back joy — nothing is too hard for Him.'
+          'God hears when we pray. He cares for families — hospitality, faith, and tender mercy that brings life and joy.'
       },
       narration:
-        "Elisha Raises the Shunammite's Son — 2 Kings 4:8-37. A great woman in Shunem made a little chamber on the wall for Elisha — bed, table, stool, and candlestick. Elisha promised her a son; she bare a son in the season he named. One day the boy became sick; she laid him on the prophet's bed, shut the door, and went quickly to find Elisha at Mount Carmel. When Gehazi asked, Is it well with the child? she answered, It is well — yet her heart cried, Did I not say, Do not deceive me? Elisha prayed, lay upon the child, and the flesh waxed warm. The child sneezed seven times and opened his eyes. Take up thy son. She took him and went out. For you: Run to God with your tears — He is merciful."
+        "Elisha Prays and the Boy Lives — 2 Kings 4:8-37. A kind woman in Shunem made a little chamber on the wall with a bed, table, stool, and candlestick for Elisha whenever he passed by. Elisha promised her a son; she had a little boy just as he said. One day the child became sick and died on his mother’s knees. She laid him on Elisha’s bed, shut the door, and hurried to find Elisha on Mount Carmel. Elisha came, went in, shut the door, prayed, and lay upon the child. The flesh waxed warm; he went up and down, then lay upon him again. The child sneezed seven times and opened his eyes. Elisha said, Take up thy son. She took her boy and was full of joy. The Lord used Elisha to bring the child back to life and show His tender care for families. For you: God hears prayer — He cares for mothers and children."
     },
     gehaziGreed: {
-      title: 'Gehazi and Honest Hearts',
+      title: 'Honest Hearts Are Better Than Silver',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Elisha stands firm — I will receive none of Naaman’s gifts' },
-        { src: 'panel-jesus-2.svg', alt: 'Gehazi returns — Elisha asks, Whence comest thou?' },
-        { src: 'panel-jesus-3.svg', alt: 'Elisha speaks truth — Is it a time to receive money?' }
+        { src: 'panel-jesus-1.svg', alt: 'Naaman wished to give gifts — Elisha would not take them; Gehazi ran after him' },
+        { src: 'panel-jesus-2.svg', alt: 'Silver and garments — Gehazi brought them back' },
+        { src: 'panel-jesus-3.svg', alt: 'Elisha asks kindly — Whence comest thou? Went not mine heart with thee?' }
       ],
-      caption: 'Swipe to see truth spoken kindly — God cares about an honest heart.',
+      caption: 'Swipe to see Elisha’s calm mercy — honesty and a thankful heart matter more than treasure.',
       videoId: '',
       videoTitle: '',
       keywords: [
@@ -3394,7 +3638,7 @@
           'God sees the heart. Truth and thankfulness to Him are better than silver or gold.'
       },
       narration:
-        "Gehazi and Honest Hearts — 2 Kings 5:20-27. After Naaman was healed, Elisha would not take his gifts. Gehazi ran after Naaman and asked for silver and clothing. When he came back, Elisha asked, Whence comest thou? Gehazi said, Thy servant went no whither. Elisha answered, Went not mine heart with thee? Is it a time to receive money, and to receive garments? For you: When we are sorry for wrong, God still teaches mercy — and a heart that loves Him is better than treasure."
+        "Honest Hearts Are Better Than Silver — 2 Kings 5:20-27. After Naaman was healed, he wanted to give Elisha gifts of silver, gold, and clothing. Elisha said, As the LORD liveth, I will receive none. Gehazi ran after Naaman and took silver and garments. When he returned, Elisha asked, Whence comest thou? Gehazi said, Thy servant went no whither. Elisha answered, Went not mine heart with thee? Is it a time to receive money, and to receive garments? Gehazi learned that a heart that loves God is better than silver or gold. For you: God sees the heart — honesty and a thankful heart please Him more than riches."
     },
     widowOil: {
       title: 'The Widow\'s Oil Multiplied',
@@ -3586,46 +3830,85 @@
         "God's Power in Elisha's Bones — 2 Kings 13:20-21. Elisha died and was buried. Later, as men were burying another man, they saw danger and cast him into the sepulchre of Elisha. When the man touched the bones of Elisha, he revived and stood up on his feet. For you: God is mighty — His kindness can surprise us in the quietest places."
     },
     estherCrown: {
-      title: 'Queen Esther\'s Courage',
+      title: 'Esther Becomes Queen',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Esther is made queen' },
-        { src: 'panel-noah-2.svg', alt: 'Haman plots to destroy the Jews' },
-        { src: 'panel-noah-3.svg', alt: 'Esther goes to the king—God gives courage!' }
+        { src: 'panel-jesus-1.svg', alt: 'Many young women brought to the palace — among them, gentle Esther' },
+        { src: 'panel-jesus-2.svg', alt: 'The king loved Esther above all — she found favour in his sight' },
+        { src: 'panel-jesus-3.svg', alt: 'The royal crown upon her head — God watched over His child' }
       ],
-      caption: 'Swipe to see Esther\'s courage save her people! 👑',
+      caption: 'Swipe to see kindness, a simple crown, and God watching over Esther in the palace.',
       videoId: '',
       videoTitle: '',
-      keywords: ['esther', 'crown', 'queen', 'esther 5', 'scepter', 'courage', 'save'],
-      kjvRef: 'Esther 2:15–18',
-      kidContext: { who: 'God', to: 'Esther', apply: 'God puts you where you are for a reason! Be brave—maybe it\'s for such a time as this.' }
+      keywords: [
+        'esther',
+        'crown',
+        'queen',
+        'vashti',
+        'persia',
+        'esther 2',
+        'palace',
+        'beautiful',
+        'kind',
+        'favour',
+        'watch'
+      ],
+      kjvRef: 'Esther 2:1–17',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Esther (and every heart He places on purpose)',
+        apply:
+          'The Lord can place His children in special places for special times — and He watches over them with love.'
+      },
+      narration:
+        "Esther Becomes Queen — Esther 2:1–17. The king of Persia wanted a new queen. Many young women were brought to the palace; among them was Esther. She was one of God's people, but she had not told it yet. Esther was kind and beautiful, and the king loved her above all the women, so that he set the royal crown upon her head, and made her queen instead of Vashti. She lived in the palace, and God was watching over her and her people. For you: the Lord can place His children where He needs them — and He is never far away."
     },
     nehemiahWalls: {
-      title: 'Nehemiah Rebuilds the Walls',
+      title: 'Nehemiah and the People Rebuild Together',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Nehemiah prays and makes a plan' },
-        { src: 'panel-david-2.svg', alt: 'Workers build with tools in one hand, sword in the other' },
-        { src: 'panel-david-3.svg', alt: 'The walls are rebuilt in 52 days—God did it!' }
+        { src: 'panel-noah-1.svg', alt: 'Broken walls and gates — Nehemiah prays to the God of heaven' },
+        { src: 'panel-noah-2.svg', alt: 'The king sends letters and timber — Nehemiah surveys the city at night' },
+        { src: 'panel-noah-3.svg', alt: 'Let us rise up and build — people strengthen their hands for this good work' }
       ],
-      caption: 'Swipe to see Nehemiah rebuild—pray and work together! 🧱',
+      caption: 'Swipe to see prayer, quiet courage, and joyful teamwork as God helps His people rebuild.',
       videoId: '',
       videoTitle: '',
-      keywords: ['nehemiah', 'walls', 'jerusalem', 'nehemiah 1', 'nehemiah 4', 'artaxerxes', 'rebuild', 'pray', 'sword', '52 days'],
-      kjvRef: 'Nehemiah 1–6',
-      kidContext: { who: 'God', to: 'Nehemiah and Israel', apply: 'Pray, then work! God helps us rebuild what\'s broken — even when others mock.' }
+      keywords: ['nehemiah', 'walls', 'jerusalem', 'nehemiah 1', 'nehemiah 2', 'nehemiah 3', 'artaxerxes', 'rebuild', 'pray', 'teamwork', 'gates'],
+      kjvRef: 'Nehemiah 1:1–4; 2:1–20; 3:1–32',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Nehemiah and the people of Jerusalem',
+        apply:
+          'God hears prayer and helps His people work together to restore what was broken — with thankful hearts.'
+      },
+      narration:
+        "Nehemiah and the People Rebuild Together — Nehemiah 1:1–4; 2:1–20; 3:1–32. The walls of Jerusalem were broken down and the gates were burned with fire. Nehemiah heard the sad news while he was far away serving the king. He prayed to the God of heaven and asked the king for permission to go and rebuild the walls. The king sent him with letters and timber. When Nehemiah came to Jerusalem, he rose up at night and went out to see the broken walls. Then said I unto them, Ye see the distress that we are in, how Jerusalem lieth waste, and the gates thereof are burned with fire: come, and let us build up the wall of Jerusalem, that we be no more a reproach. The people answered, Let us rise up and build. So they strengthened their hands for this good work. The LORD used Nehemiah to stir the hearts of His people to rebuild the walls of Jerusalem together. For you: God helps His people pray, work together, and rebuild."
     },
     jobSuffering: {
-      title: 'Job\'s Suffering',
+      title: 'Job Trusts God When He Is Sad',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Job loses everything—still trusts God' },
-        { src: 'panel-noah-2.svg', alt: 'Friends sit with him but don\'t understand' },
-        { src: 'panel-noah-3.svg', alt: 'God speaks—and restores Job!' }
+        { src: 'panel-jesus-1.svg', alt: 'Job was good — he loved God with his whole heart' },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Hard days came — Job felt very sad, but he did not stop loving God'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Three friends sat with him quietly; Job blessed the Lord — still trusting'
+        }
       ],
-      caption: 'Swipe to see Job\'s faith in hard times—God is enough! 🌧️',
+      caption: 'Swipe to see quiet friends, honest sadness, and a heart that keeps trusting God.',
       videoId: '',
       videoTitle: '',
-      keywords: ['job', 'suffering', 'boils', 'friends', 'job 2', 'trust', 'faith', 'restore'],
-      kjvRef: 'Job 2',
-      kidContext: { who: 'God', to: 'Job', apply: 'You can trust God in hard times! He always comes through for those who hold on.' }
+      keywords: ['job', 'trust', 'sad', 'friends', 'job 1', 'job 2', 'lord gave', 'bless', 'faith', 'quiet', 'weep'],
+      kjvRef: 'Job 1:1–22; 2:11–13',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Job — and every heart that feels sad',
+        apply:
+          'We can still love and trust God when we feel sad — He is near, and He hears us when we pray.'
+      },
+      narration:
+        "Job Trusts God When He Is Sad — Job 1:1–22; 2:11–13. Job was a good man who loved God. One day he lost almost everything that was dear to him. He felt very sad, but he did not stop loving God. He said, The Lord gave, and the Lord hath taken away; blessed be the name of the Lord. Three friends came and sat with him quietly for seven days and seven nights. Even when he was sad, Job still trusted God. For you: you can tell God how you feel — and trust Him on hard days too."
     },
     psalm23Shepherd: {
       title: 'Psalm 23 — The Lord Is My Shepherd',
@@ -3703,13 +3986,13 @@
         "Psalm 23 — 1-6. The LORD is my shepherd; I shall not want. He maketh me to lie down in green pastures: he leadeth me beside the still waters. He restoreth my soul: he leadeth me in the paths of righteousness for his name's sake. Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me. Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over. Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever. For you: Keep this psalm like a lamp for dark evenings — the Lord is still your Shepherd."
     },
     solomonWisdom: {
-      title: 'Solomon Asks for Wisdom',
+      title: 'Solomon Asks God for a Wise Heart',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'In Gibeon — the LORD in a dream: Ask what I shall give thee' },
+        { src: 'panel-david-1.svg', alt: 'Night dream — the LORD says, Ask what I shall give thee' },
         { src: 'panel-david-2.svg', alt: 'I am but a little child — give an understanding heart' },
         { src: 'panel-david-3.svg', alt: 'God gives a wise heart — Solomon worships before the ark in Jerusalem' }
       ],
-      caption: 'Swipe for the dream where Solomon asks God for wisdom, not riches.',
+      caption: 'Swipe for the dream where Solomon humbly asks God for wisdom — and God is pleased.',
       videoId: '',
       videoTitle: '',
       keywords: [
@@ -3730,17 +4013,18 @@
         'riches and honour',
         'ark of the covenant',
         'jerusalem',
-        'david my father'
+        'david my father',
+        'wise heart'
       ],
       kjvRef: '1 Kings 3:5-15',
       kidContext: {
         who: 'The LORD',
         to: 'Young Solomon — and every listener',
         apply:
-          'God smiled on a king who asked for wisdom before wealth. When you pray, ask God for a heart that loves what is right — He is glad to give it.'
+          'God is pleased when we ask for a wise and understanding heart. When you pray, ask Him for what honors Him — He answers with kindness.'
       },
       narration:
-        "Solomon Asks for Wisdom – 1 Kings 3:5-15. In Gibeon the LORD appeared to Solomon in a dream by night: Ask what I shall give thee. Solomon remembered David his father, and said, O LORD my God, I am but a little child; give thy servant an understanding heart to judge thy people, that I may discern between good and bad. The speech pleased the LORD. Because Solomon had not asked long life, nor riches, nor the life of his enemies, but understanding, God said, I have given thee a wise and an understanding heart, and riches and honour also. Solomon awoke — it was a dream — and came to Jerusalem, and stood before the ark of the covenant, and offered sacrifices. For you: Ask God first for wisdom; He knows what you need next."
+        "Solomon Asks God for a Wise Heart – 1 Kings 3:5-15. In Gibeon the LORD appeared to Solomon in a dream by night: Ask what I shall give thee. Solomon said, I am but a little child; give thy servant an understanding heart to judge thy people, that I may discern between good and bad. The speech pleased the LORD. God gave him a wise and an understanding heart, and riches and honour besides. Solomon awoke — it was a dream — and came to Jerusalem, and stood before the ark of the covenant, and worshiped. For you: Ask God first for wisdom; He knows what you need."
     },
     solomonTwoMothers: {
       title: 'Solomon and the Two Mothers',
@@ -3777,18 +4061,19 @@
         "Solomon and the Two Mothers – 1 Kings 3:16-28. Two women came before the king; each claimed the living baby. Solomon said, Bring me a sword — divide the child in two. The real mother cried, Give her the living child, and in no wise slay it. Solomon knew her heart — and gave the child to her. All Israel saw that the wisdom of God was in him. For you: God helps us tell right from wrong when we listen to Him."
     },
     solomonTemple: {
-      title: 'Solomon Builds the Temple',
+      title: 'Solomon Builds God\'s House',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Solomon began to build the house of the LORD — cedar, finished with care' },
-        { src: 'panel-noah-2.svg', alt: 'The ark of the covenant brought into the most holy place' },
-        { src: 'panel-noah-3.svg', alt: 'The cloud filled the house — the glory of the LORD; Solomon prays with hands toward heaven' }
+        { src: 'panel-noah-1.svg', alt: 'The house of the LORD finished — cedar, glad offerings' },
+        { src: 'panel-noah-2.svg', alt: 'The ark brought into the most holy place' },
+        { src: 'panel-noah-3.svg', alt: 'The cloud filled the house — Solomon prays with hands toward heaven' }
       ],
-      caption: 'Swipe for the house Solomon finished — and the glory that filled it.',
+      caption: 'Swipe for the finished temple — God’s glory filling the house, and Solomon’s prayer of praise.',
       videoId: '',
       videoTitle: '',
       keywords: [
         'solomon temple',
         'builds the temple',
+        'solomon builds god\'s house',
         'house of the lord',
         '1 kings 6',
         '1 kings 8',
@@ -3801,36 +4086,39 @@
         'glory of the lord',
         'priests could not stand',
         'there is no god like thee',
+        'thick darkness',
         'heaven of heavens cannot contain thee',
         'pray toward this house',
         'when thou hearest forgive',
         'jerusalem',
         'cedar',
-        'cherubims'
+        'cherubims',
+        'glad gifts'
       ],
       kjvRef: '1 Kings 6:1-14; 8:1-13, 22-30',
       kidContext: {
         who: 'The LORD',
-        to: 'Israel — and every heart that prays',
+        to: 'Israel — and every heart that worships',
         apply:
-          'God\'s glory filled the house Solomon built — yet heaven itself cannot hold Him. He still bends low to hear prayer; we meet Him with reverence and thanks.'
+          'God’s presence filled the house His people built with glad hearts. When we love Him and gather to praise Him, He draws near — we can come with joy and thanks.'
       },
       narration:
-        "Solomon Builds the Temple – 1 Kings 6:1-14; 8:1-13, 22-30. In the fourth year of his reign Solomon began to build the house of the LORD — cedar beams, careful work, and the word of the LORD: walk in my ways, and I will dwell among Israel. He finished the house. Then he assembled Israel; the priests brought the ark into the most holy place. When they came out, a cloud filled the house — the glory of the LORD — so the priests could not stand to minister. Solomon spread his hands toward heaven: LORD God of Israel, there is no God like thee; the heaven of heavens cannot contain thee; how much less this house — yet hear thy servant; let thine eyes be open toward this house; when thy people pray toward this place, hear, and forgive. For you: The true God is great — and He still listens."
+        "Solomon Builds God’s House – 1 Kings 6:1-14; 8:1-13, 22-30. Solomon built the house of the LORD and finished it with cedar; the Lord promised to dwell among Israel. The people brought offerings; the priests brought the ark into the most holy place. A cloud filled the house — the glory of the LORD — so the priests could not stand to minister. Solomon said, The LORD would dwell in the thick darkness; I have built thee an house. He prayed: LORD God of Israel, there is no God like thee; heaven cannot contain thee; how much less this house — yet hear thy servant; let thine eyes be open toward this house. For you: God is pleased when we build and worship Him with glad hearts."
     },
     elijahRavens: {
-      title: 'Elijah and the Ravens',
+      title: 'God Feeds Elijah',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Elijah speaks God\'s word — no dew nor rain according to my word' },
-        { src: 'panel-noah-2.svg', alt: 'By the brook Cherith — the LORD commanded the ravens to feed thee there' },
+        { src: 'panel-noah-1.svg', alt: 'Elijah loves God — God’s word to hide by the brook Cherith' },
+        { src: 'panel-noah-2.svg', alt: 'By the brook — the LORD commanded the ravens to feed thee there' },
         { src: 'panel-noah-3.svg', alt: 'Bread and flesh morning and evening — he drank of the brook' }
       ],
-      caption: 'Swipe for Cherith — where God fed His prophet by the brook.',
+      caption: 'Swipe for Cherith — where God fed Elijah every day, just as He promised.',
       videoId: '',
       videoTitle: '',
       keywords: [
         'elijah ravens',
         'elijah and the ravens',
+        'god feeds elijah',
         'brook cherith',
         'cherith',
         '1 kings 17',
@@ -3844,31 +4132,33 @@
         'tishbite',
         'gilead',
         'drink of the brook',
-        'brook dried up'
+        'brook dried up',
+        'daily bread'
       ],
       kjvRef: '1 Kings 17:1-7',
       kidContext: {
         who: 'The LORD',
-        to: 'Elijah — and every heart that needs daily bread',
+        to: 'Elijah — and every heart that trusts God',
         apply:
-          'God hid Elijah by the brook and sent ravens with food — morning and evening. When the land was dry, heaven still obeyed His voice.'
+          'God fed Elijah by the brook — bread and flesh, morning and evening. He keeps His word and cares for those who obey Him.'
       },
       narration:
-        "Elijah and the Ravens – 1 Kings 17:1-7. Elijah the Tishbite said unto Ahab, As the LORD God of Israel liveth, there shall not be dew nor rain these years, but according to my word. The word of the LORD came: Get thee hence, and hide thyself by the brook Cherith, that is before Jordan; thou shalt drink of the brook, and I have commanded the ravens to feed thee there. So he dwelt by Cherith. The ravens brought him bread and flesh in the morning, and bread and flesh in the evening; and he drank of the brook. After a while the brook dried up, because there had been no rain in the land. For you: God knows how to care for you — even one day at a time."
+        "God Feeds Elijah – 1 Kings 17:1-7. Elijah the prophet loved God and spoke His word: there shall not be dew nor rain these years, but according to my word. The LORD said, Hide thyself by the brook Cherith; drink of the brook, and I have commanded the ravens to feed thee there. Elijah went and stayed there. The ravens brought him bread and flesh in the morning, and bread and flesh in the evening; and he drank of the brook. After a while the brook dried up, because there had been no rain in the land. For you: The Lord can feed and care for you when you trust Him."
     },
     elijahWidow: {
-      title: 'Elijah and the Widow of Zarephath',
+      title: 'God Multiplies the Widow\'s Oil and Meal',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'The word of the Lord — arise, get thee to Zarephath' },
-        { src: 'panel-noah-2.svg', alt: 'At the city gate — a widow gathering sticks' },
+        { src: 'panel-noah-1.svg', alt: 'Zarephath — the Lord sends Elijah; a widow at the gate' },
+        { src: 'panel-noah-2.svg', alt: 'Fear not — make me a little cake first; God’s promise' },
         { src: 'panel-noah-3.svg', alt: 'The barrel wasted not — the cruse of oil failed not' }
       ],
-      caption: 'Swipe for Zarephath — where God\'s promise filled the barrel and the cruse.',
+      caption: 'Swipe for Zarephath — where God multiplied meal and oil for a mother, her son, and Elijah.',
       videoId: '',
       videoTitle: '',
       keywords: [
         'elijah widow',
         'widow of zarephath',
+        'god multiplies oil',
         'zarephath',
         'zidon',
         'sidon',
@@ -3884,43 +4174,60 @@
         '1 kings 17:14',
         '1 kings 17:16',
         'sustain thee',
-        'eat many days'
+        'eat many days',
+        'fear not'
       ],
       kjvRef: '1 Kings 17:8-16',
       kidContext: {
         who: 'The LORD',
-        to: 'A widow and her son — and every heart afraid of empty cupboards',
+        to: 'A widow and her son — and every heart that trusts God',
         apply:
-          'God asked her to trust Him with the first little cake — and He kept the barrel and the cruse from failing. His word holds.'
+          'She obeyed and put God first — and the barrel and the cruse did not fail. God can multiply what little we have when we obey Him.'
       },
       narration:
-        "Elijah and the Widow of Zarephath – 1 Kings 17:8-16. The word of the LORD came: Arise, get thee to Zarephath, which belongeth to Zidon, and dwell there: behold, I have commanded a widow woman there to sustain thee. At the gate he found her gathering sticks. Fetch me a little water, he said — then, Bring me a morsel of bread. She answered, I have an handful of meal in a barrel, and a little oil in a cruse; I am gathering two sticks to dress one last meal for me and my son, that we may eat it, and die. Elijah said, Fear not; make me a little cake first, and after for thee and thy son. For thus saith the LORD God of Israel, The barrel of meal shall not waste, neither shall the cruse of oil fail, until the day that the LORD sendeth rain upon the earth. She obeyed. She, and he, and her house, did eat many days — the barrel wasted not, neither did the cruse of oil fail, according to the word of the LORD. For you: When you put God first, He can care for what you love."
+        "God Multiplies the Widow's Oil and Meal – 1 Kings 17:8-16. The LORD sent Elijah to Zarephath; a widow there would sustain him. At the gate she was gathering sticks. He asked for water and bread. She said, I have only a handful of meal and a little oil. Elijah said, Fear not; make me a little cake first, then for thee and thy son. For thus saith the LORD God of Israel, The barrel of meal shall not waste, neither shall the cruse of oil fail. She obeyed. The barrel wasted not, neither did the cruse of oil fail, according to the word of the LORD. For you: The Lord cares for those who trust and obey Him."
     },
     elijahFireFromHeaven: {
-      title: 'Elijah on Mount Carmel',
+      title: 'God Answers by Fire',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Elijah faces the prophets of Baal at Carmel' },
-        { src: 'panel-noah-2.svg', alt: 'Fire from heaven consumes the altar' },
-        { src: 'panel-noah-3.svg', alt: 'The people shout: The Lord — He is God!' }
+        { src: 'panel-noah-1.svg', alt: 'If the Lord be God, follow him — Carmel' },
+        { src: 'panel-noah-2.svg', alt: 'Elijah prays — soft fire from heaven on the altar' },
+        { src: 'panel-noah-3.svg', alt: 'The people say: The LORD, he is the God' }
       ],
-      caption: 'Swipe to see God answer with fire — the Lord is God! 🔥',
-      videoId: '',
-      videoTitle: '',
-      keywords: ['elijah', 'carmel', 'baal', '1 kings 18', 'fire', 'altar', 'ahab', 'jezebel'],
-      kjvRef: '1 Kings 18',
-      kidContext: { who: 'God', to: 'Israel', apply: 'There is only one true God. He hears when we pray — trust Him, not pretend gods.' }
-    },
-    elijahElijahElisha: {
-      title: 'Elisha Plows the Field — Elijah Calls Him',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Elisha with the twelfth yoke — Elijah casts his mantle' },
-        { src: 'panel-noah-2.svg', alt: 'Kiss my father and my mother — Elijah says, Go back again' },
-        { src: 'panel-noah-3.svg', alt: 'A feast for the people — then he followed and ministered' }
-      ],
-      caption: 'Swipe for the mantle in the field — Elisha rose and ministered unto Elijah.',
+      caption: 'Swipe for Mount Carmel — God answered by fire; the LORD, he is the God.',
       videoId: '',
       videoTitle: '',
       keywords: [
+        'elijah',
+        'carmel',
+        'god answers by fire',
+        'baal',
+        '1 kings 18',
+        'fire',
+        'altar',
+        'ahab',
+        'jezebel',
+        'two opinions'
+      ],
+      kjvRef: '1 Kings 18:17-39',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Israel',
+        apply: 'There is only one true God. He answered Elijah’s prayer — and He hears when we call on Him.'
+      }
+    },
+    elijahElijahElisha: {
+      title: 'Elisha Follows Elijah',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Oxen in the field — Elijah casts his mantle on Elisha' },
+        { src: 'panel-noah-2.svg', alt: 'Let me kiss my father and my mother — then I will follow thee' },
+        { src: 'panel-noah-3.svg', alt: 'He arose and followed — and ministered unto Elijah' }
+      ],
+      caption: 'Swipe for the field — mantle, oxen, and a willing heart to follow God’s call.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'elisha follows elijah',
         'elijah calls elisha',
         'elisha plows the field',
         'elisha plowing',
@@ -3935,18 +4242,17 @@
         'kiss my father and my mother',
         'go back again',
         'ministered unto him',
-        'slew them',
-        'boiled their flesh'
+        'willing heart'
       ],
       kjvRef: '1 Kings 19:19-21',
       kidContext: {
         who: 'Elisha',
         to: 'The LORD — through Elijah',
         apply:
-          'The call did not erase love for family — it ordered it. Then Elisha rose, followed, and served. God honors a willing heart.'
+          'Elisha honored his parents, then rose and followed with a willing heart. God calls us to follow Him one step at a time.'
       },
       narration:
-        "Elisha Plows the Field – 1 Kings 19:19-21. Elijah found Elisha the son of Shaphat plowing with twelve yoke of oxen — he with the twelfth — and passed by him, and cast his mantle upon him. Elisha left the oxen, ran after Elijah, and asked, Let me kiss my father and my mother, and then I will follow thee. Elijah answered, Go back again: for what have I done to thee? Elisha returned: he took a yoke of oxen, slew them, boiled their flesh with the instruments of the oxen, gave unto the people, and they did eat. Then he arose, and went after Elijah, and ministered unto him. For you: When God calls, you can answer with honor — and follow Him with your whole heart."
+        "Elisha Follows Elijah – 1 Kings 19:19-21. Elijah found Elisha plowing with twelve yoke of oxen. Elijah passed by him and cast his mantle upon him. Elisha left the oxen, ran after Elijah, and said, Let me, I pray thee, kiss my father and my mother, and then I will follow thee. Elijah said, Go back again: for what have I done to thee? Elisha went back, took a yoke of oxen, slew them, boiled their flesh with the instruments, and gave unto the people, and they did eat. Then he arose, went after Elijah, and ministered unto him. For you: God calls us to follow Him with a willing heart."
     },
     elijahChariot: {
       title: 'Elijah Taken Up in the Fiery Chariot',
@@ -4027,17 +4333,18 @@
         "Elisha's First Miracles — 2 Kings 2:19-22; 4:1-7. The men of the city told Elisha, The water is naught, and the ground barren. He said, Bring me a new cruse, and put salt therein. He cast it into the spring and said, Thus saith the LORD, I have healed these waters; there shall not be from thence any more death or barren land — and the waters were healed. Later a widow cried that the creditor would take her sons; she had only a pot of oil. Elisha sent her to borrow empty vessels, pour behind closed doors — and the oil flowed until every vessel was full. Then, Go, sell the oil, and pay thy debt, and live thou and thy children of the rest. For you: When needs feel big and your little feels small, God can still provide — ask Him and obey one step at a time."
     },
     elishaFloatingAxe: {
-      title: 'Elisha and the Floating Axe Head',
+      title: 'God Makes the Iron Swim',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Sons of the prophets — the place is too strait; beams from Jordan' },
-        { src: 'panel-jesus-2.svg', alt: 'The axe head falls in the water — Alas, master! it was borrowed' },
-        { src: 'panel-jesus-3.svg', alt: 'Elisha casts a stick — the iron swims — take it up to thee' }
+        { src: 'panel-jesus-1.svg', alt: 'Too strait for us — sons of the prophets go to Jordan for beams' },
+        { src: 'panel-jesus-2.svg', alt: 'The axe head fell — Alas, master! for it was borrowed' },
+        { src: 'panel-jesus-3.svg', alt: 'Where fell it? — the iron did swim — take it up to thee' }
       ],
-      caption: 'Swipe to see gentle wonder — borrowed iron that swam home.',
+      caption: 'Swipe for Jordan — borrowed iron, a stick, and God’s kind help.',
       videoId: '',
       videoTitle: '',
       keywords: [
         'elisha',
+        'god makes the iron swim',
         'floating axe',
         'axe head',
         'axe',
@@ -4050,30 +4357,33 @@
         'iron did swim',
         'stick',
         'beam',
-        'man of God'
+        'man of God',
+        'gentle',
+        'everyday'
       ],
       kjvRef: '2 Kings 6:1-7',
       kidContext: {
         who: 'The LORD',
-        to: 'a worried builder — through Elisha',
+        to: 'a worried young man — through Elisha',
         apply:
-          'God cares about honest, everyday troubles — even a small, borrowed thing. Tell Him what you need.'
+          'God cares about small, honest needs — even a borrowed tool — so you can tell Him everything.'
       },
       narration:
-        "Elisha and the Floating Axe Head — 2 Kings 6:1-7. The sons of the prophets said, The place where we dwell with thee is too strait for us. They went to the Jordan to cut beams for a new place. As one was cutting down a beam, the axe head fell into the water, and he cried, Alas, master! for it was borrowed. Elisha asked, Where fell it? The man showed him the place. Elisha cut down a stick and cast it in thither, and the iron did swim. Elisha said, Take it up to thee — and the man put out his hand and took it. For you: The Lord used Elisha to make the borrowed iron swim so the young man would not lose what was not his own."
+        "God Makes the Iron Swim — 2 Kings 6:1-7. The sons of the prophets said to Elisha, The place where we dwell with thee is too strait for us. They went to the Jordan to cut beams. As one was felling a beam, the axe head fell into the water. He cried, Alas, master! for it was borrowed. Elisha asked, Where fell it? The man showed him the place. Elisha cut down a stick and cast it in thither, and the iron did swim. Elisha said, Take it up to thee. And the man put out his hand and took it. The Lord used Elisha to make the borrowed iron swim so the young man would not lose what was not his own. For you: God cares about everyday needs — even little borrowed things."
     },
     elishaChariots: {
-      title: 'Elisha and the Chariots of Fire',
+      title: 'God’s Army Protects Elisha',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Night at Dothan — a host with horses and chariots compass the city' },
-        { src: 'panel-jesus-2.svg', alt: 'Elisha says, Fear not — they that be with us are more than they that be with them' },
+        { src: 'panel-jesus-1.svg', alt: 'A great army round the city — the servant cries, Alas, my master! how shall we do?' },
+        { src: 'panel-jesus-2.svg', alt: 'Fear not — and Lord, open his eyes, that he may see' },
         { src: 'panel-jesus-3.svg', alt: 'The mountain full of horses and chariots of fire round about Elisha' }
       ],
-      caption: 'Swipe to see God’s unseen army — more are with us than with them.',
+      caption: 'Swipe for Dothan — Fear not, opened eyes, and God’s greater army.',
       videoId: '',
       videoTitle: '',
       keywords: [
         'elisha',
+        'gods army protects elisha',
         'chariots of fire',
         'dothan',
         '2 kings 6',
@@ -4085,32 +4395,34 @@
         'syria',
         'servant of the man of God',
         'horses and chariots',
-        'mountain'
+        'mountain',
+        'gentle',
+        'protection'
       ],
       kjvRef: '2 Kings 6:8-17',
       kidContext: {
         who: 'The LORD',
-        to: "Elisha's servant — and every afraid heart",
+        to: 'Elisha’s servant — and every afraid heart',
         apply:
-          "When trouble looks big, God's help is bigger than we see yet — ask Him to open your eyes to trust Him."
+          'God’s army is always greater — ask Him to open your eyes and help you trust Him.'
       },
       narration:
-        "Elisha and the Chariots of Fire — 2 Kings 6:8-17. The king of Syria sent a great host; they came by night and compassed Dothan. The servant of the man of God rose early and cried, Alas, my master! how shall we do? Elisha said, Fear not: for they that be with us are more than they that be with them. He prayed, Lord, open his eyes, that he may see. The Lord opened the young man’s eyes — and the mountain was full of horses and chariots of fire round about Elisha. For you: God’s protection is real, even when fear feels loud."
+        "God’s Army Protects Elisha — 2 Kings 6:8-17. The king of Syria sent a great army with horses and chariots to take Elisha at Dothan. When the servant rose early, he saw the army all around the city and cried, Alas, my master! How shall we do? Elisha said, Fear not: for they that be with us are more than they that be with them. Elisha prayed, Lord, I pray thee, open his eyes, that he may see. The Lord opened the eyes of the young man, and he saw the mountain full of horses and chariots of fire round about Elisha. The Lord showed Elisha and his servant that God’s army is always greater and protects His servants. For you: When trouble looks big, remember God is with His people."
     },
     elishaPoisonStew: {
-      title: 'Elisha and the Poisoned Stew',
+      title: 'God Makes the Stew Safe',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Gilgal — a great pot of pottage for the sons of the prophets' },
-        { src: 'panel-jesus-2.svg', alt: 'They cry, O man of God, there is death in the pot' },
-        { src: 'panel-jesus-3.svg', alt: 'Elisha casts meal into the pot — no harm' }
+        { src: 'panel-jesus-1.svg', alt: 'Gilgal — great pot, pottage, wild gourds in the stew' },
+        { src: 'panel-jesus-2.svg', alt: 'They cry to the man of God — something wrong in the pot' },
+        { src: 'panel-jesus-3.svg', alt: 'Bring meal — pour out; no harm in the pot' }
       ],
-      caption: 'Swipe to see meal heal the pot — no harm for God’s servants.',
+      caption: 'Swipe for Gilgal — calm words, meal in the pot, stew safe for God’s servants.',
       videoId: '',
       videoTitle: '',
       keywords: [
         'elisha',
-        'poisoned stew',
-        'death in the pot',
+        'god makes the stew safe',
+        'stew safe',
         'gilgal',
         'pottage',
         'great pot',
@@ -4120,31 +4432,34 @@
         '2 kings 4:38',
         '2 kings 4:41',
         'sons of the prophets',
-        'seethe',
-        'no harm in the pot'
+        'death in the pot',
+        'no harm in the pot',
+        'bring meal',
+        'gentle'
       ],
       kjvRef: '2 Kings 4:38-41',
       kidContext: {
         who: 'The LORD',
         to: 'the sons of the prophets — through Elisha',
         apply:
-          'God cares about daily needs — He can make what looked harmful become safe when we trust Him.'
+          'God cares for everyday meals — He made the stew safe so His servants could eat without fear.'
       },
       narration:
-        "Elisha and the Poisoned Stew — 2 Kings 4:38-41. At Gilgal, in a dearth, Elisha said, Set on the great pot, and seethe pottage for the sons of the prophets. Wild gourds were shred into the pot — they knew them not. As they ate, they cried, O thou man of God, there is death in the pot. Elisha said, Then bring meal. He cast it into the pot — Pour out for the people, that they may eat. And there was no harm in the pot. For you: Bring your worry to God — He can restore what feels spoiled."
+        "God Makes the Stew Safe — 2 Kings 4:38-41. The sons of the prophets were making pottage at Gilgal. One gathered wild gourds and put them into the great pot. When they poured out for the men to eat, they cried, O man of God, there is death in the pot! They could not eat it. Elisha said, Bring meal. He cast the meal into the pot and said, Pour out for the people, that they may eat. And there was no harm in the pot. The Lord used Elisha to make the stew safe. For you: God cares for the small things — trust His kindness."
     },
     elishaBlindArmy: {
-      title: 'Elisha and the Blind Syrian Army',
+      title: 'God Protects Elisha with Kindness',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Elisha prays — the Lord smites the army with blindness' },
-        { src: 'panel-jesus-2.svg', alt: 'Follow me — he led them to Samaria; their eyes were opened' },
-        { src: 'panel-jesus-3.svg', alt: 'Bread and water — they ate and drank, and went in peace' }
+        { src: 'panel-jesus-1.svg', alt: 'Blindness for safety — follow me toward Samaria' },
+        { src: 'panel-jesus-2.svg', alt: 'Open their eyes — they saw they were in the midst of Samaria' },
+        { src: 'panel-jesus-3.svg', alt: 'Thou shalt not smite — bread, water, and peace' }
       ],
-      caption: 'Swipe to see mercy — bread and water instead of fighting.',
+      caption: 'Swipe for Dothan to Samaria — protection, open eyes, and a feast of kindness.',
       videoId: '',
       videoTitle: '',
       keywords: [
         'elisha',
+        'god protects elisha with kindness',
         'blind syrian',
         'syrian army',
         'blindness',
@@ -4157,130 +4472,308 @@
         'bread and water',
         'thou shalt not smite',
         'great provision',
-        'dothan'
+        'dothan',
+        'kindness',
+        'gentle',
+        'mercy'
       ],
       kjvRef: '2 Kings 6:18-23',
       kidContext: {
         who: 'The LORD',
         to: 'Elisha, the king of Israel, and the Syrian army',
         apply:
-          'God can protect His servants and show mercy — even kindness to those who came as enemies.'
+          'The Lord protected Elisha and showed mercy even to his enemies — kindness instead of fighting.'
       },
       narration:
-        "Elisha and the Blind Syrian Army — 2 Kings 6:18-23. When they came down to him, Elisha prayed, Smite this people, I pray thee, with blindness — and the Lord smote them according to the word of Elisha. Elisha said, Follow me — and he led them to Samaria. Then, Lord, open the eyes of these men — and they saw they were in the midst of Samaria. The king asked, Shall I smite them? Elisha said, Thou shalt not smite them: set bread and water before them. They ate and drank, and went to their master — and the bands of Syria came no more into the land of Israel. For you: Mercy can go farther than fear expects."
+        "God Protects Elisha with Kindness — 2 Kings 6:18-23. The Syrian army came to Dothan to take Elisha. Elisha prayed, Lord, I pray thee, smite this people with blindness — and the Lord smote them with blindness. Elisha said, This is not the way, neither is this the city: follow me, and I will bring you to the man whom ye seek. He led them safely to Samaria. When they came to Samaria, Elisha prayed, Lord, open the eyes of these men, that they may see — and they saw they were in the midst of Samaria. The king asked, Shall I smite them? Elisha answered, Thou shalt not smite them — set bread and water before them. So the king prepared a great feast; they ate and drank, and went back to their master in peace. The Lord protected Elisha and showed mercy through kindness. For you: God can turn enemies toward peace."
+    },
+    elishaBones: {
+      title: 'God\'s Power Even in Elisha\'s Bones',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Elisha rested — God\'s servant buried with honor' },
+        { src: 'panel-noah-2.svg', alt: 'Friends hurry — they lay a man beside Elisha\'s rest' },
+        { src: 'panel-noah-3.svg', alt: 'He stands up alive — God alone gives life!' }
+      ],
+      caption: 'Swipe to see God\'s surprising power — He alone gives life! ✨',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['elisha', 'bones', 'life', 'miracle', '2 kings 13', 'bury', 'grave', 'revived'],
+      kjvRef: '2 Kings 13:20–21',
+      kidContext: { who: 'God', to: 'everyone who hears', apply: 'God\'s power is greater than anything. He can do wonderful things — we can trust Him.' }
     },
     isaiahMessianic: {
-      title: 'Isaiah\'s Messianic Prophecies',
+      title: 'God Promises a Savior',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'God\'s prophet speaks — promises of the coming King' },
-        { src: 'panel-jesus-2.svg', alt: 'A promised child — Immanuel, God with us' },
-        { src: 'panel-jesus-3.svg', alt: 'The suffering servant brings healing and peace' }
+        { src: 'panel-jesus-1.svg', alt: 'God speaks through Isaiah — good news for His people' },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'A promised child — Wonderful, Counsellor, the mighty God, the Prince of Peace'
+        },
+        { src: 'panel-jesus-3.svg', alt: 'Light and joy for people walking in darkness — God keeps His word' }
       ],
-      caption: 'Swipe to see God\'s promises that came true in Jesus! ✨',
+      caption: 'Swipe to see God’s gentle promise of a Savior and names full of hope.',
       videoId: '',
       videoTitle: '',
-      keywords: ['isaiah', 'prophet', 'immanuel', 'jesus', 'isaiah 7', 'isaiah 9', 'isaiah 53', 'promise'],
-      kjvRef: 'Isaiah 7:14; 9:6–7; 53:4–6',
-      kidContext: { who: 'God', to: 'us', apply: 'God said what He would do — and Jesus came. You can trust every promise in His Word.' },
-      narration: 'Isaiah was a prophet — someone who speaks God\'s truth to His people. Long before Jesus walked the earth, Isaiah wrote words from God about a coming King: a child who would be called Wonderful, Counsellor, the mighty God, the Prince of Peace. He also wrote about One who would carry our griefs and heal us by His suffering. Those words pointed to Jesus. For you: When God puts a promise in the Bible, He keeps it. You can trust Him with what worries you today.'
+      keywords: [
+        'isaiah',
+        'prophet',
+        'isaiah 9',
+        'wonderful',
+        'counsellor',
+        'prince of peace',
+        'savior',
+        'promise',
+        'light',
+        'child',
+        'jesus'
+      ],
+      kjvRef: 'Isaiah 9:2–7',
+      kidContext: {
+        who: 'God',
+        to: 'every heart that needs hope',
+        apply:
+          'God promised a Savior who brings light and joy — and He always keeps His promises.'
+      },
+      narration:
+        "God Promises a Savior — Isaiah 9:2–7. Long ago God spoke through His prophet Isaiah. Isaiah told God's people that a special child would be born — called Wonderful, Counsellor, The mighty God, The everlasting Father, The Prince of Peace. This child would bring light and joy to people walking in darkness. God was promising to send a Savior who would love and help His people — and God always keeps His promises. For you: you can trust God's Word; His promises are sure."
     },
     jeremiahWeeping: {
-      title: 'Jeremiah the Weeping Prophet',
+      title: 'Jeremiah Loves God\'s People',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Young Jeremiah — God says, Do not say you are only a youth' },
-        { src: 'panel-noah-2.svg', alt: 'Jeremiah warns the people — they will not listen' },
-        { src: 'panel-noah-3.svg', alt: 'Jeremiah weeps — Lamentations for Jerusalem' }
+        { src: 'panel-jesus-1.svg', alt: 'Jeremiah loved God — and loved God’s people with his whole heart' },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'The people would not listen — Jeremiah’s heart grew heavy, and he wept for them'
+        },
+        { src: 'panel-jesus-3.svg', alt: 'God stayed with Jeremiah — helping him speak God’s words in love' }
       ],
-      caption: 'Swipe to see God use a young heart that cared deeply! 💧',
+      caption: 'Swipe to see a gentle prophet, honest tears, and God staying near.',
       videoId: '',
       videoTitle: '',
-      keywords: ['jeremiah', 'prophet', 'lamentations', 'jeremiah 1', 'youth', 'weep', 'jerusalem'],
-      kjvRef: 'Lamentations 1–5',
-      kidContext: { who: 'God', to: 'Jeremiah (and us)', apply: 'Even when things feel broken, God\'s mercies are new — great is His faithfulness.' }
+      keywords: [
+        'jeremiah',
+        'prophet',
+        'tears',
+        'weep',
+        'love',
+        'gods word',
+        'listen',
+        'jeremiah 1',
+        'jeremiah 13',
+        'sad',
+        'help'
+      ],
+      kjvRef: 'Jeremiah 1:1–10; 13:17',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Jeremiah — and every heart that feels sad for others',
+        apply:
+          'The Lord cares when His people are sad — and He stays close to those who love Him.'
+      },
+      narration:
+        "Jeremiah Loves God’s People — Jeremiah 1:1–10; 13:17. Jeremiah was a prophet who loved God and loved God’s people. He saw that many were not listening to God, and his heart grew sad. He cried tears for them and kept speaking God’s words, because God still loved them. God was with Jeremiah and helped him. For you: God cares when you feel sad — and He stays close when you love Him."
     },
     ezekielValleyBones: {
-      title: 'Valley of Dry Bones',
+      title: 'God Can Make Dry Bones Live',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Ezekiel stands in a valley of dry bones' },
-        { src: 'panel-noah-2.svg', alt: 'Bones rattle together — sinews, flesh, skin' },
-        { src: 'panel-noah-3.svg', alt: 'Breath enters — a vast army lives!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'God showed Ezekiel a wide valley — dry bones scattered on the ground'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'God asked, Son of man, can these bones live? — Ezekiel trusted: O Lord God, thou knowest'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Ezekiel spoke God’s words — the bones came together, and they stood up as a great army'
+        }
       ],
-      caption: 'Swipe to see God bring life where there was none! 💨',
+      caption: 'Swipe to see God’s Word bring wonder — dry bones standing full of life.',
       videoId: '',
       videoTitle: '',
-      keywords: ['ezekiel', 'bones', 'valley', 'ezekiel 37', 'life', 'spirit', 'prophet'],
+      keywords: [
+        'ezekiel',
+        'dry bones',
+        'valley',
+        'ezekiel 37',
+        'prophet',
+        'life',
+        'gods word',
+        'army',
+        'breath',
+        'hope',
+        'miracle'
+      ],
       kjvRef: 'Ezekiel 37:1–14',
-      kidContext: { who: 'God', to: 'His people', apply: 'Nothing is too dead or dry for God. He can make your heart alive again.' }
+      kidContext: {
+        who: 'God',
+        to: 'His people — and every heart that needs hope',
+        apply:
+          'God can make what is dead and dry come to life again. He is stronger than anything.'
+      },
+      narration:
+        "God Can Make Dry Bones Live — Ezekiel 37:1–14. God showed His prophet Ezekiel a valley full of dry bones. They were very dry and scattered. God asked, Son of man, can these bones live? Ezekiel answered, O Lord God, thou knowest. God told him to speak to the bones. When Ezekiel spoke God’s words, bone came to bone, flesh grew, breath came in — and they stood up, a great army. For you: Nothing is too dead or dry for God. He can make your heart alive again when you trust Him."
     },
     danielFieryFurnace: {
-      title: 'The Fiery Furnace',
+      title: 'God Walks with His Servants in the Fire',
       panels: [
-        { src: 'panel-daniel-1.svg', alt: 'Three friends refuse to bow to the golden image' },
-        { src: 'panel-daniel-2.svg', alt: 'The furnace blazes seven times hotter' },
-        { src: 'panel-daniel-3.svg', alt: 'Four walk in the fire — God protects' }
+        { src: 'panel-daniel-1.svg', alt: 'Big golden image — Shadrach, Meshach, and Abednego would not bow' },
+        { src: 'panel-daniel-2.svg', alt: 'The furnace heated seven times hotter — cast into the fire' },
+        { src: 'panel-daniel-3.svg', alt: 'Four loose in the fire — the form of the fourth like the Son of God' }
       ],
-      caption: 'Swipe to see three brave friends — God in the fire with them! 🔥',
+      caption: 'Swipe to see brave trust, soft flames, and the fourth walking with them unhurt.',
       videoId: '',
       videoTitle: '',
-      keywords: ['shadrach', 'meshach', 'abednego', 'furnace', 'daniel 3', 'fire', 'bow', 'nebuchadnezzar'],
-      kjvRef: 'Daniel 3',
-      kidContext: { who: 'God', to: 'Shadrach, Meshach, and Abednego', apply: 'Stand for what is right — God is with you even when it gets hot.' }
+      keywords: ['shadrach', 'meshach', 'abednego', 'furnace', 'daniel 3', 'fire', 'bow', 'nebuchadnezzar', 'son of god', 'golden image'],
+      kjvRef: 'Daniel 3:1–30',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Shadrach, Meshach, and Abednego — and every heart that trusts Him',
+        apply:
+          'Even in a hard place, God is with us. We can tell Him we trust Him and stand for what is right.'
+      },
+      narration:
+        "God Walks with His Servants in the Fire — Daniel 3:1–30. The king of Babylon made a big golden image and commanded everyone to bow down and worship it when they heard the music. Shadrach, Meshach, and Abednego would not bow down. They told the king, If it be so, our God whom we serve is able to deliver us from the burning fiery furnace, and he will deliver us out of thine hand, O king. But if not, be it known unto thee, O king, that we will not serve thy gods, nor worship the golden image which thou hast set up. The king was very angry and commanded the furnace to be heated seven times hotter. The three men were thrown into the burning fiery furnace. The king looked and said, Lo, I see four men loose, walking in the midst of the fire, and they have no hurt; and the form of the fourth is like the Son of God. The three men came out of the fire, and no hair of their head was singed, neither were their coats changed, nor the smell of fire had passed on them. For you: The LORD walked with His servants in the fire and kept them safe because they trusted Him."
     },
     danielLionsDen: {
-      title: 'Daniel in the Lions\' Den',
+      title: 'Daniel Trusts God in the Lions’ Den',
       panels: [
-        { src: 'panel-daniel-1.svg', alt: 'Daniel prays toward Jerusalem three times a day' },
-        { src: 'panel-daniel-2.svg', alt: 'Daniel is thrown to the lions' },
-        { src: 'panel-daniel-3.svg', alt: 'God stills the lions — Daniel is safe' }
+        { src: 'panel-daniel-1.svg', alt: 'Daniel prays to God three times a day — faithful when the law forbids it' },
+        { src: 'panel-daniel-2.svg', alt: 'The den of lions — the king is very sad and cannot sleep' },
+        { src: 'panel-daniel-3.svg', alt: 'My God hath sent his angel, and hath shut the lions’ mouths — no hurt was found' }
       ],
-      caption: 'Swipe to see Daniel pray and trust God in the den! 🦁',
+      caption: 'Swipe to see honest prayer, a sad king, and God protecting Daniel in the den.',
       videoId: '',
       videoTitle: '',
-      keywords: ['daniel', 'lions', 'den', 'pray', 'daniel 6', 'law', 'babylon', 'angel'],
-      kjvRef: 'Daniel 6',
-      kidContext: { who: 'God', to: 'Daniel', apply: 'Keep talking to God — He hears you and can hush every fear.' }
+      keywords: [
+        'daniel',
+        'lions',
+        'den',
+        'pray',
+        'daniel 6',
+        'daniel 6:22',
+        'law',
+        'babylon',
+        'angel',
+        'darius',
+        'living God',
+        'shut the lions mouths'
+      ],
+      kjvRef: 'Daniel 6:1–23',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Daniel — and every heart that prays',
+        apply:
+          'Keep talking to God every day. He hears you and can keep you safe when you trust Him.'
+      },
+      narration:
+        "Daniel Trusts God in the Lions’ Den — Daniel 6:1–23. Daniel was a good man who loved God. He prayed to God three times every day, even when the king made a law that no one could pray to anyone but the king. Daniel was thrown into a den of lions. The king was very sad and could not sleep. Early the next morning the king called, O Daniel, servant of the living God, is thy God, whom thou servest continually, able to deliver thee from the lions? Daniel answered, My God hath sent his angel, and hath shut the lions’ mouths, that they have not hurt me. The king was glad and commanded that Daniel be taken up out of the den. No hurt was found upon him, because he believed in his God. For you: The LORD protected Daniel because he trusted and prayed to Him every day — God protects those who trust Him."
     },
     ezraReturn: {
-      title: 'Ezra Return',
+      title: 'Coming Home to Worship',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'King Cyrus\'s decree — God\'s people may go home' },
-        { src: 'panel-david-2.svg', alt: 'Ezra leads the people with gifts for the temple' },
-        { src: 'panel-david-3.svg', alt: 'The Law is read — hearts turn back to God' }
+        { src: 'panel-noah-1.svg', alt: 'The LORD stirred Cyrus — a proclamation to go up and build God’s house in Jerusalem' },
+        { src: 'panel-noah-2.svg', alt: 'Fathers, priests, and Levites rise with joy on the way home' },
+        { src: 'panel-noah-3.svg', alt: 'The altar in his place upon his bases — burnt offerings and thanks to the LORD' }
       ],
-      caption: 'Swipe to see God bring His people home and back to His Word! 📜',
+      caption: 'Swipe to see God stir the king’s heart and bring His people home to worship with thankful hearts.',
       videoId: '',
       videoTitle: '',
-      keywords: ['ezra', 'cyrus', 'exile', 'return', 'temple', 'ezra 1', 'law', 'jerusalem', 'persia'],
-      kjvRef: 'Ezra 1–10; Nehemiah 8–9',
-      kidContext: { who: 'God', to: 'His people', apply: 'God still brings people home to Himself. His Word shows us how to walk with Him again.' }
+      keywords: ['ezra', 'cyrus', 'exile', 'return', 'temple', 'ezra 1', 'ezra 3', 'altar', 'jerusalem', 'persia', 'worship'],
+      kjvRef: 'Ezra 1:1–11; 3:1–6',
+      kidContext: {
+        who: 'The LORD',
+        to: 'His people — after long years away',
+        apply:
+          'God remembers you. He can turn a king’s heart and bring you home to thank and praise Him.'
+      },
+      narration:
+        "Coming Home to Worship — Ezra 1:1–11; 3:1–6. The people of Israel had been far away from their land for many years. But the LORD stirred the heart of Cyrus the king of Persia, and he made a proclamation so they could go up to Jerusalem and build the house of the LORD God of Israel. Many of the fathers’ houses, the priests, and the Levites rose up with joy and went to Jerusalem. They set the altar in his place upon his bases and offered burnt offerings unto the LORD, even though they were still a little afraid of the people around them. Day by day they praised the LORD and gave thanks, because He had turned the heart of the king and brought them home. The LORD showed His people that even after long years away, He remembers them and brings them back to worship Him. For you: God faithfully brings His people home to Himself."
     },
     malachiMessage: {
-      title: 'Malachi\'s Message',
+      title: 'God Promises to Send a Messenger',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Malachi speaks God\'s words to the people' },
-        { src: 'panel-david-2.svg', alt: 'God deserves our best — not leftovers' },
-        { src: 'panel-david-3.svg', alt: 'Hope: the Sun of Righteousness will rise' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Malachi — God’s last prophet before a long quiet; he tells the people God still loves them'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'God promises to send a special messenger — to prepare hearts for the Savior'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Love God, love one another — God always keeps His promises, even when it feels quiet'
+        }
       ],
-      caption: 'Swipe to see the last OT prophet call hearts back to God! ☀️',
+      caption: 'Swipe to see God’s faithful love and the hope He promised long before Christmas.',
       videoId: '',
       videoTitle: '',
-      keywords: ['malachi', 'prophet', 'offerings', 'elijah', 'malachi 4', 'love', 'temple', 'old testament'],
-      kjvRef: 'Malachi 1–4',
-      kidContext: { who: 'God', to: 'His people', apply: 'God loves you — give Him your whole heart, not leftovers. He keeps every promise.' }
+      keywords: [
+        'malachi',
+        'prophet',
+        'messenger',
+        'promise',
+        'john the baptist',
+        'savior',
+        'malachi 3',
+        'malachi 4',
+        'love',
+        'hope',
+        'quiet',
+        'faithful'
+      ],
+      kjvRef: 'Malachi 3:1; 4:5–6',
+      kidContext: {
+        who: 'God',
+        to: 'His people — and every heart listening for His promise',
+        apply: 'God always keeps His promises, even when it feels quiet.'
+      },
+      narration:
+        "God Promises to Send a Messenger — Malachi 3:1; 4:5–6. Malachi was the last prophet God sent before a long quiet time. He told God’s people the Lord still loved them, and that God would send a special messenger to prepare the way. Many years later, a man named John came—calling people to repent and get their hearts ready for the Savior. Malachi reminded them to love God and love one another. For you: when days feel quiet, remember—God keeps every promise."
     },
     jonahVine: {
-      title: 'Jonah and the Vine',
+      title: 'God Gives Jonah a Second Chance',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jonah sits angry outside Nineveh' },
-        { src: 'panel-noah-2.svg', alt: 'A vine grows up to shade him—then a worm eats it' },
-        { src: 'panel-noah-3.svg', alt: 'God says: I care about people even more than the vine' }
+        {
+          src: 'panel-jonah-1.svg',
+          alt: 'God called Jonah to go to Nineveh — Jonah ran away on a ship instead'
+        },
+        {
+          src: 'panel-jonah-2.svg',
+          alt: 'A big storm — sailors afraid; Jonah was thrown into the sea'
+        },
+        {
+          src: 'panel-jonah-3.svg',
+          alt: 'God kept Jonah safe in the fish — Jonah prayed; God heard and gave him another chance'
+        }
       ],
-      caption: 'Swipe to see God\'s big heart—He cares for everyone! 🌿',
+      caption: 'Swipe to see God’s kindness — even when we run, He listens and gives second chances.',
       videoId: '',
       videoTitle: '',
-      keywords: ['jonah', 'vine', 'worm', 'jonah 4', 'nineveh', 'anger', 'mercy'],
-      kjvRef: 'Jonah 4',
-      kidContext: { who: 'God', to: 'Jonah', apply: 'God loves everyone—even people we think don\'t deserve it. So should we!' }
+      keywords: [
+        'jonah',
+        'nineveh',
+        'fish',
+        'mercy',
+        'sorry',
+        'prayer',
+        'obey',
+        'second chance',
+        'storm',
+        'jonah 1',
+        'jonah 2',
+        'jonah 3'
+      ],
+      kjvRef: 'Jonah 1:1–17; 2:1–10; 3:1–10',
+      kidContext: {
+        who: 'God',
+        to: 'Jonah — and every heart that needs forgiveness',
+        apply: 'God is kind and gives us second chances when we are sorry.'
+      },
+      narration:
+        "God Gives Jonah a Second Chance — Jonah 1:1–17; 2:1–10; 3:1–10. God told His prophet Jonah to go to Nineveh and speak His message. Jonah did not want to go, so he ran away on a ship. When a great storm came, the sailors were afraid. Jonah knew he had run from God, and he told them to throw him into the sea. The Lord had prepared a great fish — it swallowed Jonah and kept him safe for three days and three nights. Inside the fish, Jonah prayed and said he was sorry. God heard him, and the fish brought Jonah onto dry land. Then Jonah went to Nineveh, and the people listened and turned back to God. For you: when you mess up, tell God you are sorry — He is kind and gives second chances."
     },
     danielPray: {
       title: 'Daniel Prays Three Times a Day',
@@ -4297,18 +4790,37 @@
       kidContext: { who: 'God', to: 'Daniel', apply: 'Nothing should stop you from praying! God sees your faithfulness.' }
     },
     estherBanquet: {
-      title: 'Esther\'s Banquet',
+      title: 'Esther Saves Her People at the Banquet',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Esther invites the king to a banquet' },
-        { src: 'panel-noah-2.svg', alt: 'Haman arrives thinking he\'s honored' },
-        { src: 'panel-noah-3.svg', alt: 'Esther reveals Haman\'s evil plan—he is shocked!' }
+        { src: 'panel-jesus-1.svg', alt: 'Esther prepares a special banquet — the king and Haman come' },
+        { src: 'panel-jesus-2.svg', alt: 'At the right time she tells the king God’s people are in danger' },
+        { src: 'panel-jesus-3.svg', alt: 'The king stops the wicked plan — God saves His people through Esther’s words' }
       ],
-      caption: 'Swipe to see Esther stand up for her people! 🍷',
+      caption: 'Swipe to see prayer, a welcome feast, and brave truth spoken in love.',
       videoId: '',
       videoTitle: '',
-      keywords: ['esther', 'banquet', 'haman', 'esther 7', 'king', 'courage', 'reveal'],
-      kjvRef: 'Esther 5–7',
-      kidContext: { who: 'God', to: 'Esther (through timing)', apply: 'God gives you the right moment! Be ready—He orders the steps.' }
+      keywords: [
+        'esther',
+        'banquet',
+        'haman',
+        'king',
+        'truth',
+        'save',
+        'pray',
+        'esther 5',
+        'esther 7',
+        'people',
+        'courage'
+      ],
+      kjvRef: 'Esther 5:1–8; 7:1–10',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Esther and every heart that prays for courage to speak',
+        apply:
+          'The Lord hears when His children pray — and He can help us speak the truth at the right time to help others.'
+      },
+      narration:
+        "Esther Saves Her People at the Banquet — Esther 5:1–8; 7:1–10. Queen Esther invited the king and Haman to a special banquet. At the right time she told the king how Haman’s plan would hurt all God’s people. The king stopped the evil plan. God used Esther to save her people. For you: the Lord hears when we pray, and He can give us courage to speak the truth in love when someone needs help."
     },
     /* ── Week 5 (61–72) ── */
     angelMary: {
@@ -4326,18 +4838,133 @@
       kidContext: { who: 'God', to: 'Mary', apply: 'God chooses ordinary people! When God calls you, say yes like Mary.' }
     },
     shepherdsStar: {
-      title: 'Shepherds and the Star',
+      title: 'The Shepherds Find Baby Jesus',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Shepherds watch their flock at night' },
-        { src: 'panel-noah-2.svg', alt: 'Angels fill the sky singing!' },
-        { src: 'panel-noah-3.svg', alt: 'They run to Bethlehem—Jesus is born!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Shepherds watch their sheep — an angel speaks, God’s glory shines around them'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Many angels praise God — good tidings of great joy for all people'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'The shepherds hurry to Bethlehem — they find baby Jesus in the manger, just as God said'
+        }
       ],
-      caption: 'Swipe to see the shepherds run to baby Jesus! ✨',
+      caption:
+        'Swipe to see the night angels sang—shepherds hurried, found Jesus, and went home praising God.',
       videoId: '',
       videoTitle: '',
-      keywords: ['shepherds', 'star', 'angels', 'luke 2', 'bethlehem', 'birth', 'glory'],
-      kjvRef: 'Luke 2',
-      kidContext: { who: 'God', to: 'The shepherds', apply: 'God shares good news first with humble people! Run to Jesus—everyone is invited.' }
+      keywords: [
+        'shepherds',
+        'angels',
+        'bethlehem',
+        'manger',
+        'good tidings',
+        'saviour',
+        'luke 2',
+        'glory',
+        'joy',
+        'peace',
+        'baby jesus'
+      ],
+      kjvRef: 'Luke 2:8–20',
+      kidContext: {
+        who: 'God',
+        to: 'The shepherds — and everyone who hears the good news',
+        apply: 'The good news of Jesus is for everyone.'
+      },
+      narration:
+        "The Shepherds Find Baby Jesus — Luke 2:8–20. Shepherds were in the fields keeping watch over their flock by night. The angel of the Lord came upon them, and the glory of the Lord shone round about them; and they were sore afraid. The angel said, Fear not: for, behold, I bring you good tidings of great joy, which shall be to all people. For unto you is born this day in the city of David a Saviour, which is Christ the Lord. Suddenly there was with the angel a multitude of the heavenly host praising God, and saying, Glory to God in the highest, and on earth peace, good will toward men. The shepherds said one to another, Let us now go even unto Bethlehem, and see this thing which is come to pass. They came with haste, and found Mary and Joseph, and the babe lying in a manger. When they had seen it, they made known abroad the saying which was told them. They returned, glorifying and praising God. For you: the good news of Jesus is for everyone."
+    },
+    wiseMen: {
+      title: 'The Wise Men Follow the Star',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Wise men see a bright new star in the east — they know a special King is born'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'They follow the star to Bethlehem and find the young child with Mary'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'They bow down, worship Him, and give gifts — gold, frankincense, and myrrh'
+        }
+      ],
+      caption:
+        'Swipe to see wise men follow the star — they find Jesus, bow down, and worship the little King.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'wise men',
+        'magi',
+        'star',
+        'bethlehem',
+        'mary',
+        'jesus',
+        'gold',
+        'frankincense',
+        'myrrh',
+        'worship',
+        'matthew 2',
+        'gifts',
+        'baby jesus'
+      ],
+      kjvRef: 'Matthew 2:1–12',
+      kidContext: {
+        who: 'God',
+        to: 'The wise men — and everyone who comes to worship Jesus',
+        apply: 'People from far away can come to worship Jesus.'
+      },
+      narration:
+        "The Wise Men Follow the Star — Matthew 2:1–12. When Jesus was born in Bethlehem, wise men from the east saw his star in the east, and came to worship him. They asked, Where is he that is born King of the Jews? for we have seen his star in the east, and are come to worship him. The star went before them till it came and stood over where the young child was. When they saw the young child with Mary his mother, they fell down, and worshipped him: and when they had opened their treasures, they presented unto him gifts; gold, and frankincense, and myrrh. For you: God sent the star so they could find Jesus — people from far away can come to worship Him."
+    },
+    simeonAnna: {
+      title: 'Simeon and Anna See the Promised Savior',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Mary and Joseph bring baby Jesus to the temple in Jerusalem'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Simeon takes baby Jesus in his arms — he had waited to see God’s salvation'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Anna praises God and speaks of the child — hearts full of joy'
+        }
+      ],
+      caption:
+        'Swipe to see Simeon and Anna rejoice — God kept His promise; they saw the promised Savior.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'simeon',
+        'anna',
+        'temple',
+        'jerusalem',
+        'baby jesus',
+        'mary',
+        'joseph',
+        'salvation',
+        'luke 2',
+        'promise',
+        'praise',
+        'worship'
+      ],
+      kjvRef: 'Luke 2:22–38',
+      kidContext: {
+        who: 'God',
+        to: 'Simeon, Anna, and everyone who waits on Him',
+        apply: 'God keeps His promises — and brings joy when people see the Savior.'
+      },
+      narration:
+        "Simeon and Anna See the Promised Savior — Luke 2:22–38. Mary and Joseph brought the baby to Jerusalem to present him to the Lord. The Holy Ghost had revealed to Simeon that he should not see death before he had seen the Lord’s Christ. He came by the Spirit into the temple — and when the parents brought in the child Jesus, Simeon took him up in his arms, and blessed God, and said, Lord, now lettest thou thy servant depart in peace… For mine eyes have seen thy salvation. Anna, a prophetess, was there too — she gave thanks likewise unto the Lord, and spake of him to all them that looked for redemption in Jerusalem. For you: God keeps His word — joy fills the heart when we see Jesus as Savior."
     },
     jesusManger: {
       title: 'Baby Jesus in the Manger',
@@ -4354,18 +4981,47 @@
       kidContext: { who: 'God', to: 'The whole world', apply: 'Jesus came for you! God\'s greatest gift is His Son.' }
     },
     jesusTemple: {
-      title: 'Jesus Teaches in the Temple',
+      title: 'Jesus Goes to His Father’s House',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Mary and Joseph lose track of Jesus' },
-        { src: 'panel-noah-2.svg', alt: 'They find Him in the temple—teaching elders!' },
-        { src: 'panel-noah-3.svg', alt: 'Jesus says: I must be about my Father\'s business' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Mary and Joseph travel to Jerusalem for Passover — later they seek Jesus for three days'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'They find boy Jesus in the temple — sitting with the teachers, listening and asking questions'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Jesus says He must be about His Father’s business — then He goes home with them in obedience'
+        }
       ],
-      caption: 'Swipe to see Jesus in the temple—even as a kid! 📖',
+      caption:
+        'Swipe to see boy Jesus in the temple — listening, asking, and loving His Father’s house.',
       videoId: '',
       videoTitle: '',
-      keywords: ['jesus', 'temple', 'teaching', 'luke 2', 'elders', 'wisdom', 'boy', 'father'],
+      keywords: [
+        'jesus',
+        'temple',
+        'jerusalem',
+        'passover',
+        'luke 2',
+        'teachers',
+        'twelve',
+        'father',
+        'business',
+        'obedient',
+        'mary',
+        'joseph'
+      ],
       kjvRef: 'Luke 2:41–52',
-      kidContext: { who: 'Jesus', to: 'The teachers (and us)', apply: 'Jesus loved God\'s house and Word even as a boy—so can you!' }
+      kidContext: {
+        who: 'Jesus',
+        to: 'Mary, Joseph, and everyone who listens',
+        apply: 'Even as a boy, Jesus loved being in His Father’s house — and He honors His parents.'
+      },
+      narration:
+        "Jesus Goes to His Father’s House — Luke 2:41–52. Every year His parents went to Jerusalem at the feast of the passover. When He was twelve years old, they went up… and returned; but Jesus tarried behind in Jerusalem. His parents sought Him, and after three days they found Him in the temple, sitting in the midst of the doctors, both hearing them, and asking them questions. And all that heard Him were astonished. His mother said unto Him, Son, why hast Thou thus dealt with us? He said unto them, How is it that ye sought me? wist ye not that I must be about my Father’s business? And He went down with them to Nazareth, and was subject unto them. For you: even as a boy, Jesus loved His Father’s house — and He shows us how to honor father and mother."
     },
     johnBaptist: {
       title: 'John the Baptist',
@@ -4396,18 +5052,217 @@
       kidContext: { who: 'God', to: 'Jesus (and us)', apply: 'God said yes to Jesus—He says yes to you too! Baptism is a big, happy yes.' }
     },
     jesusBaptism: {
-      title: 'Jesus Is Baptized',
+      title: 'Jesus Is Baptized by John',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus comes to the Jordan to be baptized by John' },
-        { src: 'panel-noah-2.svg', alt: 'John baptizes Jesus in the river' },
-        { src: 'panel-noah-3.svg', alt: 'Heavens open — dove, God\'s voice: This is My beloved Son!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'John baptizes in the Jordan — Jesus comes to fulfill all righteousness'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Jesus is baptized — coming up from the water as the heavens open'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'The Spirit descends like a dove — the Father’s voice: This is my beloved Son'
+        }
       ],
-      caption: 'Swipe to see Jesus baptized — God the Father speaks! 🕊️',
+      caption:
+        'Swipe to see Jesus baptized in the river — heavens open, dove, and the Father’s loving voice.',
       videoId: '',
       videoTitle: '',
-      keywords: ['jesus', 'baptism', 'baptized', 'jordan', 'john', 'dove', 'matthew 3', 'mark 1', 'luke 3', 'spirit'],
-      kjvRef: 'Matthew 3:13–17; Mark 1:9–11; Luke 3:21–22',
-      kidContext: { who: 'God the Father', to: 'Jesus (and us)', apply: 'God called Jesus His beloved Son — we can listen to Jesus and trust Him.' }
+      keywords: [
+        'jesus',
+        'baptism',
+        'baptized',
+        'jordan',
+        'john the baptist',
+        'dove',
+        'matthew 3',
+        'beloved son',
+        'heaven',
+        'spirit',
+        'well pleased'
+      ],
+      kjvRef: 'Matthew 3:13–17',
+      kidContext: {
+        who: 'God the Father',
+        to: 'Jesus — and everyone who listens',
+        apply: 'God the Father was pleased with Jesus — we can listen to Him and trust Him.'
+      },
+      narration:
+        "Jesus Is Baptized by John — Matthew 3:13–17. Then cometh Jesus from Galilee to Jordan unto John, to be baptized of him. But John forbad Him, saying, I have need to be baptized of thee, and comest thou to me? And Jesus answering said unto him, Suffer it to be so now: for thus it becometh us to fulfil all righteousness. Then he suffered Him. And Jesus, when he was baptized, went up straightway out of the water: and, lo, the heavens were opened unto Him, and He saw the Spirit of God descending like a dove, and lighting upon Him: and lo a voice from heaven, saying, This is my beloved Son, in whom I am well pleased. For you: the Father loves His Son — and He invites us to listen to Jesus."
+    },
+    jesusDisciples: {
+      title: 'Jesus Calls His Helpers',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Jesus walks by the Sea of Galilee — Peter and Andrew casting a net'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Jesus says, Follow me — I will make you fishers of men'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'James and John leave the boat — they follow Jesus too'
+        }
+      ],
+      caption:
+        'Swipe to see Jesus call helpers by the sea — nets, boats, and His gentle “Follow me.”',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'jesus',
+        'disciples',
+        'fishers of men',
+        'sea of galilee',
+        'peter',
+        'andrew',
+        'james',
+        'john',
+        'matthew 4',
+        'nets',
+        'follow me'
+      ],
+      kjvRef: 'Matthew 4:18–22',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Peter, Andrew, James, John — and everyone who listens',
+        apply:
+          'Jesus calls ordinary people — kids too! — to be with Him and help tell others God’s love.'
+      },
+      narration:
+        "Jesus Calls His Helpers — Matthew 4:18–22. And Jesus, walking by the sea of Galilee, saw two brethren, Simon called Peter, and Andrew his brother, casting a net into the sea: for they were fishers. And he saith unto them, Follow me, and I will make you fishers of men. And they straightway left their nets, and followed him. And going on from thence, he saw other two brethren, James the son of Zebedee, and John his brother, in a ship with Zebedee their father, mending their nets; and he called them. And they immediately left the ship and their father, and followed him. For you: Jesus invites us to come be with Him and share His love."
+    },
+    jesusWaterWine: {
+      title: 'Jesus Does His First Miracle',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Wedding at Cana — the feast runs out of wine'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Servants fill the stone waterpots; Mary says, Do what He tells you'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Water becomes the best wine — the disciples believe in Jesus'
+        }
+      ],
+      caption:
+        'Swipe to see Jesus’ first miracle — waterpots, obeying, and wonder at the wedding.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'jesus',
+        'wedding',
+        'cana',
+        'wine',
+        'water',
+        'waterpots',
+        'john 2',
+        'miracle',
+        'mary',
+        'servants',
+        'first miracle'
+      ],
+      kjvRef: 'John 2:1–11',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The servants — the wedding guests — and everyone who listens',
+        apply:
+          'Jesus can do wonderful things when we trust and do what He says.'
+      },
+      narration:
+        "Jesus Does His First Miracle — John 2:1–11. And the third day there was a marriage in Cana of Galilee; and the mother of Jesus was there: And both Jesus was called, and his disciples, to the marriage. And when they wanted wine, the mother of Jesus saith unto him, They have no wine. Jesus saith unto her, Woman, what have I to do with thee? mine hour is not yet come. His mother saith unto the servants, Whatsoever he saith unto you, do it. And there were set there six waterpots of stone, after the manner of the purifying of the Jews, containing two or three firkins apiece. Jesus saith unto them, Fill the waterpots with water. And they filled them up to the brim. And he saith unto them, Draw out now, and bear unto the governor of the feast. And they bare it. When the ruler of the feast had tasted the water that was made wine, and knew not whence it was: (but the servants which drew the water knew;) the governor of the feast called the bridegroom, And saith unto him, Every man at the beginning doth set forth good wine; and when men have well drunk, then that which is worse: but thou hast kept the good wine until now. This beginning of miracles did Jesus in Cana of Galilee, and manifested forth his glory; and his disciples believed on him. For you: His power is real — and He cares for everyday needs."
+    },
+    jesusTempted: {
+      title: 'Jesus Says No to Wrong Things',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'The Spirit leads Jesus into the quiet wilderness — forty days of prayer'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Jesus answers with Scripture — God’s Word, not wrong words'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'The tempter left — angels came and ministered to Jesus'
+        }
+      ],
+      caption:
+        'Swipe to see Jesus obey the Father in the wilderness — Scripture, worship, and angels who care.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'jesus',
+        'temptation',
+        'wilderness',
+        'matthew 4',
+        'bread',
+        'stones',
+        'scripture',
+        'it is written',
+        'worship',
+        'angels',
+        'forty days'
+      ],
+      kjvRef: 'Matthew 4:1–11',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The Father — and everyone who listens',
+        apply: 'Jesus always chose to obey His Father — we can trust God’s Word when wrong ideas come.'
+      },
+      narration:
+        "Jesus Says No to Wrong Things — Matthew 4:1–11. Then was Jesus led up of the Spirit into the wilderness to be tempted of the devil. And when he had fasted forty days and forty nights, he was afterward an hungred. And when the tempter came to him, he said, If thou be the Son of God, command that these stones be made bread. But he answered and said, It is written, Man shall not live by bread alone, but by every word that proceedeth out of the mouth of God. Then the devil taketh him up into the holy city, and setteth him on a pinnacle of the temple, And saith unto him, If thou be the Son of God, cast thyself down: for it is written, He shall give his angels charge concerning thee: and in their hands they shall bear thee up, lest at any time thou dash thy foot against a stone. Jesus said unto him, It is written again, Thou shalt not tempt the Lord thy God. Again, the devil taketh him up into an exceeding high mountain, and sheweth him all the kingdoms of the world, and the glory of them; And saith unto him, All these things will I give thee, if thou wilt fall down and worship me. Then saith Jesus unto him, Get thee hence, Satan: for it is written, Thou shalt worship the Lord thy God, and him only shalt thou serve. Then the devil leaveth him, and, behold, angels came and ministered unto him. For you: Jesus obeyed the Father — and He helps us say no to wrong things too."
+    },
+    jesusSermon: {
+      title: 'Jesus Teaches How to Live God’s Way',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Jesus goes up on a mountain — many people gather to listen'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Jesus teaches — Blessed are the meek, the merciful, the pure in heart'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Love God and neighbor — let your light shine before others'
+        }
+      ],
+      caption:
+        'Swipe to hear Jesus teach on the mountain — blessed, love, and light for God.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'jesus',
+        'sermon on the mount',
+        'beatitudes',
+        'matthew 5',
+        'blessed',
+        'meek',
+        'merciful',
+        'light of the world',
+        'love',
+        'neighbor',
+        'mountain'
+      ],
+      kjvRef: 'Matthew 5:1–16',
+      kidContext: {
+        who: 'Jesus',
+        to: 'His disciples and the crowds — and everyone who listens',
+        apply:
+          'Jesus wants us to live in ways that please God and help others — love Him, love people, let your light shine.'
+      },
+      narration:
+        "Jesus Teaches How to Live God’s Way — Matthew 5:1–16. And seeing the multitudes, he went up into a mountain: and when he was set, his disciples came unto him: And he opened his mouth, and taught them, saying, Blessed are the poor in spirit: for theirs is the kingdom of heaven. Blessed are they that mourn: for they shall be comforted. Blessed are the meek: for they shall inherit the earth. Blessed are they which do hunger and thirst after righteousness: for they shall be filled. Blessed are the merciful: for they shall obtain mercy. Blessed are the pure in heart: for they shall see God. Blessed are the peacemakers: for they shall be called the children of God. Ye are the salt of the earth: but if the salt have lost his savour, wherewith shall it be salted? it is thenceforth good for nothing, but to be cast out, and to be trodden under foot of men. Ye are the light of the world. A city that is set on an hill cannot be hid. Neither do men light a candle, and put it under a bushel, but on a candlestick; and it giveth light unto all that are in the house. Let your light so shine before men, that they may see your good works, and glorify your Father which is in heaven. For you: Jesus shows God’s way to live — love Him, love others, shine His light."
     },
     jesusTempt: {
       title: 'Jesus Is Tempted',
@@ -4508,18 +5363,47 @@
       kidContext: { who: 'Jesus', to: 'The blind man (and us)', apply: 'Jesus has power to help us see truth — and to trust Him when others question.' }
     },
     jesusHealsParalytic: {
-      title: 'Through the Roof to Jesus',
+      title: 'Jesus Forgives and Heals a Man Who Could Not Walk',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'So many people — no room at the door' },
-        { src: 'panel-noah-2.svg', alt: 'Four friends carry a paralyzed man up to the roof' },
-        { src: 'panel-noah-3.svg', alt: 'Lowered to Jesus — rise, take up thy bed, and walk!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'The house is full — four friends carry a man who cannot walk'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'They open the roof and lower him on his bed to Jesus'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Son, thy sins be forgiven thee — Arise, take up thy bed, and walk'
+        }
       ],
-      caption: 'Swipe to see friends bring him to Jesus — forgiven and healed! 🏠',
+      caption:
+        'Swipe to see friends of faith lower him to Jesus — forgiven, healed, and walking home. 🏠',
       videoId: '',
       videoTitle: '',
-      keywords: ['paralytic', 'palsy', 'roof', 'mark 2', 'faith', 'forgive', 'mat', 'friends', 'capernaum'],
+      keywords: [
+        'paralytic',
+        'palsy',
+        'roof',
+        'mark 2',
+        'faith',
+        'forgive',
+        'friends',
+        'capernaum',
+        'bed',
+        'heal',
+        'son'
+      ],
       kjvRef: 'Mark 2:1–12',
-      kidContext: { who: 'Jesus', to: 'The sick of the palsy (and his friends)', apply: 'When you bring someone to Jesus in prayer — and keep trying — He can forgive and heal.' }
+      kidContext: {
+        who: 'Jesus',
+        to: 'The sick of the palsy — his friends — and everyone who listens',
+        apply:
+          'Jesus can forgive sins and make sick people well. Keep bringing people to Him in prayer and love.'
+      },
+      narration:
+        "Jesus Forgives and Heals a Man Who Could Not Walk — Mark 2:1–12. And again he entered into Capernaum after some days; and it was noised that he was in the house. And straightway many were gathered together, insomuch that there was no room to receive them, no, not so much as about the door: and he preached the word unto them. And they come unto him, bringing one sick of the palsy, which was borne of four. And when they could not come nigh unto him for the press, they uncovered the roof where he was: and when they had broken it up, they let down the bed wherein the sick of the palsy lay. When Jesus saw their faith, he said unto the sick of the palsy, Son, thy sins be forgiven thee. But there were certain of the scribes sitting there, and reasoning in their hearts, Why doth this man thus speak blasphemies? who can forgive sins but God only? And immediately when Jesus perceived in his spirit that they so reasoned within themselves, he said unto them, Why reason ye these things in your hearts? Whether is it easier to say to the sick of the palsy, Thy sins be forgiven thee; or to say, Arise, and take up thy bed, and walk? But that ye may know that the Son of man hath power on earth to forgive sins, (he saith to the sick of the palsy,) I say unto thee, Arise, and take up thy bed, and go thy way into thine house. And immediately he arose, took up the bed, and went forth before them all; insomuch that they were all amazed, and glorified God, saying, We never saw it on this fashion. For you: Jesus can forgive and heal — keep coming to Him."
     },
     jesusBlessKids: {
       title: 'Jesus Blesses the Children',
@@ -4537,18 +5421,38 @@
     },
     /* ── Week 6 (73–84) ── */
     mustardSeed: {
-      title: 'The Mustard Seed',
+      title: 'Jesus Tells About a Tiny Seed That Grows Big',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'A tiny mustard seed in a hand' },
-        { src: 'panel-noah-2.svg', alt: 'It\'s planted in the ground' },
-        { src: 'panel-noah-3.svg', alt: 'It grows into the biggest tree—birds nest in it!' }
+        { src: 'panel-noah-1.svg', alt: 'The kingdom of heaven is like a grain of mustard seed — least of all seeds' },
+        { src: 'panel-noah-2.svg', alt: 'Sowed in his field — when it is grown, greatest among herbs' },
+        { src: 'panel-noah-3.svg', alt: 'Becometh a tree — birds of the air lodge in the branches' }
       ],
-      caption: 'Swipe to see a tiny seed grow huge—faith works! 🌱',
+      caption: 'Swipe to see a tiny seed grow tall — God’s kingdom grows when we listen to Jesus. 🌱',
       videoId: '',
       videoTitle: '',
-      keywords: ['mustard seed', 'faith', 'tree', 'matthew 13', 'kingdom', 'grow', 'small'],
-      kjvRef: 'Matthew 13',
-      kidContext: { who: 'Jesus', to: 'His disciples', apply: 'Faith as small as a seed can move mountains! Don\'t give up—keep trusting.' }
+      keywords: [
+        'mustard seed',
+        'kingdom of heaven',
+        'grain',
+        'sowed',
+        'field',
+        'tree',
+        'birds',
+        'branches',
+        'matthew 13',
+        'grow',
+        'least',
+        'greatest among herbs'
+      ],
+      kjvRef: 'Matthew 13:31–32',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The people (and us)',
+        apply:
+          'God’s kingdom starts small like a seed and grows big. Listen to Jesus — let His kingdom grow in your heart.'
+      },
+      narration:
+        "Jesus Tells About a Tiny Seed That Grows Big — Matthew 13:31–32. Another parable put he forth unto them, saying, The kingdom of heaven is like to a grain of mustard seed, which a man took, and sowed in his field: Which indeed is the least of all seeds: but when it is grown, it is the greatest among herbs, and becometh a tree, so that the birds of the air come and lodge in the branches thereof. For you: God’s kingdom starts small, but it grows strong and beautiful — and Jesus helps it grow in our hearts when we listen to Him."
     },
     jesusParableSower: {
       title: 'The Parable of the Sower',
@@ -4565,18 +5469,105 @@
       kidContext: { who: 'Jesus', to: 'The crowds (and us)', apply: 'Let God\'s word sink deep — hear, understand, and bear fruit like good ground.' }
     },
     jesusParableMustardSeed: {
-      title: 'The Mustard Seed Kingdom',
+      title: 'Jesus Tells About a Tiny Seed That Grows Big',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'A tiny mustard seed in a hand' },
-        { src: 'panel-noah-2.svg', alt: 'It grows greatest among herbs — birds lodge in branches' },
-        { src: 'panel-noah-3.svg', alt: 'Small beginnings — God\'s kingdom grows great' }
+        { src: 'panel-noah-1.svg', alt: 'The kingdom of heaven is like a grain of mustard seed — least of all seeds' },
+        { src: 'panel-noah-2.svg', alt: 'Sowed in his field — when it is grown, greatest among herbs' },
+        { src: 'panel-noah-3.svg', alt: 'Becometh a tree — birds of the air lodge in the branches' }
       ],
-      caption: 'Swipe to see a tiny seed become a great tree! 🌳',
+      caption: 'Swipe to see a tiny seed grow tall — God’s kingdom grows when we listen to Jesus. 🌱',
       videoId: '',
       videoTitle: '',
-      keywords: ['mustard seed', 'kingdom', 'matthew 13', 'mark 4', 'luke 13', 'faith', 'grow', 'tree'],
+      keywords: [
+        'mustard seed',
+        'kingdom of heaven',
+        'grain',
+        'sowed',
+        'field',
+        'tree',
+        'birds',
+        'branches',
+        'matthew 13',
+        'mark 4',
+        'luke 13',
+        'grow'
+      ],
       kjvRef: 'Matthew 13:31–32; Mark 4:30–32; Luke 13:18–19',
-      kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'God\'s kingdom starts small but grows big — and your faith can grow too.' }
+      kidContext: {
+        who: 'Jesus',
+        to: 'His disciples (and us)',
+        apply:
+          'God’s kingdom starts small like a seed and grows big. Listen to Jesus — let His kingdom grow in your heart.'
+      },
+      narration:
+        "Jesus Tells About a Tiny Seed That Grows Big — Matthew 13:31–32. Another parable put he forth unto them, saying, The kingdom of heaven is like to a grain of mustard seed, which a man took, and sowed in his field: Which indeed is the least of all seeds: but when it is grown, it is the greatest among herbs, and becometh a tree, so that the birds of the air come and lodge in the branches thereof. For you: God’s kingdom starts small, but it grows strong and beautiful — and Jesus helps it grow in our hearts when we listen to Him."
+    },
+    parableHiddenTreasure: {
+      title: 'Jesus Tells About a Treasure Worth Everything',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'The kingdom of heaven is like treasure hid in a field' },
+        { src: 'panel-noah-2.svg', alt: 'When a man hath found — for joy selleth all that he hath' },
+        { src: 'panel-noah-3.svg', alt: 'He buyeth that field — the kingdom is worth everything' }
+      ],
+      caption: 'Swipe to see joy over hidden treasure — God’s kingdom is worth everything! ✨',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'hidden treasure',
+        'kingdom of heaven',
+        'treasure',
+        'field',
+        'found',
+        'joy',
+        'sell',
+        'buy field',
+        'matthew 13',
+        'parable',
+        'jesus',
+        'worth everything'
+      ],
+      kjvRef: 'Matthew 13:44',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The people (and us)',
+        apply:
+          'God’s kingdom is so wonderful it is worth everything. Finding Jesus is the best treasure in the whole world.'
+      },
+      narration:
+        "Jesus Tells About a Treasure Worth Everything — Matthew 13:44. Again, the kingdom of heaven is like unto treasure hid in a field; the which when a man hath found, he hideth, and for joy thereof goeth and selleth all that he hath, and buyeth that field. For you: Jesus was teaching that God’s kingdom is so wonderful it is worth giving up everything else to have it — and finding Him is like finding the best treasure in the whole world."
+    },
+    parablePearl: {
+      title: 'Jesus Tells About a Pearl Worth Everything',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'The kingdom of heaven is like a merchant seeking goodly pearls' },
+        { src: 'panel-noah-2.svg', alt: 'He found one pearl of great price' },
+        { src: 'panel-noah-3.svg', alt: 'He sold all that he had, and bought it' }
+      ],
+      caption: 'Swipe to see one pearl worth everything — God’s kingdom is joy! ✨',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'pearl',
+        'pearls',
+        'merchant',
+        'great price',
+        'kingdom of heaven',
+        'sold all',
+        'bought',
+        'matthew 13',
+        'parable',
+        'jesus',
+        'worth everything'
+      ],
+      kjvRef: 'Matthew 13:45–46',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The people (and us)',
+        apply:
+          'God’s kingdom is so wonderful it is worth everything. Finding Jesus is like the most beautiful pearl in the whole world.'
+      },
+      narration:
+        "Jesus Tells About a Pearl Worth Everything — Matthew 13:45–46. Again, the kingdom of heaven is like unto a merchant man, seeking goodly pearls: Who, when he had found one pearl of great price, went and sold all that he had, and bought it. For you: Jesus was teaching that God’s kingdom is so wonderful it is worth giving up everything else to have it — and finding Him is like finding the most beautiful and valuable pearl in the whole world."
     },
     jesusParableGoodShepherd: {
       title: 'The Good Shepherd',
@@ -4607,18 +5598,46 @@
       kidContext: { who: 'Jesus', to: 'The lepers', apply: 'Jesus heals and cleans us inside! Always say thank you to Him.' }
     },
     jairus: {
-      title: 'Jairus\' Daughter Raised',
+      title: 'Jesus Brings a Girl Back to Life',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jairus begs Jesus: my daughter is dying!' },
-        { src: 'panel-noah-2.svg', alt: 'News arrives: she is gone...' },
-        { src: 'panel-noah-3.svg', alt: 'Jesus takes her hand: Talitha cumi! She rises!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Jairus asks Jesus to come — My little daughter lieth at the point of death'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Thy daughter is dead — Jesus says, Be not afraid, only believe'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Damsel, I say unto thee, arise — she got up and walked'
+        }
       ],
-      caption: 'Swipe to see Jesus bring a girl back to life! 🌸',
+      caption:
+        'Swipe to see Jesus take her hand and speak life — only believe. 🌸',
       videoId: '',
       videoTitle: '',
-      keywords: ['jairus', 'daughter', 'raise', 'mark 5', 'talitha cumi', 'miracle', 'faith'],
+      keywords: [
+        'jairus',
+        'daughter',
+        'arise',
+        'mark 5',
+        'talitha cumi',
+        'damsel',
+        'believe',
+        'miracle',
+        'faith',
+        'children'
+      ],
       kjvRef: 'Mark 5:21–43',
-      kidContext: { who: 'Jesus', to: 'Jairus and his daughter', apply: 'Jesus is never too late! Keep believing even when it seems impossible.' }
+      kidContext: {
+        who: 'Jesus',
+        to: 'Jairus, his daughter, and us',
+        apply:
+          'Jesus has power over sickness and even over death — and He cares for little children. Keep believing Him.'
+      },
+      narration:
+        "Jesus Brings a Girl Back to Life — Mark 5:21–43. And when Jesus was passed over again by ship unto the other side, much people gathered unto him: and he was nigh unto the sea. And, behold, there cometh one of the rulers of the synagogue, Jairus by name; and when he saw him, he fell at his feet, and besought him greatly, saying, My little daughter lieth at the point of death: I pray thee, come and lay thy hands on her, that she may be healed; and she shall live. While Jesus was yet speaking, there came from the ruler of the synagogue's house certain which said, Thy daughter is dead: why troublest thou the Master any further? As soon as Jesus heard the word that was spoken, he saith unto the ruler of the synagogue, Be not afraid, only believe. And he suffered no man to follow him, save Peter, and James, and John the brother of James. And he cometh to the house of the ruler of the synagogue, and seeth the tumult, and them that wept and wailed greatly. And when he was come in, he saith unto them, Why make ye this ado, and weep? the damsel is not dead, but sleepeth. And they laughed him to scorn. But when he had put them all out, he taketh the father and the mother of the damsel, and them that were with him, and entereth in where the damsel was lying. And he took the damsel by the hand, and said unto her, Talitha cumi; which is, being interpreted, Damsel, I say unto thee, arise. And straightway the damsel arose, and walked; for she was of the age of twelve years. And they were astonished with a great astonishment. And he charged them straitly that no man should know it; and commanded that something should be given her to eat. For you: Jesus hears you — believe Him; He cares for children and has power to save."
     },
     transfigure: {
       title: 'Jesus\' Transfiguration',
@@ -5987,13 +7006,13 @@
         "David & Abigail – 1 Samuel 25:1-42. David asked Nabal for food for his men who had kept Nabal's flocks safe; Nabal answered with insult. David set out in anger — but Abigail heard, loaded donkeys with food, and hurried down the hill to meet him. She bowed and spoke with wisdom: let not my lord regard this man of Belial; folly is with him. She asked forgiveness and gave what she had brought. David blessed the LORD God of Israel for sending her and blessed her advice, for she had kept him from bloodshed. He sent her home in peace. After Nabal died, David took Abigail to be his wife. For you: God honors peacemakers."
     },
     davidKing: {
-      title: 'David Becomes King',
+      title: 'David Becomes King — David Is Anointed King',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Tribes at Hebron — Behold, we are thy bone and thy flesh' },
-        { src: 'panel-david-2.svg', alt: 'Elders anoint David king over Israel before the LORD' },
-        { src: 'panel-david-3.svg', alt: 'The city of David — the LORD God of hosts was with him' }
+        { src: 'panel-david-1.svg', alt: 'Elders at Hebron — Behold, we are thy bone and thy flesh' },
+        { src: 'panel-david-2.svg', alt: 'They anointed David king over Israel before the LORD' },
+        { src: 'panel-david-3.svg', alt: 'The city of David — the LORD established him and was with him' }
       ],
-      caption: 'Swipe for the day Israel\'s tribes crowned David — God kept His promise.',
+      caption: 'God chose and honored David — the elders anointed him, and the LORD was with him.',
       videoId: '',
       videoTitle: '',
       keywords: [
@@ -6015,15 +7034,130 @@
         'lord god of hosts',
         'established him king'
       ],
-      kjvRef: '2 Samuel 5:1-5, 9-12',
+      kjvRef: '2 Samuel 5:1-12',
       kidContext: {
         who: 'The LORD',
         to: 'Israel — and every heart that waits on God',
         apply:
-          'The long road led to a thankful crown: God placed David where He promised. When answers take time, the Lord is still working.'
+          'God kept His promise to David. When the LORD lifts someone up, He is with them — we can trust His timing and His kindness.'
       },
       narration:
-        "David Becomes King – 2 Samuel 5:1-5, 9-12. Then came all the tribes of Israel to David unto Hebron, and said, Behold, we are thy bone and thy flesh. So all the elders of Israel came to the king to Hebron; and king David made a league with them in Hebron before the LORD: and they anointed David king over Israel. David was thirty years old when he began to reign, and he reigned forty years. In Hebron he reigned over Judah seven years and six months: and in Jerusalem he reigned thirty and three years over all Israel and Judah. So David dwelt in the fort, and called it the city of David. And David went on, and grew great, and the LORD God of hosts was with him. And David perceived that the LORD had established him king over Israel, and that he had exalted his kingdom for his people Israel's sake. For you: Give thanks — God is faithful."
+        "David Is Anointed King – 2 Samuel 5:1-12. The tribes came to David at Hebron and said, Behold, we are thy bone and thy flesh. The elders anointed him king over Israel before the LORD. David was thirty when he began to reign; he reigned over Judah in Hebron, then over all Israel and Judah from Jerusalem. He called the stronghold the city of David, and the LORD God of hosts was with him. God had established him for His people's sake. For you: the Lord is faithful — He chooses, anoints, and stays near those who trust Him."
+    },
+    mephibosheth: {
+      title: 'David Shows Kindness to Mephibosheth',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'David asks — Is there any left of Saul\'s house to show kindness for Jonathan\'s sake?' },
+        { src: 'panel-david-2.svg', alt: 'Fear not — I will shew thee kindness; thou shalt eat bread at my table continually' },
+        { src: 'panel-david-3.svg', alt: 'Mephibosheth dwelt in Jerusalem — welcome at the king\'s table as one of the king\'s sons' }
+      ],
+      caption: 'David remembered Jonathan and gave his son a seat of honor — mercy at the king\'s table.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'mephibosheth',
+        'david kindness',
+        'jonathan',
+        'king\'s table',
+        'fear not',
+        'lodebar',
+        'ziba',
+        '2 samuel 9',
+        '2 sam 9',
+        'shew him kindness',
+        'dead dog',
+        'jonathan\'s son',
+        'lame',
+        'jerusalem',
+        'restore',
+        'house of saul'
+      ],
+      kjvRef: '2 Samuel 9:1-13',
+      kidContext: {
+        who: 'David — and the Lord',
+        to: 'Every heart that feels small — and every listener',
+        apply:
+          'God loves when we remember friends and make room for others — especially when someone feels small. Jesus welcomes us to His table too.'
+      },
+      narration:
+        "David Shows Kindness – 2 Samuel 9:1-13. David remembered Jonathan and asked, Is there yet any left of the house of Saul, that I may shew him kindness for Jonathan's sake? They brought Mephibosheth, Jonathan's son, who was lame in his feet. David said, Fear not: I will shew thee kindness for Jonathan thy father's sake, restore the land of Saul, and thou shalt eat bread at my table continually. Mephibosheth bowed low; David treated him as a son of the king — a place at the table, not a place far off. So he dwelt in Jerusalem and ate at the king's table. For you: God is kind to the humble — we can show His gentle welcome to others."
+    },
+    davidBathsheba: {
+      title: 'David\'s Repentance and God\'s Mercy',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'David prays — Have mercy upon me, O God; blot out my transgressions' },
+        { src: 'panel-david-2.svg', alt: 'Create in me a clean heart, O God — wash me and make me clean' },
+        { src: 'panel-david-3.svg', alt: 'The LORD put away his sin — God hears a sorry, honest heart' }
+      ],
+      caption: 'David turned to God with an honest prayer — and the Lord showed mercy and forgiveness.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'david bathsheba',
+        'repentance',
+        'mercy',
+        'psalm 51',
+        'psalms 51',
+        'create in me a clean heart',
+        'blot out my transgressions',
+        'have mercy upon me',
+        'nathan',
+        'i have sinned against the lord',
+        'put away thy sin',
+        'contrite heart',
+        '2 samuel 12',
+        '2 sam 12',
+        'lovingkindness',
+        'forgiveness'
+      ],
+      kjvRef: '2 Samuel 11:1-27; 12:1-13; Psalm 51:1-12',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Every heart that says sorry — and every listener',
+        apply:
+          'When we do wrong, we can tell God we are sorry — He is merciful and forgives. He can give us a clean heart.'
+      },
+      narration:
+        "David's Repentance and God's Mercy – Psalm 51; 2 Samuel 12:13. David's heart was heavy; he prayed, Have mercy upon me, O God; blot out my transgressions. Create in me a clean heart. He told Nathan, I have sinned against the LORD — and God put away his sin. For you: God hears honest sorrow and offers mercy — we can always come to Him."
+    },
+    absalomRebellion: {
+      title: 'David\'s Sadness and God\'s Care',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'David leaves Jerusalem — loyal friends go with him' },
+        { src: 'panel-david-2.svg', alt: 'Up the Mount of Olives — David wept and prayed to the LORD' },
+        { src: 'panel-david-3.svg', alt: 'God brought David safely back — the king returned over Jordan' }
+      ],
+      caption: 'When David\'s heart was heavy, he prayed — and God heard him and kept him.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'absalom',
+        'absalom rebellion',
+        'david fled',
+        'mount of olives',
+        'mount olivet',
+        'weeping',
+        'ahithophel',
+        'foolishness',
+        'kidron',
+        '2 samuel 15',
+        '2 sam 15',
+        '2 samuel 19',
+        'david\'s sadness',
+        'trust god',
+        'returned to jerusalem',
+        'gilgal',
+        'jordan'
+      ],
+      kjvRef: '2 Samuel 15:1-37; 16:15-23; 19:1-15',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Every heart that feels sad — and every listener',
+        apply:
+          'God is close when we cry. We can tell Him everything and trust Him to care for us.'
+      },
+      narration:
+        "David's Sadness and God's Care – 2 Samuel 15–19 (gentle). Absalom drew many hearts away; David left Jerusalem with loyal servants. They wept; David went up the Mount of Olives in sorrow. He prayed, O LORD, turn Ahithophel's counsel into foolishness. At the mountaintop he worshipped God; friends stayed near. In time God brought David safely back — the king returned over Jordan, and Judah came to welcome him. For you: when your heart hurts, pray — God hears and keeps His own."
     },
     hannahPray: {
       title: 'Hannah Prays for a Baby',
@@ -6096,18 +7230,40 @@
       kidContext: { who: 'God', to: 'Ruth', apply: 'Stick with those you love even in hard times! Loyalty is a gift—and God honors it.' }
     },
     estherFast: {
-      title: 'Esther Fasts and Goes to the King',
+      title: 'Esther Prays and Fasts for Her People',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Mordecai tells Esther: you must act!' },
-        { src: 'panel-noah-2.svg', alt: 'Esther fasts three days with all the Jews' },
-        { src: 'panel-noah-3.svg', alt: 'Esther goes to the king—scepter out, she\'s safe!' }
+        { src: 'panel-jesus-1.svg', alt: 'Haman’s plan — Mordecai asks: who knoweth whether thou art come for such a time as this?' },
+        { src: 'panel-jesus-2.svg', alt: 'Esther asks God’s people to pray and fast with her for three days' },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: '“If I perish, I perish” — then she goes bravely to the king, trusting the Lord'
+        }
       ],
-      caption: 'Swipe to see Esther fast, pray, and step out brave! 👑',
+      caption: 'Swipe to see quiet prayer, fasting together, and brave trust before the king.',
       videoId: '',
       videoTitle: '',
-      keywords: ['esther', 'fast', 'esther 4', 'scepter', 'pray', 'brave', 'mordecai'],
-      kjvRef: 'Esther 4–5',
-      kidContext: { who: 'God', to: 'Esther', apply: 'Fast, pray, then go! God gives courage to those who seek Him first.' }
+      keywords: [
+        'esther',
+        'fast',
+        'pray',
+        'mordecai',
+        'haman',
+        'such a time',
+        'if i perish',
+        'esther 4',
+        'three days',
+        'brave',
+        'help'
+      ],
+      kjvRef: 'Esther 4:1–17',
+      kidContext: {
+        who: 'The LORD',
+        to: 'Esther and every heart that asks Him for help',
+        apply:
+          'The Lord hears when His children pray and fast and ask for help — and He gives courage for the next step.'
+      },
+      narration:
+        "Esther Prays and Fasts for Her People — Esther 4:1–17. Haman made a plan to hurt all God’s people. Mordecai sent word to Queen Esther, Who knoweth whether thou art come to the kingdom for such a time as this? Esther asked all God’s people to fast and pray with her for three days. She said, I will go in unto the king, which is not according to the law: and if I perish, I perish. She trusted God — then went bravely to the king. For you: the Lord hears when we pray and ask for help, and He walks with us when the next step feels hard."
     },
     sarahPromise: {
       title: 'Sarah Receives the Promise',
@@ -6165,17 +7321,131 @@
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Don\'t give up in prayer! God always answers those who keep coming to Him.' }
     },
     samaritanWoman: {
-      title: 'The Woman at the Well',
+      title: 'Jesus Offers Living Water',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'A Samaritan woman draws water at noon' },
-        { src: 'panel-noah-2.svg', alt: 'Jesus asks for water—she\'s surprised He\'d talk to her' },
-        { src: 'panel-noah-3.svg', alt: 'He offers living water—she runs to tell everyone!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Jesus sits by Jacob’s well in Samaria — a woman comes to draw water'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Jesus speaks of living water — the gift of God for thirsty hearts'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'She runs to the city — Come, see a man… is not this the Christ?'
+        }
       ],
-      caption: 'Swipe to see Jesus change a woman\'s life at the well! 💧',
+      caption:
+        'Swipe to see Jesus offer living water at the well — kind words, thirsty hearts, good news for the town.',
       videoId: '',
       videoTitle: '',
-      keywords: ['samaritan', 'woman', 'well', 'john 4', 'water', 'living water', 'believe', 'tell'],
-      kidContext: { who: 'Jesus', to: 'The Samaritan woman', apply: 'Jesus talks to everyone—even those people ignore! He offers living water to all.' }
+      keywords: [
+        'samaritan',
+        'woman',
+        'well',
+        'john 4',
+        'living water',
+        'gift of God',
+        'samaria',
+        'believe',
+        'christ',
+        'tell'
+      ],
+      kjvRef: 'John 4:1–42',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The Samaritan woman — and everyone who listens',
+        apply:
+          'Jesus offers the water of life to everyone who is thirsty in their heart — He is kind to all.'
+      },
+      narration:
+        "Jesus Offers Living Water — John 4:1–42. When therefore the Lord knew how the Pharisees had heard that Jesus made and baptized more disciples than John, (Though Jesus himself baptized not, but his disciples,) He left Judaea, and departed again into Galilee. And he must needs go through Samaria. Then cometh he to a city of Samaria, which is called Sychar, near to the parcel of ground that Jacob gave to his son Joseph. Now Jacob's well was there. Jesus therefore, being wearied with his journey, sat thus on the well: and it was about the sixth hour. There cometh a woman of Samaria to draw water: Jesus saith unto her, Give me to drink. Then saith the woman of Samaria unto him, How is it that thou, being a Jew, askest drink of me, which am a woman of Samaria? Jesus answered and said unto her, If thou knewest the gift of God, and who it is that saith to thee, Give me to drink; thou wouldest have asked of him, and he would have given thee living water. Whosoever drinketh of the water that I shall give him shall never thirst; but the water that I shall give him shall be in him a well of water springing up into everlasting life. The woman then left her waterpot, and went her way into the city, and saith to the men, Come, see a man, which told me all things that ever I did: is not this the Christ? And many of the Samaritans of that city believed on him for the saying of the woman. For you: Jesus offers living water — come and drink."
+    },
+    noblemanSon: {
+      title: 'Jesus Heals a Boy from Far Away',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'A nobleman hurries to Jesus — his son is very sick at home'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Jesus speaks peace — Go thy way; thy son liveth'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Servants meet the father — Thy son liveth — at the hour Jesus spoke'
+        }
+      ],
+      caption:
+        'Swipe to see Jesus heal a boy from far away — kind words, trusting father, happy news for home.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'nobleman',
+        'son',
+        'cana',
+        'capernaum',
+        'john 4',
+        'heal',
+        'believe',
+        'thy son liveth',
+        'same hour',
+        'servants',
+        'household'
+      ],
+      kjvRef: 'John 4:46–54',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The nobleman — and everyone who listens',
+        apply:
+          'Jesus can heal even when He is far away. His word is true — trust Him like this father did.'
+      },
+      narration:
+        "Jesus Heals a Boy from Far Away — John 4:46–54. So Jesus came again into Cana of Galilee, where he made the water wine. And there was a certain nobleman, whose son was sick at Capernaum. When he heard that Jesus was come out of Judaea into Galilee, he went unto him, and besought him that he would come down, and heal his son: for he was at the point of death. Then said Jesus unto him, Except ye see signs and wonders, ye will not believe. The nobleman saith unto him, Sir, come down ere my child die. Jesus saith unto him, Go thy way; thy son liveth. And the man believed the word that Jesus had spoken unto him, and he went his way. And as he was now going down, his servants met him, and told him, saying, Thy son liveth. Then enquired he of them the hour when he began to amend. And they said unto him, Yesterday at the seventh hour the fever left him. So the father knew that it was at the same hour, in the which Jesus said unto him, Thy son liveth: and himself believed, and his whole house. For you: Jesus is powerful and kind — trust His word."
+    },
+    centurionServant: {
+      title: "Jesus Heals a Soldier's Servant from Far Away",
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'A centurion kneels before Jesus — his servant is very sick at home'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: "Speak the word only — Jesus marvels at the centurion's faith"
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Go thy way — the servant is healed in the selfsame hour'
+        }
+      ],
+      caption:
+        'Swipe to see Jesus heal a servant with a word — great faith, kind Jesus, happy home.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'centurion',
+        'servant',
+        'capernaum',
+        'matthew 8',
+        'faith',
+        'speak the word',
+        'great faith',
+        'heal',
+        'selfsame hour',
+        'trust'
+      ],
+      kjvRef: 'Matthew 8:5–13',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The centurion — and everyone who listens',
+        apply:
+          "Jesus can heal with just a word when people trust Him — His word is true and kind."
+      },
+      narration:
+        "Jesus Heals a Soldier's Servant from Far Away — Matthew 8:5–13. And when Jesus was entered into Capernaum, there came unto him a centurion, beseeching him, And saying, Lord, my servant lieth at home sick of the palsy, grievously tormented. And Jesus saith unto him, I will come and heal him. The centurion answered and said, Lord, I am not worthy that thou shouldest come under my roof: but speak the word only, and my servant shall be healed. For I am a man under authority, having soldiers under me: and I say to this man, Go, and he goeth; and to another, Come, and he cometh; and to my servant, Do this, and he doeth it. When Jesus heard it, he marvelled, and said to them that followed, Verily I say unto you, I have not found so great faith, no, not in Israel. And I say unto you, That many shall come from the east and west, and shall sit down with Abraham, and Isaac, and Jacob, in the kingdom of heaven. But the children of the kingdom shall be cast out into outer darkness: there shall be weeping and gnashing of teeth. And Jesus said unto the centurion, Go thy way; and as thou hast believed, so be it done unto thee. And his servant was healed in the selfsame hour. For you: trust Jesus' word — He is full of power and mercy."
     },
     marthaServe: {
       title: 'Martha Serves Jesus',
@@ -6541,6 +7811,10 @@
     /** Legacy key — same card as naamanHealed (journey URLs, older links). */
     bibleStories.naaman = bibleStories.naamanHealed;
     bibleStories.elishaOil = bibleStories.widowOil;
+    /** Same gentle card as mustardSeed (library / journey naming). */
+    bibleStories.parableMustardSeed = bibleStories.mustardSeed;
+    /** Same gentle card as lostSheep (library / journey naming). */
+    bibleStories.parableLostSheep = bibleStories.lostSheep;
     window.TDB_BIBLE_STORIES = bibleStories;
     window.TDB_BIBLE_STORY_KEYS = Object.keys(bibleStories);
     try {
@@ -6655,7 +7929,7 @@
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
       'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
-      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'psalm23', 'psalm23Shepherd', 'davidKing', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'parableTalents', 'armorOfGod',
+      'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'psalm23', 'psalm23Shepherd', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'parableTalents', 'armorOfGod',
       /* Week 1 */
       'mosesSea', 'burningBush', 'tenPlagues', 'manna', 'tenCommandments', 'elijahFire',
       'elishaOil', 'naamanDip', 'creationLight', 'adamEve', 'towerBabel',
@@ -6670,7 +7944,7 @@
       'davidSaulJealousy', 'davidJonathanFriendship', 'davidSaul', 'davidJonathan',
       'saulKing', 'saulDisobedience',
       /* Week 4 */
-      'elishaShunammite', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'gehaziGreed', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'solomonWisdom', 'solomonTwoMothers',
+      'elishaShunammite', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'gehaziGreed', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers',
       'solomonTemple',
       'elijahRavens',
       'elijahWidow',
@@ -6679,12 +7953,12 @@
       'ezraReturn', 'malachiMessage',
       'jonahVine', 'danielPray', 'estherBanquet',
       /* Week 5 */
-      'angelMary', 'shepherdsStar', 'jesusManger', 'jesusTemple', 'johnBaptist', 'johnBaptize',
-      'jesusBaptism', 'jesusTemptation', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
+      'angelMary', 'shepherdsStar', 'wiseMen', 'simeonAnna', 'jesusManger', 'jesusTemple', 'johnBaptist', 'johnBaptize',
+      'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusSermon', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
       'jesusHealsBlind', 'jesusBlessKids',
       /* Week 6 */
-      'jesusHealsParalytic', 'jesusCalmsStorm', 'jesusFeeds5000', 'jesusWalksWater',
-      'jesusParableSower', 'jesusParableMustardSeed', 'jesusParableGoodShepherd',
+      'jesusFeeds5000', 'jesusWalksWater',
+      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'jesusParableGoodShepherd',
       'mustardSeed', 'healLeper', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
       'jesusTriumphalEntry', 'jesusLastSupper', 'jesusGardenGethsemane', 'crossCarry', 'jesusCrucifixion',
@@ -6703,7 +7977,7 @@
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
-      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'marthaServe',
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'marthaServe',
       'marySit', 'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */
@@ -6815,6 +8089,31 @@
       /\bdavid\b.*\bking over israel\b|\bking over israel\b.*\bdavid\b|david became king|david becomes king/.test(low)
     ) {
       return { type: 'carousel', story: 'davidKing' };
+    }
+    if (
+      /\b2 samuel 9\b|\b2 sam 9\b/.test(low) ||
+      /\bmephibosheth\b|\bziba\b.*\blodebar\b|\blodebar\b|\bkindness for jonathan\b|\bshew him kindness\b|\beat bread at my table\b|\bdead dog\b|\bone of the king's sons\b|\bjonathan's son\b.*\blame\b/.test(low)
+    ) {
+      return { type: 'carousel', story: 'mephibosheth' };
+    }
+    if (
+      /\bpsalms 51\b|\bpsalm 51\b/.test(low) ||
+      /\b2 samuel 12:\s*(?:[1-9]|1[0-3])\b|\b2 sam 12:\s*(?:[1-9]|1[0-3])\b/.test(low) ||
+      /\bcreate in me a clean heart\b|\bblot out my transgressions\b|\bhave mercy upon me,?\s*o god\b|\baccording to thy lovingkindness\b|\bnathan\b.*\b(thou art the man|david|put away thy sin)\b|\bi have sinned against the lord\b.*\bput away thy sin\b|\bbroken and a contrite heart\b|\bpurge me with hyssop\b|\brestore unto me the joy of thy salvation\b/.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'davidBathsheba' };
+    }
+    if (
+      /\b2 samuel 15:(?:[1-9]|[12][0-9]|3[0-7])\b|\b2 sam 15:(?:[1-9]|[12][0-9]|3[0-7])\b/.test(low) ||
+      /\b2 samuel 16:(?:1[5-9]|2[0-3])\b|\b2 sam 16:(?:1[5-9]|2[0-3])\b/.test(low) ||
+      /\b2 samuel 19:15\b|\b2 sam 19:15\b/.test(low) ||
+      /\babsalom\b.*\b(rose|fled|conspir|rebel|after absalom)\b|\bhearts.*after absalom\b|\bmount olivet\b|\bmount of olives\b|\bascent of mount\b|\bbrook kidron\b|\bweeping as they went up\b|\bahithophel\b.*\bfoolishness\b|\bturn the counsel of ahithophel\b|\bdavid.*fled.*jerusalem\b|\bgilgal\b.*\bmeet the king\b|\bconduct the king over jordan\b/.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'absalomRebellion' };
     }
     if (
       /\b1 kings 3:(?:1[6-9]|2[0-8])\b|\b1 kgs 3:(?:1[6-9]|2[0-8])\b/.test(low) ||
@@ -9760,11 +11059,11 @@
     david: 'Protection', noah: 'Obedience', jesus: 'Love', jonah: 'Obedience', daniel: 'Miracles',
     adamEve: 'Protection', cainAbel: 'Obedience', towerBabel: 'Obedience', abrahamIsaac: 'Obedience', josephCoat: 'Protection', josephSold: 'Protection',
     mosesBush: 'Protection', redSea: 'Miracles', manna: 'Miracles', tenCommandments: 'Obedience', goldenCalf: 'Obedience', bronzeSerpent: 'Miracles', tabernacle: 'Love', spiesInCanaan: 'Obedience', jordanCrossing: 'Miracles', battleOfAi: 'Obedience', balaakCurse: 'Obedience', balaamDonkey: 'Obedience', balaamBlessing: 'Miracles', samson: 'Protection',
-    fieryFurnace: 'Miracles', esther: 'Protection', jesusBirth: 'Miracles', jesusCalmsStorm: 'Miracles', jesusFeeds5000: 'Miracles',
+    fieryFurnace: 'Miracles', esther: 'Protection', jesusBirth: 'Love', jesusCalmsStorm: 'Miracles', jesusFeeds5000: 'Miracles',
     goodSamaritan: 'Love', prodigalSon: 'Love', zacchaeus: 'Love', lazarus: 'Miracles', resurrection: 'Miracles',
     creation: 'Obedience', fallOfJericho: 'Obedience', davidSheep: 'Love', elijahFire: 'Miracles', elishaOil: 'Miracles',
     naamanHealed: 'Obedience', jesusWalksWater: 'Miracles', lostSheep: 'Love', lostCoin: 'Love', palmSunday: 'Protection', lastSupper: 'Love',
-    jesusTemptation: 'Obedience', parableSower: 'Protection', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
+    jesusTemptation: 'Obedience', parableSower: 'Protection', parableHiddenTreasure: 'Love', parablePearl: 'Love', parableLostSheep: 'Love', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
     betrayal: 'Protection', trial: 'Protection', crucifixion: 'Love', roadToEmmaus: 'Love', ascension: 'Protection',
     pentecost: 'Miracles', stephen: 'Protection', paulDamascus: 'Protection', heavenPromise: 'Protection',
     ruthBoaz: 'Love', ruthThreshing: 'Love', ruthRedemption: 'Love', parableTalents: 'Obedience', armorOfGod: 'Obedience',
@@ -9791,7 +11090,7 @@
     davidSaul: 'Protection', davidJonathan: 'Love', saulKing: 'Obedience', saulDisobedience: 'Obedience',
     /* Week 4 */
     elishaShunammite: 'Miracles', shunammiteReturn: 'Miracles', samariaSiege: 'Miracles', elishaFinal: 'Miracles', elishaBones: 'Miracles', gehaziGreed: 'Obedience', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
-    jobSuffering: 'Protection', psalm23Shepherd: 'Love', psalm23: 'Love', davidKing: 'Obedience', solomonWisdom: 'Obedience', solomonTwoMothers: 'Obedience', solomonTemple: 'Obedience',
+    jobSuffering: 'Protection', psalm23Shepherd: 'Love', psalm23: 'Love', davidKing: 'Obedience', mephibosheth: 'Love', davidBathsheba: 'Love', absalomRebellion: 'Protection', solomonWisdom: 'Obedience', solomonTwoMothers: 'Obedience', solomonTemple: 'Obedience',
     elijahRavens: 'Miracles',
     elijahWidow: 'Miracles',
     elijahHoreb: 'Love',
@@ -9803,15 +11102,22 @@
     elishaPoisonStew: 'Miracles',
     isaiahMessianic: 'Love', jeremiahWeeping: 'Obedience', ezekielValleyBones: 'Miracles',
     danielFieryFurnace: 'Miracles', danielLionsDen: 'Miracles',
-    ezraReturn: 'Obedience', malachiMessage: 'Obedience',
+    ezraReturn: 'Obedience', malachiMessage: 'Love',
     jonahVine: 'Love', danielPray: 'Obedience', estherBanquet: 'Protection',
     /* Week 5 */
-    angelMary: 'Miracles', shepherdsStar: 'Love', jesusManger: 'Love', jesusTemple: 'Obedience',
-    johnBaptist: 'Obedience', johnBaptize: 'Obedience', jesusBaptism: 'Obedience', jesusTemptation: 'Obedience',
+    angelMary: 'Miracles', shepherdsStar: 'Love', wiseMen: 'Love', simeonAnna: 'Love', jesusManger: 'Love', jesusTemple: 'Love',
+    johnBaptist: 'Obedience', johnBaptize: 'Obedience', jesusBaptism: 'Love',     jesusDisciples: 'Love',
+    jesusWaterWine: 'Miracles',
+    jesusTempted: 'Obedience',
+    jesusSermon: 'Love',
+    samaritanWoman: 'Love',
+    noblemanSon: 'Miracles',
+    centurionServant: 'Miracles',
+    jesusTemptation: 'Obedience',
     jesusTempt: 'Obedience', weddingWine: 'Miracles', jesusFirstMiracle: 'Miracles', jesusCallingDisciples: 'Obedience',
     jesusSermonMount: 'Obedience', healBlind: 'Miracles', jesusHealsBlind: 'Miracles', jesusBlessKids: 'Love',
     /* Week 6 */
-    jesusHealsParalytic: 'Miracles', mustardSeed: 'Obedience',
+    jesusHealsParalytic: 'Miracles', witheredHand: 'Miracles', mustardSeed: 'Obedience',
     jesusParableSower: 'Protection', jesusParableMustardSeed: 'Obedience', jesusParableGoodShepherd: 'Love',
     healLeper: 'Miracles', jairus: 'Miracles',
     transfigure: 'Miracles', judasKiss: 'Love',
@@ -9886,7 +11192,7 @@
     estherFast: 'Obedience', sarahPromise: 'Miracles', miriamSong: 'Love',
     /* Week 11 */
     annaProphet: 'Obedience', widowOil: 'Miracles', shunammiteReturn: 'Miracles', samariaSiege: 'Miracles', elishaFinal: 'Miracles', elishaBones: 'Miracles', persistentWidow: 'Obedience',
-    samaritanWoman: 'Love', marthaServe: 'Obedience', marySit: 'Obedience',
+    marthaServe: 'Obedience', marySit: 'Obedience',
     dorcasRaise: 'Miracles', phoebeDeacon: 'Obedience', juniaApostle: 'Obedience',
     loisTimothy: 'Love', euniceMother: 'Love', priscillaTent: 'Obedience',
     /* Week 12 */

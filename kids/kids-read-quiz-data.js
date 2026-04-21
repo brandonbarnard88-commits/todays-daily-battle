@@ -1,6 +1,6 @@
 /**
  * Read-aloud story blocks + multiple-choice quiz (pedagogical wrong-answer hints).
- * Keys match TDB_BIBLE_STORIES (323 stories).
+ * Keys match TDB_BIBLE_STORIES (324 stories).
  * Regenerate: npm run kids:generate-read-quiz
  * Overrides: kids/read-quiz-handcrafted.cjs (Jericho; David & Goliath; Elisha bones; Ezra return; Nehemiah walls; Job read-along sections).
  *
@@ -2418,7 +2418,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Genesis 4",
-          "Luke 15",
+          "Luke 15:3–7",
           "Matthew 13:44",
           "Acts 16:16–40"
         ],
@@ -16751,7 +16751,7 @@
           "Luke 15:8–10",
           "Acts 16:16–40",
           "Matthew 13:44",
-          "Luke 15"
+          "Luke 15:3–7"
         ],
         "correctIndex": 0,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
@@ -16819,87 +16819,130 @@
     ]
   },
   "lostSheep": {
-    "kjvRef": "Luke 15",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Luke 15:3–7 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "And when he hath found it, he layeth it on his shoulders, rejoicing. — Luke 15:5 (KJV)",
+    "readAlongTitle": "Jesus Tells About the Lost Sheep",
+    "quizWrongHumilityHint": "Listen again — hundred sheep; one lost; ninety and nine; find; shoulders; rejoice; heaven; repenteth.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Lost Sheep (Luke 15).",
-      "Shepherd has 100 sheep One is lost—he goes to find it Found!",
-      "Jesus finds lost sheep!"
+      "Jesus told a story about a shepherd who had one hundred sheep.",
+      "One little sheep wandered away and got lost.",
+      "The shepherd left the ninety-nine safe sheep and went to look for the one that was lost.",
+      "He searched until he found it. Then he picked it up, put it on his shoulders, and carried it home.",
+      "He was so happy he called his friends and neighbors to celebrate with him.",
+      "Jesus said: “I say unto you, that likewise joy shall be in heaven over one sinner that repenteth, more than over ninety and nine just persons, which need no repentance.”",
+      "Jesus is like that good shepherd — He loves us and will keep looking for us when we are lost.",
+      "Reference: Luke 15:3–7 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "A shepherd had one hundred sheep.",
+        "caption": "A hundred sheep",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "One little sheep got lost.",
+        "caption": "One wandered away",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The shepherd left the ninety-nine and looked for it.",
+        "caption": "Left the ninety-nine",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "He found the lost sheep and carried it home.",
+        "caption": "On his shoulders",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "He was so happy he celebrated with his friends.",
+        "caption": "Rejoice together",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Jesus looks for us when we are lost.",
+        "caption": "The good Shepherd",
+        "image": "panel-noah-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Colossians 1:15–20; 3:1–4, 12–17",
-          "Genesis 3",
-          "Luke 15",
-          "1 Samuel 18:1-4; 20:1-42"
+          "Psalm 23",
+          "Luke 15:3–7",
+          "Jonah 1",
+          "Genesis 1"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Luke 15.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Luke 15:3–7.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "What did the shepherd do when one sheep was lost?",
         "choices": [
-          "David — and the Lord",
-          "Philip",
-          "Jonathan",
-          "Jesus"
+          "He left the ninety-nine and went after the one that was lost until he found it.",
+          "He forgot all about sheep.",
+          "He hid in a cave.",
+          "He bought a scooter."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Jesus’ parable in Luke 15.",
+        "wrongFeedback": "Think about what the good shepherd did for the one lost sheep. (Answer: left the ninety-nine… find it.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "Jesus finds lost sheep—you're never lost! God searches for you!",
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "God never hears when kids pray."
+          "God does not care about lost sinners.",
+          "Heaven has great joy when one sinner repenteth — and Jesus is the Shepherd who looks for us when we are lost.",
+          "Sheep are never important.",
+          "We should never celebrate."
         ],
-        "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Jesus finds lost sheep—you're never lost! God searches for you!.)"
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the ending about joy in heaven and the good shepherd. (Answer: joy… one sinner… Jesus looks for us.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "A talking toaster became king of the city.",
-          "Shepherd has 100 sheep",
-          "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again."
+          "When he hath found it, he layeth it on his shoulders, rejoicing.",
+          "The sheep turned into a watermelon.",
+          "The shepherd only liked clouds.",
+          "Everyone forgot how to walk."
         ],
-        "correctIndex": 1,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that wonder comes from God’s Word.",
+        "wrongFeedback": "Cross out the joke answers. Which matches Luke 15? (Answer: layeth it on his shoulders… rejoicing.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Only be kind to people who are exactly like us.",
-          "Ignore God until we are older.",
-          "Jesus finds lost sheep—you're never lost! God searches for you!",
-          "Never say sorry when we do wrong."
+          "Thank Jesus that He is the good Shepherd — ask Him to find us when we wander and help us trust Him.",
+          "Never think about God’s love.",
+          "Hide when we feel loved.",
+          "Only grown-ups need the Shepherd."
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Jesus finds lost sheep—you're never lost! God searches for you!.)"
+        "wrongFeedback": "Think: which honors Jesus as Shepherd? (Answer: thank Jesus… good Shepherd… trust Him.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Lost Sheep with God's Word today.",
-    "takeaway": "Jesus finds lost sheep—you're never lost! God searches for you!",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Lost Sheep. Amen.",
+    "doneMessage": "Great job reading Jesus Tells About the Lost Sheep with God's Word today.",
+    "takeaway": "Jesus is like that good shepherd — He loves us and will keep looking for us when we are lost.",
+    "prayer": "Lord Jesus, thank You for being the good Shepherd who seeks the lost. Help me trust You today. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Shepherd has 100 sheep (lost sheep)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: One is lost—he goes to find it (parable)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Found! Jesus finds lost sheep! (shepherd)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Shepherd has 100 sheep (luke 15)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: One is lost—he goes to find it (find)"
-    ]
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: a kind shepherd carrying a little lost sheep on his shoulders the shepherd has a happy relieved face the sheep looks safe and calm thick bold outlines with large open spaces on the shepherd robe the sheep and the ground for easy coloring soft hills and a gentle sky with minimal lines caring and joyful mood focus on the shepherd finding the lost sheep clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: A hundred sheep — gentle flock (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: One lost — tender search (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Left the ninety-nine — faithful love (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Found — on his shoulders (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Rejoice with friends — heaven’s joy (celebrate)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Jesus — good Shepherd for us (love)"
+    ],
+    "readAlongImages": []
   },
   "loveChapter": {
     "kjvRef": "1 Corinthians 13",
@@ -24854,7 +24897,7 @@
         "choices": [
           "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46",
           "Revelation 19",
-          "Luke 15",
+          "Luke 15:3–7",
           "Luke 3; Matthew 3"
         ],
         "correctIndex": 1,
@@ -29483,7 +29526,7 @@
         "question": "Where is this story found in the Bible?",
         "choices": [
           "Luke 3; Matthew 3",
-          "Luke 15",
+          "Luke 15:3–7",
           "Matthew 25",
           "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46"
         ],
@@ -31574,6 +31617,132 @@
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Grows tall — greatest among herbs (wonder)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Birds lodge in branches — shade and rest (peace)",
       "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and gold, friendly not scary, no text in image: Kingdom grows — listen to Jesus (hope)"
+    ],
+    "readAlongImages": []
+  },
+  "parableLostSheep": {
+    "kjvRef": "Luke 15:3–7 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "And when he hath found it, he layeth it on his shoulders, rejoicing. — Luke 15:5 (KJV)",
+    "readAlongTitle": "Jesus Tells About the Lost Sheep",
+    "quizWrongHumilityHint": "Listen again — hundred sheep; one lost; ninety and nine; find; shoulders; rejoice; heaven; repenteth.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "paragraphs": [
+      "Jesus told a story about a shepherd who had one hundred sheep.",
+      "One little sheep wandered away and got lost.",
+      "The shepherd left the ninety-nine safe sheep and went to look for the one that was lost.",
+      "He searched until he found it. Then he picked it up, put it on his shoulders, and carried it home.",
+      "He was so happy he called his friends and neighbors to celebrate with him.",
+      "Jesus said: “I say unto you, that likewise joy shall be in heaven over one sinner that repenteth, more than over ninety and nine just persons, which need no repentance.”",
+      "Jesus is like that good shepherd — He loves us and will keep looking for us when we are lost.",
+      "Reference: Luke 15:3–7 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "A shepherd had one hundred sheep.",
+        "caption": "A hundred sheep",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "One little sheep got lost.",
+        "caption": "One wandered away",
+        "image": "panel-noah-1.svg"
+      },
+      {
+        "text": "The shepherd left the ninety-nine and looked for it.",
+        "caption": "Left the ninety-nine",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "He found the lost sheep and carried it home.",
+        "caption": "On his shoulders",
+        "image": "panel-noah-3.svg"
+      },
+      {
+        "text": "He was so happy he celebrated with his friends.",
+        "caption": "Rejoice together",
+        "image": "panel-noah-2.svg"
+      },
+      {
+        "text": "Jesus looks for us when we are lost.",
+        "caption": "The good Shepherd",
+        "image": "panel-noah-3.svg"
+      }
+    ],
+    "quizHeading": "Quiz — think it through",
+    "questions": [
+      {
+        "question": "Where is this story found in the Bible?",
+        "choices": [
+          "Psalm 23",
+          "Luke 15:3–7",
+          "Jonah 1",
+          "Genesis 1"
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Luke 15:3–7.)"
+      },
+      {
+        "question": "What did the shepherd do when one sheep was lost?",
+        "choices": [
+          "He left the ninety-nine and went after the one that was lost until he found it.",
+          "He forgot all about sheep.",
+          "He hid in a cave.",
+          "He bought a scooter."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that matches Jesus’ parable in Luke 15.",
+        "wrongFeedback": "Think about what the good shepherd did for the one lost sheep. (Answer: left the ninety-nine… find it.)"
+      },
+      {
+        "question": "Which choice sounds most like what this story teaches?",
+        "choices": [
+          "God does not care about lost sinners.",
+          "Heaven has great joy when one sinner repenteth — and Jesus is the Shepherd who looks for us when we are lost.",
+          "Sheep are never important.",
+          "We should never celebrate."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the ending about joy in heaven and the good shepherd. (Answer: joy… one sinner… Jesus looks for us.)"
+      },
+      {
+        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "choices": [
+          "When he hath found it, he layeth it on his shoulders, rejoicing.",
+          "The sheep turned into a watermelon.",
+          "The shepherd only liked clouds.",
+          "Everyone forgot how to walk."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes—that wonder comes from God’s Word.",
+        "wrongFeedback": "Cross out the joke answers. Which matches Luke 15? (Answer: layeth it on his shoulders… rejoicing.)"
+      },
+      {
+        "question": "What is one good way to respond to God after this story?",
+        "choices": [
+          "Thank Jesus that He is the good Shepherd — ask Him to find us when we wander and help us trust Him.",
+          "Never think about God’s love.",
+          "Hide when we feel loved.",
+          "Only grown-ups need the Shepherd."
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
+        "wrongFeedback": "Think: which honors Jesus as Shepherd? (Answer: thank Jesus… good Shepherd… trust Him.)"
+      }
+    ],
+    "doneHeading": "You did it!",
+    "doneMessage": "Great job reading Jesus Tells About the Lost Sheep with God's Word today.",
+    "takeaway": "Jesus is like that good shepherd — He loves us and will keep looking for us when we are lost.",
+    "prayer": "Lord Jesus, thank You for being the good Shepherd who seeks the lost. Help me trust You today. Amen.",
+    "imagePrompts": [
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: a kind shepherd carrying a little lost sheep on his shoulders the shepherd has a happy relieved face the sheep looks safe and calm thick bold outlines with large open spaces on the shepherd robe the sheep and the ground for easy coloring soft hills and a gentle sky with minimal lines caring and joyful mood focus on the shepherd finding the lost sheep clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: A hundred sheep — gentle flock (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: One lost — tender search (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Left the ninety-nine — faithful love (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Found — on his shoulders (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Rejoice with friends — heaven’s joy (celebrate)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Jesus — good Shepherd for us (love)"
     ],
     "readAlongImages": []
   }

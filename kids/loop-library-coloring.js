@@ -106,7 +106,7 @@
   "lastSupper": "maryAnoint",
   "lazarus": "lazarus",
   "lostCoin": "widowMite",
-  "lostSheep": "psalm23Shepherd",
+  "lostSheep": "parableLostSheep",
   "loveChapter": "loveChapter",
   "lydiaSell": "lydiaSell",
   "malachiMessage": "malachiMessage",

@@ -113,6 +113,7 @@
   "manna": "manna",
   "maryAnoint": "maryAnoint",
   "maryMagdalene": "maryMagdalene",
+  "maryMartha": "maryMarthaVisit",
   "mephibosheth": "mephibosheth",
   "miriamSong": "miriamSong",
   "mosesBaby": "mosesBaby",

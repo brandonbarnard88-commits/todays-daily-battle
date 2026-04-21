@@ -595,6 +595,13 @@ if (merged.mustardSeed && !merged.parableMustardSeed) {
 if (merged.lostSheep && !merged.parableLostSheep) {
   merged.parableLostSheep = merged.lostSheep;
 }
+/** marthaServe / marySit — same gentle pack as maryMartha (legacy split keys). */
+if (merged.maryMartha && !merged.marthaServe) {
+  merged.marthaServe = merged.maryMartha;
+}
+if (merged.maryMartha && !merged.marySit) {
+  merged.marySit = merged.maryMartha;
+}
 
 const keys = Object.keys(merged).sort((a, b) => a.localeCompare(b));
 const jsonBody = JSON.stringify(merged, null, 2);

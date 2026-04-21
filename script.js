@@ -1168,7 +1168,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   var STORAGE_KEY = 'tdb_loop_library_state_v2';
   /* Bump ?v= when loops.json shape/media URLs change so CDN/browsers skip stale JSON. */
   var LOOPS_URL = '/loops.json?v=20260420elishabones';
-  var LOOPS_CACHE_KEY = 'tdb_loops_json_cache_v68';
+  var LOOPS_CACHE_KEY = 'tdb_loops_json_cache_v69';
   var MAX_WEEK = 12;
   var STAR_GOAL = 12;
   var TOTAL_LOOPS = 192;

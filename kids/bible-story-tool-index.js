@@ -1347,6 +1347,36 @@
     "kw": "jesus shepherd children love lamb"
   },
   {
+    "key": "maryMartha",
+    "title": "Jesus Visits Mary and Martha",
+    "kjvRef": "Luke 10:38–42",
+    "who": "Jesus",
+    "to": "Mary, Martha, and us",
+    "apply": "Jesus wants us to spend time listening to Him — that is the most important thing.",
+    "theme": "Obedience",
+    "kw": "mary martha bethany listen feet one thing good part needful luke 10 jesus word"
+  },
+  {
+    "key": "marthaServe",
+    "title": "Jesus Visits Mary and Martha",
+    "kjvRef": "Luke 10:38–42",
+    "who": "Jesus",
+    "to": "Mary, Martha, and us",
+    "apply": "Jesus wants us to spend time listening to Him — that is the most important thing.",
+    "theme": "Obedience",
+    "kw": "mary martha bethany listen feet one thing good part needful luke 10 jesus word"
+  },
+  {
+    "key": "marySit",
+    "title": "Jesus Visits Mary and Martha",
+    "kjvRef": "Luke 10:38–42",
+    "who": "Jesus",
+    "to": "Mary, Martha, and us",
+    "apply": "Jesus wants us to spend time listening to Him — that is the most important thing.",
+    "theme": "Obedience",
+    "kw": "mary martha bethany listen feet one thing good part needful luke 10 jesus word"
+  },
+  {
     "key": "jesusWalksWater",
     "title": "Jesus Walks on the Sea",
     "kjvRef": "Matthew 14:22–33",
@@ -1667,16 +1697,6 @@
     "kw": "manna bread heaven desert exodus 16 wilderness forty years honey wafers food provide"
   },
   {
-    "key": "marthaServe",
-    "title": "Martha Serves Jesus",
-    "kjvRef": "",
-    "who": "Jesus",
-    "to": "Martha",
-    "apply": "Don't be so busy you miss being with Jesus! Choose His presence first—then serve.",
-    "theme": "Obedience",
-    "kw": "martha serve luke 10 busy kitchen best mary one thing"
-  },
-  {
     "key": "maryAnoint",
     "title": "Mary Anoints Jesus' Feet",
     "kjvRef": "John 12:1–8",
@@ -1695,16 +1715,6 @@
     "apply": "Jesus knows your name and calls you! He is always the first to find His own.",
     "theme": "Love",
     "kw": "mary magdalene tomb john 20 risen gardener name love"
-  },
-  {
-    "key": "marySit",
-    "title": "Mary Sits at Jesus' Feet",
-    "kjvRef": "",
-    "who": "Jesus",
-    "to": "Mary (and us)",
-    "apply": "Sit with Jesus! Listening to Him is the most important thing you can do each day.",
-    "theme": "Obedience",
-    "kw": "mary sit listen luke 10 feet better thing jesus word"
   },
   {
     "key": "dragonFight",

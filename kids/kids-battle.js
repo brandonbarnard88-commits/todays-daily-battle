@@ -7492,31 +7492,39 @@
       narration:
         "Jesus Heals a Soldier's Servant from Far Away — Matthew 8:5–13. And when Jesus was entered into Capernaum, there came unto him a centurion, beseeching him, And saying, Lord, my servant lieth at home sick of the palsy, grievously tormented. And Jesus saith unto him, I will come and heal him. The centurion answered and said, Lord, I am not worthy that thou shouldest come under my roof: but speak the word only, and my servant shall be healed. For I am a man under authority, having soldiers under me: and I say to this man, Go, and he goeth; and to another, Come, and he cometh; and to my servant, Do this, and he doeth it. When Jesus heard it, he marvelled, and said to them that followed, Verily I say unto you, I have not found so great faith, no, not in Israel. And I say unto you, That many shall come from the east and west, and shall sit down with Abraham, and Isaac, and Jacob, in the kingdom of heaven. But the children of the kingdom shall be cast out into outer darkness: there shall be weeping and gnashing of teeth. And Jesus said unto the centurion, Go thy way; and as thou hast believed, so be it done unto thee. And his servant was healed in the selfsame hour. For you: trust Jesus' word — He is full of power and mercy."
     },
-    marthaServe: {
-      title: 'Martha Serves Jesus',
+    maryMartha: {
+      title: 'Jesus Visits Mary and Martha',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Martha busily prepares food for Jesus' },
-        { src: 'panel-noah-2.svg', alt: 'She asks: don\'t you care I\'m doing all this?' },
-        { src: 'panel-noah-3.svg', alt: 'Jesus says: one thing is needed—choose the best thing!' }
+        { src: 'panel-noah-1.svg', alt: 'Jesus comes to Mary and Martha’s house — welcome and quiet room' },
+        { src: 'panel-noah-2.svg', alt: 'Martha busies herself with serving — Mary sits at Jesus’ feet and hears His word' },
+        { src: 'panel-noah-3.svg', alt: 'Jesus answers gently — one thing is needful; Mary chose the good part' }
       ],
-      caption: 'Swipe to see what Jesus says about busyness and rest! 🍽️',
+      caption:
+        'Swipe to see Mary listen at Jesus’ feet — one needful thing, a quiet heart. 🏠',
       videoId: '',
       videoTitle: '',
-      keywords: ['martha', 'serve', 'luke 10', 'busy', 'kitchen', 'best', 'mary', 'one thing'],
-      kidContext: { who: 'Jesus', to: 'Martha', apply: 'Don\'t be so busy you miss being with Jesus! Choose His presence first—then serve.' }
-    },
-    marySit: {
-      title: 'Mary Sits at Jesus\' Feet',
-      panels: [
-        { src: 'panel-noah-1.svg', alt: 'Mary sits and listens to Jesus' },
-        { src: 'panel-noah-2.svg', alt: 'Martha is busy—Mary sits still' },
-        { src: 'panel-noah-3.svg', alt: 'Jesus says: Mary chose the better thing!' }
+      keywords: [
+        'mary',
+        'martha',
+        'bethany',
+        'listen',
+        'feet',
+        'one thing',
+        'good part',
+        'needful',
+        'luke 10',
+        'jesus',
+        'word'
       ],
-      caption: 'Swipe to see Mary choose the one thing that matters—listening! 👂',
-      videoId: '',
-      videoTitle: '',
-      keywords: ['mary', 'sit', 'listen', 'luke 10', 'feet', 'better thing', 'jesus', 'word'],
-      kidContext: { who: 'Jesus', to: 'Mary (and us)', apply: 'Sit with Jesus! Listening to Him is the most important thing you can do each day.' }
+      kjvRef: 'Luke 10:38–42',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Mary, Martha, and us',
+        apply:
+          'Jesus wants us to spend time listening to Him — that is the most important thing.'
+      },
+      narration:
+        "Jesus Visits Mary and Martha — Luke 10:38–42. Now it came to pass, as they went, that he entered into a certain village: and a certain woman named Martha received him into her house. And she had a sister called Mary, which also sat at Jesus' feet, and heard his word. But Martha was cumbered about much serving, and came to him, and said, Lord, dost thou not care that my sister hath left me to serve alone? Bid her therefore that she help me. And Jesus answered and said unto her, Martha, Martha, thou art careful and troubled about many things: But one thing is needful: and Mary hath chosen that good part, which shall not be taken away from her. For you: sit with Jesus! Listening to Him is the one needful thing."
     },
     dorcasRaise: {
       title: 'Dorcas Is Raised to Life',
@@ -7860,6 +7868,9 @@
     bibleStories.parableMustardSeed = bibleStories.mustardSeed;
     /** Same gentle card as lostSheep (library / journey naming). */
     bibleStories.parableLostSheep = bibleStories.lostSheep;
+    /** Same gentle card — Mary & Martha (Luke 10:38–42); legacy split keys. */
+    bibleStories.marthaServe = bibleStories.maryMartha;
+    bibleStories.marySit = bibleStories.maryMartha;
     window.TDB_BIBLE_STORIES = bibleStories;
     window.TDB_BIBLE_STORY_KEYS = Object.keys(bibleStories);
     try {
@@ -8022,8 +8033,8 @@
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
-      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'prodigalSon', 'marthaServe',
-      'marySit', 'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'prodigalSon', 'maryMartha',
+      'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */
       'jesusLazarus', 'jesusGreatCommission', 'greatCommission', 'jesusAscension', 'pentecostTongues', 'armorBelt',
@@ -11237,7 +11248,7 @@
     estherFast: 'Obedience', sarahPromise: 'Miracles', miriamSong: 'Love',
     /* Week 11 */
     annaProphet: 'Obedience', widowOil: 'Miracles', shunammiteReturn: 'Miracles', samariaSiege: 'Miracles', elishaFinal: 'Miracles', elishaBones: 'Miracles', persistentWidow: 'Obedience',
-    marthaServe: 'Obedience', marySit: 'Obedience',
+    maryMartha: 'Obedience', marthaServe: 'Obedience', marySit: 'Obedience',
     dorcasRaise: 'Miracles', phoebeDeacon: 'Obedience', juniaApostle: 'Obedience',
     loisTimothy: 'Love', euniceMother: 'Love', priscillaTent: 'Obedience',
     /* Week 12 */

@@ -163,7 +163,9 @@ for (const [key, chunk] of byKey.entries()) {
 const ALIAS_TO_CANON = [
   ['naaman', 'naamanHealed'],
   ['elishaOil', 'widowOil'],
-  ['parableLostSheep', 'lostSheep']
+  ['parableLostSheep', 'lostSheep'],
+  ['marthaServe', 'maryMartha'],
+  ['marySit', 'maryMartha']
 ];
 for (let ai = 0; ai < ALIAS_TO_CANON.length; ai++) {
   const aliasKey = ALIAS_TO_CANON[ai][0];

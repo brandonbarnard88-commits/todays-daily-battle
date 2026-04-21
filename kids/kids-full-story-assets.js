@@ -902,6 +902,11 @@
       webm: '/media/kids-stories/martha-serve.webm',
       captionsVtt: '/media/kids-stories/martha-serve.vtt'
     },
+    maryMartha: {
+      mp4: '/media/kids-stories/martha-serve.mp4',
+      webm: '/media/kids-stories/martha-serve.webm',
+      captionsVtt: '/media/kids-stories/martha-serve.vtt'
+    },
     maryAnoint: {
       mp4: '/media/kids-stories/mary-anoint.mp4',
       webm: '/media/kids-stories/mary-anoint.webm',

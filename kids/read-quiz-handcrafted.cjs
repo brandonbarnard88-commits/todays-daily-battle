@@ -75,6 +75,7 @@
  * Parable of the lost sheep — Luke 15:3–7 (gentle): buildParableLostSheepReadQuiz() (library key: lostSheep; alias parableLostSheep).
  * Parable of the prodigal son — Luke 15:11–32 (gentle): buildParableProdigalSonReadQuiz() (library key: prodigalSon).
  * Good Samaritan — Luke 10:25–37 (gentle): buildParableGoodSamaritanReadQuiz() (library key: goodSamaritan).
+ * Jesus visits Mary and Martha — Luke 10:38–42 (gentle): buildMaryMarthaReadQuiz() (library key: maryMartha; alias marthaServe, marySit).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
  * Esther’s banquet — brave truth (Esther 5:1–8; 7:1–10): full read-along + quiz in buildEstherBanquetReadQuiz().
@@ -9170,6 +9171,139 @@ function buildParableGoodSamaritanReadQuiz() {
   };
 }
 
+/** Jesus visits Mary and Martha — one needful thing, Mary at Jesus’ feet (gentle). Library key: maryMartha */
+function buildMaryMarthaReadQuiz() {
+  return {
+    kjvRef: 'Luke 10:38–42 (KJV) — gentle summary for little hearts',
+    verseExcerpt: 'Mary hath chosen that good part, which shall not be taken away from her. — Luke 10:42 (KJV)',
+    readAlongTitle: 'Jesus Visits Mary and Martha',
+    quizWrongHumilityHint:
+      'Listen again — Bethany; Martha; Mary; feet; hear; careful; troubled; one thing; needful; good part; listen.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus came to the home of two sisters, Mary and Martha.',
+      'Martha was busy getting everything ready for Jesus. She wanted the house to be clean and the meal to be just right.',
+      'Mary sat down at Jesus’ feet and listened to every word He said.',
+      'Martha became upset and said, “Lord, dost thou not care that my sister hath left me to serve alone? Bid her therefore that she help me.”',
+      'Jesus answered gently, “Martha, Martha, thou art careful and troubled about many things: but one thing is needful: and Mary hath chosen that good part, which shall not be taken away from her.”',
+      'Jesus wants us to spend time listening to Him, because that is the most important thing.',
+      'Reference: Luke 10:38–42 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus visited Mary and Martha’s house.',
+        caption: 'A quiet welcome',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'Martha was busy getting everything ready.',
+        caption: 'Serving with care',
+        image: 'panel-noah-1.svg'
+      },
+      {
+        text: 'Mary sat at Jesus’ feet and listened.',
+        caption: 'Still… and listening',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'Martha said, “Lord, tell my sister to help me.”',
+        caption: 'Dost thou not care?',
+        image: 'panel-noah-2.svg'
+      },
+      {
+        text: 'Jesus said gently, “Mary hath chosen that good part.”',
+        caption: 'One thing is needful',
+        image: 'panel-noah-3.svg'
+      },
+      {
+        text: 'Listening to Jesus is the most important thing.',
+        caption: 'The good part',
+        image: 'panel-noah-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Luke 10:38–42', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: Luke 10:38–42.)'
+      },
+      {
+        question: 'What was Mary doing that Jesus called “the good part”?',
+        choices: [
+          'She sat at Jesus’ feet and listened to His words.',
+          'She ran away from home.',
+          'She hid under a table.',
+          'She forgot Jesus was there.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Jesus’ gentle words in Luke 10.',
+        wrongFeedback:
+          'Think about what Mary chose while Martha was busy. (Answer: sat… listened.)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'Busy work is always wrong.',
+          'Time with Jesus — listening to Him — is the one needful thing; it will not be taken away.',
+          'We should never help at home.',
+          'Only grown-ups need God’s Word.'
+        ],
+        correctIndex: 1,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          'Reread Jesus’ words about “one thing is needful” and “that good part.” (Answer: listen… needful.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'Mary hath chosen that good part, which shall not be taken away from her.',
+          'The bowl turned into a trampoline.',
+          'The house flew to the moon.',
+          'Nobody could hear anything.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that wonder comes from God’s Word.',
+        wrongFeedback:
+          'Cross out the joke answers. Which matches Luke 10? (Answer: good part… not taken away.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ask Jesus to help me sit still with Him today — even a little — and listen to His Word.',
+          'Never be kind at home.',
+          'Only rush and worry.',
+          'Hide from Jesus.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which honors Jesus’ “one thing is needful”? (Answer: listen… His Word.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Visits Mary and Martha with God's Word today.",
+    takeaway:
+      'Jesus wants us to spend time listening to Him, because that is the most important thing.',
+    prayer:
+      'Lord Jesus, thank You for calling me to sit with You. Help me choose the good part today. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus sitting in a quiet room talking Mary is sitting at His feet listening with a peaceful face Martha stands nearby with a bowl in her hands thick bold outlines with large open spaces on Jesus robe Mary robe Martha robe and the floor for easy coloring soft house walls and gentle light from a window with minimal lines calm and listening mood focus on Mary choosing to sit with Jesus clean minimal no anger or busy mess plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Quiet house — Jesus welcomed (peace)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Martha serving — getting things ready (care)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Mary at Jesus’ feet — listening (still)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Martha speaks — help me (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Jesus gentle — one thing needful (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Good part — not taken away (joy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and sky blue, friendly not scary, no text in image: Listen today — small quiet moment (hope)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -9289,5 +9423,6 @@ module.exports = {
   lostSheep: buildParableLostSheepReadQuiz(),
   prodigalSon: buildParableProdigalSonReadQuiz(),
   goodSamaritan: buildParableGoodSamaritanReadQuiz(),
+  maryMartha: buildMaryMarthaReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

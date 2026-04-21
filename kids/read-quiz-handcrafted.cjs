@@ -57,6 +57,7 @@
  * Jesus baptized — dove and the Father’s voice (Matthew 3:13–17, gentle): buildJesusBaptismReadQuiz() (library key: jesusBaptism).
  * Jesus calls helpers — fishers of men (Matthew 4:18–22, gentle): buildJesusDisciplesReadQuiz() (library key: jesusDisciples).
  * Water to wine at Cana — first miracle (John 2:1–11, gentle): buildJesusWaterWineReadQuiz() (library key: jesusWaterWine).
+ * Temptation in the wilderness — God’s Word (Matthew 4:1–11, gentle): buildJesusTemptedReadQuiz() (library key: jesusTempted).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
  * Esther’s banquet — brave truth (Esther 5:1–8; 7:1–10): full read-along + quiz in buildEstherBanquetReadQuiz().
@@ -6650,6 +6651,148 @@ function buildJesusWaterWineReadQuiz() {
   };
 }
 
+/** Temptation in the wilderness — Scripture answers (gentle). Library key: jesusTempted */
+function buildJesusTemptedReadQuiz() {
+  return {
+    kjvRef: 'Matthew 4:1–11 (KJV)',
+    verseExcerpt:
+      'Man shall not live by bread alone, but by every word that proceedeth out of the mouth of God. — Matthew 4:4 (KJV)',
+    readAlongTitle: 'Jesus Says No to Wrong Things',
+    quizWrongHumilityHint:
+      'Listen again — Spirit led Jesus into the wilderness; forty days; stones and bread; every word of God; do not tempt God; worship God only; devil left; angels ministered.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'After Jesus was baptized, the Spirit led Him into the wilderness.',
+      'He was there for forty days and forty nights without eating.',
+      'The devil came and tried to get Jesus to do wrong things three times.',
+      'First the devil said, “If thou be the Son of God, command that these stones be made bread.”',
+      'Jesus answered, “It is written, Man shall not live by bread alone, but by every word that proceedeth out of the mouth of God.”',
+      'Then the devil took Him to a high place and said, “Cast thyself down.”',
+      'Jesus answered, “It is written again, Thou shalt not tempt the Lord thy God.”',
+      'Finally the devil showed Him all the kingdoms of the world and said, “All these things will I give thee, if thou wilt fall down and worship me.”',
+      'Jesus said, “Get thee hence, Satan: for it is written, Thou shalt worship the Lord thy God, and him only shalt thou serve.”',
+      'Then the devil left Him, and angels came and took care of Jesus.',
+      'Jesus always chose to obey His Father, even when it was hard.',
+      'Reference: Matthew 4:1–11 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'The Spirit led Jesus into the wilderness.',
+        caption: 'Quiet place',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'He was there forty days without eating.',
+        caption: 'Forty days',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'The devil tried to get Him to do wrong things.',
+        caption: 'Say no',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus said, “Man shall not live by bread alone.”',
+        caption: 'God’s Word',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus said, “Thou shalt not tempt the Lord thy God.”',
+        caption: 'Trust God',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus said, “Thou shalt worship the Lord thy God only.”',
+        caption: 'Worship God',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Angels came and took care of Jesus.',
+        caption: 'God’s care',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Psalm 23', 'Matthew 4:1–11', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: Matthew 4:1–11.)'
+      },
+      {
+        question: 'What did Jesus use to answer wrong ideas?',
+        choices: [
+          'It is written — God’s Word',
+          'Loud shouting only',
+          'Running away without speaking',
+          'Pretending He did not hear'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—Jesus answered with Scripture, over and over.',
+        wrongFeedback:
+          'Listen for “It is written” and what Jesus trusted. (Answer: It is written — God’s Word.)'
+      },
+      {
+        question: 'Which choice sounds most like what this story teaches?',
+        choices: [
+          'Jesus always chose to obey His Father — we can trust God’s Word too.',
+          'Jesus said bread does not matter at all, ever.',
+          'The wilderness was only a dream.',
+          'Angels never help anyone.'
+        ],
+        correctIndex: 0,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          'Reread the ending about obeying the Father and angels caring for Jesus. (Answer: Jesus always chose to obey His Father — we can trust God’s Word too.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'Thou shalt worship the Lord thy God, and him only shalt thou serve.',
+          'The kingdoms were made of jelly.',
+          'Jesus forgot how to talk.',
+          'The stones turned into ducks.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that detail comes from the story God gave us.',
+        wrongFeedback:
+          'Cross out the joke answers. Which matches Jesus’ words about worship? (Answer: Thou shalt worship the Lord thy God, and him only shalt thou serve.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Thank Jesus for obeying the Father — ask Him to help us remember the Bible when we are tempted.',
+          'Never read the Bible when we feel worried.',
+          'Ignore parents when they quote Scripture.',
+          'Only pray on birthdays.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which choice honors Jesus’ example? (Answer: Thank Jesus for obeying the Father — ask Him to help us remember the Bible when we are tempted.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Says No to Wrong Things with God's Word today.",
+    takeaway: 'Jesus always chose to obey His Father, even when it was hard.',
+    prayer:
+      'Lord Jesus, thank You for obeying the Father and using God’s Word. Help us trust You and say no to wrong things. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus standing in the quiet wilderness with soft hills and sky He has a calm strong face thick bold outlines with large open spaces on Jesus\' robe and the ground for easy coloring gentle rocks and a few small bushes with minimal lines trusting and obedient mood focus on Jesus choosing to obey God clean minimal no scary devil or fear plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky, friendly not scary, no text in image: Spirit-led — wilderness (quiet)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky, friendly not scary, no text in image: Forty days — hungry but strong (trust)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky, friendly not scary, no text in image: Bread and stones — God’s Word answers (obey)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky, friendly not scary, no text in image: Do not tempt God (faith)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky, friendly not scary, no text in image: Worship the Lord only (heart)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky, friendly not scary, no text in image: Angels came — cared for Jesus (love)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -6751,5 +6894,6 @@ module.exports = {
   jesusBaptism: buildJesusBaptismReadQuiz(),
   jesusDisciples: buildJesusDisciplesReadQuiz(),
   jesusWaterWine: buildJesusWaterWineReadQuiz(),
+  jesusTempted: buildJesusTemptedReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz()
 };

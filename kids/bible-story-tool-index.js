@@ -1127,6 +1127,16 @@
     "kw": "jesus wedding cana water wine waterpots john 2 miracle mary servants first miracle governor feast obey"
   },
   {
+    "key": "jesusTempted",
+    "title": "Jesus Says No to Wrong Things",
+    "kjvRef": "Matthew 4:1–11",
+    "who": "Jesus",
+    "to": "The Father — and everyone who listens",
+    "apply": "Jesus always chose to obey His Father — we can trust God’s Word when wrong ideas come.",
+    "theme": "Obedience",
+    "kw": "jesus temptation wilderness matthew 4 forty days bread stones scripture it is written worship angels obey word"
+  },
+  {
     "key": "jesusTempt",
     "title": "Jesus Is Tempted",
     "kjvRef": "Matthew 4:1–11",

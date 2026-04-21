@@ -145,7 +145,8 @@
       jesusTemple: 'jesus-children',
       jesusBaptism: 'jesus-children',
       jesusDisciples: 'jesusDisciples',
-      jesusWaterWine: 'jesusWaterWine'
+      jesusWaterWine: 'jesusWaterWine',
+      jesusTempted: 'jesusTempted'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -2858,6 +2859,27 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 2:1–11</text>'
       ),
 
+      /* ── Gentle: wilderness — Jesus obeys; soft hills, no scary figure (Matthew 4:1–11) ── */
+      jesusTempted: svg(
+        ground() +
+        '<path d="M0 248 Q120 200 200 218 Q280 205 400 228 L400 300 L0 300 Z" ' + sf + ' fill="white" stroke-width="2.6"/>' +
+        '<path d="M0 120 Q100 70 200 95 Q300 80 400 110 L400 248 L0 248 Z" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<path d="M20 248 Q200 225 380 248" ' + s + ' stroke-width="1.8" opacity="0.35"/>' +
+        sun(48, 52, 15) +
+        cloud(268, 42) +
+        person(200, 128, 12, 34) +
+        '<ellipse cx="95" cy="242" rx="24" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="318" cy="246" rx="28" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M72 218 Q76 200 80 218 M78 208 L78 228" ' + s + ' stroke-width="1.8"/>' +
+        '<path d="M332 214 Q336 198 340 214" ' + s + ' stroke-width="1.8"/>' +
+        '<circle cx="328" cy="108" r="11" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M314 104 Q328 96 342 104" ' + s + ' stroke-width="1.6"/>' +
+        '<line x1="328" y1="119" x2="328" y2="142" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="314" y1="128" x2="342" y2="128" ' + s + ' stroke-width="1.6"/>' +
+        '<path d="M300 118 L312 112 M344 112 L356 118" ' + s + ' stroke-width="1.4" opacity="0.85"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 4:1–11</text>'
+      ),
+
       /* ── Week 5: Jesus Heal Blind (68) ── */
       healBlind: svg(
         ground() +
@@ -4313,6 +4335,7 @@
     jesusBaptism: 'jesusBaptism',
     jesusDisciples: 'jesusDisciples',
     jesusWaterWine: 'jesusWaterWine',
+    jesusTempted: 'jesusTempted',
     jesusTemptation: 'jesusTempt',
     jesusTempt: 'jesusTempt',
     weddingWine: 'weddingWine',

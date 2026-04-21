@@ -1842,5 +1842,14 @@
     "ref": "John 2:1–11",
     "week": 5,
     "libraryKey": "jesusWaterWine"
+  },
+  {
+    "id": 200,
+    "title": "Jesus Says No to Wrong Things",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 4:1–11",
+    "week": 5,
+    "libraryKey": "jesusTempted"
   }
 ]

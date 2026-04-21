@@ -607,6 +607,11 @@
       webm: '/media/kids-stories/jesus-first-miracle.webm',
       captionsVtt: '/media/kids-stories/jesus-first-miracle.vtt'
     },
+    jesusTempted: {
+      mp4: '/media/kids-stories/jesus-tempt.mp4',
+      webm: '/media/kids-stories/jesus-tempt.webm',
+      captionsVtt: '/media/kids-stories/jesus-tempt.vtt'
+    },
     jesusBirth: {
       mp4: '/media/kids-stories/jesus-birth.mp4',
       webm: '/media/kids-stories/jesus-birth.webm',

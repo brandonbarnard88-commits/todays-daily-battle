@@ -140,7 +140,7 @@
     'johnBaptize',
     'jesusDisciples',
     'jesusWaterWine',
-    'jesusTempt',
+    'jesusTempted',
     'jesusTemptation',
     'samaritanWoman',
     'jesusHealsParalytic',

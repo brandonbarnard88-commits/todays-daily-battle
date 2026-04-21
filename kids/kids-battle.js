@@ -5010,6 +5010,48 @@
       narration:
         "Jesus Does His First Miracle — John 2:1–11. And the third day there was a marriage in Cana of Galilee; and the mother of Jesus was there: And both Jesus was called, and his disciples, to the marriage. And when they wanted wine, the mother of Jesus saith unto him, They have no wine. Jesus saith unto her, Woman, what have I to do with thee? mine hour is not yet come. His mother saith unto the servants, Whatsoever he saith unto you, do it. And there were set there six waterpots of stone, after the manner of the purifying of the Jews, containing two or three firkins apiece. Jesus saith unto them, Fill the waterpots with water. And they filled them up to the brim. And he saith unto them, Draw out now, and bear unto the governor of the feast. And they bare it. When the ruler of the feast had tasted the water that was made wine, and knew not whence it was: (but the servants which drew the water knew;) the governor of the feast called the bridegroom, And saith unto him, Every man at the beginning doth set forth good wine; and when men have well drunk, then that which is worse: but thou hast kept the good wine until now. This beginning of miracles did Jesus in Cana of Galilee, and manifested forth his glory; and his disciples believed on him. For you: His power is real — and He cares for everyday needs."
     },
+    jesusTempted: {
+      title: 'Jesus Says No to Wrong Things',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'The Spirit leads Jesus into the quiet wilderness — forty days of prayer'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Jesus answers with Scripture — God’s Word, not wrong words'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'The tempter left — angels came and ministered to Jesus'
+        }
+      ],
+      caption:
+        'Swipe to see Jesus obey the Father in the wilderness — Scripture, worship, and angels who care.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'jesus',
+        'temptation',
+        'wilderness',
+        'matthew 4',
+        'bread',
+        'stones',
+        'scripture',
+        'it is written',
+        'worship',
+        'angels',
+        'forty days'
+      ],
+      kjvRef: 'Matthew 4:1–11',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The Father — and everyone who listens',
+        apply: 'Jesus always chose to obey His Father — we can trust God’s Word when wrong ideas come.'
+      },
+      narration:
+        "Jesus Says No to Wrong Things — Matthew 4:1–11. Then was Jesus led up of the Spirit into the wilderness to be tempted of the devil. And when he had fasted forty days and forty nights, he was afterward an hungred. And when the tempter came to him, he said, If thou be the Son of God, command that these stones be made bread. But he answered and said, It is written, Man shall not live by bread alone, but by every word that proceedeth out of the mouth of God. Then the devil taketh him up into the holy city, and setteth him on a pinnacle of the temple, And saith unto him, If thou be the Son of God, cast thyself down: for it is written, He shall give his angels charge concerning thee: and in their hands they shall bear thee up, lest at any time thou dash thy foot against a stone. Jesus said unto him, It is written again, Thou shalt not tempt the Lord thy God. Again, the devil taketh him up into an exceeding high mountain, and sheweth him all the kingdoms of the world, and the glory of them; And saith unto him, All these things will I give thee, if thou wilt fall down and worship me. Then saith Jesus unto him, Get thee hence, Satan: for it is written, Thou shalt worship the Lord thy God, and him only shalt thou serve. Then the devil leaveth him, and, behold, angels came and ministered unto him. For you: Jesus obeyed the Father — and He helps us say no to wrong things too."
+    },
     jesusTempt: {
       title: 'Jesus Is Tempted',
       panels: [
@@ -7418,7 +7460,7 @@
       'jonahVine', 'danielPray', 'estherBanquet',
       /* Week 5 */
       'angelMary', 'shepherdsStar', 'wiseMen', 'simeonAnna', 'jesusManger', 'jesusTemple', 'johnBaptist', 'johnBaptize',
-      'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTemptation', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
+      'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
       'jesusHealsBlind', 'jesusBlessKids',
       /* Week 6 */
       'jesusHealsParalytic', 'jesusCalmsStorm', 'jesusFeeds5000', 'jesusWalksWater',
@@ -10572,6 +10614,7 @@
     angelMary: 'Miracles', shepherdsStar: 'Love', wiseMen: 'Love', simeonAnna: 'Love', jesusManger: 'Love', jesusTemple: 'Love',
     johnBaptist: 'Obedience', johnBaptize: 'Obedience', jesusBaptism: 'Love',     jesusDisciples: 'Love',
     jesusWaterWine: 'Miracles',
+    jesusTempted: 'Obedience',
     jesusTemptation: 'Obedience',
     jesusTempt: 'Obedience', weddingWine: 'Miracles', jesusFirstMiracle: 'Miracles', jesusCallingDisciples: 'Obedience',
     jesusSermonMount: 'Obedience', healBlind: 'Miracles', jesusHealsBlind: 'Miracles', jesusBlessKids: 'Love',

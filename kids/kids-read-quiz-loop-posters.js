@@ -127,6 +127,7 @@
     jesusBaptism: 197,
     jesusDisciples: 198,
     jesusWaterWine: 199,
+    jesusTempted: 200,
     jesusBirth: 62,
     jesusBlessKids: 84,
     jesusCalmsStorm: 12,

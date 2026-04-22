@@ -2333,6 +2333,23 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   var homeMobiusWeekUrl = 'tdb-home-mobius-week.js?v=20260330home';
   var skyIpUrl = '/sky-ip-geo.js?v=20260327ipgeo';
 
+  /** Run onload when every path has been injected (or was already present). */
+  function injectScriptsParallel(paths, onAllDone) {
+    if (!paths || !paths.length) {
+      if (typeof onAllDone === 'function') onAllDone();
+      return;
+    }
+    var n = paths.length;
+    var done = 0;
+    function tick() {
+      done++;
+      if (done === n && typeof onAllDone === 'function') onAllDone();
+    }
+    for (var pi = 0; pi < paths.length; pi++) {
+      injectScript(paths[pi], tick);
+    }
+  }
+
   function resolveSrc(path) {
     if (typeof path !== 'string' || !path) return path;
     if (/^https?:\/\//i.test(path)) return path;
@@ -2387,17 +2404,11 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
       window.dispatchEvent(new CustomEvent('tdb-verse-narration-ready'));
     } catch (e) {}
     if (isHome) {
-      injectScript(gentleUrl, function () {
-        injectScript(wordStudyUrl, function () {
-          injectScript(verseStudyUrl, function () {
-            injectScript(familyBridgeUrl, function () {
-              injectScript(memoryVersesUrl, function () {
-                injectScript(homeVotmUrl, function () {
-                  injectScript(homeMobiusWeekUrl, function () {
-                    injectScript(skyIpUrl);
-                  });
-                });
-              });
+      injectScriptsParallel([gentleUrl, wordStudyUrl], function () {
+        injectScript(verseStudyUrl, function () {
+          injectScriptsParallel([familyBridgeUrl, memoryVersesUrl], function () {
+            injectScript(homeVotmUrl, function () {
+              injectScriptsParallel([homeMobiusWeekUrl, skyIpUrl]);
             });
           });
         });

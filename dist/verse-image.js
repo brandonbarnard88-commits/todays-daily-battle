@@ -121,7 +121,61 @@
     return idbPut(rec).then(pruneExcess);
   }
 
+  /** v2 preview: ?vi_v2=1 — gentler KJV line breaks (fewer one-word last lines) on canvas. */
+  function isVerseImageV2Layout() {
+    try {
+      if (new URLSearchParams(String(window.location.search || '')).get('vi_v2') === '1') return true;
+    } catch (e) {}
+    return false;
+  }
+
+  function buildWrappedLines(ctx, text, maxWidth) {
+    var words = String(text || '').split(/\s+/).filter(Boolean);
+    var lines = [];
+    var line = '';
+    for (var i = 0; i < words.length; i++) {
+      var word = words[i];
+      var test = line ? line + ' ' + word : word;
+      if (ctx.measureText(test).width > maxWidth && line) {
+        lines.push(line);
+        line = word;
+      } else {
+        line = test;
+      }
+    }
+    if (line) lines.push(line);
+    return lines;
+  }
+
+  /** If the last line is a single short word, try to pull one word from the line above (fits within maxWidth). */
+  function reduceOrphanLastLine(ctx, lines, maxWidth) {
+    if (lines.length < 2) return lines;
+    var a = lines.slice();
+    var last = a[a.length - 1];
+    var pen = a[a.length - 2];
+    var lastParts = String(last).trim().split(/\s+/);
+    if (lastParts.length !== 1) return a;
+    var penParts = String(pen).trim().split(/\s+/);
+    if (penParts.length < 2) return a;
+    var moved = penParts.pop();
+    var newPen = penParts.join(' ');
+    var newLast = moved + ' ' + last;
+    if (ctx.measureText(newPen).width <= maxWidth && ctx.measureText(newLast).width <= maxWidth) {
+      a[a.length - 2] = newPen;
+      a[a.length - 1] = newLast;
+    }
+    return a;
+  }
+
   function wrapCanvasText(ctx, text, x, y, maxWidth, lineHeight) {
+    if (isVerseImageV2Layout()) {
+      var L = buildWrappedLines(ctx, text, maxWidth);
+      L = reduceOrphanLastLine(ctx, L, maxWidth);
+      for (var li = 0; li < L.length; li++) {
+        ctx.fillText(L[li], x, y + li * lineHeight);
+      }
+      return;
+    }
     var words = text.split(' ');
     var line = '';
     var offsetY = 0;
@@ -141,19 +195,30 @@
 
   /** Center-aligned paragraph for calm “focus” layout. Returns total height used. */
   function wrapCanvasTextCentered(ctx, text, cx, startY, maxWidth, lineHeight) {
+    var useV2 = isVerseImageV2Layout();
     var words = String(text || '').split(/\s+/).filter(Boolean);
     var line = '';
     var offsetY = 0;
+    if (useV2) {
+      var L2 = buildWrappedLines(ctx, String(text || ''), maxWidth);
+      L2 = reduceOrphanLastLine(ctx, L2, maxWidth);
+      for (var j = 0; j < L2.length; j++) {
+        var lw0 = ctx.measureText(L2[j]).width;
+        ctx.fillText(L2[j], cx - lw0 / 2, startY + offsetY);
+        offsetY += lineHeight;
+      }
+      return offsetY;
+    }
     for (var i = 0; i < words.length; i++) {
-      var word = words[i];
-      var test = line ? line + ' ' + word : word;
-      if (ctx.measureText(test).width > maxWidth && line) {
+      var word2 = words[i];
+      var test2 = line ? line + ' ' + word2 : word2;
+      if (ctx.measureText(test2).width > maxWidth && line) {
         var lw = ctx.measureText(line).width;
         ctx.fillText(line, cx - lw / 2, startY + offsetY);
-        line = word;
+        line = word2;
         offsetY += lineHeight;
       } else {
-        line = test;
+        line = test2;
       }
     }
     if (line) {

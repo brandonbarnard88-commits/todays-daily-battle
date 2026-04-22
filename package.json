@@ -26,7 +26,7 @@
     "build:church-qr": "node scripts/generate-church-share-qr.cjs",
     "curriculum": "node build-curriculum.js",
     "characters": "node build-characters.js",
-    "test": "node scripts/verify-homepage-search-wiring.mjs && node scripts/verify-url-truth-table.mjs && python3 test-site.py --offline && node scripts/verify-structured-data.mjs",
+    "test": "node scripts/verify-homepage-search-wiring.mjs && node scripts/verify-viewport-baseline.mjs && node scripts/verify-url-truth-table.mjs && python3 test-site.py --offline && node scripts/verify-structured-data.mjs",
     "test:search-wiring": "node scripts/verify-homepage-search-wiring.mjs",
     "test:security": "node test-security.js",
     "test:site": "node test-site.js --offline && node scripts/verify-offline-strip-coverage.mjs && node scripts/verify-structured-data.mjs --verify-dist && node scripts/verify-a11y-controls.mjs && node scripts/verify-family-kids-links.mjs && node scripts/verify-print-styles.mjs && node scripts/verify-performance.mjs && node scripts/verify-service-worker.mjs && node scripts/verify-js-assets.mjs && node scripts/verify-verse-breakdown-coverage.mjs",

@@ -26,6 +26,16 @@
       "rewrite": { "to": "/memorize.html", "status": 200 }
     },
     {
+      "id": "quiet-morning-clean",
+      "aliases": ["/quiet-morning", "/quiet-morning/"],
+      "rewrite": { "to": "/quiet-morning.html", "status": 200 }
+    },
+    {
+      "id": "quiet-evening-clean",
+      "aliases": ["/quiet-evening", "/quiet-evening/"],
+      "rewrite": { "to": "/quiet-evening.html", "status": 200 }
+    },
+    {
       "id": "explore-clean",
       "aliases": ["/explore", "/explore/"],
       "rewrite": { "to": "/explore.html", "status": 200 }

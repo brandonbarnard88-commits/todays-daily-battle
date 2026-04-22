@@ -32,7 +32,7 @@
       font-family: ui-rounded, "Avenir Next", system-ui, sans-serif; 
       line-height: 1.7; 
     }
-    main { max-width: 42rem; margin: 0 auto; padding: 2rem 1.25rem 6rem; }
+    /* main: width/padding from .tdb-quiet-container + styles.css */
     .quiet-hero { 
       text-align: center; 
       padding: 3rem 1.5rem 2rem; 
@@ -146,7 +146,7 @@
     }
   </style>
 </head>
-<body class="dark-mode">
+<body class="dark-mode tdb-inner-page quiet-evening-page">
   <a href="#main" class="skip-link">Skip to Quiet Evening</a>
   
   <nav class="tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
@@ -190,7 +190,7 @@
     <p class="offline-msg">Offline—still got you. Verse and evening reflection cached on this device.</p>
   </div>
 
-  <main id="main" class="tdb-calm-hub quiet-evening-main">
+  <main id="main" class="tdb-calm-hub tdb-quiet-container quiet-evening-main">
     <div class="quiet-hero" id="verse-container">
       <div class="verse-ref" id="verse-ref">Psalm 4:8 (KJV)</div>
       <div class="verse-text" id="verse-text">"I will both lay me down in peace, and sleep: for thou, LORD, only makest me dwell in safety."</div>
@@ -420,7 +420,7 @@
 
   <script src="verse-narration.js?v=20260329narr12"></script>
   <script src="word-study.js?v=20260329pass2off"></script>
-  <script>
+  <script nonce="tdb2025s">
     (function() {
       'use strict';
       

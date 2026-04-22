@@ -183,6 +183,22 @@
       "destination": "/memorize.html"
     },
     {
+      "source": "/quiet-morning",
+      "destination": "/quiet-morning.html"
+    },
+    {
+      "source": "/quiet-morning/",
+      "destination": "/quiet-morning.html"
+    },
+    {
+      "source": "/quiet-evening",
+      "destination": "/quiet-evening.html"
+    },
+    {
+      "source": "/quiet-evening/",
+      "destination": "/quiet-evening.html"
+    },
+    {
       "source": "/explore",
       "destination": "/explore.html"
     },

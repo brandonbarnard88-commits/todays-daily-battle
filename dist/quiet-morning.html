@@ -18,7 +18,7 @@
   <style>
     :root { --bg:#0a0c12; --text:#f5f4f0; --muted:#a8a29e; --gold:#d4af7b; --line:#2a2520; --verse-font-size: clamp(1.75rem, 5.5vw, 2.75rem); }
     body { background: var(--bg); color: var(--text); font-family: ui-rounded, "Avenir Next", system-ui, sans-serif; line-height: 1.7; }
-    main { max-width: 42rem; margin: 0 auto; padding: 2rem 1.25rem 6rem; }
+    /* main width / padding: global quiet column via .tdb-quiet-container + styles.css (desktop card shell) */
     .quiet-hero { text-align: center; padding: 3rem 1.5rem 2rem; background: color-mix(in srgb, var(--bg) 92%, #1a1814); border-radius: 24px; border: 1px solid color-mix(in srgb, var(--gold) 18%, transparent); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
     .verse-ref { font-size: 1.1rem; color: var(--gold); letter-spacing: 0.04em; font-weight: 600; margin: 0 0 1rem; }
     .verse-text { 
@@ -58,7 +58,7 @@
     .prompt-source { font-size: 0.8rem; color: var(--muted); text-align: center; margin-top: 0.5rem; }
   </style>
 </head>
-<body class="dark-mode">
+<body class="dark-mode tdb-inner-page quiet-morning-page">
   <a href="#main" class="skip-link">Skip to Quiet Morning</a>
   
   <!-- Reuse global nav pattern -->
@@ -103,7 +103,7 @@
     <p class="offline-msg">Offline—still got you. Verse and prompt cached on this device.</p>
   </div>
 
-  <main id="main" class="tdb-calm-hub quiet-morning-main">
+  <main id="main" class="tdb-calm-hub tdb-quiet-container quiet-morning-main">
     <div class="quiet-hero" id="verse-container">
       <div class="verse-ref" id="verse-ref">Proverbs 18:10 (KJV)</div>
       <div class="verse-text" id="verse-text">"The name of the LORD is a strong tower: the righteous runneth into it, and is safe."</div>
@@ -335,7 +335,7 @@
   <script src="verse-narration.js?v=20260329narr12"></script>
   <script src="word-study.js?v=20260329pass2off"></script>
   <!-- Core logic from script.js will be loaded via global functions; for self-contained we inline key helpers -->
-  <script>
+  <script nonce="tdb2025s">
     (function() {
       'use strict';
       

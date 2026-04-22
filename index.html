@@ -201,6 +201,40 @@
       /* No sticky strip on home — main links sit below “Need Him right now?” */
       --tdb-sticky-nav-h: 0px;
       --tdb-focus-ring: #e3bc67;
+      /* Quiet-place tokens (align with site styles.css; index stays self-contained) */
+      --tdb-bp-sm: 480px;
+      --tdb-bp-md: 768px;
+      --tdb-bp-lg: 1024px;
+      --tdb-bp-xl: 1280px;
+      --tdb-inner-gap: clamp(1rem, 2.2vw, 1.75rem);
+      --tdb-home-content-max: min(46rem, 100%);
+    }
+    @media (min-width: 1280px) {
+      :root {
+        /* Match inner pages + Family Hub: calmer line length on wide desks */
+        --tdb-home-content-max: min(52rem, 100%);
+      }
+    }
+
+    /* Opt-in: same names as styles.css for future section wraps (hero blocks, link rows, etc.) */
+    .tdb-quiet-container {
+      width: 100%;
+      max-width: var(--tdb-home-content-max);
+      margin-left: auto;
+      margin-right: auto;
+      box-sizing: border-box;
+    }
+    .calm-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--tdb-inner-gap);
+      align-items: start;
+    }
+    @media (min-width: 768px) {
+      .calm-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (min-width: 1024px) {
+      .calm-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
 
     :root[data-theme="light"] {
@@ -326,11 +360,13 @@
     }
 
     .app {
+      /* Fluid horizontal padding; moat + edge-bleed use the same value */
+      --tdb-home-pad-x: clamp(0.9rem, 0.5rem + 2vw, 3.5rem);
       width: 100% !important;
-      max-width: min(100%, 1200px) !important;
+      max-width: min(100%, 1280px) !important;
       min-width: 0 !important;
       margin: 0 auto !important;
-      padding: 0 1.25rem 120px !important;
+      padding: 0 var(--tdb-home-pad-x) 120px !important;
       min-height: 100vh !important;
       box-sizing: border-box !important;
       position: relative;
@@ -391,16 +427,6 @@
       pointer-events: none;
       overflow: visible;
       z-index: 2;
-    }
-
-    @media (min-width: 600px) {
-      .app { padding: 0 2rem 120px !important; }
-    }
-
-    @media (min-width: 900px) {
-      .app {
-        padding: 0 3.5rem 120px !important;
-      }
     }
 
     /* ── Site Header ── */
@@ -1508,7 +1534,7 @@
         grid-template-columns: repeat(4, minmax(0, 1fr));
       }
     }
-    @media (max-width: 899px) {
+    @media (max-width: 1023px) {
       .tdb-home-quickbar-btn { display: none; }
       .tdb-wayfind-toggle { display: block; }
       .tdb-sticky-wayfind {
@@ -1555,15 +1581,11 @@
     }
     @media (min-width: 600px) {
       .app > .tdb-moat-banner {
-        margin-left: -2rem;
-        margin-right: -2rem;
+        margin-left: calc(-1 * var(--tdb-home-pad-x));
+        margin-right: calc(-1 * var(--tdb-home-pad-x));
       }
     }
-    @media (min-width: 900px) {
-      .app > .tdb-moat-banner {
-        margin-left: -3.5rem;
-        margin-right: -3.5rem;
-      }
+    @media (min-width: 1024px) {
       .tdb-moat-banner {
         padding: 1.15rem 1.5rem 1.25rem;
       }
@@ -1575,7 +1597,7 @@
       list-style: none;
       cursor: pointer;
       margin: 0 auto;
-      max-width: 46rem;
+      max-width: var(--tdb-home-content-max);
       padding: 0.65rem 0.5rem 0.75rem;
       font-size: 0.86rem;
       line-height: 1.45;
@@ -1604,7 +1626,7 @@
     }
     .tdb-moat-banner-inner {
       margin: 0 auto;
-      max-width: 46rem;
+      max-width: var(--tdb-home-content-max);
       text-align: center;
     }
     .tdb-moat-banner-top {
@@ -2389,7 +2411,7 @@
     /* Optional: one quiet “pick up on this device” row (journal / memorize / WGHD) */
     .tdb-home-continue-loop-wrap {
       margin: 0 0 0.65rem;
-      max-width: 52rem;
+      max-width: var(--tdb-home-content-max);
       width: 100%;
       align-self: center;
       box-sizing: border-box;
@@ -2461,7 +2483,7 @@
       background: color-mix(in srgb, var(--card) 96%, var(--gold));
       border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line));
       border-radius: 14px; padding: 0.85rem 1rem; margin: 0 0 0.65rem;
-      max-width: 52rem; align-self: center; width: 100%; box-sizing: border-box;
+      max-width: var(--tdb-home-content-max); align-self: center; width: 100%; box-sizing: border-box;
     }
     .easter-banner.hidden { display: none !important; }
     .easter-banner-text { flex: 1; min-width: 0; }
@@ -2528,7 +2550,7 @@
       border-radius: 12px;
       border: 1px solid color-mix(in srgb, var(--line) 88%, var(--gold) 12%);
       background: color-mix(in srgb, var(--card) 94%, var(--bg-soft));
-      max-width: 52rem;
+      max-width: var(--tdb-home-content-max);
       align-self: center;
       text-align: center;
       box-sizing: border-box;
@@ -2560,7 +2582,7 @@
       color: #5c4818;
     }
     .tdb-home-prayer-strip {
-      max-width: 52rem;
+      max-width: var(--tdb-home-content-max);
       margin: 0.85rem auto 0;
       padding: 1rem 1.1rem 1.15rem;
       align-self: center;
@@ -2627,7 +2649,7 @@
       border-radius: 12px;
       border: 1px solid color-mix(in srgb, var(--line) 88%, transparent);
       background: color-mix(in srgb, var(--card) 88%, transparent);
-      max-width: 52rem;
+      max-width: var(--tdb-home-content-max);
       align-self: center;
       text-align: center;
     }
@@ -2656,7 +2678,7 @@
       .hero-daily-path-links { gap: 0.35rem 0.75rem; }
       .hero-daily-path-links a { padding: 0.45rem 0.6rem; min-width: 56px; }
     }
-    @media (min-width: 900px) {
+    @media (min-width: 1024px) {
       .hero-daily-path { font-size: 0.88rem; padding: 0.75rem 1.1rem; }
     }
     .hero-brand-taglines {
@@ -2727,7 +2749,7 @@
     /* ── Main: single column on mobile ── */
     main {
       display: grid !important;
-      gap: 1rem;
+      gap: var(--tdb-inner-gap);
       min-width: 0;
       max-width: 100%;
       overflow-x: clip;
@@ -2736,8 +2758,8 @@
     /* Narrow phones (~360–430px): no horizontal spill, search row stacks cleanly */
     @media (max-width: 430px) {
       .app {
-        padding-left: max(0.65rem, env(safe-area-inset-left, 0px)) !important;
-        padding-right: max(0.65rem, env(safe-area-inset-right, 0px)) !important;
+        padding-left: max(var(--tdb-home-pad-x), env(safe-area-inset-left, 0px)) !important;
+        padding-right: max(var(--tdb-home-pad-x), env(safe-area-inset-right, 0px)) !important;
       }
       .tdb-hero-lang-today-stack {
         padding-left: max(0.45rem, env(safe-area-inset-left, 0px));
@@ -2761,7 +2783,7 @@
     }
 
     /* ── Desktop: two-column layout + all scaling ── */
-    @media (min-width: 900px) {
+    @media (min-width: 1024px) {
       .site-logo-wrap { width: clamp(80px, 8vw, 120px); }
       .site-title { font-size: clamp(2.6rem, 3.8vw, 4rem); letter-spacing: 0.04em; }
 
@@ -3267,7 +3289,7 @@
       background: color-mix(in srgb, var(--gold) 12%, var(--card));
     }
     .hbp-panel--action .hbp-label { color: var(--gold); }
-    @media (min-width: 900px) {
+    @media (min-width: 1024px) {
       .hero-breakdown-panels { gap: 12px; }
       .hbp-text { font-size: 1.05rem; }
     }
@@ -3872,7 +3894,7 @@
       border: 1px solid color-mix(in srgb, var(--gold) 22%, transparent);
       background: color-mix(in srgb, var(--gold) 6%, transparent);
     }
-    @media (max-width: 899px) {
+    @media (max-width: 1023px) {
       .tdb-hero-search-priority-hint { display: block; }
       /* Daily anchor first, then calm doorway, then feel search (install before long scroll continues) */
       #main-content { order: -40; }
@@ -4156,7 +4178,7 @@
       font-size: 0.9rem;
       line-height: 1.55;
       color: var(--muted);
-      max-width: 46rem;
+      max-width: var(--tdb-home-content-max);
     }
     .tdb-home-reader-stories-links {
       display: flex;
@@ -4764,7 +4786,7 @@
 
     .footer-sitemap {
       margin: 1rem auto 0;
-      max-width: 52rem;
+      max-width: var(--tdb-home-content-max);
       text-align: left;
     }
     .footer-sitemap summary {
@@ -5051,7 +5073,7 @@
       color: #fff;
       outline: none;
     }
-    @media (min-width: 900px) {
+    @media (min-width: 1024px) {
       .verse-img-card { min-height: 260px; padding: 3rem 4rem 2rem; }
       .verse-img-text { font-size: clamp(1.4rem, 2.2vw, 1.9rem); }
       .verse-img-ref  { font-size: clamp(1.3rem, 1.8vw, 1.65rem); }
@@ -6926,7 +6948,7 @@
       border-color: color-mix(in srgb, #9e7625 42%, var(--line) 58%);
       color: #5c410f;
     }
-    @media (min-width: 900px) {
+    @media (min-width: 1024px) {
       .feel-quick-topics-root .quick-topic,
       .quick-topic-group-chips .quick-topic {
         font-size: 1rem;

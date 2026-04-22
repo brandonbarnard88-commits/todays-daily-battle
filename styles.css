@@ -19545,7 +19545,15 @@ body.tdb-inner-page.tdb-calm-shelf-page main#main-content.app-content.tdb-quiet-
   }
 }
 
-/* Phase 2 — micro-polish: one-shot desktop dawn wash on `.tdb-micro-hero-dawn` (1280px+, motion-safe) */
+/* Phase 2 — micro-polish: reusable dawn wash — add class `tdb-micro-hero-dawn` to a hero; optional `--tdb-micro-hero-dawn-r` for border-radius. Desktop 1280px+; honors prefers-reduced-motion. (Homepage mirrors tokens inline — no styles.css link.) */
+:root {
+  --tdb-dawn-wash-duration: 1.55s;
+  --tdb-dawn-wash-delay: 0.06s;
+  --tdb-dawn-wash-inset: -5px;
+  --tdb-dawn-wash-grad-dark: radial-gradient(ellipse 88% 72% at 50% 0%, rgba(227, 188, 103, 0.24), transparent 62%);
+  --tdb-dawn-wash-grad-light: radial-gradient(ellipse 88% 72% at 50% 0%, rgba(180, 100, 30, 0.12), transparent 62%);
+  --tdb-rhythm-tight: 0.12rem;
+}
 @keyframes tdb-micro-hero-dawn-wash {
   0% {
     opacity: 0;
@@ -19567,28 +19575,32 @@ body.tdb-inner-page.tdb-calm-shelf-page main#main-content.app-content.tdb-quiet-
     content: '';
     position: absolute;
     z-index: -1;
-    inset: -5px;
+    inset: var(--tdb-dawn-wash-inset);
     border-radius: var(--tdb-micro-hero-dawn-r, 18px);
     pointer-events: none;
-    background: radial-gradient(ellipse 88% 72% at 50% 0%, rgba(227, 188, 103, 0.24), transparent 62%);
+    background: var(--tdb-dawn-wash-grad-dark);
     opacity: 0;
-    animation: tdb-micro-hero-dawn-wash 1.55s ease-out 0.06s 1 forwards;
+    animation: tdb-micro-hero-dawn-wash var(--tdb-dawn-wash-duration) ease-out var(--tdb-dawn-wash-delay) 1 forwards;
   }
-  :root[data-theme='light'] .tdb-micro-hero-dawn::before {
-    background: radial-gradient(ellipse 88% 72% at 50% 0%, rgba(180, 100, 30, 0.12), transparent 62%);
+  :root[data-theme="light"] .tdb-micro-hero-dawn::before {
+    background: var(--tdb-dawn-wash-grad-light);
+  }
+  .tdb-verse-page .verse-hero.tdb-micro-hero-dawn {
+    margin-bottom: 0.4rem;
   }
   .kids-battle-hero.tdb-micro-hero-dawn {
     --tdb-micro-hero-dawn-r: 16px;
     margin-bottom: 1.65rem;
   }
-  body.tdb-inner-page.tdb-verse-page .content-inner {
-    gap: calc(var(--tdb-inner-gap) + 0.12rem);
-  }
-  .plans-hero.tdb-micro-hero-dawn {
+  .plans-page .plans-hero.tdb-micro-hero-dawn {
     --tdb-micro-hero-dawn-r: 14px;
+    margin-bottom: 2.45rem;
+  }
+  body.tdb-inner-page.tdb-verse-page .content-inner {
+    gap: calc(var(--tdb-inner-gap) + var(--tdb-rhythm-tight));
   }
   body.tdb-inner-page .kids-corner-page .content-inner.kids-battle-inner {
-    gap: calc(var(--tdb-inner-gap) + 0.1rem);
+    gap: calc(var(--tdb-inner-gap) + var(--tdb-rhythm-tight));
   }
 }
 @media (prefers-reduced-motion: reduce) {

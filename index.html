@@ -2404,7 +2404,15 @@
       border-color: color-mix(in srgb, #9e7625 28%, var(--line));
       box-shadow: 0 10px 32px rgba(64, 41, 8, 0.09);
     }
-    @keyframes tdb-home-micro-hero-dawn {
+    /* Token names + keyframe name match styles.css .tdb-micro-hero-dawn (homepage has no external stylesheet) */
+    :root {
+      --tdb-dawn-wash-duration: 1.55s;
+      --tdb-dawn-wash-delay: 0.06s;
+      --tdb-dawn-wash-inset: -5px;
+      --tdb-dawn-wash-grad-dark: radial-gradient(ellipse 88% 72% at 50% 0%, rgba(227, 188, 103, 0.24), transparent 62%);
+      --tdb-dawn-wash-grad-light: radial-gradient(ellipse 88% 72% at 50% 0%, rgba(180, 100, 30, 0.12), transparent 62%);
+    }
+    @keyframes tdb-micro-hero-dawn-wash {
       0% { opacity: 0; }
       38% { opacity: 0.48; }
       100% { opacity: 0; }
@@ -2420,15 +2428,15 @@
         content: '';
         position: absolute;
         z-index: -1;
-        inset: -5px;
+        inset: var(--tdb-dawn-wash-inset);
         border-radius: var(--tdb-micro-hero-dawn-r, 18px);
         pointer-events: none;
-        background: radial-gradient(ellipse 88% 72% at 50% 0%, rgba(227, 188, 103, 0.22), transparent 62%);
+        background: var(--tdb-dawn-wash-grad-dark);
         opacity: 0;
-        animation: tdb-home-micro-hero-dawn 1.55s ease-out 0.06s 1 forwards;
+        animation: tdb-micro-hero-dawn-wash var(--tdb-dawn-wash-duration) ease-out var(--tdb-dawn-wash-delay) 1 forwards;
       }
       :root[data-theme="light"] #hero-verse-wrap.tdb-micro-hero-dawn::before {
-        background: radial-gradient(ellipse 88% 72% at 50% 0%, rgba(180, 100, 30, 0.11), transparent 62%);
+        background: var(--tdb-dawn-wash-grad-light);
       }
     }
     @media (prefers-reduced-motion: reduce) {

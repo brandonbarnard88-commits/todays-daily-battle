@@ -104,6 +104,109 @@
     .explore-languages h3[id] {
       scroll-margin-top: 5rem;
     }
+    /* Wide viewports: calm “On this page” map — long index; desktop scanning only. */
+    .explore-onpage-nav { display: none; }
+    @media (min-width: 1100px) {
+      .explore-onpage-nav {
+        display: block;
+        position: sticky;
+        top: 3.25rem;
+        z-index: 8;
+        margin: 0.25rem 0 1.2rem;
+        padding: 0.5rem 0.75rem 0.6rem;
+        border-radius: 14px;
+        background: rgba(6, 9, 14, 0.82);
+        border: 1px solid rgba(227, 188, 103, 0.2);
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+        backdrop-filter: blur(10px);
+        text-align: left;
+      }
+      .explore-onpage-nav__label {
+        margin: 0 0 0.4rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(227, 188, 103, 0.65);
+      }
+      .explore-onpage-nav__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem 0.55rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+      }
+      .explore-onpage-nav__list a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 0.25rem 0.65rem;
+        border-radius: 999px;
+        font-size: 0.86rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: rgba(226, 232, 240, 0.92);
+        border: 1px solid rgba(227, 188, 103, 0.22);
+        background: rgba(12, 16, 26, 0.55);
+      }
+      .explore-onpage-nav__list a:hover,
+      .explore-onpage-nav__list a:focus-visible {
+        border-color: rgba(227, 188, 103, 0.45);
+        color: #c9a84c;
+        outline: 2px solid rgba(227, 188, 103, 0.45);
+        outline-offset: 2px;
+      }
+    }
+    html[data-theme="light"] .explore-onpage-nav {
+      background: rgba(255, 253, 247, 0.94);
+      border-color: rgba(201, 162, 39, 0.28);
+      box-shadow: 0 8px 24px rgba(64, 41, 8, 0.1);
+    }
+    html[data-theme="light"] .explore-onpage-nav__label {
+      color: rgba(120, 90, 30, 0.75);
+    }
+    html[data-theme="light"] .explore-onpage-nav__list a {
+      color: #1e293b;
+      border-color: rgba(201, 162, 39, 0.35);
+      background: rgba(255, 255, 255, 0.88);
+    }
+    html[data-theme="light"] .explore-onpage-nav__list a:hover,
+    html[data-theme="light"] .explore-onpage-nav__list a:focus-visible {
+      color: #0f172a;
+      border-color: rgba(201, 162, 39, 0.55);
+    }
+    .tdb-explore-page #explore-overview,
+    .tdb-explore-page #explore-quick-doors,
+    .tdb-explore-page #start-here,
+    .tdb-explore-page #first-visit-tour,
+    .tdb-explore-page #whats-new-spring-2026,
+    .tdb-explore-page #explore-hub,
+    .tdb-explore-page #languages,
+    .tdb-explore-page #topics-en,
+    .tdb-explore-page #daily {
+      scroll-margin-top: 5rem;
+    }
+    @media (min-width: 1100px) {
+      .tdb-explore-page #explore-overview,
+      .tdb-explore-page #explore-quick-doors,
+      .tdb-explore-page #start-here,
+      .tdb-explore-page #first-visit-tour,
+      .tdb-explore-page #whats-new-spring-2026,
+      .tdb-explore-page #explore-hub,
+      .tdb-explore-page #languages,
+      .tdb-explore-page #topics-en,
+      .tdb-explore-page #daily {
+        scroll-margin-top: 7.5rem;
+      }
+    }
+    @media (min-width: 1100px) and (prefers-reduced-motion: reduce) {
+      .explore-onpage-nav {
+        position: static;
+        margin-bottom: 1.1rem;
+      }
+    }
   </style>
 </head>
 <body class="dark-mode tdb-inner-page tdb-explore-page">
@@ -196,7 +299,7 @@
 
     <main class="app-content tdb-quiet-container" id="main-content">
       <div class="content-inner explore-page">
-        <header class="hero-banner explore-hero explore-hero--soar-dawn">
+        <header id="explore-overview" class="hero-banner explore-hero explore-hero--soar-dawn" tabindex="-1">
           <p class="explore-eyebrow">Same tools — clearer doors</p>
           <div class="explore-hero-motto" role="group" aria-label="Site motto">
             <p class="explore-hero-soul-tag">Less scroll, more soul</p>
@@ -208,6 +311,21 @@
           <p class="explore-positioning-line">We built scripture-first paths: look up, study, and apply—clear steps, not open-ended AI chat.</p>
           <p class="section-note explore-first-visit util-mt-0_75 util-mb-0" id="explore-first-visit-hint"><strong>First visit?</strong> You are in the right place. <a href="#start-here">Start here</a> gives a calm first order&mdash;Home, Calm, plans, My Study, prayer&mdash;then the fuller map opens below. On Home, today&rsquo;s verse lands before Ask The Word. Prefer the same path stretched to about five minutes? <a href="#first-visit-tour">Optional tour</a>. One-page picture: <a href="site-guide.html">Start here guide</a>. Want the quiet proof first? <a href="testimonials.html">Reader stories</a>. You can leave anytime and come back when you are ready.</p>
         </header>
+
+        <nav class="explore-onpage-nav" aria-label="On this page">
+          <p class="explore-onpage-nav__label" id="explore-onpage-toc-label">On this page</p>
+          <ul class="explore-onpage-nav__list" aria-labelledby="explore-onpage-toc-label">
+            <li><a href="#explore-overview">Overview</a></li>
+            <li><a href="#explore-quick-doors">Quick doors</a></li>
+            <li><a href="#start-here">Start here</a></li>
+            <li><a href="#first-visit-tour">Optional tour</a></li>
+            <li><a href="#whats-new-spring-2026">What&rsquo;s new</a></li>
+            <li><a href="#explore-hub">Section hub</a></li>
+            <li><a href="#languages">Languages</a></li>
+            <li><a href="#topics-en">Topics (EN)</a></li>
+            <li><a href="#daily">Daily &amp; study</a></li>
+          </ul>
+        </nav>
 
         <section class="explore-quick-doors" id="explore-quick-doors" aria-labelledby="explore-quick-doors-h">
           <h2 class="explore-quick-doors-heading" id="explore-quick-doors-h">Five calm doors</h2>

@@ -1203,7 +1203,7 @@ html[data-theme="light"] .mystudy-streak-badge-figure {
     position: sticky;
     top: 3.25rem;
     z-index: 8;
-    margin: 0.2rem 0 0.95rem;
+    margin: 0.25rem 0 1.15rem;
     padding: 0.5rem 0.75rem 0.6rem;
     border-radius: 14px;
     background: rgba(6, 9, 14, 0.82);
@@ -1295,6 +1295,6 @@ html[data-theme="light"] .mystudy-onpage-nav__list a:focus-visible {
 @media (min-width: 1100px) and (prefers-reduced-motion: reduce) {
   .mystudy-onpage-nav {
     position: static;
-    margin-bottom: 0.95rem;
+    margin-bottom: 1.1rem;
   }
 }

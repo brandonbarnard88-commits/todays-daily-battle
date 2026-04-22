@@ -13,7 +13,8 @@ const root = dirname(fileURLToPath(import.meta.url));
 const repoRoot = join(root, '..');
 const runs = [
   ['https://todaysdailybattle.com/', join(repoRoot, 'lighthouse-home.json')],
-  ['https://todaysdailybattle.com/reader.html', join(repoRoot, 'lighthouse-reader.json')],
+  /* Canonical path avoids 30x to /reader and keeps LCP honest (see Lighthouse "redirects" audit). */
+  ['https://todaysdailybattle.com/reader', join(repoRoot, 'lighthouse-reader.json')],
 ];
 
 for (const [url, outPath] of runs) {

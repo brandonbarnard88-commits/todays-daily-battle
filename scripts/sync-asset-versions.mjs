@@ -7,13 +7,15 @@ import {
 } from './site-asset-version.mjs';
 
 const SKIP_DIRS = new Set(['.git', 'node_modules', 'dist']);
+const DIST_SKIP = new Set(['.git', 'node_modules']);
 
-function walkHtml(dir, results = []) {
+function walkHtml(dir, results = [], dirSkip) {
+  const skip = dirSkip || SKIP_DIRS;
   const entries = fs.readdirSync(dir, { withFileTypes: true });
   for (const entry of entries) {
     if (entry.isDirectory()) {
-      if (SKIP_DIRS.has(entry.name)) continue;
-      walkHtml(path.join(dir, entry.name), results);
+      if (skip.has(entry.name)) continue;
+      walkHtml(path.join(dir, entry.name), results, skip);
       continue;
     }
     if (entry.name.endsWith('.html')) {
@@ -25,6 +27,10 @@ function walkHtml(dir, results = []) {
 
 function main() {
   const htmlFiles = walkHtml(root);
+  const distDir = path.join(root, 'dist');
+  if (fs.existsSync(distDir)) {
+    walkHtml(distDir, htmlFiles, DIST_SKIP);
+  }
   let changed = 0;
   for (const fullPath of htmlFiles) {
     const original = fs.readFileSync(fullPath, 'utf8');

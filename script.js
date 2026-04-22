@@ -11743,9 +11743,17 @@ function tdbOpenKjvPrintSheet(opts) {
     '<footer>King James Version &middot; todaysdailybattle.com &mdash; for your table or notebook</footer>' +
     '<script>(function(){function go(){setTimeout(function(){try{window.print();}catch(e){}},100);}if(document.readyState==="complete")go();else window.addEventListener("load",go);window.addEventListener("afterprint",function(){try{window.close();}catch(e2){}});})();<\/script></body></html>';
   try {
-    w.document.open();
-    w.document.write(html);
-    w.document.close();
+    var blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+    var blobUrl = URL.createObjectURL(blob);
+    w.location.assign(blobUrl);
+    w.addEventListener('load', function tdbPrintBlobRevoke() {
+      w.removeEventListener('load', tdbPrintBlobRevoke);
+      setTimeout(function () {
+        try {
+          URL.revokeObjectURL(blobUrl);
+        } catch (eRev) { /* ignore */ }
+      }, 120000);
+    });
   } catch (e0) {
     if (typeof showEliteToast === 'function') showEliteToast('Could not open print view.');
     return;

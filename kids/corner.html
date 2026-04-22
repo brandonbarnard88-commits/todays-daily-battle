@@ -615,6 +615,91 @@
         margin-top: 1rem;
       }
     }
+    /* Simple on-page navigation — jump to search, grid, starters without long scrolling */
+    .kids-corner-page-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.35rem 0.5rem;
+      padding: 0.5rem 0.65rem;
+      margin: 0 0 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(12, 14, 24, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 2px solid rgba(255, 217, 61, 0.38);
+      border-radius: 12px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+    }
+    .kids-corner-page-nav .kids-corner-page-nav-label {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(226, 232, 240, 0.75);
+      width: 100%;
+      margin: 0 0 0.1rem;
+    }
+    @media (min-width: 520px) {
+      .kids-corner-page-nav .kids-corner-page-nav-label {
+        width: auto;
+        margin: 0 0.25rem 0 0;
+      }
+    }
+    .kids-corner-page-nav a {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.8rem;
+      color: var(--kids-yellow);
+      text-decoration: none;
+      padding: 0.38rem 0.6rem;
+      border-radius: 999px;
+      border: 2px solid rgba(255, 217, 61, 0.45);
+      background: rgba(255, 217, 61, 0.07);
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .kids-corner-page-nav a:hover,
+    .kids-corner-page-nav a:focus-visible {
+      background: rgba(255, 217, 61, 0.22);
+      color: #fff;
+      outline: none;
+    }
+    .kids-corner-details {
+      margin: 0.75rem 0 1rem;
+      border-radius: 12px;
+      border: 2px solid rgba(255, 217, 61, 0.22);
+      background: rgba(255, 255, 255, 0.035);
+      padding: 0.15rem 0.75rem 0.75rem;
+    }
+    .kids-corner-details > summary {
+      cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.92rem;
+      color: #e2e8f0;
+      padding: 0.55rem 0.15rem;
+      list-style: none;
+    }
+    .kids-corner-details > summary::-webkit-details-marker {
+      display: none;
+    }
+    .kids-corner-details[open] > summary {
+      margin-bottom: 0.35rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    #kids-library-grid,
+    #kids-library-search-section,
+    #kids-library-static-fallback,
+    #kids-corner-grown-up-plans {
+      scroll-margin-top: 5.5rem;
+    }
   </style>
 </head>
 <body class="dark-mode kids-battle-page kids-sky-enabled kids-sky-playful">
@@ -656,6 +741,7 @@
     </div>
   </div>
   <a href="#main-content" class="skip-link">Skip to main content</a>
+  <a href="#kids-library-grid" class="skip-link">Skip to all stories</a>
   <div class="app-shell">
     <header class="top-bar kids-battle-header kids-header-unified">
       <div class="brand">
@@ -675,7 +761,7 @@
     </header>
 
     <main class="app-content" id="main-content" role="main">
-      <div class="content-inner kids-battle-inner">
+      <div class="content-inner kids-battle-inner" id="kids-corner-top">
         <span class="kids-corner-explorer-badge" aria-label="Corner Explorer badge">📚 Corner Explorer</span>
         <nav class="kids-breadcrumb kids-corner-breadcrumb" aria-label="You are here">
           <a href="/" class="kids-bc-whole-site">Whole site</a>
@@ -684,31 +770,42 @@
           <span class="kids-bc-sep" aria-hidden="true">›</span>
           <span aria-current="page">Story library</span>
         </nav>
-        <aside class="kids-parent-today-strip" aria-labelledby="kids-parent-today-heading">
-          <h2 id="kids-parent-today-heading">What your child sees here</h2>
-          <p>Cartoon story cards, optional quizzes, and KJV verse hooks—fun first, short sessions. For filters, journey buttons, and calm controls, open the <a href="parent.html">Parent Dashboard</a>. You can sit together on this same page or hand off the device; nothing posts without you.</p>
-          <ul class="kids-parent-rhythm-list" aria-label="Simple rhythm you can repeat">
-            <li><a href="/verse.html">One verse</a> from the whole site (KJV)</li>
-            <li><a href="#kids-library-grid">One story card</a> on this page</li>
-            <li><a href="prayer-activities.html">One short prayer habit</a> when you have a minute</li>
-          </ul>
-          <p class="kids-parent-quick-line" id="kids-parent-quick-line" aria-live="polite"></p>
-        </aside>
-        <section class="glass" role="region" aria-label="Classroom and church team teaching lane">
-          <h2 class="kids-section-title">Classroom + church team mode</h2>
-          <p class="section-note util-mb-0_5">Need a ready flow for a private Christian school class, Sunday class, or small group? Use this quiet rhythm:</p>
-          <ul class="section-note util-mb-0_75" aria-label="Simple teaching rhythm">
-            <li><strong>Warm start:</strong> choose one story and read one key KJV verse aloud together.</li>
-            <li><strong>Understanding:</strong> use the read-and-quiz prompts to check what kids heard.</li>
-            <li><strong>Response:</strong> close with one short prayer line and one practical action for the week.</li>
-          </ul>
-          <div class="cta-group">
-            <a class="btn btn-secondary" href="/church-sharing-kit.html#csk-lesson-outlines">Lesson outlines</a>
-            <a class="btn btn-secondary" href="/church-sharing-kit.html#csk-vbs-ideas">VBS ideas</a>
-            <a class="btn btn-secondary" href="/church-sharing-kit.html#csk-children-print-leader">Print leader guide</a>
-            <a class="btn btn-secondary" href="/church-sharing-kit.html#csk-memory-verse-activities">Memory verse activities</a>
-          </div>
-        </section>
+        <nav class="kids-corner-page-nav" aria-label="Jump to a section on this page">
+          <span class="kids-corner-page-nav-label">Jump to</span>
+          <a href="#kids-library-grid">All stories</a>
+          <a href="#kids-library-search-section">Search &amp; filters</a>
+          <a href="#kids-library-static-fallback">Starter list</a>
+          <a href="#kids-corner-grown-up-plans">Grown-up plans</a>
+          <a href="#kids-corner-top">Back to top</a>
+        </nav>
+        <details class="kids-corner-details glass">
+          <summary>For parents &amp; teachers (tap to open)</summary>
+          <aside class="kids-parent-today-strip" aria-labelledby="kids-parent-today-heading">
+            <h2 id="kids-parent-today-heading">What your child sees here</h2>
+            <p>Cartoon story cards, optional quizzes, and KJV verse hooks—fun first, short sessions. For filters, journey buttons, and calm controls, open the <a href="parent.html">Parent Dashboard</a>. You can sit together on this same page or hand off the device; nothing posts without you.</p>
+            <ul class="kids-parent-rhythm-list" aria-label="Simple rhythm you can repeat">
+              <li><a href="/verse.html">One verse</a> from the whole site (KJV)</li>
+              <li><a href="#kids-library-grid">One story card</a> on this page</li>
+              <li><a href="prayer-activities.html">One short prayer habit</a> when you have a minute</li>
+            </ul>
+            <p class="kids-parent-quick-line" id="kids-parent-quick-line" aria-live="polite"></p>
+          </aside>
+          <section class="glass" role="region" aria-label="Classroom and church team teaching lane">
+            <h2 class="kids-section-title">Classroom + church team mode</h2>
+            <p class="section-note util-mb-0_5">Need a ready flow for a private Christian school class, Sunday class, or small group? Use this quiet rhythm:</p>
+            <ul class="section-note util-mb-0_75" aria-label="Simple teaching rhythm">
+              <li><strong>Warm start:</strong> choose one story and read one key KJV verse aloud together.</li>
+              <li><strong>Understanding:</strong> use the read-and-quiz prompts to check what kids heard.</li>
+              <li><strong>Response:</strong> close with one short prayer line and one practical action for the week.</li>
+            </ul>
+            <div class="cta-group">
+              <a class="btn btn-secondary" href="/church-sharing-kit.html#csk-lesson-outlines">Lesson outlines</a>
+              <a class="btn btn-secondary" href="/church-sharing-kit.html#csk-vbs-ideas">VBS ideas</a>
+              <a class="btn btn-secondary" href="/church-sharing-kit.html#csk-children-print-leader">Print leader guide</a>
+              <a class="btn btn-secondary" href="/church-sharing-kit.html#csk-memory-verse-activities">Memory verse activities</a>
+            </div>
+          </section>
+        </details>
         <header class="kids-battle-hero">
           <h1 class="kids-battle-title">Bible Story Library</h1>
           <p class="kids-battle-tagline">Read Bible adventures at your pace—pictures, optional video, and quizzes that help you think (hints when you need them). Pick a story and go.</p>
@@ -716,14 +813,15 @@
           <p id="kids-library-count" class="section-note util-mb-0_25" aria-live="polite"></p>
         </header>
 
-        <section class="glass" role="region" aria-label="Little ones all-in-one hub">
+        <details class="kids-corner-details glass" role="group" aria-label="Little ones doorway">
+          <summary>Younger kids? Calmer doorway first (tap to open)</summary>
           <h2 class="kids-section-title">Want the calmer all-in-one doorway first?</h2>
           <p class="section-note">Most families with younger kids can start at <a href="/little-ones.html">For the Little Ones</a> first. Come here when you want the full story shelf, search tools, and the longer Gentle Journey path.</p>
           <div class="cta-group">
             <a class="btn kids-btn-primary" href="/little-ones.html">Start at For the Little Ones</a>
             <a class="btn btn-secondary" href="/coloring.html?story=jesus">Color one matching story</a>
           </div>
-        </section>
+        </details>
 
         <section class="glass kids-library-start-lanes" role="region" aria-label="Age-aware ways to begin in the Bible Story Library">
           <h2 class="kids-section-title">Pick your starting lane</h2>
@@ -753,7 +851,7 @@
           </div>
         </section>
 
-        <section class="kids-search-section glass" role="region" aria-label="Search stories">
+        <section class="kids-search-section glass" id="kids-library-search-section" role="region" aria-label="Search stories">
           <h2 class="kids-section-title">Find a story</h2>
           <div class="kids-library-quick-picks" role="group" aria-label="Guided starter story buttons">
             <button type="button" class="btn btn-secondary kids-story-quick-filter" data-story-filter-query="" data-story-filter-theme="">All stories</button>
@@ -781,27 +879,30 @@
               <option value="Protection">Protection</option>
             </select>
           </div>
-          <div class="kids-library-filter-cluster" role="group" aria-label="Extra story filters">
-            <label for="kids-library-age" class="kids-library-theme-label">Age</label>
-            <select id="kids-library-age" class="kids-library-theme-select" aria-label="Filter by age">
-              <option value="">All ages</option>
-              <option value="littles">Littles 5-7</option>
-              <option value="middles">Middles 8-10</option>
-              <option value="older">Older 11+</option>
-            </select>
-            <label for="kids-library-length" class="kids-library-theme-label">Length</label>
-            <select id="kids-library-length" class="kids-library-theme-select" aria-label="Filter by reading length">
-              <option value="">Any length</option>
-              <option value="quick">Quick read</option>
-              <option value="medium">Read-along</option>
-              <option value="long">Longer sit-down</option>
-            </select>
-            <label for="kids-library-book" class="kids-library-theme-label">Book</label>
-            <select id="kids-library-book" class="kids-library-theme-select" aria-label="Filter by Bible book">
-              <option value="">Any book</option>
-            </select>
-          </div>
-          <p class="section-note util-mb-0_5">Use age, length, and book if you need a quicker fit for littles, older readers, homeschool, or bedtime.</p>
+          <details class="kids-corner-details">
+            <summary>Narrow results (age, length, Bible book)</summary>
+            <div class="kids-library-filter-cluster" role="group" aria-label="Extra story filters">
+              <label for="kids-library-age" class="kids-library-theme-label">Age</label>
+              <select id="kids-library-age" class="kids-library-theme-select" aria-label="Filter by age">
+                <option value="">All ages</option>
+                <option value="littles">Littles 5-7</option>
+                <option value="middles">Middles 8-10</option>
+                <option value="older">Older 11+</option>
+              </select>
+              <label for="kids-library-length" class="kids-library-theme-label">Length</label>
+              <select id="kids-library-length" class="kids-library-theme-select" aria-label="Filter by reading length">
+                <option value="">Any length</option>
+                <option value="quick">Quick read</option>
+                <option value="medium">Read-along</option>
+                <option value="long">Longer sit-down</option>
+              </select>
+              <label for="kids-library-book" class="kids-library-theme-label">Book</label>
+              <select id="kids-library-book" class="kids-library-theme-select" aria-label="Filter by Bible book">
+                <option value="">Any book</option>
+              </select>
+            </div>
+            <p class="section-note util-mb-0_5">Use age, length, and book if you need a quicker fit for littles, older readers, homeschool, or bedtime.</p>
+          </details>
           <p id="kids-library-story-master" class="kids-library-story-master hidden">🏆 Story Master — you finished 7+ read-and-quiz stories (or stories without a quiz yet)!</p>
           <div class="kids-library-filters" role="region" aria-label="Gentle story journey">
             <span class="kids-library-theme-label">Gentle Journey</span>
@@ -812,11 +913,14 @@
           </div>
           <p class="section-note util-mb-0_25">Free browsing still works below. Gentle Journey simply keeps one peaceful next story ready when you want the library to lead.</p>
           <p id="kids-journey-status" class="section-note util-mb-0_25" aria-live="polite"></p>
-          <button type="button" id="kids-library-random-btn" class="btn kids-btn-primary kids-library-random-btn">🎲 Random Story</button>
-          <button type="button" id="global-quiz-challenge" class="btn btn-secondary kids-library-random-btn" style="margin-top: 0.5rem;">Quiz Challenge (5 Questions)</button>
-          <button type="button" id="pdf-export" class="btn kids-btn-primary kids-library-random-btn" style="margin-top: 0.5rem;" aria-describedby="pdf-export-count-hint pdf-export-hint" aria-label="Generate PDF of the full Kids Bible Story Library titles and references">📄 Download Story Library List (PDF)</button>
-          <p id="pdf-export-count-hint" class="kids-pdf-hint" aria-live="polite"></p>
-          <p id="pdf-export-hint" class="kids-pdf-hint">Each download lists every title in the library (not the 10–15s loops on Kids Corner home). Search filters only change the grid—the PDF stays the full list. If the first tap does nothing, wait a second for the PDF helper to load, then try again.</p>
+          <details class="kids-corner-details">
+            <summary>Extra tools: random story, quiz game, PDF list</summary>
+            <button type="button" id="kids-library-random-btn" class="btn kids-btn-primary kids-library-random-btn">🎲 Random Story</button>
+            <button type="button" id="global-quiz-challenge" class="btn btn-secondary kids-library-random-btn" style="margin-top: 0.5rem;">Quiz Challenge (5 Questions)</button>
+            <button type="button" id="pdf-export" class="btn kids-btn-primary kids-library-random-btn" style="margin-top: 0.5rem;" aria-describedby="pdf-export-count-hint pdf-export-hint" aria-label="Generate PDF of the full Kids Bible Story Library titles and references">📄 Download Story Library List (PDF)</button>
+            <p id="pdf-export-count-hint" class="kids-pdf-hint" aria-live="polite"></p>
+            <p id="pdf-export-hint" class="kids-pdf-hint">Each download lists every title in the library (not the 10–15s loops on Kids Corner home). Search filters only change the grid—the PDF stays the full list. If the first tap does nothing, wait a second for the PDF helper to load, then try again.</p>
+          </details>
         </section>
 
         <section class="kids-library-static-fallback glass" id="kids-library-static-fallback" aria-label="Starter Bible stories in this library">

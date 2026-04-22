@@ -404,7 +404,8 @@ for (const f of otherHtml) {
       ['id="quick-actions-hero"', 'quick-topic buttons'],
       ['id="query"', 'search input'],
       ['id="search-btn"', 'search button'],
-      ['class="quick-links"', 'quick-links tools section'],
+      // Markup may be `class="quick-links tdb-quiet-container …"` (multiple classes) — not only `class="quick-links"`.
+      ['class="quick-links', 'quick-links tools section'],
       ['bible-tool.html', 'Bible Tool link'],
       ['sermon.html', 'Build a Sermon / Sermon Builder link'],
       ['kids/index.html', 'Kids Corner link'],

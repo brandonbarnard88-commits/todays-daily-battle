@@ -40,6 +40,19 @@ function tdbIsVerseOfDayPage() {
   return false;
 }
 
+/** True on the English homepage (Phase 6: defer heavy study/breakdown bundles like reader + verse of the day). */
+function tdbIsHomePage() {
+  if (typeof document === 'undefined' || !document) return false;
+  try {
+    if (document.body && (document.body.classList.contains('home') || document.body.getAttribute('data-tdb-page') === 'home')) {
+      return true;
+    }
+    var p = typeof location !== 'undefined' && location.pathname ? String(location.pathname) : '';
+    if (p === '/' || p === '/index.html') return true;
+  } catch (_) {}
+  return false;
+}
+
 (function tdbEnsureVerseBreakdownScript() {
   if (typeof window === 'undefined' || typeof document === 'undefined') return;
   function injectVerseBreakdownStack() {
@@ -58,7 +71,7 @@ function tdbIsVerseOfDayPage() {
     s.setAttribute('data-tdb-verse-breakdown', '1');
     (document.head || document.documentElement).appendChild(s);
   }
-  if (tdbIsChapterReaderPage() || tdbIsVerseOfDayPage()) {
+  if (tdbIsChapterReaderPage() || tdbIsVerseOfDayPage() || tdbIsHomePage()) {
     var ric = window.requestIdleCallback || function (fn) {
       return setTimeout(function () {
         try {
@@ -2282,6 +2295,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (typeof document === 'undefined') return;
   if (tdbIsChapterReaderPage()) return;
   if (tdbIsVerseOfDayPage()) return;
+  if (tdbIsHomePage()) return;
   if (window.TDBVerseBreakdown) return;
   if (document.querySelector('script[src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-lazy-src*="verse-breakdown.js"]')) return;
@@ -2296,20 +2310,28 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
 })();
 
 /**
- * Verse of the Day + Chapter Reader: narration, word/verse study, and (vod) Möbius ribbon / (reader) study companion
- * were static deferred tags. Phase 6 loads them after idle (5s cap) or sooner on listen/reader pointer focus
- * so first paint stays light. Same URLs for service-worker caching.
+ * Verse of the Day + Chapter Reader + Home: narration, word/verse study, (vod) Möbius ribbon / (reader) study companion
+ * / (home) gentle-suggest + family bridge + VOTM + Möbius week + IP geo. Phase 6 loads after idle (5s cap) or on
+ * listen/feel/hero pointer or reader focus. Same URLs for service-worker caching.
  */
 (function tdbScheduleDeferredVodAndReaderTooling() {
   if (typeof window === 'undefined' || typeof document === 'undefined') return;
-  if (!tdbIsVerseOfDayPage() && !tdbIsChapterReaderPage()) return;
+  if (!tdbIsVerseOfDayPage() && !tdbIsChapterReaderPage() && !tdbIsHomePage()) return;
 
   var isVod = tdbIsVerseOfDayPage();
+  var isReader = tdbIsChapterReaderPage();
+  var isHome = tdbIsHomePage();
   var wordStudyUrl = isVod ? 'word-study.js?v=20260331vodcard' : 'word-study.js?v=20260329pass2off';
   var narrUrl = 'verse-narration.js?v=20260329narr12';
   var verseStudyUrl = 'verse-study.js?v=20260328pass4vs';
   var mobiusUrl = 'tdb-mobius-journal.js?v=20260330mlj1';
   var companionUrl = 'bible-study-companion.js?v=20260328reader-study';
+  var gentleUrl = 'gentle-suggest.js?v=20260418gentle';
+  var familyBridgeUrl = 'family-verse-bridge.js?v=20260405familybridge1';
+  var memoryVersesUrl = 'memory-verses.js';
+  var homeVotmUrl = 'home-votm.js?v=20260402homevotm4';
+  var homeMobiusWeekUrl = 'tdb-home-mobius-week.js?v=20260330home';
+  var skyIpUrl = '/sky-ip-geo.js?v=20260327ipgeo';
 
   function resolveSrc(path) {
     if (typeof path !== 'string' || !path) return path;
@@ -2364,11 +2386,29 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     try {
       window.dispatchEvent(new CustomEvent('tdb-verse-narration-ready'));
     } catch (e) {}
+    if (isHome) {
+      injectScript(gentleUrl, function () {
+        injectScript(wordStudyUrl, function () {
+          injectScript(verseStudyUrl, function () {
+            injectScript(familyBridgeUrl, function () {
+              injectScript(memoryVersesUrl, function () {
+                injectScript(homeVotmUrl, function () {
+                  injectScript(homeMobiusWeekUrl, function () {
+                    injectScript(skyIpUrl);
+                  });
+                });
+              });
+            });
+          });
+        });
+      });
+      return;
+    }
     injectScript(wordStudyUrl, function () {
       injectScript(verseStudyUrl, function () {
         if (isVod) {
           injectScript(mobiusUrl);
-        } else {
+        } else if (isReader) {
           injectScript(companionUrl);
         }
       });
@@ -2400,6 +2440,22 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     if (btn) btn.addEventListener('focus', startBundle, once);
     if (cr) cr.addEventListener('pointerenter', startBundle, once);
     if (ro) ro.addEventListener('pointerenter', startBundle, once);
+    if (isHome) {
+      var readAloud = document.getElementById('readAloudBtn');
+      var verseCard = document.getElementById('verseCard');
+      var feelIn = document.getElementById('feel-search');
+      var votmAloud = document.getElementById('tdb-votm-read-aloud');
+      if (readAloud) {
+        readAloud.addEventListener('pointerenter', startBundle, once);
+        readAloud.addEventListener('focus', startBundle, once);
+      }
+      if (verseCard) verseCard.addEventListener('pointerenter', startBundle, once);
+      if (feelIn) {
+        feelIn.addEventListener('pointerenter', startBundle, once);
+        feelIn.addEventListener('focus', startBundle, once);
+      }
+      if (votmAloud) votmAloud.addEventListener('pointerenter', startBundle, once);
+    }
   } catch (e) {}
 })();
 

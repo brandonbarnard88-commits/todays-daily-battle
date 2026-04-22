@@ -8936,8 +8936,7 @@
   <script nonce="tdb2025s" src="hero-hero-pools.js?v=20260328pools" fetchpriority="low"></script>
   <script nonce="tdb2025s" src="hero-daily-365-data.js?v=20260325b" fetchpriority="low"></script>
   <script nonce="tdb2025s" src="hero-daily-first-paint.js?v=20260417-hydration" fetchpriority="low"></script>
-  <script nonce="tdb2025s" defer fetchpriority="low" src="tdb-home-mobius-week.js?v=20260330home"></script>
-  <script nonce="tdb2025s" src="/sky-ip-geo.js?v=20260327ipgeo" fetchpriority="low"></script>
+  <!-- Phase 6: tdb-home-mobius-week.js?v=20260330home + /sky-ip-geo.js?v=20260327ipgeo load with home secondary stack (see script.js tdbScheduleDeferredVodAndReaderTooling) -->
   <script nonce="tdb2025s">
     // Hero verse: pools + first-paint above; 365 idle. Dist injects today’s verse into HTML for LCP.
     const OFFLINE_PACK = window.__TDB_HERO_OFFLINE_PACK || [];
@@ -13321,16 +13320,7 @@
 
   <!-- Supabase lazy-loaded on idle (ensureSupabaseLoaded) when auth/sync needed -->
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
-  <!-- Study stack: defer + low priority so document can finish parsing; runs before modules (document order). -->
-  <script nonce="tdb2025s" defer fetchpriority="low" src="memory-verses.js"></script>
-  <script nonce="tdb2025s" defer fetchpriority="low" src="home-votm.js?v=20260402homevotm4"></script>
-  <script nonce="tdb2025s" defer fetchpriority="low" src="word-study.js?v=20260329pass2off"></script>
-  <script nonce="tdb2025s" defer fetchpriority="low" src="verse-narration.js?v=20260329narr12"></script>
-  <script nonce="tdb2025s" defer fetchpriority="low" src="verse-study.js?v=20260328pass4vs"></script>
-  <script nonce="tdb2025s" defer fetchpriority="low" src="family-verse-bridge.js?v=20260405familybridge1"></script>
-  <script nonce="tdb2025s" defer fetchpriority="low" src="verse-breakdown-overrides.js?v=20260417-hydration" data-tdb-verse-breakdown-overrides="1"></script>
-  <script nonce="tdb2025s" defer fetchpriority="low" src="verse-breakdown.js?v=20260417-hydration" data-tdb-verse-breakdown="1"></script>
-  <script nonce="tdb2025s" defer fetchpriority="low" src="gentle-suggest.js?v=20260418gentle"></script>
+  <!-- Phase 6: home secondary stack (injected by script.js after idle): memory-verses.js home-votm.js?v=20260402homevotm4 tdb-home-mobius-week.js?v=20260330home sky-ip-geo.js?v=20260327ipgeo word-study.js verse-narration.js verse-study.js family-verse-bridge.js gentle-suggest.js verse-breakdown-overrides.js?v=20260417-hydration verse-breakdown.js?v=20260417-hydration -->
   <script nonce="tdb2025s" type="module" fetchpriority="high" src="config.js"></script>
   <script nonce="tdb2025s" type="module" src="script.js?v=20260423-phase5-perf" data-cfasync="false" fetchpriority="high"></script>
   <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->

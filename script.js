@@ -28,6 +28,18 @@ function tdbIsChapterReaderPage() {
   return false;
 }
 
+/** True on /verse (Verse of the Day) — same idle breakdown deferral as the chapter reader. */
+function tdbIsVerseOfDayPage() {
+  if (typeof document === 'undefined' || !document) return false;
+  try {
+    if (document.body && document.body.classList.contains('tdb-verse-page')) return true;
+    var p = typeof location !== 'undefined' && location.pathname ? String(location.pathname) : '';
+    if (/\/verse\.html$/i.test(p)) return true;
+    if (p === '/verse' || p === '/verse/') return true;
+  } catch (_) {}
+  return false;
+}
+
 (function tdbEnsureVerseBreakdownScript() {
   if (typeof window === 'undefined' || typeof document === 'undefined') return;
   function injectVerseBreakdownStack() {
@@ -46,7 +58,7 @@ function tdbIsChapterReaderPage() {
     s.setAttribute('data-tdb-verse-breakdown', '1');
     (document.head || document.documentElement).appendChild(s);
   }
-  if (tdbIsChapterReaderPage()) {
+  if (tdbIsChapterReaderPage() || tdbIsVerseOfDayPage()) {
     var ric = window.requestIdleCallback || function (fn) {
       return setTimeout(function () {
         try {
@@ -2269,6 +2281,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
 (function loadVerseBreakdownScript() {
   if (typeof document === 'undefined') return;
   if (tdbIsChapterReaderPage()) return;
+  if (tdbIsVerseOfDayPage()) return;
   if (window.TDBVerseBreakdown) return;
   if (document.querySelector('script[src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-lazy-src*="verse-breakdown.js"]')) return;
@@ -2280,6 +2293,114 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   script.defer = true;
   script.setAttribute('data-tdb-verse-breakdown', '1');
   document.head.appendChild(script);
+})();
+
+/**
+ * Verse of the Day + Chapter Reader: narration, word/verse study, and (vod) Möbius ribbon / (reader) study companion
+ * were static deferred tags. Phase 6 loads them after idle (5s cap) or sooner on listen/reader pointer focus
+ * so first paint stays light. Same URLs for service-worker caching.
+ */
+(function tdbScheduleDeferredVodAndReaderTooling() {
+  if (typeof window === 'undefined' || typeof document === 'undefined') return;
+  if (!tdbIsVerseOfDayPage() && !tdbIsChapterReaderPage()) return;
+
+  var isVod = tdbIsVerseOfDayPage();
+  var wordStudyUrl = isVod ? 'word-study.js?v=20260331vodcard' : 'word-study.js?v=20260329pass2off';
+  var narrUrl = 'verse-narration.js?v=20260329narr12';
+  var verseStudyUrl = 'verse-study.js?v=20260328pass4vs';
+  var mobiusUrl = 'tdb-mobius-journal.js?v=20260330mlj1';
+  var companionUrl = 'bible-study-companion.js?v=20260328reader-study';
+
+  function resolveSrc(path) {
+    if (typeof path !== 'string' || !path) return path;
+    if (/^https?:\/\//i.test(path)) return path;
+    if (typeof location === 'undefined' || !location.origin || location.origin === 'null') {
+      return path.charAt(0) === '/' ? path : '/' + path;
+    }
+    if (path.charAt(0) === '/') return location.origin + path;
+    return location.origin + '/' + path.replace(/^\.\//, '');
+  }
+
+  function alreadyHave(leaf) {
+    return !!document.querySelector('script[src*="' + leaf + '"]');
+  }
+
+  function injectScript(path, onload, onerror) {
+    var leaf = path.split('?')[0];
+    if (alreadyHave(leaf)) {
+      if (typeof onload === 'function') {
+        try {
+          onload();
+        } catch (e) {}
+      }
+      return;
+    }
+    var url = resolveSrc(path);
+    var tu = typeof trustedScriptURL === 'function' ? trustedScriptURL(url) : null;
+    if (!tu) return;
+    var s = document.createElement('script');
+    s.src = tu;
+    s.defer = true;
+    if (typeof onload === 'function') {
+      s.onload = function () {
+        try {
+          onload();
+        } catch (e) {}
+      };
+    }
+    if (typeof onerror === 'function') {
+      s.onerror = function () {
+        try {
+          onerror();
+        } catch (e) {}
+      };
+    }
+    (document.head || document.documentElement).appendChild(s);
+  }
+
+  var bundleStarted = false;
+
+  function afterNarration() {
+    try {
+      window.dispatchEvent(new CustomEvent('tdb-verse-narration-ready'));
+    } catch (e) {}
+    injectScript(wordStudyUrl, function () {
+      injectScript(verseStudyUrl, function () {
+        if (isVod) {
+          injectScript(mobiusUrl);
+        } else {
+          injectScript(companionUrl);
+        }
+      });
+    });
+  }
+
+  function startBundle() {
+    if (bundleStarted) return;
+    bundleStarted = true;
+    injectScript(narrUrl, afterNarration);
+  }
+
+  var ric = window.requestIdleCallback || function (fn) {
+    return setTimeout(function () {
+      try {
+        fn();
+      } catch (e) {}
+    }, 1);
+  };
+  ric(startBundle, { timeout: 5000 });
+
+  try {
+    var porch = document.getElementById('verse-listen-porch');
+    var btn = document.getElementById('verse-listen-btn');
+    var cr = document.getElementById('chapter-reader');
+    var ro = document.getElementById('reader-output');
+    var once = { once: true, passive: true };
+    if (porch) porch.addEventListener('pointerenter', startBundle, once);
+    if (btn) btn.addEventListener('focus', startBundle, once);
+    if (cr) cr.addEventListener('pointerenter', startBundle, once);
+    if (ro) ro.addEventListener('pointerenter', startBundle, once);
+  } catch (e) {}
 })();
 
 (function loadKjvDictionaryScript() {
@@ -12231,6 +12352,7 @@ function wireVersePageNarrationPrefs() {
     block.hidden = true;
     return;
   }
+  block.hidden = false;
   var rate = document.getElementById('verse-listen-rate');
   var phrasePause = document.getElementById('verse-listen-phrase-pause');
   var repeat = document.getElementById('verse-listen-repeat');
@@ -12248,6 +12370,12 @@ function wireVersePageNarrationPrefs() {
     ambientGain.disabled = !ambient.checked;
     ambientGain.setAttribute('aria-disabled', ambient.checked ? 'false' : 'true');
   }
+
+  if (block.getAttribute('data-tdb-verse-prefs-wired') === '1') {
+    syncUi();
+    return;
+  }
+  block.setAttribute('data-tdb-verse-prefs-wired', '1');
 
   rate.addEventListener('change', function () {
     if (typeof N.setRatePreset === 'function') N.setRatePreset(rate.value);
@@ -26877,6 +27005,14 @@ async function tdbInitImpl() {
   wireTdbPrintDelightPass();
   wireVersePageListen();
   wireVersePageNarrationPrefs();
+  if (typeof window !== 'undefined' && window.addEventListener) {
+    window.addEventListener(
+      'tdb-verse-narration-ready',
+      function tdbVodNarrationPrefsAfterLazyLoad() {
+        wireVersePageNarrationPrefs();
+      }
+    );
+  }
   wireHeroSaveToMyVerses();
   if (isHome) wireHomeContinueLoopCard();
   wireDawnDuskQuickPrayLabel();

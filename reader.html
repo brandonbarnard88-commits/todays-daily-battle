@@ -1182,11 +1182,7 @@
       setTimeout(run, 1600);
     })();
   </script>
-  <!-- Defer study stack so the document can finish parsing / paint before these run; order preserved vs script.js module. -->
-  <script defer fetchpriority="low" src="word-study.js?v=20260329pass2off"></script>
-  <script defer fetchpriority="low" src="verse-narration.js?v=20260329narr12"></script>
-  <script defer fetchpriority="low" src="verse-study.js?v=20260328pass4vs"></script>
-  <script defer fetchpriority="low" src="bible-study-companion.js?v=20260328reader-study"></script>
+  <!-- Phase 6: narration + word/verse study + study companion load from script.js after idle (tdbScheduleDeferredVodAndReaderTooling) -->
   <script type="module" src="script.js?v=20260423-phase5-perf" data-cfasync="false" fetchpriority="high"></script>
 </body>
 </html>

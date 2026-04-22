@@ -6,12 +6,29 @@
   color: #e2e8f0;
 }
 
-body.tdb-inner-page.mystudy-body .mystudy-shell {
-  width: 100%;
-  max-width: min(92rem, 100%);
-  margin: 0 auto;
-  padding: 1.4rem 1.25rem 3rem;
+/* Shell: .tdb-quiet-container in styles.css → --tdb-inner-max + fluid --tdb-quiet-pad-x / --tdb-quiet-pad-b */
+body.tdb-inner-page.mystudy-body .mystudy-shell.tdb-quiet-container {
   display: block;
+  padding-top: clamp(0.9rem, 2vw, 1.45rem);
+  padding-bottom: clamp(3.25rem, 4.5vw, 4.5rem);
+  box-sizing: border-box;
+}
+@media (max-width: 420px) {
+  body.tdb-inner-page.mystudy-body .mystudy-shell.tdb-quiet-container {
+    padding-left: max(var(--tdb-quiet-pad-x), env(safe-area-inset-left, 0px));
+    padding-right: max(var(--tdb-quiet-pad-x), env(safe-area-inset-right, 0px));
+    padding-bottom: calc(clamp(3rem, 4.2vw, 4rem) + env(safe-area-inset-bottom, 0px));
+  }
+}
+@media (min-width: 1280px) {
+  body.tdb-inner-page.mystudy-body .mystudy-shell.tdb-quiet-container {
+    box-shadow: 0 0 0 1px color-mix(in srgb, rgba(227, 188, 103, 0.12) 55%, transparent),
+      0 16px 44px rgba(0, 0, 0, 0.28);
+    border-radius: 20px;
+  }
+  .mystudy-hero {
+    margin-bottom: 1.45rem;
+  }
 }
 
 .mystudy-topbar {
@@ -570,10 +587,7 @@ html[data-theme="light"] .mystudy-streak-badge-figure {
   gap: 1.25rem;
 }
 
-#panel-note-library .mystudy-panel-flow {
-  max-width: 820px;
-  margin: 0 auto;
-}
+/* Full quiet column width — outer .tdb-quiet-container sets measure */
 
 .mystudy-section-card {
   padding: 1.25rem 1.35rem;
@@ -699,9 +713,8 @@ html[data-theme="light"] .mystudy-streak-badge-figure {
   margin: 0.75rem 0;
 }
 
-.mystudy-writing-grid {
-  display: grid;
-  gap: 1rem;
+.mystudy-writing-grid.calm-grid {
+  gap: 1.05rem;
 }
 
 .mystudy-shared-list {
@@ -979,10 +992,6 @@ html[data-theme="light"] .mystudy-streak-badge-figure {
 }
 
 @media (max-width: 768px) {
-  .mystudy-shell {
-    padding: 0.85rem 0.68rem 1.6rem;
-  }
-
   .mystudy-card {
     padding: 0.9rem;
   }
@@ -1012,9 +1021,6 @@ html[data-theme="light"] .mystudy-streak-badge-figure {
     padding: 0.78rem 0.82rem;
   }
 
-  #panel-note-library .mystudy-panel-flow {
-    max-width: none;
-  }
 }
 
 @media (min-width: 820px) {
@@ -1031,15 +1037,6 @@ html[data-theme="light"] .mystudy-streak-badge-figure {
     grid-column: 1 / -1;
   }
 
-  .mystudy-writing-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  /* Library tab gets full desktop width */
-  #panel-note-library .mystudy-panel-flow {
-    max-width: 860px;
-    margin: 0 auto;
-  }
 }
 
 @media (min-width: 520px) {

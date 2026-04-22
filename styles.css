@@ -248,17 +248,7 @@ body.tdb-inner-page main.vc-wrap {
   padding-right: clamp(0.75rem, 2vw, 1rem);
 }
 
-/* My Study — no .content-inner; mirror inner-page measure on shell */
-body.tdb-inner-page.mystudy-body .mystudy-shell {
-  max-width: var(--tdb-inner-max);
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: clamp(0.75rem, 2vw, 1rem);
-  padding-right: clamp(0.75rem, 2vw, 1rem);
-  box-sizing: border-box;
-  gap: var(--tdb-inner-gap);
-}
+/* My Study — main.mystudy-shell.tdb-quiet-container in mystudy.css (fluid --tdb-quiet-pad-*, long page bottom) */
 
 /* Inner pages — panel treatment for FAQ-style lists in plain sections (not .glass / not message board) */
 body.tdb-inner-page .content-inner > section:not(.glass):not(.message-board) .list .list-item {

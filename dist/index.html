@@ -207,6 +207,9 @@
       --tdb-bp-lg: 1024px;
       --tdb-bp-xl: 1280px;
       --tdb-inner-gap: clamp(1rem, 2.2vw, 1.75rem);
+      /* Match styles.css — fluid insets + section rhythm (homepage stacks many blocks) */
+      --tdb-quiet-pad-x: clamp(0.9rem, 2.4vw, 1.9rem);
+      --tdb-quiet-pad-b: clamp(1.35rem, 2.8vw, 2.5rem);
       --tdb-home-content-max: min(46rem, 100%);
     }
     @media (min-width: 1280px) {
@@ -216,13 +219,20 @@
       }
     }
 
-    /* Opt-in: same names as styles.css for future section wraps (hero blocks, link rows, etc.) */
+    /* Opt-in: same names as styles.css; padding uses Phase 1 fluid tokens (max-width is border-box) */
     .tdb-quiet-container {
       width: 100%;
       max-width: var(--tdb-home-content-max);
       margin-left: auto;
       margin-right: auto;
       box-sizing: border-box;
+      padding-left: var(--tdb-quiet-pad-x);
+      padding-right: var(--tdb-quiet-pad-x);
+      padding-bottom: var(--tdb-quiet-pad-b);
+    }
+    /* Short nudge lines: same horizontal inset, gentler bottom so paragraphs don’t stack huge gaps */
+    p.tdb-quiet-container {
+      padding-bottom: clamp(0.8rem, 1.4vw, 1.2rem);
     }
     .calm-grid {
       display: grid;
@@ -236,11 +246,17 @@
     @media (min-width: 1024px) {
       .calm-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
-    /* Tool teaser row: multi-column on tablet/desktop without fighting compact card height */
+    /* Tool row: .calm-grid sets 1/2/3 columns; this block beats generic .calm-grid gap for short teaser bars */
     .app > main > .quick-links.calm-grid {
       display: grid;
       align-items: stretch;
       gap: clamp(0.45rem, 1.1vw, 0.75rem);
+    }
+    /* Wide desktop: breathing room after hero column before full-width search band (no mobile change) */
+    @media (min-width: 1280px) {
+      #hero-verse-wrap.tdb-quiet-container {
+        margin-bottom: clamp(0.5rem, 1.2vw, 1.1rem);
+      }
     }
 
     :root[data-theme="light"] {
@@ -8505,7 +8521,7 @@
       </section>
       </div><!-- /.quick-links -->
 
-      <details class="tdb-home-more-rooms" id="tdb-home-more-rooms">
+      <details class="tdb-home-more-rooms tdb-quiet-container" id="tdb-home-more-rooms">
         <summary><span>More rooms when you want them</span><span>Family hooks, a 30-day restart, sharing, and email.</span></summary>
         <div class="tdb-home-more-rooms-inner">
       <section class="card armor-builder-card" id="armor-builder-btn" aria-label="Family Armor &amp; Stories">
@@ -8551,7 +8567,7 @@
       </details>
 
       <!-- ── Patriotic bundle: collapsed by default so the home page stays calm; content unchanged inside ── -->
-      <details class="card tdb-home-patriotic-disclosure" id="patriotic-home-bundle">
+      <details class="card tdb-home-patriotic-disclosure tdb-quiet-container" id="patriotic-home-bundle">
         <summary class="tdb-home-patriotic-summary">
           <span class="tdb-home-patriotic-summary-label">For Our Nation</span>
           <span class="tdb-home-patriotic-summary-sub section-note">Verses and hymns for prayer over our country and families. Psalm 33:12, 2 Chronicles 7:14, and more. Open when your heart leads.</span>

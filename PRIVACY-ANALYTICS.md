@@ -145,3 +145,14 @@ Do **not** add verse reference or verse text to these calls.
 | `family_hub_daily_verse` | `{}` |
 
 When adding new `trackEvent` names, append them here with allowed keys. **Never** log verse references, verse body text, journal text, prayer text, or search queries in `trackEvent`.
+
+---
+
+## Maintainer: aggregated insight (no extra collection)
+
+The rules above are unchanged: we do not add raw queries, names, or private text to learn what to build next. For a solo maintainer, **week-over-week aggregates** are usually enough:
+
+- **GA4:** built-in **Pages and screens**, **Events** (only the allowlisted names already shipped), and **Explorations** on landing paths&mdash;compare segments by geography or device class, not individuals.
+- **Plausible (if enabled):** top pages, entry pages, and anonymous goal funnels&mdash;no extra scripts required.
+
+If a question cannot be answered without identifiers or free text, the answer is not worth the risk; improve copy or add an optional on-page survey instead.

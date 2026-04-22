@@ -1382,8 +1382,11 @@
     function applyTemplateUi(tk) {
       tk = normalizeTemplateKey(tk);
       var tdef = TEMPLATES[tk] || TEMPLATES.custom;
-      canvas.width = tdef.w;
-      canvas.height = tdef.h;
+      var lockEl = document.getElementById('verse-image-lock-dimensions');
+      if (!lockEl || !lockEl.checked) {
+        canvas.width = tdef.w;
+        canvas.height = tdef.h;
+      }
       var custom = tk === 'custom';
       if (bgEl) {
         bgEl.disabled = !custom;
@@ -1400,6 +1403,24 @@
       if (templateHintEl) {
         templateHintEl.textContent = getCalmTemplateHint(tk);
       }
+    }
+
+    function runQuickSize(kind) {
+      if (kind === 'story') {
+        useStoryPreset();
+        trackEvent('verse_image_preset', { kind: 'story' });
+        return;
+      }
+      if (!templateEl) return;
+      if (kind === 'square') {
+        templateEl.value = 'T01-classic-soar';
+        applyTemplateUi('T01-classic-soar');
+      } else if (kind === 'wide') {
+        templateEl.value = 'T12-minimal-landscape';
+        applyTemplateUi('T12-minimal-landscape');
+      }
+      trackEvent('verse_image_preset', { kind: kind || 'custom' });
+      maybeLiveRedraw();
     }
 
     // One-tap Story preset — 1080x1920 vertical with optimized layout and calm CTA
@@ -1595,6 +1616,14 @@
           bodyEl.value = data.text;
           saveCache(data.reference, data.text, qrEl ? qrEl.checked : true);
           setStatus('Loaded. Tap Update preview.');
+          try {
+            if (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('tdb_vi_autoload_preview') === '1') {
+              sessionStorage.removeItem('tdb_vi_autoload_preview');
+              setTimeout(function () {
+                runPreview();
+              }, 80);
+            }
+          } catch (eA) {}
         } else {
           var c = loadCache();
           if (c && normRef(c.ref) === normRef(ref) && c.text) {
@@ -1605,6 +1634,14 @@
             bodyEl.value = fb.textCard.split('\n\n')[1] || 'The LORD is my shepherd; I shall not want.';
             setStatus(fb.message);
           }
+          try {
+            if (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('tdb_vi_autoload_preview') === '1' && bodyEl && String(bodyEl.value || '').trim()) {
+              sessionStorage.removeItem('tdb_vi_autoload_preview');
+              setTimeout(function () {
+                runPreview();
+              }, 80);
+            }
+          } catch (eOff) {}
         }
       });
     });
@@ -1655,6 +1692,35 @@
     if (actionsGroup) {
       actionsGroup.appendChild(storyBtn);
       storyBtn.addEventListener('click', useStoryPreset);
+    }
+
+    var psq = document.getElementById('vi-preset-square');
+    var pst = document.getElementById('vi-preset-story');
+    var psw = document.getElementById('vi-preset-wide');
+    if (psq) psq.addEventListener('click', function () { runQuickSize('square'); });
+    if (pst) pst.addEventListener('click', function () { runQuickSize('story'); });
+    if (psw) psw.addEventListener('click', function () { runQuickSize('wide'); });
+
+    var moodGrid = document.querySelector('.vi-mood-swatch-grid');
+    if (moodGrid) {
+      moodGrid.addEventListener('click', function (ev) {
+        var t = ev.target;
+        if (!t || t.nodeName !== 'BUTTON' || !t.getAttribute) return;
+        var tpl = t.getAttribute('data-vi-tpl');
+        if (!tpl || !templateEl) return;
+        templateEl.value = tpl;
+        applyTemplateUi(tpl);
+        maybeLiveRedraw();
+        trackEvent('verse_image_mood_swatch', { template: tpl });
+      });
+    }
+
+    var printBtn = document.getElementById('verse-image-print-btn');
+    if (printBtn) {
+      printBtn.addEventListener('click', function () {
+        window.print();
+        trackEvent('verse_image_print', { ok: 1 });
+      });
     }
 
     if (templateEl) {
@@ -1803,10 +1869,38 @@
         function () {}
       );
       setStatus('Adjust text or template, then Update preview. All canvas work stays available offline. New dawn templates and Story preset added.');
+      try {
+        if (new URLSearchParams(String(window.location.search || '')).get('autoload') === '1' && refEl && String(refEl.value || '').trim()) {
+          setTimeout(function () {
+            var lb = document.getElementById('verse-image-load');
+            if (lb) lb.click();
+          }, 200);
+        }
+      } catch (eL) {}
     });
   }
 
+  function applyVerseImageRefFromQuery() {
+    try {
+      var p = new URLSearchParams(String(window.location.search || ''));
+      var r = p.get('ref') || p.get('verse');
+      if (!r) return;
+      var el = document.getElementById('verse-image-ref');
+      if (el) el.value = decodeURIComponent(r).replace(/\+/g, ' ').trim();
+    } catch (e) {}
+  }
+
+  function setVerseImageAutoloadFromQuery() {
+    try {
+      if (new URLSearchParams(String(window.location.search || '')).get('autoload') === '1') {
+        sessionStorage.setItem('tdb_vi_autoload_preview', '1');
+      }
+    } catch (e) {}
+  }
+
   function tryWire() {
+    applyVerseImageRefFromQuery();
+    setVerseImageAutoloadFromQuery();
     updateGate();
     if (typeof window.isProUser === 'function' && window.isProUser()) wire();
   }

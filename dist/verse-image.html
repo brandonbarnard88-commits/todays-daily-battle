@@ -26,9 +26,10 @@
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260410og">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf">
+  <link rel="stylesheet" href="cormorant-latin-subset.css?v=20260423-phase5-perf" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script type="module" src="config.js"></script>
   <style>
@@ -163,6 +164,45 @@
     .verse-image-actions .btn {
       min-height: 44px;
     }
+    .vi-preset-bar-inner { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .vi-mood-swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 0.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .vi-mood-swatch {
+      min-height: 64px;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: var(--vi-swatch, #1e293b);
+      color: rgba(255,255,255,0.95);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.45);
+    }
+    .vi-mood-swatch:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; }
+    @media print {
+      body.verse-image-page .app-shell > header,
+      body.verse-image-page .tdb-lang-switcher-header-wrap,
+      body.verse-image-page .verse-image-editor,
+      body.verse-image-page .skip-link { display: none !important; }
+      body.verse-image-page .verse-image-workspace { display: block !important; }
+      body.verse-image-page .verse-image-preview-wrap {
+        max-width: 100% !important;
+        border: none !important;
+        box-shadow: none !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      body.verse-image-page #verse-image-canvas {
+        max-width: 100%;
+        height: auto !important;
+      }
+    }
   </style>
 </head>
 <body class="dark-mode verse-image-page">
@@ -244,7 +284,7 @@
 
         <details class="glass verse-image-v2-roadmap" id="verse-image-v2-roadmap" style="margin-top: 0.5rem; padding: 0.9rem 1.1rem 1rem; border-radius: 12px;">
           <summary style="cursor: pointer; font-weight: 600; color: var(--text, #e2e8f0); list-style: none;">Gentle roadmap (verse images v2)</summary>
-          <p class="section-note" style="margin: 0.6rem 0 0.5rem;">No hype, no rush—these are the next calm upgrades we are working toward. Everything stays KJV, offline-friendly, and pressure-free. <strong>Preview (v2 line balance on canvas):</strong> add <code>?vi_v2=1</code> to this page&rsquo;s URL, then <strong>Update preview</strong>.</p>
+          <p class="section-note" style="margin: 0.6rem 0 0.5rem;">No hype, no rush—these are the next calm upgrades we are working toward. Everything stays KJV, offline-friendly, and pressure-free. <strong>Deep link:</strong> <code>verse-image.html?ref=John%203:16</code> (optional <code>&amp;autoload=1</code> to load text + preview). <strong>v2 line balance on canvas:</strong> <code>?vi_v2=1</code> and <strong>Update preview</strong>.</p>
           <ul class="section-note" style="margin: 0; padding-left: 1.2rem; line-height: 1.55;">
             <li><strong>Smarter line breaks</strong> — Poetic KJV phrasing, fewer orphans on tall templates.</li>
             <li><strong>Size presets in one tap</strong> — Lock to square, story, or slide without guesswork.</li>
@@ -317,6 +357,33 @@
             </div>
           </div>
 
+          <div class="verse-image-controls vi-preset-bar" style="align-items: flex-end;">
+            <div style="flex: 1 1 100%;">
+              <span class="section-note" style="display:block; margin-bottom:0.3rem;">One-tap size</span>
+              <div class="vi-preset-bar-inner" role="group" aria-label="Quick canvas size and aspect">
+                <button type="button" class="btn btn-secondary vi-preset-size" data-vi-preset="square" id="vi-preset-square" aria-label="Square share 1080 by 1080">Square 1:1</button>
+                <button type="button" class="btn btn-secondary vi-preset-size" data-vi-preset="story" id="vi-preset-story" aria-label="Vertical story 1080 by 1920">Story 9:16</button>
+                <button type="button" class="btn btn-secondary vi-preset-size" data-vi-preset="wide" id="vi-preset-wide" aria-label="Wide link preview 1200 by 630">Link 1.91:1</button>
+              </div>
+            </div>
+            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; min-height: 44px; margin: 0; white-space: nowrap;">
+              <input type="checkbox" id="verse-image-lock-dimensions" aria-describedby="verse-image-lock-hint" />
+              <span>Lock canvas size</span>
+            </label>
+            <p id="verse-image-lock-hint" class="section-note" style="flex: 1 1 100%; margin: 0.25rem 0 0;">When on, changing the template does not resize the canvas (colors and layout still follow the template you pick).</p>
+          </div>
+
+          <details class="vi-mood-details glass" style="margin-top: 0.5rem; padding: 0.65rem 0.85rem; border-radius: 12px; border: 1px solid rgba(148,163,184,0.2);">
+            <summary style="cursor: pointer; font-weight: 600; color: var(--text, #e2e8f0); list-style: none;">Same-mood template picks (lazy; tap a swatch)</summary>
+            <p class="section-note util-mb-0_5" style="margin: 0.5rem 0 0.35rem;">Calm color hints — the full render still uses the canvas. Opens fast on slow connections because swatches are CSS only.</p>
+            <div class="vi-mood-swatch-grid" role="list">
+              <button type="button" class="vi-mood-swatch" data-vi-tpl="T01-classic-soar" style="--vi-swatch: linear-gradient(145deg, #1e3a5f 0%, #7c5cbf 100%);" aria-label="Template T01 classic soar" role="listitem">Peace</button>
+              <button type="button" class="vi-mood-swatch" data-vi-tpl="T04-eagle-flight" style="--vi-swatch: linear-gradient(145deg, #0f172a 0%, #b45309 100%);" aria-label="Template T04 eagle flight" role="listitem">Strength</button>
+              <button type="button" class="vi-mood-swatch" data-vi-tpl="T09-morning-mist" style="--vi-swatch: linear-gradient(145deg, #334155 0%, #94a3b8 100%);" aria-label="Template T09 morning mist" role="listitem">Rest</button>
+              <button type="button" class="vi-mood-swatch" data-vi-tpl="T10-scripture-memory" style="--vi-swatch: linear-gradient(145deg, #f5f0e6 0%, #c4b5a0 100%);" aria-label="Template T10 scripture memory" role="listitem">Print</button>
+            </div>
+          </details>
+
           <div class="verse-image-controls">
             <div style="flex: 1 1 10rem;">
               <label for="verse-image-bg">Background</label>
@@ -384,6 +451,7 @@
             <button type="button" class="btn btn-secondary" id="verse-image-download-btn">Download PNG</button>
             <button type="button" class="btn btn-secondary" id="verse-image-share-btn">Share image</button>
             <button type="button" class="btn btn-secondary" id="verse-image-tweet-btn" aria-label="Post text on X with verse snippet and link">Post on X</button>
+            <button type="button" class="btn btn-secondary" id="verse-image-print-btn" aria-label="Print or save as PDF from the browser">Print / Save as PDF</button>
           </div>
 
           <p id="verse-image-status" class="verse-image-status" role="status" aria-live="polite"></p>

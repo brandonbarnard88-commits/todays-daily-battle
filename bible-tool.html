@@ -906,6 +906,7 @@
               <button type="button" id="memorize-lookup" class="link-button hidden" aria-pressed="false" aria-label="Add current verse to memorize queue">Memorize</button>
               <button type="button" id="pray-lookup" class="link-button" aria-label="Generate prayer for this verse">Pray this</button>
               <button type="button" id="wordstudy-lookup" class="link-button" aria-label="Open verse study for this verse">Study this verse</button>
+              <a id="lookup-verse-image" href="verse-image.html" class="link-button" aria-label="Open verse image generator for this lookup">Verse image</a>
               <a id="lookup-read-chapter" href="#" class="link-button hidden" aria-label="Read full chapter in chapter reader">Read full chapter</a>
             </div>
             <div id="lookup-prayer-box" class="hidden util-mt-0_5 prayer-box"></div>
@@ -1602,6 +1603,11 @@
         readChapterLink.classList.add('hidden');
       }
     }
+    var verseImageLink = document.getElementById('lookup-verse-image');
+    if (verseImageLink) {
+      var rNorm = normRef(data.reference);
+      verseImageLink.href = 'verse-image.html?ref=' + encodeURIComponent(rNorm) + '&source=bible-tool';
+    }
     refreshLookupCrossRefsPanel(data.reference);
     block.classList.remove('hidden');
     var noteInput = document.getElementById('note-input');
@@ -1654,6 +1660,10 @@
     banner.appendChild(p);
     banner.appendChild(retryBtn);
     block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    var verseImageLinkErr = document.getElementById('lookup-verse-image');
+    if (verseImageLinkErr) {
+      verseImageLinkErr.href = 'verse-image.html';
+    }
     if (typeof window.TDBBookIntro !== 'undefined' && window.TDBBookIntro && typeof window.TDBBookIntro.updateToolPanel === 'function') {
       window.TDBBookIntro.updateToolPanel('');
     }

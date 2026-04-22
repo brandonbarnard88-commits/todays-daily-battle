@@ -2313,6 +2313,13 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
  * Verse of the Day + Chapter Reader + Home: narration, word/verse study, (vod) Möbius ribbon / (reader) study companion
  * / (home) gentle-suggest + family bridge + VOTM + Möbius week + IP geo. Phase 6 loads after idle (5s cap) or on
  * listen/feel/hero pointer or reader focus. Same URLs for service-worker caching.
+ *
+ * Dependency order (do not parallelize across these edges):
+ * - narr must load first; its onload dispatches tdb-verse-narration-ready and starts the rest.
+ * - Home: gentle-suggest + word-study in parallel, then verse-study; then family-verse-bridge + memory-verses
+ *   in parallel, then home-votm (needs TDB_memoryVerses from memory-verses); then tdb-home-mobius-week + sky-ip-geo
+ *   in parallel.
+ * - VOD/Reader: word-study then verse-study; mobius (VOD) or companion (reader) after that pair.
  */
 (function tdbScheduleDeferredVodAndReaderTooling() {
   if (typeof window === 'undefined' || typeof document === 'undefined') return;
@@ -15010,6 +15017,36 @@ function renderDailyVerse() {
       }
     } catch (eVod) { /* non-fatal */ }
   }
+  try {
+    tdbSyncVerseImageLinkFromVotd();
+  } catch (eImg) { /* non-fatal */ }
+}
+
+/** verse.html: deep-link “Verse image” to verse-image.html?ref=…&source=votd for Supporter flow. */
+function tdbSyncVerseImageLinkFromVotd() {
+  var a = document.getElementById('tdb-votm-verse-image-link');
+  if (!a) return;
+  var ref = '';
+  try {
+    var card = document.getElementById('daily-verse-card');
+    if (card && typeof tdbGetDailyVerseRefFromCard === 'function') {
+      ref = tdbGetDailyVerseRefFromCard(card) || '';
+    }
+  } catch (e) {}
+  if (!ref) {
+    var rp = document.getElementById('daily-verse-ref');
+    ref = (rp && rp.textContent) ? String(rp.textContent).trim() : '';
+  }
+  if (!ref) return;
+  a.href = 'verse-image.html?ref=' + encodeURIComponent(ref) + '&source=votd';
+}
+
+if (typeof document !== 'undefined' && document.addEventListener) {
+  document.addEventListener('tdb-daily-verse-updated', function () {
+    try {
+      tdbSyncVerseImageLinkFromVotd();
+    } catch (e) { /* non-fatal */ }
+  });
 }
 
 if (typeof window !== 'undefined') {

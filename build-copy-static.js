@@ -123,6 +123,7 @@ const rootFiles = [
   'hero-sunrise-bible.png',
   'world-map-source.svg',
   'styles.css',
+  'cormorant-latin-subset.css',
   'tdb-quiet-luxury.css',
   'tdb-calm-hubs.css',
   'tool-pages.css',

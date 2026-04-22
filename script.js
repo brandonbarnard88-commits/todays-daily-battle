@@ -734,6 +734,38 @@ function getWelcomeTourPageTag() {
   return 'other';
 }
 
+/** Per-page CSS selectors for each tour step (0–4) so the page scrolls to what the copy describes */
+var TDB_WELCOME_TOUR_ANCHORS = {
+  home: [
+    '#tdb-primary-nav-toggle-home',
+    '#hero-verse-wrap',
+    '#tdb-sticky-wayfind',
+    '#tdb-sticky-wayfind a[href="/prayer-wall.html"]',
+    '#tdb-sticky-wayfind a[href*="kids/index"]'
+  ],
+  verse: [
+    '#tdb-primary-nav-toggle',
+    '#verse-of-day',
+    '#verse-page-save-my-verses',
+    'p.verse-prayer-wall-nudge',
+    'header.top-bar a[href="/kids/corner.html"]'
+  ],
+  explore: [
+    '#tdb-primary-nav-toggle',
+    '#start-here',
+    '#explore-hub',
+    'aside.sidebar a[href="prayer-wall.html"]',
+    '#kids'
+  ]
+};
+
+function tdbGetWelcomeTourAnchorSelector(pageTag, stepIndex) {
+  if (pageTag !== 'home' && pageTag !== 'verse' && pageTag !== 'explore') return null;
+  var row = TDB_WELCOME_TOUR_ANCHORS[pageTag];
+  if (!row || !row[stepIndex]) return null;
+  return row[stepIndex];
+}
+
 function openTdbWelcomeTour(opts) {
   opts = opts || {};
   var manual = opts.manual === true;
@@ -793,6 +825,8 @@ function openTdbWelcomeTour(opts) {
       '.tdb-welcome-tour-skip{background:transparent!important;color:rgba(200,210,225,.88)!important;border-color:rgba(148,163,184,.35)!important}' +
       '#tdb-welcome-tour-dont-row{display:flex;align-items:flex-start;gap:.5rem;margin:.65rem 0 .15rem;font-size:.84rem;color:rgba(200,210,225,.9);line-height:1.4}' +
       '#tdb-welcome-tour-dont-row input{margin-top:.2rem;flex-shrink:0;width:1rem;height:1rem}' +
+      '#tdb-welcome-tour-overlay.tdb-welcome-tour-overlay--anchor-bottom{align-items:flex-end;padding-top:min(0.75rem,3vh)}' +
+      '#tdb-welcome-tour-overlay.tdb-welcome-tour-overlay--anchor-bottom #tdb-welcome-tour-dialog{max-height:min(50dvh,calc(100dvh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px) - 0.5rem))}' +
       '@media (prefers-reduced-motion:reduce){#tdb-welcome-tour-overlay{backdrop-filter:none}}';
     document.head.appendChild(st);
   }
@@ -869,12 +903,61 @@ function openTdbWelcomeTour(opts) {
     var idx = 0;
     var trap = null;
 
+    function applyTourAnchorForStep(stepIndex) {
+      var sel = tdbGetWelcomeTourAnchorSelector(pageTag, stepIndex);
+      if (!sel) {
+        try {
+          overlay.classList.remove('tdb-welcome-tour-overlay--anchor-bottom');
+        } catch (_) {}
+        return;
+      }
+      var el = null;
+      try {
+        el = document.querySelector(sel);
+      } catch (_) {
+        el = null;
+      }
+      if (!el) {
+        try {
+          overlay.classList.remove('tdb-welcome-tour-overlay--anchor-bottom');
+        } catch (_) {}
+        return;
+      }
+      var smooth = true;
+      try {
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          smooth = false;
+        }
+      } catch (_) {}
+      try {
+        el.scrollIntoView({
+          block: 'center',
+          inline: 'nearest',
+          behavior: smooth ? 'smooth' : 'auto'
+        });
+      } catch (_) {
+        try {
+          el.scrollIntoView();
+        } catch (__) {}
+      }
+      try {
+        overlay.classList.add('tdb-welcome-tour-overlay--anchor-bottom');
+      } catch (_) {}
+    }
+
     function applyStep() {
       var s = steps[idx];
       stepEl.textContent = 'Step ' + (idx + 1) + ' of ' + steps.length;
       h2.textContent = s.title;
       body.textContent = s.body;
       nextBtn.textContent = idx >= steps.length - 1 ? 'Done' : 'Next';
+      try {
+        window.requestAnimationFrame(function () {
+          applyTourAnchorForStep(idx);
+        });
+      } catch (_) {
+        applyTourAnchorForStep(idx);
+      }
     }
 
     function closeTour(forceSeen) {
@@ -882,6 +965,9 @@ function openTdbWelcomeTour(opts) {
         document.removeEventListener('keydown', trap);
         trap = null;
       }
+      try {
+        overlay.classList.remove('tdb-welcome-tour-overlay--anchor-bottom');
+      } catch (_) {}
       if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
       if (forceSeen) markSeen();
     }

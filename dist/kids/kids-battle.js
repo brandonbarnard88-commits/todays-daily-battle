@@ -1227,6 +1227,48 @@
       narration:
         "Jesus Feeds a Hungry Crowd — Matthew 14:13–21. When Jesus heard of it, he departed thence by ship into a desert place apart: and when the people had heard thereof, they followed him on foot out of the cities. And Jesus went forth, and saw a great multitude, and was moved with compassion toward them, and he healed their sick. And when it was evening, his disciples came to him, saying, This is a desert place, and the time is now past; send the multitude away, that they may go into the villages, and buy themselves victuals. But Jesus said unto them, They need not depart; give ye them to eat. And they say unto him, We have here but five loaves, and two fishes. He said, Bring them hither to me. And he commanded the multitude to sit down on the grass, and took the five loaves, and the two fishes, and looking up to heaven, he blessed, and brake, and gave the loaves to his disciples, and the disciples to the multitude. And they did all eat, and were filled: and they took up of the fragments that remained twelve baskets full. And they that had eaten were about five thousand men, beside women and children. For you: Jesus can take a little and make it enough — trust Him with what you have."
     },
+    jesusFeeds4000: {
+      title: 'Jesus Feeds Another Hungry Crowd',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'A great multitude — three days with Jesus; I have compassion on the multitude'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Seven loaves and a few small fishes — He commanded them to sit down on the ground'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'They did all eat and were filled — seven baskets of broken meat; about four thousand men'
+        }
+      ],
+      caption: 'Swipe to see Jesus feed a multitude again — His compassion never runs out. 🍞',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'jesus',
+        'feeds',
+        '4000',
+        'four thousand',
+        'seven loaves',
+        'compassion',
+        'miracle',
+        'mark 8',
+        'matthew 15',
+        'disciples',
+        'multitude'
+      ],
+      kjvRef: 'Mark 8:1–9',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The multitude — the disciples — and us',
+        apply:
+          'Jesus cares when people are hungry and tired. He can bless a little bread until everyone has enough.'
+      },
+      narration:
+        "Jesus Feeds Another Hungry Crowd — Mark 8:1–9. In those days the multitude being very great, and having nothing to eat, Jesus called his disciples unto him, and saith unto them, I have compassion on the multitude, because they continue with me now three days, and have nothing to eat: And if I send them away fasting to their own houses, they will faint by the way: for divers of them came from far. And his disciples answered him, From whence can a man satisfy these men with bread here in the wilderness? And he asked them, How many loaves have ye? And they said, Seven. And he commanded the people to sit down on the ground: and he took the seven loaves, and gave thanks, and brake, and gave to his disciples to set before them; and they did set them before the people. And they had a few small fishes: and he blessed, and commanded to set them also before them. So they did eat, and were filled: and they took up of the broken meat that was left seven baskets. And they that had eaten were about four thousand. And he sent them away. For you: Jesus saw the crowd’s need and gave thanks for what was small — and God made it enough. He still cares for us today."
+    },
     goodSamaritan: {
       title: 'Jesus Tells About Helping Others',
       panels: [
@@ -1303,11 +1345,20 @@
     zacchaeus: {
       title: 'Jesus Loves Zacchaeus',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'A short man named Zacchaeus climbs a sycomore tree to see Jesus' },
-        { src: 'panel-david-2.svg', alt: 'Jesus looks up and calls Zacchaeus by name — come down, I must abide at thy house' },
-        { src: 'panel-david-3.svg', alt: 'Salvation comes to his house — a changed, joyful heart' }
+        {
+          src: 'panel-david-1.svg',
+          alt: 'Jericho — Zacchaeus is little of stature; he climbs a sycomore tree to see Jesus pass by'
+        },
+        {
+          src: 'panel-david-2.svg',
+          alt: 'Jesus looks up with kind eyes — Zacchaeus, make haste, and come down; to day I must abide at thy house'
+        },
+        {
+          src: 'panel-david-3.svg',
+          alt: 'Joy and salvation — half to the poor, fourfold restored; the Son of man is come to seek and to save that which was lost'
+        }
       ],
-      caption: 'Swipe to see Jesus find Zacchaeus in the tree — He sees you by name! 🌳',
+      caption: 'Swipe slowly — Jesus knows Zacchaeus by name and brings joy and salvation.',
       videoId: 'U-HjFU4wkUY',
       videoTitle: 'The Story of Zacchaeus – Bible Story for Kids!',
       keywords: [
@@ -1324,26 +1375,59 @@
       kjvRef: 'Luke 19:1–10',
       kidContext: {
         who: 'Jesus',
-        to: 'Zacchaeus — and everyone who feels small or overlooked',
+        to: 'Zacchaeus — and everyone who feels small, overlooked, or far from God',
         apply:
-          'Jesus sees us even when we feel small or hidden, and He loves us and changes our hearts.'
+          'Jesus knows our name, comes to us, and came to seek and save the lost — no one is too small for His love.'
       },
       narration:
-        "Jesus Loves Zacchaeus — Luke 19:1–10. And Jesus entered and passed through Jericho. And, behold, there was a man named Zacchaeus, which was the chief among the publicans, and he was rich. And he sought to see Jesus who he was; and could not for the press, because he was little of stature. And he ran before, and climbed up into a sycomore tree to see him: for he was to pass that way. And when Jesus came to the place, he looked up, and saw him, and said unto him, Zacchaeus, make haste, and come down; for to day I must abide at thy house. And he made haste, and came down, and received him joyfully. And when they saw it, they all murmured, saying, That he was gone to be guest with a man that is a sinner. And Zacchaeus stood, and said unto the Lord; Behold, Lord, the half of my goods I give to the poor; and if I have taken any thing from any man by false accusation, I restore him fourfold. And Jesus said unto him, This day is salvation come to this house, forsomuch as he also is a son of Abraham. For the Son of man is come to seek and to save that which was lost. For you: Jesus sees us even when we feel small or hidden, and He loves us and changes our hearts."
+        "Jesus Loves Zacchaeus — Luke 19:1–10. And Jesus entered and passed through Jericho. And, behold, there was a man named Zacchaeus, which was the chief among the publicans, and he was rich. And he sought to see Jesus who he was; and could not for the press, because he was little of stature. And he ran before, and climbed up into a sycomore tree to see him: for he was to pass that way. And when Jesus came to the place, he looked up, and saw him, and said unto him, Zacchaeus, make haste, and come down; for to day I must abide at thy house. And he made haste, and came down, and received him joyfully. And when they saw it, they all murmured, saying, That he was gone to be guest with a man that is a sinner. And Zacchaeus stood, and said unto the Lord; Behold, Lord, the half of my goods I give to the poor; and if I have taken any thing from any man by false accusation, I restore him fourfold. And Jesus said unto him, This day is salvation come to this house, forsomuch as he also is a son of Abraham. For the Son of man is come to seek and to save that which was lost. For you: On hard days, remember — Jesus knows your name. He came to seek and to save the lost, and He loves you very much. You can come to Him just as you are."
     },
     resurrection: {
-      title: 'Resurrection',
+      title: 'Jesus Is Risen',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Women go to the tomb' },
-        { src: 'panel-jesus-2.svg', alt: 'Empty tomb—stone rolled away!' },
-        { src: 'panel-jesus-3.svg', alt: 'Jesus is alive—He lives forever!' }
+        {
+          src: 'panel-jesus-resurrection-1.svg',
+          alt: 'Early Sunday — the stone rolled away from the tomb; Mary Magdalene and the other Mary draw near'
+        },
+        {
+          src: 'panel-jesus-resurrection-2.svg',
+          alt: 'The angel — Fear not — He is not here: for he is risen, as he said — Come, see where the Lord lay'
+        },
+        {
+          src: 'panel-jesus-resurrection-3.svg',
+          alt: 'Jesus meets His friends with joy — worship at His feet — later, All power… Go ye therefore… I am with you alway'
+        }
       ],
-      caption: 'Swipe to see Jesus beat death—He lives forever! 🕊️',
-      videoId: '2_dKPsPDXGM',
-      videoTitle: 'Jesus Rose from the Grave – Kids Club Bible Story!',
-      keywords: ['resurrection', 'empty tomb', 'alive', 'easter', 'matthew 28', 'john 20'],
-      kjvRef: 'Matthew 28:1–10; Mark 16:1–8; Luke 24:1–12; John 20:1–18',
-      kidContext: { who: 'God', to: 'The whole world', apply: 'Jesus beat death—He lives forever! That\'s why we celebrate Easter—He won!' }
+      caption: 'Swipe slowly — Jesus is risen; He meets His friends with love and sends His disciples with peace.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'risen',
+        'He is risen',
+        'All hail',
+        'Galilee',
+        'great commission',
+        'I am with you alway',
+        'Mary Magdalene',
+        'angel',
+        'empty tomb',
+        'worshipped',
+        'teach all nations',
+        'matthew 28',
+        'mark 16',
+        'luke 24',
+        'john 20',
+        'resurrection'
+      ],
+      kjvRef: 'Matthew 28:1–10, 16–20 (KJV) (par. Mark 16; Luke 24; John 20)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child who needs joy after a hard or scary day',
+        apply:
+          'Jesus is alive forever — He is gentle with afraid hearts and stays with His people to the end of the world.'
+      },
+      narration:
+        "Jesus Is Risen — Matthew 28:1–10, 16–20. In the end of the sabbath, as it began to dawn toward the first day of the week, came Mary Magdalene and the other Mary to see the sepulchre. And, behold, there was a great earthquake: for the angel of the Lord descended from heaven, and came and rolled back the stone from the door, and sat upon it. His countenance was like lightning, and his raiment white as snow: And for fear of him the keepers did shake, and became as dead men. And the angel answered and said unto the women, Fear not ye: for I know that ye seek Jesus, which was crucified. He is not here: for he is risen, as he said. Come, see the place where the Lord lay. And go quickly, and tell his disciples that he is risen from the dead; and, behold, he goeth before you into Galilee; there shall ye see him: lo, I have told you. And they departed quickly from the sepulchre with fear and great joy; and did run to bring his disciples word. And as they went to tell his disciples, behold, Jesus met them, saying, All hail. And they came and held him by the feet, and worshipped him. Then said Jesus unto them, Be not afraid: go tell my brethren that they go into Galilee, and there shall they see me. Then the eleven disciples went away into Galilee, into a mountain where Jesus had appointed them. And when they saw him, they worshipped him: but some doubted. And Jesus came and spake unto them, saying, All power is given unto me in heaven and in earth. Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Ghost: Teaching them to observe all things whatsoever I have commanded you: and, lo, I am with you alway, even unto the end of the world. Amen. For you: On hard days when you feel afraid or when everything feels dark, remember the risen Jesus. He is alive! He met the women with love and told His friends, I am with you alway. Jesus is alive forever and He is always with you. You can rest with great joy in His strong, gentle love."
     },
     creation: {
       title: 'Creation',
@@ -1691,36 +1775,70 @@
       kidContext: { who: 'Jesus', to: 'Us', apply: 'God searches for the lost like the woman searched for her coin. When one person turns to Him, heaven rejoices!' }
     },
     palmSunday: {
-      title: 'Palm Sunday',
+      title: 'Jesus Rides into Jerusalem',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Jesus rides a donkey' },
-        { src: 'panel-jesus-2.svg', alt: 'People wave palm branches' },
-        { src: 'panel-jesus-3.svg', alt: 'Hosanna! Welcome the King!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Jesus sends two disciples — ass and colt brought; garments laid; He sits on the colt'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'A very great multitude spreads garments and branches on the way — glad, welcoming faces'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Hosanna to the Son of David — the city asks Who is this? — Jesus the prophet of Nazareth of Galilee'
+        }
       ],
-      caption: 'Swipe to see Jesus ride the donkey—welcome Him! 🌿',
-      videoId: 'PCqqhfltyKM',
-      videoTitle: 'Palm Sunday – Jesus Enters Jerusalem!',
-      keywords: ['palm sunday', 'hosanna', 'donkey', 'jerusalem', 'matthew 21', 'luke 19'],
+      caption: 'Swipe slowly — clothes, branches, and glad Hosannas for Jesus who comes gently.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'palm sunday',
+        'hosanna',
+        'triumphal entry',
+        'donkey',
+        'colt',
+        'ass',
+        'jerusalem',
+        'bethphage',
+        'mount of olives',
+        'garments',
+        'branches',
+        'son of david',
+        'matthew 21',
+        'mark 11',
+        'luke 19',
+        'john 12',
+        'who is this'
+      ],
       kjvRef: 'Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19',
-      kidContext: { who: 'The crowds', to: 'Jesus (the King)', apply: 'Hosanna! Jesus rides the donkey—welcome Him! He is the King of Kings!' }
+      kidContext: {
+        who: 'Jesus — and the multitudes who welcomed Him with joy',
+        to: 'Every child who wants to welcome Jesus with a peaceful, happy heart',
+        apply:
+          'Jesus is gentle and kind — we can praise Him and welcome Him with simple joy, even on hard or ordinary days.'
+      },
+      narration:
+        "Jesus Rides into Jerusalem — Matthew 21:1–11. And when they drew nigh unto Jerusalem, and were come to Bethphage, unto the mount of Olives, then sent Jesus two disciples, Saying unto them, Go into the village over against you, and straightway ye shall find an ass tied, and a colt with her: loose them, and bring them unto me. And if any man say ought unto you, ye shall say, The Lord hath need of them; and straightway he will send them. All this was done, that it might be fulfilled which was spoken by the prophet, saying, Tell ye the daughter of Sion, Behold, thy King cometh unto thee, meek, and sitting upon an ass, and a colt the foal of an ass. And the disciples went, and did as Jesus commanded them, And brought the ass, and the colt, and put on them their clothes, and they set him thereon. And a very great multitude spread their garments in the way; others cut down branches from the trees, and strawed them in the way. And the multitudes that went before, and that followed, cried, saying, Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest. And when he was come into Jerusalem, all the city was moved, saying, Who is this? And the multitude said, This is Jesus the prophet of Nazareth of Galilee. For you: On hard days when you feel excited or when you want to welcome Jesus into your heart, remember the people waving palm branches. You can praise Him too with a happy heart. Jesus is gentle and kind, and He loves when you welcome Him. You can rest in His peaceful love."
     },
     triumphalEntry: {
       title: 'Jesus Rides into Jerusalem',
       panels: [
         {
           src: 'panel-jesus-1.svg',
-          alt: 'Jesus sends for the colt — disciples bring the young donkey and lay garments on it'
+          alt: 'Near Bethphage and the mount of Olives — Jesus sends two disciples; they bring the ass and colt and lay garments for Him to ride'
         },
         {
           src: 'panel-jesus-2.svg',
-          alt: 'Jesus rides into the city — crowds spread garments and branches on the road'
+          alt: 'Jesus rides into Jerusalem — a great multitude spreads garments and branches on the way; joyful, welcoming faces'
         },
         {
           src: 'panel-jesus-3.svg',
-          alt: 'Hosanna to the Son of David — the people welcome Jesus and ask, Who is this?'
+          alt: 'Hosanna to the Son of David — the city asks Who is this? and the people answer, Jesus the prophet of Nazareth of Galilee'
         }
       ],
-      caption: 'Swipe to see Jesus welcomed as King — Hosanna! 🌿',
+      caption: 'Swipe slowly — clothes, branches, and glad Hosannas for the King who comes gently.',
       videoId: '',
       videoTitle: '',
       keywords: [
@@ -1742,24 +1860,316 @@
         who: 'Jesus',
         to: 'The crowds in Jerusalem (and us)',
         apply:
-          'We can welcome Jesus as our King — with praise, joy, and a thankful heart.'
+          'The people welcomed Jesus as their King with joy and praise — we can welcome Him that way too, in a calm, happy heart.'
       },
       narration:
-        "Jesus Rides into Jerusalem — Matthew 21:1–11. And when they drew nigh unto Jerusalem, and were come to Bethphage, unto the mount of Olives, then sent Jesus two disciples, Saying unto them, Go into the village over against you, and straightway ye shall find an ass tied, and a colt with her: loose them, and bring them unto me. And if any man say ought unto you, ye shall say, The Lord hath need of them; and straightway he will send them. All this was done, that it might be fulfilled which was spoken by the prophet, saying, Tell ye the daughter of Sion, Behold, thy King cometh unto thee, meek, and sitting upon an ass, and a colt the foal of an ass. And the disciples went, and did as Jesus commanded them, And brought the ass, and the colt, and put on them their clothes, and they set him thereon. And a very great multitude spread their garments in the way; others cut down branches from the trees, and strawed them in the way. And the multitudes that went before, and that followed, cried, saying, Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest. And when he was come into Jerusalem, all the city was moved, saying, Who is this? And the multitude said, This is Jesus the prophet of Nazareth of Galilee. For you: the people welcomed Jesus as their gentle King — we can welcome Him today with quiet joy and thankful praise, no hurry, no pressure, just love in our hearts."
+        "Jesus Rides into Jerusalem — Matthew 21:1–11. And when they drew nigh unto Jerusalem, and were come to Bethphage, unto the mount of Olives, then sent Jesus two disciples, Saying unto them, Go into the village over against you, and straightway ye shall find an ass tied, and a colt with her: loose them, and bring them unto me. And if any man say ought unto you, ye shall say, The Lord hath need of them; and straightway he will send them. All this was done, that it might be fulfilled which was spoken by the prophet, saying, Tell ye the daughter of Sion, Behold, thy King cometh unto thee, meek, and sitting upon an ass, and a colt the foal of an ass. And the disciples went, and did as Jesus commanded them, And brought the ass, and the colt, and put on them their clothes, and they set him thereon. And a very great multitude spread their garments in the way; others cut down branches from the trees, and strawed them in the way. And the multitudes that went before, and that followed, cried, saying, Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest. And when he was come into Jerusalem, all the city was moved, saying, Who is this? And the multitude said, This is Jesus the prophet of Nazareth of Galilee. For you: the people welcomed Jesus as their King with joy and praise — we can color that picture in our hearts too: gentle gladness, no hurry, just love for the King who came humbly on a donkey."
+    },
+    jesusWeepsJerusalem: {
+      title: 'Jesus Cares Deeply for the City',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Jesus draws near on the donkey — He beholds Jerusalem spread out before Him with love'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Tears of compassion — Jesus weeps over the city; His heart longs to gather His people close'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'He speaks gently — If thou hadst known the things which belong unto thy peace — Jesus cares for us still'
+        }
+      ],
+      caption: 'Swipe slowly — Jesus looks on the city with tears of love, not anger toward you.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'weep',
+        'jerusalem',
+        'compassion',
+        'luke 19',
+        'luke 19:41',
+        'luke 19:42',
+        'thy peace',
+        'beheld the city',
+        'hen',
+        'chickens',
+        'matthew 23:37',
+        'donkey',
+        'visitation'
+      ],
+      kjvRef: 'Luke 19:41–44; Matthew 23:37',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Jerusalem — and every heart that needs comfort (including us)',
+        apply:
+          'Jesus loves us with tears of compassion when we do not understand; we can rest in His gentle heart.'
+      },
+      narration:
+        "Jesus Cares Deeply for the City — Luke 19:41–44. And when he was come near, he beheld the city, and wept over it, Saying, If thou hadst known, even thou, at least in this thy day, the things which belong unto thy peace! but now they are hid from thine eyes. For the days shall come upon thee, that thine enemies shall cast a trench about thee, and compass thee round, and keep thee in on every side, And shall lay thee even with the ground, and thy children within thee; and they shall not leave in thee one stone upon another; because thou knewest not the time of thy visitation. Jesus also taught how He longed to gather Jerusalem’s children together, as a hen gathereth her chickens under her wings — Matthew 23:37. For you: Jesus looks on cities and little hearts with deep love — even His tears are kind. When we feel confused or far away, we can come near Him; He understands, and His heart is full of compassion."
+    },
+    figTree: {
+      title: 'Jesus Teaches About Faith',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Jesus comes to a fig tree by the road — leaves only, no fruit — He speaks with calm truth'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'The fig tree withers; the disciples marvel — How soon is the fig tree withered away!'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Jesus teaches — have faith and doubt not; ask in prayer, believing, and ye shall receive'
+        }
+      ],
+      caption: 'Swipe slowly — a lesson about honest faith and gentle, trusting prayer.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'fig tree',
+        'faith',
+        'prayer',
+        'matthew 21',
+        'matthew 21:18',
+        'matthew 21:21',
+        'matthew 21:22',
+        'withered',
+        'leaves only',
+        'doubt not',
+        'believing',
+        'disciples'
+      ],
+      kjvRef: 'Matthew 21:18–22',
+      kidContext: {
+        who: 'Jesus',
+        to: 'His disciples (and us)',
+        apply:
+          'Jesus invites us to pray with faith — trusting our Father to hear us, little by little, as we learn.'
+      },
+      narration:
+        "Jesus Teaches About Faith — Matthew 21:18–22. Now in the morning as he returned into the city, he hungered. And when he saw a fig tree in the way, he came to it, and found nothing thereon, but leaves only, and said unto it, Let no fruit grow on thee henceforward for ever. And presently the fig tree withered away. And when the disciples saw it, they marvelled, saying, How soon is the fig tree withered away! Jesus answered and said unto them, Verily I say unto you, If ye have faith, and doubt not, ye shall not only do this which is done to the fig tree, but also if ye shall say unto this mountain, Be thou removed, and be thou cast into the sea; it shall be done. And all things, whatsoever ye shall ask in prayer, believing, ye shall receive. For you: Jesus was not being mean to little children — He was showing how serious truth is, and how real faith and prayer are. We can come to Him simply, ask in prayer, believing, and grow in trust one day at a time."
+    },
+    jesusAuthority: {
+      title: 'Jesus Answers the Chief Priests and Elders',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Jesus teaching in the temple — chief priests and elders ask, By what authority doest thou these things?'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Jesus asks about John’s baptism — from heaven, or of men? — the leaders reason together, thoughtful'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'They say, We cannot tell — Jesus answers, Neither tell I you by what authority I do these things — calm wisdom'
+        }
+      ],
+      caption: 'Swipe slowly — Jesus answers hard questions with honest, wise words.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'authority',
+        'temple',
+        'chief priests',
+        'elders',
+        'matthew 21',
+        'matthew 21:23',
+        'matthew 21:27',
+        'baptism of john',
+        'we cannot tell',
+        'neither tell i you',
+        'wisdom'
+      ],
+      kjvRef: 'Matthew 21:23–27',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The chief priests and elders — and everyone who listens (including us)',
+        apply:
+          'Jesus sees our hearts; we can tell Him the truth in prayer and learn His gentle wisdom.'
+      },
+      narration:
+        "Jesus Answers the Chief Priests and Elders — Matthew 21:23–27. And when he was come into the temple, the chief priests and the elders of the people came unto him as he was teaching, and said, By what authority doest thou these things? and who gave thee this authority? And Jesus answered and said unto them, I also will ask you one thing, which if ye tell me, I in like wise will tell you by what authority I do these things. The baptism of John, whence was it? from heaven, or of men? And they reasoned with themselves, saying, If we shall say, From heaven; he will say unto us, Why did ye not then believe him? But if we shall say, Of men; we fear the people; for all hold John as a prophet. And they answered Jesus, and said, We cannot tell. And he said unto them, Neither tell I you by what authority I do these things. For you: Jesus was not trying to trick little ones — He was showing that truth and honesty matter, and that He knows what is in every heart. We can come to Him openly, ask our questions, and trust His kind wisdom."
+    },
+    parableWickedHusbandmen: {
+      title: 'Jesus Tells About the Vineyard and the Son',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'A vineyard with fruit on the vines — the householder planted it, hedged it, and let it out to husbandmen'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'The owner sent servants, then last of all his son — They will reverence my son — teaching moment, calm faces'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'The stone the builders rejected is become the head of the corner — hopeful truth, God’s kingdom and good fruit'
+        }
+      ],
+      caption: 'Swipe slowly — a story about fruit, the Father’s Son, and God’s good kingdom.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'vineyard',
+        'husbandmen',
+        'parable',
+        'son',
+        'servants',
+        'fruit',
+        'stone',
+        'builders',
+        'head of the corner',
+        'matthew 21',
+        'matthew 21:33',
+        'matthew 21:42',
+        'reverence my son',
+        'heir',
+        'kingdom of god'
+      ],
+      kjvRef: 'Matthew 21:33–46',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The chief priests and elders — and everyone who listens (including us)',
+        apply:
+          'Jesus is God’s beloved Son; God looks for hearts that bear good fruit for Him — we can trust Jesus and grow in love and obedience.'
+      },
+      narration:
+        "Jesus Tells About the Vineyard and the Son — Matthew 21:33–46. Hear another parable: There was a certain householder, which planted a vineyard, and hedged it round about, and digged a winepress in it, and built a tower, and let it out to husbandmen, and went into a far country: And when the time of the fruit drew near, he sent his servants to the husbandmen, that they might receive the fruits of it. And the husbandmen took his servants, and beat one, and killed another, and stoned another. Again, he sent other servants more than the first: and they did likewise unto them. But last of all he sent unto them his son, saying, They will reverence my son. But when the husbandmen saw the son, they said among themselves, This is the heir; come, let us kill him, and let us seize on his inheritance. And they caught him, and cast him out of the vineyard, and slew him. When the lord therefore of the vineyard cometh, what will he do unto those husbandmen? They say unto him, He will miserably destroy those wicked men, and will let out his vineyard unto other husbandmen, which shall render him the fruits in their seasons. Jesus saith unto them, Did ye never read in the scriptures, The stone which the builders rejected, the same is become the head of the corner: this is the Lord's doing, and it is marvellous in our eyes? Therefore say I unto you, The kingdom of God shall be taken from you, and given to a nation bringing forth the fruits thereof. And whosoever shall fall on this stone shall be broken: but on whomsoever it shall fall, it will grind him to powder. And when the chief priests and Pharisees had heard his parables, they perceived that he spake of them. But when they sought to lay hands on him, they feared the multitude, because they took him for a prophet. For you: Jesus told this true story so we would see how precious the Father’s Son is — and how God blesses people who bring forth good fruit for Him. We can love Jesus, obey Him gently, and ask God to help our lives show His kindness."
+    },
+    tributeToCaesar: {
+      title: 'Jesus Answers About Taxes',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Pharisees and Herodians ask Jesus — Is it lawful to give tribute unto Caesar? — thoughtful scene'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Jesus asks for the tribute money — they bring a penny — Whose image and superscription?'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Render unto Caesar the things which are Caesar’s; and unto God the things which are God’s — calm wisdom'
+        }
+      ],
+      caption: 'Swipe slowly — Jesus answers a hard question with truth and wisdom.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'caesar',
+        'tribute',
+        'penny',
+        'render',
+        'pharisees',
+        'herodians',
+        'matthew 22',
+        'matthew 22:15',
+        'matthew 22:21',
+        'image and superscription',
+        'things which are god',
+        'tribute money',
+        'hypocrites'
+      ],
+      kjvRef: 'Matthew 22:15–22',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The Pharisees, Herodians, and everyone who listens (including us)',
+        apply:
+          'We can honor what belongs to rulers on earth and give our hearts and worship to God — Jesus shows us both with wisdom.'
+      },
+      narration:
+        "Jesus Answers About Taxes — Matthew 22:15–22. Then went the Pharisees, and took counsel how they might entangle him in his talk. And they sent out unto him their disciples with the Herodians, saying, Master, we know that thou art true, and teachest the way of God in truth, neither carest thou for any man: for thou regardest not the person of men. Tell us therefore, What thinkest thou? Is it lawful to give tribute unto Caesar, or not? But Jesus perceived their wickedness, and said, Why tempt ye me, ye hypocrites? Shew me the tribute money. And they brought unto him a penny. And he saith unto them, Whose is this image and superscription? They say unto him, Caesar's. Then saith he unto them, Render therefore unto Caesar the things which are Caesar's; and unto God the things that are God's. When they had heard these words, they marvelled, and left him, and went their way. For you: Jesus was not being mean to little children — He was showing that God knows our hearts and teaches us to be honest. We can love God first with our whole heart and also do what is right in the world, trusting Jesus’ gentle wisdom."
+    },
+    sadduceesResurrection: {
+      title: 'Jesus Teaches About the Resurrection',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Sadducees come to Jesus — they say there is no resurrection — a gentle, tricky question — thoughtful listening faces'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Jesus answers — Ye do err, not knowing the scriptures, nor the power of God — calm teaching from God’s Word'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'I am the God of Abraham, Isaac, and Jacob — God is not the God of the dead, but of the living — the multitude astonished at His doctrine'
+        }
+      ],
+      caption: 'Swipe slowly — gentle teaching about the living God and the resurrection.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'sadducees',
+        'resurrection',
+        'matthew 22',
+        'matthew 22:23',
+        'matthew 22:32',
+        'god of abraham',
+        'god of the living',
+        'neither marry',
+        'angels',
+        'seven brethren',
+        'moses',
+        'scriptures',
+        'power of god'
+      ],
+      kjvRef: 'Matthew 22:23–33',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The Sadducees — and everyone who listens (including us)',
+        apply:
+          'God is the God of the living — on hard days we can rest our hearts on Jesus’ gentle teaching and hope in Him.'
+      },
+      narration:
+        "Jesus Teaches About the Resurrection — Matthew 22:23–33. The same day came to him the Sadducees, which say that there is no resurrection, and asked him, Saying, Master, Moses said, If a man die, having no children, his brother shall marry his wife, and raise up seed unto his brother. Now there were with us seven brethren: and the first, when he had married a wife, deceased, and, having no issue, left his wife unto his brother: Likewise the second also, and the third, unto the seventh. And last of all the woman died also. Therefore in the resurrection whose wife shall she be of the seven? for they all had her. Jesus answered and said unto them, Ye do err, not knowing the scriptures, nor the power of God. For in the resurrection they neither marry, nor are given in marriage, but are as the angels of God in heaven. But as touching the resurrection of the dead, have ye not read that which was spoken unto you by God, saying, I am the God of Abraham, and the God of Isaac, and the God of Jacob? God is not the God of the dead, but of the living. And when the multitude heard it, they were astonished at his doctrine. For you: On hard days when things feel confusing or scary, remember what Jesus said: God is not the God of the dead, but of the living. Jesus is stronger than death, and He loves you very much. You can rest in Him."
     },
     lastSupper: {
-      title: 'Last Supper',
+      title: 'Jesus Shares the Last Supper',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Jesus and the disciples at table' },
-        { src: 'panel-jesus-2.svg', alt: 'Jesus breaks bread' },
-        { src: 'panel-jesus-3.svg', alt: 'This is My body—He loves us!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Passover prepared — Jesus sits with the twelve — one of you shall betray me'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'They were exceeding sorrowful — Lord, is it I? — Jesus teaches of the betrayer'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Take, eat; this is my body — the cup — my blood of the new testament — I will drink it new in my Father\'s kingdom'
+        }
       ],
-      caption: 'Swipe to see Jesus share bread—He loves us! 🍞',
-      videoId: 'y-SrXeZcVhU',
-      videoTitle: 'The Last Supper – Sharefaith Kids!',
-      keywords: ['last supper', 'bread', 'wine', 'luke 22', 'matthew 26', 'passover'],
-      kjvRef: 'Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23',
-      kidContext: { who: 'Jesus', to: 'His twelve disciples', apply: 'Jesus shares bread—He loves us! Remember Him when you eat together!' }
+      caption: 'Swipe slowly — Jesus shares bread and cup; His love is for you.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'last supper',
+        'passover',
+        'unleavened bread',
+        'bread',
+        'cup',
+        'new testament',
+        'betray',
+        'twelve',
+        'remission of sins',
+        'matthew 26',
+        'mark 14',
+        'luke 22'
+      ],
+      kjvRef: 'Matthew 26:17–30 (par. Mark 14:12–26; Luke 22:7–23)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'His twelve friends — and every child who feels sad when things change',
+        apply:
+          'Jesus gave His body and blood for us because He loves us — His love never ends, and He is always with us.'
+      },
+      narration:
+        "Jesus Shares the Last Supper — Matthew 26:17–30. Now the first day of the feast of unleavened bread the disciples came to Jesus, saying unto him, Where wilt thou that we prepare for thee to eat the passover? And he said, Go into the city to such a man, and say unto him, The Master saith, My time is at hand; I will keep the passover at thy house with my disciples. And the disciples did as Jesus had appointed them; and they made ready the passover. Now when the even was come, he sat down with the twelve. And as they did eat, he said, Verily I say unto you, that one of you shall betray me. And they were exceeding sorrowful, and began every one of them to say unto him, Lord, is it I? And he answered and said, He that dippeth his hand with me in the dish, the same shall betray me. The Son of man goeth as it is written of him: but woe unto that man by whom the Son of man is betrayed! it had been good for that man if he had not been born. Then Judas, which betrayed him, answered and said, Master, is it I? He said unto him, Thou hast said. And as they were eating, Jesus took bread, and blessed it, and brake it, and gave it to the disciples, and said, Take, eat; this is my body. And he took the cup, and gave thanks, and gave it to them, saying, Drink ye all of it; For this is my blood of the new testament, which is shed for many for the remission of sins. But I say unto you, I will not drink henceforth of this fruit of the vine, until that day when I drink it new with you in my Father's kingdom. And when they had sung an hymn, they went out into the mount of Olives. For you: On hard days when you feel sad or when things are about to change, remember Jesus shared this special meal with His friends. He gave His body and blood for us because He loves us so much. You can rest knowing Jesus is always with you and His love never ends."
     },
     jesusTemptation: {
       title: "Jesus' Temptation",
@@ -1843,60 +2253,138 @@
         "Jesus Sees the Poor Widow’s Gift — Mark 12:41–44. And Jesus sat over against the treasury, and beheld how the people cast money into the treasury: and many that were rich cast in much. And there came a certain poor widow, and she threw in two mites, which make a farthing. And he called unto him his disciples, and saith unto them, Verily I say unto you, That this poor widow hath cast more in, than all they which have cast into the treasury: For all they did cast in of their abundance; but she of her want did cast in all that she had, even all her living. For you: Jesus sees when we give with a loving heart, even if it is only a little."
     },
     gardenPrayer: {
-      title: 'Garden Prayer',
+      title: 'Jesus Prays in the Garden',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Jesus in the garden' },
-        { src: 'panel-jesus-2.svg', alt: 'Jesus prays to the Father' },
-        { src: 'panel-jesus-3.svg', alt: 'Not My will—Your will be done!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Gethsemane — Jesus asks Peter, James, and John to watch — My soul is exceeding sorrowful'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Jesus falls on His face — O my Father… nevertheless not as I will, but as thou wilt'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Watch and pray — the spirit indeed is willing — He prayed a third time — Thy will be done'
+        }
       ],
-      caption: 'Swipe to see Jesus pray—talk to God! 🙏',
-      videoId: 'mk7Ey0XDx0w',
-      videoTitle: 'Garden of Gethsemane – CQ Kids!',
-      keywords: ['gethsemane', 'garden', 'prayer', 'matthew 26', 'mark 14', 'luke 22'],
-      kjvRef: 'Matthew 26:36–46; Luke 22:44',
-      kidContext: { who: 'Jesus', to: 'God the Father (and us)', apply: 'Jesus talks to God—talk to Him! Pray when you\'re scared or sad!' }
+      caption: 'Swipe slowly — Jesus prays honest tears to His Father, and chooses God\'s will.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'gethsemane',
+        'garden',
+        'prayer',
+        'watch',
+        'cup',
+        'Peter',
+        'James',
+        'John',
+        'Zebedee',
+        'not as I will',
+        'thy will be done',
+        'matthew 26',
+        'mark 14',
+        'luke 22'
+      ],
+      kjvRef: 'Matthew 26:36–46 (par. Mark 14:32–42; Luke 22:39–46)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child who feels scared, sad, or heavy about what might happen',
+        apply:
+          'Jesus understands hard feelings — we can pray like Him and trust our Father\'s strong, gentle care.'
+      },
+      narration:
+        "Jesus Prays in the Garden — Matthew 26:36–46. Then cometh Jesus with them unto a place called Gethsemane, and saith unto the disciples, Sit ye here, while I go and pray yonder. And he took with him Peter and the two sons of Zebedee, and began to be sorrowful and very heavy. Then saith he unto them, My soul is exceeding sorrowful, even unto death: tarry ye here, and watch with me. And he went a little further, and fell on his face, and prayed, saying, O my Father, if it be possible, let this cup pass from me: nevertheless not as I will, but as thou wilt. And he cometh unto the disciples, and findeth them asleep, and saith unto Peter, What, could ye not watch with me one hour? Watch and pray, that ye enter not into temptation: the spirit indeed is willing, but the flesh is weak. He went away again the second time, and prayed, saying, O my Father, if this cup may not pass away from me, except I drink it, thy will be done. And he came and found them asleep again: for their eyes were heavy. And he left them, and went away again, and prayed the third time, saying the same words. Then cometh he to his disciples, and saith unto them, Sleep on now, and take your rest: behold, the hour is at hand, and the Son of man is betrayed into the hands of sinners. Rise, let us be going: behold, he is at hand that doth betray me. For you: On the hardest days when you feel sad or scared about what might happen, remember Jesus in the garden. He prayed to His Father and said, Not as I will, but as thou wilt. Jesus understands hard feelings, and He chose to obey because He loves you. You can talk to God anytime and rest in His strong, gentle care."
     },
     betrayal: {
-      title: 'Betrayal (Judas)',
+      title: 'Judas Betrays Jesus',
       panels: [
-        { src: 'panel-jonah-1.svg', alt: 'Judas leads the crowd' },
-        { src: 'panel-jonah-2.svg', alt: 'Judas kisses Jesus' },
-        { src: 'panel-jonah-3.svg', alt: 'Friends fail—Jesus forgives!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Judas covenants for thirty pieces of silver — he seeks opportunity to betray Jesus'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Judas comes with a multitude — Whomsoever I shall kiss, that same is he — he kisses Jesus'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Jesus says, Friend, wherefore art thou come? — they lay hands on Jesus and take Him'
+        }
       ],
-      caption: 'Swipe to see Judas betray—Jesus still forgives! 💔',
-      videoId: '79iFRXt4470',
-      videoTitle: 'Judas Betrays Jesus – Bible Stories!',
-      keywords: ['judas', 'betrayal', 'kiss', 'matthew 26', 'mark 14', 'fail'],
-      kjvRef: 'Matthew 26',
-      kidContext: { who: 'Jesus', to: 'Judas (and us)', apply: 'Even friends fail—Jesus forgives! He still loves you when people hurt you.' }
+      caption: 'Swipe slowly — a hard moment; Jesus stays gentle, and His love does not fail.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'judas',
+        'betrayal',
+        'kiss',
+        'thirty pieces of silver',
+        'chief priests',
+        'garden',
+        'multitude',
+        'swords',
+        'staves',
+        'friend',
+        'matthew 26',
+        'mark 14'
+      ],
+      kjvRef: 'Matthew 26:14–16; 26:47–50 (par. Mark 14:10–11, 43–46)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child who has felt hurt or confused when someone is unkind',
+        apply:
+          'Jesus understands when people fail us — He stayed loving even here, and we can run to His faithful kindness.'
+      },
+      narration:
+        "Judas Betrays Jesus — Matthew 26:14–16; 26:47–50. Then one of the twelve, called Judas Iscariot, went unto the chief priests, And said unto them, What will ye give me, and I will deliver him unto you? And they covenanted with him for thirty pieces of silver. And from that time he sought opportunity to betray him. And while he yet spake, lo, Judas, one of the twelve, came, and with him a great multitude with swords and staves, from the chief priests and elders of the people. Now he that betrayed him gave them a sign, saying, Whomsoever I shall kiss, that same is he: hold him fast. And forthwith he came to Jesus, and said, Hail, master; and kissed him. And Jesus said unto him, Friend, wherefore art thou come? Then came they, and laid hands on Jesus, and took him. For you: On hard days when someone is unkind or when you feel hurt by a friend, remember Jesus. He stayed gentle and loving even when He was betrayed. He understands sad feelings, and His love for you never fails. You can rest in His faithful love."
     },
     trial: {
-      title: 'Trial (Pilate)',
+      title: 'Jesus Before Pilate',
       panels: [
-        { src: 'panel-david-1.svg', alt: 'Jesus before Pilate' },
-        { src: 'panel-david-2.svg', alt: 'Pilate asks: Are you the King?' },
-        { src: 'panel-david-3.svg', alt: 'Jesus stays quiet—trust God!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Jesus stood before the governor — Art thou the King of the Jews? — Thou sayest — accused, yet answered nothing'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Feast custom — Barabbas or Jesus which is called Christ — chief priests persuaded the multitude'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'What shall I do with Jesus? — Let him be crucified — washed hands — delivered to be crucified'
+        }
       ],
-      caption: 'Swipe to see Jesus before Pilate—trust God! ⚖️',
-      videoId: 'zmYLuYfPQI8',
-      videoTitle: 'Jesus & Pilate – The Miracle Maker!',
-      keywords: ['pilate', 'trial', 'quiet', 'john 18', 'matthew 27', 'king'],
-      kjvRef: 'Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16',
-      kidContext: { who: 'Jesus', to: 'Pilate (and us)', apply: 'Jesus stays quiet—trust God! When things are unfair, He knows the truth!' }
-    },
-    crucifixion: {
-      title: 'Crucifixion',
-      panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Jesus carries the cross' },
-        { src: 'panel-jesus-2.svg', alt: 'Jesus on the cross' },
-        { src: 'panel-jesus-3.svg', alt: 'Jesus dies for us—love wins!' }
+      caption: 'Swipe slowly — Jesus stayed calm and true; His kingdom is truth and love.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'Pilate',
+        'governor',
+        'Barabbas',
+        'King of the Jews',
+        'judgment',
+        'multitude',
+        'crucified',
+        'washed his hands',
+        'witness',
+        'marvelled',
+        'matthew 27',
+        'mark 15',
+        'luke 23',
+        'john 18',
+        'john 19'
       ],
-      caption: 'Swipe to see Jesus on the cross—love wins! ✝️',
-      videoId: 'bNq5tWl3OGk',
-      videoTitle: 'Crucifixion and Death of Jesus – Animated Bible Stories!',
-      keywords: ['crucifixion', 'cross', 'love', 'matthew 27', 'john 19', 'dies'],
-      kjvRef: 'Matthew 27; Mark 15; Luke 23; John 19',
-      kidContext: { who: 'Jesus', to: 'The whole world', apply: 'Jesus dies for us—love wins! He took our sins so we could be free!' }
+      kjvRef: 'Matthew 27:11–26 (KJV) (par. Mark 15:1–15; Luke 23:1–25; John 18:28–19:16)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child when choices feel unfair or lonely',
+        apply:
+          'Jesus stayed calm before Pilate — He knows hard moments, and His love never fails.'
+      },
+      narration:
+        "Jesus Before Pilate — Matthew 27:11–26. And Jesus stood before the governor: and the governor asked him, saying, Art thou the King of the Jews? And Jesus said unto him, Thou sayest. And when he was accused of the chief priests and elders, he answered nothing. Then said Pilate unto him, Hearest thou not how many things they witness against thee? And he answered him to never a word; insomuch that the governor marvelled greatly. Now at that feast the governor was wont to release unto the people a prisoner, whom they would. And they had then a notable prisoner, called Barabbas. Therefore when they were gathered together, Pilate said unto them, Whom will ye that I release unto you? Barabbas, or Jesus which is called Christ? For he knew that for envy they had delivered him. When he was set down on the judgment seat, his wife sent unto him, saying, Have thou nothing to do with that just man: for I have suffered many things this day in a dream because of him. But the chief priests and elders persuaded the multitude that they should ask Barabbas, and destroy Jesus. The governor answered and said unto them, Whether of the twain will ye that I release unto you? They said, Barabbas. Pilate saith unto them, What shall I do then with Jesus which is called Christ? They all say unto him, Let him be crucified. And the governor said, Why, what evil hath he done? But they cried out the more, saying, Let him be crucified. When Pilate saw that he could prevail nothing, but that rather a tumult was made, he took water, and washed his hands before the multitude, saying, I am innocent of the blood of this just person: see ye to it. Then answered all the people, and said, His blood be on us, and on our children. Then released he Barabbas unto them: and when he had scourged Jesus, he delivered him to be crucified. For you: On hard days when people make choices that feel unfair or when you feel alone, remember Jesus before Pilate. He stayed calm and told the truth about His kingdom. Jesus knows what it feels like to be treated wrongly, and He did it all because He loves you so much. You can rest safe in His strong, gentle love."
     },
     roadToEmmaus: {
       title: 'Road to Emmaus',
@@ -1927,60 +2415,330 @@
       kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Jesus goes up—He\'s with God! He promised to come back—spread His love!' }
     },
     jesusLastSupper: {
-      title: 'The Last Supper',
+      title: 'Jesus Shares the Last Supper',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Jesus and the twelve at the Passover table' },
-        { src: 'panel-jesus-2.svg', alt: 'Jesus breaks bread — This is My body' },
-        { src: 'panel-jesus-3.svg', alt: 'The cup — the new testament in My blood' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Passover prepared — Jesus sits with the twelve — one of you shall betray me'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'They were exceeding sorrowful — Lord, is it I? — Jesus teaches of the betrayer'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Take, eat; this is my body — the cup — my blood of the new testament — I will drink it new in my Father\'s kingdom'
+        }
       ],
-      caption: 'Swipe to remember Jesus — bread, cup, love! 🍞',
+      caption: 'Swipe slowly — Jesus shares bread and cup; His love is for you.',
       videoId: '',
       videoTitle: '',
-      keywords: ['last supper', 'passover', 'bread', 'cup', 'covenant', 'luke 22', 'matthew 26', 'remembrance', 'judas'],
-      kjvRef: 'Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26',
-      kidContext: { who: 'Jesus', to: 'His disciples (and us)', apply: 'Jesus gave us a way to remember His death until He comes — His body and blood for us.' }
+      keywords: [
+        'last supper',
+        'passover',
+        'unleavened bread',
+        'bread',
+        'cup',
+        'new testament',
+        'betray',
+        'twelve',
+        'remission of sins',
+        'matthew 26',
+        'mark 14',
+        'luke 22',
+        'remembrance'
+      ],
+      kjvRef: 'Matthew 26:17–30 (par. Mark 14:12–26; Luke 22:7–23); 1 Corinthians 11:23–26',
+      kidContext: {
+        who: 'Jesus',
+        to: 'His twelve friends — and every child who feels sad when things change',
+        apply:
+          'Jesus gave His body and blood for us because He loves us — His love never ends, and He is always with us.'
+      },
+      narration:
+        "Jesus Shares the Last Supper — Matthew 26:17–30. Now the first day of the feast of unleavened bread the disciples came to Jesus, saying unto him, Where wilt thou that we prepare for thee to eat the passover? And he said, Go into the city to such a man, and say unto him, The Master saith, My time is at hand; I will keep the passover at thy house with my disciples. And the disciples did as Jesus had appointed them; and they made ready the passover. Now when the even was come, he sat down with the twelve. And as they did eat, he said, Verily I say unto you, that one of you shall betray me. And they were exceeding sorrowful, and began every one of them to say unto him, Lord, is it I? And he answered and said, He that dippeth his hand with me in the dish, the same shall betray me. The Son of man goeth as it is written of him: but woe unto that man by whom the Son of man is betrayed! it had been good for that man if he had not been born. Then Judas, which betrayed him, answered and said, Master, is it I? He said unto him, Thou hast said. And as they were eating, Jesus took bread, and blessed it, and brake it, and gave it to the disciples, and said, Take, eat; this is my body. And he took the cup, and gave thanks, and gave it to them, saying, Drink ye all of it; For this is my blood of the new testament, which is shed for many for the remission of sins. But I say unto you, I will not drink henceforth of this fruit of the vine, until that day when I drink it new with you in my Father's kingdom. And when they had sung an hymn, they went out into the mount of Olives. For you: On hard days when you feel sad or when things are about to change, remember Jesus shared this special meal with His friends. He gave His body and blood for us because He loves us so much. You can rest knowing Jesus is always with you and His love never ends."
     },
     jesusGardenGethsemane: {
-      title: 'Prayer in Gethsemane',
+      title: 'Jesus Prays in the Garden',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Jesus prays in the garden — Father, Thy will be done' },
-        { src: 'panel-jesus-2.svg', alt: 'Disciples sleep — Watch and pray' },
-        { src: 'panel-jesus-3.svg', alt: 'Judas comes — the hour of betrayal' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Gethsemane — Jesus asks Peter, James, and John to watch — My soul is exceeding sorrowful'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Jesus falls on His face — O my Father… nevertheless not as I will, but as thou wilt'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Watch and pray — the spirit indeed is willing — He prayed a third time — Thy will be done'
+        }
       ],
-      caption: 'Swipe to see Jesus pray — "Not My will, but Thine." 🙏',
+      caption: 'Swipe slowly — Jesus prays honest tears to His Father, and chooses God\'s will.',
       videoId: '',
       videoTitle: '',
-      keywords: ['gethsemane', 'garden', 'prayer', 'matthew 26', 'mark 14', 'luke 22', 'cup', 'watch', 'betray'],
-      kjvRef: 'Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46',
-      kidContext: { who: 'Jesus', to: 'God the Father (and us)', apply: 'When life feels heavy, we can pray honestly — and still say, Thy will be done.' }
+      keywords: [
+        'gethsemane',
+        'garden',
+        'prayer',
+        'watch',
+        'cup',
+        'Peter',
+        'James',
+        'John',
+        'Zebedee',
+        'not as I will',
+        'thy will be done',
+        'matthew 26',
+        'mark 14',
+        'luke 22'
+      ],
+      kjvRef: 'Matthew 26:36–46 (par. Mark 14:32–42; Luke 22:39–46)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child who feels scared, sad, or heavy about what might happen',
+        apply:
+          'Jesus understands hard feelings — we can pray like Him and trust our Father\'s strong, gentle care.'
+      },
+      narration:
+        "Jesus Prays in the Garden — Matthew 26:36–46. Then cometh Jesus with them unto a place called Gethsemane, and saith unto the disciples, Sit ye here, while I go and pray yonder. And he took with him Peter and the two sons of Zebedee, and began to be sorrowful and very heavy. Then saith he unto them, My soul is exceeding sorrowful, even unto death: tarry ye here, and watch with me. And he went a little further, and fell on his face, and prayed, saying, O my Father, if it be possible, let this cup pass from me: nevertheless not as I will, but as thou wilt. And he cometh unto the disciples, and findeth them asleep, and saith unto Peter, What, could ye not watch with me one hour? Watch and pray, that ye enter not into temptation: the spirit indeed is willing, but the flesh is weak. He went away again the second time, and prayed, saying, O my Father, if this cup may not pass away from me, except I drink it, thy will be done. And he came and found them asleep again: for their eyes were heavy. And he left them, and went away again, and prayed the third time, saying the same words. Then cometh he to his disciples, and saith unto them, Sleep on now, and take your rest: behold, the hour is at hand, and the Son of man is betrayed into the hands of sinners. Rise, let us be going: behold, he is at hand that doth betray me. For you: On the hardest days when you feel sad or scared about what might happen, remember Jesus in the garden. He prayed to His Father and said, Not as I will, but as thou wilt. Jesus understands hard feelings, and He chose to obey because He loves you. You can talk to God anytime and rest in His strong, gentle care."
+    },
+    jesusArrest: {
+      title: 'Jesus Is Arrested in the Garden',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Judas leads a multitude with swords and staves — the kiss — Friend, wherefore art thou come? — they lay hands on Jesus'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'A sword is drawn — an ear smitten — Put up again thy sword — twelve legions of angels — the scriptures must be fulfilled'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Jesus speaks calmly to the multitudes — scriptures of the prophets fulfilled — all the disciples forsook him, and fled'
+        }
+      ],
+      caption: 'Swipe slowly — Jesus stays calm and strong; He obeys His Father\'s plan.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'arrest',
+        'gethsemane',
+        'garden',
+        'Judas',
+        'kiss',
+        'multitude',
+        'swords',
+        'staves',
+        'put up thy sword',
+        'legions of angels',
+        'scriptures fulfilled',
+        'forsook',
+        'fled',
+        'matthew 26',
+        'mark 14',
+        'luke 22',
+        'john 18'
+      ],
+      kjvRef: 'Matthew 26:47–56 (par. Mark 14:43–52; Luke 22:47–53; John 18:1–11)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child who feels hurt or afraid when hard or scary things happen',
+        apply:
+          'Jesus was calm and kind in the garden — He knows how we feel, and His strong, gentle love holds us safe.'
+      },
+      narration:
+        "Jesus Is Arrested in the Garden — Matthew 26:47–56. And while he yet spake, lo, Judas, one of the twelve, came, and with him a great multitude with swords and staves, from the chief priests and elders of the people. Now he that betrayed him gave them a sign, saying, Whomsoever I shall kiss, that same is he: hold him fast. And forthwith he came to Jesus, and said, Hail, master; and kissed him. And Jesus said unto him, Friend, wherefore art thou come? Then came they, and laid hands on Jesus, and took him. And, behold, one of them which were with Jesus stretched out his hand, and drew his sword, and struck a servant of the high priest's, and smote off his ear. Then said Jesus unto him, Put up again thy sword into his place: for all they that take the sword shall perish with the sword. Thinkest thou that I cannot now pray to my Father, and he shall presently give me more than twelve legions of angels? But how then shall the scriptures be fulfilled, that thus it must be? In that same hour said Jesus to the multitudes, Are ye come out as against a thief with swords and staves for to take me? I sat daily with you teaching in the temple, and ye laid no hold on me. But all this was done, that the scriptures of the prophets might be fulfilled. Then all the disciples forsook him, and fled. For you: On hard days when someone hurts your feelings or when scary things happen, remember Jesus in the garden. He was calm and kind even when Judas kissed Him and the men took Him away. Jesus knows how you feel, and He chose to go through hard things because He loves you so much. You can rest safe in His strong, gentle love."
+    },
+    trialBeforeCaiaphas: {
+      title: 'Jesus Before Caiaphas',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Led to Caiaphas — scribes and elders — false witnesses sought — Peter afar off at the palace'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Jesus held his peace — I adjure thee by the living God — Art thou the Christ, the Son of God?'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Thou hast said — Son of man at the right hand of power — clouds of heaven — He told the truth'
+        }
+      ],
+      caption: 'Swipe slowly — Jesus speaks the truth with quiet strength; He is the Son of God.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'Caiaphas',
+        'high priest',
+        'council',
+        'false witness',
+        'temple',
+        'three days',
+        'held his peace',
+        'Christ',
+        'Son of God',
+        'right hand of power',
+        'clouds of heaven',
+        'Peter',
+        'palace',
+        'matthew 26',
+        'mark 14'
+      ],
+      kjvRef: 'Matthew 26:57–68 (par. Mark 14:53–65)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child who feels alone or misunderstood when people are unkind',
+        apply:
+          'Jesus stayed calm and told the truth — He is the Son of God, and His strong, gentle love stays with you.'
+      },
+      narration:
+        "Jesus Before Caiaphas — Matthew 26:57–68. And they that had laid hold on Jesus led him away to Caiaphas the high priest, where the scribes and the elders were assembled. But Peter followed him afar off unto the high priest's palace, and went in, and sat with the servants, to see the end. Now the chief priests, and elders, and all the council, sought false witness against Jesus, to put him to death; But found none: yea, though many false witnesses came, yet found they none. At the last came two false witnesses, And said, This fellow said, I am able to destroy the temple of God, and to build it in three days. And the high priest arose, and said unto him, Answerest thou nothing? what is it which these witness against thee? But Jesus held his peace. And the high priest answered and said unto him, I adjure thee by the living God, that thou tell us whether thou be the Christ, the Son of God. Jesus saith unto him, Thou hast said: nevertheless I say unto you, Hereafter shall ye see the Son of man sitting on the right hand of power, and coming in the clouds of heaven. Then the high priest rent his clothes, saying, He hath spoken blasphemy; what further need have we of witnesses? behold, now ye have heard his blasphemy. What think ye? They answered and said, He is guilty of death. Then did they spit in his face, and buffeted him; and others smote him with the palms of their hands, Saying, Prophesy unto us, thou Christ, Who is he that smote thee? For you: On hard days when people say untrue things or when you feel alone, remember Jesus before Caiaphas. He stayed calm and told the truth because He is the Son of God. Jesus understands hard moments, and He is always with you. You can rest safe in His strong, gentle love."
+    },
+    peterDenial: {
+      title: 'Peter Denies Jesus',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Peter without in the palace — a damsel — Thou also wast with Jesus of Galilee — I know not what thou sayest'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'The porch — another maid — Jesus of Nazareth — denied with an oath — I do not know the man'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Thy speech bewrayeth thee — the cock crew — Peter remembered — wept bitterly'
+        }
+      ],
+      caption: 'Swipe slowly — Peter felt sorry; Jesus still loved him and forgave him completely.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'Peter',
+        'deny',
+        'palace',
+        'damsel',
+        'maid',
+        'porch',
+        'Galilee',
+        'Nazareth',
+        'cock',
+        'crow',
+        'thrice',
+        'wept bitterly',
+        'bewrayeth',
+        'matthew 26',
+        'mark 14'
+      ],
+      kjvRef: 'Matthew 26:69–75 (par. Mark 14:66–72; Luke 22:54–62; John 18:15–18, 25–27)',
+      kidContext: {
+        who: 'Peter (and Jesus who had warned him)',
+        to: 'Every child who feels afraid or sorry after a mistake',
+        apply:
+          'Jesus understands sorry hearts — He forgave Peter, and He welcomes us back with love too.'
+      },
+      narration:
+        "Peter Denies Jesus — Matthew 26:69–75. Now Peter sat without in the palace: and a damsel came unto him, saying, Thou also wast with Jesus of Galilee. But he denied before them all, saying, I know not what thou sayest. And when he was gone out into the porch, another maid saw him, and said unto them that were there, This fellow was also with Jesus of Nazareth. And again he denied with an oath, I do not know the man. And after a while came unto him they that stood by, and said to Peter, Surely thou also art one of them; for thy speech bewrayeth thee. Then began he to curse and to swear, saying, I know not the man. And immediately the cock crew. And Peter remembered the word of Jesus, which said unto him, Before the cock crow, thou shalt deny me thrice. And he went out, and wept bitterly. For you: On hard days when you feel afraid and do something you wish you hadn't, remember Peter. He felt very sorry after he denied knowing Jesus. Jesus still loved Peter and later forgave him completely. Jesus knows when we feel sorry too, and He always welcomes us back with love. You can talk to Him anytime and rest in His gentle forgiveness."
     },
     jesusCrucifixion: {
       title: 'Jesus on the Cross',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'Jesus carries His cross toward Golgotha' },
-        { src: 'panel-jesus-2.svg', alt: 'Father, forgive them — darkness over the land' },
-        { src: 'panel-jesus-3.svg', alt: 'It is finished — love that saves' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Golgotha — gall and vinegar — crucified — garments parted — THIS IS JESUS THE KING OF THE JEWS'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Two thieves — passersby and rulers revile — darkness from the sixth to the ninth hour — Eli, Eli, lama sabachthani'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Veil of the temple rent — earthquake — centurion: Truly this was the Son of God — women beholding afar off'
+        }
       ],
-      caption: 'Swipe to see Jesus die for us — the greatest love. ✝️',
+      caption: 'Swipe slowly — Jesus gave His life because He loves us.',
       videoId: '',
       videoTitle: '',
-      keywords: ['crucifixion', 'cross', 'golgotha', 'forgive', 'finished', 'matthew 27', 'john 19', 'luke 23'],
-      kjvRef: 'Matthew 27; Mark 15; Luke 23; John 19',
-      kidContext: { who: 'Jesus', to: 'The world (and us)', apply: 'Jesus took the punishment for sin so we could be forgiven — never forget that love.' }
+      keywords: [
+        'crucifixion',
+        'cross',
+        'golgotha',
+        'calvary',
+        'skull',
+        'thieves',
+        'darkness',
+        'Eli',
+        'forsaken',
+        'veil',
+        'earthquake',
+        'centurion',
+        'Son of God',
+        'forgive',
+        'finished',
+        'matthew 27',
+        'mark 15',
+        'luke 23',
+        'john 19'
+      ],
+      kjvRef: 'Matthew 27:33–56 (KJV) (par. Mark 15:22–41; Luke 23:33–49; John 19:18–37)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child when sadness or darkness feels heavy',
+        apply:
+          'Jesus died on the cross because He loves us — His forgiveness and life are the greatest gift.'
+      },
+      narration:
+        "Jesus on the Cross — Matthew 27:33–56. And when they were come unto a place called Golgotha, that is to say, a place of a skull, They gave him vinegar to drink mingled with gall: and when he had tasted thereof, he would not drink. And they crucified him, and parted his garments, casting lots: that it might be fulfilled which was spoken by the prophet, They parted my garments among them, and upon my vesture did they cast lots. And sitting down they watched him there; And set up over his head his accusation written, THIS IS JESUS THE KING OF THE JEWS. Then were there two thieves crucified with him, one on the right hand, and another on the left. And they that passed by reviled him, wagging their heads, And saying, Thou that destroyest the temple, and buildest it in three days, save thyself. If thou be the Son of God, come down from the cross. Likewise also the chief priests mocking him, with the scribes and elders, said, He saved others; himself he cannot save. If he be the King of Israel, let him now come down from the cross, and we will believe him. He trusted in God; let him deliver him now, if he will have him: for he said, I am the Son of God. The thieves also, which were crucified with him, cast the same in his teeth. Now from the sixth hour there was darkness over all the land unto the ninth hour. And about the ninth hour Jesus cried with a loud voice, saying, Eli, Eli, lama sabachthani? that is to say, My God, my God, why hast thou forsaken me? Some of them that stood there, when they heard that, said, This man calleth for Elias. And straightway one of them ran, and took a spunge, and filled it with vinegar, and put it on a reed, and gave him to drink. The rest said, Let be, let us see whether Elias will come to save him. Jesus, when he had cried again with a loud voice, yielded up the ghost. And, behold, the veil of the temple was rent in twain from the top to the bottom; and the earth did quake, and the rocks rent; And the graves were opened, and many bodies of the saints which slept arose, And came out of the graves after his resurrection, and appeared unto many. Now when the centurion, and they that were with him, watching Jesus, saw the earthquake, and those things that were done, they feared greatly, saying, Truly this was the Son of God. And many women were there beholding afar off, which followed Jesus from Galilee, ministering unto him: Among which was Mary Magdalene, and Mary the mother of James and Joses, and the mother of Zebedee's children. For you: On the hardest days when you feel sad or when the world feels dark, remember Jesus on the cross. He chose to die there because He loves you so very much. He took all the hurt and sadness so we could be forgiven and live with Him forever. You can rest safe in His deep, gentle love even when things feel hard."
     },
     jesusResurrection: {
-      title: 'He Is Risen',
+      title: 'Jesus Is Risen',
       panels: [
-        { src: 'panel-jesus-1.svg', alt: 'The tomb — stone rolled away' },
-        { src: 'panel-jesus-2.svg', alt: 'The angel — He is not here; He is risen' },
-        { src: 'panel-jesus-3.svg', alt: 'Jesus alive — worship and joy' }
+        {
+          src: 'panel-jesus-resurrection-1.svg',
+          alt: 'Early Sunday — the stone rolled away from the tomb; Mary Magdalene and the other Mary draw near'
+        },
+        {
+          src: 'panel-jesus-resurrection-2.svg',
+          alt: 'The angel — Fear not — He is not here: for he is risen, as he said — Come, see where the Lord lay'
+        },
+        {
+          src: 'panel-jesus-resurrection-3.svg',
+          alt: 'Jesus meets His friends with joy — worship at His feet — later, All power… Go ye therefore… I am with you alway'
+        }
       ],
-      caption: 'Swipe to see the empty tomb — Jesus is alive! ✨',
+      caption: 'Swipe slowly — Jesus is risen; He meets His friends with love and sends His disciples with peace.',
       videoId: '',
       videoTitle: '',
-      keywords: ['resurrection', 'risen', 'tomb', 'stone', 'angel', 'matthew 28', 'mark 16', 'luke 24', 'john 20'],
-      kjvRef: 'Matthew 28; Mark 16; Luke 24; John 20',
-      kidContext: { who: 'Jesus', to: 'His followers (and us)', apply: 'Death could not hold Him — because He lives, we have hope that never dies.' }
+      keywords: [
+        'risen',
+        'He is risen',
+        'All hail',
+        'Galilee',
+        'great commission',
+        'I am with you alway',
+        'Mary Magdalene',
+        'angel',
+        'empty tomb',
+        'worshipped',
+        'teach all nations',
+        'matthew 28',
+        'mark 16',
+        'luke 24',
+        'john 20',
+        'resurrection'
+      ],
+      kjvRef: 'Matthew 28:1–10, 16–20 (KJV) (par. Mark 16; Luke 24; John 20)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child who needs joy after a hard or scary day',
+        apply:
+          'Jesus is alive forever — He is gentle with afraid hearts and stays with His people to the end of the world.'
+      },
+      narration:
+        "Jesus Is Risen — Matthew 28:1–10, 16–20. In the end of the sabbath, as it began to dawn toward the first day of the week, came Mary Magdalene and the other Mary to see the sepulchre. And, behold, there was a great earthquake: for the angel of the Lord descended from heaven, and came and rolled back the stone from the door, and sat upon it. His countenance was like lightning, and his raiment white as snow: And for fear of him the keepers did shake, and became as dead men. And the angel answered and said unto the women, Fear not ye: for I know that ye seek Jesus, which was crucified. He is not here: for he is risen, as he said. Come, see the place where the Lord lay. And go quickly, and tell his disciples that he is risen from the dead; and, behold, he goeth before you into Galilee; there shall ye see him: lo, I have told you. And they departed quickly from the sepulchre with fear and great joy; and did run to bring his disciples word. And as they went to tell his disciples, behold, Jesus met them, saying, All hail. And they came and held him by the feet, and worshipped him. Then said Jesus unto them, Be not afraid: go tell my brethren that they go into Galilee, and there shall they see me. Then the eleven disciples went away into Galilee, into a mountain where Jesus had appointed them. And when they saw him, they worshipped him: but some doubted. And Jesus came and spake unto them, saying, All power is given unto me in heaven and in earth. Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Ghost: Teaching them to observe all things whatsoever I have commanded you: and, lo, I am with you alway, even unto the end of the world. Amen. For you: On hard days when you feel afraid or when everything feels dark, remember the risen Jesus. He is alive! He met the women with love and told His friends, I am with you alway. Jesus is alive forever and He is always with you. You can rest with great joy in His strong, gentle love."
     },
     jesusAscension: {
       title: 'Jesus Ascends',
@@ -5734,6 +6492,38 @@
       narration:
         "Jesus Tells About a Pearl Worth Everything — Matthew 13:45–46. Again, the kingdom of heaven is like unto a merchant man, seeking goodly pearls: Who, when he had found one pearl of great price, went and sold all that he had, and bought it. For you: Jesus was teaching that God’s kingdom is so wonderful it is worth giving up everything else to have it — and finding Him is like finding the most beautiful and valuable pearl in the whole world."
     },
+    parableNet: {
+      title: 'Jesus Tells About a Net Full of Fish',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'The kingdom of heaven is like a net cast into the sea — fish of every kind gathered' },
+        { src: 'panel-noah-2.svg', alt: 'When the net was full they drew it to shore — gathered the good into vessels' },
+        { src: 'panel-noah-3.svg', alt: 'So shall it be at the end of the world — the angels sever the wicked from among the just' }
+      ],
+      caption: 'Swipe to hear Jesus teach about a net — God’s kingdom is true and sure. 🎣',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'net',
+        'fish',
+        'sea',
+        'kingdom of heaven',
+        'parable',
+        'matthew 13',
+        'shore',
+        'angels',
+        'end of the world',
+        'jesus'
+      ],
+      kjvRef: 'Matthew 13:47–50',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The people (and us)',
+        apply:
+          'Jesus teaches truly about God’s kingdom. We can listen to Him today and trust the Lord who sees all hearts.'
+      },
+      narration:
+        "Jesus Tells About a Net Full of Fish — Matthew 13:47–50. Again, the kingdom of heaven is like unto a net, that was cast into the sea, and gathered of every kind: Which, when it was full, they drew to shore, and sat down, and gathered the good into vessels, but cast the bad away. So shall it be at the end of the world: the angels shall come forth, and sever the wicked from among the just, And shall cast them into the furnace of fire: there shall be wailing and gnashing of teeth. For you: Jesus spoke plainly that God’s kingdom is real — and one day the Lord will make all things right. Today we can turn to Him with a humble heart and listen to His words."
+    },
     parableVineyardWorkers: {
       title: 'Jesus Tells About the Generous Vineyard Owner',
       panels: [
@@ -5860,16 +6650,44 @@
     jesusParableGoodShepherd: {
       title: 'The Good Shepherd',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus says: I am the good shepherd' },
-        { src: 'panel-noah-2.svg', alt: 'Sheep know His voice and follow' },
-        { src: 'panel-noah-3.svg', alt: 'He layeth down His life for the sheep' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Sheepfold and the door — the shepherd calls his own sheep by name; the sheep hear his voice'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'He goeth before them, and the sheep follow him — for they know his voice'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'I am the good shepherd — I lay down my life for the sheep — one fold, and one shepherd'
+        }
       ],
-      caption: 'Swipe to hear the Shepherd who knows you by name! 🐑',
+      caption: 'Swipe slowly — Jesus is the Good Shepherd; He knows you by name.',
       videoId: '',
       videoTitle: '',
-      keywords: ['good shepherd', 'john 10', 'sheep', 'voice', 'fold', 'life', 'jesus'],
+      keywords: [
+        'good shepherd',
+        'john 10',
+        'sheep',
+        'sheepfold',
+        'voice',
+        'fold',
+        'life',
+        'porter',
+        'jesus',
+        'lay down my life',
+        'one shepherd'
+      ],
       kjvRef: 'John 10:1–18',
-      kidContext: { who: 'Jesus', to: 'His sheep (and us)', apply: 'Listen for Jesus\' voice — He loves you, leads you, and laid down His life for you.' }
+      kidContext: {
+        who: 'Jesus',
+        to: 'His sheep — and everyone who listens (including us)',
+        apply:
+          'Jesus knows our name, calls us gently, and laid down His life — we can rest in His care on hard days.'
+      },
+      narration:
+        "The Good Shepherd — John 10:1–18. Verily, verily, I say unto you, He that entereth not by the door into the sheepfold, but climbeth up some other way, the same is a thief and a robber. But he that entereth in by the door is the shepherd of the sheep. To him the porter openeth; and the sheep hear his voice: and he calleth his own sheep by name, and leadeth them out. And when he putteth forth his own sheep, he goeth before them, and the sheep follow him: for they know his voice. And a stranger will they not follow, but will flee from him: for they know not the voice of strangers. This parable spake Jesus unto them: but they understood not what things they were which he spake unto them. Then said Jesus unto them again, Verily, verily, I say unto you, I am the door of the sheep. All that ever came before me are thieves and robbers: but the sheep did not hear them. I am the door: by me if any man enter in, he shall be saved, and shall go in and out, and find pasture. The thief cometh not, but for to steal, and to kill, and to destroy: I am come that they might have life, and that they might have it more abundantly. I am the good shepherd: the good shepherd giveth his life for the sheep. But he that is an hireling, and not the shepherd, whose own the sheep are not, seeth the wolf coming, and leaveth the sheep, and fleeth: and the wolf catcheth them, and scattereth the sheep. The hireling fleeth, because he is an hireling, and careth not for the sheep. I am the good shepherd, and know my sheep, and am known of mine. As the Father knoweth me, even so know I the Father: and I lay down my life for the sheep. And other sheep I have, which are not of this fold: them also I must bring, and they shall hear my voice; and there shall be one fold, and one shepherd. Therefore doth my Father love me, because I lay down my life, that I might take it again. No man taketh it from me, but I lay it down of myself. I have power to lay it down, and I have power to take it again. This commandment have I received of my Father. For you: On hard days when you feel small or scared, remember Jesus is the Good Shepherd. He knows your name, He calls you gently, and He gave His life so you can be safe with Him forever. You can rest in His care."
     },
     tenLepers: {
       title: 'Jesus Heals Ten Men and One Says Thank You',
@@ -5962,59 +6780,189 @@
     judasKiss: {
       title: 'Judas Betrays Jesus',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Soldiers come to the garden with torches' },
-        { src: 'panel-noah-2.svg', alt: 'Judas kisses Jesus—a signal to arrest Him' },
-        { src: 'panel-noah-3.svg', alt: 'Jesus goes peacefully—He loves us that much' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Judas covenants for thirty pieces of silver — he seeks opportunity to betray Jesus'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Judas comes with a multitude — Whomsoever I shall kiss, that same is he — he kisses Jesus'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Jesus says, Friend, wherefore art thou come? — they lay hands on Jesus and take Him'
+        }
       ],
-      caption: 'Swipe to see Jesus stay calm—even when betrayed! 🕯️',
+      caption: 'Swipe slowly — a hard moment; Jesus stays gentle, and His love does not fail.',
       videoId: '',
       videoTitle: '',
-      keywords: ['judas', 'betray', 'kiss', 'matthew 26', 'arrest', 'garden', 'soldiers'],
-      kjvRef: 'Matthew 26',
-      kidContext: { who: 'Jesus', to: 'Judas (and us)', apply: 'Even when people hurt you, choose love like Jesus did! He forgave.' }
+      keywords: [
+        'judas',
+        'betray',
+        'kiss',
+        'thirty pieces of silver',
+        'chief priests',
+        'garden',
+        'multitude',
+        'swords',
+        'staves',
+        'friend',
+        'matthew 26',
+        'mark 14'
+      ],
+      kjvRef: 'Matthew 26:14–16; 26:47–50 (par. Mark 14:10–11, 43–46)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child who has felt hurt or confused when someone is unkind',
+        apply:
+          'Jesus understands when people fail us — He stayed loving even here, and we can run to His faithful kindness.'
+      },
+      narration:
+        "Judas Betrays Jesus — Matthew 26:14–16; 26:47–50. Then one of the twelve, called Judas Iscariot, went unto the chief priests, And said unto them, What will ye give me, and I will deliver him unto you? And they covenanted with him for thirty pieces of silver. And from that time he sought opportunity to betray him. And while he yet spake, lo, Judas, one of the twelve, came, and with him a great multitude with swords and staves, from the chief priests and elders of the people. Now he that betrayed him gave them a sign, saying, Whomsoever I shall kiss, that same is he: hold him fast. And forthwith he came to Jesus, and said, Hail, master; and kissed him. And Jesus said unto him, Friend, wherefore art thou come? Then came they, and laid hands on Jesus, and took him. For you: On hard days when someone is unkind or when you feel hurt by a friend, remember Jesus. He stayed gentle and loving even when He was betrayed. He understands sad feelings, and His love for you never fails. You can rest in His faithful love."
     },
     /* ── Week 7 (85–96) ── */
     crossCarry: {
-      title: 'Simon Helps Carry the Cross',
+      title: 'Jesus Carries His Cross',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus is made to carry His cross' },
-        { src: 'panel-noah-2.svg', alt: 'Simon of Cyrene is asked to help' },
-        { src: 'panel-noah-3.svg', alt: 'Sometimes God calls us to help carry burdens' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'After they mocked Him — His own raiment — led away to crucify him'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Simon of Cyrene — compelled to bear His cross — the road to Golgotha'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Women bewailed and lamented — Daughters of Jerusalem, weep not for me'
+        }
       ],
-      caption: 'Swipe to see Simon help carry—be a helper! 🤝',
+      caption: 'Swipe slowly — Jesus carried His cross out of love for us.',
       videoId: '',
       videoTitle: '',
-      keywords: ['cross', 'simon', 'carry', 'luke 23', 'cyrene', 'help', 'burden'],
-      kjvRef: 'Luke 23',
-      kidContext: { who: 'God', to: 'Simon (and us)', apply: 'God calls us to help carry each other\'s burdens! Be a Simon for someone today.' }
+      keywords: [
+        'cross',
+        'Simon',
+        'Cyrene',
+        'crucify',
+        'bear his cross',
+        'Daughters of Jerusalem',
+        'weep not',
+        'mocked',
+        'raiment',
+        'matthew 27',
+        'mark 15',
+        'luke 23',
+        'john 19'
+      ],
+      kjvRef: 'Matthew 27:31–32 (KJV) (par. Mark 15:20–21; Luke 23:26–32; John 19:16–17)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child who feels tired or heavy-hearted',
+        apply:
+          'Jesus carried His cross because He loves us — His strength holds us when life feels hard.'
+      },
+      narration:
+        "Jesus Carries His Cross — Matthew 27:31–32. And after that they had mocked him, they took the robe off from him, and put his own raiment on him, and led him away to crucify him. And as they came out, they found a man of Cyrene, Simon by name: him they compelled to bear his cross. For you: On hard days when you feel tired or when you have to carry something heavy in your heart, remember Jesus carrying His cross. He did it because He loves you so very much. Jesus is strong and kind, and He will help you carry whatever feels hard. You can rest safe in His gentle love."
     },
     crucifixion: {
       title: 'Jesus on the Cross',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Jesus is nailed to the cross' },
-        { src: 'panel-noah-2.svg', alt: 'Darkness covers the land' },
-        { src: 'panel-noah-3.svg', alt: 'It is finished—He did it for us!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Golgotha — gall and vinegar — crucified — garments parted — THIS IS JESUS THE KING OF THE JEWS'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Two thieves — passersby and rulers revile — darkness from the sixth to the ninth hour — Eli, Eli, lama sabachthani'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Veil of the temple rent — earthquake — centurion: Truly this was the Son of God — women beholding afar off'
+        }
       ],
-      caption: 'Swipe to see Jesus give His life—for you! ❤️',
-      videoId: 'bNq5tWl3OGk',
-      videoTitle: 'Crucifixion and Death of Jesus – Animated Bible Stories!',
-      keywords: ['crucifixion', 'cross', 'nails', 'john 19', 'love', 'finished', 'sacrifice'],
-      kjvRef: 'Matthew 27; Mark 15; Luke 23; John 19',
-      kidContext: { who: 'Jesus', to: 'Everyone who will believe', apply: 'Jesus died because He loves you! That love is the greatest love ever.' }
+      caption: 'Swipe slowly — Jesus gave His life because He loves us.',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'crucifixion',
+        'cross',
+        'golgotha',
+        'calvary',
+        'skull',
+        'thieves',
+        'darkness',
+        'Eli',
+        'forsaken',
+        'veil',
+        'earthquake',
+        'centurion',
+        'Son of God',
+        'forgive',
+        'finished',
+        'matthew 27',
+        'mark 15',
+        'luke 23',
+        'john 19'
+      ],
+      kjvRef: 'Matthew 27:33–56 (KJV) (par. Mark 15:22–41; Luke 23:33–49; John 19:18–37)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child when sadness or darkness feels heavy',
+        apply:
+          'Jesus died on the cross because He loves us — His forgiveness and life are the greatest gift.'
+      },
+      narration:
+        "Jesus on the Cross — Matthew 27:33–56. And when they were come unto a place called Golgotha, that is to say, a place of a skull, They gave him vinegar to drink mingled with gall: and when he had tasted thereof, he would not drink. And they crucified him, and parted his garments, casting lots: that it might be fulfilled which was spoken by the prophet, They parted my garments among them, and upon my vesture did they cast lots. And sitting down they watched him there; And set up over his head his accusation written, THIS IS JESUS THE KING OF THE JEWS. Then were there two thieves crucified with him, one on the right hand, and another on the left. And they that passed by reviled him, wagging their heads, And saying, Thou that destroyest the temple, and buildest it in three days, save thyself. If thou be the Son of God, come down from the cross. Likewise also the chief priests mocking him, with the scribes and elders, said, He saved others; himself he cannot save. If he be the King of Israel, let him now come down from the cross, and we will believe him. He trusted in God; let him deliver him now, if he will have him: for he said, I am the Son of God. The thieves also, which were crucified with him, cast the same in his teeth. Now from the sixth hour there was darkness over all the land unto the ninth hour. And about the ninth hour Jesus cried with a loud voice, saying, Eli, Eli, lama sabachthani? that is to say, My God, my God, why hast thou forsaken me? Some of them that stood there, when they heard that, said, This man calleth for Elias. And straightway one of them ran, and took a spunge, and filled it with vinegar, and put it on a reed, and gave him to drink. The rest said, Let be, let us see whether Elias will come to save him. Jesus, when he had cried again with a loud voice, yielded up the ghost. And, behold, the veil of the temple was rent in twain from the top to the bottom; and the earth did quake, and the rocks rent; And the graves were opened, and many bodies of the saints which slept arose, And came out of the graves after his resurrection, and appeared unto many. Now when the centurion, and they that were with him, watching Jesus, saw the earthquake, and those things that were done, they feared greatly, saying, Truly this was the Son of God. And many women were there beholding afar off, which followed Jesus from Galilee, ministering unto him: Among which was Mary Magdalene, and Mary the mother of James and Joses, and the mother of Zebedee's children. For you: On the hardest days when you feel sad or when the world feels dark, remember Jesus on the cross. He chose to die there because He loves you so very much. He took all the hurt and sadness so we could be forgiven and live with Him forever. You can rest safe in His deep, gentle love even when things feel hard."
     },
     tombEmpty: {
       title: 'The Empty Tomb',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Women come early to the tomb' },
-        { src: 'panel-noah-2.svg', alt: 'The stone is rolled away!' },
-        { src: 'panel-noah-3.svg', alt: 'An angel says: He is not here—He is risen!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'End of the sabbath — dawn — Mary Magdalene and the other Mary come to the sepulchre'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Earthquake — angel of the Lord — stone rolled back — Fear not — He is not here: He is risen'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Come see where the Lord lay — run with joy — Jesus meets them — Be not afraid'
+        }
       ],
-      caption: 'Swipe to see the empty tomb—Jesus is alive! 🪨',
+      caption: 'Swipe slowly — the tomb is empty. Jesus is alive.',
       videoId: '',
       videoTitle: '',
-      keywords: ['tomb', 'empty', 'risen', 'matthew 28', 'angel', 'stone', 'resurrection'],
-      kjvRef: 'Matthew 28',
-      kidContext: { who: 'Jesus', to: 'The women (and us)', apply: 'Jesus is alive! Death couldn\'t hold Him—and He gives that life to you!' }
+      keywords: [
+        'empty tomb',
+        'sepulchre',
+        'Mary Magdalene',
+        'Mary',
+        'angel',
+        'earthquake',
+        'stone',
+        'rolled',
+        'He is risen',
+        'He is not here',
+        'Galilee',
+        'first day of the week',
+        'dawn',
+        'matthew 28',
+        'mark 16',
+        'luke 24',
+        'john 20',
+        'resurrection'
+      ],
+      kjvRef: 'Matthew 28:1–10 (KJV) (par. Mark 16:1–8; Luke 24:1–12; John 20:1–18)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child who needs hope after a sad day',
+        apply:
+          'Jesus rose again — His love is stronger than death, and He shares His life with us.'
+      },
+      narration:
+        "The Empty Tomb — Matthew 28:1–10. In the end of the sabbath, as it began to dawn toward the first day of the week, came Mary Magdalene and the other Mary to see the sepulchre. And, behold, there was a great earthquake: for the angel of the Lord descended from heaven, and came and rolled back the stone from the door, and sat upon it. His countenance was like lightning, and his raiment white as snow: And for fear of him the keepers did shake, and became as dead men. And the angel answered and said unto the women, Fear not ye: for I know that ye seek Jesus, which was crucified. He is not here: for he is risen, as he said. Come, see the place where the Lord lay. And go quickly, and tell his disciples that he is risen from the dead; and, behold, he goeth before you into Galilee; there shall ye see him: lo, I have told you. And they departed quickly from the sepulchre with fear and great joy; and did run to bring his disciples word. And as they went to tell his disciples, behold, Jesus met them, saying, All hail. And they came and held him by the feet, and worshipped him. Then said Jesus unto them, Be not afraid: go tell my brethren that they go into Galilee, and there shall they see me. For you: When mornings feel heavy or when hope feels far away, remember the empty tomb. Jesus rose again because He loves you — death could not keep Him, and His new life is a gentle promise you can hold on to. You can rest in His living love today and always."
     },
     emmausRoad: {
       title: 'Road to Emmaus',
@@ -6031,18 +6979,48 @@
       kidContext: { who: 'Jesus', to: 'Two disciples', apply: 'Jesus walks with you even when you don\'t recognize Him! He never leaves.' }
     },
     thomasDoubt: {
-      title: 'Thomas Touches Jesus\' Hands',
+      title: 'Jesus Appears to Thomas',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Thomas says: I won\'t believe until I see!' },
-        { src: 'panel-noah-2.svg', alt: 'Jesus appears and shows His hands' },
-        { src: 'panel-noah-3.svg', alt: 'Thomas cries: My Lord and my God!' }
+        {
+          src: 'panel-thomas-doubt-1.svg',
+          alt: 'Thomas called Didymus was not with them when Jesus came — Except I shall see the print of the nails… I will not believe'
+        },
+        {
+          src: 'panel-thomas-doubt-2.svg',
+          alt: 'After eight days — doors shut — Jesus stood in the midst — Peace be unto you — Reach hither thy finger… be not faithless, but believing'
+        },
+        {
+          src: 'panel-thomas-doubt-3.svg',
+          alt: 'Thomas: My Lord and my God — blessed are they that have not seen, and yet have believed'
+        }
       ],
-      caption: 'Swipe to see Jesus answer Thomas\'s doubts—He answers yours too! 🙏',
+      caption: 'Swipe slowly — Jesus meets Thomas with peace and gentle invitation to believe.',
       videoId: '',
       videoTitle: '',
-      keywords: ['thomas', 'doubt', 'john 20', 'hands', 'believe', 'risen', 'faith'],
-      kjvRef: 'John 20:24–29',
-      kidContext: { who: 'Jesus', to: 'Thomas', apply: 'It\'s okay to have questions! Jesus is patient—keep coming back to Him.' }
+      keywords: [
+        'Thomas',
+        'Didymus',
+        'doubt',
+        'believe',
+        'print of the nails',
+        'my side',
+        'Peace be unto you',
+        'doors shut',
+        'My Lord and my God',
+        'faithless',
+        'believing',
+        'have not seen',
+        'John 20'
+      ],
+      kjvRef: 'John 20:24–29 (KJV)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child who needs help to trust on unsure days',
+        apply:
+          'Jesus is patient with honest hearts — He draws near and helps us believe step by step.'
+      },
+      narration:
+        "Jesus Appears to Thomas — John 20:24–29. But Thomas, one of the twelve, called Didymus, was not with them when Jesus came. The other disciples therefore said unto him, We have seen the Lord. But he said unto them, Except I shall see in his hands the print of the nails, and put my finger into the print of the nails, and thrust my hand into his side, I will not believe. And after eight days again his disciples were within, and Thomas with them: then came Jesus, the doors being shut, and stood in the midst, and said, Peace be unto you. Then saith he to Thomas, Reach hither thy finger, and behold my hands; and reach hither thy hand, and thrust it into my side: and be not faithless, but believing. And Thomas answered and said unto him, My Lord and my God. Jesus saith unto him, Thomas, because thou hast seen me, thou hast believed: blessed are they that have not seen, and yet have believed. For you: On hard days when you find it hard to believe or when you need to see something to feel sure, remember Thomas. Jesus came back just for him and let him see and touch. Jesus understands when we have doubts, and He still loves us and helps us believe. You can rest safe knowing Jesus is patient and kind with your heart."
     },
     pentecostFire: {
       title: 'Pentecost—Fire and Wind',
@@ -7143,16 +8121,47 @@
     maryAnoint: {
       title: 'Mary Anoints Jesus\' Feet',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Mary breaks open expensive perfume' },
-        { src: 'panel-noah-2.svg', alt: 'She pours it on Jesus\' feet and wipes with her hair' },
-        { src: 'panel-noah-3.svg', alt: 'Jesus says: what she did will be remembered forever!' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Bethany supper — Martha serves; Lazarus at the table with Jesus'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Mary anoints Jesus\' feet with costly spikenard — wipes with her hair — house filled with the odour'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Judas murmurs about the poor — Jesus says, Let her alone — against the day of my burying hath she kept this'
+        }
       ],
-      caption: 'Swipe to see Mary\'s beautiful act of worship! 🌹',
+      caption: 'Swipe slowly — Jesus treasures Mary\'s loving gift and defends her gentle heart.',
       videoId: '',
       videoTitle: '',
-      keywords: ['mary', 'anoint', 'perfume', 'john 12', 'feet', 'worship', 'pour'],
+      keywords: [
+        'mary',
+        'bethany',
+        'lazarus',
+        'martha',
+        'spikenard',
+        'ointment',
+        'feet',
+        'hair',
+        'judas',
+        'let her alone',
+        'burying',
+        'john 12',
+        'passover',
+        'supper'
+      ],
       kjvRef: 'John 12:1–8',
-      kidContext: { who: 'Mary', to: 'Jesus', apply: 'Give Jesus your best—not just what\'s left! Extravagant love honors Him.' }
+      kidContext: {
+        who: 'Mary — and Jesus who receives her love',
+        to: 'Jesus — and everyone who wants to love Him with a whole heart',
+        apply:
+          'Jesus sees a loving heart and receives every gentle gift — we can give Him our best love, even on hard days.'
+      },
+      narration:
+        "Mary Anoints Jesus' Feet — John 12:1–8. Then Jesus six days before the passover came to Bethany, where Lazarus was which had been dead, whom he raised from the dead. There they made him a supper; and Martha served: but Lazarus was one of them that sat at the table with him. Then took Mary a pound of ointment of spikenard, very costly, and anointed the feet of Jesus, and wiped his feet with her hair: and the house was filled with the odour of the ointment. Then saith one of his disciples, Judas Iscariot, Simon's son, which should betray him, Why was not this ointment sold for three hundred pence, and given to the poor? This he said, not that he cared for the poor; but because he was a thief, and had the bag, and bare what was put therein. Then said Jesus, Let her alone: against the day of my burying hath she kept this. For the poor always ye have with you; but me ye have not always. For you: On hard days when you want to show Jesus how much you love Him, remember Mary. She gave Him her very best. Jesus sees your loving heart too, and He receives every gentle gift you bring Him. You can rest in His tender love."
     },
     /* ── Week 9 (109–120) ── */
     stephenStones: {
@@ -7693,18 +8702,47 @@
       kidContext: { who: 'God', to: 'Hannah', apply: 'God hears every prayer! Pour out your heart—He is listening and He cares.' }
     },
     maryMagdalene: {
-      title: 'Mary Magdalene at the Tomb',
+      title: 'Jesus Appears to Mary Magdalene',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Mary comes early, weeping at the empty tomb' },
-        { src: 'panel-noah-2.svg', alt: 'She sees Jesus—mistakes Him for the gardener' },
-        { src: 'panel-noah-3.svg', alt: 'Jesus says her name: Mary! She knows Him!' }
+        {
+          src: 'panel-mary-magdalene-1.svg',
+          alt: 'Mary weeps without the sepulchre — she looks in and seeth two angels in white at head and feet where Jesus had lain'
+        },
+        {
+          src: 'panel-mary-magdalene-2.svg',
+          alt: 'She turns back — Jesus stands — she supposeth Him the gardener — Woman, why weepest thou? whom seekest thou?'
+        },
+        {
+          src: 'panel-mary-magdalene-3.svg',
+          alt: 'Jesus saith, Mary — Rabboni, Master — Touch me not — go tell My brethren — Mary ran with joy to the disciples'
+        }
       ],
-      caption: 'Swipe to see the moment Jesus called Mary\'s name! 🌅',
+      caption: 'Swipe slowly — Jesus calls Mary by name; tender joy at the empty tomb.',
       videoId: '',
       videoTitle: '',
-      keywords: ['mary magdalene', 'tomb', 'john 20', 'risen', 'gardener', 'name', 'love'],
-      kjvRef: 'John 20:1–18',
-      kidContext: { who: 'Jesus', to: 'Mary Magdalene', apply: 'Jesus knows your name and calls you! He is always the first to find His own.' }
+      keywords: [
+        'Mary Magdalene',
+        'weeping',
+        'sepulchre',
+        'angels in white',
+        'gardener',
+        'Mary',
+        'Rabboni',
+        'Touch me not',
+        'ascend',
+        'my Father and your Father',
+        'John 20',
+        'Mark 16'
+      ],
+      kjvRef: 'John 20:11–18 (KJV) (par. Mark 16:9–11)',
+      kidContext: {
+        who: 'Jesus',
+        to: 'Every child who feels sad or misses someone dear',
+        apply:
+          'Jesus speaks our name with love — He turns tears toward joy and sends us with good news.'
+      },
+      narration:
+        "Jesus Appears to Mary Magdalene — John 20:11–18. But Mary stood without at the sepulchre weeping: and as she wept, she stooped down, and looked into the sepulchre, And seeth two angels in white sitting, the one at the head, and the other at the feet, where the body of Jesus had lain. And they say unto her, Woman, why weepest thou? She saith unto them, Because they have taken away my Lord, and I know not where they have laid him. And when she had thus said, she turned herself back, and saw Jesus standing, and knew not that it was Jesus. Jesus saith unto her, Woman, why weepest thou? whom seekest thou? She, supposing him to be the gardener, saith unto him, Sir, if thou have borne him hence, tell me where thou hast laid him, and I will take him away. Jesus saith unto her, Mary. She turned herself, and saith unto him, Rabboni; which is to say, Master. Jesus saith unto her, Touch me not; for I am not yet ascended to my Father: but go to my brethren, and say unto them, I ascend unto my Father, and your Father; and to my God, and your God. Mary Magdalene came and told the disciples that she had seen the Lord, and that he had spoken these things unto her. For you: On hard days when you feel sad or when you miss someone very much, remember Mary Magdalene at the tomb. Jesus called her name gently, and her sadness turned to joy. Jesus knows your name too, and He calls you with love. You can rest in His tender, strong care."
     },
     lydiaSell: {
       title: 'Lydia Opens Her Heart',
@@ -8086,35 +9124,48 @@
     lazarus: {
       title: 'Jesus Brings Lazarus Back to Life',
       panels: [
-        { src: 'panel-noah-1.svg', alt: 'Bethany — Lazarus and his sisters Mary and Martha; Lazarus becomes very sick' },
-        { src: 'panel-noah-2.svg', alt: 'Jesus meets Martha — I am the resurrection, and the life' },
-        { src: 'panel-noah-3.svg', alt: 'Jesus calls “Lazarus, come forth” — he walks out alive; many believe' }
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'Bethany — Mary and Martha send word: Lord, behold, he whom thou lovest is sick'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Martha meets Jesus — I am the resurrection, and the life — believest thou this?'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'Cave tomb — Lazarus, come forth — loose him, and let him go — many believed'
+        }
       ],
-      caption: 'Swipe to see Jesus call Lazarus out — the resurrection and the life. ✨',
+      caption: 'Swipe slowly — Jesus is the resurrection and the life; He calls Lazarus out with love.',
       videoId: '1FT04jjh3Q8',
       videoTitle: 'Jesus Raised Lazarus – God\'s Story!',
       keywords: [
         'lazarus',
         'bethany',
-        'raised',
+        'mary',
+        'martha',
+        'sick',
+        'sleepeth',
+        'four days',
+        'cave',
+        'stone',
         'come forth',
+        'graveclothes',
         'resurrection',
         'life',
         'john 11',
-        'mary',
-        'martha',
-        'tomb',
         'believe'
       ],
       kjvRef: 'John 11:1–44',
       kidContext: {
         who: 'Jesus',
-        to: 'Mary, Martha, Lazarus, and us',
+        to: 'Mary, Martha, Lazarus, and everyone who grieves or feels afraid',
         apply:
-          'Jesus has power over death and brings hope and life. Many who saw believed in Him — we can trust Him too.'
+          'Jesus is the resurrection and the life — He cares when we hurt, and nothing is too hard for Him.'
       },
       narration:
-        "Jesus Brings Lazarus Back to Life — John 11:1–44. Now a certain man was sick, named Lazarus, of Bethany, the town of Mary and her sister Martha. When Jesus heard that Lazarus was sick, He abode two days still in the same place where He was. Then said Jesus unto His disciples plainly, Lazarus is dead. When Jesus came, Lazarus had been in the grave four days. Then Martha, as soon as she heard that Jesus was coming, went and met Him. Martha saith unto Jesus, Lord, if thou hadst been here, my brother had not died. Jesus said unto her, I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live: And whosoever liveth and believeth in me shall never die. Believest thou this? When they came to the tomb where Lazarus was laid, Jesus cried with a loud voice, Lazarus, come forth. And he that was dead came forth, bound hand and foot with graveclothes: and his face was bound about with a napkin. Jesus saith unto them, Loose him, and let him go. Therefore many of the Jews which came to Mary, and had seen the things which Jesus did, believed on him. For you: Jesus has power over death and gives life — trust Him forever."
+        "Jesus Brings Lazarus Back to Life — John 11:1–44. Now a certain man was sick, named Lazarus, of Bethany, the town of Mary and her sister Martha. (It was that Mary which anointed the Lord with ointment, and wiped his feet with her hair, whose brother Lazarus was sick.) Therefore his sisters sent unto him, saying, Lord, behold, he whom thou lovest is sick. When Jesus heard that, he said, This sickness is not unto death, but for the glory of God, that the Son of God might be glorified thereby. Now Jesus loved Martha, and her sister, and Lazarus. When he had heard therefore that he was sick, he abode two days still in the same place where he was. Then after that saith he to his disciples, Let us go into Judaea again. His disciples say unto him, Master, the Jews of late sought to stone thee; and goest thou thither again? Jesus answered, Are there not twelve hours in the day? If any man walk in the day, he stumbleth not, because he seeth the light of this world. But if a man walk in the night, he stumbleth, because there is no light in him. These things said he: and after that he saith unto them, Our friend Lazarus sleepeth; but I go, that I may awake him out of sleep. Then said his disciples, Lord, if he sleep, he shall do well. Howbeit Jesus spake of his death: but they thought that he had spoken of taking of rest in sleep. Then said Jesus unto them plainly, Lazarus is dead. And I am glad for your sakes that I was not there, to the intent ye may believe; nevertheless let us go unto him. Then said Thomas, which is called Didymus, unto his fellowdisciples, Let us also go, that we may die with him. Then when Jesus came, he found that he had lain in the grave four days already. Now Bethany was nigh unto Jerusalem, about fifteen furlongs off: And many of the Jews came to Martha and Mary, to comfort them concerning their brother. Then Martha, as soon as she heard that Jesus was coming, went and met him: but Mary sat still in the house. Then said Martha unto Jesus, Lord, if thou hadst been here, my brother had not died. But I know, that even now, whatsoever thou wilt ask of God, God will give it thee. Jesus saith unto her, Thy brother shall rise again. Martha saith unto him, I know that he shall rise again in the resurrection at the last day. Jesus said unto her, I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live: And whosoever liveth and believeth in me shall never die. Believest thou this? She saith unto him, Yea, Lord: I believe that thou art the Christ, the Son of God, which should come into the world. And when she had so said, she went her way, and called Mary her sister secretly, saying, The Master is come, and calleth for thee. As soon as she heard that, she arose quickly, and came unto him. Now Jesus was not yet come into the town, but was in that place where Martha met him. The Jews then which were with her in the house, and comforted her, when they saw Mary, that she rose up hastily and went out, followed her, saying, She goeth unto the grave to weep there. Then when Mary was come where Jesus was, and saw him, she fell down at his feet, saying unto him, Lord, if thou hadst been here, my brother had not died. When Jesus therefore saw her weeping, and the Jews also weeping which came with her, he groaned in the spirit, and was troubled, And said, Where have ye laid him? They said unto him, Lord, come and see. Jesus wept. Then said the Jews, Behold how he loved him! And some of them said, Could not this man, which opened the eyes of the blind, have caused that even this man should not have died? Jesus therefore again groaning in himself cometh to the grave. It was a cave, and a stone lay upon it. Jesus said, Take ye away the stone. Martha, the sister of him that was dead, saith unto him, Lord, by this time he stinketh: for he hath been dead four days. Jesus saith unto her, Said I not unto thee, that, if thou wouldest believe, thou shouldest see the glory of God? Then they took away the stone from the place where the dead was laid. And Jesus lifted up his eyes, and said, Father, I thank thee that thou hast heard me. And I knew that thou hearest me always: but because of the people which stand by I said it, that they may believe that thou hast sent me. And when he thus had spoken, he cried with a loud voice, Lazarus, come forth. And he that was dead came forth, bound hand and foot with graveclothes: and his face was bound about with a napkin. Jesus saith unto them, Loose him, and let him go. For you: On the hardest days when someone you love is sick or when things feel too sad, remember Jesus is the resurrection and the life. He loves you and your family very much, and nothing is too hard for Him. You can rest in His strong, gentle love."
     },
     greatCommission: {
       title: 'The Great Commission',
@@ -8470,11 +9521,11 @@
     var storyKeys = [
       'david', 'noah', 'jesus', 'jonah', 'daniel', 'adamEve', 'cainAbel', 'towerBabel',
       'abrahamIsaac', 'josephCoat', 'josephSold', 'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush', 'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'joshuaAi', 'achan', 'battleOfAi',
-      'samson', 'fieryFurnace', 'esther', 'jesusBirth', 'jesusCalmsStorm', 'jesusFeeds5000',
+      'samson', 'fieryFurnace', 'esther', 'jesusBirth', 'jesusCalmsStorm', 'jesusFeeds5000', 'jesusFeeds4000',
       'goodSamaritan', 'prodigalSon', 'zacchaeus', 'lazarus', 'resurrection', 'creation',
       'fallOfJericho', 'davidSheep', 'elijahFire', 'elishaOil', 'naamanHealed', 'jesusWalksWater',
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
-      'richYoungRuler', 'widowsMite', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
+      'richYoungRuler', 'widowsMite', 'gardenPrayer', 'jesusArrest', 'trialBeforeCaiaphas', 'peterDenial', 'betrayal', 'trial', 'crossCarry', 'crucifixion',
       'roadToEmmaus', 'ascension', 'pentecost', 'stephen', 'paulDamascus', 'heavenPromise',
       'ruthBoaz', 'ruthThreshing', 'ruthRedemption', 'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidJonathan', 'davidCave', 'davidAbigail', 'abigailWise', 'psalm23', 'psalm23Shepherd', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'parableTalents', 'armorOfGod',
       /* Week 1 */
@@ -8501,14 +9552,14 @@
       'jonahVine', 'danielPray', 'estherBanquet',
       /* Week 5 */
       'angelMary', 'shepherdsStar', 'wiseMen', 'simeonAnna', 'jesusManger', 'jesusTemple', 'johnBaptist', 'johnBaptize',
-      'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusSermon', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
+      'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusSermon', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'jesusFeeds4000', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
       'bethesda', 'manBornBlind', 'jesusBlessKids',
       /* Week 6 */
-      'jesusFeeds5000', 'jesusWalksWater',
-      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
+      'jesusFeeds5000', 'jesusFeeds4000', 'jesusWalksWater',
+      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parableNet', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWickedHusbandmen', 'parableWeddingFeast', 'tributeToCaesar', 'sadduceesResurrection', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
       'mustardSeed', 'tenLepers', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
-      'triumphalEntry', 'jesusLastSupper', 'jesusGardenGethsemane', 'crossCarry', 'jesusCrucifixion',
+      'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'jesusLastSupper', 'jesusGardenGethsemane', 'jesusArrest', 'trialBeforeCaiaphas', 'peterDenial', 'trial', 'crossCarry', 'jesusCrucifixion', 'crucifixion',
       'tombEmpty', 'jesusResurrection', 'emmausRoad', 'thomasDoubt',
       'pentecost', 'holySpiritPentecost', 'peterPentecostSermon', 'earlyChurchLife', 'peterHealsLame', 'peterJailBreak', 'paulConversion', 'paulBarnabas', 'paulFirstJourney', 'councilJerusalem', 'paulSecondJourney', 'actsPaulMarsHill', 'paulThirdJourney', 'paulEphesus', 'actsApollosPriscilla', 'paulEutychus', 'pentecostFire', 'peterShadow', 'paulShipwreck', 'paulRome', 'actsPaulBeforeAgrippa', 'actsPaulMelita', 'paulLetters', 'paulPrisonEpistles', 'paulEndurance', 'paulTimothy', 'paulTitus', 'paulPhilemon', 'romansRoadKids', 'corinthiansOneBody', 'philippiansJoy', 'colossiansChristSupreme', 'thessaloniansHope', 'timothyYouthExample', 'hebrewsFaith', 'jamesFaithWorks', 'peterFirstLetter', 'peterSecondLetter', 'johnFirstLetter', 'judeWarning', 'revelationLetters', 'revelationSeals', 'revelationTrumpets', 'revelationBeasts', 'revelationThousandYears', 'revelationNewJerusalem', 'revelationWomanDragon', 'revelationSongsAndHarvest', 'revelationSupperAndKing', 'revelationBabylonFall', 'johnSecondThirdLetters', 'paulSilas', 'tenVirgins',
       /* Week 8 */
@@ -8524,7 +9575,7 @@
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
-      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'parableLostSheep', 'prodigalSon', 'maryMartha',
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'jesusFeeds4000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parableNet', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWickedHusbandmen', 'parableWeddingFeast', 'tributeToCaesar', 'sadduceesResurrection', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableLostSheep', 'prodigalSon', 'maryMartha',
       'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */
@@ -8792,6 +9843,9 @@
     if (/calm.*storm|storm.*calm|boat|waves|matthew 14:27|mark 4/.test(low)) {
       return { type: 'carousel', story: 'jesusCalmsStorm' };
     }
+    if (/feeds 4000|4000|four thousand|seven baskets|seven loaves|mark 8:8|mark 8:9|matthew 15:38/.test(low)) {
+      return { type: 'carousel', story: 'jesusFeeds4000' };
+    }
     if (/feeds 5000|5000|five thousand|loaves|fish.*bread|matthew 14:19|john 6/.test(low)) {
       return { type: 'carousel', story: 'jesusFeeds5000' };
     }
@@ -8807,8 +9861,16 @@
     if (/lazarus|come out|john 11|raised.*dead/.test(low)) {
       return { type: 'carousel', story: 'lazarus' };
     }
-    if (/resurrection|empty tomb|risen|easter|matthew 28|john 20/.test(low)) {
-      return { type: 'carousel', story: 'resurrection' };
+    if (
+      /tombempty|empty tomb|sepulchr|he is not here|he is risen|rolled.*stone|angel.*stone|mary magdalene.*sepulchre|first day of the week.*mary|\bmatthew 28\b|matthew 28:(?:10|[1-9])\b|mark 16:[1-8]\b|luke 24:(?:1[0-2]|[1-9])\b|john 20:(?:1[0-7]|[1-9])\b|easter/i.test(
+        low
+      ) &&
+      !/matthew 28:1[89]|matthew 28:20|great commission|go ye therefore|teach all nations|all power is given/i.test(low)
+    ) {
+      return { type: 'carousel', story: 'tombEmpty' };
+    }
+    if (/resurrection|risen|john 20|matthew 28/.test(low)) {
+      return { type: 'carousel', story: 'jesusResurrection' };
     }
     if (/creation|genesis 1|let there be light|god made/.test(low)) {
       return { type: 'carousel', story: 'creation' };
@@ -9026,6 +10088,27 @@
     ) {
       return { type: 'carousel', story: 'triumphalEntry' };
     }
+    if (
+      /luke 19:41|luke 19:42|luke 19:43|luke 19:44|wept over it|wept over jerusalem|beheld the city.*wept|things which belong unto thy peace|hid from thine eyes|time of thy visitation/i.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'jesusWeepsJerusalem' };
+    }
+    if (
+      /\bmatthew 21:18\b|\bmatthew 21:19\b|\bmatthew 21:20\b|\bmatthew 21:21\b|\bmatthew 21:22\b|fig tree in the way|nothing thereon, but leaves only|let no fruit grow on thee|how soon is the fig tree|the fig tree withered|ask in prayer, believing|whatsoever ye shall ask in prayer/i.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'figTree' };
+    }
+    if (
+      /\bmatthew 21:23\b|\bmatthew 21:24\b|\bmatthew 21:25\b|\bmatthew 21:26\b|\bmatthew 21:27\b|by what authority doest thou these things|who gave thee this authority|baptism of john, whence|from heaven, or of men|we cannot tell|neither tell i you by what authority/i.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'jesusAuthority' };
+    }
     if (/palm sunday|hosanna|donkey.*jerusalem|matthew 21:9|luke 19:38/.test(low)) {
       return { type: 'carousel', story: 'palmSunday' };
     }
@@ -9040,6 +10123,13 @@
     }
     if (/rich young ruler|mark 10:17|matthew 19:16|sell.*possessions/.test(low)) {
       return { type: 'carousel', story: 'richYoungRuler' };
+    }
+    if (
+      /\bmatthew 21:3[3-9]\b|\bmatthew 21:4[0-6]\b|wicked husbandmen|let it out to husbandmen|hedged it round about.*vineyard|digged a winepress|built a tower.*vineyard|reverence my son|this is the heir|seize on his inheritance|cast him out of the vineyard|stone which the builders rejected|head of the corner|kingdom of god shall be taken from you|nation bringing forth the fruits|heard another parable.*vineyard|householder.*planted a vineyard.*husbandmen/i.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'parableWickedHusbandmen' };
     }
     if (
       /workers in the vineyard|vineyard workers|matthew 20:1|labourers.*vineyard|householder.*vineyard|eleventh hour.*penny|parable.*vineyard/i.test(
@@ -9061,6 +10151,20 @@
       )
     ) {
       return { type: 'carousel', story: 'parableWeddingFeast' };
+    }
+    if (
+      /\bmatthew 22:1[5-9]\b|\bmatthew 22:20\b|\bmatthew 22:21\b|\bmatthew 22:22\b|tribute unto caesar|tribute to caesar|render.*caesar|render therefore unto caesar|herodians|shew me the tribute|show me the tribute|whose is this image|superscription|penny.*caesar|things which are caesar|things which are god's|is it lawful to give tribute/i.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'tributeToCaesar' };
+    }
+    if (
+      /\bmatthew 22:2[3-9]\b|\bmatthew 22:30\b|\bmatthew 22:31\b|\bmatthew 22:32\b|\bmatthew 22:33\b|sadducees|there is no resurrection|seven brethren|whose wife shall she be|in the resurrection they neither marry|as the angels|god of abraham.*god of isaac|god is not the god of the dead|ye do err, not knowing the scriptures|not knowing the scriptures, nor the power of god/i.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'sadduceesResurrection' };
     }
     if (
       /great commandment|first and great commandment|love the lord thy god with all thy heart|love thy neighbour as thyself|on these two commandments hang|matthew 22:35|matthew 22:36|matthew 22:37|matthew 22:38|matthew 22:39|matthew 22:40|which is the great commandment|lawyer.*tempting.*master/i.test(
@@ -9097,16 +10201,52 @@
     ) {
       return { type: 'carousel', story: 'jesusCleansesTemple' };
     }
+    if (
+      /matthew 26:4[7-9]|matthew 26:5[0-6]|put up again thy sword|twelve legions of angels|friend,? wherefore art thou come|laid hands on jesus|servant of the high priest|scriptures of the prophets might be fulfilled|all the disciples forsook|john 18:1|john 18:10|jesus arrested|arrest.*garden|gethsemane.*arrest/i.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'jesusArrest' };
+    }
+    if (
+      /caiaphas|trialbeforecaiaphas|before caiaphas|matthew 26:5[7-9]|matthew 26:6[0-8]|false witness against jesus|destroy the temple.*three days|i adjure thee by the living god|whether thou be the christ|thou hast said.*son of man|right hand of power|coming in the clouds of heaven|rent his clothes|spoken blasphemy|guilty of death|prophesy unto us.*thou christ|who is he that smote|peter followed.*afar off.*palace/i.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'trialBeforeCaiaphas' };
+    }
+    if (
+      /peterdenial|peter denies|deny me thrice|denied before them|cock crew|cock crow|before the cock crow|wept bitterly|thy speech bewrayeth|wast with jesus of galilee|this fellow was also with jesus of nazareth|another maid|gone out into the porch|matthew 26:69|matthew 26:7[0-5]/i.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'peterDenial' };
+    }
     if (/gethsemane|garden.*prayer|matthew 26:36|mark 14:32/.test(low)) {
       return { type: 'carousel', story: 'gardenPrayer' };
     }
     if (/judas|betrayal|kiss.*betray|matthew 26:48/.test(low)) {
       return { type: 'carousel', story: 'betrayal' };
     }
-    if (/pilate|trial|john 18:28|matthew 27:11/.test(low)) {
+    if (
+      /pilate|john 18:28|matthew 27:11|matthew 27:1[1-9]|matthew 27:2[0-6]|barabbas|washed his hands|jesus before pilate|king of the jews.*governor|release.*barabbas|jesus which is called christ/i.test(
+        low
+      )
+    ) {
       return { type: 'carousel', story: 'trial' };
     }
-    if (/crucifixion|cross|calvary|matthew 27:33|john 19:17/.test(low)) {
+    if (
+      /crosscarry|simon of cyrene|simon.*cyrene|cyrene|bear his cross|compelled to bear|led him away to crucify|daughters of jerusalem|weep not for me|matthew 27:3[1-2]|mark 15:2[0-1]|luke 23:2[6-8]|john 19:17/.test(
+        low
+      )
+    ) {
+      return { type: 'carousel', story: 'crossCarry' };
+    }
+    if (
+      /crucifixion|calvary|golgotha|place of a skull|matthew 27:3[3-9]|matthew 27:4|matthew 27:5|john 19:18|john 19:30|it is finished|lama sabachthani|eli,? eli|why hast thou forsaken|veil.*temple|rent in twain|centurion.*son of god|father,? forgive them|darkness.*sixth|sixth hour.*ninth/i.test(
+        low
+      )
+    ) {
       return { type: 'carousel', story: 'crucifixion' };
     }
     if (/emmaus|luke 24:13|road.*walk|cleopas/.test(low)) {
@@ -11670,11 +12810,11 @@
     david: 'Protection', noah: 'Obedience', jesus: 'Love', jonah: 'Obedience', daniel: 'Miracles',
     adamEve: 'Protection', cainAbel: 'Obedience', towerBabel: 'Obedience', abrahamIsaac: 'Obedience', josephCoat: 'Protection', josephSold: 'Protection',
     mosesBush: 'Protection', redSea: 'Miracles', manna: 'Miracles', tenCommandments: 'Obedience', goldenCalf: 'Obedience', bronzeSerpent: 'Miracles', tabernacle: 'Love', spiesInCanaan: 'Obedience', jordanCrossing: 'Miracles', battleOfAi: 'Obedience', balaakCurse: 'Obedience', balaamDonkey: 'Obedience', balaamBlessing: 'Miracles', samson: 'Protection',
-    fieryFurnace: 'Miracles', esther: 'Protection', jesusBirth: 'Love', jesusCalmsStorm: 'Miracles', jesusFeeds5000: 'Miracles',
+    fieryFurnace: 'Miracles', esther: 'Protection', jesusBirth: 'Love', jesusCalmsStorm: 'Miracles', jesusFeeds5000: 'Miracles', jesusFeeds4000: 'Miracles',
     goodSamaritan: 'Love', prodigalSon: 'Love', zacchaeus: 'Love', lazarus: 'Miracles', resurrection: 'Miracles',
     creation: 'Obedience', fallOfJericho: 'Obedience', davidSheep: 'Love', elijahFire: 'Miracles', elishaOil: 'Miracles',
     naamanHealed: 'Obedience', jesusWalksWater: 'Miracles', lostSheep: 'Love', lostCoin: 'Love', palmSunday: 'Protection', lastSupper: 'Love',
-    jesusTemptation: 'Obedience', parableSower: 'Protection', parableHiddenTreasure: 'Love', parablePearl: 'Love', parableLostSheep: 'Love', parableVineyardWorkers: 'Love', parableTwoSons: 'Obedience', parableWeddingFeast: 'Love', parableTalents: 'Obedience', tenVirgins: 'Obedience', sheepAndGoats: 'Love', jesusCleansesTemple: 'Obedience', greatestCommandment: 'Love', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
+    jesusTemptation: 'Obedience', parableSower: 'Protection', parableHiddenTreasure: 'Love', parableNet: 'Love', parablePearl: 'Love', parableLostSheep: 'Love', parableVineyardWorkers: 'Love', parableTwoSons: 'Obedience', parableWeddingFeast: 'Love', parableTalents: 'Obedience', tenVirgins: 'Obedience', sheepAndGoats: 'Love', jesusCleansesTemple: 'Obedience', greatestCommandment: 'Love', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
     betrayal: 'Protection', trial: 'Protection', crucifixion: 'Love', roadToEmmaus: 'Love', ascension: 'Protection',
     pentecost: 'Miracles', stephen: 'Protection', paulDamascus: 'Protection', heavenPromise: 'Protection',
     ruthBoaz: 'Love', ruthThreshing: 'Love', ruthRedemption: 'Love', armorOfGod: 'Obedience',
@@ -11733,7 +12873,18 @@
     tenLepers: 'Miracles', healLeper: 'Miracles', jairus: 'Miracles',
     transfigure: 'Miracles', judasKiss: 'Love',
     /* Week 7 */
-    triumphalEntry: 'Protection', jesusLastSupper: 'Love', jesusGardenGethsemane: 'Protection',
+    triumphalEntry: 'Protection',
+    jesusWeepsJerusalem: 'Love',
+    figTree: 'Obedience',
+    jesusAuthority: 'Obedience',
+    parableWickedHusbandmen: 'Obedience',
+    tributeToCaesar: 'Obedience',
+    sadduceesResurrection: 'Obedience',
+    jesusLastSupper: 'Love',
+    jesusGardenGethsemane: 'Protection',
+    jesusArrest: 'Protection',
+    trialBeforeCaiaphas: 'Protection',
+    peterDenial: 'Love',
     crossCarry: 'Love', jesusCrucifixion: 'Love', tombEmpty: 'Miracles', jesusResurrection: 'Miracles', emmausRoad: 'Love', thomasDoubt: 'Obedience',
     pentecost: 'Miracles',
     holySpiritPentecost: 'Miracles',

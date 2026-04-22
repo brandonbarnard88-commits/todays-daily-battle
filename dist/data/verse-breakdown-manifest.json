@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-21T18:54:52.936Z",
-  "surfacedRefCount": 2831,
-  "overrideCount": 2831,
+  "generatedAt": "2026-04-22T02:18:01.654Z",
+  "surfacedRefCount": 2861,
+  "overrideCount": 2861,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 212,
+      "refs": 239,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -248,7 +248,7 @@
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 197,
+      "refs": 212,
       "pairs": 0
     },
     "kids/kids-verses-365.js": {
@@ -272,7 +272,7 @@
       "pairs": 0
     },
     "loops.json": {
-      "refs": 215,
+      "refs": 229,
       "pairs": 0
     },
     "memorize.html": {
@@ -324,7 +324,7 @@
       "pairs": 0
     },
     "mystudy.js": {
-      "refs": 4,
+      "refs": 1,
       "pairs": 0
     },
     "next-app/.next/dev/server/chunks/ssr/_0.u0agw._.js": {
@@ -2131,6 +2131,7 @@
     "John 12:12-19",
     "John 12:22",
     "John 12:3",
+    "John 12:3-7",
     "John 12:9",
     "John 13:1-2",
     "John 13:14",
@@ -2160,13 +2161,16 @@
     "John 16:33",
     "John 17:17",
     "John 17:18",
+    "John 18:1-11",
     "John 18:13",
     "John 18:14",
+    "John 18:15-18",
     "John 18:28-19:16",
     "John 18:38",
     "John 18:39",
     "John 18:40",
-    "John 19:18",
+    "John 19:16-17",
+    "John 19:18-37",
     "John 19:19",
     "John 19:25",
     "John 19:26",
@@ -2195,13 +2199,13 @@
     "John 20:1",
     "John 20:1-18",
     "John 20:11-18",
-    "John 20:16",
+    "John 20:16-18",
     "John 20:18",
     "John 20:19",
     "John 20:2",
     "John 20:24-29",
     "John 20:25",
-    "John 20:27",
+    "John 20:26-29",
     "John 20:28",
     "John 20:29",
     "John 20:31",
@@ -2440,6 +2444,7 @@
     "Luke 19:28-44",
     "Luke 19:4",
     "Luke 19:41",
+    "Luke 19:41-44",
     "Luke 19:43",
     "Luke 19:5",
     "Luke 19:6",
@@ -2470,13 +2475,15 @@
     "Luke 22:20",
     "Luke 22:32",
     "Luke 22:39-46",
-    "Luke 22:44",
-    "Luke 22:66-23:25",
-    "Luke 22:7-20",
+    "Luke 22:47-53",
+    "Luke 22:54-62",
     "Luke 22:7-23",
+    "Luke 23:1-25",
     "Luke 23:11",
     "Luke 23:16",
     "Luke 23:26",
+    "Luke 23:26-32",
+    "Luke 23:33-49",
     "Luke 23:34",
     "Luke 23:40",
     "Luke 23:40-41",
@@ -2585,11 +2592,17 @@
     "Mark 12:43",
     "Mark 12:43-44",
     "Mark 12:44",
+    "Mark 14:10-11",
     "Mark 14:12-26",
     "Mark 14:32-42",
     "Mark 14:36",
+    "Mark 14:43-52",
     "Mark 14:53-65",
+    "Mark 14:66-72",
+    "Mark 15:1-15",
+    "Mark 15:20-21",
     "Mark 15:21",
+    "Mark 15:22-41",
     "Mark 15:37",
     "Mark 15:40",
     "Mark 15:43",
@@ -2598,6 +2611,7 @@
     "Mark 16:15-18",
     "Mark 16:4",
     "Mark 16:9",
+    "Mark 16:9-11",
     "Mark 1:1",
     "Mark 1:10",
     "Mark 1:14",
@@ -2640,6 +2654,7 @@
     "Mark 7:19",
     "Mark 7:24",
     "Mark 7:26",
+    "Mark 8:1-9",
     "Mark 8:3",
     "Mark 8:34",
     "Mark 8:9",
@@ -2687,6 +2702,7 @@
     "Matthew 13:45-46",
     "Matthew 13:46",
     "Matthew 13:47",
+    "Matthew 13:47-50",
     "Matthew 13:5",
     "Matthew 13:7",
     "Matthew 13:9",
@@ -2764,18 +2780,24 @@
     "Matthew 20:26",
     "Matthew 21:1-11",
     "Matthew 21:10",
+    "Matthew 21:18-22",
     "Matthew 21:22",
+    "Matthew 21:23-27",
     "Matthew 21:28-32",
     "Matthew 21:31",
+    "Matthew 21:33-46",
     "Matthew 21:7",
     "Matthew 21:8",
     "Matthew 21:9",
     "Matthew 22:1-14",
+    "Matthew 22:15-22",
+    "Matthew 22:23-33",
     "Matthew 22:29",
     "Matthew 22:35-40",
     "Matthew 22:37-39",
     "Matthew 22:4",
     "Matthew 22:46",
+    "Matthew 23:37",
     "Matthew 24:28",
     "Matthew 24:6",
     "Matthew 25:1-13",
@@ -2796,12 +2818,18 @@
     "Matthew 26:36-46",
     "Matthew 26:39",
     "Matthew 26:41",
+    "Matthew 26:47-56",
     "Matthew 26:48",
-    "Matthew 26:49",
+    "Matthew 26:50",
     "Matthew 26:57",
     "Matthew 26:57-68",
+    "Matthew 26:63",
+    "Matthew 26:69-75",
     "Matthew 26:73",
     "Matthew 26:74",
+    "Matthew 26:75",
+    "Matthew 27:11",
+    "Matthew 27:11-26",
     "Matthew 27:16",
     "Matthew 27:2",
     "Matthew 27:21",
@@ -2809,7 +2837,9 @@
     "Matthew 27:24",
     "Matthew 27:26",
     "Matthew 27:3",
+    "Matthew 27:31-32",
     "Matthew 27:32",
+    "Matthew 27:33-56",
     "Matthew 27:35",
     "Matthew 27:46",
     "Matthew 27:5",
@@ -14666,6 +14696,14 @@
         "to": "Believers"
       }
     },
+    "John 12:3-7": {
+      "general": {
+        "plainExplanation": "Key idea: Then took Mary a pound of ointment of spikenard, very costly, and anointed the feet of Jesus, and wiped his feet with her hair: and the house was filled wit...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "John 12:9": {
       "general": {
         "plainExplanation": "Much people of the Jews therefore knew that he was there: and they came not for Jesus’ sake only, but that they might see Lazarus also, whom he had raised from the dead.",
@@ -14898,6 +14936,14 @@
         "to": "Believers"
       }
     },
+    "John 18:1-11": {
+      "general": {
+        "plainExplanation": "Key idea: When Jesus had spoken these words, he went forth with his disciples over the brook Cedron, where was a garden, into the which he entered, and his disciples....",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "John 18:13": {
       "general": {
         "plainExplanation": "And led him away to Annas first; for he was father in law to Caiaphas, which was the high priest that same year.",
@@ -14909,6 +14955,14 @@
     "John 18:14": {
       "general": {
         "plainExplanation": "Now Caiaphas was he, which gave counsel to the Jews, that it was expedient that one man should die for the people.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "John 18:15-18": {
+      "general": {
+        "plainExplanation": "Key idea: And Simon Peter followed Jesus, and so did another disciple: that disciple was known to the high priest, and went in with Jesus into the palace of the high...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -14946,9 +15000,17 @@
         "to": "Believers"
       }
     },
-    "John 19:18": {
+    "John 19:16-17": {
       "general": {
-        "plainExplanation": "Where they crucified him, and two other with him, on either side one, and Jesus in the midst.",
+        "plainExplanation": "Key idea: Then delivered he him therefore to them to be crucified. And they took Jesus, and led him away. And he bearing his cross went forth into a place called the...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "John 19:18-37": {
+      "general": {
+        "plainExplanation": "Key idea: Where they crucified him, and two other with him, on either side one, and Jesus in the midst. And Pilate wrote a title, and put it on the cross. And the wri...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -15178,9 +15240,9 @@
         "to": "Believers"
       }
     },
-    "John 20:16": {
+    "John 20:16-18": {
       "general": {
-        "plainExplanation": "Jesus says to her, Mary. She turned herself, and says to him, Rabboni; which is to say, Master.",
+        "plainExplanation": "Key idea: Jesus says to her, Mary. She turned herself, and says to him, Rabboni; which is to say, Master. Jesus says to her, Touch me not; for I am not yet ascended t...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -15226,10 +15288,10 @@
         "to": "Believers"
       }
     },
-    "John 20:27": {
+    "John 20:26-29": {
       "general": {
-        "plainExplanation": "Then says he to Thomas, Reach hither your finger, and look my hands; and reach hither your hand, and thrust it into my side: and be not faithless, but believing.",
-        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "plainExplanation": "Key idea: And after eight days again his disciples were within, and Thomas with them: then came Jesus, the doors being shut, and stood in the midst, and said, Peace b...",
+        "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
         "about": "Jesus",
         "to": "Believers"
       }
@@ -17138,6 +17200,14 @@
         "to": "Believers"
       }
     },
+    "Luke 19:41-44": {
+      "general": {
+        "plainExplanation": "Key idea: And when he was come near, he beheld the city, and wept over it, Saying, If you hadst known, even you, at least in this your day, the things which belong to...",
+        "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Luke 19:43": {
       "general": {
         "plainExplanation": "For the days shall come upon you, that thine enemies shall cast a trench about you, and compass you round, and keep you in on every side,",
@@ -17378,25 +17448,17 @@
         "to": "Believers"
       }
     },
-    "Luke 22:44": {
+    "Luke 22:47-53": {
       "general": {
-        "plainExplanation": "And being in an agony he prayed more earnestly: and his sweat was as it were great drops of blood falling down to the ground.",
-        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
-        "about": "Jesus",
-        "to": "Believers"
-      }
-    },
-    "Luke 22:66-23:25": {
-      "general": {
-        "plainExplanation": "Key idea: And as soon as it was day, the elders of the people and the chief priests and the scribes came together, and led him into their council, saying, Art you the...",
+        "plainExplanation": "Key idea: And while he yet spake, look a multitude, and he that was called Judas, one of the twelve, went before them, and drew near to Jesus to kiss him. But Jesus s...",
         "modernApplication": "This verse reminds you that God gives strength that does not start with your own reserves.",
         "about": "Jesus",
         "to": "Believers"
       }
     },
-    "Luke 22:7-20": {
+    "Luke 22:54-62": {
       "general": {
-        "plainExplanation": "Key idea: Then came the day of unleavened bread, when the passover must be killed. And he sent Peter and John, saying, Go and prepare us the passover, that we may eat...",
+        "plainExplanation": "Key idea: Then took they him, and led him, and brought him into the high priest’s house. And Peter followed afar off. And when they had kindled a fire in the midst of...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -17405,6 +17467,14 @@
     "Luke 22:7-23": {
       "general": {
         "plainExplanation": "Key idea: Then came the day of unleavened bread, when the passover must be killed. And he sent Peter and John, saying, Go and prepare us the passover, that we may eat...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Luke 23:1-25": {
+      "general": {
+        "plainExplanation": "Key idea: And the whole multitude of them arose, and led him to Pilate. And they began to accuse him, saying, We found this fellow perverting the nation, and forbiddi...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -17430,6 +17500,22 @@
       "general": {
         "plainExplanation": "And as they led him away, they laid hold upon one Simon, a Cyrenian, coming out of the country, and on him they laid the cross, that he might bear it after Jesus.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Luke 23:26-32": {
+      "general": {
+        "plainExplanation": "Key idea: And as they led him away, they laid hold upon one Simon, a Cyrenian, coming out of the country, and on him they laid the cross, that he might bear it after...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Luke 23:33-49": {
+      "general": {
+        "plainExplanation": "Key idea: And when they were come to the place, which is called Calvary, there they crucified him, and the malefactors, one on the right hand, and the other on the le...",
+        "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
         "about": "Jesus",
         "to": "Believers"
       }
@@ -18298,6 +18384,14 @@
         "to": "Believers"
       }
     },
+    "Mark 14:10-11": {
+      "general": {
+        "plainExplanation": "Key idea: And Judas Iscariot, one of the twelve, went to the chief priests, to betray him to them. And when they heard it, they were glad, and promised to give him mo...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Mark 14:12-26": {
       "general": {
         "plainExplanation": "Key idea: And the first day of unleavened bread, when they killed the passover, his disciples said to him, Where wilt you that we go and prepare that you mayest eat t...",
@@ -18322,6 +18416,14 @@
         "to": "Believers"
       }
     },
+    "Mark 14:43-52": {
+      "general": {
+        "plainExplanation": "Key idea: And immediately, while he yet spake, cometh Judas, one of the twelve, and with him a great multitude with swords and staves, from the chief priests and the...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Mark 14:53-65": {
       "general": {
         "plainExplanation": "Key idea: And they led Jesus away to the high priest: and with him were assembled all the chief priests and the elders and the scribes. And Peter followed him afar of...",
@@ -18330,9 +18432,41 @@
         "to": "Believers"
       }
     },
+    "Mark 14:66-72": {
+      "general": {
+        "plainExplanation": "Key idea: And as Peter was beneath in the palace, there cometh one of the maids of the high priest: And when she saw Peter warming himself, she looked upon him, and s...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Mark 15:1-15": {
+      "general": {
+        "plainExplanation": "Key idea: And straightway in the morning the chief priests held a consultation with the elders and scribes and the whole council, and bound Jesus, and carried him awa...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Mark 15:20-21": {
+      "general": {
+        "plainExplanation": "Key idea: And when they had mocked him, they took off the purple from him, and put his own clothes on him, and led him out to crucify him. And they compel one Simon a...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Mark 15:21": {
       "general": {
         "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Mark 15:22-41": {
+      "general": {
+        "plainExplanation": "Key idea: And they bring him to the place Golgotha, which is, being interpreted, The place of a skull. And they gave him to drink wine mingled with myrrh: but he rece...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -18397,6 +18531,14 @@
     "Mark 16:9": {
       "general": {
         "plainExplanation": "Now when Jesus was risen early the first day of the week, he appeared first to Mary Magdalene, out of whom he had cast seven devils.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Mark 16:9-11": {
+      "general": {
+        "plainExplanation": "Key idea: Now when Jesus was risen early the first day of the week, he appeared first to Mary Magdalene, out of whom he had cast seven devils. And she went and told t...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -18733,6 +18875,14 @@
     "Mark 7:26": {
       "general": {
         "plainExplanation": "The woman was a Greek, a Syrophenician by nation; and she besought him that he would cast forth the devil out of her daughter.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Mark 8:1-9": {
+      "general": {
+        "plainExplanation": "Key idea: In those days the multitude being very great, and having nothing to eat, Jesus called his disciples to him, and says to them, I have compassion on the multi...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -19109,6 +19259,14 @@
     "Matthew 13:47": {
       "general": {
         "plainExplanation": "Again, the kingdom of heaven is like to a net, that was cast into the sea, and gathered of every kind:",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 13:47-50": {
+      "general": {
+        "plainExplanation": "Key idea: Again, the kingdom of heaven is like to a net, that was cast into the sea, and gathered of every kind: Which, when it was full, they drew to shore, and sat...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -19730,10 +19888,26 @@
         "to": "Believers"
       }
     },
+    "Matthew 21:18-22": {
+      "general": {
+        "plainExplanation": "Key idea: Now in the morning as he returned into the city, he hungered. And when he saw a fig tree in the way, he came to it, and found nothing thereon, but leaves on...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Matthew 21:22": {
       "general": {
         "plainExplanation": "All things, whatever you shall ask in prayer, believing, you shall receive.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 21:23-27": {
+      "general": {
+        "plainExplanation": "Key idea: And when he was come into the temple, the chief priests and the elders of the people came to him as he was teaching, and said, By what authority doest you t...",
+        "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
         "about": "Jesus",
         "to": "Believers"
       }
@@ -19749,6 +19923,14 @@
     "Matthew 21:31": {
       "general": {
         "plainExplanation": "Key idea: Whether of them twain did the will of his father? They say to him, The first. Jesus says to them, truly I say to you, That the publicans and the harlots go...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 21:33-46": {
+      "general": {
+        "plainExplanation": "Key idea: Hear another parable: There was a certain householder, which planted a vineyard, and hedged it round about, and digged a winepress in it, and built a tower,...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -19782,6 +19964,22 @@
       "general": {
         "plainExplanation": "Key idea: And Jesus answered and spake to them again by parables, and said, The kingdom of heaven is like to a certain king, which made a marriage for his son, And se...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 22:15-22": {
+      "general": {
+        "plainExplanation": "Key idea: Then went the Pharisees, and took counsel how they might entangle him in his talk. And they sent out to him their disciples with the Herodians, saying, Mast...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 22:23-33": {
+      "general": {
+        "plainExplanation": "Key idea: The same day came to him the Sadducees, which say that there is no resurrection, and asked him, Saying, Master, Moses said, If a man die, having no children...",
+        "modernApplication": "This verse reminds you that God gives strength that does not start with your own reserves.",
         "about": "Jesus",
         "to": "Believers"
       }
@@ -19821,6 +20019,14 @@
     "Matthew 22:46": {
       "general": {
         "plainExplanation": "And no man was able to answer him a word, neither durst any man from that day forth ask him any more questions.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 23:37": {
+      "general": {
+        "plainExplanation": "Key idea: O Jerusalem, Jerusalem, you that killest the prophets, and stonest them which are sent to you, how often would I have gathered your children together, even...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -19986,6 +20192,14 @@
         "to": "Believers"
       }
     },
+    "Matthew 26:47-56": {
+      "general": {
+        "plainExplanation": "Key idea: And while he yet spake, lo, Judas, one of the twelve, came, and with him a great multitude with swords and staves, from the chief priests and elders of the...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Matthew 26:48": {
       "general": {
         "plainExplanation": "Now he that betrayed him gave them a sign, saying, Whomsoever I shall kiss, that same is he: hold him fast.",
@@ -19994,9 +20208,9 @@
         "to": "Believers"
       }
     },
-    "Matthew 26:49": {
+    "Matthew 26:50": {
       "general": {
-        "plainExplanation": "And forthwith he came to Jesus, and said, Hail, master; and kissed him.",
+        "plainExplanation": "And Jesus said to him, Friend, wherefore art you come? Then came they, and laid hands on Jesus, and took him.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -20018,6 +20232,22 @@
         "to": "Believers"
       }
     },
+    "Matthew 26:63": {
+      "general": {
+        "plainExplanation": "But Jesus held his peace. And the high priest answered and said to him, I adjure you by the living God, that you tell us whether you be the Christ, the Son of God.",
+        "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 26:69-75": {
+      "general": {
+        "plainExplanation": "Key idea: Now Peter sat without in the palace: and a damsel came to him, saying, you also wast with Jesus of Galilee. But he denied before them all, saying, I know no...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Matthew 26:73": {
       "general": {
         "plainExplanation": "And after a while came to him they that stood by, and said to Peter, Surely you also art one of them; for your speech bewrayeth you.",
@@ -20029,6 +20259,30 @@
     "Matthew 26:74": {
       "general": {
         "plainExplanation": "Then began he to curse and to swear, saying, I know not the man. And immediately the cock crew.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 26:75": {
+      "general": {
+        "plainExplanation": "And Peter remembered the word of Jesus, which said to him, Before the cock crow, you shalt deny me thrice. And he went out, and wept bitterly.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 27:11": {
+      "general": {
+        "plainExplanation": "And Jesus stood before the governor: and the governor asked him, saying, Art you the King of the Jews? And Jesus said to him, you sayest.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 27:11-26": {
+      "general": {
+        "plainExplanation": "Key idea: And Jesus stood before the governor: and the governor asked him, saying, Art you the King of the Jews? And Jesus said to him, you sayest. And when he was ac...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -20090,10 +20344,26 @@
         "to": "Believers"
       }
     },
+    "Matthew 27:31-32": {
+      "general": {
+        "plainExplanation": "Key idea: And after that they had mocked him, they took the robe off from him, and put his own raiment on him, and led him away to crucify him. And as they came out,...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Matthew 27:32": {
       "general": {
         "plainExplanation": "And as they came out, they found a man of Cyrene, Simon by name: him they compelled to bear his cross.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 27:33-56": {
+      "general": {
+        "plainExplanation": "Key idea: And when they were come to a place called Golgotha, that is to say, a place of a skull, They gave him vinegar to drink mingled with gall: and when he had ta...",
+        "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
         "about": "Jesus",
         "to": "Believers"
       }

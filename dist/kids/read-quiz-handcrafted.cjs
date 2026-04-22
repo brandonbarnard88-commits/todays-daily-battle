@@ -92,7 +92,29 @@
  * Temple cleansed — John 2:13–16 (gentle): buildJesusCleansesTempleReadQuiz() (library key: jesusCleansesTemple).
  * Greatest commandment — Matthew 22:35–40 (gentle): buildGreatestCommandmentReadQuiz() (library key: greatestCommandment).
  * Triumphal Entry — Matthew 21:1–11 (gentle): buildTriumphalEntryReadQuiz() (library key: triumphalEntry).
+ * Palm Sunday — Jesus rides into Jerusalem — Matthew 21:1–11 (+ harmony refs): buildPalmSundayReadQuiz() (library key: palmSunday).
+ * Judas betrays Jesus — Matthew 26:14–16; 26:47–50 (gentle): buildBetrayalReadQuiz() (library keys: betrayal; judasKiss).
+ * Last Supper — Matthew 26:17–30 (gentle): buildLastSupperReadQuiz() (library keys: lastSupper; jesusLastSupper).
+ * Jesus prays in Gethsemane — Matthew 26:36–46 (gentle): buildGardenPrayerReadQuiz() (library keys: gardenPrayer; jesusGardenGethsemane).
+ * Jesus is arrested in the garden — Matthew 26:47–56 (gentle): buildJesusArrestReadQuiz() (library key: jesusArrest; aliases arrest, gethsemaneArrest in slug maps).
+ * Jesus before Caiaphas — Matthew 26:57–68 (gentle): buildTrialBeforeCaiaphasReadQuiz() (library key: trialBeforeCaiaphas; aliases caiaphasTrial, jesusBeforeCaiaphas).
+ * Peter denies Jesus — Matthew 26:69–75 (gentle): buildPeterDenialReadQuiz() (library key: peterDenial; alias peterDeniesJesus).
+ * Jesus before Pilate — Matthew 27:11–26 (gentle): buildTrialPilateReadQuiz() (library key: trial; aliases pilateTrial, jesusBeforePilate).
+ * Jesus carries His cross — Matthew 27:31–32 (gentle; par. Mark 15:20–21; Luke 23:26–32; John 19:16–17): buildCrossCarryReadQuiz() (library key: crossCarry; read-quiz alias simonOfCyrene in generate-kids-read-quiz-data.mjs).
+ * Jesus on the cross — Matthew 27:33–56 (gentle; Father forgive and “It is finished” in Luke / John in read-quiz): buildCrucifixionReadQuiz() (library key: crucifixion; read-quiz alias jesusCrucifixion in generate-kids-read-quiz-data.mjs).
+ * The empty tomb — Matthew 28:1–10 (gentle): buildTombEmptyReadQuiz() (library key: tombEmpty).
+ * Jesus is risen — Matthew 28:1–10, 16–20 (gentle; harmony in ref): buildJesusResurrectionReadQuiz() (library keys: jesusResurrection; resurrection).
+ * Jesus appears to Mary Magdalene — John 20:11–18 (gentle; par. Mark 16:9–11): buildMaryMagdaleneReadQuiz() (library key: maryMagdalene).
+ * Jesus appears to Thomas — John 20:24–29 (gentle): buildThomasDoubtReadQuiz() (library key: thomasDoubt).
+ * Jesus weeps over Jerusalem — Luke 19:41–44 (gentle): buildJesusWeepsJerusalemReadQuiz() (library key: jesusWeepsJerusalem).
+ * Fig tree and faith in prayer — Matthew 21:18–22 (gentle): buildFigTreeReadQuiz() (library key: figTree).
+ * Jesus’ authority questioned — Matthew 21:23–27 (gentle): buildJesusAuthorityReadQuiz() (library key: jesusAuthority).
+ * Wicked husbandmen / vineyard and the Son — Matthew 21:33–46 (gentle summary): buildParableWickedHusbandmenReadQuiz() (library key: parableWickedHusbandmen).
+ * Render to Caesar / tribute penny — Matthew 22:15–22 (gentle): buildTributeToCaesarReadQuiz() (library key: tributeToCaesar).
+ * Sadducees and the resurrection — Matthew 22:23–33 (gentle): buildSadduceesResurrectionReadQuiz() (library key: sadduceesResurrection).
  * Zacchaeus — Luke 19:1–10 (gentle): buildZacchaeusReadQuiz() (library key: zacchaeus; alias jesusAndZacchaeus).
+ * Good Shepherd — John 10:1–18 (gentle): buildJesusParableGoodShepherdReadQuiz() (library key: jesusParableGoodShepherd).
+ * Mary anoints Jesus’ feet — John 12:1–8 (gentle): buildMaryAnointReadQuiz() (library key: maryAnoint).
  * Man born blind — John 9:1–38 (gentle): buildManBornBlindReadQuiz() (library key: manBornBlind; alias healBlind, jesusHealsBlind).
  * Esther becomes queen (Esther 2:1–17): full read-along + quiz in buildEstherCrownReadQuiz().
  * Esther prays and fasts (Esther 4:1–17): full read-along + quiz in buildEstherFastReadQuiz().
@@ -9325,54 +9347,51 @@ function buildMaryMarthaReadQuiz() {
 /** Jesus brings Lazarus back to life — resurrection and life, come forth (gentle). Library key: lazarus */
 function buildLazarusReadQuiz() {
   return {
-    kjvRef: 'John 11:1–44 (KJV) — gentle summary for little hearts',
+    kjvRef: 'John 11:1–44 (KJV)',
     verseExcerpt: 'Jesus said unto her, I am the resurrection, and the life. — John 11:25 (KJV)',
     readAlongTitle: 'Jesus Brings Lazarus Back to Life',
     quizWrongHumilityHint:
-      'Listen again — Bethany; sick; died; four days; tomb; Martha; believe; resurrection; life; come forth; loose him; believe.',
+      'Listen again — Bethany; sick; lovest; two days; sleepeth; awake; four days; Martha; resurrection; life; believest; cave; stone; come forth; graveclothes; napkin; loose him; believed.',
     hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
     paragraphs: [
-      'Jesus had a friend named Lazarus who lived in Bethany with his sisters Mary and Martha.',
-      'Lazarus became very sick and died.',
-      'When Jesus came, Lazarus had been in the tomb for four days.',
-      'Mary and Martha were very sad.',
-      'Jesus said to Martha, “I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live.”',
-      'Then Jesus went to the tomb and said, “Lazarus, come forth.”',
-      'Lazarus walked out of the tomb, alive again!',
-      'Many people who saw this believed in Jesus.',
-      'Jesus has power over death and brings hope and life.',
-      'Reference: John 11:1–44 (KJV) — gentle summary for little hearts'
+      'Jesus had a dear friend named Lazarus who lived in Bethany with his sisters, Mary and Martha. Lazarus became very sick. His sisters sent word to Jesus, saying, Lord, behold, he whom thou lovest is sick.',
+      'Jesus loved Martha, and her sister, and Lazarus. Yet when He heard that Lazarus was sick, He stayed two more days in the place where He was. Then He said to His disciples, Our friend Lazarus sleepeth; but I go, that I may awake him out of sleep.',
+      'When Jesus came, Lazarus had already been in the grave four days. Martha went to meet Jesus and said, Lord, if thou hadst been here, my brother had not died. Jesus saith unto her, Thy brother shall rise again. Martha said, I know that he shall rise again in the resurrection at the last day. Jesus said unto her, I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live: And whosoever liveth and believeth in me shall never die. Believest thou this?',
+      'Jesus came to the grave. It was a cave, and a stone lay upon it. Jesus said, Take ye away the stone. Then He cried with a loud voice, Lazarus, come forth. And he that was dead came forth, bound hand and foot with graveclothes: and his face was bound about with a napkin. Jesus saith unto them, Loose him, and let him go.',
+      'Many of the Jews which came to Mary, and had seen the things which Jesus did, believed on Him.',
+      'Jesus cares when we hurt, and He has power over death — a safe, hopeful truth for hard days.',
+      'Reference: John 11:1–44 (KJV)'
     ],
     readAlongSections: [
       {
-        text: 'Lazarus was very sick and died.',
-        caption: 'A hard day in Bethany',
-        image: 'panel-noah-1.svg'
+        text: 'Lazarus was sick, and his sisters Mary and Martha sent for Jesus.',
+        caption: 'He whom thou lovest is sick',
+        image: 'panel-jesus-1.svg'
       },
       {
-        text: 'Jesus came to the tomb.',
-        caption: 'Jesus draws near',
-        image: 'panel-noah-1.svg'
+        text: 'Jesus waited a little while, then went to Bethany even though Lazarus had died.',
+        caption: 'Our friend sleepeth',
+        image: 'panel-jesus-1.svg'
       },
       {
-        text: 'Jesus said, “I am the resurrection and the life.”',
+        text: 'Martha met Jesus and said her brother would have lived if He had come sooner.',
+        caption: 'Lord, if thou hadst been here',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus said, I am the resurrection, and the life.',
         caption: 'Believest thou this?',
-        image: 'panel-noah-2.svg'
+        image: 'panel-jesus-2.svg'
       },
       {
-        text: 'Jesus called, “Lazarus, come forth.”',
-        caption: 'Come forth',
-        image: 'panel-noah-2.svg'
+        text: 'At the cave tomb, Jesus told them to roll away the stone.',
+        caption: 'Take ye away the stone',
+        image: 'panel-jesus-3.svg'
       },
       {
-        text: 'Lazarus walked out alive.',
+        text: 'Jesus called with a loud voice, Lazarus, come forth! And Lazarus walked out alive. Many people believed in Jesus that day.',
         caption: 'Loose him, and let him go',
-        image: 'panel-noah-3.svg'
-      },
-      {
-        text: 'Jesus has power over death.',
-        caption: 'Hope and life',
-        image: 'panel-noah-3.svg'
+        image: 'panel-jesus-3.svg'
       }
     ],
     quizHeading: 'Quiz — think it through',
@@ -9383,75 +9402,213 @@ function buildLazarusReadQuiz() {
         correctIndex: 1,
         correctFeedback: "Yes—that matches this story's place in God's Word.",
         wrongFeedback:
-          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: John 11:1–44.)'
+          'Skim the reference line in the story block. (Answer: John 11:1–44.)'
       },
       {
-        question: 'Who was Lazarus to Jesus in this gentle story?',
+        question: 'Who was Lazarus to Jesus in this story?',
         choices: [
-          'A dear friend whose family loved Him — Mary and Martha’s brother.',
+          'A dear friend — brother to Mary and Martha, and Jesus loved them all.',
           'A stranger Jesus never met.',
-          'Someone who lived in a book only.',
-          'A pretend person with no family.'
+          'Someone who lived only in a pretend tale.',
+          'A person with no family.'
         ],
         correctIndex: 0,
-        correctFeedback: 'Yes—that matches how John 11 introduces Lazarus of Bethany.',
-        wrongFeedback:
-          'Think: who were Mary and Martha to Lazarus? (Answer: friend… brother… sisters.)'
+        correctFeedback: 'Yes—that matches John 11:3–5.',
+        wrongFeedback: 'Think: who sent word from Bethany? (Answer: dear friend… sisters.)'
       },
       {
         question: 'Which words did Jesus say to Martha about resurrection and life?',
         choices: [
-          '“I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live.”',
-          '“Be careful for nothing.”',
-          '“Peace, be still.”',
-          '“Take no thought for your life.”'
+          'I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live.',
+          'Be careful for nothing.',
+          'Peace, be still.',
+          'Take no thought for your life.'
         ],
         correctIndex: 0,
-        correctFeedback: "Yes—that lines up with John 11:25 and God's truth.",
-        wrongFeedback:
-          'Reread Martha’s moment with Jesus in John 11. (Answer: resurrection… life… believeth.)'
+        correctFeedback: 'Yes—that matches John 11:25.',
+        wrongFeedback: 'Listen for “resurrection” and “life.” (Answer: I am the resurrection, and the life…)'
       },
       {
-        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        question: 'What did Jesus cry at the tomb?',
         choices: [
-          'When Jesus called “Lazarus, come forth,” the one who was dead came out.',
-          'The tomb turned into a rocket.',
-          'Everyone forgot who Lazarus was.',
-          'Mary and Martha lived on the moon.'
+          'Lazarus, come forth.',
+          'Stay in the cave forever.',
+          'Run away from Bethany.',
+          'Do not speak to anyone.'
         ],
         correctIndex: 0,
-        correctFeedback: 'Yes—that wonder comes from God’s Word.',
-        wrongFeedback:
-          'Cross out the joke answers. Which matches John 11? (Answer: come forth… came out.)'
+        correctFeedback: 'Yes—that matches John 11:43.',
+        wrongFeedback: 'Listen for “come forth.” (Answer: Lazarus, come forth.)'
+      },
+      {
+        question: 'What did Jesus say to do after Lazarus came out bound in graveclothes?',
+        choices: [
+          'Loose him, and let him go.',
+          'Leave him bound forever.',
+          'Hide him from everyone.',
+          'Roll the stone back immediately.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 11:44.',
+        wrongFeedback: 'Listen for “loose.” (Answer: Loose him, and let him go.)'
       },
       {
         question: 'What is one good way to respond to God after this story?',
         choices: [
-          'Thank Jesus that He has power over death — and ask Him to help me trust Him with hard, sad days.',
-          'Never talk to God.',
-          'Only think about fear.',
-          'Forget what Jesus said.'
+          'Thank Jesus that He is the resurrection and the life — and ask Him to help me trust Him on sad, hard days.',
+          'Never talk to God when I am sad.',
+          'Believe God never cares.',
+          'Try to be brave alone without Jesus.'
         ],
         correctIndex: 0,
-        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        correctFeedback: 'Beautiful—that is faith with hope: small, real, and pleasing to God.',
         wrongFeedback:
-          'Think: which honors Jesus as “the resurrection, and the life”? (Answer: thank… trust.)'
+          'Think: which honors Jesus’ power and love? (Answer: thank Him… trust Him… hard days.)'
       }
     ],
     doneHeading: 'You did it!',
     doneMessage: "Great job reading Jesus Brings Lazarus Back to Life with God's Word today.",
-    takeaway: 'Jesus has power over death and brings hope and life.',
+    takeaway:
+      'Jesus is the resurrection and the life — He cares when we hurt, and nothing is too hard for Him.',
     prayer:
-      'Lord Jesus, thank You that You are the resurrection and the life. Help me trust You today. Amen.',
+      'Lord Jesus, thank You that You are the resurrection and the life. On hard days, help me rest in Your strong, gentle love. Amen.',
     imagePrompts: [
-      'A simple peaceful black-and-white line-art scene for young children: Jesus standing outside the tomb calling Lazarus Lazarus is walking out wrapped in cloths with a happy alive face Mary and Martha stand nearby with thankful faces thick bold outlines with large open spaces on Jesus robe Lazarus cloths and the ground for easy coloring soft tomb opening and gentle hills with minimal lines hopeful and joyful mood focus on Jesus bringing Lazarus back to life clean minimal no fear or dark tomb plenty of white space age-appropriate for ages 3–8 coloring page',
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Bethany — a friend is sick (care)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Four days — Jesus comes near (hope)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Resurrection and life — Jesus speaks (truth)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Come forth — call at the tomb (power)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Walking out — bound in graveclothes (alive)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Loose him — thankful hearts (joy)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and leaf green, friendly not scary, no text in image: Many believed — hope spreads (love)"
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful calm atmosphere. Gentle Jesus stands near the opening of a cave tomb with a kind, loving face, one hand raised as He calls out. Lazarus stands at the cave entrance wrapped in simple graveclothes, beginning to step forward — face peaceful, not scary. Mary and Martha kneel nearby with hopeful expressions. A large stone rests beside the cave opening. Soft hills and a few trees in the distance with plenty of open ground in the foreground for coloring. Focus: Jesus bringing life and hope. Style: clear, bold, tender, restful — never frightening or dark.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn light, friendly not scary, no text in image: Bethany — sisters send word — he whom thou lovest is sick (care)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn light, friendly not scary, no text in image: Two days — our friend sleepeth — Jesus goes (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn light, friendly not scary, no text in image: Martha meets Jesus — if thou hadst been here (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn light, friendly not scary, no text in image: I am the resurrection, and the life (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn light, friendly not scary, no text in image: Cave tomb — take ye away the stone (mercy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn light, friendly not scary, no text in image: Come forth — loose him — many believed (peace)'
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Mary anoints Jesus’ feet — Bethany supper, spikenard, Judas, let her alone (gentle). Library key: maryAnoint */
+function buildMaryAnointReadQuiz() {
+  return {
+    kjvRef: 'John 12:1–8 (KJV)',
+    verseExcerpt:
+      'Let her alone: against the day of my burying hath she kept this. — John 12:7 (KJV)',
+    readAlongTitle: "Mary Anoints Jesus' Feet",
+    quizWrongHumilityHint:
+      'Listen again — passover; Bethany; Lazarus; supper; Martha; served; spikenard; anointed; feet; hair; odour; Judas; pence; poor; thief; let her alone; burying; poor always.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Six days before the Passover, Jesus came to Bethany where Lazarus was — the one Jesus had raised from the dead. There they made Him a supper, and Martha served. Lazarus was one of them that sat at the table with Him.',
+      'Then took Mary a pound of ointment of spikenard, very costly, and anointed the feet of Jesus, and wiped His feet with her hair: and the house was filled with the odour of the ointment.',
+      'Then saith one of His disciples, Judas Iscariot, Why was not this ointment sold for three hundred pence, and given to the poor? This he said, not that he cared for the poor, but because he was a thief, and had the bag, and bare what was put therein.',
+      'Jesus said, Let her alone: against the day of my burying hath she kept this. For the poor always ye have with you; but me ye have not always.',
+      'Jesus treasures simple, heartfelt love — He saw Mary’s gift and defended her kindness.',
+      'Reference: John 12:1–8 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus came to Bethany to the home of Lazarus, Martha, and Mary. They made supper for Him.',
+        caption: 'Supper in Bethany',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Mary brought a very costly jar of sweet ointment.',
+        caption: 'Ointment of spikenard',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'She poured the ointment on Jesus’ feet and wiped them with her hair. The whole house smelled beautiful.',
+        caption: 'Filled with the odour',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Judas said the ointment should have been sold to help the poor.',
+        caption: 'Three hundred pence',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus said gently, Let her alone: against the day of my burying hath she kept this.',
+        caption: 'Let her alone',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Jesus knew Mary’s loving heart, and He defended her kindness.',
+        caption: 'Heartfelt love',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['John 12:1–8', 'Luke 10:38–42', 'John 11:1–44', 'Matthew 5'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: John 12:1–8.)'
+      },
+      {
+        question: 'What did Mary pour on Jesus’ feet?',
+        choices: [
+          'A pound of ointment of spikenard, very costly',
+          'Only plain water from a bucket',
+          'Sand from the road',
+          'Nothing — she only waved'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 12:3.',
+        wrongFeedback: 'Listen for “spikenard” and “ointment.” (Answer: costly spikenard ointment.)'
+      },
+      {
+        question: 'What did Mary use to wipe Jesus’ feet?',
+        choices: ['Her hair', 'A heavy blanket', 'A wooden board', 'She did not wipe them'],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 12:3.',
+        wrongFeedback: 'Listen for “wiped” and “hair.” (Answer: her hair.)'
+      },
+      {
+        question: 'Who complained that the ointment should have been sold for the poor?',
+        choices: ['Judas Iscariot', 'Martha only', 'Lazarus', 'Peter only'],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 12:4–6.',
+        wrongFeedback: 'Listen for “Judas” and “pence.” (Answer: Judas Iscariot.)'
+      },
+      {
+        question: 'What did Jesus say about Mary’s gift?',
+        choices: [
+          'Let her alone: against the day of my burying hath she kept this.',
+          'Throw the jar away forever.',
+          'Never love anyone at supper.',
+          'Do not speak to Lazarus.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 12:7.',
+        wrongFeedback: 'Listen for “let her alone.” (Answer: let her alone… burying… kept this.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Thank Jesus that He sees a loving heart — and give Him my best love in small, real ways.',
+          'Believe God only wants money.',
+          'Hide every kind thought from Jesus.',
+          'Never show love at home.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with love: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “heartfelt love” and “gift.” (Answer: thank Jesus… loving heart… best love.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Mary Anoints Jesus' Feet with God's Word today.",
+    takeaway:
+      'Jesus receives every gentle, loving gift we bring Him — He treasures simple, heartfelt love.',
+    prayer:
+      'Lord Jesus, thank You that You see my heart. Help me love You with my best today. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful calm atmosphere. Gentle Jesus sits at a simple supper table with a kind, peaceful face. Mary kneels quietly at His feet, pouring fragrant ointment from a small jar and gently wiping His feet with her long hair. A few friends (including Martha and Lazarus) sit nearby watching with calm, thankful expressions. Soft room walls, a low table, and a few dishes in the background with plenty of open floor space in the foreground for coloring. Focus: Mary’s loving gift to Jesus and His gentle defense of her. Style: clear, bold, tender, restful — never busy or dark.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamplight, friendly not scary, no text in image: Bethany supper — Martha serves — Lazarus at table (care)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamplight, friendly not scary, no text in image: Costly spikenard — Mary’s jar (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamplight, friendly not scary, no text in image: Anoint His feet — wipe with hair — sweet odour (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamplight, friendly not scary, no text in image: Judas — three hundred pence — poor (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamplight, friendly not scary, no text in image: Let her alone — day of my burying (mercy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamplight, friendly not scary, no text in image: Poor always — me ye have not always — tender heart (peace)'
     ],
     readAlongImages: []
   };
@@ -11324,55 +11481,56 @@ function buildTriumphalEntryReadQuiz() {
       'Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord. — Matthew 21:9 (KJV)',
     readAlongTitle: 'Jesus Rides into Jerusalem',
     quizWrongHumilityHint:
-      'Listen again — Bethphage; mount of Olives; two disciples; village; ass; colt; loose them; Lord hath need; garments; branches; strawed; Hosanna; Son of David; city was moved; Who is this; prophet of Nazareth.',
+      'Listen again — Bethphage; mount of Olives; two disciples; village; ass; colt; loose them; Lord hath need; garments; palm branches; strawed; Hosanna; Son of David; city was moved; Who is this; prophet of Nazareth; joy and praise.',
     hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
     paragraphs: [
-      'Jesus and His disciples drew near to Jerusalem — a gentle ride toward the city on the mount of Olives, near a place called Bethphage.',
-      'Jesus sent two disciples with a simple errand that showed He was the promised King, humble and kind.',
-      'He said, in effect, Go into the village; you will find an ass tied, and a colt with her: loose them, and bring them unto me.',
-      'If anyone asked why, they could say, The Lord hath need of them — and the owners would send them.',
-      'The disciples obeyed. They brought the ass and the colt, put their clothes on them, and set Jesus thereon.',
-      'A very great multitude spread their garments in the way; others cut down branches from the trees, and strawed them in the way.',
-      'The crowds went before Him and followed Him, crying, “Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest.”',
-      'When He came into Jerusalem, all the city was moved, saying, “Who is this?”',
-      'The multitude answered, “This is Jesus the prophet of Nazareth of Galilee.”',
-      'It was a joyful welcome — yet peaceful, like a King who comes meekly, riding on a donkey.',
+      'Jesus and His disciples came near Jerusalem.',
+      'They stopped at Bethphage, at the mount of Olives.',
+      'Jesus sent two disciples into the village and said, “Go into the village over against you, and straightway ye shall find an ass tied, and a colt with her: loose them, and bring them unto me. And if any man say ought unto you, ye shall say, The Lord hath need of them.”',
+      'The disciples went and did as Jesus commanded.',
+      'They brought the donkey and the colt, and put their clothes on them, and Jesus sat thereon.',
+      'A very great multitude spread their garments in the way.',
+      'Others cut down branches from the trees and spread them in the way.',
+      'The crowds that went before and that followed cried, saying, “Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest.”',
+      'When Jesus entered Jerusalem, all the city was moved, saying, “Who is this?”',
+      'The multitude said, “This is Jesus the prophet of Nazareth of Galilee.”',
+      'The people welcomed Jesus as their King with joy and praise.',
       'Reference: Matthew 21:1–11 (KJV)'
     ],
     readAlongSections: [
       {
-        text: 'When they drew nigh unto Jerusalem, and were come to Bethphage, unto the mount of Olives, then sent Jesus two disciples.',
+        text: 'Jesus and His disciples came near Jerusalem. They stopped at Bethphage, at the mount of Olives.',
         caption: 'Near Jerusalem',
         image: 'panel-jesus-1.svg'
       },
       {
-        text: 'They found the ass and the colt, as He said. They loosed them and brought them — the Lord hath need of them.',
-        caption: 'Loose them and bring them',
+        text: 'Jesus sent two disciples into the village and said, “Go into the village over against you, and straightway ye shall find an ass tied, and a colt with her: loose them, and bring them unto me. And if any man say ought unto you, ye shall say, The Lord hath need of them.”',
+        caption: 'The Lord hath need of them',
         image: 'panel-jesus-1.svg'
       },
       {
-        text: 'They brought the ass and the colt, and put on them their clothes, and they set Him thereon.',
-        caption: 'Sitting upon an ass',
+        text: 'The disciples went and did as Jesus commanded. They brought the donkey and the colt, and put their clothes on them, and Jesus sat thereon.',
+        caption: 'Jesus rides the donkey',
         image: 'panel-jesus-1.svg'
       },
       {
-        text: 'A very great multitude spread their garments in the way; others cut down branches from the trees, and strawed them in the way.',
-        caption: 'Branches and garments',
+        text: 'A very great multitude spread their garments in the way. Others cut down branches from the trees and spread them in the way.',
+        caption: 'Clothes and branches',
         image: 'panel-jesus-2.svg'
       },
       {
-        text: 'The multitudes cried, “Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest.”',
-        caption: 'Hosanna',
+        text: 'The crowds cried, “Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest.”',
+        caption: 'Hosanna to the Son of David',
         image: 'panel-jesus-2.svg'
       },
       {
-        text: 'When He was come into Jerusalem, all the city was moved, saying, “Who is this?” And the multitude said, “This is Jesus the prophet of Nazareth of Galilee.”',
+        text: 'When Jesus entered Jerusalem, all the city was moved, saying, “Who is this?” The multitude said, “This is Jesus the prophet of Nazareth of Galilee.”',
         caption: 'Who is this?',
         image: 'panel-jesus-3.svg'
       },
       {
-        text: 'We can welcome Jesus as our gentle King — with praise and a thankful heart.',
-        caption: 'Blessed is he that cometh',
+        text: 'The people welcomed Jesus as their King with joy and praise.',
+        caption: 'Welcome the King',
         image: 'panel-jesus-3.svg'
       }
     ],
@@ -11449,16 +11607,2982 @@ function buildTriumphalEntryReadQuiz() {
     doneHeading: 'You did it!',
     doneMessage: "Great job reading Jesus Rides into Jerusalem with God's Word today.",
     takeaway:
-      'Hosanna to the Son of David — Jesus comes meekly, as the prophets said; we can welcome Him with gentle, thankful praise.',
+      'The people welcomed Jesus as their King with joy and praise — Hosanna to the Son of David; we can welcome Him with the same gentle gladness.',
     prayer:
-      'Lord Jesus, thank You for coming near to us like a gentle King. Help me welcome You with a quiet, happy heart today. Amen.',
+      'Lord Jesus, thank You for riding to us as our humble King. Help me welcome You today with joy, praise, and a peaceful heart. Amen.',
     imagePrompts: [
-      'A simple, peaceful black-and-white line-art scene for young children: Jesus riding on a young donkey into Jerusalem. People are spreading clothes and palm branches on the road. The people have happy faces and are waving branches. Thick, bold outlines with large open spaces on Jesus’ robe, the donkey, the clothes, and the branches for easy coloring. Soft road and gentle city walls with minimal lines. Joyful and welcoming mood — focus on the people welcoming Jesus. Clean, minimal, no fear, plenty of white space, age-appropriate for ages 3–8.',
+      'A simple, peaceful black-and-white line-art scene for young children: Jesus riding on a young donkey into Jerusalem. People are spreading clothes on the road; several people hold palm branches up high in simple, easy-to-see waves (large leaf shapes, bold outlines). Happy, calm faces. Thick, bold outlines with large open spaces on Jesus’ robe, the donkey, the clothes, and the branches for easy coloring. Soft road and gentle rounded city wall shapes in the background with minimal lines. Joyful and welcoming mood — focus on the people welcoming Jesus. Clean, minimal, no fear, plenty of white space, age-appropriate for ages 3–8.',
       'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and city wall, friendly not scary, no text in image: Village — colt brought (hope)',
       'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and city wall, friendly not scary, no text in image: Garments on the way (joy)',
       'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and city wall, friendly not scary, no text in image: Branches spread — Hosanna (love)',
       'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and city wall, friendly not scary, no text in image: Son of David — welcome (peace)',
       'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and city wall, friendly not scary, no text in image: Prophet of Nazareth — who is this? (truth)'
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Palm Sunday — Jesus rides into Jerusalem (gentle journey). Library key: palmSunday */
+function buildPalmSundayReadQuiz() {
+  return {
+    kjvRef: 'Matthew 21:1–11 (KJV); Mark 11:1–11; Luke 19:28–44; John 12:12–19',
+    verseExcerpt:
+      'Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord. — Matthew 21:9 (KJV)',
+    readAlongTitle: 'Jesus Rides into Jerusalem',
+    quizWrongHumilityHint:
+      'Listen again — Bethphage; Olives; two disciples; village; ass; colt; loose them; Lord hath need; clothes; branches; strawed; Hosanna; Son of David; city was moved; Who is this; prophet of Nazareth.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'And when they drew nigh unto Jerusalem, and were come to Bethphage, unto the mount of Olives, then sent Jesus two disciples, Saying unto them, Go into the village over against you, and straightway ye shall find an ass tied, and a colt with her: loose them, and bring them unto me. And if any man say ought unto you, ye shall say, The Lord hath need of them; and straightway he will send them.',
+      'All this was done, that it might be fulfilled which was spoken by the prophet, saying, Tell ye the daughter of Sion, Behold, thy King cometh unto thee, meek, and sitting upon an ass, and a colt the foal of an ass.',
+      'And the disciples went, and did as Jesus commanded them, And brought the ass, and the colt, and put on them their clothes, and they set him thereon.',
+      'And a very great multitude spread their garments in the way; others cut down branches from the trees, and strawed them in the way.',
+      'And the multitudes that went before, and that followed, cried, saying, Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest.',
+      'And when he was come into Jerusalem, all the city was moved, saying, Who is this? And the multitude said, This is Jesus the prophet of Nazareth of Galilee.',
+      'Jesus comes gently, riding on a donkey — we can welcome Him with simple, happy praise, even on ordinary or difficult days.',
+      'Reference: Matthew 21:1–11 (KJV) (also Mark 11:1–11; Luke 19:28–44; John 12:12–19)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus sent His friends to bring a young donkey for Him to ride.',
+        caption: 'The Lord hath need of them',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'The disciples brought the donkey and put their coats on its back.',
+        caption: 'They set Him thereon',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Jesus rode gently toward Jerusalem.',
+        caption: 'Thy King cometh… meek',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'People spread their coats on the road and waved palm branches.',
+        caption: 'Garments and branches',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'They shouted, Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest.',
+        caption: 'Hosanna in the highest',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'The whole city was stirred and asked, Who is this? The multitude said, This is Jesus the prophet of Nazareth of Galilee.',
+        caption: 'Who is this?',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: [
+          'Matthew 21:1–11 (with the same welcome told also in Mark, Luke, and John)',
+          'Jonah 1 only',
+          'Genesis 1 only',
+          'Revelation 20 only'
+        ],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the reference line in the story block. (Answer: Matthew 21:1–11 — also Mark, Luke, John.)'
+      },
+      {
+        question: 'What did Jesus tell His disciples to bring from the village?',
+        choices: [
+          'An ass tied, and a colt with her',
+          'A bag of gold only',
+          'A boat for the sea',
+          'Nothing — only to sing'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:2.',
+        wrongFeedback: 'Listen for “ass” and “colt.” (Answer: ass and colt.)'
+      },
+      {
+        question: 'What did many people spread on the road as Jesus rode?',
+        choices: [
+          'Their garments; and others cut down branches and strawed them in the way',
+          'Only cold water',
+          'Sharp stones to block the way',
+          'Nothing at all'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:8.',
+        wrongFeedback: 'Listen for “garments” and “branches.” (Answer: clothes and branches.)'
+      },
+      {
+        question: 'What did the multitudes cry as Jesus came?',
+        choices: [
+          'Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest.',
+          'We do not want the King.',
+          'Hide from the prophet.',
+          'Never speak kindly.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that joy matches Matthew 21:9.',
+        wrongFeedback: 'Listen again for “Hosanna” and “Son of David.” (Answer: Hosanna… Blessed is he….)'
+      },
+      {
+        question: 'When Jesus entered Jerusalem, what did the multitude say He was?',
+        choices: [
+          'This is Jesus the prophet of Nazareth of Galilee.',
+          'Only a stranger from far away.',
+          'A pretend story person.',
+          'Someone to run away from.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:11.',
+        wrongFeedback: 'Listen for “prophet of Nazareth.” (Answer: Jesus the prophet of Nazareth of Galilee.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Thank Jesus that He is gentle — welcome Him with a happy heart and simple praise today.',
+          'Believe God only loves loud people.',
+          'Hide every kind thought from Jesus.',
+          'Never wave a thankful hand to heaven.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with joy: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “welcome Jesus” and “praise.” (Answer: gentle… welcome… simple praise.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Rides into Jerusalem with God's Word today.",
+    takeaway:
+      'Jesus comes gently — we can welcome Him and praise Him with a peaceful, happy heart, like the people with palm branches.',
+    prayer:
+      'Lord Jesus, thank You for coming to us so gently. Help me welcome You and praise You today with a glad heart. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail. Gentle Jesus sits calmly on a young donkey in the center with a kind, peaceful face. Many happy people walk beside Him, spreading coats on the road and waving palm branches high. A few small children smile and wave branches. Soft city gates of Jerusalem in the background, light open sky, plenty of open road in the foreground. Joyful yet restful — never busy or dark. No text in the image.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and palm greens, friendly not scary, no text in image: Two friends fetch the colt — The Lord hath need (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and palm greens, friendly not scary, no text in image: Coats on the donkey — gentle ride (peace)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and palm greens, friendly not scary, no text in image: Garments and branches on the way (joy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and palm greens, friendly not scary, no text in image: Hosanna to the Son of David (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and palm greens, friendly not scary, no text in image: Who is this? — prophet of Nazareth (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm road and palm greens, friendly not scary, no text in image: Welcome Jesus with a glad heart (gentle praise)'
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Judas betrays Jesus — silver, kiss, gentle Friend (gentle). Library keys: betrayal; judasKiss */
+function buildBetrayalReadQuiz() {
+  return {
+    kjvRef: 'Matthew 26:14–16; 26:47–50 (KJV) (par. Mark 14:10–11, 43–46)',
+    verseExcerpt: 'Jesus said unto him, Friend, wherefore art thou come? — Matthew 26:50 (KJV)',
+    readAlongTitle: 'Judas Betrays Jesus',
+    quizWrongHumilityHint:
+      'Listen again — Judas Iscariot; chief priests; thirty pieces of silver; sought opportunity; multitude; swords; staves; kiss; hold him fast; Hail master; Friend; laid hands; took him.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Then one of the twelve, called Judas Iscariot, went unto the chief priests, And said unto them, What will ye give me, and I will deliver him unto you? And they covenanted with him for thirty pieces of silver. And from that time he sought opportunity to betray him.',
+      'And while he yet spake, lo, Judas, one of the twelve, came, and with him a great multitude with swords and staves, from the chief priests and elders of the people.',
+      'Now he that betrayed him gave them a sign, saying, Whomsoever I shall kiss, that same is he: hold him fast.',
+      'And forthwith he came to Jesus, and said, Hail, master; and kissed him.',
+      'And Jesus said unto him, Friend, wherefore art thou come? Then came they, and laid hands on Jesus, and took him.',
+      'Even in this hard moment, Jesus was gentle — His love does not fail, and we can bring every sad feeling to Him.',
+      'Reference: Matthew 26:14–16; 26:47–50 (KJV) (parallel in Mark 14:10–11, 43–46)'
+    ],
+    readAlongSections: [
+      {
+        text: 'One of the twelve, Judas, went to the chief priests and asked what they would give him to deliver Jesus.',
+        caption: 'Thirty pieces of silver',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'They agreed, and from that time he sought opportunity to betray Jesus.',
+        caption: 'Sought opportunity',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Judas came with a crowd carrying swords and staves.',
+        caption: 'A great multitude',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'He told them, Whomsoever I shall kiss, that same is he: hold him fast.',
+        caption: 'The sign of the kiss',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'He came to Jesus, said, Hail, master; and kissed him.',
+        caption: 'Hail, master',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Jesus said, Friend, wherefore art thou come? Then they laid hands on Jesus, and took him.',
+        caption: 'Friend — wherefore art thou come?',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: [
+          'Matthew 26:14–16; 26:47–50 (also told in Mark)',
+          'Jonah 1 only',
+          'Genesis 1 only',
+          'Psalm 23 only'
+        ],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 26.)'
+      },
+      {
+        question: 'What did the chief priests agree to give Judas at first?',
+        choices: [
+          'Thirty pieces of silver',
+          'A hundred camels',
+          'A golden crown only',
+          'Nothing — no bargain'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:15.',
+        wrongFeedback: 'Listen for “silver.” (Answer: thirty pieces of silver.)'
+      },
+      {
+        question: 'How did Judas tell the crowd which one was Jesus?',
+        choices: [
+          'He said the one he kissed would be Jesus — then he kissed Him.',
+          'He pointed only with a long flag.',
+          'He shouted a riddle no one understood.',
+          'He did not go near Jesus.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:48–49.',
+        wrongFeedback: 'Listen for “kiss.” (Answer: the kiss was the sign.)'
+      },
+      {
+        question: 'What did Jesus say to Judas when Judas came near?',
+        choices: [
+          'Friend, wherefore art thou come?',
+          'Run away quickly.',
+          'Bring more swords.',
+          'Do not speak to me.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:50.',
+        wrongFeedback: 'Listen for “Friend.” (Answer: Friend, wherefore art thou come?)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'They laid hands on Jesus, and took him.',
+          'A spaceship landed in the garden.',
+          'Everyone turned into birds.',
+          'The road became ice cream.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:50.',
+        wrongFeedback: 'Pick the sober detail from God’s Word. (Answer: laid hands… took him.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Tell Jesus my feelings when someone hurts me — thank Him that His love never fails.',
+          'Believe God is never gentle.',
+          'Hide every sad feeling forever.',
+          'Never ask a grown-up for help.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with honesty: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “gentle Jesus” and “love that does not fail.” (Answer: tell Jesus… thank Him.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Judas Betrays Jesus with God's Word today.",
+    takeaway:
+      'Jesus stayed gentle in a hard moment — His love does not fail; we can rest in Him when people hurt us.',
+    prayer:
+      'Lord Jesus, thank You that You understand when I feel hurt. Help me trust Your faithful love. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): night garden scene with bold outlines and large open spaces. Jesus stands calm with a gentle face; Judas steps near. A few people with simple torch or lantern shapes in the background — not scary, not gory. Thick outlines, plenty of white space, age-appropriate. No text in the image.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues, friendly not scary, no text in image: Thirty pieces — hard bargain (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues, friendly not scary, no text in image: Garden — torches far off (stillness)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues, friendly not scary, no text in image: The kiss — a sad sign (honesty)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues, friendly not scary, no text in image: Friend, wherefore art thou come? (gentleness)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues, friendly not scary, no text in image: His love does not fail (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues, friendly not scary, no text in image: Tell Jesus my feelings (peace)'
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Last Supper — Jesus shares bread and cup (gentle). Library keys: lastSupper; jesusLastSupper */
+function buildLastSupperReadQuiz() {
+  return {
+    kjvRef: 'Matthew 26:17–30 (KJV) (par. Mark 14:12–26; Luke 22:7–23)',
+    verseExcerpt: 'Take, eat; this is my body. — Matthew 26:26 (KJV)',
+    readAlongTitle: 'Jesus Shares the Last Supper',
+    quizWrongHumilityHint:
+      'Listen again — unleavened bread; passover; prepare; Master; my time is at hand; made ready; even; twelve; betray me; sorrowful; Lord is it I; bread; cup; new testament; remission of sins; Father’s kingdom; hymn; Olives.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Now the first day of the feast of unleavened bread the disciples came to Jesus, saying unto him, Where wilt thou that we prepare for thee to eat the passover?',
+      'And he said, Go into the city to such a man, and say unto him, The Master saith, My time is at hand; I will keep the passover at thy house with my disciples. And the disciples did as Jesus had appointed them; and they made ready the passover.',
+      'Now when the even was come, he sat down with the twelve. And as they did eat, he said, Verily I say unto you, that one of you shall betray me. And they were exceeding sorrowful, and began every one of them to say unto him, Lord, is it I?',
+      'And he answered and said, He that dippeth his hand with me in the dish, the same shall betray me. The Son of man goeth as it is written of him: but woe unto that man by whom the Son of man is betrayed! it had been good for that man if he had not been born. Then Judas, which betrayed him, answered and said, Master, is it I? He said unto him, Thou hast said.',
+      'And as they were eating, Jesus took bread, and blessed it, and brake it, and gave it to the disciples, and said, Take, eat; this is my body.',
+      'And he took the cup, and gave thanks, and gave it to them, saying, Drink ye all of it; For this is my blood of the new testament, which is shed for many for the remission of sins. But I say unto you, I will not drink henceforth of this fruit of the vine, until that day when I drink it new with you in my Father’s kingdom.',
+      'And when they had sung an hymn, they went out into the mount of Olives.',
+      'Jesus loves us so much that He gave His body and blood — His love never ends.',
+      'Reference: Matthew 26:17–30 (KJV) (parallel in Mark and Luke)'
+    ],
+    readAlongSections: [
+      {
+        text: 'The disciples prepared a special supper for Jesus in a room in the city.',
+        caption: 'Made ready the passover',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Jesus sat down with His twelve friends to eat the Passover meal.',
+        caption: 'Sat down with the twelve',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'He told them that one of them would betray Him, and they felt very sad.',
+        caption: 'Lord, is it I?',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus took bread, blessed it, brake it, and gave it to them saying, Take, eat; this is my body.',
+        caption: 'This is my body',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'He took the cup, gave thanks, and said, Drink ye all of it; this is my blood of the new testament, shed for many for the remission of sins.',
+        caption: 'My blood of the new testament',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Jesus was sharing a very special meal with them before He would go to the cross.',
+        caption: 'Love to the end',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: [
+          'Matthew 26:17–30 (also told in Mark and Luke)',
+          'Genesis 1 only',
+          'Jonah 1 only',
+          'Psalm 23 only'
+        ],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 26:17–30.)'
+      },
+      {
+        question: 'What did Jesus say about the bread He gave?',
+        choices: [
+          'Take, eat; this is my body.',
+          'This bread is only pretend.',
+          'Do not eat anything.',
+          'The bread was for animals only.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:26.',
+        wrongFeedback: 'Listen for “Take, eat” and “body.” (Answer: Take, eat; this is my body.)'
+      },
+      {
+        question: 'What did Jesus say the cup was?',
+        choices: [
+          'His blood of the new testament, shed for many for the remission of sins',
+          'Only grape juice with no meaning',
+          'A cup for hiding toys',
+          'Something to spill on purpose'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:28.',
+        wrongFeedback: 'Listen for “blood” and “new testament.” (Answer: blood of the new testament… remission of sins.)'
+      },
+      {
+        question: 'How did the disciples feel when Jesus said one would betray Him?',
+        choices: [
+          'They were exceeding sorrowful, and asked, Lord, is it I?',
+          'They laughed and ran away.',
+          'They did not care at all.',
+          'They fell asleep right away.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:22.',
+        wrongFeedback: 'Listen for “sorrowful.” (Answer: exceeding sorrowful… Lord, is it I?)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'They made ready the passover and Jesus sat with the twelve.',
+          'A rocket flew over the table.',
+          'Everyone turned into fish.',
+          'The table became a swimming pool.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches God’s Word.',
+        wrongFeedback: 'Pick the true detail from the story. (Answer: made ready the passover… twelve.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Thank Jesus that He gave His body and blood for us — His love never ends.',
+          'Believe God never cares about kids.',
+          'Never remember what Jesus did.',
+          'Hide when we feel sad.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with gratitude: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “love” and “remember.” (Answer: thank Jesus… love never ends.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Shares the Last Supper with God's Word today.",
+    takeaway:
+      'Jesus shared bread and cup with His friends — He gave Himself for us because He loves us with a love that never ends.',
+    prayer:
+      'Lord Jesus, thank You for Your body and blood given for me. Help me remember Your love today. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): gentle Jesus at a low supper table center with a kind face; twelve disciples sit around with simple outlines; Jesus holds bread in one hand and a cup in the other; soft room walls, simple dishes, warm lamp glow suggested with light outlines — not dark or busy; large open table and floor space; bold clean lines; no text in the image.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamp golds and cream walls, friendly not scary, no text in image: Prepare the passover — room in the city (welcome)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamp golds and cream walls, friendly not scary, no text in image: Sat with the twelve — Passover meal (together)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamp golds and cream walls, friendly not scary, no text in image: One shall betray me — sorrowful hearts (honesty)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamp golds and cream walls, friendly not scary, no text in image: Take, eat — this is my body (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamp golds and cream walls, friendly not scary, no text in image: The cup — new testament (peace)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, warm lamp golds and cream walls, friendly not scary, no text in image: Drink it new in my Father’s kingdom (hope)'
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Gethsemane — Jesus prays; not My will but Thine (gentle). Library keys: gardenPrayer; jesusGardenGethsemane */
+function buildGardenPrayerReadQuiz() {
+  return {
+    kjvRef: 'Matthew 26:36–46 (KJV) (par. Mark 14:32–42; Luke 22:39–46)',
+    verseExcerpt: 'Nevertheless not as I will, but as thou wilt. — Matthew 26:39 (KJV)',
+    readAlongTitle: 'Jesus Prays in the Garden',
+    quizWrongHumilityHint:
+      'Listen again — Gethsemane; Sit ye here; Peter; sons of Zebedee; sorrowful; watch; fell on his face; let this cup pass; not as I will; asleep; watch and pray; spirit willing; flesh weak; third time; thy will be done; hour is at hand.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Then cometh Jesus with them unto a place called Gethsemane, and saith unto the disciples, Sit ye here, while I go and pray yonder.',
+      'And he took with him Peter and the two sons of Zebedee, and began to be sorrowful and very heavy. Then saith he unto them, My soul is exceeding sorrowful, even unto death: tarry ye here, and watch with me.',
+      'And he went a little further, and fell on his face, and prayed, saying, O my Father, if it be possible, let this cup pass from me: nevertheless not as I will, but as thou wilt.',
+      'And he cometh unto the disciples, and findeth them asleep, and saith unto Peter, What, could ye not watch with me one hour? Watch and pray, that ye enter not into temptation: the spirit indeed is willing, but the flesh is weak.',
+      'He went away again the second time, and prayed, saying, O my Father, if this cup may not pass away from me, except I drink it, thy will be done. And he came and found them asleep again: for their eyes were heavy.',
+      'And he left them, and went away again, and prayed the third time, saying the same words.',
+      'Then cometh he to his disciples, and saith unto them, Sleep on now, and take your rest: behold, the hour is at hand, and the Son of man is betrayed into the hands of sinners. Rise, let us be going: behold, he is at hand that doth betray me.',
+      'Jesus chose His Father’s will because He loves us — we can pray and trust God too.',
+      'Reference: Matthew 26:36–46 (KJV) (parallel in Mark and Luke)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus went to a garden called Gethsemane with His disciples to pray.',
+        caption: 'Sit ye here',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'He asked Peter, James, and John to stay awake and watch with Him.',
+        caption: 'Tarry ye here, and watch',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Jesus prayed, O my Father… nevertheless not as I will, but as thou wilt.',
+        caption: 'Not as I will',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'He found the disciples sleeping and gently reminded them to watch and pray.',
+        caption: 'Watch and pray',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus prayed the same words a second and third time.',
+        caption: 'Thy will be done',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'He chose to obey His Father even when it was very hard.',
+        caption: 'Love that obeys',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: [
+          'Matthew 26:36–46 (also told in Mark and Luke)',
+          'Genesis 1 only',
+          'Jonah 1 only',
+          'Revelation 20 only'
+        ],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 26:36–46.)'
+      },
+      {
+        question: 'What was the garden called where Jesus prayed?',
+        choices: ['Gethsemane', 'Jericho', 'Bethlehem', 'Nineveh'],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:36.',
+        wrongFeedback: 'Listen for the garden name. (Answer: Gethsemane.)'
+      },
+      {
+        question: 'What did Jesus pray about God’s will?',
+        choices: [
+          'Nevertheless not as I will, but as thou wilt.',
+          'I will never pray.',
+          'Do whatever I want only.',
+          'Run away and hide forever.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:39.',
+        wrongFeedback: 'Listen for “not as I will.” (Answer: not as I will, but as thou wilt.)'
+      },
+      {
+        question: 'What did Jesus tell the disciples to do so they would not fall into temptation?',
+        choices: [
+          'Watch and pray.',
+          'Shout loudly only.',
+          'Hide under the table.',
+          'Never speak to God.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:41.',
+        wrongFeedback: 'Listen for “watch” and “pray.” (Answer: Watch and pray.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'Jesus fell on his face and prayed three times about the cup and God’s will.',
+          'A dragon cooked supper.',
+          'Everyone flew to the moon.',
+          'The trees turned into candy.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches God’s Word.',
+        wrongFeedback: 'Pick the true detail. (Answer: prayed… third time.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Tell God my feelings and ask Him to help me trust His will like Jesus did.',
+          'Believe God never listens.',
+          'Stop praying when I am sad.',
+          'Never tell a grown-up when I feel scared.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with honesty: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “pray” and “trust.” (Answer: tell God… trust His will.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Prays in the Garden with God's Word today.",
+    takeaway:
+      'Jesus prayed honest prayers and chose His Father’s will — we can talk to God anytime and rest in His care.',
+    prayer:
+      'Lord Jesus, thank You that You understand hard days. Teach me to pray and trust God like You. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): Jesus kneels quietly in a garden under a soft moon circle; hands folded in prayer; peaceful heavy face; three disciples sleep gently nearby; simple olive trees; grassy ground; large open space around Jesus; bold outlines; moonlit but not scary or dark; no text in the image.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues and olive greens, friendly not scary, no text in image: Gethsemane — come pray (quiet)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues and olive greens, friendly not scary, no text in image: Watch with me — three friends (together)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues and olive greens, friendly not scary, no text in image: Let this cup pass — honest prayer (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues and olive greens, friendly not scary, no text in image: Watch and pray — willing spirit (gentleness)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues and olive greens, friendly not scary, no text in image: Third prayer — thy will be done (trust)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues and olive greens, friendly not scary, no text in image: God’s strong, gentle care (hope)'
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Jesus arrested in the garden — Matthew 26:47–56 (gentle). Library key: jesusArrest */
+function buildJesusArrestReadQuiz() {
+  return {
+    kjvRef: 'Matthew 26:47–56 (KJV) (par. Mark 14:43–52; Luke 22:47–53; John 18:1–11)',
+    verseExcerpt: 'Friend, wherefore art thou come? — Matthew 26:50 (KJV)',
+    readAlongTitle: 'Jesus Is Arrested in the Garden',
+    quizWrongHumilityHint:
+      'Listen again — Judas; multitude; swords; staves; kiss; hold him fast; Hail master; Friend wherefore; laid hands; drew his sword; high priest; Put up again thy sword; twelve legions of angels; scriptures fulfilled; teaching in the temple; forsook; fled.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'And while he yet spake, lo, Judas, one of the twelve, came, and with him a great multitude with swords and staves, from the chief priests and elders of the people.',
+      'Now he that betrayed him gave them a sign, saying, Whomsoever I shall kiss, that same is he: hold him fast.',
+      'And forthwith he came to Jesus, and said, Hail, master; and kissed him. And Jesus said unto him, Friend, wherefore art thou come? Then came they, and laid hands on Jesus, and took him.',
+      'And, behold, one of them which were with Jesus stretched out his hand, and drew his sword, and struck a servant of the high priest\'s, and smote off his ear. Then said Jesus unto him, Put up again thy sword into his place: for all they that take the sword shall perish with the sword.',
+      'Thinkest thou that I cannot now pray to my Father, and he shall presently give me more than twelve legions of angels? But how then shall the scriptures be fulfilled, that thus it must be?',
+      'In that same hour said Jesus to the multitudes, Are ye come out as against a thief with swords and staves for to take me? I sat daily with you teaching in the temple, and ye laid no hold on me. But all this was done, that the scriptures of the prophets might be fulfilled. Then all the disciples forsook him, and fled.',
+      'Jesus stayed calm and strong because He was obeying His Father\'s plan — and He loves us still.',
+      'Reference: Matthew 26:47–56 (KJV) (parallel in Mark, Luke, and John)'
+    ],
+    readAlongSections: [
+      {
+        text: 'While Jesus prayed in the garden, Judas came with a crowd carrying torches and sticks.',
+        caption: 'A great multitude',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Judas gave a sign: he would kiss Jesus so the men would know who to take.',
+        caption: 'Whomsoever I shall kiss',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Judas came and kissed Jesus, and the men took hold of Him.',
+        caption: 'Friend, wherefore art thou come?',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'One of Jesus\' friends tried to help with a sword, but Jesus told him to put it away.',
+        caption: 'Put up again thy sword',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus said He could ask His Father for many angels, but the scriptures must be fulfilled.',
+        caption: 'Twelve legions of angels',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Jesus remained calm and strong because He was obeying His Father\'s plan.',
+        caption: 'Love that obeys',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: [
+          'Matthew 26:47–56 (also told in Mark, Luke, and John)',
+          'Genesis 1 only',
+          'Jonah 1 only',
+          'Revelation 20 only'
+        ],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 26:47–56.)'
+      },
+      {
+        question: 'How did Judas show the men which one was Jesus?',
+        choices: [
+          'He kissed Jesus.',
+          'He shouted very loudly only.',
+          'He painted a picture only.',
+          'He ran away first.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:48–49.',
+        wrongFeedback: 'Listen for the sign Judas gave. (Answer: He kissed Jesus.)'
+      },
+      {
+        question: 'What did Jesus say to the disciple who used a sword?',
+        choices: [
+          'Put up again thy sword into his place…',
+          'Fight everyone as hard as you can.',
+          'Hide the sword forever from God.',
+          'Never speak kindly.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:52.',
+        wrongFeedback: 'Listen for “Put up again thy sword.” (Answer: Put up again thy sword…)'
+      },
+      {
+        question: 'What could Jesus have asked His Father for?',
+        choices: [
+          'More than twelve legions of angels.',
+          'A bigger boat only.',
+          'No more prayer ever.',
+          'To never love anyone.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:53.',
+        wrongFeedback: 'Listen for “legions of angels.” (Answer: twelve legions of angels.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'The disciples forsook Jesus, and fled.',
+          'A whale drove a chariot.',
+          'The moon turned into soup.',
+          'Everyone moved to Mars.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches God\'s Word.',
+        wrongFeedback: 'Pick the true detail. (Answer: forsook him, and fled.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Remember Jesus stayed calm and kind on a very hard night — I can tell Him my feelings and rest in His love.',
+          'Believe God never cares.',
+          'Stay upset alone on purpose.',
+          'Never ask a grown-up for help.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with honesty: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “calm,” “kind,” and “tell Jesus.” (Answer: remember Jesus… rest in His love.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Is Arrested in the Garden with God's Word today.",
+    takeaway:
+      'Jesus was calm, kind, and obeyed His Father\'s plan — His strong, gentle love holds us on hard days too.',
+    prayer:
+      'Lord Jesus, thank You that You understand when I feel hurt or afraid. Help me rest in Your love. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful and calm atmosphere. Gentle Jesus stands calmly in the night garden with a kind and peaceful face, surrounded by a group of men with torches and simple staffs (no angry faces or raised weapons). Judas stands close, reaching gently toward Jesus. One disciple is shown putting a sword back (very soft lines, no blood or violence). Olive trees, soft moonlight, and grassy ground with plenty of open space around Jesus for coloring. Focus on the heart of the moment: Jesus standing strong and calm, knowing everything that would happen, and choosing to obey His Father. Style: clear, bold, tender, restful — never scary, dark, or violent.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues and olive greens, friendly not scary, no text in image: Garden night — torches and quiet crowd (calm)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues and olive greens, friendly not scary, no text in image: Judas\'s sign — a gentle kiss (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues and olive greens, friendly not scary, no text in image: Friend, wherefore art thou come? — Jesus kind and steady (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues and olive greens, friendly not scary, no text in image: Put up thy sword — peace, not fighting (gentleness)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues and olive greens, friendly not scary, no text in image: Twelve legions of angels — Jesus obeys the scriptures (trust)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft moonlit blues and olive greens, friendly not scary, no text in image: Calm in the Father\'s plan — strong, gentle love (hope)'
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Jesus before Caiaphas — Matthew 26:57–68 (gentle). Library key: trialBeforeCaiaphas */
+function buildTrialBeforeCaiaphasReadQuiz() {
+  return {
+    kjvRef: 'Matthew 26:57–68 (KJV) (par. Mark 14:53–65)',
+    verseExcerpt:
+      'Thou hast said: nevertheless I say unto you, Hereafter shall ye see the Son of man sitting on the right hand of power, and coming in the clouds of heaven. — Matthew 26:64 (KJV)',
+    readAlongTitle: 'Jesus Before Caiaphas',
+    quizWrongHumilityHint:
+      'Listen again — Caiaphas; scribes; elders; council; false witness; temple; three days; held his peace; adjure; living God; Christ; Son of God; Thou hast said; right hand of power; clouds of heaven; blasphemy; spit; buffeted; prophesy; smote thee.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'And they that had laid hold on Jesus led him away to Caiaphas the high priest, where the scribes and the elders were assembled. But Peter followed him afar off unto the high priest\'s palace, and went in, and sat with the servants, to see the end.',
+      'Now the chief priests, and elders, and all the council, sought false witness against Jesus, to put him to death; But found none: yea, though many false witnesses came, yet found they none. At the last came two false witnesses, And said, This fellow said, I am able to destroy the temple of God, and to build it in three days.',
+      'And the high priest arose, and said unto him, Answerest thou nothing? what is it which these witness against thee? But Jesus held his peace. And the high priest answered and said unto him, I adjure thee by the living God, that thou tell us whether thou be the Christ, the Son of God.',
+      'Jesus saith unto him, Thou hast said: nevertheless I say unto you, Hereafter shall ye see the Son of man sitting on the right hand of power, and coming in the clouds of heaven.',
+      'Then the high priest rent his clothes, saying, He hath spoken blasphemy; what further need have we of witnesses? behold, now ye have heard his blasphemy. What think ye? They answered and said, He is guilty of death.',
+      'Then did they spit in his face, and buffeted him; and others smote him with the palms of their hands, Saying, Prophesy unto us, thou Christ, Who is he that smote thee?',
+      'Jesus told the truth with quiet strength — He is the Son of God, and He loves us still.',
+      'Reference: Matthew 26:57–68 (KJV) (parallel in Mark)'
+    ],
+    readAlongSections: [
+      {
+        text: 'The men took Jesus to the high priest Caiaphas and the elders.',
+        caption: 'Led him away to Caiaphas',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'They tried to find people to say untrue things about Jesus, but they could not.',
+        caption: 'Sought false witness',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'The high priest asked Jesus questions, but Jesus stayed quiet at first.',
+        caption: 'Jesus held his peace',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Then the high priest asked if He was the Christ, the Son of God.',
+        caption: 'I adjure thee by the living God',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus answered calmly, "Thou hast said… Hereafter shall ye see the Son of man sitting on the right hand of power."',
+        caption: 'Thou hast said',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Jesus told the truth even when it was hard, because He is the Son of God.',
+        caption: 'The Son of God',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: [
+          'Matthew 26:57–68 (also told in Mark)',
+          'Genesis 1 only',
+          'Jonah 1 only',
+          'Revelation 20 only'
+        ],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 26:57–68.)'
+      },
+      {
+        question: 'Who was the high priest where they took Jesus first?',
+        choices: ['Caiaphas', 'Pilate only', 'Herod only', 'Nineveh'],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:57.',
+        wrongFeedback: 'Listen for the high priest\'s name. (Answer: Caiaphas.)'
+      },
+      {
+        question: 'What did the council try to find against Jesus at first?',
+        choices: [
+          'False witness (untrue stories)',
+          'A birthday cake',
+          'A missing camel',
+          'A new king from Mars'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:59.',
+        wrongFeedback: 'Listen for “false witness.” (Answer: false witness.)'
+      },
+      {
+        question: 'Before answering the big question, what did Jesus do when the high priest asked about the witnesses\' words?',
+        choices: [
+          'He held his peace (stayed quiet).',
+          'He ran away.',
+          'He hid under a table.',
+          'He sang a silly song.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:62–63.',
+        wrongFeedback: 'Listen for “held his peace.” (Answer: He held his peace.)'
+      },
+      {
+        question: 'When asked if He was the Christ, the Son of God, how did Jesus answer?',
+        choices: [
+          'Thou hast said — and He spoke truthfully about the Son of man and the clouds of heaven.',
+          'He said He was not the Christ.',
+          'He refused to speak at all.',
+          'He said to forget God.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:64.',
+        wrongFeedback: 'Listen for “Thou hast said.” (Answer: Thou hast said… Son of man… clouds of heaven.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Tell Jesus when people are unkind or unfair — remember He told the truth and stays with me.',
+          'Believe God is never near.',
+          'Never tell the truth.',
+          'Stay angry on purpose forever.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with honesty: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “truth” and “Jesus with me.” (Answer: tell Jesus… He stays with me.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Before Caiaphas with God's Word today.",
+    takeaway:
+      'Jesus stayed calm and spoke the truth — He is the Son of God, and His love holds us on hard days.',
+    prayer:
+      'Lord Jesus, thank You that You understand when people are unfair. Help me trust You and speak truth with love. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful and calm atmosphere. Gentle Jesus stands quietly and calmly in the center before the high priest, with a kind and peaceful face, His hands gently at His sides. The high priest sits on a simple seat with a surprised look (no anger). A few elders and scribes stand nearby listening. Soft room walls and pillars in the background with plenty of open floor space in the foreground for coloring. Focus on the heart of the moment: Jesus standing strong and true, speaking calmly about who He is. Style: clear, bold, tender, restful — never dark, scary, or unkind.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft warm stone and linen tones, friendly not scary, no text in image: Led to Caiaphas — quiet hall (calm)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft warm stone and linen tones, friendly not scary, no text in image: False witness sought — God knows the truth (honesty)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft warm stone and linen tones, friendly not scary, no text in image: Jesus held his peace — gentle strength (trust)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft warm stone and linen tones, friendly not scary, no text in image: Christ, the Son of God — the big question (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft warm stone and linen tones, friendly not scary, no text in image: Right hand of power — clouds of heaven (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft warm stone and linen tones, friendly not scary, no text in image: Jesus tells the truth — Son of God loves us (love)'
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Peter denies Jesus — Matthew 26:69–75 (gentle). Library key: peterDenial */
+function buildPeterDenialReadQuiz() {
+  return {
+    kjvRef: 'Matthew 26:69–75 (KJV) (par. Mark 14:66–72; Luke 22:54–62; John 18:15–18, 25–27)',
+    verseExcerpt:
+      'And Peter remembered the word of Jesus, which said unto him, Before the cock crow, thou shalt deny me thrice. And he went out, and wept bitterly. — Matthew 26:75 (KJV)',
+    readAlongTitle: 'Peter Denies Jesus',
+    quizWrongHumilityHint:
+      'Listen again — without in the palace; damsel; Jesus of Galilee; denied; porch; another maid; Nazareth; oath; I do not know the man; speech bewrayeth; cock crew; deny me thrice; wept bitterly.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Now Peter sat without in the palace: and a damsel came unto him, saying, Thou also wast with Jesus of Galilee. But he denied before them all, saying, I know not what thou sayest.',
+      'And when he was gone out into the porch, another maid saw him, and said unto them that were there, This fellow was also with Jesus of Nazareth. And again he denied with an oath, I do not know the man.',
+      'And after a while came unto him they that stood by, and said to Peter, Surely thou also art one of them; for thy speech bewrayeth thee.',
+      'Then began he to curse and to swear, saying, I know not the man. And immediately the cock crew.',
+      'And Peter remembered the word of Jesus, which said unto him, Before the cock crow, thou shalt deny me thrice. And he went out, and wept bitterly.',
+      'Jesus still loved Peter — and He forgives us when we are sorry too.',
+      'Reference: Matthew 26:69–75 (KJV) (parallel in Mark, Luke, and John)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Peter sat outside by the fire near the high priest\'s house.',
+        caption: 'Without in the palace',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'A young maid said, "You were with Jesus of Galilee." But Peter said, "I do not know what you mean."',
+        caption: 'Jesus of Galilee',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Another maid saw him and said the same thing. Peter denied it again.',
+        caption: 'Unto the porch',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Other people said, "Surely you are one of them — your speech shows it."',
+        caption: 'Thy speech bewrayeth thee',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Peter said strongly, "I do not know the man." Then the rooster crowed.',
+        caption: 'The cock crew',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Peter remembered what Jesus had told him. He went out and felt very sorry, and he wept.',
+        caption: 'Wept bitterly',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: [
+          'Matthew 26:69–75 (also told in Mark, Luke, and John)',
+          'Genesis 1 only',
+          'Jonah 1 only',
+          'Revelation 20 only'
+        ],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 26:69–75.)'
+      },
+      {
+        question: 'Where was Peter when the first maid spoke to him?',
+        choices: [
+          'Without (outside) in the palace, by the fire.',
+          'On a boat in the sea.',
+          'In Bethlehem only.',
+          'On the moon.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:69.',
+        wrongFeedback: 'Listen for “without” and “palace.” (Answer: outside in the palace.)'
+      },
+      {
+        question: 'What did Peter say the first time he denied knowing Jesus?',
+        choices: [
+          'I know not what thou sayest.',
+          'I am the king of the palace.',
+          'I never heard of fire.',
+          'I will never be sorry.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:70.',
+        wrongFeedback: 'Listen for “I know not.” (Answer: I know not what thou sayest.)'
+      },
+      {
+        question: 'What happened right after Peter denied the third time?',
+        choices: [
+          'Immediately the cock crew.',
+          'It started snowing candy.',
+          'Everyone went swimming.',
+          'The palace flew away.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:74.',
+        wrongFeedback: 'Listen for the rooster. (Answer: the cock crew.)'
+      },
+      {
+        question: 'What did Peter do when he remembered Jesus\' words?',
+        choices: [
+          'He went out, and wept bitterly — he felt very sorry.',
+          'He laughed and ran away forever.',
+          'He hid from God on purpose.',
+          'He forgot everything.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 26:75.',
+        wrongFeedback: 'Listen for “wept bitterly.” (Answer: he wept bitterly.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Tell Jesus when I feel sorry — He forgave Peter and welcomes us back with love.',
+          'Believe God never forgives.',
+          'Stay sad on purpose and never pray.',
+          'Never say I am sorry.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with honesty: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “sorry,” “forgiveness,” and “Jesus loves me.” (Answer: tell Jesus… welcomes us back.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Peter Denies Jesus with God's Word today.",
+    takeaway:
+      'Even when we fail, Jesus understands — He forgave Peter, and He forgives everyone who turns to Him with a sorry heart.',
+    prayer:
+      'Lord Jesus, thank You that You forgive us when we are sorry. Help me trust Your gentle love. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful and calm atmosphere. Gentle scene at night outside the high priest\'s palace: Peter sits by a small fire with a sad, sorry face (no anger). A young maid stands nearby pointing gently. Soft palace walls and a doorway in the background, with a rooster standing on a low wall or fence. Plenty of open ground and sky space in the foreground for coloring. Focus on the heart of the moment: Peter feeling sorry after the rooster crows, remembering Jesus\' words. Style: clear, bold, tender, restful — never scary or dark; the rooster looks calm and friendly.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft night blues and warm fire glow, friendly not scary, no text in image: By the fire — quiet palace yard (calm)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft night blues and warm fire glow, friendly not scary, no text in image: Jesus of Galilee — a gentle question (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft night blues and warm fire glow, friendly not scary, no text in image: The porch — another kindness test (honesty)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft night blues and warm fire glow, friendly not scary, no text in image: Thy speech bewrayeth thee — Peter afraid (gentleness)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft night blues and warm fire glow, friendly not scary, no text in image: The cock crew — remembering Jesus\' words (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft night blues and warm fire glow, friendly not scary, no text in image: Wept bitterly — Jesus still loves (forgiveness)'
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Jesus before Pilate — Matthew 27:11–26 (gentle). Library key: trial */
+function buildTrialPilateReadQuiz() {
+  return {
+    kjvRef: 'Matthew 27:11–26 (KJV) (par. Mark 15:1–15; Luke 23:1–25; John 18:28–19:16)',
+    verseExcerpt: 'And Jesus said unto him, Thou sayest. — Matthew 27:11 (KJV)',
+    readAlongTitle: 'Jesus Before Pilate',
+    quizWrongHumilityHint:
+      'Listen again — governor; King of the Jews; Thou sayest; accused; answered nothing; marvelled greatly; Barabbas; Jesus which is called Christ; persuaded; Let him be crucified; washed his hands; just person; delivered to be crucified.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'And Jesus stood before the governor: and the governor asked him, saying, Art thou the King of the Jews? And Jesus said unto him, Thou sayest.',
+      'And when he was accused of the chief priests and elders, he answered nothing. Then said Pilate unto him, Hearest thou not how many things they witness against thee? And he answered him to never a word; insomuch that the governor marvelled greatly.',
+      'Now at that feast the governor was wont to release unto the people a prisoner, whom they would. And they had then a notable prisoner, called Barabbas. Therefore when they were gathered together, Pilate said unto them, Whom will ye that I release unto you? Barabbas, or Jesus which is called Christ? For he knew that for envy they had delivered him.',
+      'When he was set down on the judgment seat, his wife sent unto him, saying, Have thou nothing to do with that just man: for I have suffered many things this day in a dream because of him. But the chief priests and elders persuaded the multitude that they should ask Barabbas, and destroy Jesus.',
+      'The governor answered and said unto them, Whether of the twain will ye that I release unto you? They said, Barabbas. Pilate saith unto them, What shall I do then with Jesus which is called Christ? They all say unto him, Let him be crucified. And the governor said, Why, what evil hath he done? But they cried out the more, saying, Let him be crucified.',
+      'When Pilate saw that he could prevail nothing, but that rather a tumult was made, he took water, and washed his hands before the multitude, saying, I am innocent of the blood of this just person: see ye to it. Then answered all the people, and said, His blood be on us, and on our children. Then released he Barabbas unto them: and when he had scourged Jesus, he delivered him to be crucified.',
+      'Jesus stayed calm and strong in God\'s truth — He loves us with a kingdom that lasts forever.',
+      'Reference: Matthew 27:11–26 (KJV) (parallel in Mark, Luke, and John)'
+    ],
+    readAlongSections: [
+      {
+        text: 'The soldiers brought Jesus to Pilate the governor early in the morning. He asked, Art thou the King of the Jews? Jesus answered, Thou sayest.',
+        caption: 'Before the governor',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'When the chief priests accused Jesus, He would not speak against them — and Pilate marvelled greatly.',
+        caption: 'Answered nothing',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'At the feast, Pilate would release one prisoner. They had a man called Barabbas, and Jesus which is called Christ.',
+        caption: 'Barabbas or Christ',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'The rulers persuaded the crowd to ask for Barabbas. Pilate\'s wife had dreamed about the just Man Jesus.',
+        caption: 'Ask Barabbas',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Pilate asked, What shall I do with Jesus? They cried, Let him be crucified. He asked, Why, what evil hath he done?',
+        caption: 'Let him be crucified',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Pilate washed his hands before the people. They chose Barabbas, and Jesus was delivered to be crucified — and Jesus stayed calm and strong.',
+        caption: 'Truth and love',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: [
+          'Matthew 27:11–26 (also told in Mark, Luke, and John)',
+          'Genesis 1 only',
+          'Jonah 1 only',
+          'Revelation 20 only'
+        ],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 27:11–26.)'
+      },
+      {
+        question: 'What did Pilate ask Jesus first?',
+        choices: [
+          'Art thou the King of the Jews?',
+          'Where is the boat?',
+          'Who built the tower?',
+          'What is nine plus ten?'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 27:11.',
+        wrongFeedback: 'Listen for “King of the Jews.” (Answer: Art thou the King of the Jews?)'
+      },
+      {
+        question: 'What did Jesus say to Pilate about being the King of the Jews?',
+        choices: ['Thou sayest.', 'No, never.', 'Ask Barabbas.', 'Run away.'],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 27:11.',
+        wrongFeedback: 'Listen for “Thou sayest.” (Answer: Thou sayest.)'
+      },
+      {
+        question: 'When the chief priests accused Jesus, what did He do?',
+        choices: [
+          'He answered nothing — He stayed quiet before Pilate.',
+          'He shouted loudly only.',
+          'He hid under the floor.',
+          'He forgot who He was.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 27:12–14.',
+        wrongFeedback: 'Listen for “answered nothing.” (Answer: He answered nothing.)'
+      },
+      {
+        question: 'Whom did the crowd ask Pilate to release instead of Jesus?',
+        choices: ['Barabbas', 'Moses only', 'David only', 'Jonah only'],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 27:21.',
+        wrongFeedback: 'Listen for the prisoner’s name. (Answer: Barabbas.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Tell Jesus when things feel unfair — He stayed true and loves me still.',
+          'Believe God never hears.',
+          'Stop praying when I am sad.',
+          'Never talk to a grown-up.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with honesty: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “unfair,” “true,” and “Jesus loves me.” (Answer: tell Jesus… loves me still.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Before Pilate with God's Word today.",
+    takeaway:
+      'Jesus stayed calm and spoke truth before Pilate — His kingdom is forever, and His love holds us on hard days.',
+    prayer:
+      'Lord Jesus, thank You that You understand unfair moments. Help me trust You and rest in Your love. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful and calm atmosphere. Gentle Jesus stands quietly and calmly before Pilate in the center, with a kind and peaceful face. Pilate sits on a judgment seat looking thoughtful. A few soldiers stand nearby with simple spears resting on the ground (no raised weapons). Soft palace pillars and open courtyard space with plenty of room in the foreground for coloring. Focus on the heart of the moment: Jesus standing strong and true before the governor, speaking about His kingdom of truth. Style: clear, bold, tender, restful — never dark, angry, or scary.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning stone and linen tones, friendly not scary, no text in image: Before Pilate — King of the Jews (calm)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning stone and linen tones, friendly not scary, no text in image: Answered nothing — gentle strength (trust)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning stone and linen tones, friendly not scary, no text in image: Barabbas or Christ — a hard choice (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning stone and linen tones, friendly not scary, no text in image: Persuaded multitude — kindness test (honesty)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning stone and linen tones, friendly not scary, no text in image: Let him be crucified — Jesus stayed strong (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning stone and linen tones, friendly not scary, no text in image: Washed hands — delivered — God\'s plan still good (hope)'
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Jesus carries His cross — Matthew 27:31–32 (gentle; women’s words in Luke 23:27–28). Library key: crossCarry */
+function buildCrossCarryReadQuiz() {
+  return {
+    kjvRef: 'Matthew 27:31–32 (KJV) (par. Mark 15:20–21; Luke 23:26–32; John 19:16–17)',
+    verseExcerpt:
+      'And as they came out, they found a man of Cyrene, Simon by name: him they compelled to bear his cross. — Matthew 27:32 (KJV)',
+    readAlongTitle: 'Jesus Carries His Cross',
+    quizWrongHumilityHint:
+      'Listen again — mocked; raiment; led away; crucify; Cyrene; Simon; bear his cross; great company; women; bewailed; Daughters of Jerusalem; weep not for me.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'And after that they had mocked him, they took the robe off from him, and put his own raiment on him, and led him away to crucify him.',
+      'Jesus went forward carrying the cross — heavy wood, and a heart full of love for us.',
+      'And as they came out, they found a man of Cyrene, Simon by name: him they compelled to bear his cross.',
+      'And there followed him a great company of people, and of women, which also bewailed and lamented him.',
+      'But Jesus turning unto them said, Daughters of Jerusalem, weep not for me, but weep for yourselves, and for your children.',
+      'Jesus carried His cross because He loves us — He is strong and kind, and He helps us when life feels hard.',
+      'Reference: Matthew 27:31–32 (KJV) (parallel in Mark, Luke, and John)'
+    ],
+    readAlongSections: [
+      {
+        text: 'After the soldiers mocked Jesus, they led Him away to crucify Him — And after that they had mocked him, they took the robe off from him, and put his own raiment on him, and led him away to crucify him.',
+        caption: 'Led away in His own raiment',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Jesus began to carry His heavy wooden cross — slow, steady, and strong in love.',
+        caption: 'Carrying the cross',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'The soldiers found Simon of Cyrene and asked him to help — And as they came out, they found a man of Cyrene, Simon by name: him they compelled to bear his cross.',
+        caption: 'Simon helps',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Many people followed Jesus, and some women were crying — And there followed him a great company of people, and of women, which also bewailed and lamented him.',
+        caption: 'A great company',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus turned to them and said gently — But Jesus turning unto them said, Daughters of Jerusalem, weep not for me, but weep for yourselves, and for your children.',
+        caption: 'Weep not for me',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Jesus carried His cross because He loved us so much and wanted to save us — and He helps us carry what feels heavy in our hearts.',
+        caption: 'Love that holds us',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: [
+          'Matthew 27:31–32 (also told in Mark, Luke, and John)',
+          'Genesis 1 only',
+          'Jonah 1 only',
+          'Revelation 20 only'
+        ],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 27:31–32.)'
+      },
+      {
+        question: 'After they mocked Jesus, what did they do next?',
+        choices: [
+          'They put His own raiment on Him and led Him away to crucify Him.',
+          'They sailed away in a tiny boat.',
+          'They planted a garden in the palace.',
+          'They forgot who He was.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 27:31.',
+        wrongFeedback: 'Listen for “raiment” and “led him away.” (Answer: His own raiment… led away to crucify.)'
+      },
+      {
+        question: 'Whom did they find to help bear His cross?',
+        choices: [
+          'Simon of Cyrene',
+          'Barabbas',
+          'Pontius Pilate',
+          'Jonah the prophet'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 27:32.',
+        wrongFeedback: 'Listen for “Cyrene” and “Simon.” (Answer: Simon of Cyrene.)'
+      },
+      {
+        question: 'Who followed Jesus on the road?',
+        choices: [
+          'A great company of people, and women who bewailed and lamented Him',
+          'Only one silent tree',
+          'No one at all',
+          'Only soldiers who stayed indoors'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Luke 23:27.',
+        wrongFeedback: 'Listen for “great company” and “women.” (Answer: people and women who lamented.)'
+      },
+      {
+        question: 'What did Jesus say to the daughters of Jerusalem?',
+        choices: [
+          'Weep not for me, but weep for yourselves, and for your children.',
+          'Run faster than the wind.',
+          'Hide behind the city wall.',
+          'Forget your families.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Luke 23:28.',
+        wrongFeedback: 'Listen for “weep not for me.” (Answer: Weep not for me….)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Remember Jesus when I feel tired — He carried the cross because He loves me, and He helps me.',
+          'Believe God never cares when I am sad.',
+          'Stop talking to Jesus on hard days.',
+          'Never ask a grown-up for help.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with honesty: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “tired,” “loves me,” and “Jesus helps.” (Answer: remember Jesus… He helps me.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Carries His Cross with God's Word today.",
+    takeaway:
+      'Jesus walked with willing love toward the cross — Simon helped, women wept, and Jesus spoke truth with gentleness. His strength holds us on tired days.',
+    prayer:
+      'Lord Jesus, thank You for carrying the cross because You love me. When my heart feels heavy, please help me rest in You. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful and calm atmosphere. Gentle Jesus walks slowly and calmly in the center, carrying a large wooden cross on His shoulder with a kind and peaceful face. Simon of Cyrene walks beside Him, helping to carry the cross (simple, strong man with a gentle expression). A few women follow quietly with sad but hopeful faces. Soft road and distant city walls in the background with plenty of open ground and sky in the foreground for coloring. Focus on the heart of the moment: Jesus willingly carrying His cross out of love for us. Style: clear, bold, tender, restful — never dark, heavy, or scary.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dust-road and linen tones, friendly not scary, no text in image: Mocking ended — His own raiment — led away (gentle strength)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dust-road and linen tones, friendly not scary, no text in image: Wooden cross on the road — Jesus steady in love (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dust-road and linen tones, friendly not scary, no text in image: Simon of Cyrene — helping hands (kindness)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dust-road and linen tones, friendly not scary, no text in image: Great company following — tender faces (care)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dust-road and linen tones, friendly not scary, no text in image: Daughters of Jerusalem — weep not for me (gentle truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dust-road and linen tones, friendly not scary, no text in image: Love that saves — Jesus holds tired hearts (rest)'
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Jesus on the cross — Matthew 27:33–56 (gentle; prayer and “finished” from Luke 23:34; John 19:30). Library key: crucifixion */
+function buildCrucifixionReadQuiz() {
+  return {
+    kjvRef: 'Matthew 27:33–56 (KJV) (par. Mark 15:22–41; Luke 23:33–49; John 19:18–37)',
+    verseExcerpt:
+      'Now from the sixth hour there was darkness over all the land unto the ninth hour. — Matthew 27:45 (KJV)',
+    readAlongTitle: 'Jesus on the Cross',
+    quizWrongHumilityHint:
+      'Listen again — Golgotha; gall; crucified; garments; lots; thieves; reviled; darkness; Eli; forsaken; veil; earthquake; centurion; Son of God; forgive; finished.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'And when they were come unto a place called Golgotha, that is to say, a place of a skull, They gave him vinegar to drink mingled with gall: and when he had tasted thereof, he would not drink. And they crucified him, and parted his garments, casting lots: that it might be fulfilled which was spoken by the prophet, They parted my garments among them, and upon my vesture did they cast lots.',
+      'And sitting down they watched him there; And set up over his head his accusation written, THIS IS JESUS THE KING OF THE JEWS. Then were there two thieves crucified with him, one on the right hand, and another on the left.',
+      'And they that passed by reviled him, wagging their heads, And saying, Thou that destroyest the temple, and buildest it in three days, save thyself. If thou be the Son of God, come down from the cross. Likewise also the chief priests mocking him, with the scribes and elders, said, He saved others; himself he cannot save. If he be the King of Israel, let him now come down from the cross, and we will believe him. He trusted in God; let him deliver him now, if he will have him: for he said, I am the Son of God. The thieves also, which were crucified with him, cast the same in his teeth.',
+      'Then said Jesus, Father, forgive them; for they know not what they do. — Luke 23:34 (KJV)',
+      'Now from the sixth hour there was darkness over all the land unto the ninth hour. And about the ninth hour Jesus cried with a loud voice, saying, Eli, Eli, lama sabachthani? that is to say, My God, my God, why hast thou forsaken me?',
+      'Jesus, when he had cried again with a loud voice, yielded up the ghost. When Jesus therefore had received the vinegar, he said, It is finished: and he bowed his head, and gave up the ghost. — John 19:30 (KJV)',
+      'And, behold, the veil of the temple was rent in twain from the top to the bottom; and the earth did quake, and the rocks rent; Now when the centurion, and they that were with him, watching Jesus, saw the earthquake, and those things that were done, they feared greatly, saying, Truly this was the Son of God.',
+      'Jesus gave His life because He loves us — and many women followed Him faithfully, beholding afar off.',
+      'Reference: Matthew 27:33–56 (KJV) (parallel in Mark, Luke, and John)'
+    ],
+    readAlongSections: [
+      {
+        text: 'The soldiers took Jesus to a place called Golgotha and crucified Him on a cross — And when they were come unto a place called Golgotha, that is to say, a place of a skull, They gave him vinegar to drink mingled with gall: and when he had tasted thereof, he would not drink. And they crucified him, and parted his garments, casting lots: that it might be fulfilled which was spoken by the prophet, They parted my garments among them, and upon my vesture did they cast lots.',
+        caption: 'Golgotha',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Jesus prayed for the people — Then said Jesus, Father, forgive them; for they know not what they do. — Luke 23:34 (KJV)',
+        caption: 'Father, forgive',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Two thieves were crucified with Him, one on each side — Then were there two thieves crucified with him, one on the right hand, and another on the left.',
+        caption: 'Two thieves',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'From noon until three o’clock the sky grew dark — Now from the sixth hour there was darkness over all the land unto the ninth hour.',
+        caption: 'Darkness over the land',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus cried out, Eli, Eli, lama sabachthani? that is to say, My God, my God, why hast thou forsaken me? Then He said, It is finished, and gave up His spirit — And about the ninth hour Jesus cried with a loud voice, saying, Eli, Eli, lama sabachthani? that is to say, My God, my God, why hast thou forsaken me? … When Jesus therefore had received the vinegar, he said, It is finished: and he bowed his head, and gave up the ghost. — John 19:30 (KJV)',
+        caption: 'Forsaken — finished',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'The earth shook, and the centurion said, Truly this was the Son of God — Jesus died because He loves us — And, behold, the veil of the temple was rent in twain from the top to the bottom; and the earth did quake, and the rocks rent; … they feared greatly, saying, Truly this was the Son of God.',
+        caption: 'The Son of God',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: [
+          'Matthew 27:33–56 (also told in Mark, Luke, and John)',
+          'Genesis 12 only',
+          'Psalm 23 only',
+          'Acts 1 only'
+        ],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 27:33–56.)'
+      },
+      {
+        question: 'What was the place called where they crucified Jesus?',
+        choices: ['Golgotha (a place of a skull)', 'Nineveh', 'Jericho only', 'Capernaum only'],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 27:33.',
+        wrongFeedback: 'Listen for “Golgotha” and “skull.” (Answer: Golgotha.)'
+      },
+      {
+        question: 'What did Jesus pray for the people (in Luke’s Gospel)?',
+        choices: [
+          'Father, forgive them; for they know not what they do.',
+          'Run away quickly.',
+          'Hide from everyone.',
+          'Forget Jerusalem.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Luke 23:34.',
+        wrongFeedback: 'Listen for “forgive.” (Answer: Father, forgive them….)'
+      },
+      {
+        question: 'What happened from the sixth hour to the ninth hour?',
+        choices: [
+          'Darkness over all the land',
+          'A great fish swallowed everyone',
+          'The sun stood still forever',
+          'It snowed in the desert'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 27:45.',
+        wrongFeedback: 'Listen for “darkness” and “sixth… ninth.” (Answer: darkness over the land.)'
+      },
+      {
+        question: 'What did Jesus say in John when He finished His work on the cross?',
+        choices: ['It is finished.', 'I am lost.', 'Go away.', 'Never pray.'],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 19:30.',
+        wrongFeedback: 'Listen for “finished.” (Answer: It is finished.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Tell Jesus when I feel sad — He loves me and died so I could be forgiven.',
+          'Believe God never cares.',
+          'Stop praying when it is dark outside.',
+          'Never hug a grown-up who loves me.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with honesty: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “sad,” “loves me,” and “forgiven.” (Answer: tell Jesus… forgiven.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus on the Cross with God's Word today.",
+    takeaway:
+      'Jesus stayed on the cross in love — He prayed for people, finished His saving work, and the centurion saw He was the Son of God.',
+    prayer:
+      'Lord Jesus, thank You for dying on the cross because You love me. Help me trust Your forgiveness and rest in You. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful and calm atmosphere. Gentle Jesus hangs on the cross in the center with a kind and peaceful face, His head slightly bowed. Two simple crosses stand on either side (empty or with the thieves shown very softly). A few women and friends stand at a gentle distance looking up with love and sadness. Soft ground, a few rocks, and a light sky with plenty of open space around the cross for coloring. Focus on the heart of the moment: Jesus giving His life because He loves us so much. Style: clear, bold, tender, restful — never dark, scary, or graphic; everything feels quiet, loving, and hopeful.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hill-sky and linen tones, friendly not scary, no text in image: Golgotha — gentle strength (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hill-sky and linen tones, friendly not scary, no text in image: Father, forgive — tender heart (mercy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hill-sky and linen tones, friendly not scary, no text in image: Two thieves — Jesus in the middle (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hill-sky and linen tones, friendly not scary, no text in image: Quiet darkness — hush over the land (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hill-sky and linen tones, friendly not scary, no text in image: It is finished — love complete (peace)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hill-sky and linen tones, friendly not scary, no text in image: Earthquake awe — Son of God seen (faith)'
+    ],
+    readAlongImages: []
+  };
+}
+
+/** The empty tomb — Matthew 28:1–10 (gentle). Library key: tombEmpty */
+function buildTombEmptyReadQuiz() {
+  return {
+    kjvRef: 'Matthew 28:1–10 (KJV) (par. Mark 16:1–8; Luke 24:1–12; John 20:1–18)',
+    verseExcerpt: 'He is not here: for he is risen, as he said. — Matthew 28:6 (KJV)',
+    readAlongTitle: 'The Empty Tomb',
+    quizWrongHumilityHint:
+      'Listen again — sabbath; dawn; first day; Mary; sepulchre; earthquake; angel; stone; Fear not; crucified; He is not here; risen; Galilee; great joy; All hail; Be not afraid.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'In the end of the sabbath, as it began to dawn toward the first day of the week, came Mary Magdalene and the other Mary to see the sepulchre.',
+      'And, behold, there was a great earthquake: for the angel of the Lord descended from heaven, and came and rolled back the stone from the door, and sat upon it. His countenance was like lightning, and his raiment white as snow: And for fear of him the keepers did shake, and became as dead men.',
+      'And the angel answered and said unto the women, Fear not ye: for I know that ye seek Jesus, which was crucified. He is not here: for he is risen, as he said. Come, see the place where the Lord lay.',
+      'And go quickly, and tell his disciples that he is risen from the dead; and, behold, he goeth before you into Galilee; there shall ye see him: lo, I have told you.',
+      'And they departed quickly from the sepulchre with fear and great joy; and did run to bring his disciples word.',
+      'And as they went to tell his disciples, behold, Jesus met them, saying, All hail. And they came and held him by the feet, and worshipped him. Then said Jesus unto them, Be not afraid: go tell my brethren that they go into Galilee, and there shall they see me.',
+      'Jesus is alive — His love is brighter than any sadness, and He gives us living hope.',
+      'Reference: Matthew 28:1–10 (KJV) (parallel in Mark, Luke, and John)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Early on the first day of the week, Mary Magdalene and the other Mary came to the sepulchre — In the end of the sabbath, as it began to dawn toward the first day of the week, came Mary Magdalene and the other Mary to see the sepulchre.',
+        caption: 'At the sepulchre',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'God sent an angel — the earth shook — and the stone was rolled away from the door — And, behold, there was a great earthquake: for the angel of the Lord descended from heaven, and came and rolled back the stone from the door, and sat upon it.',
+        caption: 'Stone rolled back',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'The angel said, Fear not — I know you seek Jesus — He is not here: for he is risen, as he said — Come, see the place where the Lord lay.',
+        caption: 'He is risen',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Go quickly and tell His disciples — He goes before you into Galilee — And go quickly, and tell his disciples that he is risen from the dead; and, behold, he goeth before you into Galilee; there shall ye see him: lo, I have told you.',
+        caption: 'Tell the disciples',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'They ran with fear and great joy to share the news — And they departed quickly from the sepulchre with fear and great joy; and did run to bring his disciples word.',
+        caption: 'Great joy',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Jesus met them with gentle words — Be not afraid — He is alive and loves us — And as they went to tell his disciples, behold, Jesus met them, saying, All hail. … Then said Jesus unto them, Be not afraid: go tell my brethren that they go into Galilee, and there shall they see me.',
+        caption: 'Jesus is alive',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: [
+          'Matthew 28:1–10 (also told in Mark, Luke, and John)',
+          'Genesis 6 only',
+          'Jonah 2 only',
+          'Revelation 4 only'
+        ],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 28:1–10.)'
+      },
+      {
+        question: 'Who came to the sepulchre as it began to dawn?',
+        choices: [
+          'Mary Magdalene and the other Mary',
+          'Only Pharaoh’s soldiers',
+          'David and Goliath',
+          'Jonah inside a fish'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 28:1.',
+        wrongFeedback: 'Listen for the two Marys. (Answer: Mary Magdalene and the other Mary.)'
+      },
+      {
+        question: 'What did the angel say about Jesus?',
+        choices: [
+          'He is not here: for he is risen, as he said.',
+          'He stayed in the grave forever.',
+          'He forgot His friends.',
+          'He was only a story.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 28:6.',
+        wrongFeedback: 'Listen for “He is not here” and “risen.” (Answer: He is not here: for he is risen….)'
+      },
+      {
+        question: 'What did the women do after they heard the good news?',
+        choices: [
+          'They ran with fear and great joy to tell His disciples.',
+          'They hid and never spoke.',
+          'They went home to sleep only.',
+          'They forgot everything.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 28:8.',
+        wrongFeedback: 'Listen for “great joy” and “run.” (Answer: ran with fear and great joy….)'
+      },
+      {
+        question: 'What did Jesus say when He met them?',
+        choices: [
+          'All hail … Be not afraid: go tell my brethren …',
+          'Run away and be silent forever.',
+          'Do not love anyone.',
+          'Stay in the dark.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 28:9–10.',
+        wrongFeedback: 'Listen for “All hail” and “Be not afraid.” (Answer: All hail… Be not afraid….)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Tell Jesus when I feel sad — He is alive and His love is stronger than death.',
+          'Believe God never cares about kids.',
+          'Stop hoping on hard mornings.',
+          'Never smile again.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with honesty: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “alive,” “love,” and “hope.” (Answer: tell Jesus… His love is stronger….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading The Empty Tomb with God's Word today.",
+    takeaway:
+      'The tomb was empty — Jesus kept His promise. His rising brings gentle hope to every sad heart.',
+    prayer:
+      'Lord Jesus, thank You that You are alive forever. When I feel heavy, help me remember the empty tomb and rest in You. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful and calm atmosphere. Soft dawn light over a quiet garden hill; a cave-tomb opening with the stone rolled to the side; two women standing at a gentle distance with peaceful, wondering faces; a hint of a bright angel figure seated on the stone (simple, kind outline — not harsh). Plenty of open sky and grass for coloring. Focus on the heart of the moment: Jesus is risen — the tomb is empty — hope has come. Style: clear, bold, tender, restful — never scary or dark; everything feels quiet, loving, and full of morning hope.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn pinks and linen tones, friendly not scary, no text in image: Two Marys walking — gentle morning (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn pinks and linen tones, friendly not scary, no text in image: Angel — stone rolled — quiet wonder (peace)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn pinks and linen tones, friendly not scary, no text in image: He is not here — He is risen (joy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn pinks and linen tones, friendly not scary, no text in image: Go tell — running with great joy (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn pinks and linen tones, friendly not scary, no text in image: Jesus meets them — Be not afraid (gentle)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn pinks and linen tones, friendly not scary, no text in image: Empty tomb — living hope (rest)'
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Jesus is risen — Matthew 28:1–10, 16–20 (gentle). Library keys: jesusResurrection; resurrection */
+function buildJesusResurrectionReadQuiz() {
+  return {
+    kjvRef: 'Matthew 28:1–10, 16–20 (KJV) (par. Mark 16; Luke 24; John 20)',
+    verseExcerpt: 'He is not here: for he is risen, as he said. — Matthew 28:6 (KJV)',
+    readAlongTitle: 'Jesus Is Risen',
+    quizWrongHumilityHint:
+      'Listen again — dawn; sepulchre; earthquake; angel; stone; Fear not; crucified; He is not here; risen; Galilee; great joy; All hail; worshipped; Be not afraid; eleven disciples; mountain; All power; teach all nations; baptizing; Holy Ghost; I am with you alway; Amen.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'In the end of the sabbath, as it began to dawn toward the first day of the week, came Mary Magdalene and the other Mary to see the sepulchre.',
+      'And, behold, there was a great earthquake: for the angel of the Lord descended from heaven, and came and rolled back the stone from the door, and sat upon it. His countenance was like lightning, and his raiment white as snow: And for fear of him the keepers did shake, and became as dead men.',
+      'And the angel answered and said unto the women, Fear not ye: for I know that ye seek Jesus, which was crucified. He is not here: for he is risen, as he said. Come, see the place where the Lord lay.',
+      'And go quickly, and tell his disciples that he is risen from the dead; and, behold, he goeth before you into Galilee; there shall ye see him: lo, I have told you.',
+      'And they departed quickly from the sepulchre with fear and great joy; and did run to bring his disciples word. And as they went to tell his disciples, behold, Jesus met them, saying, All hail. And they came and held him by the feet, and worshipped him. Then said Jesus unto them, Be not afraid: go tell my brethren that they go into Galilee, and there shall they see me.',
+      'Then the eleven disciples went away into Galilee, into a mountain where Jesus had appointed them. And when they saw him, they worshipped him: but some doubted. And Jesus came and spake unto them, saying, All power is given unto me in heaven and in earth. Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Ghost: Teaching them to observe all things whatsoever I have commanded you: and, lo, I am with you alway, even unto the end of the world. Amen.',
+      'Jesus is alive — His love turns fear into joy, and His promise stays with us always.',
+      'Reference: Matthew 28:1–10, 16–20 (KJV) (told also in Mark, Luke, and John)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Early on Sunday morning, the women went to the tomb and saw the stone rolled away — In the end of the sabbath, as it began to dawn toward the first day of the week, came Mary Magdalene and the other Mary to see the sepulchre. And, behold, there was a great earthquake: for the angel of the Lord descended from heaven, and came and rolled back the stone from the door, and sat upon it.',
+        caption: 'Dawn at the tomb',
+        image: 'panel-jesus-resurrection-1.svg'
+      },
+      {
+        text: 'An angel said, “He is not here: for he is risen, as he said.” — And the angel answered and said unto the women, Fear not ye: for I know that ye seek Jesus, which was crucified. He is not here: for he is risen, as he said. Come, see the place where the Lord lay.',
+        caption: 'He is risen',
+        image: 'panel-jesus-resurrection-2.svg'
+      },
+      {
+        text: 'The women ran to tell the disciples the good news — And go quickly, and tell his disciples that he is risen from the dead; and, behold, he goeth before you into Galilee; there shall ye see him: lo, I have told you. And they departed quickly from the sepulchre with fear and great joy; and did run to bring his disciples word.',
+        caption: 'Great joy',
+        image: 'panel-jesus-resurrection-2.svg'
+      },
+      {
+        text: 'Suddenly Jesus met them and said, “All hail. Be not afraid.” — And as they went to tell his disciples, behold, Jesus met them, saying, All hail. Then said Jesus unto them, Be not afraid: go tell my brethren that they go into Galilee, and there shall they see me.',
+        caption: 'Jesus meets them',
+        image: 'panel-jesus-resurrection-3.svg'
+      },
+      {
+        text: 'The women held His feet and worshipped Him with great joy — And they came and held him by the feet, and worshipped him.',
+        caption: 'Worship and peace',
+        image: 'panel-jesus-resurrection-3.svg'
+      },
+      {
+        text: 'Later Jesus told His disciples, “All power is given unto me… Go ye therefore… and, lo, I am with you alway, even unto the end of the world.” — And Jesus came and spake unto them, saying, All power is given unto me in heaven and in earth. Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Ghost: Teaching them to observe all things whatsoever I have commanded you: and, lo, I am with you alway, even unto the end of the world. Amen.',
+        caption: 'With you alway',
+        image: 'panel-jesus-resurrection-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: [
+          'Matthew 28:1–10, 16–20 (also told in Mark, Luke, and John)',
+          'Genesis 1 only',
+          'Jonah 2 only',
+          'Revelation 22 only'
+        ],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 28:1–10, 16–20.)'
+      },
+      {
+        question: 'What did the women see as it began to dawn on the first day of the week?',
+        choices: [
+          'They came to the sepulchre and saw the angel had rolled back the stone from the door.',
+          'They stayed home and slept all morning.',
+          'They forgot why they came.',
+          'They never left the city.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 28:1–2.',
+        wrongFeedback: 'Listen for “dawn,” “sepulchre,” and “stone.” (Answer: stone rolled back….)'
+      },
+      {
+        question: 'What did the angel say about Jesus?',
+        choices: [
+          'He is not here: for he is risen, as he said.',
+          'He stayed in the grave forever.',
+          'He did not love His friends.',
+          'He was only a dream.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 28:6.',
+        wrongFeedback: 'Listen for “He is not here” and “risen.” (Answer: He is not here: for he is risen….)'
+      },
+      {
+        question: 'What happened while the women went to tell the disciples?',
+        choices: [
+          'Jesus met them, saying, All hail, and told them, Be not afraid.',
+          'They got lost and never spoke again.',
+          'They decided not to tell anyone.',
+          'They stayed at the tomb alone forever.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 28:9–10.',
+        wrongFeedback: 'Listen for “Jesus met them” and “All hail.” (Answer: Jesus met them… All hail….)'
+      },
+      {
+        question: 'What did the women do when they saw Jesus?',
+        choices: [
+          'They came and held him by the feet, and worshipped him.',
+          'They ran away and hid forever.',
+          'They refused to look at Him.',
+          'They forgot who He was.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 28:9.',
+        wrongFeedback: 'Listen for “held him by the feet” and “worshipped.” (Answer: held him by the feet… worshipped him.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Remember the risen Jesus on hard days — He said, I am with you alway, even unto the end of the world.',
+          'Believe God is far away when I feel afraid.',
+          'Stop hoping when mornings feel heavy.',
+          'Never tell anyone about Jesus.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with honesty: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “risen,” “with you alway,” and “great joy.” (Answer: remember Jesus… I am with you alway….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Is Risen with God's Word today.",
+    takeaway:
+      'Jesus kept every promise — He is alive, gentle with afraid hearts, and with His people to the end of the world.',
+    prayer:
+      'Lord Jesus, thank You that You are risen and that You stay with me. When I feel afraid, help me rest in Your living love. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful and calm atmosphere. Gentle risen Jesus stands in the center with a kind, joyful face and open arms. Mary Magdalene and the other Mary kneel nearby, reaching toward Him with happy, worshipful faces. The large stone is rolled away from the empty tomb in the background. Soft garden flowers, gentle hills, and bright sunrise sky with plenty of open ground in the foreground for coloring. Focus on the heart of the moment: Jesus alive and meeting His friends with love and peace. Style: clear, bold, tender, hopeful, and very restful — never dark or scary.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and linen tones, friendly not scary, no text in image: Two Marys — gentle morning at the sepulchre (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and linen tones, friendly not scary, no text in image: Angel — stone rolled — He is risen (joy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and linen tones, friendly not scary, no text in image: Running with great joy — good news (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and linen tones, friendly not scary, no text in image: Jesus meets them — All hail — Be not afraid (gentle)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and linen tones, friendly not scary, no text in image: Held His feet — worship with glad hearts (peace)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft dawn gold and linen tones, friendly not scary, no text in image: Galilee mountain — with you alway — Amen (rest)'
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Jesus appears to Mary Magdalene — John 20:11–18 (gentle). Library key: maryMagdalene */
+function buildMaryMagdaleneReadQuiz() {
+  return {
+    kjvRef: 'John 20:11–18 (KJV) (par. Mark 16:9–11)',
+    verseExcerpt: 'Jesus saith unto her, Mary. She turned herself, and saith unto him, Rabboni; which is to say, Master. — John 20:16 (KJV)',
+    readAlongTitle: 'Jesus Appears to Mary Magdalene',
+    quizWrongHumilityHint:
+      'Listen again — weeping; sepulchre; angels in white; head; feet; Woman why weepest thou; taken away my Lord; turned; gardener; Sir; Mary; Rabboni; Touch me not; my brethren; ascend; Father; God; told the disciples.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'But Mary stood without at the sepulchre weeping: and as she wept, she stooped down, and looked into the sepulchre, And seeth two angels in white sitting, the one at the head, and the other at the feet, where the body of Jesus had lain.',
+      'And they say unto her, Woman, why weepest thou? She saith unto them, Because they have taken away my Lord, and I know not where they have laid him.',
+      'And when she had thus said, she turned herself back, and saw Jesus standing, and knew not that it was Jesus.',
+      'Jesus saith unto her, Woman, why weepest thou? whom seekest thou? She, supposing him to be the gardener, saith unto him, Sir, if thou have borne him hence, tell me where thou hast laid him, and I will take him away.',
+      'Jesus saith unto her, Mary. She turned herself, and saith unto him, Rabboni; which is to say, Master.',
+      'Jesus saith unto her, Touch me not; for I am not yet ascended to my Father: but go to my brethren, and say unto them, I ascend unto my Father, and your Father; and to my God, and your God.',
+      'Mary Magdalene came and told the disciples that she had seen the Lord, and that he had spoken these things unto her.',
+      'Jesus knows us by name — His voice turns tender sorrow into glad good news.',
+      'Reference: John 20:11–18 (KJV) (see also Mark 16:9–11)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Mary Magdalene stood crying outside the empty tomb — But Mary stood without at the sepulchre weeping: and as she wept, she stooped down, and looked into the sepulchre, And seeth two angels in white sitting, the one at the head, and the other at the feet, where the body of Jesus had lain.',
+        caption: 'At the sepulchre',
+        image: 'panel-mary-magdalene-1.svg'
+      },
+      {
+        text: 'She saw two angels and told them someone had taken her Lord away — And they say unto her, Woman, why weepest thou? She saith unto them, Because they have taken away my Lord, and I know not where they have laid him.',
+        caption: 'Why weepest thou?',
+        image: 'panel-mary-magdalene-1.svg'
+      },
+      {
+        text: 'Then she turned and saw Jesus standing there, but she thought He was the gardener — And when she had thus said, she turned herself back, and saw Jesus standing, and knew not that it was Jesus. Jesus saith unto her, Woman, why weepest thou? whom seekest thou? She, supposing him to be the gardener, saith unto him, Sir, if thou have borne him hence, tell me where thou hast laid him, and I will take him away.',
+        caption: 'Whom seekest thou?',
+        image: 'panel-mary-magdalene-2.svg'
+      },
+      {
+        text: 'Jesus said gently, “Woman, why weepest thou? whom seekest thou?” — Jesus saith unto her, Woman, why weepest thou? whom seekest thou?',
+        caption: 'Gentle question',
+        image: 'panel-mary-magdalene-2.svg'
+      },
+      {
+        text: 'Jesus called her name, “Mary.” She turned and said, “Rabboni!” (Master!) — Jesus saith unto her, Mary. She turned herself, and saith unto him, Rabboni; which is to say, Master.',
+        caption: 'Mary — Rabboni',
+        image: 'panel-mary-magdalene-3.svg'
+      },
+      {
+        text: 'Jesus told her to go tell His disciples that He was alive and ascending to the Father — Jesus saith unto her, Touch me not; for I am not yet ascended to my Father: but go to my brethren, and say unto them, I ascend unto my Father, and your Father; and to my God, and your God. Mary Magdalene came and told the disciples that she had seen the Lord, and that he had spoken these things unto her.',
+        caption: 'Go tell My brethren',
+        image: 'panel-mary-magdalene-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: [
+          'John 20:11–18 (also echoed in Mark 16:9–11)',
+          'Genesis 1 only',
+          'Jonah 2 only',
+          'Revelation 1 only'
+        ],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: John 20:11–18.)'
+      },
+      {
+        question: 'What did Mary see when she looked into the sepulchre?',
+        choices: [
+          'Two angels in white sitting, one at the head and one at the feet, where the body of Jesus had lain.',
+          'An empty boat on the water.',
+          'A golden calf.',
+          'Only a sealed stone and no light.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 20:12.',
+        wrongFeedback: 'Listen for “angels in white” and “head… feet.” (Answer: two angels in white….)'
+      },
+      {
+        question: 'Why did Mary say she was weeping?',
+        choices: [
+          'Because they have taken away my Lord, and I know not where they have laid him.',
+          'Because she lost her money.',
+          'Because she did not like the garden.',
+          'Because she wanted to go home to Moab.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 20:13.',
+        wrongFeedback: 'Listen for “taken away my Lord.” (Answer: taken away my Lord….)'
+      },
+      {
+        question: 'Whom did Mary suppose Jesus to be when she first saw Him?',
+        choices: [
+          'The gardener.',
+          'The high priest.',
+          'A Roman soldier.',
+          'Peter.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 20:15.',
+        wrongFeedback: 'Listen for “gardener.” (Answer: the gardener.)'
+      },
+      {
+        question: 'What did Mary say when Jesus called her by name?',
+        choices: [
+          'Rabboni; which is to say, Master.',
+          'Go away forever.',
+          'I do not know You.',
+          'I will not speak.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 20:16.',
+        wrongFeedback: 'Listen for “Rabboni” and “Master.” (Answer: Rabboni… Master.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Remember Jesus knows my name — I can tell Him when I am sad and trust His tender love.',
+          'Believe God never hears when kids cry.',
+          'Stop hoping when I miss someone.',
+          'Never share good news.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with honesty: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “name,” “tears,” and “good news.” (Answer: Jesus knows my name….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Appears to Mary Magdalene with God's Word today.",
+    takeaway:
+      'Jesus speaks Mary’s name with love — He sends His friends with glad news that He lives.',
+    prayer:
+      'Lord Jesus, thank You that You know my name and call me gently. When I feel sad, help me hear Your voice and trust You. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful and calm atmosphere. Gentle risen Jesus stands near the empty tomb with a kind, loving face, one hand gently reaching toward Mary. Mary Magdalene kneels on the ground, looking up at Jesus with joyful tears and outstretched hands (simple, tender expression). The large stone is rolled away from the tomb entrance in the background. Soft garden plants and bright morning light with plenty of open ground in the foreground for coloring. Focus on the heart of the moment: Jesus tenderly calling Mary by name and her joyful recognition of her risen Lord. Style: clear, bold, tender, hopeful, and very restful — never dark or scary.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning green and linen tones, friendly not scary, no text in image: Mary weeps — angels in white — quiet tomb (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning green and linen tones, friendly not scary, no text in image: Why weepest thou — taken away my Lord (care)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning green and linen tones, friendly not scary, no text in image: Turned — Jesus stands — gentle question (peace)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning green and linen tones, friendly not scary, no text in image: Gardener — Sir, where hast thou laid him (gentle)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning green and linen tones, friendly not scary, no text in image: Mary — Rabboni — glad recognition (joy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft morning green and linen tones, friendly not scary, no text in image: Go tell My brethren — good news running (love)'
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Jesus appears to Thomas — John 20:24–29 (gentle). Library key: thomasDoubt */
+function buildThomasDoubtReadQuiz() {
+  return {
+    kjvRef: 'John 20:24–29 (KJV)',
+    verseExcerpt:
+      'And Thomas answered and said unto him, My Lord and my God. — John 20:28 (KJV)',
+    readAlongTitle: 'Jesus Appears to Thomas',
+    quizWrongHumilityHint:
+      'Listen again — Didymus; not with them; We have seen the Lord; print of the nails; thrust my hand into his side; eight days; doors shut; Peace be unto you; Reach hither; be not faithless; believing; My Lord and my God; blessed are they that have not seen.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'But Thomas, one of the twelve, called Didymus, was not with them when Jesus came.',
+      'The other disciples therefore said unto him, We have seen the Lord. But he said unto them, Except I shall see in his hands the print of the nails, and put my finger into the print of the nails, and thrust my hand into his side, I will not believe.',
+      'And after eight days again his disciples were within, and Thomas with them: then came Jesus, the doors being shut, and stood in the midst, and said, Peace be unto you.',
+      'Then saith he to Thomas, Reach hither thy finger, and behold my hands; and reach hither thy hand, and thrust it into my side: and be not faithless, but believing.',
+      'And Thomas answered and said unto him, My Lord and my God.',
+      'Jesus saith unto him, Thomas, because thou hast seen me, thou hast believed: blessed are they that have not seen, and yet have believed.',
+      'Jesus understands tender doubts — He draws near with peace and helps us believe.',
+      'Reference: John 20:24–29 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Thomas was not with the other disciples when Jesus first appeared — But Thomas, one of the twelve, called Didymus, was not with them when Jesus came.',
+        caption: 'Not with them',
+        image: 'panel-thomas-doubt-1.svg'
+      },
+      {
+        text: 'The others told him, “We have seen the Lord,” but Thomas said he would not believe unless he could see and touch the nail prints — The other disciples therefore said unto him, We have seen the Lord. But he said unto them, Except I shall see in his hands the print of the nails, and put my finger into the print of the nails, and thrust my hand into his side, I will not believe.',
+        caption: 'I will not believe',
+        image: 'panel-thomas-doubt-1.svg'
+      },
+      {
+        text: 'Eight days later, Jesus came again while the doors were shut and stood among them — And after eight days again his disciples were within, and Thomas with them: then came Jesus, the doors being shut, and stood in the midst, and said, Peace be unto you.',
+        caption: 'Peace be unto you',
+        image: 'panel-thomas-doubt-2.svg'
+      },
+      {
+        text: 'Jesus said gently to Thomas, “Reach hither thy finger… and be not faithless, but believing.” — Then saith he to Thomas, Reach hither thy finger, and behold my hands; and reach hither thy hand, and thrust it into my side: and be not faithless, but believing.',
+        caption: 'Be not faithless',
+        image: 'panel-thomas-doubt-2.svg'
+      },
+      {
+        text: 'Thomas looked at Jesus and said, “My Lord and my God.” — And Thomas answered and said unto him, My Lord and my God.',
+        caption: 'My Lord and my God',
+        image: 'panel-thomas-doubt-3.svg'
+      },
+      {
+        text: 'Jesus said, “Thomas, because thou hast seen me, thou hast believed: blessed are they that have not seen, and yet have believed.” — Jesus saith unto him, Thomas, because thou hast seen me, thou hast believed: blessed are they that have not seen, and yet have believed.',
+        caption: 'Blessed are they that have not seen',
+        image: 'panel-thomas-doubt-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: [
+          'John 20:24–29',
+          'Genesis 6 only',
+          'Psalm 23 only',
+          'Acts 2 only'
+        ],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: John 20:24–29.)'
+      },
+      {
+        question: 'What did Thomas say he needed before he would believe the disciples’ word?',
+        choices: [
+          'To see the print of the nails in Jesus’ hands and to thrust his hand into Jesus’ side.',
+          'To sail across the sea alone.',
+          'To count all the stars.',
+          'To find a golden calf.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 20:25.',
+        wrongFeedback: 'Listen for “print of the nails” and “side.” (Answer: see the print… thrust my hand….)'
+      },
+      {
+        question: 'When Jesus came to the disciples the second time, what was shut?',
+        choices: [
+          'The doors — and Jesus stood in the midst.',
+          'The windows only — everyone stayed outside.',
+          'The book of the law forever.',
+          'The temple forever.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 20:26.',
+        wrongFeedback: 'Listen for “doors being shut.” (Answer: the doors… Jesus stood in the midst.)'
+      },
+      {
+        question: 'What did Jesus first say when He stood in the midst?',
+        choices: [
+          'Peace be unto you.',
+          'Run away quickly.',
+          'Be silent forever.',
+          'Hide under the table.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 20:26.',
+        wrongFeedback: 'Listen for “Peace.” (Answer: Peace be unto you.)'
+      },
+      {
+        question: 'What did Thomas answer when he saw the Lord?',
+        choices: [
+          'My Lord and my God.',
+          'I will never speak again.',
+          'You are only a gardener.',
+          'I do not know You.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 20:28.',
+        wrongFeedback: 'Listen for “My Lord” and “my God.” (Answer: My Lord and my God.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Tell Jesus when I feel unsure — He is patient and helps me believe.',
+          'Believe God is angry when I have questions.',
+          'Stop praying when I feel doubtful.',
+          'Never ask for help.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with honesty: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “patient,” “believe,” and “peace.” (Answer: tell Jesus when I feel unsure….)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Appears to Thomas with God's Word today.",
+    takeaway:
+      'Jesus meets honest doubt with peace — He blesses every heart that trusts Him, seen or unseen.',
+    prayer:
+      'Lord Jesus, thank You for peace and patience. When I feel unsure, help me come to You and believe. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful and calm atmosphere. Gentle risen Jesus stands in the center of the room with a kind, loving face, holding out His hands so Thomas can see the nail prints. Thomas kneels close with a surprised, joyful face, reaching one hand gently toward Jesus. The other disciples stand or sit nearby watching with peaceful, happy expressions. Soft room walls, a closed door, and warm light with plenty of open floor space in the foreground for coloring. Focus on the heart of the moment: Jesus tenderly inviting Thomas to believe and Thomas calling Him “My Lord and my God.” Style: clear, bold, tender, hopeful, and very restful — never scary or dark.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft linen and gold tones, friendly not scary, no text in image: Thomas apart — We have seen the Lord (listening)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft linen and gold tones, friendly not scary, no text in image: Print of nails — honest words (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft linen and gold tones, friendly not scary, no text in image: Doors shut — Peace be unto you (calm)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft linen and gold tones, friendly not scary, no text in image: Reach hither — be not faithless (gentle)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft linen and gold tones, friendly not scary, no text in image: My Lord and my God — glad heart (joy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft linen and gold tones, friendly not scary, no text in image: Blessed are they that have not seen — believing (hope)'
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Jesus weeps over Jerusalem — Luke 19:41–44 (gentle). Library key: jesusWeepsJerusalem */
+function buildJesusWeepsJerusalemReadQuiz() {
+  return {
+    kjvRef: 'Luke 19:41–44 (KJV); Matthew 23:37 (KJV)',
+    verseExcerpt:
+      'If thou hadst known, even thou, at least in this thy day, the things which belong unto thy peace! — Luke 19:42 (KJV)',
+    readAlongTitle: 'Jesus Cares Deeply for the City',
+    quizWrongHumilityHint:
+      'Listen again — drew near; beheld the city; wept over it; things which belong unto thy peace; hid from thine eyes; time of thy visitation; hen gathereth her chickens; compassion.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'As Jesus rode toward Jerusalem on the donkey, He saw the beautiful city spread out before Him.',
+      'He stopped and looked at the city with great love.',
+      'Tears came to His eyes because He knew the people did not understand how much God wanted to gather them close, like a mother hen gathers her chicks under her wings.',
+      'He said, “If thou hadst known, even thou, at least in this thy day, the things which belong unto thy peace! but now they are hid from thine eyes.”',
+      'Jesus cared so deeply for the people and for the city.',
+      'Jesus loves us even when we do not understand, and His heart is full of compassion.',
+      'Reference: Luke 19:41–44 (KJV); Matthew 23:37 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus rode toward Jerusalem and saw the beautiful city spread out before Him.',
+        caption: 'He drew near',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'He stopped and looked at the city with great love.',
+        caption: 'He beheld the city',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Tears came to His eyes because He loved the people so much — God wanted to gather them close, like a mother hen gathers her chicks under her wings.',
+        caption: 'Tears of love',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'He said, “If thou hadst known, even thou, at least in this thy day, the things which belong unto thy peace! but now they are hid from thine eyes.”',
+        caption: 'Things which belong unto thy peace',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus cared so deeply for the people and for the city.',
+        caption: 'Full of compassion',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Jesus loves us even when we do not understand, and His heart is full of compassion.',
+        caption: 'He loves us still',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Luke 19:41–44', 'Psalm 23', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Luke 19:41–44.)'
+      },
+      {
+        question: 'What did Jesus do when He came near and saw the city?',
+        choices: [
+          'He beheld the city and wept over it — tears of love',
+          'He turned away and would not look',
+          'He laughed because the city was noisy',
+          'He forgot where He was going'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Luke 19:41.',
+        wrongFeedback: 'Listen for “beheld” and “wept.” (Answer: He wept over the city.)'
+      },
+      {
+        question: 'How did Jesus describe the peace the city could have known?',
+        choices: [
+          '“If thou hadst known… the things which belong unto thy peace!”',
+          '“Peace does not matter.”',
+          '“Only loud voices please God.”',
+          '“Never pray for your city.”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Luke 19:42.',
+        wrongFeedback: 'Listen for “thy peace.” (Answer: things which belong unto thy peace.)'
+      },
+      {
+        question: 'Which picture matches how Jesus longed to care for His people?',
+        choices: [
+          'Like a hen gathering her little ones under her wings — safe and close',
+          'Like forgetting everyone in a crowd',
+          'Like hiding from people on purpose',
+          'Like never caring when someone is sad'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that gentle picture is in Matthew 23:37.',
+        wrongFeedback: 'Think “gather… wings… safe.” (Answer: hen gathering her chickens.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'Jesus wept over Jerusalem because He loved the people',
+          'The city turned into a bubble.',
+          'A rocket flew away with the donkey.',
+          'Everyone forgot how to be kind.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches God’s tender heart in Luke 19.',
+        wrongFeedback: 'Pick the true, gentle detail from God’s Word. (Answer: Jesus wept… loved the people.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Tell Jesus thank You for loving me even when I don’t understand everything — help me trust Your kind heart.',
+          'Believe God never cares when kids cry.',
+          'Never talk to God about sad feelings.',
+          'Pretend hard days are not real.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with honesty: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “thank You” and “Jesus’ compassion.” (Answer: trust His kind heart.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Cares Deeply for the City with God's Word today.",
+    takeaway:
+      'Jesus beheld the city and wept — His heart is full of compassion; He loves us even when we do not understand.',
+    prayer:
+      'Lord Jesus, thank You for tears of love and for wanting to gather us close. Help me trust Your gentle heart today. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art scene for young children: Jesus sitting on the donkey looking toward the city of Jerusalem with a gentle, caring face and one very small, soft tear (tiny dot or teardrop, not dramatic). The city is shown with soft rounded walls and simple block buildings in the distance. Thick, bold outlines with large open spaces on Jesus’ robe, the donkey, and the ground for easy coloring. Gentle hills in the middle ground and a soft sky with minimal lines. Loving and compassionate mood — focus on Jesus caring deeply for the city. Clean, minimal, no fear or heavy sadness, plenty of white space, age-appropriate for ages 3–8.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hills and distant city, friendly not scary, no text in image: Drew near — beheld the city (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hills and distant city, friendly not scary, no text in image: Wept over it — love (mercy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hills and distant city, friendly not scary, no text in image: Thy peace — gentle words (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hills and distant city, friendly not scary, no text in image: Hen wings — gather close (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hills and distant city, friendly not scary, no text in image: Compassion for us (peace)'
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Fig tree — Matthew 21:18–22 (gentle). Library key: figTree */
+function buildFigTreeReadQuiz() {
+  return {
+    kjvRef: 'Matthew 21:18–22 (KJV)',
+    verseExcerpt:
+      'And all things, whatsoever ye shall ask in prayer, believing, ye shall receive. — Matthew 21:22 (KJV)',
+    readAlongTitle: 'Jesus Teaches About Faith',
+    quizWrongHumilityHint:
+      'Listen again — morning; returned; hungered; fig tree in the way; leaves only; Let no fruit grow; withered away; marvelled; Verily I say unto you; faith; doubt not; mountain; cast into the sea; ask in prayer; believing.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'The next day, as Jesus returned to the city, He was hungry.',
+      'He saw a fig tree by the road that had leaves but no fruit.',
+      'He said to the tree, “Let no fruit grow on thee henceforward for ever.”',
+      'And presently the fig tree withered away.',
+      'When the disciples saw it, they marvelled, saying, “How soon is the fig tree withered away!”',
+      'Jesus answered and said unto them, “Verily I say unto you, If ye have faith, and doubt not, ye shall not only do this which is done to the fig tree, but also if ye shall say unto this mountain, Be thou removed, and be thou cast into the sea; it shall be done.”',
+      '“And all things, whatsoever ye shall ask in prayer, believing, ye shall receive.”',
+      'Jesus teaches us that with faith and prayer, God can do wonderful things.',
+      'Reference: Matthew 21:18–22 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus returned to the city and was hungry. He saw a fig tree by the road with leaves but no fruit.',
+        caption: 'Fig tree in the way',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'He said to the tree, “Let no fruit grow on thee henceforward for ever.” And presently the fig tree withered away.',
+        caption: 'Let no fruit grow',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'The disciples marvelled, saying, “How soon is the fig tree withered away!”',
+        caption: 'They marvelled',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus said, “Verily I say unto you, If ye have faith, and doubt not, ye shall not only do this which is done to the fig tree, but also if ye shall say unto this mountain, Be thou removed, and be thou cast into the sea; it shall be done.”',
+        caption: 'Faith, and doubt not',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: '“And all things, whatsoever ye shall ask in prayer, believing, ye shall receive.”',
+        caption: 'Ask in prayer, believing',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Jesus teaches us to pray with faith — trusting God to hear and help.',
+        caption: 'Faith and prayer',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Matthew 21:18–22', 'Psalm 23', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 21:18–22.)'
+      },
+      {
+        question: 'What did Jesus find on the fig tree?',
+        choices: [
+          'Leaves only — no fruit',
+          'Only rocks',
+          'A bird nest with no leaves',
+          'Gold coins'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:19.',
+        wrongFeedback: 'Listen for “leaves” and “nothing… but leaves only.” (Answer: leaves only… no fruit.)'
+      },
+      {
+        question: 'What happened to the fig tree after Jesus spoke?',
+        choices: [
+          'It withered away',
+          'It grew taller instantly',
+          'It stayed exactly the same forever',
+          'It turned into a boat'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:19.',
+        wrongFeedback: 'Listen for “withered.” (Answer: the fig tree withered away.)'
+      },
+      {
+        question: 'What did Jesus say about prayer and faith?',
+        choices: [
+          '“All things, whatsoever ye shall ask in prayer, believing, ye shall receive.”',
+          '“Never ask God for help.”',
+          '“Pray only when you are perfect.”',
+          '“God does not hear children.”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:22.',
+        wrongFeedback: 'Listen for “ask in prayer” and “believing.” (Answer: ask… believing… receive.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'The disciples marvelled at how soon the fig tree withered',
+          'The tree turned into jelly.',
+          'A spaceship watered the tree.',
+          'Everyone forgot how to walk.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:20.',
+        wrongFeedback: 'Pick the true detail from God’s Word. (Answer: disciples marvelled.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Talk to Jesus honestly in prayer — trust Him to hear me and help me grow in faith.',
+          'Never pray when I feel small.',
+          'Believe God only helps grown-ups.',
+          'Hide worries from God on purpose.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with honesty: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “pray” and “trust.” (Answer: pray… trust Him… faith.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Teaches About Faith with God's Word today.",
+    takeaway:
+      'If ye have faith, and doubt not — ask in prayer, believing; Jesus teaches us God hears trusting hearts.',
+    prayer:
+      'Lord Jesus, help me trust You when I pray — even when I only understand a little. Thank You that You hear me. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art scene for young children: Jesus standing near a fig tree with many large, simple leaf shapes (easy outlines, no holes or scary marks) and no fruit shown. Jesus has a calm, teaching face. Two disciples stand nearby watching with gentle faces. Thick, bold outlines with large open spaces on Jesus’ robe, the disciples’ robes, the tree trunk, leaves, and the ground for easy coloring. Soft road lines and a pale sky band with minimal detail. Wise, faithful mood — focus on Jesus teaching about faith and prayer. Clean, minimal, no withered or frightening tree, plenty of white space, age-appropriate for ages 3–8.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft road and morning light, friendly not scary, no text in image: Hungry morning — fig tree by the way (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft road and morning light, friendly not scary, no text in image: Leaves only — honest teaching moment (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft road and morning light, friendly not scary, no text in image: Disciples marvel — gentle wonder (joy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft road and morning light, friendly not scary, no text in image: Faith and doubt not — mountain word (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft road and morning light, friendly not scary, no text in image: Ask in prayer, believing (peace)'
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Jesus’ authority questioned — Matthew 21:23–27 (gentle). Library key: jesusAuthority */
+function buildJesusAuthorityReadQuiz() {
+  return {
+    kjvRef: 'Matthew 21:23–27 (KJV)',
+    verseExcerpt:
+      'By what authority doest thou these things? and who gave thee this authority? — Matthew 21:23 (KJV)',
+    readAlongTitle: 'Jesus Answers the Chief Priests and Elders',
+    quizWrongHumilityHint:
+      'Listen again — temple; teaching; chief priests; elders; by what authority; baptism of John; whence; from heaven; of men; reasoned; we fear the people; we cannot tell; Neither tell I you.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus was teaching in the temple.',
+      'The chief priests and the elders of the people came to Him and asked, “By what authority doest thou these things? and who gave thee this authority?”',
+      'Jesus answered and said unto them, “I also will ask you one thing, which if ye tell me, I in like wise will tell you by what authority I do these things. The baptism of John, whence was it? from heaven, or of men?”',
+      'They reasoned among themselves, saying, “If we shall say, From heaven; he will say unto us, Why did ye not then believe him? But if we shall say, Of men; we fear the people; for all hold John as a prophet.”',
+      'So they answered Jesus, “We cannot tell.”',
+      'Jesus said unto them, “Neither tell I you by what authority I do these things.”',
+      'Jesus knows the truth in our hearts and answers with wisdom.',
+      'Reference: Matthew 21:23–27 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus was teaching in the temple. The chief priests and the elders came and asked, “By what authority doest thou these things? and who gave thee this authority?”',
+        caption: 'By what authority?',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Jesus said, “I also will ask you one thing… The baptism of John, whence was it? from heaven, or of men?”',
+        caption: 'The baptism of John',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'They reasoned among themselves — if they said “from heaven,” or “of men,” each answer felt hard. They feared the people, for all held John as a prophet.',
+        caption: 'They reasoned',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'They answered Jesus, “We cannot tell.”',
+        caption: 'We cannot tell',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus said unto them, “Neither tell I you by what authority I do these things.”',
+        caption: 'Neither tell I you',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'Jesus knows what is in our hearts — and He answers with quiet wisdom.',
+        caption: 'Wisdom and truth',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Matthew 21:23–27', 'Psalm 23', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 21:23–27.)'
+      },
+      {
+        question: 'Who came to Jesus while He was teaching in the temple?',
+        choices: [
+          'The chief priests and the elders of the people',
+          'Only small children',
+          'Roman soldiers only',
+          'No one — Jesus was alone'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:23.',
+        wrongFeedback: 'Listen for “chief priests” and “elders.” (Answer: chief priests and elders.)'
+      },
+      {
+        question: 'What did they ask Jesus?',
+        choices: [
+          '“By what authority doest thou these things? and who gave thee this authority?”',
+          '“Please never teach.”',
+          '“Where is the food?”',
+          '“Who built the temple?”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:23.',
+        wrongFeedback: 'Listen for “authority.” (Answer: By what authority… who gave thee this authority.)'
+      },
+      {
+        question: 'What one question did Jesus ask them first?',
+        choices: [
+          'Whether John’s baptism was from heaven, or of men',
+          'How tall the temple was',
+          'Only a riddle about birds',
+          'Nothing — He walked away'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:25.',
+        wrongFeedback: 'Listen for “baptism of John” and “from heaven.” (Answer: John’s baptism… heaven or men.)'
+      },
+      {
+        question: 'What did the leaders finally answer?',
+        choices: [
+          '“We cannot tell.”',
+          '“We know everything.”',
+          '“From heaven,” and they were glad',
+          '“Never mind.”'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:27.',
+        wrongFeedback: 'Listen for “cannot tell.” (Answer: We cannot tell.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ask Jesus to help me speak honestly with Him — He already knows my heart and teaches with wisdom.',
+          'Hide every question from God.',
+          'Believe God never listens.',
+          'Pretend we never need help deciding right and wrong.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with honesty: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “honest heart” and “Jesus’ wisdom.” (Answer: speak honestly… He knows my heart.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage:
+      "Great job reading Jesus Answers the Chief Priests and Elders with God's Word today.",
+    takeaway:
+      'Jesus answers with wisdom — He knows the heart; we can come to Him honestly and learn to trust His truth.',
+    prayer:
+      'Lord Jesus, thank You for wisdom that is kind and true. Help me be honest with You in prayer today. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art scene for young children: Jesus standing calmly in the temple speaking to two robed leaders (chief priests and elders) with thoughtful, non-angry faces. Jesus has a wise, kind face. Very simple rounded temple columns in the background (few lines, large open spaces). Thick, bold outlines on robes and floor. Soft light from above suggested by a pale band — minimal detail. Wise and calm mood — focus on Jesus answering with wisdom. Clean, minimal, no anger or arguing faces, plenty of white space, age-appropriate for ages 3–8.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Teaching in the temple — leaders draw near (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: By what authority — honest question (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: John’s baptism — whence? (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: We cannot tell — thoughtful pause (mercy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Neither tell I you — gentle wisdom (peace)'
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Vineyard and the Son — Matthew 21:33–46 (gentle summary for little hearts). Library key: parableWickedHusbandmen */
+function buildParableWickedHusbandmenReadQuiz() {
+  return {
+    kjvRef: 'Matthew 21:33–46 (KJV) — gentle summary for little hearts',
+    verseExcerpt:
+      'The stone which the builders rejected, the same is become the head of the corner. — Matthew 21:42 (KJV)',
+    readAlongTitle: 'Jesus Tells About the Vineyard and the Son',
+    quizWrongHumilityHint:
+      'Listen again — vineyard; husbandmen; servants; fruits; beat; killed; stoned; son; reverence my son; heir; inheritance; cast out; stone; builders; head of the corner; kingdom; good fruit.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus told another parable to the chief priests and elders.',
+      'A certain man planted a vineyard, and let it out to husbandmen, and went into a far country.',
+      'When the time of the fruit drew near, he sent his servants to the husbandmen, that they might receive the fruits of it.',
+      'The husbandmen took his servants, beat one, killed another, and stoned another. Again he sent other servants, and they did likewise unto them.',
+      'Last of all he sent unto them his son, saying, They will reverence my son. But when the husbandmen saw the son, they said among themselves, This is the heir; come, let us kill him, and let us seize on his inheritance. They caught him, and cast him out of the vineyard, and slew him.',
+      'Jesus asked, When the lord therefore of the vineyard cometh, what will he do unto those husbandmen? They said unto him, He will miserably destroy those wicked men, and will let out his vineyard unto other husbandmen, which shall render him the fruits in their seasons.',
+      'Jesus said unto them, The stone which the builders rejected, the same is become the head of the corner.',
+      'Jesus is the beloved Son, and the kingdom will be given to those who bear fruit for God.',
+      'Reference: Matthew 21:33–46 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      {
+        text: 'A man planted a vineyard and let it out to husbandmen, and went into a far country.',
+        caption: 'A vineyard planted',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'When the fruit season drew near, he sent servants to collect the fruit of the vineyard.',
+        caption: 'Servants sent',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'The workers treated the servants badly — they did not give the owner what belonged to him.',
+        caption: 'Hard hearts',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Last of all the owner sent his own son, saying, They will reverence my son.',
+        caption: 'He sent his son',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus is God’s beloved Son — the most precious gift the Father could send.',
+        caption: 'The beloved Son',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'The stone which the builders rejected is become the head of the corner — God’s kingdom is for hearts that bear good fruit for Him.',
+        caption: 'Good fruit for God',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Matthew 21:33–46', 'Psalm 23', 'Jonah 1', 'Matthew 5:1'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 21:33–46.)'
+      },
+      {
+        question: 'What did the man plant?',
+        choices: ['A vineyard', 'Only a sand castle', 'A spaceship garden', 'Nothing at all'],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches the parable’s beginning.',
+        wrongFeedback: 'Listen for “vineyard.” (Answer: a vineyard.)'
+      },
+      {
+        question: 'Whom did he send last of all?',
+        choices: ['His son', 'Only a turtle', 'No one ever', 'A bag of coins with no message'],
+        correctIndex: 0,
+        correctFeedback: 'Yes—last of all he sent his son.',
+        wrongFeedback: 'Listen for “son” and “reverence my son.” (Answer: his son.)'
+      },
+      {
+        question: 'What did Jesus say about the stone and the builders?',
+        choices: [
+          'The stone which the builders rejected, the same is become the head of the corner.',
+          'Stones are never important in God’s Word.',
+          'Builders always know everything without God.',
+          'We should never read the Bible.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 21:42.',
+        wrongFeedback: 'Listen for “stone” and “builders.” (Answer: rejected stone… head of the corner.)'
+      },
+      {
+        question: 'What is one lesson God’s Spirit teaches us here?',
+        choices: [
+          'Honor God’s Son and seek to bear good fruit for God with a thankful heart.',
+          'Hide from every story Jesus tells.',
+          'Fruit only matters for trees, never for people.',
+          'We never need to obey God.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with humility: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “Son,” “fruit,” and “kingdom.” (Answer: honor the Son… good fruit.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'He sent servants, then sent his son to the husbandmen in the vineyard',
+          'The vineyard turned into a rocket.',
+          'A talking toaster became king.',
+          'Everyone forgot how to walk.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches the parable in Matthew 21.',
+        wrongFeedback: 'Pick the true detail from God’s Word. (Answer: servants, then son, vineyard.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Tells About the Vineyard and the Son with God's Word today.",
+    takeaway:
+      'Jesus is the beloved Son — God looks for hearts that bear good fruit for Him; we can trust Jesus and obey Him with love.',
+    prayer:
+      'Lord Jesus, thank You for loving us as the Father’s Son. Help us bear good fruit for God today — kind words, thankful hearts, and gentle obedience. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art scene for young children: A vineyard with ripe grapes on the vines (large round grape clusters, easy outlines). The owner’s son stands peacefully near the vineyard with a calm, kind face. Thick, bold outlines with large open spaces on the vines, grapes, hills, sky, and the son’s robe for easy coloring. Soft hills and a gentle sky with minimal lines. Hopeful and fruitful mood — focus on good fruit for God. Clean, minimal, no violence or weapons shown, plenty of white space, age-appropriate for ages 3–8.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hills and vineyard rows, friendly not scary, no text in image: Vineyard planted — gift of fruit (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hills and vineyard rows, friendly not scary, no text in image: Servants sent — the owner’s care (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft hills and vineyard rows, friendly not scary, no text in image: The son sent — reverence and love (mercy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft light, friendly not scary, no text in image: Beloved Son — Jesus (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, cornerstone hope, friendly not scary, no text in image: Good fruit for God’s kingdom (peace)'
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Render to Caesar — Matthew 22:15–22 (gentle). Library key: tributeToCaesar */
+function buildTributeToCaesarReadQuiz() {
+  return {
+    kjvRef: 'Matthew 22:15–22 (KJV)',
+    verseExcerpt:
+      'Render therefore unto Caesar the things which are Caesar’s; and unto God the things that are God’s. — Matthew 22:21 (KJV)',
+    readAlongTitle: 'Jesus Answers About Taxes',
+    quizWrongHumilityHint:
+      'Listen again — Pharisees; Herodians; Master; true; tribute; Caesar; penny; image; superscription; Render; marvelled; hypocrites; tempt.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'The Pharisees and Herodians came to Jesus to trap Him.',
+      'They said, Master, we know that thou art true, and teachest the way of God in truth… Tell us therefore, What thinkest thou? Is it lawful to give tribute unto Caesar, or not?',
+      'Jesus perceived their wickedness and said, Why tempt ye me, ye hypocrites? Shew me the tribute money.',
+      'They brought Him a penny.',
+      'He asked them, Whose is this image and superscription? They said, Caesar’s.',
+      'Jesus said unto them, Render therefore unto Caesar the things which are Caesar’s; and unto God the things which are God’s.',
+      'When they heard these words, they marvelled and left Him.',
+      'Jesus teaches us to give to God what belongs to God and to earthly rulers what belongs to them.',
+      'Reference: Matthew 22:15–22 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Some men came to Jesus with a question that was meant to trap Him.',
+        caption: 'A hard question',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'They asked, Is it lawful to give tribute unto Caesar, or not?',
+        caption: 'Tribute to Caesar?',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Jesus said, Shew me the tribute money.',
+        caption: 'Show me the coin',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'They brought Him a penny. He asked, Whose is this image and superscription? They said, Caesar’s.',
+        caption: 'Whose image?',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus said, Render therefore unto Caesar the things which are Caesar’s; and unto God the things which are God’s.',
+        caption: 'Caesar and God',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'They marvelled at His answer — Jesus teaches us with quiet wisdom.',
+        caption: 'Jesus answers with wisdom',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Matthew 22:15–22', 'Psalm 23', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 22:15–22.)'
+      },
+      {
+        question: 'Who came to Jesus with the question about tribute?',
+        choices: [
+          'The Pharisees and Herodians (with their disciples)',
+          'Only small children',
+          'Only shepherds',
+          'No one — Jesus was alone'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 22:15–16.',
+        wrongFeedback: 'Listen for “Pharisees” and “Herodians.” (Answer: Pharisees and Herodians.)'
+      },
+      {
+        question: 'What did Jesus ask them to show Him?',
+        choices: ['The tribute money (a penny)', 'A giant ladder', 'A boat', 'A bag of rocks'],
+        correctIndex: 0,
+        correctFeedback: 'Yes—Shew me the tribute money.',
+        wrongFeedback: 'Listen for “tribute money” and “penny.” (Answer: tribute money / penny.)'
+      },
+      {
+        question: 'What did Jesus say to do?',
+        choices: [
+          'Render unto Caesar the things which are Caesar’s; and unto God the things which are God’s.',
+          'Never obey anyone.',
+          'Hide every coin forever.',
+          'Only love money.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 22:21.',
+        wrongFeedback: 'Listen for “Render” and “Caesar” and “God.” (Answer: Caesar… and God…)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Love God with my whole heart and ask Jesus to help me do what is right and honest.',
+          'Stop caring about truth.',
+          'Believe God never speaks to children.',
+          'Pretend questions do not matter.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with honesty: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “God first” and “honest heart.” (Answer: love God… right and honest.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        choices: [
+          'They marvelled and went away after Jesus answered',
+          'The coin turned into a bird.',
+          'Everyone forgot how to walk.',
+          'A spaceship landed in the temple.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 22:22.',
+        wrongFeedback: 'Pick the true detail from God’s Word. (Answer: marvelled… went away.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Answers About Taxes with God's Word today.",
+    takeaway:
+      'Render unto Caesar and unto God — Jesus teaches us to honor God first and live with honest, wise hearts.',
+    prayer:
+      'Lord Jesus, thank You for wisdom that is kind and true. Help me love You first and do what is right today. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art scene for young children: Jesus standing calmly holding a large, simple coin (penny) while two robed men stand nearby with thoughtful, non-angry faces. Jesus has a wise, kind face. Thick, bold outlines with large open spaces on Jesus’ robe, the coin, the men’s robes, and the ground. Soft temple wall shapes in the background (few lines, rounded tops) and a gentle sky band. Wise and calm mood — focus on Jesus answering about taxes. Clean, minimal, no trap or arguing faces, plenty of white space, age-appropriate for ages 3–8.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Hard question — listening hearts (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Show the coin — honest look (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Whose image? — pause (mercy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Render to Caesar and to God (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Marvelled — gentle wisdom (peace)'
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Sadducees and resurrection — Matthew 22:23–33 (gentle). Library key: sadduceesResurrection */
+function buildSadduceesResurrectionReadQuiz() {
+  return {
+    kjvRef: 'Matthew 22:23–33 (KJV)',
+    verseExcerpt:
+      'God is not the God of the dead, but of the living. — Matthew 22:32 (KJV)',
+    readAlongTitle: 'Jesus Teaches About the Resurrection',
+    quizWrongHumilityHint:
+      'Listen again — Sadducees; no resurrection; Moses; seven brethren; wife; Ye do err; scriptures; power of God; neither marry; angels; God of Abraham; Isaac; Jacob; living; astonished; doctrine.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'One day, some men called the Sadducees came to Jesus. The Sadducees said there is no resurrection. They wanted to ask Him a question.',
+      'They said, Master, Moses told us that if a man dies and has no children, his brother should marry the wife and raise up children for his brother. Now there were seven brothers with us. The first one married a wife and died, and left no children. So his brother married her. Then the second brother died, and the third, all the way to the seventh. Last of all the woman died also. Therefore, in the resurrection, whose wife shall she be? For they all had her. (Their words follow Moses’ teaching in Matthew 22:24–28, KJV.)',
+      'Jesus answered and said unto them, Ye do err, not knowing the scriptures, nor the power of God. For in the resurrection they neither marry, nor are given in marriage, but are as the angels of God in heaven. But as touching the resurrection of the dead, have ye not read that which was spoken unto you by God, saying, I am the God of Abraham, and the God of Isaac, and the God of Jacob? God is not the God of the dead, but of the living.',
+      'And when the multitude heard it, they were astonished at his doctrine.',
+      'Jesus teaches that God is the God of the living, and there is a wonderful resurrection.',
+      'Reference: Matthew 22:23–33 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'One day, some men called the Sadducees came to Jesus. They said there is no resurrection.',
+        caption: 'The Sadducees',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'They asked Him a tricky question about a woman who had married seven brothers.',
+        caption: 'A tricky question',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Jesus listened kindly, then answered with truth from God’s Word. He said, Ye do err, not knowing the scriptures, nor the power of God.',
+        caption: 'Truth from God’s Word',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'In the resurrection they neither marry, nor are given in marriage, but are as the angels of God in heaven.',
+        caption: 'Like the angels',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus reminded them: God is not the God of the dead, but of the living.',
+        caption: 'God of the living',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'When the people heard this, they were astonished at His teaching — we can rest our hearts on the living God.',
+        caption: 'Astonished at His teaching',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['Matthew 22:23–33', 'Psalm 23', 'Jonah 1', 'Genesis 1'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: Matthew 22:23–33.)'
+      },
+      {
+        question: 'Who came to Jesus with their question?',
+        choices: ['The Sadducees', 'Only shepherds', 'Only babies', 'No one'],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 22:23.',
+        wrongFeedback: 'Listen for “Sadducees.” (Answer: the Sadducees.)'
+      },
+      {
+        question: 'What did Jesus say God is not?',
+        choices: [
+          'The God of the dead — He is the God of the living',
+          'The God of kindness',
+          'The God who made the world',
+          'The God who hears prayer'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 22:32.',
+        wrongFeedback: 'Listen for “dead” and “living.” (Answer: not the God of the dead… but of the living.)'
+      },
+      {
+        question: 'What did Jesus say about marriage in the resurrection?',
+        choices: [
+          'They neither marry, nor are given in marriage — they are as the angels in heaven',
+          'No one will ever be happy',
+          'Angels are scary monsters',
+          'We should not read the Bible'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 22:30.',
+        wrongFeedback: 'Listen for “neither marry” and “angels.” (Answer: neither marry… as the angels.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Thank God that He is the God of the living — and trust Jesus for hope about the resurrection.',
+          'Stop hoping in God forever.',
+          'Believe God never speaks truth.',
+          'Hide every question from Jesus.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with hope: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “living God” and “resurrection.” (Answer: thank God… trust Jesus… hope.)'
+      },
+      {
+        question: 'What happened when the multitude heard Jesus teach?',
+        choices: [
+          'They were astonished at his doctrine',
+          'They all fell asleep at once',
+          'They ran away and never listened again',
+          'They forgot how to speak'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches Matthew 22:33.',
+        wrongFeedback: 'Listen for “heard” and “astonished.” (Answer: astonished at his doctrine.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Jesus Teaches About the Resurrection with God's Word today.",
+    takeaway:
+      'God is not the God of the dead, but of the living — Jesus teaches God’s Word truly; we can rest our hearts on Him.',
+    prayer:
+      'Lord Jesus, thank You that God is the God of the living. On hard days, help me rest in Your gentle teaching and hope in You. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal shading, joyful calm atmosphere. In the center, gentle Jesus sits calmly on a low stone bench, speaking with wise and kind eyes, one hand raised softly as He teaches. Two or three Sadducees stand nearby listening quietly — simple robes, thoughtful faces only, no anger. Soft temple walls and gentle pillars in the background with a light band of sky above. One child-friendly open area in the foreground for coloring. Large peaceful spaces for crayons. Focus: Jesus gently teaching about the living God and the resurrection. Style: clear, bold, restful, never scary or busy.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Sadducees come — listening (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Seven brothers question — gentle pause (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Ye do err — scriptures and power (mercy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: Like the angels — no marrying there (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft temple light, friendly not scary, no text in image: God of the living — astonished hearts (peace)'
+    ],
+    readAlongImages: []
+  };
+}
+
+/** Good Shepherd — John 10:1–18 (gentle). Library key: jesusParableGoodShepherd */
+function buildJesusParableGoodShepherdReadQuiz() {
+  return {
+    kjvRef: 'John 10:1–18 (KJV)',
+    verseExcerpt:
+      'I am the good shepherd: the good shepherd giveth his life for the sheep. — John 10:11 (KJV)',
+    readAlongTitle: 'The Good Shepherd',
+    quizWrongHumilityHint:
+      'Listen again — sheepfold; door; shepherd; porter; voice; name; follow; good shepherd; life; hireling; wolf; know; other sheep; one fold; lay down; take again.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus told this gentle story to help us understand how much He loves and cares for us.',
+      'He said, Verily, verily, I say unto you, He that entereth not by the door into the sheepfold, but climbeth up some other way, the same is a thief and a robber. But he that entereth in by the door is the shepherd of the sheep. To him the porter openeth; and the sheep hear his voice: and he calleth his own sheep by name, and leadeth them out. And when he putteth forth his own sheep, he goeth before them, and the sheep follow him: for they know his voice.',
+      'Jesus said, I am the good shepherd: the good shepherd giveth his life for the sheep. He also said, I am the good shepherd, and know my sheep, and am known of mine… And other sheep I have, which are not of this fold: them also I must bring, and they shall hear my voice; and there shall be one fold, and one shepherd… I lay down my life for the sheep.',
+      'The sheep know their shepherd’s voice and follow him because they feel safe with him.',
+      'Reference: John 10:1–18 (KJV)'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus told a story about a shepherd and his sheep.',
+        caption: 'Shepherd and sheep',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'The true shepherd enters by the door and calls his own sheep by name.',
+        caption: 'Calls them by name',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'The sheep know their shepherd’s voice and follow him because they feel safe.',
+        caption: 'They know His voice',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'Jesus said, I am the good shepherd.',
+        caption: 'The good shepherd',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'The good shepherd giveth his life for the sheep and goeth before them.',
+        caption: 'Giveth his life',
+        image: 'panel-jesus-3.svg'
+      },
+      {
+        text: 'He knows His sheep, and they know Him. He brings all His sheep together into one safe fold.',
+        caption: 'One fold, one shepherd',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this story found in the Bible?',
+        choices: ['John 10:1–18', 'Psalm 23', 'Luke 15', 'Genesis 1'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback: 'Skim the reference line in the story block. (Answer: John 10:1–18.)'
+      },
+      {
+        question: 'What did Jesus say He is?',
+        choices: [
+          'I am the good shepherd',
+          'I am only a visitor',
+          'I am afraid of sheep',
+          'I am too busy to care'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 10:11.',
+        wrongFeedback: 'Listen for “good shepherd.” (Answer: I am the good shepherd.)'
+      },
+      {
+        question: 'Why do the sheep follow the true shepherd?',
+        choices: [
+          'They know his voice — and they follow him',
+          'They are forced with loud yelling',
+          'They do not hear anything',
+          'They run away from every sound'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 10:4.',
+        wrongFeedback: 'Listen for “voice” and “follow.” (Answer: they know his voice.)'
+      },
+      {
+        question: 'What does the good shepherd do for the sheep?',
+        choices: [
+          'Giveth his life for the sheep',
+          'Hides when trouble comes',
+          'Forgets their names on purpose',
+          'Leaves them outside in the dark forever'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 10:11.',
+        wrongFeedback: 'Listen for “life” and “sheep.” (Answer: giveth his life for the sheep.)'
+      },
+      {
+        question: 'What did Jesus say about other sheep not of this fold?',
+        choices: [
+          'Them also I must bring — they shall hear my voice — one fold, one shepherd',
+          'He would never speak to anyone else',
+          'Other sheep do not matter',
+          'Sheep should never be in a fold'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes—that matches John 10:16.',
+        wrongFeedback: 'Listen for “other sheep” and “one shepherd.” (Answer: bring them… one fold… one shepherd.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Listen for Jesus’ voice — thank Him that He knows you and laid down His life for you.',
+          'Stop listening for anything good.',
+          'Believe shepherds are scary only.',
+          'Try to be perfect alone before praying.'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with hope: small, real, and pleasing to God.',
+        wrongFeedback: 'Think “voice,” “know,” and “good shepherd.” (Answer: listen… thank Him… laid down His life.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading The Good Shepherd with God's Word today.",
+    takeaway:
+      'Jesus is the Good Shepherd — He knows us by name, calls us gently, and laid down His life so we can be safe with Him.',
+    prayer:
+      'Lord Jesus, thank You that You are the Good Shepherd. Help me hear Your voice and rest in Your care today. Amen.',
+    imagePrompts: [
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful calm atmosphere. In the center, gentle Jesus stands as the Good Shepherd, holding a shepherd’s staff in one hand and reaching softly with the other toward a little lamb. Several gentle sheep stand close to Him, peaceful and safe — one lamb nuzzling near His feet. Soft rolling hills and a few simple fence posts in the background with plenty of open sky and ground for coloring. Focus: Jesus lovingly caring for His sheep, calling them by name, and keeping them safe. Style: clear, bold, tender, never scary or busy.',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, green hills, friendly not scary, no text in image: Sheepfold and the door (hope)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, green hills, friendly not scary, no text in image: Calls his own sheep by name (love)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, green hills, friendly not scary, no text in image: Sheep follow — they know his voice (truth)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, green hills, friendly not scary, no text in image: I am the good shepherd (mercy)',
+      'Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, green hills, friendly not scary, no text in image: Lay down my life — one fold (peace)'
     ],
     readAlongImages: []
   };
@@ -11472,49 +14596,47 @@ function buildZacchaeusReadQuiz() {
       'For the Son of man is come to seek and to save that which was lost. — Luke 19:10 (KJV)',
     readAlongTitle: 'Jesus Loves Zacchaeus',
     quizWrongHumilityHint:
-      'Listen again — Jericho; short of stature; sycomore; Zacchaeus; make haste; come down; abide; joyfully; murmured; half; fourfold; salvation.',
+      'Listen again — Jericho; publicans; rich; little of stature; press; sycomore; Zacchaeus; make haste; come down; abide; joyfully; murmured; sinner; half; fourfold; salvation; son of Abraham; seek; save; lost.',
     hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
     paragraphs: [
-      'Jesus was walking through Jericho.',
-      'A man named Zacchaeus was very short and wanted to see Jesus, but he could not see over the crowd.',
-      'Zacchaeus climbed up into a sycamore tree so he could see Jesus pass by.',
-      'When Jesus came to the tree, He looked up and said, “Zacchaeus, make haste, and come down; for to day I must abide at thy house.”',
-      'Zacchaeus came down quickly and was very happy.',
-      'The people were surprised because Zacchaeus had taken money that did not belong to him.',
-      'But Jesus loved him anyway.',
-      'Zacchaeus stood up and said, “Behold, Lord, the half of my goods I give to the poor; and if I have taken any thing from any man by false accusation, I restore him fourfold.”',
-      'Jesus said, “This day is salvation come to this house.”',
-      'Jesus sees us even when we feel small or hidden, and He loves us and changes our hearts.',
+      'Jesus was passing through the city of Jericho. There was a man named Zacchaeus. He was the chief among the publicans, and he was rich. But he was little of stature, and he could not see Jesus because of the crowd.',
+      'So Zacchaeus ran on before, and climbed up into a sycomore tree to see Jesus, for He was to pass that way.',
+      'When Jesus came to the place, He looked up, and saw him, and said unto him, Zacchaeus, make haste, and come down; for to day I must abide at thy house.',
+      'Zacchaeus made haste, and came down, and received Jesus joyfully.',
+      'When the people saw it, they all murmured, saying that Jesus was gone to be guest with a man that is a sinner.',
+      'Zacchaeus stood, and said unto the Lord, Behold, Lord, the half of my goods I give to the poor; and if I have taken any thing from any man by false accusation, I restore him fourfold.',
+      'Jesus said unto him, This day is salvation come to this house, forsomuch as he also is a son of Abraham. For the Son of man is come to seek and to save that which was lost.',
+      'Jesus knows our name, He comes to us, and He came to seek and save the lost — no one is too small, too far, or too far gone for His love.',
       'Reference: Luke 19:1–10 (KJV)'
     ],
     readAlongSections: [
       {
-        text: 'Zacchaeus was very short.',
+        text: 'Jesus walked through Jericho. A man named Zacchaeus was very short and could not see over the crowd.',
         caption: 'Little of stature',
         image: 'panel-david-1.svg'
       },
       {
-        text: 'He climbed a tree to see Jesus.',
-        caption: 'Sycomore tree',
+        text: 'So Zacchaeus climbed up into a tall sycomore tree to see Jesus.',
+        caption: 'Up in the tree',
         image: 'panel-david-1.svg'
       },
       {
-        text: 'Jesus looked up and said, “Zacchaeus, make haste, and come down; for to day I must abide at thy house.”',
-        caption: 'Jesus saw him',
+        text: 'Jesus looked up and called him by name: Zacchaeus, make haste, and come down; for to day I must abide at thy house.',
+        caption: 'Jesus called his name',
         image: 'panel-david-2.svg'
       },
       {
-        text: 'Zacchaeus came down quickly and was happy.',
-        caption: 'Received him joyfully',
+        text: 'Zacchaeus came down quickly and welcomed Jesus with joy.',
+        caption: 'Joyfully received',
         image: 'panel-david-2.svg'
       },
       {
-        text: 'Jesus said, “This day is salvation come to this house.”',
-        caption: 'Son of Abraham',
+        text: 'The people murmured because Zacchaeus had been a sinner, but Zacchaeus promised to give to the poor and make things right.',
+        caption: 'Making things right',
         image: 'panel-david-3.svg'
       },
       {
-        text: 'Jesus sees us and loves us.',
+        text: 'Jesus said, This day is salvation come to this house… for the Son of man is come to seek and to save that which was lost. What a happy day!',
         caption: 'Seek and save the lost',
         image: 'panel-david-3.svg'
       }
@@ -11553,16 +14675,16 @@ function buildZacchaeusReadQuiz() {
         wrongFeedback: 'Reread what Zacchaeus promised God. (Answer: half… poor… fourfold.)'
       },
       {
-        question: 'Which detail belongs in this Bible story (not a silly made-up one)?',
+        question: 'Why did the people murmur when Jesus went to Zacchaeus’s house?',
         choices: [
-          'Jesus knew Zacchaeus by name — and wanted to be a guest at his home.',
-          'Zacchaeus rode a rocket through Jericho.',
-          'The tree grew candy instead of leaves.',
-          'Jesus could not see anyone in the crowd.'
+          'They said He was gone to be guest with a man that is a sinner.',
+          'They were angry because it started to snow.',
+          'They wanted the tree to fall down.',
+          'They forgot how to walk.'
         ],
         correctIndex: 0,
-        correctFeedback: 'Yes—that matches Luke 19:5–6.',
-        wrongFeedback: 'Cross out the joke answers. Which matches God’s Word? (Answer: knew his name… guest at his home.)'
+        correctFeedback: 'Yes—that matches Luke 19:7.',
+        wrongFeedback: 'Listen for “murmured” and “sinner.” (Answer: guest with a man that is a sinner.)'
       },
       {
         question: 'What is one good way to respond to God after this story?',
@@ -11581,17 +14703,17 @@ function buildZacchaeusReadQuiz() {
     doneHeading: 'You did it!',
     doneMessage: "Great job reading Jesus Loves Zacchaeus with God's Word today.",
     takeaway:
-      'Jesus sees us even when we feel small or hidden, and He loves us and changes our hearts.',
+      'Jesus knows our name, comes to us, and came to seek and save the lost — we can rest in His love on hard days.',
     prayer:
-      'Lord Jesus, You see me and know my name. Please change my heart and help me follow You today. Amen.',
+      'Lord Jesus, thank You that You know my name and seek the lost. Change my heart and help me welcome You with joy today. Amen.',
     imagePrompts: [
-      'A simple, peaceful black-and-white line-art scene for young children: Zacchaeus sitting in a tree looking down at Jesus. Jesus is standing below with a kind, inviting face and looking up at Zacchaeus. Thick, bold outlines with large open spaces on Zacchaeus’ robe, Jesus’ robe, the tree, and the ground for easy coloring. Soft road and gentle sky with minimal lines. Happy and welcoming mood — focus on Jesus seeing Zacchaeus and loving him. Clean, minimal, no fear, plenty of white space, age-appropriate for ages 3–8.',
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and stone road, friendly not scary, no text in image: Jericho road — little of stature (honest)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and stone road, friendly not scary, no text in image: Sycomore — climbed to see Jesus (hope)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and stone road, friendly not scary, no text in image: Zacchaeus — make haste, come down (mercy)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and stone road, friendly not scary, no text in image: Joyfully received — abide at thy house (love)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and stone road, friendly not scary, no text in image: Half to poor — fourfold restored (truth)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft greens and stone road, friendly not scary, no text in image: Salvation — seek and save the lost (hope)"
+      'A simple, peaceful black-and-white line-art coloring page for young children (ages 3–8): clean bold outlines, large open spaces, minimal detail, joyful calm atmosphere. In the center, gentle Jesus stands looking up with kind eyes and a soft smile, one hand gently reaching toward the tree. Little Zacchaeus sits happily on a low branch of a big sycomore tree, looking down at Jesus with a joyful face — simple robe, short stature shown gently. A few townspeople stand nearby watching quietly. Soft ground and a few leaves on the tree with plenty of large open space in the foreground for coloring. Focus: Jesus calling Zacchaeus by name and bringing joy and salvation. Style: clear, bold, restful, never busy or scary.',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, Jericho road, friendly not scary, no text in image: Jericho — little of stature (honest)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, Jericho road, friendly not scary, no text in image: Sycomore — ran before, climbed up (hope)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, Jericho road, friendly not scary, no text in image: Zacchaeus — make haste, come down (mercy)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, Jericho road, friendly not scary, no text in image: Joyfully received — abide at thy house (love)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, Jericho road, friendly not scary, no text in image: Murmured — half and fourfold (truth)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, Jericho road, friendly not scary, no text in image: Salvation — seek and save the lost (peace)"
     ],
     readAlongImages: []
   };
@@ -11871,9 +14993,42 @@ module.exports = {
   jesusCleansesTemple: buildJesusCleansesTempleReadQuiz(),
   greatestCommandment: buildGreatestCommandmentReadQuiz(),
   triumphalEntry: buildTriumphalEntryReadQuiz(),
+  jesusWeepsJerusalem: buildJesusWeepsJerusalemReadQuiz(),
+  figTree: buildFigTreeReadQuiz(),
+  jesusAuthority: buildJesusAuthorityReadQuiz(),
+  parableWickedHusbandmen: buildParableWickedHusbandmenReadQuiz(),
+  tributeToCaesar: buildTributeToCaesarReadQuiz(),
+  sadduceesResurrection: buildSadduceesResurrectionReadQuiz(),
+  jesusParableGoodShepherd: buildJesusParableGoodShepherdReadQuiz(),
   goodSamaritan: buildParableGoodSamaritanReadQuiz(),
   maryMartha: buildMaryMarthaReadQuiz(),
   lazarus: buildLazarusReadQuiz(),
+  maryAnoint: buildMaryAnointReadQuiz(),
+  palmSunday: buildPalmSundayReadQuiz(),
+  betrayal: buildBetrayalReadQuiz(),
+  judasKiss: buildBetrayalReadQuiz(),
+  lastSupper: buildLastSupperReadQuiz(),
+  jesusLastSupper: buildLastSupperReadQuiz(),
+  gardenPrayer: buildGardenPrayerReadQuiz(),
+  jesusGardenGethsemane: buildGardenPrayerReadQuiz(),
+  jesusArrest: buildJesusArrestReadQuiz(),
+  arrest: buildJesusArrestReadQuiz(),
+  gethsemaneArrest: buildJesusArrestReadQuiz(),
+  trialBeforeCaiaphas: buildTrialBeforeCaiaphasReadQuiz(),
+  caiaphasTrial: buildTrialBeforeCaiaphasReadQuiz(),
+  jesusBeforeCaiaphas: buildTrialBeforeCaiaphasReadQuiz(),
+  peterDenial: buildPeterDenialReadQuiz(),
+  peterDeniesJesus: buildPeterDenialReadQuiz(),
+  trial: buildTrialPilateReadQuiz(),
+  pilateTrial: buildTrialPilateReadQuiz(),
+  jesusBeforePilate: buildTrialPilateReadQuiz(),
+  crossCarry: buildCrossCarryReadQuiz(),
+  crucifixion: buildCrucifixionReadQuiz(),
+  tombEmpty: buildTombEmptyReadQuiz(),
+  jesusResurrection: buildJesusResurrectionReadQuiz(),
+  resurrection: buildJesusResurrectionReadQuiz(),
+  maryMagdalene: buildMaryMagdaleneReadQuiz(),
+  thomasDoubt: buildThomasDoubtReadQuiz(),
   tenLepers: buildTenLepersReadQuiz(),
   manBornBlind: buildManBornBlindReadQuiz(),
   bethesda: buildBethesdaReadQuiz(),

@@ -3,6 +3,14 @@
 
   if (!global || global.TDB_GENTLE_JOURNEY) return;
 
+  /**
+   * North star: distinct gentle Kids Corner Bible stories that receive the full calm package
+   * (read-aloud, peaceful coloring + SVG, read-quiz, corner integration, etc.).
+   * This is not the same as ORDER.length (journey sequence includes parallel names) or the
+   * read-quiz generator key count (includes library aliases).
+   */
+  var CANONICAL_DISTINCT_STORY_GOAL = 365;
+
   var ORDER = [
     'david',
     'noah',
@@ -152,6 +160,7 @@
     'jairus',
     'jesusWalksWater',
     'jesusFeeds5000',
+    'jesusFeeds4000',
     'bethesda',
     'manBornBlind',
     'tenLepers',
@@ -171,6 +180,7 @@
     'parableMustardSeed',
     'jesusParableMustardSeed',
     'parableHiddenTreasure',
+    'parableNet',
     'parablePearl',
     'parableLostSheep',
     'faithMustard',
@@ -190,6 +200,12 @@
     'jesusCleansesTemple',
     'greatestCommandment',
     'triumphalEntry',
+    'jesusWeepsJerusalem',
+    'figTree',
+    'jesusAuthority',
+    'parableWickedHusbandmen',
+    'tributeToCaesar',
+    'sadduceesResurrection',
     'zacchaeus',
     'jesusParableGoodShepherd',
     'lazarus',
@@ -201,6 +217,9 @@
     'jesusLastSupper',
     'gardenPrayer',
     'jesusGardenGethsemane',
+    'jesusArrest',
+    'trialBeforeCaiaphas',
+    'peterDenial',
     'trial',
     'crossCarry',
     'crucifixion',
@@ -374,6 +393,7 @@
   }
 
   global.TDB_GENTLE_JOURNEY = {
+    CANONICAL_DISTINCT_STORY_GOAL: CANONICAL_DISTINCT_STORY_GOAL,
     COUNT: ORDER.length,
     ORDER: ORDER.slice(),
     STARTERS: STARTERS.slice(),

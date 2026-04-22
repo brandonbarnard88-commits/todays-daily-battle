@@ -17,6 +17,28 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <script type="application/ld+json" nonce="tdb2025s">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "Family Activity Packs (Print) • Today's Daily Battle",
+        "url": "https://todaysdailybattle.com/family-activity-packs.html",
+        "description": "Printable family activity sheets: large-print KJV verse, drawing prompt, age-banded OIA questions, and family prayer—device-local.",
+        "isPartOf": { "@type": "WebSite", "name": "Today's Daily Battle", "url": "https://todaysdailybattle.com/" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://todaysdailybattle.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Explore", "item": "https://todaysdailybattle.com/explore.html" },
+          { "@type": "ListItem", "position": 3, "name": "Family activity packs", "item": "https://todaysdailybattle.com/family-activity-packs.html" }
+        ]
+      }
+    ]
+  }
+  </script>
   <style nonce="tdb2025s">
     .fam-print-wrap { max-width: 42rem; margin: 0 auto; padding: 1rem 1.1rem 2.5rem; }
     .fam-print-toolbar { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin: 0.75rem 0 1rem; }
@@ -83,6 +105,35 @@
     .fam-print-index ul { list-style: none; padding: 0; margin: 0; }
     .fam-print-index li { margin-bottom: 0.4rem; }
     .fam-print-index a { color: var(--gold-soft); font-weight: 600; }
+    .fam-print-preview-toggle { font: inherit; }
+    .fam-print-preview-note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin: 0.35rem 0 0;
+      max-width: 40rem;
+      line-height: 1.5;
+    }
+    .fam-print-root--preview-on .fam-print-sheet {
+      background: #fffef8;
+      color: #1a1a1a;
+      border: 2px solid #a67c3a;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+    }
+    .fam-print-root--preview-on .fam-print-verse {
+      border: 2px solid #a67c3a;
+      background: #fffef8;
+      color: #1a1a1a;
+    }
+    .fam-print-root--preview-on .fam-print-meta,
+    .fam-print-root--preview-on .fam-print-block p,
+    .fam-print-root--preview-on h1,
+    .fam-print-root--preview-on .fam-print-sheet h2 {
+      color: #1a1a1a;
+    }
+    .fam-print-root--no-parent .fam-print-parent-guide,
+    .fam-print-root--no-prompts .fam-print-study-prompts {
+      display: none !important;
+    }
     @media print {
       .fam-print-toolbar, .tdb-global-nav, .skip-link { display: none !important; }
       .fam-print-sheet { border: none; background: #fff; color: #111; box-shadow: none; }
@@ -92,6 +143,11 @@
         background: #fffef8;
         color: #1a1a1a;
         box-shadow: none;
+      }
+      .fam-print-preview-note { display: none !important; }
+      .fam-print-root--no-parent .fam-print-parent-guide,
+      .fam-print-root--no-prompts .fam-print-study-prompts {
+        display: none !important;
       }
     }
     @media (prefers-color-scheme: light) {
@@ -140,6 +196,13 @@
     </div>
   </nav>
   <main id="main-content" class="fam-print-wrap">
+    <nav class="tdb-breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/explore.html">Explore</a></li>
+        <li aria-current="page">Family activity packs</li>
+      </ol>
+    </nav>
     <a href="family.html" class="plans-back plans-back-hub">← Family hub</a>
     <h1 class="section-divider">Printable family activity packs</h1>
     <p class="section-note section-note-tight-top">Large-print KJV, a calm drawing prompt, age-banded questions, and space to pray. Stays on your device until you print.</p>
@@ -148,9 +211,13 @@
     <p class="section-note">Weekly pairing ideas: <a href="plans.html?plan=lordsprayer-kids">Lord&rsquo;s Prayer for Kids</a> for prayer week, <a href="plans.html?plan=beatitudes-kids">Beatitudes for Kids</a> for heart week, <a href="plans.html?plan=sower-kids">Sower for Kids</a> for story week, or <a href="plans.html?plan=summer-seeds">Summer Seeds</a> when you want the lightest rhythm.</p>
     <div class="fam-print-toolbar">
       <button type="button" id="fam-print-btn" class="btn btn-secondary" aria-label="Print this sheet">Print this sheet</button>
+      <button type="button" id="fam-print-preview-toggle" class="btn btn-secondary fam-print-preview-toggle" aria-pressed="false" aria-label="Toggle on-screen print preview colors">Preview print colors</button>
+      <button type="button" id="fam-print-prompts-toggle" class="btn btn-secondary" aria-pressed="true" aria-label="Show or hide See, Understand, and Live prompts on this sheet">Study prompts on</button>
+      <button type="button" id="fam-print-parent-toggle" class="btn btn-secondary" aria-pressed="true" aria-label="Show or hide parent OIA ideas by age">Parent guide on</button>
       <a class="btn btn-secondary" href="family-activity-packs.html">All days index</a>
       <a class="btn btn-secondary" href="print-pack-generator.html?pack=bedtime-peace-littles">Themed pack generator</a>
     </div>
+    <p id="fam-print-preview-note" class="fam-print-preview-note fam-print-privacy-whisper" hidden>Preview shows ink-friendly paper tones on screen only. Your browser&rsquo;s print dialog may still look different—always check before printing.</p>
     <div id="fam-print-root"></div>
   </main>
   <script src="plans-data.js"></script>
@@ -183,8 +250,32 @@
         return sec;
       }
 
+      function resetPrintToggles() {
+        var printRoot = document.getElementById('fam-print-root');
+        if (printRoot) {
+          printRoot.classList.remove('fam-print-root--preview-on', 'fam-print-root--no-parent', 'fam-print-root--no-prompts');
+        }
+        var previewBtn = document.getElementById('fam-print-preview-toggle');
+        var parentBtn = document.getElementById('fam-print-parent-toggle');
+        var promptsBtn = document.getElementById('fam-print-prompts-toggle');
+        var previewNote = document.getElementById('fam-print-preview-note');
+        if (previewBtn) {
+          previewBtn.setAttribute('aria-pressed', 'false');
+        }
+        if (parentBtn) {
+          parentBtn.setAttribute('aria-pressed', 'true');
+          parentBtn.textContent = 'Parent guide on';
+        }
+        if (promptsBtn) {
+          promptsBtn.setAttribute('aria-pressed', 'true');
+          promptsBtn.textContent = 'Study prompts on';
+        }
+        if (previewNote) previewNote.hidden = true;
+      }
+
       function renderSheet(planId, dayNum, row, planTitle) {
         var root = document.getElementById('fam-print-root');
+        resetPrintToggles();
         root.replaceChildren();
         var sheet = el('article', 'fam-print-sheet');
         sheet.setAttribute('aria-label', planTitle + ', day ' + dayNum);
@@ -203,11 +294,13 @@
         sheet.appendChild(bq);
 
         sheet.appendChild(block('Drawing prompt', row.drawPrompt || 'Draw something this verse makes you think about.'));
-        sheet.appendChild(block('See — What stands out?', row.familySee || ''));
-        sheet.appendChild(block('Understand — What does this tell us about God?', row.familyUnderstand || ''));
-        sheet.appendChild(block('Live — One step together', row.familyLive || ''));
+        var studyPrompts = el('div', 'fam-print-study-prompts');
+        studyPrompts.appendChild(block('See — What stands out?', row.familySee || ''));
+        studyPrompts.appendChild(block('Understand — What does this tell us about God?', row.familyUnderstand || ''));
+        studyPrompts.appendChild(block('Live — One step together', row.familyLive || ''));
+        sheet.appendChild(studyPrompts);
 
-        var ages = el('div', 'fam-print-block');
+        var ages = el('div', 'fam-print-block fam-print-parent-guide');
         ages.appendChild(el('h3', null, 'Parent guide — OIA by age'));
         var band58 = el('div', 'fam-print-age');
         band58.appendChild(el('p', null, 'Ages 5–8: ' + (row.oia58 || '')));
@@ -234,6 +327,7 @@
 
       function renderIndex() {
         var root = document.getElementById('fam-print-root');
+        resetPrintToggles();
         root.replaceChildren();
         var idx = el('div', 'fam-print-index');
         idx.appendChild(el('h2', 'section-divider', 'Choose a day'));
@@ -304,6 +398,36 @@
       if (btn) {
         btn.addEventListener('click', function () {
           window.print();
+        });
+      }
+
+      var previewBtn = document.getElementById('fam-print-preview-toggle');
+      var previewNote = document.getElementById('fam-print-preview-note');
+      var printRoot = document.getElementById('fam-print-root');
+      var parentBtn = document.getElementById('fam-print-parent-toggle');
+      var promptsBtn = document.getElementById('fam-print-prompts-toggle');
+      if (toolbar && toolbar.style.display === 'none' && previewBtn) previewBtn.style.display = 'none';
+      if (toolbar && toolbar.style.display === 'none' && parentBtn) parentBtn.style.display = 'none';
+      if (toolbar && toolbar.style.display === 'none' && promptsBtn) promptsBtn.style.display = 'none';
+      if (previewBtn && printRoot) {
+        previewBtn.addEventListener('click', function () {
+          var on = printRoot.classList.toggle('fam-print-root--preview-on');
+          previewBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+          if (previewNote) previewNote.hidden = !on;
+        });
+      }
+      if (parentBtn && printRoot) {
+        parentBtn.addEventListener('click', function () {
+          var hidden = printRoot.classList.toggle('fam-print-root--no-parent');
+          parentBtn.setAttribute('aria-pressed', !hidden ? 'true' : 'false');
+          parentBtn.textContent = hidden ? 'Parent guide off' : 'Parent guide on';
+        });
+      }
+      if (promptsBtn && printRoot) {
+        promptsBtn.addEventListener('click', function () {
+          var hidden = printRoot.classList.toggle('fam-print-root--no-prompts');
+          promptsBtn.setAttribute('aria-pressed', !hidden ? 'true' : 'false');
+          promptsBtn.textContent = hidden ? 'Study prompts off' : 'Study prompts on';
         });
       }
     })();

@@ -156,10 +156,12 @@
       jairus: 'jairus',
       jesusWalksWater: 'jesusWalksWater',
       jesusFeeds5000: 'jesusFeeds5000',
+      jesusFeeds4000: 'jesusFeeds4000',
       parableSower: 'parableSower',
       mustardSeed: 'mustardSeed',
       parableMustardSeed: 'mustardSeed',
       parableHiddenTreasure: 'parableHiddenTreasure',
+      parableNet: 'parableNet',
       parablePearl: 'parablePearl',
       lostSheep: 'parableLostSheep',
       parableLostSheep: 'parableLostSheep',
@@ -178,7 +180,30 @@
       unforgivingServant: 'unforgivingServant',
       forgive70x7: 'unforgivingServant',
       jesusAndChildren: 'jesusBlessKids',
-      jesusAndZacchaeus: 'zacchaeus'
+      jesusAndZacchaeus: 'zacchaeus',
+      triumphalEntry: 'triumphalEntry',
+      jesusWeepsJerusalem: 'jesusWeepsJerusalem',
+      jesusWeptJerusalem: 'jesusWeepsJerusalem',
+      figTree: 'figTree',
+      jesusFigTree: 'figTree',
+      jesusAuthority: 'jesusAuthority',
+      parableWickedHusbandmen: 'parableWickedHusbandmen',
+      tributeToCaesar: 'tributeToCaesar',
+      sadduceesResurrection: 'sadduceesResurrection',
+      jesusParableGoodShepherd: 'jesusParableGoodShepherd',
+      jesusResurrection: 'resurrection',
+      resurrection: 'resurrection',
+      tombEmpty: 'tombEmpty',
+      crossCarry: 'crossCarry',
+      crucifixion: 'crucifixion',
+      lastSupper: 'lastSupper',
+      gardenPrayer: 'gardenPrayer',
+      jesusArrest: 'jesusArrest',
+      trialBeforeCaiaphas: 'trialBeforeCaiaphas',
+      peterDenial: 'peterDenial',
+      trial: 'trial',
+      maryMagdalene: 'maryMagdalene',
+      thomasDoubt: 'thomasDoubt'
     };
     if (map[k]) return map[k];
     var low = k.toLowerCase();
@@ -188,6 +213,23 @@
     if (low.indexOf('daniel') >= 0) return 'daniel-lions';
     if (low.indexOf('storm') >= 0 || low.indexOf('calms') >= 0) return 'jesus-storm';
     if (low.indexOf('disciple') >= 0 || low.indexOf('fisher') >= 0) return 'fishers-of-men';
+    if (low.indexOf('jesusweepsjerusalem') >= 0 || low === 'jesusweepsjerusalem') return 'jesusWeepsJerusalem';
+    if (low.indexOf('jesusauthority') >= 0 || low === 'jesusauthority') return 'jesusAuthority';
+    if (low.indexOf('jesusfigtree') >= 0 || low === 'jesusfigtree') return 'figTree';
+    if (low.indexOf('parablewickedhusbandmen') >= 0 || low === 'parablewickedhusbandmen')
+      return 'parableWickedHusbandmen';
+    if (low.indexOf('tributetocaesar') >= 0 || low === 'tributetocaesar') return 'tributeToCaesar';
+    if (low.indexOf('sadduceesresurrection') >= 0 || low === 'sadduceesresurrection')
+      return 'sadduceesResurrection';
+    if (low.indexOf('jesusparablegoodshepherd') >= 0 || low === 'jesusparablegoodshepherd')
+      return 'jesusParableGoodShepherd';
+    if (low === 'jesusresurrection' || low === 'resurrection') return 'resurrection';
+    if (low.indexOf('marymagdalene') >= 0 || low === 'marymagdalene') return 'maryMagdalene';
+    if (low.indexOf('thomasdoubt') >= 0 || low === 'thomasdoubt') return 'thomasDoubt';
+    if (low.indexOf('tombempty') >= 0 || low === 'tombempty') return 'tombEmpty';
+    if (low.indexOf('crosscarry') >= 0 || low === 'crosscarry') return 'crossCarry';
+    if (low.indexOf('crucifixion') >= 0 || low === 'crucifixion' || low === 'jesuscrucifixion')
+      return 'crucifixion';
     if (low.indexOf('jesus') >= 0) return 'jesus-children';
     if (low.indexOf('moses') >= 0) return low.indexOf('baby') >= 0 ? 'baby-moses' : 'moses-red-sea';
     if (low.indexOf('redsea') >= 0 || low.indexOf('red_sea') >= 0) return 'moses-red-sea';
@@ -201,9 +243,11 @@
     if (low.indexOf('jairus') >= 0 || low === 'jairus') return 'jairus';
     if (low.indexOf('jesuswalkswater') >= 0 || low === 'jesuswalkswater') return 'jesusWalksWater';
     if (low.indexOf('jesusfeeds5000') >= 0 || low === 'jesusfeeds5000') return 'jesusFeeds5000';
+    if (low.indexOf('jesusfeeds4000') >= 0 || low === 'jesusfeeds4000') return 'jesusFeeds4000';
     if (low.indexOf('parablesower') >= 0 || low === 'parablesower') return 'parableSower';
     if (low.indexOf('parablemustardseed') >= 0 || low === 'parablemustardseed') return 'parableMustardSeed';
     if (low.indexOf('parablehiddentreasure') >= 0 || low === 'parablehiddentreasure') return 'parableHiddenTreasure';
+    if (low.indexOf('parablenet') >= 0 || low === 'parablenet') return 'parableNet';
     if (low.indexOf('parablepearl') >= 0 || low === 'parablepearl') return 'parablePearl';
     if (low.indexOf('parablelostsheep') >= 0 || low === 'parablelostsheep') return 'parableLostSheep';
     if (low.indexOf('prodigal') >= 0 || low === 'prodigalson') return 'prodigalSon';
@@ -216,6 +260,8 @@
     if (low.indexOf('forgive70') >= 0 || low === 'forgive70x7') return 'unforgivingServant';
     if (low.indexOf('jesusandchildren') >= 0 || low === 'jesusandchildren') return 'jesusBlessKids';
     if (low.indexOf('jesusandzacchaeus') >= 0 || low === 'jesusandzacchaeus') return 'zacchaeus';
+    if (low.indexOf('figtree') >= 0 || low === 'figtree') return 'figTree';
+    if (low.indexOf('triumphalentry') >= 0 || low === 'triumphalentry') return 'triumphalEntry';
     if (low.indexOf('bethesda') >= 0 || low === 'bethesda' || low.indexOf('poolofbethesda') >= 0) return 'bethesda';
     if (low.indexOf('manbornblind') >= 0 || low === 'manbornblind') return 'healBlind';
     if (low.indexOf('healblind') >= 0 || low === 'healblind' || low.indexOf('jesushealsblind') >= 0) return 'healBlind';
@@ -609,29 +655,29 @@
         '<text x="200" y="285" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Genesis 37:3</text>'
       ),
 
-      /* The Resurrection */
+      /* Jesus is risen — gentle risen Lord, joyful Marys, rolled stone, garden, sunrise */
       resurrection: svg(
-        /* tomb rock rolled away */
-        '<circle cx="90" cy="200" r="55" ' + sf + ' fill="white" stroke-width="4"/>' +
-        /* tomb entrance */
-        '<path d="M130 260 L130 180 Q200 155 270 180 L270 260" ' + sf + ' fill="white" stroke-width="4"/>' +
-        '<rect x="130" y="180" width="140" height="80" ' + sf + ' fill="white" stroke-width="2"/>' +
-        /* empty burial cloth */
-        '<path d="M160 230 Q200 210 240 230 Q220 248 200 248 Q180 248 160 230" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        /* angel */
-        '<circle cx="330" cy="165" r="16" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<line x1="330" y1="181" x2="330" y2="220" ' + s + ' stroke-width="3"/>' +
-        '<path d="M310 170 Q295 150 310 140 Q325 150 330 165" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M350 170 Q365 150 350 140 Q335 150 330 165" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        /* women at tomb */
-        person(355, 195, 10, 28) +
-        person(375, 200, 9, 22) +
-        /* radiant light */
-        '<line x1="200" y1="20" x2="200" y2="60" ' + s + ' stroke-width="2" stroke-dasharray="4,3"/>' +
-        '<line x1="180" y1="22" x2="170" y2="62" ' + s + ' stroke-width="2" stroke-dasharray="4,3"/>' +
-        '<line x1="220" y1="22" x2="230" y2="62" ' + s + ' stroke-width="2" stroke-dasharray="4,3"/>' +
-        star(200, 18, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 28:6</text>'
+        ground() +
+        hills() +
+        sun(52, 52, 20) +
+        '<path d="M248 255 Q278 198 318 172 Q348 158 372 188 L372 255" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<ellipse cx="230" cy="232" rx="34" ry="32" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M258 208 Q300 198 338 218" ' + s + ' stroke-width="2" opacity="0.85"/>' +
+        person(200, 118, 14, 40) +
+        '<line x1="200" y1="152" x2="168" y2="128" ' + s + ' stroke-width="3"/>' +
+        '<line x1="200" y1="152" x2="232" y2="128" ' + s + ' stroke-width="3"/>' +
+        '<path d="M192 132 Q200 126 208 132" ' + s + ' stroke-width="1.5"/>' +
+        person(128, 188, 10, 22) +
+        person(268, 188, 10, 22) +
+        '<path d="M116 210 Q128 198 134 210" ' + s + ' stroke-width="1.5"/>' +
+        '<path d="M256 210 Q268 198 276 210" ' + s + ' stroke-width="1.5"/>' +
+        '<circle cx="72" cy="238" r="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="92" cy="244" r="6" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="112" cy="236" r="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="288" cy="240" r="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="308" cy="246" r="6" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        star(200, 42, 11) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 28:6–10; 18–20</text>'
       ),
 
       /* Creation */
@@ -719,6 +765,34 @@
         '<circle cx="292" cy="236" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
         '<circle cx="308" cy="232" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
         '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 14:13–21</text>'
+      ),
+
+      /* Loaves again — seven loaves, great multitude (Mark 8:1–9) */
+      jesusFeeds4000: svg(
+        ground() +
+        hills() +
+        sun(348, 48, 20) +
+        cloud(40, 38) +
+        '<ellipse cx="200" cy="248" rx="168" ry="22" ' + sf + ' fill="white" stroke-width="2.2" opacity="0.95"/>' +
+        '<path d="M52 248 Q120 238 200 242 Q280 238 348 248" ' + s + ' stroke-width="1.4" opacity="0.4"/>' +
+        person(168, 168, 11, 32) +
+        '<line x1="168" y1="200" x2="168" y2="232" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="156" y1="218" x2="180" y2="218" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="200" cy="228" rx="34" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="188" cy="218" rx="8" ry="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="200" cy="216" rx="8" ry="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="212" cy="218" rx="8" ry="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="194" cy="224" rx="7" ry="3.5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<ellipse cx="206" cy="224" rx="7" ry="3.5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<path d="M178 212 Q188 200 200 205 Q212 200 222 212" ' + s + ' stroke-width="1.8"/>' +
+        person(118, 188, 8, 22) +
+        '<circle cx="92" cy="232" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="108" cy="236" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="124" cy="234" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="276" cy="234" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="292" cy="236" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="308" cy="232" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 8:1–9</text>'
       ),
 
       /* Week 6 gentle: Parable of the sower — farmer, path, rocks, thorns, good soil (Matthew 13:1–23) */
@@ -2457,6 +2531,39 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ps 23:1</text>'
       ),
 
+      /* John 10:1–18 — Good Shepherd: staff, hand to lamb, sheep, hills, fence posts */
+      jesusParableGoodShepherd: svg(
+        ground() +
+        '<path d="M0 252 Q120 210 200 222 Q300 208 400 248" ' + s + ' stroke-width="2.2" fill="none" opacity="0.55"/>' +
+        '<path d="M0 240 Q100 218 200 228 Q320 218 400 236" ' + s + ' stroke-width="1.6" fill="none" opacity="0.4"/>' +
+        /* fence posts */
+        '<line x1="52" y1="232" x2="52" y2="188" ' + s + ' stroke-width="2.8"/>' +
+        '<line x1="92" y1="236" x2="92" y2="194" ' + s + ' stroke-width="2.8"/>' +
+        '<line x1="132" y1="234" x2="132" y2="190" ' + s + ' stroke-width="2.8"/>' +
+        '<line x1="44" y1="198" x2="140" y2="198" ' + s + ' stroke-width="2"/>' +
+        /* Jesus — staff + reaching hand */
+        '<circle cx="200" cy="158" r="12" ' + sf + ' fill="white" stroke-width="2.6"/>' +
+        '<path d="M194 154 Q200 150 206 154" ' + s + ' stroke-width="1.3" fill="none"/>' +
+        '<line x1="200" y1="170" x2="200" y2="248" ' + s + ' stroke-width="2.6"/>' +
+        '<line x1="200" y1="188" x2="176" y2="208" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="200" y1="188" x2="228" y2="200" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="200" y1="248" x2="188" y2="272" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="200" y1="248" x2="212" y2="272" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="212" y1="178" x2="228" y2="128" ' + s + ' stroke-width="2.8" stroke-linecap="round"/>' +
+        '<path d="M228 128 Q234 122 240 128" ' + s + ' stroke-width="2"/>' +
+        '<line x1="186" y1="196" x2="248" y2="232" ' + s + ' stroke-width="2" stroke-linecap="round"/>' +
+        /* lamb near feet */
+        '<ellipse cx="232" cy="258" rx="14" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="222" cy="250" r="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        /* sheep */
+        '<ellipse cx="118" cy="252" rx="20" ry="12" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="104" cy="242" r="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="312" cy="254" rx="18" ry="11" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="300" cy="244" r="9" ' + sf + ' fill="white" stroke-width="2"/>' +
+        sun(48, 42, 16) + cloud(320, 36) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 10:11</text>'
+      ),
+
       /* Solomon asks for wisdom — kneeling prayer, stars, soft light, simple bed (1 Kings 3:5-15) */
       solomonWisdom: svg(
         ground() +
@@ -3167,6 +3274,29 @@
         '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 13:45–46</text>'
       ),
 
+      /* Week 6 gentle: Net cast into the sea — shore, fish, gentle boat (Matthew 13:47–50) */
+      parableNet: svg(
+        ground() +
+        hills() +
+        sun(52, 44, 20) +
+        cloud(300, 34) +
+        '<path d="M40 248 Q200 228 360 248 L360 292 L40 292 Z" ' + sf + ' fill="white" stroke-width="2" opacity="0.92"/>' +
+        '<path d="M48 248 Q200 218 352 248" ' + s + ' stroke-width="1.6" opacity="0.45"/>' +
+        '<ellipse cx="200" cy="258" rx="120" ry="28" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<path d="M88 258 Q120 232 160 242 Q200 248 240 242 Q280 232 312 258" ' + s + ' stroke-width="1.8" opacity="0.7"/>' +
+        '<ellipse cx="128" cy="252" rx="8" ry="5" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<ellipse cx="168" cy="254" rx="8" ry="5" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<ellipse cx="200" cy="256" rx="9" ry="5" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<ellipse cx="232" cy="254" rx="8" ry="5" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<ellipse cx="272" cy="252" rx="8" ry="5" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<path d="M268 200 L312 218 L268 236 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="268" y1="218" x2="248" y2="248" ' + s + ' stroke-width="2"/>' +
+        person(200, 148, 11, 30) +
+        '<line x1="200" y1="178" x2="182" y2="168" ' + s + ' stroke-width="2"/>' +
+        '<line x1="200" y1="178" x2="218" y2="168" ' + s + ' stroke-width="2"/>' +
+        '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 13:47–50</text>'
+      ),
+
       /* Matthew 20:1–16 — generous vineyard owner, workers, pennies */
       parableVineyardWorkers: svg(
         ground() +
@@ -3229,6 +3359,35 @@
         '<line x1="284" y1="206" x2="276" y2="214" ' + s + ' stroke-width="2"/>' +
         '<line x1="300" y1="206" x2="308" y2="214" ' + s + ' stroke-width="2"/>' +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 21:31</text>'
+      ),
+
+      /* Matthew 21:33–46 — gentle: fruitful vineyard, large grapes, beloved son peaceful in foreground */
+      parableWickedHusbandmen: svg(
+        ground() +
+        hills() +
+        sun(46, 40, 14) +
+        cloud(300, 36) +
+        '<path d="M28 218 Q100 198 200 206 Q300 198 372 218" ' +
+        s +
+        ' stroke-width="2" fill="none"/>' +
+        '<path d="M32 228 Q104 208 200 216 Q296 208 368 228" ' +
+        s +
+        ' stroke-width="1.6" fill="none" opacity="0.72"/>' +
+        '<line x1="92" y1="214" x2="96" y2="176" ' + s + ' stroke-width="2"/>' +
+        '<line x1="200" y1="208" x2="200" y2="158" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="308" y1="214" x2="304" y2="176" ' + s + ' stroke-width="2"/>' +
+        '<circle cx="92" cy="162" r="11" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<circle cx="82" cy="172" r="8" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="102" cy="172" r="8" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="200" cy="142" r="13" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<circle cx="186" cy="154" r="9" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="214" cy="154" r="9" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="308" cy="162" r="11" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<circle cx="298" cy="172" r="8" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="318" cy="172" r="8" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        person(200, 178, 11, 34) +
+        '<path d="M192 194 Q200 188 208 194" ' + s + ' stroke-width="1.4" fill="none"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 21:33</text>'
       ),
 
       /* Matthew 22:1–14 — king, wedding table, guests, servants */
@@ -3434,6 +3593,8 @@
       /* ── Week 6: Judas Kiss (84) ── */
       judasKiss: svg(
         ground() +
+        '<circle cx="332" cy="58" r="14" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M48 198 Q62 168 78 198 M322 198 Q338 168 352 198" ' + s + ' stroke-width="2" opacity="0.85"/>' +
         person(188, 175, 12, 35) +
         person(215, 178, 12, 35) +
         '<path d="M218 188 Q215 178 205 178" ' + s + ' stroke-width="2.5"/>' +
@@ -3442,52 +3603,77 @@
         '<line x1="82" y1="178" x2="82" y2="248" ' + s + ' stroke-width="3.5"/>' +
         '<polygon points="82,248 75,265 89,265" ' + sf + ' fill="white" stroke-width="2"/>' +
         '<ellipse cx="58" cy="248" rx="12" ry="8" ' + sf + ' fill="white" stroke-width="2"/>' +
-        star(200, 30, 12) + star(100, 40, 8) + star(300, 38, 8) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 26:49</text>'
+        '<line x1="318" y1="182" x2="318" y2="248" ' + s + ' stroke-width="3.5"/>' +
+        '<polygon points="318,248 311,265 325,265" ' + sf + ' fill="white" stroke-width="2"/>' +
+        star(200, 30, 10) + star(100, 42, 7) + star(300, 40, 7) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 26:49–50</text>'
       ),
 
-      /* ── Week 7: Cross Carry (85) ── */
+      /* ── Week 7: Cross carry — quiet road; Jesus with cross; Simon helping; gentle followers; soft walls afar ── */
       crossCarry: svg(
         ground() +
-        '<path d="M80 250 Q100 220 140 240" ' + s + ' stroke-width="3"/>' +
-        '<line x1="170" y1="100" x2="170" y2="255" ' + s + ' stroke-width="7"/>' +
-        '<line x1="125" y1="145" x2="215" y2="145" ' + s + ' stroke-width="7"/>' +
-        person(160, 165, 12, 35) +
-        person(212, 175, 11, 32) +
-        '<path d="M205 190 Q210 202 205 215" ' + s + ' stroke-width="2.5"/>' +
-        person(60, 185, 10, 28) + person(320, 182, 10, 28) +
-        sun(330, 45, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 23:26</text>'
+        '<path d="M32 248 L32 196 L58 196 L58 206 L86 206 L86 186 L118 186 L118 200 L152 200 L152 188 L182 188 L182 202 L212 202 L212 190 L242 190 L242 198 L272 198 L272 186 L302 186 L302 196 L332 196 L332 248" ' +
+          sf +
+          ' fill="white" stroke-width="2.2"/>' +
+        '<path d="M16 254 Q140 238 200 248 Q268 238 384 254" ' + s + ' stroke-width="3"/>' +
+        cloud(268, 36) +
+        sun(48, 46, 15) +
+        '<line x1="166" y1="92" x2="166" y2="246" ' + s + ' stroke-width="6"/>' +
+        '<line x1="118" y1="134" x2="218" y2="134" ' + s + ' stroke-width="6"/>' +
+        person(166, 138, 12, 34) +
+        '<path d="M158 152 Q166 146 174 152" ' + s + ' stroke-width="1.4"/>' +
+        person(232, 148, 11, 32) +
+        '<path d="M224 162 Q232 156 240 162" ' + s + ' stroke-width="1.3"/>' +
+        '<line x1="226" y1="172" x2="196" y2="142" ' + s + ' stroke-width="2"/>' +
+        person(82, 176, 9, 26) +
+        person(104, 182, 8, 24) +
+        person(312, 178, 8, 24) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 27:31–32</text>'
       ),
 
-      /* ── Week 7: Crucifixion (86) ── */
+      /* ── Week 7: Crucifixion — gentle Calvary: center cross, soft side crosses, friends afar, rocks, light sky ── */
       crucifixion: svg(
-        ground() + hills() +
-        '<line x1="200" y1="60" x2="200" y2="250" ' + s + ' stroke-width="7"/>' +
-        '<line x1="130" y1="112" x2="270" y2="112" ' + s + ' stroke-width="7"/>' +
-        person(200, 75, 12, 35) +
-        '<line x1="175" y1="112" x2="188" y2="115" ' + s + ' stroke-width="3"/>' +
-        '<line x1="225" y1="112" x2="212" y2="115" ' + s + ' stroke-width="3"/>' +
-        '<rect x="182" y="60" width="36" height="14" rx="2" ' + s + ' stroke-width="2"/>' +
-        cloud(60, 28) + cloud(280, 22) +
-        '<line x1="100" y1="18" x2="120" y2="48" ' + s + ' stroke-width="3"/>' +
-        '<line x1="300" y1="15" x2="280" y2="45" ' + s + ' stroke-width="3"/>' +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 19:18</text>'
+        ground() +
+        '<path d="M40 248 L52 220 L68 232 L88 210 L108 228 L128 205 L148 225 L168 200 L188 222 L208 198 L228 218 L248 195 L268 218 L288 198 L308 218 L328 200 L348 222 L368 248" ' +
+          sf +
+          ' fill="white" stroke-width="2" opacity="0.95"/>' +
+        '<ellipse cx="72" cy="258" rx="22" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="142" cy="260" rx="18" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="268" cy="259" rx="20" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="332" cy="258" rx="24" ry="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="118" y1="155" x2="118" y2="248" ' + s + ' stroke-width="4.5"/>' +
+        '<line x1="95" y1="188" x2="141" y2="188" ' + s + ' stroke-width="4.5"/>' +
+        '<line x1="282" y1="158" x2="282" y2="248" ' + s + ' stroke-width="4.5"/>' +
+        '<line x1="259" y1="192" x2="305" y2="192" ' + s + ' stroke-width="4.5"/>' +
+        '<line x1="200" y1="58" x2="200" y2="252" ' + s + ' stroke-width="6"/>' +
+        '<line x1="138" y1="108" x2="262" y2="108" ' + s + ' stroke-width="6"/>' +
+        person(200, 72, 12, 34) +
+        '<path d="M192 86 Q200 80 208 86" ' + s + ' stroke-width="1.4"/>' +
+        '<line x1="184" y1="108" x2="192" y2="112" ' + s + ' stroke-width="2"/>' +
+        '<line x1="216" y1="108" x2="208" y2="112" ' + s + ' stroke-width="2"/>' +
+        person(56, 188, 8, 24) +
+        person(76, 194, 7, 22) +
+        person(340, 190, 8, 24) +
+        cloud(248, 32) +
+        sun(48, 44, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 27:33–56</text>'
       ),
 
-      /* ── Week 7: Tomb Empty (87) ── */
+      /* ── Week 7: Empty tomb — dawn hill, cave opening, rolled stone, two Marys, morning star ── */
       tombEmpty: svg(
-        ground() + hills() +
-        '<path d="M115 255 L115 178 Q200 145 285 178 L285 255" ' + sf + ' fill="white" stroke-width="4"/>' +
-        '<rect x="115" y="178" width="170" height="77" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="82" cy="198" r="50" ' + sf + ' fill="white" stroke-width="4"/>' +
-        '<path d="M152 240 Q190 220 228 240 Q210 252 200 255 Q190 252 152 240" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<circle cx="308" cy="162" r="14" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M290 168 Q274 150 290 136 Q304 148 308 163" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<path d="M326 168 Q342 150 326 136 Q312 148 308 163" ' + sf + ' fill="white" stroke-width="2"/>' +
-        person(350, 192, 10, 28) +
-        star(200, 25, 14) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matthew 28:6</text>'
+        ground() +
+        '<path d="M50 255 Q120 205 200 185 Q280 205 350 255" ' + sf + ' fill="white" stroke-width="2.5" opacity="0.9"/>' +
+        '<path d="M145 255 L145 178 Q200 138 255 178 L255 255" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<ellipse cx="128" cy="232" rx="28" ry="28" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M155 210 Q200 198 245 210" ' + s + ' stroke-width="2" opacity="0.85"/>' +
+        person(300, 182, 9, 26) +
+        person(322, 186, 8, 24) +
+        '<path d="M292 198 Q304 188 318 198" ' + s + ' stroke-width="1.5"/>' +
+        '<circle cx="200" cy="115" r="22" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M200 93 L200 108 M188 100 L212 100" ' + s + ' stroke-width="2"/>' +
+        sun(38, 48, 11) +
+        star(200, 38, 9) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 28:1–10</text>'
       ),
 
       /* ── Week 7: Emmaus Road (88) ── */
@@ -3501,18 +3687,29 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 24:15</text>'
       ),
 
-      /* ── Week 7: Thomas Doubt (89) ── */
+      /* ── Week 7: Thomas — shut doors; Peace; Jesus shows hands; Thomas kneels — */
       thomasDoubt: svg(
         ground() +
-        '<rect x="60" y="80" width="280" height="185" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<path d="M60 120 L200 98 L340 120" ' + sf + ' fill="white" stroke-width="3"/>' +
-        person(200, 138, 13, 40) +
-        '<path d="M192 152 L183 178 M208 152 L217 178" ' + s + ' stroke-width="2.5"/>' +
-        person(140, 175, 11, 32) + person(115, 178, 10, 28) +
-        person(265, 172, 11, 32) + person(292, 175, 10, 28) +
-        '<path d="M268 188 Q280 195 278 208" ' + s + ' stroke-width="2.5"/>' +
-        star(200, 40, 14) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 20:27</text>'
+        '<rect x="48" y="58" width="304" height="188" rx="8" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<rect x="48" y="58" width="304" height="36" ' + sf + ' fill="white" stroke-width="2.5" opacity="0.92"/>' +
+        '<rect x="58" y="198" width="36" height="42" rx="3" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<circle cx="88" cy="218" r="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(200, 108, 14, 42) +
+        '<line x1="200" y1="142" x2="172" y2="128" ' + s + ' stroke-width="3"/>' +
+        '<line x1="200" y1="142" x2="228" y2="128" ' + s + ' stroke-width="3"/>' +
+        '<circle cx="172" cy="126" r="2.5" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<circle cx="228" cy="126" r="2.5" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<path d="M192 118 Q200 112 208 118" ' + s + ' stroke-width="1.5"/>' +
+        person(128, 178, 11, 26) +
+        '<path d="M118 198 Q128 188 136 198" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="142" y1="188" x2="168" y2="158" ' + s + ' stroke-width="2"/>' +
+        person(268, 172, 10, 28) +
+        person(292, 175, 9, 24) +
+        person(88, 178, 9, 26) +
+        person(312, 180, 8, 24) +
+        '<ellipse cx="200" cy="48" rx="22" ry="10" ' + sf + ' fill="white" stroke-width="2" opacity="0.9"/>' +
+        star(200, 42, 11) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 20:26–29</text>'
       ),
 
       /* ── Week 7: Pentecost Fire (90) ── */
@@ -3733,6 +3930,132 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 21:9</text>'
       ),
 
+      /* Palm Sunday gentle journey — city gate, road, donkey, palms, little ones waving */
+      palmSunday: svg(
+        ground() +
+        '<rect x="52" y="54" width="296" height="44" rx="8" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<path d="M118 118 L118 90 Q200 66 282 90 L282 118" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<line x1="118" y1="118" x2="118" y2="172" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="282" y1="118" x2="282" y2="172" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="118" y1="172" x2="282" y2="172" ' + s + ' stroke-width="2"/>' +
+        '<line x1="64" y1="208" x2="336" y2="208" ' + s + ' stroke-width="2"/>' +
+        '<path d="M58 220 L200 208 L342 220" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="96" cy="216" rx="17" ry="6" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<ellipse cx="304" cy="216" rx="17" ry="6" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<ellipse cx="200" cy="226" rx="35" ry="13" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<ellipse cx="170" cy="222" rx="7" ry="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<line x1="200" y1="196" x2="200" y2="214" ' + s + ' stroke-width="2"/>' +
+        '<circle cx="200" cy="184" r="9" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<line x1="192" y1="190" x2="182" y2="196" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="208" y1="190" x2="218" y2="196" ' + s + ' stroke-width="1.8"/>' +
+        person(76, 176, 7, 16) +
+        '<path d="M68 168 L60 146 L56 150" ' + s + ' stroke-width="1.8"/>' +
+        '<path d="M84 166 L90 143 L94 148" ' + s + ' stroke-width="1.8"/>' +
+        person(324, 176, 7, 16) +
+        '<path d="M332 168 L340 146 L344 150" ' + s + ' stroke-width="1.8"/>' +
+        '<path d="M316 166 L310 143 L306 148" ' + s + ' stroke-width="1.8"/>' +
+        '<circle cx="106" cy="202" r="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<line x1="106" y1="207" x2="106" y2="220" ' + s + ' stroke-width="1.6"/>' +
+        '<path d="M100 212 L96 224 M112 212 L116 224" ' + s + ' stroke-width="1.5"/>' +
+        '<path d="M98 196 L104 186 L110 196" ' + s + ' stroke-width="1.5"/>' +
+        '<circle cx="294" cy="202" r="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<line x1="294" y1="207" x2="294" y2="220" ' + s + ' stroke-width="1.6"/>' +
+        '<path d="M288 212 L284 224 M300 212 L304 224" ' + s + ' stroke-width="1.5"/>' +
+        '<path d="M290 196 L296 186 L302 196" ' + s + ' stroke-width="1.5"/>' +
+        sun(48, 60, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 21:9–11</text>'
+      ),
+
+      /* Luke 19:41–44 — gentle: donkey pause, city ahead, one soft tear, compassionate face */
+      jesusWeepsJerusalem: svg(
+        ground() +
+        '<path d="M40 125 Q100 95 200 88 Q300 95 360 125 L360 200 L40 200 Z" ' + sf + ' fill="#f5f7ff" stroke-width="1.6"/>' +
+        '<rect x="238" y="82" width="88" height="36" rx="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<rect x="252" y="72" width="20" height="18" rx="2" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<rect x="278" y="76" width="16" height="22" rx="2" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<ellipse cx="145" cy="172" rx="30" ry="15" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="128" cy="148" r="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="128" y1="156" x2="128" y2="170" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="120" y1="162" x2="112" y2="168" ' + s + ' stroke-width="1.6"/>' +
+        '<line x1="136" y1="162" x2="144" y2="168" ' + s + ' stroke-width="1.6"/>' +
+        '<ellipse cx="132" cy="146" rx="1.8" ry="2.6" fill="#7ad" opacity="0.45"/>' +
+        '<circle cx="118" cy="140" r="2.2" ' + sf + ' fill="white" stroke-width="1.2"/>' +
+        '<circle cx="136" cy="140" r="2.2" ' + sf + ' fill="white" stroke-width="1.2"/>' +
+        sun(48, 40, 12) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 19:41</text>'
+      ),
+
+      /* Matthew 21:18–22 — gentle: leafy fig tree, Jesus teaching, disciples listening */
+      figTree: svg(
+        ground() +
+        '<path d="M28 232 L372 232" ' + s + ' stroke-width="1.8" opacity="0.35"/>' +
+        '<path d="M262 84 L262 218" ' + s + ' stroke-width="3.8"/>' +
+        '<ellipse cx="262" cy="72" rx="54" ry="42" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<path d="M218 58 Q240 48 262 52 Q284 48 306 58" ' + s + ' stroke-width="1.8" fill="none"/>' +
+        '<path d="M224 72 Q246 64 262 68 Q278 64 300 72" ' + s + ' stroke-width="1.6" fill="none"/>' +
+        person(108, 172, 13, 40) +
+        person(172, 188, 9, 28) +
+        person(202, 190, 9, 28) +
+        sun(42, 36, 14) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 21:21</text>'
+      ),
+
+      /* Matthew 21:23–27 — gentle: temple, Jesus calm with two thoughtful leaders, simple columns */
+      jesusAuthority: svg(
+        ground() +
+        '<path d="M32 232 L368 232" ' + s + ' stroke-width="1.6" opacity="0.35"/>' +
+        '<ellipse cx="200" cy="58" rx="120" ry="22" ' + sf + ' fill="white" stroke-width="1.8" opacity="0.55"/>' +
+        '<rect x="48" y="64" width="28" height="168" rx="6" ' + sf + ' fill="white" stroke-width="3.2"/>' +
+        '<rect x="324" y="64" width="28" height="168" rx="6" ' + sf + ' fill="white" stroke-width="3.2"/>' +
+        '<rect x="72" y="108" width="256" height="118" rx="10" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(118, 168, 9, 30) +
+        person(200, 156, 12, 40) +
+        person(282, 168, 9, 30) +
+        '<path d="M196 168 Q200 162 204 168" ' + s + ' stroke-width="1.4" fill="none"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 21:23</text>'
+      ),
+
+      /* Matthew 22:15–22 — gentle: Jesus with large coin, two thoughtful questioners, soft temple wall */
+      tributeToCaesar: svg(
+        ground() +
+        '<path d="M56 108 L344 108 L344 198 L56 198 Z" ' + sf + ' fill="white" stroke-width="2" opacity="0.92"/>' +
+        '<path d="M120 108 L120 198 M200 108 L200 198 M280 108 L280 198" ' + s + ' stroke-width="1.4" opacity="0.45"/>' +
+        '<path d="M72 108 Q200 88 328 108" ' + s + ' stroke-width="2" fill="none" opacity="0.55"/>' +
+        person(200, 154, 12, 38) +
+        '<path d="M192 188 Q200 182 208 188" ' + s + ' stroke-width="1.4" fill="none"/>' +
+        '<circle cx="218" cy="198" r="16" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<ellipse cx="218" cy="198" rx="11" ry="13" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<line x1="206" y1="198" x2="230" y2="198" ' + s + ' stroke-width="1.2" opacity="0.5"/>' +
+        person(108, 170, 8, 28) +
+        person(292, 170, 8, 28) +
+        sun(42, 44, 12) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 22:21</text>'
+      ),
+
+      /* Matthew 22:23–33 — gentle: Jesus seated on low bench, hand raised softly, three thoughtful listeners, pillars */
+      sadduceesResurrection: svg(
+        ground() +
+        '<path d="M32 232 L368 232" ' + s + ' stroke-width="1.6" opacity="0.35"/>' +
+        '<ellipse cx="200" cy="48" rx="118" ry="20" ' + sf + ' fill="white" stroke-width="1.6" opacity="0.52"/>' +
+        '<rect x="44" y="70" width="26" height="152" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<rect x="330" y="70" width="26" height="152" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<rect x="68" y="96" width="264" height="112" rx="10" ' + sf + ' fill="white" stroke-width="2" opacity="0.94"/>' +
+        '<path d="M108 96 L108 208 M200 96 L200 208 M292 96 L292 208" ' + s + ' stroke-width="1.2" opacity="0.36"/>' +
+        '<rect x="104" y="182" width="192" height="24" rx="6" ' + sf + ' fill="white" stroke-width="2.4"/>' +
+        '<circle cx="200" cy="106" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M193 102 Q200 98 207 102" ' + s + ' stroke-width="1.3" fill="none"/>' +
+        '<line x1="200" y1="117" x2="200" y2="170" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="200" y1="132" x2="166" y2="112" ' + s + ' stroke-width="2"/>' +
+        '<line x1="200" y1="132" x2="230" y2="150" ' + s + ' stroke-width="2"/>' +
+        '<line x1="200" y1="170" x2="182" y2="182" ' + s + ' stroke-width="2.3"/>' +
+        '<line x1="200" y1="170" x2="218" y2="182" ' + s + ' stroke-width="2.3"/>' +
+        person(78, 172, 7, 24) +
+        person(118, 168, 8, 26) +
+        person(322, 168, 8, 26) +
+        sun(40, 36, 11) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 22:32</text>'
+      ),
+
       /* ── Week 8: Armor Shield (97) ── */
       armorShield: svg(
         ground() +
@@ -3894,68 +4217,68 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 10:21</text>'
       ),
 
-      /* ── Week 8: Zacchaeus — sycomore, Jesus looks up (Luke 19:1–10) ── */
+      /* Luke 19:1–10 — gentle: sycomore, Jesus looks up with hand toward tree, Zacchaeus on low branch, quiet onlookers */
       zacchaeus: svg(
         ground() +
-        hills() +
-        sun(48, 44, 18) +
-        cloud(300, 34) +
-        /* tree trunk + foliage */
-        '<path d="M228 250 L228 138" ' +
-        s +
-        ' stroke-width="5.5"/>' +
-        '<ellipse cx="228" cy="118" rx="62" ry="44" ' +
-        sf +
-        ' fill="white" stroke-width="3"/>' +
-        '<path d="M168 248 Q200 170 228 155 Q256 170 288 248" ' +
-        s +
-        ' stroke-width="2.5" fill="none"/>' +
-        /* Zacchaeus — small, up in branches */
-        '<circle cx="248" cy="132" r="8" ' +
-        sf +
-        ' fill="white" stroke-width="2.4"/>' +
-        '<line x1="248" y1="140" x2="248" y2="158" ' +
-        s +
-        ' stroke-width="2.2"/>' +
-        '<line x1="238" y1="150" x2="258" y2="150" ' +
-        s +
-        ' stroke-width="2"/>' +
-        '<line x1="248" y1="158" x2="242" y2="176" ' +
-        s +
-        ' stroke-width="2"/>' +
-        '<line x1="248" y1="158" x2="254" y2="176" ' +
-        s +
-        ' stroke-width="2"/>' +
-        /* Jesus below, looking up */
-        person(172, 178, 12, 34) +
-        '<path d="M170 182 Q184 168 192 182" ' +
-        s +
-        ' stroke-width="1.4"/>' +
-        '<path d="M176 196 L188 152" ' +
-        s +
-        ' stroke-width="1.8" stroke-dasharray="2,2"/>' +
-        /* soft road */
-        '<path d="M20 252 Q120 244 200 248 Q280 252 380 244" ' +
-        s +
-        ' stroke-width="2" opacity="0.55"/>' +
+        '<path d="M24 248 Q140 232 200 238 Q280 232 376 248" ' + s + ' stroke-width="2" opacity="0.45"/>' +
+        sun(44, 40, 16) +
+        cloud(300, 32) +
+        /* sycomore — trunk + canopy + low branch */
+        '<path d="M252 250 L252 128" ' + s + ' stroke-width="5.5"/>' +
+        '<ellipse cx="252" cy="108" rx="68" ry="48" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<ellipse cx="220" cy="98" rx="22" ry="16" ' + sf + ' fill="white" stroke-width="2" opacity="0.85"/>' +
+        '<ellipse cx="288" cy="102" rx="20" ry="14" ' + sf + ' fill="white" stroke-width="2" opacity="0.85"/>' +
+        '<path d="M208 182 L292 178" ' + s + ' stroke-width="3.2" stroke-linecap="round"/>' +
+        '<path d="M168 242 Q210 175 252 160 Q294 175 336 242" ' + s + ' stroke-width="2.2" fill="none"/>' +
+        /* Zacchaeus — smaller figure, seated on low branch */
+        '<circle cx="268" cy="162" r="7" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<path d="M262 160 Q268 156 274 160" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        '<line x1="268" y1="169" x2="268" y2="182" ' + s + ' stroke-width="2"/>' +
+        '<line x1="260" y1="176" x2="276" y2="176" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="268" y1="182" x2="262" y2="190" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="268" y1="182" x2="274" y2="190" ' + s + ' stroke-width="1.8"/>' +
+        /* Jesus — looking up, arm reaching toward tree */
+        '<circle cx="148" cy="168" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M142 166 Q148 162 154 166" ' + s + ' stroke-width="1.3" fill="none"/>' +
+        '<line x1="148" y1="179" x2="148" y2="218" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="148" y1="192" x2="128" y2="204" ' + s + ' stroke-width="2"/>' +
+        '<line x1="148" y1="192" x2="168" y2="198" ' + s + ' stroke-width="2"/>' +
+        '<line x1="148" y1="218" x2="136" y2="242" ' + s + ' stroke-width="2.3"/>' +
+        '<line x1="148" y1="218" x2="160" y2="242" ' + s + ' stroke-width="2.3"/>' +
+        '<line x1="158" y1="188" x2="232" y2="168" ' + s + ' stroke-width="2" stroke-linecap="round"/>' +
+        /* townspeople — small, quiet */
+        person(72, 188, 6, 20) +
+        person(330, 186, 6, 20) +
+        person(348, 190, 5, 18) +
         '<text x="200" y="290" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Luke 19:5</text>'
       ),
 
-      /* ── Week 8: Mary Anoint (108) ── */
+      /* John 12:1–8 — Bethany supper; Mary kneels with spikenard; Jesus; Martha & Lazarus nearby */
       maryAnoint: svg(
         ground() +
-        '<rect x="60" y="90" width="280" height="175" rx="6" ' + sf + ' fill="white" stroke-width="3"/>' +
-        '<path d="M60 130 L200 105 L340 130" ' + sf + ' fill="white" stroke-width="3"/>' +
-        person(200, 148, 13, 40) +
-        '<path d="M192 195 L183 215" ' + s + ' stroke-width="2.5"/>' +
-        person(155, 215, 11, 32) +
-        '<path d="M162 222 Q175 235 185 245" ' + s + ' stroke-width="2.5"/>' +
-        '<path d="M152 218 Q145 235 148 248" ' + s + ' stroke-width="2.5"/>' +
-        '<ellipse cx="178" cy="248" rx="14" ry="8" ' + sf + ' fill="white" stroke-width="2.5"/>' +
-        '<path d="M178 240 Q172 230 178 225 Q184 230 178 240" ' + s + ' stroke-width="2"/>' +
-        person(280, 175, 11, 32) +
-        sun(320, 45, 18) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 12:3</text>'
+        '<rect x="44" y="54" width="312" height="188" rx="8" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<rect x="82" y="162" width="236" height="12" rx="5" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="124" cy="156" rx="15" ry="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="276" cy="156" rx="15" ry="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="200" cy="152" rx="19" ry="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        person(200, 88, 12, 24) +
+        '<line x1="186" y1="162" x2="186" y2="176" ' + s + ' stroke-width="2"/>' +
+        '<line x1="214" y1="162" x2="214" y2="176" ' + s + ' stroke-width="2"/>' +
+        person(112, 96, 10, 20) +
+        '<line x1="112" y1="162" x2="112" y2="182" ' + s + ' stroke-width="2"/>' +
+        person(288, 96, 10, 20) +
+        '<line x1="288" y1="162" x2="288" y2="182" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="200" cy="228" rx="24" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="200" cy="196" r="9" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<line x1="200" y1="205" x2="200" y2="224" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M192 210 L182 220 M208 210 L218 220" ' + s + ' stroke-width="2"/>' +
+        '<rect x="214" y="198" width="14" height="22" rx="4" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="218" y="192" width="6" height="8" rx="2" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M194 188 Q174 202 168 224" ' + s + ' stroke-width="2.8" opacity="0.9"/>' +
+        '<path d="M206 188 Q226 202 232 224" ' + s + ' stroke-width="2.8" opacity="0.9"/>' +
+        '<path d="M168 142 Q188 124 208 140" ' + s + ' stroke-width="1.5" stroke-dasharray="4 5" opacity="0.65"/>' +
+        '<path d="M232 142 Q212 124 192 140" ' + s + ' stroke-width="1.5" stroke-dasharray="4 5" opacity="0.65"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 12:3–7</text>'
       ),
 
       /* ── Week 9: Stephen Stones (109) ── */
@@ -4275,17 +4598,27 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">1 Sam 2:19</text>'
       ),
 
-      /* ── Week 10: Mary Magdalene (126) ── */
+      /* ── Week 10: Mary Magdalene — tender garden; risen Jesus reaches; Mary kneels; rolled stone ── */
       maryMagdalene: svg(
-        ground() + hills() +
-        '<path d="M120 255 L120 180 Q200 148 280 180 L280 255" ' + sf + ' fill="white" stroke-width="4"/>' +
-        '<rect x="120" y="180" width="160" height="75" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<circle cx="75" cy="200" r="48" ' + sf + ' fill="white" stroke-width="4"/>' +
-        person(265, 162, 13, 38) +
-        '<path d="M258 178 Q248 190 252 202" ' + s + ' stroke-width="2.5"/>' +
-        person(155, 185, 10, 28) +
-        star(200, 28, 16) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 20:16</text>'
+        ground() +
+        hills() +
+        sun(48, 48, 18) +
+        '<path d="M255 255 Q288 198 328 172 Q348 162 368 188 L368 255" ' + sf + ' fill="white" stroke-width="2.8"/>' +
+        '<ellipse cx="236" cy="232" rx="32" ry="30" ' + sf + ' fill="white" stroke-width="3"/>' +
+        '<path d="M262 210 Q302 200 338 220" ' + s + ' stroke-width="2" opacity="0.85"/>' +
+        person(210, 112, 14, 40) +
+        '<line x1="210" y1="146" x2="178" y2="124" ' + s + ' stroke-width="3"/>' +
+        '<line x1="210" y1="146" x2="232" y2="132" ' + s + ' stroke-width="2.5"/>' +
+        '<path d="M202 128 Q210 122 218 128" ' + s + ' stroke-width="1.5"/>' +
+        person(128, 196, 10, 20) +
+        '<path d="M116 212 Q128 200 136 212" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="138" y1="198" x2="188" y2="158" ' + s + ' stroke-width="2"/>' +
+        '<line x1="152" y1="204" x2="168" y2="188" ' + s + ' stroke-width="2"/>' +
+        '<circle cx="72" cy="236" r="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="92" cy="242" r="5" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="302" cy="238" r="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        star(200, 38, 10) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 20:16–18</text>'
       ),
 
       /* ── Week 10: Lydia Sell (127) ── */
@@ -4639,31 +4972,46 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Acts 18:3</text>'
       ),
 
-      /* Week 12 gentle: Lazarus — Jesus calls, come forth; thankful sisters (John 11:1–44) */
+      /* John 11:1–44 — gentle: cave tomb, stone aside, Jesus calls, Lazarus in graveclothes, Mary & Martha kneeling */
       lazarus: svg(
         ground() +
-        hills() +
-        sun(44, 40, 16) +
-        '<line x1="200" y1="38" x2="200" y2="118" ' + s + ' stroke-width="1.3" opacity="0.45"/>' +
-        '<line x1="200" y1="48" x2="150" y2="95" ' + s + ' stroke-width="1.2" opacity="0.4"/>' +
-        '<line x1="200" y1="48" x2="250" y2="95" ' + s + ' stroke-width="1.2" opacity="0.4"/>' +
-        '<path d="M108 262 L108 172 Q200 118 292 172 L292 262" ' + sf + ' fill="white" stroke-width="3.5"/>' +
-        '<rect x="108" y="172" width="184" height="90" ' + sf + ' fill="white" stroke-width="2"/>' +
-        '<ellipse cx="78" cy="228" rx="24" ry="30" ' + sf + ' fill="white" stroke-width="2.6"/>' +
-        person(138, 148, 12, 34) +
-        '<path d="M152 180 L210 172" ' + s + ' stroke-width="2.6"/>' +
-        '<circle cx="220" cy="160" r="10" ' + sf + ' fill="white" stroke-width="2.3"/>' +
-        '<path d="M214 168 L214 168 Q220 172 226 168" ' + s + ' stroke-width="1.4"/>' +
-        '<path d="M214 178 L210 218" ' + s + ' stroke-width="2.2"/>' +
-        '<line x1="198" y1="188" x2="242" y2="188" ' + s + ' stroke-width="1.5"/>' +
-        '<line x1="198" y1="196" x2="240" y2="196" ' + s + ' stroke-width="1.5"/>' +
-        '<line x1="198" y1="204" x2="238" y2="204" ' + s + ' stroke-width="1.5"/>' +
-        '<path d="M210 218 L206 248" ' + s + ' stroke-width="2.2"/>' +
-        '<path d="M220 218 L232 246" ' + s + ' stroke-width="2.2"/>' +
-        person(276, 162, 10, 26) +
-        person(306, 166, 10, 26) +
-        star(200, 26, 12) +
-        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 11:1–44</text>'
+        '<path d="M0 248 Q140 218 200 228 Q300 212 400 248" ' + s + ' stroke-width="1.8" opacity="0.42"/>' +
+        '<path d="M20 240 L36 200 L52 232" ' + s + ' stroke-width="2" fill="none"/>' +
+        '<circle cx="36" cy="188" r="16" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<path d="M330 242 L348 198 L366 238" ' + s + ' stroke-width="2" fill="none"/>' +
+        '<circle cx="348" cy="186" r="14" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        sun(52, 38, 14) + cloud(300, 32) +
+        /* cave opening */
+        '<path d="M118 262 L118 168 Q200 118 282 168 L282 262" ' + sf + ' fill="white" stroke-width="3.2"/>' +
+        '<path d="M128 262 L128 176 Q200 132 272 176 L272 262" ' + s + ' stroke-width="2" fill="none" opacity="0.35"/>' +
+        /* rolled stone */
+        '<ellipse cx="92" cy="232" rx="28" ry="20" ' + sf + ' fill="white" stroke-width="2.6"/>' +
+        '<path d="M72 228 Q92 218 112 228" ' + s + ' stroke-width="1.4" opacity="0.5"/>' +
+        /* Jesus — raised hand calling */
+        '<circle cx="152" cy="168" r="11" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M146 164 Q152 160 158 164" ' + s + ' stroke-width="1.2" fill="none"/>' +
+        '<line x1="152" y1="179" x2="152" y2="248" ' + s + ' stroke-width="2.5"/>' +
+        '<line x1="152" y1="194" x2="132" y2="210" ' + s + ' stroke-width="2"/>' +
+        '<line x1="152" y1="194" x2="172" y2="206" ' + s + ' stroke-width="2"/>' +
+        '<line x1="152" y1="248" x2="142" y2="272" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="152" y1="248" x2="162" y2="272" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="160" y1="186" x2="198" y2="152" ' + s + ' stroke-width="2" stroke-linecap="round"/>' +
+        /* Lazarus — bands, peaceful step forward */
+        '<circle cx="228" cy="156" r="9" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<line x1="228" y1="165" x2="228" y2="218" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="216" y1="178" x2="240" y2="178" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="216" y1="188" x2="238" y2="188" ' + s + ' stroke-width="1.6"/>' +
+        '<line x1="216" y1="198" x2="236" y2="198" ' + s + ' stroke-width="1.6"/>' +
+        '<line x1="228" y1="218" x2="218" y2="252" ' + s + ' stroke-width="2"/>' +
+        '<line x1="228" y1="218" x2="238" y2="252" ' + s + ' stroke-width="2"/>' +
+        /* Mary & Martha kneeling */
+        '<circle cx="288" cy="212" r="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M288 219 L292 248 L276 262" ' + s + ' stroke-width="2" fill="none"/>' +
+        '<path d="M282 228 L268 238" ' + s + ' stroke-width="1.8"/>' +
+        '<circle cx="318" cy="214" r="7" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M318 221 L324 250 L308 262" ' + s + ' stroke-width="2" fill="none"/>' +
+        '<path d="M312 230 L300 240" ' + s + ' stroke-width="1.8"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">John 11:25</text>'
       ),
 
       /* ── Week 12: Great Commission (146) ── */
@@ -4722,6 +5070,148 @@
         '<path d="M185 125 Q200 108 215 125" ' + s + ' stroke-width="2.5"/>' +
         sun(50, 45, 18) +
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Ephesians 6:14</text>'
+      ),
+
+      /* Matthew 26:17–30 — Last Supper: low table, Jesus with bread and cup, friends around */
+      lastSupper: svg(
+        ground() +
+        '<rect x="44" y="54" width="312" height="168" rx="8" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="268" y="72" width="22" height="36" rx="4" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M279 72 L279 62 Q286 58 293 62 L293 72" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="286" cy="58" rx="10" ry="6" ' + sf + ' fill="white" stroke-width="1.6" opacity="0.9"/>' +
+        '<rect x="68" y="172" width="264" height="14" rx="6" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<ellipse cx="168" cy="166" rx="14" ry="6" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M228 158 L232 148 L236 158 L234 168 L230 168 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="200" cy="168" rx="20" ry="7" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        person(200, 118, 12, 26) +
+        '<line x1="194" y1="140" x2="182" y2="152" ' + s + ' stroke-width="2"/>' +
+        '<line x1="206" y1="140" x2="218" y2="150" ' + s + ' stroke-width="2"/>' +
+        person(78, 168, 6, 13) +
+        person(102, 164, 6, 13) +
+        person(126, 162, 6, 13) +
+        person(150, 160, 6, 13) +
+        person(250, 160, 6, 13) +
+        person(274, 162, 6, 13) +
+        person(298, 164, 6, 13) +
+        person(322, 168, 6, 13) +
+        person(200, 178, 6, 12) +
+        person(62, 175, 5, 11) +
+        person(338, 175, 5, 11) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 26:26–28</text>'
+      ),
+
+      /* Matthew 26:36–46 — Gethsemane: kneeling Jesus, moon, olive trees, three friends resting */
+      gardenPrayer: svg(
+        ground() +
+        '<circle cx="320" cy="52" r="16" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M52 210 Q68 150 88 210 M332 208 Q348 148 368 208" ' + s + ' stroke-width="2.2"/>' +
+        '<path d="M118 220 L118 145 Q132 125 146 145 L146 220" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="132" cy="128" rx="28" ry="20" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M248 222 L248 152 Q262 132 276 152 L276 222" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="262" cy="138" rx="26" ry="18" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="210" cy="238" rx="36" ry="12" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="210" cy="198" r="10" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<path d="M198 206 L190 218 M222 206 L230 218" ' + s + ' stroke-width="1.8"/>' +
+        '<path d="M200 208 L200 228" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="118" cy="232" rx="16" ry="8" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="110" cy="220" r="6" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="168" cy="236" rx="16" ry="8" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="160" cy="224" r="6" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="288" cy="234" rx="16" ry="8" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<circle cx="280" cy="222" r="6" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 26:39–42</text>'
+      ),
+
+      /* Matthew 26:47–56 — calm Jesus, moonlit garden, soft torches, Judas near, disciple sheathing sword (no gore) */
+      jesusArrest: svg(
+        ground() +
+        '<circle cx="312" cy="46" r="14" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M42 232 Q58 145 74 232 M330 230 Q346 142 362 230" ' + s + ' stroke-width="2.2"/>' +
+        person(200, 124, 12, 40) +
+        '<path d="M192 138 Q200 132 208 138" ' + s + ' stroke-width="1.5"/>' +
+        person(118, 152, 9, 28) +
+        '<line x1="132" y1="186" x2="186" y2="172" ' + s + ' stroke-width="1.8"/>' +
+        '<circle cx="268" cy="112" r="7" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<line x1="268" y1="119" x2="268" y2="158" ' + s + ' stroke-width="1.8"/>' +
+        '<circle cx="338" cy="108" r="7" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<line x1="338" y1="115" x2="338" y2="152" ' + s + ' stroke-width="1.8"/>' +
+        person(288, 158, 7, 22) +
+        person(318, 162, 7, 22) +
+        '<line x1="276" y1="248" x2="276" y2="178" ' + s + ' stroke-width="2"/>' +
+        '<line x1="352" y1="248" x2="352" y2="182" ' + s + ' stroke-width="2"/>' +
+        person(252, 168, 8, 24) +
+        '<line x1="244" y1="196" x2="228" y2="210" ' + s + ' stroke-width="1.6"/>' +
+        '<path d="M218 204 L232 198 L236 212 L222 218 Z" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 26:50–54</text>'
+      ),
+
+      /* Matthew 26:57–68 — calm hall; Jesus center; Caiaphas seated; a few elders; soft pillars (no harsh faces) */
+      trialBeforeCaiaphas: svg(
+        ground() +
+        '<rect x="48" y="78" width="304" height="128" rx="8" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<line x1="92" y1="78" x2="92" y2="206" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="148" y1="78" x2="148" y2="206" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="252" y1="78" x2="252" y2="206" ' + s + ' stroke-width="1.8"/>' +
+        '<line x1="308" y1="78" x2="308" y2="206" ' + s + ' stroke-width="1.8"/>' +
+        '<rect x="62" y="172" width="56" height="32" rx="5" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="62" y1="172" x2="118" y2="160" ' + s + ' stroke-width="2"/>' +
+        person(90, 128, 9, 24) +
+        '<path d="M84 140 Q90 148 96 140" ' + s + ' stroke-width="1.3"/>' +
+        person(200, 118, 12, 40) +
+        '<path d="M192 132 Q200 126 208 132" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="188" y1="168" x2="188" y2="188" ' + s + ' stroke-width="2"/>' +
+        '<line x1="212" y1="168" x2="212" y2="188" ' + s + ' stroke-width="2"/>' +
+        person(278, 130, 7, 24) +
+        person(318, 134, 7, 24) +
+        person(232, 188, 6, 20) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 26:63–64</text>'
+      ),
+
+      /* Matthew 26:69–75 — night by the palace; fire; sorry Peter; gentle maid; calm rooster on low wall */
+      peterDenial: svg(
+        ground() +
+        '<circle cx="72" cy="44" r="11" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="218" y="92" width="152" height="118" rx="7" ' + sf + ' fill="white" stroke-width="2.5"/>' +
+        '<path d="M248 92 L268 76 L288 92" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<rect x="258" y="118" width="30" height="54" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="118" cy="236" rx="24" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<path d="M108 236 Q118 208 128 236" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<line x1="98" y1="242" x2="138" y2="242" ' + s + ' stroke-width="2"/>' +
+        person(118, 172, 8, 22) +
+        '<path d="M112 186 Q118 192 124 186" ' + s + ' stroke-width="1.3"/>' +
+        person(188, 156, 7, 20) +
+        '<line x1="176" y1="172" x2="138" y2="188" ' + s + ' stroke-width="1.5"/>' +
+        '<rect x="312" y="196" width="62" height="16" rx="3" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="336" cy="184" rx="15" ry="11" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<circle cx="348" cy="180" r="4" ' + sf + ' fill="white" stroke-width="1.5"/>' +
+        '<line x1="354" y1="178" x2="364" y2="174" ' + s + ' stroke-width="1.5"/>' +
+        '<path d="M328 174 L322 166 L332 168 Z" ' + sf + ' fill="white" stroke-width="1.2"/>' +
+        '<line x1="328" y1="196" x2="324" y2="208" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="344" y1="196" x2="348" y2="208" ' + s + ' stroke-width="1.5"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 26:75</text>'
+      ),
+
+      /* Matthew 27:11–26 — calm courtyard; Jesus before thoughtful Pilate; spears resting; soft pillars */
+      trial: svg(
+        ground() +
+        '<rect x="44" y="68" width="312" height="138" rx="8" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<line x1="88" y1="68" x2="88" y2="206" ' + s + ' stroke-width="2"/>' +
+        '<line x1="152" y1="68" x2="152" y2="206" ' + s + ' stroke-width="2"/>' +
+        '<line x1="248" y1="68" x2="248" y2="206" ' + s + ' stroke-width="2"/>' +
+        '<line x1="312" y1="68" x2="312" y2="206" ' + s + ' stroke-width="2"/>' +
+        '<rect x="252" y="148" width="62" height="42" rx="6" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<line x1="252" y1="148" x2="314" y2="132" ' + s + ' stroke-width="2"/>' +
+        person(283, 98, 9, 28) +
+        '<path d="M276 112 Q283 118 290 112" ' + s + ' stroke-width="1.3"/>' +
+        person(178, 112, 12, 40) +
+        '<path d="M170 126 Q178 120 186 126" ' + s + ' stroke-width="1.5"/>' +
+        '<line x1="166" y1="162" x2="166" y2="186" ' + s + ' stroke-width="2"/>' +
+        '<line x1="190" y1="162" x2="190" y2="186" ' + s + ' stroke-width="2"/>' +
+        person(72, 158, 7, 24) +
+        person(352, 162, 7, 24) +
+        '<line x1="62" y1="208" x2="62" y2="248" ' + s + ' stroke-width="2"/>' +
+        '<line x1="358" y1="212" x2="358" y2="248" ' + s + ' stroke-width="2"/>' +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 27:11,22</text>'
       ),
 
       /* ── Week 12: Prayer Closet (150) ── */
@@ -4907,8 +5397,6 @@
     prodigalSon: 'prodigalSonWelcome',
     lostSheep: 'parableLostSheep',
     parableLostSheep: 'parableLostSheep',
-    lastSupper: 'maryAnoint',
-    palmSunday: 'greatCommission',
     armorOfGod: 'armorOfGod',
     davidKindness: 'mephibosheth',
     davidRepentance: 'davidBathsheba',
@@ -5032,13 +5520,18 @@
     jairus: 'jairus',
     jesusWalksWater: 'jesusWalksWater',
     jesusFeeds5000: 'jesusFeeds5000',
+    jesusFeeds4000: 'jesusFeeds4000',
     parableSower: 'parableSower',
     mustardSeed: 'mustardSeed',
     parableMustardSeed: 'mustardSeed',
     parableHiddenTreasure: 'parableHiddenTreasure',
+    parableNet: 'parableNet',
     parablePearl: 'parablePearl',
     parableVineyardWorkers: 'parableVineyardWorkers',
     parableTwoSons: 'parableTwoSons',
+    parableWickedHusbandmen: 'parableWickedHusbandmen',
+    tributeToCaesar: 'tributeToCaesar',
+    sadduceesResurrection: 'sadduceesResurrection',
     parableWeddingFeast: 'parableWeddingFeast',
     parableLostSheep: 'parableLostSheep',
     prodigalSon: 'prodigalSonWelcome',
@@ -5059,7 +5552,7 @@
     /* ── Week 6 ── */
     jesusParableSower: 'parableSower',
     jesusParableMustardSeed: 'mustardSeed',
-    jesusParableGoodShepherd: 'psalm23Shepherd',
+    jesusParableGoodShepherd: 'jesusParableGoodShepherd',
     mustardSeed: 'mustardSeed',
     tenLepers: 'healLeper',
     healLeper: 'healLeper',
@@ -5067,12 +5560,27 @@
     transfigure: 'transfigure',
     judasKiss: 'judasKiss',
     betrayal: 'judasKiss',
-    gardenPrayer: 'prayerCloset',
     /* ── Week 7 ── */
     jesusTriumphalEntry: 'triumphalEntry',
     triumphalEntry: 'triumphalEntry',
-    jesusLastSupper: 'maryAnoint',
-    jesusGardenGethsemane: 'prayerCloset',
+    jesusWeepsJerusalem: 'jesusWeepsJerusalem',
+    jesusWeptJerusalem: 'jesusWeepsJerusalem',
+    figTree: 'figTree',
+    jesusFigTree: 'figTree',
+    jesusAuthority: 'jesusAuthority',
+    jesusLastSupper: 'lastSupper',
+    jesusGardenGethsemane: 'gardenPrayer',
+    jesusArrest: 'jesusArrest',
+    arrest: 'jesusArrest',
+    gethsemaneArrest: 'jesusArrest',
+    trialBeforeCaiaphas: 'trialBeforeCaiaphas',
+    caiaphasTrial: 'trialBeforeCaiaphas',
+    jesusBeforeCaiaphas: 'trialBeforeCaiaphas',
+    peterDenial: 'peterDenial',
+    peterDeniesJesus: 'peterDenial',
+    trial: 'trial',
+    pilateTrial: 'trial',
+    jesusBeforePilate: 'trial',
     jesusCrucifixion: 'crucifixion',
     jesusResurrection: 'resurrection',
     crossCarry: 'crossCarry',
@@ -5214,6 +5722,7 @@
     jairus: 'jairus',
     jesusWalksWater: 'jesusWalksWater',
     jesusFeeds5000: 'jesusFeeds5000',
+    jesusFeeds4000: 'jesusFeeds4000',
     maryMartha: 'maryMarthaVisit',
     marthaServe: 'maryMarthaVisit',
     marySit: 'maryMarthaVisit',
@@ -5240,7 +5749,6 @@
     newEarth: 'newEarth',
     alphaOmega2: 'alphaOmega2',
     comeLordJesus: 'comeLordJesus',
-    trial: 'saulSpear',
     /* ── completion aliases so every library story resolves to an outline ── */
     jesus: 'jesusBlessKids',
     cainAbel: 'adamEve',
@@ -6804,10 +7312,10 @@
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
-        'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
-        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'widowMite', 'widowsMite', 'jesusCleansesTemple', 'greatestCommandment', 'zacchaeus',
-        'lazarus', 'palmSunday', 'triumphalEntry', 'lastSupper', 'gardenPrayer', 'betrayal', 'trial', 'crucifixion',
-        'resurrection', 'roadToEmmaus', 'ascension',         'pentecost', 'stephen', 'paulDamascus',
+        'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000', 'jesusFeeds4000',
+        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parableNet', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'widowMite', 'widowsMite', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'zacchaeus', 'jesusParableGoodShepherd',
+        'lazarus', 'palmSunday', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'lastSupper', 'gardenPrayer', 'jesusArrest', 'trialBeforeCaiaphas', 'peterDenial', 'betrayal', 'trial', 'crossCarry', 'crucifixion', 'tombEmpty',
+        'jesusResurrection', 'resurrection', 'roadToEmmaus', 'ascension',         'pentecost', 'stephen', 'paulDamascus',
         'armorOfGod', 'heavenPromise', 'jonah'
       ];
 

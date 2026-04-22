@@ -973,7 +973,7 @@
   },
   {
     "id": 106,
-    "title": "Jesus Good Shepherd",
+    "title": "The Good Shepherd",
     "file": "",
     "audio": "",
     "ref": "John 10:11",
@@ -1262,10 +1262,10 @@
   },
   {
     "id": 138,
-    "title": "Mary at the Tomb",
+    "title": "Jesus Appears to Mary Magdalene",
     "file": "",
     "audio": "",
-    "ref": "John 20:16",
+    "ref": "John 20:11–18",
     "week": 11,
     "libraryKey": "maryMagdalene"
   },
@@ -1348,7 +1348,7 @@
     "audio": "",
     "ref": "Matthew 13:47",
     "week": 12,
-    "libraryKey": ""
+    "libraryKey": "parableNet"
   },
   {
     "id": 148,
@@ -1357,7 +1357,7 @@
     "audio": "",
     "ref": "Matthew 13:45-46",
     "week": 12,
-    "libraryKey": ""
+    "libraryKey": "parablePearl"
   },
   {
     "id": 149,
@@ -1366,7 +1366,7 @@
     "audio": "",
     "ref": "Mark 8:9",
     "week": 12,
-    "libraryKey": ""
+    "libraryKey": "jesusFeeds4000"
   },
   {
     "id": 150,
@@ -2013,5 +2013,140 @@
     "ref": "Matthew 21:1–11",
     "week": 6,
     "libraryKey": "triumphalEntry"
+  },
+  {
+    "id": 219,
+    "title": "Jesus Cares Deeply for the City",
+    "file": "",
+    "audio": "",
+    "ref": "Luke 19:41–44",
+    "week": 6,
+    "libraryKey": "jesusWeepsJerusalem"
+  },
+  {
+    "id": 220,
+    "title": "Jesus Teaches About Faith",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 21:18–22",
+    "week": 6,
+    "libraryKey": "figTree"
+  },
+  {
+    "id": 221,
+    "title": "Jesus Answers the Chief Priests and Elders",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 21:23–27",
+    "week": 6,
+    "libraryKey": "jesusAuthority"
+  },
+  {
+    "id": 222,
+    "title": "Jesus Tells About the Vineyard and the Son",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 21:33–46",
+    "week": 6,
+    "libraryKey": "parableWickedHusbandmen"
+  },
+  {
+    "id": 223,
+    "title": "Jesus Answers About Taxes",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 22:15–22",
+    "week": 6,
+    "libraryKey": "tributeToCaesar"
+  },
+  {
+    "id": 224,
+    "title": "Jesus Teaches About the Resurrection",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 22:23–33",
+    "week": 6,
+    "libraryKey": "sadduceesResurrection"
+  },
+  {
+    "id": 225,
+    "title": "Jesus Calm in the Garden — Taken",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 26:50",
+    "week": 7,
+    "libraryKey": "jesusArrest"
+  },
+  {
+    "id": 226,
+    "title": "Jesus Before the High Priest",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 26:63",
+    "week": 7,
+    "libraryKey": "trialBeforeCaiaphas"
+  },
+  {
+    "id": 227,
+    "title": "Peter by the Fire — Sorry Heart",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 26:75",
+    "week": 7,
+    "libraryKey": "peterDenial"
+  },
+  {
+    "id": 228,
+    "title": "Jesus Before the Governor",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 27:11",
+    "week": 7,
+    "libraryKey": "trial"
+  },
+  {
+    "id": 229,
+    "title": "The Quiet Road — Jesus Carries His Cross",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 27:31–32",
+    "week": 7,
+    "libraryKey": "crossCarry"
+  },
+  {
+    "id": 230,
+    "title": "Gentle Calvary — Jesus Loves Us",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 27:33–56",
+    "week": 7,
+    "libraryKey": "crucifixion"
+  },
+  {
+    "id": 231,
+    "title": "Morning at the Empty Tomb",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 28:1–10",
+    "week": 7,
+    "libraryKey": "tombEmpty"
+  },
+  {
+    "id": 232,
+    "title": "Jesus Is Risen — With You Alway",
+    "file": "",
+    "audio": "",
+    "ref": "Matthew 28:1–10, 16–20",
+    "week": 7,
+    "libraryKey": "jesusResurrection"
+  },
+  {
+    "id": 233,
+    "title": "Jesus Appears to Thomas",
+    "file": "",
+    "audio": "",
+    "ref": "John 20:24–29",
+    "week": 7,
+    "libraryKey": "thomasDoubt"
   }
 ]

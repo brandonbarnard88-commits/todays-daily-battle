@@ -260,14 +260,36 @@
 
   var entries = [];
 
+  function tokens(s) {
+    return String(s || '')
+      .toLowerCase()
+      .split(/\s+/)
+      .map(function (t) {
+        return t.replace(/[^\w\-./]/g, '');
+      })
+      .filter(Boolean);
+  }
+
+  function matchesEntry(needle, e) {
+    if (!needle) return true;
+    var blob = (e.t + ' ' + (e.k || '') + ' ' + e.u).toLowerCase();
+    if (blob.indexOf(needle) !== -1) return true;
+    var toks = tokens(needle);
+    if (!toks.length) return true;
+    var i;
+    for (i = 0; i < toks.length; i++) {
+      if (blob.indexOf(toks[i]) === -1) return false;
+    }
+    return true;
+  }
+
   function render(q) {
     list.replaceChildren();
     var needle = String(q || '').trim().toLowerCase();
     var hits = !needle
       ? entries.slice()
       : entries.filter(function (e) {
-          var blob = (e.t + ' ' + (e.k || '') + ' ' + e.u).toLowerCase();
-          return blob.indexOf(needle) !== -1;
+          return matchesEntry(needle, e);
         });
     status.textContent = hits.length
       ? (needle ? hits.length + ' match' + (hits.length === 1 ? '' : 'es') : 'Showing all ' + hits.length + ' doors — type to narrow when you need to.')
@@ -294,6 +316,11 @@
     })
     .then(function (data) {
       entries = (data && data.entries) || [];
+      try {
+        var qp = new URLSearchParams(window.location.search || '');
+        var preset = String(qp.get('q') || '').trim();
+        if (preset) input.value = preset;
+      } catch (e) {}
       render(input.value);
     })
     .catch(function () {
@@ -304,6 +331,11 @@
         { t: 'Bible Tool', u: '/bible-tool.html' }
       ];
       status.textContent = 'Offline — still got you. Showing a few core links.';
+      try {
+        var qp2 = new URLSearchParams(window.location.search || '');
+        var preset2 = String(qp2.get('q') || '').trim();
+        if (preset2) input.value = preset2;
+      } catch (e2) {}
       render('');
     });
 

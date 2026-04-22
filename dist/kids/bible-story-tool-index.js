@@ -238,13 +238,13 @@
   },
   {
     "key": "betrayal",
-    "title": "Betrayal (Judas)",
-    "kjvRef": "Matthew 26",
+    "title": "Judas Betrays Jesus",
+    "kjvRef": "Matthew 26:14–16; 26:47–50 (par. Mark 14:10–11, 43–46)",
     "who": "Jesus",
-    "to": "Judas (and us)",
-    "apply": "Even friends fail—Jesus forgives! He still loves you when people hurt you.",
+    "to": "Every child who has felt hurt when someone is unkind",
+    "apply": "Jesus understands when people fail us — He stayed loving even here, and we can run to His faithful kindness.",
     "theme": "Protection",
-    "kw": "judas betrayal kiss matthew 26 mark 14 fail"
+    "kw": "judas betrayal kiss thirty pieces silver chief priests garden multitude swords staves friend matthew 26 mark 14"
   },
   {
     "key": "cainAbel",
@@ -298,13 +298,13 @@
   },
   {
     "key": "crucifixion",
-    "title": "Crucifixion",
-    "kjvRef": "Matthew 27; Mark 15; Luke 23; John 19",
+    "title": "Jesus on the Cross",
+    "kjvRef": "Matthew 27:33–56 (KJV) (par. Mark 15:22–41; Luke 23:33–49; John 19:18–37)",
     "who": "Jesus",
-    "to": "The whole world",
-    "apply": "Jesus dies for us—love wins! He took our sins so we could be free!",
+    "to": "Every child when sadness or darkness feels heavy",
+    "apply": "Jesus died on the cross because He loves us — His forgiveness and life are the greatest gift.",
     "theme": "Love",
-    "kw": "crucifixion cross love matthew 27 john 19 dies"
+    "kw": "crucifixion cross golgotha calvary thieves darkness eli forsaken veil earthquake centurion son of god forgive finished it is finished matthew 27 mark 15 luke 23 john 19"
   },
   {
     "key": "daniel",
@@ -698,13 +698,13 @@
   },
   {
     "key": "gardenPrayer",
-    "title": "Garden Prayer",
-    "kjvRef": "Matthew 26:36–46; Luke 22:44",
+    "title": "Jesus Prays in the Garden",
+    "kjvRef": "Matthew 26:36–46 (par. Mark 14:32–42; Luke 22:39–46)",
     "who": "Jesus",
-    "to": "God the Father (and us)",
-    "apply": "Jesus talks to God—talk to Him! Pray when you're scared or sad!",
+    "to": "Every child who feels scared, sad, or heavy about what might happen",
+    "apply": "Jesus understands hard feelings — we can pray like Him and trust our Father's strong, gentle care.",
     "theme": "Protection",
-    "kw": "gethsemane garden prayer matthew 26 mark 14 luke 22"
+    "kw": "gethsemane garden Gethsemane prayer watch cup Peter James John Zebedee not as I will thy will be done matthew 26 mark 14 luke 22"
   },
   {
     "key": "gideonFleece",
@@ -1041,20 +1041,20 @@
     "title": "Jesus Brings Lazarus Back to Life",
     "kjvRef": "John 11:1–44",
     "who": "Jesus",
-    "to": "Mary, Martha, Lazarus, and us",
-    "apply": "Jesus has power over death and brings hope and life. Many who saw believed in Him — we can trust Him too.",
+    "to": "Mary, Martha, Lazarus, and everyone who grieves or feels afraid",
+    "apply": "Jesus is the resurrection and the life — He cares when we hurt, and nothing is too hard for Him.",
     "theme": "Miracles",
-    "kw": "lazarus bethany raised come forth resurrection life john 11 mary martha tomb believe"
+    "kw": "lazarus bethany mary martha sick lovest sleepeth four days cave stone come forth graveclothes resurrection life john 11 believe"
   },
   {
     "key": "jesusLazarus",
     "title": "Jesus Brings Lazarus Back to Life",
     "kjvRef": "John 11:1–44",
     "who": "Jesus",
-    "to": "Mary, Martha, Lazarus, and us",
-    "apply": "Jesus has power over death and brings hope and life. Many who saw believed in Him — we can trust Him too.",
+    "to": "Mary, Martha, Lazarus, and everyone who grieves or feels afraid",
+    "apply": "Jesus is the resurrection and the life — He cares when we hurt, and nothing is too hard for Him.",
     "theme": "Miracles",
-    "kw": "lazarus bethany raised come forth resurrection life john 11 mary martha tomb believe"
+    "kw": "lazarus bethany mary martha sick lovest sleepeth four days cave stone come forth graveclothes resurrection life john 11 believe"
   },
   {
     "key": "jesusCallingDisciples",
@@ -1251,20 +1251,20 @@
     "title": "Jesus Loves Zacchaeus",
     "kjvRef": "Luke 19:1–10",
     "who": "Jesus",
-    "to": "Zacchaeus — and everyone who feels small or overlooked",
-    "apply": "Jesus sees us even when we feel small or hidden, and He loves us and changes our hearts.",
+    "to": "Zacchaeus — and everyone who feels small, overlooked, or far from God",
+    "apply": "Jesus knows our name, comes to us, and came to seek and save the lost — no one is too small for His love.",
     "theme": "Love",
-    "kw": "zacchaeus jericho tree sycomore short jesus calls luke 19 tax collector salvation"
+    "kw": "zacchaeus jericho publicans sycomore little of stature make haste abide joyfully murmured sinner half fourfold salvation son of abraham seek save lost luke 19"
   },
   {
     "key": "jesusAndZacchaeus",
     "title": "Jesus Loves Zacchaeus",
     "kjvRef": "Luke 19:1–10",
     "who": "Jesus",
-    "to": "Zacchaeus — and everyone who feels small or overlooked",
-    "apply": "Jesus sees us even when we feel small or hidden, and He loves us and changes our hearts.",
+    "to": "Zacchaeus — and everyone who feels small, overlooked, or far from God",
+    "apply": "Jesus knows our name, comes to us, and came to seek and save the lost — no one is too small for His love.",
     "theme": "Love",
-    "kw": "zacchaeus jericho tree sycomore short jesus calls luke 19 tax collector salvation"
+    "kw": "zacchaeus jericho publicans sycomore little of stature make haste abide joyfully murmured sinner half fourfold salvation son of abraham seek save lost luke 19"
   },
   {
     "key": "jesusCleansesTemple",
@@ -1289,12 +1289,12 @@
   {
     "key": "jesusCrucifixion",
     "title": "Jesus on the Cross",
-    "kjvRef": "Matthew 27; Mark 15; Luke 23; John 19",
+    "kjvRef": "Matthew 27:33–56 (KJV) (par. Mark 15:22–41; Luke 23:33–49; John 19:18–37)",
     "who": "Jesus",
-    "to": "The world (and us)",
-    "apply": "Jesus took the punishment for sin so we could be forgiven — never forget that love.",
+    "to": "Every child when sadness or darkness feels heavy",
+    "apply": "Jesus died on the cross because He loves us — His forgiveness and life are the greatest gift.",
     "theme": "Love",
-    "kw": "crucifixion cross golgotha forgive finished matthew 27 john 19 luke 23"
+    "kw": "crucifixion cross golgotha calvary thieves darkness eli forsaken veil earthquake centurion son of god forgive finished it is finished matthew 27 mark 15 luke 23 john 19"
   },
   {
     "key": "triumphalEntry",
@@ -1305,6 +1305,36 @@
     "apply": "We can welcome Jesus as our King — with praise, joy, and a thankful heart.",
     "theme": "Protection",
     "kw": "hosanna triumphal entry palm sunday donkey colt jerusalem matthew 21 matthew 21:9 son of david king branches garments"
+  },
+  {
+    "key": "jesusWeepsJerusalem",
+    "title": "Jesus Cares Deeply for the City",
+    "kjvRef": "Luke 19:41–44; Matthew 23:37",
+    "who": "Jesus",
+    "to": "Jerusalem — and every heart that needs comfort (including us)",
+    "apply": "Jesus loves us with tears of compassion when we do not understand; we can rest in His gentle heart.",
+    "theme": "Love",
+    "kw": "weep jerusalem compassion luke 19 luke 19:41 luke 19:42 thy peace beheld the city hen chickens matthew 23:37 donkey visitation"
+  },
+  {
+    "key": "figTree",
+    "title": "Jesus Teaches About Faith",
+    "kjvRef": "Matthew 21:18–22",
+    "who": "Jesus",
+    "to": "His disciples (and us)",
+    "apply": "Jesus invites us to pray with faith — trusting our Father to hear us as we learn.",
+    "theme": "Obedience",
+    "kw": "fig tree faith prayer matthew 21 matthew 21:18 matthew 21:22 withered leaves only doubt not believing disciples"
+  },
+  {
+    "key": "jesusAuthority",
+    "title": "Jesus Answers the Chief Priests and Elders",
+    "kjvRef": "Matthew 21:23–27",
+    "who": "Jesus",
+    "to": "The chief priests and elders — and everyone who listens (including us)",
+    "apply": "Jesus sees our hearts; we can tell Him the truth in prayer and learn His gentle wisdom.",
+    "theme": "Obedience",
+    "kw": "authority temple chief priests elders matthew 21 matthew 21:23 matthew 21:27 baptism of john from heaven of men we cannot tell neither tell i you wisdom"
   },
   {
     "key": "jesusTempted",
@@ -1375,6 +1405,26 @@
     "apply": "Jesus invites everyone to come to Him. God wants His house full of guests who say yes to His kindness.",
     "theme": "Love",
     "kw": "wedding feast marriage matthew 22 king servants highways bidden come unto the marriage parable jesus invite"
+  },
+  {
+    "key": "tributeToCaesar",
+    "title": "Jesus Answers About Taxes",
+    "kjvRef": "Matthew 22:15–22",
+    "who": "Jesus",
+    "to": "The Pharisees, Herodians, and everyone who listens (including us)",
+    "apply": "We can honor what belongs to earthly rulers and give our hearts and worship to God — Jesus answers with gentle wisdom.",
+    "theme": "Obedience",
+    "kw": "tribute caesar penny render pharisees herodians matthew 22 matthew 22:21 image superscription marvelled god's things honest wisdom"
+  },
+  {
+    "key": "sadduceesResurrection",
+    "title": "Jesus Teaches About the Resurrection",
+    "kjvRef": "Matthew 22:23–33",
+    "who": "Jesus",
+    "to": "The Sadducees — and everyone who listens (including us)",
+    "apply": "God is the God of the living — on hard days we can rest our hearts on Jesus’ gentle teaching and hope in Him.",
+    "theme": "Obedience",
+    "kw": "sadducees resurrection matthew 22 matthew 22:23 matthew 22:32 matthew 22:33 god of abraham isaac jacob living neither marry angels seven brethren scriptures power of god astonished doctrine multitude"
   },
   {
     "key": "parablePearl",
@@ -1505,6 +1555,16 @@
     "apply": "Jesus wants us to do what is right — not only say we will. True obedience shows in what we do.",
     "theme": "Obedience",
     "kw": "two sons vineyard matthew 21 i go sir repented will of his father parable obey jesus kingdom of god"
+  },
+  {
+    "key": "parableWickedHusbandmen",
+    "title": "Jesus Tells About the Vineyard and the Son",
+    "kjvRef": "Matthew 21:33–46",
+    "who": "Jesus",
+    "to": "The chief priests and elders — and everyone who listens (including us)",
+    "apply": "Jesus is God’s beloved Son; God blesses hearts that bear good fruit for Him — we can trust Jesus and obey Him with love.",
+    "theme": "Obedience",
+    "kw": "vineyard husbandmen parable son servants fruit stone builders head of the corner matthew 21 matthew 21:33 matthew 21:42 reverence my son heir wicked husbandmen kingdom fruit"
   },
   {
     "key": "parableTalents",
@@ -1769,12 +1829,12 @@
   {
     "key": "judasKiss",
     "title": "Judas Betrays Jesus",
-    "kjvRef": "Matthew 26",
+    "kjvRef": "Matthew 26:14–16; 26:47–50 (par. Mark 14:10–11, 43–46)",
     "who": "Jesus",
-    "to": "Judas (and us)",
-    "apply": "Even when people hurt you, choose love like Jesus did! He forgave.",
+    "to": "Every child who has felt hurt when someone is unkind",
+    "apply": "Jesus understands when people fail us — He stayed loving even here, and we can run to His faithful kindness.",
     "theme": "Love",
-    "kw": "judas betray kiss matthew 26 arrest garden soldiers"
+    "kw": "judas betray kiss thirty pieces silver garden multitude hail master friend matthew 26 mark 14"
   },
   {
     "key": "judeWarning",
@@ -1798,13 +1858,13 @@
   },
   {
     "key": "lastSupper",
-    "title": "Last Supper",
-    "kjvRef": "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–23",
+    "title": "Jesus Shares the Last Supper",
+    "kjvRef": "Matthew 26:17–30 (par. Mark 14:12–26; Luke 22:7–23)",
     "who": "Jesus",
-    "to": "His twelve disciples",
-    "apply": "Jesus shares bread—He loves us! Remember Him when you eat together!",
+    "to": "His twelve friends — and every child who feels sad when things change",
+    "apply": "Jesus gave His body and blood for us because He loves us — His love never ends, and He is always with us.",
     "theme": "Love",
-    "kw": "last supper bread wine luke 22 matthew 26 passover"
+    "kw": "last supper passover unleavened bread twelve betray bread cup new testament remission of sins Father's kingdom matthew 26 mark 14 luke 22"
   },
   {
     "key": "revelationLetters",
@@ -1890,21 +1950,21 @@
     "key": "maryAnoint",
     "title": "Mary Anoints Jesus' Feet",
     "kjvRef": "John 12:1–8",
-    "who": "Mary",
-    "to": "Jesus",
-    "apply": "Give Jesus your best—not just what's left! Extravagant love honors Him.",
+    "who": "Mary — and Jesus who receives her love",
+    "to": "Jesus — and every child who wants to love Him with a whole heart",
+    "apply": "Jesus sees a loving heart and receives every gentle gift — we can give Him our best love, even on hard days.",
     "theme": "Love",
-    "kw": "mary anoint perfume john 12 feet worship pour"
+    "kw": "mary bethany lazarus martha spikenard ointment feet hair judas let her alone burying john 12 supper passover"
   },
   {
     "key": "maryMagdalene",
-    "title": "Mary Magdalene at the Tomb",
-    "kjvRef": "John 20:1–18",
+    "title": "Jesus Appears to Mary Magdalene",
+    "kjvRef": "John 20:11–18 (KJV) (par. Mark 16:9–11)",
     "who": "Jesus",
-    "to": "Mary Magdalene",
-    "apply": "Jesus knows your name and calls you! He is always the first to find His own.",
+    "to": "Every child who feels sad or misses someone dear",
+    "apply": "Jesus speaks our name with love — He turns tears toward joy and sends us with good news.",
     "theme": "Love",
-    "kw": "mary magdalene tomb john 20 risen gardener name love"
+    "kw": "mary magdalene sepulchre weeping angels in white gardener rabboni touch me not ascend Father John 20 Mark 16"
   },
   {
     "key": "dragonFight",
@@ -2048,13 +2108,13 @@
   },
   {
     "key": "palmSunday",
-    "title": "Palm Sunday",
+    "title": "Jesus Rides into Jerusalem",
     "kjvRef": "Matthew 21:1–11; Mark 11:1–11; Luke 19:28–44; John 12:12–19",
-    "who": "The crowds",
-    "to": "Jesus (the King)",
-    "apply": "Hosanna! Jesus rides the donkey—welcome Him! He is the King of Kings!",
+    "who": "Jesus — and the multitudes who welcomed Him with joy",
+    "to": "Every child who wants to welcome Jesus with a peaceful, happy heart",
+    "apply": "Jesus is gentle and kind — we can praise Him and welcome Him with simple joy, even on hard or ordinary days.",
     "theme": "Protection",
-    "kw": "palm sunday hosanna donkey jerusalem matthew 21 luke 19"
+    "kw": "palm sunday hosanna triumphal entry donkey colt jerusalem garments branches son of david matthew 21 mark 11 luke 19 john 12"
   },
   {
     "key": "paulBarnabas",
@@ -2418,13 +2478,43 @@
   },
   {
     "key": "jesusGardenGethsemane",
-    "title": "Prayer in Gethsemane",
-    "kjvRef": "Matthew 26:36–46; Mark 14:32–42; Luke 22:39–46",
+    "title": "Jesus Prays in the Garden",
+    "kjvRef": "Matthew 26:36–46 (par. Mark 14:32–42; Luke 22:39–46)",
     "who": "Jesus",
-    "to": "God the Father (and us)",
-    "apply": "When life feels heavy, we can pray honestly — and still say, Thy will be done.",
+    "to": "Every child who feels scared, sad, or heavy about what might happen",
+    "apply": "Jesus understands hard feelings — we can pray like Him and trust our Father's strong, gentle care.",
     "theme": "Protection",
-    "kw": "gethsemane garden prayer matthew 26 mark 14 luke 22 cup watch betray"
+    "kw": "gethsemane garden prayer watch cup Peter James John not as I will thy will be done matthew 26 mark 14 luke 22"
+  },
+  {
+    "key": "jesusArrest",
+    "title": "Jesus Is Arrested in the Garden",
+    "kjvRef": "Matthew 26:47–56 (par. Mark 14:43–52; Luke 22:47–53; John 18:1–11)",
+    "who": "Jesus",
+    "to": "Every child who feels hurt or afraid when hard or scary things happen",
+    "apply": "Jesus was calm and kind in the garden — He knows how we feel, and His strong, gentle love holds us safe.",
+    "theme": "Protection",
+    "kw": "arrest gethsemane garden Judas kiss multitude swords staves put up sword legions angels scriptures forsook fled matthew 26 mark 14 luke 22 john 18"
+  },
+  {
+    "key": "trialBeforeCaiaphas",
+    "title": "Jesus Before Caiaphas",
+    "kjvRef": "Matthew 26:57–68 (par. Mark 14:53–65)",
+    "who": "Jesus",
+    "to": "Every child who feels alone or misunderstood when people are unkind",
+    "apply": "Jesus stayed calm and told the truth — He is the Son of God, and His strong, gentle love stays with you.",
+    "theme": "Protection",
+    "kw": "Caiaphas high priest council false witness temple three days held his peace Christ Son of God right hand of power clouds of heaven Peter palace blasphemy matthew 26 mark 14"
+  },
+  {
+    "key": "peterDenial",
+    "title": "Peter Denies Jesus",
+    "kjvRef": "Matthew 26:69–75 (par. Mark 14:66–72; Luke 22:54–62; John 18:15–18, 25–27)",
+    "who": "Peter",
+    "to": "Every child who feels afraid or sorry after a mistake",
+    "apply": "Jesus forgave Peter and welcomes sorry hearts — we can talk to Him anytime and rest in His gentle forgiveness.",
+    "theme": "Love",
+    "kw": "Peter deny palace damsel maid porch Galilee Nazareth oath cock crow thrice wept bitterly bewrayeth forgiveness matthew 26 mark 14 luke 22 john 18"
   },
   {
     "key": "priscillaTeach",
@@ -2758,13 +2848,13 @@
   },
   {
     "key": "crossCarry",
-    "title": "Simon Helps Carry the Cross",
-    "kjvRef": "Luke 23",
-    "who": "God",
-    "to": "Simon (and us)",
-    "apply": "God calls us to help carry each other's burdens! Be a Simon for someone today.",
+    "title": "Jesus Carries His Cross",
+    "kjvRef": "Matthew 27:31–32 (KJV) (par. Mark 15:20–21; Luke 23:26–32; John 19:16–17)",
+    "who": "Jesus",
+    "to": "Every child who feels tired or heavy-hearted",
+    "apply": "Jesus carried His cross because He loves us — His strength holds us when life feels hard.",
     "theme": "Love",
-    "kw": "cross simon carry luke 23 cyrene help burden"
+    "kw": "cross carry simon cyrene crucify mocked raiment led away bear his cross daughters of jerusalem weep not matthew 27 mark 15 luke 23 john 19"
   },
   {
     "key": "solomonTwoMothers",
@@ -2919,12 +3009,22 @@
   {
     "key": "tombEmpty",
     "title": "The Empty Tomb",
-    "kjvRef": "Matthew 28",
+    "kjvRef": "Matthew 28:1–10 (KJV) (par. Mark 16:1–8; Luke 24:1–12; John 20:1–18)",
     "who": "Jesus",
-    "to": "The women (and us)",
-    "apply": "Jesus is alive! Death couldn't hold Him—and He gives that life to you!",
+    "to": "Every child who needs hope after a sad day",
+    "apply": "Jesus rose again — His love is stronger than death, and He shares His life with us.",
     "theme": "Miracles",
-    "kw": "tomb empty risen matthew 28 angel stone resurrection"
+    "kw": "empty tomb sepulchre mary magdalene angel earthquake stone rolled he is risen he is not here galilee first day of the week dawn matthew 28 mark 16 luke 24 john 20 resurrection"
+  },
+  {
+    "key": "jesusResurrection",
+    "title": "Jesus Is Risen",
+    "kjvRef": "Matthew 28:1–10, 16–20 (KJV) (par. Mark 16; Luke 24; John 20)",
+    "who": "Jesus",
+    "to": "Every child who needs joy after a hard or scary day",
+    "apply": "Jesus is alive forever — He is gentle with afraid hearts and stays with His people to the end of the world.",
+    "theme": "Miracles",
+    "kw": "jesus is risen resurrection all hail galilee great commission i am with you alway mary magdalene angel empty tomb worshipped teach all nations matthew 28 mark 16 luke 24 john 20"
   },
   {
     "key": "prodigalSon",
@@ -2961,10 +3061,10 @@
     "title": "The Good Shepherd",
     "kjvRef": "John 10:1–18",
     "who": "Jesus",
-    "to": "His sheep (and us)",
-    "apply": "Listen for Jesus' voice — He loves you, leads you, and laid down His life for you.",
+    "to": "His sheep — and everyone who listens (including us)",
+    "apply": "Jesus knows our name, calls us gently, and laid down His life — we can rest in His care on hard days.",
     "theme": "Love",
-    "kw": "good shepherd john 10 sheep voice fold life jesus"
+    "kw": "good shepherd john 10 sheepfold porter voice name follow fold lay down life other sheep one shepherd hireling wolf jesus"
   },
   {
     "key": "greatCommission",
@@ -3018,13 +3118,13 @@
   },
   {
     "key": "jesusLastSupper",
-    "title": "The Last Supper",
-    "kjvRef": "Matthew 26:17–30; Mark 14:12–26; Luke 22:7–20; 1 Corinthians 11:23–26",
+    "title": "Jesus Shares the Last Supper",
+    "kjvRef": "Matthew 26:17–30 (par. Mark 14:12–26; Luke 22:7–23); 1 Corinthians 11:23–26",
     "who": "Jesus",
-    "to": "His disciples (and us)",
-    "apply": "Jesus gave us a way to remember His death until He comes — His body and blood for us.",
+    "to": "His twelve friends — and every child who feels sad when things change",
+    "apply": "Jesus gave His body and blood for us because He loves us — His love never ends, and He is always with us.",
     "theme": "Love",
-    "kw": "last supper passover bread cup covenant luke 22 matthew 26 remembrance judas"
+    "kw": "last supper passover bread cup new testament betray twelve remembrance matthew 26 mark 14 luke 22 1 corinthians 11"
   },
   {
     "key": "newEarth",
@@ -3268,13 +3368,13 @@
   },
   {
     "key": "thomasDoubt",
-    "title": "Thomas Touches Jesus' Hands",
-    "kjvRef": "John 20:24–29",
+    "title": "Jesus Appears to Thomas",
+    "kjvRef": "John 20:24–29 (KJV)",
     "who": "Jesus",
-    "to": "Thomas",
-    "apply": "It's okay to have questions! Jesus is patient—keep coming back to Him.",
+    "to": "Every child who needs help to trust on unsure days",
+    "apply": "Jesus is patient with honest hearts — He draws near and helps us believe step by step.",
     "theme": "Obedience",
-    "kw": "thomas doubt john 20 hands believe risen faith"
+    "kw": "thomas didymus doubt believe print of nails peace be unto you doors shut My Lord and my God blessed have not seen john 20"
   },
   {
     "key": "timothyYouthExample",
@@ -3308,13 +3408,13 @@
   },
   {
     "key": "trial",
-    "title": "Trial (Pilate)",
-    "kjvRef": "Matthew 26:57–68; 27:11–26; Mark 14:53–65; 15:1–15; Luke 22:66–23:25; John 18:28–19:16",
+    "title": "Jesus Before Pilate",
+    "kjvRef": "Matthew 27:11–26 (par. Mark 15:1–15; Luke 23:1–25; John 18:28–19:16)",
     "who": "Jesus",
-    "to": "Pilate (and us)",
-    "apply": "Jesus stays quiet—trust God! When things are unfair, He knows the truth!",
+    "to": "Every child when choices feel unfair or lonely",
+    "apply": "Jesus stayed calm and told the truth before Pilate — His love holds us on hard days.",
     "theme": "Protection",
-    "kw": "pilate trial quiet john 18 matthew 27 king"
+    "kw": "Pilate governor Barabbas King of the Jews judgment washed hands crucified multitude matthew 27 mark 15 luke 23 john 18 john 19"
   },
   {
     "key": "battleOfAi",

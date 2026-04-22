@@ -1,7 +1,8 @@
 // PWA for todaysdailybattle.com: cache today's verse, prayer, and audio offline. Offline-first.
 // Bump CACHE_NAME when you deploy new HTML/CSS or want to invalidate (e.g. tdb-static-YYYYMMDD).
-// script.js and config.js are NOT precached so updates deploy immediately.
-const CACHE_NAME = 'tdb-cache-v20260418-widgets-prayer';
+// script.js is network-first with a cache fallback (not precached) so online users get fresh JS immediately; offline users get the last successful fetch until CACHE_NAME clears.
+// config.js is NOT intercepted so updates deploy immediately.
+const CACHE_NAME = 'tdb-cache-v20260421-pwa-offline';
 const CACHE_API = 'tdb-api-20260309c';
 const OFFLINE_URL = '/offline.html';
 const TODAY_VERSE_URL = '/today-kjv-verse.json';
@@ -666,8 +667,36 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Never cache script.js, config.js, or footer-build-stamp.js so deployments take effect immediately
-  if (url.pathname.endsWith('script.js') || url.pathname.endsWith('config.js') || url.pathname.endsWith('footer-build-stamp.js')) return;
+  // script.js: network-first; stash last OK response as /script.js for offline recovery. CACHE_NAME bump invalidates.
+  if (url.pathname === '/script.js' || url.pathname.endsWith('/script.js')) {
+    event.respondWith(
+      fetch(event.request)
+        .then((res) => {
+          if (res && res.ok) {
+            const clone = res.clone();
+            const keyReq = new Request(new URL('/script.js', self.location.origin).toString(), { method: 'GET' });
+            caches.open(CACHE_NAME).then((cache) => cache.put(keyReq, clone)).catch(() => {});
+          }
+          return res;
+        })
+        .catch(() =>
+          caches
+            .open(CACHE_NAME)
+            .then((cache) => cache.match('/script.js', { ignoreSearch: true }))
+            .then((cached) => {
+              if (cached) return cached;
+              return new Response('// Offline — script unavailable. Reconnect to load the app bundle.', {
+                status: 503,
+                headers: { 'content-type': 'application/javascript; charset=utf-8' }
+              });
+            })
+        )
+    );
+    return;
+  }
+
+  // Never cache config.js or footer-build-stamp.js so deployments take effect immediately
+  if (url.pathname.endsWith('config.js') || url.pathname.endsWith('footer-build-stamp.js')) return;
 
   // HTML navigations should prefer network so deploys are visible immediately.
   if (event.request.mode === 'navigate') {

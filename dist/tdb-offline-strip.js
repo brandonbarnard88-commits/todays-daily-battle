@@ -9,6 +9,12 @@
   'use strict';
 
   var MESSAGES = {
+    verse:
+      'Still in the quiet place. What you already loaded on this device stays here. Reconnect anytime to refresh today’s pick from the site.',
+    family:
+      'Still in the quiet place. Family tools you opened stay on this device. New updates arrive when you are back online.',
+    kids:
+      'Still in the quiet place. Stories and panels you opened stay on this device. Reconnect to load new library items.',
     prayer:
       'Offline — still got you. Prayer requests you already opened are here. New community updates will appear when you’re back online.',
     reader:
@@ -38,7 +44,7 @@
     storage:
       'Storage may be full. Try exporting older notes. Reading still works; saving may fail until there is room.',
     default:
-      'Offline — still got you. Most features still work with cached data.'
+      'Still in the quiet place. Most features still work with what is already on this device.'
   };
 
   function ensureMsgEl(strip) {

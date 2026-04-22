@@ -466,6 +466,11 @@ if (fs.existsSync(path.join(root, 'assets'))) {
   console.log('Copied assets/ folder (share images for OG/Twitter)');
 }
 
+if (fs.existsSync(path.join(root, 'fonts'))) {
+  copyDir(path.join(root, 'fonts'), path.join(dist, 'fonts'));
+  console.log('Copied fonts/ folder (self-hosted Cormorant, etc.)');
+}
+
 if (fs.existsSync(path.join(root, 'data'))) {
   copyDir(path.join(root, 'data'), path.join(dist, 'data'));
   console.log('Copied data/ folder (KJV dictionary and future JSON)');

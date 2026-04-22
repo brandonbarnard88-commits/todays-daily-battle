@@ -19545,6 +19545,59 @@ body.tdb-inner-page.tdb-calm-shelf-page main#main-content.app-content.tdb-quiet-
   }
 }
 
+/* Phase 2 — micro-polish: one-shot desktop dawn wash on `.tdb-micro-hero-dawn` (1280px+, motion-safe) */
+@keyframes tdb-micro-hero-dawn-wash {
+  0% {
+    opacity: 0;
+  }
+  38% {
+    opacity: 0.48;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@media (min-width: 1280px) and (prefers-reduced-motion: no-preference) {
+  .tdb-micro-hero-dawn {
+    position: relative;
+    z-index: 0;
+    overflow: visible;
+  }
+  .tdb-micro-hero-dawn::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: -5px;
+    border-radius: var(--tdb-micro-hero-dawn-r, 18px);
+    pointer-events: none;
+    background: radial-gradient(ellipse 88% 72% at 50% 0%, rgba(227, 188, 103, 0.24), transparent 62%);
+    opacity: 0;
+    animation: tdb-micro-hero-dawn-wash 1.55s ease-out 0.06s 1 forwards;
+  }
+  :root[data-theme='light'] .tdb-micro-hero-dawn::before {
+    background: radial-gradient(ellipse 88% 72% at 50% 0%, rgba(180, 100, 30, 0.12), transparent 62%);
+  }
+  .kids-battle-hero.tdb-micro-hero-dawn {
+    --tdb-micro-hero-dawn-r: 16px;
+    margin-bottom: 1.65rem;
+  }
+  body.tdb-inner-page.tdb-verse-page .content-inner {
+    gap: calc(var(--tdb-inner-gap) + 0.12rem);
+  }
+  .plans-hero.tdb-micro-hero-dawn {
+    --tdb-micro-hero-dawn-r: 14px;
+  }
+  body.tdb-inner-page .kids-corner-page .content-inner.kids-battle-inner {
+    gap: calc(var(--tdb-inner-gap) + 0.1rem);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tdb-micro-hero-dawn::before {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+}
+
 /* Verse page (verse.html): calmer hero, card, actions — scoped to .tdb-verse-page only */
 .tdb-verse-page .verse-hero {
   text-align: center;

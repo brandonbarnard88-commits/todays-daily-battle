@@ -2404,6 +2404,44 @@
       border-color: color-mix(in srgb, #9e7625 28%, var(--line));
       box-shadow: 0 10px 32px rgba(64, 41, 8, 0.09);
     }
+    @keyframes tdb-home-micro-hero-dawn {
+      0% { opacity: 0; }
+      38% { opacity: 0.48; }
+      100% { opacity: 0; }
+    }
+    @media (min-width: 1280px) and (prefers-reduced-motion: no-preference) {
+      #hero-verse-wrap.tdb-micro-hero-dawn {
+        --tdb-micro-hero-dawn-r: 18px;
+        position: relative;
+        z-index: 0;
+        overflow: visible;
+      }
+      #hero-verse-wrap.tdb-micro-hero-dawn::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        inset: -5px;
+        border-radius: var(--tdb-micro-hero-dawn-r, 18px);
+        pointer-events: none;
+        background: radial-gradient(ellipse 88% 72% at 50% 0%, rgba(227, 188, 103, 0.22), transparent 62%);
+        opacity: 0;
+        animation: tdb-home-micro-hero-dawn 1.55s ease-out 0.06s 1 forwards;
+      }
+      :root[data-theme="light"] #hero-verse-wrap.tdb-micro-hero-dawn::before {
+        background: radial-gradient(ellipse 88% 72% at 50% 0%, rgba(180, 100, 30, 0.11), transparent 62%);
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #hero-verse-wrap.tdb-micro-hero-dawn::before {
+        animation: none !important;
+        opacity: 0 !important;
+      }
+    }
+    @media (min-width: 1280px) {
+      #main-content {
+        gap: clamp(0.62rem, 1vw, 0.88rem);
+      }
+    }
     .tdb-home-spotlight-deeper {
       margin: 0 0 0.7rem;
     }
@@ -7892,7 +7930,7 @@
         </div>
         <p class="tdb-home-reader-story-foot">Short anonymized notes only. No hype, no names, no polished success stories. <a href="/testimonials.html">Read the full page</a>.</p>
       </section>
-      <div id="hero-verse-wrap" class="hero-verse-wrap tdb-home-soar-aura tdb-quiet-container">
+      <div id="hero-verse-wrap" class="hero-verse-wrap tdb-home-soar-aura tdb-quiet-container tdb-micro-hero-dawn">
       <section class="card verse-card verse-card-loaded" id="verseCard" aria-live="polite" data-daily-verse="true" data-tdb-hero-prebuilt="1">
         <p class="welcome-back-msg" id="welcomeBackMsg" aria-live="polite" hidden></p>
         <h2 class="hero-daily-headline">Today&rsquo;s Verse &mdash; A Quiet Place</h2>

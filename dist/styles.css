@@ -19381,6 +19381,42 @@ body.tdb-inner-page.tdb-verse-page main.app-content.tdb-quiet-container .content
   }
 }
 
+/* Bible Tool — quiet framework: main.tdb-quiet-container (bible-tool.html) */
+body.tdb-inner-page.bible-tool-page main.app-content.tdb-quiet-container {
+  display: block;
+  padding: 0;
+  padding-top: clamp(0.5rem, 1.35vw, 0.95rem);
+  padding-left: var(--tdb-quiet-pad-x);
+  padding-right: var(--tdb-quiet-pad-x);
+  padding-bottom: clamp(3rem, 4.4vw, 4.1rem);
+  box-sizing: border-box;
+}
+@media (max-width: 420px) {
+  body.tdb-inner-page.bible-tool-page main.app-content.tdb-quiet-container {
+    padding-left: max(var(--tdb-quiet-pad-x), env(safe-area-inset-left, 0px));
+    padding-right: max(var(--tdb-quiet-pad-x), env(safe-area-inset-right, 0px));
+    padding-bottom: calc(clamp(2.75rem, 4vw, 3.5rem) + env(safe-area-inset-bottom, 0px));
+  }
+}
+body.tdb-inner-page.bible-tool-page main.app-content.tdb-quiet-container .content-inner {
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+@media (min-width: 1280px) {
+  body.tdb-inner-page.bible-tool-page main.app-content.tdb-quiet-container {
+    box-shadow: 0 0 0 1px color-mix(in srgb, rgba(227, 188, 103, 0.12) 50%, transparent),
+      0 16px 44px rgba(0, 0, 0, 0.26);
+    border-radius: 20px;
+  }
+  body.tdb-inner-page.bible-tool-page main.app-content.tdb-quiet-container .bible-tool-hero--soar-dawn {
+    margin-bottom: 0.2rem;
+  }
+}
+
 /* Verse page (verse.html): calmer hero, card, actions — scoped to .tdb-verse-page only */
 .tdb-verse-page .verse-hero {
   text-align: center;

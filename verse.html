@@ -437,8 +437,8 @@
           <p id="verse-save-hint-text" class="section-note verse-save-hint">Saved verses appear in <a href="/mystudy?tab=library#saved-verses">My Study</a>—the same list as Search and the <a href="/bible-tool.html">Bible tool</a>. <a href="memorize.html" id="verse-save-hint-memorize">Memorize</a> opens the same verse on a private card. All verses are from the KJV.</p>
           <p class="section-note verse-prayer-wall-nudge">If naming the burden in a line or two would help—no account, no name—there is <a href="/prayer-wall.html?tab=with-others">Prayer</a>. Entirely optional. No rush.</p>
           <details class="tdb-verse-ics-reminder glass util-mt-1" id="tdb-verse-ics-reminder">
-            <summary class="tdb-verse-ics-summary">Gentle calendar reminder (no email, no account)</summary>
-            <p class="section-note util-mb-0_75">Some calendars can nudge you at the same time each day. This downloads a tiny <code class="tdb-verse-ics-code">.ics</code> file that links to <a href="/verse.html">this verse page</a>. Your device opens it—nothing is sent to us.</p>
+            <summary class="tdb-verse-ics-summary">Want this verse again tomorrow?</summary>
+            <p class="section-note util-mb-0_75">This is an optional <strong>calendar reminder</strong>—no account, no email from us. Download one small <code class="tdb-verse-ics-code">.ics</code> and add it in your app; it nudges you at a time you pick and links back to <a href="/verse.html">this verse page</a>. <strong>Stays on your device</strong> (and in your own calendar) — we never get a name, address, or schedule.</p>
             <div class="tdb-verse-ics-row">
               <label for="tdb-verse-ics-time" class="tdb-verse-ics-label">Reminder time (this device&rsquo;s clock)</label>
               <select id="tdb-verse-ics-time" class="tdb-verse-ics-select" aria-describedby="tdb-verse-ics-hint">
@@ -454,7 +454,7 @@
               </select>
               <button type="button" id="tdb-verse-ics-download" class="btn btn-secondary">Download reminder (.ics)</button>
             </div>
-            <p id="tdb-verse-ics-hint" class="section-note util-mb-0">Prefer email? The footer on many pages has an optional weekly recap—still your choice to subscribe.</p>
+            <p id="tdb-verse-ics-hint" class="section-note util-mb-0">Or, when you&rsquo;re ready, the footer has a weekly verse recap <strong>by email</strong> (still optional) &mdash; <a href="#footerFridaySignup">see below</a>.</p>
           </details>
           <span id="verse-page-save-status" class="sr-only" aria-live="polite"></span>
         </section>
@@ -727,7 +727,7 @@
       var a = document.createElement('a');
       var href = URL.createObjectURL(blob);
       a.href = href;
-      a.download = 'todays-daily-battle-verse-reminder.ics';
+      a.download = 'todaysdailybattle-daily-verse.ics';
       document.body.appendChild(a);
       a.click();
       a.remove();

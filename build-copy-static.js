@@ -468,7 +468,7 @@ if (fs.existsSync(path.join(root, 'assets'))) {
 
 if (fs.existsSync(path.join(root, 'fonts'))) {
   copyDir(path.join(root, 'fonts'), path.join(dist, 'fonts'));
-  console.log('Copied fonts/ folder (self-hosted Cormorant, etc.)');
+  console.log('Copied fonts/ folder (self-hosted Cormorant, Caveat, etc.)');
 }
 
 if (fs.existsSync(path.join(root, 'data'))) {

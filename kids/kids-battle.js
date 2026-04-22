@@ -1227,6 +1227,48 @@
       narration:
         "Jesus Feeds a Hungry Crowd — Matthew 14:13–21. When Jesus heard of it, he departed thence by ship into a desert place apart: and when the people had heard thereof, they followed him on foot out of the cities. And Jesus went forth, and saw a great multitude, and was moved with compassion toward them, and he healed their sick. And when it was evening, his disciples came to him, saying, This is a desert place, and the time is now past; send the multitude away, that they may go into the villages, and buy themselves victuals. But Jesus said unto them, They need not depart; give ye them to eat. And they say unto him, We have here but five loaves, and two fishes. He said, Bring them hither to me. And he commanded the multitude to sit down on the grass, and took the five loaves, and the two fishes, and looking up to heaven, he blessed, and brake, and gave the loaves to his disciples, and the disciples to the multitude. And they did all eat, and were filled: and they took up of the fragments that remained twelve baskets full. And they that had eaten were about five thousand men, beside women and children. For you: Jesus can take a little and make it enough — trust Him with what you have."
     },
+    jesusFeeds4000: {
+      title: 'Jesus Feeds Another Hungry Crowd',
+      panels: [
+        {
+          src: 'panel-jesus-1.svg',
+          alt: 'A great multitude — three days with Jesus; I have compassion on the multitude'
+        },
+        {
+          src: 'panel-jesus-2.svg',
+          alt: 'Seven loaves and a few small fishes — He commanded them to sit down on the ground'
+        },
+        {
+          src: 'panel-jesus-3.svg',
+          alt: 'They did all eat and were filled — seven baskets of broken meat; about four thousand men'
+        }
+      ],
+      caption: 'Swipe to see Jesus feed a multitude again — His compassion never runs out. 🍞',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'jesus',
+        'feeds',
+        '4000',
+        'four thousand',
+        'seven loaves',
+        'compassion',
+        'miracle',
+        'mark 8',
+        'matthew 15',
+        'disciples',
+        'multitude'
+      ],
+      kjvRef: 'Mark 8:1–9',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The multitude — the disciples — and us',
+        apply:
+          'Jesus cares when people are hungry and tired. He can bless a little bread until everyone has enough.'
+      },
+      narration:
+        "Jesus Feeds Another Hungry Crowd — Mark 8:1–9. In those days the multitude being very great, and having nothing to eat, Jesus called his disciples unto him, and saith unto them, I have compassion on the multitude, because they continue with me now three days, and have nothing to eat: And if I send them away fasting to their own houses, they will faint by the way: for divers of them came from far. And his disciples answered him, From whence can a man satisfy these men with bread here in the wilderness? And he asked them, How many loaves have ye? And they said, Seven. And he commanded the people to sit down on the ground: and he took the seven loaves, and gave thanks, and brake, and gave to his disciples to set before them; and they did set them before the people. And they had a few small fishes: and he blessed, and commanded to set them also before them. So they did eat, and were filled: and they took up of the broken meat that was left seven baskets. And they that had eaten were about four thousand. And he sent them away. For you: Jesus saw the crowd’s need and gave thanks for what was small — and God made it enough. He still cares for us today."
+    },
     goodSamaritan: {
       title: 'Jesus Tells About Helping Others',
       panels: [
@@ -6450,6 +6492,38 @@
       narration:
         "Jesus Tells About a Pearl Worth Everything — Matthew 13:45–46. Again, the kingdom of heaven is like unto a merchant man, seeking goodly pearls: Who, when he had found one pearl of great price, went and sold all that he had, and bought it. For you: Jesus was teaching that God’s kingdom is so wonderful it is worth giving up everything else to have it — and finding Him is like finding the most beautiful and valuable pearl in the whole world."
     },
+    parableNet: {
+      title: 'Jesus Tells About a Net Full of Fish',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'The kingdom of heaven is like a net cast into the sea — fish of every kind gathered' },
+        { src: 'panel-noah-2.svg', alt: 'When the net was full they drew it to shore — gathered the good into vessels' },
+        { src: 'panel-noah-3.svg', alt: 'So shall it be at the end of the world — the angels sever the wicked from among the just' }
+      ],
+      caption: 'Swipe to hear Jesus teach about a net — God’s kingdom is true and sure. 🎣',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'net',
+        'fish',
+        'sea',
+        'kingdom of heaven',
+        'parable',
+        'matthew 13',
+        'shore',
+        'angels',
+        'end of the world',
+        'jesus'
+      ],
+      kjvRef: 'Matthew 13:47–50',
+      kidContext: {
+        who: 'Jesus',
+        to: 'The people (and us)',
+        apply:
+          'Jesus teaches truly about God’s kingdom. We can listen to Him today and trust the Lord who sees all hearts.'
+      },
+      narration:
+        "Jesus Tells About a Net Full of Fish — Matthew 13:47–50. Again, the kingdom of heaven is like unto a net, that was cast into the sea, and gathered of every kind: Which, when it was full, they drew to shore, and sat down, and gathered the good into vessels, but cast the bad away. So shall it be at the end of the world: the angels shall come forth, and sever the wicked from among the just, And shall cast them into the furnace of fire: there shall be wailing and gnashing of teeth. For you: Jesus spoke plainly that God’s kingdom is real — and one day the Lord will make all things right. Today we can turn to Him with a humble heart and listen to His words."
+    },
     parableVineyardWorkers: {
       title: 'Jesus Tells About the Generous Vineyard Owner',
       panels: [
@@ -9447,7 +9521,7 @@
     var storyKeys = [
       'david', 'noah', 'jesus', 'jonah', 'daniel', 'adamEve', 'cainAbel', 'towerBabel',
       'abrahamIsaac', 'josephCoat', 'josephSold', 'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush', 'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'joshuaAi', 'achan', 'battleOfAi',
-      'samson', 'fieryFurnace', 'esther', 'jesusBirth', 'jesusCalmsStorm', 'jesusFeeds5000',
+      'samson', 'fieryFurnace', 'esther', 'jesusBirth', 'jesusCalmsStorm', 'jesusFeeds5000', 'jesusFeeds4000',
       'goodSamaritan', 'prodigalSon', 'zacchaeus', 'lazarus', 'resurrection', 'creation',
       'fallOfJericho', 'davidSheep', 'elijahFire', 'elishaOil', 'naamanHealed', 'jesusWalksWater',
       'lostSheep', 'lostCoin', 'palmSunday', 'lastSupper', 'jesusTemptation', 'parableSower',
@@ -9478,11 +9552,11 @@
       'jonahVine', 'danielPray', 'estherBanquet',
       /* Week 5 */
       'angelMary', 'shepherdsStar', 'wiseMen', 'simeonAnna', 'jesusManger', 'jesusTemple', 'johnBaptist', 'johnBaptize',
-      'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusSermon', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
+      'jesusBaptism', 'jesusDisciples', 'jesusWaterWine', 'jesusTempted', 'jesusTemptation', 'jesusSermon', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'jesusFeeds4000', 'jesusFirstMiracle', 'jesusCallingDisciples', 'jesusSermonMount',
       'bethesda', 'manBornBlind', 'jesusBlessKids',
       /* Week 6 */
-      'jesusFeeds5000', 'jesusWalksWater',
-      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWickedHusbandmen', 'parableWeddingFeast', 'tributeToCaesar', 'sadduceesResurrection', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
+      'jesusFeeds5000', 'jesusFeeds4000', 'jesusWalksWater',
+      'parableSower', 'jesusParableSower', 'mustardSeed', 'parableMustardSeed', 'jesusParableMustardSeed', 'parableHiddenTreasure', 'parableNet', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWickedHusbandmen', 'parableWeddingFeast', 'tributeToCaesar', 'sadduceesResurrection', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableLostSheep', 'goodSamaritan', 'lostSheep', 'prodigalSon', 'jesusParableGoodShepherd',
       'mustardSeed', 'tenLepers', 'jairus', 'transfigure', 'judasKiss',
       /* Week 7 */
       'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'jesusLastSupper', 'jesusGardenGethsemane', 'jesusArrest', 'trialBeforeCaiaphas', 'peterDenial', 'trial', 'crossCarry', 'jesusCrucifixion', 'crucifixion',
@@ -9501,7 +9575,7 @@
       'maryMagdalene', 'lydiaSell', 'priscillaTeach', 'ruthMoab', 'estherFast',
       'sarahPromise', 'miriamSong',
       /* Week 11 */
-      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWickedHusbandmen', 'parableWeddingFeast', 'tributeToCaesar', 'sadduceesResurrection', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableLostSheep', 'prodigalSon', 'maryMartha',
+      'annaProphet', 'widowOil', 'persistentWidow', 'samaritanWoman', 'noblemanSon', 'centurionServant', 'jesusHealsParalytic', 'jesusCalmsStorm', 'witheredHand', 'jairus', 'jesusWalksWater', 'jesusFeeds5000', 'jesusFeeds4000', 'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parableNet', 'parablePearl', 'parableVineyardWorkers', 'parableTwoSons', 'parableWickedHusbandmen', 'parableWeddingFeast', 'tributeToCaesar', 'sadduceesResurrection', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableLostSheep', 'prodigalSon', 'maryMartha',
       'dorcasRaise', 'phoebeDeacon', 'juniaApostle', 'loisTimothy',
       'euniceMother', 'priscillaTent',
       /* Week 12 */
@@ -9768,6 +9842,9 @@
     }
     if (/calm.*storm|storm.*calm|boat|waves|matthew 14:27|mark 4/.test(low)) {
       return { type: 'carousel', story: 'jesusCalmsStorm' };
+    }
+    if (/feeds 4000|4000|four thousand|seven baskets|seven loaves|mark 8:8|mark 8:9|matthew 15:38/.test(low)) {
+      return { type: 'carousel', story: 'jesusFeeds4000' };
     }
     if (/feeds 5000|5000|five thousand|loaves|fish.*bread|matthew 14:19|john 6/.test(low)) {
       return { type: 'carousel', story: 'jesusFeeds5000' };
@@ -12733,11 +12810,11 @@
     david: 'Protection', noah: 'Obedience', jesus: 'Love', jonah: 'Obedience', daniel: 'Miracles',
     adamEve: 'Protection', cainAbel: 'Obedience', towerBabel: 'Obedience', abrahamIsaac: 'Obedience', josephCoat: 'Protection', josephSold: 'Protection',
     mosesBush: 'Protection', redSea: 'Miracles', manna: 'Miracles', tenCommandments: 'Obedience', goldenCalf: 'Obedience', bronzeSerpent: 'Miracles', tabernacle: 'Love', spiesInCanaan: 'Obedience', jordanCrossing: 'Miracles', battleOfAi: 'Obedience', balaakCurse: 'Obedience', balaamDonkey: 'Obedience', balaamBlessing: 'Miracles', samson: 'Protection',
-    fieryFurnace: 'Miracles', esther: 'Protection', jesusBirth: 'Love', jesusCalmsStorm: 'Miracles', jesusFeeds5000: 'Miracles',
+    fieryFurnace: 'Miracles', esther: 'Protection', jesusBirth: 'Love', jesusCalmsStorm: 'Miracles', jesusFeeds5000: 'Miracles', jesusFeeds4000: 'Miracles',
     goodSamaritan: 'Love', prodigalSon: 'Love', zacchaeus: 'Love', lazarus: 'Miracles', resurrection: 'Miracles',
     creation: 'Obedience', fallOfJericho: 'Obedience', davidSheep: 'Love', elijahFire: 'Miracles', elishaOil: 'Miracles',
     naamanHealed: 'Obedience', jesusWalksWater: 'Miracles', lostSheep: 'Love', lostCoin: 'Love', palmSunday: 'Protection', lastSupper: 'Love',
-    jesusTemptation: 'Obedience', parableSower: 'Protection', parableHiddenTreasure: 'Love', parablePearl: 'Love', parableLostSheep: 'Love', parableVineyardWorkers: 'Love', parableTwoSons: 'Obedience', parableWeddingFeast: 'Love', parableTalents: 'Obedience', tenVirgins: 'Obedience', sheepAndGoats: 'Love', jesusCleansesTemple: 'Obedience', greatestCommandment: 'Love', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
+    jesusTemptation: 'Obedience', parableSower: 'Protection', parableHiddenTreasure: 'Love', parableNet: 'Love', parablePearl: 'Love', parableLostSheep: 'Love', parableVineyardWorkers: 'Love', parableTwoSons: 'Obedience', parableWeddingFeast: 'Love', parableTalents: 'Obedience', tenVirgins: 'Obedience', sheepAndGoats: 'Love', jesusCleansesTemple: 'Obedience', greatestCommandment: 'Love', richYoungRuler: 'Obedience', widowsMite: 'Love', gardenPrayer: 'Protection',
     betrayal: 'Protection', trial: 'Protection', crucifixion: 'Love', roadToEmmaus: 'Love', ascension: 'Protection',
     pentecost: 'Miracles', stephen: 'Protection', paulDamascus: 'Protection', heavenPromise: 'Protection',
     ruthBoaz: 'Love', ruthThreshing: 'Love', ruthRedemption: 'Love', armorOfGod: 'Obedience',

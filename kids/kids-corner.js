@@ -156,10 +156,12 @@
       jairus: 'jairus',
       jesusWalksWater: 'jesusWalksWater',
       jesusFeeds5000: 'jesusFeeds5000',
+      jesusFeeds4000: 'jesusFeeds4000',
       parableSower: 'parableSower',
       mustardSeed: 'mustardSeed',
       parableMustardSeed: 'mustardSeed',
       parableHiddenTreasure: 'parableHiddenTreasure',
+      parableNet: 'parableNet',
       parablePearl: 'parablePearl',
       lostSheep: 'parableLostSheep',
       parableLostSheep: 'parableLostSheep',
@@ -241,9 +243,11 @@
     if (low.indexOf('jairus') >= 0 || low === 'jairus') return 'jairus';
     if (low.indexOf('jesuswalkswater') >= 0 || low === 'jesuswalkswater') return 'jesusWalksWater';
     if (low.indexOf('jesusfeeds5000') >= 0 || low === 'jesusfeeds5000') return 'jesusFeeds5000';
+    if (low.indexOf('jesusfeeds4000') >= 0 || low === 'jesusfeeds4000') return 'jesusFeeds4000';
     if (low.indexOf('parablesower') >= 0 || low === 'parablesower') return 'parableSower';
     if (low.indexOf('parablemustardseed') >= 0 || low === 'parablemustardseed') return 'parableMustardSeed';
     if (low.indexOf('parablehiddentreasure') >= 0 || low === 'parablehiddentreasure') return 'parableHiddenTreasure';
+    if (low.indexOf('parablenet') >= 0 || low === 'parablenet') return 'parableNet';
     if (low.indexOf('parablepearl') >= 0 || low === 'parablepearl') return 'parablePearl';
     if (low.indexOf('parablelostsheep') >= 0 || low === 'parablelostsheep') return 'parableLostSheep';
     if (low.indexOf('prodigal') >= 0 || low === 'prodigalson') return 'prodigalSon';
@@ -761,6 +765,34 @@
         '<circle cx="292" cy="236" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
         '<circle cx="308" cy="232" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
         '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 14:13–21</text>'
+      ),
+
+      /* Loaves again — seven loaves, great multitude (Mark 8:1–9) */
+      jesusFeeds4000: svg(
+        ground() +
+        hills() +
+        sun(348, 48, 20) +
+        cloud(40, 38) +
+        '<ellipse cx="200" cy="248" rx="168" ry="22" ' + sf + ' fill="white" stroke-width="2.2" opacity="0.95"/>' +
+        '<path d="M52 248 Q120 238 200 242 Q280 238 348 248" ' + s + ' stroke-width="1.4" opacity="0.4"/>' +
+        person(168, 168, 11, 32) +
+        '<line x1="168" y1="200" x2="168" y2="232" ' + s + ' stroke-width="2.2"/>' +
+        '<line x1="156" y1="218" x2="180" y2="218" ' + s + ' stroke-width="2"/>' +
+        '<ellipse cx="200" cy="228" rx="34" ry="9" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<ellipse cx="188" cy="218" rx="8" ry="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="200" cy="216" rx="8" ry="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="212" cy="218" rx="8" ry="4" ' + sf + ' fill="white" stroke-width="1.8"/>' +
+        '<ellipse cx="194" cy="224" rx="7" ry="3.5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<ellipse cx="206" cy="224" rx="7" ry="3.5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<path d="M178 212 Q188 200 200 205 Q212 200 222 212" ' + s + ' stroke-width="1.8"/>' +
+        person(118, 188, 8, 22) +
+        '<circle cx="92" cy="232" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="108" cy="236" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="124" cy="234" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="276" cy="234" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="292" cy="236" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<circle cx="308" cy="232" r="5" ' + sf + ' fill="white" stroke-width="1.6"/>' +
+        '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Mark 8:1–9</text>'
       ),
 
       /* Week 6 gentle: Parable of the sower — farmer, path, rocks, thorns, good soil (Matthew 13:1–23) */
@@ -3242,6 +3274,29 @@
         '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 13:45–46</text>'
       ),
 
+      /* Week 6 gentle: Net cast into the sea — shore, fish, gentle boat (Matthew 13:47–50) */
+      parableNet: svg(
+        ground() +
+        hills() +
+        sun(52, 44, 20) +
+        cloud(300, 34) +
+        '<path d="M40 248 Q200 228 360 248 L360 292 L40 292 Z" ' + sf + ' fill="white" stroke-width="2" opacity="0.92"/>' +
+        '<path d="M48 248 Q200 218 352 248" ' + s + ' stroke-width="1.6" opacity="0.45"/>' +
+        '<ellipse cx="200" cy="258" rx="120" ry="28" ' + sf + ' fill="white" stroke-width="2.2"/>' +
+        '<path d="M88 258 Q120 232 160 242 Q200 248 240 242 Q280 232 312 258" ' + s + ' stroke-width="1.8" opacity="0.7"/>' +
+        '<ellipse cx="128" cy="252" rx="8" ry="5" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<ellipse cx="168" cy="254" rx="8" ry="5" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<ellipse cx="200" cy="256" rx="9" ry="5" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<ellipse cx="232" cy="254" rx="8" ry="5" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<ellipse cx="272" cy="252" rx="8" ry="5" ' + sf + ' fill="white" stroke-width="1.4"/>' +
+        '<path d="M268 200 L312 218 L268 236 Z" ' + sf + ' fill="white" stroke-width="2"/>' +
+        '<line x1="268" y1="218" x2="248" y2="248" ' + s + ' stroke-width="2"/>' +
+        person(200, 148, 11, 30) +
+        '<line x1="200" y1="178" x2="182" y2="168" ' + s + ' stroke-width="2"/>' +
+        '<line x1="200" y1="178" x2="218" y2="168" ' + s + ' stroke-width="2"/>' +
+        '<text x="200" y="288" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Matt 13:47–50</text>'
+      ),
+
       /* Matthew 20:1–16 — generous vineyard owner, workers, pennies */
       parableVineyardWorkers: svg(
         ground() +
@@ -5465,10 +5520,12 @@
     jairus: 'jairus',
     jesusWalksWater: 'jesusWalksWater',
     jesusFeeds5000: 'jesusFeeds5000',
+    jesusFeeds4000: 'jesusFeeds4000',
     parableSower: 'parableSower',
     mustardSeed: 'mustardSeed',
     parableMustardSeed: 'mustardSeed',
     parableHiddenTreasure: 'parableHiddenTreasure',
+    parableNet: 'parableNet',
     parablePearl: 'parablePearl',
     parableVineyardWorkers: 'parableVineyardWorkers',
     parableTwoSons: 'parableTwoSons',
@@ -5665,6 +5722,7 @@
     jairus: 'jairus',
     jesusWalksWater: 'jesusWalksWater',
     jesusFeeds5000: 'jesusFeeds5000',
+    jesusFeeds4000: 'jesusFeeds4000',
     maryMartha: 'maryMarthaVisit',
     marthaServe: 'maryMarthaVisit',
     marySit: 'maryMarthaVisit',
@@ -7254,8 +7312,8 @@
         'josephDreams', 'josephPrison', 'pharaohDreams', 'josephRuler', 'mosesBaby', 'mosesBush',
         'redSea', 'manna', 'tenCommandments', 'goldenCalf', 'spiesInCanaan', 'balaakCurse', 'balaamBlessing', 'balaamDonkey', 'jordanCrossing', 'jerichoWalls', 'rahab', 'joshuaAi', 'achan', 'battleOfAi', 'sunStandsStill', 'joshuaCharge', 'deborahBarak', 'gideonFleece', 'gideonMidianites', 'samsonBirth', 'samsonLion', 'samsonDelilah', 'samson', 'fallOfJericho', 'ruthNaomi', 'ruthBoaz', 'ruthThreshing', 'ruthRedemption',         'hannahPrayer', 'samuelBirth', 'samuelCalls', 'davidAnointed', 'davidGoliath', 'davidHarp', 'davidJonathan', 'davidCave', 'davidAbigail', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers', 'solomonTemple', 'elijahRavens', 'elijahWidow', 'elijahHoreb', 'elijahElijahElisha',
         'davidSheep', 'david', 'elijahFire', 'elishaMiracles', 'elishaOil', 'elishaPoisonStew', 'elishaChariots', 'elishaBlindArmy', 'elishaFloatingAxe', 'naamanHealed', 'naamanDip', 'elishaShunammite', 'gehaziGreed', 'widowOil', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'samson', 'esther', 'daniel', 'fieryFurnace',
-        'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000',
-        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'widowMite', 'widowsMite', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'zacchaeus', 'jesusParableGoodShepherd',
+        'jesusBirth', 'jesus', 'jesusTemptation', 'jesusCalmsStorm', 'jesusWalksWater', 'jesusFeeds5000', 'jesusFeeds4000',
+        'parableSower', 'mustardSeed', 'parableMustardSeed', 'parableHiddenTreasure', 'parableNet', 'parablePearl', 'parableLostSheep', 'goodSamaritan', 'maryMartha', 'bethesda', 'manBornBlind', 'tenLepers', 'lostSheep', 'prodigalSon', 'unforgivingServant', 'richYoungRuler', 'parableVineyardWorkers', 'parableTwoSons', 'parableWeddingFeast', 'parableTalents', 'tenVirgins', 'sheepAndGoats', 'widowMite', 'widowsMite', 'jesusCleansesTemple', 'greatestCommandment', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'zacchaeus', 'jesusParableGoodShepherd',
         'lazarus', 'palmSunday', 'triumphalEntry', 'jesusWeepsJerusalem', 'figTree', 'jesusAuthority', 'parableWickedHusbandmen', 'tributeToCaesar', 'sadduceesResurrection', 'lastSupper', 'gardenPrayer', 'jesusArrest', 'trialBeforeCaiaphas', 'peterDenial', 'betrayal', 'trial', 'crossCarry', 'crucifixion', 'tombEmpty',
         'jesusResurrection', 'resurrection', 'roadToEmmaus', 'ascension',         'pentecost', 'stephen', 'paulDamascus',
         'armorOfGod', 'heavenPromise', 'jonah'

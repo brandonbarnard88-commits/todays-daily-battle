@@ -164,6 +164,30 @@ function main() {
   );
 
   fs.writeFileSync(distIndex, html, 'utf8');
+
+  // Match preloads in index.html + verse.html — must exist on origin before SW install or 404 in console.
+  const distDir = path.join(root, 'dist');
+  const verseJson = (verse, dayOfYear) =>
+    JSON.stringify(
+      {
+        ref: String(verse.ref).trim(),
+        text: String(verse.text).trim(),
+        dayOfYear,
+        source: 'hero-daily-365',
+      },
+      null,
+      0
+    ) + '\n';
+  const yDate = new Date();
+  yDate.setUTCDate(yDate.getUTCDate() - 1);
+  const vYesterday = pickVerseForToday(year365, yDate);
+  fs.writeFileSync(path.join(distDir, 'today-kjv-verse.json'), verseJson(v, utcDayOfYear()), 'utf8');
+  fs.writeFileSync(
+    path.join(distDir, 'yesterday-kjv-verse.json'),
+    verseJson(vYesterday, utcDayOfYear(yDate)),
+    'utf8'
+  );
+
   console.log('inject-home-hero: OK —', refPlain, '(UTC doy', utcDayOfYear() + ')');
 }
 

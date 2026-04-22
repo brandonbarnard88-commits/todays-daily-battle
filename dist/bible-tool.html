@@ -91,7 +91,6 @@
     .bible-tool .verse-ref { font-weight: 600; }
     .bible-tool .lookup-controls select:focus, .bible-tool .lookup-controls input:focus { outline: 2px solid rgba(167, 139, 250, 0.6); outline-offset: 2px; }
     .bible-tool #lookup-result { scroll-margin-top: 1rem; }
-    .bible-tool #ask-the-word-section { scroll-margin-top: 5rem; }
     .bible-tool .plan-progress-bar { height: 8px; background: rgba(148,163,184,0.2); border-radius: 4px; overflow: hidden; margin: 0.5rem 0; }
     .bible-tool .plan-progress-fill { height: 100%; background: linear-gradient(90deg, #6d28d9, #d4af37); border-radius: 4px; transition: width 0.3s ease; }
     .bible-tool .plan-day-badge { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 6px; background: rgba(212,175,55,0.2); color: #d4af37; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; }
@@ -473,9 +472,6 @@
       color: #e3bc67;
       letter-spacing: 0.02em;
     }
-    #bible-tool-hub {
-      scroll-margin-top: 5.5rem;
-    }
     .bible-tool-mini-hub {
       display: flex;
       flex-wrap: wrap;
@@ -515,6 +511,107 @@
     .bible-tool-mini-hub-sep {
       color: rgba(148, 163, 184, 0.55);
       user-select: none;
+    }
+    /* Wide viewports: calm “On this page” map — long page; desktop scanning only. */
+    .bible-tool-onpage-nav { display: none; }
+    @media (min-width: 1100px) {
+      .bible-tool-onpage-nav {
+        display: block;
+        position: sticky;
+        top: 3.25rem;
+        z-index: 8;
+        margin: 0.25rem 0 1.2rem;
+        padding: 0.5rem 0.75rem 0.6rem;
+        border-radius: 14px;
+        background: rgba(6, 9, 14, 0.82);
+        border: 1px solid rgba(227, 188, 103, 0.2);
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+        backdrop-filter: blur(10px);
+        text-align: left;
+      }
+      .bible-tool-onpage-nav__label {
+        margin: 0 0 0.4rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(227, 188, 103, 0.65);
+      }
+      .bible-tool-onpage-nav__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem 0.55rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+      }
+      .bible-tool-onpage-nav__list a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 0.25rem 0.65rem;
+        border-radius: 999px;
+        font-size: 0.86rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: rgba(226, 232, 240, 0.92);
+        border: 1px solid rgba(227, 188, 103, 0.22);
+        background: rgba(12, 16, 26, 0.55);
+      }
+      .bible-tool-onpage-nav__list a:hover,
+      .bible-tool-onpage-nav__list a:focus-visible {
+        border-color: rgba(227, 188, 103, 0.45);
+        color: #c9a84c;
+        outline: 2px solid rgba(227, 188, 103, 0.45);
+        outline-offset: 2px;
+      }
+    }
+    html[data-theme="light"] .bible-tool-onpage-nav {
+      background: rgba(255, 253, 247, 0.94);
+      border-color: rgba(201, 162, 39, 0.28);
+      box-shadow: 0 8px 24px rgba(64, 41, 8, 0.1);
+    }
+    html[data-theme="light"] .bible-tool-onpage-nav__label {
+      color: rgba(120, 90, 30, 0.75);
+    }
+    html[data-theme="light"] .bible-tool-onpage-nav__list a {
+      color: #1e293b;
+      border-color: rgba(201, 162, 39, 0.35);
+      background: rgba(255, 255, 255, 0.88);
+    }
+    html[data-theme="light"] .bible-tool-onpage-nav__list a:hover,
+    html[data-theme="light"] .bible-tool-onpage-nav__list a:focus-visible {
+      color: #0f172a;
+      border-color: rgba(201, 162, 39, 0.55);
+    }
+    .bible-tool #bible-tool-overview,
+    .bible-tool #bible-tool-hub,
+    .bible-tool #search-hero,
+    .bible-tool #ask-the-word-section,
+    .bible-tool #bible-tool-verse-mode-section,
+    .bible-tool #bible-story-tool-section,
+    .bible-tool #bible-tool-todays-verse,
+    .bible-tool #bible-tool-lookup-section {
+      scroll-margin-top: 5rem;
+    }
+    @media (min-width: 1100px) {
+      .bible-tool #bible-tool-overview,
+      .bible-tool #bible-tool-hub,
+      .bible-tool #search-hero,
+      .bible-tool #ask-the-word-section,
+      .bible-tool #bible-tool-verse-mode-section,
+      .bible-tool #bible-story-tool-section,
+      .bible-tool #bible-tool-todays-verse,
+      .bible-tool #bible-tool-lookup-section {
+        scroll-margin-top: 7.5rem;
+      }
+    }
+    @media (min-width: 1100px) and (prefers-reduced-motion: reduce) {
+      .bible-tool-onpage-nav {
+        position: static;
+        margin-bottom: 1.1rem;
+      }
     }
   </style>
 </head>
@@ -614,7 +711,7 @@
 
     <main class="app-content tdb-quiet-container" id="main-content">
       <div class="content-inner bible-tool">
-        <header class="bible-tool-hero bible-tool-hero--soar-dawn" aria-labelledby="bible-tool-hero-heading">
+        <header class="bible-tool-hero bible-tool-hero--soar-dawn" id="bible-tool-overview" tabindex="-1" aria-labelledby="bible-tool-hero-heading">
         <h1 class="section-divider" id="bible-tool-hero-heading"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/></svg>Bible Tool</h1>
         <p class="section-note">Look up any verse, take notes, track your reading — KJV, no account needed. Sign in to sync across devices.</p>
         <p class="tdb-trust-return">Notes and lookups stay on this device unless you sign in to sync. Still here when the signal isn&rsquo;t.</p>
@@ -633,6 +730,20 @@
           <p class="bible-tool-workshop-strip-inner"><span class="bible-tool-workshop-strip-label">Study workshop</span> — Book intros, the full KJV word-help index, verse memory, maps, and concordance live in one shelf: <a class="bible-tool-gold-link" href="bible/tools.html">Bible Hub → Tools</a>. This page stays focused on search, lookup, stories, and notes.</p>
         </div>
         </header>
+
+        <nav class="bible-tool-onpage-nav" aria-label="On this page">
+          <p class="bible-tool-onpage-nav__label" id="bible-tool-onpage-toc-label">On this page</p>
+          <ul class="bible-tool-onpage-nav__list" aria-labelledby="bible-tool-onpage-toc-label">
+            <li><a href="#bible-tool-overview">Overview</a></li>
+            <li><a href="#bible-tool-hub">Hub links</a></li>
+            <li><a href="#search-hero">Search &amp; topics</a></li>
+            <li><a href="#ask-the-word-section">Ask the Word</a></li>
+            <li><a href="#bible-tool-verse-mode-section">Verse mode</a></li>
+            <li><a href="#bible-story-tool-section">Bible stories</a></li>
+            <li><a href="#bible-tool-todays-verse">Today&rsquo;s verse</a></li>
+            <li><a href="#bible-tool-lookup-section">Look up</a></li>
+          </ul>
+        </nav>
 
         <p class="section-note tdb-kjv-dict-hint util-mb-0_75" role="note">Tap any underlined KJV word for a short, plain meaning.</p>
 
@@ -701,7 +812,7 @@
         </section>
         <script src="ask-the-word.js?v=20260325clean" defer></script>
 
-        <section class="verse-card glass" aria-label="Verse mode">
+        <section class="verse-card glass" id="bible-tool-verse-mode-section" aria-label="Verse mode">
           <h2 class="section-divider util-mt-0"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>Verse Mode</h2>
           <div class="lookup-controls">
             <label for="bible-tool-verse-mode" class="section-note">Pick mode</label>
@@ -751,7 +862,7 @@
         </section>
 
         <!-- Daily verse -->
-        <section class="verse-card glass border-accent" aria-label="Today's verse">
+        <section class="verse-card glass border-accent" id="bible-tool-todays-verse" aria-label="Today's verse">
           <p class="section-note util-mb-0_5">Today's verse</p>
           <p class="daily-ref" id="daily-ref">Philippians 4:6</p>
           <p id="daily-text" aria-live="polite">Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.</p>
@@ -763,7 +874,7 @@
         </section>
 
         <!-- Verse lookup -->
-        <section class="verse-card glass" aria-label="Look up a verse">
+        <section class="verse-card glass" id="bible-tool-lookup-section" aria-label="Look up a verse">
           <h2 class="section-divider util-mt-0"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Look up a verse</h2>
           <p class="section-note util-mb-0_5">Type in the header search bar, or pick book, chapter, and verse below.</p>
           <fieldset style="border:none;padding:0;margin:0;">

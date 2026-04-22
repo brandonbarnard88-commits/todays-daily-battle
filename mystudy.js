@@ -4,6 +4,11 @@
   var STUDY_KEY = 'tdb_my_study_v1';
   var SHARED_KEY = 'tdb_shared_studies_v1';
   var PREFIX = 'TDBMS1-';
+  var STREAK_LS_KEY = 'dailyBattleStreak';
+  var MEM_LS_KEY = 'tdb_memorize_lite_v1';
+  var META_LS_KEY = 'tdb_study_notes_meta_v1';
+  var BACKUP_LAST_MS_KEY = 'tdb_mystudy_last_backup_ms';
+  var BACKUP_SNOOZE_UNTIL_KEY = 'tdb_mystudy_backup_snooze_until_ms';
   var kjvEntries = [];
 
   function byId(id) { return document.getElementById(id); }
@@ -229,6 +234,196 @@
     return btn;
   }
 
+  function isoDay(d) {
+    var y = d.getFullYear();
+    var m = d.getMonth() + 1;
+    var day = d.getDate();
+    return y + '-' + (m < 10 ? '0' : '') + m + '-' + (day < 10 ? '0' : '') + day;
+  }
+
+  function collectActiveDaysSet() {
+    var set = {};
+    function addFromIso(iso) {
+      if (!iso || typeof iso !== 'string') return;
+      var slice = iso.slice(0, 10);
+      if (/^\d{4}-\d{2}-\d{2}$/.test(slice)) set[slice] = true;
+    }
+    try {
+      var st = JSON.parse(localStorage.getItem(STREAK_LS_KEY) || '{}');
+      var dates = Array.isArray(st.dates) ? st.dates : [];
+      var i;
+      for (i = 0; i < dates.length; i++) addFromIso(dates[i]);
+    } catch (e) {}
+    try {
+      var mem = JSON.parse(localStorage.getItem(MEM_LS_KEY) || '{}');
+      var refs = mem && mem.refs ? mem.refs : {};
+      var k;
+      for (k in refs) {
+        if (!refs.hasOwnProperty(k)) continue;
+        var lr = refs[k] && refs[k].lastReviewed;
+        if (lr) addFromIso(lr);
+      }
+    } catch (e2) {}
+    try {
+      var meta = JSON.parse(localStorage.getItem(META_LS_KEY) || '{}');
+      var ref;
+      for (ref in meta) {
+        if (!meta.hasOwnProperty(ref)) continue;
+        var u = meta[ref] && meta[ref].updated;
+        if (u) addFromIso(u);
+      }
+    } catch (e3) {}
+    return set;
+  }
+
+  function renderActivityCalendar() {
+    var section = byId('mystudy-activity-calendar');
+    var grid = byId('mystudy-activity-cal-grid');
+    if (!section || !grid) return;
+    clearNode(grid);
+    var prevFoot = section.querySelector('.mystudy-cal-foot');
+    if (prevFoot) prevFoot.remove();
+    var now = new Date();
+    var y = now.getFullYear();
+    var mo = now.getMonth();
+    var active = collectActiveDaysSet();
+    var monthKeys = Object.keys(active).filter(function (k) {
+      return k.slice(0, 7) === y + '-' + (mo + 1 < 10 ? '0' : '') + (mo + 1);
+    });
+    section.removeAttribute('hidden');
+    var weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    var row = document.createElement('div');
+    row.className = 'mystudy-cal-row mystudy-cal-row--head';
+    var c;
+    for (c = 0; c < 7; c++) {
+      var h = document.createElement('div');
+      h.className = 'mystudy-cal-cell mystudy-cal-cell--head';
+      h.textContent = weekdays[c];
+      row.appendChild(h);
+    }
+    grid.appendChild(row);
+    var first = new Date(y, mo, 1);
+    var startPad = (first.getDay() + 6) % 7;
+    var daysInMonth = new Date(y, mo + 1, 0).getDate();
+    var cells = [];
+    var i;
+    for (i = 0; i < startPad; i++) {
+      cells.push(null);
+    }
+    for (i = 1; i <= daysInMonth; i++) {
+      cells.push(i);
+    }
+    while (cells.length % 7 !== 0) {
+      cells.push(null);
+    }
+    var r;
+    for (r = 0; r < cells.length / 7; r++) {
+      var prow = document.createElement('div');
+      prow.className = 'mystudy-cal-row';
+      var col;
+      for (col = 0; col < 7; col++) {
+        var dayNum = cells[r * 7 + col];
+        var cell = document.createElement('div');
+        cell.className = 'mystudy-cal-cell';
+        if (dayNum == null) {
+          cell.classList.add('mystudy-cal-cell--empty');
+        } else {
+          var key = y + '-' + (mo + 1 < 10 ? '0' : '') + (mo + 1) + '-' + (dayNum < 10 ? '0' : '') + dayNum;
+          cell.textContent = String(dayNum);
+          if (active[key]) cell.classList.add('mystudy-cal-cell--active');
+          if (key === isoDay(now)) cell.classList.add('mystudy-cal-cell--today');
+        }
+        prow.appendChild(cell);
+      }
+      grid.appendChild(prow);
+    }
+    var note = document.createElement('p');
+    note.className = 'section-note mystudy-cal-foot';
+    note.textContent =
+      monthKeys.length === 0
+        ? 'No marks this month yet — that is okay. When you pray through a day on Home, refresh a verse note, or review memorize, gentle dots can appear here.'
+        : monthKeys.length +
+          ' day' +
+          (monthKeys.length === 1 ? '' : 's') +
+          ' with a quiet touch this month. Download JSON backup anytime in Saved & notes.';
+    section.appendChild(note);
+  }
+
+  function userHasStudyWorthBacking() {
+    var comp = window.TDBStudyCompanion;
+    if (comp && typeof comp.getDashboardStats === 'function') {
+      var s = comp.getDashboardStats();
+      if (s.versesWithNotes > 0 || s.memorizeVerses > 0 || s.readingPlanCheckmarks > 0 || s.chaptersVisitedThisMonth > 0) {
+        return true;
+      }
+    }
+    try {
+      var st = loadStudy();
+      if ((st.notes && String(st.notes).trim()) || (st.prayer && String(st.prayer).trim()) || (st.verseRef && String(st.verseRef).trim())) {
+        return true;
+      }
+    } catch (e) {}
+    try {
+      var raw = localStorage.getItem('tdb_my_saved_verses_v1');
+      var arr = raw ? JSON.parse(raw) : [];
+      if (Array.isArray(arr) && arr.length > 0) return true;
+    } catch (e2) {}
+    return Object.keys(collectActiveDaysSet()).length > 0;
+  }
+
+  function maybeRenderBackupNudge() {
+    var el = byId('mystudy-backup-nudge');
+    if (!el) return;
+    el.textContent = '';
+    el.classList.add('hidden');
+    if (!userHasStudyWorthBacking()) return;
+    var snoozeUntil = 0;
+    var lastMs = 0;
+    try {
+      snoozeUntil = parseInt(localStorage.getItem(BACKUP_SNOOZE_UNTIL_KEY) || '0', 10) || 0;
+      lastMs = parseInt(localStorage.getItem(BACKUP_LAST_MS_KEY) || '0', 10) || 0;
+    } catch (e) {}
+    var now = Date.now();
+    if (now < snoozeUntil) return;
+    var stale = !lastMs || now - lastMs > 21 * 86400000;
+    if (!stale) return;
+    el.classList.remove('hidden');
+    var p = document.createElement('p');
+    p.className = 'mystudy-backup-nudge-copy';
+    p.appendChild(
+      document.createTextNode(
+        'Your notes and verses matter. If you have not downloaded a JSON backup lately, one tap in Saved & notes keeps a copy you can restore later.'
+      )
+    );
+    var go = document.createElement('button');
+    go.type = 'button';
+    go.className = 'btn btn-secondary mystudy-backup-nudge-btn';
+    go.textContent = 'Open backup buttons';
+    go.addEventListener('click', function () {
+      setTab('library');
+    });
+    var sn = document.createElement('button');
+    sn.type = 'button';
+    sn.className = 'btn btn-secondary mystudy-backup-nudge-btn';
+    sn.textContent = 'Remind me in a week';
+    sn.addEventListener('click', function () {
+      try {
+        localStorage.setItem(BACKUP_SNOOZE_UNTIL_KEY, String(Date.now() + 7 * 86400000));
+      } catch (e2) {}
+      el.classList.add('hidden');
+    });
+    el.appendChild(p);
+    el.appendChild(go);
+    el.appendChild(sn);
+  }
+
+  function recordBackupExported() {
+    try {
+      localStorage.setItem(BACKUP_LAST_MS_KEY, String(Date.now()));
+    } catch (e) {}
+    maybeRenderBackupNudge();
+  }
+
   function renderProgressSummary() {
     var el = byId('mystudy-progress-summary');
     if (!el) return;
@@ -240,6 +435,8 @@
       err.textContent = 'Study tools did not load. Refresh the page.';
       el.appendChild(err);
       renderStreakBadges();
+      renderActivityCalendar();
+      maybeRenderBackupNudge();
       return;
     }
     var s = comp.getDashboardStats();
@@ -326,6 +523,8 @@
       );
       el.appendChild(p);
       renderStreakBadges();
+      renderActivityCalendar();
+      maybeRenderBackupNudge();
       return;
     }
     lines.forEach(function (line) {
@@ -335,6 +534,8 @@
       el.appendChild(lineEl);
     });
     renderStreakBadges();
+    renderActivityCalendar();
+    maybeRenderBackupNudge();
   }
 
   function renderStreakBadges() {
@@ -909,6 +1110,7 @@
     byId('mystudy-export-json')?.addEventListener('click', function () {
       if (!window.TDBStudyCompanion || typeof window.TDBStudyCompanion.downloadStudyLocalBackup !== 'function') return;
       window.TDBStudyCompanion.downloadStudyLocalBackup();
+      recordBackupExported();
       var backupStatus = byId('mystudy-backup-status');
       if (backupStatus) backupStatus.textContent = 'Backup download started for this device.';
     });
@@ -1058,49 +1260,8 @@
     }
 
     updateMemorizePill();
-    renderMyStudyProgressSummary(); // gentle local-only year summary — serene, no scores
     window.addEventListener('load', renderStreakBadges, { once: true });
     window.addEventListener('tdb-streak-badges-updated', renderStreakBadges);
-  }
-
-  /** Gentle local-only progress summary — no streaks, no gamification. Pure encouragement. */
-  function renderMyStudyProgressSummary() {
-    var container = byId('mystudy-progress-summary');
-    if (!container) return;
-
-    var plansCompleted = 0;
-    var topVerses = [];
-
-    try {
-      // Count completed plans from localStorage (existing key pattern)
-      var planKeys = Object.keys(localStorage).filter(k => k.startsWith('plan_progress_') || k.includes('battle_plan'));
-      plansCompleted = Math.min(12, Math.floor(planKeys.length * 0.7)); // realistic gentle number
-
-      // Pull a few recent saved verses for the "helped most" list
-      var saved = [];
-      try {
-        var rawSaved = localStorage.getItem('tdb_my_saved_verses_v1') || '[]';
-        saved = JSON.parse(rawSaved);
-      } catch (_) {}
-      if (Array.isArray(saved) && saved.length > 0) {
-        topVerses = saved.slice(0, 3).map(v => v.ref || v.verseRef || 'Psalm 23:4');
-      }
-      if (topVerses.length === 0) topVerses = ['Isaiah 40:31', 'Psalm 23:4', 'Philippians 4:6-7'];
-    } catch (e) {}
-
-    var html = `
-      <div class="mystudy-progress-card">
-        <p class="mystudy-progress-lead">This year you have walked through <strong>${plansCompleted}</strong> plans on this device.</p>
-        <p class="section-note">Here are verses that helped most:</p>
-        <ul class="mystudy-progress-verses">
-          ${topVerses.map(v => `<li><a href="/?q=${encodeURIComponent(v)}" class="mystudy-progress-verse">${v}</a></li>`).join('')}
-        </ul>
-        <p class="section-note mystudy-progress-foot">Small steps. Steady ground. He is with you in every one.</p>
-      </div>
-    `;
-
-    container.innerHTML = html;
-    container.classList.add('mystudy-progress-summary--visible');
   }
 
   if (document.readyState === 'loading') {

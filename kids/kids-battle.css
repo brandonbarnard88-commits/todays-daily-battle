@@ -3417,6 +3417,24 @@
   margin-bottom: 1rem;
 }
 
+.kids-prayer-print-preview-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.75rem;
+}
+
+.kids-prayer-slips-sheet--print-preview .kids-prayer-slip {
+  background: #fffef9;
+  border: 2px dashed #6b7280;
+  color: #111;
+}
+
+.kids-prayer-slips-sheet--print-preview .kids-prayer-slip-blank {
+  border-bottom-color: #374151;
+}
+
 .kids-prayer-print-only-brand {
   display: none;
 }
@@ -3490,6 +3508,7 @@
 
   .kids-prayer-activities-page .kids-prayer-no-print,
   .kids-prayer-activities-page .kids-footer,
+  .kids-prayer-activities-page .kids-prayer-print-preview-bar,
   .kids-prayer-activities-page .skip-link {
     display: none !important;
   }

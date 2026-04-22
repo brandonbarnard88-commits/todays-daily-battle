@@ -18234,6 +18234,61 @@ main > .card {
   margin-bottom: 0;
 }
 
+.explore-lang-tool-matrix-disclosure {
+  margin-top: 1rem;
+  padding: 0.75rem 0.95rem 0.95rem;
+  border-radius: var(--tdb-surface-radius);
+  border: 1px solid var(--tdb-surface-panel-border);
+  background: color-mix(in srgb, var(--tdb-surface-panel-bg) 92%, transparent);
+}
+
+.explore-lang-tool-matrix-summary {
+  cursor: pointer;
+  font-weight: 650;
+  font-size: 0.92rem;
+  color: var(--gold-soft, #f2dc98);
+}
+
+.explore-lang-tool-matrix-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 0.65rem;
+}
+
+.explore-lang-tool-table {
+  width: 100%;
+  min-width: 36rem;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.explore-lang-tool-table th,
+.explore-lang-tool-table td {
+  border: 1px solid color-mix(in srgb, var(--line, #30363d) 75%, transparent);
+  padding: 0.45rem 0.55rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.explore-lang-tool-table thead th {
+  background: color-mix(in srgb, var(--card, #161b22) 88%, rgba(227, 188, 103, 0.08));
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.explore-lang-tool-table tbody th[scope='row'] {
+  font-weight: 600;
+  white-space: nowrap;
+  background: color-mix(in srgb, var(--card, #161b22) 92%, transparent);
+}
+
+.explore-lang-tool-note {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--muted, #8b949e);
+}
+
 [lang="zh-CN"] .explore-hub-card-title,
 [lang="zh-CN"] .explore-hub-card-desc,
 [lang="ru"] .explore-hub-card-title,

@@ -20,7 +20,7 @@
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css?v=20260418prayerwall2">
-  <link rel="stylesheet" href="kids-battle.css?v=20260331edge">
+  <link rel="stylesheet" href="kids-battle.css?v=20260421print-preview">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
@@ -107,7 +107,11 @@
           <p class="kids-prayer-print-only-brand">Today&rsquo;s Daily Battle · Calm prayer habits — thank-you slips</p>
           <h2 class="kids-section-title" id="print-slips-h">Printable thank-you slips</h2>
           <p class="section-note kids-prayer-print-intro">Cut on the dashed lines. One thank-you per slip. KJV echo (tiny): <cite class="kids-prayer-kjv-tiny">1 Thessalonians 5:18</cite> — in every thing give thanks.</p>
-          <div class="kids-prayer-slips-sheet" aria-label="Six thank-you slips">
+          <div class="kids-prayer-print-preview-bar kids-prayer-no-print">
+            <button type="button" id="kids-prayer-slip-preview-btn" class="btn btn-secondary" aria-pressed="false">Preview print sheet</button>
+            <span class="section-note util-mb-0" id="kids-prayer-slip-preview-hint" hidden>Showing paper-style slips on screen. Print still uses your browser dialog.</span>
+          </div>
+          <div class="kids-prayer-slips-sheet" id="kids-prayer-slips-sheet" aria-label="Six thank-you slips">
             <div class="kids-prayer-slip">
               <span class="kids-prayer-slip-line">Thank You, God, for</span>
               <span class="kids-prayer-slip-blank" aria-hidden="true"></span>
@@ -319,5 +323,19 @@
   <script defer src="/language-switcher.js?v=20260418prayerwall2"></script>
 </footer>
   </div>
+  <script nonce="tdb2025s">
+  (function () {
+    var btn = document.getElementById('kids-prayer-slip-preview-btn');
+    var sheet = document.getElementById('kids-prayer-slips-sheet');
+    var hint = document.getElementById('kids-prayer-slip-preview-hint');
+    if (!btn || !sheet) return;
+    btn.addEventListener('click', function () {
+      var on = sheet.classList.toggle('kids-prayer-slips-sheet--print-preview');
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      btn.textContent = on ? 'Use screen colors' : 'Preview print sheet';
+      if (hint) hint.hidden = !on;
+    });
+  })();
+  </script>
 </body>
 </html>

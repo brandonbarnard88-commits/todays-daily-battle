@@ -1024,6 +1024,8 @@ html[data-theme="light"] .mystudy-streak-badge-figure {
   }
 
   .mystudy-progress-summary,
+  .mystudy-backup-nudge,
+  .mystudy-activity-calendar,
   .mystudy-streak-badges,
   .mystudy-memorize-strip {
     grid-column: 1 / -1;
@@ -1069,4 +1071,105 @@ html[data-theme="light"] .mystudy-streak-badge-figure {
 
 .mystudy-gentle-disclosure .tdb-gentle-band-select {
   background: rgba(15, 23, 42, 0.72);
+}
+
+.mystudy-backup-nudge {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 0.85rem;
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(227, 188, 103, 0.35);
+  background: rgba(227, 188, 103, 0.08);
+  margin-bottom: 0.5rem;
+}
+
+.mystudy-backup-nudge.hidden {
+  display: none;
+}
+
+.mystudy-backup-nudge-copy {
+  margin: 0;
+  flex: 1 1 16rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: rgba(226, 232, 240, 0.92);
+}
+
+.mystudy-backup-nudge-btn {
+  flex-shrink: 0;
+}
+
+.mystudy-activity-calendar {
+  margin: 0.25rem 0 0.75rem;
+  padding: 0.85rem 1rem 1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: rgba(15, 23, 42, 0.35);
+}
+
+.mystudy-cal-heading {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+}
+
+.mystudy-cal-legend {
+  margin: 0 0 0.65rem;
+}
+
+.mystudy-activity-cal-grid {
+  max-width: 22rem;
+}
+
+.mystudy-cal-row {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 3px;
+}
+
+.mystudy-cal-row--head {
+  margin-bottom: 2px;
+}
+
+.mystudy-cal-cell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  border-radius: 6px;
+  background: rgba(30, 41, 59, 0.45);
+  color: rgba(226, 232, 240, 0.75);
+}
+
+.mystudy-cal-cell--head {
+  aspect-ratio: auto;
+  min-height: auto;
+  font-weight: 700;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(227, 188, 103, 0.85);
+  background: transparent;
+}
+
+.mystudy-cal-cell--empty {
+  background: transparent;
+}
+
+.mystudy-cal-cell--active {
+  background: rgba(227, 188, 103, 0.28);
+  color: #f8fafc;
+  font-weight: 700;
+}
+
+.mystudy-cal-cell--today {
+  outline: 2px solid rgba(227, 188, 103, 0.65);
+  outline-offset: 1px;
+}
+
+.mystudy-cal-foot {
+  margin: 0.75rem 0 0;
+  max-width: 28rem;
 }

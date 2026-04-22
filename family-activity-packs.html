@@ -83,6 +83,31 @@
     .fam-print-index ul { list-style: none; padding: 0; margin: 0; }
     .fam-print-index li { margin-bottom: 0.4rem; }
     .fam-print-index a { color: var(--gold-soft); font-weight: 600; }
+    .fam-print-preview-toggle { font: inherit; }
+    .fam-print-preview-note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin: 0.35rem 0 0;
+      max-width: 40rem;
+      line-height: 1.5;
+    }
+    .fam-print-root--preview-on .fam-print-sheet {
+      background: #fffef8;
+      color: #1a1a1a;
+      border: 2px solid #a67c3a;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+    }
+    .fam-print-root--preview-on .fam-print-verse {
+      border: 2px solid #a67c3a;
+      background: #fffef8;
+      color: #1a1a1a;
+    }
+    .fam-print-root--preview-on .fam-print-meta,
+    .fam-print-root--preview-on .fam-print-block p,
+    .fam-print-root--preview-on h1,
+    .fam-print-root--preview-on .fam-print-sheet h2 {
+      color: #1a1a1a;
+    }
     @media print {
       .fam-print-toolbar, .tdb-global-nav, .skip-link { display: none !important; }
       .fam-print-sheet { border: none; background: #fff; color: #111; box-shadow: none; }
@@ -93,6 +118,7 @@
         color: #1a1a1a;
         box-shadow: none;
       }
+      .fam-print-preview-note { display: none !important; }
     }
     @media (prefers-color-scheme: light) {
       @media print {
@@ -148,9 +174,11 @@
     <p class="section-note">Weekly pairing ideas: <a href="plans.html?plan=lordsprayer-kids">Lord&rsquo;s Prayer for Kids</a> for prayer week, <a href="plans.html?plan=beatitudes-kids">Beatitudes for Kids</a> for heart week, <a href="plans.html?plan=sower-kids">Sower for Kids</a> for story week, or <a href="plans.html?plan=summer-seeds">Summer Seeds</a> when you want the lightest rhythm.</p>
     <div class="fam-print-toolbar">
       <button type="button" id="fam-print-btn" class="btn btn-secondary" aria-label="Print this sheet">Print this sheet</button>
+      <button type="button" id="fam-print-preview-toggle" class="btn btn-secondary fam-print-preview-toggle" aria-pressed="false" aria-label="Toggle on-screen print preview colors">Preview print colors</button>
       <a class="btn btn-secondary" href="family-activity-packs.html">All days index</a>
       <a class="btn btn-secondary" href="print-pack-generator.html?pack=bedtime-peace-littles">Themed pack generator</a>
     </div>
+    <p id="fam-print-preview-note" class="fam-print-preview-note fam-print-privacy-whisper" hidden>Preview shows ink-friendly paper tones on screen only. Your browser&rsquo;s print dialog may still look different—always check before printing.</p>
     <div id="fam-print-root"></div>
   </main>
   <script src="plans-data.js"></script>
@@ -304,6 +332,18 @@
       if (btn) {
         btn.addEventListener('click', function () {
           window.print();
+        });
+      }
+
+      var previewBtn = document.getElementById('fam-print-preview-toggle');
+      var previewNote = document.getElementById('fam-print-preview-note');
+      var printRoot = document.getElementById('fam-print-root');
+      if (toolbar && toolbar.style.display === 'none' && previewBtn) previewBtn.style.display = 'none';
+      if (previewBtn && printRoot) {
+        previewBtn.addEventListener('click', function () {
+          var on = printRoot.classList.toggle('fam-print-root--preview-on');
+          previewBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+          if (previewNote) previewNote.hidden = !on;
         });
       }
     })();

@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "generatedAt": "2026-04-21T18:54:52.518Z",
+  "generatedAt": "2026-04-22T01:52:34.185Z",
   "entries": [
     {
       "t": "Home — Today's Daily Battle",
@@ -221,6 +221,231 @@
       "t": "About",
       "u": "/about.html",
       "k": "story mission"
+    },
+    {
+      "t": "Security",
+      "u": "/security.html",
+      "k": "https cloudflare safe"
+    },
+    {
+      "t": "Roadmap — what is next",
+      "u": "/roadmap.html",
+      "k": "future shipping"
+    },
+    {
+      "t": "Daily rhythm",
+      "u": "/daily-rhythm.html",
+      "k": "habit morning evening"
+    },
+    {
+      "t": "Daily quiet time",
+      "u": "/daily-quiet-time.html",
+      "k": "devotional"
+    },
+    {
+      "t": "First steps",
+      "u": "/first-steps.html",
+      "k": "new beginner"
+    },
+    {
+      "t": "Identity in Christ",
+      "u": "/identity-in-christ.html",
+      "k": "who am i worth"
+    },
+    {
+      "t": "Topic: Worry",
+      "u": "/topic-worry.html",
+      "k": "anxiety what if"
+    },
+    {
+      "t": "Need a verse now",
+      "u": "/v.html",
+      "k": "quick"
+    },
+    {
+      "t": "He is risen (Easter)",
+      "u": "/he-is-risen.html",
+      "k": "easter resurrection"
+    },
+    {
+      "t": "Psalms hub",
+      "u": "/psalms.html",
+      "k": "comfort"
+    },
+    {
+      "t": "Seasonal paths",
+      "u": "/seasonal.html",
+      "k": "advent lent"
+    },
+    {
+      "t": "What God has done",
+      "u": "/what-god-has-done.html",
+      "k": "testimony"
+    },
+    {
+      "t": "Wins report",
+      "u": "/wins.html",
+      "k": "gratitude"
+    },
+    {
+      "t": "Church center",
+      "u": "/church.html",
+      "k": "congregation"
+    },
+    {
+      "t": "Little ones",
+      "u": "/little-ones.html",
+      "k": "toddler preschool"
+    },
+    {
+      "t": "Family home hub",
+      "u": "/family-home.html",
+      "k": "household"
+    },
+    {
+      "t": "Family activity packs (print)",
+      "u": "/family-activity-packs.html",
+      "k": "kids worksheet"
+    },
+    {
+      "t": "Family youth journal",
+      "u": "/family-youth-journal.html",
+      "k": "teen"
+    },
+    {
+      "t": "Mission outreach packs",
+      "u": "/mission-outreach-packs.html",
+      "k": "hospital prison grief"
+    },
+    {
+      "t": "Memory verse activities (print)",
+      "u": "/memory-verse-activities-print.html",
+      "k": "homeschool sunday school"
+    },
+    {
+      "t": "Print pack generator",
+      "u": "/print-pack-generator.html",
+      "k": "pdf bundle"
+    },
+    {
+      "t": "Embeddable widgets",
+      "u": "/embeddable-widgets.html",
+      "k": "church website"
+    },
+    {
+      "t": "Approach — how we respond",
+      "u": "/approach.html",
+      "k": "moderation human"
+    },
+    {
+      "t": "Media kit",
+      "u": "/media.html",
+      "k": "press"
+    },
+    {
+      "t": "Curriculum",
+      "u": "/curriculum.html",
+      "k": "teach"
+    },
+    {
+      "t": "Bible study hub",
+      "u": "/bible-study.html",
+      "k": "lesson"
+    },
+    {
+      "t": "Kids Battle home",
+      "u": "/kids/",
+      "k": "children corner stories"
+    },
+    {
+      "t": "Kids Bible Story Library",
+      "u": "/kids/corner.html",
+      "k": "read quiz"
+    },
+    {
+      "t": "Kids prayer activities",
+      "u": "/kids/prayer-activities.html",
+      "k": "print slips"
+    },
+    {
+      "t": "Kids parent dashboard",
+      "u": "/kids/parent.html",
+      "k": "family code"
+    },
+    {
+      "t": "Coloring — Color & Tell",
+      "u": "/coloring.html",
+      "k": "art"
+    },
+    {
+      "t": "Spanish hub — inicio",
+      "u": "/es/",
+      "k": "espanol espanol"
+    },
+    {
+      "t": "French hub — accueil",
+      "u": "/fr/",
+      "k": "francais"
+    },
+    {
+      "t": "Portuguese hub — início",
+      "u": "/pt/",
+      "k": "portugues brasil"
+    },
+    {
+      "t": "Spanish: Ansiedad",
+      "u": "/ansiedad.html",
+      "k": "anxiety es"
+    },
+    {
+      "t": "Spanish: Planes",
+      "u": "/planes.html",
+      "k": "plans es"
+    },
+    {
+      "t": "Spanish: Niños",
+      "u": "/ninos.html",
+      "k": "kids es"
+    },
+    {
+      "t": "French: Anxiété",
+      "u": "/fr/anxiete.html",
+      "k": "anxiety fr"
+    },
+    {
+      "t": "French: Plans",
+      "u": "/fr/plans.html",
+      "k": "reading fr"
+    },
+    {
+      "t": "Portuguese: Ansiedade",
+      "u": "/pt/ansiedade.html",
+      "k": "anxiety pt"
+    },
+    {
+      "t": "Portuguese: Planos",
+      "u": "/pt/planos.html",
+      "k": "plans pt"
+    },
+    {
+      "t": "Indonesian hub",
+      "u": "/id/",
+      "k": "bahasa"
+    },
+    {
+      "t": "Chinese hub",
+      "u": "/zh/",
+      "k": "中文 mandarin"
+    },
+    {
+      "t": "Russian hub",
+      "u": "/ru/",
+      "k": "русский"
+    },
+    {
+      "t": "Hindi hub",
+      "u": "/hi/",
+      "k": "हिन्दी"
     }
   ]
 }

@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 /**
- * Validates dist/verse.html + dist/plans.html JSON-LD after inject-structured-data-pages.
+ * 1) Source HTML: @graph (WebPage + BreadcrumbList) for family/print cluster pages
+ *    — no dist/ build required; runs in `npm test`.
+ * 2) Optional dist/: verse.html + plans.html JSON-LD (flag --verify-dist; used after build).
  * Run: node scripts/verify-structured-data.mjs
+ *      node scripts/verify-structured-data.mjs --verify-dist
  */
 import fs from 'fs';
 import path from 'path';
@@ -10,6 +13,14 @@ import { loadYear365, pickVerseForToday } from './lib/hero-daily-verse-pick.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
+
+/** Pages with WebPage + BreadcrumbList @graph; visible .tdb-breadcrumb must match JSON-LD names. */
+const SOURCE_WEBPAGE_GRAPHS = [
+  'family-activity-packs.html',
+  'printables.html',
+  'family.html',
+  'kids/prayer-activities.html',
+];
 
 function fail(msg) {
   console.error('verify-structured-data:', msg);
@@ -26,11 +37,107 @@ function normWs(s) {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
+function extractCanonical(html) {
+  const m =
+    html.match(/<link[^>]+rel="canonical"[^>]+href="([^"]+)"/i) ||
+    html.match(/<link[^>]+href="([^"]+)"[^>]+rel="canonical"/i);
+  return m ? normWs(m[1]) : null;
+}
+
+/** Plain-text labels in order: Home, Explore, current page (matches BreadcrumbList). */
+function extractVisibleBreadcrumbLabels(html) {
+  // class may be "tdb-breadcrumb" or "tdb-breadcrumb util-…" (e.g. kids pages).
+  const m = html.match(
+    /<nav[^>]*\bclass="[^"]*\btdb-breadcrumb[^"]*"[^>]*>[\s\S]*?<ol>([\s\S]*?)<\/ol>/i,
+  );
+  if (!m) return null;
+  const block = m[1];
+  const liChunks = block.match(/<li[^>]*>[\s\S]*?<\/li>/gi) || [];
+  return liChunks.map((li) => normWs(li.replace(/<[^>]+>/g, ' ')));
+}
+
+function verifySourceWebPageGraph(relPath) {
+  const p = path.join(root, relPath);
+  if (!fs.existsSync(p)) {
+    fail(`${relPath} missing`);
+  }
+  const html = fs.readFileSync(p, 'utf8');
+  const raw = extractFirstLdJson(html);
+  if (!raw) fail(`${relPath}: no application/ld+json`);
+  let data;
+  try {
+    data = JSON.parse(raw);
+  } catch (e) {
+    fail(`${relPath}: JSON-LD parse error: ` + (e.message || e));
+  }
+  if (!data['@graph'] || !Array.isArray(data['@graph'])) {
+    fail(`${relPath}: JSON-LD must use @graph`);
+  }
+  const webPage = data['@graph'].find((n) => n['@type'] === 'WebPage');
+  if (!webPage || !webPage.url) {
+    fail(`${relPath}: @graph missing WebPage or url`);
+  }
+  const part = webPage.isPartOf;
+  if (!part || part['@type'] !== 'WebSite' || !part.url) {
+    fail(`${relPath}: WebPage.isPartOf must be WebSite with url`);
+  }
+  const bc = data['@graph'].find((n) => n['@type'] === 'BreadcrumbList');
+  if (!bc || !Array.isArray(bc.itemListElement)) {
+    fail(`${relPath}: @graph missing BreadcrumbList`);
+  }
+  const listItems = bc.itemListElement
+    .filter((x) => x && x['@type'] === 'ListItem')
+    .sort((a, b) => (a.position || 0) - (b.position || 0));
+  if (listItems.length < 3) {
+    fail(`${relPath}: BreadcrumbList must have at least 3 ListItems`);
+  }
+  const vis = extractVisibleBreadcrumbLabels(html);
+  if (!vis || vis.length < 3) {
+    fail(
+      `${relPath}: .tdb-breadcrumb <ol> must have 3 items (Home, Explore, current); found ` +
+        (vis ? vis.length : 0),
+    );
+  }
+  for (let i = 0; i < 3; i++) {
+    if (normWs(listItems[i].name) !== vis[i]) {
+      fail(
+        `${relPath}: BreadcrumbList[${i}].name "${listItems[i].name}" !== visible "${vis[i]}"`,
+      );
+    }
+  }
+  const can = extractCanonical(html);
+  if (can && normWs(webPage.url) !== can) {
+    fail(`${relPath}: <link rel="canonical"> does not match WebPage.url`);
+  }
+  const last = listItems[2];
+  if (!String(last.item || '').trim()) {
+    fail(`${relPath}: BreadcrumbList last item missing "item" URL`);
+  }
+}
+
+function verifySourceWebPageGraphs() {
+  for (const rel of SOURCE_WEBPAGE_GRAPHS) {
+    verifySourceWebPageGraph(rel);
+  }
+  console.log(
+    'verify-structured-data: source WebPage + BreadcrumbList OK (' + SOURCE_WEBPAGE_GRAPHS.length + ' pages)',
+  );
+}
+
 function main() {
+  const verifyDist = process.argv.includes('--verify-dist');
+
+  verifySourceWebPageGraphs();
+
+  if (!verifyDist) {
+    return;
+  }
+
   const distVerse = path.join(root, 'dist', 'verse.html');
   const distPlans = path.join(root, 'dist', 'plans.html');
-  if (!fs.existsSync(distVerse)) fail('dist/verse.html missing — run npm run build');
-  if (!fs.existsSync(distPlans)) fail('dist/plans.html missing — run npm run build');
+  if (!fs.existsSync(distVerse) || !fs.existsSync(distPlans)) {
+    fail('dist/verse.html or dist/plans.html missing — run npm run build');
+  }
 
   const year365 = loadYear365(root);
   const v = pickVerseForToday(year365);
@@ -85,7 +192,7 @@ function main() {
     if (!it.name) fail('plans ListItem missing name');
   }
 
-  console.log('verify-structured-data: OK (verse +', els.length, 'plans)');
+  console.log('verify-structured-data: OK (source + dist verse +', els.length, 'plans)');
 }
 
 main();

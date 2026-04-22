@@ -1203,13 +1203,14 @@ html[data-theme="light"] .mystudy-streak-badge-figure {
     position: sticky;
     top: 3.25rem;
     z-index: 8;
-    margin: 0.25rem 0 1.15rem;
+    margin: 0.25rem 0 1.2rem;
     padding: 0.5rem 0.75rem 0.6rem;
     border-radius: 14px;
     background: rgba(6, 9, 14, 0.82);
     border: 1px solid rgba(227, 188, 103, 0.2);
     box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
     backdrop-filter: blur(10px);
+    text-align: left;
   }
   .mystudy-onpage-nav__label {
     margin: 0 0 0.4rem;

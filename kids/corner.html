@@ -557,8 +557,11 @@
       margin-bottom: 1rem;
     }
     .kids-library-start-grid {
-      display: grid;
-      gap: 0.8rem;
+      /* display/gap: .calm-grid + .kids-library-start-grid.calm-grid */
+      margin-bottom: 1rem;
+    }
+    .kids-library-start-grid.calm-grid {
+      gap: 0.85rem;
     }
     .kids-library-start-card {
       display: flex;
@@ -601,13 +604,45 @@
     .kids-library-quick-picks .btn {
       min-height: 44px;
     }
-    @media (min-width: 860px) {
-      .kids-library-start-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+    /* Quiet framework: .app-content padding replaced by main.kids-corner-page + .tdb-quiet-container */
+    main.app-content.tdb-quiet-container.kids-corner-page {
+      padding: 0;
+      padding-top: clamp(0.35rem, 1.2vw, 0.75rem);
+      padding-left: var(--tdb-quiet-pad-x);
+      padding-right: var(--tdb-quiet-pad-x);
+      padding-bottom: calc(6.5rem + env(safe-area-inset-bottom, 0px));
+    }
+    @media (max-width: 420px) {
+      main.app-content.tdb-quiet-container.kids-corner-page {
+        padding-left: max(var(--tdb-quiet-pad-x), env(safe-area-inset-left, 0px));
+        padding-right: max(var(--tdb-quiet-pad-x), env(safe-area-inset-right, 0px));
+        padding-bottom: calc(6.25rem + env(safe-area-inset-bottom, 0px));
       }
+    }
+    @media (min-width: 1280px) {
+      main.app-content.tdb-quiet-container.kids-corner-page {
+        box-shadow: 0 0 0 1px color-mix(in srgb, rgba(255, 217, 61, 0.14) 50%, transparent),
+          0 12px 40px rgba(0, 0, 0, 0.28);
+        border-radius: 18px;
+      }
+      main.app-content.tdb-quiet-container.kids-corner-page .kids-battle-hero {
+        margin-bottom: 0.2rem;
+      }
+    }
+    main.kids-corner-page .content-inner.kids-battle-inner {
+      width: 100%;
+      max-width: none;
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
+      padding-bottom: 0;
     }
     .kids-battle-inner {
       padding-bottom: calc(6.5rem + env(safe-area-inset-bottom, 0px));
+    }
+    main.kids-corner-page .kids-battle-inner {
+      padding-bottom: 0;
     }
     @media (max-width: 768px) {
       .kids-bottom-nav {
@@ -702,7 +737,7 @@
     }
   </style>
 </head>
-<body class="dark-mode kids-battle-page kids-sky-enabled kids-sky-playful">
+<body class="dark-mode kids-battle-page kids-sky-enabled kids-sky-playful tdb-inner-page">
   <div class="sky-page-backdrop" aria-hidden="true">
     <div class="sky" aria-hidden="true" id="sky-layer">
       <div class="sky-stars-parallax" aria-hidden="true"></div>
@@ -760,7 +795,7 @@
       <a href="parent.html" class="kids-parent-link-mobile" aria-label="Parent Dashboard">Parents</a>
     </header>
 
-    <main class="app-content" id="main-content" role="main">
+    <main class="app-content tdb-quiet-container kids-corner-page" id="main-content" role="main">
       <div class="content-inner kids-battle-inner" id="kids-corner-top">
         <span class="kids-corner-explorer-badge" aria-label="Corner Explorer badge">📚 Corner Explorer</span>
         <nav class="kids-breadcrumb kids-corner-breadcrumb" aria-label="You are here">
@@ -826,7 +861,7 @@
         <section class="glass kids-library-start-lanes" role="region" aria-label="Age-aware ways to begin in the Bible Story Library">
           <h2 class="kids-section-title">Pick your starting lane</h2>
           <p class="section-note">Use these when you want a first story without thinking too hard. Search and theme filters still stay below for everything else.</p>
-          <div class="kids-library-start-grid" role="list" aria-label="Starting lanes">
+          <div class="kids-library-start-grid calm-grid calm-grid--2 calm-grid--3" role="list" aria-label="Starting lanes">
             <article class="kids-library-start-card" role="listitem">
               <p class="kids-library-start-kicker">Littles · ages 5-7</p>
               <h3>Start with comfort and care</h3>
@@ -960,7 +995,7 @@
     </main>
 
     <noscript>
-      <div class="content-inner kids-battle-inner" style="padding:1rem 1.25rem 2rem;">
+      <div class="tdb-quiet-container" style="padding-top:1rem;padding-bottom:2rem;">
         <section class="glass" style="padding:1rem 1.25rem 1.25rem;">
           <h2 class="kids-section-title">JavaScript is off</h2>
           <p class="section-note" style="margin:0;">Turn on JavaScript for search, the full card grid, coloring, read-and-quiz, and story modals. The <strong>starter list</strong> above stays visible so you can still read titles and KJV hooks.</p>

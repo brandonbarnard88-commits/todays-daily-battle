@@ -20996,3 +20996,34 @@ details[open] > .tdb-gentle-suggest-summary::after {
   }
 }
 
+/* Phase 5: cache “whisper” — one calm line when the document was served from cache (transferSize 0). */
+.tdb-cache-whisper {
+  position: fixed;
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 85;
+  max-width: min(24rem, calc(100vw - 2rem));
+  margin: 0;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  font-family: var(--font-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
+  background: color-mix(in srgb, var(--card, #161b22) 93%, #000);
+  border: 1px solid color-mix(in srgb, var(--line, #30363d) 88%, transparent);
+  color: var(--muted, #8b949e);
+  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.45s ease;
+}
+.tdb-cache-whisper.tdb-cache-whisper--show {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .tdb-cache-whisper {
+    transition: none;
+  }
+}
+

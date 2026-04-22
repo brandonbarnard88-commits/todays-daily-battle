@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js?v=20260422-phase4-complete"></script>
+  <script src="/tt-bootstrap.js?v=20260423-phase5-perf"></script>
   <script defer src="/analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@
   <meta name="twitter:image:alt" content="For the Little Ones &mdash; calm KJV stories and coloring | Today&#39;s Daily Battle">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/styles.css?v=20260422-phase4-complete">
+  <link rel="stylesheet" href="/styles.css?v=20260423-phase5-perf">
   <link rel="manifest" href="/manifest.json">
   <style nonce="tdb2025s">
     .little-ones-page {
@@ -199,7 +199,7 @@
       </div>
       <div class="little-ones-feature-grid" style="margin-top:1rem;">
         <article class="little-ones-feature-card">
-          <img id="little-ones-feature-image" class="little-ones-feature-image" src="/kids/panel-jesus.svg" alt="Jesus welcoming children">
+          <img id="little-ones-feature-image" class="little-ones-feature-image" src="/kids/panel-jesus.svg" alt="Jesus welcoming children" width="320" height="256" loading="eager" decoding="async" fetchpriority="high">
           <h3 id="little-ones-feature-title">Jesus and the little children</h3>
           <p id="little-ones-feature-lead">A warm first stop when you want your child to feel safe, seen, and near to Jesus.</p>
           <div class="little-ones-prompt">
@@ -471,12 +471,12 @@
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
   <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
-  <script defer src="/language-switcher.js?v=20260422-phase4-complete"></script>
+  <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
 </footer>
 
   <script defer src="/little-ones.js?v=20260415littleones"></script>
   <script type="module" src="/config.js"></script>
-  <script type="module" src="/script.js?v=20260422-phase4-complete" data-cfasync="false"></script>
+  <script type="module" src="/script.js?v=20260423-phase5-perf" data-cfasync="false"></script>
   <script src="/kids-corner-daily-verse.js?v=20260408quickstart" defer></script>
 </body>
 </html>

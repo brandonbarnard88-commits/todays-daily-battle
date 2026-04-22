@@ -3,13 +3,15 @@
 <head>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js?v=20260422-phase4-complete"></script>
+  <script src="/tt-bootstrap.js?v=20260423-phase5-perf"></script>
   <!-- tdb-cache-hygiene: _headers no-cache /verse (+ /verse); purge SOCIAL_PURGE_PATHS; bump service-worker CACHE_NAME — homepage / already no-cache -->
 
   <!-- GA4 lazy-loaded after interaction -->
   <script defer src="analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preload" href="/today-kjv-verse.json" as="fetch" type="application/json" crossorigin>
+  <style id="tdb-critical-shell">html{background:#0d1117}body{margin:0;background:#0d1117;color:#e6edf3}</style>
   <title>Today&rsquo;s KJV Verse of the Day &mdash; Read, Listen, Save &middot; Today&rsquo;s Daily Battle</title>
   <meta name="description" content="Today&rsquo;s King James verse in a calm reader: resize text, listen, save to My Study, or share. No account required.">
   <meta name="robots" content="index, follow">
@@ -29,8 +31,8 @@
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260422og">
   <meta name="twitter:image:alt" content="Today&rsquo;s KJV verse &mdash; Today&rsquo;s Daily Battle">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260422-phase4-complete" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260422-phase4-complete">
+  <link rel="preload" href="styles.css?v=20260423-phase5-perf" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf">
   <style>
     .easter-banner-vod {
       display: flex; align-items: flex-start; justify-content: space-between; gap: 0.65rem;
@@ -663,7 +665,7 @@
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
   <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
-  <script defer src="/language-switcher.js?v=20260422-phase4-complete"></script>
+  <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
 </footer>
   </div>
 
@@ -676,7 +678,7 @@
   <script src="tdb-mobius-journal.js?v=20260330mlj1" defer></script>
   <script type="module" src="config.js"></script>
   <script src="tdb-offline-strip.js?v=20260421pwa1"></script>
-  <script type="module" src="script.js?v=20260422-phase4-complete" data-cfasync="false"></script>
+  <script type="module" src="script.js?v=20260423-phase5-perf" data-cfasync="false"></script>
   <script src="/easter-season.js"></script>
   <script nonce="tdb2025s">
   if (window.TDB_EASTER_SEASON && typeof window.TDB_EASTER_SEASON.initEasterBanner === 'function') {
@@ -751,6 +753,24 @@
         } catch (e) {}
       }, 4000);
     });
+  })();
+  </script>
+  <div id="tdb-cache-whisper" class="tdb-cache-whisper" hidden role="status" aria-live="polite"></div>
+  <script nonce="tdb2025s">
+  (function () {
+    if (!('performance' in window) || !performance.getEntriesByType) return;
+    var nav = performance.getEntriesByType('navigation')[0];
+    if (!nav || !nav.decodedBodySize) return;
+    if (nav.transferSize > 0) return;
+    var el = document.getElementById('tdb-cache-whisper');
+    if (!el) return;
+    el.textContent = "Verse ready from cache — still true when the signal thins.";
+    el.hidden = false;
+    el.classList.add('tdb-cache-whisper--show');
+    setTimeout(function () {
+      el.classList.remove('tdb-cache-whisper--show');
+      setTimeout(function () { el.hidden = true; }, 400);
+    }, 2800);
   })();
   </script>
 </body>

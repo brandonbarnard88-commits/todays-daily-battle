@@ -48,6 +48,7 @@ function buildVerseJsonLd(refPlain, textPlain) {
         name: `Today's KJV verse — ${refPlain}`,
         description: `Read, listen, save, or share today's King James verse (${refPlain}). Calm reader. No account required.`,
         inLanguage: 'en',
+        isAccessibleForFree: true,
         isPartOf: {
           '@type': 'WebSite',
           name: "Today's Daily Battle",
@@ -55,6 +56,20 @@ function buildVerseJsonLd(refPlain, textPlain) {
         },
         publisher: ORG,
         mainEntity: { '@id': `${pageUrl}#kjv-verse` },
+        speakable: {
+          '@type': 'SpeakableSpecification',
+          cssSelector: ['#daily-verse-ref', '#daily-verse-text'],
+        },
+        keywords: 'KJV, Bible verse of the day, King James Version, daily Scripture, Christian encouragement',
+        about: { '@id': `${pageUrl}#kjv-verse` },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${pageUrl}#breadcrumb`,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
+          { '@type': 'ListItem', position: 2, name: "Today's KJV verse", item: pageUrl },
+        ],
       },
       {
         '@type': 'CreativeWork',
@@ -69,6 +84,8 @@ function buildVerseJsonLd(refPlain, textPlain) {
           bookEdition: 'King James Version',
         },
         publisher: ORG,
+        isFamilyFriendly: true,
+        isAccessibleForFree: true,
       },
     ],
   };
@@ -165,7 +182,19 @@ function buildPlansJsonLd(planRows) {
     description:
       'Short KJV reading plans (7–40 days): one verse a day, plain encouragement, saved on your device offline. No login required.',
     inLanguage: 'en',
+    isAccessibleForFree: true,
+    isPartOf: {
+      '@type': 'WebSite',
+      name: "Today's Daily Battle",
+      url: `${SITE}/`,
+    },
     publisher: ORG,
+    about: {
+      '@type': 'Book',
+      name: 'Holy Bible',
+      bookEdition: 'King James Version',
+      description: 'Gentle daily readings in the King James Version for anxiety, hope, family, and real-life battles.',
+    },
     mainEntity: {
       '@type': 'ItemList',
       name: 'Battle Plans',

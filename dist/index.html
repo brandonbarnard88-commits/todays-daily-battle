@@ -5,6 +5,8 @@
   <!-- GA4 + GSC loaded on idle (see script.js loadDeferredScriptsOnIdle) -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preload" href="/today-kjv-verse.json" as="fetch" type="application/json" crossorigin>
+  <style id="tdb-critical-shell">html{background:#080c14}body{margin:0;background:#080c14;color:#f0f2f7}</style>
   <link rel="preload" as="script" href="/assets/perf-hint.js" fetchpriority="high">
   <script nonce="tdb2025s" src="/assets/perf-hint.js"></script>
 
@@ -12,10 +14,10 @@
   <!-- DOMPurify + tt-bootstrap stay synchronous before any body innerHTML (Trusted Types). Low fetch priority reduces contention with LCP text paint. -->
   <link rel="preload" as="script" href="/vendor/dompurify.min.js" fetchpriority="low">
   <script nonce="tdb2025s" src="/vendor/dompurify.min.js" fetchpriority="low"></script>
-  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260422-phase4-complete" fetchpriority="low"></script>
+  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260423-phase5-perf" fetchpriority="low"></script>
   <!-- Quiet room lives only on prayer-wall.html; old /#prayer-wall bookmarks still work -->
   <script nonce="tdb2025s">(function(){try{if(location.hash!=='#prayer-wall')return;location.replace('prayer-wall.html'+location.search);}catch(e){}})();</script>
-  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260422-phase4-complete"></script>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260423-phase5-perf"></script>
 
   <title>Today’s Verse — A Quiet Place — Jeremiah 17:7 (KJV)</title>
   <meta name="description" content="Today’s KJV verse: Jeremiah 17:7. A quiet place for any day—search by how you feel, prayer wall, works offline. No ads, no login.">
@@ -8849,7 +8851,7 @@
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
   <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
-  <script defer src="/language-switcher.js?v=20260422-phase4-complete"></script>
+  <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
 </footer>
 
   </div>
@@ -13306,9 +13308,9 @@
       </div>
       <button type="button" class="quick-story-read-btn" id="kidsStoryReadAloudBtn" aria-label="Read this story aloud">Read to me</button>
       <div class="story-modal-panels" aria-hidden="true">
-        <img src="kids/panel-david-1.svg" alt="" width="140" height="112" class="story-modal-panel-img" loading="lazy" decoding="async">
-        <img src="kids/panel-david-2.svg" alt="" width="140" height="112" class="story-modal-panel-img" loading="lazy" decoding="async">
-        <img src="kids/panel-david-3.svg" alt="" width="140" height="112" class="story-modal-panel-img" loading="lazy" decoding="async">
+        <img src="kids/panel-david-1.svg" alt="" width="140" height="112" class="story-modal-panel-img" loading="lazy" decoding="async" fetchpriority="low">
+        <img src="kids/panel-david-2.svg" alt="" width="140" height="112" class="story-modal-panel-img" loading="lazy" decoding="async" fetchpriority="low">
+        <img src="kids/panel-david-3.svg" alt="" width="140" height="112" class="story-modal-panel-img" loading="lazy" decoding="async" fetchpriority="low">
       </div>
       <a href="kids/corner.html?story=david" class="story-modal-link" aria-label="Open David and Goliath in Kids Story Library">Read more in Kids Story Library →</a>
     </div>
@@ -13330,7 +13332,7 @@
   <script nonce="tdb2025s" defer fetchpriority="low" src="verse-breakdown.js?v=20260417-hydration" data-tdb-verse-breakdown="1"></script>
   <script nonce="tdb2025s" defer fetchpriority="low" src="gentle-suggest.js?v=20260418gentle"></script>
   <script nonce="tdb2025s" type="module" fetchpriority="high" src="config.js"></script>
-  <script nonce="tdb2025s" type="module" src="script.js?v=20260422-phase4-complete" data-cfasync="false" fetchpriority="high"></script>
+  <script nonce="tdb2025s" type="module" src="script.js?v=20260423-phase5-perf" data-cfasync="false" fetchpriority="high"></script>
   <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->
   <script nonce="tdb2025s" src="utils.js?v=20260331-patriotic-home" defer fetchpriority="low"></script>
   <!-- Sync: following inline calls TDB_EASTER_SEASON on parse; defer would run too late. -->
@@ -13339,6 +13341,24 @@
   if (window.TDB_EASTER_SEASON && typeof window.TDB_EASTER_SEASON.initEasterBanner === 'function') {
     window.TDB_EASTER_SEASON.initEasterBanner('tdbHomeEasterBanner', 'tdbHomeEasterDismiss');
   }
+  </script>
+  <div id="tdb-cache-whisper" class="tdb-cache-whisper" hidden role="status" aria-live="polite"></div>
+  <script nonce="tdb2025s">
+  (function () {
+    if (!('performance' in window) || !performance.getEntriesByType) return;
+    var nav = performance.getEntriesByType('navigation')[0];
+    if (!nav || !nav.decodedBodySize) return;
+    if (nav.transferSize > 0) return;
+    var el = document.getElementById('tdb-cache-whisper');
+    if (!el) return;
+    el.textContent = "Quiet start — this page was ready from cache (still true when the signal thins).";
+    el.hidden = false;
+    el.classList.add('tdb-cache-whisper--show');
+    setTimeout(function () {
+      el.classList.remove('tdb-cache-whisper--show');
+      setTimeout(function () { el.hidden = true; }, 400);
+    }, 2800);
+  })();
   </script>
 </body>
 </html>

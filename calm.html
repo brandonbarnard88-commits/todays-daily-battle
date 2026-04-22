@@ -76,7 +76,7 @@
       min-height: 1.25em;
     }
     .calm-share-btn { margin-top: 0.35rem; }
-    .calm-page { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 2rem 1.5rem max(1.25rem, env(safe-area-inset-bottom, 0px)); text-align: center; }
+    .calm-page { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 0.35rem 0 max(0.5rem, env(safe-area-inset-bottom, 0px)); text-align: center; }
     .calm-page .verse { font-family: Cormorant Garamond, Georgia, serif; font-size: clamp(1.4rem, 4vw, 2rem); line-height: 1.5; color: var(--text, #e2e8f0); max-width: 32rem; margin: 0 auto 1rem; }
     .calm-page .ref { font-size: 0.95rem; color: var(--gold, #e3bc67); margin-bottom: 1.5rem; }
     .calm-daily-verse-surface { max-width: 32rem; margin: 0 auto; text-align: center; }
@@ -209,7 +209,7 @@
     }
   </style>
 </head>
-<body class="dark-mode tdb-inner-page">
+<body class="dark-mode tdb-inner-page tdb-calm-shelf-page">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="app-shell">
     <header class="top-bar" style="minimal">
@@ -260,7 +260,7 @@
     </div>
     </header>
 
-    <main class="app-content" id="main-content">
+    <main class="app-content tdb-quiet-container" id="main-content">
       <div class="calm-page">
         <section class="calm-hero--soar-dawn glass" aria-labelledby="calm-hero-heading">
         <div class="intro" id="calm-intro">

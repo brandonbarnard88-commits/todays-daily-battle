@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260423quiet1"></script>
   <script src="/vendor/dompurify.min.js"></script>
   <script src="tt-bootstrap.js?v=20260423quiet1"></script>
   <script defer src="analytics-loader.js"></script>
@@ -288,6 +287,9 @@
         <button type="button" class="btn" id="mem-load-verse" aria-label="Load KJV verse text for the reference above">Load verse</button>
         <button type="button" class="btn btn-secondary" id="mem-add-queue" aria-label="Add this verse to your private memory list on this device">Add to your memory list</button>
       </div>
+      <div class="mem-calm-row calm-grid" style="margin-top:0.5rem">
+        <button type="button" class="btn btn-secondary tdb-print-delight" id="tdb-print-memorize-card-btn" aria-label="Print the loaded KJV verse on a simple sheet">Print this card (sheet)</button>
+      </div>
       <div id="mem-status" class="section-note" role="status" aria-live="polite"></div>
       <div id="mem-card" class="mem-card hidden" tabindex="0" aria-live="polite" role="article">
         <p class="mem-ref" id="mem-card-ref"></p>
@@ -536,7 +538,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">April 22, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
   <script defer src="/language-switcher.js?v=20260423quiet1"></script>
 </footer>
   <script src="bible-study-companion.js?v=20260328mem"></script>

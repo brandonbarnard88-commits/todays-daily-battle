@@ -19610,6 +19610,18 @@ body.tdb-inner-page.tdb-calm-shelf-page main#main-content.app-content.tdb-quiet-
   }
 }
 
+/* Phase 3 — soft print delight: nudge is wide desktop only; zero mobile / narrow layout impact */
+.tdb-print-delight {
+  display: none !important;
+}
+@media (min-width: 1280px) {
+  .tdb-print-delight {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 /* Verse page (verse.html): calmer hero, card, actions — scoped to .tdb-verse-page only */
 .tdb-verse-page .verse-hero {
   text-align: center;

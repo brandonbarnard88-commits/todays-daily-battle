@@ -11707,6 +11707,127 @@ function wireQuickPrayAutocomplete() {
   if (!tdbIsPerfMode()) setInterval(fill, 60000);
 }
 
+/**
+ * Minimal KJV print sheet (ref + text) in a new window — no new dependencies.
+ * @param {{ ref?: string, text?: string, documentTitle?: string, subtitle?: string, trackContext?: string }} opts
+ */
+function tdbOpenKjvPrintSheet(opts) {
+  opts = opts || {};
+  var ref = String(opts.ref || '').replace(/\s+/g, ' ').trim();
+  var text = String(opts.text || '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (!ref && !text) {
+    if (typeof showEliteToast === 'function') showEliteToast('Nothing to print yet—try again in a moment.');
+    return;
+  }
+  var docTitle = (opts.documentTitle && String(opts.documentTitle).trim()) || (ref ? 'KJV · ' + ref : "Today's Daily Battle");
+  var subtitle = String(opts.subtitle || '').trim();
+  var w = window.open('', '_blank', 'noopener,noreferrer');
+  if (!w || !w.document) {
+    if (typeof showEliteToast === 'function') showEliteToast('Print preview needs a new window. Allow pop-ups for this site, or use Copy instead.');
+    return;
+  }
+  var esc = typeof escapeHtml === 'function' ? escapeHtml : function (s) {
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  };
+  var html = '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>' + esc(docTitle) + '</title><style>body{font-family:Georgia,Times,serif;line-height:1.55;color:#111;max-width:36rem;margin:1.4rem auto;padding:0 1.2rem}h1{font-size:0.95rem;font-weight:600;margin:0 0 0.2rem;letter-spacing:0.02em;color:#222}.tdb-p-sub{font-size:0.82rem;color:#444;margin:0 0 1.05rem}.tdb-p-body{font-size:1.1rem;margin:0 0 1.4rem;white-space:pre-wrap}footer{font-size:0.72rem;color:#555;border-top:1px solid #ccc;padding-top:0.55rem;margin-top:1.25rem}@page{margin:0.75in}@media print{body{margin:0}}</style></head><body>' +
+    (subtitle ? '<p class="tdb-p-sub">' + esc(subtitle) + '</p>' : '') +
+    (ref ? '<h1>' + esc(ref) + '</h1>' : '') +
+    (text ? '<p class="tdb-p-body">' + esc(text) + '</p>' : '') +
+    '<footer>King James Version &middot; todaysdailybattle.com &mdash; for your table or notebook</footer>' +
+    '<script>(function(){function go(){setTimeout(function(){try{window.print();}catch(e){}},100);}if(document.readyState==="complete")go();else window.addEventListener("load",go);window.addEventListener("afterprint",function(){try{window.close();}catch(e2){}});})();<\/script></body></html>';
+  try {
+    w.document.open();
+    w.document.write(html);
+    w.document.close();
+  } catch (e0) {
+    if (typeof showEliteToast === 'function') showEliteToast('Could not open print view.');
+    return;
+  }
+  try {
+    if (typeof trackEvent === 'function') trackEvent('tdb_print_kjv_sheet', { ctx: String(opts.trackContext || '') });
+  } catch (e1) { /* ignore */ }
+}
+if (typeof window !== 'undefined') window.tdbOpenKjvPrintSheet = tdbOpenKjvPrintSheet;
+
+/** Wide-desktop-only .tdb-print-delight controls (verse, family, plans, kids, memorize). */
+function wireTdbPrintDelightPass() {
+  var vBtn = document.getElementById('tdb-print-verse-pack-btn');
+  if (vBtn) {
+    vBtn.addEventListener('click', function () {
+      var card = document.getElementById('daily-verse-card');
+      var r = (typeof tdbGetDailyVerseRefFromCard === 'function' && card) ? tdbGetDailyVerseRefFromCard(card) : '';
+      var t = (typeof tdbGetDailyVerseTextFromCard === 'function' && card) ? tdbGetDailyVerseTextFromCard(card) : '';
+      tdbOpenKjvPrintSheet({ ref: r, text: t, subtitle: "Today's Verse of the Day (KJV)", trackContext: 'verse' });
+    });
+  }
+  var fBtn = document.getElementById('tdb-family-print-verse-btn');
+  if (fBtn) {
+    fBtn.addEventListener('click', function () {
+      var rEl = document.getElementById('family-daily-verse-ref');
+      var tEl = document.getElementById('family-daily-verse-text');
+      var r = rEl ? rEl.textContent.replace(/\s*\(KJV\)\s*$/i, '').trim() : '';
+      var raw = tEl ? tEl.textContent.trim() : '';
+      tdbOpenKjvPrintSheet({ ref: r, text: raw, subtitle: "Today's family verse (KJV)", trackContext: 'family' });
+    });
+  }
+  var pBtn = document.getElementById('tdb-plans-print-votd-btn');
+  if (pBtn) {
+    pBtn.addEventListener('click', function () {
+      var r = (typeof currentDailyBattle !== 'undefined' && currentDailyBattle && currentDailyBattle.ref) ? currentDailyBattle.ref : '';
+      var t = (typeof currentDailyBattle !== 'undefined' && currentDailyBattle && currentDailyBattle.verse)
+        ? String(currentDailyBattle.verse).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
+        : '';
+      if (r && !t && typeof getBibleVerseText === 'function') {
+        try {
+          t = getBibleVerseText(r) || '';
+        } catch (e2) { /* ignore */ }
+      }
+      t = (t || '').replace(/\s+/g, ' ').trim();
+      if (!r) {
+        if (typeof showEliteToast === 'function') showEliteToast('Today\'s verse is still loading—try again in a moment.');
+        return;
+      }
+      tdbOpenKjvPrintSheet({ ref: r, text: t, subtitle: "Same KJV pick as the site today", trackContext: 'plans_index' });
+    });
+  }
+  var kBtn = document.getElementById('tdb-kids-print-verse-btn');
+  if (kBtn) {
+    kBtn.addEventListener('click', function () {
+      var rEl = document.getElementById('kids-daily-verse-ref');
+      var tEl = document.getElementById('kids-daily-verse-text');
+      var r = rEl ? rEl.textContent.replace(/\s*\(KJV\)\s*$/i, '').trim() : '';
+      var raw = tEl ? tEl.textContent.trim() : '';
+      if (raw.charAt(0) === '\u201c' && raw.charAt(raw.length - 1) === '\u201d') {
+        raw = raw.slice(1, -1).trim();
+      } else if ((raw.charAt(0) === '"' || raw.charAt(0) === '\u2018') && (raw.charAt(raw.length - 1) === '"' || raw.charAt(raw.length - 1) === '\u2019')) {
+        raw = raw.slice(1, -1).trim();
+      }
+      tdbOpenKjvPrintSheet({ ref: r, text: raw, subtitle: "Kids \u2014 today's verse (KJV)", trackContext: 'kids_corner' });
+    });
+  }
+  var mBtn = document.getElementById('tdb-print-memorize-card-btn');
+  if (mBtn) {
+    mBtn.addEventListener('click', function () {
+      var r = (document.getElementById('mem-card-ref') || {}).textContent || '';
+      r = String(r).trim();
+      var t = (document.getElementById('mem-card-body') || {}).textContent || '';
+      t = String(t).replace(/\s+/g, ' ').trim();
+      if (!r && !t) {
+        if (typeof showEliteToast === 'function') showEliteToast('Load a verse first, then print.');
+        return;
+      }
+      tdbOpenKjvPrintSheet({ ref: r, text: t, subtitle: 'Memorize \u2014 loaded verse (KJV)', trackContext: 'memorize' });
+    });
+  }
+}
+
 function wirePrayThisWithMe() {
   function copyVerseAndLink(verseText, toastMsg) {
     var s = (verseText && verseText.trim()) ? (verseText.trim() + ' — Praying this today — todaysdailybattle.com') : 'Praying this today — todaysdailybattle.com';
@@ -26745,6 +26866,7 @@ async function tdbInitImpl() {
   wireBreatheWithHim();
   wireQuickPrayAutocomplete();
   wirePrayThisWithMe();
+  wireTdbPrintDelightPass();
   wireVersePageListen();
   wireVersePageNarrationPrefs();
   wireHeroSaveToMyVerses();

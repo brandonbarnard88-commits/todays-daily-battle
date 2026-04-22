@@ -2515,7 +2515,7 @@
   // Ask the Word — wired by inline bootstrap script (runs before this block)
 })();
   </script>
-  <script src="kids/bible-story-tool-index.js?v=1"></script>
+  <!-- Phase 6: Bible story index (~large) loads when #bible-story-tool-section nears viewport or after idle — cuts main-thread work for first paint. -->
   <script nonce="tdb2025s">
   (function () {
     'use strict';
@@ -2704,8 +2704,26 @@
         });
       }
     }
-    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initBibleStoryToolIndex);
-    else initBibleStoryToolIndex();
+    var storyIndexLoading = false;
+    var storyIndexReady = false;
+    function startBibleStoryIndex() {
+      if (storyIndexReady || storyIndexLoading) return;
+      storyIndexLoading = true;
+      var s = document.createElement('script');
+      s.src = 'kids/bible-story-tool-index.js?v=1';
+      s.async = true;
+      s.onload = function () {
+        storyIndexLoading = false;
+        storyIndexReady = true;
+        initBibleStoryToolIndex();
+      };
+      s.onerror = function () {
+        storyIndexLoading = false;
+        storyIndexReady = true;
+        initBibleStoryToolIndex();
+      };
+      document.body.appendChild(s);
+    }
     (function wireFeaturedStoryLink() {
       var fe = document.getElementById('bible-story-tool-featured-link');
       if (!fe) return;
@@ -2717,6 +2735,45 @@
         }
       });
     })();
+    function scheduleBibleStoryIndex() {
+      var sec = document.getElementById('bible-story-tool-section');
+      if (!sec) {
+        startBibleStoryIndex();
+        return;
+      }
+      if (typeof IntersectionObserver === 'function') {
+        var io = new IntersectionObserver(
+          function (entries) {
+            for (var i = 0; i < entries.length; i++) {
+              if (entries[i].isIntersecting) {
+                try {
+                  io.disconnect();
+                } catch (e) {}
+                startBibleStoryIndex();
+                return;
+              }
+            }
+          },
+          { root: null, rootMargin: '320px 0px', threshold: 0.01 }
+        );
+        io.observe(sec);
+      } else {
+        startBibleStoryIndex();
+      }
+      function idleFallback() {
+        if (!storyIndexReady && !storyIndexLoading) startBibleStoryIndex();
+      }
+      if (typeof requestIdleCallback === 'function') {
+        requestIdleCallback(idleFallback, { timeout: 5000 });
+      } else {
+        setTimeout(idleFallback, 5000);
+      }
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', scheduleBibleStoryIndex);
+    } else {
+      scheduleBibleStoryIndex();
+    }
   })();
   </script>
   <script nonce="tdb2025s">

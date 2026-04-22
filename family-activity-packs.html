@@ -108,6 +108,10 @@
     .fam-print-root--preview-on .fam-print-sheet h2 {
       color: #1a1a1a;
     }
+    .fam-print-root--no-parent .fam-print-parent-guide,
+    .fam-print-root--no-prompts .fam-print-study-prompts {
+      display: none !important;
+    }
     @media print {
       .fam-print-toolbar, .tdb-global-nav, .skip-link { display: none !important; }
       .fam-print-sheet { border: none; background: #fff; color: #111; box-shadow: none; }
@@ -119,6 +123,10 @@
         box-shadow: none;
       }
       .fam-print-preview-note { display: none !important; }
+      .fam-print-root--no-parent .fam-print-parent-guide,
+      .fam-print-root--no-prompts .fam-print-study-prompts {
+        display: none !important;
+      }
     }
     @media (prefers-color-scheme: light) {
       @media print {
@@ -175,6 +183,8 @@
     <div class="fam-print-toolbar">
       <button type="button" id="fam-print-btn" class="btn btn-secondary" aria-label="Print this sheet">Print this sheet</button>
       <button type="button" id="fam-print-preview-toggle" class="btn btn-secondary fam-print-preview-toggle" aria-pressed="false" aria-label="Toggle on-screen print preview colors">Preview print colors</button>
+      <button type="button" id="fam-print-prompts-toggle" class="btn btn-secondary" aria-pressed="true" aria-label="Show or hide See, Understand, and Live prompts on this sheet">Study prompts on</button>
+      <button type="button" id="fam-print-parent-toggle" class="btn btn-secondary" aria-pressed="true" aria-label="Show or hide parent OIA ideas by age">Parent guide on</button>
       <a class="btn btn-secondary" href="family-activity-packs.html">All days index</a>
       <a class="btn btn-secondary" href="print-pack-generator.html?pack=bedtime-peace-littles">Themed pack generator</a>
     </div>
@@ -211,8 +221,32 @@
         return sec;
       }
 
+      function resetPrintToggles() {
+        var printRoot = document.getElementById('fam-print-root');
+        if (printRoot) {
+          printRoot.classList.remove('fam-print-root--preview-on', 'fam-print-root--no-parent', 'fam-print-root--no-prompts');
+        }
+        var previewBtn = document.getElementById('fam-print-preview-toggle');
+        var parentBtn = document.getElementById('fam-print-parent-toggle');
+        var promptsBtn = document.getElementById('fam-print-prompts-toggle');
+        var previewNote = document.getElementById('fam-print-preview-note');
+        if (previewBtn) {
+          previewBtn.setAttribute('aria-pressed', 'false');
+        }
+        if (parentBtn) {
+          parentBtn.setAttribute('aria-pressed', 'true');
+          parentBtn.textContent = 'Parent guide on';
+        }
+        if (promptsBtn) {
+          promptsBtn.setAttribute('aria-pressed', 'true');
+          promptsBtn.textContent = 'Study prompts on';
+        }
+        if (previewNote) previewNote.hidden = true;
+      }
+
       function renderSheet(planId, dayNum, row, planTitle) {
         var root = document.getElementById('fam-print-root');
+        resetPrintToggles();
         root.replaceChildren();
         var sheet = el('article', 'fam-print-sheet');
         sheet.setAttribute('aria-label', planTitle + ', day ' + dayNum);
@@ -231,11 +265,13 @@
         sheet.appendChild(bq);
 
         sheet.appendChild(block('Drawing prompt', row.drawPrompt || 'Draw something this verse makes you think about.'));
-        sheet.appendChild(block('See — What stands out?', row.familySee || ''));
-        sheet.appendChild(block('Understand — What does this tell us about God?', row.familyUnderstand || ''));
-        sheet.appendChild(block('Live — One step together', row.familyLive || ''));
+        var studyPrompts = el('div', 'fam-print-study-prompts');
+        studyPrompts.appendChild(block('See — What stands out?', row.familySee || ''));
+        studyPrompts.appendChild(block('Understand — What does this tell us about God?', row.familyUnderstand || ''));
+        studyPrompts.appendChild(block('Live — One step together', row.familyLive || ''));
+        sheet.appendChild(studyPrompts);
 
-        var ages = el('div', 'fam-print-block');
+        var ages = el('div', 'fam-print-block fam-print-parent-guide');
         ages.appendChild(el('h3', null, 'Parent guide — OIA by age'));
         var band58 = el('div', 'fam-print-age');
         band58.appendChild(el('p', null, 'Ages 5–8: ' + (row.oia58 || '')));
@@ -262,6 +298,7 @@
 
       function renderIndex() {
         var root = document.getElementById('fam-print-root');
+        resetPrintToggles();
         root.replaceChildren();
         var idx = el('div', 'fam-print-index');
         idx.appendChild(el('h2', 'section-divider', 'Choose a day'));
@@ -338,12 +375,30 @@
       var previewBtn = document.getElementById('fam-print-preview-toggle');
       var previewNote = document.getElementById('fam-print-preview-note');
       var printRoot = document.getElementById('fam-print-root');
+      var parentBtn = document.getElementById('fam-print-parent-toggle');
+      var promptsBtn = document.getElementById('fam-print-prompts-toggle');
       if (toolbar && toolbar.style.display === 'none' && previewBtn) previewBtn.style.display = 'none';
+      if (toolbar && toolbar.style.display === 'none' && parentBtn) parentBtn.style.display = 'none';
+      if (toolbar && toolbar.style.display === 'none' && promptsBtn) promptsBtn.style.display = 'none';
       if (previewBtn && printRoot) {
         previewBtn.addEventListener('click', function () {
           var on = printRoot.classList.toggle('fam-print-root--preview-on');
           previewBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
           if (previewNote) previewNote.hidden = !on;
+        });
+      }
+      if (parentBtn && printRoot) {
+        parentBtn.addEventListener('click', function () {
+          var hidden = printRoot.classList.toggle('fam-print-root--no-parent');
+          parentBtn.setAttribute('aria-pressed', !hidden ? 'true' : 'false');
+          parentBtn.textContent = hidden ? 'Parent guide off' : 'Parent guide on';
+        });
+      }
+      if (promptsBtn && printRoot) {
+        promptsBtn.addEventListener('click', function () {
+          var hidden = printRoot.classList.toggle('fam-print-root--no-prompts');
+          promptsBtn.setAttribute('aria-pressed', !hidden ? 'true' : 'false');
+          promptsBtn.textContent = hidden ? 'Study prompts off' : 'Study prompts on';
         });
       }
     })();

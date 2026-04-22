@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="dark-mode kids-battle-page kids-prayer-activities-page">
+<body class="dark-mode kids-battle-page kids-prayer-activities-page" id="kids-prayer-body">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="app-shell">
     <header class="top-bar kids-battle-header kids-header-unified kids-prayer-no-print">
@@ -107,9 +107,12 @@
           <p class="kids-prayer-print-only-brand">Today&rsquo;s Daily Battle · Calm prayer habits — thank-you slips</p>
           <h2 class="kids-section-title" id="print-slips-h">Printable thank-you slips</h2>
           <p class="section-note kids-prayer-print-intro">Cut on the dashed lines. One thank-you per slip. KJV echo (tiny): <cite class="kids-prayer-kjv-tiny">1 Thessalonians 5:18</cite> — in every thing give thanks.</p>
-          <div class="kids-prayer-print-preview-bar kids-prayer-no-print">
-            <button type="button" id="kids-prayer-slip-preview-btn" class="btn btn-secondary" aria-pressed="false">Preview print sheet</button>
+          <div class="kids-prayer-print-preview-bar kids-prayer-no-print" role="group" aria-label="Print preview options (optional)">
+            <button type="button" id="kids-prayer-slip-preview-btn" class="btn btn-secondary" aria-pressed="false" aria-label="Show paper colors on screen before printing">Preview print colors</button>
+            <button type="button" id="kids-prayer-instructions-toggle" class="btn btn-secondary" aria-pressed="true" aria-label="Show or hide the cut lines note above the slips">Slip notes on</button>
+            <button type="button" id="kids-prayer-slips-only-btn" class="btn btn-secondary" aria-pressed="false" aria-label="Show only the slips area for a calmer print preview">Slips-only view</button>
             <span class="section-note util-mb-0" id="kids-prayer-slip-preview-hint" hidden>Showing paper-style slips on screen. Print still uses your browser dialog.</span>
+            <span class="section-note util-mb-0" id="kids-prayer-slips-only-hint" hidden>Slips only on screen&mdash;full page is one tap away.</span>
           </div>
           <div class="kids-prayer-slips-sheet" id="kids-prayer-slips-sheet" aria-label="Six thank-you slips">
             <div class="kids-prayer-slip">
@@ -328,13 +331,33 @@
     var btn = document.getElementById('kids-prayer-slip-preview-btn');
     var sheet = document.getElementById('kids-prayer-slips-sheet');
     var hint = document.getElementById('kids-prayer-slip-preview-hint');
-    if (!btn || !sheet) return;
-    btn.addEventListener('click', function () {
-      var on = sheet.classList.toggle('kids-prayer-slips-sheet--print-preview');
-      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
-      btn.textContent = on ? 'Use screen colors' : 'Preview print sheet';
-      if (hint) hint.hidden = !on;
-    });
+    var instr = document.getElementById('kids-prayer-instructions-toggle');
+    var slipsOnly = document.getElementById('kids-prayer-slips-only-btn');
+    var slipsOnlyHint = document.getElementById('kids-prayer-slips-only-hint');
+    var printSec = document.getElementById('print-slips');
+    var body = document.getElementById('kids-prayer-body') || document.body;
+    if (btn && sheet) {
+      btn.addEventListener('click', function () {
+        var on = sheet.classList.toggle('kids-prayer-slips-sheet--print-preview');
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+        btn.textContent = on ? 'Use screen colors' : 'Preview print colors';
+        if (hint) hint.hidden = !on;
+      });
+    }
+    if (instr && printSec) {
+      instr.addEventListener('click', function () {
+        var minimal = printSec.classList.toggle('kids-prayer-print-section--minimal');
+        instr.setAttribute('aria-pressed', minimal ? 'false' : 'true');
+        instr.textContent = minimal ? 'Slip notes off' : 'Slip notes on';
+      });
+    }
+    if (slipsOnly) {
+      slipsOnly.addEventListener('click', function () {
+        var on = body.classList.toggle('kids-prayer--slips-only');
+        slipsOnly.setAttribute('aria-pressed', on ? 'true' : 'false');
+        if (slipsOnlyHint) slipsOnlyHint.hidden = !on;
+      });
+    }
   })();
   </script>
 </body>

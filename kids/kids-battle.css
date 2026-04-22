@@ -3492,6 +3492,28 @@
   margin: 0;
 }
 
+/* Optional print-preview: show only the slips (screen + print when toggled) */
+body.kids-prayer--slips-only .kids-battle-header,
+body.kids-prayer--slips-only .kids-prayer-hero,
+body.kids-prayer--slips-only .kids-prayer-lead,
+body.kids-prayer--slips-only .kids-prayer-card,
+body.kids-prayer--slips-only .kids-prayer-back,
+body.kids-prayer--slips-only .site-footer {
+  display: none !important;
+}
+
+body.kids-prayer--slips-only .kids-battle-inner {
+  padding-top: 0.75rem;
+}
+
+body.kids-prayer--slips-only .kids-prayer-print-section {
+  margin-top: 0;
+}
+
+.kids-prayer-print-section--minimal .kids-prayer-print-intro {
+  display: none !important;
+}
+
 .kids-prayer-back {
   display: flex;
   flex-wrap: wrap;
@@ -3510,6 +3532,19 @@
   .kids-prayer-activities-page .kids-footer,
   .kids-prayer-activities-page .kids-prayer-print-preview-bar,
   .kids-prayer-activities-page .skip-link {
+    display: none !important;
+  }
+
+  .kids-prayer-activities-page.kids-prayer--slips-only .kids-battle-header,
+  .kids-prayer-activities-page.kids-prayer--slips-only .kids-prayer-hero,
+  .kids-prayer-activities-page.kids-prayer--slips-only .kids-prayer-lead,
+  .kids-prayer-activities-page.kids-prayer--slips-only .kids-prayer-card,
+  .kids-prayer-activities-page.kids-prayer--slips-only .kids-prayer-back,
+  .kids-prayer-activities-page.kids-prayer--slips-only .site-footer {
+    display: none !important;
+  }
+
+  .kids-prayer-activities-page .kids-prayer-print-section--minimal .kids-prayer-print-intro {
     display: none !important;
   }
 

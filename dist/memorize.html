@@ -68,7 +68,6 @@
     }
     .tdb-global-nav a:hover, .tdb-global-nav a:focus-visible { color: var(--gold); background: rgba(227, 188, 103, 0.1); outline: 2px solid rgba(227, 188, 103, 0.55); outline-offset: 2px; }
     .tdb-global-nav a[aria-current="page"] { color: var(--gold); font-weight: 600; }
-    main.mem-main { margin: 0 auto; }
     h1 { font-size: clamp(1.5rem, 4vw, 2rem); color: var(--gold); margin: 0 0 0.35rem; font-weight: 800; }
     .subtitle { color: var(--muted); margin: 0 0 1rem; font-size: 0.95rem; }
     .lead { color: rgba(245, 247, 251, 0.9); margin: 0 0 1.5rem; line-height: 1.6; }
@@ -127,6 +126,11 @@
     .mem-card.mem-card--text .mem-ref { display: none; }
     .mem-card.mem-card--text .mem-body { display: block; font-size: 1.08rem; line-height: 1.6; color: rgba(245, 247, 251, 0.95); }
     .mem-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+    main.mem-main .mem-calm-row.calm-grid {
+      margin-top: 0.75rem;
+      align-items: stretch;
+    }
+    main.mem-main .mem-calm-row.calm-grid .btn { min-width: 0; }
     .mem-queue { list-style: none; margin: 0.5rem 0 0; padding: 0; }
     .mem-queue li {
       display: flex; flex-wrap: wrap; align-items: center; gap: 0.45rem 0.65rem;
@@ -202,7 +206,7 @@
     }
   </style>
 </head>
-<body>
+<body class="tdb-inner-page memorize-page">
   <a href="#main" class="skip-link">Skip to content</a>
     <nav class="tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
     <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel-standalone" id="tdb-primary-nav-toggle-standalone">
@@ -266,7 +270,7 @@
     aria-live="polite"
     data-tdb-offline-page="memorize"
   ><p class="offline-msg"></p></div>
-  <main id="main" class="mem-main tdb-calm-hub">
+  <main id="main" class="mem-main tdb-calm-hub tdb-quiet-container">
     <header class="mem-intro-panel" aria-labelledby="mem-page-title">
       <h1 id="mem-page-title">Memorize</h1>
       <p class="subtitle">Private &mdash; everything stays on this device</p>
@@ -280,7 +284,7 @@
       <label for="mem-ref-input">Verse reference (KJV)</label>
       <input type="text" id="mem-ref-input" maxlength="80" autocomplete="off" placeholder="e.g. John 3:16" aria-describedby="mem-ref-hint">
       <p id="mem-ref-hint" class="section-note">Use the same form as elsewhere on the site (book, chapter:verse).</p>
-      <div class="mem-row">
+      <div class="mem-calm-row calm-grid calm-grid--2">
         <button type="button" class="btn" id="mem-load-verse" aria-label="Load KJV verse text for the reference above">Load verse</button>
         <button type="button" class="btn btn-secondary" id="mem-add-queue" aria-label="Add this verse to your private memory list on this device">Add to your memory list</button>
       </div>
@@ -289,7 +293,7 @@
         <p class="mem-ref" id="mem-card-ref"></p>
         <p class="mem-body" id="mem-card-body"></p>
       </div>
-      <div class="mem-row">
+      <div class="mem-calm-row calm-grid calm-grid--2">
         <button type="button" class="btn btn-secondary hidden" id="mem-flip" aria-label="Flip verse card between reference and full text">Flip card</button>
         <button type="button" class="btn btn-secondary hidden" id="mem-hide-toggle" aria-pressed="false" aria-label="Hide some words on the card for gentle recall">Hide some words</button>
         <button type="button" class="btn btn-secondary hidden" id="mem-mark-known" aria-label="Mark verse remembered well—schedule a longer gentle gap">Remembered well</button>
@@ -304,7 +308,7 @@
       <p id="mem-rhythm-label" class="mem-rhythm-label" hidden>Hiding God&rsquo;s Word in your heart &mdash; one gentle rhythm at a time.</p>
       <div id="mem-progress-rhythm" class="mem-progress-rhythm" hidden></div>
       <p id="mem-progress-summary" class="section-note mem-progress-summary" role="status" aria-live="polite" hidden></p>
-      <div class="mem-row mem-queue-actions">
+      <div class="mem-calm-row mem-queue-actions calm-grid calm-grid--2">
         <button type="button" class="btn btn-secondary" id="mem-review-due" aria-label="Review verses that are due for a gentle check-in">Review due verses</button>
         <button type="button" class="btn btn-secondary hidden" id="mem-show-full-queue" aria-label="Show full memory list">Show full list</button>
       </div>
@@ -320,7 +324,7 @@
       <label for="mem-type-area">Your typing</label>
       <textarea id="mem-type-area" class="mem-type-input" rows="4" autocomplete="off" placeholder="Load a verse above, then type it here&hellip;" aria-describedby="mem-type-hint"></textarea>
       <p id="mem-type-hint" class="section-note">Pause about a second after typing to show first-letter hints for words you have not typed yet.</p>
-      <div class="mem-row">
+      <div class="mem-calm-row calm-grid calm-grid--2">
         <button type="button" class="btn btn-secondary" id="mem-type-hint-now" aria-label="Show first-letter hints for words not typed yet">Show first letters</button>
         <button type="button" class="btn btn-secondary" id="mem-type-clear" aria-label="Clear typing practice box">Clear</button>
       </div>
@@ -329,7 +333,7 @@
     <section aria-labelledby="mem-audio-h2">
       <h2 id="mem-audio-h2">Listen &amp; repeat</h2>
       <p class="section-note">Uses your browser&rsquo;s calm voice when available. Load a verse above. &ldquo;Repeat after me&rdquo; plays the line once, then softly highlights the card so you can speak it aloud&mdash;no microphone, nothing leaves your device.</p>
-      <div class="mem-row">
+      <div class="mem-calm-row calm-grid calm-grid--3">
         <button type="button" class="btn hidden" id="mem-repeat-along" aria-label="Play verse once, then pause for you to repeat aloud">Repeat after me</button>
         <button type="button" class="btn btn-secondary" id="mem-speak" aria-label="Read loaded KJV verse aloud with device speech">Read verse aloud</button>
         <button type="button" class="btn btn-secondary" id="mem-speak-stop" hidden aria-label="Stop verse speech">Stop</button>

@@ -1551,6 +1551,68 @@ button.download-btn:focus-visible {
   min-width: 12rem;
 }
 
+/* Site breadcrumb — mirrors JSON-LD; quiet, keyboard-friendly, hidden when printing */
+.tdb-breadcrumb {
+  font-family: var(--font-ui, Inter, -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--muted, #8b949e);
+  margin: 0 auto 0.65rem;
+  max-width: 42rem;
+}
+.tdb-breadcrumb ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.35rem;
+}
+.tdb-breadcrumb li {
+  display: inline;
+}
+.tdb-breadcrumb li:not(:last-child)::after {
+  content: " / ";
+  color: var(--muted, #8b949e);
+  font-weight: 400;
+}
+.tdb-breadcrumb a {
+  color: color-mix(in srgb, var(--tdb-focus-ring, #e3bc67) 88%, var(--text, #e6edf3));
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--tdb-focus-ring, #e3bc67) 35%, transparent);
+  font-weight: 500;
+}
+.tdb-breadcrumb a:hover {
+  color: var(--tdb-focus-ring, #e3bc67);
+  border-bottom-color: color-mix(in srgb, var(--tdb-focus-ring, #e3bc67) 55%, transparent);
+}
+.tdb-breadcrumb a:focus-visible {
+  outline: 2px solid var(--tdb-focus-ring, #e3bc67);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+.tdb-breadcrumb [aria-current="page"] {
+  color: var(--text, #e6edf3);
+  font-weight: 500;
+}
+.kids-battle-page .tdb-breadcrumb a {
+  color: #e8c86a;
+  border-bottom-color: rgba(255, 217, 61, 0.28);
+}
+.kids-battle-page .tdb-breadcrumb a:hover {
+  color: #ffd93d;
+  border-bottom-color: rgba(255, 217, 61, 0.45);
+}
+.kids-battle-page .tdb-breadcrumb a:focus-visible {
+  outline-color: #ffd93d;
+}
+@media print {
+  .tdb-breadcrumb {
+    display: none !important;
+  }
+}
+
 /* Plans / family satellite pages — avoid inline back-link + note spacing */
 .plans-back-hub {
   display: inline-block;

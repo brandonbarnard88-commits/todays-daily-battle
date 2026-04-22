@@ -12,10 +12,10 @@
   <!-- DOMPurify + tt-bootstrap stay synchronous before any body innerHTML (Trusted Types). Low fetch priority reduces contention with LCP text paint. -->
   <link rel="preload" as="script" href="/vendor/dompurify.min.js" fetchpriority="low">
   <script nonce="tdb2025s" src="/vendor/dompurify.min.js" fetchpriority="low"></script>
-  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260422perf1" fetchpriority="low"></script>
+  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260423quiet1" fetchpriority="low"></script>
   <!-- Quiet room lives only on prayer-wall.html; old /#prayer-wall bookmarks still work -->
   <script nonce="tdb2025s">(function(){try{if(location.hash!=='#prayer-wall')return;location.replace('prayer-wall.html'+location.search);}catch(e){}})();</script>
-  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260422perf1"></script>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260423quiet1"></script>
 
   <title>Today’s Verse — A Quiet Place — Jeremiah 17:7 (KJV)</title>
   <meta name="description" content="Today’s KJV verse: Jeremiah 17:7. A quiet place for any day—search by how you feel, prayer wall, works offline. No ads, no login.">
@@ -8759,7 +8759,7 @@
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
   <p class="site-footer-updated">Last updated: <span id="footer-date">April 22, 2026</span></p>
-  <script defer src="/language-switcher.js?v=20260422perf1"></script>
+  <script defer src="/language-switcher.js?v=20260423quiet1"></script>
 </footer>
 
   </div>
@@ -13240,7 +13240,7 @@
   <script nonce="tdb2025s" defer fetchpriority="low" src="verse-breakdown.js?v=20260417-hydration" data-tdb-verse-breakdown="1"></script>
   <script nonce="tdb2025s" defer fetchpriority="low" src="gentle-suggest.js?v=20260418gentle"></script>
   <script nonce="tdb2025s" type="module" fetchpriority="high" src="config.js"></script>
-  <script nonce="tdb2025s" type="module" src="script.js?v=20260422perf1" data-cfasync="false" fetchpriority="high"></script>
+  <script nonce="tdb2025s" type="module" src="script.js?v=20260423quiet1" data-cfasync="false" fetchpriority="high"></script>
   <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->
   <script nonce="tdb2025s" src="utils.js?v=20260331-patriotic-home" defer fetchpriority="low"></script>
   <!-- Sync: following inline calls TDB_EASTER_SEASON on parse; defer would run too late. -->

@@ -114,6 +114,15 @@ html {
   --tdb-fluid-section-note: clamp(1rem, 1.25vw, 1.08rem);
   /* Whisper grain — same family as tdb-quiet-luxury.css dial; raises baseline on every .tdb-surface-* */
   --tdb-surface-veil-subtle: var(--tdb-lux-guilloche);
+  /* Quiet-place responsive: canonical bands (use literal px in @media; vars are for reference + calc) */
+  --tdb-bp-sm: 480px;
+  --tdb-bp-md: 768px;
+  --tdb-bp-lg: 1024px;
+  --tdb-bp-xl: 1280px;
+  /* Opt-in page padding + wide column (roll out with .tdb-quiet-container) */
+  --tdb-quiet-pad-x: clamp(0.9rem, 2.4vw, 1.9rem);
+  --tdb-quiet-pad-b: clamp(2.5rem, 4.5vw, 3.75rem);
+  --tdb-quiet-col-wide: min(56rem, 100%);
 }
 
 /* Optional backgrounds: Kids / lighter pages → .tdb-dawn-bg--mist; evening / contemplative → .tdb-dawn-bg--dusk */
@@ -169,6 +178,43 @@ html {
  *   border/shadow family via .app-shell .content-inner > section.glass rules below.
  * — Prefer --tdb-surface-card-shadow* for new work over legacy --shadow-card* on dark pages.
  */
+
+/* —— Quiet-place responsive: opt-in containers + card grids (safe alongside existing pages) —— */
+.tdb-quiet-container {
+  width: 100%;
+  max-width: var(--tdb-inner-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--tdb-quiet-pad-x);
+  padding-right: var(--tdb-quiet-pad-x);
+  padding-bottom: var(--tdb-quiet-pad-b);
+  box-sizing: border-box;
+}
+.tdb-quiet-container--wide {
+  max-width: var(--tdb-quiet-col-wide);
+}
+.calm-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--tdb-inner-gap);
+  align-items: start;
+}
+@media (min-width: 768px) {
+  .calm-grid--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .calm-grid--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1280px) {
+  :root {
+    /* Kitchen-table breathing room: align with family hub; narrow phones/tablets unchanged */
+    --tdb-inner-max: min(52rem, 100%);
+  }
+}
 
 /* Inner-page kit: readable measure, rhythm, elevated sections (supporting pages) */
 body.tdb-inner-page .content-inner {

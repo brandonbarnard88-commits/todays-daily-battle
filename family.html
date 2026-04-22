@@ -3,7 +3,7 @@
 <head>
   <!-- tdb-cache-hygiene: _headers no-cache tool pages; bump script query with substantive JS changes -->
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js?v=20260422perf1"></script>
+  <script src="/tt-bootstrap.js?v=20260423quiet1"></script>
   <script defer src="analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,8 +26,8 @@
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260422og">
   <meta name="twitter:image:alt" content="Family hub &mdash; KJV tools for parents and little ones | Today&#39;s Daily Battle">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260422perf1" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260422perf1">
+  <link rel="preload" href="styles.css?v=20260423quiet1" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260423quiet1">
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,6 +68,43 @@
       padding: 1rem 1.1rem 3.25rem;
       min-width: 0;
       box-sizing: border-box;
+    }
+    /* Hero: one-time soft dawn ring (reduced motion disables). Bridge gradient ties hero to the page. */
+    body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn {
+      position: relative;
+      z-index: 0;
+      overflow: visible;
+    }
+    body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      inset: -6px;
+      border-radius: 18px;
+      pointer-events: none;
+      background: radial-gradient(ellipse 85% 75% at 50% 0%, rgba(227, 188, 103, 0.22), transparent 62%);
+      opacity: 0;
+      animation: family-hub-hero-dawn-glow 1.75s ease-out 0.15s 1 forwards;
+    }
+    @keyframes family-hub-hero-dawn-glow {
+      0% { opacity: 0; }
+      40% { opacity: 0.55; }
+      100% { opacity: 0; }
+    }
+    :root[data-theme="light"] body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn::before {
+      background: radial-gradient(ellipse 85% 75% at 50% 0%, rgba(180, 100, 30, 0.14), transparent 62%);
+    }
+    body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn::after {
+      content: '';
+      display: block;
+      height: 1px;
+      margin-top: 0.4rem;
+      max-width: min(100%, 28rem);
+      margin-left: auto;
+      margin-right: auto;
+      background: linear-gradient(90deg, transparent, rgba(227, 188, 103, 0.28) 20%, rgba(227, 188, 103, 0.28) 80%, transparent);
+      border-radius: 1px;
+      opacity: 0.9;
     }
     .family-hub-kicker {
       font-size: 0.78rem;
@@ -383,8 +420,11 @@
       gap: 1rem;
     }
     @media (min-width: 640px) {
-      #family-plan-cards { display: grid; grid-template-columns: repeat(2, 1fr); align-items: stretch; }
+      #family-plan-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
       #family-plan-cards .family-plan-card--wide { grid-column: 1 / -1; }
+    }
+    @media (min-width: 1024px) {
+      #family-plan-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
     .family-plan-card {
       border-radius: 16px;
@@ -483,8 +523,11 @@
       gap: 0.85rem;
       grid-template-columns: 1fr;
     }
-    @media (min-width: 560px) {
-      .family-hub-grid { grid-template-columns: repeat(2, 1fr); }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .family-hub-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (min-width: 1024px) {
+      .family-hub-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
     .family-hub-card {
       display: block;
@@ -710,6 +753,7 @@
     }
     .family-kids-tie { font-size: 0.9rem; color: var(--muted); line-height: 1.55; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(227, 188, 103, 0.1); }
     .family-kids-tie a { color: var(--gold-soft); font-weight: 600; }
+    .family-hub-desktop-cta { display: none; }
     @media (min-width: 900px) {
       .family-hub-page {
         max-width: min(100%, 52rem);
@@ -736,6 +780,26 @@
       .memory-verse-grid { gap: 1.1rem; }
       .family-gentle-empty { margin-bottom: 1.4rem; }
       .family-active-plans { margin-bottom: 1.75rem; }
+      .family-hub-desktop-cta {
+        display: block;
+        margin: 0.5rem 0 0;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: var(--muted);
+        max-width: 40rem;
+      }
+      .family-hub-desktop-cta a { font-weight: 600; color: var(--gold-soft); }
+    }
+    @media (min-width: 1200px) {
+      .family-hub-page {
+        position: relative;
+        max-width: min(100%, 52rem);
+        box-shadow:
+          0 0 0 1px rgba(227, 188, 103, 0.07),
+          0 24px 80px rgba(0, 0, 0, 0.32);
+        border-radius: 0 0 20px 20px;
+        padding-top: 1.6rem;
+      }
     }
     @media (max-width: 430px) {
       .family-hub-page {
@@ -770,6 +834,7 @@
       .family-hub-card { transition: none; }
       .family-hub-card:hover,
       .family-hub-card:focus-visible { transform: none; }
+      body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn::before { animation: none; opacity: 0; }
     }
   </style>
 </head>
@@ -828,6 +893,7 @@
       <p class="family-hub-lead family-hub-parent-nudge">Parents: your own soul matters too—<a href="daily-quiet-time.html">Daily quiet time</a> and <a href="what-god-has-done.html">What God has done</a> (private journal) are gentle doorways before the table fills up.</p>
       <p class="family-year-rhythm-callout family-hub-animate family-hub-d2" id="family-year-round-rhythm" style="margin:0.85rem 0 0;padding:0.85rem 1rem;border-radius:14px;border:1px solid rgba(227,188,103,0.28);background:rgba(12,16,26,0.55);font-size:0.92rem;line-height:1.55;color:rgba(218,226,238,0.96)"><strong>Homeschool, private school, or year-round:</strong> <a href="yearly-rhythm.html">Year-round rhythm</a> maps August&ndash;July, lighter summer weeks, and holiday doors&mdash;same one-day-at-a-time pace, saved on this device.</p>
       <p class="section-note family-hub-tour-nudge">New to the site? <button type="button" class="link-button tdb-tour-open-btn">Take the five-minute tour</button> (same welcome you get on home, verse, or explore).</p>
+      <p class="section-note family-hub-desktop-cta">Want something to hold? <a href="family-activity-packs.html">Printable family packs</a> &mdash; same calm KJV, ready for the table.</p>
       <p class="tdb-trust-return tdb-lux-inscription">Family rhythms and notes stay on this device unless you export or print.</p>
       <p class="tdb-offline-trust">Still here when the signal isn&rsquo;t.</p>
       <div class="tdb-soft-retry-row"><button type="button" class="btn btn-secondary tdb-soft-retry-btn">Try again</button><span class="section-note util-mb-0">Reloads if today&rsquo;s verse or plans didn&rsquo;t load.</span></div>
@@ -1726,7 +1792,7 @@
     window.TDB_DAILY_VERSE_TEXT_ID = 'family-daily-verse-text';
     window.TDB_DAILY_VERSE_REF_ID = 'family-daily-verse-ref';
   </script>
-  <script type="module" src="script.js?v=20260422perf1" data-cfasync="false"></script>
+  <script type="module" src="script.js?v=20260423quiet1" data-cfasync="false"></script>
   <script src="kids-corner-daily-verse.js?v=20260408quickstart" defer></script>
   <script src="family-dashboard.js?v=20260405familydash1" defer></script>
 </body>

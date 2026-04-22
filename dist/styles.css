@@ -19417,6 +19417,37 @@ body.tdb-inner-page.bible-tool-page main.app-content.tdb-quiet-container .conten
   }
 }
 
+/* Daily Rhythm — quiet framework: main.tdb-calm-hub + .tdb-quiet-container (daily-rhythm.html) */
+body.tdb-inner-page.daily-rhythm-page main#main.tdb-calm-hub.tdb-quiet-container {
+  max-width: var(--tdb-inner-max);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  padding-top: clamp(0.6rem, 1.45vw, 1.05rem);
+  padding-left: var(--tdb-quiet-pad-x);
+  padding-right: var(--tdb-quiet-pad-x);
+  padding-bottom: clamp(4.25rem, 5.2vw, 5.75rem);
+  box-sizing: border-box;
+}
+@media (max-width: 420px) {
+  body.tdb-inner-page.daily-rhythm-page main#main.tdb-calm-hub.tdb-quiet-container {
+    padding-left: max(var(--tdb-quiet-pad-x), env(safe-area-inset-left, 0px));
+    padding-right: max(var(--tdb-quiet-pad-x), env(safe-area-inset-right, 0px));
+    padding-bottom: calc(clamp(4rem, 5vw, 5.25rem) + env(safe-area-inset-bottom, 0px));
+  }
+}
+@media (min-width: 1280px) {
+  body.tdb-inner-page.daily-rhythm-page main#main.tdb-calm-hub.tdb-quiet-container {
+    box-shadow: 0 0 0 1px color-mix(in srgb, rgba(212, 175, 123, 0.14) 50%, transparent),
+      0 16px 44px rgba(0, 0, 0, 0.28);
+    border-radius: 22px;
+  }
+  body.tdb-inner-page.daily-rhythm-page main#main.tdb-calm-hub.tdb-quiet-container .rhythm-hero {
+    margin-bottom: 2.15rem;
+  }
+}
+
 /* Verse page (verse.html): calmer hero, card, actions — scoped to .tdb-verse-page only */
 .tdb-verse-page .verse-hero {
   text-align: center;

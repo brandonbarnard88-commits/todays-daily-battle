@@ -391,6 +391,37 @@
     .qa-result .qa-sources { margin-top: 0.75rem; font-size: 0.9rem; color: var(--muted-readable); }
     .qa-result .qa-sources a { color: #d4af37; text-decoration: none; }
     .qa-result .qa-sources a:hover { text-decoration: underline; }
+    /* Theme-scoped body copy: stay readable in default/dark/sepia (not only light “day”) */
+    html[data-theme="light"] .bible-tool .qa-result,
+    html[data-theme="light"] .bible-tool .qa-result .qa-answer,
+    :root[data-theme="light"] .bible-tool .qa-result,
+    :root[data-theme="light"] .bible-tool .qa-result .qa-answer {
+      color: var(--text, #1e293b);
+    }
+    html[data-theme="sepia"] .bible-tool .qa-result,
+    html[data-theme="sepia"] .bible-tool .qa-result .qa-answer,
+    :root[data-theme="sepia"] .bible-tool .qa-result,
+    :root[data-theme="sepia"] .bible-tool .qa-result .qa-answer {
+      color: var(--text, #33281d);
+    }
+    html[data-theme="dark"] .bible-tool .qa-result,
+    html[data-theme="dark"] .bible-tool .qa-result .qa-answer,
+    html:not([data-theme]) .bible-tool .qa-result,
+    html:not([data-theme]) .bible-tool .qa-result .qa-answer,
+    body.dark-mode .bible-tool .qa-result,
+    body.dark-mode .bible-tool .qa-result .qa-answer {
+      color: #e8e4d8;
+    }
+    html[data-theme="dark"] .bible-tool .qa-result .empty,
+    html:not([data-theme]) .bible-tool .qa-result .empty,
+    body.dark-mode .bible-tool .qa-result .empty {
+      color: #c8c4b8;
+    }
+    html[data-theme="dark"] .bible-tool .qa-result .qa-sources,
+    html:not([data-theme]) .bible-tool .qa-result .qa-sources,
+    body.dark-mode .bible-tool .qa-result .qa-sources {
+      color: #b8b4a8;
+    }
     .qa-server-note {
       display: flex;
       align-items: flex-start;
@@ -451,7 +482,11 @@
     .bible-tool-footer-links a:focus-visible {
       text-decoration: underline;
     }
-    .prayer-prompt { color: #888; font-style: italic; margin-top: 15px; }
+    .prayer-prompt { color: var(--muted-readable, #c8c4b8); font-style: italic; margin-top: 15px; }
+    html[data-theme="light"] .bible-tool .prayer-prompt,
+    :root[data-theme="light"] .bible-tool .prayer-prompt { color: var(--muted, #5a6578); }
+    html[data-theme="sepia"] .bible-tool .prayer-prompt,
+    :root[data-theme="sepia"] .bible-tool .prayer-prompt { color: var(--muted, #6d5d49); }
     .prayer-prompt.hidden { display: none; }
     .prayer-prompt .copy-btn { background: none; border: none; color: #d4af37; cursor: pointer; font-style: normal; }
     .prayer-prompt .copy-btn:hover { text-decoration: underline; }

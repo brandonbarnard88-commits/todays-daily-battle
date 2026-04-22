@@ -43,6 +43,105 @@
     .btn-rhythm:hover, .btn-rhythm:focus-visible { background: var(--gold); color: #111; transform: translateY(-1px); }
     .time-suggestion { font-size: 0.85rem; color: var(--muted); text-align: center; margin: 1.5rem 0 0; padding: 0.75rem; background: rgba(212,175,123,0.06); border-radius: 12px; }
     .offline-note { font-size: 0.82rem; color: var(--muted); text-align: center; margin: 3rem 0 0; padding: 1rem; border-radius: 12px; background: rgba(212,175,123,0.06); }
+
+    /* Wide viewports: calm “On this page” map — desktop scanning only. */
+    .daily-rhythm-onpage-nav { display: none; }
+    @media (min-width: 1100px) {
+      .daily-rhythm-onpage-nav {
+        display: block;
+        position: sticky;
+        top: 3.25rem;
+        z-index: 8;
+        margin: 0.2rem 0 1.1rem;
+        padding: 0.5rem 0.75rem 0.6rem;
+        border-radius: 14px;
+        background: rgba(6, 9, 14, 0.82);
+        border: 1px solid rgba(227, 188, 103, 0.2);
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+        backdrop-filter: blur(10px);
+        text-align: left;
+      }
+      .daily-rhythm-onpage-nav__label {
+        margin: 0 0 0.4rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(227, 188, 103, 0.65);
+      }
+      .daily-rhythm-onpage-nav__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem 0.55rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        justify-content: center;
+      }
+      .daily-rhythm-onpage-nav__list a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 0.25rem 0.65rem;
+        border-radius: 999px;
+        font-size: 0.86rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: rgba(226, 232, 240, 0.92);
+        border: 1px solid rgba(227, 188, 103, 0.22);
+        background: rgba(12, 16, 26, 0.55);
+      }
+      .daily-rhythm-onpage-nav__list a:hover,
+      .daily-rhythm-onpage-nav__list a:focus-visible {
+        border-color: rgba(227, 188, 103, 0.45);
+        color: #c9a84c;
+        outline: 2px solid rgba(227, 188, 103, 0.45);
+        outline-offset: 2px;
+      }
+    }
+    html[data-theme="light"] .daily-rhythm-onpage-nav {
+      background: rgba(255, 253, 247, 0.94);
+      border-color: rgba(201, 162, 39, 0.28);
+      box-shadow: 0 8px 24px rgba(64, 41, 8, 0.1);
+    }
+    html[data-theme="light"] .daily-rhythm-onpage-nav__label {
+      color: rgba(120, 90, 30, 0.75);
+    }
+    html[data-theme="light"] .daily-rhythm-onpage-nav__list a {
+      color: #1e293b;
+      border-color: rgba(201, 162, 39, 0.35);
+      background: rgba(255, 255, 255, 0.88);
+    }
+    html[data-theme="light"] .daily-rhythm-onpage-nav__list a:hover,
+    html[data-theme="light"] .daily-rhythm-onpage-nav__list a:focus-visible {
+      color: #0f172a;
+      border-color: rgba(201, 162, 39, 0.55);
+    }
+    .daily-rhythm-page #daily-rhythm-overview,
+    .daily-rhythm-page #time-suggestion,
+    .daily-rhythm-page #daily-rhythm-quiet-morning,
+    .daily-rhythm-page #daily-rhythm-quiet-evening,
+    .daily-rhythm-page #daily-rhythm-more-links,
+    .daily-rhythm-page #daily-rhythm-device-note {
+      scroll-margin-top: 5rem;
+    }
+    @media (min-width: 1100px) {
+      .daily-rhythm-page #daily-rhythm-overview,
+      .daily-rhythm-page #time-suggestion,
+      .daily-rhythm-page #daily-rhythm-quiet-morning,
+      .daily-rhythm-page #daily-rhythm-quiet-evening,
+      .daily-rhythm-page #daily-rhythm-more-links,
+      .daily-rhythm-page #daily-rhythm-device-note {
+        scroll-margin-top: 7.5rem;
+      }
+    }
+    @media (min-width: 1100px) and (prefers-reduced-motion: reduce) {
+      .daily-rhythm-onpage-nav {
+        position: static;
+        margin-bottom: 1.05rem;
+      }
+    }
   </style>
 </head>
 <body class="dark-mode tdb-inner-page daily-rhythm-page">
@@ -91,23 +190,35 @@
 
   <main id="main" class="tdb-calm-hub tdb-quiet-container">
     <div class="rhythm-hero">
-      <h1 class="rhythm-title">Daily Rhythm</h1>
-      <p class="rhythm-lead">A gentle heartbeat for the day: one quiet moment with the Word in the morning, one peaceful release in the evening. No task list. Just the Lord, one breath at a time. Everything stays private on your device.</p>
-      
+      <div id="daily-rhythm-overview" class="daily-rhythm-overview" tabindex="-1">
+        <h1 class="rhythm-title">Daily Rhythm</h1>
+        <p class="rhythm-lead">A gentle heartbeat for the day: one quiet moment with the Word in the morning, one peaceful release in the evening. No task list. Just the Lord, one breath at a time. Everything stays private on your device.</p>
+      </div>
+      <nav class="daily-rhythm-onpage-nav" aria-label="On this page">
+        <p class="daily-rhythm-onpage-nav__label" id="daily-rhythm-onpage-toc-label">On this page</p>
+        <ul class="daily-rhythm-onpage-nav__list" aria-labelledby="daily-rhythm-onpage-toc-label">
+          <li><a href="#daily-rhythm-overview">Overview</a></li>
+          <li><a href="#time-suggestion">Time hint</a></li>
+          <li><a href="#daily-rhythm-quiet-morning">Quiet Morning</a></li>
+          <li><a href="#daily-rhythm-quiet-evening">Quiet Evening</a></li>
+          <li><a href="#daily-rhythm-more-links">More doorways</a></li>
+          <li><a href="#daily-rhythm-device-note">On this device</a></li>
+        </ul>
+      </nav>
       <div class="time-suggestion" id="time-suggestion">
         It is currently <span id="current-time"></span>. Would you like to begin with <strong>Quiet Morning</strong> or <strong>Quiet Evening</strong>?
       </div>
     </div>
 
     <div class="rhythm-cards calm-grid calm-grid--2">
-    <div class="rhythm-card">
+    <div id="daily-rhythm-quiet-morning" class="rhythm-card" tabindex="-1">
       <h3>Quiet Morning</h3>
       <p class="verse-preview" id="morning-verse-preview">"The name of the LORD is a strong tower..."</p>
       <p style="color:var(--muted); font-size:0.95rem; margin-bottom:1.25rem;">One quiet moment with the Word before the day begins. Let the Lord speak gently to your heart this morning. One short step is enough.</p>
       <a href="/quiet-morning.html" class="btn-rhythm">Open Quiet Morning</a>
     </div>
 
-    <div class="rhythm-card">
+    <div id="daily-rhythm-quiet-evening" class="rhythm-card" tabindex="-1">
       <h3>Quiet Evening</h3>
       <p class="verse-preview" id="evening-verse-preview">"I will both lay me down in peace..."</p>
       <p style="color:var(--muted); font-size:0.95rem; margin-bottom:1.25rem;">What are you carrying as the day ends? Lay it down gently before sleep. Let the Lord bring peace to your heart tonight. One breath of gratitude is enough.</p>
@@ -115,7 +226,7 @@
     </div>
     </div>
 
-    <div style="margin-top:2.5rem; text-align:center;">
+    <div id="daily-rhythm-more-links" class="daily-rhythm-more-links" style="margin-top:2.5rem; text-align:center;" tabindex="-1">
       <a href="/family-home.html" style="color:var(--gold); text-decoration:none; font-size:0.95rem;">Family Table prompts →</a>
       <span style="margin:0 1rem; color:var(--muted);">·</span>
       <a href="/printables.html" style="color:var(--gold); text-decoration:none; font-size:0.95rem;">Printable companions →</a>
@@ -123,7 +234,7 @@
       <a href="/living-in-the-refuge.html" style="color:var(--gold); text-decoration:none; font-size:0.95rem;">Living in the Refuge →</a>
     </div>
 
-    <div class="offline-note">
+    <div id="daily-rhythm-device-note" class="offline-note" tabindex="-1">
       Your daily rhythm stays on this device. No accounts. No lists. Just you and the Lord, morning and evening.
     </div>
   </main>

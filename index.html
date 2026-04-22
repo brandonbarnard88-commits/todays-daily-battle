@@ -2251,6 +2251,33 @@
       max-width: 100%;
       box-sizing: border-box;
     }
+    .tdb-hero-spring-nudge {
+      font-size: 0.81rem;
+      line-height: 1.5;
+      color: var(--muted);
+      margin: 0.2rem 0 0;
+      padding: 0 0.25rem;
+      text-align: center;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .tdb-hero-spring-nudge a {
+      color: var(--gold);
+      font-weight: 600;
+      text-decoration: none;
+      text-underline-offset: 2px;
+    }
+    .tdb-hero-spring-nudge a:hover,
+    .tdb-hero-spring-nudge a:focus-visible {
+      text-decoration: underline;
+      outline: none;
+    }
+    :root[data-theme="light"] .tdb-hero-spring-nudge {
+      color: color-mix(in srgb, var(--muted) 88%, #1a1206 12%);
+    }
+    :root[data-theme="light"] .tdb-hero-spring-nudge a {
+      color: #8a5a16;
+    }
     .hero-daily-path {
       font-size: 0.84rem;
       line-height: 1.45;
@@ -7766,6 +7793,7 @@
           <a href="/prayer-wall.html">Pray</a>
         </span>
       </nav>
+      <p class="tdb-hero-spring-nudge" role="note">Spring 2026 &mdash; clearer <a href="explore.html#start-here">Start here</a> on Explore &middot; <a href="explore.html#whats-new-spring-2026">What&rsquo;s new</a></p>
       </div>
       <div class="tdb-home-resume" id="tdbHomeResume" role="region" aria-label="Your progress on this device" hidden></div>
 

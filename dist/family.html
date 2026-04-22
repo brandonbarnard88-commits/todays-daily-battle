@@ -831,6 +831,76 @@
       .family-hub-card:focus-visible { transform: none; }
       body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn::before { animation: none; opacity: 0; }
     }
+    /* Wide viewports: calm “On this page” map — Family hub is long; anchors aid scanning. */
+    .family-hub-onpage-nav { display: none; }
+    @media (min-width: 1100px) {
+      .family-hub-onpage-nav {
+        display: block;
+        position: sticky;
+        top: 3.25rem;
+        z-index: 8;
+        margin: 0 0 1.35rem;
+        padding: 0.5rem 0.75rem 0.6rem;
+        border-radius: 14px;
+        background: rgba(6, 9, 14, 0.82);
+        border: 1px solid rgba(227, 188, 103, 0.2);
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+        backdrop-filter: blur(10px);
+      }
+      .family-hub-onpage-nav__label {
+        margin: 0 0 0.4rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(227, 188, 103, 0.65);
+      }
+      .family-hub-onpage-nav__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem 0.55rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+      }
+      .family-hub-onpage-nav__list a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 0.25rem 0.65rem;
+        border-radius: 999px;
+        font-size: 0.86rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: rgba(226, 232, 240, 0.92);
+        border: 1px solid rgba(227, 188, 103, 0.22);
+        background: rgba(12, 16, 26, 0.55);
+      }
+      .family-hub-onpage-nav__list a:hover,
+      .family-hub-onpage-nav__list a:focus-visible {
+        border-color: rgba(227, 188, 103, 0.45);
+        color: var(--gold-soft);
+        outline: 2px solid rgba(227, 188, 103, 0.45);
+        outline-offset: 2px;
+      }
+    }
+    .family-hub-page h2[id],
+    .family-hub-page section[id] {
+      scroll-margin-top: 5rem;
+    }
+    @media (min-width: 1100px) {
+      .family-hub-page h2[id],
+      .family-hub-page section[id] {
+        scroll-margin-top: 7.5rem;
+      }
+    }
+    @media (min-width: 1100px) and (prefers-reduced-motion: reduce) {
+      .family-hub-onpage-nav {
+        position: static;
+        margin-bottom: 1.15rem;
+      }
+    }
   </style>
 </head>
 <body class="family-hub-deep-page tdb-inner-page">
@@ -900,6 +970,18 @@
       <p class="tdb-offline-trust">Still here when the signal isn&rsquo;t.</p>
       <div class="tdb-soft-retry-row"><button type="button" class="btn btn-secondary tdb-soft-retry-btn">Try again</button><span class="section-note util-mb-0">Reloads if today&rsquo;s verse or plans didn&rsquo;t load.</span></div>
     </header>
+
+    <nav class="family-hub-onpage-nav" aria-label="On this page">
+      <p class="family-hub-onpage-nav__label" id="family-onpage-toc-label">On this page</p>
+      <ul class="family-hub-onpage-nav__list" aria-labelledby="family-onpage-toc-label">
+        <li><a href="#family-two-minute-heading">2-minute start</a></li>
+        <li><a href="#family-daily-verse-root">Verse &amp; dashboard</a></li>
+        <li><a href="#family-plans-heading">Family plans</a></li>
+        <li><a href="#family-print-heading">Print &amp; offline</a></li>
+        <li><a href="#family-prayer-heading">Prayer list</a></li>
+        <li><a href="#family-when-to-use-heading">Kids &amp; stories</a></li>
+      </ul>
+    </nav>
 
     <section class="family-parent-at-a-glance family-hub-animate family-hub-d2" aria-labelledby="family-parent-glance-heading">
       <h2 class="family-parent-at-a-glance__title" id="family-parent-glance-heading">At a glance for parents</h2>

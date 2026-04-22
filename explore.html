@@ -50,6 +50,61 @@
     }
   }
   </script>
+  <style>
+    /* Languages block is dense; wide screens get same-page jump chips. */
+    .explore-lang-jump { display: none; }
+    @media (min-width: 900px) {
+      .explore-lang-jump {
+        display: block;
+        margin: 0 0 1rem;
+        padding: 0.5rem 0.75rem;
+        border-radius: 12px;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        background: rgba(15, 23, 42, 0.45);
+      }
+      .explore-lang-jump__label {
+        display: block;
+        margin: 0 0 0.4rem;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(148, 163, 184, 0.85);
+      }
+      .explore-lang-jump__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem 0.5rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+      }
+      .explore-lang-jump__list a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 0.2rem 0.6rem;
+        border-radius: 999px;
+        font-size: 0.84rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: rgba(226, 232, 240, 0.92);
+        border: 1px solid rgba(99, 102, 241, 0.28);
+        background: rgba(15, 23, 42, 0.55);
+      }
+      .explore-lang-jump__list a:hover,
+      .explore-lang-jump__list a:focus-visible {
+        border-color: rgba(99, 102, 241, 0.55);
+        color: #c7d2fe;
+        outline: 2px solid rgba(99, 102, 241, 0.4);
+        outline-offset: 2px;
+      }
+    }
+    .explore-languages h3[id] {
+      scroll-margin-top: 5rem;
+    }
+  </style>
 </head>
 <body class="dark-mode tdb-inner-page tdb-explore-page">
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -297,6 +352,15 @@
 
         <section class="glass explore-section explore-languages" id="languages" aria-labelledby="languages-heading">
           <h2 class="section-divider" id="languages-heading">Languages</h2>
+          <nav class="explore-lang-jump" aria-label="Jump to language groups on this page">
+            <span class="explore-lang-jump__label" id="explore-lang-jump-lbl">Jump to group</span>
+            <ul class="explore-lang-jump__list" aria-labelledby="explore-lang-jump-lbl">
+              <li><a href="#explore-lang-tier-en">English (default)</a></li>
+              <li><a href="#explore-lang-tier-row">ES, FR, PT hubs</a></li>
+              <li><a href="#explore-lang-tier-landings">Pilots (ID, ZH, RU, HI&hellip;)</a></li>
+              <li><a href="#explore-lang-tier-small">Single-locale &amp; more</a></li>
+            </ul>
+          </nav>
           <div class="tdb-open-beta-callout" role="region" aria-labelledby="open-beta-explore-heading">
             <h3 class="tdb-open-beta-callout-title" id="open-beta-explore-heading">Language coverage</h3>
             <p class="section-note util-mb-0">Built solo by Brandon, this section stays straightforward: English is the full home experience, and the language-row hubs (Español, Français, Português) are actively maintained with clear labels where a tool opens in English. <a href="/contact.html">Tell us what felt off</a>.</p>

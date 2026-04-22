@@ -727,7 +727,7 @@
         <p class="section-note util-mt-0_5 util-mb-0" style="padding:0.65rem 0.85rem;border-radius:10px;border:1px solid rgba(212,175,55,0.28);background:rgba(212,175,55,0.06);max-width:42rem;"><strong>Supporters:</strong> <a href="verse-image.html" class="bible-tool-gold-link">Create a custom verse image</a> — pick a verse, style the card, export PNG or share.</p>
 
         <div class="bible-tool-workshop-strip" role="navigation" aria-label="Study workshop">
-          <p class="bible-tool-workshop-strip-inner"><span class="bible-tool-workshop-strip-label">Study workshop</span> — Book intros, the full KJV word-help index, verse memory, maps, and concordance live in one shelf: <a class="bible-tool-gold-link" href="bible/tools.html">Bible Hub → Tools</a>. This page stays focused on search, lookup, stories, and notes.</p>
+          <p class="bible-tool-workshop-strip-inner"><span class="bible-tool-workshop-strip-label">Study workshop</span> — Book intros, the full KJV word-help index, verse memory, maps, and concordance live in one shelf: <a class="bible-tool-gold-link" href="bible/tools.html">Bible Hub → Tools</a>. This page leads with <strong>Ask the Word</strong>, then search, lookup, stories, and notes.</p>
         </div>
         </header>
 
@@ -736,8 +736,8 @@
           <ul class="bible-tool-onpage-nav__list" aria-labelledby="bible-tool-onpage-toc-label">
             <li><a href="#bible-tool-overview">Overview</a></li>
             <li><a href="#bible-tool-hub">Hub links</a></li>
-            <li><a href="#search-hero">Search &amp; topics</a></li>
             <li><a href="#ask-the-word-section">Ask the Word</a></li>
+            <li><a href="#search-hero">Search &amp; topics</a></li>
             <li><a href="#bible-tool-verse-mode-section">Verse mode</a></li>
             <li><a href="#bible-story-tool-section">Bible stories</a></li>
             <li><a href="#bible-tool-todays-verse">Today&rsquo;s verse</a></li>
@@ -746,6 +746,30 @@
         </nav>
 
         <p class="section-note tdb-kjv-dict-hint util-mb-0_75" role="note">Tap any underlined KJV word for a short, plain meaning.</p>
+
+        <!-- Ask the Word — Bible Q&A (standalone, runs before main script) -->
+        <section class="bible-qa" id="ask-the-word-section" aria-label="Ask the Word" role="search">
+          <h2 class="bible-qa-title">✝️ Ask the Word</h2>
+          <div class="qa-input-group" style="display:flex !important; gap:10px; flex-wrap:wrap;">
+            <input id="bible-qa-search" type="text" placeholder="Ask anything about the Bible…" aria-label="Ask a Bible question" autocomplete="off" style="flex:1; min-width:12rem;">
+            <button type="button" class="qa-btn" id="bible-qa-btn" style="min-height:44px;">Ask</button>
+          </div>
+          <p class="qa-server-note" id="ask-the-word-server-note">
+            <a href="why-not-ai.html" class="qa-server-note-icon-link" aria-label="How Ask the Word fits our privacy stance — Why not AI?">
+              <svg class="qa-server-note-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            </a>
+            <span>No ads. No tracking. Your prayers and data stay on your device. Just you and God. When you&rsquo;re online, this box may use a short server assist; offline it falls back to on-device lookup. <a class="qa-server-note-inline" href="privacy.html">Privacy</a> · <a class="qa-server-note-inline" href="why-not-ai.html">Why not AI?</a></span>
+          </p>
+          <div id="qa-result" class="qa-result hidden" role="region" aria-live="polite" aria-label="Bible Q&A answer">
+            <!-- Answer loads here -->
+          </div>
+          <div class="prayer-prompt hidden" id="qa-prayer-prompt" aria-live="polite" aria-hidden="true">
+            Prayer prompt: <span class="prompt-text"></span>
+            <button type="button" class="copy-btn" aria-label="Copy prayer prompt">Copy</button>
+          </div>
+          <p class="qa-disclaimer">This is not a pastor—just a tool. For deep questions, talk to someone real.</p>
+        </section>
+        <script src="ask-the-word.js?v=20260325clean" defer></script>
 
         <section class="search-hero glass" id="search-hero" role="search" aria-label="Search Scripture">
           <label for="query" class="search-hero-label">Search by emotion or verse</label>
@@ -787,30 +811,6 @@
             });
           }());
         </script>
-
-        <!-- Ask the Word — Bible Q&A (standalone, runs before main script) -->
-        <section class="bible-qa" id="ask-the-word-section" aria-label="Ask the Word" role="search">
-          <h2 class="bible-qa-title">✝️ Ask the Word</h2>
-          <div class="qa-input-group" style="display:flex !important; gap:10px; flex-wrap:wrap;">
-            <input id="bible-qa-search" type="text" placeholder="Ask anything about the Bible…" aria-label="Ask a Bible question" autocomplete="off" style="flex:1; min-width:12rem;">
-            <button type="button" class="qa-btn" id="bible-qa-btn" style="min-height:44px;">Ask</button>
-          </div>
-          <p class="qa-server-note" id="ask-the-word-server-note">
-            <a href="why-not-ai.html" class="qa-server-note-icon-link" aria-label="How Ask the Word fits our privacy stance — Why not AI?">
-              <svg class="qa-server-note-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-            </a>
-            <span>No ads. No tracking. Your prayers and data stay on your device. Just you and God. When you&rsquo;re online, this box may use a short server assist; offline it falls back to on-device lookup. <a class="qa-server-note-inline" href="privacy.html">Privacy</a> · <a class="qa-server-note-inline" href="why-not-ai.html">Why not AI?</a></span>
-          </p>
-          <div id="qa-result" class="qa-result hidden" role="region" aria-live="polite" aria-label="Bible Q&A answer">
-            <!-- Answer loads here -->
-          </div>
-          <div class="prayer-prompt hidden" id="qa-prayer-prompt" aria-live="polite" aria-hidden="true">
-            Prayer prompt: <span class="prompt-text"></span>
-            <button type="button" class="copy-btn" aria-label="Copy prayer prompt">Copy</button>
-          </div>
-          <p class="qa-disclaimer">This is not a pastor—just a tool. For deep questions, talk to someone real.</p>
-        </section>
-        <script src="ask-the-word.js?v=20260325clean" defer></script>
 
         <section class="verse-card glass" id="bible-tool-verse-mode-section" aria-label="Verse mode">
           <h2 class="section-divider util-mt-0"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>Verse Mode</h2>
@@ -2515,7 +2515,7 @@
   // Ask the Word — wired by inline bootstrap script (runs before this block)
 })();
   </script>
-  <script src="kids/bible-story-tool-index.js?v=1"></script>
+  <!-- Phase 6: Bible story index (~large) loads when #bible-story-tool-section nears viewport or after idle — cuts main-thread work for first paint. -->
   <script nonce="tdb2025s">
   (function () {
     'use strict';
@@ -2704,8 +2704,26 @@
         });
       }
     }
-    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initBibleStoryToolIndex);
-    else initBibleStoryToolIndex();
+    var storyIndexLoading = false;
+    var storyIndexReady = false;
+    function startBibleStoryIndex() {
+      if (storyIndexReady || storyIndexLoading) return;
+      storyIndexLoading = true;
+      var s = document.createElement('script');
+      s.src = 'kids/bible-story-tool-index.js?v=1';
+      s.async = true;
+      s.onload = function () {
+        storyIndexLoading = false;
+        storyIndexReady = true;
+        initBibleStoryToolIndex();
+      };
+      s.onerror = function () {
+        storyIndexLoading = false;
+        storyIndexReady = true;
+        initBibleStoryToolIndex();
+      };
+      document.body.appendChild(s);
+    }
     (function wireFeaturedStoryLink() {
       var fe = document.getElementById('bible-story-tool-featured-link');
       if (!fe) return;
@@ -2717,6 +2735,45 @@
         }
       });
     })();
+    function scheduleBibleStoryIndex() {
+      var sec = document.getElementById('bible-story-tool-section');
+      if (!sec) {
+        startBibleStoryIndex();
+        return;
+      }
+      if (typeof IntersectionObserver === 'function') {
+        var io = new IntersectionObserver(
+          function (entries) {
+            for (var i = 0; i < entries.length; i++) {
+              if (entries[i].isIntersecting) {
+                try {
+                  io.disconnect();
+                } catch (e) {}
+                startBibleStoryIndex();
+                return;
+              }
+            }
+          },
+          { root: null, rootMargin: '320px 0px', threshold: 0.01 }
+        );
+        io.observe(sec);
+      } else {
+        startBibleStoryIndex();
+      }
+      function idleFallback() {
+        if (!storyIndexReady && !storyIndexLoading) startBibleStoryIndex();
+      }
+      if (typeof requestIdleCallback === 'function') {
+        requestIdleCallback(idleFallback, { timeout: 5000 });
+      } else {
+        setTimeout(idleFallback, 5000);
+      }
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', scheduleBibleStoryIndex);
+    } else {
+      scheduleBibleStoryIndex();
+    }
   })();
   </script>
   <script nonce="tdb2025s">

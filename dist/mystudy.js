@@ -90,6 +90,7 @@
       if (hash === '#saved-verses' || hash === '#panel-note-library') return 'library';
       if (hash === '#panel-highlights') return 'highlights';
       if (hash === '#panel-join-study') return 'join';
+      if (hash === '#panel-my-study') return 'my';
     } catch (e) {}
     return 'my';
   }
@@ -1160,6 +1161,14 @@
     });
     byId('tab-highlights')?.addEventListener('click', function () { setTab('highlights'); });
     byId('tab-join-study')?.addEventListener('click', function () { setTab('join'); });
+
+    window.addEventListener('hashchange', function () {
+      var h = String(window.location.hash || '').trim().toLowerCase();
+      if (h === '#saved-verses' || h === '#panel-note-library') setTab('library');
+      else if (h === '#panel-highlights') setTab('highlights');
+      else if (h === '#panel-join-study') setTab('join');
+      else if (h === '#panel-my-study') setTab('my');
+    });
 
     var libFilter = byId('mystudy-library-filter');
     if (libFilter) {

@@ -15,7 +15,7 @@
   <link rel="canonical" href="https://todaysdailybattle.com/mystudy">
   <meta name="theme-color" content="#0a0c14">
   <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf">
-  <link rel="stylesheet" href="mystudy.css?v=20260422mystudy-quiet1">
+  <link rel="stylesheet" href="mystudy.css?v=20260422mystudy-onpage1">
 </head>
 <body class="dark-mode tdb-inner-page mystudy-body">
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -30,7 +30,7 @@
     </nav>
     <section class="mystudy-card glass" aria-label="My Study">
       <header class="mystudy-hero">
-        <div class="mystudy-hero-copy">
+        <div id="mystudy-overview" class="mystudy-hero-copy" tabindex="-1">
           <p class="mystudy-kicker">Private on this device</p>
           <h1 class="section-divider mystudy-title">My Study</h1>
           <p class="section-note mystudy-subtitle">A calmer place for saved verses, notes, prayer, highlights, and steady progress. Everything stays on this device unless you sign in to sync across devices. <a href="/login.html" class="mystudy-sync-nudge">Sign in free to never lose it</a>.</p>
@@ -66,6 +66,19 @@
             </div>
           </details>
         </div>
+        <nav class="mystudy-onpage-nav" aria-label="On this page">
+          <p class="mystudy-onpage-nav__label" id="mystudy-onpage-toc-label">On this page</p>
+          <ul class="mystudy-onpage-nav__list" aria-labelledby="mystudy-onpage-toc-label">
+            <li><a href="#mystudy-overview">Overview</a></li>
+            <li><a href="#mystudy-progress-summary">Your rhythm</a></li>
+            <li><a href="#mystudy-streak-badges">Quiet markers</a></li>
+            <li><a href="#mystudy-memorize-strip">Memorize</a></li>
+            <li><a href="#panel-my-study">My Study</a></li>
+            <li><a href="#panel-note-library">Saved &amp; notes</a></li>
+            <li><a href="#panel-highlights">Highlights</a></li>
+            <li><a href="#panel-join-study">Join Study</a></li>
+          </ul>
+        </nav>
         <div id="mystudy-progress-summary" class="mystudy-progress-summary" role="region" aria-label="Your gentle study rhythm on this device"></div>
         <div id="mystudy-backup-nudge" class="mystudy-backup-nudge hidden" role="region" aria-live="polite" aria-label="Backup reminder"></div>
         <section id="mystudy-activity-calendar" class="mystudy-activity-calendar" role="region" aria-labelledby="mystudy-activity-cal-heading" hidden>
@@ -264,7 +277,7 @@
   <script src="word-study.js?v=20260329pass2off" defer></script>
   <script src="verse-narration.js?v=20260329narr12" defer></script>
   <script src="verse-study.js?v=20260328pass4vs" defer></script>
-  <script src="mystudy.js?v=20260421audit-mystudy" defer></script>
+  <script src="mystudy.js?v=20260422mystudy-onpage" defer></script>
   <script type="module" src="script.js?v=20260423-phase5-perf" data-cfasync="false"></script>
   <script src="/easter-eggs.js" defer data-tdb-easter-eggs="1"></script>
 </body>

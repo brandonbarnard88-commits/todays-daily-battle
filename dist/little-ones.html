@@ -121,6 +121,77 @@
     .little-ones-page > section.glass:first-of-type {
       margin-top: 1.35rem;
     }
+    .little-ones-onpage-nav { display: none; }
+    @media (min-width: 1100px) {
+      .little-ones-onpage-nav {
+        display: block;
+        position: sticky;
+        top: 3.25rem;
+        z-index: 8;
+        margin: 0 0 1.35rem;
+        padding: 0.5rem 0.75rem 0.6rem;
+        border-radius: 14px;
+        background: rgba(6, 9, 14, 0.82);
+        border: 1px solid rgba(227, 188, 103, 0.2);
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+        backdrop-filter: blur(10px);
+      }
+      .little-ones-onpage-nav__label {
+        margin: 0 0 0.4rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(227, 188, 103, 0.65);
+      }
+      .little-ones-onpage-nav__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem 0.55rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+      }
+      .little-ones-onpage-nav__list a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 0.25rem 0.65rem;
+        border-radius: 999px;
+        font-size: 0.86rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: rgba(226, 232, 240, 0.92);
+        border: 1px solid rgba(227, 188, 103, 0.22);
+        background: rgba(12, 16, 26, 0.55);
+      }
+      .little-ones-onpage-nav__list a:hover,
+      .little-ones-onpage-nav__list a:focus-visible {
+        border-color: rgba(227, 188, 103, 0.45);
+        color: var(--gold-soft, #e3bc67);
+        outline: 2px solid rgba(227, 188, 103, 0.45);
+        outline-offset: 2px;
+      }
+    }
+    .little-ones-page h2[id],
+    .little-ones-page section[id],
+    .little-ones-page details[id] {
+      scroll-margin-top: 5rem;
+    }
+    @media (min-width: 1100px) {
+      .little-ones-page h2[id],
+      .little-ones-page section[id],
+      .little-ones-page details[id] {
+        scroll-margin-top: 7.5rem;
+      }
+    }
+    @media (min-width: 1100px) and (prefers-reduced-motion: reduce) {
+      .little-ones-onpage-nav {
+        position: static;
+        margin-bottom: 1.15rem;
+      }
+    }
     @media (min-width: 960px) {
       .little-ones-page {
         max-width: 76rem;
@@ -167,6 +238,16 @@
         <a class="btn btn-secondary" href="/kids-corner.html">Bible Loop Library</a>
       </div>
     </header>
+
+    <nav class="little-ones-onpage-nav" aria-label="On this page">
+      <p class="little-ones-onpage-nav__label" id="little-ones-onpage-toc-label">On this page</p>
+      <ul class="little-ones-onpage-nav__list" aria-labelledby="little-ones-onpage-toc-label">
+        <li><a href="#little-ones-verse-heading">Verse</a></li>
+        <li><a href="#little-ones-feature-heading">Story &amp; color</a></li>
+        <li><a href="#little-ones-age-heading">By age</a></li>
+        <li><a href="#little-ones-more-quiet">More quiet helps</a></li>
+      </ul>
+    </nav>
 
     <section class="glass" id="little-ones-verse-root" aria-labelledby="little-ones-verse-heading">
       <div class="little-ones-verse-head">
@@ -261,7 +342,7 @@
       </div>
     </section>
 
-    <details class="glass">
+    <details class="glass" id="little-ones-more-quiet">
       <summary>More quiet helps</summary>
       <div style="padding-top:1rem;">
         <div class="little-ones-age-grid">

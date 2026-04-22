@@ -17251,6 +17251,7 @@ body[data-topic-gem="rose"] .message-avatar.topic-gem-message-rose { box-shadow:
   border: 1px solid rgba(125, 149, 191, 0.34);
   border-radius: 16px;
   background: linear-gradient(180deg, rgba(20, 28, 40, 0.78) 0%, rgba(10, 15, 27, 0.92) 100%);
+  color: var(--text, #e8e4d8);
 }
 
 .home-qa-kicker {
@@ -17265,6 +17266,7 @@ body[data-topic-gem="rose"] .message-avatar.topic-gem-message-rose { box-shadow:
   margin: 0 0 0.45rem;
   font-size: 1rem;
   letter-spacing: 0.01em;
+  color: var(--text, #e8e4d8);
 }
 
 .home-qa-answer {
@@ -17297,6 +17299,16 @@ body[data-topic-gem="rose"] .message-avatar.topic-gem-message-rose { box-shadow:
 html[data-theme="light"] .home-qa-result {
   background: #f2f6ff;
   border-color: #b8c7e8;
+  color: var(--text, #2f2f2f);
+}
+
+html[data-theme="light"] .home-qa-title {
+  color: var(--text, #2f2f2f);
+}
+
+html[data-theme="sepia"] .home-qa-result,
+html[data-theme="sepia"] .home-qa-title {
+  color: var(--text, #33281d);
 }
 
 .quick-grid {

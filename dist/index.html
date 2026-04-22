@@ -4809,6 +4809,22 @@
       transition: border-color 0.15s, color 0.15s;
     }
     .nav-more-close:hover { border-color: var(--gold, #e3bc67); color: var(--text); }
+    /* Bottom-sheet close: ✕ last in drawer (full-width tap) */
+    .nav-more-x.nav-more-bottom-close {
+      display: block; width: 100%; margin-top: 1rem;
+      padding: 0.72rem;
+      font-size: 1.15rem; font-weight: 600;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--card, #161b27) 88%, var(--bg-soft, rgba(255,255,255,0.04)));
+      color: var(--muted, #94a3b8);
+    }
+    .nav-more-x.nav-more-bottom-close:hover,
+    .nav-more-x.nav-more-bottom-close:focus-visible {
+      border-color: var(--gold, #e3bc67);
+      color: var(--text, #e2e8f0);
+      background: rgba(255, 255, 255, 0.07);
+    }
 
     /* ── Footer ── */
     .site-footer {
@@ -8879,11 +8895,11 @@
     <div class="nav-more-drawer" id="nav-more-drawer">
       <div class="nav-more-handle-wrap" aria-hidden="true">
         <div class="nav-more-handle"></div>
-        <button type="button" id="nav-more-x" class="nav-more-x" aria-label="Close menu">✕</button>
       </div>
       <h2 class="nav-more-title">Tools</h2>
       <p class="privacy-line nav-more-privacy-line">No ads. No selling your data. Prayers stay on your device. We don&rsquo;t follow you around the web for ads—<a href="privacy.html">Privacy</a>.</p>
       <ul class="nav-more-list">
+        <li><a href="bible-tool.html#ask-the-word-section" id="nav-more-ask-the-word" aria-label="Ask The Word by question, feeling, or verse">✝️ Ask The Word</a></li>
         <li><a href="calm.html#night-prayer" aria-label="Night prayer with Psalm 4:8">🌙 Night Prayer</a></li>
         <li><a href="bible-tool.html">📚 Bible Tool</a></li>
         <li><a href="/mystudy">📌 My Study</a></li>
@@ -8925,7 +8941,7 @@
         <li><a href="paz.html" hreflang="es" lang="es" aria-label="Paz — la paz de Dios">Paz</a></li>
         <li><a href="explore.html#topics-es" hreflang="es" aria-label="Browse all Spanish topics on Explore">All Spanish topics on Explore →</a></li>
       </ul>
-      <button type="button" id="nav-more-close" class="nav-more-close" aria-label="Close menu">Done</button>
+      <button type="button" id="nav-more-x" class="nav-more-x nav-more-bottom-close" aria-label="Close menu">✕</button>
     </div>
   </div>
 
@@ -13003,6 +13019,7 @@
       var openBtn = document.getElementById('nav-more-btn');
       var closeBtn = document.getElementById('nav-more-close');
       var xBtn    = document.getElementById('nav-more-x');
+      var askFirst = document.getElementById('nav-more-ask-the-word');
       var backdrop = sheet && sheet.querySelector('.nav-more-backdrop');
       if (!sheet || !openBtn) return;
 
@@ -13014,8 +13031,11 @@
         });
         openBtn.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = 'hidden';
-        // Focus the X so screen readers announce the dialog
-        setTimeout(function() { if (xBtn) xBtn.focus(); }, 60);
+        // First focus: Ask The Word (primary doorway); close ✕ is last in the sheet
+        setTimeout(function() {
+          if (askFirst) askFirst.focus();
+          else if (xBtn) xBtn.focus();
+        }, 60);
       }
 
       function close() {

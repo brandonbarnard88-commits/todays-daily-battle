@@ -203,6 +203,107 @@
       .mem-seed { max-width: 1.85rem; height: 0.5rem; }
       .mem-rhythm-label { font-size: 0.84rem; }
     }
+    /* Wide viewports: calm “On this page” map — long tools page; desktop scanning only. */
+    .memorize-onpage-nav { display: none; }
+    @media (min-width: 1100px) {
+      .memorize-onpage-nav {
+        display: block;
+        position: sticky;
+        top: 3.25rem;
+        z-index: 8;
+        margin: 0.2rem 0 1.1rem;
+        padding: 0.5rem 0.75rem 0.6rem;
+        border-radius: 14px;
+        background: rgba(6, 9, 14, 0.82);
+        border: 1px solid rgba(227, 188, 103, 0.2);
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+        backdrop-filter: blur(10px);
+        text-align: left;
+      }
+      .memorize-onpage-nav__label {
+        margin: 0 0 0.4rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(227, 188, 103, 0.65);
+      }
+      .memorize-onpage-nav__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem 0.55rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+      }
+      .memorize-onpage-nav__list a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 0.25rem 0.65rem;
+        border-radius: 999px;
+        font-size: 0.86rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: rgba(226, 232, 240, 0.92);
+        border: 1px solid rgba(227, 188, 103, 0.22);
+        background: rgba(12, 16, 26, 0.55);
+      }
+      .memorize-onpage-nav__list a:hover,
+      .memorize-onpage-nav__list a:focus-visible {
+        border-color: rgba(227, 188, 103, 0.45);
+        color: #c9a84c;
+        outline: 2px solid rgba(227, 188, 103, 0.45);
+        outline-offset: 2px;
+      }
+    }
+    html[data-theme="light"] .memorize-onpage-nav {
+      background: rgba(255, 253, 247, 0.94);
+      border-color: rgba(201, 162, 39, 0.28);
+      box-shadow: 0 8px 24px rgba(64, 41, 8, 0.1);
+    }
+    html[data-theme="light"] .memorize-onpage-nav__label {
+      color: rgba(120, 90, 30, 0.75);
+    }
+    html[data-theme="light"] .memorize-onpage-nav__list a {
+      color: #1e293b;
+      border-color: rgba(201, 162, 39, 0.35);
+      background: rgba(255, 255, 255, 0.88);
+    }
+    html[data-theme="light"] .memorize-onpage-nav__list a:hover,
+    html[data-theme="light"] .memorize-onpage-nav__list a:focus-visible {
+      color: #0f172a;
+      border-color: rgba(201, 162, 39, 0.55);
+    }
+    .memorize-page #memorize-overview,
+    .memorize-page #mem-card-h2,
+    .memorize-page #mem-srs-h2,
+    .memorize-page #mem-type-h2,
+    .memorize-page #mem-audio-h2,
+    .memorize-page #mem-print-h2,
+    .memorize-page #mem-export-h2,
+    .memorize-page #mem-remind-h2 {
+      scroll-margin-top: 5rem;
+    }
+    @media (min-width: 1100px) {
+      .memorize-page #memorize-overview,
+      .memorize-page #mem-card-h2,
+      .memorize-page #mem-srs-h2,
+      .memorize-page #mem-type-h2,
+      .memorize-page #mem-audio-h2,
+      .memorize-page #mem-print-h2,
+      .memorize-page #mem-export-h2,
+      .memorize-page #mem-remind-h2 {
+        scroll-margin-top: 7.5rem;
+      }
+    }
+    @media (min-width: 1100px) and (prefers-reduced-motion: reduce) {
+      .memorize-onpage-nav {
+        position: static;
+        margin-bottom: 1.05rem;
+      }
+    }
   </style>
 </head>
 <body class="tdb-inner-page memorize-page">
@@ -270,12 +371,26 @@
     data-tdb-offline-page="memorize"
   ><p class="offline-msg"></p></div>
   <main id="main" class="mem-main tdb-calm-hub tdb-quiet-container">
-    <header class="mem-intro-panel" aria-labelledby="mem-page-title">
+    <header id="memorize-overview" class="mem-intro-panel" aria-labelledby="mem-page-title" tabindex="-1">
       <h1 id="mem-page-title">Memorize</h1>
       <p class="subtitle">Private &mdash; everything stays on this device</p>
       <p class="lead">Quiet tools to hide God&rsquo;s Word in your heart. No streaks, no scores, no competition&mdash;just gentle repetition that still works on hard days. Verses you keep in <a href="/mystudy?tab=library#saved-verses" style="color:var(--gold);text-decoration:underline;text-underline-offset:2px;">My Study</a> have a Memorize link on each card.</p>
       <p class="section-note mem-year-round-bridge" style="margin:0.85rem 0 0;max-width:38rem;line-height:1.55">Families &amp; classrooms: the same gentle <strong>month-by-month KJV grid</strong> (mark learning or memorized on this device) lives on <a href="/yearly-rhythm.html#yr-memory">Year-round rhythm</a> and <a href="/family.html#family-year-round-memory">Family hub</a>. <a href="/year-at-a-glance.html">Year at a glance</a> prints every month plus seasonal doors on one page. Calm practice ideas (no quizzes): <a href="/church-sharing-kit.html#csk-memory-verse-activities">Memory Verse Activities</a> in the Church Sharing Kit &middot; <a href="/memory-verse-activities-print.html">one-page print sheet</a>.</p>
     </header>
+
+    <nav class="memorize-onpage-nav" aria-label="On this page">
+      <p class="memorize-onpage-nav__label" id="memorize-onpage-toc-label">On this page</p>
+      <ul class="memorize-onpage-nav__list" aria-labelledby="memorize-onpage-toc-label">
+        <li><a href="#memorize-overview">Overview</a></li>
+        <li><a href="#mem-card-h2">One-tap cards</a></li>
+        <li><a href="#mem-srs-h2">Gentle review</a></li>
+        <li><a href="#mem-type-h2">Typing</a></li>
+        <li><a href="#mem-audio-h2">Listen &amp; repeat</a></li>
+        <li><a href="#mem-print-h2">Printable cards</a></li>
+        <li><a href="#mem-export-h2">Export list</a></li>
+        <li><a href="#mem-remind-h2">Reminders</a></li>
+      </ul>
+    </nav>
 
     <section aria-labelledby="mem-card-h2">
       <h2 id="mem-card-h2">One-tap verse cards</h2>

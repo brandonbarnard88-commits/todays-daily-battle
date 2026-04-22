@@ -1101,12 +1101,34 @@ html[data-theme="light"] .mystudy-streak-badge-figure {
   flex-shrink: 0;
 }
 
+.mystudy-data-peek {
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(8, 12, 20, 0.35);
+  padding: 0.5rem 0.75rem 0.65rem;
+}
+.mystudy-data-peek-summary {
+  cursor: pointer;
+  font-size: 0.92rem;
+  color: rgba(248, 250, 252, 0.92);
+  list-style: none;
+}
+.mystudy-data-peek-summary::-webkit-details-marker { display: none; }
+.mystudy-data-peek-body {
+  margin-top: 0.4rem;
+  padding-top: 0.15rem;
+}
+.mystudy-backup-hint {
+  color: rgba(200, 210, 225, 0.88) !important;
+  font-size: 0.9rem !important;
+}
+
 .mystudy-activity-calendar {
   margin: 0.25rem 0 0.75rem;
   padding: 0.85rem 1rem 1rem;
-  border-radius: 16px;
-  border: 1px solid rgba(148, 163, 184, 0.22);
-  background: rgba(15, 23, 42, 0.35);
+  border-radius: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: linear-gradient(165deg, rgba(12, 18, 30, 0.55) 0%, rgba(15, 23, 42, 0.38) 100%);
 }
 
 .mystudy-cal-heading {
@@ -1125,7 +1147,7 @@ html[data-theme="light"] .mystudy-streak-badge-figure {
 .mystudy-cal-row {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 3px;
+  gap: 4px;
 }
 
 .mystudy-cal-row--head {
@@ -1138,9 +1160,9 @@ html[data-theme="light"] .mystudy-streak-badge-figure {
   align-items: center;
   justify-content: center;
   font-size: 0.72rem;
-  border-radius: 6px;
-  background: rgba(30, 41, 59, 0.45);
-  color: rgba(226, 232, 240, 0.75);
+  border-radius: 8px;
+  background: rgba(30, 41, 59, 0.32);
+  color: rgba(226, 232, 240, 0.78);
 }
 
 .mystudy-cal-cell--head {
@@ -1159,13 +1181,13 @@ html[data-theme="light"] .mystudy-streak-badge-figure {
 }
 
 .mystudy-cal-cell--active {
-  background: rgba(227, 188, 103, 0.28);
+  background: rgba(227, 188, 103, 0.22);
   color: #f8fafc;
   font-weight: 700;
 }
 
 .mystudy-cal-cell--today {
-  outline: 2px solid rgba(227, 188, 103, 0.65);
+  outline: 2px solid rgba(227, 188, 103, 0.5);
   outline-offset: 1px;
 }
 

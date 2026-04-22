@@ -15,7 +15,7 @@
   <link rel="canonical" href="https://todaysdailybattle.com/mystudy">
   <meta name="theme-color" content="#0a0c14">
   <link rel="stylesheet" href="styles.css?v=20260418prayerwall2">
-  <link rel="stylesheet" href="mystudy.css?v=20260421audit-mystudy">
+  <link rel="stylesheet" href="mystudy.css?v=20260422mystudy-polish">
 </head>
 <body class="dark-mode tdb-inner-page mystudy-body">
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -164,6 +164,13 @@
         <div class="mystudy-panel-flow">
           <section class="mystudy-section-card">
             <p class="section-note mystudy-library-lead">Saved verses, Bible Tool notes, memorize rhythm, and recent chapters all stay together here on this device. Open a row to keep studying that reference, then use the print buttons below for a clean PDF when you need one.</p>
+            <details class="mystudy-data-peek util-mb-0_75">
+              <summary class="mystudy-data-peek-summary">What stays on this device</summary>
+              <div class="mystudy-data-peek-body">
+                <p class="section-note util-mb-0_5">No raw storage dump&mdash;just an honest scope. This browser may keep: saved verse list, verse notes and tags, prayer text you type here, highlight marks, memorize review times, recent reader chapters, and gentle activity dots for the month view. Signed-in sync uses your account only for that feature; we do not sell data.</p>
+                <p class="section-note util-mb-0">Use <strong>Download JSON backup</strong> below when you switch phones or want a file in your own hands.</p>
+              </div>
+            </details>
             <h2 class="section-divider mystudy-h2 mystudy-h2-tight">Saved verses</h2>
             <p class="section-note">Verses you saved from Home, search, or the Bible Tool. Tap a reference to reopen it, or keep moving with memorize and notes right here.</p>
             <div id="saved-verses" class="list my-verses-saved-list" role="list" aria-label="Saved verses" aria-live="polite" aria-relevant="additions text"></div>
@@ -175,6 +182,7 @@
               <input type="file" id="mystudy-restore-file" accept="application/json,.json" hidden aria-hidden="true">
             </div>
             <p id="mystudy-backup-status" class="section-note" aria-live="polite">Need to move this device or recover after a reset? Download a backup here, then restore it later from the same section.</p>
+            <p class="section-note mystudy-backup-hint util-mb-0" role="note">After a good stretch of notes, a fresh JSON file is a quiet gift to your future self.</p>
           </section>
 
           <section class="mystudy-section-card">

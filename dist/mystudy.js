@@ -385,14 +385,14 @@
     } catch (e) {}
     var now = Date.now();
     if (now < snoozeUntil) return;
-    var stale = !lastMs || now - lastMs > 21 * 86400000;
+    var stale = !lastMs || now - lastMs > 14 * 86400000;
     if (!stale) return;
     el.classList.remove('hidden');
     var p = document.createElement('p');
     p.className = 'mystudy-backup-nudge-copy';
     p.appendChild(
       document.createTextNode(
-        'Your notes and verses matter. If you have not downloaded a JSON backup lately, one tap in Saved & notes keeps a copy you can restore later.'
+        'Your notes and verses matter. If you have not downloaded a JSON backup in about two weeks, one tap in Saved & notes keeps a copy you can restore later.'
       )
     );
     var go = document.createElement('button');

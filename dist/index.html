@@ -85,16 +85,15 @@
   <meta name="twitter:title" content="Today’s Verse — A Quiet Place — Jeremiah 17:7 (KJV)">
   <meta name="twitter:description" content="Today’s KJV verse: Jeremiah 17:7. A quiet place for any day—search by how you feel, prayer wall, works offline. No ads, no login.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png?v=20260430homeog">
-  <!-- Caveat + Cormorant (display=swap). Stylesheet only — avoids preload-not-used warning when CSS applies after paint. -->
+  <!-- Caveat + Cormorant: load Google Fonts CSS without blocking first paint; display=swap remains in the URL. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap">
-  <!-- Preconnect for analytics (deferred load; preconnect reduces latency when they load) -->
-  <link rel="preconnect" href="https://www.google-analytics.com">
-  <link rel="preconnect" href="https://plausible.io">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="modulepreload" href="config.js">
-  <link rel="modulepreload" href="script.js?v=20260418prayerwall2">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" fetchpriority="low" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&amp;family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap"></noscript>
+  <!-- Idler/third-party: resolve DNS only — avoids early TCP+TLS to GA/Plausible/JSDelivr before first paint. -->
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
+  <link rel="dns-prefetch" href="https://plausible.io">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <style>
     :root {

@@ -17330,6 +17330,44 @@ html[data-theme="sepia"] #feel-results .home-search-card-copy {
   color: #292524 !important;
 }
 
+/* Optional class on KJV lines in results; matches .home-search-card-copy on dark */
+#feel-results .verse-text {
+  line-height: 1.75;
+  color: #f8fafc;
+}
+html[data-theme="light"] #feel-results .verse-text {
+  color: #1c1c1c !important;
+}
+html[data-theme="sepia"] #feel-results .verse-text {
+  color: #292524 !important;
+}
+
+/* Warm paper: light / sepia only — dark pages keep glass inline shell */
+html[data-theme="light"] .tdb-verse-breakdown-inline.is-open {
+  background: #f8f5ef;
+  border: 1px solid #e8e0d0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+html[data-theme="light"] details.verse-breakdown[open] {
+  background: #f8f5ef;
+  border: 1px solid #e8e0d0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  border-radius: 10px;
+  padding: 0.35rem 0.5rem 0.5rem;
+  box-sizing: border-box;
+}
+html[data-theme="sepia"] .tdb-verse-breakdown-inline.is-open,
+html[data-theme="sepia"] details.verse-breakdown[open] {
+  background: #f4efe6;
+  border: 1px solid #d9cfc0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+html[data-theme="sepia"] details.verse-breakdown[open] {
+  border-radius: 10px;
+  padding: 0.35rem 0.5rem 0.5rem;
+  box-sizing: border-box;
+}
+
 .home-qa-result {
   margin: 0.95rem 0 0.35rem;
   padding: 1rem 1rem 1.05rem;

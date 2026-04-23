@@ -654,8 +654,22 @@
     else root.classList.remove('is-open');
     if (toggle) toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     if (panel) {
-      if (open) panel.removeAttribute('hidden');
-      else panel.setAttribute('hidden', '');
+      if (open) {
+        panel.removeAttribute('hidden');
+        /* Cached / edge-case styles can leave the panel “stuck” invisible while .is-open */
+        try {
+          panel.style.removeProperty('display');
+          panel.style.removeProperty('visibility');
+          panel.style.removeProperty('opacity');
+        } catch (eP) {}
+      } else panel.setAttribute('hidden', '');
+    }
+    if (open) {
+      try {
+        root.style.removeProperty('display');
+        root.style.removeProperty('visibility');
+        root.style.removeProperty('opacity');
+      } catch (eR) {}
     }
     if (!open && root.__tdbVbScrollCleanup) {
       try {
@@ -1501,11 +1515,28 @@
     });
   }
 
+  function scheduleBreakdownUiRecovery() {
+    /* Double rAF: run after layout/paint so we don’t fight other writers; only fixes stuck state. */
+    try {
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          openLegacyVerseBreakdownDetails(document);
+          assertInlineBreakdownPanelsVisible(document);
+          document.querySelectorAll('.tdb-verse-breakdown-inline.is-open .tdb-vb-inline-panel[hidden]').forEach(function (p) {
+            var r = p.closest('.tdb-verse-breakdown-inline');
+            if (r) setInlineBreakdownOpen(r, true);
+          });
+        });
+      });
+    } catch (e) {}
+  }
+
   function runVerseBreakdownEnhancePass() {
     removeLegacyVerseBreakdownUi(document);
     enhanceVerseContainers(document);
     openLegacyVerseBreakdownDetails(document);
     assertInlineBreakdownPanelsVisible(document);
+    scheduleBreakdownUiRecovery();
   }
 
   function wireAutoEnhance() {

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-23T23:41:33.508Z",
+  "generatedAt": "2026-04-23T23:49:31.316Z",
   "surfacedRefCount": 2922,
   "overrideCount": 2922,
   "sourceCounts": {
@@ -256,7 +256,7 @@
       "pairs": 0
     },
     "family-rhythm.html": {
-      "refs": 11,
+      "refs": 12,
       "pairs": 0
     },
     "faq.html": {
@@ -812,7 +812,7 @@
       "pairs": 0
     },
     "printables.html": {
-      "refs": 3,
+      "refs": 5,
       "pairs": 0
     },
     "privacy.html": {
@@ -1032,7 +1032,7 @@
       "pairs": 0
     },
     "university.html": {
-      "refs": 23,
+      "refs": 24,
       "pairs": 0
     },
     "utils.js": {
@@ -1088,7 +1088,7 @@
       "pairs": 0
     },
     "winter-readalouds-one-page-print.html": {
-      "refs": 3,
+      "refs": 5,
       "pairs": 0
     },
     "yearly-rhythm.html": {

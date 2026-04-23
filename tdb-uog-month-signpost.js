@@ -21,7 +21,10 @@
     2: {
       name: 'March',
       lead: 'Lent or not, the same Teacher walks at a human pace—no sprint, no score.',
+      whisper:
+        'Thaw is uneven—hope can look like a single verse before it looks like a plan. New growth is allowed to be small; the empty tomb is nearer than you think, and you are not late.',
       links: [
+        { t: 'Resurrection Hope (7 days, Easter nears)', h: '/plans.html?plan=easter' },
         { t: 'Courses by season', h: '/plans.html#plans-browse-by-season' },
         { t: 'Seasonal paths', h: '/seasonal.html' },
         { t: 'Explore the site', h: '/explore.html#start-here' }

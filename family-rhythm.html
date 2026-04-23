@@ -49,6 +49,25 @@
     }
     .fr-start-tonight__copy { margin: 0 0 1rem; font-size: 0.92rem; color: var(--muted); line-height: 1.55; }
     .fr-start-tonight__actions { display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch; }
+    .fr-tonight-rhythm {
+      max-width: 40rem;
+      margin: 1.15rem auto 0;
+      padding: 0.9rem 1rem 1rem;
+      border-radius: 16px;
+      border: 1px solid color-mix(in srgb, var(--gold) 14%, var(--line));
+      background: color-mix(in srgb, var(--card) 96%, #141a18);
+    }
+    .fr-tonight-rhythm__label {
+      margin: 0 0 0.45rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--muted) 70%, var(--gold));
+    }
+    .fr-tonight-rhythm__copy { margin: 0; font-size: 0.9rem; color: var(--muted); line-height: 1.55; }
+    .fr-tonight-rhythm__copy a { color: var(--gold); font-weight: 600; text-decoration: none; }
+    .fr-tonight-rhythm__copy a:hover, .fr-tonight-rhythm__copy a:focus-visible { text-decoration: underline; outline: none; }
     @media (min-width: 640px) {
       .fr-start-tonight__actions { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
       .fr-start-tonight__actions .btn-rhythm { min-width: 14rem; }
@@ -201,8 +220,10 @@
     .family-rhythm-page #fr-week,
     .family-rhythm-page #fr-more,
     .family-rhythm-page #fr-start-tonight,
+    .family-rhythm-page #fr-tonight-rhythm,
     .family-rhythm-page #fr-winter,
     .family-rhythm-page #fr-winter-nights,
+    .family-rhythm-page #fr-winter-prodigal,
     .family-rhythm-page #fr-emmanuel-year,
     .family-rhythm-page #fr-winter-helpful,
     .family-rhythm-page #fr-device {
@@ -215,8 +236,10 @@
       .family-rhythm-page #fr-week,
       .family-rhythm-page #fr-more,
       .family-rhythm-page #fr-start-tonight,
+    .family-rhythm-page #fr-tonight-rhythm,
     .family-rhythm-page #fr-winter,
     .family-rhythm-page #fr-winter-nights,
+    .family-rhythm-page #fr-winter-prodigal,
     .family-rhythm-page #fr-emmanuel-year,
     .family-rhythm-page #fr-winter-helpful,
     .family-rhythm-page #fr-device {
@@ -292,6 +315,7 @@
         <ul class="daily-rhythm-onpage-nav__list" aria-labelledby="family-rhythm-onpage-toc-label">
           <li><a href="#family-rhythm-overview">Overview</a></li>
           <li><a href="#fr-start-tonight">Start here tonight</a></li>
+          <li><a href="#fr-tonight-rhythm">Tonight&rsquo;s rhythm</a></li>
           <li><a href="#fr-morning">Morning</a></li>
           <li><a href="#fr-evening">Evening</a></li>
           <li><a href="#fr-week">One week</a></li>
@@ -312,6 +336,11 @@
         <a href="/plans.html?plan=eveninguog" class="btn-rhythm">Evening in the University</a>
         <a href="/one-week-in-the-university-print.html" class="btn-rhythm">One week in the University (print)</a>
       </div>
+    </div>
+
+    <div id="fr-tonight-rhythm" class="fr-tonight-rhythm" tabindex="-1" aria-labelledby="fr-tonight-rhythm-label">
+      <p class="fr-tonight-rhythm__label" id="fr-tonight-rhythm-label">Tonight&rsquo;s rhythm</p>
+      <p class="fr-tonight-rhythm__copy">If the house is still loud, or you only have ten quiet minutes&mdash;not a new habit, just a next step&mdash;try <a href="/plans.html?plan=eveninguog">Evening in the University</a> (saved on this device like your other plans), or lay <a href="/winter-readalouds-one-page-print.html">winter read-alouds on one page</a> by the lamp. Deeper winter tells live in <a href="#fr-winter">Winter below</a>.</p>
     </div>
 
     <div class="rhythm-cards calm-grid calm-grid--3">
@@ -382,6 +411,14 @@
         <p class="fr-winter-readaloud__cite">Psalm 119:147&ndash;148, <abbr title="King James Version">KJV</abbr></p>
         <p class="fr-winter-readaloud__hint">A lean-in for sleepless or winter-dark hours&mdash;no task but His words. The same two lines rest on the <a href="/university.html#uog-winter-nights" style="color:var(--gold);">map</a> for your own room.</p>
       </div>
+      <div class="fr-winter-readaloud" id="fr-winter-prodigal" aria-labelledby="fr-winter-prodigal-h">
+        <h3 id="fr-winter-prodigal-h">When the road home still feels long</h3>
+        <blockquote>
+          And he arose, and came to his father. But when he was yet a great way off, his father saw him, and had compassion, and ran, and fell on his neck, and kissed him. And the son said unto him, Father, I have sinned against heaven, and in thy sight, and am no more worthy to be called thy son. But the father said to his servants, Bring forth the best robe, and put it on him; and put a ring on his hand, and shoes on his feet: And bring hither the fatted calf, and kill it; and let us eat, and be merry. For this my son was dead, and is alive again; he was lost, and is found. And they began to be merry.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">Luke 15:20&ndash;24, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">The return, not the pig-sty&mdash;read slow; hush the commentary unless someone needs it. The same telling sits on the <a href="/university.html#uog-winter-prodigal" style="color:var(--gold);">University map</a>. If regret or a frayed tie is what makes home feel far, the site holds <a href="/plans.html?plan=universityregret" style="color:var(--gold);">Regret</a> and <a href="/plans.html?plan=universitybroken" style="color:var(--gold);">Broken relationships</a> at the same gentle pace as every other week.</p>
+      </div>
       <p class="fr-winter__more">
         <a href="/plans.html?plan=latefallwinter">Late fall, quiet winter (plan)</a>
         <span style="margin:0 0.5rem; opacity:0.6;" aria-hidden="true">&middot;</span>
@@ -395,7 +432,7 @@
         <ul>
           <li><a href="/start-the-year-in-the-word.html">Start the year in the Word</a> &mdash; prints, Gentle New Year week, and a steady January list in one place.</li>
           <li><a href="/seasonal.html#late-fall-winter">Seasonal &rarr; late fall &amp; winter bridge</a> &mdash; day-by-day on this device when you want gentle steps.</li>
-          <li><a href="#fr-winter-storm">Read-aloud: peace after the wind</a>, <a href="#fr-winter-waters">beside still waters</a>, and <a href="#fr-winter-nights">long nights</a> &mdash; table or bedside, no prep. One ink-friendly page with all three: <a href="/winter-readalouds-one-page-print.html">Winter comfort read-alouds (print)</a>.</li>
+          <li><a href="#fr-winter-storm">Read-aloud: peace after the wind</a>, <a href="#fr-winter-waters">beside still waters</a>, and <a href="#fr-winter-nights">long nights</a> &mdash; table or bedside, no prep. One ink-friendly page with those three: <a href="/winter-readalouds-one-page-print.html">Winter comfort read-alouds (print)</a>. A fourth, longer read when home still feels far: <a href="#fr-winter-prodigal">the son comes home</a> (Luke 15:20&ndash;24).</li>
           <li><a href="#fr-emmanuel-year">Emmanuel through the year</a> &mdash; Matthew 1:22&ndash;23 for ordinary days; pairs with <a href="/plans.html?plan=emmanuel7">Emmanuel week</a> on the device.</li>
           <li><a href="/plans.html?plan=latefallwinter">Late fall, quiet winter</a> &mdash; five KJV days when light thins.</li>
         </ul>

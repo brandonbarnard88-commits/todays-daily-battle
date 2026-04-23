@@ -2748,6 +2748,8 @@
     .tdb-uog-month__label { font-weight: 600; }
     .tdb-uog-month__sep { font-weight: 400; color: var(--muted); }
     .tdb-uog-month__lead { margin: 0 0 0.5rem; font-size: 0.86rem; line-height: 1.55; color: var(--muted); }
+    .tdb-uog-month__whisper { margin: 0 0 0.5rem; font-size: 0.82rem; line-height: 1.5; color: var(--muted); font-style: italic; }
+    .tdb-uog-month__whisper[hidden] { display: none !important; }
     .tdb-uog-month__links { margin: 0; padding: 0 0 0 1.1rem; font-size: 0.86rem; line-height: 1.55; color: var(--text); }
     .tdb-uog-month__links li { margin: 0.3rem 0 0; }
     .tdb-uog-month__links a { color: var(--gold); font-weight: 600; text-decoration: none; }
@@ -8730,6 +8732,7 @@
           <span class="tdb-uog-month__label">This month in the University</span><span class="tdb-uog-month__sep" aria-hidden="true"> — </span><span data-tdb-uog-month-name></span>
         </h2>
         <p class="tdb-uog-month__lead" data-tdb-uog-month-lead></p>
+        <p class="tdb-uog-month__whisper" data-tdb-uog-month-whisper hidden></p>
         <ul class="tdb-uog-month__links" data-tdb-uog-month-links></ul>
         <p class="tdb-uog-month__foot">By your local month only—no account. The full <a href="/university.html#uog-next">map</a> stays open all year.</p>
       </aside>

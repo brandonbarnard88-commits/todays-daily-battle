@@ -8,8 +8,12 @@
     1: {
       name: 'February',
       lead: 'Ice and early dark still matter; His name does not shrink with the light.',
+      whisper:
+        'If last year still sits heavy, you are not on trial in this room—only invited. Two slow courses for regret and repair, same day-count you already trust on this device.',
       links: [
         { t: 'Late fall, quiet winter (plan)', h: '/plans.html?plan=latefallwinter' },
+        { t: 'University of Regret (6 days)', h: '/plans.html?plan=universityregret' },
+        { t: 'Broken Relationships (6 days)', h: '/plans.html?plan=universitybroken' },
         { t: 'Winter on Family rhythm', h: '/family-rhythm.html#fr-winter' },
         { t: 'University map — winter', h: '/university.html#uog-winter-university' }
       ]
@@ -122,6 +126,16 @@
       var listEl = el.querySelector('[data-tdb-uog-month-links]');
       if (nameEl) nameEl.textContent = h.name;
       if (leadEl) leadEl.textContent = h.lead;
+      var whisperEl = el.querySelector('[data-tdb-uog-month-whisper]');
+      if (whisperEl) {
+        if (h.whisper) {
+          whisperEl.textContent = h.whisper;
+          whisperEl.removeAttribute('hidden');
+        } else {
+          whisperEl.textContent = '';
+          whisperEl.setAttribute('hidden', '');
+        }
+      }
       if (listEl) {
         listEl.textContent = '';
         for (var j = 0; j < h.links.length; j++) {

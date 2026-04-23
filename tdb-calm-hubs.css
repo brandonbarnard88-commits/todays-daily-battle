@@ -253,6 +253,16 @@ main.tdb-calm-hub a:focus-visible {
   line-height: 1.55;
   color: var(--muted, #a8a29e);
 }
+.tdb-uog-month__whisper {
+  margin: 0 0 0.5rem;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--muted, #a8a29e);
+  font-style: italic;
+}
+.tdb-uog-month__whisper[hidden] {
+  display: none !important;
+}
 .tdb-uog-month__links {
   margin: 0;
   padding: 0 0 0 1.1rem;

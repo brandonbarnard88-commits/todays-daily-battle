@@ -944,6 +944,9 @@
       text-shadow: none;
       opacity: 1;
     }
+    :root[data-theme="light"] .tdb-header-tag-cite {
+      color: rgba(55, 50, 42, 0.82);
+    }
     .tdb-global-nav a,
     .tdb-home-main-nav a {
       color: rgba(226, 232, 240, 0.85); text-decoration: none;
@@ -2840,6 +2843,67 @@
         0 1px 4px rgba(4, 12, 28, 0.88),
         0 0 22px rgba(0, 0, 0, 0.5),
         0 0 12px rgba(180, 70, 10, 0.28);
+    }
+    .tdb-site-tagline-learning {
+      text-transform: none;
+      letter-spacing: 0.04em;
+      font-style: normal;
+      font-weight: 500;
+      max-width: 26rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .tdb-header-tag-cite {
+      display: block;
+      margin-top: 0.3rem;
+      font-size: 0.9em;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: none;
+      color: rgba(255, 248, 232, 0.88);
+    }
+    .tdb-today-lesson-foot {
+      margin: 0.4rem 0 0.25rem;
+      font-size: clamp(0.8rem, 2.1vw, 0.9rem);
+      line-height: 1.4;
+      color: rgba(220, 214, 200, 0.92);
+      text-align: center;
+      font-weight: 500;
+    }
+    .tdb-hero-curriculum {
+      margin: 0.9rem 0 0.25rem;
+      padding: 0.75rem 0.85rem 0.85rem;
+      border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 22%, transparent);
+      background: color-mix(in srgb, var(--card, #121820) 92%, rgba(227, 188, 103, 0.06));
+    }
+    :root[data-theme="light"] .tdb-hero-curriculum {
+      background: color-mix(in srgb, #f8f7f2 95%, rgba(200, 160, 80, 0.08));
+      border-color: color-mix(in srgb, #b8995a 30%, #d4d0c8);
+    }
+    .tdb-hero-curriculum-heading {
+      margin: 0 0 0.4rem;
+      font-size: clamp(0.88rem, 2.2vw, 0.95rem);
+      font-weight: 600;
+      line-height: 1.3;
+      color: rgba(227, 188, 103, 0.95);
+    }
+    :root[data-theme="light"] .tdb-hero-curriculum-heading { color: #6b5a3a; }
+    .tdb-hero-curriculum-list {
+      margin: 0;
+      padding-left: 1.1rem;
+      line-height: 1.5;
+      font-size: clamp(0.86rem, 2vw, 0.95rem);
+      color: var(--text, #e2e8f0);
+    }
+    .tdb-hero-curriculum-list a {
+      color: var(--primary, #e3bc67);
+      text-underline-offset: 2px;
+    }
+    .tdb-hero-curriculum-list a:hover,
+    .tdb-hero-curriculum-list a:focus-visible {
+      text-decoration: underline;
+      outline: none;
     }
 
     /* Crest SVG — cross + sunrise, inline, dark-mode native */
@@ -8320,7 +8384,7 @@
       </div>
       <div class="hero-brand-taglines" role="group" aria-label="Site motto">
         <p class="soul-tag">Less scroll, more soul</p>
-        <p class="site-tagline">For God · For Country · For Family</p>
+        <p class="site-tagline tdb-site-tagline-learning" lang="en">Learning of Him, one day at a time. <span class="tdb-header-tag-cite" title="Take my yoke upon you, and learn of me.">Matthew 11:29</span></p>
       </div>
       <h1 class="site-title">Today's Daily Battle</h1>
       <span class="site-title-underline" aria-hidden="true"></span>
@@ -8645,7 +8709,7 @@
           <div class="verse-skeleton-box"></div>
         </div>
         <div class="tdb-home-verse-sticky-shell" role="region" aria-label="Today’s verse text and quick actions">
-        <p class="tdb-verse-of-day-eyebrow" id="heroVerseEyebrow">Verse of the day</p>
+        <p class="tdb-verse-of-day-eyebrow" id="heroVerseEyebrow">Today&rsquo;s lesson</p>
         <p class="verse-ref hero-daily-ref-above" id="heroRef">Isaiah 40:31 (KJV)</p>
         <div class="verse-ref-row">
           <div class="hero-verse-wrap-inner">
@@ -8656,6 +8720,7 @@
             </div>
           </div>
         </div>
+        <p class="tdb-today-lesson-foot" id="tdb-today-lesson-wrap">Lesson from the University of God &mdash; <time id="tdbTodayLessonDate" datetime=""></time></p>
         <div class="hero-verse-toolbar hero-verse-primary-toolbar" role="toolbar" aria-label="Verse: listen, copy, share, image, save to My Study">
             <button
               class="read-aloud-btn read-aloud-with-label"
@@ -8936,6 +9001,10 @@
             </div>
           </div>
         </details>
+        <div class="tdb-hero-curriculum" id="tdb-hero-curriculum-slot" role="region" aria-labelledby="tdb-hero-curriculum-h" hidden>
+          <h3 class="tdb-hero-curriculum-heading" id="tdb-hero-curriculum-h">How this lesson connects to the whole curriculum</h3>
+          <ul class="tdb-hero-curriculum-list" id="tdb-hero-curriculum-list"></ul>
+        </div>
         <ul class="breakdown" id="heroBreakdown" hidden></ul>
         <div class="hero-breakdown-panels" id="heroBreakdownPanels" hidden></div>
         <p class="application" id="heroApplication" hidden></p>
@@ -10389,6 +10458,39 @@
       heroVerse.textContent = "\u201c" + v.text + "\u201d";
       heroRef.textContent = v.ref + " (KJV)";
       heroVerse.classList.add("is-visible");
+      (function tdbSetTodayLessonLine() {
+        var timeEl = document.getElementById("tdbTodayLessonDate");
+        if (!timeEl) return;
+        var now = new Date();
+        timeEl.setAttribute("datetime", now.toISOString().slice(0, 10));
+        timeEl.textContent = new Intl.DateTimeFormat("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" }).format(now);
+      })();
+      (function tdbFillHeroCurriculum() {
+        var wrap = document.getElementById("tdb-hero-curriculum-slot");
+        var ul = document.getElementById("tdb-hero-curriculum-list");
+        if (!wrap || !ul) return;
+        ul.replaceChildren();
+        var build = typeof window.tdbUogBuildCurriculumPlanList === "function" ? window.tdbUogBuildCurriculumPlanList : null;
+        if (!build) {
+          wrap.setAttribute("hidden", "");
+          return;
+        }
+        var rows = build(v.ref, v.text) || [];
+        if (!rows.length) {
+          wrap.setAttribute("hidden", "");
+          return;
+        }
+        for (var i = 0; i < rows.length; i++) {
+          if (!rows[i] || !rows[i].href) continue;
+          var li = document.createElement("li");
+          var a = document.createElement("a");
+          a.href = rows[i].href;
+          a.textContent = rows[i].label;
+          li.appendChild(a);
+          ul.appendChild(li);
+        }
+        wrap.removeAttribute("hidden");
+      })();
 
       // ── Update "Read full chapter" deep-link ──
       (function() {

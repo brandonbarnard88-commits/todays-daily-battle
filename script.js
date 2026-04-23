@@ -89,6 +89,43 @@ function tdbIsHomePage() {
   }
   injectVerseBreakdownStack();
 })();
+
+/**
+ * University of God: gentle links from any verse to on-site Battle Plans (same KJV “courses” as /plans).
+ * Homepage also sets this from hero-daily-first-paint.js before inline verse render; redefining is harmless.
+ */
+(function tdbUogCurriculumOnWindow() {
+  if (typeof window === 'undefined') return;
+  function uogInferTopicFromRefText(ref, text) {
+    var low = (String(ref || '') + ' ' + String(text || '')).toLowerCase();
+    if (/\banxiety|anxious|worry|stressed?|careful for nothing|careful\b/.test(low)) return 'anxiety';
+    if (/\bfear|afraid|panic|scared|terror\b/.test(low)) return 'fear';
+    if (/\bhope|hopeless|weary|tired|grief|grieve\b/.test(low)) return 'hope';
+    return 'hope';
+  }
+  var UOG_PLANS = {
+    anxiety: [
+      { href: '/plans.html?plan=worrytrust', label: 'Worry to Trust' },
+      { href: '/plans.html?plan=peace', label: '7-Day Peace' },
+      { href: '/plans.html?plan=heavyhope', label: 'When the Mind Lies Heavy' }
+    ],
+    fear: [
+      { href: '/plans.html?plan=fearnot14', label: 'Fear Not (14 days)' },
+      { href: '/plans.html?plan=fearfaith', label: 'Fear to Faith' },
+      { href: '/plans.html?plan=armorofgod', label: 'Armor of God' }
+    ],
+    hope: [
+      { href: '/plans.html?plan=hopeuncertain', label: 'When Hope Feels Thin' },
+      { href: '/plans.html?plan=griefhope', label: 'Grief to Hope' },
+      { href: '/plans.html?plan=praisethanks30', label: 'Praise and Thanksgiving' }
+    ]
+  };
+  window.tdbUogBuildCurriculumPlanList = function (ref, text) {
+    var t = uogInferTopicFromRefText(ref, text);
+    return UOG_PLANS[t] || UOG_PLANS.hope;
+  };
+})();
+
 (function initTrustedTypesPolicy() {
   if (typeof window === 'undefined' || !window.trustedTypes || !window.trustedTypes.createPolicy) return;
   if (window.trustedTypes.defaultPolicy) return;
@@ -1421,6 +1458,17 @@ function normalizeLegacyShellLinks() {
   });
 }
 
+/** /verse + any page with #tdbVersePageLessonDate: set today’s full date in the “University of God” foot line. */
+function wireTdbTodayLessonDateLine() {
+  var t = document.getElementById('tdbVersePageLessonDate');
+  if (!t) return;
+  try {
+    var now = new Date();
+    t.setAttribute('datetime', now.toISOString().slice(0, 10));
+    t.textContent = new Intl.DateTimeFormat('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).format(now);
+  } catch (e) {}
+}
+
 /** Homepage optional strip (#quiet-update): remember dismiss in localStorage; version bumps show a new notice. */
 function wireQuietUpdateStrip() {
   var strip = document.getElementById('quiet-update');
@@ -1450,6 +1498,7 @@ if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', ensureTdbCookieNotice);
   document.addEventListener('DOMContentLoaded', normalizeLegacyShellLinks);
   document.addEventListener('DOMContentLoaded', wireQuietUpdateStrip);
+  document.addEventListener('DOMContentLoaded', wireTdbTodayLessonDateLine);
 } else {
   wireEarlySearchFallbacks();
   normalizeHomeMainOrder();
@@ -1461,6 +1510,7 @@ if (document.readyState === 'loading') {
   ensureTdbCookieNotice();
   normalizeLegacyShellLinks();
   wireQuietUpdateStrip();
+  wireTdbTodayLessonDateLine();
 }
 
 try {

@@ -4385,6 +4385,74 @@ button.tdb-header-account-nudge__link {
   font-weight: 600;
   text-transform: uppercase;
 }
+.tdb-brand-subtitle-learning {
+  text-transform: none;
+  letter-spacing: 0.045em;
+  font-weight: 500;
+  line-height: 1.35;
+  max-width: min(32rem, 92vw);
+}
+.tdb-brand-subtitle-learning .tdb-header-tag-cite {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: none;
+  color: var(--text-muted);
+  opacity: 0.9;
+}
+/* Homepage hero + /verse: quiet “University of God” day line under the KJV text */
+.tdb-today-lesson-foot {
+  margin: 0.5rem 0 0.15rem;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  line-height: 1.4;
+  color: var(--text-muted, #8b949e);
+  text-align: center;
+  font-weight: 500;
+}
+.tdb-today-lesson-foot time {
+  font-weight: 600;
+  color: color-mix(in srgb, var(--text, #e6edf3) 86%, var(--text-muted) 14%);
+}
+/* Verse breakdown: curriculum links to Battle Plans */
+.tdb-vb-curriculum {
+  margin: 0.65rem 0 0.15rem;
+  padding: 0.65rem 0.7rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--line, #30363d) 88%, var(--primary, #e3bc67) 12%);
+  background: color-mix(in srgb, var(--card, #0d1117) 94%, rgba(227, 188, 103, 0.05));
+}
+.tdb-vb-curriculum-heading {
+  margin: 0 0 0.4rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: color-mix(in srgb, var(--text, #e6edf3) 92%, var(--primary, #e3bc67) 8%);
+}
+.tdb-vb-curriculum-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--text, #e6edf3);
+}
+.tdb-vb-curriculum-list a {
+  color: var(--primary, #e3bc67);
+  text-underline-offset: 2px;
+}
+.tdb-vb-curriculum-list a:hover,
+.tdb-vb-curriculum-list a:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
+html[data-theme="light"] .tdb-vb-curriculum {
+  background: color-mix(in srgb, #f8f7f2 95%, rgba(200, 160, 80, 0.06));
+  border-color: color-mix(in srgb, #d4d0c8 90%, #b8995a 10%);
+}
+html[data-theme="light"] .tdb-vb-curriculum-heading {
+  color: #4a3f32;
+}
 .brand-tagline {
   color: var(--elite-gold, #c9a227);
   font-size: 0.65rem;

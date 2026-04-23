@@ -340,4 +340,39 @@
   } else {
     window.setTimeout(scheduleHero365Hydrate, 1);
   }
+
+  /**
+   * University of God: map today’s verse to 2–3 on-site Battle Plan “courses” (KJV, already on /plans).
+   * Exposed before index inline verse render; script.js redefines the same on load for other pages.
+   */
+  (function tdbUogCurriculum() {
+    function uogInferTopicFromRefText(ref, text) {
+      var low = (String(ref || '') + ' ' + String(text || '')).toLowerCase();
+      if (/\banxiety|anxious|worry|stressed?|careful for nothing|careful\b/.test(low)) return 'anxiety';
+      if (/\bfear|afraid|panic|scared|terror\b/.test(low)) return 'fear';
+      if (/\bhope|hopeless|weary|tired|grief|grieve\b/.test(low)) return 'hope';
+      return 'hope';
+    }
+    var UOG_PLANS = {
+      anxiety: [
+        { href: '/plans.html?plan=worrytrust', label: 'Worry to Trust' },
+        { href: '/plans.html?plan=peace', label: '7-Day Peace' },
+        { href: '/plans.html?plan=heavyhope', label: 'When the Mind Lies Heavy' }
+      ],
+      fear: [
+        { href: '/plans.html?plan=fearnot14', label: 'Fear Not (14 days)' },
+        { href: '/plans.html?plan=fearfaith', label: 'Fear to Faith' },
+        { href: '/plans.html?plan=armorofgod', label: 'Armor of God' }
+      ],
+      hope: [
+        { href: '/plans.html?plan=hopeuncertain', label: 'When Hope Feels Thin' },
+        { href: '/plans.html?plan=griefhope', label: 'Grief to Hope' },
+        { href: '/plans.html?plan=praisethanks30', label: 'Praise and Thanksgiving' }
+      ]
+    };
+    window.tdbUogBuildCurriculumPlanList = function (ref, text) {
+      var t = uogInferTopicFromRefText(ref, text);
+      return UOG_PLANS[t] || UOG_PLANS.hope;
+    };
+  })();
 })();

@@ -796,6 +796,20 @@
     addBkRow('tdb-vb-inline-fit', 'For your group:', 'applies');
     addBkRow('tdb-vb-inline-relates', 'Real life today:', 'relates');
 
+    var curriculum = document.createElement('div');
+    curriculum.className = 'tdb-vb-curriculum';
+    var curH = document.createElement('h4');
+    curH.className = 'tdb-vb-curriculum-heading';
+    curH.appendChild(
+      document.createTextNode('How this lesson connects to the whole curriculum')
+    );
+    var curList = document.createElement('ul');
+    curList.className = 'tdb-vb-curriculum-list';
+    curList.setAttribute('data-tdb-vb-curriculum-list', '1');
+    curriculum.appendChild(curH);
+    curriculum.appendChild(curList);
+    breakdown.appendChild(curriculum);
+
     var actions = document.createElement('div');
     actions.className = 'tdb-vb-inline-actions';
     [['pray', 'Pray it'], ['note', 'Save'], ['share', 'Share']].forEach(function (pair) {
@@ -953,6 +967,21 @@
     layEl.textContent = tdbPlainTextForUi(breakdown.layman || '—');
     appEl.textContent = tdbPlainTextForUi(breakdown.applies || '—');
     relEl.textContent = tdbPlainTextForUi(breakdown.relates || buildRelationLine(topic, RELATIONS_FALLBACK));
+    var curList = details.querySelector('[data-tdb-vb-curriculum-list]');
+    if (curList) {
+      while (curList.firstChild) curList.removeChild(curList.firstChild);
+      var uog = typeof window.tdbUogBuildCurriculumPlanList === 'function' ? window.tdbUogBuildCurriculumPlanList : null;
+      var rows = uog ? uog(ref, resolvedText) || [] : [];
+      for (var ci = 0; ci < rows.length; ci++) {
+        if (!rows[ci] || !rows[ci].href) continue;
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        a.href = rows[ci].href;
+        a.appendChild(document.createTextNode(String(rows[ci].label || rows[ci].href)));
+        li.appendChild(a);
+        curList.appendChild(li);
+      }
+    }
 
     details.setAttribute('data-ref', tdbPlainTextForUi(ref || ''));
     details.setAttribute('data-text', resolvedText || '');

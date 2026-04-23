@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "generatedAt": "2026-04-23T12:07:46.126Z",
+  "generatedAt": "2026-04-23T12:13:34.214Z",
   "entries": [
     {
       "t": "Home — Today's Daily Battle",
@@ -21,6 +21,11 @@
       "t": "When the Mind Lies Heavy (7 days)",
       "u": "/plans.html?plan=heavyhope",
       "k": "depression heavy fog hope psalm"
+    },
+    {
+      "t": "When the Heart Feels Alone (7 days)",
+      "u": "/plans.html?plan=heartalone",
+      "k": "singleness divorce loneliness widowed alone"
     },
     {
       "t": "When Pain Won't Quit",

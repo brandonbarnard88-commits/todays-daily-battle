@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-23T12:07:46.603Z",
-  "surfacedRefCount": 2859,
-  "overrideCount": 2859,
+  "generatedAt": "2026-04-23T12:13:34.713Z",
+  "surfacedRefCount": 2864,
+  "overrideCount": 2864,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -140,8 +140,8 @@
       "pairs": 40
     },
     "data/plans-battle-shared.json": {
-      "refs": 293,
-      "pairs": 399
+      "refs": 299,
+      "pairs": 406
     },
     "easter-eggs.js": {
       "refs": 34,
@@ -644,7 +644,7 @@
       "pairs": 0
     },
     "plans-data.js": {
-      "refs": 293,
+      "refs": 299,
       "pairs": 0
     },
     "plans-engine.js": {
@@ -652,7 +652,7 @@
       "pairs": 1
     },
     "plans.html": {
-      "refs": 170,
+      "refs": 174,
       "pairs": 143
     },
     "psalms.html": {
@@ -858,6 +858,7 @@
     "1 Corinthians 6:11",
     "1 Corinthians 6:18",
     "1 Corinthians 6:19",
+    "1 Corinthians 7:8",
     "1 Corinthians 8:1",
     "1 Corinthians 8:7",
     "1 Corinthians 8:9",
@@ -1982,6 +1983,8 @@
     "Isaiah 53:6",
     "Isaiah 54:10",
     "Isaiah 54:17",
+    "Isaiah 54:5",
+    "Isaiah 54:6",
     "Isaiah 55:1",
     "Isaiah 55:2",
     "Isaiah 55:6",
@@ -2151,6 +2154,7 @@
     "John 13:5",
     "John 14:1",
     "John 14:15",
+    "John 14:16",
     "John 14:16-17",
     "John 14:18",
     "John 14:22",
@@ -3309,6 +3313,7 @@
     "Psalm 25:5",
     "Psalm 26:1",
     "Psalm 27:1",
+    "Psalm 27:10",
     "Psalm 27:14",
     "Psalm 27:4",
     "Psalm 28:7",
@@ -3912,6 +3917,7 @@
     "Psalm 25:5": "Lead me in thy truth, and teach me: for thou art the God of my salvation.",
     "Psalm 26:1": "I have trusted also in the Lord; therefore I shall not slide.",
     "Psalm 27:1": "The Lord is my light and my salvation; whom shall I fear? the Lord is the strength of my life; of whom shall I be afraid?",
+    "Psalm 27:10": "When my father and my mother forsake me, then the LORD will take me up.",
     "Psalm 27:14": "Wait on the Lord: be of good courage, and he shall strengthen thine heart: wait, I say, on the Lord.",
     "Psalm 27:4": "One thing have I desired of the Lord, that will I seek after; that I may dwell in the house of the Lord all the days of my life.",
     "Psalm 28:7": "The Lord is my strength and my shield; my heart trusted in him, and I am helped: therefore my heart greatly rejoiceth.",
@@ -4569,6 +4575,14 @@
     "1 Corinthians 6:19": {
       "general": {
         "plainExplanation": "What? know you not that your body is the temple of the Holy Ghost which is in you, which you have of God, and you are not your own?",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Corinth"
+      }
+    },
+    "1 Corinthians 7:8": {
+      "general": {
+        "plainExplanation": "I say therefore to the unmarried and widows, It is good for them if they abide even as I.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Paul",
         "to": "Corinth"
@@ -13446,6 +13460,22 @@
         "to": "Judah"
       }
     },
+    "Isaiah 54:5": {
+      "general": {
+        "plainExplanation": "For your Maker is thine husband; the LORD of hosts is his name; and your Redeemer the Holy One of Israel, The God of the whole earth shall he be called.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Isaiah",
+        "to": "Judah"
+      }
+    },
+    "Isaiah 54:6": {
+      "general": {
+        "plainExplanation": "For the LORD has called you as a woman forsaken and grieved in spirit, and a wife of youth, when you wast refused, says your God.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Isaiah",
+        "to": "Judah"
+      }
+    },
     "Isaiah 55:1": {
       "general": {
         "plainExplanation": "Ho, every one that thirsteth, come you to the waters, and he that has no money; come you, buy, and eat; yea, come, buy wine and milk without money and without price.",
@@ -14794,6 +14824,14 @@
       "general": {
         "plainExplanation": "If you love me, keep my commandments.",
         "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "John 14:16": {
+      "general": {
+        "plainExplanation": "And I will pray the Father, and he shall give you another Comforter, that he may abide with you for ever;",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
       }
@@ -24058,6 +24096,14 @@
       "general": {
         "plainExplanation": "The Lord is my light and my rescue—whom shall I fear?",
         "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
+    "Psalm 27:10": {
+      "general": {
+        "plainExplanation": "When my father and my mother forsake me, then the LORD will take me up.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"
       }

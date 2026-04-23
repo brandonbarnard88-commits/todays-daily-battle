@@ -24002,6 +24002,14 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     topics: ['grief', 'loneliness', 'overwhelmed', 'hope', 'anxiety']
   },
   {
+    id: 'heartalone',
+    title: 'When the Heart Feels Alone',
+    href: 'plans.html?plan=heartalone',
+    days: 7,
+    description: 'For singleness, after divorce, or when loneliness presses in—one gentle KJV verse a day with plain words and prayer.',
+    topics: ['loneliness', 'grief', 'hope', 'singleness', 'divorce', 'community']
+  },
+  {
     id: 'hopeuncertain',
     title: 'Hope in Uncertainty',
     href: 'plans.html?plan=hopeuncertain',

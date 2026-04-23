@@ -18,6 +18,7 @@ const ENTRIES = [
   { t: "Today's Verse", u: '/verse.html', k: 'kjv daily listen' },
   { t: 'Battle Plans library', u: '/plans.html', k: 'reading plan 7 day 30' },
   { t: 'When the Mind Lies Heavy (7 days)', u: '/plans.html?plan=heavyhope', k: 'depression heavy fog hope psalm' },
+  { t: 'When the Heart Feels Alone (7 days)', u: '/plans.html?plan=heartalone', k: 'singleness divorce loneliness widowed alone' },
   { t: "When Pain Won't Quit", u: '/plans.html?plan=painwontquit', k: 'pain illness body' },
   { t: 'Psalms of Comfort', u: '/plans.html?plan=psalmscomfort', k: 'grief fear psalm' },
   { t: 'Site guide — where to start', u: '/site-guide.html', k: 'map help new' },

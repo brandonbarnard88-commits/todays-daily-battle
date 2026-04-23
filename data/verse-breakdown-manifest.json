@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-23T21:31:23.076Z",
-  "surfacedRefCount": 2896,
-  "overrideCount": 2896,
+  "generatedAt": "2026-04-23T21:41:29.682Z",
+  "surfacedRefCount": 2901,
+  "overrideCount": 2901,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -221,6 +221,10 @@
     },
     "embeddable-widgets.html": {
       "refs": 2,
+      "pairs": 0
+    },
+    "evening-university-print.html": {
+      "refs": 4,
       "pairs": 0
     },
     "explore.html": {
@@ -776,8 +780,8 @@
       "pairs": 1
     },
     "plans.html": {
-      "refs": 220,
-      "pairs": 213
+      "refs": 230,
+      "pairs": 224
     },
     "prayer-wall.html": {
       "refs": 1,
@@ -916,7 +920,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 32,
+      "refs": 34,
       "pairs": 0
     },
     "testimonials.html": {
@@ -1370,6 +1374,7 @@
     "2 Corinthians 4:17-18",
     "2 Corinthians 5:1",
     "2 Corinthians 5:17",
+    "2 Corinthians 5:18-19",
     "2 Corinthians 5:7",
     "2 Corinthians 6:3",
     "2 Corinthians 7:1",
@@ -1682,6 +1687,7 @@
     "Colossians 3:12",
     "Colossians 3:12-14",
     "Colossians 3:13",
+    "Colossians 3:13-15",
     "Colossians 3:14",
     "Colossians 3:15",
     "Colossians 3:17",
@@ -1756,6 +1762,7 @@
     "Deuteronomy 6:6",
     "Deuteronomy 6:6-7",
     "Deuteronomy 6:7",
+    "Deuteronomy 8:10",
     "Deuteronomy 8:18",
     "Deuteronomy 8:2",
     "Deuteronomy 8:5",
@@ -3199,6 +3206,7 @@
     "Matthew 5:16",
     "Matthew 5:18",
     "Matthew 5:22",
+    "Matthew 5:23-24",
     "Matthew 5:28",
     "Matthew 5:3",
     "Matthew 5:3-11",
@@ -3432,6 +3440,7 @@
     "Proverbs 5:2",
     "Proverbs 9:10",
     "Psalm 100:1",
+    "Psalm 100:1-2",
     "Psalm 100:1-5",
     "Psalm 100:2",
     "Psalm 100:3",
@@ -3989,10 +3998,12 @@
     "2 Corinthians 12:9-10": "And he said unto me, My grace is sufficient for thee: for my strength is made perfect in weakness. Most gladly therefore will I rather glory in my infirmities, that the power of Christ may rest upon me. Therefore I take pleasure in infirmities, in reproaches, in necessities, in persecutions, in distresses for Christ's sake: for when I am weak, then am I strong.",
     "2 Corinthians 1:3-4": "Blessed be God, even the Father of our Lord Jesus Christ, the Father of mercies, and the God of all comfort; who comforteth us in all our tribulation, that we may be able to comfort others which are in any trouble, by the comfort wherewith we ourselves are comforted of God.",
     "2 Corinthians 4:16-18": "For which cause we faint not; but though our outward man perish, yet the inward man is renewed day by day. For our light affliction, which is but for a moment, worketh for us a far more exceeding and eternal weight of glory; While we look not at the things which are seen, but at the things which are not seen: for the things which are seen are temporal; but the things which are not seen are eternal.",
+    "2 Corinthians 5:18-19": "And all things are of God, who hath reconciled us to himself by Jesus Christ, and hath given to us the ministry of reconciliation; To wit, that God was in Christ, reconciling the world unto himself, not imputing their trespasses unto them; and hath committed unto us the word of reconciliation.",
     "2 Thess. 3:16": "Now the Lord of peace himself give you peace always by all means.",
     "2 Timothy 3:16-17": "All scripture is given by inspiration of God, and is profitable for doctrine, for reproof, for correction, for instruction in righteousness: That the man of God may be perfect, throughly furnished unto all good works.",
     "Colossians 3:1-3": "If ye then be risen with Christ, seek those things which are above, where Christ sitteth on the right hand of God. Set your affection on things above, not on things on the earth. For ye are dead, and your life is hid with Christ in God.",
     "Colossians 3:12-14": "Put on therefore, as the elect of God, holy and beloved, bowels of mercies, kindness, humbleness of mind, meekness, longsuffering; Forbearing one another, and forgiving one another, if any man have a quarrel against any: even as Christ forgave you, so also do ye. And above all these things put on charity, which is the bond of perfectness.",
+    "Colossians 3:13-15": "Forbearing one another, and forgiving one another, if any man have a quarrel against any: even as Christ forgave you, so also do ye. And above all these things put on charity, which is the bond of perfectness. And let the peace of God rule in your hearts, to the which also ye are called in one body; and be ye thankful.",
     "Colossians 3:23-24": "And whatsoever ye do, do it heartily, as to the Lord, and not unto men; Knowing that of the Lord ye shall receive the reward of the inheritance: for ye serve the Lord Christ.",
     "Deuteronomy 28:1-2": "And it shall come to pass, if thou shalt hearken diligently unto the voice of the LORD thy God... that the LORD thy God will set thee on high above all nations of the earth: And all these blessings shall come on thee...",
     "Deuteronomy 6:6-7": "And these words, which I command thee this day, shall be in thine heart: And thou shalt teach them diligently unto thy children, and shalt talk of them when thou sittest in thine house, and when thou walkest by the way, and when thou liest down, and when thou risest up.",
@@ -4043,6 +4054,7 @@
     "Matthew 28:19-20": "Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Ghost: Teaching them to observe all things whatsoever I have commanded you: and, lo, I am with you alway, even unto the end of the world. Amen.",
     "Matthew 5:11-12": "Blessed are ye, when men shall revile you, and persecute you, and shall say all manner of evil against you falsely, for my sake. Rejoice, and be exceeding glad: for great is your reward in heaven: for so persecuted they the prophets which were before you.",
     "Matthew 5:13-14": "Ye are the salt of the earth: but if the salt have lost his savour, wherewith shall it be salted? it is thenceforth good for nothing, but to be cast out, and to be trodden under foot of men. Ye are the light of the world. A city that is set on an hill cannot be hid.",
+    "Matthew 5:23-24": "Therefore if thou bring thy gift to the altar, and there rememberest that thy brother hath ought against thee; Leave there thy gift before the altar, and go thy way; first be reconciled to thy brother, and then come and offer thy gift.",
     "Matthew 6:14-15": "For if ye forgive men their trespasses, your heavenly Father will also forgive you: But if ye forgive not men their trespasses, neither will your Father forgive your trespasses.",
     "Matthew 6:31-33": "Therefore take no thought, saying, What shall we eat? or, What shall we drink? or, Wherewithal shall we be clothed? (For after all these things do the Gentiles seek:) for your heavenly Father knoweth that ye have need of all these things. But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.",
     "Numbers 6:24-26": "The Lord bless thee, and keep thee: The LORD make his face shine upon thee, and be gracious unto thee: The LORD lift up his countenance upon thee, and give thee peace.",
@@ -4052,6 +4064,7 @@
     "Proverbs 3:5-6": "Trust in the LORD with all thine heart; and lean not unto thine own understanding. In all thy ways acknowledge him, and he shall direct thy paths.",
     "Proverbs 3:9-10": "Honour the LORD with thy substance, and with the firstfruits of all thine increase: So shall thy barns be filled with plenty, and thy presses shall burst out with new wine.",
     "Psalm 100:1": "Make a joyful noise unto the Lord, all ye lands.",
+    "Psalm 100:1-2": "Make a joyful noise unto the LORD, all ye lands. Serve the LORD with gladness: come before his presence with singing.",
     "Psalm 100:1-5": "Make a joyful noise unto the LORD, all ye lands. Serve the LORD with gladness: come before his presence with singing. Know ye that the LORD he is God: it is he that hath made us, and not we ourselves; we are his people, and the sheep of his pasture. Enter into his gates with thanksgiving, and into his courts with praise: be thankful unto him, and bless his name. For the LORD is good; his mercy is everlasting; and his truth endureth to all generations.",
     "Psalm 100:2": "Serve the Lord with gladness: come before his presence with singing.",
     "Psalm 100:3": "Know ye that the Lord he is God: it is he that hath made us, and not we ourselves.",
@@ -6895,6 +6908,14 @@
         "to": "Corinth"
       }
     },
+    "2 Corinthians 5:18-19": {
+      "general": {
+        "plainExplanation": "Key idea: And all things are of God, who has reconciled us to himself by Jesus Christ, and has given to us the ministry of reconciliation; To wit, that God was in Chr...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Corinth"
+      }
+    },
     "2 Corinthians 5:7": {
       "general": {
         "plainExplanation": "We walk by faith, not by sight.",
@@ -9335,6 +9356,14 @@
         "to": "Colosse"
       }
     },
+    "Colossians 3:13-15": {
+      "general": {
+        "plainExplanation": "Key idea: Forbearing one another, and forgiving one another, if any man have a quarrel against any: even as Christ forgave you, so also do you. And above all these th...",
+        "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
+        "about": "Paul",
+        "to": "Colosse"
+      }
+    },
     "Colossians 3:14": {
       "general": {
         "plainExplanation": "And above all these things put on charity, which is the bond of perfectness.",
@@ -9922,6 +9951,14 @@
     "Deuteronomy 6:7": {
       "general": {
         "plainExplanation": "Key idea: And you shalt teach them diligently to your children, and shalt talk of them when you sittest in thine house, and when you walkest by the way, and when you...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Deuteronomy 8:10": {
+      "general": {
+        "plainExplanation": "When you hast eaten and art full, then you shalt bless the LORD your God for the good land which he has given you.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Moses",
         "to": "Israel"
@@ -21471,6 +21508,14 @@
         "to": "Believers"
       }
     },
+    "Matthew 5:23-24": {
+      "general": {
+        "plainExplanation": "Key idea: Therefore if you bring your gift to the altar, and there rememberest that your brother has ought against you; Leave there your gift before the altar, and go...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Matthew 5:28": {
       "general": {
         "plainExplanation": "But I say to you, That whoever looketh on a woman to lust after her has committed adultery with her already in his heart.",
@@ -23330,6 +23375,14 @@
     "Psalm 100:1": {
       "general": {
         "plainExplanation": "Make a joyful noise to the Lord, all you lands.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
+    "Psalm 100:1-2": {
+      "general": {
+        "plainExplanation": "Make a joyful noise to the LORD, all you lands. Serve the LORD with gladness: come before his presence with singing.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"

@@ -355,6 +355,7 @@
       if (/\bwait(ing)?\b|tarry|not yet|\bpatience\b|\bpatient\b|hope for that we see not|appointed time|delayed?\b/.test(low)) return 'waiting';
       if (/\bparent(ing)?\b|\bchildren\b|\bchild\b|\bmother\b|\bmothers?\b|ye fathers,|fathers, provoke|train up|nurture|admonition|heritage of|little ones|toddler|babies\b/.test(low)) return 'parenting';
       if (/\bexhaust|exhausted|weariness|\bweary\b|\btired\b|weary in well|faint|fainted|heavily laden|no might|satiated the weary|sorrowful soul|giveth his beloved sleep|bread of sorrows|strength is made perfect in weakness|renew their strength|mount up with wings\b/.test(low)) return 'exhaustion';
+      if (/\breconcil|reconciled|reconciliation|gained thy brother|between thee and him alone|live peaceably with all|quarrel against|forbearing one another|first be reconciled|ministry of reconciliation|word of reconciliation\b/.test(low)) return 'brokenrelations';
       if (/\bforgive|forgiveness|forgave|forgiven|trespass|trespasses\b/.test(low)) return 'forgiveness';
       if (/\bbitter(ness|ly)?\b|gall of bitterness|root of bitterness|bitter envying|gall and\b/.test(low)) return 'bitterness';
       if (/\blonely|loneliness|\bforsaken\b|forsake me|no companion|desolate and afflicted|solitary in families|comfortless\b/.test(low)) return 'loneliness';
@@ -413,6 +414,11 @@
         { href: '/plans.html?plan=universityforgiveness', label: 'University of Forgiveness' },
         { href: '/plans.html?plan=forgiveness', label: '7-Day Forgiveness' },
         { href: '/plans.html?plan=lettinggo', label: 'Letting Go' }
+      ],
+      brokenrelations: [
+        { href: '/plans.html?plan=universitybroken', label: 'University of Broken Relationships' },
+        { href: '/plans.html?plan=universityforgiveness', label: 'University of Forgiveness' },
+        { href: '/plans.html?plan=peacemakers', label: 'Peacemakers' }
       ],
       doubt: [
         { href: '/plans.html?plan=universitydoubt', label: 'University of Doubt' },

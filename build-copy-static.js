@@ -410,6 +410,14 @@ for (const f of otherHtml) {
       console.error('BUILD FAIL: plans.html must include The University of Bitterness plan (universitybitterness / tdb-plan-universitybitterness-day).');
       process.exit(1);
     }
+    if (!content.includes('universitybroken') || !content.includes('tdb-plan-universitybroken-day')) {
+      console.error('BUILD FAIL: plans.html must include The University of Broken Relationships plan (universitybroken / tdb-plan-universitybroken-day).');
+      process.exit(1);
+    }
+    if (!content.includes('latesummerrest') || !content.includes('tdb-plan-latesummerrest-day')) {
+      console.error('BUILD FAIL: plans.html must include Late Summer, Early Rest plan (latesummerrest / tdb-plan-latesummerrest-day).');
+      process.exit(1);
+    }
     if (!content.includes('eveninguog') || !content.includes('tdb-plan-eveninguog-day')) {
       console.error('BUILD FAIL: plans.html must include Evening in the University plan (eveninguog / tdb-plan-eveninguog-day).');
       process.exit(1);

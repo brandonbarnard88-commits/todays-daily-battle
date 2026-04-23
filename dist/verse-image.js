@@ -1987,6 +1987,46 @@
         trackEvent('verse_image_uog_summer_copied', { n: parts.length, len: block.length });
         return;
       }
+      if (t.getAttribute('data-tdb-uog-copy-fall') === '1') {
+        if (!listEl) return;
+        var fallRows = listEl.querySelectorAll('.verse-image-uog-preset-row[data-tdb-uog-cat="harvest"] .verse-image-uog-preset-body');
+        var fallParts = [];
+        for (var f = 0; f < fallRows.length; f++) {
+          var fp = String(fallRows[f].textContent || '').replace(/\s+/g, ' ').trim();
+          if (fp) fallParts.push(fp);
+        }
+        var fallBlock = fallParts.join('\n\n');
+        if (!fallBlock) return;
+        function showFallCopied() {
+          var oldF = t.textContent;
+          t.textContent = 'Copied';
+          if (statusEl) statusEl.textContent = 'Fall harvest prompts (' + fallParts.length + ') copied. Paste into your image tool.';
+          setTimeout(function () {
+            t.textContent = oldF;
+          }, 1800);
+        }
+        function fallFb() {
+          try {
+            var ta2 = document.createElement('textarea');
+            ta2.value = fallBlock;
+            ta2.setAttribute('readonly', '');
+            ta2.style.position = 'fixed';
+            ta2.style.left = '-9999px';
+            document.body.appendChild(ta2);
+            ta2.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta2);
+            showFallCopied();
+          } catch (e2) {}
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(fallBlock).then(showFallCopied).catch(fallFb);
+        } else {
+          fallFb();
+        }
+        trackEvent('verse_image_uog_fall_copied', { n: fallParts.length, len: fallBlock.length });
+        return;
+      }
       if (t.classList && t.classList.contains('verse-image-uog-cat-btn')) {
         var fc = t.getAttribute('data-tdb-uog-cat');
         if (fc) {

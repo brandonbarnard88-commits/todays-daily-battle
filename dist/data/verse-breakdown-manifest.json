@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-23T21:41:29.682Z",
-  "surfacedRefCount": 2901,
-  "overrideCount": 2901,
+  "generatedAt": "2026-04-23T21:49:46.438Z",
+  "surfacedRefCount": 2907,
+  "overrideCount": 2907,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -451,6 +451,10 @@
       "refs": 22,
       "pairs": 0
     },
+    "morning-evening-family-print.html": {
+      "refs": 3,
+      "pairs": 0
+    },
     "mystudy.html": {
       "refs": 1,
       "pairs": 0
@@ -780,8 +784,8 @@
       "pairs": 1
     },
     "plans.html": {
-      "refs": 230,
-      "pairs": 224
+      "refs": 241,
+      "pairs": 235
     },
     "prayer-wall.html": {
       "refs": 1,
@@ -1349,6 +1353,7 @@
     "2 Chronicles 5:12",
     "2 Chronicles 7:14",
     "2 Cor. 12:9",
+    "2 Corinthians 10:12",
     "2 Corinthians 10:4",
     "2 Corinthians 10:5",
     "2 Corinthians 11:13",
@@ -1736,6 +1741,7 @@
     "Daniel 6:23",
     "Daniel 7:7",
     "Deuteronomy 14:2",
+    "Deuteronomy 16:15",
     "Deuteronomy 20:4",
     "Deuteronomy 20:7",
     "Deuteronomy 20:8",
@@ -1981,6 +1987,7 @@
     "Galatians 6:12",
     "Galatians 6:14",
     "Galatians 6:2",
+    "Galatians 6:4-5",
     "Galatians 6:5",
     "Galatians 6:6",
     "Galatians 6:9",
@@ -2521,6 +2528,7 @@
     "John 4:24",
     "John 4:25",
     "John 4:28",
+    "John 4:35-36",
     "John 4:39",
     "John 4:46-54",
     "John 4:6",
@@ -3543,6 +3551,7 @@
     "Psalm 125:1",
     "Psalm 126:2",
     "Psalm 126:3",
+    "Psalm 126:5-6",
     "Psalm 127:1",
     "Psalm 127:2",
     "Psalm 127:3",
@@ -3683,6 +3692,7 @@
     "Psalm 66:8",
     "Psalm 67:1",
     "Psalm 67:2",
+    "Psalm 67:5-7",
     "Psalm 68:19",
     "Psalm 68:6",
     "Psalm 69:32",
@@ -4016,6 +4026,7 @@
     "Ephesians 6:15-16": "And your feet shod with the preparation of the gospel of peace; Above all, taking the shield of faith, wherewith ye shall be able to quench all the fiery darts of the wicked.",
     "Galatians 3:26-28": "For ye are all the children of God by faith in Christ Jesus. For as many of you as have been baptized into Christ have put on Christ. There is neither Jew nor Greek, there is neither bond nor free, there is neither male nor female: for ye are all one in Christ Jesus.",
     "Galatians 5:22-23": "But the fruit of the Spirit is love, joy, peace, longsuffering, gentleness, goodness, faith, Meekness, temperance: against such there is no law.",
+    "Galatians 6:4-5": "But let every man prove his own work, and then shall he have rejoicing in himself alone, and not in another. For every man shall bear his own burden.",
     "Hebrews 10:24-25": "And let us consider one another to provoke unto love and to good works: Not forsaking the assembling of ourselves together, as the manner of some is; but exhorting one another: and so much the more, as ye see the day approaching.",
     "Hebrews 12:1-2": "Wherefore seeing we also are compassed about with so great a cloud of witnesses, let us lay aside every weight, and the sin which doth so easily beset us, and let us run with patience the race that is set before us, Looking unto Jesus the author and finisher of our faith; who for the joy that was set before him endured the cross, despising the shame, and is set down at the right hand of the throne of God.",
     "Isaiah 40:29-31": "He giveth power to the faint; and to them that have no might he increaseth strength. Even the youths shall faint and be weary, and the young men shall utterly fall: But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.",
@@ -4030,6 +4041,7 @@
     "Jeremiah 17:7-8": "Blessed is the man that trusteth in the LORD, and whose hope the LORD is. For he shall be as a tree planted by the waters, and that spreadeth out her roots by the river, and shall not see when heat cometh.",
     "John 10:27-28": "My sheep hear my voice, and I know them, and they follow me: And I give unto them eternal life; and they shall never perish, neither shall any man pluck them out of my hand.",
     "John 14:16-17": "And I will pray the Father, and he shall give you another Comforter, that he may abide with you for ever; Even the Spirit of truth; whom the world cannot receive, because it seeth him not, neither knoweth him: but ye know him; for he dwelleth with you, and shall be in you.",
+    "John 4:35-36": "Say not ye, There are yet four months, and then cometh harvest? behold, I say unto you, Lift up your eyes, and look on the fields; for they are white already to harvest. And he that reapeth receiveth wages, and gathereth fruit unto life eternal: that both he that soweth and he that reapeth may rejoice together.",
     "Lamentations 3:22-23": "Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
     "Lamentations 3:24-26": "The LORD is my portion, saith my soul; therefore will I hope in him. The LORD is good unto them that wait for him, to the soul that seeketh him. It is good that a man should both hope and quietly wait for the salvation of the LORD.",
     "Lamentations 3:25-26": "The LORD is good unto them that wait for him, to the soul that seeketh him. It is good that a man should both hope and quietly wait for the salvation of the LORD.",
@@ -4167,6 +4179,7 @@
     "Psalm 125:1": "They that trust in the Lord shall be as mount Zion, which cannot be removed.",
     "Psalm 126:2": "Then was our mouth filled with laughter, and our tongue with singing.",
     "Psalm 126:3": "The Lord hath done great things for us; whereof we are glad.",
+    "Psalm 126:5-6": "They that sow in tears shall reap in joy. He that goeth forth and weepeth, bearing precious seed, shall doubtless come again with rejoicing, bringing his sheaves with him.",
     "Psalm 127:1": "Except the Lord build the house, they labour in vain that build it: except the Lord keep the city, the watchman waketh but in vain.",
     "Psalm 127:2": "It is vain for you to rise up early, to sit up late, to eat the bread of sorrows: for so he giveth his beloved sleep.",
     "Psalm 127:3": "Lo, children are an heritage of the LORD: and the fruit of the womb is his reward.",
@@ -4307,6 +4320,7 @@
     "Psalm 66:8": "O bless our God, ye people, and make the voice of his praise to be heard.",
     "Psalm 67:1": "God be merciful unto us, and bless us; and cause his face to shine upon us.",
     "Psalm 67:2": "That thy way may be known upon earth, thy saving health among all nations.",
+    "Psalm 67:5-7": "Let the people praise thee, O God; let all the people praise thee. Then shall the earth yield her increase; and God, even our own God, shall bless us. God shall bless us; and all the ends of the earth shall fear him.",
     "Psalm 68:19": "Blessed be the Lord, who daily loadeth us with benefits.",
     "Psalm 68:6": "God setteth the solitary in families: he bringeth out those which are bound with chains: but the rebellious dwell in a dry land.",
     "Psalm 69:32": "The humble shall see this, and be glad: and your heart shall live that seek God.",
@@ -6706,6 +6720,14 @@
         "modernApplication": "This verse reminds you that God gives strength that does not start with your own reserves.",
         "about": "Bible writer",
         "to": "People who first heard these words"
+      }
+    },
+    "2 Corinthians 10:12": {
+      "general": {
+        "plainExplanation": "Key idea: For we dare not make ourselves of the number, or compare ourselves with some that commend themselves: but they measuring themselves by themselves, and compa...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Corinth"
       }
     },
     "2 Corinthians 10:4": {
@@ -9748,6 +9770,14 @@
         "to": "Israel"
       }
     },
+    "Deuteronomy 16:15": {
+      "general": {
+        "plainExplanation": "Key idea: Seven days shalt you keep a solemn feast to the LORD your God in the place which the LORD shall choose: because the LORD your God shall bless you in all thi...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
     "Deuteronomy 20:4": {
       "general": {
         "plainExplanation": "For the LORD your God is he that goeth with you, to fight for you against your enemies, to save you.",
@@ -11703,6 +11733,14 @@
     "Galatians 6:2": {
       "general": {
         "plainExplanation": "Bear you one another's burdens, and so fulfil the law of Christ.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Galatia"
+      }
+    },
+    "Galatians 6:4-5": {
+      "general": {
+        "plainExplanation": "But let every man prove his own work, and then shall he have rejoicing in himself alone, and not in another. For every man shall bear his own burden.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Paul",
         "to": "Galatia"
@@ -16023,6 +16061,14 @@
     "John 4:28": {
       "general": {
         "plainExplanation": "The woman then left her waterpot, and went her way into the city, and says to the men,",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "John 4:35-36": {
+      "general": {
+        "plainExplanation": "Key idea: Say not you, There are yet four months, and then cometh harvest? look, I say to you, Lift up your eyes, and look on the fields; for they are white already t...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -24204,6 +24250,14 @@
         "to": "Everyone hurting or thankful"
       }
     },
+    "Psalm 126:5-6": {
+      "general": {
+        "plainExplanation": "They that sow in tears shall reap in joy. He that goeth forth and weepeth, bearing precious seed, shall doubtless come again with rejoicing, bringing his sheaves with him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
     "Psalm 127:1": {
       "general": {
         "plainExplanation": "Except the Lord build the house, they labor in vain that build it: except the Lord keep the city, the watchman waketh but in vain.",
@@ -25320,6 +25374,14 @@
       "general": {
         "plainExplanation": "That your way may be known upon earth, your saving health among all nations.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
+    "Psalm 67:5-7": {
+      "general": {
+        "plainExplanation": "Key idea: Let the people praise you, O God; let all the people praise you. Then shall the earth yield her increase; and God, even our own God, shall bless us. God sha...",
+        "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"
       }

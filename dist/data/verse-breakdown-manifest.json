@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-23T20:16:53.107Z",
-  "surfacedRefCount": 2879,
-  "overrideCount": 2879,
+  "generatedAt": "2026-04-23T20:24:40.595Z",
+  "surfacedRefCount": 2881,
+  "overrideCount": 2881,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -344,7 +344,7 @@
       "pairs": 0
     },
     "kids/corner.html": {
-      "refs": 6,
+      "refs": 8,
       "pairs": 0
     },
     "kids/index.html": {
@@ -772,8 +772,8 @@
       "pairs": 1
     },
     "plans.html": {
-      "refs": 188,
-      "pairs": 161
+      "refs": 195,
+      "pairs": 173
     },
     "prayer-wall.html": {
       "refs": 1,
@@ -1190,6 +1190,7 @@
     "1 Peter 2:21",
     "1 Peter 2:9",
     "1 Peter 3:11",
+    "1 Peter 3:12",
     "1 Peter 3:15",
     "1 Peter 3:16",
     "1 Peter 3:2",
@@ -2886,6 +2887,7 @@
     "Mark 1:15",
     "Mark 1:30",
     "Mark 1:34",
+    "Mark 1:35",
     "Mark 1:9",
     "Mark 2:1-12",
     "Mark 2:14",
@@ -5518,6 +5520,14 @@
       "general": {
         "plainExplanation": "Let him eschew evil, and do good; let him seek peace, and ensue it.",
         "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
+        "about": "Peter",
+        "to": "Believers"
+      }
+    },
+    "1 Peter 3:12": {
+      "general": {
+        "plainExplanation": "For the eyes of the Lord are over the righteous, and his ears are open to their prayers: but the face of the Lord is against them that do evil.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Peter",
         "to": "Believers"
       }
@@ -18965,6 +18975,14 @@
     "Mark 1:34": {
       "general": {
         "plainExplanation": "And he healed many that were sick of divers diseases, and cast out many devils; and suffered not the devils to speak, because they knew him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Mark 1:35": {
+      "general": {
+        "plainExplanation": "And in the morning, rising up a great while before day, he went out, and departed into a solitary place, and there prayed.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"

@@ -100,22 +100,28 @@ function tdbIsHomePage() {
     var low = (String(ref || '') + ' ' + String(text || '')).toLowerCase();
     if (/\banxiety|anxious|worry|stressed?|careful for nothing|careful\b/.test(low)) return 'anxiety';
     if (/\bfear|afraid|panic|scared|terror\b/.test(low)) return 'fear';
+    if (/(closet|secret place|shut thy door|a great while before day|a solitary|draw nigh to god|ears are open|double minded|in secret;|in secret,|in secret\.|in secret\)|seeth in secret|seen in secret)\b/.test(low)) return 'secretprayer';
     if (/\bgrief|grieve|grieving|mourning|mourn(ed|ing)?|bereave|bereft|\bloss\b|funeral|widow|orphan|weep|weeping|broken\s*heart|contrite|\bsorrow\b/.test(low)) return 'grief';
     if (/\bwait(ing)?\b|tarry|not yet|\bpatience\b|\bpatient\b|hope for that we see not|appointed time|delayed?\b/.test(low)) return 'waiting';
-    if (/\bparent(ing)?\b|\bchildren\b|\bchild\b|\bmother\b|\bfathers?\b|\bmothers?\b|\bson\b|\bdaughter\b|train up|nurture|admonition|heritage of|little ones|toddler|babies\b/.test(low)) return 'parenting';
+    if (/\bparent(ing)?\b|\bchildren\b|\bchild\b|\bmother\b|\bmothers?\b|ye fathers,|fathers, provoke|train up|nurture|admonition|heritage of|little ones|toddler|babies\b/.test(low)) return 'parenting';
     if (/\bhope|hopeless|weary|tired|discouraged\b/.test(low)) return 'hope';
     return 'hope';
   }
   var UOG_PLANS = {
     anxiety: [
+      { href: '/plans.html?plan=universityanxiety', label: 'Anxiety & Fear' },
       { href: '/plans.html?plan=worrytrust', label: 'Worry to Trust' },
-      { href: '/plans.html?plan=peace', label: '7-Day Peace' },
-      { href: '/plans.html?plan=heavyhope', label: 'When the Mind Lies Heavy' }
+      { href: '/plans.html?plan=peace', label: '7-Day Peace' }
     ],
     fear: [
+      { href: '/plans.html?plan=universityanxiety', label: 'Anxiety & Fear' },
       { href: '/plans.html?plan=fearnot14', label: 'Fear Not (14 days)' },
-      { href: '/plans.html?plan=fearfaith', label: 'Fear to Faith' },
-      { href: '/plans.html?plan=armorofgod', label: 'Armor of God' }
+      { href: '/plans.html?plan=fearfaith', label: 'Fear to Faith' }
+    ],
+    secretprayer: [
+      { href: '/plans.html?plan=universitysecretprayer', label: 'Secret Prayer' },
+      { href: '/plans.html?plan=lordsprayer', label: "The Lord's Prayer" },
+      { href: '/plans.html?plan=peace', label: '7-Day Peace' }
     ],
     grief: [
       { href: '/plans.html?plan=universitygrief', label: 'University of Grief' },

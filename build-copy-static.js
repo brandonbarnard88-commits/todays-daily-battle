@@ -378,6 +378,14 @@ for (const f of otherHtml) {
       console.error('BUILD FAIL: plans.html must include The University of Parenting Young Kids plan (universityparenting / tdb-plan-universityparenting-day).');
       process.exit(1);
     }
+    if (!content.includes('universitysecretprayer') || !content.includes('tdb-plan-universitysecretprayer-day')) {
+      console.error('BUILD FAIL: plans.html must include The University of Secret Prayer plan (universitysecretprayer / tdb-plan-universitysecretprayer-day).');
+      process.exit(1);
+    }
+    if (!content.includes('universityanxiety') || !content.includes('tdb-plan-universityanxiety-day')) {
+      console.error('BUILD FAIL: plans.html must include The University of Anxiety & Fear plan (universityanxiety / tdb-plan-universityanxiety-day).');
+      process.exit(1);
+    }
     if (!content.includes('cancercomfort') || !content.includes('tdb-plan-cancercomfort-day')) {
       console.error('BUILD FAIL: plans.html must include Cancer Comfort plan (cancercomfort / tdb-plan-cancercomfort-day).');
       process.exit(1);

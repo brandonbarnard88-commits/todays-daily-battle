@@ -12699,6 +12699,40 @@ function wireVersePageNarrationPrefs() {
   syncUi();
 }
 
+/** Homepage hero: copy ref + KJV text + page URL (verse card). */
+function wireHeroCopyVerse() {
+  var btn = document.getElementById('heroCopyVerseBtn');
+  if (!btn) return;
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var verseCard = document.getElementById('verseCard');
+    var r = '';
+    var t = '';
+    if (verseCard && typeof tdbGetDailyVerseRefFromCard === 'function') {
+      r = tdbGetDailyVerseRefFromCard(verseCard);
+    }
+    if (verseCard && typeof tdbGetDailyVerseTextFromCard === 'function') {
+      t = tdbGetDailyVerseTextFromCard(verseCard);
+    }
+    if (!r) {
+      var refEl = document.getElementById('heroRef');
+      r = refEl ? String(refEl.textContent || '').replace(/\s*\(KJV\)\s*$/i, '').trim() : '';
+    }
+    if (!t) {
+      var ve = document.getElementById('heroVerse');
+      t = ve ? String(ve.textContent || '').replace(/^[\s"\u201c]+|[\s"\u201d]+$/g, '').replace(/\s+/g, ' ').trim() : '';
+    }
+    if (!r || !t) return;
+    var line = r + ' (KJV) — \u201c' + t + '\u201d\n' + (typeof window.location !== 'undefined' ? window.location.href : '');
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(line).then(function () {
+        if (typeof showEliteToast === 'function') showEliteToast('Verse copied.');
+        if (typeof trackEvent === 'function') trackEvent('hero_copy_verse', {});
+      }).catch(function () {});
+    }
+  });
+}
+
 /** Homepage hero: save today’s verse to My Verses (same storage path as verse.html / Bible tool). */
 function wireHeroSaveToMyVerses() {
   var heroBtn = document.getElementById('hero-save-my-verses');
@@ -27374,6 +27408,7 @@ async function tdbInitImpl() {
       }
     );
   }
+  wireHeroCopyVerse();
   wireHeroSaveToMyVerses();
   if (isHome) wireHomeContinueLoopCard();
   wireDawnDuskQuickPrayLabel();

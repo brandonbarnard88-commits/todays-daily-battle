@@ -148,11 +148,16 @@ async function verifyHydrationAssets() {
   if (!seedAsset.includes('TDB_VERSE_BREAKDOWN_DATA')) {
     throw new Error('verse-breakdown-overrides.js did not build into dist with seed data.');
   }
-  ['Plain English', 'For your group', 'Real life today'].forEach((label) => {
-    if (!heroFirstPaint.includes(label)) {
-      throw new Error(`hero-daily-first-paint.js is missing "${label}" first-paint label.`);
+  ['__TDB_applyHeroVotdFromInputs', 'heroSimpleBreakdown', 'HERO_BOOK_CTX'].forEach((token) => {
+    if (!heroFirstPaint.includes(token)) {
+      throw new Error(
+        `hero-daily-first-paint.js is missing "${token}" (homepage verse-of-the-day simple + deep breakdown).`
+      );
     }
   });
+  if (!indexHtml.includes('id="heroSimpleBreakdown"') || !indexHtml.includes('id="heroDeepBreakdown"')) {
+    throw new Error('index.html must include #heroSimpleBreakdown and #heroDeepBreakdown (homepage VOTD).');
+  }
   if (!indexHtml.includes(`verse-breakdown-overrides.js?v=${CURRENT_BREAKDOWN_TOKEN}`)) {
     throw new Error('index.html is missing the current verse-breakdown override seed include.');
   }

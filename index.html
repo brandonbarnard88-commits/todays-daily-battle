@@ -3352,6 +3352,70 @@
       border-radius: 8px;
       box-shadow: 0 4px 18px rgba(0, 0, 0, 0.028);
     }
+    :root[data-theme="dark"] .hero-calendar-breakdown-wrap {
+      background: color-mix(in srgb, var(--card) 97%, #fff 3%);
+    }
+    .hero-votd-simple-label {
+      margin: 0 0 0.4rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .hero-votd-simple {
+      margin: 0;
+      font-size: 1.02rem;
+      line-height: 1.55;
+      color: var(--text);
+    }
+    .hero-votd-deep {
+      margin: 1.1rem 0 0;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: var(--bg-soft, rgba(255, 255, 255, 0.04));
+    }
+    .hero-votd-deep > summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 0.75rem 1rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .hero-votd-deep > summary::-webkit-details-marker { display: none; }
+    .hero-votd-deep > summary::after {
+      content: "›";
+      float: right;
+      font-size: 1.15rem;
+      line-height: 1;
+      color: var(--muted);
+      transform: translateY(1px);
+    }
+    .hero-votd-deep[open] > summary::after { transform: rotate(90deg) translate(2px, 0); }
+    .hero-votd-deep > summary:hover,
+    .hero-votd-deep > summary:focus-visible { color: var(--gold-soft); outline: none; }
+    .hero-votd-deep > summary:focus-visible { box-shadow: inset 0 0 0 2px var(--gold); border-radius: 9px; }
+    .hero-votd-deep-body {
+      padding: 0 1rem 1rem;
+      display: grid;
+      gap: 0.9rem;
+    }
+    .hero-votd-dlabel {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold-soft, var(--gold));
+      margin: 0 0 0.2rem;
+    }
+    .hero-votd-dtext {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--text);
+    }
     .hero-calendar-breakdown-wrap .hero-breakdown-panels {
       margin: 0.45rem 0 0.65rem;
     }
@@ -3505,6 +3569,14 @@
     }
 
     /* ── Read-aloud + compact verse toolbar ── */
+    .tdb-verse-of-day-eyebrow {
+      margin: 0 0 0.25rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
     .verse-ref-row {
       display: flex;
       align-items: flex-start;
@@ -3513,11 +3585,27 @@
     }
     .hero-verse-toolbar {
       display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      gap: 0.35rem;
-      flex-shrink: 0;
-      margin-top: 2px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.45rem;
+      margin-top: 0.7rem;
+      min-width: 0;
+    }
+    .hero-verse-primary-toolbar {
+      border-top: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
+      padding-top: 0.75rem;
+    }
+    .hero-votd-save-btn {
+      min-height: 44px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.45rem 0.8rem;
+      border-radius: 10px;
+      margin-left: auto;
+    }
+    @media (max-width: 520px) {
+      .hero-votd-save-btn { margin-left: 0; flex: 1 1 100%; }
     }
     .hero-toolbar-btn {
       min-height: 44px;
@@ -3638,7 +3726,9 @@
     @media (max-width: 480px) { .read-aloud-label { display: none; } .read-aloud-btn { padding: 0.35rem; min-width: 40px; } }
     /* loading skeleton hides it */
     .verse-card.is-loading .read-aloud-btn,
-    .verse-card.is-loading .verse-ref-row { display: none; }
+    .verse-card.is-loading .verse-ref-row,
+    .verse-card.is-loading .tdb-verse-of-day-eyebrow,
+    .verse-card.is-loading .hero-verse-primary-toolbar { display: none; }
 
     /* ── Prayer share row ── */
     .prayer-share-row {
@@ -8195,6 +8285,7 @@
           <div class="verse-skeleton-box"></div>
         </div>
         <div class="tdb-home-verse-sticky-shell" role="region" aria-label="Today’s verse text and quick actions">
+        <p class="tdb-verse-of-day-eyebrow" id="heroVerseEyebrow">Verse of the day</p>
         <p class="verse-ref hero-daily-ref-above" id="heroRef">Isaiah 40:31 (KJV)</p>
         <div class="verse-ref-row">
           <div class="hero-verse-wrap-inner">
@@ -8204,7 +8295,8 @@
               <button type="button" class="verse-font-btn verse-font-larger" id="verseFontLarger" aria-label="Increase text size">A+</button>
             </div>
           </div>
-          <div class="hero-verse-toolbar" role="toolbar" aria-label="Today’s verse: listen, share, image">
+        </div>
+        <div class="hero-verse-toolbar hero-verse-primary-toolbar" role="toolbar" aria-label="Verse: listen, copy, share, image, save to My Study">
             <button
               class="read-aloud-btn read-aloud-with-label"
               id="readAloudBtn"
@@ -8224,9 +8316,10 @@
               </svg>
               <span class="read-aloud-label">Listen slow</span>
             </button>
+            <button type="button" class="hero-toolbar-btn" id="heroCopyVerseBtn" aria-label="Copy verse and page link to clipboard">Copy</button>
             <button type="button" class="hero-toolbar-btn" id="heroShareBtn" aria-label="Share today’s verse (copy or device share)">Share</button>
             <button type="button" class="hero-toolbar-btn" id="heroImageBtn" aria-label="Create shareable verse image">Image</button>
-          </div>
+            <button type="button" id="hero-save-my-verses" class="btn btn-primary hero-votd-save-btn" aria-describedby="hero-my-verses-hint hero-my-verses-privacy-line" aria-label="Save today’s verse to My Study on this device">Save to My Study</button>
         </div>
         </div>
         <div class="tdb-start-my-day-band" role="region" aria-label="Start my day: verse, feeling, and a gentle plan">
@@ -8410,10 +8503,39 @@
     }
     .tdb-smd-verse-pulse { animation: tdb-smd-verse-pulse 1.1s ease 1; }
         </style>
-        <div class="hero-calendar-breakdown-wrap" role="region" aria-label="Today’s calendar verse — gentle breakdown">
-        <ul class="breakdown" id="heroBreakdown"></ul>
-        <div class="hero-breakdown-panels" id="heroBreakdownPanels"></div>
-        <p class="application" id="heroApplication"></p>
+        <div class="hero-calendar-breakdown-wrap" id="heroVotdBreakdown" role="region" aria-label="Today’s calendar verse — simple and deep breakdown">
+        <div class="hero-votd-simple-block">
+          <p class="hero-votd-simple-label">Simple breakdown</p>
+          <p class="hero-votd-simple" id="heroSimpleBreakdown"></p>
+        </div>
+        <details class="hero-votd-deep" id="heroDeepBreakdown" aria-label="Deep verse breakdown, optional">
+          <summary>Deep breakdown</summary>
+          <div class="hero-votd-deep-body">
+            <div class="hero-votd-deep-block" id="heroDeepRowWho" hidden>
+              <span class="hero-votd-dlabel">Who is speaking</span>
+              <p class="hero-votd-dtext" id="heroDeepWho"></p>
+            </div>
+            <div class="hero-votd-deep-block" id="heroDeepRowAud" hidden>
+              <span class="hero-votd-dlabel">Who it was for first</span>
+              <p class="hero-votd-dtext" id="heroDeepAudience"></p>
+            </div>
+            <div class="hero-votd-deep-block" id="heroDeepRowCtx" hidden>
+              <span class="hero-votd-dlabel">Context</span>
+              <p class="hero-votd-dtext" id="heroDeepContext"></p>
+            </div>
+            <div class="hero-votd-deep-block" id="heroDeepRowYou" hidden>
+              <span class="hero-votd-dlabel">How it meets you</span>
+              <p class="hero-votd-dtext" id="heroDeepYou"></p>
+            </div>
+            <div class="hero-votd-deep-block" id="heroDeepRowToday" hidden>
+              <span class="hero-votd-dlabel">A step for today</span>
+              <p class="hero-votd-dtext" id="heroDeepToday"></p>
+            </div>
+          </div>
+        </details>
+        <ul class="breakdown" id="heroBreakdown" hidden></ul>
+        <div class="hero-breakdown-panels" id="heroBreakdownPanels" hidden></div>
+        <p class="application" id="heroApplication" hidden></p>
         </div>
         <p class="hero-daily-welcome">Joy, rest, questions&mdash;you are welcome here.</p>
         <p class="section-note" id="heroBuilderLine">A quiet place for real battles &mdash; built solo by Brandon, who is still fighting them too.</p>
@@ -8424,8 +8546,7 @@
           <button type="button" id="heroWordStudyBtn" class="btn btn-secondary hero-word-study-btn" data-tdb-wordstudy-ref="Isaiah 40:31" data-tdb-wordstudy-text="But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint." aria-describedby="hero-study-verse-hint" aria-label="Open verse study for today’s verse of the day">Study this verse</button>
         </p>
         <p class="tdb-why-stay-line" id="tdb-why-stay-line">A steady place for Scripture&mdash;any kind of day.</p>
-        <div class="hero-my-verses-row hero-my-verses-row--below-card" role="region" aria-label="Save today’s verse to My Study">
-          <button type="button" id="hero-save-my-verses" class="btn btn-primary hero-save-my-verses-btn" aria-describedby="hero-my-verses-hint hero-my-verses-privacy-line" aria-label="Save today’s verse to My Study on this device">Save to My Study</button>
+        <div class="hero-my-verses-row hero-my-verses-row--below-card" role="region" aria-label="Memorize and My Study">
           <a href="memorize.html" class="btn btn-secondary hero-memorize-link" id="hero-memorize-link" aria-label="Open gentle memorize tools for today’s verse">Memorize</a>
           <p id="hero-my-verses-hint" class="section-note hero-my-verses-hint">Same list as Search and the <a href="/bible-tool.html">Bible tool</a>. <a href="/mystudy?tab=library#saved-verses">Open My Study</a>.</p>
           <p class="hero-my-verses-privacy-note" id="hero-my-verses-privacy-line">Saves stay here on this device unless you sign in.</p>
@@ -9812,27 +9933,21 @@
       };
     }
 
-    function heroBreakdownPanelsHydrated(panelsEl) {
-      if (!panelsEl) return false;
-      const labels = Array.from(panelsEl.querySelectorAll('.hbp-label')).map(function (el) {
-        return String(el.textContent || '').trim().toLowerCase();
-      });
-      return labels.includes('plain english') &&
-        labels.includes('for your group') &&
-        labels.includes('real life today');
+    function heroVotdSimpleHydrated() {
+      const el = document.getElementById('heroSimpleBreakdown');
+      return el && String(el.textContent || '').trim().length > 0;
     }
 
     function queueHeroBreakdownRefresh(data, attempt) {
       const tries = Number(attempt || 0);
       if (tries >= 24) return;
       window.setTimeout(function () {
-        const panelsEl = document.getElementById('heroBreakdownPanels');
-        const hasHydratedPanels = heroBreakdownPanelsHydrated(panelsEl);
+        const hasVotd = heroVotdSimpleHydrated();
         const sharedReady = !!(
           (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.getBreakdown === 'function') ||
           typeof window.getVerseBreakdown === 'function'
         );
-        if (hasHydratedPanels && sharedReady) return;
+        if (hasVotd && sharedReady) return;
         if (!sharedReady) {
           queueHeroBreakdownRefresh(data, tries + 1);
           return;
@@ -9906,8 +10021,7 @@
         } catch (eLd) {}
       })();
 
-      // ── Bullet breakdown (legacy lines) — hide if we have rich panels ──
-      heroBreakdown.replaceChildren();
+      // ── Verse of the day: simple + deep (see hero-daily-first-paint.js __TDB_applyHeroVotdFromInputs) ──
       const panelsEl = document.getElementById('heroBreakdownPanels');
 
       if (v && v.ref) {
@@ -9957,42 +10071,69 @@
       }
       const hasRich = heroSharedBreakdown || v.speaker || v.plain || v.today || v.action;
 
-      if (hasRich && panelsEl) {
-        // Rich 3-panel breakdown
-        heroBreakdown.style.display = 'none';
-        panelsEl.replaceChildren();
-        [
-          { label: 'Plain English', text: (heroSharedBreakdown && heroSharedBreakdown.plainExplanation) || v.plain, mod: '' },
-          { label: 'For your group', text: (heroSharedBreakdown && heroSharedBreakdown.groupApplication) || v.today || v.app, mod: '' },
-          { label: 'Real life today', text: (heroSharedBreakdown && heroSharedBreakdown.modernApplication) || v.action || v.app, mod: 'hbp-panel--action' }
-        ].forEach(({ label, text, mod }) => {
-          if (!text) return;
-          const panel = document.createElement('div');
-          panel.className = 'hbp-panel' + (mod ? ' ' + mod : '');
-          const lbl = document.createElement('p');
-          lbl.className = 'hbp-label';
-          lbl.textContent = label;
-          const p = document.createElement('p');
-          p.className = 'hbp-text';
-          p.textContent = text;
-          panel.append(lbl, p);
-          panelsEl.appendChild(panel);
-        });
-        heroApplication.textContent = '';
-        heroApplication.style.display = 'none';
+      if (typeof window.__TDB_applyHeroVotdFromInputs === 'function') {
+        if (hasRich) {
+          window.__TDB_applyHeroVotdFromInputs(v, {
+            plainExplanation: (heroSharedBreakdown && heroSharedBreakdown.plainExplanation) || v.plain,
+            groupApplication: (heroSharedBreakdown && heroSharedBreakdown.groupApplication) || v.today,
+            modernApplication: (heroSharedBreakdown && heroSharedBreakdown.modernApplication) || v.action || v.app,
+            about: (heroSharedBreakdown && heroSharedBreakdown.about) || v.speaker
+          });
+        } else {
+          if (heroBreakdown) {
+            heroBreakdown.replaceChildren();
+            heroBreakdown.setAttribute('hidden', '');
+            heroBreakdown.setAttribute('aria-hidden', 'true');
+          }
+          if (panelsEl) panelsEl.replaceChildren();
+          if (heroApplication) {
+            heroApplication.textContent = '';
+            heroApplication.style.display = 'none';
+          }
+          window.__TDB_applyHeroVotdFromInputs(v, null);
+          queueHeroBreakdownRefresh(data, 0);
+        }
       } else {
-        // Fallback: legacy bullet lines
-        heroBreakdown.style.display = '';
-        if (panelsEl) panelsEl.replaceChildren();
-        const displayLines = v.lines.slice(0, 3);
-        displayLines.forEach((line) => {
-          const li = document.createElement("li");
-          li.textContent = sanitizeText(line);
-          heroBreakdown.appendChild(li);
-        });
-        heroApplication.textContent = v.app;
-        heroApplication.style.display = '';
-        queueHeroBreakdownRefresh(data, 0);
+        if (hasRich && panelsEl) {
+          if (heroBreakdown) {
+            heroBreakdown.replaceChildren();
+            heroBreakdown.setAttribute('hidden', '');
+          }
+          panelsEl.replaceChildren();
+          [
+            { label: 'Plain English', text: (heroSharedBreakdown && heroSharedBreakdown.plainExplanation) || v.plain, mod: '' },
+            { label: 'For your group', text: (heroSharedBreakdown && heroSharedBreakdown.groupApplication) || v.today || v.app, mod: '' },
+            { label: 'Real life today', text: (heroSharedBreakdown && heroSharedBreakdown.modernApplication) || v.action || v.app, mod: 'hbp-panel--action' }
+          ].forEach(function (row) {
+            if (!row.text) return;
+            const panel = document.createElement('div');
+            panel.className = 'hbp-panel' + (row.mod ? ' ' + row.mod : '');
+            const lbl = document.createElement('p');
+            lbl.className = 'hbp-label';
+            lbl.textContent = row.label;
+            const p = document.createElement('p');
+            p.className = 'hbp-text';
+            p.textContent = row.text;
+            panel.append(lbl, p);
+            panelsEl.appendChild(panel);
+          });
+        } else {
+          if (heroBreakdown) {
+            heroBreakdown.replaceChildren();
+            heroBreakdown.removeAttribute('hidden');
+            heroBreakdown.removeAttribute('aria-hidden');
+          }
+          if (panelsEl) panelsEl.replaceChildren();
+          const displayLines = v.lines.slice(0, 3);
+          displayLines.forEach(function (line) {
+            const li = document.createElement('li');
+            li.textContent = sanitizeText(line);
+            if (heroBreakdown) heroBreakdown.appendChild(li);
+          });
+          heroApplication.textContent = v.app;
+          heroApplication.style.display = '';
+          queueHeroBreakdownRefresh(data, 0);
+        }
       }
 
       try {
@@ -11226,11 +11367,26 @@
           const ref = document.getElementById('heroRef');
           refLine = ref ? String(ref.textContent || '').trim() : '';
         }
+        const simpleEl = document.getElementById('heroSimpleBreakdown');
+        const simpleLine = simpleEl && String(simpleEl.textContent || '').trim();
         const breakdown = document.getElementById('heroBreakdown');
         const app       = document.getElementById('heroApplication');
         const panels    = document.getElementById('heroBreakdownPanels');
         let lines = '';
-        if (panels && panels.querySelector('.hbp-panel')) {
+        if (simpleLine) {
+          lines = 'Simple breakdown. ' + simpleLine;
+          const d1 = document.getElementById('heroDeepWho');
+          const d2 = document.getElementById('heroDeepAudience');
+          const d3 = document.getElementById('heroDeepContext');
+          const d4 = document.getElementById('heroDeepYou');
+          const d5 = document.getElementById('heroDeepToday');
+          const deepBits = [d1, d2, d3, d4, d5].map(function (el) {
+            return el && String(el.textContent || '').trim();
+          }).filter(Boolean);
+          if (deepBits.length) {
+            lines += '. ' + deepBits.join('. ');
+          }
+        } else if (panels && panels.querySelector('.hbp-panel')) {
           lines = Array.from(panels.querySelectorAll('.hbp-panel')).map(function (panel) {
             const lbl = panel.querySelector('.hbp-label');
             const txt = panel.querySelector('.hbp-text');

@@ -187,6 +187,8 @@
 /explore/ /explore.html 200!
 /site-guide /site-guide.html 200!
 /site-guide/ /site-guide.html 200!
+/university /university.html 200!
+/university/ /university.html 200!
 /family /family.html 200!
 /family/ /family.html 200!
 /family.html /family 301

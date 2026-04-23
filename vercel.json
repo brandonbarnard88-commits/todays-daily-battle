@@ -215,6 +215,14 @@
       "destination": "/site-guide.html"
     },
     {
+      "source": "/university",
+      "destination": "/university.html"
+    },
+    {
+      "source": "/university/",
+      "destination": "/university.html"
+    },
+    {
       "source": "/family",
       "destination": "/family.html"
     },

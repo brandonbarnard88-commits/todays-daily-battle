@@ -1,18 +1,26 @@
 {
-  "generatedAt": "2026-04-23T13:39:26.142Z",
-  "surfacedRefCount": 2869,
-  "overrideCount": 2869,
+  "generatedAt": "2026-04-23T18:24:39.038Z",
+  "surfacedRefCount": 2874,
+  "overrideCount": 2874,
   "sourceCounts": {
     "404-admin.html": {
-      "refs": 1,
+      "refs": 2,
       "pairs": 0
     },
     "404.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "about.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "action-bible-workshop.html": {
       "refs": 1,
       "pairs": 0
     },
     "action-bible.html": {
-      "refs": 1,
+      "refs": 2,
       "pairs": 0
     },
     "action-bible.js": {
@@ -20,7 +28,7 @@
       "pairs": 0
     },
     "admin.html": {
-      "refs": 1,
+      "refs": 2,
       "pairs": 0
     },
     "api/src/pilot-data/battle-plans.json": {
@@ -33,6 +41,18 @@
     },
     "api/src/pilot-data/canon-daily-verse.json": {
       "refs": 10,
+      "pairs": 0
+    },
+    "approach.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "ar/qalaq.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "ar/rajaa.html": {
+      "refs": 1,
       "pairs": 0
     },
     "ask-the-word.js": {
@@ -56,6 +76,14 @@
       "pairs": 24
     },
     "bible/index.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "bible/study.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "bible/tools.html": {
       "refs": 1,
       "pairs": 0
     },
@@ -64,11 +92,19 @@
       "pairs": 0
     },
     "bible-study.html": {
-      "refs": 7,
+      "refs": 8,
       "pairs": 0
     },
     "bible-tool.html": {
-      "refs": 141,
+      "refs": 142,
+      "pairs": 0
+    },
+    "bn/asha.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "bn/chinta.html": {
+      "refs": 1,
       "pairs": 0
     },
     "build-action-bible-packs.js": {
@@ -88,7 +124,7 @@
       "pairs": 1
     },
     "calm.html": {
-      "refs": 18,
+      "refs": 19,
       "pairs": 22
     },
     "cartoon.js": {
@@ -103,12 +139,20 @@
       "refs": 9,
       "pairs": 9
     },
+    "church/daily.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "church/index.html": {
+      "refs": 1,
+      "pairs": 0
+    },
     "church-sharing-kit.html": {
-      "refs": 16,
+      "refs": 17,
       "pairs": 0
     },
     "church.html": {
-      "refs": 1,
+      "refs": 2,
       "pairs": 0
     },
     "church.js": {
@@ -116,7 +160,7 @@
       "pairs": 1
     },
     "coloring.html": {
-      "refs": 5,
+      "refs": 6,
       "pairs": 0
     },
     "commentary.json": {
@@ -125,6 +169,14 @@
     },
     "concordance.json": {
       "refs": 40,
+      "pairs": 0
+    },
+    "contact.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "curriculum.html": {
+      "refs": 1,
       "pairs": 0
     },
     "curriculum.json": {
@@ -168,6 +220,10 @@
       "pairs": 3
     },
     "embeddable-widgets.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "explore.html": {
       "refs": 1,
       "pairs": 0
     },
@@ -176,7 +232,7 @@
       "pairs": 0
     },
     "family-armor.html": {
-      "refs": 1,
+      "refs": 2,
       "pairs": 0
     },
     "family-home.html": {
@@ -187,16 +243,28 @@
       "refs": 53,
       "pairs": 0
     },
+    "faq.html": {
+      "refs": 1,
+      "pairs": 0
+    },
     "firebase-functions/sendDailyVerseNotification.js": {
       "refs": 1,
       "pairs": 0
     },
     "for-pastors.html": {
-      "refs": 10,
+      "refs": 11,
       "pairs": 0
     },
     "gentle-suggest.js": {
       "refs": 28,
+      "pairs": 0
+    },
+    "give.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "gods-university-of-life.html": {
+      "refs": 1,
       "pairs": 0
     },
     "he-is-risen.html": {
@@ -211,7 +279,19 @@
       "refs": 13,
       "pairs": 18
     },
+    "hi/asha.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "hi/chinta.html": {
+      "refs": 1,
+      "pairs": 0
+    },
     "hi/dar.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "id/harapan.html": {
       "refs": 1,
       "pairs": 0
     },
@@ -220,31 +300,39 @@
       "pairs": 0
     },
     "id/kecemasan.html": {
-      "refs": 2,
+      "refs": 3,
       "pairs": 0
     },
     "id/ketakutan.html": {
-      "refs": 2,
+      "refs": 3,
       "pairs": 0
     },
     "index.html": {
-      "refs": 104,
+      "refs": 105,
       "pairs": 123
     },
     "journal/anxiety-before-tomorrow.html": {
-      "refs": 3,
+      "refs": 4,
       "pairs": 0
     },
     "journal/forgiveness-when-you-replay-it.html": {
-      "refs": 3,
+      "refs": 4,
+      "pairs": 0
+    },
+    "journal/index.html": {
+      "refs": 1,
       "pairs": 0
     },
     "journal/loneliness-at-night.html": {
-      "refs": 3,
+      "refs": 4,
       "pairs": 0
     },
     "journal/peace-when-your-mind-runs.html": {
-      "refs": 3,
+      "refs": 4,
+      "pairs": 0
+    },
+    "kids/all-stories.html": {
+      "refs": 1,
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
@@ -256,10 +344,14 @@
       "pairs": 0
     },
     "kids/corner.html": {
-      "refs": 4,
+      "refs": 5,
       "pairs": 0
     },
     "kids/index.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "kids/kids-beta.html": {
       "refs": 1,
       "pairs": 0
     },
@@ -271,8 +363,12 @@
       "refs": 365,
       "pairs": 365
     },
-    "kids/prayer-activities.html": {
+    "kids/parent.html": {
       "refs": 1,
+      "pairs": 0
+    },
+    "kids/prayer-activities.html": {
+      "refs": 2,
       "pairs": 0
     },
     "kids-coloring-pack.html": {
@@ -280,7 +376,7 @@
       "pairs": 0
     },
     "kids-corner.html": {
-      "refs": 12,
+      "refs": 13,
       "pairs": 0
     },
     "kjv-word-notes.json": {
@@ -291,8 +387,16 @@
       "refs": 1,
       "pairs": 0
     },
+    "login.html": {
+      "refs": 1,
+      "pairs": 0
+    },
     "loops.json": {
       "refs": 229,
+      "pairs": 0
+    },
+    "media.html": {
+      "refs": 1,
       "pairs": 0
     },
     "memorize.html": {
@@ -312,7 +416,7 @@
       "pairs": 15
     },
     "message.html": {
-      "refs": 1,
+      "refs": 2,
       "pairs": 0
     },
     "mission-outreach-data.js": {
@@ -620,10 +724,14 @@
       "pairs": 0
     },
     "pastor/builder.html": {
-      "refs": 1,
+      "refs": 2,
       "pairs": 0
     },
     "pastor/index.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "pastor/library.html": {
       "refs": 1,
       "pairs": 0
     },
@@ -644,11 +752,11 @@
       "pairs": 0
     },
     "pastor/tools.html": {
-      "refs": 1,
+      "refs": 2,
       "pairs": 0
     },
     "pastor-toolkit.html": {
-      "refs": 1,
+      "refs": 2,
       "pairs": 0
     },
     "people-verse-map.js": {
@@ -667,6 +775,26 @@
       "refs": 180,
       "pairs": 143
     },
+    "prayer-wall.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "pricing.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "privacy.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "profile.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "progress.html": {
+      "refs": 1,
+      "pairs": 0
+    },
     "psalms.html": {
       "refs": 4,
       "pairs": 0
@@ -679,24 +807,52 @@
       "refs": 1,
       "pairs": 0
     },
+    "reader.html": {
+      "refs": 1,
+      "pairs": 0
+    },
     "reading-plan.html": {
-      "refs": 7,
+      "refs": 8,
+      "pairs": 0
+    },
+    "reset.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "resources.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "roadmap.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "ru/nadezhda.html": {
+      "refs": 1,
       "pairs": 0
     },
     "ru/strakh.html": {
       "refs": 1,
       "pairs": 0
     },
+    "ru/trevoga.html": {
+      "refs": 1,
+      "pairs": 0
+    },
     "script.js": {
-      "refs": 414,
-      "pairs": 211
+      "refs": 420,
+      "pairs": 251
     },
     "search.js": {
       "refs": 14,
       "pairs": 0
     },
+    "security.html": {
+      "refs": 1,
+      "pairs": 0
+    },
     "sermon.html": {
-      "refs": 66,
+      "refs": 67,
       "pairs": 8
     },
     "service-worker.js": {
@@ -704,7 +860,7 @@
       "pairs": 6
     },
     "shop.html": {
-      "refs": 5,
+      "refs": 6,
       "pairs": 0
     },
     "sos.html": {
@@ -715,7 +871,31 @@
       "refs": 8,
       "pairs": 0
     },
+    "stories.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "story.html": {
+      "refs": 1,
+      "pairs": 0
+    },
     "study.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "sv/hopp.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "sv/oro.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "sw/tumaini.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "sw/wasiwasi.html": {
       "refs": 1,
       "pairs": 0
     },
@@ -724,67 +904,83 @@
       "pairs": 0
     },
     "team-toolkit.html": {
-      "refs": 2,
+      "refs": 3,
+      "pairs": 0
+    },
+    "terms.html": {
+      "refs": 1,
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 25,
+      "refs": 29,
+      "pairs": 0
+    },
+    "testimonials.html": {
+      "refs": 1,
       "pairs": 0
     },
     "tl/kabalisahan.html": {
-      "refs": 2,
+      "refs": 3,
+      "pairs": 0
+    },
+    "tl/pagasa.html": {
+      "refs": 1,
       "pairs": 0
     },
     "topic-anxiety.html": {
-      "refs": 4,
+      "refs": 5,
       "pairs": 0
     },
     "topic-fear.html": {
-      "refs": 3,
+      "refs": 4,
       "pairs": 0
     },
     "topic-forgiveness.html": {
-      "refs": 5,
+      "refs": 6,
       "pairs": 0
     },
     "topic-grief.html": {
-      "refs": 4,
+      "refs": 5,
       "pairs": 0
     },
     "topic-guilt.html": {
-      "refs": 3,
+      "refs": 4,
       "pairs": 0
     },
     "topic-hope.html": {
-      "refs": 5,
+      "refs": 6,
       "pairs": 0
     },
     "topic-loneliness.html": {
-      "refs": 3,
+      "refs": 4,
       "pairs": 0
     },
     "topic-overwhelmed.html": {
-      "refs": 3,
+      "refs": 4,
       "pairs": 0
     },
     "topic-parenting.html": {
-      "refs": 5,
+      "refs": 6,
       "pairs": 0
     },
     "topic-strength.html": {
-      "refs": 4,
+      "refs": 5,
       "pairs": 0
     },
     "topic-worry.html": {
-      "refs": 4,
+      "refs": 5,
       "pairs": 0
     },
     "topic-worthless.html": {
-      "refs": 4,
+      "refs": 5,
       "pairs": 0
     },
     "tree.json": {
       "refs": 99,
+      "pairs": 0
+    },
+    "university.html": {
+      "refs": 6,
       "pairs": 0
     },
     "utils.js": {
@@ -800,7 +996,7 @@
       "pairs": 0
     },
     "verse-image.html": {
-      "refs": 2,
+      "refs": 3,
       "pairs": 0
     },
     "verse-image.js": {
@@ -816,11 +1012,47 @@
       "pairs": 0
     },
     "verse.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "weekly-email-template.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "where-support-goes.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "why-not-ai.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "wins-report.html": {
       "refs": 1,
       "pairs": 0
     },
     "yearly-rhythm.html": {
       "refs": 5,
+      "pairs": 0
+    },
+    "zh/gudu.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "zh/jiaolv.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "zh/neijiu.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "zh/taiduo.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "zh/xiwang.html": {
+      "refs": 1,
       "pairs": 0
     }
   },
@@ -2039,6 +2271,7 @@
     "James 1:2-4",
     "James 1:20",
     "James 1:22",
+    "James 1:3",
     "James 1:4",
     "James 1:5",
     "James 2:14-26",
@@ -2279,6 +2512,7 @@
     "John 5:24",
     "John 5:29",
     "John 6:35",
+    "John 6:45",
     "John 6:5",
     "John 6:8",
     "John 6:9",
@@ -3277,6 +3511,7 @@
     "Psalm 125:1",
     "Psalm 126:2",
     "Psalm 126:3",
+    "Psalm 127:1",
     "Psalm 127:2",
     "Psalm 127:3",
     "Psalm 128:1",
@@ -3448,6 +3683,7 @@
     "Psalm 89:1",
     "Psalm 89:15",
     "Psalm 8:2",
+    "Psalm 8:3",
     "Psalm 90:12",
     "Psalm 90:14",
     "Psalm 90:17",
@@ -3693,7 +3929,8 @@
     "Zephaniah 2:3",
     "Zephaniah 3:12",
     "Zephaniah 3:17",
-    "Zephaniah 3:19"
+    "Zephaniah 3:19",
+    "plans.html?plan=caregiverrest"
   ],
   "sourceTexts": {
     "1": "And seeing the multitudes, he went up into a mountain: and when he was set, his disciples came unto him:",
@@ -3883,6 +4120,7 @@
     "Psalm 125:1": "They that trust in the Lord shall be as mount Zion, which cannot be removed.",
     "Psalm 126:2": "Then was our mouth filled with laughter, and our tongue with singing.",
     "Psalm 126:3": "The Lord hath done great things for us; whereof we are glad.",
+    "Psalm 127:1": "Except the Lord build the house, they labour in vain that build it: except the Lord keep the city, the watchman waketh but in vain.",
     "Psalm 127:2": "It is vain for you to rise up early, to sit up late, to eat the bread of sorrows: for so he giveth his beloved sleep.",
     "Psalm 127:3": "Lo, children are an heritage of the LORD: and the fruit of the womb is his reward.",
     "Psalm 128:1": "Blessed is every one that feareth the Lord; that walketh in his ways.",
@@ -4054,6 +4292,7 @@
     "Psalm 89:1": "I will sing of the mercies of the Lord for ever.",
     "Psalm 89:15": "Blessed is the people that know the joyful sound: they shall walk, O Lord, in the light of thy countenance.",
     "Psalm 8:2": "Out of the mouth of babes and sucklings hast thou ordained strength.",
+    "Psalm 8:3": "When I consider thy heavens, the work of thy fingers, the moon and the stars, which thou hast ordained;",
     "Psalm 90:12": "So teach us to number our days, that we may apply our hearts unto wisdom.",
     "Psalm 90:14": "O satisfy us early with thy mercy; that we may rejoice and be glad all our days.",
     "Psalm 90:17": "And let the beauty of the Lord our God be upon us: and establish thou the work of our hands upon us; yea, the work of our hands establish thou it.",
@@ -4088,7 +4327,8 @@
     "Romans 8:26-27": "Likewise the Spirit also helpeth our infirmities: for we know not what we should pray for as we ought: but the Spirit itself maketh intercession for us with groanings which cannot be uttered. And he that searcheth the hearts knoweth what is the mind of the Spirit, because he maketh intercession for the saints according to the will of God.",
     "Romans 8:38-39": "For I am persuaded, that neither death, nor life, nor angels, nor principalities, nor powers, nor things present, nor things to come, nor height, nor depth, nor any other creature, shall be able to separate us from the love of God, which is in Christ Jesus our Lord.",
     "Song of Sol. 3:4": "I held him, and would not let him go.",
-    "Titus 2:11-12": "For the grace of God that bringeth salvation hath appeared to all men, Teaching us that, denying ungodliness and worldly lusts, we should live soberly, righteously, and godly, in this present world."
+    "Titus 2:11-12": "For the grace of God that bringeth salvation hath appeared to all men, Teaching us that, denying ungodliness and worldly lusts, we should live soberly, righteously, and godly, in this present world.",
+    "plans.html?plan=caregiverrest": "Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness."
   },
   "overrides": {
     "1": {
@@ -5445,7 +5685,7 @@
     },
     "1 Samuel 15:22": {
       "general": {
-        "plainExplanation": "Key idea: And Samuel said, has the LORD as great delight in burnt offerings and sacrifices, as in obeying the voice of the LORD? look, to obey is better than sacrific...",
+        "plainExplanation": "look, to obey is better than sacrifice, and to hearken than the fat of rams.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Samuel",
         "to": "Israel"
@@ -13803,6 +14043,14 @@
         "to": "Believers"
       }
     },
+    "James 1:3": {
+      "general": {
+        "plainExplanation": "Knowing this, that the trying of your faith works patience.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "James",
+        "to": "Believers"
+      }
+    },
     "James 1:4": {
       "general": {
         "plainExplanation": "But let patience have her perfect work, that you may be perfect and entire, wanting nothing.",
@@ -15718,6 +15966,14 @@
     "John 6:35": {
       "general": {
         "plainExplanation": "And Jesus said to them, I am the bread of life: he that cometh to me shall never hunger; and he that believes on me shall never thirst.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "John 6:45": {
+      "general": {
+        "plainExplanation": "It is written in the prophets, And they shall be all taught of God. Every man therefore that has heard, and has learned of the Father, cometh to me.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -23707,6 +23963,14 @@
         "to": "Everyone hurting or thankful"
       }
     },
+    "Psalm 127:1": {
+      "general": {
+        "plainExplanation": "Except the Lord build the house, they labor in vain that build it: except the Lord keep the city, the watchman waketh but in vain.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
     "Psalm 127:2": {
       "general": {
         "plainExplanation": "It is vain for you to rise up early, to sit up late, to eat the bread of sorrows: for so he gives his beloved sleep.",
@@ -25071,6 +25335,14 @@
       "general": {
         "plainExplanation": "Out of the mouth of babes and sucklings hast you ordained strength.",
         "modernApplication": "This verse reminds you that God gives strength that does not start with your own reserves.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
+    "Psalm 8:3": {
+      "general": {
+        "plainExplanation": "When I consider your heavens, the work of your fingers, the moon and the stars, which you hast ordained;",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"
       }
@@ -27041,6 +27313,14 @@
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Zephaniah",
         "to": "Judah"
+      }
+    },
+    "plans.html?plan=caregiverrest": {
+      "general": {
+        "plainExplanation": "Fear you not; for I am with you: be not discouraged; for I am your God: I will strengthen you; yea, I will help you; yea, I will uphold you with the right hand of my righteousness.",
+        "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
+        "about": "Bible writer",
+        "to": "People who first heard these words"
       }
     }
   }

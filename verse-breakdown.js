@@ -800,13 +800,19 @@
     curriculum.className = 'tdb-vb-curriculum';
     var curH = document.createElement('h4');
     curH.className = 'tdb-vb-curriculum-heading';
-    curH.appendChild(
-      document.createTextNode('How this lesson connects to the whole curriculum')
+    curH.appendChild(document.createTextNode('Related lessons'));
+    var curSoft = document.createElement('p');
+    curSoft.className = 'tdb-vb-uog-soft';
+    curSoft.appendChild(
+      document.createTextNode(
+        'The University of God is not a report card — it is Christ, one faithful passage at a time. When you are ready, these on-site courses walk the same words in order.'
+      )
     );
     var curList = document.createElement('ul');
     curList.className = 'tdb-vb-curriculum-list';
     curList.setAttribute('data-tdb-vb-curriculum-list', '1');
     curriculum.appendChild(curH);
+    curriculum.appendChild(curSoft);
     curriculum.appendChild(curList);
     breakdown.appendChild(curriculum);
 

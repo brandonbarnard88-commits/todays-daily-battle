@@ -118,6 +118,109 @@
   window.__TDB_pickRawHeroByUtcDay = pickHeroVerseForToday;
   window.__TDB_normalizeHeroVerseFirstPaint = normalizeVerse;
 
+  /** Book-level speaker/audience (matches verse-breakdown.js BOOK_CONTEXT for consistent hero “deep” fields). */
+  var HERO_BOOK_CTX = {
+    Genesis: { s: 'Moses', a: 'Israel' }, Exodus: { s: 'Moses', a: 'Israel' }, Leviticus: { s: 'Moses', a: 'Israel' }, Numbers: { s: 'Moses', a: 'Israel' }, Deuteronomy: { s: 'Moses', a: 'Israel' },
+    Joshua: { s: 'Joshua', a: 'Israel' }, Judges: { s: 'Unknown', a: 'Israel' }, Ruth: { s: 'Unknown', a: 'Israel' },
+    '1 Samuel': { s: 'Samuel', a: 'Israel' }, '2 Samuel': { s: 'Nathan', a: 'Israel' }, '1 Kings': { s: 'Unknown', a: 'Israel' }, '2 Kings': { s: 'Unknown', a: 'Israel' },
+    '1 Chronicles': { s: 'Chronicler', a: 'Exiles' }, '2 Chronicles': { s: 'Chronicler', a: 'Exiles' }, Ezra: { s: 'Ezra', a: 'Exiles' }, Nehemiah: { s: 'Nehemiah', a: 'Exiles' }, Esther: { s: 'Unknown', a: 'Israel' },
+    Job: { s: 'Job and the Lord', a: 'All' }, Psalm: { s: 'David or another psalm writer', a: 'Everyone hurting or thankful' }, Psalms: { s: 'David or another psalm writer', a: 'Everyone hurting or thankful' },
+    Proverbs: { s: 'Solomon giving wisdom', a: 'Everyone seeking guidance' }, Ecclesiastes: { s: 'Solomon', a: 'All' }, 'Song of Solomon': { s: 'Solomon', a: 'All' },
+    Isaiah: { s: 'Isaiah', a: 'Judah' }, Jeremiah: { s: 'Jeremiah', a: 'Judah and the exiles' }, Lamentations: { s: 'Jeremiah', a: 'Exiles' }, Ezekiel: { s: 'Ezekiel', a: 'Exiles' }, Daniel: { s: 'Daniel', a: 'Exiles' },
+    Hosea: { s: 'Hosea', a: 'Israel' }, Joel: { s: 'Joel', a: 'Judah' }, Amos: { s: 'Amos', a: 'Israel' }, Obadiah: { s: 'Obadiah', a: 'Edom' }, Jonah: { s: 'Jonah', a: 'Nineveh' }, Micah: { s: 'Micah', a: 'Judah' }, Nahum: { s: 'Nahum', a: 'Nineveh' }, Habakkuk: { s: 'Habakkuk', a: 'Judah' }, Zephaniah: { s: 'Zephaniah', a: 'Judah' }, Haggai: { s: 'Haggai', a: 'Exiles' }, Zechariah: { s: 'Zechariah', a: 'Exiles' }, Malachi: { s: 'Malachi', a: 'Israel' },
+    Matthew: { s: 'Jesus', a: 'Believers' }, Mark: { s: 'Jesus', a: 'Believers' }, Luke: { s: 'Jesus', a: 'Believers' }, John: { s: 'Jesus', a: 'Believers' }, Acts: { s: 'Luke', a: 'Church' },
+    Romans: { s: 'Paul', a: 'Rome' }, '1 Corinthians': { s: 'Paul', a: 'Corinth' }, '2 Corinthians': { s: 'Paul', a: 'Corinth' }, Galatians: { s: 'Paul', a: 'Galatia' }, Ephesians: { s: 'Paul', a: 'Ephesus' }, Philippians: { s: 'Paul', a: 'Philippi' }, Colossians: { s: 'Paul', a: 'Colosse' }, '1 Thessalonians': { s: 'Paul', a: 'Thessalonica' }, '2 Thessalonians': { s: 'Paul', a: 'Thessalonica' }, '1 Timothy': { s: 'Paul', a: 'Timothy' }, '2 Timothy': { s: 'Paul', a: 'Timothy' }, Titus: { s: 'Paul', a: 'Titus' }, Philemon: { s: 'Paul', a: 'Philemon' }, Hebrews: { s: 'Unknown', a: 'Hebrew believers' }, James: { s: 'James', a: 'Believers' }, '1 Peter': { s: 'Peter', a: 'Believers' }, '2 Peter': { s: 'Peter', a: 'Believers' }, '1 John': { s: 'John', a: 'Believers' }, '2 John': { s: 'John', a: 'Believers' }, '3 John': { s: 'John', a: 'Gaius' }, Jude: { s: 'Jude', a: 'Believers' }, Revelation: { s: 'John', a: 'Seven churches' }
+  };
+
+  function parseHeroBookName(ref) {
+    var m = String(ref || '').match(/^(.+?)\s+\d+:\d+/);
+    return m ? m[1].trim() : '';
+  }
+
+  function heroBookRow(book) {
+    if (!book) return null;
+    if (HERO_BOOK_CTX[book]) return HERO_BOOK_CTX[book];
+    if (book === 'Psalm') return HERO_BOOK_CTX.Psalms;
+    return null;
+  }
+
+  function setVotdRowVisible(rowEl, pEl, text) {
+    var t = sanitizeText(text);
+    if (pEl) pEl.textContent = t;
+    if (rowEl) rowEl.hidden = !t;
+  }
+
+  /**
+   * Fills #heroSimpleBreakdown + deep <details> fields. `shared` is optional rich breakdown from TDB (plain / group / modern / about).
+   * Exposed for index.html renderVerseContent when verse-breakdown hydrates.
+   */
+  function applyHeroVotdFromInputs(v, shared) {
+    var simpleOut = document.getElementById('heroSimpleBreakdown');
+    if (!simpleOut) return;
+    var sh = shared || {};
+    var plainE = sanitizeText(sh.plainExplanation != null ? sh.plainExplanation : sh.plain);
+    var groupA = sanitizeText(sh.groupApplication != null ? sh.groupApplication : sh.group);
+    var modernA = sanitizeText(sh.modernApplication != null ? sh.modernApplication : sh.modern);
+    var aboutA = sanitizeText(sh.about);
+    var lines = Array.isArray(v.lines) ? v.lines : [];
+    var book = parseHeroBookName(v.ref);
+    var row = heroBookRow(book);
+    var simple = plainE || sanitizeText(v.plain) || sanitizeText(lines[0] || '') || sanitizeText(v.app);
+    var who = aboutA || sanitizeText(v.speaker);
+    if (!who) {
+      if (row) {
+        who = row.s + ' (through the text, KJV).';
+      } else {
+        who = 'The Holy Spirit through Scripture (KJV).';
+      }
+    }
+    var audience = row
+      ? ('God’s words first met ' + row.a + ' in their moment—and the same line still meets you when you need it most.')
+      : 'God’s word to His people, then and now—including you, wherever you are today.';
+    var ctx = sanitizeText(lines[1] || lines[0] || '');
+    if (ctx && ctx === simple) {
+      ctx = 'Read the full chapter when you can; one verse is strongest when it is not left floating on its own.';
+    } else if (!ctx) {
+      ctx = 'Read the full chapter when you can; the surrounding verses help this line land with clarity.';
+    }
+    var relYou = groupA || sanitizeText(v.today) || sanitizeText(lines[1] || '');
+    if (relYou && relYou === simple) {
+      relYou = 'Let this be God’s voice to you today—not a slogan, a steady line to hold onto.';
+    } else if (!relYou) {
+      relYou = 'Let this be God’s voice to you today—not a slogan, a steady line to hold onto.';
+    }
+    var relToday = modernA || sanitizeText(v.action) || sanitizeText(v.app);
+    if (!relToday) {
+      relToday = 'One honest step: read it again slowly, then thank God for one true thing in it before you go.';
+    }
+    simpleOut.textContent = simple;
+    setVotdRowVisible(document.getElementById('heroDeepRowWho'), document.getElementById('heroDeepWho'), who);
+    setVotdRowVisible(document.getElementById('heroDeepRowAud'), document.getElementById('heroDeepAudience'), audience);
+    setVotdRowVisible(document.getElementById('heroDeepRowCtx'), document.getElementById('heroDeepContext'), ctx);
+    setVotdRowVisible(document.getElementById('heroDeepRowYou'), document.getElementById('heroDeepYou'), relYou);
+    setVotdRowVisible(document.getElementById('heroDeepRowToday'), document.getElementById('heroDeepToday'), relToday);
+    var wrap = document.getElementById('heroVotdBreakdown');
+    if (wrap) {
+      try {
+        wrap.setAttribute('data-tdb-hero-votd', '1');
+      } catch (e) { /* non-fatal */ }
+    }
+    var heroBreakdown = document.getElementById('heroBreakdown');
+    var panelsEl = document.getElementById('heroBreakdownPanels');
+    var heroApplication = document.getElementById('heroApplication');
+    if (heroBreakdown) {
+      heroBreakdown.replaceChildren();
+      heroBreakdown.setAttribute('hidden', '');
+      heroBreakdown.setAttribute('aria-hidden', 'true');
+    }
+    if (panelsEl) panelsEl.replaceChildren();
+    if (heroApplication) {
+      heroApplication.textContent = '';
+      heroApplication.style.display = 'none';
+    }
+  }
+  window.__TDB_applyHeroVotdFromInputs = applyHeroVotdFromInputs;
+
   function applyHeroFirstPaint() {
     var heroVerse = document.getElementById('heroVerse');
     var heroRef = document.getElementById('heroRef');
@@ -172,48 +275,26 @@
       if (el) el.setAttribute('content', desc);
     });
 
-    if (heroBreakdown) heroBreakdown.replaceChildren();
-    var hasRich = v.plain || v.today || v.action;
-    if (hasRich && panelsEl) {
-      if (heroBreakdown) heroBreakdown.style.display = 'none';
-      panelsEl.replaceChildren();
-      var spec = [
-        { label: 'Plain English', text: v.plain, mod: '' },
-        { label: 'For your group', text: v.today, mod: '' },
-        { label: 'Real life today', text: v.action, mod: 'hbp-panel--action' }
-      ];
-      for (var si = 0; si < spec.length; si++) {
-        var row = spec[si];
-        if (!row.text) continue;
-        var panel = document.createElement('div');
-        panel.className = 'hbp-panel' + (row.mod ? ' ' + row.mod : '');
-        var lbl = document.createElement('p');
-        lbl.className = 'hbp-label';
-        lbl.textContent = row.label;
-        var p = document.createElement('p');
-        p.className = 'hbp-text';
-        p.textContent = row.text;
-        panel.appendChild(lbl);
-        panel.appendChild(p);
-        panelsEl.appendChild(panel);
+    var hasRich = !!(v.plain || v.today || v.action);
+    if (hasRich) {
+      applyHeroVotdFromInputs(v, {
+        plainExplanation: v.plain,
+        groupApplication: v.today,
+        modernApplication: v.action,
+        about: v.speaker
+      });
+    } else {
+      if (heroBreakdown) {
+        heroBreakdown.replaceChildren();
+        heroBreakdown.setAttribute('hidden', '');
+        heroBreakdown.setAttribute('aria-hidden', 'true');
       }
+      if (panelsEl) panelsEl.replaceChildren();
       if (heroApplication) {
         heroApplication.textContent = '';
         heroApplication.style.display = 'none';
       }
-    } else {
-      if (heroBreakdown) heroBreakdown.style.display = '';
-      if (panelsEl) panelsEl.replaceChildren();
-      var displayLines = v.lines.slice(0, 3);
-      for (var li = 0; li < displayLines.length; li++) {
-        var listItem = document.createElement('li');
-        listItem.textContent = sanitizeText(displayLines[li]);
-        heroBreakdown.appendChild(listItem);
-      }
-      if (heroApplication) {
-        heroApplication.textContent = v.app;
-        heroApplication.style.display = '';
-      }
+      applyHeroVotdFromInputs(v, null);
     }
 
     var imgText = document.getElementById('verseImgText');
@@ -259,4 +340,39 @@
   } else {
     window.setTimeout(scheduleHero365Hydrate, 1);
   }
+
+  /**
+   * University of God: map today’s verse to 2–3 on-site Battle Plan “courses” (KJV, already on /plans).
+   * Exposed before index inline verse render; script.js redefines the same on load for other pages.
+   */
+  (function tdbUogCurriculum() {
+    function uogInferTopicFromRefText(ref, text) {
+      var low = (String(ref || '') + ' ' + String(text || '')).toLowerCase();
+      if (/\banxiety|anxious|worry|stressed?|careful for nothing|careful\b/.test(low)) return 'anxiety';
+      if (/\bfear|afraid|panic|scared|terror\b/.test(low)) return 'fear';
+      if (/\bhope|hopeless|weary|tired|grief|grieve\b/.test(low)) return 'hope';
+      return 'hope';
+    }
+    var UOG_PLANS = {
+      anxiety: [
+        { href: '/plans.html?plan=worrytrust', label: 'Worry to Trust' },
+        { href: '/plans.html?plan=peace', label: '7-Day Peace' },
+        { href: '/plans.html?plan=heavyhope', label: 'When the Mind Lies Heavy' }
+      ],
+      fear: [
+        { href: '/plans.html?plan=fearnot14', label: 'Fear Not (14 days)' },
+        { href: '/plans.html?plan=fearfaith', label: 'Fear to Faith' },
+        { href: '/plans.html?plan=armorofgod', label: 'Armor of God' }
+      ],
+      hope: [
+        { href: '/plans.html?plan=hopeuncertain', label: 'When Hope Feels Thin' },
+        { href: '/plans.html?plan=griefhope', label: 'Grief to Hope' },
+        { href: '/plans.html?plan=praisethanks30', label: 'Praise and Thanksgiving' }
+      ]
+    };
+    window.tdbUogBuildCurriculumPlanList = function (ref, text) {
+      var t = uogInferTopicFromRefText(ref, text);
+      return UOG_PLANS[t] || UOG_PLANS.hope;
+    };
+  })();
 })();

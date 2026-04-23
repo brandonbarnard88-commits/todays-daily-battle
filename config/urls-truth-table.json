@@ -46,6 +46,12 @@
       "rewrite": { "to": "/site-guide.html", "status": 200 }
     },
     {
+      "id": "university-clean",
+      "note": "Quiet University of God anchor-verses map.",
+      "aliases": ["/university", "/university/"],
+      "rewrite": { "to": "/university.html", "status": 200 }
+    },
+    {
       "id": "family-clean",
       "aliases": ["/family", "/family/"],
       "rewrite": { "to": "/family.html", "status": 200 }

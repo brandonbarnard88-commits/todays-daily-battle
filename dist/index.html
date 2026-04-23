@@ -944,6 +944,9 @@
       text-shadow: none;
       opacity: 1;
     }
+    :root[data-theme="light"] .tdb-header-tag-cite {
+      color: rgba(55, 50, 42, 0.82);
+    }
     .tdb-global-nav a,
     .tdb-home-main-nav a {
       color: rgba(226, 232, 240, 0.85); text-decoration: none;
@@ -2841,6 +2844,67 @@
         0 0 22px rgba(0, 0, 0, 0.5),
         0 0 12px rgba(180, 70, 10, 0.28);
     }
+    .tdb-site-tagline-learning {
+      text-transform: none;
+      letter-spacing: 0.04em;
+      font-style: normal;
+      font-weight: 500;
+      max-width: 26rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .tdb-header-tag-cite {
+      display: block;
+      margin-top: 0.3rem;
+      font-size: 0.9em;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: none;
+      color: rgba(255, 248, 232, 0.88);
+    }
+    .tdb-today-lesson-foot {
+      margin: 0.4rem 0 0.25rem;
+      font-size: clamp(0.8rem, 2.1vw, 0.9rem);
+      line-height: 1.4;
+      color: rgba(220, 214, 200, 0.92);
+      text-align: center;
+      font-weight: 500;
+    }
+    .tdb-hero-curriculum {
+      margin: 0.9rem 0 0.25rem;
+      padding: 0.75rem 0.85rem 0.85rem;
+      border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 22%, transparent);
+      background: color-mix(in srgb, var(--card, #121820) 92%, rgba(227, 188, 103, 0.06));
+    }
+    :root[data-theme="light"] .tdb-hero-curriculum {
+      background: color-mix(in srgb, #f8f7f2 95%, rgba(200, 160, 80, 0.08));
+      border-color: color-mix(in srgb, #b8995a 30%, #d4d0c8);
+    }
+    .tdb-hero-curriculum-heading {
+      margin: 0 0 0.4rem;
+      font-size: clamp(0.88rem, 2.2vw, 0.95rem);
+      font-weight: 600;
+      line-height: 1.3;
+      color: rgba(227, 188, 103, 0.95);
+    }
+    :root[data-theme="light"] .tdb-hero-curriculum-heading { color: #6b5a3a; }
+    .tdb-hero-curriculum-list {
+      margin: 0;
+      padding-left: 1.1rem;
+      line-height: 1.5;
+      font-size: clamp(0.86rem, 2vw, 0.95rem);
+      color: var(--text, #e2e8f0);
+    }
+    .tdb-hero-curriculum-list a {
+      color: var(--primary, #e3bc67);
+      text-underline-offset: 2px;
+    }
+    .tdb-hero-curriculum-list a:hover,
+    .tdb-hero-curriculum-list a:focus-visible {
+      text-decoration: underline;
+      outline: none;
+    }
 
     /* Crest SVG — cross + sunrise, inline, dark-mode native */
     .site-logo-wrap {
@@ -3658,7 +3722,7 @@
       .hero-votd-save-btn { margin-left: 0; flex: 1 1 100%; }
     }
 
-    /* Fast feeling row — one tap into Ask The Word (60-second path) */
+    /* Fast feeling row — one tap into Ask the Teacher (60-second path) */
     .tdb-home-fast-feel {
       margin: 1.1rem 0 0;
       padding: 1.15rem 1.2rem 1.25rem;
@@ -4459,7 +4523,7 @@
       text-underline-offset: 2px;
     }
 
-    /* Quiet “three doors” under today’s verse — onboarding without replacing Ask The Word / quick topics */
+    /* Quiet “three doors” under today’s verse — onboarding without replacing Ask the Teacher / quick topics */
     .tdb-home-companion-doors {
       margin: 1.15rem auto 0;
       max-width: 42rem;
@@ -8210,7 +8274,7 @@
             "name": "Is this an AI chat or Bible bot?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "The daily rhythm—verse of the day, mood search, battle plans—is not an AI chat. The Bible Tool page includes an optional Ask the Word box that may use server-assisted answers; it is labeled there. For an honest comparison with typical AI tools, see https://todaysdailybattle.com/why-not-ai.html"
+              "text": "The daily rhythm—today’s lesson, mood search, courses—is not an AI chat. The Bible Tool page includes an optional Ask the Teacher box that may use server-assisted answers; it is labeled there. For an honest comparison with typical AI tools, see https://todaysdailybattle.com/why-not-ai.html"
             }
           }
         ]
@@ -8227,12 +8291,12 @@
     ]
   }
   </script>
-  <script nonce="tdb2025s">(function(){try{if(localStorage.getItem('tdb_quiet_update_dismiss')==='2026-04-23-verse-atw')document.documentElement.classList.add('tdb-quiet-update-dismissed');}catch(e){}})();</script>
+  <script nonce="tdb2025s">(function(){try{if(localStorage.getItem('tdb_quiet_update_dismiss')==='2026-04-24-uog-rollout')document.documentElement.classList.add('tdb-quiet-update-dismissed');}catch(e){}})();</script>
 </head>
 <body>
   <a href="#home-primary-flow" class="skip-link">Skip to main content</a>
-  <div id="quiet-update" class="tdb-quiet-update-strip" data-tdb-quiet-update-version="2026-04-23-verse-atw" role="status" aria-live="polite">
-    <p class="tdb-quiet-update-strip__text">Update: verse help now shows as soon as you open a line, and Ask The Word results read a little clearer — same place, less friction.</p>
+  <div id="quiet-update" class="tdb-quiet-update-strip" data-tdb-quiet-update-version="2026-04-24-uog-rollout" role="status" aria-live="polite">
+    <p class="tdb-quiet-update-strip__text">Update: today&rsquo;s lesson, Ask the Teacher, and the courses library now share the same University of God signposts &mdash; still calm, still offline-friendly.</p>
     <button type="button" class="tdb-quiet-update-strip__dismiss" id="quiet-update-dismiss" aria-label="Dismiss this update">✕</button>
   </div>
   <!-- Full-page sky/stars (absolute on body — scrolls with page); tiles sit above in .app -->
@@ -8320,7 +8384,7 @@
       </div>
       <div class="hero-brand-taglines" role="group" aria-label="Site motto">
         <p class="soul-tag">Less scroll, more soul</p>
-        <p class="site-tagline">For God · For Country · For Family</p>
+        <p class="site-tagline tdb-site-tagline-learning" lang="en">Learning of Him, one day at a time. <span class="tdb-header-tag-cite" title="Take my yoke upon you, and learn of me.">Matthew 11:29</span></p>
       </div>
       <h1 class="site-title">Today's Daily Battle</h1>
       <span class="site-title-underline" aria-hidden="true"></span>
@@ -8345,9 +8409,10 @@
           <span class="tdb-nav-flyout-toggle__label">Site</span>
         </button>
         <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-home">
-          <a href="/verse.html">Today&rsquo;s Verse</a>
+          <a href="/verse.html">Today&rsquo;s Lesson</a>
           <a href="/explore.html">Explore</a>
           <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map and gentle paths">Curriculum</a>
+          <a href="/university.html" id="nav-university-core" aria-label="University of God — five anchor verses, quiet map">University map</a>
           <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read</a>
           <a href="/memorize.html">Memorize</a>
           <a href="/#feel-section" aria-current="page">How I Feel</a>
@@ -8423,7 +8488,7 @@
 
     <nav class="tdb-sticky-wayfind" id="tdb-sticky-wayfind" aria-label="Homepage tool shortcuts">
       <a href="#hero-verse-wrap" data-tdb-wayfind="verse" aria-label="Today's verse"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">☀️</span><span>Today</span></a>
-      <a href="#feel-section" data-tdb-wayfind="feel" aria-label="Ask The Word search"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">💬</span><span>Ask</span></a>
+      <a href="#feel-section" data-tdb-wayfind="feel" aria-label="Ask the Teacher search"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">💬</span><span>Ask</span></a>
       <a href="/prayer-wall.html" aria-label="Open Prayer"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">🙏</span><span>Pray</span></a>
       <a href="/plans.html" aria-label="Open Battle Plans"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">🗓️</span><span>Battle Plan</span></a>
       <a href="/bible-tool.html" aria-label="Open Bible Tool"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">📖</span><span>Bible Tool</span></a>
@@ -8599,7 +8664,7 @@
         </div>
       </div>
 
-      <p class="tdb-new-here-hint" id="tdbNewHereHint" style="display:none"><span class="tdb-new-here-muted">New here?</span> If you only have a minute, start with <a href="#hero-verse-wrap">today’s verse</a>. Need Scripture for a more specific pain? Open <a href="#feel-section">Ask The Word</a>. Want the fuller map? <a href="explore.html#start-here">Start here</a>.</p>
+      <p class="tdb-new-here-hint" id="tdbNewHereHint" style="display:none"><span class="tdb-new-here-muted">New here?</span> If you only have a minute, start with <a href="#hero-verse-wrap">today&rsquo;s lesson</a>. Need Scripture for a more specific pain? Open <a href="#feel-section">Ask the Teacher</a>. Want the fuller map? <a href="explore.html#start-here">Start here</a>.</p>
       <div class="tdb-home-proof-strip tdb-quiet-container" role="list" aria-label="Why people trust this quiet place">
         <p class="tdb-home-proof-pill" role="listitem"><strong>KJV only</strong><span> Scripture stays plain and steady.</span></p>
         <p class="tdb-home-proof-pill" role="listitem"><strong>Works offline after first visit</strong><span> Verses, plans, and notes stay on this device.</span></p>
@@ -8645,7 +8710,7 @@
           <div class="verse-skeleton-box"></div>
         </div>
         <div class="tdb-home-verse-sticky-shell" role="region" aria-label="Today’s verse text and quick actions">
-        <p class="tdb-verse-of-day-eyebrow" id="heroVerseEyebrow">Verse of the day</p>
+        <p class="tdb-verse-of-day-eyebrow" id="heroVerseEyebrow">Today&rsquo;s lesson</p>
         <p class="verse-ref hero-daily-ref-above" id="heroRef">Jeremiah 31:3 (KJV)</p>
         <div class="verse-ref-row">
           <div class="hero-verse-wrap-inner">
@@ -8656,6 +8721,7 @@
             </div>
           </div>
         </div>
+        <p class="tdb-today-lesson-foot" id="tdb-today-lesson-wrap">Lesson from the University of God &mdash; <time id="tdbTodayLessonDate" datetime=""></time></p>
         <div class="hero-verse-toolbar hero-verse-primary-toolbar" role="toolbar" aria-label="Verse: listen, copy, share, image, save to My Study">
             <button
               class="read-aloud-btn read-aloud-with-label"
@@ -8684,7 +8750,7 @@
         </div>
         <section class="tdb-home-fast-feel" id="tdbHomeFastFeel" aria-labelledby="tdbHomeFastFeelHeading">
           <h2 class="tdb-home-fast-feel-heading" id="tdbHomeFastFeelHeading">How are you feeling right now?</h2>
-          <p class="tdb-home-fast-feel-soft">No typing yet. One honest tap&mdash;then a verse, a line to you, and a matching plan. The same thing happens for <strong>every</strong> topic chip in <a href="#feel-section">Ask The Word</a> below (<abbr title="King James Version">KJV</abbr>).</p>
+          <p class="tdb-home-fast-feel-soft">No typing yet. One honest tap&mdash;then a verse, a line to you, and a matching plan. The same thing happens for <strong>every</strong> topic chip in <a href="#feel-section">Ask the Teacher</a> below (<abbr title="King James Version">KJV</abbr>).</p>
           <div class="tdb-home-fast-feel-grid" role="group" aria-label="How you are feeling right now; pick one">
             <button type="button" class="btn btn-secondary tdb-home-fast-feel-btn" data-topic="anxiety" aria-pressed="false" aria-label="Anxious or afraid">Anxious / Afraid</button>
             <button type="button" class="btn btn-secondary tdb-home-fast-feel-btn" data-topic="strength" aria-pressed="false" aria-label="Tired or weary">Tired / Weary</button>
@@ -8723,7 +8789,7 @@
             <li><button type="button" class="btn btn-secondary" id="tdbHomeFeelResultSave">Save this verse to My Study</button></li>
             <li><a class="tdb-home-feel-read-chapter" id="tdbHomeFeelResultRead" href="reader.html">Read full chapter</a></li>
           </ul>
-          <p class="section-note tdb-home-feel-result-more"><a href="#quick-search-hero">More matching verses</a> in Ask The Word below when you&rsquo;re ready.</p>
+          <p class="section-note tdb-home-feel-result-more"><a href="#quick-search-hero">More matching verses</a> in Ask the Teacher below when you&rsquo;re ready.</p>
         </div>
         <div class="tdb-start-my-day-band" role="region" aria-label="Start my day: verse, feeling, and a gentle plan">
           <p class="tdb-start-my-day-line">One verse. One honest feeling. One simple plan.</p>
@@ -8936,6 +9002,10 @@
             </div>
           </div>
         </details>
+        <div class="tdb-hero-curriculum" id="tdb-hero-curriculum-slot" role="region" aria-labelledby="tdb-hero-curriculum-h" hidden>
+          <h3 class="tdb-hero-curriculum-heading" id="tdb-hero-curriculum-h">How this lesson connects to the whole curriculum</h3>
+          <ul class="tdb-hero-curriculum-list" id="tdb-hero-curriculum-list"></ul>
+        </div>
         <ul class="breakdown" id="heroBreakdown" hidden></ul>
         <div class="hero-breakdown-panels" id="heroBreakdownPanels" hidden></div>
         <p class="application" id="heroApplication" hidden></p>
@@ -9047,7 +9117,7 @@
           <li>
             <a class="tdb-companion-door" href="#feel-section">
               <span class="tdb-companion-door-title">What&rsquo;s weighing on you?</span>
-              <p class="tdb-companion-door-desc">Ask The Word by feeling&mdash;KJV with plain-English help for you and your kids.</p>
+              <p class="tdb-companion-door-desc">Ask the Teacher by feeling&mdash;KJV with plain-English help for you and your kids.</p>
             </a>
           </li>
           <li>
@@ -9143,7 +9213,7 @@
       <nav class="hero-daily-path tdb-start-here-nav" aria-label="Start here — core tools">
         <span class="hero-daily-path-label">After today</span>
         <span class="hero-daily-path-links">
-          <a href="#quick-search-hero">Ask The Word</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
+          <a href="#quick-search-hero">Ask the Teacher</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
           <a href="calm.html">Calm</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
           <a href="plans.html">Battle Plans</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
           <a href="/mystudy">My Study</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
@@ -9165,9 +9235,9 @@
             <strong>Open Calm</strong>
             <span>One gentle verse in a tap when words are hard to find.</span>
           </a>
-          <a class="tdb-home-doorway-card" href="#quick-search-hero" aria-label="Go to Ask The Word search">
+          <a class="tdb-home-doorway-card" href="#quick-search-hero" aria-label="Go to Ask the Teacher search">
             <span class="tdb-home-doorway-eyebrow">Need a real answer</span>
-            <strong>Ask The Word</strong>
+            <strong>Ask the Teacher</strong>
             <span>Search by feeling, question, topic, or verse without noise.</span>
           </a>
           <a class="tdb-home-doorway-card" href="plans.html" aria-label="Open Battle Plans">
@@ -9242,12 +9312,12 @@
         <p class="first-visit-text">Short honest phrases work best here: &ldquo;I feel numb,&rdquo; &ldquo;angry at work,&rdquo; &ldquo;overwhelmed as a parent.&rdquo; You can also open a calm category below, then press Search when you want the fuller lookup.</p>
         <button type="button" class="first-visit-dismiss" id="firstVisitDismiss" aria-label="Dismiss welcome tip">Understood</button>
       </div>
-      <section class="card" id="feel-section" aria-label="Ask The Word search">
-        <h2 class="mood-title">Ask The Word</h2>
+      <section class="card" id="feel-section" aria-label="Ask the Teacher search">
+        <h2 class="mood-title">Ask the Teacher</h2>
         <p class="mood-subtitle section-note" id="feelSectionSubtitle">What&rsquo;s on your heart today? Bring the honest stuff&mdash;fear, anger, exhaustion, family strain, doubt, spiritual battles&mdash;and get straight <abbr title="King James Version">KJV</abbr> help without fake polish.</p>
         <p class="feel-first-action-assurance" id="feelFirstActionAssurance">No account needed. Works offline after first load. <abbr title="King James Version">KJV</abbr> only. Your words stay on this device whenever possible.</p>
         <div class="feel-search-wrap">
-          <label for="feel-search" class="sr-only">Ask The Word</label>
+          <label for="feel-search" class="sr-only">Ask the Teacher</label>
           <input
             id="feel-search"
             type="search"
@@ -9255,7 +9325,7 @@
             autocorrect="off"
             spellcheck="false"
             placeholder="Type a question, a battle, or how you're really feeling... (e.g. &quot;Who is Jesus?&quot;, &quot;toxic people&quot;, or &quot;joy&quot;)"
-            aria-label="Ask The Word by question, battle, feeling, or verse"
+            aria-label="Ask the Teacher by question, battle, feeling, or verse"
             aria-autocomplete="list"
             aria-controls="feelSuggestDropdown"
             aria-haspopup="listbox"
@@ -9424,8 +9494,8 @@
           <a href="mobius.html" class="mobius-loop-full-link" aria-label="Enter the Möbius Loop">Enter the Möbius →</a>
         </span>
         <div id="feel-results" aria-live="polite" hidden></div>
-        <section id="homeQaResult" class="home-qa-result hidden" role="region" aria-live="polite" aria-label="Ask The Word follow-up" hidden>
-          <p class="home-qa-kicker">Ask The Word</p>
+        <section id="homeQaResult" class="home-qa-result hidden" role="region" aria-live="polite" aria-label="Ask the Teacher follow-up" hidden>
+          <p class="home-qa-kicker">Ask the Teacher</p>
           <h3 class="home-qa-title">How does this hit you today?</h3>
           <p id="homeQaAnswer" class="home-qa-answer"></p>
           <p id="homeQaPrayer" class="home-qa-prayer hidden" hidden></p>
@@ -9701,7 +9771,7 @@
 
   <nav class="site-footer-essentials" aria-label="Key pages">
     <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/verse.html">Today&rsquo;s Verse</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/verse.html">Today&rsquo;s Lesson</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
@@ -9898,7 +9968,7 @@
       <h2 class="nav-more-title" style="margin-top:1.2rem;">Tools</h2>
       <p class="privacy-line nav-more-privacy-line">No ads. No selling your data. Prayers stay on your device. We don&rsquo;t follow you around the web for ads—<a href="privacy.html">Privacy</a>.</p>
       <ul class="nav-more-list">
-        <li><a href="bible-tool.html#ask-the-word-section" id="nav-more-ask-the-word" aria-label="Ask The Word by question, feeling, or verse">✝️ Ask The Word</a></li>
+        <li><a href="bible-tool.html#ask-the-word-section" id="nav-more-ask-the-word" aria-label="Ask the Teacher by question, feeling, or verse">✝️ Ask the Teacher</a></li>
         <li><a href="calm.html#night-prayer" aria-label="Night prayer with Psalm 4:8">🌙 Night Prayer</a></li>
         <li><a href="bible-tool.html">📚 Bible Tool</a></li>
         <li><a href="/mystudy">📌 My Study</a></li>
@@ -10389,6 +10459,39 @@
       heroVerse.textContent = "\u201c" + v.text + "\u201d";
       heroRef.textContent = v.ref + " (KJV)";
       heroVerse.classList.add("is-visible");
+      (function tdbSetTodayLessonLine() {
+        var timeEl = document.getElementById("tdbTodayLessonDate");
+        if (!timeEl) return;
+        var now = new Date();
+        timeEl.setAttribute("datetime", now.toISOString().slice(0, 10));
+        timeEl.textContent = new Intl.DateTimeFormat("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" }).format(now);
+      })();
+      (function tdbFillHeroCurriculum() {
+        var wrap = document.getElementById("tdb-hero-curriculum-slot");
+        var ul = document.getElementById("tdb-hero-curriculum-list");
+        if (!wrap || !ul) return;
+        ul.replaceChildren();
+        var build = typeof window.tdbUogBuildCurriculumPlanList === "function" ? window.tdbUogBuildCurriculumPlanList : null;
+        if (!build) {
+          wrap.setAttribute("hidden", "");
+          return;
+        }
+        var rows = build(v.ref, v.text) || [];
+        if (!rows.length) {
+          wrap.setAttribute("hidden", "");
+          return;
+        }
+        for (var i = 0; i < rows.length; i++) {
+          if (!rows[i] || !rows[i].href) continue;
+          var li = document.createElement("li");
+          var a = document.createElement("a");
+          a.href = rows[i].href;
+          a.textContent = rows[i].label;
+          li.appendChild(a);
+          ul.appendChild(li);
+        }
+        wrap.removeAttribute("hidden");
+      })();
 
       // ── Update "Read full chapter" deep-link ──
       (function() {
@@ -10417,7 +10520,7 @@
         var metaDesc = document.querySelector('meta[name="description"]');
         var seoDesc =
           ref +
-          ' (KJV) \u2014 today\u2019s verse for anxiety, grief, parenting, and hard days. Ask The Word, battle plans, reader, memorize. No ads, no login.';
+          ' (KJV) \u2014 today\u2019s verse for anxiety, grief, parenting, and hard days. Ask the Teacher, battle plans, reader, memorize. No ads, no login.';
         if (metaDesc) metaDesc.setAttribute('content', seoDesc);
         var og = ['og:title', 'twitter:title'];
         og.forEach(function(p) {
@@ -14082,7 +14185,7 @@
         });
         openBtn.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = 'hidden';
-        // First focus: Ask The Word (primary doorway); close ✕ is last in the sheet
+        // First focus: Ask the Teacher (primary doorway); close ✕ is last in the sheet
         setTimeout(function() {
           if (askFirst) askFirst.focus();
           else if (xBtn) xBtn.focus();

@@ -654,8 +654,22 @@
     else root.classList.remove('is-open');
     if (toggle) toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     if (panel) {
-      if (open) panel.removeAttribute('hidden');
-      else panel.setAttribute('hidden', '');
+      if (open) {
+        panel.removeAttribute('hidden');
+        /* Cached / edge-case styles can leave the panel “stuck” invisible while .is-open */
+        try {
+          panel.style.removeProperty('display');
+          panel.style.removeProperty('visibility');
+          panel.style.removeProperty('opacity');
+        } catch (eP) {}
+      } else panel.setAttribute('hidden', '');
+    }
+    if (open) {
+      try {
+        root.style.removeProperty('display');
+        root.style.removeProperty('visibility');
+        root.style.removeProperty('opacity');
+      } catch (eR) {}
     }
     if (!open && root.__tdbVbScrollCleanup) {
       try {
@@ -782,6 +796,26 @@
     addBkRow('tdb-vb-inline-fit', 'For your group:', 'applies');
     addBkRow('tdb-vb-inline-relates', 'Real life today:', 'relates');
 
+    var curriculum = document.createElement('div');
+    curriculum.className = 'tdb-vb-curriculum';
+    var curH = document.createElement('h4');
+    curH.className = 'tdb-vb-curriculum-heading';
+    curH.appendChild(document.createTextNode('Related lessons'));
+    var curSoft = document.createElement('p');
+    curSoft.className = 'tdb-vb-uog-soft';
+    curSoft.appendChild(
+      document.createTextNode(
+        'The University of God is not a report card — it is Christ, one faithful passage at a time. When you are ready, these on-site courses walk the same words in order.'
+      )
+    );
+    var curList = document.createElement('ul');
+    curList.className = 'tdb-vb-curriculum-list';
+    curList.setAttribute('data-tdb-vb-curriculum-list', '1');
+    curriculum.appendChild(curH);
+    curriculum.appendChild(curSoft);
+    curriculum.appendChild(curList);
+    breakdown.appendChild(curriculum);
+
     var actions = document.createElement('div');
     actions.className = 'tdb-vb-inline-actions';
     [['pray', 'Pray it'], ['note', 'Save'], ['share', 'Share']].forEach(function (pair) {
@@ -801,6 +835,23 @@
     hideBtn.setAttribute('aria-label', 'Collapse verse breakdown');
     hideBtn.appendChild(document.createTextNode('Hide breakdown'));
     panel.appendChild(hideBtn);
+
+    var levelBtn = document.createElement('button');
+    levelBtn.type = 'button';
+    levelBtn.className = 'tdb-vb-inline-level-btn link-button util-mt-0_5';
+    levelBtn.setAttribute('aria-label', 'Choose Kid, Teen, or Adult reading style');
+    levelBtn.appendChild(document.createTextNode('Reading level (Kid / Teen / Adult)'));
+    levelBtn.addEventListener('click', function () {
+      var pr = details.querySelector('.tdb-vb-age-prompt');
+      if (pr) {
+        pr.classList.remove('hidden');
+        try {
+          var firstAge = pr.querySelector('.verse-age-actions [data-age]');
+          if (firstAge && typeof firstAge.focus === 'function') firstAge.focus();
+        } catch (eF) {}
+      }
+    });
+    panel.appendChild(levelBtn);
 
     details.appendChild(panel);
     return details;
@@ -903,9 +954,11 @@
     var relEl = details.querySelector('[data-bk="relates"]');
     if (!refEl || !verseTextEl || !aboutEl || !toEl || !layEl || !appEl || !relEl) return;
 
-    var ageMode = getAgeMode();
+    /* Do not require Kid/Teen/Adult before showing copy — on first visit the prompt
+     * read as “empty” and hid the breakdown. Default gently; age buttons still work after explicit pick. */
     var prompt = details.querySelector('.tdb-vb-age-prompt');
-    if (!ageMode && prompt) prompt.classList.remove('hidden');
+    if (prompt) prompt.classList.add('hidden');
+    var ageMode = getAgeMode();
     if (!ageMode) ageMode = inferAgeFromContext() || 'adult';
     details.setAttribute('data-age-mode', ageMode);
 
@@ -920,6 +973,21 @@
     layEl.textContent = tdbPlainTextForUi(breakdown.layman || '—');
     appEl.textContent = tdbPlainTextForUi(breakdown.applies || '—');
     relEl.textContent = tdbPlainTextForUi(breakdown.relates || buildRelationLine(topic, RELATIONS_FALLBACK));
+    var curList = details.querySelector('[data-tdb-vb-curriculum-list]');
+    if (curList) {
+      while (curList.firstChild) curList.removeChild(curList.firstChild);
+      var uog = typeof window.tdbUogBuildCurriculumPlanList === 'function' ? window.tdbUogBuildCurriculumPlanList : null;
+      var rows = uog ? uog(ref, resolvedText) || [] : [];
+      for (var ci = 0; ci < rows.length; ci++) {
+        if (!rows[ci] || !rows[ci].href) continue;
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        a.href = rows[ci].href;
+        a.appendChild(document.createTextNode(String(rows[ci].label || rows[ci].href)));
+        li.appendChild(a);
+        curList.appendChild(li);
+      }
+    }
 
     details.setAttribute('data-ref', tdbPlainTextForUi(ref || ''));
     details.setAttribute('data-text', resolvedText || '');
@@ -1070,6 +1138,11 @@
       wireInlineDetailsEvents(existing);
       populateInlineDetails(existing, ref, text);
       setInlineBreakdownOpen(existing, true);
+      try {
+        requestAnimationFrame(function () {
+          setInlineBreakdownOpen(existing, true);
+        });
+      } catch (eRaf) {}
       return;
     }
 
@@ -1086,6 +1159,11 @@
       pt.parent.appendChild(details);
     }
     setInlineBreakdownOpen(details, true);
+    try {
+      requestAnimationFrame(function () {
+        setInlineBreakdownOpen(details, true);
+      });
+    } catch (eRaf2) {}
   }
 
   function open(ref, text) {
@@ -1454,21 +1532,60 @@
     return getMissingVisibleBreakdowns(root).length;
   }
 
+  function openLegacyVerseBreakdownDetails(root) {
+    var host = root && root.querySelectorAll ? root : document;
+    var list = host.querySelectorAll('details.verse-breakdown');
+    for (var i = 0; i < list.length; i++) {
+      try {
+        list[i].open = true;
+      } catch (e) {}
+    }
+  }
+
+  function assertInlineBreakdownPanelsVisible(root) {
+    var host = root && root.querySelectorAll ? root : document;
+    host.querySelectorAll('.tdb-verse-breakdown-inline.is-open').forEach(function (el) {
+      var panel = el.querySelector('.tdb-vb-inline-panel');
+      if (panel && panel.hasAttribute('hidden')) setInlineBreakdownOpen(el, true);
+    });
+  }
+
+  function scheduleBreakdownUiRecovery() {
+    /* Double rAF: run after layout/paint so we don’t fight other writers; only fixes stuck state. */
+    try {
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          openLegacyVerseBreakdownDetails(document);
+          assertInlineBreakdownPanelsVisible(document);
+          document.querySelectorAll('.tdb-verse-breakdown-inline.is-open .tdb-vb-inline-panel[hidden]').forEach(function (p) {
+            var r = p.closest('.tdb-verse-breakdown-inline');
+            if (r) setInlineBreakdownOpen(r, true);
+          });
+        });
+      });
+    } catch (e) {}
+  }
+
+  function runVerseBreakdownEnhancePass() {
+    removeLegacyVerseBreakdownUi(document);
+    enhanceVerseContainers(document);
+    openLegacyVerseBreakdownDetails(document);
+    assertInlineBreakdownPanelsVisible(document);
+    scheduleBreakdownUiRecovery();
+  }
+
   function wireAutoEnhance() {
     if (window.__tdbVerseBreakdownAutoEnhanced) return;
     window.__tdbVerseBreakdownAutoEnhanced = true;
-    removeLegacyVerseBreakdownUi(document);
-    enhanceVerseContainers(document);
+    runVerseBreakdownEnhancePass();
     window.addEventListener('load', function () {
-      removeLegacyVerseBreakdownUi(document);
-      enhanceVerseContainers(document);
+      runVerseBreakdownEnhancePass();
     });
     window.addEventListener('tdb-daily-verse-updated', function () {
-      removeLegacyVerseBreakdownUi(document);
-      enhanceVerseContainers(document);
+      runVerseBreakdownEnhancePass();
     });
     window.addEventListener('tdb-calm-verse-updated', function () {
-      enhanceVerseContainers(document);
+      runVerseBreakdownEnhancePass();
     });
     if (!document.body || typeof MutationObserver !== 'function') return;
     var queued = false;
@@ -1477,8 +1594,7 @@
       queued = true;
       window.requestAnimationFrame(function () {
         queued = false;
-        removeLegacyVerseBreakdownUi(document);
-        enhanceVerseContainers(document);
+        runVerseBreakdownEnhancePass();
       });
     });
     observer.observe(document.body, { childList: true, subtree: true });

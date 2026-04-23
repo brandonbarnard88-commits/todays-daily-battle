@@ -1083,14 +1083,14 @@ function openTdbWelcomeTour(opts) {
       ? [
           {
             title: 'Welcome',
-            body: 'About a minute, four gentle stops\u2014today\u2019s verse, Ask The Word, a Battle Plan door, then My Study and quiet rhythm. Skip anytime. Reopen from Tour on the quick bar or Explore\u2019s Site tour.'
+            body: 'About a minute, four gentle stops\u2014today\u2019s lesson, Ask the Teacher, a courses door, then My Study and quiet rhythm. Skip anytime. Reopen from Tour on the quick bar or Explore\u2019s Site tour.'
           },
           {
             title: 'Today\u2019s verse',
             body: 'Your daily KJV anchor lands here: listen, save to My Study, share, or jump to the full chapter\u2014still KJV, still private by default.'
           },
           {
-            title: 'Ask The Word',
+            title: 'Ask the Teacher',
             body: 'Heavy, worried, or numb? Search Scripture by how you feel\u2014plain-English breakdowns for you and for kids. No performance; just the Word.'
           },
           {
@@ -1473,7 +1473,7 @@ function wireTdbTodayLessonDateLine() {
 function wireQuietUpdateStrip() {
   var strip = document.getElementById('quiet-update');
   if (!strip) return;
-  var v = strip.getAttribute('data-tdb-quiet-update-version') || '2026-04-23-verse-atw';
+  var v = strip.getAttribute('data-tdb-quiet-update-version') || '2026-04-24-uog-rollout';
   var btn = document.getElementById('quiet-update-dismiss');
   try {
     if (localStorage.getItem('tdb_quiet_update_dismiss') === v) {
@@ -1484,6 +1484,24 @@ function wireQuietUpdateStrip() {
   btn.addEventListener('click', function () {
     try { localStorage.setItem('tdb_quiet_update_dismiss', v); } catch (e2) {}
     document.documentElement.classList.add('tdb-quiet-update-dismissed');
+  });
+}
+
+/** /plans: optional strip (#plans-quiet-update) — same calm dismiss pattern, separate storage key. */
+function wirePlansQuietUpdateStrip() {
+  var strip = document.getElementById('plans-quiet-update');
+  if (!strip) return;
+  var v = strip.getAttribute('data-tdb-plans-quiet-version') || '2026-04-24-courses';
+  var btn = document.getElementById('plans-quiet-update-dismiss');
+  try {
+    if (localStorage.getItem('tdb_plans_quiet_update_dismiss') === v) {
+      document.documentElement.classList.add('tdb-plans-quiet-update-dismissed');
+    }
+  } catch (e) {}
+  if (!btn) return;
+  btn.addEventListener('click', function () {
+    try { localStorage.setItem('tdb_plans_quiet_update_dismiss', v); } catch (e2) {}
+    document.documentElement.classList.add('tdb-plans-quiet-update-dismissed');
   });
 }
 
@@ -1498,6 +1516,7 @@ if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', ensureTdbCookieNotice);
   document.addEventListener('DOMContentLoaded', normalizeLegacyShellLinks);
   document.addEventListener('DOMContentLoaded', wireQuietUpdateStrip);
+  document.addEventListener('DOMContentLoaded', wirePlansQuietUpdateStrip);
   document.addEventListener('DOMContentLoaded', wireTdbTodayLessonDateLine);
 } else {
   wireEarlySearchFallbacks();
@@ -1510,6 +1529,7 @@ if (document.readyState === 'loading') {
   ensureTdbCookieNotice();
   normalizeLegacyShellLinks();
   wireQuietUpdateStrip();
+  wirePlansQuietUpdateStrip();
   wireTdbTodayLessonDateLine();
 }
 
@@ -20935,7 +20955,7 @@ async function buildAdminDeploymentReport() {
       scriptVersion: extractAdminVersionToken(home.text, 'script.js'),
       styleVersion: extractAdminVersionToken(home.text, 'styles.css'),
       prayersFlag: extractAdminConfigFlag(config.text, 'PRAYERS_TODAY_COUNT_ENABLED'),
-      hasAskTheWord: home.ok && /Ask The Word/i.test(home.text),
+      hasAskTheWord: home.ok && /Ask the Teacher/i.test(home.text),
       hasMobiusShortcut: home.ok && /M(?:&ouml;|ö)bius/i.test(home.text),
       assetChecks: assetChecks
     };
@@ -21031,7 +21051,7 @@ async function renderAdminDeploymentDiagnostics() {
       detail: 'Confirms the Pages deployment has the expected static files.'
     },
     {
-      label: 'Ask The Word visible',
+      label: 'Ask the Teacher visible',
       value: (report.custom && report.custom.hasAskTheWord ? 'Live yes' : 'Live no') + ' | ' + (report.pages && report.pages.hasAskTheWord ? 'Pages yes' : 'Pages no'),
       tone: report.custom && report.custom.hasAskTheWord && report.pages && report.pages.hasAskTheWord ? 'ok' : 'warn',
       detail: 'Sanity check that the main homepage search branding exists.'
@@ -25450,6 +25470,19 @@ function buildHomeVerseCard(output, verse, queryText) {
     card.appendChild(plainMeaningEl);
   }
 
+  var uogListFn = typeof window.tdbUogBuildCurriculumPlanList === 'function' ? window.tdbUogBuildCurriculumPlanList : null;
+  var uogRows = uogListFn ? (uogListFn(verse.ref, stripHtmlToPlainText(verse.text || '')) || []) : [];
+  var uogFirst = uogRows && uogRows[0];
+  var connectP = document.createElement('p');
+  connectP.className = 'home-search-card-connect';
+  connectP.appendChild(document.createTextNode('This connects to '));
+  var connectA = document.createElement('a');
+  connectA.href = (uogFirst && uogFirst.href) || '/university.html';
+  connectA.textContent = (uogFirst && uogFirst.label) || 'the University map';
+  connectP.appendChild(connectA);
+  connectP.appendChild(document.createTextNode('.'));
+  card.appendChild(connectP);
+
   var teaser = document.createElement('p');
   teaser.className = 'home-search-card-teaser';
   teaser.textContent = getHomeSearchNextStepTeaser(verse);
@@ -25703,7 +25736,7 @@ function renderHomeSearchResults(results, output, queryText) {
 
   var kicker = document.createElement('p');
   kicker.className = 'home-search-kicker';
-  kicker.textContent = 'Ask The Word';
+  kicker.textContent = 'Ask the Teacher';
   header.appendChild(kicker);
 
   var title = document.createElement('h3');
@@ -27299,7 +27332,7 @@ async function tdbInitImpl() {
         if (!els.wrap || !els.answer) return;
         els.wrap.classList.remove('hidden');
         els.wrap.removeAttribute('hidden');
-        els.answer.textContent = 'Ask The Word is searching Scripture...';
+        els.answer.textContent = 'Ask the Teacher is searching Scripture...';
         if (els.prayer) {
           els.prayer.classList.add('hidden');
           els.prayer.setAttribute('hidden', '');

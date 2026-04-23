@@ -1720,6 +1720,9 @@ button.download-btn:focus-visible {
 }
 
 /* Homepage: dismissible “quiet update” strip (index.html #quiet-update) */
+html.tdb-plans-quiet-update-dismissed .tdb-quiet-update-strip--plans {
+  display: none !important;
+}
 html.tdb-quiet-update-dismissed .tdb-quiet-update-strip {
   display: none !important;
 }
@@ -4385,6 +4388,41 @@ button.tdb-header-account-nudge__link {
   font-weight: 600;
   text-transform: uppercase;
 }
+
+/* Site-wide heartbeat (Matt 11:29) under brand — inner shells */
+.tdb-header-heartbar {
+  padding: 0.45rem 0.75rem 0.55rem;
+  text-align: center;
+  border-bottom: 1px solid color-mix(in srgb, var(--line, #30363d) 88%, transparent);
+  background: color-mix(in srgb, var(--card, #161b22) 96%, rgba(227, 188, 103, 0.04));
+}
+.tdb-header-heartbar .tdb-header-heartbeat {
+  margin: 0 auto;
+  max-width: 36rem;
+}
+.tdb-header-heartbeat {
+  margin: 0.15rem 0 0;
+  font-size: clamp(0.68rem, 2.1vw, 0.78rem);
+  line-height: 1.45;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text-muted, #8b949e);
+}
+.tdb-header-heartbeat .tdb-header-tag-cite {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: none;
+  color: color-mix(in srgb, var(--text-muted, #8b949e) 92%, var(--text, #e6edf3) 8%);
+}
+html[data-theme="light"] .tdb-header-heartbeat {
+  color: #5a6578;
+}
+html[data-theme="light"] .tdb-header-heartbeat .tdb-header-tag-cite {
+  color: #64748b;
+}
 .tdb-brand-subtitle-learning {
   text-transform: none;
   letter-spacing: 0.045em;
@@ -4430,6 +4468,15 @@ button.tdb-header-account-nudge__link {
   line-height: 1.3;
   color: color-mix(in srgb, var(--text, #e6edf3) 92%, var(--primary, #e3bc67) 8%);
 }
+.tdb-vb-uog-soft {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--text-muted, #8b949e);
+}
+.tdb-vb-uog-soft + .tdb-vb-curriculum-list {
+  margin-top: 0.15rem;
+}
 .tdb-vb-curriculum-list {
   margin: 0;
   padding-left: 1.1rem;
@@ -4452,6 +4499,25 @@ html[data-theme="light"] .tdb-vb-curriculum {
 }
 html[data-theme="light"] .tdb-vb-curriculum-heading {
   color: #4a3f32;
+}
+
+/* /university.html — five KJV anchors */
+.tdb-university-page .tdb-university-kjv {
+  margin: 0.35rem 0 0.5rem;
+  padding: 0.75rem 0.85rem 0.85rem;
+  border-left: 3px solid color-mix(in srgb, var(--primary, #e3bc67) 55%, var(--line, #30363d));
+  border-radius: 0 10px 10px 0;
+  background: color-mix(in srgb, var(--card, #0d1117) 94%, rgba(227, 188, 103, 0.06));
+  font-size: clamp(0.92rem, 2.2vw, 1.02rem);
+  line-height: 1.65;
+  color: var(--text, #e6edf3);
+}
+.tdb-university-page .tdb-university-kjv p {
+  margin: 0;
+}
+html[data-theme="light"] .tdb-university-page .tdb-university-kjv {
+  background: color-mix(in srgb, #fffdf7 96%, rgba(200, 160, 80, 0.08));
+  border-left-color: color-mix(in srgb, #b8995a 70%, #d4d0c8);
 }
 .brand-tagline {
   color: var(--elite-gold, #c9a227);
@@ -17767,6 +17833,23 @@ html[data-theme="sepia"] .home-qa-title {
   color: var(--text-muted, #cbd5e1) !important;
   font-style: normal;
   line-height: 1.65;
+}
+
+.home-search-card-connect {
+  margin: 0.35rem 0 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: color-mix(in srgb, var(--text-muted, #94a3b8) 92%, var(--gold-soft, #e3bc67) 8%);
+}
+.home-search-card-connect a {
+  color: var(--gold-soft, #e3bc67);
+  font-weight: 600;
+  text-underline-offset: 2px;
+}
+.home-search-card-connect a:hover,
+.home-search-card-connect a:focus-visible {
+  text-decoration: underline;
+  outline: none;
 }
 
 .home-search-card-teaser {

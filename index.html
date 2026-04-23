@@ -283,6 +283,56 @@
       outline-offset: 2px;
     }
 
+    /* Dismissible update strip (see also styles.css for non-index pages) */
+    html.tdb-quiet-update-dismissed .tdb-quiet-update-strip {
+      display: none !important;
+    }
+    .tdb-quiet-update-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem 0.75rem;
+      box-sizing: border-box;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      text-align: center;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #5c5c5c;
+      background: #f8f5ef;
+      border-bottom: 1px solid #e8e0d0;
+      position: relative;
+      z-index: 5;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    .tdb-quiet-update-strip__text {
+      margin: 0;
+      max-width: 52rem;
+    }
+    .tdb-quiet-update-strip__dismiss {
+      flex-shrink: 0;
+      min-width: 44px;
+      min-height: 44px;
+      margin: 0;
+      padding: 0.25rem 0.5rem;
+      border: none;
+      background: transparent;
+      color: #6b6b6b;
+      font-size: 1.1rem;
+      line-height: 1;
+      cursor: pointer;
+      border-radius: 6px;
+      font-family: inherit;
+    }
+    .tdb-quiet-update-strip__dismiss:hover,
+    .tdb-quiet-update-strip__dismiss:focus-visible {
+      color: #1c1917;
+      background: rgba(0, 0, 0, 0.06);
+      outline: 2px solid rgba(92, 92, 92, 0.45);
+      outline-offset: 2px;
+    }
+
     /* Light theme: WCAG AA contrast on cream cards (axe / prefers-color-scheme: light) */
     :root[data-theme="light"] .hbp-label {
       color: #4a3a12;
@@ -8177,9 +8227,14 @@
     ]
   }
   </script>
+  <script nonce="tdb2025s">(function(){try{if(localStorage.getItem('tdb_quiet_update_dismiss')==='2026-04-23-verse-atw')document.documentElement.classList.add('tdb-quiet-update-dismissed');}catch(e){}})();</script>
 </head>
 <body>
   <a href="#home-primary-flow" class="skip-link">Skip to main content</a>
+  <div id="quiet-update" class="tdb-quiet-update-strip" data-tdb-quiet-update-version="2026-04-23-verse-atw" role="status" aria-live="polite">
+    <p class="tdb-quiet-update-strip__text">Update: verse help now shows as soon as you open a line, and Ask The Word results read a little clearer — same place, less friction.</p>
+    <button type="button" class="tdb-quiet-update-strip__dismiss" id="quiet-update-dismiss" aria-label="Dismiss this update">✕</button>
+  </div>
   <!-- Full-page sky/stars (absolute on body — scrolls with page); tiles sit above in .app -->
   <div class="sky-page-backdrop" aria-hidden="true">
     <div class="sky" aria-hidden="true" id="sky-layer">

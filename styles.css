@@ -1719,6 +1719,56 @@ button.download-btn:focus-visible {
   outline-offset: 2px;
 }
 
+/* Homepage: dismissible “quiet update” strip (index.html #quiet-update) */
+html.tdb-quiet-update-dismissed .tdb-quiet-update-strip {
+  display: none !important;
+}
+.tdb-quiet-update-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem 0.75rem;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #5c5c5c;
+  background: #f8f5ef;
+  border-bottom: 1px solid #e8e0d0;
+  position: relative;
+  z-index: 5;
+  font-family: var(--font-ui, 'Inter', system-ui, sans-serif);
+}
+.tdb-quiet-update-strip__text {
+  margin: 0;
+  max-width: 52rem;
+}
+.tdb-quiet-update-strip__dismiss {
+  flex-shrink: 0;
+  min-width: 44px;
+  min-height: 44px;
+  margin: 0;
+  padding: 0.25rem 0.5rem;
+  border: none;
+  background: transparent;
+  color: #6b6b6b;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 6px;
+  font-family: inherit;
+}
+.tdb-quiet-update-strip__dismiss:hover,
+.tdb-quiet-update-strip__dismiss:focus-visible {
+  color: #1c1917;
+  background: rgba(0, 0, 0, 0.06);
+  outline: 2px solid rgba(92, 92, 92, 0.45);
+  outline-offset: 2px;
+}
+
 .daily-battle-loading {
   color: rgba(226, 232, 240, 0.9);
   font-style: italic;

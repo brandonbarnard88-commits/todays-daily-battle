@@ -283,6 +283,56 @@
       outline-offset: 2px;
     }
 
+    /* Dismissible update strip (see also styles.css for non-index pages) */
+    html.tdb-quiet-update-dismissed .tdb-quiet-update-strip {
+      display: none !important;
+    }
+    .tdb-quiet-update-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem 0.75rem;
+      box-sizing: border-box;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      text-align: center;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #5c5c5c;
+      background: #f8f5ef;
+      border-bottom: 1px solid #e8e0d0;
+      position: relative;
+      z-index: 5;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    .tdb-quiet-update-strip__text {
+      margin: 0;
+      max-width: 52rem;
+    }
+    .tdb-quiet-update-strip__dismiss {
+      flex-shrink: 0;
+      min-width: 44px;
+      min-height: 44px;
+      margin: 0;
+      padding: 0.25rem 0.5rem;
+      border: none;
+      background: transparent;
+      color: #6b6b6b;
+      font-size: 1.1rem;
+      line-height: 1;
+      cursor: pointer;
+      border-radius: 6px;
+      font-family: inherit;
+    }
+    .tdb-quiet-update-strip__dismiss:hover,
+    .tdb-quiet-update-strip__dismiss:focus-visible {
+      color: #1c1917;
+      background: rgba(0, 0, 0, 0.06);
+      outline: 2px solid rgba(92, 92, 92, 0.45);
+      outline-offset: 2px;
+    }
+
     /* Light theme: WCAG AA contrast on cream cards (axe / prefers-color-scheme: light) */
     :root[data-theme="light"] .hbp-label {
       color: #4a3a12;
@@ -3352,6 +3402,70 @@
       border-radius: 8px;
       box-shadow: 0 4px 18px rgba(0, 0, 0, 0.028);
     }
+    :root[data-theme="dark"] .hero-calendar-breakdown-wrap {
+      background: color-mix(in srgb, var(--card) 97%, #fff 3%);
+    }
+    .hero-votd-simple-label {
+      margin: 0 0 0.4rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .hero-votd-simple {
+      margin: 0;
+      font-size: 1.02rem;
+      line-height: 1.55;
+      color: var(--text);
+    }
+    .hero-votd-deep {
+      margin: 1.1rem 0 0;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: var(--bg-soft, rgba(255, 255, 255, 0.04));
+    }
+    .hero-votd-deep > summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 0.75rem 1rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .hero-votd-deep > summary::-webkit-details-marker { display: none; }
+    .hero-votd-deep > summary::after {
+      content: "›";
+      float: right;
+      font-size: 1.15rem;
+      line-height: 1;
+      color: var(--muted);
+      transform: translateY(1px);
+    }
+    .hero-votd-deep[open] > summary::after { transform: rotate(90deg) translate(2px, 0); }
+    .hero-votd-deep > summary:hover,
+    .hero-votd-deep > summary:focus-visible { color: var(--gold-soft); outline: none; }
+    .hero-votd-deep > summary:focus-visible { box-shadow: inset 0 0 0 2px var(--gold); border-radius: 9px; }
+    .hero-votd-deep-body {
+      padding: 0 1rem 1rem;
+      display: grid;
+      gap: 0.9rem;
+    }
+    .hero-votd-dlabel {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold-soft, var(--gold));
+      margin: 0 0 0.2rem;
+    }
+    .hero-votd-dtext {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--text);
+    }
     .hero-calendar-breakdown-wrap .hero-breakdown-panels {
       margin: 0.45rem 0 0.65rem;
     }
@@ -3505,6 +3619,14 @@
     }
 
     /* ── Read-aloud + compact verse toolbar ── */
+    .tdb-verse-of-day-eyebrow {
+      margin: 0 0 0.25rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
     .verse-ref-row {
       display: flex;
       align-items: flex-start;
@@ -3513,12 +3635,287 @@
     }
     .hero-verse-toolbar {
       display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      gap: 0.35rem;
-      flex-shrink: 0;
-      margin-top: 2px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.45rem;
+      margin-top: 0.7rem;
+      min-width: 0;
     }
+    .hero-verse-primary-toolbar {
+      border-top: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
+      padding-top: 0.75rem;
+    }
+    .hero-votd-save-btn {
+      min-height: 44px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.45rem 0.8rem;
+      border-radius: 10px;
+      margin-left: auto;
+    }
+    @media (max-width: 520px) {
+      .hero-votd-save-btn { margin-left: 0; flex: 1 1 100%; }
+    }
+
+    /* Fast feeling row — one tap into Ask The Word (60-second path) */
+    .tdb-home-fast-feel {
+      margin: 1.1rem 0 0;
+      padding: 1.15rem 1.2rem 1.25rem;
+      border-radius: 16px;
+      border: 1px solid color-mix(in srgb, var(--line) 90%, var(--gold) 8%);
+      background: color-mix(in srgb, var(--card) 96%, rgba(107, 124, 147, 0.06));
+    }
+    :root[data-theme="light"] .tdb-home-fast-feel {
+      background: linear-gradient(180deg, #fafbfe 0%, #f0f3f8 100%);
+    }
+    .tdb-home-fast-feel-eyebrow {
+      margin: 0 0 0.2rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-soft, var(--gold));
+      text-align: center;
+    }
+    .tdb-home-fast-feel-heading {
+      margin: 0 0 0.5rem;
+      font-size: clamp(1.2rem, 3.2vw, 1.5rem);
+      font-weight: 500;
+      line-height: 1.35;
+      text-align: center;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    .tdb-home-fast-feel-lead {
+      text-align: center;
+      max-width: 32rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .tdb-home-fast-feel-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      margin: 0.75rem 0 0.35rem;
+    }
+    @media (min-width: 520px) {
+      .tdb-home-fast-feel-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .tdb-home-fast-feel .tdb-home-fast-feel-btn {
+      min-height: 48px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 12px;
+      transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease, transform 0.12s ease;
+    }
+    .tdb-home-fast-feel .tdb-home-fast-feel-btn:hover,
+    .tdb-home-fast-feel .tdb-home-fast-feel-btn:focus-visible {
+      border-color: color-mix(in srgb, var(--gold) 45%, var(--line));
+      box-shadow: 0 0 0 1px color-mix(in srgb, var(--gold) 22%, transparent);
+      outline: none;
+    }
+    .tdb-home-fast-feel .tdb-home-fast-feel-btn:active {
+      transform: scale(0.98);
+    }
+    .tdb-home-fast-feel .tdb-home-fast-feel-btn--active,
+    .tdb-home-fast-feel .tdb-home-fast-feel-btn[aria-pressed="true"] {
+      border-color: var(--gold, #e3bc67);
+      background: color-mix(in srgb, var(--gold) 12%, var(--card));
+      color: var(--text);
+      box-shadow: 0 0 0 1px color-mix(in srgb, var(--gold) 35%, transparent);
+    }
+    :root[data-theme="light"] .tdb-home-fast-feel .tdb-home-fast-feel-btn--active,
+    :root[data-theme="light"] .tdb-home-fast-feel .tdb-home-fast-feel-btn[aria-pressed="true"] {
+      background: color-mix(in srgb, #e3bc67 14%, #fff);
+    }
+    .tdb-home-fast-feel-foot {
+      margin: 0.65rem 0 0;
+      font-size: 0.86rem;
+      text-align: center;
+    }
+    .tdb-home-fast-feel-soft {
+      margin: 0.35rem 0 0.75rem;
+      text-align: center;
+      font-size: clamp(0.98rem, 2.5vw, 1.05rem);
+      line-height: 1.5;
+      color: var(--muted);
+      max-width: 24rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .tdb-home-feel-result {
+      margin: 0.75rem 0 0;
+      padding: 0.75rem 0.9rem 0.9rem;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--gold) 28%, var(--line));
+      background: color-mix(in srgb, var(--card) 94%, rgba(227, 188, 103, 0.05));
+    }
+    :root[data-theme="light"] .tdb-home-feel-result {
+      background: #fff;
+    }
+    .tdb-home-feel-result-kicker {
+      margin: 0 0 0.4rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-soft, var(--gold));
+    }
+    .tdb-home-feel-result-verse {
+      margin: 0;
+      font-size: clamp(0.98rem, 2.5vw, 1.1rem);
+      line-height: 1.45;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      color: var(--text);
+    }
+    .tdb-home-feel-result-ref {
+      margin: 0.45rem 0 0.65rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .tdb-home-feel-result-you {
+      margin: 0 0 0.5rem;
+      font-size: 0.92rem;
+      line-height: 1.4;
+      color: var(--text);
+    }
+    .tdb-home-feel-breakdown {
+      margin: 0 0 0.5rem;
+      padding: 0.5rem 0 0;
+      border-top: 1px solid color-mix(in srgb, var(--line) 88%, transparent);
+    }
+    .tdb-home-feel-subhead {
+      margin: 0 0 0.2rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .tdb-home-feel-simple {
+      margin: 0 0 0.5rem;
+      font-size: 0.86rem;
+      line-height: 1.4;
+      color: var(--text);
+    }
+    .tdb-home-feel-deep {
+      margin: 0;
+      border-radius: 10px;
+      border: 1px solid color-mix(in srgb, var(--line) 90%, transparent);
+      background: color-mix(in srgb, var(--card) 92%, var(--bg-soft));
+    }
+    .tdb-home-feel-deep-sum {
+      list-style: none;
+      margin: 0;
+      padding: 0.5rem 0.6rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .tdb-home-feel-deep[open] .tdb-home-feel-deep-chev {
+      transform: rotate(90deg);
+    }
+    .tdb-home-feel-deep-chev {
+      display: inline-block;
+      transition: transform 0.2s ease;
+      font-size: 0.85rem;
+      line-height: 1;
+      font-weight: 600;
+      color: var(--gold-soft, var(--gold));
+    }
+    .tdb-home-feel-deep-body {
+      padding: 0 0.55rem 0.55rem;
+      font-size: 0.82rem;
+      line-height: 1.4;
+      color: var(--text);
+    }
+    .tdb-home-feel-deep-line {
+      margin: 0.3rem 0 0;
+    }
+    .tdb-home-feel-deep-line:first-of-type { margin-top: 0.1rem; }
+    .tdb-home-feel-dt {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.15rem;
+    }
+    .tdb-home-feel-result-steps-title {
+      margin: 0 0 0.4rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .tdb-home-feel-result-steps {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .tdb-home-feel-result-steps .btn { width: 100%; justify-content: center; min-height: 48px; }
+    .tdb-home-feel-read-chapter {
+      display: block;
+      text-align: center;
+      padding: 0.55rem 0.75rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--gold-soft);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .tdb-home-feel-result-more { margin: 0.75rem 0 0; text-align: center; font-size: 0.86rem; }
+    .verse-card.is-loading .tdb-home-fast-feel { opacity: 0.55; pointer-events: none; }
+    .verse-card.is-loading .tdb-home-feel-result { display: none; }
+
+    /* Quieter band: full site tools below the first-screen path */
+    .tdb-home-more-tools {
+      margin: 2rem 0 0;
+      padding: 1.5rem 1rem 2rem;
+      border-top: 1px solid color-mix(in srgb, var(--line) 85%, transparent);
+    }
+    .tdb-home-more-tools-h {
+      margin: 0 0 0.35rem;
+      font-size: clamp(1rem, 2.4vw, 1.15rem);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+    }
+    .tdb-home-more-tools-lead {
+      text-align: center;
+      max-width: 36rem;
+      margin: 0 auto 1.25rem;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      opacity: 0.92;
+    }
+    .tdb-home-more-tools-body .section-divider,
+    .tdb-home-more-tools-body h2:not(.tdb-home-more-tools-h) {
+      font-size: clamp(1.02rem, 2.4vw, 1.2rem);
+    }
+    .tdb-home-more-tools-body .section-note {
+      font-size: 0.9rem;
+    }
+    @media (max-width: 540px) {
+      .tdb-home-more-tools { padding-left: 0.65rem; padding-right: 0.65rem; }
+    }
+
     .hero-toolbar-btn {
       min-height: 44px;
       padding: 0.4rem 0.55rem;
@@ -3638,7 +4035,9 @@
     @media (max-width: 480px) { .read-aloud-label { display: none; } .read-aloud-btn { padding: 0.35rem; min-width: 40px; } }
     /* loading skeleton hides it */
     .verse-card.is-loading .read-aloud-btn,
-    .verse-card.is-loading .verse-ref-row { display: none; }
+    .verse-card.is-loading .verse-ref-row,
+    .verse-card.is-loading .tdb-verse-of-day-eyebrow,
+    .verse-card.is-loading .hero-verse-primary-toolbar { display: none; }
 
     /* ── Prayer share row ── */
     .prayer-share-row {
@@ -6957,6 +7356,52 @@
       border-top-color: color-mix(in srgb, var(--line) 68%, #9e7625 26%);
       box-shadow: inset 0 1px 0 color-mix(in srgb, #9e7625 6%, transparent);
     }
+    .tdb-feel-strip-intro {
+      margin: 0 0 0.6rem;
+      max-width: 40rem;
+    }
+    .tdb-feel-quick-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.45rem;
+      margin: 0 0 0.75rem;
+    }
+    @media (min-width: 520px) {
+      .tdb-feel-quick-strip {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (min-width: 720px) {
+      .tdb-feel-quick-strip {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+    .tdb-feel-quick-strip .btn {
+      min-height: 44px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .tdb-feel-show-all {
+      margin: 0.25rem 0 0;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--line) 82%, var(--gold) 12%);
+      background: color-mix(in srgb, var(--card) 95%, var(--bg-soft) 5%);
+    }
+    .tdb-feel-show-all-sum {
+      list-style: none;
+      padding: 0.65rem 0.9rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+    }
+    .tdb-feel-show-all-sum::-webkit-details-marker { display: none; }
+    .tdb-feel-show-all[open] .tdb-feel-show-all-sum {
+      border-bottom: 1px solid var(--line);
+    }
+    .tdb-feel-show-all-inner {
+      padding: 0.4rem 0.5rem 0.85rem;
+    }
     .feel-topic-pickers {
       margin: 0;
     }
@@ -7782,9 +8227,14 @@
     ]
   }
   </script>
+  <script nonce="tdb2025s">(function(){try{if(localStorage.getItem('tdb_quiet_update_dismiss')==='2026-04-23-verse-atw')document.documentElement.classList.add('tdb-quiet-update-dismissed');}catch(e){}})();</script>
 </head>
 <body>
   <a href="#home-primary-flow" class="skip-link">Skip to main content</a>
+  <div id="quiet-update" class="tdb-quiet-update-strip" data-tdb-quiet-update-version="2026-04-23-verse-atw" role="status" aria-live="polite">
+    <p class="tdb-quiet-update-strip__text">Update: verse help now shows as soon as you open a line, and Ask The Word results read a little clearer — same place, less friction.</p>
+    <button type="button" class="tdb-quiet-update-strip__dismiss" id="quiet-update-dismiss" aria-label="Dismiss this update">✕</button>
+  </div>
   <!-- Full-page sky/stars (absolute on body — scrolls with page); tiles sit above in .app -->
   <div class="sky-page-backdrop" aria-hidden="true">
     <div class="sky" aria-hidden="true" id="sky-layer">
@@ -8195,6 +8645,7 @@
           <div class="verse-skeleton-box"></div>
         </div>
         <div class="tdb-home-verse-sticky-shell" role="region" aria-label="Today’s verse text and quick actions">
+        <p class="tdb-verse-of-day-eyebrow" id="heroVerseEyebrow">Verse of the day</p>
         <p class="verse-ref hero-daily-ref-above" id="heroRef">Jeremiah 31:3 (KJV)</p>
         <div class="verse-ref-row">
           <div class="hero-verse-wrap-inner">
@@ -8204,7 +8655,8 @@
               <button type="button" class="verse-font-btn verse-font-larger" id="verseFontLarger" aria-label="Increase text size">A+</button>
             </div>
           </div>
-          <div class="hero-verse-toolbar" role="toolbar" aria-label="Today’s verse: listen, share, image">
+        </div>
+        <div class="hero-verse-toolbar hero-verse-primary-toolbar" role="toolbar" aria-label="Verse: listen, copy, share, image, save to My Study">
             <button
               class="read-aloud-btn read-aloud-with-label"
               id="readAloudBtn"
@@ -8224,10 +8676,54 @@
               </svg>
               <span class="read-aloud-label">Listen slow</span>
             </button>
+            <button type="button" class="hero-toolbar-btn" id="heroCopyVerseBtn" aria-label="Copy verse and page link to clipboard">Copy</button>
             <button type="button" class="hero-toolbar-btn" id="heroShareBtn" aria-label="Share today’s verse (copy or device share)">Share</button>
             <button type="button" class="hero-toolbar-btn" id="heroImageBtn" aria-label="Create shareable verse image">Image</button>
-          </div>
+            <button type="button" id="hero-save-my-verses" class="btn btn-primary hero-votd-save-btn" aria-describedby="hero-my-verses-hint hero-my-verses-privacy-line" aria-label="Save today’s verse to My Study on this device">Save to My Study</button>
         </div>
+        </div>
+        <section class="tdb-home-fast-feel" id="tdbHomeFastFeel" aria-labelledby="tdbHomeFastFeelHeading">
+          <h2 class="tdb-home-fast-feel-heading" id="tdbHomeFastFeelHeading">How are you feeling right now?</h2>
+          <p class="tdb-home-fast-feel-soft">No typing yet. One honest tap&mdash;then a verse, a line to you, and a matching plan. The same thing happens for <strong>every</strong> topic chip in <a href="#feel-section">Ask The Word</a> below (<abbr title="King James Version">KJV</abbr>).</p>
+          <div class="tdb-home-fast-feel-grid" role="group" aria-label="How you are feeling right now; pick one">
+            <button type="button" class="btn btn-secondary tdb-home-fast-feel-btn" data-topic="anxiety" aria-pressed="false" aria-label="Anxious or afraid">Anxious / Afraid</button>
+            <button type="button" class="btn btn-secondary tdb-home-fast-feel-btn" data-topic="strength" aria-pressed="false" aria-label="Tired or weary">Tired / Weary</button>
+            <button type="button" class="btn btn-secondary tdb-home-fast-feel-btn" data-topic="overwhelmed" aria-pressed="false" aria-label="Overwhelmed">Overwhelmed</button>
+            <button type="button" class="btn btn-secondary tdb-home-fast-feel-btn" data-topic="hope" aria-pressed="false" aria-label="Discouraged or down">Discouraged / Down</button>
+            <button type="button" class="btn btn-secondary tdb-home-fast-feel-btn" data-topic="anger" aria-pressed="false" aria-label="Angry or frustrated">Angry / Frustrated</button>
+            <button type="button" class="btn btn-secondary tdb-home-fast-feel-btn" data-topic="finances" aria-pressed="false" aria-label="Worried about money">Worried about money</button>
+            <button type="button" class="btn btn-secondary tdb-home-fast-feel-btn" data-topic="peace" aria-pressed="false" aria-label="Grateful or peaceful">Grateful / Peaceful</button>
+            <button type="button" class="btn btn-secondary tdb-home-fast-feel-btn" data-topic="parenting" aria-pressed="false" aria-label="Struggling as a parent">Struggling as a parent</button>
+          </div>
+        </section>
+        <div class="tdb-home-feel-result" id="tdbHomeFeelResult" role="region" aria-live="polite" hidden data-tdb-ref="" data-tdb-text="">
+          <p class="tdb-home-feel-result-kicker" id="tdbHomeFeelResultKicker">For you today</p>
+          <p class="tdb-home-feel-result-verse" id="tdbHomeFeelResultVerse"></p>
+          <p class="tdb-home-feel-result-ref" id="tdbHomeFeelResultRef"></p>
+          <p class="tdb-home-feel-result-you" id="tdbHomeFeelResultYou"></p>
+          <div class="tdb-home-feel-breakdown" id="tdbHomeFeelBreakdown" hidden>
+            <div id="tdbHomeFeelSimpleBlock" hidden>
+              <p class="tdb-home-feel-subhead">In plain words</p>
+              <p class="tdb-home-feel-simple" id="tdbHomeFeelResultSimple"></p>
+            </div>
+            <details class="tdb-home-feel-deep" id="tdbHomeFeelDeep" hidden>
+              <summary class="tdb-home-feel-deep-sum">Why this verse matters <span class="tdb-home-feel-deep-chev" aria-hidden="true">›</span></summary>
+              <div class="tdb-home-feel-deep-body" id="tdbHomeFeelDeepBody">
+                <p class="tdb-home-feel-deep-line" id="tdbHomeFeelRowSpeaker" hidden><span class="tdb-home-feel-dt">Who is speaking</span><span id="tdbHomeFeelResultSpeaker"></span></p>
+                <p class="tdb-home-feel-deep-line" id="tdbHomeFeelRowAudience" hidden><span class="tdb-home-feel-dt">Who it&rsquo;s for</span><span id="tdbHomeFeelResultAudience"></span></p>
+                <p class="tdb-home-feel-deep-line" id="tdbHomeFeelRowContext" hidden><span class="tdb-home-feel-dt">Context</span><span id="tdbHomeFeelResultContext"></span></p>
+                <p class="tdb-home-feel-deep-line" id="tdbHomeFeelRowRelatesYou" hidden><span class="tdb-home-feel-dt">How it relates to you</span><span id="tdbHomeFeelResultRelatesYou"></span></p>
+                <p class="tdb-home-feel-deep-line" id="tdbHomeFeelRowRelatesToday" hidden><span class="tdb-home-feel-dt">How it relates to today</span><span id="tdbHomeFeelResultRelatesToday"></span></p>
+              </div>
+            </details>
+          </div>
+          <p class="tdb-home-feel-result-steps-title">Simple next steps</p>
+          <ul class="tdb-home-feel-result-steps">
+            <li><a class="tdb-home-feel-result-plan-link btn btn-primary" id="tdbHomeFeelResultPlan" href="plans.html">Start a 7-day plan</a></li>
+            <li><button type="button" class="btn btn-secondary" id="tdbHomeFeelResultSave">Save this verse to My Study</button></li>
+            <li><a class="tdb-home-feel-read-chapter" id="tdbHomeFeelResultRead" href="reader.html">Read full chapter</a></li>
+          </ul>
+          <p class="section-note tdb-home-feel-result-more"><a href="#quick-search-hero">More matching verses</a> in Ask The Word below when you&rsquo;re ready.</p>
         </div>
         <div class="tdb-start-my-day-band" role="region" aria-label="Start my day: verse, feeling, and a gentle plan">
           <p class="tdb-start-my-day-line">One verse. One honest feeling. One simple plan.</p>
@@ -8410,10 +8906,39 @@
     }
     .tdb-smd-verse-pulse { animation: tdb-smd-verse-pulse 1.1s ease 1; }
         </style>
-        <div class="hero-calendar-breakdown-wrap" role="region" aria-label="Today’s calendar verse — gentle breakdown">
-        <ul class="breakdown" id="heroBreakdown"></ul>
-        <div class="hero-breakdown-panels" id="heroBreakdownPanels"></div>
-        <p class="application" id="heroApplication"></p>
+        <div class="hero-calendar-breakdown-wrap" id="heroVotdBreakdown" role="region" aria-label="Today’s calendar verse — simple and deep breakdown">
+        <div class="hero-votd-simple-block">
+          <p class="hero-votd-simple-label">Simple breakdown</p>
+          <p class="hero-votd-simple" id="heroSimpleBreakdown"></p>
+        </div>
+        <details class="hero-votd-deep" id="heroDeepBreakdown" aria-label="Deep verse breakdown, optional">
+          <summary>Deep breakdown</summary>
+          <div class="hero-votd-deep-body">
+            <div class="hero-votd-deep-block" id="heroDeepRowWho" hidden>
+              <span class="hero-votd-dlabel">Who is speaking</span>
+              <p class="hero-votd-dtext" id="heroDeepWho"></p>
+            </div>
+            <div class="hero-votd-deep-block" id="heroDeepRowAud" hidden>
+              <span class="hero-votd-dlabel">Who it was for first</span>
+              <p class="hero-votd-dtext" id="heroDeepAudience"></p>
+            </div>
+            <div class="hero-votd-deep-block" id="heroDeepRowCtx" hidden>
+              <span class="hero-votd-dlabel">Context</span>
+              <p class="hero-votd-dtext" id="heroDeepContext"></p>
+            </div>
+            <div class="hero-votd-deep-block" id="heroDeepRowYou" hidden>
+              <span class="hero-votd-dlabel">How it meets you</span>
+              <p class="hero-votd-dtext" id="heroDeepYou"></p>
+            </div>
+            <div class="hero-votd-deep-block" id="heroDeepRowToday" hidden>
+              <span class="hero-votd-dlabel">A step for today</span>
+              <p class="hero-votd-dtext" id="heroDeepToday"></p>
+            </div>
+          </div>
+        </details>
+        <ul class="breakdown" id="heroBreakdown" hidden></ul>
+        <div class="hero-breakdown-panels" id="heroBreakdownPanels" hidden></div>
+        <p class="application" id="heroApplication" hidden></p>
         </div>
         <p class="hero-daily-welcome">Joy, rest, questions&mdash;you are welcome here.</p>
         <p class="section-note" id="heroBuilderLine">A quiet place for real battles &mdash; built solo by Brandon, who is still fighting them too.</p>
@@ -8424,8 +8949,7 @@
           <button type="button" id="heroWordStudyBtn" class="btn btn-secondary hero-word-study-btn" data-tdb-wordstudy-ref="Jeremiah 31:3" data-tdb-wordstudy-text="I have loved thee with an everlasting love." aria-describedby="hero-study-verse-hint" aria-label="Open verse study for today’s verse of the day">Study this verse</button>
         </p>
         <p class="tdb-why-stay-line" id="tdb-why-stay-line">A steady place for Scripture&mdash;any kind of day.</p>
-        <div class="hero-my-verses-row hero-my-verses-row--below-card" role="region" aria-label="Save today’s verse to My Study">
-          <button type="button" id="hero-save-my-verses" class="btn btn-primary hero-save-my-verses-btn" aria-describedby="hero-my-verses-hint hero-my-verses-privacy-line" aria-label="Save today’s verse to My Study on this device">Save to My Study</button>
+        <div class="hero-my-verses-row hero-my-verses-row--below-card" role="region" aria-label="Memorize and My Study">
           <a href="memorize.html" class="btn btn-secondary hero-memorize-link" id="hero-memorize-link" aria-label="Open gentle memorize tools for today’s verse">Memorize</a>
           <p id="hero-my-verses-hint" class="section-note hero-my-verses-hint">Same list as Search and the <a href="/bible-tool.html">Bible tool</a>. <a href="/mystudy?tab=library#saved-verses">Open My Study</a>.</p>
           <p class="hero-my-verses-privacy-note" id="hero-my-verses-privacy-line">Saves stay here on this device unless you sign in.</p>
@@ -8513,6 +9037,10 @@
       <a href="#tdb-home-votm" class="tdb-float-memory-pill" id="tdb-float-memory-pill" hidden aria-label="Jump to verse of the month">Memory</a>
       <button type="button" class="tdb-float-share-verse" id="tdb-float-share-verse-home" aria-label="Share today’s verse">Share verse</button>
       </div><!-- /#hero-verse-wrap -->
+      <section class="tdb-home-more-tools" id="tdbHomeMoreTools" aria-labelledby="tdbHomeMoreToolsH" aria-label="More tools and paths">
+        <h2 class="tdb-home-more-tools-h" id="tdbHomeMoreToolsH">More tools &amp; paths</h2>
+        <p class="tdb-home-more-tools-lead section-note">Kids, memory, plans, full search, prayer wall, and the rest&mdash;still here. Slightly quieter on purpose so the top of Home can stay simple.</p>
+        <div class="tdb-home-more-tools-body">
       <section class="tdb-home-companion-doors" id="tdb-home-companion-doors" aria-labelledby="tdb-companion-doors-heading">
         <h2 class="tdb-companion-doors-vis-h2" id="tdb-companion-doors-heading">Three quiet doorways into Scripture</h2>
         <ul class="tdb-home-companion-doors-list">
@@ -8746,8 +9274,24 @@
         </div>
         <p class="section-note util-mt-0_5 util-mb-0">Try: "Who is Jesus?", "angry at work", "overwhelmed as a parent", "caring for aging parents", or "joy".</p>
         <p class="topic-plans-hint section-note" id="topicPlansHint">Short phrases work well. Press <strong>Search</strong> or Enter for the fuller KJV lookup. <span class="topic-plans-hint-detail">Inside a category: tap a chip to search verses fast. Alt-click (desktop) or long-press (phone) opens a matching <a href="plans.html">Battle Plans</a> lane.</span></p>
-        <p class="feel-topic-action-strip" id="feelTopicActionStrip"><strong>Quick tip:</strong> Pick a category, then tap a chip for verses. <span class="feel-topic-action-strip-detail">On phone, hold for the matching plan.</span></p>
-        <div class="feel-quick-topics-root" id="quickTopics" role="group" aria-label="Quick topic shortcuts. Pick a category first; chip order may change each visit. Tap searches; Alt-click or long-press opens a matching reading plan lane.">
+        <p class="feel-topic-action-strip" id="feelTopicActionStrip"><strong>Quick tip:</strong> Tap a feeling below, or open <strong>Show all feelings</strong> for every topic. <span class="feel-topic-action-strip-detail">On phone, hold a chip for the matching plan.</span></p>
+        <p class="tdb-feel-strip-intro section-note" id="tdbFeelStripIntro">Start with a tap—<strong>or</strong> type in the search box. Ten common picks; the full list stays one disclosure away.</p>
+        <div class="feel-quick-topics-root" id="quickTopics" role="group" aria-label="Quick topic shortcuts. Ten feelings first; all topics behind Show all. Tap searches; Alt-click or long-press opens a matching reading plan lane.">
+          <div class="tdb-feel-quick-strip" id="tdbFeelQuickStrip" role="group" aria-label="Ten common feeling shortcuts">
+            <button type="button" class="btn btn-secondary quick-topic" data-topic="anxiety" aria-label="Restless or anxious">Restless</button>
+            <button type="button" class="btn btn-secondary quick-topic" data-topic="fear" aria-label="Fear">Fear</button>
+            <button type="button" class="btn btn-secondary quick-topic" data-topic="overwhelmed" aria-label="Heavy or overwhelmed">Heavy</button>
+            <button type="button" class="btn btn-secondary quick-topic" data-topic="grief" aria-label="Grief">Grief</button>
+            <button type="button" class="btn btn-secondary quick-topic" data-topic="strength" aria-label="Tired or weary">Tired</button>
+            <button type="button" class="btn btn-secondary quick-topic" data-topic="hope" aria-label="Hope or discouraged">Hope</button>
+            <button type="button" class="btn btn-secondary quick-topic" data-topic="peace" aria-label="Peace">Peace</button>
+            <button type="button" class="btn btn-secondary quick-topic" data-topic="parenting" aria-label="Parenting">Parenting</button>
+            <button type="button" class="btn btn-secondary quick-topic" data-topic="finances" aria-label="Money worry">Money</button>
+            <button type="button" class="btn btn-secondary quick-topic" data-topic="faith" aria-label="Faith">Faith</button>
+          </div>
+          <details class="tdb-feel-show-all" id="tdbFeelShowAll">
+            <summary class="tdb-feel-show-all-sum">Show all feelings (categories and full list)</summary>
+            <div class="tdb-feel-show-all-inner">
           <div id="feelTopicPickers" class="feel-topic-pickers" role="group" aria-label="Topic categories">
             <div class="feel-category-grid">
               <button type="button" class="feel-category-card" data-feel-band="heavy" aria-expanded="false" aria-controls="feelTopicExpanded" id="feelCatHeavy">
@@ -8839,6 +9383,8 @@
               </div>
             </div>
           </div>
+            </div>
+          </details>
         </div>
         <div id="plans-teaser" class="plans-teaser plans-teaser--nested" aria-label="Battle Plans lanes">
           <div class="plans-teaser-header">
@@ -9095,6 +9641,9 @@
           </section>
         </div>
       </details>
+
+        </div>
+      </section>
 
     </main>
 
@@ -9812,27 +10361,21 @@
       };
     }
 
-    function heroBreakdownPanelsHydrated(panelsEl) {
-      if (!panelsEl) return false;
-      const labels = Array.from(panelsEl.querySelectorAll('.hbp-label')).map(function (el) {
-        return String(el.textContent || '').trim().toLowerCase();
-      });
-      return labels.includes('plain english') &&
-        labels.includes('for your group') &&
-        labels.includes('real life today');
+    function heroVotdSimpleHydrated() {
+      const el = document.getElementById('heroSimpleBreakdown');
+      return el && String(el.textContent || '').trim().length > 0;
     }
 
     function queueHeroBreakdownRefresh(data, attempt) {
       const tries = Number(attempt || 0);
       if (tries >= 24) return;
       window.setTimeout(function () {
-        const panelsEl = document.getElementById('heroBreakdownPanels');
-        const hasHydratedPanels = heroBreakdownPanelsHydrated(panelsEl);
+        const hasVotd = heroVotdSimpleHydrated();
         const sharedReady = !!(
           (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.getBreakdown === 'function') ||
           typeof window.getVerseBreakdown === 'function'
         );
-        if (hasHydratedPanels && sharedReady) return;
+        if (hasVotd && sharedReady) return;
         if (!sharedReady) {
           queueHeroBreakdownRefresh(data, tries + 1);
           return;
@@ -9906,8 +10449,7 @@
         } catch (eLd) {}
       })();
 
-      // ── Bullet breakdown (legacy lines) — hide if we have rich panels ──
-      heroBreakdown.replaceChildren();
+      // ── Verse of the day: simple + deep (see hero-daily-first-paint.js __TDB_applyHeroVotdFromInputs) ──
       const panelsEl = document.getElementById('heroBreakdownPanels');
 
       if (v && v.ref) {
@@ -9957,42 +10499,69 @@
       }
       const hasRich = heroSharedBreakdown || v.speaker || v.plain || v.today || v.action;
 
-      if (hasRich && panelsEl) {
-        // Rich 3-panel breakdown
-        heroBreakdown.style.display = 'none';
-        panelsEl.replaceChildren();
-        [
-          { label: 'Plain English', text: (heroSharedBreakdown && heroSharedBreakdown.plainExplanation) || v.plain, mod: '' },
-          { label: 'For your group', text: (heroSharedBreakdown && heroSharedBreakdown.groupApplication) || v.today || v.app, mod: '' },
-          { label: 'Real life today', text: (heroSharedBreakdown && heroSharedBreakdown.modernApplication) || v.action || v.app, mod: 'hbp-panel--action' }
-        ].forEach(({ label, text, mod }) => {
-          if (!text) return;
-          const panel = document.createElement('div');
-          panel.className = 'hbp-panel' + (mod ? ' ' + mod : '');
-          const lbl = document.createElement('p');
-          lbl.className = 'hbp-label';
-          lbl.textContent = label;
-          const p = document.createElement('p');
-          p.className = 'hbp-text';
-          p.textContent = text;
-          panel.append(lbl, p);
-          panelsEl.appendChild(panel);
-        });
-        heroApplication.textContent = '';
-        heroApplication.style.display = 'none';
+      if (typeof window.__TDB_applyHeroVotdFromInputs === 'function') {
+        if (hasRich) {
+          window.__TDB_applyHeroVotdFromInputs(v, {
+            plainExplanation: (heroSharedBreakdown && heroSharedBreakdown.plainExplanation) || v.plain,
+            groupApplication: (heroSharedBreakdown && heroSharedBreakdown.groupApplication) || v.today,
+            modernApplication: (heroSharedBreakdown && heroSharedBreakdown.modernApplication) || v.action || v.app,
+            about: (heroSharedBreakdown && heroSharedBreakdown.about) || v.speaker
+          });
+        } else {
+          if (heroBreakdown) {
+            heroBreakdown.replaceChildren();
+            heroBreakdown.setAttribute('hidden', '');
+            heroBreakdown.setAttribute('aria-hidden', 'true');
+          }
+          if (panelsEl) panelsEl.replaceChildren();
+          if (heroApplication) {
+            heroApplication.textContent = '';
+            heroApplication.style.display = 'none';
+          }
+          window.__TDB_applyHeroVotdFromInputs(v, null);
+          queueHeroBreakdownRefresh(data, 0);
+        }
       } else {
-        // Fallback: legacy bullet lines
-        heroBreakdown.style.display = '';
-        if (panelsEl) panelsEl.replaceChildren();
-        const displayLines = v.lines.slice(0, 3);
-        displayLines.forEach((line) => {
-          const li = document.createElement("li");
-          li.textContent = sanitizeText(line);
-          heroBreakdown.appendChild(li);
-        });
-        heroApplication.textContent = v.app;
-        heroApplication.style.display = '';
-        queueHeroBreakdownRefresh(data, 0);
+        if (hasRich && panelsEl) {
+          if (heroBreakdown) {
+            heroBreakdown.replaceChildren();
+            heroBreakdown.setAttribute('hidden', '');
+          }
+          panelsEl.replaceChildren();
+          [
+            { label: 'Plain English', text: (heroSharedBreakdown && heroSharedBreakdown.plainExplanation) || v.plain, mod: '' },
+            { label: 'For your group', text: (heroSharedBreakdown && heroSharedBreakdown.groupApplication) || v.today || v.app, mod: '' },
+            { label: 'Real life today', text: (heroSharedBreakdown && heroSharedBreakdown.modernApplication) || v.action || v.app, mod: 'hbp-panel--action' }
+          ].forEach(function (row) {
+            if (!row.text) return;
+            const panel = document.createElement('div');
+            panel.className = 'hbp-panel' + (row.mod ? ' ' + row.mod : '');
+            const lbl = document.createElement('p');
+            lbl.className = 'hbp-label';
+            lbl.textContent = row.label;
+            const p = document.createElement('p');
+            p.className = 'hbp-text';
+            p.textContent = row.text;
+            panel.append(lbl, p);
+            panelsEl.appendChild(panel);
+          });
+        } else {
+          if (heroBreakdown) {
+            heroBreakdown.replaceChildren();
+            heroBreakdown.removeAttribute('hidden');
+            heroBreakdown.removeAttribute('aria-hidden');
+          }
+          if (panelsEl) panelsEl.replaceChildren();
+          const displayLines = v.lines.slice(0, 3);
+          displayLines.forEach(function (line) {
+            const li = document.createElement('li');
+            li.textContent = sanitizeText(line);
+            if (heroBreakdown) heroBreakdown.appendChild(li);
+          });
+          heroApplication.textContent = v.app;
+          heroApplication.style.display = '';
+          queueHeroBreakdownRefresh(data, 0);
+        }
       }
 
       try {
@@ -11226,11 +11795,26 @@
           const ref = document.getElementById('heroRef');
           refLine = ref ? String(ref.textContent || '').trim() : '';
         }
+        const simpleEl = document.getElementById('heroSimpleBreakdown');
+        const simpleLine = simpleEl && String(simpleEl.textContent || '').trim();
         const breakdown = document.getElementById('heroBreakdown');
         const app       = document.getElementById('heroApplication');
         const panels    = document.getElementById('heroBreakdownPanels');
         let lines = '';
-        if (panels && panels.querySelector('.hbp-panel')) {
+        if (simpleLine) {
+          lines = 'Simple breakdown. ' + simpleLine;
+          const d1 = document.getElementById('heroDeepWho');
+          const d2 = document.getElementById('heroDeepAudience');
+          const d3 = document.getElementById('heroDeepContext');
+          const d4 = document.getElementById('heroDeepYou');
+          const d5 = document.getElementById('heroDeepToday');
+          const deepBits = [d1, d2, d3, d4, d5].map(function (el) {
+            return el && String(el.textContent || '').trim();
+          }).filter(Boolean);
+          if (deepBits.length) {
+            lines += '. ' + deepBits.join('. ');
+          }
+        } else if (panels && panels.querySelector('.hbp-panel')) {
           lines = Array.from(panels.querySelectorAll('.hbp-panel')).map(function (panel) {
             const lbl = panel.querySelector('.hbp-label');
             const txt = panel.querySelector('.hbp-text');

@@ -1421,6 +1421,24 @@ function normalizeLegacyShellLinks() {
   });
 }
 
+/** Homepage optional strip (#quiet-update): remember dismiss in localStorage; version bumps show a new notice. */
+function wireQuietUpdateStrip() {
+  var strip = document.getElementById('quiet-update');
+  if (!strip) return;
+  var v = strip.getAttribute('data-tdb-quiet-update-version') || '2026-04-23-verse-atw';
+  var btn = document.getElementById('quiet-update-dismiss');
+  try {
+    if (localStorage.getItem('tdb_quiet_update_dismiss') === v) {
+      document.documentElement.classList.add('tdb-quiet-update-dismissed');
+    }
+  } catch (e) {}
+  if (!btn) return;
+  btn.addEventListener('click', function () {
+    try { localStorage.setItem('tdb_quiet_update_dismiss', v); } catch (e2) {}
+    document.documentElement.classList.add('tdb-quiet-update-dismissed');
+  });
+}
+
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', wireEarlySearchFallbacks);
   document.addEventListener('DOMContentLoaded', normalizeHomeMainOrder);
@@ -1431,6 +1449,7 @@ if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', highlightCurrentNav);
   document.addEventListener('DOMContentLoaded', ensureTdbCookieNotice);
   document.addEventListener('DOMContentLoaded', normalizeLegacyShellLinks);
+  document.addEventListener('DOMContentLoaded', wireQuietUpdateStrip);
 } else {
   wireEarlySearchFallbacks();
   normalizeHomeMainOrder();
@@ -1441,6 +1460,7 @@ if (document.readyState === 'loading') {
   highlightCurrentNav();
   ensureTdbCookieNotice();
   normalizeLegacyShellLinks();
+  wireQuietUpdateStrip();
 }
 
 try {

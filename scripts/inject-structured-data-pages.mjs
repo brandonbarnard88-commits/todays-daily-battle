@@ -91,14 +91,18 @@ function buildVerseJsonLd(refPlain, textPlain) {
   };
 }
 
+const VERSE_LD_JSON_RE =
+  /<script[^>]*type="application\/ld\+json"[^>]*>\s*[\s\S]*?<\/script>/;
+
 function injectVerseLdJson(html, refPlain, textPlain) {
   const json = JSON.stringify(buildVerseJsonLd(refPlain, textPlain));
-  const replaced = html.replace(
-    /<script[^>]*type="application\/ld\+json"[^>]*>\s*[\s\S]*?<\/script>/,
-    `<script type="application/ld+json" nonce="tdb2025s">\n  ${json}\n  </script>`
-  );
-  if (replaced === html) fail('could not find application/ld+json in dist/verse.html');
-  return replaced;
+  if (!VERSE_LD_JSON_RE.test(html)) {
+    fail('could not find application/ld+json in dist/verse.html');
+  }
+  // Replace in a function so JSON '$1' / '$&' in verse text never act as special patterns.
+  return html.replace(VERSE_LD_JSON_RE, () => {
+    return `<script type="application/ld+json" nonce="tdb2025s">\n  ${json}\n  </script>`;
+  });
 }
 
 function injectVerseDomAndMeta(html, refPlain, textPlain) {
@@ -205,14 +209,17 @@ function buildPlansJsonLd(planRows) {
   };
 }
 
+const PLANS_LD_JSON_RE =
+  /<script nonce="tdb2025s" type="application\/ld\+json">\s*[\s\S]*?<\/script>/;
+
 function injectPlansLdJson(html, planRows) {
   const json = JSON.stringify(buildPlansJsonLd(planRows));
-  const replaced = html.replace(
-    /<script nonce="tdb2025s" type="application\/ld\+json">\s*[\s\S]*?<\/script>/,
-    `<script nonce="tdb2025s" type="application/ld+json">\n  ${json}\n  </script>`
-  );
-  if (replaced === html) fail('could not find plans application/ld+json block in dist/plans.html');
-  return replaced;
+  if (!PLANS_LD_JSON_RE.test(html)) {
+    fail('could not find plans application/ld+json block in dist/plans.html');
+  }
+  return html.replace(PLANS_LD_JSON_RE, () => {
+    return `<script nonce="tdb2025s" type="application/ld+json">\n  ${json}\n  </script>`;
+  });
 }
 
 function main() {

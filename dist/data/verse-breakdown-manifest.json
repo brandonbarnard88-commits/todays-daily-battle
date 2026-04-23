@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-23T22:15:19.170Z",
-  "surfacedRefCount": 2913,
-  "overrideCount": 2913,
+  "generatedAt": "2026-04-23T22:20:12.623Z",
+  "surfacedRefCount": 2914,
+  "overrideCount": 2914,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -29,6 +29,10 @@
     },
     "admin.html": {
       "refs": 2,
+      "pairs": 0
+    },
+    "advent-christmas-university.html": {
+      "refs": 1,
       "pairs": 0
     },
     "api/src/pilot-data/battle-plans.json": {
@@ -932,7 +936,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 38,
+      "refs": 41,
       "pairs": 0
     },
     "testimonials.html": {
@@ -1007,8 +1011,12 @@
       "refs": 6,
       "pairs": 0
     },
+    "university-regret-one-page-print.html": {
+      "refs": 6,
+      "pairs": 0
+    },
     "university.html": {
-      "refs": 11,
+      "refs": 14,
       "pairs": 0
     },
     "utils.js": {
@@ -2256,6 +2264,7 @@
     "Isaiah 41:13",
     "Isaiah 41:20",
     "Isaiah 43:1",
+    "Isaiah 43:18",
     "Isaiah 43:18-19",
     "Isaiah 43:19",
     "Isaiah 43:2",
@@ -13783,6 +13792,14 @@
       "general": {
         "plainExplanation": "But now thus says the LORD that created you, O Jacob, and he that formed you, O Israel, Fear not: for I have redeemed you, I have called you by your name; you art mine.",
         "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
+        "about": "Isaiah",
+        "to": "Judah"
+      }
+    },
+    "Isaiah 43:18": {
+      "general": {
+        "plainExplanation": "Remember you not the former things, neither consider the things of old.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Isaiah",
         "to": "Judah"
       }

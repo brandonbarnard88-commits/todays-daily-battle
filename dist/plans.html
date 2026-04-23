@@ -507,6 +507,18 @@
       margin-top: -0.35rem;
       margin-bottom: 1rem;
     }
+    .plans-plan-filter-bar--quaternary {
+      margin-top: -0.35rem;
+      margin-bottom: 1rem;
+    }
+    #plans-browse-by-feeling {
+      scroll-margin-top: 5rem;
+    }
+    @media (min-width: 1100px) {
+      #plans-browse-by-feeling {
+        scroll-margin-top: 7.5rem;
+      }
+    }
 
     .plans-browse-by-season {
       margin: 0 0 1.35rem;
@@ -1451,6 +1463,20 @@
         <a class="plans-plan-filter-chip" href="sos.html">When now is too much</a>
         <a class="plans-plan-filter-chip" href="calm.html">Calm room</a>
       </nav>
+      <div id="plans-browse-by-feeling" class="plans-browse-feeling-skip" tabindex="-1">
+      <nav class="plans-plan-filter-bar plans-plan-filter-bar--quaternary" aria-label="Open a course by how you feel right now">
+        <span class="plans-plan-filter-label">By feeling</span>
+        <a class="plans-plan-filter-chip" href="plans.html?plan=fearfaith" title="When fear is loud">Fear is loud</a>
+        <a class="plans-plan-filter-chip" href="plans.html?plan=worrytrust" title="When the mind will not stop">Mind won&rsquo;t stop</a>
+        <a class="plans-plan-filter-chip" href="plans.html?plan=universityexhaustion" title="When body and soul are weary">Weary</a>
+        <a class="plans-plan-filter-chip" href="plans.html?plan=universityanger" title="When anger rises">Anger rises</a>
+        <a class="plans-plan-filter-chip" href="plans.html?plan=griefhope" title="When grief is heavy">Grief is heavy</a>
+        <a class="plans-plan-filter-chip" href="plans.html?plan=universityregret" title="When yesterday replays">Replay yesterday</a>
+        <a class="plans-plan-filter-chip" href="plans.html?plan=peace" title="When you need a quiet pace">Need quiet</a>
+        <a class="plans-plan-filter-chip" href="plans.html?plan=heavyhope" title="When the mind lies heavy">Mind lies heavy</a>
+        <a class="plans-plan-filter-chip" href="plans.html?plan=heartalone" title="When the heart feels alone">Heart alone</a>
+      </nav>
+      </div>
       <nav class="plans-plan-filter-bar plans-plan-filter-bar--tertiary" aria-label="Jump to plans by season of the year">
         <span class="plans-plan-filter-label">By season</span>
         <a class="plans-plan-filter-chip" href="#plans-browse-winter">Winter</a>
@@ -1507,6 +1533,7 @@
       <nav class="plans-onpage-nav" aria-label="On this page">
         <p class="plans-onpage-nav__label" id="plans-onpage-toc-label">On this page</p>
         <ul class="plans-onpage-nav__list" aria-labelledby="plans-onpage-toc-label">
+          <li><a href="#plans-browse-by-feeling">By feeling</a></li>
           <li><a href="#plans-browse-by-season">Browse by season</a></li>
           <li><a href="#plans-recommended-today-heading">Right now</a></li>
           <li><a href="#plans-start-here-title">Start here</a></li>

@@ -52,6 +52,17 @@
       .acu-onpage__list { display: flex; flex-wrap: wrap; gap: 0.4rem 0.55rem; list-style: none; margin: 0; padding: 0; justify-content: center; }
       .acu-onpage__list a { display: inline-flex; align-items: center; min-height: 44px; padding: 0.25rem 0.65rem; border-radius: 999px; font-size: 0.86rem; font-weight: 600; text-decoration: none; color: rgba(226, 232, 240, 0.92); border: 1px solid rgba(227, 188, 103, 0.22); background: rgba(12, 16, 26, 0.55); }
     }
+    .acu-readaloud { max-width: 40rem; margin: 1.5rem auto 0; padding: 1.2rem 1.25rem; border-radius: 16px; border: 1px solid color-mix(in srgb, var(--gold) 20%, var(--line)); background: color-mix(in srgb, var(--bg) 96%, #121018); }
+    .acu-readaloud h3 { color: var(--gold); font-size: 1.05rem; margin: 0 0 0.65rem; }
+    .acu-readaloud blockquote { margin: 0; padding: 0; border: none; font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.12rem; line-height: 1.5; color: #e8e4d9; font-style: italic; }
+    .acu-readaloud .acu-cite { display: block; margin-top: 0.75rem; font-size: 0.88rem; font-style: normal; color: var(--muted); }
+    .acu-readaloud .acu-readaloud-hint { margin: 0.75rem 0 0; font-size: 0.88rem; color: var(--muted); }
+    .acu-prompts { max-width: 44rem; margin: 1.5rem auto 0; padding: 1.15rem 1.2rem; border-radius: 16px; border: 1px solid color-mix(in srgb, var(--gold) 16%, var(--line)); }
+    .acu-prompts h3 { color: var(--gold); font-size: 1.02rem; margin: 0 0 0.5rem; }
+    .acu-prompts p { margin: 0 0 0.6rem; font-size: 0.9rem; color: var(--muted); }
+    .acu-prompts ul { margin: 0.5rem 0 0; padding: 0 0 0 1.1rem; font-size: 0.88rem; line-height: 1.5; color: var(--text); }
+    .acu-prompts .acu-prompts-tool { margin: 0.75rem 0 0; font-size: 0.88rem; }
+    .acu-prompts .acu-prompts-tool a { color: var(--gold); }
   </style>
 </head>
 <body class="dark-mode tdb-inner-page">
@@ -110,6 +121,8 @@
           <li><a href="#acu-advent">Advent</a></li>
           <li><a href="#acu-christmas">Christmas</a></li>
           <li><a href="#acu-family">Family &amp; print</a></li>
+          <li><a href="#acu-readaloud">Read-aloud</a></li>
+          <li><a href="#acu-prompts">Image prompts</a></li>
         </ul>
       </nav>
     </div>
@@ -142,6 +155,26 @@
         <p>Ink-friendly sheets: <a href="/evening-university-print.html" style="color:var(--gold)">four evening nights</a>, <a href="/one-week-in-the-university-print.html" style="color:var(--gold)">one week in the University</a>, or <a href="/morning-evening-family-print.html" style="color:var(--gold)">morning &amp; evening two-card</a>. Full list: <a href="/printables.html" style="color:var(--gold)">Print hub</a>.</p>
         <a href="/printables.html" class="btn-rhythm">Open print hub</a>
       </div>
+    </div>
+
+    <div id="acu-readaloud" class="acu-readaloud" tabindex="-1" aria-labelledby="acu-readaloud-h">
+      <h3 id="acu-readaloud-h">Family read-aloud (one minute)</h3>
+      <blockquote>
+        And the angel said unto them, Fear not: for, behold, I bring you good tidings of great joy, which shall be to all people. For unto you is born this day in the city of David a Saviour, which is Christ the Lord.
+      </blockquote>
+      <p class="acu-cite">Luke 2:10&ndash;11, <abbr title="King James Version">KJV</abbr></p>
+      <p class="acu-readaloud-hint">No discussion required&mdash;read once at the table or by the tree, then hush. Little ones can draw a star or angel afterward if the day allows.</p>
+    </div>
+
+    <div id="acu-prompts" class="acu-prompts" tabindex="-1" aria-labelledby="acu-prompts-h">
+      <h3 id="acu-prompts-h">Gentle verse-image prompts</h3>
+      <p>Three calm backgrounds for <a href="/verse-image.html" style="color:var(--gold)">Verse image</a>&mdash;paste a prompt, add your <abbr title="King James Version">KJV</abbr> line, print or share.</p>
+      <ul>
+        <li>Single candle in a deep window at blue hour&mdash;frost on glass, one star Prussian-clear outside, no faces; hope without noise.</li>
+        <li>Straw and wool texture close-up, warm lamplight only, a rough beam overhead&mdash;Word becoming flesh, humble, no crowd legible in frame.</li>
+        <li>Empty village path in snow, one set of small footprints leading toward a dim stable-glow&mdash;waiting, not performance.</li>
+      </ul>
+      <p class="acu-prompts-tool">More University prompts (all seasons): <a href="/verse-image.html#verse-image-uog-prompts">Verse image &rarr; University of God</a>.</p>
     </div>
 
     <p class="acu-more" id="acu-map"><a href="/university.html#uog-advent-christmas">University map &rarr; Advent &amp; Christmas</a> &nbsp;&middot;&nbsp; <a href="/seasonal.html#christmas">Seasonal paths &rarr; Christmas</a> &nbsp;&middot;&nbsp; <a href="/plans.html#plans-browse-by-season">Courses &rarr; browse by season</a></p>

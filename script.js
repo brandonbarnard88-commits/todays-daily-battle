@@ -24038,9 +24038,9 @@ function scrollTdbSearchSurfaceIntoView() {
 
 /** Scroll the results bucket into view; homepage uses #feel-results (centered), other pages use #output. */
 function scrollTdbSearchResultsIntoView() {
-  try {
-    if (window.__tdbSuppressNextSearchScroll) return;
-  } catch (_) {}
+  /* Intentionally does NOT respect __tdbSuppressNextSearchScroll: feel-topic flow suppresses
+   * scrollTdbSearchSurfaceIntoView for ~600ms so the instant card is not jumped away, but
+   * Ask The Word / #feel-results must still scroll into view or users never see the results. */
   var fr = document.getElementById('feel-results');
   var out = typeof getSearchOutputElement === 'function' ? getSearchOutputElement() : document.getElementById('output');
   var el = fr || out;
@@ -25368,6 +25368,11 @@ function buildHomeVerseCard(output, verse, queryText) {
   card.appendChild(versePreview);
 
   var plainMeaning = typeof getPlainMeaning === 'function' ? getPlainMeaning(verse.ref) : '';
+  if (!plainMeaning && typeof getVerseBreakdown === 'function') {
+    var vtext = stripHtmlToPlainText(verse.text || '');
+    var autoBd = getVerseBreakdown(verse.ref, vtext, null);
+    if (autoBd && autoBd.layman) plainMeaning = String(autoBd.layman).trim();
+  }
   if (plainMeaning) {
     var plainMeaningEl = document.createElement('p');
     plainMeaningEl.className = 'verse-plain-meaning home-search-card-plain';

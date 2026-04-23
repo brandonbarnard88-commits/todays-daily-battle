@@ -17522,6 +17522,10 @@ html[data-theme="sepia"] .home-qa-title {
 
 .home-search-card-plain {
   margin: 0;
+  /* Stronger than global .verse-plain-meaning (muted slate) for dark hero cards */
+  color: var(--text-muted, #cbd5e1) !important;
+  font-style: normal;
+  line-height: 1.65;
 }
 
 .home-search-card-teaser {

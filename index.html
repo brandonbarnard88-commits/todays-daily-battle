@@ -4033,6 +4033,73 @@
       text-underline-offset: 2px;
     }
 
+    /* Quiet “three doors” under today’s verse — onboarding without replacing Ask The Word / quick topics */
+    .tdb-home-companion-doors {
+      margin: 1.15rem auto 0;
+      max-width: 42rem;
+      padding: 0 0.35rem;
+    }
+    .tdb-companion-doors-vis-h2 {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    .tdb-home-companion-doors-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    @media (min-width: 640px) {
+      .tdb-home-companion-doors-list {
+        flex-direction: row;
+        gap: 0.75rem;
+        align-items: stretch;
+      }
+      .tdb-home-companion-doors-list > li {
+        flex: 1;
+        min-width: 0;
+      }
+    }
+    .tdb-companion-door {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      min-height: 44px;
+      padding: 0.85rem 1rem;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--gold) 28%, var(--line));
+      background: color-mix(in srgb, var(--card) 92%, transparent);
+      text-decoration: none;
+      color: var(--text);
+      box-sizing: border-box;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+    .tdb-companion-door:hover,
+    .tdb-companion-door:focus-visible {
+      border-color: color-mix(in srgb, var(--gold) 55%, var(--line));
+      background: color-mix(in srgb, var(--gold) 8%, var(--card));
+    }
+    .tdb-companion-door-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--gold-soft);
+    }
+    .tdb-companion-door-desc {
+      font-size: 0.82rem;
+      line-height: 1.45;
+      color: var(--muted);
+      margin: 0;
+    }
+
     /* New warmer first-time onboarding card (audit #1 + #2) — serene, family-first, God-tier quality */
     .tdb-new-here-card {
       margin: 0.75rem 0 1.1rem;
@@ -7842,6 +7909,7 @@
       <a class="tdb-home-quickbar-link" href="/mystudy">My Study</a>
       <a class="tdb-home-quickbar-link" href="/family.html">Family</a>
       <a class="tdb-home-quickbar-link" href="/give">Give</a>
+      <button type="button" class="tdb-home-quickbar-btn tdb-tour-open-btn" aria-label="Open the calm 60-second site tour">Tour</button>
       <button type="button" class="tdb-home-quickbar-btn" data-tdb-theme-toggle="home_quickbar" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Appearance</span></button>
     </nav>
 
@@ -8211,6 +8279,29 @@
       <a href="#tdb-home-votm" class="tdb-float-memory-pill" id="tdb-float-memory-pill" hidden aria-label="Jump to verse of the month">Memory</a>
       <button type="button" class="tdb-float-share-verse" id="tdb-float-share-verse-home" aria-label="Share today’s verse">Share verse</button>
       </div><!-- /#hero-verse-wrap -->
+      <section class="tdb-home-companion-doors" id="tdb-home-companion-doors" aria-labelledby="tdb-companion-doors-heading">
+        <h2 class="tdb-companion-doors-vis-h2" id="tdb-companion-doors-heading">Three quiet doorways into Scripture</h2>
+        <ul class="tdb-home-companion-doors-list">
+          <li>
+            <a class="tdb-companion-door" href="#feel-section">
+              <span class="tdb-companion-door-title">What&rsquo;s weighing on you?</span>
+              <p class="tdb-companion-door-desc">Ask The Word by feeling&mdash;KJV with plain-English help for you and your kids.</p>
+            </a>
+          </li>
+          <li>
+            <a class="tdb-companion-door" href="plans.html">
+              <span class="tdb-companion-door-title">Open a Battle Plan</span>
+              <p class="tdb-companion-door-desc">Gentle 7&ndash;40 day rhythms for anxiety, grief, parenting, and other real fights.</p>
+            </a>
+          </li>
+          <li>
+            <a class="tdb-companion-door" href="daily-rhythm.html">
+              <span class="tdb-companion-door-title">Start your quiet rhythm</span>
+              <p class="tdb-companion-door-desc">Morning and evening anchors; My Study keeps notes and saved verses on this device.</p>
+            </a>
+          </li>
+        </ul>
+      </section>
       <section class="tdb-home-votm" id="tdb-home-votm" aria-labelledby="tdb-home-votm-heading" aria-describedby="tdb-home-votm-lead">
         <span id="verse-of-the-month" class="sr-only" tabindex="-1"></span>
         <h2 class="tdb-home-votm-h" id="tdb-home-votm-heading">Verse of the month</h2>
@@ -9531,20 +9622,19 @@
         }
       })();
 
-      // ── Dynamic <title> + <meta description> for SEO & sharing (aligned with script.js updateDailyVerseWhispers) ──
+      // ── Dynamic <title> + <meta description> + JSON-LD (keyword-rich tab + share; crawlers still see static fallbacks in <head>) ──
       (function() {
         if (!v.ref) return;
         var ref = v.ref;
         var plain = String(v.text || '').replace(/\s+/g, ' ').trim();
         var snippet = plain.length > 120 ? plain.slice(0, 117) + '\u2026' : plain;
         var shareDesc = snippet ? '\u201c' + snippet + '\u201d \u2014 ' + ref + ' KJV' : 'Today\u2019s KJV verse: ' + ref + '. Search and plans, works offline.';
-        var title = 'Today\u2019s Verse \u2014 KJV Daily Help \u2014 ' + ref;
+        var title = ref + ' KJV \u2014 Quiet help for today\u2019s battle | Today\u2019s Daily Battle';
         document.title = title;
         var metaDesc = document.querySelector('meta[name="description"]');
         var seoDesc =
-          'Today\u2019s KJV verse: ' +
           ref +
-          '. Search by how you feel, reading plans, and offline support. No ads, no login.';
+          ' (KJV) \u2014 today\u2019s verse for anxiety, grief, parenting, and hard days. Ask The Word, battle plans, reader, memorize. No ads, no login.';
         if (metaDesc) metaDesc.setAttribute('content', seoDesc);
         var og = ['og:title', 'twitter:title'];
         og.forEach(function(p) {
@@ -9556,6 +9646,24 @@
           var el = document.querySelector('meta[property="' + p + '"], meta[name="' + p + '"]');
           if (el) el.setAttribute('content', shareDesc);
         });
+        try {
+          var prevLd = document.getElementById('tdb-home-daily-verse-jsonld');
+          if (prevLd && prevLd.parentNode) prevLd.parentNode.removeChild(prevLd);
+          var ld = document.createElement('script');
+          ld.type = 'application/ld+json';
+          ld.id = 'tdb-home-daily-verse-jsonld';
+          ld.textContent = JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline: ref + ' (KJV) \u2014 Today\u2019s verse',
+            description: shareDesc,
+            inLanguage: 'en',
+            isPartOf: { '@type': 'WebSite', name: "Today's Daily Battle", url: 'https://todaysdailybattle.com/' },
+            mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://todaysdailybattle.com/' },
+            dateModified: new Date().toISOString().slice(0, 10)
+          });
+          document.head.appendChild(ld);
+        } catch (eLd) {}
       })();
 
       // ── Bullet breakdown (legacy lines) — hide if we have rich panels ──

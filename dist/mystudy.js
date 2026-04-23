@@ -274,6 +274,13 @@
         if (u) addFromIso(u);
       }
     } catch (e3) {}
+    try {
+      var vis = JSON.parse(localStorage.getItem('tdb_quiet_visit_days_v1') || '[]');
+      var vi;
+      if (Array.isArray(vis)) {
+        for (vi = 0; vi < vis.length; vi++) addFromIso(vis[vi]);
+      }
+    } catch (e4) {}
     return set;
   }
 

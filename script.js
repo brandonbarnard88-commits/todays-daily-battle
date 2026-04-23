@@ -794,9 +794,9 @@ var TDB_WELCOME_TOUR_ANCHORS = {
   home: [
     '#tdb-primary-nav-toggle-home',
     '#hero-verse-wrap',
-    '#tdb-sticky-wayfind',
-    '#tdb-sticky-wayfind a[href="/prayer-wall.html"]',
-    '#tdb-sticky-wayfind a[href*="kids/index"]'
+    '#feel-section',
+    '#tdb-sticky-wayfind a[href="/plans.html"]',
+    '#tdb-home-companion-doors'
   ],
   verse: [
     '#tdb-primary-nav-toggle',
@@ -813,6 +813,206 @@ var TDB_WELCOME_TOUR_ANCHORS = {
     '#kids'
   ]
 };
+
+/** Device-local: gentle visit dot when English home loads (My Study calendar). */
+function tdbRecordQuietVisitDay() {
+  if (!tdbIsHomePage()) return;
+  try {
+    var d = new Date();
+    var iso =
+      d.getFullYear() +
+      '-' +
+      String(d.getMonth() + 1).padStart(2, '0') +
+      '-' +
+      String(d.getDate()).padStart(2, '0');
+    var k = 'tdb_quiet_visit_days_v1';
+    var arr = JSON.parse(localStorage.getItem(k) || '[]');
+    if (!Array.isArray(arr)) arr = [];
+    if (arr.indexOf(iso) === -1) arr.push(iso);
+    if (arr.length > 120) arr = arr.slice(-120);
+    localStorage.setItem(k, JSON.stringify(arr));
+  } catch (e) {}
+}
+
+function tdbGetMemorizeDueCountSafe() {
+  try {
+    if (window.TDBStudyCompanion && typeof window.TDBStudyCompanion.countMemorizeDue === 'function') {
+      return Number(window.TDBStudyCompanion.countMemorizeDue()) || 0;
+    }
+  } catch (e) {}
+  return 0;
+}
+
+/** Mobile-first bottom bar on core tool routes (calm; no clutter on desktop). */
+function tdbMountBottomAppNav() {
+  if (typeof document === 'undefined' || !document.body) return;
+  if (document.getElementById('tdb-bottom-app-nav')) return;
+  if (document.body.classList.contains('no-tdb-bottom-nav')) return;
+  var rawPath = window.location && window.location.pathname ? String(window.location.pathname) : '/';
+  var path = rawPath.replace(/\/$/, '') || '/';
+  var allowed =
+    path === '/' ||
+    path === '/index.html' ||
+    /^\/verse(\.html)?$/i.test(path) ||
+    /^\/reader(\.html)?$/i.test(path) ||
+    /^\/plans(\.html)?$/i.test(path) ||
+    /^\/mystudy(\.html)?$/i.test(path) ||
+    /^\/memorize(\.html)?$/i.test(path);
+  if (!allowed) return;
+
+  function injectNavCss() {
+    if (document.getElementById('tdb-bottom-app-nav-style')) return;
+    var st = document.createElement('style');
+    st.id = 'tdb-bottom-app-nav-style';
+    st.textContent =
+      '#tdb-bottom-app-nav{position:fixed;left:0;right:0;bottom:0;z-index:99990;display:none;' +
+      'align-items:stretch;justify-content:space-around;gap:0;' +
+      'padding:0.35rem max(0.5rem,env(safe-area-inset-right)) calc(0.35rem + env(safe-area-inset-bottom,0px)) max(0.5rem,env(safe-area-inset-left));' +
+      'border-top:1px solid rgba(227,188,103,.22);background:rgba(10,12,20,.94);backdrop-filter:blur(8px);' +
+      '-webkit-backdrop-filter:blur(8px);box-sizing:border-box;font-family:Inter,system-ui,sans-serif}' +
+      'body.tdb-has-bottom-app-nav{padding-bottom:calc(3.25rem + env(safe-area-inset-bottom,0px))}' +
+      '#tdb-bottom-app-nav a{flex:1;min-width:0;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;' +
+      'gap:0.15rem;padding:0.35rem 0.2rem;font-size:0.62rem;font-weight:600;color:#e2e8f0;text-decoration:none;' +
+      'border-radius:10px;line-height:1.15;text-align:center}' +
+      '#tdb-bottom-app-nav a[aria-current="page"]{color:#fde68a;background:rgba(227,188,103,.12)}' +
+      '#tdb-bottom-app-nav a:focus-visible{outline:2px solid rgba(227,188,103,.65);outline-offset:1px}' +
+      '#tdb-bottom-app-nav .tdb-bnav-lbl{max-width:4.2rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}' +
+      '#tdb-bottom-app-nav .tdb-bnav-ic{font-size:1.05rem;line-height:1}' +
+      '#tdb-bottom-app-nav .tdb-bottom-nav-badge{position:absolute;top:1px;right:10%;min-width:1rem;height:1rem;padding:0 4px;' +
+      'border-radius:999px;background:#b45309;color:#fff;font-size:0.55rem;font-weight:800;line-height:1rem;text-align:center}' +
+      '@media (max-width:900px){#tdb-bottom-app-nav{display:flex}}' +
+      '@media (prefers-reduced-motion:reduce){#tdb-bottom-app-nav{backdrop-filter:none;-webkit-backdrop-filter:none}}';
+    document.head.appendChild(st);
+  }
+
+  function navPathKind() {
+    if (path === '/' || path === '/index.html') return 'home';
+    if (/^\/verse/i.test(path)) return 'verse';
+    if (/^\/reader/i.test(path)) return 'reader';
+    if (/^\/plans/i.test(path)) return 'plans';
+    if (/^\/mystudy/i.test(path)) return 'mystudy';
+    if (/^\/memorize/i.test(path)) return 'memorize';
+    return '';
+  }
+
+  injectNavCss();
+  var nav = document.createElement('nav');
+  nav.id = 'tdb-bottom-app-nav';
+  nav.setAttribute('aria-label', 'Quick links — core Bible tools');
+
+  var cur = navPathKind();
+  var items = [
+    { href: '/', label: 'Home', ic: '🏠', key: 'home' },
+    { href: '/verse.html', label: 'Verse', ic: '☀️', key: 'verse' },
+    { href: '/reader.html', label: 'Reader', ic: '📖', key: 'reader' },
+    { href: '/plans.html', label: 'Plans', ic: '🗓️', key: 'plans' },
+    { href: '/mystudy', label: 'Study', ic: '📌', key: 'mystudy', badge: true },
+    { href: '/explore.html#start-here', label: 'More', ic: '🗺️', key: 'more' }
+  ];
+  items.forEach(function (it) {
+    var a = document.createElement('a');
+    a.href = it.href;
+    var ic = document.createElement('span');
+    ic.className = 'tdb-bnav-ic';
+    ic.setAttribute('aria-hidden', 'true');
+    ic.textContent = it.ic;
+    var lbl = document.createElement('span');
+    lbl.className = 'tdb-bnav-lbl';
+    lbl.textContent = it.label;
+    a.appendChild(ic);
+    a.appendChild(lbl);
+    if (it.key === cur) a.setAttribute('aria-current', 'page');
+    if (it.badge) {
+      var b = document.createElement('span');
+      b.className = 'tdb-bottom-nav-badge';
+      b.id = 'tdb-bottom-nav-mem-badge';
+      b.hidden = true;
+      a.appendChild(b);
+    }
+    nav.appendChild(a);
+  });
+
+  document.body.appendChild(nav);
+  document.body.classList.add('tdb-has-bottom-app-nav');
+
+  function syncBadge() {
+    var b = document.getElementById('tdb-bottom-nav-mem-badge');
+    if (!b) return;
+    var n = tdbGetMemorizeDueCountSafe();
+    if (n > 0) {
+      b.hidden = false;
+      b.textContent = n > 8 ? '9+' : String(n);
+      b.setAttribute('aria-label', n === 1 ? '1 verse ready for gentle review' : n + ' verses ready for gentle review');
+    } else {
+      b.hidden = true;
+      b.textContent = '';
+      b.removeAttribute('aria-label');
+    }
+  }
+  syncBadge();
+  setInterval(syncBadge, 20000);
+  window.addEventListener('storage', syncBadge);
+  window.addEventListener('focus', syncBadge);
+}
+
+function wireReaderBookQuickJump() {
+  var input = document.getElementById('reader-book-quick');
+  var sel = document.getElementById('reader-book');
+  if (!input || !sel || input.dataset.tdbWiredQuick === '1') return;
+  input.dataset.tdbWiredQuick = '1';
+  function bookOrder() {
+    var o = typeof getBibleBookOrder === 'function' ? getBibleBookOrder() : [];
+    if (o && o.length) return o;
+    if (typeof bookIndex === 'object' && bookIndex) return Object.keys(bookIndex);
+    if (typeof READER_CHAPTER_COUNTS === 'object' && READER_CHAPTER_COUNTS) return Object.keys(READER_CHAPTER_COUNTS);
+    return [];
+  }
+  function applyPick(book) {
+    if (!book) return false;
+    var opts = sel.querySelectorAll('option');
+    var i;
+    for (i = 0; i < opts.length; i++) {
+      if (opts[i].value === book) {
+        sel.value = book;
+        sel.dispatchEvent(new Event('change', { bubbles: true }));
+        return true;
+      }
+    }
+    return false;
+  }
+  input.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter') return;
+    e.preventDefault();
+    var q = String(input.value || '')
+      .trim()
+      .toLowerCase();
+    if (!q) return;
+    var books = bookOrder();
+    var bi;
+    var exact = null;
+    for (bi = 0; bi < books.length; bi++) {
+      if (String(books[bi]).toLowerCase() === q) {
+        exact = books[bi];
+        break;
+      }
+    }
+    if (exact && applyPick(exact)) {
+      input.value = '';
+      return;
+    }
+    var starts = books.filter(function (b) {
+      return String(b).toLowerCase().indexOf(q) === 0;
+    });
+    if (starts.length === 1 && applyPick(starts[0])) {
+      input.value = '';
+      return;
+    }
+    var contains = books.filter(function (b) {
+      return String(b).toLowerCase().indexOf(q) !== -1;
+    });
+    if (contains.length >= 1 && applyPick(contains[0])) input.value = '';
+  });
+}
 
 function tdbGetWelcomeTourAnchorSelector(pageTag, stepIndex) {
   if (pageTag !== 'home' && pageTag !== 'verse' && pageTag !== 'explore') return null;
@@ -841,28 +1041,52 @@ function openTdbWelcomeTour(opts) {
   }
 
   var pageTag = getWelcomeTourPageTag();
-  var steps = [
-    {
-      title: 'Welcome',
-      body: 'Spring 2026 steadied the phone menu, clarified the welcome on home, verse, and explore, and added short parent summaries beside family rooms. Scripture stays first\u2014no feed, no hype. You can reopen this anytime from \u201cSite tour\u201d in the header.'
-    },
-    {
-      title: 'Today\u2019s Verse',
-      body: 'Read today\u2019s KJV verse, listen, save it to My Study, or share it. Text size and chapter reading stay close when you need them.'
-    },
-    {
-      title: 'Save and rhythm',
-      body: 'My Study keeps what you need near. Battle Plans offer a gentle day-by-day rhythm for hard weeks\u2014and Explore lists every door without hiding anything.'
-    },
-    {
-      title: 'Prayer',
-      body: 'One honest line can rest on the wall\u2014private on this device\u2014or you can read quiet lines from others when you are ready.'
-    },
-    {
-      title: 'Kids, family, support',
-      body: 'Kids & Family holds stories and lighter tools for little ones; parents get calm summaries alongside. If this place helped you, the Support page explains giving before you choose an amount.'
-    }
-  ];
+  var steps =
+    pageTag === 'home'
+      ? [
+          {
+            title: 'Welcome',
+            body: 'About a minute, four gentle stops\u2014today\u2019s verse, Ask The Word, a Battle Plan door, then My Study and quiet rhythm. Skip anytime. Reopen from Tour on the quick bar or Explore\u2019s Site tour.'
+          },
+          {
+            title: 'Today\u2019s verse',
+            body: 'Your daily KJV anchor lands here: listen, save to My Study, share, or jump to the full chapter\u2014still KJV, still private by default.'
+          },
+          {
+            title: 'Ask The Word',
+            body: 'Heavy, worried, or numb? Search Scripture by how you feel\u2014plain-English breakdowns for you and for kids. No performance; just the Word.'
+          },
+          {
+            title: 'Battle Plans',
+            body: 'Pick a gentle 7\u201340 day track for real fights (anxiety, grief, parenting, and more). Progress stays on this device unless you choose sync.'
+          },
+          {
+            title: 'My Study & rhythm',
+            body: 'My Study is your home base for saved verses, notes, and memorize. Daily Rhythm offers quiet morning and evening anchors\u2014optional, never pushy.'
+          }
+        ]
+      : [
+          {
+            title: 'Welcome',
+            body: 'Spring 2026 steadied the phone menu, clarified the welcome on home, verse, and explore, and added short parent summaries beside family rooms. Scripture stays first\u2014no feed, no hype. You can reopen this anytime from \u201cSite tour\u201d in the header.'
+          },
+          {
+            title: 'Today\u2019s Verse',
+            body: 'Read today\u2019s KJV verse, listen, save it to My Study, or share it. Text size and chapter reading stay close when you need them.'
+          },
+          {
+            title: 'Save and rhythm',
+            body: 'My Study keeps what you need near. Battle Plans offer a gentle day-by-day rhythm for hard weeks\u2014and Explore lists every door without hiding anything.'
+          },
+          {
+            title: 'Prayer',
+            body: 'One honest line can rest on the wall\u2014private on this device\u2014or you can read quiet lines from others when you are ready.'
+          },
+          {
+            title: 'Kids, family, support',
+            body: 'Kids & Family holds stories and lighter tools for little ones; parents get calm summaries alongside. If this place helped you, the Support page explains giving before you choose an amount.'
+          }
+        ];
 
   function injectTourCssOnce() {
     if (document.getElementById('tdb-welcome-tour-style')) return;
@@ -25839,6 +26063,7 @@ function sanitizeNudgeElements() {
 async function tdbInitImpl() {
   if (!document.body) return;
   dedupeStickyWayfindBars();
+  tdbRecordQuietVisitDay();
   try {
     highlightCurrentNav();
   } catch (_) {}
@@ -31073,7 +31298,9 @@ async function tdbInitImpl() {
     setTimeout(run, 400);
     setTimeout(run, 1500);
     if (typeof wireReaderCompanionChrome === 'function') wireReaderCompanionChrome();
+    wireReaderBookQuickJump();
   })();
+  tdbMountBottomAppNav();
 }
 function wireRandomBattleVerseHero() {
   var wrap = document.getElementById('daily-verse');

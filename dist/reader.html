@@ -499,6 +499,24 @@
     .reader-wordstudy-open-link:hover, .reader-wordstudy-open-link:focus-visible { color: #fde68a; outline: none; }
     body.reader-xrefs-open,
     body.reader-wordstudy-open { overflow: hidden; }
+    .reader-book-jump-wrap {
+      grid-column: 1 / -1;
+      margin-bottom: 0.25rem;
+    }
+    .reader-book-jump-wrap input[type="search"] {
+      width: 100%;
+      max-width: 22rem;
+      margin-top: 0.35rem;
+      padding: 0.5rem 0.65rem;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      background: rgba(15, 23, 42, 0.55);
+      color: #e2e8f0;
+      font-family: inherit;
+      font-size: 0.95rem;
+      min-height: 44px;
+      box-sizing: border-box;
+    }
     .context-line.reader-verse-line--tts-active {
       box-shadow: inset 3px 0 0 0 rgba(227, 188, 103, 0.88);
       border-radius: 6px;
@@ -627,6 +645,18 @@
           <p class="section-note reader-one-chapter-today util-mb-0_75 util-mt-0" role="note"><strong>Read one chapter today:</strong> <a href="?book=Psalm&amp;chapter=1">Psalm 1</a><span aria-hidden="true"> · </span><a href="?book=Psalm&amp;chapter=23">Psalm 23</a><span aria-hidden="true"> · </span><a href="?book=Mark&amp;chapter=1">Mark 1</a><span aria-hidden="true"> · </span><a href="?book=Luke&amp;chapter=15">Luke 15</a><span aria-hidden="true"> · </span><a href="?book=John&amp;chapter=1">John 1</a><span aria-hidden="true"> · </span><a href="?book=Matthew&amp;chapter=11">Matthew 11</a><span aria-hidden="true"> · </span><a href="?book=Philippians&amp;chapter=4">Philippians 4</a><span aria-hidden="true"> · </span><a href="?book=Romans&amp;chapter=8">Romans 8</a><span aria-hidden="true"> · </span><a href="?book=Proverbs&amp;chapter=3">Proverbs 3</a> — or choose any book above.</p>
           <div class="reader-controls reader-controls-panel">
             <div class="reader-pickers">
+              <div class="reader-book-jump-wrap">
+                <label for="reader-book-quick">Find a book</label>
+                <input
+                  id="reader-book-quick"
+                  type="search"
+                  enterkeyhint="go"
+                  autocomplete="off"
+                  placeholder="e.g. Psalm, 1 Corinthians…"
+                  aria-label="Type a Bible book name and press Enter to jump"
+                />
+                <p class="section-note util-mb-0 util-mt-0_35" style="font-size:0.8rem">Matches the first KJV book that fits what you typed.</p>
+              </div>
               <div>
                 <label for="reader-book">Book</label>
                 <select id="reader-book" aria-label="Choose book"></select>

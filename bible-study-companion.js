@@ -389,6 +389,14 @@
     return rows;
   }
 
+  /** Count of memorize cards whose gentle next review time has arrived (device-local). */
+  function countMemorizeDue() {
+    var now = Date.now();
+    return listMemorizeQueue().filter(function (r) {
+      return r.dueAt <= now;
+    }).length;
+  }
+
   function collectAllTags() {
     var m = loadMeta();
     var seen = {};
@@ -762,6 +770,7 @@
     markMemorizeReviewed: markMemorizeReviewed,
     setMemorizeNextReviewInDays: setMemorizeNextReviewInDays,
     listMemorizeQueue: listMemorizeQueue,
+    countMemorizeDue: countMemorizeDue,
     collectAllTags: collectAllTags,
     getDashboardStats: getDashboardStats,
     openPrintableNotes: openPrintableNotes,

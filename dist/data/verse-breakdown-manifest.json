@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-23T23:11:10.182Z",
+  "generatedAt": "2026-04-23T23:20:43.466Z",
   "surfacedRefCount": 2922,
   "overrideCount": 2922,
   "sourceCounts": {
@@ -256,7 +256,7 @@
       "pairs": 0
     },
     "family-rhythm.html": {
-      "refs": 8,
+      "refs": 9,
       "pairs": 0
     },
     "faq.html": {
@@ -900,7 +900,7 @@
       "pairs": 0
     },
     "start-the-year-in-the-word.html": {
-      "refs": 5,
+      "refs": 6,
       "pairs": 0
     },
     "stories.html": {
@@ -948,7 +948,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 53,
+      "refs": 54,
       "pairs": 0
     },
     "testimonials.html": {
@@ -1028,7 +1028,7 @@
       "pairs": 0
     },
     "university.html": {
-      "refs": 20,
+      "refs": 21,
       "pairs": 0
     },
     "utils.js": {

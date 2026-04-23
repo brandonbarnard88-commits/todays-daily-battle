@@ -112,6 +112,24 @@ main.tdb-calm-hub a:focus-visible {
 .tdb-january-quiet[hidden] {
   display: none !important;
 }
+.tdb-january-quiet--show {
+  animation: tdb-january-quiet-in 0.7s ease-out both;
+}
+@keyframes tdb-january-quiet-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tdb-january-quiet--show {
+    animation: none;
+  }
+}
 .tdb-january-quiet__eyebrow {
   margin: 0 0 0.2rem;
   font-size: 0.65rem;
@@ -139,6 +157,26 @@ main.tdb-calm-hub a:focus-visible {
   font-size: 1.04rem;
   line-height: 1.48;
   color: #e8e4d9;
+}
+.tdb-january-quiet__actions {
+  margin: 0.6rem 0 0;
+}
+.tdb-january-quiet__dismiss {
+  margin: 0;
+  padding: 0.4rem 0.65rem;
+  font-size: 0.8rem;
+  color: var(--muted, #a8a29e);
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--line, #2a2520) 88%, var(--gold, #d4af7b) 12%);
+  border-radius: 999px;
+  cursor: pointer;
+  min-height: 44px;
+}
+.tdb-january-quiet__dismiss:hover,
+.tdb-january-quiet__dismiss:focus-visible {
+  color: var(--text, #f5f4f0);
+  border-color: color-mix(in srgb, var(--gold, #d4af7b) 35%, var(--line, #2a2520));
+  outline: none;
 }
 .tdb-january-quiet__foot {
   margin: 0.65rem 0 0;

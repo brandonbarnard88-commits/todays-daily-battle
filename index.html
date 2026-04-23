@@ -2678,6 +2678,16 @@
       align-self: center;
     }
     .tdb-january-quiet[hidden] { display: none !important; }
+    .tdb-january-quiet--show {
+      animation: tdb-january-quiet-in 0.7s ease-out both;
+    }
+    @keyframes tdb-january-quiet-in {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .tdb-january-quiet--show { animation: none; }
+    }
     .tdb-january-quiet__eyebrow {
       margin: 0 0 0.2rem;
       font-size: 0.65rem;
@@ -2695,7 +2705,25 @@
       line-height: 1.48;
       color: #e8e4d9;
     }
-    .tdb-january-quiet__foot { margin: 0.65rem 0 0; font-size: 0.82rem; line-height: 1.5; color: var(--muted); }
+    .tdb-january-quiet__actions { margin: 0.6rem 0 0; }
+    .tdb-january-quiet__dismiss {
+      margin: 0;
+      padding: 0.4rem 0.65rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      background: transparent;
+      border: 1px solid color-mix(in srgb, var(--line) 88%, var(--gold) 12%);
+      border-radius: 999px;
+      cursor: pointer;
+      min-height: 44px;
+    }
+    .tdb-january-quiet__dismiss:hover,
+    .tdb-january-quiet__dismiss:focus-visible {
+      color: var(--text);
+      border-color: color-mix(in srgb, var(--gold) 35%, var(--line));
+      outline: none;
+    }
+    .tdb-january-quiet__foot { margin: 0.55rem 0 0; font-size: 0.82rem; line-height: 1.5; color: var(--muted); }
     .tdb-january-quiet__foot a { color: var(--gold); font-weight: 600; text-decoration: none; }
     .tdb-january-quiet__foot a:hover,
     .tdb-january-quiet__foot a:focus-visible { text-decoration: underline; outline: none; }
@@ -8666,6 +8694,9 @@
         <p class="tdb-january-quiet__label" id="tdb-january-quiet-label">One quiet verse for today</p>
         <p class="tdb-january-quiet__ref" data-tdb-january-quiet-ref></p>
         <p class="tdb-january-quiet__text" data-tdb-january-quiet-text></p>
+        <p class="tdb-january-quiet__actions">
+          <button type="button" class="tdb-january-quiet__dismiss" data-tdb-january-quiet-dismiss>Hide until next January</button>
+        </p>
         <p class="tdb-january-quiet__foot">Same rotation on the <a href="/university.html#uog-january-quiet">University map</a> &middot; <a href="/start-the-year-in-the-word.html">Start the year in the Word</a></p>
       </aside>
       <div class="tdb-home-resume" id="tdbHomeResume" role="region" aria-label="Your progress on this device" hidden></div>

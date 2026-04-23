@@ -1,8 +1,11 @@
 /**
  * One quiet KJV line per day in January (local calendar). Host: [data-tdb-january-quiet].
+ * Optional: [data-tdb-january-quiet-dismiss] — hide until next January 1 (local), stored in localStorage.
  */
 (function () {
   'use strict';
+
+  var STORAGE_KEY = 'tdbJanQuietHideUntil';
 
   var VERSES = [
     { ref: 'Lamentations 3:22-23 (KJV)', k: "It is of the Lord's mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness." },
@@ -38,7 +41,26 @@
     { ref: 'James 1:2-3 (KJV)', k: 'My brethren, count it all joy when ye fall into divers temptations; knowing this, that the trying of your faith worketh patience.' }
   ];
 
+  function nextJanuaryFirstMs() {
+    var n = new Date();
+    return new Date(n.getFullYear() + 1, 0, 1, 0, 0, 0, 0).getTime();
+  }
+
+  function isHiddenByChoice() {
+    var raw;
+    try {
+      raw = localStorage.getItem(STORAGE_KEY);
+    } catch (e) {
+      return false;
+    }
+    if (raw == null || raw === '') return false;
+    var ts = parseInt(raw, 10);
+    if (isNaN(ts)) return false;
+    return Date.now() < ts;
+  }
+
   function run() {
+    if (isHiddenByChoice()) return;
     var hosts = document.querySelectorAll('[data-tdb-january-quiet]');
     if (!hosts.length) return;
     var d = new Date();
@@ -50,12 +72,31 @@
     for (var i = 0; i < hosts.length; i++) {
       var el = hosts[i];
       el.removeAttribute('hidden');
+      el.classList.add('tdb-january-quiet--show');
       var refEl = el.querySelector('[data-tdb-january-quiet-ref]');
       var textEl = el.querySelector('[data-tdb-january-quiet-text]');
       if (refEl) refEl.textContent = v.ref.replace(' (KJV)', '');
       if (textEl) textEl.textContent = v.k;
     }
   }
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target && e.target.closest && e.target.closest('[data-tdb-january-quiet-dismiss]');
+    if (!btn) return;
+    e.preventDefault();
+    var until = nextJanuaryFirstMs();
+    try {
+      localStorage.setItem(STORAGE_KEY, String(until));
+    } catch (err) {}
+    var all = document.querySelectorAll('[data-tdb-january-quiet]');
+    for (var j = 0; j < all.length; j++) {
+      all[j].setAttribute('hidden', '');
+      all[j].classList.remove('tdb-january-quiet--show');
+    }
+    if (typeof window.trackEvent === 'function') {
+      window.trackEvent('tdb_january_quiet_dismiss', { area: 'january_quiet' });
+    }
+  });
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
   else run();

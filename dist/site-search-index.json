@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "generatedAt": "2026-04-23T12:17:15.651Z",
+  "generatedAt": "2026-04-23T12:48:07.123Z",
   "entries": [
     {
       "t": "Home — Today's Daily Battle",
@@ -31,6 +31,11 @@
       "t": "When Little Hearts Feel Big Fear (7 days)",
       "u": "/plans.html?plan=littlehearts",
       "k": "kids child anxiety worry parent family fear"
+    },
+    {
+      "t": "Peace for Restless Nights (7 days)",
+      "u": "/plans.html?plan=restlessnights",
+      "k": "sleep insomnia bedtime worry night rest"
     },
     {
       "t": "When Pain Won't Quit",

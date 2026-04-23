@@ -366,6 +366,10 @@ for (const f of otherHtml) {
       console.error('BUILD FAIL: plans.html must include When the Mind Lies Heavy plan (heavyhope / tdb-plan-heavyhope-day).');
       process.exit(1);
     }
+    if (!content.includes('universitywaiting') || !content.includes('tdb-plan-universitywaiting-day')) {
+      console.error('BUILD FAIL: plans.html must include The University of Waiting plan (universitywaiting / tdb-plan-universitywaiting-day).');
+      process.exit(1);
+    }
     if (!content.includes('cancercomfort') || !content.includes('tdb-plan-cancercomfort-day')) {
       console.error('BUILD FAIL: plans.html must include Cancer Comfort plan (cancercomfort / tdb-plan-cancercomfort-day).');
       process.exit(1);

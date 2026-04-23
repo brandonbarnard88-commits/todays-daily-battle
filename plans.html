@@ -1745,6 +1745,7 @@
         <p class="plans-editorial-picks-lead">Chosen by hand for common hard weeks—not a popularity score, not analytics. Same rhythm as everything else: one KJV verse a day, plain words, a step, a prayer.</p>
         <div class="plans-editorial-picks-row">
           <a class="plans-editorial-pick" href="plans.html?plan=firststeps"><span class="plans-editorial-pick-icon" aria-hidden="true">🌱</span> New believer — first steps</a>
+          <a class="plans-editorial-pick" href="plans.html?plan=universitywaiting"><span class="plans-editorial-pick-icon" aria-hidden="true">🕯️</span> University of Waiting</a>
           <a class="plans-editorial-pick" href="plans.html?plan=painwontquit"><span class="plans-editorial-pick-icon" aria-hidden="true">🩹</span> When pain won&rsquo;t quit</a>
           <a class="plans-editorial-pick" href="plans.html?plan=heavyhope"><span class="plans-editorial-pick-icon" aria-hidden="true">🌫️</span> When the mind lies heavy</a>
           <a class="plans-editorial-pick" href="plans.html?plan=heartalone"><span class="plans-editorial-pick-icon" aria-hidden="true">💞</span> When the heart feels alone</a>
@@ -2063,6 +2064,11 @@
           <span class="plan-row-icon" aria-hidden="true">🌅</span>
           <div class="plan-row-info"><h2>Hope in Uncertainty</h2><p>When the future wobbles—anchor, waiting, and quiet hope (distinct from the Trust plan, but they pair well).</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-hopeuncertain">Not started</span></div>
+        </a>
+        <a href="plans.html?plan=universitywaiting" class="plan-row" data-plan="universitywaiting" role="listitem" aria-label="The University of Waiting — 6 days">
+          <span class="plan-row-icon" aria-hidden="true">🕯️</span>
+          <div class="plan-row-info"><h2>The University of Waiting</h2><p>When the lesson feels long and the answer is &ldquo;not yet&rdquo;&mdash;six KJV days on courage, renewal, quiet hope, rest from comparison, God&rsquo;s schedule, and patience for what you cannot see.</p></div>
+          <div class="plan-row-meta"><span class="plan-badge">6 days</span><span class="plan-progress-pill" id="planPill-universitywaiting">Not started</span></div>
         </a>
         <a href="plans.html?plan=gospeljohn" class="plan-row" data-plan="gospeljohn" role="listitem" aria-label="Gospel of John Sampler — 7 days">
           <span class="plan-row-icon" aria-hidden="true">✝️</span>
@@ -2576,6 +2582,26 @@
             speaker: 'Jeremiah — in ruins — still finding mercy', plain: 'New mercies every morning. You don\'t have to have tomorrow figured out.', today: 'What are you trying to figure out that you don\'t need to know yet?', action: 'Receive today\'s mercy. That\'s enough for now.', prayer: 'Lord, new mercies this morning. Great is Thy faithfulness. Amen.' },
           { title: 'He holds the future', ref: 'Jeremiah 29:11', text: 'For I know the thoughts that I think toward you, saith the LORD, thoughts of peace, and not of evil, to give you an expected end.',
             speaker: 'God to exiles who couldn\'t see the end', plain: 'He has thoughts toward you. Thoughts of peace. An expected end.', today: 'After 7 days of trusting in uncertainty — what has shifted?', action: 'Write one sentence: what does trust feel like for you now? Offer it to Him.', prayer: 'Lord, I trust Your thoughts toward me. You hold my future. Amen.' }
+        ]
+      },
+
+      universitywaiting: {
+        id: 'universitywaiting', icon: '\uD83D\uDD6F\uFE0F', label: 'The University of Waiting',
+        desc: 'When the lesson feels long and the answer is "not yet." Six calm KJV days in the University of God — courage, renewal, quiet hope, rest from comparison, His appointed time, and patience with what we cannot see.',
+        key: 'tdb-plan-universitywaiting-day', max: 6,
+        days: [
+          { title: 'Courage while you wait', ref: 'Psalm 27:14', text: 'Wait on the LORD: be of good courage, and he shall strengthen thine heart: wait, I say, on the LORD.',
+            speaker: 'The psalmist, learning steadiness before God', plain: 'The first lesson in waiting is courage — not loud bravery, but the quiet strength that comes only from fixing our eyes on Him.', today: 'When the answer is "not yet," where does your gaze drift?', action: 'Read this verse twice, slowly. Whisper "wait" as a prayer, not a scold.', prayer: 'Lord, strengthen my heart while I wait on You. Amen.' },
+          { title: 'Renewed in the waiting room', ref: 'Isaiah 40:31', text: 'But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.',
+            speaker: 'Isaiah, to souls who feel delay has emptied them', plain: 'Waiting is not wasted time. It is the classroom where our strength is quietly renewed in ways we cannot manufacture.', today: 'What are you trying to force that may need yielding instead?', action: 'Take ten minutes off screens. Let "they that wait" be about you and the Lord, not a to-do list.', prayer: 'Father, renew my strength as I wait on You. Amen.' },
+          { title: 'Good, and hard', ref: 'Lamentations 3:25-26', text: 'The LORD is good unto them that wait for him, to the soul that seeketh him. It is good that a man should both hope and quietly wait for the salvation of the LORD.',
+            speaker: 'Jeremiah, after honest lament, still naming God\'s goodness', plain: 'Even when the heart aches, it is good — not easy, but good — to hope and wait quietly. The goodness belongs to the Lord, not the speed of the answer.', today: 'Name one ache without fixing it out loud — then name one true thing about who God is.', action: 'Write "quietly wait" on a card. Place it where you will see it at supper.', prayer: 'Lord, teach me to hope and quietly wait for Your salvation. Amen.' },
+          { title: 'Rest, not fret', ref: 'Psalm 37:7', text: 'Rest in the LORD, and wait patiently for him: fret not thyself because of him who prospereth in his way, because of the man who bringeth wicked devices to pass.',
+            speaker: 'David, warning his own soul away from comparison', plain: 'A gentle warning and invitation: stop the fretting, rest in Him. Comparison dies here.', today: 'Whose path are you watching instead of His face?', action: 'When comparison rises today, close your eyes one minute and return to "rest in the LORD."', prayer: 'God, I rest in You; quiet my fretting soul. Amen.' },
+          { title: 'On His schedule', ref: 'Habakkuk 2:3', text: 'For the vision is yet for an appointed time, but at the end it shall speak, and not lie: though it tarry, wait for it; because it will surely come, it will not tarry.',
+            speaker: 'Habakkuk, handed a vision slower than pain', plain: 'The vision has an appointed time. It may feel late to us, but it is right on the Teacher\'s schedule.', today: 'What promise feels slow that you can entrust to His clock?', action: 'Say aloud once in the morning and once at night: "Though it tarry, I will wait for it."', prayer: 'Lord, I wait for what You have spoken. Amen.' },
+          { title: 'Hope we cannot see', ref: 'Romans 8:25', text: 'But if we hope for that we see not, then do we with patience wait for it.',
+            speaker: 'Paul, to saints who groan with creation', plain: 'Hope and patience grow together in this class. We do not wait because we see — we wait because we trust the One we cannot yet see.', today: 'After six days, what one sentence do you want to tell Jesus about waiting tonight?', action: 'Ask one trusted person to pray you wait well — no fixing, just prayer.', prayer: 'Lord, teach me to wait well. Strengthen my heart, renew my strength, and help me rest in You while I learn this slow lesson. In Jesus\' name, Amen.' }
         ]
       },
 
@@ -3750,11 +3776,23 @@
       },
       hopeuncertain: {
         rows: [
+          { planId: 'universitywaiting', teaser: 'When the answer is not yet and the Teacher still holds the clock\u2026' },
           { planId: 'trust', teaser: 'When you need both hope and traction\u2026' },
           { planId: 'psalmscomfort', teaser: 'When your soul needs the Psalms\u2026' },
           { planId: 'doubtassurance', teaser: 'When questions crowd out confidence\u2026' },
           { planId: 'fearfaith', teaser: 'When fear runs ahead\u2026' },
           { planId: 'battle21', teaser: 'A longer daily rhythm\u2026' }
+        ],
+        showBoard: true
+      },
+      universitywaiting: {
+        rows: [
+          { planId: 'trust', teaser: 'When the path is unclear and you need daily traction\u2026' },
+          { planId: 'hopeuncertain', teaser: 'When hope needs an anchor for tomorrow\u2026' },
+          { planId: 'peace', teaser: 'When your soul won\u2019t settle\u2026' },
+          { planId: 'psalmscomfort', teaser: 'When the ache needs Psalm-shaped air\u2026' },
+          { planId: 'heavyhope', teaser: 'When the inner story still lies\u2026' },
+          { planId: 'griefhope', teaser: 'When sorrow and delay share one room\u2026' }
         ],
         showBoard: true
       },
@@ -3776,6 +3814,7 @@
       },
       sufferendure: {
         rows: [
+          { planId: 'universitywaiting', teaser: 'When delay is the lesson and you need a gentle six-day track\u2026' },
           { planId: 'hopeuncertain', teaser: 'When you need hope for what you cannot see\u2026' },
           { planId: 'painwontquit', teaser: 'When the body keeps shouting\u2026' },
           { planId: 'cancercomfort', teaser: 'When illness and fear share the same room\u2026' },

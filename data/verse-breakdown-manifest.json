@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-23T18:42:14.843Z",
-  "surfacedRefCount": 2874,
-  "overrideCount": 2874,
+  "generatedAt": "2026-04-23T19:11:29.309Z",
+  "surfacedRefCount": 2877,
+  "overrideCount": 2877,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -772,8 +772,8 @@
       "pairs": 1
     },
     "plans.html": {
-      "refs": 180,
-      "pairs": 143
+      "refs": 185,
+      "pairs": 149
     },
     "prayer-wall.html": {
       "refs": 1,
@@ -2099,6 +2099,7 @@
     "Genesis 9:27",
     "Habakkuk 1:2",
     "Habakkuk 2:18",
+    "Habakkuk 2:3",
     "Habakkuk 2:4",
     "Habakkuk 3:17",
     "Habakkuk 3:19",
@@ -2610,6 +2611,7 @@
     "Lamentations 3:24",
     "Lamentations 3:24-26",
     "Lamentations 3:25",
+    "Lamentations 3:25-26",
     "Leviticus 11:24",
     "Leviticus 11:29",
     "Leviticus 11:41",
@@ -3848,6 +3850,7 @@
     "Romans 8:2-3",
     "Romans 8:23",
     "Romans 8:24",
+    "Romans 8:25",
     "Romans 8:26",
     "Romans 8:26-27",
     "Romans 8:28",
@@ -3991,6 +3994,7 @@
     "John 14:16-17": "And I will pray the Father, and he shall give you another Comforter, that he may abide with you for ever; Even the Spirit of truth; whom the world cannot receive, because it seeth him not, neither knoweth him: but ye know him; for he dwelleth with you, and shall be in you.",
     "Lamentations 3:22-23": "Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
     "Lamentations 3:24-26": "The LORD is my portion, saith my soul; therefore will I hope in him. The LORD is good unto them that wait for him, to the soul that seeketh him. It is good that a man should both hope and quietly wait for the salvation of the LORD.",
+    "Lamentations 3:25-26": "The LORD is good unto them that wait for him, to the soul that seeketh him. It is good that a man should both hope and quietly wait for the salvation of the LORD.",
     "Luke 10:41-42": "And Jesus answered and said unto her, Martha, Martha, thou art careful and troubled about many things: But one thing is needful: and Mary hath chosen that good part, which shall not be taken away from her.",
     "Luke 17:15-16": "And one of them, when he saw that he was healed, turned back, and with a loud voice glorified God, And fell down on his face at his feet, giving him thanks: and he was a Samaritan.",
     "Luke 1:31-33": "And, behold, thou shalt conceive in thy womb, and bring forth a son, and shalt call his name JESUS. He shall be great, and shall be called the Son of the Highest: and the Lord God shall give unto him the throne of his father David: And he shall reign over the house of Jacob for ever; and of his kingdom there shall be no end.",
@@ -4178,7 +4182,7 @@
     "Psalm 26:1": "I have trusted also in the Lord; therefore I shall not slide.",
     "Psalm 27:1": "The Lord is my light and my salvation; whom shall I fear? the Lord is the strength of my life; of whom shall I be afraid?",
     "Psalm 27:10": "When my father and my mother forsake me, then the LORD will take me up.",
-    "Psalm 27:14": "Wait on the Lord: be of good courage, and he shall strengthen thine heart: wait, I say, on the Lord.",
+    "Psalm 27:14": "Wait on the LORD: be of good courage, and he shall strengthen thine heart: wait, I say, on the LORD.",
     "Psalm 27:4": "One thing have I desired of the Lord, that will I seek after; that I may dwell in the house of the Lord all the days of my life.",
     "Psalm 28:7": "The Lord is my strength and my shield; my heart trusted in him, and I am helped: therefore my heart greatly rejoiceth.",
     "Psalm 29:11": "The Lord will give strength unto his people; the Lord will bless his people with peace.",
@@ -4211,7 +4215,7 @@
     "Psalm 37:39": "But the salvation of the righteous is of the Lord: he is their strength in the time of trouble.",
     "Psalm 37:4": "Delight thyself also in the Lord; and he shall give thee the desires of thine heart.",
     "Psalm 37:5": "Commit thy way unto the LORD; trust also in him; and he shall bring it to pass.",
-    "Psalm 37:7": "Rest in the Lord, and wait patiently for him: fret not thyself because of him who prospereth in his way, because of the man who bringeth wicked devices to pass.",
+    "Psalm 37:7": "Rest in the LORD, and wait patiently for him: fret not thyself because of him who prospereth in his way, because of the man who bringeth wicked devices to pass.",
     "Psalm 37:8": "Cease from anger, and forsake wrath: fret not thyself in any wise to do evil.",
     "Psalm 40:1": "I waited patiently for the Lord; and he inclined unto me, and heard my cry.",
     "Psalm 40:1-2": "I waited patiently for the Lord; and he inclined unto me, and heard my cry. He brought me up also out of an horrible pit.",
@@ -12667,6 +12671,14 @@
         "to": "Judah"
       }
     },
+    "Habakkuk 2:3": {
+      "general": {
+        "plainExplanation": "For the vision is yet for an appointed time, but at the end it shall speak, and not lie: though it tarry, wait for it; because it will surely come, it will not tarry.",
+        "modernApplication": "This verse keeps your eyes up when the day feels slow, heavy, or unfinished.",
+        "about": "Habakkuk",
+        "to": "Judah"
+      }
+    },
     "Habakkuk 2:4": {
       "general": {
         "plainExplanation": "look, his soul which is lifted up is not upright in him: but the just shall live by his faith.",
@@ -16750,6 +16762,14 @@
     "Lamentations 3:25": {
       "general": {
         "plainExplanation": "The LORD is good to them that wait for him, to the soul that seeketh him.",
+        "modernApplication": "This verse keeps your eyes up when the day feels slow, heavy, or unfinished.",
+        "about": "Jeremiah",
+        "to": "Exiles"
+      }
+    },
+    "Lamentations 3:25-26": {
+      "general": {
+        "plainExplanation": "The LORD is good to them that wait for him, to the soul that seeketh him. It is good that a man should both hope and quietly wait for the salvation of the LORD.",
         "modernApplication": "This verse keeps your eyes up when the day feels slow, heavy, or unfinished.",
         "about": "Jeremiah",
         "to": "Exiles"
@@ -24429,7 +24449,7 @@
     },
     "Psalm 27:14": {
       "general": {
-        "plainExplanation": "Wait on the Lord: be of good courage, and he shall strengthen thine heart: wait, I say, on the Lord.",
+        "plainExplanation": "Wait on the LORD: be of good courage, and he shall strengthen thine heart: wait, I say, on the LORD.",
         "modernApplication": "This verse keeps your eyes up when the day feels slow, heavy, or unfinished.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"
@@ -24693,7 +24713,7 @@
     },
     "Psalm 37:7": {
       "general": {
-        "plainExplanation": "Rest in the Lord, and wait patiently for him: fret not thyself because of him who prospereth in his way, because of the man who bringeth wicked devices to pass.",
+        "plainExplanation": "Rest in the LORD, and wait patiently for him: fret not thyself because of him who prospereth in his way, because of the man who bringeth wicked devices to pass.",
         "modernApplication": "This verse keeps your eyes up when the day feels slow, heavy, or unfinished.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"
@@ -26654,6 +26674,14 @@
     "Romans 8:24": {
       "general": {
         "plainExplanation": "For we are saved by hope: but hope that is seen is not hope: for what a man seeth, why does he yet hope for?",
+        "modernApplication": "This verse keeps your eyes up when the day feels slow, heavy, or unfinished.",
+        "about": "Paul",
+        "to": "Rome"
+      }
+    },
+    "Romans 8:25": {
+      "general": {
+        "plainExplanation": "But if we hope for that we see not, then do we with patience wait for it.",
         "modernApplication": "This verse keeps your eyes up when the day feels slow, heavy, or unfinished.",
         "about": "Paul",
         "to": "Rome"

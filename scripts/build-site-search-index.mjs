@@ -17,6 +17,8 @@ const ENTRIES = [
   { t: "Home — Today's Daily Battle", u: '/', k: 'verse feel search daily' },
   { t: "Today's Verse", u: '/verse.html', k: 'kjv daily listen' },
   { t: 'Battle Plans library', u: '/plans.html', k: 'reading plan 7 day 30' },
+  { t: 'University of God — anchor map (KJV)', u: '/university.html', k: 'learn of me matthew 11 university map' },
+  { t: 'The University of Waiting (6 days)', u: '/plans.html?plan=universitywaiting', k: 'wait patience delay not yet hoping tarry' },
   { t: 'When the Mind Lies Heavy (7 days)', u: '/plans.html?plan=heavyhope', k: 'depression heavy fog hope psalm' },
   { t: 'When the Heart Feels Alone (7 days)', u: '/plans.html?plan=heartalone', k: 'singleness divorce loneliness widowed alone' },
   { t: 'When Little Hearts Feel Big Fear (7 days)', u: '/plans.html?plan=littlehearts', k: 'kids child anxiety worry parent family fear' },

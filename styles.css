@@ -4519,6 +4519,18 @@ html[data-theme="light"] .tdb-university-page .tdb-university-kjv {
   background: color-mix(in srgb, #fffdf7 96%, rgba(200, 160, 80, 0.08));
   border-left-color: color-mix(in srgb, #b8995a 70%, #d4d0c8);
 }
+.tdb-uog-deeper-course .tdb-uog-course-eyebrow {
+  margin: -0.25rem 0 0.6rem;
+  font-size: 0.88rem;
+  color: var(--text-muted, #8896b0);
+  letter-spacing: 0.02em;
+}
+.tdb-uog-deeper-course .tdb-uog-course-actions {
+  margin: 1rem 0 0;
+}
+html[data-theme="light"] .tdb-uog-deeper-course .tdb-uog-course-eyebrow {
+  color: #5a6578;
+}
 .brand-tagline {
   color: var(--elite-gold, #c9a227);
   font-size: 0.65rem;

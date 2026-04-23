@@ -798,19 +798,23 @@
 
     var curriculum = document.createElement('div');
     curriculum.className = 'tdb-vb-curriculum';
+    curriculum.setAttribute('data-tdb-vb-curriculum', '1');
     var curH = document.createElement('h4');
     curH.className = 'tdb-vb-curriculum-heading';
-    curH.appendChild(document.createTextNode('Related lessons'));
+    curH.id = 'tdb-vb-curriculum-h-' + uid;
+    curH.appendChild(document.createTextNode('Related lessons in the University'));
     var curSoft = document.createElement('p');
     curSoft.className = 'tdb-vb-uog-soft';
     curSoft.appendChild(
       document.createTextNode(
-        'The University of God is not a report card — it is Christ, one faithful passage at a time. When you are ready, these on-site courses walk the same words in order.'
+        'The University of God is not a report card — it is Christ, one faithful passage at a time. When you are ready, a few on-site courses echo what this verse opens up. Kid, teen, and adult only change the breakdown above; the links stay the same.'
       )
     );
     var curList = document.createElement('ul');
     curList.className = 'tdb-vb-curriculum-list';
     curList.setAttribute('data-tdb-vb-curriculum-list', '1');
+    curList.setAttribute('role', 'list');
+    curList.setAttribute('aria-labelledby', curH.id);
     curriculum.appendChild(curH);
     curriculum.appendChild(curSoft);
     curriculum.appendChild(curList);
@@ -934,13 +938,79 @@
         if (lazyApp) lazyApp.textContent = tdbPlainTextForUi(lazyBreakdown.applies || '—');
         if (lazyRel) lazyRel.textContent = tdbPlainTextForUi(lazyBreakdown.relates || buildRelationLine(topic, RELATIONS_FALLBACK));
         details.setAttribute('data-text', lazyText);
+        var cl = details.querySelector('[data-tdb-vb-curriculum-list]');
+        if (cl) {
+          var infl = buildUogInfluenceString(ref, lazyText, lazyBreakdown);
+          fillUogCurriculumList(cl, ref, infl);
+        }
       });
     }
     loadRelationsDict().then(function (dict) {
       if (details.getAttribute('data-ref') !== refKey) return;
       var relatesEl = details.querySelector('[data-bk="relates"]');
       if (relatesEl && !String(relatesEl.textContent || '').trim()) relatesEl.textContent = buildRelationLine(topic, dict);
+      var cl = details.querySelector('[data-tdb-vb-curriculum-list]');
+      if (cl) {
+        var txt = details.getAttribute('data-text') || '';
+        var aBk = details.querySelector('[data-bk="about"]');
+        var tBk = details.querySelector('[data-bk="to"]');
+        var lBk = details.querySelector('[data-bk="layman"]');
+        var pBk = details.querySelector('[data-bk="applies"]');
+        var rBk = details.querySelector('[data-bk="relates"]');
+        var bd = {
+          about: aBk ? aBk.textContent : '',
+          to: tBk ? tBk.textContent : '',
+          layman: lBk ? lBk.textContent : '',
+          applies: pBk ? pBk.textContent : '',
+          relates: rBk ? rBk.textContent : ''
+        };
+        fillUogCurriculumList(cl, ref, buildUogInfluenceString(ref, txt, bd));
+      }
     });
+  }
+
+  /**
+   * Feeds the University of God “related courses” helper: verse + breakdown copy so themes
+   * surface even when the KJV line alone is thin (e.g. “Jesus wept”).
+   */
+  function buildUogInfluenceString(ref, verseText, breakdown) {
+    var parts = [String(ref || ''), String(verseText || '')];
+    if (breakdown && typeof breakdown === 'object') {
+      ['about', 'to', 'layman', 'applies', 'relates'].forEach(function (k) {
+        if (breakdown[k]) parts.push(String(breakdown[k]));
+      });
+    }
+    var s = parts.join(' ').replace(/\s+/g, ' ').trim();
+    try {
+      s = (s + ' ' + getContextNeedle()).replace(/\s+/g, ' ').trim();
+    } catch (eCtx) { /* no-op */ }
+    if (s.length > 2000) s = s.slice(0, 2000);
+    return s;
+  }
+
+  function fillUogCurriculumList(curList, ref, influenceText) {
+    if (!curList) return;
+    while (curList.firstChild) curList.removeChild(curList.firstChild);
+    var uog = typeof window.tdbUogBuildCurriculumPlanList === 'function' ? window.tdbUogBuildCurriculumPlanList : null;
+    var rows = uog ? uog(ref, influenceText) || [] : [];
+    for (var ci = 0; ci < rows.length; ci++) {
+      if (!rows[ci] || !rows[ci].href) continue;
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = rows[ci].href;
+      a.appendChild(document.createTextNode(String(rows[ci].label || rows[ci].href)));
+      li.appendChild(a);
+      curList.appendChild(li);
+    }
+    var curriculum = curList.closest && curList.closest('.tdb-vb-curriculum');
+    if (curriculum) {
+      var has = curList.querySelector('li') !== null;
+      if (has) {
+        curriculum.removeAttribute('hidden');
+      } else {
+        curriculum.setAttribute('hidden', '');
+      }
+    }
   }
 
   function populateInlineDetails(details, ref, text) {
@@ -974,20 +1044,8 @@
     appEl.textContent = tdbPlainTextForUi(breakdown.applies || '—');
     relEl.textContent = tdbPlainTextForUi(breakdown.relates || buildRelationLine(topic, RELATIONS_FALLBACK));
     var curList = details.querySelector('[data-tdb-vb-curriculum-list]');
-    if (curList) {
-      while (curList.firstChild) curList.removeChild(curList.firstChild);
-      var uog = typeof window.tdbUogBuildCurriculumPlanList === 'function' ? window.tdbUogBuildCurriculumPlanList : null;
-      var rows = uog ? uog(ref, resolvedText) || [] : [];
-      for (var ci = 0; ci < rows.length; ci++) {
-        if (!rows[ci] || !rows[ci].href) continue;
-        var li = document.createElement('li');
-        var a = document.createElement('a');
-        a.href = rows[ci].href;
-        a.appendChild(document.createTextNode(String(rows[ci].label || rows[ci].href)));
-        li.appendChild(a);
-        curList.appendChild(li);
-      }
-    }
+    var uogInfluence = buildUogInfluenceString(ref, resolvedText, breakdown);
+    fillUogCurriculumList(curList, ref, uogInfluence);
 
     details.setAttribute('data-ref', tdbPlainTextForUi(ref || ''));
     details.setAttribute('data-text', resolvedText || '');

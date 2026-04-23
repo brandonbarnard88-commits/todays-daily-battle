@@ -138,8 +138,9 @@ function tdbIsHomePage() {
       { href: '/plans.html?plan=praisethanks30', label: 'Praise and Thanksgiving' }
     ]
   };
+  /** @param {string} ref @param {string} text Verse + optional breakdown copy (influence string). */
   window.tdbUogBuildCurriculumPlanList = function (ref, text) {
-    var t = uogInferTopicFromRefText(ref, text);
+    var t = uogInferTopicFromRefText(ref, String(text || ''));
     return UOG_PLANS[t] || UOG_PLANS.hope;
   };
 })();

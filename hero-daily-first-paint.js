@@ -389,7 +389,7 @@
       ]
     };
     window.tdbUogBuildCurriculumPlanList = function (ref, text) {
-      var t = uogInferTopicFromRefText(ref, text);
+      var t = uogInferTopicFromRefText(ref, String(text || ''));
       return UOG_PLANS[t] || UOG_PLANS.hope;
     };
   })();

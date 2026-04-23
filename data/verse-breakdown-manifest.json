@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-23T12:17:16.127Z",
-  "surfacedRefCount": 2865,
-  "overrideCount": 2865,
+  "generatedAt": "2026-04-23T12:48:07.610Z",
+  "surfacedRefCount": 2867,
+  "overrideCount": 2867,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -140,8 +140,8 @@
       "pairs": 40
     },
     "data/plans-battle-shared.json": {
-      "refs": 300,
-      "pairs": 413
+      "refs": 304,
+      "pairs": 420
     },
     "easter-eggs.js": {
       "refs": 34,
@@ -644,7 +644,7 @@
       "pairs": 0
     },
     "plans-data.js": {
-      "refs": 300,
+      "refs": 304,
       "pairs": 0
     },
     "plans-engine.js": {
@@ -652,7 +652,7 @@
       "pairs": 1
     },
     "plans.html": {
-      "refs": 175,
+      "refs": 178,
       "pairs": 143
     },
     "psalms.html": {
@@ -1511,6 +1511,7 @@
     "Ecclesiastes 4:12",
     "Ecclesiastes 4:9",
     "Ecclesiastes 4:9-10",
+    "Ecclesiastes 5:12",
     "Ecclesiastes 7:9",
     "Ecclesiastes 9:10",
     "Ephesians 1:11",
@@ -3382,6 +3383,7 @@
     "Psalm 59:17",
     "Psalm 59:9",
     "Psalm 5:3",
+    "Psalm 61:2",
     "Psalm 61:3",
     "Psalm 62:1",
     "Psalm 62:10",
@@ -3804,7 +3806,7 @@
     "Psalm 116:17": "I will offer to thee the sacrifice of thanksgiving, and will call upon the name of the LORD.",
     "Psalm 116:2": "Because he hath inclined his ear unto me, therefore will I call upon him as long as I live.",
     "Psalm 116:5": "Gracious is the Lord, and righteous; yea, our God is merciful.",
-    "Psalm 116:7": "Return unto thy rest, O my soul; for the Lord hath dealt bountifully with thee.",
+    "Psalm 116:7": "Return unto thy rest, O my soul; for the LORD hath dealt bountifully with thee.",
     "Psalm 117:1": "O praise the Lord, all ye nations: praise him, all ye people.",
     "Psalm 117:2": "For his merciful kindness is great toward us: and the truth of the Lord endureth for ever.",
     "Psalm 118:1": "O give thanks unto the Lord; for he is good: because his mercy endureth for ever.",
@@ -3972,7 +3974,7 @@
     "Psalm 47:1": "O clap your hands, all ye people; shout unto God with the voice of triumph.",
     "Psalm 48:14": "For this God is our God for ever and ever: he will be our guide even unto death.",
     "Psalm 4:7": "Thou hast put gladness in my heart, more than in the time that their corn and their wine increased.",
-    "Psalm 4:8": "I will both lay me down in peace, and sleep: for thou, Lord, only makest me dwell in safety.",
+    "Psalm 4:8": "I will both lay me down in peace, and sleep: for thou, LORD, only makest me dwell in safety.",
     "Psalm 50:15": "Call upon me in the day of trouble: I will deliver thee.",
     "Psalm 51:10": "Create in me a clean heart, O God; and renew a right spirit within me.",
     "Psalm 51:17": "The sacrifices of God are a broken spirit: a broken and a contrite heart, O God, thou wilt not despise.",
@@ -3987,6 +3989,7 @@
     "Psalm 59:17": "Unto thee, O my strength, will I sing: for God is my defence.",
     "Psalm 59:9": "Because of his strength will I wait upon thee: for God is my defence.",
     "Psalm 5:3": "My voice shalt thou hear in the morning, O Lord.",
+    "Psalm 61:2": "From the end of the earth will I cry unto thee, when my heart is overwhelmed: lead me to the rock that is higher than I.",
     "Psalm 61:3": "For thou hast been a shelter for me, and a strong tower from the enemy.",
     "Psalm 62:1": "Truly my soul waiteth upon God: from him cometh my salvation.",
     "Psalm 62:10": "Trust not in oppression, and become not vain in robbery: if riches increase, set not your heart upon them.",
@@ -9681,6 +9684,14 @@
     "Ecclesiastes 4:9-10": {
       "general": {
         "plainExplanation": "Key idea: Two are better than one; because they have a good reward for their labor. For if they fall, the one will lift up his fellow: but woe to him that is alone wh...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Solomon",
+        "to": "All"
+      }
+    },
+    "Ecclesiastes 5:12": {
+      "general": {
+        "plainExplanation": "The sleep of a labouring man is sweet, whether he eat little or much: but the abundance of the rich will not suffer him to sleep.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Solomon",
         "to": "All"
@@ -23192,7 +23203,7 @@
     },
     "Psalm 116:7": {
       "general": {
-        "plainExplanation": "Return to your rest, O my soul; for the Lord has dealt bountifully with you.",
+        "plainExplanation": "Return to your rest, O my soul; for the LORD has dealt bountifully with you.",
         "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"
@@ -24649,6 +24660,14 @@
     "Psalm 5:3": {
       "general": {
         "plainExplanation": "My voice shalt you hear in the morning, O Lord.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
+    "Psalm 61:2": {
+      "general": {
+        "plainExplanation": "From the end of the earth will I cry to you, when my heart is overwhelmed: lead me to the rock that is higher than I.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"

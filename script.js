@@ -24018,6 +24018,14 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     topics: ['parenting', 'kids', 'anxiety', 'fear', 'worry', 'family']
   },
   {
+    id: 'restlessnights',
+    title: 'Peace for Restless Nights',
+    href: 'plans.html?plan=restlessnights',
+    days: 7,
+    description: 'Seven KJV nights for worry, racing thoughts, insomnia, or fear at bedtime—the Lord gives sleep to those He loves.',
+    topics: ['sleep', 'insomnia', 'anxiety', 'worry', 'peace', 'rest', 'night']
+  },
+  {
     id: 'hopeuncertain',
     title: 'Hope in Uncertainty',
     href: 'plans.html?plan=hopeuncertain',

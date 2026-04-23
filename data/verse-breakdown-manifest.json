@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-23T19:11:29.309Z",
-  "surfacedRefCount": 2877,
-  "overrideCount": 2877,
+  "generatedAt": "2026-04-23T19:21:05.916Z",
+  "surfacedRefCount": 2879,
+  "overrideCount": 2879,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -344,7 +344,7 @@
       "pairs": 0
     },
     "kids/corner.html": {
-      "refs": 5,
+      "refs": 6,
       "pairs": 0
     },
     "kids/index.html": {
@@ -772,8 +772,8 @@
       "pairs": 1
     },
     "plans.html": {
-      "refs": 185,
-      "pairs": 149
+      "refs": 188,
+      "pairs": 161
     },
     "prayer-wall.html": {
       "refs": 1,
@@ -2512,6 +2512,7 @@
     "John 5:1-15",
     "John 5:24",
     "John 5:29",
+    "John 6:11",
     "John 6:35",
     "John 6:45",
     "John 6:5",
@@ -2837,6 +2838,7 @@
     "Mark 10:13",
     "Mark 10:13-16",
     "Mark 10:14",
+    "Mark 10:14-16",
     "Mark 10:16",
     "Mark 10:17",
     "Mark 10:17-27",
@@ -4001,6 +4003,7 @@
     "Luke 1:46-47": "And Mary said, My soul doth magnify the Lord, And my spirit hath rejoiced in God my Saviour.",
     "Luke 2:10-11": "And the angel said unto them, Fear not: for, behold, I bring you good tidings of great joy, which shall be to all people. For unto you is born this day in the city of David a Saviour, which is Christ the Lord.",
     "Luke 6:20-21": "Blessed be ye poor: for yours is the kingdom of God. Blessed are ye that hunger now: for ye shall be filled. Blessed are ye that weep now: for ye shall laugh.",
+    "Mark 10:14-16": "But when Jesus saw it, he was much displeased, and said unto them, Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God. Verily I say unto you, Whosoever shall not receive the kingdom of God as a little child, he shall not enter therein. And he took them up in his arms, put his hands upon them, and blessed them.",
     "Mark 4:26-27": "And he said, So is the kingdom of God, as if a man should cast seed into the ground; And should sleep, and rise night and day, and the seed should spring and grow up, he knoweth not how.",
     "Matthew 10:29-31": "Are not two sparrows sold for a farthing? and one of them shall not fall on the ground without your Father. But the very hairs of your head are all numbered. Fear ye not therefore, ye are of more value than many sparrows.",
     "Matthew 11:28-30": "Come unto me, all ye that labour and are heavy laden, and I will give you rest. Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls. For my yoke is easy, and my burden is light.",
@@ -15975,6 +15978,14 @@
         "to": "Believers"
       }
     },
+    "John 6:11": {
+      "general": {
+        "plainExplanation": "Key idea: And Jesus took the loaves; and when he had given thanks, he distributed to the disciples, and the disciples to them that were set down; and likewise of the...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "John 6:35": {
       "general": {
         "plainExplanation": "And Jesus said to them, I am the bread of life: he that cometh to me shall never hunger; and he that believes on me shall never thirst.",
@@ -18570,6 +18581,14 @@
     "Mark 10:14": {
       "general": {
         "plainExplanation": "But when Jesus saw it, he was much displeased, and said to them, Suffer the little children to come to me, and forbid them not: for of such is the kingdom of God.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Mark 10:14-16": {
+      "general": {
+        "plainExplanation": "Key idea: But when Jesus saw it, he was much displeased, and said to them, Suffer the little children to come to me, and forbid them not: for of such is the kingdom o...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"

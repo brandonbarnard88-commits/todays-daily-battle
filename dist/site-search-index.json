@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "generatedAt": "2026-04-23T19:11:28.836Z",
+  "generatedAt": "2026-04-23T19:21:05.381Z",
   "entries": [
     {
       "t": "Home — Today's Daily Battle",
@@ -26,6 +26,16 @@
       "t": "The University of Waiting (6 days)",
       "u": "/plans.html?plan=universitywaiting",
       "k": "wait patience delay not yet hoping tarry"
+    },
+    {
+      "t": "The University of Grief (6 days)",
+      "u": "/plans.html?plan=universitygrief",
+      "k": "grief loss mourn sorrow comfort tears bereaved"
+    },
+    {
+      "t": "The University of Parenting Young Kids (6 days)",
+      "u": "/plans.html?plan=universityparenting",
+      "k": "parent children train up family toddlers home"
     },
     {
       "t": "When the Mind Lies Heavy (7 days)",

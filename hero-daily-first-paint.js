@@ -350,7 +350,10 @@
       var low = (String(ref || '') + ' ' + String(text || '')).toLowerCase();
       if (/\banxiety|anxious|worry|stressed?|careful for nothing|careful\b/.test(low)) return 'anxiety';
       if (/\bfear|afraid|panic|scared|terror\b/.test(low)) return 'fear';
-      if (/\bhope|hopeless|weary|tired|grief|grieve\b/.test(low)) return 'hope';
+      if (/\bgrief|grieve|grieving|mourning|mourn(ed|ing)?|bereave|bereft|\bloss\b|funeral|widow|orphan|weep|weeping|broken\s*heart|contrite|\bsorrow\b/.test(low)) return 'grief';
+      if (/\bwait(ing)?\b|tarry|not yet|\bpatience\b|\bpatient\b|hope for that we see not|appointed time|delayed?\b/.test(low)) return 'waiting';
+      if (/\bparent(ing)?\b|\bchildren\b|\bchild\b|\bmother\b|\bfathers?\b|\bmothers?\b|\bson\b|\bdaughter\b|train up|nurture|admonition|heritage of|little ones|toddler|babies\b/.test(low)) return 'parenting';
+      if (/\bhope|hopeless|weary|tired|discouraged\b/.test(low)) return 'hope';
       return 'hope';
     }
     var UOG_PLANS = {
@@ -364,9 +367,24 @@
         { href: '/plans.html?plan=fearfaith', label: 'Fear to Faith' },
         { href: '/plans.html?plan=armorofgod', label: 'Armor of God' }
       ],
+      grief: [
+        { href: '/plans.html?plan=universitygrief', label: 'University of Grief' },
+        { href: '/plans.html?plan=griefhope', label: 'Grief to Hope' },
+        { href: '/plans.html?plan=psalmscomfort', label: 'Psalms of Comfort' }
+      ],
+      waiting: [
+        { href: '/plans.html?plan=universitywaiting', label: 'University of Waiting' },
+        { href: '/plans.html?plan=hopeuncertain', label: 'When Hope Feels Thin' },
+        { href: '/plans.html?plan=trust', label: 'Trust in Uncertainty' }
+      ],
+      parenting: [
+        { href: '/plans.html?plan=universityparenting', label: 'Parenting Young Kids' },
+        { href: '/plans.html?plan=parenting', label: 'Parenting in Faith' },
+        { href: '/plans.html?plan=familyworship', label: 'Family Worship' }
+      ],
       hope: [
         { href: '/plans.html?plan=hopeuncertain', label: 'When Hope Feels Thin' },
-        { href: '/plans.html?plan=griefhope', label: 'Grief to Hope' },
+        { href: '/plans.html?plan=universitywaiting', label: 'University of Waiting' },
         { href: '/plans.html?plan=praisethanks30', label: 'Praise and Thanksgiving' }
       ]
     };

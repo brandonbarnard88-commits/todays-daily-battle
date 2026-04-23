@@ -370,6 +370,14 @@ for (const f of otherHtml) {
       console.error('BUILD FAIL: plans.html must include The University of Waiting plan (universitywaiting / tdb-plan-universitywaiting-day).');
       process.exit(1);
     }
+    if (!content.includes('universitygrief') || !content.includes('tdb-plan-universitygrief-day')) {
+      console.error('BUILD FAIL: plans.html must include The University of Grief plan (universitygrief / tdb-plan-universitygrief-day).');
+      process.exit(1);
+    }
+    if (!content.includes('universityparenting') || !content.includes('tdb-plan-universityparenting-day')) {
+      console.error('BUILD FAIL: plans.html must include The University of Parenting Young Kids plan (universityparenting / tdb-plan-universityparenting-day).');
+      process.exit(1);
+    }
     if (!content.includes('cancercomfort') || !content.includes('tdb-plan-cancercomfort-day')) {
       console.error('BUILD FAIL: plans.html must include Cancer Comfort plan (cancercomfort / tdb-plan-cancercomfort-day).');
       process.exit(1);

@@ -217,8 +217,22 @@ function main() {
 
     if (rel === 'plans.html' && touched) {
       next = next.replace(
-        /<a href="\/plans\.html">Battle Plans<\/a>/,
-        '<a href="/plans.html" aria-current="page">Battle Plans</a>'
+        /<a href="\/plans\.html">Courses<\/a>/,
+        '<a href="/plans.html" aria-current="page">Courses</a>'
+      );
+    }
+
+    if (rel === 'university.html' && touched) {
+      next = next.replace(
+        /<a href="\/university\.html" id="nav-university-core"/,
+        '<a href="/university.html" id="nav-university-core" aria-current="page"'
+      );
+    }
+
+    if (rel === 'family-armor-little-ones.html' && touched) {
+      next = next.replace(
+        /<a href="\/family-armor-little-ones\.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">/,
+        '<a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-current="page" aria-label="Family Armor for little ones — calm KJV doorway">'
       );
     }
 

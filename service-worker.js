@@ -176,6 +176,7 @@ const CORE_ASSETS = [
   '/kids-corner-daily-verse.js?v=3',
   '/family.html',
   '/family-armor.html',
+  '/family-armor-little-ones.html',
   '/yearly-rhythm.html',
   '/year-at-a-glance.html',
   '/one-week-rhythm.html',

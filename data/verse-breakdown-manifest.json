@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-23T20:24:40.595Z",
-  "surfacedRefCount": 2881,
-  "overrideCount": 2881,
+  "generatedAt": "2026-04-23T20:34:58.979Z",
+  "surfacedRefCount": 2883,
+  "overrideCount": 2883,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -231,6 +231,10 @@
       "refs": 1,
       "pairs": 0
     },
+    "family-armor-little-ones.html": {
+      "refs": 2,
+      "pairs": 0
+    },
     "family-armor.html": {
       "refs": 2,
       "pairs": 0
@@ -344,7 +348,7 @@
       "pairs": 0
     },
     "kids/corner.html": {
-      "refs": 8,
+      "refs": 9,
       "pairs": 0
     },
     "kids/index.html": {
@@ -772,8 +776,8 @@
       "pairs": 1
     },
     "plans.html": {
-      "refs": 195,
-      "pairs": 173
+      "refs": 197,
+      "pairs": 179
     },
     "prayer-wall.html": {
       "refs": 1,
@@ -2212,6 +2216,7 @@
     "Isaiah 40:11",
     "Isaiah 40:28",
     "Isaiah 40:29",
+    "Isaiah 40:29-31",
     "Isaiah 40:31",
     "Isaiah 41:10",
     "Isaiah 41:13",
@@ -2637,6 +2642,7 @@
     "Luke 10:3",
     "Luke 10:30",
     "Luke 10:31-32",
+    "Luke 10:33",
     "Luke 10:34",
     "Luke 10:37",
     "Luke 10:38",
@@ -3987,6 +3993,7 @@
     "Galatians 5:22-23": "But the fruit of the Spirit is love, joy, peace, longsuffering, gentleness, goodness, faith, Meekness, temperance: against such there is no law.",
     "Hebrews 10:24-25": "And let us consider one another to provoke unto love and to good works: Not forsaking the assembling of ourselves together, as the manner of some is; but exhorting one another: and so much the more, as ye see the day approaching.",
     "Hebrews 12:1-2": "Wherefore seeing we also are compassed about with so great a cloud of witnesses, let us lay aside every weight, and the sin which doth so easily beset us, and let us run with patience the race that is set before us, Looking unto Jesus the author and finisher of our faith; who for the joy that was set before him endured the cross, despising the shame, and is set down at the right hand of the throne of God.",
+    "Isaiah 40:29-31": "He giveth power to the faint; and to them that have no might he increaseth strength. Even the youths shall faint and be weary, and the young men shall utterly fall: But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.",
     "Isaiah 43:18-19": "Remember ye not the former things, neither consider the things of old. Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
     "Isaiah 55:8-9": "For my thoughts are not your thoughts, neither are your ways my ways, saith the LORD. For as the heavens are higher than the earth, so are my ways higher than your ways, and my thoughts than your thoughts.",
     "James 1:19-20": "Wherefore, my beloved brethren, let every man be swift to hear, slow to speak, slow to wrath: For the wrath of man worketh not the righteousness of God.",
@@ -13580,6 +13587,14 @@
         "to": "Judah"
       }
     },
+    "Isaiah 40:29-31": {
+      "general": {
+        "plainExplanation": "Key idea: He gives power to the faint; and to them that have no might he increaseth strength. Even the youths shall faint and be weary, and the young men shall utterl...",
+        "modernApplication": "This verse keeps your eyes up when the day feels slow, heavy, or unfinished.",
+        "about": "Isaiah",
+        "to": "Judah"
+      }
+    },
     "Isaiah 40:31": {
       "general": {
         "plainExplanation": "Those who wait on the Lord get new strength—they don't give out.",
@@ -16975,6 +16990,14 @@
     "Luke 10:31-32": {
       "general": {
         "plainExplanation": "Key idea: And by chance there came down a certain priest that way: and when he saw him, he passed by on the other side. And likewise a Levite, when he was at the plac...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Luke 10:33": {
+      "general": {
+        "plainExplanation": "But a certain Samaritan, as he journeyed, came where he was: and when he saw him, he had compassion on him,",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"

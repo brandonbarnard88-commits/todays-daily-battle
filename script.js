@@ -104,7 +104,8 @@ function tdbIsHomePage() {
     if (/\bgrief|grieve|grieving|mourning|mourn(ed|ing)?|bereave|bereft|\bloss\b|funeral|widow|orphan|weep|weeping|broken\s*heart|contrite|\bsorrow\b/.test(low)) return 'grief';
     if (/\bwait(ing)?\b|tarry|not yet|\bpatience\b|\bpatient\b|hope for that we see not|appointed time|delayed?\b/.test(low)) return 'waiting';
     if (/\bparent(ing)?\b|\bchildren\b|\bchild\b|\bmother\b|\bmothers?\b|ye fathers,|fathers, provoke|train up|nurture|admonition|heritage of|little ones|toddler|babies\b/.test(low)) return 'parenting';
-    if (/\bhope|hopeless|weary|tired|discouraged\b/.test(low)) return 'hope';
+    if (/\bexhaust|exhausted|weariness|\bweary\b|\btired\b|weary in well|faint|fainted|heavily laden|no might|satiated the weary|sorrowful soul|giveth his beloved sleep|bread of sorrows|strength is made perfect in weakness|renew their strength|mount up with wings\b/.test(low)) return 'exhaustion';
+    if (/\bhope|hopeless|discouraged\b/.test(low)) return 'hope';
     return 'hope';
   }
   var UOG_PLANS = {
@@ -137,6 +138,11 @@ function tdbIsHomePage() {
       { href: '/plans.html?plan=universityparenting', label: 'Parenting Young Kids' },
       { href: '/plans.html?plan=parenting', label: 'Parenting in Faith' },
       { href: '/plans.html?plan=familyworship', label: 'Family Worship' }
+    ],
+    exhaustion: [
+      { href: '/plans.html?plan=universityexhaustion', label: 'Exhaustion' },
+      { href: '/plans.html?plan=wearyhands', label: 'Weary Hands' },
+      { href: '/plans.html?plan=peace', label: '7-Day Peace' }
     ],
     hope: [
       { href: '/plans.html?plan=hopeuncertain', label: 'When Hope Feels Thin' },

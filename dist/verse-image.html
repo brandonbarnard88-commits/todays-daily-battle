@@ -185,6 +185,34 @@
       text-shadow: 0 1px 2px rgba(0,0,0,0.45);
     }
     .vi-mood-swatch:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; }
+    .verse-image-page .verse-image-uog-preset-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      margin: 0.45rem 0 0;
+      padding: 0;
+    }
+    .verse-image-page .verse-image-uog-preset-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 0.75rem;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 0.6rem 0.8rem;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      background: rgba(15, 23, 42, 0.4);
+    }
+    .verse-image-page .verse-image-uog-preset-body {
+      margin: 0;
+      flex: 1 1 14rem;
+      line-height: 1.55;
+      font-size: 0.95rem;
+    }
+    .verse-image-page .verse-image-uog-preset-row .btn-verse-image-uog-copy {
+      flex: 0 0 auto;
+      min-height: 44px;
+    }
     @media print {
       body.verse-image-page .app-shell > header,
       body.verse-image-page .tdb-lang-switcher-header-wrap,
@@ -240,6 +268,8 @@
         <a href="/verse.html">Today&rsquo;s Lesson</a>
         <a href="/explore.html">Explore</a>
         <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map and gentle paths">Curriculum</a>
+        <a href="/plans.html" id="nav-browse-curriculum" aria-label="Browse the curriculum — KJV courses and gentle battle plans">Browse the curriculum</a>
+        <a href="/university.html" id="nav-university-core" aria-label="University of God — five anchor verses, quiet map">University map</a>
         <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read</a>
         <a href="/memorize.html">Memorize</a>
         <a href="/#feel-section">How I Feel</a>
@@ -252,7 +282,8 @@
             <a href="/">Home</a>
             <a href="/mystudy">My Study</a>
             <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
-            <a href="/plans.html">Battle Plans</a>
+            <a href="/plans.html">Courses</a>
+            <a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">Family Armor for little ones</a>
             <a href="/kids/corner.html">Kids &amp; Family</a>
             <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
             <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
@@ -299,18 +330,49 @@
         <details class="glass" id="verse-image-uog-prompts" style="margin-top: 0.5rem; padding: 0.9rem 1.1rem 1rem; border-radius: 12px;">
           <summary style="cursor: pointer; font-weight: 600; color: var(--text, #e2e8f0); list-style: none;">University of God &mdash; calm background prompts (copy to your image model)</summary>
           <p class="section-note" style="margin: 0.6rem 0 0.4rem;">Use with your own generator&mdash;no hype, KJV-true tone, soft dawn palette (slate, mist gold, still water). Add &ldquo;no text, no legible words&rdquo; in your model if it tends to print letters. University of God is not a place of pressure; the art should read <em>room to breathe, learn, return</em>.</p>
-          <ol class="section-note" style="margin: 0.45rem 0 0.25rem; padding-left: 1.25rem; line-height: 1.6;">
-            <li>Open stone doorway at first light, empty lectern, single oil lamp, gentle fog&mdash;invitation, not a crowd.</li>
-            <li>Calm map table with a folded scroll, quill, small compass, ocean-mist haze&mdash;Christ as compass point.</li>
-            <li>Row of arched windows in an old study hall, rain on glass, warm lamp pools on an open book&mdash;quiet school in storm.</li>
-            <li>Path through wheat toward a thin golden horizon, one figure in silhouette (small, humble)&mdash;daily lesson on the way home.</li>
-            <li>Cliff top bench overlooking sea at dawn, empty seat, gulls far off&mdash;secret prayer, wind as friend not threat.</li>
-            <li>Child-sized desk with crayons, open Psalms, tiny globe, light shaft&mdash;children&rsquo;s classroom, joy without noise.</li>
-            <li>Stack of course booklets with linen covers, olive branch, wax seal (blank)&mdash;Battle plans as gentle companions, not a badge.</li>
-            <li>Library ladder in half-light, KJV-shelf mood (no legible spines), single bookmark ribbon&mdash;Word as lamp, next step only.</li>
-            <li>Hand reaching down to help someone up a grassy slope, soft focus faces&mdash;fear and anxiety class: accompany, not fix.</li>
-            <li>Empty chapel chairs in semicircle, one stem of wildflowers, sun through dust&mdash;grief and waiting, room for tears and hope.</li>
-          </ol>
+          <p class="section-note" id="verse-image-uog-copy-status" style="min-height:1.25em;margin:0.5rem 0 0" aria-live="polite" role="status"></p>
+          <div class="verse-image-uog-preset-list" role="list">
+            <div class="verse-image-uog-preset-row" role="listitem">
+              <p class="verse-image-uog-preset-body">Open stone doorway at first light, empty lectern, single oil lamp, gentle fog&mdash;invitation, not a crowd.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 1">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem">
+              <p class="verse-image-uog-preset-body">Calm map table with a folded scroll, quill, small compass, ocean-mist haze&mdash;Christ as compass point.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 2">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem">
+              <p class="verse-image-uog-preset-body">Row of arched windows in an old study hall, rain on glass, warm lamp pools on an open book&mdash;quiet school in storm.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 3">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem">
+              <p class="verse-image-uog-preset-body">Path through wheat toward a thin golden horizon, one figure in silhouette (small, humble)&mdash;daily lesson on the way home.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 4">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem">
+              <p class="verse-image-uog-preset-body">Cliff top bench overlooking sea at dawn, empty seat, gulls far off&mdash;secret prayer, wind as friend not threat.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 5">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem">
+              <p class="verse-image-uog-preset-body">Child-sized desk with crayons, open Psalms, tiny globe, light shaft&mdash;children&rsquo;s classroom, joy without noise.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 6">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem">
+              <p class="verse-image-uog-preset-body">Stack of course booklets with linen covers, olive branch, wax seal (blank)&mdash;Battle plans as gentle companions, not a badge.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 7">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem">
+              <p class="verse-image-uog-preset-body">Library ladder in half-light, KJV-shelf mood (no legible spines), single bookmark ribbon&mdash;Word as lamp, next step only.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 8">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem">
+              <p class="verse-image-uog-preset-body">Hand reaching down to help someone up a grassy slope, soft focus faces&mdash;fear and anxiety class: accompany, not fix.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 9">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem">
+              <p class="verse-image-uog-preset-body">Empty chapel chairs in semicircle, one stem of wildflowers, sun through dust&mdash;grief and waiting, room for tears and hope.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 10">Copy</button>
+            </div>
+          </div>
         </details>
 
         <section id="verse-image-locked" class="glass verse-image-locked" aria-labelledby="verse-image-locked-h">

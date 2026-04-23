@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "generatedAt": "2026-04-23T20:24:40.095Z",
+  "generatedAt": "2026-04-23T20:34:58.224Z",
   "entries": [
     {
       "t": "Home — Today's Daily Battle",
@@ -46,6 +46,11 @@
       "t": "The University of Anxiety & Fear (6 days)",
       "u": "/plans.html?plan=universityanxiety",
       "k": "anxiety fear worry panic what-if cast care"
+    },
+    {
+      "t": "The University of Exhaustion (6 days)",
+      "u": "/plans.html?plan=universityexhaustion",
+      "k": "exhausted weary tired burnout sleep faint rest caregiver"
     },
     {
       "t": "When the Mind Lies Heavy (7 days)",
@@ -251,6 +256,11 @@
       "t": "Family hub",
       "u": "/family.html",
       "k": "home marriage"
+    },
+    {
+      "t": "Family Armor for little ones",
+      "u": "/family-armor-little-ones.html",
+      "k": "ephesians 6 armor preschool toddler kids whole armour"
     },
     {
       "t": "Church sharing kit",

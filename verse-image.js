@@ -1919,6 +1919,49 @@
     }, 50);
   }
 
+  (function wireUogPromptCopy() {
+    var uog = document.getElementById('verse-image-uog-prompts');
+    if (!uog) return;
+    var statusEl = document.getElementById('verse-image-uog-copy-status');
+    uog.addEventListener('click', function (ev) {
+      var t = ev.target;
+      if (!t || t.nodeName !== 'BUTTON' || !t.getAttribute) return;
+      if (t.getAttribute('data-verse-image-uog-copy') !== '1') return;
+      var row = t.closest && t.closest('.verse-image-uog-preset-row');
+      var body = row && row.querySelector && row.querySelector('.verse-image-uog-preset-body');
+      var text = body ? String(body.textContent || '').replace(/\s+/g, ' ').trim() : '';
+      if (!text) return;
+      function showCopied() {
+        var old = t.textContent;
+        t.textContent = 'Copied';
+        if (statusEl) statusEl.textContent = 'Prompt copied. Paste it into your image tool.';
+        setTimeout(function () {
+          t.textContent = old;
+        }, 1600);
+      }
+      function fallbackCopy() {
+        try {
+          var ta = document.createElement('textarea');
+          ta.value = text;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'fixed';
+          ta.style.left = '-9999px';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          showCopied();
+        } catch (e) {}
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(showCopied).catch(fallbackCopy);
+      } else {
+        fallbackCopy();
+      }
+      trackEvent('verse_image_uog_prompt_copied', { len: text.length });
+    });
+  })();
+
   waitForIsProUser(function () {
     var up = document.getElementById('verse-image-upgrade-cta');
     if (up) {

@@ -2,4 +2,6 @@
 alwaysApply: true
 ---
 
+Always respect the system prompt in `.cursor/composer-2-ultra-system-prompt.md` when using Composer 2 Ultra.
+
 "Write minimal JS/CSS—no extras, no animations unless asked. Test every change: npm run test:site."

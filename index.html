@@ -3607,6 +3607,195 @@
     @media (max-width: 520px) {
       .hero-votd-save-btn { margin-left: 0; flex: 1 1 100%; }
     }
+
+    /* Fast feeling row — one tap into Ask The Word (60-second path) */
+    .tdb-home-fast-feel {
+      margin: 1.1rem 0 0;
+      padding: 1.15rem 1.2rem 1.25rem;
+      border-radius: 16px;
+      border: 1px solid color-mix(in srgb, var(--line) 90%, var(--gold) 8%);
+      background: color-mix(in srgb, var(--card) 96%, rgba(107, 124, 147, 0.06));
+    }
+    :root[data-theme="light"] .tdb-home-fast-feel {
+      background: linear-gradient(180deg, #fafbfe 0%, #f0f3f8 100%);
+    }
+    .tdb-home-fast-feel-eyebrow {
+      margin: 0 0 0.2rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-soft, var(--gold));
+      text-align: center;
+    }
+    .tdb-home-fast-feel-heading {
+      margin: 0 0 0.5rem;
+      font-size: clamp(1.2rem, 3.2vw, 1.5rem);
+      font-weight: 500;
+      line-height: 1.35;
+      text-align: center;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    .tdb-home-fast-feel-lead {
+      text-align: center;
+      max-width: 32rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .tdb-home-fast-feel-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      margin: 0.75rem 0 0.35rem;
+    }
+    @media (min-width: 520px) {
+      .tdb-home-fast-feel-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .tdb-home-fast-feel .tdb-home-fast-feel-btn {
+      min-height: 48px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 12px;
+      transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease, transform 0.12s ease;
+    }
+    .tdb-home-fast-feel .tdb-home-fast-feel-btn:hover,
+    .tdb-home-fast-feel .tdb-home-fast-feel-btn:focus-visible {
+      border-color: color-mix(in srgb, var(--gold) 45%, var(--line));
+      box-shadow: 0 0 0 1px color-mix(in srgb, var(--gold) 22%, transparent);
+      outline: none;
+    }
+    .tdb-home-fast-feel .tdb-home-fast-feel-btn:active {
+      transform: scale(0.98);
+    }
+    .tdb-home-fast-feel .tdb-home-fast-feel-btn--active,
+    .tdb-home-fast-feel .tdb-home-fast-feel-btn[aria-pressed="true"] {
+      border-color: var(--gold, #e3bc67);
+      background: color-mix(in srgb, var(--gold) 12%, var(--card));
+      color: var(--text);
+      box-shadow: 0 0 0 1px color-mix(in srgb, var(--gold) 35%, transparent);
+    }
+    :root[data-theme="light"] .tdb-home-fast-feel .tdb-home-fast-feel-btn--active,
+    :root[data-theme="light"] .tdb-home-fast-feel .tdb-home-fast-feel-btn[aria-pressed="true"] {
+      background: color-mix(in srgb, #e3bc67 14%, #fff);
+    }
+    .tdb-home-fast-feel-foot {
+      margin: 0.65rem 0 0;
+      font-size: 0.86rem;
+      text-align: center;
+    }
+    .tdb-home-fast-feel-soft {
+      margin: 0.35rem 0 0.75rem;
+      text-align: center;
+      font-size: clamp(0.98rem, 2.5vw, 1.05rem);
+      line-height: 1.5;
+      color: var(--muted);
+      max-width: 24rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .tdb-home-feel-result {
+      margin: 1rem 0 0;
+      padding: 1.1rem 1.15rem 1.2rem;
+      border-radius: 16px;
+      border: 1px solid color-mix(in srgb, var(--gold) 32%, var(--line));
+      background: color-mix(in srgb, var(--card) 94%, rgba(227, 188, 103, 0.07));
+    }
+    :root[data-theme="light"] .tdb-home-feel-result {
+      background: #fff;
+    }
+    .tdb-home-feel-result-kicker {
+      margin: 0 0 0.4rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gold-soft, var(--gold));
+    }
+    .tdb-home-feel-result-verse {
+      margin: 0;
+      font-size: clamp(1.05rem, 2.8vw, 1.2rem);
+      line-height: 1.5;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      color: var(--text);
+    }
+    .tdb-home-feel-result-ref {
+      margin: 0.45rem 0 0.65rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .tdb-home-feel-result-you {
+      margin: 0 0 0.85rem;
+      font-size: 0.98rem;
+      line-height: 1.5;
+      color: var(--text);
+    }
+    .tdb-home-feel-result-steps-title {
+      margin: 0 0 0.4rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .tdb-home-feel-result-steps {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .tdb-home-feel-result-steps .btn { width: 100%; justify-content: center; min-height: 48px; }
+    .tdb-home-feel-read-chapter {
+      display: block;
+      text-align: center;
+      padding: 0.55rem 0.75rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--gold-soft);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .tdb-home-feel-result-more { margin: 0.75rem 0 0; text-align: center; font-size: 0.86rem; }
+    .verse-card.is-loading .tdb-home-fast-feel { opacity: 0.55; pointer-events: none; }
+    .verse-card.is-loading .tdb-home-feel-result { display: none; }
+
+    /* Quieter band: full site tools below the first-screen path */
+    .tdb-home-more-tools {
+      margin: 2rem 0 0;
+      padding: 1.5rem 1rem 2rem;
+      border-top: 1px solid color-mix(in srgb, var(--line) 85%, transparent);
+    }
+    .tdb-home-more-tools-h {
+      margin: 0 0 0.35rem;
+      font-size: clamp(1rem, 2.4vw, 1.15rem);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+    }
+    .tdb-home-more-tools-lead {
+      text-align: center;
+      max-width: 36rem;
+      margin: 0 auto 1.25rem;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      opacity: 0.92;
+    }
+    .tdb-home-more-tools-body .section-divider,
+    .tdb-home-more-tools-body h2:not(.tdb-home-more-tools-h) {
+      font-size: clamp(1.02rem, 2.4vw, 1.2rem);
+    }
+    .tdb-home-more-tools-body .section-note {
+      font-size: 0.9rem;
+    }
+    @media (max-width: 540px) {
+      .tdb-home-more-tools { padding-left: 0.65rem; padding-right: 0.65rem; }
+    }
+
     .hero-toolbar-btn {
       min-height: 44px;
       padding: 0.4rem 0.55rem;
@@ -8322,6 +8511,33 @@
             <button type="button" id="hero-save-my-verses" class="btn btn-primary hero-votd-save-btn" aria-describedby="hero-my-verses-hint hero-my-verses-privacy-line" aria-label="Save today’s verse to My Study on this device">Save to My Study</button>
         </div>
         </div>
+        <section class="tdb-home-fast-feel" id="tdbHomeFastFeel" aria-labelledby="tdbHomeFastFeelHeading">
+          <h2 class="tdb-home-fast-feel-heading" id="tdbHomeFastFeelHeading">How are you feeling right now?</h2>
+          <p class="tdb-home-fast-feel-soft">No typing yet. One honest tap&mdash;then a verse, a line to you, and a matching plan. The same thing happens for <strong>every</strong> topic chip in <a href="#feel-section">Ask The Word</a> below (<abbr title="King James Version">KJV</abbr>).</p>
+          <div class="tdb-home-fast-feel-grid" role="group" aria-label="How you are feeling right now; pick one">
+            <button type="button" class="btn btn-secondary tdb-home-fast-feel-btn" data-topic="anxiety" aria-pressed="false" aria-label="Anxious or afraid">Anxious / Afraid</button>
+            <button type="button" class="btn btn-secondary tdb-home-fast-feel-btn" data-topic="strength" aria-pressed="false" aria-label="Tired or weary">Tired / Weary</button>
+            <button type="button" class="btn btn-secondary tdb-home-fast-feel-btn" data-topic="overwhelmed" aria-pressed="false" aria-label="Overwhelmed">Overwhelmed</button>
+            <button type="button" class="btn btn-secondary tdb-home-fast-feel-btn" data-topic="hope" aria-pressed="false" aria-label="Discouraged or down">Discouraged / Down</button>
+            <button type="button" class="btn btn-secondary tdb-home-fast-feel-btn" data-topic="anger" aria-pressed="false" aria-label="Angry or frustrated">Angry / Frustrated</button>
+            <button type="button" class="btn btn-secondary tdb-home-fast-feel-btn" data-topic="finances" aria-pressed="false" aria-label="Worried about money">Worried about money</button>
+            <button type="button" class="btn btn-secondary tdb-home-fast-feel-btn" data-topic="peace" aria-pressed="false" aria-label="Grateful or peaceful">Grateful / Peaceful</button>
+            <button type="button" class="btn btn-secondary tdb-home-fast-feel-btn" data-topic="parenting" aria-pressed="false" aria-label="Struggling as a parent">Struggling as a parent</button>
+          </div>
+        </section>
+        <div class="tdb-home-feel-result" id="tdbHomeFeelResult" role="region" aria-live="polite" hidden data-tdb-ref="" data-tdb-text="">
+          <p class="tdb-home-feel-result-kicker" id="tdbHomeFeelResultKicker">God is speaking to you today:</p>
+          <p class="tdb-home-feel-result-verse" id="tdbHomeFeelResultVerse"></p>
+          <p class="tdb-home-feel-result-ref" id="tdbHomeFeelResultRef"></p>
+          <p class="tdb-home-feel-result-you" id="tdbHomeFeelResultYou"></p>
+          <p class="tdb-home-feel-result-steps-title">Simple next steps</p>
+          <ul class="tdb-home-feel-result-steps">
+            <li><a class="tdb-home-feel-result-plan-link btn btn-primary" id="tdbHomeFeelResultPlan" href="plans.html">Start a 7-day plan</a></li>
+            <li><button type="button" class="btn btn-secondary" id="tdbHomeFeelResultSave">Save this verse to My Study</button></li>
+            <li><a class="tdb-home-feel-read-chapter" id="tdbHomeFeelResultRead" href="reader.html">Read full chapter</a></li>
+          </ul>
+          <p class="section-note tdb-home-feel-result-more"><a href="#quick-search-hero">More matching verses</a> in Ask The Word below when you&rsquo;re ready.</p>
+        </div>
         <div class="tdb-start-my-day-band" role="region" aria-label="Start my day: verse, feeling, and a gentle plan">
           <p class="tdb-start-my-day-line">One verse. One honest feeling. One simple plan.</p>
           <button type="button" id="tdbStartMyDayBtn" class="btn btn-primary tdb-start-my-day-btn" aria-haspopup="dialog" aria-controls="tdbStartMyDayDialog">Start My Day</button>
@@ -8634,6 +8850,10 @@
       <a href="#tdb-home-votm" class="tdb-float-memory-pill" id="tdb-float-memory-pill" hidden aria-label="Jump to verse of the month">Memory</a>
       <button type="button" class="tdb-float-share-verse" id="tdb-float-share-verse-home" aria-label="Share today’s verse">Share verse</button>
       </div><!-- /#hero-verse-wrap -->
+      <section class="tdb-home-more-tools" id="tdbHomeMoreTools" aria-labelledby="tdbHomeMoreToolsH" aria-label="More tools and paths">
+        <h2 class="tdb-home-more-tools-h" id="tdbHomeMoreToolsH">More tools &amp; paths</h2>
+        <p class="tdb-home-more-tools-lead section-note">Kids, memory, plans, full search, prayer wall, and the rest&mdash;still here. Slightly quieter on purpose so the top of Home can stay simple.</p>
+        <div class="tdb-home-more-tools-body">
       <section class="tdb-home-companion-doors" id="tdb-home-companion-doors" aria-labelledby="tdb-companion-doors-heading">
         <h2 class="tdb-companion-doors-vis-h2" id="tdb-companion-doors-heading">Three quiet doorways into Scripture</h2>
         <ul class="tdb-home-companion-doors-list">
@@ -9216,6 +9436,9 @@
           </section>
         </div>
       </details>
+
+        </div>
+      </section>
 
     </main>
 

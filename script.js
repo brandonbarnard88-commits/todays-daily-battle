@@ -12699,6 +12699,59 @@ function wireVersePageNarrationPrefs() {
   syncUi();
 }
 
+/** Homepage: fast feeling row uses capture so inline “God is speaking to you” card shows without jumping to Ask The Word first. */
+function wireTdbHomeFastFeelCapture() {
+  var root = document.getElementById('tdbHomeFastFeel');
+  if (!root) return;
+  root.addEventListener(
+    'click',
+    function (e) {
+      var btn = e.target && e.target.closest && e.target.closest('button.tdb-home-fast-feel-btn[data-topic]');
+      if (!btn || !root.contains(btn)) return;
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      var topic = (btn.getAttribute('data-topic') || '').trim();
+      if (!topic) return;
+      var allFeel = root.querySelectorAll('button.tdb-home-fast-feel-btn');
+      for (var bi = 0; bi < allFeel.length; bi++) {
+        allFeel[bi].classList.remove('tdb-home-fast-feel-btn--active');
+        allFeel[bi].setAttribute('aria-pressed', 'false');
+      }
+      btn.classList.add('tdb-home-fast-feel-btn--active');
+      btn.setAttribute('aria-pressed', 'true');
+      try {
+        if (typeof rememberEmotionSignal === 'function') rememberEmotionSignal(topic);
+      } catch (_) {}
+      if (typeof window.tdbRunFeelTopicWithInstantCard === 'function') {
+        window.tdbRunFeelTopicWithInstantCard(topic);
+      }
+    },
+    true
+  );
+  var saveBtn = document.getElementById('tdbHomeFeelResultSave');
+  if (saveBtn) {
+    saveBtn.addEventListener('click', function (ev) {
+      ev.preventDefault();
+      ev.stopPropagation();
+      var w = document.getElementById('tdbHomeFeelResult');
+      if (!w) return;
+      var r = (w.getAttribute('data-tdb-ref') || '').trim();
+      var t = (w.getAttribute('data-tdb-text') || '').trim();
+      if (!r || !t) return;
+      if (typeof saveDailyVerseToMyVerses === 'function') {
+        saveDailyVerseToMyVerses(r, t).then(function (res) {
+          if (typeof showEliteToast === 'function') {
+            if (res && res.ok) {
+              showEliteToast(res.already ? 'Already in My Study.' : 'Saved to My Study on this device.');
+            }
+          }
+        });
+      }
+    });
+  }
+}
+
 /** Homepage hero: copy ref + KJV text + page URL (verse card). */
 function wireHeroCopyVerse() {
   var btn = document.getElementById('heroCopyVerseBtn');
@@ -23970,6 +24023,9 @@ function tdbScrollIntoView(el, block, inline) {
 
 /** Primary search surface: homepage hero first, then legacy hero, then #main-search (other pages). */
 function scrollTdbSearchSurfaceIntoView() {
+  try {
+    if (window.__tdbSuppressNextSearchScroll) return;
+  } catch (_) {}
   var el =
     document.getElementById('quick-search-hero') ||
     document.getElementById('search-hero') ||
@@ -23980,6 +24036,9 @@ function scrollTdbSearchSurfaceIntoView() {
 
 /** Scroll the results bucket into view; homepage uses #feel-results (centered), other pages use #output. */
 function scrollTdbSearchResultsIntoView() {
+  try {
+    if (window.__tdbSuppressNextSearchScroll) return;
+  } catch (_) {}
   var fr = document.getElementById('feel-results');
   var out = typeof getSearchOutputElement === 'function' ? getSearchOutputElement() : document.getElementById('output');
   var el = fr || out;
@@ -24132,6 +24191,329 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     topics: ['jesus', 'salvation', 'faith', 'purpose']
   }
 ];
+
+/** Homepage fast-feel: one anchor verse + “to you” line per quick-topic `data-topic` (KJV); used by hero chips, category chips, and sr-only #quick-actions-hero. */
+var TDB_HOME_FEEL_DEFAULT = {
+  ref: 'Isaiah 41:10',
+  text: 'Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.',
+  leadYou: 'Right now, God is nearer than the noise. Let His Word be the next true thing you hold onto.'
+};
+
+var TDB_HOME_FEEL_ANCHORS = {
+  anxiety: {
+    ref: 'Philippians 4:6',
+    text: 'Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.',
+    leadYou: 'God knows the weight you are carrying and invites you to hand it over—in prayer, with thanks, without pretending you are fine.'
+  },
+  strength: {
+    ref: 'Matthew 11:28',
+    text: 'Come unto me, all ye that labour and are heavy laden, and I will give you rest.',
+    leadYou: 'God sees how tired you are. Jesus offers rest that does not scold you for being worn.'
+  },
+  exhaustion: {
+    ref: 'Isaiah 40:29',
+    text: 'He giveth power to the faint; and to them that have no might he increaseth strength.',
+    leadYou: 'Right now, when you have nothing left in the tank, He gives strength to the worn down—not as pressure, as provision.'
+  },
+  overwhelmed: {
+    ref: 'Psalm 55:22',
+    text: 'Cast thy burden upon the LORD, and he shall sustain thee: he shall never suffer the righteous to be moved.',
+    leadYou: 'You do not have to hold it all. Cast it on Him—He will sustain you.'
+  },
+  hope: {
+    ref: 'Romans 15:13',
+    text: 'Now the God of hope fill you with all joy and peace in believing, that ye may abound in hope, through the power of the Holy Ghost.',
+    leadYou: 'Right now, when you feel down, God is still the one who fills you with hope—not as hype, as help.'
+  },
+  anger: {
+    ref: 'Ephesians 4:26',
+    text: 'Be ye angry, and sin not: let not the sun go down upon your wrath:',
+    leadYou: 'God understands anger. He still calls you to bring it to Him and not let it own your night.'
+  },
+  finances: {
+    ref: 'Matthew 6:33',
+    text: 'But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.',
+    leadYou: 'Right now, when money worry is loud, He already knows what you need—and He says to seek Him first.'
+  },
+  peace: {
+    ref: 'Philippians 4:7',
+    text: 'And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.',
+    leadYou: 'Right now, when your mind will not quiet, His peace can guard your heart as you bring it to Him in prayer.'
+  },
+  parenting: {
+    ref: 'Ephesians 6:4',
+    text: 'And, ye fathers, provoke not your children to wrath: but bring them up in the nurture and admonition of the Lord.',
+    leadYou: 'Right now, when home feels heavy, He gives a gentle path: love, truth, and patience for the ones in your care.'
+  },
+  gratitude: {
+    ref: 'Psalm 100:4',
+    text: 'Enter into his gates with thanksgiving, and into his courts with praise: be thankful unto him, and bless his name.',
+    leadYou: 'Right now, a grateful heart still fits in a hard week—enter with thanks, and He is glad to meet you there.'
+  },
+  wonder: {
+    ref: 'Psalm 8:3',
+    text: 'When I consider thy heavens, the work of thy fingers, the moon and the stars, which thou hast ordained;',
+    leadYou: 'Right now, wonder is allowed—and it points past the sky to the One who is mindful of you.'
+  },
+  joy: {
+    ref: 'Nehemiah 8:10',
+    text: 'The joy of the Lord is your strength.',
+    leadYou: 'Right now, joy can feel far off; still, in Him is strength for the next small step, not a performance.'
+  },
+  love: {
+    ref: '1 John 4:19',
+    text: 'We love him, because he first loved us.',
+    leadYou: 'Right now, when love feels one-sided, remember this: He loved you first. That is the root that keeps bearing fruit.'
+  },
+  faith: {
+    ref: 'Hebrews 11:1',
+    text: 'Now faith is the substance of things hoped for, the evidence of things not seen.',
+    leadYou: 'Right now, faith is not a mood—it is a steady grip on what is true when sight is thin.'
+  },
+  courage: {
+    ref: 'Joshua 1:9',
+    text: 'Be strong and of a good courage; be not afraid, neither be thou dismayed: for the Lord thy God is with thee whithersoever thou goest.',
+    leadYou: 'Right now, for the next step you dread, you are not sent alone. He is with you where you go.'
+  },
+  forgiveness: {
+    ref: '1 John 1:9',
+    text: 'If we confess our sins, he is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness.',
+    leadYou: 'Right now, if guilt is heavy, He is faithful to forgive and cleanse—not to shame you, to restore you.'
+  },
+  patience: {
+    ref: 'James 1:3',
+    text: 'Knowing this, that the trying of your faith worketh patience.',
+    leadYou: 'Right now, waiting can feel like failure; He is at work in you for endurance that outlasts the strain.'
+  },
+  wisdom: {
+    ref: 'James 1:5',
+    text: 'If any of you lack wisdom, let him ask of God, that giveth to all men liberally, and upbraideth not; and it shall be given him.',
+    leadYou: 'Right now, if you are unsure what to do, ask Him plainly. He does not scold you for needing wisdom.'
+  },
+  family: {
+    ref: 'Psalm 127:1',
+    text: 'Except the Lord build the house, they labour in vain that build it: except the Lord keep the city, the watchman waketh but in vain.',
+    leadYou: 'Right now, the people under your roof matter to Him. Unless He builds, we strive in vain; start with His hand.'
+  },
+  marriage: {
+    ref: 'Ephesians 5:25',
+    text: 'Husbands, love your wives, even as Christ also loved the church, and gave himself for it;',
+    leadYou: 'Right now, love in marriage is meant to be sacrificial, patient, and true—patterned after how Christ loves His people.'
+  },
+  relationships: {
+    ref: 'Romans 12:10',
+    text: 'Be kindly affectioned one to another with brotherly love; in honour preferring one another;',
+    leadYou: 'Right now, people can be messy; still, you can show honor without pretending the hurt is not real.'
+  },
+  sleep: {
+    ref: 'Psalm 4:8',
+    text: 'I will both lay me down in peace, and sleep: for thou, Lord, only makest me dwell in safety.',
+    leadYou: 'Right now, if sleep will not come, He is not absent in the night—lay it down again with Him, small breath by breath.'
+  },
+  rest: {
+    ref: 'Exodus 33:14',
+    text: 'My presence shall go with thee, and I will give thee rest.',
+    leadYou: 'Right now, when you crave rest, His presence is the deeper gift—carry that into sleep or work, both.'
+  },
+  obedience: {
+    ref: '1 Samuel 15:22',
+    text: 'Behold, to obey is better than sacrifice, and to hearken than the fat of rams.',
+    leadYou: 'Right now, God is not after loud religion—He is after a listening, obedient heart, one next step at a time.'
+  },
+  'jesus said': {
+    ref: 'John 6:35',
+    text: 'And Jesus said unto them, I am the bread of life: he that cometh to me shall never hunger; and he that believeth on me shall never thirst.',
+    leadYou: 'Right now, if you are spiritually hungry, He said it plain: come to Him. He is the bread of life for you.'
+  },
+  spiritualwarfare: {
+    ref: 'Ephesians 6:10',
+    text: 'Finally, my brethren, be strong in the Lord, and in the power of his might.',
+    leadYou: 'Right now, the fight is real—but your first move is to stand in His strength, not your own bravado.'
+  },
+  fear: {
+    ref: 'Isaiah 41:10',
+    text: 'Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.',
+    leadYou: 'God sees your fear and answers it in His own words: you are not alone, and He is with you.'
+  },
+  loneliness: {
+    ref: 'John 14:18',
+    text: 'I will not leave you comfortless: I will come to you.',
+    leadYou: 'You are not left comfortless. He said He would come to you—hold that in the quiet of this moment.'
+  },
+  guilt: {
+    ref: '1 John 1:7',
+    text: 'But if we walk in the light, as he is in the light, we have fellowship one with another, and the blood of Jesus Christ his Son cleanseth us from all sin.',
+    leadYou: 'Right now, guilt that drives you to hide is answered by light and cleansing—not excuses, but honest confession to Him.'
+  },
+  heartache: {
+    ref: 'Psalm 34:18',
+    text: 'The Lord is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.',
+    leadYou: 'Right now, a broken heart is not too broken for Him. He draws near, not away, to people who hurt.'
+  },
+  grief: {
+    ref: 'Psalm 34:18',
+    text: 'The LORD is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.',
+    leadYou: 'God is especially near when your heart is broken. You do not have to grieve as if He were far away.'
+  },
+  cancer: {
+    ref: 'Psalm 46:1',
+    text: 'God is our refuge and strength, a very present help in trouble.',
+    leadYou: 'Right now, a sick body and a quiet fear can share the same room with Scripture. He is a very present help in trouble.'
+  },
+  addiction: {
+    ref: '1 Corinthians 10:13',
+    text: 'There hath no temptation taken you but such as is common to man: but God is faithful, who will not suffer you to be tempted above that ye are able; but will with the temptation also make a way to escape, that ye may be able to bear it.',
+    leadYou: 'Right now, the pull is not unique to you—and He is faithful to provide a way to stand, one moment at a time.'
+  },
+  trauma: {
+    ref: 'Psalm 34:18',
+    text: 'The Lord is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.',
+    leadYou: 'Right now, what happened to you does not get to name you first. The Lord is near the broken, and He saves the crushed in spirit.'
+  },
+  identity: {
+    ref: '2 Corinthians 5:17',
+    text: 'Therefore if any man be in Christ, he is a new creature: old things are passed away; behold, all things are become new.',
+    leadYou: 'Right now, if you are in Christ, the old name tags lose their final say—new is not a brand; it is a reality in Him.'
+  },
+  purpose: {
+    ref: 'Jeremiah 29:11',
+    text: 'For I know the thoughts that I think toward you, saith the Lord, thoughts of peace, and not of evil, to give you an expected end.',
+    leadYou: 'Right now, if you are wondering “what is the point?”, He already has thoughts of peace and a good end—not harm—for you.'
+  },
+  'free will': {
+    ref: 'Joshua 24:15',
+    text: 'Choose you this day whom ye will serve; whether the gods which your fathers served, or the gods in whose land ye dwell: but as for me and my house, we will serve the Lord.',
+    leadYou: 'Right now, you still get to choose whom you will serve. Make it as honest as you can—and bring it before Him.'
+  },
+  'difficult person': {
+    ref: 'Romans 12:18',
+    text: 'If it be possible, as much as lieth in you, live peaceably with all men.',
+    leadYou: 'Right now, “if possible” is not cold—it is honest. You can seek peace without pretending abuse away; bring boundaries to God too.'
+  },
+  'difficult boss': {
+    ref: 'Colossians 3:23',
+    text: 'And whatsoever ye do, do it heartily, as to the Lord, and not unto men;',
+    leadYou: 'Right now, work can feel personal and unfair. Serve as unto the Lord—integrity first, and His presence in the grind.'
+  }
+};
+
+function tdbResolveHomeFeelAnchor(rawKey) {
+  var key = String(rawKey || '')
+    .trim()
+    .toLowerCase();
+  if (!key) return TDB_HOME_FEEL_DEFAULT;
+  if (TDB_HOME_FEEL_ANCHORS[key]) return TDB_HOME_FEEL_ANCHORS[key];
+  return TDB_HOME_FEEL_DEFAULT;
+}
+
+function tdbPickHomePlanForTopic(topic) {
+  var t = String(topic || '')
+    .trim()
+    .toLowerCase();
+  if (!Array.isArray(HOME_SEARCH_PLAN_LIBRARY)) {
+    return { title: 'Battle Plans', href: 'plans.html', days: 7 };
+  }
+  for (var i = 0; i < HOME_SEARCH_PLAN_LIBRARY.length; i++) {
+    var p = HOME_SEARCH_PLAN_LIBRARY[i];
+    if (!p || !Array.isArray(p.topics)) continue;
+    for (var j = 0; j < p.topics.length; j++) {
+      if (String(p.topics[j]).toLowerCase() === t) {
+        return { title: p.title, href: p.href, days: p.days || 7 };
+      }
+    }
+  }
+  return { title: 'Fear to Faith', href: 'plans.html?plan=fearfaith', days: 7 };
+}
+
+function tdbBuildReaderHrefFromRef(refStr) {
+  var m = String(refStr || '').match(/^(.+?)\s+(\d+):\d+/);
+  if (!m) return 'reader.html';
+  var book = encodeURIComponent(m[1].trim());
+  var chapter = encodeURIComponent(m[2]);
+  return (
+    'reader.html?book=' +
+    book +
+    '&chapter=' +
+    chapter +
+    '&ref=' +
+    encodeURIComponent(String(refStr).trim().replace(/\s+/g, ' '))
+  );
+}
+
+function tdbShowHomeFeelResult(topicKey) {
+  var key = String(topicKey || '')
+    .trim()
+    .toLowerCase();
+  var a = tdbResolveHomeFeelAnchor(key);
+  var wrap = document.getElementById('tdbHomeFeelResult');
+  if (!wrap) return;
+  var ref = a.ref;
+  var body = a.text;
+  if (typeof bible !== 'undefined' && bible && bible[ref]) {
+    body = bible[ref];
+  }
+  wrap.setAttribute('data-tdb-ref', ref);
+  wrap.setAttribute('data-tdb-text', body);
+  var kicker = document.getElementById('tdbHomeFeelResultKicker');
+  if (kicker) kicker.textContent = 'God is speaking to you today:';
+  var verseEl = document.getElementById('tdbHomeFeelResultVerse');
+  if (verseEl) verseEl.textContent = '\u201c' + body + '\u201d';
+  var refEl = document.getElementById('tdbHomeFeelResultRef');
+  if (refEl) refEl.textContent = ref + ' (KJV)';
+  var youEl = document.getElementById('tdbHomeFeelResultYou');
+  if (youEl) youEl.textContent = a.leadYou || '';
+  var plan = tdbPickHomePlanForTopic(key);
+  var planA = document.getElementById('tdbHomeFeelResultPlan');
+  if (planA) {
+    planA.href = plan.href || 'plans.html';
+    planA.textContent =
+      'Start the ' +
+      String(plan.days || 7) +
+      '-day \u201c' +
+      String(plan.title || 'plan').replace(/\s+/g, ' ') +
+      '\u201d plan';
+  }
+  var readA = document.getElementById('tdbHomeFeelResultRead');
+  if (readA) {
+    readA.href = tdbBuildReaderHrefFromRef(ref);
+    readA.setAttribute('aria-label', 'Read ' + ref + ' in full chapter context');
+  }
+  wrap.hidden = false;
+  wrap.removeAttribute('hidden');
+  setTimeout(function () {
+    if (typeof tdbScrollIntoView === 'function') {
+      tdbScrollIntoView(wrap, 'nearest', 'nearest');
+    } else if (wrap.scrollIntoView) {
+      try {
+        wrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } catch (_) {}
+    }
+  }, 30);
+}
+try {
+  window.tdbShowHomeFeelResult = tdbShowHomeFeelResult;
+} catch (_) {}
+
+/** Homepage: feel chip tap → set search input, paint #tdbHomeFeelResult, run full KJV search without jumping past the card. */
+function tdbRunFeelTopicWithInstantCard(topic) {
+  var t = String(topic || '').trim();
+  if (!t) return;
+  var q = document.getElementById('feel-search') || document.getElementById('query') || document.getElementById('tdb-search');
+  if (q) q.value = t;
+  if (typeof window.tdbShowHomeFeelResult === 'function') window.tdbShowHomeFeelResult(t);
+  try {
+    window.__tdbSuppressNextSearchScroll = true;
+  } catch (_) {}
+  if (typeof window.runSearchWithInput === 'function') window.runSearchWithInput(t);
+  setTimeout(function () {
+    try {
+      window.__tdbSuppressNextSearchScroll = false;
+    } catch (_) {}
+  }, 600);
+}
+try {
+  window.tdbRunFeelTopicWithInstantCard = tdbRunFeelTopicWithInstantCard;
+} catch (_) {}
 
 var HOME_SEARCH_RESOURCE_LIBRARY = [
   {
@@ -27083,7 +27465,7 @@ async function tdbInitImpl() {
       function onTopicChipTap(e) {
         var btn = e.target && (e.target.closest ? e.target.closest('.topic-chip, .quick-topic, [data-topic]') : null);
         if (!btn) return;
-        var inSearchSurface = btn.closest && btn.closest('#quick-search-hero, #search-hero, #quick-search-priority, #main-search, #quick-actions-priority, #quick-actions-accordion, #feel-section');
+        var inSearchSurface = btn.closest && btn.closest('#quick-search-hero, #search-hero, #quick-search-priority, #main-search, #quick-actions-priority, #quick-actions-accordion, #feel-section, #tdbHomeFastFeel');
         if (!inSearchSurface) return;
         try {
           if (e.type === 'touchend') e.preventDefault();
@@ -27094,6 +27476,10 @@ async function tdbInitImpl() {
           var q = getQueryInput();
           if (q) q.value = topic;
           ensureBattleSearchVisible();
+          if (document.getElementById('tdbHomeFeelResult') && typeof window.tdbRunFeelTopicWithInstantCard === 'function') {
+            window.tdbRunFeelTopicWithInstantCard(topic);
+            return;
+          }
           if (typeof window.runSearchWithInput === 'function') window.runSearchWithInput(topic);
         } catch (err) { if (typeof console !== 'undefined' && console.warn) console.warn('TDB quick-topic click:', err); }
       }
@@ -27113,14 +27499,14 @@ async function tdbInitImpl() {
       }
 
       (function wireHomeTopicPlansDeepLinks() {
-        if (!document.getElementById('quick-search-hero')) return;
+        if (!document.getElementById('quick-search-hero') && !document.getElementById('tdbHomeFastFeel')) return;
         document.addEventListener(
           'click',
           function (e) {
             if (!e.altKey) return;
             var btn = e.target && e.target.closest ? e.target.closest('.topic-chip, .quick-topic, [data-topic]') : null;
             if (!btn || !btn.getAttribute('data-topic')) return;
-            if (!btn.closest('#quick-search-hero, #main-search')) return;
+            if (!btn.closest('#quick-search-hero, #main-search, #tdbHomeFastFeel')) return;
             var topic = String(topicFromChip(btn) || '')
               .trim()
               .toLowerCase();
@@ -27138,8 +27524,8 @@ async function tdbInitImpl() {
         );
 
         var touchState = { start: 0, btn: null, x: 0, y: 0, cancelled: false };
-        var qs = document.getElementById('quick-search-hero');
-        if (qs) {
+        function bindTopicLongPressSurface(qs) {
+          if (!qs) return;
           qs.addEventListener(
             'touchstart',
             function (e) {
@@ -27203,6 +27589,8 @@ async function tdbInitImpl() {
             { passive: false }
           );
         }
+        bindTopicLongPressSurface(document.getElementById('quick-search-hero'));
+        bindTopicLongPressSurface(document.getElementById('tdbHomeFastFeel'));
       })();
     })();
   } catch (wireErr) { if (typeof console !== 'undefined' && console.error) console.error('TDB search wire:', wireErr); }
@@ -27409,6 +27797,7 @@ async function tdbInitImpl() {
     );
   }
   wireHeroCopyVerse();
+  wireTdbHomeFastFeelCapture();
   wireHeroSaveToMyVerses();
   if (isHome) wireHomeContinueLoopCard();
   wireDawnDuskQuickPrayLabel();

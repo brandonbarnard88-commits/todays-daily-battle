@@ -355,6 +355,8 @@
       if (/\bwait(ing)?\b|tarry|not yet|\bpatience\b|\bpatient\b|hope for that we see not|appointed time|delayed?\b/.test(low)) return 'waiting';
       if (/\bparent(ing)?\b|\bchildren\b|\bchild\b|\bmother\b|\bmothers?\b|ye fathers,|fathers, provoke|train up|nurture|admonition|heritage of|little ones|toddler|babies\b/.test(low)) return 'parenting';
       if (/\bexhaust|exhausted|weariness|\bweary\b|\btired\b|weary in well|faint|fainted|heavily laden|no might|satiated the weary|sorrowful soul|giveth his beloved sleep|bread of sorrows|strength is made perfect in weakness|renew their strength|mount up with wings\b/.test(low)) return 'exhaustion';
+      if (/\bforgive|forgiveness|forgave|forgiven|trespass|trespasses\b/.test(low)) return 'forgiveness';
+      if (/\blonely|loneliness|\bforsaken\b|forsake me|no companion|desolate and afflicted|solitary in families|comfortless\b/.test(low)) return 'loneliness';
       if (/\bthank|thanks|thanksgiving|grateful|praise\w* unto|magnify|joyful noise|bless the lord, o my soul|enter.*thanksgiving\b/.test(low)) return 'gratitude';
       if (/\bhope|hopeless|discouraged\b/.test(low)) return 'hope';
       return 'hope';
@@ -399,6 +401,16 @@
         { href: '/plans.html?plan=universitygratitude', label: 'Gratitude' },
         { href: '/plans.html?plan=gratitude', label: '7-Day Gratitude' },
         { href: '/plans.html?plan=psalmspraise', label: 'Psalms of Praise' }
+      ],
+      loneliness: [
+        { href: '/plans.html?plan=universityloneliness', label: 'University of Loneliness' },
+        { href: '/plans.html?plan=heartalone', label: 'Heart Feels Alone' },
+        { href: '/plans.html?plan=universitygrief', label: 'University of Grief' }
+      ],
+      forgiveness: [
+        { href: '/plans.html?plan=universityforgiveness', label: 'University of Forgiveness' },
+        { href: '/plans.html?plan=forgiveness', label: '7-Day Forgiveness' },
+        { href: '/plans.html?plan=lettinggo', label: 'Letting Go' }
       ],
       hope: [
         { href: '/plans.html?plan=hopeuncertain', label: 'When Hope Feels Thin' },

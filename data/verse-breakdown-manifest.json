@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-23T20:51:56.100Z",
-  "surfacedRefCount": 2885,
-  "overrideCount": 2885,
+  "generatedAt": "2026-04-23T21:11:13.966Z",
+  "surfacedRefCount": 2887,
+  "overrideCount": 2887,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "family-armor-little-ones.html": {
-      "refs": 4,
+      "refs": 6,
       "pairs": 0
     },
     "family-armor.html": {
@@ -348,7 +348,7 @@
       "pairs": 0
     },
     "kids/corner.html": {
-      "refs": 10,
+      "refs": 12,
       "pairs": 0
     },
     "kids/index.html": {
@@ -776,8 +776,8 @@
       "pairs": 1
     },
     "plans.html": {
-      "refs": 201,
-      "pairs": 185
+      "refs": 208,
+      "pairs": 197
     },
     "prayer-wall.html": {
       "refs": 1,
@@ -916,7 +916,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 30,
+      "refs": 32,
       "pairs": 0
     },
     "testimonials.html": {
@@ -984,7 +984,7 @@
       "pairs": 0
     },
     "university.html": {
-      "refs": 6,
+      "refs": 8,
       "pairs": 0
     },
     "utils.js": {
@@ -2692,6 +2692,7 @@
     "Luke 17:15-16",
     "Luke 17:15-19",
     "Luke 17:19",
+    "Luke 17:3-4",
     "Luke 17:7",
     "Luke 18:1",
     "Luke 18:1-8",
@@ -2860,6 +2861,7 @@
     "Mark 11:1-11",
     "Mark 11:23-24",
     "Mark 11:24",
+    "Mark 11:25",
     "Mark 12:30",
     "Mark 12:34",
     "Mark 12:41",
@@ -4010,6 +4012,7 @@
     "Lamentations 3:25-26": "The LORD is good unto them that wait for him, to the soul that seeketh him. It is good that a man should both hope and quietly wait for the salvation of the LORD.",
     "Luke 10:41-42": "And Jesus answered and said unto her, Martha, Martha, thou art careful and troubled about many things: But one thing is needful: and Mary hath chosen that good part, which shall not be taken away from her.",
     "Luke 17:15-16": "And one of them, when he saw that he was healed, turned back, and with a loud voice glorified God, And fell down on his face at his feet, giving him thanks: and he was a Samaritan.",
+    "Luke 17:3-4": "Take heed to yourselves: If thy brother trespass against thee, rebuke him; and if he repent, forgive him. And if he trespass against thee seven times in a day, and seven times in a day turn again to thee, saying, I repent; thou shalt forgive him.",
     "Luke 1:31-33": "And, behold, thou shalt conceive in thy womb, and bring forth a son, and shalt call his name JESUS. He shall be great, and shall be called the Son of the Highest: and the Lord God shall give unto him the throne of his father David: And he shall reign over the house of Jacob for ever; and of his kingdom there shall be no end.",
     "Luke 1:46-47": "And Mary said, My soul doth magnify the Lord, And my spirit hath rejoiced in God my Saviour.",
     "Luke 2:10-11": "And the angel said unto them, Fear not: for, behold, I bring you good tidings of great joy, which shall be to all people. For unto you is born this day in the city of David a Saviour, which is Christ the Lord.",
@@ -17398,6 +17401,14 @@
         "to": "Believers"
       }
     },
+    "Luke 17:3-4": {
+      "general": {
+        "plainExplanation": "Key idea: Take heed to yourselves: If your brother trespass against you, rebuke him; and if he repent, forgive him. And if he trespass against you seven times in a da...",
+        "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Luke 17:7": {
       "general": {
         "plainExplanation": "But which of you, having a servant plowing or feeding cattle, will say to him by and by, when he is come from the field, Go and sit down to meat?",
@@ -18738,6 +18749,14 @@
       "general": {
         "plainExplanation": "What things soever you desire, when you pray, believe that you receive them.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Mark 11:25": {
+      "general": {
+        "plainExplanation": "And when you stand praying, forgive, if you have ought against any: that your Father also which is in heaven may forgive you your trespasses.",
+        "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
         "about": "Jesus",
         "to": "Believers"
       }

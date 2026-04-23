@@ -7,7 +7,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Family Armor for Little Ones • Calm KJV doorway • Today&rsquo;s Daily Battle</title>
-  <meta name="description" content="A gentle doorway to the whole armor of God in plain KJV for little hearts&mdash;plus a short bedtime prayer card with Psalm and Jesus&rsquo; rest, print-friendly, no scoreboard. On this device.">
+  <meta name="description" content="A gentle doorway to the whole armor of God in plain KJV for little hearts&mdash;with a short morning reset card and a bedtime prayer card (Psalms and Christ&rsquo;s rest), print-friendly, no scoreboard. On this device.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/family-armor-little-ones.html">
   <meta property="og:title" content="Family Armor for Little Ones &mdash; calm KJV whole armor | Today&rsquo;s Daily Battle">
@@ -127,6 +127,36 @@
             <a class="btn btn-secondary" href="/kids/corner.html">Bible Story Library</a>
           </div>
         </header>
+
+        <section class="glass tdb-fa-bedtime" id="fa-littles-morning-reset" aria-labelledby="fa-littles-morning-h">
+          <h2 class="section-divider" id="fa-littles-morning-h">Family Armor morning reset</h2>
+          <p class="section-note">For the first slow breath before the day rushes&mdash;parents and children together. Same gentle rules: no score; just one honest start with Scripture.</p>
+          <div class="tdb-fa-bedtime__toolbar tdb-fa-bedtime__no-print" role="group" aria-label="Morning reset card">
+            <button type="button" class="btn btn-secondary" id="fa-morning-toggle" aria-expanded="true" aria-controls="fa-morning-prayer-panel">Hide prayer</button>
+            <button type="button" class="btn btn-primary" id="fa-morning-print-btn">Print this card</button>
+          </div>
+          <div id="fa-morning-prayer-panel">
+            <div class="tdb-fa-bedtime-print-zone tdb-fa-bedtime-card">
+              <p class="tdb-fa-bedtime-kicker" id="fa-morning-prayer-label">Prayer to say together</p>
+              <p class="tdb-fa-bedtime-prayer-text">Good Father, the sun is up and our house is still waking. Before phones and busy feet, we pause with You&mdash;thank You for breath, for clothes, for food, for love we did not earn. Order our step today; when we are small or sharp with each other, be patient with us. In Jesus&rsquo; name, amen.</p>
+              <div class="tdb-fa-bedtime-verse">
+                <p class="tdb-fa-bedtime-verse-ref">Lamentations 3:22&ndash;23 &middot; <abbr title="King James Version">KJV</abbr></p>
+                <blockquote class="tdb-fa-bedtime-blockquote">
+                  <p>It is of the LORD&rsquo;s mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.</p>
+                </blockquote>
+                <p class="tdb-fa-bedtime-soft">New mercy is a fresh plate&mdash;not because yesterday was perfect, but because He is faithful.</p>
+              </div>
+              <div class="tdb-fa-bedtime-verse">
+                <p class="tdb-fa-bedtime-verse-ref">Psalm 5:3 &middot; <abbr title="King James Version">KJV</abbr></p>
+                <blockquote class="tdb-fa-bedtime-blockquote">
+                  <p>My voice shalt thou hear in the morning, O LORD; in the morning will I direct my prayer unto thee, and will look up.</p>
+                </blockquote>
+                <p class="tdb-fa-bedtime-soft">&ldquo;Look up&rdquo; is a child-sized picture&mdash;eyes off the floor, heart toward the Lord, before the noise wins.</p>
+              </div>
+              <p class="section-note tdb-fa-bedtime-cross">Evening hush: <a href="#fa-littles-bedtime-prayer">Family Armor bedtime prayer</a> &middot; Full home map: <a href="/family-armor.html">Family Armor &amp; Stories</a></p>
+            </div>
+          </div>
+        </section>
 
         <section class="glass" id="fa-littles-anchors" aria-labelledby="fa-littles-anchors-h">
           <h2 class="section-divider" id="fa-littles-anchors-h">Six pieces, kid-sized names</h2>
@@ -361,6 +391,55 @@
 </footer>
   </div>
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
+  <script nonce="tdb2025s">
+(function () {
+  var LS = 'tdb_fa_littles_morning_hidden';
+  var panel = document.getElementById('fa-morning-prayer-panel');
+  var toggle = document.getElementById('fa-morning-toggle');
+  var printBtn = document.getElementById('fa-morning-print-btn');
+  if (!panel || !toggle) return;
+
+  function applyHidden(hidden) {
+    if (hidden) {
+      panel.setAttribute('hidden', '');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.textContent = 'Show prayer';
+    } else {
+      panel.removeAttribute('hidden');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.textContent = 'Hide prayer';
+    }
+    try {
+      if (hidden) localStorage.setItem(LS, '1');
+      else localStorage.removeItem(LS);
+    } catch (e) {}
+  }
+
+  try {
+    if (localStorage.getItem(LS) === '1') applyHidden(true);
+  } catch (e) {}
+
+  toggle.addEventListener('click', function () {
+    var willShow = panel.hasAttribute('hidden');
+    applyHidden(!willShow);
+  });
+
+  if (printBtn) {
+    printBtn.addEventListener('click', function () {
+      var wasHidden = panel.hasAttribute('hidden');
+      if (wasHidden) panel.removeAttribute('hidden');
+      document.body.classList.add('tdb-fa-morning-print-mode');
+      function done() {
+        document.body.classList.remove('tdb-fa-morning-print-mode');
+        if (wasHidden) panel.setAttribute('hidden', '');
+        window.removeEventListener('afterprint', done);
+      }
+      window.addEventListener('afterprint', done);
+      requestAnimationFrame(function () { window.print(); });
+    });
+  }
+})();
+  </script>
   <script nonce="tdb2025s">
 (function () {
   var LS = 'tdb_fa_littles_bedtime_hidden';

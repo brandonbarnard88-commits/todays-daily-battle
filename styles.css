@@ -4614,6 +4614,43 @@ html[data-theme="light"] .tdb-university-page .tdb-university-kjv {
 .tdb-uog-deeper-course .tdb-uog-course-actions {
   margin: 1rem 0 0;
 }
+.tdb-university-page .tdb-uog-subhead {
+  margin: 1.15rem 0 0.45rem;
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--elite-gold, #c9a227);
+  letter-spacing: 0.01em;
+}
+.tdb-university-page .tdb-uog-connects-list {
+  margin: 0.4rem 0 0;
+  padding-left: 1.2rem;
+  line-height: 1.65;
+  color: var(--text, #e6edf3);
+}
+.tdb-university-page .tdb-uog-connects-list li {
+  margin-bottom: 0.5rem;
+}
+.tdb-university-page .tdb-uog-makers-note {
+  margin: 1rem 0 0;
+  padding: 0.65rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--border, #242d3d) 90%, var(--elite-gold, #c9a227));
+  background: color-mix(in srgb, var(--card, #0d1117) 95%, rgba(201, 162, 39, 0.06));
+  font-size: 0.92rem;
+}
+.tdb-university-page .tdb-uog-makers-note summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: rgba(226, 232, 240, 0.92);
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+.tdb-university-page .tdb-uog-makers-note summary:focus-visible {
+  outline: 2px solid var(--elite-gold, #c9a227);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
 html[data-theme="light"] .tdb-uog-deeper-course .tdb-uog-course-eyebrow {
   color: #5a6578;
 }
@@ -21288,6 +21325,15 @@ html[data-tdb-contrast="high"] .card {
     display: none !important;
   }
   body.tdb-fa-littles-page.tdb-fa-bedtime-print-mode .content-inner > *:not(#fa-littles-bedtime-prayer) {
+    display: none !important;
+  }
+
+  body.tdb-fa-littles-page.tdb-fa-morning-print-mode .app-shell > header,
+  body.tdb-fa-littles-page.tdb-fa-morning-print-mode .site-footer,
+  body.tdb-fa-littles-page.tdb-fa-morning-print-mode .skip-link {
+    display: none !important;
+  }
+  body.tdb-fa-littles-page.tdb-fa-morning-print-mode .content-inner > *:not(#fa-littles-morning-reset) {
     display: none !important;
   }
 }

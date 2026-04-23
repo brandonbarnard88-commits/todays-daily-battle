@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-23T13:25:44.070Z",
+  "generatedAt": "2026-04-23T13:39:26.142Z",
   "surfacedRefCount": 2869,
   "overrideCount": 2869,
   "sourceCounts": {
@@ -228,7 +228,7 @@
       "pairs": 0
     },
     "index.html": {
-      "refs": 106,
+      "refs": 104,
       "pairs": 123
     },
     "journal/anxiety-before-tomorrow.html": {

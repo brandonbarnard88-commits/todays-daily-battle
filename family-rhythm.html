@@ -53,6 +53,28 @@
       .fr-start-tonight__actions { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
       .fr-start-tonight__actions .btn-rhythm { min-width: 14rem; }
     }
+    .fr-winter {
+      max-width: 44rem;
+      margin: 0 auto 2.25rem;
+      padding: 1.35rem 1.35rem 1.4rem;
+      border-radius: 18px;
+      border: 1px solid color-mix(in srgb, var(--gold) 18%, var(--line));
+      background: color-mix(in srgb, var(--bg) 93%, #141a20);
+      text-align: left;
+    }
+    .fr-winter__h {
+      margin: 0 0 0.5rem;
+      font-size: 1.05rem;
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .fr-winter__lead { margin: 0 0 0.85rem; font-size: 0.9rem; color: var(--muted); line-height: 1.55; }
+    .fr-winter__list { margin: 0; padding: 0 0 0 1.05rem; font-size: 0.88rem; line-height: 1.55; color: var(--text); }
+    .fr-winter__list li { margin: 0.4rem 0 0; }
+    .fr-winter__list .fr-winter__ref { font-size: 0.78rem; font-weight: 600; color: color-mix(in srgb, var(--gold) 75%, var(--muted)); display: block; margin-bottom: 0.15rem; }
+    .fr-winter__more { margin: 1rem 0 0; font-size: 0.86rem; color: var(--muted); }
+    .fr-winter__more a { color: var(--gold); text-decoration: none; }
     .rhythm-card:hover { border-color: var(--gold); transform: translateY(-3px); }
     .rhythm-card h3 { color: var(--gold); margin: 0 0 0.75rem; font-size: 1.15rem; }
     .rhythm-card .verse-preview { font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.1rem; line-height: 1.45; color: #e8e4d9; margin: 0 0 1rem; font-style: italic; }
@@ -146,6 +168,7 @@
     .family-rhythm-page #fr-week,
     .family-rhythm-page #fr-more,
     .family-rhythm-page #fr-start-tonight,
+    .family-rhythm-page #fr-winter,
     .family-rhythm-page #fr-device {
       scroll-margin-top: 5rem;
     }
@@ -156,6 +179,7 @@
       .family-rhythm-page #fr-week,
       .family-rhythm-page #fr-more,
       .family-rhythm-page #fr-start-tonight,
+      .family-rhythm-page #fr-winter,
       .family-rhythm-page #fr-device {
         scroll-margin-top: 7.5rem;
       }
@@ -232,6 +256,7 @@
           <li><a href="#fr-morning">Morning</a></li>
           <li><a href="#fr-evening">Evening</a></li>
           <li><a href="#fr-week">One week</a></li>
+          <li><a href="#fr-winter">Winter</a></li>
           <li><a href="#fr-more">More</a></li>
           <li><a href="#fr-device">On this device</a></li>
         </ul>
@@ -269,6 +294,36 @@
       <a href="/one-week-in-the-university-print.html" class="btn-rhythm">Open the one-week print</a>
     </div>
     </div>
+
+    <section id="fr-winter" class="fr-winter" tabindex="-1" aria-labelledby="fr-winter-h">
+      <h2 class="fr-winter__h" id="fr-winter-h">Winter in the University</h2>
+      <p class="fr-winter__lead">Four <abbr title="King James Version">KJV</abbr> lines for the coldest, quietest months&mdash;not a checklist, only words to return to when the days are short.</p>
+      <ul class="fr-winter__list">
+        <li>
+          <span class="fr-winter__ref">Psalm 147:16&ndash;17</span>
+          He giveth snow like wool: he scattereth the hoar frost like ashes. He casteth forth his ice like morsels: who can stand before his cold?
+        </li>
+        <li>
+          <span class="fr-winter__ref">Lamentations 3:25&ndash;26</span>
+          The LORD is good unto them that wait for him, to the soul that seeketh him. It is good that a man should both hope and quietly wait for the salvation of the LORD.
+        </li>
+        <li>
+          <span class="fr-winter__ref">John 1:5</span>
+          And the light shineth in darkness; and the darkness comprehended it not.
+        </li>
+        <li>
+          <span class="fr-winter__ref">Isaiah 1:18</span>
+          Come now, and let us reason together, saith the LORD: though your sins be as scarlet, they shall be as white as snow; though they be red like crimson, they shall be as wool.
+        </li>
+      </ul>
+      <p class="fr-winter__more">
+        <a href="/plans.html?plan=latefallwinter">Late fall, quiet winter (plan)</a>
+        <span style="margin:0 0.5rem; opacity:0.6;" aria-hidden="true">&middot;</span>
+        <a href="/seasonal.html#late-fall-winter">Seasonal &rarr; winter bridge</a>
+        <span style="margin:0 0.5rem; opacity:0.6;" aria-hidden="true">&middot;</span>
+        <a href="/university.html#uog-winter-university">University map &rarr; winter</a>
+      </p>
+    </section>
 
     <div id="fr-more" class="daily-rhythm-more-links" style="margin-top:2.5rem; text-align:center;" tabindex="-1">
       <a href="/family.html" style="color:var(--gold); text-decoration:none; font-size:0.95rem;">Family hub →</a>

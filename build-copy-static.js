@@ -422,6 +422,10 @@ for (const f of otherHtml) {
       console.error('BUILD FAIL: plans.html must include The University of Comparison plan (universitycomparison / tdb-plan-universitycomparison-day).');
       process.exit(1);
     }
+    if (!content.includes('universityanger') || !content.includes('tdb-plan-universityanger-day')) {
+      console.error('BUILD FAIL: plans.html must include The University of Anger plan (universityanger / tdb-plan-universityanger-day).');
+      process.exit(1);
+    }
     if (!content.includes('quietfallharvest') || !content.includes('tdb-plan-quietfallharvest-day')) {
       console.error('BUILD FAIL: plans.html must include Quiet Fall Harvest plan (quietfallharvest / tdb-plan-quietfallharvest-day).');
       process.exit(1);

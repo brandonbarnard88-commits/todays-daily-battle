@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-23T21:49:46.438Z",
-  "surfacedRefCount": 2907,
-  "overrideCount": 2907,
+  "generatedAt": "2026-04-23T21:57:02.738Z",
+  "surfacedRefCount": 2909,
+  "overrideCount": 2909,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -727,6 +727,10 @@
       "refs": 5,
       "pairs": 5
     },
+    "one-week-in-the-university-print.html": {
+      "refs": 6,
+      "pairs": 0
+    },
     "one-week-rhythm-kids.html": {
       "refs": 8,
       "pairs": 0
@@ -784,8 +788,8 @@
       "pairs": 1
     },
     "plans.html": {
-      "refs": 241,
-      "pairs": 235
+      "refs": 242,
+      "pairs": 241
     },
     "prayer-wall.html": {
       "refs": 1,
@@ -992,7 +996,7 @@
       "pairs": 0
     },
     "university.html": {
-      "refs": 9,
+      "refs": 10,
       "pairs": 0
     },
     "utils.js": {
@@ -1987,6 +1991,7 @@
     "Galatians 6:12",
     "Galatians 6:14",
     "Galatians 6:2",
+    "Galatians 6:4",
     "Galatians 6:4-5",
     "Galatians 6:5",
     "Galatians 6:6",
@@ -3408,6 +3413,7 @@
     "Proverbs 21:5",
     "Proverbs 22:1",
     "Proverbs 22:24",
+    "Proverbs 22:24-25",
     "Proverbs 22:29",
     "Proverbs 22:3",
     "Proverbs 22:6",
@@ -4072,6 +4078,7 @@
     "Numbers 6:24-26": "The Lord bless thee, and keep thee: The LORD make his face shine upon thee, and be gracious unto thee: The LORD lift up his countenance upon thee, and give thee peace.",
     "Philippians 3:13-14": "Brethren, I count not myself to have apprehended: but this one thing I do, forgetting those things which are behind, and reaching forth unto those things which are before, I press toward the mark for the prize of the high calling of God in Christ Jesus.",
     "Philippians 4:6-7": "Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.",
+    "Proverbs 22:24-25": "Make no friendship with an angry man; and with a furious man shalt thou not go: Lest thou learn his ways, and get a snare to thy soul.",
     "Proverbs 30:8-9": "Remove far from me vanity and lies: give me neither poverty nor riches; feed me with food convenient for me: Lest I be full, and deny thee, and say, Who is the LORD? or lest I be poor, and steal, and take the name of my God in vain.",
     "Proverbs 3:5-6": "Trust in the LORD with all thine heart; and lean not unto thine own understanding. In all thy ways acknowledge him, and he shall direct thy paths.",
     "Proverbs 3:9-10": "Honour the LORD with thy substance, and with the firstfruits of all thine increase: So shall thy barns be filled with plenty, and thy presses shall burst out with new wine.",
@@ -11733,6 +11740,14 @@
     "Galatians 6:2": {
       "general": {
         "plainExplanation": "Bear you one another's burdens, and so fulfil the law of Christ.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Galatia"
+      }
+    },
+    "Galatians 6:4": {
+      "general": {
+        "plainExplanation": "But let every man prove his own work, and then shall he have rejoicing in himself alone, and not in another.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Paul",
         "to": "Galatia"
@@ -23101,6 +23116,14 @@
     "Proverbs 22:24": {
       "general": {
         "plainExplanation": "Make no friendship with an angry man; and with a furious man you shalt not go:",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Solomon giving wisdom",
+        "to": "Everyone seeking guidance"
+      }
+    },
+    "Proverbs 22:24-25": {
+      "general": {
+        "plainExplanation": "Make no friendship with an angry man; and with a furious man shalt you not go: Lest you learn his ways, and get a snare to your soul.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Solomon giving wisdom",
         "to": "Everyone seeking guidance"

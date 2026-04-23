@@ -6,7 +6,7 @@
   'use strict';
 
   /** @type {string} Single bump token — keep in sync with SW-VERSION, verify-service-worker.mjs, and precache. */
-  var TDB_SW_QUERY = 'v=20260421-pwa-offline';
+  var TDB_SW_QUERY = 'v=20260423-curriculum-hub';
   var SW_URL = '/sw.js?' + TDB_SW_QUERY;
 
   if (typeof window === 'undefined') return;

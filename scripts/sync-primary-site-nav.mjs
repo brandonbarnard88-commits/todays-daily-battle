@@ -138,13 +138,18 @@ function main() {
 
     next = next.replace(RE_INLINE_AUTH, '\n');
 
-    if (rel === 'index.html') {
-      const beforeHomeNav = next;
+    if (rel === 'gods-university-of-life.html' && touched) {
       next = next.replace(
-        /<a href="\/verse\.html">Today&rsquo;s Verse<\/a>\s*\r?\n\s*<a href="\/#feel-section">How I Feel<\/a>/,
-        '<a href="/verse.html">Today&rsquo;s Verse</a>\n          <a href="/#feel-section" aria-current="page">How I Feel</a>'
+        /<a href="\/gods-university-of-life\.html" id="nav-curriculum"/,
+        '<a href="/gods-university-of-life.html" id="nav-curriculum" aria-current="page"'
       );
-      if (next !== beforeHomeNav) touched = true;
+    }
+
+    if (rel === 'reader.html' && touched) {
+      next = next.replace(
+        /<a href="\/reader\.html" id="nav-reader"/,
+        '<a href="/reader.html" id="nav-reader" aria-current="page"'
+      );
     }
 
     if (rel === 'family-armor.html' && touched) {

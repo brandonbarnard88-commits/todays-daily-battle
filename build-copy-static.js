@@ -234,6 +234,8 @@ const rootFiles = [
   'lineage-tree.js',
   'story-manifest.js',
   'verse-rotator.js',
+  'start-my-day.js',
+  'first-visit-welcome.js',
   'auth.js',
   'browser-shared.js',
   'owner-console.js',

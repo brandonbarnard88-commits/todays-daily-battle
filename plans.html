@@ -844,6 +844,12 @@
       outline-offset: 2px;
     }
     .day-card-ws-row { margin: 0 0 1rem; }
+    .day-card-reader-row { margin: 0.45rem 0 0.85rem; font-size: 0.92rem; }
+    .day-card-reader-link { color: #e3bc67; text-underline-offset: 2px; font-weight: 600; }
+    .day-card-reader-link:hover, .day-card-reader-link:focus-visible { color: #fde68a; }
+    .day-card-more-context { margin: 0.75rem 0 0.25rem; border-radius: 10px; border: 1px solid rgba(227, 188, 103, 0.22); padding: 0.4rem 0.65rem; background: rgba(8, 12, 20, 0.35); }
+    .day-card-more-context summary { cursor: pointer; font-weight: 600; color: rgba(203, 213, 225, 0.95); }
+    .day-card-more-context[open] summary { color: #e3bc67; }
     .day-card-wordstudy { font-size: 0.88rem; }
     .day-card-ribbon-note {
       margin: 0 0 1rem;
@@ -1285,19 +1291,21 @@
     </button>
     <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-standalone">
       <a href="/verse.html">Today&rsquo;s Verse</a>
-      <a href="/daily-rhythm.html">Daily Rhythm</a>
+      <a href="/explore.html">Explore</a>
+      <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map and gentle paths">Curriculum</a>
+      <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read</a>
+      <a href="/memorize.html">Memorize</a>
       <a href="/#feel-section">How I Feel</a>
+      <a href="/daily-rhythm.html">Daily Rhythm</a>
       <a href="/prayer-wall.html">Pray</a>
       <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
       <details class="tdb-nav-more">
-        <summary aria-haspopup="true">More</summary>
+        <summary aria-haspopup="true">More tools</summary>
         <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
           <a href="/">Home</a>
-          <a href="/explore.html">Explore</a>
           <a href="/mystudy">My Study</a>
           <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
           <a href="/plans.html" aria-current="page">Battle Plans</a>
-          <a href="/memorize.html">Memorize</a>
           <a href="/kids/corner.html">Kids &amp; Family</a>
           <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
           <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
@@ -2374,6 +2382,18 @@
         return window.tdbStripAngleMarkupForPlainText(s);
       }
       return String(s).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    }
+
+    /** KJV ref → same reader URL pattern as buildReaderUrl in script.js (book + chapter + ref) */
+    function tdbBuildReaderUrlFromRef(ref) {
+      var r = cleanPlanPlain(ref);
+      if (!r) return '';
+      var match = r.match(/^(.+?)\s+(\d+)\s*:\s*(\d+)/);
+      if (!match) return '';
+      var book = match[1].replace(/\s+/g, ' ').trim();
+      if (/^Psalms?$/i.test(book)) book = 'Psalm';
+      var ch = match[2];
+      return 'reader.html?book=' + encodeURIComponent(book) + '&chapter=' + encodeURIComponent(ch) + '&ref=' + encodeURIComponent(r);
     }
 
     // ── Plan data — draft new plans with docs/BATTLE-PLAN-AUTHORING.md ───────────
@@ -4340,9 +4360,20 @@
       bq.appendChild(verseP);
       verseShell.appendChild(refP);
       verseShell.appendChild(bq);
-      card.appendChild(verseShell);
-
       var refWs = cleanPlanPlain(dayData.ref == null ? '' : String(dayData.ref));
+      var readerHref = refWs ? tdbBuildReaderUrlFromRef(refWs) : '';
+      if (readerHref) {
+        var readRow = document.createElement('p');
+        readRow.className = 'day-card-reader-row';
+        var rLink = document.createElement('a');
+        rLink.className = 'day-card-reader-link';
+        rLink.href = readerHref;
+        rLink.textContent = 'Read full chapter in context (KJV)';
+        rLink.setAttribute('aria-label', 'Open the chapter reader at ' + refWs);
+        readRow.appendChild(rLink);
+        verseShell.appendChild(readRow);
+      }
+      card.appendChild(verseShell);
       var txtWs = cleanPlanPlain(dayData.text == null ? '' : String(dayData.text));
       if (refWs) {
         var wsWrap = document.createElement('div');
@@ -4368,6 +4399,30 @@
           wsWrap.appendChild(mvBtn);
         }
         card.appendChild(wsWrap);
+      }
+
+      if (refWs) {
+        var moreDet = document.createElement('details');
+        moreDet.className = 'day-card-more-context';
+        var sumM = document.createElement('summary');
+        sumM.textContent = 'Why the full chapter can help';
+        moreDet.appendChild(sumM);
+        var pMore = document.createElement('p');
+        pMore.className = 'section-note util-mb-0';
+        pMore.textContent = 'One verse is a window; the chapter is the room. \u201cStudy this verse\u201d above opens word work; the reader shows the full KJV chapter so you can see what surrounds this line\u2014cached on your device after the first open.';
+        moreDet.appendChild(pMore);
+        if (readerHref) {
+          var pAl = document.createElement('p');
+          pAl.className = 'section-note util-mt-0_5 util-mb-0';
+          var aCh = document.createElement('a');
+          aCh.href = readerHref;
+          aCh.className = 'day-card-reader-link';
+          aCh.textContent = 'Open this chapter in the reader';
+          aCh.setAttribute('aria-label', 'Open chapter reader for ' + refWs);
+          pAl.appendChild(aCh);
+          moreDet.appendChild(pAl);
+        }
+        card.appendChild(moreDet);
       }
 
       var breakdown = document.createElement('div');

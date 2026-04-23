@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-23T12:55:46.794Z",
+  "generatedAt": "2026-04-23T13:25:44.070Z",
   "surfacedRefCount": 2869,
   "overrideCount": 2869,
   "sourceCounts": {
@@ -21,6 +21,18 @@
     },
     "admin.html": {
       "refs": 1,
+      "pairs": 0
+    },
+    "api/src/pilot-data/battle-plans.json": {
+      "refs": 10,
+      "pairs": 0
+    },
+    "api/src/pilot-data/calm-moods.json": {
+      "refs": 10,
+      "pairs": 0
+    },
+    "api/src/pilot-data/canon-daily-verse.json": {
+      "refs": 10,
       "pairs": 0
     },
     "ask-the-word.js": {
@@ -697,6 +709,10 @@
     },
     "sos.html": {
       "refs": 3,
+      "pairs": 0
+    },
+    "start-my-day.js": {
+      "refs": 8,
       "pairs": 0
     },
     "study.html": {

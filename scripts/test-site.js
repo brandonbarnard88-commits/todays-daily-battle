@@ -49,6 +49,7 @@ const PAGES = [
   '/topic-strength.html',
   '/topic-forgiveness.html',
   '/topic-parenting.html',
+  '/gods-university-of-life.html',
 ];
 
 const ASSETS = [

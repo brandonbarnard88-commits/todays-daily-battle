@@ -19,8 +19,8 @@
   <script nonce="tdb2025s">(function(){try{if(location.hash!=='#prayer-wall')return;location.replace('prayer-wall.html'+location.search);}catch(e){}})();</script>
   <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260423-phase5-perf"></script>
 
-  <title>God’s University of Life — Today’s Verse — Jeremiah 31:3 (KJV)</title>
-  <meta name="description" content="Today’s KJV verse: Jeremiah 31:3. God’s University of Life—quiet campus, search by how you feel, prayer wall, works offline. No ads, no login, no grades.">
+  <title>Today&rsquo;s Daily Battle &mdash; God&rsquo;s University of Life (KJV Verse, Plans, Calm Help)</title>
+  <meta name="description" content="God&rsquo;s University of Life &mdash; a quiet place to learn His ways. Calm, ad-free KJV help for anxiety, grief, fear, parenting, and hard days: daily verse, Ask the Word, battle plans, prayer, offline-first. No grades. No login.">
   <meta name="keywords" content="bible verses when feeling heartbroken, bible for anxiety, verses when alone, KJV devotional, Bible verse of the day, KJV Bible app, Christian anxiety help, Bible verses for fear, offline Bible, daily scripture, verse of the day KJV, Bible breakdown plain English, calm verse, crisis verse, need verse now">
   <link rel="canonical" href="https://todaysdailybattle.com/">
 
@@ -70,12 +70,12 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Quiet place · Jeremiah 31:3">
+  <meta name="apple-mobile-web-app-title" content="God&#39;s University of Life">
   <!-- Open Graph (iMessage, Facebook, Slack previews) -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Today's Daily Battle">
-  <meta property="og:title" content="God’s University of Life — Today’s Verse — Jeremiah 31:3 (KJV)">
-  <meta property="og:description" content="Today’s KJV verse: Jeremiah 31:3. God’s University of Life—quiet campus, search by how you feel, prayer wall, works offline. No ads, no login, no grades.">
+  <meta property="og:title" content="God&#39;s University of Life &mdash; A Quiet Place to Learn His Ways | Today&#39;s Daily Battle">
+  <meta property="og:description" content="Welcome to God&rsquo;s University of Life &mdash; KJV-only, calm campus, real-life curriculum for every battle of the heart and home. Daily verse, plans, prayer; offline when you need them. No ads. No login.">
   <meta property="og:url" content="https://todaysdailybattle.com/">
   <meta property="og:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260422og">
   <meta property="og:image:width" content="1200">
@@ -84,8 +84,8 @@
 
   <!-- Twitter / X card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="God’s University of Life — Today’s Verse — Jeremiah 31:3 (KJV)">
-  <meta name="twitter:description" content="Today’s KJV verse: Jeremiah 31:3. God’s University of Life—quiet campus, search by how you feel, prayer wall, works offline. No ads, no login, no grades.">
+  <meta name="twitter:title" content="God&#39;s University of Life &mdash; A Quiet Place to Learn His Ways | Today&#39;s Daily Battle">
+  <meta name="twitter:description" content="KJV-only calm campus: daily verse, battle plans, prayer, and gentle tools&mdash;offline when you need them. No grades. No performance. Just Scripture.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260422og">
   <meta name="twitter:image:alt" content="Today&#39;s Daily Battle &mdash; calm KJV verse and tools">
   <!-- Cormorant + Caveat: self-hosted latin woff2 (gstatic-derived). No Google Fonts on homepage. -->
@@ -2956,6 +2956,33 @@
     }
 
     /* Patriotic bundle — closed by default; same grids inside */
+    /* Tool grid + patriotic: default-closed so hero / Start My Day stay visually primary */
+    .tdb-home-tools-shelf { padding: 0.75rem 1rem 0.5rem; margin-top: 0.5rem; }
+    .tdb-home-tools-shelf > summary {
+      cursor: pointer;
+      list-style: none;
+      font-weight: 700;
+      color: var(--gold-soft, #c9a24d);
+      font-size: 0.98rem;
+      padding: 0.2rem 0 0.5rem;
+    }
+    .tdb-home-tools-shelf > summary::-webkit-details-marker { display: none; }
+    .tdb-home-tools-shelf-sub {
+      display: block;
+      margin: 0.4rem 0 0;
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--muted);
+      line-height: 1.45;
+      max-width: 40rem;
+    }
+    .tdb-home-tools-shelf[open] > summary { margin-bottom: 0.35rem; }
+    .tdb-home-tools-shelf .tdb-more-tools-lead { margin-top: 0.35rem; }
+    .tdb-home-patriotic-disclosure--footer {
+      margin-top: 1.5rem;
+      border-color: color-mix(in srgb, var(--line) 88%, transparent);
+    }
+    .tdb-home-patriotic-disclosure--footer .tdb-home-patriotic-summary-label { font-size: 0.95rem; }
     .tdb-home-patriotic-disclosure { padding: 0.85rem 1rem 1rem; }
     .tdb-home-patriotic-summary {
       cursor: pointer;
@@ -7869,17 +7896,21 @@
         </button>
         <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-home">
           <a href="/verse.html">Today&rsquo;s Verse</a>
+          <a href="/explore.html">Explore</a>
+          <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map and gentle paths">Curriculum</a>
+          <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read</a>
+          <a href="/memorize.html">Memorize</a>
           <a href="/#feel-section" aria-current="page">How I Feel</a>
+          <a href="/daily-rhythm.html">Daily Rhythm</a>
           <a href="/prayer-wall.html">Pray</a>
+          <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
           <details class="tdb-nav-more">
-            <summary aria-haspopup="true">More</summary>
+            <summary aria-haspopup="true">More tools</summary>
             <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
               <a href="/">Home</a>
-              <a href="/explore.html">Explore</a>
               <a href="/mystudy" aria-label="My Study — saved verses, notes, and progress">My Study</a>
               <a href="/plans.html">Battle Plans</a>
               <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
-              <a href="/memorize.html">Memorize</a>
               <a href="/kids/corner.html">Kids &amp; Family</a>
               <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
               <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
@@ -7901,6 +7932,28 @@
         </div>
       </nav>
     </header>
+
+    <dialog id="tdbFirstVisitDialog" class="tdb-first-visit-dialog" aria-labelledby="tdbFirstVisitH1" aria-modal="true">
+      <div class="tdb-first-visit-panel">
+        <h2 id="tdbFirstVisitH1" class="tdb-first-visit-title">Welcome to a quiet campus</h2>
+        <p class="tdb-first-visit-lead">KJV, calm, no hype&mdash;verse search, plans, and prayer. Nothing here grades you. If you are new, you can name how you feel, take a one-minute tour, or just close this and read.</p>
+        <div class="tdb-first-visit-actions">
+          <a href="#feel-section" class="btn btn-primary" id="tdbFirstVisitFeel">Name how I feel</a>
+          <button type="button" class="btn btn-secondary" id="tdbFirstVisitTour">Open site tour</button>
+          <button type="button" class="btn btn-secondary" id="tdbFirstVisitNotNow">Not now</button>
+        </div>
+      </div>
+    </dialog>
+    <style>
+      .tdb-first-visit-dialog { max-width: min(100vw - 2rem, 24rem); width: 100%; padding: 0; border: none; border-radius: 16px; background: var(--card); color: var(--text); box-shadow: 0 20px 48px rgba(0,0,0,0.5); }
+      :root[data-theme="light"] .tdb-first-visit-dialog { box-shadow: 0 16px 40px rgba(15,20,35,0.12); }
+      .tdb-first-visit-dialog::backdrop { background: rgba(4,8,16,0.65); backdrop-filter: blur(3px); }
+      .tdb-first-visit-panel { padding: 1.1rem 1.2rem 1.2rem; }
+      .tdb-first-visit-title { margin: 0 0 0.6rem; font-size: 1.15rem; color: var(--gold-soft, #e3bc67); }
+      .tdb-first-visit-lead { margin: 0 0 1rem; font-size: 0.95rem; line-height: 1.55; color: var(--muted); }
+      .tdb-first-visit-actions { display: flex; flex-direction: column; gap: 0.5rem; align-items: stretch; }
+      .tdb-first-visit-actions .btn { min-height: 48px; justify-content: center; text-align: center; }
+    </style>
 
     <nav class="tdb-home-quickbar" aria-label="Persistent site navigation">
       <a class="tdb-home-quickbar-link" href="/">Home</a>
@@ -8133,7 +8186,7 @@
         <p class="tdb-home-reader-story-foot">Short anonymized notes only. No hype, no names, no polished success stories. <a href="/testimonials.html">Read the full page</a>.</p>
       </section>
       <div id="hero-verse-wrap" class="hero-verse-wrap tdb-home-soar-aura tdb-quiet-container tdb-micro-hero-dawn">
-      <section class="card verse-card verse-card-loaded" id="verseCard" aria-live="polite" data-daily-verse="true" data-tdb-hero-prebuilt="1">
+      <section class="card verse-card verse-card-loaded" id="verseCard" aria-live="polite" data-daily-verse="true">
         <p class="welcome-back-msg" id="welcomeBackMsg" aria-live="polite" hidden></p>
         <h2 class="hero-daily-headline">Welcome to God&rsquo;s University of Life &mdash; A Quiet Place to Learn His Ways</h2>
         <p class="hero-daily-continuity" id="heroDailyContinuity">Still <strong>Today&rsquo;s Daily Battle</strong> &mdash; same quiet porch, same KJV help; we&rsquo;re only hanging a clearer welcome sign. <a href="/about.html#gods-university-quiet-name" class="hero-daily-why-name">Why &ldquo;God&rsquo;s University of Life&rdquo;?</a></p>
@@ -8142,10 +8195,10 @@
           <div class="verse-skeleton-box"></div>
         </div>
         <div class="tdb-home-verse-sticky-shell" role="region" aria-label="Today’s verse text and quick actions">
-        <p class="verse-ref hero-daily-ref-above" id="heroRef">Jeremiah 31:3 (KJV)</p>
+        <p class="verse-ref hero-daily-ref-above" id="heroRef">Isaiah 40:31 (KJV)</p>
         <div class="verse-ref-row">
           <div class="hero-verse-wrap-inner">
-            <p class="hero-verse is-visible" id="heroVerse" elementtiming="tdb-hero-verse">“I have loved thee with an everlasting love.”</p>
+            <p class="hero-verse is-visible" id="heroVerse" elementtiming="tdb-hero-verse">&ldquo;But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.&rdquo;</p>
             <div class="verse-font-controls" aria-label="Adjust verse text size">
               <button type="button" class="verse-font-btn verse-font-smaller" id="verseFontSmaller" aria-label="Decrease text size">A−</button>
               <button type="button" class="verse-font-btn verse-font-larger" id="verseFontLarger" aria-label="Increase text size">A+</button>
@@ -8176,6 +8229,187 @@
           </div>
         </div>
         </div>
+        <div class="tdb-start-my-day-band" role="region" aria-label="Start my day: verse, feeling, and a gentle plan">
+          <p class="tdb-start-my-day-line">One verse. One honest feeling. One simple plan.</p>
+          <button type="button" id="tdbStartMyDayBtn" class="btn btn-primary tdb-start-my-day-btn" aria-haspopup="dialog" aria-controls="tdbStartMyDayDialog">Start My Day</button>
+        </div>
+        <dialog id="tdbStartMyDayDialog" class="tdb-start-my-day-dialog" aria-modal="true" aria-labelledby="tdbSmdH1">
+          <div class="tdb-smd-panel">
+            <div class="tdb-smd-top">
+              <div class="tdb-smd-dots" role="status" aria-label="Step">
+                <span class="tdb-smd-dot" data-step="1" aria-current="step">1</span>
+                <span class="tdb-smd-dot-sep" aria-hidden="true">·</span>
+                <span class="tdb-smd-dot" data-step="2" aria-current="false">2</span>
+                <span class="tdb-smd-dot-sep" aria-hidden="true">·</span>
+                <span class="tdb-smd-dot" data-step="3" aria-current="false">3</span>
+              </div>
+              <button type="button" class="tdb-smd-x" id="tdbSmdClose" aria-label="Close">×</button>
+            </div>
+            <div class="tdb-smd-step" data-smd-step="1">
+              <h3 id="tdbSmdH1" class="tdb-smd-title">Step 1 — Today&rsquo;s verse</h3>
+              <p class="tdb-smd-ref" id="tdbSmdStep1Ref">Isaiah 40:31 (KJV)</p>
+              <p class="tdb-smd-verse" id="tdbSmdStep1Text"></p>
+              <p class="tdb-smd-hint">Take a moment and read it slowly.</p>
+              <div class="tdb-smd-actions">
+                <button type="button" class="btn btn-secondary" id="tdbSmdReadAgain">Read again</button>
+                <button type="button" class="btn btn-primary" id="tdbSmdToStep2">Next</button>
+              </div>
+            </div>
+            <div class="tdb-smd-step" data-smd-step="2" hidden>
+              <h3 id="tdbSmdH2" class="tdb-smd-title">Step 2 — How are you feeling today?</h3>
+              <p class="tdb-smd-sub">Choose one. There&rsquo;s no wrong answer.</p>
+              <div class="tdb-smd-feel-grid" id="tdbSmdFeelGrid" role="group" aria-label="How you feel today—pick one">
+                <button type="button" class="tdb-smd-card" data-smd-feel="anxious">Anxious or worried</button>
+                <button type="button" class="tdb-smd-card" data-smd-feel="tired">Tired or discouraged</button>
+                <button type="button" class="tdb-smd-card" data-smd-feel="angry">Angry or frustrated</button>
+                <button type="button" class="tdb-smd-card" data-smd-feel="grieving">Grieving or sad</button>
+                <button type="button" class="tdb-smd-card" data-smd-feel="parenting">Struggling as a parent</button>
+                <button type="button" class="tdb-smd-card" data-smd-feel="fearful">Fearful about the future</button>
+                <button type="button" class="tdb-smd-card" data-smd-feel="peace">Needing peace</button>
+                <button type="button" class="tdb-smd-card" data-smd-feel="thankful">Thankful / wanting to grow</button>
+              </div>
+              <div class="tdb-smd-actions">
+                <button type="button" class="btn btn-secondary" id="tdbSmdBack1">Back</button>
+              </div>
+            </div>
+            <div class="tdb-smd-step" data-smd-step="3" hidden>
+              <h3 id="tdbSmdH3" class="tdb-smd-title">Step 3 — Your 7-day battle plan</h3>
+              <p class="tdb-smd-pick" id="tdbSmdChoice"></p>
+              <p class="tdb-smd-plan-name" id="tdbSmdPlanTitle"></p>
+              <p class="tdb-smd-plan-sub" id="tdbSmdPlanSub"></p>
+              <div class="tdb-smd-day1" id="tdbSmdDay1" role="region" aria-label="Verse preview for this plan day">
+                <p class="tdb-smd-day1-heading" id="tdbSmdDay1Heading"></p>
+                <p class="tdb-smd-day1-verse" id="tdbSmdDay1Verse"></p>
+                <p class="tdb-smd-day1-ref" id="tdbSmdDay1RefKjv"></p>
+                <p class="tdb-smd-day1-plain" id="tdbSmdDay1Plain"></p>
+                <p class="tdb-smd-day1-next" id="tdbSmdDay1Next"></p>
+              </div>
+              <p class="tdb-smd-hint" id="tdbSmdStep3Hint">On the next screen, that day&rsquo;s full card: prayer, audio if available, and a way to check progress—saved on this device as you go.</p>
+              <div class="tdb-smd-actions tdb-smd-actions--stack">
+                <button type="button" class="btn btn-primary" id="tdbSmdStartPlan">Start this plan</button>
+                <button type="button" class="btn btn-secondary" id="tdbSmdBack2">Back</button>
+              </div>
+              <p class="tdb-smd-reassure">You can change your mind or pick a different plan anytime.</p>
+            </div>
+            <p class="tdb-smd-foot">Most people finish this path in under a minute. No account required.</p>
+          </div>
+        </dialog>
+        <style>
+    /* Start My Day — calm 3-step doorway (verse → feeling → plan) */
+    .tdb-start-my-day-band {
+      margin: 0.85rem 0 0.5rem;
+      padding: 1rem 1.1rem 1.15rem;
+      border-radius: 16px;
+      background: linear-gradient(165deg, rgba(30, 38, 52, 0.92), rgba(18, 22, 30, 0.98));
+      border: 1px solid var(--line);
+      text-align: center;
+    }
+    :root[data-theme="light"] .tdb-start-my-day-band {
+      background: linear-gradient(165deg, #f4f6fb, #e8ecf4);
+      border-color: #d5dbe8;
+    }
+    .tdb-start-my-day-line {
+      margin: 0 0 0.65rem;
+      font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    .tdb-start-my-day-btn {
+      min-height: 48px;
+      padding: 0.65rem 1.5rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .tdb-start-my-day-dialog {
+      max-width: min(100vw - 2rem, 26rem);
+      width: 100%;
+      padding: 0;
+      border: none;
+      border-radius: 18px;
+      background: var(--card);
+      color: var(--text);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+    }
+    :root[data-theme="light"] .tdb-start-my-day-dialog {
+      box-shadow: 0 20px 40px rgba(15, 20, 35, 0.15);
+    }
+    .tdb-start-my-day-dialog::backdrop {
+      background: rgba(4, 8, 16, 0.72);
+      backdrop-filter: blur(4px);
+    }
+    .tdb-smd-panel { padding: 1.1rem 1.2rem 1.25rem; }
+    .tdb-smd-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
+    .tdb-smd-dots { display: flex; align-items: center; gap: 0.25rem; font-size: 0.8rem; color: var(--muted); letter-spacing: 0.08em; }
+    .tdb-smd-dot { font-weight: 600; color: var(--muted); }
+    .tdb-smd-dot[aria-current="step"] { color: var(--gold-soft); }
+    .tdb-smd-x {
+      min-width: 44px; min-height: 44px;
+      border: none; border-radius: 10px;
+      background: transparent; color: var(--muted);
+      font-size: 1.4rem; line-height: 1; cursor: pointer;
+    }
+    .tdb-smd-x:hover, .tdb-smd-x:focus-visible { color: var(--text); background: var(--bg-soft); outline: none; }
+    .tdb-smd-title { margin: 0 0 0.5rem; font-size: 1.1rem; font-weight: 600; line-height: 1.35; }
+    .tdb-smd-ref { margin: 0; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold-soft); }
+    .tdb-smd-verse { margin: 0.5rem 0 0; font-size: clamp(1.2rem, 3.2vw, 1.5rem); line-height: 1.4; font-family: "Cormorant Garamond", Georgia, serif; }
+    .tdb-smd-hint, .tdb-smd-sub, .tdb-smd-reassure, .tdb-smd-foot { color: var(--muted); font-size: 0.9rem; line-height: 1.45; }
+    .tdb-smd-hint { margin: 0.5rem 0 0.85rem; }
+    .tdb-smd-sub { margin: 0 0 0.6rem; }
+    .tdb-smd-pick { margin: 0 0 0.35rem; font-size: 0.95rem; }
+    .tdb-smd-plan-name { margin: 0; font-size: 1.02rem; font-weight: 600; }
+    .tdb-smd-plan-sub { margin: 0.4rem 0 0.5rem; color: var(--muted); }
+    .tdb-smd-day1 {
+      margin: 0.35rem 0 0.75rem;
+      padding: 0.65rem 0.7rem 0.7rem;
+      border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 24%, transparent);
+      background: color-mix(in srgb, var(--card) 88%, rgba(227, 188, 103, 0.06));
+      text-align: left;
+    }
+    .tdb-smd-day1-heading { margin: 0 0 0.35rem; font-size: 0.88rem; font-weight: 600; color: rgba(203, 213, 225, 0.95); }
+    .tdb-smd-day1-verse { margin: 0; font-size: clamp(0.95rem, 2.4vw, 1.05rem); line-height: 1.45; font-family: "Cormorant Garamond", Georgia, serif; }
+    .tdb-smd-day1-ref { margin: 0.35rem 0 0.45rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; color: var(--gold-soft); }
+    .tdb-smd-day1-plain, .tdb-smd-day1-next { margin: 0.35rem 0 0; font-size: 0.86rem; line-height: 1.45; color: var(--muted); }
+    .tdb-smd-day1-next { margin-top: 0.4rem; }
+    .tdb-smd-day1-next strong { color: rgba(203, 213, 225, 0.92); font-weight: 600; }
+    .tdb-smd-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; justify-content: flex-end; }
+    .tdb-smd-actions--stack { flex-direction: column; align-items: stretch; }
+    .tdb-smd-actions--stack .btn { width: 100%; justify-content: center; }
+    .tdb-smd-reassure { margin: 0.85rem 0 0; font-size: 0.84rem; }
+    .tdb-smd-foot { margin: 0.9rem 0 0; padding-top: 0.75rem; border-top: 1px solid var(--line); font-size: 0.8rem; }
+    .tdb-smd-feel-grid { display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin: 0.35rem 0 0.75rem; }
+    @media (min-width: 480px) {
+      .tdb-smd-feel-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .tdb-smd-card {
+      min-height: 48px;
+      padding: 0.65rem 0.75rem;
+      text-align: left;
+      font-size: 0.95rem;
+      line-height: 1.3;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--bg-soft);
+      color: var(--text);
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+    .tdb-smd-card:hover, .tdb-smd-card:focus-visible {
+      border-color: var(--accent);
+      background: #1e2634;
+      outline: none;
+    }
+    :root[data-theme="light"] .tdb-smd-card:hover,
+    :root[data-theme="light"] .tdb-smd-card:focus-visible {
+      background: #e4e9f2;
+    }
+    @keyframes tdb-smd-verse-pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    .tdb-smd-verse-pulse { animation: tdb-smd-verse-pulse 1.1s ease 1; }
+        </style>
         <div class="hero-calendar-breakdown-wrap" role="region" aria-label="Today’s calendar verse — gentle breakdown">
         <ul class="breakdown" id="heroBreakdown"></ul>
         <div class="hero-breakdown-panels" id="heroBreakdownPanels"></div>
@@ -8187,7 +8421,7 @@
         <p id="hero-listen-hint" class="hero-listen-hint">Tap Listen slow for a quiet hear-through of today&rsquo;s verse and breakdown. Keyboard: Tab to Listen slow, then Space.</p>
         <p class="hero-word-study-wrap">
           <span id="hero-study-verse-hint" class="hero-study-verse-hint">Slow on one word—concordance and short glosses, offline when you need them.</span>
-          <button type="button" id="heroWordStudyBtn" class="btn btn-secondary hero-word-study-btn" data-tdb-wordstudy-ref="Jeremiah 31:3" data-tdb-wordstudy-text="I have loved thee with an everlasting love." aria-describedby="hero-study-verse-hint" aria-label="Open verse study for today’s verse of the day">Study this verse</button>
+          <button type="button" id="heroWordStudyBtn" class="btn btn-secondary hero-word-study-btn" data-tdb-wordstudy-ref="Isaiah 40:31" data-tdb-wordstudy-text="But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint." aria-describedby="hero-study-verse-hint" aria-label="Open verse study for today’s verse of the day">Study this verse</button>
         </p>
         <p class="tdb-why-stay-line" id="tdb-why-stay-line">A steady place for Scripture&mdash;any kind of day.</p>
         <div class="hero-my-verses-row hero-my-verses-row--below-card" role="region" aria-label="Save today’s verse to My Study">
@@ -8364,9 +8598,9 @@
       <!-- ── Daily Verse Image Card (shareable preview under today’s verse) ── -->
       <div class="verse-img-card tdb-quiet-container" id="verseImgCard" role="region" aria-label="Today’s verse as a shareable image preview">
         <div class="verse-img-inner">
-          <p class="verse-img-text" id="verseImgText">“I have loved thee with an everlasting love.”</p>
+          <p class="verse-img-text" id="verseImgText"></p>
           <hr class="verse-img-rule">
-          <p class="verse-img-ref" id="verseImgRef">Jeremiah 31:3</p>
+          <p class="verse-img-ref" id="verseImgRef"></p>
         </div>
       </div>
       <div class="verse-growth-row" id="verseFeedbackRow" role="region" aria-label="Tell a friend, gentle feedback" hidden>
@@ -8676,7 +8910,7 @@
       <p class="site-family-mission-nudge section-note tdb-quiet-container">For home and ministry teams: <a href="/family.html">Family hub</a> (verse, plans, printables) · <a href="/mission-outreach-packs.html">Mission &amp; outreach packs</a>.</p>
       <!-- ── Read full chapter ── -->
       <div class="read-chapter-row tdb-quiet-container">
-        <a href="reader.html?book=Jeremiah&chapter=31&ref=Jeremiah%2031%3A3" id="readChapterLink" class="read-chapter-link" aria-label="Read Jeremiah chapter 31 in full context">📖 Read the full chapter</a>
+        <a href="reader.html" id="readChapterLink" class="read-chapter-link" aria-label="Read the full chapter">📖 Read the full chapter</a>
       </div>
       <div class="explore-hero-row tdb-quiet-container">
         <a href="explore.html" class="explore-hero-link" aria-label="Browse every topic, tool, and plan on the site">🗺 Explore all topics, tools, and plans</a>
@@ -8704,8 +8938,13 @@
         </div>
       </div>
 
-      <!-- ── Sermon Builder teaser ── -->
-      <p class="tdb-more-tools-lead tdb-quiet-container">Tool rows below: study workshop, sermon prep, saved verses, verse images, and kids. Tap any row for the full room.</p>
+      <!-- ── Tool teaser grid (collapsed by default — keeps focus on Start My Day + search) ── -->
+      <details class="card tdb-home-tools-shelf tdb-quiet-container" id="tdb-home-tools-shelf" aria-label="Tools and study">
+        <summary>
+          <span>Tools &amp; study rooms</span>
+          <span class="tdb-home-tools-shelf-sub">Bible Tool, workshop, Kids Corner, and more. Open when you need the full shelf.</span>
+        </summary>
+      <p class="tdb-more-tools-lead tdb-quiet-container">Tool rows: study workshop, sermon prep, saved verses, verse images, and kids. Tap any row for the full room.</p>
       <div class="quick-links tdb-quiet-container calm-grid calm-grid--2 calm-grid--3">
       <section class="card tool-teaser-card" aria-label="Study workshop">
         <a href="bible/tools.html" class="tool-teaser-link" aria-label="Study workshop — Bible Hub Tools">
@@ -8784,6 +9023,7 @@
         <button type="button" class="quick-story-btn" id="quickStoryBtn" aria-label="Quick Story">⚡ Quick Story</button>
       </section>
       </div><!-- /.quick-links -->
+      </details>
 
       <details class="tdb-home-more-rooms tdb-quiet-container" id="tdb-home-more-rooms">
         <summary><span>More rooms when you want them</span><span>Family hooks, a 30-day restart, sharing, and email.</span></summary>
@@ -8830,11 +9070,17 @@
         </div>
       </details>
 
-      <!-- ── Patriotic bundle: collapsed by default so the home page stays calm; content unchanged inside ── -->
-      <details class="card tdb-home-patriotic-disclosure tdb-quiet-container" id="patriotic-home-bundle">
+        <p class="tdb-home-year-round-nudge section-note" style="margin:1rem 0 0;text-align:center;max-width:36rem;margin-left:auto;margin-right:auto;line-height:1.55">Homeschool, private-school Bible class, or the family table: <a href="yearly-rhythm.html">one gentle year-round rhythm</a> (August&ndash;July, summer seeds, holidays, monthly memory grid) plus an <a href="yearly-rhythm.html#yr-ages-5-18">ages 5&ndash;18 weekly + daily map</a>.</p>
+
+        <p id="prayer-counter-footer" class="prayer-counter-home section-note" style="margin:1.5rem auto 0.5rem;text-align:center;max-width:26rem;opacity:0.8;font-size:0.92rem;line-height:1.4;">42+ people prayed anonymously worldwide today</p>
+
+      <p class="tdb-back-to-today tdb-back-to-today--footer"><a href="#hero-verse-wrap">Back to today&rsquo;s verse</a></p>
+
+      <!-- ── Patriotic bundle: end of main, collapsed; content for prayer over nation unchanged ── -->
+      <details class="card tdb-home-patriotic-disclosure tdb-home-patriotic-disclosure--footer tdb-quiet-container" id="patriotic-home-bundle">
         <summary class="tdb-home-patriotic-summary">
           <span class="tdb-home-patriotic-summary-label">For Our Nation</span>
-          <span class="tdb-home-patriotic-summary-sub section-note">Verses and hymns for prayer over our country and families. Psalm 33:12, 2 Chronicles 7:14, and more. Open when your heart leads.</span>
+          <span class="tdb-home-patriotic-summary-sub section-note">Verses and hymns for prayer over our country and families. Open when your heart leads.</span>
         </summary>
         <div class="tdb-home-patriotic-inner">
           <section class="card" id="patriotic-scriptures" aria-label="Patriotic Scriptures">
@@ -8849,12 +9095,6 @@
           </section>
         </div>
       </details>
-
-        <p class="tdb-home-year-round-nudge section-note" style="margin:1rem 0 0;text-align:center;max-width:36rem;margin-left:auto;margin-right:auto;line-height:1.55">Homeschool, private-school Bible class, or the family table: <a href="yearly-rhythm.html">one gentle year-round rhythm</a> (August&ndash;July, summer seeds, holidays, monthly memory grid) plus an <a href="yearly-rhythm.html#yr-ages-5-18">ages 5&ndash;18 weekly + daily map</a>.</p>
-
-        <p id="prayer-counter-footer" class="prayer-counter-home section-note" style="margin:1.5rem auto 0.5rem;text-align:center;max-width:26rem;opacity:0.8;font-size:0.92rem;line-height:1.4;">42+ people prayed anonymously worldwide today</p>
-
-      <p class="tdb-back-to-today tdb-back-to-today--footer"><a href="#hero-verse-wrap">Back to today&rsquo;s verse</a></p>
 
     </main>
 
@@ -13569,6 +13809,8 @@
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <!-- Phase 6: home secondary stack (injected by script.js after idle): memory-verses.js home-votm.js?v=20260402homevotm4 tdb-home-mobius-week.js?v=20260330home sky-ip-geo.js?v=20260327ipgeo word-study.js verse-narration.js verse-study.js family-verse-bridge.js gentle-suggest.js verse-breakdown-overrides.js?v=20260417-hydration verse-breakdown.js?v=20260417-hydration -->
   <script nonce="tdb2025s" type="module" fetchpriority="high" src="config.js"></script>
+  <script nonce="tdb2025s" defer src="start-my-day.js?v=20260423-phase5-perf"></script>
+  <script nonce="tdb2025s" defer src="first-visit-welcome.js?v=20260423-phase5-perf"></script>
   <script nonce="tdb2025s" type="module" src="script.js?v=20260423-phase5-perf" data-cfasync="false" fetchpriority="high"></script>
   <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->
   <script nonce="tdb2025s" src="utils.js?v=20260331-patriotic-home" defer fetchpriority="low"></script>

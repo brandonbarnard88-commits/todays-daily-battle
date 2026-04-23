@@ -97,7 +97,9 @@
     "audit:lighthouse:local:manual": "npx lighthouse http://localhost:8080 --output=html --output-path=./lighthouse-report.html --view --form-factor=mobile --only-categories=performance,accessibility,best-practices",
     "pre-launch": "npm run quality:gate",
     "pre-launch:full": "npm run quality:gate && npm run audit:lighthouse && npm run qa:smoke:local",
-    "pre-launch:verify-live": "npm run verify:live:critical && npm run validate:prod"
+    "pre-launch:verify-live": "npm run verify:live:critical && npm run validate:prod",
+    "api:dev": "npm --prefix api run dev",
+    "api:build": "npm --prefix api run build"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.1",

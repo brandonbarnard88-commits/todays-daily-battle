@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-22T23:12:14.871Z",
-  "surfacedRefCount": 2861,
-  "overrideCount": 2861,
+  "generatedAt": "2026-04-23T00:49:43.499Z",
+  "surfacedRefCount": 2859,
+  "overrideCount": 2859,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -138,6 +138,10 @@
     "daily-verses.js": {
       "refs": 40,
       "pairs": 40
+    },
+    "data/plans-battle-shared.json": {
+      "refs": 293,
+      "pairs": 399
     },
     "easter-eggs.js": {
       "refs": 34,
@@ -640,8 +644,8 @@
       "pairs": 0
     },
     "plans-data.js": {
-      "refs": 295,
-      "pairs": 399
+      "refs": 293,
+      "pairs": 0
     },
     "plans-engine.js": {
       "refs": 1,
@@ -2917,7 +2921,6 @@
     "Matthew 5:28",
     "Matthew 5:3",
     "Matthew 5:3-11",
-    "Matthew 5:3-12",
     "Matthew 5:3-6",
     "Matthew 5:4",
     "Matthew 5:40",
@@ -2949,7 +2952,6 @@
     "Matthew 6:34",
     "Matthew 6:6",
     "Matthew 6:9",
-    "Matthew 6:9-13",
     "Matthew 7:12",
     "Matthew 7:13",
     "Matthew 7:14",
@@ -3858,13 +3860,13 @@
     "Psalm 127:3": "Lo, children are an heritage of the LORD: and the fruit of the womb is his reward.",
     "Psalm 128:1": "Blessed is every one that feareth the Lord; that walketh in his ways.",
     "Psalm 12:6": "The words of the Lord are pure words.",
-    "Psalm 130:5": "I wait for the Lord, my soul doth wait, and in his word do I hope.",
+    "Psalm 130:5": "I wait for the LORD, my soul doth wait, and in his word do I hope.",
     "Psalm 130:7": "Let Israel hope in the Lord: for with the Lord there is mercy.",
     "Psalm 131:3": "Let Israel hope in the Lord from henceforth and for ever.",
     "Psalm 133:1": "Behold, how good and how pleasant it is for brethren to dwell together in unity!",
     "Psalm 134:2": "Lift up your hands in the sanctuary, and bless the Lord.",
     "Psalm 135:3": "Praise the Lord; for the Lord is good: sing praises unto his name; for it is pleasant.",
-    "Psalm 136:1": "O give thanks unto the Lord; for he is good: for his mercy endureth for ever.",
+    "Psalm 136:1": "O give thanks unto the LORD; for he is good: for his mercy endureth for ever.",
     "Psalm 136:4": "To him which alone doeth great wonders: for his mercy endureth for ever.",
     "Psalm 138:1": "I will praise thee with my whole heart: before the gods will I sing praise unto thee.",
     "Psalm 138:3": "In the day when I cried thou answeredst me, and strengthenedst me with strength in my soul.",
@@ -3920,7 +3922,7 @@
     "Psalm 31:3": "For thou art my rock and my fortress; therefore for thy name's sake lead me, and guide me.",
     "Psalm 32:7": "Thou art my hiding place; thou shalt preserve me from trouble; thou shalt compass me about with songs of deliverance.",
     "Psalm 32:8": "I will instruct thee and teach thee in the way which thou shalt go: I will guide thee with mine eye.",
-    "Psalm 33:1": "Rejoice in the Lord, O ye righteous: for praise is comely for the upright.",
+    "Psalm 33:1": "Rejoice in the LORD, O ye righteous: for praise is comely for the upright.",
     "Psalm 33:12": "Blessed is the nation whose God is the LORD; and the people whom he hath chosen for his own inheritance.",
     "Psalm 33:16-17": "There is no king saved by the multitude of an host: a mighty man is not delivered by much strength. An horse is a vain thing for safety: neither shall he deliver any by his great strength.",
     "Psalm 33:18": "Behold, the eye of the Lord is upon them that fear him.",
@@ -4033,7 +4035,7 @@
     "Psalm 91:15": "He shall call upon me, and I will answer him: I will be with him in trouble; I will deliver him, and honour him.",
     "Psalm 91:16": "With long life will I satisfy him, and shew him my salvation.",
     "Psalm 91:2": "I will say of the Lord, He is my refuge and my fortress: my God; in him will I trust.",
-    "Psalm 92:1": "It is a good thing to give thanks unto the Lord, and to sing praises unto thy name, O most High.",
+    "Psalm 92:1": "It is a good thing to give thanks unto the LORD, and to sing praises unto thy name, O most High:",
     "Psalm 92:1-4": "It is a good thing to give thanks unto the LORD, and to sing praises unto thy name, O most High: To shew forth thy lovingkindness in the morning, and thy faithfulness every night, Upon an instrument of ten strings, and upon the psaltery; upon the harp with a solemn sound. For thou, LORD, hast made me glad through thy work: I will triumph in the works of thy hands.",
     "Psalm 92:4": "For thou, Lord, hast made me glad through thy work.",
     "Psalm 93:4": "The Lord on high is mightier than the noise of many waters.",
@@ -4198,7 +4200,7 @@
     },
     "1 Chronicles 16:34": {
       "general": {
-        "plainExplanation": "O give thanks to the Lord; for he is good; for his mercy endureth for ever.",
+        "plainExplanation": "O give thanks to the LORD; for he is good; for his mercy endureth for ever.",
         "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
         "about": "Chronicler",
         "to": "Exiles"
@@ -20956,14 +20958,6 @@
         "to": "Believers"
       }
     },
-    "Matthew 5:3-12": {
-      "general": {
-        "plainExplanation": "Key idea: Blessed are the poor in spirit: for theirs is the kingdom of heaven. Blessed are they that mourn: for they shall be comforted. Blessed are the meek: for the...",
-        "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
-        "about": "Jesus",
-        "to": "Believers"
-      }
-    },
     "Matthew 5:3-6": {
       "general": {
         "plainExplanation": "Key idea: Blessed are the poor in spirit: for theirs is the kingdom of heaven. Blessed are they that mourn: for they shall be comforted. Blessed are the meek: for the...",
@@ -21208,14 +21202,6 @@
       "general": {
         "plainExplanation": "After this manner therefore pray you: Our Father which art in heaven,",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
-        "about": "Jesus",
-        "to": "Believers"
-      }
-    },
-    "Matthew 6:9-13": {
-      "general": {
-        "plainExplanation": "Key idea: After this manner therefore pray you: Our Father which art in heaven, Hallowed be your name. your kingdom come. your will be done in earth, as it is in heav...",
-        "modernApplication": "This verse reminds you that God gives strength that does not start with your own reserves.",
         "about": "Jesus",
         "to": "Believers"
       }
@@ -22318,7 +22304,7 @@
     },
     "Proverbs 16:3": {
       "general": {
-        "plainExplanation": "Commit your works to the Lord, and your thoughts shall be established.",
+        "plainExplanation": "Commit your works to the LORD, and your thoughts shall be established.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Solomon giving wisdom",
         "to": "Everyone seeking guidance"
@@ -23662,7 +23648,7 @@
     },
     "Psalm 130:5": {
       "general": {
-        "plainExplanation": "I wait for the Lord, my soul does wait, and in his word do I hope.",
+        "plainExplanation": "I wait for the LORD, my soul does wait, and in his word do I hope.",
         "modernApplication": "This verse keeps your eyes up when the day feels slow, heavy, or unfinished.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"
@@ -23710,7 +23696,7 @@
     },
     "Psalm 136:1": {
       "general": {
-        "plainExplanation": "O give thanks to the Lord; for he is good: for his mercy endureth for ever.",
+        "plainExplanation": "O give thanks to the LORD; for he is good: for his mercy endureth for ever.",
         "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"
@@ -24158,7 +24144,7 @@
     },
     "Psalm 33:1": {
       "general": {
-        "plainExplanation": "Rejoice in the Lord, O you righteous: for praise is comely for the upright.",
+        "plainExplanation": "Rejoice in the LORD, O you righteous: for praise is comely for the upright.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"
@@ -25062,7 +25048,7 @@
     },
     "Psalm 92:1": {
       "general": {
-        "plainExplanation": "It is a good thing to give thanks to the Lord, and to sing praises to your name, O most High.",
+        "plainExplanation": "It is a good thing to give thanks to the LORD, and to sing praises to your name, O most High:",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"

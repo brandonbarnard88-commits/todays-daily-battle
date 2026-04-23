@@ -126,11 +126,12 @@ function main() {
     }
   }
 
-  const title = 'Today\u2019s Verse \u2014 A Quiet Place \u2014 ' + refPlain + ' (KJV)';
+  const title =
+    'God\u2019s University of Life \u2014 Today\u2019s Verse \u2014 ' + refPlain + ' (KJV)';
   const desc =
     'Today\u2019s KJV verse: ' +
     refPlain +
-    '. A quiet place for any day\u2014search by how you feel, prayer wall, works offline. No ads, no login.';
+    '. God\u2019s University of Life\u2014quiet campus, search by how you feel, prayer wall, works offline. No ads, no login, no grades.';
 
   html = html.replace(/<title>[^<]*<\/title>/, '<title>' + escapeHtmlText(title) + '</title>');
   html = html.replace(

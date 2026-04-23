@@ -1156,7 +1156,7 @@
         ctx.fillText('todaysdailybattle.com', cx, y);
         y -= step;
         ctx.font = '600 ' + Math.max(17, Math.round(21 * sf2)) + 'px Inter, system-ui, sans-serif';
-        ctx.fillText("Today's Verse \u2014 A Quiet Place", cx, y);
+        ctx.fillText("God\u2019s University of Life \u2014 Today\u2019s Verse", cx, y);
         if (opts.memorize) {
           y -= Math.round(step * 1.12);
           ctx.fillStyle = '#c9a84c';

@@ -316,6 +316,7 @@
     :root[data-theme="light"] .hero-my-verses-privacy-note,
     :root[data-theme="light"] .hero-save-my-verses-status-line,
     :root[data-theme="light"] .hero-daily-headline,
+    :root[data-theme="light"] .hero-daily-continuity,
     :root[data-theme="light"] .hero-verse {
       color: var(--text);
     }
@@ -5656,6 +5657,14 @@
       letter-spacing: -0.005em;
       line-height: 1.25;
     }
+    .hero-daily-continuity {
+      margin: -0.4rem 0 0.7rem;
+      font-size: clamp(0.86rem, 2.15vw, 0.97rem);
+      line-height: 1.45;
+      font-weight: 400;
+      color: color-mix(in srgb, var(--muted) 86%, var(--gold-soft) 14%);
+      max-width: 40rem;
+    }
     .hero-daily-subline {
       margin: 0 0 1.5rem;
       font-size: clamp(0.98rem, 2.6vw, 1.1rem);
@@ -7871,7 +7880,7 @@
       <p class="tdb-page-orientation" id="tdb-page-orientation">We call this campus <strong>God&rsquo;s University of Life</strong>&mdash;same quiet porch you already trust. Today&rsquo;s verse stays first, the gentle <strong>verse of the month</strong> card sits close by, <strong>More tools and rooms</strong> opens the fuller map, and the calm doorway plus feel search sit next. No grades; just open doors.</p>
 
       <nav class="tdb-campus-schools" id="tdb-campus-schools" aria-label="Schools of Life &mdash; gentle doorways to rooms you already have">
-        <p class="tdb-campus-schools-intro"><strong>Schools of Life.</strong> Six soft signs pointing to what&rsquo;s already here&mdash;not new buildings, just clearer welcome mats.</p>
+        <p class="tdb-campus-schools-intro"><strong>Gentle rooms, not formal classes.</strong> Six soft signs for what&rsquo;s already here&mdash;no grades, no deadlines, just open doors and clearer welcome mats.</p>
         <ul class="tdb-campus-schools-list">
           <li>
             <a href="/#hero-verse-wrap">School of the Good Shepherd</a>
@@ -8045,6 +8054,7 @@
       <section class="card verse-card verse-card-loaded" id="verseCard" aria-live="polite" data-daily-verse="true" data-tdb-hero-prebuilt="1">
         <p class="welcome-back-msg" id="welcomeBackMsg" aria-live="polite" hidden></p>
         <h2 class="hero-daily-headline">Welcome to God&rsquo;s University of Life &mdash; A Quiet Place to Learn His Ways</h2>
+        <p class="hero-daily-continuity" id="heroDailyContinuity">Still <strong>Today&rsquo;s Daily Battle</strong> &mdash; same quiet porch, same KJV help; we&rsquo;re only hanging a clearer welcome sign.</p>
         <p class="hero-daily-subline" id="heroDailySubline">KJV-only. Calm campus. Real-life curriculum for every battle of the heart and home&mdash;anxiety, parenting, grief, fear, and raising little ones. No ads. No login. Whatever your day holds, step in.</p>
         <div class="verse-skeleton" id="verseSkeleton" aria-hidden="true">
           <div class="verse-skeleton-box"></div>
@@ -8982,7 +8992,7 @@
         <div class="nav-more-handle"></div>
       </div>
       <h2 class="nav-more-title">Schools of Life</h2>
-      <p class="privacy-line nav-more-privacy-line" style="margin-bottom:0.65rem">Soft doorways&mdash;no grades, no deadlines. Same rooms; clearer signs. <a href="/#tdb-campus-schools">See all six on the homepage</a>.</p>
+      <p class="privacy-line nav-more-privacy-line" style="margin-bottom:0.65rem">Gentle rooms, not formal classes&mdash;no grades, no deadlines. Same doors; clearer signs. <a href="/#tdb-campus-schools">See all six on the homepage</a>.</p>
       <ul class="nav-more-list">
         <li><a href="/#hero-verse-wrap" aria-label="School of the Good Shepherd — today’s verse">🕊️ Good Shepherd · today&rsquo;s verse</a></li>
         <li><a href="plans.html" aria-label="School of Battle — Battle Plans">⚔️ Battle · plans library</a></li>

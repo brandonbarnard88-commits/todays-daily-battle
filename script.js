@@ -24010,6 +24010,14 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     topics: ['loneliness', 'grief', 'hope', 'singleness', 'divorce', 'community']
   },
   {
+    id: 'littlehearts',
+    title: 'When Little Hearts Feel Big Fear',
+    href: 'plans.html?plan=littlehearts',
+    days: 7,
+    description: 'Parent-led KJV plan for walking with kids through anxiety, worry, and big feelings—present, not perfect.',
+    topics: ['parenting', 'kids', 'anxiety', 'fear', 'worry', 'family']
+  },
+  {
     id: 'hopeuncertain',
     title: 'Hope in Uncertainty',
     href: 'plans.html?plan=hopeuncertain',

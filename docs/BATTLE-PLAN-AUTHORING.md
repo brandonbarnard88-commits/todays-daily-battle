@@ -6,7 +6,7 @@ Use this when drafting a **new** reading plan or revising days. Scripture on the
 
 | Piece | File | Notes |
 |--------|------|--------|
-| Shared day stacks (battle10–40, pain arc, capstones) | `plans-data.js` | Export via `TDB_PLANS_BATTLE_SHARED`; keep `max` in sync with real array lengths. |
+| Shared day stacks (battle10–40, pain arc, capstones) | `data/plans-battle-shared.json` | **Edit this file** (valid JSON). Run `npm run build:plans-data` to regenerate `plans-data.js`. Export is `TDB_PLANS_BATTLE_SHARED`; `common20` and `wilderness11` are derived at compile time. Internal `wilderness10` lives under `internal` in the JSON (not exposed on the global). Use `npm run extract:plans-data` only if you need to re-hydrate JSON from an old hand-written `plans-data.js`. |
 | Plan registry + most 7-day plans | `plans.html` (inline `PLANS` object) | Each plan is one entry: metadata + `days` array. |
 | Library UI rows | `plans.html` | `<a href="plans.html?plan=…" data-plan="…">` must match `PLANS` keys. |
 | SEO list | `plans.html` JSON-LD | `numberOfItems` and `itemListElement` — update when you add/remove a public plan. |

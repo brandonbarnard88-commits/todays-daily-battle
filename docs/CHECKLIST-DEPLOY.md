@@ -2,6 +2,13 @@
 
 Use this before or after each deploy to keep the site healthy and ready for real traffic.
 
+## Before merging a feature branch to `main`
+
+- **Install API deps once** (if you work in `api/`): `cd api && npm install` — then `npm run test:api` from repo root type-checks the pilot.
+- **Automated gate:** `npm run release:check` (full build, Mobius audio verify, `test:api`, `test`, `test:site`, `test:security`). Fix anything red before merge.
+- **Start My Day (manual):** On a phone-width and desktop viewport, open home → **Start My Day** → step through verse, pick a feeling, confirm Step 3 copy → **Start this plan** (or Back/Close). No console errors. The flow uses only `start-my-day.js` + `plans.html`; it does not call the TDB API pilot in production.
+- **API pilot:** The Node/Worker app under `api/` is separate from the static Vercel site. Merging it does not change how `script.js` or the homepage load unless you add fetches to the new base URL. Keep it that way until you intentionally wire a client.
+
 ## Quick wins (do once)
 
 ### 1. Cache-bust after deploy

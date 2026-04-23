@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-23T22:51:15.764Z",
-  "surfacedRefCount": 2919,
-  "overrideCount": 2919,
+  "generatedAt": "2026-04-23T23:05:18.372Z",
+  "surfacedRefCount": 2922,
+  "overrideCount": 2922,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -208,8 +208,8 @@
       "pairs": 40
     },
     "data/plans-battle-shared.json": {
-      "refs": 306,
-      "pairs": 427
+      "refs": 310,
+      "pairs": 434
     },
     "easter-eggs.js": {
       "refs": 34,
@@ -256,7 +256,7 @@
       "pairs": 0
     },
     "family-rhythm.html": {
-      "refs": 6,
+      "refs": 7,
       "pairs": 0
     },
     "faq.html": {
@@ -792,7 +792,7 @@
       "pairs": 0
     },
     "plans-data.js": {
-      "refs": 306,
+      "refs": 310,
       "pairs": 0
     },
     "plans-engine.js": {
@@ -899,6 +899,10 @@
       "refs": 8,
       "pairs": 0
     },
+    "start-the-year-in-the-word.html": {
+      "refs": 5,
+      "pairs": 0
+    },
     "stories.html": {
       "refs": 1,
       "pairs": 0
@@ -940,7 +944,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 51,
+      "refs": 53,
       "pairs": 0
     },
     "testimonials.html": {
@@ -1020,7 +1024,7 @@
       "pairs": 0
     },
     "university.html": {
-      "refs": 18,
+      "refs": 19,
       "pairs": 0
     },
     "utils.js": {
@@ -2199,6 +2203,7 @@
     "Hebrews 13:3",
     "Hebrews 13:4",
     "Hebrews 13:5",
+    "Hebrews 13:5-6",
     "Hebrews 13:6",
     "Hebrews 13:8",
     "Hebrews 13:9",
@@ -2604,6 +2609,7 @@
     "Joshua 10:13",
     "Joshua 14:12",
     "Joshua 14:14",
+    "Joshua 1:5",
     "Joshua 1:6",
     "Joshua 1:8",
     "Joshua 1:9",
@@ -3115,6 +3121,7 @@
     "Matthew 1:20",
     "Matthew 1:21",
     "Matthew 1:22",
+    "Matthew 1:22-23",
     "Matthew 1:23",
     "Matthew 1:24",
     "Matthew 1:3",
@@ -4073,6 +4080,7 @@
     "Galatians 6:4-5": "But let every man prove his own work, and then shall he have rejoicing in himself alone, and not in another. For every man shall bear his own burden.",
     "Hebrews 10:24-25": "And let us consider one another to provoke unto love and to good works: Not forsaking the assembling of ourselves together, as the manner of some is; but exhorting one another: and so much the more, as ye see the day approaching.",
     "Hebrews 12:1-2": "Wherefore seeing we also are compassed about with so great a cloud of witnesses, let us lay aside every weight, and the sin which doth so easily beset us, and let us run with patience the race that is set before us, Looking unto Jesus the author and finisher of our faith; who for the joy that was set before him endured the cross, despising the shame, and is set down at the right hand of the throne of God.",
+    "Hebrews 13:5-6": "Let your conversation be without covetousness; and be content with such things as ye have: for he hath said, I will never leave thee, nor forsake thee. So that we may boldly say, The Lord is my helper, and I will not fear what man shall do unto me.",
     "Isaiah 40:29-31": "He giveth power to the faint; and to them that have no might he increaseth strength. Even the youths shall faint and be weary, and the young men shall utterly fall: But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.",
     "Isaiah 43:18-19": "Remember ye not the former things, neither consider the things of old. Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
     "Isaiah 55:8-9": "For my thoughts are not your thoughts, neither are your ways my ways, saith the LORD. For as the heavens are higher than the earth, so are my ways higher than your ways, and my thoughts than your thoughts.",
@@ -4105,6 +4113,7 @@
     "Matthew 11:29-30": "Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls. For my yoke is easy, and my burden is light.",
     "Matthew 13:20-21": "But he that received the seed into stony places, the same is he that heareth the word, and anon with joy receiveth it; Yet hath he not root in himself, but dureth for a while: for when tribulation or persecution ariseth because of the word, by and by he is offended.",
     "Matthew 18:21-22": "Then came Peter to him, and said, Lord, how oft shall my brother sin against me, and I forgive him? till seven times? Jesus saith unto him, I say not unto thee, Until seven times: but, Until seventy times seven.",
+    "Matthew 1:22-23": "Now all this was done, that it might be fulfilled which was spoken of the Lord by the prophet, saying, Behold, a virgin shall be with child, and shall bring forth a son, and they shall call his name Emmanuel, which being interpreted is, God with us.",
     "Matthew 22:37-39": "Thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy mind. This is the first and great commandment. And the second is like unto it, Thou shalt love thy neighbour as thyself.",
     "Matthew 27:59-60": "And when Joseph had taken the body, he wrapped it in a clean linen cloth, And laid it in his own new tomb, which he had hewn out in the rock: and he rolled a great stone to the door of the sepulchre, and departed.",
     "Matthew 28:18-20": "And Jesus came and spake unto them, saying, All power is given unto me in heaven and in earth. Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Ghost: Teaching them to observe all things whatsoever I have commanded you: and, lo, I am with you alway, even unto the end of the world. Amen.",
@@ -13225,6 +13234,14 @@
         "to": "Hebrew believers"
       }
     },
+    "Hebrews 13:5-6": {
+      "general": {
+        "plainExplanation": "Key idea: Let your conversation be without covetousness; and be content with such things as you have: for he has said, I will never leave you, nor forsake you. So tha...",
+        "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
+        "about": "Unknown",
+        "to": "Hebrew believers"
+      }
+    },
     "Hebrews 13:6": {
       "general": {
         "plainExplanation": "The Lord is my helper, and I will not fear.",
@@ -16460,6 +16477,14 @@
     "Joshua 14:14": {
       "general": {
         "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Joshua",
+        "to": "Israel"
+      }
+    },
+    "Joshua 1:5": {
+      "general": {
+        "plainExplanation": "There shall not any man be able to stand before you all the days of your life: as I was with Moses, so I will be with you: I will not fail you, nor forsake you.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Joshua",
         "to": "Israel"
@@ -20548,6 +20573,14 @@
     "Matthew 1:22": {
       "general": {
         "plainExplanation": "Now all this was done, that it might be fulfilled which was spoken of the Lord by the prophet, saying,",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 1:22-23": {
+      "general": {
+        "plainExplanation": "Key idea: Now all this was done, that it might be fulfilled which was spoken of the Lord by the prophet, saying, look, a virgin shall be with child, and shall bring f...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-23T21:57:02.738Z",
-  "surfacedRefCount": 2909,
-  "overrideCount": 2909,
+  "generatedAt": "2026-04-23T22:07:38.347Z",
+  "surfacedRefCount": 2912,
+  "overrideCount": 2912,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -249,6 +249,10 @@
     },
     "family-lineage.json": {
       "refs": 53,
+      "pairs": 0
+    },
+    "family-rhythm.html": {
+      "refs": 2,
       "pairs": 0
     },
     "faq.html": {
@@ -788,8 +792,8 @@
       "pairs": 1
     },
     "plans.html": {
-      "refs": 242,
-      "pairs": 241
+      "refs": 252,
+      "pairs": 252
     },
     "prayer-wall.html": {
       "refs": 1,
@@ -996,7 +1000,7 @@
       "pairs": 0
     },
     "university.html": {
-      "refs": 10,
+      "refs": 11,
       "pairs": 0
     },
     "utils.js": {
@@ -2281,6 +2285,7 @@
     "Isaiah 7:14",
     "Isaiah 8:19",
     "Isaiah 9:1",
+    "Isaiah 9:2",
     "Isaiah 9:2-7",
     "Isaiah 9:4",
     "Isaiah 9:6",
@@ -2767,6 +2772,7 @@
     "Luke 1:46-47",
     "Luke 1:57",
     "Luke 1:67",
+    "Luke 1:78-79",
     "Luke 1:79",
     "Luke 1:9",
     "Luke 21:15",
@@ -3651,6 +3657,7 @@
     "Psalm 37:5",
     "Psalm 37:7",
     "Psalm 37:8",
+    "Psalm 38:4",
     "Psalm 40:1",
     "Psalm 40:1-2",
     "Psalm 40:3",
@@ -4056,6 +4063,7 @@
     "Luke 17:3-4": "Take heed to yourselves: If thy brother trespass against thee, rebuke him; and if he repent, forgive him. And if he trespass against thee seven times in a day, and seven times in a day turn again to thee, saying, I repent; thou shalt forgive him.",
     "Luke 1:31-33": "And, behold, thou shalt conceive in thy womb, and bring forth a son, and shalt call his name JESUS. He shall be great, and shall be called the Son of the Highest: and the Lord God shall give unto him the throne of his father David: And he shall reign over the house of Jacob for ever; and of his kingdom there shall be no end.",
     "Luke 1:46-47": "And Mary said, My soul doth magnify the Lord, And my spirit hath rejoiced in God my Saviour.",
+    "Luke 1:78-79": "Through the tender mercy of our God; whereby the dayspring from on high hath visited us, To give light to them that sit in darkness and in the shadow of death, to guide our feet into the way of peace.",
     "Luke 2:10-11": "And the angel said unto them, Fear not: for, behold, I bring you good tidings of great joy, which shall be to all people. For unto you is born this day in the city of David a Saviour, which is Christ the Lord.",
     "Luke 6:20-21": "Blessed be ye poor: for yours is the kingdom of God. Blessed are ye that hunger now: for ye shall be filled. Blessed are ye that weep now: for ye shall laugh.",
     "Mark 10:14-16": "But when Jesus saw it, he was much displeased, and said unto them, Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God. Verily I say unto you, Whosoever shall not receive the kingdom of God as a little child, he shall not enter therein. And he took them up in his arms, put his hands upon them, and blessed them.",
@@ -4280,6 +4288,7 @@
     "Psalm 37:5": "Commit thy way unto the LORD; trust also in him; and he shall bring it to pass.",
     "Psalm 37:7": "Rest in the LORD, and wait patiently for him: fret not thyself because of him who prospereth in his way, because of the man who bringeth wicked devices to pass.",
     "Psalm 37:8": "Cease from anger, and forsake wrath: fret not thyself in any wise to do evil.",
+    "Psalm 38:4": "For mine iniquities are gone over mine head: as an heavy burden they are too heavy for me.",
     "Psalm 40:1": "I waited patiently for the Lord; and he inclined unto me, and heard my cry.",
     "Psalm 40:1-2": "I waited patiently for the Lord; and he inclined unto me, and heard my cry. He brought me up also out of an horrible pit.",
     "Psalm 40:3": "And he hath put a new song in my mouth, even praise unto our God.",
@@ -14065,6 +14074,14 @@
         "to": "Judah"
       }
     },
+    "Isaiah 9:2": {
+      "general": {
+        "plainExplanation": "The people that walked in darkness have seen a great light: they that dwell in the land of the shadow of death, upon them has the light shined.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Isaiah",
+        "to": "Judah"
+      }
+    },
     "Isaiah 9:2-7": {
       "general": {
         "plainExplanation": "Key idea: The people that walked in darkness have seen a great light: they that dwell in the land of the shadow of death, upon them has the light shined. you hast mul...",
@@ -17949,6 +17966,14 @@
       "general": {
         "plainExplanation": "And his father Zacharias was filled with the Holy Ghost, and prophesied, saying,",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Luke 1:78-79": {
+      "general": {
+        "plainExplanation": "Key idea: Through the tender mercy of our God; whereby the dayspring from on high has visited us, To give light to them that sit in darkness and in the shadow of deat...",
+        "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
         "about": "Jesus",
         "to": "Believers"
       }
@@ -25020,6 +25045,14 @@
     "Psalm 37:8": {
       "general": {
         "plainExplanation": "Don't let anger take over; step back and trust God to make things right.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
+    "Psalm 38:4": {
+      "general": {
+        "plainExplanation": "For mine iniquities are gone over mine head: as an heavy burden they are too heavy for me.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"

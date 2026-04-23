@@ -41,6 +41,8 @@
       'Offline — still got you. Your quiet evening can continue with the reflection already on this device.',
     rhythm:
       'Offline — still got you. Your rhythm and progress stay here until the connection returns.',
+    'family-rhythm':
+      'Offline — still got you. Linked pages stay cached on this device for morning, evening, and print.',
     storage:
       'Storage may be full. Try exporting older notes. Reading still works; saving may fail until there is room.',
     default:

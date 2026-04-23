@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="tt-bootstrap.js?v=20260423-phase5-perf"></script>
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simple Family Rhythm • Morning, Evening, One Week • Today&apos;s Daily Battle</title>
+  <meta name="description" content="A calm family hub: morning reset for little ones, Evening in the University, and a one-week printable sheet&mdash;one page to gather what you already have. KJV, no sign-in, same device saves on plans.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/family-rhythm.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="stylesheet" href="tdb-quiet-luxury.css?v=20260423-phase5-perf">
+  <link rel="stylesheet" href="tdb-calm-hubs.css?v=20260331edge">
+  <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf">
+  <style>
+    :root { --bg:#0a0c12; --text:#f5f4f0; --muted:#a8a29e; --gold:#d4af7b; --line:#2a2520; }
+    body { background: var(--bg); color: var(--text); font-family: ui-rounded, "Avenir Next", system-ui, sans-serif; line-height: 1.7; }
+    .rhythm-hero { text-align: center; padding: 2.5rem 1.5rem 2rem; background: color-mix(in srgb, var(--bg) 92%, #1a1814); border-radius: 24px; border: 1px solid color-mix(in srgb, var(--gold) 18%, transparent); box-shadow: 0 20px 40px rgba(0,0,0,0.4); margin-bottom: 2.5rem; }
+    .rhythm-title { font-size: clamp(1.6rem, 4.5vw, 2.2rem); color: var(--gold); margin: 0 0 0.5rem; font-weight: 700; letter-spacing: -0.02em; }
+    .rhythm-lead { color: var(--muted); font-size: 1.05rem; max-width: 34rem; margin: 0 auto 2rem; line-height: 1.6; }
+    .rhythm-card { 
+      background: color-mix(in srgb, var(--bg) 94%, #1c1917); 
+      border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line)); 
+      border-radius: 18px; 
+      padding: 1.75rem 1.5rem; 
+      margin-bottom: 2rem; 
+      transition: all 0.3s ease;
+    }
+    .rhythm-cards.calm-grid { align-items: stretch; }
+    .rhythm-cards.calm-grid .rhythm-card { margin-bottom: 0; }
+    .rhythm-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+    .rhythm-card h3 { color: var(--gold); margin: 0 0 0.75rem; font-size: 1.15rem; }
+    .rhythm-card .verse-preview { font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.1rem; line-height: 1.45; color: #e8e4d9; margin: 0 0 1rem; font-style: italic; }
+    .btn-rhythm { 
+      display: inline-flex; align-items: center; justify-content: center; min-height: 52px;
+      padding: 0.75rem 2rem; border-radius: 9999px; font-size: 0.95rem; font-weight: 600;
+      background: transparent; border: 1.5px solid var(--gold); color: var(--gold); 
+      text-decoration: none; transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .btn-rhythm:hover, .btn-rhythm:focus-visible { background: var(--gold); color: #111; transform: translateY(-1px); }
+    .time-suggestion { font-size: 0.85rem; color: var(--muted); text-align: center; margin: 1.5rem 0 0; padding: 0.75rem; background: rgba(212,175,123,0.06); border-radius: 12px; }
+    .offline-note { font-size: 0.82rem; color: var(--muted); text-align: center; margin: 3rem 0 0; padding: 1rem; border-radius: 12px; background: rgba(212,175,123,0.06); }
+
+    /* Wide viewports: calm “On this page” map — desktop scanning only. */
+    .daily-rhythm-onpage-nav { display: none; }
+    @media (min-width: 1100px) {
+      .daily-rhythm-onpage-nav {
+        display: block;
+        position: sticky;
+        top: 3.25rem;
+        z-index: 8;
+        margin: 0.25rem 0 1.2rem;
+        padding: 0.5rem 0.75rem 0.6rem;
+        border-radius: 14px;
+        background: rgba(6, 9, 14, 0.82);
+        border: 1px solid rgba(227, 188, 103, 0.2);
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+        backdrop-filter: blur(10px);
+        text-align: left;
+      }
+      .daily-rhythm-onpage-nav__label {
+        margin: 0 0 0.4rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(227, 188, 103, 0.65);
+      }
+      .daily-rhythm-onpage-nav__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem 0.55rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        justify-content: center;
+      }
+      .daily-rhythm-onpage-nav__list a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 0.25rem 0.65rem;
+        border-radius: 999px;
+        font-size: 0.86rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: rgba(226, 232, 240, 0.92);
+        border: 1px solid rgba(227, 188, 103, 0.22);
+        background: rgba(12, 16, 26, 0.55);
+      }
+      .daily-rhythm-onpage-nav__list a:hover,
+      .daily-rhythm-onpage-nav__list a:focus-visible {
+        border-color: rgba(227, 188, 103, 0.45);
+        color: #c9a84c;
+        outline: 2px solid rgba(227, 188, 103, 0.45);
+        outline-offset: 2px;
+      }
+    }
+    html[data-theme="light"] .daily-rhythm-onpage-nav {
+      background: rgba(255, 253, 247, 0.94);
+      border-color: rgba(201, 162, 39, 0.28);
+      box-shadow: 0 8px 24px rgba(64, 41, 8, 0.1);
+    }
+    html[data-theme="light"] .daily-rhythm-onpage-nav__label {
+      color: rgba(120, 90, 30, 0.75);
+    }
+    html[data-theme="light"] .daily-rhythm-onpage-nav__list a {
+      color: #1e293b;
+      border-color: rgba(201, 162, 39, 0.35);
+      background: rgba(255, 255, 255, 0.88);
+    }
+    html[data-theme="light"] .daily-rhythm-onpage-nav__list a:hover,
+    html[data-theme="light"] .daily-rhythm-onpage-nav__list a:focus-visible {
+      color: #0f172a;
+      border-color: rgba(201, 162, 39, 0.55);
+    }
+    .family-rhythm-page #family-rhythm-overview,
+    .family-rhythm-page #fr-morning,
+    .family-rhythm-page #fr-evening,
+    .family-rhythm-page #fr-week,
+    .family-rhythm-page #fr-more,
+    .family-rhythm-page #fr-device {
+      scroll-margin-top: 5rem;
+    }
+    @media (min-width: 1100px) {
+      .family-rhythm-page #family-rhythm-overview,
+      .family-rhythm-page #fr-morning,
+      .family-rhythm-page #fr-evening,
+      .family-rhythm-page #fr-week,
+      .family-rhythm-page #fr-more,
+      .family-rhythm-page #fr-device {
+        scroll-margin-top: 7.5rem;
+      }
+    }
+    @media (min-width: 1100px) and (prefers-reduced-motion: reduce) {
+      .daily-rhythm-onpage-nav {
+        position: static;
+        margin-bottom: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body class="dark-mode tdb-inner-page family-rhythm-page">
+  <a href="#main" class="skip-link">Skip to family rhythm</a>
+  
+  <nav class="tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+    <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel-standalone" id="tdb-primary-nav-toggle-standalone">
+      <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+      <span class="tdb-nav-flyout-toggle__label">Site</span>
+    </button>
+    <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-standalone">
+      <a href="/verse.html">Today&rsquo;s Lesson</a>
+      <a href="/explore.html">Explore</a>
+      <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map and gentle paths">Curriculum</a>
+      <a href="/plans.html" id="nav-browse-curriculum" aria-label="Browse the curriculum — KJV courses and gentle battle plans">Browse the curriculum</a>
+      <a href="/university.html" id="nav-university-core" aria-label="University of God — five anchor verses, quiet map">University map</a>
+      <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read</a>
+      <a href="/memorize.html">Memorize</a>
+      <a href="/#feel-section">How I Feel</a>
+      <a href="/daily-rhythm.html">Daily Rhythm</a>
+      <a href="/family-rhythm.html" aria-current="page">Family rhythm</a>
+      <a href="/prayer-wall.html">Pray</a>
+      <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
+      <details class="tdb-nav-more">
+        <summary aria-haspopup="true">More tools</summary>
+        <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+          <a href="/">Home</a>
+          <a href="/mystudy">My Study</a>
+          <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
+          <a href="/plans.html">Courses</a>
+          <a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">Family Armor for little ones</a>
+          <a href="/kids/corner.html">Kids &amp; Family</a>
+          <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
+          <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
+          <a href="/site-guide.html" id="nav-site-guide" aria-label="Start here — calm map of where to begin">Start here</a>
+          <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
+          <a href="/about.html">About</a>
+          <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
+          <a href="/mobius.html">Möbius</a>
+          <a href="/calm.html">Calm</a>
+          <a href="/story.html">Story</a>
+          <a href="/give" aria-label="Support this quiet place — optional gift">Support</a>
+          <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
+        </div>
+      </details>
+    </div>
+  </nav>
+
+  <div id="tdb-offline-strip" class="tdb-offline-strip hidden" role="status" aria-live="polite" data-tdb-offline-page="family-rhythm">
+    <p class="offline-msg">Offline—still got you. These pages stay cached for when the network drops.</p>
+  </div>
+
+  <main id="main" class="tdb-calm-hub tdb-quiet-container">
+    <div class="rhythm-hero">
+      <div id="family-rhythm-overview" class="daily-rhythm-overview" tabindex="-1">
+        <h1 class="rhythm-title">Simple family rhythm</h1>
+        <p class="rhythm-lead">One place to gather what you already have&mdash;morning new mercies for little ones, four short <abbr title="King James Version">KJV</abbr> evenings in the same voice as the University, and a one-week print if paper helps. Not a new program&mdash;just a calmer front door to the same room.</p>
+      </div>
+      <nav class="daily-rhythm-onpage-nav" aria-label="On this page">
+        <p class="daily-rhythm-onpage-nav__label" id="family-rhythm-onpage-toc-label">On this page</p>
+        <ul class="daily-rhythm-onpage-nav__list" aria-labelledby="family-rhythm-onpage-toc-label">
+          <li><a href="#family-rhythm-overview">Overview</a></li>
+          <li><a href="#fr-morning">Morning</a></li>
+          <li><a href="#fr-evening">Evening</a></li>
+          <li><a href="#fr-week">One week</a></li>
+          <li><a href="#fr-more">More</a></li>
+          <li><a href="#fr-device">On this device</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="rhythm-cards calm-grid calm-grid--3">
+    <div id="fr-morning" class="rhythm-card" tabindex="-1">
+      <h3>Morning reset (little ones)</h3>
+      <p class="verse-preview" style="font-size:0.95rem; font-style:normal; color:var(--muted);">Lamentations 3:22&ndash;23, Psalm 5:3&mdash;new mercies; look up.</p>
+      <p style="color:var(--muted); font-size:0.95rem; margin-bottom:1.25rem;">The same short morning the Family Armor page already loves&mdash;screen or table, one honest start.</p>
+      <a href="/family-armor-little-ones.html#fa-littles-morning-reset" class="btn-rhythm">Open morning reset</a>
+    </div>
+
+    <div id="fr-evening" class="rhythm-card" tabindex="-1">
+      <h3>Evening in the University</h3>
+      <p class="verse-preview" style="font-size:0.95rem; font-style:normal; color:var(--muted);">Four nights&mdash;Deuteronomy 6, Psalm 4, Luke 24, Matthew 11&mdash;read aloud, pray once.</p>
+      <p style="color:var(--muted); font-size:0.95rem; margin-bottom:1.25rem;">Progress saves on this device in Battle Plans&mdash;separate from your solo week if you use both.</p>
+      <a href="/plans.html?plan=eveninguog" class="btn-rhythm">Open the four-day plan</a>
+    </div>
+
+    <div id="fr-week" class="rhythm-card" tabindex="-1">
+      <h3>One week in the University (print)</h3>
+      <p class="verse-preview" style="font-size:0.95rem; font-style:normal; color:var(--muted);">Seven rows&mdash;echo mornings; evenings 1&ndash;4 then gentle repeats&mdash;for tired parents who want paper.</p>
+      <p style="color:var(--muted); font-size:0.95rem; margin-bottom:1.25rem;">Two-card morning and evening or a <a href="/evening-university-print.html" style="color:var(--gold);">one-page four-night sheet</a> are still right here when you need less.</p>
+      <a href="/one-week-in-the-university-print.html" class="btn-rhythm">Open the one-week print</a>
+    </div>
+    </div>
+
+    <div id="fr-more" class="daily-rhythm-more-links" style="margin-top:2.5rem; text-align:center;" tabindex="-1">
+      <a href="/family.html" style="color:var(--gold); text-decoration:none; font-size:0.95rem;">Family hub →</a>
+      <span style="margin:0 1rem; color:var(--muted);">·</span>
+      <a href="/morning-evening-family-print.html" style="color:var(--gold); text-decoration:none; font-size:0.95rem;">Two-card print →</a>
+      <span style="margin:0 1rem; color:var(--muted);">·</span>
+      <a href="/university.html#uog-summer-in-the-university" style="color:var(--gold); text-decoration:none; font-size:0.95rem;">University map →</a>
+    </div>
+
+    <div id="fr-device" class="offline-note" tabindex="-1">
+      Family plans and solo plans can live on the same phone&mdash;each keeps its own day count. <a href="/printables.html" style="color:var(--gold);">Print hub</a> for more paper friends.
+    </div>
+  </main>
+
+  <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
+  <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+    <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+    <span class="tdb-lang-switcher-inner">
+      <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-essentials" aria-label="Key pages">
+    <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/verse.html">Today&rsquo;s Lesson</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/give" class="site-footer-ess-support" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <p class="site-footer-share-wrap">
+    <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
+    <span class="site-footer-share-sep" aria-hidden="true">·</span>
+    <button type="button" class="share-page-btn site-footer-tour-restart tdb-tour-restart-btn" aria-label="Restart the five-minute site tour">Restart site tour</button>
+  </p>
+
+  <p class="site-footer-support-nudge" role="note">
+    If this quiet place helped you, read <a href="/where-support-goes.html">where support goes</a>, then <a href="/give" class="site-footer-support-nudge-primary" id="footer-support-nudge-give" aria-label="Support this quiet place — opens secure giving page">give securely</a><span class="site-footer-support-nudge-dash" aria-hidden="true">&mdash;</span><span class="site-footer-support-nudge-you">you choose the amount.</span>
+    <span class="site-footer-support-nudge-alt"> Need the current support path? Use the <a href="/give" aria-label="Open the support page">support page</a>.</span>
+  </p>
+
+  <nav class="bottom-nav" role="navigation" aria-label="Plans and Spanish topics">
+    <a href="/plans.html">Plans</a>
+    <a href="/explore.html">Explore</a>
+    <a href="/kids/">Kids Battle</a>
+    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
+      <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
+      <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
+      <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
+    </span>
+    <details class="bottom-nav-es-more">
+      <summary><span class="bottom-nav-es-more-label">ES topics</span><span class="sr-only">Ansiedad, Fuerza, Paz</span></summary>
+      <div class="bottom-nav-es-more-panel" role="group" aria-label="Spanish topical pages">
+        <a href="/ansiedad.html" hreflang="es" lang="es" aria-label="Spanish topic: Ansiedad">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es" aria-label="Spanish topic: Fuerza">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es" aria-label="Spanish topic: Paz">Paz</a>
+      </div>
+    </details>
+  </nav>
+
+  <nav class="site-footer-nav" aria-label="Footer links">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/media.html">Media</a>
+    <a href="/roadmap.html">Roadmap</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/for-pastors.html">For pastors &amp; teachers</a>
+    <a href="/reader.html">Chapter reader</a>
+    <a href="/bible/tools.html">Study workshop</a>
+    <a href="/bible-tool.html">Bible tool</a>
+    <a href="/testimonials.html">Reader stories</a>
+    <a href="/journal/">Journal</a>
+    <a href="/where-support-goes.html">Where support goes</a>
+    <a href="/verse-cards/">Verse cards</a>
+    <a href="/security.html">Security</a>
+    <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
+    <a href="/give" id="footer-support-quiet-place" aria-label="Support this quiet place — optional gift; you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <details class="footer-sitemap">
+    <summary>Sitemap — topics, tools, church &amp; family (tap to expand)</summary>
+    <div class="footer-sitemap-grid">
+      <div class="footer-sitemap-col">
+        <h3>Topics</h3>
+        <a href="/explore.html">Full list (all pages)</a>
+        <a href="/topic-anxiety.html">Anxiety</a>
+        <a href="/topic-fear.html">Fear</a>
+        <a href="/topic-grief.html">Grief</a>
+        <a href="/topic-hope.html">Hope</a>
+        <a href="/topic-strength.html">Strength</a>
+        <a href="/topic-parenting.html">Parenting</a>
+        <a href="/topic-loneliness.html">Loneliness</a>
+        <a href="/topic-forgiveness.html">Forgiveness</a>
+        <a href="/topic-guilt.html">Guilt</a>
+        <a href="/topic-overwhelmed.html">Overwhelmed</a>
+        <a href="/topic-worthless.html">Worth / identity</a>
+      </div>
+      <div class="footer-sitemap-col footer-sitemap-col--es-links">
+        <h3>Spanish devotionals</h3>
+        <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es">Paz</a>
+        <a href="/explore.html#topics-es">All Spanish topics on Explore</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Tools</h3>
+        <a href="/verse.html">Verse of the Day</a>
+        <a href="/reader.html">Chapter reader</a>
+        <a href="/bible/tools.html">Study workshop</a>
+        <a href="/bible-tool.html">Bible tool</a>
+        <a href="/mystudy">My Study</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/mobius.html">Möbius</a>
+        <a href="/plans.html">Battle plans</a>
+        <a href="/reading-plan.html">7-day plan</a>
+        <a href="/study.html">Study workspace</a>
+        <a href="/wins.html">Wins</a>
+        <a href="/progress.html">Progress</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Church &amp; family</h3>
+        <a href="/church.html">Church center</a>
+        <a href="/church/">Church join hub</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit</a>
+        <a href="/pastor/">Pastor hub</a>
+        <a href="/sermon.html">Sermon builder</a>
+        <a href="/family.html">Family hub</a>
+        <a href="/little-ones.html">For the Little Ones</a>
+        <a href="/family-armor.html">Family Armor</a>
+        <a href="/kids/?v=hub20260321">Kids Battle home</a>
+        <a href="/kids/corner.html">Bible Story Library</a>
+        <a href="/kids-corner.html">Bible Loop Library</a>
+        <a href="/coloring.html">Color &amp; Tell</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>More</h3>
+        <a href="/prayer-wall.html">Prayer</a>
+        <a href="/bible-study.html">Bible studies</a>
+        <a href="/shop.html">Shop</a>
+        <a href="/story.html">Story</a>
+        <a href="/media.html">Media</a>
+        <a href="/roadmap.html">Roadmap</a>
+        <a href="/approach.html">How we respond</a>
+        <a href="/why-not-ai.html">Why not AI?</a>
+        <a href="/curriculum.html">Curriculum</a>
+        <a href="/verse-cards/">Verse cards</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </details>
+
+  <p class="footer-humility">We battle. He wins.</p>
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
+
+  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
+    <p class="footer-friday-signup-label">Get the weekly verse recap — one email, no spam, unsubscribe anytime.</p>
+    <div class="footer-friday-signup-row">
+      <label for="footer-friday-email" class="sr-only">Email for Friday recap</label>
+      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="your@email.com" aria-label="Email for Friday recap" autocomplete="email">
+      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit">Subscribe</button>
+    </div>
+    <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
+  </div>
+
+  <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
+  <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
+
+  <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
+  <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
+</footer>
+
+  <script nonce="tdb2025s">
+    window.addEventListener('load', function() {
+      console.log('%cFamily rhythm hub: morning, evening, one-week print.', 'color:#d4af7b;font-size:0.8rem;');
+    });
+  </script>
+</body>
+</html>

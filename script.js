@@ -101,6 +101,7 @@ function tdbIsHomePage() {
     if (/\banxiety|anxious|worry|stressed?|careful for nothing|careful\b/.test(low)) return 'anxiety';
     if (/\bfear|afraid|panic|scared|terror\b/.test(low)) return 'fear';
     if (/(closet|secret place|shut thy door|a great while before day|a solitary|draw nigh to god|ears are open|double minded|in secret;|in secret,|in secret\.|in secret\)|seeth in secret|seen in secret)\b/.test(low)) return 'secretprayer';
+    if (/\bregret\w*|\bif only\b|should have|second guess|second-guess|hindsight|what if i|replaying yesterday|godly sorrow worketh|repentance to salvation|no condemnation to them which are in christ|forgetting those things which are behind|pressed toward the mark\b/.test(low)) return 'regret';
     if (/\bgrief|grieve|grieving|mourning|mourn(ed|ing)?|bereave|bereft|\bloss\b|funeral|widow|orphan|weep|weeping|broken\s*heart|contrite|\bsorrow\b/.test(low)) return 'grief';
     if (/\bwait(ing)?\b|tarry|not yet|\bpatience\b|\bpatient\b|hope for that we see not|appointed time|delayed?\b/.test(low)) return 'waiting';
     if (/\bparent(ing)?\b|\bchildren\b|\bchild\b|\bmother\b|\bmothers?\b|ye fathers,|fathers, provoke|train up|nurture|admonition|heritage of|little ones|toddler|babies\b/.test(low)) return 'parenting';
@@ -181,6 +182,11 @@ function tdbIsHomePage() {
       { href: '/plans.html?plan=universityanger', label: 'University of Anger' },
       { href: '/plans.html?plan=angerpeace', label: 'Anger to Peace' },
       { href: '/plans.html?plan=peacemakers', label: 'Peacemakers' }
+    ],
+    regret: [
+      { href: '/plans.html?plan=universityregret', label: 'University of Regret' },
+      { href: '/plans.html?plan=universityforgiveness', label: 'University of Forgiveness' },
+      { href: '/plans.html?plan=universitygrief', label: 'University of Grief' }
     ],
     doubt: [
       { href: '/plans.html?plan=universitydoubt', label: 'University of Doubt' },

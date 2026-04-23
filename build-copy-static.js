@@ -430,6 +430,14 @@ for (const f of otherHtml) {
       console.error('BUILD FAIL: plans.html must include Quiet Fall Harvest plan (quietfallharvest / tdb-plan-quietfallharvest-day).');
       process.exit(1);
     }
+    if (!content.includes('universityregret') || !content.includes('tdb-plan-universityregret-day')) {
+      console.error('BUILD FAIL: plans.html must include The University of Regret plan (universityregret / tdb-plan-universityregret-day).');
+      process.exit(1);
+    }
+    if (!content.includes('latefallwinter') || !content.includes('tdb-plan-latefallwinter-day')) {
+      console.error('BUILD FAIL: plans.html must include Late Fall, Quiet Winter plan (latefallwinter / tdb-plan-latefallwinter-day).');
+      process.exit(1);
+    }
     if (!content.includes('eveninguog') || !content.includes('tdb-plan-eveninguog-day')) {
       console.error('BUILD FAIL: plans.html must include Evening in the University plan (eveninguog / tdb-plan-eveninguog-day).');
       process.exit(1);

@@ -358,6 +358,7 @@
       if (/\bforgive|forgiveness|forgave|forgiven|trespass|trespasses\b/.test(low)) return 'forgiveness';
       if (/\blonely|loneliness|\bforsaken\b|forsake me|no companion|desolate and afflicted|solitary in families|comfortless\b/.test(low)) return 'loneliness';
       if (/\bthank|thanks|thanksgiving|grateful|praise\w* unto|magnify|joyful noise|bless the lord, o my soul|enter.*thanksgiving\b/.test(low)) return 'gratitude';
+      if (/\bdoubt(s|ed|ful|eth)?\b|unbelief|disbelief|faithless|be not faithless|waver(ing|ed|eth)?\b|staggered not|help thou mine|mine unbelief|look we for another|art thou he that should come\b/.test(low)) return 'doubt';
       if (/\bhope|hopeless|discouraged\b/.test(low)) return 'hope';
       return 'hope';
     }
@@ -411,6 +412,11 @@
         { href: '/plans.html?plan=universityforgiveness', label: 'University of Forgiveness' },
         { href: '/plans.html?plan=forgiveness', label: '7-Day Forgiveness' },
         { href: '/plans.html?plan=lettinggo', label: 'Letting Go' }
+      ],
+      doubt: [
+        { href: '/plans.html?plan=universitydoubt', label: 'University of Doubt' },
+        { href: '/plans.html?plan=doubtassurance', label: 'Doubt to Assurance' },
+        { href: '/plans.html?plan=trust', label: 'Trust in Uncertainty' }
       ],
       hope: [
         { href: '/plans.html?plan=hopeuncertain', label: 'When Hope Feels Thin' },

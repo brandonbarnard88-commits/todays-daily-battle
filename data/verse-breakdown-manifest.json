@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-23T21:11:13.966Z",
-  "surfacedRefCount": 2887,
-  "overrideCount": 2887,
+  "generatedAt": "2026-04-23T21:19:55.544Z",
+  "surfacedRefCount": 2891,
+  "overrideCount": 2891,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -776,8 +776,8 @@
       "pairs": 1
     },
     "plans.html": {
-      "refs": 208,
-      "pairs": 197
+      "refs": 212,
+      "pairs": 203
     },
     "prayer-wall.html": {
       "refs": 1,
@@ -2281,6 +2281,7 @@
     "James 1:3",
     "James 1:4",
     "James 1:5",
+    "James 1:5-6",
     "James 2:14-26",
     "James 2:17",
     "James 2:19",
@@ -2476,6 +2477,7 @@
     "John 20:24-29",
     "John 20:25",
     "John 20:26-29",
+    "John 20:27",
     "John 20:28",
     "John 20:29",
     "John 20:31",
@@ -2825,6 +2827,7 @@
     "Luke 6:31",
     "Luke 6:37",
     "Luke 6:38",
+    "Luke 7:20",
     "Luke 7:6",
     "Luke 8:16",
     "Luke 8:2",
@@ -3822,6 +3825,7 @@
     "Romans 3:25",
     "Romans 3:27",
     "Romans 3:29",
+    "Romans 4:20-21",
     "Romans 4:21",
     "Romans 4:22",
     "Romans 4:6",
@@ -4003,6 +4007,7 @@
     "James 1:19-20": "Wherefore, my beloved brethren, let every man be swift to hear, slow to speak, slow to wrath: For the wrath of man worketh not the righteousness of God.",
     "James 1:2-3": "My brethren, count it all joy when ye fall into divers temptations; Knowing this, that the trying of your faith worketh patience.",
     "James 1:2-4": "My brethren, count it all joy when ye fall into divers temptations; Knowing this, that the trying of your faith worketh patience. But let patience have her perfect work, that ye may be perfect and entire, wanting nothing.",
+    "James 1:5-6": "If any of you lack wisdom, let him ask of God, that giveth to all men liberally, and upbraideth not; and it shall be given him. But let him ask in faith, nothing wavering. For he that wavereth is like a wave of the sea driven with the wind and tossed.",
     "James 4:13-15": "Go to now, ye that say, To day or to morrow we will go into such a city, and continue there a year, and buy and sell, and get gain: Whereas ye know not what shall be on the morrow. For what is your life? It is even a vapour, that appeareth for a little time, and then vanisheth away. For that ye ought to say, If the Lord will, we shall live, and do this, or that.",
     "Jeremiah 17:7-8": "Blessed is the man that trusteth in the LORD, and whose hope the LORD is. For he shall be as a tree planted by the waters, and that spreadeth out her roots by the river, and shall not see when heat cometh.",
     "John 10:27-28": "My sheep hear my voice, and I know them, and they follow me: And I give unto them eternal life; and they shall never perish, neither shall any man pluck them out of my hand.",
@@ -4343,6 +4348,7 @@
     "Psalm 9:1": "I will praise thee, O LORD, with my whole heart; I will shew forth all thy marvellous works.",
     "Romans 10:14-15": "How then shall they call on him in whom they have not believed? and how shall they believe in him of whom they have not heard? and how shall they hear without a preacher? And how shall they preach, except they be sent? as it is written, How beautiful are the feet of them that preach the gospel of peace, and bring glad tidings of good things!",
     "Romans 10:9-10": "That if thou shalt confess with thy mouth the Lord Jesus, and shalt believe in thine heart that God hath raised him from the dead, thou shalt be saved. For with the heart man believeth unto righteousness; and with the mouth confession is made unto salvation.",
+    "Romans 4:20-21": "He staggered not at the promise of God through unbelief; but was strong in faith, giving glory to God; And being fully persuaded that, what he had promised, he was able also to perform.",
     "Romans 5:3-4": "And not only so, but we glory in tribulations also: knowing that tribulation worketh patience; And patience, experience; and experience, hope:",
     "Romans 7:24-25": "O wretched man that I am! who shall deliver me from the body of this death? I thank God through Jesus Christ our Lord.",
     "Romans 8:16-17": "The Spirit itself beareth witness with our spirit, that we are the children of God: And if children, then heirs; heirs of God, and joint-heirs with Christ; if so be that we suffer with him, that we may be also glorified together.",
@@ -14113,6 +14119,14 @@
         "to": "Believers"
       }
     },
+    "James 1:5-6": {
+      "general": {
+        "plainExplanation": "Key idea: If any of you lack wisdom, let him ask of God, that gives to all men liberally, and upbraideth not; and it shall be given him. But let him ask in faith, not...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "James",
+        "to": "Believers"
+      }
+    },
     "James 2:14-26": {
       "general": {
         "plainExplanation": "Key idea: What does it profit, my brothers, though a man say he has faith, and have not works? can faith save him? If a brother or sister be naked, and destitute of d...",
@@ -15669,6 +15683,14 @@
       "general": {
         "plainExplanation": "Key idea: And after eight days again his disciples were within, and Thomas with them: then came Jesus, the doors being shut, and stood in the midst, and said, Peace b...",
         "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "John 20:27": {
+      "general": {
+        "plainExplanation": "Then says he to Thomas, Reach hither your finger, and look my hands; and reach hither your hand, and thrust it into my side: and be not faithless, but believing.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
       }
@@ -18460,6 +18482,14 @@
     "Luke 6:38": {
       "general": {
         "plainExplanation": "Give, and it shall be given to you; good measure, pressed down, and shaken together, and running over, shall men give into your bosom.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Luke 7:20": {
+      "general": {
+        "plainExplanation": "When the men were come to him, they said, John Baptist has sent us to you, saying, Art you he that should come? or look we for another?",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -26437,6 +26467,14 @@
       "general": {
         "plainExplanation": "Is he the God of the Jews only? is he not also of the Gentiles? Yes, of the Gentiles also:",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Rome"
+      }
+    },
+    "Romans 4:20-21": {
+      "general": {
+        "plainExplanation": "Key idea: He staggered not at the promise of God through unbelief; but was strong in faith, giving glory to God; And being fully persuaded that, what he had promised,...",
+        "modernApplication": "This verse reminds you that God gives strength that does not start with your own reserves.",
         "about": "Paul",
         "to": "Rome"
       }

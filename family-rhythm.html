@@ -80,6 +80,19 @@
     .fr-winter-readaloud blockquote { margin: 0; padding: 0; border: none; font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.05rem; line-height: 1.5; color: #e8e4d9; font-style: italic; }
     .fr-winter-readaloud .fr-winter-readaloud__cite { display: block; margin-top: 0.6rem; font-size: 0.82rem; font-style: normal; font-family: ui-rounded, "Avenir Next", system-ui, sans-serif; color: var(--muted); }
     .fr-winter-readaloud .fr-winter-readaloud__hint { margin: 0.55rem 0 0; font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+    .fr-winter-signpost {
+      margin: 1.15rem 0 0;
+      padding: 0.9rem 1rem 1rem;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--gold) 16%, var(--line));
+      background: color-mix(in srgb, var(--bg) 90%, #141a18);
+    }
+    .fr-winter-signpost h3 { margin: 0 0 0.4rem; font-size: 0.95rem; color: var(--gold); font-weight: 600; }
+    .fr-winter-signpost p { margin: 0; font-size: 0.86rem; line-height: 1.55; color: var(--muted); }
+    .fr-winter-signpost ul { margin: 0.55rem 0 0; padding: 0 0 0 1.1rem; font-size: 0.86rem; line-height: 1.6; color: var(--text); }
+    .fr-winter-signpost li { margin: 0.35rem 0 0; }
+    .fr-winter-signpost a { color: var(--gold); text-decoration: none; font-weight: 600; }
+    .fr-winter-signpost a:hover, .fr-winter-signpost a:focus-visible { text-decoration: underline; outline: none; }
     .rhythm-card:hover { border-color: var(--gold); transform: translateY(-3px); }
     .rhythm-card h3 { color: var(--gold); margin: 0 0 0.75rem; font-size: 1.15rem; }
     .rhythm-card .verse-preview { font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.1rem; line-height: 1.45; color: #e8e4d9; margin: 0 0 1rem; font-style: italic; }
@@ -174,6 +187,7 @@
     .family-rhythm-page #fr-more,
     .family-rhythm-page #fr-start-tonight,
     .family-rhythm-page #fr-winter,
+    .family-rhythm-page #fr-winter-helpful,
     .family-rhythm-page #fr-device {
       scroll-margin-top: 5rem;
     }
@@ -184,8 +198,9 @@
       .family-rhythm-page #fr-week,
       .family-rhythm-page #fr-more,
       .family-rhythm-page #fr-start-tonight,
-      .family-rhythm-page #fr-winter,
-      .family-rhythm-page #fr-device {
+    .family-rhythm-page #fr-winter,
+    .family-rhythm-page #fr-winter-helpful,
+    .family-rhythm-page #fr-device {
         scroll-margin-top: 7.5rem;
       }
     }
@@ -262,6 +277,7 @@
           <li><a href="#fr-evening">Evening</a></li>
           <li><a href="#fr-week">One week</a></li>
           <li><a href="#fr-winter">Winter</a></li>
+          <li><a href="#fr-winter-helpful">Helpful this winter</a></li>
           <li><a href="#fr-more">More</a></li>
           <li><a href="#fr-device">On this device</a></li>
         </ul>
@@ -329,6 +345,14 @@
         <p class="fr-winter-readaloud__cite">Mark 4:37&ndash;39, <abbr title="King James Version">KJV</abbr></p>
         <p class="fr-winter-readaloud__hint">A short family read&mdash;no lesson; let &ldquo;great calm&rdquo; be the last sound. For January doors, <a href="/start-the-year-in-the-word.html" style="color:var(--gold);">Start the year in the Word</a> gathers prints and plans in one place.</p>
       </div>
+      <div class="fr-winter-readaloud" id="fr-winter-waters" aria-labelledby="fr-winter-waters-h">
+        <h3 id="fr-winter-waters-h">When the noise won&rsquo;t stop, but you need still water</h3>
+        <blockquote>
+          The LORD is my shepherd; I shall not want. He maketh me to lie down in green pastures: he leadeth me beside the still waters.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">Psalm 23:1&ndash;2, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">Read it slow&mdash;no assignment. The <a href="/university.html#uog-winter-university" style="color:var(--gold);">University map</a> carries the same winter read-alouds for your own chair.</p>
+      </div>
       <p class="fr-winter__more">
         <a href="/plans.html?plan=latefallwinter">Late fall, quiet winter (plan)</a>
         <span style="margin:0 0.5rem; opacity:0.6;" aria-hidden="true">&middot;</span>
@@ -336,6 +360,16 @@
         <span style="margin:0 0.5rem; opacity:0.6;" aria-hidden="true">&middot;</span>
         <a href="/university.html#uog-winter-university">University map &rarr; winter</a>
       </p>
+      <div class="fr-winter-signpost" id="fr-winter-helpful" tabindex="-1" aria-labelledby="fr-winter-helpful-h">
+        <h3 id="fr-winter-helpful-h">Most helpful this winter</h3>
+        <p>Not a score or a finish line&mdash;just doors people keep open when the days are short. Pick what fits; leave the rest.</p>
+        <ul>
+          <li><a href="/start-the-year-in-the-word.html">Start the year in the Word</a> &mdash; prints, Gentle New Year week, and a steady January list in one place.</li>
+          <li><a href="/seasonal.html#late-fall-winter">Seasonal &rarr; late fall &amp; winter bridge</a> &mdash; day-by-day on this device when you want gentle steps.</li>
+          <li><a href="#fr-winter-storm">Read-aloud: peace after the wind</a> and <a href="#fr-winter-waters">beside still waters</a> &mdash; table or bedside, no prep.</li>
+          <li><a href="/plans.html?plan=latefallwinter">Late fall, quiet winter</a> &mdash; five KJV days when light thins.</li>
+        </ul>
+      </div>
     </section>
 
     <div id="fr-more" class="daily-rhythm-more-links" style="margin-top:2.5rem; text-align:center;" tabindex="-1">

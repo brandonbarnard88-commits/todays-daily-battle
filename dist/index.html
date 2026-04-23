@@ -2664,6 +2664,46 @@
       outline: 2px solid var(--gold);
       outline-offset: 2px;
     }
+    /* January: one quiet KJV line per day (tdb-january-quiet.js) — match tdb-calm-hubs */
+    .tdb-january-quiet {
+      box-sizing: border-box;
+      max-width: var(--tdb-home-content-max);
+      width: 100%;
+      margin: 0.5rem auto 0.75rem;
+      padding: 0.85rem 1rem 0.95rem;
+      border-radius: 16px;
+      border: 1px solid color-mix(in srgb, var(--gold) 20%, var(--line));
+      background: color-mix(in srgb, var(--card) 94%, rgba(227, 188, 103, 0.06));
+      text-align: left;
+      align-self: center;
+    }
+    .tdb-january-quiet[hidden] { display: none !important; }
+    .tdb-january-quiet__eyebrow {
+      margin: 0 0 0.2rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--muted) 75%, var(--gold) 25%);
+    }
+    .tdb-january-quiet__label { margin: 0 0 0.45rem; font-size: 0.92rem; font-weight: 600; color: color-mix(in srgb, var(--text) 92%, var(--gold) 8%); }
+    .tdb-january-quiet__ref { margin: 0 0 0.35rem; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; color: var(--gold); }
+    .tdb-january-quiet__text {
+      margin: 0;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.04rem;
+      line-height: 1.48;
+      color: #e8e4d9;
+    }
+    .tdb-january-quiet__foot { margin: 0.65rem 0 0; font-size: 0.82rem; line-height: 1.5; color: var(--muted); }
+    .tdb-january-quiet__foot a { color: var(--gold); font-weight: 600; text-decoration: none; }
+    .tdb-january-quiet__foot a:hover,
+    .tdb-january-quiet__foot a:focus-visible { text-decoration: underline; outline: none; }
+    :root[data-theme="light"] .tdb-january-quiet {
+      background: color-mix(in srgb, var(--card) 96%, rgba(201, 162, 39, 0.08));
+      border-color: color-mix(in srgb, #c9a84c 35%, #e5e7eb);
+    }
+    :root[data-theme="light"] .tdb-january-quiet__text { color: #1e293b; }
     /* Shown when the Easter banner is not active (see easter-season.js syncMorningDoorwayHint) */
     .tdb-morning-doorway-hint {
       font-size: 0.8rem;
@@ -8621,7 +8661,15 @@
         </span>
       </nav>
       </div>
+      <aside class="tdb-january-quiet" id="tdb-january-quiet" data-tdb-january-quiet hidden aria-labelledby="tdb-january-quiet-eyebrow">
+        <p class="tdb-january-quiet__eyebrow" id="tdb-january-quiet-eyebrow">January</p>
+        <p class="tdb-january-quiet__label" id="tdb-january-quiet-label">One quiet verse for today</p>
+        <p class="tdb-january-quiet__ref" data-tdb-january-quiet-ref></p>
+        <p class="tdb-january-quiet__text" data-tdb-january-quiet-text></p>
+        <p class="tdb-january-quiet__foot">Same rotation on the <a href="/university.html#uog-january-quiet">University map</a> &middot; <a href="/start-the-year-in-the-word.html">Start the year in the Word</a></p>
+      </aside>
       <div class="tdb-home-resume" id="tdbHomeResume" role="region" aria-label="Your progress on this device" hidden></div>
+      <script defer src="/tdb-january-quiet.js?v=20260423-phase5-perf"></script>
 
       <!-- Stronger first-time onboarding — warm, clear, family-focused (audit #1) -->
       <div class="tdb-new-here-card" id="tdbNewHereCard" role="region" aria-labelledby="new-here-title">

@@ -802,6 +802,23 @@
     hideBtn.appendChild(document.createTextNode('Hide breakdown'));
     panel.appendChild(hideBtn);
 
+    var levelBtn = document.createElement('button');
+    levelBtn.type = 'button';
+    levelBtn.className = 'tdb-vb-inline-level-btn link-button util-mt-0_5';
+    levelBtn.setAttribute('aria-label', 'Choose Kid, Teen, or Adult reading style');
+    levelBtn.appendChild(document.createTextNode('Reading level (Kid / Teen / Adult)'));
+    levelBtn.addEventListener('click', function () {
+      var pr = details.querySelector('.tdb-vb-age-prompt');
+      if (pr) {
+        pr.classList.remove('hidden');
+        try {
+          var firstAge = pr.querySelector('.verse-age-actions [data-age]');
+          if (firstAge && typeof firstAge.focus === 'function') firstAge.focus();
+        } catch (eF) {}
+      }
+    });
+    panel.appendChild(levelBtn);
+
     details.appendChild(panel);
     return details;
   }
@@ -903,9 +920,11 @@
     var relEl = details.querySelector('[data-bk="relates"]');
     if (!refEl || !verseTextEl || !aboutEl || !toEl || !layEl || !appEl || !relEl) return;
 
-    var ageMode = getAgeMode();
+    /* Do not require Kid/Teen/Adult before showing copy — on first visit the prompt
+     * read as “empty” and hid the breakdown. Default gently; age buttons still work after explicit pick. */
     var prompt = details.querySelector('.tdb-vb-age-prompt');
-    if (!ageMode && prompt) prompt.classList.remove('hidden');
+    if (prompt) prompt.classList.add('hidden');
+    var ageMode = getAgeMode();
     if (!ageMode) ageMode = inferAgeFromContext() || 'adult';
     details.setAttribute('data-age-mode', ageMode);
 
@@ -1070,6 +1089,11 @@
       wireInlineDetailsEvents(existing);
       populateInlineDetails(existing, ref, text);
       setInlineBreakdownOpen(existing, true);
+      try {
+        requestAnimationFrame(function () {
+          setInlineBreakdownOpen(existing, true);
+        });
+      } catch (eRaf) {}
       return;
     }
 
@@ -1086,6 +1110,11 @@
       pt.parent.appendChild(details);
     }
     setInlineBreakdownOpen(details, true);
+    try {
+      requestAnimationFrame(function () {
+        setInlineBreakdownOpen(details, true);
+      });
+    } catch (eRaf2) {}
   }
 
   function open(ref, text) {
@@ -1454,21 +1483,43 @@
     return getMissingVisibleBreakdowns(root).length;
   }
 
+  function openLegacyVerseBreakdownDetails(root) {
+    var host = root && root.querySelectorAll ? root : document;
+    var list = host.querySelectorAll('details.verse-breakdown');
+    for (var i = 0; i < list.length; i++) {
+      try {
+        list[i].open = true;
+      } catch (e) {}
+    }
+  }
+
+  function assertInlineBreakdownPanelsVisible(root) {
+    var host = root && root.querySelectorAll ? root : document;
+    host.querySelectorAll('.tdb-verse-breakdown-inline.is-open').forEach(function (el) {
+      var panel = el.querySelector('.tdb-vb-inline-panel');
+      if (panel && panel.hasAttribute('hidden')) setInlineBreakdownOpen(el, true);
+    });
+  }
+
+  function runVerseBreakdownEnhancePass() {
+    removeLegacyVerseBreakdownUi(document);
+    enhanceVerseContainers(document);
+    openLegacyVerseBreakdownDetails(document);
+    assertInlineBreakdownPanelsVisible(document);
+  }
+
   function wireAutoEnhance() {
     if (window.__tdbVerseBreakdownAutoEnhanced) return;
     window.__tdbVerseBreakdownAutoEnhanced = true;
-    removeLegacyVerseBreakdownUi(document);
-    enhanceVerseContainers(document);
+    runVerseBreakdownEnhancePass();
     window.addEventListener('load', function () {
-      removeLegacyVerseBreakdownUi(document);
-      enhanceVerseContainers(document);
+      runVerseBreakdownEnhancePass();
     });
     window.addEventListener('tdb-daily-verse-updated', function () {
-      removeLegacyVerseBreakdownUi(document);
-      enhanceVerseContainers(document);
+      runVerseBreakdownEnhancePass();
     });
     window.addEventListener('tdb-calm-verse-updated', function () {
-      enhanceVerseContainers(document);
+      runVerseBreakdownEnhancePass();
     });
     if (!document.body || typeof MutationObserver !== 'function') return;
     var queued = false;
@@ -1477,8 +1528,7 @@
       queued = true;
       window.requestAnimationFrame(function () {
         queued = false;
-        removeLegacyVerseBreakdownUi(document);
-        enhanceVerseContainers(document);
+        runVerseBreakdownEnhancePass();
       });
     });
     observer.observe(document.body, { childList: true, subtree: true });

@@ -10414,11 +10414,22 @@ button:active {
 .verse-breakdown[open] summary::before { transform: rotate(90deg); }
 .verse-breakdown-content {
   margin-top: 0.6rem;
-  padding-left: 0.5rem;
-  font-size: 0.9rem;
-  line-height: 1.55;
-  color: rgba(148, 163, 184, 0.9);
+  padding: 0.6rem 0.5rem 0.65rem 0.65rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(226, 232, 240, 0.95);
   animation: verseBreakdownIn 0.2s ease;
+}
+/* Fallback search + legacy cards: keep breakdown copy readable */
+details.verse-breakdown[open] > .verse-breakdown-content {
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.45);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+html[data-theme="light"] details.verse-breakdown[open] > .verse-breakdown-content {
+  background: #f8f5ef;
+  color: #2c2c2c;
+  border-color: rgba(120, 113, 108, 0.22);
 }
 @keyframes verseBreakdownIn {
   from { opacity: 0; }
@@ -14877,6 +14888,23 @@ body.has-promo-banner .header-search-sticky {
   text-align: center;
   font-size: 0.92rem;
 }
+.tdb-vb-inline-level-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 0.88rem;
+  color: rgba(186, 230, 253, 0.95) !important;
+  opacity: 0.95;
+}
+.tdb-verse-breakdown-inline.is-open .tdb-vb-inline-panel {
+  display: block !important;
+  visibility: visible;
+  opacity: 1;
+}
+.tdb-vb-inline-row,
+.tdb-vb-inline-verse-text {
+  color: rgba(241, 245, 249, 0.96) !important;
+}
 .verse-age-prompt {
   margin: 0.1rem 0 0.8rem;
   padding: 0.7rem;
@@ -17243,6 +17271,63 @@ body[data-topic-gem="rose"] .message-avatar.topic-gem-message-rose { box-shadow:
 
 #feel-results.results {
   display: block;
+}
+
+/* Ask The Word / home KJV results: high legibility (dark + light themes) */
+#feel-results .home-search-header,
+#feel-results .home-search-section {
+  color: #f1f5f9;
+}
+#feel-results .home-search-response-title,
+#feel-results .home-search-section-heading {
+  color: #f8fafc;
+}
+#feel-results .home-search-response-lead {
+  color: #f1f5f9 !important;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+#feel-results .home-search-card-ref,
+#feel-results .home-search-card-copy {
+  color: #f8fafc !important;
+}
+#feel-results .home-search-card-copy {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  font-weight: 500;
+}
+#feel-results .home-search-card-plain.verse-plain-meaning {
+  color: rgba(241, 245, 249, 0.94) !important;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+#feel-results .home-search-count-line {
+  color: rgba(253, 230, 138, 0.95) !important;
+}
+#feel-results .home-search-note,
+#feel-results .home-search-card-teaser {
+  color: rgba(226, 232, 240, 0.92) !important;
+}
+html[data-theme="light"] #feel-results .home-search-card,
+html[data-theme="light"] #feel-results .home-search-results-shell {
+  color: #1c1917;
+}
+html[data-theme="light"] #feel-results .home-search-response-lead,
+html[data-theme="light"] #feel-results .home-search-card-copy,
+html[data-theme="light"] #feel-results .home-search-card-ref {
+  color: #1c1917 !important;
+}
+html[data-theme="light"] #feel-results .home-search-card {
+  background: #f8f5ef;
+  border-color: rgba(120, 113, 108, 0.25);
+}
+html[data-theme="light"] #feel-results .home-search-note,
+html[data-theme="light"] #feel-results .home-search-card-teaser {
+  color: #44403c !important;
+}
+html[data-theme="sepia"] #feel-results .home-search-response-lead,
+html[data-theme="sepia"] #feel-results .home-search-card-copy {
+  color: #292524 !important;
 }
 
 .home-qa-result {

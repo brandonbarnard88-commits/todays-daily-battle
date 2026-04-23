@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "generatedAt": "2026-04-23T12:13:34.214Z",
+  "generatedAt": "2026-04-23T12:17:15.651Z",
   "entries": [
     {
       "t": "Home — Today's Daily Battle",
@@ -26,6 +26,11 @@
       "t": "When the Heart Feels Alone (7 days)",
       "u": "/plans.html?plan=heartalone",
       "k": "singleness divorce loneliness widowed alone"
+    },
+    {
+      "t": "When Little Hearts Feel Big Fear (7 days)",
+      "u": "/plans.html?plan=littlehearts",
+      "k": "kids child anxiety worry parent family fear"
     },
     {
       "t": "When Pain Won't Quit",

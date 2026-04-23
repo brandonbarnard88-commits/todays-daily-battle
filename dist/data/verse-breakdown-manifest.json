@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-23T12:13:34.713Z",
-  "surfacedRefCount": 2864,
-  "overrideCount": 2864,
+  "generatedAt": "2026-04-23T12:17:16.127Z",
+  "surfacedRefCount": 2865,
+  "overrideCount": 2865,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -140,8 +140,8 @@
       "pairs": 40
     },
     "data/plans-battle-shared.json": {
-      "refs": 299,
-      "pairs": 406
+      "refs": 300,
+      "pairs": 413
     },
     "easter-eggs.js": {
       "refs": 34,
@@ -644,7 +644,7 @@
       "pairs": 0
     },
     "plans-data.js": {
-      "refs": 299,
+      "refs": 300,
       "pairs": 0
     },
     "plans-engine.js": {
@@ -652,7 +652,7 @@
       "pairs": 1
     },
     "plans.html": {
-      "refs": 174,
+      "refs": 175,
       "pairs": 143
     },
     "psalms.html": {
@@ -2678,6 +2678,7 @@
     "Mark 9:6",
     "Matthew 10:28",
     "Matthew 10:29",
+    "Matthew 10:29-31",
     "Matthew 10:3",
     "Matthew 10:31",
     "Matthew 10:33",
@@ -3740,6 +3741,7 @@
     "Luke 2:10-11": "And the angel said unto them, Fear not: for, behold, I bring you good tidings of great joy, which shall be to all people. For unto you is born this day in the city of David a Saviour, which is Christ the Lord.",
     "Luke 6:20-21": "Blessed be ye poor: for yours is the kingdom of God. Blessed are ye that hunger now: for ye shall be filled. Blessed are ye that weep now: for ye shall laugh.",
     "Mark 4:26-27": "And he said, So is the kingdom of God, as if a man should cast seed into the ground; And should sleep, and rise night and day, and the seed should spring and grow up, he knoweth not how.",
+    "Matthew 10:29-31": "Are not two sparrows sold for a farthing? and one of them shall not fall on the ground without your Father. But the very hairs of your head are all numbered. Fear ye not therefore, ye are of more value than many sparrows.",
     "Matthew 11:28-30": "Come unto me, all ye that labour and are heavy laden, and I will give you rest. Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls. For my yoke is easy, and my burden is light.",
     "Matthew 11:29-30": "Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls. For my yoke is easy, and my burden is light.",
     "Matthew 13:20-21": "But he that received the seed into stony places, the same is he that heareth the word, and anon with joy receiveth it; Yet hath he not root in himself, but dureth for a while: for when tribulation or persecution ariseth because of the word, by and by he is offended.",
@@ -19016,6 +19018,14 @@
       "general": {
         "plainExplanation": "Are not two sparrows sold for a farthing? and one of them shall not fall on the ground without your Father.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 10:29-31": {
+      "general": {
+        "plainExplanation": "Key idea: Are not two sparrows sold for a farthing? and one of them shall not fall on the ground without your Father. But the very hairs of your head are all numbered...",
+        "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
         "about": "Jesus",
         "to": "Believers"
       }

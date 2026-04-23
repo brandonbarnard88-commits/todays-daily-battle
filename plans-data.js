@@ -1160,7 +1160,7 @@
 { title: 'Peace I leave with you', ref: 'John 14:27', text: 'Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid.', speaker: 'Jesus to His disciples', plain: 'His peace is different. It can steady a parent\'s heart even when the house is loud.', today: 'What is making your heart troubled or afraid about parenting tonight?', action: 'Sit quietly for one minute and repeat "Let not your heart be troubled."', prayer: 'Jesus, leave Your peace with me. Do not let my heart be troubled. Amen.' },
 { title: 'My grace is sufficient', ref: '2 Corinthians 12:9', text: 'And he said unto me, My grace is sufficient for thee: for my strength is made perfect in weakness.', speaker: 'The Lord to Paul', plain: 'You don\'t have to be strong enough. His grace is enough for today\'s parenting.', today: 'Where did you feel weak as a parent this week?', action: 'Name the weakness to God in one sentence. Then say "Your grace is sufficient for me."', prayer: 'Lord, my weakness shows Your strength. Your grace is sufficient. Amen.' }
     ];
-    summerStillness5 = [
+    var summerStillness5 = [
 { title: 'Be still', ref: 'Psalm 46:10', text: 'Be still, and know that I am God: I will be exalted among the heathen, I will be exalted in the earth.',
   speaker: 'The psalmist', plain: 'Summer noise fades when we pause long enough to remember who God is.', today: 'What usually fills the silence when you could be still?',
   action: 'Sit outside or by a window for two minutes—listen; then say "You are God."', prayer: 'Lord, I am still. You are God. Amen.' },

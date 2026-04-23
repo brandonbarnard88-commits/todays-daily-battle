@@ -3695,11 +3695,11 @@
       margin-right: auto;
     }
     .tdb-home-feel-result {
-      margin: 1rem 0 0;
-      padding: 1.1rem 1.15rem 1.2rem;
-      border-radius: 16px;
-      border: 1px solid color-mix(in srgb, var(--gold) 32%, var(--line));
-      background: color-mix(in srgb, var(--card) 94%, rgba(227, 188, 103, 0.07));
+      margin: 0.75rem 0 0;
+      padding: 0.75rem 0.9rem 0.9rem;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--gold) 28%, var(--line));
+      background: color-mix(in srgb, var(--card) 94%, rgba(227, 188, 103, 0.05));
     }
     :root[data-theme="light"] .tdb-home-feel-result {
       background: #fff;
@@ -3708,14 +3708,14 @@
       margin: 0 0 0.4rem;
       font-size: 0.8rem;
       font-weight: 600;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--gold-soft, var(--gold));
     }
     .tdb-home-feel-result-verse {
       margin: 0;
-      font-size: clamp(1.05rem, 2.8vw, 1.2rem);
-      line-height: 1.5;
+      font-size: clamp(0.98rem, 2.5vw, 1.1rem);
+      line-height: 1.45;
       font-family: "Cormorant Garamond", Georgia, serif;
       color: var(--text);
     }
@@ -3726,10 +3726,80 @@
       color: var(--muted);
     }
     .tdb-home-feel-result-you {
-      margin: 0 0 0.85rem;
-      font-size: 0.98rem;
-      line-height: 1.5;
+      margin: 0 0 0.5rem;
+      font-size: 0.92rem;
+      line-height: 1.4;
       color: var(--text);
+    }
+    .tdb-home-feel-breakdown {
+      margin: 0 0 0.5rem;
+      padding: 0.5rem 0 0;
+      border-top: 1px solid color-mix(in srgb, var(--line) 88%, transparent);
+    }
+    .tdb-home-feel-subhead {
+      margin: 0 0 0.2rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .tdb-home-feel-simple {
+      margin: 0 0 0.5rem;
+      font-size: 0.86rem;
+      line-height: 1.4;
+      color: var(--text);
+    }
+    .tdb-home-feel-deep {
+      margin: 0;
+      border-radius: 10px;
+      border: 1px solid color-mix(in srgb, var(--line) 90%, transparent);
+      background: color-mix(in srgb, var(--card) 92%, var(--bg-soft));
+    }
+    .tdb-home-feel-deep-sum {
+      list-style: none;
+      margin: 0;
+      padding: 0.5rem 0.6rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .tdb-home-feel-deep[open] .tdb-home-feel-deep-chev {
+      transform: rotate(90deg);
+    }
+    .tdb-home-feel-deep-chev {
+      display: inline-block;
+      transition: transform 0.2s ease;
+      font-size: 0.85rem;
+      line-height: 1;
+      font-weight: 600;
+      color: var(--gold-soft, var(--gold));
+    }
+    .tdb-home-feel-deep-body {
+      padding: 0 0.55rem 0.55rem;
+      font-size: 0.82rem;
+      line-height: 1.4;
+      color: var(--text);
+    }
+    .tdb-home-feel-deep-line {
+      margin: 0.3rem 0 0;
+    }
+    .tdb-home-feel-deep-line:first-of-type { margin-top: 0.1rem; }
+    .tdb-home-feel-dt {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.15rem;
     }
     .tdb-home-feel-result-steps-title {
       margin: 0 0 0.4rem;
@@ -7236,6 +7306,52 @@
       border-top-color: color-mix(in srgb, var(--line) 68%, #9e7625 26%);
       box-shadow: inset 0 1px 0 color-mix(in srgb, #9e7625 6%, transparent);
     }
+    .tdb-feel-strip-intro {
+      margin: 0 0 0.6rem;
+      max-width: 40rem;
+    }
+    .tdb-feel-quick-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.45rem;
+      margin: 0 0 0.75rem;
+    }
+    @media (min-width: 520px) {
+      .tdb-feel-quick-strip {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (min-width: 720px) {
+      .tdb-feel-quick-strip {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+    .tdb-feel-quick-strip .btn {
+      min-height: 44px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .tdb-feel-show-all {
+      margin: 0.25rem 0 0;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--line) 82%, var(--gold) 12%);
+      background: color-mix(in srgb, var(--card) 95%, var(--bg-soft) 5%);
+    }
+    .tdb-feel-show-all-sum {
+      list-style: none;
+      padding: 0.65rem 0.9rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+    }
+    .tdb-feel-show-all-sum::-webkit-details-marker { display: none; }
+    .tdb-feel-show-all[open] .tdb-feel-show-all-sum {
+      border-bottom: 1px solid var(--line);
+    }
+    .tdb-feel-show-all-inner {
+      padding: 0.4rem 0.5rem 0.85rem;
+    }
     .feel-topic-pickers {
       margin: 0;
     }
@@ -8526,10 +8642,26 @@
           </div>
         </section>
         <div class="tdb-home-feel-result" id="tdbHomeFeelResult" role="region" aria-live="polite" hidden data-tdb-ref="" data-tdb-text="">
-          <p class="tdb-home-feel-result-kicker" id="tdbHomeFeelResultKicker">God is speaking to you today:</p>
+          <p class="tdb-home-feel-result-kicker" id="tdbHomeFeelResultKicker">For you today</p>
           <p class="tdb-home-feel-result-verse" id="tdbHomeFeelResultVerse"></p>
           <p class="tdb-home-feel-result-ref" id="tdbHomeFeelResultRef"></p>
           <p class="tdb-home-feel-result-you" id="tdbHomeFeelResultYou"></p>
+          <div class="tdb-home-feel-breakdown" id="tdbHomeFeelBreakdown" hidden>
+            <div id="tdbHomeFeelSimpleBlock" hidden>
+              <p class="tdb-home-feel-subhead">In plain words</p>
+              <p class="tdb-home-feel-simple" id="tdbHomeFeelResultSimple"></p>
+            </div>
+            <details class="tdb-home-feel-deep" id="tdbHomeFeelDeep" hidden>
+              <summary class="tdb-home-feel-deep-sum">Why this verse matters <span class="tdb-home-feel-deep-chev" aria-hidden="true">›</span></summary>
+              <div class="tdb-home-feel-deep-body" id="tdbHomeFeelDeepBody">
+                <p class="tdb-home-feel-deep-line" id="tdbHomeFeelRowSpeaker" hidden><span class="tdb-home-feel-dt">Who is speaking</span><span id="tdbHomeFeelResultSpeaker"></span></p>
+                <p class="tdb-home-feel-deep-line" id="tdbHomeFeelRowAudience" hidden><span class="tdb-home-feel-dt">Who it&rsquo;s for</span><span id="tdbHomeFeelResultAudience"></span></p>
+                <p class="tdb-home-feel-deep-line" id="tdbHomeFeelRowContext" hidden><span class="tdb-home-feel-dt">Context</span><span id="tdbHomeFeelResultContext"></span></p>
+                <p class="tdb-home-feel-deep-line" id="tdbHomeFeelRowRelatesYou" hidden><span class="tdb-home-feel-dt">How it relates to you</span><span id="tdbHomeFeelResultRelatesYou"></span></p>
+                <p class="tdb-home-feel-deep-line" id="tdbHomeFeelRowRelatesToday" hidden><span class="tdb-home-feel-dt">How it relates to today</span><span id="tdbHomeFeelResultRelatesToday"></span></p>
+              </div>
+            </details>
+          </div>
           <p class="tdb-home-feel-result-steps-title">Simple next steps</p>
           <ul class="tdb-home-feel-result-steps">
             <li><a class="tdb-home-feel-result-plan-link btn btn-primary" id="tdbHomeFeelResultPlan" href="plans.html">Start a 7-day plan</a></li>
@@ -9087,8 +9219,24 @@
         </div>
         <p class="section-note util-mt-0_5 util-mb-0">Try: "Who is Jesus?", "angry at work", "overwhelmed as a parent", "caring for aging parents", or "joy".</p>
         <p class="topic-plans-hint section-note" id="topicPlansHint">Short phrases work well. Press <strong>Search</strong> or Enter for the fuller KJV lookup. <span class="topic-plans-hint-detail">Inside a category: tap a chip to search verses fast. Alt-click (desktop) or long-press (phone) opens a matching <a href="plans.html">Battle Plans</a> lane.</span></p>
-        <p class="feel-topic-action-strip" id="feelTopicActionStrip"><strong>Quick tip:</strong> Pick a category, then tap a chip for verses. <span class="feel-topic-action-strip-detail">On phone, hold for the matching plan.</span></p>
-        <div class="feel-quick-topics-root" id="quickTopics" role="group" aria-label="Quick topic shortcuts. Pick a category first; chip order may change each visit. Tap searches; Alt-click or long-press opens a matching reading plan lane.">
+        <p class="feel-topic-action-strip" id="feelTopicActionStrip"><strong>Quick tip:</strong> Tap a feeling below, or open <strong>Show all feelings</strong> for every topic. <span class="feel-topic-action-strip-detail">On phone, hold a chip for the matching plan.</span></p>
+        <p class="tdb-feel-strip-intro section-note" id="tdbFeelStripIntro">Start with a tap—<strong>or</strong> type in the search box. Ten common picks; the full list stays one disclosure away.</p>
+        <div class="feel-quick-topics-root" id="quickTopics" role="group" aria-label="Quick topic shortcuts. Ten feelings first; all topics behind Show all. Tap searches; Alt-click or long-press opens a matching reading plan lane.">
+          <div class="tdb-feel-quick-strip" id="tdbFeelQuickStrip" role="group" aria-label="Ten common feeling shortcuts">
+            <button type="button" class="btn btn-secondary quick-topic" data-topic="anxiety" aria-label="Restless or anxious">Restless</button>
+            <button type="button" class="btn btn-secondary quick-topic" data-topic="fear" aria-label="Fear">Fear</button>
+            <button type="button" class="btn btn-secondary quick-topic" data-topic="overwhelmed" aria-label="Heavy or overwhelmed">Heavy</button>
+            <button type="button" class="btn btn-secondary quick-topic" data-topic="grief" aria-label="Grief">Grief</button>
+            <button type="button" class="btn btn-secondary quick-topic" data-topic="strength" aria-label="Tired or weary">Tired</button>
+            <button type="button" class="btn btn-secondary quick-topic" data-topic="hope" aria-label="Hope or discouraged">Hope</button>
+            <button type="button" class="btn btn-secondary quick-topic" data-topic="peace" aria-label="Peace">Peace</button>
+            <button type="button" class="btn btn-secondary quick-topic" data-topic="parenting" aria-label="Parenting">Parenting</button>
+            <button type="button" class="btn btn-secondary quick-topic" data-topic="finances" aria-label="Money worry">Money</button>
+            <button type="button" class="btn btn-secondary quick-topic" data-topic="faith" aria-label="Faith">Faith</button>
+          </div>
+          <details class="tdb-feel-show-all" id="tdbFeelShowAll">
+            <summary class="tdb-feel-show-all-sum">Show all feelings (categories and full list)</summary>
+            <div class="tdb-feel-show-all-inner">
           <div id="feelTopicPickers" class="feel-topic-pickers" role="group" aria-label="Topic categories">
             <div class="feel-category-grid">
               <button type="button" class="feel-category-card" data-feel-band="heavy" aria-expanded="false" aria-controls="feelTopicExpanded" id="feelCatHeavy">
@@ -9180,6 +9328,8 @@
               </div>
             </div>
           </div>
+            </div>
+          </details>
         </div>
         <div id="plans-teaser" class="plans-teaser plans-teaser--nested" aria-label="Battle Plans lanes">
           <div class="plans-teaser-header">

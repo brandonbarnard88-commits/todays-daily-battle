@@ -12699,7 +12699,7 @@ function wireVersePageNarrationPrefs() {
   syncUi();
 }
 
-/** Homepage: fast feeling row uses capture so inline “God is speaking to you” card shows without jumping to Ask The Word first. */
+/** Homepage: fast feeling row uses capture so inline “For you today” result card shows without jumping to Ask The Word first. */
 function wireTdbHomeFastFeelCapture() {
   var root = document.getElementById('tdbHomeFastFeel');
   if (!root) return;
@@ -18136,7 +18136,9 @@ function wireFeelTopicProgressive() {
   /** Once per device: soft nudge on “heavy” door, then open that band (no focus steal). Tests set localStorage to skip. */
   var autoHeavyKey = 'tdb_feel_category_auto_heavy_v1';
   try {
-    if (typeof localStorage !== 'undefined' && localStorage.getItem(autoHeavyKey) !== '1') {
+    if (document.getElementById('tdbFeelShowAll')) {
+      /* Full grid lives behind “Show all feelings”—skip auto-open so the Ask The Word block stays short. */
+    } else if (typeof localStorage !== 'undefined' && localStorage.getItem(autoHeavyKey) !== '1') {
       localStorage.setItem(autoHeavyKey, '1');
       var heavyBtn = pickers.querySelector('.feel-category-card[data-feel-band="heavy"]');
       var motionOk = true;
@@ -24440,6 +24442,118 @@ function tdbBuildReaderHrefFromRef(refStr) {
   );
 }
 
+/** Max one sentence for home feel “Simple breakdown” (plain-English) line. */
+function tdbClampPlainToOneSentence(s) {
+  var t = String(s || '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (!t) return '';
+  var max = 220;
+  var cut = t.search(/[.!?](\s+|$)/);
+  var one = cut === -1 ? t : t.slice(0, cut + 1).trim();
+  if (one.length > max) {
+    one = one.slice(0, max - 1).trim();
+    var sp = one.lastIndexOf(' ');
+    if (sp > 40) one = one.slice(0, sp);
+    one = one + '\u2026';
+  } else if (cut === -1 && t.length > max) {
+    one = t.slice(0, max - 1).trim();
+    sp = one.lastIndexOf(' ');
+    if (sp > 40) one = one.slice(0, sp);
+    one = one + '\u2026';
+  }
+  return one;
+}
+
+/** One-line book/genre context when VERSE_CONTEXT has no `context` field. */
+function tdbGetHomeFeelSettingLine(ref) {
+  var book = typeof parseBookFromRef === 'function' ? parseBookFromRef(ref) : '';
+  if (!book || typeof BOOK_CONTEXT === 'undefined' || !BOOK_CONTEXT) return '';
+  var bc = BOOK_CONTEXT[book] || BOOK_CONTEXT[book === 'Psalms' ? 'Psalm' : ''];
+  if (!bc) return '';
+  return (
+    book +
+    ' is ' +
+    (bc.g || 'Scripture') +
+    "—rooted in real history, still breathed for today's battles."
+  );
+}
+
+/** Read curated verse context; try alternate ref spellings (Psalm / Psalms). */
+function tdbGetVerseContextLoose(ref) {
+  if (typeof getVerseContext !== 'function' || !ref) return null;
+  var c = getVerseContext(ref);
+  if (c) return c;
+  if (typeof normalizeBibleRef === 'function') {
+    var n = normalizeBibleRef(String(ref).trim());
+    if (n && n !== ref) return getVerseContext(n);
+  }
+  return null;
+}
+
+/**
+ * Fill #tdbHomeFeelBreakdown: plain snapshot + details from VERSE_CONTEXT / getVerseBreakdown.
+ * leadYouLine: anchor “to you” line—shown as “How it meets you” in the deep block.
+ */
+function tdbFillHomeFeelBreakdown(ref, bodyText, leadYouLine) {
+  var root = document.getElementById('tdbHomeFeelBreakdown');
+  if (!root) return;
+  var r = String(ref || '').trim();
+  if (!r) {
+    root.hidden = true;
+    return;
+  }
+  var body = String(bodyText || '');
+  var plain = typeof getPlainMeaning === 'function' ? getPlainMeaning(r) : '';
+  if (!plain && typeof normalizeBibleRef === 'function') {
+    var nref = normalizeBibleRef(r);
+    if (nref) plain = getPlainMeaning(nref) || plain;
+  }
+  var bd = typeof getVerseBreakdown === 'function' ? getVerseBreakdown(r, body, null) : null;
+  if (!plain && bd && bd.layman) plain = String(bd.layman).trim();
+  plain = tdbClampPlainToOneSentence(plain);
+  var ctx = tdbGetVerseContextLoose(r);
+  var speaker = (ctx && ctx.speaker) || (bd && bd.about) || '';
+  var audience = (ctx && ctx.audience) || (bd && bd.to) || '';
+  var setting = tdbGetHomeFeelSettingLine(r);
+  var youLine = String(leadYouLine || '').trim();
+  var todayLine = (ctx && ctx.application) || (bd && bd.applies) || '';
+
+  function setRow(rowId, textId, val) {
+    var v = String(val || '').trim();
+    var te = document.getElementById(textId);
+    var row = document.getElementById(rowId);
+    if (te) te.textContent = v;
+    if (row) row.hidden = !v;
+  }
+
+  var simpleBlock = document.getElementById('tdbHomeFeelSimpleBlock');
+  var simpleEl = document.getElementById('tdbHomeFeelResultSimple');
+  if (simpleEl) simpleEl.textContent = plain;
+  if (simpleBlock) simpleBlock.hidden = !plain;
+
+  setRow('tdbHomeFeelRowSpeaker', 'tdbHomeFeelResultSpeaker', speaker);
+  setRow('tdbHomeFeelRowAudience', 'tdbHomeFeelResultAudience', audience);
+  setRow('tdbHomeFeelRowContext', 'tdbHomeFeelResultContext', setting);
+  setRow('tdbHomeFeelRowRelatesYou', 'tdbHomeFeelResultRelatesYou', youLine);
+  setRow('tdbHomeFeelRowRelatesToday', 'tdbHomeFeelResultRelatesToday', todayLine);
+
+  var hasDeepContent = !!(speaker || audience || setting || youLine || todayLine);
+  var deep = document.getElementById('tdbHomeFeelDeep');
+  if (deep) {
+    deep.hidden = !hasDeepContent;
+    if (hasDeepContent) deep.removeAttribute('hidden');
+    else deep.setAttribute('hidden', '');
+  }
+  var hasBlock = !!plain || hasDeepContent;
+  root.hidden = !hasBlock;
+  if (hasBlock) root.removeAttribute('hidden');
+  else root.setAttribute('hidden', '');
+}
+try {
+  window.tdbFillHomeFeelBreakdown = tdbFillHomeFeelBreakdown;
+} catch (_) {}
+
 function tdbShowHomeFeelResult(topicKey) {
   var key = String(topicKey || '')
     .trim()
@@ -24455,13 +24569,16 @@ function tdbShowHomeFeelResult(topicKey) {
   wrap.setAttribute('data-tdb-ref', ref);
   wrap.setAttribute('data-tdb-text', body);
   var kicker = document.getElementById('tdbHomeFeelResultKicker');
-  if (kicker) kicker.textContent = 'God is speaking to you today:';
+  if (kicker) kicker.textContent = 'For you today';
   var verseEl = document.getElementById('tdbHomeFeelResultVerse');
   if (verseEl) verseEl.textContent = '\u201c' + body + '\u201d';
   var refEl = document.getElementById('tdbHomeFeelResultRef');
   if (refEl) refEl.textContent = ref + ' (KJV)';
   var youEl = document.getElementById('tdbHomeFeelResultYou');
   if (youEl) youEl.textContent = a.leadYou || '';
+  if (typeof tdbFillHomeFeelBreakdown === 'function') {
+    tdbFillHomeFeelBreakdown(ref, body, a.leadYou || '');
+  }
   var plan = tdbPickHomePlanForTopic(key);
   var planA = document.getElementById('tdbHomeFeelResultPlan');
   if (planA) {

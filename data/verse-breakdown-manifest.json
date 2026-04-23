@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-23T22:37:23.464Z",
-  "surfacedRefCount": 2916,
-  "overrideCount": 2916,
+  "generatedAt": "2026-04-23T22:43:15.168Z",
+  "surfacedRefCount": 2917,
+  "overrideCount": 2917,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -32,7 +32,7 @@
       "pairs": 0
     },
     "advent-christmas-university.html": {
-      "refs": 4,
+      "refs": 5,
       "pairs": 0
     },
     "api/src/pilot-data/battle-plans.json": {
@@ -269,6 +269,10 @@
     },
     "for-pastors.html": {
       "refs": 11,
+      "pairs": 0
+    },
+    "gentle-new-year-week-print.html": {
+      "refs": 7,
       "pairs": 0
     },
     "gentle-suggest.js": {
@@ -936,7 +940,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 45,
+      "refs": 49,
       "pairs": 0
     },
     "testimonials.html": {
@@ -2346,6 +2350,7 @@
     "James 3:6",
     "James 3:9",
     "James 4:10",
+    "James 4:13",
     "James 4:13-15",
     "James 4:2",
     "James 4:4",
@@ -14421,6 +14426,14 @@
     "James 4:10": {
       "general": {
         "plainExplanation": "Humble yourselves in the sight of the Lord, and he shall lift you up.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "James",
+        "to": "Believers"
+      }
+    },
+    "James 4:13": {
+      "general": {
+        "plainExplanation": "Go to now, you that say, To day or to morrow we will go into such a city, and continue there a year, and buy and sell, and get gain:",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "James",
         "to": "Believers"

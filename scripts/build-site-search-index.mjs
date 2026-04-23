@@ -50,6 +50,7 @@ const ENTRIES = [
   { t: 'Team toolkit', u: '/team-toolkit.html', k: 'group' },
   { t: 'Sermon builder', u: '/sermon.html', k: 'preach' },
   { t: 'Printables hub', u: '/printables.html', k: 'sheets cards' },
+  { t: 'Gentle New Year week (7-day print)', u: '/gentle-new-year-week-print.html', k: 'new year steady mercies january print' },
   { t: 'Topic: Anxiety', u: '/topic-anxiety.html', k: 'worry fear' },
   { t: 'Topic: Grief', u: '/topic-grief.html', k: 'loss mourning' },
   { t: 'Topic: Hope', u: '/topic-hope.html', k: 'discouragement' },

@@ -30,6 +30,29 @@
     }
     .rhythm-cards.calm-grid { align-items: stretch; }
     .rhythm-cards.calm-grid .rhythm-card { margin-bottom: 0; }
+    .fr-start-tonight {
+      max-width: 38rem;
+      margin: 0 auto 2rem;
+      padding: 1.15rem 1.25rem 1.25rem;
+      border-radius: 18px;
+      border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line));
+      background: color-mix(in srgb, var(--bg) 94%, #1c1917);
+      text-align: center;
+    }
+    .fr-start-tonight__label {
+      margin: 0 0 0.35rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--gold) 88%, var(--muted));
+    }
+    .fr-start-tonight__copy { margin: 0 0 1rem; font-size: 0.92rem; color: var(--muted); line-height: 1.55; }
+    .fr-start-tonight__actions { display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch; }
+    @media (min-width: 640px) {
+      .fr-start-tonight__actions { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
+      .fr-start-tonight__actions .btn-rhythm { min-width: 14rem; }
+    }
     .rhythm-card:hover { border-color: var(--gold); transform: translateY(-3px); }
     .rhythm-card h3 { color: var(--gold); margin: 0 0 0.75rem; font-size: 1.15rem; }
     .rhythm-card .verse-preview { font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.1rem; line-height: 1.45; color: #e8e4d9; margin: 0 0 1rem; font-style: italic; }
@@ -122,6 +145,7 @@
     .family-rhythm-page #fr-evening,
     .family-rhythm-page #fr-week,
     .family-rhythm-page #fr-more,
+    .family-rhythm-page #fr-start-tonight,
     .family-rhythm-page #fr-device {
       scroll-margin-top: 5rem;
     }
@@ -131,6 +155,7 @@
       .family-rhythm-page #fr-evening,
       .family-rhythm-page #fr-week,
       .family-rhythm-page #fr-more,
+      .family-rhythm-page #fr-start-tonight,
       .family-rhythm-page #fr-device {
         scroll-margin-top: 7.5rem;
       }
@@ -203,6 +228,7 @@
         <p class="daily-rhythm-onpage-nav__label" id="family-rhythm-onpage-toc-label">On this page</p>
         <ul class="daily-rhythm-onpage-nav__list" aria-labelledby="family-rhythm-onpage-toc-label">
           <li><a href="#family-rhythm-overview">Overview</a></li>
+          <li><a href="#fr-start-tonight">Start here tonight</a></li>
           <li><a href="#fr-morning">Morning</a></li>
           <li><a href="#fr-evening">Evening</a></li>
           <li><a href="#fr-week">One week</a></li>
@@ -210,6 +236,15 @@
           <li><a href="#fr-device">On this device</a></li>
         </ul>
       </nav>
+    </div>
+
+    <div id="fr-start-tonight" class="fr-start-tonight" tabindex="-1" aria-labelledby="fr-start-tonight-label">
+      <p class="fr-start-tonight__label" id="fr-start-tonight-label">Start here tonight</p>
+      <p class="fr-start-tonight__copy">If you need one gentle next step&mdash;not a list&mdash;open a short evening in the same voice as the University, or lay the one-week sheet on the table.</p>
+      <div class="fr-start-tonight__actions">
+        <a href="/plans.html?plan=eveninguog" class="btn-rhythm">Evening in the University</a>
+        <a href="/one-week-in-the-university-print.html" class="btn-rhythm">One week in the University (print)</a>
+      </div>
     </div>
 
     <div class="rhythm-cards calm-grid calm-grid--3">

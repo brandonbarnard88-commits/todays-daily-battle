@@ -1923,9 +1923,78 @@
     var uog = document.getElementById('verse-image-uog-prompts');
     if (!uog) return;
     var statusEl = document.getElementById('verse-image-uog-copy-status');
+    var listEl = document.getElementById('verse-image-uog-preset-list');
+    var tabButtons = uog.querySelectorAll('.verse-image-uog-cat-btn[data-tdb-uog-cat]');
+
+    function setUogFilter(cat) {
+      if (!listEl) return;
+      var c = String(cat || 'all');
+      listEl.setAttribute('data-tdb-uog-active-cat', c);
+      var rows = listEl.querySelectorAll('.verse-image-uog-preset-row');
+      for (var i = 0; i < rows.length; i++) {
+        var r = rows[i];
+        var rowCat = r.getAttribute('data-tdb-uog-cat') || '';
+        var show = c === 'all' || rowCat === c;
+        r.hidden = !show;
+      }
+      for (var j = 0; j < tabButtons.length; j++) {
+        var b = tabButtons[j];
+        var sel = b.getAttribute('data-tdb-uog-cat') === c;
+        b.setAttribute('aria-selected', sel ? 'true' : 'false');
+      }
+    }
+
     uog.addEventListener('click', function (ev) {
       var t = ev.target;
       if (!t || t.nodeName !== 'BUTTON' || !t.getAttribute) return;
+      if (t.getAttribute('data-tdb-uog-copy-summer') === '1') {
+        if (!listEl) return;
+        var summerRows = listEl.querySelectorAll('.verse-image-uog-preset-row[data-tdb-uog-cat="summer"] .verse-image-uog-preset-body');
+        var parts = [];
+        for (var s = 0; s < summerRows.length; s++) {
+          var p = String(summerRows[s].textContent || '').replace(/\s+/g, ' ').trim();
+          if (p) parts.push(p);
+        }
+        var block = parts.join('\n\n');
+        if (!block) return;
+        function showSummerCopied() {
+          var old = t.textContent;
+          t.textContent = 'Copied';
+          if (statusEl) statusEl.textContent = 'Summer prompts (' + parts.length + ') copied. Paste into your image tool.';
+          setTimeout(function () {
+            t.textContent = old;
+          }, 1800);
+        }
+        function fb() {
+          try {
+            var ta = document.createElement('textarea');
+            ta.value = block;
+            ta.setAttribute('readonly', '');
+            ta.style.position = 'fixed';
+            ta.style.left = '-9999px';
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+            showSummerCopied();
+          } catch (e) {}
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(block).then(showSummerCopied).catch(fb);
+        } else {
+          fb();
+        }
+        trackEvent('verse_image_uog_summer_copied', { n: parts.length, len: block.length });
+        return;
+      }
+      if (t.classList && t.classList.contains('verse-image-uog-cat-btn')) {
+        var fc = t.getAttribute('data-tdb-uog-cat');
+        if (fc) {
+          setUogFilter(fc);
+          trackEvent('verse_image_uog_filter', { cat: fc });
+        }
+        return;
+      }
       if (t.getAttribute('data-verse-image-uog-copy') !== '1') return;
       var row = t.closest && t.closest('.verse-image-uog-preset-row');
       var body = row && row.querySelector && row.querySelector('.verse-image-uog-preset-body');

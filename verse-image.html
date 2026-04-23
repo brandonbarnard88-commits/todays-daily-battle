@@ -184,12 +184,47 @@
       text-shadow: 0 1px 2px rgba(0,0,0,0.45);
     }
     .vi-mood-swatch:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; }
+    .verse-image-page .verse-image-uog-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      gap: 0.65rem 0.9rem;
+      margin: 0.55rem 0 0;
+    }
+    .verse-image-page .verse-image-uog-cat-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      align-items: center;
+    }
+    .verse-image-page .verse-image-uog-cat-btn {
+      min-height: 40px;
+      padding: 0.35rem 0.7rem;
+      font-size: 0.86rem;
+      font-weight: 600;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.35);
+      color: var(--text, #e2e8f0);
+      cursor: pointer;
+    }
+    .verse-image-page .verse-image-uog-cat-btn[aria-selected="true"] {
+      border-color: rgba(167, 139, 250, 0.75);
+      background: rgba(88, 28, 135, 0.25);
+    }
+    .verse-image-page .verse-image-uog-cat-btn:focus-visible {
+      outline: 2px solid #a78bfa;
+      outline-offset: 2px;
+    }
     .verse-image-page .verse-image-uog-preset-list {
       display: flex;
       flex-direction: column;
       gap: 0.55rem;
       margin: 0.45rem 0 0;
       padding: 0;
+    }
+    .verse-image-page .verse-image-uog-preset-row[hidden] {
+      display: none !important;
     }
     .verse-image-page .verse-image-uog-preset-row {
       display: flex;
@@ -329,69 +364,80 @@
         <details class="glass" id="verse-image-uog-prompts" style="margin-top: 0.5rem; padding: 0.9rem 1.1rem 1rem; border-radius: 12px;">
           <summary style="cursor: pointer; font-weight: 600; color: var(--text, #e2e8f0); list-style: none;">University of God &mdash; calm background prompts (copy to your image model)</summary>
           <p class="section-note" style="margin: 0.6rem 0 0.4rem;">Use with your own generator&mdash;no hype, KJV-true tone, soft dawn palette (slate, mist gold, still water). Add &ldquo;no text, no legible words&rdquo; in your model if it tends to print letters. University of God is not a place of pressure; the art should read <em>room to breathe, learn, return</em>.</p>
+          <div class="verse-image-uog-toolbar" role="toolbar" aria-label="Filter or batch-copy University of God prompts">
+            <div class="verse-image-uog-cat-tabs" id="verse-image-uog-cat-tabs" role="tablist" aria-label="Prompt categories">
+              <button type="button" class="verse-image-uog-cat-btn" role="tab" data-tdb-uog-cat="all" aria-selected="true" id="uog-cat-all">All</button>
+              <button type="button" class="verse-image-uog-cat-btn" role="tab" data-tdb-uog-cat="study" aria-selected="false" id="uog-cat-study">Study</button>
+              <button type="button" class="verse-image-uog-cat-btn" role="tab" data-tdb-uog-cat="care" aria-selected="false" id="uog-cat-care">Care</button>
+              <button type="button" class="verse-image-uog-cat-btn" role="tab" data-tdb-uog-cat="home" aria-selected="false" id="uog-cat-home">Home</button>
+              <button type="button" class="verse-image-uog-cat-btn" role="tab" data-tdb-uog-cat="summer" aria-selected="false" id="uog-cat-summer">Summer</button>
+              <button type="button" class="verse-image-uog-cat-btn" role="tab" data-tdb-uog-cat="harvest" aria-selected="false" id="uog-cat-harvest">Harvest</button>
+            </div>
+            <button type="button" class="btn btn-secondary" id="verse-image-uog-copy-summer" data-verse-image-uog-copy-summer="1" aria-label="Copy all summer background prompts to the clipboard">Copy all summer prompts</button>
+          </div>
           <p class="section-note" id="verse-image-uog-copy-status" style="min-height:1.25em;margin:0.5rem 0 0" aria-live="polite" role="status"></p>
-          <div class="verse-image-uog-preset-list" role="list">
-            <div class="verse-image-uog-preset-row" role="listitem">
+          <div class="verse-image-uog-preset-list" id="verse-image-uog-preset-list" data-tdb-uog-active-cat="all" role="list">
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="study">
               <p class="verse-image-uog-preset-body">Open stone doorway at first light, empty lectern, single oil lamp, gentle fog&mdash;invitation, not a crowd.</p>
               <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 1">Copy</button>
             </div>
-            <div class="verse-image-uog-preset-row" role="listitem">
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="study">
               <p class="verse-image-uog-preset-body">Calm map table with a folded scroll, quill, small compass, ocean-mist haze&mdash;Christ as compass point.</p>
               <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 2">Copy</button>
             </div>
-            <div class="verse-image-uog-preset-row" role="listitem">
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="study">
               <p class="verse-image-uog-preset-body">Row of arched windows in an old study hall, rain on glass, warm lamp pools on an open book&mdash;quiet school in storm.</p>
               <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 3">Copy</button>
             </div>
-            <div class="verse-image-uog-preset-row" role="listitem">
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="study">
               <p class="verse-image-uog-preset-body">Path through wheat toward a thin golden horizon, one figure in silhouette (small, humble)&mdash;daily lesson on the way home.</p>
               <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 4">Copy</button>
             </div>
-            <div class="verse-image-uog-preset-row" role="listitem">
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="care">
               <p class="verse-image-uog-preset-body">Cliff top bench overlooking sea at dawn, empty seat, gulls far off&mdash;secret prayer, wind as friend not threat.</p>
               <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 5">Copy</button>
             </div>
-            <div class="verse-image-uog-preset-row" role="listitem">
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="home">
               <p class="verse-image-uog-preset-body">Child-sized desk with crayons, open Psalms, tiny globe, light shaft&mdash;children&rsquo;s classroom, joy without noise.</p>
               <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 6">Copy</button>
             </div>
-            <div class="verse-image-uog-preset-row" role="listitem">
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="study">
               <p class="verse-image-uog-preset-body">Stack of course booklets with linen covers, olive branch, wax seal (blank)&mdash;Battle plans as gentle companions, not a badge.</p>
               <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 7">Copy</button>
             </div>
-            <div class="verse-image-uog-preset-row" role="listitem">
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="study">
               <p class="verse-image-uog-preset-body">Library ladder in half-light, KJV-shelf mood (no legible spines), single bookmark ribbon&mdash;Word as lamp, next step only.</p>
               <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 8">Copy</button>
             </div>
-            <div class="verse-image-uog-preset-row" role="listitem">
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="care">
               <p class="verse-image-uog-preset-body">Hand reaching down to help someone up a grassy slope, soft focus faces&mdash;fear and anxiety class: accompany, not fix.</p>
               <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 9">Copy</button>
             </div>
-            <div class="verse-image-uog-preset-row" role="listitem">
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="care">
               <p class="verse-image-uog-preset-body">Empty chapel chairs in semicircle, one stem of wildflowers, sun through dust&mdash;grief and waiting, room for tears and hope.</p>
               <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 10">Copy</button>
             </div>
-            <div class="verse-image-uog-preset-row" role="listitem">
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="summer">
               <p class="verse-image-uog-preset-body">Shaded porch, wooden swing, glass of water and closed book on a side table&mdash;summer stillness, heat without noise, no pool party, no people-pleasing; room to be still before the day runs.</p>
               <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 11">Copy</button>
             </div>
-            <div class="verse-image-uog-preset-row" role="listitem">
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="summer">
               <p class="verse-image-uog-preset-body">Lakeside dock at mid-morning, still water, one bird mid-flight, soft gold haze&mdash;Summer in the University mood: same gentle school, new light, Christ as quiet companion (no legible text).</p>
               <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 12">Copy</button>
             </div>
-            <div class="verse-image-uog-preset-row" role="listitem">
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="harvest">
               <p class="verse-image-uog-preset-body">Harvest table, loaf, simple bowl, wheat stalks, low candle, linen cloth&mdash;thanksgiving that names the Giver, not a feast flex; warm ink-friendly tones, no readable words on paper props.</p>
               <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 13">Copy</button>
             </div>
-            <div class="verse-image-uog-preset-row" role="listitem">
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="home">
               <p class="verse-image-uog-preset-body">Dawn kitchen window, steam from a mug, open Bible on counter, child-height chair empty&mdash;Family Armor morning reset: new mercies, small hands soon to come, hush before the rush (no text on mug).</p>
               <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 14">Copy</button>
             </div>
-            <div class="verse-image-uog-preset-row" role="listitem">
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="summer">
               <p class="verse-image-uog-preset-body">Field edge at deep twilight, fireflies, single hay bale, long grass&mdash;late summer hush, questions and hope in the same sky; no people, no party lights; warm-not-neon gold.</p>
               <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 15">Copy</button>
             </div>
-            <div class="verse-image-uog-preset-row" role="listitem">
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="harvest">
               <p class="verse-image-uog-preset-body">Small orchard, ladder leaning on one tree, basket of apples on grass, long harvest shadows&mdash;thanksgiving that names the Giver; no readable crate labels, no people required.</p>
               <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 16">Copy</button>
             </div>

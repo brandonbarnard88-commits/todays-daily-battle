@@ -390,6 +390,10 @@ for (const f of otherHtml) {
       console.error('BUILD FAIL: plans.html must include The University of Exhaustion plan (universityexhaustion / tdb-plan-universityexhaustion-day).');
       process.exit(1);
     }
+    if (!content.includes('universitygratitude') || !content.includes('tdb-plan-universitygratitude-day')) {
+      console.error('BUILD FAIL: plans.html must include The University of Gratitude plan (universitygratitude / tdb-plan-universitygratitude-day).');
+      process.exit(1);
+    }
     if (!content.includes('cancercomfort') || !content.includes('tdb-plan-cancercomfort-day')) {
       console.error('BUILD FAIL: plans.html must include Cancer Comfort plan (cancercomfort / tdb-plan-cancercomfort-day).');
       process.exit(1);

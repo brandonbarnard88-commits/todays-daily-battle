@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-23T22:20:12.623Z",
-  "surfacedRefCount": 2914,
-  "overrideCount": 2914,
+  "generatedAt": "2026-04-23T22:37:23.464Z",
+  "surfacedRefCount": 2916,
+  "overrideCount": 2916,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -32,7 +32,7 @@
       "pairs": 0
     },
     "advent-christmas-university.html": {
-      "refs": 1,
+      "refs": 4,
       "pairs": 0
     },
     "api/src/pilot-data/battle-plans.json": {
@@ -936,7 +936,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 41,
+      "refs": 45,
       "pairs": 0
     },
     "testimonials.html": {
@@ -1053,6 +1053,10 @@
     },
     "weekly-email-template.html": {
       "refs": 1,
+      "pairs": 0
+    },
+    "when-year-feels-heavy-one-page-print.html": {
+      "refs": 5,
       "pairs": 0
     },
     "where-support-goes.html": {
@@ -2788,6 +2792,7 @@
     "Luke 1:44",
     "Luke 1:46",
     "Luke 1:46-47",
+    "Luke 1:51",
     "Luke 1:57",
     "Luke 1:67",
     "Luke 1:78-79",
@@ -2835,6 +2840,7 @@
     "Luke 2:1-20",
     "Luke 2:10",
     "Luke 2:10-11",
+    "Luke 2:15",
     "Luke 2:16-20",
     "Luke 2:19",
     "Luke 2:20",
@@ -17988,6 +17994,14 @@
         "to": "Believers"
       }
     },
+    "Luke 1:51": {
+      "general": {
+        "plainExplanation": "He has shewed strength with his arm; he has scattered the proud in the imagination of their hearts.",
+        "modernApplication": "This verse reminds you that God gives strength that does not start with your own reserves.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Luke 1:57": {
       "general": {
         "plainExplanation": "Now Elisabeth’s full time came that she should be delivered; and she brought forth a son.",
@@ -18360,6 +18374,14 @@
       "general": {
         "plainExplanation": "Key idea: And the angel said to them, Fear not: for, look, I bring you good tidings of great joy, which shall be to all people. For to you is born this day in the cit...",
         "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Luke 2:15": {
+      "general": {
+        "plainExplanation": "Key idea: And it came to pass, as the angels were gone away from them into heaven, the shepherds said one to another, Let us now go even to Bethlehem, and see this th...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
       }

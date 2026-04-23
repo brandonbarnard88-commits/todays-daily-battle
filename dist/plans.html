@@ -503,6 +503,66 @@
       margin-top: -0.45rem;
       margin-bottom: 1rem;
     }
+    .plans-plan-filter-bar--tertiary {
+      margin-top: -0.35rem;
+      margin-bottom: 1rem;
+    }
+
+    .plans-browse-by-season {
+      margin: 0 0 1.35rem;
+      padding: 1.05rem 1rem 1.15rem;
+      border-radius: 16px;
+      border: 1px solid color-mix(in srgb, var(--gold) 20%, var(--line));
+      background: color-mix(in srgb, var(--card) 95%, #0c0e14);
+    }
+    .plans-browse-by-season__h {
+      font-size: clamp(1rem, 2.4vw, 1.1rem);
+      font-weight: 700;
+      color: var(--gold);
+      margin: 0 0 0.35rem;
+      text-align: center;
+    }
+    .plans-browse-by-season__lead {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin: 0 auto 0.95rem;
+      max-width: 40rem;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .plans-browse-by-season__grid {
+      display: grid;
+      gap: 0.85rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) {
+      .plans-browse-by-season__grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 1000px) {
+      .plans-browse-by-season__grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .plans-browse-by-season__col {
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--card) 98%, var(--line));
+      padding: 0.75rem 0.8rem 0.85rem;
+    }
+    .plans-browse-by-season__col h3 {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 0 0 0.45rem;
+    }
+    .plans-browse-by-season__col ul {
+      margin: 0;
+      padding: 0 0 0 1.1rem;
+      font-size: 0.8rem;
+      line-height: 1.45;
+      color: var(--text);
+    }
+    .plans-browse-by-season__col a { color: var(--gold-soft, #c9a84c); font-weight: 600; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--gold) 30%, transparent); }
+    .plans-browse-by-season__col a:hover,
+    .plans-browse-by-season__col a:focus-visible { color: var(--gold); outline: none; }
 
     .plans-recommended-today {
       margin: 0 0 1.5rem;
@@ -1391,9 +1451,63 @@
         <a class="plans-plan-filter-chip" href="sos.html">When now is too much</a>
         <a class="plans-plan-filter-chip" href="calm.html">Calm room</a>
       </nav>
+      <nav class="plans-plan-filter-bar plans-plan-filter-bar--tertiary" aria-label="Jump to plans by season of the year">
+        <span class="plans-plan-filter-label">By season</span>
+        <a class="plans-plan-filter-chip" href="#plans-browse-winter">Winter</a>
+        <a class="plans-plan-filter-chip" href="#plans-browse-spring">Spring</a>
+        <a class="plans-plan-filter-chip" href="#plans-browse-summer">Summer</a>
+        <a class="plans-plan-filter-chip" href="#plans-browse-fall">Fall</a>
+      </nav>
+      <section class="plans-browse-by-season" id="plans-browse-by-season" aria-labelledby="plans-browse-season-h">
+        <h2 class="plans-browse-by-season__h" id="plans-browse-season-h">Browse by season</h2>
+        <p class="plans-browse-by-season__lead">A soft map&mdash;not every plan, just calm doorways that match the light outside. The full list stays below; <a href="#all-plans">every plan</a> is still here.</p>
+        <div class="plans-browse-by-season__grid">
+          <div class="plans-browse-by-season__col" id="plans-browse-winter" tabindex="-1">
+            <h3>Winter (Dec&ndash;Feb)</h3>
+            <ul>
+              <li><a href="plans.html?plan=latefallwinter">Late fall, quiet winter</a> &mdash; when light thins before the noise</li>
+              <li><a href="advent-christmas-university.html">Advent &amp; Christmas hub</a> &mdash; one room for the weeks</li>
+              <li><a href="plans.html?plan=adventquiet">Advent Quiet</a></li>
+              <li><a href="plans.html?plan=christmas7">Christmas Week &mdash; Christ the Light</a></li>
+              <li><a href="plans.html?plan=newyear7">New Year week</a> &amp; <a href="plans.html?plan=gentleyear">Gentle New Year reset</a></li>
+            </ul>
+          </div>
+          <div class="plans-browse-by-season__col" id="plans-browse-spring" tabindex="-1">
+            <h3>Spring (Mar&ndash;May)</h3>
+            <ul>
+              <li><a href="he-is-risen.html">He is risen</a> &mdash; readings anytime</li>
+              <li><a href="plans.html?plan=easter">Resurrection Hope</a> (7 days)</li>
+              <li><a href="plans.html?plan=aftereaster">After Easter: quiet Mondays</a></li>
+              <li><a href="plans.html?plan=firststeps">New Believer &mdash; First Steps</a> (14 days)</li>
+              <li><a href="plans.html?plan=identityinchrist">Who God says you are</a> (7 days)</li>
+            </ul>
+          </div>
+          <div class="plans-browse-by-season__col" id="plans-browse-summer" tabindex="-1">
+            <h3>Summer (Jun&ndash;Aug)</h3>
+            <ul>
+              <li><a href="plans.html?plan=summerstill">Summer stillness</a></li>
+              <li><a href="plans.html?plan=summer-seeds">Summer Seeds for Kids</a> (8 weeks)</li>
+              <li><a href="plans.html?plan=latesummerrest">Late summer, early rest</a> (bridge)</li>
+              <li><a href="plans.html?plan=universitygratitude">The University of Gratitude</a> (six days)</li>
+              <li><a href="seasonal.html#summer-still">Seasonal &mdash; summer</a></li>
+            </ul>
+          </div>
+          <div class="plans-browse-by-season__col" id="plans-browse-fall" tabindex="-1">
+            <h3>Fall (Sep&ndash;Nov)</h3>
+            <ul>
+              <li><a href="plans.html?plan=schoolcourage">Back-to-School Courage</a></li>
+              <li><a href="plans.html?plan=harvestthanks">Harvest Gratitude</a></li>
+              <li><a href="plans.html?plan=quietfallharvest">Quiet fall harvest</a> (five days)</li>
+              <li><a href="plans.html?plan=latesummerrest">Late summer bridge</a> (into thanks)</li>
+              <li><a href="seasonal.html#quiet-fall-harvest">Seasonal &mdash; fall harvest</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
       <nav class="plans-onpage-nav" aria-label="On this page">
         <p class="plans-onpage-nav__label" id="plans-onpage-toc-label">On this page</p>
         <ul class="plans-onpage-nav__list" aria-labelledby="plans-onpage-toc-label">
+          <li><a href="#plans-browse-by-season">Browse by season</a></li>
           <li><a href="#plans-recommended-today-heading">Right now</a></li>
           <li><a href="#plans-start-here-title">Start here</a></li>
           <li><a href="#sermon-on-mount-intro">Sermon on the Mount</a></li>

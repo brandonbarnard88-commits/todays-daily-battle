@@ -43,6 +43,8 @@
       'Offline — still got you. Your rhythm and progress stay here until the connection returns.',
     'family-rhythm':
       'Offline — still got you. Linked pages stay cached on this device for morning, evening, and print.',
+    'advent-university':
+      'Offline — still got you. These Advent and Christmas links stay readable with the calm copy already on this device.',
     storage:
       'Storage may be full. Try exporting older notes. Reading still works; saving may fail until there is room.',
     default:

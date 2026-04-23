@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-23T22:07:38.347Z",
-  "surfacedRefCount": 2912,
-  "overrideCount": 2912,
+  "generatedAt": "2026-04-23T22:15:19.170Z",
+  "surfacedRefCount": 2913,
+  "overrideCount": 2913,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -932,7 +932,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 34,
+      "refs": 38,
       "pairs": 0
     },
     "testimonials.html": {
@@ -997,6 +997,14 @@
     },
     "tree.json": {
       "refs": 99,
+      "pairs": 0
+    },
+    "university-anger-one-page-print.html": {
+      "refs": 6,
+      "pairs": 0
+    },
+    "university-comparison-one-page-print.html": {
+      "refs": 6,
       "pairs": 0
     },
     "university.html": {
@@ -1335,6 +1343,7 @@
     "1 Timothy 5:2",
     "1 Timothy 6:18",
     "1 Timothy 6:20",
+    "1 Timothy 6:6",
     "1 Timothy 6:6-8",
     "10",
     "11",
@@ -6590,6 +6599,14 @@
       "general": {
         "plainExplanation": "O Timothy, keep that which is committed to your trust, avoiding profane and vain babblings, and oppositions of science falsely so called:",
         "modernApplication": "This verse keeps your eyes up when the day feels slow, heavy, or unfinished.",
+        "about": "Paul",
+        "to": "Timothy"
+      }
+    },
+    "1 Timothy 6:6": {
+      "general": {
+        "plainExplanation": "But godliness with contentment is great gain.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Paul",
         "to": "Timothy"
       }

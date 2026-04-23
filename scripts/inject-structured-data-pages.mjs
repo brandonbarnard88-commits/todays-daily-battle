@@ -181,10 +181,10 @@ function buildPlansJsonLd(planRows) {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: "Battle Plans • Today's Daily Battle",
+    name: "Courses in the University of God • Today's Daily Battle",
     url: pageUrl,
     description:
-      'Short KJV reading plans (7–40 days): one verse a day, plain encouragement, saved on your device offline. No login required.',
+      'Gentle KJV courses (7–40 days): one verse a day, plain words, a small step, a prayer. Saved on your device offline. No login required.',
     inLanguage: 'en',
     isAccessibleForFree: true,
     isPartOf: {
@@ -201,8 +201,8 @@ function buildPlansJsonLd(planRows) {
     },
     mainEntity: {
       '@type': 'ItemList',
-      name: 'Battle Plans',
-      description: 'KJV reading plans—gentle daily steps in Scripture',
+      name: 'KJV courses in the University of God',
+      description: 'Gentle daily KJV lessons—one small step in Scripture at a time',
       numberOfItems: itemListElement.length,
       itemListElement,
     },

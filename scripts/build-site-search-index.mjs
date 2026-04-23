@@ -51,6 +51,7 @@ const ENTRIES = [
   { t: 'Sermon builder', u: '/sermon.html', k: 'preach' },
   { t: 'Printables hub', u: '/printables.html', k: 'sheets cards' },
   { t: 'Gentle New Year week (7-day print)', u: '/gentle-new-year-week-print.html', k: 'new year steady mercies january print' },
+  { t: 'Winter comfort read-alouds (one-page print)', u: '/winter-readalouds-one-page-print.html', k: 'winter family read aloud storm still waters psalm 119 mark 4' },
   { t: 'Start the year in the Word — January hub', u: '/start-the-year-in-the-word.html', k: 'new year emmanuel january prints plans' },
   { t: 'Topic: Anxiety', u: '/topic-anxiety.html', k: 'worry fear' },
   { t: 'Topic: Grief', u: '/topic-grief.html', k: 'loss mourning' },

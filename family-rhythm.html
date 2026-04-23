@@ -93,6 +93,21 @@
     .fr-winter-signpost li { margin: 0.35rem 0 0; }
     .fr-winter-signpost a { color: var(--gold); text-decoration: none; font-weight: 600; }
     .fr-winter-signpost a:hover, .fr-winter-signpost a:focus-visible { text-decoration: underline; outline: none; }
+    .fr-emmanuel-year {
+      margin: 1.5rem 0 0;
+      padding: 1rem 1.05rem 1.1rem;
+      border-radius: 16px;
+      border: 1px solid color-mix(in srgb, var(--gold) 16%, var(--line));
+      background: color-mix(in srgb, var(--card) 95%, #141a18);
+    }
+    .fr-emmanuel-year h2 { margin: 0 0 0.5rem; font-size: 1.05rem; color: var(--gold); font-weight: 600; }
+    .fr-emmanuel-year .fr-emmanuel-year__lead { margin: 0 0 0.65rem; font-size: 0.9rem; color: var(--muted); line-height: 1.55; }
+    .fr-emmanuel-year .fr-emmanuel-year__strong { color: var(--gold); font-weight: 700; }
+    .fr-emmanuel-year blockquote { margin: 0; padding: 0; border: none; font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.05rem; line-height: 1.5; color: #e8e4d9; font-style: italic; }
+    .fr-emmanuel-year .fr-emmanuel-year__cite { display: block; margin-top: 0.55rem; font-size: 0.82rem; font-style: normal; font-family: ui-rounded, "Avenir Next", system-ui, sans-serif; color: var(--muted); }
+    .fr-emmanuel-year .fr-emmanuel-year__hint { margin: 0.55rem 0 0; font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+    .fr-emmanuel-year .fr-emmanuel-year__hint a { color: var(--gold); font-weight: 600; text-decoration: none; }
+    .fr-emmanuel-year .fr-emmanuel-year__hint a:hover, .fr-emmanuel-year .fr-emmanuel-year__hint a:focus-visible { text-decoration: underline; outline: none; }
     .rhythm-card:hover { border-color: var(--gold); transform: translateY(-3px); }
     .rhythm-card h3 { color: var(--gold); margin: 0 0 0.75rem; font-size: 1.15rem; }
     .rhythm-card .verse-preview { font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.1rem; line-height: 1.45; color: #e8e4d9; margin: 0 0 1rem; font-style: italic; }
@@ -188,6 +203,7 @@
     .family-rhythm-page #fr-start-tonight,
     .family-rhythm-page #fr-winter,
     .family-rhythm-page #fr-winter-nights,
+    .family-rhythm-page #fr-emmanuel-year,
     .family-rhythm-page #fr-winter-helpful,
     .family-rhythm-page #fr-device {
       scroll-margin-top: 5rem;
@@ -201,6 +217,7 @@
       .family-rhythm-page #fr-start-tonight,
     .family-rhythm-page #fr-winter,
     .family-rhythm-page #fr-winter-nights,
+    .family-rhythm-page #fr-emmanuel-year,
     .family-rhythm-page #fr-winter-helpful,
     .family-rhythm-page #fr-device {
         scroll-margin-top: 7.5rem;
@@ -280,6 +297,7 @@
           <li><a href="#fr-week">One week</a></li>
           <li><a href="#fr-winter">Winter</a></li>
           <li><a href="#fr-winter-nights">Long nights</a></li>
+          <li><a href="#fr-emmanuel-year">Emmanuel through the year</a></li>
           <li><a href="#fr-winter-helpful">Helpful this winter</a></li>
           <li><a href="#fr-more">More</a></li>
           <li><a href="#fr-device">On this device</a></li>
@@ -377,10 +395,21 @@
         <ul>
           <li><a href="/start-the-year-in-the-word.html">Start the year in the Word</a> &mdash; prints, Gentle New Year week, and a steady January list in one place.</li>
           <li><a href="/seasonal.html#late-fall-winter">Seasonal &rarr; late fall &amp; winter bridge</a> &mdash; day-by-day on this device when you want gentle steps.</li>
-          <li><a href="#fr-winter-storm">Read-aloud: peace after the wind</a>, <a href="#fr-winter-waters">beside still waters</a>, and <a href="#fr-winter-nights">long nights</a> &mdash; table or bedside, no prep.</li>
+          <li><a href="#fr-winter-storm">Read-aloud: peace after the wind</a>, <a href="#fr-winter-waters">beside still waters</a>, and <a href="#fr-winter-nights">long nights</a> &mdash; table or bedside, no prep. One ink-friendly page with all three: <a href="/winter-readalouds-one-page-print.html">Winter comfort read-alouds (print)</a>.</li>
+          <li><a href="#fr-emmanuel-year">Emmanuel through the year</a> &mdash; Matthew 1:22&ndash;23 for ordinary days; pairs with <a href="/plans.html?plan=emmanuel7">Emmanuel week</a> on the device.</li>
           <li><a href="/plans.html?plan=latefallwinter">Late fall, quiet winter</a> &mdash; five KJV days when light thins.</li>
         </ul>
       </div>
+    </section>
+
+    <section class="fr-emmanuel-year" id="fr-emmanuel-year" tabindex="-1" aria-labelledby="fr-emmanuel-year-h">
+      <h2 id="fr-emmanuel-year-h">Emmanuel through the year</h2>
+      <p class="fr-emmanuel-year__lead">When the decorations are put away, this name still holds: <strong class="fr-emmanuel-year__strong">God with us</strong> in March, in August, in a tired Tuesday. Not a new program&mdash;one table-sized read the whole household can hear.</p>
+      <blockquote>
+        Now all this was done, that it might be fulfilled which was spoken of the Lord by the prophet, saying, Behold, a virgin shall be with child, and shall bring forth a son, and they shall call his name Emmanuel, which being interpreted is, God with us.
+      </blockquote>
+      <p class="fr-emmanuel-year__cite">Matthew 1:22&ndash;23, <abbr title="King James Version">KJV</abbr></p>
+      <p class="fr-emmanuel-year__hint">Read it slow&mdash;no talk-back round unless someone wants to. A seven-day walk on this device: <a href="/plans.html?plan=emmanuel7">Emmanuel week</a>. The same two verses at the turn of the year: <a href="/start-the-year-in-the-word.html#sty-emmanuel-readaloud">Start the year in the Word &rarr; God with us</a>. Map mirror: <a href="/university.html#uog-emmanuel-year">University &rarr; Emmanuel through the year</a>. For Advent-week reads in one room: <a href="/advent-christmas-university.html#acu-readaloud">Advent &amp; Christmas in the University</a>.</p>
     </section>
 
     <div id="fr-more" class="daily-rhythm-more-links" style="margin-top:2.5rem; text-align:center;" tabindex="-1">

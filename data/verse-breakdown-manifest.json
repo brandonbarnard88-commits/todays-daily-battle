@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-23T23:20:43.466Z",
+  "generatedAt": "2026-04-23T23:31:23.166Z",
   "surfacedRefCount": 2922,
   "overrideCount": 2922,
   "sourceCounts": {
@@ -256,7 +256,7 @@
       "pairs": 0
     },
     "family-rhythm.html": {
-      "refs": 9,
+      "refs": 10,
       "pairs": 0
     },
     "faq.html": {
@@ -811,6 +811,10 @@
       "refs": 1,
       "pairs": 0
     },
+    "printables.html": {
+      "refs": 3,
+      "pairs": 0
+    },
     "privacy.html": {
       "refs": 1,
       "pairs": 0
@@ -948,7 +952,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 54,
+      "refs": 55,
       "pairs": 0
     },
     "testimonials.html": {
@@ -1028,7 +1032,7 @@
       "pairs": 0
     },
     "university.html": {
-      "refs": 21,
+      "refs": 22,
       "pairs": 0
     },
     "utils.js": {
@@ -1081,6 +1085,10 @@
     },
     "wins-report.html": {
       "refs": 1,
+      "pairs": 0
+    },
+    "winter-readalouds-one-page-print.html": {
+      "refs": 3,
       "pairs": 0
     },
     "yearly-rhythm.html": {

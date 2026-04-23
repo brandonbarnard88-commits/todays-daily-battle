@@ -148,6 +148,7 @@ const rootFiles = [
   'hero-daily-first-paint.js',
   'tdb-home-mobius-week.js',
   'tdb-january-quiet.js',
+  'tdb-uog-month-signpost.js',
   'inline-bootstrap.js',
   'ga-config.js',
   'tt-bootstrap.js',

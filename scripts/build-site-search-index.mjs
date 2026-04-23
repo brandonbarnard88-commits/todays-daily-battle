@@ -21,6 +21,7 @@ const ENTRIES = [
   { t: 'When the Heart Feels Alone (7 days)', u: '/plans.html?plan=heartalone', k: 'singleness divorce loneliness widowed alone' },
   { t: 'When Little Hearts Feel Big Fear (7 days)', u: '/plans.html?plan=littlehearts', k: 'kids child anxiety worry parent family fear' },
   { t: 'Peace for Restless Nights (7 days)', u: '/plans.html?plan=restlessnights', k: 'sleep insomnia bedtime worry night rest' },
+  { t: 'Grace for Weary Hands (7 days)', u: '/plans.html?plan=wearyhands', k: 'burnout ministry pastor leader caregiver serve tired' },
   { t: "When Pain Won't Quit", u: '/plans.html?plan=painwontquit', k: 'pain illness body' },
   { t: 'Psalms of Comfort', u: '/plans.html?plan=psalmscomfort', k: 'grief fear psalm' },
   { t: 'Site guide — where to start', u: '/site-guide.html', k: 'map help new' },

@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "generatedAt": "2026-04-23T12:48:07.123Z",
+  "generatedAt": "2026-04-23T12:55:46.289Z",
   "entries": [
     {
       "t": "Home — Today's Daily Battle",
@@ -36,6 +36,11 @@
       "t": "Peace for Restless Nights (7 days)",
       "u": "/plans.html?plan=restlessnights",
       "k": "sleep insomnia bedtime worry night rest"
+    },
+    {
+      "t": "Grace for Weary Hands (7 days)",
+      "u": "/plans.html?plan=wearyhands",
+      "k": "burnout ministry pastor leader caregiver serve tired"
     },
     {
       "t": "When Pain Won't Quit",

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-23T12:48:07.610Z",
-  "surfacedRefCount": 2867,
-  "overrideCount": 2867,
+  "generatedAt": "2026-04-23T12:55:46.794Z",
+  "surfacedRefCount": 2869,
+  "overrideCount": 2869,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -140,8 +140,8 @@
       "pairs": 40
     },
     "data/plans-battle-shared.json": {
-      "refs": 304,
-      "pairs": 420
+      "refs": 306,
+      "pairs": 427
     },
     "easter-eggs.js": {
       "refs": 34,
@@ -644,7 +644,7 @@
       "pairs": 0
     },
     "plans-data.js": {
-      "refs": 304,
+      "refs": 306,
       "pairs": 0
     },
     "plans-engine.js": {
@@ -652,7 +652,7 @@
       "pairs": 1
     },
     "plans.html": {
-      "refs": 178,
+      "refs": 180,
       "pairs": 143
     },
     "psalms.html": {
@@ -908,6 +908,7 @@
     "1 Kings 19:12",
     "1 Kings 19:19-21",
     "1 Kings 19:2",
+    "1 Kings 19:4",
     "1 Kings 19:8",
     "1 Kings 19:9-18",
     "1 Kings 1:15",
@@ -2690,6 +2691,7 @@
     "Matthew 11:19",
     "Matthew 11:28",
     "Matthew 11:28-30",
+    "Matthew 11:29",
     "Matthew 11:29-30",
     "Matthew 11:30",
     "Matthew 12:1",
@@ -4980,6 +4982,14 @@
     "1 Kings 19:2": {
       "general": {
         "plainExplanation": "Then Jezebel sent a messenger to Elijah, saying, So let the gods do to me, and more also, if I make not your life as the life of one of them by to morrow about this time.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
+    "1 Kings 19:4": {
+      "general": {
+        "plainExplanation": "Key idea: But he himself went a day's journey into the wilderness, and came and sat down under a juniper tree: and he requested for himself that he might die; and sai...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Unknown",
         "to": "Israel"
@@ -13203,7 +13213,7 @@
     },
     "Isaiah 30:15": {
       "general": {
-        "plainExplanation": "For thus says the Lord GOD, the Holy One of Israel; In returning and rest shall you be saved; in quietness and in confidence shall be your strength: and you would not:",
+        "plainExplanation": "For thus says the Lord GOD, the Holy One of Israel; In returning and rest shall you be saved; in quietness and in confidence shall be your strength: and you would not.",
         "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
         "about": "Isaiah",
         "to": "Judah"
@@ -19116,6 +19126,14 @@
     "Matthew 11:28-30": {
       "general": {
         "plainExplanation": "Key idea: Come to me, all you that labor and are heavy burdened, and I will give you rest. Take my yoke upon you, and learn of me; for I am meek and lowly in heart: a...",
+        "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 11:29": {
+      "general": {
+        "plainExplanation": "Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and you shall find rest to your souls.",
         "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
         "about": "Jesus",
         "to": "Believers"

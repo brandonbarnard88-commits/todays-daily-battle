@@ -24026,6 +24026,14 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     topics: ['sleep', 'insomnia', 'anxiety', 'worry', 'peace', 'rest', 'night']
   },
   {
+    id: 'wearyhands',
+    title: 'Grace for Weary Hands',
+    href: 'plans.html?plan=wearyhands',
+    days: 7,
+    description: 'Seven KJV days for pastors, leaders, and anyone poured out in service—rest, weakness, and strength in Christ.',
+    topics: ['burnout', 'ministry', 'pastor', 'caregiver', 'rest', 'weakness', 'serve']
+  },
+  {
     id: 'hopeuncertain',
     title: 'Hope in Uncertainty',
     href: 'plans.html?plan=hopeuncertain',

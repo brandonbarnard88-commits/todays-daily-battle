@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-23T20:40:07.688Z",
+  "generatedAt": "2026-04-23T20:47:01.183Z",
   "surfacedRefCount": 2883,
   "overrideCount": 2883,
   "sourceCounts": {
@@ -232,7 +232,7 @@
       "pairs": 0
     },
     "family-armor-little-ones.html": {
-      "refs": 2,
+      "refs": 4,
       "pairs": 0
     },
     "family-armor.html": {
@@ -916,7 +916,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 29,
+      "refs": 30,
       "pairs": 0
     },
     "testimonials.html": {

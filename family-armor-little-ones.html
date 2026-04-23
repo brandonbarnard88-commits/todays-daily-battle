@@ -40,7 +40,7 @@
   }
   </script>
 </head>
-<body class="dark-mode tdb-inner-page">
+<body class="dark-mode tdb-inner-page tdb-fa-littles-page">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="app-shell">
     <header class="top-bar">
@@ -139,6 +139,36 @@
             <li><strong>Salvation</strong> (helmet) &mdash; remembering what Jesus finished so our thoughts can rest.</li>
             <li><strong>Scripture &amp; prayer</strong> (sword and staying near) &mdash; short prayers, not performances; the Word beside you.</li>
           </ul>
+        </section>
+
+        <section class="glass tdb-fa-bedtime" id="fa-littles-bedtime-prayer" aria-labelledby="fa-littles-bedtime-h">
+          <h2 class="section-divider" id="fa-littles-bedtime-h">Family Armor bedtime prayer</h2>
+          <p class="section-note">For the end of loud days&mdash;parents and children together. No score; just a hush that leans on Scripture.</p>
+          <div class="tdb-fa-bedtime__toolbar tdb-fa-bedtime__no-print" role="group" aria-label="Bedtime prayer card">
+            <button type="button" class="btn btn-secondary" id="fa-bedtime-toggle" aria-expanded="true" aria-controls="fa-bedtime-prayer-panel">Hide prayer</button>
+            <button type="button" class="btn btn-primary" id="fa-bedtime-print-btn">Print this card</button>
+          </div>
+          <div id="fa-bedtime-prayer-panel">
+            <div class="tdb-fa-bedtime-print-zone tdb-fa-bedtime-card">
+              <p class="tdb-fa-bedtime-kicker" id="fa-bedtime-prayer-label">Prayer to say together</p>
+              <p class="tdb-fa-bedtime-prayer-text">Lord Jesus, this day was loud in our home. We come to You tired&mdash;little voices, grown-up worries, all of it. Thank You for rest that is not a prize we earn, but mercy. Tuck us under Your peace; let us lie down in safety, because You are our keeping. Amen.</p>
+              <div class="tdb-fa-bedtime-verse">
+                <p class="tdb-fa-bedtime-verse-ref">Psalm 4:8 &middot; <abbr title="King James Version">KJV</abbr></p>
+                <blockquote class="tdb-fa-bedtime-blockquote">
+                  <p>I will both lay me down in peace, and sleep: for thou, LORD, only makest me dwell in safety.</p>
+                </blockquote>
+                <p class="tdb-fa-bedtime-soft">One honest line: &ldquo;Safe&rdquo; is true because God keeps us&mdash;not because the day was perfect.</p>
+              </div>
+              <div class="tdb-fa-bedtime-verse">
+                <p class="tdb-fa-bedtime-verse-ref">Matthew 11:28&ndash;30 &middot; <abbr title="King James Version">KJV</abbr></p>
+                <blockquote class="tdb-fa-bedtime-blockquote">
+                  <p>Come unto me, all ye that labour and are heavy laden, and I will give you rest. Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls. For my yoke is easy, and my burden is light.</p>
+                </blockquote>
+                <p class="tdb-fa-bedtime-soft">Jesus opens His arms to weary people first&mdash;then He walks with them. The yoke He offers is training beside Him, not shame for being tired.</p>
+              </div>
+              <p class="section-note tdb-fa-bedtime-cross">More armor for home: <a href="/family-armor.html">Family Armor &amp; Stories</a> &middot; <a href="/kids/corner.html#kids-childrens-classroom">Children&rsquo;s Classroom</a> (short read-alouds when you have a little more wind)</p>
+            </div>
+          </div>
         </section>
 
         <section class="glass" id="fa-littles-why" aria-labelledby="fa-littles-why-h">
@@ -331,6 +361,55 @@
 </footer>
   </div>
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
+  <script nonce="tdb2025s">
+(function () {
+  var LS = 'tdb_fa_littles_bedtime_hidden';
+  var panel = document.getElementById('fa-bedtime-prayer-panel');
+  var toggle = document.getElementById('fa-bedtime-toggle');
+  var printBtn = document.getElementById('fa-bedtime-print-btn');
+  if (!panel || !toggle) return;
+
+  function applyHidden(hidden) {
+    if (hidden) {
+      panel.setAttribute('hidden', '');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.textContent = 'Show prayer';
+    } else {
+      panel.removeAttribute('hidden');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.textContent = 'Hide prayer';
+    }
+    try {
+      if (hidden) localStorage.setItem(LS, '1');
+      else localStorage.removeItem(LS);
+    } catch (e) {}
+  }
+
+  try {
+    if (localStorage.getItem(LS) === '1') applyHidden(true);
+  } catch (e) {}
+
+  toggle.addEventListener('click', function () {
+    var willShow = panel.hasAttribute('hidden');
+    applyHidden(!willShow);
+  });
+
+  if (printBtn) {
+    printBtn.addEventListener('click', function () {
+      var wasHidden = panel.hasAttribute('hidden');
+      if (wasHidden) panel.removeAttribute('hidden');
+      document.body.classList.add('tdb-fa-bedtime-print-mode');
+      function done() {
+        document.body.classList.remove('tdb-fa-bedtime-print-mode');
+        if (wasHidden) panel.setAttribute('hidden', '');
+        window.removeEventListener('afterprint', done);
+      }
+      window.addEventListener('afterprint', done);
+      requestAnimationFrame(function () { window.print(); });
+    });
+  }
+})();
+  </script>
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260423-phase5-perf" data-cfasync="false"></script>
 </body>

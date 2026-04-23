@@ -65,7 +65,7 @@ const ENTRIES = [
   { t: 'Chapter reader', u: '/reader.html', k: 'bible book' },
   { t: 'Progress / dashboard', u: '/progress.html', k: 'streak plans' },
   { t: 'Family hub', u: '/family.html', k: 'home marriage' },
-  { t: 'Family Armor for little ones', u: '/family-armor-little-ones.html', k: 'ephesians 6 armor preschool toddler kids whole armour' },
+  { t: 'Family Armor for little ones', u: '/family-armor-little-ones.html', k: 'ephesians 6 armor preschool toddler kids whole armour bedtime prayer psalm 4 rest matthew 11' },
   { t: 'Church sharing kit', u: '/church-sharing-kit.html', k: 'bulletin qr' },
   { t: 'Give / support', u: '/give', k: 'donate gift' },
   { t: 'Privacy', u: '/privacy.html', k: 'data' },

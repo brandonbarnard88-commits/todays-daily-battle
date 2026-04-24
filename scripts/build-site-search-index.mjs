@@ -90,6 +90,7 @@ const ENTRIES = [
   { t: 'When the days grow short (one-page KJV print)', u: '/when-the-days-grow-short-one-page-print.html', k: 'november december winter dark days advent lamp psalm 90 lamentations short light print' },
   { t: 'Year-end rest (one-page KJV print)', u: '/year-end-rest-one-page-print.html', k: 'december new year eve rest sleep peace year end print advent manger luke 2 john' },
   { t: 'Quiet New Year reset (one-page KJV print)', u: '/quiet-new-year-reset-one-page-print.html', k: 'january new year gentle reset print mercies wisdom seasons philippians psalm 90 ecclesiastes 2 corinthians gentle year start' },
+  { t: 'When winter lingers (one-page KJV print)', u: '/when-winter-lingers-one-page-print.html', k: 'february winter gray cold wait lamentations isaiah 40 psalm 27 micah psalm 62 late fall quiet winter print shepherd' },
   { t: 'Psalms hub', u: '/psalms.html', k: 'comfort' },
   { t: 'Seasonal paths', u: '/seasonal.html', k: 'advent lent' },
   { t: 'What God has done', u: '/what-god-has-done.html', k: 'testimony' },

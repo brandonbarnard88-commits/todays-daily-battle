@@ -25,15 +25,21 @@
     },
     1: {
       name: 'February',
-      lead: 'Ice and early dark still matter; His name does not shrink with the light.',
+      lead: 'The new-year lists may already be quiet—that does not mean growth stopped; His hand on your days is the same steady size.',
       whisper:
-        'If last year still sits heavy, you are not on trial in this room—only invited. Two slow courses for regret and repair, same day-count you already trust on this device.',
+        'You do not have to re-start January. February is for gentle renewal: one true voice, one open door, not a new personality. When winter lingers in the sky and the soul, you are still allowed to read slowly, wait quietly, and come back to the same Shepherd you met at the manger and in John\'s prologue—no score, only the next porch step when gray weeks feel long.',
       links: [
+        { t: 'Good Shepherd: door to one fold (full read)', h: '/family-rhythm.html#fr-shepherd-door-to-fold' },
+        { t: 'Shepherd full read (map — winter)', h: '/university.html#uog-shepherd-door-to-fold' },
+        { t: 'When winter lingers (one-page print)', h: '/when-winter-lingers-one-page-print.html' },
         { t: 'Late fall, quiet winter (plan)', h: '/plans.html?plan=latefallwinter' },
+        { t: 'Quiet New Year reset (print)', h: '/quiet-new-year-reset-one-page-print.html' },
+        { t: 'Gentle New Year reset (5 days)', h: '/plans.html?plan=gentleyear' },
         { t: 'University of Regret (6 days)', h: '/plans.html?plan=universityregret' },
         { t: 'Broken Relationships (6 days)', h: '/plans.html?plan=universitybroken' },
         { t: 'Winter on Family rhythm', h: '/family-rhythm.html#fr-winter' },
-        { t: 'University map — winter', h: '/university.html#uog-winter-university' }
+        { t: 'University map — winter', h: '/university.html#uog-winter-university' },
+        { t: 'Gentle signposts — map', h: '/university.html#uog-season-signposts' }
       ]
     },
     2: {

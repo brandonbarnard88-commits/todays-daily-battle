@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-24T00:53:36.673Z",
-  "surfacedRefCount": 2927,
-  "overrideCount": 2927,
+  "generatedAt": "2026-04-24T01:09:10.562Z",
+  "surfacedRefCount": 2929,
+  "overrideCount": 2929,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -264,7 +264,7 @@
       "pairs": 0
     },
     "family-rhythm.html": {
-      "refs": 23,
+      "refs": 24,
       "pairs": 0
     },
     "faq.html": {
@@ -824,7 +824,7 @@
       "pairs": 0
     },
     "printables.html": {
-      "refs": 6,
+      "refs": 7,
       "pairs": 0
     },
     "privacy.html": {
@@ -896,7 +896,7 @@
       "pairs": 0
     },
     "seasonal.html": {
-      "refs": 3,
+      "refs": 4,
       "pairs": 0
     },
     "security.html": {
@@ -976,7 +976,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 74,
+      "refs": 79,
       "pairs": 0
     },
     "testimonials.html": {
@@ -1056,7 +1056,7 @@
       "pairs": 0
     },
     "university.html": {
-      "refs": 35,
+      "refs": 36,
       "pairs": 0
     },
     "utils.js": {
@@ -1101,6 +1101,10 @@
     },
     "when-the-days-grow-short-one-page-print.html": {
       "refs": 5,
+      "pairs": 0
+    },
+    "when-winter-lingers-one-page-print.html": {
+      "refs": 6,
       "pairs": 0
     },
     "when-year-feels-heavy-one-page-print.html": {
@@ -2484,6 +2488,7 @@
     "Joel 2:25",
     "Joel 2:28",
     "Joel 3:13",
+    "John 10:1",
     "John 10:1-18",
     "John 10:10",
     "John 10:11",
@@ -3392,6 +3397,7 @@
     "Micah 6:8",
     "Micah 7:1",
     "Micah 7:19",
+    "Micah 7:7",
     "Nahum 1:1",
     "Nahum 1:3",
     "Nahum 1:7",
@@ -15151,6 +15157,14 @@
         "to": "Judah"
       }
     },
+    "John 10:1": {
+      "general": {
+        "plainExplanation": "truly, truly, I say to you, He that entereth not by the door into the sheepfold, but climbeth up some other way, the same is a thief and a robber.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "John 10:1-18": {
       "general": {
         "plainExplanation": "Key idea: truly, truly, I say to you, He that entereth not by the door into the sheepfold, but climbeth up some other way, the same is a thief and a robber. But he th...",
@@ -22411,6 +22425,14 @@
       "general": {
         "plainExplanation": "He will turn again, he will have compassion upon us; he will subdue our iniquities; and you wilt cast all their sins into the depths of the sea.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Micah",
+        "to": "Judah"
+      }
+    },
+    "Micah 7:7": {
+      "general": {
+        "plainExplanation": "Therefore I will look to the LORD; I will wait for the God of my salvation: my God will hear me.",
+        "modernApplication": "This verse keeps your eyes up when the day feels slow, heavy, or unfinished.",
         "about": "Micah",
         "to": "Judah"
       }

@@ -143,11 +143,20 @@
     },
     11: {
       name: 'December',
-      lead: 'Noise rises; the manger still asks only a little room. Come back to one verse.',
+      lead: 'The noise is loud; the story is still small enough to hold. You are not late to the manger.',
+      whisper:
+        'Advent is not a scoreboard for your living room. Emmanuel is the same name when the house is quiet or loud—one true line, one honest pause, and the calendar does not grade your heart. The Word needed room, not a perfect table; come as you are, and let one verse be enough for tonight.',
       links: [
+        { t: 'Advent quiet (7 days)', h: '/plans.html?plan=adventquiet' },
         { t: 'Christmas week (plan)', h: '/plans.html?plan=christmas7' },
-        { t: 'Advent and Christmas in the University', h: '/advent-christmas-university.html' },
-        { t: 'Family rhythm', h: '/family-rhythm.html' }
+        { t: 'Advent & Christmas in the University (hub)', h: '/advent-christmas-university.html' },
+        { t: 'Birth of Jesus & Word made flesh (Family rhythm)', h: '/family-rhythm.html#fr-december-manger' },
+        { t: 'Year-end rest (one-page print)', h: '/year-end-rest-one-page-print.html' },
+        { t: 'Emmanuel week (7 days)', h: '/plans.html?plan=emmanuel7' },
+        { t: 'When the days grow short (print)', h: '/when-the-days-grow-short-one-page-print.html' },
+        { t: 'December at the manger (map)', h: '/university.html#uog-december-manger' },
+        { t: 'Start the year in the Word (hub)', h: '/start-the-year-in-the-word.html' },
+        { t: 'Gentle signposts — map', h: '/university.html#uog-season-signposts' }
       ]
     }
   };

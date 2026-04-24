@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-24T00:37:07.217Z",
-  "surfacedRefCount": 2926,
-  "overrideCount": 2926,
+  "generatedAt": "2026-04-24T00:43:58.175Z",
+  "surfacedRefCount": 2927,
+  "overrideCount": 2927,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -264,7 +264,7 @@
       "pairs": 0
     },
     "family-rhythm.html": {
-      "refs": 20,
+      "refs": 22,
       "pairs": 0
     },
     "faq.html": {
@@ -891,6 +891,10 @@
       "refs": 14,
       "pairs": 0
     },
+    "seasonal.html": {
+      "refs": 2,
+      "pairs": 0
+    },
     "security.html": {
       "refs": 1,
       "pairs": 0
@@ -968,7 +972,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 67,
+      "refs": 71,
       "pairs": 0
     },
     "testimonials.html": {
@@ -1048,7 +1052,7 @@
       "pairs": 0
     },
     "university.html": {
-      "refs": 32,
+      "refs": 34,
       "pairs": 0
     },
     "utils.js": {
@@ -1112,6 +1116,10 @@
       "pairs": 0
     },
     "winter-readalouds-one-page-print.html": {
+      "refs": 5,
+      "pairs": 0
+    },
+    "year-end-rest-one-page-print.html": {
       "refs": 5,
       "pairs": 0
     },
@@ -2888,6 +2896,7 @@
     "Luke 24:5-6",
     "Luke 24:50-53",
     "Luke 24:6",
+    "Luke 2:1",
     "Luke 2:1-20",
     "Luke 2:10",
     "Luke 2:10-11",
@@ -18461,6 +18470,14 @@
     "Luke 24:6": {
       "general": {
         "plainExplanation": "He is not here, but is risen: remember how he spake to you when he was yet in Galilee,",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Luke 2:1": {
+      "general": {
+        "plainExplanation": "And it came to pass in those days, that there went out a decree from Caesar Augustus, that all the world should be taxed.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"

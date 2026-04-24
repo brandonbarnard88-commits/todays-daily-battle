@@ -117,26 +117,35 @@
     },
     6: {
       name: 'July',
-      lead: 'Mid-year heat and weariness are both allowed here—no polish required at the door.',
+      lead: 'Mid-year heat does not have to outrun the soul—lighter paper, fewer must-dos, and a small table with one true line are still holy ground.',
       whisper:
-        'Simple trust is not a mood you manufacture; it is coming back to one true line when the day feels thick. Your Father already knows what you need—rest is allowed to look like a slower breath, not a fixed calendar.',
+        'Simple trust in the heat is not a stiff upper lip. It is coming back to the same Voice when the air is thick: Jesus in the boat, casting tomorrow where it belongs, not at the end of a perfect day. Slower breath, smaller plan, same Shepherd.',
       links: [
+        { t: 'Peace, be still (full read, Mark 4)', h: '/family-rhythm.html#fr-summer-peace-still-full' },
+        { t: 'Same read (map — summer & harvest)', h: '/university.html#uog-summer-peace-still-full' },
+        { t: 'Cast all your care (1 Peter 5, read-aloud)', h: '/family-rhythm.html#fr-summer-cast-your-care' },
+        { t: 'Same read (map)', h: '/university.html#uog-summer-cast-your-care' },
+        { t: 'Sower & good soil (full, Matthew 13)', h: '/family-rhythm.html#fr-summer-sower-full' },
+        { t: 'When summer feels too much (one-page print)', h: '/when-summer-feels-too-much-one-page-print.html' },
+        { t: 'The Good Shepherd (Family rhythm)', h: '/family-rhythm.html#fr-summer-good-shepherd' },
         { t: 'Summer & harvest in the University (hub)', h: '/summer-harvest-university.html' },
-        { t: 'The Good Shepherd (Family rhythm read)', h: '/family-rhythm.html#fr-summer-good-shepherd' },
+        { t: 'Summer in the University (map)', h: '/university.html#uog-summer-in-the-university' },
         { t: 'Summer stillness (5 days)', h: '/plans.html?plan=summerstill' },
-        { t: 'Calm room', h: '/calm.html' },
-        { t: 'Prayer', h: '/prayer-wall.html' },
-        { t: 'Battle Plans', h: '/plans.html' }
+        { t: 'Seasonal — summer', h: '/seasonal.html#summer-still' },
+        { t: 'Gentle signposts — map', h: '/university.html#uog-season-signposts' }
       ]
     },
     7: {
       name: 'August',
-      lead: 'The long light still asks for a lighter yoke, not a louder plan.',
+      lead: 'The long light still asks for a lighter yoke, not a louder plan—late summer is the porch before the lists return.',
       whisper:
-        'Simpler trust often looks like one verse before the schedule lands again. Fall is coming, and you are allowed to hand August to Him a day at a time. Not a performance at a time.',
+        'Simpler trust often looks like one verse before the schedule lands again. The in-between weeks are allowed to be thin on paper and rich on breath. Hand August to Him a day at a time—not a performance at a time.',
       links: [
+        { t: 'Late summer reset (one-page print)', h: '/late-summer-reset-one-page-print.html' },
         { t: 'Late summer, early rest (5 days)', h: '/plans.html?plan=latesummerrest' },
         { t: 'Summer & harvest in the University (hub)', h: '/summer-harvest-university.html' },
+        { t: 'Peace, be still (full, Family — Mark 4)', h: '/family-rhythm.html#fr-summer-peace-still-full' },
+        { t: 'Cast all your care (Family — 1 Peter 5)', h: '/family-rhythm.html#fr-summer-cast-your-care' },
         { t: 'Back to school in the University (hub)', h: '/back-to-school-university.html' },
         { t: 'Seasonal — late summer bridge', h: '/seasonal.html#late-summer-bridge' },
         { t: 'Calm room', h: '/calm.html' },

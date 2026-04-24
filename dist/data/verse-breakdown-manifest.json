@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-24T01:48:35.520Z",
-  "surfacedRefCount": 2937,
-  "overrideCount": 2937,
+  "generatedAt": "2026-04-24T01:58:34.590Z",
+  "surfacedRefCount": 2938,
+  "overrideCount": 2938,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -264,7 +264,7 @@
       "pairs": 0
     },
     "family-rhythm.html": {
-      "refs": 29,
+      "refs": 31,
       "pairs": 0
     },
     "faq.html": {
@@ -409,6 +409,10 @@
     },
     "kjv-word-notes.json": {
       "refs": 945,
+      "pairs": 0
+    },
+    "late-summer-reset-one-page-print.html": {
+      "refs": 6,
       "pairs": 0
     },
     "lighthouse-bible-tool.json": {
@@ -896,7 +900,7 @@
       "pairs": 0
     },
     "seasonal.html": {
-      "refs": 6,
+      "refs": 8,
       "pairs": 0
     },
     "security.html": {
@@ -980,7 +984,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 95,
+      "refs": 97,
       "pairs": 0
     },
     "testimonials.html": {
@@ -1060,7 +1064,7 @@
       "pairs": 0
     },
     "university.html": {
-      "refs": 41,
+      "refs": 43,
       "pairs": 0
     },
     "utils.js": {
@@ -3056,6 +3060,7 @@
     "Mark 4:26-27",
     "Mark 4:28",
     "Mark 4:30-32",
+    "Mark 4:35",
     "Mark 4:35-41",
     "Mark 4:36",
     "Mark 4:37",
@@ -19592,6 +19597,14 @@
     "Mark 4:30-32": {
       "general": {
         "plainExplanation": "Key idea: And he said, Whereunto shall we liken the kingdom of God? or with what comparison shall we compare it? It is like a grain of mustard seed, which, when it is...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Mark 4:35": {
+      "general": {
+        "plainExplanation": "And the same day, when the even was come, he says to them, Let us pass over to the other side.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"

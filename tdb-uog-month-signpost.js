@@ -1,10 +1,28 @@
 /**
- * "This month in the University" — soft signpost Feb–Dec (local calendar). Host: [data-tdb-uog-month-signpost].
+ * "This month in the University" — soft signpost Jan–Dec (local calendar). Host: [data-tdb-uog-month-signpost].
  */
 (function () {
   'use strict';
 
   var HINTS = {
+    0: {
+      name: 'January',
+      lead: 'Fresh paper does not fix the heart—but His mercies are new this morning, not when you earn them.',
+      whisper:
+        'You are allowed to start with one true line, not a new personality. The Word that held December still walks with you in January: no fresh score, only the next slow breath, the next open page, and the same "with us" when the house is ordinary.',
+      links: [
+        { t: 'Gentle New Year reset (5 days)', h: '/plans.html?plan=gentleyear' },
+        { t: 'Quiet New Year reset (one-page print)', h: '/quiet-new-year-reset-one-page-print.html' },
+        { t: 'New Year week (7 days)', h: '/plans.html?plan=newyear7' },
+        { t: 'Year-end rest (print)', h: '/year-end-rest-one-page-print.html' },
+        { t: 'John 1 prologue—In the beginning (Family rhythm)', h: '/family-rhythm.html#fr-january-in-the-beginning' },
+        { t: 'Emmanuel week (7 days)', h: '/plans.html?plan=emmanuel7' },
+        { t: 'Start the year in the Word (hub)', h: '/start-the-year-in-the-word.html' },
+        { t: 'January prologue (map)', h: '/university.html#uog-january-in-the-beginning' },
+        { t: 'When the year feels heavy (print)', h: '/when-year-feels-heavy-one-page-print.html' },
+        { t: 'Gentle signposts — map', h: '/university.html#uog-season-signposts' }
+      ]
+    },
     1: {
       name: 'February',
       lead: 'Ice and early dark still matter; His name does not shrink with the light.',
@@ -165,7 +183,6 @@
     var hosts = document.querySelectorAll('[data-tdb-uog-month-signpost]');
     if (!hosts.length) return;
     var m = new Date().getMonth();
-    if (m === 0) return;
     var h = HINTS[m];
     if (!h) return;
     for (var i = 0; i < hosts.length; i++) {

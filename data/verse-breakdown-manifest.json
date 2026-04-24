@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-24T00:43:58.175Z",
+  "generatedAt": "2026-04-24T00:53:36.673Z",
   "surfacedRefCount": 2927,
   "overrideCount": 2927,
   "sourceCounts": {
@@ -264,7 +264,7 @@
       "pairs": 0
     },
     "family-rhythm.html": {
-      "refs": 22,
+      "refs": 23,
       "pairs": 0
     },
     "faq.html": {
@@ -824,7 +824,7 @@
       "pairs": 0
     },
     "printables.html": {
-      "refs": 5,
+      "refs": 6,
       "pairs": 0
     },
     "privacy.html": {
@@ -849,6 +849,10 @@
     },
     "quiet-morning.html": {
       "refs": 1,
+      "pairs": 0
+    },
+    "quiet-new-year-reset-one-page-print.html": {
+      "refs": 5,
       "pairs": 0
     },
     "reader.html": {
@@ -892,7 +896,7 @@
       "pairs": 0
     },
     "seasonal.html": {
-      "refs": 2,
+      "refs": 3,
       "pairs": 0
     },
     "security.html": {
@@ -920,7 +924,7 @@
       "pairs": 0
     },
     "start-the-year-in-the-word.html": {
-      "refs": 6,
+      "refs": 7,
       "pairs": 0
     },
     "stories.html": {
@@ -972,7 +976,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 71,
+      "refs": 74,
       "pairs": 0
     },
     "testimonials.html": {
@@ -1052,7 +1056,7 @@
       "pairs": 0
     },
     "university.html": {
-      "refs": 34,
+      "refs": 35,
       "pairs": 0
     },
     "utils.js": {

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-24T01:58:34.590Z",
-  "surfacedRefCount": 2938,
-  "overrideCount": 2938,
+  "generatedAt": "2026-04-24T02:12:53.495Z",
+  "surfacedRefCount": 2940,
+  "overrideCount": 2940,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -264,7 +264,7 @@
       "pairs": 0
     },
     "family-rhythm.html": {
-      "refs": 31,
+      "refs": 33,
       "pairs": 0
     },
     "faq.html": {
@@ -900,7 +900,7 @@
       "pairs": 0
     },
     "seasonal.html": {
-      "refs": 8,
+      "refs": 10,
       "pairs": 0
     },
     "security.html": {
@@ -984,7 +984,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 97,
+      "refs": 101,
       "pairs": 0
     },
     "testimonials.html": {
@@ -1064,7 +1064,7 @@
       "pairs": 0
     },
     "university.html": {
-      "refs": 43,
+      "refs": 45,
       "pairs": 0
     },
     "utils.js": {
@@ -1121,6 +1121,10 @@
     },
     "when-the-days-grow-short-one-page-print.html": {
       "refs": 5,
+      "pairs": 0
+    },
+    "when-the-leaves-start-turning-one-page-print.html": {
+      "refs": 7,
       "pairs": 0
     },
     "when-winter-lingers-one-page-print.html": {
@@ -2347,6 +2351,7 @@
     "Isaiah 40:29",
     "Isaiah 40:29-31",
     "Isaiah 40:31",
+    "Isaiah 40:8",
     "Isaiah 41:10",
     "Isaiah 41:13",
     "Isaiah 41:20",
@@ -2815,6 +2820,7 @@
     "Luke 15:16",
     "Luke 15:20",
     "Luke 15:24",
+    "Luke 15:3",
     "Luke 15:3-7",
     "Luke 15:4",
     "Luke 15:5",
@@ -13898,6 +13904,14 @@
         "to": "Judah"
       }
     },
+    "Isaiah 40:8": {
+      "general": {
+        "plainExplanation": "The grass withereth, the flower fadeth: but the word of our God shall stand for ever.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Isaiah",
+        "to": "Judah"
+      }
+    },
     "Isaiah 41:10": {
       "general": {
         "plainExplanation": "God tells us not to fear—He is with us, strengthens us, and holds us up.",
@@ -17637,6 +17651,14 @@
     "Luke 15:24": {
       "general": {
         "plainExplanation": "For this my son was dead, and is alive again; he was lost, and is found. And they began to be merry.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Luke 15:3": {
+      "general": {
+        "plainExplanation": "And he spake this parable to them, saying,",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"

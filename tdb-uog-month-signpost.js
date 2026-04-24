@@ -154,15 +154,22 @@
     },
     8: {
       name: 'September',
-      lead: 'New rhythms; same Christ. Pick one course door and leave performance outside.',
+      lead: 'New lists meet the same Teacher—hallways, lunch lines, and a fluttering heart are all allowed at this table.',
       whisper:
-        'New paper and new nerves can share the same table with one true line. He does not need you polished before you come—only willing to show up for the next honest verse.',
+        'Back-to-school is not a report card for your soul. Nervous is not faithless; a new routine is just new air. One honest verse before the day scatters still counts—and the Shepherd who left the ninety-nine to bring one home is still on your side of the door.',
       links: [
+        { t: 'Lost sheep (full read, Luke 15)', h: '/family-rhythm.html#fr-bts-lost-sheep-full' },
+        { t: 'Same read (map — back to school)', h: '/university.html#uog-bts-lost-sheep-full' },
+        { t: 'He washed their feet (John 13, read-aloud)', h: '/family-rhythm.html#fr-bts-washes-feet' },
+        { t: 'Same read (map)', h: '/university.html#uog-bts-washes-feet' },
+        { t: 'When the leaves start turning (one-page print)', h: '/when-the-leaves-start-turning-one-page-print.html' },
+        { t: 'Come unto me (Family rhythm)', h: '/family-rhythm.html#fr-come-to-me' },
         { t: 'Back to school in the University (hub)', h: '/back-to-school-university.html' },
         { t: 'Back to school courage (7 days)', h: '/plans.html?plan=schoolcourage' },
-        { t: 'Come unto me (Family rhythm read)', h: '/family-rhythm.html#fr-come-to-me' },
+        { t: 'When school feels hard (one-page print)', h: '/when-school-feels-hard-one-page-print.html' },
+        { t: 'Seasonal — back to school', h: '/seasonal.html#back-to-school' },
         { t: 'Browse by feeling', h: '/plans.html#plans-browse-by-feeling' },
-        { t: 'Site guide', h: '/site-guide.html' }
+        { t: 'Gentle signposts — map', h: '/university.html#uog-season-signposts' }
       ]
     },
     9: {

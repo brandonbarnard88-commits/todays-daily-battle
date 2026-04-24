@@ -96,6 +96,7 @@ const ENTRIES = [
   { t: 'When spring feels scattered (one-page KJV print)', u: '/when-spring-feels-scattered-one-page-print.html', k: 'may spring focus scatter busy mind seek first mary martha luke 10 proverbs 3 colossians 3 psalm 27 matthew 6 print' },
   { t: 'When summer feels too much (one-page KJV print)', u: '/when-summer-feels-too-much-one-page-print.html', k: 'june july summer heat travel busy schedule rest mark 6 isaiah 40 john 16 lamentations psalm 62 stillness family print' },
   { t: 'Late summer reset (one-page KJV print)', u: '/late-summer-reset-one-page-print.html', k: 'august late summer school rest matthew 11 philippians lamentations 1 peter 5 isaiah 40 yoke care bridge print' },
+  { t: 'When the leaves start turning (one-page KJV print)', u: '/when-the-leaves-start-turning-one-page-print.html', k: 'september fall autumn leaves school ecclesiastes 3 psalm 1 isaiah 40 james 1 2 corinthians 4 leaf turning print' },
   { t: 'Psalms hub', u: '/psalms.html', k: 'comfort' },
   { t: 'Seasonal paths', u: '/seasonal.html', k: 'advent lent' },
   { t: 'What God has done', u: '/what-god-has-done.html', k: 'testimony' },

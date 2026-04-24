@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-24T01:19:15.447Z",
-  "surfacedRefCount": 2933,
-  "overrideCount": 2933,
+  "generatedAt": "2026-04-24T01:26:51.264Z",
+  "surfacedRefCount": 2934,
+  "overrideCount": 2934,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -220,7 +220,7 @@
       "pairs": 6
     },
     "easter-resurrection-university.html": {
-      "refs": 1,
+      "refs": 2,
       "pairs": 0
     },
     "embed-verse-widget.js": {
@@ -264,7 +264,7 @@
       "pairs": 0
     },
     "family-rhythm.html": {
-      "refs": 25,
+      "refs": 26,
       "pairs": 0
     },
     "faq.html": {
@@ -896,7 +896,7 @@
       "pairs": 0
     },
     "seasonal.html": {
-      "refs": 4,
+      "refs": 5,
       "pairs": 0
     },
     "security.html": {
@@ -980,7 +980,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 84,
+      "refs": 87,
       "pairs": 0
     },
     "testimonials.html": {
@@ -1060,7 +1060,7 @@
       "pairs": 0
     },
     "university.html": {
-      "refs": 37,
+      "refs": 38,
       "pairs": 0
     },
     "utils.js": {
@@ -1100,6 +1100,10 @@
       "pairs": 0
     },
     "when-school-feels-hard-one-page-print.html": {
+      "refs": 5,
+      "pairs": 0
+    },
+    "when-spring-feels-overwhelming-one-page-print.html": {
       "refs": 5,
       "pairs": 0
     },
@@ -3040,6 +3044,7 @@
     "Mark 3:29",
     "Mark 4:1-20",
     "Mark 4:21",
+    "Mark 4:26",
     "Mark 4:26-27",
     "Mark 4:28",
     "Mark 4:30-32",
@@ -19544,6 +19549,14 @@
     "Mark 4:21": {
       "general": {
         "plainExplanation": "And he said to them, Is a candle brought to be put under a bushel, or under a bed? and not to be set on a candlestick?",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Mark 4:26": {
+      "general": {
+        "plainExplanation": "And he said, So is the kingdom of God, as if a man should cast seed into the ground;",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"

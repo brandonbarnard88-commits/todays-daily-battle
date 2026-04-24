@@ -62,15 +62,22 @@
     },
     3: {
       name: 'April',
-      lead: 'Spring noise rises; your soul can still ask for one true verse before the day scatters.',
+      lead: 'The clock runs faster; your soul is still allowed one quiet verse before the list wins the table.',
       whisper:
-        'Ground softens in patches—so may hope. You do not have to feel sunny to receive one true line; the Word runs under the weather, and the garden is allowed to grow a step at a time.',
+        'Steady growth is not a photo finish—light returns but roots take time. You do not have to perform spring; one true line, one unhurried breath, and the same Shepherd who met you in winter is still in the room when pollen, practices, and longer evenings all talk at once.',
       links: [
+        { t: 'The lost piece (read-aloud, Luke 15)', h: '/family-rhythm.html#fr-spring-lost-coin' },
+        { t: 'Same read (map — Resurrection & Easter)', h: '/university.html#uog-lost-coin' },
+        { t: 'When spring feels overwhelming (one-page print)', h: '/when-spring-feels-overwhelming-one-page-print.html' },
+        { t: 'Spring at the table (one-page print)', h: '/spring-at-the-table-one-page-print.html' },
         { t: 'Resurrection & Easter in the University (hub)', h: '/easter-resurrection-university.html' },
         { t: 'Resurrection Hope (Easter week)', h: '/plans.html?plan=easter' },
+        { t: 'Spring at the empty tomb (Family rhythm)', h: '/family-rhythm.html#fr-spring-easter' },
+        { t: 'Let the little children come (Family rhythm)', h: '/family-rhythm.html#fr-let-little-children-come' },
         { t: 'Seasonal — Easter', h: '/seasonal.html#easter' },
         { t: 'He is risen (short reads)', h: '/he-is-risen.html' },
-        { t: "Today's lesson", h: '/verse.html' }
+        { t: "Today's lesson", h: '/verse.html' },
+        { t: 'Gentle signposts — map', h: '/university.html#uog-season-signposts' }
       ]
     },
     4: {

@@ -92,6 +92,7 @@ const ENTRIES = [
   { t: 'Quiet New Year reset (one-page KJV print)', u: '/quiet-new-year-reset-one-page-print.html', k: 'january new year gentle reset print mercies wisdom seasons philippians psalm 90 ecclesiastes 2 corinthians gentle year start' },
   { t: 'When winter lingers (one-page KJV print)', u: '/when-winter-lingers-one-page-print.html', k: 'february winter gray cold wait lamentations isaiah 40 psalm 27 micah psalm 62 late fall quiet winter print shepherd' },
   { t: 'Spring at the table (one-page KJV print)', u: '/spring-at-the-table-one-page-print.html', k: 'march easter spring song of solomon isaiah 55 psalm 30 lamentations new morning joy print family little children' },
+  { t: 'When spring feels overwhelming (one-page KJV print)', u: '/when-spring-feels-overwhelming-one-page-print.html', k: 'april spring pollen schedule busy parent exhaustion matthew 6 philippians 1 peter psalm 127 mark 4 unhurried rest print' },
   { t: 'Psalms hub', u: '/psalms.html', k: 'comfort' },
   { t: 'Seasonal paths', u: '/seasonal.html', k: 'advent lent' },
   { t: 'What God has done', u: '/what-god-has-done.html', k: 'testimony' },

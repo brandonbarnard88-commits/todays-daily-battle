@@ -1,0 +1,288 @@
+/**
+ * "This month in the University" — soft signpost Jan–Dec (local calendar). Host: [data-tdb-uog-month-signpost].
+ */
+(function () {
+  'use strict';
+
+  var HINTS = {
+    0: {
+      name: 'January',
+      lead: 'Fresh paper does not fix the heart—but His mercies are new this morning, not when you earn them.',
+      whisper:
+        'You are allowed to start with one true line, not a new personality. The Word that held December still walks with you in January: no fresh score, only the next slow breath, the next open page, and the same "with us" when the house is ordinary.',
+      links: [
+        { t: 'Gentle New Year reset (5 days)', h: '/plans.html?plan=gentleyear' },
+        { t: 'Quiet New Year reset (one-page print)', h: '/quiet-new-year-reset-one-page-print.html' },
+        { t: 'New Year week (7 days)', h: '/plans.html?plan=newyear7' },
+        { t: 'Year-end rest (print)', h: '/year-end-rest-one-page-print.html' },
+        { t: 'John 1 prologue—In the beginning (Family rhythm)', h: '/family-rhythm.html#fr-january-in-the-beginning' },
+        { t: 'Emmanuel week (7 days)', h: '/plans.html?plan=emmanuel7' },
+        { t: 'Start the year in the Word (hub)', h: '/start-the-year-in-the-word.html' },
+        { t: 'January prologue (map)', h: '/university.html#uog-january-in-the-beginning' },
+        { t: 'When the year feels heavy (print)', h: '/when-year-feels-heavy-one-page-print.html' },
+        { t: 'Gentle signposts — map', h: '/university.html#uog-season-signposts' }
+      ]
+    },
+    1: {
+      name: 'February',
+      lead: 'The new-year lists may already be quiet—that does not mean growth stopped; His hand on your days is the same steady size.',
+      whisper:
+        'You do not have to re-start January. February is for gentle renewal: one true voice, one open door, not a new personality. When winter lingers in the sky and the soul, you are still allowed to read slowly, wait quietly, and come back to the same Shepherd you met at the manger and in John\'s prologue—no score, only the next porch step when gray weeks feel long.',
+      links: [
+        { t: 'Good Shepherd: door to one fold (full read)', h: '/family-rhythm.html#fr-shepherd-door-to-fold' },
+        { t: 'Shepherd full read (map — winter)', h: '/university.html#uog-shepherd-door-to-fold' },
+        { t: 'When winter lingers (one-page print)', h: '/when-winter-lingers-one-page-print.html' },
+        { t: 'Late fall, quiet winter (plan)', h: '/plans.html?plan=latefallwinter' },
+        { t: 'Quiet New Year reset (print)', h: '/quiet-new-year-reset-one-page-print.html' },
+        { t: 'Gentle New Year reset (5 days)', h: '/plans.html?plan=gentleyear' },
+        { t: 'University of Regret (6 days)', h: '/plans.html?plan=universityregret' },
+        { t: 'Broken Relationships (6 days)', h: '/plans.html?plan=universitybroken' },
+        { t: 'Winter on Family rhythm', h: '/family-rhythm.html#fr-winter' },
+        { t: 'University map — winter', h: '/university.html#uog-winter-university' },
+        { t: 'Gentle signposts — map', h: '/university.html#uog-season-signposts' }
+      ]
+    },
+    2: {
+      name: 'March',
+      lead: 'Lent or not, the same Teacher meets you at a child\'s pace—no sprint, no report card for the soul.',
+      whisper:
+        'Thaw is uneven; one true line on the table can come before the yard looks different. New life is allowed to be quiet—slower breath, open arms for little ones, mud underfoot—and the empty garden is still ahead. You are not late to spring; you are on time to Him.',
+      links: [
+        { t: 'Let the little children come (read-aloud)', h: '/family-rhythm.html#fr-let-little-children-come' },
+        { t: 'Same read (map — Resurrection & Easter)', h: '/university.html#uog-let-little-children-come' },
+        { t: 'Spring at the table (one-page print)', h: '/spring-at-the-table-one-page-print.html' },
+        { t: 'Resurrection Hope (7 days, Easter nears)', h: '/plans.html?plan=easter' },
+        { t: 'Resurrection & Easter in the University (hub)', h: '/easter-resurrection-university.html' },
+        { t: 'Spring at the empty tomb (Family rhythm)', h: '/family-rhythm.html#fr-spring-easter' },
+        { t: 'For the little ones — bedtime & chair', h: '/little-ones.html' },
+        { t: 'Bible story library (Kids Corner)', h: '/kids/corner.html' },
+        { t: 'Seasonal — Easter doorway', h: '/seasonal.html#easter' },
+        { t: 'Gentle signposts — map', h: '/university.html#uog-season-signposts' }
+      ]
+    },
+    3: {
+      name: 'April',
+      lead: 'The clock runs faster; your soul is still allowed one quiet verse before the list wins the table.',
+      whisper:
+        'Steady growth is not a photo finish—light returns but roots take time. You do not have to perform spring; one true line, one unhurried breath, and the same Shepherd who met you in winter is still in the room when pollen, practices, and longer evenings all talk at once.',
+      links: [
+        { t: 'The lost piece (read-aloud, Luke 15)', h: '/family-rhythm.html#fr-spring-lost-coin' },
+        { t: 'Same read (map — Resurrection & Easter)', h: '/university.html#uog-lost-coin' },
+        { t: 'When spring feels overwhelming (one-page print)', h: '/when-spring-feels-overwhelming-one-page-print.html' },
+        { t: 'Spring at the table (one-page print)', h: '/spring-at-the-table-one-page-print.html' },
+        { t: 'Resurrection & Easter in the University (hub)', h: '/easter-resurrection-university.html' },
+        { t: 'Resurrection Hope (Easter week)', h: '/plans.html?plan=easter' },
+        { t: 'Spring at the empty tomb (Family rhythm)', h: '/family-rhythm.html#fr-spring-easter' },
+        { t: 'Let the little children come (Family rhythm)', h: '/family-rhythm.html#fr-let-little-children-come' },
+        { t: 'Seasonal — Easter', h: '/seasonal.html#easter' },
+        { t: 'He is risen (short reads)', h: '/he-is-risen.html' },
+        { t: "Today's lesson", h: '/verse.html' },
+        { t: 'Gentle signposts — map', h: '/university.html#uog-season-signposts' }
+      ]
+    },
+    4: {
+      name: 'May',
+      lead: 'Longer light—fruit is allowed to be quiet. One verse can outlast a whole noisy list.',
+      whisper:
+        'Gentle fruitfulness is not a showcase. Simple faithfulness looks like coming back to first things—His care, one true line, one slow breath—when the week scatters your attention. You are not graded on how full the schedule looks; only on staying near the Voice who already knows what you need.',
+      links: [
+        { t: 'Your Father knows (read-aloud, Matthew 6)', h: '/family-rhythm.html#fr-spring-father-knows' },
+        { t: 'Same read (map — Pentecost & Spirit)', h: '/university.html#uog-spring-father-knows' },
+        { t: 'Five thousand fed (full read, John 6)', h: '/family-rhythm.html#fr-provision-thousands' },
+        { t: 'Same loaves read (map)', h: '/university.html#uog-provision-thousands' },
+        { t: 'When spring feels scattered (one-page print)', h: '/when-spring-feels-scattered-one-page-print.html' },
+        { t: 'When spring feels overwhelming (one-page print)', h: '/when-spring-feels-overwhelming-one-page-print.html' },
+        { t: 'Pentecost & the Spirit in the University (hub)', h: '/pentecost-spirit-university.html' },
+        { t: 'Gospel of John (7 days)', h: '/plans.html?plan=gospeljohn' },
+        { t: 'Summer stillness (5 days)', h: '/plans.html?plan=summerstill' },
+        { t: 'Gentle signposts — map', h: '/university.html#uog-season-signposts' }
+      ]
+    },
+    5: {
+      name: 'June',
+      lead: 'Schedules loosen and fill at once—lighter on paper, louder in the car. You are still allowed one true line before the day runs away.',
+      whisper:
+        'Simple trust is not a race to a feeling. When summer turns the volume up—heat, travel, everyone home at once—your soul is allowed a slower breath and a smaller plan. The Teacher is not on holiday; He only asks for the next honest verse, not a performance in the sunshine.',
+      links: [
+        { t: 'Sower & good soil (full read, Matthew 13)', h: '/family-rhythm.html#fr-summer-sower-full' },
+        { t: 'Same read (map — summer & harvest)', h: '/university.html#uog-summer-sower-full' },
+        { t: 'When summer feels too much (one-page print)', h: '/when-summer-feels-too-much-one-page-print.html' },
+        { t: 'The Good Shepherd (Family rhythm)', h: '/family-rhythm.html#fr-summer-good-shepherd' },
+        { t: 'Summer & harvest in the University (hub)', h: '/summer-harvest-university.html' },
+        { t: 'Summer in the University (map)', h: '/university.html#uog-summer-in-the-university' },
+        { t: 'Summer stillness (5 days)', h: '/plans.html?plan=summerstill' },
+        { t: 'Seasonal — summer', h: '/seasonal.html#summer-still' },
+        { t: 'Gentle signposts — map', h: '/university.html#uog-season-signposts' }
+      ]
+    },
+    6: {
+      name: 'July',
+      lead: 'Mid-year heat does not have to outrun the soul—lighter paper, fewer must-dos, and a small table with one true line are still holy ground.',
+      whisper:
+        'Simple trust in the heat is not a stiff upper lip. It is coming back to the same Voice when the air is thick: Jesus in the boat, casting tomorrow where it belongs, not at the end of a perfect day. Slower breath, smaller plan, same Shepherd.',
+      links: [
+        { t: 'Peace, be still (full read, Mark 4)', h: '/family-rhythm.html#fr-summer-peace-still-full' },
+        { t: 'Same read (map — summer & harvest)', h: '/university.html#uog-summer-peace-still-full' },
+        { t: 'Cast all your care (1 Peter 5, read-aloud)', h: '/family-rhythm.html#fr-summer-cast-your-care' },
+        { t: 'Same read (map)', h: '/university.html#uog-summer-cast-your-care' },
+        { t: 'Sower & good soil (full, Matthew 13)', h: '/family-rhythm.html#fr-summer-sower-full' },
+        { t: 'When summer feels too much (one-page print)', h: '/when-summer-feels-too-much-one-page-print.html' },
+        { t: 'The Good Shepherd (Family rhythm)', h: '/family-rhythm.html#fr-summer-good-shepherd' },
+        { t: 'Summer & harvest in the University (hub)', h: '/summer-harvest-university.html' },
+        { t: 'Summer in the University (map)', h: '/university.html#uog-summer-in-the-university' },
+        { t: 'Summer stillness (5 days)', h: '/plans.html?plan=summerstill' },
+        { t: 'Seasonal — summer', h: '/seasonal.html#summer-still' },
+        { t: 'Gentle signposts — map', h: '/university.html#uog-season-signposts' }
+      ]
+    },
+    7: {
+      name: 'August',
+      lead: 'The long light still asks for a lighter yoke, not a louder plan—late summer is the porch before the lists return.',
+      whisper:
+        'Simpler trust often looks like one verse before the schedule lands again. The in-between weeks are allowed to be thin on paper and rich on breath. Hand August to Him a day at a time—not a performance at a time.',
+      links: [
+        { t: 'Late summer reset (one-page print)', h: '/late-summer-reset-one-page-print.html' },
+        { t: 'Late summer, early rest (5 days)', h: '/plans.html?plan=latesummerrest' },
+        { t: 'Summer & harvest in the University (hub)', h: '/summer-harvest-university.html' },
+        { t: 'Peace, be still (full, Family — Mark 4)', h: '/family-rhythm.html#fr-summer-peace-still-full' },
+        { t: 'Cast all your care (Family — 1 Peter 5)', h: '/family-rhythm.html#fr-summer-cast-your-care' },
+        { t: 'Back to school in the University (hub)', h: '/back-to-school-university.html' },
+        { t: 'Seasonal — late summer bridge', h: '/seasonal.html#late-summer-bridge' },
+        { t: 'Calm room', h: '/calm.html' },
+        { t: 'Year-round rhythm', h: '/yearly-rhythm.html' }
+      ]
+    },
+    8: {
+      name: 'September',
+      lead: 'New lists meet the same Teacher—hallways, lunch lines, and a fluttering heart are all allowed at this table.',
+      whisper:
+        'Back-to-school is not a report card for your soul. Nervous is not faithless; a new routine is just new air. One honest verse before the day scatters still counts—and the Shepherd who left the ninety-nine to bring one home is still on your side of the door.',
+      links: [
+        { t: 'Lost sheep (full read, Luke 15)', h: '/family-rhythm.html#fr-bts-lost-sheep-full' },
+        { t: 'Same read (map — back to school)', h: '/university.html#uog-bts-lost-sheep-full' },
+        { t: 'He washed their feet (John 13, read-aloud)', h: '/family-rhythm.html#fr-bts-washes-feet' },
+        { t: 'Same read (map)', h: '/university.html#uog-bts-washes-feet' },
+        { t: 'When the leaves start turning (one-page print)', h: '/when-the-leaves-start-turning-one-page-print.html' },
+        { t: 'Come unto me (Family rhythm)', h: '/family-rhythm.html#fr-come-to-me' },
+        { t: 'Back to school in the University (hub)', h: '/back-to-school-university.html' },
+        { t: 'Back to school courage (7 days)', h: '/plans.html?plan=schoolcourage' },
+        { t: 'When school feels hard (one-page print)', h: '/when-school-feels-hard-one-page-print.html' },
+        { t: 'Seasonal — back to school', h: '/seasonal.html#back-to-school' },
+        { t: 'Browse by feeling', h: '/plans.html#plans-browse-by-feeling' },
+        { t: 'Gentle signposts — map', h: '/university.html#uog-season-signposts' }
+      ]
+    },
+    9: {
+      name: 'October',
+      lead: 'The light shortens; thanks does not have to be loud. One small "thank you" and one open verse are enough for tonight.',
+      whisper:
+        'Fall deepens, and the calendar can start to sound like a scoreboard. You are allowed to set a few lists down with the leaves—not solved, only handed to Him. Small gratitude (one true line, one honest breath) is still gratitude; you do not have to perform harvest for the photo. The same Shepherd who met you in summer still has room at the table when the air turns cold.',
+      links: [
+        { t: 'Thankful leper + daily bread (Family rhythm)', h: '/family-rhythm.html#fr-october-harvest' },
+        { t: 'Same two reads (map — October harvest)', h: '/university.html#uog-october-harvest' },
+        { t: 'Harvest Gratitude (7 days)', h: '/plans.html?plan=harvestthanks' },
+        { t: 'Quiet fall harvest (5 days)', h: '/plans.html?plan=quietfallharvest' },
+        { t: 'When fall feels heavy (one-page print)', h: '/when-fall-feels-heavy-one-page-print.html' },
+        { t: 'When the leaves start turning (print)', h: '/when-the-leaves-start-turning-one-page-print.html' },
+        { t: 'Be still & the sower (Family rhythm)', h: '/family-rhythm.html#fr-fall' },
+        { t: 'Harvest & thanks (seasonal)', h: '/seasonal.html#harvest-thanks' },
+        { t: 'Quiet fall harvest (seasonal room)', h: '/seasonal.html#quiet-fall-harvest' },
+        { t: 'When school feels hard (one-page print)', h: '/when-school-feels-hard-one-page-print.html' },
+        { t: 'Late fall, quiet winter (5 days)', h: '/plans.html?plan=latefallwinter' },
+        { t: 'Back to school hub', h: '/back-to-school-university.html' },
+        { t: 'Gentle signposts — map', h: '/university.html#uog-season-signposts' }
+      ]
+    },
+    10: {
+      name: 'November',
+      lead:
+        'The holiday can ask for a bright face; Scripture asks only for a true one—one line of thanks, one honest table, the same Lord who holds small gifts and heavy weeks.',
+      whisper:
+        'You do not have to perform gratitude for the calendar. A thin table, a loud room, or a heart that is only half-thankful is still a place where He is willing to sit. Thanks in Him is a direction, not a mood you manufacture—one widow\'s mite, one "in every thing give thanks" that lands in Christ, not in a scoreboard. Winter is near; you are not late to the next true read.',
+      links: [
+        { t: 'Widow & give thanks (Family rhythm)', h: '/family-rhythm.html#fr-november-widow-thanks' },
+        { t: 'Same two reads (map — November at the table)', h: '/university.html#uog-november-widow-thanks' },
+        { t: 'When Thanksgiving feels lonely or hard (one-page print)', h: '/when-thanksgiving-feels-lonely-or-hard-one-page-print.html' },
+        { t: 'Thankful leper & daily bread (late autumn — Family)', h: '/family-rhythm.html#fr-late-autumn' },
+        { t: 'Late autumn (map — leper, daily bread)', h: '/university.html#uog-late-autumn-thanks' },
+        { t: 'Harvest Gratitude (7 days)', h: '/plans.html?plan=harvestthanks' },
+        { t: 'Harvest & thanks (seasonal)', h: '/seasonal.html#harvest-thanks' },
+        { t: 'Lonely or hard Thanksgiving (seasonal)', h: '/seasonal.html#thanksgiving-lonely-hard' },
+        { t: 'When the days grow short (one-page print)', h: '/when-the-days-grow-short-one-page-print.html' },
+        { t: 'When fall feels heavy (one-page print)', h: '/when-fall-feels-heavy-one-page-print.html' },
+        { t: 'Late fall, quiet winter (5 days)', h: '/plans.html?plan=latefallwinter' },
+        { t: 'University of Gratitude (6 days)', h: '/plans.html?plan=universitygratitude' },
+        { t: 'University of Loneliness (6 days)', h: '/plans.html?plan=universityloneliness' },
+        { t: 'Advent quiet (7 days)', h: '/plans.html?plan=adventquiet' },
+        { t: 'Advent & Christmas in the University (hub)', h: '/advent-christmas-university.html' },
+        { t: 'Gentle signposts — map', h: '/university.html#uog-season-signposts' }
+      ]
+    },
+    11: {
+      name: 'December',
+      lead:
+        'The waiting weeks end in a manger, not a medal—room for a child, room for you. Emmanuel is still "God with us" when the table is full or the chair beside you is empty.',
+      whisper:
+        'Advent is a last gentle reminder, not a final exam. The same Lord who asked only for a place to lay his head still asks for an honest place at your table—noise, joy, weariness, and all. When December feels like one long closing bell, you are allowed to end the year with one true verse, not a perfect summary. The Word already became flesh; the rest is room—breath, bread, the next small step into January in Him.',
+      links: [
+        { t: 'Shepherds’ tidings (map — Luke 2:8–14)', h: '/university.html#uog-december-shepherds' },
+        { t: 'December manger reads (Family rhythm)', h: '/family-rhythm.html#fr-december-manger' },
+        { t: 'Advent quiet (7 days)', h: '/plans.html?plan=adventquiet' },
+        { t: 'Christmas week (plan)', h: '/plans.html?plan=christmas7' },
+        { t: 'Advent & Christmas in the University (hub)', h: '/advent-christmas-university.html' },
+        { t: 'As the year ends (one-page print)', h: '/as-the-year-ends-one-page-print.html' },
+        { t: 'Year-end rest (one-page print)', h: '/year-end-rest-one-page-print.html' },
+        { t: 'Emmanuel week (7 days)', h: '/plans.html?plan=emmanuel7' },
+        { t: 'Emmanuel through the year (map)', h: '/university.html#uog-emmanuel-year' },
+        { t: 'When the days grow short (print)', h: '/when-the-days-grow-short-one-page-print.html' },
+        { t: 'December at the manger (map)', h: '/university.html#uog-december-manger' },
+        { t: 'Turn of the year (seasonal)', h: '/seasonal.html#as-year-ends' },
+        { t: 'Start the year in the Word (hub)', h: '/start-the-year-in-the-word.html' },
+        { t: 'Gentle signposts — map', h: '/university.html#uog-season-signposts' }
+      ]
+    }
+  };
+
+  function run() {
+    var hosts = document.querySelectorAll('[data-tdb-uog-month-signpost]');
+    if (!hosts.length) return;
+    var m = new Date().getMonth();
+    var h = HINTS[m];
+    if (!h) return;
+    for (var i = 0; i < hosts.length; i++) {
+      var el = hosts[i];
+      el.removeAttribute('hidden');
+      el.classList.add('tdb-uog-month--show');
+      var nameEl = el.querySelector('[data-tdb-uog-month-name]');
+      var leadEl = el.querySelector('[data-tdb-uog-month-lead]');
+      var listEl = el.querySelector('[data-tdb-uog-month-links]');
+      if (nameEl) nameEl.textContent = h.name;
+      if (leadEl) leadEl.textContent = h.lead;
+      var whisperEl = el.querySelector('[data-tdb-uog-month-whisper]');
+      if (whisperEl) {
+        if (h.whisper) {
+          whisperEl.textContent = h.whisper;
+          whisperEl.removeAttribute('hidden');
+        } else {
+          whisperEl.textContent = '';
+          whisperEl.setAttribute('hidden', '');
+        }
+      }
+      if (listEl) {
+        listEl.textContent = '';
+        for (var j = 0; j < h.links.length; j++) {
+          var L = h.links[j];
+          var a = document.createElement('a');
+          a.href = L.h;
+          a.textContent = L.t;
+          var li = document.createElement('li');
+          li.appendChild(a);
+          listEl.appendChild(li);
+        }
+      }
+    }
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
+  else run();
+})();

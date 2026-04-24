@@ -1,0 +1,1025 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260423-phase5-perf"></script>
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="tt-bootstrap.js?v=20260423-phase5-perf"></script>
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simple Family Rhythm • Morning, Evening, One Week • Today&apos;s Daily Battle</title>
+  <meta name="description" content="A calm family hub: morning reset for little ones, Evening in the University, and a one-week printable sheet&mdash;one page to gather what you already have. KJV, no sign-in, same device saves on plans.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/family-rhythm.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="stylesheet" href="tdb-quiet-luxury.css?v=20260423-phase5-perf">
+  <link rel="stylesheet" href="tdb-calm-hubs.css?v=20260331edge">
+  <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf">
+  <style>
+    :root { --bg:#0a0c12; --text:#f5f4f0; --muted:#a8a29e; --gold:#d4af7b; --line:#2a2520; }
+    body { background: var(--bg); color: var(--text); font-family: ui-rounded, "Avenir Next", system-ui, sans-serif; line-height: 1.7; }
+    .rhythm-hero { text-align: center; padding: 2.5rem 1.5rem 2rem; background: color-mix(in srgb, var(--bg) 92%, #1a1814); border-radius: 24px; border: 1px solid color-mix(in srgb, var(--gold) 18%, transparent); box-shadow: 0 20px 40px rgba(0,0,0,0.4); margin-bottom: 2.5rem; }
+    .rhythm-title { font-size: clamp(1.6rem, 4.5vw, 2.2rem); color: var(--gold); margin: 0 0 0.5rem; font-weight: 700; letter-spacing: -0.02em; }
+    .rhythm-lead { color: var(--muted); font-size: 1.05rem; max-width: 34rem; margin: 0 auto 2rem; line-height: 1.6; }
+    .rhythm-card { 
+      background: color-mix(in srgb, var(--bg) 94%, #1c1917); 
+      border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line)); 
+      border-radius: 18px; 
+      padding: 1.75rem 1.5rem; 
+      margin-bottom: 2rem; 
+      transition: all 0.3s ease;
+    }
+    .rhythm-cards.calm-grid { align-items: stretch; }
+    .rhythm-cards.calm-grid .rhythm-card { margin-bottom: 0; }
+    .fr-start-tonight {
+      max-width: 38rem;
+      margin: 0 auto 2rem;
+      padding: 1.15rem 1.25rem 1.25rem;
+      border-radius: 18px;
+      border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line));
+      background: color-mix(in srgb, var(--bg) 94%, #1c1917);
+      text-align: center;
+    }
+    .fr-start-tonight__label {
+      margin: 0 0 0.35rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--gold) 88%, var(--muted));
+    }
+    .fr-start-tonight__copy { margin: 0 0 1rem; font-size: 0.92rem; color: var(--muted); line-height: 1.55; }
+    .fr-start-tonight__actions { display: flex; flex-direction: column; gap: 0.65rem; align-items: stretch; }
+    .fr-tonight-rhythm {
+      max-width: 40rem;
+      margin: 1.15rem auto 0;
+      padding: 0.9rem 1rem 1rem;
+      border-radius: 16px;
+      border: 1px solid color-mix(in srgb, var(--gold) 14%, var(--line));
+      background: color-mix(in srgb, var(--card) 96%, #141a18);
+    }
+    .fr-tonight-rhythm__label {
+      margin: 0 0 0.45rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--muted) 70%, var(--gold));
+    }
+    .fr-tonight-rhythm__copy { margin: 0; font-size: 0.9rem; color: var(--muted); line-height: 1.55; }
+    .fr-tonight-rhythm__copy a { color: var(--gold); font-weight: 600; text-decoration: none; }
+    .fr-tonight-rhythm__copy a:hover, .fr-tonight-rhythm__copy a:focus-visible { text-decoration: underline; outline: none; }
+    @media (min-width: 640px) {
+      .fr-start-tonight__actions { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
+      .fr-start-tonight__actions .btn-rhythm { min-width: 14rem; }
+    }
+    .fr-winter {
+      max-width: 44rem;
+      margin: 0 auto 2.25rem;
+      padding: 1.35rem 1.35rem 1.4rem;
+      border-radius: 18px;
+      border: 1px solid color-mix(in srgb, var(--gold) 18%, var(--line));
+      background: color-mix(in srgb, var(--bg) 93%, #141a20);
+      text-align: left;
+    }
+    .fr-winter__h {
+      margin: 0 0 0.5rem;
+      font-size: 1.05rem;
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .fr-winter__lead { margin: 0 0 0.85rem; font-size: 0.9rem; color: var(--muted); line-height: 1.55; }
+    .fr-winter__list { margin: 0; padding: 0 0 0 1.05rem; font-size: 0.88rem; line-height: 1.55; color: var(--text); }
+    .fr-winter__list li { margin: 0.4rem 0 0; }
+    .fr-winter__list .fr-winter__ref { font-size: 0.78rem; font-weight: 600; color: color-mix(in srgb, var(--gold) 75%, var(--muted)); display: block; margin-bottom: 0.15rem; }
+    .fr-winter__more { margin: 1rem 0 0; font-size: 0.86rem; color: var(--muted); }
+    .fr-winter__more a { color: var(--gold); text-decoration: none; }
+    .fr-winter-readaloud { margin-top: 1.15rem; padding-top: 1.1rem; border-top: 1px solid color-mix(in srgb, var(--gold) 15%, var(--line)); }
+    .fr-winter-readaloud h3 { margin: 0 0 0.45rem; font-size: 0.95rem; color: var(--gold); font-weight: 600; }
+    .fr-winter-readaloud blockquote { margin: 0; padding: 0; border: none; font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.05rem; line-height: 1.5; color: #e8e4d9; font-style: italic; }
+    .fr-winter-readaloud .fr-winter-readaloud__cite { display: block; margin-top: 0.6rem; font-size: 0.82rem; font-style: normal; font-family: ui-rounded, "Avenir Next", system-ui, sans-serif; color: var(--muted); }
+    .fr-winter-readaloud .fr-winter-readaloud__hint { margin: 0.55rem 0 0; font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+    .fr-winter-signpost {
+      margin: 1.15rem 0 0;
+      padding: 0.9rem 1rem 1rem;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--gold) 16%, var(--line));
+      background: color-mix(in srgb, var(--bg) 90%, #141a18);
+    }
+    .fr-winter-signpost h3 { margin: 0 0 0.4rem; font-size: 0.95rem; color: var(--gold); font-weight: 600; }
+    .fr-winter-signpost p { margin: 0; font-size: 0.86rem; line-height: 1.55; color: var(--muted); }
+    .fr-winter-signpost ul { margin: 0.55rem 0 0; padding: 0 0 0 1.1rem; font-size: 0.86rem; line-height: 1.6; color: var(--text); }
+    .fr-winter-signpost li { margin: 0.35rem 0 0; }
+    .fr-winter-signpost a { color: var(--gold); text-decoration: none; font-weight: 600; }
+    .fr-winter-signpost a:hover, .fr-winter-signpost a:focus-visible { text-decoration: underline; outline: none; }
+    .fr-emmanuel-year {
+      margin: 1.5rem 0 0;
+      padding: 1rem 1.05rem 1.1rem;
+      border-radius: 16px;
+      border: 1px solid color-mix(in srgb, var(--gold) 16%, var(--line));
+      background: color-mix(in srgb, var(--card) 95%, #141a18);
+    }
+    .fr-emmanuel-year h2 { margin: 0 0 0.5rem; font-size: 1.05rem; color: var(--gold); font-weight: 600; }
+    .fr-emmanuel-year .fr-emmanuel-year__lead { margin: 0 0 0.65rem; font-size: 0.9rem; color: var(--muted); line-height: 1.55; }
+    .fr-emmanuel-year .fr-emmanuel-year__strong { color: var(--gold); font-weight: 700; }
+    .fr-emmanuel-year blockquote { margin: 0; padding: 0; border: none; font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.05rem; line-height: 1.5; color: #e8e4d9; font-style: italic; }
+    .fr-emmanuel-year .fr-emmanuel-year__cite { display: block; margin-top: 0.55rem; font-size: 0.82rem; font-style: normal; font-family: ui-rounded, "Avenir Next", system-ui, sans-serif; color: var(--muted); }
+    .fr-emmanuel-year .fr-emmanuel-year__hint { margin: 0.55rem 0 0; font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+    .fr-emmanuel-year .fr-emmanuel-year__hint a { color: var(--gold); font-weight: 600; text-decoration: none; }
+    .fr-emmanuel-year .fr-emmanuel-year__hint a:hover, .fr-emmanuel-year .fr-emmanuel-year__hint a:focus-visible { text-decoration: underline; outline: none; }
+    .rhythm-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+    .rhythm-card h3 { color: var(--gold); margin: 0 0 0.75rem; font-size: 1.15rem; }
+    .rhythm-card .verse-preview { font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.1rem; line-height: 1.45; color: #e8e4d9; margin: 0 0 1rem; font-style: italic; }
+    .btn-rhythm { 
+      display: inline-flex; align-items: center; justify-content: center; min-height: 52px;
+      padding: 0.75rem 2rem; border-radius: 9999px; font-size: 0.95rem; font-weight: 600;
+      background: transparent; border: 1.5px solid var(--gold); color: var(--gold); 
+      text-decoration: none; transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .btn-rhythm:hover, .btn-rhythm:focus-visible { background: var(--gold); color: #111; transform: translateY(-1px); }
+    .time-suggestion { font-size: 0.85rem; color: var(--muted); text-align: center; margin: 1.5rem 0 0; padding: 0.75rem; background: rgba(212,175,123,0.06); border-radius: 12px; }
+    .offline-note { font-size: 0.82rem; color: var(--muted); text-align: center; margin: 3rem 0 0; padding: 1rem; border-radius: 12px; background: rgba(212,175,123,0.06); }
+
+    /* Wide viewports: calm “On this page” map — desktop scanning only. */
+    .daily-rhythm-onpage-nav { display: none; }
+    @media (min-width: 1100px) {
+      .daily-rhythm-onpage-nav {
+        display: block;
+        position: sticky;
+        top: 3.25rem;
+        z-index: 8;
+        margin: 0.25rem 0 1.2rem;
+        padding: 0.5rem 0.75rem 0.6rem;
+        border-radius: 14px;
+        background: rgba(6, 9, 14, 0.82);
+        border: 1px solid rgba(227, 188, 103, 0.2);
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+        backdrop-filter: blur(10px);
+        text-align: left;
+      }
+      .daily-rhythm-onpage-nav__label {
+        margin: 0 0 0.4rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(227, 188, 103, 0.65);
+      }
+      .daily-rhythm-onpage-nav__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem 0.55rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        justify-content: center;
+      }
+      .daily-rhythm-onpage-nav__list a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 0.25rem 0.65rem;
+        border-radius: 999px;
+        font-size: 0.86rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: rgba(226, 232, 240, 0.92);
+        border: 1px solid rgba(227, 188, 103, 0.22);
+        background: rgba(12, 16, 26, 0.55);
+      }
+      .daily-rhythm-onpage-nav__list a:hover,
+      .daily-rhythm-onpage-nav__list a:focus-visible {
+        border-color: rgba(227, 188, 103, 0.45);
+        color: #c9a84c;
+        outline: 2px solid rgba(227, 188, 103, 0.45);
+        outline-offset: 2px;
+      }
+    }
+    html[data-theme="light"] .daily-rhythm-onpage-nav {
+      background: rgba(255, 253, 247, 0.94);
+      border-color: rgba(201, 162, 39, 0.28);
+      box-shadow: 0 8px 24px rgba(64, 41, 8, 0.1);
+    }
+    html[data-theme="light"] .daily-rhythm-onpage-nav__label {
+      color: rgba(120, 90, 30, 0.75);
+    }
+    html[data-theme="light"] .daily-rhythm-onpage-nav__list a {
+      color: #1e293b;
+      border-color: rgba(201, 162, 39, 0.35);
+      background: rgba(255, 255, 255, 0.88);
+    }
+    html[data-theme="light"] .daily-rhythm-onpage-nav__list a:hover,
+    html[data-theme="light"] .daily-rhythm-onpage-nav__list a:focus-visible {
+      color: #0f172a;
+      border-color: rgba(201, 162, 39, 0.55);
+    }
+    .family-rhythm-page #family-rhythm-overview,
+    .family-rhythm-page #fr-morning,
+    .family-rhythm-page #fr-evening,
+    .family-rhythm-page #fr-week,
+    .family-rhythm-page #fr-more,
+    .family-rhythm-page #fr-start-tonight,
+    .family-rhythm-page #fr-tonight-rhythm,
+    .family-rhythm-page #fr-winter,
+    .family-rhythm-page #fr-winter-nights,
+    .family-rhythm-page #fr-winter-prodigal,
+    .family-rhythm-page #fr-winter-burden,
+    .family-rhythm-page #fr-spring-easter,
+    .family-rhythm-page #fr-provision-thousands,
+    .family-rhythm-page #fr-summer-good-shepherd,
+    .family-rhythm-page #fr-summer-sower-full,
+    .family-rhythm-page #fr-summer-peace-still-full,
+    .family-rhythm-page #fr-summer-cast-your-care,
+    .family-rhythm-page #fr-shepherd-door-to-fold,
+    .family-rhythm-page #fr-fall,
+    .family-rhythm-page #fr-come-to-me,
+    .family-rhythm-page #fr-bts-lost-sheep-full,
+    .family-rhythm-page #fr-bts-washes-feet,
+    .family-rhythm-page #fr-october-harvest,
+    .family-rhythm-page #fr-late-autumn,
+    .family-rhythm-page #fr-november-widow-thanks,
+    .family-rhythm-page #fr-november-widow-mite,
+    .family-rhythm-page #fr-november-give-thanks,
+    .family-rhythm-page #fr-december-manger,
+    .family-rhythm-page #fr-december-birth,
+    .family-rhythm-page #fr-december-shepherds,
+    .family-rhythm-page #fr-december-flesh,
+    .family-rhythm-page #fr-january-in-the-beginning,
+    .family-rhythm-page #fr-emmanuel-year,
+    .family-rhythm-page #fr-winter-helpful,
+    .family-rhythm-page #fr-let-little-children-come,
+    .family-rhythm-page #fr-spring-lost-coin,
+    .family-rhythm-page #fr-spring-father-knows,
+    .family-rhythm-page #fr-device {
+      scroll-margin-top: 5rem;
+    }
+    @media (min-width: 1100px) {
+      .family-rhythm-page #family-rhythm-overview,
+      .family-rhythm-page #fr-morning,
+      .family-rhythm-page #fr-evening,
+      .family-rhythm-page #fr-week,
+      .family-rhythm-page #fr-more,
+      .family-rhythm-page #fr-start-tonight,
+    .family-rhythm-page #fr-tonight-rhythm,
+    .family-rhythm-page #fr-winter,
+    .family-rhythm-page #fr-winter-nights,
+    .family-rhythm-page #fr-winter-prodigal,
+    .family-rhythm-page #fr-winter-burden,
+    .family-rhythm-page #fr-spring-easter,
+    .family-rhythm-page #fr-provision-thousands,
+    .family-rhythm-page #fr-summer-good-shepherd,
+    .family-rhythm-page #fr-summer-sower-full,
+    .family-rhythm-page #fr-summer-peace-still-full,
+    .family-rhythm-page #fr-summer-cast-your-care,
+    .family-rhythm-page #fr-shepherd-door-to-fold,
+    .family-rhythm-page #fr-fall,
+    .family-rhythm-page #fr-come-to-me,
+    .family-rhythm-page #fr-bts-lost-sheep-full,
+    .family-rhythm-page #fr-bts-washes-feet,
+    .family-rhythm-page #fr-october-harvest,
+    .family-rhythm-page #fr-late-autumn,
+    .family-rhythm-page #fr-november-widow-thanks,
+    .family-rhythm-page #fr-november-widow-mite,
+    .family-rhythm-page #fr-november-give-thanks,
+    .family-rhythm-page #fr-december-manger,
+    .family-rhythm-page #fr-december-birth,
+    .family-rhythm-page #fr-december-shepherds,
+    .family-rhythm-page #fr-december-flesh,
+    .family-rhythm-page #fr-january-in-the-beginning,
+    .family-rhythm-page #fr-emmanuel-year,
+    .family-rhythm-page #fr-winter-helpful,
+    .family-rhythm-page #fr-let-little-children-come,
+    .family-rhythm-page #fr-spring-lost-coin,
+    .family-rhythm-page #fr-spring-father-knows,
+    .family-rhythm-page #fr-device {
+        scroll-margin-top: 7.5rem;
+      }
+    }
+    @media (min-width: 1100px) and (prefers-reduced-motion: reduce) {
+      .daily-rhythm-onpage-nav {
+        position: static;
+        margin-bottom: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body class="dark-mode tdb-inner-page family-rhythm-page">
+  <a href="#main" class="skip-link">Skip to family rhythm</a>
+  
+  <nav class="tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+    <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel-standalone" id="tdb-primary-nav-toggle-standalone">
+      <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+      <span class="tdb-nav-flyout-toggle__label">Site</span>
+    </button>
+    <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-standalone">
+      <a href="/verse.html">Today&rsquo;s Lesson</a>
+      <a href="/explore.html">Explore</a>
+      <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map and gentle paths">Curriculum</a>
+      <a href="/plans.html" id="nav-browse-curriculum" aria-label="Browse the curriculum — KJV courses and gentle battle plans">Browse the curriculum</a>
+      <a href="/university.html" id="nav-university-core" aria-label="University of God — five anchor verses, quiet map">University map</a>
+      <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read</a>
+      <a href="/memorize.html">Memorize</a>
+      <a href="/#feel-section">How I Feel</a>
+      <a href="/daily-rhythm.html">Daily Rhythm</a>
+      <a href="/family-rhythm.html" aria-current="page">Family rhythm</a>
+      <a href="/prayer-wall.html">Pray</a>
+      <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
+      <details class="tdb-nav-more">
+        <summary aria-haspopup="true">More tools</summary>
+        <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+          <a href="/">Home</a>
+          <a href="/mystudy">My Study</a>
+          <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
+          <a href="/plans.html">Courses</a>
+          <a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">Family Armor for little ones</a>
+          <a href="/kids/corner.html">Kids &amp; Family</a>
+          <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
+          <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
+          <a href="/site-guide.html" id="nav-site-guide" aria-label="Start here — calm map of where to begin">Start here</a>
+          <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
+          <a href="/about.html">About</a>
+          <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
+          <a href="/mobius.html">Möbius</a>
+          <a href="/calm.html">Calm</a>
+          <a href="/story.html">Story</a>
+          <a href="/give" aria-label="Support this quiet place — optional gift">Support</a>
+          <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
+        </div>
+      </details>
+    </div>
+  </nav>
+
+  <div id="tdb-offline-strip" class="tdb-offline-strip hidden" role="status" aria-live="polite" data-tdb-offline-page="family-rhythm">
+    <p class="offline-msg">Offline—still got you. These pages stay cached for when the network drops.</p>
+  </div>
+
+  <main id="main" class="tdb-calm-hub tdb-quiet-container">
+    <div class="rhythm-hero">
+      <div id="family-rhythm-overview" class="daily-rhythm-overview" tabindex="-1">
+        <h1 class="rhythm-title">Simple family rhythm</h1>
+        <p class="rhythm-lead">One place to gather what you already have&mdash;morning new mercies for little ones, four short <abbr title="King James Version">KJV</abbr> evenings in the same voice as the University, and a one-week print if paper helps. Not a new program&mdash;just a calmer front door to the same room.</p>
+      </div>
+      <nav class="daily-rhythm-onpage-nav" aria-label="On this page">
+        <p class="daily-rhythm-onpage-nav__label" id="family-rhythm-onpage-toc-label">On this page</p>
+        <ul class="daily-rhythm-onpage-nav__list" aria-labelledby="family-rhythm-onpage-toc-label">
+          <li><a href="#family-rhythm-overview">Overview</a></li>
+          <li><a href="#fr-start-tonight">Start here tonight</a></li>
+          <li><a href="#fr-tonight-rhythm">Tonight&rsquo;s rhythm</a></li>
+          <li><a href="#fr-morning">Morning</a></li>
+          <li><a href="#fr-evening">Evening</a></li>
+          <li><a href="#fr-week">One week</a></li>
+          <li><a href="#fr-winter">Winter</a></li>
+          <li><a href="#fr-winter-nights">Long nights</a></li>
+          <li><a href="#fr-winter-prodigal">Son comes home</a></li>
+          <li><a href="#fr-winter-burden">Cast your burden</a></li>
+          <li><a href="#fr-winter-helpful">Helpful this winter</a></li>
+          <li><a href="#fr-let-little-children-come">Let the little children come</a></li>
+          <li><a href="#fr-spring-lost-coin">The lost piece (Luke 15)</a></li>
+          <li><a href="#fr-spring-easter">Spring at the empty tomb</a></li>
+          <li><a href="#fr-provision-thousands">Five thousand fed</a></li>
+          <li><a href="#fr-spring-father-knows">Your Father knows (Matthew 6)</a></li>
+          <li><a href="#fr-summer-good-shepherd">The Good Shepherd</a></li>
+          <li><a href="#fr-summer-sower-full">Sower &amp; good soil (full)</a></li>
+          <li><a href="#fr-summer-peace-still-full">Peace, be still (full)</a></li>
+          <li><a href="#fr-summer-cast-your-care">Cast all your care</a></li>
+          <li><a href="#fr-fall">Fall: be still, good soil</a></li>
+          <li><a href="#fr-come-to-me">Come unto me</a></li>
+          <li><a href="#fr-bts-lost-sheep-full">Lost sheep (full)</a></li>
+          <li><a href="#fr-bts-washes-feet">He washed their feet</a></li>
+          <li><a href="#fr-late-autumn">Late autumn: leper, daily bread</a></li>
+          <li><a href="#fr-november-widow-thanks">November: widow, give thanks</a></li>
+          <li><a href="#fr-december-manger">December: manger, Word made flesh</a></li>
+          <li><a href="#fr-january-in-the-beginning">January: In the beginning (full)</a></li>
+          <li><a href="#fr-emmanuel-year">Emmanuel through the year</a></li>
+          <li><a href="#fr-more">More</a></li>
+          <li><a href="#fr-device">On this device</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div id="fr-start-tonight" class="fr-start-tonight" tabindex="-1" aria-labelledby="fr-start-tonight-label">
+      <p class="fr-start-tonight__label" id="fr-start-tonight-label">Start here tonight</p>
+      <p class="fr-start-tonight__copy">If you need one gentle next step&mdash;not a list&mdash;open a short evening in the same voice as the University, or lay the one-week sheet on the table.</p>
+      <div class="fr-start-tonight__actions">
+        <a href="/plans.html?plan=eveninguog" class="btn-rhythm">Evening in the University</a>
+        <a href="/one-week-in-the-university-print.html" class="btn-rhythm">One week in the University (print)</a>
+      </div>
+    </div>
+
+    <div id="fr-tonight-rhythm" class="fr-tonight-rhythm" tabindex="-1" aria-labelledby="fr-tonight-rhythm-label">
+      <p class="fr-tonight-rhythm__label" id="fr-tonight-rhythm-label">Tonight&rsquo;s rhythm</p>
+      <p class="fr-tonight-rhythm__copy">If the house is still loud, or you only have ten quiet minutes&mdash;not a new habit, just a next step&mdash;try <a href="/plans.html?plan=eveninguog">Evening in the University</a> (saved on this device like your other plans), or lay <a href="/winter-readalouds-one-page-print.html">winter read-alouds on one page</a> by the lamp. Deeper winter tells live in <a href="#fr-winter">Winter below</a>.</p>
+    </div>
+
+    <div class="rhythm-cards calm-grid calm-grid--3">
+    <div id="fr-morning" class="rhythm-card" tabindex="-1">
+      <h3>Morning reset (little ones)</h3>
+      <p class="verse-preview" style="font-size:0.95rem; font-style:normal; color:var(--muted);">Lamentations 3:22&ndash;23, Psalm 5:3&mdash;new mercies; look up.</p>
+      <p style="color:var(--muted); font-size:0.95rem; margin-bottom:1.25rem;">The same short morning the Family Armor page already loves&mdash;screen or table, one honest start.</p>
+      <a href="/family-armor-little-ones.html#fa-littles-morning-reset" class="btn-rhythm">Open morning reset</a>
+    </div>
+
+    <div id="fr-evening" class="rhythm-card" tabindex="-1">
+      <h3>Evening in the University</h3>
+      <p class="verse-preview" style="font-size:0.95rem; font-style:normal; color:var(--muted);">Four nights&mdash;Deuteronomy 6, Psalm 4, Luke 24, Matthew 11&mdash;read aloud, pray once.</p>
+      <p style="color:var(--muted); font-size:0.95rem; margin-bottom:1.25rem;">Progress saves on this device in Battle Plans&mdash;separate from your solo week if you use both.</p>
+      <a href="/plans.html?plan=eveninguog" class="btn-rhythm">Open the four-day plan</a>
+    </div>
+
+    <div id="fr-week" class="rhythm-card" tabindex="-1">
+      <h3>One week in the University (print)</h3>
+      <p class="verse-preview" style="font-size:0.95rem; font-style:normal; color:var(--muted);">Seven rows&mdash;echo mornings; evenings 1&ndash;4 then gentle repeats&mdash;for tired parents who want paper.</p>
+      <p style="color:var(--muted); font-size:0.95rem; margin-bottom:1.25rem;">Two-card morning and evening or a <a href="/evening-university-print.html" style="color:var(--gold);">one-page four-night sheet</a> are still right here when you need less.</p>
+      <a href="/one-week-in-the-university-print.html" class="btn-rhythm">Open the one-week print</a>
+    </div>
+    </div>
+
+    <section id="fr-winter" class="fr-winter" tabindex="-1" aria-labelledby="fr-winter-h">
+      <h2 class="fr-winter__h" id="fr-winter-h">Winter in the University</h2>
+      <p class="fr-winter__lead">Four <abbr title="King James Version">KJV</abbr> lines for the coldest, quietest months&mdash;not a checklist, only words to return to when the days are short.</p>
+      <ul class="fr-winter__list">
+        <li>
+          <span class="fr-winter__ref">Psalm 147:16&ndash;17</span>
+          He giveth snow like wool: he scattereth the hoar frost like ashes. He casteth forth his ice like morsels: who can stand before his cold?
+        </li>
+        <li>
+          <span class="fr-winter__ref">Lamentations 3:25&ndash;26</span>
+          The LORD is good unto them that wait for him, to the soul that seeketh him. It is good that a man should both hope and quietly wait for the salvation of the LORD.
+        </li>
+        <li>
+          <span class="fr-winter__ref">John 1:5</span>
+          And the light shineth in darkness; and the darkness comprehended it not.
+        </li>
+        <li>
+          <span class="fr-winter__ref">Isaiah 1:18</span>
+          Come now, and let us reason together, saith the LORD: though your sins be as scarlet, they shall be as white as snow; though they be red like crimson, they shall be as wool.
+        </li>
+      </ul>
+      <div class="fr-winter-readaloud" id="fr-winter-storm" aria-labelledby="fr-winter-storm-h">
+        <h3 id="fr-winter-storm-h">When the house feels like a storm</h3>
+        <blockquote>
+          And there arose a great storm of wind, and the waves beat into the ship, so that it was now full. And he was in the hinder part of the ship, asleep on a pillow: and they awake him, and say unto him, Master, carest thou not that we perish? And he arose, and rebuked the wind, and said unto the sea, Peace, be still. And the wind ceased, and there was a great calm.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">Mark 4:37&ndash;39, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">A short family read&mdash;no lesson; let &ldquo;great calm&rdquo; be the last sound. For the whole lake crossing&mdash;evening, pillow, &ldquo;carest thou not,&rdquo; the question about faith&mdash;see <a href="#fr-summer-peace-still-full" style="color:var(--gold);">summer, peace, be still (full, Mark 4:35&ndash;41)</a> and the <a href="/university.html#uog-summer-peace-still-full" style="color:var(--gold);">map &rarr; same read</a>. For January doors, <a href="/start-the-year-in-the-word.html" style="color:var(--gold);">Start the year in the Word</a> gathers prints and plans in one place.</p>
+      </div>
+      <div class="fr-winter-readaloud" id="fr-winter-waters" aria-labelledby="fr-winter-waters-h">
+        <h3 id="fr-winter-waters-h">When the noise won&rsquo;t stop, but you need still water</h3>
+        <blockquote>
+          The LORD is my shepherd; I shall not want. He maketh me to lie down in green pastures: he leadeth me beside the still waters.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">Psalm 23:1&ndash;2, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">Read it slow&mdash;no assignment. The <a href="/university.html#uog-winter-university" style="color:var(--gold);">University map</a> carries the same winter read-alouds for your own chair.</p>
+      </div>
+      <div class="fr-winter-readaloud" id="fr-winter-nights" aria-labelledby="fr-winter-nights-h">
+        <h3 id="fr-winter-nights-h">When the nights feel long</h3>
+        <blockquote>
+          I prevented the dawning of the morning, and cried: I hoped in thy word. Mine eyes prevent the night watches, that I might meditate in thy word.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">Psalm 119:147&ndash;148, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">A lean-in for sleepless or winter-dark hours&mdash;no task but His words. The same two lines rest on the <a href="/university.html#uog-winter-nights" style="color:var(--gold);">map</a> for your own room.</p>
+      </div>
+      <div class="fr-winter-readaloud" id="fr-winter-prodigal" aria-labelledby="fr-winter-prodigal-h">
+        <h3 id="fr-winter-prodigal-h">When the road home still feels long</h3>
+        <blockquote>
+          And he arose, and came to his father. But when he was yet a great way off, his father saw him, and had compassion, and ran, and fell on his neck, and kissed him. And the son said unto him, Father, I have sinned against heaven, and in thy sight, and am no more worthy to be called thy son. But the father said to his servants, Bring forth the best robe, and put it on him; and put a ring on his hand, and shoes on his feet: And bring hither the fatted calf, and kill it; and let us eat, and be merry. For this my son was dead, and is alive again; he was lost, and is found. And they began to be merry.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">Luke 15:20&ndash;24, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">The return, not the pig-sty&mdash;read slow; hush the commentary unless someone needs it. The same telling sits on the <a href="/university.html#uog-winter-prodigal" style="color:var(--gold);">University map</a>. If regret or a frayed tie is what makes home feel far, the site holds <a href="/plans.html?plan=universityregret" style="color:var(--gold);">Regret</a> and <a href="/plans.html?plan=universitybroken" style="color:var(--gold);">Broken relationships</a> at the same gentle pace as every other week.</p>
+      </div>
+      <div class="fr-winter-readaloud" id="fr-winter-burden" aria-labelledby="fr-winter-burden-h">
+        <h3 id="fr-winter-burden-h">When the load has to go somewhere</h3>
+        <blockquote>
+          Cast thy burden upon the LORD, and he shall sustain thee: he shall never suffer the righteous to be moved.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">Psalm 55:22, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">One line for heavy evenings&mdash;say it twice if breath is thin. The same verse sits on the <a href="/university.html#uog-winter-burden" style="color:var(--gold);">map</a>. The <a href="/winter-readalouds-one-page-print.html" style="color:var(--gold);">winter one-page print</a> holds storm, still waters, long nights, and the return home; this one verse is a fifth, lighter read&mdash;here and the map, not on that sheet.</p>
+      </div>
+      <p class="fr-winter__more">
+        <a href="/plans.html?plan=latefallwinter">Late fall, quiet winter (plan)</a>
+        <span style="margin:0 0.5rem; opacity:0.6;" aria-hidden="true">&middot;</span>
+        <a href="/seasonal.html#late-fall-winter">Seasonal &rarr; winter bridge</a>
+        <span style="margin:0 0.5rem; opacity:0.6;" aria-hidden="true">&middot;</span>
+        <a href="/university.html#uog-winter-university">University map &rarr; winter</a>
+      </p>
+      <div class="fr-winter-signpost" id="fr-winter-helpful" tabindex="-1" aria-labelledby="fr-winter-helpful-h">
+        <h3 id="fr-winter-helpful-h">Most helpful this winter</h3>
+        <p>Not a score or a finish line&mdash;just doors people keep open when the days are short. Pick what fits; leave the rest.</p>
+        <ul>
+          <li><a href="/start-the-year-in-the-word.html">Start the year in the Word</a> &mdash; prints, Gentle New Year week, and a steady January list in one place.</li>
+          <li><a href="/when-winter-lingers-one-page-print.html">When winter lingers (one page)</a> &mdash; five <abbr title="King James Version">KJV</abbr> lines for long cold weeks; pairs with <a href="#fr-shepherd-door-to-fold">the Shepherd, full read</a> and <a href="/plans.html?plan=latefallwinter">late fall, quiet winter</a> on the device.</li>
+          <li><a href="/seasonal.html#late-fall-winter">Seasonal &rarr; late fall &amp; winter bridge</a> &mdash; day-by-day on this device when you want gentle steps.</li>
+          <li><a href="#fr-winter-storm">Read-aloud: peace after the wind</a>, <a href="#fr-winter-waters">beside still waters</a>, and <a href="#fr-winter-nights">long nights</a> &mdash; table or bedside, no prep. <a href="#fr-winter-prodigal">The son comes home</a> (Luke 15:20&ndash;24) when the road feels long. <a href="/winter-readalouds-one-page-print.html">Winter comfort read-alouds (one page)</a> now gathers all four of those on a letter-size sheet. A fifth, one-verse hush&mdash;<a href="#fr-winter-burden">cast your burden</a> (Psalm 55:22)&mdash;lives here and on the map, not on that print.</li>
+          <li><a href="#fr-emmanuel-year">Emmanuel through the year</a> &mdash; Matthew 1:22&ndash;23 for ordinary days; pairs with <a href="/plans.html?plan=emmanuel7">Emmanuel week</a> on the device.</li>
+          <li><a href="#fr-provision-thousands">Five thousand fed</a> (John 6:5&ndash;13) &mdash; when the crowd looks too big; same read on the <a href="/university.html#uog-provision-thousands">map</a>. <a href="/pentecost-spirit-university.html">Pentecost &amp; the Spirit in the University</a> holds late-spring plans and read-alouds. Need calm after wind and waves? That is a different read&mdash;<a href="#fr-winter-storm">winter, peace after the wind</a>.</li>
+          <li><a href="#fr-summer-good-shepherd">The Good Shepherd</a> (John 10:11&ndash;16) &mdash; for long summer evenings; same read on the <a href="/university.html#uog-summer-harvest">map</a>. <a href="#fr-summer-peace-still-full">Peace, be still (full, Mark 4:35&ndash;41)</a> when the table wants the whole lake crossing&mdash;not only the three-wave winter tell. <a href="#fr-summer-cast-your-care">Cast all your care (1 Peter 5:6&ndash;7)</a> for a quiet hand-off of worry; <a href="#fr-shepherd-door-to-fold">Shepherd, full read (John 10:1&ndash;18)</a> when February or any gray week wants the whole door-to-fold. <a href="/summer-harvest-university.html">Summer &amp; harvest in the University</a> holds thanks-week plans and field read-alouds. <a href="/late-summer-reset-one-page-print.html">Late summer reset (one page)</a> before the lists return; <a href="/when-winter-lingers-one-page-print.html">When winter lingers (one page)</a> for cold weeks after the new year. For bread in the crowd, see <a href="#fr-provision-thousands">five thousand fed</a> above.</li>
+          <li><a href="#fr-fall">Fall: be still, good soil</a> (Psalm 46:10; Matthew 13:3&ndash;8) &mdash; when the light tilts and routines refill; the same two reads sit on the <a href="/university.html#uog-fall-family-reads">University map &rarr; fall at the table</a>. <a href="/when-school-feels-hard-one-page-print.html">When school feels hard (one page)</a> tucks in a folder for tough days.</li>
+          <li><a href="#fr-come-to-me">Come unto me</a> (Matthew 11:28&ndash;30) &mdash; for heavy weeks, new lists, and tired chairs; the same three verses sit at the <a href="/university.html#uog-matt-11">top of the University map</a>. <a href="/back-to-school-university.html">Back to school in the University</a> gathers plans when rhythms change.</li>
+          <li><a href="#fr-late-autumn">Late autumn: leper, daily bread</a> (Luke 17:11&ndash;19; Matthew 6:9&ndash;13) &mdash; for October harvest and November at the same table; the same two reads sit on the <a href="/university.html#uog-late-autumn-thanks">University map &rarr; late autumn at the table</a>. <a href="/when-the-days-grow-short-one-page-print.html">When the days grow short (one page)</a> for early-dark weeks.</li>
+          <li><a href="#fr-november-widow-thanks">November: widow, give thanks</a> (Luke 21:1&ndash;4; 1 Thess. 5:16&ndash;18) &mdash; a small gift, a great heart; rejoice, pray, give thanks&mdash;not a score; map mirror: <a href="/university.html#uog-november-widow-thanks">University &rarr; November at the table</a>. <a href="/when-thanksgiving-feels-lonely-or-hard-one-page-print.html">When Thanksgiving feels lonely or hard (one page)</a> for empty or heavy tables.</li>
+          <li><a href="#fr-december-manger">December: manger, shepherds, Word made flesh</a> (Luke 2:1&ndash;7; 2:8&ndash;14; John 1:14) &mdash; for Advent and Christmas week at the table; the same three reads sit on the <a href="/university.html#uog-december-manger">University map &rarr; December at the manger</a>. <a href="/as-the-year-ends-one-page-print.html">As the year ends (one page)</a> and <a href="/year-end-rest-one-page-print.html">year-end rest (one page)</a> for the last nights of December.</li>
+          <li><a href="/plans.html?plan=latefallwinter">Late fall, quiet winter</a> &mdash; five KJV days when light thins.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="fr-winter" id="fr-let-little-children-come" tabindex="-1" aria-labelledby="fr-let-little-children-come-h">
+      <h2 class="fr-winter__h" id="fr-let-little-children-come-h">Let the little children come</h2>
+      <p class="fr-winter__lead">A short <abbr title="King James Version">KJV</abbr> read when the table is tired but little ones are near&mdash;March nights, bedtime, or a calm stop on the way toward <a href="#fr-spring-easter" style="color:var(--gold);">the empty garden</a> below. The same text sits on the <a href="/university.html#uog-let-little-children-come" style="color:var(--gold);">University map</a>. <a href="/little-ones.html" style="color:var(--gold);">For the little ones</a> and <a href="/kids/corner.html" style="color:var(--gold);">Bible story library</a> keep the pace gentle&mdash;no score.</p>
+      <div class="fr-winter-readaloud" id="fr-let-little-children-read" aria-labelledby="fr-let-little-children-read-h">
+        <h3 id="fr-let-little-children-read-h">Suffer the little children</h3>
+        <blockquote>
+          Then were there brought unto him little children, that he should put his hands on them, and pray: and the disciples rebuked them. But Jesus said, Suffer little children, and forbid them not, to come unto me: for of such is the kingdom of heaven. And he laid his hands on them, and departed thence.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">Matthew 19:13&ndash;15, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">Read it once&mdash;let &ldquo;of such is the kingdom of heaven&rdquo; be the last sound. A March sheet in the same hope-key: <a href="/spring-at-the-table-one-page-print.html" style="color:var(--gold);">Spring at the table (one page)</a>. The longer garden morning is still <a href="#fr-spring-easter" style="color:var(--gold);">below &rarr; empty tomb</a>.</p>
+      </div>
+    </section>
+
+    <section class="fr-winter" id="fr-spring-lost-coin" tabindex="-1" aria-labelledby="fr-spring-lost-coin-h">
+      <h2 class="fr-winter__h" id="fr-spring-lost-coin-h">The piece she would not give up on</h2>
+      <p class="fr-winter__lead">A short <abbr title="King James Version">KJV</abbr> joy-read for April and any week the schedule gets loud&mdash;light and calendars do not have to outrun mercy. The same text sits on the <a href="/university.html#uog-lost-coin" style="color:var(--gold);">University map</a> (with <a href="#fr-let-little-children-come" style="color:var(--gold);">let the little children come</a> and <a href="#fr-spring-easter" style="color:var(--gold);">the empty tomb</a> in the same room). A different spring table story&mdash;loaves in a crowd&mdash;is <a href="#fr-provision-thousands" style="color:var(--gold);">five thousand fed</a> below; winter already holds <a href="#fr-winter-prodigal" style="color:var(--gold);">the son comes home</a> (Luke 15) in the same voice.</p>
+      <div class="fr-winter-readaloud" id="fr-spring-lost-coin-read" aria-labelledby="fr-spring-lost-coin-read-h">
+        <h3 id="fr-spring-lost-coin-read-h">Rejoice with me</h3>
+        <blockquote>
+          Either what woman having ten pieces of silver, if she lose one piece, doth not light a candle, and sweep the house, and seek diligently till she find it? And when she hath found it, she calleth her friends and her neighbours together, saying, Rejoice with me; for I have found the piece which I had lost. Likewise, I say unto you, there is joy in the presence of the angels of God over one sinner that repenteth.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">Luke 15:8&ndash;10, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">Read it once&mdash;let the candle and the broom be real; no math quiz after. When longer days still feel like too much, <a href="/when-spring-feels-overwhelming-one-page-print.html" style="color:var(--gold);">when spring feels overwhelming (one page)</a> tucks beside <a href="/spring-at-the-table-one-page-print.html" style="color:var(--gold);">spring at the table</a> in a folder. The next step toward Easter morning: <a href="#fr-spring-easter" style="color:var(--gold);">the empty garden &rarr; below</a>.</p>
+      </div>
+    </section>
+
+    <section class="fr-winter" id="fr-spring-easter" tabindex="-1" aria-labelledby="fr-spring-easter-h">
+      <h2 class="fr-winter__h" id="fr-spring-easter-h">Spring at the empty tomb</h2>
+      <p class="fr-winter__lead">Easter week or a morning you need the stone moved in your mind&mdash;one <abbr title="King James Version">KJV</abbr> read, no lesson plan. When chairs are small first, <a href="#fr-let-little-children-come" style="color:var(--gold);">let the little children come</a> is the shorter read above; for joy in searching, <a href="#fr-spring-lost-coin" style="color:var(--gold);">the lost piece (Luke 15:8&ndash;10)</a> sits between. The same empty-tomb text sits on the <a href="/university.html#uog-spring-easter-tomb" style="color:var(--gold);">University map</a> and in <a href="/easter-resurrection-university.html" style="color:var(--gold);">Resurrection &amp; Easter in the University</a> with the seven-day <a href="/plans.html?plan=easter" style="color:var(--gold);">Resurrection Hope</a> plan.</p>
+      <div class="fr-winter-readaloud" id="fr-spring-tomb-read" aria-labelledby="fr-spring-tomb-read-h">
+        <h3 id="fr-spring-tomb-read-h">When you need the linen, not the noise</h3>
+        <blockquote>
+          The first day of the week cometh Mary Magdalene early, when it was yet dark, unto the sepulchre, and seeth the stone taken away from the sepulchre. Then she runneth, and cometh to Simon Peter, and to the other disciple, whom Jesus loved, and saith unto them, They have taken away the Lord out of the sepulchre, and we know not where they have laid him. Peter therefore went forth, and that other disciple, and came to the sepulchre. So they ran both together: and the other disciple did outrun Peter, and came first to the sepulchre. And he stooping down, and looking in, saw the linen clothes lying; yet went he not in. Then cometh Simon Peter following him, and went into the sepulchre, and seeth the linen clothes lie, and the napkin, that was about his head, not lying with the linen clothes, but wrapped together in a place by itself. Then went in also that other disciple, which came first to the sepulchre, and he saw, and believed.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">John 20:1&ndash;8, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">Read once; let the last line rest. He is risen short reads: <a href="/he-is-risen.html" style="color:var(--gold);">He is risen</a>. After the parade: <a href="/plans.html?plan=aftereaster" style="color:var(--gold);">After Easter: quiet Mondays</a>.</p>
+      </div>
+    </section>
+
+    <section class="fr-winter" id="fr-provision-thousands" tabindex="-1" aria-labelledby="fr-provision-thousands-h">
+      <h2 class="fr-winter__h" id="fr-provision-thousands-h">When the need outruns the loaves</h2>
+      <p class="fr-winter__lead">A table read for a thin week&mdash;not the storm on the water (that is <a href="#fr-winter-storm" style="color:var(--gold);">winter, peace after the wind</a>), but the crowd and the small lunch. Same text on the <a href="/university.html#uog-provision-thousands" style="color:var(--gold);">University map</a>; late-spring plans gather in <a href="/pentecost-spirit-university.html" style="color:var(--gold);">Pentecost &amp; the Spirit in the University</a>. For the Shepherd&rsquo;s own voice, see <a href="#fr-summer-good-shepherd" style="color:var(--gold);">the Good Shepherd</a> below.</p>
+      <div class="fr-winter-readaloud" id="fr-provision-thousands-read" aria-labelledby="fr-provision-thousands-read-h">
+        <h3 id="fr-provision-thousands-read-h">Five loaves, two fishes, and room to sit</h3>
+        <blockquote>
+          When Jesus then lifted up his eyes, and saw a great company come unto him, he saith unto Philip, Whence shall we buy bread, that these may eat? And this he said to prove him: for he knew what he would do. Philip answered him, Two hundred pennyworth of bread is not sufficient for them, that every one of them may take a little. One of his disciples, Andrew, Simon Peter&rsquo;s brother, saith unto him, There is a lad here, which hath five barley loaves, and two small fishes: but what are they among so many? And Jesus said, Make the men sit down. Now there was much grass in the place. So the men sat down, in number about five thousand. And Jesus took the loaves; and when he had given thanks, he distributed to the disciples, and the disciples to them that were set down; and likewise of the fishes as much as they would. When they were filled, he said unto his disciples, Gather up the fragments that remain, that nothing be lost. Therefore they gathered them together, and filled twelve baskets with the fragments of the five barley loaves, which remained over and above unto them that had eaten.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">John 6:5&ndash;13, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">No moral at the end&mdash;let the baskets speak. When the crowd is gone and the mind still runs, <a href="#fr-spring-father-knows" style="color:var(--gold);">your Father knows (Matthew 6:25&ndash;34)</a> is the next table read&mdash;same map block. A seven-day lane in the same voice: <a href="/plans.html?plan=gospeljohn" style="color:var(--gold);">Gospel of John sampler</a> on this device.</p>
+      </div>
+    </section>
+
+    <section class="fr-winter" id="fr-spring-father-knows" tabindex="-1" aria-labelledby="fr-spring-father-knows-h">
+      <h2 class="fr-winter__h" id="fr-spring-father-knows-h">Your Father knows what you need</h2>
+      <p class="fr-winter__lead">A longer <abbr title="King James Version">KJV</abbr> table read for May evenings, scattered weeks, or any season the schedule outpaces your soul&mdash;birds, lilies, and one priority line, not a lecture. The same text sits on the <a href="/university.html#uog-spring-father-knows" style="color:var(--gold);">University map</a> under <a href="/university.html#uog-pentecost-spirit" style="color:var(--gold);">Pentecost &amp; the Spirit</a>. After the loaves: <a href="#fr-provision-thousands" style="color:var(--gold);">five thousand fed</a> above; for paper when attention frays: <a href="/when-spring-feels-scattered-one-page-print.html" style="color:var(--gold);">when spring feels scattered (one page)</a> beside <a href="/when-spring-feels-overwhelming-one-page-print.html" style="color:var(--gold);">when spring feels overwhelming</a>.</p>
+      <div class="fr-winter-readaloud" id="fr-spring-father-knows-read" aria-labelledby="fr-spring-father-knows-read-h">
+        <h3 id="fr-spring-father-knows-read-h">Consider the lilies</h3>
+        <blockquote>
+          Therefore I say unto you, Take no thought for your life, what ye shall eat, or what ye shall drink; nor yet for your body, what ye shall put on. Is not the life more than meat, and the body than raiment? Behold the fowls of the air: for they sow not, neither do they reap, nor gather into barns; yet your heavenly Father feedeth them. Are ye not much better than they? Which of you by taking thought can add one cubit unto his stature? And why take ye thought for raiment? Consider the lilies of the field, how they grow; they toil not, neither do they spin: And yet I say unto you, That even Solomon in all his glory was not arrayed like one of these. Wherefore, if God so clothe the grass of the field, which to day is, and to morrow is cast into the oven, shall he not much more clothe you, O ye of little faith? Therefore take no thought, saying, What shall we eat? or, What shall we drink? or, Wherewithal shall we be clothed? (For after all these things do the Gentiles seek:) for your heavenly Father knoweth that ye have need of all these things. But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you. Take therefore no thought for the morrow: for the morrow shall take thought for the things of itself. Sufficient unto the day is the evil thereof.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">Matthew 6:25&ndash;34, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">Read once, slow&mdash;let &ldquo;seek ye first&rdquo; land before the room moves on. No quiz; the lilies are enough. Map mirror: <a href="/university.html#uog-spring-father-knows" style="color:var(--gold);">University &rarr; same read</a>.</p>
+      </div>
+    </section>
+
+    <section class="fr-winter" id="fr-summer-good-shepherd" tabindex="-1" aria-labelledby="fr-summer-good-shepherd-h">
+      <h2 class="fr-winter__h" id="fr-summer-good-shepherd-h">The Good Shepherd</h2>
+      <p class="fr-winter__lead">A table read for long July evenings or any season you need a pasture name&mdash;not a performance. Same text on the <a href="/university.html#uog-summer-good-shepherd" style="color:var(--gold);">University map</a>; <a href="/summer-harvest-university.html" style="color:var(--gold);">Summer &amp; harvest in the University</a> gathers thanks-week plans and read-alouds. When the need looks like empty lunch sacks first, <a href="#fr-provision-thousands" style="color:var(--gold);">five thousand fed</a> is the earlier table story. For wind and wave first, <a href="#fr-summer-peace-still-full" style="color:var(--gold);">peace, be still (full)</a> and <a href="#fr-summer-cast-your-care" style="color:var(--gold);">cast all your care</a> rest just below the sower. For the parable of the soils with Jesus&rsquo; own explanation&mdash;June heat or any week the heart feels thin&mdash;see <a href="#fr-summer-sower-full" style="color:var(--gold);">Sower &amp; good soil (full)</a> just above; for paper when the season outruns your rest, <a href="/when-summer-feels-too-much-one-page-print.html" style="color:var(--gold);">when summer feels too much (one page)</a>; for late summer&rsquo;s in-between days, <a href="/late-summer-reset-one-page-print.html" style="color:var(--gold);">late summer reset (one page)</a>.</p>
+      <div class="fr-winter-readaloud" id="fr-summer-shepherd-read" aria-labelledby="fr-summer-shepherd-read-h">
+        <h3 id="fr-summer-shepherd-read-h">I am the good shepherd</h3>
+        <blockquote>
+          I am the good shepherd: the good shepherd giveth his life for the sheep. But he that is an hireling, and not the shepherd, whose own the sheep are not, seeth the wolf coming, and leaveth the sheep, and fleeth: and the wolf catcheth them, and scattereth the sheep. The hireling fleeth, because he is an hireling, and careth not for the sheep. I am the good shepherd, and know my sheep, and am known of mine. As the Father knoweth me, even so know I the Father: and I lay down my life for the sheep. And other sheep I have, which are not of this fold: them also I must bring, and they shall hear my voice; and there shall be one fold, and one shepherd.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">John 10:11&ndash;16, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">No quiz after&mdash;let &ldquo;one fold, and one shepherd&rdquo; be the last sound. For the longer table&mdash;from the sheepfold to &ldquo;I lay it down, and I take it again&rdquo;&mdash;see <a href="#fr-shepherd-door-to-fold" style="color:var(--gold);">Good Shepherd, full read (door to one fold)</a> just below. For the field parable with the Lord&rsquo;s explanation, <a href="#fr-summer-sower-full" style="color:var(--gold);">Sower &amp; good soil (full)</a> sits next. A five-day stillness line in the same voice: <a href="/plans.html?plan=summerstill" style="color:var(--gold);">Summer stillness</a> on this device.</p>
+      </div>
+    </section>
+
+    <section class="fr-winter" id="fr-summer-sower-full" tabindex="-1" aria-labelledby="fr-summer-sower-full-h">
+      <h2 class="fr-winter__h" id="fr-summer-sower-full-h">The sower and good soil (full)</h2>
+      <p class="fr-winter__lead">A longer <abbr title="King James Version">KJV</abbr> table read for June and any season you want the parable and the explanation together&mdash;not the shorter field story in <a href="#fr-fall-sower" style="color:var(--gold);">fall, the sower</a> (Matthew 13:3&ndash;8) later on this page. The same text sits on the <a href="/university.html#uog-summer-sower-full" style="color:var(--gold);">University map &rarr; summer &amp; harvest</a>. When heat and one-more-thing feel like too much, <a href="/when-summer-feels-too-much-one-page-print.html" style="color:var(--gold);">when summer feels too much (one page)</a> tucks beside the spring pair in a folder; <a href="/plans.html?plan=sower" style="color:var(--gold);">The Sower (Battle Plans)</a> walks the parable day by day on this device if the table wants a slower pace than one sitting.</p>
+      <div class="fr-winter-readaloud" id="fr-summer-sower-full-par" aria-labelledby="fr-summer-sower-full-par-h">
+        <h3 id="fr-summer-sower-full-par-h">By the sea: who hath ears to hear</h3>
+        <blockquote>
+          The same day went Jesus out of the house, and sat by the sea side. And great multitudes were gathered together unto him, so that he went into a ship, and sat; and the whole multitude stood on the shore. And he spake many things unto them in parables, saying, Behold, a sower went forth to sow; And when he sowed, some seeds fell by the way side, and the fowls came and devoured them up: Some fell upon stony places, where they had not much earth: and forthwith they sprung up, because they had no deepness of earth: And when the sun was up, they were scorched; and because they had no root, they withered away. And some fell among thorns; and the thorns sprung up, and choked them: But other fell into good ground, and brought forth fruit, some an hundredfold, some sixtyfold, some thirtyfold. Who hath ears to hear, let him hear.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">Matthew 13:1&ndash;9, <abbr title="King James Version">KJV</abbr></p>
+      </div>
+      <div class="fr-winter-readaloud" id="fr-summer-sower-full-exp" aria-labelledby="fr-summer-sower-full-exp-h">
+        <h3 id="fr-summer-sower-full-exp-h">Hear ye therefore the parable of the sower</h3>
+        <blockquote>
+          Hear ye therefore the parable of the sower. When any one heareth the word of the kingdom, and understandeth it not, then cometh the wicked one, and catcheth away that which was sown in his heart. This is he which received seed by the way side. But he that received the seed into stony places, the same is he that heareth the word, and anon with joy receiveth it; Yet hath he not root in himself, but dureth for a while: for when tribulation or persecution ariseth because of the word, by and by he is offended. He also that received seed among the thorns is he that heareth the word; and the care of this world, and the deceitfulness of riches, choke the word, and he becometh unfruitful. But he that received seed into the good ground is he that heareth the word, and understandeth it; which also beareth fruit, and bringeth forth, some an hundredfold, some sixty, some thirty.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">Matthew 13:18&ndash;23, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">Read the second block only if little ears are still with you&mdash;no test; let &ldquo;good ground&rdquo; be enough. A shorter sower (parable only) lives in <a href="#fr-fall-sower" style="color:var(--gold);">fall, the sower &rarr; below</a>. Map mirror: <a href="/university.html#uog-summer-sower-full" style="color:var(--gold);">University &rarr; same read</a>. When the heart needs a storm story, not a field&mdash;see <a href="#fr-summer-peace-still-full" style="color:var(--gold);">peace, be still (full)</a> and <a href="#fr-summer-cast-your-care" style="color:var(--gold);">cast all your care &rarr; below</a>.</p>
+      </div>
+    </section>
+
+    <section class="fr-winter" id="fr-summer-peace-still-full" tabindex="-1" aria-labelledby="fr-summer-peace-still-full-h">
+      <h2 class="fr-winter__h" id="fr-summer-peace-still-full-h">Peace, be still (the full lake crossing)</h2>
+      <p class="fr-winter__lead">A longer <abbr title="King James Version">KJV</abbr> table read for July heat, travel, or any week the house feels like weather&mdash;the whole boat, not only the three waves in <a href="#fr-winter-storm" style="color:var(--gold);">winter, peace after the wind</a>. The same text sits on the <a href="/university.html#uog-summer-peace-still-full" style="color:var(--gold);">University map &rarr; summer &amp; harvest</a>. For a single evening line about handing worry over: <a href="#fr-summer-cast-your-care" style="color:var(--gold);">cast all your care &rarr; below</a> (1 Peter 5:6&ndash;7).</p>
+      <div class="fr-winter-readaloud" id="fr-summer-peace-still-read" aria-labelledby="fr-summer-peace-still-read-h">
+        <h3 id="fr-summer-peace-still-read-h">Let us pass over; peace, be still</h3>
+        <blockquote>
+          And the same day, when the even was come, he saith unto them, Let us pass over unto the other side. And when they had sent away the multitude, they took him even as he was in the ship. And there were also with him other little ships. And there arose a great storm of wind, and the waves beat into the ship, so that it was now full. And he was in the hinder part of the ship, asleep on a pillow: and they awake him, and say unto him, Master, carest thou not that we perish? And he arose, and rebuked the wind, and said unto the sea, Peace, be still. And the wind ceased, and there was a great calm. And he said unto them, Why are ye so fearful? how is it that ye have no faith? And they feared exceedingly, and said one to another, What manner of man is this, that even the wind and the sea obey him?
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">Mark 4:35&ndash;41, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">Read it once&mdash;let the last question rest; no need to &ldquo;fix&rdquo; the disciples&rsquo; fear out loud. The short winter tell is still <a href="#fr-winter-storm" style="color:var(--gold);">winter, peace after the wind</a>. Map mirror: <a href="/university.html#uog-summer-peace-still-full" style="color:var(--gold);">University &rarr; same read</a>.</p>
+      </div>
+    </section>
+
+    <section class="fr-winter" id="fr-summer-cast-your-care" tabindex="-1" aria-labelledby="fr-summer-cast-your-care-h">
+      <h2 class="fr-winter__h" id="fr-summer-cast-your-care-h">Cast all your care upon him</h2>
+      <p class="fr-winter__lead">A short <abbr title="King James Version">KJV</abbr> read for summer evenings&mdash;or any season the mind will not unclench&mdash;after noise, before sleep. The same two verses sit on the <a href="/university.html#uog-summer-cast-your-care" style="color:var(--gold);">University map &rarr; summer &amp; harvest</a>. For one line in David&rsquo;s voice, winter still has <a href="#fr-winter-burden" style="color:var(--gold);">cast thy burden (Psalm 55:22)</a>; for wind and water first, <a href="#fr-summer-peace-still-full" style="color:var(--gold);">peace, be still (full)</a> above. Paper when August and the lists share the same week: <a href="/late-summer-reset-one-page-print.html" style="color:var(--gold);">late summer reset (one page)</a>.</p>
+      <div class="fr-winter-readaloud" id="fr-summer-cast-your-care-read" aria-labelledby="fr-summer-cast-your-care-read-h">
+        <h3 id="fr-summer-cast-your-care-read-h">Humble, then hand it over</h3>
+        <blockquote>
+          Humble yourselves therefore under the mighty hand of God, that he may exalt you in due time: Casting all your care upon him; for he careth for you.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">1 Peter 5:6&ndash;7, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">Read slow&mdash;one breath at the comma. No quiz. The five-verse <a href="/late-summer-reset-one-page-print.html" style="color:var(--gold);">late summer reset (one page)</a> tucks in a visor or drawer beside <a href="/plans.html?plan=latesummerrest" style="color:var(--gold);">late summer, early rest</a> on the device. Map mirror: <a href="/university.html#uog-summer-cast-your-care" style="color:var(--gold);">University &rarr; same read</a>.</p>
+      </div>
+    </section>
+
+    <section class="fr-winter" id="fr-shepherd-door-to-fold" tabindex="-1" aria-labelledby="fr-shepherd-door-to-fold-h">
+      <h2 class="fr-winter__h" id="fr-shepherd-door-to-fold-h">The Good Shepherd: from the door to one fold</h2>
+      <p class="fr-winter__lead">A fuller <abbr title="King James Version">KJV</abbr> read for winter, spring, or any week you want His whole voice&mdash;not the shorter stretch in <a href="#fr-summer-good-shepherd" style="color:var(--gold);">the Good Shepherd</a> (John 10:11&ndash;16) above. The same text sits on the <a href="/university.html#uog-shepherd-door-to-fold" style="color:var(--gold);">University map &rarr; Shepherd, door to fold</a>. When the sky and the week both feel gray, <a href="/when-winter-lingers-one-page-print.html" style="color:var(--gold);">when winter lingers (one page)</a> tucks in a journal beside <a href="/plans.html?plan=latefallwinter" style="color:var(--gold);">late fall, quiet winter</a> on this device. Not a lesson&mdash;one long listen.</p>
+      <div class="fr-winter-readaloud" id="fr-shepherd-door-to-fold-read" aria-labelledby="fr-shepherd-door-to-fold-read-h">
+        <h3 id="fr-shepherd-door-to-fold-read-h">Verily, verily: the door, the voice, the life</h3>
+        <blockquote>
+          Verily, verily, I say unto you, He that entereth not by the door into the sheepfold, but climbeth up some other way, the same is a thief and a robber. But he that entereth in by the door is the shepherd of the sheep. To him the porter openeth; and the sheep hear his voice: and he calleth his own sheep by name, and leadeth them out. And when he putteth forth his own sheep, he goeth before them, and the sheep follow him: for they know his voice. And a stranger will they not follow, but will flee from him: for they know not the voice of strangers. This parable spake Jesus unto them: but they understood not what things they were which he spake unto them. Then said Jesus unto them again, Verily, verily, I say unto you, I am the door of the sheep. All that ever came before me are thieves and robbers: but the sheep did not hear them. I am the door: by me if any man enter in, he shall be saved, and shall go in and out, and find pasture. The thief cometh not, but for to steal, and to kill, and to destroy: I am come that they might have life, and that they might have it more abundantly. I am the good shepherd: the good shepherd giveth his life for the sheep. But he that is an hireling, and not the shepherd, whose own the sheep are not, seeth the wolf coming, and leaveth the sheep, and fleeth: and the wolf catcheth them, and scattereth the sheep. The hireling fleeth, because he is an hireling, and careth not for the sheep. I am the good shepherd, and know my sheep, and am known of mine. As the Father knoweth me, even so know I the Father: and I lay down my life for the sheep. And other sheep I have, which are not of this fold: them also I must bring, and they shall hear my voice; and there shall be one fold, and one shepherd. Therefore doth my Father love me, because I lay down my life, that I might take it again. No man taketh it from me, but I lay it down of myself. I have power to lay it down, and I have power to take it again. This commandment have I received of my Father.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">John 10:1&ndash;18, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">Read it once&mdash;or split at verse 10 if little legs need a stretch. A shorter pass at the same heart is still <a href="#fr-summer-good-shepherd" style="color:var(--gold);">John 10:11&ndash;16 above</a>. A five-verse print for long cold weeks: <a href="/when-winter-lingers-one-page-print.html" style="color:var(--gold);">when winter lingers (one page)</a>. For a little-chair stop another night: <a href="/little-ones.html" style="color:var(--gold);">For the little ones</a> and <a href="/kids/corner.html" style="color:var(--gold);">Bible story library</a> stay gentle&mdash;no pressure here.</p>
+      </div>
+    </section>
+
+    <section class="fr-winter" id="fr-fall" tabindex="-1" aria-labelledby="fr-fall-h">
+      <h2 class="fr-winter__h" id="fr-fall-h">Fall: stillness and good soil</h2>
+      <p class="fr-winter__lead">When the light tilts and the week fills in again&mdash;no lesson plan, only two table reads. The same text sits on the <a href="/university.html#uog-fall-family-reads" style="color:var(--gold);">University map &rarr; fall at the table</a>; <a href="/seasonal.html#quiet-fall-harvest" style="color:var(--gold);">quiet fall harvest</a> when you want five slow days on the device. For a fridge or backpack folder, <a href="/when-school-feels-hard-one-page-print.html" style="color:var(--gold);">when school feels hard (one page)</a>. After a long summer with the <a href="#fr-summer-good-shepherd" style="color:var(--gold);">Shepherd&rsquo;s voice</a>, the invitation in <a href="#fr-come-to-me" style="color:var(--gold);">Come unto me</a> is the next natural stop below.</p>
+      <div class="fr-winter-readaloud" id="fr-fall-be-still" aria-labelledby="fr-fall-be-still-h">
+        <h3 id="fr-fall-be-still-h">Be still and know</h3>
+        <blockquote>
+          Be still, and know that I am God: I will be exalted among the heathen, I will be exalted in the earth.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">Psalm 46:10, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">One hush before the schedule lands&mdash;read it twice if the morning was loud. A five-day gratitude lane in the same quiet key: <a href="/plans.html?plan=harvestthanks" style="color:var(--gold);">Harvest Gratitude (7 days)</a> on this device when thanks needs room.</p>
+      </div>
+      <div class="fr-winter-readaloud" id="fr-fall-sower" aria-labelledby="fr-fall-sower-h">
+        <h3 id="fr-fall-sower-h">The sower and the soils</h3>
+        <blockquote>
+          And he spake many things unto them in parables, saying, Behold, a sower went forth to sow; And when he sowed, some seeds fell by the way side, and the fowls came and devoured them up: Some fell upon stony places, where they had not much earth: and forthwith they sprung up, because they had no deepness of earth: And when the sun was up, they were scorched; and because they had no root, they withered away. And some fell among thorns; and the thorns sprung up, and choked them: But other fell into good ground, and brought forth fruit, some an hundredfold, some sixtyfold, some thirtyfold.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">Matthew 13:3&ndash;8, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">Let the last line be the one that rests&mdash;no quiz. For the same parable with Jesus&rsquo; explanation (Matthew 13:1&ndash;9; 18&ndash;23), see <a href="#fr-summer-sower-full" style="color:var(--gold);">Sower &amp; good soil (full)</a> above. The same parable walks day by day in <a href="/plans.html?plan=sower" style="color:var(--gold);">The Sower (Battle Plans)</a> and has a <a href="/plans.html?plan=sower-kids" style="color:var(--gold);">gentle kids lane</a> when the table is young.</p>
+      </div>
+    </section>
+
+    <section class="fr-winter" id="fr-come-to-me" tabindex="-1" aria-labelledby="fr-come-to-me-h">
+      <h2 class="fr-winter__h" id="fr-come-to-me-h">Come unto me</h2>
+      <p class="fr-winter__lead">A table read when the week feels heavy&mdash;new school year, old worry, or any season labour sounds louder than rest. The same lines are the first &ldquo;compass&rdquo; band on the <a href="/university.html#uog-matt-11" style="color:var(--gold);">University map</a>; <a href="/back-to-school-university.html" style="color:var(--gold);">Back to school in the University</a> gathers plans when the calendar refills. Just below: <a href="#fr-bts-lost-sheep-full" style="color:var(--gold);">the lost sheep (full, Luke 15)</a> and <a href="#fr-bts-washes-feet" style="color:var(--gold);">Jesus washes the disciples&rsquo; feet (John 13)</a> on the map &rarr; <a href="/university.html#uog-back-to-school" style="color:var(--gold);">back to school</a>. <a href="#fr-fall" style="color:var(--gold);">Be still and the sower</a> above are the fall pair when October air shows up first; when you need a pasture voice in high summer, <a href="#fr-summer-good-shepherd" style="color:var(--gold);">the Good Shepherd</a> sits higher on this page. For paper when green thins to gold: <a href="/when-the-leaves-start-turning-one-page-print.html" style="color:var(--gold);">when the leaves start turning (one page)</a>.</p>
+      <div class="fr-winter-readaloud" id="fr-come-to-me-read" aria-labelledby="fr-come-to-me-read-h">
+        <h3 id="fr-come-to-me-read-h">I will give you rest</h3>
+        <blockquote>
+          Come unto me, all ye that labour and are heavy laden, and I will give you rest. Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls. For my yoke is easy, and my burden is light.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">Matthew 11:28&ndash;30, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">Let &ldquo;learn of me&rdquo; land before the to-do list. If the nerves run to tomorrow: <a href="/plans.html?plan=schoolcourage" style="color:var(--gold);">Back-to-School Courage (7 days)</a> and <a href="/plans.html?plan=universityanxiety" style="color:var(--gold);">The University of Anxiety &amp; Fear (6 days)</a> on this device, same saved pace as every other week. The next two blocks&mdash;<a href="#fr-bts-lost-sheep-full" style="color:var(--gold);">lost sheep (full)</a> and <a href="#fr-bts-washes-feet" style="color:var(--gold);">washed their feet</a>&mdash;are table reads for September and any week the heart feels one step behind.</p>
+      </div>
+    </section>
+
+    <section class="fr-winter" id="fr-bts-lost-sheep-full" tabindex="-1" aria-labelledby="fr-bts-lost-sheep-full-h">
+      <h2 class="fr-winter__h" id="fr-bts-lost-sheep-full-h">The lost sheep (full parable)</h2>
+      <p class="fr-winter__lead">A <abbr title="King James Version">KJV</abbr> table read for September hallways or any week someone feels easy to overlook&mdash;not the woman&rsquo;s silver piece in <a href="#fr-spring-lost-coin" style="color:var(--gold);">spring, the lost piece (Luke 15:8&ndash;10)</a>, but the whole shepherd parable with heaven&rsquo;s joy named at the end. The same text sits on the <a href="/university.html#uog-bts-lost-sheep-full" style="color:var(--gold);">University map &rarr; back to school</a>. <a href="/kids/corner.html?story=lostSheep" style="color:var(--gold);">Kids Corner &rarr; lost sheep</a> carries a gentler panel pace when little eyes are first at the table.</p>
+      <div class="fr-winter-readaloud" id="fr-bts-lost-sheep-read" aria-labelledby="fr-bts-lost-sheep-read-h">
+        <h3 id="fr-bts-lost-sheep-read-h">Rejoice with me; joy in heaven</h3>
+        <blockquote>
+          And he spake this parable unto them, saying, What man of you, having an hundred sheep, if he lose one of them, doth not leave the ninety and nine in the wilderness, and go after that which is lost, until he find it? And when he hath found it, he layeth it on his shoulders, rejoicing. And when he cometh home, he calleth together his friends and neighbours, saying unto them, Rejoice with me; for I have found my sheep which was lost. I say unto you, that likewise joy shall be in heaven over one sinner that repenteth, more than over ninety and nine just persons, which need no repentance.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">Luke 15:3&ndash;7, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">Read once&mdash;let &ldquo;joy shall be in heaven&rdquo; be the last sound. Map mirror: <a href="/university.html#uog-bts-lost-sheep-full" style="color:var(--gold);">University &rarr; same read</a>. For a folder when the week runs long: <a href="/when-school-feels-hard-one-page-print.html" style="color:var(--gold);">when school feels hard (one page)</a> &middot; <a href="/when-the-leaves-start-turning-one-page-print.html" style="color:var(--gold);">when the leaves start turning (one page)</a>.</p>
+      </div>
+    </section>
+
+    <section class="fr-winter" id="fr-bts-washes-feet" tabindex="-1" aria-labelledby="fr-bts-washes-feet-h">
+      <h2 class="fr-winter__h" id="fr-bts-washes-feet-h">He washed their feet</h2>
+      <p class="fr-winter__lead">A <abbr title="King James Version">KJV</abbr> read for late-summer evenings or any season pride and hurry sit at the same table&mdash;the Master with a towel before the hard week. The same text sits on the <a href="/university.html#uog-bts-washes-feet" style="color:var(--gold);">University map &rarr; back to school</a>. The new commandment and love thread continue in <a href="/reading-plan.html?study=love-one-another" style="color:var(--gold);">Love one another (5 days)</a> on this device if the table wants a slow week after this one sitting.</p>
+      <div class="fr-winter-readaloud" id="fr-bts-washes-feet-read" aria-labelledby="fr-bts-washes-feet-read-h">
+        <h3 id="fr-bts-washes-feet-read-h">If I then, your Lord and Master</h3>
+        <blockquote>
+          He riseth from supper, and laid aside his garments; and took a towel, and girded himself. After that he poureth water into a bason, and began to wash the disciples&rsquo; feet, and to wipe them with the towel wherewith he was girded. Then cometh he to Simon Peter: and Peter saith unto him, Lord, dost thou wash my feet? Jesus answered and said unto him, What I do thou knowest not now; but thou shalt know hereafter. Peter saith unto him, Thou shalt never wash my feet. Jesus answered him, If I wash thee not, thou hast no part with me. Simon Peter saith unto him, Lord, not my feet only, but also my hands and my head. Jesus saith to him, He that is washed needeth not save to wash his feet, but is clean every whit: and ye are clean, but not all. For he knew who should betray him; therefore said he, Ye are not all clean. So after he had washed their feet, and had taken his garments, and was set down again, he said unto them, Know ye what I have done to you? Ye call me Master and Lord: and ye say well; for so I am. If I then, your Lord and Master, have washed your feet; ye also ought to wash one another&rsquo;s feet. For I have given you an example, that ye should do as I have done to you.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">John 13:4&ndash;15, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">No object lesson after&mdash;let the towel speak. Map mirror: <a href="/university.html#uog-bts-washes-feet" style="color:var(--gold);">University &rarr; same read</a>. Coloring scene (no lesson required): <a href="/coloring.html" style="color:var(--gold);">Kids coloring &rarr; Jesus washes feet</a>.</p>
+      </div>
+    </section>
+
+    <section class="fr-winter" id="fr-late-autumn" tabindex="-1" aria-labelledby="fr-late-autumn-h">
+      <h2 class="fr-winter__h" id="fr-late-autumn-h">Late autumn: return and one loaf</h2>
+      <p class="fr-winter__lead" id="fr-october-harvest" tabindex="-1">October harvest&mdash;when small thanks and early-dark evenings share the same week, not a performance, only the next true read. The two blocks just below&mdash;<a href="#fr-late-autumn-leper" style="color:var(--gold);">the one who came back to say thank you (Luke 17:11&ndash;19)</a> and <a href="#fr-late-autumn-bread" style="color:var(--gold);">this day&rsquo;s bread (Matthew 6:9&ndash;13)</a>&mdash;are harvest-table reads; the same lines sit on the <a href="/university.html#uog-october-harvest" style="color:var(--gold);">University map &rarr; October at the table</a>. For busier, heavier weeks, <a href="/when-fall-feels-heavy-one-page-print.html" style="color:var(--gold);">when fall feels heavy (one page)</a> beside <a href="/when-the-leaves-start-turning-one-page-print.html" style="color:var(--gold);">when the leaves start turning</a> and <a href="/plans.html?plan=quietfallharvest" style="color:var(--gold);">quiet fall harvest (5 days)</a> on this device.</p>
+      <p class="fr-winter__lead">November light is honest about winter&mdash;no sermon. The two read-alouds just below (leper, daily bread) stay the harvest-season pair; the same lines sit on the <a href="/university.html#uog-late-autumn-thanks" style="color:var(--gold);">University map &rarr; late autumn at the table</a>. For a second November pair&mdash;small gift, great heart; rejoice, pray, give thanks&mdash;see <a href="#fr-november-widow-thanks" style="color:var(--gold);">November: widow, give thanks</a> next. <a href="/plans.html?plan=harvestthanks" style="color:var(--gold);">Harvest Gratitude (7 days)</a> and <a href="/seasonal.html#harvest-thanks" style="color:var(--gold);">Seasonal &rarr; harvest &amp; thanks</a> when the week wants a device pace; for paper when dusk steals minutes, <a href="/when-the-days-grow-short-one-page-print.html" style="color:var(--gold);">when the days grow short (one page)</a>; for a table that feels empty or heavy, <a href="/when-thanksgiving-feels-lonely-or-hard-one-page-print.html" style="color:var(--gold);">when Thanksgiving feels lonely or hard (one page)</a>. After the fall pair in <a href="#fr-fall" style="color:var(--gold);">stillness and good soil</a>, late autumn thanks lead toward <a href="#fr-november-widow-thanks" style="color:var(--gold);">November&rsquo;s mite and give-thanks reads</a>, then <a href="#fr-december-manger" style="color:var(--gold);">December&rsquo;s manger</a> and <a href="#fr-emmanuel-year" style="color:var(--gold);">Emmanuel through the year</a> below.</p>
+      <div class="fr-winter-readaloud" id="fr-late-autumn-leper" aria-labelledby="fr-late-autumn-leper-h">
+        <h3 id="fr-late-autumn-leper-h">The one who came back to say thank you</h3>
+        <blockquote>
+          And it came to pass, as he went to Jerusalem, that he passed through the midst of Samaria and Galilee. And as he entered into a certain village, there met him ten men that were lepers, which stood afar off: And they lifted up their voices, and said, Jesus, Master, have mercy on us. And when he saw them, he said unto them, Go shew yourselves unto the priests. And it came to pass, that, as they went, they were cleansed. And one of them, when he saw that he was healed, turned back, and with a loud voice glorified God, And fell down on his face at his feet, giving him thanks: and he was a Samaritan. And Jesus answering said, Were there not ten cleansed? but where are the nine? There are not found that returned to give glory to God, save this stranger. And he said unto him, Arise, go thy way: thy faith hath made thee whole.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">Luke 17:11&ndash;19, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">This is not a scolding of the nine&mdash;it is room for the one who needed to say it out loud. A shorter kids lane in the same story lives in <a href="/plans.html?plan=lordsprayer-kids" style="color:var(--gold);">Lord&rsquo;s Prayer for kids</a> and <a href="/plans.html?plan=beatitudes-kids" style="color:var(--gold);">Beatitudes for kids</a> on this device if the table is small; for grown-up week-long paths, <a href="/plans.html?plan=harvestthanks" style="color:var(--gold);">Harvest Gratitude</a> walks thanks in seven slow days.</p>
+      </div>
+      <div class="fr-winter-readaloud" id="fr-late-autumn-bread" aria-labelledby="fr-late-autumn-bread-h">
+        <h3 id="fr-late-autumn-bread-h">This day&rsquo;s bread</h3>
+        <blockquote>
+          After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name. Thy kingdom come. Thy will be done in earth, as it is in heaven. Give us this day our daily bread. And forgive us our debts, as we forgive our debtors. And lead us not into temptation, but deliver us from evil: For thine is the kingdom, and the power, and the glory, for ever. Amen.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">Matthew 6:9&ndash;13, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">Let &ldquo;Give us this day&rdquo; be the line that matters&mdash;one loaf, one day. The same prayer is night 2 of <a href="/plans.html?plan=eveninguog" style="color:var(--gold);">Evening in the University</a> in a longer read on this device; <a href="/plans.html?plan=lordsprayer" style="color:var(--gold);">Lord&rsquo;s Prayer (7 days)</a> unpacks the lines across a week if you want more than one table pass.</p>
+      </div>
+    </section>
+
+    <section class="fr-winter" id="fr-november-widow-thanks" tabindex="-1" aria-labelledby="fr-november-widow-thanks-h">
+      <h2 class="fr-winter__h" id="fr-november-widow-thanks-h">November: widow, give thanks</h2>
+      <p class="fr-winter__lead">One more November table pair&mdash;not instead of the leper and the loaf in <a href="#fr-late-autumn" style="color:var(--gold);">late autumn</a>, but beside them when the week wants a two-coin story and a three-line thanks you do not have to perform. The same <abbr title="King James Version">KJV</abbr> text sits on the <a href="/university.html#uog-november-widow-thanks" style="color:var(--gold);">University map &rarr; November at the table</a>. <a href="/plans.html?plan=universitygratitude" style="color:var(--gold);">The University of Gratitude (6 days)</a> and <a href="/plans.html?plan=universityloneliness" style="color:var(--gold);">The University of Loneliness (6 days)</a> on this device when the heart needs a slow class; for one ink page when the table feels empty or loud, <a href="/when-thanksgiving-feels-lonely-or-hard-one-page-print.html" style="color:var(--gold);">when Thanksgiving feels lonely or hard (one page)</a> &middot; <a href="/seasonal.html#thanksgiving-lonely-hard" style="color:var(--gold);">Seasonal &rarr; lonely or hard Thanksgiving</a>.</p>
+      <div class="fr-winter-readaloud" id="fr-november-widow-mite" aria-labelledby="fr-november-widow-mite-h">
+        <h3 id="fr-november-widow-mite-h">Of a truth&mdash;she cast in more</h3>
+        <blockquote>
+          And he looked up, and saw the rich men casting their gifts into the treasury: And he saw also a certain poor widow casting in thither two mites. And he said, Of a truth I say unto you, that this poor widow hath cast in more than they all: For all these have of their abundance cast in unto the offerings of God: but she of her penury hath cast in all the living that she had.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">Luke 21:1&ndash;4, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">Read once&mdash;let &ldquo;all the living that she had&rdquo; be the line that matters, not a lesson about amounts. Map mirror: <a href="/university.html#uog-november-widow-mite" style="color:var(--gold);">University &rarr; same read</a>.</p>
+      </div>
+      <div class="fr-winter-readaloud" id="fr-november-give-thanks" aria-labelledby="fr-november-give-thanks-h">
+        <h3 id="fr-november-give-thanks-h">Rejoice&mdash;pray&mdash;give thanks</h3>
+        <blockquote>
+          Rejoice evermore. Pray without ceasing. In every thing give thanks: for this is the will of God in Christ Jesus concerning you.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">1 Thessalonians 5:16&ndash;18, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">&ldquo;In every thing&rdquo; is not a demand for a happy face&mdash;it is His will, in Christ, for the week you actually have. Map mirror: <a href="/university.html#uog-november-give-thanks" style="color:var(--gold);">University &rarr; same read</a>. Five steady verses for a hard table: <a href="/when-thanksgiving-feels-lonely-or-hard-one-page-print.html" style="color:var(--gold);">when Thanksgiving feels lonely or hard (one page)</a>.</p>
+      </div>
+    </section>
+
+    <section class="fr-winter" id="fr-december-manger" tabindex="-1" aria-labelledby="fr-december-manger-h">
+      <h2 class="fr-winter__h" id="fr-december-manger-h">December: manger, then Word made flesh</h2>
+      <p class="fr-winter__lead">Waiting weeks and Christmas noise share the same porch&mdash;no sermon, three <abbr title="King James Version">KJV</abbr> reads when you want the birth, the shepherds&rsquo; joy, and the name behind it. The same text sits on the <a href="/university.html#uog-december-manger" style="color:var(--gold);">University map &rarr; December at the manger</a>. <a href="/plans.html?plan=adventquiet" style="color:var(--gold);">Advent quiet (7 days)</a> and <a href="/advent-christmas-university.html" style="color:var(--gold);">Advent &amp; Christmas in the University</a> when the week wants a device pace; for paper as December closes, <a href="/as-the-year-ends-one-page-print.html" style="color:var(--gold);">as the year ends (one page)</a> beside <a href="/year-end-rest-one-page-print.html" style="color:var(--gold);">year-end rest (one page)</a>. After <a href="#fr-november-widow-thanks" style="color:var(--gold);">November&rsquo;s widow and give-thanks reads</a> and <a href="#fr-late-autumn" style="color:var(--gold);">late autumn thanks</a>, this is a December stop before <a href="#fr-emmanuel-year" style="color:var(--gold);">Emmanuel through the year</a> below.</p>
+      <div class="fr-winter-readaloud" id="fr-december-birth" aria-labelledby="fr-december-birth-h">
+        <h3 id="fr-december-birth-h">No room at the inn&mdash;room in the manger</h3>
+        <blockquote>
+          And it came to pass in those days, that there went out a decree from Caesar Augustus, that all the world should be taxed. (And this taxing was first made when Cyrenius was governor of Syria.) And all went to be taxed, every one into his own city. And Joseph also went up from Galilee, out of the city of Nazareth, into Judaea, unto the city of David, which is called Bethlehem; (because he was of the house and lineage of David:) To be taxed with Mary his espoused wife, being great with child. And so it was, that, while they were there, the days were accomplished that she should be delivered. And she brought forth her firstborn son, and wrapped him in swaddling clothes, and laid him in a manger; because there was no room for them in the inn.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">Luke 2:1&ndash;7, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">Let the last line be the one that lands&mdash;a manger, not a verdict. A fuller Advent-week shelf of reads lives in <a href="/advent-christmas-university.html#acu-readaloud" style="color:var(--gold);">Advent &amp; Christmas in the University</a>; <a href="/plans.html?plan=christmas7" style="color:var(--gold);">Christmas week</a> walks the same season on this device in seven short days. Next: <a href="#fr-december-shepherds" style="color:var(--gold);">the shepherds&rsquo; night (Luke 2:8&ndash;14)</a>.</p>
+      </div>
+      <div class="fr-winter-readaloud" id="fr-december-shepherds" aria-labelledby="fr-december-shepherds-h">
+        <h3 id="fr-december-shepherds-h">Fear not&mdash;good tidings of great joy</h3>
+        <blockquote>
+          And there were in the same country shepherds abiding in the field, keeping watch over their flock by night. And, lo, the angel of the Lord came upon them, and the glory of the Lord shone round about them: and they were sore afraid. And the angel said unto them, Fear not: for, behold, I bring you good tidings of great joy, which shall be to all people. For unto you is born this day in the city of David a Saviour, which is Christ the Lord. And this shall be a sign unto you; Ye shall find the babe wrapped in swaddling clothes, lying in a manger. And suddenly there was with the angel a multitude of the heavenly host praising God, and saying, Glory to God in the highest, and on earth peace, good will toward men.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">Luke 2:8&ndash;14, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">The same night as the manger&mdash;glory, then peace named out loud. Map mirror: <a href="/university.html#uog-december-shepherds" style="color:var(--gold);">University &rarr; same read</a>. <a href="#fr-december-flesh" style="color:var(--gold);">Word made flesh (John 1:14)</a> is the one-line close after this.</p>
+      </div>
+      <div class="fr-winter-readaloud" id="fr-december-flesh" aria-labelledby="fr-december-flesh-h">
+        <h3 id="fr-december-flesh-h">The Word became flesh</h3>
+        <blockquote>
+          And the Word was made flesh, and dwelt among us, (and we beheld his glory, the glory as of the only begotten of the Father,) full of grace and truth.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">John 1:14, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">One line after the manger and the shepherds&rsquo; song&mdash;the same &ldquo;with us&rdquo; you will hear in <a href="#fr-emmanuel-year" style="color:var(--gold);">Emmanuel through the year</a> (Matthew&rsquo;s name). After the year turns, the full prologue to verse 14 lives in <a href="#fr-january-in-the-beginning" style="color:var(--gold);">January &rarr; In the beginning (full read)</a>. <a href="/plans.html?plan=emmanuel7" style="color:var(--gold);">Emmanuel week (7 days)</a> on this device; <a href="/plans.html?plan=gospeljohn" style="color:var(--gold);">Gospel of John sampler</a> if the Beloved Disciple&rsquo;s voice feels like the next honest step. Five verses for the year&rsquo;s last days: <a href="/as-the-year-ends-one-page-print.html" style="color:var(--gold);">as the year ends (one page)</a>.</p>
+      </div>
+    </section>
+
+    <section class="fr-winter" id="fr-january-in-the-beginning" tabindex="-1" aria-labelledby="fr-january-in-the-beginning-h">
+      <h2 class="fr-winter__h" id="fr-january-in-the-beginning-h">January: In the beginning (full read)</h2>
+      <p class="fr-winter__lead">When the tree is down but the name still matters&mdash;one slow <abbr title="King James Version">KJV</abbr> read from &ldquo;In the beginning&rdquo; through &ldquo;full of grace and truth,&rdquo; not a lesson. The same text sits on the <a href="/university.html#uog-january-in-the-beginning" style="color:var(--gold);">University map &rarr; January, In the beginning</a>. <a href="/plans.html?plan=gentleyear" style="color:var(--gold);">Gentle New Year reset (5 days)</a> and <a href="/quiet-new-year-reset-one-page-print.html" style="color:var(--gold);">quiet New Year reset (one page)</a> when paper fits the week; <a href="/start-the-year-in-the-word.html" style="color:var(--gold);">Start the year in the Word</a> gathers prints and plans in one place. The short <a href="#fr-december-flesh" style="color:var(--gold);">one verse in December</a> is a doorstep; this is the whole porch.</p>
+      <div class="fr-winter-readaloud" id="fr-january-prologue-read" aria-labelledby="fr-january-prologue-read-h">
+        <h3 id="fr-january-prologue-read-h">In the beginning was the Word</h3>
+        <blockquote>
+          In the beginning was the Word, and the Word was with God, and the Word was God. The same was in the beginning with God. All things were made by him; and without him was not any thing made that was made. In him was life; and the life was the light of men. And the light shineth in darkness; and the darkness comprehended it not. There was a man sent from God, whose name was John. The same came for a witness, to bear witness of the Light, that all men through him might believe. He was not that Light, but was sent to bear witness of that Light. That was the true Light, which lighteth every man that cometh into the world. He was in the world, and the world was made by him, and the world knew him not. He came unto his own, and his own received him not. But as many as received him, to them gave he power to become the sons of God, even to them that believe on his name: Which were born, not of blood, nor of the will of the flesh, nor of the will of man, but of God. And the Word was made flesh, and dwelt among us, (and we beheld his glory, the glory as of the only begotten of the Father,) full of grace and truth.
+        </blockquote>
+        <p class="fr-winter-readaloud__cite">John 1:1&ndash;14, <abbr title="King James Version">KJV</abbr></p>
+        <p class="fr-winter-readaloud__hint">Read it once, slowly&mdash;no moral at the end. The same line closes <a href="#fr-december-flesh" style="color:var(--gold);">December&rsquo;s short &ldquo;Word made flesh&rdquo;</a> and opens <a href="#fr-emmanuel-year" style="color:var(--gold);">Emmanuel through the year</a> in Matthew&rsquo;s name. A five-verse print that matches the reset plan: <a href="/quiet-new-year-reset-one-page-print.html" style="color:var(--gold);">quiet New Year reset (one page)</a>.</p>
+      </div>
+    </section>
+
+    <section class="fr-emmanuel-year" id="fr-emmanuel-year" tabindex="-1" aria-labelledby="fr-emmanuel-year-h">
+      <h2 id="fr-emmanuel-year-h">Emmanuel through the year</h2>
+      <p class="fr-emmanuel-year__lead">When the decorations are put away, this name still holds: <strong class="fr-emmanuel-year__strong">God with us</strong> in March, in August, in a tired Tuesday. Not a new program&mdash;one table-sized read the whole household can hear.</p>
+      <blockquote>
+        Now all this was done, that it might be fulfilled which was spoken of the Lord by the prophet, saying, Behold, a virgin shall be with child, and shall bring forth a son, and they shall call his name Emmanuel, which being interpreted is, God with us.
+      </blockquote>
+      <p class="fr-emmanuel-year__cite">Matthew 1:22&ndash;23, <abbr title="King James Version">KJV</abbr></p>
+      <p class="fr-emmanuel-year__hint">Read it slow&mdash;no talk-back round unless someone wants to. A seven-day walk on this device: <a href="/plans.html?plan=emmanuel7">Emmanuel week</a>. The same two verses at the turn of the year: <a href="/start-the-year-in-the-word.html#sty-emmanuel-readaloud">Start the year in the Word &rarr; God with us</a>. Map mirror: <a href="/university.html#uog-emmanuel-year">University &rarr; Emmanuel through the year</a>. When January wants John&rsquo;s full prologue first: <a href="#fr-january-in-the-beginning">In the beginning (John 1:1&ndash;14)</a> with <a href="/quiet-new-year-reset-one-page-print.html">quiet New Year reset (one page)</a> beside <a href="/plans.html?plan=gentleyear">Gentle New Year reset</a>. When November asks for thanks first: <a href="#fr-late-autumn">Late autumn &rarr; leper, daily bread</a> or the <a href="#fr-november-widow-thanks">widow&rsquo;s mite and give thanks (1 Thess. 5:16&ndash;18)</a>. When December needs the birth, the shepherds&rsquo; song, and one line on the Word: <a href="#fr-december-manger">December &rarr; manger, shepherds, Word</a> (Luke 2; short John 1:14) with <a href="/as-the-year-ends-one-page-print.html">as the year ends (one page)</a> and <a href="/year-end-rest-one-page-print.html">year-end rest (one page)</a> for the year&rsquo;s last nights. When the calendar turns toward resurrection: <a href="#fr-spring-easter">Spring at the empty tomb</a> or <a href="/easter-resurrection-university.html">Resurrection &amp; Easter in the University</a>. For Advent-week reads in one room: <a href="/advent-christmas-university.html#acu-readaloud">Advent &amp; Christmas in the University</a>.</p>
+    </section>
+
+    <div id="fr-more" class="daily-rhythm-more-links" style="margin-top:2.5rem; text-align:center;" tabindex="-1">
+      <a href="/family.html" style="color:var(--gold); text-decoration:none; font-size:0.95rem;">Family hub →</a>
+      <span style="margin:0 1rem; color:var(--muted);">·</span>
+      <a href="/advent-christmas-university.html" style="color:var(--gold); text-decoration:none; font-size:0.95rem;">Advent &amp; Christmas →</a>
+      <span style="margin:0 1rem; color:var(--muted);">·</span>
+      <a href="/easter-resurrection-university.html" style="color:var(--gold); text-decoration:none; font-size:0.95rem;">Resurrection &amp; Easter →</a>
+      <span style="margin:0 1rem; color:var(--muted);">·</span>
+      <a href="/pentecost-spirit-university.html" style="color:var(--gold); text-decoration:none; font-size:0.95rem;">Pentecost &amp; the Spirit →</a>
+      <span style="margin:0 1rem; color:var(--muted);">·</span>
+      <a href="/summer-harvest-university.html" style="color:var(--gold); text-decoration:none; font-size:0.95rem;">Summer &amp; harvest →</a>
+      <span style="margin:0 1rem; color:var(--muted);">·</span>
+      <a href="/back-to-school-university.html" style="color:var(--gold); text-decoration:none; font-size:0.95rem;">Back to school →</a>
+      <span style="margin:0 1rem; color:var(--muted);">·</span>
+      <a href="/morning-evening-family-print.html" style="color:var(--gold); text-decoration:none; font-size:0.95rem;">Two-card print →</a>
+      <span style="margin:0 1rem; color:var(--muted);">·</span>
+      <a href="/university.html#uog-summer-in-the-university" style="color:var(--gold); text-decoration:none; font-size:0.95rem;">University map →</a>
+    </div>
+
+    <div id="fr-device" class="offline-note" tabindex="-1">
+      Family plans and solo plans can live on the same phone&mdash;each keeps its own day count. <a href="/printables.html" style="color:var(--gold);">Print hub</a> for more paper friends.
+    </div>
+  </main>
+
+  <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
+  <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+    <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+    <span class="tdb-lang-switcher-inner">
+      <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-essentials" aria-label="Key pages">
+    <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/verse.html">Today&rsquo;s Lesson</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/give" class="site-footer-ess-support" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <p class="site-footer-share-wrap">
+    <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
+    <span class="site-footer-share-sep" aria-hidden="true">·</span>
+    <button type="button" class="share-page-btn site-footer-tour-restart tdb-tour-restart-btn" aria-label="Restart the five-minute site tour">Restart site tour</button>
+  </p>
+
+  <p class="site-footer-support-nudge" role="note">
+    If this quiet place helped you, read <a href="/where-support-goes.html">where support goes</a>, then <a href="/give" class="site-footer-support-nudge-primary" id="footer-support-nudge-give" aria-label="Support this quiet place — opens secure giving page">give securely</a><span class="site-footer-support-nudge-dash" aria-hidden="true">&mdash;</span><span class="site-footer-support-nudge-you">you choose the amount.</span>
+    <span class="site-footer-support-nudge-alt"> Need the current support path? Use the <a href="/give" aria-label="Open the support page">support page</a>.</span>
+  </p>
+
+  <nav class="bottom-nav" role="navigation" aria-label="Plans and Spanish topics">
+    <a href="/plans.html">Plans</a>
+    <a href="/explore.html">Explore</a>
+    <a href="/kids/">Kids Battle</a>
+    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
+      <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
+      <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
+      <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
+    </span>
+    <details class="bottom-nav-es-more">
+      <summary><span class="bottom-nav-es-more-label">ES topics</span><span class="sr-only">Ansiedad, Fuerza, Paz</span></summary>
+      <div class="bottom-nav-es-more-panel" role="group" aria-label="Spanish topical pages">
+        <a href="/ansiedad.html" hreflang="es" lang="es" aria-label="Spanish topic: Ansiedad">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es" aria-label="Spanish topic: Fuerza">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es" aria-label="Spanish topic: Paz">Paz</a>
+      </div>
+    </details>
+  </nav>
+
+  <nav class="site-footer-nav" aria-label="Footer links">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/media.html">Media</a>
+    <a href="/roadmap.html">Roadmap</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/for-pastors.html">For pastors &amp; teachers</a>
+    <a href="/reader.html">Chapter reader</a>
+    <a href="/bible/tools.html">Study workshop</a>
+    <a href="/bible-tool.html">Bible tool</a>
+    <a href="/testimonials.html">Reader stories</a>
+    <a href="/journal/">Journal</a>
+    <a href="/where-support-goes.html">Where support goes</a>
+    <a href="/verse-cards/">Verse cards</a>
+    <a href="/security.html">Security</a>
+    <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
+    <a href="/give" id="footer-support-quiet-place" aria-label="Support this quiet place — optional gift; you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <details class="footer-sitemap">
+    <summary>Sitemap — topics, tools, church &amp; family (tap to expand)</summary>
+    <div class="footer-sitemap-grid">
+      <div class="footer-sitemap-col">
+        <h3>Topics</h3>
+        <a href="/explore.html">Full list (all pages)</a>
+        <a href="/topic-anxiety.html">Anxiety</a>
+        <a href="/topic-fear.html">Fear</a>
+        <a href="/topic-grief.html">Grief</a>
+        <a href="/topic-hope.html">Hope</a>
+        <a href="/topic-strength.html">Strength</a>
+        <a href="/topic-parenting.html">Parenting</a>
+        <a href="/topic-loneliness.html">Loneliness</a>
+        <a href="/topic-forgiveness.html">Forgiveness</a>
+        <a href="/topic-guilt.html">Guilt</a>
+        <a href="/topic-overwhelmed.html">Overwhelmed</a>
+        <a href="/topic-worthless.html">Worth / identity</a>
+      </div>
+      <div class="footer-sitemap-col footer-sitemap-col--es-links">
+        <h3>Spanish devotionals</h3>
+        <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es">Paz</a>
+        <a href="/explore.html#topics-es">All Spanish topics on Explore</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Tools</h3>
+        <a href="/verse.html">Verse of the Day</a>
+        <a href="/reader.html">Chapter reader</a>
+        <a href="/bible/tools.html">Study workshop</a>
+        <a href="/bible-tool.html">Bible tool</a>
+        <a href="/mystudy">My Study</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/mobius.html">Möbius</a>
+        <a href="/plans.html">Battle plans</a>
+        <a href="/reading-plan.html">7-day plan</a>
+        <a href="/study.html">Study workspace</a>
+        <a href="/wins.html">Wins</a>
+        <a href="/progress.html">Progress</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Church &amp; family</h3>
+        <a href="/church.html">Church center</a>
+        <a href="/church/">Church join hub</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit</a>
+        <a href="/pastor/">Pastor hub</a>
+        <a href="/sermon.html">Sermon builder</a>
+        <a href="/family.html">Family hub</a>
+        <a href="/little-ones.html">For the Little Ones</a>
+        <a href="/family-armor.html">Family Armor</a>
+        <a href="/kids/?v=hub20260321">Kids Battle home</a>
+        <a href="/kids/corner.html">Bible Story Library</a>
+        <a href="/kids-corner.html">Bible Loop Library</a>
+        <a href="/coloring.html">Color &amp; Tell</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>More</h3>
+        <a href="/prayer-wall.html">Prayer</a>
+        <a href="/bible-study.html">Bible studies</a>
+        <a href="/shop.html">Shop</a>
+        <a href="/story.html">Story</a>
+        <a href="/media.html">Media</a>
+        <a href="/roadmap.html">Roadmap</a>
+        <a href="/approach.html">How we respond</a>
+        <a href="/why-not-ai.html">Why not AI?</a>
+        <a href="/curriculum.html">Curriculum</a>
+        <a href="/verse-cards/">Verse cards</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </details>
+
+  <p class="footer-humility">We battle. He wins.</p>
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
+
+  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
+    <p class="footer-friday-signup-label">Get the weekly verse recap — one email, no spam, unsubscribe anytime.</p>
+    <div class="footer-friday-signup-row">
+      <label for="footer-friday-email" class="sr-only">Email for Friday recap</label>
+      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="your@email.com" aria-label="Email for Friday recap" autocomplete="email">
+      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit">Subscribe</button>
+    </div>
+    <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
+  </div>
+
+  <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
+  <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
+
+  <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
+  <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">April 24, 2026</span></p>
+  <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
+</footer>
+
+  <script nonce="tdb2025s">
+    window.addEventListener('load', function() {
+      console.log('%cFamily rhythm hub: morning, evening, one-week print.', 'color:#d4af7b;font-size:0.8rem;');
+    });
+  </script>
+</body>
+</html>

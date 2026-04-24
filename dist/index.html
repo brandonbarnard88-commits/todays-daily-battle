@@ -3451,6 +3451,23 @@
       letter-spacing: 0.01em;
     }
 
+    .tdb-home-what-makes-different {
+      margin: 0.35rem 0 0.9rem;
+      padding: 0.6rem 0.75rem;
+      max-width: 40rem;
+      font-size: clamp(0.86rem, 2.1vw, 0.95rem);
+      line-height: 1.5;
+      color: color-mix(in srgb, var(--muted) 94%, var(--text));
+      background: color-mix(in srgb, var(--card) 88%, transparent);
+      border: 1px solid color-mix(in srgb, var(--line) 75%, transparent);
+      border-radius: 8px;
+    }
+    :root[data-theme="light"] .tdb-home-what-makes-different {
+      color: #5a6478;
+      background: color-mix(in srgb, #f6f2ea 95%, #fff 5%);
+      border-color: color-mix(in srgb, #c9c0b0 55%, #e8e2d6);
+    }
+
     /* Same two-part rhythm as locale hubs: official calendar + one rotating KJV anchor (script.js initHubDailyAnchorRotate) */
     .en-hub-daily-companion {
       margin: 0.85rem 0 0;
@@ -5569,6 +5586,17 @@
     /* Clear fixed bottom dock + home indicator — “Last updated” was easy to miss or covered */
     .site-footer.site-footer--canonical {
       padding-bottom: max(5.75rem, calc(4.5rem + env(safe-area-inset-bottom, 0px)));
+    }
+    .site-footer-uog-whisper {
+      margin: 0 0 0.35rem;
+      font-size: clamp(0.8rem, 1.9vw, 0.88rem);
+      line-height: 1.4;
+      color: color-mix(in srgb, var(--muted) 92%, var(--text));
+      letter-spacing: 0.01em;
+      opacity: 0.92;
+    }
+    :root[data-theme="light"] .site-footer-uog-whisper {
+      color: #6a7382;
     }
     .site-footer-updated {
       margin-top: 0.5rem;
@@ -8480,7 +8508,7 @@
       </div>
       <div class="hero-brand-taglines" role="group" aria-label="Site motto">
         <p class="soul-tag">Less scroll, more soul</p>
-        <p class="site-tagline tdb-site-tagline-learning" lang="en">Learning of Him, one day at a time. <span class="tdb-header-tag-cite" title="Take my yoke upon you, and learn of me.">Matthew 11:29</span></p>
+        <p class="site-tagline tdb-site-tagline-learning" lang="en">The University of God &mdash; learning of Him, one day at a time. <span class="tdb-header-tag-cite" title="Take my yoke upon you, and learn of me.">Matthew 11:29</span></p>
       </div>
       <h1 class="site-title">Today's Daily Battle</h1>
       <span class="site-title-underline" aria-hidden="true"></span>
@@ -9192,6 +9220,7 @@
           </div>
         </section>
         <p class="hero-daily-bread-line" role="text">Daily bread for today&mdash;one verse at a time.</p>
+        <p class="tdb-home-what-makes-different" role="note">A quiet University of God for real hard days. No streaks, no pressure &mdash; only steady help in God&rsquo;s Word through every season of life.</p>
         <div class="en-hub-daily-companion" id="en-hub-daily-verse" lang="en" aria-labelledby="en-hub-daily-heading">
           <h2 class="en-hub-daily-companion-title" id="en-hub-daily-heading">Verse of the day — same rhythm as every hub</h2>
           <div class="en-hub-daily-companion-grid">
@@ -10025,6 +10054,7 @@
   </details>
 
   <p class="footer-humility">We battle. He wins.</p>
+  <p class="site-footer-uog-whisper" role="note">The University of God &mdash; learning of Him, one day at a time.</p>
   <p class="site-footer-beta-note">Built solo by Brandon &bull; God&rsquo;s University of Life &mdash; a quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
   <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
 
@@ -10044,7 +10074,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">April 23, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">April 24, 2026</span></p>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
 </footer>
 

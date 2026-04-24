@@ -4588,6 +4588,20 @@ html[data-theme="light"] .tdb-vb-curriculum-heading {
 }
 
 /* /university.html — five KJV anchors */
+.tdb-university-page .tdb-uog-distinct-lead {
+  margin: 0.65rem 0 0.5rem;
+  max-width: 44rem;
+  font-size: clamp(0.98rem, 2.3vw, 1.08rem);
+  line-height: 1.55;
+  color: color-mix(in srgb, var(--text) 90%, var(--muted));
+  font-weight: 500;
+}
+.tdb-university-page .tdb-uog-why-exists {
+  margin-top: 0.15rem;
+}
+html[data-theme="light"] .tdb-university-page .tdb-uog-distinct-lead {
+  color: #3a342c;
+}
 .tdb-university-page .tdb-university-kjv {
   margin: 0.35rem 0 0.5rem;
   padding: 0.75rem 0.85rem 0.85rem;

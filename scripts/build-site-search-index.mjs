@@ -83,6 +83,7 @@ const ENTRIES = [
   { t: 'Need a verse now', u: '/v.html', k: 'quick' },
   { t: 'He is risen (Easter)', u: '/he-is-risen.html', k: 'easter resurrection' },
   { t: 'Resurrection & Easter in the University (hub)', u: '/easter-resurrection-university.html', k: 'easter resurrection hope empty tomb spring holy week john 20' },
+  { t: 'Pentecost & the Spirit in the University (hub)', u: '/pentecost-spirit-university.html', k: 'pentecost holy spirit acts comforter gospel john summer stillness secret prayer feeding five thousand' },
   { t: 'Psalms hub', u: '/psalms.html', k: 'comfort' },
   { t: 'Seasonal paths', u: '/seasonal.html', k: 'advent lent' },
   { t: 'What God has done', u: '/what-god-has-done.html', k: 'testimony' },

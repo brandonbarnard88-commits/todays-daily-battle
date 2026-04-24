@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-23T23:58:40.200Z",
-  "surfacedRefCount": 2922,
-  "overrideCount": 2922,
+  "generatedAt": "2026-04-24T00:05:23.311Z",
+  "surfacedRefCount": 2923,
+  "overrideCount": 2923,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -260,7 +260,7 @@
       "pairs": 0
     },
     "family-rhythm.html": {
-      "refs": 13,
+      "refs": 14,
       "pairs": 0
     },
     "faq.html": {
@@ -791,6 +791,10 @@
       "refs": 2,
       "pairs": 0
     },
+    "pentecost-spirit-university.html": {
+      "refs": 2,
+      "pairs": 0
+    },
     "people-verse-map.js": {
       "refs": 477,
       "pairs": 0
@@ -956,7 +960,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 56,
+      "refs": 59,
       "pairs": 0
     },
     "testimonials.html": {
@@ -1036,7 +1040,7 @@
       "pairs": 0
     },
     "university.html": {
-      "refs": 25,
+      "refs": 27,
       "pairs": 0
     },
     "utils.js": {
@@ -1656,6 +1660,7 @@
     "Acts 28:1-10",
     "Acts 28:3",
     "Acts 28:5",
+    "Acts 2:1",
     "Acts 2:1-13",
     "Acts 2:1-4",
     "Acts 2:14",
@@ -8741,6 +8746,14 @@
     "Acts 28:5": {
       "general": {
         "plainExplanation": "And he shook off the beast into the fire, and felt no harm.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Luke",
+        "to": "Church"
+      }
+    },
+    "Acts 2:1": {
+      "general": {
+        "plainExplanation": "And when the day of Pentecost was fully come, they were all with one accord in one place.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Luke",
         "to": "Church"

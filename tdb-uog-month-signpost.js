@@ -46,10 +46,15 @@
     },
     4: {
       name: 'May',
-      lead: 'Longer evenings—room for one short read or one honest line in Ask the Teacher.',
+      lead: 'Longer light—fruit is allowed to be quiet. One verse can outlast a whole noisy list.',
+      whisper:
+        'Steady growth keeps pace with grace, not with comparison. You are not on trial to produce a feeling—only to stay near the one true line when May feels loud or thin.',
       links: [
+        { t: 'Pentecost & the Spirit in the University (hub)', h: '/pentecost-spirit-university.html' },
+        { t: 'Five thousand fed (Family rhythm read)', h: '/family-rhythm.html#fr-provision-thousands' },
+        { t: 'Gospel of John (7 days)', h: '/plans.html?plan=gospeljohn' },
+        { t: 'Summer stillness (5 days)', h: '/plans.html?plan=summerstill' },
         { t: 'Ask the Teacher', h: '/#feel-section' },
-        { t: 'Summer stillness (plan)', h: '/plans.html?plan=summerstill' },
         { t: 'Calm room', h: '/calm.html' }
       ]
     },
@@ -57,6 +62,7 @@
       name: 'June',
       lead: 'Heat and hurry; the University still opens on grace, not grades.',
       links: [
+        { t: 'Pentecost & the Spirit in the University (hub)', h: '/pentecost-spirit-university.html' },
         { t: 'Summer in the University', h: '/university.html#uog-summer-in-the-university' },
         { t: 'Summer Seeds (kids)', h: '/plans.html?plan=summer-seeds' },
         { t: 'Family hub', h: '/family.html' }

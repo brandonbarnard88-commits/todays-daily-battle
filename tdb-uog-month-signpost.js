@@ -85,18 +85,27 @@
     },
     7: {
       name: 'August',
-      lead: 'Before fall schedules land, one verse can still be enough for a quiet minute.',
+      lead: 'The long light still asks for a lighter yoke, not a louder plan.',
+      whisper:
+        'Simpler trust often looks like one verse before the schedule lands again. Fall is coming, and you are allowed to hand August to Him a day at a time. Not a performance at a time.',
       links: [
-        { t: 'Late summer, early rest', h: '/plans.html?plan=latesummerrest' },
-        { t: 'Year-round rhythm', h: '/yearly-rhythm.html' },
-        { t: 'My Study', h: '/mystudy.html' }
+        { t: 'Late summer, early rest (5 days)', h: '/plans.html?plan=latesummerrest' },
+        { t: 'Summer & harvest in the University (hub)', h: '/summer-harvest-university.html' },
+        { t: 'Back to school in the University (hub)', h: '/back-to-school-university.html' },
+        { t: 'Seasonal — late summer bridge', h: '/seasonal.html#late-summer-bridge' },
+        { t: 'Calm room', h: '/calm.html' },
+        { t: 'Year-round rhythm', h: '/yearly-rhythm.html' }
       ]
     },
     8: {
       name: 'September',
       lead: 'New rhythms; same Christ. Pick one course door and leave performance outside.',
+      whisper:
+        'New paper and new nerves can share the same table with one true line. He does not need you polished before you come—only willing to show up for the next honest verse.',
       links: [
-        { t: 'Back to school courage', h: '/plans.html?plan=schoolcourage' },
+        { t: 'Back to school in the University (hub)', h: '/back-to-school-university.html' },
+        { t: 'Back to school courage (7 days)', h: '/plans.html?plan=schoolcourage' },
+        { t: 'Come unto me (Family rhythm read)', h: '/family-rhythm.html#fr-come-to-me' },
         { t: 'Browse by feeling', h: '/plans.html#plans-browse-by-feeling' },
         { t: 'Site guide', h: '/site-guide.html' }
       ]

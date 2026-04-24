@@ -113,10 +113,16 @@
     9: {
       name: 'October',
       lead: 'Shorter light; longer mercy. The Word keeps pace with your actual day.',
+      whisper:
+        'Leaves fall; you are allowed to let a few worries fall with them—not solved, only handed to Him. A little thanks and one open page of Scripture are enough for today; winter can wait. You are not packing for a test in November—only showing up for the next honest line.',
       links: [
-        { t: 'Quiet fall harvest', h: '/plans.html?plan=quietfallharvest' },
-        { t: 'Harvest and thanks', h: '/seasonal.html#harvest-thanks' },
-        { t: 'University — fall signposts', h: '/university.html#uog-season-signposts' }
+        { t: 'Quiet fall harvest (5 days)', h: '/plans.html?plan=quietfallharvest' },
+        { t: 'Harvest & thanks (seasonal)', h: '/seasonal.html#harvest-thanks' },
+        { t: 'Be still & the sower (Family rhythm)', h: '/family-rhythm.html#fr-fall' },
+        { t: 'When school feels hard (one-page print)', h: '/when-school-feels-hard-one-page-print.html' },
+        { t: 'Late fall, quiet winter (5 days)', h: '/plans.html?plan=latefallwinter' },
+        { t: 'Back to school hub', h: '/back-to-school-university.html' },
+        { t: 'Gentle signposts — map', h: '/university.html#uog-season-signposts' }
       ]
     },
     10: {

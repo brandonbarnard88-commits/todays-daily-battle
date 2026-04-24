@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-24T00:22:08.312Z",
+  "generatedAt": "2026-04-24T00:29:30.797Z",
   "surfacedRefCount": 2925,
   "overrideCount": 2925,
   "sourceCounts": {
@@ -264,7 +264,7 @@
       "pairs": 0
     },
     "family-rhythm.html": {
-      "refs": 16,
+      "refs": 18,
       "pairs": 0
     },
     "faq.html": {
@@ -968,7 +968,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 62,
+      "refs": 63,
       "pairs": 0
     },
     "testimonials.html": {
@@ -1048,7 +1048,7 @@
       "pairs": 0
     },
     "university.html": {
-      "refs": 28,
+      "refs": 30,
       "pairs": 0
     },
     "utils.js": {
@@ -1085,6 +1085,10 @@
     },
     "weekly-email-template.html": {
       "refs": 1,
+      "pairs": 0
+    },
+    "when-school-feels-hard-one-page-print.html": {
+      "refs": 5,
       "pairs": 0
     },
     "when-year-feels-heavy-one-page-print.html": {

@@ -86,6 +86,7 @@ const ENTRIES = [
   { t: 'Pentecost & the Spirit in the University (hub)', u: '/pentecost-spirit-university.html', k: 'pentecost holy spirit acts comforter gospel john summer stillness secret prayer feeding five thousand' },
   { t: 'Summer & harvest in the University (hub)', u: '/summer-harvest-university.html', k: 'summer harvest thanks gratitude good shepherd matthew 6 john 4 fields late summer rest family rhythm july' },
   { t: 'Back to school in the University (hub)', u: '/back-to-school-university.html', k: 'back to school classroom anxiety courage parenting evening university philippians peace matthew 11 yoke family rhythm august september' },
+  { t: 'When school feels hard (one-page KJV print)', u: '/when-school-feels-hard-one-page-print.html', k: 'school hard day print kids parent anxiety joshua courage philippians proverbs still fall' },
   { t: 'Psalms hub', u: '/psalms.html', k: 'comfort' },
   { t: 'Seasonal paths', u: '/seasonal.html', k: 'advent lent' },
   { t: 'What God has done', u: '/what-god-has-done.html', k: 'testimony' },

@@ -84,6 +84,7 @@ const ENTRIES = [
   { t: 'He is risen (Easter)', u: '/he-is-risen.html', k: 'easter resurrection' },
   { t: 'Resurrection & Easter in the University (hub)', u: '/easter-resurrection-university.html', k: 'easter resurrection hope empty tomb spring holy week john 20' },
   { t: 'Pentecost & the Spirit in the University (hub)', u: '/pentecost-spirit-university.html', k: 'pentecost holy spirit acts comforter gospel john summer stillness secret prayer feeding five thousand' },
+  { t: 'Summer & harvest in the University (hub)', u: '/summer-harvest-university.html', k: 'summer harvest thanks gratitude good shepherd matthew 6 john 4 fields late summer rest family rhythm july' },
   { t: 'Psalms hub', u: '/psalms.html', k: 'comfort' },
   { t: 'Seasonal paths', u: '/seasonal.html', k: 'advent lent' },
   { t: 'What God has done', u: '/what-god-has-done.html', k: 'testimony' },

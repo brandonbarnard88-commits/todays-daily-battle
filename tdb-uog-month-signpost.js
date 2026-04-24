@@ -63,6 +63,7 @@
       lead: 'Heat and hurry; the University still opens on grace, not grades.',
       links: [
         { t: 'Pentecost & the Spirit in the University (hub)', h: '/pentecost-spirit-university.html' },
+        { t: 'Summer & harvest in the University (hub)', h: '/summer-harvest-university.html' },
         { t: 'Summer in the University', h: '/university.html#uog-summer-in-the-university' },
         { t: 'Summer Seeds (kids)', h: '/plans.html?plan=summer-seeds' },
         { t: 'Family hub', h: '/family.html' }
@@ -70,11 +71,16 @@
     },
     6: {
       name: 'July',
-      lead: 'Mid-year weariness is allowed here—no polish required at the door.',
+      lead: 'Mid-year heat and weariness are both allowed here—no polish required at the door.',
+      whisper:
+        'Simple trust is not a mood you manufacture; it is coming back to one true line when the day feels thick. Your Father already knows what you need—rest is allowed to look like a slower breath, not a fixed calendar.',
       links: [
-        { t: 'Battle Plans', h: '/plans.html' },
-        { t: 'When now is too much', h: '/plans.html#plans-recommended-today' },
-        { t: 'Prayer', h: '/prayer-wall.html' }
+        { t: 'Summer & harvest in the University (hub)', h: '/summer-harvest-university.html' },
+        { t: 'The Good Shepherd (Family rhythm read)', h: '/family-rhythm.html#fr-summer-good-shepherd' },
+        { t: 'Summer stillness (5 days)', h: '/plans.html?plan=summerstill' },
+        { t: 'Calm room', h: '/calm.html' },
+        { t: 'Prayer', h: '/prayer-wall.html' },
+        { t: 'Battle Plans', h: '/plans.html' }
       ]
     },
     7: {

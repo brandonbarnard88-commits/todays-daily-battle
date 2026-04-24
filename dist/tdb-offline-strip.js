@@ -49,6 +49,8 @@
       'Offline—still got you. Resurrection and Easter links stay readable with the calm copy already on this device when you have opened this page before.',
     'pentecost-spirit-university':
       'Offline—still got you. Pentecost and Spirit links stay readable with the calm copy already on this device when you have opened this page before.',
+    'summer-harvest-university':
+      'Offline—still got you. Summer and harvest links stay readable with the calm copy already on this device when you have opened this page before.',
     'start-year-word':
       'Offline — still got you. New Year prints and plan links you opened stay on this device until you are back online.',
     storage:

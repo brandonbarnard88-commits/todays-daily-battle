@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-24T00:05:23.311Z",
-  "surfacedRefCount": 2923,
-  "overrideCount": 2923,
+  "generatedAt": "2026-04-24T00:14:44.297Z",
+  "surfacedRefCount": 2925,
+  "overrideCount": 2925,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -260,7 +260,7 @@
       "pairs": 0
     },
     "family-rhythm.html": {
-      "refs": 14,
+      "refs": 15,
       "pairs": 0
     },
     "faq.html": {
@@ -927,6 +927,10 @@
       "refs": 2,
       "pairs": 0
     },
+    "summer-harvest-university.html": {
+      "refs": 3,
+      "pairs": 0
+    },
     "sv/hopp.html": {
       "refs": 1,
       "pairs": 0
@@ -960,7 +964,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 59,
+      "refs": 62,
       "pairs": 0
     },
     "testimonials.html": {
@@ -1040,7 +1044,7 @@
       "pairs": 0
     },
     "university.html": {
-      "refs": 27,
+      "refs": 28,
       "pairs": 0
     },
     "utils.js": {
@@ -2592,6 +2596,7 @@
     "John 4:24",
     "John 4:25",
     "John 4:28",
+    "John 4:35",
     "John 4:35-36",
     "John 4:39",
     "John 4:46-54",
@@ -3314,6 +3319,7 @@
     "Matthew 6:26",
     "Matthew 6:28",
     "Matthew 6:29",
+    "Matthew 6:31",
     "Matthew 6:31-33",
     "Matthew 6:33",
     "Matthew 6:34",
@@ -16207,6 +16213,14 @@
         "to": "Believers"
       }
     },
+    "John 4:35": {
+      "general": {
+        "plainExplanation": "Say not you, There are yet four months, and then cometh harvest? look, I say to you, Lift up your eyes, and look on the fields; for they are white already to harvest.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "John 4:35-36": {
       "general": {
         "plainExplanation": "Key idea: Say not you, There are yet four months, and then cometh harvest? look, I say to you, Lift up your eyes, and look on the fields; for they are white already t...",
@@ -21978,6 +21992,14 @@
     "Matthew 6:29": {
       "general": {
         "plainExplanation": "And yet I say to you, That even Solomon in all his glory was not arrayed like one of these.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 6:31": {
+      "general": {
+        "plainExplanation": "Therefore take no thought, saying, What shall we eat? or, What shall we drink? or, Wherewithal shall we be clothed?",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"

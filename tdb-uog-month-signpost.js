@@ -25,6 +25,7 @@
         'Thaw is uneven—hope can look like a single verse before it looks like a plan. New growth is allowed to be small; the empty tomb is nearer than you think, and you are not late.',
       links: [
         { t: 'Resurrection Hope (7 days, Easter nears)', h: '/plans.html?plan=easter' },
+        { t: 'Resurrection & Easter in the University (hub)', h: '/easter-resurrection-university.html' },
         { t: 'Courses by season', h: '/plans.html#plans-browse-by-season' },
         { t: 'Seasonal paths', h: '/seasonal.html' },
         { t: 'Explore the site', h: '/explore.html#start-here' }
@@ -33,9 +34,13 @@
     3: {
       name: 'April',
       lead: 'Spring noise rises; your soul can still ask for one true verse before the day scatters.',
+      whisper:
+        'Ground softens in patches—so may hope. You do not have to feel sunny to receive one true line; the Word runs under the weather, and the garden is allowed to grow a step at a time.',
       links: [
+        { t: 'Resurrection & Easter in the University (hub)', h: '/easter-resurrection-university.html' },
         { t: 'Resurrection Hope (Easter week)', h: '/plans.html?plan=easter' },
         { t: 'Seasonal — Easter', h: '/seasonal.html#easter' },
+        { t: 'He is risen (short reads)', h: '/he-is-risen.html' },
         { t: "Today's lesson", h: '/verse.html' }
       ]
     },

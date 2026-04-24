@@ -174,13 +174,19 @@
     },
     9: {
       name: 'October',
-      lead: 'Shorter light; longer mercy. The Word keeps pace with your actual day.',
+      lead: 'The light shortens; thanks does not have to be loud. One small "thank you" and one open verse are enough for tonight.',
       whisper:
-        'Leaves fall; you are allowed to let a few worries fall with them—not solved, only handed to Him. A little thanks and one open page of Scripture are enough for today; winter can wait. You are not packing for a test in November—only showing up for the next honest line.',
+        'Fall deepens, and the calendar can start to sound like a scoreboard. You are allowed to set a few lists down with the leaves—not solved, only handed to Him. Small gratitude (one true line, one honest breath) is still gratitude; you do not have to perform harvest for the photo. The same Shepherd who met you in summer still has room at the table when the air turns cold.',
       links: [
+        { t: 'Thankful leper + daily bread (Family rhythm)', h: '/family-rhythm.html#fr-october-harvest' },
+        { t: 'Same two reads (map — October harvest)', h: '/university.html#uog-october-harvest' },
+        { t: 'Harvest Gratitude (7 days)', h: '/plans.html?plan=harvestthanks' },
         { t: 'Quiet fall harvest (5 days)', h: '/plans.html?plan=quietfallharvest' },
-        { t: 'Harvest & thanks (seasonal)', h: '/seasonal.html#harvest-thanks' },
+        { t: 'When fall feels heavy (one-page print)', h: '/when-fall-feels-heavy-one-page-print.html' },
+        { t: 'When the leaves start turning (print)', h: '/when-the-leaves-start-turning-one-page-print.html' },
         { t: 'Be still & the sower (Family rhythm)', h: '/family-rhythm.html#fr-fall' },
+        { t: 'Harvest & thanks (seasonal)', h: '/seasonal.html#harvest-thanks' },
+        { t: 'Quiet fall harvest (seasonal room)', h: '/seasonal.html#quiet-fall-harvest' },
         { t: 'When school feels hard (one-page print)', h: '/when-school-feels-hard-one-page-print.html' },
         { t: 'Late fall, quiet winter (5 days)', h: '/plans.html?plan=latefallwinter' },
         { t: 'Back to school hub', h: '/back-to-school-university.html' },

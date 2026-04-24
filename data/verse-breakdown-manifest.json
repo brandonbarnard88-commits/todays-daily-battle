@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-24T02:12:53.495Z",
-  "surfacedRefCount": 2940,
-  "overrideCount": 2940,
+  "generatedAt": "2026-04-24T02:23:08.216Z",
+  "surfacedRefCount": 2941,
+  "overrideCount": 2941,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -984,7 +984,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 101,
+      "refs": 105,
       "pairs": 0
     },
     "testimonials.html": {
@@ -1101,6 +1101,10 @@
     },
     "weekly-email-template.html": {
       "refs": 1,
+      "pairs": 0
+    },
+    "when-fall-feels-heavy-one-page-print.html": {
+      "refs": 7,
       "pairs": 0
     },
     "when-school-feels-hard-one-page-print.html": {
@@ -1490,6 +1494,7 @@
     "2 Corinthians 4:16-18",
     "2 Corinthians 4:17",
     "2 Corinthians 4:17-18",
+    "2 Corinthians 4:8",
     "2 Corinthians 5:1",
     "2 Corinthians 5:17",
     "2 Corinthians 5:18-19",
@@ -7068,6 +7073,14 @@
       "general": {
         "plainExplanation": "Key idea: For our light affliction, which is but for a moment, works for us a far more exceeding and eternal weight of glory; While we look not at the things which ar...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Corinth"
+      }
+    },
+    "2 Corinthians 4:8": {
+      "general": {
+        "plainExplanation": "We are troubled on every side, yet not distressed; we are perplexed, but not in despair;",
+        "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
         "about": "Paul",
         "to": "Corinth"
       }

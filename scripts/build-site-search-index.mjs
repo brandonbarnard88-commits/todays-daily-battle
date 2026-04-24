@@ -99,6 +99,7 @@ const ENTRIES = [
   { t: 'When the leaves start turning (one-page KJV print)', u: '/when-the-leaves-start-turning-one-page-print.html', k: 'september fall autumn leaves school ecclesiastes 3 psalm 1 isaiah 40 james 1 2 corinthians 4 leaf turning print' },
   { t: 'When fall feels heavy (one-page KJV print)', u: '/when-fall-feels-heavy-one-page-print.html', k: 'october november fall heavy dark list dusk anxiety harvest thanks psalm 42 lamentations 2 corinthians john 14 print' },
   { t: 'When Thanksgiving feels lonely or hard (one-page KJV print)', u: '/when-thanksgiving-feels-lonely-or-hard-one-page-print.html', k: 'november thanksgiving holiday lonely empty table heavy heart psalm 27 34 philippians 4 hebrews 13 matthew 5 family rhythm widow mite 1 thessalonians print' },
+  { t: 'As the year ends (one-page KJV print)', u: '/as-the-year-ends-one-page-print.html', k: 'december new year eve last days year end shepherds luke 2 psalm 90 deuteronomy 33 psalm 65 hebrews 13 philippians 1 manger emmanuel print' },
   { t: 'Psalms hub', u: '/psalms.html', k: 'comfort' },
   { t: 'Seasonal paths', u: '/seasonal.html', k: 'advent lent' },
   { t: 'What God has done', u: '/what-god-has-done.html', k: 'testimony' },

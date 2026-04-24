@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-24T02:34:45.076Z",
-  "surfacedRefCount": 2942,
-  "overrideCount": 2942,
+  "generatedAt": "2026-04-24T02:56:27.001Z",
+  "surfacedRefCount": 2945,
+  "overrideCount": 2945,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -57,6 +57,10 @@
     },
     "ar/rajaa.html": {
       "refs": 1,
+      "pairs": 0
+    },
+    "as-the-year-ends-one-page-print.html": {
+      "refs": 5,
       "pairs": 0
     },
     "ask-the-word.js": {
@@ -264,7 +268,7 @@
       "pairs": 0
     },
     "family-rhythm.html": {
-      "refs": 35,
+      "refs": 36,
       "pairs": 0
     },
     "faq.html": {
@@ -971,6 +975,10 @@
       "refs": 31,
       "pairs": 0
     },
+    "tdb-uog-month-signpost.js": {
+      "refs": 1,
+      "pairs": 0
+    },
     "team-toolkit-packs-pdf.js": {
       "refs": 19,
       "pairs": 0
@@ -984,7 +992,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 111,
+      "refs": 116,
       "pairs": 0
     },
     "testimonials.html": {
@@ -1064,7 +1072,7 @@
       "pairs": 0
     },
     "university.html": {
-      "refs": 47,
+      "refs": 48,
       "pairs": 0
     },
     "utils.js": {
@@ -1882,6 +1890,7 @@
     "Deuteronomy 31:20",
     "Deuteronomy 31:6",
     "Deuteronomy 31:8",
+    "Deuteronomy 33:25",
     "Deuteronomy 33:27",
     "Deuteronomy 34:1",
     "Deuteronomy 34:5",
@@ -2968,6 +2977,8 @@
     "Luke 2:5",
     "Luke 2:51",
     "Luke 2:7",
+    "Luke 2:8",
+    "Luke 2:8-14",
     "Luke 2:8-20",
     "Luke 3:23",
     "Luke 3:38",
@@ -10094,6 +10105,14 @@
       "general": {
         "plainExplanation": "And the LORD, he it is that does go before you; he will be with you, he will not fail you, neither forsake you: fear not, neither be discouraged.",
         "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Deuteronomy 33:25": {
+      "general": {
+        "plainExplanation": "your shoes shall be iron and brass; and as your days, so shall your strength be.",
+        "modernApplication": "This verse reminds you that God gives strength that does not start with your own reserves.",
         "about": "Moses",
         "to": "Israel"
       }
@@ -18782,6 +18801,22 @@
       "general": {
         "plainExplanation": "And she brought forth her firstborn son, and wrapped him in swaddling clothes, and laid him in a manger; because there was no room for them in the inn.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Luke 2:8": {
+      "general": {
+        "plainExplanation": "And there were in the same country shepherds abiding in the field, keeping watch over their flock by night.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Luke 2:8-14": {
+      "general": {
+        "plainExplanation": "Key idea: And there were in the same country shepherds abiding in the field, keeping watch over their flock by night. And, lo, the angel of the Lord came upon them, a...",
+        "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
         "about": "Jesus",
         "to": "Believers"
       }

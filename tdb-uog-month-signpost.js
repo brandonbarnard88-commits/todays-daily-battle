@@ -220,18 +220,23 @@
     },
     11: {
       name: 'December',
-      lead: 'The noise is loud; the story is still small enough to hold. You are not late to the manger.',
+      lead:
+        'The waiting weeks end in a manger, not a medal—room for a child, room for you. Emmanuel is still "God with us" when the table is full or the chair beside you is empty.',
       whisper:
-        'Advent is not a scoreboard for your living room. Emmanuel is the same name when the house is quiet or loud—one true line, one honest pause, and the calendar does not grade your heart. The Word needed room, not a perfect table; come as you are, and let one verse be enough for tonight.',
+        'Advent is a last gentle reminder, not a final exam. The same Lord who asked only for a place to lay his head still asks for an honest place at your table—noise, joy, weariness, and all. When December feels like one long closing bell, you are allowed to end the year with one true verse, not a perfect summary. The Word already became flesh; the rest is room—breath, bread, the next small step into January in Him.',
       links: [
+        { t: 'Shepherds’ tidings (map — Luke 2:8–14)', h: '/university.html#uog-december-shepherds' },
+        { t: 'December manger reads (Family rhythm)', h: '/family-rhythm.html#fr-december-manger' },
         { t: 'Advent quiet (7 days)', h: '/plans.html?plan=adventquiet' },
         { t: 'Christmas week (plan)', h: '/plans.html?plan=christmas7' },
         { t: 'Advent & Christmas in the University (hub)', h: '/advent-christmas-university.html' },
-        { t: 'Birth of Jesus & Word made flesh (Family rhythm)', h: '/family-rhythm.html#fr-december-manger' },
+        { t: 'As the year ends (one-page print)', h: '/as-the-year-ends-one-page-print.html' },
         { t: 'Year-end rest (one-page print)', h: '/year-end-rest-one-page-print.html' },
         { t: 'Emmanuel week (7 days)', h: '/plans.html?plan=emmanuel7' },
+        { t: 'Emmanuel through the year (map)', h: '/university.html#uog-emmanuel-year' },
         { t: 'When the days grow short (print)', h: '/when-the-days-grow-short-one-page-print.html' },
         { t: 'December at the manger (map)', h: '/university.html#uog-december-manger' },
+        { t: 'Turn of the year (seasonal)', h: '/seasonal.html#as-year-ends' },
         { t: 'Start the year in the Word (hub)', h: '/start-the-year-in-the-word.html' },
         { t: 'Gentle signposts — map', h: '/university.html#uog-season-signposts' }
       ]

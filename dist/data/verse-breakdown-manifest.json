@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-24T01:38:22.786Z",
-  "surfacedRefCount": 2935,
-  "overrideCount": 2935,
+  "generatedAt": "2026-04-24T01:48:35.520Z",
+  "surfacedRefCount": 2937,
+  "overrideCount": 2937,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -264,7 +264,7 @@
       "pairs": 0
     },
     "family-rhythm.html": {
-      "refs": 27,
+      "refs": 29,
       "pairs": 0
     },
     "faq.html": {
@@ -824,7 +824,7 @@
       "pairs": 0
     },
     "printables.html": {
-      "refs": 8,
+      "refs": 9,
       "pairs": 0
     },
     "privacy.html": {
@@ -980,7 +980,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 92,
+      "refs": 95,
       "pairs": 0
     },
     "testimonials.html": {
@@ -1060,7 +1060,7 @@
       "pairs": 0
     },
     "university.html": {
-      "refs": 39,
+      "refs": 41,
       "pairs": 0
     },
     "utils.js": {
@@ -1108,6 +1108,10 @@
       "pairs": 0
     },
     "when-spring-feels-scattered-one-page-print.html": {
+      "refs": 6,
+      "pairs": 0
+    },
+    "when-summer-feels-too-much-one-page-print.html": {
       "refs": 6,
       "pairs": 0
     },
@@ -3107,7 +3111,9 @@
     "Matthew 12:13",
     "Matthew 12:31",
     "Matthew 12:40",
+    "Matthew 13:1",
     "Matthew 13:1-23",
+    "Matthew 13:18",
     "Matthew 13:19",
     "Matthew 13:20",
     "Matthew 13:20-21",
@@ -20031,9 +20037,25 @@
         "to": "Believers"
       }
     },
+    "Matthew 13:1": {
+      "general": {
+        "plainExplanation": "The same day went Jesus out of the house, and sat by the sea side.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Matthew 13:1-23": {
       "general": {
         "plainExplanation": "Key idea: The same day went Jesus out of the house, and sat by the sea side. And great multitudes were gathered together to him, so that he went into a ship, and sat;...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 13:18": {
+      "general": {
+        "plainExplanation": "Hear you therefore the parable of the sower.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"

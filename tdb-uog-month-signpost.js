@@ -100,13 +100,19 @@
     },
     5: {
       name: 'June',
-      lead: 'Heat and hurry; the University still opens on grace, not grades.',
+      lead: 'Schedules loosen and fill at once—lighter on paper, louder in the car. You are still allowed one true line before the day runs away.',
+      whisper:
+        'Simple trust is not a race to a feeling. When summer turns the volume up—heat, travel, everyone home at once—your soul is allowed a slower breath and a smaller plan. The Teacher is not on holiday; He only asks for the next honest verse, not a performance in the sunshine.',
       links: [
-        { t: 'Pentecost & the Spirit in the University (hub)', h: '/pentecost-spirit-university.html' },
+        { t: 'Sower & good soil (full read, Matthew 13)', h: '/family-rhythm.html#fr-summer-sower-full' },
+        { t: 'Same read (map — summer & harvest)', h: '/university.html#uog-summer-sower-full' },
+        { t: 'When summer feels too much (one-page print)', h: '/when-summer-feels-too-much-one-page-print.html' },
+        { t: 'The Good Shepherd (Family rhythm)', h: '/family-rhythm.html#fr-summer-good-shepherd' },
         { t: 'Summer & harvest in the University (hub)', h: '/summer-harvest-university.html' },
-        { t: 'Summer in the University', h: '/university.html#uog-summer-in-the-university' },
-        { t: 'Summer Seeds (kids)', h: '/plans.html?plan=summer-seeds' },
-        { t: 'Family hub', h: '/family.html' }
+        { t: 'Summer in the University (map)', h: '/university.html#uog-summer-in-the-university' },
+        { t: 'Summer stillness (5 days)', h: '/plans.html?plan=summerstill' },
+        { t: 'Seasonal — summer', h: '/seasonal.html#summer-still' },
+        { t: 'Gentle signposts — map', h: '/university.html#uog-season-signposts' }
       ]
     },
     6: {

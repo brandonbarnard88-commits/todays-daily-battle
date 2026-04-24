@@ -44,15 +44,20 @@
     },
     2: {
       name: 'March',
-      lead: 'Lent or not, the same Teacher walks at a human pace—no sprint, no score.',
+      lead: 'Lent or not, the same Teacher meets you at a child\'s pace—no sprint, no report card for the soul.',
       whisper:
-        'Thaw is uneven—hope can look like a single verse before it looks like a plan. New growth is allowed to be small; the empty tomb is nearer than you think, and you are not late.',
+        'Thaw is uneven; one true line on the table can come before the yard looks different. New life is allowed to be quiet—slower breath, open arms for little ones, mud underfoot—and the empty garden is still ahead. You are not late to spring; you are on time to Him.',
       links: [
+        { t: 'Let the little children come (read-aloud)', h: '/family-rhythm.html#fr-let-little-children-come' },
+        { t: 'Same read (map — Resurrection & Easter)', h: '/university.html#uog-let-little-children-come' },
+        { t: 'Spring at the table (one-page print)', h: '/spring-at-the-table-one-page-print.html' },
         { t: 'Resurrection Hope (7 days, Easter nears)', h: '/plans.html?plan=easter' },
         { t: 'Resurrection & Easter in the University (hub)', h: '/easter-resurrection-university.html' },
-        { t: 'Courses by season', h: '/plans.html#plans-browse-by-season' },
-        { t: 'Seasonal paths', h: '/seasonal.html' },
-        { t: 'Explore the site', h: '/explore.html#start-here' }
+        { t: 'Spring at the empty tomb (Family rhythm)', h: '/family-rhythm.html#fr-spring-easter' },
+        { t: 'For the little ones — bedtime & chair', h: '/little-ones.html' },
+        { t: 'Bible story library (Kids Corner)', h: '/kids/corner.html' },
+        { t: 'Seasonal — Easter doorway', h: '/seasonal.html#easter' },
+        { t: 'Gentle signposts — map', h: '/university.html#uog-season-signposts' }
       ]
     },
     3: {

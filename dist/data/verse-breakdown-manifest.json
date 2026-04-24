@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-24T01:09:10.562Z",
-  "surfacedRefCount": 2929,
-  "overrideCount": 2929,
+  "generatedAt": "2026-04-24T01:19:15.447Z",
+  "surfacedRefCount": 2933,
+  "overrideCount": 2933,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -264,7 +264,7 @@
       "pairs": 0
     },
     "family-rhythm.html": {
-      "refs": 24,
+      "refs": 25,
       "pairs": 0
     },
     "faq.html": {
@@ -919,6 +919,10 @@
       "refs": 3,
       "pairs": 0
     },
+    "spring-at-the-table-one-page-print.html": {
+      "refs": 5,
+      "pairs": 0
+    },
     "start-my-day.js": {
       "refs": 8,
       "pairs": 0
@@ -976,7 +980,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 79,
+      "refs": 84,
       "pairs": 0
     },
     "testimonials.html": {
@@ -1056,7 +1060,7 @@
       "pairs": 0
     },
     "university.html": {
-      "refs": 36,
+      "refs": 37,
       "pairs": 0
     },
     "utils.js": {
@@ -2353,6 +2357,8 @@
     "Isaiah 54:5",
     "Isaiah 54:6",
     "Isaiah 55:1",
+    "Isaiah 55:10",
+    "Isaiah 55:12",
     "Isaiah 55:2",
     "Isaiah 55:6",
     "Isaiah 55:8",
@@ -3165,6 +3171,7 @@
     "Matthew 18:33",
     "Matthew 18:33-35",
     "Matthew 18:9",
+    "Matthew 19:13",
     "Matthew 19:14",
     "Matthew 19:16",
     "Matthew 19:20",
@@ -4050,6 +4057,7 @@
     "Song of Sol. 3:4",
     "Song of Solomon 1:5",
     "Song of Solomon 2:1",
+    "Song of Solomon 2:11",
     "Song of Solomon 2:12",
     "Song of Solomon 2:6",
     "Song of Solomon 3:6",
@@ -14077,6 +14085,22 @@
         "to": "Judah"
       }
     },
+    "Isaiah 55:10": {
+      "general": {
+        "plainExplanation": "Key idea: For as the rain cometh down, and the snow from heaven, and returneth not thither, but watereth the earth, and makes it bring forth and bud, that it may give...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Isaiah",
+        "to": "Judah"
+      }
+    },
+    "Isaiah 55:12": {
+      "general": {
+        "plainExplanation": "Key idea: For you shall go out with joy, and be led forth with peace: the mountains and the hills shall break forth before you into singing, and all the trees of the...",
+        "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
+        "about": "Isaiah",
+        "to": "Judah"
+      }
+    },
     "Isaiah 55:2": {
       "general": {
         "plainExplanation": "Key idea: Wherefore do you spend money for that which is not bread? and your labor for that which satisfieth not? hearken diligently to me, and eat you that which is...",
@@ -20568,6 +20592,14 @@
     "Matthew 18:9": {
       "general": {
         "plainExplanation": "And if thine eye offend you, pluck it out, and cast it from you: it is better for you to enter into life with one eye, rather than having two eyes to be cast into hell fire.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 19:13": {
+      "general": {
+        "plainExplanation": "Then were there brought to him little children, that he should put his hands on them, and pray: and the disciples rebuked them.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -27648,6 +27680,14 @@
     "Song of Solomon 2:1": {
       "general": {
         "plainExplanation": "I am the rose of Sharon, and the lily of the valleys.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Solomon",
+        "to": "All"
+      }
+    },
+    "Song of Solomon 2:11": {
+      "general": {
+        "plainExplanation": "For, lo, the winter is past, the rain is over and gone;",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Solomon",
         "to": "All"

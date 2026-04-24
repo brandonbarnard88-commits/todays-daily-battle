@@ -195,16 +195,25 @@
     },
     10: {
       name: 'November',
-      lead: 'Waiting weeks need patience, not performance—Advent is near, not a test.',
+      lead:
+        'The holiday can ask for a bright face; Scripture asks only for a true one—one line of thanks, one honest table, the same Lord who holds small gifts and heavy weeks.',
       whisper:
-        'A holiday table is allowed to be ordinary. Gratitude is not a mood you stage for the photo—one honest "thank you" before Him counts, even if the house is still messy. The calendar does not grade your heart; the Word only asks for the next true line, then the next loaf.',
+        'You do not have to perform gratitude for the calendar. A thin table, a loud room, or a heart that is only half-thankful is still a place where He is willing to sit. Thanks in Him is a direction, not a mood you manufacture—one widow\'s mite, one "in every thing give thanks" that lands in Christ, not in a scoreboard. Winter is near; you are not late to the next true read.',
       links: [
+        { t: 'Widow & give thanks (Family rhythm)', h: '/family-rhythm.html#fr-november-widow-thanks' },
+        { t: 'Same two reads (map — November at the table)', h: '/university.html#uog-november-widow-thanks' },
+        { t: 'When Thanksgiving feels lonely or hard (one-page print)', h: '/when-thanksgiving-feels-lonely-or-hard-one-page-print.html' },
+        { t: 'Thankful leper & daily bread (late autumn — Family)', h: '/family-rhythm.html#fr-late-autumn' },
+        { t: 'Late autumn (map — leper, daily bread)', h: '/university.html#uog-late-autumn-thanks' },
         { t: 'Harvest Gratitude (7 days)', h: '/plans.html?plan=harvestthanks' },
         { t: 'Harvest & thanks (seasonal)', h: '/seasonal.html#harvest-thanks' },
-        { t: 'Thankful leper & daily bread (Family rhythm)', h: '/family-rhythm.html#fr-late-autumn' },
+        { t: 'Lonely or hard Thanksgiving (seasonal)', h: '/seasonal.html#thanksgiving-lonely-hard' },
         { t: 'When the days grow short (one-page print)', h: '/when-the-days-grow-short-one-page-print.html' },
+        { t: 'When fall feels heavy (one-page print)', h: '/when-fall-feels-heavy-one-page-print.html' },
         { t: 'Late fall, quiet winter (5 days)', h: '/plans.html?plan=latefallwinter' },
-        { t: 'Advent Quiet (plan)', h: '/plans.html?plan=adventquiet' },
+        { t: 'University of Gratitude (6 days)', h: '/plans.html?plan=universitygratitude' },
+        { t: 'University of Loneliness (6 days)', h: '/plans.html?plan=universityloneliness' },
+        { t: 'Advent quiet (7 days)', h: '/plans.html?plan=adventquiet' },
         { t: 'Advent & Christmas in the University (hub)', h: '/advent-christmas-university.html' },
         { t: 'Gentle signposts — map', h: '/university.html#uog-season-signposts' }
       ]

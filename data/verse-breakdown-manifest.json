@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-24T02:23:08.216Z",
-  "surfacedRefCount": 2941,
-  "overrideCount": 2941,
+  "generatedAt": "2026-04-24T02:34:45.076Z",
+  "surfacedRefCount": 2942,
+  "overrideCount": 2942,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -264,7 +264,7 @@
       "pairs": 0
     },
     "family-rhythm.html": {
-      "refs": 33,
+      "refs": 35,
       "pairs": 0
     },
     "faq.html": {
@@ -984,7 +984,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 105,
+      "refs": 111,
       "pairs": 0
     },
     "testimonials.html": {
@@ -1064,7 +1064,7 @@
       "pairs": 0
     },
     "university.html": {
-      "refs": 45,
+      "refs": 47,
       "pairs": 0
     },
     "utils.js": {
@@ -1120,6 +1120,10 @@
       "pairs": 0
     },
     "when-summer-feels-too-much-one-page-print.html": {
+      "refs": 6,
+      "pairs": 0
+    },
+    "when-thanksgiving-feels-lonely-or-hard-one-page-print.html": {
       "refs": 6,
       "pairs": 0
     },
@@ -2899,6 +2903,7 @@
     "Luke 1:78-79",
     "Luke 1:79",
     "Luke 1:9",
+    "Luke 21:1",
     "Luke 21:15",
     "Luke 21:28",
     "Luke 21:34",
@@ -18256,6 +18261,14 @@
     "Luke 1:9": {
       "general": {
         "plainExplanation": "According to the custom of the priest’s office, his lot was to burn incense when he went into the temple of the Lord.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Luke 21:1": {
+      "general": {
+        "plainExplanation": "And he looked up, and saw the rich men casting their gifts into the treasury.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"

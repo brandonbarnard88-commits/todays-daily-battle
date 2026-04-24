@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-24T00:29:30.797Z",
-  "surfacedRefCount": 2925,
-  "overrideCount": 2925,
+  "generatedAt": "2026-04-24T00:37:07.217Z",
+  "surfacedRefCount": 2926,
+  "overrideCount": 2926,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -264,7 +264,7 @@
       "pairs": 0
     },
     "family-rhythm.html": {
-      "refs": 18,
+      "refs": 20,
       "pairs": 0
     },
     "faq.html": {
@@ -968,7 +968,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 63,
+      "refs": 67,
       "pairs": 0
     },
     "testimonials.html": {
@@ -1048,7 +1048,7 @@
       "pairs": 0
     },
     "university.html": {
-      "refs": 30,
+      "refs": 32,
       "pairs": 0
     },
     "utils.js": {
@@ -1088,6 +1088,10 @@
       "pairs": 0
     },
     "when-school-feels-hard-one-page-print.html": {
+      "refs": 5,
+      "pairs": 0
+    },
+    "when-the-days-grow-short-one-page-print.html": {
       "refs": 5,
       "pairs": 0
     },
@@ -2784,6 +2788,7 @@
     "Luke 16:13",
     "Luke 16:18",
     "Luke 16:9",
+    "Luke 17:11",
     "Luke 17:11-19",
     "Luke 17:12-13",
     "Luke 17:14",
@@ -17656,6 +17661,14 @@
     "Luke 16:9": {
       "general": {
         "plainExplanation": "And I say to you, Make to yourselves friends of the mammon of unrighteousness; that, when you fail, they may receive you into eternal habitations.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Luke 17:11": {
+      "general": {
+        "plainExplanation": "And it came to pass, as he went to Jerusalem, that he passed through the midst of Samaria and Galilee.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"

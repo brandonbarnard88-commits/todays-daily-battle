@@ -87,6 +87,7 @@ const ENTRIES = [
   { t: 'Summer & harvest in the University (hub)', u: '/summer-harvest-university.html', k: 'summer harvest thanks gratitude good shepherd matthew 6 john 4 fields late summer rest family rhythm july' },
   { t: 'Back to school in the University (hub)', u: '/back-to-school-university.html', k: 'back to school classroom anxiety courage parenting evening university philippians peace matthew 11 yoke family rhythm august september' },
   { t: 'When school feels hard (one-page KJV print)', u: '/when-school-feels-hard-one-page-print.html', k: 'school hard day print kids parent anxiety joshua courage philippians proverbs still fall' },
+  { t: 'When the days grow short (one-page KJV print)', u: '/when-the-days-grow-short-one-page-print.html', k: 'november december winter dark days advent lamp psalm 90 lamentations short light print' },
   { t: 'Psalms hub', u: '/psalms.html', k: 'comfort' },
   { t: 'Seasonal paths', u: '/seasonal.html', k: 'advent lent' },
   { t: 'What God has done', u: '/what-god-has-done.html', k: 'testimony' },

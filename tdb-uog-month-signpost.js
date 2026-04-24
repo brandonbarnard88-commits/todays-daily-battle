@@ -128,10 +128,17 @@
     10: {
       name: 'November',
       lead: 'Waiting weeks need patience, not performance—Advent is near, not a test.',
+      whisper:
+        'A holiday table is allowed to be ordinary. Gratitude is not a mood you stage for the photo—one honest "thank you" before Him counts, even if the house is still messy. The calendar does not grade your heart; the Word only asks for the next true line, then the next loaf.',
       links: [
+        { t: 'Harvest Gratitude (7 days)', h: '/plans.html?plan=harvestthanks' },
+        { t: 'Harvest & thanks (seasonal)', h: '/seasonal.html#harvest-thanks' },
+        { t: 'Thankful leper & daily bread (Family rhythm)', h: '/family-rhythm.html#fr-late-autumn' },
+        { t: 'When the days grow short (one-page print)', h: '/when-the-days-grow-short-one-page-print.html' },
+        { t: 'Late fall, quiet winter (5 days)', h: '/plans.html?plan=latefallwinter' },
         { t: 'Advent Quiet (plan)', h: '/plans.html?plan=adventquiet' },
-        { t: 'Advent and Christmas hub', h: '/advent-christmas-university.html' },
-        { t: 'Seasonal paths', h: '/seasonal.html#christmas' }
+        { t: 'Advent & Christmas in the University (hub)', h: '/advent-christmas-university.html' },
+        { t: 'Gentle signposts — map', h: '/university.html#uog-season-signposts' }
       ]
     },
     11: {

@@ -84,14 +84,18 @@
       name: 'May',
       lead: 'Longer light—fruit is allowed to be quiet. One verse can outlast a whole noisy list.',
       whisper:
-        'Steady growth keeps pace with grace, not with comparison. You are not on trial to produce a feeling—only to stay near the one true line when May feels loud or thin.',
+        'Gentle fruitfulness is not a showcase. Simple faithfulness looks like coming back to first things—His care, one true line, one slow breath—when the week scatters your attention. You are not graded on how full the schedule looks; only on staying near the Voice who already knows what you need.',
       links: [
+        { t: 'Your Father knows (read-aloud, Matthew 6)', h: '/family-rhythm.html#fr-spring-father-knows' },
+        { t: 'Same read (map — Pentecost & Spirit)', h: '/university.html#uog-spring-father-knows' },
+        { t: 'Five thousand fed (full read, John 6)', h: '/family-rhythm.html#fr-provision-thousands' },
+        { t: 'Same loaves read (map)', h: '/university.html#uog-provision-thousands' },
+        { t: 'When spring feels scattered (one-page print)', h: '/when-spring-feels-scattered-one-page-print.html' },
+        { t: 'When spring feels overwhelming (one-page print)', h: '/when-spring-feels-overwhelming-one-page-print.html' },
         { t: 'Pentecost & the Spirit in the University (hub)', h: '/pentecost-spirit-university.html' },
-        { t: 'Five thousand fed (Family rhythm read)', h: '/family-rhythm.html#fr-provision-thousands' },
         { t: 'Gospel of John (7 days)', h: '/plans.html?plan=gospeljohn' },
         { t: 'Summer stillness (5 days)', h: '/plans.html?plan=summerstill' },
-        { t: 'Ask the Teacher', h: '/#feel-section' },
-        { t: 'Calm room', h: '/calm.html' }
+        { t: 'Gentle signposts — map', h: '/university.html#uog-season-signposts' }
       ]
     },
     5: {

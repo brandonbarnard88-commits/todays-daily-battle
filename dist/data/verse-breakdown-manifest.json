@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-24T01:26:51.264Z",
-  "surfacedRefCount": 2934,
-  "overrideCount": 2934,
+  "generatedAt": "2026-04-24T01:38:22.786Z",
+  "surfacedRefCount": 2935,
+  "overrideCount": 2935,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -264,7 +264,7 @@
       "pairs": 0
     },
     "family-rhythm.html": {
-      "refs": 26,
+      "refs": 27,
       "pairs": 0
     },
     "faq.html": {
@@ -824,7 +824,7 @@
       "pairs": 0
     },
     "printables.html": {
-      "refs": 7,
+      "refs": 8,
       "pairs": 0
     },
     "privacy.html": {
@@ -896,7 +896,7 @@
       "pairs": 0
     },
     "seasonal.html": {
-      "refs": 5,
+      "refs": 6,
       "pairs": 0
     },
     "security.html": {
@@ -980,7 +980,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 87,
+      "refs": 92,
       "pairs": 0
     },
     "testimonials.html": {
@@ -1060,7 +1060,7 @@
       "pairs": 0
     },
     "university.html": {
-      "refs": 38,
+      "refs": 39,
       "pairs": 0
     },
     "utils.js": {
@@ -1105,6 +1105,10 @@
     },
     "when-spring-feels-overwhelming-one-page-print.html": {
       "refs": 5,
+      "pairs": 0
+    },
+    "when-spring-feels-scattered-one-page-print.html": {
+      "refs": 6,
       "pairs": 0
     },
     "when-the-days-grow-short-one-page-print.html": {
@@ -3364,6 +3368,7 @@
     "Matthew 6:29",
     "Matthew 6:31",
     "Matthew 6:31-33",
+    "Matthew 6:32",
     "Matthew 6:33",
     "Matthew 6:34",
     "Matthew 6:6",
@@ -22109,6 +22114,14 @@
     "Matthew 6:31-33": {
       "general": {
         "plainExplanation": "Key idea: Therefore take no thought, saying, What shall we eat? or, What shall we drink? or, Wherewithal shall we be clothed? (For after all these things do the Genti...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 6:32": {
+      "general": {
+        "plainExplanation": "(For after all these things do the Gentiles seek:) for your heavenly Father knows that you have need of all these things.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"

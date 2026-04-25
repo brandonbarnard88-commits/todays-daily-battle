@@ -1,6 +1,8 @@
 # Today’s Daily Battle — Ministry & Product Deep Dive (maintainer reference)
 
 **Last updated:** April 24, 2026  
+**Maintenance:** Re-verify domain, WHOIS, registrar dates, and technical stack details before any public quote or press use—numbers and vendors drift.
+
 **Audience:** Builder, press prep, partners, and future maintainers. Not linked from the public site as a standalone page; the public summary lives on [media.html](https://todaysdailybattle.com/media.html) (`media.html` in repo).
 
 ---

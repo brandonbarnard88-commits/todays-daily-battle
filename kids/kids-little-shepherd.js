@@ -106,6 +106,37 @@
     el.textContent = text;
   }
 
+  function canUseSpeechSynthesis() {
+    return typeof global.speechSynthesis !== 'undefined' && typeof global.SpeechSynthesisUtterance === 'function';
+  }
+
+  function initHearButton(lineEl) {
+    var hear = document.getElementById('kids-shepherd-hear');
+    if (!hear || !lineEl) return;
+    if (!canUseSpeechSynthesis()) {
+      hear.setAttribute('hidden', '');
+      hear.setAttribute('aria-hidden', 'true');
+      return;
+    }
+    hear.removeAttribute('hidden');
+    hear.removeAttribute('aria-hidden');
+    hear.addEventListener('click', function () {
+      var raw = lineEl.textContent || '';
+      var t = raw.replace(/\u00a0/g, ' ').trim();
+      if (!t) return;
+      try {
+        global.speechSynthesis.cancel();
+        var u = new global.SpeechSynthesisUtterance(t);
+        u.lang = 'en-US';
+        u.rate = 0.9;
+        u.pitch = 1.02;
+        global.speechSynthesis.speak(u);
+      } catch (e) {
+        /* no-op */
+      }
+    });
+  }
+
   function lastVisitKey() {
     return 'tdbLSShepherdLastVisit';
   }
@@ -151,6 +182,7 @@
     if (document.getElementById('kids-today-adventure-line')) {
       fillTodayAdventure();
     }
+    initHearButton(lineEl);
   }
 
   if (global.document) {

@@ -223,11 +223,27 @@
     var card = document.getElementById('kids-pasture-strip');
     if (!card || !p) return;
     var tokenBoost = 0;
+    var rawTok = 0;
     try {
-      tokenBoost = Math.min(2, Math.floor((parseInt(globalThis.localStorage.getItem('tdbKidsSheepTokens') || '0', 10) || 0) / 3));
+      rawTok = parseInt(globalThis.localStorage.getItem('tdbKidsSheepTokens') || '0', 10) || 0;
+    } catch (e3) { rawTok = 0; }
+    try {
+      tokenBoost = Math.min(2, Math.floor(rawTok / 3));
     } catch (e2) { tokenBoost = 0; }
+    var bloom = 0;
+    if (rawTok >= 1) bloom = 1;
+    if (rawTok >= 2) bloom = 2;
+    if (rawTok >= 4) bloom = 3;
+    if (rawTok >= 6) bloom = 4;
+    if (rawTok >= 9) bloom = 5;
+    card.setAttribute('data-token-bloom', String(bloom));
     var stage = Math.min(5, Math.floor(p.pct / 18) + tokenBoost);
     card.setAttribute('data-stage', String(stage));
+    if (stage >= 4) {
+      card.setAttribute('data-pasture-fence', '1');
+    } else {
+      card.removeAttribute('data-pasture-fence');
+    }
     var label = document.getElementById('kids-pasture-label');
     var msgs = [
       'A fresh patch of grass. Keep exploring.',

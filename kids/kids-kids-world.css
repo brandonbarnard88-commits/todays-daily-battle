@@ -1,7 +1,7 @@
 /**
  * Kids World — daylit pastoral shell for /kids/ + story library hero.
  * Calm, KJV. Not neon; not midnight-with-yellow-chip.
- * v: 20260426kidswarm1
+ * v: 20260426kidspolish2
  */
 body.kids-world-surface.kids-battle-page {
   --kw-sun: #fff4dd;
@@ -34,6 +34,22 @@ body.kids-world-surface::before {
     linear-gradient(180deg, var(--kw-sky-top) 0%, var(--kw-sky-mid) 32%, #ecfdf5 70%, #e6f4e8 100%),
     radial-gradient(ellipse 80% 45% at 50% 100%, rgba(74, 222, 128, 0.14) 0%, transparent 55%);
   opacity: 0.95;
+}
+/* Hub arrival: one gentle sun-wash (honors reduced motion) */
+@media (prefers-reduced-motion: no-preference) {
+  body.kids-hero-first-seconds::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse 110% 55% at 50% 0%, rgba(255, 250, 220, 0.72) 0%, rgba(255, 243, 200, 0.28) 45%, transparent 70%);
+    animation: kids-first-seconds-sun 5.2s ease-out forwards;
+  }
+  @keyframes kids-first-seconds-sun {
+    from { opacity: 0.9; }
+    to { opacity: 0; }
+  }
 }
 body.kids-world-surface .app-shell,
 body.kids-world-surface .app-content,
@@ -398,7 +414,7 @@ body.kids-world-surface .kids-family-deck a {
 }
 .kids-pasture-illu {
   position: relative;
-  height: 56px;
+  height: 64px;
   margin: 0 auto;
   max-width: 12rem;
   border-radius: 12px;
@@ -415,7 +431,39 @@ body.kids-world-surface .kids-family-deck a {
   background: linear-gradient(180deg, transparent, #4ade80);
   border-radius: 0 0 10px 10px;
 }
+.kids-pasture-bloom {
+  position: absolute;
+  bottom: 10px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.45);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+.kids-pasture-bloom.pt-a {
+  left: 20%;
+  background: linear-gradient(180deg, #fbcfe8, #f472b6);
+  box-shadow: 0 0 0 1px rgba(190, 24, 93, 0.35);
+}
+.kids-pasture-bloom.pt-b {
+  left: 42%;
+  bottom: 14px;
+  background: linear-gradient(180deg, #ddd6fe, #8b5cf6);
+  box-shadow: 0 0 0 1px rgba(91, 33, 182, 0.25);
+}
+.kids-pasture-bloom.pt-c {
+  left: 55%;
+  bottom: 9px;
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(180deg, #fef08a, #eab308);
+  box-shadow: 0 0 0 1px rgba(161, 98, 7, 0.35);
+}
 .kids-pasture-sheep,
+.kids-pasture-sheep2,
 .kids-pasture-flower1,
 .kids-pasture-flower2,
 .kids-pasture-tree {
@@ -434,6 +482,27 @@ body.kids-world-surface .kids-family-deck a {
   width: 22px;
   height: 16px;
   border-radius: 40% 40% 45% 45%;
+}
+.kids-pasture-sheep2 {
+  left: auto;
+  right: 32%;
+  width: 16px;
+  height: 12px;
+  border-radius: 40% 40% 45% 45%;
+  opacity: 0;
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  z-index: 1;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .kids-pasture-card[data-token-bloom="3"] .kids-pasture-sheep2,
+  .kids-pasture-card[data-token-bloom="4"] .kids-pasture-sheep2,
+  .kids-pasture-card[data-token-bloom="5"] .kids-pasture-sheep2 {
+    animation: kids-pasture-sheep2-nod 3.2s ease-in-out infinite;
+  }
+}
+@keyframes kids-pasture-sheep2-nod {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-1px) rotate(-2deg); }
 }
 .kids-pasture-flower1 {
   left: 38%;
@@ -460,6 +529,33 @@ body.kids-world-surface .kids-family-deck a {
   border-radius: 0;
   bottom: 8px;
 }
+/* Wooden fence when pasture deepens (see kids-play-zone data-pasture-fence) */
+.kids-pasture-fence {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: 0;
+  height: 7px;
+  background: repeating-linear-gradient(
+    90deg,
+    #a16207 0,
+    #a16207 3px,
+    #fde68a 3px,
+    #fde68a 5px
+  );
+  border-radius: 2px 2px 4px 4px;
+  box-shadow: 0 -1px 0 rgba(120, 53, 15, 0.35);
+  opacity: 0;
+  transform: scaleY(0.35);
+  transform-origin: bottom center;
+  transition: opacity 0.55s ease, transform 0.55s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+.kids-pasture-card[data-pasture-fence="1"] .kids-pasture-fence {
+  opacity: 0.95;
+  transform: scaleY(1);
+}
 .kids-pasture-card[data-stage="1"] .kids-pasture-flower1,
 .kids-pasture-card[data-stage="2"] .kids-pasture-flower1,
 .kids-pasture-card[data-stage="2"] .kids-pasture-flower2,
@@ -475,6 +571,45 @@ body.kids-world-surface .kids-family-deck a {
 .kids-pasture-card[data-stage="5"] .kids-pasture-sheep,
 .kids-pasture-card[data-stage="5"] .kids-pasture-tree {
   opacity: 1;
+}
+/* Sheep tokens: extra wildflowers + friend sheep appear as tokens grow (device-local). */
+.kids-pasture-card[data-token-bloom="1"] .pt-a,
+.kids-pasture-card[data-token-bloom="2"] .pt-a,
+.kids-pasture-card[data-token-bloom="3"] .pt-a,
+.kids-pasture-card[data-token-bloom="4"] .pt-a,
+.kids-pasture-card[data-token-bloom="5"] .pt-a {
+  opacity: 1;
+  transform: scale(1);
+}
+.kids-pasture-card[data-token-bloom="2"] .pt-b,
+.kids-pasture-card[data-token-bloom="3"] .pt-b,
+.kids-pasture-card[data-token-bloom="4"] .pt-b,
+.kids-pasture-card[data-token-bloom="5"] .pt-b {
+  opacity: 1;
+  transform: scale(1);
+}
+.kids-pasture-card[data-token-bloom="3"] .kids-pasture-sheep2,
+.kids-pasture-card[data-token-bloom="4"] .kids-pasture-sheep2,
+.kids-pasture-card[data-token-bloom="5"] .kids-pasture-sheep2 {
+  opacity: 1;
+}
+.kids-pasture-card[data-token-bloom="4"] .pt-c,
+.kids-pasture-card[data-token-bloom="5"] .pt-c {
+  opacity: 1;
+  transform: scale(1);
+}
+.kids-pasture-card[data-token-bloom="5"] .kids-pasture-illu::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: 10%;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(254, 243, 199, 0.55) 42%, transparent 72%);
+  opacity: 0.88;
+  pointer-events: none;
+  z-index: 0;
 }
 .kids-sheep-tokens {
   margin: 0.4rem 0 0;
@@ -791,13 +926,47 @@ body.kids-world-surface[data-kids-season="harvest"] .kids-pasture-illu {
   border: 2px solid rgba(245, 158, 11, 0.28);
   box-shadow: 0 4px 14px rgba(90, 60, 30, 0.06);
 }
+.kids-story-ls-intro-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 0.85rem;
+}
+.kids-story-ls-intro-fig {
+  flex: 0 0 auto;
+}
+.kids-story-ls-intro-mascot {
+  display: block;
+  width: 72px;
+  height: auto;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255, 251, 240, 0.95) 0%, rgba(255, 245, 220, 0.5) 100%);
+  box-shadow: 0 4px 14px rgba(120, 80, 40, 0.12);
+}
 .kids-story-ls-intro-text {
+  flex: 1 1 12rem;
   margin: 0;
   font-family: "Nunito", system-ui, sans-serif;
   font-size: 0.95rem;
   font-weight: 800;
   line-height: 1.4;
   color: #0f172a;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .kids-story-modal--tada .kids-story-ls-intro {
+    animation: kids-story-ls-pop 0.75s ease-out 1 both;
+  }
+  .kids-story-modal-content--tada {
+    animation: kids-modal-sheet-in 0.72s cubic-bezier(0.22, 1, 0.36, 1) 1 both;
+  }
+}
+@keyframes kids-story-ls-pop {
+  0% { transform: translateY(8px) scale(0.97); opacity: 0.72; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+@keyframes kids-modal-sheet-in {
+  0% { transform: translateY(12px) scale(0.982); opacity: 0.86; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
 }
 .kids-story-kjv-plain {
   margin: 0.5rem 0 0.75rem;
@@ -855,6 +1024,27 @@ body.kids-world-surface[data-kids-season="harvest"] .kids-pasture-illu {
   line-height: 1.4;
   color: #422006;
 }
+/* All stories A–Z: table ink on daylit world shell */
+body.kids-world-surface .kids-all-stories-table,
+body.kids-world-surface .kids-all-stories-table td {
+  color: var(--kw-ink);
+  border-bottom-color: rgba(30, 41, 59, 0.12);
+}
+body.kids-world-surface .kids-all-stories-table th {
+  color: #b45309;
+  border-bottom-color: rgba(180, 83, 9, 0.28);
+}
+body.kids-world-surface .kids-all-stories-table a {
+  color: #0369a1;
+}
+body.kids-world-surface .kids-all-stories-teaser {
+  color: var(--kw-ink-muted);
+}
+body.kids-world-surface .kids-all-stories-badge {
+  border-color: rgba(217, 119, 6, 0.4);
+  background: rgba(255, 251, 235, 0.95);
+  color: #92400e;
+}
 /* Match & mini-game pages: shared pasture skin */
 body.kids-world-surface.kids-mini-game .match-hero,
 body.kids-world-surface.kids-mini-game .mini-game-hero {
@@ -866,7 +1056,14 @@ body.kids-world-surface.kids-mini-game .mini-game-hero {
   .kids-sheep-run-emoji,
   .kids-shepherd-idle,
   .kids-shepherd-welcome,
-  .kids-shepherd-dance {
+  .kids-shepherd-dance,
+  .kids-pasture-card[data-token-bloom="3"] .kids-pasture-sheep2,
+  .kids-pasture-card[data-token-bloom="4"] .kids-pasture-sheep2,
+  .kids-pasture-card[data-token-bloom="5"] .kids-pasture-sheep2 {
+    animation: none !important;
+  }
+  .kids-story-modal--tada .kids-story-ls-intro,
+  .kids-story-modal-content--tada {
     animation: none !important;
   }
 }

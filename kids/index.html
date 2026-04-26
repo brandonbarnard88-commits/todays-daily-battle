@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="../styles.css?v=20260423-phase5-perf">
   <link rel="stylesheet" href="kids-battle.css?v=20260405kidsfollowup">
   <link rel="stylesheet" href="kids-play-zone.css?v=20260426lilshep2">
-  <link rel="stylesheet" href="kids-kids-world.css?v=20260426kidsfinish1">
+  <link rel="stylesheet" href="kids-kids-world.css?v=20260426kidspolish2">
   <link rel="stylesheet" href="kids-page-sky.css?v=20260326playful">
   <link rel="manifest" href="../manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -155,7 +155,7 @@
                   <label class="kids-sound-fx-label"><input type="checkbox" id="kids-sound-fx-optin" class="kids-sound-fx-optin"> Soft chime on the big story button (one-time opt-in; saved on this device)</label>
                 </p>
                 <p class="kids-ambient-fx-row">
-                  <label class="kids-sound-fx-label" for="kids-ambient-optin"><input type="checkbox" id="kids-ambient-optin" class="kids-ambient-fx-cb"> Calm field hum (very quiet; device plays only while this tab is open; saved here)</label>
+                  <label class="kids-sound-fx-label" for="kids-ambient-optin"><input type="checkbox" id="kids-ambient-optin" class="kids-ambient-fx-cb"> Pasture air: soft wind, gentle hum, and quiet tones (very low; this tab only; saved here)</label>
                 </p>
                 <details class="kids-magic-more">
                   <summary class="kids-magic-more-summary">Let&rsquo;s play<small>more adventures</small></summary>
@@ -167,6 +167,8 @@
                     <a class="kids-magic-btn kids-magic-mini" href="lost-sheep.html">Find the sheep<small>tap game</small></a>
                     <a class="kids-magic-btn kids-magic-mini" href="memory-flock.html">Memory flock<small>match pairs</small></a>
                     <a class="kids-magic-btn kids-magic-night" href="good-night.html">Good night<small>prayer + Shepherd</small></a>
+                    <a class="kids-magic-btn kids-magic-mini" href="shepherds-path.html">Shepherd&rsquo;s Path<small>stepping stones</small></a>
+                    <a class="kids-magic-btn kids-magic-shelf" href="my-pasture.html">My pasture<small>your field</small></a>
                   </div>
                 </details>
                 <p class="kids-play-hero-sub" role="note" style="text-align:center;margin:0.5rem 0 0.35rem">KJV. Need help? Read with someone you love.</p>
@@ -175,13 +177,18 @@
                   <p class="kids-today-adventure-line" id="kids-today-adventure-line">&nbsp;</p>
                   <a class="kids-today-adventure-go kids-magic-story" id="kids-today-adventure-link" href="corner.html?random=1">Let&rsquo;s go</a>
                 </div>
-                <div class="kids-pasture-card" id="kids-pasture-strip" data-stage="0" role="img" aria-labelledby="kids-pasture-aria">
+                <div class="kids-pasture-card" id="kids-pasture-strip" data-stage="0" data-token-bloom="0" role="img" aria-labelledby="kids-pasture-aria">
                   <p class="kids-pasture-title" id="kids-pasture-title">Your quiet pasture</p>
                   <div class="kids-pasture-illu" aria-hidden="true">
+                    <span class="kids-pasture-bloom pt-a" aria-hidden="true"></span>
+                    <span class="kids-pasture-bloom pt-b" aria-hidden="true"></span>
+                    <span class="kids-pasture-bloom pt-c" aria-hidden="true"></span>
                     <span class="kids-pasture-sheep" aria-hidden="true"></span>
+                    <span class="kids-pasture-sheep2" aria-hidden="true"></span>
                     <span class="kids-pasture-flower1" aria-hidden="true"></span>
                     <span class="kids-pasture-flower2" aria-hidden="true"></span>
                     <span class="kids-pasture-tree" aria-hidden="true"></span>
+                    <span class="kids-pasture-fence" aria-hidden="true"></span>
                   </div>
                   <p class="kids-pasture-note" id="kids-pasture-label">A fresh patch of grass. Keep exploring.</p>
                   <p class="kids-sheep-tokens" id="kids-sheep-tokens-line" aria-live="polite"></p>
@@ -938,7 +945,7 @@
   <script src="../vendor/uFuzzy.iife.min.js" defer></script>
   <script src="kids-verses-365.js?v=20260325kidsmeans" defer></script>
   <script src="kids-activity-log.js?v=20260426kidsfinish1" defer></script>
-  <script src="kids-play-zone.js?v=20260427kidsall1" defer></script>
+  <script src="kids-play-zone.js?v=20260426kidspolish2" defer></script>
   <script src="kids-little-shepherd.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-shared.js?v=20260413efficiency" defer></script>
   <script src="kids-battle.js?v=20260524readquiz" defer></script>

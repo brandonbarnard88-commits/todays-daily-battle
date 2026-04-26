@@ -276,7 +276,10 @@
     { src: 'shepherd-mascot-point.svg', label: 'Little Shepherd points the way' },
     { src: 'shepherd-mascot-sheep.svg', label: 'Little Shepherd with a small sheep' },
     { src: 'shepherd-mascot-cheer.svg', label: 'Little Shepherd cheering for you' },
-    { src: 'shepherd-mascot-sit.svg', label: 'Little Shepherd sitting with a little lamb' }
+    { src: 'shepherd-mascot-sit.svg', label: 'Little Shepherd sitting with a little lamb' },
+    { src: 'shepherd-mascot-listen.svg', label: 'Little Shepherd listens with you' },
+    { src: 'shepherd-mascot-read.svg', label: 'Little Shepherd with Scripture open' },
+    { src: 'shepherd-mascot-pray.svg', label: 'Little Shepherd prays with you' }
   ];
 
   var JOURNEY_PICK = [
@@ -344,11 +347,12 @@
   }
 
   /**
-   * Very soft sustained tones — opt-in only; stop on tab hide to be kind to batteries.
+   * Soft field hush: warm drones + filtered wind + very quiet low tone. Opt-in only.
    */
   function startAmbientHush() {
     stopAmbientHush();
     if (!isAmbientOptIn()) return;
+    var o1; var o2; var o3; var g; var gLow; var master; var noise; var filt; var windG;
     try {
       var Ctx = global.AudioContext || global.webkitAudioContext;
       if (!Ctx) return;
@@ -357,26 +361,63 @@
       if (ctx.state === 'suspended') {
         try { ctx.resume(); } catch (e2) {}
       }
-      var o1 = ctx.createOscillator();
-      var o2 = ctx.createOscillator();
-      var g = ctx.createGain();
+      master = ctx.createGain();
+      master.gain.setValueAtTime(0.9, ctx.currentTime);
+      master.connect(ctx.destination);
+      o1 = ctx.createOscillator();
+      o2 = ctx.createOscillator();
       o1.type = 'sine';
       o2.type = 'sine';
       o1.frequency.setValueAtTime(196, ctx.currentTime);
       o2.frequency.setValueAtTime(246.94, ctx.currentTime);
-      g.gain.setValueAtTime(0.011, ctx.currentTime);
+      g = ctx.createGain();
+      g.gain.setValueAtTime(0.009, ctx.currentTime);
       o1.connect(g);
       o2.connect(g);
-      g.connect(ctx.destination);
+      g.connect(master);
       o1.start();
       o2.start();
+      o3 = ctx.createOscillator();
+      o3.type = 'triangle';
+      o3.frequency.setValueAtTime(52, ctx.currentTime);
+      gLow = ctx.createGain();
+      gLow.gain.setValueAtTime(0.005, ctx.currentTime);
+      o3.connect(gLow);
+      gLow.connect(master);
+      o3.start();
+      var nFrames = 2 * ctx.sampleRate;
+      var buf = ctx.createBuffer(1, nFrames, ctx.sampleRate);
+      var ch = buf.getChannelData(0);
+      for (var i = 0; i < nFrames; i++) {
+        ch[i] = Math.random() * 2 - 1;
+      }
+      noise = ctx.createBufferSource();
+      noise.buffer = buf;
+      noise.loop = true;
+      filt = ctx.createBiquadFilter();
+      filt.type = 'lowpass';
+      filt.frequency.setValueAtTime(380, ctx.currentTime);
+      windG = ctx.createGain();
+      windG.gain.setValueAtTime(0.012, ctx.currentTime);
+      noise.connect(filt);
+      filt.connect(windG);
+      windG.connect(master);
+      noise.start();
       __ambientTeardown = function () {
         try {
           o1.stop();
           o2.stop();
+          o3.stop();
+          noise.stop();
           o1.disconnect();
           o2.disconnect();
+          o3.disconnect();
           g.disconnect();
+          gLow.disconnect();
+          noise.disconnect();
+          filt.disconnect();
+          windG.disconnect();
+          master.disconnect();
         } catch (e3) { /* no-op */ }
       };
     } catch (e) { /* no-op */ }
@@ -610,6 +651,15 @@
     if (!lineEl) return;
 
     applyKidsSeasonClass();
+
+    try {
+      if (global.document && document.body && document.getElementById('kids-mascot-tap')) {
+        document.body.classList.add('kids-hero-first-seconds');
+        setTimeout(function () {
+          try { document.body.classList.remove('kids-hero-first-seconds'); } catch (e1) { /* no-op */ }
+        }, 5000);
+      }
+    } catch (eFs) { /* no-op */ }
 
     if (document.getElementById('kids-mascot-tap')) {
       var o;

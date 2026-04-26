@@ -6275,6 +6275,7 @@
   var journeyStatusEl = document.getElementById('kids-journey-status');
   var quickFilterStatusEl = document.getElementById('kids-library-quick-filter-status');
   var staticFallbackHidden = false;
+  var storyModalTadaTimer = null;
 
   var LIBRARY_VIEWED_KEY = 'kidsLibraryViewedStories';
   var LIBRARY_STORY_MASTER_KEY = 'kidsLibraryStoryMasterProgress';
@@ -8257,6 +8258,20 @@
     if (!carouselRoot) return;
     var intro = document.createElement('div');
     intro.className = 'kids-story-ls-intro';
+    var row = document.createElement('div');
+    row.className = 'kids-story-ls-intro-row';
+    var fig = document.createElement('div');
+    fig.className = 'kids-story-ls-intro-fig';
+    fig.setAttribute('aria-hidden', 'true');
+    var img = document.createElement('img');
+    img.className = 'kids-story-ls-intro-mascot';
+    img.src = 'shepherd-mascot-welcome.svg';
+    img.alt = '';
+    img.setAttribute('width', '72');
+    img.setAttribute('height', '80');
+    img.decoding = 'async';
+    img.setAttribute('loading', 'eager');
+    fig.appendChild(img);
     var p = document.createElement('p');
     p.className = 'kids-story-ls-intro-text';
     var line = 'Let us look at the pictures first—then the true KJV words below.';
@@ -8266,7 +8281,9 @@
       } catch (eIntro) { /* keep default */ }
     }
     p.textContent = line;
-    intro.appendChild(p);
+    row.appendChild(fig);
+    row.appendChild(p);
+    intro.appendChild(row);
     carouselRoot.insertBefore(intro, carouselRoot.firstChild);
   }
 
@@ -8582,6 +8599,20 @@
         return el.offsetParent !== null && !el.disabled;
       });
       if (firstBtn) firstBtn.focus();
+      var modalContentTada = modal.querySelector('.kids-video-modal-content');
+      if (storyModalTadaTimer) {
+        try { clearTimeout(storyModalTadaTimer); } catch (_t) {}
+        storyModalTadaTimer = null;
+      }
+      modal.classList.add('kids-story-modal--tada');
+      if (modalContentTada) modalContentTada.classList.add('kids-story-modal-content--tada');
+      storyModalTadaTimer = setTimeout(function () {
+        storyModalTadaTimer = null;
+        try {
+          if (modal) modal.classList.remove('kids-story-modal--tada');
+          if (modalContentTada) modalContentTada.classList.remove('kids-story-modal-content--tada');
+        } catch (_r) {}
+      }, 1100);
     }
     scrollKidsReadQuizIntoViewAfterLayout();
     try {
@@ -8602,6 +8633,15 @@
 
   function closeStoryModal() {
     if (!modal) return;
+    if (storyModalTadaTimer) {
+      try { clearTimeout(storyModalTadaTimer); } catch (_c) {}
+      storyModalTadaTimer = null;
+    }
+    try {
+      modal.classList.remove('kids-story-modal--tada');
+      var mct = modal.querySelector('.kids-video-modal-content');
+      if (mct) mct.classList.remove('kids-story-modal-content--tada');
+    } catch (_m) {}
     var closingKey = currentOpenStoryKey;
     try {
       if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.notify === 'function' && closingKey) {

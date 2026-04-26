@@ -3822,6 +3822,9 @@
     .hero-verse-primary-toolbar {
       border-top: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
       padding-top: 0.75rem;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.65rem;
     }
     .hero-votd-save-btn {
       min-height: 44px;
@@ -3834,6 +3837,97 @@
     @media (max-width: 520px) {
       .hero-votd-save-btn { margin-left: 0; flex: 1 1 100%; }
     }
+    .tdb-hero-votd-listen-wrap { width: 100%; }
+    .read-aloud-btn.read-aloud-btn--hero {
+      width: 100%;
+      min-height: 52px;
+      justify-content: center;
+      gap: 0.55rem;
+      font-size: 0.95rem;
+    }
+    .read-aloud-btn--hero .read-aloud-label { display: inline; }
+    .tdb-hero-votd-tools-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    @media (min-width: 520px) {
+      .tdb-hero-votd-tools-wrap .hero-votd-save-btn { margin-left: auto; }
+    }
+    .tdb-home-kids-ribbon {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.4rem;
+      margin: 0 0 1rem;
+      padding: 0.9rem 1.05rem 1rem;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--gold) 32%, var(--line) 55%);
+      background: color-mix(in srgb, var(--card) 92%, rgba(227, 188, 103, 0.06));
+    }
+    :root[data-theme="light"] .tdb-home-kids-ribbon {
+      background: linear-gradient(135deg, #fffbf5 0%, #f6f3ee 100%);
+    }
+    .tdb-home-kids-ribbon-link {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+    .tdb-home-kids-ribbon-link:hover,
+    .tdb-home-kids-ribbon-link:focus-visible {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .tdb-home-kids-ribbon-text {
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 38rem;
+    }
+    .tdb-hero-votd-search {
+      margin: 0.9rem 0 0.35rem;
+      padding: 0.9rem 1rem 0.85rem;
+      border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--line) 90%, var(--gold) 10%);
+      background: color-mix(in srgb, var(--card) 95%, rgba(80, 100, 130, 0.04));
+    }
+    :root[data-theme="light"] .tdb-hero-votd-search {
+      background: #f6f7fb;
+    }
+    .tdb-hero-votd-search-label {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--gold-soft, var(--gold));
+      margin: 0 0 0.5rem;
+    }
+    .tdb-hero-votd-search-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: stretch;
+    }
+    .tdb-hero-votd-search-row #hero-votd-word-search {
+      flex: 1 1 12rem;
+      min-width: 0;
+      min-height: 48px;
+      font-size: 1.02rem;
+      padding: 0.65rem 0.9rem;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--text);
+    }
+    .tdb-hero-votd-search-row #hero-votd-word-search:focus {
+      outline: 2px solid color-mix(in srgb, var(--gold) 45%, transparent);
+      outline-offset: 2px;
+    }
+    .tdb-hero-votd-search-hint { margin: 0.5rem 0 0; font-size: 0.78rem; }
 
     /* Fast feeling row — one tap into Ask the Teacher (60-second path) */
     .tdb-home-fast-feel {
@@ -4209,7 +4303,7 @@
       box-shadow: 0 0 0 1px rgba(227, 188, 103, 0.28);
       border-radius: 8px;
     }
-    @media (max-width: 480px) { .read-aloud-label { display: none; } .read-aloud-btn { padding: 0.35rem; min-width: 40px; } }
+    @media (max-width: 480px) { .read-aloud-label { display: none; } .read-aloud-btn:not(.read-aloud-btn--hero) { padding: 0.35rem; min-width: 40px; } }
     /* loading skeleton hides it */
     .verse-card.is-loading .read-aloud-btn,
     .verse-card.is-loading .verse-ref-row,
@@ -8848,6 +8942,10 @@
         <p class="tdb-home-reader-story-foot">Short anonymized notes only. No hype, no names, no polished success stories. <a href="/testimonials.html">Read the full page</a>.</p>
       </section>
       <div id="hero-verse-wrap" class="hero-verse-wrap tdb-home-soar-aura tdb-quiet-container tdb-micro-hero-dawn">
+      <div class="tdb-home-kids-ribbon" role="region" aria-label="For kids and parents" id="tdb-home-kids-ribbon">
+        <a class="tdb-home-kids-ribbon-link" href="/kids/index.html?v=hub20260321">Kids Corner</a>
+        <span class="tdb-home-kids-ribbon-text">Read-aloud stories, Bible loops, and calm tools for families&mdash;built for little ones, steady for grown-ups.</span>
+      </div>
       <section class="card verse-card verse-card-loaded" id="verseCard" aria-live="polite" data-daily-verse="true">
         <p class="welcome-back-msg" id="welcomeBackMsg" aria-live="polite" hidden></p>
         <h2 class="hero-daily-headline">Welcome to God&rsquo;s University of Life &mdash; A Quiet Place to Learn His Ways</h2>
@@ -8868,14 +8966,23 @@
             </div>
           </div>
         </div>
+        <form class="tdb-hero-votd-search" id="tdb-hero-votd-search" role="search" aria-label="Find KJV verses by one word" onsubmit="return false;">
+          <label for="hero-votd-word-search" class="tdb-hero-votd-search-label">One word &rarr; verses</label>
+          <div class="tdb-hero-votd-search-row">
+            <input type="search" id="hero-votd-word-search" name="q" inputmode="search" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="e.g. peace, courage, rest" aria-label="Type one word to find matching KJV verses" />
+            <button type="button" class="btn btn-secondary tdb-hero-votd-search-go" id="hero-votd-word-search-btn" aria-label="Search for KJV verses for this word">Find verses</button>
+          </div>
+          <p class="section-note tdb-hero-votd-search-hint" id="hero-votd-search-hint">Same gentle lookup as <a href="#quick-search-hero">Ask the Teacher</a>&mdash;full results open just below. Press Enter or tap Find.</p>
+        </form>
         <p class="tdb-today-lesson-foot" id="tdb-today-lesson-wrap">Lesson from the University of God &mdash; <time id="tdbTodayLessonDate" datetime=""></time></p>
-        <div class="hero-verse-toolbar hero-verse-primary-toolbar" role="toolbar" aria-label="Verse: listen, copy, share, image, save to My Study">
+        <div class="hero-verse-toolbar hero-verse-primary-toolbar" aria-label="Verse: listen, copy, share, image, save to My Study">
+            <div class="tdb-hero-votd-listen-wrap" role="group" aria-label="Listen to today&rsquo;s verse">
             <button
-              class="read-aloud-btn read-aloud-with-label"
+              class="read-aloud-btn read-aloud-with-label read-aloud-btn--hero"
               id="readAloudBtn"
               type="button"
               aria-describedby="hero-listen-hint"
-              aria-label="Listen slow — verse and today’s breakdown read aloud"
+              aria-label="Listen — today’s verse and plain breakdown read aloud (device speech, calm pace)"
               aria-pressed="false"
             >
               <svg class="ra-icon-speaker" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -8887,12 +8994,15 @@
                 <rect x="6" y="4" width="4" height="16" rx="1"></rect>
                 <rect x="14" y="4" width="4" height="16" rx="1"></rect>
               </svg>
-              <span class="read-aloud-label">Listen slow</span>
+              <span class="read-aloud-label">Listen</span>
             </button>
+            </div>
+            <div class="tdb-hero-votd-tools-wrap" role="toolbar" aria-label="Verse: copy, share, image, save to My Study">
             <button type="button" class="hero-toolbar-btn" id="heroCopyVerseBtn" aria-label="Copy verse and page link to clipboard">Copy</button>
             <button type="button" class="hero-toolbar-btn" id="heroShareBtn" aria-label="Share today’s verse (copy or device share)">Share</button>
             <button type="button" class="hero-toolbar-btn" id="heroImageBtn" aria-label="Create shareable verse image">Image</button>
             <button type="button" id="hero-save-my-verses" class="btn btn-primary hero-votd-save-btn" aria-describedby="hero-my-verses-hint hero-my-verses-privacy-line" aria-label="Save today’s verse to My Study on this device">Save to My Study</button>
+            </div>
         </div>
         </div>
         <section class="tdb-home-fast-feel" id="tdbHomeFastFeel" aria-labelledby="tdbHomeFastFeelHeading">
@@ -9160,7 +9270,7 @@
         <p class="hero-daily-welcome">Joy, rest, questions&mdash;you are welcome here.</p>
         <p class="section-note" id="heroBuilderLine">A quiet place for real battles &mdash; built solo by Brandon, who is still fighting them too.</p>
         <p class="section-note">Read the <a href="/story.html">story</a>, see <a href="/where-support-goes.html">where support goes</a>, hear from <a href="/testimonials.html">readers</a>, or start with this week&rsquo;s <a href="/journal/">journal posts</a>.</p>
-        <p id="hero-listen-hint" class="hero-listen-hint">Tap Listen slow for a quiet hear-through of today&rsquo;s verse and breakdown. Keyboard: Tab to Listen slow, then Space.</p>
+        <p id="hero-listen-hint" class="hero-listen-hint">Tap Listen for a quiet hear-through of today&rsquo;s verse and breakdown (calm pace on your device). Keyboard: Tab to Listen, then Space.</p>
         <p class="hero-word-study-wrap">
           <span id="hero-study-verse-hint" class="hero-study-verse-hint">Slow on one word—concordance and short glosses, offline when you need them.</span>
           <button type="button" id="heroWordStudyBtn" class="btn btn-secondary hero-word-study-btn" data-tdb-wordstudy-ref="Isaiah 40:31" data-tdb-wordstudy-text="But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint." aria-describedby="hero-study-verse-hint" aria-label="Open verse study for today’s verse of the day">Study this verse</button>
@@ -11624,6 +11734,31 @@
           return;
         });
       }
+
+      const heroWordInput = document.getElementById("hero-votd-word-search");
+      const heroWordBtn = document.getElementById("hero-votd-word-search-btn");
+      function runHeroWordSearch() {
+        if (!heroWordInput) return;
+        const v = (heroWordInput.value || "").trim();
+        if (!v) return;
+        input.value = v;
+        runSearch();
+        const target = document.getElementById("quick-search-hero") || document.getElementById("feel-section");
+        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+        try { input.focus(); } catch (err) {}
+      }
+      if (heroWordBtn) {
+        heroWordBtn.addEventListener("click", runHeroWordSearch);
+        heroWordBtn.addEventListener("touchend", function (e) { e.preventDefault(); runHeroWordSearch(); }, { passive: false });
+      }
+      if (heroWordInput) {
+        heroWordInput.addEventListener("keydown", function (e) {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            runHeroWordSearch();
+          }
+        });
+      }
     }());
 
     // ── Quick-topic button click → trigger feel search ──
@@ -11999,6 +12134,9 @@
       const btn = document.getElementById('readAloudBtn');
       if (!btn) return;
 
+      const TTS_LISTEN_LBL = 'Listen';
+      const TTS_LISTEN_ARIA = 'Listen — today’s verse and plain breakdown read aloud (device speech, calm pace)';
+
       const hasTts = 'speechSynthesis' in window;
       function setUnavailable() {
         btn.hidden = false;
@@ -12015,18 +12153,18 @@
         btn.hidden = false;
         btn.disabled = false;
         btn.removeAttribute('aria-disabled');
-        btn.setAttribute('aria-label', 'Listen slow — verse and today’s breakdown read aloud');
+        btn.setAttribute('aria-label', TTS_LISTEN_ARIA);
         btn.removeAttribute('title');
         var rlbl = btn.querySelector('.read-aloud-label');
-        if (rlbl) rlbl.textContent = 'Listen slow';
+        if (rlbl) rlbl.textContent = TTS_LISTEN_LBL;
       }
 
       function setPlaying(yes) {
         btn.classList.toggle('is-playing', yes);
         btn.setAttribute('aria-pressed', yes ? 'true' : 'false');
-        btn.setAttribute('aria-label', yes ? 'Pause reading' : 'Listen slow — verse and today’s breakdown read aloud');
+        btn.setAttribute('aria-label', yes ? 'Pause reading' : TTS_LISTEN_ARIA);
         var lbl = btn.querySelector('.read-aloud-label');
-        if (lbl) lbl.textContent = yes ? 'Pause' : 'Listen slow';
+        if (lbl) lbl.textContent = yes ? 'Pause' : TTS_LISTEN_LBL;
       }
 
       // ── TTS fallback (used when MP3 unavailable) ──

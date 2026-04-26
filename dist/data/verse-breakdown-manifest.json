@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-26T19:26:43.645Z",
+  "generatedAt": "2026-04-26T19:43:07.626Z",
   "surfacedRefCount": 2945,
   "overrideCount": 2945,
   "sourceCounts": {
@@ -396,7 +396,7 @@
       "pairs": 4
     },
     "kids/kids-play-zone.js": {
-      "refs": 3,
+      "refs": 107,
       "pairs": 3
     },
     "kids/kids-verses-365.js": {

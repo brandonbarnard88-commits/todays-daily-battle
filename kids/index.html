@@ -22,7 +22,7 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css?v=20260423-phase5-perf">
   <link rel="stylesheet" href="kids-battle.css?v=20260405kidsfollowup">
-  <link rel="stylesheet" href="kids-play-zone.css?v=20260426kidsplay1">
+  <link rel="stylesheet" href="kids-play-zone.css?v=20260426lilshep1">
   <link rel="stylesheet" href="kids-page-sky.css?v=20260326playful">
   <link rel="manifest" href="../manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -112,24 +112,41 @@
     <main class="app-content" id="main-content" role="main">
       <div class="content-inner kids-battle-inner">
         <div class="kids-hub-play">
-          <section class="kids-play-zone" aria-labelledby="kids-hub-play-h">
+          <section class="kids-play-zone kids-play-zone--shepherdfield" aria-labelledby="kids-hub-play-h">
             <div class="kids-play-zone-inner" style="grid-template-columns:1fr">
               <div>
                 <div class="kids-buddy-block" style="margin-bottom:0.5rem">
-                  <span class="sr-only">Rae, your Bible buddy</span>
-                  <p class="kids-buddy-name"><span class="kids-buddy-name-strong">Rae</span> <span class="kids-buddy-title">your Bible buddy on this page</span></p>
-                  <p class="kids-buddy-tagline">I&rsquo;m here to help you open <strong>one</strong> fun thing first.</p>
+                  <span class="sr-only">Little Shepherd, your Bible friend. The big button opens a KJV story first.</span>
+                  <div class="kids-buddy-bubble kids-buddy-bubble--solo" lang="en">
+                    <p class="kids-bubble-hi">I&rsquo;m <strong class="kids-bubble-name">Little Shepherd</strong></p>
+                    <p class="kids-bubble-voice" id="kids-little-shepherd-line">&nbsp;</p>
+                  </div>
+                  <p class="kids-buddy-name" style="margin-top:0.5rem"><span class="kids-buddy-name-strong">Little Shepherd</span> <span class="kids-buddy-title">your friend on this page</span></p>
                 </div>
-                <h2 class="kids-play-zone-title" id="kids-hub-play-h" style="font-size:1.5rem">Start with one tap</h2>
-                <a class="kids-play-hero-tap" href="corner.html?random=1">Tap for a <span class="kids-play-hero-em">surprise</span> story</a>
-                <p class="kids-play-hero-sub" role="note">KJV stories with pictures&mdash;ask a grown-up for big words.</p>
+                <h2 class="kids-play-zone-title" id="kids-hub-play-h" style="font-size:1.5rem">Start here</h2>
+                <p class="kids-play-zone-lead" style="max-width:24rem;margin:0 auto 0.25rem;font-size:0.9rem">One big &ldquo;story&rdquo; button first. More fun tucks under &ldquo;More play.&rdquo;</p>
+                <a class="kids-play-hero-tap kids-play-hero-tap--story" href="corner.html?random=1"><span class="kids-play-hero-label">Tell me a Bible story</span></a>
+                <p class="kids-play-hero-sub" role="note">KJV (real words) with pictures. Stuck? Read with someone you love.</p>
+                <div class="kids-today-adventure" id="kids-today-adventure" role="region" aria-labelledby="kids-today-adventure-h">
+                  <h3 class="kids-today-adventure-h" id="kids-today-adventure-h">Today&rsquo;s adventure</h3>
+                  <p class="kids-today-adventure-line" id="kids-today-adventure-line">&nbsp;</p>
+                  <a class="kids-today-adventure-go" id="kids-today-adventure-link" href="corner.html?random=1">Open a story</a>
+                </div>
                 <details class="kids-play-more">
-                  <summary>More play&mdash;loop, color, match&hellip;</summary>
-                  <div class="kids-mega-grid kids-mega-grid--secondary" role="group" aria-label="More fun">
-                    <a class="kids-mega-btn kids-mega-loop" href="../kids-corner.html">Quick loop <small>short replay</small></a>
-                    <a class="kids-mega-btn kids-mega-color" href="../coloring.html?story=jesus-children">Color a scene <small>paint the page</small></a>
-                    <a class="kids-mega-btn kids-mega-match" href="match-buddies.html">Match game <small>verse pairs</small></a>
-                    <a class="kids-mega-btn kids-mega-doodle" href="corner.html">Open story library <small>pick any card</small></a>
+                  <summary>More play&mdash;only <strong>four</strong> paths (story shelf at the end)</summary>
+                  <div class="kids-mega-grid kids-mega-grid--secondary kids-mega-grid--four" role="group" aria-label="More fun">
+                    <a class="kids-mega-btn kids-mega-loop" href="../kids-corner.html"><span class="kids-mega-ico" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h6v4H4z"/><path d="M14 5h6v4h-6z"/><path d="M7 9v4l5 3v4"/><path d="M17 9v4l-5 3"/></svg>
+                    </span><span class="kids-mega-txt">Quick loop <small>short replay</small></span></a>
+                    <a class="kids-mega-btn kids-mega-color" href="../coloring.html?story=jesus-children"><span class="kids-mega-ico" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20h16"/><path d="M7 4l-2 8h14l-2-8"/><path d="M9 10l2 10"/><path d="M15 10l-2 10"/></svg>
+                    </span><span class="kids-mega-txt">Color a scene <small>paint on the page</small></span></a>
+                    <a class="kids-mega-btn kids-mega-match" href="match-buddies.html"><span class="kids-mega-ico" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                    </span><span class="kids-mega-txt">Match game <small>verse pairs</small></span></a>
+                    <a class="kids-mega-btn kids-mega-doodle" href="corner.html"><span class="kids-mega-ico" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 4h6v2H3zM15 4h6v2h-6zM4 8h4M16 8h4M6 3v2M18 3v2"/><path d="M6 8l4 6h4l4-6"/></svg>
+                    </span><span class="kids-mega-txt">Bible story library <small>pick any card</small></span></a>
                   </div>
                 </details>
               </div>
@@ -875,6 +892,7 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <script src="../vendor/uFuzzy.iife.min.js" defer></script>
   <script src="kids-verses-365.js?v=20260325kidsmeans" defer></script>
+  <script src="kids-little-shepherd.js?v=20260426lilshep1" defer></script>
   <script src="kids-shared.js?v=20260413efficiency" defer></script>
   <script src="kids-battle.js?v=20260524readquiz" defer></script>
   <script src="kids-read-quiz-data.js?v=20260524readquiz" defer></script>

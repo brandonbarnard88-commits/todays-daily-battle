@@ -44,6 +44,72 @@
   color: #fef08a;
 }
 
+.kids-buddy-identity {
+  width: 100%;
+  max-width: 28rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.kids-buddy-mascot-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.kids-buddy-bubble {
+  flex: 1;
+  min-width: 12rem;
+  max-width: 20rem;
+  margin: 0.15rem 0 0;
+  padding: 0.55rem 0.75rem 0.6rem;
+  border-radius: 16px;
+  border: 2px solid rgba(255, 217, 61, 0.45);
+  background: linear-gradient(160deg, rgba(255, 250, 235, 0.12) 0%, rgba(30, 58, 95, 0.35) 100%);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+  position: relative;
+}
+.kids-buddy-bubble--with-mascot::after {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 24px;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  border-right-color: rgba(255, 217, 61, 0.45);
+}
+.kids-buddy-bubble--solo {
+  max-width: 22rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.kids-buddy-bubble--solo::after {
+  display: none;
+}
+.kids-bubble-hi {
+  margin: 0 0 0.2rem;
+  font-family: "Bangers", cursive, system-ui, sans-serif;
+  font-size: 1.12rem;
+  letter-spacing: 0.03em;
+  color: #fef9c3;
+  line-height: 1.2;
+}
+.kids-bubble-name {
+  color: #fff;
+  font-weight: 800;
+}
+.kids-bubble-voice {
+  margin: 0;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-size: 0.86rem;
+  line-height: 1.38;
+  color: #e2e8f0;
+}
+.kids-bubble-voice strong {
+  color: #fef08a;
+}
+
 /* One obvious first tap */
 .kids-play-hero-tap {
   display: flex;
@@ -92,6 +158,120 @@
   margin-right: auto;
 }
 
+.kids-mascot-tap {
+  display: block;
+  padding: 0;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  line-height: 0;
+  box-shadow: 0 0 0 3px rgba(255, 217, 61, 0.35);
+  transition: box-shadow 0.15s ease, transform 0.12s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.kids-mascot-tap:hover,
+.kids-mascot-tap:focus-visible {
+  box-shadow: 0 0 0 4px rgba(255, 217, 61, 0.55);
+  transform: scale(1.02);
+  outline: none;
+}
+.kids-mascot-tap:active {
+  transform: scale(0.98);
+}
+
+.kids-play-hero-tap--story {
+  min-height: 72px;
+  padding: 0.9rem 1.15rem;
+  border-radius: 22px;
+  font-size: clamp(1.35rem, 4.2vw, 1.85rem);
+}
+.kids-play-hero-label {
+  display: block;
+  max-width: 16ch;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.kids-today-adventure {
+  margin: 0.5rem 0 0.35rem;
+  padding: 0.65rem 0.8rem 0.75rem;
+  border-radius: 16px;
+  border: 2px dashed rgba(255, 217, 61, 0.45);
+  background: rgba(0, 0, 0, 0.18);
+  text-align: center;
+}
+.kids-today-adventure-h {
+  margin: 0 0 0.3rem;
+  font-family: "Bangers", cursive, system-ui, sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  color: #fef9c3;
+}
+.kids-today-adventure-line {
+  margin: 0 0 0.5rem;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #e2e8f0;
+}
+.kids-today-adventure-go {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: #0f172a;
+  background: linear-gradient(180deg, #a5f3fc 0%, #22d3ee 45%, #06b6d4 100%);
+  border: 3px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 0 rgba(8, 145, 178, 0.4);
+}
+.kids-today-adventure-go:hover,
+.kids-today-adventure-go:focus-visible {
+  filter: brightness(1.04);
+  outline: none;
+}
+
+.kids-star-row {
+  display: flex;
+  gap: 0.2rem;
+  justify-content: center;
+  margin: 0.35rem 0 0.2rem;
+  font-size: 1.45rem;
+  line-height: 1;
+  letter-spacing: 0.06em;
+}
+.kids-star {
+  color: rgba(255, 255, 255, 0.18);
+  text-shadow: none;
+}
+.kids-star--on {
+  color: #fde047;
+  text-shadow: 0 0 8px rgba(250, 204, 21, 0.5);
+}
+.kids-progress-eyebrow {
+  margin: 0.35rem 0 0.1rem;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  text-align: center;
+}
+.kids-progress-pct-line {
+  margin: 0.15rem 0 0;
+  text-align: center;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-size: 0.82rem;
+  color: #cbd5e1;
+}
+
 .kids-play-more {
   margin-top: 0.35rem;
   border-radius: 14px;
@@ -109,6 +289,30 @@
   padding: 0.55rem 0.35rem;
 }
 .kids-play-more > summary::-webkit-details-marker { display: none; }
+
+.kids-play-extra-lanes {
+  margin-top: 0.55rem;
+  padding: 0.2rem 0.45rem 0.5rem;
+  border-radius: 12px;
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.12);
+}
+.kids-play-extra-lanes > summary {
+  cursor: pointer;
+  list-style: none;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  padding: 0.35rem 0.2rem;
+}
+.kids-play-extra-lanes > summary::-webkit-details-marker {
+  display: none;
+}
+.kids-play-extra-lanes .kids-mega-grid {
+  margin-top: 0.45rem;
+}
+
 .kids-mega-grid--secondary .kids-mega-btn {
   min-height: 50px;
   font-size: 0.86rem;
@@ -155,6 +359,107 @@
 }
 .kids-lanes-details > summary.kids-lanes-details-summary { display: list-item; }
 .kids-lanes-details > summary::-webkit-details-marker { display: none; }
+
+.kids-weekly-verse-easy {
+  margin: 0.45rem 0 0.35rem;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: #c7d2fe;
+  padding: 0.45rem 0.55rem;
+  border-radius: 10px;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(165, 180, 252, 0.25);
+}
+.kids-verse-easy-k {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #a5b4fc;
+  margin-bottom: 0.2rem;
+}
+.kids-kjv-extra {
+  margin-top: 0.4rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.15rem 0.5rem 0.5rem;
+}
+.kids-kjv-extra > summary {
+  cursor: pointer;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  list-style: none;
+  padding: 0.35rem 0;
+}
+.kids-kjv-extra > summary::-webkit-details-marker {
+  display: none;
+}
+
+.kids-quick-themes,
+.kids-gj-details {
+  margin-top: 0.5rem;
+  margin-bottom: 0.35rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.12);
+  padding: 0.2rem 0.65rem 0.55rem;
+}
+.kids-quick-themes > summary,
+.kids-gj-details > summary {
+  cursor: pointer;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 0.88rem;
+  color: #fde68a;
+  list-style: none;
+  padding: 0.45rem 0.15rem;
+}
+.kids-quick-themes > summary::-webkit-details-marker,
+.kids-gj-details > summary::-webkit-details-marker {
+  display: none;
+}
+.kids-library-quick-picks--primary {
+  margin-bottom: 0.35rem;
+}
+.kids-library-quick-picks--more {
+  margin-top: 0.45rem;
+}
+
+.kids-library-static-fallback > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.35rem 0;
+}
+.kids-library-static-fallback > summary::-webkit-details-marker {
+  display: none;
+}
+.kids-section-title--summary {
+  display: inline;
+  font-size: inherit;
+}
+
+.kids-grownup-long {
+  margin-top: 0.45rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.15rem 0.5rem 0.55rem;
+}
+.kids-grownup-long > summary {
+  cursor: pointer;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  list-style: none;
+}
+.kids-grownup-long > summary::-webkit-details-marker {
+  display: none;
+}
+
 .kids-corner-page-nav--compact a {
   font-size: 0.75rem;
   padding: 0.32rem 0.5rem;
@@ -174,6 +479,40 @@
     radial-gradient(ellipse 90% 60% at 90% 10%, rgba(124, 58, 237, 0.12) 0%, transparent 50%),
     radial-gradient(ellipse 80% 50% at 50% 100%, rgba(34, 197, 94, 0.1) 0%, transparent 45%);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+}
+
+/* Soft hills + cloud wash behind the play zone (calm, kid-friendly) */
+.kids-play-zone--shepherdfield::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 42%;
+  background:
+    radial-gradient(ellipse 90% 120% at 20% 100%, rgba(34, 197, 94, 0.16) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 100% at 80% 110%, rgba(14, 165, 233, 0.12) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.9;
+}
+.kids-play-zone--shepherdfield::after {
+  content: "";
+  position: absolute;
+  left: -5%;
+  right: -5%;
+  top: 4%;
+  height: 38%;
+  background:
+    radial-gradient(ellipse 30% 45% at 12% 40%, rgba(255, 255, 255, 0.09) 0%, transparent 70%),
+    radial-gradient(ellipse 35% 50% at 50% 25%, rgba(255, 255, 255, 0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 28% 40% at 88% 45%, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+.kids-play-zone--shepherdfield .kids-play-zone-inner {
+  position: relative;
+  z-index: 1;
 }
 
 .kids-play-zone::before {
@@ -262,11 +601,15 @@
   max-width: 40rem;
 }
 
-/* Mega actions — 48px+ targets */
+/* Mega actions — 48px+ targets, icon + label row */
 .kids-mega-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.6rem;
+}
+
+.kids-mega-grid--four {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 @media (min-width: 480px) {
@@ -278,17 +621,17 @@
 
 .kids-mega-btn {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  gap: 0.2rem;
-  min-height: 56px;
-  padding: 0.65rem 0.5rem;
-  border-radius: 16px;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  min-height: 60px;
+  padding: 0.7rem 0.55rem 0.7rem 0.5rem;
+  border-radius: 20px;
   font-family: "Nunito", system-ui, sans-serif;
   font-weight: 800;
-  font-size: 0.95rem;
-  text-align: center;
+  font-size: 0.92rem;
+  text-align: left;
   text-decoration: none;
   color: #0f172a;
   border: 3px solid rgba(0, 0, 0, 0.2);
@@ -296,6 +639,27 @@
   transition: transform 0.12s ease, box-shadow 0.12s ease;
   -webkit-tap-highlight-color: transparent;
   cursor: pointer;
+}
+.kids-mega-ico {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  color: currentColor;
+  opacity: 0.95;
+}
+.kids-mega-txt {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.kids-mega-txt small {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  opacity: 0.9;
+  line-height: 1.2;
+  margin-top: 0.1rem;
 }
 
 .kids-mega-btn:hover,
@@ -308,14 +672,6 @@
 .kids-mega-btn:active {
   transform: translateY(1px);
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
-}
-
-.kids-mega-btn small {
-  display: block;
-  font-size: 0.72rem;
-  font-weight: 700;
-  opacity: 0.85;
-  line-height: 1.2;
 }
 
 .kids-mega-random {
@@ -344,16 +700,15 @@
   background: linear-gradient(180deg, #38bdf8 0%, #0ea5e9 50%, #0284c7 100%);
   color: #fff;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-  border: 0;
+  border: 3px solid rgba(0, 0, 0, 0.15);
   width: 100%;
-  grid-column: 1 / -1;
 }
 
 .kids-mega-doodle {
   background: linear-gradient(180deg, #f472b6 0%, #ec4899 50%, #db2777 100%);
   color: #fff;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-  grid-column: 1 / -1;
+  width: 100%;
 }
 
 /* Weekly memory + progress card */

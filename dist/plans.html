@@ -557,6 +557,11 @@
       gap: 0.5rem 0.55rem;
       justify-content: center;
     }
+    @media (max-width: 480px) {
+      .plans-situation-jump__list {
+        gap: 0.65rem 0.6rem;
+      }
+    }
     .plans-situation-jump__list li { margin: 0; }
     .plans-situation-jump__list a {
       display: inline-flex;
@@ -573,6 +578,13 @@
       font-size: 0.9rem;
       -webkit-tap-highlight-color: transparent;
       transition: border-color 0.15s, color 0.15s, background 0.15s;
+    }
+    @media (max-width: 480px) {
+      .plans-situation-jump__list a {
+        min-height: 52px;
+        padding: 0.5rem 1rem;
+        font-size: 0.92rem;
+      }
     }
     .plans-situation-jump__list a:hover,
     .plans-situation-jump__list a:focus-visible {
@@ -1527,11 +1539,12 @@
         <p>Short, daily KJV lessons with one small step, plain words, and a simple prayer. Progress stays on your device, even offline. Need the small map of anchor verses? <a href="university.html">Open the University page</a>.</p>
       <section class="plans-situation-jump" id="find-your-plan" aria-labelledby="plans-situation-jump-h">
         <h2 class="plans-situation-jump__h" id="plans-situation-jump-h">Find your plan</h2>
-        <p class="plans-situation-jump__lead">Tap what matches how it feels&mdash;we jump to the course row in <a href="#all-plans">the full list</a> (one more tap to open the days).</p>
+        <p class="plans-situation-jump__lead">Tap what you&rsquo;re carrying today&mdash;we&rsquo;ll scroll you straight to the right course row in <a href="#all-plans">the full list</a> (one more tap to open the days).</p>
         <ul class="plans-situation-jump__list" role="list" aria-label="Common situations; jump to a course in the list below">
           <li><a href="#plan-row-universityanxiety">Anxiety &amp; fear</a></li>
           <li><a href="#plan-row-worrytrust">Worry &amp; overthinking</a></li>
           <li><a href="#plan-row-griefhope">Grief &amp; loss</a></li>
+          <li><a href="#plan-row-universityloneliness">Loneliness</a></li>
           <li><a href="#plan-row-addictionhope">Habits &amp; addiction</a></li>
           <li><a href="#plan-row-marriage">Marriage</a></li>
           <li><a href="#plan-row-universitybroken">A strained relationship</a></li>
@@ -2409,7 +2422,7 @@
           <div class="plan-row-info"><h2>The University of Gratitude</h2><p>When a week of small thanks would lift the soul&mdash;six KJV days on giving thanks in everything, whole-heart praise, doing all in Christ&rsquo;s name, prayer with thanksgiving, coming before God with a song, and blessing His holy name from the inside out.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">6 days</span><span class="plan-progress-pill" id="planPill-universitygratitude">Not started</span></div>
         </a>
-        <a href="plans.html?plan=universityloneliness" class="plan-row" data-plan="universityloneliness" role="listitem" aria-label="The University of Loneliness — 6 days">
+        <a href="plans.html?plan=universityloneliness" class="plan-row" id="plan-row-universityloneliness" data-plan="universityloneliness" role="listitem" aria-label="The University of Loneliness — 6 days">
           <span class="plan-row-icon" aria-hidden="true">🌄</span>
           <div class="plan-row-info"><h2>The University of Loneliness</h2><p>When the ache is &ldquo;no one is with me&rdquo;&mdash;six KJV days on the Lord drawing near, never leaving, setting the solitary, taking up the forsaken, and the Comforter&rsquo;s coming.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">6 days</span><span class="plan-progress-pill" id="planPill-universityloneliness">Not started</span></div>

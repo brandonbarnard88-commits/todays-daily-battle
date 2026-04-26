@@ -6288,7 +6288,47 @@
   var modalPreviousFocus = null;
   var modalFocusTrapHandler = null;
   var kidsStorySpeakBtn = null;
+  var kidsShepherdAudioEl = null;
+  var kidsShepherdAudioBtn = null;
   var readQuizRetryInflight = false;
+
+  function resetKidsStorySpeakButtonUi() {
+    if (kidsStorySpeakBtn) {
+      try {
+        kidsStorySpeakBtn.setAttribute('aria-pressed', 'false');
+        kidsStorySpeakBtn.setAttribute('aria-label', 'Play story narration');
+        kidsStorySpeakBtn.textContent = '\uD83D\uDD0A Read to me';
+      } catch (_u) { /* no-op */ }
+      kidsStorySpeakBtn = null;
+    }
+  }
+
+  /** Stops pre-recorded Shepherd m4a (and resets any visible Shepherd button in the open modal). */
+  function hardStopShepherdRecordedAudio() {
+    if (kidsShepherdAudioEl) {
+      try {
+        kidsShepherdAudioEl.onended = null;
+        kidsShepherdAudioEl.onerror = null;
+        kidsShepherdAudioEl.pause();
+        kidsShepherdAudioEl.currentTime = 0;
+        kidsShepherdAudioEl.removeAttribute('src');
+        if (typeof kidsShepherdAudioEl.load === 'function') kidsShepherdAudioEl.load();
+        if (kidsShepherdAudioEl.dataset) delete kidsShepherdAudioEl.dataset.tdbUrl;
+      } catch (_a) { /* no-op */ }
+    }
+    var b =
+      (modal && !modal.classList.contains('hidden')
+        ? modal.querySelector('.kids-story-shepherd-audio-btn[aria-pressed="true"]')
+        : null) || document.querySelector('.kids-story-shepherd-audio-btn[aria-pressed="true"]');
+    if (b) {
+      try {
+        b.setAttribute('aria-pressed', 'false');
+        b.setAttribute('aria-label', 'Play Little Shepherd read-aloud');
+        b.textContent = '\uD83C\uDF3E Shepherd reads this one';
+      } catch (_b) { /* no-op */ }
+    }
+    kidsShepherdAudioBtn = null;
+  }
 
   function normalizeBibleBook(ref) {
     var safe = tdbPlainTextForUi(ref || '');
@@ -8413,6 +8453,7 @@
     var safeVideoId = safeYouTubeId(s.videoId);
     var videoTitlePlain = tdbPlainTextForUi(s.videoTitle || '');
     try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (_) {}
+    try { hardStopShepherdRecordedAudio(); } catch (_h) { /* no-op */ }
     kidsStorySpeakBtn = null;
     currentOpenStoryKey = key;
     currentStoryNavMode = opts && opts.navMode === 'gentle' ? 'gentle' : 'browse';
@@ -8491,6 +8532,23 @@
         spk.setAttribute('aria-pressed', 'false');
         spk.textContent = '🔊 Read to me';
         carouselRoot.appendChild(spk);
+      }
+      var shepherdRecUrl = '';
+      if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.getShepherdNarrationAudioUrl === 'function') {
+        try {
+          shepherdRecUrl = window.tdbLittleShepherd.getShepherdNarrationAudioUrl(key) || '';
+        } catch (_su) { /* no-op */ }
+      }
+      if (shepherdRecUrl) {
+        var shA = document.createElement('button');
+        shA.type = 'button';
+        shA.className = 'kids-story-shepherd-audio-btn kids-speak-btn';
+        shA.setAttribute('data-story-key', key);
+        shA.setAttribute('data-shepherd-audio-url', shepherdRecUrl);
+        shA.setAttribute('aria-label', 'Play Little Shepherd read-aloud');
+        shA.setAttribute('aria-pressed', 'false');
+        shA.textContent = '\uD83C\uDF3E Shepherd reads this one';
+        carouselRoot.appendChild(shA);
       }
       if (safeVideoId) {
         var yt = document.createElement('button');
@@ -8657,6 +8715,7 @@
     syncModalStoryBreadcrumb(null);
     clearReadQuizModal();
     try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (_) {}
+    try { hardStopShepherdRecordedAudio(); } catch (_hs) { /* no-op */ }
     kidsStorySpeakBtn = null;
     currentOpenStoryKey = null;
     if (document.getElementById('kids-library-grid')) {
@@ -8743,11 +8802,51 @@
       kidsPreferredNarrationVoice = null;
       return;
     }
-    var pick = pool.find(function (v) { return /google.*english.*us|google us english/i.test(v.name || ''); })
-      || pool.find(function (v) { return /google/i.test(v.name || ''); })
-      || pool.find(function (v) { return /samantha|allison|aaron|zoe|nicky|susan/i.test(v.name || ''); })
-      || pool[0];
-    kidsPreferredNarrationVoice = pick || null;
+    function voiceNameLower(v) {
+      return (v && v.name) ? String(v.name).toLowerCase() : '';
+    }
+    function isLikelyFemaleVoiceName(v) {
+      var n = voiceNameLower(v);
+      return (
+        /female|woman|veena|zira|samantha|karen|victoria|fiona|hazel|martha|tessa|allison|zoe|nicky|susan|serena|siri|moira|sarah|kate|linda|yuna|federica|amelie|ines/.test(
+          n
+        ) && !/male/.test(n)
+      );
+    }
+    function maleishVoiceScore(v) {
+      var n = voiceNameLower(v);
+      if (!n) return 0;
+      if (isLikelyFemaleVoiceName(v)) return -3;
+      if (
+        /daniel|fred(?!a)|\baaron\b|arthur|bruce|ralph|gordon|reed|brian(?!a)|\bmale\b|google.+(male|english[^(]*male)|microsoft.+(guy|mark|david|aaron|fred)|tom(?!a)|\bjames(?!a)\b|paul\b|albert(?!a)\b|nick\b/.test(
+          n
+        )
+      ) {
+        return 4;
+      }
+      if (/(aaron|google|microsoft) /i.test(n) && !isLikelyFemaleVoiceName(v)) return 1;
+      return 0;
+    }
+    var scored = pool
+      .map(function (v) {
+        return { v: v, s: maleishVoiceScore(v) };
+      })
+      .filter(function (o) {
+        return o.s >= 0;
+      });
+    if (!scored.length) {
+      kidsPreferredNarrationVoice = (pool.find(function (v) { return !isLikelyFemaleVoiceName(v); }) || pool[0]) || null;
+      return;
+    }
+    scored.sort(function (a, b) {
+      if (b.s !== a.s) return b.s - a.s;
+      return voiceNameLower(a.v).localeCompare(voiceNameLower(b.v));
+    });
+    var first = scored[0];
+    var chosenVoice =
+      (first.s >= 2 ? first.v : null) ||
+      (scored.find(function (o) { return o.s > 0; }) || first).v;
+    kidsPreferredNarrationVoice = chosenVoice || null;
   }
 
   function shuffleChallengePool(arr) {
@@ -9400,6 +9499,68 @@
         }
         return;
       }
+      var shepherdBtn = e.target && e.target.closest ? e.target.closest('.kids-story-shepherd-audio-btn') : null;
+      if (shepherdBtn) {
+        var surl = shepherdBtn.getAttribute('data-shepherd-audio-url') || '';
+        if (!surl) return;
+        e.preventDefault();
+        try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (_sc) { /* no-op */ }
+        resetKidsStorySpeakButtonUi();
+        var a = kidsShepherdAudioEl;
+        if (a && a.dataset && a.dataset.tdbUrl === surl) {
+          if (a.paused) {
+            a.play()
+              .then(function () {
+                shepherdBtn.setAttribute('aria-pressed', 'true');
+                shepherdBtn.setAttribute('aria-label', 'Pause Little Shepherd read-aloud');
+                shepherdBtn.textContent = '\u23F8 Pause Shepherd';
+                kidsShepherdAudioBtn = shepherdBtn;
+              })
+              .catch(function () {
+                showToast('Could not play right now. Try “Read to me” or check your connection.');
+              });
+            return;
+          }
+          a.pause();
+          shepherdBtn.setAttribute('aria-pressed', 'false');
+          shepherdBtn.setAttribute('aria-label', 'Resume Little Shepherd read-aloud');
+          shepherdBtn.textContent = '\u25B6 Resume Shepherd';
+          return;
+        }
+        try { hardStopShepherdRecordedAudio(); } catch (_hd) { /* no-op */ }
+        if (!kidsShepherdAudioEl) kidsShepherdAudioEl = new Audio();
+        var aud = kidsShepherdAudioEl;
+        aud.dataset.tdbUrl = surl;
+        aud.onended = function () {
+          try {
+            if (aud.dataset) delete aud.dataset.tdbUrl;
+          } catch (_e) { /* no-op */ }
+          if (shepherdBtn) {
+            shepherdBtn.setAttribute('aria-pressed', 'false');
+            shepherdBtn.setAttribute('aria-label', 'Play Little Shepherd read-aloud');
+            shepherdBtn.textContent = '\uD83C\uDF3E Shepherd reads this one';
+          }
+          if (kidsShepherdAudioBtn === shepherdBtn) kidsShepherdAudioBtn = null;
+        };
+        aud.onerror = function () {
+          showToast('That voice clip did not load. “Read to me” still works here.');
+          try { hardStopShepherdRecordedAudio(); } catch (_e2) { /* no-op */ }
+        };
+        aud.src = surl;
+        aud
+          .play()
+          .then(function () {
+            shepherdBtn.setAttribute('aria-pressed', 'true');
+            shepherdBtn.setAttribute('aria-label', 'Pause Little Shepherd read-aloud');
+            shepherdBtn.textContent = '\u23F8 Pause Shepherd';
+            kidsShepherdAudioBtn = shepherdBtn;
+          })
+          .catch(function () {
+            showToast('Could not play right now. Try “Read to me” or check your connection.');
+            try { hardStopShepherdRecordedAudio(); } catch (_e3) { /* no-op */ }
+          });
+        return;
+      }
       var speakBtn = e.target && e.target.closest ? e.target.closest('.kids-story-speak-btn') : null;
       if (speakBtn) {
         var synth = window.speechSynthesis;
@@ -9423,6 +9584,7 @@
           kidsStorySpeakBtn = speakBtn;
           return;
         }
+        try { hardStopShepherdRecordedAudio(); } catch (_hx) { /* no-op */ }
         try { synth.cancel(); } catch (_) {}
         var text = (story.narration && story.narration.trim()) || '';
         if (!text && window.tdbLittleShepherd && typeof window.tdbLittleShepherd.getBriefNarration === 'function') {

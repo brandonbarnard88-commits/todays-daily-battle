@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" width="200" height="220" role="img" aria-labelledby="peT">
+  <title id="peT">Little Shepherd pointsexcited for your surprise story</title>
+  <defs>
+    <radialGradient id="gE" cx="45%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="100%" stop-color="#fcd34d"/>
+    </radialGradient>
+    <linearGradient id="gGrE" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#bae6fd"/>
+      <stop offset="100%" stop-color="#86efac"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="100" cy="200" rx="95" ry="16" fill="rgba(14,165,233,0.12)"/>
+  <rect x="0" y="170" width="200" height="50" fill="url(#gGrE)" opacity="0.5"/>
+  <circle cx="100" cy="90" r="33" fill="url(#gE)" stroke="#b45309" stroke-width="2.5"/>
+  <circle cx="90" cy="85" r="4" fill="#1e293b"/>
+  <circle cx="110" cy="85" r="4" fill="#1e293b"/>
+  <path d="M90 100 Q100 108 110 100" fill="none" stroke="#1e293b" stroke-width="2" stroke-linecap="round"/>
+  <rect x="65" y="120" width="50" height="45" rx="8" fill="#0ea5e9" fill-opacity="0.18" stroke="#0ea5e9" stroke-width="2"/>
+  <line x1="100" y1="50" x2="100" y2="75" stroke="#5c3d2e" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="100" y1="55" x2="168" y2="28" stroke="#5c3d2e" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="175" cy="25" r="7" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <path d="M175 20 L180 8 L190 20 Z" fill="#f59e0b" opacity="0.95" aria-hidden="true"/>
+</svg>

@@ -137,7 +137,8 @@
   var __ambientTeardown = null;
   var EXCITED_SURPRISE = [
     "Surprise! I scrunched up my face like I did not know either—then I grinned. Let us go!",
-    "A random story? That is a faith-walk! I am already scooting my stool closer."
+    "A random story? That is a faith-walk! I am already scooting my stool closer.",
+    "I love this button—giggle, point, and go! Jesus already knows the story. Your part is to come with a brave heart."
   ];
 
   /** Picks a stable "today" line so it does not change every refresh. */
@@ -283,12 +284,35 @@
     { src: 'shepherd-mascot-pray.svg', label: 'Little Shepherd prays with you' },
     { src: 'shepherd-mascot-proud.svg', label: 'Little Shepherd is proud of you' },
     { src: 'shepherd-mascot-comfort.svg', label: 'Little Shepherd is still with you' },
-    { src: 'shepherd-mascot-wonder.svg', label: 'Little Shepherd looks up in wonder' }
+    { src: 'shepherd-mascot-wonder.svg', label: 'Little Shepherd looks up in wonder' },
+    { src: 'shepherd-mascot-laugh.svg', label: 'Little Shepherd laughs with you' },
+    { src: 'shepherd-mascot-point-excited.svg', label: 'Little Shepherd points to your surprise story' }
   ];
 
   var POSE_PROUD = 8;
   var POSE_COMFORT = 9;
   var POSE_WONDER = 10;
+  var POSE_GENTLE_LAUGH = 11;
+  var POSE_EXCITED_POINT = 12;
+
+  /** Pre-baked calm male (Daniel / macOS `say`) narration clips, same origin. */
+  var SHEPHERD_RECORDED_AUDIO_KEYS = {
+    noah: 1,
+    david: 1,
+    jesus: 1,
+    jonah: 1,
+    daniel: 1,
+    mosesBush: 1,
+    jesusCalmsStorm: 1,
+    jesusFeeds5000: 1,
+    goodSamaritan: 1,
+    lostSheep: 1
+  };
+
+  function getShepherdNarrationAudioUrl(key) {
+    if (!key || !SHEPHERD_RECORDED_AUDIO_KEYS[key]) return '';
+    return '/kids/audio/shepherd/' + encodeURIComponent(key) + '.m4a';
+  }
 
   /**
    * Optional ~30–60s device-narration text when a story has no `narration` field in data.
@@ -619,9 +643,16 @@
       }
       var t = ev.target && ev.target.closest ? ev.target.closest('a[href*="random=1"]') : null;
       if (!t || !t.classList) return;
-      if (!t.classList.contains('kids-magic-surprise') && !t.classList.contains('kids-magic-story')) return;
-      if (bubbleLineEl) {
-        setBubbleVoice(bubbleLineEl, pickByDay(EXCITED_SURPRISE));
+      var isSurprise = t.classList.contains('kids-magic-surprise') || t.classList.contains('kids-surprise-random');
+      var isMainStoryLine = t.classList.contains('kids-magic-story');
+      if (!isSurprise && !isMainStoryLine) return;
+      if (isSurprise) {
+        if (bubbleLineEl) {
+          setBubbleVoice(bubbleLineEl, pickByDay(EXCITED_SURPRISE));
+        }
+        setShepherdPose(POSE_EXCITED_POINT);
+        setShepherdDance(2000);
+        return;
       }
       setShepherdPose(0);
     }, true);
@@ -673,7 +704,11 @@
       n += 1;
       var t = pool[(n * 7 + dayKey()) % pool.length];
       setBubbleVoice(bubbleLineEl, t);
-      setShepherdPose(n % MASCOT_POSES.length);
+      if (n > 0 && n % 5 === 0) {
+        setShepherdPose(POSE_GENTLE_LAUGH);
+      } else {
+        setShepherdPose(n % MASCOT_POSES.length);
+      }
     });
   }
 
@@ -754,6 +789,7 @@
     pickBedtime: function () { return pickByDay(BEDTIME); },
     pickCheer: function () { return pickByDay(CHEER); },
     getBriefNarration: getBriefNarration,
+    getShepherdNarrationAudioUrl: getShepherdNarrationAudioUrl,
     setShepherdPose: setShepherdPose,
     getStoryIntro: getStoryIntro,
     notify: notifyEvent,

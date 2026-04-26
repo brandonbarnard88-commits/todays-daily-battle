@@ -414,7 +414,7 @@ body.kids-world-surface .kids-family-deck a {
 }
 .kids-pasture-illu {
   position: relative;
-  height: 64px;
+  height: 72px;
   margin: 0 auto;
   max-width: 12rem;
   border-radius: 12px;
@@ -462,8 +462,17 @@ body.kids-world-surface .kids-family-deck a {
   background: linear-gradient(180deg, #fef08a, #eab308);
   box-shadow: 0 0 0 1px rgba(161, 98, 7, 0.35);
 }
+.kids-pasture-bloom.pt-d {
+  left: 72%;
+  bottom: 11px;
+  width: 9px;
+  height: 9px;
+  background: linear-gradient(180deg, #ddd6fe, #7c3aed);
+  box-shadow: 0 0 0 1px rgba(91, 33, 182, 0.35);
+}
 .kids-pasture-sheep,
 .kids-pasture-sheep2,
+.kids-pasture-sheep3,
 .kids-pasture-flower1,
 .kids-pasture-flower2,
 .kids-pasture-tree {
@@ -492,6 +501,17 @@ body.kids-world-surface .kids-family-deck a {
   opacity: 0;
   transition: opacity 0.45s ease, transform 0.45s ease;
   z-index: 1;
+}
+.kids-pasture-sheep3 {
+  left: 6%;
+  bottom: 6px;
+  width: 14px;
+  height: 11px;
+  border-radius: 42% 42% 48% 48%;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 2;
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.12);
 }
 @media (prefers-reduced-motion: no-preference) {
   .kids-pasture-card[data-token-bloom="3"] .kids-pasture-sheep2,
@@ -597,6 +617,31 @@ body.kids-world-surface .kids-family-deck a {
 .kids-pasture-card[data-token-bloom="5"] .pt-c {
   opacity: 1;
   transform: scale(1);
+}
+.kids-pasture-card[data-token-bloom="2"] .pt-d,
+.kids-pasture-card[data-token-bloom="3"] .pt-d,
+.kids-pasture-card[data-token-bloom="4"] .pt-d,
+.kids-pasture-card[data-token-bloom="5"] .pt-d {
+  opacity: 1;
+  transform: scale(1);
+}
+.kids-pasture-card[data-token-bloom="3"] .kids-pasture-sheep3,
+.kids-pasture-card[data-token-bloom="4"] .kids-pasture-sheep3,
+.kids-pasture-card[data-token-bloom="5"] .kids-pasture-sheep3,
+.kids-pasture-card[data-stage="3"] .kids-pasture-sheep3,
+.kids-pasture-card[data-stage="4"] .kids-pasture-sheep3,
+.kids-pasture-card[data-stage="5"] .kids-pasture-sheep3 {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .kids-pasture-card[data-token-bloom="4"] .kids-pasture-sheep3,
+  .kids-pasture-card[data-token-bloom="5"] .kids-pasture-sheep3 {
+    animation: kids-pasture-sheep3-hop 2.8s ease-in-out infinite;
+  }
+}
+@keyframes kids-pasture-sheep3-hop {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
 }
 .kids-pasture-card[data-token-bloom="5"] .kids-pasture-illu::before {
   content: "";
@@ -1206,11 +1251,33 @@ body.kids-world-surface.kids-mini-game .mini-game-hero {
   .kids-pasture-just-bloomed .kids-pasture-illu,
   .kids-pasture-card[data-token-bloom="3"] .kids-pasture-sheep2,
   .kids-pasture-card[data-token-bloom="4"] .kids-pasture-sheep2,
-  .kids-pasture-card[data-token-bloom="5"] .kids-pasture-sheep2 {
+  .kids-pasture-card[data-token-bloom="5"] .kids-pasture-sheep2,
+  .kids-pasture-card[data-token-bloom="4"] .kids-pasture-sheep3,
+  .kids-pasture-card[data-token-bloom="5"] .kids-pasture-sheep3 {
     animation: none !important;
   }
   .kids-story-modal--tada .kids-story-ls-intro,
   .kids-story-modal-content--tada {
     animation: none !important;
   }
+}
+
+/* Optional recorded “Little Shepherd” read-aloud (m4a), distinct from device TTS */
+body.kids-world-surface .kids-story-shepherd-audio-btn.kids-speak-btn {
+  display: block;
+  width: 100%;
+  max-width: 18rem;
+  margin: 0.4rem 0 0.15rem;
+  border-color: rgba(21, 128, 61, 0.45);
+  background: linear-gradient(180deg, rgba(220, 252, 231, 0.95) 0%, rgba(187, 247, 208, 0.55) 100%);
+  color: #14532d;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+body.kids-world-surface .kids-story-shepherd-audio-btn.kids-speak-btn[aria-pressed="true"] {
+  border-color: rgba(4, 120, 87, 0.55);
+  background: linear-gradient(180deg, rgba(187, 247, 208, 0.98) 0%, rgba(134, 239, 172, 0.55) 100%);
+}
+body.kids-world-surface .kids-story-shepherd-audio-btn.kids-speak-btn:hover {
+  border-color: rgba(21, 128, 61, 0.55);
 }

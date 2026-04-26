@@ -3822,9 +3822,10 @@
     .hero-verse-primary-toolbar {
       border-top: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
       padding-top: 0.75rem;
-      flex-direction: column;
-      align-items: stretch;
-      gap: 0.65rem;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.45rem;
     }
     .hero-votd-save-btn {
       min-height: 44px;
@@ -3838,6 +3839,9 @@
       .hero-votd-save-btn { margin-left: 0; flex: 1 1 100%; }
     }
     .tdb-hero-votd-listen-wrap { width: 100%; }
+    .tdb-hero-votd-listen-under-verse {
+      margin: 0.55rem 0 0.2rem;
+    }
     .read-aloud-btn.read-aloud-btn--hero {
       width: 100%;
       min-height: 52px;
@@ -3888,7 +3892,7 @@
       max-width: 38rem;
     }
     .tdb-hero-votd-search {
-      margin: 0.9rem 0 0.35rem;
+      margin: 0.65rem 0 0.35rem;
       padding: 0.9rem 1rem 0.85rem;
       border-radius: 12px;
       border: 1px solid color-mix(in srgb, var(--line) 90%, var(--gold) 10%);
@@ -8966,17 +8970,7 @@
             </div>
           </div>
         </div>
-        <form class="tdb-hero-votd-search" id="tdb-hero-votd-search" role="search" aria-label="Find KJV verses by one word" onsubmit="return false;">
-          <label for="hero-votd-word-search" class="tdb-hero-votd-search-label">One word &rarr; verses</label>
-          <div class="tdb-hero-votd-search-row">
-            <input type="search" id="hero-votd-word-search" name="q" inputmode="search" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="e.g. peace, courage, rest" aria-label="Type one word to find matching KJV verses" />
-            <button type="button" class="btn btn-secondary tdb-hero-votd-search-go" id="hero-votd-word-search-btn" aria-label="Search for KJV verses for this word">Find verses</button>
-          </div>
-          <p class="section-note tdb-hero-votd-search-hint" id="hero-votd-search-hint">Same gentle lookup as <a href="#quick-search-hero">Ask the Teacher</a>&mdash;full results open just below. Press Enter or tap Find.</p>
-        </form>
-        <p class="tdb-today-lesson-foot" id="tdb-today-lesson-wrap">Lesson from the University of God &mdash; <time id="tdbTodayLessonDate" datetime=""></time></p>
-        <div class="hero-verse-toolbar hero-verse-primary-toolbar" aria-label="Verse: listen, copy, share, image, save to My Study">
-            <div class="tdb-hero-votd-listen-wrap" role="group" aria-label="Listen to today&rsquo;s verse">
+        <div class="tdb-hero-votd-listen-wrap tdb-hero-votd-listen-under-verse" role="group" aria-label="Listen to today&rsquo;s verse">
             <button
               class="read-aloud-btn read-aloud-with-label read-aloud-btn--hero"
               id="readAloudBtn"
@@ -8996,7 +8990,17 @@
               </svg>
               <span class="read-aloud-label">Listen</span>
             </button>
-            </div>
+        </div>
+        <form class="tdb-hero-votd-search" id="tdb-hero-votd-search" role="search" aria-label="Find KJV verses by one word" onsubmit="return false;">
+          <label for="hero-votd-word-search" class="tdb-hero-votd-search-label">One word &rarr; verses</label>
+          <div class="tdb-hero-votd-search-row">
+            <input type="search" id="hero-votd-word-search" name="q" inputmode="search" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="e.g. peace, courage, rest" aria-label="Type one word to find matching KJV verses" />
+            <button type="button" class="btn btn-secondary tdb-hero-votd-search-go" id="hero-votd-word-search-btn" aria-label="Search for KJV verses for this word">Find verses</button>
+          </div>
+          <p class="section-note tdb-hero-votd-search-hint" id="hero-votd-search-hint">Same gentle lookup as <a href="#quick-search-hero">Ask the Teacher</a>&mdash;full results open just below. Press Enter or tap Find.</p>
+        </form>
+        <p class="tdb-today-lesson-foot" id="tdb-today-lesson-wrap">Lesson from the University of God &mdash; <time id="tdbTodayLessonDate" datetime=""></time></p>
+        <div class="hero-verse-toolbar hero-verse-primary-toolbar" aria-label="Verse: copy, share, image, save to My Study">
             <div class="tdb-hero-votd-tools-wrap" role="toolbar" aria-label="Verse: copy, share, image, save to My Study">
             <button type="button" class="hero-toolbar-btn" id="heroCopyVerseBtn" aria-label="Copy verse and page link to clipboard">Copy</button>
             <button type="button" class="hero-toolbar-btn" id="heroShareBtn" aria-label="Share today’s verse (copy or device share)">Share</button>
@@ -10185,6 +10189,13 @@
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
   <p class="site-footer-updated">Last updated: <span id="footer-date">April 26, 2026</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
 </footer>
 

@@ -3860,20 +3860,24 @@
       .tdb-hero-votd-tools-wrap .hero-votd-save-btn { margin-left: auto; }
     }
     .tdb-hero-votd-search-kids {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0.75rem;
-      margin: 0.65rem 0 0.35rem;
-      align-items: stretch;
-    }
-    @media (min-width: 640px) {
-      .tdb-hero-votd-search-kids {
-        grid-template-columns: minmax(0, 1.4fr) minmax(12rem, 1fr);
-        gap: 0.85rem;
-      }
+      margin: 0.6rem 0 0.35rem;
     }
     .tdb-hero-votd-search-kids .tdb-hero-votd-search {
       margin: 0;
+    }
+    .tdb-home-kids-ribbon--hero-priority {
+      margin: 0.55rem 0 0.35rem;
+    }
+    .tdb-kids-ribbon-eyebrow {
+      margin: 0 0 0.15rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--muted) 88%, var(--gold) 12%);
+    }
+    :root[data-theme="light"] .tdb-kids-ribbon-eyebrow {
+      color: color-mix(in srgb, var(--muted) 75%, #7a5c2a 25%);
     }
     .tdb-home-kids-ribbon {
       display: flex;
@@ -3891,6 +3895,9 @@
       background: linear-gradient(135deg, #fffbf5 0%, #f6f3ee 100%);
     }
     .tdb-home-kids-ribbon-link {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
       font-size: 1.05rem;
       font-weight: 700;
       color: var(--gold);
@@ -8636,7 +8643,7 @@
         <span aria-hidden="true"> · </span>
         <button type="button" class="tdb-tour-open-btn" id="tdb-tour-open-btn" aria-label="Open the five-minute site tour">Site tour</button>
         <button type="button" data-tdb-theme-toggle="home_header" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Appearance</span></button>
-        <a href="about.html" aria-label="About Today's Daily Battle">About</a>
+        <a href="/about.html" aria-label="About Today&apos;s Daily Battle">About</a>
         <a href="faq.html" aria-label="FAQ">FAQ</a>
         <a href="why-not-ai.html" aria-label="Why we are not an AI chat tool">Why not AI?</a>
         <a href="privacy.html" aria-label="Privacy policy">Privacy</a>
@@ -8658,6 +8665,7 @@
           <a href="/#feel-section" aria-current="page">How I Feel</a>
           <a href="/daily-rhythm.html">Daily Rhythm</a>
           <a href="/prayer-wall.html">Pray</a>
+          <a href="/kids/index.html?v=hub20260321" id="nav-kids-corner-home" aria-label="Kids Corner &mdash; read-aloud stories, Bible loops, and family tools">Kids Corner</a>
           <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
           <details class="tdb-nav-more">
             <summary aria-haspopup="true">More tools</summary>
@@ -9004,6 +9012,11 @@
               <span class="read-aloud-label">Listen</span>
             </button>
         </div>
+        <aside class="tdb-home-kids-ribbon tdb-home-kids-ribbon--hero-priority" role="region" aria-label="For kids and parents" id="tdb-home-kids-ribbon">
+          <p class="tdb-kids-ribbon-eyebrow" id="tdb-kids-ribbon-eyebrow">For parents and little ones</p>
+          <a class="tdb-home-kids-ribbon-link" href="/kids/index.html?v=hub20260321">Kids Corner</a>
+          <span class="tdb-home-kids-ribbon-text">Read-aloud stories, Bible loops, and calm tools for little ones&mdash;KJV at the center.</span>
+        </aside>
         <div class="tdb-hero-votd-search-kids" id="tdb-hero-votd-search-kids">
         <form class="tdb-hero-votd-search" id="tdb-hero-votd-search" role="search" aria-label="Find KJV verses by one word" onsubmit="return false;">
           <label for="hero-votd-word-search" class="tdb-hero-votd-search-label">One word &rarr; verses</label>
@@ -9013,10 +9026,6 @@
           </div>
           <p class="section-note tdb-hero-votd-search-hint" id="hero-votd-search-hint">Same gentle lookup as <a href="#quick-search-hero">Ask the Teacher</a>&mdash;full results open just below. Press Enter or tap Find.</p>
         </form>
-        <aside class="tdb-home-kids-ribbon" role="region" aria-label="For kids and parents" id="tdb-home-kids-ribbon">
-          <a class="tdb-home-kids-ribbon-link" href="/kids/index.html?v=hub20260321">Kids Corner</a>
-          <span class="tdb-home-kids-ribbon-text">Read-aloud stories, Bible loops, and calm tools for little ones&mdash;KJV at the center.</span>
-        </aside>
         </div>
         <p class="tdb-today-lesson-foot" id="tdb-today-lesson-wrap">Lesson from the University of God &mdash; <time id="tdbTodayLessonDate" datetime=""></time></p>
         <div class="hero-verse-toolbar hero-verse-primary-toolbar" aria-label="Verse: copy, share, image, save to My Study">

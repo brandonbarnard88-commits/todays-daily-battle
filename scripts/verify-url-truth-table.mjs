@@ -96,8 +96,8 @@ function main() {
       } else if (entry.rewrite) {
         const to = entry.rewrite.to;
         for (const a of entry.aliases || []) {
-          if (!vercelHasRewrite(a, to)) {
-            errors.push(`vercel.json: missing rewrite ${a} → ${to} (entry ${entry.id || '?'})`);
+          if (!vercelHasRewrite(a, to) && !vercelHasRedirect(a, to)) {
+            errors.push(`vercel.json: missing rewrite or redirect ${a} → ${to} (entry ${entry.id || '?'})`);
           }
         }
       }

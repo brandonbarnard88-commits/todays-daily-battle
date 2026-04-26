@@ -23,6 +23,11 @@
       "permanent": true
     },
     {
+      "source": "/about/",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
       "source": "/faq",
       "destination": "/faq.html",
       "permanent": true

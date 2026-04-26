@@ -575,6 +575,11 @@ if (fs.existsSync(path.join(root, 'kids'))) {
   console.log('Copied kids/ folder (Kids Battle + parent dashboard)');
 }
 
+if (fs.existsSync(path.join(root, 'about'))) {
+  copyDir(path.join(root, 'about'), path.join(dist, 'about'));
+  console.log('Copied about/ (static /about/ index → about.html for simple hosts)');
+}
+
 if (fs.existsSync(path.join(root, 'pastor'))) {
   copyDir(path.join(root, 'pastor'), path.join(dist, 'pastor'));
   console.log('Copied pastor/ folder (hub, tools, builder, library)');
@@ -934,6 +939,11 @@ for (let i = 0; i < LOCALE_HUB_REDIRECTS.length; i++) {
     console.error('BUILD FAIL: dist/' + h.path + ' missing — required for /' + h.slug + '/ (Cloudflare Pages).');
     process.exit(1);
   }
+}
+const aboutIndexHtml = path.join(dist, 'about', 'index.html');
+if (!fs.existsSync(aboutIndexHtml) || !fs.readFileSync(aboutIndexHtml, 'utf8').includes('/about.html')) {
+  console.error('BUILD FAIL: dist/about/index.html must exist and point to /about.html (static fallback for /about/).');
+  process.exit(1);
 }
 console.log('Verified: /give support page route + donation redirects (/donate, /stripe, /support, /donations*) present in _redirects.');
 console.log('Verified: RU / ZH / HI hub index.html + _redirects 200! rules in dist/.');

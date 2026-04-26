@@ -127,6 +127,18 @@
     el.textContent = a + b + c;
   }
 
+  function renderActivityToday() {
+    const el = document.getElementById('parent-activity-today');
+    if (!el) return;
+    if (window.tdbKidsActivityLog && typeof window.tdbKidsActivityLog.formatTodayForParent === 'function') {
+      try {
+        el.textContent = window.tdbKidsActivityLog.formatTodayForParent();
+        return;
+      } catch (e) {}
+    }
+    el.textContent = 'Open a story or game on this device; a simple list of today’s moments will show here.';
+  }
+
   function fillParentDevotion() {
     const el = document.getElementById('parent-devotion-verse');
     if (!el) return;
@@ -658,6 +670,7 @@
       try {
         renderParentCode();
         renderTodaySnapshot();
+        renderActivityToday();
         fillParentDevotion();
         renderStreak();
         renderFavorites();

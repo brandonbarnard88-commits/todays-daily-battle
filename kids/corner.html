@@ -42,7 +42,7 @@
   <link rel="stylesheet" href="../styles.css?v=20260423-phase5-perf">
   <link rel="stylesheet" href="kids-battle.css?v=20260405kidsfollowup">
   <link rel="stylesheet" href="kids-play-zone.css?v=20260426lilshep2">
-  <link rel="stylesheet" href="kids-kids-world.css?v=20260426cross1">
+  <link rel="stylesheet" href="kids-kids-world.css?v=20260427kidsall1">
   <link rel="stylesheet" href="kids-page-sky.css?v=20260326playful">
   <link rel="stylesheet" href="canvas.css?v=1">
   <style>
@@ -848,22 +848,29 @@
                   </div>
                 </div>
                 <p class="kids-wonder-kidline">Let&rsquo;s open God&rsquo;s Word together.</p>
+                <div class="kids-sheep-run" aria-hidden="true"><span class="kids-sheep-run-emoji">🐑</span></div>
               </div>
               <div class="kids-magic-hero-cta" role="group" aria-label="Bible fun—start here">
                 <a class="kids-magic-btn kids-magic-story" id="kids-play-hero-tap" href="corner.html?random=1">Tell me a Bible story<small>tap for a KJV read-aloud</small></a>
               </div>
-              <div class="kids-magic-trio" role="group" aria-label="Three more quick fun taps">
+              <div class="kids-magic-duo" role="group" aria-label="Two more quick fun taps">
                 <a class="kids-magic-btn kids-magic-color" href="../coloring.html?story=jesus-children">Color<small>paint a scene</small></a>
                 <a class="kids-magic-btn kids-magic-game" href="match-buddies.html">Bible game<small>match pairs</small></a>
-                <button type="button" class="kids-magic-btn kids-magic-journey" id="kids-play-zone-journey">Gentle Journey<small>next story</small></button>
               </div>
+              <p class="kids-sound-fx-row">
+                <label class="kids-sound-fx-label"><input type="checkbox" id="kids-sound-fx-optin" class="kids-sound-fx-optin"> Soft chime on the big story button (saved on this device)</label>
+              </p>
               <details class="kids-magic-more">
-                <summary class="kids-magic-more-summary">More<small>from this shelf&hellip;</small></summary>
+                <summary class="kids-magic-more-summary">Let&rsquo;s play<small>more adventures</small></summary>
                 <div class="kids-magic-grid kids-magic-grid--more" role="group" aria-label="More fun on the story page">
+                  <button type="button" class="kids-magic-btn kids-magic-journey" id="kids-play-zone-journey">Gentle Journey<small>next story</small></button>
                   <a class="kids-magic-btn kids-magic-surprise" href="corner.html?random=1">Surprise story<small>another random</small></a>
                   <button type="button" class="kids-magic-btn kids-magic-random" id="kids-play-zone-random">Surprise card<small>this shelf</small></button>
                   <a class="kids-magic-btn kids-magic-loop" href="../kids-corner.html">Quick loop<small>short replay</small></a>
                   <a class="kids-magic-btn kids-magic-shelf" href="corner.html?story=david">Draw a story<small>David + Color Me</small></a>
+                  <a class="kids-magic-btn kids-magic-mini" href="lost-sheep.html">Find the sheep<small>tap game</small></a>
+                  <a class="kids-magic-btn kids-magic-mini" href="memory-flock.html">Memory flock<small>match pairs</small></a>
+                  <a class="kids-magic-btn kids-magic-night" href="good-night.html">Good night<small>prayer + Shepherd</small></a>
                 </div>
               </details>
               <p class="kids-play-hero-sub" role="note" style="text-align:center;margin:0.45rem 0 0.5rem">KJV. Stuck? Read with someone you love.</p>
@@ -881,6 +888,7 @@
                   <span class="kids-pasture-tree" aria-hidden="true"></span>
                 </div>
                 <p class="kids-pasture-note" id="kids-pasture-label">A fresh patch of grass. Keep exploring.</p>
+                <p class="kids-sheep-tokens" id="kids-sheep-tokens-line" aria-live="polite"></p>
                 <p class="sr-only" id="kids-pasture-aria">Story opens on this device: loading.</p>
                 <p class="sr-only" id="kids-pasture-stars" aria-label="Path stars for grown-ups">Stars below match about how many stories you have opened on this device.</p>
                 <div class="kids-play-progress" aria-label="Bible story explorer path for this device">
@@ -1384,9 +1392,10 @@
   });
   </script>
   <script src="loop-library-coloring.js?v=20260524readquiz" defer></script>
+  <script src="kids-activity-log.js?v=20260427kidsall1" defer></script>
   <script src="kids-corner.js?v=20260524readquiz" defer></script>
-  <script src="kids-play-zone.js?v=20260207kidsworld1" defer></script>
-  <script src="kids-little-shepherd.js?v=20260426cross1" defer></script>
+  <script src="kids-play-zone.js?v=20260427kidsall1" defer></script>
+  <script src="kids-little-shepherd.js?v=20260427kidsall1" defer></script>
   <script type="module" src="../kids-data-loader.js" data-cfasync="false" defer></script>
   <script src="../tdb-offline-strip.js?v=20260421pwa1"></script>
   <script type="module" src="../script.js?v=20260423-phase5-perf" data-cfasync="false" defer></script>

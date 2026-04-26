@@ -55,7 +55,7 @@
   ];
 
   var SAME_SESSION = [
-    "Oh, you are still here! I like that. Tap the big story, or use More if you are hunting for something else.",
+    "Oh, you are still here! I like that. Tap the big story, or open Let’s play for more paths.",
     "Hi again! Same visit? Then we keep it small—one thing at a time, with Jesus in the middle.",
     "I am right where you left me. The buttons are the path—no hurry."
   ];
@@ -111,6 +111,29 @@
     "Hug from me is mostly words— but Jesus is the real one who is always there. Want a verse in your head for later?",
     "Hey, if you are tired, a slow story still counts. Jesus likes small faith, not show faith.",
     "I could tell you a hundred tiny facts about sheep. Or we could do one true Bible line together—your call."
+  ];
+
+  /** When URL has ?story=slug, greet like a friend who knows the pick. */
+  var STORY_PRAISE = {
+    david: "David and a giant? Brave pick—I love how God is bigger than the loudest problem.",
+    noah: "Noah’s story is a promise-in-the-sky kind of story. I save a little clap for the rainbow part.",
+    jesus: "Jesus, the Good Shepherd—my favorite. Let us listen slow; these are the real KJV words.",
+    jonah: "Jonah and the big fish? Sometimes God lets a rough ride teach a soft heart. I get that.",
+    daniel: "Daniel in the den—pray brave, stand kind. I am already scooting closer for the lions part.",
+    adamEve: "First family, first choice—big feelings in a small garden. We will read honest, with Jesus near.",
+    cainAbel: "This one has hard feelings, so we will read with a gentle, honest heart. God is still good.",
+    towerBabel: "Tall ideas and a patient God who loves truth more than show—want to see the next picture together?",
+    abrahamIsaac: "Abraham and Isaac is trust-when-it-hurts trust. I will read quiet with you.",
+    josephCoat: "A coat, a long road, a God who keeps—Joseph’s is one of my never-alone stories.",
+    mosesBush: "A bush on fire that does not turn to ash? God is near when He calls. Let us go.",
+    hannahSamuel: "A mama who prays and keeps her promise—my heart does a small hop in this one.",
+    samuelAnointsDavid: "The youngest, the sheep, the heart—God does not look like people look. I love that."
+  };
+
+  var SOUND_KEY = 'tdbKidsSoundFx';
+  var EXCITED_SURPRISE = [
+    "Surprise! I scrunched up my face like I did not know either—then I grinned. Let us go!",
+    "A random story? That is a faith-walk! I am already scooting my stool closer."
   ];
 
   /** Picks a stable "today" line so it does not change every refresh. */
@@ -230,12 +253,19 @@
           setBubbleVoice(welcomeLineEl, pickByDay(WELCOME));
         }
       }
-      global.localStorage.setItem(lastVisitKey(), String(now));
-      global.sessionStorage.setItem(sameSessionKey(), '1');
+      markKidsVisit();
     } catch (e) {
       setBubbleVoice(welcomeLineEl, pickByDay(WELCOME));
     }
     return { gapReturn: gapReturn, firstEver: firstEver };
+  }
+
+  function markKidsVisit() {
+    try {
+      var now = Date.now();
+      global.localStorage.setItem(lastVisitKey(), String(now));
+      global.sessionStorage.setItem(sameSessionKey(), '1');
+    } catch (e) { /* no-op */ }
   }
 
   var MASCOT_POSES = [
@@ -255,6 +285,146 @@
     img.setAttribute('alt', pose.label);
   }
 
+  function shepherdHeroWrap() {
+    var img = document.getElementById('kids-shepherd-hero');
+    if (!img) return null;
+    return img.closest('.kids-shepherd-hero-wrap') || img.parentElement;
+  }
+
+  function setShepherdDance(ms) {
+    var w = shepherdHeroWrap();
+    if (!w) return;
+    w.classList.add('kids-shepherd-dance');
+    setTimeout(function () {
+      try { w.classList.remove('kids-shepherd-dance'); } catch (e) {}
+    }, ms || 2000);
+  }
+
+  function isSoundOptIn() {
+    try {
+      return global.localStorage.getItem(SOUND_KEY) === '1';
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function playSoftChime() {
+    if (!isSoundOptIn()) return;
+    try {
+      var Ctx = global.AudioContext || global.webkitAudioContext;
+      if (!Ctx) return;
+      if (!global.__tdbAudioCtx) global.__tdbAudioCtx = new Ctx();
+      var ctx = global.__tdbAudioCtx;
+      if (ctx.state === 'suspended') {
+        try { ctx.resume(); } catch (e2) {}
+      }
+      var o = ctx.createOscillator();
+      var g = ctx.createGain();
+      o.type = 'sine';
+      o.frequency.setValueAtTime(660, ctx.currentTime);
+      g.gain.setValueAtTime(0.0001, ctx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.1, ctx.currentTime + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.28);
+      o.connect(g);
+      g.connect(ctx.destination);
+      o.start();
+      o.stop(ctx.currentTime + 0.3);
+    } catch (e) { /* no-op */ }
+  }
+
+  function getStoryIntro(key, storyObj) {
+    if (!key) return 'Let us look at the pictures, then the true KJV line together.';
+    if (STORY_PRAISE[key]) return STORY_PRAISE[key];
+    var t = storyObj && storyObj.title ? String(storyObj.title) : String(key);
+    return "This one is called " + t + ". I will read slow in my heart with you. Tap Read to me if your device can speak.";
+  }
+
+  function tryStoryQueryLine(lineEl) {
+    if (!lineEl) return false;
+    try {
+      var m = /[?&]story=([^&]+)/.exec(global.location.search || '');
+      if (!m) return false;
+      var sk = decodeURIComponent(m[1]);
+      sk = sk.replace(/[^a-zA-Z0-9_]/g, '') || '';
+      if (sk && STORY_PRAISE[sk]) {
+        setBubbleVoice(lineEl, STORY_PRAISE[sk]);
+        return true;
+      }
+    } catch (e) {}
+    return false;
+  }
+
+  function initShepherdMotion() {
+    var img = document.getElementById('kids-shepherd-hero');
+    if (img) {
+      img.classList.add('kids-shepherd-idle');
+    }
+    var w = shepherdHeroWrap();
+    if (w) {
+      w.classList.add('kids-shepherd-welcome');
+      setTimeout(function () {
+        try { w.classList.remove('kids-shepherd-welcome'); } catch (e) {}
+      }, 2200);
+    }
+  }
+
+  function wireSoundOptIn() {
+    var box = document.getElementById('kids-sound-fx-optin');
+    if (!box) return;
+    try {
+      box.checked = isSoundOptIn();
+    } catch (e) {}
+    box.addEventListener('change', function () {
+      try {
+        global.localStorage.setItem(SOUND_KEY, box.checked ? '1' : '0');
+      } catch (e2) {}
+    });
+  }
+
+  function wireMainActionChime() {
+    function onClick(ev) {
+      var a = ev.target && ev.target.closest ? ev.target.closest('a.kids-magic-story') : null;
+      if (!a) return;
+      playSoftChime();
+    }
+    document.addEventListener('click', onClick, true);
+  }
+
+  function wireSurpriseLines(bubbleLineEl) {
+    document.addEventListener('click', function (ev) {
+      var t = ev.target && ev.target.closest ? ev.target.closest('a[href*="random=1"]') : null;
+      if (!t || !t.classList || !t.classList.contains('kids-magic-surprise')) return;
+      if (bubbleLineEl) {
+        setBubbleVoice(bubbleLineEl, pickByDay(EXCITED_SURPRISE));
+      }
+      setShepherdPose(0);
+    }, true);
+  }
+
+  function notifyEvent(type, data) {
+    if (type === 'storyClosed') {
+      return;
+    }
+    var lineEl = document.getElementById('kids-little-shepherd-line');
+    if (type === 'quizComplete' || type === 'storyFinished') {
+      setShepherdDance(2200);
+      if (lineEl) {
+        setBubbleVoice(lineEl, pickByDay(CHEER));
+      }
+      playSoftChime();
+      return;
+    }
+    if (type === 'surpriseTap' && lineEl) {
+      setBubbleVoice(lineEl, pickByDay(EXCITED_SURPRISE));
+      setShepherdPose(0);
+      return;
+    }
+    if (type === 'storyOpened' && data && data.key) {
+      /* pose optional nudge: point at story */
+      setShepherdPose(1);
+    }
+  }
+
   function initMascotTap(bubbleLineEl) {
     var btn = document.getElementById('kids-mascot-tap');
     if (!btn || !bubbleLineEl) return;
@@ -268,12 +438,32 @@
     });
   }
 
+  function applyKidsSeasonClass() {
+    if (!global.document || !document.body) return;
+    var m = new Date().getMonth() + 1;
+    var s = 'ordinary';
+    if (m === 12 || m === 1) s = 'winter';
+    if (m === 3 || m === 4) s = 'easter';
+    if (m === 11) s = 'harvest';
+    try {
+      document.body.setAttribute('data-kids-season', s);
+    } catch (e) { /* no-op */ }
+  }
+
   function init() {
     var lineEl = document.getElementById('kids-little-shepherd-line');
     if (!lineEl) return;
 
+    applyKidsSeasonClass();
+
     if (document.getElementById('kids-mascot-tap')) {
-      var o = applyOpeningLine(lineEl);
+      var o;
+      if (!tryStoryQueryLine(lineEl)) {
+        o = applyOpeningLine(lineEl);
+      } else {
+        o = { gapReturn: false, firstEver: false };
+        markKidsVisit();
+      }
       if (document.getElementById('kids-shepherd-hero')) {
         if (o.gapReturn) {
           setShepherdPose(2);
@@ -283,7 +473,11 @@
           setShepherdPose(1);
         }
       }
+      initShepherdMotion();
       initMascotTap(lineEl);
+      wireSoundOptIn();
+      wireMainActionChime();
+      wireSurpriseLines(lineEl);
     } else {
       setBubbleVoice(lineEl, pickByDay(WELCOME));
     }
@@ -306,6 +500,10 @@
     pickMatchWin: function () { return pickByDay(MATCH_WIN); },
     pickBedtime: function () { return pickByDay(BEDTIME); },
     pickCheer: function () { return pickByDay(CHEER); },
-    setShepherdPose: setShepherdPose
+    setShepherdPose: setShepherdPose,
+    getStoryIntro: getStoryIntro,
+    notify: notifyEvent,
+    playSoftChime: playSoftChime,
+    setShepherdDance: setShepherdDance
   };
 })(typeof globalThis !== 'undefined' ? globalThis : window);

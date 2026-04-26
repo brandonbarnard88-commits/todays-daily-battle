@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-26T20:21:33.563Z",
+  "generatedAt": "2026-04-26T20:48:11.058Z",
   "surfacedRefCount": 2945,
   "overrideCount": 2945,
   "sourceCounts": {
@@ -377,6 +377,10 @@
     },
     "kids/corner.html": {
       "refs": 12,
+      "pairs": 0
+    },
+    "kids/good-night.html": {
+      "refs": 1,
       "pairs": 0
     },
     "kids/index.html": {

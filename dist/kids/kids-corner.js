@@ -7194,6 +7194,11 @@
         try {
           localStorage.setItem('kidsStoryReadQuizDone:' + key, String(Date.now()));
         } catch (eLs) {}
+        try {
+          if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.notify === 'function') {
+            window.tdbLittleShepherd.notify('quizComplete', { key: key });
+          }
+        } catch (eN) { /* no-op */ }
         addStoryMasterProgress(key);
         return;
       }
@@ -7786,6 +7791,12 @@
     var beforeS = typeof window.tdbComputeStoryMasterState === 'function' ? window.tdbComputeStoryMasterState() : null;
     var beforeTier = beforeS ? beforeS.tier : tierFromStoryCount(list.length, getStoryKeys().length);
     list.push(key);
+    try {
+      var tk = 'tdbKidsSheepTokens';
+      var cur = parseInt(localStorage.getItem(tk) || '0', 10);
+      if (cur !== cur) cur = 0;
+      localStorage.setItem(tk, String(cur + 1));
+    } catch (eTok) { /* no-op */ }
     if (typeof window.tdbStoryMasterWriteListMerged === 'function') {
       window.tdbStoryMasterWriteListMerged(list);
     } else {
@@ -8242,6 +8253,109 @@
     } catch (eMeta) {}
   }
 
+  function prependLittleShepherdIntro(carouselRoot, key, storyObj) {
+    if (!carouselRoot) return;
+    var intro = document.createElement('div');
+    intro.className = 'kids-story-ls-intro';
+    var p = document.createElement('p');
+    p.className = 'kids-story-ls-intro-text';
+    var line = 'Let us look at the pictures first—then the true KJV words below.';
+    if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.getStoryIntro === 'function') {
+      try {
+        line = window.tdbLittleShepherd.getStoryIntro(key, storyObj);
+      } catch (eIntro) { /* keep default */ }
+    }
+    p.textContent = line;
+    intro.appendChild(p);
+    carouselRoot.insertBefore(intro, carouselRoot.firstChild);
+  }
+
+  function appendKjvPlainToggle(modalContext, s) {
+    if (!modalContext || !s) return;
+    var ref = s.kjvRef ? String(s.kjvRef).trim() : '';
+    var plain = s.kidContext && s.kidContext.apply ? String(s.kidContext.apply).trim() : '';
+    if (!ref && !plain) return;
+    var box = document.createElement('div');
+    box.className = 'kids-story-kjv-plain';
+    box.setAttribute('role', 'region');
+    box.setAttribute('aria-label', 'KJV reference and plain helper');
+    var lab = document.createElement('p');
+    lab.className = 'kids-story-kjv-plain-label';
+    lab.textContent = 'Same story, two ways in—tap to read KJV or plain helper.';
+    box.appendChild(lab);
+    var row = document.createElement('div');
+    row.className = 'kids-kjv-plain-toggle-row';
+    var bK = document.createElement('button');
+    bK.type = 'button';
+    bK.className = 'kids-kjv-plain-btn is-on';
+    bK.setAttribute('aria-pressed', 'true');
+    bK.textContent = 'KJV reference';
+    var bP = document.createElement('button');
+    bP.type = 'button';
+    bP.className = 'kids-kjv-plain-btn';
+    bP.setAttribute('aria-pressed', 'false');
+    bP.textContent = 'Plain helper';
+    row.appendChild(bK);
+    row.appendChild(bP);
+    box.appendChild(row);
+    var pK = document.createElement('div');
+    pK.className = 'kids-kjv-plain-body';
+    pK.textContent = ref || plain || '';
+    var pP = document.createElement('div');
+    pP.className = 'kids-kjv-plain-body hidden';
+    pP.setAttribute('hidden', '');
+    pP.textContent = plain || ref || '';
+    if (!ref) {
+      bK.classList.remove('is-on');
+      bK.setAttribute('aria-pressed', 'false');
+      bP.classList.add('is-on');
+      bP.setAttribute('aria-pressed', 'true');
+      pK.classList.add('hidden');
+      pK.setAttribute('hidden', '');
+      pP.classList.remove('hidden');
+      pP.removeAttribute('hidden');
+    }
+    box.appendChild(pK);
+    box.appendChild(pP);
+    bK.addEventListener('click', function () {
+      bK.classList.add('is-on');
+      bP.classList.remove('is-on');
+      bK.setAttribute('aria-pressed', 'true');
+      bP.setAttribute('aria-pressed', 'false');
+      pK.classList.remove('hidden');
+      pK.removeAttribute('hidden');
+      pP.classList.add('hidden');
+      pP.setAttribute('hidden', '');
+    });
+    bP.addEventListener('click', function () {
+      bP.classList.add('is-on');
+      bK.classList.remove('is-on');
+      bP.setAttribute('aria-pressed', 'true');
+      bK.setAttribute('aria-pressed', 'false');
+      pP.classList.remove('hidden');
+      pP.removeAttribute('hidden');
+      pK.classList.add('hidden');
+      pK.setAttribute('hidden', '');
+    });
+    modalContext.appendChild(box);
+  }
+
+  function appendWonderQuestionBlock(modalContext, key, s, pack) {
+    if (!modalContext) return;
+    var q = 'What do you think? ';
+    if (pack && pack.questions && pack.questions[0] && pack.questions[0].question) {
+      q += tdbPlainTextForUi(pack.questions[0].question);
+    } else {
+      q += 'What is one true thing you want to tell Jesus after this story?';
+    }
+    var p = document.createElement('p');
+    p.className = 'kids-story-wonder-q';
+    p.setAttribute('role', 'group');
+    p.setAttribute('aria-label', 'Wonder question before the read-and-quiz');
+    p.textContent = q;
+    modalContext.appendChild(p);
+  }
+
   function syncModalStoryBreadcrumb(plainTitle) {
     var sep = document.getElementById('kids-bc-story-sep');
     var tit = document.getElementById('kids-bc-story-title');
@@ -8286,6 +8400,14 @@
     currentOpenStoryKey = key;
     currentStoryNavMode = opts && opts.navMode === 'gentle' ? 'gentle' : 'browse';
     pushRecentStoryKey(key);
+    try {
+      if (window.tdbKidsActivityLog && typeof window.tdbKidsActivityLog.log === 'function') {
+        window.tdbKidsActivityLog.log({
+          type: 'story',
+          label: 'Opened: ' + tdbPlainTextForUi(s.title || key)
+        });
+      }
+    } catch (eAct) { /* no-op */ }
     updateDocumentStoryMeta(key, s);
     if (modalTitle) modalTitle.textContent = tdbPlainTextForUi(s.title || key);
     syncModalStoryBreadcrumb(tdbPlainTextForUi(s.title || key));
@@ -8298,6 +8420,7 @@
       tdbClearHtml(modalCarousel);
       var carouselRoot = document.createElement('div');
       carouselRoot.className = 'comic-carousel';
+      prependLittleShepherdIntro(carouselRoot, key, s);
       var panelsWrap = document.createElement('div');
       panelsWrap.className = 'panels-container';
       for (var pi = 0; pi < panels.length; pi++) {
@@ -8376,7 +8499,9 @@
         pack = buildRuntimeReadQuizPack(key);
       }
       tdbClearHtml(modalContext);
-      if (ctx && (ctx.who || ctx.to || ctx.apply)) {
+      appendKjvPlainToggle(modalContext, s);
+      var hasKjvToggle = !!modalContext.querySelector('.kids-story-kjv-plain');
+      if (ctx) {
         if (ctx.who) {
           var pw = document.createElement('p');
           var sw = document.createElement('strong');
@@ -8385,7 +8510,15 @@
           pw.appendChild(document.createTextNode(' ' + tdbPlainTextForUi(ctx.who)));
           modalContext.appendChild(pw);
         }
-        if (ctx.apply) {
+        if (ctx.to) {
+          var pt = document.createElement('p');
+          var st = document.createElement('strong');
+          st.textContent = 'To:';
+          pt.appendChild(st);
+          pt.appendChild(document.createTextNode(' ' + tdbPlainTextForUi(ctx.to)));
+          modalContext.appendChild(pt);
+        }
+        if (ctx.apply && !hasKjvToggle) {
           var pa = document.createElement('p');
           var sa = document.createElement('strong');
           sa.textContent = 'For you:';
@@ -8394,13 +8527,14 @@
           modalContext.appendChild(pa);
         }
       }
-      if (ref) {
+      if (ref && !hasKjvToggle) {
         var pr = document.createElement('p');
         pr.className = 'kids-kjv-ref';
         pr.textContent = tdbPlainTextForUi(ref);
         modalContext.appendChild(pr);
       }
       modalContext.appendChild(buildLiveItOutCards(key, s, pack));
+      appendWonderQuestionBlock(modalContext, key, s, pack);
       if (modalContext.childNodes.length) {
         modalContext.classList.remove('hidden');
       } else {
@@ -8458,11 +8592,22 @@
       });
     } catch (_) {}
     syncStoryNavButtons();
+    try {
+      if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.notify === 'function') {
+        window.tdbLittleShepherd.notify('storyOpened', { key: key });
+      }
+    } catch (eOpen) { /* no-op */ }
     advanceJourneyFromStory(key);
   }
 
   function closeStoryModal() {
     if (!modal) return;
+    var closingKey = currentOpenStoryKey;
+    try {
+      if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.notify === 'function' && closingKey) {
+        window.tdbLittleShepherd.notify('storyClosed', { key: closingKey });
+      }
+    } catch (eN) { /* no-op */ }
     syncModalStoryBreadcrumb(null);
     clearReadQuizModal();
     try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (_) {}

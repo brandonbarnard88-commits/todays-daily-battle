@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260423-phase5-perf"></script>
+  <script defer src="../analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Find the sheep • Kids</title>
+  <meta name="description" content="Tap the grass until you find the little sheep. KJV, calm, one minute.">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="stylesheet" href="../styles.css?v=20260423-phase5-perf">
+  <link rel="stylesheet" href="kids-battle.css?v=20260405kidsfollowup">
+  <link rel="stylesheet" href="kids-kids-world.css?v=20260427kidsall1">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
+  <style>
+    .ls-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.45rem; max-width: 16rem; margin: 0.75rem auto; }
+    .ls-tile { min-height: 64px; border-radius: 14px; border: 3px solid rgba(34, 197, 94, 0.4); background: linear-gradient(180deg, #bbf7d0, #86efac); font-size: 1.6rem; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    .ls-tile:focus-visible { outline: 3px solid #0ea5e9; }
+    .ls-tile.reveal { background: linear-gradient(180deg, #fef9c3, #fde68a); }
+    .ls-win { text-align: center; margin-top: 0.75rem; font-weight: 800; color: #14532d; }
+  </style>
+</head>
+<body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div class="app-shell">
+    <header class="top-bar kids-battle-header kids-header-unified">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle kids-subtitle">Find the sheep</span>
+      </div>
+      <nav class="kids-header-nav" aria-label="Kids navigation">
+        <a href="/kids/">Kids home</a>
+        <a href="corner.html">Stories</a>
+      </nav>
+    </header>
+    <main class="app-content" id="main" role="main">
+      <div class="content-inner" style="max-width:32rem;margin:0 auto;padding:0.5rem 0.75rem 2rem">
+        <div class="mini-game-hero glass" style="padding:1rem;border-radius:16px">
+          <h1 style="font-family:Bangers,cursive;font-size:1.6rem;margin:0 0 0.4rem">Where is the sheep?</h1>
+          <p style="margin:0;line-height:1.45;font-size:0.95rem">Tap the grass. Jesus told a story about one sheep that was lost and found&mdash;like us when we wander and He comes to get us. <span class="sr-only">Luke 15 KJV in the real Bible.</span></p>
+        </div>
+        <p id="ls-status" class="ls-status" role="status" style="min-height:1.5rem;text-align:center;margin:0.5rem 0">Tap a square.</p>
+        <div class="ls-grid" id="ls-grid" role="group" aria-label="Grass squares"></div>
+        <p id="ls-win" class="ls-win" hidden>Found! The Good Shepherd never loses count of His sheep.</p>
+        <p style="text-align:center;margin-top:1rem"><a href="match-buddies.html">Match game</a> &middot; <a href="/kids/">Home</a></p>
+      </div>
+    </main>
+  </div>
+  <script src="kids-activity-log.js?v=20260427kidsall1" defer></script>
+  <script>
+  (function () {
+    'use strict';
+    if (window.tdbKidsActivityLog && tdbKidsActivityLog.log) {
+      try { tdbKidsActivityLog.log({ type: 'game', label: 'Play: Find the sheep' }); } catch (e) {}
+    }
+    var n = 9;
+    var win = Math.floor(Math.random() * n);
+    var grid = document.getElementById('ls-grid');
+    var st = document.getElementById('ls-status');
+    var w = document.getElementById('ls-win');
+    var done = false;
+    for (var i = 0; i < n; i++) {
+      (function (idx) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'ls-tile';
+        b.setAttribute('aria-label', 'Grass square ' + (idx + 1));
+        b.textContent = '';
+        b.addEventListener('click', function () {
+          if (done) return;
+          b.classList.add('reveal');
+          b.textContent = idx === win ? '\uD83D\uDC11' : '\uD83C\uDF3F';
+          if (idx === win) {
+            done = true;
+            w.hidden = false;
+            if (st) {
+              st.textContent = 'You found the sheep! ' + (window.tdbLittleShepherd && tdbLittleShepherd.pickCheer ? tdbLittleShepherd.pickCheer() : 'Jesus is the Good Shepherd.');
+            }
+          } else {
+            if (st) st.textContent = 'Keep looking—He finds what is lost.';
+          }
+        });
+        if (grid) grid.appendChild(b);
+      })(i);
+    }
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260423-phase5-perf"></script>
+  <script defer src="../analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Memory flock • Kids</title>
+  <meta name="description" content="Flip two cards; match the picture to the KJV line.">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="stylesheet" href="../styles.css?v=20260423-phase5-perf">
+  <link rel="stylesheet" href="kids-battle.css?v=20260405kidsfollowup">
+  <link rel="stylesheet" href="kids-kids-world.css?v=20260427kidsall1">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
+  <style>
+    .mf-board { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; max-width: 22rem; margin: 0.75rem auto; }
+    @media (min-width: 400px) { .mf-board { grid-template-columns: repeat(4, 1fr); } }
+    .mf-card { min-height: 72px; border-radius: 12px; border: 2px solid rgba(245, 158, 11, 0.4); background: #fffbeb; font-size: 0.78rem; font-weight: 800; padding: 0.35rem; cursor: pointer; line-height: 1.2; -webkit-tap-highlight-color: transparent; }
+    .mf-card[aria-pressed="false"] { color: transparent; text-shadow: none; background: linear-gradient(180deg, #e0e7ff, #c7d2fe); }
+    .mf-card.mf-match { opacity: 0.45; pointer-events: none; border-color: #22c55e; }
+  </style>
+</head>
+<body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div class="app-shell">
+    <header class="top-bar kids-battle-header kids-header-unified">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle kids-subtitle">Memory flock</span>
+      </div>
+      <nav class="kids-header-nav" aria-label="Kids navigation">
+        <a href="/kids/">Kids home</a>
+        <a href="corner.html">Stories</a>
+      </nav>
+    </header>
+    <main class="app-content" id="main" role="main">
+      <div class="content-inner" style="max-width:36rem;margin:0 auto;padding:0.5rem 0.75rem 2rem">
+        <div class="mini-game-hero glass" style="padding:1rem;border-radius:16px">
+          <h1 style="font-family:Bangers,cursive;font-size:1.55rem;margin:0 0 0.4rem">Match the flock</h1>
+          <p style="margin:0;line-height:1.45;font-size:0.9rem">Tap a card, then its pair—picture to short KJV line. All King James.</p>
+        </div>
+        <p id="mf-st" class="section-note" style="text-align:center;margin:0.5rem 0">Find two that go together.</p>
+        <div class="mf-board" id="mf-board" role="group" aria-label="Memory cards"></div>
+        <p id="mf-win" class="section-note" style="text-align:center;margin:0.75rem 0" hidden>All pairs found!</p>
+        <p style="text-align:center"><a href="lost-sheep.html">Find the sheep</a> &middot; <a href="/kids/">Home</a></p>
+      </div>
+    </main>
+  </div>
+  <script src="kids-activity-log.js?v=20260427kidsall1" defer></script>
+  <script src="kids-little-shepherd.js?v=20260427kidsall1" defer></script>
+  <script>
+  window.addEventListener('load', function () {
+    'use strict';
+    if (window.tdbKidsActivityLog && tdbKidsActivityLog.log) {
+      try { tdbKidsActivityLog.log({ type: 'game', label: 'Play: Memory flock' }); } catch (e) {}
+    }
+    var PAIRS = [
+      { id: 'a', a: "\uD83C\uDF3F The Lord is my shepherd", b: "The Lord is my shepherd; I shall not want." },
+      { id: 'b', a: "\uD83C\uDF1F Suffer the children", b: "Suffer the little children to come unto me." },
+      { id: 'c', a: "\uD83C\uDF0E Be strong, fear not", b: "Be strong and of a good courage; be not afraid." },
+      { id: 'd', a: "\uD83D\uDCD6 Cast your care on Him", b: "Casting all your care upon him; for he careth for you." }
+    ];
+    var board = document.getElementById('mf-board');
+    var st = document.getElementById('mf-st');
+    var winEl = document.getElementById('mf-win');
+    var first = null;
+    var matched = {};
+    function shuffle(arr) {
+      var x = arr.slice();
+      for (var i = x.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = x[i]; x[i] = x[j]; x[j] = t;
+      }
+      return x;
+    }
+    var cards = [];
+    PAIRS.forEach(function (p) {
+      cards.push({ pair: p.id, text: p.a });
+      cards.push({ pair: p.id, text: p.b });
+    });
+    cards = shuffle(cards);
+    cards.forEach(function (c, idx) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'mf-card';
+      b.setAttribute('data-pair', c.pair);
+      b.setAttribute('aria-pressed', 'false');
+      b.textContent = c.text;
+      b.addEventListener('click', function () {
+        if (b.getAttribute('aria-pressed') === 'true' || b.classList.contains('mf-match')) return;
+        b.setAttribute('aria-pressed', 'true');
+        if (!first) {
+          first = b;
+          if (st) st.textContent = 'Pick the matching line.';
+          return;
+        }
+        if (first === b) return;
+        var a = first.getAttribute('data-pair');
+        var b2 = b.getAttribute('data-pair');
+        if (a === b2) {
+          first.classList.add('mf-match');
+          b.classList.add('mf-match');
+          matched[a] = true;
+          first = null;
+          if (Object.keys(matched).length === PAIRS.length) {
+            winEl.hidden = false;
+            if (st) {
+              st.textContent = (window.tdbLittleShepherd && tdbLittleShepherd.pickMatchWin) ? tdbLittleShepherd.pickMatchWin() : 'You matched the flock!';
+            }
+          } else {
+            if (st) st.textContent = 'Nice! Keep going.';
+            first = null;
+          }
+        } else {
+          var f = first;
+          setTimeout(function () {
+            f.setAttribute('aria-pressed', 'false');
+            b.setAttribute('aria-pressed', 'false');
+          }, 550);
+          first = null;
+          if (st) st.textContent = 'Try again—read slow.';
+        }
+      });
+      if (board) board.appendChild(b);
+    });
+  });
+  </script>
+</body>
+</html>

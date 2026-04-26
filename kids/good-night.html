@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260423-phase5-perf"></script>
+  <script defer src="../analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Good night • Little Shepherd • Kids</title>
+  <meta name="description" content="A calm bedtime line, KJV, and a short goodnight from Little Shepherd.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="stylesheet" href="../styles.css?v=20260423-phase5-perf">
+  <link rel="stylesheet" href="kids-battle.css?v=20260405kidsfollowup">
+  <link rel="stylesheet" href="kids-kids-world.css?v=20260427kidsall1">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    .gn-page { max-width: 32rem; margin: 0 auto; padding: 0.5rem 0.75rem 2rem; }
+    .gn-hero { text-align: center; padding: 1rem; border-radius: 18px; margin-bottom: 1rem; }
+    .gn-hero h1 { font-family: "Bangers", cursive; font-size: 1.65rem; margin: 0 0 0.5rem; color: #0f172a; }
+    .gn-verse { font-size: 1.05rem; line-height: 1.5; color: #1e293b; margin: 0.75rem 0; }
+    .gn-shep { font-size: 0.95rem; line-height: 1.45; color: #334155; margin: 0.75rem 0; padding: 0.75rem; border-radius: 14px; background: rgba(255, 251, 240, 0.9); border: 1px solid rgba(217, 119, 6, 0.25); }
+    .gn-pray { font-size: 0.95rem; line-height: 1.5; color: #0f172a; margin: 1rem 0; }
+  </style>
+</head>
+<body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div class="app-shell">
+    <header class="top-bar kids-battle-header kids-header-unified">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle kids-subtitle">Good night</span>
+      </div>
+      <nav class="kids-header-nav" aria-label="Kids navigation">
+        <a href="/kids/">Kids home</a>
+        <a href="corner.html">Stories</a>
+      </nav>
+    </header>
+    <main class="app-content" id="main" role="main">
+      <div class="content-inner gn-page">
+        <div class="gn-hero glass">
+          <h1>Good night, little sheep</h1>
+          <p class="section-note" style="margin:0">The day is done. Jesus is still with you in the dark and in the morning.</p>
+        </div>
+        <p class="gn-verse" id="gn-kjv"><strong>KJV:</strong> I will both lay me down in peace, and sleep: for thou, LORD, only makest me dwell in safety. <cite>— Psalm 4:8</cite></p>
+        <p class="gn-shep" id="gn-shepherd" role="status"></p>
+        <p class="gn-pray">You can pray: <q>Lord, thank You for today. When I am scared or squirmy, You stay. Amen.</q></p>
+        <p style="text-align:center;margin-top:1rem"><a class="btn kids-btn-primary" href="/kids/">Back to Kids home</a></p>
+      </div>
+    </main>
+  </div>
+  <script src="kids-activity-log.js?v=20260427kidsall1" defer></script>
+  <script src="kids-little-shepherd.js?v=20260427kidsall1" defer></script>
+  <script>
+  window.addEventListener('load', function () {
+    var s = document.getElementById('gn-shepherd');
+    if (s && window.tdbLittleShepherd && tdbLittleShepherd.pickBedtime) {
+      try { s.textContent = 'Little Shepherd: ' + tdbLittleShepherd.pickBedtime(); } catch (e) { s.textContent = 'Little Shepherd: Rest in Him.'; }
+    }
+    if (window.tdbKidsActivityLog && tdbKidsActivityLog.log) {
+      try { tdbKidsActivityLog.log({ type: 'goodnight', label: 'Opened Good night screen' }); } catch (e) {}
+    }
+  });
+  </script>
+</body>
+</html>

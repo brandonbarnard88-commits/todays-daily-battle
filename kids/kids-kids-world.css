@@ -469,8 +469,19 @@ body.kids-world-surface .kids-family-deck a {
 .kids-pasture-card[data-stage="4"] .kids-pasture-flower1,
 .kids-pasture-card[data-stage="4"] .kids-pasture-flower2,
 .kids-pasture-card[data-stage="4"] .kids-pasture-sheep,
-.kids-pasture-card[data-stage="4"] .kids-pasture-tree {
+.kids-pasture-card[data-stage="4"] .kids-pasture-tree,
+.kids-pasture-card[data-stage="5"] .kids-pasture-flower1,
+.kids-pasture-card[data-stage="5"] .kids-pasture-flower2,
+.kids-pasture-card[data-stage="5"] .kids-pasture-sheep,
+.kids-pasture-card[data-stage="5"] .kids-pasture-tree {
   opacity: 1;
+}
+.kids-sheep-tokens {
+  margin: 0.4rem 0 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #92400e;
+  line-height: 1.35;
 }
 .kids-pasture-note {
   margin: 0.35rem 0 0;
@@ -580,4 +591,231 @@ body.kids-world-surface .kids-weekly-verse-reveal > summary {
 }
 body.kids-world-surface .kids-weekly-verse-reveal > summary::-webkit-details-marker {
   display: none;
+}
+
+/* ── Pass: storybook shell + duo CTA + Shepherd motion + story modal helpers ── */
+body.kids-world-surface .kids-battle-inner,
+body.kids-world-surface .content-inner.kids-battle-inner {
+  position: relative;
+  border-radius: 22px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.65),
+    0 12px 40px rgba(60, 40, 15, 0.08);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+body.kids-world-surface .kids-battle-inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 55% 40% at 0% 0%, rgba(255, 220, 150, 0.35) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 35% at 100% 100%, rgba(180, 220, 180, 0.2) 0%, transparent 50%);
+  z-index: 0;
+}
+body.kids-world-surface .kids-hub-play,
+body.kids-world-surface .kids-play-zone {
+  position: relative;
+  z-index: 1;
+}
+body.kids-world-surface .kids-wonder::after,
+body.kids-world-surface .kids-play-zone--shepherdfield::after {
+  content: "";
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  top: 6px;
+  right: 4px;
+  pointer-events: none;
+  opacity: 0.45;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='none' stroke='%2322774d' stroke-width='2' d='M8 48c8-20 20-8 24-20 4 12 20 0 24 16'/%3E%3C/svg%3E") center/contain no-repeat;
+  z-index: 2;
+}
+body.kids-world-surface .kids-wonder::before,
+body.kids-world-surface .kids-play-zone--shepherdfield::before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 28px;
+  bottom: 8px;
+  left: 6px;
+  pointer-events: none;
+  opacity: 0.35;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 40'%3E%3Cellipse cx='20' cy='24' rx='18' ry='8' fill='%23fff' fill-opacity='0.5'/%3E%3Cellipse cx='44' cy='18' rx='16' ry='7' fill='%23fff' fill-opacity='0.4'/%3E%3C/svg%3E") center/contain no-repeat;
+  z-index: 0;
+}
+.kids-magic-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
+  margin: 0.5rem 0 0.25rem;
+}
+.kids-sound-fx-row {
+  margin: 0.35rem 0 0.15rem;
+  text-align: center;
+}
+.kids-sound-fx-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #57534e;
+  cursor: pointer;
+  display: inline-block;
+  max-width: 22rem;
+  line-height: 1.35;
+}
+.kids-sound-fx-label input {
+  margin-right: 0.35rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  vertical-align: middle;
+}
+.kids-sheep-run {
+  height: 28px;
+  margin: 0.15rem 0 0.2rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  background: linear-gradient(90deg, rgba(255, 251, 235, 0) 0%, rgba(255, 245, 220, 0.7) 50%, rgba(255, 251, 235, 0) 100%);
+}
+.kids-sheep-run-emoji {
+  position: absolute;
+  left: -10%;
+  font-size: 1.15rem;
+  line-height: 1;
+  animation: kids-sheep-scoot 2.4s ease-in-out 0.4s 1 both;
+}
+@keyframes kids-sheep-scoot {
+  0% { left: -10%; }
+  100% { left: 110%; }
+}
+.kids-shepherd-idle {
+  animation: kids-shepherd-breathe 3.2s ease-in-out infinite;
+}
+@keyframes kids-shepherd-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+.kids-shepherd-welcome {
+  animation: kids-shepherd-wavein 0.7s ease-out 1 both;
+}
+@keyframes kids-shepherd-wavein {
+  0% { transform: translateY(8px) scale(0.96); opacity: 0.85; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+.kids-shepherd-dance {
+  animation: kids-shepherd-dancek 0.5s ease-in-out 4 alternate;
+}
+@keyframes kids-shepherd-dancek {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-4px) rotate(-3deg); }
+}
+.kids-magic-btn.kids-magic-mini {
+  background: linear-gradient(180deg, #e0e7ff 0%, #c7d2fe 100%);
+  color: #1e1b4b;
+  border-color: rgba(67, 56, 202, 0.25);
+}
+.kids-magic-btn.kids-magic-night {
+  background: linear-gradient(180deg, #312e81 0%, #1e1b4b 100%);
+  color: #fef9c3;
+  border-color: rgba(99, 102, 241, 0.5);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+}
+body.kids-world-surface[data-kids-season="easter"] {
+  --kw-sun: #fff8f0;
+}
+body.kids-world-surface[data-kids-season="winter"]::before {
+  filter: saturate(0.95);
+}
+body.kids-world-surface[data-kids-season="harvest"] .kids-pasture-illu {
+  filter: sepia(0.08);
+}
+.kids-story-ls-intro {
+  margin: 0 0 0.75rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255, 250, 235, 0.98) 0%, rgba(224, 242, 254, 0.45) 100%);
+  border: 2px solid rgba(245, 158, 11, 0.28);
+  box-shadow: 0 4px 14px rgba(90, 60, 30, 0.06);
+}
+.kids-story-ls-intro-text {
+  margin: 0;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1.4;
+  color: #0f172a;
+}
+.kids-story-kjv-plain {
+  margin: 0.5rem 0 0.75rem;
+  padding: 0.5rem 0.65rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px dashed rgba(14, 116, 144, 0.35);
+}
+.kids-story-kjv-plain-label {
+  margin: 0 0 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #0f766e;
+}
+.kids-kjv-plain-toggle-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.4rem;
+}
+.kids-kjv-plain-btn {
+  flex: 1 1 8rem;
+  min-height: 44px;
+  border-radius: 12px;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 0.82rem;
+  border: 2px solid rgba(15, 118, 110, 0.3);
+  background: rgba(255, 255, 255, 0.6);
+  color: #0f172a;
+  cursor: pointer;
+}
+.kids-kjv-plain-btn.is-on,
+.kids-kjv-plain-btn:focus-visible {
+  background: rgba(15, 118, 110, 0.15);
+  outline: none;
+}
+.kids-kjv-plain-body {
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: #1e293b;
+}
+.kids-kjv-plain-body[hidden] {
+  display: none;
+}
+.kids-story-wonder-q {
+  margin: 0.75rem 0 0;
+  padding: 0.6rem 0.7rem;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(254, 243, 199, 0.5) 0%, rgba(255, 255, 255, 0.4) 100%);
+  border-left: 4px solid rgba(217, 119, 6, 0.45);
+  font-family: "Nunito", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  color: #422006;
+}
+/* Match & mini-game pages: shared pasture skin */
+body.kids-world-surface.kids-mini-game .match-hero,
+body.kids-world-surface.kids-mini-game .mini-game-hero {
+  background: linear-gradient(180deg, rgba(255, 252, 245, 0.95) 0%, rgba(255, 245, 230, 0.85) 100%) !important;
+  border: 1px solid rgba(217, 119, 6, 0.22) !important;
+  color: #1e293b !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .kids-sheep-run-emoji,
+  .kids-shepherd-idle,
+  .kids-shepherd-welcome,
+  .kids-shepherd-dance {
+    animation: none !important;
+  }
 }

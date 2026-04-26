@@ -203,10 +203,30 @@
     row.setAttribute('aria-label', 'About ' + filled + ' of 5 path stars (from percent explored)');
   }
 
+  function fillSheepTokens() {
+    var el = document.getElementById('kids-sheep-tokens-line');
+    if (!el) return;
+    var n = 0;
+    try {
+      n = parseInt(globalThis.localStorage.getItem('tdbKidsSheepTokens') || '0', 10) || 0;
+    } catch (e) {
+      n = 0;
+    }
+    if (n > 0) {
+      el.textContent = 'Sheep tokens: ' + n + ' (one each time a brand-new story is opened on this device).';
+    } else {
+      el.textContent = 'Sheep tokens: your first new story on this device adds a token to your field.';
+    }
+  }
+
   function fillPasture(p) {
     var card = document.getElementById('kids-pasture-strip');
     if (!card || !p) return;
-    var stage = Math.min(4, Math.floor(p.pct / 20));
+    var tokenBoost = 0;
+    try {
+      tokenBoost = Math.min(2, Math.floor((parseInt(globalThis.localStorage.getItem('tdbKidsSheepTokens') || '0', 10) || 0) / 3));
+    } catch (e2) { tokenBoost = 0; }
+    var stage = Math.min(5, Math.floor(p.pct / 18) + tokenBoost);
     card.setAttribute('data-stage', String(stage));
     var label = document.getElementById('kids-pasture-label');
     var msgs = [
@@ -214,9 +234,10 @@
       'A flower! Every story is a real moment with God.',
       'The pasture is getting cozy. Keep going.',
       'A friend-sheep came to visit your pasture!',
-      'Your little pasture is full of life. He sees every story you open.'
+      'Your little pasture is full of life. He sees every story you open.',
+      'Bells on the fence—keep collecting tokens; Jesus sees every open heart.'
     ];
-    if (label) label.textContent = msgs[stage] || msgs[0];
+    if (label) label.textContent = msgs[Math.min(stage, msgs.length - 1)] || msgs[0];
     var ari = document.getElementById('kids-pasture-aria');
     if (ari) {
       ari.textContent = p.value + ' of ' + p.max + ' story opens on this device (about ' + p.pct + ' percent).';
@@ -238,6 +259,7 @@
     if (pct) pct.textContent = p.pct + '%';
     fillStarRow(p);
     fillPasture(p);
+    fillSheepTokens();
     if (tier) {
       if (p.tier) {
         tier.textContent = p.tier;

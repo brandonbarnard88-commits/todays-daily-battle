@@ -14,6 +14,7 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css?v=20260423-phase5-perf">
   <link rel="stylesheet" href="kids-battle.css?v=20260405kidsfollowup">
+  <link rel="stylesheet" href="kids-kids-world.css?v=20260427kidsall1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
@@ -47,7 +48,7 @@
     }
   </style>
 </head>
-<body class="dark-mode kids-battle-page">
+<body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="app-shell">
     <header class="top-bar kids-battle-header kids-header-unified">
@@ -65,7 +66,7 @@
       <div class="content-inner match-page">
         <div class="match-hero glass" style="padding:1rem 1.1rem; border-radius:16px; margin-bottom:1rem;">
           <h1>Match the buddy pairs</h1>
-          <p>Tap a plain phrase, then the KJV line that goes with it. All King James&mdash;short lines so little eyes can win fast.</p>
+          <p>Tap a picture + phrase, then the KJV line that goes with it. All King James&mdash;short lines so little eyes can win fast.</p>
         </div>
         <p id="match-status" class="match-status" role="status" aria-live="polite"></p>
         <div class="match-board" id="match-board">
@@ -91,15 +92,22 @@
       <p style="text-align:center;margin:0;font-size:0.88rem;color:#94a3b8;"><a href="corner.html" style="color:#fde68a;">Back to Story Library</a> &middot; <a href="/kids/" style="color:#fde68a;">Kids home</a></p>
     </footer>
   </div>
-  <script src="kids-little-shepherd.js?v=20260426cross1" defer></script>
+  <script src="kids-activity-log.js?v=20260427kidsall1" defer></script>
+  <script src="kids-little-shepherd.js?v=20260427kidsall1" defer></script>
   <script nonce="tdb2025s">
+  document.addEventListener('DOMContentLoaded', function initMatchBuddies() {
   (function () {
     'use strict';
+    try {
+      if (window.tdbKidsActivityLog && tdbKidsActivityLog.log) {
+        tdbKidsActivityLog.log({ type: 'game', label: 'Play: Match the Verse' });
+      }
+    } catch (e0) { /* no-op */ }
     var PAIRS = [
-      { id: 'a1', plain: 'God is my caring shepherd', kjv: 'The Lord is my shepherd; I shall not want.' },
-      { id: 'a2', plain: 'Jesus says come to me', kjv: 'Suffer the little children to come unto me.' },
-      { id: 'a3', plain: 'Do not be scared—God is with you', kjv: 'Be strong and of a good courage; be not afraid.' },
-      { id: 'a4', plain: 'Give your worries to God', kjv: 'Casting all your care upon him; for he careth for you.' }
+      { id: 'a1', plain: '\uD83C\uDF3F God is my caring shepherd', kjv: 'The Lord is my shepherd; I shall not want.' },
+      { id: 'a2', plain: '\uD83C\uDF1F Jesus says come to me', kjv: 'Suffer the little children to come unto me.' },
+      { id: 'a3', plain: '\uD83C\uDF0E Do not be scared—God is with you', kjv: 'Be strong and of a good courage; be not afraid.' },
+      { id: 'a4', plain: '\uD83D\uDCD6 Give your worries to God', kjv: 'Casting all your care upon him; for he careth for you.' }
     ];
     var plainEl = document.getElementById('match-plain');
     var kjvEl = document.getElementById('match-kjv');
@@ -213,9 +221,11 @@
 
     var board = document.getElementById('match-board');
     if (board) board.addEventListener('click', onBoardClick);
-    document.getElementById('match-shuffle').addEventListener('click', render);
+    var sh = document.getElementById('match-shuffle');
+    if (sh) sh.addEventListener('click', render);
     render();
   })();
+  });
   </script>
   <script src="/tdb-offline-strip.js?v=20260421pwa1" defer></script>
 </body>

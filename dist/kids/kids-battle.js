@@ -12622,9 +12622,9 @@
     if (name) {
       if (badge) badge.textContent = 'Hey, ' + name + '! Faith Trail';
     } else {
-      if (badge) badge.textContent = '🔥 Faith Trail';
+      if (badge) badge.textContent = 'Faith Trail';
     }
-    if (tagline) tagline.textContent = "Two minutes. One verse. One prayer. You're a hero!";
+    if (tagline) tagline.textContent = "Two minutes. One verse. One quiet prayer. Small is enough.";
   }
 
   function showKidNameModalIfNeeded() {
@@ -12686,7 +12686,7 @@
     if (!statusEl) return;
     if (st.effective > 0) {
       statusEl.textContent = streak > 0
-        ? 'First win earned: Little Explorer is unlocked, and your Battle Trail is moving. Keep it light and keep going.'
+        ? 'First win earned: Little Explorer is unlocked, and your faith trail is moving. Keep it light and keep going.'
         : 'First win earned: Little Explorer is unlocked. If you want one more gentle step, mark today as done and start your trail.';
       return;
     }

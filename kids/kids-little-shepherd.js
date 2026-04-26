@@ -158,15 +158,34 @@
     }
   }
 
+  var MASCOT_POSES = [
+    { src: 'shepherd-mascot-welcome.svg', label: 'Little Shepherd waves hello' },
+    { src: 'shepherd-mascot-point.svg', label: 'Little Shepherd points the way' },
+    { src: 'shepherd-mascot-sheep.svg', label: 'Little Shepherd with a small sheep' }
+  ];
+
+  function setShepherdPose(n) {
+    var img = document.getElementById('kids-shepherd-hero');
+    if (!img || !MASCOT_POSES.length) return;
+    var i = ((n % MASCOT_POSES.length) + MASCOT_POSES.length) % MASCOT_POSES.length;
+    var pose = MASCOT_POSES[i];
+    if (img.getAttribute('src') !== pose.src) {
+      img.setAttribute('src', pose.src);
+    }
+    img.setAttribute('alt', pose.label);
+  }
+
   function initMascotTap(bubbleLineEl) {
     var btn = document.getElementById('kids-mascot-tap');
     if (!btn || !bubbleLineEl) return;
+    setShepherdPose(0);
     var pool = FUN_FACTS.concat(CHEER);
     var n = 0;
     btn.addEventListener('click', function () {
       n += 1;
       var t = pool[(n + dayKey()) % pool.length];
       setBubbleVoice(bubbleLineEl, t);
+      setShepherdPose(1 + (n % 2));
     });
   }
 
@@ -174,6 +193,9 @@
     var lineEl = document.getElementById('kids-little-shepherd-line');
     if (!lineEl) return;
 
+    if (document.getElementById('kids-shepherd-hero')) {
+      setShepherdPose(0);
+    }
     setBubbleVoice(lineEl, pickByDay(WELCOME));
     if (document.getElementById('kids-mascot-tap')) {
       maybeWelcomeReturnMessage(lineEl);
@@ -197,6 +219,7 @@
     pickWelcome: function () { return pickByDay(WELCOME); },
     pickMatchWin: function () { return pickByDay(MATCH_WIN); },
     pickBedtime: function () { return pickByDay(BEDTIME); },
-    pickCheer: function () { return pickByDay(CHEER); }
+    pickCheer: function () { return pickByDay(CHEER); },
+    setShepherdPose: setShepherdPose
   };
 })(typeof globalThis !== 'undefined' ? globalThis : window);

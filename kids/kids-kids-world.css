@@ -1,0 +1,507 @@
+/**
+ * Kids World — daylit pastoral shell for /kids/ + story library hero.
+ * Calm, KJV. Not neon; not midnight-with-yellow-chip.
+ * v: 20260207kidsworld1
+ */
+body.kids-world-surface.kids-battle-page {
+  --kw-sun: #fff7d6;
+  --kw-sky-top: #b9e0ff;
+  --kw-sky-mid: #e0f2fe;
+  --kw-grass: #c8f0c8;
+  --kw-lav: #e9d5ff;
+  --kw-gold: #f59e0b;
+  --kw-ink: #0f172a;
+  --kw-ink-muted: #334155;
+  background: linear-gradient(180deg, var(--kw-sky-top) 0%, var(--kw-sky-mid) 38%, #f0fdf4 72%, #dcfce7 100%);
+  color: var(--kw-ink);
+}
+body.kids-world-surface .sky-page-backdrop {
+  display: none;
+}
+body.kids-world-surface::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 120% 60% at 15% 12%, rgba(255, 250, 220, 0.95) 0%, transparent 45%),
+    radial-gradient(ellipse 80% 50% at 88% 8%, rgba(255, 255, 255, 0.6) 0%, transparent 42%),
+    radial-gradient(ellipse 90% 40% at 50% 100%, rgba(34, 197, 94, 0.18) 0%, transparent 55%);
+}
+body.kids-world-surface .app-shell,
+body.kids-world-surface .app-content,
+body.kids-world-surface .content-inner {
+  position: relative;
+  z-index: 1;
+}
+body.kids-world-surface .top-bar,
+body.kids-world-surface .kids-battle-header {
+  background: rgba(255, 255, 255, 0.88);
+  border-bottom: 3px solid rgba(245, 158, 11, 0.45);
+  box-shadow: 0 2px 16px rgba(15, 23, 42, 0.06);
+}
+body.kids-world-surface .brand-title,
+body.kids-world-surface .tdb-header-heartbeat,
+body.kids-world-surface .tdb-header-tag-cite {
+  color: var(--kw-ink);
+}
+body.kids-world-surface .tdb-header-heartbeat {
+  font-size: 0.7rem;
+  opacity: 0.85;
+}
+body.kids-world-surface .kids-subtitle,
+body.kids-world-surface .kids-header-nav a,
+body.kids-world-surface .kids-bc-whole-site {
+  color: #0c4a6e;
+}
+body.kids-world-surface .kids-parent-link-mobile {
+  color: #0c4a6e;
+  background: rgba(14, 165, 233, 0.12);
+  border-color: #38bdf8;
+}
+body.kids-world-surface .footer-fade-in,
+body.kids-world-surface .bottom-nav a {
+  color: var(--kw-ink-muted);
+}
+
+/* Wonder strip — first screen */
+.kids-wonder {
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.kids-wonder .kids-play-zone-inner {
+  max-width: 100%;
+}
+.kids-buddy-block--top {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(240, 253, 244, 0.75) 100%);
+  border: 2px solid rgba(245, 158, 11, 0.35);
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.08);
+}
+.kids-buddy-bubble--with-mascot,
+.kids-buddy-bubble--solo {
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.95) 0%, rgba(224, 242, 254, 0.5) 100%);
+  border-color: rgba(14, 165, 233, 0.35);
+}
+.kids-bubble-hi,
+.kids-bubble-voice,
+.kids-bubble-name,
+.kids-buddy-name,
+.kids-buddy-name-strong {
+  color: var(--kw-ink);
+}
+.kids-bubble-voice {
+  color: var(--kw-ink-muted);
+}
+.kids-buddy-title {
+  color: #0c4a6e;
+}
+.kids-shepherd-hero-wrap {
+  display: block;
+  line-height: 0;
+  border-radius: 20px;
+  box-shadow: 0 6px 24px rgba(180, 83, 9, 0.2);
+}
+.kids-shepherd-hero-img {
+  display: block;
+  width: min(200px, 70vw);
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.5);
+}
+.kids-magic-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+  margin: 0.75rem 0 0.35rem;
+}
+@media (min-width: 400px) {
+  .kids-magic-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.kids-magic-story {
+  grid-column: 1 / -1;
+  min-height: 76px;
+  font-size: clamp(1.3rem, 4.2vw, 1.7rem);
+  line-height: 1.1;
+  background: linear-gradient(180deg, #fef9c3 0%, #fde047 40%, #eab308 100%);
+  border: 4px solid rgba(180, 83, 9, 0.35);
+  box-shadow: 0 6px 0 rgba(180, 83, 9, 0.35);
+}
+.kids-magic-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  min-height: 64px;
+  padding: 0.65rem 0.5rem;
+  border-radius: 20px;
+  font-family: "Bangers", cursive, system-ui, sans-serif;
+  font-size: clamp(1.05rem, 3.8vw, 1.2rem);
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-decoration: none;
+  color: #0f172a;
+  border: 3px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.kids-magic-btn small {
+  font-family: "Nunito", system-ui, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  opacity: 0.85;
+  font-style: normal;
+  display: block;
+}
+.kids-magic-btn:hover,
+.kids-magic-btn:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.12);
+  outline: none;
+}
+.kids-magic-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+}
+.kids-magic-story {
+  grid-column: 1 / -1;
+  min-height: 76px;
+  font-size: clamp(1.35rem, 4.5vw, 1.75rem);
+  background: linear-gradient(180deg, #fef9c3 0%, #fde047 40%, #eab308 100%);
+  border: 4px solid rgba(180, 83, 9, 0.35);
+  box-shadow: 0 6px 0 rgba(180, 83, 9, 0.35);
+}
+.kids-magic-surprise,
+.kids-magic-random {
+  background: linear-gradient(180deg, #fef08a 0%, #facc15 50%, #eab308 100%);
+  border-color: rgba(120, 53, 15, 0.2);
+  color: #0f172a;
+}
+button.kids-magic-btn {
+  font: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  width: 100%;
+  font-family: "Bangers", cursive, system-ui, sans-serif;
+}
+button.kids-magic-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+.kids-magic-color {
+  background: linear-gradient(180deg, #7dd3fc 0%, #38bdf8 50%, #0ea5e9 100%);
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+}
+.kids-magic-game {
+  background: linear-gradient(180deg, #d8b4fe 0%, #a78bfa 50%, #8b5cf6 100%);
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
+}
+.kids-magic-journey {
+  background: linear-gradient(180deg, #86efac 0%, #4ade80 50%, #22c55e 100%);
+  color: #0f172a;
+}
+.kids-magic-loop {
+  background: linear-gradient(180deg, #ffedd5 0%, #fdba74 50%, #fb923c 100%);
+  color: #0f172a;
+}
+.kids-magic-shelf {
+  background: linear-gradient(180deg, #fce7f3 0%, #f9a8d4 50%, #ec4899 100%);
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+}
+.kids-wonder-kidline {
+  margin: 0.35rem auto 0.5rem;
+  max-width: 20ch;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  text-align: center;
+  color: #0c4a6e;
+  line-height: 1.25;
+}
+body.kids-world-surface .kids-play-hero-sub {
+  color: var(--kw-ink-muted);
+  font-size: 0.8rem;
+}
+body.kids-world-surface .kids-today-adventure {
+  background: rgba(255, 255, 255, 0.75);
+  border: 2px dashed rgba(14, 165, 233, 0.4);
+}
+body.kids-world-surface .kids-today-adventure-h,
+body.kids-world-surface .kids-today-adventure-line,
+body.kids-world-surface .kids-today-adventure-go {
+  color: var(--kw-ink);
+}
+body.kids-world-surface .kids-faith-trail-badge {
+  background: rgba(255, 255, 255, 0.85);
+  color: #0c4a6e;
+  border: 2px solid rgba(245, 158, 11, 0.45);
+  box-shadow: 0 2px 0 rgba(245, 158, 11, 0.25);
+  font-size: 0.85rem;
+}
+body.kids-world-surface .kids-share-streak {
+  background: linear-gradient(180deg, #e0f2fe, #bae6fd);
+  color: #0c4a6e;
+  border: 2px solid #38bdf8;
+  font-size: 0.85rem;
+}
+body.kids-world-surface .kids-battle-title,
+body.kids-world-surface .kids-battle-tagline {
+  color: var(--kw-ink);
+  text-shadow: none;
+}
+body.kids-world-surface .kids-family-kids-crossnav a {
+  color: #0c4a6e;
+}
+
+/* Family / grown-up deck: still calm, not the “kid first paint” */
+.kids-family-deck {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 3px solid rgba(14, 165, 233, 0.2);
+}
+body.kids-world-surface .kids-family-deck .glass,
+body.kids-world-surface .kids-family-deck [class*="glass"] {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(14, 165, 233, 0.22);
+  color: var(--kw-ink);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+}
+body.kids-world-surface .kids-family-deck .section-note,
+body.kids-world-surface .kids-family-deck .kids-section-title {
+  color: var(--kw-ink);
+}
+body.kids-world-surface .kids-family-deck a {
+  color: #0369a1;
+  font-weight: 700;
+}
+
+/* Skip to family tools */
+.kids-to-families-cta {
+  display: block;
+  text-align: center;
+  margin: 0.4rem 0 0.15rem;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #0369a1;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.kids-to-families-cta:hover,
+.kids-to-families-cta:focus-visible {
+  color: #0c4a6e;
+  outline: none;
+}
+
+/* Shepherd’s Pasture (progress) */
+.kids-pasture-card {
+  margin-top: 0.65rem;
+  padding: 0.6rem 0.75rem 0.7rem;
+  border-radius: 16px;
+  border: 2px solid rgba(34, 197, 94, 0.35);
+  background: linear-gradient(180deg, rgba(220, 252, 231, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%);
+  text-align: center;
+}
+.kids-pasture-title {
+  margin: 0 0 0.35rem;
+  font-family: "Bangers", cursive, system-ui, sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  color: #14532d;
+}
+.kids-pasture-illu {
+  position: relative;
+  height: 56px;
+  margin: 0 auto;
+  max-width: 12rem;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #bae6fd 0%, #86efac 100%);
+  overflow: hidden;
+}
+.kids-pasture-illu::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 12px;
+  background: linear-gradient(180deg, transparent, #4ade80);
+  border-radius: 0 0 10px 10px;
+}
+.kids-pasture-sheep,
+.kids-pasture-flower1,
+.kids-pasture-flower2,
+.kids-pasture-tree {
+  position: absolute;
+  bottom: 8px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #f8fafc;
+  border: 2px solid #94a3b8;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.kids-pasture-sheep {
+  left: 12%;
+  width: 22px;
+  height: 16px;
+  border-radius: 40% 40% 45% 45%;
+}
+.kids-pasture-flower1 {
+  left: 38%;
+  width: 10px;
+  height: 10px;
+  background: #f9a8d4;
+  border-color: #db2777;
+}
+.kids-pasture-flower2 {
+  left: 52%;
+  width: 10px;
+  height: 10px;
+  background: #fde68a;
+  border-color: #b45309;
+}
+.kids-pasture-tree {
+  right: 10%;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 24px solid #15803d;
+  background: none;
+  border-radius: 0;
+  bottom: 8px;
+}
+.kids-pasture-card[data-stage="1"] .kids-pasture-flower1,
+.kids-pasture-card[data-stage="2"] .kids-pasture-flower1,
+.kids-pasture-card[data-stage="2"] .kids-pasture-flower2,
+.kids-pasture-card[data-stage="3"] .kids-pasture-flower1,
+.kids-pasture-card[data-stage="3"] .kids-pasture-flower2,
+.kids-pasture-card[data-stage="3"] .kids-pasture-sheep,
+.kids-pasture-card[data-stage="4"] .kids-pasture-flower1,
+.kids-pasture-card[data-stage="4"] .kids-pasture-flower2,
+.kids-pasture-card[data-stage="4"] .kids-pasture-sheep,
+.kids-pasture-card[data-stage="4"] .kids-pasture-tree {
+  opacity: 1;
+}
+.kids-pasture-note {
+  margin: 0.35rem 0 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #166534;
+}
+.kids-pasture-pct-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Corner: play zone in world mode */
+body.kids-world-surface .kids-play-zone--shepherdfield {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.92) 0%, rgba(224, 242, 254, 0.55) 100%);
+  border-color: rgba(245, 158, 11, 0.4);
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
+}
+body.kids-world-surface .kids-play-zone--shepherdfield::before,
+body.kids-world-surface .kids-play-zone--shepherdfield::after {
+  opacity: 0.35;
+}
+body.kids-world-surface .kids-weekly-verse-reveal[open] .kids-weekly-verse-card,
+body.kids-world-surface .kids-weekly-verse-reveal .kids-weekly-verse-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(14, 165, 233, 0.3);
+}
+body.kids-world-surface .kids-corner-breadcrumb,
+body.kids-world-surface .kids-corner-page-nav--compact,
+body.kids-world-surface .kids-corner-explorer-badge {
+  font-size: 0.72rem;
+  opacity: 0.8;
+  color: var(--kw-ink-muted);
+}
+body.kids-world-surface .kids-corner-breadcrumb a {
+  color: #0369a1;
+}
+body.kids-world-surface .kids-corner-page-nav a {
+  padding: 0.28rem 0.45rem;
+  font-size: 0.7rem;
+}
+
+/* Story library secondary hero tames instructional tone */
+body.kids-world-surface .kids-battle-hero .kids-battle-tagline {
+  max-width: 32rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--kw-ink-muted);
+}
+@media (prefers-reduced-motion: reduce) {
+  .kids-magic-btn,
+  .kids-buddy-block--top .kids-play-zone-mascot,
+  .kids-buddy-block--top .kids-shepherd-hero-img {
+    transition: none;
+    animation: none;
+  }
+}
+
+body.kids-world-surface .kids-footer {
+  color: var(--kw-ink-muted);
+  background: rgba(255, 255, 255, 0.88);
+  border-top: 1px solid rgba(14, 165, 233, 0.2);
+}
+body.kids-world-surface .kids-footer a {
+  color: #0369a1;
+}
+body.kids-world-surface .kids-bottom-nav {
+  background: rgba(255, 255, 255, 0.96);
+  border-top: 3px solid rgba(245, 158, 11, 0.45);
+  box-shadow: 0 -2px 16px rgba(15, 23, 42, 0.08);
+}
+body.kids-world-surface .kids-bottom-nav a {
+  color: #0c4a6e;
+}
+body.kids-world-surface .kids-bottom-nav a:hover,
+body.kids-world-surface .kids-bottom-nav a.active,
+body.kids-world-surface .kids-bottom-nav a[aria-current="page"] {
+  color: #0f172a;
+  background: rgba(14, 165, 233, 0.12);
+}
+
+body.kids-world-surface .kids-weekly-verse-reveal {
+  margin-top: 0.75rem;
+  border-radius: 14px;
+  border: 2px solid rgba(14, 165, 233, 0.25);
+  background: rgba(255, 255, 255, 0.65);
+  padding: 0.15rem 0.5rem 0.65rem;
+}
+body.kids-world-surface .kids-weekly-verse-reveal > summary {
+  cursor: pointer;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 0.88rem;
+  color: #0c4a6e;
+  padding: 0.5rem 0.25rem;
+  list-style: none;
+}
+body.kids-world-surface .kids-weekly-verse-reveal > summary::-webkit-details-marker {
+  display: none;
+}

@@ -203,6 +203,26 @@
     row.setAttribute('aria-label', 'About ' + filled + ' of 5 path stars (from percent explored)');
   }
 
+  function fillPasture(p) {
+    var card = document.getElementById('kids-pasture-strip');
+    if (!card || !p) return;
+    var stage = Math.min(4, Math.floor(p.pct / 20));
+    card.setAttribute('data-stage', String(stage));
+    var label = document.getElementById('kids-pasture-label');
+    var msgs = [
+      'A fresh patch of grass. Keep exploring.',
+      'A flower! Every story is a real moment with God.',
+      'The pasture is getting cozy. Keep going.',
+      'A friend-sheep came to visit your pasture!',
+      'Your little pasture is full of life. He sees every story you open.'
+    ];
+    if (label) label.textContent = msgs[stage] || msgs[0];
+    var ari = document.getElementById('kids-pasture-aria');
+    if (ari) {
+      ari.textContent = p.value + ' of ' + p.max + ' story opens on this device (about ' + p.pct + ' percent).';
+    }
+  }
+
   function fillProgress() {
     var bar = document.getElementById('kids-play-progress-bar');
     var pct = document.getElementById('kids-play-progress-pct');
@@ -217,6 +237,7 @@
     }
     if (pct) pct.textContent = p.pct + '%';
     fillStarRow(p);
+    fillPasture(p);
     if (tier) {
       if (p.tier) {
         tier.textContent = p.tier;

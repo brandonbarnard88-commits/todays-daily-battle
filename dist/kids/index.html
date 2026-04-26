@@ -23,13 +23,14 @@
   <link rel="stylesheet" href="../styles.css?v=20260423-phase5-perf">
   <link rel="stylesheet" href="kids-battle.css?v=20260405kidsfollowup">
   <link rel="stylesheet" href="kids-play-zone.css?v=20260426lilshep2">
+  <link rel="stylesheet" href="kids-kids-world.css?v=20260207kidsworld1">
   <link rel="stylesheet" href="kids-page-sky.css?v=20260326playful">
   <link rel="manifest" href="../manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="dark-mode kids-battle-page kids-sky-enabled kids-sky-playful">
+<body class="dark-mode kids-battle-page kids-sky-enabled kids-sky-playful kids-world-surface">
   <script nonce="tdb2025s">
     (function () {
       try {
@@ -112,30 +113,17 @@
     <main class="app-content" id="main-content" role="main">
       <div class="content-inner kids-battle-inner">
         <div class="kids-hub-play">
-          <section class="kids-play-zone kids-play-zone--shepherdfield" aria-labelledby="kids-hub-play-h">
+          <section class="kids-play-zone kids-play-zone--shepherdfield kids-wonder" aria-labelledby="kids-hub-play-h">
             <div class="kids-play-zone-inner" style="grid-template-columns:1fr">
               <div>
+                <h2 class="sr-only" id="kids-hub-play-h">Start here</h2>
                 <div class="kids-buddy-block kids-buddy-block--top" style="margin-bottom:0.5rem">
-                  <span class="sr-only">Little Shepherd, your Bible friend. The big button opens a KJV story first. Tap the round face for a fun fact. Use Hear it to listen on this device, if your browser allows.</span>
+                  <span class="sr-only">Little Shepherd, your Bible friend. The big story button opens a KJV read-aloud first. Tap my picture for a fun line, or use Hear it if your device can speak. More tools for families are below on this page.</span>
                   <div class="kids-buddy-identity">
                     <div class="kids-buddy-mascot-row">
-                      <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, friendly shepherd face. Tap for a new fun line.">
-                        <span class="kids-play-zone-mascot" aria-hidden="true">
-                        <svg viewBox="0 0 100 100" width="112" height="112" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                          <defs>
-                            <radialGradient id="kpz-bloom-hub" cx="50%" cy="40%" r="60%">
-                            <stop offset="0%" stop-color="#fff8e1"/>
-                            <stop offset="60%" stop-color="#fde047"/>
-                            <stop offset="100%" stop-color="#d97706"/>
-                          </radialGradient>
-                        </defs>
-                        <circle cx="50" cy="52" r="40" fill="url(#kpz-bloom-hub)" stroke="#b45309" stroke-width="2.5"/>
-                        <circle cx="36" cy="48" r="5" fill="#1e293b"/>
-                        <circle cx="64" cy="48" r="5" fill="#1e293b"/>
-                        <path d="M36 64 Q50 72 64 64" fill="none" stroke="#1e293b" stroke-width="2.2" stroke-linecap="round"/>
-                        <ellipse cx="50" cy="22" rx="10" ry="6" fill="#fef9c3" opacity="0.95"/>
-                        <path d="M68 32 L86 20 L80 40 Z" fill="#7c2d12" stroke="#451a03" stroke-width="1.2" opacity="0.9"/>
-                        </svg>
+                      <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, tap to hear a new line">
+                        <span class="kids-shepherd-hero-wrap">
+                          <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="shepherd-mascot-welcome.svg" width="200" height="220" alt="Little Shepherd waves hello" decoding="async" loading="lazy"/>
                         </span>
                       </button>
                       <div class="kids-buddy-bubble kids-buddy-bubble--with-mascot" id="kids-little-shepherd-bubble" lang="en">
@@ -146,49 +134,51 @@
                         </p>
                       </div>
                     </div>
-                    <p class="kids-buddy-name" style="margin-top:0.35rem"><span class="kids-buddy-name-strong">Little Shepherd</span> <span class="kids-buddy-title">your friend on this page</span></p>
+                    <p class="kids-buddy-name" style="margin-top:0.35rem"><span class="kids-buddy-name-strong">Little Shepherd</span> <span class="kids-buddy-title">your friend right here</span></p>
                   </div>
                 </div>
-                <h2 class="kids-play-zone-title" id="kids-hub-play-h" style="font-size:1.5rem">Start here</h2>
-                <p class="kids-play-zone-lead" style="max-width:24rem;margin:0 auto 0.25rem;font-size:0.9rem">Four big ideas: the yellow story button, then color, a game, or a path&mdash;or open More Fun Stuff below.</p>
-                <a class="kids-play-hero-tap kids-play-hero-tap--story" href="corner.html?random=1"><span class="kids-play-hero-label">Tell me a Bible story</span></a>
-                <p class="kids-play-hero-sub" role="note">KJV with art. Stuck? Read with someone you love.</p>
+                <p class="kids-wonder-kidline">Let&rsquo;s do something with Jesus.</p>
+                <div class="kids-magic-grid" role="group" aria-label="Bible fun—tap one">
+                  <a class="kids-magic-btn kids-magic-story" href="corner.html?random=1"><span>Tell me a Bible story</span><small class="sr-only">KJV read-aloud</small></a>
+                  <a class="kids-magic-btn kids-magic-surprise" href="corner.html?random=1">Surprise story<small>random pick</small></a>
+                  <a class="kids-magic-btn kids-magic-color" href="../coloring.html?story=jesus-children">Color<small>paint a scene</small></a>
+                  <a class="kids-magic-btn kids-magic-game" href="match-buddies.html">Bible game<small>match pairs</small></a>
+                  <a class="kids-magic-btn kids-magic-journey" href="corner.html?journey=1">Gentle Journey<small>next calm story</small></a>
+                  <a class="kids-magic-btn kids-magic-loop" href="../kids-corner.html">Quick loop<small>short cartoon</small></a>
+                  <a class="kids-magic-btn kids-magic-shelf" href="corner.html">Story shelf<small>pick a card</small></a>
+                </div>
+                <p class="kids-play-hero-sub" role="note" style="text-align:center;margin:0.5rem 0 0.35rem">KJV. Need help? Read with someone you love.</p>
                 <div class="kids-today-adventure" id="kids-today-adventure" role="region" aria-labelledby="kids-today-adventure-h">
                   <h3 class="kids-today-adventure-h" id="kids-today-adventure-h">Today&rsquo;s adventure</h3>
                   <p class="kids-today-adventure-line" id="kids-today-adventure-line">&nbsp;</p>
-                  <a class="kids-today-adventure-go" id="kids-today-adventure-link" href="corner.html?random=1">Open a story</a>
+                  <a class="kids-today-adventure-go" id="kids-today-adventure-link" href="corner.html?random=1">Let&rsquo;s go</a>
                 </div>
-                <div class="kids-play-four" role="group" aria-label="Color, a Bible game, or Gentle Journey (story is the big yellow button)">
-                  <a class="kids-mega-btn kids-mega-color" href="../coloring.html?story=jesus-children"><span class="kids-mega-ico" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20h16"/><path d="M7 4l-2 8h14l-2-8"/><path d="M9 10l2 10"/><path d="M15 10l-2 10"/></svg>
-                  </span><span class="kids-mega-txt">Color <small>paint a scene</small></span></a>
-                  <a class="kids-mega-btn kids-mega-match" href="match-buddies.html"><span class="kids-mega-ico" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-                  </span><span class="kids-mega-txt">Game <small>match pairs</small></span></a>
-                  <a class="kids-mega-btn kids-mega-journey" href="corner.html?journey=1"><span class="kids-mega-ico" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20h16"/><path d="M6 4v12a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V4"/><path d="M9 4h6M10 2h4"/></svg>
-                  </span><span class="kids-mega-txt">Journey <small>calm next story</small></span></a>
-                </div>
-                <details class="kids-play-more">
-                  <summary>More Fun Stuff <span class="kids-more-hint">&mdash; loop + story shelf</span></summary>
-                  <div class="kids-mega-grid kids-mega-grid--secondary" role="group" aria-label="More fun">
-                    <a class="kids-mega-btn kids-mega-loop" href="../kids-corner.html"><span class="kids-mega-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h6v4H4z"/><path d="M14 5h6v4h-6z"/><path d="M7 9v4l5 3v4"/><path d="M17 9v4l-5 3"/></svg>
-                    </span><span class="kids-mega-txt">Quick loop <small>short replay</small></span></a>
-                    <a class="kids-mega-btn kids-mega-doodle" href="corner.html"><span class="kids-mega-ico" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 4h6v2H3zM15 4h6v2h-6zM4 8h4M16 8h4M6 3v2M18 3v2"/><path d="M6 8l4 6h4l4-6"/></svg>
-                    </span><span class="kids-mega-txt">Bible story library <small>pick a card</small></span></a>
+                <div class="kids-pasture-card" id="kids-pasture-strip" data-stage="0" role="img" aria-labelledby="kids-pasture-aria">
+                  <p class="kids-pasture-title" id="kids-pasture-title">Your quiet pasture</p>
+                  <div class="kids-pasture-illu" aria-hidden="true">
+                    <span class="kids-pasture-sheep" aria-hidden="true"></span>
+                    <span class="kids-pasture-flower1" aria-hidden="true"></span>
+                    <span class="kids-pasture-flower2" aria-hidden="true"></span>
+                    <span class="kids-pasture-tree" aria-hidden="true"></span>
                   </div>
-                </details>
+                  <p class="kids-pasture-note" id="kids-pasture-label">A fresh patch of grass. Keep exploring.</p>
+                  <p class="sr-only" id="kids-pasture-aria">Story opens on this device: loading.</p>
+                  <div class="sr-only">
+                    <span id="kids-play-progress-pct">0%</span>
+                    <progress id="kids-play-progress-bar" max="307" value="0">0 / 307</progress>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
         </div>
-        <span class="kids-faith-trail-badge" aria-label="Battle Trail badge" id="kids-greeting-badge">🔥 Battle Trail</span>
-        <button type="button" class="kids-share-streak" id="kids-share-streak" aria-label="Share your streak">🔥 Share Streak!</button>
+        <a class="kids-to-families-cta" href="#families">Grown-ups &amp; families: the rest of Kids Battle</a>
+        <section class="kids-family-deck" id="families" aria-label="Verse, streak, paths, and family tools">
+        <span class="kids-faith-trail-badge" aria-label="Faith trail badge" id="kids-greeting-badge">Faith Trail</span>
+        <button type="button" class="kids-share-streak" id="kids-share-streak" aria-label="Share your streak">Share the streak</button>
         <header class="kids-battle-hero">
           <h1 class="kids-battle-title">Kids Battle</h1>
-          <p class="kids-battle-tagline" id="kids-hero-tagline">Two minutes. One verse. One prayer. You&rsquo;re a hero!</p>
+          <p class="kids-battle-tagline" id="kids-hero-tagline">Two minutes. One verse. One quiet prayer. Small is enough.</p>
         </header>
 
         <p class="section-note kids-family-kids-crossnav" style="margin: 0 auto 1.1rem; max-width: 42rem; text-align: center; line-height: 1.55;">
@@ -535,10 +525,11 @@
           <button type="button" id="kids-share-btn" class="btn kids-btn-share" aria-label="Share your win today">📸 Share my win!</button>
         </section>
 
-        <section id="kids-faith-trail" class="kids-faith-trail glass hidden" role="region" aria-label="Battle Trail progress map">
-          <h2 class="kids-section-title">Battle Trail</h2>
-          <p class="kids-faith-trail-desc">Your journey — collect icons each day! ⚔️🏆</p>
+        <section id="kids-faith-trail" class="kids-faith-trail glass hidden" role="region" aria-label="Faith trail progress map">
+          <h2 class="kids-section-title">Faith trail</h2>
+          <p class="kids-faith-trail-desc">Your journey — a gentle icon for each day you show up for God&rsquo;s Word.</p>
           <div id="kids-faith-trail-board" class="kids-faith-trail-board"></div>
+        </section>
         </section>
       </div>
     </main>
@@ -923,7 +914,8 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <script src="../vendor/uFuzzy.iife.min.js" defer></script>
   <script src="kids-verses-365.js?v=20260325kidsmeans" defer></script>
-  <script src="kids-little-shepherd.js?v=20260426lilshep2" defer></script>
+  <script src="kids-play-zone.js?v=20260207kidsworld1" defer></script>
+  <script src="kids-little-shepherd.js?v=20260207kidsworld1" defer></script>
   <script src="kids-shared.js?v=20260413efficiency" defer></script>
   <script src="kids-battle.js?v=20260524readquiz" defer></script>
   <script src="kids-read-quiz-data.js?v=20260524readquiz" defer></script>

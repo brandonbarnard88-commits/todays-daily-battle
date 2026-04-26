@@ -1,5 +1,166 @@
 /* Play Zone — first-screen fun, color, 48px+ taps, gold accents (kids rule) */
 
+/* Buddy identity */
+.kids-buddy-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.25rem;
+  margin-bottom: 0.35rem;
+}
+.kids-buddy-name {
+  margin: 0.15rem 0 0;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.25;
+  color: #fef3c7;
+}
+.kids-buddy-name-strong {
+  font-weight: 900;
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+.kids-buddy-title {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #fde68a;
+  margin-top: 0.1rem;
+}
+.kids-buddy-tagline {
+  margin: 0.15rem 0 0;
+  max-width: 20rem;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.35;
+  color: #e2e8f0;
+}
+.kids-buddy-tagline strong {
+  color: #fef08a;
+}
+
+/* One obvious first tap */
+.kids-play-hero-tap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 64px;
+  padding: 0.85rem 1.1rem;
+  margin: 0.6rem 0 0.35rem;
+  border-radius: 18px;
+  border: 4px solid rgba(0, 0, 0, 0.15);
+  background: linear-gradient(180deg, #fef08a 0%, #facc15 40%, #eab308 100%);
+  font-family: "Bangers", cursive, system-ui, sans-serif;
+  font-size: clamp(1.25rem, 3.5vw, 1.6rem);
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-decoration: none;
+  color: #0f172a;
+  box-shadow: 0 6px 0 rgba(180, 83, 9, 0.45), 0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.kids-play-hero-tap:hover,
+.kids-play-hero-tap:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 rgba(180, 83, 9, 0.5), 0 10px 28px rgba(0, 0, 0, 0.28);
+  outline: none;
+}
+.kids-play-hero-tap:active {
+  transform: translateY(2px);
+  box-shadow: 0 3px 0 rgba(180, 83, 9, 0.45);
+}
+.kids-play-hero-em {
+  display: inline-block;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.kids-play-hero-sub {
+  margin: 0 0 0.55rem;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: rgba(226, 232, 240, 0.92);
+  text-align: center;
+  max-width: 26rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.kids-play-more {
+  margin-top: 0.35rem;
+  border-radius: 14px;
+  border: 2px solid rgba(255, 217, 61, 0.28);
+  background: rgba(0, 0, 0, 0.15);
+  padding: 0.15rem 0.5rem 0.65rem;
+}
+.kids-play-more > summary {
+  cursor: pointer;
+  list-style: none;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: #fde68a;
+  padding: 0.55rem 0.35rem;
+}
+.kids-play-more > summary::-webkit-details-marker { display: none; }
+.kids-mega-grid--secondary .kids-mega-btn {
+  min-height: 50px;
+  font-size: 0.86rem;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
+}
+.kids-mega-grid--secondary {
+  margin-top: 0.4rem;
+}
+
+.kids-kjv-pill {
+  display: inline-block;
+  margin-left: 0.3rem;
+  padding: 0.12rem 0.4rem;
+  border-radius: 6px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  vertical-align: middle;
+  background: rgba(255, 217, 61, 0.2);
+  color: #fef9c3;
+  border: 1px solid rgba(255, 217, 61, 0.35);
+}
+
+.kids-tech-hint,
+.kids-lanes-details {
+  margin-top: 0.35rem;
+  margin-bottom: 0.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.1rem 0.75rem 0.5rem;
+}
+.kids-tech-hint > summary,
+.kids-lanes-details > summary,
+.kids-lanes-details > .kids-lanes-details-summary {
+  cursor: pointer;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  list-style: none;
+  padding: 0.45rem 0;
+}
+.kids-lanes-details > summary.kids-lanes-details-summary { display: list-item; }
+.kids-lanes-details > summary::-webkit-details-marker { display: none; }
+.kids-corner-page-nav--compact a {
+  font-size: 0.75rem;
+  padding: 0.32rem 0.5rem;
+  min-height: 40px;
+}
+
 .kids-play-zone {
   position: relative;
   overflow: hidden;

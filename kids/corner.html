@@ -814,24 +814,23 @@
           <span class="kids-bc-sep" aria-hidden="true">›</span>
           <span aria-current="page">Story library</span>
         </nav>
-        <nav class="kids-corner-page-nav" aria-label="Jump to a section on this page">
-          <span class="kids-corner-page-nav-label">Jump to</span>
-          <a href="#kids-childrens-classroom">Children&rsquo;s Classroom</a>
+        <nav class="kids-corner-page-nav kids-corner-page-nav--compact" aria-label="Jump on this page">
+          <span class="kids-corner-page-nav-label">Jump</span>
           <a href="#kids-library-grid">All stories</a>
-          <a href="#kids-library-search-section">Search &amp; filters</a>
-          <a href="#kids-library-static-fallback">Starter list</a>
-          <a href="#kids-corner-grown-up-plans">Grown-up plans</a>
-          <a href="#kids-corner-top">Back to top</a>
+          <a href="#kids-library-search-section">Search</a>
+          <a href="#kids-corner-top">Top</a>
         </nav>
 
         <section class="kids-play-zone" id="kids-play-zone" aria-labelledby="kids-play-zone-title">
           <div class="kids-play-zone-inner">
             <div class="kids-play-zone-cta-block">
               <div class="kids-play-zone-head">
-                <div class="kids-play-zone-mascot" aria-hidden="true">
-                  <svg viewBox="0 0 100 100" width="88" height="88" focusable="false" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="">
-                    <defs>
-                      <radialGradient id="kpz-bloom" cx="50%" cy="40%" r="60%">
+                <div class="kids-buddy-block">
+                  <span class="sr-only">Rae, your Bible buddy</span>
+                  <div class="kids-play-zone-mascot" aria-hidden="true">
+                    <svg viewBox="0 0 100 100" width="96" height="96" focusable="false" xmlns="http://www.w3.org/2000/svg" role="presentation" aria-hidden="true">
+                      <defs>
+                        <radialGradient id="kpz-bloom" cx="50%" cy="40%" r="60%">
                         <stop offset="0%" stop-color="#fff8e1"/>
                         <stop offset="60%" stop-color="#fde047"/>
                         <stop offset="100%" stop-color="#d97706"/>
@@ -843,28 +842,37 @@
                     <path d="M36 64 Q50 72 64 64" fill="none" stroke="#1e293b" stroke-width="2.2" stroke-linecap="round"/>
                     <ellipse cx="50" cy="22" rx="10" ry="6" fill="#fef9c3" opacity="0.95"/>
                   </svg>
+                  </div>
+                  <p class="kids-buddy-name"><span class="kids-buddy-name-strong">Rae</span> <span class="kids-buddy-title">your Bible buddy</span></p>
+                  <p class="kids-buddy-tagline" id="kids-rae-line">Cheerful, quick, and always ready for <strong>one</strong> story with you.</p>
                 </div>
                 <div class="kids-play-zone-titles">
-                  <p class="kids-play-zone-kicker">Start here</p>
-                  <h2 class="kids-play-zone-title" id="kids-play-zone-title">Play in five seconds</h2>
-                  <p class="kids-play-zone-lead">Pick one fun door first—read the big list after if you want. Big taps. Bright colors. Same KJV Jesus.</p>
+                  <p class="kids-play-zone-kicker">This page is for kids</p>
+                  <h2 class="kids-play-zone-title" id="kids-play-zone-title">Start with one tap</h2>
+                  <p class="kids-play-zone-lead">Rae picked the easiest first move: a surprise story. (Everything else is one tap below.)</p>
                 </div>
               </div>
-              <div class="kids-mega-grid" role="group" aria-label="Quick fun actions for kids">
-                <button type="button" class="kids-mega-btn kids-mega-random" id="kids-play-zone-random">Surprise story <small>random card</small></button>
-                <a class="kids-mega-btn kids-mega-color" href="../coloring.html?story=jesus-children">Color now <small>one tap to paint</small></a>
-                <a class="kids-mega-btn kids-mega-loop" href="../kids-corner.html">Quick loop <small>10&ndash;15 sec replay</small></a>
-                <a class="kids-mega-btn kids-mega-match" href="match-buddies.html">Match game <small>verse pairs</small></a>
-                <button type="button" class="kids-mega-btn kids-mega-journey" id="kids-play-zone-journey">Gentle Journey <small>we pick the next story</small></button>
-                <a class="kids-mega-btn kids-mega-doodle" href="corner.html?story=david">Doodle a story <small>opens a brave story + Color Me</small></a>
-              </div>
+              <a class="kids-play-hero-tap" id="kids-play-hero-tap" href="corner.html?random=1">Tap for a <span class="kids-play-hero-em">surprise</span> story</a>
+              <p class="kids-play-hero-sub" role="note">KJV, pictures, and sometimes a little quiz&mdash;ask a grown-up to read any big words with you.</p>
+              <details class="kids-play-more">
+                <summary>More play&mdash;color, loop, game, journey&hellip;</summary>
+                <div class="kids-mega-grid kids-mega-grid--secondary" role="group" aria-label="More fun on this site">
+                  <button type="button" class="kids-mega-btn kids-mega-random" id="kids-play-zone-random">Another surprise <small>random card</small></button>
+                  <a class="kids-mega-btn kids-mega-color" href="../coloring.html?story=jesus-children">Color a scene <small>paint on the page</small></a>
+                  <a class="kids-mega-btn kids-mega-loop" href="../kids-corner.html">Quick loop <small>10&ndash;15 sec</small></a>
+                  <a class="kids-mega-btn kids-mega-match" href="match-buddies.html">Match game <small>verse pairs</small></a>
+                  <button type="button" class="kids-mega-btn kids-mega-journey" id="kids-play-zone-journey">Gentle Journey <small>next story picked</small></button>
+                  <a class="kids-mega-btn kids-mega-doodle" href="corner.html?story=david">Draw on a story <small>David + Color Me</small></a>
+                </div>
+              </details>
             </div>
             <div class="kids-play-zone-side">
               <div class="kids-weekly-verse-card">
-                <h3>This week&rsquo;s memory line (KJV)</h3>
+                <h3>This week&rsquo;s KJV line <span class="kids-kjv-pill">King James</span></h3>
                 <p class="kids-weekly-verse-line" id="kids-weekly-verse-line">&nbsp;</p>
                 <p class="kids-weekly-verse-ref" id="kids-weekly-verse-ref" aria-label="Bible reference"></p>
-                <p class="kids-chant-hint">Try a clap&mdash;pause&mdash;clap while you say it. The rhythm helps your heart keep it.</p>
+                <p class="kids-chant-hint">Hard words? Read it <em>with</em> a grown-up&mdash;God&rsquo;s real words, not a rewrite.</p>
+                <p class="kids-chant-hint">Say it to a clap&mdash;pause&mdash;clap beat so it sticks.</p>
                 <div class="kids-play-progress" aria-label="Bible story explorer progress for this device">
                   <label>
                     Explorer path
@@ -912,8 +920,11 @@
         </details>
         <header class="kids-battle-hero tdb-micro-hero-dawn">
           <h1 class="kids-battle-title">Bible Story Library</h1>
-          <p class="kids-battle-tagline">Read Bible adventures at your pace—pictures, optional video, and quizzes that help you think (hints when you need them). Start with the bright buttons above, or scroll to the full shelf.</p>
-          <p class="section-note util-mb-0_25 kids-lib-cache-hint">If a story opens without read-along words or quiz, hard-refresh (pull down on your phone, or Ctrl+Shift+R / Cmd+Shift+R on a computer) so the newest library loads.</p>
+          <p class="kids-battle-tagline">Hundreds of KJV story cards&mdash;open one with Rae up top, or scroll the shelf here.</p>
+          <details class="kids-tech-hint">
+            <summary>Story won&rsquo;t open right? (tap)</summary>
+            <p class="section-note util-mb-0 kids-lib-cache-hint">Pull down to refresh on your phone, or hard-refresh on a computer (Ctrl+Shift+R / Cmd+Shift+R) so the newest library is loaded.</p>
+          </details>
           <p id="kids-library-count" class="section-note util-mb-0_25" aria-live="polite"></p>
         </header>
 
@@ -1005,9 +1016,11 @@
           </div>
         </details>
 
-        <section class="glass kids-library-start-lanes" role="region" aria-label="Age-aware ways to begin in the Bible Story Library">
-          <h2 class="kids-section-title">Pick your starting lane</h2>
-          <p class="section-note">Use these when you want a first story without thinking too hard. Search and theme filters still stay below for everything else.</p>
+        <details class="glass kids-lanes-details" role="group" aria-label="Starting lanes for age groups">
+          <summary class="kids-lanes-details-summary">Pick a starting lane&mdash;littles, middles, or older (optional)</summary>
+        <section class="kids-library-start-lanes" role="region" aria-label="Age-aware ways to begin in the Bible Story Library">
+          <h2 class="kids-section-title sr-only">Pick your starting lane</h2>
+          <p class="section-note">Use when you want a first story without thinking too hard. Search stays below for everything else.</p>
           <div class="kids-library-start-grid calm-grid calm-grid--2 calm-grid--3" role="list" aria-label="Starting lanes">
             <article class="kids-library-start-card" role="listitem">
               <p class="kids-library-start-kicker">Littles · ages 5-7</p>
@@ -1032,6 +1045,7 @@
             </article>
           </div>
         </section>
+        </details>
 
         <section class="kids-search-section glass" id="kids-library-search-section" role="region" aria-label="Search stories">
           <h2 class="kids-section-title">Find a story</h2>

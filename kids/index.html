@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="../styles.css?v=20260423-phase5-perf">
   <link rel="stylesheet" href="kids-battle.css?v=20260405kidsfollowup">
   <link rel="stylesheet" href="kids-play-zone.css?v=20260426lilshep2">
-  <link rel="stylesheet" href="kids-kids-world.css?v=20260427kidsall1">
+  <link rel="stylesheet" href="kids-kids-world.css?v=20260426kidsfinish1">
   <link rel="stylesheet" href="kids-page-sky.css?v=20260326playful">
   <link rel="manifest" href="../manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -138,7 +138,12 @@
                   </div>
                 </div>
                 <p class="kids-wonder-kidline">Let&rsquo;s do something with Jesus.</p>
-                <div class="kids-sheep-run" aria-hidden="true"><span class="kids-sheep-run-emoji">🐑</span></div>
+                <p class="kids-companion-sheep-shout" id="kids-companion-sheep-shout" hidden aria-live="polite"></p>
+                <p class="kids-sheep-name-row">
+                  <label class="kids-sheep-name-label" for="kids-companion-sheep">Name your little sheep (optional, saved on this device)</label>
+                  <input type="text" class="kids-companion-sheep-input" id="kids-companion-sheep" name="companion-sheep" maxlength="20" autocomplete="off" inputmode="text" placeholder="e.g. Fluff"/>
+                </p>
+                <div class="kids-sheep-run" aria-hidden="true"><span class="kids-sheep-run-emoji" aria-hidden="true">🐑</span><span class="kids-sheep-run-emoji kids-sheep-run-emoji--late" aria-hidden="true">🐑</span></div>
                 <div class="kids-magic-hero-cta" role="group" aria-label="Bible fun—start here">
                   <a class="kids-magic-btn kids-magic-story" href="corner.html?random=1"><span>Tell me a Bible story</span><small>tap for a KJV read-aloud</small></a>
                 </div>
@@ -148,6 +153,9 @@
                 </div>
                 <p class="kids-sound-fx-row">
                   <label class="kids-sound-fx-label"><input type="checkbox" id="kids-sound-fx-optin" class="kids-sound-fx-optin"> Soft chime on the big story button (one-time opt-in; saved on this device)</label>
+                </p>
+                <p class="kids-ambient-fx-row">
+                  <label class="kids-sound-fx-label" for="kids-ambient-optin"><input type="checkbox" id="kids-ambient-optin" class="kids-ambient-fx-cb"> Calm field hum (very quiet; device plays only while this tab is open; saved here)</label>
                 </p>
                 <details class="kids-magic-more">
                   <summary class="kids-magic-more-summary">Let&rsquo;s play<small>more adventures</small></summary>
@@ -165,7 +173,7 @@
                 <div class="kids-today-adventure" id="kids-today-adventure" role="region" aria-labelledby="kids-today-adventure-h">
                   <h3 class="kids-today-adventure-h" id="kids-today-adventure-h">Today&rsquo;s adventure</h3>
                   <p class="kids-today-adventure-line" id="kids-today-adventure-line">&nbsp;</p>
-                  <a class="kids-today-adventure-go" id="kids-today-adventure-link" href="corner.html?random=1">Let&rsquo;s go</a>
+                  <a class="kids-today-adventure-go kids-magic-story" id="kids-today-adventure-link" href="corner.html?random=1">Let&rsquo;s go</a>
                 </div>
                 <div class="kids-pasture-card" id="kids-pasture-strip" data-stage="0" role="img" aria-labelledby="kids-pasture-aria">
                   <p class="kids-pasture-title" id="kids-pasture-title">Your quiet pasture</p>
@@ -929,9 +937,9 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <script src="../vendor/uFuzzy.iife.min.js" defer></script>
   <script src="kids-verses-365.js?v=20260325kidsmeans" defer></script>
-  <script src="kids-activity-log.js?v=20260427kidsall1" defer></script>
+  <script src="kids-activity-log.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-play-zone.js?v=20260427kidsall1" defer></script>
-  <script src="kids-little-shepherd.js?v=20260427kidsall1" defer></script>
+  <script src="kids-little-shepherd.js?v=20260426kidsfinish1" defer></script>
   <script src="kids-shared.js?v=20260413efficiency" defer></script>
   <script src="kids-battle.js?v=20260524readquiz" defer></script>
   <script src="kids-read-quiz-data.js?v=20260524readquiz" defer></script>

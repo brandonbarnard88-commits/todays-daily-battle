@@ -47,8 +47,8 @@
       </div>
     </main>
   </div>
-  <script src="kids-activity-log.js?v=20260427kidsall1" defer></script>
-  <script src="kids-little-shepherd.js?v=20260427kidsall1" defer></script>
+  <script src="kids-activity-log.js?v=20260426kidsfinish1" defer></script>
+  <script src="kids-little-shepherd.js?v=20260426kidsfinish1" defer></script>
   <script>
   window.addEventListener('load', function () {
     'use strict';
@@ -108,6 +108,9 @@
             if (st) {
               st.textContent = (window.tdbLittleShepherd && tdbLittleShepherd.pickMatchWin) ? tdbLittleShepherd.pickMatchWin() : 'You matched the flock!';
             }
+            if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.notify === 'function') {
+              try { window.tdbLittleShepherd.notify('gameWin'); } catch (e3) {}
+            }
           } else {
             if (st) st.textContent = 'Nice! Keep going.';
             first = null;
@@ -120,6 +123,9 @@
           }, 550);
           first = null;
           if (st) st.textContent = 'Try again—read slow.';
+          if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.notify === 'function') {
+            try { window.tdbLittleShepherd.notify('wrongMatch'); } catch (e4) {}
+          }
         }
       });
       if (board) board.appendChild(b);

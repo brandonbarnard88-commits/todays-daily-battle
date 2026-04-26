@@ -47,9 +47,10 @@
       </div>
     </main>
   </div>
-  <script src="kids-activity-log.js?v=20260427kidsall1" defer></script>
+  <script src="kids-activity-log.js?v=20260426kidsfinish1" defer></script>
+  <script src="kids-little-shepherd.js?v=20260426kidsfinish1" defer></script>
   <script>
-  (function () {
+  document.addEventListener('DOMContentLoaded', function initLostSheep() {
     'use strict';
     if (window.tdbKidsActivityLog && tdbKidsActivityLog.log) {
       try { tdbKidsActivityLog.log({ type: 'game', label: 'Play: Find the sheep' }); } catch (e) {}
@@ -77,6 +78,9 @@
             if (st) {
               st.textContent = 'You found the sheep! ' + (window.tdbLittleShepherd && tdbLittleShepherd.pickCheer ? tdbLittleShepherd.pickCheer() : 'Jesus is the Good Shepherd.');
             }
+            if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.notify === 'function') {
+              try { window.tdbLittleShepherd.notify('gameWin'); } catch (eN) {}
+            }
           } else {
             if (st) st.textContent = 'Keep looking—He finds what is lost.';
           }
@@ -84,7 +88,7 @@
         if (grid) grid.appendChild(b);
       })(i);
     }
-  })();
+  });
   </script>
 </body>
 </html>

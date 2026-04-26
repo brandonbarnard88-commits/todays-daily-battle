@@ -434,6 +434,43 @@
     });
   }
 
+  function wirePrintActivityWeek() {
+    const btn = document.getElementById('parent-print-activity-week');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      if (!window.tdbKidsActivityLog || typeof window.tdbKidsActivityLog.formatWeekForParent !== 'function') {
+        return;
+      }
+      var t = '';
+      try {
+        t = window.tdbKidsActivityLog.formatWeekForParent();
+      } catch (e) {
+        t = 'Could not read the activity log on this device.';
+      }
+      var w = window.open('', '_blank', 'noopener');
+      if (!w) {
+        return;
+      }
+      var d = w.document;
+      d.open();
+      d.write('<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>7-day activity recap</title>');
+      d.write('<style>body{font-family:ui-sans-serif,system-ui,sans-serif;padding:1.25rem;line-height:1.55;max-width:40rem;}</style></head><body>');
+      d.write('<h1 style="font-size:1.1rem;">Kids Battle — 7 days (this device)</h1><pre style="font-family:ui-monospace,monospace;font-size:0.9rem;white-space:pre-wrap;word-wrap:break-word;">');
+      d.write(String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;'));
+      d.write('</pre><p style="font-size:0.8rem;color:#64748b">Printed from Parent Dashboard. Nothing here leaves the device unless you share it.</p></body></html>');
+      d.close();
+      w.addEventListener('load', function onLw() {
+        w.removeEventListener('load', onLw);
+        try {
+          w.print();
+        } catch (e) { /* no-op */ }
+        try {
+          w.close();
+        } catch (e2) { /* no-op */ }
+      });
+    });
+  }
+
   function renderGentleNotice(el, lines, question) {
     if (!el) return;
     el.replaceChildren();
@@ -656,6 +693,7 @@
 
   function init() {
     wirePrintGuide();
+    wirePrintActivityWeek();
     if (typeof window.loadParentView !== 'function') {
       window.loadParentView = loadParentView;
     }

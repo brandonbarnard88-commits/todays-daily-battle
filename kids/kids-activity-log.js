@@ -30,6 +30,9 @@
     var label = String(entry.label || '').slice(0, 200);
     if (!label) return;
     var row = { t: t, l: label, at: entry.at && typeof entry.at === 'number' ? entry.at : Date.now() };
+    if (entry.q && typeof entry.q === 'string') {
+      row.q = String(entry.q).slice(0, 220);
+    }
     var a = read();
     a.push(row);
     if (a.length > MAX) a = a.slice(a.length - MAX);
@@ -55,24 +58,80 @@
       var d = new Date(it.at);
       var iy = d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate());
       if (iy !== y) continue;
-      if (it.l) lines.push({ type: it.t, text: it.l });
+      if (it.l) {
+        var rec = { type: it.t, text: it.l };
+        if (it.q) rec.q = it.q;
+        lines.push(rec);
+      }
     }
     return lines;
   }
 
+  function defaultQuestionForType(t) {
+    if (t === 'story') return 'What is one true thing God showed you in that story?';
+    if (t === 'game') return 'What verse or idea stuck with you from playing?';
+    if (t === 'goodnight') return 'What do you want to tell Jesus before you sleep?';
+    return 'What would you like to thank God for together?';
+  }
+
   function formatTodayForParent() {
-    var lines = getTodaySummaryLines();
-    if (!lines.length) return 'Nothing logged on this device yet today — sit together and open a story, game, or coloring page here.';
+    var raw = read();
+    var y = todayYmd();
     var out = ['On this device today:'];
-    for (var j = 0; j < lines.length; j++) {
-      out.push('• ' + lines[j].text);
+    var any = false;
+    for (var i = raw.length - 1; i >= 0; i--) {
+      var it = raw[i];
+      if (!it || !it.at || !it.l) continue;
+      var d = new Date(it.at);
+      var iy = d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate());
+      if (iy !== y) continue;
+      any = true;
+      out.push('• ' + it.l);
+      var qg = it.q || defaultQuestionForType(it.t || '');
+      if (qg) {
+        out.push('  — Try asking: ' + qg);
+      }
+    }
+    if (!any) {
+      return 'Nothing logged on this device yet today — sit together and open a story, game, or coloring page here.';
     }
     return out.join('\n');
+  }
+
+  function formatWeekForParent() {
+    var raw = read();
+    var now = Date.now();
+    var weekAgo = now - 7 * 86400000;
+    var lines = ['Last 7 days on this device (newest at bottom of each day):'];
+    if (!raw.length) {
+      return 'No activity log yet — stories and games will add gentle lines here.';
+    }
+    var byDay = {};
+    for (var i = 0; i < raw.length; i++) {
+      var it = raw[i];
+      if (!it || !it.at || it.at < weekAgo || !it.l) continue;
+      var d = new Date(it.at);
+      var key = d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate());
+      if (!byDay[key]) byDay[key] = [];
+      byDay[key].push(it);
+    }
+    var keys = Object.keys(byDay).sort();
+    if (!keys.length) {
+      return 'No logged moments in the last 7 days.';
+    }
+    keys.forEach(function (k) {
+      lines.push('— ' + k + ' —');
+      byDay[k].forEach(function (e) {
+        lines.push('• ' + e.l);
+      });
+    });
+    return lines.join('\n');
   }
 
   global.tdbKidsActivityLog = {
     log: logActivity,
     getTodaySummaryLines: getTodaySummaryLines,
-    formatTodayForParent: formatTodayForParent
+    formatTodayForParent: formatTodayForParent,
+    formatWeekForParent: formatWeekForParent
   };
 })(typeof globalThis !== 'undefined' ? globalThis : window);

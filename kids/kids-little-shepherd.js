@@ -131,6 +131,9 @@
   };
 
   var SOUND_KEY = 'tdbKidsSoundFx';
+  var AMBIENT_KEY = 'tdbKidsAmbient';
+  var COMPANION_SHEEP_KEY = 'tdbKidsCompanionSheepName';
+  var __ambientTeardown = null;
   var EXCITED_SURPRISE = [
     "Surprise! I scrunched up my face like I did not know either—then I grinned. Let us go!",
     "A random story? That is a faith-walk! I am already scooting my stool closer."
@@ -271,7 +274,22 @@
   var MASCOT_POSES = [
     { src: 'shepherd-mascot-welcome.svg', label: 'Little Shepherd waves hello' },
     { src: 'shepherd-mascot-point.svg', label: 'Little Shepherd points the way' },
-    { src: 'shepherd-mascot-sheep.svg', label: 'Little Shepherd with a small sheep' }
+    { src: 'shepherd-mascot-sheep.svg', label: 'Little Shepherd with a small sheep' },
+    { src: 'shepherd-mascot-cheer.svg', label: 'Little Shepherd cheering for you' },
+    { src: 'shepherd-mascot-sit.svg', label: 'Little Shepherd sitting with a little lamb' }
+  ];
+
+  var JOURNEY_PICK = [
+    'Gentle Journey is about to open the next calm story. I will listen slow with you.',
+    'A peaceful story is on the way. Same path, next step — I am scooting my stool closer.',
+    'Journey pick? That is a trust walk. I am already glad we are going together.'
+  ];
+
+  var STUCK_TRY_AGAIN = [
+    'Not quite—try a different match. The Bible is patient with us, too.',
+    'Hmm, that pair does not go together. Breathe, look again—you are still learning well.',
+    'That one slipped. God loves honest tries. Give it another go when you are ready.',
+    'Almost! Shepherd tip: read the KJV line slow, like a name tag on a friend.'
   ];
 
   function setShepherdPose(n) {
@@ -306,6 +324,62 @@
     } catch (e) {
       return false;
     }
+  }
+
+  function isAmbientOptIn() {
+    try {
+      return global.localStorage.getItem(AMBIENT_KEY) === '1';
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function stopAmbientHush() {
+    if (typeof __ambientTeardown === 'function') {
+      try {
+        __ambientTeardown();
+      } catch (e) { /* no-op */ }
+      __ambientTeardown = null;
+    }
+  }
+
+  /**
+   * Very soft sustained tones — opt-in only; stop on tab hide to be kind to batteries.
+   */
+  function startAmbientHush() {
+    stopAmbientHush();
+    if (!isAmbientOptIn()) return;
+    try {
+      var Ctx = global.AudioContext || global.webkitAudioContext;
+      if (!Ctx) return;
+      if (!global.__tdbAudioCtx) global.__tdbAudioCtx = new Ctx();
+      var ctx = global.__tdbAudioCtx;
+      if (ctx.state === 'suspended') {
+        try { ctx.resume(); } catch (e2) {}
+      }
+      var o1 = ctx.createOscillator();
+      var o2 = ctx.createOscillator();
+      var g = ctx.createGain();
+      o1.type = 'sine';
+      o2.type = 'sine';
+      o1.frequency.setValueAtTime(196, ctx.currentTime);
+      o2.frequency.setValueAtTime(246.94, ctx.currentTime);
+      g.gain.setValueAtTime(0.011, ctx.currentTime);
+      o1.connect(g);
+      o2.connect(g);
+      g.connect(ctx.destination);
+      o1.start();
+      o2.start();
+      __ambientTeardown = function () {
+        try {
+          o1.stop();
+          o2.stop();
+          o1.disconnect();
+          o2.disconnect();
+          g.disconnect();
+        } catch (e3) { /* no-op */ }
+      };
+    } catch (e) { /* no-op */ }
   }
 
   function playSoftChime() {
@@ -381,6 +455,66 @@
     });
   }
 
+  function wireAmbientOptIn() {
+    var box = document.getElementById('kids-ambient-optin');
+    if (!box) return;
+    try {
+      box.checked = isAmbientOptIn();
+    } catch (e) {}
+    box.addEventListener('change', function () {
+      try {
+        global.localStorage.setItem(AMBIENT_KEY, box.checked ? '1' : '0');
+      } catch (e2) {}
+      if (box.checked) {
+        startAmbientHush();
+      } else {
+        stopAmbientHush();
+      }
+    });
+    if (isAmbientOptIn()) {
+      startAmbientHush();
+    }
+    if (global.document) {
+      document.addEventListener('visibilitychange', function onVis() {
+        if (document.hidden) {
+          stopAmbientHush();
+        } else if (isAmbientOptIn() && document.getElementById('kids-ambient-optin')) {
+          var b = document.getElementById('kids-ambient-optin');
+          if (b && b.checked) startAmbientHush();
+        }
+      });
+    }
+  }
+
+  function wireCompanionName() {
+    var input = document.getElementById('kids-companion-sheep');
+    var shout = document.getElementById('kids-companion-sheep-shout');
+    if (!input) return;
+    function apply() {
+      var t = (input.value || '').trim();
+      if (t.length > 20) t = t.slice(0, 20);
+      try {
+        global.localStorage.setItem(COMPANION_SHEEP_KEY, t);
+      } catch (e) {}
+      if (shout) {
+        if (t) {
+          shout.textContent = t + ' is here in the quiet pasture with us.';
+          shout.removeAttribute('hidden');
+        } else {
+          shout.textContent = '';
+          shout.setAttribute('hidden', '');
+        }
+      }
+    }
+    try {
+      var saved = global.localStorage.getItem(COMPANION_SHEEP_KEY);
+      if (saved) input.value = saved;
+    } catch (e) {}
+    apply();
+    input.addEventListener('input', apply);
+    input.addEventListener('change', apply);
+  }
+
   function wireMainActionChime() {
     function onClick(ev) {
       var a = ev.target && ev.target.closest ? ev.target.closest('a.kids-magic-story') : null;
@@ -390,10 +524,20 @@
     document.addEventListener('click', onClick, true);
   }
 
-  function wireSurpriseLines(bubbleLineEl) {
+  function wireSurpriseAndJourney(bubbleLineEl) {
     document.addEventListener('click', function (ev) {
+      var jn = ev.target && ev.target.closest ? ev.target.closest('a[href*="journey=1"]') : null;
+      var jb = ev.target && ev.target.closest ? ev.target.closest('button#kids-play-zone-journey') : null;
+      if (jn || jb) {
+        if (bubbleLineEl) {
+          setBubbleVoice(bubbleLineEl, pickByDay(JOURNEY_PICK));
+        }
+        setShepherdPose(1);
+        return;
+      }
       var t = ev.target && ev.target.closest ? ev.target.closest('a[href*="random=1"]') : null;
-      if (!t || !t.classList || !t.classList.contains('kids-magic-surprise')) return;
+      if (!t || !t.classList) return;
+      if (!t.classList.contains('kids-magic-surprise') && !t.classList.contains('kids-magic-story')) return;
       if (bubbleLineEl) {
         setBubbleVoice(bubbleLineEl, pickByDay(EXCITED_SURPRISE));
       }
@@ -406,12 +550,24 @@
       return;
     }
     var lineEl = document.getElementById('kids-little-shepherd-line');
-    if (type === 'quizComplete' || type === 'storyFinished') {
+    if (type === 'quizComplete' || type === 'storyFinished' || type === 'gameWin') {
+      setShepherdPose(3);
       setShepherdDance(2200);
       if (lineEl) {
-        setBubbleVoice(lineEl, pickByDay(CHEER));
+        if (type === 'gameWin') {
+          setBubbleVoice(lineEl, pickByDay(MATCH_WIN));
+        } else {
+          setBubbleVoice(lineEl, pickByDay(CHEER));
+        }
       }
       playSoftChime();
+      return;
+    }
+    if (type === 'wrongMatch') {
+      setShepherdPose(4);
+      if (lineEl) {
+        setBubbleVoice(lineEl, pickByDay(STUCK_TRY_AGAIN));
+      }
       return;
     }
     if (type === 'surpriseTap' && lineEl) {
@@ -420,7 +576,6 @@
       return;
     }
     if (type === 'storyOpened' && data && data.key) {
-      /* pose optional nudge: point at story */
       setShepherdPose(1);
     }
   }
@@ -476,8 +631,10 @@
       initShepherdMotion();
       initMascotTap(lineEl);
       wireSoundOptIn();
+      wireAmbientOptIn();
+      wireCompanionName();
       wireMainActionChime();
-      wireSurpriseLines(lineEl);
+      wireSurpriseAndJourney(lineEl);
     } else {
       setBubbleVoice(lineEl, pickByDay(WELCOME));
     }
@@ -504,6 +661,8 @@
     getStoryIntro: getStoryIntro,
     notify: notifyEvent,
     playSoftChime: playSoftChime,
-    setShepherdDance: setShepherdDance
+    setShepherdDance: setShepherdDance,
+    startAmbient: startAmbientHush,
+    stopAmbient: stopAmbientHush
   };
 })(typeof globalThis !== 'undefined' ? globalThis : window);

@@ -96,6 +96,54 @@
     } catch (e) { return ''; }
   }
 
+  function prettyStoryKey(k) {
+    if (!k) return '';
+    const s = String(k).replace(/([A-Z])/g, ' $1').trim();
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  }
+
+  function getDayOfYear() {
+    const d = new Date();
+    const start = new Date(d.getFullYear(), 0, 0);
+    return Math.floor((d - start) / 86400000);
+  }
+
+  function renderTodaySnapshot() {
+    const el = document.getElementById('parent-today-summary');
+    if (!el) return;
+    const streak = getCurrentStreak();
+    const viewed = getViewedStories();
+    let recent = [];
+    try {
+      const raw = localStorage.getItem('kidsLibraryRecentStoryKeys');
+      const arr = raw ? JSON.parse(raw) : [];
+      recent = Array.isArray(arr) ? arr.slice(0, 4) : [];
+    } catch (e) {}
+    const a = 'Streak: ' + streak + ' day' + (streak === 1 ? '' : 's') + ' on Kids Battle when you use the hub. ';
+    const b = 'Bible Story Library: ' + viewed.length + ' story finishes tracked on this device. ';
+    const c = recent.length
+      ? 'Lately: ' + recent.map(prettyStoryKey).join(' · ') + '.'
+      : 'No new story taps logged yet—open one when the moment is sweet.';
+    el.textContent = a + b + c;
+  }
+
+  function fillParentDevotion() {
+    const el = document.getElementById('parent-devotion-verse');
+    if (!el) return;
+    const V = [
+      { ref: 'Psalm 4:8', text: 'I will both lay me down in peace, and sleep: for thou, LORD, only makest me dwell in safety.' },
+      { ref: 'Psalm 56:3', text: 'What time I am afraid, I will trust in thee.' },
+      { ref: 'Matthew 11:28', text: 'Come unto me, all ye that labour and are heavy laden, and I will give you rest.' },
+      { ref: 'Philippians 4:13', text: 'I can do all things through Christ which strengtheneth me.' }
+    ];
+    const v = V[getDayOfYear() % V.length];
+    el.textContent = '';
+    el.appendChild(document.createTextNode(v.text + ' '));
+    const cite = document.createElement('cite');
+    cite.textContent = 'KJV — ' + v.ref;
+    el.appendChild(cite);
+  }
+
   function renderStreak() {
     const streak = getCurrentStreak();
     const el = document.getElementById('parent-streak-display');
@@ -467,20 +515,7 @@
       }
     }
 
-    // Render favorites (simplified from existing logic)
-    if (favoritesGrid) {
-      const viewed = getViewedStories ? getViewedStories() : [];
-      favoritesGrid.innerHTML = '';
-      if (viewed.length === 0) {
-        if (favoritesEmpty) favoritesEmpty.style.display = 'block';
-      } else {
-        if (favoritesEmpty) favoritesEmpty.style.display = 'none';
-        viewed.slice(0, 4).forEach(key => {
-          const title = key.replace(/-/g, ' ');
-          favoritesGrid.appendChild(buildParentStoryCard('panel-david-1.svg', title, title, 'A story worth talking about together.'));
-        });
-      }
-    }
+    // Favorites: see renderFavorites() in init (full story cards + TDB data)
 
     // Wire family note
     const noteArea = document.getElementById('family-note');
@@ -608,7 +643,6 @@
   }
 
   function init() {
-    // Only keep what's still relevant; most old functions replaced by new gentle loadParentView
     wirePrintGuide();
     if (typeof window.loadParentView !== 'function') {
       window.loadParentView = loadParentView;
@@ -620,10 +654,17 @@
       window.clearAll = clearAll;
     }
 
-    // Load the new serene view
     setTimeout(() => {
       try {
+        renderParentCode();
+        renderTodaySnapshot();
+        fillParentDevotion();
+        renderStreak();
+        renderFavorites();
+        renderBadges();
+        renderLibraryBadges();
         loadParentView();
+        renderDoodles();
       } catch (e) {
         console.warn('Quiet View init had a small hiccup — still usable.', e);
       }

@@ -22,6 +22,7 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css?v=20260423-phase5-perf">
   <link rel="stylesheet" href="kids-battle.css?v=20260405kidsfollowup">
+  <link rel="stylesheet" href="kids-play-zone.css?v=20260426kidsplay1">
   <link rel="stylesheet" href="kids-page-sky.css?v=20260326playful">
   <link rel="manifest" href="../manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -110,11 +111,27 @@
 
     <main class="app-content" id="main-content" role="main">
       <div class="content-inner kids-battle-inner">
+        <div class="kids-hub-play">
+          <section class="kids-play-zone" aria-labelledby="kids-hub-play-h">
+            <div class="kids-play-zone-inner" style="grid-template-columns:1fr">
+              <div>
+                <h2 class="kids-play-zone-title" id="kids-hub-play-h" style="font-size:1.45rem">Tap something fun first</h2>
+                <p class="kids-play-zone-lead" style="margin-bottom:0.65rem">You can read all the words in a minute—<strong>or</strong> start with a surprise story, a loop, a match game, or crayons.</p>
+                <div class="kids-mega-grid" role="group" aria-label="Quick fun for kids">
+                  <a class="kids-mega-btn kids-mega-random" href="corner.html?random=1">Surprise story <small>opens library</small></a>
+                  <a class="kids-mega-btn kids-mega-color" href="../coloring.html?story=jesus-children">Color now <small>one scene</small></a>
+                  <a class="kids-mega-btn kids-mega-loop" href="../kids-corner.html">Quick loop <small>short replay</small></a>
+                  <a class="kids-mega-btn kids-mega-match" href="match-buddies.html">Match game <small>verse pairs</small></a>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
         <span class="kids-faith-trail-badge" aria-label="Battle Trail badge" id="kids-greeting-badge">🔥 Battle Trail</span>
         <button type="button" class="kids-share-streak" id="kids-share-streak" aria-label="Share your streak">🔥 Share Streak!</button>
         <header class="kids-battle-hero">
           <h1 class="kids-battle-title">Kids Battle</h1>
-          <p class="kids-battle-tagline" id="kids-hero-tagline">Two minutes. One verse. One prayer. You're a hero!</p>
+          <p class="kids-battle-tagline" id="kids-hero-tagline">Two minutes. One verse. One prayer. You&rsquo;re a hero!</p>
         </header>
 
         <p class="section-note kids-family-kids-crossnav" style="margin: 0 auto 1.1rem; max-width: 42rem; text-align: center; line-height: 1.55;">

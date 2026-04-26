@@ -41,6 +41,7 @@
   <link rel="stylesheet" href="story-library-fonts.css?v=1">
   <link rel="stylesheet" href="../styles.css?v=20260423-phase5-perf">
   <link rel="stylesheet" href="kids-battle.css?v=20260405kidsfollowup">
+  <link rel="stylesheet" href="kids-play-zone.css?v=20260426kidsplay1">
   <link rel="stylesheet" href="kids-page-sky.css?v=20260326playful">
   <link rel="stylesheet" href="canvas.css?v=1">
   <style>
@@ -822,6 +823,60 @@
           <a href="#kids-corner-grown-up-plans">Grown-up plans</a>
           <a href="#kids-corner-top">Back to top</a>
         </nav>
+
+        <section class="kids-play-zone" id="kids-play-zone" aria-labelledby="kids-play-zone-title">
+          <div class="kids-play-zone-inner">
+            <div class="kids-play-zone-cta-block">
+              <div class="kids-play-zone-head">
+                <div class="kids-play-zone-mascot" aria-hidden="true">
+                  <svg viewBox="0 0 100 100" width="88" height="88" focusable="false" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="">
+                    <defs>
+                      <radialGradient id="kpz-bloom" cx="50%" cy="40%" r="60%">
+                        <stop offset="0%" stop-color="#fff8e1"/>
+                        <stop offset="60%" stop-color="#fde047"/>
+                        <stop offset="100%" stop-color="#d97706"/>
+                      </radialGradient>
+                    </defs>
+                    <circle cx="50" cy="52" r="40" fill="url(#kpz-bloom)" stroke="#b45309" stroke-width="2.5"/>
+                    <circle cx="36" cy="48" r="5" fill="#1e293b"/>
+                    <circle cx="64" cy="48" r="5" fill="#1e293b"/>
+                    <path d="M36 64 Q50 72 64 64" fill="none" stroke="#1e293b" stroke-width="2.2" stroke-linecap="round"/>
+                    <ellipse cx="50" cy="22" rx="10" ry="6" fill="#fef9c3" opacity="0.95"/>
+                  </svg>
+                </div>
+                <div class="kids-play-zone-titles">
+                  <p class="kids-play-zone-kicker">Start here</p>
+                  <h2 class="kids-play-zone-title" id="kids-play-zone-title">Play in five seconds</h2>
+                  <p class="kids-play-zone-lead">Pick one fun door first—read the big list after if you want. Big taps. Bright colors. Same KJV Jesus.</p>
+                </div>
+              </div>
+              <div class="kids-mega-grid" role="group" aria-label="Quick fun actions for kids">
+                <button type="button" class="kids-mega-btn kids-mega-random" id="kids-play-zone-random">Surprise story <small>random card</small></button>
+                <a class="kids-mega-btn kids-mega-color" href="../coloring.html?story=jesus-children">Color now <small>one tap to paint</small></a>
+                <a class="kids-mega-btn kids-mega-loop" href="../kids-corner.html">Quick loop <small>10&ndash;15 sec replay</small></a>
+                <a class="kids-mega-btn kids-mega-match" href="match-buddies.html">Match game <small>verse pairs</small></a>
+                <button type="button" class="kids-mega-btn kids-mega-journey" id="kids-play-zone-journey">Gentle Journey <small>we pick the next story</small></button>
+                <a class="kids-mega-btn kids-mega-doodle" href="corner.html?story=david">Doodle a story <small>opens a brave story + Color Me</small></a>
+              </div>
+            </div>
+            <div class="kids-play-zone-side">
+              <div class="kids-weekly-verse-card">
+                <h3>This week&rsquo;s memory line (KJV)</h3>
+                <p class="kids-weekly-verse-line" id="kids-weekly-verse-line">&nbsp;</p>
+                <p class="kids-weekly-verse-ref" id="kids-weekly-verse-ref" aria-label="Bible reference"></p>
+                <p class="kids-chant-hint">Try a clap&mdash;pause&mdash;clap while you say it. The rhythm helps your heart keep it.</p>
+                <div class="kids-play-progress" aria-label="Bible story explorer progress for this device">
+                  <label>
+                    Explorer path
+                    <progress id="kids-play-progress-bar" max="307" value="0">0 / 307</progress>
+                    <span><span id="kids-play-progress-pct">0%</span> <span class="kids-play-tier-pill hidden" id="kids-play-tier-pill" aria-hidden="true"></span></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <details class="kids-corner-details glass">
           <summary>For parents &amp; teachers (tap to open)</summary>
           <aside class="kids-parent-today-strip" aria-labelledby="kids-parent-today-heading">
@@ -857,11 +912,13 @@
         </details>
         <header class="kids-battle-hero tdb-micro-hero-dawn">
           <h1 class="kids-battle-title">Bible Story Library</h1>
-          <p class="kids-battle-tagline">Read Bible adventures at your pace—pictures, optional video, and quizzes that help you think (hints when you need them). Pick a story and go.</p>
+          <p class="kids-battle-tagline">Read Bible adventures at your pace—pictures, optional video, and quizzes that help you think (hints when you need them). Start with the bright buttons above, or scroll to the full shelf.</p>
           <p class="section-note util-mb-0_25 kids-lib-cache-hint">If a story opens without read-along words or quiz, hard-refresh (pull down on your phone, or Ctrl+Shift+R / Cmd+Shift+R on a computer) so the newest library loads.</p>
           <p id="kids-library-count" class="section-note util-mb-0_25" aria-live="polite"></p>
         </header>
 
+        <details class="kids-classroom-details" id="kids-childrens-classroom-wrap">
+          <summary>More read-along &ldquo;snacks&rdquo; (optional)&mdash;opens micro-stories for classroom or bedtime</summary>
         <section class="glass kids-childrens-classroom" id="kids-childrens-classroom" aria-labelledby="kids-childrens-classroom-h">
           <h2 class="kids-section-title" id="kids-childrens-classroom-h">Children&rsquo;s Classroom</h2>
           <p class="section-note util-mb-0_5">A tiny table for today: one grin, one story, maybe crayons. Grown-up nearby&mdash;we keep it short and bright.</p>
@@ -936,6 +993,7 @@
             <p class="section-note util-mb-0">After you read: one whisper&mdash;&ldquo;I can always come back to You&rdquo;&mdash;even if a little voice still feels far off.</p>
           </article>
         </section>
+        </details>
 
         <details class="kids-corner-details glass" role="group" aria-label="Little ones doorway">
           <summary>Younger kids? Calmer doorway first (tap to open)</summary>
@@ -1276,6 +1334,7 @@
   </script>
   <script src="loop-library-coloring.js?v=20260524readquiz" defer></script>
   <script src="kids-corner.js?v=20260524readquiz" defer></script>
+  <script src="kids-play-zone.js?v=20260426kidsplay1" defer></script>
   <script type="module" src="../kids-data-loader.js" data-cfasync="false" defer></script>
   <script src="../tdb-offline-strip.js?v=20260421pwa1"></script>
   <script type="module" src="../script.js?v=20260423-phase5-perf" data-cfasync="false" defer></script>

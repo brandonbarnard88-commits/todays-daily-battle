@@ -17,6 +17,7 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css?v=20260423-phase5-perf">
   <link rel="stylesheet" href="kids-battle.css?v=20260405kidsfollowup">
+  <link rel="stylesheet" href="kids-play-zone.css?v=20260426kidsplay1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
@@ -44,6 +45,25 @@
           <h1 class="kids-battle-title">Family Quiet View</h1>
           <p class="kids-battle-tagline">A gentle place to notice what the Word is doing in your home</p>
         </header>
+
+        <section class="kids-parent-today glass" role="region" aria-label="Gentle snapshot of today on this device">
+          <h2>Today&rsquo;s gentle snapshot</h2>
+          <p class="kids-parent-today-summary" id="parent-today-summary">Loading&hellip;</p>
+          <p class="kids-parent-streak-line" id="parent-streak-display" aria-live="polite"></p>
+          <div id="parent-badges-list" class="kids-parent-badge-row" aria-label="Streak milestone badges"></div>
+          <div id="parent-library-badges" class="kids-parent-badge-row" aria-label="Story library milestones"></div>
+        </section>
+
+        <section class="kids-parent-devotion glass" role="region" aria-label="Five minute family suggestion">
+          <h2>Five minutes together (KJV)</h2>
+          <ol class="kids-devotion-ol" id="parent-five-min-list">
+            <li>Read the verse in the box out loud&mdash;kid first if they like.</li>
+            <li>Ask: &ldquo;What word jumped out to you?&rdquo; Wait; no wrong answers.</li>
+            <li>Pray one sentence each, or the grown-up prays and the child says, &ldquo;Amen.&rdquo;</li>
+            <li>Optional: one quiet hug, one high-five for showing up for God&rsquo;s Word.</li>
+          </ol>
+          <p class="kids-devotion-verse" id="parent-devotion-verse">Loading&hellip;</p>
+        </section>
 
         <section id="kids-parent-code-section" class="kids-parent-code glass hidden" role="region" aria-label="Invite code">
           <h2 class="kids-section-title">Your Invite Code</h2>
@@ -155,6 +175,6 @@
   <script src="kids-shared.js?v=20260413efficiency"></script>
   <script src="kids-battle.js?v=20260420elishabones"></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer></script>
-  <script src="kids-parent.js?v=11" defer></script>
+  <script src="kids-parent.js?v=20260426parentsnap" defer></script>
 </body>
 </html>

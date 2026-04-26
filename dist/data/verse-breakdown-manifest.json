@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-26T18:54:14.446Z",
+  "generatedAt": "2026-04-26T19:26:43.645Z",
   "surfacedRefCount": 2945,
   "overrideCount": 2945,
   "sourceCounts": {
@@ -390,6 +390,14 @@
     "kids/kids-corner.js": {
       "refs": 212,
       "pairs": 0
+    },
+    "kids/kids-parent.js": {
+      "refs": 4,
+      "pairs": 4
+    },
+    "kids/kids-play-zone.js": {
+      "refs": 3,
+      "pairs": 3
     },
     "kids/kids-verses-365.js": {
       "refs": 365,
@@ -20743,7 +20751,7 @@
     },
     "Matthew 19:14": {
       "general": {
-        "plainExplanation": "Suffer little children to come to me.",
+        "plainExplanation": "Suffer the little children to come to me.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"

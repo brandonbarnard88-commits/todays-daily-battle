@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260423-phase5-perf"></script>
+  <script defer src="../analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Match the Verse • Kids • Today&rsquo;s Daily Battle</title>
+  <meta name="description" content="Tap to match kid-friendly phrases to short KJV lines. One round, no score pressure.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/kids/match-buddies.html">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css?v=20260423-phase5-perf">
+  <link rel="stylesheet" href="kids-battle.css?v=20260405kidsfollowup">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    .match-page { max-width: 36rem; margin: 0 auto; padding: 0.5rem 0 1.5rem; }
+    .match-hero h1 { font-family: "Bangers", cursive; font-size: 1.75rem; color: #fde68a; margin: 0 0 0.35rem; letter-spacing: 0.04em; }
+    .match-hero p { margin: 0 0 1rem; color: #e2e8f0; line-height: 1.5; font-size: 0.95rem; }
+    .match-board { display: grid; gap: 0.75rem; }
+    @media (min-width: 520px) { .match-board { grid-template-columns: 1fr 1fr; } }
+    .match-col h2 { font-family: "Nunito", sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin: 0 0 0.4rem; }
+    .match-btn {
+      display: block; width: 100%;
+      min-height: 56px; padding: 0.65rem 0.75rem; margin-bottom: 0.45rem;
+      border-radius: 14px; border: 3px solid rgba(255, 217, 61, 0.4);
+      background: rgba(15, 23, 42, 0.85);
+      color: #f8fafc; font-family: "Nunito", sans-serif; font-weight: 800; font-size: 0.92rem;
+      text-align: left; cursor: pointer; transition: background 0.15s, border-color 0.15s, transform 0.1s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .match-btn:hover, .match-btn:focus-visible { background: rgba(255, 217, 61, 0.12); border-color: #fde047; outline: none; }
+    .match-btn[aria-pressed="true"] { background: rgba(59, 130, 246, 0.35); border-color: #60a5fa; }
+    .match-btn.matched { opacity: 0.45; pointer-events: none; border-color: #22c55e; background: rgba(34, 197, 94, 0.15); }
+    .match-kjv { font-size: 0.82rem; line-height: 1.4; font-weight: 600; }
+    .match-status { min-height: 1.5rem; margin: 0.75rem 0; font-size: 0.9rem; color: #fde68a; }
+    .match-win { display: none; text-align: center; padding: 1rem; border-radius: 16px; border: 2px solid #22c55e; background: rgba(34, 197, 94, 0.12); color: #ecfccb; }
+    .match-win.show { display: block; }
+    .match-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+    .match-actions a, .match-actions button {
+      min-height: 48px; padding: 0.5rem 0.9rem; border-radius: 12px; font-weight: 800; font-family: "Nunito", sans-serif;
+      text-decoration: none; border: 2px solid #fde68a; background: rgba(255, 217, 61, 0.12); color: #fef9c3; cursor: pointer;
+    }
+  </style>
+</head>
+<body class="dark-mode kids-battle-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar kids-battle-header kids-header-unified">
+      <div class="brand">
+        <a class="brand-title" href="/">Today&rsquo;s Daily Battle</a>
+        <span class="brand-subtitle kids-subtitle">Match the Verse (KJV)</span>
+      </div>
+      <nav class="kids-header-nav" aria-label="Kids navigation">
+        <a href="/kids/">Kids home</a>
+        <a href="corner.html">Bible Story Library</a>
+        <a href="parent.html">Parent Dashboard</a>
+      </nav>
+    </header>
+    <main class="app-content" id="main-content" role="main">
+      <div class="content-inner match-page">
+        <div class="match-hero glass" style="padding:1rem 1.1rem; border-radius:16px; margin-bottom:1rem;">
+          <h1>Match the buddy pairs</h1>
+          <p>Tap a plain phrase, then the KJV line that goes with it. All King James&mdash;short lines so little eyes can win fast.</p>
+        </div>
+        <p id="match-status" class="match-status" role="status" aria-live="polite"></p>
+        <div class="match-board" id="match-board">
+          <div class="match-col" aria-label="What it means in kid words">
+            <h2>What it means</h2>
+            <div id="match-plain" role="group"></div>
+          </div>
+          <div class="match-col" aria-label="KJV lines from the Bible">
+            <h2>KJV line</h2>
+            <div id="match-kjv" role="group"></div>
+          </div>
+        </div>
+        <div id="match-win" class="match-win" hidden>
+          <p style="margin:0;font-size:1.1rem;">You matched them all! God&rsquo;s words stick when we play with them.</p>
+          <div class="match-actions">
+            <a href="corner.html?random=1">Read a surprise story</a>
+            <button type="button" id="match-shuffle">Play again (mixed)</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="kids-footer" role="contentinfo" style="padding:1rem;">
+      <p style="text-align:center;margin:0;font-size:0.88rem;color:#94a3b8;"><a href="corner.html" style="color:#fde68a;">Back to Story Library</a> &middot; <a href="/kids/" style="color:#fde68a;">Kids home</a></p>
+    </footer>
+  </div>
+  <script nonce="tdb2025s">
+  (function () {
+    'use strict';
+    var PAIRS = [
+      { id: 'a1', plain: 'God is my caring shepherd', kjv: 'The Lord is my shepherd; I shall not want.' },
+      { id: 'a2', plain: 'Jesus says come to me', kjv: 'Suffer the little children to come unto me.' },
+      { id: 'a3', plain: 'Do not be scared—God is with you', kjv: 'Be strong and of a good courage; be not afraid.' },
+      { id: 'a4', plain: 'Give your worries to God', kjv: 'Casting all your care upon him; for he careth for you.' }
+    ];
+    var plainEl = document.getElementById('match-plain');
+    var kjvEl = document.getElementById('match-kjv');
+    var statusEl = document.getElementById('match-status');
+    var winEl = document.getElementById('match-win');
+    var firstPick = null;
+    var matched = {};
+
+    function shuffle(a) {
+      var x = a.slice();
+      for (var i = x.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = x[i]; x[i] = x[j]; x[j] = t;
+      }
+      return x;
+    }
+
+    function clearPressed() {
+      [].forEach.call(document.querySelectorAll('.match-btn[aria-pressed="true"]'), function (b) {
+        b.setAttribute('aria-pressed', 'false');
+      });
+    }
+
+    function render() {
+      matched = {};
+      firstPick = null;
+      winEl.classList.remove('show');
+      winEl.hidden = true;
+      if (statusEl) statusEl.textContent = 'Pick a white card, then a gold card.';
+      plainEl.textContent = '';
+      kjvEl.textContent = '';
+      var pOrder = shuffle(PAIRS);
+      var kOrder = shuffle(PAIRS);
+      pOrder.forEach(function (p) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'match-btn';
+        b.setAttribute('data-pair', p.id);
+        b.setAttribute('data-side', 'plain');
+        b.setAttribute('aria-pressed', 'false');
+        b.textContent = p.plain;
+        plainEl.appendChild(b);
+      });
+      kOrder.forEach(function (p) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'match-btn match-kjv';
+        b.setAttribute('data-pair', p.id);
+        b.setAttribute('data-side', 'kjv');
+        b.setAttribute('aria-pressed', 'false');
+        b.textContent = p.kjv;
+        kjvEl.appendChild(b);
+      });
+    }
+
+    function onBoardClick(ev) {
+      var t = ev.target;
+      if (!t || !t.getAttribute || t.classList.contains('matched')) return;
+      if (t.getAttribute('data-pair') == null) return;
+      if (t.getAttribute('aria-pressed') === 'true') {
+        t.setAttribute('aria-pressed', 'false');
+        if (firstPick === t) firstPick = null;
+        return;
+      }
+      if (!firstPick) {
+        clearPressed();
+        firstPick = t;
+        t.setAttribute('aria-pressed', 'true');
+        if (statusEl) statusEl.textContent = 'Now pick the matching KJV line (or the other way around).';
+        return;
+      }
+      if (firstPick === t) return;
+      var a = firstPick.getAttribute('data-pair');
+      var b = t.getAttribute('data-pair');
+      var sa = firstPick.getAttribute('data-side');
+      var sb = t.getAttribute('data-side');
+      if (a === b && sa !== sb) {
+        firstPick.classList.add('matched');
+        t.classList.add('matched');
+        firstPick.setAttribute('aria-pressed', 'false');
+        t.setAttribute('aria-pressed', 'false');
+        firstPick = null;
+        matched[a] = true;
+        if (Object.keys(matched).length === PAIRS.length) {
+          if (statusEl) statusEl.textContent = 'All four pairs found—you did it!';
+          winEl.classList.add('show');
+          winEl.hidden = false;
+        } else {
+          if (statusEl) statusEl.textContent = 'That pair matches—pick the next one.';
+        }
+      } else {
+        t.setAttribute('aria-pressed', 'true');
+        if (statusEl) statusEl.textContent = 'Not that pair—try a different second tap.';
+        setTimeout(function () {
+          firstPick.setAttribute('aria-pressed', 'false');
+          t.setAttribute('aria-pressed', 'false');
+          firstPick = null;
+        }, 650);
+      }
+    }
+
+    var board = document.getElementById('match-board');
+    if (board) board.addEventListener('click', onBoardClick);
+    document.getElementById('match-shuffle').addEventListener('click', render);
+    render();
+  })();
+  </script>
+  <script src="/tdb-offline-strip.js?v=20260421pwa1" defer></script>
+</body>
+</html>

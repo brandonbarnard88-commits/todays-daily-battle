@@ -29,6 +29,37 @@
     "Hi! I am Little Shepherd. Tap me when you want a fun fact or a cheer."
   ];
 
+  var FIRST_EVER = [
+    'Shh—look! I saved you the spot right here by the quiet fence. Want one Bible story, one color, or one small game to start?',
+    'First time? Perfect. I will walk slow. The big story button is a real read-aloud—no rush.',
+    "Hi. I am Little Shepherd. I like truth, snacks, and kids who want Jesus. Let us go tap something together.",
+    'This is the cozy spot on the field. I was hoping someone brave like you would show up. Ready when you are.',
+    "Welcome in. I am not loud like a show—I am more like a friend on the path. What sounds fun to you first?"
+  ];
+
+  var SITU_MORNING = [
+    "Morning! The field is still a little misty. Want a short Bible read-aloud with your toast?",
+    "The sun is up, and I already thanked Jesus for you. What should we do first—story, color, or a tiny game?"
+  ];
+  var SITU_AFTER = [
+    "Back from a busy part of the day? I kept the gate open. One calm story is enough if that is all you have.",
+    "If your brain is full, I get it. Let us do one small thing in God’s Word and breathe."
+  ];
+  var SITU_EVEN = [
+    "The light is going soft. Good time to hear how Jesus watched over his friends, slow and sure.",
+    "Evening! Want a cozy story before the crickets get loud, or a quick game if you are still wiggly?"
+  ];
+  var SITU_NIGHT = [
+    "Night is here. I am not scared with Jesus near—and neither are you, even in the dark. Want a gentle line from the Bible?",
+    "If you are up late, I am still your friend. One quiet story or a bedtime line—your pick."
+  ];
+
+  var SAME_SESSION = [
+    "Oh, you are still here! I like that. Tap the big story, or use More if you are hunting for something else.",
+    "Hi again! Same visit? Then we keep it small—one thing at a time, with Jesus in the middle.",
+    "I am right where you left me. The buttons are the path—no hurry."
+  ];
+
   var FUN_FACTS = [
     'Fun fact: my job is to stay close, walk slowly, and help sheep feel safe—kind of like a grown-up on the bleachers, but in a field.',
     'Fun fact: a shepherd’s staff is for guiding and gentle lifting—not for poking at friends. Ours is for “come this way” kind of help.',
@@ -68,7 +99,18 @@
   var RETURN_AFTER_GAP = [
     'You are back! I saved a place by the quiet fence. Want one story, one color page, or one short game today?',
     'Hey! The pasture missed your footsteps. Pick one small thing, and we will do it with Jesus.',
-    "I wondered when I would see you again. No rush—one tap at a time is enough."
+    "I wondered when I would see you again. No rush—one tap at a time is enough.",
+    "Look at you! The sheep did a little happy bounce when I said your name. Same deal—one story, one color, or one small win?",
+    "The grass got a little flatter from waiting. Come sit. Jesus is still the same, and I am still glad for you."
+  ];
+
+  var REACTIONS = [
+    "Ha! I felt that—good tap. Want another idea? Try the big story, or a color page when you are ready.",
+    "I like that. My sheep bump my knee when they are curious, too. Keep asking good questions in God’s Word.",
+    "Sometimes I wiggle on purpose, just to remember God made bodies for joy. Did you wiggle today yet?",
+    "Hug from me is mostly words— but Jesus is the real one who is always there. Want a verse in your head for later?",
+    "Hey, if you are tired, a slow story still counts. Jesus likes small faith, not show faith.",
+    "I could tell you a hundred tiny facts about sheep. Or we could do one true Bible line together—your call."
   ];
 
   /** Picks a stable "today" line so it does not change every refresh. */
@@ -137,25 +179,63 @@
     });
   }
 
+  function firstEverKey() {
+    return 'tdbLSShepherdFirstEver';
+  }
+
   function lastVisitKey() {
     return 'tdbLSShepherdLastVisit';
   }
 
-  function maybeWelcomeReturnMessage(welcomeLineEl) {
+  function sameSessionKey() {
+    return 'tdbLSShepherdSaidThisSession';
+  }
+
+  function situationalByHour() {
+    var h = new Date().getHours();
+    if (h >= 5 && h < 12) return SITU_MORNING;
+    if (h < 17) return SITU_AFTER;
+    if (h < 22) return SITU_EVEN;
+    return SITU_NIGHT;
+  }
+
+  /**
+   * Opening line: first visit ever → gap return → “same session” repeat → hour band + WELCOME mix.
+   * Updates last-visit time for gap detection. Marks session as “already greeted.”
+   */
+  function applyOpeningLine(welcomeLineEl) {
+    if (!welcomeLineEl) return { gapReturn: false, firstEver: false };
+    var firstEver = false;
+    var gapReturn = false;
     try {
       var now = Date.now();
-      var raw = global.localStorage.getItem(lastVisitKey());
-      var prev = raw ? parseInt(raw, 10) : 0;
-      if (isFinite(prev) && prev > 0 && now - prev > 3 * 86400000) {
-        var pick = pickByDay(RETURN_AFTER_GAP);
-        if (pick) {
-          setBubbleVoice(welcomeLineEl, pick);
+      var prevRaw = global.localStorage.getItem(lastVisitKey());
+      var prev = prevRaw ? parseInt(prevRaw, 10) : 0;
+      var isGap = isFinite(prev) && prev > 0 && now - prev > 3 * 86400000;
+
+      if (!global.localStorage.getItem(firstEverKey())) {
+        firstEver = true;
+        global.localStorage.setItem(firstEverKey(), '1');
+        setBubbleVoice(welcomeLineEl, pickByDay(FIRST_EVER) || pickByDay(WELCOME));
+      } else if (isGap) {
+        gapReturn = true;
+        setBubbleVoice(welcomeLineEl, pickByDay(RETURN_AFTER_GAP) || pickByDay(WELCOME));
+      } else if (global.sessionStorage.getItem(sameSessionKey()) === '1') {
+        setBubbleVoice(welcomeLineEl, pickByDay(SAME_SESSION) || pickByDay(WELCOME));
+      } else {
+        var bands = situationalByHour();
+        if ((dayKey() + new Date().getHours()) % 2 === 0) {
+          setBubbleVoice(welcomeLineEl, pickByDay(bands) || pickByDay(WELCOME));
+        } else {
+          setBubbleVoice(welcomeLineEl, pickByDay(WELCOME));
         }
       }
       global.localStorage.setItem(lastVisitKey(), String(now));
+      global.sessionStorage.setItem(sameSessionKey(), '1');
     } catch (e) {
-      /* no-op */
+      setBubbleVoice(welcomeLineEl, pickByDay(WELCOME));
     }
+    return { gapReturn: gapReturn, firstEver: firstEver };
   }
 
   var MASCOT_POSES = [
@@ -178,14 +258,13 @@
   function initMascotTap(bubbleLineEl) {
     var btn = document.getElementById('kids-mascot-tap');
     if (!btn || !bubbleLineEl) return;
-    setShepherdPose(0);
-    var pool = FUN_FACTS.concat(CHEER);
+    var pool = REACTIONS.concat(FUN_FACTS, CHEER);
     var n = 0;
     btn.addEventListener('click', function () {
       n += 1;
-      var t = pool[(n + dayKey()) % pool.length];
+      var t = pool[(n * 7 + dayKey()) % pool.length];
       setBubbleVoice(bubbleLineEl, t);
-      setShepherdPose(1 + (n % 2));
+      setShepherdPose(n % MASCOT_POSES.length);
     });
   }
 
@@ -193,13 +272,20 @@
     var lineEl = document.getElementById('kids-little-shepherd-line');
     if (!lineEl) return;
 
-    if (document.getElementById('kids-shepherd-hero')) {
-      setShepherdPose(0);
-    }
-    setBubbleVoice(lineEl, pickByDay(WELCOME));
     if (document.getElementById('kids-mascot-tap')) {
-      maybeWelcomeReturnMessage(lineEl);
+      var o = applyOpeningLine(lineEl);
+      if (document.getElementById('kids-shepherd-hero')) {
+        if (o.gapReturn) {
+          setShepherdPose(2);
+        } else if (o.firstEver) {
+          setShepherdPose(0);
+        } else {
+          setShepherdPose(1);
+        }
+      }
       initMascotTap(lineEl);
+    } else {
+      setBubbleVoice(lineEl, pickByDay(WELCOME));
     }
     if (document.getElementById('kids-today-adventure-line')) {
       fillTodayAdventure();

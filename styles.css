@@ -20598,6 +20598,35 @@ body.tdb-inner-page.tdb-calm-shelf-page main#main-content.app-content.tdb-quiet-
   color: var(--elite-gold, #d4af37);
 }
 
+.about-page .about-story-lead {
+  font-size: 1.08rem;
+  line-height: 1.72;
+  max-width: 44rem;
+  margin: 0.35rem 0 0.9rem;
+  color: var(--text, rgba(248, 250, 252, 0.94));
+}
+
+:root[data-theme="light"] .about-page .about-story-lead {
+  color: var(--text, #1e293b);
+}
+
+.about-page .about-mission-line {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  max-width: 40rem;
+  margin: 0 0 1.1rem;
+  padding: 0.7rem 1rem 0.8rem 1rem;
+  border-left: 3px solid var(--gold, #c9a44a);
+  border-radius: 0 10px 10px 0;
+  background: color-mix(in srgb, var(--card) 90%, var(--gold) 7%);
+  color: var(--text, rgba(248, 250, 252, 0.92));
+}
+
+:root[data-theme="light"] .about-page .about-mission-line {
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.1) 0%, rgba(246, 243, 238, 0.95) 100%);
+  color: var(--text, #1e293b);
+}
+
 .about-page > header.hero-banner .about-scripture-first-lead {
   margin-bottom: 0.55rem;
 }

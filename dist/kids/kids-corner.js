@@ -8462,6 +8462,12 @@
       cap.textContent = tdbPlainTextForUi(s.caption || '');
       carouselRoot.appendChild(cap);
       var narrRaw = s.narration && String(s.narration).trim();
+      if (!narrRaw && window.tdbLittleShepherd && typeof window.tdbLittleShepherd.getBriefNarration === 'function') {
+        try {
+          var briefN = window.tdbLittleShepherd.getBriefNarration(key);
+          if (briefN && String(briefN).trim()) narrRaw = String(briefN).trim();
+        } catch (eBrief) { /* no-op */ }
+      }
       if (narrRaw) {
         var narrWrap = document.createElement('div');
         narrWrap.className = 'kids-story-narration';
@@ -9418,12 +9424,21 @@
           return;
         }
         try { synth.cancel(); } catch (_) {}
-        var text = (story.narration && story.narration.trim()) || (function () {
-          var parts = [story.title || key, story.caption || ''];
-          if (story.kidContext && story.kidContext.apply) parts.push(story.kidContext.apply);
-          if (story.kjvRef) parts.push(story.kjvRef);
-          return parts.filter(Boolean).join('. ').trim();
-        })();
+        var text = (story.narration && story.narration.trim()) || '';
+        if (!text && window.tdbLittleShepherd && typeof window.tdbLittleShepherd.getBriefNarration === 'function') {
+          try {
+            var bn = window.tdbLittleShepherd.getBriefNarration(key);
+            if (bn && String(bn).trim()) text = String(bn).trim();
+          } catch (eB2) { /* no-op */ }
+        }
+        if (!text) {
+          text = (function () {
+            var parts = [story.title || key, story.caption || ''];
+            if (story.kidContext && story.kidContext.apply) parts.push(story.kidContext.apply);
+            if (story.kjvRef) parts.push(story.kjvRef);
+            return parts.filter(Boolean).join('. ').trim();
+          })();
+        }
         if (text) {
           kidsStorySpeakBtn = speakBtn;
           var u = new window.SpeechSynthesisUtterance(text);

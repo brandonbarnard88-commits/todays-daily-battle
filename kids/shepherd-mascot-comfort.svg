@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" width="200" height="220" role="img" aria-labelledby="comT">
+  <title id="comT">Little Shepherd is still with you</title>
+  <defs>
+    <radialGradient id="gFaceC" cx="48%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="100%" stop-color="#fcd34d"/>
+    </radialGradient>
+    <linearGradient id="gGrC" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c8e6f4"/>
+      <stop offset="100%" stop-color="#86efac"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="100" cy="200" rx="95" ry="16" fill="rgba(14,165,233,0.12)"/>
+  <rect x="0" y="170" width="200" height="50" fill="url(#gGrC)" opacity="0.4"/>
+  <circle cx="100" cy="95" r="32" fill="url(#gFaceC)" stroke="#b45309" stroke-width="2.5"/>
+  <ellipse cx="100" cy="90" rx="3" ry="2" fill="#0f172a" opacity="0.35" transform="rotate(-8 100 90)"/>
+  <path d="M85 100 Q100 95 115 100" fill="none" stroke="#1e293b" stroke-width="2" stroke-linecap="round" opacity="0.85"/>
+  <ellipse cx="125" cy="120" rx="20" ry="16" fill="#fafafa" stroke="#94a3b8" stroke-width="1.5" transform="rotate(-12 125 120)"/>
+  <ellipse cx="120" cy="128" rx="8" ry="5" fill="#fafafa" stroke="#94a3b8" stroke-width="1"/>
+  <rect x="68" y="122" width="50" height="40" rx="8" fill="#e9d5ff" fill-opacity="0.45" stroke="#a855f7" stroke-width="1.5"/>
+  <path d="M78 120 Q72 100 80 88" fill="none" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M78 120 L90 128" fill="none" stroke="#1e293b" stroke-width="2" stroke-linecap="round"/>
+  <line x1="100" y1="50" x2="155" y2="30" stroke="#5c3d2e" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="100" cy="50" r="8" fill="#fef9c3" opacity="0.95"/>
+</svg>

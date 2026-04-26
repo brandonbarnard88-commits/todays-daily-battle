@@ -86,7 +86,8 @@
     'You matched the pairs! The Bible is full of true lines that belong together—nice work, friend.',
     'Great matching! You kept your eyes on the words, and that is how we learn Jesus’ voice better.',
     'Big win! Every match is a little reminder: God’s Word fits together in beautiful ways.',
-    "Shepherd cheer: you finished the set. Want to go hear one of those stories for real?"
+    "Shepherd cheer: you finished the set. Want to go hear one of those stories for real?",
+    "I am so proud of you for finishing. Jesus loves a heart that does not give up on His words."
   ];
 
   var BEDTIME = [
@@ -279,8 +280,36 @@
     { src: 'shepherd-mascot-sit.svg', label: 'Little Shepherd sitting with a little lamb' },
     { src: 'shepherd-mascot-listen.svg', label: 'Little Shepherd listens with you' },
     { src: 'shepherd-mascot-read.svg', label: 'Little Shepherd with Scripture open' },
-    { src: 'shepherd-mascot-pray.svg', label: 'Little Shepherd prays with you' }
+    { src: 'shepherd-mascot-pray.svg', label: 'Little Shepherd prays with you' },
+    { src: 'shepherd-mascot-proud.svg', label: 'Little Shepherd is proud of you' },
+    { src: 'shepherd-mascot-comfort.svg', label: 'Little Shepherd is still with you' },
+    { src: 'shepherd-mascot-wonder.svg', label: 'Little Shepherd looks up in wonder' }
   ];
+
+  var POSE_PROUD = 8;
+  var POSE_COMFORT = 9;
+  var POSE_WONDER = 10;
+
+  /**
+   * Optional ~30–60s device-narration text when a story has no `narration` field in data.
+   * KJV-centered, calm, not hype.
+   */
+  /* For TDB_BIBLE_STORIES entries with no `narration` field — supplies read-aloud + “Read to me” (~40–60s at calm rate). */
+  var BRIEF_NARRATION = {
+    jesus:
+      "People tried to send the little children away from Jesus, as if He were too busy for them. Jesus wanted the children near. He said, Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God. He took them in His arms and blessed them. That is how the real Good Shepherd treats kids who come to Him—gentle, glad, and kind. When you feel small, loud, tired, or unsure, you can still come to Jesus. You do not have to fix everything first. He is not looking for perfect; He is looking for honest hearts that will listen. Today, let one true thing stay in your pocket: Jesus made a way for you to be close to God, and He is still calling your name with love.",
+    adamEve:
+      "God made a beautiful garden and placed the first man and woman in it. He gave them real freedom—and one clear line not to cross. A voice tempted them to doubt God’s goodness. They chose their own way, and shame and fear entered the world. But God did not throw the story away. He still called out to them, with truth and care. The whole Bible is God drawing people back to Himself. If you have ever messed up, you are in good company: God still meets honest hearts with hope. Talk to Him today—He listens.",
+    cainAbel:
+      "Two brothers brought gifts to God. One brought what God honored; the other held something back in his heart. God saw the difference, not to be mean, but to help. When jealousy rose in Cain, God warned him: sin crouches, but you can rule over it. Cain did not listen, and a terrible hurt happened. This story is heavy—but it is honest. God takes anger seriously, and He still calls us to come clean with Him. If you feel jealous, tell Jesus before the feeling picks the path. He helps kids who want help.",
+    towerBabel:
+      "A long time ago, people wanted a city and a tower with its top in the sky—to make a name for themselves. God looked at the pride of it. He confused their language so they could not keep building the same show together. From that comes why we have many languages: not to shame us, but to remind us that God is over every nation. Babel is a lesson in humility. The best name we can have is not loud fame—it is the name the Lord gives to people who love truth and call on His Son."
+  };
+
+  function getBriefNarration(key) {
+    if (!key || !BRIEF_NARRATION) return '';
+    return BRIEF_NARRATION[key] || '';
+  }
 
   var JOURNEY_PICK = [
     'Gentle Journey is about to open the next calm story. I will listen slow with you.',
@@ -292,7 +321,19 @@
     'Not quite—try a different match. The Bible is patient with us, too.',
     'Hmm, that pair does not go together. Breathe, look again—you are still learning well.',
     'That one slipped. God loves honest tries. Give it another go when you are ready.',
-    'Almost! Shepherd tip: read the KJV line slow, like a name tag on a friend.'
+    'Almost! Shepherd tip: read the KJV line slow, like a name tag on a friend.',
+    'I am not worried—I am with you. Wrong taps happen; brave hearts try again.',
+    'That was a mix-up, not a mess-up. Jesus still smiles at kids who keep going.',
+    'Sheep take wrong steps sometimes, too. Take a slow breath and look one more time.',
+    "Try does not have to be perfect. It has to be honest. You are doing that."
+  ];
+
+  var PROUD_MOMENT = [
+    "I am proud of you. Not for being loud—for being here, and for trying with Jesus.",
+    "That is the kind of heart God loves: the kind that shows up, even on the third try.",
+    "You just made the pasture feel brighter. I mean it. Jesus sees you trying.",
+    "I am proud of you the way a real friend is: not for scores—for courage and care.",
+    "If you were here beside me, I would give you the biggest calm high-five. You stayed with it."
   ];
 
   function setShepherdPose(n) {
@@ -476,10 +517,10 @@
     }
     var w = shepherdHeroWrap();
     if (w) {
-      w.classList.add('kids-shepherd-welcome');
+      w.classList.add('kids-shepherd-welcome', 'kids-shepherd-arrival');
       setTimeout(function () {
-        try { w.classList.remove('kids-shepherd-welcome'); } catch (e) {}
-      }, 2200);
+        try { w.classList.remove('kids-shepherd-welcome', 'kids-shepherd-arrival'); } catch (e) {}
+      }, 3200);
     }
   }
 
@@ -592,20 +633,22 @@
     }
     var lineEl = document.getElementById('kids-little-shepherd-line');
     if (type === 'quizComplete' || type === 'storyFinished' || type === 'gameWin') {
-      setShepherdPose(3);
+      setShepherdPose(type === 'gameWin' ? POSE_PROUD : 3);
       setShepherdDance(2200);
       if (lineEl) {
         if (type === 'gameWin') {
-          setBubbleVoice(lineEl, pickByDay(MATCH_WIN));
+          var winPool = MATCH_WIN.concat(PROUD_MOMENT);
+          setBubbleVoice(lineEl, pickByDay(winPool));
         } else {
-          setBubbleVoice(lineEl, pickByDay(CHEER));
+          var bigPool = CHEER.concat(PROUD_MOMENT);
+          setBubbleVoice(lineEl, pickByDay(bigPool));
         }
       }
       playSoftChime();
       return;
     }
     if (type === 'wrongMatch') {
-      setShepherdPose(4);
+      setShepherdPose(POSE_COMFORT);
       if (lineEl) {
         setBubbleVoice(lineEl, pickByDay(STUCK_TRY_AGAIN));
       }
@@ -617,7 +660,7 @@
       return;
     }
     if (type === 'storyOpened' && data && data.key) {
-      setShepherdPose(1);
+      setShepherdPose(POSE_WONDER);
     }
   }
 
@@ -639,7 +682,10 @@
     var m = new Date().getMonth() + 1;
     var s = 'ordinary';
     if (m === 12 || m === 1) s = 'winter';
+    if (m === 2) s = 'lent';
     if (m === 3 || m === 4) s = 'easter';
+    if (m === 5 || m === 6) s = 'summer';
+    if (m === 9 || m === 10) s = 'autumn';
     if (m === 11) s = 'harvest';
     try {
       document.body.setAttribute('data-kids-season', s);
@@ -704,9 +750,10 @@
 
   global.tdbLittleShepherd = {
     pickWelcome: function () { return pickByDay(WELCOME); },
-    pickMatchWin: function () { return pickByDay(MATCH_WIN); },
+    pickMatchWin: function () { return pickByDay(MATCH_WIN.concat(PROUD_MOMENT)); },
     pickBedtime: function () { return pickByDay(BEDTIME); },
     pickCheer: function () { return pickByDay(CHEER); },
+    getBriefNarration: getBriefNarration,
     setShepherdPose: setShepherdPose,
     getStoryIntro: getStoryIntro,
     notify: notifyEvent,

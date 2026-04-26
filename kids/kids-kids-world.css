@@ -1,7 +1,7 @@
 /**
  * Kids World — daylit pastoral shell for /kids/ + story library hero.
  * Calm, KJV. Not neon; not midnight-with-yellow-chip.
- * v: 20260426kidspolish2
+ * v: 20260427kidsbest2
  */
 body.kids-world-surface.kids-battle-page {
   --kw-sun: #fff4dd;
@@ -891,6 +891,33 @@ body.kids-world-surface .kids-play-zone--shepherdfield::before {
   0% { transform: translateY(8px) scale(0.96); opacity: 0.85; }
   100% { transform: translateY(0) scale(1); opacity: 1; }
 }
+/* First hub visit this load: a touch more “arrival” without loud motion */
+@media (prefers-reduced-motion: no-preference) {
+  .kids-shepherd-hero-wrap.kids-shepherd-welcome.kids-shepherd-arrival {
+    animation: kids-shepherd-wavein 0.7s ease-out 1 both, kids-shepherd-arrival 2.2s ease-out 1 both;
+  }
+  @keyframes kids-shepherd-arrival {
+    0% { filter: drop-shadow(0 0 0 rgba(251, 191, 36, 0)); }
+    35% { filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.45)); }
+    100% { filter: drop-shadow(0 0 0 rgba(251, 191, 36, 0)); }
+  }
+  .kids-pasture-just-bloomed .kids-pasture-illu {
+    animation: kids-pasture-bloom-pulse 0.6s ease-out 1 both;
+  }
+  .kids-pasture-just-bloomed {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.35);
+    animation: kids-pasture-card-bloom 1.1s ease-out 1 both;
+  }
+  @keyframes kids-pasture-bloom-pulse {
+    0% { box-shadow: inset 0 0 0 0 rgba(250, 204, 21, 0); }
+    50% { box-shadow: inset 0 0 0 3px rgba(250, 204, 21, 0.35); }
+    100% { box-shadow: inset 0 0 0 0 rgba(250, 204, 21, 0); }
+  }
+  @keyframes kids-pasture-card-bloom {
+    0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.25); }
+    100% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+  }
+}
 .kids-shepherd-dance {
   animation: kids-shepherd-dancek 0.5s ease-in-out 4 alternate;
 }
@@ -915,8 +942,125 @@ body.kids-world-surface[data-kids-season="easter"] {
 body.kids-world-surface[data-kids-season="winter"]::before {
   filter: saturate(0.95);
 }
+body.kids-world-surface[data-kids-season="summer"]::before {
+  --kw-sky-top: #93c5fd;
+  --kw-sky-mid: #e0f2fe;
+}
+body.kids-world-surface[data-kids-season="autumn"]::before {
+  --kw-sun: #fff1e0;
+  filter: saturate(1.02);
+}
+body.kids-world-surface[data-kids-season="lent"]::before {
+  --kw-sky-mid: #e2e8f0;
+}
 body.kids-world-surface[data-kids-season="harvest"] .kids-pasture-illu {
   filter: sepia(0.08);
+}
+/* Parent dashboard: same sunlit paper when world surface is on */
+body.kids-world-surface.kids-parent-dashboard {
+  min-height: 100vh;
+}
+body.kids-world-surface.kids-parent-dashboard .app-shell,
+body.kids-world-surface.kids-parent-dashboard .content-inner {
+  color: var(--kw-ink);
+}
+/* Root coloring page: soft pasture paper behind existing layout */
+body.tdb-kids-coloring-page.kids-world-surface {
+  --kw-ink: #0f172a;
+}
+body.tdb-kids-coloring-page.kids-world-surface::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, #e0f2fe 0%, #fef9c3 40%, #fefce8 100%);
+  opacity: 0.5;
+}
+body.tdb-kids-coloring-page.kids-world-surface .app-shell,
+body.tdb-kids-coloring-page.kids-world-surface .app-content,
+body.tdb-kids-coloring-page.kids-world-surface .content-inner {
+  position: relative;
+  z-index: 1;
+}
+/* Magic button rows: small warm “bloom” dot per kind (hub + library grids) */
+.kids-wonder .kids-magic-btn,
+.kids-magic-grid .kids-magic-btn,
+.kids-magic-hero-cta .kids-magic-btn,
+.kids-magic-duo .kids-magic-btn {
+  position: relative;
+  padding-left: 2.05rem;
+}
+.kids-wonder .kids-magic-btn::before,
+.kids-magic-grid .kids-magic-btn::before,
+.kids-magic-hero-cta .kids-magic-btn::before,
+.kids-magic-duo .kids-magic-btn::before {
+  content: "";
+  position: absolute;
+  left: 0.5rem;
+  top: 50%;
+  margin-top: -0.4rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fef9c3, #d97706);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.45);
+  opacity: 0.9;
+  pointer-events: none;
+}
+.kids-wonder .kids-magic-btn.kids-magic-story::before,
+.kids-magic-grid .kids-magic-btn.kids-magic-story::before,
+.kids-magic-hero-cta .kids-magic-btn.kids-magic-story::before,
+.kids-magic-duo .kids-magic-btn.kids-magic-story::before {
+  background: radial-gradient(circle at 30% 30%, #bae6fd, #0369a1);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4);
+}
+.kids-wonder .kids-magic-btn.kids-magic-color::before,
+.kids-magic-grid .kids-magic-btn.kids-magic-color::before,
+.kids-magic-hero-cta .kids-magic-btn.kids-magic-color::before,
+.kids-magic-duo .kids-magic-btn.kids-magic-color::before {
+  background: radial-gradient(circle at 30% 30%, #fbcfe8, #be185d);
+}
+.kids-wonder .kids-magic-btn.kids-magic-game::before,
+.kids-magic-grid .kids-magic-btn.kids-magic-game::before,
+.kids-magic-hero-cta .kids-magic-btn.kids-magic-game::before,
+.kids-magic-duo .kids-magic-btn.kids-magic-game::before {
+  background: radial-gradient(circle at 30% 30%, #fde68a, #b45309);
+}
+.kids-wonder .kids-magic-btn.kids-magic-shelf::before,
+.kids-wonder .kids-magic-btn.kids-magic-shelf-ink::before,
+.kids-magic-grid .kids-magic-btn.kids-magic-shelf::before,
+.kids-magic-grid .kids-magic-btn.kids-magic-shelf-ink::before,
+.kids-magic-hero-cta .kids-magic-btn.kids-magic-shelf::before,
+.kids-magic-hero-cta .kids-magic-btn.kids-magic-shelf-ink::before,
+.kids-magic-duo .kids-magic-btn.kids-magic-shelf::before,
+.kids-magic-duo .kids-magic-btn.kids-magic-shelf-ink::before {
+  background: radial-gradient(circle at 30% 30%, #dcfce7, #16a34a);
+}
+.kids-wonder .kids-magic-btn.kids-magic-journey::before,
+.kids-magic-grid .kids-magic-btn.kids-magic-journey::before,
+.kids-magic-hero-cta .kids-magic-btn.kids-magic-journey::before,
+.kids-magic-duo .kids-magic-btn.kids-magic-journey::before {
+  background: radial-gradient(circle at 30% 30%, #e9d5ff, #7c3aed);
+}
+.kids-wonder .kids-magic-btn.kids-magic-loop::before,
+.kids-magic-grid .kids-magic-btn.kids-magic-loop::before,
+.kids-magic-hero-cta .kids-magic-btn.kids-magic-loop::before,
+.kids-magic-duo .kids-magic-btn.kids-magic-loop::before {
+  background: radial-gradient(circle at 30% 30%, #a5f3fc, #0e7490);
+}
+.kids-wonder .kids-magic-btn.kids-magic-little::before,
+.kids-magic-grid .kids-magic-btn.kids-magic-little::before,
+.kids-magic-hero-cta .kids-magic-btn.kids-magic-little::before,
+.kids-magic-duo .kids-magic-btn.kids-magic-little::before {
+  background: radial-gradient(circle at 30% 30%, #fef3c7, #ea580c);
+}
+.kids-wonder .kids-magic-btn.kids-magic-night::before,
+.kids-magic-grid .kids-magic-btn.kids-magic-night::before,
+.kids-magic-hero-cta .kids-magic-btn.kids-magic-night::before,
+.kids-magic-duo .kids-magic-btn.kids-magic-night::before {
+  background: radial-gradient(circle at 30% 30%, #a5b4fc, #312e81);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
 }
 .kids-story-ls-intro {
   margin: 0 0 0.75rem;
@@ -1057,6 +1201,9 @@ body.kids-world-surface.kids-mini-game .mini-game-hero {
   .kids-shepherd-idle,
   .kids-shepherd-welcome,
   .kids-shepherd-dance,
+  .kids-shepherd-hero-wrap.kids-shepherd-arrival,
+  .kids-pasture-just-bloomed,
+  .kids-pasture-just-bloomed .kids-pasture-illu,
   .kids-pasture-card[data-token-bloom="3"] .kids-pasture-sheep2,
   .kids-pasture-card[data-token-bloom="4"] .kids-pasture-sheep2,
   .kids-pasture-card[data-token-bloom="5"] .kids-pasture-sheep2 {

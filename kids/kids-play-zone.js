@@ -236,9 +236,40 @@
     if (rawTok >= 4) bloom = 3;
     if (rawTok >= 6) bloom = 4;
     if (rawTok >= 9) bloom = 5;
-    card.setAttribute('data-token-bloom', String(bloom));
     var stage = Math.min(5, Math.floor(p.pct / 18) + tokenBoost);
+    var snapKey = 'tdbKidsPastureSnapV1';
+    var prevB = 0;
+    var prevS = 0;
+    try {
+      var sn = globalThis.localStorage.getItem(snapKey);
+      if (sn) {
+        var o = JSON.parse(sn);
+        prevB = parseInt(o.bloom, 10) || 0;
+        prevS = parseInt(o.stage, 10) || 0;
+      }
+    } catch (eSnap) { /* no-op */ }
+    var grew = (prevB > 0 || prevS > 0) && (bloom > prevB || stage > prevS);
+    try {
+      globalThis.localStorage.setItem(snapKey, JSON.stringify({ bloom: bloom, stage: stage }));
+    } catch (eSet) { /* no-op */ }
+    card.setAttribute('data-token-bloom', String(bloom));
     card.setAttribute('data-stage', String(stage));
+    if (grew) {
+      card.classList.remove('kids-pasture-just-bloomed');
+      void card.offsetWidth;
+      card.classList.add('kids-pasture-just-bloomed');
+      setTimeout(function () {
+        try { card.classList.remove('kids-pasture-just-bloomed'); } catch (eRm) { /* no-op */ }
+      }, 3200);
+      var ann = document.getElementById('kids-pasture-bloom-announce');
+      if (ann) {
+        var msg = bloom > prevB ? 'Something new bloomed in your pasture.' : 'Your pasture just grew a little more.';
+        ann.textContent = msg;
+        try {
+          ann.setAttribute('aria-label', msg);
+        } catch (eA) { /* no-op */ }
+      }
+    }
     if (stage >= 4) {
       card.setAttribute('data-pasture-fence', '1');
     } else {

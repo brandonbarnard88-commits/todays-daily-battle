@@ -692,77 +692,6 @@
     .plans-browse-by-season__col a:hover,
     .plans-browse-by-season__col a:focus-visible { color: var(--gold); outline: none; }
 
-    .plans-recommended-today {
-      margin: 0 0 1.5rem;
-      padding: 1.05rem 1rem 1.15rem;
-      border-radius: 16px;
-      border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line));
-      background: color-mix(in srgb, var(--card) 94%, var(--gold));
-    }
-    .plans-recommended-today__h {
-      font-size: clamp(1rem, 2.5vw, 1.12rem);
-      font-weight: 700;
-      color: var(--gold);
-      margin: 0 0 0.35rem;
-      text-align: center;
-    }
-    .plans-recommended-today__lead {
-      font-size: 0.86rem;
-      color: var(--muted);
-      line-height: 1.55;
-      margin: 0 auto 0.85rem;
-      max-width: 36rem;
-      text-align: center;
-    }
-    .plans-recommended-today__chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 0.65rem;
-      justify-content: center;
-      margin-bottom: 0.75rem;
-    }
-    .plans-recommended-today__more {
-      font-size: 0.8rem;
-      color: color-mix(in srgb, var(--text) 82%, var(--muted));
-      line-height: 1.55;
-      margin: 0 auto 0.7rem;
-      max-width: 40rem;
-      text-align: center;
-    }
-    .plans-recommended-today__note {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.88rem;
-      line-height: 1.58;
-      margin: 1.1rem auto 0;
-      max-width: 38rem;
-      text-align: center;
-      padding: 1rem 1.05rem 1.05rem;
-      border-radius: 12px;
-      border: 1px dashed color-mix(in srgb, var(--gold) 42%, var(--line));
-      background: color-mix(in srgb, var(--card) 88%, var(--gold));
-      color: color-mix(in srgb, var(--text) 90%, var(--muted));
-    }
-    .plans-recommended-today__note-label strong {
-      color: var(--gold-soft);
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      font-size: 0.72rem;
-      text-transform: uppercase;
-    }
-    .plans-recommended-today__note-body {
-      max-width: 34rem;
-      margin: 0;
-    }
-    /* Light shell: gold-on-cream in this band fails WCAG AA (axe). */
-    html[data-theme="light"] .plans-recommended-today__h {
-      color: #5c481a;
-    }
-    html[data-theme="light"] .plans-recommended-today__note-label strong {
-      color: #6b4f1a;
-    }
     html[data-theme="light"] .plans-lane-chip {
       color: #5c481a;
       border-color: color-mix(in srgb, #7a5818 50%, transparent);
@@ -1670,7 +1599,6 @@
           <li><a href="#find-your-plan">Find your plan</a></li>
           <li><a href="#plans-browse-by-feeling">By feeling</a></li>
           <li><a href="#plans-browse-by-season">Browse by season</a></li>
-          <li><a href="#plans-recommended-today-heading">Right now</a></li>
           <li><a href="#plans-start-here-title">Start here</a></li>
           <li><a href="#sermon-on-mount-intro">Sermon on the Mount</a></li>
           <li><a href="#bible-studies-free-title">Bible studies (free)</a></li>
@@ -1679,27 +1607,6 @@
           <li><a href="#all-plans">Every plan</a></li>
         </ul>
       </nav>
-      <section class="plans-recommended-today" id="plans-recommended-today" aria-labelledby="plans-recommended-today-heading">
-        <h2 class="plans-recommended-today__h" id="plans-recommended-today-heading">Recommended for right now</h2>
-        <p class="plans-recommended-today__lead">No popularity scores&mdash;only calm doorways. Match the weight you feel, or open the homepage <strong>Feel</strong> chips for verse-first search.</p>
-        <div class="plans-recommended-today__chips" role="navigation" aria-label="Gentle starting paths">
-          <a class="plans-lane-chip" href="index.html#feel-section">Feel search on home</a>
-          <a class="plans-lane-chip" href="plans.html?plan=fearfaith">Fear is loud</a>
-          <a class="plans-lane-chip" href="plans.html?plan=worrytrust">Mind won&rsquo;t stop</a>
-          <a class="plans-lane-chip" href="plans.html?plan=griefhope">Grief is heavy</a>
-          <a class="plans-lane-chip" href="plans.html?plan=peace">Need a quiet pace</a>
-          <a class="plans-lane-chip" href="plans.html?plan=heavyhope">Mind lies heavy</a>
-          <a class="plans-lane-chip" href="plans.html?plan=heartalone">Heart feels alone</a>
-          <a class="plans-lane-chip" href="plans.html?plan=littlehearts">Little hearts &amp; worry</a>
-          <a class="plans-lane-chip" href="plans.html?plan=restlessnights">Restless nights</a>
-          <a class="plans-lane-chip" href="plans.html?plan=wearyhands">Weary hands</a>
-        </div>
-        <p class="plans-recommended-today__more">More lanes: <a href="topic-anxiety.html">Anxiety topic</a> &middot; <a href="topic-loneliness.html">Loneliness</a> &middot; <a href="plans.html?plan=hopeuncertain">Hope feels thin</a> &middot; <a href="plans.html?plan=caregiverrest">Caregiver rest</a> &middot; <a href="reading-plan.html?study=hope-in-hard-times">Hope in hard times (read-along)</a>.</p>
-        <p class="plans-recommended-today__note" id="plans-still-in-the-works" role="note">
-          <span class="plans-recommended-today__note-label"><strong>Still in the works</strong></span>
-          <span class="plans-recommended-today__note-body">The five dedicated lanes we called out—heavy mind (<a href="plans.html?plan=heavyhope">When the Mind Lies Heavy</a>), lonely heart (<a href="plans.html?plan=heartalone">When the Heart Feels Alone</a>), little-hearts worry (<a href="plans.html?plan=littlehearts">When Little Hearts Feel Big Fear</a>), restless nights (<a href="plans.html?plan=restlessnights">Peace for Restless Nights</a>), and ministry or caregiving burnout (<a href="plans.html?plan=wearyhands">Grace for Weary Hands</a>)—are <strong>all live</strong> with the same honest KJV, plain steps, and no performance. <strong>Still in the works:</strong> more topics and longer paths land here as they are written; use the homepage Feel search or bookmark this library when you need a new doorway.</span>
-        </p>
-      </section>
       <section class="plans-start-here" aria-labelledby="plans-start-here-title">
         <h2 class="plans-start-here-title" id="plans-start-here-title">Start here</h2>
         <p class="plans-start-here-lead">If choosing feels like too much, start with the lane that fits today. Each link opens the same plan you will see in the full list below.</p>

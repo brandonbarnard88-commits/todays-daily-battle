@@ -448,12 +448,8 @@ for (const f of otherHtml) {
       console.error('BUILD FAIL: plans.html must include Cancer Comfort plan (cancercomfort / tdb-plan-cancercomfort-day).');
       process.exit(1);
     }
-    if (!content.includes('plans-recommended-today__note') || !content.includes('Still in the works') || !content.includes('More lanes:')) {
-      console.error('BUILD FAIL: plans.html must include Recommended block (More lanes + Still in the works honesty note).');
-      process.exit(1);
-    }
-    if (!content.includes('id="plans-still-in-the-works"')) {
-      console.error('BUILD FAIL: plans.html must include id="plans-still-in-the-works" for verify / cache checks.');
+    if (!content.includes('id="plans-start-here-title"')) {
+      console.error('BUILD FAIL: plans.html must include Start here section (id="plans-start-here-title").');
       process.exit(1);
     }
     console.log('Copied plans.html (battle plans library)');

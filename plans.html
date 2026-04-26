@@ -513,6 +513,102 @@
       margin-top: -0.35rem;
       margin-bottom: 1rem;
     }
+    /* Top "Find your plan" → scroll targets in the full list */
+    .plans-situation-jump,
+    #find-your-plan {
+      scroll-margin-top: 5rem;
+    }
+    @media (min-width: 1100px) {
+      .plans-situation-jump,
+      #find-your-plan {
+        scroll-margin-top: 7.5rem;
+      }
+    }
+    .plans-hero .plans-situation-jump {
+      margin: 0.2rem 0 1.1rem;
+    }
+    .plans-situation-jump {
+      margin: 0 0 1.15rem;
+      padding: 1.05rem 0.9rem 1.1rem;
+      border-radius: 16px;
+      border: 1px solid color-mix(in srgb, var(--gold) 26%, var(--line));
+      background: color-mix(in srgb, var(--card) 95%, rgba(227, 188, 103, 0.1));
+    }
+    .plans-situation-jump__h {
+      font-size: clamp(1.02rem, 2.4vw, 1.12rem);
+      font-weight: 700;
+      color: var(--gold);
+      text-align: center;
+      margin: 0 0 0.45rem;
+      letter-spacing: 0.02em;
+    }
+    .plans-situation-jump__lead {
+      font-size: 0.86rem;
+      line-height: 1.5;
+      color: var(--muted);
+      text-align: center;
+      max-width: 40rem;
+      margin: 0 auto 0.8rem;
+    }
+    .plans-situation-jump__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.55rem;
+      justify-content: center;
+    }
+    .plans-situation-jump__list li { margin: 0; }
+    .plans-situation-jump__list a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0.4rem 0.9rem;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      -webkit-tap-highlight-color: transparent;
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+    }
+    .plans-situation-jump__list a:hover,
+    .plans-situation-jump__list a:focus-visible {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: color-mix(in srgb, var(--card) 90%, var(--gold));
+      outline: none;
+    }
+    .plans-situation-jump__more {
+      margin: 0.75rem 0 0;
+      font-size: 0.8rem;
+      text-align: center;
+      line-height: 1.5;
+    }
+    html[data-theme="light"] .plans-situation-jump__h {
+      color: #5c481a;
+    }
+    html[data-theme="light"] .plans-situation-jump__list a {
+      color: #1e293b;
+    }
+    html[data-theme="light"] .plans-situation-jump__list a:hover,
+    html[data-theme="light"] .plans-situation-jump__list a:focus-visible {
+      color: #3d2f12;
+      border-color: #7a5818;
+      background: color-mix(in srgb, #fff 90%, #7a5818 10%);
+    }
+    .plan-row[id^="plan-row-"] {
+      scroll-margin-top: 5.5rem;
+    }
+    @media (min-width: 1100px) {
+      .plan-row[id^="plan-row-"] {
+        scroll-margin-top: 7.5rem;
+      }
+    }
     #plans-browse-by-feeling {
       scroll-margin-top: 5rem;
     }
@@ -1431,6 +1527,21 @@
         <h1>Courses in the University of God</h1>
         <p class="plans-hero-subtitle-uog">Gentle studies for the hard semesters</p>
         <p>Short, daily KJV lessons with one small step, plain words, and a simple prayer. Progress stays on your device, even offline. Need the small map of anchor verses? <a href="university.html">Open the University page</a>.</p>
+      <section class="plans-situation-jump" id="find-your-plan" aria-labelledby="plans-situation-jump-h">
+        <h2 class="plans-situation-jump__h" id="plans-situation-jump-h">Find your plan</h2>
+        <p class="plans-situation-jump__lead">Tap what matches how it feels&mdash;we jump to the course row in <a href="#all-plans">the full list</a> (one more tap to open the days).</p>
+        <ul class="plans-situation-jump__list" role="list" aria-label="Common situations; jump to a course in the list below">
+          <li><a href="#plan-row-universityanxiety">Anxiety &amp; fear</a></li>
+          <li><a href="#plan-row-worrytrust">Worry &amp; overthinking</a></li>
+          <li><a href="#plan-row-griefhope">Grief &amp; loss</a></li>
+          <li><a href="#plan-row-addictionhope">Habits &amp; addiction</a></li>
+          <li><a href="#plan-row-marriage">Marriage</a></li>
+          <li><a href="#plan-row-universitybroken">A strained relationship</a></li>
+          <li><a href="#plan-row-universityanger">Anger</a></li>
+          <li><a href="#plan-row-moneyworry">Money stress</a></li>
+        </ul>
+        <p class="plans-situation-jump__more section-note" role="note">Still scanning? <a href="#plans-browse-by-feeling">More by feeling</a> &middot; <a href="#plans-start-here-title">Start here</a> &middot; <a href="index.html#feel-section">How I feel (home)</a></p>
+      </section>
         <p class="plans-audio-roadmap tdb-listen-privacy-hint" role="note">We hope to add warm <strong>human narration</strong> for plan days (and Möbius breathing) when recording lines up&mdash;nothing extra to buy or turn on yet. Each day&rsquo;s <strong>Listen</strong> still uses steady device TTS. Playback stays on your device&mdash;nothing is uploaded for listening.</p>
         <p class="plans-hero-hint">You are not behind. Open any day; pick up where you left off.</p>
         <p class="plans-hero-hint plans-hero-print-delight" role="group" aria-label="Print today&rsquo;s KJV verse">
@@ -1535,6 +1646,7 @@
       <nav class="plans-onpage-nav" aria-label="On this page">
         <p class="plans-onpage-nav__label" id="plans-onpage-toc-label">On this page</p>
         <ul class="plans-onpage-nav__list" aria-labelledby="plans-onpage-toc-label">
+          <li><a href="#find-your-plan">Find your plan</a></li>
           <li><a href="#plans-browse-by-feeling">By feeling</a></li>
           <li><a href="#plans-browse-by-season">Browse by season</a></li>
           <li><a href="#plans-recommended-today-heading">Right now</a></li>
@@ -2124,7 +2236,7 @@
           <div class="plan-row-info"><h2>30-Day Strength</h2><p>A gentle month when your strength feels gone.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">30 days</span><span class="plan-progress-pill" id="planPill-strength">Not started</span></div>
         </a>
-        <a href="plans.html?plan=marriage" class="plan-row" data-plan="marriage" role="listitem" aria-label="Marriage — 7 days">
+        <a href="plans.html?plan=marriage" class="plan-row" id="plan-row-marriage" data-plan="marriage" role="listitem" aria-label="Marriage — 7 days">
           <span class="plan-row-icon" aria-hidden="true">💍</span>
           <div class="plan-row-info"><h2>Marriage</h2><p>Unity and honesty for couples in the trenches.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-marriage">Not started</span></div>
@@ -2184,7 +2296,7 @@
           <div class="plan-row-info"><h2>Fear to Faith</h2><p>Small daily steps when &ldquo;what if&rdquo; will not quiet down.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-fearfaith">Not started</span></div>
         </a>
-        <a href="plans.html?plan=worrytrust" class="plan-row" data-plan="worrytrust" role="listitem" aria-label="Worry to Trust — 7 days">
+        <a href="plans.html?plan=worrytrust" class="plan-row" id="plan-row-worrytrust" data-plan="worrytrust" role="listitem" aria-label="Worry to Trust — 7 days">
           <span class="plan-row-icon" aria-hidden="true">☁️</span>
           <div class="plan-row-info"><h2>Worry to Trust</h2><p>Hand tomorrow back—one verse, one day.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-worrytrust">Not started</span></div>
@@ -2199,7 +2311,7 @@
           <div class="plan-row-info"><h2>Doubt → Assurance</h2><p>Questions welcome—promises you can stand on anyway.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-doubtassurance">Not started</span></div>
         </a>
-        <a href="plans.html?plan=griefhope" class="plan-row" data-plan="griefhope" role="listitem" aria-label="Grief to Hope — 7 days">
+        <a href="plans.html?plan=griefhope" class="plan-row" id="plan-row-griefhope" data-plan="griefhope" role="listitem" aria-label="Grief to Hope — 7 days">
           <span class="plan-row-icon" aria-hidden="true">💔→🌅</span>
           <div class="plan-row-info"><h2>Grief → Hope</h2><p>Loss, sorrow, and light that does not rush your healing.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-griefhope">Not started</span></div>
@@ -2219,12 +2331,12 @@
           <div class="plan-row-info"><h2>Cancer Comfort</h2><p>When the diagnosis steals your breath—spiritual comfort, not medical advice.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-cancercomfort">Not started</span></div>
         </a>
-        <a href="plans.html?plan=moneyworry" class="plan-row" data-plan="moneyworry" role="listitem" aria-label="When Money Won't Quiet — 7 days">
+        <a href="plans.html?plan=moneyworry" class="plan-row" id="plan-row-moneyworry" data-plan="moneyworry" role="listitem" aria-label="When Money Won't Quiet — 7 days">
           <span class="plan-row-icon" aria-hidden="true">📋</span>
           <div class="plan-row-info"><h2>When Money Won&rsquo;t Quiet</h2><p>For the nights the numbers loop—sufficient day, casting care, enough, and trust without panic.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-moneyworry">Not started</span></div>
         </a>
-        <a href="plans.html?plan=addictionhope" class="plan-row" data-plan="addictionhope" role="listitem" aria-label="Mercy for Addiction and Habit Loops — 7 days">
+        <a href="plans.html?plan=addictionhope" class="plan-row" id="plan-row-addictionhope" data-plan="addictionhope" role="listitem" aria-label="Mercy for Addiction and Habit Loops — 7 days">
           <span class="plan-row-icon" aria-hidden="true">🕯️</span>
           <div class="plan-row-info"><h2>Mercy for Addiction &amp; Habit Loops</h2><p>Confession, no condemnation, broken spirit, liberty—spiritual anchors beside professional help you may need.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-addictionhope">Not started</span></div>
@@ -2284,7 +2396,7 @@
           <div class="plan-row-info"><h2>The University of Secret Prayer</h2><p>When your heart needs a room with a shut door&mdash;six KJV days on the closet, the secret place, Christ alone, drawing near, the Father&rsquo;s open ear, and prayer that carries everything.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">6 days</span><span class="plan-progress-pill" id="planPill-universitysecretprayer">Not started</span></div>
         </a>
-        <a href="plans.html?plan=universityanxiety" class="plan-row" data-plan="universityanxiety" role="listitem" aria-label="The University of Anxiety &amp; Fear — 6 days">
+        <a href="plans.html?plan=universityanxiety" class="plan-row" id="plan-row-universityanxiety" data-plan="universityanxiety" role="listitem" aria-label="The University of Anxiety &amp; Fear — 6 days">
           <span class="plan-row-icon" aria-hidden="true">🌦️</span>
           <div class="plan-row-info"><h2>The University of Anxiety &amp; Fear</h2><p>When the what-ifs run loud&mdash;six KJV days on a sound mind, trust when afraid, God-with-you, casting care, untroubled hearts, and the Spirit of adoption, not fear.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">6 days</span><span class="plan-progress-pill" id="planPill-universityanxiety">Not started</span></div>
@@ -2319,7 +2431,7 @@
           <div class="plan-row-info"><h2>The University of Bitterness</h2><p>When a sour aftertaste will not leave&mdash;six KJV days on putting bitterness away, watching for a root, naming gall, and walking peaceably; kindness after, not a scoreboard.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">6 days</span><span class="plan-progress-pill" id="planPill-universitybitterness">Not started</span></div>
         </a>
-        <a href="plans.html?plan=universitybroken" class="plan-row" data-plan="universitybroken" role="listitem" aria-label="The University of Broken Relationships — 6 days">
+        <a href="plans.html?plan=universitybroken" class="plan-row" id="plan-row-universitybroken" data-plan="universitybroken" role="listitem" aria-label="The University of Broken Relationships — 6 days">
           <span class="plan-row-icon" aria-hidden="true">🤝</span>
           <div class="plan-row-info"><h2>The University of Broken Relationships</h2><p>When silence or sharp edges sit between you and someone you still care about&mdash;six KJV days on going first, speaking alone, and the ministry of reconciliation. No theater; one verse a day.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">6 days</span><span class="plan-progress-pill" id="planPill-universitybroken">Not started</span></div>
@@ -2329,7 +2441,7 @@
           <div class="plan-row-info"><h2>The University of Comparison</h2><p>When another life looks greener from your window&mdash;six KJV days on measuring work without the parade, strife&rsquo;s root, turning eyes outward with humility, and contentment&rsquo;s better gain. Same quiet save as every other plan.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">6 days</span><span class="plan-progress-pill" id="planPill-universitycomparison">Not started</span></div>
         </a>
-        <a href="plans.html?plan=universityanger" class="plan-row" data-plan="universityanger" role="listitem" aria-label="The University of Anger — 6 days">
+        <a href="plans.html?plan=universityanger" class="plan-row" id="plan-row-universityanger" data-plan="universityanger" role="listitem" aria-label="The University of Anger — 6 days">
           <span class="plan-row-icon" aria-hidden="true">🍃</span>
           <div class="plan-row-info"><h2>The University of Anger</h2><p>When heat rises in the chest or the text box&mdash;six KJV days on ruling the spirit, hearing first, closing the day clean, a soft answer, and mercy that does not parrot a furious pattern.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">6 days</span><span class="plan-progress-pill" id="planPill-universityanger">Not started</span></div>

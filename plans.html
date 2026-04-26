@@ -524,23 +524,29 @@
         scroll-margin-top: 7.5rem;
       }
     }
-    .plans-hero .plans-situation-jump {
-      margin: 0.2rem 0 1.1rem;
+    .plans-hero-continued {
+      margin: 0 0 1.35rem;
     }
     .plans-situation-jump {
-      margin: 0 0 1.15rem;
-      padding: 1.05rem 0.9rem 1.1rem;
+      margin: 0 0 1.35rem;
+      padding: 1.15rem 1.2rem 1.2rem;
       border-radius: 16px;
-      border: 1px solid color-mix(in srgb, var(--gold) 26%, var(--line));
-      background: color-mix(in srgb, var(--card) 95%, rgba(227, 188, 103, 0.1));
+      border: 1px solid color-mix(in srgb, var(--line) 90%, var(--gold) 8%);
+      background: color-mix(in srgb, var(--card) 96%, rgba(107, 124, 147, 0.06));
     }
-    .plans-situation-jump__h {
-      font-size: clamp(1.02rem, 2.4vw, 1.12rem);
-      font-weight: 700;
-      color: var(--gold);
+    :root[data-theme="light"] .plans-situation-jump {
+      background: linear-gradient(180deg, #fafbfe 0%, #f0f3f8 100%);
+      border-color: color-mix(in srgb, var(--line) 92%, var(--gold) 10%);
+    }
+    /* Match homepage “fast feel” section heading (index .tdb-home-fast-feel-heading) */
+    .plans-find-your-plan-h {
+      margin: 0 0 0.5rem;
+      font-size: clamp(1.2rem, 3.2vw, 1.5rem);
+      font-weight: 500;
+      line-height: 1.35;
       text-align: center;
-      margin: 0 0 0.45rem;
-      letter-spacing: 0.02em;
+      color: var(--text);
+      letter-spacing: -0.01em;
     }
     .plans-situation-jump__lead {
       font-size: 0.86rem;
@@ -601,8 +607,8 @@
       text-align: center;
       line-height: 1.5;
     }
-    html[data-theme="light"] .plans-situation-jump__h {
-      color: #5c481a;
+    html[data-theme="light"] .plans-find-your-plan-h {
+      color: #1e293b;
     }
     html[data-theme="light"] .plans-situation-jump__list a {
       color: #1e293b;
@@ -1539,22 +1545,24 @@
         <h1>Courses in the University of God</h1>
         <p class="plans-hero-subtitle-uog">Gentle studies for the hard semesters</p>
         <p>Short, daily KJV lessons with one small step, plain words, and a simple prayer. Progress stays on your device, even offline. Need the small map of anchor verses? <a href="university.html">Open the University page</a>.</p>
+      </div>
       <section class="plans-situation-jump" id="find-your-plan" aria-labelledby="plans-situation-jump-h">
-        <h2 class="plans-situation-jump__h" id="plans-situation-jump-h">Find your plan</h2>
+        <h2 class="plans-find-your-plan-h" id="plans-situation-jump-h">Find your plan</h2>
         <p class="plans-situation-jump__lead">Tap what you&rsquo;re carrying today&mdash;we&rsquo;ll scroll you straight to the right course row in <a href="#all-plans">the full list</a> (one more tap to open the days).</p>
         <ul class="plans-situation-jump__list" role="list" aria-label="Common situations; jump to a course in the list below">
-          <li><a href="#plan-row-universityanxiety">Anxiety &amp; fear</a></li>
-          <li><a href="#plan-row-worrytrust">Worry &amp; overthinking</a></li>
-          <li><a href="#plan-row-griefhope">Grief &amp; loss</a></li>
+          <li><a href="#plan-row-universityanxiety">Anxiety</a></li>
+          <li><a href="#plan-row-worrytrust">Worry</a></li>
+          <li><a href="#plan-row-griefhope">Grief</a></li>
           <li><a href="#plan-row-universityloneliness">Loneliness</a></li>
-          <li><a href="#plan-row-addictionhope">Habits &amp; addiction</a></li>
+          <li><a href="#plan-row-addictionhope">Habits</a></li>
           <li><a href="#plan-row-marriage">Marriage</a></li>
-          <li><a href="#plan-row-universitybroken">A strained relationship</a></li>
+          <li><a href="#plan-row-universitybroken">Relationships</a></li>
           <li><a href="#plan-row-universityanger">Anger</a></li>
-          <li><a href="#plan-row-moneyworry">Money stress</a></li>
+          <li><a href="#plan-row-moneyworry">Money</a></li>
         </ul>
         <p class="plans-situation-jump__more section-note" role="note">Still scanning? <a href="#plans-browse-by-feeling">More by feeling</a> &middot; <a href="#plans-start-here-title">Start here</a> &middot; <a href="index.html#feel-section">How I feel (home)</a></p>
       </section>
+      <div class="plans-hero-continued" aria-label="More about courses and help">
         <p class="plans-audio-roadmap tdb-listen-privacy-hint" role="note">We hope to add warm <strong>human narration</strong> for plan days (and Möbius breathing) when recording lines up&mdash;nothing extra to buy or turn on yet. Each day&rsquo;s <strong>Listen</strong> still uses steady device TTS. Playback stays on your device&mdash;nothing is uploaded for listening.</p>
         <p class="plans-hero-hint">You are not behind. Open any day; pick up where you left off.</p>
         <p class="plans-hero-hint plans-hero-print-delight" role="group" aria-label="Print today&rsquo;s KJV verse">

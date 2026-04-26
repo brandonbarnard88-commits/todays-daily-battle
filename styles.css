@@ -20610,6 +20610,17 @@ body.tdb-inner-page.tdb-calm-shelf-page main#main-content.app-content.tdb-quiet-
   color: var(--text, #1e293b);
 }
 
+.about-page .about-founder-voice {
+  margin: 0.2rem 0 0.15rem;
+  max-width: 44rem;
+}
+.about-page .about-founder-voice .about-story-lead {
+  margin: 0 0 0.5rem;
+}
+.about-page .about-founder-voice .about-story-lead:last-of-type {
+  margin-bottom: 0.55rem;
+}
+
 .about-page .about-mission-line {
   font-size: 0.95rem;
   line-height: 1.65;

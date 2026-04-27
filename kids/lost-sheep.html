@@ -11,7 +11,7 @@
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="stylesheet" href="../styles.css?v=20260423-phase5-perf">
   <link rel="stylesheet" href="kids-battle.css?v=20260405kidsfollowup">
-  <link rel="stylesheet" href="kids-kids-world.css?v=20260428kidsbest3">
+  <link rel="stylesheet" href="kids-kids-world.css?v=20260426sheppeak">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
   <style>
     .ls-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.45rem; max-width: 16rem; margin: 0.75rem auto; }
@@ -36,6 +36,44 @@
     </header>
     <main class="app-content" id="main" role="main">
       <div class="content-inner" style="max-width:32rem;margin:0 auto;padding:0.5rem 0.75rem 2rem">
+        <div class="kids-pasture-shell kids-pasture-shell--compact" role="region" aria-label="Your quiet field with Little Shepherd">
+          <div class="kids-pasture-card kids-pasture-card--straggler" id="kids-pasture-strip" data-stage="0" data-token-bloom="0" role="img" aria-labelledby="kids-pasture-aria">
+            <p class="kids-pasture-title" id="kids-pasture-title">Your quiet pasture</p>
+            <div class="kids-pasture-illu" aria-hidden="true">
+              <span class="kids-pasture-bloom pt-a" aria-hidden="true"></span>
+              <span class="kids-pasture-bloom pt-b" aria-hidden="true"></span>
+              <span class="kids-pasture-bloom pt-c" aria-hidden="true"></span>
+              <span class="kids-pasture-bloom pt-d" aria-hidden="true"></span>
+              <span class="kids-pasture-sheep" aria-hidden="true"></span>
+              <span class="kids-pasture-sheep2" aria-hidden="true"></span>
+              <span class="kids-pasture-sheep3" aria-hidden="true"></span>
+              <span class="kids-pasture-flower1" aria-hidden="true"></span>
+              <span class="kids-pasture-flower2" aria-hidden="true"></span>
+              <span class="kids-pasture-tree" aria-hidden="true"></span>
+              <span class="kids-pasture-fruit" aria-hidden="true"></span>
+              <span class="kids-pasture-brook" aria-hidden="true"></span>
+              <span class="kids-pasture-fence" aria-hidden="true"></span>
+            </div>
+            <p class="kids-pasture-note" id="kids-pasture-label">A fresh patch of grass. Keep exploring.</p>
+            <p class="kids-sheep-tokens" id="kids-sheep-tokens-line" aria-live="polite"></p>
+            <p class="sr-only" id="kids-pasture-aria">Story opens on this device: loading.</p>
+            <p class="sr-only" id="kids-pasture-bloom-announce" role="status" aria-live="polite" aria-atomic="true"></p>
+          </div>
+          <section class="kids-shepherd-compact glass" aria-labelledby="kids-shepherd-compact-h" style="padding:0.75rem 1rem;border-radius:16px;margin:0.75rem 0 0">
+            <h2 class="sr-only" id="kids-shepherd-compact-h">Little Shepherd</h2>
+            <div class="kids-buddy-mascot-row">
+              <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, tap for a calm line">
+                <span class="kids-shepherd-hero-wrap">
+                  <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="shepherd-mascot-welcome.svg" width="112" height="124" alt="Little Shepherd" decoding="async" loading="lazy"/>
+                </span>
+              </button>
+              <div class="kids-buddy-bubble kids-buddy-bubble--with-mascot" id="kids-little-shepherd-bubble" lang="en">
+                <p class="kids-bubble-hi" style="margin:0 0 0.25rem">I&rsquo;m <strong class="kids-bubble-name">Little Shepherd</strong>—looking with you.</p>
+                <p class="kids-bubble-voice" id="kids-little-shepherd-line" aria-live="polite">&nbsp;</p>
+              </div>
+            </div>
+          </section>
+        </div>
         <div class="mini-game-hero glass" style="padding:1rem;border-radius:16px">
           <h1 style="font-family:Bangers,cursive;font-size:1.6rem;margin:0 0 0.4rem">Where is the sheep?</h1>
           <p style="margin:0;line-height:1.45;font-size:0.95rem">Tap the grass. Jesus told a story about one sheep that was lost and found&mdash;like us when we wander and He comes to get us. <span class="sr-only">Luke 15 KJV in the real Bible.</span></p>
@@ -48,7 +86,8 @@
     </main>
   </div>
   <script src="kids-activity-log.js?v=20260426kidsfinish1" defer></script>
-  <script src="kids-little-shepherd.js?v=20260427kidsbest2" defer></script>
+  <script src="kids-play-zone.js?v=20260426sheppeak" defer></script>
+  <script src="kids-little-shepherd.js?v=20260426sheppeak" defer></script>
   <script>
   document.addEventListener('DOMContentLoaded', function initLostSheep() {
     'use strict';

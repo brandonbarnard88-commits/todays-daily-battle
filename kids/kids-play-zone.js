@@ -263,11 +263,29 @@
       }, 3200);
       var ann = document.getElementById('kids-pasture-bloom-announce');
       if (ann) {
-        var msg = bloom > prevB ? 'Something new bloomed in your pasture.' : 'Your pasture just grew a little more.';
+        var peak = bloom >= 5 && prevB < 5;
+        var msg = peak
+          ? 'Your pasture is in full bloom—fruit on the tree, a little brook singing. Jesus sees your faithful opens.'
+          : (bloom > prevB ? 'Something new bloomed in your pasture.' : 'Your pasture just grew a little more.');
         ann.textContent = msg;
         try {
           ann.setAttribute('aria-label', msg);
         } catch (eA) { /* no-op */ }
+      }
+      if (bloom >= 5 && prevB < 5) {
+        card.classList.remove('kids-pasture-peak-celebrate');
+        void card.offsetWidth;
+        card.classList.add('kids-pasture-peak-celebrate');
+        setTimeout(function () {
+          try { card.classList.remove('kids-pasture-peak-celebrate'); } catch (eP) { /* no-op */ }
+        }, 4200);
+        setTimeout(function () {
+          if (typeof global.tdbLittleShepherd !== 'undefined' && global.tdbLittleShepherd && typeof global.tdbLittleShepherd.notify === 'function') {
+            try {
+              global.tdbLittleShepherd.notify('pasturePeak', { bloom: bloom, prev: prevB });
+            } catch (eN) { /* no-op */ }
+          }
+        }, 120);
       }
     }
     if (stage >= 4) {

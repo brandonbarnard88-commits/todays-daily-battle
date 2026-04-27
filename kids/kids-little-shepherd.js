@@ -105,6 +105,15 @@
     "The grass got a little flatter from waiting. Come sit. Jesus is still the same, and I am still glad for you."
   ];
 
+  /** A week or more away — a softer homecoming. */
+  var RETURN_LONG_GAP = [
+    "A whole week? More? The gate still creaks the same. Come sit; Jesus did not go anywhere.",
+    "I kept your spot a little flatter on purpose, like a welcome mat. One story, one color—your pace.",
+    "The field missed your sound. I am just glad the Father brought you back today, not for scores—for love.",
+    "Long time, true friend. No quiz—just tell Jesus thank you, then pick one small thing on this page.",
+    "I prayed you would find the door again. You did. That is the kind of faith He likes—showing up."
+  ];
+
   var REACTIONS = [
     "Ha! I felt that—good tap. Want another idea? Try the big story, or a color page when you are ready.",
     "I like that. My sheep bump my knee when they are curious, too. Keep asking good questions in God’s Word.",
@@ -138,7 +147,9 @@
   var EXCITED_SURPRISE = [
     "Surprise! I scrunched up my face like I did not know either—then I grinned. Let us go!",
     "A random story? That is a faith-walk! I am already scooting my stool closer.",
-    "I love this button—giggle, point, and go! Jesus already knows the story. Your part is to come with a brave heart."
+    "I love this button—giggle, point, and go! Jesus already knows the story. Your part is to come with a brave heart.",
+    "Another surprise? My boots did a little happy stomp. Same Good Shepherd—new scene. Come on.",
+    "I never get tired of this tap—like opening a present with God already inside the paper."
   ];
 
   /** Picks a stable "today" line so it does not change every refresh. */
@@ -211,6 +222,63 @@
     return 'tdbLSShepherdFirstEver';
   }
 
+  var STREAK_MILESTONE_LINES = {
+    7: "Seven days of showing up? That is a quiet, brave rhythm. I am proud of you—and heaven notices faithfulness, not volume.",
+    14: "Two weeks on the path. You are not collecting stickers; you are learning Jesus' voice. Keep walking.",
+    21: "Three weeks! Some days are tiny—that still counts. The Good Shepherd is glad you kept the gate open.",
+    30: "A whole month of faith-days on this device. That is a soft glow in heaven's book—not pride, just joy.",
+    40: "Forty days is a Bible kind of number. You stayed. Jesus sees every honest open.",
+    50: "Fifty! My boots do a small happy stomp. Not for a score—for a heart that keeps coming back to truth.",
+    60: "Sixty days. I would give you the calmest high-five. Jesus is worth every small yes."
+  };
+
+  function getStreakCount() {
+    try {
+      var raw = global.localStorage.getItem('kidsStreak');
+      if (!raw) return 0;
+      var o = JSON.parse(raw);
+      return Math.ceil(Number(o && o.count != null ? o.count : 0));
+    } catch (e) {
+      return 0;
+    }
+  }
+
+  function getLastShepherdMilestone() {
+    try {
+      return parseInt(global.localStorage.getItem('tdbLSShepherdMileStoneV1') || '0', 10) || 0;
+    } catch (e) {
+      return 0;
+    }
+  }
+
+  function tryAnnounceStreakMilestone(welcomeLineEl) {
+    if (!welcomeLineEl) return false;
+    var c = getStreakCount();
+    if (c < 7) return false;
+    var levels = [7, 14, 21, 30, 40, 50, 60];
+    var last = getLastShepherdMilestone();
+    for (var i = 0; i < levels.length; i++) {
+      if (c >= levels[i] && last < levels[i]) {
+        try {
+          global.localStorage.setItem('tdbLSShepherdMileStoneV1', String(levels[i]));
+        } catch (e2) { /* no-op */ }
+        var line = STREAK_MILESTONE_LINES[levels[i]] || STREAK_MILESTONE_LINES[7];
+        setBubbleVoice(welcomeLineEl, line);
+        setShepherdPose(3);
+        setShepherdDance(2400);
+        playSoftChime();
+        return true;
+      }
+    }
+    return false;
+  }
+
+  var PASTURE_PEAK = [
+    "Look—water, fruit, the whole field singing quiet. This is what faithful opens look like. I am beaming for you.",
+    "Full bloom! The brook, the tree, the fence bells—your pasture is a little picture of Psalm twenty-three. Come breathe.",
+    "The Lord makes your field lie down in still water, little by little. You walked here with Jesus. I love that."
+  ];
+
   function lastVisitKey() {
     return 'tdbLSShepherdLastVisit';
   }
@@ -239,12 +307,16 @@
       var now = Date.now();
       var prevRaw = global.localStorage.getItem(lastVisitKey());
       var prev = prevRaw ? parseInt(prevRaw, 10) : 0;
+      var longAway = isFinite(prev) && prev > 0 && now - prev > 7 * 86400000;
       var isGap = isFinite(prev) && prev > 0 && now - prev > 3 * 86400000;
 
       if (!global.localStorage.getItem(firstEverKey())) {
         firstEver = true;
         global.localStorage.setItem(firstEverKey(), '1');
         setBubbleVoice(welcomeLineEl, pickByDay(FIRST_EVER) || pickByDay(WELCOME));
+      } else if (longAway) {
+        gapReturn = true;
+        setBubbleVoice(welcomeLineEl, pickByDay(RETURN_LONG_GAP) || pickByDay(RETURN_AFTER_GAP) || pickByDay(WELCOME));
       } else if (isGap) {
         gapReturn = true;
         setBubbleVoice(welcomeLineEl, pickByDay(RETURN_AFTER_GAP) || pickByDay(WELCOME));
@@ -286,7 +358,9 @@
     { src: 'shepherd-mascot-comfort.svg', label: 'Little Shepherd is still with you' },
     { src: 'shepherd-mascot-wonder.svg', label: 'Little Shepherd looks up in wonder' },
     { src: 'shepherd-mascot-laugh.svg', label: 'Little Shepherd laughs with you' },
-    { src: 'shepherd-mascot-point-excited.svg', label: 'Little Shepherd points to your surprise story' }
+    { src: 'shepherd-mascot-point-excited.svg', label: 'Little Shepherd points to your surprise story' },
+    { src: 'shepherd-mascot-arms-hurray.svg', label: 'Little Shepherd celebrates your surprise with quiet joy' },
+    { src: 'shepherd-mascot-clap-soft.svg', label: 'Little Shepherd is glad for your surprise pick' }
   ];
 
   var POSE_PROUD = 8;
@@ -294,6 +368,19 @@
   var POSE_WONDER = 10;
   var POSE_GENTLE_LAUGH = 11;
   var POSE_EXCITED_POINT = 12;
+  var POSE_HURRAY = 13;
+  var POSE_SURPRISE_CLAP = 14;
+
+  /** Rotates for Surprise / random=1 links: point, laugh, hurray, or soft clap */
+  function pickSurpriseShepherdPose(clickId) {
+    var salt = 0;
+    try {
+      salt = (typeof clickId === 'number' && isFinite(clickId) ? clickId : 0) % 1000;
+    } catch (e) { /* no-op */ }
+    var h = (dayKey() * 3 + salt) % 4;
+    var order = [POSE_EXCITED_POINT, POSE_GENTLE_LAUGH, POSE_HURRAY, POSE_SURPRISE_CLAP];
+    return order[h] != null ? order[h] : POSE_EXCITED_POINT;
+  }
 
   /** Pre-baked calm male (Daniel / macOS `say`) narration clips, same origin. */
   var SHEPHERD_RECORDED_AUDIO_KEYS = {
@@ -306,7 +393,53 @@
     jesusCalmsStorm: 1,
     jesusFeeds5000: 1,
     goodSamaritan: 1,
-    lostSheep: 1
+    lostSheep: 1,
+    creation: 1,
+    adamEve: 1,
+    josephCoat: 1,
+    redSea: 1,
+    zacchaeus: 1,
+    esther: 1,
+    prodigalSon: 1,
+    resurrection: 1,
+    jesusBirth: 1,
+    jesusTemptation: 1,
+    parableSower: 1,
+    palmSunday: 1,
+    pentecost: 1,
+    stephen: 1,
+    ruthBoaz: 1,
+    hannahPrayer: 1,
+    fieryFurnace: 1,
+    tenLepers: 1,
+    lazarus: 1,
+    maryMartha: 1,
+    samuelHears: 1,
+    gideon: 1,
+    elijahRavens: 1,
+    elishaWidow: 1,
+    joshuaJericho: 1,
+    naaman: 1,
+    jesusWalksWater: 1,
+    jesusHealsParalytic: 1,
+    richYoungRuler: 1,
+    widowsMite: 1,
+    simeonTemple: 1,
+    emmausRoad: 1,
+    jesusBaptism: 1,
+    peterWater: 1,
+    goodShepherdParable: 1,
+    lastSupper: 1,
+    gardenGethsemane: 1,
+    ascension: 1,
+    paulShipwreck: 1,
+    silasJail: 1,
+    philipEthiopian: 1,
+    caleb: 1,
+    rahab: 1,
+    nehemiah: 1,
+    tabitha: 1,
+    creationRest: 1
   };
 
   function getShepherdNarrationAudioUrl(key) {
@@ -650,7 +783,7 @@
         if (bubbleLineEl) {
           setBubbleVoice(bubbleLineEl, pickByDay(EXCITED_SURPRISE));
         }
-        setShepherdPose(POSE_EXCITED_POINT);
+        setShepherdPose(pickSurpriseShepherdPose(ev && ev.timeStamp));
         setShepherdDance(2000);
         return;
       }
@@ -687,11 +820,18 @@
     }
     if (type === 'surpriseTap' && lineEl) {
       setBubbleVoice(lineEl, pickByDay(EXCITED_SURPRISE));
-      setShepherdPose(0);
+      setShepherdPose(pickSurpriseShepherdPose(data && data.salt));
       return;
     }
     if (type === 'storyOpened' && data && data.key) {
       setShepherdPose(POSE_WONDER);
+    }
+    if (type === 'pasturePeak' && lineEl) {
+      setShepherdPose(POSE_HURRAY);
+      setShepherdDance(2600);
+      setBubbleVoice(lineEl, pickByDay(PASTURE_PEAK));
+      playSoftChime();
+      return;
     }
   }
 
@@ -734,6 +874,20 @@
     applyKidsSeasonClass();
 
     try {
+      if (global.document && document.body && document.body.classList.contains('kids-page-goodnight') && document.getElementById('kids-mascot-tap')) {
+        setBubbleVoice(lineEl, pickByDay(BEDTIME));
+        if (document.getElementById('kids-shepherd-hero')) {
+          setShepherdPose(4);
+        }
+        markKidsVisit();
+        initShepherdMotion();
+        initMascotTap(lineEl);
+        initHearButton(lineEl);
+        return;
+      }
+    } catch (eGn) { /* no-op */ }
+
+    try {
       if (global.document && document.body && document.getElementById('kids-mascot-tap')) {
         document.body.classList.add('kids-hero-first-seconds');
         setTimeout(function () {
@@ -744,13 +898,19 @@
 
     if (document.getElementById('kids-mascot-tap')) {
       var o;
+      var didMilestone = false;
       if (!tryStoryQueryLine(lineEl)) {
-        o = applyOpeningLine(lineEl);
+        didMilestone = tryAnnounceStreakMilestone(lineEl);
+        if (!didMilestone) {
+          o = applyOpeningLine(lineEl);
+        } else {
+          o = { gapReturn: false, firstEver: false };
+        }
       } else {
         o = { gapReturn: false, firstEver: false };
         markKidsVisit();
       }
-      if (document.getElementById('kids-shepherd-hero')) {
+      if (document.getElementById('kids-shepherd-hero') && !didMilestone) {
         if (o.gapReturn) {
           setShepherdPose(2);
         } else if (o.firstEver) {

@@ -13,7 +13,7 @@
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="stylesheet" href="../styles.css?v=20260423-phase5-perf">
   <link rel="stylesheet" href="kids-battle.css?v=20260405kidsfollowup">
-  <link rel="stylesheet" href="kids-kids-world.css?v=20260428kidsbest3">
+  <link rel="stylesheet" href="kids-kids-world.css?v=20260426sheppeak">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     .mp-page { max-width: 36rem; margin: 0 auto; padding: 0.5rem 0.75rem 2.5rem; }
@@ -52,6 +52,20 @@
           <h1>My quiet pasture</h1>
           <p style="margin:0;line-height:1.5;color:#334155;font-size:0.95rem">This page is a calm snapshot of <strong>this device</strong>—sheep tokens, your name for the little sheep, and story path. Nothing leaves unless you share it.</p>
         </div>
+        <section class="kids-shepherd-compact glass" aria-labelledby="kids-shepherd-compact-h" style="padding:0.75rem 1rem;border-radius:16px;margin:0 0 1rem">
+          <h2 class="sr-only" id="kids-shepherd-compact-h">Little Shepherd</h2>
+          <div class="kids-buddy-mascot-row">
+            <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, tap for a calm line">
+              <span class="kids-shepherd-hero-wrap">
+                <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="shepherd-mascot-welcome.svg" width="112" height="124" alt="Little Shepherd" decoding="async" loading="lazy"/>
+              </span>
+            </button>
+            <div class="kids-buddy-bubble kids-buddy-bubble--with-mascot" id="kids-little-shepherd-bubble" lang="en">
+              <p class="kids-bubble-hi" style="margin:0 0 0.25rem">I&rsquo;m <strong class="kids-bubble-name">Little Shepherd</strong>—your field on this device matters.</p>
+              <p class="kids-bubble-voice" id="kids-little-shepherd-line" aria-live="polite">&nbsp;</p>
+            </div>
+          </div>
+        </section>
         <div class="mp-stat-grid" aria-label="Pasture stats">
           <div class="mp-stat"><span>Sheep tokens</span><strong id="mp-tokens">0</strong></div>
           <div class="mp-stat"><span>Faith days</span><strong id="mp-streak">0</strong></div>
@@ -121,6 +135,7 @@
     }
   });
   </script>
+  <script src="kids-little-shepherd.js?v=20260426sheppeak" defer></script>
   <script src="kids-battle.js?v=20260524readquiz" defer></script>
   <script src="/tdb-offline-strip.js?v=20260421pwa1" defer></script>
 </body>

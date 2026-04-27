@@ -21,7 +21,7 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css?v=20260423-phase5-perf">
   <link rel="stylesheet" href="kids-battle.css?v=20260421print-preview">
-  <link rel="stylesheet" href="kids-kids-world.css?v=20260428kidsbest3">
+  <link rel="stylesheet" href="kids-kids-world.css?v=20260426sheppeak">
   <script type="application/ld+json" nonce="tdb2025s">
   {
     "@context": "https://schema.org",
@@ -78,6 +78,21 @@
           <h1 class="kids-battle-title">Calm prayer habits</h1>
           <p class="kids-battle-tagline">Screen-light (or none), gentle words, and room to tie in today&rsquo;s verse from <a href="/kids/">Kids Battle</a> or a story in the <a href="corner.html">Library</a>. No scores—just talking to God.</p>
         </header>
+
+        <section class="kids-shepherd-compact glass" aria-labelledby="kids-shepherd-compact-h" style="padding:0.75rem 1rem;border-radius:16px;margin:0 0 1rem">
+          <h2 class="sr-only" id="kids-shepherd-compact-h">Little Shepherd</h2>
+          <div class="kids-buddy-mascot-row">
+            <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, tap for a calm line">
+              <span class="kids-shepherd-hero-wrap">
+                <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="shepherd-mascot-welcome.svg" width="112" height="124" alt="Little Shepherd" decoding="async" loading="lazy"/>
+              </span>
+            </button>
+            <div class="kids-buddy-bubble kids-buddy-bubble--with-mascot" id="kids-little-shepherd-bubble" lang="en">
+              <p class="kids-bubble-hi" style="margin:0 0 0.25rem">I&rsquo;m <strong class="kids-bubble-name">Little Shepherd</strong>—prayer is just talking, slow and true.</p>
+              <p class="kids-bubble-voice" id="kids-little-shepherd-line" aria-live="polite">&nbsp;</p>
+            </div>
+          </div>
+        </section>
 
         <section class="glass kids-prayer-lead" role="region" aria-label="How to use this page">
           <h2 class="kids-section-title">Before you start</h2>
@@ -365,6 +380,7 @@
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
 </footer>
   </div>
+  <script src="kids-little-shepherd.js?v=20260426sheppeak" defer></script>
   <script nonce="tdb2025s">
   (function () {
     var btn = document.getElementById('kids-prayer-slip-preview-btn');

@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf">
   <link rel="stylesheet" href="kids/kids-page-sky.css?v=20260326playful">
   <link rel="stylesheet" href="kids-corner.css?v=12">
+  <link rel="stylesheet" href="kids/kids-kids-world.css?v=20260426sheppeak">
   <link rel="stylesheet" href="loop-player.css?v=20260331edge">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
@@ -45,7 +46,7 @@
   {"@context":"https://schema.org","@type":"WebPage","name":"Bible Loop Library • Today's Daily Battle","url":"https://todaysdailybattle.com/kids-corner.html","description":"Short KJV Bible cartoon loops, gold stars, up to 164 over time. Full comic and quiz stories live on Bible Story Library.","publisher":{"@type":"Organization","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"}}
   </script>
 </head>
-<body class="dark-mode tdb-inner-page kids-corner-page kids-sky-enabled kids-sky-playful" aria-label="Bible Loop Library - short kids Bible story loops">
+<body class="dark-mode tdb-inner-page kids-corner-page kids-sky-enabled kids-sky-playful kids-world-surface" aria-label="Bible Loop Library - short kids Bible story loops">
   <script nonce="tdb2025s">
     (function () {
       try {
@@ -225,6 +226,49 @@
               <span class="loop-story-anchor-card__label">Jesus with children</span>
               <span class="loop-story-anchor-card__hint">Gentle welcome</span>
             </a>
+          </div>
+        </section>
+
+        <section class="glass card-gold loop-pasture-shepherd" aria-label="Your quiet field with Little Shepherd">
+          <h2 class="section-divider kids-section-divider">Your quiet field</h2>
+          <p class="section-note util-mb-0_75">Same gentle pasture as the Kids hub&mdash;your opens on this device grow the grass, the brook, and the fruit. Tap Little Shepherd for a calm line; stories live in the <a href="/kids/corner.html">Bible Story Library</a>.</p>
+          <div class="kids-pasture-shell kids-pasture-shell--compact" style="margin-top:0.5rem">
+            <div class="kids-pasture-card kids-pasture-card--straggler" id="kids-pasture-strip" data-stage="0" data-token-bloom="0" role="img" aria-labelledby="kids-pasture-aria">
+              <p class="kids-pasture-title" id="kids-pasture-title">Your quiet pasture</p>
+              <div class="kids-pasture-illu" aria-hidden="true">
+                <span class="kids-pasture-bloom pt-a" aria-hidden="true"></span>
+                <span class="kids-pasture-bloom pt-b" aria-hidden="true"></span>
+                <span class="kids-pasture-bloom pt-c" aria-hidden="true"></span>
+                <span class="kids-pasture-bloom pt-d" aria-hidden="true"></span>
+                <span class="kids-pasture-sheep" aria-hidden="true"></span>
+                <span class="kids-pasture-sheep2" aria-hidden="true"></span>
+                <span class="kids-pasture-sheep3" aria-hidden="true"></span>
+                <span class="kids-pasture-flower1" aria-hidden="true"></span>
+                <span class="kids-pasture-flower2" aria-hidden="true"></span>
+                <span class="kids-pasture-tree" aria-hidden="true"></span>
+                <span class="kids-pasture-fruit" aria-hidden="true"></span>
+                <span class="kids-pasture-brook" aria-hidden="true"></span>
+                <span class="kids-pasture-fence" aria-hidden="true"></span>
+              </div>
+              <p class="kids-pasture-note" id="kids-pasture-label">A fresh patch of grass. Keep exploring.</p>
+              <p class="kids-sheep-tokens" id="kids-sheep-tokens-line" aria-live="polite"></p>
+              <p class="sr-only" id="kids-pasture-aria">Story opens on this device: loading.</p>
+              <p class="sr-only" id="kids-pasture-bloom-announce" role="status" aria-live="polite" aria-atomic="true"></p>
+            </div>
+            <section class="kids-shepherd-compact glass" aria-labelledby="kids-shepherd-compact-h" style="padding:0.75rem 1rem;border-radius:16px;margin:0.75rem 0 0">
+              <h2 class="sr-only" id="kids-shepherd-compact-h">Little Shepherd</h2>
+              <div class="kids-buddy-mascot-row">
+                <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, tap for a calm line">
+                  <span class="kids-shepherd-hero-wrap">
+                    <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="kids/shepherd-mascot-welcome.svg" width="112" height="124" alt="Little Shepherd" decoding="async" loading="lazy"/>
+                  </span>
+                </button>
+                <div class="kids-buddy-bubble kids-buddy-bubble--with-mascot" id="kids-little-shepherd-bubble" lang="en">
+                  <p class="kids-bubble-hi" style="margin:0 0 0.25rem">I&rsquo;m <strong class="kids-bubble-name">Little Shepherd</strong>—with you at the loop library.</p>
+                  <p class="kids-bubble-voice" id="kids-little-shepherd-line" aria-live="polite">&nbsp;</p>
+                </div>
+              </div>
+            </section>
           </div>
         </section>
 
@@ -567,6 +611,8 @@
   <script src="loop-feedback-config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer crossorigin></script>
   <script src="/kids/kids-gentle-journey.js?v=20260503goal365" defer></script>
+  <script src="kids/kids-play-zone.js?v=20260426sheppeak" defer></script>
+  <script src="kids/kids-little-shepherd.js?v=20260426sheppeak" defer></script>
   <script type="module" src="script.js?v=20260423-phase5-perf" data-cfasync="false"></script>
   <script src="kids-corner-daily-verse.js?v=4" defer></script>
   <script src="sky-ip-geo.js?v=20260327ipgeo" defer></script>

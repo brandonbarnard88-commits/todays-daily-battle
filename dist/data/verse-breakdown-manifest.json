@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-27T04:46:41.863Z",
+  "generatedAt": "2026-04-27T05:11:20.918Z",
   "surfacedRefCount": 2940,
   "overrideCount": 2940,
   "sourceCounts": {
@@ -216,7 +216,7 @@
       "pairs": 40
     },
     "data/plans-battle-shared.json": {
-      "refs": 307,
+      "refs": 305,
       "pairs": 434
     },
     "easter-eggs.js": {
@@ -828,7 +828,7 @@
       "pairs": 0
     },
     "plans-data.js": {
-      "refs": 307,
+      "refs": 305,
       "pairs": 0
     },
     "plans-engine.js": {

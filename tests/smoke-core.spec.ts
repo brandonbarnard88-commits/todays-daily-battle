@@ -1,5 +1,10 @@
 import { test, expect } from '@playwright/test';
 
+/*
+ * First-visit is gated by `tdb_welcome_calm_campus_v1` (see first-visit-welcome.js), not `tdbFirstVisitDismissed`.
+ * Playwright uses baseURL from playwright.config (dist on :8080), not :3000.
+ * Category cards sit inside a closed <details>; waiting for them in beforeEach would flake — Hope uses #tdbFeelQuickStrip.
+ */
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => {
     try {
@@ -8,10 +13,43 @@ test.beforeEach(async ({ page }) => {
     try {
       sessionStorage.setItem('tdb_welcome_intro_seen_session', '1');
     } catch (e) {}
+    /* Match first-visit-welcome.js + welcome.js so home e2e is not blocked by modals (see qa-smoke.mjs). */
+    try {
+      localStorage.setItem('tdb_welcome_calm_campus_v1', '1');
+    } catch (e) {}
+    try {
+      localStorage.setItem('welcome-seen', '1');
+    } catch (e) {}
+    try {
+      localStorage.setItem('tdb_first_visit_read_pref_v1', 'later');
+    } catch (e) {}
   });
 });
 
 async function dismissFirstVisitIfPresent(page: import('@playwright/test').Page) {
+  /* Modal from first-visit-welcome.js (not the #firstVisitHint strip). Blocks clicks if still open.
+   * Use page.evaluate so pages without #tdbFirstVisitDialog do not wait on a missing locator. */
+  const dialogOpen = await page.evaluate(() => {
+    const el = document.getElementById('tdbFirstVisitDialog');
+    return el instanceof HTMLDialogElement && el.open;
+  });
+  if (dialogOpen) {
+    const notNow = page.locator('#tdbFirstVisitNotNow');
+    if (await notNow.isVisible().catch(() => false)) {
+      await notNow.click();
+    } else {
+      await page.evaluate(() => {
+        try {
+          localStorage.setItem('tdb_welcome_calm_campus_v1', '1');
+        } catch (e) {
+          /* ignore */
+        }
+        const d = document.getElementById('tdbFirstVisitDialog');
+        if (d instanceof HTMLDialogElement) d.close();
+      });
+    }
+    await page.waitForTimeout(250);
+  }
   const btn = page.locator('#firstVisitDismiss');
   if (await btn.isVisible().catch(() => false)) {
     await btn.click().catch(() => {});
@@ -31,6 +69,9 @@ async function dismissFirstVisitIfPresent(page: import('@playwright/test').Page)
 }
 
 test.describe('core smoke (dist)', () => {
+  /* Match qa-smoke.mjs mobile viewport so progressive-disclosure Feel UI is exercised the same way. */
+  test.use({ viewport: { width: 390, height: 844 } });
+
   test('home: daily battle card visible', async ({ page }) => {
     await page.goto('/');
     await dismissFirstVisitIfPresent(page);
@@ -48,14 +89,8 @@ test.describe('core smoke (dist)', () => {
     });
     await page.goto('/');
     await dismissFirstVisitIfPresent(page);
-    /* Progressive disclosure: open steadiness band, then tap Hope (second hope chip is the labeled Hope). */
-    const steadyCard = page.locator('#quickTopics .feel-category-card[data-feel-band="steady"]');
-    if (await steadyCard.count()) {
-      await steadyCard.first().scrollIntoViewIfNeeded();
-      await steadyCard.first().click();
-      await page.waitForTimeout(200);
-    }
-    const hopeBtn = page.locator('#quickTopics .quick-topic[data-topic="hope"]').last();
+    /* Category cards live inside a closed <details>; the quick strip always exposes Hope. */
+    const hopeBtn = page.locator('#tdbFeelQuickStrip .quick-topic[data-topic="hope"]');
     await hopeBtn.scrollIntoViewIfNeeded();
     await hopeBtn.click();
     /* Inline wireFeelSearch debounces (~300ms); homepage search may render calm cards or fallback smart cards. */
@@ -94,7 +129,11 @@ test.describe('core smoke (dist)', () => {
   test('message board shell visible', async ({ page }) => {
     await page.goto('/prayer-wall.html');
     await dismissFirstVisitIfPresent(page);
-    await page.getByRole('button', { name: /pray with others/i }).first().click();
-    await expect(page.locator('#message-list-wrap, #message-board').first()).toBeVisible();
+    /* Same handler as the tab button; evaluate avoids Playwright “stable” waits while script.js loads. */
+    await page.evaluate(() => {
+      document.getElementById('prayer-tab-with-others')?.click();
+    });
+    await expect(page.locator('#prayer-panel-with-others')).toBeVisible({ timeout: 10000 });
+    await expect(page.locator('#message-list-wrap')).toBeVisible({ timeout: 5000 });
   });
 });

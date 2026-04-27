@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-27T05:32:33.874Z",
-  "surfacedRefCount": 2940,
-  "overrideCount": 2940,
+  "generatedAt": "2026-04-27T05:58:43.676Z",
+  "surfacedRefCount": 2944,
+  "overrideCount": 2944,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 2,
@@ -216,8 +216,8 @@
       "pairs": 40
     },
     "data/plans-battle-shared.json": {
-      "refs": 305,
-      "pairs": 434
+      "refs": 315,
+      "pairs": 455
     },
     "easter-eggs.js": {
       "refs": 34,
@@ -828,7 +828,7 @@
       "pairs": 0
     },
     "plans-data.js": {
-      "refs": 305,
+      "refs": 315,
       "pairs": 0
     },
     "plans-engine.js": {
@@ -1850,6 +1850,7 @@
     "Colossians 3:22",
     "Colossians 3:23",
     "Colossians 3:23-24",
+    "Colossians 3:3-4",
     "Colossians 3:5",
     "Colossians 3:8",
     "Colossians 4:12",
@@ -2111,6 +2112,7 @@
     "Galatians 2:3",
     "Galatians 3:1",
     "Galatians 3:13",
+    "Galatians 3:26",
     "Galatians 3:26-28",
     "Galatians 3:27",
     "Galatians 4:24",
@@ -3466,6 +3468,7 @@
     "Micah 6:4",
     "Micah 6:8",
     "Micah 7:1",
+    "Micah 7:18-19",
     "Micah 7:19",
     "Micah 7:7",
     "Nahum 1:1",
@@ -3651,6 +3654,7 @@
     "Psalm 106:1",
     "Psalm 107:1",
     "Psalm 107:1, 8",
+    "Psalm 107:14",
     "Psalm 107:8",
     "Psalm 107:9",
     "Psalm 108:1",
@@ -4193,6 +4197,7 @@
     "Colossians 3:12-14": "Put on therefore, as the elect of God, holy and beloved, bowels of mercies, kindness, humbleness of mind, meekness, longsuffering; Forbearing one another, and forgiving one another, if any man have a quarrel against any: even as Christ forgave you, so also do ye. And above all these things put on charity, which is the bond of perfectness.",
     "Colossians 3:13-15": "Forbearing one another, and forgiving one another, if any man have a quarrel against any: even as Christ forgave you, so also do ye. And above all these things put on charity, which is the bond of perfectness. And let the peace of God rule in your hearts, to the which also ye are called in one body; and be ye thankful.",
     "Colossians 3:23-24": "And whatsoever ye do, do it heartily, as to the Lord, and not unto men; Knowing that of the Lord ye shall receive the reward of the inheritance: for ye serve the Lord Christ.",
+    "Colossians 3:3-4": "For ye are dead, and your life is hid with Christ in God. When Christ, who is our life, shall appear, then shall ye also appear with him in glory.",
     "Deuteronomy 28:1-2": "And it shall come to pass, if thou shalt hearken diligently unto the voice of the LORD thy God... that the LORD thy God will set thee on high above all nations of the earth: And all these blessings shall come on thee...",
     "Deuteronomy 6:6-7": "And these words, which I command thee this day, shall be in thine heart: And thou shalt teach them diligently unto thy children, and shalt talk of them when thou sittest in thine house, and when thou walkest by the way, and when thou liest down, and when thou risest up.",
     "Ecclesiastes 4:9-10": "Two are better than one; because they have a good reward for their labour. For if they fall, the one will lift up his fellow: but woe to him that is alone when he falleth; for he hath not another to help him up.",
@@ -4252,6 +4257,7 @@
     "Matthew 6:14-15": "For if ye forgive men their trespasses, your heavenly Father will also forgive you: But if ye forgive not men their trespasses, neither will your Father forgive your trespasses.",
     "Matthew 6:31-32": "Therefore take no thought, saying, What shall we eat? or, What shall we drink? or, Wherewithal shall we be clothed? (For after all these things do the Gentiles seek:) for your heavenly Father knoweth that ye have need of all these things.",
     "Matthew 6:31-33": "Therefore take no thought, saying, What shall we eat? or, What shall we drink? or, Wherewithal shall we be clothed? (For after all these things do the Gentiles seek:) for your heavenly Father knoweth that ye have need of all these things. But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.",
+    "Micah 7:18-19": "Who is a God like unto thee, that pardoneth iniquity, and passeth by the transgression of the remnant of his heritage? he retaineth not his anger for ever, because he delighteth in mercy. He will turn again, he will have compassion upon us; he will subdue our iniquities; and thou wilt cast all their sins into the depths of the sea.",
     "Numbers 6:24-26": "The Lord bless thee, and keep thee: The LORD make his face shine upon thee, and be gracious unto thee: The LORD lift up his countenance upon thee, and give thee peace.",
     "Philippians 3:13-14": "Brethren, I count not myself to have apprehended: but this one thing I do, forgetting those things which are behind, and reaching forth unto those things which are before, I press toward the mark for the prize of the high calling of God in Christ Jesus.",
     "Philippians 4:6-7": "Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.",
@@ -4285,6 +4291,7 @@
     "Psalm 106:1": "Praise ye the Lord. O give thanks unto the Lord; for he is good.",
     "Psalm 107:1": "O give thanks unto the LORD, for he is good: for his mercy endureth for ever.",
     "Psalm 107:1, 8": "O give thanks unto the LORD, for he is good: for his mercy endureth for ever. Oh that men would praise the LORD for his goodness, and for his wonderful works to the children of men!",
+    "Psalm 107:14": "He brought them out of darkness and the shadow of death, and brake their bands in sunder.",
     "Psalm 107:8": "Oh that men would praise the Lord for his goodness, and for his wonderful works to the children of men!",
     "Psalm 107:9": "For he satisfieth the longing soul, and filleth the hungry soul with goodness.",
     "Psalm 108:1": "O God, my heart is fixed; I will sing and give praise, even with my glory.",
@@ -6922,7 +6929,7 @@
     },
     "2 Corinthians 10:4": {
       "general": {
-        "plainExplanation": "For the weapons of our warfare are not carnal, but mighty through God to the pulling down of strong holds;",
+        "plainExplanation": "For the weapons of our warfare are not carnal, but mighty through God to the pulling down of strong holds.",
         "modernApplication": "This verse reminds you that God gives strength that does not start with your own reserves.",
         "about": "Paul",
         "to": "Corinth"
@@ -9672,6 +9679,14 @@
         "to": "Colosse"
       }
     },
+    "Colossians 3:3-4": {
+      "general": {
+        "plainExplanation": "For you are dead, and your life is hid with Christ in God. When Christ, who is our life, shall appear, then shall you also appear with him in glory.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Colosse"
+      }
+    },
     "Colossians 3:5": {
       "general": {
         "plainExplanation": "Mortify therefore your members which are upon the earth; fornication, uncleanness, inordinate affection, evil concupiscence, and covetousness, which is idolatry:",
@@ -11755,6 +11770,14 @@
     "Galatians 3:13": {
       "general": {
         "plainExplanation": "Christ has redeemed us from the curse of the law, being made a curse for us: for it is written, Cursed is every one that hangeth on a tree:",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Galatia"
+      }
+    },
+    "Galatians 3:26": {
+      "general": {
+        "plainExplanation": "For you are all the children of God by faith in Christ Jesus.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Paul",
         "to": "Galatia"
@@ -22600,6 +22623,14 @@
         "to": "Judah"
       }
     },
+    "Micah 7:18-19": {
+      "general": {
+        "plainExplanation": "Key idea: Who is a God like to you, that pardoneth iniquity, and passes by the transgression of the remnant of his heritage? he retaineth not his anger for ever, beca...",
+        "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
+        "about": "Micah",
+        "to": "Judah"
+      }
+    },
     "Micah 7:19": {
       "general": {
         "plainExplanation": "He will turn again, he will have compassion upon us; he will subdue our iniquities; and you wilt cast all their sins into the depths of the sea.",
@@ -24076,6 +24107,14 @@
       "general": {
         "plainExplanation": "O give thanks to the LORD, for he is good: for his mercy endureth for ever. Oh that men would praise the LORD for his goodness, and for his wonderful works to the children of men!",
         "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
+    "Psalm 107:14": {
+      "general": {
+        "plainExplanation": "He brought them out of darkness and the shadow of death, and brake their bands in sunder.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"
       }

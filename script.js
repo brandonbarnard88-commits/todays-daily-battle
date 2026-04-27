@@ -24320,6 +24320,38 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     topics: ['finances', 'worry', 'anxiety', 'overwhelmed']
   },
   {
+    id: 'addictionhope',
+    title: 'Addiction & Strongholds',
+    href: 'plans.html?plan=addictionhope',
+    days: 7,
+    description: 'Seven days with Him when the pull feels stronger than you. Come struggling, ashamed, or exactly as you are — grace-first, optional goals.',
+    topics: ['addiction', 'temptation', 'habit', 'shame', 'freedom']
+  },
+  {
+    id: 'guiltshame',
+    title: 'Guilt & Shame',
+    href: 'plans.html?plan=guiltshame',
+    days: 7,
+    description: 'Seven days with Him when guilt or shame feels heavy. Come guilty, ashamed, or exactly as you are — you are already welcome here.',
+    topics: ['guilt', 'shame', 'forgiveness', 'condemnation', 'hope']
+  },
+  {
+    id: 'overwhelmedburnout',
+    title: 'Overwhelmed / Burnout',
+    href: 'plans.html?plan=overwhelmedburnout',
+    days: 7,
+    description: 'Seven days with Him when everything feels too much. Come exhausted — rest first, small steps, no performance.',
+    topics: ['overwhelmed', 'burnout', 'rest', 'anxiety', 'weary']
+  },
+  {
+    id: 'selfworth',
+    title: 'Self-Worth / Identity',
+    href: 'plans.html?plan=selfworth',
+    days: 7,
+    description: 'Seven days with Him when you feel worthless or lost. Come doubting — truth in Christ, one gentle day at a time.',
+    topics: ['identity', 'worth', 'image of God', 'hope', 'belonging']
+  },
+  {
     id: 'caregiverrest',
     title: 'Caregiver Rest',
     href: 'plans.html?plan=caregiverrest',

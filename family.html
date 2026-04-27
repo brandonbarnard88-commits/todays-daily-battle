@@ -1264,7 +1264,7 @@
         <li>Hard week? Do one day from <a href="plans.html?plan=psalmscomfortfamily">Psalms of Comfort (Family Edition)</a> instead of skipping altogether.</li>
         <li>Busy night? Print the <a href="family-discussion-guide.html">Family Discussion Guide</a> and stop after one See / Understand / Live round.</li>
       </ul>
-      <p class="section-lead util-mt-1"><a class="btn btn-secondary" href="plans.html?plan=parenting">When parenting feels heavy</a> — seven days in the <em>Parenting in Faith</em> plan (KJV).</p>
+      <p class="section-lead util-mt-1"><a class="btn btn-secondary" href="plans.html?plan=parenting">When parenting feels heavy</a> — seven days in the <em>Parenting</em> plan (KJV).</p>
     </section>
 
     <section class="family-section-block family-hub-animate family-hub-d4" aria-labelledby="family-private-share-heading">
@@ -1400,7 +1400,7 @@
         statEl.appendChild(document.createTextNode(' plan day' + (monthCount === 1 ? '' : 's') + ' this month on this device.'));
         var note = document.createElement('span');
         note.className = 'family-month-note';
-        note.textContent = 'Counts when you tap Mark complete on Family Worship, Psalms of Comfort (Family Edition), or Parenting in Faith. Resets with the calendar month.';
+        note.textContent = 'Counts when you tap Mark complete on Family Worship, Psalms of Comfort (Family Edition), or Parenting. Resets with the calendar month.';
         statEl.appendChild(note);
       }
 
@@ -1427,7 +1427,7 @@
           key: 'tdb-plan-parenting-day',
           max: 7,
           planId: 'parenting',
-          title: 'Parenting in Faith',
+          title: 'Parenting',
           desc: 'When parenting feels heavy—seven gentle days in the Word for moms and dads (KJV), with honest steps and prayer.',
           href: 'plans.html?plan=parenting',
           wide: true
@@ -1498,7 +1498,7 @@
         ep.textContent = 'No family plan progress on this device yet—that is a fine place to begin. When you are ready, choose one:';
         empty.appendChild(ep);
         var ul = document.createElement('ul');
-        [['plans.html?plan=familyworship', 'Family Worship in the Trenches'], ['plans.html?plan=psalmscomfortfamily', 'Psalms of Comfort (Family Edition)'], ['plans.html?plan=parenting', 'Parenting in Faith']].forEach(function (pair) {
+        [['plans.html?plan=familyworship', 'Family Worship in the Trenches'], ['plans.html?plan=psalmscomfortfamily', 'Psalms of Comfort (Family Edition)'], ['plans.html?plan=parenting', 'Parenting']].forEach(function (pair) {
           var li = document.createElement('li');
           var a = document.createElement('a');
           a.href = pair[0];

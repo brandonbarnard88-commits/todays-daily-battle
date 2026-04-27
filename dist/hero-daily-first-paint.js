@@ -395,7 +395,7 @@
       ],
       parenting: [
         { href: '/plans.html?plan=universityparenting', label: 'Parenting Young Kids' },
-        { href: '/plans.html?plan=parenting', label: 'Parenting in Faith' },
+        { href: '/plans.html?plan=parenting', label: 'Parenting' },
         { href: '/plans.html?plan=familyworship', label: 'Family Worship' }
       ],
       exhaustion: [
@@ -415,7 +415,7 @@
       ],
       forgiveness: [
         { href: '/plans.html?plan=universityforgiveness', label: 'University of Forgiveness' },
-        { href: '/plans.html?plan=forgiveness', label: '7-Day Forgiveness' },
+        { href: '/plans.html?plan=forgiveness', label: 'Forgiveness' },
         { href: '/plans.html?plan=lettinggo', label: 'Letting Go' }
       ],
       brokenrelations: [

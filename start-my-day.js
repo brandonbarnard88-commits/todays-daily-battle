@@ -141,7 +141,7 @@
       id: "parenting",
       label: "Struggling as a parent",
       plan: "parenting",
-      planTitle: "7-Day Parenting in Faith",
+      planTitle: "Parenting",
       planDays: 7,
       oneLine: "For long days and little hearts—one verse-sized step a day.",
     },

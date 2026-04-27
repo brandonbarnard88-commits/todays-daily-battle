@@ -145,7 +145,7 @@ function tdbIsHomePage() {
     ],
     parenting: [
       { href: '/plans.html?plan=universityparenting', label: 'Parenting Young Kids' },
-      { href: '/plans.html?plan=parenting', label: 'Parenting in Faith' },
+      { href: '/plans.html?plan=parenting', label: 'Parenting' },
       { href: '/plans.html?plan=familyworship', label: 'Family Worship' }
     ],
     exhaustion: [
@@ -165,7 +165,7 @@ function tdbIsHomePage() {
     ],
     forgiveness: [
       { href: '/plans.html?plan=universityforgiveness', label: 'University of Forgiveness' },
-      { href: '/plans.html?plan=forgiveness', label: '7-Day Forgiveness' },
+      { href: '/plans.html?plan=forgiveness', label: 'Forgiveness' },
       { href: '/plans.html?plan=lettinggo', label: 'Letting Go' }
     ],
     brokenrelations: [
@@ -24265,7 +24265,7 @@ var HOME_SEARCH_PLAN_LIBRARY = [
   },
   {
     id: 'heavyhope',
-    title: 'When the Mind Lies Heavy',
+    title: 'The University of Depression & Hopelessness',
     href: 'plans.html?plan=heavyhope',
     days: 7,
     description: 'For foggy, heavy-thinking days when hope needs to come before your feelings catch up.',

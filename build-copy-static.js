@@ -365,7 +365,7 @@ for (const f of otherHtml) {
       process.exit(1);
     }
     if (!content.includes('heavyhope') || !content.includes('tdb-plan-heavyhope-day')) {
-      console.error('BUILD FAIL: plans.html must include When the Mind Lies Heavy plan (heavyhope / tdb-plan-heavyhope-day).');
+      console.error('BUILD FAIL: plans.html must include The University of Depression & Hopelessness plan (heavyhope / tdb-plan-heavyhope-day).');
       process.exit(1);
     }
     if (!content.includes('universitywaiting') || !content.includes('tdb-plan-universitywaiting-day')) {

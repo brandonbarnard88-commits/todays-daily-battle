@@ -555,9 +555,9 @@
         "text": "The LORD is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.",
         "plain": "He is closest when your heart feels most broken.",
         "today": "Where does the heaviness feel strongest today?",
-        "action": "If you can, tell Him the honest truth. Even silence is okay.",
+        "action": "If you can, tell Him one honest truth — silence is still honest.",
         "prayer": "Lord, I feel far from hope. But You are near. Hold me.",
-        "goal": "If you want to move toward something gentle, you could simply tell Him one honest feeling today — no pressure to feel better."
+        "goal": "If you want to move toward something gentle, you could simply tell Him one honest feeling today."
       },
       {
         "title": "When nothing feels worth getting up for",
@@ -568,6 +568,16 @@
         "action": "If you want, speak that honest weight to Him. Then speak one small hope back to your soul.",
         "prayer": "Lord, my soul feels cast down. I hope in You. Be my health today.",
         "goal": "If it feels right, you could speak one small hope to your soul once a day this week."
+      },
+      {
+        "title": "The light that breaks through",
+        "ref": "Psalm 30:5",
+        "text": "For his anger endureth but a moment; in his favour is life: weeping may endure for a night, but joy cometh in the morning.",
+        "plain": "The night can feel long, but joy comes in the morning.",
+        "today": "Where does the darkness feel longest right now?",
+        "action": "If you can, tell Him about the long night. Then let one small hope sit with you.",
+        "prayer": "Lord, the night feels long. Bring Your morning joy when You're ready.",
+        "goal": "If you want to move toward hope, you could look for one small sign of morning this week."
       },
       {
         "title": "When heaviness has a name",
@@ -588,16 +598,6 @@
         "action": "If you can, come to Him as you are — two quiet minutes, no list.",
         "prayer": "Jesus, I am heavy laden. I come for rest. Teach me of You.",
         "goal": "If you want, you could sit with Him two minutes with no fixing — rest days count."
-      },
-      {
-        "title": "When morning feels far",
-        "ref": "Psalm 143:8",
-        "text": "Cause me to hear thy lovingkindness in the morning; for in thee do I trust: cause me to know the way wherein I should walk; for I lift up my soul unto thee.",
-        "plain": "You can ask Him to break through with kindness before the day argues with you.",
-        "today": "What would it change to hear His lovingkindness first?",
-        "action": "If you want, whisper the first line of this verse before you check a screen.",
-        "prayer": "Father, cause me to hear Your lovingkindness. I lift my soul to You.",
-        "goal": "If it feels right, you could try one morning whisper before the phone this week."
       },
       {
         "title": "The God of all comfort",
@@ -3610,7 +3610,7 @@
         "text": "Therefore take no thought, saying, What shall we eat? or, What shall we drink? or, Wherewithal shall we be clothed? (For after all these things do the Gentiles seek:) for your heavenly Father knoweth that ye have need of all these things.",
         "plain": "Your Father already knows what you need.",
         "today": "What financial worry is loudest right now?",
-        "action": "If you want, tell Him the honest need. Then remember He already knows.",
+        "action": "If you want, name the need to Him — He already knows.",
         "prayer": "Father, You know what I need today. Help me trust You.",
         "goal": "If you want to move toward peace, you could simply tell Him one need each day this week — no pressure if some days you can't."
       },
@@ -3642,7 +3642,7 @@
         "today": "Does shame come with the financial stress?",
         "action": "If you can, tell Him the shame too. He does not shame those who seek Him.",
         "prayer": "Lord, I feel shame along with this lack. Help me seek You and trust Your good things.",
-        "goal": "If it feels right, you could tell Him one shame feeling this week — no pressure if you can't."
+        "goal": "If it feels right, you could tell Him one shame feeling this week."
       },
       {
         "title": "The God who provides in unexpected ways",

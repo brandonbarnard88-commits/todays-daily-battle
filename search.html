@@ -9,7 +9,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Search the Site • Today's Daily Battle</title>
-  <meta name="description" content="Find plans, topics, and tools on Today's Daily Battle—quiet filter over a hand-built list. No query leaves your device except loading this page.">
+  <meta name="description" content="A quiet map of this site: plans, tools, and doors you can open next. You are already welcome here. The list is hand-built; your search stays on your device.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/search.html">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
@@ -65,15 +65,15 @@
 
   <main id="main-content" class="content-inner tdb-search-main" role="main">
     <header class="hero-banner util-mb-1 tdb-search-hero" aria-labelledby="tdb-search-page-title">
-      <p class="section-note util-mb-0_5">Quiet page list — not a live crawl. Your filter stays in this browser.</p>
+      <p class="section-note util-mb-0_5">You&rsquo;re already welcome here&mdash;exactly as you are. This porch keeps a hand-built map of pages; it isn&rsquo;t a live crawl, and your filter never leaves this browser.</p>
       <h1 id="tdb-search-page-title">Search the site</h1>
-      <p class="privacy-line">Type a word: plan names, topics, tools. For a calm first path, open <a href="/site-guide.html">Start here</a>. For verse-first help by mood, use <a href="/#feel-section">Ask The Word on Home</a> or open <a href="explore.html">Explore</a>.</p>
+      <p class="privacy-line">When you&rsquo;re ready, type a word&mdash;plan names, topics, or tools. For a gentle first path, open <a href="/site-guide.html">Start here</a>. For verse-first help by mood, use <a href="/#feel-section">Ask The Word on Home</a> or open <a href="explore.html">Explore</a>.</p>
     </header>
 
     <section class="glass tdb-search-panel" aria-labelledby="tdb-site-search-label">
       <label id="tdb-site-search-label" class="tdb-search-label" for="tdb-site-search-input">Find a page</label>
       <input type="search" id="tdb-site-search-input" class="tdb-site-search-input" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="e.g. anxiety, plans, memorize, pastor…" aria-describedby="tdb-site-search-status">
-      <p id="tdb-site-search-status" class="section-note util-mb-0" role="status" aria-live="polite">Loading the page list…</p>
+      <p id="tdb-site-search-status" class="section-note util-mb-0" role="status" aria-live="polite">Gathering the quiet list&hellip;</p>
       <ul id="tdb-site-search-results" class="tdb-site-search-results" role="list" aria-label="Matching pages"></ul>
     </section>
   </main>
@@ -304,8 +304,8 @@
           return matchesEntry(needle, e);
         });
     status.textContent = hits.length
-      ? (needle ? hits.length + ' match' + (hits.length === 1 ? '' : 'es') : 'Showing all ' + hits.length + ' doors — type to narrow when you need to.')
-      : 'No matches yet — try another word or open Explore.';
+      ? (needle ? hits.length + ' match' + (hits.length === 1 ? '' : 'es') : 'All ' + hits.length + ' doors are here — type when you want to narrow.')
+      : 'No match yet — try another word, or rest in Explore for a bit.';
     hits.forEach(function (e) {
       var li = document.createElement('li');
       li.setAttribute('role', 'listitem');

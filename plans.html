@@ -2858,6 +2858,8 @@
     }
 
     // ── Plan data — draft new plans with docs/BATTLE-PLAN-AUTHORING.md ───────────
+    var PLAN_DAY_DEFAULT_GOAL =
+      'If you want, carry one true line from today\u2019s verse into the next hour\u2014optional; no score.';
     var PLANS = {
       battle: {
         id: 'battle', icon: '⚔️', label: 'Battle Distraction',
@@ -5748,9 +5750,12 @@
         if (dayData.prayer) {
           appendDayBp(breakdown, 'Family prayer', dayData.prayer, 'prayer-panel');
         }
-        if (dayData.goal) {
-          appendDayBp(breakdown, 'Gentle direction (optional)', dayData.goal, 'plan-day-goal');
-        }
+        appendDayBp(
+          breakdown,
+          'Gentle direction (optional)',
+          dayData.goal || PLAN_DAY_DEFAULT_GOAL,
+          'plan-day-goal',
+        );
       } else {
         if (dayData.speaker) {
           appendDayBp(breakdown, 'Who\u2019s speaking', dayData.speaker, '');
@@ -5762,9 +5767,12 @@
         if (dayData.prayer) {
           appendDayBp(breakdown, 'Prayer', dayData.prayer, 'prayer-panel');
         }
-        if (dayData.goal) {
-          appendDayBp(breakdown, 'Gentle direction (optional)', dayData.goal, 'plan-day-goal');
-        }
+        appendDayBp(
+          breakdown,
+          'Gentle direction (optional)',
+          dayData.goal || PLAN_DAY_DEFAULT_GOAL,
+          'plan-day-goal',
+        );
       }
       card.appendChild(breakdown);
 
@@ -6601,7 +6609,9 @@
       if (dayData.today) chunks.push(stripPlanSpeechChunk(dayData.today));
       if (dayData.action) chunks.push('A step. ' + stripPlanSpeechChunk(dayData.action));
       if (dayData.prayer) chunks.push('Prayer. ' + stripPlanSpeechChunk(dayData.prayer));
-      if (dayData.goal) chunks.push('Optional direction. ' + stripPlanSpeechChunk(dayData.goal));
+      chunks.push(
+        'Optional direction. ' + stripPlanSpeechChunk(dayData.goal || PLAN_DAY_DEFAULT_GOAL),
+      );
       return chunks.filter(Boolean).join(' ');
     }
     function readDayAloud(dayData, listenBtn) {

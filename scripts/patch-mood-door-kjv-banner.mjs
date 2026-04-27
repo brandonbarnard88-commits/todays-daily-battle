@@ -13,10 +13,10 @@ const ROOT = path.join(__dirname, "..");
 const NEEDLE = "        </nav>\n      </div>\n\n      <div class=\"brand\">";
 
 const SNIPPETS = {
-  en: '<p class="tdb-mood-door-kjv-banner" lang="en">KJV English on this page and in English tools unless this page says otherwise.</p>',
+  en: '<p class="tdb-mood-door-kjv-banner" lang="en">You&rsquo;re already welcome here&mdash;KJV on this page and in English tools unless this page says otherwise.</p>',
   es: '<p class="tdb-mood-door-kjv-banner" lang="es">Versos en esta página: español. Herramientas en inglés: la Biblia en pantalla suele ser <abbr title="King James Version" lang="en">KJV</abbr>.</p>',
   fr: '<p class="tdb-mood-door-kjv-banner" lang="fr">Versets sur cette page : français. Outils en anglais : Bible à l’écran en <abbr title="King James Version" lang="en">KJV</abbr>.</p>',
-  zh: '<p class="tdb-mood-door-kjv-banner" lang="zh-CN">本页经文为中文；英文站内工具的圣经正文一般为 <abbr title="King James Version" lang="en">KJV</abbr>。</p>',
+  zh: '<p class="tdb-mood-door-kjv-banner" lang="zh-CN">2026 试点：本页经文为中文；英文工具里的圣经正文一般为 <abbr title="King James Version" lang="en">KJV</abbr>，说明保持诚实。</p>',
   ar: '<p class="tdb-mood-door-kjv-banner" lang="ar" dir="rtl">هنا الآيات بالعربية؛ أدوات الموقع الإنجليزية تعرض الكتاب غالبًا <abbr title="King James Version" dir="ltr" lang="en">KJV</abbr>.</p>',
   hi: '<p class="tdb-mood-door-kjv-banner" lang="hi">इस पृष्ठ पर वचन हिंदी में हैं; अंग्रेज़ी औज़ारों में स्क्रीन पर बाइबल आमतौर पर <abbr title="King James Version" lang="en">KJV</abbr>।</p>',
   ru: '<p class="tdb-mood-door-kjv-banner" lang="ru">Стихи на этой странице — на русском; в английских инструментах текст Библии на экране обычно <abbr title="King James Version" lang="en">KJV</abbr>.</p>',

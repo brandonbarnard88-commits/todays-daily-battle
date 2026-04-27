@@ -34,6 +34,12 @@ function main() {
   if (!chunk.includes('body.family-armor-page')) fail('styles.css: family armor print rules missing');
   if (!chunk.includes('.yearly-rhythm-hub')) fail('styles.css: yearly rhythm print rules missing');
   if (!chunk.includes('.print-pack-generator-page')) fail('styles.css: printable pack generator print rules missing');
+  if (!chunk.includes('.tdb-search-page .tdb-site-search-input')) {
+    fail('styles.css: site search print rules missing (expect .tdb-search-page .tdb-site-search-input)');
+  }
+  if (!chunk.includes('.study-workspace-page #search-btn')) {
+    fail('styles.css: study workspace print rules missing (expect .study-workspace-page #search-btn)');
+  }
   if (!chunk.includes('.hero-banner .cta-group')) {
     fail('styles.css: hero-banner print economy rules missing (expect .hero-banner .cta-group)');
   }

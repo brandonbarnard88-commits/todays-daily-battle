@@ -267,7 +267,7 @@
     modal.setAttribute('aria-modal', 'true');
     modal.setAttribute('aria-label', 'Choose your family crest');
     modal.innerHTML = '' +
-      '<div class="modal-inner glass family-crest-picker-inner">' +
+      '<div class="modal-inner glass tdb-porch-paper-glass family-crest-picker-inner">' +
       '<button type="button" class="intent-modal-close" data-action="close" aria-label="Dismiss">×</button>' +
       '<h2 class="section-divider">Make your family crest?</h2>' +
       '<p class="section-note">Pick one symbol and two gems.</p>' +

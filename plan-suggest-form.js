@@ -38,7 +38,7 @@
           if (retryClient) {
             submitWithClient(retryClient, phrase, status, textarea);
           } else {
-            status.textContent = 'Unable to submit right now. Please try again later.';
+            status.textContent = 'Submit did not open—that is all right. Try again later.';
             status.style.color = 'var(--muted, #888)';
           }
         }, 1200);
@@ -55,7 +55,7 @@
       client.from('plan_suggestions').insert({ phrase: phrase })
         .then(function (res) {
           if (res.error) {
-            status.textContent = 'Something went wrong. Please try again.';
+            status.textContent = 'That did not send—that is all right. Try again.';
             status.style.color = 'var(--muted, #888)';
             return;
           }
@@ -65,7 +65,7 @@
           try { document.dispatchEvent(new CustomEvent('tdb:plan-suggest-success')); } catch (err) {}
         })
         .catch(function () {
-          status.textContent = 'Something went wrong. Please try again.';
+          status.textContent = 'That did not send—that is all right. Try again.';
           status.style.color = 'var(--muted, #888)';
         });
     }

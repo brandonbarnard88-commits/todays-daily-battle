@@ -10425,7 +10425,7 @@
       var ctn = document.getElementById('kids-cartoon-container');
       if (ctn) {
         try {
-          appendKidsCartoonFallbackMsg(ctn, 'We could not finish loading today\'s comic area. Your verse is still above—try a refresh.');
+          appendKidsCartoonFallbackMsg(ctn, 'Today\'s comic area did not finish loading—that is all right. Your verse is still above—try a refresh.');
         } catch (e2) {}
       }
     }
@@ -11891,7 +11891,7 @@
       var ctn = document.getElementById('kids-cartoon-container');
       if (ctn) {
         try {
-          appendKidsCartoonFallbackMsg(ctn, 'Could not update the comic area. Try a refresh.');
+          appendKidsCartoonFallbackMsg(ctn, 'Comic area did not update—that is all right. Try a refresh.');
         } catch (e2) {}
       }
     }
@@ -12318,12 +12318,12 @@
 
       withKidSupabase(true, function (client) {
         if (!client) {
-          showCodeError('Something went wrong. Please try again.');
+          showCodeError('That did not finish—that is all right. Try again in a moment.');
           return;
         }
         return client.rpc('redeem_invite_code', { code: code }).then(function (res) {
           if (res.error) {
-            showCodeError('Something went wrong. Please try again.');
+            showCodeError('That did not finish—that is all right. Try again in a moment.');
             return;
           }
           var data = res.data;
@@ -12341,10 +12341,10 @@
             }
           }
         }).catch(function () {
-          showCodeError('Something went wrong. Please try again.');
+          showCodeError('That did not finish—that is all right. Try again in a moment.');
         });
       }).catch(function () {
-        showCodeError('Something went wrong. Please try again.');
+        showCodeError('That did not finish—that is all right. Try again in a moment.');
       });
     });
   }

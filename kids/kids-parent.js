@@ -445,7 +445,7 @@
       try {
         t = window.tdbKidsActivityLog.formatWeekForParent();
       } catch (e) {
-        t = 'Could not read the activity log on this device.';
+        t = 'Activity log was not available on this device—that is all right. Try again after a short story session.';
       }
       var w = window.open('', '_blank', 'noopener');
       if (!w) {
@@ -580,14 +580,14 @@
     const saved = JSON.parse(localStorage.getItem('savedColorings') || '{}');
     const data = saved[id];
     if (!data) {
-      alert('No saved coloring found for this story.');
+      alert('No saved coloring for this story yet—that is all right. Color a scene first.');
       return;
     }
 
     const title = id.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
     const JsPDF = window.jspdf && window.jspdf.jsPDF;
     if (!JsPDF) {
-      alert('PDF library still loading — tap again in a moment.');
+      alert('PDF library is still waking up—that is all right. Tap again in a moment.');
       return;
     }
 
@@ -664,7 +664,7 @@
       if (typeof trackEvent === 'function') trackEvent('parent_export_pdf', { story: id });
     } catch (err) {
       console.error(err);
-      alert('Could not create the PDF. The image may be too large — try exporting from the coloring screen instead.');
+      alert('PDF did not build—that is all right. The image may be too large—try exporting from the coloring screen instead.');
     }
   }
 
@@ -687,7 +687,7 @@
       if (dash && dash.parentNode) dash.parentNode.removeChild(dash);
       loadParentView();
     } catch (e) {
-      alert('Could not clear saves.');
+      alert('Saves did not clear—that is all right. Try again in a moment.');
     }
   }
 

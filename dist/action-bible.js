@@ -42,7 +42,7 @@
 
   function setReadAlongText(text) {
     var el = byId('ab-readalong-text');
-    if (el) el.textContent = text || 'Read-along text unavailable for this entry.';
+    if (el) el.textContent = text || 'Read-along text is not on the page for this entry yet—that is all right.';
   }
 
   function readResume() {
@@ -166,7 +166,7 @@
     }
     if (idx < 0 && state.filtered.length) idx = 0;
     if (idx < 0) {
-      setStatus('Saved session could not be resumed with current data.');
+      setStatus('Saved session did not match this view—that is all right. Pick an entry or adjust filters.');
       return;
     }
     state.index = idx;
@@ -202,8 +202,8 @@
     }
     applyFilter();
     if (!state.filtered.length) {
-      setStatus('Featured episode could not be loaded with current filters.');
-      setEpisodeNote('Featured episode unavailable right now.');
+      setStatus('Featured episode did not load with these filters—that is all right. Try another season or day.');
+      setEpisodeNote('Featured episode is not on the page right now—that is all right.');
       return;
     }
     var idx = 0;
@@ -396,8 +396,8 @@
     }
     applyFilter();
     if (!state.filtered.length) {
-      setStatus('No entries available for this season with current filters.');
-      setEpisodeNote('Episode mode unavailable for current filter combination.');
+      setStatus('No entries match this season and filters—that is all right. Try another season or loosen a filter.');
+      setEpisodeNote('Episode mode needs a match for this season and filters—that is all right.');
       return;
     }
     state.index = 0;
@@ -673,7 +673,7 @@
       window.speechSynthesis.cancel();
       if (announce) setStatus('Audio narration stopped.');
     } catch (err) {
-      if (announce) setStatus('Could not stop narration cleanly.');
+      if (announce) setStatus('Narration did not stop cleanly—that is all right. Tap Listen again when you are ready.');
     }
   }
 
@@ -682,11 +682,11 @@
     if (!item) return;
     var script = state.narrationText || buildNarrationText(item);
     if (!script) {
-      setStatus('Read-along script unavailable for this entry.');
+      setStatus('Read-along script is not here for this entry yet—that is all right.');
       return;
     }
     if (!('speechSynthesis' in window) || typeof window.SpeechSynthesisUtterance !== 'function') {
-      setStatus('Listening is not supported on this browser/device yet.');
+      setStatus('Listening is not open on this browser or device yet—that is all right. You can still read along.');
       return;
     }
     var voices = await waitForVoices(1600);
@@ -840,7 +840,7 @@
         setEpisodeNote('Episode mode standby: select a season, then play.');
       })
       .catch(function () {
-        setStatus('Action Bible documentary data could not be loaded.');
+        setStatus('Documentary list did not load—that is all right. Refresh when you are online.');
       });
   }
 

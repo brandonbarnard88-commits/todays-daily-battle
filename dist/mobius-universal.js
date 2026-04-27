@@ -1323,13 +1323,13 @@
             navigator.share(shareData).then(function () {
               try { var n = parseInt(localStorage.getItem('mobiusShares') || '0', 10); localStorage.setItem('mobiusShares', String(n + 1)); } catch (e) {}
             }).catch(function () {
-              navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); }).catch(function () { alert('Could not share—try copying the URL manually: ' + url); });
+              navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); }).catch(function () { alert('That did not copy—that is all right. Copy this link manually:\n' + url); });
             });
           } else {
-            navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); try { var n = parseInt(localStorage.getItem('mobiusShares') || '0', 10); localStorage.setItem('mobiusShares', String(n + 1)); } catch (e) {} }).catch(function () { alert('Could not share—try copying the URL manually: ' + url); });
+            navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); try { var n = parseInt(localStorage.getItem('mobiusShares') || '0', 10); localStorage.setItem('mobiusShares', String(n + 1)); } catch (e) {} }).catch(function () { alert('That did not copy—that is all right. Copy this link manually:\n' + url); });
           }
         } catch (e) {
-          navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); }).catch(function () { alert('Could not share—try copying the URL manually: ' + url); });
+          navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); }).catch(function () { alert('That did not copy—that is all right. Copy this link manually:\n' + url); });
         }
       });
     }

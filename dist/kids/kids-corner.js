@@ -6599,7 +6599,7 @@
     var p = document.createElement('p');
     p.className = 'kids-read-quiz-unavailable-msg';
     p.textContent = globalMissing
-      ? 'The read-aloud words and quiz questions did not load. Your connection or cache may have been interrupted. The comic and notes above may still work. Tap Refresh to try again.'
+      ? 'The read-aloud words and quiz questions did not load—that is all right. Your connection or cache may have been interrupted. The comic and notes above may still work. Tap Refresh to try again.'
       : 'This story does not have read-and-quiz content in the bundle yet. Use the comic and notes above.';
     wrap.appendChild(p);
     if (globalMissing) {
@@ -6611,7 +6611,7 @@
         btnTry.disabled = true;
         retryKidsReadQuizData(function (ok) {
           btnTry.disabled = false;
-          if (!ok) showToast('Still could not load. Check connection or refresh.');
+          if (!ok) showToast('Still did not load—that is all right. Check connection or refresh.');
         });
       });
       wrap.appendChild(btnTry);
@@ -7482,7 +7482,7 @@
         } catch (e2) {}
       }, 500);
     } catch (e) {
-      showToast('Could not open print.');
+      showToast('Print did not open—that is all right. Try again in a moment.');
     }
   }
 
@@ -8875,7 +8875,7 @@
       if (pk && pk.questions && pk.questions.length) pool.push(k);
     }
     if (pool.length < 5) {
-      showToast('Quiz bundle still loading—refresh and try again.');
+      showToast('Quiz bundle is still loading—that is all right. Refresh and try again.');
       return;
     }
     pool = shuffleChallengePool(pool);
@@ -8898,7 +8898,7 @@
       } catch (err) {
         try { console.error('Kids quiz challenge step failed', err); } catch (_) {}
         removeQuizChallengeOverlay();
-        showToast('Quiz challenge hit a snag—try again, or refresh the page.');
+        showToast('Quiz challenge hit a snag—that is all right. Try again or refresh the page.');
       }
     }
 
@@ -9119,7 +9119,7 @@
         var err = document.createElement('p');
         err.className = 'kids-library-load-error kids-search-no-match';
         err.setAttribute('role', 'alert');
-        err.textContent = 'The story list did not load (usually a blocked script or offline). Check your connection, allow scripts for this site, then refresh.';
+        err.textContent = 'The story list did not load—that happens (often a blocked script or offline). Check your connection, allow scripts for this site, then refresh.';
         grid.appendChild(err);
       }
       return;
@@ -9205,10 +9205,10 @@
           try {
             if (!sessionStorage.getItem(wk)) {
               sessionStorage.setItem(wk, '1');
-              showToast('Story words and questions did not load. Tap “Try loading again” inside a story, or refresh when you are online.');
+              showToast('Story words and questions did not load—that is all right. Tap “Try loading again” inside a story, or refresh when you are online.');
             }
           } catch (e2) {
-            showToast('Story words and questions did not load. Tap “Try loading again” inside a story, or refresh when you are online.');
+            showToast('Story words and questions did not load—that is all right. Tap “Try loading again” inside a story, or refresh when you are online.');
           }
         });
       }
@@ -9438,7 +9438,7 @@
           doc.save('kids-bible-story-library.pdf');
           showToast('PDF downloaded!');
         } catch (err) {
-          showToast('PDF export could not be completed. Please try again.');
+          showToast('PDF export did not finish—that is all right. Try again when you are ready.');
           console.error('PDF export error:', err);
         }
       });
@@ -9517,7 +9517,7 @@
                 kidsShepherdAudioBtn = shepherdBtn;
               })
               .catch(function () {
-                showToast('Could not play right now. Try “Read to me” or check your connection.');
+                showToast('Playback did not start—that is all right. Try “Read to me” or check your connection.');
               });
             return;
           }
@@ -9543,7 +9543,7 @@
           if (kidsShepherdAudioBtn === shepherdBtn) kidsShepherdAudioBtn = null;
         };
         aud.onerror = function () {
-          showToast('That voice clip did not load. “Read to me” still works here.');
+          showToast('That voice clip did not load—that is all right. “Read to me” still works here.');
           try { hardStopShepherdRecordedAudio(); } catch (_e2) { /* no-op */ }
         };
         aud.src = surl;
@@ -9556,7 +9556,7 @@
             kidsShepherdAudioBtn = shepherdBtn;
           })
           .catch(function () {
-            showToast('Could not play right now. Try “Read to me” or check your connection.');
+            showToast('Playback did not start—that is all right. Try “Read to me” or check your connection.');
             try { hardStopShepherdRecordedAudio(); } catch (_e3) { /* no-op */ }
           });
         return;

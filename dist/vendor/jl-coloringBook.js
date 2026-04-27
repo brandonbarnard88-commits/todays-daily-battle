@@ -578,7 +578,7 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
             document.body.removeChild(downloadLink);
             URL.revokeObjectURL(url);
         } catch (error) {
-            alert('Could not save the picture. Try again or use Print instead.');
+            alert('Picture did not save—that is all right. Try again or use Print instead.');
         }
     }
 

@@ -98,7 +98,7 @@
       waitForClient(8000, 100).then(function (client) {
         if (!client) {
           if (status) {
-            status.textContent = 'Could not reach our inbox automatically. Use “Open email app” below.';
+            status.textContent = 'Our inbox path did not open automatically—that is all right. Use “Open email app” below.';
             status.style.color = 'var(--muted, #888)';
           }
           var fb = document.getElementById('contact-mailto-fallback');
@@ -116,7 +116,7 @@
           .then(function (res) {
             if (res.error) {
               if (status) {
-                status.textContent = 'Something went wrong. Try again or use “Open email app”.';
+                status.textContent = 'That did not send—that is all right. Try again or use “Open email app”.';
                 status.style.color = 'var(--muted, #888)';
               }
               var fb2 = document.getElementById('contact-mailto-fallback');
@@ -136,7 +136,7 @@
           })
           .catch(function () {
             if (status) {
-              status.textContent = 'Something went wrong. Use “Open email app” below.';
+              status.textContent = 'That did not send—that is all right. Use “Open email app” below.';
               status.style.color = 'var(--muted, #888)';
             }
             var fb3 = document.getElementById('contact-mailto-fallback');

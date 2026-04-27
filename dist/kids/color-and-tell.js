@@ -3919,7 +3919,7 @@
               }
               jl.exportCompositePng().then(function (png) {
                 if (!png) {
-                  window.alert('Could not read the picture yet. Try again in a second.');
+                  window.alert('Picture is not ready yet—that is all right. Try again in a second.');
                   return null;
                 }
                 return pngToJpeg(png, JPEG_QUALITY);
@@ -3933,7 +3933,7 @@
                       'This device ran out of save space. Tap “Clear saved stories” under the progress cards, or ask a grown-up to free browser storage.'
                     );
                   } else {
-                    window.alert('Could not save. Try again.');
+                    window.alert('That did not save—that is all right. Try again.');
                   }
                   return;
                 }
@@ -3941,7 +3941,7 @@
                 refreshAllProgress();
                 updateStoryUI(story, section, watchBtn, celebrate);
               }).catch(function () {
-                window.alert('Could not save the picture. Try again.');
+                window.alert('Picture did not save—that is all right. Try again.');
               });
             });
 

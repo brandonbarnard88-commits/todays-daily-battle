@@ -5702,7 +5702,7 @@
           mvBtn.setAttribute('aria-label', 'Save this verse to Memory Verses on this device (Family hub)');
           mvBtn.addEventListener('click', function () {
             var r = window.TDB_memoryVerses.pinFromPlan(plan.id, currentDay + 1, refWs, txtWs);
-            showToast(r.duplicate ? 'Already on your Memory Verses list' : (r.ok ? 'Saved\u2014see Family hub' : 'Could not save'));
+            showToast(r.duplicate ? 'Already on your Memory Verses list' : (r.ok ? 'Saved\u2014see Family hub' : 'That did not save—that is all right. Try again.'));
           });
           wsWrap.appendChild(mvBtn);
         }
@@ -5853,7 +5853,7 @@
           jStat.textContent = 'Write a line first—or skip.';
         } else {
           jStat.hidden = false;
-          jStat.textContent = 'Could not save. Storage may be blocked.';
+          jStat.textContent = 'That did not save—storage may be blocked. That is all right. Try again when you can.';
         }
       });
       var jLink = document.createElement('a');
@@ -6765,13 +6765,13 @@
       if (navigator.share) {
         navigator.share({ text: text }).catch(function(){
           if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(text).then(function(){ showToast('Copied ✓'); }).catch(function(){ showToast('Could not copy'); });
-          } else { showToast('Could not share'); }
+            navigator.clipboard.writeText(text).then(function(){ showToast('Copied ✓'); }).catch(function(){ showToast('Copy did not go through—that is all right. Select and copy manually.'); });
+          } else { showToast('Share did not open—that is all right. Select and copy manually.'); }
         });
       } else if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(function(){ showToast('Copied ✓'); }).catch(function(){ showToast('Could not copy'); });
+        navigator.clipboard.writeText(text).then(function(){ showToast('Copied ✓'); }).catch(function(){ showToast('Copy did not go through—that is all right. Select and copy manually.'); });
       } else {
-        showToast('Share not available');
+        showToast('Share is not open on this device—that is all right. Select and copy manually.');
       }
     }
 
@@ -6805,13 +6805,13 @@
       if (navigator.share) {
         navigator.share({ text: text }).catch(function(){
           if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(text).then(function(){ showToast('Copied ✓'); }).catch(function(){ showToast('Could not copy'); });
-          } else { showToast('Could not share'); }
+            navigator.clipboard.writeText(text).then(function(){ showToast('Copied ✓'); }).catch(function(){ showToast('Copy did not go through—that is all right. Select and copy manually.'); });
+          } else { showToast('Share did not open—that is all right. Select and copy manually.'); }
         });
       } else if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(function(){ showToast('Copied ✓'); }).catch(function(){ showToast('Could not copy'); });
+        navigator.clipboard.writeText(text).then(function(){ showToast('Copied ✓'); }).catch(function(){ showToast('Copy did not go through—that is all right. Select and copy manually.'); });
       } else {
-        showToast('Share not available');
+        showToast('Share is not open on this device—that is all right. Select and copy manually.');
       }
     });
 

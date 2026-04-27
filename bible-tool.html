@@ -1692,7 +1692,7 @@
     var p = document.createElement('p');
     p.className = 'empty';
     p.textContent =
-      'Could not load that verse yet. Offline — search still works on verses already cached on this device. Check the reference or try again when you are online.';
+      'That verse is not on the page yet—that is all right. Offline — search still works on verses already cached on this device. Check the reference or try again when you are online.';
     var retryBtn = document.createElement('button');
     retryBtn.type = 'button';
     retryBtn.id = 'lookup-retry';
@@ -1743,7 +1743,7 @@
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(t + ' ' + url)
           .then(function () { if (typeof window.showEliteToast === 'function') window.showEliteToast('Verse copied.'); })
-          .catch(function () { if (typeof window.showEliteToast === 'function') window.showEliteToast('Could not copy — select the verse and copy manually.'); });
+          .catch(function () { if (typeof window.showEliteToast === 'function') window.showEliteToast('Copy did not go through—that is all right. Select the verse and copy manually.'); });
       }
     };
     if (typeof navigator !== 'undefined' && navigator.share) {
@@ -2221,9 +2221,9 @@
           navigator.clipboard.writeText(payload).then(function () {
             if (st) st.textContent = 'Copied JSON to clipboard — paste into a safe file on your device.';
           }).catch(function () {
-            if (st) st.textContent = 'Could not copy automatically — select and copy from your notes if needed.';
+            if (st) st.textContent = 'Copy did not go through automatically—that is all right. Select and copy from your notes if needed.';
           });
-        } else if (st) st.textContent = 'Clipboard not available in this browser.';
+        } else if (st) st.textContent = 'Clipboard is not open in this browser—that is all right. Select and copy manually.';
       });
     }
     var memBtn = document.getElementById('memorize-lookup');
@@ -2536,7 +2536,7 @@
           setTimeout(function () { el.textContent = orig; }, 2000);
         });
       } else {
-        container.innerHTML = '<p class="section-note">Could not load right now.</p><button type="button" id="battle-ready-retry" class="btn btn-primary" style="margin-top:0.5rem;">Try again</button>';
+        container.innerHTML = '<p class="section-note">That did not load right now—that is all right.</p><button type="button" id="battle-ready-retry" class="btn btn-primary" style="margin-top:0.5rem;">Try again</button>';
         var retryBtnBR = document.getElementById('battle-ready-retry');
         if (retryBtnBR) retryBtnBR.addEventListener('click', function () {
           container.innerHTML = '';

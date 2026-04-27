@@ -274,7 +274,7 @@
           return x.id !== e.id;
         });
         if (!saveState(state)) {
-          setStatus('Could not save after remove—check storage and try again.', true);
+          setStatus('That did not save after remove—that is all right. Check storage and try again.', true);
           state = loadState();
           renderList();
           return;
@@ -358,7 +358,7 @@
     }
 
     if (!saveState(state)) {
-      setStatus('Could not save—storage may be full or blocked. Try again when you can.', true);
+      setStatus('That did not save—storage may be full or blocked. That is all right. Try again when you can.', true);
       return;
     }
 
@@ -374,7 +374,7 @@
     }
     state = { version: VERSION, entries: [] };
     if (!saveState(state)) {
-      setStatus('Could not clear storage.', true);
+      setStatus('Storage did not clear—that is all right. Try again or remove entries one at a time.', true);
       return;
     }
     clearForm();

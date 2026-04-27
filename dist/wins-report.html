@@ -333,7 +333,7 @@
           html += '<p class="section-note"><strong>Last verse day:</strong> ' + safeKey + '</p>';
         }
         if (prayerCount > 0) html += '<p class="section-note"><strong>Prayer list:</strong> ' + prayerCount + ' item' + (prayerCount === 1 ? '' : 's') + '</p>';
-        if (sc === 0 && !lastKey) html = '<p class="section-note">No streak recorded yet. Start your first day on the <a href="/">Daily Battle</a> page - one verse, one moment, every day.</p>';
+        if (sc === 0 && !lastKey) html = '<p class="section-note">No streak recorded yet—that is all right. Start your first day on the <a href="/">Daily Battle</a> page—one verse, one moment, every day.</p>';
 
         if (statsEl) statsEl.innerHTML = html;
         if (sc > 0 || prayerCount > 0) {

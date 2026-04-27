@@ -685,7 +685,7 @@
         if (typeof global.trackEvent === 'function') global.trackEvent('tdb_wordstudy_save_mystudy', { ok: true });
       } catch (e) {}
     } catch (err) {
-      if (st) st.textContent = 'Could not save—storage may be full. Try again when you can.';
+      if (st) st.textContent = 'That did not save—storage may be full. That is all right. Try again when you can.';
       try {
         if (typeof global.trackEvent === 'function') global.trackEvent('tdb_wordstudy_save_mystudy', { ok: false });
       } catch (e2) {}

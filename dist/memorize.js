@@ -274,7 +274,7 @@
             } catch (eScroll) {}
           })
           .catch(function () {
-            setStatus('Could not load that verse. Check connection or open the reader.', true);
+            setStatus('That verse did not load—that happens. Check your connection or open the reader.', true);
           });
       });
       li.appendChild(loadOne);
@@ -457,7 +457,7 @@
         setStatus('Pop-up blocked. Allow pop-ups to open the print sheet.', true);
       }
     } catch (e) {
-      setStatus('Could not open print sheet. Try again in a moment.', true);
+      setStatus('Print sheet did not open—that is all right. Try again in a moment.', true);
     }
   }
 
@@ -611,7 +611,7 @@
       return;
     }
     if (!('speechSynthesis' in window)) {
-      setStatus('Speaking is not available here. You can still read aloud quietly.', true);
+      setStatus('Speaking is not available in this browser—that is all right. You can still read aloud quietly.', true);
       return;
     }
     clearRepeatAlongVisuals();
@@ -642,7 +642,7 @@
     u.onerror = function () {
       memUtter = null;
       clearRepeatAlongVisuals();
-      setStatus('Could not play audio. Try again when you are ready.', true);
+      setStatus('Audio did not play—that is all right. Try again when you are ready.', true);
     };
     speechSynthesis.speak(u);
     var stop = byId('mem-speak-stop');
@@ -685,7 +685,7 @@
           if (card) card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         })
         .catch(function () {
-          setStatus('Could not load that verse yet. Check the reference or connection.', true);
+          setStatus('That verse is not on the page yet—that is all right. Check the reference or connection.', true);
         });
     } catch (e) {}
   }
@@ -725,7 +725,7 @@
             setStatus('Loaded. Flip the card or add to your list when you want.');
           })
           .catch(function () {
-            setStatus('Could not load that verse. Check the reference and connection.', true);
+            setStatus('That verse did not load—that happens. Check the reference and connection.', true);
           });
       });
     }

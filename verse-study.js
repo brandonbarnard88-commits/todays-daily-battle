@@ -1234,7 +1234,7 @@
           global.TDB_handleStorageError();
         } catch (e2) {}
       }
-      if (st) st.textContent = 'Could not save—storage may be full. Try again when you can.';
+      if (st) st.textContent = 'That did not save—storage may be full. That is all right. Try again when you can.';
       try {
         if (typeof global.trackEvent === 'function') global.trackEvent('tdb_verse_study_save_mystudy', { ok: false });
       } catch (e2) {}
@@ -1272,7 +1272,7 @@
         if (typeof global.trackEvent === 'function') global.trackEvent('tdb_verse_study_memorize', { ok: true });
       } catch (e) {}
     } else {
-      if (st) st.textContent = 'Could not add. Storage may be full.';
+      if (st) st.textContent = 'That did not add—storage may be full. That is all right. Try again when you can.';
       try {
         if (typeof global.trackEvent === 'function') global.trackEvent('tdb_verse_study_memorize', { ok: false });
       } catch (e) {}
@@ -1334,7 +1334,7 @@
           global.TDB_handleStorageError();
         } catch (e2) {}
       }
-      if (st) st.textContent = 'Could not save—storage may be full. Try again when you can.';
+      if (st) st.textContent = 'That did not save—storage may be full. That is all right. Try again when you can.';
       try {
         if (typeof global.trackEvent === 'function') global.trackEvent('tdb_verse_study_journal', { ok: false });
       } catch (e3) {}

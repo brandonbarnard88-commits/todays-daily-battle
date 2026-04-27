@@ -32,7 +32,7 @@
 <body class="theme-dark">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="stats-wrap" id="main-content">
-    <div id="stats-login" class="stats-login glass">
+    <div id="stats-login" class="stats-login glass tdb-porch-paper-glass">
       <h2>Stats</h2>
       <p class="section-note topic-mood-porch">Private. Enter password to view.</p>
       <form id="stats-form">
@@ -40,7 +40,7 @@
         <button type="submit" class="btn btn-primary" aria-label="View stats">View</button>
       </form>
     </div>
-    <div id="stats-dashboard" class="stats-dashboard glass" style="display: none;">
+    <div id="stats-dashboard" class="stats-dashboard glass tdb-porch-paper-glass" style="display: none;">
       <h2>Dashboard</h2>
       <div class="stats-row">
         <div class="stats-card"><strong id="stat-active">—</strong> Active today</div>
@@ -70,7 +70,7 @@
         var sentEl = document.getElementById('stat-push-sent');
         var cfg = window.TDB_CONFIG || {};
         if (!cfg.SUPABASE_URL || !cfg.SUPABASE_ANON_KEY) {
-          if (note) note.textContent = 'Push health unavailable: Supabase config missing.';
+          if (note) note.textContent = 'Push health needs Supabase in config—that is all right. Add keys and refresh.';
           return;
         }
         fetch(String(cfg.SUPABASE_URL).replace(/\/$/, '') + '/rest/v1/rpc/get_push_health_latest', {
@@ -99,7 +99,7 @@
             note.textContent = 'Last run: ' + runAt + ' | failed: ' + (row.failed_count || 0) + ' | pruned: ' + (row.pruned_count || 0);
           }
         }).catch(function () {
-          if (note) note.textContent = 'Push health unavailable. Run supabase-push-health-rpc.sql and try again.';
+          if (note) note.textContent = 'Push health did not load—that is all right. Run supabase-push-health-rpc.sql and try again.';
         });
       }
       if (!passwordRequired) {

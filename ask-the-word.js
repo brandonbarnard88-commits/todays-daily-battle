@@ -218,7 +218,7 @@
           render(d);
         }).catch(function () {
           setLoading(false);
-          result.innerHTML = '<p class="empty">Check your connection—or use verse lookup below.</p>';
+          result.innerHTML = '<p class="empty">We couldn&rsquo;t reach an answer just now—that is all right. Check your connection, or use verse lookup below.</p>';
           if (prayerEl) prayerEl.classList.add('hidden');
         });
       });

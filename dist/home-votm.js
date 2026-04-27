@@ -16,12 +16,12 @@
       if (!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') {
         btn.disabled = true;
         btn.setAttribute('aria-disabled', 'true');
-        btn.title = 'Listen is not available in this browser.';
+        btn.title = 'Listen is not open in this browser—that is all right. The verse on the page is still here.';
         var ic = btn.querySelector('.tdb-votm-read-aloud__ic');
         var lbl = btn.querySelector('.tdb-votm-read-aloud__label');
         if (ic) ic.setAttribute('hidden', '');
-        if (lbl) lbl.textContent = 'Listen unavailable';
-        else btn.textContent = 'Listen unavailable';
+        if (lbl) lbl.textContent = 'Listen not open here';
+        else btn.textContent = 'Listen not open here';
       } else {
         btn.addEventListener('click', function () {
           var T = window.TDB_memoryVerses;

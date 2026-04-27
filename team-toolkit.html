@@ -1875,7 +1875,7 @@
         }
       };
       req.onsuccess = function(e) { libDB = e.target.result; callback(libDB); };
-      req.onerror   = function()  { showToast('File storage unavailable — try a different browser or turn off private mode.'); };
+      req.onerror   = function()  { showToast('File storage is not open from here right now—that is all right. Try another browser or turn off private mode.'); };
     }
 
     function libTeamPrefix() {
@@ -2320,7 +2320,7 @@
       var packs  = getPacks();
       var active = getActivePack();
       if (!packs.length) {
-        list.innerHTML = '<p class="section-note">No packs saved yet. Paste verses above and save.</p>';
+        list.innerHTML = '<p class="section-note">No packs saved yet—that is all right. Paste verses above when you are ready, then save.</p>';
         return;
       }
       list.innerHTML = '';

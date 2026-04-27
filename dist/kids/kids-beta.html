@@ -65,7 +65,7 @@
           </div>
         </section>
 
-        <section id="kids-beta-form-section" class="kids-beta-form glass" role="region" aria-label="Beta signup form">
+        <section id="kids-beta-form-section" class="kids-beta-form glass tdb-porch-paper-glass" role="region" aria-label="Beta signup form">
           <p id="kids-beta-spots" class="kids-beta-spots" aria-live="polite">Join the list for calm launch updates.</p>
           <p id="kids-beta-error" class="kids-beta-error hidden" role="alert"></p>
           <form id="kids-beta-form" novalidate>
@@ -84,7 +84,7 @@
           </form>
         </section>
 
-        <section id="kids-beta-success" class="kids-beta-success glass hidden" role="status" aria-live="polite">
+        <section id="kids-beta-success" class="kids-beta-success glass tdb-porch-paper-glass hidden" role="status" aria-live="polite">
           <p class="kids-beta-success-msg">You&rsquo;re on the list. We&rsquo;ll email you when there is something ready to test or share.</p>
           <p id="kids-beta-code-msg" class="kids-beta-code-msg hidden"></p>
           <a href="/kids/" class="btn kids-btn-primary">← Back to Kids Battle</a>
@@ -290,7 +290,7 @@
         }
 
         function doneError(msg) {
-          showError(msg || 'Something went wrong. Try again or check your connection.');
+          showError(msg || 'That did not finish—that is all right. Try again or check your connection.');
           if (submitBtn) submitBtn.disabled = false;
         }
 
@@ -323,7 +323,7 @@
                 doneSuccess();
                 return;
               }
-              doneError('Could not sign up. Try again.');
+              doneError('Sign-up did not finish—that is all right. Try again.');
               return;
             }
             doneSuccess();

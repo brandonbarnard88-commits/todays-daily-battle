@@ -22,7 +22,7 @@
     'bible-tool':
       'Offline — still got you. Search works on cached verses only.',
     search:
-      'Offline — still got you. The hand-built map could not refresh just now; a few steady doors stay below. Type if you want to narrow—nothing leaves this browser.',
+      'Offline — still got you. The hand-built map did not refresh just now—that is all right; a few steady doors stay below. Type if you want to narrow—nothing leaves this browser.',
     plans:
       'Offline — still got you. Your saved progress is here. New plans will load when online.',
     mystudy:

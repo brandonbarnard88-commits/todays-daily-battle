@@ -79,7 +79,7 @@
     if (kjvLookupPromise) return kjvLookupPromise;
     kjvLookupPromise = fetch(assetUrl('/kjv.json'))
       .then(function (response) {
-        if (!response.ok) throw new Error('Could not load KJV text');
+        if (!response.ok) throw new Error('KJV text did not load');
         return response.json();
       })
       .then(function (raw) {

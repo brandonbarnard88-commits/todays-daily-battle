@@ -145,7 +145,7 @@
       } else if (r.reason === 'empty') {
         setStatus(st, 'Write a line first, or skip—this is optional.', false);
       } else {
-        setStatus(st, 'Could not save. Storage may be full or blocked.', false);
+        setStatus(st, 'That did not save—storage may be full or blocked. That is all right. Try again when you can.', false);
       }
     });
   }
@@ -171,7 +171,7 @@
       } else if (r.reason === 'empty') {
         setStatus(st, 'Write a line first, or leave it—no pressure.', false);
       } else {
-        setStatus(st, 'Could not save. Storage may be full or blocked.', false);
+        setStatus(st, 'That did not save—storage may be full or blocked. That is all right. Try again when you can.', false);
       }
     });
   }

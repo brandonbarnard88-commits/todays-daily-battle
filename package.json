@@ -81,6 +81,7 @@
     "validate:prod": "PLAYWRIGHT_BROWSERS_PATH=0 node scripts/prod-validation.mjs",
     "verify:live": "node scripts/verify-live-suite.mjs",
     "verify:live-kids": "node scripts/verify-live-kids.mjs",
+    "verify:live-kids-scripts": "node scripts/verify-live-kids.mjs --scripts-only",
     "verify:kids-dist": "node scripts/verify-kids-dist.mjs",
     "verify:kids": "npm run build && npm run verify:kids-dist && npm run verify:live-kids",
     "suggest:fetch": "node scripts/fetch-feeling-suggestions.mjs",

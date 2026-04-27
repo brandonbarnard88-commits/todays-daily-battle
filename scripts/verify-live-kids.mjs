@@ -3,38 +3,57 @@
  * Objective live checks for Kids Loop + Story Library pages and OG assets.
  * Run after deploy: node scripts/verify-live-kids.mjs
  * Optional: LIVE_BASE=https://www.todaysdailybattle.com node scripts/verify-live-kids.mjs
+ *
+ * --scripts-only (or VERIFY_KIDS_SCRIPTS_ONLY=1) — HEAD only the three critical /kids/*.js files (+ control kids-battle.js).
+ * Use with LIVE_BASE=<pages.dev deployment URL> right after wrangler pages deploy.
  */
 import { LOOP_HTML_MARKERS, STORY_HTML_MARKERS, OG_ASSET_PATHS } from './kids-verify-markers.mjs';
 
 const BASE = (process.env.LIVE_BASE || 'https://todaysdailybattle.com').replace(/\/$/, '');
+const scriptsOnly =
+  process.argv.includes('--scripts-only') || process.env.VERIFY_KIDS_SCRIPTS_ONLY === '1';
 
-const checks = [
-  ...OG_ASSET_PATHS.map((rel) => ({
-    name: `OG JPEG (${rel.includes('loop') ? 'loop' : 'story'})`,
-    url: `${BASE}/${rel}`,
-    expectStatus: 200,
-    expectType: 'image/jpeg',
-  })),
+const kidsScriptChecks = [
   ...['kids/kids-hub-play.js', 'kids/kids-gentle-shepherd.js', 'kids/kids-wins-recap.js'].map((rel) => ({
     name: `Kids script /${rel}`,
     url: `${BASE}/${rel}`,
     expectStatus: 200,
     expectType: 'application/javascript',
   })),
+  {
+    name: 'Kids script control /kids/kids-battle.js',
+    url: `${BASE}/kids/kids-battle.js`,
+    expectStatus: 200,
+    expectType: 'application/javascript',
+  },
 ];
 
-const htmlChecks = [
-  {
-    name: 'Loop Library HTML',
-    url: `${BASE}/kids-corner`,
-    mustInclude: LOOP_HTML_MARKERS
-  },
-  {
-    name: 'Story Library HTML',
-    url: `${BASE}/kids/corner`,
-    mustInclude: STORY_HTML_MARKERS
-  }
-];
+const checks = scriptsOnly
+  ? kidsScriptChecks
+  : [
+      ...OG_ASSET_PATHS.map((rel) => ({
+        name: `OG JPEG (${rel.includes('loop') ? 'loop' : 'story'})`,
+        url: `${BASE}/${rel}`,
+        expectStatus: 200,
+        expectType: 'image/jpeg',
+      })),
+      ...kidsScriptChecks.slice(0, 3),
+    ];
+
+const htmlChecks = scriptsOnly
+  ? []
+  : [
+      {
+        name: 'Loop Library HTML',
+        url: `${BASE}/kids-corner`,
+        mustInclude: LOOP_HTML_MARKERS,
+      },
+      {
+        name: 'Story Library HTML',
+        url: `${BASE}/kids/corner`,
+        mustInclude: STORY_HTML_MARKERS,
+      },
+    ];
 
 async function head(url) {
   const res = await fetch(url, { method: 'HEAD', redirect: 'follow' });

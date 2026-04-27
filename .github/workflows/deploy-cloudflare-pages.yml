@@ -188,6 +188,13 @@ jobs:
           LIVE_CSP_SLEEP_MS: '4000'
         run: node scripts/verify-live-csp.mjs
 
+      # Proves critical /kids/*.js exist on this deployment (not only custom domain / cache).
+      - name: Verify kids scripts on Pages deployment URL
+        if: ${{ steps.req.outputs.skip != 'true' && steps.deploy_pages.outputs.deployed_url }}
+        env:
+          LIVE_BASE: ${{ steps.deploy_pages.outputs.deployed_url }}
+        run: node scripts/verify-live-kids.mjs --scripts-only
+
       - name: Purge zone cache after deploy
         id: purge_cache
         if: ${{ steps.req.outputs.skip != 'true' }}

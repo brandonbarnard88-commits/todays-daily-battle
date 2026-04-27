@@ -8255,37 +8255,37 @@ body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn .section-n
 }
 
 /* Standard app-shell heroes: classic dawn (localized topical, About, FAQ, tools, etc.) */
-.app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) {
+.app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.about-hero):not(.progress-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) {
   background: var(--tdb-dawn-classic);
   border: 1px solid var(--tdb-dawn-border);
   box-shadow: var(--tdb-dawn-shadow);
 }
 
-.app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) h1 {
+.app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.about-hero):not(.progress-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) h1 {
   color: #0f172a;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 
-.app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) p,
-.app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) .section-note,
-.app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) .real-talk,
-.app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) .hero-tagline,
-.app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) .privacy-line {
+.app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.about-hero):not(.progress-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) p,
+.app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.about-hero):not(.progress-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) .section-note,
+.app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.about-hero):not(.progress-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) .real-talk,
+.app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.about-hero):not(.progress-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) .hero-tagline,
+.app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.about-hero):not(.progress-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) .privacy-line {
   color: #334155;
 }
 
-.app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) a {
+.app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.about-hero):not(.progress-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) a {
   color: #b45309;
   font-weight: 600;
 }
 
-.app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) .btn-secondary {
+.app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.about-hero):not(.progress-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) .btn-secondary {
   color: #1e293b;
   background: rgba(255, 255, 255, 0.72);
   border-color: rgba(71, 85, 105, 0.3);
 }
 
-:root[data-theme="light"] .app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) {
+:root[data-theme="light"] .app-shell .content-inner:not(.explore-page) > header.hero-banner:not(.tdb-dawn-hub--mist):not(.tdb-dawn-hub--dusk):not(.study-hero--soar-dawn):not(.chapter-reader-hero--soar-dawn):not(.verse-hero):not(.about-hero):not(.progress-hero):not(.my-verses-hero--soar-dawn):not(.family-hub-hero) {
   background: var(--tdb-dawn-mist);
   box-shadow: var(--tdb-dawn-shadow-soft);
 }
@@ -20154,7 +20154,9 @@ body.tdb-inner-page.tdb-calm-shelf-page main#main-content.app-content.tdb-quiet-
   :root[data-theme="light"] .tdb-micro-hero-dawn::before {
     background: var(--tdb-dawn-wash-grad-light);
   }
-  .tdb-verse-page .verse-hero.tdb-micro-hero-dawn {
+  .tdb-verse-page .verse-hero.tdb-micro-hero-dawn,
+  .about-page .about-hero.tdb-micro-hero-dawn,
+  .progress-app-inner .progress-hero.tdb-micro-hero-dawn {
     margin-bottom: 0.4rem;
   }
   .kids-battle-hero.tdb-micro-hero-dawn {
@@ -20193,12 +20195,20 @@ body.tdb-inner-page.tdb-calm-shelf-page main#main-content.app-content.tdb-quiet-
 
 /* Verse page (verse.html): calmer hero, card, actions — scoped to .tdb-verse-page only */
 .tdb-verse-page .verse-hero {
+  position: relative;
+  isolation: isolate;
   text-align: center;
   padding: 2rem 1rem 1.5rem;
   border-radius: var(--radius-xl);
-  background: var(--tdb-dawn-classic);
   border: 1px solid var(--tdb-dawn-border);
   box-shadow: var(--tdb-dawn-shadow);
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='.1'/%3E%3C/svg%3E") repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E") repeat,
+    radial-gradient(ellipse 55% 44% at 0% 0%, rgba(255, 255, 255, 0.22) 0%, transparent 55%),
+    radial-gradient(ellipse 52% 40% at 100% 100%, rgba(80, 90, 110, 0.08) 0%, transparent 52%),
+    var(--tdb-dawn-classic);
+  background-size: 88px 88px, 180px 180px, auto, auto, auto;
 }
 
 .tdb-verse-page .verse-hero.hero-banner h1 {
@@ -20206,8 +20216,8 @@ body.tdb-inner-page.tdb-calm-shelf-page main#main-content.app-content.tdb-quiet-
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 
-.tdb-verse-page .verse-hero .hero-tagline,
-.tdb-verse-page .verse-hero .verse-hero-subtle {
+.tdb-verse-page .verse-hero .verse-hero-lead,
+.tdb-verse-page .verse-hero .verse-hero-sub {
   color: #334155;
 }
 
@@ -20218,13 +20228,28 @@ body.tdb-inner-page.tdb-calm-shelf-page main#main-content.app-content.tdb-quiet-
 }
 
 :root[data-theme="light"] .tdb-verse-page .verse-hero {
-  background: var(--tdb-dawn-mist);
   box-shadow: var(--tdb-dawn-shadow-soft);
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='.07'/%3E%3C/svg%3E") repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E") repeat,
+    repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0 1px, transparent 1px 24px),
+    radial-gradient(ellipse 55% 40% at 0% 0%, rgba(255, 220, 170, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 36% at 100% 100%, rgba(160, 190, 150, 0.06) 0%, transparent 50%),
+    var(--tdb-dawn-mist);
+  background-size: 88px 88px, 180px 180px, auto, auto, auto, auto;
 }
 
-.tdb-verse-page .verse-hero-subtle {
+.tdb-verse-page .verse-hero-lead {
+  margin: 0.35rem 0 0.45rem;
+  font-size: clamp(1.02rem, 2.1vw, 1.12rem);
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.tdb-verse-page .verse-hero-sub {
   font-size: 0.95rem;
-  margin: 0.5rem 0 1.5rem;
+  line-height: 1.55;
+  margin: 0 0 1.5rem;
 }
 
 .tdb-verse-page .verse-cta-group {
@@ -20640,6 +20665,59 @@ body.tdb-inner-page.tdb-calm-shelf-page main#main-content.app-content.tdb-quiet-
 
 .about-page > header.hero-banner .about-scripture-first-lead {
   margin-bottom: 0.55rem;
+}
+
+/* About + Progress: same lived-in paper + sun as verse hero (Phase 1 porch voice) */
+.app-shell .content-inner.about-page > header.hero-banner.about-hero,
+.app-shell .content-inner.progress-app-inner > header.hero-banner.progress-hero {
+  position: relative;
+  isolation: isolate;
+  border: 1px solid var(--tdb-dawn-border);
+  box-shadow: var(--tdb-dawn-shadow);
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='.1'/%3E%3C/svg%3E") repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E") repeat,
+    radial-gradient(ellipse 55% 44% at 0% 0%, rgba(255, 255, 255, 0.22) 0%, transparent 55%),
+    radial-gradient(ellipse 52% 40% at 100% 100%, rgba(80, 90, 110, 0.08) 0%, transparent 52%),
+    var(--tdb-dawn-classic);
+  background-size: 88px 88px, 180px 180px, auto, auto, auto;
+}
+
+.app-shell .content-inner.about-page > header.about-hero h1,
+.app-shell .content-inner.progress-app-inner > header.progress-hero h1 {
+  color: #0f172a;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.app-shell .content-inner.about-page > header.about-hero p,
+.app-shell .content-inner.progress-app-inner > header.progress-hero p,
+.app-shell .content-inner.progress-app-inner > header.progress-hero .hero-tagline {
+  color: #334155;
+}
+
+.app-shell .content-inner.about-page > header.about-hero .about-byline--accent {
+  color: #8a4a0e;
+  text-shadow: none;
+}
+
+.app-shell .content-inner.about-page > header.about-hero .btn-secondary,
+.app-shell .content-inner.progress-app-inner > header.progress-hero .btn-secondary {
+  color: #1e293b;
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(71, 85, 105, 0.3);
+}
+
+:root[data-theme="light"] .app-shell .content-inner.about-page > header.hero-banner.about-hero,
+:root[data-theme="light"] .app-shell .content-inner.progress-app-inner > header.hero-banner.progress-hero {
+  box-shadow: var(--tdb-dawn-shadow-soft);
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='.07'/%3E%3C/svg%3E") repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E") repeat,
+    repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0 1px, transparent 1px 24px),
+    radial-gradient(ellipse 55% 40% at 0% 0%, rgba(255, 220, 170, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 36% at 100% 100%, rgba(160, 190, 150, 0.06) 0%, transparent 50%),
+    var(--tdb-dawn-mist);
+  background-size: 88px 88px, 180px 180px, auto, auto, auto, auto;
 }
 
 .content-inner .about-feature-list {

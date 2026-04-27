@@ -128,7 +128,7 @@ ${FR_MOOD_ROW}
 ${LANG_SWITCHER_INNER}
     </span>
   </nav>
-  <p class="site-footer-pilot-note" lang="fr">Page pilote en français. Outils du site en anglais ; Bible à l’écran en <abbr title="King James Version" lang="en">KJV</abbr>.</p>
+  <p class="site-footer-pilot-note" lang="fr">Page d’accueil de l’outil en français. Quand l’écran complet s’ouvre en anglais, le chemin reste clair ; le texte biblique à l’écran est en général <abbr title="King James Version" lang="en">KJV</abbr>. Tu peux t’arrêter sur cette page si c’est tout ce dont tu avais besoin.</p>
   <nav class="site-footer-essentials" aria-label="Liens principaux">
     <a href="/fr/">Accueil FR</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/">English home</a>
@@ -252,7 +252,7 @@ ${ES_MOOD_ROW}
 ${LANG_SWITCHER_INNER}
     </span>
   </nav>
-  <p class="site-footer-pilot-note" lang="es">Página en español. Herramientas en inglés; Biblia en pantalla en <abbr title="King James Version" lang="en">KJV</abbr>.</p>
+  <p class="site-footer-pilot-note" lang="es">Portada en español. Cuando la herramienta completa abre en inglés, el camino sigue siendo claro; la Escritura en pantalla suele ser <abbr title="King James Version" lang="en">KJV</abbr>. Sin prisa si hoy solo necesitabas esta entrada.</p>
   <nav class="site-footer-essentials" aria-label="Enlaces principales">
     <a href="/es/">Inicio ES</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/">English home</a>
@@ -389,7 +389,7 @@ ${ES_MOOD_ROW}
 ${LANG_SWITCHER_INNER}
     </span>
   </nav>
-  <p class="site-footer-pilot-note" lang="es">Página en español. Herramientas en inglés; Biblia en pantalla en <abbr title="King James Version" lang="en">KJV</abbr>.</p>
+  <p class="site-footer-pilot-note" lang="es">Página en español. Cuando una herramienta abre en inglés, la puerta sigue siendo clara; la Escritura en pantalla suele ser <abbr title="King James Version" lang="en">KJV</abbr>. Sin prisa si hoy solo te quedas aquí.</p>
   <nav class="site-footer-essentials" aria-label="Enlaces principales">
     <a href="/es/">Inicio ES</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/">English home</a>

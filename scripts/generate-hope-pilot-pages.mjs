@@ -402,7 +402,7 @@ pages.push({
             <a class="btn btn-secondary" href="/pt/ansiedade.html" hreflang="pt">Ansiedade (PT)</a>
             <a class="btn btn-secondary" href="/topic-anxiety.html" hreflang="en">Anxiety (EN)</a>
             <a class="btn btn-secondary" href="/explore.html#topics-es" hreflang="es">Temas ES</a>`,
-    footerNote: `Página em português. Ferramentas do site em inglês; na ferramenta bíblica costuma aparecer <abbr title="King James Version" lang="en">KJV</abbr>, exceto os versos citados aqui em Almeida.`,
+    footerNote: `Página em português. Quando uma ferramenta abre em inglês, o caminho continua claro; na ferramenta bíblica costuma aparecer <abbr title="King James Version" lang="en">KJV</abbr>, exceto os versos citados aqui em Almeida. Sem pressa se hoje você só ficar nesta página.`,
   },
 });
 
@@ -488,7 +488,7 @@ pages.push({
             <a class="btn btn-secondary" href="/ru/trevoga.html" hreflang="ru">Тревога (RU)</a>
             <a class="btn btn-secondary" href="/topic-anxiety.html" hreflang="en">Anxiety (EN)</a>
             <a class="btn btn-secondary" href="/explore.html#topics-es" hreflang="es">Темы ES</a>`,
-    footerNote: `Страница на русском. Инструменты на английском; в Библии-инструменте обычно <abbr title="King James Version" lang="en">KJV</abbr> (кроме цитируемого здесь синодального текста).`,
+    footerNote: `Страница на русском. Когда инструмент открывается на английском, путь остаётся ясным; в Библии-инструменте обычно <abbr title="King James Version" lang="en">KJV</abbr> (кроме цитируемого здесь синодального текста). Можно остановиться здесь — без спешки сегодня.`,
   },
 });
 
@@ -576,7 +576,7 @@ pages.push({
             <a class="btn btn-secondary" href="/ar/qalaq.html" hreflang="ar">قلق (AR)</a>
             <a class="btn btn-secondary" href="/topic-anxiety.html" hreflang="en">Anxiety (EN)</a>
             <a class="btn btn-secondary" href="/explore.html#topics-es" hreflang="es">مواضيع ES</a>`,
-    footerNote: `صفحة بالعربية. أدوات الموقع بالإنجليزية؛ الكتاب في الأداة غالبًا <abbr title="King James Version" dir="ltr" lang="en">KJV</abbr> ما عدا الآيات المقتبسة هنا.`,
+    footerNote: `صفحة بالعربية. عندما تفتح الأداة بالإنجليزية يبقى الممر واضحًا؛ الكتاب في الأداة غالبًا <abbr title="King James Version" dir="ltr" lang="en">KJV</abbr> ما عدا الآيات المقتبسة هنا. يمكنك التوقف هنا اليوم بلا عجلة.`,
   },
 });
 
@@ -661,7 +661,7 @@ pages.push({
             <a class="btn btn-secondary" href="/hi/chinta.html" hreflang="hi">चिंता (HI)</a>
             <a class="btn btn-secondary" href="/topic-anxiety.html" hreflang="en">Anxiety (EN)</a>
             <a class="btn btn-secondary" href="/explore.html#topics-es" hreflang="es">ES विषय</a>`,
-    footerNote: `पृष्ठ हिंदी में। औज़ार अंग्रेज़ी में; बाइबल टूल पर सामान्यतः <abbr title="King James Version" lang="en">KJV</abbr> (यहाँ उद्धृत हिंदी को छोड़कर)।`,
+    footerNote: `पृष्ठ हिंदी में। जब औज़ार अंग्रेज़ी में खुलते हैं, रास्ता फिर भी साफ़ रहता है; बाइबल टूल पर सामान्यतः <abbr title="King James Version" lang="en">KJV</abbr> (यहाँ उद्धृत हिंदी को छोड़कर)। आज सिर्फ़ इसी पृष्ठ पर ठहरना भी ठीक है।`,
   },
 });
 
@@ -747,7 +747,7 @@ pages.push({
             <a class="btn btn-secondary" href="/sv/oro.html" hreflang="sv">Oro (SV)</a>
             <a class="btn btn-secondary" href="/topic-anxiety.html" hreflang="en">Anxiety (EN)</a>
             <a class="btn btn-secondary" href="/explore.html#topics-es" hreflang="es">ES ämnen</a>`,
-    footerNote: `Sida på svenska. Verktyg på engelska; bibelverktyget visar oftast <abbr title="King James Version" lang="en">KJV</abbr> (utom vers som citeras här från 1917).`,
+    footerNote: `Sida på svenska. När ett verktyg öppnas på engelska är vägen fortfarande tydlig; bibelverktyget visar oftast <abbr title="King James Version" lang="en">KJV</abbr> (utom vers som citeras här från 1917). Du får gärna stanna här i dag utan stress.`,
   },
 });
 
@@ -832,7 +832,7 @@ pages.push({
             <a class="btn btn-secondary" href="/bn/chinta.html" hreflang="bn">চিন্তা (BN)</a>
             <a class="btn btn-secondary" href="/topic-anxiety.html" hreflang="en">Anxiety (EN)</a>
             <a class="btn btn-secondary" href="/explore.html#topics-es" hreflang="es">ES বিষয়</a>`,
-    footerNote: `পৃষ্ঠা বাংলায়। টুল ইংরেজিতে; বাইবেল টুলে সাধারণত <abbr title="King James Version" lang="en">KJV</abbr> (এখানে উদ্ধৃত বাংলা বাদে)।`,
+    footerNote: `পৃষ্ঠা বাংলায়। টুল ইংরেজিতে খুললেও পথ স্পষ্ট থাকে; বাইবেল টুলে সাধারণত <abbr title="King James Version" lang="en">KJV</abbr> (এখানে উদ্ধৃত বাংলা বাদে)। আজ শুধু এখানেই থেমে যাওয়া ঠিক আছে।`,
   },
 });
 
@@ -918,7 +918,7 @@ pages.push({
             <a class="btn btn-secondary" href="/sw/wasiwasi.html" hreflang="sw">Wasiwasi (SW)</a>
             <a class="btn btn-secondary" href="/topic-anxiety.html" hreflang="en">Anxiety (EN)</a>
             <a class="btn btn-secondary" href="/explore.html#topics-es" hreflang="es">Mada ES</a>`,
-    footerNote: `Ukurasa kwa Kiswahili. Zana kwa Kiingereza; Biblia kwenye skrini ni kawaida <abbr title="King James Version" lang="en">KJV</abbr> (isipokuwa mistari iliyotajwa hapa).`,
+    footerNote: `Ukurasa kwa Kiswahili. Zana zinapofunguliwa kwa Kiingereza njia bado wazi; Biblia kwenye skrini ni kawaida <abbr title="King James Version" lang="en">KJV</abbr> (isipokuwa mistari iliyotajwa hapa). Unaweza kusimama hapa leo bila haraka.`,
   },
 });
 
@@ -1004,7 +1004,7 @@ pages.push({
             <a class="btn btn-secondary" href="/id/kecemasan.html" hreflang="id">Kecemasan (ID)</a>
             <a class="btn btn-secondary" href="/topic-anxiety.html" hreflang="en">Anxiety (EN)</a>
             <a class="btn btn-secondary" href="/explore.html#topics-es" hreflang="es">Topik ES</a>`,
-    footerNote: `Halaman berbahasa Indonesia. Alat situs dalam bahasa Inggris; di alat Alkitab biasanya <abbr title="King James Version" lang="en">KJV</abbr> (kecuali ayat yang dikutip di sini dalam bahasa Indonesia).`,
+    footerNote: `Halaman berbahasa Indonesia. Ketika alat dibuka dalam bahasa Inggris, jalan tetap jelas; di alat Alkitab biasanya <abbr title="King James Version" lang="en">KJV</abbr> (kecuali ayat yang dikutip di sini dalam bahasa Indonesia). Hari ini boleh berhenti di halaman ini saja.`,
   },
 });
 
@@ -1089,7 +1089,7 @@ pages.push({
             <a class="btn btn-secondary" href="/tl/kabalisahan.html" hreflang="tl">Kabalisahan (TL)</a>
             <a class="btn btn-secondary" href="/topic-anxiety.html" hreflang="en">Anxiety (EN)</a>
             <a class="btn btn-secondary" href="/explore.html#topics-es" hreflang="es">Mga paksa sa ES</a>`,
-    footerNote: `Pahina sa Tagalog. Mga tool sa Ingles; sa Bible tool karaniwang <abbr title="King James Version" lang="en">KJV</abbr> (maliban sa mga talatang nakasulat dito sa Tagalog).`,
+    footerNote: `Pahina sa Tagalog. Kapag ang tool ay nagbubukas sa English, malinaw pa rin ang daan; sa Bible tool karaniwang <abbr title="King James Version" lang="en">KJV</abbr> (maliban sa mga talatang nakasulat dito sa Tagalog). Puwede kang tumigil dito ngayon nang walang pressure.`,
   },
 });
 

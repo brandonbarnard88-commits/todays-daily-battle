@@ -25,6 +25,7 @@
   <meta name="twitter:description" content="HTTPS, CSP, Trusted Types, and careful handling of sign-in data.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
@@ -140,12 +141,13 @@
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <header class="hero-banner">
+        <header class="hero-banner tdb-dawn-bg--mist">
           <h1>Security &amp; Privacy Basics</h1>
           <p class="hero-tagline">How we keep the site and your optional account data protected—in plain language.</p>
+          <p class="section-note util-mt-0_5" style="margin-bottom:0">Careful work, said simply&mdash;no need to rush this read.</p>
         </header>
 
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Transport &amp; infrastructure</h2>
           <p class="section-note">We use Cloudflare for HTTPS encryption on the vast majority of traffic, DDoS protection, and safe delivery of pages. No personal data is collected unless you choose to sign in—then it is handled through Supabase with encryption in transit and at rest. Sign-in is optional; core reading and local tools work without an account, including offline use where the browser allows it.</p>
         </section>

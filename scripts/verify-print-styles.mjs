@@ -34,6 +34,9 @@ function main() {
   if (!chunk.includes('body.family-armor-page')) fail('styles.css: family armor print rules missing');
   if (!chunk.includes('.yearly-rhythm-hub')) fail('styles.css: yearly rhythm print rules missing');
   if (!chunk.includes('.print-pack-generator-page')) fail('styles.css: printable pack generator print rules missing');
+  if (!chunk.includes('.hero-banner .cta-group')) {
+    fail('styles.css: hero-banner print economy rules missing (expect .hero-banner .cta-group)');
+  }
 
   for (const f of ['printables.html', 'one-week-rhythm-kids.html', 'one-week-rhythm.html', 'print-pack-generator.html']) {
     const html = read(f);

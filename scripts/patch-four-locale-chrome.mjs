@@ -12,9 +12,9 @@ const root = path.join(__dirname, '..');
 
 const FOOTER_RE = /<footer class="site-footer site-footer--canonical"[\s\S]*?<\/footer>/;
 
-const ES_NOTE_TOPICAL = `  <p class="site-footer-pilot-note" lang="es">Página en español. Muchas herramientas del sitio abren en inglés; la Biblia en pantalla suele ser <abbr title="King James Version" lang="en">KJV</abbr>.</p>`;
+const ES_NOTE_TOPICAL = `  <p class="site-footer-pilot-note" lang="es">Página en español. Cuando una herramienta abre en inglés, la puerta sigue siendo clara; la Escritura en pantalla suele ser <abbr title="King James Version" lang="en">KJV</abbr>. Sin prisa si hoy solo te quedas aquí.</p>`;
 
-const ES_NOTE_SHELL = `  <p class="site-footer-pilot-note" lang="es">Portada en español. La herramienta completa abre en inglés; la Biblia en pantalla suele ser <abbr title="King James Version" lang="en">KJV</abbr>.</p>`;
+const ES_NOTE_SHELL = `  <p class="site-footer-pilot-note" lang="es">Portada en español. Cuando la herramienta completa abre en inglés, el camino sigue siendo claro; la Escritura en pantalla suele ser <abbr title="King James Version" lang="en">KJV</abbr>. Sin prisa si hoy solo necesitabas esta entrada.</p>`;
 
 function esFooter(pilotNote) {
   return `<footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Pie del sitio">
@@ -78,9 +78,9 @@ ${pilotNote}
 </footer>`;
 }
 
-const FR_NOTE_PILOT = `  <p class="site-footer-pilot-note" lang="fr">Page pilote en français. Outils du site en anglais ; Bible à l’écran en <abbr title="King James Version" lang="en">KJV</abbr>.</p>`;
+const FR_NOTE_PILOT = `  <p class="site-footer-pilot-note" lang="fr">Page pilote en français. Quand un outil s’ouvre en anglais, l’entrée reste lisible ; le texte biblique à l’écran est en général <abbr title="King James Version" lang="en">KJV</abbr>. Tu peux t’arrêter ici sans pression aujourd’hui.</p>`;
 
-const FR_NOTE_SHELL = `  <p class="site-footer-pilot-note" lang="fr">Page d’accueil de l’outil en français. L’écran complet s’ouvre en anglais ; Bible à l’écran en <abbr title="King James Version" lang="en">KJV</abbr>.</p>`;
+const FR_NOTE_SHELL = `  <p class="site-footer-pilot-note" lang="fr">Page d’accueil de l’outil en français. Quand l’écran complet s’ouvre en anglais, le chemin reste clair ; le texte biblique à l’écran est en général <abbr title="King James Version" lang="en">KJV</abbr>. Tu peux t’arrêter sur cette page si c’est tout ce dont tu avais besoin.</p>`;
 
 function frFooter(pilotNote = FR_NOTE_PILOT) {
   return `<footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Pied de page">
@@ -144,9 +144,9 @@ ${pilotNote}
 </footer>`;
 }
 
-const PT_NOTE_PILOT = `  <p class="site-footer-pilot-note" lang="pt">Página piloto em português (Almeida citado onde indicado). Ferramentas do site em inglês; texto bíblico nas ferramentas em geral <abbr title="King James Version" lang="en">KJV</abbr>.</p>`;
+const PT_NOTE_PILOT = `  <p class="site-footer-pilot-note" lang="pt">Página piloto em português (Almeida citado onde indicado). Quando uma ferramenta abre em inglês, o caminho continua claro; o texto bíblico nas ferramentas costuma ser <abbr title="King James Version" lang="en">KJV</abbr>. Sem pressa se hoje você só ficar nesta página.</p>`;
 
-const PT_NOTE_SHELL = `  <p class="site-footer-pilot-note" lang="pt">Capa da ferramenta em português. A tela completa abre em inglês; texto bíblico nas ferramentas em geral <abbr title="King James Version" lang="en">KJV</abbr>.</p>`;
+const PT_NOTE_SHELL = `  <p class="site-footer-pilot-note" lang="pt">Capa da ferramenta em português. Quando a tela completa abre em inglês, o caminho continua claro; o texto bíblico nas ferramentas costuma ser <abbr title="King James Version" lang="en">KJV</abbr>. Sem pressa se hoje você só precisava desta entrada.</p>`;
 
 function ptFooter(pilotNote = PT_NOTE_PILOT) {
   return `<footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Rodapé do site">

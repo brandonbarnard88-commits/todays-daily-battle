@@ -14,6 +14,7 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/search.html">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf">
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,14 +69,14 @@
     <header class="hero-banner util-mb-1 tdb-search-hero tdb-dawn-bg--mist" aria-labelledby="tdb-search-page-title">
       <p class="section-note util-mb-0_5">You&rsquo;re already welcome here&mdash;exactly as you are. This porch keeps a hand-built map of pages; it isn&rsquo;t a live crawl, and your filter never leaves this browser.</p>
       <h1 id="tdb-search-page-title">Search the site</h1>
-      <p class="privacy-line">When you&rsquo;re ready, you could type a word&mdash;plan names, topics, or tools&mdash;or only read a title and put the rest away. For a gentle first path, open <a href="/site-guide.html">Start here</a>. For verse-first help by mood, use <a href="/#feel-section">Ask The Word on Home</a> or open <a href="explore.html">Explore</a>.</p>
+      <p class="privacy-line">When you&rsquo;re ready, you could type a word&mdash;plan names, topics, or tools&mdash;or only read a title and put the rest away. Nothing here grades you; it only opens doors. For a gentle first path, open <a href="/site-guide.html">Start here</a>. For verse-first help by mood, use <a href="/#feel-section">Ask The Word on Home</a> or open <a href="explore.html">Explore</a>.</p>
       <p class="section-note util-mb-0">No pressure if today is just rest&mdash;the list will wait. If you want a next step, the matches below are optional doors, not a checklist.</p>
     </header>
 
     <section class="glass tdb-porch-paper-glass tdb-search-panel" aria-labelledby="tdb-site-search-label">
-      <label id="tdb-site-search-label" class="tdb-search-label" for="tdb-site-search-input">Find a page</label>
-      <input type="search" id="tdb-site-search-input" class="tdb-site-search-input" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="e.g. anxiety, plans, memorize, pastor…" aria-describedby="tdb-site-search-status">
-      <p id="tdb-site-search-status" class="section-note util-mb-0" role="status" aria-live="polite">Gathering the quiet list&hellip;</p>
+      <label id="tdb-site-search-label" class="tdb-search-label" for="tdb-site-search-input">Where would you like to go?</label>
+      <input type="search" id="tdb-site-search-input" class="tdb-site-search-input" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="Try a feeling, a plan name, or a tool&hellip;" aria-describedby="tdb-site-search-status">
+      <p id="tdb-site-search-status" class="section-note util-mb-0" role="status" aria-live="polite">Laying out the gentle map&mdash;no rush.</p>
       <ul id="tdb-site-search-results" class="tdb-site-search-results" role="list" aria-label="Matching pages"></ul>
     </section>
   </main>
@@ -306,8 +307,10 @@
           return matchesEntry(needle, e);
         });
     status.textContent = hits.length
-      ? (needle ? hits.length + ' match' + (hits.length === 1 ? '' : 'es') : 'All ' + hits.length + ' doors are here — type when you want to narrow.')
-      : 'No match yet — try another word, or rest in Explore for a bit.';
+      ? (needle
+        ? hits.length + ' quiet door' + (hits.length === 1 ? '' : 's') + ' — open one when you\'re ready.'
+        : 'All ' + hits.length + ' doors are here — type only if you want to narrow; rest is fine too.')
+      : 'Nothing matched yet — another word might help, or open Explore when you want a slower path.';
     hits.forEach(function (e) {
       var li = document.createElement('li');
       li.setAttribute('role', 'listitem');

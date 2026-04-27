@@ -117,9 +117,10 @@
     <a href="explore.html" class="wins-back" style="margin-left: 1rem;">Explore</a>
 
     <header class="wins-hero">
-      <h1>Your 2026 Battle Wins</h1>
-      <p>You&rsquo;re already welcome here. This isn&rsquo;t a performance&mdash;just a quiet look at what God has walked with you through on this device.</p>
-      <p>All local, all yours &mdash; here&rsquo;s your journey so far.</p>
+      <p class="section-note util-mb-0_5" style="opacity:0.9;">Battle Wins</p>
+      <h1>Your quiet wins</h1>
+      <p>You&rsquo;re already welcome here. This isn&rsquo;t a performance&mdash;just a porch-light look at what God has walked through with you on this device.</p>
+      <p>All local, all yours&mdash;here&rsquo;s the story so far, without the noise.</p>
     </header>
 
     <div class="wins-card">
@@ -137,7 +138,7 @@
         <p id="plans-completed">0</p>
       </div>
       <div>
-        <h3>Days Battled</h3>
+        <h3>Days marked here</h3>
         <p id="days-battled">0</p>
       </div>
     </div>
@@ -260,7 +261,7 @@
         '\uD83D\uDD25 Longest streak: ' + longest + ' day' + (longest !== 1 ? 's' : '') +
         '\nVerses read: ' + totalVerses +
         '\nPlans completed: ' + plansCompleted +
-        '\nDays battled: ' + daysBattled +
+        '\nDays marked here: ' + daysBattled +
         '\n\nGod is faithful — join me at todaysdailybattle.com';
 
       if (navigator.clipboard && navigator.clipboard.writeText) {

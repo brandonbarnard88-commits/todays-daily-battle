@@ -18,10 +18,10 @@ function footerNote(text) {
 }
 
 const FOOTER_NOTE_MOOD = footerNote(
-  'Página em português (Almeida citado onde indicado). Ferramentas do site em inglês; texto bíblico nas ferramentas em geral <abbr title="King James Version" lang="en">KJV</abbr>.'
+  'Página piloto em português (Almeida citado onde indicado). Quando uma ferramenta abre em inglês, o caminho continua claro; o texto bíblico nas ferramentas costuma ser <abbr title="King James Version" lang="en">KJV</abbr>. Sem pressa se hoje você só ficar nesta página.'
 );
 const FOOTER_NOTE_SHELL = footerNote(
-  'Capa em português. A ferramenta abre em inglês com <abbr title="King James Version" lang="en">KJV</abbr> onde aplicável.'
+  'Capa da ferramenta em português. Quando a tela completa abre em inglês, o caminho continua claro; o texto bíblico nas ferramentas costuma ser <abbr title="King James Version" lang="en">KJV</abbr>. Sem pressa se hoje você só precisava desta entrada.'
 );
 
 function wrapPage({

@@ -20,6 +20,7 @@
   <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
@@ -135,9 +136,9 @@
 
     <main class="app-content" id="main-content">
       <div class="content-inner progress-app-inner">
-        <header class="hero-banner progress-hero tdb-micro-hero-dawn">
+        <header class="hero-banner progress-hero tdb-micro-hero-dawn tdb-dawn-bg--mist">
           <h1>Progress</h1>
-          <p class="progress-hero-lead">You&rsquo;re already welcome here. This isn&rsquo;t a scoreboard—you don&rsquo;t have to be perfect.</p>
+          <p class="progress-hero-lead">You&rsquo;re already welcome here. This isn&rsquo;t a scoreboard&mdash;you don&rsquo;t have to earn your seat on the porch.</p>
           <p class="progress-hero-sub">A light week is still a real week with God. One verse and closing the page is enough. There&rsquo;s always room to breathe.</p>
           <div class="cta-group">
             <a class="btn btn-secondary" href="/">Home</a>
@@ -153,8 +154,8 @@
           <p class="section-note util-mb-0">No trial here&mdash;when a plan pauses, you&rsquo;re welcome to <a href="plans.html">begin again</a> or stay still. <a href="mobius.html">Möbius</a> shows the same gentle line: one path, room to turn.</p>
         </section>
 
-        <section class="glass" id="streak-section" aria-label="Streaks">
-          <h2 class="section-divider">Current Streak</h2>
+        <section class="glass" id="streak-section" aria-label="Gentle streak on this device">
+          <h2 class="section-divider">Streak right now</h2>
           <div id="streak-display" class="progress-streak" role="status" aria-live="polite">Calculating…</div>
           <div id="longest-display" class="progress-longest" aria-live="polite"></div>
         </section>
@@ -168,18 +169,19 @@
           <ul id="progress-milestones" class="progress-milestones" aria-label="Quiet encouragement based on local progress"></ul>
         </section>
 
-        <section class="glass" id="active-plans" aria-label="Active plans">
-          <h2 class="section-divider">Active Plans</h2>
+        <section class="glass" id="active-plans" aria-label="Plans you are walking">
+          <h2 class="section-divider">Plans you&rsquo;re walking</h2>
           <div id="active-list"></div>
         </section>
 
-        <section class="glass" id="completed-plans" aria-label="Completed plans">
-          <h2 class="section-divider">Completed Plans</h2>
+        <section class="glass" id="completed-plans" aria-label="Plans you have finished">
+          <h2 class="section-divider">Plans you&rsquo;ve finished</h2>
           <div id="completed-list"></div>
         </section>
 
-        <section class="glass" id="stats" aria-label="Stats">
-          <h2 class="section-divider">Stats</h2>
+        <section class="glass" id="stats" aria-label="Quiet numbers on this device">
+          <h2 class="section-divider">Quiet numbers</h2>
+          <p class="section-note util-mb-0_75">A glance at this browser only&mdash;not a grade, not a verdict.</p>
           <div class="progress-stats">
             <div class="progress-stat">
               <div class="progress-stat-value" id="total-verses">0</div>
@@ -191,7 +193,7 @@
             </div>
             <div class="progress-stat">
               <div class="progress-stat-value" id="days-battled">0</div>
-              <div class="progress-stat-label">Days battled</div>
+              <div class="progress-stat-label">Days marked here</div>
             </div>
           </div>
           <p class="section-note progress-stats-actions" style="text-align:center; margin-top:1rem;">
@@ -601,8 +603,8 @@
 
       var streakEl = document.getElementById('streak-display');
       streakEl.textContent = displayStreak > 0
-        ? '\uD83D\uDD25 ' + displayStreak + '-day streak'
-        : '\uD83D\uDD25 Start a plan to build your streak';
+        ? '\uD83D\uDD25 ' + displayStreak + '-day gentle streak'
+        : '\uD83D\uDD25 When you\u2019re ready, a plan can add a quiet day-by-day rhythm here';
       streakEl.classList.toggle('flame-active', displayStreak > 0);
 
       var longestEl = document.getElementById('longest-display');
@@ -610,7 +612,7 @@
 
       var activeEl = document.getElementById('active-list');
       if (active.length === 0) {
-        activeEl.innerHTML = '<p class="progress-empty">No active plans yet — <a href="plans.html">start one</a>.</p>';
+        activeEl.innerHTML = '<p class="progress-empty">No plan open right now&mdash;that&rsquo;s allowed. When you want a slow lane again, <a href="plans.html">pick one</a>.</p>';
       } else {
         activeEl.innerHTML = '';
         active.forEach(function (p) {
@@ -627,7 +629,7 @@
 
       var completedEl = document.getElementById('completed-list');
       if (completed.length === 0) {
-        completedEl.innerHTML = '<p class="progress-empty">No completed plans yet.</p>';
+        completedEl.innerHTML = '<p class="progress-empty">No finished plans here yet&mdash;first steps count even when nothing is &ldquo;done.&rdquo;</p>';
       } else {
         completedEl.innerHTML = '';
         completed.forEach(function (p) {
@@ -676,7 +678,7 @@
         '\uD83D\uDD25 Longest streak: ' + longest + ' day' + (longest !== 1 ? 's' : '') + '\n' +
         'Verses read: ' + totalVerses + '\n' +
         'Plans started: ' + plansStarted + ' (' + activeCount + ' active, ' + completedCount + ' completed)\n' +
-        'Days battled: ' + daysBattled + '\n\n' +
+        'Days marked here: ' + daysBattled + '\n\n' +
         'Join me at https://todaysdailybattle.com';
 
       if (navigator.clipboard && navigator.clipboard.writeText) {

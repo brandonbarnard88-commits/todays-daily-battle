@@ -28,6 +28,7 @@
   <meta name="twitter:description" content="A simple 7-day Bible reading plan—one verse a day to build a habit.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260410og">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf">
   <link rel="manifest" href="manifest.json">
   <script src="scripts/header-search-bar.js?v=3" defer></script>
@@ -145,10 +146,11 @@
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <header class="hero-banner">
+        <header class="hero-banner tdb-dawn-bg--mist">
           <h1>7-Day Reading Plan</h1>
-          <p>One verse a day. Build the habit in a week.</p>
-          <p class="section-note util-mb-0_5">Use the search bar above to find verses.</p>
+          <p class="section-note util-mb-0_5">You&rsquo;re already welcome here&mdash;one verse when you can, or rest between days. Nothing locks you in.</p>
+          <p>One verse a day for a week, when it fits your life&mdash;a path, not a chain.</p>
+          <p class="section-note util-mb-0_5">Use the search bar above when you want to find verses for a custom lane.</p>
           <div class="cta-group">
             <a class="btn btn-primary" href="/">Search Scripture</a>
             <a class="btn btn-secondary" href="verse.html">Daily Verse</a>
@@ -156,7 +158,7 @@
         </header>
         <section class="glass">
           <h2 class="section-divider">Themed plans</h2>
-          <p class="section-note">One verse a day—focused on a single battle. Check off each day as you go.</p>
+          <p class="section-note">One verse a day, aimed at one honest battle. Tick a day when you&rsquo;ve read&mdash;no guilt on the days you can&rsquo;t.</p>
           <div class="cta-group" style="flex-wrap: wrap; gap: 0.5rem;">
             <button id="themed-plan-anxiety-40" type="button" class="btn btn-primary">Battle Anxiety in 40 Days</button>
             <button id="themed-plan-fear-7" type="button" class="btn btn-secondary">Fear to Faith (7 Days)</button>
@@ -170,7 +172,7 @@
         </section>
         <section class="glass">
           <h2 class="section-divider">Create custom plan</h2>
-          <p class="section-note">Build a plan with 7–30 days. Verses are drawn from a curated list.</p>
+          <p class="section-note">Build a plan with 7&ndash;30 days when you want a longer lane. Verses come from a curated list&mdash;still one day at a time.</p>
           <label for="custom-plan-days">Number of days</label>
           <select id="custom-plan-days">
             <option value="7">7 days</option>
@@ -183,7 +185,7 @@
         </section>
         <section id="reading-plan" class="glass">
           <h2 class="section-divider" id="reading-plan-title">Your plan</h2>
-          <p class="section-note">Check off each day when you've read the verse. Your progress is saved on this device.</p>
+          <p class="section-note">Check off a day when you&rsquo;ve read the verse&mdash;or leave it open. Progress stays on this device.</p>
           <div id="reading-plan-list" class="list"></div>
           <div class="cta-group" style="margin-top:1.5rem">
             <button id="reading-plan-reset" type="button" class="btn btn-secondary">Reset progress</button>

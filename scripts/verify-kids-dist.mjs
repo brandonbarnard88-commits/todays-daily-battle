@@ -24,7 +24,12 @@ for (const rel of OG_ASSET_PATHS) {
   }
 }
 
-for (const rel of ['kids-data-loader.js']) {
+for (const rel of [
+  'kids-data-loader.js',
+  join('kids', 'kids-hub-play.js'),
+  join('kids', 'kids-gentle-shepherd.js'),
+  join('kids', 'kids-wins-recap.js'),
+]) {
   const p = join(dist, rel);
   if (!existsSync(p)) {
     console.error('FAIL missing file:', rel);

@@ -1,5 +1,5 @@
 /**
- * Play Zone: weekly KJV line from __TDB_KIDS_VERSES_365, story progress, trigger buttons.
+ * kids-hub-play.js (Play Zone UI): weekly KJV line from __TDB_KIDS_VERSES_365, story progress, trigger buttons.
  * Depends on kids-verses-365.js for verse list; story math may use tdbComputeStoryMasterState (kids-corner.js).
  */
 (function () {

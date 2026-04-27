@@ -8,12 +8,20 @@ import { LOOP_HTML_MARKERS, STORY_HTML_MARKERS, OG_ASSET_PATHS } from './kids-ve
 
 const BASE = (process.env.LIVE_BASE || 'https://todaysdailybattle.com').replace(/\/$/, '');
 
-const checks = OG_ASSET_PATHS.map((rel) => ({
-  name: `OG JPEG (${rel.includes('loop') ? 'loop' : 'story'})`,
-  url: `${BASE}/${rel}`,
-  expectStatus: 200,
-  expectType: 'image/jpeg'
-}));
+const checks = [
+  ...OG_ASSET_PATHS.map((rel) => ({
+    name: `OG JPEG (${rel.includes('loop') ? 'loop' : 'story'})`,
+    url: `${BASE}/${rel}`,
+    expectStatus: 200,
+    expectType: 'image/jpeg',
+  })),
+  ...['kids/kids-hub-play.js', 'kids/kids-gentle-shepherd.js', 'kids/kids-wins-recap.js'].map((rel) => ({
+    name: `Kids script /${rel}`,
+    url: `${BASE}/${rel}`,
+    expectStatus: 200,
+    expectType: 'application/javascript',
+  })),
+];
 
 const htmlChecks = [
   {

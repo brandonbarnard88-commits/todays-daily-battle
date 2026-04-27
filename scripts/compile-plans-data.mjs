@@ -29,7 +29,33 @@ function loadPayload() {
   return raw;
 }
 
+/** Phase 2: every authored day must carry a gentle optional goal (porch voice). */
+function assertDayGoalsPresent(node, trace) {
+  if (node == null || typeof node !== 'object') return;
+  if (Array.isArray(node)) {
+    node.forEach((item, i) => assertDayGoalsPresent(item, `${trace}[${i}]`));
+    return;
+  }
+  const hasRef = typeof node.ref === 'string' && node.ref.length > 0;
+  const hasDayShape =
+    hasRef &&
+    (typeof node.today === 'string' ||
+      typeof node.prayer === 'string' ||
+      typeof node.action === 'string');
+  if (hasDayShape) {
+    if (typeof node.goal !== 'string' || !node.goal.trim()) {
+      console.error('compile-plans-data: day missing non-empty goal at', trace, 'ref:', node.ref);
+      process.exit(1);
+    }
+  }
+  for (const k of Object.keys(node)) {
+    if (k === '_meta') continue;
+    assertDayGoalsPresent(node[k], trace ? `${trace}.${k}` : k);
+  }
+}
+
 const payload = loadPayload();
+assertDayGoalsPresent(payload, '');
 const d = payload.blocks;
 const wilderness10 = payload.internal.wilderness10;
 

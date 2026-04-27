@@ -44,6 +44,10 @@ jobs:
           npm ci
           npm run build
 
+      # Fail before upload if critical /kids/*.js never reached dist/ (catches CI/build regressions).
+      - name: Verify kids dist assets
+        run: node scripts/verify-kids-dist.mjs
+
       - name: Require Cloudflare Pages secrets
         id: req
         env:

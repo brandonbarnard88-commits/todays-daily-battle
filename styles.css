@@ -20214,8 +20214,8 @@ body.tdb-inner-page.tdb-calm-shelf-page main#main-content.app-content.tdb-quiet-
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 
-.tdb-verse-page .verse-hero .hero-tagline,
-.tdb-verse-page .verse-hero .verse-hero-subtle {
+.tdb-verse-page .verse-hero .verse-hero-lead,
+.tdb-verse-page .verse-hero .verse-hero-sub {
   color: #334155;
 }
 
@@ -20237,9 +20237,17 @@ body.tdb-inner-page.tdb-calm-shelf-page main#main-content.app-content.tdb-quiet-
   background-size: 88px 88px, 180px 180px, auto, auto, auto, auto;
 }
 
-.tdb-verse-page .verse-hero-subtle {
+.tdb-verse-page .verse-hero-lead {
+  margin: 0.35rem 0 0.45rem;
+  font-size: clamp(1.02rem, 2.1vw, 1.12rem);
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.tdb-verse-page .verse-hero-sub {
   font-size: 0.95rem;
-  margin: 0.5rem 0 1.5rem;
+  line-height: 1.55;
+  margin: 0 0 1.5rem;
 }
 
 .tdb-verse-page .verse-cta-group {

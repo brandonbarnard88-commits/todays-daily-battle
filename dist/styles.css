@@ -20691,8 +20691,23 @@ body.tdb-inner-page.tdb-calm-shelf-page main#main-content.app-content.tdb-quiet-
 
 .app-shell .content-inner.about-page > header.about-hero p,
 .app-shell .content-inner.progress-app-inner > header.progress-hero p,
-.app-shell .content-inner.progress-app-inner > header.progress-hero .hero-tagline {
+.app-shell .content-inner.progress-app-inner > header.progress-hero .hero-tagline,
+.app-shell .content-inner.progress-app-inner > header.progress-hero .progress-hero-lead,
+.app-shell .content-inner.progress-app-inner > header.progress-hero .progress-hero-sub {
   color: #334155;
+}
+
+.app-shell .content-inner.progress-app-inner > header.progress-hero .progress-hero-lead {
+  margin: 0.35rem 0 0.45rem;
+  font-size: clamp(1.02rem, 2.1vw, 1.12rem);
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.app-shell .content-inner.progress-app-inner > header.progress-hero .progress-hero-sub {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin: 0 0 0.9rem;
 }
 
 .app-shell .content-inner.about-page > header.about-hero .about-byline--accent {

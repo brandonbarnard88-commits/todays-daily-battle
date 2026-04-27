@@ -1,1 +1,2268 @@
-!function(){"use strict";function e(){try{return"0"!==localStorage.getItem("easterEggsEnabled")}catch(e){return!0}}function t(){return window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches}function r(e){return null==e||""===e?"":String(e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");var t}function n(e){for(var t=[],r=0;r<e.length;r++){var n=e[r];if("string"==typeof n)for(var a=n.split(/\s+/),s=0;s<a.length;s++)a[s]&&t.push(a[s])}return t}function a(e,t,r){if(e&&e.classList&&r&&r.length)for(var n=0;n<r.length;n++)try{e.classList[t](r[n])}catch(e){}}function s(e){var t;e&&e.classList&&a(e,"add",n(arguments.length>1?Array.prototype.slice.call(arguments,1):[]))}function o(e){var t;e&&e.classList&&a(e,"remove",n(arguments.length>1?Array.prototype.slice.call(arguments,1):[]))}function i(e,t){e&&("function"==typeof window.tdbSetHtml?window.tdbSetHtml(e,t):e.innerHTML=t)}!function e(){if(!document.getElementById("tdb-easter-eggs-css")){var t="/easter-eggs.css?v=20260324";try{var r=document.currentScript;r&&r.src&&(t=new URL("easter-eggs.css?v=20260324",r.src).href)}catch(e){}var n=document.createElement("link");n.id="tdb-easter-eggs-css",n.rel="stylesheet",n.href=t,document.head.appendChild(n)}}();var l="tdb_eg_seen_v1",d="tdb_eg_counts_v1",c="tdb_eg_last_visit_v1",u="tdb_eg_search_history_v1",m="tdb_eg_route_chain_v1",p="tdb_eg_session_v1",f="tdb_eg_family_mode_days_v1",g="tdb_eg_prayer_actions_v1",y="tdb_eg_study_session_saves_v1",h="tdb_eg_armor_progress_v1",v="tdb_eg_home_ribbon_seen_v1",b="tdb_secrets_unlocked_v1",w=["home","calm","prayer","plans","mystudy","family","kids","explore"],E="show the quiet paths",L="we battle he wins";function T(e){try{var t="session"===e?sessionStorage:localStorage,r="__tdb_egg_probe__";return t.setItem(r,"1"),t.removeItem(r),!0}catch(e){return!1}}function I(e,t,r){try{var n,a=("session"===r?sessionStorage:localStorage).getItem(e);if(!a)return t;var s=JSON.parse(a);return s&&"object"==typeof s?s:t}catch(e){return t}}function S(e,t,r){try{var n;("session"===r?sessionStorage:localStorage).setItem(e,JSON.stringify(t))}catch(e){}}function C(e){var t=String(e||window.location.pathname||"").toLowerCase();return t&&"/"!==t&&"/index.html"!==t?-1!==t.indexOf("calm")?"calm":-1!==t.indexOf("prayer-wall")||-1!==t.indexOf("message")?"prayer":-1!==t.indexOf("mystudy")?"mystudy":-1!==t.indexOf("explore")?"explore":-1!==t.indexOf("family-armor")?"familyArmor":-1!==t.indexOf("family")?"family":-1!==t.indexOf("coloring")?"coloring":-1!==t.indexOf("/kids/corner")||-1!==t.indexOf("kids/corner")?"kidsLibrary":-1!==t.indexOf("/kids/")||-1!==t.indexOf("/kids")?"kids":-1!==t.indexOf("plans")?"plans":-1!==t.indexOf("mobius")?"mobius":-1!==t.indexOf("verse")?"verse":-1!==t.indexOf("contact")?"contact":"other":"home"}function k(){return I(l,{},"local")}function x(e,t){var r=k();return!r[e]&&(r[e]=Object.assign({seenAt:(new Date).toISOString()},t||{}),S(l,r,"local"),!0)}function B(e){var t;return!!k()[e]}function _(){return I(p,{},"session")}function A(e){var t=_();return!t[e]&&(t[e]=Date.now(),S(p,t,"session"),!0)}function N(e){var t;return!!_()[e]}function O(e,t){var r=I(d,{},"local");return r[e]=Number(r[e]||0)+Number(t||1),S(d,r,"local"),r[e]}function q(e,t){var r=I(d,{},"local");r[e]=t,S(d,r,"local")}function D(e){return String(e||"").toLowerCase().replace(/\s+/g," ").trim()}function P(e,t){try{"function"==typeof window.trackEvent&&window.trackEvent(e,t||{})}catch(e){}}function M(e,t){var r=(t=t||{}).tier||"quick",n=t.page||C(),a=t.triggerType||"manual",s=!0===t.sessionOnly,o=0;if(s){if(!A(e))return!1}else if(!x(e,{tier:r,page:n})&&(o=1,!0!==t.allowRepeat))return!1;P("easter_egg_triggered",{egg_id:e,egg_tier:r,page:n,trigger_type:a,session_only:s?1:0,is_repeat:o});try{document.dispatchEvent(new CustomEvent("tdb:egg-triggered",{detail:{id:e,shown:!0,tier:r,page:n}}))}catch(e){}try{ie()}catch(e){}return!0}function H(e,t,r){P("easter_egg_action_taken",{egg_id:e,egg_tier:"interaction",page:t||C(),trigger_type:r||"action"})}function j(e,t,r){var s=document.createElement("div");return a(s,"add",n([t||"easter-triple-toast"])),s.classList.length||s.classList.add("easter-triple-toast"),s.setAttribute("role","status"),s.setAttribute("aria-live","polite"),s.textContent=e,document.body.appendChild(s),setTimeout(function(){s.classList.add("easter-triple-fade"),setTimeout(function(){s.parentNode&&s.remove()},450)},r||3800),s}function R(e,t,r,n){if(!e)return null;var a=document.getElementById(t);if(a)return a.textContent=r,a;var s=document.createElement("p");return s.id=t,s.className=n||"easter-inline-note",s.textContent=r,e.appendChild(s),s}function W(e){var t=D(e);if(t){var r=I(u,[],"session");r.push(t),r.length>8&&(r=r.slice(r.length-8)),S(u,r,"session")}}function F(e){var t=I(u,[],"session");if(!Array.isArray(t)||t.length<e.length)return!1;for(var r=t.length-e.length,n=0;n<e.length;n++)if(t[r+n]!==e[n])return!1;return!0}function K(e){if(e){var t=I(m,[],"session");t.push(e),t.length>16&&(t=t.slice(t.length-16)),S(m,t,"session");var r=I(c,{},"local");r[e]=(new Date).toISOString(),S(c,r,"local")}}function V(e){var t=I(m,[],"session");if(!Array.isArray(t)||t.length<e.length)return!1;for(var r=t.length-e.length,n=0;n<e.length;n++)if(t[r+n]!==e[n])return!1;return!0}function G(e,t){var r,n=I(c,{},"local")[e];if(!n)return!1;var a=new Date(n).getTime();return!!a&&Date.now()-a>=864e5*t}function Q(){var e=new Date;return e.getFullYear()+"-"+String(e.getMonth()+1).padStart(2,"0")+"-"+String(e.getDate()).padStart(2,"0")}function Y(e,t){var r=I(t,[],"local");return Array.isArray(r)||(r=[]),-1===r.indexOf(e)&&r.push(e),S(t,r,"local"),r.length}function J(){var e=[];return document.querySelectorAll('a[href*="plans.html?plan="]').forEach(function(t){var r=t.getAttribute("href")||"";r&&-1===e.indexOf(r)&&e.push(r)}),e.length||(e=["/plans.html?plan=familyworship","/plans.html?plan=peace","/plans.html?plan=hope","/plans.html?plan=lordsprayer-kids","/plans.html?plan=beatitudes-kids"]),e[Math.floor(Math.random()*e.length)]}function U(e,t,r){if(e&&"1"!==e.getAttribute("data-tdb-longpress")){e.setAttribute("data-tdb-longpress","1");var n=null;e.addEventListener("mousedown",s),e.addEventListener("touchstart",s,{passive:!0}),["mouseup","mouseleave","touchend","touchcancel"].forEach(function(t){e.addEventListener(t,a,{passive:!0})})}function a(){n&&clearTimeout(n),n=null}function s(e){a(),n=setTimeout(function(){n=null,r(e)},t||550)}}function $(){var e=document.getElementById("explore-quick-doors")||document.querySelector(".explore-page");if(!e)return!1;var t=document.getElementById("tdb-egg-quiet-routes");return t||((t=document.createElement("div")).id="tdb-egg-quiet-routes",t.className="easter-secret-panel",i(t,"<strong>Quiet paths</strong><p>Try one of these calm routes: Home → Calm → Prayer, or Home → Battle Plans → My Study, or Kids → Family → Printables for a lighter household rhythm.</p>"),e.appendChild(t)),t.scrollIntoView({behavior:"smooth",block:"nearest"}),!0}function z(e){var t=D(e);return!(!t||(t===E&&"explore"===C()?!M("exploreQuietPathsPhrase",{tier:"discovery",page:"explore",triggerType:"phrase"})||($(),j("Here are the quiet paths through the site.","easter-triple-toast",4200),P("easter_egg_phrase_unlock",{egg_id:"exploreQuietPathsPhrase",page:"explore",trigger_type:"phrase"}),0):t!==L||!M("legendaryPhraseWeBattleHeWins",{tier:"legendary",page:C(),triggerType:"phrase",sessionOnly:!0})||(document.body.classList.add("easter-legendary-mode"),setTimeout(function(){document.body.classList.remove("easter-legendary-mode")},6e3),j("Legendary mode unlocked for this session. Grace was here first.","easter-triple-toast easter-toast-large",5200),P("easter_egg_phrase_unlock",{egg_id:"legendaryPhraseWeBattleHeWins",page:C(),trigger_type:"phrase"}),0)))}function X(){if("1"!==document.body.getAttribute("data-tdb-phrase-listener")){document.body.setAttribute("data-tdb-phrase-listener","1");var t="",r=0;document.addEventListener("keydown",function(n){if(e()&&!(n.metaKey||n.ctrlKey||n.altKey)){var a=n.target,s;if((!a||"INPUT"!==a.tagName&&"TEXTAREA"!==a.tagName&&!a.isContentEditable)&&"string"==typeof n.key&&1===n.key.length){var o=Date.now();o-r>2500&&(t=""),r=o,-1!==(t=(t+n.key.toLowerCase()).slice(-48)).indexOf(E)?(t="",z(E)):-1!==t.indexOf(L)&&(t="",z(L))}}})}}function Z(){window.TDBEasterEggs=window.TDBEasterEggs||{},window.TDBEasterEggs.trigger=function(e,t){var r=C(),n=t||{};return!!M(String(e||"customEgg"),{tier:n.tier||"interaction",page:n.page||r,triggerType:n.triggerType||"event",sessionOnly:!0===n.sessionOnly,allowRepeat:!0===n.allowRepeat})&&(n.message&&j(String(n.message),"easter-triple-toast",n.duration||3400),!0)},window.TDBEasterEggs.maybeActionEgg=function(e,t){return"note_saved"===e&&(H("note_saved",C(),"event"),!0)};try{var e=Array.isArray(window.__tdbEggQueue)?window.__tdbEggQueue.slice():[];window.__tdbEggQueue=[],e.forEach(function(e){e&&e.id&&window.TDBEasterEggs.trigger(e.id,e.payload||{})})}catch(e){}}var ee=[{ref:"Psalm 150:6",text:"Let every thing that hath breath praise the LORD. Praise ye the LORD."},{ref:"Revelation 19:6",text:"Alleluia: for the Lord God omnipotent reigneth."},{ref:"Psalm 113:3",text:"From the rising of the sun unto the going down of the same the LORD's name is to be praised."},{ref:"Psalm 148:13",text:"Let them praise the name of the LORD: for his name alone is excellent."}],te="Numbers 6:24-26",re="The Lord bless thee, and keep thee: The LORD make his face shine upon thee, and be gracious unto thee: The LORD lift up his countenance upon thee, and give thee peace.";function ne(){if(K(),e()&&document.getElementById("verseCard")){q(),O(),D(),P();var n=document.getElementById("heroRef");n&&n.addEventListener("click",function(){if(e())try{var t=(new Date).toDateString(),r;(localStorage.getItem("verseClicksDay")||"")!==t&&(localStorage.setItem("verseClicks","0"),localStorage.setItem("verseClicksDay",t));var n=parseInt(localStorage.getItem("verseClicks")||"0",10);n++,localStorage.setItem("verseClicks",String(n)),n>=7&&(localStorage.setItem("verseClicks","0"),N())}catch(e){}});var a=document.getElementById("feel-search"),l=document.getElementById("feel-search-btn");a&&l&&(l.addEventListener("click",function(){if(!pe(a)){var e=String(a.value||"").trim();e&&"function"==typeof window.runSearchWithInput&&window.runSearchWithInput(e)}}),a.addEventListener("keydown",function(e){if("Enter"===e.key&&(e.preventDefault(),!pe(a))){var t=String(a.value||"").trim();t&&"function"==typeof window.runSearchWithInput&&window.runSearchWithInput(t)}})),a&&a.addEventListener("input",function(){var t;if(e()&&"jesus"===String(a.value||"").trim().toLowerCase()){try{if(sessionStorage.getItem("jesusSeen"))return;sessionStorage.setItem("jesusSeen","1")}catch(e){return}document.body.classList.add("easter-jesus-brightness"),setTimeout(function(){document.body.classList.remove("easter-jesus-brightness")},5e3);var r=document.createElement("div");r.className="easter-triple-toast",r.setAttribute("role","status"),r.setAttribute("aria-live","polite"),r.textContent="Jesus — the same yesterday, today, and for ever. (Hebrews 13:8)",document.body.appendChild(r),setTimeout(function(){r.classList.add("easter-triple-fade"),setTimeout(function(){r.remove()},400)},4500)}}),setTimeout(K,400),setTimeout(K,1200),window.tryAmenEaster=me;var d=document.querySelector(".landing-privacy-teaser");if(d){var c=null,u=null;d.addEventListener("mouseenter",function(){e()&&(c=setTimeout(function(){u||((u=document.createElement("p")).className="easter-god-sees",u.textContent="But He sees every heart ❤️ (Psalm 139)",d.appendChild(u),setTimeout(function(){u&&u.parentNode&&u.remove(),u=null},5e3))},1e4))}),d.addEventListener("mouseleave",function(){c&&clearTimeout(c),c=null});var m=null;d.addEventListener("touchstart",function(){e()&&(m=Date.now())}),d.addEventListener("touchend",function(){m&&Date.now()-m>=1e4&&!u&&((u=document.createElement("p")).className="easter-god-sees",u.textContent="But He sees every heart ❤️ (Psalm 139)",d.appendChild(u),setTimeout(function(){u&&u.parentNode&&u.remove(),u=null},5e3)),m=null})}!function r(){var n=document.getElementById("heroBreakdownPanels");n&&n.addEventListener("dblclick",function(r){if(e()){var n=r.target.closest(".hbp-panel--action");if(n){var a=n.querySelector(".hbp-label");if(a&&-1!==a.textContent.trim().indexOf("Do this")){var s=document.getElementById("verseCard");s&&(s.classList.add("easter-do-this-pulse"),t()||s.classList.add("easter-cross-glow"),setTimeout(function(){s.classList.remove("easter-do-this-pulse","easter-cross-glow")},4e3));var o=document.createElement("div");o.className="easter-triple-toast",o.setAttribute("role","status"),o.setAttribute("aria-live","polite"),o.textContent="He did it all for you.",document.body.appendChild(o),setTimeout(function(){o.classList.add("easter-triple-fade"),setTimeout(function(){o.remove()},400)},4e3)}}}})}(),function t(){var r;document.querySelectorAll('.welcome-cross, .quick-topic[data-topic="forgiveness"]').forEach(function(t){var r=0,n=0;t.addEventListener("click",function(){if(e()){var t=Date.now();if(t-n>500&&(r=0),r++,n=t,r>=3){r=0;try{if(sessionStorage.getItem("crossTombSeen"))return;sessionStorage.setItem("crossTombSeen","1")}catch(e){return}var a=document.createElement("div");a.className="easter-tomb-emoji",a.textContent="✝️",a.setAttribute("aria-hidden","true"),document.body.appendChild(a),setTimeout(function(){a.remove()},3500);var s=document.createElement("div");s.className="easter-triple-toast",s.setAttribute("role","status"),s.setAttribute("aria-live","polite"),s.textContent="The tomb is empty — He is risen. (Matthew 28:6)",document.body.appendChild(s),setTimeout(function(){s.classList.add("easter-triple-fade"),setTimeout(function(){s.remove()},400)},4e3)}}})})}();var p=document.getElementById("heroVerse")||document.querySelector(".hero-verse")||document.querySelector(".verse-text, .daily-verse p"),g=document.getElementById("verseCard"),y=p||g;if(y){var h=0,w=0;function ve(r){if(e()){var n=Date.now();if(n-w<500?h++:h=1,w=n,h>=3){h=0,r.stopPropagation();var a=document.createElement("div");a.className="easter-triple-toast"+(t()?" easter-no-motion":""),a.setAttribute("role","status"),a.setAttribute("aria-live","polite"),a.textContent="This verse found you today. What if it's not random?",document.body.appendChild(a),setTimeout(function(){a.classList.add("easter-triple-fade"),setTimeout(function(){a.remove()},400)},3600)}}}y.addEventListener("click",ve,!0)}window.tryStillEaster=ge,function t(){var r=document.querySelector('.quick-topic[data-topic="peace"]');if(r&&e()){var n=null,a=null;r.addEventListener("mouseenter",function(e){e.shiftKey&&(n=setTimeout(function(){a||(r.classList.add("easter-peace-ripple"),(a=document.createElement("span")).className="easter-peace-tooltip",a.textContent="Peace isn't absence of storm—it's presence in it.",r.appendChild(a),setTimeout(function(){a&&a.parentNode&&a.remove(),r.classList.remove("easter-peace-ripple"),a=null},5e3))},3e3))}),r.addEventListener("mouseleave",function(){n&&clearTimeout(n),n=null}),r.addEventListener("keyup",function(e){"Shift"===e.key&&n&&clearTimeout(n),n=null});var s=null;r.addEventListener("touchstart",function(e){s=Date.now()}),r.addEventListener("touchend",function(e){s&&Date.now()-s>=3e3&&!a&&(r.classList.add("easter-peace-ripple"),(a=document.createElement("span")).className="easter-peace-tooltip",a.textContent="Peace isn't absence of storm—it's presence in it.",r.appendChild(a),setTimeout(function(){a&&a.parentNode&&a.remove(),r.classList.remove("easter-peace-ripple"),a=null},5e3)),s=null})}}();var E=document.querySelector(".landing-privacy-teaser");if(E){var L=0;E.addEventListener("click",function(){if(e()&&++L>=7){L=0,"undefined"!=typeof console&&console.log&&console.log("Nice try—still no tracking."),document.body.classList.add("easter-site-glow");var t=document.createElement("div");t.className="easter-triple-toast",t.textContent="You're seen... but not tracked.",t.setAttribute("role","status"),document.body.appendChild(t),setTimeout(function(){t.classList.add("easter-triple-fade"),setTimeout(function(){t.remove()},400)},3e3),setTimeout(function(){document.body.classList.remove("easter-site-glow")},1e4)}})}if(Math.random()<1/30){var T=document.createElement("div");T.className="easter-cross-float"+(t()?" easter-no-motion":""),T.setAttribute("aria-hidden","true"),i(T,'✝️<br><small style="font-size:0.8rem;opacity:0.95;">The cross was the key.</small>'),document.body.appendChild(T),setTimeout(function(){T.remove()},6e3)}if(!navigator.onLine)try{sessionStorage.getItem("offlineEggSeen")||(sessionStorage.setItem("offlineEggSeen","1"),setTimeout(function(){var e=document.createElement("div");e.className="easter-triple-toast",e.setAttribute("role","status"),e.setAttribute("aria-live","polite"),e.textContent="Even offline, He is with you. (Matthew 28:20)",document.body.appendChild(e),setTimeout(function(){e.classList.add("easter-triple-fade"),setTimeout(function(){e.remove()},400)},4500)},1500))}catch(be){}if(window.addEventListener("online",function(){try{sessionStorage.removeItem("offlineEggSeen")}catch(e){}}),Math.random()<.1){var I=document.createElement("div");I.className="easter-hidden-dove"+(t()?" easter-no-motion":""),I.setAttribute("aria-hidden","true"),I.textContent="🕊️",I.title="The Spirit descends quietly... (Matthew 3:16)",I.dataset.easterDove="1",document.body.appendChild(I),I.addEventListener("click",function(){I.classList.add("easter-dove-fade"),setTimeout(function(){I.remove()},400)}),I.addEventListener("mouseenter",function(){I.classList.add("easter-dove-hover")}),I.addEventListener("mouseleave",function(){I.classList.remove("easter-dove-hover")}),he(I)}document.querySelectorAll('.quick-topic[data-topic="peace"], .plan-chip[data-plan="peace"], a.plan-category-chip--peace').forEach(he),document.addEventListener("keydown",function(t){if(e()){if(t.ctrlKey&&t.shiftKey&&("P"===t.key||"p"===t.key)){t.preventDefault();var r=document.querySelector('.quick-topic[data-topic="peace"]');r&&(r.classList.add("easter-dove-wing-flutter"),setTimeout(function(){r.classList.remove("easter-dove-wing-flutter")},600),r.scrollIntoView({behavior:"smooth",block:"center"}));var n=document.createElement("div");n.className="easter-triple-toast",n.textContent="Peace I leave with you... (John 14:27)",n.setAttribute("role","status"),document.body.appendChild(n),setTimeout(function(){n.classList.add("easter-triple-fade"),setTimeout(function(){n.remove()},400)},4e3)}if(t.ctrlKey&&t.shiftKey&&("J"===t.key||"j"===t.key)){t.preventDefault();var a=document.querySelector('.quick-topic[data-topic="joy"]'),s;a&&(a.classList.add("easter-dove-wing-flutter"),setTimeout(function(){a.classList.remove("easter-dove-wing-flutter")},600),a.scrollIntoView({behavior:"smooth",block:"center"})),(s=document.createElement("div")).className="easter-triple-toast",s.textContent="Rejoice always. (1 Thessalonians 5:16)",s.setAttribute("role","status"),document.body.appendChild(s),setTimeout(function(){s.classList.add("easter-triple-fade"),setTimeout(function(){s.remove()},400)},4e3)}if(t.altKey&&t.shiftKey&&("F"===t.key||"f"===t.key)){t.preventDefault();var o=document.querySelector('.quick-topic[data-topic="faith"]'),s;o&&(o.classList.add("easter-still-glow"),setTimeout(function(){o.classList.remove("easter-still-glow")},2e3),o.scrollIntoView({behavior:"smooth",block:"center"})),(s=document.createElement("div")).className="easter-triple-toast",s.textContent="Faith is the substance of things hoped for, the evidence of things not seen. (Hebrews 11:1)",s.setAttribute("role","status"),document.body.appendChild(s),setTimeout(function(){s.classList.add("easter-triple-fade"),setTimeout(function(){s.remove()},400)},5e3)}if(t.ctrlKey&&t.altKey&&("R"===t.key||"r"===t.key)){t.preventDefault();try{var i=(new Date).toDateString();if(localStorage.getItem("resurrectionEggDay")===i)return;localStorage.setItem("resurrectionEggDay",i)}catch(e){return}var l=document.createElement("div"),s;l.className="easter-tomb-emoji",l.textContent="✝️",l.setAttribute("aria-hidden","true"),document.body.appendChild(l),(s=document.createElement("div")).className="easter-triple-toast",s.textContent="He is not here; for he is risen. (Matthew 28:6)",s.setAttribute("role","status"),document.body.appendChild(s),setTimeout(function(){s.classList.add("easter-triple-fade"),setTimeout(function(){s.remove()},400)},4e3)}}});var S=document.getElementById("quickTopics");if(S&&S.addEventListener("click",function(t){if(e()){var r=t.target.closest(".quick-topic[data-topic]");if(r){var n,a="graceSeen_"+(r.getAttribute("data-topic")||""),s=parseInt(sessionStorage.getItem(a)||"0",10),o=Date.now(),i;if(o-parseInt(sessionStorage.getItem(a+"_t")||"0",10)>500&&(s=0),s++,sessionStorage.setItem(a,String(s)),sessionStorage.setItem(a+"_t",String(o)),s>=3){sessionStorage.setItem(a,"0"),r.classList.add("easter-still-glow"),setTimeout(function(){r.classList.remove("easter-still-glow")},2e3);var l=document.createElement("div");l.className="easter-triple-toast",l.textContent="Grace upon grace.",l.setAttribute("role","status"),document.body.appendChild(l),setTimeout(function(){l.classList.add("easter-triple-fade"),setTimeout(function(){l.remove()},400)},3500)}}}}),function e(){var t=document.querySelector('.quick-topic[data-topic="hope"]');if(t){var r=null,n=null;t.addEventListener("mouseenter",function(){r=setTimeout(a,4e3)}),t.addEventListener("mouseleave",function(){r&&clearTimeout(r),r=null}),t.addEventListener("touchstart",function(){n=Date.now()}),t.addEventListener("touchend",function(){n&&Date.now()-n>=4e3&&a(),n=null})}function a(){t.classList.add("easter-hope-lift");var e=document.createElement("div");e.className="easter-triple-toast",e.textContent="Hope does not disappoint. (Romans 5:5)",e.setAttribute("role","status"),document.body.appendChild(e),setTimeout(function(){e.classList.add("easter-triple-fade"),setTimeout(function(){e.remove()},400)},4e3),setTimeout(function(){t.classList.remove("easter-hope-lift")},3e3)}}(),function t(){var r=document.querySelector('.quick-topic[data-topic="forgiveness"]');if(r){var n=0,a=0;r.addEventListener("click",function(){if(e()){var t=Date.now();if(t>a&&(n=0),n++,a=t+3e3,n>=5){n=0,r.classList.add("easter-forgive-spin"),setTimeout(function(){r.classList.remove("easter-forgive-spin")},600);var s=document.createElement("div");s.className="easter-triple-toast",s.textContent="Forgiven people forgive.",s.setAttribute("role","status"),document.body.appendChild(s),setTimeout(function(){s.classList.add("easter-triple-fade"),setTimeout(function(){s.remove()},400)},3500)}}})}}(),function e(){var t=document.querySelector('.quick-topic[data-topic="rest"]');if(t){var r=null,n=null;t.addEventListener("mouseenter",function(){r=setTimeout(a,5e3)}),t.addEventListener("mouseleave",function(){r&&clearTimeout(r),r=null}),t.addEventListener("touchstart",function(){n=Date.now()}),t.addEventListener("touchend",function(){n&&Date.now()-n>=5e3&&a(),n=null})}function a(){t.classList.add("easter-rest-float");var e=document.createElement("div");e.className="easter-triple-toast",e.setAttribute("role","status"),e.setAttribute("aria-live","polite"),e.textContent="Come unto me, all ye that labour and are heavy laden, and I will give you rest. (Matthew 11:28)",document.body.appendChild(e),setTimeout(function(){e.classList.add("easter-triple-fade"),setTimeout(function(){e.remove()},400)},5e3),setTimeout(function(){t.classList.remove("easter-rest-float")},4e3)}}(),function r(){var n=document.querySelector('.quick-topic[data-topic="love"]');n&&n.addEventListener("click",function(r){if(e()&&r.ctrlKey){if(!t())for(var a=n.getBoundingClientRect(),s=0;s<10;s++){var o=document.createElement("span");o.className="easter-joy-particles",o.textContent="♥",o.style.color="#e87a7a",o.style.left=a.left+Math.random()*a.width+"px",o.style.top=a.top+Math.random()*a.height+"px",o.style.position="fixed",document.body.appendChild(o),function(e){setTimeout(function(){e.parentNode&&e.remove()},1500)}(o)}var i=document.createElement("div");i.className="easter-triple-toast",i.setAttribute("role","status"),i.setAttribute("aria-live","polite"),i.textContent="Love never faileth. (1 Corinthians 13:8)",document.body.appendChild(i),setTimeout(function(){i.classList.add("easter-triple-fade"),setTimeout(function(){i.remove()},400)},4e3)}})}(),function r(){var n=document.querySelector('.quick-topic[data-topic="joy"]');if(n){var a=0,s=0;n.addEventListener("click",function(r){if(e()){var o=Date.now();if(o-s>600&&(a=0),a++,s=o,a>=4){if(a=0,n.classList.add("easter-joy-bounce"),setTimeout(function(){n.classList.remove("easter-joy-bounce")},600),!t())for(var i=n.getBoundingClientRect(),l=0;l<12;l++){var d=document.createElement("span");d.className="easter-joy-particles",d.textContent="☀️",d.style.left=i.left+Math.random()*i.width+"px",d.style.top=i.top+Math.random()*i.height+"px",d.style.position="fixed",document.body.appendChild(d),function(e){setTimeout(function(){e.parentNode&&e.remove()},1500)}(d)}var c=document.createElement("div");c.className="easter-triple-toast",c.setAttribute("role","status"),c.setAttribute("aria-live","polite"),c.textContent="The joy of the Lord is your strength. (Nehemiah 8:10)",document.body.appendChild(c),setTimeout(function(){c.classList.add("easter-triple-fade"),setTimeout(function(){c.remove()},400)},4e3)}}})}}(),function r(){var n=document.querySelector(".easter-footer-dove-trigger");if(n){var a=null;n.addEventListener("mouseenter",function(){if(e()){try{if(localStorage.getItem("footerDoveSeen"))return}catch(e){return}a=setTimeout(function(){a=null;try{localStorage.setItem("footerDoveSeen","1")}catch(e){}t()||(n.classList.add("easter-dove-flutter"),setTimeout(function(){n.classList.remove("easter-dove-flutter")},600));var e=document.createElement("div");e.className="easter-triple-toast",e.setAttribute("role","status"),e.setAttribute("aria-live","polite"),e.textContent="The Spirit descends like a dove. (Matthew 3:16)",document.body.appendChild(e),setTimeout(function(){e.classList.add("easter-triple-fade"),setTimeout(function(){e.remove()},400)},4e3)},4e3)}}),n.addEventListener("mouseleave",function(){a&&clearTimeout(a),a=null})}}(),Math.random()<.02){var C=["111","333","777"],k=C[Math.floor(Math.random()*C.length)],x=document.createElement("div");x.className="easter-angel-number"+(t()?" easter-no-motion":""),x.setAttribute("aria-hidden","true"),i(x,'<span class="easter-angel-num">'+r(k)+'</span><span class="easter-angel-msg">He\'s speaking.</span>'),document.body.appendChild(x),setTimeout(function(){x.classList.add("easter-angel-fade"),setTimeout(function(){x.remove()},600)},5e3)}try{var B=localStorage.getItem("tdb_last_query")||localStorage.getItem("tdb_last_results")||"",_,A;["fear","anxiety","worry","afraid"].some(function(e){return-1!==B.toLowerCase().indexOf(e)})&&!sessionStorage.getItem("fearToastSeen")&&(sessionStorage.setItem("fearToastSeen","1"),setTimeout(function(){var e=document.createElement("div");e.className="easter-triple-toast",e.textContent="Fear is loud. He is louder.",e.setAttribute("role","status"),document.body.appendChild(e),setTimeout(function(){e.classList.add("easter-triple-fade"),setTimeout(function(){e.remove()},400)},6e3)},2e3))}catch(we){}!function t(){if(e()){var r=(new Date).getHours();if(!(r<5||r>=7)){try{var n=(new Date).toDateString();if(localStorage.getItem("easterSunriseDay")===n)return;localStorage.setItem("easterSunriseDay",n)}catch(e){return}document.body.classList.add("easter-sunrise-bg"),setTimeout(function(){document.body.classList.remove("easter-sunrise-bg")},8e3);var a=document.createElement("div");a.className="easter-triple-toast",a.textContent="He is risen indeed.",a.setAttribute("role","status"),document.body.appendChild(a),setTimeout(function(){a.classList.add("easter-triple-fade"),setTimeout(function(){a.remove()},400)},5e3)}}}(),function t(){if(e()&&0===(new Date).getDay()){try{var r=(new Date).toDateString();if(localStorage.getItem("easterSundayDay")===r)return;localStorage.setItem("easterSundayDay",r)}catch(e){return}var n=(new Date).getHours(),a=n>=6&&n<12;s(document.body,"easter-sunday-bg"),a&&s(document.body,"easter-sunday-morning"),setTimeout(function(){o(document.body,"easter-sunday-bg","easter-sunday-morning")},a?8e3:6e3);var i=document.createElement("div");i.className="easter-triple-toast"+(a?" easter-toast-large":""),i.setAttribute("role","status"),i.setAttribute("aria-live","polite"),i.textContent=a?"This is the day the Lord hath made — He is risen! (Psalm 118:24, Matthew 28:6)":"This is the day which the LORD hath made. (Psalm 118:24)",document.body.appendChild(i),setTimeout(function(){i.classList.add("easter-triple-fade"),setTimeout(function(){i.remove()},400)},a?6500:5e3)}}()}function N(){var e=document.createElement("div");e.className="easter-seven-wrap"+(t()?" easter-no-motion":""),e.setAttribute("role","status"),e.setAttribute("aria-live","polite"),i(e,'<p class="easter-seven-msg">7 clicks for the perfect number!</p><p class="easter-seven-verse">"'+r(re)+'" ('+r(te)+")</p>"),document.body.appendChild(e),setTimeout(function(){e.classList.add("easter-seven-fade"),setTimeout(function(){e.remove()},400)},4e3)}function O(){var e=document.getElementById("heroRef");if(e&&"1"!==e.getAttribute("data-tdb-hero-ref-tapped")){e.setAttribute("data-tdb-hero-ref-tapped","1");var t=0,r=0;e.addEventListener("click",function(){var e=Date.now();if(e-r>700&&(t=0),t++,r=e,t>=3){if(t=0,!M("homeHeroRefTripleTap",{tier:"quick",page:"home",triggerType:"tap",sessionOnly:!0}))return;var n=document.getElementById("verseCard");n&&(s(n,"easter-home-ribbon-glow"),setTimeout(function(){o(n,"easter-home-ribbon-glow")},3200)),j("Carry this one gently today.","easter-triple-toast",3400)}})}}function q(){var t=Array.prototype.slice.call(document.querySelectorAll('a[href="/plans.html"], a[href="plans.html"], a[href^="/plans.html?"], a[href^="plans.html?"]'));t.length&&t.forEach(function(t){U(t,650,function(t){e()&&M("homeBattlePlanLongPress",{tier:"quick",page:"home",triggerType:"long_press",sessionOnly:!0})&&(t.preventDefault(),j("Shortcut opened: one gentle plan, chosen for you.","easter-triple-toast",3200),H("homeBattlePlanLongPress","home","navigate"),window.location.href=J())})})}function D(){var e=Q();if(localStorage.getItem(v)!==e){var t=(new Date).getHours();t>=5&&t<8?M("homeMorningMercyRibbon",{tier:"quick",page:"home",triggerType:"daypart",sessionOnly:!0})&&(localStorage.setItem(v,e),document.body.classList.add("easter-sunrise-bg"),j("Morning mercy is on the porch already.","easter-triple-toast",3600),setTimeout(function(){document.body.classList.remove("easter-sunrise-bg")},5200)):t>=0&&t<2&&M("homeMidnightWatch",{tier:"seasonal",page:"home",triggerType:"daypart",sessionOnly:!0})&&(localStorage.setItem(v,e),document.body.classList.add("easter-midnight-watch"),j("Midnight watch: the Lord keepeth Israel. (Psalm 121:4)","easter-triple-toast",4500),setTimeout(function(){document.body.classList.remove("easter-midnight-watch")},5200))}}function P(){var e=document.getElementById("tdbFamilyModeToggle"),t=document.getElementById("tdbFamilyModeBody");function r(){var r,n;t.hidden&&"true"!==e.getAttribute("aria-pressed")&&"1"!==localStorage.getItem("tdb_family_mode_enabled_v1")||Y(Q(),f)>=3&&M("homeFamilyModeThreeDays",{tier:"family",page:"home",triggerType:"habit"})&&j("Three family-mode mornings. Tiny faithfulness still counts.","easter-triple-toast",4200)}e&&t&&(e.addEventListener("click",function(){setTimeout(r,140)}),r())}function K(){var e=window.runSearchWithInput;"function"!=typeof e||window.__tdbHallelujahWrapped||(window.__tdbHallelujahWrapped=!0,window.runSearchWithInput=function(t){var r=String(t||"").trim().toLowerCase();W(r),z(r)||"hallelujah"===r&&pe(null)||"still"===r&&ge(t)||"amen"===r&&me(t)||/^nothing can stop (you|me|us)$/.test(r)&&V(t,e)||"grace"===r&&G(t,e)||"forgive"===r&&X(t,e)||"mercy"===r&&Z(t,e)||"peace"===r&&ne(t,e)||"armor"===r&&ae(t,e)||"shabbat"===r&&se(t,e)||"risen"===r&&oe(t)||"lamb"===r&&ie(t,e)||"resurrection"===r&&de(t,e)||"secrets"===r&&ue(t)||"abide"===r&&ce(t,e)||e.apply(this,arguments)})}function V(t,r){if(!e())return!1;var n="string"==typeof t?t.trim().toLowerCase():"";if(!/^nothing can stop (you|me|us)$/.test(n))return!1;var a=document.getElementById("feelCards")||document.getElementById("feel-results")||document.getElementById("output");a&&(i(a,'<div class="easter-still-result"><p class="easter-still-verse">When thou passest through the waters, I will be with thee; and through the rivers, they shall not overflow thee.</p><p class="easter-still-ref">(Isaiah 43:2)</p><p class="easter-still-verse" style="margin-top:1rem;">For I am persuaded, that neither death, nor life, nor angels, nor principalities, nor powers, nor things present, nor things to come, nor height, nor depth, nor any other creature, shall be able to separate us from the love of God.</p><p class="easter-still-ref">(Romans 8:38–39)</p><p style="margin-top:1rem;font-style:italic;opacity:0.95;">Nothing can stop you. He is with you.</p></div>'),a.style.display="",a.classList.remove("hidden"),a.classList.add("easter-still-glow","has-results"),setTimeout(function(){a.classList.remove("easter-still-glow")},5e3),a.scrollIntoView({behavior:"smooth",block:"nearest"}));var s=document.getElementById("feel-search")||document.getElementById("query")||document.getElementById("tdb-search");return s&&(s.value=""),!0}function G(t,r){if(!e())return!1;var n=t&&"string"!=typeof t?t:document.getElementById("feel-search")||document.getElementById("query")||document.getElementById("tdb-search"),a;if(!n)return!1;if("grace"!==("string"==typeof t?t.trim().toLowerCase():String(n.value||"").trim().toLowerCase()))return!1;n.classList.add("easter-still-glow"),setTimeout(function(){n.classList.remove("easter-still-glow")},4e3),$();var s=document.createElement("div");return s.className="easter-triple-toast",s.setAttribute("role","status"),s.setAttribute("aria-live","polite"),s.textContent="Grace upon grace. (John 1:16)",document.body.appendChild(s),setTimeout(function(){s.classList.add("easter-triple-fade"),setTimeout(function(){s.remove()},400)},3500),r&&r.apply(null,["grace"]),n&&(n.value=""),!0}function $(){if(!t()){var e=document.createElement("div");e.className="easter-grace-rain",e.setAttribute("aria-hidden","true");for(var r=0;r<12;r++){var n=document.createElement("span");n.textContent="grace",n.style.left=100*Math.random()+"%",n.style.animationDelay=.5*Math.random()+"s",e.appendChild(n)}document.body.appendChild(e),setTimeout(function(){e.remove()},3500)}}function X(t,r){if(!e())return!1;var n="string"==typeof t?t.trim().toLowerCase():"",a=t&&"string"!=typeof t?t:document.getElementById("feel-search")||document.getElementById("query")||document.getElementById("tdb-search");if(!n&&a&&(n=String(a.value||"").trim().toLowerCase()),"forgive"!==n)return!1;r&&r.apply(window,["forgive"]);var s=document.getElementById("feelCards")||document.getElementById("feel-results")||document.getElementById("output");s&&(s.classList.add("easter-forgive-glow"),setTimeout(function(){s.classList.remove("easter-forgive-glow")},5e3));var o=document.createElement("div");return o.className="easter-triple-toast",o.setAttribute("role","status"),o.setAttribute("aria-live","polite"),o.textContent="As we forgive those who trespass against us...",document.body.appendChild(o),setTimeout(function(){o.classList.add("easter-triple-fade"),setTimeout(function(){o.remove()},400)},4e3),!0}function Z(t,r){if(!e())return!1;var n="string"==typeof t?t.trim().toLowerCase():"",a=t&&"string"!=typeof t?t:document.getElementById("feel-search")||document.getElementById("query")||document.getElementById("tdb-search");if(!n&&a&&(n=String(a.value||"").trim().toLowerCase()),"mercy"!==n)return!1;var s=document.querySelector('.quick-topic[data-topic="mercy"]'),o=document.querySelectorAll(".quick-topic[data-topic]"),i=s||(o.length?o[Math.floor(Math.random()*o.length)]:null);i&&(i.classList.add("easter-still-glow"),setTimeout(function(){i.classList.remove("easter-still-glow")},2e3));var l=document.createElement("div");l.className="easter-triple-toast",l.setAttribute("role","status"),l.setAttribute("aria-live","polite"),l.textContent="His mercies are new every morning. (Lamentations 3:22–23)",document.body.appendChild(l),setTimeout(function(){l.classList.add("easter-triple-fade"),setTimeout(function(){l.remove()},400)},4e3),r&&r.apply(null,["mercy"]),a&&(a.value="");var d=document.getElementById("tdbFamilyModePrayer")||document.getElementById("heroBreakdownPrayer")||document.getElementById("heroVersePrayer");return d&&R(d.parentNode||d,"tdb-egg-mercy-note","Mercy met you here too.","easter-inline-note"),F(["fear","peace","hope"])&&M("homeFearPeaceHopeChain",{tier:"discovery",page:"home",triggerType:"route_chain",sessionOnly:!0})&&j("Fear to peace to hope. That is a holy little route.","easter-triple-toast",4200),!0}function ne(t,r){if(!e())return!1;var n="string"==typeof t?t.trim().toLowerCase():"",a=t&&"string"!=typeof t?t:document.getElementById("feel-search")||document.getElementById("query")||document.getElementById("tdb-search");if(!n&&a&&(n=String(a.value||"").trim().toLowerCase()),"peace"!==n)return!1;var s=document.getElementById("feelCards")||document.getElementById("feel-results")||document.getElementById("output");return r&&r.apply(null,["peace"]),s&&(s.classList.add("easter-peace-ripple"),R(s,"tdb-egg-peace-inline","The Prince of Peace still meets people in real storms. (Isaiah 9:6)","easter-inline-note"),setTimeout(function(){s.classList.remove("easter-peace-ripple")},4500)),j("Peace, be still. (Mark 4:39)","easter-triple-toast",3600),a&&(a.value=""),!0}function ae(t,r){if(!e())return!1;var n="string"==typeof t?t.trim().toLowerCase():"",a=t&&"string"!=typeof t?t:document.getElementById("feel-search")||document.getElementById("query")||document.getElementById("tdb-search");if(!n&&a&&(n=String(a.value||"").trim().toLowerCase()),"armor"!==n)return!1;r&&r.apply(null,["faith"]);var s=document.getElementById("tdbGentleNextSteps")||document.getElementById("tdbSearchNextStepPlan")||document.getElementById("feel-section");return R(s&&s.parentNode?s.parentNode:s,"tdb-egg-armor-inline","Battle Plan idea: pair today's verse with Family Armor when the house feels loud.","easter-inline-note"),j("Put on the whole armour of God. (Ephesians 6:11)","easter-triple-toast",4200),a&&(a.value=""),!0}function se(r,n){if(!e())return!1;var a="string"==typeof r?r.trim().toLowerCase():"",s=r&&"string"!=typeof r?r:document.getElementById("feel-search")||document.getElementById("query")||document.getElementById("tdb-search");if(!a&&s&&(a=String(s.value||"").trim().toLowerCase()),"shabbat"!==a)return!1;document.body.classList.add("easter-shabbat-dark"),t()||document.body.classList.add("easter-candle-flicker"),setTimeout(function(){document.body.classList.remove("easter-shabbat-dark","easter-candle-flicker")},6e3);var o=document.createElement("div");return o.className="easter-triple-toast",o.setAttribute("role","status"),o.setAttribute("aria-live","polite"),o.textContent="Remember the sabbath day, to keep it holy. (Exodus 20:8)",document.body.appendChild(o),setTimeout(function(){o.classList.add("easter-triple-fade"),setTimeout(function(){o.remove()},400)},5e3),n&&n.apply(null,["rest"]),s&&(s.value=""),!0}function oe(t){if(!e())return!1;var r="string"==typeof t?t.trim().toLowerCase():"",n=t&&"string"!=typeof t?t:document.getElementById("feel-search")||document.getElementById("query")||document.getElementById("tdb-search");if(!r&&n&&(r=String(n.value||"").trim().toLowerCase()),"risen"!==r)return!1;try{if(sessionStorage.getItem("risenSeen"))return!1;sessionStorage.setItem("risenSeen","1")}catch(e){return!1}document.body.classList.add("easter-risen-sunrise"),setTimeout(function(){document.body.classList.remove("easter-risen-sunrise")},5e3);var a=document.createElement("div");return a.className="easter-triple-toast",a.setAttribute("role","status"),a.setAttribute("aria-live","polite"),a.textContent="He is risen indeed! (Luke 24:34)",document.body.appendChild(a),setTimeout(function(){a.classList.add("easter-triple-fade"),setTimeout(function(){a.remove()},400)},4500),n&&(n.value=""),!0}function ie(r,n){if(!e())return!1;var a="string"==typeof r?r.trim().toLowerCase():"",s=r&&"string"!=typeof r?r:document.getElementById("feel-search")||document.getElementById("query")||document.getElementById("tdb-search");if(!a&&s&&(a=String(s.value||"").trim().toLowerCase()),"lamb"!==a)return!1;t()||le();var o=document.createElement("div");return o.className="easter-triple-toast",o.setAttribute("role","status"),o.setAttribute("aria-live","polite"),o.textContent="Behold the Lamb of God, which taketh away the sin of the world. (John 1:29)",document.body.appendChild(o),setTimeout(function(){o.classList.add("easter-triple-fade"),setTimeout(function(){o.remove()},400)},4500),n&&n.apply(null,["lamb"]),s&&(s.value=""),!0}function le(){var e=document.createElement("div");e.className="easter-lamb-float",e.textContent="🐑",e.setAttribute("aria-hidden","true"),document.body.appendChild(e),setTimeout(function(){e.remove()},4e3)}function de(t,r){if(!e())return!1;var n="string"==typeof t?t.trim().toLowerCase():"",a=t&&"string"!=typeof t?t:document.getElementById("feel-search")||document.getElementById("query")||document.getElementById("tdb-search");if(!n&&a&&(n=String(a.value||"").trim().toLowerCase()),"resurrection"!==n)return!1;try{if(sessionStorage.getItem("resurrectionSeen"))return!1;sessionStorage.setItem("resurrectionSeen","1")}catch(e){return!1}var s=document.getElementById("feelCards")||document.getElementById("feel-results")||document.getElementById("output");s&&(s.classList.add("easter-resurrection-glow"),setTimeout(function(){s.classList.remove("easter-resurrection-glow")},5e3)),r&&r.apply(null,["resurrection"]);var o=document.createElement("div");return o.className="easter-triple-toast",o.setAttribute("role","status"),o.setAttribute("aria-live","polite"),o.textContent="Why seek ye the living among the dead? (Luke 24:5)",document.body.appendChild(o),setTimeout(function(){o.classList.add("easter-triple-fade"),setTimeout(function(){o.remove()},400)},4500),a&&(a.value=""),!0}function ce(t,r){if(!e())return!1;var n="string"==typeof t?t.trim().toLowerCase():"",a=t&&"string"!=typeof t?t:document.getElementById("feel-search")||document.getElementById("query")||document.getElementById("tdb-search");if(!n&&a&&(n=String(a.value||"").trim().toLowerCase()),"abide"!==n)return!1;var s=document.getElementById("feelCards")||document.getElementById("feel-results")||document.getElementById("output");s&&(i(s,'<div class="easter-still-result"><p class="easter-still-verse">Abide in me, and I in you. As the branch cannot bear fruit of itself, except it abide in the vine; no more can ye, except ye abide in me.</p><p class="easter-still-ref">(John 15:4)</p></div>'),s.style.display="",s.classList.remove("hidden"),s.classList.add("easter-still-glow","has-results"),setTimeout(function(){s.classList.remove("easter-still-glow")},5e3),s.scrollIntoView({behavior:"smooth",block:"nearest"}));var o=document.createElement("div");return o.className="easter-triple-toast",o.setAttribute("role","status"),o.setAttribute("aria-live","polite"),o.textContent="Without Him, we can do nothing. (John 15:5)",document.body.appendChild(o),setTimeout(function(){o.classList.add("easter-triple-fade"),setTimeout(function(){o.remove()},400)},4500),a&&(a.value=""),!0}function ue(t){if(!e())return!1;var r="string"==typeof t?t.trim().toLowerCase():"",n=t&&"string"!=typeof t?t:document.getElementById("feel-search")||document.getElementById("query")||document.getElementById("tdb-search");if(!r&&n&&(r=String(n.value||"").trim().toLowerCase()),"secrets"!==r)return!1;try{if("1"!==sessionStorage.getItem("konamiFound"))return!1;sessionStorage.setItem("tdb_secretsUnlocked","1"),localStorage.setItem(b,"1")}catch(e){return!1}return n&&(n.value=""),window.location.href="/secrets.html",!0}function me(t){if(!e())return!1;var r;if("amen"!==("string"==typeof t?t.trim().toLowerCase():t?String(t.value||"").trim().toLowerCase():""))return!1;try{if(sessionStorage.getItem("amenSeen"))return!1;sessionStorage.setItem("amenSeen","1")}catch(e){return!1}var n=document.getElementById("feelCards")||document.getElementById("feel-results")||document.getElementById("output");n&&(n.classList.add("easter-amen-glow"),setTimeout(function(){n.classList.remove("easter-amen-glow")},3e3)),document.body.classList.add("easter-amen-pulse"),setTimeout(function(){document.body.classList.remove("easter-amen-pulse")},800);var a=document.createElement("div");a.className="easter-amen-corner",a.textContent="Amen",a.setAttribute("aria-hidden","true"),document.body.appendChild(a),setTimeout(function(){a.classList.add("easter-amen-fade"),setTimeout(function(){a.remove()},500)},2e3);var s=document.createElement("div");s.className="easter-triple-toast",s.textContent="Amen — so be it.",s.setAttribute("role","status"),document.body.appendChild(s),setTimeout(function(){s.classList.add("easter-triple-fade"),setTimeout(function(){s.remove()},400)},3500);var o=t&&"string"!=typeof t?t:document.getElementById("feel-search")||document.getElementById("query")||document.getElementById("tdb-search");return o&&(o.value=""),!0}function pe(t){if(!e())return!1;var r;if("hallelujah"!==(t?String(t.value||"").trim().toLowerCase():""))return!1;try{var n=(new Date).toDateString();if(localStorage.getItem("hallelujahDay")===n)return!1;localStorage.setItem("hallelujahDay",n)}catch(e){return!1}return fe(),t&&(t.value=""),!0}function fe(){var e=ee[Math.floor(Math.random()*ee.length)],n=document.createElement("div");if(n.className="easter-hallelujah-wrap"+(t()?" easter-no-motion":""),n.setAttribute("role","status"),n.setAttribute("aria-live","polite"),i(n,'<div class="easter-hallelujah-bg"></div><p class="easter-hallelujah-text">Hallelujah! Praise the Lord!</p><p class="easter-hallelujah-verse">"'+r(e.text)+'" — '+r(e.ref)+"</p>"),!t()){var a=document.createElement("span");a.className="easter-hallelujah-dove",a.textContent="🕊️",a.setAttribute("aria-hidden","true"),n.appendChild(a)}document.body.appendChild(n);var s=document.getElementById("feelCards")||document.getElementById("feel-results")||document.getElementById("output");s&&(s.classList.add("easter-still-glow"),setTimeout(function(){s.classList.remove("easter-still-glow")},6e3)),setTimeout(function(){n.classList.add("easter-hallelujah-fade"),setTimeout(function(){n.remove()},500)},5500);try{localStorage.getItem("hallelujahPraiseSeen")||(localStorage.setItem("hallelujahPraiseSeen","1"),setTimeout(function(){var e=document.createElement("div");e.className="easter-triple-toast",e.setAttribute("role","status"),e.setAttribute("aria-live","polite"),e.textContent="Praise Him in the storm.",document.body.appendChild(e),setTimeout(function(){e.classList.add("easter-triple-fade"),setTimeout(function(){e.remove()},400)},3500)},5600))}catch(e){}}function ge(t){return!!e()&&"still"===(r="string"==typeof t?t.trim().toLowerCase():(n=t||document.getElementById("feel-search")||document.getElementById("query")||document.getElementById("tdb-search"))?String(n.value||"").trim().toLowerCase():"")&&(ye(),(n=t&&"string"!=typeof t?t:document.getElementById("feel-search")||document.getElementById("query")||document.getElementById("tdb-search"))&&(n.value=""),!0);var r,n,n}function ye(){var e=document.getElementById("feelCards")||document.getElementById("feel-results")||document.getElementById("output")||document.getElementById("lookup-result");e&&(i(e,'<div class="easter-still-result"><p class="easter-still-verse">Be still, and know that I am God.</p><p class="easter-still-ref">(Psalm 46:10)</p></div>'),e.style.display="",e.classList.remove("hidden"),e.classList.add("easter-still-glow","has-results"),setTimeout(function(){e.classList.remove("easter-still-glow")},5e3),e.scrollIntoView({behavior:"smooth",block:"nearest"}));var t=document.getElementById("feel-search")||document.getElementById("query")||document.getElementById("tdb-search");t&&(t.classList.add("easter-still-glow"),setTimeout(function(){t.classList.remove("easter-still-glow")},5e3))}function he(t){if(t&&!t.dataset.easterDoveHover){t.dataset.easterDoveHover="1";var r=null;t.addEventListener("mouseenter",function(){e()&&(r=setTimeout(function(){r=null,t.classList.add("easter-dove-wing-flutter");var e=document.createElement("div");e.className="easter-triple-toast",e.textContent="Peace is closer than you think.",e.setAttribute("role","status"),document.body.appendChild(e),setTimeout(function(){e.classList.add("easter-triple-fade"),setTimeout(function(){e.remove()},400)},3500),setTimeout(function(){t.classList.remove("easter-dove-wing-flutter")},600)},3e3))}),t.addEventListener("mouseleave",function(){r&&clearTimeout(r),r=null})}}}function ae(){if(e()){K(C()),Z(),X(),c(),u(),m();var n=window.ROTATING_HERO_VERSES||[];n.length||(n=[{ref:"Psalm 23:1",text:"The LORD is my shepherd; I shall not want."}]);var a=[38,38,40,40,37,39,37,39,66,65],s=["ArrowUp","ArrowUp","ArrowDown","ArrowDown","ArrowLeft","ArrowRight","ArrowLeft","ArrowRight","b","a"],l=0;document.addEventListener("keydown",function(o){var d;if(e())if(o.keyCode===a[l]||o.key&&o.key.toLowerCase()===s[l]){if(++l===a.length){l=0;try{if(sessionStorage.getItem("konamiFound"))return;sessionStorage.setItem("konamiFound","1")}catch(e){}var c=n[Math.floor(Math.random()*n.length)],u=document.createElement("div");u.className="easter-konami-wrap"+(t()?" easter-no-motion":""),u.setAttribute("role","status"),u.setAttribute("aria-live","polite"),i(u,'<div class="easter-konami-cross" aria-hidden="true">✝</div><p class="easter-konami-text">You found a hidden blessing!</p><p class="easter-konami-verse">"'+r(c.text||"")+'" — '+r(c.ref||"")+"</p>"),document.body.appendChild(u),setTimeout(function(){u.classList.add("easter-konami-fade"),setTimeout(function(){u.remove()},500)},4500)}}else l=0});var d=document.querySelector(".tool-footer-tagline, .footer-tagline");d&&d.addEventListener("dblclick",function(){if(e()){d.classList.add("easter-still-glow"),setTimeout(function(){d.classList.remove("easter-still-glow")},3e3);var t=document.createElement("div");t.className="easter-triple-toast",t.textContent="He really does.",t.setAttribute("role","status"),document.body.appendChild(t),setTimeout(function(){t.classList.add("easter-triple-fade"),setTimeout(function(){t.remove()},400)},3500);var r=document.createElement("span");r.className="easter-footer-dove",r.textContent="🕊️",r.setAttribute("aria-hidden","true"),d.appendChild(r),setTimeout(function(){r.parentNode&&r.remove()},2500)}})}function c(){V(w)&&M("legendaryWholeSitePilgrimage",{tier:"legendary",page:C(),triggerType:"route_chain",sessionOnly:!0})&&(document.body.classList.add("easter-legendary-mode"),j("You walked the whole quiet path. Nothing was hidden from you.","easter-triple-toast easter-toast-large",5200),setTimeout(function(){document.body.classList.remove("easter-legendary-mode")},6500))}function u(){window.__tdbStudySaveEggBound||(window.__tdbStudySaveEggBound=!0,window.addEventListener("tdb-my-verses-updated",function(){var e=O(y,1);e>=3&&!N("mystudyThreeSavesSession")&&(A("mystudyThreeSavesSession"),P("easter_egg_progress",{egg_id:"mystudyThreeSavesSession",egg_tier:"core",page:"mystudy",trigger_type:"event",progress:e}))}))}function m(){var e=new Date;0===e.getDay()&&(e.getHours()<5||e.getHours()>8||M("sundayDawnWatch",{tier:"seasonal",page:C(),triggerType:"daypart",sessionOnly:!0})&&(document.body.classList.add("easter-sunday-bg","easter-sunday-morning"),j("Sunday dawn. Mercy is already awake.","easter-triple-toast easter-toast-large",4600),setTimeout(function(){o(document.body,"easter-sunday-bg","easter-sunday-morning")},6e3)))}}var se="tdb_eggCount",oe="easter-egg-badge";function ie(){try{var e=parseInt(localStorage.getItem(se)||"0",10),t=0===e;0===e&&(e=1),localStorage.setItem(se,String(e)),le(t)}catch(e){}}function le(e){try{if(0===parseInt(localStorage.getItem(se)||"0",10))return;if(document.getElementById(oe))return;var r=document.querySelector('.site-footer, .tool-page-footer, footer[role="contentinfo"]')||document.querySelector("footer");if(!r)return;var n="1"===sessionStorage.getItem("tdb_secretsUnlocked")||"1"===localStorage.getItem(b),a=document.createElement(n?"a":"p");a.id=oe,a.className="easter-egg-badge",a.textContent="Hidden moments",a.setAttribute("aria-label",n?"View hints for hidden moments":"Hidden moments to discover"),n&&(a.href="/secrets.html",a.title="View hidden moments"),r.appendChild(a),e&&!t()&&(a.classList.add("pulse-once"),setTimeout(function(){a.classList.remove("pulse-once")},1200))}catch(e){}}function de(){var t;function r(e){return e&&e.classList&&(e.classList.contains("easter-triple-toast")||e.classList.contains("mobius-tracer-toast")||e.classList.contains("easter-konami-wrap"))}e()&&(le(),new MutationObserver(function(e){for(var t=0;t<e.length;t++)for(var n=e[t].addedNodes,a=0;a<n.length;a++){var s=n[a];if(1===s.nodeType){if(r(s))return void ie();if(s.querySelector&&r(s.querySelector(".easter-triple-toast, .mobius-tracer-toast, .easter-konami-wrap")))return void ie()}}}).observe(document.body,{childList:!0,subtree:!0}))}function ce(){T("local")&&T("session")&&(ae(),ne(),"/"!==window.location.pathname&&"/index.html"!==window.location.pathname&&""!==window.location.pathname&&ge(),setTimeout(fe,100),de())}var ue=["still","hallelujah","amen","grace","forgive","mercy","peace","armor","shabbat","risen","lamb","resurrection","secrets","abide",E,L],me=/^nothing can stop (you|me|us)$/;function pe(e){if(!e||"string"!=typeof e)return!1;var t=e.trim().toLowerCase();return-1!==ue.indexOf(t)||!!me.test(t)}function fe(){var t;e()&&"function"==typeof window.runSearchWithInput&&["global-search","church-query","kids-search-input","kids-library-search-input","mystudy-search","ab-search","bible-qa-search","pastor-verse-search","bible-study-search-input","verse-maps-input","concordance-search-input","lib-search","sbVerseInput"].forEach(function(e){var t=document.getElementById(e);if(t&&"1"!==t.getAttribute("data-tdb-egg-wired")){t.setAttribute("data-tdb-egg-wired","1"),t.addEventListener("keydown",function(e){"Enter"===e.key&&a(e)},!0);var r={"bible-qa-search":"bible-qa-btn","church-query":"church-search-btn","mystudy-search":"mystudy-search-btn","pastor-verse-search":"pastor-search-btn","bible-study-search-input":"bible-study-search-btn","concordance-search-input":"concordance-search-btn"},n=document.getElementById(r[e])||t.form&&t.form.querySelector('button[type="submit"]');n&&n.addEventListener("click",function(e){var r=(t.value||"").trim();r&&pe(r)&&(e.preventDefault(),e.stopImmediatePropagation(),"function"==typeof window.runSearchWithInput&&(window.runSearchWithInput(r),t.value=""))},!0)}function a(e){var r=(t.value||"").trim();r&&pe(r)&&(e.preventDefault(),e.stopPropagation(),"function"==typeof window.runSearchWithInput&&(window.runSearchWithInput(r),t.value=""))}})}function ge(){if(e()){var t=window.location.pathname||"";fe(),-1===t.indexOf("bible-tool")&&-1===t.indexOf("bible/tools")||he(),-1===t.indexOf("message")&&-1===t.indexOf("prayer-wall")||ve(),-1!==t.indexOf("mobius")&&Ce(),-1!==t.indexOf("contact")&&ye(),-1!==t.indexOf("calm")&&be(),-1!==t.indexOf("mystudy")&&we(),-1!==t.indexOf("explore")&&Ee(),-1!==t.indexOf("coloring")&&Te(),-1!==t.indexOf("family-armor")?Se():-1!==t.indexOf("family")&&Ie(),-1===t.indexOf("/kids/")&&-1===t.indexOf("/kids")||Le()}}function ye(){e()&&document.addEventListener("tdb:suggest-success",function(){try{if("1"===localStorage.getItem("tdb_suggestSubmitted"))return;localStorage.setItem("tdb_suggestSubmitted","1")}catch(e){return}var e=document.createElement("div");e.className="easter-triple-toast",e.setAttribute("role","status"),e.setAttribute("aria-live","polite"),e.textContent="Your suggestion helps others find light. You're part of the map.",document.body.appendChild(e),setTimeout(function(){e.classList.add("easter-triple-fade"),setTimeout(function(){e.remove()},400)},4500),ie()})}function he(){var e=document.getElementById("bible-qa-search")||document.getElementById("tdb-search")||document.getElementById("query");if(e){var t=function(){var t;if("still"!==(e.value||"").trim().toLowerCase())return!1;var r=document.getElementById("qa-result")||document.getElementById("lookup-result")||document.getElementById("feelCards")||document.getElementById("output");return!!r&&(i(r,'<div class="easter-still-result"><p class="easter-still-verse">Be still, and know that I am God.</p><p class="easter-still-ref">(Psalm 46:10)</p></div>'),r.classList.remove("hidden"),r.style.display="",r.classList.add("easter-still-glow","has-results"),setTimeout(function(){r.classList.remove("easter-still-glow")},5e3),r.scrollIntoView({behavior:"smooth",block:"nearest"}),e.classList.add("easter-still-glow"),setTimeout(function(){e.classList.remove("easter-still-glow")},5e3),e.value="",!0)};e.addEventListener("keydown",function(e){"Enter"===e.key&&t()&&e.preventDefault()});var r=document.getElementById("bible-qa-btn");r&&r.addEventListener("click",function(e){t()&&e.stopImmediatePropagation()},!0)}}function ve(){var t=document.getElementById("prayer-wall-add")||document.getElementById("post-message"),r=document.getElementById("prayer-tab-private"),n=document.getElementById("prayer-tab-with-others"),a=document.getElementById("prayer-device-quiet")||document.getElementById("prayerTodayLabel"),s=document.getElementById("prayerWallGraceMsg")||document.getElementById("prayer-wall-post-success"),o=document.querySelectorAll(".prayer-wall-share");function i(e){var t=O(g,1);P("easter_egg_progress",{egg_id:"prayerActionTrail",egg_tier:"core",page:"prayer",trigger_type:e,progress:t}),t>=3&&M("prayerThreeActions",{tier:"core",page:"prayer",triggerType:"action",sessionOnly:!0})&&j("Knock, seek, ask. Heaven is not annoyed with you.","easter-triple-toast",4200)}G("prayer",3)&&M("prayerMercyReturn",{tier:"core",page:"prayer",triggerType:"return"})&&R(s&&s.parentNode?s.parentNode:document.getElementById("prayer-panel-private"),"tdb-egg-prayer-return","Welcome back. Mercy kept the room warm while you were away.","easter-inline-note"),t&&(t.addEventListener("dblclick",function(){e()&&M("prayerUnspokenDoubleTap",{tier:"quick",page:"prayer",triggerType:"dblclick",sessionOnly:!0})&&j("He hears the unspoken.","easter-triple-toast",3200)}),t.addEventListener("click",function(){i("add"),a&&a.textContent&&-1!==a.textContent.toLowerCase().indexOf("quiet")&&M("prayerQuietFirstStep",{tier:"quick",page:"prayer",triggerType:"empty_state",sessionOnly:!0})&&R(a.parentNode||a,"tdb-egg-prayer-quiet","Quiet does not mean empty. One honest line is enough tonight.","easter-inline-note")})),[r,n].forEach(function(e){e&&e.addEventListener("click",function(){i("tab")})}),o.forEach(function(e){e.addEventListener("click",function(){i("share")},!0)})}function be(){var e=document.getElementById("calm-one-verse-now"),t=document.getElementById("calm-night-prayer"),r=document.getElementById("calm-intro"),n=document.querySelector(".calm-prayer-wall-nudge a");if(e){var a=0,s=0;e.addEventListener("click",function(){var e=Date.now();e-s>900&&(a=0),a++,s=e,a>=2&&M("calmDoubleTapDoor",{tier:"core",page:"calm",triggerType:"tap",sessionOnly:!0})&&(a=0,R(r,"tdb-egg-calm-door","Quiet door found: one verse is enough when the day feels loud.","easter-inline-note"),j("One verse can carry more than you think.","easter-triple-toast",3400))})}t&&U(t,650,function(){M("calmNightPrayerLongPress",{tier:"core",page:"calm",triggerType:"long_press",sessionOnly:!0})&&(document.body.classList.add("easter-midnight-watch"),j("In peace I will both lay me down and sleep. (Psalm 4:8)","easter-triple-toast",4200),setTimeout(function(){document.body.classList.remove("easter-midnight-watch")},4800))}),n&&U(n,650,function(){M("calmPrayerBridgeLongPress",{tier:"core",page:"calm",triggerType:"long_press",sessionOnly:!0})&&j("Prayer stays one tap away when the verse needs company.","easter-triple-toast",3600)})}function we(){var e=document.querySelector(".mystudy-subtitle")||document.getElementById("panel-my-study"),t=document.getElementById("saved-verses"),r=document.getElementById("mystudy-export-json"),n=Number(I(d,{},"local")[y]||0);V(["home","mystudy"])&&M("mystudyHomeToStudyRibbon",{tier:"core",page:"mystudy",triggerType:"route_chain",sessionOnly:!0})&&R(e&&e.parentNode?e.parentNode:e,"tdb-egg-mystudy-home-ribbon","You brought today's verse with you. That counts as real study.","easter-inline-note"),window.addEventListener("tdb-my-verses-updated",function(){var e;Number(I(d,{},"local")[y]||0)>=3&&M("mystudyThreeSavesSession",{tier:"core",page:"mystudy",triggerType:"event",sessionOnly:!0})&&j("Three verses held close this session. A small shelf is becoming a library.","easter-triple-toast",4200),t&&t.children&&t.children.length>=100&&M("mystudyHundredVerses",{tier:"discovery",page:"mystudy",triggerType:"library"})&&R(t.parentNode||t,"tdb-egg-study-hundred","A hundred verses live on this device now. Quiet accumulation is still growth.","easter-inline-note")}),t&&t.children&&t.children.length>=100&&M("mystudyHundredVerses",{tier:"discovery",page:"mystudy",triggerType:"library"})&&R(t.parentNode||t,"tdb-egg-study-hundred","A hundred verses live on this device now. Quiet accumulation is still growth.","easter-inline-note"),r&&U(r,700,function(){M("mystudyBackupWitness",{tier:"quick",page:"mystudy",triggerType:"long_press",sessionOnly:!0})&&j("Keeping a witness matters too.","easter-triple-toast",3200)})}function Ee(){var e=document.querySelectorAll(".explore-quick-door"),t=document.querySelector(".explore-hero")||document.querySelector(".explore-page");V(["home","family","explore"])&&M("exploreFamilyToMap",{tier:"discovery",page:"explore",triggerType:"route_chain",sessionOnly:!0})&&R(t,"tdb-egg-explore-map","You came here from Family. The calm routes are opening in order.","easter-inline-note"),V(["home","kids","explore"])&&M("exploreKidsToMap",{tier:"discovery",page:"explore",triggerType:"route_chain",sessionOnly:!0})&&R(t,"tdb-egg-explore-kids-map","You found the map through Kids. That is exactly what this page is for.","easter-inline-note"),e.forEach(function(e){e.addEventListener("click",function(){var t=I("tdb_eg_explore_doors_v1",[],"session"),r=e.getAttribute("href")||e.textContent||"";-1===t.indexOf(r)&&t.push(r),S("tdb_eg_explore_doors_v1",t,"session"),t.length>=5&&M("exploreFiveDoors",{tier:"discovery",page:"explore",triggerType:"click",sessionOnly:!0})&&j("Five calm doors touched. The map is working.","easter-triple-toast",3600)},!0)})}function Le(){var e=document.getElementById("kids-greeting-badge"),t=document.getElementById("kids-first-win-status"),r=document.getElementById("kids-home-story-master");if(e){var n=0,a=0;e.addEventListener("click",function(){var e=Date.now();e>a&&(n=0),n++,a=e+3e3,n>=5&&M("kidsBattleTrailTap",{tier:"family",page:"kids",triggerType:"tap",sessionOnly:!0})&&(n=0,j("Battle Trail says small brave steps count too.","easter-triple-toast",3400))})}function s(e){var t;e&&-1!==D(e.textContent).indexOf("little explorer")&&M("kidsLittleExplorerReveal",{tier:"family",page:C(),triggerType:"progress"})&&j("Little Explorer unlocked. Heaven is not bored by beginnings.","easter-triple-toast",4e3)}t&&(s(t),new MutationObserver(function(){s(t)}).observe(t,{childList:!0,subtree:!0,characterData:!0})),r&&(s(r),new MutationObserver(function(){s(r)}).observe(r,{childList:!0,subtree:!0,characterData:!0}))}function Te(){var e;document.getElementById("tdb-cat-root")&&document.addEventListener("click",function(e){var t=e.target&&e.target.closest?e.target.closest("button"):null;if(t){var r=D(t.textContent),n;-1===r.indexOf("save this scene")&&-1===r.indexOf("watch my story")||(-1!==r.indexOf("save this scene")&&O("tdb_eg_coloring_scene_saves_v1",1)>=4&&M("coloringFourSceneSaves",{tier:"family",page:"coloring",triggerType:"save",sessionOnly:!0})&&j("Four scenes saved. The story is starting to look back at you.","easter-triple-toast",4200),-1!==r.indexOf("watch my story")&&M("coloringWatchMyStory",{tier:"family",page:"coloring",triggerType:"watch",sessionOnly:!0})&&j("Your colored story became a testimony on this device.","easter-triple-toast",3600))}},!0)}function Ie(){var e=document.getElementById("family-prayer-add"),t=document.getElementById("family-prayer-status"),r=document.getElementById("family-daily-verse-root");V(["kids","family"])&&M("familyFromKidsBridge",{tier:"family",page:"family",triggerType:"route_chain",sessionOnly:!0})&&R(r,"tdb-egg-family-kids-bridge","You came from Kids. One verse and one family prayer is enough for tonight.","easter-inline-note"),e&&(U(e,650,function(){M("familyPrayerLongPress",{tier:"family",page:"family",triggerType:"long_press",sessionOnly:!0})&&j("Household prayer list: no pressure, just names before God.","easter-triple-toast",3600)}),e.addEventListener("click",function(){var e;O("tdb_eg_family_prayer_adds_v1",1)>=3&&M("familyPrayerThreeAdds",{tier:"family",page:"family",triggerType:"add",sessionOnly:!0})&&R(t&&t.parentNode?t.parentNode:r,"tdb-egg-family-prayer-three","Three prayer lines have landed here. This list is a mercy shelf, not a burden board.","easter-inline-note")}))}function Se(){var e=document.querySelectorAll("#family-armor-foundation .family-armor-lux-card"),t=document.getElementById("family-armor-foundation");e.length&&e.forEach(function(e){e.addEventListener("click",function(){var r=D(e.querySelector(".family-armor-lux-card-title")?e.querySelector(".family-armor-lux-card-title").textContent:"");if(r){var n=I(h,[],"local");-1===n.indexOf(r)&&(n.push(r),S(h,n,"local")),e.classList.add("easter-home-ribbon-glow"),setTimeout(function(){e.classList.remove("easter-home-ribbon-glow")},2200),n.length>=7&&M("familyArmorWholeSet",{tier:"family",page:"familyArmor",triggerType:"progress"})&&(R(t,"tdb-egg-armor-whole-set","Whole armor touched: truth, righteousness, peace, faith, salvation, Scripture, and prayer. No scoreboard. Just remembrance.","easter-inline-note"),j("Whole armor remembered. That counts.","easter-triple-toast",4200))}})})}function Ce(){function t(t){if(t){var r=0,n=0;t.addEventListener("click",function(a){if(e()){var s=Date.now();if(s-n>500&&(r=0),r++,n=s,r>=3){r=0,t.classList.add("easter-share-spin","easter-share-glow"),setTimeout(function(){t.classList.remove("easter-share-spin")},600),setTimeout(function(){t.classList.remove("easter-share-glow")},3e3);var o=document.createElement("div");o.className="mobius-tracer-toast",o.textContent="Sharing light in the darkness.",o.setAttribute("role","status"),document.body.appendChild(o),setTimeout(function(){o.classList.add("mobius-tracer-toast-fade"),setTimeout(function(){o.remove()},400)},3e3)}}})}}document.addEventListener("keydown",function(t){if(e()&&t.altKey&&"ArrowLeft"===t.key){var r=document.createElement("div");r.className="mobius-tracer-toast",r.textContent="One side. One path. No end.",r.setAttribute("role","status"),document.body.appendChild(r),setTimeout(function(){r.classList.add("mobius-tracer-toast-fade"),setTimeout(function(){r.remove()},400)},2500)}}),t(document.getElementById("mobius-text-share"));var r=document.getElementById("mobius-universal-viz");if(r){var n=0;r.addEventListener("dblclick",function(t){if(e()&&!t.target.closest("button, a, .mobius-node")){var r=Date.now();if(!(r-n<800)&&(n=r,"function"==typeof window.__mobiusReverseTracer)){window.__mobiusReverseTracer();var a=document.createElement("div");a.className="mobius-tracer-toast",a.textContent="Sometimes the path turns back on itself.",a.setAttribute("role","status"),document.body.appendChild(a),setTimeout(function(){a.classList.add("mobius-tracer-toast-fade"),setTimeout(function(){a.remove()},400)},3e3)}}})}}"loading"===document.readyState?document.addEventListener("DOMContentLoaded",ce):ce(),window.__tdbEasterEggsInit=ce}();
+/**
+ * Easter eggs — joyful, respectful, non-intrusive.
+ * Master flag: localStorage.easterEggsEnabled (default true).
+ * Respect prefers-reduced-motion for animations.
+ */
+(function () {
+  'use strict';
+
+  (function injectEasterCss() {
+    if (document.getElementById('tdb-easter-eggs-css')) return;
+    var href = '/easter-eggs.css?v=20260324';
+    try {
+      var sc = document.currentScript;
+      if (sc && sc.src) href = new URL('easter-eggs.css?v=20260324', sc.src).href;
+    } catch (e) { /* keep root default */ }
+    var link = document.createElement('link');
+    link.id = 'tdb-easter-eggs-css';
+    link.rel = 'stylesheet';
+    link.href = href;
+    document.head.appendChild(link);
+  })();
+
+  function enabled() {
+    try {
+      return localStorage.getItem('easterEggsEnabled') !== '0';
+    } catch (e) { return true; }
+  }
+  function reducedMotion() {
+    return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+  function escapeHtml(str) {
+    if (str == null || str === '') return '';
+    var s = String(str);
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+  function normalizeClassTokens(argsLike) {
+    var tokens = [];
+    for (var i = 0; i < argsLike.length; i++) {
+      var value = argsLike[i];
+      if (typeof value !== 'string') continue;
+      var parts = value.split(/\s+/);
+      for (var j = 0; j < parts.length; j++) {
+        if (parts[j]) tokens.push(parts[j]);
+      }
+    }
+    return tokens;
+  }
+  /** classList.add/remove with multiple tokens throws InvalidCharacterError if any token is invalid (e.g. empty after trim edge cases). */
+  function applyClassTokens(el, method, tokens) {
+    if (!el || !el.classList || !tokens || !tokens.length) return;
+    for (var i = 0; i < tokens.length; i++) {
+      try {
+        el.classList[method](tokens[i]);
+      } catch (e) { /* skip bad token */ }
+    }
+  }
+  function addClasses(el) {
+    if (!el || !el.classList) return;
+    var tokens = normalizeClassTokens(arguments.length > 1 ? Array.prototype.slice.call(arguments, 1) : []);
+    applyClassTokens(el, 'add', tokens);
+  }
+  function removeClasses(el) {
+    if (!el || !el.classList) return;
+    var tokens = normalizeClassTokens(arguments.length > 1 ? Array.prototype.slice.call(arguments, 1) : []);
+    applyClassTokens(el, 'remove', tokens);
+  }
+  /** CSP require-trusted-types-for: use default policy (tt-bootstrap tdbSetHtml). */
+  function setHtml(el, html) {
+    if (!el) return;
+    if (typeof window.tdbSetHtml === 'function') window.tdbSetHtml(el, html);
+    else el.innerHTML = html;
+  }
+
+  var EGG_STATE_KEY = 'tdb_eg_seen_v1';
+  var EGG_COUNTS_KEY = 'tdb_eg_counts_v1';
+  var EGG_LAST_VISIT_KEY = 'tdb_eg_last_visit_v1';
+  var EGG_SEARCH_HISTORY_KEY = 'tdb_eg_search_history_v1';
+  var EGG_ROUTE_CHAIN_KEY = 'tdb_eg_route_chain_v1';
+  var EGG_SESSION_KEY = 'tdb_eg_session_v1';
+  var EGG_FAMILY_MODE_DAYS_KEY = 'tdb_eg_family_mode_days_v1';
+  var EGG_PRAYER_ACTIONS_KEY = 'tdb_eg_prayer_actions_v1';
+  var EGG_STUDY_SAVES_KEY = 'tdb_eg_study_session_saves_v1';
+  var EGG_ARMOR_PROGRESS_KEY = 'tdb_eg_armor_progress_v1';
+  var EGG_LAST_HOME_RIBBON_KEY = 'tdb_eg_home_ribbon_seen_v1';
+  var EGG_SECRETS_UNLOCK_KEY = 'tdb_secrets_unlocked_v1';
+  var HOME_PAGE_IDS = ['home', 'calm', 'prayer', 'plans', 'mystudy', 'family', 'kids', 'explore'];
+  var QUIET_ROUTE_PHRASE = 'show the quiet paths';
+  var LEGENDARY_PHRASE = 'we battle he wins';
+
+  function storageAvailable(kind) {
+    try {
+      var box = kind === 'session' ? sessionStorage : localStorage;
+      var key = '__tdb_egg_probe__';
+      box.setItem(key, '1');
+      box.removeItem(key);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function readJson(key, fallback, kind) {
+    try {
+      var box = kind === 'session' ? sessionStorage : localStorage;
+      var raw = box.getItem(key);
+      if (!raw) return fallback;
+      var parsed = JSON.parse(raw);
+      return parsed && typeof parsed === 'object' ? parsed : fallback;
+    } catch (e) {
+      return fallback;
+    }
+  }
+
+  function writeJson(key, value, kind) {
+    try {
+      var box = kind === 'session' ? sessionStorage : localStorage;
+      box.setItem(key, JSON.stringify(value));
+    } catch (e) {}
+  }
+
+  function pageIdForPath(pathname) {
+    var path = String(pathname || window.location.pathname || '').toLowerCase();
+    if (!path || path === '/' || path === '/index.html') return 'home';
+    if (path.indexOf('calm') !== -1) return 'calm';
+    if (path.indexOf('prayer-wall') !== -1 || path.indexOf('message') !== -1) return 'prayer';
+    if (path.indexOf('mystudy') !== -1) return 'mystudy';
+    if (path.indexOf('explore') !== -1) return 'explore';
+    if (path.indexOf('family-armor') !== -1) return 'familyArmor';
+    if (path.indexOf('family') !== -1) return 'family';
+    if (path.indexOf('coloring') !== -1) return 'coloring';
+    if (path.indexOf('/kids/corner') !== -1 || path.indexOf('kids/corner') !== -1) return 'kidsLibrary';
+    if (path.indexOf('/kids/') !== -1 || path.indexOf('/kids') !== -1) return 'kids';
+    if (path.indexOf('plans') !== -1) return 'plans';
+    if (path.indexOf('mobius') !== -1) return 'mobius';
+    if (path.indexOf('verse') !== -1) return 'verse';
+    if (path.indexOf('contact') !== -1) return 'contact';
+    return 'other';
+  }
+
+  function getEggState() {
+    return readJson(EGG_STATE_KEY, {}, 'local');
+  }
+
+  function setEggSeen(id, meta) {
+    var state = getEggState();
+    if (state[id]) return false;
+    state[id] = Object.assign({ seenAt: new Date().toISOString() }, meta || {});
+    writeJson(EGG_STATE_KEY, state, 'local');
+    return true;
+  }
+
+  function hasEggSeen(id) {
+    var state = getEggState();
+    return !!state[id];
+  }
+
+  function getSessionEggState() {
+    return readJson(EGG_SESSION_KEY, {}, 'session');
+  }
+
+  function setSessionEggSeen(id) {
+    var state = getSessionEggState();
+    if (state[id]) return false;
+    state[id] = Date.now();
+    writeJson(EGG_SESSION_KEY, state, 'session');
+    return true;
+  }
+
+  function hasSessionEggSeen(id) {
+    var state = getSessionEggState();
+    return !!state[id];
+  }
+
+  function bumpCount(key, step) {
+    var counts = readJson(EGG_COUNTS_KEY, {}, 'local');
+    counts[key] = Number(counts[key] || 0) + Number(step || 1);
+    writeJson(EGG_COUNTS_KEY, counts, 'local');
+    return counts[key];
+  }
+
+  function setCount(key, value) {
+    var counts = readJson(EGG_COUNTS_KEY, {}, 'local');
+    counts[key] = value;
+    writeJson(EGG_COUNTS_KEY, counts, 'local');
+  }
+
+  function normalizePhrase(raw) {
+    return String(raw || '').toLowerCase().replace(/\s+/g, ' ').trim();
+  }
+
+  function trackEgg(eventName, payload) {
+    try {
+      if (typeof window.trackEvent === 'function') {
+        window.trackEvent(eventName, payload || {});
+      }
+    } catch (e) {}
+  }
+
+  function registerEgg(id, opts) {
+    opts = opts || {};
+    var tier = opts.tier || 'quick';
+    var page = opts.page || pageIdForPath();
+    var triggerType = opts.triggerType || 'manual';
+    var sessionOnly = opts.sessionOnly === true;
+    var isRepeat = 0;
+    if (sessionOnly) {
+      if (!setSessionEggSeen(id)) return false;
+    } else {
+      if (!setEggSeen(id, { tier: tier, page: page })) {
+        isRepeat = 1;
+        if (opts.allowRepeat !== true) return false;
+      }
+    }
+    trackEgg('easter_egg_triggered', {
+      egg_id: id,
+      egg_tier: tier,
+      page: page,
+      trigger_type: triggerType,
+      session_only: sessionOnly ? 1 : 0,
+      is_repeat: isRepeat
+    });
+    try {
+      document.dispatchEvent(new CustomEvent('tdb:egg-triggered', {
+        detail: { id: id, shown: true, tier: tier, page: page }
+      }));
+    } catch (e) {}
+    try { markEggTriggered(); } catch (e2) {}
+    return true;
+  }
+
+  function markEggAction(id, page, triggerType) {
+    trackEgg('easter_egg_action_taken', {
+      egg_id: id,
+      egg_tier: 'interaction',
+      page: page || pageIdForPath(),
+      trigger_type: triggerType || 'action'
+    });
+  }
+
+  function createToast(message, className, duration) {
+    var toast = document.createElement('div');
+    applyClassTokens(toast, 'add', normalizeClassTokens([className || 'easter-triple-toast']));
+    if (!toast.classList.length) toast.classList.add('easter-triple-toast');
+    toast.setAttribute('role', 'status');
+    toast.setAttribute('aria-live', 'polite');
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    setTimeout(function () {
+      toast.classList.add('easter-triple-fade');
+      setTimeout(function () { if (toast.parentNode) toast.remove(); }, 450);
+    }, duration || 3800);
+    return toast;
+  }
+
+  function addInlineNote(parent, id, text, className) {
+    if (!parent) return null;
+    var existing = document.getElementById(id);
+    if (existing) {
+      existing.textContent = text;
+      return existing;
+    }
+    var note = document.createElement('p');
+    note.id = id;
+    note.className = className || 'easter-inline-note';
+    note.textContent = text;
+    parent.appendChild(note);
+    return note;
+  }
+
+  function recordSearchTerm(term) {
+    var value = normalizePhrase(term);
+    if (!value) return;
+    var history = readJson(EGG_SEARCH_HISTORY_KEY, [], 'session');
+    history.push(value);
+    if (history.length > 8) history = history.slice(history.length - 8);
+    writeJson(EGG_SEARCH_HISTORY_KEY, history, 'session');
+  }
+
+  function matchesRecentTerms(sequence) {
+    var history = readJson(EGG_SEARCH_HISTORY_KEY, [], 'session');
+    if (!Array.isArray(history) || history.length < sequence.length) return false;
+    var start = history.length - sequence.length;
+    for (var i = 0; i < sequence.length; i++) {
+      if (history[start + i] !== sequence[i]) return false;
+    }
+    return true;
+  }
+
+  function recordRouteVisit(pageId) {
+    if (!pageId) return;
+    var chain = readJson(EGG_ROUTE_CHAIN_KEY, [], 'session');
+    chain.push(pageId);
+    if (chain.length > 16) chain = chain.slice(chain.length - 16);
+    writeJson(EGG_ROUTE_CHAIN_KEY, chain, 'session');
+    var visits = readJson(EGG_LAST_VISIT_KEY, {}, 'local');
+    visits[pageId] = new Date().toISOString();
+    writeJson(EGG_LAST_VISIT_KEY, visits, 'local');
+  }
+
+  function routeEndsWith(sequence) {
+    var chain = readJson(EGG_ROUTE_CHAIN_KEY, [], 'session');
+    if (!Array.isArray(chain) || chain.length < sequence.length) return false;
+    var start = chain.length - sequence.length;
+    for (var i = 0; i < sequence.length; i++) {
+      if (chain[start + i] !== sequence[i]) return false;
+    }
+    return true;
+  }
+
+  function wasLastVisitOlderThan(pageId, days) {
+    var visits = readJson(EGG_LAST_VISIT_KEY, {}, 'local');
+    var iso = visits[pageId];
+    if (!iso) return false;
+    var when = new Date(iso).getTime();
+    if (!when) return false;
+    return Date.now() - when >= days * 86400000;
+  }
+
+  function currentDayKey() {
+    var now = new Date();
+    return now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
+  }
+
+  function rememberDistinctDay(key, storeKey) {
+    var data = readJson(storeKey, [], 'local');
+    if (!Array.isArray(data)) data = [];
+    if (data.indexOf(key) === -1) data.push(key);
+    writeJson(storeKey, data, 'local');
+    return data.length;
+  }
+
+  function getRandomPlanHref() {
+    var hrefs = [];
+    document.querySelectorAll('a[href*="plans.html?plan="]').forEach(function (a) {
+      var href = a.getAttribute('href') || '';
+      if (href && hrefs.indexOf(href) === -1) hrefs.push(href);
+    });
+    if (!hrefs.length) {
+      hrefs = [
+        '/plans.html?plan=familyworship',
+        '/plans.html?plan=peace',
+        '/plans.html?plan=hope',
+        '/plans.html?plan=lordsprayer-kids',
+        '/plans.html?plan=beatitudes-kids'
+      ];
+    }
+    return hrefs[Math.floor(Math.random() * hrefs.length)];
+  }
+
+  function wireLongPress(el, holdMs, callback) {
+    if (!el || el.getAttribute('data-tdb-longpress') === '1') return;
+    el.setAttribute('data-tdb-longpress', '1');
+    var timer = null;
+    function clear() {
+      if (timer) clearTimeout(timer);
+      timer = null;
+    }
+    function start(event) {
+      clear();
+      timer = setTimeout(function () {
+        timer = null;
+        callback(event);
+      }, holdMs || 550);
+    }
+    el.addEventListener('mousedown', start);
+    el.addEventListener('touchstart', start, { passive: true });
+    ['mouseup', 'mouseleave', 'touchend', 'touchcancel'].forEach(function (type) {
+      el.addEventListener(type, clear, { passive: true });
+    });
+  }
+
+  function revealQuietRoutes() {
+    var host = document.getElementById('explore-quick-doors') || document.querySelector('.explore-page');
+    if (!host) return false;
+    var note = document.getElementById('tdb-egg-quiet-routes');
+    if (!note) {
+      note = document.createElement('div');
+      note.id = 'tdb-egg-quiet-routes';
+      note.className = 'easter-secret-panel';
+      setHtml(note, '<strong>Quiet paths</strong><p>Try one of these calm routes: Home → Calm → Prayer, or Home → Battle Plans → My Study, or Kids → Family → Printables for a lighter household rhythm.</p>');
+      host.appendChild(note);
+    }
+    note.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    return true;
+  }
+
+  function handleSecretPhrase(raw) {
+    var phrase = normalizePhrase(raw);
+    if (!phrase) return false;
+    if (phrase === QUIET_ROUTE_PHRASE && pageIdForPath() === 'explore') {
+      if (!registerEgg('exploreQuietPathsPhrase', { tier: 'discovery', page: 'explore', triggerType: 'phrase' })) return false;
+      revealQuietRoutes();
+      createToast('Here are the quiet paths through the site.', 'easter-triple-toast', 4200);
+      trackEgg('easter_egg_phrase_unlock', { egg_id: 'exploreQuietPathsPhrase', page: 'explore', trigger_type: 'phrase' });
+      return true;
+    }
+    if (phrase === LEGENDARY_PHRASE) {
+      if (!registerEgg('legendaryPhraseWeBattleHeWins', { tier: 'legendary', page: pageIdForPath(), triggerType: 'phrase', sessionOnly: true })) return false;
+      document.body.classList.add('easter-legendary-mode');
+      setTimeout(function () { document.body.classList.remove('easter-legendary-mode'); }, 6000);
+      createToast('Legendary mode unlocked for this session. Grace was here first.', 'easter-triple-toast easter-toast-large', 5200);
+      trackEgg('easter_egg_phrase_unlock', { egg_id: 'legendaryPhraseWeBattleHeWins', page: pageIdForPath(), trigger_type: 'phrase' });
+      return true;
+    }
+    return false;
+  }
+
+  function initPhraseListener() {
+    if (document.body.getAttribute('data-tdb-phrase-listener') === '1') return;
+    document.body.setAttribute('data-tdb-phrase-listener', '1');
+    var buffer = '';
+    var lastTypeAt = 0;
+    document.addEventListener('keydown', function (e) {
+      if (!enabled()) return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      var target = e.target;
+      var isField = target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable);
+      if (isField) return;
+      if (typeof e.key !== 'string' || e.key.length !== 1) return;
+      var now = Date.now();
+      if (now - lastTypeAt > 2500) buffer = '';
+      lastTypeAt = now;
+      buffer = (buffer + e.key.toLowerCase()).slice(-48);
+      if (buffer.indexOf(QUIET_ROUTE_PHRASE) !== -1) {
+        buffer = '';
+        handleSecretPhrase(QUIET_ROUTE_PHRASE);
+      } else if (buffer.indexOf(LEGENDARY_PHRASE) !== -1) {
+        buffer = '';
+        handleSecretPhrase(LEGENDARY_PHRASE);
+      }
+    });
+  }
+
+  function bindEasterEngineApi() {
+    window.TDBEasterEggs = window.TDBEasterEggs || {};
+    window.TDBEasterEggs.trigger = function (eggId, payload) {
+      var page = pageIdForPath();
+      var opts = payload || {};
+      if (!registerEgg(String(eggId || 'customEgg'), {
+        tier: opts.tier || 'interaction',
+        page: opts.page || page,
+        triggerType: opts.triggerType || 'event',
+        sessionOnly: opts.sessionOnly === true,
+        allowRepeat: opts.allowRepeat === true
+      })) return false;
+      if (opts.message) createToast(String(opts.message), 'easter-triple-toast', opts.duration || 3400);
+      return true;
+    };
+    window.TDBEasterEggs.maybeActionEgg = function (action, payload) {
+      if (action === 'note_saved') {
+        markEggAction('note_saved', pageIdForPath(), 'event');
+        return true;
+      }
+      return false;
+    };
+    try {
+      var queue = Array.isArray(window.__tdbEggQueue) ? window.__tdbEggQueue.slice() : [];
+      window.__tdbEggQueue = [];
+      queue.forEach(function (item) {
+        if (!item || !item.id) return;
+        window.TDBEasterEggs.trigger(item.id, item.payload || {});
+      });
+    } catch (e) {}
+  }
+
+  var PRAISE_VERSES = [
+    { ref: 'Psalm 150:6', text: 'Let every thing that hath breath praise the LORD. Praise ye the LORD.' },
+    { ref: 'Revelation 19:6', text: 'Alleluia: for the Lord God omnipotent reigneth.' },
+    { ref: 'Psalm 113:3', text: 'From the rising of the sun unto the going down of the same the LORD\'s name is to be praised.' },
+    { ref: 'Psalm 148:13', text: 'Let them praise the name of the LORD: for his name alone is excellent.' }
+  ];
+  var BLESSING_VERSE = { ref: 'Numbers 6:24-26', text: 'The Lord bless thee, and keep thee: The LORD make his face shine upon thee, and be gracious unto thee: The LORD lift up his countenance upon thee, and give thee peace.' };
+
+  function initIndex() {
+    wrapRunSearch();
+    if (!enabled() || !document.getElementById('verseCard')) return;
+    wireHomeBattlePlanEgg();
+    wireHomeHeroRefTripleTap();
+    wireHomeDaypartEggs();
+    wireFamilyModeHomeEgg();
+
+    // 1. 7 clicks on verse ref (reset daily)
+    var heroRef = document.getElementById('heroRef');
+    if (heroRef) {
+      heroRef.addEventListener('click', function () {
+        if (!enabled()) return;
+        try {
+          var today = new Date().toDateString();
+          var last = localStorage.getItem('verseClicksDay') || '';
+          if (last !== today) { localStorage.setItem('verseClicks', '0'); localStorage.setItem('verseClicksDay', today); }
+          var n = parseInt(localStorage.getItem('verseClicks') || '0', 10);
+          n++;
+          localStorage.setItem('verseClicks', String(n));
+          if (n >= 7) {
+            localStorage.setItem('verseClicks', '0');
+            showSevenBlessing();
+          }
+        } catch (x) {}
+      });
+    }
+
+    function showSevenBlessing() {
+      var wrap = document.createElement('div');
+      wrap.className = 'easter-seven-wrap' + (reducedMotion() ? ' easter-no-motion' : '');
+      wrap.setAttribute('role', 'status');
+      wrap.setAttribute('aria-live', 'polite');
+      setHtml(wrap, '<p class="easter-seven-msg">7 clicks for the perfect number!</p><p class="easter-seven-verse">"' + escapeHtml(BLESSING_VERSE.text) + '" (' + escapeHtml(BLESSING_VERSE.ref) + ')</p>');
+      document.body.appendChild(wrap);
+      setTimeout(function () {
+        wrap.classList.add('easter-seven-fade');
+        setTimeout(function () { wrap.remove(); }, 400);
+      }, 4000);
+    }
+
+    function wireHomeHeroRefTripleTap() {
+      var heroRefEl = document.getElementById('heroRef');
+      if (!heroRefEl || heroRefEl.getAttribute('data-tdb-hero-ref-tapped') === '1') return;
+      heroRefEl.setAttribute('data-tdb-hero-ref-tapped', '1');
+      var taps = 0;
+      var lastTap = 0;
+      heroRefEl.addEventListener('click', function () {
+        var now = Date.now();
+        if (now - lastTap > 700) taps = 0;
+        taps++;
+        lastTap = now;
+        if (taps >= 3) {
+          taps = 0;
+          if (!registerEgg('homeHeroRefTripleTap', { tier: 'quick', page: 'home', triggerType: 'tap', sessionOnly: true })) return;
+          var verseCard = document.getElementById('verseCard');
+          if (verseCard) {
+            addClasses(verseCard, 'easter-home-ribbon-glow');
+            setTimeout(function () { removeClasses(verseCard, 'easter-home-ribbon-glow'); }, 3200);
+          }
+          createToast('Carry this one gently today.', 'easter-triple-toast', 3400);
+        }
+      });
+    }
+
+    function wireHomeBattlePlanEgg() {
+      var anchors = Array.prototype.slice.call(document.querySelectorAll('a[href="/plans.html"], a[href="plans.html"], a[href^="/plans.html?"], a[href^="plans.html?"]'));
+      if (!anchors.length) return;
+      anchors.forEach(function (anchor) {
+        wireLongPress(anchor, 650, function (event) {
+          if (!enabled()) return;
+          if (!registerEgg('homeBattlePlanLongPress', { tier: 'quick', page: 'home', triggerType: 'long_press', sessionOnly: true })) return;
+          event.preventDefault();
+          createToast('Shortcut opened: one gentle plan, chosen for you.', 'easter-triple-toast', 3200);
+          markEggAction('homeBattlePlanLongPress', 'home', 'navigate');
+          window.location.href = getRandomPlanHref();
+        });
+      });
+    }
+
+    function wireHomeDaypartEggs() {
+      var ribbonDay = currentDayKey();
+      if (localStorage.getItem(EGG_LAST_HOME_RIBBON_KEY) === ribbonDay) return;
+      var hour = new Date().getHours();
+      if (hour >= 5 && hour < 8) {
+        if (registerEgg('homeMorningMercyRibbon', { tier: 'quick', page: 'home', triggerType: 'daypart', sessionOnly: true })) {
+          localStorage.setItem(EGG_LAST_HOME_RIBBON_KEY, ribbonDay);
+          document.body.classList.add('easter-sunrise-bg');
+          createToast('Morning mercy is on the porch already.', 'easter-triple-toast', 3600);
+          setTimeout(function () { document.body.classList.remove('easter-sunrise-bg'); }, 5200);
+        }
+      } else if (hour >= 0 && hour < 2) {
+        if (registerEgg('homeMidnightWatch', { tier: 'seasonal', page: 'home', triggerType: 'daypart', sessionOnly: true })) {
+          localStorage.setItem(EGG_LAST_HOME_RIBBON_KEY, ribbonDay);
+          document.body.classList.add('easter-midnight-watch');
+          createToast('Midnight watch: the Lord keepeth Israel. (Psalm 121:4)', 'easter-triple-toast', 4500);
+          setTimeout(function () { document.body.classList.remove('easter-midnight-watch'); }, 5200);
+        }
+      }
+    }
+
+    function wireFamilyModeHomeEgg() {
+      var toggle = document.getElementById('tdbFamilyModeToggle');
+      var body = document.getElementById('tdbFamilyModeBody');
+      if (!toggle || !body) return;
+      function noteFamilyModeDay() {
+        var enabledNow = !body.hidden || toggle.getAttribute('aria-pressed') === 'true' || localStorage.getItem('tdb_family_mode_enabled_v1') === '1';
+        if (!enabledNow) return;
+        var totalDays = rememberDistinctDay(currentDayKey(), EGG_FAMILY_MODE_DAYS_KEY);
+        if (totalDays >= 3 && registerEgg('homeFamilyModeThreeDays', { tier: 'family', page: 'home', triggerType: 'habit' })) {
+          createToast('Three family-mode mornings. Tiny faithfulness still counts.', 'easter-triple-toast', 4200);
+        }
+      }
+      toggle.addEventListener('click', function () {
+        setTimeout(noteFamilyModeDay, 140);
+      });
+      noteFamilyModeDay();
+    }
+
+    // 3. hallelujah in search — wire feel-search + wrap runSearchWithInput
+    var feelSearch = document.getElementById('feel-search');
+    var feelBtn = document.getElementById('feel-search-btn');
+    if (feelSearch && feelBtn) {
+      feelBtn.addEventListener('click', function () {
+        if (tryHallelujah(feelSearch)) return;
+        var val = String(feelSearch.value || '').trim();
+        if (val && typeof window.runSearchWithInput === 'function') window.runSearchWithInput(val);
+      });
+      feelSearch.addEventListener('keydown', function (e) {
+        if (e.key !== 'Enter') return;
+        e.preventDefault();
+        if (tryHallelujah(feelSearch)) return;
+        var val = String(feelSearch.value || '').trim();
+        if (val && typeof window.runSearchWithInput === 'function') window.runSearchWithInput(val);
+      });
+    }
+    // jesus typed — screen softens, toast. One-time per session.
+    if (feelSearch) {
+      feelSearch.addEventListener('input', function () {
+        if (!enabled()) return;
+        var val = String(feelSearch.value || '').trim().toLowerCase();
+        if (val !== 'jesus') return;
+        try {
+          if (sessionStorage.getItem('jesusSeen')) return;
+          sessionStorage.setItem('jesusSeen', '1');
+        } catch (x) { return; }
+        document.body.classList.add('easter-jesus-brightness');
+        setTimeout(function () { document.body.classList.remove('easter-jesus-brightness'); }, 5000);
+        var toast = document.createElement('div');
+        toast.className = 'easter-triple-toast';
+        toast.setAttribute('role', 'status');
+        toast.setAttribute('aria-live', 'polite');
+        toast.textContent = 'Jesus — the same yesterday, today, and for ever. (Hebrews 13:8)';
+        document.body.appendChild(toast);
+        setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 4500);
+      });
+    }
+    function wrapRunSearch() {
+      var orig = window.runSearchWithInput;
+      if (typeof orig !== 'function' || window.__tdbHallelujahWrapped) return;
+      window.__tdbHallelujahWrapped = true;
+      window.runSearchWithInput = function (inputStr) {
+        var val = String(inputStr || '').trim().toLowerCase();
+        recordSearchTerm(val);
+        if (handleSecretPhrase(val)) return;
+        if (val === 'hallelujah' && tryHallelujah(null)) return;
+        if (val === 'still' && tryStill(inputStr)) return;
+        if (val === 'amen' && tryAmen(inputStr)) return;
+        if (/^nothing can stop (you|me|us)$/.test(val) && tryNothingCanStopYou(inputStr, orig)) return;
+        if (val === 'grace' && tryGraceSearch(inputStr, orig)) return;
+        if (val === 'forgive' && tryForgiveSearch(inputStr, orig)) return;
+        if (val === 'mercy' && tryMercySearch(inputStr, orig)) return;
+        if (val === 'peace' && tryPeaceSearch(inputStr, orig)) return;
+        if (val === 'armor' && tryArmorSearch(inputStr, orig)) return;
+        if (val === 'shabbat' && tryShabbatSearch(inputStr, orig)) return;
+        if (val === 'risen' && tryRisenSearch(inputStr)) return;
+        if (val === 'lamb' && tryLambSearch(inputStr, orig)) return;
+        if (val === 'resurrection' && tryResurrectionSearch(inputStr, orig)) return;
+        if (val === 'secrets' && trySecretsUnlock(inputStr)) return;
+        if (val === 'abide' && tryAbideSearch(inputStr, orig)) return;
+        orig.apply(this, arguments);
+      };
+    }
+    setTimeout(wrapRunSearch, 400);
+    setTimeout(wrapRunSearch, 1200);
+
+    function tryNothingCanStopYou(input, orig) {
+      if (!enabled()) return false;
+      var val = (typeof input === 'string') ? input.trim().toLowerCase() : '';
+      if (!/^nothing can stop (you|me|us)$/.test(val)) return false;
+      var out = document.getElementById('feelCards') || document.getElementById('feel-results') || document.getElementById('output');
+      if (out) {
+        setHtml(out, '<div class="easter-still-result"><p class="easter-still-verse">When thou passest through the waters, I will be with thee; and through the rivers, they shall not overflow thee.</p><p class="easter-still-ref">(Isaiah 43:2)</p><p class="easter-still-verse" style="margin-top:1rem;">For I am persuaded, that neither death, nor life, nor angels, nor principalities, nor powers, nor things present, nor things to come, nor height, nor depth, nor any other creature, shall be able to separate us from the love of God.</p><p class="easter-still-ref">(Romans 8:38–39)</p><p style="margin-top:1rem;font-style:italic;opacity:0.95;">Nothing can stop you. He is with you.</p></div>');
+        out.style.display = '';
+        out.classList.remove('hidden');
+        out.classList.add('easter-still-glow', 'has-results');
+        setTimeout(function () { out.classList.remove('easter-still-glow'); }, 5000);
+        out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      var inp = document.getElementById('feel-search') || document.getElementById('query') || document.getElementById('tdb-search');
+      if (inp) inp.value = '';
+      return true;
+    }
+
+    function tryGraceSearch(input, orig) {
+      if (!enabled()) return false;
+      var inp = (input && typeof input !== 'string') ? input : document.getElementById('feel-search') || document.getElementById('query') || document.getElementById('tdb-search');
+      if (!inp) return false;
+      var val = (typeof input === 'string') ? input.trim().toLowerCase() : String(inp.value || '').trim().toLowerCase();
+      if (val !== 'grace') return false;
+      inp.classList.add('easter-still-glow');
+      setTimeout(function () { inp.classList.remove('easter-still-glow'); }, 4000);
+      showGraceRain();
+      var toast = document.createElement('div');
+      toast.className = 'easter-triple-toast';
+      toast.setAttribute('role', 'status');
+      toast.setAttribute('aria-live', 'polite');
+      toast.textContent = 'Grace upon grace. (John 1:16)';
+      document.body.appendChild(toast);
+      setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 3500);
+      if (orig) orig.apply(null, ['grace']);
+      if (inp) inp.value = '';
+      return true;
+    }
+    function showGraceRain() {
+      if (reducedMotion()) return;
+      var wrap = document.createElement('div');
+      wrap.className = 'easter-grace-rain';
+      wrap.setAttribute('aria-hidden', 'true');
+      for (var i = 0; i < 12; i++) {
+        var s = document.createElement('span');
+        s.textContent = 'grace';
+        s.style.left = (Math.random() * 100) + '%';
+        s.style.animationDelay = (Math.random() * 0.5) + 's';
+        wrap.appendChild(s);
+      }
+      document.body.appendChild(wrap);
+      setTimeout(function () { wrap.remove(); }, 3500);
+    }
+
+    function tryForgiveSearch(input, orig) {
+      if (!enabled()) return false;
+      var val = (typeof input === 'string') ? input.trim().toLowerCase() : '';
+      var inp = (input && typeof input !== 'string') ? input : document.getElementById('feel-search') || document.getElementById('query') || document.getElementById('tdb-search');
+      if (!val && inp) val = String(inp.value || '').trim().toLowerCase();
+      if (val !== 'forgive') return false;
+      if (orig) orig.apply(window, ['forgive']);
+      var out = document.getElementById('feelCards') || document.getElementById('feel-results') || document.getElementById('output');
+      if (out) {
+        out.classList.add('easter-forgive-glow');
+        setTimeout(function () { out.classList.remove('easter-forgive-glow'); }, 5000);
+      }
+      var toast = document.createElement('div');
+      toast.className = 'easter-triple-toast';
+      toast.setAttribute('role', 'status');
+      toast.setAttribute('aria-live', 'polite');
+      toast.textContent = 'As we forgive those who trespass against us...';
+      document.body.appendChild(toast);
+      setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 4000);
+      return true;
+    }
+
+    function tryMercySearch(input, orig) {
+      if (!enabled()) return false;
+      var val = (typeof input === 'string') ? input.trim().toLowerCase() : '';
+      var inp = (input && typeof input !== 'string') ? input : document.getElementById('feel-search') || document.getElementById('query') || document.getElementById('tdb-search');
+      if (!val && inp) val = String(inp.value || '').trim().toLowerCase();
+      if (val !== 'mercy') return false;
+      var mercyChip = document.querySelector('.quick-topic[data-topic="mercy"]');
+      var chips = document.querySelectorAll('.quick-topic[data-topic]');
+      var target = mercyChip || (chips.length ? chips[Math.floor(Math.random() * chips.length)] : null);
+      if (target) {
+        target.classList.add('easter-still-glow');
+        setTimeout(function () { target.classList.remove('easter-still-glow'); }, 2000);
+      }
+      var toast = document.createElement('div');
+      toast.className = 'easter-triple-toast';
+      toast.setAttribute('role', 'status');
+      toast.setAttribute('aria-live', 'polite');
+      toast.textContent = 'His mercies are new every morning. (Lamentations 3:22–23)';
+      document.body.appendChild(toast);
+      setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 4000);
+      if (orig) orig.apply(null, ['mercy']);
+      if (inp) inp.value = '';
+      var prayerLine = document.getElementById('tdbFamilyModePrayer') || document.getElementById('heroBreakdownPrayer') || document.getElementById('heroVersePrayer');
+      if (prayerLine) addInlineNote(prayerLine.parentNode || prayerLine, 'tdb-egg-mercy-note', 'Mercy met you here too.', 'easter-inline-note');
+      if (matchesRecentTerms(['fear', 'peace', 'hope']) && registerEgg('homeFearPeaceHopeChain', { tier: 'discovery', page: 'home', triggerType: 'route_chain', sessionOnly: true })) {
+        createToast('Fear to peace to hope. That is a holy little route.', 'easter-triple-toast', 4200);
+      }
+      return true;
+    }
+
+    function tryPeaceSearch(input, orig) {
+      if (!enabled()) return false;
+      var val = (typeof input === 'string') ? input.trim().toLowerCase() : '';
+      var inp = (input && typeof input !== 'string') ? input : document.getElementById('feel-search') || document.getElementById('query') || document.getElementById('tdb-search');
+      if (!val && inp) val = String(inp.value || '').trim().toLowerCase();
+      if (val !== 'peace') return false;
+      var out = document.getElementById('feelCards') || document.getElementById('feel-results') || document.getElementById('output');
+      if (orig) orig.apply(null, ['peace']);
+      if (out) {
+        out.classList.add('easter-peace-ripple');
+        addInlineNote(out, 'tdb-egg-peace-inline', 'The Prince of Peace still meets people in real storms. (Isaiah 9:6)', 'easter-inline-note');
+        setTimeout(function () { out.classList.remove('easter-peace-ripple'); }, 4500);
+      }
+      createToast('Peace, be still. (Mark 4:39)', 'easter-triple-toast', 3600);
+      if (inp) inp.value = '';
+      return true;
+    }
+
+    function tryArmorSearch(input, orig) {
+      if (!enabled()) return false;
+      var val = (typeof input === 'string') ? input.trim().toLowerCase() : '';
+      var inp = (input && typeof input !== 'string') ? input : document.getElementById('feel-search') || document.getElementById('query') || document.getElementById('tdb-search');
+      if (!val && inp) val = String(inp.value || '').trim().toLowerCase();
+      if (val !== 'armor') return false;
+      if (orig) orig.apply(null, ['faith']);
+      var nextSteps = document.getElementById('tdbGentleNextSteps') || document.getElementById('tdbSearchNextStepPlan') || document.getElementById('feel-section');
+      addInlineNote(nextSteps && nextSteps.parentNode ? nextSteps.parentNode : nextSteps, 'tdb-egg-armor-inline', 'Battle Plan idea: pair today\'s verse with Family Armor when the house feels loud.', 'easter-inline-note');
+      createToast('Put on the whole armour of God. (Ephesians 6:11)', 'easter-triple-toast', 4200);
+      if (inp) inp.value = '';
+      return true;
+    }
+
+    function tryShabbatSearch(input, orig) {
+      if (!enabled()) return false;
+      var val = (typeof input === 'string') ? input.trim().toLowerCase() : '';
+      var inp = (input && typeof input !== 'string') ? input : document.getElementById('feel-search') || document.getElementById('query') || document.getElementById('tdb-search');
+      if (!val && inp) val = String(inp.value || '').trim().toLowerCase();
+      if (val !== 'shabbat') return false;
+      document.body.classList.add('easter-shabbat-dark');
+      if (!reducedMotion()) document.body.classList.add('easter-candle-flicker');
+      setTimeout(function () { document.body.classList.remove('easter-shabbat-dark', 'easter-candle-flicker'); }, 6000);
+      var toast = document.createElement('div');
+      toast.className = 'easter-triple-toast';
+      toast.setAttribute('role', 'status');
+      toast.setAttribute('aria-live', 'polite');
+      toast.textContent = 'Remember the sabbath day, to keep it holy. (Exodus 20:8)';
+      document.body.appendChild(toast);
+      setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 5000);
+      if (orig) orig.apply(null, ['rest']);
+      if (inp) inp.value = '';
+      return true;
+    }
+
+    function tryRisenSearch(input) {
+      if (!enabled()) return false;
+      var val = (typeof input === 'string') ? input.trim().toLowerCase() : '';
+      var inp = (input && typeof input !== 'string') ? input : document.getElementById('feel-search') || document.getElementById('query') || document.getElementById('tdb-search');
+      if (!val && inp) val = String(inp.value || '').trim().toLowerCase();
+      if (val !== 'risen') return false;
+      try {
+        if (sessionStorage.getItem('risenSeen')) return false;
+        sessionStorage.setItem('risenSeen', '1');
+      } catch (x) { return false; }
+      document.body.classList.add('easter-risen-sunrise');
+      setTimeout(function () { document.body.classList.remove('easter-risen-sunrise'); }, 5000);
+      var toast = document.createElement('div');
+      toast.className = 'easter-triple-toast';
+      toast.setAttribute('role', 'status');
+      toast.setAttribute('aria-live', 'polite');
+      toast.textContent = 'He is risen indeed! (Luke 24:34)';
+      document.body.appendChild(toast);
+      setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 4500);
+      if (inp) inp.value = '';
+      return true;
+    }
+
+    function tryLambSearch(input, orig) {
+      if (!enabled()) return false;
+      var val = (typeof input === 'string') ? input.trim().toLowerCase() : '';
+      var inp = (input && typeof input !== 'string') ? input : document.getElementById('feel-search') || document.getElementById('query') || document.getElementById('tdb-search');
+      if (!val && inp) val = String(inp.value || '').trim().toLowerCase();
+      if (val !== 'lamb') return false;
+      if (!reducedMotion()) { showLambFloat(); }
+      var toast = document.createElement('div');
+      toast.className = 'easter-triple-toast';
+      toast.setAttribute('role', 'status');
+      toast.setAttribute('aria-live', 'polite');
+      toast.textContent = 'Behold the Lamb of God, which taketh away the sin of the world. (John 1:29)';
+      document.body.appendChild(toast);
+      setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 4500);
+      if (orig) orig.apply(null, ['lamb']);
+      if (inp) inp.value = '';
+      return true;
+    }
+    function showLambFloat() {
+      var lamb = document.createElement('div');
+      lamb.className = 'easter-lamb-float';
+      lamb.textContent = '\uD83D\uDC11';
+      lamb.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(lamb);
+      setTimeout(function () { lamb.remove(); }, 4000);
+    }
+
+    function tryResurrectionSearch(input, orig) {
+      if (!enabled()) return false;
+      var val = (typeof input === 'string') ? input.trim().toLowerCase() : '';
+      var inp = (input && typeof input !== 'string') ? input : document.getElementById('feel-search') || document.getElementById('query') || document.getElementById('tdb-search');
+      if (!val && inp) val = String(inp.value || '').trim().toLowerCase();
+      if (val !== 'resurrection') return false;
+      try {
+        if (sessionStorage.getItem('resurrectionSeen')) return false;
+        sessionStorage.setItem('resurrectionSeen', '1');
+      } catch (x) { return false; }
+      var out = document.getElementById('feelCards') || document.getElementById('feel-results') || document.getElementById('output');
+      if (out) {
+        out.classList.add('easter-resurrection-glow');
+        setTimeout(function () { out.classList.remove('easter-resurrection-glow'); }, 5000);
+      }
+      if (orig) orig.apply(null, ['resurrection']);
+      var toast = document.createElement('div');
+      toast.className = 'easter-triple-toast';
+      toast.setAttribute('role', 'status');
+      toast.setAttribute('aria-live', 'polite');
+      toast.textContent = 'Why seek ye the living among the dead? (Luke 24:5)';
+      document.body.appendChild(toast);
+      setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 4500);
+      if (inp) inp.value = '';
+      return true;
+    }
+
+    function tryAbideSearch(input, orig) {
+      if (!enabled()) return false;
+      var val = (typeof input === 'string') ? input.trim().toLowerCase() : '';
+      var inp = (input && typeof input !== 'string') ? input : document.getElementById('feel-search') || document.getElementById('query') || document.getElementById('tdb-search');
+      if (!val && inp) val = String(inp.value || '').trim().toLowerCase();
+      if (val !== 'abide') return false;
+      var out = document.getElementById('feelCards') || document.getElementById('feel-results') || document.getElementById('output');
+      if (out) {
+        setHtml(out, '<div class="easter-still-result"><p class="easter-still-verse">Abide in me, and I in you. As the branch cannot bear fruit of itself, except it abide in the vine; no more can ye, except ye abide in me.</p><p class="easter-still-ref">(John 15:4)</p></div>');
+        out.style.display = '';
+        out.classList.remove('hidden');
+        out.classList.add('easter-still-glow', 'has-results');
+        setTimeout(function () { out.classList.remove('easter-still-glow'); }, 5000);
+        out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      var toast = document.createElement('div');
+      toast.className = 'easter-triple-toast';
+      toast.setAttribute('role', 'status');
+      toast.setAttribute('aria-live', 'polite');
+      toast.textContent = 'Without Him, we can do nothing. (John 15:5)';
+      document.body.appendChild(toast);
+      setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 4500);
+      if (inp) inp.value = '';
+      return true;
+    }
+
+    function trySecretsUnlock(input) {
+      if (!enabled()) return false;
+      var val = (typeof input === 'string') ? input.trim().toLowerCase() : '';
+      var inp = (input && typeof input !== 'string') ? input : document.getElementById('feel-search') || document.getElementById('query') || document.getElementById('tdb-search');
+      if (!val && inp) val = String(inp.value || '').trim().toLowerCase();
+      if (val !== 'secrets') return false;
+      try {
+        if (sessionStorage.getItem('konamiFound') !== '1') return false;
+        sessionStorage.setItem('tdb_secretsUnlocked', '1');
+        localStorage.setItem(EGG_SECRETS_UNLOCK_KEY, '1');
+      } catch (x) { return false; }
+      if (inp) inp.value = '';
+      window.location.href = '/secrets.html';
+      return true;
+    }
+
+    function tryAmen(input) {
+      if (!enabled()) return false;
+      var val = (typeof input === 'string') ? input.trim().toLowerCase() : (input ? String(input.value || '').trim().toLowerCase() : '');
+      if (val !== 'amen') return false;
+      try {
+        if (sessionStorage.getItem('amenSeen')) return false;
+        sessionStorage.setItem('amenSeen', '1');
+      } catch (x) { return false; }
+      var out = document.getElementById('feelCards') || document.getElementById('feel-results') || document.getElementById('output');
+      if (out) {
+        out.classList.add('easter-amen-glow');
+        setTimeout(function () { out.classList.remove('easter-amen-glow'); }, 3000);
+      }
+      document.body.classList.add('easter-amen-pulse');
+      setTimeout(function () { document.body.classList.remove('easter-amen-pulse'); }, 800);
+      var corner = document.createElement('div');
+      corner.className = 'easter-amen-corner';
+      corner.textContent = 'Amen';
+      corner.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(corner);
+      setTimeout(function () { corner.classList.add('easter-amen-fade'); setTimeout(function () { corner.remove(); }, 500); }, 2000);
+      var toast = document.createElement('div');
+      toast.className = 'easter-triple-toast';
+      toast.textContent = 'Amen — so be it.';
+      toast.setAttribute('role', 'status');
+      document.body.appendChild(toast);
+      setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 3500);
+      var inp = (input && typeof input !== 'string') ? input : document.getElementById('feel-search') || document.getElementById('query') || document.getElementById('tdb-search');
+      if (inp) inp.value = '';
+      return true;
+    }
+    window.tryAmenEaster = tryAmen;
+
+    function tryHallelujah(input) {
+      if (!enabled()) return false;
+      var val = input ? String(input.value || '').trim().toLowerCase() : '';
+      if (val !== 'hallelujah') return false;
+      try {
+        var today = new Date().toDateString();
+        if (localStorage.getItem('hallelujahDay') === today) return false;
+        localStorage.setItem('hallelujahDay', today);
+      } catch (x) { return false; }
+      showHallelujah();
+      if (input) input.value = '';
+      return true;
+    }
+
+    function showHallelujah() {
+      var v = PRAISE_VERSES[Math.floor(Math.random() * PRAISE_VERSES.length)];
+      var wrap = document.createElement('div');
+      wrap.className = 'easter-hallelujah-wrap' + (reducedMotion() ? ' easter-no-motion' : '');
+      wrap.setAttribute('role', 'status');
+      wrap.setAttribute('aria-live', 'polite');
+      setHtml(wrap, '<div class="easter-hallelujah-bg"></div><p class="easter-hallelujah-text">Hallelujah! Praise the Lord!</p><p class="easter-hallelujah-verse">"' + escapeHtml(v.text) + '" — ' + escapeHtml(v.ref) + '</p>');
+      if (!reducedMotion()) {
+        var dove = document.createElement('span');
+        dove.className = 'easter-hallelujah-dove';
+        dove.textContent = '\uD83D\uDD4A\uFE0F';
+        dove.setAttribute('aria-hidden', 'true');
+        wrap.appendChild(dove);
+      }
+      document.body.appendChild(wrap);
+      var out = document.getElementById('feelCards') || document.getElementById('feel-results') || document.getElementById('output');
+      if (out) {
+        out.classList.add('easter-still-glow');
+        setTimeout(function () { out.classList.remove('easter-still-glow'); }, 6000);
+      }
+      setTimeout(function () {
+        wrap.classList.add('easter-hallelujah-fade');
+        setTimeout(function () { wrap.remove(); }, 500);
+      }, 5500);
+      try {
+        if (!localStorage.getItem('hallelujahPraiseSeen')) {
+          localStorage.setItem('hallelujahPraiseSeen', '1');
+          setTimeout(function () {
+            var praiseToast = document.createElement('div');
+            praiseToast.className = 'easter-triple-toast';
+            praiseToast.setAttribute('role', 'status');
+            praiseToast.setAttribute('aria-live', 'polite');
+            praiseToast.textContent = 'Praise Him in the storm.';
+            document.body.appendChild(praiseToast);
+            setTimeout(function () { praiseToast.classList.add('easter-triple-fade'); setTimeout(function () { praiseToast.remove(); }, 400); }, 3500);
+          }, 5600);
+        }
+      } catch (x) {}
+    }
+
+    // 4. 10s hover on privacy note
+    var privacy = document.querySelector('.landing-privacy-teaser');
+    if (privacy) {
+      var hoverTimer = null;
+      var whisper = null;
+      privacy.addEventListener('mouseenter', function () {
+        if (!enabled()) return;
+        hoverTimer = setTimeout(function () {
+          if (whisper) return;
+          whisper = document.createElement('p');
+          whisper.className = 'easter-god-sees';
+          whisper.textContent = 'But He sees every heart ❤️ (Psalm 139)';
+          privacy.appendChild(whisper);
+          setTimeout(function () { if (whisper && whisper.parentNode) whisper.remove(); whisper = null; }, 5000);
+        }, 10000);
+      });
+      privacy.addEventListener('mouseleave', function () {
+        if (hoverTimer) clearTimeout(hoverTimer);
+        hoverTimer = null;
+      });
+      var touchStart = null;
+      privacy.addEventListener('touchstart', function () {
+        if (!enabled()) return;
+        touchStart = Date.now();
+      });
+      privacy.addEventListener('touchend', function () {
+        if (touchStart && Date.now() - touchStart >= 10000 && !whisper) {
+          whisper = document.createElement('p');
+          whisper.className = 'easter-god-sees';
+          whisper.textContent = 'But He sees every heart ❤️ (Psalm 139)';
+          privacy.appendChild(whisper);
+          setTimeout(function () { if (whisper && whisper.parentNode) whisper.remove(); whisper = null; }, 5000);
+        }
+        touchStart = null;
+      });
+    }
+
+    // Double-tap "Do this" prompt on daily verse — pulse + cross glow + toast
+    (function wireDoThisDoubleTap() {
+      var panels = document.getElementById('heroBreakdownPanels');
+      if (!panels) return;
+      panels.addEventListener('dblclick', function (e) {
+        if (!enabled()) return;
+        var panel = e.target.closest('.hbp-panel--action');
+        if (!panel) return;
+        var label = panel.querySelector('.hbp-label');
+        if (!label || label.textContent.trim().indexOf('Do this') === -1) return;
+        var verseCard = document.getElementById('verseCard');
+        if (verseCard) {
+          verseCard.classList.add('easter-do-this-pulse');
+          if (!reducedMotion()) verseCard.classList.add('easter-cross-glow');
+          setTimeout(function () { verseCard.classList.remove('easter-do-this-pulse', 'easter-cross-glow'); }, 4000);
+        }
+        var toast = document.createElement('div');
+        toast.className = 'easter-triple-toast';
+        toast.setAttribute('role', 'status');
+        toast.setAttribute('aria-live', 'polite');
+        toast.textContent = 'He did it all for you.';
+        document.body.appendChild(toast);
+        setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 4000);
+      });
+    })();
+
+    // Triple-click cross emoji (welcome-cross, Forgiveness chip) — empty tomb + toast
+    (function wireCrossTripleClick() {
+      var targets = document.querySelectorAll('.welcome-cross, .quick-topic[data-topic="forgiveness"]');
+      targets.forEach(function (el) {
+        var count = 0;
+        var lastClick = 0;
+        el.addEventListener('click', function () {
+          if (!enabled()) return;
+          var now = Date.now();
+          if (now - lastClick > 500) count = 0;
+          count++;
+          lastClick = now;
+          if (count >= 3) {
+            count = 0;
+            try {
+              if (sessionStorage.getItem('crossTombSeen')) return;
+              sessionStorage.setItem('crossTombSeen', '1');
+            } catch (x) { return; }
+            var tomb = document.createElement('div');
+            tomb.className = 'easter-tomb-emoji';
+            tomb.textContent = '\u271D\uFE0F';
+            tomb.setAttribute('aria-hidden', 'true');
+            document.body.appendChild(tomb);
+            setTimeout(function () { tomb.remove(); }, 3500);
+            var toast = document.createElement('div');
+            toast.className = 'easter-triple-toast';
+            toast.setAttribute('role', 'status');
+            toast.setAttribute('aria-live', 'polite');
+            toast.textContent = 'The tomb is empty — He is risen. (Matthew 28:6)';
+            document.body.appendChild(toast);
+            setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 4000);
+          }
+        });
+      });
+    })();
+
+    // 5b. Triple-tap daily verse text (3 clicks within 500ms) — heroVerse or verseCard
+    var heroVerse = document.getElementById('heroVerse') || document.querySelector('.hero-verse') || document.querySelector('.verse-text, .daily-verse p');
+    var verseCard = document.getElementById('verseCard');
+    var tripleTarget = heroVerse || verseCard;
+    if (tripleTarget) {
+      var verseClickCount = 0;
+      var verseLastClick = 0;
+      function onVerseTap(e) {
+        if (!enabled()) return;
+        var now = Date.now();
+        if (now - verseLastClick < 500) verseClickCount++; else verseClickCount = 1;
+        verseLastClick = now;
+        if (verseClickCount >= 3) {
+          verseClickCount = 0;
+          e.stopPropagation();
+          var toast = document.createElement('div');
+          toast.className = 'easter-triple-toast' + (reducedMotion() ? ' easter-no-motion' : '');
+          toast.setAttribute('role', 'status');
+          toast.setAttribute('aria-live', 'polite');
+          toast.textContent = 'This verse found you today. What if it\'s not random?';
+          document.body.appendChild(toast);
+          setTimeout(function () {
+            toast.classList.add('easter-triple-fade');
+            setTimeout(function () { toast.remove(); }, 400);
+          }, 3600);
+        }
+      }
+      tripleTarget.addEventListener('click', onVerseTap, true);
+    }
+
+    // 5c. "still" in search — must run before resolveFeelGroup (always override, no session limit)
+    function tryStill(input) {
+      if (!enabled()) return false;
+      var val;
+      if (typeof input === 'string') val = input.trim().toLowerCase();
+      else {
+        var inp = input || document.getElementById('feel-search') || document.getElementById('query') || document.getElementById('tdb-search');
+        val = inp ? String(inp.value || '').trim().toLowerCase() : '';
+      }
+      if (val !== 'still') return false;
+      showStill();
+      var inp = (input && typeof input !== 'string') ? input : document.getElementById('feel-search') || document.getElementById('query') || document.getElementById('tdb-search');
+      if (inp) inp.value = '';
+      return true;
+    }
+
+    function showStill() {
+      var out = document.getElementById('feelCards') || document.getElementById('feel-results') || document.getElementById('output') || document.getElementById('lookup-result');
+      if (out) {
+        setHtml(out, '<div class="easter-still-result"><p class="easter-still-verse">Be still, and know that I am God.</p><p class="easter-still-ref">(Psalm 46:10)</p></div>');
+        out.style.display = '';
+        out.classList.remove('hidden');
+        out.classList.add('easter-still-glow', 'has-results');
+        setTimeout(function () { out.classList.remove('easter-still-glow'); }, 5000);
+        out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      var inp = document.getElementById('feel-search') || document.getElementById('query') || document.getElementById('tdb-search');
+      if (inp) {
+        inp.classList.add('easter-still-glow');
+        setTimeout(function () { inp.classList.remove('easter-still-glow'); }, 5000);
+      }
+    }
+
+    window.tryStillEaster = tryStill;
+
+    // 5d. Shift + hover Peace chip 3s (or long-press on mobile)
+    (function wirePeaceChip() {
+      var chip = document.querySelector('.quick-topic[data-topic="peace"]');
+      if (!chip || !enabled()) return;
+      var t = null;
+      var tip = null;
+      chip.addEventListener('mouseenter', function (e) {
+        if (!e.shiftKey) return;
+        t = setTimeout(function () {
+          if (tip) return;
+          chip.classList.add('easter-peace-ripple');
+          tip = document.createElement('span');
+          tip.className = 'easter-peace-tooltip';
+          tip.textContent = 'Peace isn\'t absence of storm—it\'s presence in it.';
+          chip.appendChild(tip);
+          setTimeout(function () { if (tip && tip.parentNode) tip.remove(); chip.classList.remove('easter-peace-ripple'); tip = null; }, 5000);
+        }, 3000);
+      });
+      chip.addEventListener('mouseleave', function () { if (t) clearTimeout(t); t = null; });
+      chip.addEventListener('keyup', function (e) { if (e.key === 'Shift' && t) clearTimeout(t); t = null; });
+      var touchStart = null;
+      chip.addEventListener('touchstart', function (e) { touchStart = Date.now(); });
+      chip.addEventListener('touchend', function (e) {
+        if (touchStart && Date.now() - touchStart >= 3000 && !tip) {
+          chip.classList.add('easter-peace-ripple');
+          tip = document.createElement('span');
+          tip.className = 'easter-peace-tooltip';
+          tip.textContent = 'Peace isn\'t absence of storm—it\'s presence in it.';
+          chip.appendChild(tip);
+          setTimeout(function () { if (tip && tip.parentNode) tip.remove(); chip.classList.remove('easter-peace-ripple'); tip = null; }, 5000);
+        }
+        touchStart = null;
+      });
+    })();
+
+    // 5e. Footer "No tracking" 7 clicks
+    var privacyTeaser = document.querySelector('.landing-privacy-teaser');
+    if (privacyTeaser) {
+      var noTrackCount = 0;
+      privacyTeaser.addEventListener('click', function () {
+        if (!enabled()) return;
+        noTrackCount++;
+        if (noTrackCount >= 7) {
+          noTrackCount = 0;
+          if (typeof console !== 'undefined' && console.log) console.log('Nice try—still no tracking.');
+          document.body.classList.add('easter-site-glow');
+          var toast = document.createElement('div');
+          toast.className = 'easter-triple-toast';
+          toast.textContent = 'You\'re seen... but not tracked.';
+          toast.setAttribute('role', 'status');
+          document.body.appendChild(toast);
+          setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 3000);
+          setTimeout(function () { document.body.classList.remove('easter-site-glow'); }, 10000);
+        }
+      });
+    }
+
+    // 1 in 30 load: floating cross + "The cross was the key."
+    if (Math.random() < 1 / 30) {
+      var crossWrap = document.createElement('div');
+      crossWrap.className = 'easter-cross-float' + (reducedMotion() ? ' easter-no-motion' : '');
+      crossWrap.setAttribute('aria-hidden', 'true');
+      setHtml(crossWrap, '\u271D\uFE0F<br><small style="font-size:0.8rem;opacity:0.95;">The cross was the key.</small>');
+      document.body.appendChild(crossWrap);
+      setTimeout(function () { crossWrap.remove(); }, 6000);
+    }
+
+    // Offline: toast once per offline session
+    if (!navigator.onLine) {
+      try {
+        if (!sessionStorage.getItem('offlineEggSeen')) {
+          sessionStorage.setItem('offlineEggSeen', '1');
+          setTimeout(function () {
+            var t = document.createElement('div');
+            t.className = 'easter-triple-toast';
+            t.setAttribute('role', 'status');
+            t.setAttribute('aria-live', 'polite');
+            t.textContent = 'Even offline, He is with you. (Matthew 28:20)';
+            document.body.appendChild(t);
+            setTimeout(function () { t.classList.add('easter-triple-fade'); setTimeout(function () { t.remove(); }, 400); }, 4500);
+          }, 1500);
+        }
+      } catch (x) {}
+    }
+    window.addEventListener('online', function () { try { sessionStorage.removeItem('offlineEggSeen'); } catch (x) {} });
+
+    // 5. Random dove 10%
+    if (Math.random() < 0.1) {
+      var dove = document.createElement('div');
+      dove.className = 'easter-hidden-dove' + (reducedMotion() ? ' easter-no-motion' : '');
+      dove.setAttribute('aria-hidden', 'true');
+      dove.textContent = '\uD83D\uDD4A\uFE0F';
+      dove.title = 'The Spirit descends quietly... (Matthew 3:16)';
+      dove.dataset.easterDove = '1';
+      document.body.appendChild(dove);
+      dove.addEventListener('click', function () { dove.classList.add('easter-dove-fade'); setTimeout(function () { dove.remove(); }, 400); });
+      dove.addEventListener('mouseenter', function () { dove.classList.add('easter-dove-hover'); });
+      dove.addEventListener('mouseleave', function () { dove.classList.remove('easter-dove-hover'); });
+      wireDoveHoverEl(dove);
+    }
+
+    // 5g. Dove hover: 3s on Peace chip or dove emoji → wing-flutter + toast
+    function wireDoveHoverEl(el) {
+      if (!el || el.dataset.easterDoveHover) return;
+      el.dataset.easterDoveHover = '1';
+      var hoverTimer = null;
+      el.addEventListener('mouseenter', function () {
+        if (!enabled()) return;
+        hoverTimer = setTimeout(function () {
+          hoverTimer = null;
+          el.classList.add('easter-dove-wing-flutter');
+          var toast = document.createElement('div');
+          toast.className = 'easter-triple-toast';
+          toast.textContent = 'Peace is closer than you think.';
+          toast.setAttribute('role', 'status');
+          document.body.appendChild(toast);
+          setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 3500);
+          setTimeout(function () { el.classList.remove('easter-dove-wing-flutter'); }, 600);
+        }, 3000);
+      });
+      el.addEventListener('mouseleave', function () {
+        if (hoverTimer) clearTimeout(hoverTimer);
+        hoverTimer = null;
+      });
+    }
+    document.querySelectorAll('.quick-topic[data-topic="peace"], .plan-chip[data-plan="peace"], a.plan-category-chip--peace').forEach(wireDoveHoverEl);
+
+    // 5h. Ctrl+Shift+P → Peace chip pulse + scroll + toast
+    document.addEventListener('keydown', function (e) {
+      if (!enabled()) return;
+      if (e.ctrlKey && e.shiftKey && (e.key === 'P' || e.key === 'p')) {
+        e.preventDefault();
+        var peaceChip = document.querySelector('.quick-topic[data-topic="peace"]');
+        if (peaceChip) {
+          peaceChip.classList.add('easter-dove-wing-flutter');
+          setTimeout(function () { peaceChip.classList.remove('easter-dove-wing-flutter'); }, 600);
+          peaceChip.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        var toast = document.createElement('div');
+        toast.className = 'easter-triple-toast';
+        toast.textContent = 'Peace I leave with you... (John 14:27)';
+        toast.setAttribute('role', 'status');
+        document.body.appendChild(toast);
+        setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 4000);
+      }
+      if (e.ctrlKey && e.shiftKey && (e.key === 'J' || e.key === 'j')) {
+        e.preventDefault();
+        var joyChip = document.querySelector('.quick-topic[data-topic="joy"]');
+        if (joyChip) {
+          joyChip.classList.add('easter-dove-wing-flutter');
+          setTimeout(function () { joyChip.classList.remove('easter-dove-wing-flutter'); }, 600);
+          joyChip.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        var t = document.createElement('div');
+        t.className = 'easter-triple-toast';
+        t.textContent = 'Rejoice always. (1 Thessalonians 5:16)';
+        t.setAttribute('role', 'status');
+        document.body.appendChild(t);
+        setTimeout(function () { t.classList.add('easter-triple-fade'); setTimeout(function () { t.remove(); }, 400); }, 4000);
+      }
+      if (e.altKey && e.shiftKey && (e.key === 'F' || e.key === 'f')) {
+        e.preventDefault();
+        var faithChip = document.querySelector('.quick-topic[data-topic="faith"]');
+        if (faithChip) {
+          faithChip.classList.add('easter-still-glow');
+          setTimeout(function () { faithChip.classList.remove('easter-still-glow'); }, 2000);
+          faithChip.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        var t = document.createElement('div');
+        t.className = 'easter-triple-toast';
+        t.textContent = 'Faith is the substance of things hoped for, the evidence of things not seen. (Hebrews 11:1)';
+        t.setAttribute('role', 'status');
+        document.body.appendChild(t);
+        setTimeout(function () { t.classList.add('easter-triple-fade'); setTimeout(function () { t.remove(); }, 400); }, 5000);
+      }
+      if (e.ctrlKey && e.altKey && (e.key === 'R' || e.key === 'r')) {
+        e.preventDefault();
+        try {
+          var today = new Date().toDateString();
+          if (localStorage.getItem('resurrectionEggDay') === today) return;
+          localStorage.setItem('resurrectionEggDay', today);
+        } catch (x) { return; }
+        var tomb = document.createElement('div');
+        tomb.className = 'easter-tomb-emoji';
+        tomb.textContent = '\u271D\uFE0F';
+        tomb.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(tomb);
+        var t = document.createElement('div');
+        t.className = 'easter-triple-toast';
+        t.textContent = 'He is not here; for he is risen. (Matthew 28:6)';
+        t.setAttribute('role', 'status');
+        document.body.appendChild(t);
+        setTimeout(function () { t.classList.add('easter-triple-fade'); setTimeout(function () { t.remove(); }, 400); }, 4000);
+      }
+    });
+
+    // 5i. Grace triple-click any mood chip
+    var chipGrid = document.getElementById('quickTopics');
+    if (chipGrid) {
+      chipGrid.addEventListener('click', function (e) {
+        if (!enabled()) return;
+        var chip = e.target.closest('.quick-topic[data-topic]');
+        if (!chip) return;
+        var topic = chip.getAttribute('data-topic') || '';
+        var key = 'graceSeen_' + topic;
+        var count = parseInt(sessionStorage.getItem(key) || '0', 10);
+        var now = Date.now();
+        var last = parseInt(sessionStorage.getItem(key + '_t') || '0', 10);
+        if (now - last > 500) count = 0;
+        count++;
+        sessionStorage.setItem(key, String(count));
+        sessionStorage.setItem(key + '_t', String(now));
+        if (count >= 3) {
+          sessionStorage.setItem(key, '0');
+          chip.classList.add('easter-still-glow');
+          setTimeout(function () { chip.classList.remove('easter-still-glow'); }, 2000);
+          var toast = document.createElement('div');
+          toast.className = 'easter-triple-toast';
+          toast.textContent = 'Grace upon grace.';
+          toast.setAttribute('role', 'status');
+          document.body.appendChild(toast);
+          setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 3500);
+        }
+      });
+    }
+
+    // 5j. Hope chip: 4s hover or long-press
+    (function wireHopeEgg() {
+      var hopeChip = document.querySelector('.quick-topic[data-topic="hope"]');
+      if (!hopeChip) return;
+      var hoverTimer = null;
+      var touchStart = null;
+      function showHope() {
+        hopeChip.classList.add('easter-hope-lift');
+        var toast = document.createElement('div');
+        toast.className = 'easter-triple-toast';
+        toast.textContent = 'Hope does not disappoint. (Romans 5:5)';
+        toast.setAttribute('role', 'status');
+        document.body.appendChild(toast);
+        setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 4000);
+        setTimeout(function () { hopeChip.classList.remove('easter-hope-lift'); }, 3000);
+      }
+      hopeChip.addEventListener('mouseenter', function () { hoverTimer = setTimeout(showHope, 4000); });
+      hopeChip.addEventListener('mouseleave', function () { if (hoverTimer) clearTimeout(hoverTimer); hoverTimer = null; });
+      hopeChip.addEventListener('touchstart', function () { touchStart = Date.now(); });
+      hopeChip.addEventListener('touchend', function () {
+        if (touchStart && Date.now() - touchStart >= 4000) showHope();
+        touchStart = null;
+      });
+    })();
+
+    // 5k. Forgiveness chip: 5 clicks in 3s
+    (function wireForgivenessEgg() {
+      var chip = document.querySelector('.quick-topic[data-topic="forgiveness"]');
+      if (!chip) return;
+      var count = 0;
+      var resetAt = 0;
+      chip.addEventListener('click', function () {
+        if (!enabled()) return;
+        var now = Date.now();
+        if (now > resetAt) count = 0;
+        count++;
+        resetAt = now + 3000;
+        if (count >= 5) {
+          count = 0;
+          chip.classList.add('easter-forgive-spin');
+          setTimeout(function () { chip.classList.remove('easter-forgive-spin'); }, 600);
+          var toast = document.createElement('div');
+          toast.className = 'easter-triple-toast';
+          toast.textContent = 'Forgiven people forgive.';
+          toast.setAttribute('role', 'status');
+          document.body.appendChild(toast);
+          setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 3500);
+        }
+      });
+    })();
+
+    // Rest chip: 5s hover or long-press — chip floats, toast Matthew 11:28
+    (function wireRestEgg() {
+      var chip = document.querySelector('.quick-topic[data-topic="rest"]');
+      if (!chip) return;
+      var hoverTimer = null;
+      var touchStart = null;
+      function showRest() {
+        chip.classList.add('easter-rest-float');
+        var toast = document.createElement('div');
+        toast.className = 'easter-triple-toast';
+        toast.setAttribute('role', 'status');
+        toast.setAttribute('aria-live', 'polite');
+        toast.textContent = 'Come unto me, all ye that labour and are heavy laden, and I will give you rest. (Matthew 11:28)';
+        document.body.appendChild(toast);
+        setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 5000);
+        setTimeout(function () { chip.classList.remove('easter-rest-float'); }, 4000);
+      }
+      chip.addEventListener('mouseenter', function () { hoverTimer = setTimeout(showRest, 5000); });
+      chip.addEventListener('mouseleave', function () { if (hoverTimer) clearTimeout(hoverTimer); hoverTimer = null; });
+      chip.addEventListener('touchstart', function () { touchStart = Date.now(); });
+      chip.addEventListener('touchend', function () {
+        if (touchStart && Date.now() - touchStart >= 5000) showRest();
+        touchStart = null;
+      });
+    })();
+
+    // Love chip: Ctrl+click — heart particles + toast 1 Corinthians 13:8
+    (function wireLoveCtrlEgg() {
+      var chip = document.querySelector('.quick-topic[data-topic="love"]');
+      if (!chip) return;
+      chip.addEventListener('click', function (e) {
+        if (!enabled() || !e.ctrlKey) return;
+        if (!reducedMotion()) {
+          var rect = chip.getBoundingClientRect();
+          for (var i = 0; i < 10; i++) {
+            var p = document.createElement('span');
+            p.className = 'easter-joy-particles';
+            p.textContent = '\u2665';
+            p.style.color = '#e87a7a';
+            p.style.left = (rect.left + Math.random() * rect.width) + 'px';
+            p.style.top = (rect.top + Math.random() * rect.height) + 'px';
+            p.style.position = 'fixed';
+            document.body.appendChild(p);
+            (function (el) { setTimeout(function () { if (el.parentNode) el.remove(); }, 1500); })(p);
+          }
+        }
+        var toast = document.createElement('div');
+        toast.className = 'easter-triple-toast';
+        toast.setAttribute('role', 'status');
+        toast.setAttribute('aria-live', 'polite');
+        toast.textContent = 'Love never faileth. (1 Corinthians 13:8)';
+        document.body.appendChild(toast);
+        setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 4000);
+      });
+    })();
+
+    // Joy chip: 4 fast clicks — bounce + sun particles + toast Nehemiah 8:10
+    (function wireJoyEgg() {
+      var chip = document.querySelector('.quick-topic[data-topic="joy"]');
+      if (!chip) return;
+      var count = 0;
+      var lastClick = 0;
+      chip.addEventListener('click', function (e) {
+        if (!enabled()) return;
+        var now = Date.now();
+        if (now - lastClick > 600) count = 0;
+        count++;
+        lastClick = now;
+        if (count >= 4) {
+          count = 0;
+          chip.classList.add('easter-joy-bounce');
+          setTimeout(function () { chip.classList.remove('easter-joy-bounce'); }, 600);
+          if (!reducedMotion()) {
+            var rect = chip.getBoundingClientRect();
+            for (var i = 0; i < 12; i++) {
+              var p = document.createElement('span');
+              p.className = 'easter-joy-particles';
+              p.textContent = '\u2600\uFE0F';
+              p.style.left = (rect.left + Math.random() * rect.width) + 'px';
+              p.style.top = (rect.top + Math.random() * rect.height) + 'px';
+              p.style.position = 'fixed';
+              document.body.appendChild(p);
+              (function (el) { setTimeout(function () { if (el.parentNode) el.remove(); }, 1500); })(p);
+            }
+          }
+          var toast = document.createElement('div');
+          toast.className = 'easter-triple-toast';
+          toast.setAttribute('role', 'status');
+          toast.setAttribute('aria-live', 'polite');
+          toast.textContent = 'The joy of the Lord is your strength. (Nehemiah 8:10)';
+          document.body.appendChild(toast);
+          setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 4000);
+        }
+      });
+    })();
+
+    // Footer dove: 4s hover — flutter + toast Matthew 3:16. One-time.
+    (function wireFooterDoveEgg() {
+      var dove = document.querySelector('.easter-footer-dove-trigger');
+      if (!dove) return;
+      var hoverTimer = null;
+      dove.addEventListener('mouseenter', function () {
+        if (!enabled()) return;
+        try {
+          if (localStorage.getItem('footerDoveSeen')) return;
+        } catch (x) { return; }
+        hoverTimer = setTimeout(function () {
+          hoverTimer = null;
+          try { localStorage.setItem('footerDoveSeen', '1'); } catch (x) {}
+          if (!reducedMotion()) {
+            dove.classList.add('easter-dove-flutter');
+            setTimeout(function () { dove.classList.remove('easter-dove-flutter'); }, 600);
+          }
+          var toast = document.createElement('div');
+          toast.className = 'easter-triple-toast';
+          toast.setAttribute('role', 'status');
+          toast.setAttribute('aria-live', 'polite');
+          toast.textContent = 'The Spirit descends like a dove. (Matthew 3:16)';
+          document.body.appendChild(toast);
+          setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 4000);
+        }, 4000);
+      });
+      dove.addEventListener('mouseleave', function () {
+        if (hoverTimer) clearTimeout(hoverTimer);
+        hoverTimer = null;
+      });
+    })();
+
+    // 5m. Angel number 2% on load (777, 333, 111)
+    if (Math.random() < 0.02) {
+      var nums = ['111', '333', '777'];
+      var num = nums[Math.floor(Math.random() * nums.length)];
+      var angel = document.createElement('div');
+      angel.className = 'easter-angel-number' + (reducedMotion() ? ' easter-no-motion' : '');
+      angel.setAttribute('aria-hidden', 'true');
+      setHtml(angel, '<span class="easter-angel-num">' + escapeHtml(num) + '</span><span class="easter-angel-msg">He\'s speaking.</span>');
+      document.body.appendChild(angel);
+      setTimeout(function () {
+        angel.classList.add('easter-angel-fade');
+        setTimeout(function () { angel.remove(); }, 600);
+      }, 5000);
+    }
+
+    // 5n. Fear mood toast (if recent mood includes fear)
+    try {
+      var recent = localStorage.getItem('tdb_last_query') || localStorage.getItem('tdb_last_results') || '';
+      var fearKeys = ['fear', 'anxiety', 'worry', 'afraid'];
+      var hasFear = fearKeys.some(function (k) { return recent.toLowerCase().indexOf(k) !== -1; });
+      if (hasFear && !sessionStorage.getItem('fearToastSeen')) {
+        sessionStorage.setItem('fearToastSeen', '1');
+        setTimeout(function () {
+          var toast = document.createElement('div');
+          toast.className = 'easter-triple-toast';
+          toast.textContent = 'Fear is loud. He is louder.';
+          toast.setAttribute('role', 'status');
+          document.body.appendChild(toast);
+          setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 6000);
+        }, 2000);
+      }
+    } catch (x) {}
+
+    // 5o. Easter sunrise (5–7 AM local)
+    (function easterSunrise() {
+      if (!enabled()) return;
+      var h = new Date().getHours();
+      if (h < 5 || h >= 7) return;
+      try {
+        var today = new Date().toDateString();
+        if (localStorage.getItem('easterSunriseDay') === today) return;
+        localStorage.setItem('easterSunriseDay', today);
+      } catch (x) { return; }
+      document.body.classList.add('easter-sunrise-bg');
+      setTimeout(function () { document.body.classList.remove('easter-sunrise-bg'); }, 8000);
+      var toast = document.createElement('div');
+      toast.className = 'easter-triple-toast';
+      toast.textContent = 'He is risen indeed.';
+      toast.setAttribute('role', 'status');
+      document.body.appendChild(toast);
+      setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 5000);
+    })();
+
+    // Sunday reload: extra subtle sunrise + Psalm 118:24. Easter Sunday 6 AM–12 PM: enhanced (broader window for church/reflection).
+    (function easterSunday() {
+      if (!enabled()) return;
+      if (new Date().getDay() !== 0) return;
+      try {
+        var today = new Date().toDateString();
+        if (localStorage.getItem('easterSundayDay') === today) return;
+        localStorage.setItem('easterSundayDay', today);
+      } catch (x) { return; }
+      var h = new Date().getHours();
+      var isEasterMorning = (h >= 6 && h < 12);
+      addClasses(document.body, 'easter-sunday-bg');
+      if (isEasterMorning) addClasses(document.body, 'easter-sunday-morning');
+      setTimeout(function () { removeClasses(document.body, 'easter-sunday-bg', 'easter-sunday-morning'); }, isEasterMorning ? 8000 : 6000);
+      var toast = document.createElement('div');
+      toast.className = 'easter-triple-toast' + (isEasterMorning ? ' easter-toast-large' : '');
+      toast.setAttribute('role', 'status');
+      toast.setAttribute('aria-live', 'polite');
+      toast.textContent = isEasterMorning ? 'This is the day the Lord hath made — He is risen! (Psalm 118:24, Matthew 28:6)' : 'This is the day which the LORD hath made. (Psalm 118:24)';
+      document.body.appendChild(toast);
+      setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, isEasterMorning ? 6500 : 5000);
+    })();
+  }
+
+  function initGlobal() {
+    if (!enabled()) return;
+    recordRouteVisit(pageIdForPath());
+    bindEasterEngineApi();
+    initPhraseListener();
+    wirePilgrimageEgg();
+    wireStudySaveEgg();
+    wireSundayDawnEgg();
+    var verses = (window.ROTATING_HERO_VERSES || []);
+    if (!verses.length) verses = [{ ref: 'Psalm 23:1', text: 'The LORD is my shepherd; I shall not want.' }];
+    var konamiCodes = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+    var konamiKeys = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+    var konamiIdx = 0;
+    document.addEventListener('keydown', function (e) {
+      if (!enabled()) return;
+      var match = (e.keyCode === konamiCodes[konamiIdx]) || (e.key && e.key.toLowerCase() === konamiKeys[konamiIdx]);
+      if (match) {
+        konamiIdx++;
+        if (konamiIdx === konamiCodes.length) {
+          konamiIdx = 0;
+          try { if (sessionStorage.getItem('konamiFound')) return; sessionStorage.setItem('konamiFound', '1'); } catch (x) {}
+          var v = verses[Math.floor(Math.random() * verses.length)];
+          var wrap = document.createElement('div');
+          wrap.className = 'easter-konami-wrap' + (reducedMotion() ? ' easter-no-motion' : '');
+          wrap.setAttribute('role', 'status');
+          wrap.setAttribute('aria-live', 'polite');
+          setHtml(wrap, '<div class="easter-konami-cross" aria-hidden="true">✝</div><p class="easter-konami-text">You found a hidden blessing!</p><p class="easter-konami-verse">"' + escapeHtml(v.text || '') + '" — ' + escapeHtml(v.ref || '') + '</p>');
+          document.body.appendChild(wrap);
+          setTimeout(function () {
+            wrap.classList.add('easter-konami-fade');
+            setTimeout(function () { wrap.remove(); }, 500);
+          }, 4500);
+        }
+      } else konamiIdx = 0;
+    });
+
+    // Footer encouragement tagline double-click — "He really does." (404 / 404-admin; .tool-footer-tagline unused in HTML)
+    var stillFooter = document.querySelector('.tool-footer-tagline, .footer-tagline');
+    if (stillFooter) {
+      stillFooter.addEventListener('dblclick', function () {
+        if (!enabled()) return;
+        stillFooter.classList.add('easter-still-glow');
+        setTimeout(function () { stillFooter.classList.remove('easter-still-glow'); }, 3000);
+        var toast = document.createElement('div');
+        toast.className = 'easter-triple-toast';
+        toast.textContent = 'He really does.';
+        toast.setAttribute('role', 'status');
+        document.body.appendChild(toast);
+        setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 3500);
+        var dove = document.createElement('span');
+        dove.className = 'easter-footer-dove';
+        dove.textContent = '\uD83D\uDD4A\uFE0F';
+        dove.setAttribute('aria-hidden', 'true');
+        stillFooter.appendChild(dove);
+        setTimeout(function () { if (dove.parentNode) dove.remove(); }, 2500);
+      });
+    }
+
+    function wirePilgrimageEgg() {
+      if (!routeEndsWith(HOME_PAGE_IDS)) return;
+      if (!registerEgg('legendaryWholeSitePilgrimage', { tier: 'legendary', page: pageIdForPath(), triggerType: 'route_chain', sessionOnly: true })) return;
+      document.body.classList.add('easter-legendary-mode');
+      createToast('You walked the whole quiet path. Nothing was hidden from you.', 'easter-triple-toast easter-toast-large', 5200);
+      setTimeout(function () { document.body.classList.remove('easter-legendary-mode'); }, 6500);
+    }
+
+    function wireStudySaveEgg() {
+      if (window.__tdbStudySaveEggBound) return;
+      window.__tdbStudySaveEggBound = true;
+      window.addEventListener('tdb-my-verses-updated', function () {
+        var total = bumpCount(EGG_STUDY_SAVES_KEY, 1);
+        if (total >= 3 && !hasSessionEggSeen('mystudyThreeSavesSession')) {
+          setSessionEggSeen('mystudyThreeSavesSession');
+          trackEgg('easter_egg_progress', {
+            egg_id: 'mystudyThreeSavesSession',
+            egg_tier: 'core',
+            page: 'mystudy',
+            trigger_type: 'event',
+            progress: total
+          });
+        }
+      });
+    }
+
+    function wireSundayDawnEgg() {
+      var now = new Date();
+      if (now.getDay() !== 0) return;
+      if (now.getHours() < 5 || now.getHours() > 8) return;
+      if (!registerEgg('sundayDawnWatch', { tier: 'seasonal', page: pageIdForPath(), triggerType: 'daypart', sessionOnly: true })) return;
+      document.body.classList.add('easter-sunday-bg', 'easter-sunday-morning');
+      createToast('Sunday dawn. Mercy is already awake.', 'easter-triple-toast easter-toast-large', 4600);
+      setTimeout(function () { removeClasses(document.body, 'easter-sunday-bg', 'easter-sunday-morning'); }, 6000);
+    }
+  }
+
+  var EGG_COUNT_KEY = 'tdb_eggCount';
+  var EGG_BADGE_ID = 'easter-egg-badge';
+
+  function markEggTriggered() {
+    try {
+      var n = parseInt(localStorage.getItem(EGG_COUNT_KEY) || '0', 10);
+      var wasZero = n === 0;
+      if (n === 0) n = 1;
+      localStorage.setItem(EGG_COUNT_KEY, String(n));
+      ensureEggBadge(wasZero);
+    } catch (x) {}
+  }
+
+  function ensureEggBadge(pulseFirst) {
+    try {
+      if (parseInt(localStorage.getItem(EGG_COUNT_KEY) || '0', 10) === 0) return;
+      if (document.getElementById(EGG_BADGE_ID)) return;
+      var footer = document.querySelector('.site-footer, .tool-page-footer, footer[role="contentinfo"]') || document.querySelector('footer');
+      if (!footer) return;
+      var unlocked = sessionStorage.getItem('tdb_secretsUnlocked') === '1' || localStorage.getItem(EGG_SECRETS_UNLOCK_KEY) === '1';
+      var badge = document.createElement(unlocked ? 'a' : 'p');
+      badge.id = EGG_BADGE_ID;
+      badge.className = 'easter-egg-badge';
+      badge.textContent = 'Hidden moments';
+      badge.setAttribute('aria-label', unlocked ? 'View hints for hidden moments' : 'Hidden moments to discover');
+      if (unlocked) {
+        badge.href = '/secrets.html';
+        badge.title = 'View hidden moments';
+      }
+      footer.appendChild(badge);
+      if (pulseFirst && !reducedMotion()) {
+        badge.classList.add('pulse-once');
+        setTimeout(function () { badge.classList.remove('pulse-once'); }, 1200);
+      }
+    } catch (x) {}
+  }
+
+  function wireEggBadgeObserver() {
+    if (!enabled()) return;
+    ensureEggBadge();
+    function isToast(el) {
+      return el && el.classList && (el.classList.contains('easter-triple-toast') || el.classList.contains('mobius-tracer-toast') || el.classList.contains('easter-konami-wrap'));
+    }
+    var observer = new MutationObserver(function (mutations) {
+      for (var i = 0; i < mutations.length; i++) {
+        var nodes = mutations[i].addedNodes;
+        for (var j = 0; j < nodes.length; j++) {
+          var n = nodes[j];
+          if (n.nodeType !== 1) continue;
+          if (isToast(n)) { markEggTriggered(); return; }
+          if (n.querySelector && isToast(n.querySelector('.easter-triple-toast, .mobius-tracer-toast, .easter-konami-wrap'))) { markEggTriggered(); return; }
+        }
+      }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+
+  function init() {
+    if (!storageAvailable('local') || !storageAvailable('session')) return;
+    initGlobal();
+    initIndex();
+    if (window.location.pathname !== '/' && window.location.pathname !== '/index.html' && window.location.pathname !== '') {
+      initOtherPages();
+    }
+    setTimeout(wireUniversalSearchInputs, 100);
+    wireEggBadgeObserver();
+  }
+
+  var EGG_TERMS = ['still', 'hallelujah', 'amen', 'grace', 'forgive', 'mercy', 'peace', 'armor', 'shabbat', 'risen', 'lamb', 'resurrection', 'secrets', 'abide', QUIET_ROUTE_PHRASE, LEGENDARY_PHRASE];
+  var EGG_TERM_NOTHING = /^nothing can stop (you|me|us)$/;
+
+  function isEasterEggTerm(val) {
+    if (!val || typeof val !== 'string') return false;
+    var v = val.trim().toLowerCase();
+    if (EGG_TERMS.indexOf(v) !== -1) return true;
+    if (EGG_TERM_NOTHING.test(v)) return true;
+    return false;
+  }
+
+  function wireUniversalSearchInputs() {
+    if (!enabled() || typeof window.runSearchWithInput !== 'function') return;
+    var ids = ['global-search', 'church-query', 'kids-search-input', 'kids-library-search-input', 'mystudy-search', 'ab-search', 'bible-qa-search', 'pastor-verse-search', 'bible-study-search-input', 'verse-maps-input', 'concordance-search-input', 'lib-search', 'sbVerseInput'];
+    ids.forEach(function (id) {
+      var input = document.getElementById(id);
+      if (!input) return;
+      if (input.getAttribute('data-tdb-egg-wired') === '1') return;
+      input.setAttribute('data-tdb-egg-wired', '1');
+
+      function handleEggSubmit(e) {
+        var val = (input.value || '').trim();
+        if (!val) return;
+        if (!isEasterEggTerm(val)) return;
+        e.preventDefault();
+        e.stopPropagation();
+        if (typeof window.runSearchWithInput === 'function') {
+          window.runSearchWithInput(val);
+          input.value = '';
+        }
+      }
+
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') handleEggSubmit(e);
+      }, true);
+
+      var btnIdMap = { 'bible-qa-search': 'bible-qa-btn', 'church-query': 'church-search-btn', 'mystudy-search': 'mystudy-search-btn', 'pastor-verse-search': 'pastor-search-btn', 'bible-study-search-input': 'bible-study-search-btn', 'concordance-search-input': 'concordance-search-btn' };
+      var btn = document.getElementById(btnIdMap[id]) || (input.form && input.form.querySelector('button[type="submit"]'));
+      if (btn) {
+        btn.addEventListener('click', function (e) {
+          var val = (input.value || '').trim();
+          if (!val || !isEasterEggTerm(val)) return;
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          if (typeof window.runSearchWithInput === 'function') {
+            window.runSearchWithInput(val);
+            input.value = '';
+          }
+        }, true);
+      }
+    });
+  }
+
+  function initOtherPages() {
+    if (!enabled()) return;
+    var path = window.location.pathname || '';
+    wireUniversalSearchInputs();
+    if (path.indexOf('bible-tool') !== -1 || path.indexOf('bible/tools') !== -1) {
+      wireStillInBibleSearch();
+    }
+    if (path.indexOf('message') !== -1 || path.indexOf('prayer-wall') !== -1) {
+      wirePrayerWallEgg();
+    }
+    if (path.indexOf('mobius') !== -1) {
+      wireMobiusEgg();
+    }
+    if (path.indexOf('contact') !== -1) {
+      wireSuggestFormEgg();
+    }
+    if (path.indexOf('calm') !== -1) {
+      wireCalmEggs();
+    }
+    if (path.indexOf('mystudy') !== -1) {
+      wireMyStudyEggs();
+    }
+    if (path.indexOf('explore') !== -1) {
+      wireExploreEggs();
+    }
+    if (path.indexOf('coloring') !== -1) {
+      wireColoringEggs();
+    }
+    if (path.indexOf('family-armor') !== -1) {
+      wireFamilyArmorEggs();
+    } else if (path.indexOf('family') !== -1) {
+      wireFamilyEggs();
+    }
+    if (path.indexOf('/kids/') !== -1 || path.indexOf('/kids') !== -1) {
+      wireKidsEggs();
+    }
+  }
+
+  function wireSuggestFormEgg() {
+    if (!enabled()) return;
+    document.addEventListener('tdb:suggest-success', function () {
+      try {
+        if (localStorage.getItem('tdb_suggestSubmitted') === '1') return;
+        localStorage.setItem('tdb_suggestSubmitted', '1');
+      } catch (x) { return; }
+      var toast = document.createElement('div');
+      toast.className = 'easter-triple-toast';
+      toast.setAttribute('role', 'status');
+      toast.setAttribute('aria-live', 'polite');
+      toast.textContent = 'Your suggestion helps others find light. You\'re part of the map.';
+      document.body.appendChild(toast);
+      setTimeout(function () { toast.classList.add('easter-triple-fade'); setTimeout(function () { toast.remove(); }, 400); }, 4500);
+      if (typeof markEggTriggered === 'function') markEggTriggered();
+      else document.dispatchEvent(new CustomEvent('tdb:egg-triggered', { detail: { id: 'suggest_first', shown: true } }));
+    });
+  }
+
+  function wireStillInBibleSearch() {
+    var searchInput = document.getElementById('bible-qa-search') || document.getElementById('tdb-search') || document.getElementById('query');
+    if (!searchInput) return;
+    var showStillHere = function () {
+      var val = (searchInput.value || '').trim().toLowerCase();
+      if (val !== 'still') return false;
+      var out = document.getElementById('qa-result') || document.getElementById('lookup-result') || document.getElementById('feelCards') || document.getElementById('output');
+      if (!out) return false;
+      setHtml(out, '<div class="easter-still-result"><p class="easter-still-verse">Be still, and know that I am God.</p><p class="easter-still-ref">(Psalm 46:10)</p></div>');
+      out.classList.remove('hidden');
+      out.style.display = '';
+      out.classList.add('easter-still-glow', 'has-results');
+      setTimeout(function () { out.classList.remove('easter-still-glow'); }, 5000);
+      out.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      searchInput.classList.add('easter-still-glow');
+      setTimeout(function () { searchInput.classList.remove('easter-still-glow'); }, 5000);
+      searchInput.value = '';
+      return true;
+    };
+    searchInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' && showStillHere()) e.preventDefault();
+    });
+    var askBtn = document.getElementById('bible-qa-btn');
+    if (askBtn) askBtn.addEventListener('click', function (e) { if (showStillHere()) e.stopImmediatePropagation(); }, true);
+  }
+
+  function wirePrayerWallEgg() {
+    var addBtn = document.getElementById('prayer-wall-add') || document.getElementById('post-message');
+    var privateTab = document.getElementById('prayer-tab-private');
+    var othersTab = document.getElementById('prayer-tab-with-others');
+    var quietLabel = document.getElementById('prayer-device-quiet') || document.getElementById('prayerTodayLabel');
+    var graceMsg = document.getElementById('prayerWallGraceMsg') || document.getElementById('prayer-wall-post-success');
+    var shareBtns = document.querySelectorAll('.prayer-wall-share');
+    if (wasLastVisitOlderThan('prayer', 3) && registerEgg('prayerMercyReturn', { tier: 'core', page: 'prayer', triggerType: 'return' })) {
+      addInlineNote(graceMsg && graceMsg.parentNode ? graceMsg.parentNode : document.getElementById('prayer-panel-private'), 'tdb-egg-prayer-return', 'Welcome back. Mercy kept the room warm while you were away.', 'easter-inline-note');
+    }
+    function prayerAction(type) {
+      var total = bumpCount(EGG_PRAYER_ACTIONS_KEY, 1);
+      trackEgg('easter_egg_progress', {
+        egg_id: 'prayerActionTrail',
+        egg_tier: 'core',
+        page: 'prayer',
+        trigger_type: type,
+        progress: total
+      });
+      if (total >= 3 && registerEgg('prayerThreeActions', { tier: 'core', page: 'prayer', triggerType: 'action', sessionOnly: true })) {
+        createToast('Knock, seek, ask. Heaven is not annoyed with you.', 'easter-triple-toast', 4200);
+      }
+    }
+    if (addBtn) {
+      addBtn.addEventListener('dblclick', function () {
+        if (!enabled()) return;
+        if (!registerEgg('prayerUnspokenDoubleTap', { tier: 'quick', page: 'prayer', triggerType: 'dblclick', sessionOnly: true })) return;
+        createToast('He hears the unspoken.', 'easter-triple-toast', 3200);
+      });
+      addBtn.addEventListener('click', function () {
+        prayerAction('add');
+        if (quietLabel && quietLabel.textContent && quietLabel.textContent.toLowerCase().indexOf('quiet') !== -1 && registerEgg('prayerQuietFirstStep', { tier: 'quick', page: 'prayer', triggerType: 'empty_state', sessionOnly: true })) {
+          addInlineNote(quietLabel.parentNode || quietLabel, 'tdb-egg-prayer-quiet', 'Quiet does not mean empty. One honest line is enough tonight.', 'easter-inline-note');
+        }
+      });
+    }
+    [privateTab, othersTab].forEach(function (btn) {
+      if (!btn) return;
+      btn.addEventListener('click', function () { prayerAction('tab'); });
+    });
+    shareBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () { prayerAction('share'); }, true);
+    });
+  }
+
+  function wireCalmEggs() {
+    var oneVerseBtn = document.getElementById('calm-one-verse-now');
+    var nightBtn = document.getElementById('calm-night-prayer');
+    var intro = document.getElementById('calm-intro');
+    var prayerLink = document.querySelector('.calm-prayer-wall-nudge a');
+    if (oneVerseBtn) {
+      var taps = 0;
+      var lastTap = 0;
+      oneVerseBtn.addEventListener('click', function () {
+        var now = Date.now();
+        if (now - lastTap > 900) taps = 0;
+        taps++;
+        lastTap = now;
+        if (taps >= 2 && registerEgg('calmDoubleTapDoor', { tier: 'core', page: 'calm', triggerType: 'tap', sessionOnly: true })) {
+          taps = 0;
+          addInlineNote(intro, 'tdb-egg-calm-door', 'Quiet door found: one verse is enough when the day feels loud.', 'easter-inline-note');
+          createToast('One verse can carry more than you think.', 'easter-triple-toast', 3400);
+        }
+      });
+    }
+    if (nightBtn) {
+      wireLongPress(nightBtn, 650, function () {
+        if (!registerEgg('calmNightPrayerLongPress', { tier: 'core', page: 'calm', triggerType: 'long_press', sessionOnly: true })) return;
+        document.body.classList.add('easter-midnight-watch');
+        createToast('In peace I will both lay me down and sleep. (Psalm 4:8)', 'easter-triple-toast', 4200);
+        setTimeout(function () { document.body.classList.remove('easter-midnight-watch'); }, 4800);
+      });
+    }
+    if (prayerLink) {
+      wireLongPress(prayerLink, 650, function () {
+        if (!registerEgg('calmPrayerBridgeLongPress', { tier: 'core', page: 'calm', triggerType: 'long_press', sessionOnly: true })) return;
+        createToast('Prayer stays one tap away when the verse needs company.', 'easter-triple-toast', 3600);
+      });
+    }
+  }
+
+  function wireMyStudyEggs() {
+    var host = document.querySelector('.mystudy-subtitle') || document.getElementById('panel-my-study');
+    var library = document.getElementById('saved-verses');
+    var exportBtn = document.getElementById('mystudy-export-json');
+    var totalSessionSaves = Number(readJson(EGG_COUNTS_KEY, {}, 'local')[EGG_STUDY_SAVES_KEY] || 0);
+    if (routeEndsWith(['home', 'mystudy']) && registerEgg('mystudyHomeToStudyRibbon', { tier: 'core', page: 'mystudy', triggerType: 'route_chain', sessionOnly: true })) {
+      addInlineNote(host && host.parentNode ? host.parentNode : host, 'tdb-egg-mystudy-home-ribbon', 'You brought today\'s verse with you. That counts as real study.', 'easter-inline-note');
+    }
+    window.addEventListener('tdb-my-verses-updated', function () {
+      var count = Number(readJson(EGG_COUNTS_KEY, {}, 'local')[EGG_STUDY_SAVES_KEY] || 0);
+      if (count >= 3 && registerEgg('mystudyThreeSavesSession', { tier: 'core', page: 'mystudy', triggerType: 'event', sessionOnly: true })) {
+        createToast('Three verses held close this session. A small shelf is becoming a library.', 'easter-triple-toast', 4200);
+      }
+      if (library && library.children && library.children.length >= 100 && registerEgg('mystudyHundredVerses', { tier: 'discovery', page: 'mystudy', triggerType: 'library' })) {
+        addInlineNote(library.parentNode || library, 'tdb-egg-study-hundred', 'A hundred verses live on this device now. Quiet accumulation is still growth.', 'easter-inline-note');
+      }
+    });
+    if (library && library.children && library.children.length >= 100 && registerEgg('mystudyHundredVerses', { tier: 'discovery', page: 'mystudy', triggerType: 'library' })) {
+      addInlineNote(library.parentNode || library, 'tdb-egg-study-hundred', 'A hundred verses live on this device now. Quiet accumulation is still growth.', 'easter-inline-note');
+    }
+    if (exportBtn) {
+      wireLongPress(exportBtn, 700, function () {
+        if (!registerEgg('mystudyBackupWitness', { tier: 'quick', page: 'mystudy', triggerType: 'long_press', sessionOnly: true })) return;
+        createToast('Keeping a witness matters too.', 'easter-triple-toast', 3200);
+      });
+    }
+  }
+
+  function wireExploreEggs() {
+    var quickDoors = document.querySelectorAll('.explore-quick-door');
+    var hero = document.querySelector('.explore-hero') || document.querySelector('.explore-page');
+    if (routeEndsWith(['home', 'family', 'explore']) && registerEgg('exploreFamilyToMap', { tier: 'discovery', page: 'explore', triggerType: 'route_chain', sessionOnly: true })) {
+      addInlineNote(hero, 'tdb-egg-explore-map', 'You came here from Family. The calm routes are opening in order.', 'easter-inline-note');
+    }
+    if (routeEndsWith(['home', 'kids', 'explore']) && registerEgg('exploreKidsToMap', { tier: 'discovery', page: 'explore', triggerType: 'route_chain', sessionOnly: true })) {
+      addInlineNote(hero, 'tdb-egg-explore-kids-map', 'You found the map through Kids. That is exactly what this page is for.', 'easter-inline-note');
+    }
+    quickDoors.forEach(function (door) {
+      door.addEventListener('click', function () {
+        var seen = readJson('tdb_eg_explore_doors_v1', [], 'session');
+        var href = door.getAttribute('href') || door.textContent || '';
+        if (seen.indexOf(href) === -1) seen.push(href);
+        writeJson('tdb_eg_explore_doors_v1', seen, 'session');
+        if (seen.length >= 5 && registerEgg('exploreFiveDoors', { tier: 'discovery', page: 'explore', triggerType: 'click', sessionOnly: true })) {
+          createToast('Five calm doors touched. The map is working.', 'easter-triple-toast', 3600);
+        }
+      }, true);
+    });
+  }
+
+  function wireKidsEggs() {
+    var badge = document.getElementById('kids-greeting-badge');
+    var firstWinStatus = document.getElementById('kids-first-win-status');
+    var homeStoryMaster = document.getElementById('kids-home-story-master');
+    if (badge) {
+      var count = 0;
+      var resetAt = 0;
+      badge.addEventListener('click', function () {
+        var now = Date.now();
+        if (now > resetAt) count = 0;
+        count++;
+        resetAt = now + 3000;
+        if (count >= 5 && registerEgg('kidsBattleTrailTap', { tier: 'family', page: 'kids', triggerType: 'tap', sessionOnly: true })) {
+          count = 0;
+          createToast('Battle Trail says small brave steps count too.', 'easter-triple-toast', 3400);
+        }
+      });
+    }
+    function maybeCelebrateLittleExplorer(sourceEl) {
+      if (!sourceEl) return;
+      var text = normalizePhrase(sourceEl.textContent);
+      if (text.indexOf('little explorer') === -1) return;
+      if (!registerEgg('kidsLittleExplorerReveal', { tier: 'family', page: pageIdForPath(), triggerType: 'progress' })) return;
+      createToast('Little Explorer unlocked. Heaven is not bored by beginnings.', 'easter-triple-toast', 4000);
+    }
+    if (firstWinStatus) {
+      maybeCelebrateLittleExplorer(firstWinStatus);
+      new MutationObserver(function () { maybeCelebrateLittleExplorer(firstWinStatus); }).observe(firstWinStatus, { childList: true, subtree: true, characterData: true });
+    }
+    if (homeStoryMaster) {
+      maybeCelebrateLittleExplorer(homeStoryMaster);
+      new MutationObserver(function () { maybeCelebrateLittleExplorer(homeStoryMaster); }).observe(homeStoryMaster, { childList: true, subtree: true, characterData: true });
+    }
+  }
+
+  function wireColoringEggs() {
+    var root = document.getElementById('tdb-cat-root');
+    if (!root) return;
+    document.addEventListener('click', function (e) {
+      var btn = e.target && e.target.closest ? e.target.closest('button') : null;
+      if (!btn) return;
+      var text = normalizePhrase(btn.textContent);
+      if (text.indexOf('save this scene') === -1 && text.indexOf('watch my story') === -1) return;
+      if (text.indexOf('save this scene') !== -1) {
+        var total = bumpCount('tdb_eg_coloring_scene_saves_v1', 1);
+        if (total >= 4 && registerEgg('coloringFourSceneSaves', { tier: 'family', page: 'coloring', triggerType: 'save', sessionOnly: true })) {
+          createToast('Four scenes saved. The story is starting to look back at you.', 'easter-triple-toast', 4200);
+        }
+      }
+      if (text.indexOf('watch my story') !== -1 && registerEgg('coloringWatchMyStory', { tier: 'family', page: 'coloring', triggerType: 'watch', sessionOnly: true })) {
+        createToast('Your colored story became a testimony on this device.', 'easter-triple-toast', 3600);
+      }
+    }, true);
+  }
+
+  function wireFamilyEggs() {
+    var addBtn = document.getElementById('family-prayer-add');
+    var status = document.getElementById('family-prayer-status');
+    var verseRoot = document.getElementById('family-daily-verse-root');
+    if (routeEndsWith(['kids', 'family']) && registerEgg('familyFromKidsBridge', { tier: 'family', page: 'family', triggerType: 'route_chain', sessionOnly: true })) {
+      addInlineNote(verseRoot, 'tdb-egg-family-kids-bridge', 'You came from Kids. One verse and one family prayer is enough for tonight.', 'easter-inline-note');
+    }
+    if (addBtn) {
+      wireLongPress(addBtn, 650, function () {
+        if (!registerEgg('familyPrayerLongPress', { tier: 'family', page: 'family', triggerType: 'long_press', sessionOnly: true })) return;
+        createToast('Household prayer list: no pressure, just names before God.', 'easter-triple-toast', 3600);
+      });
+      addBtn.addEventListener('click', function () {
+        var total = bumpCount('tdb_eg_family_prayer_adds_v1', 1);
+        if (total >= 3 && registerEgg('familyPrayerThreeAdds', { tier: 'family', page: 'family', triggerType: 'add', sessionOnly: true })) {
+          addInlineNote(status && status.parentNode ? status.parentNode : verseRoot, 'tdb-egg-family-prayer-three', 'Three prayer lines have landed here. This list is a mercy shelf, not a burden board.', 'easter-inline-note');
+        }
+      });
+    }
+  }
+
+  function wireFamilyArmorEggs() {
+    var cards = document.querySelectorAll('#family-armor-foundation .family-armor-lux-card');
+    var host = document.getElementById('family-armor-foundation');
+    if (!cards.length) return;
+    cards.forEach(function (card) {
+      card.addEventListener('click', function () {
+        var title = normalizePhrase(card.querySelector('.family-armor-lux-card-title') ? card.querySelector('.family-armor-lux-card-title').textContent : '');
+        if (!title) return;
+        var seen = readJson(EGG_ARMOR_PROGRESS_KEY, [], 'local');
+        if (seen.indexOf(title) === -1) {
+          seen.push(title);
+          writeJson(EGG_ARMOR_PROGRESS_KEY, seen, 'local');
+        }
+        card.classList.add('easter-home-ribbon-glow');
+        setTimeout(function () { card.classList.remove('easter-home-ribbon-glow'); }, 2200);
+        if (seen.length >= 7 && registerEgg('familyArmorWholeSet', { tier: 'family', page: 'familyArmor', triggerType: 'progress' })) {
+          addInlineNote(host, 'tdb-egg-armor-whole-set', 'Whole armor touched: truth, righteousness, peace, faith, salvation, Scripture, and prayer. No scoreboard. Just remembrance.', 'easter-inline-note');
+          createToast('Whole armor remembered. That counts.', 'easter-triple-toast', 4200);
+        }
+      });
+    });
+  }
+
+  function wireMobiusEgg() {
+    document.addEventListener('keydown', function (e) {
+      if (!enabled()) return;
+      if (e.altKey && e.key === 'ArrowLeft') {
+        var t = document.createElement('div');
+        t.className = 'mobius-tracer-toast';
+        t.textContent = 'One side. One path. No end.';
+        t.setAttribute('role', 'status');
+        document.body.appendChild(t);
+        setTimeout(function () { t.classList.add('mobius-tracer-toast-fade'); setTimeout(function () { t.remove(); }, 400); }, 2500);
+      }
+    });
+    function wireShareLoopTripleTap(btn) {
+      if (!btn) return;
+      var count = 0;
+      var lastTap = 0;
+      btn.addEventListener('click', function (e) {
+        if (!enabled()) return;
+        var now = Date.now();
+        if (now - lastTap > 500) count = 0;
+        count++;
+        lastTap = now;
+        if (count >= 3) {
+          count = 0;
+          btn.classList.add('easter-share-spin', 'easter-share-glow');
+          setTimeout(function () { btn.classList.remove('easter-share-spin'); }, 600);
+          setTimeout(function () { btn.classList.remove('easter-share-glow'); }, 3000);
+          var t = document.createElement('div');
+          t.className = 'mobius-tracer-toast';
+          t.textContent = 'Sharing light in the darkness.';
+          t.setAttribute('role', 'status');
+          document.body.appendChild(t);
+          setTimeout(function () { t.classList.add('mobius-tracer-toast-fade'); setTimeout(function () { t.remove(); }, 400); }, 3000);
+        }
+      });
+    }
+    wireShareLoopTripleTap(document.getElementById('mobius-text-share'));
+
+    // Double-tap Möbius viz background — tracer reverses for one cycle
+    var mobiusViz = document.getElementById('mobius-universal-viz');
+    if (mobiusViz) {
+      var lastTap = 0;
+      mobiusViz.addEventListener('dblclick', function (e) {
+        if (!enabled()) return;
+        if (e.target.closest('button, a, .mobius-node')) return;
+        var now = Date.now();
+        if (now - lastTap < 800) return;
+        lastTap = now;
+        if (typeof window.__mobiusReverseTracer === 'function') {
+          window.__mobiusReverseTracer();
+          var t = document.createElement('div');
+          t.className = 'mobius-tracer-toast';
+          t.textContent = 'Sometimes the path turns back on itself.';
+          t.setAttribute('role', 'status');
+          document.body.appendChild(t);
+          setTimeout(function () { t.classList.add('mobius-tracer-toast-fade'); setTimeout(function () { t.remove(); }, 400); }, 3000);
+        }
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  window.__tdbEasterEggsInit = init;
+})();

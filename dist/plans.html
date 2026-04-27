@@ -162,11 +162,53 @@
     /* ── Hero ── */
     .plans-hero { text-align: center; margin-bottom: 2rem; }
     .plans-hero--soar-dawn {
+      position: relative;
+      isolation: isolate;
+      z-index: 0;
       padding: 1.2rem 1rem 1.45rem;
-      border-radius: 14px;
+      border-radius: 16px;
       max-width: 44rem;
       margin-left: auto;
       margin-right: auto;
+      border: 1px solid color-mix(in srgb, var(--gold) 16%, var(--line) 84%);
+      background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='.22'/%3E%3C/svg%3E") repeat,
+        radial-gradient(ellipse 100% 72% at 50% 0%, rgba(255, 210, 145, 0.08) 0%, transparent 56%),
+        linear-gradient(168deg, color-mix(in srgb, var(--card) 90%, rgba(255, 242, 220, 0.06)) 0%, color-mix(in srgb, var(--bg-soft) 94%, var(--card) 6%) 100%);
+      background-size: 88px 88px, auto, auto;
+      box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.14),
+        inset 0 0 0 1px rgba(0, 0, 0, 0.1),
+        inset 0 12px 32px -14px rgba(0, 0, 0, 0.16);
+    }
+    .plans-hero--soar-dawn::before {
+      content: "";
+      position: absolute;
+      left: 10%;
+      right: 10%;
+      top: 0;
+      height: 1px;
+      border-radius: 0 0 99px 99px;
+      background: linear-gradient(90deg, transparent, rgba(255, 220, 170, 0.28), rgba(255, 240, 210, 0.14), transparent);
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    html[data-theme="light"] .plans-hero--soar-dawn {
+      border-color: color-mix(in srgb, #c4a45a 22%, #e8e4dc 78%);
+      background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='.12'/%3E%3C/svg%3E") repeat,
+        repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0 1px, transparent 1px 24px),
+        radial-gradient(ellipse 100% 70% at 50% 0%, rgba(255, 232, 200, 0.4) 0%, transparent 54%),
+        linear-gradient(180deg, #fffefb 0%, #faf6ee 100%);
+      background-size: 88px 88px, auto, auto, auto;
+      box-shadow:
+        0 3px 20px rgba(50, 35, 12, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95),
+        inset 0 10px 28px -12px rgba(100, 70, 30, 0.05);
+    }
+    html[data-theme="light"] .plans-hero--soar-dawn::before {
+      background: linear-gradient(90deg, transparent, rgba(200, 160, 80, 0.2), rgba(255, 230, 190, 0.25), transparent);
+      opacity: 0.55;
     }
     .plans-hero h1 { font-size: clamp(1.6rem,4vw,2.2rem); font-weight: 800; margin: 0 0 0.4rem; }
     .plans-hero-subtitle-uog {
@@ -175,6 +217,35 @@
       font-weight: 500;
       color: var(--muted, #8896b0);
       line-height: 1.45;
+    }
+    .plans-porch-ingress {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 0.7rem;
+      max-width: 32rem;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0.55rem 0.75rem 0.6rem;
+      border-radius: 12px;
+      font-size: clamp(0.9rem, 2.1vw, 1rem);
+      line-height: 1.55;
+      font-weight: 500;
+      font-style: italic;
+      color: color-mix(in srgb, var(--text) 86%, var(--gold-soft) 14%);
+      background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)' opacity='.14'/%3E%3C/svg%3E") repeat,
+        color-mix(in srgb, rgba(227, 188, 103, 0.08) 100%, rgba(0,0,0,0.04) 0%);
+      background-size: 64px 64px, auto;
+      border: 1px solid color-mix(in srgb, var(--gold) 18%, var(--line) 50%);
+      box-shadow: inset 0 1px 0 rgba(255, 250, 235, 0.06), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+    }
+    html[data-theme="light"] .plans-porch-ingress {
+      color: color-mix(in srgb, #1e293b 88%, #6b4c0a 12%);
+      background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)' opacity='.08'/%3E%3C/svg%3E") repeat,
+        color-mix(in srgb, rgba(201, 162, 55, 0.08) 100%, #fffef9 0%);
+      border-color: color-mix(in srgb, #c4a45a 24%, #e2e8f0 76%);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85);
     }
     .plans-audio-roadmap {
       margin: 0.5rem 0 0.85rem;
@@ -1470,7 +1541,8 @@
       <a href="index.html" class="plans-back" aria-label="Back to homepage">← Today's Battle</a>
       <div class="plans-hero plans-hero--soar-dawn tdb-micro-hero-dawn">
         <h1>Courses in the University of God</h1>
-        <p class="plans-hero-subtitle-uog">Gentle studies for the hard semesters</p>
+        <p class="plans-hero-subtitle-uog">Rest, not rush&mdash;grace for the long semesters</p>
+        <p class="plans-porch-ingress" id="plans-porch-ingress">You&rsquo;re not behind&mdash;you&rsquo;re just human. Stay as long as you need. Grace holds the door; the page doesn&rsquo;t keep score. One quiet KJV day at a time is enough.</p>
         <p>Short, daily KJV lessons with one small step, plain words, and a simple prayer. Progress stays on your device, even offline. Need the small map of anchor verses? <a href="university.html">Open the University page</a>.</p>
       </div>
       <section class="plans-situation-jump" id="find-your-plan" aria-labelledby="plans-situation-jump-h">

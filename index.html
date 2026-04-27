@@ -5758,59 +5758,71 @@
       text-align: center;
       color: color-mix(in srgb, var(--muted) 93%, var(--text) 7%);
     }
-    /* Quiet porch: soft sun-wash + paper warmth (aligns with Standard of Excellence) */
+    /* Quiet porch: lived-in paper, soft sun, whisper-thin depth (Standard of Excellence) */
     .tdb-porch-ingress--warm {
       position: relative;
+      isolation: isolate;
+      z-index: 0;
       max-width: 40rem;
       margin: 0.2rem auto 0.5rem;
-      padding: 0.8rem 1rem 0.9rem;
-      border-radius: 18px;
-      border: 1px solid color-mix(in srgb, var(--gold) 28%, var(--line) 72%);
+      padding: 0.85rem 1.05rem 0.95rem;
+      border-radius: 20px;
+      border: 1px solid color-mix(in srgb, var(--gold) 16%, var(--line) 84%);
       background:
-        radial-gradient(ellipse 95% 70% at 50% 0%, rgba(255, 220, 160, 0.14) 0%, transparent 55%),
-        linear-gradient(165deg, color-mix(in srgb, var(--card) 88%, rgba(255, 245, 220, 0.08)) 0%, color-mix(in srgb, var(--bg-soft) 92%, var(--card) 8%) 100%);
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='.22'/%3E%3C/svg%3E") repeat,
+        radial-gradient(ellipse 100% 78% at 50% 0%, rgba(255, 210, 145, 0.09) 0%, transparent 58%),
+        linear-gradient(168deg, color-mix(in srgb, var(--card) 90%, rgba(255, 242, 220, 0.06)) 0%, color-mix(in srgb, var(--bg-soft) 94%, var(--card) 6%) 100%);
+      background-size: 88px 88px, auto, auto;
       box-shadow:
-        0 10px 36px rgba(0, 0, 0, 0.22),
-        inset 0 1px 0 rgba(255, 250, 235, 0.06);
+        0 4px 22px rgba(0, 0, 0, 0.12),
+        inset 0 0 0 1px rgba(0, 0, 0, 0.1),
+        inset 0 12px 32px -14px rgba(0, 0, 0, 0.16);
     }
     .tdb-porch-ingress--warm::before {
       content: "";
       position: absolute;
-      left: 12%;
-      right: 12%;
+      left: 10%;
+      right: 10%;
       top: 0;
-      height: 2px;
+      height: 1px;
       border-radius: 0 0 99px 99px;
-      background: linear-gradient(90deg, transparent, rgba(255, 214, 140, 0.45), rgba(255, 235, 200, 0.25), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255, 220, 170, 0.28), rgba(255, 240, 210, 0.14), transparent);
       pointer-events: none;
-      opacity: 0.85;
+      opacity: 0.7;
     }
     :root[data-theme="light"] .tdb-porch-ingress--warm {
-      border-color: color-mix(in srgb, #c4a45a 35%, #e2e8f0 65%);
+      border-color: color-mix(in srgb, #c4a45a 22%, #e8e4dc 78%);
       background:
-        radial-gradient(ellipse 100% 75% at 50% 0%, rgba(255, 240, 210, 0.65) 0%, transparent 52%),
-        linear-gradient(180deg, #fffdf8 0%, color-mix(in srgb, #fff9f0 96%, #f6f1e3 4%) 100%);
-      box-shadow: 0 4px 28px rgba(60, 40, 12, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='.12'/%3E%3C/svg%3E") repeat,
+        repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0 1px, transparent 1px 24px),
+        radial-gradient(ellipse 100% 72% at 50% 0%, rgba(255, 232, 200, 0.45) 0%, transparent 55%),
+        linear-gradient(180deg, #fffefb 0%, #faf6ee 100%);
+      background-size: 88px 88px, auto, auto, auto;
+      box-shadow:
+        0 3px 20px rgba(50, 35, 12, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95),
+        inset 0 10px 28px -12px rgba(100, 70, 30, 0.05);
     }
     :root[data-theme="light"] .tdb-porch-ingress--warm::before {
-      background: linear-gradient(90deg, transparent, rgba(212, 165, 60, 0.35), rgba(255, 220, 160, 0.4), transparent);
+      background: linear-gradient(90deg, transparent, rgba(200, 160, 80, 0.2), rgba(255, 230, 190, 0.25), transparent);
+      opacity: 0.55;
     }
     @media (prefers-reduced-motion: reduce) {
-      .tdb-porch-ingress--warm::before { opacity: 0.7; }
+      .tdb-porch-ingress--warm::before { opacity: 0.55; }
     }
-    .tdb-porch-ingress { display: block; }
+    .tdb-porch-ingress { display: block; position: relative; z-index: 1; }
     .tdb-porch-ingress__lead {
       display: block;
       font-size: 0.88rem;
-      line-height: 1.55;
-      color: color-mix(in srgb, var(--text) 88%, var(--gold-soft) 12%);
+      line-height: 1.58;
+      color: color-mix(in srgb, var(--text) 90%, var(--gold-soft) 10%);
     }
     .tdb-porch-ingress__detail {
       display: block;
       margin-top: 0.5rem;
       font-size: 0.8rem;
-      line-height: 1.52;
-      color: color-mix(in srgb, var(--muted) 90%, var(--text) 10%);
+      line-height: 1.55;
+      color: color-mix(in srgb, var(--muted) 88%, var(--text) 12%);
     }
     :root[data-theme="light"] .tdb-porch-ingress__lead {
       color: color-mix(in srgb, #1e293b 92%, #6b4c0a 8%);
@@ -8837,8 +8849,8 @@
       </div>
 
       <p class="tdb-page-orientation tdb-porch-ingress tdb-porch-ingress--warm" id="tdb-page-orientation">
-        <span class="tdb-porch-ingress__lead">If your heart feels loud or empty, you can rest here a minute&mdash;we call this little campus <strong>God&rsquo;s University of Life</strong>. Same KJV Word, same gentle porch; no grades, no performance&mdash;just an open door.</span>
-        <span class="tdb-porch-ingress__detail">You&rsquo;ll find today&rsquo;s verse and the gentle <strong>verse of the month</strong> up top when you need something steady. When you&rsquo;re ready to look around, <strong>More tools and rooms</strong> opens the full map&mdash;Ask the Teacher and the calm doorway stay close by.</span>
+        <span class="tdb-porch-ingress__lead">If the day was loud before you even sat down, stay here&mdash;you don&rsquo;t have to get it right first. <strong>God&rsquo;s University of Life</strong> is just the sign on the same quiet porch: KJV, hush, no report card&mdash;an open door and room to come as you are.</span>
+        <span class="tdb-porch-ingress__detail">Today&rsquo;s lesson and the gentle <strong>verse of the month</strong> are up top when you need something steady. <strong>More tools and rooms</strong> is for when you want to wander; Ask the Teacher and the calm door stay a step away.</span>
       </p>
 
       <nav class="tdb-campus-schools" id="tdb-campus-schools" aria-label="Schools of Life &mdash; gentle doorways to rooms you already have">

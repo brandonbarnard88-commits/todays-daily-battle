@@ -5758,7 +5758,7 @@
       text-align: center;
       color: color-mix(in srgb, var(--muted) 93%, var(--text) 7%);
     }
-    /* Quiet porch: lived-in paper, soft sun, whisper-thin depth (Standard of Excellence) */
+    /* Quiet porch: lived-in paper (aligned w/ kids world-surface: dual grain + soft corners) */
     .tdb-porch-ingress--warm {
       position: relative;
       isolation: isolate;
@@ -5769,10 +5769,13 @@
       border-radius: 20px;
       border: 1px solid color-mix(in srgb, var(--gold) 16%, var(--line) 84%);
       background:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='.22'/%3E%3C/svg%3E") repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='.12'/%3E%3C/svg%3E") repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E") repeat,
+        radial-gradient(ellipse 55% 44% at 0% 0%, rgba(255, 200, 125, 0.08) 0%, transparent 55%),
+        radial-gradient(ellipse 52% 40% at 100% 100%, rgba(0, 0, 0, 0.16) 0%, transparent 52%),
         radial-gradient(ellipse 100% 78% at 50% 0%, rgba(255, 210, 145, 0.09) 0%, transparent 58%),
         linear-gradient(168deg, color-mix(in srgb, var(--card) 90%, rgba(255, 242, 220, 0.06)) 0%, color-mix(in srgb, var(--bg-soft) 94%, var(--card) 6%) 100%);
-      background-size: 88px 88px, auto, auto;
+      background-size: 88px 88px, 180px 180px, auto, auto, auto, auto;
       box-shadow:
         0 4px 22px rgba(0, 0, 0, 0.12),
         inset 0 0 0 1px rgba(0, 0, 0, 0.1),
@@ -5793,11 +5796,14 @@
     :root[data-theme="light"] .tdb-porch-ingress--warm {
       border-color: color-mix(in srgb, #c4a45a 22%, #e8e4dc 78%);
       background:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='.12'/%3E%3C/svg%3E") repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='.09'/%3E%3C/svg%3E") repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E") repeat,
         repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0 1px, transparent 1px 24px),
+        radial-gradient(ellipse 55% 40% at 0% 0%, rgba(255, 220, 170, 0.2) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 36% at 100% 100%, rgba(160, 190, 150, 0.07) 0%, transparent 50%),
         radial-gradient(ellipse 100% 72% at 50% 0%, rgba(255, 232, 200, 0.45) 0%, transparent 55%),
         linear-gradient(180deg, #fffefb 0%, #faf6ee 100%);
-      background-size: 88px 88px, auto, auto, auto;
+      background-size: 88px 88px, 180px 180px, auto, auto, auto, auto, auto;
       box-shadow:
         0 3px 20px rgba(50, 35, 12, 0.04),
         inset 0 1px 0 rgba(255, 255, 255, 0.95),
@@ -8849,8 +8855,8 @@
       </div>
 
       <p class="tdb-page-orientation tdb-porch-ingress tdb-porch-ingress--warm" id="tdb-page-orientation">
-        <span class="tdb-porch-ingress__lead">If the day was loud before you even sat down, stay here&mdash;you don&rsquo;t have to get it right first. <strong>God&rsquo;s University of Life</strong> is just the sign on the same quiet porch: KJV, hush, no report card&mdash;an open door and room to come as you are.</span>
-        <span class="tdb-porch-ingress__detail">Today&rsquo;s lesson and the gentle <strong>verse of the month</strong> are up top when you need something steady. <strong>More tools and rooms</strong> is for when you want to wander; Ask the Teacher and the calm door stay a step away.</span>
+        <span class="tdb-porch-ingress__lead">If the day was loud before you even sat down, stay&mdash;you don&rsquo;t have to get it right the first time. You&rsquo;re not here to measure up; you&rsquo;re here to sit with God in the KJV, in a little hush. <strong>God&rsquo;s University of Life</strong> is only the name on the door&mdash;for you, it&rsquo;s no report card, an open door, and room to come as you are.</span>
+        <span class="tdb-porch-ingress__detail">When you need something steady, you&rsquo;ll find today&rsquo;s lesson and the gentle <strong>verse of the month</strong> up top. When you&rsquo;re up for wandering, <strong>More tools and rooms</strong> is one tap&mdash;Ask the Teacher and the calm door stay close, wherever you start.</span>
       </p>
 
       <nav class="tdb-campus-schools" id="tdb-campus-schools" aria-label="Schools of Life &mdash; gentle doorways to rooms you already have">

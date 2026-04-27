@@ -23,6 +23,7 @@
 </head>
 <body class="dark-mode tdb-inner-page tdb-search-page">
   <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div id="tdb-offline-strip" class="tdb-offline-strip hidden" role="status" aria-live="polite" data-tdb-offline-page="search"><p class="offline-msg"></p></div>
   <nav class="tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
     <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel-standalone" id="tdb-primary-nav-toggle-standalone">
       <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
@@ -266,6 +267,7 @@
 </footer>
 
   <script type="module" src="script.js?v=20260423-phase5-perf" data-cfasync="false"></script>
+  <script src="/tdb-offline-strip.js?v=20260329pass2off"></script>
   <script nonce="tdb2025s">
 (function () {
   var input = document.getElementById('tdb-site-search-input');
@@ -334,6 +336,11 @@
     .then(function (data) {
       entries = (data && data.entries) || [];
       try {
+        var stripOk = document.getElementById('tdb-offline-strip');
+        if (stripOk) stripOk.removeAttribute('data-tdb-offline-forced');
+        if (globalThis.TDB_hideOfflineStripIfOnline) globalThis.TDB_hideOfflineStripIfOnline();
+      } catch (eStrip) {}
+      try {
         var qp = new URLSearchParams(window.location.search || '');
         var preset = String(qp.get('q') || '').trim();
         if (preset) input.value = preset;
@@ -347,6 +354,9 @@
         { t: 'Explore', u: '/explore.html' },
         { t: 'Bible Tool', u: '/bible-tool.html' }
       ];
+      try {
+        if (globalThis.TDB_showOfflineStrip) globalThis.TDB_showOfflineStrip('search', { force: true });
+      } catch (eStrip) {}
       status.textContent = 'Offline — still got you. Showing a few core links.';
       try {
         var qp2 = new URLSearchParams(window.location.search || '');

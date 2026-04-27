@@ -21,10 +21,14 @@
       'Offline — still got you. Cached chapters are available. New chapters will load when you’re back online.',
     'bible-tool':
       'Offline — still got you. Search works on cached verses only.',
+    search:
+      'Offline — still got you. The hand-built map could not refresh just now; a few steady doors stay below. Type if you want to narrow—nothing leaves this browser.',
     plans:
       'Offline — still got you. Your saved progress is here. New plans will load when online.',
     mystudy:
       'Offline — still got you. All your notes and saves are safe on this device.',
+    'study-workspace':
+      'Offline — still got you. Notes, saved verses, and verses you already loaded stay on this device. We will sync when you reconnect.',
     'what-god-has-done':
       'Offline — still got you. Your private journal entries are saved on this device.',
     memorize:

@@ -21582,6 +21582,29 @@ html[data-tdb-contrast="high"] .card {
     border-color: #999 !important;
   }
 
+  /* Study workspace — paper favors notes over live search chrome */
+  .study-workspace-page #search-btn,
+  .study-workspace-page .quick-actions-hero,
+  .study-workspace-page .home-accordion {
+    display: none !important;
+  }
+
+  /* Site search — printable door list; hide live filter chrome */
+  .tdb-search-page .tdb-site-search-input,
+  .tdb-search-page .tdb-search-label,
+  .tdb-search-page #tdb-site-search-status {
+    display: none !important;
+  }
+
+  .tdb-search-page .tdb-site-search-results {
+    list-style: disc;
+    padding-left: 1.25rem;
+  }
+
+  .tdb-search-page .tdb-site-search-results a {
+    font-weight: 600;
+  }
+
   /* Printable pack generator */
   .print-pack-generator-page .ppg-chooser,
   .print-pack-generator-page .ppg-toolbar,

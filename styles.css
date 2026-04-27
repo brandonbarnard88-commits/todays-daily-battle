@@ -8156,6 +8156,12 @@ body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn .section-n
   box-shadow: var(--tdb-dawn-shadow);
 }
 
+/* Möbius: opt-in mist sun-wash (porch continuity; wins over dusk above) */
+.mobius-luxe-page .mobius-hero--soar-dawn.tdb-dawn-bg--mist {
+  background: var(--tdb-dawn-mist);
+  box-shadow: var(--tdb-dawn-shadow);
+}
+
 .mobius-luxe-page .mobius-hero--soar-dawn h1 {
   color: #0f172a;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);

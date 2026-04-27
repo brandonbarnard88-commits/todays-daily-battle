@@ -1732,8 +1732,8 @@
     html += others.length ? others.slice(0, 10).map(function (ref) {
       var txt = notes[ref].length > 80 ? notes[ref].slice(0, 80) + '…' : notes[ref];
       return '<p class="section-note util-mb-0_5"><strong>' + escapeHtml(ref) + '</strong>: ' + escapeHtml(txt) + '</p>';
-    }).join('') : (battleLog ? '' : '<p class="section-note">Nothing here yet. When a verse touches your heart, look it up above and add a note—or use Add to Notes. The Lord meets you right where you are.</p>');
-    list.innerHTML = html || '<p class="section-note">Nothing here yet. When a verse touches your heart, add a note above. The Lord meets you right where you are.</p>';
+    }).join('') : (battleLog ? '' : '<p class="section-note">No notes yet. The verse is still here when you need it.</p>');
+    list.innerHTML = html || '<p class="section-note">No notes yet. The verse is still here when you need it.</p>';
   }
 
   function shareVerse(ref, text, useToolUrl) {

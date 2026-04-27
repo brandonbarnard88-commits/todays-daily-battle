@@ -926,7 +926,7 @@
     if (!refEl || !textEl) return;
     refEl.textContent =
       study.verseRef ||
-      'Nothing here yet. When a verse touches your heart, search on Home or open the Bible Tool. The Lord meets you right where you are.';
+      'No entries yet. That\'s fine. The desk is still yours.';
     textEl.textContent = study.verseText || '';
     var art = textEl.closest('.mystudy-verse-card');
     if (art) {

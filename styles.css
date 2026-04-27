@@ -957,6 +957,35 @@ html[data-theme="light"] .content-inner > header.hero-banner.topic-hero--soar-da
   color: color-mix(in srgb, var(--text-light, #1a2234) 85%, transparent);
 }
 
+/* Topic porch whisper under H1 — slightly warmer than generic section-note */
+.content-inner > header.hero-banner.topic-hero--soar-dawn .topic-mood-porch,
+.content-inner > header.hero-banner .topic-mood-porch {
+  margin: 0 0 0.4rem;
+  max-width: 36rem;
+  font-size: clamp(0.87rem, 2.35vw, 0.97rem);
+  line-height: 1.55;
+  letter-spacing: 0.012em;
+  color: color-mix(in srgb, var(--muted-readable, #a8b8cc) 88%, var(--gold-soft, #e3bc67) 12%);
+}
+
+html[data-theme="light"] .content-inner > header.hero-banner .topic-mood-porch {
+  color: color-mix(in srgb, var(--text-light, #1a2234) 58%, var(--gold, #9a7324) 14%);
+}
+
+/* Porch whisper when H1 is not inside .hero-banner (mission packs, church join, etc.) */
+p.section-note.topic-mood-porch {
+  margin: 0 0 0.5rem;
+  max-width: 36rem;
+  font-size: clamp(0.87rem, 2.35vw, 0.97rem);
+  line-height: 1.55;
+  letter-spacing: 0.012em;
+  color: color-mix(in srgb, var(--muted-readable, #a8b8cc) 88%, var(--gold-soft, #e3bc67) 12%);
+}
+
+html[data-theme="light"] p.section-note.topic-mood-porch {
+  color: color-mix(in srgb, var(--text-light, #1a2234) 58%, var(--gold, #9a7324) 14%);
+}
+
 /* On-device listen / TTS — reuse anywhere “Listen” appears */
 .tdb-listen-privacy-hint,
 p.reader-audio-hint.tdb-listen-privacy-hint {

@@ -136,6 +136,10 @@ body.tdb-inner-page.mystudy-body .mystudy-shell.tdb-quiet-container {
   max-width: 46rem;
 }
 
+.mystudy-overview-text {
+  margin-top: 0.2rem;
+}
+
 .mystudy-hint-card,
 .mystudy-retry-row {
   margin: 0;

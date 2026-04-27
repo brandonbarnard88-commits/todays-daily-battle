@@ -164,11 +164,35 @@
     /* ── Hero ── */
     .plans-hero { text-align: center; margin-bottom: 2rem; }
     .plans-hero--soar-dawn {
+      position: relative;
       padding: 1.2rem 1rem 1.45rem;
-      border-radius: 14px;
+      border-radius: 16px;
       max-width: 44rem;
       margin-left: auto;
       margin-right: auto;
+      border: 1px solid color-mix(in srgb, var(--gold) 20%, var(--line) 80%);
+      background:
+        radial-gradient(ellipse 100% 65% at 50% 0%, rgba(255, 210, 150, 0.1) 0%, transparent 50%),
+        color-mix(in srgb, var(--card) 95%, rgba(255, 235, 200, 0.05) 5%);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 248, 230, 0.04);
+    }
+    .plans-hero--soar-dawn::before {
+      content: "";
+      position: absolute;
+      left: 10%;
+      right: 10%;
+      top: 0.35rem;
+      height: 2px;
+      border-radius: 99px;
+      background: linear-gradient(90deg, transparent, rgba(255, 200, 120, 0.35), transparent);
+      pointer-events: none;
+    }
+    html[data-theme="light"] .plans-hero--soar-dawn {
+      border-color: color-mix(in srgb, #d4a84a 28%, #e2e8f0 72%);
+      background:
+        radial-gradient(ellipse 95% 60% at 50% 0%, rgba(255, 230, 190, 0.5) 0%, transparent 48%),
+        linear-gradient(180deg, #fffef9 0%, #fff9f0 100%);
+      box-shadow: 0 6px 28px rgba(50, 35, 10, 0.06);
     }
     .plans-hero h1 { font-size: clamp(1.6rem,4vw,2.2rem); font-weight: 800; margin: 0 0 0.4rem; }
     .plans-hero-subtitle-uog {
@@ -183,13 +207,20 @@
       max-width: 32rem;
       margin-left: auto;
       margin-right: auto;
-      font-size: clamp(0.88rem, 2vw, 0.98rem);
-      line-height: 1.5;
+      padding: 0.55rem 0.75rem 0.6rem;
+      border-radius: 12px;
+      font-size: clamp(0.9rem, 2.1vw, 1rem);
+      line-height: 1.55;
       font-weight: 500;
-      color: color-mix(in srgb, var(--text) 90%, var(--gold) 10%);
+      font-style: italic;
+      color: color-mix(in srgb, var(--text) 86%, var(--gold-soft) 14%);
+      background: color-mix(in srgb, rgba(227, 188, 103, 0.09) 100%, transparent);
+      border: 1px solid color-mix(in srgb, var(--gold) 22%, transparent);
     }
     html[data-theme="light"] .plans-porch-ingress {
-      color: color-mix(in srgb, var(--text) 92%, #6b4c0a 8%);
+      color: color-mix(in srgb, #1e293b 88%, #6b4c0a 12%);
+      background: color-mix(in srgb, rgba(201, 162, 55, 0.1) 100%, #fffef9 0%);
+      border-color: color-mix(in srgb, #c4a45a 30%, #e2e8f0 70%);
     }
     .plans-audio-roadmap {
       margin: 0.5rem 0 0.85rem;
@@ -1486,7 +1517,7 @@
       <div class="plans-hero plans-hero--soar-dawn tdb-micro-hero-dawn">
         <h1>Courses in the University of God</h1>
         <p class="plans-hero-subtitle-uog">Gentle studies for the hard semesters</p>
-        <p class="plans-porch-ingress" id="plans-porch-ingress">One short day at a time&mdash;KJV, plain words, your pace. No scoreboard.</p>
+        <p class="plans-porch-ingress" id="plans-porch-ingress">You&rsquo;re not behind&mdash;you&rsquo;re just human. Pull up; one day opens at a time, KJV and plain, and the page doesn&rsquo;t keep score.</p>
         <p>Short, daily KJV lessons with one small step, plain words, and a simple prayer. Progress stays on your device, even offline. Need the small map of anchor verses? <a href="university.html">Open the University page</a>.</p>
       </div>
       <section class="plans-situation-jump" id="find-your-plan" aria-labelledby="plans-situation-jump-h">

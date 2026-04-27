@@ -7,8 +7,8 @@ Use the **checklist in §4** of the standard on every pass.
 
 | # | Area | Primary files | Status |
 |---|------|---------------|--------|
-| 1 | **Homepage** | `index.html` (inline critical + hero; `script.js` for search&mdash;do not break [homepage feel search](../.cursor/rules/homepage-feel-search.mdc)) | **Polish started:** porch-style orientation line split into lead + calmer detail (quiet porch &ldquo;one breath&rdquo;). |
-| 2 | **Plans** | `plans.html` | **Polish started:** one-line `plans-porch-ingress` under the hero subtitle before the longer explainer. |
+| 1 | **Homepage** | `index.html` (inline critical + hero; `script.js` for search&mdash;do not break [homepage feel search](../.cursor/rules/homepage-feel-search.mdc)) | **Polish layered:** warmer, more personal porch copy + `tdb-porch-ingress--warm` sun-wash card (dark + calm-cream light, soft top highlight). |
+| 2 | **Plans** | `plans.html` | **Polish layered:** inviting `plans-porch-ingress` line (italic, warm panel) + `plans-hero--soar-dawn` sun-wash border and light-mode paper. |
 | 3 | **Verse of the Day + full verse** | `verse.html` | Next: first-screen calm, typographic hierarchy, offline strip consistency. |
 | 4 | **About** | `about.html` | Next: align opening copy rhythm with Main Porch shell; keep honest tone. |
 | 5 | **My Study / Progress** | `mystudy.html`, `mystudy.css`, `progress.html` | Next: tool-shell warmth (calm dark), no new pressure copy; progress stays &ldquo;quiet marker&rdquo; language. |

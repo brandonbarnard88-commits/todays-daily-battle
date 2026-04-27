@@ -5758,19 +5758,65 @@
       text-align: center;
       color: color-mix(in srgb, var(--muted) 93%, var(--text) 7%);
     }
+    /* Quiet porch: soft sun-wash + paper warmth (aligns with Standard of Excellence) */
+    .tdb-porch-ingress--warm {
+      position: relative;
+      max-width: 40rem;
+      margin: 0.2rem auto 0.5rem;
+      padding: 0.8rem 1rem 0.9rem;
+      border-radius: 18px;
+      border: 1px solid color-mix(in srgb, var(--gold) 28%, var(--line) 72%);
+      background:
+        radial-gradient(ellipse 95% 70% at 50% 0%, rgba(255, 220, 160, 0.14) 0%, transparent 55%),
+        linear-gradient(165deg, color-mix(in srgb, var(--card) 88%, rgba(255, 245, 220, 0.08)) 0%, color-mix(in srgb, var(--bg-soft) 92%, var(--card) 8%) 100%);
+      box-shadow:
+        0 10px 36px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255, 250, 235, 0.06);
+    }
+    .tdb-porch-ingress--warm::before {
+      content: "";
+      position: absolute;
+      left: 12%;
+      right: 12%;
+      top: 0;
+      height: 2px;
+      border-radius: 0 0 99px 99px;
+      background: linear-gradient(90deg, transparent, rgba(255, 214, 140, 0.45), rgba(255, 235, 200, 0.25), transparent);
+      pointer-events: none;
+      opacity: 0.85;
+    }
+    :root[data-theme="light"] .tdb-porch-ingress--warm {
+      border-color: color-mix(in srgb, #c4a45a 35%, #e2e8f0 65%);
+      background:
+        radial-gradient(ellipse 100% 75% at 50% 0%, rgba(255, 240, 210, 0.65) 0%, transparent 52%),
+        linear-gradient(180deg, #fffdf8 0%, color-mix(in srgb, #fff9f0 96%, #f6f1e3 4%) 100%);
+      box-shadow: 0 4px 28px rgba(60, 40, 12, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+    :root[data-theme="light"] .tdb-porch-ingress--warm::before {
+      background: linear-gradient(90deg, transparent, rgba(212, 165, 60, 0.35), rgba(255, 220, 160, 0.4), transparent);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .tdb-porch-ingress--warm::before { opacity: 0.7; }
+    }
     .tdb-porch-ingress { display: block; }
     .tdb-porch-ingress__lead {
       display: block;
-      font-size: 0.86rem;
-      line-height: 1.5;
-      color: color-mix(in srgb, var(--text) 82%, var(--muted) 18%);
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: color-mix(in srgb, var(--text) 88%, var(--gold-soft) 12%);
     }
     .tdb-porch-ingress__detail {
       display: block;
-      margin-top: 0.45rem;
-      font-size: 0.78rem;
-      line-height: 1.48;
-      color: color-mix(in srgb, var(--muted) 94%, var(--text) 6%);
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      line-height: 1.52;
+      color: color-mix(in srgb, var(--muted) 90%, var(--text) 10%);
+    }
+    :root[data-theme="light"] .tdb-porch-ingress__lead {
+      color: color-mix(in srgb, #1e293b 92%, #6b4c0a 8%);
+    }
+    :root[data-theme="light"] .tdb-porch-ingress__detail {
+      color: color-mix(in srgb, #475569 88%, #5c4a1c 12%);
     }
     .tdb-campus-schools {
       margin: 0.35rem auto 0.5rem;
@@ -8790,9 +8836,9 @@
         <p class="calm-cta-note">Any hour counts&mdash;heavy day, quiet day, or something in between.</p>
       </div>
 
-      <p class="tdb-page-orientation tdb-porch-ingress" id="tdb-page-orientation">
-        <span class="tdb-porch-ingress__lead">Same quiet porch you already trust&mdash;we call the campus <strong>God&rsquo;s University of Life</strong>. No grades; just open doors to His Word.</span>
-        <span class="tdb-porch-ingress__detail">Today&rsquo;s verse and the gentle <strong>verse of the month</strong> card stay up top; <strong>More tools and rooms</strong> opens the map; Ask the Teacher and the calm doorway sit close by.</span>
+      <p class="tdb-page-orientation tdb-porch-ingress tdb-porch-ingress--warm" id="tdb-page-orientation">
+        <span class="tdb-porch-ingress__lead">If your heart feels loud or empty, you can rest here a minute&mdash;we call this little campus <strong>God&rsquo;s University of Life</strong>. Same KJV Word, same gentle porch; no grades, no performance&mdash;just an open door.</span>
+        <span class="tdb-porch-ingress__detail">You&rsquo;ll find today&rsquo;s verse and the gentle <strong>verse of the month</strong> up top when you need something steady. When you&rsquo;re ready to look around, <strong>More tools and rooms</strong> opens the full map&mdash;Ask the Teacher and the calm doorway stay close by.</span>
       </p>
 
       <nav class="tdb-campus-schools" id="tdb-campus-schools" aria-label="Schools of Life &mdash; gentle doorways to rooms you already have">

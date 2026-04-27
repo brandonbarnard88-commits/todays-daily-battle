@@ -24313,10 +24313,10 @@ var HOME_SEARCH_PLAN_LIBRARY = [
   },
   {
     id: 'moneyworry',
-    title: 'When Money Won’t Quiet',
+    title: 'Financial stress & provision',
     href: 'plans.html?plan=moneyworry',
     days: 7,
-    description: 'Seven steady KJV days for the nights when numbers and mailboxes keep preaching fear.',
+    description: 'Seven days with Him when money feels tight or heavy. Come worried, ashamed, or exactly as you are — rest-first, no performance.',
     topics: ['finances', 'worry', 'anxiety', 'overwhelmed']
   },
   {

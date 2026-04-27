@@ -137,7 +137,7 @@
       <div class="content-inner progress-app-inner">
         <header class="hero-banner progress-hero tdb-micro-hero-dawn">
           <h1>Progress</h1>
-          <p class="hero-tagline">You set the pace. Your plans and check-ins stay on this device&mdash;no scoreboard, no show, just quiet honesty before God.</p>
+          <p class="hero-tagline">This isn&rsquo;t a scoreboard. A thin week still counts. Some days you&rsquo;ll read one verse and close the page&mdash;that&rsquo;s enough. You set the pace. Your plans and check-ins stay on this device: quiet honesty before God. There&rsquo;s always room to breathe here.</p>
           <div class="cta-group">
             <a class="btn btn-secondary" href="/">Home</a>
             <a class="btn btn-secondary" href="wins.html">Your Wins</a>
@@ -146,7 +146,7 @@
           </div>
         </header>
 
-        <section class="glass progress-faith-loop-section" aria-labelledby="progress-faith-loop-h">
+        <section class="glass tdb-porch-paper-glass progress-faith-loop-section" aria-labelledby="progress-faith-loop-h">
           <h2 class="section-divider" id="progress-faith-loop-h">Faith loop</h2>
           <p id="progress-faith-loop-line" class="section-note progress-faith-loop-line" role="status" aria-live="polite"></p>
           <p class="section-note util-mb-0">When a plan ends, you can <a href="plans.html">loop back</a> or rest. The <a href="mobius.html">Möbius</a> page is the same picture in words—one path, gentle turns.</p>
@@ -160,7 +160,7 @@
 
         <section class="glass" id="progress-visit-rhythm" aria-labelledby="progress-visit-rhythm-h">
           <h2 class="section-divider" id="progress-visit-rhythm-h">Visit rhythm</h2>
-          <p class="section-note progress-visit-rhythm-note">Last four weeks on <strong>this device</strong> — days you marked &ldquo;I prayed / I&rsquo;m done for today&rdquo; on the home card. No scores; just a quiet map.</p>
+          <p class="section-note progress-visit-rhythm-note">Last four weeks on <strong>this device</strong>&mdash;days you marked &ldquo;I prayed / I&rsquo;m done for today&rdquo; on the home card. No scores; just a quiet map. A light week is still a real week with God.</p>
           <p id="progress-heat-empty" class="section-note progress-heat-empty hidden" role="status">No home check-ins in this window yet. When you finish today&rsquo;s verse flow on the homepage, a square will glow here.</p>
           <div id="progress-heat-grid" class="progress-heat-grid" role="group" aria-label="Last 28 days, lighter means no check-in"></div>
           <h3 class="progress-milestones-heading">Gentle milestones</h3>
@@ -204,7 +204,7 @@
 
         <section class="glass" aria-label="Reset local progress">
           <h2 class="section-divider">Data on this device</h2>
-          <p class="section-note">Plans and streaks here live in your browser only. You can copy your stats above, or clear everything below if you need a fresh start.</p>
+          <p class="section-note">Plans and streaks here live in your browser only&mdash;private, not a verdict on your walk. You can copy your stats above, or clear everything below if you need a gentle fresh start.</p>
           <div class="progress-actions">
             <button type="button" id="reset-progress" class="btn-reset" aria-label="Reset all progress">Reset Progress</button>
           </div>
@@ -648,11 +648,11 @@
       if (floop) {
         if (active.length > 0) {
           var p0 = active[0];
-          floop.textContent = 'Day ' + p0.day + ' of ' + p0.plan.max + ' on ' + p0.plan.label + ' — close the loop at your pace; you can walk it again anytime.';
+          floop.textContent = 'You\'re on day ' + p0.day + ' of ' + p0.plan.max + ' in ' + p0.plan.label + ' — stay at your own pace; you can rest, loop back, or walk it again anytime.';
         } else if (completed.length > 0) {
-          floop.textContent = 'No active plan right now — you have finished at least one full lane. Start fresh on the plans page whenever you want another slow rhythm.';
+          floop.textContent = 'No active plan right now — you\'ve already finished a full lane. When you want that slow rhythm again, start fresh on the plans page; there\'s room to breathe here.';
         } else {
-          floop.textContent = 'No plan progress on this device yet — open Battle Plans when you want a day-by-day lane; your checkmarks will gather here.';
+          floop.textContent = 'No plan progress on this device yet — when you\'re ready for a day-by-day lane, open Battle Plans; your checkmarks will gather here, quietly.';
         }
       }
     }

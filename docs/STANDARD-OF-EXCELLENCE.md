@@ -36,11 +36,13 @@
 
 **Goal:** Avoid one-off “hero and footer” drift by using **2–3 reusable page shells** and only swapping **main content** and page-specific options.
 
-| Shell | Role | Typical pages (examples) |
-|--------|------|----------------------------|
-| **Main Porch** | Welcome, read, and orient—light, story-forward, uncluttered. | Home, Verse of the Day, About, high-level Explore entry points. |
-| **Tool** | Focused work—reading, search, study, progress—adult-appropriate visual weight, still warm. | Battle plans, My Study, Reader, Bible Tool hubs, **non-kids** flows. |
-| **Print** | Print-first layout, clean margins, no dark background bleed, minimal chrome. | One-page prints, pack generators, kids activity sheet pattern. |
+
+| Shell          | Role                                                                                       | Typical pages (examples)                                             |
+| -------------- | ------------------------------------------------------------------------------------------ | -------------------------------------------------------------------- |
+| **Main Porch** | Welcome, read, and orient—light, story-forward, uncluttered.                               | Home, Verse of the Day, About, high-level Explore entry points.      |
+| **Tool**       | Focused work—reading, search, study, progress—adult-appropriate visual weight, still warm. | Battle plans, My Study, Reader, Bible Tool hubs, **non-kids** flows. |
+| **Print**      | Print-first layout, clean margins, no dark background bleed, minimal chrome.               | One-page prints, pack generators, kids activity sheet pattern.       |
+
 
 **Implementation note (for builders):** Shells are **conventions**—shared `app-shell` / `top-bar` / `content-inner` patterns, shared CSS entry points (`styles.css` + role-specific CSS), and the same footer include. A future step is to document **class names and required landmarks** per shell in a short addendum or Storybook-style snippet list; the **rollout** can move pages into these buckets incrementally (see §4).
 

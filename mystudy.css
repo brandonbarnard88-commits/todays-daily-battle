@@ -63,6 +63,29 @@ body.tdb-inner-page.mystudy-body .mystudy-shell.tdb-quiet-container {
   border-radius: 24px;
 }
 
+/* Whole-card porch warmth: soft outer sun + line (inner hero already has mystudy-hero--warm) */
+.mystudy-card.mystudy-card--porch {
+  position: relative;
+  border-color: color-mix(in srgb, var(--tdb-dawn-border, #d4b88a) 35%, rgba(148, 163, 184, 0.2)) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, rgba(227, 188, 103, 0.14) 100%, transparent),
+    0 20px 48px rgba(0, 0, 0, 0.22),
+    0 0 52px rgba(227, 188, 103, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.mystudy-card.mystudy-card--porch::before {
+  content: "";
+  position: absolute;
+  inset: -1px 18% auto 18%;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, rgba(227, 188, 103, 0.18) 50%, transparent);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.85;
+}
+
 .mystudy-hero {
   display: grid;
   gap: 1rem;

@@ -2255,7 +2255,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     if (!visibleLoops.length) {
       var empty = document.createElement('p');
       empty.className = 'section-note';
-      empty.textContent = 'No unlocked loops match this view yet. Try another starter lane or switch back to All unlocked.';
+      empty.textContent = 'Nothing in this lane yet\u2014that is all right. Try another starter, or return to All unlocked when you want the wider shelf.';
       fragment.appendChild(empty);
     }
     grid.appendChild(fragment);
@@ -19284,7 +19284,7 @@ function populateReaderXrefsSheetBody(anchorRef, verseText, full) {
   if (!built.sections.length) {
     if (emptyEl) {
       emptyEl.textContent =
-        'No curated cross-references for this verse are in the offline list yet. Try another verse, or use the Bible Tool for lookup. You can still tap Study this verse below for KJV word study on this line.';
+        'No curated cross-references for this verse are in the offline list yet\u2014you are still welcome here. Try another line, or open the Bible Tool for lookup. You can still tap Study this verse below for KJV word help on this line.';
       emptyEl.classList.remove('hidden');
     }
     return;

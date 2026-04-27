@@ -80,6 +80,10 @@
 # Kids Battle (reversible: everything in kids/ folder)
 /kids /kids/index.html 200!
 /kids/ /kids/index.html 200!
+# Kids JS renames: serve canonical file at legacy URLs (SW/offline/bookmarks). Requires targets in deploy.
+/kids/kids-play-zone.js /kids/kids-hub-play.js 200
+/kids/kids-little-shepherd.js /kids/kids-gentle-shepherd.js 200
+/kids/kids-activity-log.js /kids/kids-wins-recap.js 200
 /kids-battle /kids/ 302
 /kids-battle/parent /kids/parent.html 302
 # Library → Kids Corner (merge)

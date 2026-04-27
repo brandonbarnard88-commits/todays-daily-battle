@@ -17765,6 +17765,31 @@ html[data-theme="light"] .tdb-verse-breakdown-inline.is-open {
   border: 1px solid #e8e0d0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
+/* Warm paper: ref + body copy must meet contrast (axe wcag2aa on plans.html / verse.html). */
+html[data-theme="light"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-ref,
+html[data-theme="light"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-breakdown strong {
+  color: #713f12;
+}
+html[data-theme="light"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-verse-text,
+html[data-theme="light"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-row {
+  color: #292524 !important;
+}
+/* Glass bubble tints read as gray-on-gray on warm paper; solid chips for AA. */
+html[data-theme="light"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-bubble-adult {
+  background: #e2dfd6;
+  color: #1c1917;
+  border-color: color-mix(in srgb, #713f12 28%, transparent);
+}
+html[data-theme="light"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-bubble-kid {
+  background: #dbeafe;
+  color: #0c4a6e;
+  border-color: color-mix(in srgb, #0369a1 30%, transparent);
+}
+html[data-theme="light"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-bubble-teen {
+  background: #e0e7ff;
+  color: #1e1b4b;
+  border-color: color-mix(in srgb, #4338ca 28%, transparent);
+}
 html[data-theme="light"] details.verse-breakdown[open] {
   background: #f8f5ef;
   border: 1px solid #e8e0d0;
@@ -17778,6 +17803,29 @@ html[data-theme="sepia"] details.verse-breakdown[open] {
   background: #f4efe6;
   border: 1px solid #d9cfc0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+html[data-theme="sepia"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-ref,
+html[data-theme="sepia"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-breakdown strong {
+  color: #62420f;
+}
+html[data-theme="sepia"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-verse-text,
+html[data-theme="sepia"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-row {
+  color: #292524 !important;
+}
+html[data-theme="sepia"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-bubble-adult {
+  background: #ddd8cc;
+  color: #1c1917;
+  border-color: color-mix(in srgb, #62420f 30%, transparent);
+}
+html[data-theme="sepia"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-bubble-kid {
+  background: #cfe8f5;
+  color: #0c4a6e;
+  border-color: color-mix(in srgb, #0369a1 30%, transparent);
+}
+html[data-theme="sepia"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-bubble-teen {
+  background: #d8dcf5;
+  color: #1e1b4b;
+  border-color: color-mix(in srgb, #4338ca 28%, transparent);
 }
 html[data-theme="sepia"] details.verse-breakdown[open] {
   border-radius: 10px;

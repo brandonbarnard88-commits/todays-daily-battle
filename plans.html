@@ -764,6 +764,32 @@
     .plans-browse-by-season__col a:hover,
     .plans-browse-by-season__col a:focus-visible { color: var(--gold); outline: none; }
 
+    /* Light / sepia: gold on warm paper fails WCAG AA (axe a11y-critical). */
+    html[data-theme="light"] .plans-browse-by-season__h,
+    html[data-theme="light"] .plans-browse-by-season__col h3 {
+      color: #5c481a;
+    }
+    html[data-theme="light"] .plans-browse-by-season__col a {
+      color: #5c481a;
+      border-bottom-color: color-mix(in srgb, #5c481a 38%, transparent);
+    }
+    html[data-theme="light"] .plans-browse-by-season__col a:hover,
+    html[data-theme="light"] .plans-browse-by-season__col a:focus-visible {
+      color: #3d2f12;
+    }
+    html[data-theme="sepia"] .plans-browse-by-season__h,
+    html[data-theme="sepia"] .plans-browse-by-season__col h3 {
+      color: #62420f;
+    }
+    html[data-theme="sepia"] .plans-browse-by-season__col a {
+      color: #62420f;
+      border-bottom-color: color-mix(in srgb, #62420f 38%, transparent);
+    }
+    html[data-theme="sepia"] .plans-browse-by-season__col a:hover,
+    html[data-theme="sepia"] .plans-browse-by-season__col a:focus-visible {
+      color: #3d2910;
+    }
+
     html[data-theme="light"] .plans-lane-chip {
       color: #5c481a;
       border-color: color-mix(in srgb, #7a5818 50%, transparent);

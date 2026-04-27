@@ -4,7 +4,7 @@
  * Run after deploy: node scripts/verify-live-kids.mjs
  * Optional: LIVE_BASE=https://www.todaysdailybattle.com node scripts/verify-live-kids.mjs
  *
- * --scripts-only (or VERIFY_KIDS_SCRIPTS_ONLY=1) — HEAD only the three critical /kids/*.js files (+ control kids-battle.js).
+ * --scripts-only (or VERIFY_KIDS_SCRIPTS_ONLY=1) — HEAD canonical + legacy-alias /kids/*.js (+ control kids-battle.js).
  * Use with LIVE_BASE=<pages.dev deployment URL> right after wrangler pages deploy.
  */
 import { LOOP_HTML_MARKERS, STORY_HTML_MARKERS, OG_ASSET_PATHS } from './kids-verify-markers.mjs';
@@ -16,6 +16,13 @@ const scriptsOnly =
 const kidsScriptChecks = [
   ...['kids/kids-hub-play.js', 'kids/kids-gentle-shepherd.js', 'kids/kids-wins-recap.js'].map((rel) => ({
     name: `Kids script /${rel}`,
+    url: `${BASE}/${rel}`,
+    expectStatus: 200,
+    expectType: 'application/javascript',
+  })),
+  /* _redirects 200 rewrites → canonical files (bookmarks / old SW cache) */
+  ...['kids/kids-play-zone.js', 'kids/kids-little-shepherd.js', 'kids/kids-activity-log.js'].map((rel) => ({
+    name: `Kids legacy alias /${rel}`,
     url: `${BASE}/${rel}`,
     expectStatus: 200,
     expectType: 'application/javascript',
@@ -37,7 +44,7 @@ const checks = scriptsOnly
         expectStatus: 200,
         expectType: 'image/jpeg',
       })),
-      ...kidsScriptChecks.slice(0, 3),
+      ...kidsScriptChecks,
     ];
 
 const htmlChecks = scriptsOnly

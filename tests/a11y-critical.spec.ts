@@ -13,6 +13,10 @@ test.beforeEach(async ({ page }) => {
     try {
       sessionStorage.setItem('tdb_welcome_intro_seen_session', '1');
     } catch (e) {}
+    /* first-visit-welcome.js — without this, Home opens a modal and axe can time out */
+    try {
+      localStorage.setItem('tdb_welcome_calm_campus_v1', '1');
+    } catch (e) {}
   });
 });
 

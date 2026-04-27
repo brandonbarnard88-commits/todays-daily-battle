@@ -23,6 +23,15 @@
     body { background: var(--bg); color: var(--text); font-family: ui-rounded, "Avenir Next", system-ui, sans-serif; line-height: 1.7; }
     .rhythm-hero { text-align: center; padding: 2.5rem 1.5rem 2rem; background: color-mix(in srgb, var(--bg) 92%, #1a1814); border-radius: 24px; border: 1px solid color-mix(in srgb, var(--gold) 18%, transparent); box-shadow: 0 20px 40px rgba(0,0,0,0.4); margin-bottom: 2.5rem; }
     .rhythm-title { font-size: clamp(1.6rem, 4.5vw, 2.2rem); color: var(--gold); margin: 0 0 0.5rem; font-weight: 700; letter-spacing: -0.02em; }
+    .rhythm-porch {
+      margin: 0 auto 0.65rem;
+      max-width: 34rem;
+      font-size: clamp(0.87rem, 2.35vw, 0.97rem);
+      line-height: 1.55;
+      letter-spacing: 0.012em;
+      color: color-mix(in srgb, var(--muted) 88%, var(--gold) 12%);
+      text-align: center;
+    }
     .rhythm-lead { color: var(--muted); font-size: 1.05rem; max-width: 34rem; margin: 0 auto 2rem; line-height: 1.6; }
     .rhythm-card { 
       background: color-mix(in srgb, var(--bg) 94%, #1c1917); 
@@ -362,6 +371,7 @@
     <div class="rhythm-hero">
       <div id="family-rhythm-overview" class="daily-rhythm-overview" tabindex="-1">
         <h1 class="rhythm-title">Simple family rhythm</h1>
+        <p class="rhythm-porch">You&rsquo;re already welcome here&mdash;family rhythm isn&rsquo;t a performance score; rest at the table counts.</p>
         <p class="rhythm-lead">One place to gather what you already have&mdash;morning new mercies for little ones, four short <abbr title="King James Version">KJV</abbr> evenings in the same voice as the University, and a one-week print if paper helps. Not a new program&mdash;just a calmer front door to the same room.</p>
       </div>
       <nav class="daily-rhythm-onpage-nav" aria-label="On this page">

@@ -94,6 +94,7 @@ If any answer is no, fix before shipping.
 - [NORTH-STAR-PRINCIPLES.md](./NORTH-STAR-PRINCIPLES.md) — fixed foundations
 - [ELITE-POLISH.md](./ELITE-POLISH.md) — technical polish baseline
 - [POLISH-RELEASE-GUIDE.md](./POLISH-RELEASE-GUIDE.md) — release discipline (if used for a given change)
+- [PHASE-1-CORE-ROLLOUT.md](./PHASE-1-CORE-ROLLOUT.md) — **live tracking** for Phase 1 core pages (home, plans, verse, about, My Study / Progress)
 
 **Change control:** When a shell convention or global pattern changes, update this file in the **same** change (or follow-up) so the standard stays true.
 

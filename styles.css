@@ -20193,12 +20193,20 @@ body.tdb-inner-page.tdb-calm-shelf-page main#main-content.app-content.tdb-quiet-
 
 /* Verse page (verse.html): calmer hero, card, actions — scoped to .tdb-verse-page only */
 .tdb-verse-page .verse-hero {
+  position: relative;
+  isolation: isolate;
   text-align: center;
   padding: 2rem 1rem 1.5rem;
   border-radius: var(--radius-xl);
-  background: var(--tdb-dawn-classic);
   border: 1px solid var(--tdb-dawn-border);
   box-shadow: var(--tdb-dawn-shadow);
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='.1'/%3E%3C/svg%3E") repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E") repeat,
+    radial-gradient(ellipse 55% 44% at 0% 0%, rgba(255, 255, 255, 0.22) 0%, transparent 55%),
+    radial-gradient(ellipse 52% 40% at 100% 100%, rgba(80, 90, 110, 0.08) 0%, transparent 52%),
+    var(--tdb-dawn-classic);
+  background-size: 88px 88px, 180px 180px, auto, auto, auto;
 }
 
 .tdb-verse-page .verse-hero.hero-banner h1 {
@@ -20218,8 +20226,15 @@ body.tdb-inner-page.tdb-calm-shelf-page main#main-content.app-content.tdb-quiet-
 }
 
 :root[data-theme="light"] .tdb-verse-page .verse-hero {
-  background: var(--tdb-dawn-mist);
   box-shadow: var(--tdb-dawn-shadow-soft);
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='.07'/%3E%3C/svg%3E") repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E") repeat,
+    repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0 1px, transparent 1px 24px),
+    radial-gradient(ellipse 55% 40% at 0% 0%, rgba(255, 220, 170, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 36% at 100% 100%, rgba(160, 190, 150, 0.06) 0%, transparent 50%),
+    var(--tdb-dawn-mist);
+  background-size: 88px 88px, 180px 180px, auto, auto, auto, auto;
 }
 
 .tdb-verse-page .verse-hero-subtle {

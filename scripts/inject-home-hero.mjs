@@ -67,7 +67,10 @@ function main() {
   }
 
   const refPlain = String(v.ref).trim();
-  const textPlain = normalizeHeroKjvLine(v.text);
+  let textPlain = normalizeHeroKjvLine(v.text);
+  if (/^matthew\s+5\s*:\s*14$/i.test(refPlain) && !/^ye\s+/i.test(textPlain.replace(/\uFEFF/g, '').trim())) {
+    textPlain = 'Ye are the light of the world.';
+  }
   const verseInner = '\u201c' + escapeHtmlText(textPlain) + '\u201d';
   const refInner = escapeHtmlText(refPlain) + ' (KJV)';
 

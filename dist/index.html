@@ -8901,213 +8901,6 @@
 
     <main id="home-primary-flow">
 
-      <!-- ── Need Him right now? Single entry (calm flow: search by feeling, one tap) ── -->
-      <div class="calm-cta-wrap">
-        <a href="calm.html" class="calm-crisis-card" aria-label="Need Him right now? One-tap verse for whatever you're carrying">
-          <span class="calm-crisis-icon" aria-hidden="true">✝️</span>
-          <span class="calm-crisis-text"><strong>Need Him right now?</strong> One-tap verse for whatever you're carrying.</span>
-          <span class="calm-crisis-enter">→</span>
-        </a>
-        <p class="calm-cta-note">Any hour counts&mdash;heavy day, quiet day, or something in between.</p>
-      </div>
-
-      <p class="tdb-page-orientation tdb-porch-ingress tdb-porch-ingress--warm" id="tdb-page-orientation">
-        <span class="tdb-porch-ingress__lead">The day feels loud before you even sat down? Stay right here. You don&rsquo;t have to get anything right first. <strong>Today&rsquo;s Daily Battle</strong> is the name on the porch &mdash; sit with God in the KJV, no performance, no pressure.</span>
-        <span class="tdb-porch-ingress__detail">When you need something steady, today&rsquo;s verse and the gentle <strong>verse of the month</strong> are right up top. When you&rsquo;re up for wandering, the tools are one tap away&mdash;no rush.</span>
-      </p>
-
-      <nav class="tdb-campus-schools" id="tdb-campus-schools" aria-label="Schools of Life &mdash; gentle doorways to rooms you already have">
-        <p class="tdb-campus-schools-intro"><strong>Gentle rooms, not formal classes.</strong> Six soft signs for what&rsquo;s already here&mdash;no grades, no deadlines, just open doors and clearer welcome mats.</p>
-        <ul class="tdb-campus-schools-list">
-          <li>
-            <a href="/#hero-verse-wrap">School of the Good Shepherd</a>
-            <span class="tdb-campus-hint">Today&rsquo;s verse &amp; daily calm</span>
-          </li>
-          <li>
-            <a href="/plans.html">School of Battle</a>
-            <span class="tdb-campus-hint">Core curriculum &mdash; Battle Plans library</span>
-          </li>
-          <li>
-            <a href="/family.html">School of Family &amp; Home</a>
-            <span class="tdb-campus-hint">Family hub, rhythms, printable packs</span>
-          </li>
-          <li>
-            <a href="/explore.html#start-here">School of Wisdom &amp; Wonder</a>
-            <span class="tdb-campus-hint">Explore the map &mdash; topics &amp; tools</span>
-          </li>
-          <li>
-            <a href="/prayer-wall.html">School of Prayer &amp; Praise</a>
-            <span class="tdb-campus-hint">Prayer wall &amp; quiet praise</span>
-          </li>
-          <li>
-            <a href="/calm.html">School of Suffering &amp; Hope</a>
-            <span class="tdb-campus-hint">Heavy days, grief-shaped calm &mdash; gentle steps</span>
-          </li>
-        </ul>
-      </nav>
-
-      <div class="tdb-install-reassurance-stack" role="group" aria-label="Offline status and add to home screen">
-      <!-- ── Offline banner (reassuring message when offline) ── -->
-      <div id="offline-banner" class="hidden" role="status" aria-live="polite">Offline — verse, search &amp; prayers still work. We'll sync when you're back.</div>
-
-      <!-- ── Offline pill badge ── -->
-      <div id="offline-pill" class="offline-pill" role="status" aria-live="polite" aria-atomic="true">
-        <span class="offline-pill-dot" aria-hidden="true"></span>
-        <span id="offline-pill-label">Offline</span>
-      </div>
-
-      <!-- ── PWA Install Nudge ── -->
-      <div class="pwa-nudge" id="pwaNudge" role="status" aria-live="polite">
-        <span class="pwa-nudge-icon">📲</span>
-        <span>Add for daily nudges &amp; offline access — no app store needed.</span>
-        <button class="pwa-nudge-dismiss" type="button" id="pwaDismiss" aria-label="Dismiss install nudge">✕</button>
-      </div>
-
-      <!-- ── Chromium “Add to Home Screen” (beforeinstallprompt) — paired with wireInstallPrompt in script.js ── -->
-      <div class="install-cta" id="install-cta" role="region" aria-label="Add this site to your device">
-        <div style="flex:1;min-width:0;">
-          <p class="section-note" id="install-cta-note">Keep your daily verse one tap away. After the first visit, much of this site works offline on this device.</p>
-          <button type="button" class="btn btn-primary" id="install-app">Add to Home Screen</button>
-          <div class="install-dismiss-wrap" style="margin-top:0.5rem;">
-            <button type="button" class="link-button" id="install-not-now">Not now</button>
-          </div>
-          <div class="install-dismiss-wrap">
-            <input type="checkbox" id="install-dismiss-forever" />
-            <label for="install-dismiss-forever">Don&apos;t ask again</label>
-          </div>
-        </div>
-      </div>
-      </div>
-
-      <!-- ── Hero Verse ── -->
-      <div id="main-content" tabindex="-1">
-      <div class="tdb-hero-lang-today-stack" role="region" aria-label="Language and today">
-      <nav class="tdb-lang-switcher tdb-lang-switcher--hero" aria-labelledby="tdb-hero-lang-label" data-tdb-lang-switcher lang="en">
-        <span class="hero-daily-path-label" id="tdb-hero-lang-label">Language</span>
-        <span class="tdb-lang-switcher-inner">
-          <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
-          <span class="tdb-lang-sep" aria-hidden="true">·</span>
-          <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
-          <span class="tdb-lang-sep" aria-hidden="true">·</span>
-          <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
-          <span class="tdb-lang-sep" aria-hidden="true">·</span>
-          <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
-          <span class="tdb-lang-sep" aria-hidden="true">·</span>
-          <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
-        </span>
-      </nav>
-      <p id="tdb-hero-lang-hint" class="tdb-hero-lang-hint">Search, Bible tool, and the rest of this homepage stay English for now.</p>
-      <nav class="hero-daily-path" aria-label="Three clear next steps">
-        <span class="hero-daily-path-label">Today</span>
-        <span class="hero-daily-path-links">
-          <a href="#hero-verse-wrap">Today&rsquo;s Verse</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
-          <a href="#feel-section">How I Feel</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
-          <a href="/prayer-wall.html">Pray</a>
-        </span>
-      </nav>
-      </div>
-      <aside class="tdb-january-quiet" id="tdb-january-quiet" data-tdb-january-quiet hidden aria-labelledby="tdb-january-quiet-eyebrow">
-        <p class="tdb-january-quiet__eyebrow" id="tdb-january-quiet-eyebrow">January</p>
-        <p class="tdb-january-quiet__label" id="tdb-january-quiet-label">One quiet verse for today</p>
-        <p class="tdb-january-quiet__ref" data-tdb-january-quiet-ref></p>
-        <p class="tdb-january-quiet__text" data-tdb-january-quiet-text></p>
-        <p class="tdb-january-quiet__actions">
-          <button type="button" class="tdb-january-quiet__dismiss" data-tdb-january-quiet-dismiss>Hide until next January</button>
-        </p>
-        <p class="tdb-january-quiet__foot">Same rotation on the <a href="/university.html#uog-january-quiet">University map</a> &middot; <a href="/start-the-year-in-the-word.html">Start the year in the Word</a></p>
-      </aside>
-      <aside class="tdb-uog-month" id="tdb-home-uog-month" data-tdb-uog-month-signpost hidden aria-labelledby="tdb-home-uog-month-h">
-        <h2 class="tdb-uog-month__h" id="tdb-home-uog-month-h">
-          <span class="tdb-uog-month__label">This month in the University</span><span class="tdb-uog-month__sep" aria-hidden="true"> — </span><span data-tdb-uog-month-name></span>
-        </h2>
-        <p class="tdb-uog-month__lead" data-tdb-uog-month-lead></p>
-        <p class="tdb-uog-month__whisper" data-tdb-uog-month-whisper hidden></p>
-        <ul class="tdb-uog-month__links" data-tdb-uog-month-links></ul>
-        <p class="tdb-uog-month__foot">By your local month only—no account. The full <a href="/university.html#uog-next">map</a> stays open all year.</p>
-      </aside>
-      <div class="tdb-home-resume" id="tdbHomeResume" role="region" aria-label="Your progress on this device" hidden></div>
-      <script defer src="/tdb-january-quiet.js?v=20260423-phase5-perf"></script>
-      <script defer src="/tdb-uog-month-signpost.js?v=20260424-december-manger"></script>
-
-      <!-- Stronger first-time onboarding — warm, clear, family-focused (audit #1) -->
-      <div class="tdb-new-here-card" id="tdbNewHereCard" role="region" aria-labelledby="new-here-title">
-        <div class="new-here-header">
-          <div class="new-here-crest">🕊️</div>
-          <h2 id="new-here-title" class="new-here-title">Welcome, friend</h2>
-        </div>
-        <p class="new-here-lead">Welcome, friend &mdash; <strong>Today&rsquo;s Daily Battle</strong> is a quiet place for real battles: anxiety, parenting, grief, fear, and the long days of raising little ones. Everything here is KJV only, private by default, and works completely offline after the first visit. No grades; just Jesus and His Word.</p>
-
-        <div class="new-here-steps">
-          <div class="new-here-step">
-            <div class="step-number">1</div>
-            <div class="step-content">
-              <strong>Read today’s verse</strong>
-              <span class="step-desc">One calm word from Scripture to carry with you through the day.</span>
-            </div>
-          </div>
-          <div class="new-here-step">
-            <div class="step-number">2</div>
-            <div class="step-content">
-              <strong>Tell us how you feel</strong>
-              <span class="step-desc">“Heavy.” “Afraid.” “Tired.” “Grateful.” The search listens without judgment.</span>
-            </div>
-          </div>
-          <div class="new-here-step">
-            <div class="step-number">3</div>
-            <div class="step-content">
-              <strong>Pick a gentle tool</strong>
-              <span class="step-desc">Kids Corner for the little ones, Battle Plans, Prayer, or the full map on <a href="explore.html#start-here" style="color:inherit;text-decoration:underline">explore</a>.</span>
-            </div>
-          </div>
-        </div>
-
-        <p class="new-here-family-note">
-          Especially written for parents like me — with three young girls who need the Word without pressure or performance. 
-          No streaks. No scores. Just habit through heart.
-        </p>
-
-        <div class="new-here-cta-row">
-          <a href="#hero-verse-wrap" class="new-here-cta primary">Begin with today’s verse →</a>
-          <button type="button" class="new-here-cta secondary" onclick="this.closest('.tdb-new-here-card').style.display='none';document.getElementById('tdbNewHereHint').style.display='block';">I know my way around</button>
-        </div>
-      </div>
-
-      <p class="tdb-new-here-hint" id="tdbNewHereHint" style="display:none"><span class="tdb-new-here-muted">New here?</span> If you only have a minute, start with <a href="#hero-verse-wrap">today&rsquo;s lesson</a>. Need Scripture for a more specific pain? Open <a href="#feel-section">Ask the Teacher</a>. Want the fuller map? <a href="explore.html#start-here">Start here</a>.</p>
-      <div class="tdb-home-proof-strip tdb-quiet-container" role="list" aria-label="Why people trust this quiet place">
-        <p class="tdb-home-proof-pill" role="listitem"><strong>KJV only</strong><span> Scripture stays plain and steady.</span></p>
-        <p class="tdb-home-proof-pill" role="listitem"><strong>Works offline after first visit</strong><span> Verses, plans, and notes stay on this device.</span></p>
-        <p class="tdb-home-proof-pill" role="listitem"><strong>No ads. No data sold.</strong><span> <a href="/privacy.html" style="text-decoration:underline;color:inherit;">Read the full privacy promise</a> — your notes stay in localStorage by default.</span></p>
-        <p class="tdb-home-proof-pill" role="listitem"><strong>Human-scale</strong><span> One builder, still in the fight&mdash;no corporate polish.</span></p>
-      </div>
-      <section class="tdb-home-reader-stories tdb-quiet-container" aria-labelledby="tdb-home-reader-stories-heading">
-        <div class="tdb-home-reader-stories-head">
-          <p class="tdb-home-reader-stories-kicker" id="tdb-home-reader-stories-heading">Quiet proof</p>
-          <a class="tdb-home-reader-stories-link" href="/testimonials.html">Reader stories</a>
-        </div>
-        <h2 class="tdb-home-reader-stories-title">If you are deciding whether to trust this place, start here.</h2>
-        <p class="tdb-home-reader-stories-lead">This stays small on purpose: KJV-first, no ads, private by default, and built by one person who still uses it in real life. If you want the plain facts before you stay, open the story, privacy, or security pages first.</p>
-        <p class="tdb-home-reader-stories-links">
-          <a href="/story.html">Why this exists</a>
-          <a href="/privacy.html">Privacy promise</a>
-          <a href="/security.html">Security notes</a>
-          <a href="/testimonials.html">What readers said</a>
-        </p>
-        <div class="tdb-home-reader-stories-grid">
-          <article class="tdb-home-reader-story">
-            <p>&ldquo;I did not need a lecture. I needed one verse that matched the ache.&rdquo;</p>
-            <cite>Parent of three, 2026</cite>
-            </article>
-            <article class="tdb-home-reader-story">
-            <p>&ldquo;Offline mattered. Rural signal, long night, sick kid, and the verse was already there.&rdquo;</p>
-            <cite>Night-shift worker, 2026</cite>
-            </article>
-            <article class="tdb-home-reader-story">
-            <p>&ldquo;One minute in Calm was enough to unclench my jaw before a hard conversation.&rdquo;</p>
-            <cite>Reader in the Midwest, 2026</cite>
-          </article>
-        </div>
-        <p class="tdb-home-reader-story-foot">Short anonymized notes only. No hype, no names, no polished success stories. <a href="/testimonials.html">Read the full page</a>.</p>
-      </section>
       <div id="hero-verse-wrap" class="hero-verse-wrap tdb-home-soar-aura tdb-quiet-container tdb-micro-hero-dawn">
       <section class="card verse-card verse-card-loaded" id="verseCard" aria-live="polite" data-daily-verse="true" data-tdb-hero-prebuilt="1">
         <p class="welcome-back-msg" id="welcomeBackMsg" aria-live="polite" hidden></p>
@@ -9537,6 +9330,214 @@
       <a href="#tdb-home-votm" class="tdb-float-memory-pill" id="tdb-float-memory-pill" hidden aria-label="Jump to verse of the month">Memory</a>
       <button type="button" class="tdb-float-share-verse" id="tdb-float-share-verse-home" aria-label="Share today’s verse">Share verse</button>
       </div><!-- /#hero-verse-wrap -->
+
+      <!-- ── Need Him right now? Single entry (calm flow: search by feeling, one tap) ── -->
+      <div class="calm-cta-wrap">
+        <a href="calm.html" class="calm-crisis-card" aria-label="Need Him right now? One-tap verse for whatever you're carrying">
+          <span class="calm-crisis-icon" aria-hidden="true">✝️</span>
+          <span class="calm-crisis-text"><strong>Need Him right now?</strong> One-tap verse for whatever you're carrying.</span>
+          <span class="calm-crisis-enter">→</span>
+        </a>
+        <p class="calm-cta-note">Any hour counts&mdash;heavy day, quiet day, or something in between.</p>
+      </div>
+
+      <p class="tdb-page-orientation tdb-porch-ingress tdb-porch-ingress--warm" id="tdb-page-orientation">
+        <span class="tdb-porch-ingress__lead">The day feels loud before you even sat down? Stay right here. You don&rsquo;t have to get anything right first. <strong>Today&rsquo;s Daily Battle</strong> is the name on the porch &mdash; sit with God in the KJV, no performance, no pressure.</span>
+        <span class="tdb-porch-ingress__detail">When you need something steady, today&rsquo;s verse and the gentle <strong>verse of the month</strong> are right up top. When you&rsquo;re up for wandering, the tools are one tap away&mdash;no rush.</span>
+      </p>
+
+      <nav class="tdb-campus-schools" id="tdb-campus-schools" aria-label="Schools of Life &mdash; gentle doorways to rooms you already have">
+        <p class="tdb-campus-schools-intro"><strong>Gentle rooms, not formal classes.</strong> Six soft signs for what&rsquo;s already here&mdash;no grades, no deadlines, just open doors and clearer welcome mats.</p>
+        <ul class="tdb-campus-schools-list">
+          <li>
+            <a href="/#hero-verse-wrap">School of the Good Shepherd</a>
+            <span class="tdb-campus-hint">Today&rsquo;s verse &amp; daily calm</span>
+          </li>
+          <li>
+            <a href="/plans.html">School of Battle</a>
+            <span class="tdb-campus-hint">Core curriculum &mdash; Battle Plans library</span>
+          </li>
+          <li>
+            <a href="/family.html">School of Family &amp; Home</a>
+            <span class="tdb-campus-hint">Family hub, rhythms, printable packs</span>
+          </li>
+          <li>
+            <a href="/explore.html#start-here">School of Wisdom &amp; Wonder</a>
+            <span class="tdb-campus-hint">Explore the map &mdash; topics &amp; tools</span>
+          </li>
+          <li>
+            <a href="/prayer-wall.html">School of Prayer &amp; Praise</a>
+            <span class="tdb-campus-hint">Prayer wall &amp; quiet praise</span>
+          </li>
+          <li>
+            <a href="/calm.html">School of Suffering &amp; Hope</a>
+            <span class="tdb-campus-hint">Heavy days, grief-shaped calm &mdash; gentle steps</span>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="tdb-install-reassurance-stack" role="group" aria-label="Offline status and add to home screen">
+      <!-- ── Offline banner (reassuring message when offline) ── -->
+      <div id="offline-banner" class="hidden" role="status" aria-live="polite">Offline — verse, search &amp; prayers still work. We'll sync when you're back.</div>
+
+      <!-- ── Offline pill badge ── -->
+      <div id="offline-pill" class="offline-pill" role="status" aria-live="polite" aria-atomic="true">
+        <span class="offline-pill-dot" aria-hidden="true"></span>
+        <span id="offline-pill-label">Offline</span>
+      </div>
+
+      <!-- ── PWA Install Nudge ── -->
+      <div class="pwa-nudge" id="pwaNudge" role="status" aria-live="polite">
+        <span class="pwa-nudge-icon">📲</span>
+        <span>Add for daily nudges &amp; offline access — no app store needed.</span>
+        <button class="pwa-nudge-dismiss" type="button" id="pwaDismiss" aria-label="Dismiss install nudge">✕</button>
+      </div>
+
+      <!-- ── Chromium “Add to Home Screen” (beforeinstallprompt) — paired with wireInstallPrompt in script.js ── -->
+      <div class="install-cta" id="install-cta" role="region" aria-label="Add this site to your device">
+        <div style="flex:1;min-width:0;">
+          <p class="section-note" id="install-cta-note">Keep your daily verse one tap away. After the first visit, much of this site works offline on this device.</p>
+          <button type="button" class="btn btn-primary" id="install-app">Add to Home Screen</button>
+          <div class="install-dismiss-wrap" style="margin-top:0.5rem;">
+            <button type="button" class="link-button" id="install-not-now">Not now</button>
+          </div>
+          <div class="install-dismiss-wrap">
+            <input type="checkbox" id="install-dismiss-forever" />
+            <label for="install-dismiss-forever">Don&apos;t ask again</label>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <!-- ── Hero Verse ── -->
+      <div id="main-content" tabindex="-1">
+      <div class="tdb-hero-lang-today-stack" role="region" aria-label="Language and today">
+      <nav class="tdb-lang-switcher tdb-lang-switcher--hero" aria-labelledby="tdb-hero-lang-label" data-tdb-lang-switcher lang="en">
+        <span class="hero-daily-path-label" id="tdb-hero-lang-label">Language</span>
+        <span class="tdb-lang-switcher-inner">
+          <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+          <span class="tdb-lang-sep" aria-hidden="true">·</span>
+          <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+          <span class="tdb-lang-sep" aria-hidden="true">·</span>
+          <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+          <span class="tdb-lang-sep" aria-hidden="true">·</span>
+          <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+          <span class="tdb-lang-sep" aria-hidden="true">·</span>
+          <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+        </span>
+      </nav>
+      <p id="tdb-hero-lang-hint" class="tdb-hero-lang-hint">Search, Bible tool, and the rest of this homepage stay English for now.</p>
+      <nav class="hero-daily-path" aria-label="Three clear next steps">
+        <span class="hero-daily-path-label">Today</span>
+        <span class="hero-daily-path-links">
+          <a href="#hero-verse-wrap">Today&rsquo;s Verse</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
+          <a href="#feel-section">How I Feel</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
+          <a href="/prayer-wall.html">Pray</a>
+        </span>
+      </nav>
+      </div>
+      <aside class="tdb-january-quiet" id="tdb-january-quiet" data-tdb-january-quiet hidden aria-labelledby="tdb-january-quiet-eyebrow">
+        <p class="tdb-january-quiet__eyebrow" id="tdb-january-quiet-eyebrow">January</p>
+        <p class="tdb-january-quiet__label" id="tdb-january-quiet-label">One quiet verse for today</p>
+        <p class="tdb-january-quiet__ref" data-tdb-january-quiet-ref></p>
+        <p class="tdb-january-quiet__text" data-tdb-january-quiet-text></p>
+        <p class="tdb-january-quiet__actions">
+          <button type="button" class="tdb-january-quiet__dismiss" data-tdb-january-quiet-dismiss>Hide until next January</button>
+        </p>
+        <p class="tdb-january-quiet__foot">Same rotation on the <a href="/university.html#uog-january-quiet">University map</a> &middot; <a href="/start-the-year-in-the-word.html">Start the year in the Word</a></p>
+      </aside>
+      <aside class="tdb-uog-month" id="tdb-home-uog-month" data-tdb-uog-month-signpost hidden aria-labelledby="tdb-home-uog-month-h">
+        <h2 class="tdb-uog-month__h" id="tdb-home-uog-month-h">
+          <span class="tdb-uog-month__label">This month in the University</span><span class="tdb-uog-month__sep" aria-hidden="true"> — </span><span data-tdb-uog-month-name></span>
+        </h2>
+        <p class="tdb-uog-month__lead" data-tdb-uog-month-lead></p>
+        <p class="tdb-uog-month__whisper" data-tdb-uog-month-whisper hidden></p>
+        <ul class="tdb-uog-month__links" data-tdb-uog-month-links></ul>
+        <p class="tdb-uog-month__foot">By your local month only—no account. The full <a href="/university.html#uog-next">map</a> stays open all year.</p>
+      </aside>
+      <div class="tdb-home-resume" id="tdbHomeResume" role="region" aria-label="Your progress on this device" hidden></div>
+      <script defer src="/tdb-january-quiet.js?v=20260423-phase5-perf"></script>
+      <script defer src="/tdb-uog-month-signpost.js?v=20260424-december-manger"></script>
+
+      <!-- Stronger first-time onboarding — warm, clear, family-focused (audit #1) -->
+      <div class="tdb-new-here-card" id="tdbNewHereCard" role="region" aria-labelledby="new-here-title">
+        <div class="new-here-header">
+          <div class="new-here-crest">🕊️</div>
+          <h2 id="new-here-title" class="new-here-title">Welcome, friend</h2>
+        </div>
+        <p class="new-here-lead">Welcome, friend &mdash; <strong>Today&rsquo;s Daily Battle</strong> is a quiet place for real battles: anxiety, parenting, grief, fear, and the long days of raising little ones. Everything here is KJV only, private by default, and works completely offline after the first visit. No grades; just Jesus and His Word.</p>
+
+        <div class="new-here-steps">
+          <div class="new-here-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <strong>Read today’s verse</strong>
+              <span class="step-desc">One calm word from Scripture to carry with you through the day.</span>
+            </div>
+          </div>
+          <div class="new-here-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <strong>Tell us how you feel</strong>
+              <span class="step-desc">“Heavy.” “Afraid.” “Tired.” “Grateful.” The search listens without judgment.</span>
+            </div>
+          </div>
+          <div class="new-here-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <strong>Pick a gentle tool</strong>
+              <span class="step-desc">Kids Corner for the little ones, Battle Plans, Prayer, or the full map on <a href="explore.html#start-here" style="color:inherit;text-decoration:underline">explore</a>.</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="new-here-family-note">
+          Especially written for parents like me — with three young girls who need the Word without pressure or performance. 
+          No streaks. No scores. Just habit through heart.
+        </p>
+
+        <div class="new-here-cta-row">
+          <a href="#hero-verse-wrap" class="new-here-cta primary">Begin with today’s verse →</a>
+          <button type="button" class="new-here-cta secondary" onclick="this.closest('.tdb-new-here-card').style.display='none';document.getElementById('tdbNewHereHint').style.display='block';">I know my way around</button>
+        </div>
+      </div>
+
+      <p class="tdb-new-here-hint" id="tdbNewHereHint" style="display:none"><span class="tdb-new-here-muted">New here?</span> If you only have a minute, start with <a href="#hero-verse-wrap">today&rsquo;s lesson</a>. Need Scripture for a more specific pain? Open <a href="#feel-section">Ask the Teacher</a>. Want the fuller map? <a href="explore.html#start-here">Start here</a>.</p>
+      <div class="tdb-home-proof-strip tdb-quiet-container" role="list" aria-label="Why people trust this quiet place">
+        <p class="tdb-home-proof-pill" role="listitem"><strong>KJV only</strong><span> Scripture stays plain and steady.</span></p>
+        <p class="tdb-home-proof-pill" role="listitem"><strong>Works offline after first visit</strong><span> Verses, plans, and notes stay on this device.</span></p>
+        <p class="tdb-home-proof-pill" role="listitem"><strong>No ads. No data sold.</strong><span> <a href="/privacy.html" style="text-decoration:underline;color:inherit;">Read the full privacy promise</a> — your notes stay in localStorage by default.</span></p>
+        <p class="tdb-home-proof-pill" role="listitem"><strong>Human-scale</strong><span> One builder, still in the fight&mdash;no corporate polish.</span></p>
+      </div>
+      <section class="tdb-home-reader-stories tdb-quiet-container" aria-labelledby="tdb-home-reader-stories-heading">
+        <div class="tdb-home-reader-stories-head">
+          <p class="tdb-home-reader-stories-kicker" id="tdb-home-reader-stories-heading">Quiet proof</p>
+          <a class="tdb-home-reader-stories-link" href="/testimonials.html">Reader stories</a>
+        </div>
+        <h2 class="tdb-home-reader-stories-title">If you are deciding whether to trust this place, start here.</h2>
+        <p class="tdb-home-reader-stories-lead">This stays small on purpose: KJV-first, no ads, private by default, and built by one person who still uses it in real life. If you want the plain facts before you stay, open the story, privacy, or security pages first.</p>
+        <p class="tdb-home-reader-stories-links">
+          <a href="/story.html">Why this exists</a>
+          <a href="/privacy.html">Privacy promise</a>
+          <a href="/security.html">Security notes</a>
+          <a href="/testimonials.html">What readers said</a>
+        </p>
+        <div class="tdb-home-reader-stories-grid">
+          <article class="tdb-home-reader-story">
+            <p>&ldquo;I did not need a lecture. I needed one verse that matched the ache.&rdquo;</p>
+            <cite>Parent of three, 2026</cite>
+            </article>
+            <article class="tdb-home-reader-story">
+            <p>&ldquo;Offline mattered. Rural signal, long night, sick kid, and the verse was already there.&rdquo;</p>
+            <cite>Night-shift worker, 2026</cite>
+            </article>
+            <article class="tdb-home-reader-story">
+            <p>&ldquo;One minute in Calm was enough to unclench my jaw before a hard conversation.&rdquo;</p>
+            <cite>Reader in the Midwest, 2026</cite>
+          </article>
+        </div>
+        <p class="tdb-home-reader-story-foot">Short anonymized notes only. No hype, no names, no polished success stories. <a href="/testimonials.html">Read the full page</a>.</p>
+      </section>
       <section class="tdb-home-more-tools" id="tdbHomeMoreTools" aria-labelledby="tdbHomeMoreToolsH" aria-label="More tools and paths">
         <h2 class="tdb-home-more-tools-h" id="tdbHomeMoreToolsH">More tools &amp; paths</h2>
         <p class="tdb-home-more-tools-lead section-note">Kids, memory, plans, full search, prayer wall, and the rest&mdash;still here. Slightly quieter on purpose so the top of Home can stay simple.</p>

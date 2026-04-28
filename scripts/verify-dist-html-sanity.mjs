@@ -33,7 +33,38 @@ function walkHtml(dir, out = []) {
 }
 
 const files = walkHtml(dist);
+
+/** Canonical footer must ship the KJV imprint + Christian Messenger lines on the homepage (built from partials/site-footer.html). */
+function verifyFooterLegalBlock(distPath) {
+  const indexPath = path.join(distPath, 'index.html');
+  if (!fs.existsSync(indexPath)) return;
+  let raw;
+  try {
+    raw = fs.readFileSync(indexPath, 'utf8');
+  } catch {
+    return;
+  }
+  const legalPs = raw.match(/<p class="site-footer-copy site-footer-legal-line">/g) || [];
+  if (legalPs.length < 2) {
+    console.error(
+      'verify-dist-html-sanity: FAIL dist/index.html — expected ≥2 site-footer-copy site-footer-legal-line paragraphs',
+      '(' + legalPs.length + ')',
+    );
+    return false;
+  }
+  if (!raw.includes('Christian Messenger Service')) {
+    console.error(
+      'verify-dist-html-sanity: FAIL dist/index.html — missing Christian Messenger Service imprint (run npm run sync:footer && npm run build)',
+    );
+    return false;
+  }
+  return true;
+}
+
 let failed = false;
+if (verifyFooterLegalBlock(dist) === false) {
+  failed = true;
+}
 
 for (const f of files) {
   const rel = path.relative(dist, f);

@@ -9032,6 +9032,28 @@ body:has(.pricing-grid) .section-divider {
   opacity: 0.42;
   margin: 0.75rem 0 0;
 }
+/* Copyright + imprint lines: higher contrast than generic .site-footer-copy (0.42 reads “missing” on phones). */
+.site-footer .site-footer-copy.site-footer-legal-line {
+  opacity: 0.9;
+  font-size: clamp(0.74rem, 1.1vw, 0.82rem);
+  line-height: 1.45;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgba(226, 232, 240, 0.93);
+}
+:root[data-theme="light"] .site-footer .site-footer-copy.site-footer-legal-line {
+  color: #475569;
+  opacity: 0.96;
+}
+.site-footer .privacy-line.site-footer-trust-hook {
+  opacity: 0.88;
+}
+@media (max-width: 480px) {
+  .site-footer .site-footer-copy.site-footer-legal-line + .site-footer-copy.site-footer-legal-line {
+    margin-top: 0.35rem;
+  }
+}
 /* Canonical privacy whisper — header moat, home teaser, footer, modals */
 .privacy-line {
   font-size: 0.85rem;

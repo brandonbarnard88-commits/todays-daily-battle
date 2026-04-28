@@ -5705,6 +5705,28 @@
       opacity: 0.42;
       margin: 0;
     }
+    /* Copyright + imprint: index has no styles.css — legal lines must not use 0.42 opacity (reads invisible on many screens). */
+    .site-footer .site-footer-copy.site-footer-legal-line {
+      opacity: 0.92;
+      font-size: clamp(0.74rem, 2.9vw, 0.82rem);
+      line-height: 1.45;
+      max-width: 36rem;
+      margin-left: auto;
+      margin-right: auto;
+      color: rgba(226, 232, 240, 0.9);
+    }
+    :root[data-theme="light"] .site-footer .site-footer-copy.site-footer-legal-line {
+      color: #475569;
+      opacity: 0.96;
+    }
+    .site-footer .privacy-line.site-footer-trust-hook {
+      opacity: 0.88;
+    }
+    @media (max-width: 480px) {
+      .site-footer .site-footer-copy.site-footer-legal-line + .site-footer-copy.site-footer-legal-line {
+        margin-top: 0.35rem;
+      }
+    }
     /* Clear fixed bottom dock + home indicator — “Last updated” was easy to miss or covered */
     .site-footer.site-footer--canonical {
       padding-bottom: max(5.75rem, calc(4.5rem + env(safe-area-inset-bottom, 0px)));

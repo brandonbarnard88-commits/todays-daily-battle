@@ -1,5 +1,6 @@
 /**
- * Replaces the first <footer>...</footer> in each HTML file with partials/site-footer.html.
+ * Replaces every <footer>...</footer> in each HTML file with partials/site-footer.html.
+ * If multiple footers exist (merge drift), keeps one canonical footer and strips the rest.
  * Excludes lightweight pages, Spanish topic pages, kids hubs, tool-minimal footers, and 404s.
  * Run from repo root: node scripts/sync-site-footer.mjs
  */
@@ -107,7 +108,28 @@ function walkHtmlForFinale(dir, baseRel, out) {
   }
 }
 
-const FOOTER_RE = /<footer\b[^>]*>[\s\S]*?<\/footer>/i;
+/** Non-greedy: first balanced </footer>; run globally to collapse accidental duplicates. */
+const FOOTER_BLOCK_RE = /<footer\b[^>]*>[\s\S]*?<\/footer>/gi;
+
+/**
+ * Replace all footer blocks: first becomes the canonical partial; extras are removed.
+ */
+function replaceFootersDedup(html, footerHtml, rel) {
+  FOOTER_BLOCK_RE.lastIndex = 0;
+  let i = 0;
+  let removed = 0;
+  const next = html.replace(FOOTER_BLOCK_RE, () => {
+    i += 1;
+    if (i === 1) return footerHtml;
+    removed += 1;
+    return '';
+  });
+  FOOTER_BLOCK_RE.lastIndex = 0;
+  if (removed > 0) {
+    console.warn('sync-site-footer: removed', removed, 'duplicate <footer> block(s) in', rel);
+  }
+  return next;
+}
 
 function main() {
   const partialRaw = fs.readFileSync(partialPath, 'utf8');
@@ -129,7 +151,7 @@ function main() {
       skipped++;
       continue;
     }
-    const next = html.replace(FOOTER_RE, footerHtml);
+    const next = replaceFootersDedup(html, footerHtml, rel);
     if (next === html) {
       skipped++;
       continue;

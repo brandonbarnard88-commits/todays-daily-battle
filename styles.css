@@ -15315,6 +15315,43 @@ body.has-promo-banner .header-search-sticky {
   padding-top: 0.75rem;
   border-top: 1px solid rgba(250, 204, 21, 0.26);
 }
+.tdb-vb-inline-breakdown.verse-breakdown h4 {
+  margin: 0.75rem 0 0.35rem;
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(253, 224, 71, 0.95);
+}
+.tdb-vb-inline-breakdown.verse-breakdown h4:first-child {
+  margin-top: 0;
+}
+.tdb-vb-inline-breakdown.verse-breakdown > p {
+  margin: 0 0 0.6rem;
+  font-size: 0.93rem;
+  line-height: 1.48;
+  color: rgba(226, 232, 240, 0.92);
+}
+.tdb-vb-inline-next-step {
+  margin-top: 0.75rem;
+  padding: 0.68rem 0.78rem;
+  border-radius: 10px;
+  border: 1px solid rgba(250, 204, 21, 0.26);
+  background: rgba(15, 23, 42, 0.52);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: rgba(241, 245, 249, 0.95);
+}
+.tdb-vb-inline-prayer-block {
+  margin-top: 0.58rem;
+  padding: 0.65rem 0.78rem;
+  border-radius: 10px;
+  border: 1px dashed rgba(148, 163, 184, 0.35);
+  background: rgba(15, 23, 42, 0.42);
+  font-size: 0.89rem;
+  line-height: 1.52;
+  color: rgba(241, 245, 249, 0.93);
+}
 .tdb-vb-inline-row {
   margin: 0 0 0.5rem;
   font-size: 0.95rem;
@@ -17808,11 +17845,15 @@ html[data-theme="light"] .tdb-verse-breakdown-inline.is-open {
 }
 /* Warm paper: ref + body copy must meet contrast (axe wcag2aa on plans.html / verse.html). */
 html[data-theme="light"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-ref,
-html[data-theme="light"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-breakdown strong {
+html[data-theme="light"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-breakdown strong,
+html[data-theme="light"] .tdb-verse-breakdown-inline.is-open .big-kjv strong {
   color: #713f12;
 }
 html[data-theme="light"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-verse-text,
-html[data-theme="light"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-row {
+html[data-theme="light"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-row,
+html[data-theme="light"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-breakdown.verse-breakdown > p,
+html[data-theme="light"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-next-step,
+html[data-theme="light"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-prayer-block {
   color: #292524 !important;
 }
 /* Glass bubble tints read as gray-on-gray on warm paper; solid chips for AA. */
@@ -17846,11 +17887,15 @@ html[data-theme="sepia"] details.verse-breakdown[open] {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 html[data-theme="sepia"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-ref,
-html[data-theme="sepia"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-breakdown strong {
+html[data-theme="sepia"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-breakdown strong,
+html[data-theme="sepia"] .tdb-verse-breakdown-inline.is-open .big-kjv strong {
   color: #62420f;
 }
 html[data-theme="sepia"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-verse-text,
-html[data-theme="sepia"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-row {
+html[data-theme="sepia"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-row,
+html[data-theme="sepia"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-breakdown.verse-breakdown > p,
+html[data-theme="sepia"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-next-step,
+html[data-theme="sepia"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-prayer-block {
   color: #292524 !important;
 }
 html[data-theme="sepia"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-bubble-adult {

@@ -22,6 +22,14 @@ function escapeHtmlText(s) {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+function normalizeHeroKjvLine(t) {
+  let s = String(t == null ? '' : t).replace(/\uFEFF/g, '');
+  s = s.replace(/\*\*([^*]{0,400}?)\*\*/g, '$1').replace(/\*([^*\n]{0,400}?)\*/g, '$1');
+  s = s.replace(/__([^_]{0,400}?)__/g, '$1');
+  s = s.replace(/\s+/g, ' ').trim();
+  return s;
+}
+
 function escapeHtmlAttr(s) {
   return String(s)
     .replace(/&/g, '&amp;')
@@ -56,24 +64,24 @@ function main() {
   }
 
   const refPlain = String(v.ref).trim();
-  const textPlain = String(v.text).trim();
+  const textPlain = normalizeHeroKjvLine(v.text);
   const verseInner = '\u201c' + escapeHtmlText(textPlain) + '\u201d';
   const refInner = escapeHtmlText(refPlain) + ' (KJV)';
 
   let html = fs.readFileSync(distIndex, 'utf8');
 
-  const heroVerseRe = /<p class="hero-verse is-visible" id="heroVerse"[^>]*>[\s\S]*?<\/p>/;
+  const heroVerseRe = /<p[^>]*\bid="heroVerse"[^>]*>[\s\S]*?<\/p>/;
   if (!heroVerseRe.test(html)) fail('could not find #heroVerse paragraph in dist/index.html');
   html = html.replace(
     heroVerseRe,
-    '<p class="hero-verse is-visible" id="heroVerse" elementtiming="tdb-hero-verse">' + verseInner + '</p>'
+    '<p class="hero-verse verse-body is-visible" id="heroVerse" elementtiming="tdb-hero-verse">' + verseInner + '</p>'
   );
 
-  const heroRefRe = /<p class="verse-ref[^"]*" id="heroRef">[\s\S]*?<\/p>/;
+  const heroRefRe = /<p[^>]*\bid="heroRef"[^>]*>[\s\S]*?<\/p>/;
   if (!heroRefRe.test(html)) fail('could not find #heroRef in dist/index.html');
   html = html.replace(
     heroRefRe,
-    '<p class="verse-ref hero-daily-ref-above" id="heroRef">' + refInner + '</p>'
+    '<p class="big-kjv verse-ref hero-daily-ref-above" id="heroRef"><strong>' + escapeHtmlText(refPlain) + ' (KJV)</strong></p>'
   );
 
   if (!html.includes('data-tdb-hero-prebuilt')) {

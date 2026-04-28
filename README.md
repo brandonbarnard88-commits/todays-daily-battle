@@ -11,6 +11,8 @@ Static web app for scripture-first daily encouragement, prayer, and study toolin
 
 The product’s fixed foundations are documented in **`docs/NORTH-STAR-PRINCIPLES.md`**: KJV-only, privacy-first and ad-free, offline-first, and practical human-scale battle plans. New work must protect all four.
 
+**Verse UX is also fixed:** see **`docs/VERSE-BREAKDOWN-RULE.md`**. Every verse shown or looked up on the site must follow that structure (reference + full KJV + layman sections + step + prayer) so teaching stays consistent with the porch.
+
 **Pre-merge to `main`:** see **`docs/CHECKLIST-DEPLOY.md`** (“Before merging a feature branch”). Run `npm run release:check` after `cd api && npm install` (first time only for the API package).
 
 ## V2 Quality Gate

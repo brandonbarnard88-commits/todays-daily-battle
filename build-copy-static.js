@@ -146,6 +146,7 @@ const rootFiles = [
   'hero-daily-365-data.js',
   'hero-hero-pools.js',
   'hero-daily-first-paint.js',
+  'verse-breakdown-standard.js',
   'tdb-home-mobius-week.js',
   'tdb-january-quiet.js',
   'tdb-uog-month-signpost.js',

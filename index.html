@@ -2958,7 +2958,8 @@
       text-shadow: none;
       font-weight: 600;
     }
-    .tdb-site-tagline-learning {
+    .tdb-site-tagline-learning,
+    .hero-subline-learning {
       text-transform: none;
       letter-spacing: 0.04em;
       font-style: normal;
@@ -3600,65 +3601,80 @@
     :root[data-theme="dark"] .hero-calendar-breakdown-wrap {
       background: color-mix(in srgb, var(--card) 97%, #fff 3%);
     }
-    .hero-votd-simple-label {
-      margin: 0 0 0.4rem;
-      font-size: 0.7rem;
+    .verse-breakdown-container .big-kjv {
+      margin: 0 0 0.45rem;
+      font-size: 1.22rem;
+      line-height: 1.35;
+      letter-spacing: 0.015em;
+      color: var(--gold-soft, var(--gold));
+    }
+    .verse-breakdown-container .big-kjv strong {
       font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
     }
-    .hero-votd-simple {
+    .verse-breakdown-container .verse-body {
       margin: 0;
-      font-size: 1.02rem;
-      line-height: 1.55;
-      color: var(--text);
     }
-    .hero-votd-deep {
-      margin: 1.1rem 0 0;
-      border-radius: 10px;
-      border: 1px solid var(--line);
-      background: var(--bg-soft, rgba(255, 255, 255, 0.04));
+    .verse-breakdown-container .verse-breakdown {
+      margin: 1.05rem 0 0;
     }
-    .hero-votd-deep > summary {
-      cursor: pointer;
-      list-style: none;
-      padding: 0.75rem 1rem;
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--text);
-    }
-    .hero-votd-deep > summary::-webkit-details-marker { display: none; }
-    .hero-votd-deep > summary::after {
-      content: "›";
-      float: right;
-      font-size: 1.15rem;
-      line-height: 1;
-      color: var(--muted);
-      transform: translateY(1px);
-    }
-    .hero-votd-deep[open] > summary::after { transform: rotate(90deg) translate(2px, 0); }
-    .hero-votd-deep > summary:hover,
-    .hero-votd-deep > summary:focus-visible { color: var(--gold-soft); outline: none; }
-    .hero-votd-deep > summary:focus-visible { box-shadow: inset 0 0 0 2px var(--gold); border-radius: 9px; }
-    .hero-votd-deep-body {
-      padding: 0 1rem 1rem;
-      display: grid;
-      gap: 0.9rem;
-    }
-    .hero-votd-dlabel {
-      display: block;
+    .verse-breakdown-container .verse-breakdown > h4 {
+      margin: 0.85rem 0 0.38rem;
       font-size: 0.68rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--gold-soft, var(--gold));
-      margin: 0 0 0.2rem;
     }
-    .hero-votd-dtext {
+    .verse-breakdown-container .verse-breakdown > h4:first-of-type {
+      margin-top: 0;
+    }
+    .verse-breakdown-container .verse-breakdown > p {
+      margin: 0 0 0.82rem;
+      font-size: 0.98rem;
+      line-height: 1.52;
+      color: var(--text);
+    }
+    .hero-vbd-bundle {
       margin: 0;
-      font-size: 0.95rem;
-      line-height: 1.5;
+    }
+    .hero-vbd-bundle[hidden] {
+      display: none !important;
+    }
+    #heroVbdRowCtx h4 span {
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: none;
+      letter-spacing: normal;
+      font-size: 0.95em;
+    }
+    .verse-breakdown-container .next-step {
+      margin-top: 1rem;
+      padding: 0.85rem 1rem;
+      border-radius: 10px;
+      border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line));
+      background: color-mix(in srgb, var(--card) 96%, var(--gold) 4%);
+      font-size: 0.96rem;
+      line-height: 1.58;
+      color: var(--text);
+    }
+    .verse-breakdown-container .next-step strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+    .verse-breakdown-container .prayer-block {
+      margin-top: 0.75rem;
+      padding: 0.85rem 1rem;
+      border-radius: 10px;
+      border: 1px dashed color-mix(in srgb, var(--line) 80%, var(--gold) 20%);
+      background: color-mix(in srgb, var(--bg-soft) 94%, #fff 6%);
+    }
+    :root[data-theme="dark"] .verse-breakdown-container .prayer-block {
+      background: color-mix(in srgb, var(--card) 97%, #fff 3%);
+    }
+    .verse-breakdown-container .prayer-block p {
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.56;
       color: var(--text);
     }
     .hero-calendar-breakdown-wrap .hero-breakdown-panels {
@@ -8748,8 +8764,8 @@
       </div>
       <div class="hero-brand-taglines" role="group" aria-label="Site motto: pace, devotion, and learning">
         <p class="soul-tag">Less scroll, more soul</p>
-        <p class="tdb-header-heartbeat hero-home-heartbeat" lang="en">For Family, For Country, For GOD</p>
-        <p class="site-tagline tdb-site-tagline-learning" lang="en">The University of God &mdash; learning of Him, one day at a time. <span class="tdb-header-tag-cite" title="Take my yoke upon you, and learn of me.">Matthew 11:29</span></p>
+        <p class="tdb-header-heartbeat hero-home-heartbeat site-tagline" lang="en">For Family, For Country, For GOD</p>
+        <p class="hero-subline-learning" lang="en">Learning of Him, one day at a time. <span class="tdb-header-tag-cite" title="Take my yoke upon you, and learn of me.">Matthew 11:29</span></p>
       </div>
       <h1 class="site-title">Today's Daily Battle</h1>
       <span class="site-title-underline" aria-hidden="true"></span>
@@ -8896,7 +8912,7 @@
       </div>
 
       <p class="tdb-page-orientation tdb-porch-ingress tdb-porch-ingress--warm" id="tdb-page-orientation">
-        <span class="tdb-porch-ingress__lead">The day feels loud before you even sat down? Stay right here. You don&rsquo;t have to get anything right first. <strong>God&rsquo;s University of Life</strong> is just the name on the door &mdash; a quiet porch where you can sit with God in the KJV, no performance, no pressure.</span>
+        <span class="tdb-porch-ingress__lead">The day feels loud before you even sat down? Stay right here. You don&rsquo;t have to get anything right first. <strong>Today&rsquo;s Daily Battle</strong> is the name on the porch &mdash; sit with God in the KJV, no performance, no pressure.</span>
         <span class="tdb-porch-ingress__detail">When you need something steady, today&rsquo;s verse and the gentle <strong>verse of the month</strong> are right up top. When you&rsquo;re up for wandering, the tools are one tap away&mdash;no rush.</span>
       </p>
 
@@ -9019,7 +9035,7 @@
           <div class="new-here-crest">🕊️</div>
           <h2 id="new-here-title" class="new-here-title">Welcome, friend</h2>
         </div>
-        <p class="new-here-lead">Welcome to God&rsquo;s University of Life &mdash; a quiet place for real battles: anxiety, parenting, grief, fear, and the long days of raising little ones. Everything here is KJV only, private by default, and works completely offline after the first visit. No grades; just Jesus and His Word.</p>
+        <p class="new-here-lead">Welcome, friend &mdash; <strong>Today&rsquo;s Daily Battle</strong> is a quiet place for real battles: anxiety, parenting, grief, fear, and the long days of raising little ones. Everything here is KJV only, private by default, and works completely offline after the first visit. No grades; just Jesus and His Word.</p>
 
         <div class="new-here-steps">
           <div class="new-here-step">
@@ -9095,8 +9111,8 @@
       <div id="hero-verse-wrap" class="hero-verse-wrap tdb-home-soar-aura tdb-quiet-container tdb-micro-hero-dawn">
       <section class="card verse-card verse-card-loaded" id="verseCard" aria-live="polite" data-daily-verse="true">
         <p class="welcome-back-msg" id="welcomeBackMsg" aria-live="polite" hidden></p>
-        <h2 class="hero-daily-headline">Welcome to God&rsquo;s University of Life &mdash; A Quiet Place to Learn His Ways</h2>
-        <p class="hero-daily-continuity" id="heroDailyContinuity">Still <strong>Today&rsquo;s Daily Battle</strong> &mdash; same quiet porch, same KJV help; we&rsquo;re only hanging a clearer welcome sign. <a href="/about.html#gods-university-quiet-name" class="hero-daily-why-name">Why &ldquo;God&rsquo;s University of Life&rdquo;?</a></p>
+        <h2 class="hero-daily-headline">Today&rsquo;s Daily Battle &mdash; quiet KJV help for real life</h2>
+        <p class="hero-daily-continuity" id="heroDailyContinuity">The same porch you already trust; <strong>For Family, For Country, For GOD</strong> &mdash; and the <a href="/university.html">University of God</a> line you&rsquo;ll see in Scripture. <a href="/about.html#gods-university-quiet-name" class="hero-daily-why-name">Why we also say &ldquo;God&rsquo;s University of Life&rdquo;</a> for the map and tools.</p>
         <p class="tdb-porch-still-me" id="tdbPorchStillMe">Hey friend &mdash; this is still the same porch I built from my own hospital season. One verse, one small step, one prayer. No performance, no polish. Just Jesus and you, right where you are. Still here with you, now and forever.</p>
         <p class="hero-daily-subline" id="heroDailySubline">KJV-only. Calm campus. Real-life curriculum for every battle of the heart and home&mdash;anxiety, parenting, grief, fear, and raising little ones. No ads. No login. Whatever your day holds, step in.</p>
         <div class="verse-skeleton" id="verseSkeleton" aria-hidden="true">
@@ -9104,10 +9120,11 @@
         </div>
         <div class="tdb-home-verse-sticky-shell" role="region" aria-label="Today’s verse text and quick actions">
         <p class="tdb-verse-of-day-eyebrow" id="heroVerseEyebrow">Today&rsquo;s lesson</p>
-        <p class="verse-ref hero-daily-ref-above" id="heroRef">Isaiah 40:31 (KJV)</p>
+        <div class="verse-breakdown-container hero-calendar-breakdown-wrap" id="heroVotdBreakdown" role="region" aria-label="Today&rsquo;s verse — reference, text, and breakdown (KJV)">
+        <p class="big-kjv verse-ref hero-daily-ref-above" id="heroRef"><strong>Isaiah 40:31 (KJV)</strong></p>
         <div class="verse-ref-row">
           <div class="hero-verse-wrap-inner">
-            <p class="hero-verse is-visible" id="heroVerse" elementtiming="tdb-hero-verse">&ldquo;But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.&rdquo;</p>
+            <p class="hero-verse verse-body is-visible" id="heroVerse" elementtiming="tdb-hero-verse">&ldquo;But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.&rdquo;</p>
             <div class="verse-font-controls" aria-label="Adjust verse text size">
               <button type="button" class="verse-font-btn verse-font-smaller" id="verseFontSmaller" aria-label="Decrease text size">A−</button>
               <button type="button" class="verse-font-btn verse-font-larger" id="verseFontLarger" aria-label="Increase text size">A+</button>
@@ -9135,6 +9152,44 @@
               <span class="read-aloud-label">Listen</span>
             </button>
         </div>
+
+        <div class="verse-breakdown" id="heroDeepBreakdown" role="group" aria-label="Verse breakdown sections">
+          <h4>Simple layman terms</h4>
+          <p id="heroSimpleBreakdown"></p>
+
+          <div class="hero-vbd-bundle" id="heroVbdRowWho" hidden>
+            <h4>Who&rsquo;s talking?</h4>
+            <p id="heroDeepWho"></p>
+          </div>
+          <div class="hero-vbd-bundle" id="heroVbdRowAud" hidden>
+            <h4>Who is He / she talking to?</h4>
+            <p id="heroDeepAudience"></p>
+          </div>
+          <div class="hero-vbd-bundle" id="heroVbdRowCtx" hidden>
+            <h4>How it relates today (<span id="heroVotdBreakdownYear">2026</span>)</h4>
+            <p id="heroDeepContext"></p>
+          </div>
+          <div class="hero-vbd-bundle" id="heroVbdRowYou" hidden>
+            <h4>How it relates to you right now</h4>
+            <p id="heroDeepYou"></p>
+          </div>
+        </div>
+
+        <div class="next-step" id="heroVotdNextStep">
+          <strong>One small step today:</strong> <span id="heroVotdOneStep"></span>
+        </div>
+        <div class="prayer-block" id="heroVotdPrayerBlock" role="region" aria-label="A simple prayer tied to today&rsquo;s verse">
+          <p><strong>A simple prayer:</strong><br />
+          <span id="heroVotdPrayer"></span></p>
+        </div>
+        <div class="tdb-hero-curriculum" id="tdb-hero-curriculum-slot" role="region" aria-labelledby="tdb-hero-curriculum-h" hidden>
+          <h3 class="tdb-hero-curriculum-heading" id="tdb-hero-curriculum-h">How this lesson connects to the whole curriculum</h3>
+          <ul class="tdb-hero-curriculum-list" id="tdb-hero-curriculum-list"></ul>
+        </div>
+        <ul class="breakdown" id="heroBreakdown" hidden></ul>
+        <div class="hero-breakdown-panels" id="heroBreakdownPanels" hidden></div>
+        <p class="application" id="heroApplication" hidden></p>
+        </div>
         <aside class="tdb-home-kids-ribbon tdb-home-kids-ribbon--hero-priority" role="region" aria-label="For kids and parents" id="tdb-home-kids-ribbon">
           <p class="tdb-kids-ribbon-eyebrow" id="tdb-kids-ribbon-eyebrow">For parents and little ones</p>
           <a class="tdb-home-kids-ribbon-link" href="/kids/index.html?v=hub20260321">Kids Corner</a>
@@ -9150,7 +9205,7 @@
           <p class="section-note tdb-hero-votd-search-hint" id="hero-votd-search-hint">Same gentle lookup as <a href="#quick-search-hero">Ask the Teacher</a>&mdash;full results open just below. Press Enter or tap Find.</p>
         </form>
         </div>
-        <p class="tdb-today-lesson-foot" id="tdb-today-lesson-wrap">Lesson from the University of God &mdash; <time id="tdbTodayLessonDate" datetime=""></time></p>
+        <p class="tdb-today-lesson-foot" id="tdb-today-lesson-wrap">Today&rsquo;s Daily Battle lesson &mdash; <time id="tdbTodayLessonDate" datetime=""></time></p>
         <div class="hero-verse-toolbar hero-verse-primary-toolbar" aria-label="Verse: copy, share, image, save to My Study">
             <div class="tdb-hero-votd-tools-wrap" role="toolbar" aria-label="Verse: copy, share, image, save to My Study">
             <button type="button" class="hero-toolbar-btn" id="heroCopyVerseBtn" aria-label="Copy verse and page link to clipboard">Copy</button>
@@ -9384,44 +9439,6 @@
     }
     .tdb-smd-verse-pulse { animation: tdb-smd-verse-pulse 1.1s ease 1; }
         </style>
-        <div class="hero-calendar-breakdown-wrap" id="heroVotdBreakdown" role="region" aria-label="Today’s calendar verse — simple and deep breakdown">
-        <div class="hero-votd-simple-block">
-          <p class="hero-votd-simple-label">Simple breakdown</p>
-          <p class="hero-votd-simple" id="heroSimpleBreakdown"></p>
-        </div>
-        <details class="hero-votd-deep" id="heroDeepBreakdown" aria-label="Deep verse breakdown, optional">
-          <summary>Deep breakdown</summary>
-          <div class="hero-votd-deep-body">
-            <div class="hero-votd-deep-block" id="heroDeepRowWho" hidden>
-              <span class="hero-votd-dlabel">Who is speaking</span>
-              <p class="hero-votd-dtext" id="heroDeepWho"></p>
-            </div>
-            <div class="hero-votd-deep-block" id="heroDeepRowAud" hidden>
-              <span class="hero-votd-dlabel">Who it was for first</span>
-              <p class="hero-votd-dtext" id="heroDeepAudience"></p>
-            </div>
-            <div class="hero-votd-deep-block" id="heroDeepRowCtx" hidden>
-              <span class="hero-votd-dlabel">Context</span>
-              <p class="hero-votd-dtext" id="heroDeepContext"></p>
-            </div>
-            <div class="hero-votd-deep-block" id="heroDeepRowYou" hidden>
-              <span class="hero-votd-dlabel">How it meets you</span>
-              <p class="hero-votd-dtext" id="heroDeepYou"></p>
-            </div>
-            <div class="hero-votd-deep-block" id="heroDeepRowToday" hidden>
-              <span class="hero-votd-dlabel">A step for today</span>
-              <p class="hero-votd-dtext" id="heroDeepToday"></p>
-            </div>
-          </div>
-        </details>
-        <div class="tdb-hero-curriculum" id="tdb-hero-curriculum-slot" role="region" aria-labelledby="tdb-hero-curriculum-h" hidden>
-          <h3 class="tdb-hero-curriculum-heading" id="tdb-hero-curriculum-h">How this lesson connects to the whole curriculum</h3>
-          <ul class="tdb-hero-curriculum-list" id="tdb-hero-curriculum-list"></ul>
-        </div>
-        <ul class="breakdown" id="heroBreakdown" hidden></ul>
-        <div class="hero-breakdown-panels" id="heroBreakdownPanels" hidden></div>
-        <p class="application" id="heroApplication" hidden></p>
-        </div>
         <p class="hero-daily-welcome topic-mood-porch">Joy, rest, questions&mdash;you are welcome here.</p>
         <p class="section-note" id="heroBuilderLine">A quiet place for real battles &mdash; built solo by Brandon, who is still fighting them too.</p>
         <p class="section-note">Read the <a href="/story.html">story</a>, see <a href="/where-support-goes.html">where support goes</a>, hear from <a href="/testimonials.html">readers</a>, or start with this week&rsquo;s <a href="/journal/">journal posts</a>.</p>
@@ -10342,7 +10359,7 @@
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
   <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
-    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__love site-tagline-footer">Made with love &mdash; For Family, For Country, For GOD.</p>
     <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
     <p class="tdb-site-footer-finale__reach">
       <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
@@ -10442,6 +10459,7 @@
   <!-- Hero verse: load the 365 calendar before the first-paint helper so first paint uses the real daily verse. -->
   <script nonce="tdb2025s" src="hero-hero-pools.js?v=20260328pools" fetchpriority="low"></script>
   <script nonce="tdb2025s" src="hero-daily-365-data.js?v=20260325b" fetchpriority="low"></script>
+  <script nonce="tdb2025s" src="verse-breakdown-standard.js?v=20260428-vbd" data-tdb-verse-breakdown-standard="1"></script>
   <script nonce="tdb2025s" src="hero-daily-first-paint.js?v=20260417-hydration" fetchpriority="low"></script>
   <!-- Phase 6: tdb-home-mobius-week.js?v=20260330home + /sky-ip-geo.js?v=20260327ipgeo load with home secondary stack (see script.js tdbScheduleDeferredVodAndReaderTooling) -->
   <script nonce="tdb2025s">
@@ -10876,10 +10894,21 @@
       }, 250);
     }
 
-    function renderVerseContent(data) {
+      function renderVerseContent(data) {
       const v = normalizeVerse(data);
+      if (v && v.text && typeof window.__TDB_normalizeHeroKjvText === "function") {
+        v.text = window.__TDB_normalizeHeroKjvText(v.text);
+      }
       heroVerse.textContent = "\u201c" + v.text + "\u201d";
-      heroRef.textContent = v.ref + " (KJV)";
+      try {
+        heroVerse.classList.add("verse-body");
+      } catch (eHc) {}
+      var vbStd = window.TDB_verseBreakdownStandard;
+      if (heroRef && vbStd && typeof vbStd.fillBigKjvStrong === "function") {
+        vbStd.fillBigKjvStrong(heroRef, v.ref);
+      } else if (heroRef) {
+        heroRef.textContent = v.ref + " (KJV)";
+      }
       heroVerse.classList.add("is-visible");
       (function tdbSetTodayLessonLine() {
         var timeEl = document.getElementById("tdbTodayLessonDate");
@@ -10986,7 +11015,8 @@
           {
             plainExplanation: v.plain || '',
             groupApplication: v.today || '',
-            modernApplication: v.action || v.app || '',
+            modernApplication: '',
+            practicalStep: v.action || v.app || '',
             about: v.speaker || ''
           }
         );
@@ -11003,7 +11033,8 @@
             override: {
               plainExplanation: v.plain,
               groupApplication: v.today,
-              modernApplication: v.action,
+              modernApplication: '',
+              practicalStep: v.action || v.app,
               about: v.speaker
             }
           });
@@ -11025,14 +11056,7 @@
       const hasRich = heroSharedBreakdown || v.speaker || v.plain || v.today || v.action;
 
       if (typeof window.__TDB_applyHeroVotdFromInputs === 'function') {
-        if (hasRich) {
-          window.__TDB_applyHeroVotdFromInputs(v, {
-            plainExplanation: (heroSharedBreakdown && heroSharedBreakdown.plainExplanation) || v.plain,
-            groupApplication: (heroSharedBreakdown && heroSharedBreakdown.groupApplication) || v.today,
-            modernApplication: (heroSharedBreakdown && heroSharedBreakdown.modernApplication) || v.action || v.app,
-            about: (heroSharedBreakdown && heroSharedBreakdown.about) || v.speaker
-          });
-        } else {
+        if (!hasRich) {
           if (heroBreakdown) {
             heroBreakdown.replaceChildren();
             heroBreakdown.setAttribute('hidden', '');
@@ -11045,6 +11069,14 @@
           }
           window.__TDB_applyHeroVotdFromInputs(v, null);
           queueHeroBreakdownRefresh(data, 0);
+        } else {
+          window.__TDB_applyHeroVotdFromInputs(v, {
+            plainExplanation: (heroSharedBreakdown && heroSharedBreakdown.plainExplanation) || v.plain,
+            groupApplication: (heroSharedBreakdown && heroSharedBreakdown.groupApplication) || v.today,
+            modernApplication: (heroSharedBreakdown && heroSharedBreakdown.modernApplication) || '',
+            practicalStep: v.action || v.app,
+            about: (heroSharedBreakdown && heroSharedBreakdown.about) || v.speaker
+          });
         }
       } else {
         if (hasRich && panelsEl) {
@@ -11054,9 +11086,10 @@
           }
           panelsEl.replaceChildren();
           [
-            { label: 'Plain English', text: (heroSharedBreakdown && heroSharedBreakdown.plainExplanation) || v.plain, mod: '' },
-            { label: 'For your group', text: (heroSharedBreakdown && heroSharedBreakdown.groupApplication) || v.today || v.app, mod: '' },
-            { label: 'Real life today', text: (heroSharedBreakdown && heroSharedBreakdown.modernApplication) || v.action || v.app, mod: 'hbp-panel--action' }
+            { label: 'Simple layman terms', text: (heroSharedBreakdown && heroSharedBreakdown.plainExplanation) || v.plain, mod: '' },
+            { label: 'How it relates today', text: (heroSharedBreakdown && heroSharedBreakdown.modernApplication) || '', mod: '' },
+            { label: 'How it relates to you', text: (heroSharedBreakdown && heroSharedBreakdown.groupApplication) || v.today || '', mod: '' },
+            { label: 'One small step today', text: v.action || v.app, mod: 'hbp-panel--action' }
           ].forEach(function (row) {
             if (!row.text) return;
             const panel = document.createElement('div');

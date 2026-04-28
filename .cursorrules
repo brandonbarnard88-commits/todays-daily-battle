@@ -1,6 +1,7 @@
 # Today's Daily Battle – Cursor rules
 
 - **North star:** The four foundations in `docs/NORTH-STAR-PRINCIPLES.md` (KJV-only; privacy-first & ad-free; offline-first; practical battle plans) are fixed. Do not add AI devotionals, multiple translations, ads, or heavy tracking as defaults—features must protect that combination.
+- **Verse breakdown (non‑negotiable):** Any verse shown or looked up in UI must follow `docs/VERSE-BREAKDOWN-RULE.md`: same structure (`verse-breakdown-container` / headings / next step / prayer where applicable), helpers in `verse-breakdown-standard.js` when extending surfaces. Do not ship raw verse-only blocks where breakdown is expected; migrate legacy surfaces toward the rule when touched.
 - **Security first.** It is the top priority for both **users** and **builders**. Never commit secrets (service_role, Stripe secret, Turnstile secret). Use RLS on all Supabase tables; sanitize all user input; see SECURITY.md and PRIVACY-ANALYTICS.md.
 - **User-friendliness is #2.** After security, prioritize clear copy, accessible UI, helpful errors, and smooth flows so the app is easy and reassuring to use.
 - **Excellence standard (non-generic, high-reverence):** Do not ship generic-feeling copy, visuals, or interactions. Every user-facing change should feel intentional, high-quality, and worthy of the mission.

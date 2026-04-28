@@ -26,26 +26,46 @@
     if (/^are the light of the world\.?$/i.test(s)) {
       s = 'Ye are the light of the world.';
     }
+    // Leading stray quotes / spaces before "are the light…" (e.g. '"' + ' are the light …')
+    if (/^[\"'\u201c\u2018\u201d\u2019]*\s*are the light of the world\.?\s*[\"'\u201c\u201d]*$/i.test(s)) {
+      s = 'Ye are the light of the world.';
+    }
     return s;
   }
-  /** When ref matches Matthew 5:14 but body lost "Ye", restore exact KJV (build + edge browsers). */
-  function repairMatthew514ByRef(ref, text) {
-    var r = String(ref || '')
+
+  /** Normalize ref for comparisons (handles Mt/Matt shorthand; strips (KJV)). */
+  function normalizeRefBare(ref) {
+    return String(ref || '')
       .replace(/\uFEFF/g, '')
       .replace(/\*\*/g, '')
       .replace(/\s*\(KJV\)\s*$/i, '')
+      .replace(/^mt\.?\s+/i, 'Matthew ')
+      .replace(/^matt\.?\s+/i, 'Matthew ')
       .replace(/\s+/g, ' ')
       .trim();
+  }
+
+  /** When ref matches Matthew 5:14 but body lost "Ye", restore exact KJV (build + edge browsers). */
+  function repairMatthew514ByRef(ref, text) {
+    var r = normalizeRefBare(ref);
     if (!/^matthew\s+5\s*:\s*14$/i.test(r)) return text;
     var t = sanitizeText(text).replace(/\uFEFF/g, '').replace(/\s+/g, ' ').trim();
+    t = normalizeHeroKjvLine(t);
     if (/^ye\s+/i.test(t)) return t;
+    if (/^are the light of the world\.?$/i.test(t)) return 'Ye are the light of the world.';
+    if (/^[\"'\u201c\u2018]*\s*are the light of the world\.?$/i.test(t)) return 'Ye are the light of the world.';
     return 'Ye are the light of the world.';
   }
   window.__TDB_normalizeHeroKjvText = normalizeHeroKjvLine;
   window.__TDB_repairMatthew514ByRef = repairMatthew514ByRef;
 
   function parseHeroFromDom(heroVerseEl, heroRefEl) {
-    var refLine = sanitizeText(heroRefEl && heroRefEl.textContent).replace(/\s*\(KJV\)\s*$/i, '').trim();
+    var refLine = sanitizeText(heroRefEl && heroRefEl.textContent)
+      .replace(/<[^>]*>/g, '')
+      .replace(/\s*\(KJV\)\s*$/i, '')
+      .replace(/^mt\.?\s+/i, 'Matthew ')
+      .replace(/^matt\.?\s+/i, 'Matthew ')
+      .trim();
     var raw = sanitizeText(heroVerseEl && heroVerseEl.textContent).trim();
     if (raw.charCodeAt(0) === 0x201c && raw.charCodeAt(raw.length - 1) === 0x201d) {
       raw = raw.slice(1, -1);

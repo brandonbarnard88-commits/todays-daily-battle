@@ -30,6 +30,9 @@ function normalizeHeroKjvLine(t) {
   if (/^are the light of the world\.?$/i.test(s)) {
     s = 'Ye are the light of the world.';
   }
+  if (/^[\"'\u201c\u2018\u201d\u2019]*\s*are the light of the world\.?\s*[\"'\u201c\u201d]*$/i.test(s)) {
+    s = 'Ye are the light of the world.';
+  }
   return s;
 }
 

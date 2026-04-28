@@ -13394,13 +13394,19 @@ function updateChallengeBannerState() {
   var banner = document.getElementById('challenge-30-banner');
   var cta = document.getElementById('challenge-start-day-1');
   if (!banner || !cta) return;
+  var onHomePorch = !!(typeof document !== 'undefined' && document.getElementById && document.getElementById('home-primary-flow'));
   var count = window.__currentStreakCount || 0;
   var started = false;
   try { started = localStorage.getItem(CHALLENGE_30_STARTED_KEY) === '1'; } catch (e) {}
   if (started && count >= 1) {
-    cta.textContent = count <= 30 ? 'Day ' + count + '/30 — one day at a time.' : 'Day ' + count + ' — same gentle pace.';
+    if (onHomePorch) {
+      cta.textContent = 'Quiet plan — same gentle pace';
+      cta.setAttribute('aria-label', '30-day plan open on this device');
+    } else {
+      cta.textContent = count <= 30 ? 'Day ' + count + '/30 — one day at a time.' : 'Day ' + count + ' — same gentle pace.';
+      cta.setAttribute('aria-label', '30-day plan in progress, day ' + count);
+    }
     cta.disabled = true;
-    cta.setAttribute('aria-label', '30-day plan in progress, day ' + count);
   }
 }
 
@@ -13538,6 +13544,11 @@ function updateDailyBattleStreak() {
 function updateHomeStreakBadge(streakCount) {
   var el = document.getElementById('home-streak-badge');
   if (!el) return;
+  if (document.getElementById('home-primary-flow')) {
+    el.textContent = '';
+    el.style.display = 'none';
+    return;
+  }
   if (typeof streakCount !== 'number') {
     try {
       var data = JSON.parse(localStorage.getItem(DAILY_BATTLE_STREAK_KEY) || '{}');
@@ -15103,6 +15114,9 @@ function getDailyVerseRefForKey(dayKey) {
 function updateDailyVerseWhispers(ref, verseText) {
   var safeRef = ref || '';
   var safeText = (verseText || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  if (typeof window.__TDB_repairMatthew514ByRef === 'function') {
+    safeText = window.__TDB_repairMatthew514ByRef(safeRef, safeText);
+  }
   var authRef = document.getElementById('auth-daily-verse-ref');
   var authText = document.getElementById('auth-daily-verse-text');
   var brandRef = document.getElementById('brand-verse-echo-ref');
@@ -15308,16 +15322,29 @@ function updateAuthDailyVerseBreakdownContent(ref, verseText) {
 
 function updateFloatingBattleAnchor() {
   var wrap = document.getElementById('floating-battle-anchor');
-  if (!wrap) return;
   var verseEl = document.getElementById('floating-battle-anchor-verse');
   var streakEl = document.getElementById('floating-battle-anchor-streak');
+  var onHomePorch = !!(typeof document !== 'undefined' && document.getElementById && document.getElementById('home-primary-flow'));
   var ref = (document.getElementById('auth-daily-verse-ref') || {}).textContent || ((currentDailyBattle && currentDailyBattle.ref) || 'Today\'s verse');
   var verse = (document.getElementById('auth-daily-verse-text') || {}).textContent || ((currentDailyBattle && currentDailyBattle.verse) || '');
   var compact = String(verse || '').replace(/\s+/g, ' ').trim();
+  if (typeof window.__TDB_repairMatthew514ByRef === 'function' && ref) {
+    compact = window.__TDB_repairMatthew514ByRef(ref, compact);
+  }
   if (compact.length > 78) compact = compact.slice(0, 78) + '...';
-  if (verseEl) verseEl.textContent = ref + ' - ' + compact;
+  if (wrap && verseEl) verseEl.textContent = ref + ' - ' + compact;
   var streak = typeof window.__currentStreakCount === 'number' ? window.__currentStreakCount : 0;
-  if (streakEl) streakEl.textContent = 'Streak: ' + streak;
+  if (streakEl) {
+    if (onHomePorch) {
+      streakEl.textContent = '';
+      streakEl.hidden = true;
+      streakEl.setAttribute('aria-hidden', 'true');
+    } else {
+      streakEl.hidden = false;
+      streakEl.removeAttribute('aria-hidden');
+      streakEl.textContent = 'Streak: ' + streak;
+    }
+  }
   if (typeof updateHeaderStreakBadge === 'function') updateHeaderStreakBadge(streak);
 }
 

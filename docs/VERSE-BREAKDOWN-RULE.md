@@ -61,3 +61,9 @@ Standalone **reference-only** snippets (e.g. a citation line with link) may omit
 - **Maintainability** — Future-you (and collaborators) follow a single spec instead of inventing layouts per page.
 
 Skipping this format for shipped verse UX is **out of bounds** unless you are deliberately migrating an old screen—and then the migration plan should land on this rule.
+
+---
+
+## Rolling migration queue
+
+Concrete page-by-phase priorities (**reader, bible tool/search, plans, memorize**, etc.) live in **`VERSE-BREAKDOWN-MIGRATION-NEXT.md`** — use it when touching a verse surface so work stays ordered and reviewable.

@@ -22040,3 +22040,26 @@ details[open] > .tdb-gentle-suggest-summary::after {
   }
 }
 
+/* Verse breakdown standard — small-screen comfort (home + any .verse-breakdown-container) */
+@media (max-width: 520px) {
+  .verse-breakdown-container.hero-calendar-breakdown-wrap,
+  .verse-breakdown-container {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+  .verse-breakdown-container .verse-breakdown > h4 {
+    font-size: 0.64rem;
+    line-height: 1.35;
+  }
+  .verse-breakdown-container .verse-breakdown > p,
+  .verse-breakdown-container .next-step,
+  .verse-breakdown-container .prayer-block {
+    font-size: 0.93rem;
+    line-height: 1.55;
+  }
+  .tdb-vb-inline-next-step,
+  .tdb-vb-inline-prayer-block {
+    padding-left: 0.72rem;
+    padding-right: 0.72rem;
+  }
+}

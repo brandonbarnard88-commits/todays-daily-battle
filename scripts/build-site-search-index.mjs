@@ -74,6 +74,7 @@ const ENTRIES = [
   { t: 'Privacy', u: '/privacy.html', k: 'data' },
   { t: 'About', u: '/about.html', k: 'story mission' },
   { t: 'Security', u: '/security.html', k: 'https cloudflare safe' },
+  { t: 'Official archive — immutable export & SHA-256', u: '/immortal.html', k: 'hash archive permaweb wayback cc license authentic copy' },
   { t: 'Roadmap — what is next', u: '/roadmap.html', k: 'future shipping' },
   { t: 'Daily rhythm', u: '/daily-rhythm.html', k: 'habit morning evening' },
   { t: 'Daily quiet time', u: '/daily-quiet-time.html', k: 'devotional' },

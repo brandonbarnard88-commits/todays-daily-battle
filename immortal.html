@@ -1,172 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260423-phase5-perf"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260423-phase5-perf"></script>
 
+  <!-- GA4 lazy-loaded after interaction -->
   <script defer src="analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Reader Stories • Today's Daily Battle | KJV Comfort</title>
-  <meta name="description" content="Short notes from real people who used mood search, battle plans, and prayer tools on hard days. KJV-first, offline-ready, no noise.">
+  <title>Official archive &mdash; SHA-256 &amp; immutable copies | Today&apos;s Daily Battle</title>
+  <meta name="description" content="Official Relatable Version: publish SHA-256 hashes for static exports, mirror on Wayback and permaweb, keep Brandon&apos;s hospital-room voice intact forever.">
   <meta name="robots" content="index, follow">
-  <meta name="referrer" content="no-referrer">
-  <link rel="canonical" href="https://todaysdailybattle.com/testimonials.html">
-  <meta property="og:title" content="Reader Stories • Today's Daily Battle">
-  <meta property="og:description" content="Honest words from people who needed one verse and one next step.">
-  <meta property="og:url" content="https://todaysdailybattle.com/testimonials.html">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Today's Daily Battle">
-  <meta property="og:image" content="https://todaysdailybattle.com/assets/share/testimonials-og.jpg?v=20260322">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Words from the field — reader stories">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Reader Stories • Today's Daily Battle">
-  <meta name="twitter:description" content="Honest words from people who needed one verse and one next step.">
-  <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/testimonials-og.jpg?v=20260322">
-  <script nonce="tdb2025s" type="application/ld+json">
-  {"@context":"https://schema.org","@type":"CollectionPage","name":"Reader Stories","url":"https://todaysdailybattle.com/testimonials.html","description":"Short anonymized reader notes about Today's Daily Battle tools.","isPartOf":{"@type":"WebSite","name":"Today's Daily Battle","url":"https://todaysdailybattle.com"}}
-  </script>
+  <link rel="canonical" href="https://todaysdailybattle.com/immortal.html">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf">
-  <link rel="manifest" href="manifest.json">
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    .testimonial-page-card p { margin: 0; font-style: italic; color: var(--muted, #94a3b8); line-height: 1.55; }
-    .testimonial-page-meta { margin-top: 0.65rem; font-size: 0.82rem; color: var(--gold-soft, #c9a84c); }
-  </style>
 </head>
-<body class="dark-mode tdb-inner-page testimonials-page">
+<body class="dark-mode tdb-inner-page">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="app-shell">
     <header class="top-bar">
-      <div class="tdb-lang-switcher-header-wrap">
-        <nav class="tdb-lang-switcher tdb-lang-switcher--header tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
-          <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
-                    <span class="tdb-lang-switcher-inner">
-            <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
-            <span class="tdb-lang-sep" aria-hidden="true">·</span>
-            <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
-            <span class="tdb-lang-sep" aria-hidden="true">·</span>
-            <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
-            <span class="tdb-lang-sep" aria-hidden="true">·</span>
-            <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
-            <span class="tdb-lang-sep" aria-hidden="true">·</span>
-            <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
-          </span>
-        </nav>
-      </div>
-
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
         <p class="tdb-header-heartbeat" lang="en">Learning of Him, one day at a time. <span class="tdb-header-tag-cite" title="Take my yoke upon you, and learn of me.">Matthew 11:29</span></p>
-        <span class="brand-subtitle">Reader stories</span>
+        <span class="brand-subtitle">Official archive</span>
       </div>
-      <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
-      <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
-        <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
-        <span class="tdb-nav-flyout-toggle__label">Site</span>
-      </button>
-      <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
-        <a href="/verse.html">Today&rsquo;s Lesson</a>
-        <a href="/explore.html">Explore</a>
-        <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map and gentle paths">Curriculum</a>
-        <a href="/plans.html" id="nav-browse-curriculum" aria-label="Browse the curriculum — KJV courses and gentle battle plans">Browse the curriculum</a>
-        <a href="/university.html" id="nav-university-core" aria-label="University of God — five anchor verses, quiet map">University map</a>
-        <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read</a>
-        <a href="/memorize.html">Memorize</a>
-        <a href="/#feel-section">How I Feel</a>
-        <a href="/daily-rhythm.html">Daily Rhythm</a>
-        <a href="/prayer-wall.html">Pray</a>
-        <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
-        <details class="tdb-nav-more">
-          <summary aria-haspopup="true">More tools</summary>
-          <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
-            <a href="/">Home</a>
-            <a href="/mystudy">My Study</a>
-            <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
-            <a href="/plans.html">Courses</a>
-            <a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">Family Armor for little ones</a>
-            <a href="/kids/corner.html">Kids &amp; Family</a>
-            <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
-            <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
-            <a href="/site-guide.html" id="nav-site-guide" aria-label="Start here — calm map of where to begin">Start here</a>
-            <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
-            <a href="/about.html">About</a>
-            <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
-            <a href="/mobius.html">Möbius</a>
-            <a href="/calm.html">Calm</a>
-            <a href="/story.html">Story</a>
-            <a href="/give" aria-label="Support this quiet place — optional gift">Support</a>
-            <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
-          </div>
-        </details>
-      </div>
-    </nav>
-      <div class="tdb-header-account-nudge" role="group" aria-label="Account shortcuts">
-        <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" aria-label="Open the five-minute site tour">Site tour</button>
-        <button type="button" class="tdb-header-account-nudge__link tdb-tour-restart-btn" aria-label="Restart the five-minute site tour from the beginning">Restart</button>
-        <a href="/login.html" class="tdb-header-account-nudge__link">Log in</a>
-        <a href="/mystudy?tab=library#saved-verses" class="tdb-header-account-nudge__link">My Study</a>
-      </div>
-
-      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
-</header>
-
-    <aside id="sidebar" class="sidebar">
-      <nav class="side-nav" aria-label="Site navigation">
-        <a href="/">Home</a>
-        <a href="explore.html">Explore</a>
-        <a href="about.html">About</a>
-        <a href="testimonials.html" aria-current="page">Stories</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
-        <a href="pricing.html">Pricing</a>
-      </nav>
-    </aside>
+      <a href="/" class="header-menu-link">Home</a>
+    </header>
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
         <header class="hero-banner tdb-dawn-bg--mist">
-          <h1>Words from the field</h1>
-          <p class="hero-tagline">These are short, anonymized notes— the kind of message we receive after someone finds a verse, finishes a plan, or sits with Calm for one minute. They are not polished marketing; they are real relief, briefly told.</p>
-          <p class="section-note util-mt-0_5 topic-mood-porch" style="margin-bottom:0">You&rsquo;re already welcome here&mdash;your own story does not have to sound like these to count.</p>
+          <h1>Official Relatable Version</h1>
+          <p class="section-note topic-mood-porch">Brandon&rsquo;s voice only &mdash; warm copy sealed into each verified export.</p>
+          <p class="hero-tagline">This page is the public handshake between today&rsquo;s daily site and every frozen copy: hash once, mirror calmly, change nothing in the bundle.</p>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="/">Home</a>
+            <a class="btn btn-secondary" href="/about.html#voice-and-copy-fence">Voice &amp; copy fence</a>
+          </div>
         </header>
 
-        <section class="glass tdb-porch-paper-glass">
-          <h2 class="section-divider">Five stories</h2>
-          <article class="testimonial-page-card">
-            <p>“I opened Calm in the parking lot before a hard conversation. One verse was enough to unclench my jaw.”</p>
-            <p class="testimonial-page-meta">— Reader in the Midwest, 2026</p>
-          </article>
-          <article class="testimonial-page-card">
-            <p>“The mood search said what I could not. I did not need a lecture—just Scripture that matched my ache.”</p>
-            <p class="testimonial-page-meta">— Parent of three, 2026</p>
-          </article>
-          <article class="testimonial-page-card">
-            <p>“Offline mode mattered. Rural signal, sick kid, long night—the verse was already there.”</p>
-            <p class="testimonial-page-meta">— Night-shift worker, 2026</p>
-          </article>
-          <article class="testimonial-page-card">
-            <p>“I used the seven-day peace plan like guardrails. Small boxes to check when my mind would not stop racing.”</p>
-            <p class="testimonial-page-meta">— College student, 2026</p>
-          </article>
-          <article class="testimonial-page-card">
-            <p>“The prayer wall is quiet. I can say what I am carrying without performing.”</p>
-            <p class="testimonial-page-meta">— Anonymous, 2026</p>
-          </article>
+        <section class="glass tdb-porch-paper-glass" aria-labelledby="still-me-heading">
+          <h2 class="section-divider" id="still-me-heading">Still-me note on every export</h2>
+          <p class="section-note">Home carries this permanent line so any ZIP or mirror stays human-first:</p>
+          <blockquote class="section-note" style="margin:0.75rem 0 0;border-left:3px solid rgba(227,188,103,0.45);padding-left:0.85rem;font-style:normal;">
+            Hey friend &mdash; this is still the same porch I built from my own hospital season. One verse, one small step, one prayer. No performance, no polish. Just Jesus and you, right where you are. Still here with you, now and forever.
+          </blockquote>
         </section>
 
-        <section class="glass tdb-porch-paper-glass">
-          <h2 class="section-divider">Share yours</h2>
-          <p class="section-note">If this site helped you, we would love a sentence we can hold alongside these—no names required. For the fuller &ldquo;battle story&rdquo; room (moderation notes, what we publish), open <a href="stories.html">Battle stories</a>. Email <a href="/contact.html" class="tdb-support-email" data-email-query="" data-email-display="address">support email</a> or use <a href="contact.html">Contact</a>. We never publish private details without clear permission.</p>
+        <section class="glass tdb-porch-paper-glass" aria-labelledby="sha-heading">
+          <h2 class="section-divider" id="sha-heading">Published SHA-256 (official static ZIP)</h2>
+          <p class="section-note">After you zip the verified export, fingerprint it and paste the hash below plus <a href="/data/official-export-hash.txt"><code>data/official-export-hash.txt</code></a>, then redeploy.</p>
+          <p class="section-note util-mt-0_5"><code id="tdb-official-export-hash" style="word-break:break-all;display:block;padding:0.65rem 0.75rem;background:rgba(11,15,22,0.65);border:1px solid rgba(42,51,68,0.85);border-radius:10px;font-size:0.9rem;">REPLACE_AFTER_EACH_OFFICIAL_ZIP</code></p>
+          <ul class="section-note">
+            <li>macOS / Linux: <kbd>shasum -a 256 YourExport.zip</kbd></li>
+            <li>Windows PowerShell: <kbd>Get-FileHash .\YourExport.zip -Algorithm SHA256</kbd></li>
+          </ul>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass" aria-labelledby="mirror-methods-heading">
+          <h2 class="section-divider" id="mirror-methods-heading">Immutable mirrors (same warmth, frozen bytes)</h2>
+          <p class="section-note">Each snapshot can be labeled <strong>Official Relatable Version &mdash; Brandon&rsquo;s Voice Only</strong>.</p>
+          <dl class="section-note">
+            <dt style="margin-top:0.65rem;font-weight:600;">Wayback Machine &amp; Archive.today</dt>
+            <dd style="margin:0.25rem 0 0;">Free, timestamped reads of the site exactly as it felt the day you saved it.</dd>
+            <dt style="margin-top:0.85rem;font-weight:600;">Arweave permaweb (e.g. ArDrive)</dt>
+            <dd style="margin:0.25rem 0 0;">Pay-once storage; upload only the ZIP you already hashed. Any later edit is a new permanent record&mdash;the earlier warmth stays put.</dd>
+            <dt style="margin-top:0.85rem;font-weight:600;">SHA-256 checks</dt>
+            <dd style="margin:0.25rem 0 0;">Anyone can prove their download matches the hash published here.</dd>
+          </dl>
+          <p class="section-note util-mt-0_5">Quarterly rhythm after updates is enough: live site for daily use, archived bundles for forever.</p>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass" aria-labelledby="law-fence-heading">
+          <h2 class="section-divider" id="law-fence-heading">Legal tone fence</h2>
+          <p class="section-note">todaysdailybattle.com is built from my own real-life battles and stays exactly as I wrote it &mdash; warm, simple, trench-level relatable. All content is &copy; Brandon Barnard and released under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener noreferrer">CC BY-NC-ND 4.0</a>. Exact copies may be shared, but nothing can be changed, adapted, or turned into something else. The only authentic versions are the ones carrying the official SHA-256 hash published by me. This voice was born in the hospital room. It stays that way forever.</p>
         </section>
       </div>
     </main>
@@ -346,7 +255,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">April 28, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
     <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
@@ -357,9 +266,5 @@
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
 </footer>
   </div>
-
-  <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
-  <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260423-phase5-perf" data-cfasync="false"></script>
 </body>
 </html>

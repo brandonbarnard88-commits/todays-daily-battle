@@ -16,6 +16,16 @@
     return String(value == null ? '' : value);
   }
 
+  /** Strip accidental markdown / junk from synced KJV one-liners (e.g. **Ye** swallowed by plain-text cleaners → " are …"). */
+  function normalizeHeroKjvLine(t) {
+    var s = sanitizeText(t).replace(/\uFEFF/g, '');
+    s = s.replace(/\*\*([^*]{0,400}?)\*\*/g, '$1').replace(/\*([^*\n]{0,400}?)\*/g, '$1');
+    s = s.replace(/__([^_]{0,400}?)__/g, '$1');
+    s = s.replace(/\s+/g, ' ').trim();
+    return s;
+  }
+  window.__TDB_normalizeHeroKjvText = normalizeHeroKjvLine;
+
   function parseHeroFromDom(heroVerseEl, heroRefEl) {
     var refLine = sanitizeText(heroRefEl && heroRefEl.textContent).replace(/\s*\(KJV\)\s*$/i, '').trim();
     var raw = sanitizeText(heroVerseEl && heroVerseEl.textContent).trim();
@@ -236,6 +246,7 @@
 
     var verseRaw = useDomPrebuilt ? parseHeroFromDom(heroVerse, heroRef) : pickHeroVerseForToday();
     if (!verseRaw || !verseRaw.ref) return;
+    if (verseRaw.text) verseRaw.text = normalizeHeroKjvLine(verseRaw.text);
     var v = normalizeVerse(verseRaw);
     if (!v.ref) return;
     var sig = v.ref + '\0' + v.text;

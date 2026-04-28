@@ -13428,12 +13428,21 @@ function updateDailyBattleStreak() {
     setSyncData('streak', nextData);
   }
   var familyName = getFamilyName();
-  var label = familyName ? ((familyName.match(/s$/i) ? familyName + "'" : familyName + "'s") + ' streak') : 'Streak';
+  // Screen-reader line only (sr-only): avoid "streak" / scoreboard tone; match "no pressure" porch copy.
+  var label = familyName
+    ? (familyName.match(/s$/i) ? familyName + "'" : familyName + "'s") + ' gentle rhythm'
+    : 'Your gentle rhythm';
   var streakText = nextCount >= 1
     ? (nextCount <= 30
-        ? (nextCount === 1 ? label + ': Day 1/30 — you\'ve begun.' : label + ': Day ' + nextCount + '/30 — keep today\'s rhythm.')
-        : (nextCount === 1 ? label + ': Day 1 — you\'ve begun.' : label + ': Day ' + nextCount + ' — keep today\'s rhythm.'))
-    : (familyName ? label + ': 0 — pick up anytime; no guilt.' : 'Streak: 0 — you\'re not behind with God. Tap the plan below when you\'re ready.');
+        ? (nextCount === 1
+            ? label + ': day 1 of 30 — no score, just today.'
+            : label + ': day ' + nextCount + ' of 30 — same quiet pace.')
+        : (nextCount === 1
+            ? label + ': day 1 — welcome back.'
+            : label + ': day ' + nextCount + ' — same quiet pace.'))
+    : (familyName
+        ? label + ': pick up anytime; no guilt.'
+        : label + ': you are not behind with God — open the plan below whenever you\'re ready.');
   if (streakEl) streakEl.textContent = streakText;
   var shareStreakWrap = document.getElementById('share-streak-wrap');
   if (shareStreakWrap) shareStreakWrap.style.display = nextCount >= 1 ? 'flex' : 'none';

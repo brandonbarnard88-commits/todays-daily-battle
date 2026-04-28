@@ -27,6 +27,9 @@ function normalizeHeroKjvLine(t) {
   s = s.replace(/\*\*([^*]{0,400}?)\*\*/g, '$1').replace(/\*([^*\n]{0,400}?)\*/g, '$1');
   s = s.replace(/__([^_]{0,400}?)__/g, '$1');
   s = s.replace(/\s+/g, ' ').trim();
+  if (/^are the light of the world\.?$/i.test(s)) {
+    s = 'Ye are the light of the world.';
+  }
   return s;
 }
 

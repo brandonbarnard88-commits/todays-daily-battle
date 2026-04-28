@@ -4726,12 +4726,8 @@
     }
     @media (max-width: 1023px) {
       .tdb-hero-search-priority-hint { display: block; }
-      /* Daily anchor first, then calm doorway, then feel search (install before long scroll continues) */
-      #main-content { order: -40; }
-      .calm-cta-wrap { order: -38; }
-      .tdb-page-orientation { order: -36; }
+      /* #hero-verse-wrap + offline row stay first in DOM; avoid pulling #main-content above the verse via order */
       #quick-search-hero { order: -34; }
-      .tdb-install-reassurance-stack { order: -32; }
       main.tdb-home-has-progress #plan-progress-card { order: -30; }
     }
 
@@ -6593,6 +6589,14 @@
       color: var(--text);
       letter-spacing: -0.005em;
       line-height: 1.25;
+    }
+    .tdb-home-hero-gentle-after-verse {
+      margin-top: 0.65rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid color-mix(in srgb, var(--line, #2a3344) 55%, transparent);
+    }
+    .tdb-home-hero-gentle-after-verse .hero-daily-headline {
+      margin-top: 0;
     }
     .hero-daily-continuity {
       margin: -0.4rem 0 0.7rem;
@@ -8904,16 +8908,11 @@
       <div id="hero-verse-wrap" class="hero-verse-wrap tdb-home-soar-aura tdb-quiet-container tdb-micro-hero-dawn">
       <section class="card verse-card verse-card-loaded" id="verseCard" aria-live="polite" data-daily-verse="true">
         <p class="welcome-back-msg" id="welcomeBackMsg" aria-live="polite" hidden></p>
-        <h2 class="hero-daily-headline">Today&rsquo;s Daily Battle &mdash; quiet KJV help for real life</h2>
-        <p class="hero-daily-continuity" id="heroDailyContinuity">The same porch you already trust; <strong>For Family, For Country, For GOD</strong> &mdash; and the <a href="/university.html">University of God</a> line you&rsquo;ll see in Scripture. <a href="/about.html#gods-university-quiet-name" class="hero-daily-why-name">Why we also say &ldquo;God&rsquo;s University of Life&rdquo;</a> for the map and tools.</p>
-        <p class="tdb-porch-still-me" id="tdbPorchStillMe">Hey friend &mdash; this is still the same porch I built from my own hospital season. One verse, one small step, one prayer. No performance, no polish. Just Jesus and you, right where you are. Still here with you, now and forever.</p>
-        <p class="hero-daily-subline" id="heroDailySubline">KJV-only. Calm campus. Real-life curriculum for every battle of the heart and home&mdash;anxiety, parenting, grief, fear, and raising little ones. No ads. No login. Whatever your day holds, step in.</p>
         <div class="verse-skeleton" id="verseSkeleton" aria-hidden="true">
           <div class="verse-skeleton-box"></div>
         </div>
         <div class="tdb-home-verse-sticky-shell" role="region" aria-label="Today’s verse text and quick actions">
-        <p class="tdb-verse-of-day-eyebrow" id="heroVerseEyebrow">Today&rsquo;s lesson</p>
-        <div class="verse-breakdown-container hero-calendar-breakdown-wrap" id="heroVotdBreakdown" role="region" aria-label="Today&rsquo;s verse — reference, text, and breakdown (KJV)">
+        <div class="verse-breakdown-container hero-calendar-breakdown-wrap" id="heroVotdBreakdown" role="region" aria-label="Today&rsquo;s verse &mdash; reference, text, and breakdown (KJV)">
         <p class="big-kjv verse-ref hero-daily-ref-above" id="heroRef"><strong>Isaiah 40:31 (KJV)</strong></p>
         <div class="verse-ref-row">
           <div class="hero-verse-wrap-inner">
@@ -8945,6 +8944,14 @@
               <span class="read-aloud-label">Listen</span>
             </button>
         </div>
+
+        <div class="tdb-home-hero-gentle-after-verse">
+        <h2 class="hero-daily-headline">Today&rsquo;s Daily Battle &mdash; quiet KJV help for real life</h2>
+        <p class="hero-daily-continuity" id="heroDailyContinuity">The same porch you already trust; <strong>For Family, For Country, For GOD</strong> &mdash; and the <a href="/university.html">University of God</a> line you&rsquo;ll see in Scripture. <a href="/about.html#gods-university-quiet-name" class="hero-daily-why-name">Why we also say &ldquo;God&rsquo;s University of Life&rdquo;</a> for the map and tools.</p>
+        <p class="tdb-porch-still-me" id="tdbPorchStillMe">Hey friend &mdash; this is still the same porch I built from my own hospital season. One verse, one small step, one prayer. No performance, no polish. Just Jesus and you, right where you are. Still here with you, now and forever.</p>
+        <p class="hero-daily-subline" id="heroDailySubline">KJV-only. Calm campus. Real-life curriculum for every battle of the heart and home&mdash;anxiety, parenting, grief, fear, and raising little ones. No ads. No login. Whatever your day holds, step in.</p>
+        </div>
+        <p class="tdb-verse-of-day-eyebrow" id="heroVerseEyebrow">Today&rsquo;s lesson</p>
 
         <div class="verse-breakdown" id="heroDeepBreakdown" role="group" aria-label="Verse breakdown sections">
           <h4>Simple layman terms</h4>
@@ -9331,51 +9338,6 @@
       <button type="button" class="tdb-float-share-verse" id="tdb-float-share-verse-home" aria-label="Share today’s verse">Share verse</button>
       </div><!-- /#hero-verse-wrap -->
 
-      <!-- ── Need Him right now? Single entry (calm flow: search by feeling, one tap) ── -->
-      <div class="calm-cta-wrap">
-        <a href="calm.html" class="calm-crisis-card" aria-label="Need Him right now? One-tap verse for whatever you're carrying">
-          <span class="calm-crisis-icon" aria-hidden="true">✝️</span>
-          <span class="calm-crisis-text"><strong>Need Him right now?</strong> One-tap verse for whatever you're carrying.</span>
-          <span class="calm-crisis-enter">→</span>
-        </a>
-        <p class="calm-cta-note">Any hour counts&mdash;heavy day, quiet day, or something in between.</p>
-      </div>
-
-      <p class="tdb-page-orientation tdb-porch-ingress tdb-porch-ingress--warm" id="tdb-page-orientation">
-        <span class="tdb-porch-ingress__lead">The day feels loud before you even sat down? Stay right here. You don&rsquo;t have to get anything right first. <strong>Today&rsquo;s Daily Battle</strong> is the name on the porch &mdash; sit with God in the KJV, no performance, no pressure.</span>
-        <span class="tdb-porch-ingress__detail">When you need something steady, today&rsquo;s verse and the gentle <strong>verse of the month</strong> are right up top. When you&rsquo;re up for wandering, the tools are one tap away&mdash;no rush.</span>
-      </p>
-
-      <nav class="tdb-campus-schools" id="tdb-campus-schools" aria-label="Schools of Life &mdash; gentle doorways to rooms you already have">
-        <p class="tdb-campus-schools-intro"><strong>Gentle rooms, not formal classes.</strong> Six soft signs for what&rsquo;s already here&mdash;no grades, no deadlines, just open doors and clearer welcome mats.</p>
-        <ul class="tdb-campus-schools-list">
-          <li>
-            <a href="/#hero-verse-wrap">School of the Good Shepherd</a>
-            <span class="tdb-campus-hint">Today&rsquo;s verse &amp; daily calm</span>
-          </li>
-          <li>
-            <a href="/plans.html">School of Battle</a>
-            <span class="tdb-campus-hint">Core curriculum &mdash; Battle Plans library</span>
-          </li>
-          <li>
-            <a href="/family.html">School of Family &amp; Home</a>
-            <span class="tdb-campus-hint">Family hub, rhythms, printable packs</span>
-          </li>
-          <li>
-            <a href="/explore.html#start-here">School of Wisdom &amp; Wonder</a>
-            <span class="tdb-campus-hint">Explore the map &mdash; topics &amp; tools</span>
-          </li>
-          <li>
-            <a href="/prayer-wall.html">School of Prayer &amp; Praise</a>
-            <span class="tdb-campus-hint">Prayer wall &amp; quiet praise</span>
-          </li>
-          <li>
-            <a href="/calm.html">School of Suffering &amp; Hope</a>
-            <span class="tdb-campus-hint">Heavy days, grief-shaped calm &mdash; gentle steps</span>
-          </li>
-        </ul>
-      </nav>
-
       <div class="tdb-install-reassurance-stack" role="group" aria-label="Offline status and add to home screen">
       <!-- ── Offline banner (reassuring message when offline) ── -->
       <div id="offline-banner" class="hidden" role="status" aria-live="polite">Offline — verse, search &amp; prayers still work. We'll sync when you're back.</div>
@@ -9408,6 +9370,51 @@
         </div>
       </div>
       </div>
+
+      <!-- ── Need Him right now? Single entry (calm flow: search by feeling, one tap) ── -->
+      <div class="calm-cta-wrap">
+        <a href="calm.html" class="calm-crisis-card" aria-label="Need Him right now? One-tap verse for whatever you're carrying">
+          <span class="calm-crisis-icon" aria-hidden="true">✝️</span>
+          <span class="calm-crisis-text"><strong>Need Him right now?</strong> One-tap verse for whatever you're carrying.</span>
+          <span class="calm-crisis-enter">→</span>
+        </a>
+        <p class="calm-cta-note">Any hour counts&mdash;heavy day, quiet day, or something in between.</p>
+      </div>
+
+      <p class="tdb-page-orientation tdb-porch-ingress tdb-porch-ingress--warm" id="tdb-page-orientation">
+        <span class="tdb-porch-ingress__lead">If today already feels loud, stay&mdash;you&rsquo;re on the porch. Scripture stays KJV-first; no polish required before you read.</span>
+        <span class="tdb-porch-ingress__detail">The verse leads; the gentle <strong>verse of the month</strong> is on the page when you want memory. Tools stay one tap away when you&rsquo;re ready. New visitors: the welcome card farther down this page lays out three gentle steps.</span>
+      </p>
+
+      <nav class="tdb-campus-schools" id="tdb-campus-schools" aria-label="Schools of Life &mdash; gentle doorways to rooms you already have">
+        <p class="tdb-campus-schools-intro"><strong>Gentle rooms, not formal classes.</strong> Six soft signs for what&rsquo;s already here&mdash;no grades, no deadlines, just open doors and clearer welcome mats.</p>
+        <ul class="tdb-campus-schools-list">
+          <li>
+            <a href="/#hero-verse-wrap">School of the Good Shepherd</a>
+            <span class="tdb-campus-hint">Today&rsquo;s verse &amp; daily calm</span>
+          </li>
+          <li>
+            <a href="/plans.html">School of Battle</a>
+            <span class="tdb-campus-hint">Core curriculum &mdash; Battle Plans library</span>
+          </li>
+          <li>
+            <a href="/family.html">School of Family &amp; Home</a>
+            <span class="tdb-campus-hint">Family hub, rhythms, printable packs</span>
+          </li>
+          <li>
+            <a href="/explore.html#start-here">School of Wisdom &amp; Wonder</a>
+            <span class="tdb-campus-hint">Explore the map &mdash; topics &amp; tools</span>
+          </li>
+          <li>
+            <a href="/prayer-wall.html">School of Prayer &amp; Praise</a>
+            <span class="tdb-campus-hint">Prayer wall &amp; quiet praise</span>
+          </li>
+          <li>
+            <a href="/calm.html">School of Suffering &amp; Hope</a>
+            <span class="tdb-campus-hint">Heavy days, grief-shaped calm &mdash; gentle steps</span>
+          </li>
+        </ul>
+      </nav>
 
       <!-- ── Hero Verse ── -->
       <div id="main-content" tabindex="-1">
@@ -9465,7 +9472,7 @@
           <div class="new-here-crest">🕊️</div>
           <h2 id="new-here-title" class="new-here-title">Welcome, friend</h2>
         </div>
-        <p class="new-here-lead">Welcome, friend &mdash; <strong>Today&rsquo;s Daily Battle</strong> is a quiet place for real battles: anxiety, parenting, grief, fear, and the long days of raising little ones. Everything here is KJV only, private by default, and works completely offline after the first visit. No grades; just Jesus and His Word.</p>
+        <p class="new-here-lead"><strong>Today&rsquo;s Daily Battle</strong> is a steady seat on hard days &mdash; anxiety, parenting, grief, fear, raising little ones. KJV-only, private by default, offline-friendly after first visit (see the offline row near the verse). No grades scored here &mdash; just Jesus and His Word.</p>
 
         <div class="new-here-steps">
           <div class="new-here-step">

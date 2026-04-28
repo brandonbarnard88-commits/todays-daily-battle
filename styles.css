@@ -239,6 +239,56 @@ body.tdb-inner-page .content-inner > section.glass .section-divider:first-child 
   margin-top: 0;
 }
 
+/* Still-me porch note — Home hero + Official archive (readable on small screens) */
+.tdb-porch-still-me {
+  margin: 0 0 0.85rem;
+  padding: 0.65rem 0 0.65rem 0.85rem;
+  border-left: 3px solid color-mix(in srgb, var(--gold-soft) 42%, var(--line) 58%);
+  font-size: clamp(0.88rem, 2.2vw, 0.98rem);
+  line-height: 1.55;
+  font-weight: 400;
+  color: color-mix(in srgb, var(--muted) 88%, var(--gold-soft) 12%);
+  max-width: 40rem;
+  overflow-wrap: anywhere;
+}
+:root[data-theme="dark"] .tdb-porch-still-me {
+  color: color-mix(in srgb, var(--muted) 75%, var(--gold-soft) 25%);
+}
+:root[data-theme="light"] .tdb-porch-still-me {
+  color: var(--text);
+}
+
+/* Official archive — SHA block + voice fence */
+body.tdb-inner-page pre.tdb-official-export-hash-pre {
+  word-break: break-all;
+  white-space: pre-wrap;
+  margin: 0.5rem 0 0;
+  padding: 0.65rem 0.75rem;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  border-radius: 10px;
+  border: 1px solid rgba(42, 51, 68, 0.85);
+  background: rgba(11, 15, 22, 0.65);
+  color: color-mix(in srgb, var(--muted) 92%, var(--gold-soft) 8%);
+}
+html[data-theme="light"] body.tdb-inner-page pre.tdb-official-export-hash-pre {
+  background: rgba(255, 253, 247, 0.94);
+  border-color: rgba(42, 51, 68, 0.28);
+  color: #3d3428;
+}
+body.tdb-inner-page .voice-and-copy-fence {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(42, 51, 68, 0.45);
+}
+html[data-theme="light"] body.tdb-inner-page .voice-and-copy-fence {
+  border-top-color: rgba(42, 51, 68, 0.14);
+}
+body.tdb-inner-page .voice-and-copy-fence p {
+  margin: 0;
+}
+
 /* Family Armor for little ones — bedtime prayer card */
 body.tdb-fa-littles-page .tdb-fa-bedtime__toolbar {
   display: flex;

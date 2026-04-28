@@ -31,51 +31,41 @@
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <header class="hero-banner tdb-dawn-bg--mist">
-          <h1>Official Relatable Version</h1>
-          <p class="section-note topic-mood-porch">Brandon&rsquo;s voice only &mdash; warm copy sealed into each verified export.</p>
-          <p class="hero-tagline">This page is the public handshake between today&rsquo;s daily site and every frozen copy: hash once, mirror calmly, change nothing in the bundle.</p>
-          <div class="cta-group">
+        <section class="glass tdb-porch-paper-glass" aria-labelledby="immortal-heading">
+          <h1 class="section-divider" id="immortal-heading">Official Archive &amp; Fingerprint</h1>
+
+          <div class="tdb-porch-still-me">
+            Hey friend &mdash; this is still the same porch I built from my own hospital season. One verse, one small step, one prayer. No performance, no polish. Just Jesus and you, right where you are. Still here with you, now and forever.
+          </div>
+
+          <p class="section-note util-mt-0_5">The same line sits on Home above today&rsquo;s lesson; keep this page and that porch note matching every export.</p>
+
+          <h2 class="section-divider">Current Official Export Hash (SHA-256)</h2>
+          <pre id="tdb-official-export-hash" class="tdb-official-export-hash-pre">REPLACE_AFTER_EACH_OFFICIAL_ZIP</pre>
+          <p class="section-note">Replace this after every official ZIP export &mdash; mirror the same string in <a href="/data/official-export-hash.txt"><code>data/official-export-hash.txt</code></a>, then redeploy.</p>
+
+          <h2 class="section-divider">How to Verify a Download</h2>
+          <ul class="section-note">
+            <li>macOS / Linux: <code>shasum -a 256 your-download.zip</code></li>
+            <li>Windows PowerShell: <code>Get-FileHash .\your-download.zip -Algorithm SHA256</code></li>
+          </ul>
+
+          <h2 class="section-divider">Permanent Mirrors (Immutable)</h2>
+          <p class="section-note">These frozen copies should match the official hash above once you publish it:</p>
+          <ul class="section-note">
+            <li>Wayback Machine &amp; Archive.today &mdash; timestamped snapshots</li>
+            <li>Arweave Permaweb (e.g. ArDrive) &mdash; pay-once, permanent storage</li>
+          </ul>
+          <p class="section-note util-mt-0_5">Label each snapshot <strong>Official Relatable Version &mdash; Brandon&rsquo;s Voice Only</strong> when you save.</p>
+
+          <div class="voice-and-copy-fence">
+            <p class="section-note">todaysdailybattle.com is built from my own real-life battles and stays exactly as I wrote it &mdash; warm, simple, trench-level relatable. All content is &copy; Brandon Barnard and released under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-ND 4.0</a>. Exact copies may be shared, but nothing can be changed. The only authentic versions carry the official SHA-256 hash published by me. This voice was born in the hospital room. It stays that way forever.</p>
+          </div>
+
+          <div class="cta-group util-mt-1">
             <a class="btn btn-primary" href="/">Home</a>
             <a class="btn btn-secondary" href="/about.html#voice-and-copy-fence">Voice &amp; copy fence</a>
           </div>
-        </header>
-
-        <section class="glass tdb-porch-paper-glass" aria-labelledby="still-me-heading">
-          <h2 class="section-divider" id="still-me-heading">Still-me note on every export</h2>
-          <p class="section-note">Home carries this permanent line so any ZIP or mirror stays human-first:</p>
-          <blockquote class="section-note" style="margin:0.75rem 0 0;border-left:3px solid rgba(227,188,103,0.45);padding-left:0.85rem;font-style:normal;">
-            Hey friend &mdash; this is still the same porch I built from my own hospital season. One verse, one small step, one prayer. No performance, no polish. Just Jesus and you, right where you are. Still here with you, now and forever.
-          </blockquote>
-        </section>
-
-        <section class="glass tdb-porch-paper-glass" aria-labelledby="sha-heading">
-          <h2 class="section-divider" id="sha-heading">Published SHA-256 (official static ZIP)</h2>
-          <p class="section-note">After you zip the verified export, fingerprint it and paste the hash below plus <a href="/data/official-export-hash.txt"><code>data/official-export-hash.txt</code></a>, then redeploy.</p>
-          <p class="section-note util-mt-0_5"><code id="tdb-official-export-hash" style="word-break:break-all;display:block;padding:0.65rem 0.75rem;background:rgba(11,15,22,0.65);border:1px solid rgba(42,51,68,0.85);border-radius:10px;font-size:0.9rem;">REPLACE_AFTER_EACH_OFFICIAL_ZIP</code></p>
-          <ul class="section-note">
-            <li>macOS / Linux: <kbd>shasum -a 256 YourExport.zip</kbd></li>
-            <li>Windows PowerShell: <kbd>Get-FileHash .\YourExport.zip -Algorithm SHA256</kbd></li>
-          </ul>
-        </section>
-
-        <section class="glass tdb-porch-paper-glass" aria-labelledby="mirror-methods-heading">
-          <h2 class="section-divider" id="mirror-methods-heading">Immutable mirrors (same warmth, frozen bytes)</h2>
-          <p class="section-note">Each snapshot can be labeled <strong>Official Relatable Version &mdash; Brandon&rsquo;s Voice Only</strong>.</p>
-          <dl class="section-note">
-            <dt style="margin-top:0.65rem;font-weight:600;">Wayback Machine &amp; Archive.today</dt>
-            <dd style="margin:0.25rem 0 0;">Free, timestamped reads of the site exactly as it felt the day you saved it.</dd>
-            <dt style="margin-top:0.85rem;font-weight:600;">Arweave permaweb (e.g. ArDrive)</dt>
-            <dd style="margin:0.25rem 0 0;">Pay-once storage; upload only the ZIP you already hashed. Any later edit is a new permanent record&mdash;the earlier warmth stays put.</dd>
-            <dt style="margin-top:0.85rem;font-weight:600;">SHA-256 checks</dt>
-            <dd style="margin:0.25rem 0 0;">Anyone can prove their download matches the hash published here.</dd>
-          </dl>
-          <p class="section-note util-mt-0_5">Quarterly rhythm after updates is enough: live site for daily use, archived bundles for forever.</p>
-        </section>
-
-        <section class="glass tdb-porch-paper-glass" aria-labelledby="law-fence-heading">
-          <h2 class="section-divider" id="law-fence-heading">Legal tone fence</h2>
-          <p class="section-note">todaysdailybattle.com is built from my own real-life battles and stays exactly as I wrote it &mdash; warm, simple, trench-level relatable. All content is &copy; Brandon Barnard and released under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="noopener noreferrer">CC BY-NC-ND 4.0</a>. Exact copies may be shared, but nothing can be changed, adapted, or turned into something else. The only authentic versions are the ones carrying the official SHA-256 hash published by me. This voice was born in the hospital room. It stays that way forever.</p>
         </section>
       </div>
     </main>

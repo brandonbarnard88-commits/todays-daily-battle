@@ -16,6 +16,16 @@
     return String(value == null ? '' : value);
   }
 
+  /** Strip accidental markdown / junk from synced KJV one-liners (e.g. **Ye** swallowed by plain-text cleaners → " are …"). */
+  function normalizeHeroKjvLine(t) {
+    var s = sanitizeText(t).replace(/\uFEFF/g, '');
+    s = s.replace(/\*\*([^*]{0,400}?)\*\*/g, '$1').replace(/\*([^*\n]{0,400}?)\*/g, '$1');
+    s = s.replace(/__([^_]{0,400}?)__/g, '$1');
+    s = s.replace(/\s+/g, ' ').trim();
+    return s;
+  }
+  window.__TDB_normalizeHeroKjvText = normalizeHeroKjvLine;
+
   function parseHeroFromDom(heroVerseEl, heroRefEl) {
     var refLine = sanitizeText(heroRefEl && heroRefEl.textContent).replace(/\s*\(KJV\)\s*$/i, '').trim();
     var raw = sanitizeText(heroVerseEl && heroVerseEl.textContent).trim();
@@ -150,8 +160,41 @@
     if (rowEl) rowEl.hidden = !t;
   }
 
+  function currentYearFresh() {
+    if (typeof window.TDB_verseBreakdownStandard === 'object' && window.TDB_verseBreakdownStandard && typeof window.TDB_verseBreakdownStandard.currentYear === 'function') {
+      return window.TDB_verseBreakdownStandard.currentYear();
+    }
+    try {
+      return new Date().getFullYear();
+    } catch (eY) {
+      return 2026;
+    }
+  }
+
+  /** When no curated “today / culture” line exists, still anchor the verse in “now”. */
+  function defaultRelatesTodayLine(year) {
+    var std = window.TDB_verseBreakdownStandard;
+    if (std && typeof std.defaultRelatesTodayLine === 'function') {
+      return std.defaultRelatesTodayLine(year);
+    }
+    var y = typeof year === 'number' ? year : currentYearFresh();
+    return 'In ' + y + ', life can feel loud—headlines, hurry, tension. God’s Word here still cuts through as something steady you can carry today.';
+  }
+
+  /** One short petition tied to today’s verse (never stores user text). */
+  function buildHeroVotdPrayer(refFull) {
+    var std = window.TDB_verseBreakdownStandard;
+    if (std && typeof std.prayerForRef === 'function') {
+      return std.prayerForRef(refFull);
+    }
+    var r = sanitizeText(refFull);
+    var cue = r || 'this verse';
+    return 'Lord, sink ' + cue + ' into my heart—not as noise, but as truth that changes how I walk. In Jesus\u2019 name, Amen.';
+  }
+
   /**
-   * Fills #heroSimpleBreakdown + deep <details> fields. `shared` is optional rich breakdown from TDB (plain / group / modern / about).
+   * Fills #heroSimpleBreakdown + deep fields. Shared payload can include plain / group / modern / about /
+   * practicalStep (explicit one-step separate from modern “culture” line).
    * Exposed for index.html renderVerseContent when verse-breakdown hydrates.
    */
   function applyHeroVotdFromInputs(v, shared) {
@@ -162,6 +205,8 @@
     var groupA = sanitizeText(sh.groupApplication != null ? sh.groupApplication : sh.group);
     var modernA = sanitizeText(sh.modernApplication != null ? sh.modernApplication : sh.modern);
     var aboutA = sanitizeText(sh.about);
+    var stepPrefer = sanitizeText(sh.practicalStep != null ? sh.practicalStep : sh.oneStep);
+    var yr = currentYearFresh();
     var lines = Array.isArray(v.lines) ? v.lines : [];
     var book = parseHeroBookName(v.ref);
     var row = heroBookRow(book);
@@ -169,36 +214,51 @@
     var who = aboutA || sanitizeText(v.speaker);
     if (!who) {
       if (row) {
-        who = row.s + ' (through the text, KJV).';
+        who = row.s + ' (through the words of Scripture, KJV).';
       } else {
-        who = 'The Holy Spirit through Scripture (KJV).';
+        who = 'The Holy Spirit speaking through Scripture (KJV).';
       }
     }
     var audience = row
-      ? ('God’s words first met ' + row.a + ' in their moment—and the same line still meets you when you need it most.')
-      : 'God’s word to His people, then and now—including you, wherever you are today.';
-    var ctx = sanitizeText(lines[1] || lines[0] || '');
-    if (ctx && ctx === simple) {
-      ctx = 'Read the full chapter when you can; one verse is strongest when it is not left floating on its own.';
-    } else if (!ctx) {
-      ctx = 'Read the full chapter when you can; the surrounding verses help this line land with clarity.';
+      ? ('Originally for ' + row.a + ' in their setting. Written for us too, whenever we hear it as God’s line to real life.')
+      : 'Written for God’s people in Scripture—and for anyone listening now, including you.';
+    var relatesToday = modernA;
+    if (!relatesToday) {
+      relatesToday = defaultRelatesTodayLine(yr);
     }
     var relYou = groupA || sanitizeText(v.today) || sanitizeText(lines[1] || '');
     if (relYou && relYou === simple) {
-      relYou = 'Let this be God’s voice to you today—not a slogan, a steady line to hold onto.';
+      relYou = 'Hold this word as God speaking kindly to you—today, personally—not as a slogan you have to manufacture.';
     } else if (!relYou) {
-      relYou = 'Let this be God’s voice to you today—not a slogan, a steady line to hold onto.';
+      relYou = 'Hold this word as God speaking kindly to you—today, personally—not as a slogan you have to manufacture.';
     }
-    var relToday = modernA || sanitizeText(v.action) || sanitizeText(v.app);
-    if (!relToday) {
-      relToday = 'One honest step: read it again slowly, then thank God for one true thing in it before you go.';
+    var oneStep = stepPrefer || sanitizeText(v.action) || sanitizeText(v.app);
+    if (!oneStep) {
+      var stdFb = window.TDB_verseBreakdownStandard;
+      oneStep =
+        stdFb && typeof stdFb.nextStepFallback === 'function'
+          ? stdFb.nextStepFallback()
+          : 'Read it slowly one more time—then thank God aloud for one true thing inside it before you move.';
     }
+    var prayer = sanitizeText(sh.heroPrayer || sh.simplePrayer);
+    if (!prayer) prayer = buildHeroVotdPrayer(v.ref);
     simpleOut.textContent = simple;
-    setVotdRowVisible(document.getElementById('heroDeepRowWho'), document.getElementById('heroDeepWho'), who);
-    setVotdRowVisible(document.getElementById('heroDeepRowAud'), document.getElementById('heroDeepAudience'), audience);
-    setVotdRowVisible(document.getElementById('heroDeepRowCtx'), document.getElementById('heroDeepContext'), ctx);
-    setVotdRowVisible(document.getElementById('heroDeepRowYou'), document.getElementById('heroDeepYou'), relYou);
-    setVotdRowVisible(document.getElementById('heroDeepRowToday'), document.getElementById('heroDeepToday'), relToday);
+    setVotdRowVisible(document.getElementById('heroVbdRowWho'), document.getElementById('heroDeepWho'), who);
+    setVotdRowVisible(document.getElementById('heroVbdRowAud'), document.getElementById('heroDeepAudience'), audience);
+    setVotdRowVisible(document.getElementById('heroVbdRowCtx'), document.getElementById('heroDeepContext'), relatesToday);
+    setVotdRowVisible(document.getElementById('heroVbdRowYou'), document.getElementById('heroDeepYou'), relYou);
+    var stepOut = document.getElementById('heroVotdOneStep');
+    var stepWrap = document.getElementById('heroVotdNextStep');
+    if (stepOut) stepOut.textContent = oneStep;
+    if (stepWrap) stepWrap.hidden = false;
+    var prayerTarget = document.getElementById('heroVotdPrayer');
+    var prayerWrap = document.getElementById('heroVotdPrayerBlock');
+    if (prayerTarget) prayerTarget.textContent = prayer;
+    if (prayerWrap) prayerWrap.hidden = false;
+    try {
+      var yrChip = document.getElementById('heroVotdBreakdownYear');
+      if (yrChip) yrChip.textContent = String(yr);
+    } catch (eYChip) { /* non-fatal */ }
     var wrap = document.getElementById('heroVotdBreakdown');
     if (wrap) {
       try {
@@ -236,6 +296,7 @@
 
     var verseRaw = useDomPrebuilt ? parseHeroFromDom(heroVerse, heroRef) : pickHeroVerseForToday();
     if (!verseRaw || !verseRaw.ref) return;
+    if (verseRaw.text) verseRaw.text = normalizeHeroKjvLine(verseRaw.text);
     var v = normalizeVerse(verseRaw);
     if (!v.ref) return;
     var sig = v.ref + '\0' + v.text;
@@ -246,7 +307,15 @@
     var panelsEl = document.getElementById('heroBreakdownPanels');
 
     heroVerse.textContent = '\u201c' + v.text + '\u201d';
-    heroRef.textContent = v.ref + ' (KJV)';
+    try {
+      heroVerse.classList.add('verse-body');
+    } catch (eCls) { /* non-fatal */ }
+    var bkStd = window.TDB_verseBreakdownStandard;
+    if (bkStd && typeof bkStd.fillBigKjvStrong === 'function') {
+      bkStd.fillBigKjvStrong(heroRef, v.ref);
+    } else {
+      heroRef.textContent = v.ref + ' (KJV)';
+    }
 
     // #readChapterLink is below the fold; loadTodaysVerse syncs it when first paint already ran.
     var link = document.getElementById('readChapterLink');
@@ -276,14 +345,7 @@
     });
 
     var hasRich = !!(v.plain || v.today || v.action);
-    if (hasRich) {
-      applyHeroVotdFromInputs(v, {
-        plainExplanation: v.plain,
-        groupApplication: v.today,
-        modernApplication: v.action,
-        about: v.speaker
-      });
-    } else {
+    if (!hasRich) {
       if (heroBreakdown) {
         heroBreakdown.replaceChildren();
         heroBreakdown.setAttribute('hidden', '');
@@ -294,8 +356,14 @@
         heroApplication.textContent = '';
         heroApplication.style.display = 'none';
       }
-      applyHeroVotdFromInputs(v, null);
     }
+    applyHeroVotdFromInputs(v, hasRich ? {
+      plainExplanation: v.plain,
+      groupApplication: v.today,
+      modernApplication: '',
+      practicalStep: v.action || v.app,
+      about: v.speaker
+    } : null);
 
     var imgText = document.getElementById('verseImgText');
     var imgRef = document.getElementById('verseImgRef');

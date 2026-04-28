@@ -1,26 +1,18 @@
 {
-  "generatedAt": "2026-04-28T14:54:45.592Z",
+  "generatedAt": "2026-04-28T15:39:50.048Z",
   "surfacedRefCount": 2944,
   "overrideCount": 2944,
   "sourceCounts": {
     "404-admin.html": {
-      "refs": 2,
-      "pairs": 0
-    },
-    "404.html": {
-      "refs": 2,
-      "pairs": 0
-    },
-    "about.html": {
       "refs": 1,
       "pairs": 0
     },
-    "action-bible-workshop.html": {
+    "404.html": {
       "refs": 1,
       "pairs": 0
     },
     "action-bible.html": {
-      "refs": 2,
+      "refs": 1,
       "pairs": 0
     },
     "action-bible.js": {
@@ -28,7 +20,7 @@
       "pairs": 0
     },
     "admin.html": {
-      "refs": 2,
+      "refs": 1,
       "pairs": 0
     },
     "advent-christmas-university.html": {
@@ -45,10 +37,6 @@
     },
     "api/src/pilot-data/canon-daily-verse.json": {
       "refs": 10,
-      "pairs": 0
-    },
-    "approach.html": {
-      "refs": 1,
       "pairs": 0
     },
     "ar/qalaq.html": {
@@ -88,14 +76,6 @@
       "pairs": 24
     },
     "bible/index.html": {
-      "refs": 2,
-      "pairs": 0
-    },
-    "bible/study.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "bible/tools.html": {
       "refs": 1,
       "pairs": 0
     },
@@ -104,11 +84,11 @@
       "pairs": 0
     },
     "bible-study.html": {
-      "refs": 8,
+      "refs": 7,
       "pairs": 0
     },
     "bible-tool.html": {
-      "refs": 142,
+      "refs": 141,
       "pairs": 0
     },
     "bn/asha.html": {
@@ -136,7 +116,7 @@
       "pairs": 1
     },
     "calm.html": {
-      "refs": 19,
+      "refs": 18,
       "pairs": 22
     },
     "cartoon.js": {
@@ -151,20 +131,12 @@
       "refs": 9,
       "pairs": 9
     },
-    "church/daily.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "church/index.html": {
-      "refs": 1,
-      "pairs": 0
-    },
     "church-sharing-kit.html": {
-      "refs": 17,
+      "refs": 16,
       "pairs": 0
     },
     "church.html": {
-      "refs": 2,
+      "refs": 1,
       "pairs": 0
     },
     "church.js": {
@@ -172,7 +144,7 @@
       "pairs": 1
     },
     "coloring.html": {
-      "refs": 6,
+      "refs": 5,
       "pairs": 0
     },
     "commentary.json": {
@@ -181,14 +153,6 @@
     },
     "concordance.json": {
       "refs": 40,
-      "pairs": 0
-    },
-    "contact.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "curriculum.html": {
-      "refs": 1,
       "pairs": 0
     },
     "curriculum.json": {
@@ -236,15 +200,11 @@
       "pairs": 3
     },
     "embeddable-widgets.html": {
-      "refs": 2,
+      "refs": 1,
       "pairs": 0
     },
     "evening-university-print.html": {
       "refs": 4,
-      "pairs": 0
-    },
-    "explore.html": {
-      "refs": 1,
       "pairs": 0
     },
     "fallback-search.js": {
@@ -252,11 +212,11 @@
       "pairs": 0
     },
     "family-armor-little-ones.html": {
-      "refs": 6,
+      "refs": 5,
       "pairs": 0
     },
     "family-armor.html": {
-      "refs": 2,
+      "refs": 1,
       "pairs": 0
     },
     "family-home.html": {
@@ -271,16 +231,12 @@
       "refs": 36,
       "pairs": 0
     },
-    "faq.html": {
-      "refs": 1,
-      "pairs": 0
-    },
     "firebase-functions/sendDailyVerseNotification.js": {
       "refs": 1,
       "pairs": 0
     },
     "for-pastors.html": {
-      "refs": 11,
+      "refs": 10,
       "pairs": 0
     },
     "gentle-new-year-week-print.html": {
@@ -289,14 +245,6 @@
     },
     "gentle-suggest.js": {
       "refs": 28,
-      "pairs": 0
-    },
-    "give.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "gods-university-of-life.html": {
-      "refs": 1,
       "pairs": 0
     },
     "he-is-risen.html": {
@@ -344,27 +292,19 @@
       "pairs": 123
     },
     "journal/anxiety-before-tomorrow.html": {
-      "refs": 4,
+      "refs": 3,
       "pairs": 0
     },
     "journal/forgiveness-when-you-replay-it.html": {
-      "refs": 4,
-      "pairs": 0
-    },
-    "journal/index.html": {
-      "refs": 1,
+      "refs": 3,
       "pairs": 0
     },
     "journal/loneliness-at-night.html": {
-      "refs": 4,
+      "refs": 3,
       "pairs": 0
     },
     "journal/peace-when-your-mind-runs.html": {
-      "refs": 4,
-      "pairs": 0
-    },
-    "kids/all-stories.html": {
-      "refs": 1,
+      "refs": 3,
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
@@ -376,18 +316,14 @@
       "pairs": 0
     },
     "kids/corner.html": {
-      "refs": 12,
+      "refs": 11,
       "pairs": 0
     },
     "kids/good-night.html": {
-      "refs": 2,
+      "refs": 1,
       "pairs": 0
     },
     "kids/index.html": {
-      "refs": 2,
-      "pairs": 0
-    },
-    "kids/kids-beta.html": {
       "refs": 1,
       "pairs": 0
     },
@@ -407,12 +343,8 @@
       "refs": 365,
       "pairs": 365
     },
-    "kids/parent.html": {
-      "refs": 1,
-      "pairs": 0
-    },
     "kids/prayer-activities.html": {
-      "refs": 2,
+      "refs": 1,
       "pairs": 0
     },
     "kids/shepherds-path.html": {
@@ -424,7 +356,7 @@
       "pairs": 0
     },
     "kids-corner.html": {
-      "refs": 13,
+      "refs": 12,
       "pairs": 0
     },
     "kjv-word-notes.json": {
@@ -439,16 +371,8 @@
       "refs": 1,
       "pairs": 0
     },
-    "login.html": {
-      "refs": 1,
-      "pairs": 0
-    },
     "loops.json": {
       "refs": 229,
-      "pairs": 0
-    },
-    "media.html": {
-      "refs": 1,
       "pairs": 0
     },
     "memorize.html": {
@@ -468,7 +392,7 @@
       "pairs": 15
     },
     "message.html": {
-      "refs": 2,
+      "refs": 1,
       "pairs": 0
     },
     "mission-outreach-data.js": {
@@ -784,14 +708,10 @@
       "pairs": 0
     },
     "pastor/builder.html": {
-      "refs": 2,
+      "refs": 1,
       "pairs": 0
     },
     "pastor/index.html": {
-      "refs": 2,
-      "pairs": 0
-    },
-    "pastor/library.html": {
       "refs": 1,
       "pairs": 0
     },
@@ -812,11 +732,11 @@
       "pairs": 0
     },
     "pastor/tools.html": {
-      "refs": 2,
+      "refs": 1,
       "pairs": 0
     },
     "pastor-toolkit.html": {
-      "refs": 2,
+      "refs": 1,
       "pairs": 0
     },
     "pentecost-spirit-university.html": {
@@ -839,28 +759,8 @@
       "refs": 249,
       "pairs": 254
     },
-    "prayer-wall.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "pricing.html": {
-      "refs": 1,
-      "pairs": 0
-    },
     "printables.html": {
       "refs": 9,
-      "pairs": 0
-    },
-    "privacy.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "profile.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "progress.html": {
-      "refs": 1,
       "pairs": 0
     },
     "psalms.html": {
@@ -879,24 +779,8 @@
       "refs": 5,
       "pairs": 0
     },
-    "reader.html": {
-      "refs": 1,
-      "pairs": 0
-    },
     "reading-plan.html": {
-      "refs": 8,
-      "pairs": 0
-    },
-    "reset.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "resources.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "roadmap.html": {
-      "refs": 1,
+      "refs": 7,
       "pairs": 0
     },
     "ru/nadezhda.html": {
@@ -923,12 +807,8 @@
       "refs": 10,
       "pairs": 0
     },
-    "security.html": {
-      "refs": 1,
-      "pairs": 0
-    },
     "sermon.html": {
-      "refs": 67,
+      "refs": 66,
       "pairs": 8
     },
     "service-worker.js": {
@@ -936,7 +816,7 @@
       "pairs": 6
     },
     "shop.html": {
-      "refs": 6,
+      "refs": 5,
       "pairs": 0
     },
     "sos.html": {
@@ -955,16 +835,8 @@
       "refs": 7,
       "pairs": 0
     },
-    "stories.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "story.html": {
-      "refs": 1,
-      "pairs": 0
-    },
     "study.html": {
-      "refs": 2,
+      "refs": 1,
       "pairs": 0
     },
     "summer-harvest-university.html": {
@@ -1000,19 +872,11 @@
       "pairs": 0
     },
     "team-toolkit.html": {
-      "refs": 3,
-      "pairs": 0
-    },
-    "terms.html": {
-      "refs": 1,
+      "refs": 2,
       "pairs": 0
     },
     "test-site.js": {
       "refs": 116,
-      "pairs": 0
-    },
-    "testimonials.html": {
-      "refs": 1,
       "pairs": 0
     },
     "tl/kabalisahan.html": {
@@ -1024,51 +888,51 @@
       "pairs": 0
     },
     "topic-anxiety.html": {
-      "refs": 5,
+      "refs": 4,
       "pairs": 0
     },
     "topic-fear.html": {
-      "refs": 4,
+      "refs": 3,
       "pairs": 0
     },
     "topic-forgiveness.html": {
-      "refs": 6,
+      "refs": 5,
       "pairs": 0
     },
     "topic-grief.html": {
-      "refs": 5,
+      "refs": 4,
       "pairs": 0
     },
     "topic-guilt.html": {
-      "refs": 4,
+      "refs": 3,
       "pairs": 0
     },
     "topic-hope.html": {
-      "refs": 6,
+      "refs": 5,
       "pairs": 0
     },
     "topic-loneliness.html": {
-      "refs": 4,
+      "refs": 3,
       "pairs": 0
     },
     "topic-overwhelmed.html": {
-      "refs": 4,
+      "refs": 3,
       "pairs": 0
     },
     "topic-parenting.html": {
-      "refs": 6,
+      "refs": 5,
       "pairs": 0
     },
     "topic-strength.html": {
-      "refs": 5,
+      "refs": 4,
       "pairs": 0
     },
     "topic-worry.html": {
-      "refs": 5,
+      "refs": 4,
       "pairs": 0
     },
     "topic-worthless.html": {
-      "refs": 5,
+      "refs": 4,
       "pairs": 0
     },
     "tree.json": {
@@ -1095,6 +959,10 @@
       "refs": 10,
       "pairs": 10
     },
+    "verse-breakdown-standard.js": {
+      "refs": 1,
+      "pairs": 0
+    },
     "verse-breakdown.js": {
       "refs": 1,
       "pairs": 0
@@ -1104,7 +972,7 @@
       "pairs": 0
     },
     "verse-image.html": {
-      "refs": 3,
+      "refs": 2,
       "pairs": 0
     },
     "verse-image.js": {
@@ -1120,10 +988,6 @@
       "pairs": 0
     },
     "verse.html": {
-      "refs": 2,
-      "pairs": 0
-    },
-    "weekly-email-template.html": {
       "refs": 1,
       "pairs": 0
     },
@@ -1165,18 +1029,6 @@
     },
     "when-year-feels-heavy-one-page-print.html": {
       "refs": 5,
-      "pairs": 0
-    },
-    "where-support-goes.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "why-not-ai.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "wins-report.html": {
-      "refs": 1,
       "pairs": 0
     },
     "winter-readalouds-one-page-print.html": {

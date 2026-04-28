@@ -63,6 +63,15 @@ function tdbIsHomePage() {
       seed.setAttribute('data-tdb-verse-breakdown-overrides', '1');
       (document.head || document.documentElement).appendChild(seed);
     }
+    if (document.querySelector('script[data-tdb-verse-breakdown-standard]')) {
+      /* homepage may load this before deferred verse-breakdown.js */
+    } else {
+      var sv = document.createElement('script');
+      sv.src = '/verse-breakdown-standard.js?v=20260428-vbd';
+      sv.defer = true;
+      sv.setAttribute('data-tdb-verse-breakdown-standard', '1');
+      (document.head || document.documentElement).appendChild(sv);
+    }
     if (window.TDBVerseBreakdown) return;
     if (document.querySelector('script[data-tdb-verse-breakdown]')) return;
     var s = document.createElement('script');
@@ -2699,8 +2708,14 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-lazy-src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
+  var trustedStd = trustedScriptURL('/verse-breakdown-standard.js?v=20260428-vbd');
   var trusted = trustedScriptURL('/verse-breakdown.js?v=20260417-hydration');
-  if (!trusted) return;
+  if (!trustedStd || !trusted) return;
+  var stdScr = document.createElement('script');
+  stdScr.src = trustedStd;
+  stdScr.defer = true;
+  stdScr.setAttribute('data-tdb-verse-breakdown-standard', '1');
+  document.head.appendChild(stdScr);
   var script = document.createElement('script');
   script.src = trusted;
   script.defer = true;

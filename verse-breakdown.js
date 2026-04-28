@@ -761,12 +761,12 @@
     agePrompt.appendChild(ageActions);
     panel.appendChild(agePrompt);
 
-    var refH = document.createElement('h3');
-    refH.className = 'tdb-vb-inline-ref';
-    panel.appendChild(refH);
+    var refP = document.createElement('p');
+    refP.className = 'big-kjv tdb-vb-inline-ref';
+    panel.appendChild(refP);
 
     var textP = document.createElement('p');
-    textP.className = 'tdb-vb-inline-verse-text section-note';
+    textP.className = 'verse-body tdb-vb-inline-verse-text section-note';
     textP.setAttribute('aria-live', 'polite');
     panel.appendChild(textP);
 
@@ -775,26 +775,38 @@
     panel.appendChild(bubble);
 
     var breakdown = document.createElement('div');
-    breakdown.className = 'tdb-vb-inline-breakdown';
+    breakdown.className = 'verse-breakdown tdb-vb-inline-breakdown';
 
-    function addBkRow(className, strongLabel, dataBk) {
-      var row = document.createElement('p');
-      row.className = 'tdb-vb-inline-row ' + className;
-      var st = document.createElement('strong');
-      st.appendChild(document.createTextNode(strongLabel));
-      row.appendChild(st);
-      row.appendChild(document.createTextNode(' '));
-      var sp = document.createElement('span');
-      sp.setAttribute('data-bk', dataBk);
-      row.appendChild(sp);
-      breakdown.appendChild(row);
+    function addBkH4(title, dataBkKey) {
+      var h = document.createElement('h4');
+      h.appendChild(document.createTextNode(title));
+      breakdown.appendChild(h);
+      var p = document.createElement('p');
+      var span = document.createElement('span');
+      span.setAttribute('data-bk', dataBkKey);
+      p.appendChild(span);
+      breakdown.appendChild(p);
     }
 
-    addBkRow('tdb-vb-inline-speaker', 'Who said it first?', 'about');
-    addBkRow('tdb-vb-inline-audience', 'Who heard it first?', 'to');
-    addBkRow('tdb-vb-inline-plain', 'Plain English:', 'layman');
-    addBkRow('tdb-vb-inline-fit', 'For your group:', 'applies');
-    addBkRow('tdb-vb-inline-relates', 'Real life today:', 'relates');
+    addBkH4('Simple layman terms', 'layman');
+    addBkH4('Who\'s talking?', 'about');
+    addBkH4('Who is He / she talking to?', 'to');
+
+    var relH = document.createElement('h4');
+    relH.appendChild(document.createTextNode('How it relates today ('));
+    var relYearSpan = document.createElement('span');
+    relYearSpan.className = 'tdb-vb-relates-year';
+    relYearSpan.setAttribute('aria-label', 'calendar year');
+    relH.appendChild(relYearSpan);
+    relH.appendChild(document.createTextNode(')'));
+    breakdown.appendChild(relH);
+    var relP = document.createElement('p');
+    var relSpan = document.createElement('span');
+    relSpan.setAttribute('data-bk', 'relates');
+    relP.appendChild(relSpan);
+    breakdown.appendChild(relP);
+
+    addBkH4('How it relates to you right now', 'applies');
 
     var curriculum = document.createElement('div');
     curriculum.className = 'tdb-vb-curriculum';
@@ -802,12 +814,12 @@
     var curH = document.createElement('h4');
     curH.className = 'tdb-vb-curriculum-heading';
     curH.id = 'tdb-vb-curriculum-h-' + uid;
-    curH.appendChild(document.createTextNode('Related lessons in the University'));
+    curH.appendChild(document.createTextNode('Related calm battle plans'));
     var curSoft = document.createElement('p');
-    curSoft.className = 'tdb-vb-uog-soft';
+    curSoft.className = 'tdb-vb-uog-soft tdb-vb-curriculum-soft';
     curSoft.appendChild(
       document.createTextNode(
-        'The University of God is not a report card — it is Christ, one faithful passage at a time. When you are ready, a few on-site courses echo what this verse opens up. Kid, teen, and adult only change the breakdown above; the links stay the same.'
+        'Today\'s Daily Battle isn\'t a report card—it is Scripture, one faithful passage at a time. When you are ready, these on-site plan doors echo what this verse opens. Kid, teen, and adult only change the wording above; the links stay the same.'
       )
     );
     var curList = document.createElement('ul');
@@ -819,6 +831,31 @@
     curriculum.appendChild(curSoft);
     curriculum.appendChild(curList);
     breakdown.appendChild(curriculum);
+    panel.appendChild(breakdown);
+
+    var nextBlk = document.createElement('div');
+    nextBlk.className = 'next-step tdb-vb-inline-next-step';
+    var stStep = document.createElement('strong');
+    stStep.appendChild(document.createTextNode('One small step today:'));
+    nextBlk.appendChild(stStep);
+    nextBlk.appendChild(document.createTextNode(' '));
+    var stepSp = document.createElement('span');
+    stepSp.setAttribute('data-bk', 'onestep');
+    nextBlk.appendChild(stepSp);
+    panel.appendChild(nextBlk);
+
+    var prayBlk = document.createElement('div');
+    prayBlk.className = 'prayer-block tdb-vb-inline-prayer-block';
+    var prayPwrap = document.createElement('p');
+    var praySt = document.createElement('strong');
+    praySt.appendChild(document.createTextNode('A simple prayer:'));
+    prayPwrap.appendChild(praySt);
+    prayPwrap.appendChild(document.createElement('br'));
+    var praySp = document.createElement('span');
+    praySp.setAttribute('data-bk', 'prayer');
+    prayPwrap.appendChild(praySp);
+    prayBlk.appendChild(prayPwrap);
+    panel.appendChild(prayBlk);
 
     var actions = document.createElement('div');
     actions.className = 'tdb-vb-inline-actions';
@@ -830,8 +867,7 @@
       actBtn.appendChild(document.createTextNode(pair[1]));
       actions.appendChild(actBtn);
     });
-    breakdown.appendChild(actions);
-    panel.appendChild(breakdown);
+    panel.appendChild(actions);
 
     var hideBtn = document.createElement('button');
     hideBtn.type = 'button';
@@ -933,7 +969,7 @@
         var lazyLay = details.querySelector('[data-bk="layman"]');
         var lazyApp = details.querySelector('[data-bk="applies"]');
         var lazyRel = details.querySelector('[data-bk="relates"]');
-        if (lazyTextEl) lazyTextEl.textContent = lazyText;
+        if (lazyTextEl) lazyTextEl.textContent = '\u201c' + lazyText + '\u201d';
         if (lazyLay) lazyLay.textContent = tdbPlainTextForUi(lazyBreakdown.layman || '—');
         if (lazyApp) lazyApp.textContent = tdbPlainTextForUi(lazyBreakdown.applies || '—');
         if (lazyRel) lazyRel.textContent = tdbPlainTextForUi(lazyBreakdown.relates || buildRelationLine(topic, RELATIONS_FALLBACK));
@@ -1022,7 +1058,9 @@
     var layEl = details.querySelector('[data-bk="layman"]');
     var appEl = details.querySelector('[data-bk="applies"]');
     var relEl = details.querySelector('[data-bk="relates"]');
-    if (!refEl || !verseTextEl || !aboutEl || !toEl || !layEl || !appEl || !relEl) return;
+    var stepEl = details.querySelector('[data-bk="onestep"]');
+    var prayEl = details.querySelector('[data-bk="prayer"]');
+    if (!refEl || !verseTextEl || !aboutEl || !toEl || !layEl || !appEl || !relEl || !stepEl || !prayEl) return;
 
     /* Do not require Kid/Teen/Adult before showing copy — on first visit the prompt
      * read as “empty” and hid the breakdown. Default gently; age buttons still work after explicit pick. */
@@ -1035,14 +1073,48 @@
     var resolvedText = cleanVerseText(text || '') || getBibleVerseText(ref);
     var breakdown = getBreakdown(ref, resolvedText, { group: ageMode, host: details });
     var topic = inferRelationTopic(ref, resolvedText);
+    var stdVB = window.TDB_verseBreakdownStandard;
 
-    refEl.textContent = tdbPlainTextForUi(ref || 'Verse');
-    verseTextEl.textContent = resolvedText || 'Loading verse text...';
+    if (stdVB && typeof stdVB.fillBigKjvStrong === 'function') {
+      stdVB.fillBigKjvStrong(refEl, ref);
+    } else {
+      refEl.textContent = '';
+      var stRf = document.createElement('strong');
+      var refLine = tdbPlainTextForUi(ref || '').trim();
+      stRf.textContent = refLine ? refLine + ' (KJV)' : '(KJV)';
+      refEl.appendChild(stRf);
+    }
+    verseTextEl.textContent =
+      '\u201c' + (resolvedText || 'Loading verse text\u2026') + '\u201d';
     aboutEl.textContent = tdbPlainTextForUi(breakdown.about || '—');
     toEl.textContent = tdbPlainTextForUi(breakdown.to || '—');
     layEl.textContent = tdbPlainTextForUi(breakdown.layman || '—');
     appEl.textContent = tdbPlainTextForUi(breakdown.applies || '—');
     relEl.textContent = tdbPlainTextForUi(breakdown.relates || buildRelationLine(topic, RELATIONS_FALLBACK));
+
+    try {
+      var yrSp = details.querySelector('.tdb-vb-relates-year');
+      var yr = stdVB && typeof stdVB.currentYear === 'function' ? stdVB.currentYear() : new Date().getFullYear();
+      if (yrSp) yrSp.textContent = String(yr);
+    } catch (eYr) { /* non-fatal */ }
+
+    if (stepEl) {
+      var ns =
+        stdVB && typeof stdVB.nextStepFallback === 'function'
+          ? stdVB.nextStepFallback()
+          : 'Read it slowly one more time\u2014then thank God aloud for one true thing inside it before you move.';
+      stepEl.textContent = tdbPlainTextForUi(ns);
+    }
+    if (prayEl) {
+      var pr =
+        stdVB && typeof stdVB.prayerForRef === 'function'
+          ? stdVB.prayerForRef(ref)
+          : 'Lord, sink ' +
+            (tdbPlainTextForUi(ref) || 'this verse') +
+            ' into my heart\u2014not as noise, but as truth that changes how I walk. In Jesus\u2019 name, Amen.';
+      prayEl.textContent = tdbPlainTextForUi(pr);
+    }
+
     var curList = details.querySelector('[data-tdb-vb-curriculum-list]');
     var uogInfluence = buildUogInfluenceString(ref, resolvedText, breakdown);
     fillUogCurriculumList(curList, ref, uogInfluence);

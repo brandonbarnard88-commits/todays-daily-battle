@@ -32,6 +32,20 @@ media/kids-stories/*.mp4
 media/kids-stories/*.webm
 .vercel
 
+# Accidental duplicate filenames (e.g. Finder "File 2.ext") — do not commit these
+**/* 2.html
+**/* 2.js
+**/* 2.mjs
+**/* 2.css
+**/* 2.json
+**/* 2.md
+**/* 2.svg
+**/* 2.m4a
+**/* 2.cjs
+**/* 2.map
+**/* 2.txt
+**/* 2.py
+
 # Möbius breathe generator temps (track audio/mobius-breathe-human.mp3 only)
 audio/mobius-breathe-human-temp.*
 # Möbius guided alternate-track generator temps

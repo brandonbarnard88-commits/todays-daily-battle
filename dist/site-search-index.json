@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "generatedAt": "2026-04-28T13:07:04.253Z",
+  "generatedAt": "2026-04-28T13:53:28.064Z",
   "entries": [
     {
       "t": "Home — Today's Daily Battle",
@@ -301,11 +301,6 @@
       "t": "Security",
       "u": "/security.html",
       "k": "https cloudflare safe"
-    },
-    {
-      "t": "Official archive — immutable export & SHA-256",
-      "u": "/immortal.html",
-      "k": "hash archive permaweb wayback cc license authentic copy"
     },
     {
       "t": "Roadmap — what is next",

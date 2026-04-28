@@ -15,6 +15,7 @@
 # About (clean URL; links use /about.html but /about must resolve on Cloudflare Pages)
 /about /about.html 200!
 /about/ /about.html 200!
+/immortal.html /about.html 301
 
 # Prayer Wall — critical clean-URL + no-redirect-loop fix (highest priority)
 # Cloudflare Pages often overrides later 200! rules with its own 308 clean-URL redirects.

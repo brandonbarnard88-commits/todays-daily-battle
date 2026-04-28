@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-28T13:07:04.712Z",
+  "generatedAt": "2026-04-28T13:53:28.587Z",
   "surfacedRefCount": 2944,
   "overrideCount": 2944,
   "sourceCounts": {
@@ -337,10 +337,6 @@
     },
     "id/ketakutan.html": {
       "refs": 3,
-      "pairs": 0
-    },
-    "immortal.html": {
-      "refs": 1,
       "pairs": 0
     },
     "index.html": {

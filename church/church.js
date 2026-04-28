@@ -160,7 +160,7 @@
 
       var client = getSupabaseClient();
       if (!client) {
-        showError('Unable to connect right now. Please try again shortly.');
+        showError('Connection did not open—that is all right. Try again shortly.');
         if (btn) btn.disabled = false;
         return;
       }
@@ -173,13 +173,13 @@
             window.location.href = '/church/daily.html';
             return;
           }
-          var reason = (data && data.reason) || 'Could not join this group.';
+          var reason = (data && data.reason) || 'Join did not go through—that is all right. Check the code or try again.';
           if (reason === 'not_found') reason = 'Church code not found. Check the code and try again.';
           else if (reason === 'invalid_code') reason = 'Please enter a valid church code.';
           showError(reason);
         })
         .catch(function () {
-          showError('Could not join this group. Check your connection and try again.');
+          showError('Join did not go through—that is all right. Check your connection and try again.');
         })
         .finally(function () {
           if (btn) btn.disabled = false;
@@ -213,7 +213,7 @@
           }
           var client = getSupabaseClient();
           if (!client) {
-            if (roundupIndexResult) { roundupIndexResult.textContent = 'Unable to connect.'; roundupIndexResult.classList.remove('hidden'); roundupIndexResult.classList.add('error'); }
+            if (roundupIndexResult) { roundupIndexResult.textContent = 'Connection did not open—that is all right. Try again when you are online.'; roundupIndexResult.classList.remove('hidden'); roundupIndexResult.classList.add('error'); }
             roundupIndexBtn.disabled = false;
             return;
           }
@@ -231,14 +231,14 @@
                   roundupIndexResult.classList.add('success');
                 }
               } else {
-                var reason = (data && data.reason) || 'Subscription could not be completed.';
+                var reason = (data && data.reason) || 'Subscription did not finish—that is all right. Try again in a moment.';
                 if (reason === 'invalid_email') reason = 'Please enter a valid email.';
                 if (reason === 'not_member') reason = 'Join the group first.';
                 if (roundupIndexResult) { roundupIndexResult.textContent = reason; roundupIndexResult.classList.remove('hidden'); roundupIndexResult.classList.add('error'); }
               }
             })
             .catch(function () {
-              if (roundupIndexResult) { roundupIndexResult.textContent = 'Subscription could not be completed. Please try again.'; roundupIndexResult.classList.remove('hidden'); roundupIndexResult.classList.add('error'); }
+              if (roundupIndexResult) { roundupIndexResult.textContent = 'Subscription did not finish—that is all right. Try again in a moment.'; roundupIndexResult.classList.remove('hidden'); roundupIndexResult.classList.add('error'); }
             })
             .finally(function () {
               roundupIndexBtn.disabled = false;
@@ -276,7 +276,7 @@
         if (createResult) { createResult.classList.add('hidden'); createResult.textContent = ''; }
         var client = getSupabaseClient();
         if (!client) {
-          if (createResult) { createResult.textContent = 'Unable to connect.'; createResult.classList.remove('hidden'); createResult.classList.add('error'); }
+          if (createResult) { createResult.textContent = 'Connection did not open—that is all right. Try again when you are online.'; createResult.classList.remove('hidden'); createResult.classList.add('error'); }
           if (createBtn) createBtn.disabled = false;
           return;
         }
@@ -304,7 +304,7 @@
             }
           })
           .catch(function () {
-            if (createResult) { createResult.textContent = 'Group creation failed. Please try again.'; createResult.classList.remove('hidden'); createResult.classList.add('error'); }
+            if (createResult) { createResult.textContent = 'Group creation did not go through—that is all right. Try again in a moment.'; createResult.classList.remove('hidden'); createResult.classList.add('error'); }
           })
           .finally(function () {
             if (createBtn) createBtn.disabled = false;
@@ -378,7 +378,7 @@
         list.innerHTML = html;
       })
       .catch(function () {
-        list.innerHTML = '<p class="church-reflections-empty">Reflections could not be loaded right now.</p>';
+        list.innerHTML = '<p class="church-reflections-empty">Reflections did not load—that is all right. Try again in a moment.</p>';
       });
   }
 
@@ -412,7 +412,7 @@
         list.innerHTML = html;
       })
       .catch(function () {
-        list.innerHTML = '<p class="church-leaderboard-empty">Leaderboard could not be loaded right now.</p>';
+        list.innerHTML = '<p class="church-leaderboard-empty">Leaderboard did not load—that is all right. Try again in a moment.</p>';
       });
   }
 
@@ -627,7 +627,7 @@
 
       var client = getSupabaseClient();
       if (!client) {
-        if (resultEl) { resultEl.textContent = 'Unable to connect.'; resultEl.classList.remove('hidden'); resultEl.classList.add('error'); }
+        if (resultEl) { resultEl.textContent = 'Connection did not open—that is all right. Try again when you are online.'; resultEl.classList.remove('hidden'); resultEl.classList.add('error'); }
         if (addBtn) addBtn.disabled = false;
         return;
       }
@@ -650,14 +650,14 @@
             loadKidLeaderboard(groupId);
             loadGroupDoodles(groupId);
           } else {
-            var reason = (data && data.reason) || 'This entry could not be added.';
+            var reason = (data && data.reason) || 'That entry did not save—that is all right. Try again in a moment.';
             if (reason === 'invalid_code') reason = 'Invalid or unused family code. Check the code from your parent email.';
             if (reason === 'not_member') reason = 'Join the group first.';
             if (resultEl) { resultEl.textContent = reason; resultEl.classList.remove('hidden'); resultEl.classList.add('error'); }
           }
         })
         .catch(function () {
-          if (resultEl) { resultEl.textContent = 'Could not add this entry. Please try again.'; resultEl.classList.remove('hidden'); resultEl.classList.add('error'); }
+          if (resultEl) { resultEl.textContent = 'That entry did not save—that is all right. Try again in a moment.'; resultEl.classList.remove('hidden'); resultEl.classList.add('error'); }
         })
         .finally(function () {
           if (addBtn) addBtn.disabled = false;
@@ -833,7 +833,7 @@
         if (callback) callback(rows || []);
       })
       .catch(function () {
-        sel.innerHTML = '<option value="">Drafts could not be loaded</option>';
+        sel.innerHTML = '<option value="">Drafts did not load—that is all right. Try again.</option>';
         if (callback) callback([]);
       });
   }
@@ -914,7 +914,7 @@
         if (memberSection) memberSection.classList.remove('hidden');
       })
       .catch(function () {
-        list.innerHTML = '<p class="church-votes-empty">Votes could not be loaded right now.</p>';
+        list.innerHTML = '<p class="church-votes-empty">Votes did not load—that is all right. Try again in a moment.</p>';
         if (pastorSection && isPastor()) pastorSection.classList.remove('hidden');
         if (memberSection) memberSection.classList.remove('hidden');
       });
@@ -1062,7 +1062,7 @@
 
     var client = getSupabaseClient();
     if (!client || !groupId) {
-      list.innerHTML = '<p class="church-prayer-empty">No prayer requests posted yet. Start your group in prayer with the first request.</p>';
+      list.innerHTML = '<p class="church-prayer-empty">No prayer requests here yet—that is all right. When your group is ready, add the first request above.</p>';
       return;
     }
 
@@ -1074,7 +1074,7 @@
     })
       .then(function (res) {
         var rows = res && res.data;
-        var emptyMsg = filter === 'active' ? 'No prayer requests posted yet. Start your group in prayer with the first request.' : (filter === 'answered' ? 'No answered prayers recorded yet. Mark testimonies here as God answers.' : 'No prayer requests posted yet. Start your group in prayer with the first request.');
+        var emptyMsg = filter === 'active' ? 'No prayer requests here yet—that is all right. When your group is ready, add the first request above.' : (filter === 'answered' ? 'No answered prayers recorded yet—that is all right. Mark testimonies here as God answers.' : 'No prayer requests here yet—that is all right. When your group is ready, add the first request above.');
         if (!rows || rows.length === 0) {
           list.innerHTML = '<p class="church-prayer-empty">' + escapeHtml(emptyMsg) + '</p>';
           return;
@@ -1161,7 +1161,7 @@
         });
       })
       .catch(function () {
-        list.innerHTML = '<p class="church-prayer-empty">Prayer requests could not be loaded right now.</p>';
+        list.innerHTML = '<p class="church-prayer-empty">Prayer requests did not load—that is all right. Try again in a moment.</p>';
       });
   }
 
@@ -1253,7 +1253,7 @@
         container.innerHTML = html;
       })
       .catch(function () {
-        container.innerHTML = '<p class="church-prayer-comments-empty">Comments could not be loaded right now.</p>';
+        container.innerHTML = '<p class="church-prayer-comments-empty">Comments did not load—that is all right. Try again in a moment.</p>';
       });
   }
 
@@ -1296,7 +1296,7 @@
 
       var client = getSupabaseClient();
       if (!client) {
-        if (resultEl) { resultEl.textContent = 'Unable to connect.'; resultEl.classList.remove('hidden'); resultEl.classList.add('error'); }
+        if (resultEl) { resultEl.textContent = 'Connection did not open—that is all right. Try again when you are online.'; resultEl.classList.remove('hidden'); resultEl.classList.add('error'); }
         if (submitBtn) submitBtn.disabled = false;
         return;
       }
@@ -1316,13 +1316,13 @@
             }
             loadPrayerWall(groupId);
           } else {
-            var reason = (data && data.reason) || 'This update could not be posted.';
+            var reason = (data && data.reason) || 'That update did not post—that is all right. Try again in a moment.';
             if (reason === 'text_too_short') reason = 'Please enter at least 3 characters.';
             if (resultEl) { resultEl.textContent = reason; resultEl.classList.remove('hidden'); resultEl.classList.add('error'); }
           }
         })
         .catch(function () {
-          if (resultEl) { resultEl.textContent = 'Could not post this update. Please try again.'; resultEl.classList.remove('hidden'); resultEl.classList.add('error'); }
+          if (resultEl) { resultEl.textContent = 'That update did not post—that is all right. Try again in a moment.'; resultEl.classList.remove('hidden'); resultEl.classList.add('error'); }
         })
         .finally(function () {
           if (submitBtn) submitBtn.disabled = false;
@@ -1485,7 +1485,7 @@
         roundupBtn.disabled = true;
         var client = getSupabaseClient();
         if (!client) {
-          if (roundupResult) { roundupResult.textContent = 'Unable to connect.'; roundupResult.classList.remove('hidden'); roundupResult.classList.add('error'); }
+          if (roundupResult) { roundupResult.textContent = 'Connection did not open—that is all right. Try again when you are online.'; roundupResult.classList.remove('hidden'); roundupResult.classList.add('error'); }
           roundupBtn.disabled = false;
           return;
         }
@@ -1503,14 +1503,14 @@
                 roundupResult.classList.add('success');
               }
             } else {
-              var reason = (data && data.reason) || 'Subscription could not be completed.';
+              var reason = (data && data.reason) || 'Subscription did not finish—that is all right. Try again in a moment.';
               if (reason === 'invalid_email') reason = 'Please enter a valid email.';
               if (reason === 'not_member') reason = 'Join the group first.';
               if (roundupResult) { roundupResult.textContent = reason; roundupResult.classList.remove('hidden'); roundupResult.classList.add('error'); }
             }
           })
           .catch(function () {
-            if (roundupResult) { roundupResult.textContent = 'Subscription could not be completed. Please try again.'; roundupResult.classList.remove('hidden'); roundupResult.classList.add('error'); }
+            if (roundupResult) { roundupResult.textContent = 'Subscription did not finish—that is all right. Try again in a moment.'; roundupResult.classList.remove('hidden'); roundupResult.classList.add('error'); }
           })
           .finally(function () {
             roundupBtn.disabled = false;

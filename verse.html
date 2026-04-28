@@ -33,6 +33,7 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf">
+  <link rel="preload" href="cormorant-latin-subset.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="cormorant-latin-subset.css?v=20260423-phase5-perf" />
   <style>
     .easter-banner-vod {
@@ -398,8 +399,8 @@
       <div class="content-inner">
         <header class="hero-banner verse-hero tdb-micro-hero-dawn">
           <h1>Today&rsquo;s lesson</h1>
-          <p class="hero-tagline">One quiet word from Scripture to steady your heart today.</p>
-          <p class="verse-hero-subtle">KJV. No pressure. Just a gentle anchor.</p>
+          <p class="verse-hero-lead topic-mood-porch">You&rsquo;re already welcome here. You can show up exactly as you are. One <abbr title="King James Version">KJV</abbr> verse is here for you today.</p>
+          <p class="verse-hero-sub">No performance, no pressure. Read it, listen to it, or simply sit with it &mdash; at your own pace.</p>
           <div class="cta-group verse-cta-group">
             <a href="bible-tool.html" class="btn btn-secondary">Look up any verse</a>
             <a href="/" class="btn btn-secondary">Back to Home</a>
@@ -412,7 +413,7 @@
           </div>
           <button type="button" class="easter-banner-vod-dismiss" id="tdbVerseEasterDismiss" aria-label="Dismiss Easter note">×</button>
         </div>
-        <section id="verse-of-day" class="verse-of-day glass tdb-vod-sticky-mobile" role="region" aria-live="polite" aria-label="Today’s KJV lesson; verse of the day">
+        <section id="verse-of-day" class="verse-of-day glass tdb-porch-paper-glass tdb-vod-sticky-mobile" role="region" aria-live="polite" aria-label="Today’s KJV lesson; verse of the day">
           <h2 class="section-divider">Today&rsquo;s lesson</h2>
           <div id="daily-verse-card" class="verse-card verse-card-loaded" aria-live="polite" data-hydrate-breakdown="true">
             <p class="daily-verse-ref" id="daily-verse-ref">Philippians 4:6</p>
@@ -453,14 +454,14 @@
             <a href="memorize.html" class="btn btn-secondary" id="verse-page-memorize-link" aria-label="Open gentle memorize tools for today&apos;s verse">Memorize</a>
             <a href="verse-image.html" class="btn btn-secondary" id="tdb-votm-verse-image-link" aria-label="Open verse image generator with today&apos;s KJV verse (Supporter)">Verse image</a>
             <div class="verse-word-study-wrap">
-              <span id="verse-study-hint" class="verse-study-hint">Slow on one word—concordance and short glosses stay on your device.</span>
+              <span id="verse-study-hint" class="verse-study-hint">One honest verse. That&rsquo;s enough for today.</span>
               <button type="button" id="verse-page-word-study" class="btn btn-secondary" data-tdb-wordstudy-ref="Philippians 4:6" data-tdb-wordstudy-text="Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God." aria-describedby="verse-study-hint" aria-label="Open verse study for Philippians 4:6">Study this verse</button>
             </div>
             <button type="button" id="pray-this-with-me-verse" class="btn btn-secondary pray-this-with-me-btn" aria-label="Copy a short prayer line and link for today&apos;s verse">Pray this with me</button>
           </div>
           <p id="verse-save-hint-text" class="section-note verse-save-hint">Saved verses appear in <a href="/mystudy?tab=library#saved-verses">My Study</a>—the same list as Search and the <a href="/bible-tool.html">Bible tool</a>. <a href="memorize.html" id="verse-save-hint-memorize">Memorize</a> opens the same verse on a private card. All verses are from the KJV.</p>
           <p class="section-note verse-prayer-wall-nudge">If naming the burden in a line or two would help—no account, no name—there is <a href="/prayer-wall.html?tab=with-others">Prayer</a>. Entirely optional. No rush.</p>
-          <details class="tdb-verse-ics-reminder glass util-mt-1" id="tdb-verse-ics-reminder">
+          <details class="tdb-verse-ics-reminder glass tdb-porch-paper-glass util-mt-1" id="tdb-verse-ics-reminder">
             <summary class="tdb-verse-ics-summary">Want this verse again tomorrow?</summary>
             <p class="section-note util-mb-0_75">This is an optional <strong>calendar reminder</strong>—no account, no email from us. Download one small <code class="tdb-verse-ics-code">.ics</code> and add it in your app; it nudges you at a time you pick and links back to <a href="/verse.html">this verse page</a>. <strong>Stays on your device</strong> (and in your own calendar) — we never get a name, address, or schedule.</p>
             <div class="tdb-verse-ics-row">
@@ -606,14 +607,14 @@
       </div>
       <div class="footer-sitemap-col">
         <h3>Tools</h3>
-        <a href="/verse.html">Today&rsquo;s Lesson</a>
+        <a href="/verse.html">Verse of the Day</a>
         <a href="/reader.html">Chapter reader</a>
         <a href="/bible/tools.html">Study workshop</a>
         <a href="/bible-tool.html">Bible tool</a>
         <a href="/mystudy">My Study</a>
         <a href="/calm.html">Calm</a>
         <a href="/mobius.html">Möbius</a>
-        <a href="/plans.html">Battle plans</a>
+        <a href="/plans.html">Courses</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
         <a href="/wins.html">Wins</a>
@@ -654,7 +655,8 @@
   </details>
 
   <p class="footer-humility">We battle. He wins.</p>
-  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): Built solo by Brandon · A quiet KJV porch for real daily battles -->
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet KJV porch for real daily battles &bull; No ads &bull; No tracking &bull; Privacy-first</p>
   <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
@@ -668,12 +670,20 @@
   </div>
 
   <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="site-footer-copy site-footer-legal-line">&copy; Christian Messenger Service. All rights reserved.</p>
   <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
   <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
   <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
 </footer>
   </div>

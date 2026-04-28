@@ -61,6 +61,12 @@
       "note": "Legacy HTML path now resolves to the clean Family hub URL.",
       "aliases": ["/family.html"],
       "redirect": { "to": "/family", "status": 301 }
+    },
+    {
+      "id": "about-clean",
+      "note": "About page: clean /about and /about/ rewrites; about/index.html in dist is a static fallback for /about/ on simple hosts.",
+      "aliases": ["/about", "/about/"],
+      "rewrite": { "to": "/about.html", "status": 200 }
     }
   ]
 }

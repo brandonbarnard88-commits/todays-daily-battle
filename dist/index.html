@@ -19,8 +19,8 @@
   <script nonce="tdb2025s">(function(){try{if(location.hash!=='#prayer-wall')return;location.replace('prayer-wall.html'+location.search);}catch(e){}})();</script>
   <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260423-phase5-perf"></script>
 
-  <title>God’s University of Life — Today’s Verse — Jeremiah 31:3 (KJV)</title>
-  <meta name="description" content="Today’s KJV verse: Jeremiah 31:3. God’s University of Life—quiet campus, search by how you feel, prayer wall, works offline. No ads, no login, no grades.">
+  <title>God’s University of Life — Today’s Verse — Matthew 5:14 (KJV)</title>
+  <meta name="description" content="Today’s KJV verse: Matthew 5:14. God’s University of Life—quiet campus, search by how you feel, prayer wall, works offline. No ads, no login, no grades.">
   <meta name="keywords" content="bible verses when feeling heartbroken, bible for anxiety, verses when alone, KJV devotional, Bible verse of the day, KJV Bible app, Christian anxiety help, Bible verses for fear, offline Bible, daily scripture, verse of the day KJV, Bible breakdown plain English, calm verse, crisis verse, need verse now">
   <link rel="canonical" href="https://todaysdailybattle.com/">
 
@@ -70,12 +70,12 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Quiet place · Jeremiah 31:3">
+  <meta name="apple-mobile-web-app-title" content="Quiet place · Matthew 5:14">
   <!-- Open Graph (iMessage, Facebook, Slack previews) -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Today's Daily Battle">
-  <meta property="og:title" content="God’s University of Life — Today’s Verse — Jeremiah 31:3 (KJV)">
-  <meta property="og:description" content="Today’s KJV verse: Jeremiah 31:3. God’s University of Life—quiet campus, search by how you feel, prayer wall, works offline. No ads, no login, no grades.">
+  <meta property="og:title" content="God’s University of Life — Today’s Verse — Matthew 5:14 (KJV)">
+  <meta property="og:description" content="Today’s KJV verse: Matthew 5:14. God’s University of Life—quiet campus, search by how you feel, prayer wall, works offline. No ads, no login, no grades.">
   <meta property="og:url" content="https://todaysdailybattle.com/">
   <meta property="og:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260422og">
   <meta property="og:image:width" content="1200">
@@ -84,8 +84,8 @@
 
   <!-- Twitter / X card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="God’s University of Life — Today’s Verse — Jeremiah 31:3 (KJV)">
-  <meta name="twitter:description" content="Today’s KJV verse: Jeremiah 31:3. God’s University of Life—quiet campus, search by how you feel, prayer wall, works offline. No ads, no login, no grades.">
+  <meta name="twitter:title" content="God’s University of Life — Today’s Verse — Matthew 5:14 (KJV)">
+  <meta name="twitter:description" content="Today’s KJV verse: Matthew 5:14. God’s University of Life—quiet campus, search by how you feel, prayer wall, works offline. No ads, no login, no grades.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260422og">
   <meta name="twitter:image:alt" content="Today&#39;s Daily Battle &mdash; calm KJV verse and tools">
   <!-- Cormorant + Caveat: self-hosted latin woff2 (gstatic-derived). No Google Fonts on homepage. -->
@@ -2664,6 +2664,102 @@
       outline: 2px solid var(--gold);
       outline-offset: 2px;
     }
+    /* January: one quiet KJV line per day (tdb-january-quiet.js) — match tdb-calm-hubs */
+    .tdb-january-quiet {
+      box-sizing: border-box;
+      max-width: var(--tdb-home-content-max);
+      width: 100%;
+      margin: 0.5rem auto 0.75rem;
+      padding: 0.85rem 1rem 0.95rem;
+      border-radius: 16px;
+      border: 1px solid color-mix(in srgb, var(--gold) 20%, var(--line));
+      background: color-mix(in srgb, var(--card) 94%, rgba(227, 188, 103, 0.06));
+      text-align: left;
+      align-self: center;
+    }
+    .tdb-january-quiet[hidden] { display: none !important; }
+    .tdb-january-quiet--show {
+      animation: tdb-january-quiet-in 0.7s ease-out both;
+    }
+    @keyframes tdb-january-quiet-in {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .tdb-january-quiet--show { animation: none; }
+    }
+    .tdb-january-quiet__eyebrow {
+      margin: 0 0 0.2rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--muted) 75%, var(--gold) 25%);
+    }
+    .tdb-january-quiet__label { margin: 0 0 0.45rem; font-size: 0.92rem; font-weight: 600; color: color-mix(in srgb, var(--text) 92%, var(--gold) 8%); }
+    .tdb-january-quiet__ref { margin: 0 0 0.35rem; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; color: var(--gold); }
+    .tdb-january-quiet__text {
+      margin: 0;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.04rem;
+      line-height: 1.48;
+      color: #e8e4d9;
+    }
+    .tdb-january-quiet__actions { margin: 0.6rem 0 0; }
+    .tdb-january-quiet__dismiss {
+      margin: 0;
+      padding: 0.4rem 0.65rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      background: transparent;
+      border: 1px solid color-mix(in srgb, var(--line) 88%, var(--gold) 12%);
+      border-radius: 999px;
+      cursor: pointer;
+      min-height: 44px;
+    }
+    .tdb-january-quiet__dismiss:hover,
+    .tdb-january-quiet__dismiss:focus-visible {
+      color: var(--text);
+      border-color: color-mix(in srgb, var(--gold) 35%, var(--line));
+      outline: none;
+    }
+    .tdb-january-quiet__foot { margin: 0.55rem 0 0; font-size: 0.82rem; line-height: 1.5; color: var(--muted); }
+    .tdb-january-quiet__foot a { color: var(--gold); font-weight: 600; text-decoration: none; }
+    .tdb-january-quiet__foot a:hover,
+    .tdb-january-quiet__foot a:focus-visible { text-decoration: underline; outline: none; }
+    :root[data-theme="light"] .tdb-january-quiet {
+      background: color-mix(in srgb, var(--card) 96%, rgba(201, 162, 39, 0.08));
+      border-color: color-mix(in srgb, #c9a84c 35%, #e5e7eb);
+    }
+    :root[data-theme="light"] .tdb-january-quiet__text { color: #1e293b; }
+    /* This month in the University — Feb–Dec (tdb-uog-month-signpost.js); match tdb-calm-hubs */
+    .tdb-uog-month[hidden] { display: none !important; }
+    .tdb-uog-month {
+      box-sizing: border-box; max-width: var(--tdb-home-content-max); width: 100%;
+      margin: 0.45rem auto 0.5rem; padding: 0.75rem 0.9rem 0.85rem;
+      border-radius: 16px; border: 1px solid color-mix(in srgb, var(--gold) 18%, var(--line));
+      background: color-mix(in srgb, var(--card) 94%, rgba(227, 188, 103, 0.05));
+      text-align: left; align-self: center;
+    }
+    .tdb-uog-month--show { animation: tdb-uog-month-in 0.65s ease-out both; }
+    @keyframes tdb-uog-month-in { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) { .tdb-uog-month--show { animation: none; } }
+    .tdb-uog-month__h { margin: 0 0 0.4rem; font-size: 0.95rem; font-weight: 600; line-height: 1.35; color: color-mix(in srgb, var(--text) 90%, var(--gold) 10%); }
+    .tdb-uog-month__label { font-weight: 600; }
+    .tdb-uog-month__sep { font-weight: 400; color: var(--muted); }
+    .tdb-uog-month__lead { margin: 0 0 0.5rem; font-size: 0.86rem; line-height: 1.55; color: var(--muted); }
+    .tdb-uog-month__whisper { margin: 0 0 0.5rem; font-size: 0.82rem; line-height: 1.5; color: var(--muted); font-style: italic; }
+    .tdb-uog-month__whisper[hidden] { display: none !important; }
+    .tdb-uog-month__links { margin: 0; padding: 0 0 0 1.1rem; font-size: 0.86rem; line-height: 1.55; color: var(--text); }
+    .tdb-uog-month__links li { margin: 0.3rem 0 0; }
+    .tdb-uog-month__links a { color: var(--gold); font-weight: 600; text-decoration: none; }
+    .tdb-uog-month__links a:hover, .tdb-uog-month__links a:focus-visible { text-decoration: underline; outline: none; }
+    .tdb-uog-month__foot { margin: 0.6rem 0 0; font-size: 0.8rem; line-height: 1.45; color: var(--muted); }
+    .tdb-uog-month__foot a { color: var(--gold); font-weight: 600; text-decoration: none; }
+    .tdb-uog-month__foot a:hover, .tdb-uog-month__foot a:focus-visible { text-decoration: underline; outline: none; }
+    :root[data-theme="light"] .tdb-uog-month { background: color-mix(in srgb, var(--card) 97%, rgba(201, 162, 39, 0.06)); border-color: color-mix(in srgb, #c9a84c 32%, #e5e7eb); }
+    :root[data-theme="light"] .tdb-uog-month__h, :root[data-theme="light"] .tdb-uog-month__label { color: #0f172a; }
+    :root[data-theme="light"] .tdb-uog-month__links { color: #1e293b; }
     /* Shown when the Easter banner is not active (see easter-season.js syncMorningDoorwayHint) */
     .tdb-morning-doorway-hint {
       font-size: 0.8rem;
@@ -3355,6 +3451,23 @@
       letter-spacing: 0.01em;
     }
 
+    .tdb-home-what-makes-different {
+      margin: 0.35rem 0 0.9rem;
+      padding: 0.6rem 0.75rem;
+      max-width: 40rem;
+      font-size: clamp(0.86rem, 2.1vw, 0.95rem);
+      line-height: 1.5;
+      color: color-mix(in srgb, var(--muted) 94%, var(--text));
+      background: color-mix(in srgb, var(--card) 88%, transparent);
+      border: 1px solid color-mix(in srgb, var(--line) 75%, transparent);
+      border-radius: 8px;
+    }
+    :root[data-theme="light"] .tdb-home-what-makes-different {
+      color: #5a6478;
+      background: color-mix(in srgb, #f6f2ea 95%, #fff 5%);
+      border-color: color-mix(in srgb, #c9c0b0 55%, #e8e2d6);
+    }
+
     /* Same two-part rhythm as locale hubs: official calendar + one rotating KJV anchor (script.js initHubDailyAnchorRotate) */
     .en-hub-daily-companion {
       margin: 0.85rem 0 0;
@@ -3709,6 +3822,10 @@
     .hero-verse-primary-toolbar {
       border-top: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
       padding-top: 0.75rem;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.45rem;
     }
     .hero-votd-save-btn {
       min-height: 44px;
@@ -3721,6 +3838,124 @@
     @media (max-width: 520px) {
       .hero-votd-save-btn { margin-left: 0; flex: 1 1 100%; }
     }
+    .tdb-hero-votd-listen-wrap { width: 100%; }
+    .tdb-hero-votd-listen-under-verse {
+      margin: 0.55rem 0 0.2rem;
+    }
+    .read-aloud-btn.read-aloud-btn--hero {
+      width: 100%;
+      min-height: 52px;
+      justify-content: center;
+      gap: 0.55rem;
+      font-size: 0.95rem;
+    }
+    .read-aloud-btn--hero .read-aloud-label { display: inline; }
+    .tdb-hero-votd-tools-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    @media (min-width: 520px) {
+      .tdb-hero-votd-tools-wrap .hero-votd-save-btn { margin-left: auto; }
+    }
+    .tdb-hero-votd-search-kids {
+      margin: 0.6rem 0 0.35rem;
+    }
+    .tdb-hero-votd-search-kids .tdb-hero-votd-search {
+      margin: 0;
+    }
+    .tdb-home-kids-ribbon--hero-priority {
+      margin: 0.55rem 0 0.35rem;
+    }
+    .tdb-kids-ribbon-eyebrow {
+      margin: 0 0 0.15rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--muted) 88%, var(--gold) 12%);
+    }
+    :root[data-theme="light"] .tdb-kids-ribbon-eyebrow {
+      color: color-mix(in srgb, var(--muted) 75%, #7a5c2a 25%);
+    }
+    .tdb-home-kids-ribbon {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 0.4rem;
+      margin: 0;
+      padding: 0.9rem 1.05rem 1rem;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--gold) 32%, var(--line) 55%);
+      background: color-mix(in srgb, var(--card) 92%, rgba(227, 188, 103, 0.06));
+    }
+    :root[data-theme="light"] .tdb-home-kids-ribbon {
+      background: linear-gradient(135deg, #fffbf5 0%, #f6f3ee 100%);
+    }
+    .tdb-home-kids-ribbon-link {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+    .tdb-home-kids-ribbon-link:hover,
+    .tdb-home-kids-ribbon-link:focus-visible {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .tdb-home-kids-ribbon-text {
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 38rem;
+    }
+    .tdb-hero-votd-search {
+      margin: 0;
+      padding: 0.9rem 1rem 0.85rem;
+      border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--line) 90%, var(--gold) 10%);
+      background: color-mix(in srgb, var(--card) 95%, rgba(80, 100, 130, 0.04));
+    }
+    :root[data-theme="light"] .tdb-hero-votd-search {
+      background: #f6f7fb;
+    }
+    .tdb-hero-votd-search-label {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--gold-soft, var(--gold));
+      margin: 0 0 0.5rem;
+    }
+    .tdb-hero-votd-search-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: stretch;
+    }
+    .tdb-hero-votd-search-row #hero-votd-word-search {
+      flex: 1 1 12rem;
+      min-width: 0;
+      min-height: 48px;
+      font-size: 1.02rem;
+      padding: 0.65rem 0.9rem;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--text);
+    }
+    .tdb-hero-votd-search-row #hero-votd-word-search:focus {
+      outline: 2px solid color-mix(in srgb, var(--gold) 45%, transparent);
+      outline-offset: 2px;
+    }
+    .tdb-hero-votd-search-hint { margin: 0.5rem 0 0; font-size: 0.78rem; }
 
     /* Fast feeling row — one tap into Ask the Teacher (60-second path) */
     .tdb-home-fast-feel {
@@ -4096,7 +4331,7 @@
       box-shadow: 0 0 0 1px rgba(227, 188, 103, 0.28);
       border-radius: 8px;
     }
-    @media (max-width: 480px) { .read-aloud-label { display: none; } .read-aloud-btn { padding: 0.35rem; min-width: 40px; } }
+    @media (max-width: 480px) { .read-aloud-label { display: none; } .read-aloud-btn:not(.read-aloud-btn--hero) { padding: 0.35rem; min-width: 40px; } }
     /* loading skeleton hides it */
     .verse-card.is-loading .read-aloud-btn,
     .verse-card.is-loading .verse-ref-row,
@@ -5470,9 +5705,42 @@
       opacity: 0.42;
       margin: 0;
     }
+    /* Copyright + imprint: index has no styles.css — legal lines must not use 0.42 opacity (reads invisible on many screens). */
+    .site-footer .site-footer-copy.site-footer-legal-line {
+      opacity: 0.92;
+      font-size: clamp(0.74rem, 2.9vw, 0.82rem);
+      line-height: 1.45;
+      max-width: 36rem;
+      margin-left: auto;
+      margin-right: auto;
+      color: rgba(226, 232, 240, 0.9);
+    }
+    :root[data-theme="light"] .site-footer .site-footer-copy.site-footer-legal-line {
+      color: #475569;
+      opacity: 0.96;
+    }
+    .site-footer .privacy-line.site-footer-trust-hook {
+      opacity: 0.88;
+    }
+    @media (max-width: 480px) {
+      .site-footer .site-footer-copy.site-footer-legal-line + .site-footer-copy.site-footer-legal-line {
+        margin-top: 0.35rem;
+      }
+    }
     /* Clear fixed bottom dock + home indicator — “Last updated” was easy to miss or covered */
     .site-footer.site-footer--canonical {
       padding-bottom: max(5.75rem, calc(4.5rem + env(safe-area-inset-bottom, 0px)));
+    }
+    .site-footer-uog-whisper {
+      margin: 0 0 0.35rem;
+      font-size: clamp(0.8rem, 1.9vw, 0.88rem);
+      line-height: 1.4;
+      color: color-mix(in srgb, var(--muted) 92%, var(--text));
+      letter-spacing: 0.01em;
+      opacity: 0.92;
+    }
+    :root[data-theme="light"] .site-footer-uog-whisper {
+      color: #6a7382;
     }
     .site-footer-updated {
       margin-top: 0.5rem;
@@ -5511,6 +5779,84 @@
       line-height: 1.45;
       text-align: center;
       color: color-mix(in srgb, var(--muted) 93%, var(--text) 7%);
+    }
+    /* Quiet porch: lived-in paper (aligned w/ kids world-surface: dual grain + soft corners) */
+    .tdb-porch-ingress--warm {
+      position: relative;
+      isolation: isolate;
+      z-index: 0;
+      max-width: 40rem;
+      margin: 0.2rem auto 0.5rem;
+      padding: 0.85rem 1.05rem 0.95rem;
+      border-radius: 20px;
+      border: 1px solid color-mix(in srgb, var(--gold) 16%, var(--line) 84%);
+      background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='.12'/%3E%3C/svg%3E") repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E") repeat,
+        radial-gradient(ellipse 55% 44% at 0% 0%, rgba(255, 200, 125, 0.08) 0%, transparent 55%),
+        radial-gradient(ellipse 52% 40% at 100% 100%, rgba(0, 0, 0, 0.16) 0%, transparent 52%),
+        radial-gradient(ellipse 100% 78% at 50% 0%, rgba(255, 210, 145, 0.09) 0%, transparent 58%),
+        linear-gradient(168deg, color-mix(in srgb, var(--card) 90%, rgba(255, 242, 220, 0.06)) 0%, color-mix(in srgb, var(--bg-soft) 94%, var(--card) 6%) 100%);
+      background-size: 88px 88px, 180px 180px, auto, auto, auto, auto;
+      box-shadow:
+        0 4px 22px rgba(0, 0, 0, 0.12),
+        inset 0 0 0 1px rgba(0, 0, 0, 0.1),
+        inset 0 12px 32px -14px rgba(0, 0, 0, 0.16);
+    }
+    .tdb-porch-ingress--warm::before {
+      content: "";
+      position: absolute;
+      left: 10%;
+      right: 10%;
+      top: 0;
+      height: 1px;
+      border-radius: 0 0 99px 99px;
+      background: linear-gradient(90deg, transparent, rgba(255, 220, 170, 0.28), rgba(255, 240, 210, 0.14), transparent);
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    :root[data-theme="light"] .tdb-porch-ingress--warm {
+      border-color: color-mix(in srgb, #c4a45a 22%, #e8e4dc 78%);
+      background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='.09'/%3E%3C/svg%3E") repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E") repeat,
+        repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0 1px, transparent 1px 24px),
+        radial-gradient(ellipse 55% 40% at 0% 0%, rgba(255, 220, 170, 0.2) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 36% at 100% 100%, rgba(160, 190, 150, 0.07) 0%, transparent 50%),
+        radial-gradient(ellipse 100% 72% at 50% 0%, rgba(255, 232, 200, 0.45) 0%, transparent 55%),
+        linear-gradient(180deg, #fffefb 0%, #faf6ee 100%);
+      background-size: 88px 88px, 180px 180px, auto, auto, auto, auto, auto;
+      box-shadow:
+        0 3px 20px rgba(50, 35, 12, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95),
+        inset 0 10px 28px -12px rgba(100, 70, 30, 0.05);
+    }
+    :root[data-theme="light"] .tdb-porch-ingress--warm::before {
+      background: linear-gradient(90deg, transparent, rgba(200, 160, 80, 0.2), rgba(255, 230, 190, 0.25), transparent);
+      opacity: 0.55;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .tdb-porch-ingress--warm::before { opacity: 0.55; }
+    }
+    .tdb-porch-ingress { display: block; position: relative; z-index: 1; }
+    .tdb-porch-ingress__lead {
+      display: block;
+      font-size: 0.88rem;
+      line-height: 1.58;
+      color: color-mix(in srgb, var(--text) 90%, var(--gold-soft) 10%);
+    }
+    .tdb-porch-ingress__detail {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      line-height: 1.55;
+      color: color-mix(in srgb, var(--muted) 88%, var(--text) 12%);
+    }
+    :root[data-theme="light"] .tdb-porch-ingress__lead {
+      color: color-mix(in srgb, #1e293b 92%, #6b4c0a 8%);
+    }
+    :root[data-theme="light"] .tdb-porch-ingress__detail {
+      color: color-mix(in srgb, #475569 88%, #5c4a1c 12%);
     }
     .tdb-campus-schools {
       margin: 0.35rem auto 0.5rem;
@@ -8384,7 +8730,7 @@
       </div>
       <div class="hero-brand-taglines" role="group" aria-label="Site motto">
         <p class="soul-tag">Less scroll, more soul</p>
-        <p class="site-tagline tdb-site-tagline-learning" lang="en">Learning of Him, one day at a time. <span class="tdb-header-tag-cite" title="Take my yoke upon you, and learn of me.">Matthew 11:29</span></p>
+        <p class="site-tagline tdb-site-tagline-learning" lang="en">The University of God &mdash; learning of Him, one day at a time. <span class="tdb-header-tag-cite" title="Take my yoke upon you, and learn of me.">Matthew 11:29</span></p>
       </div>
       <h1 class="site-title">Today's Daily Battle</h1>
       <span class="site-title-underline" aria-hidden="true"></span>
@@ -8397,7 +8743,7 @@
         <span aria-hidden="true"> · </span>
         <button type="button" class="tdb-tour-open-btn" id="tdb-tour-open-btn" aria-label="Open the five-minute site tour">Site tour</button>
         <button type="button" data-tdb-theme-toggle="home_header" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Appearance</span></button>
-        <a href="about.html" aria-label="About Today's Daily Battle">About</a>
+        <a href="/about.html" aria-label="About Today&apos;s Daily Battle">About</a>
         <a href="faq.html" aria-label="FAQ">FAQ</a>
         <a href="why-not-ai.html" aria-label="Why we are not an AI chat tool">Why not AI?</a>
         <a href="privacy.html" aria-label="Privacy policy">Privacy</a>
@@ -8419,6 +8765,7 @@
           <a href="/#feel-section" aria-current="page">How I Feel</a>
           <a href="/daily-rhythm.html">Daily Rhythm</a>
           <a href="/prayer-wall.html">Pray</a>
+          <a href="/kids/index.html?v=hub20260321" id="nav-kids-corner-home" aria-label="Kids Corner &mdash; read-aloud stories, Bible loops, and family tools">Kids Corner</a>
           <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
           <details class="tdb-nav-more">
             <summary aria-haspopup="true">More tools</summary>
@@ -8529,7 +8876,10 @@
         <p class="calm-cta-note">Any hour counts&mdash;heavy day, quiet day, or something in between.</p>
       </div>
 
-      <p class="tdb-page-orientation" id="tdb-page-orientation">We call this campus <strong>God&rsquo;s University of Life</strong>&mdash;same quiet porch you already trust. Today&rsquo;s verse stays first, the gentle <strong>verse of the month</strong> card sits close by, <strong>More tools and rooms</strong> opens the fuller map, and the calm doorway plus feel search sit next. No grades; just open doors.</p>
+      <p class="tdb-page-orientation tdb-porch-ingress tdb-porch-ingress--warm" id="tdb-page-orientation">
+        <span class="tdb-porch-ingress__lead">The day feels loud before you even sat down? Stay right here. You don&rsquo;t have to get anything right first. <strong>God&rsquo;s University of Life</strong> is just the name on the door &mdash; a quiet porch where you can sit with God in the KJV, no performance, no pressure.</span>
+        <span class="tdb-porch-ingress__detail">When you need something steady, today&rsquo;s verse and the gentle <strong>verse of the month</strong> are right up top. When you&rsquo;re up for wandering, the tools are one tap away&mdash;no rush.</span>
+      </p>
 
       <nav class="tdb-campus-schools" id="tdb-campus-schools" aria-label="Schools of Life &mdash; gentle doorways to rooms you already have">
         <p class="tdb-campus-schools-intro"><strong>Gentle rooms, not formal classes.</strong> Six soft signs for what&rsquo;s already here&mdash;no grades, no deadlines, just open doors and clearer welcome mats.</p>
@@ -8621,7 +8971,28 @@
         </span>
       </nav>
       </div>
+      <aside class="tdb-january-quiet" id="tdb-january-quiet" data-tdb-january-quiet hidden aria-labelledby="tdb-january-quiet-eyebrow">
+        <p class="tdb-january-quiet__eyebrow" id="tdb-january-quiet-eyebrow">January</p>
+        <p class="tdb-january-quiet__label" id="tdb-january-quiet-label">One quiet verse for today</p>
+        <p class="tdb-january-quiet__ref" data-tdb-january-quiet-ref></p>
+        <p class="tdb-january-quiet__text" data-tdb-january-quiet-text></p>
+        <p class="tdb-january-quiet__actions">
+          <button type="button" class="tdb-january-quiet__dismiss" data-tdb-january-quiet-dismiss>Hide until next January</button>
+        </p>
+        <p class="tdb-january-quiet__foot">Same rotation on the <a href="/university.html#uog-january-quiet">University map</a> &middot; <a href="/start-the-year-in-the-word.html">Start the year in the Word</a></p>
+      </aside>
+      <aside class="tdb-uog-month" id="tdb-home-uog-month" data-tdb-uog-month-signpost hidden aria-labelledby="tdb-home-uog-month-h">
+        <h2 class="tdb-uog-month__h" id="tdb-home-uog-month-h">
+          <span class="tdb-uog-month__label">This month in the University</span><span class="tdb-uog-month__sep" aria-hidden="true"> — </span><span data-tdb-uog-month-name></span>
+        </h2>
+        <p class="tdb-uog-month__lead" data-tdb-uog-month-lead></p>
+        <p class="tdb-uog-month__whisper" data-tdb-uog-month-whisper hidden></p>
+        <ul class="tdb-uog-month__links" data-tdb-uog-month-links></ul>
+        <p class="tdb-uog-month__foot">By your local month only—no account. The full <a href="/university.html#uog-next">map</a> stays open all year.</p>
+      </aside>
       <div class="tdb-home-resume" id="tdbHomeResume" role="region" aria-label="Your progress on this device" hidden></div>
+      <script defer src="/tdb-january-quiet.js?v=20260423-phase5-perf"></script>
+      <script defer src="/tdb-uog-month-signpost.js?v=20260424-december-manger"></script>
 
       <!-- Stronger first-time onboarding — warm, clear, family-focused (audit #1) -->
       <div class="tdb-new-here-card" id="tdbNewHereCard" role="region" aria-labelledby="new-here-title">
@@ -8671,7 +9042,7 @@
         <p class="tdb-home-proof-pill" role="listitem"><strong>KJV only</strong><span> Scripture stays plain and steady.</span></p>
         <p class="tdb-home-proof-pill" role="listitem"><strong>Works offline after first visit</strong><span> Verses, plans, and notes stay on this device.</span></p>
         <p class="tdb-home-proof-pill" role="listitem"><strong>No ads. No data sold.</strong><span> <a href="/privacy.html" style="text-decoration:underline;color:inherit;">Read the full privacy promise</a> — your notes stay in localStorage by default.</span></p>
-        <p class="tdb-home-proof-pill" role="listitem"><strong>Built solo by Brandon</strong><span> For real hard days, not performance.</span></p>
+        <p class="tdb-home-proof-pill" role="listitem"><strong>Human-scale</strong><span> One builder, still in the fight&mdash;no corporate polish.</span></p>
       </div>
       <section class="tdb-home-reader-stories tdb-quiet-container" aria-labelledby="tdb-home-reader-stories-heading">
         <div class="tdb-home-reader-stories-head">
@@ -8707,30 +9078,30 @@
         <p class="welcome-back-msg" id="welcomeBackMsg" aria-live="polite" hidden></p>
         <h2 class="hero-daily-headline">Welcome to God&rsquo;s University of Life &mdash; A Quiet Place to Learn His Ways</h2>
         <p class="hero-daily-continuity" id="heroDailyContinuity">Still <strong>Today&rsquo;s Daily Battle</strong> &mdash; same quiet porch, same KJV help; we&rsquo;re only hanging a clearer welcome sign. <a href="/about.html#gods-university-quiet-name" class="hero-daily-why-name">Why &ldquo;God&rsquo;s University of Life&rdquo;?</a></p>
+        <p class="tdb-porch-still-me" id="tdbPorchStillMe">Hey friend &mdash; this is still the same porch I built from my own hospital season. One verse, one small step, one prayer. No performance, no polish. Just Jesus and you, right where you are. Still here with you, now and forever.</p>
         <p class="hero-daily-subline" id="heroDailySubline">KJV-only. Calm campus. Real-life curriculum for every battle of the heart and home&mdash;anxiety, parenting, grief, fear, and raising little ones. No ads. No login. Whatever your day holds, step in.</p>
         <div class="verse-skeleton" id="verseSkeleton" aria-hidden="true">
           <div class="verse-skeleton-box"></div>
         </div>
         <div class="tdb-home-verse-sticky-shell" role="region" aria-label="Today’s verse text and quick actions">
         <p class="tdb-verse-of-day-eyebrow" id="heroVerseEyebrow">Today&rsquo;s lesson</p>
-        <p class="verse-ref hero-daily-ref-above" id="heroRef">Jeremiah 31:3 (KJV)</p>
+        <p class="verse-ref hero-daily-ref-above" id="heroRef">Matthew 5:14 (KJV)</p>
         <div class="verse-ref-row">
           <div class="hero-verse-wrap-inner">
-            <p class="hero-verse is-visible" id="heroVerse" elementtiming="tdb-hero-verse">“I have loved thee with an everlasting love.”</p>
+            <p class="hero-verse is-visible" id="heroVerse" elementtiming="tdb-hero-verse">“Ye are the light of the world.”</p>
             <div class="verse-font-controls" aria-label="Adjust verse text size">
               <button type="button" class="verse-font-btn verse-font-smaller" id="verseFontSmaller" aria-label="Decrease text size">A−</button>
               <button type="button" class="verse-font-btn verse-font-larger" id="verseFontLarger" aria-label="Increase text size">A+</button>
             </div>
           </div>
         </div>
-        <p class="tdb-today-lesson-foot" id="tdb-today-lesson-wrap">Lesson from the University of God &mdash; <time id="tdbTodayLessonDate" datetime=""></time></p>
-        <div class="hero-verse-toolbar hero-verse-primary-toolbar" role="toolbar" aria-label="Verse: listen, copy, share, image, save to My Study">
+        <div class="tdb-hero-votd-listen-wrap tdb-hero-votd-listen-under-verse" role="group" aria-label="Listen to today&rsquo;s verse">
             <button
-              class="read-aloud-btn read-aloud-with-label"
+              class="read-aloud-btn read-aloud-with-label read-aloud-btn--hero"
               id="readAloudBtn"
               type="button"
               aria-describedby="hero-listen-hint"
-              aria-label="Listen slow — verse and today’s breakdown read aloud"
+              aria-label="Listen — today’s verse and plain breakdown read aloud (device speech, calm pace)"
               aria-pressed="false"
             >
               <svg class="ra-icon-speaker" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -8742,12 +9113,32 @@
                 <rect x="6" y="4" width="4" height="16" rx="1"></rect>
                 <rect x="14" y="4" width="4" height="16" rx="1"></rect>
               </svg>
-              <span class="read-aloud-label">Listen slow</span>
+              <span class="read-aloud-label">Listen</span>
             </button>
+        </div>
+        <aside class="tdb-home-kids-ribbon tdb-home-kids-ribbon--hero-priority" role="region" aria-label="For kids and parents" id="tdb-home-kids-ribbon">
+          <p class="tdb-kids-ribbon-eyebrow" id="tdb-kids-ribbon-eyebrow">For parents and little ones</p>
+          <a class="tdb-home-kids-ribbon-link" href="/kids/index.html?v=hub20260321">Kids Corner</a>
+          <span class="tdb-home-kids-ribbon-text">Read-aloud stories, Bible loops, and calm tools for little ones&mdash;KJV at the center.</span>
+        </aside>
+        <div class="tdb-hero-votd-search-kids" id="tdb-hero-votd-search-kids">
+        <form class="tdb-hero-votd-search" id="tdb-hero-votd-search" role="search" aria-label="Find KJV verses by one word" onsubmit="return false;">
+          <label for="hero-votd-word-search" class="tdb-hero-votd-search-label">One word &rarr; verses</label>
+          <div class="tdb-hero-votd-search-row">
+            <input type="search" id="hero-votd-word-search" name="q" inputmode="search" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="e.g. peace, courage, rest" aria-label="Type one word to find matching KJV verses" />
+            <button type="button" class="btn btn-secondary tdb-hero-votd-search-go" id="hero-votd-word-search-btn" aria-label="Search for KJV verses for this word">Find verses</button>
+          </div>
+          <p class="section-note tdb-hero-votd-search-hint" id="hero-votd-search-hint">Same gentle lookup as <a href="#quick-search-hero">Ask the Teacher</a>&mdash;full results open just below. Press Enter or tap Find.</p>
+        </form>
+        </div>
+        <p class="tdb-today-lesson-foot" id="tdb-today-lesson-wrap">Lesson from the University of God &mdash; <time id="tdbTodayLessonDate" datetime=""></time></p>
+        <div class="hero-verse-toolbar hero-verse-primary-toolbar" aria-label="Verse: copy, share, image, save to My Study">
+            <div class="tdb-hero-votd-tools-wrap" role="toolbar" aria-label="Verse: copy, share, image, save to My Study">
             <button type="button" class="hero-toolbar-btn" id="heroCopyVerseBtn" aria-label="Copy verse and page link to clipboard">Copy</button>
             <button type="button" class="hero-toolbar-btn" id="heroShareBtn" aria-label="Share today’s verse (copy or device share)">Share</button>
             <button type="button" class="hero-toolbar-btn" id="heroImageBtn" aria-label="Create shareable verse image">Image</button>
             <button type="button" id="hero-save-my-verses" class="btn btn-primary hero-votd-save-btn" aria-describedby="hero-my-verses-hint hero-my-verses-privacy-line" aria-label="Save today’s verse to My Study on this device">Save to My Study</button>
+            </div>
         </div>
         </div>
         <section class="tdb-home-fast-feel" id="tdbHomeFastFeel" aria-labelledby="tdbHomeFastFeelHeading">
@@ -9012,13 +9403,13 @@
         <div class="hero-breakdown-panels" id="heroBreakdownPanels" hidden></div>
         <p class="application" id="heroApplication" hidden></p>
         </div>
-        <p class="hero-daily-welcome">Joy, rest, questions&mdash;you are welcome here.</p>
+        <p class="hero-daily-welcome topic-mood-porch">Joy, rest, questions&mdash;you are welcome here.</p>
         <p class="section-note" id="heroBuilderLine">A quiet place for real battles &mdash; built solo by Brandon, who is still fighting them too.</p>
         <p class="section-note">Read the <a href="/story.html">story</a>, see <a href="/where-support-goes.html">where support goes</a>, hear from <a href="/testimonials.html">readers</a>, or start with this week&rsquo;s <a href="/journal/">journal posts</a>.</p>
-        <p id="hero-listen-hint" class="hero-listen-hint">Tap Listen slow for a quiet hear-through of today&rsquo;s verse and breakdown. Keyboard: Tab to Listen slow, then Space.</p>
+        <p id="hero-listen-hint" class="hero-listen-hint">Tap Listen for a quiet hear-through of today&rsquo;s verse and breakdown (calm pace on your device). Keyboard: Tab to Listen, then Space.</p>
         <p class="hero-word-study-wrap">
           <span id="hero-study-verse-hint" class="hero-study-verse-hint">Slow on one word—concordance and short glosses, offline when you need them.</span>
-          <button type="button" id="heroWordStudyBtn" class="btn btn-secondary hero-word-study-btn" data-tdb-wordstudy-ref="Jeremiah 31:3" data-tdb-wordstudy-text="I have loved thee with an everlasting love." aria-describedby="hero-study-verse-hint" aria-label="Open verse study for today’s verse of the day">Study this verse</button>
+          <button type="button" id="heroWordStudyBtn" class="btn btn-secondary hero-word-study-btn" data-tdb-wordstudy-ref="Matthew 5:14" data-tdb-wordstudy-text="Ye are the light of the world." aria-describedby="hero-study-verse-hint" aria-label="Open verse study for today’s verse of the day">Study this verse</button>
         </p>
         <p class="tdb-why-stay-line" id="tdb-why-stay-line">A steady place for Scripture&mdash;any kind of day.</p>
         <div class="hero-my-verses-row hero-my-verses-row--below-card" role="region" aria-label="Memorize and My Study">
@@ -9075,6 +9466,7 @@
           </div>
         </section>
         <p class="hero-daily-bread-line" role="text">Daily bread for today&mdash;one verse at a time.</p>
+        <p class="tdb-home-what-makes-different" role="note">A quiet University of God for real hard days. No streaks, no pressure &mdash; only steady help in God&rsquo;s Word through every season of life.</p>
         <div class="en-hub-daily-companion" id="en-hub-daily-verse" lang="en" aria-labelledby="en-hub-daily-heading">
           <h2 class="en-hub-daily-companion-title" id="en-hub-daily-heading">Verse of the day — same rhythm as every hub</h2>
           <div class="en-hub-daily-companion-grid">
@@ -9189,7 +9581,7 @@
           </div>
         </div>
       </details>
-      <p class="tdb-whats-new-hint" id="whats-new-study-hint"><span class="tdb-whats-new-label">What&rsquo;s new</span> <span class="tdb-whats-new-date">(Spring 2026)</span> &mdash; Clearer <a href="explore.html#start-here">Start here</a> flow on Explore, family and mission tools alongside the daily rhythm, new reading-plan paths for hard weeks. Lately: more six-day <a href="university.html">University of God</a> courses (loneliness, forgiveness, honest doubt) and a <a href="family-armor-little-ones.html#fa-littles-morning-reset">morning reset</a> for little ones in Family Armor&mdash;still one KJV verse a day, no noise. <a href="explore.html#whats-new-spring-2026">Spring notes</a> · <a href="explore.html#first-visit-tour">Five calm minutes tour</a> · <a href="about.html#whats-new-study">Study tools</a>.</p>
+      <p class="tdb-whats-new-hint" id="whats-new-study-hint"><span class="tdb-whats-new-label">What&rsquo;s new</span> <span class="tdb-whats-new-date">(Spring 2026)</span> &mdash; Clearer <a href="explore.html#start-here">Start here</a> flow on Explore, family and mission tools alongside the daily rhythm, new reading-plan paths for hard weeks. Lately: <a href="university.html">University of God</a> adds <a href="/plans.html?plan=universitybroken">honest mending</a> beside <a href="/plans.html?plan=universitydoubt">honest doubt</a>, <a href="/plans.html?plan=universitybitterness">honest bitterness</a>, and <a href="/plans.html?plan=universitycomparison">the quiet battle of comparison</a>, with <a href="/plans.html?plan=universityanger">the University of Anger</a> and <a href="/plans.html?plan=universityregret">the University of Regret</a> (six KJV days each&mdash;heat that needs hushing, or &ldquo;I should have&rdquo; that needs a truer word); <a href="/plans.html?plan=quietfallharvest">Quiet fall harvest</a> (five days) and <a href="/plans.html?plan=latesummerrest">Late summer, early rest</a> link thanks, table, and the turning season; <a href="/plans.html?plan=latefallwinter">Late fall, quiet winter</a> (five days) is a soft lamp-light path before Advent; <a href="/plans.html?plan=eveninguog">Evening in the University</a> has a <a href="evening-university-print.html">one-page print</a> and pairs with <a href="morning-evening-family-print.html">morning &amp; evening (two cards)</a> and a <a href="one-week-in-the-university-print.html">one-week family sheet</a> (see <a href="family-rhythm.html">Simple family rhythm</a> to gather them in one place); <a href="verse-image.html#verse-image-uog-prompts">verse image prompts</a> are easier to browse and batch-copy; <a href="family-armor-little-ones.html#fa-littles-morning-reset">Family Armor for little ones</a> still carries morning reset&mdash;one KJV verse a day, no noise. <a href="explore.html#whats-new-spring-2026">Spring notes</a> · <a href="explore.html#first-visit-tour">Five calm minutes tour</a> · <a href="about.html#whats-new-study">Study tools</a>.</p>
       <div class="tdb-home-rhythm-card" style="margin:2rem auto;max-width:38rem;background:rgba(227,188,103,0.06);border:1px solid rgba(227,188,103,0.25);border-radius:18px;padding:1.5rem 1.75rem;text-align:center;">
         <p style="color:var(--gold);font-size:0.95rem;margin:0 0 0.75rem;font-weight:600;letter-spacing:0.5px;">THIS WEEK’S RHYTHM</p>
         <p style="margin:0 0 1.25rem;color:var(--muted);">A gentle heartbeat: Quiet Morning to begin the day, Quiet Evening to release and rest.</p>
@@ -9198,9 +9590,9 @@
       <!-- ── Daily Verse Image Card (shareable preview under today’s verse) ── -->
       <div class="verse-img-card tdb-quiet-container" id="verseImgCard" role="region" aria-label="Today’s verse as a shareable image preview">
         <div class="verse-img-inner">
-          <p class="verse-img-text" id="verseImgText">“I have loved thee with an everlasting love.”</p>
+          <p class="verse-img-text" id="verseImgText">“Ye are the light of the world.”</p>
           <hr class="verse-img-rule">
-          <p class="verse-img-ref" id="verseImgRef">Jeremiah 31:3</p>
+          <p class="verse-img-ref" id="verseImgRef">Matthew 5:14</p>
         </div>
       </div>
       <div class="verse-growth-row" id="verseFeedbackRow" role="region" aria-label="Tell a friend, gentle feedback" hidden>
@@ -9228,7 +9620,7 @@
         <p id="tdbHomeMobiusWeek" class="tdb-home-mobius-week" role="status" aria-live="polite" hidden></p>
       </nav>
 
-      <section class="glass tdb-home-doorways" id="tdb-home-doorways" aria-labelledby="tdb-home-doorways-heading">
+      <section class="glass tdb-porch-paper-glass tdb-home-doorways" id="tdb-home-doorways" aria-labelledby="tdb-home-doorways-heading">
         <h2 class="section-divider" id="tdb-home-doorways-heading">Choose a quiet doorway</h2>
         <p class="section-note">If you are new here or your mind is tired, start with the doorway that fits today. You can always come back for the rest.</p>
         <div class="tdb-home-doorway-grid">
@@ -9277,7 +9669,7 @@
         </div>
       </section>
 
-      <section class="glass tdb-home-todays-battle-card util-mb-1" aria-labelledby="tdb-todays-battle-heading">
+      <section class="glass tdb-porch-paper-glass tdb-home-todays-battle-card util-mb-1" aria-labelledby="tdb-todays-battle-heading">
         <h2 id="tdb-todays-battle-heading" class="section-divider">Today&rsquo;s Battle</h2>
         <p class="section-note tdb-home-todays-battle-lead">Start with today&rsquo;s verse (<abbr title="King James Version">KJV</abbr>), add a short plan when you want rhythm, or go deeper with Battle Plans&mdash;no rush.</p>
         <div class="cta-group tdb-home-todays-battle-ctas">
@@ -9528,7 +9920,7 @@
       <p class="site-family-mission-nudge section-note tdb-quiet-container">For home and ministry teams: <a href="/family.html">Family hub</a> (verse, plans, printables) · <a href="/mission-outreach-packs.html">Mission &amp; outreach packs</a>.</p>
       <!-- ── Read full chapter ── -->
       <div class="read-chapter-row tdb-quiet-container">
-        <a href="reader.html?book=Jeremiah&chapter=31&ref=Jeremiah%2031%3A3" id="readChapterLink" class="read-chapter-link" aria-label="Read Jeremiah chapter 31 in full context">📖 Read the full chapter</a>
+        <a href="reader.html?book=Matthew&chapter=5&ref=Matthew%205%3A14" id="readChapterLink" class="read-chapter-link" aria-label="Read Matthew chapter 5 in full context">📖 Read the full chapter</a>
       </div>
       <div class="explore-hero-row tdb-quiet-container">
         <a href="explore.html" class="explore-hero-link" aria-label="Browse every topic, tool, and plan on the site">🗺 Explore all topics, tools, and plans</a>
@@ -9867,7 +10259,7 @@
         <a href="/mystudy">My Study</a>
         <a href="/calm.html">Calm</a>
         <a href="/mobius.html">Möbius</a>
-        <a href="/plans.html">Battle plans</a>
+        <a href="/plans.html">Courses</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
         <a href="/wins.html">Wins</a>
@@ -9908,7 +10300,8 @@
   </details>
 
   <p class="footer-humility">We battle. He wins.</p>
-  <p class="site-footer-beta-note">Built solo by Brandon &bull; God&rsquo;s University of Life &mdash; a quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): Built solo by Brandon · A quiet KJV porch for real daily battles -->
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet KJV porch for real daily battles &bull; No ads &bull; No tracking &bull; Privacy-first</p>
   <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
@@ -9922,12 +10315,20 @@
   </div>
 
   <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="site-footer-copy site-footer-legal-line">&copy; Christian Messenger Service. All rights reserved.</p>
   <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
   <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">April 23, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">April 28, 2026</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
 </footer>
 
@@ -11039,11 +11440,12 @@
         joy: "gratitude", hope: "hopeuncertain", love: "firststeps", worry: "worrytrust",
         forgiveness: "forgiveness", patience: "trust", courage: "fearfaith", rest: "peace",
         grace: "identityinchrist", wisdom: "proverbswisdom", grief: "griefhope", cancer: "cancercomfort",
-        anger: "angerpeace", loneliness: "loneliness", guilt: "doubtassurance", gratitude: "gratitude",
+        anger: "angerpeace", loneliness: "loneliness", guilt: "guiltshame", gratitude: "gratitude",
         faith: "doubtassurance", trauma: "psalmscomfort", addiction: "addictionhope", marriage: "marriage",
         family: "familyworship", parenting: "parenting", finances: "moneyworry", sleep: "peace",
         obedience: "walktheword", identity: "identityinchrist", purpose: "greatcommission",
-        heartache: "griefhope"
+        heartache: "griefhope", shame: "guiltshame", overwhelmed: "overwhelmedburnout", burnout: "overwhelmedburnout",
+        worth: "selfworth"
       };
       const FEEL_MOOD_TO_PLAN = {
         anxious: "worrytrust",
@@ -11477,6 +11879,31 @@
           return;
         });
       }
+
+      const heroWordInput = document.getElementById("hero-votd-word-search");
+      const heroWordBtn = document.getElementById("hero-votd-word-search-btn");
+      function runHeroWordSearch() {
+        if (!heroWordInput) return;
+        const v = (heroWordInput.value || "").trim();
+        if (!v) return;
+        input.value = v;
+        runSearch();
+        const target = document.getElementById("quick-search-hero") || document.getElementById("feel-section");
+        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+        try { input.focus(); } catch (err) {}
+      }
+      if (heroWordBtn) {
+        heroWordBtn.addEventListener("click", runHeroWordSearch);
+        heroWordBtn.addEventListener("touchend", function (e) { e.preventDefault(); runHeroWordSearch(); }, { passive: false });
+      }
+      if (heroWordInput) {
+        heroWordInput.addEventListener("keydown", function (e) {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            runHeroWordSearch();
+          }
+        });
+      }
     }());
 
     // ── Quick-topic button click → trigger feel search ──
@@ -11852,14 +12279,17 @@
       const btn = document.getElementById('readAloudBtn');
       if (!btn) return;
 
+      const TTS_LISTEN_LBL = 'Listen';
+      const TTS_LISTEN_ARIA = 'Listen — today’s verse and plain breakdown read aloud (device speech, calm pace)';
+
       const hasTts = 'speechSynthesis' in window;
       function setUnavailable() {
         btn.hidden = false;
         btn.classList.add('is-unavailable');
         btn.disabled = true;
         btn.setAttribute('aria-disabled', 'true');
-        btn.setAttribute('aria-label', 'Read aloud unavailable — this browser does not support text-to-speech');
-        btn.setAttribute('title', 'Text-to-speech is not available in this browser');
+        btn.setAttribute('aria-label', 'Listen is not available here—this browser does not support text-to-speech. That is all right.');
+        btn.setAttribute('title', 'Listen is not open in this browser—that is all right. You can still read the verse.');
         var ulbl = btn.querySelector('.read-aloud-label');
         if (ulbl) ulbl.textContent = 'Unavailable';
       }
@@ -11868,18 +12298,18 @@
         btn.hidden = false;
         btn.disabled = false;
         btn.removeAttribute('aria-disabled');
-        btn.setAttribute('aria-label', 'Listen slow — verse and today’s breakdown read aloud');
+        btn.setAttribute('aria-label', TTS_LISTEN_ARIA);
         btn.removeAttribute('title');
         var rlbl = btn.querySelector('.read-aloud-label');
-        if (rlbl) rlbl.textContent = 'Listen slow';
+        if (rlbl) rlbl.textContent = TTS_LISTEN_LBL;
       }
 
       function setPlaying(yes) {
         btn.classList.toggle('is-playing', yes);
         btn.setAttribute('aria-pressed', yes ? 'true' : 'false');
-        btn.setAttribute('aria-label', yes ? 'Pause reading' : 'Listen slow — verse and today’s breakdown read aloud');
+        btn.setAttribute('aria-label', yes ? 'Pause reading' : TTS_LISTEN_ARIA);
         var lbl = btn.querySelector('.read-aloud-label');
-        if (lbl) lbl.textContent = yes ? 'Pause' : 'Listen slow';
+        if (lbl) lbl.textContent = yes ? 'Pause' : TTS_LISTEN_LBL;
       }
 
       // ── TTS fallback (used when MP3 unavailable) ──
@@ -12176,13 +12606,17 @@
       dailylabor: { label: '\u2692\uFE0F Work & Daily Labor', key: 'tdb-plan-dailylabor-day', max: 7 },
       christmas7: { label: '\u2728 Christmas Week', key: 'tdb-plan-christmas7-day', max: 7 },
       newyear7: { label: '\uD83C\uDF05 New Year Week', key: 'tdb-plan-newyear7-day', max: 7 },
+      emmanuel7: { label: '\uD83C\uDFE0 God with Us week', key: 'tdb-plan-emmanuel7-day', max: 7 },
       holyspirit: { label: '\uD83D\uDD4A\uFE0F Holy Spirit', key: 'tdb-plan-holyspirit-day', max: 7 },
       walktheword: { label: '\uD83D\uDCD6 Walk the Word', key: 'tdb-plan-walktheword-day', max: 7 },
       standfirm: { label: '\u2696\uFE0F Stand Firm', key: 'tdb-plan-standfirm-day', max: 7 },
       greatcommission: { label: '\uD83C\uDF0D Great Commission', key: 'tdb-plan-greatcommission-day', max: 7 },
       stewardship: { label: '\uD83D\uDCB0 Stewardship', key: 'tdb-plan-stewardship-day', max: 7 },
-      moneyworry: { label: '\uD83D\uDCCB When Money Won\u2019t Quiet', key: 'tdb-plan-moneyworry-day', max: 7 },
-      addictionhope: { label: '\uD83D\uDD6F\uFE0F Mercy for Habits', key: 'tdb-plan-addictionhope-day', max: 7 },
+      moneyworry: { label: '\uD83D\uDCCB Financial stress & provision', key: 'tdb-plan-moneyworry-day', max: 7 },
+      addictionhope: { label: '\uD83D\uDD6F\uFE0F Addiction & strongholds', key: 'tdb-plan-addictionhope-day', max: 7 },
+      guiltshame: { label: '\uD83C\uDF27\uFE0F Guilt & shame', key: 'tdb-plan-guiltshame-day', max: 7 },
+      overwhelmedburnout: { label: '\uD83C\uDF0A Overwhelmed / burnout', key: 'tdb-plan-overwhelmedburnout-day', max: 7 },
+      selfworth: { label: '\uD83D\uDD06 Self-worth / identity', key: 'tdb-plan-selfworth-day', max: 7 },
       caregiverrest: { label: '\uD83E\uDEF6 Caregiver Rest', key: 'tdb-plan-caregiverrest-day', max: 7 },
       teenfaith: { label: '\u2733\uFE0F Teen Faith', key: 'tdb-plan-teenfaith-day', max: 7 },
       longillness: { label: '\uD83C\uDF3F Long Illness', key: 'tdb-plan-longillness-day', max: 7 },

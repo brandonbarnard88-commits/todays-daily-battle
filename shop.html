@@ -27,6 +27,7 @@
   <meta name="twitter:description" content="Coming soon: verse-based mugs, journals, tees, and card sets. Join the waitlist.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/shop-og.jpg?v=20260322">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
@@ -170,18 +171,19 @@
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <header class="hero-banner">
+        <header class="hero-banner tdb-dawn-bg--mist">
           <h1>Equip Your Battle</h1>
+          <p class="section-note topic-mood-porch">You&rsquo;re already welcome here&mdash;merch is optional; the quiet tools stay free either way.</p>
           <p class="hero-sub">Less scroll. More soul.</p>
           <p class="hero-tagline">Battle Mug (20oz stainless steel) launches first, then journals, tees, art prints, and verse cards. Every item is designed to reinforce Scripture habits, not just sell merch.</p>
           <p class="shop-hero-note">First merch drop coming soon — mugs, tees, journals carrying battle verses. Join the <a href="/#newsletter">Friday recap</a> for early access.</p>
         </header>
 
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <p class="section-note">Everything here ties directly to the daily Scripture mission. Print-on-demand keeps quality high and waste low. Proceeds keep the site free. <strong>Less scroll. More soul.</strong></p>
         </section>
 
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Coming Soon</h2>
           <p class="section-note"><strong>First drop:</strong> Battle Mug with Philippians 4:6–7. Join the <a href="/#newsletter">Friday recap</a> (Battle Plan) for one clear ping when checkout opens — no spam.</p>
           <div class="shop-grid">
@@ -233,7 +235,7 @@
           </div>
         </section>
 
-        <section class="glass" id="shop-waitlist" aria-labelledby="shop-waitlist-heading">
+        <section class="glass tdb-porch-paper-glass" id="shop-waitlist" aria-labelledby="shop-waitlist-heading">
           <h2 class="section-divider" id="shop-waitlist-heading">Shop launch list</h2>
           <p class="section-note">Save your email here for <strong>one clear ping</strong> when checkout opens. Pick what you’re most interested in—we use this to prioritize stock and messaging. No spam loop.</p>
           <form class="shop-waitlist-form" id="shop-waitlist-form" method="post" aria-label="Shop launch email signup">
@@ -372,7 +374,7 @@
         <a href="/mystudy">My Study</a>
         <a href="/calm.html">Calm</a>
         <a href="/mobius.html">Möbius</a>
-        <a href="/plans.html">Battle plans</a>
+        <a href="/plans.html">Courses</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
         <a href="/wins.html">Wins</a>
@@ -413,7 +415,8 @@
   </details>
 
   <p class="footer-humility">We battle. He wins.</p>
-  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): Built solo by Brandon · A quiet KJV porch for real daily battles -->
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet KJV porch for real daily battles &bull; No ads &bull; No tracking &bull; Privacy-first</p>
   <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
@@ -427,12 +430,20 @@
   </div>
 
   <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="site-footer-copy site-footer-legal-line">&copy; Christian Messenger Service. All rights reserved.</p>
   <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
   <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
   <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
 </footer>
   </div>

@@ -31,6 +31,7 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="/styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="/styles.css?v=20260423-phase5-perf">
   <link rel="manifest" href="/manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" defer></script>
@@ -91,8 +92,9 @@
     </aside>
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <header class="hero-banner">
+        <header class="hero-banner tdb-dawn-bg--mist">
           <h1>Kapag kailangan mo ng pag-asa</h1>
+          <p class="section-note util-mb-0_5 topic-mood-porch" lang="tl">Maligayang pagdating&mdash;huwag magmadali; isang talata sa bawat pagkakataon.</p>
           <p class="real-talk">May mga layuning pangkapayapaan ang Diyos para sa iyo — hindi hungkag na salita, kundi angkla sa mga araw na mistulang kulimlim.</p>
           <p class="section-note" style="margin-top:0.5rem;">Mga siping talata: <strong>Tagalog na nasa domain publiko</strong> (nakapaloob sa malayang tradisyon). Ang mga tool ay karaniwang <strong>Ingles</strong>; sa Bible tool ang teksto sa screen ay <abbr title="King James Version" lang="en">KJV</abbr>.</p>
           <div class="cta-group">
@@ -102,7 +104,7 @@
             <a class="btn btn-secondary" href="/verse.html">Talata ngayon (EN)</a>
           </div>
         </header>
-        <section class="glass tl-hope-breakdown" lang="tl">
+        <section class="glass tdb-porch-paper-glass tl-hope-breakdown" lang="tl">
           <div class="breakdown">
             <h2>Mga talata ngayon</h2>
             <p class="verse">«At pagpalain kayo ng Dios ng pag-asa na lubos kayong pagalak at payapain sa pananampalataya, upang kayo’y magsipagmala ng pag-asa sa pamamagitan ng kapangyarihan ng Espiritu Santo.» — Roma 15:13 <span class="section-note" style="display:inline;font-size:0.85em;">(Tagalog, domain publiko)</span></p>
@@ -118,7 +120,7 @@
             <p>Sabihin nang mahina: «Panginoon, kumakapit ako sa Iyong pangako, hindi sa aking damdamin.» Huminga nang mabagal nang tatlong beses. Hindi mo kailangang pilitin ang kasiyahan — sapat ang isang minutong lumingon sa Kanya.</p>
           </div>
         </section>
-        <section class="glass tl-hope-tools" lang="tl">
+        <section class="glass tdb-porch-paper-glass tl-hope-tools" lang="tl">
           <h2 class="section-divider">Mga tool — Ingles na screen</h2>
           <p class="section-note">Ang mga link ay nagbubukas ng pahinang <strong>Ingles</strong>; ang teksto ng Bibliya sa tool ay <strong>KJV</strong>. <strong lang="en">(EN)</strong> ay paalala sa wika.</p>
           <nav class="cta-group" aria-label="Tool EN" style="display:flex !important;flex-wrap:wrap;gap:0.5rem;">
@@ -128,7 +130,7 @@
             <a class="btn btn-secondary" href="/explore.html#languages" hreflang="en">Explore — wika (EN)</a>
           </nav>
         </section>
-        <section class="glass" lang="tl">
+        <section class="glass tdb-porch-paper-glass" lang="tl">
           <h2 class="section-divider">Iba pang paksa</h2>
           <div class="cta-group" style="flex-wrap:wrap;gap:0.5rem;">
             <a class="btn btn-secondary" href="/topic-hope.html" hreflang="en">Hope (EN)</a>
@@ -156,6 +158,8 @@
       <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
     </span>
   </nav>
+
+  <p class="site-footer-pilot-note" lang="tl">Pahina sa Tagalog. Kapag ang tool ay nagbubukas sa English, malinaw pa rin ang daan; sa Bible tool karaniwang <abbr title="King James Version" lang="en">KJV</abbr> (maliban sa mga talatang nakasulat dito sa Tagalog). Puwede kang tumigil dito ngayon nang walang pressure.</p>
 
   <nav class="site-footer-essentials" aria-label="Key pages">
     <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
@@ -288,8 +292,17 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">April 23, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">April 28, 2026</span></p>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
+
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
+
 </footer>
   </div>
   <script type="module" src="/config.js"></script>

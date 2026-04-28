@@ -26,9 +26,22 @@
   <meta name="twitter:image:alt" content="For the Little Ones &mdash; calm KJV stories and coloring | Today&#39;s Daily Battle">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="/styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="/styles.css?v=20260423-phase5-perf">
+  <link rel="preload" href="/kids/kids-battle.css?v=20260405kidsfollowup" as="style">
+  <link rel="stylesheet" href="/kids/kids-battle.css?v=20260405kidsfollowup">
+  <link rel="preload" href="/kids/kids-kids-world.css?v=20260428kids100" as="style">
+  <link rel="stylesheet" href="/kids/kids-kids-world.css?v=20260428kids100">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
   <link rel="manifest" href="/manifest.json">
   <style nonce="tdb2025s">
+    body.little-ones-kids-surface .little-ones-page,
+    body.little-ones-kids-surface .site-footer {
+      position: relative;
+      z-index: 1;
+    }
     .little-ones-page {
       max-width: 72rem;
       margin: 0 auto;
@@ -221,14 +234,53 @@
     }
   </style>
 </head>
-<body class="dark-mode tdb-inner-page">
+<body class="dark-mode tdb-inner-page kids-battle-page kids-world-surface little-ones-kids-surface">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <main id="main-content" class="little-ones-page">
+    <div class="kids-pasture-shell kids-pasture-shell--compact" role="region" aria-label="Your quiet field with Little Shepherd" style="max-width:40rem;margin:0 auto 0.5rem;padding:0 0.5rem">
+      <div class="kids-pasture-card kids-pasture-card--straggler" id="kids-pasture-strip" data-stage="0" data-token-bloom="0" role="img" aria-labelledby="kids-pasture-aria">
+        <p class="kids-pasture-title" id="kids-pasture-title">Your quiet pasture</p>
+        <div class="kids-pasture-illu" aria-hidden="true">
+          <span class="kids-pasture-bloom pt-a" aria-hidden="true"></span>
+          <span class="kids-pasture-bloom pt-b" aria-hidden="true"></span>
+          <span class="kids-pasture-bloom pt-c" aria-hidden="true"></span>
+          <span class="kids-pasture-bloom pt-d" aria-hidden="true"></span>
+          <span class="kids-pasture-sheep" aria-hidden="true"></span>
+          <span class="kids-pasture-sheep2" aria-hidden="true"></span>
+          <span class="kids-pasture-sheep3" aria-hidden="true"></span>
+          <span class="kids-pasture-flower1" aria-hidden="true"></span>
+          <span class="kids-pasture-flower2" aria-hidden="true"></span>
+          <span class="kids-pasture-tree" aria-hidden="true"></span>
+          <span class="kids-pasture-fruit" aria-hidden="true"></span>
+          <span class="kids-pasture-brook" aria-hidden="true"></span>
+          <span class="kids-pasture-fence" aria-hidden="true"></span>
+        </div>
+        <p class="kids-pasture-note" id="kids-pasture-label">A fresh patch of grass. Keep exploring.</p>
+        <p class="kids-sheep-tokens" id="kids-sheep-tokens-line" aria-live="polite"></p>
+        <p class="sr-only" id="kids-pasture-aria">Story opens on this device: loading.</p>
+        <p class="sr-only" id="kids-pasture-bloom-announce" role="status" aria-live="polite" aria-atomic="true"></p>
+      </div>
+      <section class="kids-shepherd-compact glass tdb-porch-paper-glass" aria-labelledby="kids-shepherd-compact-h" style="padding:0.75rem 1rem;border-radius:16px;margin:0.75rem 0 0">
+        <h2 class="sr-only" id="kids-shepherd-compact-h">Little Shepherd</h2>
+        <div class="kids-buddy-mascot-row">
+          <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, tap for a calm line">
+            <span class="kids-shepherd-hero-wrap">
+              <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="/kids/shepherd-mascot-welcome.svg" width="112" height="124" alt="Little Shepherd" decoding="async" loading="eager"/>
+            </span>
+          </button>
+          <div class="kids-buddy-bubble kids-buddy-bubble--with-mascot" id="kids-little-shepherd-bubble" lang="en">
+            <p class="kids-bubble-hi" style="margin:0 0 0.25rem">I&rsquo;m <strong class="kids-bubble-name">Little Shepherd</strong>—right here with you on this page.</p>
+            <p class="kids-bubble-voice" id="kids-little-shepherd-line" aria-live="polite">&nbsp;</p>
+          </div>
+        </div>
+      </section>
+    </div>
     <a href="/explore.html" class="plans-back plans-back-hub">← Explore</a>
 
     <header class="hero-banner tdb-dawn-hub--mist little-ones-hero">
       <p class="hero-kicker">For the little ones</p>
       <h1>One gentle place to land with your little ones</h1>
+      <p class="section-note topic-mood-porch">You&rsquo;re already welcome here&mdash;snuggles and one verse count; nobody is grading your craft table.</p>
       <p>Come sit with your little ones in God&rsquo;s Word. No lessons to finish. No perfect pictures required. Just a quiet moment together.</p>
       <p class="section-note"><strong>Start here first</strong> if your child is little and you do not want to choose between several kids pages. This page brings today&rsquo;s KJV verse, one gentle story, matching coloring, and simple starting places by age into one calm room.</p>
       <div class="cta-group">
@@ -249,7 +301,7 @@
       </ul>
     </nav>
 
-    <section class="glass" id="little-ones-verse-root" aria-labelledby="little-ones-verse-heading">
+    <section class="glass tdb-porch-paper-glass" id="little-ones-verse-root" aria-labelledby="little-ones-verse-heading">
       <div class="little-ones-verse-head">
         <div>
           <h2 class="section-divider" id="little-ones-verse-heading">Today&rsquo;s verse for little hearts</h2>
@@ -264,7 +316,7 @@
       <p class="section-note">One calm step: read one line, let your child repeat one word, then keep going only if the room still feels open.</p>
     </section>
 
-    <section class="glass" aria-labelledby="little-ones-feature-heading">
+    <section class="glass tdb-porch-paper-glass" aria-labelledby="little-ones-feature-heading">
       <div class="little-ones-feature-top">
         <div>
           <h2 class="section-divider" id="little-ones-feature-heading">Story &amp; color together</h2>
@@ -303,7 +355,7 @@
       </div>
     </section>
 
-    <section class="glass" aria-labelledby="little-ones-age-heading">
+    <section class="glass tdb-porch-paper-glass" aria-labelledby="little-ones-age-heading">
       <h2 class="section-divider" id="little-ones-age-heading">Gentle starting places by age</h2>
       <p class="section-note">Tap one lane. The others stay here when you want them, but you do not have to hold the whole page at once.</p>
       <div class="little-ones-age-tabs" role="tablist" aria-label="Choose an age lane">
@@ -342,7 +394,7 @@
       </div>
     </section>
 
-    <details class="glass" id="little-ones-more-quiet">
+    <details class="glass tdb-porch-paper-glass" id="little-ones-more-quiet">
       <summary>More quiet helps</summary>
       <div style="padding-top:1rem;">
         <div class="little-ones-age-grid">
@@ -492,7 +544,7 @@
         <a href="/mystudy">My Study</a>
         <a href="/calm.html">Calm</a>
         <a href="/mobius.html">Möbius</a>
-        <a href="/plans.html">Battle plans</a>
+        <a href="/plans.html">Courses</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
         <a href="/wins.html">Wins</a>
@@ -533,7 +585,8 @@
   </details>
 
   <p class="footer-humility">We battle. He wins.</p>
-  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): Built solo by Brandon · A quiet KJV porch for real daily battles -->
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet KJV porch for real daily battles &bull; No ads &bull; No tracking &bull; Privacy-first</p>
   <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
@@ -547,15 +600,26 @@
   </div>
 
   <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="site-footer-copy site-footer-legal-line">&copy; Christian Messenger Service. All rights reserved.</p>
   <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
   <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
   <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
 </footer>
 
+  <script src="/kids/kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
+  <script src="/kids/kids-hub-play.js?v=20260428kids100" defer></script>
+  <script src="/kids/kids-gentle-shepherd.js?v=20260428kids100" defer></script>
   <script defer src="/little-ones.js?v=20260415littleones"></script>
   <script type="module" src="/config.js"></script>
   <script type="module" src="/script.js?v=20260423-phase5-perf" data-cfasync="false"></script>

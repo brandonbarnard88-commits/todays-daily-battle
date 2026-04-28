@@ -19,6 +19,7 @@
   <meta property="og:locale" content="pt_BR">
   <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="/styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="/styles.css?v=20260423-phase5-perf">
   <link rel="manifest" href="/manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" defer></script>
@@ -84,30 +85,31 @@
     </aside>
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <header class="hero-banner">
+        <header class="hero-banner tdb-dawn-bg--mist">
           <h1>Planos de leitura — tela em inglês</h1>
+          <p class="section-note util-mb-0_5 topic-mood-porch" lang="pt">Voc&ecirc; j&aacute; &eacute; bem-vindo aqui&mdash;sem pressa. Um vers&iacute;culo de cada vez.</p>
           <p class="real-talk">Os planos vivem na página em inglês (interface completa, textos KJV, offline no seu aparelho). Esta página é a porta em português — sem engano.</p>
           <div class="cta-group">
             <a class="btn btn-primary" href="/plans.html" hreflang="en">Abrir planos em inglês</a>
             <a class="btn btn-secondary" href="/pt/">Voltar ao hub PT</a>
           </div>
         </header>
-        <section class="glass" lang="pt">
+        <section class="glass tdb-porch-paper-glass" lang="pt">
           <h2 class="section-divider">O que você vai encontrar</h2>
           <p class="section-note">Planos de 7 a 40 dias: distração, gratidão, força, paz, medo à fé, luto à esperança, dor crônica, e mais — tudo pensado para dias reais.</p>
         </section>
-        <section class="glass" lang="pt" aria-labelledby="planos-pt-recomendados">
+        <section class="glass tdb-porch-paper-glass" lang="pt" aria-labelledby="planos-pt-recomendados">
           <h2 class="section-divider" id="planos-pt-recomendados">Planos recomendados agora</h2>
           <p class="section-note">Cada botão abre o plano completo em inglês, mas esta lista em português ajuda você a escolher a trilha certa sem ficar perdido.</p>
           <ul class="pricing-list" style="margin:0.5rem 0 0 1rem;">
             <li><a href="/plans.html?plan=fearfaith" hreflang="en">Fear to Faith</a>: quando o medo aperta o peito e você precisa voltar a confiar.</li>
             <li><a href="/plans.html?plan=griefhope" hreflang="en">Grief → Hope</a>: sete dias suaves para luto, choro e cansaço por dentro.</li>
             <li><a href="/plans.html?plan=familyworship" hreflang="en">Family Worship in the Trenches</a>: uma rotina simples para mesa, sala ou hora de dormir com as crianças.</li>
-            <li><a href="/plans.html?plan=parenting" hreflang="en">Parenting in Faith</a>: para quando criar filhos pesa e você precisa de graça, paciência e firmeza.</li>
+            <li><a href="/plans.html?plan=parenting" hreflang="en">Parenting</a>: para quando criar filhos pesa e você precisa de graça, paciência e firmeza.</li>
             <li><a href="/plans.html?plan=caregiverrest" hreflang="en">Caregiver Rest</a>: descanso bíblico para quem cuida de alguém e chega exausto.</li>
           </ul>
         </section>
-        <section class="glass pt-shell-tools" lang="pt">
+        <section class="glass tdb-porch-paper-glass pt-shell-tools" lang="pt">
           <h2 class="section-divider">Ferramentas do site — tela em inglês</h2>
           <p class="section-note"><strong>Resumo:</strong> cada link abre página em <strong>inglês</strong>; o texto bíblico nas ferramentas é <strong>KJV</strong>. <strong lang="en">(EN)</strong> lembra a troca de idioma.</p>
           <nav class="cta-group" aria-label="Ferramentas em inglês" style="display:flex;flex-wrap:wrap;gap:0.5rem;">
@@ -122,7 +124,7 @@
             <a class="btn btn-secondary" href="/explore.html#languages" hreflang="en">Explore — idiomas (EN)</a>
           </nav>
         </section>
-        <section class="glass" lang="pt">
+        <section class="glass tdb-porch-paper-glass" lang="pt">
           <h2 class="section-divider">Outros temas em português</h2>
           <div class="cta-group" style="flex-wrap:wrap;gap:0.5rem;">
             <a class="btn btn-secondary" href="/pt/">Hub PT</a>
@@ -157,7 +159,7 @@
     </span>
   </nav>
 
-  <p class="site-footer-pilot-note" lang="pt">Capa da ferramenta em português. A tela completa abre em inglês; texto bíblico nas ferramentas em geral <abbr title="King James Version" lang="en">KJV</abbr>.</p>
+  <p class="site-footer-pilot-note" lang="pt">Capa da ferramenta em português. Quando a tela completa abre em inglês, o caminho continua claro; o texto bíblico nas ferramentas costuma ser <abbr title="King James Version" lang="en">KJV</abbr>. Sem pressa se hoje você só precisava desta entrada.</p>
 
   <nav class="site-footer-essentials" aria-label="Páginas principais">
     <a href="/pt/">Início PT</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
@@ -199,6 +201,15 @@
 
   <p class="site-footer-updated">Última atualização: <span id="footer-date">TDB_BUILD_DATE</span></p>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
+
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
+
 </footer>
   </div>
   <script type="module" src="/config.js"></script>

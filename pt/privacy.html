@@ -19,6 +19,7 @@
   <meta property="og:locale" content="pt_BR">
   <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="/styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="/styles.css?v=20260423-phase5-perf">
   <link rel="manifest" href="/manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" defer></script>
@@ -77,11 +78,12 @@
     </aside>
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <header class="hero-banner">
+        <header class="hero-banner tdb-dawn-bg--mist">
           <h1>Privacidade — resumo em português</h1>
+          <p class="section-note topic-mood-porch" lang="pt" style="margin:0 0 0.55rem;font-size:0.92rem;line-height:1.55;color:var(--muted,#8896b0)">Você já é bem-vindo aqui&mdash;privacidade em primeiro lugar; o detalhe jurídico completo está em inglês no link abaixo.</p>
           <p class="real-talk">Isto é um <strong>resumo</strong> para acolhida clara. O texto jurídico completo e atualizado está em inglês em <a href="/privacy.html" hreflang="en">privacy.html</a>.</p>
         </header>
-        <section class="glass pt-topic-breakdown" lang="pt">
+        <section class="glass tdb-porch-paper-glass pt-topic-breakdown" lang="pt">
           <ul class="section-note" style="line-height:1.75;">
             <li>Sem anúncios rastreadores no produto principal; não vendemos seus dados.</li>
             <li>Orações e conteúdo sensível: veja a página em inglês para armazenamento local, Supabase quando aplicável, e boas práticas.</li>
@@ -111,7 +113,7 @@
     </span>
   </nav>
 
-  <p class="site-footer-pilot-note" lang="pt">Página piloto em português (Almeida citado onde indicado). Ferramentas do site em inglês; texto bíblico nas ferramentas em geral <abbr title="King James Version" lang="en">KJV</abbr>.</p>
+  <p class="site-footer-pilot-note" lang="pt">Página piloto em português (Almeida citado onde indicado). Quando uma ferramenta abre em inglês, o caminho continua claro; o texto bíblico nas ferramentas costuma ser <abbr title="King James Version" lang="en">KJV</abbr>. Sem pressa se hoje você só ficar nesta página.</p>
 
   <nav class="site-footer-essentials" aria-label="Páginas principais">
     <a href="/pt/">Início PT</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
@@ -153,6 +155,15 @@
 
   <p class="site-footer-updated">Última atualização: <span id="footer-date">TDB_BUILD_DATE</span></p>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
+
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
+
 </footer>
   </div>
   <script type="module" src="/config.js"></script>

@@ -10,7 +10,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Your 2026 Battle Wins • Today's Daily Battle</title>
-  <meta name="description" content="Your 2026 wins—longest streak, verses read, plans completed. All local, all yours. Share your journey.">
+  <meta name="description" content="Your 2026 wins—longest streak, verses read, plans completed. All local, all yours. You are already welcome here; no scoreboard, just quiet gratitude.">
   <link rel="canonical" href="https://todaysdailybattle.com/wins.html">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="manifest" href="manifest.json">
@@ -117,8 +117,10 @@
     <a href="explore.html" class="wins-back" style="margin-left: 1rem;">Explore</a>
 
     <header class="wins-hero">
-      <h1>Your 2026 Battle Wins</h1>
-      <p>All local, all yours — here's your journey so far.</p>
+      <p class="section-note util-mb-0_5" style="opacity:0.9;">Battle Wins</p>
+      <h1>Your quiet wins</h1>
+      <p class="topic-mood-porch">You&rsquo;re already welcome here. This isn&rsquo;t a performance&mdash;just a porch-light look at what God has walked through with you on this device.</p>
+      <p>All local, all yours&mdash;here&rsquo;s the story so far, without the noise.</p>
     </header>
 
     <div class="wins-card">
@@ -136,7 +138,7 @@
         <p id="plans-completed">0</p>
       </div>
       <div>
-        <h3>Days Battled</h3>
+        <h3>Days marked here</h3>
         <p id="days-battled">0</p>
       </div>
     </div>
@@ -186,8 +188,8 @@
       trust:     { id: 'trust',     label: '7-Day Trust in Uncertainty', key: 'tdb-plan-trust-day', max: 7  },
       anger:     { id: 'anger',     label: '7-Day Release from Anger & Bitterness', key: 'tdb-plan-anger-day', max: 7  },
       grief:     { id: 'grief',     label: '7-Day Healing from Grief & Loss', key: 'tdb-plan-grief-day', max: 7  },
-      forgiveness: { id: 'forgiveness', label: '7-Day Forgiveness Journey', key: 'tdb-plan-forgiveness-day', max: 7  },
-      parenting: { id: 'parenting', label: '7-Day Parenting in Faith', key: 'tdb-plan-parenting-day', max: 7  },
+      forgiveness: { id: 'forgiveness', label: 'Forgiveness', key: 'tdb-plan-forgiveness-day', max: 7  },
+      parenting: { id: 'parenting', label: 'Parenting', key: 'tdb-plan-parenting-day', max: 7  },
       loneliness: { id: 'loneliness', label: '7-Day Victory Over Loneliness', key: 'tdb-plan-loneliness-day', max: 7  },
       fearfaith: { id: 'fearfaith', label: 'Fear to Faith', key: 'tdb-plan-fearfaith-day', max: 7  },
       worrytrust: { id: 'worrytrust', label: 'Worry to Trust', key: 'tdb-plan-worrytrust-day', max: 7  },
@@ -259,7 +261,7 @@
         '\uD83D\uDD25 Longest streak: ' + longest + ' day' + (longest !== 1 ? 's' : '') +
         '\nVerses read: ' + totalVerses +
         '\nPlans completed: ' + plansCompleted +
-        '\nDays battled: ' + daysBattled +
+        '\nDays marked here: ' + daysBattled +
         '\n\nGod is faithful — join me at todaysdailybattle.com';
 
       if (navigator.clipboard && navigator.clipboard.writeText) {

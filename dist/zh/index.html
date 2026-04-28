@@ -34,6 +34,7 @@
   <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="/styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="/styles.css?v=20260423-phase5-perf">
   <link rel="manifest" href="/manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" defer></script>
@@ -76,7 +77,7 @@
             <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
           </span>
         </nav>
-        <p class="tdb-mood-door-kjv-banner" lang="zh-CN">本页为中文。下方工具多为<strong>英文界面</strong>；圣经工具屏幕正文一般为 <abbr title="King James Version" lang="en">KJV</abbr>。</p>
+        <p class="tdb-mood-door-kjv-banner" lang="zh-CN">2026 试点：这扇中文入口在慢慢长大；下方深度工具多为<strong>英文界面</strong>，说明保持诚实。圣经工具屏幕正文一般为 <abbr title="King James Version" lang="en">KJV</abbr>；主题页使用和合本等处会标明。</p>
       </div>
 
       <div class="brand">
@@ -104,13 +105,14 @@
 
     <main class="app-content" id="main-content">
       <div class="content-inner explore-page">
-        <header class="hero-banner" id="zh-hub-hero">
+        <header class="hero-banner tdb-dawn-bg--mist" id="zh-hub-hero">
           <h1>欢迎。这是中文入口。</h1>
+          <p class="section-note topic-mood-porch" lang="zh-CN">你在这里已被接纳&mdash;不必证明什么，先安息。</p>
           <p class="real-talk">在这里可以用母语安静祷告。试点页面在增加；网站主体仍是英文，我们如实说明，免得您有落差。</p>
           <p class="section-note" style="margin-top:0.5rem;">试点页：页面上的经文为<strong>和合本（1919 联合译本，公有领域）</strong>，配以简短中文陪伴；不是整站圣经译本替换。</p>
         </header>
 
-        <section class="glass explore-hub" lang="zh-CN" id="zh-hub-doors" aria-labelledby="zh-doors-heading">
+        <section class="glass explore-hub tdb-porch-paper-glass" lang="zh-CN" id="zh-hub-doors" aria-labelledby="zh-doors-heading">
           <h2 class="section-divider explore-hub-section-title" id="zh-doors-heading">中文主题门 — 选今天最重的那个</h2>
           <p class="section-note explore-hub-lead util-mb-0_5">九扇主题门已就绪；工具链接打开英文屏。工具里常见 <abbr title="King James Version" lang="en">KJV</abbr>。</p>
           <ul class="explore-hub-grid">
@@ -197,7 +199,7 @@
           </ul>
         </section>
 
-        <section class="glass pt-topic-breakdown tdb-hub-daily-wrap" lang="zh-CN" id="zh-hub-daily-verse" aria-labelledby="zh-daily-heading">
+        <section class="glass tdb-porch-paper-glass pt-topic-breakdown tdb-hub-daily-wrap" lang="zh-CN" id="zh-hub-daily-verse" aria-labelledby="zh-daily-heading">
           <div class="breakdown">
             <h2 class="section-divider" id="zh-daily-heading">今日经文</h2>
             <div class="tdb-hub-daily-split">
@@ -228,7 +230,7 @@
           </div>
         </section>
 
-        <section class="glass pt-mas-ayuda" lang="zh-CN" aria-labelledby="zh-tools-heading">
+        <section class="glass tdb-porch-paper-glass pt-mas-ayuda" lang="zh-CN" aria-labelledby="zh-tools-heading">
           <h2 class="section-divider" id="zh-tools-heading">工具 — 直达英文界面</h2>
           <p class="section-note">以下为全屏<strong>英文</strong>页面的快捷方式。</p>
           <nav class="cta-group pt-mas-ayuda-tools" aria-label="英文工具" style="display:flex !important;flex-wrap:wrap;gap:0.5rem;">
@@ -240,7 +242,7 @@
           </nav>
         </section>
 
-        <section class="glass" lang="zh-CN">
+        <section class="glass tdb-porch-paper-glass" lang="zh-CN">
           <h2 class="section-divider">信任与条款</h2>
           <p class="section-note">完整政策仍为英文 — 同一站点：无广告追踪，不出售您的数据。</p>
           <div class="cta-group" style="flex-wrap:wrap;gap:0.5rem;">
@@ -268,7 +270,7 @@
     </span>
   </nav>
 
-  <p class="site-footer-pilot-note" lang="zh-CN">中文枢纽（试点）。站内工具多为英文屏；圣经正文常为 <abbr title="King James Version" lang="en">KJV</abbr>。</p>
+  <p class="site-footer-pilot-note" lang="zh-CN">中文枢纽（试点）。当工具以英文打开时，提醒诚实、路径清楚；屏幕上的经文常为 <abbr title="King James Version" lang="en">KJV</abbr>。今天不必非要再往前走。</p>
 
   <nav class="site-footer-essentials" aria-label="主要链接">
     <a href="/zh/">中文首页</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
@@ -282,8 +284,17 @@
 
   <p class="footer-humility">我们争战。祂得胜。</p>
 
-  <p class="site-footer-updated">最近更新：<span id="footer-date">April 23, 2026</span></p>
+  <p class="site-footer-updated">最近更新：<span id="footer-date">April 28, 2026</span></p>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
+
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
+
 </footer>
   </div>
 

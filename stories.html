@@ -30,6 +30,7 @@
   {"@context":"https://schema.org","@type":"WebPage","name":"Battle stories — share how a verse met you","url":"https://todaysdailybattle.com/stories.html","description":"Moderated anonymous submissions about KJV verses and quiet tools on hard days.","isPartOf":{"@type":"WebSite","name":"Today's Daily Battle","url":"https://todaysdailybattle.com"}}
   </script>
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
@@ -133,18 +134,20 @@
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <header class="hero-banner">
+        <header class="hero-banner tdb-dawn-bg--mist">
           <h1>How a verse met me in the battle</h1>
+          <p class="section-note topic-mood-porch">You&rsquo;re already welcome here&mdash;read slow; your line doesn&rsquo;t need polish to belong.</p>
           <p class="hero-tagline">This room is for short, honest lines about a KJV verse, a Battle Plan day, Calm, prayer, or My Study that showed up when you needed it. We read every note; only a few lines surface here, anonymized, when they serve others without exposing you.</p>
+          <p class="section-note util-mt-0_5" style="margin-bottom:0">Your line can be ordinary&mdash;that still counts.</p>
         </header>
 
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">What we publish</h2>
           <p class="section-note">One to four sentences. No real names of third parties, no screenshots of private messages, no medical or legal advice. KJV references welcome. We may lightly edit for clarity and tone; we will not twist your meaning.</p>
           <p class="section-note util-mb-0">Curated examples people already shared live on <a href="testimonials.html">Reader stories</a>&mdash;same heart, older page name.</p>
         </section>
 
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Send yours</h2>
           <p class="section-note">Use <a href="contact.html">Contact</a> and put <strong>Battle story</strong> in the subject line (or the first line of your message). Say whether we may quote anonymously. If you prefer we only read it and never publish, write &ldquo;private&rdquo; in the first line&mdash;we still welcome the encouragement.</p>
         </section>
@@ -220,7 +223,6 @@
     <a href="/reader.html">Chapter reader</a>
     <a href="/bible/tools.html">Study workshop</a>
     <a href="/bible-tool.html">Bible tool</a>
-    <a href="/stories.html" aria-current="page">Battle stories</a>
     <a href="/testimonials.html">Reader stories</a>
     <a href="/journal/">Journal</a>
     <a href="/where-support-goes.html">Where support goes</a>
@@ -264,7 +266,7 @@
         <a href="/mystudy">My Study</a>
         <a href="/calm.html">Calm</a>
         <a href="/mobius.html">Möbius</a>
-        <a href="/plans.html">Battle plans</a>
+        <a href="/plans.html">Courses</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
         <a href="/wins.html">Wins</a>
@@ -305,7 +307,8 @@
   </details>
 
   <p class="footer-humility">We battle. He wins.</p>
-  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): Built solo by Brandon · A quiet KJV porch for real daily battles -->
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet KJV porch for real daily battles &bull; No ads &bull; No tracking &bull; Privacy-first</p>
   <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
@@ -319,12 +322,20 @@
   </div>
 
   <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="site-footer-copy site-footer-legal-line">&copy; Christian Messenger Service. All rights reserved.</p>
   <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
   <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
   <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
 </footer>
   </div>

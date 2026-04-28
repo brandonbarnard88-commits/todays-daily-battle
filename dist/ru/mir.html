@@ -32,6 +32,7 @@
   <meta property="og:locale" content="ru_RU">
   <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="/styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="/styles.css?v=20260423-phase5-perf">
   <link rel="manifest" href="/manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" defer></script>
@@ -81,8 +82,9 @@
     </aside>
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <header class="hero-banner">
+        <header class="hero-banner tdb-dawn-bg--mist">
           <h1>Когда внутри шумно, а снаружи нужно держаться</h1>
+          <p class="section-note util-mb-0_5 topic-mood-porch" lang="ru">Вы уже желанны здесь&mdash;без спешки; стих за раз.</p>
           <p class="real-talk">Тревога может кричать; мир Христова — другого рода. Его можно просить, не притворяясь, что всё уже тихо.</p>
           <p class="section-note" style="margin-top:0.5rem;">Цитируемый текст: <strong>Синодальный перевод</strong> (1876, общественное достояние). Инструменты чаще на английском; в справочнике обычно <abbr title="King James Version" lang="en">KJV</abbr>.</p>
           <div class="cta-group">
@@ -91,7 +93,7 @@
             <a class="btn btn-secondary" href="/prayer-wall.html?tab=with-others">Стена молитвы (EN)</a>
           </div>
         </header>
-        <section class="glass ru-topic-breakdown" lang="ru">
+        <section class="glass tdb-porch-paper-glass ru-topic-breakdown" lang="ru">
           <div class="breakdown">
             <h2>Стих</h2>
             <p class="verse">«Мир оставляю вам, мир Мой даю вам; не так, как мир даёт, даю Я вам.» — Иоанна 14:27 <span class="section-note" style="display:inline;font-size:0.85em;">(Синодальный перевод)</span></p>
@@ -105,12 +107,12 @@
             <p>Медленный выдох. Одно короткое: «Господи, Твой мир». Достаточно одного честного мгновения.</p>
           </div>
         </section>
-        <section class="glass" lang="ru">
+        <section class="glass tdb-porch-paper-glass" lang="ru">
           <h2 class="section-divider">Ещё один стих</h2>
           <p class="section-note">Если пульс всё ещё скачет.</p>
           <p class="verse" style="margin-top:0.75rem;">«И мир Божий, который превыше всякого ума, соблюдёт сердца ваши и помышления ваши во Христе Иисусе.» — Филиппийцам 4:7 <span class="section-note" style="display:inline;font-size:0.85em;">(Синодальный)</span></p>
         </section>
-        <section class="glass ru-mas-ayuda" lang="ru">
+        <section class="glass tdb-porch-paper-glass ru-mas-ayuda" lang="ru">
           <h2 class="section-divider">Инструменты — экран EN</h2>
           <p class="section-note">Английский интерфейс; KJV в справочнике.</p>
           <nav class="cta-group ru-mas-ayuda-tools" aria-label="Инструменты EN" style="display:flex !important;flex-wrap:wrap;gap:0.5rem;">
@@ -120,7 +122,7 @@
             <a class="btn btn-secondary" href="/ru/" hreflang="ru">Хаб RU</a>
           </nav>
         </section>
-        <section class="glass" lang="ru">
+        <section class="glass tdb-porch-paper-glass" lang="ru">
           <h2 class="section-divider">Та же тема, другие языки</h2>
           <div class="cta-group" style="flex-wrap:wrap;gap:0.5rem;">
             <a class="btn btn-secondary" href="/calm.html" hreflang="en">Calm (EN)</a>
@@ -132,7 +134,7 @@
             <a class="btn btn-secondary" href="/id/kecemasan.html" hreflang="id">Kecemasan</a>
           </div>
         </section>
-        <section class="glass" lang="ru">
+        <section class="glass tdb-porch-paper-glass" lang="ru">
           <h2 class="section-divider">Надежда — та же забота, на других языках</h2>
           <p class="section-note">Если тревога не отпускает, откройте дверь надежды на вашем языке.</p>
           <div class="cta-group tdb-mood-door-hope-cluster" style="flex-wrap:wrap;gap:0.5rem;">
@@ -162,7 +164,7 @@
           <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
         </span>
       </nav>
-      <p class="site-footer-pilot-note" lang="ru">Пилот на русском. Инструменты — английский экран; в справочнике обычно <abbr title="King James Version" lang="en">KJV</abbr>.</p>
+      <p class="site-footer-pilot-note" lang="ru">Пилот на русском. Когда инструмент открывается на английском, вход остаётся понятным; в справочнике на экране обычно <abbr title="King James Version" lang="en">KJV</abbr>. Можно остановиться здесь — без спешки сегодня.</p>
       <nav class="site-footer-essentials" aria-label="Основные ссылки">
         <a href="/ru/">Хаб RU</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
         <a href="/">English home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
@@ -172,9 +174,18 @@
         <button type="button" id="share-page" class="share-page-btn" aria-label="Поделиться страницей">Поделиться страницей</button>
       </p>
       <p class="footer-humility">Мы сражаемся. Он побеждает.</p>
-      <p class="site-footer-updated">Обновлено: <span id="footer-date">April 23, 2026</span></p>
+      <p class="site-footer-updated">Обновлено: <span id="footer-date">April 28, 2026</span></p>
       <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
-    </footer>
+    
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
+
+</footer>
   </div>
   <script type="module" src="/config.js"></script>
   <script type="module" src="/script.js?v=20260423-phase5-perf" data-cfasync="false"></script>

@@ -1539,7 +1539,7 @@
         })
         .catch(function () {
           if (recentEmpty) {
-            recentEmpty.textContent = 'Could not load saved previews on this device.';
+            recentEmpty.textContent = 'Saved previews did not load on this device—that is all right. Try again in a moment.';
             recentEmpty.hidden = false;
           }
         });
@@ -1755,7 +1755,7 @@
               a0.click();
               trackEvent('verse_image_downloaded', { ref_len: ref.length, qr: optsDl.includeQr ? 1 : 0, branding: optsDl.includeBranding === false ? 0 : 1 });
             } catch (e) {
-              setStatus('Download failed in this browser.');
+              setStatus('Download did not start in this browser—that is all right. Try again or save another way if your device allows.');
             }
             setStatus('Download started.');
             return;
@@ -1816,7 +1816,7 @@
               setStatus('Shared.');
             })
             .catch(function () {
-              setStatus('Share not available — use Post on X or Download PNG.');
+              setStatus('Share is not available on this path—that is all right. Use Post on X or Download PNG.');
             });
         }, 'image/png');
       });
@@ -1923,9 +1923,118 @@
     var uog = document.getElementById('verse-image-uog-prompts');
     if (!uog) return;
     var statusEl = document.getElementById('verse-image-uog-copy-status');
+    var listEl = document.getElementById('verse-image-uog-preset-list');
+    var tabButtons = uog.querySelectorAll('.verse-image-uog-cat-btn[data-tdb-uog-cat]');
+
+    function setUogFilter(cat) {
+      if (!listEl) return;
+      var c = String(cat || 'all');
+      listEl.setAttribute('data-tdb-uog-active-cat', c);
+      var rows = listEl.querySelectorAll('.verse-image-uog-preset-row');
+      for (var i = 0; i < rows.length; i++) {
+        var r = rows[i];
+        var rowCat = r.getAttribute('data-tdb-uog-cat') || '';
+        var show = c === 'all' || rowCat === c;
+        r.hidden = !show;
+      }
+      for (var j = 0; j < tabButtons.length; j++) {
+        var b = tabButtons[j];
+        var sel = b.getAttribute('data-tdb-uog-cat') === c;
+        b.setAttribute('aria-selected', sel ? 'true' : 'false');
+      }
+    }
+
     uog.addEventListener('click', function (ev) {
       var t = ev.target;
       if (!t || t.nodeName !== 'BUTTON' || !t.getAttribute) return;
+      if (t.getAttribute('data-tdb-uog-copy-summer') === '1') {
+        if (!listEl) return;
+        var summerRows = listEl.querySelectorAll('.verse-image-uog-preset-row[data-tdb-uog-cat="summer"] .verse-image-uog-preset-body');
+        var parts = [];
+        for (var s = 0; s < summerRows.length; s++) {
+          var p = String(summerRows[s].textContent || '').replace(/\s+/g, ' ').trim();
+          if (p) parts.push(p);
+        }
+        var block = parts.join('\n\n');
+        if (!block) return;
+        function showSummerCopied() {
+          var old = t.textContent;
+          t.textContent = 'Copied';
+          if (statusEl) statusEl.textContent = 'Summer prompts (' + parts.length + ') copied. Paste into your image tool.';
+          setTimeout(function () {
+            t.textContent = old;
+          }, 1800);
+        }
+        function fb() {
+          try {
+            var ta = document.createElement('textarea');
+            ta.value = block;
+            ta.setAttribute('readonly', '');
+            ta.style.position = 'fixed';
+            ta.style.left = '-9999px';
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+            showSummerCopied();
+          } catch (e) {}
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(block).then(showSummerCopied).catch(fb);
+        } else {
+          fb();
+        }
+        trackEvent('verse_image_uog_summer_copied', { n: parts.length, len: block.length });
+        return;
+      }
+      if (t.getAttribute('data-tdb-uog-copy-fall') === '1') {
+        if (!listEl) return;
+        var fallRows = listEl.querySelectorAll('.verse-image-uog-preset-row[data-tdb-uog-cat="harvest"] .verse-image-uog-preset-body');
+        var fallParts = [];
+        for (var f = 0; f < fallRows.length; f++) {
+          var fp = String(fallRows[f].textContent || '').replace(/\s+/g, ' ').trim();
+          if (fp) fallParts.push(fp);
+        }
+        var fallBlock = fallParts.join('\n\n');
+        if (!fallBlock) return;
+        function showFallCopied() {
+          var oldF = t.textContent;
+          t.textContent = 'Copied';
+          if (statusEl) statusEl.textContent = 'Fall harvest prompts (' + fallParts.length + ') copied. Paste into your image tool.';
+          setTimeout(function () {
+            t.textContent = oldF;
+          }, 1800);
+        }
+        function fallFb() {
+          try {
+            var ta2 = document.createElement('textarea');
+            ta2.value = fallBlock;
+            ta2.setAttribute('readonly', '');
+            ta2.style.position = 'fixed';
+            ta2.style.left = '-9999px';
+            document.body.appendChild(ta2);
+            ta2.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta2);
+            showFallCopied();
+          } catch (e2) {}
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(fallBlock).then(showFallCopied).catch(fallFb);
+        } else {
+          fallFb();
+        }
+        trackEvent('verse_image_uog_fall_copied', { n: fallParts.length, len: fallBlock.length });
+        return;
+      }
+      if (t.classList && t.classList.contains('verse-image-uog-cat-btn')) {
+        var fc = t.getAttribute('data-tdb-uog-cat');
+        if (fc) {
+          setUogFilter(fc);
+          trackEvent('verse_image_uog_filter', { cat: fc });
+        }
+        return;
+      }
       if (t.getAttribute('data-verse-image-uog-copy') !== '1') return;
       var row = t.closest && t.closest('.verse-image-uog-preset-row');
       var body = row && row.querySelector && row.querySelector('.verse-image-uog-preset-body');

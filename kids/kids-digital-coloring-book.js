@@ -526,7 +526,7 @@
       };
       img.onerror = function () {
         if (pageSrc(pg.file) !== lineArtSrc) return;
-        showToast(toast, 'That picture did not load. Try another or check your connection.');
+          showToast(toast, 'That picture did not load—that is all right. Try another or check your connection.');
         lineImgReady = false;
         wall = new Uint8Array(W * H);
         redrawDisplay();

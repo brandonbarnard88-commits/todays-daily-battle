@@ -15,8 +15,11 @@
   <link rel="canonical" href="https://todaysdailybattle.com/bible/tools.html">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="../styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="../styles.css?v=20260423-phase5-perf">
+  <link rel="preload" href="bible-hub.css?v=20260331edge" as="style">
   <link rel="stylesheet" href="bible-hub.css?v=20260331edge">
+  <link rel="preload" href="bible-tools.css?v=20260330surfaces" as="style">
   <link rel="stylesheet" href="bible-tools.css?v=20260330surfaces">
   <link rel="manifest" href="../manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
@@ -64,6 +67,7 @@
         <header class="bible-hub-hero bible-tools-hero">
           <p class="bible-tools-eyebrow">Study workshop</p>
           <h1>Tools</h1>
+          <p class="section-note topic-mood-porch">You&rsquo;re already welcome here&mdash;open one shelf, or only read; this workshop doesn&rsquo;t clock you.</p>
           <p class="bible-hub-tagline">A calm workshop for the King James Bible—map, memorize, browse context, and search the text.</p>
           <p class="bible-tools-intro">Quiet tools to help you understand and teach the KJV. Everything here is built to stay light and fast; open each tool once while online so it is ready when you need it offline.</p>
         </header>
@@ -72,7 +76,7 @@
 
         <p class="bible-hub-tagline tdb-kjv-dict-hint util-mb-0_75" role="note">Tap any underlined KJV word for a short, plain meaning.</p>
 
-        <section class="bible-tools-lanes glass" aria-labelledby="bible-tools-lanes-title">
+        <section class="bible-tools-lanes glass tdb-porch-paper-glass" aria-labelledby="bible-tools-lanes-title">
           <h2 id="bible-tools-lanes-title" class="bible-tools-group-title">Start here in 30 seconds</h2>
           <div class="bible-tools-lanes-grid">
             <a class="bible-tools-lane-card" href="tools.html?place=jerusalem#verse-maps-section">
@@ -141,7 +145,7 @@
           <h2 id="bible-tools-group-place" class="bible-tools-group-title">Maps &amp; place</h2>
           <p class="bible-tools-group-lead">Start with geography when the text names towns, rivers, or regions.</p>
 
-        <section id="verse-maps-section" class="verse-maps-section glass" role="search" aria-label="Verse Maps">
+        <section id="verse-maps-section" class="verse-maps-section glass tdb-porch-paper-glass" role="search" aria-label="Verse Maps">
           <div class="verse-maps-header">
             <h3 class="verse-maps-title">Verse Maps</h3>
             <p class="verse-maps-hint">Type a place to see it on the map and related verses.</p>
@@ -177,13 +181,13 @@
           <h2 id="bible-tools-group-practice" class="bible-tools-group-title">Practice &amp; recall</h2>
           <p class="bible-tools-group-lead">Gentle drills—fill-in memory and a short quiz tied to today&rsquo;s chapter.</p>
 
-        <section id="verse-memory-section" class="verse-memory-section glass" role="region" aria-label="Verse Memory">
+        <section id="verse-memory-section" class="verse-memory-section glass tdb-porch-paper-glass" role="region" aria-label="Verse Memory">
           <h3 class="verse-memory-title">Verse Memory</h3>
           <p class="verse-memory-hint" id="verse-memory-hint">Fill in the blank. From today's chapter or this week's theme.</p>
           <button type="button" id="memorize-verse-btn" class="memorize-verse-btn">Memorize a Verse</button>
         </section>
 
-        <section id="bible-quiz-section" class="bible-quiz-section glass" role="region" aria-label="Bible Quiz">
+        <section id="bible-quiz-section" class="bible-quiz-section glass tdb-porch-paper-glass" role="region" aria-label="Bible Quiz">
           <h3 class="bible-quiz-title">Today's Quiz</h3>
           <p class="bible-quiz-hint" id="bible-quiz-hint">Test your knowledge of today's chapter.</p>
           <button type="button" id="take-quiz-btn" class="take-quiz-btn">Take Today's Quiz</button>
@@ -194,7 +198,7 @@
           <h2 id="bible-tools-group-study" class="bible-tools-group-title">Study &amp; search</h2>
           <p class="bible-tools-group-lead">Book context, word glosses, and a full concordance—everything stays on your device until you choose to share.</p>
 
-        <section id="book-intros" class="concordance-section glass book-intros-section" role="region" aria-labelledby="book-intros-title">
+        <section id="book-intros" class="concordance-section glass tdb-porch-paper-glass book-intros-section" role="region" aria-labelledby="book-intros-title">
           <div class="concordance-section-header">
             <h3 id="book-intros-title" class="concordance-section-title">Book introductions</h3>
             <p class="concordance-hint">Short orientation for each book: what fight it serves, a few anchor verses, and one small step. The same text appears in the <a href="../reader.html">chapter reader</a> and in <a href="../bible-tool.html">Bible Tool</a> after a lookup—this grid is the place to browse them all. Plan tie-ins live on <a href="../plans.html">Battle Plans</a>.</p>
@@ -206,7 +210,7 @@
           <div id="hub-book-intro-body" class="hub-book-intro-body section-note util-mt-0_75 util-mb-1" aria-live="polite"></div>
         </section>
 
-        <section id="kjv-word-helps" class="concordance-section glass kjv-word-helps-section" role="region" aria-labelledby="kjv-word-helps-title">
+        <section id="kjv-word-helps" class="concordance-section glass tdb-porch-paper-glass kjv-word-helps-section" role="region" aria-labelledby="kjv-word-helps-title">
           <div class="concordance-section-header">
             <h3 id="kjv-word-helps-title" class="concordance-section-title">KJV word helps</h3>
             <p class="concordance-hint">Short glosses for wording that often misleads modern readers. Tap the headword to search the concordance below; tap a verse to open it in the Bible Tool. After a lookup, the Tool&rsquo;s study companion can show glosses for words in <em>that</em> verse only—<strong>this</strong> list is the full A&ndash;Z index.</p>
@@ -214,7 +218,7 @@
           <ul id="kjv-word-helps-list" class="kjv-word-helps-list" aria-label="KJV word help entries"></ul>
         </section>
 
-        <section id="concordance-section" class="concordance-section glass" role="search" aria-label="Concordance">
+        <section id="concordance-section" class="concordance-section glass tdb-porch-paper-glass" role="search" aria-label="Concordance">
           <div class="concordance-section-header">
             <h3 class="concordance-section-title">Concordance</h3>
             <p class="concordance-hint">Type a word to see all verses that use it.</p>
@@ -396,7 +400,7 @@
         <a href="/mystudy">My Study</a>
         <a href="/calm.html">Calm</a>
         <a href="/mobius.html">Möbius</a>
-        <a href="/plans.html">Battle plans</a>
+        <a href="/plans.html">Courses</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
         <a href="/wins.html">Wins</a>
@@ -437,7 +441,8 @@
   </details>
 
   <p class="footer-humility">We battle. He wins.</p>
-  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): Built solo by Brandon · A quiet KJV porch for real daily battles -->
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet KJV porch for real daily battles &bull; No ads &bull; No tracking &bull; Privacy-first</p>
   <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
@@ -451,12 +456,20 @@
   </div>
 
   <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="site-footer-copy site-footer-legal-line">&copy; Christian Messenger Service. All rights reserved.</p>
   <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
   <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
   <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
 </footer>
 

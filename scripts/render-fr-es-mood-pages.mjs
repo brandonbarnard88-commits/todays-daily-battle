@@ -148,7 +148,7 @@ ${relatedBtns}
 ${LANG_SWITCHER_INNER}
     </span>
   </nav>
-  <p class="site-footer-pilot-note" lang="fr">Page pilote en français. Outils du site en anglais ; Bible à l’écran en <abbr title="King James Version" lang="en">KJV</abbr>.</p>
+  <p class="site-footer-pilot-note" lang="fr">Page pilote en français. Quand un outil s’ouvre en anglais, l’entrée reste lisible ; le texte biblique à l’écran est en général <abbr title="King James Version" lang="en">KJV</abbr>. Tu peux t’arrêter ici sans pression aujourd’hui.</p>
   <nav class="site-footer-essentials" aria-label="Liens principaux">
     <a href="/fr/">Accueil FR</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/">English home</a>
@@ -299,7 +299,7 @@ ${relatedBtns}
 ${LANG_SWITCHER_INNER}
     </span>
   </nav>
-  <p class="site-footer-pilot-note" lang="es">Página en español. Herramientas en inglés; Biblia en pantalla en <abbr title="King James Version" lang="en">KJV</abbr>.</p>
+  <p class="site-footer-pilot-note" lang="es">Página en español. Cuando una herramienta abre en inglés, la puerta sigue siendo clara; la Escritura en pantalla suele ser <abbr title="King James Version" lang="en">KJV</abbr>. Sin prisa si hoy solo te quedas aquí.</p>
   <nav class="site-footer-essentials" aria-label="Enlaces principales">
     <a href="/es/">Inicio ES</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/">English home</a>

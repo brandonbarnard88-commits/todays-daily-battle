@@ -20,15 +20,22 @@
   <meta property="og:type" content="website">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="../styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="../styles.css?v=20260423-phase5-perf">
+  <link rel="preload" href="kids-battle.css?v=20260405kidsfollowup" as="style">
   <link rel="stylesheet" href="kids-battle.css?v=20260405kidsfollowup">
+  <link rel="preload" href="kids-hub-play.css?v=20260426lilshep2" as="style">
+  <link rel="stylesheet" href="kids-hub-play.css?v=20260426lilshep2">
+  <link rel="preload" href="kids-kids-world.css?v=20260428kids100" as="style">
+  <link rel="stylesheet" href="kids-kids-world.css?v=20260428kids100">
+  <link rel="preload" href="kids-page-sky.css?v=20260326playful" as="style">
   <link rel="stylesheet" href="kids-page-sky.css?v=20260326playful">
   <link rel="manifest" href="../manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="dark-mode kids-battle-page kids-sky-enabled kids-sky-playful">
+<body class="dark-mode kids-battle-page kids-sky-enabled kids-sky-playful kids-world-surface">
   <script nonce="tdb2025s">
     (function () {
       try {
@@ -110,18 +117,116 @@
 
     <main class="app-content" id="main-content" role="main">
       <div class="content-inner kids-battle-inner">
-        <span class="kids-faith-trail-badge" aria-label="Battle Trail badge" id="kids-greeting-badge">🔥 Battle Trail</span>
-        <button type="button" class="kids-share-streak" id="kids-share-streak" aria-label="Share your streak">🔥 Share Streak!</button>
+        <p class="section-note topic-mood-porch kids-site-porch" lang="en">You&rsquo;re already welcome here&mdash;fun first, short moments, tiny KJV line. No rush.</p>
+        <div class="kids-hub-play">
+          <section class="kids-play-zone kids-play-zone--shepherdfield kids-wonder" aria-labelledby="kids-hub-play-h">
+            <div class="kids-play-zone-inner" style="grid-template-columns:1fr">
+              <div>
+                <h2 class="sr-only" id="kids-hub-play-h">Start here</h2>
+                <div class="kids-buddy-block kids-buddy-block--top" style="margin-bottom:0.5rem">
+                  <span class="sr-only">Little Shepherd, your Bible friend. The big story button opens a KJV read-aloud first. Tap my picture for a fun line, or use Hear it if your device can speak. More tools for families are below on this page.</span>
+                  <div class="kids-buddy-identity">
+                    <div class="kids-buddy-mascot-row">
+                      <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, tap to hear a new line">
+                        <span class="kids-shepherd-hero-wrap">
+                          <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="shepherd-mascot-welcome.svg" width="200" height="220" alt="Little Shepherd waves hello" decoding="async" loading="lazy"/>
+                        </span>
+                      </button>
+                      <div class="kids-buddy-bubble kids-buddy-bubble--with-mascot" id="kids-little-shepherd-bubble" lang="en">
+                        <p class="kids-bubble-hi">I&rsquo;m <strong class="kids-bubble-name">Little Shepherd</strong></p>
+                        <p class="kids-bubble-voice" id="kids-little-shepherd-line" aria-live="polite">&nbsp;</p>
+                        <p class="kids-bubble-hear-wrap">
+                          <button type="button" class="kids-shepherd-hear" id="kids-shepherd-hear" hidden aria-label="Hear this line with your device speaker">Hear it</button>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="kids-buddy-name" style="margin-top:0.35rem"><span class="kids-buddy-name-strong">Little Shepherd</span> <span class="kids-buddy-title">your friend right here</span></p>
+                  </div>
+                </div>
+                <p class="kids-wonder-kidline">Let&rsquo;s do something with Jesus.</p>
+                <p class="kids-companion-sheep-shout" id="kids-companion-sheep-shout" hidden aria-live="polite"></p>
+                <p class="kids-sheep-name-row">
+                  <label class="kids-sheep-name-label" for="kids-companion-sheep">Name your little sheep (optional, saved on this device)</label>
+                  <input type="text" class="kids-companion-sheep-input" id="kids-companion-sheep" name="companion-sheep" maxlength="20" autocomplete="off" inputmode="text" placeholder="e.g. Fluff"/>
+                </p>
+                <div class="kids-sheep-run" aria-hidden="true"><span class="kids-sheep-run-emoji" aria-hidden="true">🐑</span><span class="kids-sheep-run-emoji kids-sheep-run-emoji--late" aria-hidden="true">🐑</span></div>
+                <div class="kids-magic-hero-cta" role="group" aria-label="Bible fun—start here">
+                  <a class="kids-magic-btn kids-magic-story" href="corner.html?random=1"><span>Tell me a Bible story</span><small>tap for a KJV read-aloud</small></a>
+                </div>
+                <div class="kids-magic-duo" role="group" aria-label="Two more quick fun taps">
+                  <a class="kids-magic-btn kids-magic-color" href="../coloring.html?story=jesus-children">Color<small>paint a scene</small></a>
+                  <a class="kids-magic-btn kids-magic-game" href="match-buddies.html">Bible game<small>match pairs</small></a>
+                </div>
+                <p class="kids-sound-fx-row">
+                  <label class="kids-sound-fx-label"><input type="checkbox" id="kids-sound-fx-optin" class="kids-sound-fx-optin"> Soft chime on the big story button (one-time opt-in; saved on this device)</label>
+                </p>
+                <p class="kids-ambient-fx-row">
+                  <label class="kids-sound-fx-label" for="kids-ambient-optin"><input type="checkbox" id="kids-ambient-optin" class="kids-ambient-fx-cb"> Pasture air: soft wind, gentle hum, and quiet tones (very low; this tab only; saved here)</label>
+                </p>
+                <details class="kids-magic-more">
+                  <summary class="kids-magic-more-summary">Let&rsquo;s play<small>more adventures</small></summary>
+                  <div class="kids-magic-grid kids-magic-grid--more" role="group" aria-label="More Bible fun for kids">
+                    <a class="kids-magic-btn kids-magic-journey" href="corner.html?journey=1">Gentle Journey<small>next calm story</small></a>
+                    <a class="kids-magic-btn kids-magic-loop" href="../kids-corner.html">Quick loop<small>short cartoon</small></a>
+                    <a class="kids-magic-btn kids-magic-shelf" href="corner.html">Story shelf<small>pick a card</small></a>
+                    <a class="kids-magic-btn kids-magic-little" href="../little-ones.html">Calm first stop<small>little-ones</small></a>
+                    <a class="kids-magic-btn kids-magic-mini" href="lost-sheep.html">Find the sheep<small>tap game</small></a>
+                    <a class="kids-magic-btn kids-magic-mini" href="memory-flock.html">Memory flock<small>match pairs</small></a>
+                    <a class="kids-magic-btn kids-magic-night" href="good-night.html">Good night<small>prayer + Shepherd</small></a>
+                    <a class="kids-magic-btn kids-magic-mini" href="shepherds-path.html">Shepherd&rsquo;s Path<small>stepping stones</small></a>
+                    <a class="kids-magic-btn kids-magic-shelf" href="my-pasture.html">My pasture<small>your field</small></a>
+                  </div>
+                </details>
+                <p class="kids-play-hero-sub" role="note" style="text-align:center;margin:0.5rem 0 0.35rem">KJV. Need help? Read with someone you love.</p>
+                <div class="kids-today-adventure" id="kids-today-adventure" role="region" aria-labelledby="kids-today-adventure-h">
+                  <h3 class="kids-today-adventure-h" id="kids-today-adventure-h">Today&rsquo;s adventure</h3>
+                  <p class="kids-today-adventure-line" id="kids-today-adventure-line">&nbsp;</p>
+                  <a class="kids-today-adventure-go kids-magic-story" id="kids-today-adventure-link" href="corner.html?random=1">Let&rsquo;s go</a>
+                </div>
+                <div class="kids-pasture-card" id="kids-pasture-strip" data-stage="0" data-token-bloom="0" role="img" aria-labelledby="kids-pasture-aria">
+                  <p class="kids-pasture-title" id="kids-pasture-title">Your quiet pasture</p>
+                  <div class="kids-pasture-illu" aria-hidden="true">
+                    <span class="kids-pasture-bloom pt-a" aria-hidden="true"></span>
+                    <span class="kids-pasture-bloom pt-b" aria-hidden="true"></span>
+                    <span class="kids-pasture-bloom pt-c" aria-hidden="true"></span>
+                    <span class="kids-pasture-bloom pt-d" aria-hidden="true"></span>
+                    <span class="kids-pasture-sheep" aria-hidden="true"></span>
+                    <span class="kids-pasture-sheep2" aria-hidden="true"></span>
+                    <span class="kids-pasture-sheep3" aria-hidden="true"></span>
+                    <span class="kids-pasture-flower1" aria-hidden="true"></span>
+                    <span class="kids-pasture-flower2" aria-hidden="true"></span>
+                    <span class="kids-pasture-tree" aria-hidden="true"></span>
+                    <span class="kids-pasture-fruit" aria-hidden="true"></span>
+                    <span class="kids-pasture-brook" aria-hidden="true"></span>
+                    <span class="kids-pasture-fence" aria-hidden="true"></span>
+                  </div>
+                  <p class="kids-pasture-note" id="kids-pasture-label">A fresh patch of grass. Keep exploring.</p>
+                  <p class="kids-sheep-tokens" id="kids-sheep-tokens-line" aria-live="polite"></p>
+                  <p class="sr-only" id="kids-pasture-aria">Story opens on this device: loading.</p>
+                  <p class="sr-only" id="kids-pasture-bloom-announce" role="status" aria-live="polite" aria-atomic="true"></p>
+                  <div class="sr-only">
+                    <span id="kids-play-progress-pct">0%</span>
+                    <progress id="kids-play-progress-bar" max="307" value="0">0 / 307</progress>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <a class="kids-to-families-cta" href="#families">Grown-ups &amp; families: the rest of Kids Battle</a>
+        <section class="kids-family-deck" id="families" aria-label="Verse, streak, paths, and family tools">
+        <span class="kids-faith-trail-badge" aria-label="Faith trail badge" id="kids-greeting-badge">Faith Trail</span>
+        <button type="button" class="kids-share-streak" id="kids-share-streak" aria-label="Share your streak">Share the streak</button>
         <header class="kids-battle-hero">
           <h1 class="kids-battle-title">Kids Battle</h1>
-          <p class="kids-battle-tagline" id="kids-hero-tagline">Two minutes. One verse. One prayer. You're a hero!</p>
+          <p class="kids-battle-tagline" id="kids-hero-tagline">Two minutes. One verse. One quiet prayer. Small is enough.</p>
         </header>
 
         <p class="section-note kids-family-kids-crossnav" style="margin: 0 auto 1.1rem; max-width: 42rem; text-align: center; line-height: 1.55;">
           Parents: <a href="../family.html">Family hub</a><span aria-hidden="true"> · </span><a href="../printables.html">Print hub</a><span aria-hidden="true"> · </span><a href="../yearly-rhythm.html">Year-round rhythm</a><span aria-hidden="true"> · </span><a href="../family-armor.html">Family Armor</a>
         </p>
 
-        <section class="glass" role="region" aria-label="Little ones first stop">
+        <section class="glass tdb-porch-paper-glass" role="region" aria-label="Little ones first stop">
           <h2 class="kids-section-title">Need one calmer first stop?</h2>
           <p class="section-note">If you want the verse, one story, and matching coloring in one place, start at <a href="../little-ones.html">For the Little Ones</a>. The full Kids Battle home still stays here when you want all the paths.</p>
           <div class="cta-group">
@@ -130,7 +235,7 @@
           </div>
         </section>
 
-        <section class="kids-first-steps glass" role="region" aria-label="Quick start paths for kids and families">
+        <section class="kids-first-steps glass tdb-porch-paper-glass" role="region" aria-label="Quick start paths for kids and families">
           <div class="kids-first-steps-copy">
             <h2 class="kids-section-title">Start here in 2 minutes</h2>
             <p class="kids-first-steps-lead">If the day is loud, don&rsquo;t overthink it. Pick one lane, do one small thing, and let mercy carry the rest.</p>
@@ -189,7 +294,7 @@
           </div>
         </section>
 
-        <section class="kids-path-picker glass" role="region" aria-label="Choose loops, stories, coloring, or calm prayer habits">
+        <section class="kids-path-picker glass tdb-porch-paper-glass" role="region" aria-label="Choose loops, stories, coloring, or calm prayer habits">
           <h2 class="kids-section-title">Pick a path</h2>
           <p class="kids-path-picker-desc">Same Jesus—friendly doors. Loops for a quick replay, full stories when you have a few minutes, coloring when little hands want to make something, and calm prayer habits when you want screen-light time with God.</p>
           <p class="section-note util-mb-0_75">Need the family map? <a href="../little-ones.html">For the Little Ones</a> is the calm all-in-one first stop, <a href="../family.html">Family hub</a> is the parent doorway, <a href="corner.html">Bible Story Library</a> is for read-aloud cards, <a href="../kids-corner.html">Bible Loop Library</a> is for quick replays, and <a href="../coloring.html">Color &amp; Tell</a> is for hands-busy retelling.</p>
@@ -226,7 +331,7 @@
           </div>
         </section>
 
-        <section class="kids-first-win glass" role="region" aria-label="Starter path for first wins">
+        <section class="kids-first-win glass tdb-porch-paper-glass" role="region" aria-label="Starter path for first wins">
           <h2 class="kids-section-title">First Win Path</h2>
           <p class="section-note">If you are brand new, start here: one story, one response, one small finish. Zechariah 4:10 reminds us not to despise the day of small things.</p>
           <div class="kids-first-win-steps" role="list" aria-label="Three first-win steps">
@@ -246,7 +351,7 @@
           <p id="kids-first-win-status" class="kids-first-win-status section-note" aria-live="polite">Start with one story and your first gentle badge will land here.</p>
         </section>
 
-        <section class="glass" role="region" aria-label="Classroom and church team path">
+        <section class="glass tdb-porch-paper-glass" role="region" aria-label="Classroom and church team path">
           <h2 class="kids-section-title">For private Christian schools &amp; church teams</h2>
           <p class="section-note util-mb-0_5">Built to be fun for kids and usable for leaders: KJV-only memory, short rhythms, and print-friendly handoff tools.</p>
           <ul class="section-note util-mb-0_75" aria-label="Classroom-ready lesson rhythm">
@@ -263,7 +368,7 @@
           </div>
         </section>
 
-        <section class="kids-weekly-paths glass" role="region" aria-label="Weekly kids plans and offline adventure kit">
+        <section class="kids-weekly-paths glass tdb-porch-paper-glass" role="region" aria-label="Weekly kids plans and offline adventure kit">
           <h2 class="kids-section-title">Weekly kids paths</h2>
           <p class="kids-weekly-paths-lead">Use the stories already here, then carry them through the week with one short plan or one printable. Nothing needs a new account.</p>
           <div class="kids-weekly-path-grid" role="list" aria-label="Weekly kids plan cards">
@@ -301,7 +406,7 @@
 
         <p class="section-note util-mb-0_75 kids-mobius-ribbon-nudge" id="kids-mobius-ribbon-nudge">Grown-ups: the <a href="../mobius.html">Möbius</a> page is one ribbon with no dead end—at home, you can twist a paper strip, tape the ends, and hide a tiny verse inside the loop. Fun first; KJV ref stays small.</p>
 
-        <section class="kids-library-home-progress glass" role="region" aria-label="Bible story library progress">
+        <section class="kids-library-home-progress glass tdb-porch-paper-glass" role="region" aria-label="Bible story library progress">
           <h2 class="kids-section-title">Bible Story Library</h2>
           <p class="section-note util-mb-0_5"><span id="kids-home-story-count-badge" class="kids-story-count-badge">307 Bible stories</span> — read, listen, and quiz in the Library.</p>
           <p class="section-note util-mb-0_5 kids-lib-cache-hint">If a story opens without read-along words or quiz, hard-refresh (pull down on your phone, or Ctrl+Shift+R / Cmd+Shift+R on a computer) so the newest library loads.</p>
@@ -319,12 +424,12 @@
           <div id="kids-continue-carousel" class="kids-continue-carousel" role="region" aria-label="Continue reading Bible stories"></div>
           <div class="kids-reflection-buttons">
             <a href="all-stories.html" class="btn kids-btn-primary">Browse All 307 Stories</a>
-            <a href="corner.html?random=1" class="btn kids-btn-memory">Random Story</a>
+            <a href="corner.html?random=1" class="btn kids-btn-memory kids-surprise-random">Random Story</a>
             <button type="button" id="global-quiz-challenge" class="btn btn-secondary">Quiz Challenge (5 Questions)</button>
           </div>
         </section>
 
-        <section class="kids-search-section glass" role="region" aria-label="Find verses by topic">
+        <section class="kids-search-section glass tdb-porch-paper-glass" role="region" aria-label="Find verses by topic">
           <h2 class="kids-section-title">Find a verse about…</h2>
           <div id="kids-topic-buttons" class="kids-topic-buttons kids-topic-buttons-big" aria-label="Topic buttons">
             <!-- Filled by kids-battle.js from KIDS_TOPICS -->
@@ -339,7 +444,7 @@
         </section>
 
         <!-- Comic panels: clickable links to relevant stories in corner.html -->
-        <section class="kids-comic-panels glass" role="region" aria-label="Comic illustration">
+        <section class="kids-comic-panels glass tdb-porch-paper-glass" role="region" aria-label="Comic illustration">
           <h2 class="kids-section-title sr-only">Today's Story</h2>
           <div class="kids-panels-row">
             <a href="corner.html?story=david" class="kids-panel" aria-label="Read the David and Goliath story" data-prompt="Young David with sling, heroic pose, comic book style, bold colors, speech bubble, big eyes, kid-friendly, no violence, Sunday school illustration">
@@ -360,7 +465,7 @@
           </div>
         </section>
 
-        <section class="kids-battle-verse glass" role="region" aria-label="Today's verse for kids">
+        <section class="kids-battle-verse glass tdb-porch-paper-glass" role="region" aria-label="Today's verse for kids">
           <div class="speech-bubble verse-bubble">
             <h2 class="kids-section-title kids-verse-title-row">Today's Verse <button type="button" id="kids-verse-speak" class="kids-speak-btn" aria-label="Listen to verse">🔊 Tap to hear</button></h2>
             <p id="kids-home-verse-bridge" class="kids-home-verse-bridge">This card will sync to today&rsquo;s KJV verse from home, then put it in kid-ready words.</p>
@@ -375,14 +480,14 @@
           </div>
         </section>
 
-        <section class="kids-battle-prayer glass" role="region" aria-label="30-second prayer">
+        <section class="kids-battle-prayer glass tdb-porch-paper-glass" role="region" aria-label="30-second prayer">
           <div class="speech-bubble prayer-bubble">
             <h2 class="kids-section-title">Say This Prayer (30 seconds)</h2>
             <p class="kids-prayer-text" id="kids-prayer-text">Hey God, help me be brave like David! Amen!</p>
           </div>
         </section>
 
-        <section class="kids-battle-reflection glass" role="region" aria-label="Daily reflection">
+        <section class="kids-battle-reflection glass tdb-porch-paper-glass" role="region" aria-label="Daily reflection">
           <h2 class="kids-section-title">What did you notice in that verse?</h2>
           <textarea id="kid-reflection" class="kid-reflection" placeholder="e.g., 'God helps me be brave!'" rows="2" maxlength="300" aria-label="Your thought about the verse"></textarea>
           <span id="kid-reflection-saved" class="kid-reflection-saved hidden" aria-live="polite">Saved! ⭐</span>
@@ -392,7 +497,7 @@
           </div>
         </section>
 
-        <section class="kids-bible-cartoon glass" role="region" aria-label="Today's story illustration">
+        <section class="kids-bible-cartoon glass tdb-porch-paper-glass" role="region" aria-label="Today's story illustration">
           <div id="kids-cartoon-container">
             <div class="bible-cartoon cartoon-slide-david" id="kids-bible-cartoon">
               <img src="panel-david.svg" alt="David with slingshot" class="cartoon-img" id="kids-cartoon-img" width="200" height="160" loading="lazy" decoding="async">
@@ -402,17 +507,17 @@
           <p class="section-note kids-cartoon-library-cta"><a href="corner.html" class="kids-cartoon-link" aria-label="Open full story library in Kids Story Library">Open full story library →</a></p>
         </section>
 
-        <section class="kids-story-library-cta glass" role="region" aria-label="All Bible cartoon stories">
+        <section class="kids-story-library-cta glass tdb-porch-paper-glass" role="region" aria-label="All Bible cartoon stories">
           <h2 class="kids-section-title">All Bible Cartoon Stories</h2>
           <p class="section-note">Open the full story library to swipe and watch every available Bible cartoon story.</p>
           <div class="kids-reflection-buttons">
             <a href="corner.html" class="btn kids-btn-primary">Open Full Story Library</a>
-            <a href="corner.html?random=1" class="btn kids-btn-memory">Random Story</a>
+            <a href="corner.html?random=1" class="btn kids-btn-memory kids-surprise-random">Random Story</a>
             <a href="corner.html?journey=1" class="btn btn-secondary">Start Guided Journey</a>
           </div>
         </section>
 
-        <section class="kids-battle-streak glass" role="region" aria-label="Streak tracker">
+        <section class="kids-battle-streak glass tdb-porch-paper-glass" role="region" aria-label="Streak tracker">
           <h2 class="kids-section-title">Your Streak</h2>
           <p id="kids-come-back-nudge" class="kids-come-back-nudge hidden">Come back tomorrow! 🔥 Don't break your streak!</p>
           <p class="kids-streak-display" id="kids-streak-display">🔥 0 days — start today!</p>
@@ -421,7 +526,7 @@
           <button type="button" id="kids-remind-btn" class="btn kids-btn-remind" aria-label="Set a daily reminder so you don't miss a day">🔔 Remind me when I miss a day</button>
         </section>
 
-        <section id="kids-story-of-day" class="kids-story-of-day glass" role="region" aria-label="Story of the Day">
+        <section id="kids-story-of-day" class="kids-story-of-day glass tdb-porch-paper-glass" role="region" aria-label="Story of the Day">
           <h2 class="kids-section-title">Story of the Day</h2>
           <div id="kids-story-of-day-inner" class="kids-story-of-day-inner">
             <a href="corner.html" class="kids-story-of-day-link">
@@ -435,7 +540,7 @@
           </div>
         </section>
 
-        <section id="kids-family-code-section" class="kids-family-code glass" role="region" aria-label="Connect with parent">
+        <section id="kids-family-code-section" class="kids-family-code glass tdb-porch-paper-glass" role="region" aria-label="Connect with parent">
           <h2 class="kids-section-title">Connect with Parent</h2>
           <p class="section-note kids-family-code-lead">Optional only. Use this when a grown-up wants to see wins on purpose. Same device stays local right away; no child activity is posted publicly from here.</p>
           <p id="kids-family-code-status" class="kids-family-code-status hidden">Connected! Your parent sees your wins. 🎉</p>
@@ -449,22 +554,23 @@
           <p class="section-note kids-family-code-foot">Want something printable? The Parent Dashboard now includes a one-page gentle guide you can print before you connect.</p>
         </section>
 
-        <section class="kids-battle-badges glass" role="region" aria-label="Badges">
+        <section class="kids-battle-badges glass tdb-porch-paper-glass" role="region" aria-label="Badges">
           <h2 class="kids-section-title">Badges Earned</h2>
           <div id="kids-badges-list" class="kids-badges-list"></div>
         </section>
 
-        <section class="kids-battle-doodle glass" role="region" aria-label="Doodle canvas">
+        <section class="kids-battle-doodle glass tdb-porch-paper-glass" role="region" aria-label="Doodle canvas">
           <h2 class="kids-section-title">Doodle Prompt</h2>
           <p class="kids-doodle-prompt">Draw what today's verse means to you!</p>
           <button type="button" id="kids-doodle-btn" class="btn kids-btn-doodle" aria-label="Open the doodle canvas to draw">✏️ Open Doodle Canvas</button>
           <button type="button" id="kids-share-btn" class="btn kids-btn-share" aria-label="Share your win today">📸 Share my win!</button>
         </section>
 
-        <section id="kids-faith-trail" class="kids-faith-trail glass hidden" role="region" aria-label="Battle Trail progress map">
-          <h2 class="kids-section-title">Battle Trail</h2>
-          <p class="kids-faith-trail-desc">Your journey — collect icons each day! ⚔️🏆</p>
+        <section id="kids-faith-trail" class="kids-faith-trail glass tdb-porch-paper-glass hidden" role="region" aria-label="Faith trail progress map">
+          <h2 class="kids-section-title">Faith trail</h2>
+          <p class="kids-faith-trail-desc">Your journey — a gentle icon for each day you show up for God&rsquo;s Word.</p>
           <div id="kids-faith-trail-board" class="kids-faith-trail-board"></div>
+        </section>
         </section>
       </div>
     </main>
@@ -490,7 +596,16 @@
         <a href="/privacy.html">Privacy</a>
         <a href="/" aria-label="Back to Today&apos;s Daily Battle main site">Main site</a>
       </nav>
-    </footer>
+    
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
+
+</footer>
 
     <nav class="kids-bottom-nav" aria-label="Kids Battle navigation">
       <a href="/kids/" aria-current="page">
@@ -840,6 +955,9 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <script src="../vendor/uFuzzy.iife.min.js" defer></script>
   <script src="kids-verses-365.js?v=20260325kidsmeans" defer></script>
+  <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
+  <script src="kids-hub-play.js?v=20260428kids100" defer></script>
+  <script src="kids-gentle-shepherd.js?v=20260428kids100" defer></script>
   <script src="kids-shared.js?v=20260413efficiency" defer></script>
   <script src="kids-battle.js?v=20260524readquiz" defer></script>
   <script src="kids-read-quiz-data.js?v=20260524readquiz" defer></script>

@@ -21,10 +21,14 @@
       'Offline — still got you. Cached chapters are available. New chapters will load when you’re back online.',
     'bible-tool':
       'Offline — still got you. Search works on cached verses only.',
+    search:
+      'Offline — still got you. The hand-built map did not refresh just now—that is all right; a few steady doors stay below. Type if you want to narrow—nothing leaves this browser.',
     plans:
       'Offline — still got you. Your saved progress is here. New plans will load when online.',
     mystudy:
       'Offline — still got you. All your notes and saves are safe on this device.',
+    'study-workspace':
+      'Offline — still got you. Notes, saved verses, and verses you already loaded stay on this device. We will sync when you reconnect.',
     'what-god-has-done':
       'Offline — still got you. Your private journal entries are saved on this device.',
     memorize:
@@ -41,6 +45,20 @@
       'Offline — still got you. Your quiet evening can continue with the reflection already on this device.',
     rhythm:
       'Offline — still got you. Your rhythm and progress stay here until the connection returns.',
+    'family-rhythm':
+      'Offline — still got you. Linked pages stay cached on this device for morning, evening, and print.',
+    'advent-university':
+      'Offline — still got you. These Advent and Christmas links stay readable with the calm copy already on this device.',
+    'easter-university':
+      'Offline—still got you. Resurrection and Easter links stay readable with the calm copy already on this device when you have opened this page before.',
+    'pentecost-spirit-university':
+      'Offline—still got you. Pentecost and Spirit links stay readable with the calm copy already on this device when you have opened this page before.',
+    'summer-harvest-university':
+      'Offline—still got you. Summer and harvest links stay readable with the calm copy already on this device when you have opened this page before.',
+    'back-to-school-university':
+      'Offline—still got you. Back to school and family links stay readable with the calm copy already on this device when you have opened this page before.',
+    'start-year-word':
+      'Offline — still got you. New Year prints and plan links you opened stay on this device until you are back online.',
     storage:
       'Storage may be full. Try exporting older notes. Reading still works; saving may fail until there is room.',
     default:

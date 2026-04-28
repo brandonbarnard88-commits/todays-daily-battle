@@ -147,6 +147,8 @@ const rootFiles = [
   'hero-hero-pools.js',
   'hero-daily-first-paint.js',
   'tdb-home-mobius-week.js',
+  'tdb-january-quiet.js',
+  'tdb-uog-month-signpost.js',
   'inline-bootstrap.js',
   'ga-config.js',
   'tt-bootstrap.js',
@@ -363,7 +365,7 @@ for (const f of otherHtml) {
       process.exit(1);
     }
     if (!content.includes('heavyhope') || !content.includes('tdb-plan-heavyhope-day')) {
-      console.error('BUILD FAIL: plans.html must include When the Mind Lies Heavy plan (heavyhope / tdb-plan-heavyhope-day).');
+      console.error('BUILD FAIL: plans.html must include The University of Depression & Hopelessness plan (heavyhope / tdb-plan-heavyhope-day).');
       process.exit(1);
     }
     if (!content.includes('universitywaiting') || !content.includes('tdb-plan-universitywaiting-day')) {
@@ -406,16 +408,48 @@ for (const f of otherHtml) {
       console.error('BUILD FAIL: plans.html must include The University of Doubt plan (universitydoubt / tdb-plan-universitydoubt-day).');
       process.exit(1);
     }
+    if (!content.includes('universitybitterness') || !content.includes('tdb-plan-universitybitterness-day')) {
+      console.error('BUILD FAIL: plans.html must include The University of Bitterness plan (universitybitterness / tdb-plan-universitybitterness-day).');
+      process.exit(1);
+    }
+    if (!content.includes('universitybroken') || !content.includes('tdb-plan-universitybroken-day')) {
+      console.error('BUILD FAIL: plans.html must include The University of Broken Relationships plan (universitybroken / tdb-plan-universitybroken-day).');
+      process.exit(1);
+    }
+    if (!content.includes('latesummerrest') || !content.includes('tdb-plan-latesummerrest-day')) {
+      console.error('BUILD FAIL: plans.html must include Late Summer, Early Rest plan (latesummerrest / tdb-plan-latesummerrest-day).');
+      process.exit(1);
+    }
+    if (!content.includes('universitycomparison') || !content.includes('tdb-plan-universitycomparison-day')) {
+      console.error('BUILD FAIL: plans.html must include The University of Comparison plan (universitycomparison / tdb-plan-universitycomparison-day).');
+      process.exit(1);
+    }
+    if (!content.includes('universityanger') || !content.includes('tdb-plan-universityanger-day')) {
+      console.error('BUILD FAIL: plans.html must include The University of Anger plan (universityanger / tdb-plan-universityanger-day).');
+      process.exit(1);
+    }
+    if (!content.includes('quietfallharvest') || !content.includes('tdb-plan-quietfallharvest-day')) {
+      console.error('BUILD FAIL: plans.html must include Quiet Fall Harvest plan (quietfallharvest / tdb-plan-quietfallharvest-day).');
+      process.exit(1);
+    }
+    if (!content.includes('universityregret') || !content.includes('tdb-plan-universityregret-day')) {
+      console.error('BUILD FAIL: plans.html must include The University of Regret plan (universityregret / tdb-plan-universityregret-day).');
+      process.exit(1);
+    }
+    if (!content.includes('latefallwinter') || !content.includes('tdb-plan-latefallwinter-day')) {
+      console.error('BUILD FAIL: plans.html must include Late Fall, Quiet Winter plan (latefallwinter / tdb-plan-latefallwinter-day).');
+      process.exit(1);
+    }
+    if (!content.includes('eveninguog') || !content.includes('tdb-plan-eveninguog-day')) {
+      console.error('BUILD FAIL: plans.html must include Evening in the University plan (eveninguog / tdb-plan-eveninguog-day).');
+      process.exit(1);
+    }
     if (!content.includes('cancercomfort') || !content.includes('tdb-plan-cancercomfort-day')) {
       console.error('BUILD FAIL: plans.html must include Cancer Comfort plan (cancercomfort / tdb-plan-cancercomfort-day).');
       process.exit(1);
     }
-    if (!content.includes('plans-recommended-today__note') || !content.includes('Still in the works') || !content.includes('More lanes:')) {
-      console.error('BUILD FAIL: plans.html must include Recommended block (More lanes + Still in the works honesty note).');
-      process.exit(1);
-    }
-    if (!content.includes('id="plans-still-in-the-works"')) {
-      console.error('BUILD FAIL: plans.html must include id="plans-still-in-the-works" for verify / cache checks.');
+    if (!content.includes('id="plans-start-here-title"')) {
+      console.error('BUILD FAIL: plans.html must include Start here section (id="plans-start-here-title").');
       process.exit(1);
     }
     console.log('Copied plans.html (battle plans library)');
@@ -535,6 +569,11 @@ if (fs.existsSync(path.join(root, 'coloring-pages'))) {
 if (fs.existsSync(path.join(root, 'kids'))) {
   copyDir(path.join(root, 'kids'), path.join(dist, 'kids'));
   console.log('Copied kids/ folder (Kids Battle + parent dashboard)');
+}
+
+if (fs.existsSync(path.join(root, 'about'))) {
+  copyDir(path.join(root, 'about'), path.join(dist, 'about'));
+  console.log('Copied about/ (static /about/ index → about.html for simple hosts)');
 }
 
 if (fs.existsSync(path.join(root, 'pastor'))) {
@@ -896,6 +935,11 @@ for (let i = 0; i < LOCALE_HUB_REDIRECTS.length; i++) {
     console.error('BUILD FAIL: dist/' + h.path + ' missing — required for /' + h.slug + '/ (Cloudflare Pages).');
     process.exit(1);
   }
+}
+const aboutIndexHtml = path.join(dist, 'about', 'index.html');
+if (!fs.existsSync(aboutIndexHtml) || !fs.readFileSync(aboutIndexHtml, 'utf8').includes('/about.html')) {
+  console.error('BUILD FAIL: dist/about/index.html must exist and point to /about.html (static fallback for /about/).');
+  process.exit(1);
 }
 console.log('Verified: /give support page route + donation redirects (/donate, /stripe, /support, /donations*) present in _redirects.');
 console.log('Verified: RU / ZH / HI hub index.html + _redirects 200! rules in dist/.');

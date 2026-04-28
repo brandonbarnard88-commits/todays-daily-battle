@@ -143,7 +143,7 @@
     if (!state.items.length) {
       var note = document.createElement('p');
       note.className = 'section-note';
-      note.textContent = 'Nothing here yet. When a verse touches your heart, open it and tap Highlight—your picks stay on this device. The Lord meets you right where you are.';
+      note.textContent = 'Nothing here yet—that is all right. When a verse touches your heart, open it and tap Highlight—your picks stay on this device. The Lord meets you right where you are.';
       grid.appendChild(note);
       return;
     }
@@ -190,7 +190,7 @@
       state.refs.text.removeAttribute('data-tdb-kjv-wrapped');
       window.TdbKjvDictionary.applyToElement(state.refs.text, { plainText: item.text || '', contextVerse: item.text || '' });
     }
-    state.refs.note.textContent = item.note ? 'Note: ' + item.note : 'No note added yet. Add one to capture why this verse matters today.';
+      state.refs.note.textContent = item.note ? 'Note: ' + item.note : 'No note yet—that is all right. Add one when you want to say why this verse matters today.';
     state.refs.detail.classList.remove('hidden');
   }
 
@@ -285,7 +285,7 @@
       } catch (e) {}
     }
     var copied = await copyText(buildShareText(item));
-    setStatus(copied ? 'Share text copied. Paste in Church hub.' : 'Could not share right now.');
+    setStatus(copied ? 'Share text copied. Paste in Church hub.' : 'Share text did not copy—that is all right. Try again.');
   }
 
   function initMyStudyHighlights(options) {

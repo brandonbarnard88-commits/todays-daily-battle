@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" width="200" height="220" role="img" aria-labelledby="wondT">
+  <title id="wondT">Little Shepherd looks up in wonder</title>
+  <defs>
+    <radialGradient id="gW" cx="50%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="100%" stop-color="#fde68a"/>
+    </radialGradient>
+    <linearGradient id="gG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#bfdbfe"/>
+      <stop offset="100%" stop-color="#bbf7d0"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="200" height="120" fill="url(#gG)" opacity="0.45"/>
+  <circle cx="160" cy="28" r="8" fill="#fef9c3" opacity="0.9"/>
+  <circle cx="40" cy="40" r="5" fill="#fff" opacity="0.85"/>
+  <ellipse cx="100" cy="200" rx="95" ry="16" fill="rgba(74,222,128,0.2)"/>
+  <rect x="0" y="170" width="200" height="50" fill="url(#gG)" opacity="0.55"/>
+  <circle cx="100" cy="98" r="32" fill="url(#gW)" stroke="#b45309" stroke-width="2.5"/>
+  <circle cx="90" cy="92" r="3.5" fill="#1e293b"/>
+  <circle cx="110" cy="92" r="3.5" fill="#1e293b"/>
+  <path d="M95 50 L100 40 L105 50" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+  <path d="M85 45 Q100 20 115 45" fill="none" stroke="#7dd3fc" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+  <rect x="70" y="128" width="60" height="40" rx="8" fill="#0ea5e9" fill-opacity="0.2" stroke="#38bdf8" stroke-width="2"/>
+  <line x1="100" y1="60" x2="100" y2="50" stroke="#5c3d2e" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="100" y1="50" x2="125" y2="32" stroke="#5c3d2e" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

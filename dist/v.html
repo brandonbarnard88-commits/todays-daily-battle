@@ -14,6 +14,7 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/v.html">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,6 +62,7 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <main class="v-page" id="main-content">
     <h1>KJV verse</h1>
+    <p class="section-note topic-mood-porch" lang="en">You&rsquo;re already welcome here&mdash;shared link, same gentle Word.</p>
     <p id="v-status" class="v-status" role="status" aria-live="polite"></p>
     <p id="v-ref" class="v-ref" hidden></p>
     <p id="v-text" class="v-text" hidden></p>
@@ -180,7 +182,7 @@
           setStatus('');
           return;
         }
-        setStatus('Could not load the verse. Check signal, or open the Bible Tool.');
+        setStatus('Verse did not load—that is all right. Check signal, or open the Bible Tool.');
         if (refEl) {
           refEl.textContent = apiRef + ' (KJV)';
           refEl.hidden = false;

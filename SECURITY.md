@@ -115,6 +115,23 @@ Edge analytics (Cloudflare **Analytics & logs** → HTTP traffic, or **Security*
 
 ---
 
+## Public HTML and copy / mirror expectations
+
+**Fact:** The site is **static HTML, CSS, and JavaScript** delivered to the browser. Anyone who can open a page can save it, mirror it, or script downloads—the same as every public website. **There is no technical setting that makes public pages “unrippable.”** Anything sold as “anti‑copy” that disables right‑click, selection, or DevTools only hurts accessibility and power users; it does not stop someone with `wget`, `curl`, or “Save Page As.”
+
+**What actually protects users and the ministry:**
+
+| Layer | Role |
+|-------|------|
+| **Copyright + license** | Founder-facing copy on About references **CC BY-NC-ND 4.0** where applicable; counsel can advise on enforcement if attribution is stripped or derivatives are sold. |
+| **Brand / trademark** | **todaysdailybattle.com** and distinctive branding—registration and enforcement are legal processes, not repo toggles. |
+| **Operations** | Avoid publishing **complete static bundles** (e.g. full `dist/` ZIPs) in places that invite wholesale reuse; ship production only from **hosts and pipelines you control**. |
+| **Cloudflare (dashboard)** | **Bot Fight**, **WAF** managed rules, **rate limiting**, and judicious **ASN / country** controls reduce **automated** scraping and bandwidth abuse; they **slow**, not eliminate, determined manual copying. Use **Security → Events** and traffic analytics to tune (see **Traffic anomalies** above). |
+
+**Intentionally not implemented here:** DRM-style scripts, heavy JS obfuscation on reading surfaces, or blocks on copy/paste—they conflict with **accessibility**, **KJV‑first reading**, and **offline‑first** use that real people rely on in hard moments.
+
+---
+
 ## Canonical hostname (www vs apex)
 
 Both `https://todaysdailybattle.com` and `https://www.todaysdailybattle.com` must not serve duplicate 200s long term. **Prefer a single 301/308** from one host to the other (match `<link rel="canonical">`, sitemap, and `robots.txt` — currently apex). This is enforced at **Cloudflare** (Redirect Rules or Bulk Redirects), not in static `_redirects` (same-origin only). Step-by-step: **`docs/CLOUDFLARE-HOST-CANONICAL.md`**.

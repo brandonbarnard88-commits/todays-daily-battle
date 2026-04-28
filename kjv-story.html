@@ -11,7 +11,9 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/kjv-story.html">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="preload" href="tdb-quiet-luxury.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="tdb-quiet-luxury.css?v=20260423-phase5-perf">
+  <link rel="preload" href="tdb-calm-hubs.css?v=20260331edge" as="style">
   <link rel="stylesheet" href="tdb-calm-hubs.css?v=20260331edge">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebPage","name":"The Story of the King James Version","url":"https://todaysdailybattle.com/kjv-story.html","description":"Calm timeline of the KJV translation.","isPartOf":{"@type":"WebSite","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"}}
@@ -38,6 +40,7 @@
     h1 { font-size: clamp(1.45rem, 4vw, 1.95rem); color: var(--gold); margin: 0 0 0.35rem; font-weight: 800; line-height: 1.25; }
     .kjv-sub { font-size: 1rem; color: rgba(226, 232, 240, 0.92); margin: 0 0 1.25rem; font-weight: 600; }
     .kjv-lead { color: var(--muted); font-size: 0.98rem; margin: 0 0 1.75rem; line-height: 1.6; }
+    .kjv-porch { color: var(--muted); font-size: 0.92rem; margin: 0 0 0.75rem; line-height: 1.55; max-width: 40rem; }
     .kjv-timeline { display: flex; flex-direction: column; gap: 1rem; margin: 0 0 2rem; }
     .kjv-card {
       padding: 1rem 1.1rem; border-radius: 12px; border: 1px solid var(--line);
@@ -133,6 +136,7 @@
   </nav>
   <main id="main" class="kjv-main tdb-calm-hub">
     <h1>The Story of the King James Version</h1>
+    <p class="kjv-porch topic-mood-porch">You&rsquo;re already welcome here&mdash;history isn&rsquo;t a quiz; read one era or only rest in the opening line.</p>
     <p class="kjv-sub">A calm look at how we received this beloved Bible</p>
     <p class="kjv-lead">The King James Version is not just a translation &mdash; it is a labor of love, prayer, and careful scholarship that God has used for over 400 years to speak to millions.</p>
 
@@ -301,7 +305,7 @@
         <a href="/mystudy">My Study</a>
         <a href="/calm.html">Calm</a>
         <a href="/mobius.html">Möbius</a>
-        <a href="/plans.html">Battle plans</a>
+        <a href="/plans.html">Courses</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
         <a href="/wins.html">Wins</a>
@@ -342,7 +346,8 @@
   </details>
 
   <p class="footer-humility">We battle. He wins.</p>
-  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): Built solo by Brandon · A quiet KJV porch for real daily battles -->
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet KJV porch for real daily battles &bull; No ads &bull; No tracking &bull; Privacy-first</p>
   <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
@@ -356,12 +361,20 @@
   </div>
 
   <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="site-footer-copy site-footer-legal-line">&copy; Christian Messenger Service. All rights reserved.</p>
   <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
   <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
   <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
 </footer>
   <script>

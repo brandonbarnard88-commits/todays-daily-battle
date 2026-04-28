@@ -24,6 +24,7 @@
   <meta name="twitter:description" content="Search Scripture, build sermons and lessons, lead your church. Tools built for pastors who prepare every week.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260410og">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
@@ -139,15 +140,16 @@
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <header class="hero-banner">
+        <header class="hero-banner tdb-dawn-bg--mist">
           <h1>Pastor Toolkit</h1>
-          <p class="hero-tagline">Search Scripture, build sermons and lessons, lead your church. Built for pastors who sit down to prepare every week and need it to just work.</p>
+          <p class="section-note util-mb-0_5 topic-mood-porch">You&rsquo;re already welcome here&mdash;weekly prep gathered in one porch light, without measuring your worth.</p>
+          <p class="hero-tagline">Search Scripture, build sermons and lessons, lead your church&mdash;tools that hold the work lightly so your heart can stay with the text.</p>
           <div class="cta-group">
             <a class="btn btn-primary" href="/pastor/">Pastor Hub</a>
             <a class="btn btn-secondary" href="sermon.html">Build a Sermon</a>
           </div>
         </header>
-        <section class="search-hero glass" id="search-hero" role="search" aria-label="Search Scripture">
+        <section class="search-hero glass tdb-porch-paper-glass" id="search-hero" role="search" aria-label="Search Scripture">
           <label for="query" class="search-hero-label">Search by emotion or verse</label>
           <div class="search-hero-row">
             <input id="query" type="text" placeholder="Hope, fear, John 3:16…" aria-label="Search by emotion or verse" autocomplete="off" class="search-hero-input">
@@ -161,16 +163,16 @@
           </details>
           <div id="output" class="results" role="region" aria-live="polite" aria-label="Search results"></div>
         </section>
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Build from a topic</h2>
-          <p class="section-note">Enter a topic (e.g. hope, fear, anxiety). We'll find verses and build an outline you can paste into the Sermon Builder.</p>
+          <p class="section-note">Enter a topic (e.g. hope, fear, anxiety). The site can find verses and sketch an outline for the Sermon Builder&mdash;optional when the blank page feels loud, not an obligation.</p>
           <div class="cta-group cta-group-flex-wrap cta-group-align-center">
             <input id="pt-topic" class="ptk-topic-field" type="text" placeholder="e.g. hope, fear, anxiety" aria-label="Topic for toolkit">
             <button id="pt-build" type="button" class="btn btn-primary">Build outline &amp; open Sermon Builder</button>
           </div>
         </section>
 
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Preaching & sermon prep</h2>
           <p class="section-note">From text to outline to delivery.</p>
           <div class="list">
@@ -182,7 +184,7 @@
           </div>
         </section>
 
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Teaching & lessons</h2>
           <p class="section-note">Lessons, curriculum, and age-specific content.</p>
           <div class="list">
@@ -193,7 +195,7 @@
           </div>
         </section>
 
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Church & congregation</h2>
           <p class="section-note">Lead your church with verse, prayer, and assignments.</p>
           <div class="list">
@@ -203,7 +205,7 @@
           </div>
         </section>
 
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Content & communication</h2>
           <p class="section-note">Emails, graphics, and shareable content.</p>
           <div class="list">
@@ -213,7 +215,7 @@
           </div>
         </section>
 
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Study & personal prep</h2>
           <p class="section-note">Your own study flow and devotion.</p>
           <div class="list">
@@ -223,7 +225,7 @@
           </div>
         </section>
 
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Before you stand up</h2>
           <p class="section-note">A short prayer for pastors.</p>
           <div class="pastor-prep-prayer section-note">
@@ -231,7 +233,7 @@
           </div>
         </section>
 
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Helpful external links</h2>
           <p class="section-note">Trusted sites for deeper study, commentaries, and audio.</p>
           <div class="list">
@@ -241,7 +243,7 @@
           </div>
         </section>
 
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Other resources</h2>
           <p class="section-note">Supporter and Church plans add custom reading plans, verse image generator, choose email time, bulk export, private notes, assign reading, group progress, church verse of the day, and church-branded exports. <a href="pricing.html">See Pricing</a>. Questions? <a href="contact.html">Contact us</a>.</p>
         </section>
@@ -360,7 +362,7 @@
         <a href="/mystudy">My Study</a>
         <a href="/calm.html">Calm</a>
         <a href="/mobius.html">Möbius</a>
-        <a href="/plans.html">Battle plans</a>
+        <a href="/plans.html">Courses</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
         <a href="/wins.html">Wins</a>
@@ -401,7 +403,8 @@
   </details>
 
   <p class="footer-humility">We battle. He wins.</p>
-  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): Built solo by Brandon · A quiet KJV porch for real daily battles -->
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet KJV porch for real daily battles &bull; No ads &bull; No tracking &bull; Privacy-first</p>
   <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
@@ -415,12 +418,20 @@
   </div>
 
   <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="site-footer-copy site-footer-legal-line">&copy; Christian Messenger Service. All rights reserved.</p>
   <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
   <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">April 23, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">April 28, 2026</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
 </footer>
   </div>

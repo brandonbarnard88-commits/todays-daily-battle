@@ -33,9 +33,15 @@
   <meta name="twitter:site" content="@todaysdailybattle">
   <meta name="twitter:creator" content="@todaysdailybattle">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf">
+  <link rel="preload" href="kids/kids-page-sky.css?v=20260326playful" as="style">
   <link rel="stylesheet" href="kids/kids-page-sky.css?v=20260326playful">
+  <link rel="preload" href="kids-corner.css?v=12" as="style">
   <link rel="stylesheet" href="kids-corner.css?v=12">
+  <link rel="preload" href="kids/kids-kids-world.css?v=20260428kids100" as="style">
+  <link rel="stylesheet" href="kids/kids-kids-world.css?v=20260428kids100">
+  <link rel="preload" href="loop-player.css?v=20260331edge" as="style">
   <link rel="stylesheet" href="loop-player.css?v=20260331edge">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
@@ -46,7 +52,7 @@
   {"@context":"https://schema.org","@type":"WebPage","name":"Bible Loop Library • Today's Daily Battle","url":"https://todaysdailybattle.com/kids-corner.html","description":"Short KJV Bible cartoon loops, gold stars, up to 164 over time. Full comic and quiz stories live on Bible Story Library.","publisher":{"@type":"Organization","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"}}
   </script>
 </head>
-<body class="dark-mode tdb-inner-page kids-corner-page kids-sky-enabled kids-sky-playful" aria-label="Bible Loop Library - short kids Bible story loops">
+<body class="dark-mode tdb-inner-page kids-corner-page kids-sky-enabled kids-sky-playful kids-world-surface" aria-label="Bible Loop Library - short kids Bible story loops">
   <script nonce="tdb2025s">
     (function () {
       try {
@@ -197,6 +203,7 @@
 
     <main class="app-content" id="main-content" role="main" aria-label="Bible Loop Library for kids">
       <div class="content-inner kids-corner-page loop-library-page">
+        <p class="section-note topic-mood-porch kids-site-porch" lang="en">You&rsquo;re already welcome here&mdash;fun first, short moments, tiny KJV line. No rush.</p>
         <header class="kids-hero kids-hero--soar-dawn loop-library-hero" aria-label="Bible Loop Library hero">
           <div class="kids-hero-frame">
             <p class="loop-hero-kicker">Bible Loop Library</p>
@@ -207,7 +214,7 @@
           </div>
         </header>
 
-        <section class="glass card-gold loop-story-anchors" aria-labelledby="loop-story-anchors-heading">
+        <section class="glass tdb-porch-paper-glass card-gold loop-story-anchors" aria-labelledby="loop-story-anchors-heading">
           <h2 class="section-divider kids-section-divider" id="loop-story-anchors-heading">Three story anchors (after one loop)</h2>
           <p class="section-note util-mb-0_75">When a quick loop was not enough, open one read-along story in the <a href="/kids/corner.html">Bible Story Library</a>&mdash;same KJV heart, a little more narrative room. Pick one; stop while it still feels warm.</p>
           <div class="loop-story-anchors-grid" role="list">
@@ -229,7 +236,50 @@
           </div>
         </section>
 
-        <section class="glass card-gold" aria-label="Little ones all-in-one hub">
+        <section class="glass tdb-porch-paper-glass card-gold loop-pasture-shepherd" aria-label="Your quiet field with Little Shepherd">
+          <h2 class="section-divider kids-section-divider">Your quiet field</h2>
+          <p class="section-note util-mb-0_75">Same gentle pasture as the Kids hub&mdash;your opens on this device grow the grass, the brook, and the fruit. Tap Little Shepherd for a calm line; stories live in the <a href="/kids/corner.html">Bible Story Library</a>.</p>
+          <div class="kids-pasture-shell kids-pasture-shell--compact" style="margin-top:0.5rem">
+            <div class="kids-pasture-card kids-pasture-card--straggler" id="kids-pasture-strip" data-stage="0" data-token-bloom="0" role="img" aria-labelledby="kids-pasture-aria">
+              <p class="kids-pasture-title" id="kids-pasture-title">Your quiet pasture</p>
+              <div class="kids-pasture-illu" aria-hidden="true">
+                <span class="kids-pasture-bloom pt-a" aria-hidden="true"></span>
+                <span class="kids-pasture-bloom pt-b" aria-hidden="true"></span>
+                <span class="kids-pasture-bloom pt-c" aria-hidden="true"></span>
+                <span class="kids-pasture-bloom pt-d" aria-hidden="true"></span>
+                <span class="kids-pasture-sheep" aria-hidden="true"></span>
+                <span class="kids-pasture-sheep2" aria-hidden="true"></span>
+                <span class="kids-pasture-sheep3" aria-hidden="true"></span>
+                <span class="kids-pasture-flower1" aria-hidden="true"></span>
+                <span class="kids-pasture-flower2" aria-hidden="true"></span>
+                <span class="kids-pasture-tree" aria-hidden="true"></span>
+                <span class="kids-pasture-fruit" aria-hidden="true"></span>
+                <span class="kids-pasture-brook" aria-hidden="true"></span>
+                <span class="kids-pasture-fence" aria-hidden="true"></span>
+              </div>
+              <p class="kids-pasture-note" id="kids-pasture-label">A fresh patch of grass. Keep exploring.</p>
+              <p class="kids-sheep-tokens" id="kids-sheep-tokens-line" aria-live="polite"></p>
+              <p class="sr-only" id="kids-pasture-aria">Story opens on this device: loading.</p>
+              <p class="sr-only" id="kids-pasture-bloom-announce" role="status" aria-live="polite" aria-atomic="true"></p>
+            </div>
+            <section class="kids-shepherd-compact glass tdb-porch-paper-glass" aria-labelledby="kids-shepherd-compact-h" style="padding:0.75rem 1rem;border-radius:16px;margin:0.75rem 0 0">
+              <h2 class="sr-only" id="kids-shepherd-compact-h">Little Shepherd</h2>
+              <div class="kids-buddy-mascot-row">
+                <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, tap for a calm line">
+                  <span class="kids-shepherd-hero-wrap">
+                    <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="kids/shepherd-mascot-welcome.svg" width="112" height="124" alt="Little Shepherd" decoding="async" loading="lazy"/>
+                  </span>
+                </button>
+                <div class="kids-buddy-bubble kids-buddy-bubble--with-mascot" id="kids-little-shepherd-bubble" lang="en">
+                  <p class="kids-bubble-hi" style="margin:0 0 0.25rem">I&rsquo;m <strong class="kids-bubble-name">Little Shepherd</strong>—with you at the loop library.</p>
+                  <p class="kids-bubble-voice" id="kids-little-shepherd-line" aria-live="polite">&nbsp;</p>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass card-gold" aria-label="Little ones all-in-one hub">
           <h2 class="section-divider kids-section-divider">Want one calmer all-in-one start?</h2>
           <p class="section-note util-mb-0_5">If you are choosing a first kids page, start with <a href="/little-ones.html">For the Little Ones</a>. Come back here when you want the full loop shelf and quick replay space.</p>
           <div class="cta-group">
@@ -238,7 +288,7 @@
           </div>
         </section>
 
-        <section class="glass card-gold loop-quick-start" aria-label="Start here fast in the loop library">
+        <section class="glass tdb-porch-paper-glass card-gold loop-quick-start" aria-label="Start here fast in the loop library">
           <div class="loop-quick-start-copy">
             <h2 class="section-divider kids-section-divider">Start here in under 2 minutes</h2>
             <p class="section-note util-mb-0_5">Pick one lane, watch one loop, then stop while it still feels calm. This page is for quick joy, not pressure.</p>
@@ -268,7 +318,7 @@
           </div>
         </section>
 
-        <section class="glass card-gold kids-family-hub-banner" aria-label="Family hub for parents and teens">
+        <section class="glass tdb-porch-paper-glass card-gold kids-family-hub-banner" aria-label="Family hub for parents and teens">
           <h2 class="section-divider kids-section-divider">For parents &amp; teens</h2>
           <p class="section-note util-mb-0_5">This page is the loop library for younger kids. The <strong>Family hub</strong> is the quiet place for family worship plans, printable activity packs, and a teen journal sheet (KJV, saved on this device).</p>
           <p class="section-note util-mb-0_5">Want offline prayer ideas? <a href="/kids/prayer-activities.html">Calm prayer habits</a> — five fingers, thank-you slips, paper chains; ties to today&rsquo;s verse and the Story Library.</p>
@@ -279,7 +329,7 @@
           </div>
         </section>
 
-        <section class="glass card-gold kids-daily-verse-section" id="kids-daily-verse-root" aria-label="Verse of the day for kids">
+        <section class="glass tdb-porch-paper-glass card-gold kids-daily-verse-section" id="kids-daily-verse-root" aria-label="Verse of the day for kids">
           <h2 class="section-divider kids-section-divider">Verse of the day</h2>
           <p class="kids-daily-verse-lead section-note">Same Bible pick as the grown-up page today&mdash;King James (KJV).</p>
           <div class="kids-daily-verse-card" id="kids-daily-verse-card">
@@ -297,7 +347,7 @@
           <strong>Something look off?</strong> Use <em>Report mismatch</em> on a card. New loops most Sundays.
         </div>
 
-        <section class="glass card-gold loop-coloring-cta" aria-label="Printable coloring pages">
+        <section class="glass tdb-porch-paper-glass card-gold loop-coloring-cta" aria-label="Printable coloring pages">
           <h2 class="section-divider kids-section-divider">Color &amp; create</h2>
           <p class="section-note util-mb-0_5">Want crayons instead of cartoons? Open printable Bible outlines—tap a story, paint on screen, then print.</p>
           <div class="cta-group">
@@ -307,7 +357,7 @@
           </div>
         </section>
 
-        <section class="glass card-gold loop-progress-wrap" aria-label="Story star progress">
+        <section class="glass tdb-porch-paper-glass card-gold loop-progress-wrap" aria-label="Story star progress">
           <div id="loop-kid-selector-wrap" class="loop-kid-selector-wrap hidden" aria-label="Select child for progress">
             <label for="loop-kid-select" class="loop-kid-select-label">Track progress for:</label>
             <select id="loop-kid-select" class="loop-kid-select" aria-label="Select which child's progress to view">
@@ -335,7 +385,7 @@
           </div>
         </section>
 
-        <section class="glass card-gold loop-library-wrap" aria-label="Bible Loop Library infinite grid">
+        <section class="glass tdb-porch-paper-glass card-gold loop-library-wrap" aria-label="Bible Loop Library infinite grid">
           <p class="section-note loop-quick-calm-kicker util-mb-0_5"><strong>Quick calm loops</strong> — 10–15s cartoons with verse audio (no quizzes here). For read-aloud words, comic panels, and gentle quizzes, open the <a href="/kids/corner.html">Bible Story Library</a>. When you arrive from a story and tap <strong>Watch a quick loop</strong>, each cartoon now prefers the matching library card—same gentle path for all 192 loops on the roadmap.</p>
           <div class="loop-filter-bar" role="group" aria-label="Filter loop cards by starter view">
             <button type="button" class="btn btn-secondary loop-filter-chip is-active" data-loop-filter="all">All unlocked</button>
@@ -372,7 +422,7 @@
 
     <noscript>
       <div class="content-inner" style="padding: 1rem 1.25rem 2rem; max-width: 52rem; margin: 0 auto;">
-        <section class="glass" style="padding: 1rem 1.25rem 1.25rem;">
+        <section class="glass tdb-porch-paper-glass" style="padding: 1rem 1.25rem 1.25rem;">
           <h2 class="section-divider kids-section-divider">JavaScript is off</h2>
           <p class="section-note" style="margin: 0;">Turn on JavaScript for animated loops, gold stars, today&rsquo;s verse, and progress. The <strong>Starter 12 Loops</strong> list in the main content names the first twelve cartoons in the roadmap. For the daily verse without scripts, ask a grown-up to open <a href="/verse.html">Verse of the Day</a>.</p>
         </section>
@@ -491,7 +541,7 @@
         <a href="/mystudy">My Study</a>
         <a href="/calm.html">Calm</a>
         <a href="/mobius.html">Möbius</a>
-        <a href="/plans.html">Battle plans</a>
+        <a href="/plans.html">Courses</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
         <a href="/wins.html">Wins</a>
@@ -532,7 +582,8 @@
   </details>
 
   <p class="footer-humility">We battle. He wins.</p>
-  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): Built solo by Brandon · A quiet KJV porch for real daily battles -->
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet KJV porch for real daily battles &bull; No ads &bull; No tracking &bull; Privacy-first</p>
   <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
@@ -546,12 +597,20 @@
   </div>
 
   <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="site-footer-copy site-footer-legal-line">&copy; Christian Messenger Service. All rights reserved.</p>
   <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
   <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">April 23, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">April 28, 2026</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
 </footer>
   </div>
@@ -560,6 +619,8 @@
   <script src="loop-feedback-config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer crossorigin></script>
   <script src="/kids/kids-gentle-journey.js?v=20260503goal365" defer></script>
+  <script src="kids/kids-hub-play.js?v=20260428kids100" defer></script>
+  <script src="kids/kids-gentle-shepherd.js?v=20260428kids100" defer></script>
   <script type="module" src="script.js?v=20260423-phase5-perf" data-cfasync="false"></script>
   <script src="kids-corner-daily-verse.js?v=4" defer></script>
   <script src="sky-ip-geo.js?v=20260327ipgeo" defer></script>

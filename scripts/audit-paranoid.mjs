@@ -8,7 +8,8 @@ const __dirname = path.dirname(__filename);
 const root = path.resolve(__dirname, '..');
 
 const IGNORE_DIRS = new Set(['.git', 'node_modules']);
-const SOURCE_IGNORE_DIRS = new Set(['.git', 'node_modules', 'vendor', 'dist']);
+/* next-app/ is an optional Next subtree with its own build outputs (.next/*.html); skip so anchor scan matches static site only. */
+const SOURCE_IGNORE_DIRS = new Set(['.git', 'node_modules', 'vendor', 'dist', 'next-app']);
 
 function walkFiles(startDir, extensions, ignoreDirs = IGNORE_DIRS) {
   const out = [];

@@ -33,6 +33,7 @@
   <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="/styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="/styles.css?v=20260423-phase5-perf">
   <link rel="manifest" href="/manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" defer></script>
@@ -75,7 +76,7 @@
             <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
           </span>
         </nav>
-        <p class="tdb-mood-door-kjv-banner" lang="id">Halaman ini bahasa Indonesia. Alat lengkap di bawah terbuka dalam <strong>bahasa Inggris</strong>; ayat di layar biasanya <abbr title="King James Version" lang="en">KJV</abbr> (Inggris).</p>
+        <p class="tdb-mood-door-kjv-banner" lang="id">Pilot 2026: pintu bahasa Indonesia ini tumbuh perlahan; alat mendalam di bawah terbuka dalam <strong>bahasa Inggris</strong> dengan label jujur. Ayat di layar biasanya <abbr title="King James Version" lang="en">KJV</abbr> (Inggris).</p>
       </div>
 
       <div class="brand">
@@ -103,13 +104,14 @@
 
     <main class="app-content" id="main-content">
       <div class="content-inner explore-page">
-        <header class="hero-banner" id="id-hub-hero">
+        <header class="hero-banner tdb-dawn-bg--mist" id="id-hub-hero">
           <h1>Selamat datang. Anda di rumah bahasa Indonesia.</h1>
+          <p class="section-note topic-mood-porch" lang="id">Anda sudah diterima di sini&mdash;tanpa ujian, tanpa desakan. Istirahat dulu.</p>
           <p class="real-talk">Sudut ini untuk berdoa dalam bahasa sendiri — tanpa terburu-buru. Kami baru menambah pintu; sebagian besar situs masih Inggris, dan kami katakan jujur supaya Anda tidak merasa tertipu.</p>
           <p class="section-note" style="margin-top:0.5rem;">Pada halaman pilot: ayat dalam <strong>bahasa Inggris (KJV)</strong> dengan penjelasan ringkas bahasa Indonesia — bukan terjemahan Alkitab lengkap di sini.</p>
         </header>
 
-        <section class="glass explore-hub" lang="id" id="id-hub-doors" aria-labelledby="id-doors-heading">
+        <section class="glass explore-hub tdb-porch-paper-glass" lang="id" id="id-hub-doors" aria-labelledby="id-doors-heading">
           <h2 class="section-divider explore-hub-section-title" id="id-doors-heading">Pintu bahasa Indonesia — sentuh yang berat hari ini</h2>
           <p class="section-note explore-hub-lead util-mb-0_5">Tiga halaman pilot siap; bahasa tubuh situs lainnya masih Inggris. Banyak alat menampilkan <abbr title="King James Version" lang="en">KJV</abbr> di layar.</p>
           <ul class="explore-hub-grid">
@@ -151,7 +153,7 @@
           </ul>
         </section>
 
-        <section class="glass pt-topic-breakdown tdb-hub-daily-wrap" lang="id" id="id-hub-daily-verse" aria-labelledby="id-daily-heading">
+        <section class="glass tdb-porch-paper-glass pt-topic-breakdown tdb-hub-daily-wrap" lang="id" id="id-hub-daily-verse" aria-labelledby="id-daily-heading">
           <div class="breakdown">
             <h2 class="section-divider" id="id-daily-heading">Ayat hari ini</h2>
             <div class="tdb-hub-daily-split">
@@ -185,7 +187,7 @@
           </div>
         </section>
 
-        <section class="glass pt-mas-ayuda" lang="id" aria-labelledby="id-tools-heading">
+        <section class="glass tdb-porch-paper-glass pt-mas-ayuda" lang="id" aria-labelledby="id-tools-heading">
           <h2 class="section-divider" id="id-tools-heading">Alat — langsung bahasa Inggris</h2>
           <p class="section-note">Pintasan ke layar penuh dalam <strong>bahasa Inggris</strong>.</p>
           <nav class="cta-group pt-mas-ayuda-tools" aria-label="Alat bahasa Inggris" style="display:flex !important;flex-wrap:wrap;gap:0.5rem;">
@@ -197,7 +199,7 @@
           </nav>
         </section>
 
-        <section class="glass" lang="id">
+        <section class="glass tdb-porch-paper-glass" lang="id">
           <h2 class="section-divider">Kepercayaan &amp; hukum</h2>
           <p class="section-note">Kebijakan lengkap masih bahasa Inggris — situs yang sama: tanpa iklan pelacak, tanpa menjual data Anda.</p>
           <div class="cta-group" style="flex-wrap:wrap;gap:0.5rem;">
@@ -225,7 +227,7 @@
     </span>
   </nav>
 
-  <p class="site-footer-pilot-note" lang="id">Hub bahasa Indonesia (fase pilot). Alat situs dalam bahasa Inggris; ayat di layar biasanya <abbr title="King James Version" lang="en">KJV</abbr>.</p>
+  <p class="site-footer-pilot-note" lang="id">Hub bahasa Indonesia (fase pilot). Ketika alat dibuka dalam bahasa Inggris, pengumuman jujur dan jalannya tetap jelas; ayat di layar biasanya <abbr title="King James Version" lang="en">KJV</abbr>. Tidak wajib melanjutkan hari ini.</p>
 
   <nav class="site-footer-essentials" aria-label="Tautan utama">
     <a href="/id/">Beranda ID</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
@@ -241,6 +243,15 @@
 
   <p class="site-footer-updated">Terakhir diperbarui: <span id="footer-date">TDB_BUILD_DATE</span></p>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
+
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
+
 </footer>
   </div>
 

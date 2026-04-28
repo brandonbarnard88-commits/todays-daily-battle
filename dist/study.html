@@ -11,18 +11,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Study Workspace • Today's Daily Battle</title>
-  <meta name="description" content="KJV study workspace: notes, saved verses, word study, and lesson flow—private on your device until you sync or export.">
+  <meta name="description" content="A quiet study table (KJV): notes, saved verses, word help, and gentle lesson flow&mdash;private on this device until you choose to sync or export.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/study.html">
   <meta property="og:title" content="Study Workspace • Today's Daily Battle">
-  <meta property="og:description" content="KJV study workspace: notes, saved verses, word study, and lesson flow—private on your device until you sync or export.">
+  <meta property="og:description" content="A quiet study table (KJV): notes, saved verses, and gentle lesson flow&mdash;private on this device until you choose to sync or export.">
   <meta property="og:url" content="https://todaysdailybattle.com/study.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Today's Daily Battle">
   <meta property="og:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260410og">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Study Workspace • Today's Daily Battle">
-  <meta name="twitter:description" content="KJV study workspace: notes, saved verses, word study, and lesson flow—private on your device until you sync or export.">
+  <meta name="twitter:description" content="A quiet study table (KJV): notes, saved verses, and gentle lesson flow&mdash;private on this device until you choose to sync or export.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260410og">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260423-phase5-perf" as="style">
@@ -35,8 +35,8 @@
 </head>
 <body class="dark-mode tdb-inner-page study-workspace-page">
   <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div id="tdb-offline-strip" class="tdb-offline-strip hidden" role="status" aria-live="polite" data-tdb-offline-page="study-workspace"><p class="offline-msg"></p></div>
   <div class="app-shell">
-    <div id="offline-banner" class="hidden" role="status" aria-live="polite">Offline — still got you. Notes, saved verses, and verses you already loaded stay on this device. We&apos;ll sync when you reconnect.</div>
     <header class="top-bar">
       <div class="tdb-lang-switcher-header-wrap">
         <nav class="tdb-lang-switcher tdb-lang-switcher--header tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
@@ -58,7 +58,7 @@
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
         <p class="tdb-header-heartbeat" lang="en">Learning of Him, one day at a time. <span class="tdb-header-tag-cite" title="Take my yoke upon you, and learn of me.">Matthew 11:29</span></p>
-        <span class="brand-subtitle">Notes, lessons, and resources</span>
+        <span class="brand-subtitle">A quiet table for notes, lessons, and Scripture</span>
       </div>
       <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
       <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
@@ -142,25 +142,25 @@
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <header class="hero-banner study-workspace-hero hero-banner--soar-dawn study-hero--soar-dawn">
+        <header class="hero-banner study-workspace-hero hero-banner--soar-dawn study-hero--soar-dawn tdb-dawn-bg--mist">
           <h1 id="study-workspace-hero-heading">Study Workspace</h1>
-          <p class="study-workspace-hero-lead">Notes, lessons, and discussion prompts—on this device until you export or sign in to sync.</p>
+          <p class="study-workspace-hero-lead topic-mood-porch">You&rsquo;re already welcome at this table. Pull up a chair&mdash;notes, lessons, and gentle prompts stay on this device until you export or sign in to sync; no report card.</p>
           <div class="cta-group">
             <a class="btn btn-secondary" href="reader.html">Read a Chapter</a>
           </div>
         </header>
-        <p class="section-note glass study-workspace-bridge util-mb-1">
-          <a href="mystudy.html">My Study</a> — tagged notes, memorize queue, print bundle.
-          <a href="bible-tool.html">Bible Tool</a> — lookup and reading plans.
-          <a href="bible/tools.html">Study workshop</a> — maps, intros, concordance, full word-help index.
+        <p class="section-note glass tdb-porch-paper-glass study-workspace-bridge util-mb-1">
+          <a href="mystudy.html">My Study</a> &mdash; the calmer shelf: tagged notes, memorize queue, print bundle.
+          <a href="bible-tool.html">Bible Tool</a> &mdash; lookup and reading plans.
+          <a href="bible/tools.html">Study workshop</a> &mdash; maps, intros, concordance, full word-help index.
         </p>
-        <section class="search-hero glass" id="search-hero" role="search" aria-label="Search Scripture">
-          <label for="query" class="search-hero-label">Search by emotion or verse</label>
+        <section class="search-hero glass tdb-porch-paper-glass" id="search-hero" role="search" aria-label="Search Scripture">
+          <label for="query" class="search-hero-label">Ask by heart or by reference</label>
           <div class="search-hero-row">
-            <input id="query" type="text" placeholder="Hope, fear, John 3:16…" aria-label="Search by emotion or verse" autocomplete="off" class="search-hero-input">
+            <input id="query" type="text" placeholder="Heavy heart, hope, John 3:16&hellip;" aria-label="Ask by heart or by reference" autocomplete="off" class="search-hero-input">
             <button id="search-btn" class="btn btn-primary search-hero-btn" type="button">Search</button>
           </div>
-          <p class="section-note quick-searches-label">Try a topic — tap any chip to load verses (all 28 topics)</p>
+          <p class="section-note quick-searches-label">Or tap a topic&mdash;each chip opens verses without rushing you (all 28 topics)</p>
           <div class="quick-actions quick-actions-hero quick-chips-gold" id="quick-actions-hero" role="region" aria-label="Quick topic search"><!-- filled by script from TDB_TOPICS --></div>
           <details class="home-accordion util-mt-0_5">
             <summary class="home-accordion-summary">More topics</summary>
@@ -168,9 +168,9 @@
           </details>
           <div id="output" class="results" role="region" aria-live="polite" aria-label="Search results"></div>
         </section>
-        <section id="study-tools" class="study-tools glass" role="region" aria-label="Study tools: notes, saved verses, lesson builder">
+        <section id="study-tools" class="study-tools glass tdb-porch-paper-glass" role="region" aria-label="Study tools: notes, saved verses, lesson builder">
           <h2 class="section-divider">Study Workspace</h2>
-          <p class="section-note">Use these tools for study and discipleship. Search above for verses by topic, or add from <a href="bible-tool.html">Bible Tool</a>. Read full passages for context.</p>
+          <p class="section-note">The same tools teachers and parents reach for&mdash;offered here without noise. Search above, pull from <a href="bible-tool.html">Bible Tool</a>, or read full chapters for context. Use one corner or all; you are not behind.</p>
           <p class="section-note util-mb-1">Everything here stays on this device unless you sign in to sync across devices.</p>
           <label class="inline-toggle study-kids-mode-wrap util-mb-1">
             <input type="checkbox" id="study-kids-mode" aria-label="Kids mode: bigger text and friendlier layout"> Kids mode
@@ -178,10 +178,10 @@
           <div class="study-grid">
             <div class="study-card">
               <h3>Notes</h3>
-              <p class="section-note util-mb-0_5">Type below and click Save. Search above for verses, or add from <a href="bible-tool.html">Bible Tool</a>, then attach notes here.</p>
+              <p class="section-note util-mb-0_5">Write what matters; save when you&rsquo;re ready. Pull verses from search above or from <a href="bible-tool.html">Bible Tool</a>, then attach them here.</p>
               <label for="note-verse-select">Attach note to</label>
               <select id="note-verse-select"></select>
-              <textarea id="notes-textarea" rows="5" placeholder="Type your study notes here—prayer, insight, or application..." aria-label="Study notes" maxlength="10000"></textarea>
+              <textarea id="notes-textarea" rows="5" placeholder="Prayer, a phrase that lit up, a question you&rsquo;re holding&hellip;" aria-label="Study notes" maxlength="10000"></textarea>
               <label class="inline-toggle" style="display:block; margin-top:0.5rem;">
                 <input id="note-private" type="checkbox" aria-label="Private note (excluded from shared links)">
                 Private (excluded from shared links)
@@ -257,8 +257,8 @@
               <div id="curriculum-output" class="list"></div>
             </div>
             <div class="study-card">
-              <h3>Share Study Pack</h3>
-              <p class="section-note">Share today’s verses, notes, and prompts with your group.</p>
+              <h3>Invite your group</h3>
+              <p class="section-note">Optional: gather today&rsquo;s verses, notes, and prompts into a link for people you trust.</p>
               <button id="share-study">Create Share Link</button>
               <input id="share-link" placeholder="Share link will appear here" readonly>
             </div>
@@ -379,7 +379,7 @@
         <a href="/mystudy">My Study</a>
         <a href="/calm.html">Calm</a>
         <a href="/mobius.html">Möbius</a>
-        <a href="/plans.html">Battle plans</a>
+        <a href="/plans.html">Courses</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
         <a href="/wins.html">Wins</a>
@@ -420,7 +420,8 @@
   </details>
 
   <p class="footer-humility">We battle. He wins.</p>
-  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): Built solo by Brandon · A quiet KJV porch for real daily battles -->
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet KJV porch for real daily battles &bull; No ads &bull; No tracking &bull; Privacy-first</p>
   <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
@@ -434,12 +435,20 @@
   </div>
 
   <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="site-footer-copy site-footer-legal-line">&copy; Christian Messenger Service. All rights reserved.</p>
   <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
   <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">April 23, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">April 28, 2026</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
 </footer>
   </div>
@@ -448,6 +457,7 @@
   <script nonce="tdb2025s">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260423-phase5-perf" data-cfasync="false"></script>
+  <script src="tdb-offline-strip.js?v=20260329pass2off"></script>
   <script src="word-study.js?v=20260329pass2off"></script>
   <script src="verse-narration.js?v=20260329narr12"></script>
   <script src="verse-study.js?v=20260328pass4vs"></script>

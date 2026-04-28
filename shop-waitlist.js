@@ -86,7 +86,7 @@
       waitForClient(8000, 100).then(function (client) {
         if (!client) {
           if (status) {
-            status.textContent = 'Could not save right now. Join the Friday recap on the home page instead.';
+            status.textContent = 'That did not save—that is all right. Join the Friday recap on the home page instead.';
             status.style.color = 'var(--muted, #888)';
           }
           return;
@@ -100,7 +100,7 @@
           .then(function (res) {
             if (res.error) {
               if (status) {
-                status.textContent = 'Something went wrong. Try again or use the home page newsletter.';
+                status.textContent = 'That did not send—that is all right. Try again or use the home page newsletter.';
                 status.style.color = 'var(--muted, #888)';
               }
               return;
@@ -114,7 +114,7 @@
             } catch (err) {}
           })
           .catch(function () {
-            if (status) status.textContent = 'Please try again or join the newsletter on the home page.';
+            if (status) status.textContent = 'That did not send—that is all right. Try again or join the newsletter on the home page.';
           });
       });
     });

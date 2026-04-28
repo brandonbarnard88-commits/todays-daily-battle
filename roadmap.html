@@ -20,6 +20,7 @@
   <meta name="twitter:description" content="A quiet public roadmap for Today's Daily Battle.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf">
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -96,13 +97,14 @@
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <header class="hero-banner">
+        <header class="hero-banner tdb-dawn-bg--mist">
           <h1>What&rsquo;s next</h1>
+          <p class="section-note topic-mood-porch">You&rsquo;re already welcome here&mdash;this sketches direction, not deadlines for your soul.</p>
           <p class="hero-tagline">A quiet roadmap for people who want to know where the site is headed without turning it into a noisy product feed.</p>
           <p class="section-note">This page stays simple on purpose: what is live now, what is next, and what may come later if it still protects the site&rsquo;s privacy-first, Scripture-first heart.</p>
         </header>
 
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Already live</h2>
           <ul class="pricing-list" style="margin:0.5rem 0 0 1rem;">
             <li>Quiet night, calm cream, and dawn parchment appearance modes, plus higher contrast and larger text.</li>
@@ -114,7 +116,7 @@
           </ul>
         </section>
 
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Now</h2>
           <ul class="pricing-list" style="margin:0.5rem 0 0 1rem;">
             <li>Keep the custom-domain header/security alignment clean so live behavior matches the repo and verification stays honest.</li>
@@ -123,7 +125,7 @@
           </ul>
         </section>
 
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Next</h2>
           <ul class="pricing-list" style="margin:0.5rem 0 0 1rem;">
             <li>Prayer Wall 2.0 in safe steps: queued shared prayers that can actually flush, clearer private-vs-shared guidance, gentle KJV verse echoes, and household-room groundwork that stays local-first.</li>
@@ -132,7 +134,7 @@
           </ul>
         </section>
 
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Later, if it still fits the mission</h2>
           <ul class="pricing-list" style="margin:0.5rem 0 0 1rem;">
             <li>On-device recommendations, but only after widgets and prayer sharing settle; the likely path is local heuristics or a restrained hybrid, never robotic pushing.</li>
@@ -141,7 +143,7 @@
           </ul>
         </section>
 
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Release Order</h2>
           <ol class="pricing-list" style="margin:0.5rem 0 0 1rem;">
             <li>Header alignment and live verification discipline.</li>
@@ -151,7 +153,7 @@
           </ol>
         </section>
 
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Verification Gates</h2>
           <ul class="pricing-list" style="margin:0.5rem 0 0 1rem;">
             <li>Static checks for new pages, service-worker precache coverage, and live marker coverage.</li>
@@ -160,7 +162,7 @@
           </ul>
         </section>
 
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">What will not change</h2>
           <p class="section-note">No ads. No guilt-heavy gamification. No AI-generated filler. No pressure-first growth tricks. The site should keep feeling like a quiet place for real battles, not a dashboard that performs at you.</p>
           <p class="section-note">If you want to help move the roadmap forward, the calmest way is still the same: <a href="/give">support this quiet place</a>, or share the page that helped you.</p>
@@ -280,7 +282,7 @@
         <a href="/mystudy">My Study</a>
         <a href="/calm.html">Calm</a>
         <a href="/mobius.html">Möbius</a>
-        <a href="/plans.html">Battle plans</a>
+        <a href="/plans.html">Courses</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
         <a href="/wins.html">Wins</a>
@@ -321,7 +323,8 @@
   </details>
 
   <p class="footer-humility">We battle. He wins.</p>
-  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): Built solo by Brandon · A quiet KJV porch for real daily battles -->
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet KJV porch for real daily battles &bull; No ads &bull; No tracking &bull; Privacy-first</p>
   <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
@@ -335,12 +338,20 @@
   </div>
 
   <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="site-footer-copy site-footer-legal-line">&copy; Christian Messenger Service. All rights reserved.</p>
   <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
   <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
   <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
 </footer>
   </div>

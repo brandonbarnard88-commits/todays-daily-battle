@@ -124,7 +124,7 @@
       modal.className = 'modal verse-search-modal hidden';
       modal.setAttribute('role', 'dialog');
       modal.setAttribute('aria-label', 'Verse');
-      modal.innerHTML = '<div class="modal-inner glass verse-search-modal-inner">' +
+      modal.innerHTML = '<div class="modal-inner glass tdb-porch-paper-glass verse-search-modal-inner">' +
         '<button type="button" class="intent-modal-close verse-search-modal-close" aria-label="Close">&times;</button>' +
         '<p class="verse-search-modal-ref section-divider"></p>' +
         '<p class="verse-search-modal-text"></p>' +

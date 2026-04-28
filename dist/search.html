@@ -10,10 +10,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Search the Site • Today's Daily Battle</title>
-  <meta name="description" content="Find plans, topics, and tools on Today's Daily Battle—quiet filter over a hand-built list. No query leaves your device except loading this page.">
+  <meta name="description" content="A quiet map of this site: plans, tools, and doors you can open next. You are already welcome here. The list is hand-built; your search stays on your device.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/search.html">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf">
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,6 +23,7 @@
 </head>
 <body class="dark-mode tdb-inner-page tdb-search-page">
   <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div id="tdb-offline-strip" class="tdb-offline-strip hidden" role="status" aria-live="polite" data-tdb-offline-page="search"><p class="offline-msg"></p></div>
   <nav class="tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
     <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel-standalone" id="tdb-primary-nav-toggle-standalone">
       <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
@@ -65,16 +67,17 @@
   </nav>
 
   <main id="main-content" class="content-inner tdb-search-main" role="main">
-    <header class="hero-banner util-mb-1 tdb-search-hero" aria-labelledby="tdb-search-page-title">
-      <p class="section-note util-mb-0_5">Quiet page list — not a live crawl. Your filter stays in this browser.</p>
+    <header class="hero-banner util-mb-1 tdb-search-hero tdb-dawn-bg--mist" aria-labelledby="tdb-search-page-title">
+      <p class="section-note topic-mood-porch util-mb-0_5">You&rsquo;re already welcome here&mdash;exactly as you are. This porch keeps a hand-built map of pages; it isn&rsquo;t a live crawl, and your filter never leaves this browser.</p>
       <h1 id="tdb-search-page-title">Search the site</h1>
-      <p class="privacy-line">Type a word: plan names, topics, tools. For a calm first path, open <a href="/site-guide.html">Start here</a>. For verse-first help by mood, use <a href="/#feel-section">Ask The Word on Home</a> or open <a href="explore.html">Explore</a>.</p>
+      <p class="privacy-line">When you&rsquo;re ready, you could type a word&mdash;plan names, topics, or tools&mdash;or only read a title and put the rest away. Nothing here grades you; it only opens doors. For a gentle first path, open <a href="/site-guide.html">Start here</a>. For verse-first help by mood, use <a href="/#feel-section">Ask The Word on Home</a> or open <a href="explore.html">Explore</a>.</p>
+      <p class="section-note util-mb-0">No pressure if today is just rest&mdash;the list will wait. If you want a next step, the matches below are optional doors, not a checklist.</p>
     </header>
 
-    <section class="glass tdb-search-panel" aria-labelledby="tdb-site-search-label">
-      <label id="tdb-site-search-label" class="tdb-search-label" for="tdb-site-search-input">Find a page</label>
-      <input type="search" id="tdb-site-search-input" class="tdb-site-search-input" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="e.g. anxiety, plans, memorize, pastor…" aria-describedby="tdb-site-search-status">
-      <p id="tdb-site-search-status" class="section-note util-mb-0" role="status" aria-live="polite">Loading the page list…</p>
+    <section class="glass tdb-porch-paper-glass tdb-search-panel" aria-labelledby="tdb-site-search-label">
+      <label id="tdb-site-search-label" class="tdb-search-label" for="tdb-site-search-input">Where would you like to go?</label>
+      <input type="search" id="tdb-site-search-input" class="tdb-site-search-input" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="Try a feeling, a plan name, or a tool&hellip;" aria-describedby="tdb-site-search-status">
+      <p id="tdb-site-search-status" class="section-note util-mb-0" role="status" aria-live="polite">Laying out the gentle map&mdash;no rush.</p>
       <ul id="tdb-site-search-results" class="tdb-site-search-results" role="list" aria-label="Matching pages"></ul>
     </section>
   </main>
@@ -191,7 +194,7 @@
         <a href="/mystudy">My Study</a>
         <a href="/calm.html">Calm</a>
         <a href="/mobius.html">Möbius</a>
-        <a href="/plans.html">Battle plans</a>
+        <a href="/plans.html">Courses</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
         <a href="/wins.html">Wins</a>
@@ -232,7 +235,8 @@
   </details>
 
   <p class="footer-humility">We battle. He wins.</p>
-  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): Built solo by Brandon · A quiet KJV porch for real daily battles -->
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet KJV porch for real daily battles &bull; No ads &bull; No tracking &bull; Privacy-first</p>
   <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
@@ -246,16 +250,25 @@
   </div>
 
   <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="site-footer-copy site-footer-legal-line">&copy; Christian Messenger Service. All rights reserved.</p>
   <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
   <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">April 23, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">April 28, 2026</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
 </footer>
 
   <script type="module" src="script.js?v=20260423-phase5-perf" data-cfasync="false"></script>
+  <script src="/tdb-offline-strip.js?v=20260329pass2off"></script>
   <script nonce="tdb2025s">
 (function () {
   var input = document.getElementById('tdb-site-search-input');
@@ -297,8 +310,10 @@
           return matchesEntry(needle, e);
         });
     status.textContent = hits.length
-      ? (needle ? hits.length + ' match' + (hits.length === 1 ? '' : 'es') : 'Showing all ' + hits.length + ' doors — type to narrow when you need to.')
-      : 'No matches yet — try another word or open Explore.';
+      ? (needle
+        ? hits.length + ' quiet door' + (hits.length === 1 ? '' : 's') + ' — take your time; open one only if it helps today.'
+        : 'All ' + hits.length + ' doors are here — type if you want to narrow, or read a title and let the rest wait.')
+      : 'Nothing here right now — that\'s okay. You\'re still welcome here. Try another gentle word, or open Explore for a slower walk.';
     hits.forEach(function (e) {
       var li = document.createElement('li');
       li.setAttribute('role', 'listitem');
@@ -322,6 +337,11 @@
     .then(function (data) {
       entries = (data && data.entries) || [];
       try {
+        var stripOk = document.getElementById('tdb-offline-strip');
+        if (stripOk) stripOk.removeAttribute('data-tdb-offline-forced');
+        if (globalThis.TDB_hideOfflineStripIfOnline) globalThis.TDB_hideOfflineStripIfOnline();
+      } catch (eStrip) {}
+      try {
         var qp = new URLSearchParams(window.location.search || '');
         var preset = String(qp.get('q') || '').trim();
         if (preset) input.value = preset;
@@ -335,6 +355,9 @@
         { t: 'Explore', u: '/explore.html' },
         { t: 'Bible Tool', u: '/bible-tool.html' }
       ];
+      try {
+        if (globalThis.TDB_showOfflineStrip) globalThis.TDB_showOfflineStrip('search', { force: true });
+      } catch (eStrip) {}
       status.textContent = 'Offline — still got you. Showing a few core links.';
       try {
         var qp2 = new URLSearchParams(window.location.search || '');

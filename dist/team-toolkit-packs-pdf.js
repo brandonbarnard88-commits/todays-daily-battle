@@ -342,7 +342,7 @@
   function generatePainGracePackPdf() {
     var JsPDF = getJsPdfCtor();
     if (!JsPDF) {
-      showPackToast('PDF tools did not load. Refresh and try again.', true);
+      showPackToast('PDF tools did not load—that is all right. Refresh and try again.', true);
       return;
     }
     var doc = new JsPDF({ unit: 'pt', format: 'letter', compress: true });
@@ -430,12 +430,12 @@
   function generateCancerComfortPackPdf() {
     var rows = getCancerComfortPlanRows();
     if (!rows) {
-      showPackToast('Pack data did not load. Refresh and try again.', true);
+      showPackToast('Pack data did not load—that is all right. Refresh and try again.', true);
       return;
     }
     var JsPDF = getJsPdfCtor();
     if (!JsPDF) {
-      showPackToast('PDF tools did not load. Refresh and try again.', true);
+      showPackToast('PDF tools did not load—that is all right. Refresh and try again.', true);
       return;
     }
     var doc = new JsPDF({ unit: 'pt', format: 'letter', compress: true });
@@ -499,7 +499,7 @@
   function generateBattle14PackPdf() {
     var JsPDF = getJsPdfCtor();
     if (!JsPDF) {
-      showPackToast('PDF tools did not load. Refresh and try again.', true);
+      showPackToast('PDF tools did not load—that is all right. Refresh and try again.', true);
       return;
     }
     var doc = new JsPDF({ unit: 'pt', format: 'letter', compress: true });

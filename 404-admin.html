@@ -14,6 +14,7 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="referrer" content="no-referrer">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf">
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,9 +35,9 @@
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <section class="glass" style="text-align: center; padding: 3rem 2rem; max-width: 36rem; margin: 0 auto;">
+        <section class="glass tdb-porch-paper-glass" style="text-align: center; padding: 3rem 2rem; max-width: 36rem; margin: 0 auto;">
           <h1 class="section-divider" style="margin-bottom: 0.5rem;">Admin access only</h1>
-          <p class="section-note" style="margin-bottom: 1rem;">The Admin panel is for the master account only. Sign in with the admin account to view it. If you're the site owner, see CONFIG.md for setup.</p>
+          <p class="section-note topic-mood-porch" style="margin-bottom: 1rem;">The Admin panel is for the master account only. Sign in with the admin account to view it. If you're the site owner, see CONFIG.md for setup.</p>
           <p class="section-note" style="margin-bottom: 1.5rem;">May you find peace in His Word.</p>
           <img
             src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=600&auto=format&fit=crop&q=80"
@@ -81,7 +82,16 @@
       <p class="footer-disclaimer">KJV-based tool for personal use—not doctrine. Feedback welcome.</p>
       <p class="footer-copyright">© 2026 Today&rsquo;s Daily Battle. All rights reserved.</p>
       <p class="footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
-    </footer>
+    
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
+
+</footer>
   </div>
   <script nonce="tdb2025s">(function(){var e=document.getElementById("footer-date");var p="TDB_"+ "BUILD_"+ "DATE";if(e&&e.textContent===p){var d=new Date(),m=["January","February","March","April","May","June","July","August","September","October","November","December"];e.textContent=m[d.getMonth()]+" "+d.getDate()+", "+d.getFullYear();}})();</script>
   <script defer src="/easter-eggs.js" data-tdb-easter-eggs="1"></script>

@@ -23,6 +23,7 @@
   <meta name="twitter:description" content="Pastor resources and sermon templates to support ministry.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260410og">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
@@ -138,9 +139,10 @@
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <header class="hero-banner">
+        <header class="hero-banner tdb-dawn-bg--mist">
           <h1>Pastor Resources</h1>
-          <p class="hero-tagline">Sermon structure, lesson planning, and topic pages for weekly prep. Less time starting from scratch, more time in the actual passage.</p>
+          <p class="section-note util-mb-0_5 topic-mood-porch">You&rsquo;re already welcome here&mdash;this lane is for shepherds carrying weight; borrow only what lightens this week.</p>
+          <p class="hero-tagline">Sermon structure, lesson planning, and topic pages&mdash;meant to shrink the blank page, not your soul. More room to stay inside the passage.</p>
           <div class="cta-group">
             <a class="btn btn-primary" href="/pastor/">Pastor Hub</a>
             <a class="btn btn-primary" href="pastor-toolkit.html">Pastor Toolkit (all tools)</a>
@@ -148,12 +150,12 @@
             <a class="btn btn-secondary" href="/">Go to Search</a>
           </div>
         </header>
-        <section id="pastor-resources" class="pastor-resources glass">
+        <section id="pastor-resources" class="pastor-resources glass tdb-porch-paper-glass">
           <h2 class="section-divider">Pastor Resources</h2>
-          <p class="section-note">Select a template to move from blank page to clear preaching structure in minutes.</p>
+          <p class="section-note">When a blank page feels loud, a template can hold the outline while your heart stays with the text&mdash;use one this week, or skip until you need it.</p>
           <div id="template-list" class="template-list"></div>
         </section>
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">How Scripture Helps</h2>
           <p class="section-note">Scripture meets real-life pressure points — anxiety, grief, fear, parenting, hope, endurance. These topic pages gather verses, reflections, and prayer language you can hand directly to someone in that moment.</p>
           <div class="list">
@@ -166,7 +168,7 @@
             <div class="list-item"><div><strong><a href="topic-strength.html">How Scripture Helps with Strength</a></strong><p>When you need to keep going.</p></div></div>
           </div>
         </section>
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Topic Pages (quick links)</h2>
           <p class="section-note">Shareable pages for counseling follow-up, hospital visits, and daily pastoral encouragement.</p>
           <div class="list">
@@ -175,14 +177,14 @@
             <div class="list-item"><div><strong><a href="topic-parenting.html">Parenting</a></strong><p>Wisdom and grace for families.</p></div></div>
           </div>
         </section>
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Weekly Email Template</h2>
           <p class="section-note">Use this template to send clear, Scripture-first weekly encouragement without starting from scratch.</p>
           <div class="cta-group">
             <a class="btn btn-secondary" href="weekly-email-template.html">Open Weekly Email Template</a>
           </div>
         </section>
-        <section class="glass" aria-labelledby="resources-church-sharing-heading">
+        <section class="glass tdb-porch-paper-glass" aria-labelledby="resources-church-sharing-heading">
           <h2 class="section-divider" id="resources-church-sharing-heading">Church sharing kit</h2>
           <p class="section-note">Calm, copy-paste invitations for leaders and small groups&mdash;bulletin lines, texts, newsletter paragraphs, social posts, printable card wording, and which Battle Plan fits which audience. Everything assumes <abbr title="King James Version">KJV</abbr> text on the site and no required login for reading.</p>
           <p class="section-note" id="resources-homeschool-kit-note">Homeschool families and co-ops: expanded rhythms, unit pairings, and a printable five-day tracker live on the kit page under <a href="church-sharing-kit.html#csk-homesch">Homeschool guide</a>.</p>
@@ -193,7 +195,7 @@
           </div>
           <p class="section-note util-mt-0_75" id="resources-church-kit-completeness">Everything you need for children&rsquo;s ministry, VBS, family devotions, and small groups is here in the <a href="church-sharing-kit.html">Church Sharing Kit</a>&mdash;blurbs, schedules, crafts, prayer ideas, worship suggestions, and volunteer training. <a href="yearly-rhythm.html">Year-round rhythm</a> helps homeschool and private-school families pace Scripture August through July.</p>
         </section>
-        <section class="glass" aria-labelledby="resources-quiet-site-overview-heading">
+        <section class="glass tdb-porch-paper-glass" aria-labelledby="resources-quiet-site-overview-heading">
           <h2 class="section-divider" id="resources-quiet-site-overview-heading">What you&rsquo;ll find on Today&rsquo;s Daily Battle</h2>
           <p class="section-note" id="resources-quiet-site-overview">A calm companion in Scripture: today&rsquo;s lesson, gentle KJV courses, prayer wall, Kids Corner, Family hub, Bible studies for many ages, and full church and VBS resources&mdash;free, private on the device, and built for a quiet place with Jesus.</p>
         </section>
@@ -353,7 +355,8 @@
   </details>
 
   <p class="footer-humility">We battle. He wins.</p>
-  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): Built solo by Brandon · A quiet KJV porch for real daily battles -->
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet KJV porch for real daily battles &bull; No ads &bull; No tracking &bull; Privacy-first</p>
   <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
@@ -367,12 +370,20 @@
   </div>
 
   <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="site-footer-copy site-footer-legal-line">&copy; Christian Messenger Service. All rights reserved.</p>
   <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
   <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
   <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
 </footer>
   </div>

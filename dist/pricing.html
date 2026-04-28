@@ -26,6 +26,7 @@
   <meta name="twitter:description" content="The Bible companion you'll use every day. Free core; Supporter and Church add more. Less scroll, more soul.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260410og">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf" nonce="tdb2025s">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" nonce="tdb2025s" defer></script>
@@ -142,8 +143,9 @@
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <header class="hero-banner">
+        <header class="hero-banner tdb-dawn-bg--mist">
           <h1>Pricing <span class="pricing-hero-quiet" style="display:block;font-size:0.65em;font-weight:500;color:var(--muted,#94a3b8);margin-top:0.35rem;">Support this quiet place</span></h1>
+          <p class="section-note topic-mood-porch">You&rsquo;re already welcome here&mdash;paid tiers are optional; the porch stays open either way.</p>
           <p class="hero-tagline">Everything on Today&rsquo;s Daily Battle is free forever&mdash;no ads, no tracking, no paywalls. Paid plans below are optional: tools for teaching, leading, and steady rhythm. If this corner has helped you meet God in your day, you can also <a href="/give">give what feels right</a> to help keep the space calm and open for anyone who needs it.</p>
           <p class="section-note" style="margin-top: 0.5rem;">Free includes daily verse, search, M&ouml;bius, plans, prayer wall, kids corner, and offline-friendly saves. Supporter and Church add sync, email, builders, and team features.</p>
           <p class="section-note pricing-hero-note"><strong>Battle Pro – $19/mo.</strong> For steady rhythm: wins tracking, offline-friendly packs, and richer devotionals.</p>
@@ -154,13 +156,13 @@
           </div>
         </header>
 
-        <section class="glass" aria-labelledby="pricing-support-quiet-title">
+        <section class="glass tdb-porch-paper-glass" aria-labelledby="pricing-support-quiet-title">
           <h2 id="pricing-support-quiet-title" class="section-divider">Support without a subscription</h2>
           <p class="section-note">If this quiet place helped you, you can give once or monthly—<strong>you choose the amount</strong>. It does not unlock features; it helps keep the site calm, private, and ad-free.</p>
           <p class="section-note" style="margin-top: 0.5rem;"><a href="/give">Open the gift page</a> for the current support path and updates.</p>
         </section>
 
-        <section class="glass pricing-verse-previews" aria-labelledby="pricing-verse-previews-h">
+        <section class="glass tdb-porch-paper-glass pricing-verse-previews" aria-labelledby="pricing-verse-previews-h">
           <h2 id="pricing-verse-previews-h" class="section-divider">Supporter verse cards</h2>
           <p class="section-note">Stylized previews of a few template moods&mdash;square dawn, night peace, and print-friendly linen. The real tool exports full-resolution PNG with your verse and reference.</p>
           <ul class="pricing-verse-preview-strip" role="list">
@@ -180,7 +182,7 @@
           <p class="section-note" style="margin-top: 0.75rem; text-align: center;"><a href="verse-image.html">Verse image generator</a> (Supporters)&mdash;twelve templates plus a custom wide canvas.</p>
         </section>
 
-        <section class="glass" aria-labelledby="pricing-quiet-extras-heading">
+        <section class="glass tdb-porch-paper-glass" aria-labelledby="pricing-quiet-extras-heading">
           <h2 id="pricing-quiet-extras-heading" class="section-divider">Quiet extras worth supporting</h2>
           <p class="section-note">Supporter perks should feel like real help, not noise. The best ones are the things people reach for on tired days: cleaner print helps, calmer share tools, and more hand-built packs.</p>
           <ul class="pricing-list" style="margin:0.5rem 0 0 1rem;">
@@ -191,7 +193,7 @@
           </ul>
         </section>
 
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Plans</h2>
           <p class="section-note">Free is enough for a real daily practice. Paid plans are for people who preach, teach, or lead a group and want tools built for that work.</p>
           <p id="pricing-availability-note" class="section-note"></p>
@@ -330,12 +332,12 @@
           </div>
         </section>
 
-        <section class="glass" aria-labelledby="pricing-roadmap-title">
+        <section class="glass tdb-porch-paper-glass" aria-labelledby="pricing-roadmap-title">
           <h2 id="pricing-roadmap-title" class="section-divider">Later, if it fits the mission</h2>
           <p class="section-note">We may add a deeper &ldquo;companion&rdquo; tier when there is clear demand and real features to ship&mdash;for example fuller audio across plans, a verse-card studio with your own imagery, gentle family offline packs, or private prayer-chain tools that stay anonymous-by-design. Nothing here is for sale yet; the plans above are what you can subscribe to today.</p>
         </section>
 
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Elite tools by plan</h2>
           <p class="section-note">Four tiers. Free includes search, daily verse, reading plan, reader, notes, message board, kids activities, verse cards, Battle of the day, prayer list. <strong>Supporter</strong> ($9/mo launch) adds sync, emails, Sermon/Lesson Builder, Church Center, custom plans, verse image generator, bulk export, private notes. <strong>Battle Pro</strong> ($19/mo) adds Wins Report, offline PDFs, premium devotionals. <strong>Church/Team</strong> ($29/mo launch, reg $49) adds team logins, shared library, church hub, assign reading, group progress, church verse of the day, shared prayer list.</p>
           <div class="list">
@@ -345,7 +347,7 @@
             <div class="list-item"><div><strong>Church/Team</strong><p>Everything in Battle Pro plus team logins, shared lesson library, church hub and branding, assign reading to groups, group progress, church verse of the day, verse + announcement, church-branded exports, shared prayer list, priority support.</p></div></div>
           </div>
         </section>
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Why upgrade?</h2>
           <p class="section-note">Free is enough to build momentum - here is when an upgrade becomes practical.</p>
           <ul class="pricing-list" style="margin-top: 0.5rem;">
@@ -354,7 +356,7 @@
             <li><strong>Building sermons or lessons?</strong> Export to PDF, save drafts, and share links—included in Supporter.</li>
           </ul>
         </section>
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Why Support?</h2>
           <p class="section-note">Your support keeps search free for everyone and funds new daily tools. By subscribing you agree to our <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy</a>.</p>
           <p class="section-note" style="margin-top: 0.5rem;">Prefer one-time support? Use the <a href="/give">support page</a> so you always land on the current working path.</p>
@@ -365,7 +367,7 @@
             <a class="btn btn-secondary" href="index.html#newsletter">Join the Battle Plan</a>
           </div>
         </section>
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Subscribe</h2>
           <p class="section-note">Launch pricing applies to paid plans. Keep your launch rate as long as your subscription stays active.</p>
           <div class="cta-group" style="margin-top: 1rem; flex-wrap: wrap;">
@@ -378,7 +380,7 @@
           <p class="section-note" style="margin-top: 0.75rem;">After payment, return here and sign in with the checkout email to unlock your plan automatically.</p>
           <p class="section-note" style="margin-top: 0.5rem; color: var(--muted, #94a3b8);">Not signed in? <a href="#auth-section">Sign in</a> above to have your upgrade applied automatically after payment.</p>
         </section>
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Payments &amp; Billing</h2>
           <div class="list">
             <div class="list-item"><div><strong>Secure checkout</strong><p>All payments are processed by Stripe. We do not store your full card number on this site.</p></div></div>
@@ -387,7 +389,7 @@
             <div class="list-item"><div><strong>Plan not active yet?</strong><p>Sign in with the same email used at checkout, then refresh this page. If it still does not unlock, contact support and we will fix it.</p></div></div>
           </div>
         </section>
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Battle Pro</h2>
           <p class="section-note">Offline downloads, premium devotionals, and your <strong>2026 Wins Report</strong>: a year of verses, streaks, and growth in one shareable summary. <strong>$19/mo or $190/yr</strong> for serious daily discipleship tools.</p>
           <p class="section-note" style="margin-top: 0.75rem; padding: 0.75rem 1rem; background: rgba(148, 163, 184, 0.12); border-radius: 10px; border-left: 3px solid var(--elite-gold);"><strong>Wins Report teaser:</strong> &ldquo;You prayed through 180 battles. Verses on Hope helped most.&rdquo; One shareable graphic at year&rsquo;s end—only in Battle Pro.</p>
@@ -515,7 +517,7 @@
         <a href="/mystudy">My Study</a>
         <a href="/calm.html">Calm</a>
         <a href="/mobius.html">Möbius</a>
-        <a href="/plans.html">Battle plans</a>
+        <a href="/plans.html">Courses</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
         <a href="/wins.html">Wins</a>
@@ -556,7 +558,8 @@
   </details>
 
   <p class="footer-humility">We battle. He wins.</p>
-  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): Built solo by Brandon · A quiet KJV porch for real daily battles -->
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet KJV porch for real daily battles &bull; No ads &bull; No tracking &bull; Privacy-first</p>
   <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
@@ -570,12 +573,20 @@
   </div>
 
   <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="site-footer-copy site-footer-legal-line">&copy; Christian Messenger Service. All rights reserved.</p>
   <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
   <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">April 23, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">April 28, 2026</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
 </footer>
   </div>

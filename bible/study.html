@@ -15,8 +15,11 @@
   <link rel="canonical" href="https://todaysdailybattle.com/bible/study.html">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="../styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="../styles.css?v=20260423-phase5-perf">
+  <link rel="preload" href="bible-hub.css?v=20260331edge" as="style">
   <link rel="stylesheet" href="bible-hub.css?v=20260331edge">
+  <link rel="preload" href="bible-study.css?v=20260328workshop-bridge" as="style">
   <link rel="stylesheet" href="bible-study.css?v=20260328workshop-bridge">
   <link rel="manifest" href="../manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
@@ -62,12 +65,13 @@
       <div class="content-inner bible-study-inner">
         <header class="bible-hub-hero">
           <h1>Study</h1>
+          <p class="section-note topic-mood-porch">You&rsquo;re already welcome here&mdash;search deep or land on one line; no finish line on this desk.</p>
           <p class="bible-hub-tagline">Search, highlight, and take notes. Tap a verse to highlight + add a note.</p>
           <p class="bible-hub-tagline bible-study-workshop-bridge">Deeper shelf—book intros, concordance, maps, memory, full word helps: <a href="tools.html">Study workshop</a> (Tools).</p>
           <p class="bible-hub-tagline tdb-kjv-dict-hint util-mb-0" role="note">Tap any underlined KJV word for a short, plain meaning.</p>
         </header>
 
-        <section class="bible-study-search glass" role="search" aria-label="Search verses">
+        <section class="bible-study-search glass tdb-porch-paper-glass" role="search" aria-label="Search verses">
           <label for="bible-study-search-input" class="bible-study-search-label">Search by keyword</label>
           <div class="bible-study-search-row">
             <input type="search" id="bible-study-search-input" class="bible-study-search-input" placeholder="e.g. love, peace, strength" autocomplete="off" aria-label="Search verses">
@@ -84,7 +88,7 @@
           <p class="bible-study-search-help">Tip: use two words (like "fear not" or "be strong") for tighter matches.</p>
         </section>
 
-        <section class="bible-study-lanes glass" aria-labelledby="bible-study-lanes-title">
+        <section class="bible-study-lanes glass tdb-porch-paper-glass" aria-labelledby="bible-study-lanes-title">
           <h2 id="bible-study-lanes-title" class="bible-study-section-title">Best way to use this page</h2>
           <div class="bible-study-lanes-grid">
             <article class="bible-study-lane-card">
@@ -103,15 +107,15 @@
           </div>
         </section>
 
-        <section id="bible-study-results" class="bible-study-results glass" role="region" aria-live="polite" aria-label="Search results">
+        <section id="bible-study-results" class="bible-study-results glass tdb-porch-paper-glass" role="region" aria-live="polite" aria-label="Search results">
           <p id="bible-study-hint" class="bible-study-hint">Type a word above to find verses.</p>
           <div id="bible-study-verses" class="bible-study-verses"></div>
         </section>
 
-        <section id="bible-study-highlights" class="bible-study-highlights glass" role="region" aria-label="My highlights">
+        <section id="bible-study-highlights" class="bible-study-highlights glass tdb-porch-paper-glass" role="region" aria-label="My highlights">
           <h2 class="bible-study-section-title">My Highlights</h2>
           <div id="bible-study-highlights-grid" class="bible-study-highlights-grid"></div>
-          <p id="bible-study-no-highlights" class="bible-study-no-highlights hidden">No highlights saved yet. Search and tap a verse to start building your highlight library.</p>
+          <p id="bible-study-no-highlights" class="bible-study-no-highlights hidden">No highlights here yet&mdash;that is all right. When you are ready, search and tap a verse; your library grows at your pace.</p>
           <button type="button" id="export-notes" class="export-notes-btn" aria-label="Export highlights to PDF">
             <span class="export-notes-label">Export to PDF</span>
             <span class="export-notes-spinner hidden" aria-hidden="true"></span>
@@ -250,7 +254,7 @@
         <a href="/mystudy">My Study</a>
         <a href="/calm.html">Calm</a>
         <a href="/mobius.html">Möbius</a>
-        <a href="/plans.html">Battle plans</a>
+        <a href="/plans.html">Courses</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
         <a href="/wins.html">Wins</a>
@@ -291,7 +295,8 @@
   </details>
 
   <p class="footer-humility">We battle. He wins.</p>
-  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): Built solo by Brandon · A quiet KJV porch for real daily battles -->
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet KJV porch for real daily battles &bull; No ads &bull; No tracking &bull; Privacy-first</p>
   <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
@@ -305,12 +310,20 @@
   </div>
 
   <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="site-footer-copy site-footer-legal-line">&copy; Christian Messenger Service. All rights reserved.</p>
   <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
   <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
   <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
 </footer>
 

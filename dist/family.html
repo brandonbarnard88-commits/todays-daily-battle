@@ -966,6 +966,7 @@
     <header class="family-hub-hero family-hub-hero--soar-dawn family-hub-animate family-hub-d1" aria-labelledby="family-hub-hero-heading">
       <p class="family-hub-kicker">Family hub</p>
       <h1 id="family-hub-hero-heading">For Families &amp; Parents</h1>
+      <p class="section-note topic-mood-porch">You&rsquo;re already welcome here&mdash;this hub helps your household meet God, not pass an invisible inspection.</p>
       <p class="family-hub-tagline">A quiet place for your family to meet God together.</p>
       <p class="family-hub-lead">Daily worship, heavy days, ordinary Tuesdays, teaching little ones, and growing together—without hype or pressure. Everything here is <strong>KJV</strong> for Scripture, human-curated, and saved on <strong>this device</strong> until you choose to print.</p>
       <p class="family-hub-lead family-hub-parent-nudge">Parents: your own soul matters too—<a href="daily-quiet-time.html">Daily quiet time</a> and <a href="what-god-has-done.html">What God has done</a> (private journal) are gentle doorways before the table fills up.</p>
@@ -1186,6 +1187,11 @@
           <p class="family-hub-card-title">Start Family Worship</p>
           <p class="family-hub-card-desc">Open <em>Family Worship in the Trenches</em>—Christ at the table, real rooms, short steps.</p>
         </a>
+        <a class="family-hub-card" href="plans.html?plan=eveninguog">
+          <p class="family-hub-card-label">Evening</p>
+          <p class="family-hub-card-title">Evening in the University</p>
+          <p class="family-hub-card-desc">Four nights—one verse, one hush, one prayer—read aloud for parents and kids. Separate save from your solo plans; no quiz, no show. <a href="family-rhythm.html">Simple family rhythm</a> gathers morning, evening, and prints in one place &middot; <a href="evening-university-print.html">One-page print for table or fridge</a> &middot; <a href="morning-evening-family-print.html">Morning &amp; evening pair</a> &middot; <a href="one-week-in-the-university-print.html">One week sheet</a>.</p>
+        </a>
         <a class="family-hub-card" href="daily-quiet-time.html">
           <p class="family-hub-card-label">Quiet</p>
           <p class="family-hub-card-title">Family quiet time</p>
@@ -1244,7 +1250,7 @@
       <h2 class="family-section-title" id="family-youth-heading">For teens</h2>
       <div class="family-youth-box">
         <p class="family-youth-note">A quiet place to meet God in your own words.</p>
-        <p>Use the <a href="family-youth-journal.html">printable OIA sheet</a> with <a href="plans.html?plan=familyworship">Family Worship in the Trenches</a>, <a href="plans.html?plan=psalmscomfortfamily">Psalms of Comfort (Family Edition)</a>, or <a href="plans.html?plan=galatiansfreedom">Galatians: Freedom in Christ</a>. Keep it private on paper; the site never sees what you write.</p>
+        <p>Use the <a href="family-youth-journal.html">printable OIA sheet</a> with <a href="plans.html?plan=familyworship">Family Worship in the Trenches</a>, <a href="plans.html?plan=eveninguog">Evening in the University</a>, <a href="plans.html?plan=psalmscomfortfamily">Psalms of Comfort (Family Edition)</a>, or <a href="plans.html?plan=galatiansfreedom">Galatians: Freedom in Christ</a>. Keep it private on paper; the site never sees what you write.</p>
         <p>For younger children, the <a href="kids-corner.html">Bible Loop Library</a> stays the gentler replay-safe space, and the <a href="kids/corner.html">Bible Story Library</a> is the next step when you want a read-aloud card.</p>
       </div>
     </section>
@@ -1259,7 +1265,7 @@
         <li>Hard week? Do one day from <a href="plans.html?plan=psalmscomfortfamily">Psalms of Comfort (Family Edition)</a> instead of skipping altogether.</li>
         <li>Busy night? Print the <a href="family-discussion-guide.html">Family Discussion Guide</a> and stop after one See / Understand / Live round.</li>
       </ul>
-      <p class="section-lead util-mt-1"><a class="btn btn-secondary" href="plans.html?plan=parenting">When parenting feels heavy</a> — seven days in the <em>Parenting in Faith</em> plan (KJV).</p>
+      <p class="section-lead util-mt-1"><a class="btn btn-secondary" href="plans.html?plan=parenting">When parenting feels heavy</a> — seven days in the <em>Parenting</em> plan (KJV).</p>
     </section>
 
     <section class="family-section-block family-hub-animate family-hub-d4" aria-labelledby="family-private-share-heading">
@@ -1395,7 +1401,7 @@
         statEl.appendChild(document.createTextNode(' plan day' + (monthCount === 1 ? '' : 's') + ' this month on this device.'));
         var note = document.createElement('span');
         note.className = 'family-month-note';
-        note.textContent = 'Counts when you tap Mark complete on Family Worship, Psalms of Comfort (Family Edition), or Parenting in Faith. Resets with the calendar month.';
+        note.textContent = 'Counts when you tap Mark complete on Family Worship, Psalms of Comfort (Family Edition), or Parenting. Resets with the calendar month.';
         statEl.appendChild(note);
       }
 
@@ -1422,7 +1428,7 @@
           key: 'tdb-plan-parenting-day',
           max: 7,
           planId: 'parenting',
-          title: 'Parenting in Faith',
+          title: 'Parenting',
           desc: 'When parenting feels heavy—seven gentle days in the Word for moms and dads (KJV), with honest steps and prayer.',
           href: 'plans.html?plan=parenting',
           wide: true
@@ -1493,7 +1499,7 @@
         ep.textContent = 'No family plan progress on this device yet—that is a fine place to begin. When you are ready, choose one:';
         empty.appendChild(ep);
         var ul = document.createElement('ul');
-        [['plans.html?plan=familyworship', 'Family Worship in the Trenches'], ['plans.html?plan=psalmscomfortfamily', 'Psalms of Comfort (Family Edition)'], ['plans.html?plan=parenting', 'Parenting in Faith']].forEach(function (pair) {
+        [['plans.html?plan=familyworship', 'Family Worship in the Trenches'], ['plans.html?plan=psalmscomfortfamily', 'Psalms of Comfort (Family Edition)'], ['plans.html?plan=parenting', 'Parenting']].forEach(function (pair) {
           var li = document.createElement('li');
           var a = document.createElement('a');
           a.href = pair[0];

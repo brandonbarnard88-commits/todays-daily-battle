@@ -25,6 +25,7 @@
   <meta property="og:locale" content="es_MX">
   <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="/styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="/styles.css?v=20260423-phase5-perf">
   <link rel="manifest" href="/manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" defer></script>
@@ -78,8 +79,9 @@
     </aside>
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <header class="hero-banner">
+        <header class="hero-banner tdb-dawn-bg--mist">
           <h1>Cuando el corazón quiere quedarse con el golpe</h1>
+          <p class="section-note util-mb-0_5 topic-mood-porch" lang="es">Ya est&aacute;s bienvenido aqu&iacute;&mdash;sin prisa; un vers&iacute;culo a la vez.</p>
           <p class="real-talk">Perdonar no es fingir que no dolió — es no construir una celda con el resentimiento. Dios te llama a la verdad y a la libertad, a Su ritmo.</p>
           <p class="section-note" style="margin-top:0.5rem;">Citas bíblicas en esta página: <strong>Reina-Valera 1960</strong> (texto de <strong>dominio público</strong>). Las herramientas del sitio y la Biblia en pantalla siguen en <strong>inglés</strong> (<abbr title="King James Version">KJV</abbr>).</p>
           <div class="cta-group">
@@ -89,7 +91,7 @@
             <a class="btn btn-secondary" href="/study.html" hreflang="en">Estudio (EN)</a>
           </div>
         </header>
-        <section class="glass es-topic-breakdown" lang="es">
+        <section class="glass tdb-porch-paper-glass es-topic-breakdown" lang="es">
           <div class="breakdown">
             <h2>Versículo para hoy</h2>
             <p class="verse">&ldquo;Antes bien, sed benignos unos con otros, misericordiosos, perdonándoos unos a otros, como Dios también os perdonó a vosotros en Cristo.&rdquo; &mdash; Efesios 4:32 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1960)</span></p>
@@ -103,11 +105,11 @@
             <p>Di: «Señor, Te confío esta herida — enséñame Tu perdón.» Un minuto en silencio. No tienes que arreglarlo todo antes de hablar con Él.</p>
           </div>
         </section>
-        <section class="glass" lang="es">
+        <section class="glass tdb-porch-paper-glass" lang="es">
           <h2 class="section-divider">Otro versículo, si el pecho sigue apretado</h2>
           <p class="verse" style="margin-top:0.75rem;">&ldquo;Soportándoos unos a otros, y perdonándoos unos a otros si alguno tuviere queja contra otro. De la manera que Cristo os perdonó, así también hacedlo vosotros.&rdquo; &mdash; Colosenses 3:13 <span class="section-note" style="display:inline;font-size:0.85em;">(Reina-Valera 1960)</span></p>
         </section>
-        <section class="glass es-mas-ayuda" lang="es">
+        <section class="glass tdb-porch-paper-glass es-mas-ayuda" lang="es">
           <h2 class="section-divider">Herramientas del sitio — pantalla en inglés</h2>
           <p class="section-note"><strong>Resumen:</strong> cada enlace abre una página en <strong>inglés</strong>; el texto bíblico en las herramientas es <strong>KJV</strong>. <strong lang="en">(EN)</strong> recuerda el cambio de idioma.</p>
           <nav class="cta-group es-mas-ayuda-tools" aria-label="Herramientas en inglés" style="display:flex !important;flex-wrap:wrap;gap:0.5rem;visibility:visible;opacity:1;min-height:2.75rem;">
@@ -122,7 +124,7 @@
             <a class="btn btn-secondary" href="/explore.html#languages" hreflang="en">Explore — idiomas (EN)</a>
           </nav>
         </section>
-        <section class="glass" lang="es">
+        <section class="glass tdb-porch-paper-glass" lang="es">
           <h2 class="section-divider">Más temas en español</h2>
           <div class="cta-group" style="flex-wrap:wrap;gap:0.5rem;">
             <a class="btn btn-secondary" href="/es/">Hub ES</a>
@@ -157,7 +159,7 @@
     </span>
   </nav>
 
-  <p class="site-footer-pilot-note" lang="es">Página en español. Muchas herramientas del sitio abren en inglés; la Biblia en pantalla suele ser <abbr title="King James Version" lang="en">KJV</abbr>.</p>
+  <p class="site-footer-pilot-note" lang="es">Página en español. Cuando una herramienta abre en inglés, la puerta sigue siendo clara; la Escritura en pantalla suele ser <abbr title="King James Version" lang="en">KJV</abbr>. Sin prisa si hoy solo te quedas aquí.</p>
 
   <nav class="site-footer-essentials" aria-label="Páginas principales">
     <a href="/es/">Inicio ES</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
@@ -197,8 +199,17 @@
   <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. Escritura en las herramientas en inglés: <abbr title="King James Version">KJV</abbr>, salvo nota en la página.</p>
   <p class="privacy-line site-footer-trust-hook">Sin anuncios. Sin vender datos. Las oraciones en el muro: detalles en la página en inglés.</p>
 
-  <p class="site-footer-updated">Última actualización: <span id="footer-date">April 23, 2026</span></p>
+  <p class="site-footer-updated">Última actualización: <span id="footer-date">April 28, 2026</span></p>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
+
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
+
 </footer>
   </div>
   <script type="module" src="/config.js"></script>

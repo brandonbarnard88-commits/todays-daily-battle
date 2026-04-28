@@ -10425,7 +10425,7 @@
       var ctn = document.getElementById('kids-cartoon-container');
       if (ctn) {
         try {
-          appendKidsCartoonFallbackMsg(ctn, 'We could not finish loading today\'s comic area. Your verse is still above—try a refresh.');
+          appendKidsCartoonFallbackMsg(ctn, 'Today\'s comic area did not finish loading—that is all right. Your verse is still above—try a refresh.');
         } catch (e2) {}
       }
     }
@@ -11891,7 +11891,7 @@
       var ctn = document.getElementById('kids-cartoon-container');
       if (ctn) {
         try {
-          appendKidsCartoonFallbackMsg(ctn, 'Could not update the comic area. Try a refresh.');
+          appendKidsCartoonFallbackMsg(ctn, 'Comic area did not update—that is all right. Try a refresh.');
         } catch (e2) {}
       }
     }
@@ -12318,12 +12318,12 @@
 
       withKidSupabase(true, function (client) {
         if (!client) {
-          showCodeError('Something went wrong. Please try again.');
+          showCodeError('That did not finish—that is all right. Try again in a moment.');
           return;
         }
         return client.rpc('redeem_invite_code', { code: code }).then(function (res) {
           if (res.error) {
-            showCodeError('Something went wrong. Please try again.');
+            showCodeError('That did not finish—that is all right. Try again in a moment.');
             return;
           }
           var data = res.data;
@@ -12341,10 +12341,10 @@
             }
           }
         }).catch(function () {
-          showCodeError('Something went wrong. Please try again.');
+          showCodeError('That did not finish—that is all right. Try again in a moment.');
         });
       }).catch(function () {
-        showCodeError('Something went wrong. Please try again.');
+        showCodeError('That did not finish—that is all right. Try again in a moment.');
       });
     });
   }
@@ -12622,9 +12622,9 @@
     if (name) {
       if (badge) badge.textContent = 'Hey, ' + name + '! Faith Trail';
     } else {
-      if (badge) badge.textContent = '🔥 Faith Trail';
+      if (badge) badge.textContent = 'Faith Trail';
     }
-    if (tagline) tagline.textContent = "Two minutes. One verse. One prayer. You're a hero!";
+    if (tagline) tagline.textContent = "Two minutes. One verse. One quiet prayer. Small is enough.";
   }
 
   function showKidNameModalIfNeeded() {
@@ -12686,7 +12686,7 @@
     if (!statusEl) return;
     if (st.effective > 0) {
       statusEl.textContent = streak > 0
-        ? 'First win earned: Little Explorer is unlocked, and your Battle Trail is moving. Keep it light and keep going.'
+        ? 'First win earned: Little Explorer is unlocked, and your faith trail is moving. Keep it light and keep going.'
         : 'First win earned: Little Explorer is unlocked. If you want one more gentle step, mark today as done and start your trail.';
       return;
     }

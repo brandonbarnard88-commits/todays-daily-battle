@@ -30,6 +30,7 @@
   <script>window.location.replace('/prayer-wall.html?tab=with-others');</script>
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260410og">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf" nonce="tdb2025s">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" nonce="tdb2025s" defer></script>
@@ -263,8 +264,9 @@
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <header class="hero-banner tdb-dawn-hub--dusk">
+        <header class="hero-banner tdb-dawn-bg--mist">
           <h1>Prayer moved</h1>
+          <p class="section-note util-mb-0_5 topic-mood-porch" lang="en">You&rsquo;re already welcome here&mdash;rest first; one verse at a time.</p>
           <p class="real-talk">Prayer now lives at one clear doorway. You are being sent to <a href="/prayer-wall.html?tab=with-others">Prayer</a>, where private prayer and prayer with others sit together.</p>
           <p class="section-note message-prayer-quiet-feed-note" role="note">If the redirect does not fire, use the button below.</p>
           <div class="cta-group">
@@ -273,7 +275,7 @@
           </div>
         </header>
 
-        <section id="message-board" class="message-board glass" role="region" aria-labelledby="message-board-heading">
+        <section id="message-board" class="message-board glass tdb-porch-paper-glass" role="region" aria-labelledby="message-board-heading">
           <h2 class="section-divider" id="message-board-heading">Pray with others</h2>
           <p class="section-note" id="message-board-intro">This shared wall is for honesty, not polish. A name is optional. We never rank or feature one prayer over another. If you are not signed in yet, the page above will take you to the full Prayer doorway, where private prayer and prayer with others sit together.</p>
           <p class="section-note" role="note">Safety note: keep private details out (full names, phone numbers, email, addresses). Short and anonymous is best.</p>
@@ -331,7 +333,7 @@
 
         <details class="message-page-verse-search tdb-surface-panel">
           <summary>Looking for a verse before you write?</summary>
-          <section class="search-hero glass" id="search-hero" role="search" aria-label="Search Scripture">
+          <section class="search-hero glass tdb-porch-paper-glass" id="search-hero" role="search" aria-label="Search Scripture">
             <label for="query" class="search-hero-label">Search by feeling or reference</label>
             <div class="search-hero-row">
               <input id="query" type="text" placeholder="Hope, fear, John 3:16…" aria-label="Search by emotion or verse" autocomplete="off" class="search-hero-input">
@@ -461,7 +463,7 @@
         <a href="/mystudy">My Study</a>
         <a href="/calm.html">Calm</a>
         <a href="/mobius.html">Möbius</a>
-        <a href="/plans.html">Battle plans</a>
+        <a href="/plans.html">Courses</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
         <a href="/wins.html">Wins</a>
@@ -502,7 +504,8 @@
   </details>
 
   <p class="footer-humility">We battle. He wins.</p>
-  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): Built solo by Brandon · A quiet KJV porch for real daily battles -->
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet KJV porch for real daily battles &bull; No ads &bull; No tracking &bull; Privacy-first</p>
   <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
@@ -516,12 +519,20 @@
   </div>
 
   <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="site-footer-copy site-footer-legal-line">&copy; Christian Messenger Service. All rights reserved.</p>
   <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
   <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
   <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
 </footer>
   </div>

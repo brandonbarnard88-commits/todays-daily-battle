@@ -126,7 +126,7 @@
     var plans = [
       { key: 'tdb-plan-familyworship-day', max: 7, href: 'plans.html?plan=familyworship', label: 'Family Worship in the Trenches' },
       { key: 'tdb-plan-psalmscomfortfamily-day', max: 7, href: 'plans.html?plan=psalmscomfortfamily', label: 'Psalms of Comfort (Family Edition)' },
-      { key: 'tdb-plan-parenting-day', max: 7, href: 'plans.html?plan=parenting', label: 'Parenting in Faith' }
+      { key: 'tdb-plan-parenting-day', max: 7, href: 'plans.html?plan=parenting', label: 'Parenting' }
     ];
     for (var i = 0; i < plans.length; i++) {
       var current = progressValue(plans[i].key);

@@ -117,7 +117,7 @@
         }
       }
     }).catch(function () {
-      if (out) out.innerHTML = '<p style="text-align:center;color:#888;">Verses could not be loaded. Check your connection and retry.</p>';
+      if (out) out.innerHTML = '<p style="text-align:center;color:#888;">Verses did not load—that is all right. Check your connection and retry.</p>';
     });
   }
 

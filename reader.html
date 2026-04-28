@@ -26,7 +26,9 @@
   <meta name="twitter:description" content="Read full Bible chapters in context with the chapter reader.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf">
+  <link rel="preload" href="cormorant-latin-subset.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="cormorant-latin-subset.css?v=20260423-phase5-perf" />
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
@@ -635,15 +637,16 @@
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <header class="hero-banner hero-banner--soar-dawn chapter-reader-hero chapter-reader-hero--soar-dawn" aria-labelledby="chapter-reader-hero-heading">
+        <header class="hero-banner hero-banner--soar-dawn chapter-reader-hero chapter-reader-hero--soar-dawn tdb-dawn-bg--mist" aria-labelledby="chapter-reader-hero-heading">
           <h1 id="chapter-reader-hero-heading">Chapter Reader</h1>
-          <p>Full Bible — every book and chapter. Pick a book and it loads. Read without the clutter.</p>
+          <p class="section-note util-mb-0_5 topic-mood-porch">You&rsquo;re already welcome here&mdash;read half a chapter or only rest in one verse. No finish line.</p>
+          <p>Full Bible &mdash; every book and chapter in <abbr title="King James Version">KJV</abbr>. Pick a book and it loads; read with the clutter pulled back.</p>
           <div class="cta-group">
             <a class="btn btn-primary" href="/">Search Scripture</a>
             <a class="btn btn-secondary" href="verse.html">Daily Verse</a>
           </div>
         </header>
-        <section id="chapter-reader" class="chapter-reader glass" tabindex="0" aria-label="KJV chapter reader">
+        <section id="chapter-reader" class="chapter-reader glass tdb-porch-paper-glass" tabindex="0" aria-label="KJV chapter reader">
           <h2 class="section-divider">Chapter Reader</h2>
           <p class="section-note reader-tagline">Pick a book — chapter 1 loads instantly. Use the chapter picker or Prev/Next to navigate.</p>
           <p class="section-note tdb-kjv-dict-hint util-mb-0_5 util-mt-0" role="note">Tap any underlined KJV word for a short, plain meaning.</p>
@@ -697,7 +700,7 @@
               <h3 id="reader-bookmarks-heading" class="reader-bookmarks-heading">Saved chapters</h3>
               <button type="button" id="reader-bookmark-toggle" class="btn btn-secondary reader-bookmark-toggle" aria-pressed="false">Save chapter</button>
             </div>
-            <p id="reader-bookmarks-empty" class="section-note reader-bookmarks-empty">Nothing here yet. When a chapter draws you in, open it and tap Save chapter—bookmarks stay on this device. The Lord meets you right where you are.</p>
+            <p id="reader-bookmarks-empty" class="section-note reader-bookmarks-empty">Nothing here yet—that is all right. When a chapter draws you in, open it and tap Save chapter—bookmarks stay on this device. The Lord meets you right where you are.</p>
             <ul id="reader-bookmarks-list" class="reader-bookmarks-list" aria-label="Saved chapter bookmarks"></ul>
             <p class="section-note reader-strip-hint util-mb-0">Tip: <kbd class="reader-kbd">Alt</kbd> + <kbd class="reader-kbd">←</kbd> / <kbd class="reader-kbd">→</kbd> for Prev/Next when focus is inside the reader block.</p>
           </div>
@@ -895,7 +898,7 @@
         <a href="/mystudy">My Study</a>
         <a href="/calm.html">Calm</a>
         <a href="/mobius.html">Möbius</a>
-        <a href="/plans.html">Battle plans</a>
+        <a href="/plans.html">Courses</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
         <a href="/wins.html">Wins</a>
@@ -936,7 +939,8 @@
   </details>
 
   <p class="footer-humility">We battle. He wins.</p>
-  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): Built solo by Brandon · A quiet KJV porch for real daily battles -->
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet KJV porch for real daily battles &bull; No ads &bull; No tracking &bull; Privacy-first</p>
   <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
@@ -950,12 +954,20 @@
   </div>
 
   <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="site-footer-copy site-footer-legal-line">&copy; Christian Messenger Service. All rights reserved.</p>
   <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
   <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
   <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
 </footer>
   </div>

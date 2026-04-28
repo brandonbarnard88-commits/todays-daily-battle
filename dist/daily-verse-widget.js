@@ -192,7 +192,7 @@
     widget.classList.add('daily-verse-widget-error');
     var p = document.createElement('p');
     p.className = 'daily-verse-widget-error-msg';
-    p.textContent = msg || 'Verse could not be loaded.';
+    p.textContent = msg || 'Verse did not load—that is all right. Try again when you are online.';
     widget.appendChild(p);
   }
 

@@ -95,3 +95,218 @@ main.tdb-calm-hub a:focus-visible {
 .tdb-offline-strip .offline-msg {
   margin: 0;
 }
+
+/* January: one quiet KJV line per day (tdb-january-quiet.js) */
+.tdb-january-quiet {
+  box-sizing: border-box;
+  max-width: var(--tdb-home-content-max, 40rem);
+  width: 100%;
+  margin: 0.5rem auto 0.75rem;
+  padding: 0.85rem 1rem 0.95rem;
+  border-radius: 16px;
+  border: 1px solid color-mix(in srgb, var(--gold, #d4af7b) 20%, var(--line, #2a2520));
+  background: color-mix(in srgb, var(--card, #121826) 94%, rgba(227, 188, 103, 0.06));
+  text-align: left;
+  align-self: center;
+}
+.tdb-january-quiet[hidden] {
+  display: none !important;
+}
+.tdb-january-quiet--show {
+  animation: tdb-january-quiet-in 0.7s ease-out both;
+}
+@keyframes tdb-january-quiet-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tdb-january-quiet--show {
+    animation: none;
+  }
+}
+.tdb-january-quiet__eyebrow {
+  margin: 0 0 0.2rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--muted, #a8a29e) 75%, var(--gold, #d4af7b) 25%);
+}
+.tdb-january-quiet__label {
+  margin: 0 0 0.45rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--text, #f5f4f0) 92%, var(--gold, #d4af7b) 8%);
+}
+.tdb-january-quiet__ref {
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--gold, #d4af7b);
+}
+.tdb-january-quiet__text {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.04rem;
+  line-height: 1.48;
+  color: #e8e4d9;
+}
+.tdb-january-quiet__actions {
+  margin: 0.6rem 0 0;
+}
+.tdb-january-quiet__dismiss {
+  margin: 0;
+  padding: 0.4rem 0.65rem;
+  font-size: 0.8rem;
+  color: var(--muted, #a8a29e);
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--line, #2a2520) 88%, var(--gold, #d4af7b) 12%);
+  border-radius: 999px;
+  cursor: pointer;
+  min-height: 44px;
+}
+.tdb-january-quiet__dismiss:hover,
+.tdb-january-quiet__dismiss:focus-visible {
+  color: var(--text, #f5f4f0);
+  border-color: color-mix(in srgb, var(--gold, #d4af7b) 35%, var(--line, #2a2520));
+  outline: none;
+}
+.tdb-january-quiet__foot {
+  margin: 0.65rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--muted, #a8a29e);
+}
+.tdb-january-quiet__foot a {
+  color: var(--gold, #d4af7b);
+  font-weight: 600;
+  text-decoration: none;
+}
+.tdb-january-quiet__foot a:hover,
+.tdb-january-quiet__foot a:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
+:root[data-theme="light"] .tdb-january-quiet {
+  background: color-mix(in srgb, var(--card, #fff) 96%, rgba(201, 162, 39, 0.08));
+  border-color: color-mix(in srgb, #c9a84c 35%, #e5e7eb);
+}
+:root[data-theme="light"] .tdb-january-quiet__text {
+  color: #1e293b;
+}
+
+/* "This month in the University" — Feb–Dec (tdb-uog-month-signpost.js) */
+.tdb-uog-month[hidden] {
+  display: none !important;
+}
+.tdb-uog-month {
+  box-sizing: border-box;
+  margin: 0.75rem 0 0;
+  padding: 0.75rem 0.9rem 0.85rem;
+  border-radius: 16px;
+  border: 1px solid color-mix(in srgb, var(--gold, #d4af7b) 18%, var(--line, #2a2520));
+  background: color-mix(in srgb, var(--card, #141210) 94%, rgba(227, 188, 103, 0.05));
+}
+.tdb-uog-month--show {
+  animation: tdb-uog-month-in 0.65s ease-out both;
+}
+@keyframes tdb-uog-month-in {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tdb-uog-month--show {
+    animation: none;
+  }
+}
+.tdb-uog-month__h {
+  margin: 0 0 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: color-mix(in srgb, var(--text, #f5f4f0) 90%, var(--gold, #d4af7b) 10%);
+}
+.tdb-uog-month__label {
+  font-weight: 600;
+  color: color-mix(in srgb, var(--text, #f5f4f0) 88%, var(--gold, #d4af7b) 12%);
+}
+.tdb-uog-month__sep {
+  font-weight: 400;
+  color: var(--muted, #a8a29e);
+}
+.tdb-uog-month__lead {
+  margin: 0 0 0.5rem;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--muted, #a8a29e);
+}
+.tdb-uog-month__whisper {
+  margin: 0 0 0.5rem;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--muted, #a8a29e);
+  font-style: italic;
+}
+.tdb-uog-month__whisper[hidden] {
+  display: none !important;
+}
+.tdb-uog-month__links {
+  margin: 0;
+  padding: 0 0 0 1.1rem;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--text, #f5f4f0);
+}
+.tdb-uog-month__links li {
+  margin: 0.3rem 0 0;
+}
+.tdb-uog-month__links a {
+  color: var(--gold, #d4af7b);
+  font-weight: 600;
+  text-decoration: none;
+}
+.tdb-uog-month__links a:hover,
+.tdb-uog-month__links a:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
+.tdb-uog-month__foot {
+  margin: 0.6rem 0 0;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--muted, #a8a29e);
+}
+.tdb-uog-month__foot a {
+  color: var(--gold, #d4af7b);
+  font-weight: 600;
+  text-decoration: none;
+}
+.tdb-uog-month__foot a:hover,
+.tdb-uog-month__foot a:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
+:root[data-theme="light"] .tdb-uog-month {
+  background: color-mix(in srgb, var(--card, #fff) 97%, rgba(201, 162, 39, 0.06));
+  border-color: color-mix(in srgb, #c9a84c 32%, #e5e7eb);
+}
+:root[data-theme="light"] .tdb-uog-month__h,
+:root[data-theme="light"] .tdb-uog-month__label {
+  color: #0f172a;
+}
+:root[data-theme="light"] .tdb-uog-month__links {
+  color: #1e293b;
+}

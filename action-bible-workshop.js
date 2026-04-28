@@ -290,7 +290,7 @@
       navigator.clipboard.writeText(text).then(function () {
         setStatus('Current output copied to clipboard.');
       }).catch(function () {
-        setStatus('Copy failed. Use Download Current Output instead.');
+        setStatus('Copy did not go through—that is all right. Use Download Current Output instead.');
       });
       return;
     }
@@ -380,7 +380,7 @@
         setStatus('Loaded ' + rows.length + ' entries and ' + packs.length + ' weekly packs for full toolkit generation.');
       })
       .catch(function () {
-        setStatus('Action Bible data could not be loaded for toolkit generation.');
+        setStatus('Action Bible data did not load for toolkit generation—that is all right. Refresh when you are online.');
       });
   }
 

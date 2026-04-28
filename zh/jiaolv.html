@@ -34,6 +34,7 @@
   <meta property="og:locale" content="zh_CN">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="/styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="/styles.css?v=20260423-phase5-perf">
   <link rel="manifest" href="/manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" defer></script>
@@ -78,7 +79,7 @@
             <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
           </span>
         </nav>
-        <p class="tdb-mood-door-kjv-banner" lang="zh-CN">本页经文为中文；英文站内工具的圣经正文一般为 <abbr title="King James Version" lang="en">KJV</abbr>。</p>
+        <p class="tdb-mood-door-kjv-banner" lang="zh-CN">2026 试点：本页经文为中文；英文工具里的圣经正文一般为 <abbr title="King James Version" lang="en">KJV</abbr>，说明保持诚实。</p>
       </div>
 
       <div class="brand">
@@ -113,8 +114,9 @@
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <header class="hero-banner">
+        <header class="hero-banner tdb-dawn-bg--mist">
           <h1>当焦虑让你喘不过气</h1>
+          <p class="section-note util-mb-0_5 topic-mood-porch" lang="zh-CN">在这里你已经受到欢迎——不必急，一节经文慢慢读。</p>
           <p class="real-talk">胸口发紧、脑子转个不停、害怕到无法呼吸——我懂那种感觉。你不是一个人。</p>
           <p class="section-note" style="margin-top:0.5rem;">经文引用：<strong>和合本</strong>（1919 联合译本，广泛视为<strong>公有领域</strong>）。站内工具界面多为英文。</p>
           <div class="cta-group">
@@ -125,7 +127,7 @@
           </div>
         </header>
 
-        <section class="glass zh-topic-breakdown" lang="zh-CN">
+        <section class="glass tdb-porch-paper-glass zh-topic-breakdown" lang="zh-CN">
           <div class="breakdown">
             <h2>今日的经文</h2>
             <p class="verse">「你要把你的重担卸给耶和华，他必抚养你；他永不叫义人动摇。」— 诗篇 55:22 <span class="section-note" style="display:inline;font-size:0.85em;">（和合本）</span></p>
@@ -144,14 +146,14 @@
           </div>
         </section>
 
-        <section class="glass" lang="zh-CN">
+        <section class="glass tdb-porch-paper-glass" lang="zh-CN">
           <h2 class="section-divider">另一节经文，若心里仍沉重</h2>
           <p class="section-note">不是要否定你的感受，而是把神的话放在你真实的一天旁边。</p>
           <p class="verse" style="margin-top:0.75rem;">「你们要将一切的忧虑卸给神，因为他顾念你们。」— 彼得前书 5:7 <span class="section-note" style="display:inline;font-size:0.85em;">（和合本）</span></p>
           <p class="section-note" style="margin-top:0.75rem;">「卸给」不是假装没事，而是向祂说实话，不再独自背负早已压在心里太久的东西。</p>
         </section>
 
-        <section class="glass zh-mas-ayuda" lang="zh-CN">
+        <section class="glass tdb-porch-paper-glass zh-mas-ayuda" lang="zh-CN">
           <h2 class="section-divider">站内工具 — 界面为英文</h2>
           <p class="section-note"><strong>简要说明：</strong>以下链接打开的页面多为<strong>英文</strong>界面；其中显示的圣经文本为<strong>KJV</strong>（英文），与英文主站一致。<strong>（EN）</strong>提醒你即将切换语言。</p>
           <nav class="cta-group zh-mas-ayuda-tools" aria-label="工具 — 英文界面" style="display:flex !important;flex-wrap:wrap;gap:0.5rem;visibility:visible;opacity:1;min-height:2.75rem;">
@@ -167,7 +169,7 @@
           </nav>
         </section>
 
-        <section class="glass" lang="zh-CN">
+        <section class="glass tdb-porch-paper-glass" lang="zh-CN">
           <h2 class="section-divider">同一主题，其他语言</h2>
           <p class="section-note">相同主题，不同语言入口：</p>
           <div class="cta-group" style="flex-wrap:wrap;gap:0.5rem;">
@@ -181,7 +183,7 @@
           </div>
         </section>
 
-        <section class="glass" lang="zh-CN">
+        <section class="glass tdb-porch-paper-glass" lang="zh-CN">
           <h2 class="section-divider">盼望 — 同样的扶持，更多语言</h2>
           <p class="section-note">当忧虑耗尽了力气，请用你读懂的语言打开盼望的门。每个页面按页内说明使用本地公版经文；网站工具仍以英文为主，圣经工具中一般为 KJV。</p>
           <div class="cta-group tdb-mood-door-hope-cluster" style="flex-wrap:wrap;gap:0.5rem;">
@@ -218,7 +220,7 @@
     </span>
   </nav>
 
-  <p class="site-footer-pilot-note" lang="zh-CN">中文页面。站内工具多为英文；圣经文本在工具中为 <abbr title="King James Version">KJV</abbr>（本页引用的和合本除外）。</p>
+  <p class="site-footer-pilot-note" lang="zh-CN">中文页面。当工具以英文打开时，入口仍然清楚；工具中的圣经文本一般为 <abbr title="King James Version" lang="en">KJV</abbr>（本页引用的和合本除外）。今天可以只停在这一页，不必着急。</p>
 
   <nav class="site-footer-essentials" aria-label="Key pages">
     <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
@@ -353,6 +355,15 @@
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
   <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
+
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
+
 </footer>
   </div>
 

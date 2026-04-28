@@ -15,13 +15,17 @@
   <link rel="canonical" href="https://todaysdailybattle.com/kids/kids-beta.html">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="../styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="../styles.css?v=20260423-phase5-perf">
+  <link rel="preload" href="kids-battle.css?v=20260331edge" as="style">
   <link rel="stylesheet" href="kids-battle.css?v=20260331edge">
+  <link rel="preload" href="kids-kids-world.css?v=20260428kids100" as="style">
+  <link rel="stylesheet" href="kids-kids-world.css?v=20260428kids100">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="dark-mode kids-battle-page">
+<body class="dark-mode kids-battle-page kids-world-surface">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="app-shell">
     <header class="top-bar kids-battle-header kids-header-unified">
@@ -40,12 +44,28 @@
 
     <main class="app-content" id="main-content" role="main">
       <div class="content-inner kids-battle-inner kids-beta-inner">
+        <p class="section-note topic-mood-porch kids-site-porch" lang="en">You&rsquo;re already welcome here&mdash;fun first, short moments, tiny KJV line. No rush.</p>
         <header class="kids-battle-hero">
           <h1 class="kids-battle-title">Kids Battle Beta Updates</h1>
           <p class="kids-battle-tagline">A quiet list for families who want early notes, test invites, and launch updates when they are ready.</p>
         </header>
 
-        <section id="kids-beta-form-section" class="kids-beta-form glass" role="region" aria-label="Beta signup form">
+        <section class="kids-shepherd-compact glass tdb-porch-paper-glass" aria-labelledby="kids-shepherd-compact-h" style="padding:0.75rem 1rem;border-radius:16px;margin:0 0 1rem">
+          <h2 class="sr-only" id="kids-shepherd-compact-h">Little Shepherd</h2>
+          <div class="kids-buddy-mascot-row">
+            <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, tap for a calm line">
+              <span class="kids-shepherd-hero-wrap">
+                <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="shepherd-mascot-welcome.svg" width="112" height="124" alt="Little Shepherd" decoding="async" loading="lazy"/>
+              </span>
+            </button>
+            <div class="kids-buddy-bubble kids-buddy-bubble--with-mascot" id="kids-little-shepherd-bubble" lang="en">
+              <p class="kids-bubble-hi" style="margin:0 0 0.25rem">I&rsquo;m <strong class="kids-bubble-name">Little Shepherd</strong>—thanks for caring about the kids path.</p>
+              <p class="kids-bubble-voice" id="kids-little-shepherd-line" aria-live="polite">&nbsp;</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="kids-beta-form-section" class="kids-beta-form glass tdb-porch-paper-glass" role="region" aria-label="Beta signup form">
           <p id="kids-beta-spots" class="kids-beta-spots" aria-live="polite">Join the list for calm launch updates.</p>
           <p id="kids-beta-error" class="kids-beta-error hidden" role="alert"></p>
           <form id="kids-beta-form" novalidate>
@@ -64,7 +84,7 @@
           </form>
         </section>
 
-        <section id="kids-beta-success" class="kids-beta-success glass hidden" role="status" aria-live="polite">
+        <section id="kids-beta-success" class="kids-beta-success glass tdb-porch-paper-glass hidden" role="status" aria-live="polite">
           <p class="kids-beta-success-msg">You&rsquo;re on the list. We&rsquo;ll email you when there is something ready to test or share.</p>
           <p id="kids-beta-code-msg" class="kids-beta-code-msg hidden"></p>
           <a href="/kids/" class="btn kids-btn-primary">← Back to Kids Battle</a>
@@ -93,7 +113,16 @@
         <a href="/privacy.html">Privacy</a>
         <a href="/" aria-label="Back to Today&apos;s Daily Battle main site">Main site</a>
       </nav>
-    </footer>
+    
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
+
+</footer>
 
     <nav class="kids-bottom-nav" aria-label="Kids Battle navigation">
       <a href="/kids/">
@@ -116,6 +145,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
+  <script src="kids-gentle-shepherd.js?v=20260428kids100" defer></script>
   <script src="../inline-bootstrap.js"></script>
   <script nonce="tdb2025s">
   (function () {
@@ -260,7 +290,7 @@
         }
 
         function doneError(msg) {
-          showError(msg || 'Something went wrong. Try again or check your connection.');
+          showError(msg || 'That did not finish—that is all right. Try again or check your connection.');
           if (submitBtn) submitBtn.disabled = false;
         }
 
@@ -293,7 +323,7 @@
                 doneSuccess();
                 return;
               }
-              doneError('Could not sign up. Try again.');
+              doneError('Sign-up did not finish—that is all right. Try again.');
               return;
             }
             doneSuccess();

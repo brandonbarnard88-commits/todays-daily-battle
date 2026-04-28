@@ -14,6 +14,7 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/wins-report.html">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf">
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,8 +54,9 @@
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <header class="hero-banner">
+        <header class="hero-banner tdb-dawn-bg--mist">
           <h1>Your 2026 Wins</h1>
+          <p class="section-note topic-mood-porch util-mb-0_5">You&rsquo;re already welcome here&mdash;these numbers can encourage you without defining you.</p>
           <p class="hero-tagline">A look at your daily battle habit — streak, days read, and how you've shown up. Share it if you want.</p>
           <div class="cta-group">
             <a class="btn btn-primary" href="/">Daily Battle</a>
@@ -62,14 +64,14 @@
           </div>
         </header>
 
-        <div id="wins-report-locked" class="glass wins-report-locked" role="region" aria-label="Premium feature — Battle Pro required" style="display: none;">
+        <div id="wins-report-locked" class="glass tdb-porch-paper-glass wins-report-locked" role="region" aria-label="Premium feature — Battle Pro required" style="display: none;">
           <h2 class="section-divider">Wins Report</h2>
           <p class="section-note">Your streak graphic, shareable summary, and year-end report are part of Battle Pro.</p>
           <p class="section-note" style="margin-top: 0.5rem;">Unlock Wins Report, offline devotional PDFs, and premium devotionals with a Supporter or Church plan.</p>
           <a href="pricing.html" class="btn btn-primary" aria-label="Upgrade to Battle Pro">Unlock with Battle Pro</a>
         </div>
 
-        <section id="wins-report-pro-content" class="glass wins-report-section">
+        <section id="wins-report-pro-content" class="glass tdb-porch-paper-glass wins-report-section">
           <h2 class="section-divider">This year so far</h2>
           <div id="wins-stats" class="wins-stats" aria-live="polite" aria-label="Your wins summary">
             <p class="section-note" aria-live="polite">Loading your wins…</p>
@@ -87,7 +89,7 @@
           <p id="wins-copy-status" class="section-note" style="margin-top: 0.5rem; display: none;" role="status"></p>
         </section>
 
-        <section class="glass">
+        <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Battle Pro</h2>
           <p class="section-note">The full Wins Report at year’s end—shareable graphic, verses engaged, topics that helped most—is part of <a href="pricing.html">Battle Pro</a>. This page gives you a quick shareable summary today.</p>
         </section>
@@ -206,7 +208,7 @@
         <a href="/mystudy">My Study</a>
         <a href="/calm.html">Calm</a>
         <a href="/mobius.html">Möbius</a>
-        <a href="/plans.html">Battle plans</a>
+        <a href="/plans.html">Courses</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
         <a href="/wins.html">Wins</a>
@@ -247,7 +249,8 @@
   </details>
 
   <p class="footer-humility">We battle. He wins.</p>
-  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): Built solo by Brandon · A quiet KJV porch for real daily battles -->
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet KJV porch for real daily battles &bull; No ads &bull; No tracking &bull; Privacy-first</p>
   <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
@@ -261,12 +264,20 @@
   </div>
 
   <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="site-footer-copy site-footer-legal-line">&copy; Christian Messenger Service. All rights reserved.</p>
   <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
   <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
   <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
 </footer>
   </div>
@@ -322,7 +333,7 @@
           html += '<p class="section-note"><strong>Last verse day:</strong> ' + safeKey + '</p>';
         }
         if (prayerCount > 0) html += '<p class="section-note"><strong>Prayer list:</strong> ' + prayerCount + ' item' + (prayerCount === 1 ? '' : 's') + '</p>';
-        if (sc === 0 && !lastKey) html = '<p class="section-note">No streak recorded yet. Start your first day on the <a href="/">Daily Battle</a> page - one verse, one moment, every day.</p>';
+        if (sc === 0 && !lastKey) html = '<p class="section-note">No streak recorded yet—that is all right. Start your first day on the <a href="/">Daily Battle</a> page—one verse, one moment, every day.</p>';
 
         if (statsEl) statsEl.innerHTML = html;
         if (sc > 0 || prayerCount > 0) {

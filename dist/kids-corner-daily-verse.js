@@ -33,7 +33,7 @@
   function showError(msg) {
     var t = byId(textId());
     var r = byId(refId());
-    if (t) t.textContent = msg || 'Could not load today\u2019s verse. Try again when you\u2019re online.';
+    if (t) t.textContent = msg || 'Today\u2019s verse did not load—that is all right. Try again when you\u2019re online.';
     if (r) r.textContent = '';
     fillFamilyQuickStart('', '');
     var kpq = byId('kids-parent-quick-line');

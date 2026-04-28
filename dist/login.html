@@ -14,6 +14,7 @@
   <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="https://todaysdailybattle.com/login.html">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true"></script>
@@ -154,8 +155,9 @@
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <section class="glass login-panel">
+        <section class="glass tdb-porch-paper-glass login-panel">
           <h1 id="login-title" class="section-divider">Sign In</h1>
+          <p class="section-note topic-mood-porch">You&rsquo;re already welcome here&mdash;signing in is for gentle sync across devices, not for measuring you.</p>
           <p id="login-intro" class="section-note">Sign in to your account to sync across devices.</p>
           <p class="section-note"><strong id="login-mode-tag">Sign in</strong></p>
           <div id="auth-loading" class="auth-loading" aria-live="polite">Loading secure login...</div>
@@ -200,7 +202,7 @@
       var heading = document.querySelector('h1, #login-title, .auth-heading, .page-title');
       if (heading) heading.textContent = isSignup ? 'Create Account' : 'Sign In';
 
-      var intro = document.querySelector('#login-intro, .auth-intro, p:first-of-type');
+      var intro = document.getElementById('login-intro');
       if (intro) {
         intro.textContent = isSignup
           ? 'Create an account to sync your progress across devices.'

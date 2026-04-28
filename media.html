@@ -20,6 +20,7 @@
   <meta name="twitter:description" content="Press-ready and platform-ready descriptions for Today's Daily Battle.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf">
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -131,8 +132,9 @@
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <header class="hero-banner">
+        <header class="hero-banner tdb-dawn-bg--mist">
           <h1>Media &amp; description guide</h1>
+          <p class="section-note topic-mood-porch">You&rsquo;re already welcome here&mdash;borrow language at your pace; nothing here grades your wording.</p>
           <p class="hero-tagline">Five polished ways to describe Today&rsquo;s Daily Battle, each written for a different place: headline, about box, directory listing, fuller write-up, and founder-voice story.</p>
           <div class="cta-group">
             <a class="btn btn-primary" href="/">Open the site</a>
@@ -141,7 +143,7 @@
           </div>
         </header>
 
-        <section class="glass media-grid" aria-labelledby="media-copy-heading">
+        <section class="glass tdb-porch-paper-glass media-grid" aria-labelledby="media-copy-heading">
           <h2 class="section-divider" id="media-copy-heading">Ready-to-use versions</h2>
 
           <article class="media-copy-card">
@@ -170,7 +172,21 @@
           </article>
         </section>
 
-        <section class="glass" aria-labelledby="media-notes-heading">
+        <section class="glass tdb-porch-paper-glass media-grid" aria-labelledby="media-deeper-heading" id="media-deeper-dive">
+          <h2 class="section-divider" id="media-deeper-heading">Deeper context (press, partners, directories)</h2>
+          <p class="section-note media-deeper-dive-lead">Today&rsquo;s Daily Battle is a solo-built, ad-free KJV ministry created by Brandon for people in the middle of real-life battles. Everything stays simple, private, and Scripture-centered by design.</p>
+          <article class="media-copy-card">
+            <span class="media-copy-label">What this is (longer read)</span>
+            <pre>Today's Daily Battle (todaysdailybattle.com) is a quiet, solo-built Christian web app and devotional ministry focused exclusively on the public-domain King James Version (KJV). It is a calm, ad-free "porch" for real spiritual and emotional battles&mdash;anxiety, grief, fear, parenting strain, hope, family life, and ordinary hard days. The simple promise: one grounded verse, one short prayer, one practical next step, with tools that work offline after the first visit and keep notes and prayers on your device by default unless you choose to sync.
+
+The tagline and framing is "God's University of Life"&mdash;the KJV is the textbook, the Holy Spirit is the Teacher, and the tone avoids grades, hype, and performance pressure. The design is for hard days, night-shift hours, and parents in the weeds; it is not a content farm or a noisy feed. Built and maintained solo by Brandon (West Tennessee); it grew from a personal hospital season and is still used daily. Privacy-first analytics (Plausible + careful GA4), strong CSP, DOMPurify, optional Supabase for cross-device sign-in, giving via Stripe, Cloudflare in front&mdash;see Privacy and Security on the site for binding detail.
+
+X/Twitter: @todaysdailybattle. Contact: support@todaysdailybattle.com. Core remains free; optional support helps keep the lights on (where-support-goes). Multilingual topic pilots exist; English KJV tools stay the default. This is intentional restraint: Scripture-centered, small, and human-scale on purpose.</pre>
+          </article>
+          <p class="section-note">Maintainers: a fuller deep dive (domain verify notes, streak nuance, doc links) lives in the repo at <code>docs/MINISTRY-DEEP-DIVE-2026-04.md</code> and is not published as its own page.</p>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass" aria-labelledby="media-notes-heading">
           <h2 class="section-divider" id="media-notes-heading">Best-use notes</h2>
           <ul class="media-notes-list section-note">
             <li>Use the <strong>1 sentence pitch</strong> for app cards, intros, and quick replies.</li>
@@ -178,6 +194,7 @@
             <li>Use the <strong>directory / press blurb</strong> for newsletters, Christian directories, partner blurbs, or media mentions.</li>
             <li>Use the <strong>full description</strong> when someone wants the whole shape of the product in one place.</li>
             <li>Use the <strong>founder voice</strong> when you want the tone to sound personal instead of institutional.</li>
+            <li>Use the <strong>longer partner read</strong> (section below) for press kits, directory submissions, and anyone who needs the &ldquo;whole posture&rdquo; in a few extra paragraphs&mdash;still calm, not salesy.</li>
           </ul>
         </section>
       </div>
@@ -295,7 +312,7 @@
         <a href="/mystudy">My Study</a>
         <a href="/calm.html">Calm</a>
         <a href="/mobius.html">Möbius</a>
-        <a href="/plans.html">Battle plans</a>
+        <a href="/plans.html">Courses</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
         <a href="/wins.html">Wins</a>
@@ -336,7 +353,8 @@
   </details>
 
   <p class="footer-humility">We battle. He wins.</p>
-  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): Built solo by Brandon · A quiet KJV porch for real daily battles -->
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet KJV porch for real daily battles &bull; No ads &bull; No tracking &bull; Privacy-first</p>
   <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
@@ -350,12 +368,20 @@
   </div>
 
   <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="site-footer-copy site-footer-legal-line">&copy; Christian Messenger Service. All rights reserved.</p>
   <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
   <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
   <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
 </footer>
   </div>

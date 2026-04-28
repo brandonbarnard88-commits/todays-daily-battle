@@ -13,7 +13,7 @@
     var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (!SpeechRecognition) {
       btn.addEventListener('click', function () {
-        alert('Voice input is not supported in this browser. Please type your prayer instead.');
+        alert('Voice input is not open in this browser—that is all right. Type your prayer instead.');
       });
       return;
     }
@@ -53,7 +53,7 @@
         recognition.start();
       } catch (e) {
         setListening(false);
-        alert('Voice input could not start. Please type your prayer instead.');
+        alert('Voice did not start—that is all right. Type your prayer instead.');
       }
     });
 

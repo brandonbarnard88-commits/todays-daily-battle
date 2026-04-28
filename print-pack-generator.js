@@ -314,7 +314,7 @@
 
     if (cardData.missing) {
       article.appendChild(el('h2', 'ppg-sheet__title', cardData.title));
-      article.appendChild(el('p', 'ppg-sheet__description', 'The source content for this sheet did not load. Refresh and try again.'));
+      article.appendChild(el('p', 'ppg-sheet__description', 'The source content for this sheet did not load—that is all right. Refresh and try again.'));
       root.appendChild(article);
       return;
     }
@@ -393,11 +393,11 @@
       navigator.clipboard.writeText(text).then(function () {
         if (status) status.textContent = 'Pack link copied.';
       }).catch(function () {
-        if (status) status.textContent = 'Copy failed. You can copy the URL from the address bar.';
+        if (status) status.textContent = 'Copy did not go through—that is all right. You can copy the URL from the address bar.';
       });
       return;
     }
-    if (status) status.textContent = 'Copy is not available here. You can copy the URL from the address bar.';
+    if (status) status.textContent = 'Copy is not available in this browser—that is all right. You can copy the URL from the address bar.';
   }
 
   function wire() {

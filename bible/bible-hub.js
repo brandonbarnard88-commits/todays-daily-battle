@@ -522,7 +522,7 @@
         console.warn('Fallback audio failed:', e);
         ttsOfflineAudio = null;
         setBtn('Listen', false);
-        showToast('Offline audio is unavailable. Add MP3 files to /audio/.');
+        showToast('Offline clip is not on the page for this verse yet—that is all right. Add MP3 files to /audio/ when you are building offline audio.');
       });
       audio.onended = audio.onerror = function () {
         ttsOfflineAudio = null;
@@ -533,7 +533,7 @@
 
     if ('speechSynthesis' in window) window.speechSynthesis.cancel();
     setBtn('Listen', false);
-    showToast('Voice read-aloud is disabled site-wide.');
+    showToast('Voice read-aloud is turned off on this host for now—that is all right.');
   }
 
   function wireAudioBtn() {

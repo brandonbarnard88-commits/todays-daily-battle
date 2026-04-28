@@ -32,7 +32,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
   <link rel="preload" href="/vendor/d3.v7.min.js" as="script">
+  <link rel="preload" href="styles.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf">
+  <link rel="preload" href="tool-pages.css?v=20260331surface-final" as="style">
   <link rel="stylesheet" href="tool-pages.css?v=20260331surface-final">
   <script defer src="footer-build-stamp.js?v=20260423-phase5-perf"></script>
   <style>
@@ -755,12 +757,14 @@
   </header>
 
   <main class="tool-page-main" id="main-content" role="main">
-    <header class="mobius-hero mobius-hero--soar-dawn">
-      <p class="mobius-kjv-banner" role="note">This page is <strong>KJV only</strong> for Scripture and practice: the graph, the text loop, and the Deep Walk below all draw from the same Word—no apocrypha, no mixed sources.</p>
+    <header class="mobius-hero mobius-hero--soar-dawn tdb-dawn-bg--mist">
+      <p class="section-note topic-mood-porch" style="margin:0 auto 0.75rem;max-width:44rem;text-align:center;">You&rsquo;re already welcome here&mdash;one minute or a long sit-down. This room holds one Scripture-shaped loop; nothing grades you.</p>
+      <p class="mobius-kjv-banner" role="note">This page is <strong>KJV only</strong> for Scripture and practice on purpose: the graph, the text loop, and the Deep Walk below all draw from the same Word&mdash;no apocrypha, no mixed sources.</p>
       <h1>Möbius Loop</h1>
-      <p class="mobius-season-lead"><strong>One ribbon, one path.</strong> This is a meditative endurance practice, not a quick pick-me-up: fear, grief, anxiety, and pain do not get a tidy &ldquo;other side&rdquo; you escape to&mdash;you stay on the same surface. The half-twist is the Cross: it does not erase the loop; it turns the direction so the same trials can roll forward with strength, hope, and endurance. You do not &ldquo;get over it&rdquo;; you trace it with God until the path itself changes you.</p>
+      <p class="mobius-season-lead topic-mood-porch">One path, gentle turns. No scoreboard.</p>
+      <p class="mobius-season-lead"><strong>One ribbon, one path.</strong> This stays a meditative endurance practice, not a quick pick-me-up: fear, grief, and pain do not get a tidy &ldquo;other side&rdquo;&mdash;you stay on the same surface with God. The half-twist is the Cross: the loop still runs, but the direction can roll forward with Him.</p>
       <p class="mobius-audio-roadmap tdb-listen-privacy-hint" role="note">Optional spoken layers: <code>mobius-breathe-human.mp3</code> (calm path) and <code>mobius-guided-human.mp3</code> (Deep Walk alternate) ship as calm system reads you can swap for studio recordings&mdash;same filenames. <strong>Listen</strong> on the homepage and plan cards still uses on-device speech; the main 10-minute guide keeps its own track. Playback stays on your device&mdash;nothing is uploaded for listening.</p>
-      <p><strong>Graph</strong> shows the mood cycle on one surface&mdash;how the loop can spiral upward with God&rsquo;s twist. <strong>Text</strong> is slow breath (inhale the hard truth, exhale <strong>2 Timothy 1:7</strong>), then twelve to twenty quiet passes through the verse (KJV). The <strong>Deep Walk</strong> below is the same truth in plain steps, with an optional ten-minute guided track. Counts and notes stay on this device; everything still works offline after the first load.</p>
+      <p><strong>Graph</strong> and <strong>Text</strong> are two ways to walk the same KJV loop; <strong>Deep Walk</strong> below is plain steps plus an optional ten-minute track. Counts and notes stay on this device; offline still works after the first load.</p>
       <div class="tdb-soft-retry-row"><button type="button" class="tool-btn tool-btn-muted tdb-soft-retry-btn">Try again</button></div>
     </header>
 
@@ -784,7 +788,7 @@
         <button type="button" class="tool-btn tool-btn-muted" id="mobius-timer-stop" aria-label="Stop meditation" hidden>Stop</button>
         <button type="button" class="tool-btn" id="mobius-fullscreen" aria-label="Toggle full screen">Full Screen</button>
       </div>
-      <p class="section-note" style="margin:0 0 0.65rem;max-width:44rem;text-align:center;">How to use this room: choose a starting mood, tap a node to read the verse card, then use <strong>Trace Cycle</strong> at a readable pace. If your mind is scattered, start with one slow pass before anything else.</p>
+      <p class="section-note" style="margin:0 0 0.65rem;max-width:44rem;text-align:center;">If you want a simple path: choose a starting mood, tap a node for the verse card, then <strong>Trace Cycle</strong> at a pace you can actually read. Scattered mind? One slow pass first is enough.</p>
       <div class="mobius-weekly-viz-wrapper">
         <div id="mobius-ribbon-slot" class="mobius-ribbon-slot"></div>
       </div>
@@ -1151,7 +1155,7 @@
         <a href="/mystudy">My Study</a>
         <a href="/calm.html">Calm</a>
         <a href="/mobius.html">Möbius</a>
-        <a href="/plans.html">Battle plans</a>
+        <a href="/plans.html">Courses</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
         <a href="/wins.html">Wins</a>
@@ -1192,7 +1196,8 @@
   </details>
 
   <p class="footer-humility">We battle. He wins.</p>
-  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet place for real daily battles with KJV Scripture &bull; No ads &bull; No tracking &bull; Privacy-first</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): Built solo by Brandon · A quiet KJV porch for real daily battles -->
+  <p class="site-footer-beta-note">Built solo by Brandon &bull; A quiet KJV porch for real daily battles &bull; No ads &bull; No tracking &bull; Privacy-first</p>
   <p class="site-footer-story">Built solo by Brandon, for real days. <a href="/about.html">About</a> · <a href="/story.html">Story</a> · <a href="/journal/">Journal</a>.</p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" role="form" aria-label="Friday verse and prayer email signup">
@@ -1206,12 +1211,20 @@
   </div>
 
   <p class="site-footer-copy site-footer-legal-line">© 2026 Today&rsquo;s Daily Battle. All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="site-footer-copy site-footer-legal-line">&copy; Christian Messenger Service. All rights reserved.</p>
   <p class="privacy-line site-footer-trust-hook">Built from pain, not polish. No ads. No selling data. Your prayers stay on your device.</p>
   <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">April 23, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">April 28, 2026</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
   <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
 </footer>
 
@@ -1380,13 +1393,13 @@
               navigator.share(shareData).then(function () {
                 try { var n = parseInt(localStorage.getItem('mobiusShares') || '0', 10); localStorage.setItem('mobiusShares', String(n + 1)); } catch (e) {}
               }).catch(function () {
-                navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); }).catch(function () { alert('Could not share\u2014try copying the URL manually: ' + url); });
+                navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); }).catch(function () { alert('That did not copy—that is all right. Copy this link manually:\n' + url); });
               });
             } else {
-              navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); try { var n = parseInt(localStorage.getItem('mobiusShares') || '0', 10); localStorage.setItem('mobiusShares', String(n + 1)); } catch (e) {} }).catch(function () { alert('Could not share\u2014try copying the URL manually: ' + url); });
+              navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); try { var n = parseInt(localStorage.getItem('mobiusShares') || '0', 10); localStorage.setItem('mobiusShares', String(n + 1)); } catch (e) {} }).catch(function () { alert('That did not copy—that is all right. Copy this link manually:\n' + url); });
             }
           } catch (e) {
-            navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); }).catch(function () { alert('Could not share\u2014try copying the URL manually: ' + url); });
+            navigator.clipboard.writeText(url).then(function () { alert('Link copied to clipboard! Paste and share anywhere.'); }).catch(function () { alert('That did not copy—that is all right. Copy this link manually:\n' + url); });
           }
         });
       }

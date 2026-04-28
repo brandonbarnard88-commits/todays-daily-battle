@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" role="img" aria-label="Eight days later  doors shut  Jesus stands in the midst  Peace be unto you">
+  <rect width="200" height="160" fill="#E3F2FD"/>
+  <rect x="32" y="42" width="136" height="100" rx="5" fill="#FAFAFA" stroke="#5D4037" stroke-width="2"/>
+  <rect x="32" y="42" width="136" height="24" fill="#ECEFF1" stroke="#5D4037" stroke-width="1.5"/>
+  <!-- closed door hint -->
+  <rect x="40" y="118" width="28" height="22" fill="#D7CCC8" stroke="#5D4037" stroke-width="1.8"/>
+  <circle cx="62" cy="129" r="2" fill="#5D4037"/>
+  <!-- Jesus center gentle glow -->
+  <ellipse cx="100" cy="88" rx="16" ry="17" fill="#FFFDE7" stroke="#5D4037" stroke-width="1.6"/>
+  <path d="M92 98 Q100 102 108 98" fill="none" stroke="#5D4037" stroke-width="1"/>
+  <line x1="100" y1="105" x2="100" y2="132" stroke="#5D4037" stroke-width="2.5"/>
+  <line x1="100" y1="115" x2="78" y2="108" stroke="#5D4037" stroke-width="2"/>
+  <line x1="100" y1="115" x2="122" y2="108" stroke="#5D4037" stroke-width="2"/>
+  <path d="M100 132 L94 148 M100 132 L106 148" stroke="#5D4037" stroke-width="2"/>
+  <!-- small marks on hands -->
+  <circle cx="78" cy="108" r="1.8" fill="#5D4037"/>
+  <circle cx="122" cy="108" r="1.8" fill="#5D4037"/>
+  <!-- Thomas -->
+  <circle cx="100" cy="128" r="8" fill="#FFECB3" stroke="#5D4037" stroke-width="1.4"/>
+  <line x1="100" y1="136" x2="100" y2="148" stroke="#5D4037" stroke-width="1.8"/>
+  <line x1="92" y1="124" x2="88" y2="118" stroke="#5D4037" stroke-width="1.5"/>
+  <!-- others -->
+  <circle cx="52" cy="108" r="6" fill="#FFECB3" stroke="#5D4037" stroke-width="1.2"/>
+  <line x1="52" y1="114" x2="52" y2="128" stroke="#5D4037" stroke-width="1.5"/>
+  <circle cx="148" cy="106" r="6" fill="#FFECB3" stroke="#5D4037" stroke-width="1.2"/>
+  <line x1="148" y1="112" x2="148" y2="126" stroke="#5D4037" stroke-width="1.5"/>
+</svg>

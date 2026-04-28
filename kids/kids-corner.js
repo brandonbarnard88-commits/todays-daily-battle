@@ -6275,6 +6275,7 @@
   var journeyStatusEl = document.getElementById('kids-journey-status');
   var quickFilterStatusEl = document.getElementById('kids-library-quick-filter-status');
   var staticFallbackHidden = false;
+  var storyModalTadaTimer = null;
 
   var LIBRARY_VIEWED_KEY = 'kidsLibraryViewedStories';
   var LIBRARY_STORY_MASTER_KEY = 'kidsLibraryStoryMasterProgress';
@@ -6287,7 +6288,47 @@
   var modalPreviousFocus = null;
   var modalFocusTrapHandler = null;
   var kidsStorySpeakBtn = null;
+  var kidsShepherdAudioEl = null;
+  var kidsShepherdAudioBtn = null;
   var readQuizRetryInflight = false;
+
+  function resetKidsStorySpeakButtonUi() {
+    if (kidsStorySpeakBtn) {
+      try {
+        kidsStorySpeakBtn.setAttribute('aria-pressed', 'false');
+        kidsStorySpeakBtn.setAttribute('aria-label', 'Play story narration');
+        kidsStorySpeakBtn.textContent = '\uD83D\uDD0A Read to me';
+      } catch (_u) { /* no-op */ }
+      kidsStorySpeakBtn = null;
+    }
+  }
+
+  /** Stops pre-recorded Shepherd m4a (and resets any visible Shepherd button in the open modal). */
+  function hardStopShepherdRecordedAudio() {
+    if (kidsShepherdAudioEl) {
+      try {
+        kidsShepherdAudioEl.onended = null;
+        kidsShepherdAudioEl.onerror = null;
+        kidsShepherdAudioEl.pause();
+        kidsShepherdAudioEl.currentTime = 0;
+        kidsShepherdAudioEl.removeAttribute('src');
+        if (typeof kidsShepherdAudioEl.load === 'function') kidsShepherdAudioEl.load();
+        if (kidsShepherdAudioEl.dataset) delete kidsShepherdAudioEl.dataset.tdbUrl;
+      } catch (_a) { /* no-op */ }
+    }
+    var b =
+      (modal && !modal.classList.contains('hidden')
+        ? modal.querySelector('.kids-story-shepherd-audio-btn[aria-pressed="true"]')
+        : null) || document.querySelector('.kids-story-shepherd-audio-btn[aria-pressed="true"]');
+    if (b) {
+      try {
+        b.setAttribute('aria-pressed', 'false');
+        b.setAttribute('aria-label', 'Play Little Shepherd read-aloud');
+        b.textContent = '\uD83C\uDF3E Shepherd reads this one';
+      } catch (_b) { /* no-op */ }
+    }
+    kidsShepherdAudioBtn = null;
+  }
 
   function normalizeBibleBook(ref) {
     var safe = tdbPlainTextForUi(ref || '');
@@ -6558,7 +6599,7 @@
     var p = document.createElement('p');
     p.className = 'kids-read-quiz-unavailable-msg';
     p.textContent = globalMissing
-      ? 'The read-aloud words and quiz questions did not load. Your connection or cache may have been interrupted. The comic and notes above may still work. Tap Refresh to try again.'
+      ? 'The read-aloud words and quiz questions did not load—that is all right. Your connection or cache may have been interrupted. The comic and notes above may still work. Tap Refresh to try again.'
       : 'This story does not have read-and-quiz content in the bundle yet. Use the comic and notes above.';
     wrap.appendChild(p);
     if (globalMissing) {
@@ -6570,7 +6611,7 @@
         btnTry.disabled = true;
         retryKidsReadQuizData(function (ok) {
           btnTry.disabled = false;
-          if (!ok) showToast('Still could not load. Check connection or refresh.');
+          if (!ok) showToast('Still did not load—that is all right. Check connection or refresh.');
         });
       });
       wrap.appendChild(btnTry);
@@ -7194,6 +7235,11 @@
         try {
           localStorage.setItem('kidsStoryReadQuizDone:' + key, String(Date.now()));
         } catch (eLs) {}
+        try {
+          if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.notify === 'function') {
+            window.tdbLittleShepherd.notify('quizComplete', { key: key });
+          }
+        } catch (eN) { /* no-op */ }
         addStoryMasterProgress(key);
         return;
       }
@@ -7436,7 +7482,7 @@
         } catch (e2) {}
       }, 500);
     } catch (e) {
-      showToast('Could not open print.');
+      showToast('Print did not open—that is all right. Try again in a moment.');
     }
   }
 
@@ -7786,6 +7832,12 @@
     var beforeS = typeof window.tdbComputeStoryMasterState === 'function' ? window.tdbComputeStoryMasterState() : null;
     var beforeTier = beforeS ? beforeS.tier : tierFromStoryCount(list.length, getStoryKeys().length);
     list.push(key);
+    try {
+      var tk = 'tdbKidsSheepTokens';
+      var cur = parseInt(localStorage.getItem(tk) || '0', 10);
+      if (cur !== cur) cur = 0;
+      localStorage.setItem(tk, String(cur + 1));
+    } catch (eTok) { /* no-op */ }
     if (typeof window.tdbStoryMasterWriteListMerged === 'function') {
       window.tdbStoryMasterWriteListMerged(list);
     } else {
@@ -8242,6 +8294,125 @@
     } catch (eMeta) {}
   }
 
+  function prependLittleShepherdIntro(carouselRoot, key, storyObj) {
+    if (!carouselRoot) return;
+    var intro = document.createElement('div');
+    intro.className = 'kids-story-ls-intro';
+    var row = document.createElement('div');
+    row.className = 'kids-story-ls-intro-row';
+    var fig = document.createElement('div');
+    fig.className = 'kids-story-ls-intro-fig';
+    fig.setAttribute('aria-hidden', 'true');
+    var img = document.createElement('img');
+    img.className = 'kids-story-ls-intro-mascot';
+    img.src = 'shepherd-mascot-welcome.svg';
+    img.alt = '';
+    img.setAttribute('width', '72');
+    img.setAttribute('height', '80');
+    img.decoding = 'async';
+    img.setAttribute('loading', 'eager');
+    fig.appendChild(img);
+    var p = document.createElement('p');
+    p.className = 'kids-story-ls-intro-text';
+    var line = 'Let us look at the pictures first—then the true KJV words below.';
+    if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.getStoryIntro === 'function') {
+      try {
+        line = window.tdbLittleShepherd.getStoryIntro(key, storyObj);
+      } catch (eIntro) { /* keep default */ }
+    }
+    p.textContent = line;
+    row.appendChild(fig);
+    row.appendChild(p);
+    intro.appendChild(row);
+    carouselRoot.insertBefore(intro, carouselRoot.firstChild);
+  }
+
+  function appendKjvPlainToggle(modalContext, s) {
+    if (!modalContext || !s) return;
+    var ref = s.kjvRef ? String(s.kjvRef).trim() : '';
+    var plain = s.kidContext && s.kidContext.apply ? String(s.kidContext.apply).trim() : '';
+    if (!ref && !plain) return;
+    var box = document.createElement('div');
+    box.className = 'kids-story-kjv-plain';
+    box.setAttribute('role', 'region');
+    box.setAttribute('aria-label', 'KJV reference and plain helper');
+    var lab = document.createElement('p');
+    lab.className = 'kids-story-kjv-plain-label';
+    lab.textContent = 'Same story, two ways in—tap to read KJV or plain helper.';
+    box.appendChild(lab);
+    var row = document.createElement('div');
+    row.className = 'kids-kjv-plain-toggle-row';
+    var bK = document.createElement('button');
+    bK.type = 'button';
+    bK.className = 'kids-kjv-plain-btn is-on';
+    bK.setAttribute('aria-pressed', 'true');
+    bK.textContent = 'KJV reference';
+    var bP = document.createElement('button');
+    bP.type = 'button';
+    bP.className = 'kids-kjv-plain-btn';
+    bP.setAttribute('aria-pressed', 'false');
+    bP.textContent = 'Plain helper';
+    row.appendChild(bK);
+    row.appendChild(bP);
+    box.appendChild(row);
+    var pK = document.createElement('div');
+    pK.className = 'kids-kjv-plain-body';
+    pK.textContent = ref || plain || '';
+    var pP = document.createElement('div');
+    pP.className = 'kids-kjv-plain-body hidden';
+    pP.setAttribute('hidden', '');
+    pP.textContent = plain || ref || '';
+    if (!ref) {
+      bK.classList.remove('is-on');
+      bK.setAttribute('aria-pressed', 'false');
+      bP.classList.add('is-on');
+      bP.setAttribute('aria-pressed', 'true');
+      pK.classList.add('hidden');
+      pK.setAttribute('hidden', '');
+      pP.classList.remove('hidden');
+      pP.removeAttribute('hidden');
+    }
+    box.appendChild(pK);
+    box.appendChild(pP);
+    bK.addEventListener('click', function () {
+      bK.classList.add('is-on');
+      bP.classList.remove('is-on');
+      bK.setAttribute('aria-pressed', 'true');
+      bP.setAttribute('aria-pressed', 'false');
+      pK.classList.remove('hidden');
+      pK.removeAttribute('hidden');
+      pP.classList.add('hidden');
+      pP.setAttribute('hidden', '');
+    });
+    bP.addEventListener('click', function () {
+      bP.classList.add('is-on');
+      bK.classList.remove('is-on');
+      bP.setAttribute('aria-pressed', 'true');
+      bK.setAttribute('aria-pressed', 'false');
+      pP.classList.remove('hidden');
+      pP.removeAttribute('hidden');
+      pK.classList.add('hidden');
+      pK.setAttribute('hidden', '');
+    });
+    modalContext.appendChild(box);
+  }
+
+  function appendWonderQuestionBlock(modalContext, key, s, pack) {
+    if (!modalContext) return;
+    var q = 'What do you think? ';
+    if (pack && pack.questions && pack.questions[0] && pack.questions[0].question) {
+      q += tdbPlainTextForUi(pack.questions[0].question);
+    } else {
+      q += 'What is one true thing you want to tell Jesus after this story?';
+    }
+    var p = document.createElement('p');
+    p.className = 'kids-story-wonder-q';
+    p.setAttribute('role', 'group');
+    p.setAttribute('aria-label', 'Wonder question before the read-and-quiz');
+    p.textContent = q;
+    modalContext.appendChild(p);
+  }
+
   function syncModalStoryBreadcrumb(plainTitle) {
     var sep = document.getElementById('kids-bc-story-sep');
     var tit = document.getElementById('kids-bc-story-title');
@@ -8282,10 +8453,19 @@
     var safeVideoId = safeYouTubeId(s.videoId);
     var videoTitlePlain = tdbPlainTextForUi(s.videoTitle || '');
     try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (_) {}
+    try { hardStopShepherdRecordedAudio(); } catch (_h) { /* no-op */ }
     kidsStorySpeakBtn = null;
     currentOpenStoryKey = key;
     currentStoryNavMode = opts && opts.navMode === 'gentle' ? 'gentle' : 'browse';
     pushRecentStoryKey(key);
+    try {
+      if (window.tdbKidsActivityLog && typeof window.tdbKidsActivityLog.log === 'function') {
+        window.tdbKidsActivityLog.log({
+          type: 'story',
+          label: 'Opened: ' + tdbPlainTextForUi(s.title || key)
+        });
+      }
+    } catch (eAct) { /* no-op */ }
     updateDocumentStoryMeta(key, s);
     if (modalTitle) modalTitle.textContent = tdbPlainTextForUi(s.title || key);
     syncModalStoryBreadcrumb(tdbPlainTextForUi(s.title || key));
@@ -8298,6 +8478,7 @@
       tdbClearHtml(modalCarousel);
       var carouselRoot = document.createElement('div');
       carouselRoot.className = 'comic-carousel';
+      prependLittleShepherdIntro(carouselRoot, key, s);
       var panelsWrap = document.createElement('div');
       panelsWrap.className = 'panels-container';
       for (var pi = 0; pi < panels.length; pi++) {
@@ -8322,6 +8503,12 @@
       cap.textContent = tdbPlainTextForUi(s.caption || '');
       carouselRoot.appendChild(cap);
       var narrRaw = s.narration && String(s.narration).trim();
+      if (!narrRaw && window.tdbLittleShepherd && typeof window.tdbLittleShepherd.getBriefNarration === 'function') {
+        try {
+          var briefN = window.tdbLittleShepherd.getBriefNarration(key);
+          if (briefN && String(briefN).trim()) narrRaw = String(briefN).trim();
+        } catch (eBrief) { /* no-op */ }
+      }
       if (narrRaw) {
         var narrWrap = document.createElement('div');
         narrWrap.className = 'kids-story-narration';
@@ -8345,6 +8532,23 @@
         spk.setAttribute('aria-pressed', 'false');
         spk.textContent = '🔊 Read to me';
         carouselRoot.appendChild(spk);
+      }
+      var shepherdRecUrl = '';
+      if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.getShepherdNarrationAudioUrl === 'function') {
+        try {
+          shepherdRecUrl = window.tdbLittleShepherd.getShepherdNarrationAudioUrl(key) || '';
+        } catch (_su) { /* no-op */ }
+      }
+      if (shepherdRecUrl) {
+        var shA = document.createElement('button');
+        shA.type = 'button';
+        shA.className = 'kids-story-shepherd-audio-btn kids-speak-btn';
+        shA.setAttribute('data-story-key', key);
+        shA.setAttribute('data-shepherd-audio-url', shepherdRecUrl);
+        shA.setAttribute('aria-label', 'Play Little Shepherd read-aloud');
+        shA.setAttribute('aria-pressed', 'false');
+        shA.textContent = '\uD83C\uDF3E Shepherd reads this one';
+        carouselRoot.appendChild(shA);
       }
       if (safeVideoId) {
         var yt = document.createElement('button');
@@ -8376,7 +8580,9 @@
         pack = buildRuntimeReadQuizPack(key);
       }
       tdbClearHtml(modalContext);
-      if (ctx && (ctx.who || ctx.to || ctx.apply)) {
+      appendKjvPlainToggle(modalContext, s);
+      var hasKjvToggle = !!modalContext.querySelector('.kids-story-kjv-plain');
+      if (ctx) {
         if (ctx.who) {
           var pw = document.createElement('p');
           var sw = document.createElement('strong');
@@ -8385,7 +8591,15 @@
           pw.appendChild(document.createTextNode(' ' + tdbPlainTextForUi(ctx.who)));
           modalContext.appendChild(pw);
         }
-        if (ctx.apply) {
+        if (ctx.to) {
+          var pt = document.createElement('p');
+          var st = document.createElement('strong');
+          st.textContent = 'To:';
+          pt.appendChild(st);
+          pt.appendChild(document.createTextNode(' ' + tdbPlainTextForUi(ctx.to)));
+          modalContext.appendChild(pt);
+        }
+        if (ctx.apply && !hasKjvToggle) {
           var pa = document.createElement('p');
           var sa = document.createElement('strong');
           sa.textContent = 'For you:';
@@ -8394,13 +8608,14 @@
           modalContext.appendChild(pa);
         }
       }
-      if (ref) {
+      if (ref && !hasKjvToggle) {
         var pr = document.createElement('p');
         pr.className = 'kids-kjv-ref';
         pr.textContent = tdbPlainTextForUi(ref);
         modalContext.appendChild(pr);
       }
       modalContext.appendChild(buildLiveItOutCards(key, s, pack));
+      appendWonderQuestionBlock(modalContext, key, s, pack);
       if (modalContext.childNodes.length) {
         modalContext.classList.remove('hidden');
       } else {
@@ -8448,6 +8663,20 @@
         return el.offsetParent !== null && !el.disabled;
       });
       if (firstBtn) firstBtn.focus();
+      var modalContentTada = modal.querySelector('.kids-video-modal-content');
+      if (storyModalTadaTimer) {
+        try { clearTimeout(storyModalTadaTimer); } catch (_t) {}
+        storyModalTadaTimer = null;
+      }
+      modal.classList.add('kids-story-modal--tada');
+      if (modalContentTada) modalContentTada.classList.add('kids-story-modal-content--tada');
+      storyModalTadaTimer = setTimeout(function () {
+        storyModalTadaTimer = null;
+        try {
+          if (modal) modal.classList.remove('kids-story-modal--tada');
+          if (modalContentTada) modalContentTada.classList.remove('kids-story-modal-content--tada');
+        } catch (_r) {}
+      }, 1100);
     }
     scrollKidsReadQuizIntoViewAfterLayout();
     try {
@@ -8458,14 +8687,35 @@
       });
     } catch (_) {}
     syncStoryNavButtons();
+    try {
+      if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.notify === 'function') {
+        window.tdbLittleShepherd.notify('storyOpened', { key: key });
+      }
+    } catch (eOpen) { /* no-op */ }
     advanceJourneyFromStory(key);
   }
 
   function closeStoryModal() {
     if (!modal) return;
+    if (storyModalTadaTimer) {
+      try { clearTimeout(storyModalTadaTimer); } catch (_c) {}
+      storyModalTadaTimer = null;
+    }
+    try {
+      modal.classList.remove('kids-story-modal--tada');
+      var mct = modal.querySelector('.kids-video-modal-content');
+      if (mct) mct.classList.remove('kids-story-modal-content--tada');
+    } catch (_m) {}
+    var closingKey = currentOpenStoryKey;
+    try {
+      if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.notify === 'function' && closingKey) {
+        window.tdbLittleShepherd.notify('storyClosed', { key: closingKey });
+      }
+    } catch (eN) { /* no-op */ }
     syncModalStoryBreadcrumb(null);
     clearReadQuizModal();
     try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (_) {}
+    try { hardStopShepherdRecordedAudio(); } catch (_hs) { /* no-op */ }
     kidsStorySpeakBtn = null;
     currentOpenStoryKey = null;
     if (document.getElementById('kids-library-grid')) {
@@ -8552,11 +8802,51 @@
       kidsPreferredNarrationVoice = null;
       return;
     }
-    var pick = pool.find(function (v) { return /google.*english.*us|google us english/i.test(v.name || ''); })
-      || pool.find(function (v) { return /google/i.test(v.name || ''); })
-      || pool.find(function (v) { return /samantha|allison|aaron|zoe|nicky|susan/i.test(v.name || ''); })
-      || pool[0];
-    kidsPreferredNarrationVoice = pick || null;
+    function voiceNameLower(v) {
+      return (v && v.name) ? String(v.name).toLowerCase() : '';
+    }
+    function isLikelyFemaleVoiceName(v) {
+      var n = voiceNameLower(v);
+      return (
+        /female|woman|veena|zira|samantha|karen|victoria|fiona|hazel|martha|tessa|allison|zoe|nicky|susan|serena|siri|moira|sarah|kate|linda|yuna|federica|amelie|ines/.test(
+          n
+        ) && !/male/.test(n)
+      );
+    }
+    function maleishVoiceScore(v) {
+      var n = voiceNameLower(v);
+      if (!n) return 0;
+      if (isLikelyFemaleVoiceName(v)) return -3;
+      if (
+        /daniel|fred(?!a)|\baaron\b|arthur|bruce|ralph|gordon|reed|brian(?!a)|\bmale\b|google.+(male|english[^(]*male)|microsoft.+(guy|mark|david|aaron|fred)|tom(?!a)|\bjames(?!a)\b|paul\b|albert(?!a)\b|nick\b/.test(
+          n
+        )
+      ) {
+        return 4;
+      }
+      if (/(aaron|google|microsoft) /i.test(n) && !isLikelyFemaleVoiceName(v)) return 1;
+      return 0;
+    }
+    var scored = pool
+      .map(function (v) {
+        return { v: v, s: maleishVoiceScore(v) };
+      })
+      .filter(function (o) {
+        return o.s >= 0;
+      });
+    if (!scored.length) {
+      kidsPreferredNarrationVoice = (pool.find(function (v) { return !isLikelyFemaleVoiceName(v); }) || pool[0]) || null;
+      return;
+    }
+    scored.sort(function (a, b) {
+      if (b.s !== a.s) return b.s - a.s;
+      return voiceNameLower(a.v).localeCompare(voiceNameLower(b.v));
+    });
+    var first = scored[0];
+    var chosenVoice =
+      (first.s >= 2 ? first.v : null) ||
+      (scored.find(function (o) { return o.s > 0; }) || first).v;
+    kidsPreferredNarrationVoice = chosenVoice || null;
   }
 
   function shuffleChallengePool(arr) {
@@ -8585,7 +8875,7 @@
       if (pk && pk.questions && pk.questions.length) pool.push(k);
     }
     if (pool.length < 5) {
-      showToast('Quiz bundle still loading—refresh and try again.');
+      showToast('Quiz bundle is still loading—that is all right. Refresh and try again.');
       return;
     }
     pool = shuffleChallengePool(pool);
@@ -8608,7 +8898,7 @@
       } catch (err) {
         try { console.error('Kids quiz challenge step failed', err); } catch (_) {}
         removeQuizChallengeOverlay();
-        showToast('Quiz challenge hit a snag—try again, or refresh the page.');
+        showToast('Quiz challenge hit a snag—that is all right. Try again or refresh the page.');
       }
     }
 
@@ -8829,7 +9119,7 @@
         var err = document.createElement('p');
         err.className = 'kids-library-load-error kids-search-no-match';
         err.setAttribute('role', 'alert');
-        err.textContent = 'The story list did not load (usually a blocked script or offline). Check your connection, allow scripts for this site, then refresh.';
+        err.textContent = 'The story list did not load—that happens (often a blocked script or offline). Check your connection, allow scripts for this site, then refresh.';
         grid.appendChild(err);
       }
       return;
@@ -8915,10 +9205,10 @@
           try {
             if (!sessionStorage.getItem(wk)) {
               sessionStorage.setItem(wk, '1');
-              showToast('Story words and questions did not load. Tap “Try loading again” inside a story, or refresh when you are online.');
+              showToast('Story words and questions did not load—that is all right. Tap “Try loading again” inside a story, or refresh when you are online.');
             }
           } catch (e2) {
-            showToast('Story words and questions did not load. Tap “Try loading again” inside a story, or refresh when you are online.');
+            showToast('Story words and questions did not load—that is all right. Tap “Try loading again” inside a story, or refresh when you are online.');
           }
         });
       }
@@ -9148,7 +9438,7 @@
           doc.save('kids-bible-story-library.pdf');
           showToast('PDF downloaded!');
         } catch (err) {
-          showToast('PDF export could not be completed. Please try again.');
+          showToast('PDF export did not finish—that is all right. Try again when you are ready.');
           console.error('PDF export error:', err);
         }
       });
@@ -9209,6 +9499,68 @@
         }
         return;
       }
+      var shepherdBtn = e.target && e.target.closest ? e.target.closest('.kids-story-shepherd-audio-btn') : null;
+      if (shepherdBtn) {
+        var surl = shepherdBtn.getAttribute('data-shepherd-audio-url') || '';
+        if (!surl) return;
+        e.preventDefault();
+        try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (_sc) { /* no-op */ }
+        resetKidsStorySpeakButtonUi();
+        var a = kidsShepherdAudioEl;
+        if (a && a.dataset && a.dataset.tdbUrl === surl) {
+          if (a.paused) {
+            a.play()
+              .then(function () {
+                shepherdBtn.setAttribute('aria-pressed', 'true');
+                shepherdBtn.setAttribute('aria-label', 'Pause Little Shepherd read-aloud');
+                shepherdBtn.textContent = '\u23F8 Pause Shepherd';
+                kidsShepherdAudioBtn = shepherdBtn;
+              })
+              .catch(function () {
+                showToast('Playback did not start—that is all right. Try “Read to me” or check your connection.');
+              });
+            return;
+          }
+          a.pause();
+          shepherdBtn.setAttribute('aria-pressed', 'false');
+          shepherdBtn.setAttribute('aria-label', 'Resume Little Shepherd read-aloud');
+          shepherdBtn.textContent = '\u25B6 Resume Shepherd';
+          return;
+        }
+        try { hardStopShepherdRecordedAudio(); } catch (_hd) { /* no-op */ }
+        if (!kidsShepherdAudioEl) kidsShepherdAudioEl = new Audio();
+        var aud = kidsShepherdAudioEl;
+        aud.dataset.tdbUrl = surl;
+        aud.onended = function () {
+          try {
+            if (aud.dataset) delete aud.dataset.tdbUrl;
+          } catch (_e) { /* no-op */ }
+          if (shepherdBtn) {
+            shepherdBtn.setAttribute('aria-pressed', 'false');
+            shepherdBtn.setAttribute('aria-label', 'Play Little Shepherd read-aloud');
+            shepherdBtn.textContent = '\uD83C\uDF3E Shepherd reads this one';
+          }
+          if (kidsShepherdAudioBtn === shepherdBtn) kidsShepherdAudioBtn = null;
+        };
+        aud.onerror = function () {
+          showToast('That voice clip did not load—that is all right. “Read to me” still works here.');
+          try { hardStopShepherdRecordedAudio(); } catch (_e2) { /* no-op */ }
+        };
+        aud.src = surl;
+        aud
+          .play()
+          .then(function () {
+            shepherdBtn.setAttribute('aria-pressed', 'true');
+            shepherdBtn.setAttribute('aria-label', 'Pause Little Shepherd read-aloud');
+            shepherdBtn.textContent = '\u23F8 Pause Shepherd';
+            kidsShepherdAudioBtn = shepherdBtn;
+          })
+          .catch(function () {
+            showToast('Playback did not start—that is all right. Try “Read to me” or check your connection.');
+            try { hardStopShepherdRecordedAudio(); } catch (_e3) { /* no-op */ }
+          });
+        return;
+      }
       var speakBtn = e.target && e.target.closest ? e.target.closest('.kids-story-speak-btn') : null;
       if (speakBtn) {
         var synth = window.speechSynthesis;
@@ -9232,13 +9584,23 @@
           kidsStorySpeakBtn = speakBtn;
           return;
         }
+        try { hardStopShepherdRecordedAudio(); } catch (_hx) { /* no-op */ }
         try { synth.cancel(); } catch (_) {}
-        var text = (story.narration && story.narration.trim()) || (function () {
-          var parts = [story.title || key, story.caption || ''];
-          if (story.kidContext && story.kidContext.apply) parts.push(story.kidContext.apply);
-          if (story.kjvRef) parts.push(story.kjvRef);
-          return parts.filter(Boolean).join('. ').trim();
-        })();
+        var text = (story.narration && story.narration.trim()) || '';
+        if (!text && window.tdbLittleShepherd && typeof window.tdbLittleShepherd.getBriefNarration === 'function') {
+          try {
+            var bn = window.tdbLittleShepherd.getBriefNarration(key);
+            if (bn && String(bn).trim()) text = String(bn).trim();
+          } catch (eB2) { /* no-op */ }
+        }
+        if (!text) {
+          text = (function () {
+            var parts = [story.title || key, story.caption || ''];
+            if (story.kidContext && story.kidContext.apply) parts.push(story.kidContext.apply);
+            if (story.kjvRef) parts.push(story.kjvRef);
+            return parts.filter(Boolean).join('. ').trim();
+          })();
+        }
         if (text) {
           kidsStorySpeakBtn = speakBtn;
           var u = new window.SpeechSynthesisUtterance(text);

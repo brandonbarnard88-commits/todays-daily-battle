@@ -12,6 +12,9 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const dist = path.join(__dirname, '..', 'dist');
 
+/** Fragment shipped as .html for embedding (not a standalone document). Matches verify-viewport-baseline.mjs SKIP_FILE. */
+const SKIP_HTML = new Set(['modal.html']);
+
 if (!fs.existsSync(path.join(dist, 'index.html'))) {
   console.error('verify-dist-html-sanity: dist/index.html missing — run npm run build');
   process.exit(1);
@@ -24,7 +27,7 @@ function walkHtml(dir, out = []) {
     const p = path.join(dir, name);
     const st = fs.statSync(p);
     if (st.isDirectory()) walkHtml(p, out);
-    else if (name.endsWith('.html')) out.push(p);
+    else if (name.endsWith('.html') && !SKIP_HTML.has(name)) out.push(p);
   }
   return out;
 }

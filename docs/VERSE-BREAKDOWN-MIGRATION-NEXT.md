@@ -2,7 +2,7 @@
 
 Canon: **`VERSE-BREAKDOWN-RULE.md`**. Migrate surfaces so every shipped verse UX uses **`verse-breakdown-container`** semantics (or programmatic equivalent) plus helpers in **`verse-breakdown-standard.js`**.
 
-**Status note:** Homepage + **`verse-breakdown.js`** inline panels already emit the locked **`h4` + `span[data-bk]`** pattern. Production parity depends on deploying the branch that contains those edits.
+**Status (main, merged PR #12):** Homepage hero, first-paint, and **`verse-breakdown.js`** inline panels emit the locked **`verse-breakdown-container`** + **`h4` + `span[data-bk]`** pattern and load **`verse-breakdown-standard.js`** before **`verse-breakdown.js`** where the lazy stack applies. Rolling migration below still applies to reader rows, plans day copy, memorize, printables, and feel-result cards until each surface matches the Rule doc.
 
 ---
 

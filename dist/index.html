@@ -2940,6 +2940,24 @@
         0 0 22px rgba(0, 0, 0, 0.5),
         0 0 12px rgba(180, 70, 10, 0.28);
     }
+    .hero-brand-taglines .hero-home-heartbeat {
+      margin: 0 0 0.42rem;
+      font-size: clamp(0.62rem, 2.35vw, 0.82rem);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      line-height: 1.42;
+      text-transform: uppercase;
+      color: rgba(255, 250, 240, 0.91);
+      text-shadow:
+        0 0 2px rgba(6, 10, 22, 0.9),
+        0 1px 4px rgba(4, 12, 28, 0.84),
+        0 0 16px rgba(0, 0, 0, 0.4);
+    }
+    :root[data-theme="light"] .hero-brand-taglines .hero-home-heartbeat {
+      color: var(--text-muted, #3d4450);
+      text-shadow: none;
+      font-weight: 600;
+    }
     .tdb-site-tagline-learning {
       text-transform: none;
       letter-spacing: 0.04em;
@@ -8728,8 +8746,9 @@
           </defs>
         </svg>
       </div>
-      <div class="hero-brand-taglines" role="group" aria-label="Site motto">
+      <div class="hero-brand-taglines" role="group" aria-label="Site motto: pace, devotion, and learning">
         <p class="soul-tag">Less scroll, more soul</p>
+        <p class="tdb-header-heartbeat hero-home-heartbeat" lang="en">For Family, For Country, For GOD</p>
         <p class="site-tagline tdb-site-tagline-learning" lang="en">The University of God &mdash; learning of Him, one day at a time. <span class="tdb-header-tag-cite" title="Take my yoke upon you, and learn of me.">Matthew 11:29</span></p>
       </div>
       <h1 class="site-title">Today's Daily Battle</h1>

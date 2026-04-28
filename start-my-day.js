@@ -195,10 +195,15 @@
     var block = getHeroVerseBlock();
     var refEl = byId("tdbSmdStep1Ref");
     var textEl = byId("tdbSmdStep1Text");
+    var refPlain = block.ref.replace(/\s*\(KJV\)\s*$/i, "").replace(/\s+/g, " ").trim();
+    var inner = block.text ? block.text.replace(/^["'\u201c]+|["'\u201d]+$/g, "").replace(/\s+/g, " ").trim() : "";
+    if (inner && typeof window.__TDB_repairMatthew514ByRef === "function") {
+      inner = window.__TDB_repairMatthew514ByRef(refPlain, inner);
+    }
     if (refEl) refEl.textContent = block.ref;
     if (textEl) {
-      if (block.text) {
-        textEl.textContent = "“" + block.text.replace(/^["“]|[""]$/g, "") + "”";
+      if (inner) {
+        textEl.textContent = "\u201c" + inner + "\u201d";
       } else {
         textEl.textContent = "Read today’s verse above, slowly.";
       }

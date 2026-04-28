@@ -7776,7 +7776,7 @@ var VERSE_PLAIN_MEANINGS = {
   'Psalms 121:1': 'I look to the hills—my help comes from the Lord who made heaven and earth.',
   'Proverbs 3:5': 'Trust the Lord with all your heart; don\'t rely on your own understanding.',
   'Isaiah 54:10': 'God\'s love and peace won\'t leave you—He has promised.',
-  'Matthew 5:14': 'You are the light of the world—let your life point others to God.',
+  'Matthew 5:14': 'Jesus says His people are the world’s light—let your life point others to God (see the full KJV line above).',
   'Matthew 28:20': 'Jesus is with you always, to the very end of the age.',
   'Psalms 37:8': 'Don\'t let anger take over; step back and trust God to make things right.',
   'Proverbs 14:29': 'Being slow to get angry shows wisdom and understanding.',
@@ -13405,6 +13405,7 @@ function updateChallengeBannerState() {
 }
 
 function updateDailyBattleStreak() {
+  var onHomePorch = !!(typeof document !== 'undefined' && document.getElementById && document.getElementById('home-primary-flow'));
   const streakEl = document.getElementById('daily-battle-streak');
   const calendarEl = document.getElementById('daily-battle-calendar');
   const today = getDailyKey();
@@ -13443,7 +13444,15 @@ function updateDailyBattleStreak() {
     : (familyName
         ? label + ': pick up anytime; no guilt.'
         : label + ': you are not behind with God — open the plan below whenever you\'re ready.');
-  if (streakEl) streakEl.textContent = streakText;
+  if (streakEl) {
+    if (onHomePorch) {
+      streakEl.textContent = '';
+      streakEl.setAttribute('aria-hidden', 'true');
+    } else {
+      streakEl.removeAttribute('aria-hidden');
+      streakEl.textContent = streakText;
+    }
+  }
   var shareStreakWrap = document.getElementById('share-streak-wrap');
   if (shareStreakWrap) shareStreakWrap.style.display = nextCount >= 1 ? 'flex' : 'none';
   var shareStreakCard = document.getElementById('share-streak-card');
@@ -13464,7 +13473,10 @@ function updateDailyBattleStreak() {
   if (nextCount === 7) emitEasterEgg('streak7_fist_bump', { streak: 7 });
   updateChallengeBannerState();
   var milestoneCard = document.getElementById('streak-milestone-card');
-  if (milestoneCard) {
+  if (milestoneCard && onHomePorch) {
+    milestoneCard.classList.add('hidden');
+    milestoneCard.textContent = '';
+  } else if (milestoneCard) {
     var milestoneCardCopy = {
       3: 'Three days in a row—a quiet rhythm is forming.',
       7: "You've been here a week. That's a week in the Word.",
@@ -13486,7 +13498,7 @@ function updateDailyBattleStreak() {
   var milestoneToast = [3, 7, 14, 30, 60].indexOf(nextCount) >= 0;
   try {
     var lastMilestone = parseInt(localStorage.getItem('tdb_last_milestone_toast') || '0', 10);
-    if (milestoneToast && nextCount > lastMilestone) {
+    if (!onHomePorch && milestoneToast && nextCount > lastMilestone) {
       trackEvent('milestone_reached', { streak_days: nextCount });
       if (nextCount === 3) showEliteToast('Three days—a faithful rhythm.');
       else if (nextCount === 7) showEliteToast('Seven days. That’s a week in the Word.');
@@ -15314,12 +15326,19 @@ function updateHeaderStreakBadge(streakCount) {
   var heroBadge = document.getElementById('heroStreakBadge');
   var n = typeof streakCount === 'number' ? streakCount : (typeof window.__currentStreakCount === 'number' ? window.__currentStreakCount : 0);
   var label = n >= 1 ? ('Day ' + n + ' \uD83D\uDD25') : '';
+  var onHomePorch = !!(typeof document !== 'undefined' && document.getElementById && document.getElementById('home-primary-flow'));
   if (badge) {
     badge.textContent = n + ' day' + (n === 1 ? '' : 's');
     badge.setAttribute('aria-label', 'Open streak details. Day ' + n + '—rhythm, not perfection; grace when you miss.');
   }
   if (heroBadge) {
-    if (n >= 1) {
+    if (onHomePorch) {
+      heroBadge.textContent = '';
+      heroBadge.removeAttribute('role');
+      heroBadge.removeAttribute('aria-label');
+      heroBadge.removeAttribute('title');
+      heroBadge.hidden = true;
+    } else if (n >= 1) {
       heroBadge.textContent = label;
       heroBadge.setAttribute('role', 'status');
       heroBadge.setAttribute('aria-label', 'Reading streak: day ' + n + '. Rhythm, not perfection—grace when you miss.');

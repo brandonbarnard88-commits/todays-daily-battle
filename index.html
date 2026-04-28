@@ -6695,6 +6695,11 @@
       align-items: center;
       margin-top: 4px;
     }
+    /* Homepage porch: no visit-streak badge or sr-only rhythm line in the hero (rhythm lives elsewhere). */
+    #hero-verse-wrap .hero-streak-wrapper,
+    #hero-verse-wrap #streak-milestone-card {
+      display: none !important;
+    }
     .hero-streak-badge {
       display: inline-flex;
       align-items: center;
@@ -9499,8 +9504,7 @@
         </div>
 
         <p class="new-here-family-note">
-          Especially written for parents like me — with three young girls who need the Word without pressure or performance. 
-          No streaks. No scores. Just habit through heart.
+          Especially written for parents like me &mdash; three young girls who need the Word without pressure or performance. Habit through heart, not hoop-jumping.
         </p>
 
         <div class="new-here-cta-row">
@@ -9982,7 +9986,7 @@
         <a href="plans.html" class="plan-progress-link" id="planProgressLink" aria-label="View all plans">All plans →</a>
       </section>
 
-      <!-- ── Notification Permission Card (shown after streak ≥3 or plan day ≥2) ── -->
+      <!-- ── Notification Permission Card (shown when daily rhythm warrants a gentle nudge) ── -->
       <div class="notification-permission" id="notifPermCard" hidden role="status" aria-live="polite">
         <p class="notif-perm-msg">📬 Daily verse at 9 AM — want it?</p>
         <p class="notif-perm-sub">One notification a day. No promotions. Shut it off anytime in your device settings.</p>
@@ -10907,6 +10911,9 @@
       if (v && v.text && typeof window.__TDB_normalizeHeroKjvText === "function") {
         v.text = window.__TDB_normalizeHeroKjvText(v.text);
       }
+      if (v && v.ref && v.text != null && typeof window.__TDB_repairMatthew514ByRef === "function") {
+        v.text = window.__TDB_repairMatthew514ByRef(v.ref, v.text);
+      }
       heroVerse.textContent = "\u201c" + v.text + "\u201d";
       try {
         heroVerse.classList.add("verse-body");
@@ -11147,6 +11154,9 @@
         const rDom = window.tdbGetDailyVerseRefFromCard(verseCard);
         if (tDom) imgBody = tDom;
         if (rDom) imgRefPlain = rDom;
+      }
+      if (imgBody != null && imgRefPlain && typeof window.__TDB_repairMatthew514ByRef === 'function') {
+        imgBody = window.__TDB_repairMatthew514ByRef(imgRefPlain, imgBody);
       }
       if (imgText) imgText.textContent = '\u201c' + imgBody + '\u201d';
       if (imgRef)  imgRef.textContent  = imgRefPlain;
@@ -12087,17 +12097,12 @@
       if (next >= 2 && typeof showPwaNudgeAfterEngagement === "function") {
         setTimeout(showPwaNudgeAfterEngagement, 1200);
       }
+      /* Visit count stays local-only; porch hides #heroStreakBadge (no flame / Day N on home). */
       const badge = document.getElementById("heroStreakBadge");
       if (badge) {
-        if (next >= 2) {
-          badge.textContent = "\uD83D\uDD25 Day " + next;
-          badge.setAttribute("role", "status");
-          badge.removeAttribute("aria-label");
-          badge.hidden = false;
-        } else {
-          badge.removeAttribute("role");
-          badge.hidden = true;
-        }
+        badge.textContent = "";
+        badge.hidden = true;
+        badge.removeAttribute("role");
       }
     }
 

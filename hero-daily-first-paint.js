@@ -30,13 +30,19 @@
   }
   /** When ref matches Matthew 5:14 but body lost "Ye", restore exact KJV (build + edge browsers). */
   function repairMatthew514ByRef(ref, text) {
-    var r = String(ref || '').trim();
+    var r = String(ref || '')
+      .replace(/\uFEFF/g, '')
+      .replace(/\*\*/g, '')
+      .replace(/\s*\(KJV\)\s*$/i, '')
+      .replace(/\s+/g, ' ')
+      .trim();
     if (!/^matthew\s+5\s*:\s*14$/i.test(r)) return text;
     var t = sanitizeText(text).replace(/\uFEFF/g, '').replace(/\s+/g, ' ').trim();
     if (/^ye\s+/i.test(t)) return t;
     return 'Ye are the light of the world.';
   }
   window.__TDB_normalizeHeroKjvText = normalizeHeroKjvLine;
+  window.__TDB_repairMatthew514ByRef = repairMatthew514ByRef;
 
   function parseHeroFromDom(heroVerseEl, heroRefEl) {
     var refLine = sanitizeText(heroRefEl && heroRefEl.textContent).replace(/\s*\(KJV\)\s*$/i, '').trim();

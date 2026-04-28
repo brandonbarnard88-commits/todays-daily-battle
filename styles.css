@@ -4290,6 +4290,10 @@ button.tdb-header-account-nudge__link {
   font-size: 0.68rem;
   white-space: nowrap;
 }
+/* Home porch: hide scoreboard streak in fixed verse chip — restful ethos; unchanged on deeper pages */
+body:has(#home-primary-flow) .floating-battle-anchor-streak {
+  display: none !important;
+}
 .floating-quick-pray-btn {
   position: fixed;
   left: 50%;

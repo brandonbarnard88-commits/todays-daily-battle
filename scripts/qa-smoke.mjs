@@ -253,8 +253,16 @@ try {
     'listen=' + (await listenBtn.count()) + ', stop=' + (await stopAudioBtn.count())
   );
 
-  // Workshop runtime checks (dual JSON fetch can exceed a short sleep on CI)
-  await page.goto(origin + '/action-bible-workshop.html', { waitUntil: 'domcontentloaded', timeout: 60000 });
+  // Workshop runtime checks (dual JSON fetch can exceed a short sleep on CI).
+  // Firefox + python SimpleHTTPServer: reset view before next heavy page avoids rare 60s+ domcontentloaded stalls.
+  try {
+    await page.goto('about:blank');
+  } catch (_) {}
+  await page.goto(origin + '/action-bible-workshop.html', {
+    waitUntil: 'commit',
+    timeout: 120000,
+  });
+  await page.locator('#abw-status').waitFor({ state: 'attached', timeout: 45000 }).catch(() => {});
   await page
     .waitForFunction(
       () => {

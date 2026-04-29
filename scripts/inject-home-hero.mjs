@@ -196,6 +196,11 @@ function main() {
     '<meta name="apple-mobile-web-app-title" content="' + escapeHtmlAttr(appleShort) + '"'
   );
 
+  /* Strip stray markdown fence lines occasionally left by editors / partial MD pastes into HTML. */
+  html = html
+    .replace(/^\s*```\s*$/gm, '')
+    .replace(/\n(?:\s*```\s*\n){2,}/g, '\n');
+
   fs.writeFileSync(distIndex, html, 'utf8');
 
   // Match preloads in index.html + verse.html — must exist on origin before SW install or 404 in console.

@@ -446,6 +446,29 @@
     window.setTimeout(scheduleHero365Hydrate, 1);
   }
 
+  /** Homepage: soften Verse-of-day hub rhythm wording; dismiss merged welcome card → hint strip. */
+  (function hydrateHomeRhythmWelcome() {
+    if (!document.getElementById('home-primary-flow')) return;
+    try {
+      var rhythmLine =
+        document.querySelector('.gentle-rhythm-line') ||
+        document.querySelector('#verse-of-the-month .rhythm-note');
+      if (rhythmLine) {
+        rhythmLine.textContent = 'One gentle day at a time \u2014 no score, just today.';
+      }
+    } catch (_) { /* non-fatal */ }
+    try {
+      var dismissBtn = document.getElementById('tdbNewHereDismissBtn');
+      if (!dismissBtn) return;
+      dismissBtn.addEventListener('click', function () {
+        var card = document.getElementById('tdbNewHereCard');
+        var hint = document.getElementById('tdbNewHereHint');
+        if (card) card.style.display = 'none';
+        if (hint) hint.style.display = 'block';
+      });
+    } catch (_) { /* non-fatal */ }
+  })();
+
   /**
    * University of God: map today’s verse to 2–3 on-site Battle Plan “courses” (KJV, already on /plans).
    * Exposed before index inline verse render; script.js redefines the same on load for other pages.

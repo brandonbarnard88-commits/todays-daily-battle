@@ -233,8 +233,8 @@ try {
   const listenBtn = page.locator('#ab-listen-entry');
   const stopAudioBtn = page.locator('#ab-stop-audio');
   if (await readAlongBtn.count()) {
-    await readAlongBtn.first().scrollIntoViewIfNeeded();
-    await readAlongBtn.first().click({ force: true });
+    // Avoid scrollIntoViewIfNeeded here — CI can hit "stable" timeouts on long archive pages.
+    await readAlongBtn.first().click({ force: true, timeout: 45000 });
     await page.waitForTimeout(300);
     const readAlongText = ((await page.locator('#ab-readalong-text').textContent()) || '').trim();
     const readAlongOk = /Entry\s+\d+/i.test(readAlongText) || /Verse anchor/i.test(readAlongText);

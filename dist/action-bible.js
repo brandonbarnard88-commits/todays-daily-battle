@@ -723,7 +723,7 @@
     setReadAlongText(script);
     var panel = byId('ab-readalong');
     if (panel && typeof panel.scrollIntoView === 'function') {
-      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      panel.scrollIntoView({ behavior: 'auto', block: 'nearest' });
     }
     setStatus('Read-along loaded for Entry ' + item.day + '.');
     setEpisodeNote('Read-along mode ready. Tap Listen for audio.');

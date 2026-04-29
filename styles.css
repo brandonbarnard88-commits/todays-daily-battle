@@ -17853,6 +17853,10 @@ html[data-theme="light"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-brea
 html[data-theme="light"] .tdb-verse-breakdown-inline.is-open .big-kjv strong {
   color: #713f12;
 }
+/* Section labels (wcag2aa axe on verse.html warm paper — base h4 uses gold on dark glass only). */
+html[data-theme="light"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-breakdown.verse-breakdown h4 {
+  color: #5c4810;
+}
 html[data-theme="light"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-verse-text,
 html[data-theme="light"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-row,
 html[data-theme="light"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-breakdown.verse-breakdown > p,
@@ -17894,6 +17898,9 @@ html[data-theme="sepia"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-ref,
 html[data-theme="sepia"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-breakdown strong,
 html[data-theme="sepia"] .tdb-verse-breakdown-inline.is-open .big-kjv strong {
   color: #62420f;
+}
+html[data-theme="sepia"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-breakdown.verse-breakdown h4 {
+  color: #4a3410;
 }
 html[data-theme="sepia"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-verse-text,
 html[data-theme="sepia"] .tdb-verse-breakdown-inline.is-open .tdb-vb-inline-row,

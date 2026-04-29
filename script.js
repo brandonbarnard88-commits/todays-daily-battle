@@ -13439,17 +13439,14 @@ function updateDailyBattleStreak() {
   var label = familyName
     ? (familyName.match(/s$/i) ? familyName + "'" : familyName + "'s") + ' gentle rhythm'
     : 'Your gentle rhythm';
-  var streakText = nextCount >= 1
-    ? (nextCount <= 30
-        ? (nextCount === 1
-            ? label + ': day 1 of 30 — no score, just today.'
-            : label + ': day ' + nextCount + ' of 30 — same quiet pace.')
-        : (nextCount === 1
-            ? label + ': day 1 — welcome back.'
-            : label + ': day ' + nextCount + ' — same quiet pace.'))
-    : (familyName
+  var streakText =
+    nextCount < 1
+      ? familyName
         ? label + ': pick up anytime; no guilt.'
-        : label + ': you are not behind with God — open the plan below whenever you\'re ready.');
+        : label + ': you are not behind with God — open the plan below whenever you\'re ready.'
+      : nextCount === 1
+        ? label + ' — no score, just today.'
+        : label + ': day ' + nextCount + ' — same quiet pace.';
   if (streakEl) {
     if (onHomePorch) {
       streakEl.textContent = '';

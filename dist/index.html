@@ -3470,7 +3470,8 @@
       letter-spacing: 0.01em;
     }
 
-    .tdb-home-what-makes-different {
+    .tdb-home-what-makes-different,
+    .hero-daily-rhythm-note {
       margin: 0.35rem 0 0.9rem;
       padding: 0.6rem 0.75rem;
       max-width: 40rem;
@@ -3481,7 +3482,8 @@
       border: 1px solid color-mix(in srgb, var(--line) 75%, transparent);
       border-radius: 8px;
     }
-    :root[data-theme="light"] .tdb-home-what-makes-different {
+    :root[data-theme="light"] .tdb-home-what-makes-different,
+    :root[data-theme="light"] .hero-daily-rhythm-note {
       color: #5a6478;
       background: color-mix(in srgb, #f6f2ea 95%, #fff 5%);
       border-color: color-mix(in srgb, #c9c0b0 55%, #e8e2d6);
@@ -4726,12 +4728,8 @@
     }
     @media (max-width: 1023px) {
       .tdb-hero-search-priority-hint { display: block; }
-      /* Daily anchor first, then calm doorway, then feel search (install before long scroll continues) */
-      #main-content { order: -40; }
-      .calm-cta-wrap { order: -38; }
-      .tdb-page-orientation { order: -36; }
+      /* #hero-verse-wrap + offline row stay first in DOM; avoid pulling #main-content above the verse via order */
       #quick-search-hero { order: -34; }
-      .tdb-install-reassurance-stack { order: -32; }
       main.tdb-home-has-progress #plan-progress-card { order: -30; }
     }
 
@@ -5879,6 +5877,10 @@
       line-height: 1.58;
       color: color-mix(in srgb, var(--text) 90%, var(--gold-soft) 10%);
     }
+    .tdb-porch-ingress.tdb-copy-breathing {
+      margin: 0.6rem auto 0.25rem;
+    }
+    .tdb-copy-breathing .tdb-porch-ingress__detail { margin-top: 0.35rem; }
     .tdb-porch-ingress__detail {
       display: block;
       margin-top: 0.5rem;
@@ -6594,6 +6596,14 @@
       letter-spacing: -0.005em;
       line-height: 1.25;
     }
+    .tdb-home-hero-gentle-after-verse {
+      margin-top: 0.65rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid color-mix(in srgb, var(--line, #2a3344) 55%, transparent);
+    }
+    .tdb-home-hero-gentle-after-verse .hero-daily-headline {
+      margin-top: 0;
+    }
     .hero-daily-continuity {
       margin: -0.4rem 0 0.7rem;
       font-size: clamp(0.86rem, 2.15vw, 0.97rem);
@@ -6690,6 +6700,11 @@
       display: flex;
       align-items: center;
       margin-top: 4px;
+    }
+    /* Homepage porch: no visit-streak badge or sr-only rhythm line in the hero (rhythm lives elsewhere). */
+    #hero-verse-wrap .hero-streak-wrapper,
+    #hero-verse-wrap #streak-milestone-card {
+      display: none !important;
     }
     .hero-streak-badge {
       display: inline-flex;
@@ -8835,7 +8850,7 @@
     <dialog id="tdbFirstVisitDialog" class="tdb-first-visit-dialog" aria-labelledby="tdbFirstVisitH1" aria-modal="true">
       <div class="tdb-first-visit-panel">
         <h2 id="tdbFirstVisitH1" class="tdb-first-visit-title">Welcome to a quiet campus</h2>
-        <p class="tdb-first-visit-lead">KJV, calm, no hype&mdash;verse search, plans, and prayer. Nothing here grades you. If you are new, you can name how you feel, take a one-minute tour, or just close this and read.</p>
+        <p class="tdb-first-visit-lead">KJV-first, calm, no hype&mdash;verse, plans, and prayer when you want them.</p>
         <div class="tdb-first-visit-actions">
           <a href="#feel-section" class="btn btn-primary" id="tdbFirstVisitFeel">Name how I feel</a>
           <button type="button" class="btn btn-secondary" id="tdbFirstVisitTour">Open site tour</button>
@@ -8904,16 +8919,11 @@
       <div id="hero-verse-wrap" class="hero-verse-wrap tdb-home-soar-aura tdb-quiet-container tdb-micro-hero-dawn">
       <section class="card verse-card verse-card-loaded" id="verseCard" aria-live="polite" data-daily-verse="true" data-tdb-hero-prebuilt="1">
         <p class="welcome-back-msg" id="welcomeBackMsg" aria-live="polite" hidden></p>
-        <h2 class="hero-daily-headline">Today&rsquo;s Daily Battle &mdash; quiet KJV help for real life</h2>
-        <p class="hero-daily-continuity" id="heroDailyContinuity">The same porch you already trust; <strong>For Family, For Country, For GOD</strong> &mdash; and the <a href="/university.html">University of God</a> line you&rsquo;ll see in Scripture. <a href="/about.html#gods-university-quiet-name" class="hero-daily-why-name">Why we also say &ldquo;God&rsquo;s University of Life&rdquo;</a> for the map and tools.</p>
-        <p class="tdb-porch-still-me" id="tdbPorchStillMe">Hey friend &mdash; this is still the same porch I built from my own hospital season. One verse, one small step, one prayer. No performance, no polish. Just Jesus and you, right where you are. Still here with you, now and forever.</p>
-        <p class="hero-daily-subline" id="heroDailySubline">KJV-only. Calm campus. Real-life curriculum for every battle of the heart and home&mdash;anxiety, parenting, grief, fear, and raising little ones. No ads. No login. Whatever your day holds, step in.</p>
         <div class="verse-skeleton" id="verseSkeleton" aria-hidden="true">
           <div class="verse-skeleton-box"></div>
         </div>
         <div class="tdb-home-verse-sticky-shell" role="region" aria-label="Today’s verse text and quick actions">
-        <p class="tdb-verse-of-day-eyebrow" id="heroVerseEyebrow">Today&rsquo;s lesson</p>
-        <div class="verse-breakdown-container hero-calendar-breakdown-wrap" id="heroVotdBreakdown" role="region" aria-label="Today&rsquo;s verse — reference, text, and breakdown (KJV)">
+        <div class="verse-breakdown-container hero-calendar-breakdown-wrap" id="heroVotdBreakdown" role="region" aria-label="Today&rsquo;s verse &mdash; reference, text, and breakdown (KJV)">
         <p class="big-kjv verse-ref hero-daily-ref-above" id="heroRef"><strong>Matthew 5:9 (KJV)</strong></p>
         <div class="verse-ref-row">
           <div class="hero-verse-wrap-inner">
@@ -8945,6 +8955,14 @@
               <span class="read-aloud-label">Listen</span>
             </button>
         </div>
+
+        <div class="tdb-home-hero-gentle-after-verse">
+        <h2 class="hero-daily-headline">Today&rsquo;s Daily Battle &mdash; quiet KJV help for real life</h2>
+        <p class="hero-daily-continuity" id="heroDailyContinuity"><strong>For Family, For Country, For GOD</strong> &mdash; the <a href="/university.html">University of God</a> as Scripture phrases it; <a href="/about.html#gods-university-quiet-name" class="hero-daily-why-name">why &ldquo;God&rsquo;s University of Life&rdquo;</a> maps the tools.</p>
+        <p class="tdb-porch-still-me" id="tdbPorchStillMe">Same porch I built from my own hospital season&mdash;one verse, one small step, no performance. Still with you.</p>
+        <p class="hero-daily-subline" id="heroDailySubline">Heavy topics and little ones at your feet welcome here; no ads, no login wall.</p>
+        </div>
+        <p class="tdb-verse-of-day-eyebrow" id="heroVerseEyebrow">Today&rsquo;s lesson</p>
 
         <div class="verse-breakdown" id="heroDeepBreakdown" role="group" aria-label="Verse breakdown sections">
           <h4>Simple layman terms</h4>
@@ -9232,7 +9250,7 @@
     }
     .tdb-smd-verse-pulse { animation: tdb-smd-verse-pulse 1.1s ease 1; }
         </style>
-        <p class="hero-daily-welcome topic-mood-porch">Joy, rest, questions&mdash;you are welcome here.</p>
+        <p class="hero-daily-welcome hero-daily-welcome-line">Joy or heaviness, rest or wrecked&mdash;you are welcome.</p>
         <p class="section-note" id="heroBuilderLine">A quiet place for real battles &mdash; built solo by Brandon, who is still fighting them too.</p>
         <p class="section-note">Read the <a href="/story.html">story</a>, see <a href="/where-support-goes.html">where support goes</a>, hear from <a href="/testimonials.html">readers</a>, or start with this week&rsquo;s <a href="/journal/">journal posts</a>.</p>
         <p id="hero-listen-hint" class="hero-listen-hint">Tap Listen for a quiet hear-through of today&rsquo;s verse and breakdown (calm pace on your device). Keyboard: Tab to Listen, then Space.</p>
@@ -9240,7 +9258,6 @@
           <span id="hero-study-verse-hint" class="hero-study-verse-hint">Slow on one word—concordance and short glosses, offline when you need them.</span>
           <button type="button" id="heroWordStudyBtn" class="btn btn-secondary hero-word-study-btn" data-tdb-wordstudy-ref="Matthew 5:9" data-tdb-wordstudy-text="Blessed are the peacemakers: for they shall be called the children of God." aria-describedby="hero-study-verse-hint" aria-label="Open verse study for today’s verse of the day">Study this verse</button>
         </p>
-        <p class="tdb-why-stay-line" id="tdb-why-stay-line">A steady place for Scripture&mdash;any kind of day.</p>
         <div class="hero-my-verses-row hero-my-verses-row--below-card" role="region" aria-label="Memorize and My Study">
           <a href="memorize.html" class="btn btn-secondary hero-memorize-link" id="hero-memorize-link" aria-label="Open gentle memorize tools for today’s verse">Memorize</a>
           <p id="hero-my-verses-hint" class="section-note hero-my-verses-hint">Same list as Search and the <a href="/bible-tool.html">Bible tool</a>. <a href="/mystudy?tab=library#saved-verses">Open My Study</a>.</p>
@@ -9294,8 +9311,7 @@
             <p class="hero-family-mode-note">Family Mode here is the same verse on this device. If you need a trusted invite link for household prayer lines and family-plan progress, open <a href="/family.html#family-invite-share">invite-only family sharing</a>.</p>
           </div>
         </section>
-        <p class="hero-daily-bread-line" role="text">Daily bread for today&mdash;one verse at a time.</p>
-        <p class="tdb-home-what-makes-different" role="note">A quiet University of God for real hard days. No streaks, no pressure &mdash; only steady help in God&rsquo;s Word through every season of life.</p>
+        <p class="hero-daily-bread-line hero-daily-rhythm-note tdb-home-what-makes-different" role="note">Daily bread: one verse &mdash;<strong>No streaks, no pressure</strong>&mdash;just a quiet rhythm through the seasons.</p>
         <div class="en-hub-daily-companion" id="en-hub-daily-verse" lang="en" aria-labelledby="en-hub-daily-heading">
           <h2 class="en-hub-daily-companion-title" id="en-hub-daily-heading">Verse of the day — same rhythm as every hub</h2>
           <div class="en-hub-daily-companion-grid">
@@ -9331,51 +9347,6 @@
       <button type="button" class="tdb-float-share-verse" id="tdb-float-share-verse-home" aria-label="Share today’s verse">Share verse</button>
       </div><!-- /#hero-verse-wrap -->
 
-      <!-- ── Need Him right now? Single entry (calm flow: search by feeling, one tap) ── -->
-      <div class="calm-cta-wrap">
-        <a href="calm.html" class="calm-crisis-card" aria-label="Need Him right now? One-tap verse for whatever you're carrying">
-          <span class="calm-crisis-icon" aria-hidden="true">✝️</span>
-          <span class="calm-crisis-text"><strong>Need Him right now?</strong> One-tap verse for whatever you're carrying.</span>
-          <span class="calm-crisis-enter">→</span>
-        </a>
-        <p class="calm-cta-note">Any hour counts&mdash;heavy day, quiet day, or something in between.</p>
-      </div>
-
-      <p class="tdb-page-orientation tdb-porch-ingress tdb-porch-ingress--warm" id="tdb-page-orientation">
-        <span class="tdb-porch-ingress__lead">The day feels loud before you even sat down? Stay right here. You don&rsquo;t have to get anything right first. <strong>Today&rsquo;s Daily Battle</strong> is the name on the porch &mdash; sit with God in the KJV, no performance, no pressure.</span>
-        <span class="tdb-porch-ingress__detail">When you need something steady, today&rsquo;s verse and the gentle <strong>verse of the month</strong> are right up top. When you&rsquo;re up for wandering, the tools are one tap away&mdash;no rush.</span>
-      </p>
-
-      <nav class="tdb-campus-schools" id="tdb-campus-schools" aria-label="Schools of Life &mdash; gentle doorways to rooms you already have">
-        <p class="tdb-campus-schools-intro"><strong>Gentle rooms, not formal classes.</strong> Six soft signs for what&rsquo;s already here&mdash;no grades, no deadlines, just open doors and clearer welcome mats.</p>
-        <ul class="tdb-campus-schools-list">
-          <li>
-            <a href="/#hero-verse-wrap">School of the Good Shepherd</a>
-            <span class="tdb-campus-hint">Today&rsquo;s verse &amp; daily calm</span>
-          </li>
-          <li>
-            <a href="/plans.html">School of Battle</a>
-            <span class="tdb-campus-hint">Core curriculum &mdash; Battle Plans library</span>
-          </li>
-          <li>
-            <a href="/family.html">School of Family &amp; Home</a>
-            <span class="tdb-campus-hint">Family hub, rhythms, printable packs</span>
-          </li>
-          <li>
-            <a href="/explore.html#start-here">School of Wisdom &amp; Wonder</a>
-            <span class="tdb-campus-hint">Explore the map &mdash; topics &amp; tools</span>
-          </li>
-          <li>
-            <a href="/prayer-wall.html">School of Prayer &amp; Praise</a>
-            <span class="tdb-campus-hint">Prayer wall &amp; quiet praise</span>
-          </li>
-          <li>
-            <a href="/calm.html">School of Suffering &amp; Hope</a>
-            <span class="tdb-campus-hint">Heavy days, grief-shaped calm &mdash; gentle steps</span>
-          </li>
-        </ul>
-      </nav>
-
       <div class="tdb-install-reassurance-stack" role="group" aria-label="Offline status and add to home screen">
       <!-- ── Offline banner (reassuring message when offline) ── -->
       <div id="offline-banner" class="hidden" role="status" aria-live="polite">Offline — verse, search &amp; prayers still work. We'll sync when you're back.</div>
@@ -9408,6 +9379,51 @@
         </div>
       </div>
       </div>
+
+      <!-- ── Need Him right now? Single entry (calm flow: search by feeling, one tap) ── -->
+      <div class="calm-cta-wrap">
+        <a href="calm.html" class="calm-crisis-card" aria-label="Need Him right now? One-tap verse for whatever you're carrying">
+          <span class="calm-crisis-icon" aria-hidden="true">✝️</span>
+          <span class="calm-crisis-text"><strong>Need Him right now?</strong> One-tap verse for whatever you're carrying.</span>
+          <span class="calm-crisis-enter">→</span>
+        </a>
+        <p class="calm-cta-note">Any hour counts&mdash;heavy day, quiet day, or something in between.</p>
+      </div>
+
+      <p class="tdb-page-orientation tdb-porch-ingress tdb-porch-ingress--warm tdb-copy-breathing" id="tdb-page-orientation">
+        <span class="tdb-porch-ingress__lead">If today is loud, stay awhile&mdash;KJV-first, no polish required.</span>
+        <span class="tdb-porch-ingress__detail">The gentle <strong>verse of the month</strong> and the rooms below stay one scroll away whenever you want them.</span>
+      </p>
+
+      <nav class="tdb-campus-schools" id="tdb-campus-schools" aria-label="Schools of Life &mdash; gentle doorways to rooms you already have">
+        <p class="tdb-campus-schools-intro"><strong>Gentle rooms, not graded classes.</strong> Six calm doorways open when you need them.</p>
+        <ul class="tdb-campus-schools-list">
+          <li>
+            <a href="/#hero-verse-wrap">School of the Good Shepherd</a>
+            <span class="tdb-campus-hint">Today&rsquo;s verse &amp; daily calm</span>
+          </li>
+          <li>
+            <a href="/plans.html">School of Battle</a>
+            <span class="tdb-campus-hint">Core curriculum &mdash; Battle Plans library</span>
+          </li>
+          <li>
+            <a href="/family.html">School of Family &amp; Home</a>
+            <span class="tdb-campus-hint">Family hub, rhythms, printable packs</span>
+          </li>
+          <li>
+            <a href="/explore.html#start-here">School of Wisdom &amp; Wonder</a>
+            <span class="tdb-campus-hint">Explore the map &mdash; topics &amp; tools</span>
+          </li>
+          <li>
+            <a href="/prayer-wall.html">School of Prayer &amp; Praise</a>
+            <span class="tdb-campus-hint">Prayer wall &amp; quiet praise</span>
+          </li>
+          <li>
+            <a href="/calm.html">School of Suffering &amp; Hope</a>
+            <span class="tdb-campus-hint">Heavy days, grief-shaped calm &mdash; gentle steps</span>
+          </li>
+        </ul>
+      </nav>
 
       <!-- ── Hero Verse ── -->
       <div id="main-content" tabindex="-1">
@@ -9463,9 +9479,9 @@
       <div class="tdb-new-here-card" id="tdbNewHereCard" role="region" aria-labelledby="new-here-title">
         <div class="new-here-header">
           <div class="new-here-crest">🕊️</div>
-          <h2 id="new-here-title" class="new-here-title">Welcome, friend</h2>
+          <h2 id="new-here-title" class="new-here-title">Three gentle steps</h2>
         </div>
-        <p class="new-here-lead">Welcome, friend &mdash; <strong>Today&rsquo;s Daily Battle</strong> is a quiet place for real battles: anxiety, parenting, grief, fear, and the long days of raising little ones. Everything here is KJV only, private by default, and works completely offline after the first visit. No grades; just Jesus and His Word.</p>
+        <p class="new-here-lead"><strong>Today&rsquo;s Daily Battle</strong> is for weary days without a checklist. Trusted details stay in the stripe below (KJV-first, offline help, privacy)&mdash;this card is simply where to step next.</p>
 
         <div class="new-here-steps">
           <div class="new-here-step">
@@ -9492,8 +9508,7 @@
         </div>
 
         <p class="new-here-family-note">
-          Especially written for parents like me — with three young girls who need the Word without pressure or performance. 
-          No streaks. No scores. Just habit through heart.
+          Written especially for households with littles underfoot&mdash;Word before pressure.
         </p>
 
         <div class="new-here-cta-row">
@@ -9507,15 +9522,14 @@
         <p class="tdb-home-proof-pill" role="listitem"><strong>KJV only</strong><span> Scripture stays plain and steady.</span></p>
         <p class="tdb-home-proof-pill" role="listitem"><strong>Works offline after first visit</strong><span> Verses, plans, and notes stay on this device.</span></p>
         <p class="tdb-home-proof-pill" role="listitem"><strong>No ads. No data sold.</strong><span> <a href="/privacy.html" style="text-decoration:underline;color:inherit;">Read the full privacy promise</a> — your notes stay in localStorage by default.</span></p>
-        <p class="tdb-home-proof-pill" role="listitem"><strong>Human-scale</strong><span> One builder, still in the fight&mdash;no corporate polish.</span></p>
       </div>
       <section class="tdb-home-reader-stories tdb-quiet-container" aria-labelledby="tdb-home-reader-stories-heading">
         <div class="tdb-home-reader-stories-head">
           <p class="tdb-home-reader-stories-kicker" id="tdb-home-reader-stories-heading">Quiet proof</p>
           <a class="tdb-home-reader-stories-link" href="/testimonials.html">Reader stories</a>
         </div>
-        <h2 class="tdb-home-reader-stories-title">If you are deciding whether to trust this place, start here.</h2>
-        <p class="tdb-home-reader-stories-lead">This stays small on purpose: KJV-first, no ads, private by default, and built by one person who still uses it in real life. If you want the plain facts before you stay, open the story, privacy, or security pages first.</p>
+        <h2 class="tdb-home-reader-stories-title">Quiet proof before you stay</h2>
+        <p class="tdb-home-reader-stories-lead">The story is small because the aim is stewardship, not spectacle. Peek at <a href="/story.html">why this exists</a> or read the receipts on privacy and security anytime.</p>
         <p class="tdb-home-reader-stories-links">
           <a href="/story.html">Why this exists</a>
           <a href="/privacy.html">Privacy promise</a>
@@ -9627,9 +9641,9 @@
       <!-- ── Daily Verse Image Card (shareable preview under today’s verse) ── -->
       <div class="verse-img-card tdb-quiet-container" id="verseImgCard" role="region" aria-label="Today’s verse as a shareable image preview">
         <div class="verse-img-inner">
-          <p class="verse-img-text" id="verseImgText">“Ye are the light of the world.”</p>
+          <p class="verse-img-text" id="verseImgText">“Blessed are the peacemakers: for they shall be called the children of God.”</p>
           <hr class="verse-img-rule">
-          <p class="verse-img-ref" id="verseImgRef">Matthew 5:14</p>
+          <p class="verse-img-ref" id="verseImgRef">Matthew 5:9</p>
         </div>
       </div>
       <div class="verse-growth-row" id="verseFeedbackRow" role="region" aria-label="Tell a friend, gentle feedback" hidden>
@@ -9975,7 +9989,7 @@
         <a href="plans.html" class="plan-progress-link" id="planProgressLink" aria-label="View all plans">All plans →</a>
       </section>
 
-      <!-- ── Notification Permission Card (shown after streak ≥3 or plan day ≥2) ── -->
+      <!-- ── Notification Permission Card (shown when daily rhythm warrants a gentle nudge) ── -->
       <div class="notification-permission" id="notifPermCard" hidden role="status" aria-live="polite">
         <p class="notif-perm-msg">📬 Daily verse at 9 AM — want it?</p>
         <p class="notif-perm-sub">One notification a day. No promotions. Shut it off anytime in your device settings.</p>
@@ -10358,7 +10372,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">April 28, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">April 29, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Made with love &mdash; For Family, For Country, For GOD.</p>
     <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
@@ -10900,6 +10914,9 @@
       if (v && v.text && typeof window.__TDB_normalizeHeroKjvText === "function") {
         v.text = window.__TDB_normalizeHeroKjvText(v.text);
       }
+      if (v && v.ref && v.text != null && typeof window.__TDB_repairMatthew514ByRef === "function") {
+        v.text = window.__TDB_repairMatthew514ByRef(v.ref, v.text);
+      }
       heroVerse.textContent = "\u201c" + v.text + "\u201d";
       try {
         heroVerse.classList.add("verse-body");
@@ -11140,6 +11157,9 @@
         const rDom = window.tdbGetDailyVerseRefFromCard(verseCard);
         if (tDom) imgBody = tDom;
         if (rDom) imgRefPlain = rDom;
+      }
+      if (imgBody != null && imgRefPlain && typeof window.__TDB_repairMatthew514ByRef === 'function') {
+        imgBody = window.__TDB_repairMatthew514ByRef(imgRefPlain, imgBody);
       }
       if (imgText) imgText.textContent = '\u201c' + imgBody + '\u201d';
       if (imgRef)  imgRef.textContent  = imgRefPlain;
@@ -12080,17 +12100,12 @@
       if (next >= 2 && typeof showPwaNudgeAfterEngagement === "function") {
         setTimeout(showPwaNudgeAfterEngagement, 1200);
       }
+      /* Visit count stays local-only; porch hides #heroStreakBadge (no flame / Day N on home). */
       const badge = document.getElementById("heroStreakBadge");
       if (badge) {
-        if (next >= 2) {
-          badge.textContent = "\uD83D\uDD25 Day " + next;
-          badge.setAttribute("role", "status");
-          badge.removeAttribute("aria-label");
-          badge.hidden = false;
-        } else {
-          badge.removeAttribute("role");
-          badge.hidden = true;
-        }
+        badge.textContent = "";
+        badge.hidden = true;
+        badge.removeAttribute("role");
       }
     }
 

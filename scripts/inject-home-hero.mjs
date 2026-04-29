@@ -22,6 +22,17 @@ function escapeHtmlText(s) {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+function normalizeRefBare(ref) {
+  return String(ref || '')
+    .replace(/\uFEFF/g, '')
+    .replace(/\*\*/g, '')
+    .replace(/\s*\(KJV\)\s*$/i, '')
+    .replace(/^Matt\b\.?\s+/i, 'Matthew ')
+    .replace(/^Mt\.?\s+/i, 'Matthew ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 function normalizeHeroKjvLine(t) {
   let s = String(t == null ? '' : t).replace(/\uFEFF/g, '');
   s = s.replace(/\*\*([^*]{0,400}?)\*\*/g, '$1').replace(/\*([^*\n]{0,400}?)\*/g, '$1');
@@ -31,6 +42,9 @@ function normalizeHeroKjvLine(t) {
     s = 'Ye are the light of the world.';
   }
   if (/^[\"'\u201c\u2018\u201d\u2019]*\s*are the light of the world\.?\s*[\"'\u201c\u201d]*$/i.test(s)) {
+    s = 'Ye are the light of the world.';
+  }
+  if (s.length <= 220 && !/\bye\b/i.test(s) && /\bare the light of the world\.?$/i.test(s.trim())) {
     s = 'Ye are the light of the world.';
   }
   return s;
@@ -70,8 +84,9 @@ function main() {
   }
 
   const refPlain = String(v.ref).trim();
+  const refNorm = normalizeRefBare(refPlain);
   let textPlain = normalizeHeroKjvLine(v.text);
-  if (/^matthew\s+5\s*:\s*14$/i.test(refPlain) && !/^ye\s+/i.test(textPlain.replace(/\uFEFF/g, '').trim())) {
+  if (/^matthew\s+5\s*:\s*14$/i.test(refNorm) && !/^ye\s+/i.test(textPlain.replace(/\uFEFF/g, '').trim())) {
     textPlain = 'Ye are the light of the world.';
   }
   const verseInner = '\u201c' + escapeHtmlText(textPlain) + '\u201d';

@@ -30,19 +30,20 @@
     if (/^[\"'\u201c\u2018\u201d\u2019]*\s*are the light of the world\.?\s*[\"'\u201c\u201d]*$/i.test(s)) {
       s = 'Ye are the light of the world.';
     }
+    // Inline clause / short line (<— unique to this verse): any "are the light …" fragment without Ye.
+    if (s.length <= 220 && !/\bye\b/i.test(s) && /\bare the light of the world\.?$/i.test(s.trim())) {
+      s = 'Ye are the light of the world.';
+    }
     return s;
   }
 
   /** Normalize ref for comparisons (handles Mt/Matt shorthand; strips (KJV)). */
   function normalizeRefBare(ref) {
-    return String(ref || '')
-      .replace(/\uFEFF/g, '')
-      .replace(/\*\*/g, '')
-      .replace(/\s*\(KJV\)\s*$/i, '')
-      .replace(/^mt\.?\s+/i, 'Matthew ')
-      .replace(/^matt\.?\s+/i, 'Matthew ')
-      .replace(/\s+/g, ' ')
-      .trim();
+    var u = String(ref || '').replace(/\uFEFF/g, '').replace(/\*\*/g, '');
+    /* Word-boundary Matt avoids eating "Matthew" (Matt\\b does not match "Matthew"). */
+    u = u.replace(/\s*\(KJV\)\s*$/i, '').replace(/^Matt\b\.?\s+/i, 'Matthew ').replace(/^Mt\.?\s+/i, 'Matthew ');
+    u = u.replace(/\s+/g, ' ').trim();
+    return u;
   }
 
   /** When ref matches Matthew 5:14 but body lost "Ye", restore exact KJV (build + edge browsers). */
@@ -60,12 +61,9 @@
   window.__TDB_repairMatthew514ByRef = repairMatthew514ByRef;
 
   function parseHeroFromDom(heroVerseEl, heroRefEl) {
-    var refLine = sanitizeText(heroRefEl && heroRefEl.textContent)
-      .replace(/<[^>]*>/g, '')
-      .replace(/\s*\(KJV\)\s*$/i, '')
-      .replace(/^mt\.?\s+/i, 'Matthew ')
-      .replace(/^matt\.?\s+/i, 'Matthew ')
-      .trim();
+    var refLine = normalizeRefBare(
+      sanitizeText(heroRefEl && heroRefEl.textContent).replace(/<[^>]*>/g, '').replace(/\*\*/g, '')
+    );
     var raw = sanitizeText(heroVerseEl && heroVerseEl.textContent).trim();
     if (raw.charCodeAt(0) === 0x201c && raw.charCodeAt(raw.length - 1) === 0x201d) {
       raw = raw.slice(1, -1);

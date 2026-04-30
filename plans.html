@@ -1349,6 +1349,26 @@
     .plan-next-quiet-rooms-link:focus-visible .plan-next-quiet-rooms-link-hint {
       color: color-mix(in srgb, var(--muted) 70%, var(--gold-soft));
     }
+    .plan-next-quiet-rooms-pending {
+      margin: 0;
+      padding: 0.45rem 0.35rem;
+      border-radius: 10px;
+      border: 1px dashed color-mix(in srgb, var(--gold) 35%, var(--line));
+      background: color-mix(in srgb, var(--card) 92%, transparent);
+    }
+    .plan-next-quiet-rooms-pending-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 0.18rem;
+    }
+    .plan-next-quiet-rooms-soon {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: color-mix(in srgb, var(--muted) 88%, var(--gold-soft));
+      margin-top: 0.15rem;
+    }
     html[data-theme="light"] .plan-next-quiet-rooms {
       background: color-mix(in srgb, #fff 92%, rgba(227, 188, 103, 0.08));
     }
@@ -4754,8 +4774,13 @@
       ],
       universityexhaustion: [
         { planId: 'universityanxiety', hint: 'When weariness feeds what-if loops.' },
-        { planId: 'universityparenting', hint: 'When depleted while hands stay full.' },
-        { planId: 'universitygrief', hint: 'When tiredness drapes over loss.' }
+        { planId: 'universitygratitude', hint: 'When the tank is empty and thanks feels far.' },
+        {
+          pendingRoom: true,
+          label: 'University of Contentment in Small Seasons',
+          hint: 'When ordinary days still feel heavy.',
+          soon: 'Planned path — same quiet pace when it lands'
+        }
       ],
       universitygratitude: [
         { planId: 'universitycomparison', hint: 'When thanks needs distance from mirrors.' },
@@ -4775,7 +4800,7 @@
       universitydoubt: [
         { planId: 'universitygrief', hint: 'When questions sit beside sorrow.' },
         { planId: 'universityloneliness', hint: 'When faith feels thin and friendless.' },
-        { planId: 'universitybitterness', hint: 'When doubt curdles into replay.' }
+        { planId: 'universitysecretprayer', hint: 'When belief needs honest wrestling in the quiet.' }
       ],
       universitybitterness: [
         { planId: 'universityanger', hint: 'When heat still simmers under the gall.' },
@@ -4798,9 +4823,14 @@
         { planId: 'universitybroken', hint: 'When wrath touched someone you share air with.' }
       ],
       universityregret: [
-        { planId: 'universityforgiveness', hint: 'When “I should have” needs received mercy.' },
+        { planId: 'universityforgiveness', hint: 'When \u201cI should have\u201d needs received mercy.' },
         { planId: 'universitygrief', hint: 'When looking back overlaps with mourning.' },
-        { planId: 'universitybitterness', hint: 'When replay sours toward gall.' }
+        {
+          pendingRoom: true,
+          label: 'University of Contentment in Small Seasons',
+          hint: 'When pressing forward feels heavy with yesterday.',
+          soon: 'Planned path — same quiet pace when it lands'
+        }
       ]
     };
 
@@ -4816,6 +4846,30 @@
       wrap.removeAttribute('hidden');
       wrap.hidden = false;
       rows.forEach(function (row) {
+        if (row.pendingRoom) {
+          var liP = document.createElement('li');
+          liP.className = 'plan-next-quiet-rooms-pending';
+          var inner = document.createElement('div');
+          inner.className = 'plan-next-quiet-rooms-pending-inner';
+          var ti = document.createElement('span');
+          ti.className = 'plan-next-quiet-rooms-link-title';
+          ti.textContent = row.label || '';
+          var hi = document.createElement('span');
+          hi.className = 'plan-next-quiet-rooms-link-hint';
+          hi.textContent = row.hint || '';
+          inner.appendChild(ti);
+          inner.appendChild(hi);
+          if (row.soon) {
+            var soon = document.createElement('span');
+            soon.className = 'plan-next-quiet-rooms-soon';
+            soon.textContent = row.soon;
+            inner.appendChild(soon);
+          }
+          liP.appendChild(inner);
+          liP.setAttribute('aria-label', (row.label || '') + '. ' + (row.hint || ''));
+          list.appendChild(liP);
+          return;
+        }
         var p = PLANS[row.planId];
         if (!p || p.id === plan.id) return;
         var li = document.createElement('li');

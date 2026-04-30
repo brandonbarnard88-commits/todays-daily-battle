@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-30T11:51:10.523Z",
-  "surfacedRefCount": 2945,
-  "overrideCount": 2945,
+  "generatedAt": "2026-04-30T12:13:22.729Z",
+  "surfacedRefCount": 2949,
+  "overrideCount": 2949,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -760,8 +760,8 @@
       "pairs": 1
     },
     "plans.html": {
-      "refs": 249,
-      "pairs": 254
+      "refs": 254,
+      "pairs": 260
     },
     "printables.html": {
       "refs": 9,
@@ -880,7 +880,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 119,
+      "refs": 121,
       "pairs": 0
     },
     "tl/kabalisahan.html": {
@@ -955,12 +955,16 @@
       "refs": 6,
       "pairs": 0
     },
+    "university-contentment-one-page-print.html": {
+      "refs": 6,
+      "pairs": 0
+    },
     "university-regret-one-page-print.html": {
       "refs": 6,
       "pairs": 0
     },
     "university.html": {
-      "refs": 48,
+      "refs": 50,
       "pairs": 0
     },
     "utils.js": {
@@ -1784,6 +1788,8 @@
     "Ecclesiastes 1:1",
     "Ecclesiastes 1:2",
     "Ecclesiastes 3:1",
+    "Ecclesiastes 3:12",
+    "Ecclesiastes 3:12-13",
     "Ecclesiastes 3:5",
     "Ecclesiastes 4:12",
     "Ecclesiastes 4:9",
@@ -3405,6 +3411,7 @@
     "Philippians 3:2",
     "Philippians 3:20",
     "Philippians 4:11",
+    "Philippians 4:11-13",
     "Philippians 4:13",
     "Philippians 4:19",
     "Philippians 4:4",
@@ -3601,6 +3608,7 @@
     "Psalm 12:6",
     "Psalm 130:5",
     "Psalm 130:7",
+    "Psalm 131:1-2",
     "Psalm 131:3",
     "Psalm 133:1",
     "Psalm 134:2",
@@ -4061,6 +4069,7 @@
     "Colossians 3:3-4": "For ye are dead, and your life is hid with Christ in God. When Christ, who is our life, shall appear, then shall ye also appear with him in glory.",
     "Deuteronomy 28:1-2": "And it shall come to pass, if thou shalt hearken diligently unto the voice of the LORD thy God... that the LORD thy God will set thee on high above all nations of the earth: And all these blessings shall come on thee...",
     "Deuteronomy 6:6-7": "And these words, which I command thee this day, shall be in thine heart: And thou shalt teach them diligently unto thy children, and shalt talk of them when thou sittest in thine house, and when thou walkest by the way, and when thou liest down, and when thou risest up.",
+    "Ecclesiastes 3:12-13": "I know that there is no good in them, but for a man to rejoice, and to do good in his life. And also that every man should eat and drink, and enjoy the good of all his labour, it is the gift of God.",
     "Ecclesiastes 4:9-10": "Two are better than one; because they have a good reward for their labour. For if they fall, the one will lift up his fellow: but woe to him that is alone when he falleth; for he hath not another to help him up.",
     "Ephesians 2:8-9": "For by grace are ye saved through faith; and that not of yourselves: it is the gift of God: Not of works, lest any man should boast.",
     "Ephesians 4:26-27": "Be ye angry, and sin not: let not the sun go down upon your wrath: Neither give place to the devil.",
@@ -4121,6 +4130,7 @@
     "Micah 7:18-19": "Who is a God like unto thee, that pardoneth iniquity, and passeth by the transgression of the remnant of his heritage? he retaineth not his anger for ever, because he delighteth in mercy. He will turn again, he will have compassion upon us; he will subdue our iniquities; and thou wilt cast all their sins into the depths of the sea.",
     "Numbers 6:24-26": "The Lord bless thee, and keep thee: The LORD make his face shine upon thee, and be gracious unto thee: The LORD lift up his countenance upon thee, and give thee peace.",
     "Philippians 3:13-14": "Brethren, I count not myself to have apprehended: but this one thing I do, forgetting those things which are behind, and reaching forth unto those things which are before, I press toward the mark for the prize of the high calling of God in Christ Jesus.",
+    "Philippians 4:11-13": "Not that I speak in respect of want: for I have learned, in whatsoever state I am, therewith to be content. I know both how to be abased, and I know how to abound: every where and in all things I am instructed both to be full and to be hungry, both to abound and to suffer need. I can do all things through Christ which strengtheneth me.",
     "Philippians 4:6-7": "Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.",
     "Proverbs 22:24-25": "Make no friendship with an angry man; and with a furious man shalt thou not go: Lest thou learn his ways, and get a snare to thy soul.",
     "Proverbs 3:5-6": "Trust in the LORD with all thine heart; and lean not unto thine own understanding. In all thy ways acknowledge him, and he shall direct thy paths.",
@@ -4238,6 +4248,7 @@
     "Psalm 12:6": "The words of the Lord are pure words.",
     "Psalm 130:5": "I wait for the LORD, my soul doth wait, and in his word do I hope.",
     "Psalm 130:7": "Let Israel hope in the Lord: for with the Lord there is mercy.",
+    "Psalm 131:1-2": "Lord, my heart is not haughty, nor mine eyes lofty: neither do I exercise myself in great matters, or in things too high for me. Surely I have behaved and quieted myself, as a child that is weaned of his mother: my soul is even as a weaned child.",
     "Psalm 131:3": "Let Israel hope in the Lord from henceforth and for ever.",
     "Psalm 133:1": "Behold, how good and how pleasant it is for brethren to dwell together in unity!",
     "Psalm 134:2": "Lift up your hands in the sanctuary, and bless the Lord.",
@@ -10127,6 +10138,22 @@
     "Ecclesiastes 3:1": {
       "general": {
         "plainExplanation": "To every thing there is a season, and a time to every purpose under the heaven:",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Solomon",
+        "to": "All"
+      }
+    },
+    "Ecclesiastes 3:12": {
+      "general": {
+        "plainExplanation": "I know that there is no good in them, but for a man to rejoice, and to do good in his life.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Solomon",
+        "to": "All"
+      }
+    },
+    "Ecclesiastes 3:12-13": {
+      "general": {
+        "plainExplanation": "Key idea: I know that there is no good in them, but for a man to rejoice, and to do good in his life. And also that every man should eat and drink, and enjoy the good...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Solomon",
         "to": "All"
@@ -23100,6 +23127,14 @@
         "to": "Philippi"
       }
     },
+    "Philippians 4:11-13": {
+      "general": {
+        "plainExplanation": "Key idea: Not that I speak in respect of want: for I have learned, in whatever state I am, therewith to be content. I know both how to be abased, and I know how to ab...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Philippi"
+      }
+    },
     "Philippians 4:13": {
       "general": {
         "plainExplanation": "Christ gives me the strength to face whatever I'm going through today.",
@@ -24664,6 +24699,14 @@
       "general": {
         "plainExplanation": "Let Israel hope in the Lord: for with the Lord there is mercy.",
         "modernApplication": "This verse keeps your eyes up when the day feels slow, heavy, or unfinished.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
+    "Psalm 131:1-2": {
+      "general": {
+        "plainExplanation": "Key idea: Lord, my heart is not haughty, nor mine eyes lofty: neither do I exercise myself in great matters, or in things too high for me. Surely I have behaved and q...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"
       }

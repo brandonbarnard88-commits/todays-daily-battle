@@ -528,11 +528,13 @@
       ],
       exhaustion: [
         { href: '/plans.html?plan=universityexhaustion', label: 'Exhaustion' },
+        { href: '/plans.html?plan=universitycontentment', label: 'Contentment in Small Seasons' },
         { href: '/plans.html?plan=wearyhands', label: 'Weary Hands' },
         { href: '/plans.html?plan=peace', label: '7-Day Peace' }
       ],
       gratitude: [
         { href: '/plans.html?plan=universitygratitude', label: 'Gratitude' },
+        { href: '/plans.html?plan=universitycontentment', label: 'Contentment in Small Seasons' },
         { href: '/plans.html?plan=gratitude', label: '7-Day Gratitude' },
         { href: '/plans.html?plan=psalmspraise', label: 'Psalms of Praise' }
       ],
@@ -552,6 +554,7 @@
         { href: '/plans.html?plan=peacemakers', label: 'Peacemakers' }
       ],
       comparison: [
+        { href: '/plans.html?plan=universitycontentment', label: 'Contentment in Small Seasons' },
         { href: '/plans.html?plan=universitycomparison', label: 'University of Comparison' },
         { href: '/plans.html?plan=universitygratitude', label: 'University of Gratitude' },
         { href: '/plans.html?plan=peace', label: '7-Day Peace' }
@@ -563,6 +566,7 @@
       ],
       regret: [
         { href: '/plans.html?plan=universityregret', label: 'University of Regret' },
+        { href: '/plans.html?plan=universitycontentment', label: 'Contentment in Small Seasons' },
         { href: '/plans.html?plan=universityforgiveness', label: 'University of Forgiveness' },
         { href: '/plans.html?plan=universitygrief', label: 'University of Grief' }
       ],

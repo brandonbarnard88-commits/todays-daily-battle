@@ -437,6 +437,10 @@ for (const f of otherHtml) {
       console.error('BUILD FAIL: plans.html must include The University of Regret plan (universityregret / tdb-plan-universityregret-day).');
       process.exit(1);
     }
+    if (!content.includes('universitycontentment') || !content.includes('tdb-plan-universitycontentment-day')) {
+      console.error('BUILD FAIL: plans.html must include The University of Contentment in Small Seasons plan (universitycontentment / tdb-plan-universitycontentment-day).');
+      process.exit(1);
+    }
     if (!content.includes('latefallwinter') || !content.includes('tdb-plan-latefallwinter-day')) {
       console.error('BUILD FAIL: plans.html must include Late Fall, Quiet Winter plan (latefallwinter / tdb-plan-latefallwinter-day).');
       process.exit(1);

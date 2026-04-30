@@ -111,14 +111,16 @@ function tdbIsHomePage() {
     if (/\bfear|afraid|panic|scared|terror\b/.test(low)) return 'fear';
     if (/(closet|secret place|shut thy door|a great while before day|a solitary|draw nigh to god|ears are open|double minded|in secret;|in secret,|in secret\.|in secret\)|seeth in secret|seen in secret)\b/.test(low)) return 'secretprayer';
     if (/\bregret\w*|\bif only\b|should have|second guess|second-guess|hindsight|what if i|replaying yesterday|godly sorrow worketh|repentance to salvation|no condemnation to them which are in christ|forgetting those things which are behind|pressed toward the mark\b/.test(low)) return 'regret';
+    if (/\bmy spirit was overwhelmed\b|multitude of my thoughts within me\b|troubled on every side.? yet not distressed\b|\bwait thou only upon god\b|\bcasting all your care\b/.test(low)) return 'overwhelm';
     if (/\bgrief|grieve|grieving|mourning|mourn(ed|ing)?|bereave|bereft|\bloss\b|funeral|widow|orphan|weep|weeping|broken\s*heart|contrite|\bsorrow\b/.test(low)) return 'grief';
     if (/\bwait(ing)?\b|tarry|not yet|\bpatience\b|\bpatient\b|hope for that we see not|appointed time|delayed?\b/.test(low)) return 'waiting';
+    if (/\bparent\w*\s+fear\b|fear for (my |our )?(child|children|kids)\b|\blittle ones should perish\b|\bgreat shall be the peace of thy children\b|\bsuffer the little children to come\b/.test(low)) return 'parentfear';
     if (/\bparent(ing)?\b|\bchildren\b|\bchild\b|\bmother\b|\bmothers?\b|ye fathers,|fathers, provoke|train up|nurture|admonition|heritage of|little ones|toddler|babies\b/.test(low)) return 'parenting';
-      if (/\bexhaust|exhausted|weariness|\bweary\b|\btired\b|weary in well|faint|fainted|heavily laden|no might|satiated the weary|sorrowful soul|giveth his beloved sleep|bread of sorrows|strength is made perfect in weakness|renew their strength|mount up with wings\b/.test(low)) return 'exhaustion';
-      if (/\bcompar(e|ing|ison|ed)?\b|comparing themselves|envy|envying|vainglory|esteem other better|commending themselves|measuring themselves|contentment|godliness with content|where envying and strife\b/.test(low)) return 'comparison';
-      if (/\b(wrath|angry|anger)\b|slow to anger|slow to wrath|be ye angry|sun go down upon your wrath|grievous words stir|furious man|make no friendship with an angry|deferreth his anger|ruleth his spirit|wrath of man worketh|put away.*wrath|angry man\b/.test(low)) return 'anger';
-      if (/\breconcil|reconciled|reconciliation|gained thy brother|between thee and him alone|live peaceably with all|quarrel against|forbearing one another|first be reconciled|ministry of reconciliation|word of reconciliation\b/.test(low)) return 'brokenrelations';
-      if (/\bforgive|forgiveness|forgave|forgiven|trespass|trespasses\b/.test(low)) return 'forgiveness';
+    if (/\bexhaust|exhausted|weariness|\bweary\b|\btired\b|weary in well|faint|fainted|heavily laden|no might|satiated the weary|sorrowful soul|giveth his beloved sleep|bread of sorrows|strength is made perfect in weakness|renew their strength|mount up with wings\b/.test(low)) return 'exhaustion';
+    if (/\bcompar(e|ing|ison|ed)?\b|comparing themselves|envy|envying|vainglory|esteem other better|commending themselves|measuring themselves|contentment|godliness with content|where envying and strife\b/.test(low)) return 'comparison';
+    if (/\b(wrath|angry|anger)\b|slow to anger|slow to wrath|be ye angry|sun go down upon your wrath|grievous words stir|furious man|make no friendship with an angry|deferreth his anger|ruleth his spirit|wrath of man worketh|put away.*wrath|angry man\b/.test(low)) return 'anger';
+    if (/\breconcil|reconciled|reconciliation|gained thy brother|between thee and him alone|live peaceably with all|quarrel against|forbearing one another|first be reconciled|ministry of reconciliation|word of reconciliation\b/.test(low)) return 'brokenrelations';
+    if (/\bforgive|forgiveness|forgave|forgiven|trespass|trespasses\b/.test(low)) return 'forgiveness';
     if (/\bbitter(ness|ly)?\b|gall of bitterness|root of bitterness|bitter envying|gall and\b/.test(low)) return 'bitterness';
     if (/\blonely|loneliness|\bforsaken\b|forsake me|no companion|desolate and afflicted|solitary in families|comfortless\b/.test(low)) return 'loneliness';
     if (/\bthank|thanks|thanksgiving|grateful|praise\w* unto|magnify|joyful noise|bless the lord, o my soul|enter.*thanksgiving\b/.test(low)) return 'gratitude';
@@ -128,6 +130,7 @@ function tdbIsHomePage() {
   }
   var UOG_PLANS = {
     anxiety: [
+      { href: '/plans.html?plan=universityoverwhelm', label: 'University of Overwhelm' },
       { href: '/plans.html?plan=universityanxiety', label: 'Anxiety & Fear' },
       { href: '/plans.html?plan=worrytrust', label: 'Worry to Trust' },
       { href: '/plans.html?plan=peace', label: '7-Day Peace' }
@@ -154,11 +157,13 @@ function tdbIsHomePage() {
     ],
     parenting: [
       { href: '/plans.html?plan=universityparenting', label: 'Parenting Young Kids' },
+      { href: '/plans.html?plan=universityparentfear', label: 'Fear for My Children' },
       { href: '/plans.html?plan=parenting', label: 'Parenting' },
       { href: '/plans.html?plan=familyworship', label: 'Family Worship' }
     ],
     exhaustion: [
       { href: '/plans.html?plan=universityexhaustion', label: 'Exhaustion' },
+      { href: '/plans.html?plan=universityoverwhelm', label: 'University of Overwhelm' },
       { href: '/plans.html?plan=universitycontentment', label: 'Contentment in Small Seasons' },
       { href: '/plans.html?plan=wearyhands', label: 'Weary Hands' },
       { href: '/plans.html?plan=peace', label: '7-Day Peace' }
@@ -210,6 +215,16 @@ function tdbIsHomePage() {
       { href: '/plans.html?plan=universitybitterness', label: 'University of Bitterness' },
       { href: '/plans.html?plan=universityforgiveness', label: 'University of Forgiveness' },
       { href: '/plans.html?plan=lettinggo', label: 'Letting Go' }
+    ],
+    overwhelm: [
+      { href: '/plans.html?plan=universityoverwhelm', label: 'University of Overwhelm' },
+      { href: '/plans.html?plan=overwhelmedburnout', label: 'Overwhelmed / Burnout' },
+      { href: '/plans.html?plan=universityexhaustion', label: 'Exhaustion' }
+    ],
+    parentfear: [
+      { href: '/plans.html?plan=universityparentfear', label: 'Fear for My Children' },
+      { href: '/plans.html?plan=universityparenting', label: 'Parenting Young Kids' },
+      { href: '/plans.html?plan=littlehearts', label: 'Little Hearts, Big Fear' }
     ],
     hope: [
       { href: '/plans.html?plan=hopeuncertain', label: 'When Hope Feels Thin' },

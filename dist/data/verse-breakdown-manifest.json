@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-30T12:13:22.729Z",
-  "surfacedRefCount": 2949,
-  "overrideCount": 2949,
+  "generatedAt": "2026-04-30T12:23:36.260Z",
+  "surfacedRefCount": 2951,
+  "overrideCount": 2951,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -760,8 +760,8 @@
       "pairs": 1
     },
     "plans.html": {
-      "refs": 254,
-      "pairs": 260
+      "refs": 261,
+      "pairs": 272
     },
     "printables.html": {
       "refs": 9,
@@ -880,7 +880,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 121,
+      "refs": 123,
       "pairs": 0
     },
     "tl/kabalisahan.html": {
@@ -959,6 +959,14 @@
       "refs": 6,
       "pairs": 0
     },
+    "university-overwhelm-one-page-print.html": {
+      "refs": 6,
+      "pairs": 0
+    },
+    "university-parent-fear-one-page-print.html": {
+      "refs": 6,
+      "pairs": 0
+    },
     "university-regret-one-page-print.html": {
       "refs": 6,
       "pairs": 0
@@ -984,7 +992,7 @@
       "pairs": 0
     },
     "verse-image.html": {
-      "refs": 2,
+      "refs": 9,
       "pairs": 0
     },
     "verse-image.js": {
@@ -3086,6 +3094,7 @@
     "Matthew 17:21",
     "Matthew 17:5",
     "Matthew 17:6-7",
+    "Matthew 18:14",
     "Matthew 18:15",
     "Matthew 18:17",
     "Matthew 18:20",
@@ -3624,6 +3633,7 @@
     "Psalm 139:17",
     "Psalm 139:23-24",
     "Psalm 13:5",
+    "Psalm 142:3",
     "Psalm 142:7",
     "Psalm 143:8",
     "Psalm 144:1",
@@ -4264,6 +4274,7 @@
     "Psalm 139:17": "How precious also are thy thoughts unto me, O God! how great is the sum of them!",
     "Psalm 139:23-24": "Search me, O God, and know my heart: try me, and know my thoughts: And see if there be any wicked way in me, and lead me in the way everlasting.",
     "Psalm 13:5": "I have trusted in thy mercy; my heart shall rejoice in thy salvation.",
+    "Psalm 142:3": "When my spirit was overwhelmed within me, then thou knewest my path. In the way wherein I walked have they privily laid a snare for me.",
     "Psalm 142:7": "Bring my soul out of prison, that I may praise thy name: the righteous shall compass me about; for thou shalt deal bountifully with me.",
     "Psalm 143:8": "Cause me to hear thy lovingkindness in the morning; for in thee do I trust: cause me to know the way wherein I should walk.",
     "Psalm 144:1": "Blessed be the LORD my strength, which teacheth my hands to war, and my fingers to fight.",
@@ -20527,6 +20538,14 @@
         "to": "Believers"
       }
     },
+    "Matthew 18:14": {
+      "general": {
+        "plainExplanation": "Even so it is not the will of your Father which is in heaven, that one of these little ones should be lost.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Matthew 18:15": {
       "general": {
         "plainExplanation": "Moreover if your brother shall trespass against you, go and tell him his fault between you and him alone: if he shall hear you, you hast gained your brother.",
@@ -24827,6 +24846,14 @@
       "general": {
         "plainExplanation": "I have trusted in your mercy; my heart shall rejoice in your salvation.",
         "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
+    "Psalm 142:3": {
+      "general": {
+        "plainExplanation": "When my spirit was overwhelmed within me, then you knewest my path. In the way wherein I walked have they privily laid a snare for me.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"
       }

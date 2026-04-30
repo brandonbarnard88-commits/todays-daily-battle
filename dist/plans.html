@@ -1294,6 +1294,82 @@
       outline: 2px solid color-mix(in srgb, var(--gold) 55%, transparent);
       outline-offset: 2px; border-radius: 4px;
     }
+    /* Hallways between University rooms — small related paths while a course is open */
+    .plan-next-quiet-rooms {
+      margin: 2rem auto 1.25rem;
+      padding: 1.2rem 1.15rem 1.3rem;
+      max-width: 38rem;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--gold) 26%, var(--line));
+      background: color-mix(in srgb, var(--card) 94%, var(--gold) 4%);
+      box-sizing: border-box;
+    }
+    .plan-next-quiet-rooms[hidden] { display: none !important; }
+    .plan-next-quiet-rooms-eyebrow {
+      font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--muted); margin: 0 0 0.15rem; font-style: normal;
+    }
+    .plan-next-quiet-rooms-lead {
+      font-size: 0.85rem; line-height: 1.45; color: color-mix(in srgb, var(--muted) 88%, var(--text));
+      margin: 0 0 0.85rem;
+    }
+    .plan-next-quiet-rooms-list {
+      list-style: none; padding: 0; margin: 0;
+      display: flex; flex-direction: column; gap: 0.45rem;
+    }
+    .plan-next-quiet-rooms-list > li { margin: 0; }
+    .plan-next-quiet-rooms-link {
+      display: flex; flex-direction: column; gap: 0.15rem;
+      padding: 0.5rem 0.35rem;
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text);
+      min-height: 44px;
+      box-sizing: border-box;
+      transition: color 0.15s, background 0.15s;
+    }
+    .plan-next-quiet-rooms-link:hover,
+    .plan-next-quiet-rooms-link:focus-visible {
+      color: var(--gold-soft);
+      background: color-mix(in srgb, var(--gold) 8%, transparent);
+      outline: none;
+    }
+    .plan-next-quiet-rooms-link:focus-visible {
+      box-shadow: 0 0 0 2px color-mix(in srgb, var(--gold) 45%, transparent);
+    }
+    .plan-next-quiet-rooms-link-title {
+      font-size: 0.88rem; font-weight: 700; line-height: 1.3; color: inherit;
+    }
+    .plan-next-quiet-rooms-link-hint {
+      font-size: 0.8rem; line-height: 1.42; color: var(--muted);
+    }
+    .plan-next-quiet-rooms-link:hover .plan-next-quiet-rooms-link-hint,
+    .plan-next-quiet-rooms-link:focus-visible .plan-next-quiet-rooms-link-hint {
+      color: color-mix(in srgb, var(--muted) 70%, var(--gold-soft));
+    }
+    .plan-next-quiet-rooms-pending {
+      margin: 0;
+      padding: 0.45rem 0.35rem;
+      border-radius: 10px;
+      border: 1px dashed color-mix(in srgb, var(--gold) 35%, var(--line));
+      background: color-mix(in srgb, var(--card) 92%, transparent);
+    }
+    .plan-next-quiet-rooms-pending-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 0.18rem;
+    }
+    .plan-next-quiet-rooms-soon {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: color-mix(in srgb, var(--muted) 88%, var(--gold-soft));
+      margin-top: 0.15rem;
+    }
+    html[data-theme="light"] .plan-next-quiet-rooms {
+      background: color-mix(in srgb, #fff 92%, rgba(227, 188, 103, 0.08));
+    }
     .btn-extend {
       background: linear-gradient(135deg, var(--gold-soft), var(--gold));
       color: #1a1000; font-weight: 800;
@@ -2621,6 +2697,9 @@
       <div id="planEveningUogPrintIntro" class="plan-detail-intro" hidden aria-label="Printable Evening in the University">
         <p>One clean page for the table or fridge&mdash;all four KJV days on paper: <a href="evening-university-print.html">Print &ldquo;Evening in the University&rdquo;</a> (print-friendly, no sign-in).</p>
       </div>
+      <div id="planUniversityAtTablePrintIntro" class="plan-detail-intro" hidden aria-label="University at the Table print">
+        <p>Need something shorter than the full weekly path? Four steady KJV lines from the quiet rooms plus a one-minute family aloud on one sheet: <a href="university-at-the-table-print.html">University at the Table</a> (print-friendly, no sign-in).</p>
+      </div>
       <div class="day-pills" id="dayPills" role="list" aria-label="Day selector"></div>
       <p class="plans-detail-nav-hint" id="plansDetailNavHint"><strong>Next day:</strong> tap the next open circle. <strong>Revisit:</strong> tap a day you&rsquo;ve already opened. <strong>Links:</strong> a <code class="plans-code">?day=</code> URL only opens a day you&rsquo;ve already reached&mdash;not past what you&rsquo;ve finished.</p>
       <div id="planCompleteCard" class="plan-complete-card">
@@ -2643,6 +2722,11 @@
         <button type="button" class="btn-restart" id="btnRestart" aria-label="Restart this plan from day one">Start Over</button>
       </div>
       <div id="dayCardContainer"></div>
+      <nav id="planNextQuietRooms" class="plan-next-quiet-rooms" hidden aria-labelledby="planNextQuietRoomsHeading">
+        <p id="planNextQuietRoomsHeading" class="plan-next-quiet-rooms-eyebrow">Next quiet room</p>
+        <p class="plan-next-quiet-rooms-lead">Wander gently—another short path if this one stirred something beside it. Same pace on every door.</p>
+        <ul id="planNextQuietRoomsList" class="plan-next-quiet-rooms-list"></ul>
+      </nav>
       <div id="planExtraPanel" class="plan-extra-panel" hidden aria-label="Extra verses and anchors for this plan"></div>
     </div>
 
@@ -2822,7 +2906,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">April 29, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">April 30, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Made with love &mdash; For Family, For Country, For GOD.</p>
     <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
@@ -4471,6 +4555,10 @@
       });
       document.getElementById('planIndex').classList.remove('hidden');
       document.getElementById('planDetail').classList.remove('active');
+      var nqr = document.getElementById('planNextQuietRooms');
+      var nqrList = document.getElementById('planNextQuietRoomsList');
+      if (nqr) nqr.hidden = true;
+      if (nqrList) nqrList.replaceChildren();
     }
     (function wirePlanListClicks() {
       var list = document.getElementById('planList');
@@ -4602,6 +4690,17 @@
           ePrint.setAttribute('hidden', '');
         }
       }
+      var uAtTablePrint = document.getElementById('planUniversityAtTablePrintIntro');
+      if (uAtTablePrint) {
+        var showUat = plan.id && plan.id.indexOf('university') === 0;
+        if (showUat) {
+          uAtTablePrint.hidden = false;
+          uAtTablePrint.removeAttribute('hidden');
+        } else {
+          uAtTablePrint.hidden = true;
+          uAtTablePrint.setAttribute('hidden', '');
+        }
+      }
 
       // Subtitle
       document.getElementById('detailSubtitle').textContent = plan.max + '-day plan';
@@ -4655,6 +4754,153 @@
       updatePlanCompleteRelated(plan, progress);
 
       renderDayCard();
+      updatePlanNextQuietRooms(plan);
+    }
+
+    /** Related University hallways — 2–3 paths while the plan is open (not scored, not required). */
+    var PLAN_NEXT_QUIET_ROOMS = {
+      universitywaiting: [
+        { planId: 'universitygrief', hint: 'When waiting and ache share one long week.' },
+        { planId: 'universityloneliness', hint: 'When the wait feels solitary.' },
+        { planId: 'universityexhaustion', hint: 'When the wait has worn the body down.' }
+      ],
+      universitygrief: [
+        { planId: 'universitywaiting', hint: 'When sorrow and delay sit together.' },
+        { planId: 'universityloneliness', hint: 'When the room feels too quiet after loss.' },
+        { planId: 'universityforgiveness', hint: 'When grief and unresolved words overlap.' }
+      ],
+      universityparenting: [
+        { planId: 'universityexhaustion', hint: 'When little needs emptied the tank.' },
+        { planId: 'universityanxiety', hint: 'When worry attaches to those you shepherd.' },
+        { planId: 'universitysecretprayer', hint: 'When closet words are what you need most.' }
+      ],
+      universitysecretprayer: [
+        { planId: 'universityanxiety', hint: 'When you need a hid place beside fear.' },
+        { planId: 'universityloneliness', hint: 'When alone presses even after praying.' },
+        { planId: 'universityexhaustion', hint: 'When soul-wear sits with secret speech.' }
+      ],
+      universityanxiety: [
+        { planId: 'universityexhaustion', hint: 'When fear and emptiness arrive together.' },
+        { planId: 'universitysecretprayer', hint: 'When shutting the door is the next mercy.' },
+        { planId: 'universityloneliness', hint: 'When anxious thoughts feel friendless.' }
+      ],
+      universityexhaustion: [
+        { planId: 'universitygratitude', hint: 'When the tank is empty and thanks feels far.' },
+        {
+          pendingRoom: true,
+          label: 'University of Contentment in Small Seasons',
+          hint: 'When ordinary days still feel heavy.',
+          soon: 'Planned path — same quiet pace when it lands'
+        },
+        { planId: 'universitysecretprayer', hint: 'When you need to hide and be renewed.' },
+        { planId: 'universityparenting', hint: 'When little ones still need you even while you\u2019re empty.' }
+      ],
+      universitygratitude: [
+        { planId: 'universitycomparison', hint: 'When thanks needs distance from mirrors.' },
+        { planId: 'universityloneliness', hint: 'When quietly giving thanks beside emptiness.' },
+        { planId: 'universityexhaustion', hint: 'When small thanks arrives in a depleted week.' }
+      ],
+      universityloneliness: [
+        { planId: 'universitycomparison', hint: 'When isolation echoes measuring.' },
+        { planId: 'universitygrief', hint: 'When alone overlaps with mourning.' },
+        { planId: 'universitysecretprayer', hint: 'When the soul needs unseen company.' }
+      ],
+      universityforgiveness: [
+        { planId: 'universitybitterness', hint: 'When the root needs naming before release.' },
+        { planId: 'universitybroken', hint: 'When pardon waits across a strained table.' },
+        { planId: 'universityanger', hint: 'When forgiving means heat just cooled.' }
+      ],
+      universitydoubt: [
+        { planId: 'universitygrief', hint: 'When questions sit beside sorrow.' },
+        { planId: 'universityloneliness', hint: 'When faith feels thin and friendless.' },
+        { planId: 'universitysecretprayer', hint: 'When belief needs honest wrestling in the quiet.' }
+      ],
+      universitybitterness: [
+        { planId: 'universityanger', hint: 'When heat still simmers under the gall.' },
+        { planId: 'universityforgiveness', hint: 'When the root needs pulling toward pardon.' },
+        { planId: 'universitybroken', hint: 'When faces are still attached to the wound.' }
+      ],
+      universitybroken: [
+        { planId: 'universityforgiveness', hint: 'When mending starts with received grace.' },
+        { planId: 'universitybitterness', hint: 'When the break left a sour aftertaste.' },
+        { planId: 'universityanger', hint: 'When strife still warms the room.' }
+      ],
+      universitycomparison: [
+        { planId: 'universityloneliness', hint: 'When mirror-math meets empty rooms.' },
+        { planId: 'universitygratitude', hint: 'When contentment needs a lighter week.' },
+        { planId: 'universitybitterness', hint: 'When measuring curdles into gall.' }
+      ],
+      universityanger: [
+        { planId: 'universitybitterness', hint: 'When heat left a root to watch.' },
+        { planId: 'universityforgiveness', hint: 'When soft answers need pardon too.' },
+        { planId: 'universitybroken', hint: 'When wrath touched someone you share air with.' }
+      ],
+      universityregret: [
+        { planId: 'universityforgiveness', hint: 'When \u201cI should have\u201d needs received mercy.' },
+        { planId: 'universitygrief', hint: 'When looking back overlaps with mourning.' },
+        {
+          pendingRoom: true,
+          label: 'University of Contentment in Small Seasons',
+          hint: 'When pressing forward feels heavy with yesterday.',
+          soon: 'Planned path — same quiet pace when it lands'
+        }
+      ]
+    };
+
+    function updatePlanNextQuietRooms(plan) {
+      var wrap = document.getElementById('planNextQuietRooms');
+      var list = document.getElementById('planNextQuietRoomsList');
+      if (!wrap || !list) return;
+      list.replaceChildren();
+      wrap.hidden = true;
+      if (!plan || !plan.id) return;
+      var rows = PLAN_NEXT_QUIET_ROOMS[plan.id];
+      if (!rows || !rows.length) return;
+      wrap.removeAttribute('hidden');
+      wrap.hidden = false;
+      rows.forEach(function (row) {
+        if (row.pendingRoom) {
+          var liP = document.createElement('li');
+          liP.className = 'plan-next-quiet-rooms-pending';
+          var inner = document.createElement('div');
+          inner.className = 'plan-next-quiet-rooms-pending-inner';
+          var ti = document.createElement('span');
+          ti.className = 'plan-next-quiet-rooms-link-title';
+          ti.textContent = row.label || '';
+          var hi = document.createElement('span');
+          hi.className = 'plan-next-quiet-rooms-link-hint';
+          hi.textContent = row.hint || '';
+          inner.appendChild(ti);
+          inner.appendChild(hi);
+          if (row.soon) {
+            var soon = document.createElement('span');
+            soon.className = 'plan-next-quiet-rooms-soon';
+            soon.textContent = row.soon;
+            inner.appendChild(soon);
+          }
+          liP.appendChild(inner);
+          liP.setAttribute('aria-label', (row.label || '') + '. ' + (row.hint || ''));
+          list.appendChild(liP);
+          return;
+        }
+        var p = PLANS[row.planId];
+        if (!p || p.id === plan.id) return;
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        a.className = 'plan-next-quiet-rooms-link';
+        a.href = 'plans.html?plan=' + encodeURIComponent(p.id);
+        var title = document.createElement('span');
+        title.className = 'plan-next-quiet-rooms-link-title';
+        title.textContent = p.icon + '\u00a0' + p.label;
+        var hint = document.createElement('span');
+        hint.className = 'plan-next-quiet-rooms-link-hint';
+        hint.textContent = row.hint;
+        a.appendChild(title);
+        a.appendChild(hint);
+        a.setAttribute('aria-label', p.label + '. ' + row.hint);
+        li.appendChild(a);
+        list.appendChild(li);
+      });
     }
 
     var PLAN_COMPLETE_RELATED = {

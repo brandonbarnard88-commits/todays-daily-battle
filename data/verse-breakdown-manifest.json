@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-29T14:47:03.375Z",
-  "surfacedRefCount": 2944,
-  "overrideCount": 2944,
+  "generatedAt": "2026-04-30T11:51:10.523Z",
+  "surfacedRefCount": 2945,
+  "overrideCount": 2945,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -880,7 +880,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 116,
+      "refs": 119,
       "pairs": 0
     },
     "tl/kabalisahan.html": {
@@ -945,6 +945,10 @@
     },
     "university-anger-one-page-print.html": {
       "refs": 6,
+      "pairs": 0
+    },
+    "university-at-the-table-print.html": {
+      "refs": 4,
       "pairs": 0
     },
     "university-comparison-one-page-print.html": {
@@ -2265,6 +2269,7 @@
     "Isaiah 53:5",
     "Isaiah 53:6",
     "Isaiah 54:10",
+    "Isaiah 54:13",
     "Isaiah 54:17",
     "Isaiah 54:5",
     "Isaiah 54:6",
@@ -14002,6 +14007,14 @@
     "Isaiah 54:10": {
       "general": {
         "plainExplanation": "God's love and peace won't leave you—He has promised.",
+        "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
+        "about": "Isaiah",
+        "to": "Judah"
+      }
+    },
+    "Isaiah 54:13": {
+      "general": {
+        "plainExplanation": "And all your children shall be taught of the LORD; and great shall be the peace of your children.",
         "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
         "about": "Isaiah",
         "to": "Judah"

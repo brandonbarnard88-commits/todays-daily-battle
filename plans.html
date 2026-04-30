@@ -2699,6 +2699,9 @@
       <div id="planEveningUogPrintIntro" class="plan-detail-intro" hidden aria-label="Printable Evening in the University">
         <p>One clean page for the table or fridge&mdash;all four KJV days on paper: <a href="evening-university-print.html">Print &ldquo;Evening in the University&rdquo;</a> (print-friendly, no sign-in).</p>
       </div>
+      <div id="planUniversityAtTablePrintIntro" class="plan-detail-intro" hidden aria-label="University at the Table print">
+        <p>Need something shorter than the full weekly path? Four steady KJV lines from the quiet rooms plus a one-minute family aloud on one sheet: <a href="university-at-the-table-print.html">University at the Table</a> (print-friendly, no sign-in).</p>
+      </div>
       <div class="day-pills" id="dayPills" role="list" aria-label="Day selector"></div>
       <p class="plans-detail-nav-hint" id="plansDetailNavHint"><strong>Next day:</strong> tap the next open circle. <strong>Revisit:</strong> tap a day you&rsquo;ve already opened. <strong>Links:</strong> a <code class="plans-code">?day=</code> URL only opens a day you&rsquo;ve already reached&mdash;not past what you&rsquo;ve finished.</p>
       <div id="planCompleteCard" class="plan-complete-card">
@@ -4687,6 +4690,17 @@
         } else {
           ePrint.hidden = true;
           ePrint.setAttribute('hidden', '');
+        }
+      }
+      var uAtTablePrint = document.getElementById('planUniversityAtTablePrintIntro');
+      if (uAtTablePrint) {
+        var showUat = plan.id && plan.id.indexOf('university') === 0;
+        if (showUat) {
+          uAtTablePrint.hidden = false;
+          uAtTablePrint.removeAttribute('hidden');
+        } else {
+          uAtTablePrint.hidden = true;
+          uAtTablePrint.setAttribute('hidden', '');
         }
       }
 

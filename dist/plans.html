@@ -61,6 +61,7 @@
       --card: #fffdf7;
       --text: #1e293b;
       --muted: #5a6578;
+      --text-muted: #5a6578;
       --line: #e2e8f0;
       --shadow: 0 2px 16px rgba(15, 23, 42, 0.08);
       --tdb-surface-card-bg: color-mix(in srgb, var(--card) 96%, rgba(201, 162, 39, 0.06));
@@ -73,6 +74,26 @@
       --tdb-surface-panel-shadow: 0 5px 20px rgba(64, 41, 8, 0.06),
         0 0 0 1px rgba(15, 23, 42, 0.06),
         inset 0 1px 0 rgba(255, 255, 255, 0.55);
+    }
+    /* Dawn parchment — match site-wide :root[data-theme="sepia"] so this page follows the Appearance dial */
+    html[data-theme="sepia"] {
+      --bg: #efe3cd;
+      --card: #fbf5eb;
+      --text: #33281d;
+      --muted: #6d5d49;
+      --text-muted: #6d5d49;
+      --line: rgba(76, 55, 28, 0.18);
+      --shadow: 0 2px 16px rgba(68, 47, 22, 0.1);
+      --tdb-surface-card-bg: color-mix(in srgb, #f8f0e2 96%, rgba(140, 92, 33, 0.11));
+      --tdb-surface-card-border: color-mix(in srgb, rgba(76, 55, 28, 0.24) 72%, rgba(173, 130, 69, 0.34));
+      --tdb-surface-card-shadow: 0 10px 30px rgba(68, 47, 22, 0.11),
+        0 0 0 1px color-mix(in srgb, rgba(166, 124, 56, 0.28) 45%, transparent),
+        inset 0 1px 0 rgba(255, 250, 242, 0.7);
+      --tdb-surface-panel-bg: color-mix(in srgb, #fbf5eb 97%, rgba(120, 77, 32, 0.07));
+      --tdb-surface-panel-border: rgba(76, 55, 28, 0.12);
+      --tdb-surface-panel-shadow: 0 6px 24px rgba(68, 47, 22, 0.08),
+        0 0 0 1px rgba(76, 55, 28, 0.06),
+        inset 0 1px 0 rgba(255, 250, 242, 0.56);
     }
     *, *::before, *::after { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; width: 100%; background: var(--bg); color: var(--text); font-family: ui-rounded,"Avenir Next","Segoe UI","Inter",sans-serif; font-size: 1rem; line-height: 1.6; }
@@ -104,6 +125,14 @@
     .tdb-global-nav a:hover { color: var(--gold); background: rgba(227, 188, 103, 0.1); }
     .tdb-global-nav a:focus-visible { outline: 2px solid rgba(227, 188, 103, 0.7); outline-offset: 2px; }
     .tdb-global-nav a[aria-current="page"] { color: var(--gold); font-weight: 600; }
+    html[data-theme="light"] .tdb-global-nav a {
+      color: rgba(30, 41, 59, 0.92);
+    }
+    html[data-theme="light"] .tdb-global-nav a:hover { color: var(--gold); }
+    html[data-theme="sepia"] .tdb-global-nav a {
+      color: rgba(51, 40, 29, 0.92);
+    }
+    html[data-theme="sepia"] .tdb-global-nav a:hover { color: var(--gold); }
     @media (max-width: 768px) {
       .tdb-global-nav { overflow-x: auto; overflow-y: hidden; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 0.3rem 0.55rem; gap: 0.15rem; }
       .tdb-global-nav::-webkit-scrollbar { display: none; }
@@ -2936,7 +2965,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">April 30, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">May 1, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Made with love &mdash; For Family, For Country, For GOD.</p>
     <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>

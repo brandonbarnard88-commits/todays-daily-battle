@@ -179,6 +179,22 @@ html {
  * — Prefer --tdb-surface-card-shadow* for new work over legacy --shadow-card* on dark pages.
  */
 
+/*
+ * Opt-in: fixed warm paper inside a region (cream/white) while html is Quiet night.
+ * Descendants using var(--text), var(--muted), var(--text-muted) then match the paper, not the sky.
+ */
+html[data-theme="dark"] .tdb-surface-parchment-ink,
+html:not([data-theme]) .tdb-surface-parchment-ink {
+  --text: #172230;
+  --color-text: #172230;
+  --muted: #4d5f72;
+  --muted-readable: #5a6778;
+  --text-muted: #4d5f72;
+  --line: rgba(76, 90, 108, 0.22);
+  --link-content: #154a73;
+  --link-content-hover: #0f3654;
+}
+
 /* —— Quiet-place responsive: opt-in containers + card grids (safe alongside existing pages) —— */
 .tdb-quiet-container {
   width: 100%;
@@ -954,14 +970,23 @@ a.explore-quick-door:focus-visible {
   box-shadow: var(--tdb-dawn-shadow-soft, 0 4px 12px rgba(180, 140, 80, 0.06));
 }
 
+/*
+ * Topic mood heroes use .tdb-dawn-bg--* (light band). --text-dark is pale ink meant for charcoal panels —
+ * never use it here or Quiet night / Dawn parchment wash out against mist.
+ */
 .content-inner > header.hero-banner.topic-hero--soar-dawn h1 {
-  color: var(--text-dark, #f0f2f7);
-  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.35);
+  color: #0f172a;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.42);
 }
 
 html[data-theme="light"] .content-inner > header.hero-banner.topic-hero--soar-dawn h1 {
-  color: var(--text-light, #1a2234);
-  text-shadow: none;
+  color: #0f172a;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+html[data-theme="sepia"] .content-inner > header.hero-banner.topic-hero--soar-dawn h1 {
+  color: #2a2218;
+  text-shadow: 0 1px 0 rgba(255, 252, 245, 0.4);
 }
 
 .content-inner > header.hero-banner.topic-hero--soar-dawn .topic-hero-lead {
@@ -969,26 +994,29 @@ html[data-theme="light"] .content-inner > header.hero-banner.topic-hero--soar-da
   font-size: clamp(0.95rem, 2.8vw, 1.05rem);
   line-height: 1.55;
   max-width: 36rem;
-  color: color-mix(in srgb, var(--text-dark, #f0f2f7) 88%, transparent);
+  color: #334155;
 }
 
-html[data-theme="light"] .content-inner > header.hero-banner.topic-hero--soar-dawn .topic-hero-lead {
-  color: color-mix(in srgb, var(--text-light, #1a2234) 85%, transparent);
+html[data-theme="sepia"] .content-inner > header.hero-banner.topic-hero--soar-dawn .topic-hero-lead {
+  color: #3d3428;
 }
 
-/* Topic porch whisper under H1 — slightly warmer than generic section-note */
-.content-inner > header.hero-banner.topic-hero--soar-dawn .topic-mood-porch,
-.content-inner > header.hero-banner .topic-mood-porch {
+/* Topic porch whisper under H1 on mist/dawn band only */
+.content-inner > header.hero-banner.topic-hero--soar-dawn .topic-mood-porch {
   margin: 0 0 0.4rem;
   max-width: 36rem;
   font-size: clamp(0.87rem, 2.35vw, 0.97rem);
   line-height: 1.55;
   letter-spacing: 0.012em;
-  color: color-mix(in srgb, var(--muted-readable, #a8b8cc) 88%, var(--gold-soft, #e3bc67) 12%);
+  color: color-mix(in srgb, #3d5266 88%, var(--gold-soft, #b8954a) 12%);
 }
 
-html[data-theme="light"] .content-inner > header.hero-banner .topic-mood-porch {
-  color: color-mix(in srgb, var(--text-light, #1a2234) 58%, var(--gold, #9a7324) 14%);
+html[data-theme="light"] .content-inner > header.hero-banner.topic-hero--soar-dawn .topic-mood-porch {
+  color: color-mix(in srgb, #1e293b 62%, var(--gold, #9a7324) 14%);
+}
+
+html[data-theme="sepia"] .content-inner > header.hero-banner.topic-hero--soar-dawn .topic-mood-porch {
+  color: color-mix(in srgb, #4a3f32 88%, var(--gold-soft, #a67c32) 12%);
 }
 
 /* Porch whisper when H1 is not inside .hero-banner (mission packs, church join, etc.) */
@@ -1005,6 +1033,10 @@ html[data-theme="light"] p.section-note.topic-mood-porch {
   color: color-mix(in srgb, var(--text-light, #1a2234) 58%, var(--gold, #9a7324) 14%);
 }
 
+html[data-theme="sepia"] p.section-note.topic-mood-porch {
+  color: color-mix(in srgb, var(--text, #33281d) 58%, var(--gold-soft, #a67c32) 14%);
+}
+
 /* On-device listen / TTS — reuse anywhere “Listen” appears */
 .tdb-listen-privacy-hint,
 p.reader-audio-hint.tdb-listen-privacy-hint {
@@ -1018,6 +1050,11 @@ p.reader-audio-hint.tdb-listen-privacy-hint {
 html[data-theme="light"] .tdb-listen-privacy-hint {
   color: var(--text-light, #1a2234);
   opacity: 0.85;
+}
+
+html[data-theme="sepia"] .tdb-listen-privacy-hint {
+  color: color-mix(in srgb, var(--text, #33281d) 88%, transparent);
+  opacity: 0.92;
 }
 
 @media (prefers-reduced-transparency: reduce) {
@@ -1076,6 +1113,8 @@ html[data-theme="light"] .app-shell {
   --tdb-focus-ring: #0066cc;
   --link-content: #0066cc;
   --link-content-hover: #004a99;
+  /* Was missing: night-mode default --text-muted is pale; light pages need dark secondary copy */
+  --text-muted: #5a6578;
   --muted: #5a6578;
   /* Secondary copy on cream — WCAG AA (~7:1 vs warm white) */
   --muted-readable: #4d525c;
@@ -1126,6 +1165,7 @@ html[data-theme="sepia"] .app-shell {
   --tdb-focus-ring: #7c4b12;
   --link-content: #7a3f10;
   --link-content-hover: #5e2f0c;
+  --text-muted: #6d5d49;
   --muted: #6d5d49;
   --muted-readable: #564938;
   --input-placeholder-on-dark: #766754;
@@ -9783,13 +9823,13 @@ html[data-theme="light"] .card::before {
   font-family: var(--font-display), Georgia, serif;
   font-size: 1.15rem;
   margin: 0 0 0.5rem;
-  color: var(--text-dark, #f0f2f7);
+  color: var(--text);
 }
 .kids-corner-card-summary {
   font-size: 0.95rem;
   line-height: 1.5;
   margin: 0 0 1rem;
-  color: var(--text-muted);
+  color: var(--muted);
 }
 .kids-corner-card-actions {
   display: flex;
@@ -10892,6 +10932,15 @@ html[data-theme="light"] details.verse-breakdown[open] > .verse-breakdown-conten
   background: #f8f5ef;
   color: #2c2c2c;
   border-color: rgba(120, 113, 108, 0.22);
+}
+html[data-theme="sepia"] details.verse-breakdown[open] > .verse-breakdown-content {
+  background: #f8f0e2;
+  color: #2a2218;
+  border-color: rgba(76, 55, 28, 0.22);
+}
+html[data-theme="light"] details.verse-breakdown[open] > .verse-breakdown-content strong,
+html[data-theme="sepia"] details.verse-breakdown[open] > .verse-breakdown-content strong {
+  color: color-mix(in srgb, var(--text, #1e293b) 70%, var(--muted, #5a6578) 30%);
 }
 @keyframes verseBreakdownIn {
   from { opacity: 0; }

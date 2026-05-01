@@ -268,6 +268,7 @@
       --card: #fffdf7;
       --text: #1c2a44;
       --muted: #4a5a6e;
+      --text-muted: #4a5a6e;
       --gold: #c9b28a;
       --gold-soft: #d4c0a0;
       --line: #e6dcc1;
@@ -3414,6 +3415,16 @@
       border: 1px solid rgba(191, 164, 111, 0.09);
     }
 
+    /*
+      Verse card is always parchment-toned while :root keeps dark-mode tokens for the sky.
+      Re-pin prose ink here so headings, ribbons, and notes are not body --text on cream.
+    */
+    #verseCard.verse-card {
+      --text: #172230;
+      --muted: #4d5f72;
+      --line: rgba(76, 90, 108, 0.22);
+    }
+
     .hero-verse {
       font-family: 'Cormorant Garamond', Georgia, serif;
       color: #1F2529;
@@ -3425,11 +3436,11 @@
     }
 
     @keyframes tdbHeroVerseIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from { opacity: 0.92; transform: translateY(2px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     #verseCard #heroVerse.hero-verse {
-      opacity: 0;
+      opacity: 1;
     }
     #verseCard #heroVerse.hero-verse.is-visible {
       animation: tdbHeroVerseIn 0.9s ease forwards;
@@ -3438,6 +3449,7 @@
       #verseCard #heroVerse.hero-verse.is-visible {
         animation: none;
         opacity: 1;
+        transform: none;
       }
     }
 
@@ -8908,6 +8920,7 @@
       <a class="tdb-home-quickbar-link" href="/">Home</a>
       <a class="tdb-home-quickbar-link" href="/plans.html">Battle Plans</a>
       <a class="tdb-home-quickbar-link" href="/explore.html">Explore</a>
+      <a class="tdb-home-quickbar-link" href="/kids/">Kids Corner</a>
       <a class="tdb-home-quickbar-link" href="/mystudy">My Study</a>
       <a class="tdb-home-quickbar-link" href="/family.html">Family</a>
       <a class="tdb-home-quickbar-link" href="/give">Give</a>
@@ -8933,7 +8946,7 @@
       <a href="/team-toolkit.html" aria-label="Open Team Toolkit"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">⚔️</span><span>Team</span></a>
       <a href="/mobius.html" aria-label="Open Möbius Loop"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">∞</span><span>Möbius</span></a>
       <a href="/verse-image.html" aria-label="Open verse image generator"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">🖼️</span><span>Cards</span></a>
-      <a href="/kids/index.html?v=hub20260321" aria-label="Open Kids Corner"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">🧒</span><span>Kids</span></a>
+      <a href="/kids/" aria-label="Open Kids Corner"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">🧒</span><span>Kids</span></a>
       <a href="/family.html" aria-label="Open Family hub"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">🏠</span><span>Family</span></a>
       <a href="/explore.html" aria-label="Explore every page"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">🗺️</span><span>Explore</span></a>
     </nav>

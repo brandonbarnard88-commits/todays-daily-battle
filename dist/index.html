@@ -1235,10 +1235,14 @@
     }
 
     /* Mobile: keep verse text + toolbar visible while scrolling the breakdown */
+    /* Sticky pills bar (.tdb-home-quickbar ≈ 44px row + vertical padding ≈ ~60px) sits at z≈62; verse shell stays below it with enough top offset so refs + prose are not clipped. */
     @media (max-width: 768px) {
+      #hero-verse-wrap {
+        scroll-margin-top: calc(44px + 1.2rem + env(safe-area-inset-top, 0px));
+      }
       .tdb-home-verse-sticky-shell {
         position: sticky;
-        top: 2.6rem;
+        top: calc(44px + 1.05rem + env(safe-area-inset-top, 0px));
         z-index: 26;
         margin: 0 -0.25rem;
         padding: 0.35rem 0.35rem 0.5rem;
@@ -11305,12 +11309,31 @@
             heroBreakdown.setAttribute('hidden', '');
           }
           panelsEl.replaceChildren();
-          [
-            { label: 'Simple layman terms', text: (heroSharedBreakdown && heroSharedBreakdown.plainExplanation) || v.plain, mod: '' },
-            { label: 'How it relates today', text: (heroSharedBreakdown && heroSharedBreakdown.modernApplication) || '', mod: '' },
-            { label: 'How it relates to you', text: (heroSharedBreakdown && heroSharedBreakdown.groupApplication) || v.today || '', mod: '' },
-            { label: 'One small step today', text: v.action || v.app, mod: 'hbp-panel--action' }
-          ].forEach(function (row) {
+          const heroLessonPayload = {
+            plainExplanation: (heroSharedBreakdown && heroSharedBreakdown.plainExplanation) || v.plain,
+            groupApplication: (heroSharedBreakdown && heroSharedBreakdown.groupApplication) || v.today,
+            modernApplication: (heroSharedBreakdown && heroSharedBreakdown.modernApplication) || '',
+            practicalStep: v.action || v.app,
+            about: (heroSharedBreakdown && heroSharedBreakdown.about) || v.speaker
+          };
+          let heroPanelRows = null;
+          if (typeof window.__TDB_computeHeroVotdBreakdownLessonFields === 'function') {
+            const L = window.__TDB_computeHeroVotdBreakdownLessonFields(v, heroLessonPayload);
+            heroPanelRows = [
+              { label: 'Simple layman terms', text: L.simple, mod: '' },
+              { label: 'How it relates today', text: L.relatesToday || '', mod: '' },
+              { label: 'How it relates to you', text: L.relYou || '', mod: '' },
+              { label: 'One small step today', text: L.oneStep || '', mod: 'hbp-panel--action' }
+            ];
+          } else {
+            heroPanelRows = [
+              { label: 'Simple layman terms', text: heroLessonPayload.plainExplanation, mod: '' },
+              { label: 'How it relates today', text: heroLessonPayload.modernApplication, mod: '' },
+              { label: 'How it relates to you', text: heroLessonPayload.groupApplication, mod: '' },
+              { label: 'One small step today', text: heroLessonPayload.practicalStep, mod: 'hbp-panel--action' }
+            ];
+          }
+          heroPanelRows.forEach(function (row) {
             if (!row.text) return;
             const panel = document.createElement('div');
             panel.className = 'hbp-panel' + (row.mod ? ' ' + row.mod : '');

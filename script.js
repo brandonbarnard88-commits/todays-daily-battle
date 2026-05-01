@@ -4090,9 +4090,9 @@ function quickTopicHeroButtonHtml(item, isPrimary) {
     cls +
     '" data-topic="' +
     escapeHtml(item.topic) +
-    '" aria-label="Search verses about ' +
-    escapeHtml(item.label) +
-    '. Alt-click or press and hold to open a matching Battle Plans lane.">' +
+    '" aria-label="' +
+    escapeHtml('Search verses about ' + item.label + '. Tap runs Ask the Teacher. Alt-click or long-press opens a matching Battle Plan.') +
+    '">' +
     escapeHtml(item.label) +
     '</button>'
   );
@@ -27901,6 +27901,16 @@ async function tdbInitImpl() {
           var topic = topicFromChip(btn);
           if (!topic) return;
           rememberEmotionSignal(topic);
+          try {
+            var fs = document.getElementById('feel-section');
+            if (fs && btn.closest && fs.contains(btn)) {
+              var prevAll = fs.querySelectorAll('button.quick-topic[aria-current="true"], button.topic-chip[aria-current="true"]');
+              for (var pi = 0; pi < prevAll.length; pi++) {
+                if (prevAll[pi] !== btn) prevAll[pi].removeAttribute('aria-current');
+              }
+              btn.setAttribute('aria-current', 'true');
+            }
+          } catch (_) {}
           var q = getQueryInput();
           if (q) q.value = topic;
           ensureBattleSearchVisible();

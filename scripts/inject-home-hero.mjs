@@ -199,12 +199,14 @@ function main() {
     }
   }
 
-  const title =
-    'Today\u2019s Daily Battle \u2014 God\u2019s University of Life \u00b7 Today\u2019s KJV: ' + refPlain;
+  const brandTitle =
+    'Today\u2019s Daily Battle \u2014 One KJV Verse, One Small Step, One Prayer';
+  const title = brandTitle;
   const desc =
     'Today\u2019s KJV: ' +
     refPlain +
-    '. Quiet KJV campus\u2014today\u2019s lesson, Ask the Teacher, battle plans, prayer. Offline-first; no ads or login unless you sync on purpose.';
+    '. Quiet KJV daily devotional. No ads, no login. Start with today\u2019s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.';
+  const ldWebPageName = brandTitle + ' \u00b7 Today\u2019s KJV: ' + refPlain;
 
   html = html.replace(/<title>[^<]*<\/title>/, '<title>' + escapeHtmlText(title) + '</title>');
   html = html.replace(
@@ -233,7 +235,7 @@ function main() {
       'dist/index.html missing id="tdb-home-daily-graph" stub — sync index.html comment block into dist',
     );
   }
-  const homeLdPretty = JSON.stringify(buildHomeLdGraph(title, desc, refPlain, textPlain), null, 2);
+  const homeLdPretty = JSON.stringify(buildHomeLdGraph(ldWebPageName, desc, refPlain, textPlain), null, 2);
   html = html.replace(
     HOME_DAILY_LD_RE,
     '<script nonce="tdb2025s" type="application/ld+json" id="tdb-home-daily-graph">\n' +

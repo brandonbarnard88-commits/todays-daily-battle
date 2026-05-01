@@ -1201,10 +1201,14 @@
     }
 
     /* Mobile: keep verse text + toolbar visible while scrolling the breakdown */
+    /* Sticky pills bar (.tdb-home-quickbar ≈ 44px row + vertical padding ≈ ~60px) sits at z≈62; verse shell stays below it with enough top offset so refs + prose are not clipped. */
     @media (max-width: 768px) {
+      #hero-verse-wrap {
+        scroll-margin-top: calc(44px + 1.2rem + env(safe-area-inset-top, 0px));
+      }
       .tdb-home-verse-sticky-shell {
         position: sticky;
-        top: 2.6rem;
+        top: calc(44px + 1.05rem + env(safe-area-inset-top, 0px));
         z-index: 26;
         margin: 0 -0.25rem;
         padding: 0.35rem 0.35rem 0.5rem;

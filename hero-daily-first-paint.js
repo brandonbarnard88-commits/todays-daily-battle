@@ -228,14 +228,19 @@
     return 'Lord, sink ' + cue + ' into my heart—not as noise, but as truth that changes how I walk. In Jesus\u2019 name, Amen.';
   }
 
+  /** True when text matches verse-breakdown.js buildGroupApplication() audience lane (not a personal "you" line). */
+  function isLikelyAudienceLaneBlurb(txt) {
+    var s = sanitizeText(txt);
+    if (!s) return false;
+    return /^For\s+(your\s+)?group:|^For\s+kids:|^For\s+teens:|^For\s+families:|^For\s+pastors?:|^For\s+leaders:|^For\s+church\s+leaders?:|^For\s+missionaries:|^For\s+street\s+preachers?:|^For\s+Bible\s+study\s+groups?:/i.test(
+      s
+    );
+  }
+
   /**
-   * Fills #heroSimpleBreakdown + deep fields. Shared payload can include plain / group / modern / about /
-   * practicalStep (explicit one-step separate from modern “culture” line).
-   * Exposed for index.html renderVerseContent when verse-breakdown hydrates.
+   * Same lesson-field logic as Today’s verse deep breakdown (curator “you” first; skip audience “For …” boilerplate).
    */
-  function applyHeroVotdFromInputs(v, shared) {
-    var simpleOut = document.getElementById('heroSimpleBreakdown');
-    if (!simpleOut) return;
+  function computeHeroVotdBreakdownLessonFields(v, shared) {
     var sh = shared || {};
     var plainE = sanitizeText(sh.plainExplanation != null ? sh.plainExplanation : sh.plain);
     var groupA = sanitizeText(sh.groupApplication != null ? sh.groupApplication : sh.group);
@@ -262,7 +267,17 @@
     if (!relatesToday) {
       relatesToday = defaultRelatesTodayLine(yr);
     }
-    var relYou = groupA || sanitizeText(v.today) || sanitizeText(lines[1] || '');
+    var curatorYou = sanitizeText(v.today) || sanitizeText(lines[1] || '');
+    var relYou = curatorYou;
+    if (!relYou && modernA) {
+      relYou = modernA;
+    }
+    if (!relYou && groupA && !isLikelyAudienceLaneBlurb(groupA)) {
+      relYou = groupA;
+    }
+    if (relYou && relatesToday && relYou === relatesToday) {
+      relatesToday = defaultRelatesTodayLine(yr);
+    }
     if (relYou && relYou === simple) {
       relYou = 'Hold this word as God speaking kindly to you—today, personally—not as a slogan you have to manufacture.';
     } else if (!relYou) {
@@ -278,6 +293,35 @@
     }
     var prayer = sanitizeText(sh.heroPrayer || sh.simplePrayer);
     if (!prayer) prayer = buildHeroVotdPrayer(v.ref);
+    return {
+      simple: simple,
+      who: who,
+      audience: audience,
+      relatesToday: relatesToday,
+      relYou: relYou,
+      oneStep: oneStep,
+      prayer: prayer,
+      year: yr
+    };
+  }
+
+  /**
+   * Fills #heroSimpleBreakdown + deep fields. Shared payload can include plain / group / modern / about /
+   * practicalStep (explicit one-step separate from modern “culture” line).
+   * Exposed for index.html renderVerseContent when verse-breakdown hydrates.
+   */
+  function applyHeroVotdFromInputs(v, shared) {
+    var simpleOut = document.getElementById('heroSimpleBreakdown');
+    if (!simpleOut) return;
+    var lesson = computeHeroVotdBreakdownLessonFields(v, shared);
+    var simple = lesson.simple;
+    var who = lesson.who;
+    var audience = lesson.audience;
+    var relatesToday = lesson.relatesToday;
+    var relYou = lesson.relYou;
+    var oneStep = lesson.oneStep;
+    var prayer = lesson.prayer;
+    var yr = lesson.year;
     simpleOut.textContent = simple;
     setVotdRowVisible(document.getElementById('heroVbdRowWho'), document.getElementById('heroDeepWho'), who);
     setVotdRowVisible(document.getElementById('heroVbdRowAud'), document.getElementById('heroDeepAudience'), audience);
@@ -316,6 +360,7 @@
     }
   }
   window.__TDB_applyHeroVotdFromInputs = applyHeroVotdFromInputs;
+  window.__TDB_computeHeroVotdBreakdownLessonFields = computeHeroVotdBreakdownLessonFields;
 
   function applyHeroFirstPaint() {
     var heroVerse = document.getElementById('heroVerse');

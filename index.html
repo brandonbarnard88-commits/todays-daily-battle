@@ -11275,12 +11275,31 @@
             heroBreakdown.setAttribute('hidden', '');
           }
           panelsEl.replaceChildren();
-          [
-            { label: 'Simple layman terms', text: (heroSharedBreakdown && heroSharedBreakdown.plainExplanation) || v.plain, mod: '' },
-            { label: 'How it relates today', text: (heroSharedBreakdown && heroSharedBreakdown.modernApplication) || '', mod: '' },
-            { label: 'How it relates to you', text: (heroSharedBreakdown && heroSharedBreakdown.groupApplication) || v.today || '', mod: '' },
-            { label: 'One small step today', text: v.action || v.app, mod: 'hbp-panel--action' }
-          ].forEach(function (row) {
+          const heroLessonPayload = {
+            plainExplanation: (heroSharedBreakdown && heroSharedBreakdown.plainExplanation) || v.plain,
+            groupApplication: (heroSharedBreakdown && heroSharedBreakdown.groupApplication) || v.today,
+            modernApplication: (heroSharedBreakdown && heroSharedBreakdown.modernApplication) || '',
+            practicalStep: v.action || v.app,
+            about: (heroSharedBreakdown && heroSharedBreakdown.about) || v.speaker
+          };
+          let heroPanelRows = null;
+          if (typeof window.__TDB_computeHeroVotdBreakdownLessonFields === 'function') {
+            const L = window.__TDB_computeHeroVotdBreakdownLessonFields(v, heroLessonPayload);
+            heroPanelRows = [
+              { label: 'Simple layman terms', text: L.simple, mod: '' },
+              { label: 'How it relates today', text: L.relatesToday || '', mod: '' },
+              { label: 'How it relates to you', text: L.relYou || '', mod: '' },
+              { label: 'One small step today', text: L.oneStep || '', mod: 'hbp-panel--action' }
+            ];
+          } else {
+            heroPanelRows = [
+              { label: 'Simple layman terms', text: heroLessonPayload.plainExplanation, mod: '' },
+              { label: 'How it relates today', text: heroLessonPayload.modernApplication, mod: '' },
+              { label: 'How it relates to you', text: heroLessonPayload.groupApplication, mod: '' },
+              { label: 'One small step today', text: heroLessonPayload.practicalStep, mod: 'hbp-panel--action' }
+            ];
+          }
+          heroPanelRows.forEach(function (row) {
             if (!row.text) return;
             const panel = document.createElement('div');
             panel.className = 'hbp-panel' + (row.mod ? ' ' + row.mod : '');

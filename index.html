@@ -2157,7 +2157,7 @@
       border-color: color-mix(in srgb, var(--gold) 32%, var(--line));
     }
     .tdb-home-chain-of-hope {
-      margin: clamp(1.05rem, 3.2vw, 1.85rem) auto clamp(1.2rem, 3.6vw, 2rem);
+      margin: clamp(1.45rem, 4.6vw, 2.55rem) auto clamp(1.35rem, 3.8vw, 2.05rem);
       padding: 1.1rem 1.1rem 1.15rem;
       border-radius: 18px;
       border: 1px solid rgba(139, 166, 217, 0.2);
@@ -2215,6 +2215,20 @@
       background: rgba(255, 252, 246, 0.8);
       border-color: color-mix(in srgb, var(--gold) 20%, var(--line));
     }
+
+    /* After VOTM / “After today” nav — extra air + faint rule before doorway cards */
+    section#tdb-home-doorways.tdb-home-doorways {
+      scroll-margin-top: calc(var(--tdb-header-offset, 5rem) + 0.35rem);
+      margin-top: clamp(1.8rem, 5.5vw, 3.1rem);
+      padding-top: clamp(1.1rem, 3.2vw, 1.75rem);
+      border-top: 1px solid color-mix(in srgb, var(--line) 74%, var(--gold) 26%);
+      box-shadow: inset 0 1px 0 color-mix(in srgb, var(--gold-soft) 12%, transparent);
+    }
+    :root[data-theme="light"] section#tdb-home-doorways.tdb-home-doorways {
+      border-top-color: color-mix(in srgb, var(--line) 82%, #9e7625 18%);
+      box-shadow: inset 0 1px 0 color-mix(in srgb, #9e7625 12%, transparent);
+    }
+
     .tdb-home-more-rooms {
       margin-top: 1rem;
     }
@@ -8211,23 +8225,23 @@
         padding: 0.62rem 0.38rem;
       }
     }
-    /* ~iPhone SE / narrow Android: chips were still a touch tight vs 480px rules */
+    /* ~iPhone SE / narrow Android: finish chip/mood polish (clamp keeps tiny widths from crowding) */
     @media (max-width: 359px) {
       .feel-quick-topics-root {
-        gap: 1.85rem;
+        gap: 1.9rem;
       }
       .quick-topic-group {
-        padding: 0.9rem 0.55rem 1rem;
+        padding: 0.92rem 0.52rem 1.02rem;
       }
       .quick-topic-group-chips {
-        gap: 0.87rem;
+        gap: clamp(0.65rem, 2.5vw, 1rem);
       }
       .quick-topic-group-chips .quick-topic {
         min-height: 52px;
-        padding: 0.66rem 0.34rem;
+        padding: 0.68rem 0.34rem;
       }
       .tdb-home-fast-feel-grid {
-        gap: 0.74rem;
+        gap: clamp(0.62rem, 2.8vw, 0.92rem);
       }
       .tdb-home-fast-feel .tdb-home-fast-feel-btn {
         min-height: 50px;

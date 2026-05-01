@@ -8211,6 +8211,28 @@
         padding: 0.62rem 0.38rem;
       }
     }
+    /* ~iPhone SE / narrow Android: chips were still a touch tight vs 480px rules */
+    @media (max-width: 359px) {
+      .feel-quick-topics-root {
+        gap: 1.85rem;
+      }
+      .quick-topic-group {
+        padding: 0.9rem 0.55rem 1rem;
+      }
+      .quick-topic-group-chips {
+        gap: 0.87rem;
+      }
+      .quick-topic-group-chips .quick-topic {
+        min-height: 52px;
+        padding: 0.66rem 0.34rem;
+      }
+      .tdb-home-fast-feel-grid {
+        gap: 0.74rem;
+      }
+      .tdb-home-fast-feel .tdb-home-fast-feel-btn {
+        min-height: 50px;
+      }
+    }
     /* ── Share verse row ────────────────────────── */
     .share-verse-row {
       display: flex;

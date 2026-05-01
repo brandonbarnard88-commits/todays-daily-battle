@@ -3543,11 +3543,16 @@ function setLocalPrayerTotalCount(total, options) {
   var el = document.getElementById('prayer-counter');
   if (el) el.textContent = n.toLocaleString();
 
-  // Update gentle homepage counter if present
-  var homeEl = document.getElementById('prayer-counter-home') || document.getElementById('prayer-counter-footer');
-  if (homeEl) {
+  // Update gentle homepage counter if present (may be multiple placeholders)
+  var homeCounters = document.querySelectorAll('#prayer-counter-home, #prayer-counter-footer');
+  if (homeCounters && homeCounters.length) {
     var displayCount = Math.max(n, 42); // always encouraging minimum
-    homeEl.textContent = displayCount.toLocaleString() + '+ people prayed anonymously worldwide today';
+    var msg = displayCount.toLocaleString() + '+ people prayed anonymously worldwide today';
+    homeCounters.forEach(function (homeEl) {
+      try {
+        homeEl.textContent = msg;
+      } catch (eC) {}
+    });
   }
   return n;
 }
@@ -32237,6 +32242,39 @@ function wireRandomBattleVerseHero() {
       p.textContent = "We're not perfect. He is. Hand it over.";
       document.body.appendChild(p);
     } catch (eHum) {}
+  })();
+
+  (function openHomeMorePorchLightIfHashed() {
+    function applyMorePorchLightFromHash() {
+      try {
+        if (!document.getElementById('home-primary-flow')) return;
+        var hash = '';
+        try {
+          hash = String(location.hash || '').replace(/^#/, '');
+        } catch (eH) {}
+        if (hash !== 'whats-new-spring-2026') return;
+        var det = document.getElementById('tdb-home-porch-light');
+        if (!det || String(det.tagName || '').toLowerCase() !== 'details') return;
+        det.open = true;
+        try {
+          requestAnimationFrame(function () {
+            var target = document.getElementById('whats-new-spring-2026');
+            if (target && typeof target.scrollIntoView === 'function') {
+              var reduceMotion = false;
+              try {
+                reduceMotion =
+                  window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+              } catch (eMq) {}
+              target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+            }
+          });
+        } catch (eScroll) {}
+      } catch (ePL) {}
+    }
+    applyMorePorchLightFromHash();
+    try {
+      window.addEventListener('hashchange', applyMorePorchLightFromHash);
+    } catch (eL) {}
   })();
 
   function wireCriticalControlFallbacks() {

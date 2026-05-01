@@ -5604,6 +5604,19 @@ body.bible-tool-page #search-hero.search-hero.glass .verse-breakdown-content str
     grid-template-columns: repeat(2, 1fr) !important;
   }
 }
+@media (max-width: 359px) {
+  .quick-chips-grid {
+    gap: clamp(0.625rem, 2.55vw, 0.74rem);
+  }
+  .quick-actions-hero,
+  #quick-actions-hero {
+    gap: clamp(0.625rem, 2.45vw, 0.74rem);
+  }
+  .quick-actions-hero .btn,
+  #quick-actions-hero .btn {
+    min-height: 46px;
+  }
+}
 
 /* Hero results: verse cards with shadow, hover, fade-in */
 .search-hero .results .verse-card {

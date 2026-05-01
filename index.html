@@ -8225,26 +8225,39 @@
         padding: 0.62rem 0.38rem;
       }
     }
-    /* ~iPhone SE / narrow Android: finish chip/mood polish (clamp keeps tiny widths from crowding) */
+    /* ~iPhone SE / narrow Android: chip grid + mood strip (~+2px air vs wider phones; keeps 44px+ tap baseline) */
     @media (max-width: 359px) {
       .feel-quick-topics-root {
-        gap: 1.9rem;
+        gap: clamp(2.02rem, 5.5vw, 2.25rem);
+      }
+      #feel-section .feel-quick-topics-root {
+        padding-top: 1.16rem;
+      }
+      .tdb-feel-quick-strip {
+        gap: clamp(0.58rem, 2.2vw, 0.76rem);
+        row-gap: clamp(0.64rem, 2.38vw, 0.84rem);
+        margin-bottom: 0.88rem;
+      }
+      .tdb-feel-quick-strip .btn {
+        min-height: 46px;
+        padding-block: 0.44rem;
       }
       .quick-topic-group {
-        padding: 0.92rem 0.52rem 1.02rem;
+        padding: 0.94rem 0.5rem 1.05rem;
       }
       .quick-topic-group-chips {
-        gap: clamp(0.65rem, 2.5vw, 1rem);
+        gap: clamp(0.8125rem, 2.7vw, 1.08rem);
       }
       .quick-topic-group-chips .quick-topic {
-        min-height: 52px;
-        padding: 0.68rem 0.34rem;
+        min-height: 53px;
+        padding: 0.72rem 0.38rem;
       }
       .tdb-home-fast-feel-grid {
-        gap: clamp(0.62rem, 2.8vw, 0.92rem);
+        gap: clamp(0.69rem, 2.95vw, 0.96rem);
       }
       .tdb-home-fast-feel .tdb-home-fast-feel-btn {
         min-height: 50px;
+        padding-block: 0.48rem;
       }
     }
     /* ── Share verse row ────────────────────────── */

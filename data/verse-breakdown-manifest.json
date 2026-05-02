@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-02T11:58:33.873Z",
+  "generatedAt": "2026-05-02T12:26:32.123Z",
   "surfacedRefCount": 2951,
   "overrideCount": 2951,
   "sourceCounts": {
@@ -37,14 +37,6 @@
     },
     "api/src/pilot-data/canon-daily-verse.json": {
       "refs": 10,
-      "pairs": 0
-    },
-    "ar/qalaq.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "ar/rajaa.html": {
-      "refs": 1,
       "pairs": 0
     },
     "as-the-year-ends-one-page-print.html": {
@@ -89,14 +81,6 @@
     },
     "bible-tool.html": {
       "refs": 141,
-      "pairs": 0
-    },
-    "bn/asha.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "bn/chinta.html": {
-      "refs": 1,
       "pairs": 0
     },
     "build-action-bible-packs.js": {
@@ -263,19 +247,7 @@
       "refs": 13,
       "pairs": 18
     },
-    "hi/asha.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "hi/chinta.html": {
-      "refs": 1,
-      "pairs": 0
-    },
     "hi/dar.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "id/harapan.html": {
       "refs": 1,
       "pairs": 0
     },
@@ -284,15 +256,15 @@
       "pairs": 0
     },
     "id/kecemasan.html": {
-      "refs": 3,
+      "refs": 2,
       "pairs": 0
     },
     "id/ketakutan.html": {
-      "refs": 3,
+      "refs": 2,
       "pairs": 0
     },
     "index.html": {
-      "refs": 105,
+      "refs": 104,
       "pairs": 123
     },
     "journal/anxiety-before-tomorrow.html": {
@@ -787,15 +759,7 @@
       "refs": 7,
       "pairs": 0
     },
-    "ru/nadezhda.html": {
-      "refs": 1,
-      "pairs": 0
-    },
     "ru/strakh.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "ru/trevoga.html": {
       "refs": 1,
       "pairs": 0
     },
@@ -847,22 +811,6 @@
       "refs": 3,
       "pairs": 0
     },
-    "sv/hopp.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "sv/oro.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "sw/tumaini.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "sw/wasiwasi.html": {
-      "refs": 1,
-      "pairs": 0
-    },
     "tdb-january-quiet.js": {
       "refs": 31,
       "pairs": 0
@@ -884,11 +832,7 @@
       "pairs": 0
     },
     "tl/kabalisahan.html": {
-      "refs": 3,
-      "pairs": 0
-    },
-    "tl/pagasa.html": {
-      "refs": 1,
+      "refs": 2,
       "pairs": 0
     },
     "topic-anxiety.html": {
@@ -972,7 +916,7 @@
       "pairs": 0
     },
     "university.html": {
-      "refs": 50,
+      "refs": 49,
       "pairs": 0
     },
     "utils.js": {
@@ -1061,26 +1005,6 @@
     },
     "yearly-rhythm.html": {
       "refs": 5,
-      "pairs": 0
-    },
-    "zh/gudu.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "zh/jiaolv.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "zh/neijiu.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "zh/taiduo.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "zh/xiwang.html": {
-      "refs": 1,
       "pairs": 0
     }
   },

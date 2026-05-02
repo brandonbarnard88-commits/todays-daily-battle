@@ -1,6 +1,6 @@
 /**
  * Canonical header tagline: "For Family, For Country, For GOD" replaces the old
- * "Learning of Him … Matthew 11:29" heartbeat line across English shells.
+ * "Learning of Him, one day at a time." heartbeat line across English shells.
  * Run from repo root: node scripts/sync-header-site-tagline.mjs
  *
  * Leaves dist/ alone (built output). Skips localization pilots under ar|bn|es|etc.
@@ -16,19 +16,19 @@ const EXCLUDE_DIRS = new Set(['node_modules', 'dist', '.git']);
 const SKIP_LOCALIZED = /^(ar|bn|es|fr|hi|id|pt|ru|sv|sw|tl|zh)\//;
 
 const LEARNING_PARAGRAPH =
-  /<p class="tdb-header-heartbeat" lang="en">Learning of Him, one day at a time\. <span class="tdb-header-tag-cite" title="Take my yoke upon you, and learn of me\.">Matthew 11:29<\/span><\/p>/g;
+  /<p class="tdb-header-heartbeat" lang="en">Learning of Him, one day at a time\.(?: <span class="tdb-header-tag-cite" title="Take my yoke upon you, and learn of me\.">Matthew 11:29<\/span>)?<\/p>/g;
 const TAGLINE_PARAGRAPH =
   '<p class="tdb-header-heartbeat site-tagline" lang="en">For Family, For Country, For GOD</p>';
 
 const LEARNING_SPAN =
-  /<span class="brand-subtitle tdb-brand-subtitle-learning" lang="en">Learning of Him, one day at a time\. <span class="tdb-header-tag-cite" title="Take my yoke upon you, and learn of me\.">Matthew 11:29<\/span><\/span>/g;
+  /<span class="brand-subtitle tdb-brand-subtitle-learning" lang="en">Learning of Him, one day at a time\.(?: <span class="tdb-header-tag-cite" title="Take my yoke upon you, and learn of me\.">Matthew 11:29<\/span>)?<\/span>/g;
 const TAGLINE_SPAN =
   '<span class="brand-subtitle tdb-brand-subtitle-learning site-tagline" lang="en">For Family, For Country, For GOD</span>';
 
 const UOG_UNIV_LINE =
   /<p class="tdb-brand-subtitle-learning uog-header-learning-line" lang="en">The University of God &mdash; learning of Him, one day at a time\.<\/p>/g;
 const UOG_REPLACE =
-  '<p class="tdb-brand-subtitle-learning uog-header-learning-line" lang="en">Learning of Him, one day at a time. <span class="tdb-header-tag-cite" title="Take my yoke upon you, and learn of me.">Matthew 11:29</span></p>';
+  '<p class="tdb-brand-subtitle-learning uog-header-learning-line" lang="en">Learning of Him, one day at a time.</p>';
 
 function walkHtml(dir, baseRel, out) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });

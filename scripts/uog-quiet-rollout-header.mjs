@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Re-runnable: inject Matt 11:29 heartbeat under brand title; rename Today's Verse → Today's Lesson
+ * Re-runnable: inject Learning-of-Him heartbeat under brand title; rename Today's Verse → Today's Lesson
  * in verse.html nav links. Skips heartbeat if already present or tdb-brand-subtitle-learning (e.g. /verse).
  */
 import fs from 'fs';
@@ -11,7 +11,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 
 const HEARTBEAT =
-  '<p class="tdb-header-heartbeat" lang="en">Learning of Him, one day at a time. <span class="tdb-header-tag-cite" title="Take my yoke upon you, and learn of me.">Matthew 11:29</span></p>';
+  '<p class="tdb-header-heartbeat" lang="en">Learning of Him, one day at a time.</p>';
 
 const EXCLUDE_DIRS = new Set(['node_modules', 'dist', '.git']);
 

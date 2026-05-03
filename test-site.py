@@ -96,7 +96,7 @@ PAGES = [
     ("/kids-coloring-pack.html", "Kids Coloring Pack", ["Kids Coloring Pack", "Color &amp; Tell", "Print this pack", "Jesus and the Little Children", "Jesus welcomes little children.", "data-pack-sheet=\"jesus-children\"", "Jesus Calms the Storm", "The Good Shepherd", "Jesus is the Good Shepherd.", "data-pack-sheet=\"good-shepherd\"", "God gave David courage."]),
     ("/shop.html", "Shop", ["Shop"]),
     ("/wins-report.html", "Wins Report", ["Wins", "Today's Daily Battle"]),
-    ("/where-support-goes.html", "Where support goes", ["Where support goes", "Built solo by Brandon", "Privacy-first", "KJV only"]),
+    ("/where-support-goes.html", "Where support goes", ["Where support goes", "Human-curated", "Privacy-first", "KJV only"]),
     ("/journal/index.html", "Journal hub", ["KJV journal for real battles", "anxiety-before-tomorrow", "forgiveness-when-you-replay-it", "loneliness-at-night", "peace-when-your-mind-runs"]),
     ("/journal/anxiety-before-tomorrow.html", "Journal anxiety", ["anxiety before tomorrow", "Philippians 4:6-7 (KJV)", "One next step"]),
     ("/admin.html", "Admin", ["Admin", "id=\"auth-section\""]),

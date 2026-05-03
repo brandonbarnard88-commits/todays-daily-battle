@@ -96,7 +96,8 @@ const checks = [
   {
     path: '/mystudy',
     needles: [
-      'A calmer place for saved verses, notes, prayer, highlights, and steady progress. Everything stays on this device unless you sign in to sync across devices.',
+      "You're already welcome here. Pull up a chair",
+      'Stays on this device unless you sign in to sync.',
     ],
     forbidden: [
       'Message Board',

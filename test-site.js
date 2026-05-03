@@ -67,7 +67,7 @@ const pages = [
   { path: '/contact.html', name: 'Contact', mustInclude: ['Contact'] },
   { path: '/message.html', name: 'Message / Prayer Wall', mustInclude: ['Prayer moved', '/prayer-wall.html?tab=with-others', 'message-prayer-quiet-feed-note', 'redirect does not fire'] },
   { path: '/wins-report.html', name: 'Wins Report', mustInclude: ['Wins', 'Report'] },
-  { path: '/where-support-goes.html', name: 'Where support goes', mustInclude: ['Where support goes', 'Built solo by Brandon', 'Privacy-first', 'KJV only'] },
+  { path: '/where-support-goes.html', name: 'Where support goes', mustInclude: ['Where support goes', 'Human-curated', 'Privacy-first', 'KJV only'] },
   { path: '/journal/index.html', name: 'Journal hub', mustInclude: ['KJV journal for real battles', 'anxiety-before-tomorrow', 'forgiveness-when-you-replay-it', 'loneliness-at-night', 'peace-when-your-mind-runs'] },
   { path: '/journal/anxiety-before-tomorrow.html', name: 'Journal anxiety', mustInclude: ['anxiety before tomorrow', 'Philippians 4:6-7 (KJV)', 'One next step'] },
   { path: '/journal/forgiveness-when-you-replay-it.html', name: 'Journal forgiveness', mustInclude: ['forgiveness when you replay it', 'Ephesians 4:31-32 (KJV)', 'One next step'] },

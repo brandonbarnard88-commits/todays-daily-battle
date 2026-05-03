@@ -13,7 +13,7 @@ export function TdbPageFooter({ className }: FooterProps) {
         className,
       )}
     >
-      Built solo by Brandon · A quiet place · We battle. He wins. We&apos;re not perfect; He is.
+      A quiet place · We battle. He wins. We&apos;re not perfect; He is.
       <br />
       Everything stays on this device until you choose to export or sync.
     </p>

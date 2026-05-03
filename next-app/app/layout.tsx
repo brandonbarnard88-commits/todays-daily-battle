@@ -24,7 +24,7 @@ const crimson = Crimson_Text({
 export const metadata: Metadata = {
   title: "Today's Daily Battle — A quiet place",
   description:
-    "KJV only. No ads. No pressure. Just a gentle anchor for real battles — anxiety, parenting, grief, fear, and raising little ones. Built solo by Brandon.",
+    "KJV only. No ads. No pressure. Just a gentle anchor for real battles — anxiety, parenting, grief, fear, and raising little ones.",
   manifest: "/manifest.webmanifest",
   openGraph: {
     title: "A quiet place for real daily battles",

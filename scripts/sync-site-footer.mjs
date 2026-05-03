@@ -20,6 +20,7 @@ const EXCLUDE = new Set([
   'node_modules',
   'dist',
   '.git',
+  '.worktrees',
 ]);
 
 const EXCLUDE_PREFIXES = ['lighthouse-'];
@@ -75,7 +76,7 @@ function walkHtml(dir, baseRel, out) {
     const rel = path.join(baseRel, e.name).replace(/\\/g, '/');
     const full = path.join(dir, e.name);
     if (e.isDirectory()) {
-      if (e.name === 'node_modules' || e.name === 'dist' || e.name === '.git') continue;
+      if (e.name === 'node_modules' || e.name === 'dist' || e.name === '.git' || e.name === '.worktrees') continue;
       walkHtml(full, rel, out);
     } else if (e.name.endsWith('.html')) {
       if (!shouldSkip(rel)) out.push({ full, rel });
@@ -100,7 +101,7 @@ function walkHtmlForFinale(dir, baseRel, out) {
     const rel = path.join(baseRel, e.name).replace(/\\/g, '/');
     const full = path.join(dir, e.name);
     if (e.isDirectory()) {
-      if (e.name === 'node_modules' || e.name === 'dist' || e.name === '.git') continue;
+      if (e.name === 'node_modules' || e.name === 'dist' || e.name === '.git' || e.name === '.worktrees') continue;
       walkHtmlForFinale(full, rel, out);
     } else if (e.name.endsWith('.html')) {
       if (!shouldSkipFinaleWalk(rel)) out.push({ full, rel });

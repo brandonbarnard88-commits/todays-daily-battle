@@ -44,6 +44,7 @@ function walkJsFiles(dir, out) {
         name === 'node_modules' ||
         name === '.git' ||
         name === '.cursor' ||
+        name === '.worktrees' ||
         name === 'dist' ||
         name === 'playwright-report' ||
         name === 'test-results' ||

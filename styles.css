@@ -22285,3 +22285,40 @@ html[data-theme="sepia"] .tdb-verse-page #daily-verse-card.verse-card {
   background: #f8f1e0 !important;
   border-color: #d4b88a !important;
 }
+
+/* Theme alias hardening: support legacy/body class and label aliases (night/daylight/parchment). */
+html[data-theme="night"] #heroVerse,
+html[data-theme="night"] #heroVerse *,
+body.dark-mode #heroVerse,
+body.dark-mode #heroVerse *,
+html[data-theme="night"] .hero-verse-card.verse-card p,
+body.dark-mode .hero-verse-card.verse-card p,
+html[data-theme="night"] .tdb-verse-page #daily-verse-card .daily-verse-text,
+body.dark-mode .tdb-verse-page #daily-verse-card .daily-verse-text,
+html[data-theme="night"] .tdb-verse-page #daily-verse-card .daily-verse-body,
+body.dark-mode .tdb-verse-page #daily-verse-card .daily-verse-body,
+html[data-theme="night"] .tdb-verse-page #daily-verse-card .daily-verse-body *,
+body.dark-mode .tdb-verse-page #daily-verse-card .daily-verse-body * {
+  color: #e8f0fb !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+html[data-theme="night"] .hero-verse-card.verse-card,
+body.dark-mode .hero-verse-card.verse-card,
+html[data-theme="night"] .tdb-verse-page #daily-verse-card.verse-card,
+body.dark-mode .tdb-verse-page #daily-verse-card.verse-card {
+  background: rgba(9, 15, 28, 0.92) !important;
+  border-color: rgba(148, 163, 184, 0.24) !important;
+}
+
+html[data-theme="daylight"] .hero-verse-card.verse-card,
+html[data-theme="parchment"] .hero-verse-card.verse-card,
+body.light .hero-verse-card.verse-card,
+body.sepia-mode .hero-verse-card.verse-card,
+html[data-theme="daylight"] .tdb-verse-page #daily-verse-card.verse-card,
+html[data-theme="parchment"] .tdb-verse-page #daily-verse-card.verse-card,
+body.light .tdb-verse-page #daily-verse-card.verse-card,
+body.sepia-mode .tdb-verse-page #daily-verse-card.verse-card {
+  background: #f8f1e0 !important;
+  border-color: #d4b88a !important;
+}

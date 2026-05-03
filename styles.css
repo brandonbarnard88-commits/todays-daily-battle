@@ -22418,3 +22418,18 @@ body.sepia-mode .tdb-verse-page #daily-verse-card.verse-card {
   background: #f8f1e0 !important;
   border-color: #d4b88a !important;
 }
+
+/* HARD STOP GUARD: in Night, force readable verse + breakdown text even if legacy body classes linger. */
+html[data-theme="dark"] #verseCard,
+html[data-theme="night"] #verseCard,
+body.dark-mode #verseCard {
+  background: rgba(9, 15, 28, 0.94) !important;
+  border-color: rgba(148, 163, 184, 0.24) !important;
+}
+
+html[data-theme="dark"] #verseCard :is(p, span, strong, em, h2, h3, h4, li, blockquote),
+html[data-theme="night"] #verseCard :is(p, span, strong, em, h2, h3, h4, li, blockquote),
+body.dark-mode #verseCard :is(p, span, strong, em, h2, h3, h4, li, blockquote) {
+  color: #eaf2ff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+}

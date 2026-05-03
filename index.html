@@ -3514,12 +3514,24 @@
       .hymn-lyrics-modal-inner { max-height: 85vh; overflow-y: auto; }
     }
 
-    /* ── Hero Verse — deeper Patek serenity & focal peace ── */
+    /* ── Hero Verse — readable by default in Night; warm parchment only in light themes ── */
     #hero-verse-wrap,
     .verse-card {
-      background: #FAF7F2;
+      background: color-mix(in srgb, var(--card) 96%, #fff 4%);
       padding: 2.75rem 1.75rem 2.5rem;
       border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
+      border: 1px solid color-mix(in srgb, var(--line) 88%, rgba(227, 188, 103, 0.12));
+    }
+    :root[data-theme="light"] #hero-verse-wrap,
+    :root[data-theme="light"] .verse-card,
+    :root[data-theme="daylight"] #hero-verse-wrap,
+    :root[data-theme="daylight"] .verse-card,
+    :root[data-theme="sepia"] #hero-verse-wrap,
+    :root[data-theme="sepia"] .verse-card,
+    :root[data-theme="parchment"] #hero-verse-wrap,
+    :root[data-theme="parchment"] .verse-card {
+      background: #faf7f2;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.025);
       border: 1px solid rgba(191, 164, 111, 0.09);
     }
@@ -3529,6 +3541,14 @@
       Re-pin prose ink here so headings, ribbons, and notes are not body --text on cream.
     */
     #verseCard.verse-card {
+      --text: #eaf2ff;
+      --muted: #bdc9db;
+      --line: rgba(148, 163, 184, 0.26);
+    }
+    :root[data-theme="light"] #verseCard.verse-card,
+    :root[data-theme="daylight"] #verseCard.verse-card,
+    :root[data-theme="sepia"] #verseCard.verse-card,
+    :root[data-theme="parchment"] #verseCard.verse-card {
       --text: #172230;
       --muted: #4d5f72;
       --line: rgba(76, 90, 108, 0.22);
@@ -3536,7 +3556,7 @@
 
     .hero-verse {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      color: #1F2529;
+      color: var(--text);
       font-size: clamp(1.85rem, 5vw, 2.35rem);
       line-height: 1.82;
       font-weight: 400;
@@ -3799,6 +3819,16 @@
       font-size: 0.92rem;
       line-height: 1.56;
       color: var(--text);
+    }
+    /* Hard readability guard for Night/Night alias states */
+    :root[data-theme="dark"] #verseCard :is(#heroVerse, #heroVerse *, .hero-daily-headline, .hero-daily-subline, .verse-breakdown > p, .next-step, .prayer-block, .prayer-block p, #heroVotdOneStep, #heroVotdPrayer, .kids-card-sub),
+    :root[data-theme="night"] #verseCard :is(#heroVerse, #heroVerse *, .hero-daily-headline, .hero-daily-subline, .verse-breakdown > p, .next-step, .prayer-block, .prayer-block p, #heroVotdOneStep, #heroVotdPrayer, .kids-card-sub) {
+      color: #eaf2ff !important;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+    }
+    :root[data-theme="dark"] #verseCard :is(.verse-ref, .hero-daily-ref-above, .verse-breakdown > h4),
+    :root[data-theme="night"] #verseCard :is(.verse-ref, .hero-daily-ref-above, .verse-breakdown > h4) {
+      color: #f2dc98 !important;
     }
     .hero-calendar-breakdown-wrap .hero-breakdown-panels {
       margin: 0.45rem 0 0.65rem;

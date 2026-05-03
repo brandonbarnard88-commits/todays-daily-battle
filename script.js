@@ -3039,6 +3039,7 @@ function safeSessionGet(key) {
 var TDB_COOKIE_CONSENT_KEY = 'tdb_cookie_consent_v2';
 var TDB_COOKIE_CONSENT_V1_KEY = 'tdb_cookie_consent_v1';
 var TDB_PRIVACY_POPUP_ACCEPTED_KEY = 'tdb_privacy_accepted_v2';
+var TDB_WINDOW_CONSENT_TOKEN = '__tdbConsentState=';
 var TDB_COOKIE_CONSENT_SNOOZE_MS = 24 * 60 * 60 * 1000; // legacy only; no longer used after v2 fix
 var TDB_COOKIE_CONSENT_MAX_AGE_SECONDS = 365 * 24 * 60 * 60;
 
@@ -3095,6 +3096,45 @@ function safeWriteCookie(name, value, maxAgeSeconds, opts) {
   } catch (_) {}
 }
 
+function readTdbWindowConsentState() {
+  if (typeof window === 'undefined') return null;
+  try {
+    var raw = String(window.name || '');
+    var idx = raw.indexOf(TDB_WINDOW_CONSENT_TOKEN);
+    if (idx === -1) return null;
+    var valueStart = idx + TDB_WINDOW_CONSENT_TOKEN.length;
+    var valueEnd = raw.indexOf(';', valueStart);
+    var encoded = valueEnd === -1 ? raw.slice(valueStart) : raw.slice(valueStart, valueEnd);
+    if (!encoded) return null;
+    var parsed = JSON.parse(decodeURIComponent(encoded));
+    if (!parsed || typeof parsed !== 'object') return null;
+    var status = parsed.status === 'accepted' ? 'accepted' : (parsed.status === 'later' ? 'later' : '');
+    return {
+      status: status,
+      privacyAccepted: parsed.privacyAccepted === true
+    };
+  } catch (_) {
+    return null;
+  }
+}
+
+function writeTdbWindowConsentState(nextState) {
+  if (typeof window === 'undefined') return;
+  try {
+    var existing = readTdbWindowConsentState() || {};
+    var state = {
+      status: nextState && (nextState.status === 'accepted' || nextState.status === 'later') ? nextState.status : (existing.status || ''),
+      privacyAccepted: nextState && nextState.privacyAccepted === true ? true : existing.privacyAccepted === true
+    };
+    var token = TDB_WINDOW_CONSENT_TOKEN + encodeURIComponent(JSON.stringify(state));
+    var raw = String(window.name || '');
+    var escapedToken = TDB_WINDOW_CONSENT_TOKEN.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    var nextName = raw.replace(new RegExp('(?:^|;)' + escapedToken + '[^;]*'), '');
+    nextName = nextName.replace(/^;+|;+$/g, '');
+    window.name = nextName ? nextName + ';' + token : token;
+  } catch (_) {}
+}
+
 function parseTdbCookieConsentState(raw) {
   if (!raw) return null;
   try {
@@ -3127,6 +3167,20 @@ function readTdbCookieConsentState() {
     if (!safeGetItem(TDB_COOKIE_CONSENT_KEY)) safeSetItem(TDB_COOKIE_CONSENT_KEY, raw);
     if (!safeSessionGet(TDB_COOKIE_CONSENT_KEY)) safeSessionSet(TDB_COOKIE_CONSENT_KEY, raw);
     return parsed;
+  }
+  var windowState = readTdbWindowConsentState();
+  if (windowState && windowState.status) {
+    var fallbackPayload = JSON.stringify({
+      status: windowState.status,
+      updatedAt: Date.now()
+    });
+    safeSetItem(TDB_COOKIE_CONSENT_KEY, fallbackPayload);
+    safeSessionSet(TDB_COOKIE_CONSENT_KEY, fallbackPayload);
+    safeWriteCookie(TDB_COOKIE_CONSENT_KEY, fallbackPayload, TDB_COOKIE_CONSENT_MAX_AGE_SECONDS, { siteWideDomain: true });
+    return {
+      status: windowState.status,
+      updatedAt: Date.now()
+    };
   }
   // analytics-loader.js still honors v1 in localStorage; keep banner in sync and migrate quietly
   raw = safeGetItem(TDB_COOKIE_CONSENT_V1_KEY) || safeReadCookie(TDB_COOKIE_CONSENT_V1_KEY);
@@ -3166,6 +3220,7 @@ function dispatchTdbAnalyticsConsentChange(status) {
 }
 
 function writeTdbPrivacyPopupAccepted() {
+  writeTdbWindowConsentState({ privacyAccepted: true });
   safeSetItem(TDB_PRIVACY_POPUP_ACCEPTED_KEY, 'yes');
   safeSessionSet(TDB_PRIVACY_POPUP_ACCEPTED_KEY, 'yes');
   safeWriteCookie(TDB_PRIVACY_POPUP_ACCEPTED_KEY, 'yes', TDB_COOKIE_CONSENT_MAX_AGE_SECONDS, { siteWideDomain: true });
@@ -3173,6 +3228,7 @@ function writeTdbPrivacyPopupAccepted() {
 
 function writeTdbCookieConsentState(status) {
   var normalized = status === 'accepted' ? 'accepted' : 'later';
+  writeTdbWindowConsentState({ status: normalized, privacyAccepted: true });
   var payload = JSON.stringify({
     status: normalized,
     updatedAt: Date.now()
@@ -3186,6 +3242,10 @@ function writeTdbCookieConsentState(status) {
 }
 
 function shouldShowTdbCookieNotice() {
+  var windowState = readTdbWindowConsentState();
+  if (windowState && (windowState.privacyAccepted === true || windowState.status === 'accepted' || windowState.status === 'later')) {
+    return false;
+  }
   if (safeGetItem(TDB_PRIVACY_POPUP_ACCEPTED_KEY) === 'yes' ||
       safeSessionGet(TDB_PRIVACY_POPUP_ACCEPTED_KEY) === 'yes' ||
       safeReadCookie(TDB_PRIVACY_POPUP_ACCEPTED_KEY) === 'yes') {

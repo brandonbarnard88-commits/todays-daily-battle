@@ -3548,12 +3548,24 @@
       .hymn-lyrics-modal-inner { max-height: 85vh; overflow-y: auto; }
     }
 
-    /* ── Hero Verse — deeper Patek serenity & focal peace ── */
+    /* ── Hero Verse — readable by default in Night; warm parchment only in light themes ── */
     #hero-verse-wrap,
     .verse-card {
-      background: #FAF7F2;
+      background: color-mix(in srgb, var(--card) 96%, #fff 4%);
       padding: 2.75rem 1.75rem 2.5rem;
       border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
+      border: 1px solid color-mix(in srgb, var(--line) 88%, rgba(227, 188, 103, 0.12));
+    }
+    :root[data-theme="light"] #hero-verse-wrap,
+    :root[data-theme="light"] .verse-card,
+    :root[data-theme="daylight"] #hero-verse-wrap,
+    :root[data-theme="daylight"] .verse-card,
+    :root[data-theme="sepia"] #hero-verse-wrap,
+    :root[data-theme="sepia"] .verse-card,
+    :root[data-theme="parchment"] #hero-verse-wrap,
+    :root[data-theme="parchment"] .verse-card {
+      background: #faf7f2;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.025);
       border: 1px solid rgba(191, 164, 111, 0.09);
     }
@@ -3563,6 +3575,14 @@
       Re-pin prose ink here so headings, ribbons, and notes are not body --text on cream.
     */
     #verseCard.verse-card {
+      --text: #eaf2ff;
+      --muted: #bdc9db;
+      --line: rgba(148, 163, 184, 0.26);
+    }
+    :root[data-theme="light"] #verseCard.verse-card,
+    :root[data-theme="daylight"] #verseCard.verse-card,
+    :root[data-theme="sepia"] #verseCard.verse-card,
+    :root[data-theme="parchment"] #verseCard.verse-card {
       --text: #172230;
       --muted: #4d5f72;
       --line: rgba(76, 90, 108, 0.22);
@@ -3570,7 +3590,7 @@
 
     .hero-verse {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      color: #1F2529;
+      color: var(--text);
       font-size: clamp(1.85rem, 5vw, 2.35rem);
       line-height: 1.82;
       font-weight: 400;
@@ -3833,6 +3853,16 @@
       font-size: 0.92rem;
       line-height: 1.56;
       color: var(--text);
+    }
+    /* Hard readability guard for Night/Night alias states */
+    :root[data-theme="dark"] #verseCard :is(#heroVerse, #heroVerse *, .hero-daily-headline, .hero-daily-subline, .verse-breakdown > p, .next-step, .prayer-block, .prayer-block p, #heroVotdOneStep, #heroVotdPrayer, .kids-card-sub),
+    :root[data-theme="night"] #verseCard :is(#heroVerse, #heroVerse *, .hero-daily-headline, .hero-daily-subline, .verse-breakdown > p, .next-step, .prayer-block, .prayer-block p, #heroVotdOneStep, #heroVotdPrayer, .kids-card-sub) {
+      color: #eaf2ff !important;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+    }
+    :root[data-theme="dark"] #verseCard :is(.verse-ref, .hero-daily-ref-above, .verse-breakdown > h4),
+    :root[data-theme="night"] #verseCard :is(.verse-ref, .hero-daily-ref-above, .verse-breakdown > h4) {
+      color: #f2dc98 !important;
     }
     .hero-calendar-breakdown-wrap .hero-breakdown-panels {
       margin: 0.45rem 0 0.65rem;
@@ -9077,27 +9107,6 @@
       </nav>
     </header>
 
-    <dialog id="tdbFirstVisitDialog" class="tdb-first-visit-dialog" aria-labelledby="tdbFirstVisitH1" aria-modal="true">
-      <div class="tdb-first-visit-panel">
-        <h2 id="tdbFirstVisitH1" class="tdb-first-visit-title">First time?</h2>
-        <p class="tdb-first-visit-lead">Same quiet campus&mdash;verse, plans, and prayer on your timing.</p>
-        <div class="tdb-first-visit-actions">
-          <a href="#feel-section" class="btn btn-primary" id="tdbFirstVisitFeel">Name how I feel</a>
-          <button type="button" class="btn btn-secondary" id="tdbFirstVisitTour">Open site tour</button>
-          <button type="button" class="btn btn-secondary" id="tdbFirstVisitNotNow">Not now</button>
-        </div>
-      </div>
-    </dialog>
-    <style>
-      .tdb-first-visit-dialog { max-width: min(100vw - 2rem, 24rem); width: 100%; padding: 0; border: none; border-radius: 16px; background: var(--card); color: var(--text); box-shadow: 0 20px 48px rgba(0,0,0,0.5); }
-      :root[data-theme="light"] .tdb-first-visit-dialog { box-shadow: 0 16px 40px rgba(15,20,35,0.12); }
-      .tdb-first-visit-dialog::backdrop { background: rgba(4,8,16,0.65); backdrop-filter: blur(3px); }
-      .tdb-first-visit-panel { padding: 1.1rem 1.2rem 1.2rem; }
-      .tdb-first-visit-title { margin: 0 0 0.6rem; font-size: 1.15rem; color: var(--gold-soft, #e3bc67); }
-      .tdb-first-visit-lead { margin: 0 0 1rem; font-size: 0.95rem; line-height: 1.55; color: var(--muted); }
-      .tdb-first-visit-actions { display: flex; flex-direction: column; gap: 0.5rem; align-items: stretch; }
-      .tdb-first-visit-actions .btn { min-height: 48px; justify-content: center; text-align: center; }
-    </style>
 
     <nav class="tdb-home-quickbar" aria-label="Persistent site navigation">
       <a class="tdb-home-quickbar-link" href="/">Home</a>
@@ -10546,9 +10555,9 @@
   </details>
 
   <p class="footer-humility">We battle. He wins.</p>
-  <!-- Canonical short signature (edit here; run npm run sync:footer): Built solo by Brandon · porch copy lives in .site-footer-story below -->
+  <!-- Canonical short signature (edit here; run npm run sync:footer): footer story lives in .site-footer-story below -->
   <p class="site-footer-story">
-    Built from pain, not polish&mdash;solo-built. Steady KJV for honest days; no ads, no selling your data; prayers stay on this device unless you sync on purpose.
+    Steady KJV for honest days&mdash;no ads, no selling your data; prayers stay on this device unless you sync on purpose.
   </p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" aria-label="Friday verse and prayer email signup">
@@ -15211,7 +15220,6 @@
   <!-- Phase 6: home secondary stack (injected by script.js after idle): memory-verses.js home-votm.js?v=20260402homevotm4 tdb-home-mobius-week.js?v=20260330home sky-ip-geo.js?v=20260327ipgeo word-study.js verse-narration.js verse-study.js family-verse-bridge.js gentle-suggest.js verse-breakdown-overrides.js?v=20260417-hydration verse-breakdown.js?v=20260417-hydration -->
   <script nonce="tdb2025s" type="module" fetchpriority="high" src="config.js"></script>
   <script nonce="tdb2025s" defer src="start-my-day.js?v=20260423-phase5-perf"></script>
-  <script nonce="tdb2025s" defer src="first-visit-welcome.js?v=20260423-phase5-perf"></script>
   <script nonce="tdb2025s" type="module" src="script.js?v=20260423-phase5-perf" data-cfasync="false" fetchpriority="high"></script>
   <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->
   <script nonce="tdb2025s" src="utils.js?v=20260331-patriotic-home" defer fetchpriority="low"></script>

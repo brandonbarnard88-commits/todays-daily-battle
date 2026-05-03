@@ -272,7 +272,7 @@
   else place();
 })();
 
-/** Theme: read localStorage + prefers-color-scheme, set html[data-theme] early; body sync when DOM ready. */
+/** Theme: default to Night unless user explicitly chose another appearance. */
 (function tdbThemeEarlyAndApi() {
   if (typeof document === 'undefined') return;
 
@@ -280,7 +280,6 @@
     try {
       var saved = localStorage.getItem('tdb-theme');
       if (saved === 'light' || saved === 'dark' || saved === 'sepia') return saved;
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) return 'light';
     } catch (e) {}
     return 'dark';
   }

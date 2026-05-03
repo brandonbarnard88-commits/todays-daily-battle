@@ -22227,7 +22227,7 @@ details[open] > .tdb-gentle-suggest-summary::after {
   }
 }
 
-/* FINAL CASCADE WINNER: force primary verse readability (Matthew 21:22 and all similar) across themes.
+/* FINAL CASCADE WINNER: primary verse readability across all themes.
    Kept at true end-of-file so no later rules can override it. */
 #heroVerse,
 #heroVerse *,
@@ -22237,9 +22237,45 @@ details[open] > .tdb-gentle-suggest-summary::after {
 .tdb-verse-page #daily-verse-card .daily-verse-text,
 .tdb-verse-page #daily-verse-card .daily-verse-body,
 .tdb-verse-page #daily-verse-card .daily-verse-body * {
+  font-weight: 600 !important;
+}
+
+/* Night theme (default): light text on dark card */
+html[data-theme="dark"] #heroVerse,
+html[data-theme="dark"] #heroVerse *,
+html[data-theme="dark"] .hero-verse-card.verse-card #heroVerse,
+html[data-theme="dark"] .hero-verse-card.verse-card p,
+html[data-theme="dark"] .tdb-verse-page #daily-verse-card .daily-verse-text,
+html[data-theme="dark"] .tdb-verse-page #daily-verse-card .daily-verse-body,
+html[data-theme="dark"] .tdb-verse-page #daily-verse-card .daily-verse-body *,
+html:not([data-theme]) #heroVerse,
+html:not([data-theme]) #heroVerse *,
+html:not([data-theme]) .hero-verse-card.verse-card #heroVerse,
+html:not([data-theme]) .hero-verse-card.verse-card p,
+html:not([data-theme]) .tdb-verse-page #daily-verse-card .daily-verse-text,
+html:not([data-theme]) .tdb-verse-page #daily-verse-card .daily-verse-body,
+html:not([data-theme]) .tdb-verse-page #daily-verse-card .daily-verse-body * {
+  color: #e5edf7 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Daylight + Parchment: dark text on warm paper */
+html[data-theme="light"] #heroVerse,
+html[data-theme="light"] #heroVerse *,
+html[data-theme="light"] .hero-verse-card.verse-card #heroVerse,
+html[data-theme="light"] .hero-verse-card.verse-card p,
+html[data-theme="light"] .tdb-verse-page #daily-verse-card .daily-verse-text,
+html[data-theme="light"] .tdb-verse-page #daily-verse-card .daily-verse-body,
+html[data-theme="light"] .tdb-verse-page #daily-verse-card .daily-verse-body *,
+html[data-theme="sepia"] #heroVerse,
+html[data-theme="sepia"] #heroVerse *,
+html[data-theme="sepia"] .hero-verse-card.verse-card #heroVerse,
+html[data-theme="sepia"] .hero-verse-card.verse-card p,
+html[data-theme="sepia"] .tdb-verse-page #daily-verse-card .daily-verse-text,
+html[data-theme="sepia"] .tdb-verse-page #daily-verse-card .daily-verse-body,
+html[data-theme="sepia"] .tdb-verse-page #daily-verse-card .daily-verse-body * {
   color: #111827 !important;
   text-shadow: none !important;
-  font-weight: 600 !important;
 }
 
 html[data-theme="light"] .hero-verse-card.verse-card,

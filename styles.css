@@ -16396,6 +16396,42 @@ body.has-promo-banner .header-search-sticky {
   width: min(100%, 14rem);
 }
 
+/* FINAL HIGH-SPECIFICITY OVERRIDE for primary verse text (Matthew 21:22 quote and all similar). 
+   Placed at end of file to win all cascades. Guarantees dark readable text on parchment/light backgrounds. 
+   Narration highlight remains visual enhancement only. */
+html[data-theme="sepia"] .hero-verse-card.verse-card,
+html[data-theme="light"] .hero-verse-card.verse-card,
+html[data-theme="sepia"] #heroVerse,
+html[data-theme="light"] #heroVerse,
+.hero-verse-card.verse-card p,
+#heroVerse,
+#heroVerse p,
+#heroVerse span,
+#heroVerse strong,
+#heroVerse em,
+.verse-card p,
+.daily-verse-text,
+.hero-verse-wrap .verse-text,
+.hero-verse-wrap .verse-body,
+.verse-body,
+blockquote.verse-text {
+  color: #111827 !important;
+  background-color: #f8f1e0 !important;
+  text-shadow: none !important;
+  font-weight: 600 !important;
+  line-height: 1.55 !important;
+}
+
+/* Force parchment-friendly card in light/sepia so dark text has contrast */
+html[data-theme="sepia"] .hero-verse-card.verse-card,
+html[data-theme="light"] .hero-verse-card.verse-card,
+html[data-theme="sepia"] .hero-verse-wrap .hero-verse-card,
+html[data-theme="light"] .hero-verse-wrap .hero-verse-card {
+  background: #f8f1e0 !important;
+  border-color: #d4b88a !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
 .tdb-cartoon-overlay {
   position: fixed;
   inset: 0;

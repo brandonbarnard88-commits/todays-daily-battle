@@ -3291,6 +3291,11 @@ function setTdbCookieNoticeVisibility(banner, visible) {
   document.body.classList.toggle('tdb-cookie-notice-visible', !!visible);
 }
 
+function syncTdbCookieNoticeVisibility(banner) {
+  if (!banner) return;
+  setTdbCookieNoticeVisibility(banner, shouldShowTdbCookieNotice());
+}
+
 function ensureTdbCookieNotice() {
   if (typeof document === 'undefined' || !document.body) return;
   ensureTdbCookieNoticeStyles();
@@ -3357,7 +3362,16 @@ function ensureTdbCookieNotice() {
     banner.appendChild(status);
     document.body.appendChild(banner);
   }
-  setTdbCookieNoticeVisibility(banner, shouldShowTdbCookieNotice());
+  syncTdbCookieNoticeVisibility(banner);
+  // Some browsers can expose newly-written storage a tick later on the next page load.
+  // Re-sync shortly after startup so the banner doesn't linger from a stale first paint.
+  if (!banner.__tdbConsentResyncQueued) {
+    banner.__tdbConsentResyncQueued = true;
+    if (typeof window !== 'undefined' && typeof window.requestAnimationFrame === 'function') {
+      window.requestAnimationFrame(function () { syncTdbCookieNoticeVisibility(banner); });
+    }
+    setTimeout(function () { syncTdbCookieNoticeVisibility(banner); }, 120);
+  }
 }
 
 if (typeof window !== 'undefined' && !window.__tdbPrivacyConsentSyncWired) {

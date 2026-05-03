@@ -22237,6 +22237,8 @@ details[open] > .tdb-gentle-suggest-summary::after {
 .tdb-verse-page #daily-verse-card .daily-verse-text,
 .tdb-verse-page #daily-verse-card .daily-verse-body,
 .tdb-verse-page #daily-verse-card .daily-verse-body * {
+  color: #e8f0fb !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
   font-weight: 600 !important;
 }
 
@@ -22273,7 +22275,21 @@ html[data-theme="sepia"] .hero-verse-card.verse-card #heroVerse,
 html[data-theme="sepia"] .hero-verse-card.verse-card p,
 html[data-theme="sepia"] .tdb-verse-page #daily-verse-card .daily-verse-text,
 html[data-theme="sepia"] .tdb-verse-page #daily-verse-card .daily-verse-body,
-html[data-theme="sepia"] .tdb-verse-page #daily-verse-card .daily-verse-body * {
+html[data-theme="sepia"] .tdb-verse-page #daily-verse-card .daily-verse-body *,
+body.light #heroVerse,
+body.light #heroVerse *,
+body.light .hero-verse-card.verse-card #heroVerse,
+body.light .hero-verse-card.verse-card p,
+body.light .tdb-verse-page #daily-verse-card .daily-verse-text,
+body.light .tdb-verse-page #daily-verse-card .daily-verse-body,
+body.light .tdb-verse-page #daily-verse-card .daily-verse-body *,
+body.sepia-mode #heroVerse,
+body.sepia-mode #heroVerse *,
+body.sepia-mode .hero-verse-card.verse-card #heroVerse,
+body.sepia-mode .hero-verse-card.verse-card p,
+body.sepia-mode .tdb-verse-page #daily-verse-card .daily-verse-text,
+body.sepia-mode .tdb-verse-page #daily-verse-card .daily-verse-body,
+body.sepia-mode .tdb-verse-page #daily-verse-card .daily-verse-body * {
   color: #111827 !important;
   text-shadow: none !important;
 }

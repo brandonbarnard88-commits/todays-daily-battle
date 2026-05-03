@@ -1350,6 +1350,11 @@ details.bottom-nav-es-more summary {
   color: #2f2f2f;
   border-color: rgba(15, 23, 42, 0.12);
 }
+:root[data-theme="sepia"] .tdb-appearance-dialog {
+  background: #f8f0e2;
+  color: #33281d;
+  border-color: rgba(76, 55, 28, 0.22);
+}
 .tdb-appearance-dialog-form {
   padding: 1.25rem 1.35rem 1.25rem;
   margin: 0;
@@ -1406,6 +1411,11 @@ details.bottom-nav-es-more summary {
   background: #ffffff !important;
   color: #1a2234 !important;
   border-color: rgba(15, 23, 42, 0.14) !important;
+}
+:root[data-theme="sepia"] .tdb-appearance-dialog .tdb-appearance-opt {
+  background: #fff9eb !important;
+  color: #33281d !important;
+  border-color: rgba(133, 95, 42, 0.28) !important;
 }
 
 /* Full-width with centered content, no left-bias */

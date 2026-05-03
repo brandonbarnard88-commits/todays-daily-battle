@@ -111,14 +111,16 @@ function tdbIsHomePage() {
     if (/\bfear|afraid|panic|scared|terror\b/.test(low)) return 'fear';
     if (/(closet|secret place|shut thy door|a great while before day|a solitary|draw nigh to god|ears are open|double minded|in secret;|in secret,|in secret\.|in secret\)|seeth in secret|seen in secret)\b/.test(low)) return 'secretprayer';
     if (/\bregret\w*|\bif only\b|should have|second guess|second-guess|hindsight|what if i|replaying yesterday|godly sorrow worketh|repentance to salvation|no condemnation to them which are in christ|forgetting those things which are behind|pressed toward the mark\b/.test(low)) return 'regret';
+    if (/\bmy spirit was overwhelmed\b|multitude of my thoughts within me\b|troubled on every side.? yet not distressed\b|\bwait thou only upon god\b|\bcasting all your care\b/.test(low)) return 'overwhelm';
     if (/\bgrief|grieve|grieving|mourning|mourn(ed|ing)?|bereave|bereft|\bloss\b|funeral|widow|orphan|weep|weeping|broken\s*heart|contrite|\bsorrow\b/.test(low)) return 'grief';
     if (/\bwait(ing)?\b|tarry|not yet|\bpatience\b|\bpatient\b|hope for that we see not|appointed time|delayed?\b/.test(low)) return 'waiting';
+    if (/\bparent\w*\s+fear\b|fear for (my |our )?(child|children|kids)\b|\blittle ones should perish\b|\bgreat shall be the peace of thy children\b|\bsuffer the little children to come\b/.test(low)) return 'parentfear';
     if (/\bparent(ing)?\b|\bchildren\b|\bchild\b|\bmother\b|\bmothers?\b|ye fathers,|fathers, provoke|train up|nurture|admonition|heritage of|little ones|toddler|babies\b/.test(low)) return 'parenting';
-      if (/\bexhaust|exhausted|weariness|\bweary\b|\btired\b|weary in well|faint|fainted|heavily laden|no might|satiated the weary|sorrowful soul|giveth his beloved sleep|bread of sorrows|strength is made perfect in weakness|renew their strength|mount up with wings\b/.test(low)) return 'exhaustion';
-      if (/\bcompar(e|ing|ison|ed)?\b|comparing themselves|envy|envying|vainglory|esteem other better|commending themselves|measuring themselves|contentment|godliness with content|where envying and strife\b/.test(low)) return 'comparison';
-      if (/\b(wrath|angry|anger)\b|slow to anger|slow to wrath|be ye angry|sun go down upon your wrath|grievous words stir|furious man|make no friendship with an angry|deferreth his anger|ruleth his spirit|wrath of man worketh|put away.*wrath|angry man\b/.test(low)) return 'anger';
-      if (/\breconcil|reconciled|reconciliation|gained thy brother|between thee and him alone|live peaceably with all|quarrel against|forbearing one another|first be reconciled|ministry of reconciliation|word of reconciliation\b/.test(low)) return 'brokenrelations';
-      if (/\bforgive|forgiveness|forgave|forgiven|trespass|trespasses\b/.test(low)) return 'forgiveness';
+    if (/\bexhaust|exhausted|weariness|\bweary\b|\btired\b|weary in well|faint|fainted|heavily laden|no might|satiated the weary|sorrowful soul|giveth his beloved sleep|bread of sorrows|strength is made perfect in weakness|renew their strength|mount up with wings\b/.test(low)) return 'exhaustion';
+    if (/\bcompar(e|ing|ison|ed)?\b|comparing themselves|envy|envying|vainglory|esteem other better|commending themselves|measuring themselves|contentment|godliness with content|where envying and strife\b/.test(low)) return 'comparison';
+    if (/\b(wrath|angry|anger)\b|slow to anger|slow to wrath|be ye angry|sun go down upon your wrath|grievous words stir|furious man|make no friendship with an angry|deferreth his anger|ruleth his spirit|wrath of man worketh|put away.*wrath|angry man\b/.test(low)) return 'anger';
+    if (/\breconcil|reconciled|reconciliation|gained thy brother|between thee and him alone|live peaceably with all|quarrel against|forbearing one another|first be reconciled|ministry of reconciliation|word of reconciliation\b/.test(low)) return 'brokenrelations';
+    if (/\bforgive|forgiveness|forgave|forgiven|trespass|trespasses\b/.test(low)) return 'forgiveness';
     if (/\bbitter(ness|ly)?\b|gall of bitterness|root of bitterness|bitter envying|gall and\b/.test(low)) return 'bitterness';
     if (/\blonely|loneliness|\bforsaken\b|forsake me|no companion|desolate and afflicted|solitary in families|comfortless\b/.test(low)) return 'loneliness';
     if (/\bthank|thanks|thanksgiving|grateful|praise\w* unto|magnify|joyful noise|bless the lord, o my soul|enter.*thanksgiving\b/.test(low)) return 'gratitude';
@@ -128,6 +130,7 @@ function tdbIsHomePage() {
   }
   var UOG_PLANS = {
     anxiety: [
+      { href: '/plans.html?plan=universityoverwhelm', label: 'University of Overwhelm' },
       { href: '/plans.html?plan=universityanxiety', label: 'Anxiety & Fear' },
       { href: '/plans.html?plan=worrytrust', label: 'Worry to Trust' },
       { href: '/plans.html?plan=peace', label: '7-Day Peace' }
@@ -154,16 +157,20 @@ function tdbIsHomePage() {
     ],
     parenting: [
       { href: '/plans.html?plan=universityparenting', label: 'Parenting Young Kids' },
+      { href: '/plans.html?plan=universityparentfear', label: 'Fear for My Children' },
       { href: '/plans.html?plan=parenting', label: 'Parenting' },
       { href: '/plans.html?plan=familyworship', label: 'Family Worship' }
     ],
     exhaustion: [
       { href: '/plans.html?plan=universityexhaustion', label: 'Exhaustion' },
+      { href: '/plans.html?plan=universityoverwhelm', label: 'University of Overwhelm' },
+      { href: '/plans.html?plan=universitycontentment', label: 'Contentment in Small Seasons' },
       { href: '/plans.html?plan=wearyhands', label: 'Weary Hands' },
       { href: '/plans.html?plan=peace', label: '7-Day Peace' }
     ],
     gratitude: [
       { href: '/plans.html?plan=universitygratitude', label: 'Gratitude' },
+      { href: '/plans.html?plan=universitycontentment', label: 'Contentment in Small Seasons' },
       { href: '/plans.html?plan=gratitude', label: '7-Day Gratitude' },
       { href: '/plans.html?plan=psalmspraise', label: 'Psalms of Praise' }
     ],
@@ -183,6 +190,7 @@ function tdbIsHomePage() {
       { href: '/plans.html?plan=peacemakers', label: 'Peacemakers' }
     ],
     comparison: [
+      { href: '/plans.html?plan=universitycontentment', label: 'Contentment in Small Seasons' },
       { href: '/plans.html?plan=universitycomparison', label: 'University of Comparison' },
       { href: '/plans.html?plan=universitygratitude', label: 'University of Gratitude' },
       { href: '/plans.html?plan=peace', label: '7-Day Peace' }
@@ -194,6 +202,7 @@ function tdbIsHomePage() {
     ],
     regret: [
       { href: '/plans.html?plan=universityregret', label: 'University of Regret' },
+      { href: '/plans.html?plan=universitycontentment', label: 'Contentment in Small Seasons' },
       { href: '/plans.html?plan=universityforgiveness', label: 'University of Forgiveness' },
       { href: '/plans.html?plan=universitygrief', label: 'University of Grief' }
     ],
@@ -206,6 +215,16 @@ function tdbIsHomePage() {
       { href: '/plans.html?plan=universitybitterness', label: 'University of Bitterness' },
       { href: '/plans.html?plan=universityforgiveness', label: 'University of Forgiveness' },
       { href: '/plans.html?plan=lettinggo', label: 'Letting Go' }
+    ],
+    overwhelm: [
+      { href: '/plans.html?plan=universityoverwhelm', label: 'University of Overwhelm' },
+      { href: '/plans.html?plan=overwhelmedburnout', label: 'Overwhelmed / Burnout' },
+      { href: '/plans.html?plan=universityexhaustion', label: 'Exhaustion' }
+    ],
+    parentfear: [
+      { href: '/plans.html?plan=universityparentfear', label: 'Fear for My Children' },
+      { href: '/plans.html?plan=universityparenting', label: 'Parenting Young Kids' },
+      { href: '/plans.html?plan=littlehearts', label: 'Little Hearts, Big Fear' }
     ],
     hope: [
       { href: '/plans.html?plan=hopeuncertain', label: 'When Hope Feels Thin' },
@@ -864,6 +883,35 @@ function ensureVisibleThemeShortcut() {
   });
 }
 
+function ensureVerseAppearanceNudge() {
+  if (typeof document === 'undefined') return;
+  var hosts = [
+    document.getElementById('verseCard'),
+    document.getElementById('daily-verse-card'),
+    document.querySelector('.hero-verse-wrap')
+  ].filter(Boolean);
+  hosts.forEach(function (host) {
+    if (!host || host.querySelector('.tdb-verse-appearance-help')) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'tdb-verse-appearance-help';
+    var label = document.createElement('span');
+    label.className = 'tdb-verse-appearance-help-label';
+    label.textContent = "Can't read? ";
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tdb-verse-appearance-help-btn';
+    btn.setAttribute('data-tdb-theme-toggle', 'verse_help');
+    btn.setAttribute('aria-label', 'Switch appearance for better readability');
+    var txt = document.createElement('span');
+    txt.setAttribute('data-tdb-theme-toggle-text', '');
+    txt.textContent = 'Appearance: Night';
+    btn.appendChild(txt);
+    wrap.appendChild(label);
+    wrap.appendChild(btn);
+    host.appendChild(wrap);
+  });
+}
+
 function syncThemeToggleButtons() {
   if (typeof document === 'undefined') return;
   var theme = getTdbCurrentTheme();
@@ -881,6 +929,7 @@ function syncThemeToggleButtons() {
       btn.textContent = 'Appearance: ' + themeCopy.current;
     }
   });
+  ensureVerseAppearanceNudge();
 }
 
 function toggleTdbTheme(source) {
@@ -895,7 +944,7 @@ function toggleTdbTheme(source) {
     } catch (_) {}
   }
   ensureVisibleThemeShortcut();
-  ensureVisibleThemeShortcut();
+  ensureVerseAppearanceNudge();
   syncThemeToggleButtons();
 
   // Verse Image canvas redraw for perfect contrast on new T13–T15 templates and Story preset
@@ -3524,11 +3573,16 @@ function setLocalPrayerTotalCount(total, options) {
   var el = document.getElementById('prayer-counter');
   if (el) el.textContent = n.toLocaleString();
 
-  // Update gentle homepage counter if present
-  var homeEl = document.getElementById('prayer-counter-home') || document.getElementById('prayer-counter-footer');
-  if (homeEl) {
+  // Update gentle homepage counter if present (may be multiple placeholders)
+  var homeCounters = document.querySelectorAll('#prayer-counter-home, #prayer-counter-footer');
+  if (homeCounters && homeCounters.length) {
     var displayCount = Math.max(n, 42); // always encouraging minimum
-    homeEl.textContent = displayCount.toLocaleString() + '+ people prayed anonymously worldwide today';
+    var msg = displayCount.toLocaleString() + '+ people prayed anonymously worldwide today';
+    homeCounters.forEach(function (homeEl) {
+      try {
+        homeEl.textContent = msg;
+      } catch (eC) {}
+    });
   }
   return n;
 }
@@ -4071,9 +4125,9 @@ function quickTopicHeroButtonHtml(item, isPrimary) {
     cls +
     '" data-topic="' +
     escapeHtml(item.topic) +
-    '" aria-label="Search verses about ' +
-    escapeHtml(item.label) +
-    '. Alt-click or press and hold to open a matching Battle Plans lane.">' +
+    '" aria-label="' +
+    escapeHtml('Search verses about ' + item.label + '. Tap runs Ask the Teacher. Alt-click or long-press opens a matching Battle Plan.') +
+    '">' +
     escapeHtml(item.label) +
     '</button>'
   );
@@ -7751,6 +7805,7 @@ var VERSE_PLAIN_MEANINGS = {
   'Romans 8:28': 'God works through everything—even the hard things—for the good of those who love Him.',
   'Romans 15:13': 'God fills you with hope and peace as you trust Him.',
   'Matthew 11:28': 'Jesus invites anyone who is tired and weighed down to come to Him and find rest.',
+  'Matthew 21:22': 'When you ask God for something in prayer and you truly believe He will answer, He will.',
   'Isaiah 41:10': 'God tells us not to fear—He is with us, strengthens us, and holds us up.',
   'Joshua 1:9': 'Be strong and courageous; God is with you wherever you go.',
   '1 Peter 5:7': 'Give God your worries—He cares about you.',
@@ -27882,6 +27937,16 @@ async function tdbInitImpl() {
           var topic = topicFromChip(btn);
           if (!topic) return;
           rememberEmotionSignal(topic);
+          try {
+            var fs = document.getElementById('feel-section');
+            if (fs && btn.closest && fs.contains(btn)) {
+              var prevAll = fs.querySelectorAll('button.quick-topic[aria-current="true"], button.topic-chip[aria-current="true"]');
+              for (var pi = 0; pi < prevAll.length; pi++) {
+                if (prevAll[pi] !== btn) prevAll[pi].removeAttribute('aria-current');
+              }
+              btn.setAttribute('aria-current', 'true');
+            }
+          } catch (_) {}
           var q = getQueryInput();
           if (q) q.value = topic;
           ensureBattleSearchVisible();
@@ -32210,6 +32275,39 @@ function wireRandomBattleVerseHero() {
     } catch (eHum) {}
   })();
 
+  (function openHomeMorePorchLightIfHashed() {
+    function applyMorePorchLightFromHash() {
+      try {
+        if (!document.getElementById('home-primary-flow')) return;
+        var hash = '';
+        try {
+          hash = String(location.hash || '').replace(/^#/, '');
+        } catch (eH) {}
+        if (hash !== 'whats-new-spring-2026') return;
+        var det = document.getElementById('tdb-home-porch-light');
+        if (!det || String(det.tagName || '').toLowerCase() !== 'details') return;
+        det.open = true;
+        try {
+          requestAnimationFrame(function () {
+            var target = document.getElementById('whats-new-spring-2026');
+            if (target && typeof target.scrollIntoView === 'function') {
+              var reduceMotion = false;
+              try {
+                reduceMotion =
+                  window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+              } catch (eMq) {}
+              target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+            }
+          });
+        } catch (eScroll) {}
+      } catch (ePL) {}
+    }
+    applyMorePorchLightFromHash();
+    try {
+      window.addEventListener('hashchange', applyMorePorchLightFromHash);
+    } catch (eL) {}
+  })();
+
   function wireCriticalControlFallbacks() {
     if (typeof window !== 'undefined' && window.__tdbCriticalFallbacksWired) return;
     if (typeof window !== 'undefined') window.__tdbCriticalFallbacksWired = true;
@@ -32675,7 +32773,7 @@ function wireRandomBattleVerseHero() {
         if (!footer || footer.querySelector('.footer-trust-note')) return;
         var note = document.createElement('p');
         note.className = 'footer-trust-note section-note';
-        note.innerHTML = 'Human-curated · Built solo by Brandon · Privacy-first · KJV only · Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> · <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>';
+        note.innerHTML = 'Human-curated · Privacy-first · KJV only · Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> · <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>';
         var anchor = footer.querySelector('.site-footer-copy, .site-footer-legal-line, .site-footer-updated, p');
         if (anchor) footer.insertBefore(note, anchor);
         else footer.appendChild(note);

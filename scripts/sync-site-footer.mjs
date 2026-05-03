@@ -1,5 +1,5 @@
 /**
- * Replaces every <footer>...</footer> in each HTML file with partials/site-footer.html.
+ * Replaces every <footer>...</footer> in each HTML file with partials/site-footer.html (thematic sitemap: Narrow Paths, Tools of the Quiet Trade, For the Household of Faith, Further In).
  * If multiple footers exist (merge drift), keeps one canonical footer and strips the rest.
  * Excludes lightweight pages, Spanish topic pages, kids hubs, tool-minimal footers, and 404s.
  * Run from repo root: node scripts/sync-site-footer.mjs
@@ -20,6 +20,7 @@ const EXCLUDE = new Set([
   'node_modules',
   'dist',
   '.git',
+  '.worktrees',
 ]);
 
 const EXCLUDE_PREFIXES = ['lighthouse-'];
@@ -75,7 +76,7 @@ function walkHtml(dir, baseRel, out) {
     const rel = path.join(baseRel, e.name).replace(/\\/g, '/');
     const full = path.join(dir, e.name);
     if (e.isDirectory()) {
-      if (e.name === 'node_modules' || e.name === 'dist' || e.name === '.git') continue;
+      if (e.name === 'node_modules' || e.name === 'dist' || e.name === '.git' || e.name === '.worktrees') continue;
       walkHtml(full, rel, out);
     } else if (e.name.endsWith('.html')) {
       if (!shouldSkip(rel)) out.push({ full, rel });
@@ -100,7 +101,7 @@ function walkHtmlForFinale(dir, baseRel, out) {
     const rel = path.join(baseRel, e.name).replace(/\\/g, '/');
     const full = path.join(dir, e.name);
     if (e.isDirectory()) {
-      if (e.name === 'node_modules' || e.name === 'dist' || e.name === '.git') continue;
+      if (e.name === 'node_modules' || e.name === 'dist' || e.name === '.git' || e.name === '.worktrees') continue;
       walkHtmlForFinale(full, rel, out);
     } else if (e.name.endsWith('.html')) {
       if (!shouldSkipFinaleWalk(rel)) out.push({ full, rel });

@@ -45,8 +45,8 @@ function buildVerseJsonLd(refPlain, textPlain) {
         '@type': 'WebPage',
         '@id': `${pageUrl}#webpage`,
         url: pageUrl,
-        name: `Today's KJV verse — ${refPlain}`,
-        description: `Read, listen, save, or share today's King James verse (${refPlain}). Calm reader. No account required.`,
+        name: `Today's Verse — ${refPlain} • Deep KJV study`,
+        description: `Today's KJV: ${refPlain}. Read, listen, and study today's daily King James verse with simple explanations, cross-references, and prayer prompts. Built for slow, prayerful reading.`,
         inLanguage: 'en',
         isAccessibleForFree: true,
         isPartOf: {
@@ -121,29 +121,32 @@ function injectVerseDomAndMeta(html, refPlain, textPlain) {
     return '<button' + u + '>';
   });
 
-  const title = `Today's KJV Verse of the Day — ${refPlain} · Today's Daily Battle`;
-  const desc = `Today's King James verse (${refPlain}): ${textPlain} Calm reader—listen, save to My Study, or share. No ads, no login.`;
+  const versePageTitle = 'Today\u2019s Verse \u2022 Deep KJV Study \u0026 Breakdown';
+  const versePageDesc =
+    'Today\u2019s KJV: ' +
+    refPlain +
+    '. Read, listen, and study today\u2019s daily KJV verse with simple explanations, cross-references, and prayer prompts. Built for slow, prayerful reading.';
 
-  next = next.replace(/<title>[^<]*<\/title>/, `<title>${escapeHtmlText(title)}</title>`);
+  next = next.replace(/<title>[^<]*<\/title>/, `<title>${escapeHtmlText(versePageTitle)}</title>`);
   next = next.replace(
     /<meta name="description" content="[^"]*"/,
-    `<meta name="description" content="${escapeHtmlAttr(desc)}"`
+    `<meta name="description" content="${escapeHtmlAttr(versePageDesc)}"`
   );
   next = next.replace(
     /<meta property="og:title" content="[^"]*"/,
-    `<meta property="og:title" content="${escapeHtmlAttr(title)}"`
+    `<meta property="og:title" content="${escapeHtmlAttr(versePageTitle)}"`
   );
   next = next.replace(
     /<meta property="og:description" content="[^"]*"/,
-    `<meta property="og:description" content="${escapeHtmlAttr(desc)}"`
+    `<meta property="og:description" content="${escapeHtmlAttr(versePageDesc)}"`
   );
   next = next.replace(
     /<meta name="twitter:title" content="[^"]*"/,
-    `<meta name="twitter:title" content="${escapeHtmlAttr(title)}"`
+    `<meta name="twitter:title" content="${escapeHtmlAttr(versePageTitle)}"`
   );
   next = next.replace(
     /<meta name="twitter:description" content="[^"]*"/,
-    `<meta name="twitter:description" content="${escapeHtmlAttr(desc)}"`
+    `<meta name="twitter:description" content="${escapeHtmlAttr(versePageDesc)}"`
   );
   return next;
 }
@@ -181,10 +184,10 @@ function buildPlansJsonLd(planRows) {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: "Courses in the University of God • Today's Daily Battle",
+    name: 'Battle Plans • KJV Devotionals & Daily Bible Reading Plans',
     url: pageUrl,
     description:
-      'Gentle KJV courses (7–40 days): one verse a day, plain words, a small step, a prayer. Saved on your device offline. No login required.',
+      'Hundreds of grace-filled KJV battle plans for every season and feeling. No schedule pressure — open any day. Offline, ad-free, family & church tools included.',
     inLanguage: 'en',
     isAccessibleForFree: true,
     isPartOf: {
@@ -201,8 +204,8 @@ function buildPlansJsonLd(planRows) {
     },
     mainEntity: {
       '@type': 'ItemList',
-      name: 'KJV courses in the University of God',
-      description: 'Gentle daily KJV lessons—one small step in Scripture at a time',
+      name: 'KJV battle plans',
+      description: 'Grace-filled readings for every season and feeling—open any day, offline when you need them.',
       numberOfItems: itemListElement.length,
       itemListElement,
     },

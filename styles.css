@@ -179,6 +179,22 @@ html {
  * — Prefer --tdb-surface-card-shadow* for new work over legacy --shadow-card* on dark pages.
  */
 
+/*
+ * Opt-in: fixed warm paper inside a region (cream/white) while html is Quiet night.
+ * Descendants using var(--text), var(--muted), var(--text-muted) then match the paper, not the sky.
+ */
+html[data-theme="dark"] .tdb-surface-parchment-ink,
+html:not([data-theme]) .tdb-surface-parchment-ink {
+  --text: #172230;
+  --color-text: #172230;
+  --muted: #4d5f72;
+  --muted-readable: #5a6778;
+  --text-muted: #4d5f72;
+  --line: rgba(76, 90, 108, 0.22);
+  --link-content: #154a73;
+  --link-content-hover: #0f3654;
+}
+
 /* —— Quiet-place responsive: opt-in containers + card grids (safe alongside existing pages) —— */
 .tdb-quiet-container {
   width: 100%;
@@ -954,14 +970,23 @@ a.explore-quick-door:focus-visible {
   box-shadow: var(--tdb-dawn-shadow-soft, 0 4px 12px rgba(180, 140, 80, 0.06));
 }
 
+/*
+ * Topic mood heroes use .tdb-dawn-bg--* (light band). --text-dark is pale ink meant for charcoal panels —
+ * never use it here or Quiet night / Dawn parchment wash out against mist.
+ */
 .content-inner > header.hero-banner.topic-hero--soar-dawn h1 {
-  color: var(--text-dark, #f0f2f7);
-  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.35);
+  color: #0f172a;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.42);
 }
 
 html[data-theme="light"] .content-inner > header.hero-banner.topic-hero--soar-dawn h1 {
-  color: var(--text-light, #1a2234);
-  text-shadow: none;
+  color: #0f172a;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+html[data-theme="sepia"] .content-inner > header.hero-banner.topic-hero--soar-dawn h1 {
+  color: #2a2218;
+  text-shadow: 0 1px 0 rgba(255, 252, 245, 0.4);
 }
 
 .content-inner > header.hero-banner.topic-hero--soar-dawn .topic-hero-lead {
@@ -969,26 +994,29 @@ html[data-theme="light"] .content-inner > header.hero-banner.topic-hero--soar-da
   font-size: clamp(0.95rem, 2.8vw, 1.05rem);
   line-height: 1.55;
   max-width: 36rem;
-  color: color-mix(in srgb, var(--text-dark, #f0f2f7) 88%, transparent);
+  color: #334155;
 }
 
-html[data-theme="light"] .content-inner > header.hero-banner.topic-hero--soar-dawn .topic-hero-lead {
-  color: color-mix(in srgb, var(--text-light, #1a2234) 85%, transparent);
+html[data-theme="sepia"] .content-inner > header.hero-banner.topic-hero--soar-dawn .topic-hero-lead {
+  color: #3d3428;
 }
 
-/* Topic porch whisper under H1 — slightly warmer than generic section-note */
-.content-inner > header.hero-banner.topic-hero--soar-dawn .topic-mood-porch,
-.content-inner > header.hero-banner .topic-mood-porch {
+/* Topic porch whisper under H1 on mist/dawn band only */
+.content-inner > header.hero-banner.topic-hero--soar-dawn .topic-mood-porch {
   margin: 0 0 0.4rem;
   max-width: 36rem;
   font-size: clamp(0.87rem, 2.35vw, 0.97rem);
   line-height: 1.55;
   letter-spacing: 0.012em;
-  color: color-mix(in srgb, var(--muted-readable, #a8b8cc) 88%, var(--gold-soft, #e3bc67) 12%);
+  color: color-mix(in srgb, #3d5266 88%, var(--gold-soft, #b8954a) 12%);
 }
 
-html[data-theme="light"] .content-inner > header.hero-banner .topic-mood-porch {
-  color: color-mix(in srgb, var(--text-light, #1a2234) 58%, var(--gold, #9a7324) 14%);
+html[data-theme="light"] .content-inner > header.hero-banner.topic-hero--soar-dawn .topic-mood-porch {
+  color: color-mix(in srgb, #1e293b 62%, var(--gold, #9a7324) 14%);
+}
+
+html[data-theme="sepia"] .content-inner > header.hero-banner.topic-hero--soar-dawn .topic-mood-porch {
+  color: color-mix(in srgb, #4a3f32 88%, var(--gold-soft, #a67c32) 12%);
 }
 
 /* Porch whisper when H1 is not inside .hero-banner (mission packs, church join, etc.) */
@@ -1005,6 +1033,10 @@ html[data-theme="light"] p.section-note.topic-mood-porch {
   color: color-mix(in srgb, var(--text-light, #1a2234) 58%, var(--gold, #9a7324) 14%);
 }
 
+html[data-theme="sepia"] p.section-note.topic-mood-porch {
+  color: color-mix(in srgb, var(--text, #33281d) 58%, var(--gold-soft, #a67c32) 14%);
+}
+
 /* On-device listen / TTS — reuse anywhere “Listen” appears */
 .tdb-listen-privacy-hint,
 p.reader-audio-hint.tdb-listen-privacy-hint {
@@ -1018,6 +1050,11 @@ p.reader-audio-hint.tdb-listen-privacy-hint {
 html[data-theme="light"] .tdb-listen-privacy-hint {
   color: var(--text-light, #1a2234);
   opacity: 0.85;
+}
+
+html[data-theme="sepia"] .tdb-listen-privacy-hint {
+  color: color-mix(in srgb, var(--text, #33281d) 88%, transparent);
+  opacity: 0.92;
 }
 
 @media (prefers-reduced-transparency: reduce) {
@@ -1076,6 +1113,8 @@ html[data-theme="light"] .app-shell {
   --tdb-focus-ring: #0066cc;
   --link-content: #0066cc;
   --link-content-hover: #004a99;
+  /* Was missing: night-mode default --text-muted is pale; light pages need dark secondary copy */
+  --text-muted: #5a6578;
   --muted: #5a6578;
   /* Secondary copy on cream — WCAG AA (~7:1 vs warm white) */
   --muted-readable: #4d525c;
@@ -1126,6 +1165,7 @@ html[data-theme="sepia"] .app-shell {
   --tdb-focus-ring: #7c4b12;
   --link-content: #7a3f10;
   --link-content-hover: #5e2f0c;
+  --text-muted: #6d5d49;
   --muted: #6d5d49;
   --muted-readable: #564938;
   --input-placeholder-on-dark: #766754;
@@ -1310,6 +1350,11 @@ details.bottom-nav-es-more summary {
   color: #2f2f2f;
   border-color: rgba(15, 23, 42, 0.12);
 }
+:root[data-theme="sepia"] .tdb-appearance-dialog {
+  background: #f8f0e2;
+  color: #33281d;
+  border-color: rgba(76, 55, 28, 0.22);
+}
 .tdb-appearance-dialog-form {
   padding: 1.25rem 1.35rem 1.25rem;
   margin: 0;
@@ -1366,6 +1411,11 @@ details.bottom-nav-es-more summary {
   background: #ffffff !important;
   color: #1a2234 !important;
   border-color: rgba(15, 23, 42, 0.14) !important;
+}
+:root[data-theme="sepia"] .tdb-appearance-dialog .tdb-appearance-opt {
+  background: #fff9eb !important;
+  color: #33281d !important;
+  border-color: rgba(133, 95, 42, 0.28) !important;
 }
 
 /* Full-width with centered content, no left-bias */
@@ -4112,10 +4162,14 @@ button.tdb-header-account-nudge__link {
   white-space: nowrap;
 }
 .auth-daily-verse-text {
-  color: rgba(226, 232, 240, 0.68);
+  color: rgba(226, 232, 240, 0.92);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+html[data-theme="light"] .auth-daily-verse-text,
+html[data-theme="sepia"] .auth-daily-verse-text {
+  color: #1a2234;
 }
 .auth-daily-verse-more {
   display: inline-flex;
@@ -5564,6 +5618,19 @@ body.bible-tool-page #search-hero.search-hero.glass .verse-breakdown-content str
     grid-template-columns: repeat(2, 1fr) !important;
   }
 }
+@media (max-width: 359px) {
+  .quick-chips-grid {
+    gap: clamp(0.625rem, 2.55vw, 0.74rem);
+  }
+  .quick-actions-hero,
+  #quick-actions-hero {
+    gap: clamp(0.625rem, 2.45vw, 0.74rem);
+  }
+  .quick-actions-hero .btn,
+  #quick-actions-hero .btn {
+    min-height: 46px;
+  }
+}
 
 /* Hero results: verse cards with shadow, hover, fade-in */
 .search-hero .results .verse-card {
@@ -5707,8 +5774,72 @@ body.bible-tool-page #search-hero.search-hero.glass .verse-breakdown-content str
   font-family: var(--font-ui);
   font-size: 0.84rem;
   font-weight: 500;
-  line-height: 1.4;
-  color: rgba(226, 232, 240, 0.78);
+  line-height: 1.45;
+  color: rgba(226, 232, 240, 0.92);
+}
+html[data-theme="light"] .hero-verse-card.verse-card p,
+html[data-theme="sepia"] .hero-verse-card.verse-card p {
+  color: #1a2234;
+}
+
+/* Ensure verse text is always readable (base state) — narration highlight is enhancement only.
+   Strong contrast for Matthew 21:22 (“All things, whatsoever ye shall ask...”) and all daily/hero verses.
+   Increased specificity + force for hero/quote containers in parchment/sepia and light themes. */
+.daily-verse-text,
+#heroVerse,
+#heroVerse * ,
+.verse-text,
+.verse-body,
+.daily-verse-body p,
+.tdb-vb-inline-verse-text,
+.hero-verse-card.verse-card p,
+.hero-verse-card.verse-card .verse-body,
+.hero-verse-wrap .hero-verse-card p,
+#daily-verse-card .daily-verse-text,
+.hero-verse-card blockquote,
+.hero-verse-card .quote {
+  color: var(--text, #e5e5e5) !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  font-weight: 500;
+}
+
+html[data-theme="light"] .daily-verse-text,
+html[data-theme="light"] #heroVerse,
+html[data-theme="light"] #heroVerse *,
+html[data-theme="light"] .verse-text,
+html[data-theme="light"] .verse-body,
+html[data-theme="light"] .daily-verse-body p,
+html[data-theme="light"] .tdb-vb-inline-verse-text,
+html[data-theme="light"] .hero-verse-card.verse-card p,
+html[data-theme="light"] .hero-verse-card.verse-card .verse-body,
+html[data-theme="light"] .hero-verse-wrap .hero-verse-card p,
+html[data-theme="light"] #daily-verse-card .daily-verse-text,
+html[data-theme="light"] .hero-verse-card blockquote,
+html[data-theme="light"] .hero-verse-card .quote,
+html[data-theme="sepia"] .daily-verse-text,
+html[data-theme="sepia"] #heroVerse,
+html[data-theme="sepia"] #heroVerse *,
+html[data-theme="sepia"] .verse-text,
+html[data-theme="sepia"] .verse-body,
+html[data-theme="sepia"] .daily-verse-body p,
+html[data-theme="sepia"] .tdb-vb-inline-verse-text,
+html[data-theme="sepia"] .hero-verse-card.verse-card p,
+html[data-theme="sepia"] .hero-verse-card.verse-card .verse-body,
+html[data-theme="sepia"] .hero-verse-wrap .hero-verse-card p,
+html[data-theme="sepia"] #daily-verse-card .daily-verse-text,
+html[data-theme="sepia"] .hero-verse-card blockquote,
+html[data-theme="sepia"] .hero-verse-card .quote {
+  color: #111827 !important;
+  text-shadow: none;
+  font-weight: 600;
+}
+
+/* Hero card background must support dark text in light/sepia */
+html[data-theme="light"] .hero-verse-card.verse-card,
+html[data-theme="sepia"] .hero-verse-card.verse-card {
+  background: #f8f1e0 !important;
+  border-color: #d4b88a !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08) !important;
 }
 .america-in-card {
   margin: 0.75rem 0 0;
@@ -9783,13 +9914,13 @@ html[data-theme="light"] .card::before {
   font-family: var(--font-display), Georgia, serif;
   font-size: 1.15rem;
   margin: 0 0 0.5rem;
-  color: var(--text-dark, #f0f2f7);
+  color: var(--text);
 }
 .kids-corner-card-summary {
   font-size: 0.95rem;
   line-height: 1.5;
   margin: 0 0 1rem;
-  color: var(--text-muted);
+  color: var(--muted);
 }
 .kids-corner-card-actions {
   display: flex;
@@ -10893,6 +11024,15 @@ html[data-theme="light"] details.verse-breakdown[open] > .verse-breakdown-conten
   color: #2c2c2c;
   border-color: rgba(120, 113, 108, 0.22);
 }
+html[data-theme="sepia"] details.verse-breakdown[open] > .verse-breakdown-content {
+  background: #f8f0e2;
+  color: #2a2218;
+  border-color: rgba(76, 55, 28, 0.22);
+}
+html[data-theme="light"] details.verse-breakdown[open] > .verse-breakdown-content strong,
+html[data-theme="sepia"] details.verse-breakdown[open] > .verse-breakdown-content strong {
+  color: color-mix(in srgb, var(--text, #1e293b) 70%, var(--muted, #5a6578) 30%);
+}
 @keyframes verseBreakdownIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -11432,10 +11572,12 @@ body.red-letter-off .red-letter-card {
 }
 .dark-mode .mark-as-prayed-label { color: var(--text-muted, #e0e0e0); }
 
-.verse-highlight {
-  outline: 2px solid gold;
-  outline-offset: 2px;
-  transition: outline-offset 0.2s ease;
+.verse-highlight,
+.hero-verse-wrap.hero-verse-highlight .hero-verse-card.verse-card {
+  outline: 3px solid #e3bc67;
+  outline-offset: 4px;
+  background: rgba(227, 188, 103, 0.12);
+  transition: outline-offset 0.2s ease, background 0.2s ease;
 }
 
 .done-for-today-banner {
@@ -16252,6 +16394,16 @@ body.has-promo-banner .header-search-sticky {
 }
 .daily-tile-catchup-btn {
   width: min(100%, 14rem);
+}
+
+/* Primary verse readability baseline (kept scoped; broad rules live near EOF for final cascade win). */
+html[data-theme="sepia"] .hero-verse-card.verse-card,
+html[data-theme="light"] .hero-verse-card.verse-card,
+html[data-theme="sepia"] .hero-verse-wrap .hero-verse-card,
+html[data-theme="light"] .hero-verse-wrap .hero-verse-card {
+  background: #f8f1e0 !important;
+  border-color: #d4b88a !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
 }
 
 .tdb-cartoon-overlay {
@@ -22073,4 +22225,211 @@ details[open] > .tdb-gentle-suggest-summary::after {
     padding-left: 0.72rem;
     padding-right: 0.72rem;
   }
+}
+
+/* FINAL CASCADE WINNER: primary verse readability across all themes.
+   Kept at true end-of-file so no later rules can override it. */
+#heroVerse,
+#heroVerse *,
+.hero-verse-wrap #heroVerse,
+.hero-verse-card.verse-card #heroVerse,
+.hero-verse-card.verse-card p,
+.tdb-verse-page #daily-verse-card .daily-verse-text,
+.tdb-verse-page #daily-verse-card .daily-verse-body,
+.tdb-verse-page #daily-verse-card .daily-verse-body *,
+#heroVotdBreakdown .verse-breakdown > p,
+#heroVotdBreakdown .next-step,
+#heroVotdBreakdown .prayer-block,
+#heroDeepBreakdown p,
+#heroVotdOneStep,
+#heroVotdPrayer {
+  color: #e8f0fb !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+  font-weight: 600 !important;
+}
+
+/* Night theme (default): light text on dark card */
+html[data-theme="dark"] #heroVerse,
+html[data-theme="dark"] #heroVerse *,
+html[data-theme="dark"] .hero-verse-card.verse-card #heroVerse,
+html[data-theme="dark"] .hero-verse-card.verse-card p,
+html[data-theme="dark"] .tdb-verse-page #daily-verse-card .daily-verse-text,
+html[data-theme="dark"] .tdb-verse-page #daily-verse-card .daily-verse-body,
+html[data-theme="dark"] .tdb-verse-page #daily-verse-card .daily-verse-body *,
+body.dark-mode #heroVerse,
+body.dark-mode #heroVerse *,
+body.dark-mode .hero-verse-card.verse-card #heroVerse,
+body.dark-mode .hero-verse-card.verse-card p,
+body.dark-mode .tdb-verse-page #daily-verse-card .daily-verse-text,
+body.dark-mode .tdb-verse-page #daily-verse-card .daily-verse-body,
+body.dark-mode .tdb-verse-page #daily-verse-card .daily-verse-body *,
+html[data-theme="dark"] #heroVotdBreakdown .verse-breakdown > p,
+html[data-theme="dark"] #heroVotdBreakdown .next-step,
+html[data-theme="dark"] #heroVotdBreakdown .prayer-block,
+html[data-theme="dark"] #heroDeepBreakdown p,
+html[data-theme="dark"] #heroVotdOneStep,
+html[data-theme="dark"] #heroVotdPrayer,
+body.dark-mode #heroVotdBreakdown .verse-breakdown > p,
+body.dark-mode #heroVotdBreakdown .next-step,
+body.dark-mode #heroVotdBreakdown .prayer-block,
+body.dark-mode #heroDeepBreakdown p,
+body.dark-mode #heroVotdOneStep,
+body.dark-mode #heroVotdPrayer,
+html:not([data-theme]) #heroVerse,
+html:not([data-theme]) #heroVerse *,
+html:not([data-theme]) .hero-verse-card.verse-card #heroVerse,
+html:not([data-theme]) .hero-verse-card.verse-card p,
+html:not([data-theme]) .tdb-verse-page #daily-verse-card .daily-verse-text,
+html:not([data-theme]) .tdb-verse-page #daily-verse-card .daily-verse-body,
+html:not([data-theme]) .tdb-verse-page #daily-verse-card .daily-verse-body *,
+html:not([data-theme]) #heroVotdBreakdown .verse-breakdown > p,
+html:not([data-theme]) #heroVotdBreakdown .next-step,
+html:not([data-theme]) #heroVotdBreakdown .prayer-block,
+html:not([data-theme]) #heroDeepBreakdown p,
+html:not([data-theme]) #heroVotdOneStep,
+html:not([data-theme]) #heroVotdPrayer {
+  color: #e5edf7 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Daylight + Parchment: dark text on warm paper */
+html[data-theme="light"] #heroVerse,
+html[data-theme="light"] #heroVerse *,
+html[data-theme="light"] .hero-verse-card.verse-card #heroVerse,
+html[data-theme="light"] .hero-verse-card.verse-card p,
+html[data-theme="light"] .tdb-verse-page #daily-verse-card .daily-verse-text,
+html[data-theme="light"] .tdb-verse-page #daily-verse-card .daily-verse-body,
+html[data-theme="light"] .tdb-verse-page #daily-verse-card .daily-verse-body *,
+html[data-theme="light"] #heroVotdBreakdown .verse-breakdown > p,
+html[data-theme="light"] #heroVotdBreakdown .next-step,
+html[data-theme="light"] #heroVotdBreakdown .prayer-block,
+html[data-theme="light"] #heroDeepBreakdown p,
+html[data-theme="light"] #heroVotdOneStep,
+html[data-theme="light"] #heroVotdPrayer,
+html[data-theme="sepia"] #heroVerse,
+html[data-theme="sepia"] #heroVerse *,
+html[data-theme="sepia"] .hero-verse-card.verse-card #heroVerse,
+html[data-theme="sepia"] .hero-verse-card.verse-card p,
+html[data-theme="sepia"] .tdb-verse-page #daily-verse-card .daily-verse-text,
+html[data-theme="sepia"] .tdb-verse-page #daily-verse-card .daily-verse-body,
+html[data-theme="sepia"] .tdb-verse-page #daily-verse-card .daily-verse-body *,
+html[data-theme="sepia"] #heroVotdBreakdown .verse-breakdown > p,
+html[data-theme="sepia"] #heroVotdBreakdown .next-step,
+html[data-theme="sepia"] #heroVotdBreakdown .prayer-block,
+html[data-theme="sepia"] #heroDeepBreakdown p,
+html[data-theme="sepia"] #heroVotdOneStep,
+html[data-theme="sepia"] #heroVotdPrayer,
+body.light:not(.dark-mode):not(.sepia-mode) #heroVerse,
+body.light:not(.dark-mode):not(.sepia-mode) #heroVerse *,
+body.light:not(.dark-mode):not(.sepia-mode) .hero-verse-card.verse-card #heroVerse,
+body.light:not(.dark-mode):not(.sepia-mode) .hero-verse-card.verse-card p,
+body.light:not(.dark-mode):not(.sepia-mode) .tdb-verse-page #daily-verse-card .daily-verse-text,
+body.light:not(.dark-mode):not(.sepia-mode) .tdb-verse-page #daily-verse-card .daily-verse-body,
+body.light:not(.dark-mode):not(.sepia-mode) .tdb-verse-page #daily-verse-card .daily-verse-body *,
+body.light:not(.dark-mode):not(.sepia-mode) #heroVotdBreakdown .verse-breakdown > p,
+body.light:not(.dark-mode):not(.sepia-mode) #heroVotdBreakdown .next-step,
+body.light:not(.dark-mode):not(.sepia-mode) #heroVotdBreakdown .prayer-block,
+body.light:not(.dark-mode):not(.sepia-mode) #heroDeepBreakdown p,
+body.light:not(.dark-mode):not(.sepia-mode) #heroVotdOneStep,
+body.light:not(.dark-mode):not(.sepia-mode) #heroVotdPrayer,
+body.sepia-mode:not(.dark-mode) #heroVerse,
+body.sepia-mode:not(.dark-mode) #heroVerse *,
+body.sepia-mode:not(.dark-mode) .hero-verse-card.verse-card #heroVerse,
+body.sepia-mode:not(.dark-mode) .hero-verse-card.verse-card p,
+body.sepia-mode:not(.dark-mode) .tdb-verse-page #daily-verse-card .daily-verse-text,
+body.sepia-mode:not(.dark-mode) .tdb-verse-page #daily-verse-card .daily-verse-body,
+body.sepia-mode:not(.dark-mode) .tdb-verse-page #daily-verse-card .daily-verse-body *,
+body.sepia-mode:not(.dark-mode) #heroVotdBreakdown .verse-breakdown > p,
+body.sepia-mode:not(.dark-mode) #heroVotdBreakdown .next-step,
+body.sepia-mode:not(.dark-mode) #heroVotdBreakdown .prayer-block,
+body.sepia-mode:not(.dark-mode) #heroDeepBreakdown p,
+body.sepia-mode:not(.dark-mode) #heroVotdOneStep,
+body.sepia-mode:not(.dark-mode) #heroVotdPrayer {
+  color: #111827 !important;
+  text-shadow: none !important;
+}
+
+html[data-theme="light"] .hero-verse-card.verse-card,
+html[data-theme="sepia"] .hero-verse-card.verse-card,
+html[data-theme="light"] .tdb-verse-page #daily-verse-card.verse-card,
+html[data-theme="sepia"] .tdb-verse-page #daily-verse-card.verse-card {
+  background: #f8f1e0 !important;
+  border-color: #d4b88a !important;
+}
+
+.tdb-verse-appearance-help {
+  margin-top: 0.6rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.86rem;
+}
+.tdb-verse-appearance-help-label {
+  color: var(--muted-readable, #a8b8cc);
+}
+.tdb-verse-appearance-help-btn {
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.42);
+  color: inherit;
+  padding: 0.34rem 0.58rem;
+  min-height: 38px;
+  font-size: 0.82rem;
+}
+html[data-theme="light"] .tdb-verse-appearance-help-btn,
+html[data-theme="sepia"] .tdb-verse-appearance-help-btn {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(120, 96, 56, 0.3);
+}
+
+/* Theme alias hardening: support legacy/body class and label aliases (night/daylight/parchment). */
+html[data-theme="night"] #heroVerse,
+html[data-theme="night"] #heroVerse *,
+body.dark-mode #heroVerse,
+body.dark-mode #heroVerse *,
+html[data-theme="night"] .hero-verse-card.verse-card p,
+body.dark-mode .hero-verse-card.verse-card p,
+html[data-theme="night"] .tdb-verse-page #daily-verse-card .daily-verse-text,
+body.dark-mode .tdb-verse-page #daily-verse-card .daily-verse-text,
+html[data-theme="night"] .tdb-verse-page #daily-verse-card .daily-verse-body,
+body.dark-mode .tdb-verse-page #daily-verse-card .daily-verse-body,
+html[data-theme="night"] .tdb-verse-page #daily-verse-card .daily-verse-body *,
+body.dark-mode .tdb-verse-page #daily-verse-card .daily-verse-body * {
+  color: #e8f0fb !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+html[data-theme="night"] .hero-verse-card.verse-card,
+body.dark-mode .hero-verse-card.verse-card,
+html[data-theme="night"] .tdb-verse-page #daily-verse-card.verse-card,
+body.dark-mode .tdb-verse-page #daily-verse-card.verse-card {
+  background: rgba(9, 15, 28, 0.92) !important;
+  border-color: rgba(148, 163, 184, 0.24) !important;
+}
+
+html[data-theme="daylight"] .hero-verse-card.verse-card,
+html[data-theme="parchment"] .hero-verse-card.verse-card,
+body.light .hero-verse-card.verse-card,
+body.sepia-mode .hero-verse-card.verse-card,
+html[data-theme="daylight"] .tdb-verse-page #daily-verse-card.verse-card,
+html[data-theme="parchment"] .tdb-verse-page #daily-verse-card.verse-card,
+body.light .tdb-verse-page #daily-verse-card.verse-card,
+body.sepia-mode .tdb-verse-page #daily-verse-card.verse-card {
+  background: #f8f1e0 !important;
+  border-color: #d4b88a !important;
+}
+
+/* HARD STOP GUARD: in Night, force readable verse + breakdown text even if legacy body classes linger. */
+html[data-theme="dark"] #verseCard,
+html[data-theme="night"] #verseCard,
+body.dark-mode #verseCard {
+  background: rgba(9, 15, 28, 0.94) !important;
+  border-color: rgba(148, 163, 184, 0.24) !important;
+}
+
+html[data-theme="dark"] #verseCard :is(p, span, strong, em, h2, h3, h4, li, blockquote),
+html[data-theme="night"] #verseCard :is(p, span, strong, em, h2, h3, h4, li, blockquote),
+body.dark-mode #verseCard :is(p, span, strong, em, h2, h3, h4, li, blockquote) {
+  color: #eaf2ff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
 }

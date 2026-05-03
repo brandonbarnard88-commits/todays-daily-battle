@@ -491,6 +491,27 @@
     return (byTopic[topicKey] && byTopic[topicKey][groupKey]) || defaults[groupKey] || defaults.general;
   }
 
+  /** True when text matches buildGroupApplication() boilerplate (“For …:”) — wrong for the personal “you” heading. */
+  function isAudienceGroupLaneBlurb(txt) {
+    var s = tdbPlainTextForUi(txt || '').trim();
+    if (!s) return false;
+    return /^For\s+(your\s+)?group:|^For\s+kids:|^For\s+teens:|^For\s+families:|^For\s+pastors?:|^For\s+leaders:|^For\s+church\s+leaders?:|^For\s+missionaries:|^For\s+street\s+preachers?:|^For\s+Bible\s+study\s+groups?:/i.test(
+      s
+    );
+  }
+
+  function resolvePersonalYouFromBreakdown(breakdown) {
+    var grp = tdbPlainTextForUi((breakdown && breakdown.groupApplication) || '').trim();
+    var modern = tdbPlainTextForUi((breakdown && breakdown.modernApplication) || '').trim();
+    var relates = tdbPlainTextForUi((breakdown && breakdown.relates) || '').trim();
+    var appliesLane = tdbPlainTextForUi((breakdown && breakdown.applies) || '').trim();
+    if (grp && !isAudienceGroupLaneBlurb(grp)) return grp;
+    var inferred = modern || relates;
+    if (inferred) return inferred;
+    if (appliesLane && !isAudienceGroupLaneBlurb(appliesLane)) return appliesLane;
+    return '';
+  }
+
   function buildGeneratedBase(ref, text) {
     var raw = tdbPlainTextForUi(String(text || '').replace(/<[^>]+>/g, '').trim());
     var book = parseBook(ref);
@@ -969,10 +990,34 @@
         var lazyLay = details.querySelector('[data-bk="layman"]');
         var lazyApp = details.querySelector('[data-bk="applies"]');
         var lazyRel = details.querySelector('[data-bk="relates"]');
+        var stdLz = window.TDB_verseBreakdownStandard;
         if (lazyTextEl) lazyTextEl.textContent = '\u201c' + lazyText + '\u201d';
         if (lazyLay) lazyLay.textContent = tdbPlainTextForUi(lazyBreakdown.layman || '—');
-        if (lazyApp) lazyApp.textContent = tdbPlainTextForUi(lazyBreakdown.applies || '—');
-        if (lazyRel) lazyRel.textContent = tdbPlainTextForUi(lazyBreakdown.relates || buildRelationLine(topic, RELATIONS_FALLBACK));
+        if (lazyApp || lazyRel) {
+          var holdLz =
+            'Hold this word as God speaking kindly to you—today, personally—not as a slogan you have to manufacture.';
+          var relLazy = lazyBreakdown.relates || buildRelationLine(topic, RELATIONS_FALLBACK);
+          var youLazy = resolvePersonalYouFromBreakdown(lazyBreakdown);
+          var layLz = tdbPlainTextForUi(lazyBreakdown.layman || '').trim();
+          if (youLazy && youLazy === layLz) {
+            youLazy = holdLz;
+          } else if (!youLazy) {
+            youLazy = holdLz;
+          }
+          try {
+            var yrLz = stdLz && typeof stdLz.currentYear === 'function' ? stdLz.currentYear() : new Date().getFullYear();
+            if (youLazy === relLazy) {
+              relLazy =
+                stdLz && typeof stdLz.defaultRelatesTodayLine === 'function'
+                  ? stdLz.defaultRelatesTodayLine(yrLz)
+                  : 'In ' +
+                    yrLz +
+                    ', life can feel loud—headlines, hurry, tension. God’s Word here still cuts through as something steady you can carry today.';
+            }
+          } catch (eLzDedup) { /* non-fatal */ }
+          if (lazyApp) lazyApp.textContent = tdbPlainTextForUi(youLazy || '—');
+          if (lazyRel) lazyRel.textContent = tdbPlainTextForUi(relLazy);
+        }
         details.setAttribute('data-text', lazyText);
         var cl = details.querySelector('[data-tdb-vb-curriculum-list]');
         if (cl) {
@@ -1089,14 +1134,36 @@
     aboutEl.textContent = tdbPlainTextForUi(breakdown.about || '—');
     toEl.textContent = tdbPlainTextForUi(breakdown.to || '—');
     layEl.textContent = tdbPlainTextForUi(breakdown.layman || '—');
-    appEl.textContent = tdbPlainTextForUi(breakdown.applies || '—');
-    relEl.textContent = tdbPlainTextForUi(breakdown.relates || buildRelationLine(topic, RELATIONS_FALLBACK));
 
+    var yrChip = stdVB && typeof stdVB.currentYear === 'function' ? stdVB.currentYear() : new Date().getFullYear();
     try {
-      var yrSp = details.querySelector('.tdb-vb-relates-year');
-      var yr = stdVB && typeof stdVB.currentYear === 'function' ? stdVB.currentYear() : new Date().getFullYear();
-      if (yrSp) yrSp.textContent = String(yr);
-    } catch (eYr) { /* non-fatal */ }
+      var yrSp0 = details.querySelector('.tdb-vb-relates-year');
+      if (yrSp0) yrSp0.textContent = String(yrChip);
+    } catch (eYrC) { /* non-fatal */ }
+
+    var holdYouFallback =
+      'Hold this word as God speaking kindly to you—today, personally—not as a slogan you have to manufacture.';
+    var relDisplayed = breakdown.relates || buildRelationLine(topic, RELATIONS_FALLBACK);
+    var personalYou = resolvePersonalYouFromBreakdown(breakdown);
+    var layShown = tdbPlainTextForUi(breakdown.layman || '').trim();
+    if (personalYou && personalYou === layShown) {
+      personalYou = holdYouFallback;
+    } else if (!personalYou) {
+      personalYou = holdYouFallback;
+    }
+    try {
+      if (personalYou === relDisplayed) {
+        relDisplayed =
+          stdVB && typeof stdVB.defaultRelatesTodayLine === 'function'
+            ? stdVB.defaultRelatesTodayLine(yrChip)
+            : 'In ' +
+              yrChip +
+              ', life can feel loud—headlines, hurry, tension. God’s Word here still cuts through as something steady you can carry today.';
+      }
+    } catch (eDedup) { /* non-fatal */ }
+
+    appEl.textContent = tdbPlainTextForUi(personalYou || '—');
+    relEl.textContent = tdbPlainTextForUi(relDisplayed);
 
     if (stepEl) {
       var ns =

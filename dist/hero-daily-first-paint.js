@@ -228,14 +228,19 @@
     return 'Lord, sink ' + cue + ' into my heart—not as noise, but as truth that changes how I walk. In Jesus\u2019 name, Amen.';
   }
 
+  /** True when text matches verse-breakdown.js buildGroupApplication() audience lane (not a personal "you" line). */
+  function isLikelyAudienceLaneBlurb(txt) {
+    var s = sanitizeText(txt);
+    if (!s) return false;
+    return /^For\s+(your\s+)?group:|^For\s+kids:|^For\s+teens:|^For\s+families:|^For\s+pastors?:|^For\s+leaders:|^For\s+church\s+leaders?:|^For\s+missionaries:|^For\s+street\s+preachers?:|^For\s+Bible\s+study\s+groups?:/i.test(
+      s
+    );
+  }
+
   /**
-   * Fills #heroSimpleBreakdown + deep fields. Shared payload can include plain / group / modern / about /
-   * practicalStep (explicit one-step separate from modern “culture” line).
-   * Exposed for index.html renderVerseContent when verse-breakdown hydrates.
+   * Same lesson-field logic as Today’s verse deep breakdown (curator “you” first; skip audience “For …” boilerplate).
    */
-  function applyHeroVotdFromInputs(v, shared) {
-    var simpleOut = document.getElementById('heroSimpleBreakdown');
-    if (!simpleOut) return;
+  function computeHeroVotdBreakdownLessonFields(v, shared) {
     var sh = shared || {};
     var plainE = sanitizeText(sh.plainExplanation != null ? sh.plainExplanation : sh.plain);
     var groupA = sanitizeText(sh.groupApplication != null ? sh.groupApplication : sh.group);
@@ -262,7 +267,17 @@
     if (!relatesToday) {
       relatesToday = defaultRelatesTodayLine(yr);
     }
-    var relYou = groupA || sanitizeText(v.today) || sanitizeText(lines[1] || '');
+    var curatorYou = sanitizeText(v.today) || sanitizeText(lines[1] || '');
+    var relYou = curatorYou;
+    if (!relYou && modernA) {
+      relYou = modernA;
+    }
+    if (!relYou && groupA && !isLikelyAudienceLaneBlurb(groupA)) {
+      relYou = groupA;
+    }
+    if (relYou && relatesToday && relYou === relatesToday) {
+      relatesToday = defaultRelatesTodayLine(yr);
+    }
     if (relYou && relYou === simple) {
       relYou = 'Hold this word as God speaking kindly to you—today, personally—not as a slogan you have to manufacture.';
     } else if (!relYou) {
@@ -278,6 +293,35 @@
     }
     var prayer = sanitizeText(sh.heroPrayer || sh.simplePrayer);
     if (!prayer) prayer = buildHeroVotdPrayer(v.ref);
+    return {
+      simple: simple,
+      who: who,
+      audience: audience,
+      relatesToday: relatesToday,
+      relYou: relYou,
+      oneStep: oneStep,
+      prayer: prayer,
+      year: yr
+    };
+  }
+
+  /**
+   * Fills #heroSimpleBreakdown + deep fields. Shared payload can include plain / group / modern / about /
+   * practicalStep (explicit one-step separate from modern “culture” line).
+   * Exposed for index.html renderVerseContent when verse-breakdown hydrates.
+   */
+  function applyHeroVotdFromInputs(v, shared) {
+    var simpleOut = document.getElementById('heroSimpleBreakdown');
+    if (!simpleOut) return;
+    var lesson = computeHeroVotdBreakdownLessonFields(v, shared);
+    var simple = lesson.simple;
+    var who = lesson.who;
+    var audience = lesson.audience;
+    var relatesToday = lesson.relatesToday;
+    var relYou = lesson.relYou;
+    var oneStep = lesson.oneStep;
+    var prayer = lesson.prayer;
+    var yr = lesson.year;
     simpleOut.textContent = simple;
     setVotdRowVisible(document.getElementById('heroVbdRowWho'), document.getElementById('heroDeepWho'), who);
     setVotdRowVisible(document.getElementById('heroVbdRowAud'), document.getElementById('heroDeepAudience'), audience);
@@ -316,6 +360,7 @@
     }
   }
   window.__TDB_applyHeroVotdFromInputs = applyHeroVotdFromInputs;
+  window.__TDB_computeHeroVotdBreakdownLessonFields = computeHeroVotdBreakdownLessonFields;
 
   function applyHeroFirstPaint() {
     var heroVerse = document.getElementById('heroVerse');
@@ -480,8 +525,10 @@
       if (/\bfear|afraid|panic|scared|terror\b/.test(low)) return 'fear';
       if (/(closet|secret place|shut thy door|a great while before day|a solitary|draw nigh to god|ears are open|double minded|in secret;|in secret,|in secret\.|in secret\)|seeth in secret|seen in secret)\b/.test(low)) return 'secretprayer';
       if (/\bregret\w*|\bif only\b|should have|second guess|second-guess|hindsight|what if i|replaying yesterday|godly sorrow worketh|repentance to salvation|no condemnation to them which are in christ|forgetting those things which are behind|pressed toward the mark\b/.test(low)) return 'regret';
+      if (/\bmy spirit was overwhelmed\b|multitude of my thoughts within me\b|troubled on every side.? yet not distressed\b|\bwait thou only upon god\b|\bcasting all your care\b/.test(low)) return 'overwhelm';
       if (/\bgrief|grieve|grieving|mourning|mourn(ed|ing)?|bereave|bereft|\bloss\b|funeral|widow|orphan|weep|weeping|broken\s*heart|contrite|\bsorrow\b/.test(low)) return 'grief';
       if (/\bwait(ing)?\b|tarry|not yet|\bpatience\b|\bpatient\b|hope for that we see not|appointed time|delayed?\b/.test(low)) return 'waiting';
+      if (/\bparent\w*\s+fear\b|fear for (my |our )?(child|children|kids)\b|\blittle ones should perish\b|\bgreat shall be the peace of thy children\b|\bsuffer the little children to come\b/.test(low)) return 'parentfear';
       if (/\bparent(ing)?\b|\bchildren\b|\bchild\b|\bmother\b|\bmothers?\b|ye fathers,|fathers, provoke|train up|nurture|admonition|heritage of|little ones|toddler|babies\b/.test(low)) return 'parenting';
       if (/\bexhaust|exhausted|weariness|\bweary\b|\btired\b|weary in well|faint|fainted|heavily laden|no might|satiated the weary|sorrowful soul|giveth his beloved sleep|bread of sorrows|strength is made perfect in weakness|renew their strength|mount up with wings\b/.test(low)) return 'exhaustion';
       if (/\bcompar(e|ing|ison|ed)?\b|comparing themselves|envy|envying|vainglory|esteem other better|commending themselves|measuring themselves|contentment|godliness with content|where envying and strife\b/.test(low)) return 'comparison';
@@ -497,6 +544,7 @@
     }
     var UOG_PLANS = {
       anxiety: [
+        { href: '/plans.html?plan=universityoverwhelm', label: 'University of Overwhelm' },
         { href: '/plans.html?plan=universityanxiety', label: 'Anxiety & Fear' },
         { href: '/plans.html?plan=worrytrust', label: 'Worry to Trust' },
         { href: '/plans.html?plan=peace', label: '7-Day Peace' }
@@ -523,16 +571,20 @@
       ],
       parenting: [
         { href: '/plans.html?plan=universityparenting', label: 'Parenting Young Kids' },
+        { href: '/plans.html?plan=universityparentfear', label: 'Fear for My Children' },
         { href: '/plans.html?plan=parenting', label: 'Parenting' },
         { href: '/plans.html?plan=familyworship', label: 'Family Worship' }
       ],
       exhaustion: [
         { href: '/plans.html?plan=universityexhaustion', label: 'Exhaustion' },
+        { href: '/plans.html?plan=universityoverwhelm', label: 'University of Overwhelm' },
+        { href: '/plans.html?plan=universitycontentment', label: 'Contentment in Small Seasons' },
         { href: '/plans.html?plan=wearyhands', label: 'Weary Hands' },
         { href: '/plans.html?plan=peace', label: '7-Day Peace' }
       ],
       gratitude: [
         { href: '/plans.html?plan=universitygratitude', label: 'Gratitude' },
+        { href: '/plans.html?plan=universitycontentment', label: 'Contentment in Small Seasons' },
         { href: '/plans.html?plan=gratitude', label: '7-Day Gratitude' },
         { href: '/plans.html?plan=psalmspraise', label: 'Psalms of Praise' }
       ],
@@ -552,6 +604,7 @@
         { href: '/plans.html?plan=peacemakers', label: 'Peacemakers' }
       ],
       comparison: [
+        { href: '/plans.html?plan=universitycontentment', label: 'Contentment in Small Seasons' },
         { href: '/plans.html?plan=universitycomparison', label: 'University of Comparison' },
         { href: '/plans.html?plan=universitygratitude', label: 'University of Gratitude' },
         { href: '/plans.html?plan=peace', label: '7-Day Peace' }
@@ -563,6 +616,7 @@
       ],
       regret: [
         { href: '/plans.html?plan=universityregret', label: 'University of Regret' },
+        { href: '/plans.html?plan=universitycontentment', label: 'Contentment in Small Seasons' },
         { href: '/plans.html?plan=universityforgiveness', label: 'University of Forgiveness' },
         { href: '/plans.html?plan=universitygrief', label: 'University of Grief' }
       ],
@@ -575,6 +629,16 @@
         { href: '/plans.html?plan=universitybitterness', label: 'University of Bitterness' },
         { href: '/plans.html?plan=universityforgiveness', label: 'University of Forgiveness' },
         { href: '/plans.html?plan=lettinggo', label: 'Letting Go' }
+      ],
+      overwhelm: [
+        { href: '/plans.html?plan=universityoverwhelm', label: 'University of Overwhelm' },
+        { href: '/plans.html?plan=overwhelmedburnout', label: 'Overwhelmed / Burnout' },
+        { href: '/plans.html?plan=universityexhaustion', label: 'Exhaustion' }
+      ],
+      parentfear: [
+        { href: '/plans.html?plan=universityparentfear', label: 'Fear for My Children' },
+        { href: '/plans.html?plan=universityparenting', label: 'Parenting Young Kids' },
+        { href: '/plans.html?plan=littlehearts', label: 'Little Hearts, Big Fear' }
       ],
       hope: [
         { href: '/plans.html?plan=hopeuncertain', label: 'When Hope Feels Thin' },

@@ -14,11 +14,12 @@ test.describe('Embeddable verse widgets', () => {
     await expect(page.locator('#embed-preview')).toContainText('Real life today');
 
     await page.getByRole('button', { name: /Family bedtime/i }).click();
-    await expect(page.locator('#embed-preview')).toContainText('Psalms 91:1');
+    // Display may normalize book title to “Psalm N” while data uses “Psalms N:m” — both cite the same verse.
+    await expect(page.locator('#embed-preview')).toContainText(/Psalms?\s+91:1/);
     await expect(page.locator('#embed-code-output')).toContainText('data-audience="family"');
 
     await page.getByRole('button', { name: /Grief comfort/i }).click();
-    await expect(page.locator('#embed-preview')).toContainText('Psalms 34:18');
+    await expect(page.locator('#embed-preview')).toContainText(/Psalms?\s+34:18/);
     await expect(page.locator('#embed-code-output')).toContainText('data-layout="compact"');
   });
 });

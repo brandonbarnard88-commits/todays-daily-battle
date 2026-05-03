@@ -13,6 +13,47 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 const distIndex = path.join(root, 'dist', 'index.html');
 
+/** Replace stub id="tdb-home-daily-graph" (source index.html → dist) with UTC verse graph. */
+const HOME_DAILY_LD_RE =
+  /<script nonce="tdb2025s" type="application\/ld\+json" id="tdb-home-daily-graph">\s*[\s\S]*?<\/script>/;
+
+function buildHomeLdGraph(title, desc, refPlain, textPlain) {
+  const site = 'https://todaysdailybattle.com';
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': site + '/#webpage',
+        url: site + '/',
+        name: title,
+        description: desc,
+        inLanguage: 'en-US',
+        isPartOf: {
+          '@type': 'WebSite',
+          name: "Today's Daily Battle",
+          url: site + '/',
+        },
+        mainEntity: { '@id': site + '/#home-daily-verse' },
+      },
+      {
+        '@type': 'CreativeWork',
+        '@id': site + '/#home-daily-verse',
+        name: refPlain + ' (KJV)',
+        headline: refPlain + ' (KJV)',
+        text: textPlain,
+        inLanguage: 'en-US',
+        isAccessibleForFree: true,
+        isBasedOn: {
+          '@type': 'Book',
+          name: 'Holy Bible',
+          bookEdition: 'King James Version',
+        },
+      },
+    ],
+  };
+}
+
 function fail(msg) {
   console.error('inject-home-hero:', msg);
   process.exit(1);
@@ -158,12 +199,14 @@ function main() {
     }
   }
 
-  const title =
-    'God\u2019s University of Life \u2014 Today\u2019s Verse \u2014 ' + refPlain + ' (KJV)';
+  const brandTitle =
+    'Today\u2019s Daily Battle \u2014 One KJV Verse, One Small Step, One Prayer';
+  const title = brandTitle;
   const desc =
-    'Today\u2019s KJV verse: ' +
+    'Today\u2019s KJV: ' +
     refPlain +
-    '. God\u2019s University of Life\u2014quiet campus, search by how you feel, prayer wall, works offline. No ads, no login, no grades.';
+    '. Quiet KJV daily devotional. No ads, no login. Start with today\u2019s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.';
+  const ldWebPageName = brandTitle + ' \u00b7 Today\u2019s KJV: ' + refPlain;
 
   html = html.replace(/<title>[^<]*<\/title>/, '<title>' + escapeHtmlText(title) + '</title>');
   html = html.replace(
@@ -185,6 +228,19 @@ function main() {
   html = html.replace(
     /<meta name="twitter:description" content="[^"]*"/,
     '<meta name="twitter:description" content="' + escapeHtmlAttr(desc) + '"'
+  );
+
+  if (!HOME_DAILY_LD_RE.test(html)) {
+    fail(
+      'dist/index.html missing id="tdb-home-daily-graph" stub — sync index.html comment block into dist',
+    );
+  }
+  const homeLdPretty = JSON.stringify(buildHomeLdGraph(ldWebPageName, desc, refPlain, textPlain), null, 2);
+  html = html.replace(
+    HOME_DAILY_LD_RE,
+    '<script nonce="tdb2025s" type="application/ld+json" id="tdb-home-daily-graph">\n' +
+      homeLdPretty +
+      '\n  </script>',
   );
 
   var appleShort = 'Quiet place · ' + refPlain;

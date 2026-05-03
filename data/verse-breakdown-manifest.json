@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-29T14:47:03.375Z",
-  "surfacedRefCount": 2944,
-  "overrideCount": 2944,
+  "generatedAt": "2026-05-03T14:35:52.771Z",
+  "surfacedRefCount": 2951,
+  "overrideCount": 2951,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -37,14 +37,6 @@
     },
     "api/src/pilot-data/canon-daily-verse.json": {
       "refs": 10,
-      "pairs": 0
-    },
-    "ar/qalaq.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "ar/rajaa.html": {
-      "refs": 1,
       "pairs": 0
     },
     "as-the-year-ends-one-page-print.html": {
@@ -89,14 +81,6 @@
     },
     "bible-tool.html": {
       "refs": 141,
-      "pairs": 0
-    },
-    "bn/asha.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "bn/chinta.html": {
-      "refs": 1,
       "pairs": 0
     },
     "build-action-bible-packs.js": {
@@ -263,19 +247,7 @@
       "refs": 13,
       "pairs": 18
     },
-    "hi/asha.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "hi/chinta.html": {
-      "refs": 1,
-      "pairs": 0
-    },
     "hi/dar.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "id/harapan.html": {
       "refs": 1,
       "pairs": 0
     },
@@ -284,15 +256,15 @@
       "pairs": 0
     },
     "id/kecemasan.html": {
-      "refs": 3,
+      "refs": 2,
       "pairs": 0
     },
     "id/ketakutan.html": {
-      "refs": 3,
+      "refs": 2,
       "pairs": 0
     },
     "index.html": {
-      "refs": 105,
+      "refs": 104,
       "pairs": 123
     },
     "journal/anxiety-before-tomorrow.html": {
@@ -760,8 +732,8 @@
       "pairs": 1
     },
     "plans.html": {
-      "refs": 249,
-      "pairs": 254
+      "refs": 261,
+      "pairs": 272
     },
     "printables.html": {
       "refs": 9,
@@ -787,15 +759,7 @@
       "refs": 7,
       "pairs": 0
     },
-    "ru/nadezhda.html": {
-      "refs": 1,
-      "pairs": 0
-    },
     "ru/strakh.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "ru/trevoga.html": {
       "refs": 1,
       "pairs": 0
     },
@@ -847,22 +811,6 @@
       "refs": 3,
       "pairs": 0
     },
-    "sv/hopp.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "sv/oro.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "sw/tumaini.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "sw/wasiwasi.html": {
-      "refs": 1,
-      "pairs": 0
-    },
     "tdb-january-quiet.js": {
       "refs": 31,
       "pairs": 0
@@ -880,15 +828,11 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 116,
+      "refs": 124,
       "pairs": 0
     },
     "tl/kabalisahan.html": {
-      "refs": 3,
-      "pairs": 0
-    },
-    "tl/pagasa.html": {
-      "refs": 1,
+      "refs": 2,
       "pairs": 0
     },
     "topic-anxiety.html": {
@@ -947,7 +891,23 @@
       "refs": 6,
       "pairs": 0
     },
+    "university-at-the-table-print.html": {
+      "refs": 4,
+      "pairs": 0
+    },
     "university-comparison-one-page-print.html": {
+      "refs": 6,
+      "pairs": 0
+    },
+    "university-contentment-one-page-print.html": {
+      "refs": 6,
+      "pairs": 0
+    },
+    "university-overwhelm-one-page-print.html": {
+      "refs": 6,
+      "pairs": 0
+    },
+    "university-parent-fear-one-page-print.html": {
       "refs": 6,
       "pairs": 0
     },
@@ -956,7 +916,7 @@
       "pairs": 0
     },
     "university.html": {
-      "refs": 48,
+      "refs": 49,
       "pairs": 0
     },
     "utils.js": {
@@ -976,7 +936,7 @@
       "pairs": 0
     },
     "verse-image.html": {
-      "refs": 2,
+      "refs": 10,
       "pairs": 0
     },
     "verse-image.js": {
@@ -1045,26 +1005,6 @@
     },
     "yearly-rhythm.html": {
       "refs": 5,
-      "pairs": 0
-    },
-    "zh/gudu.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "zh/jiaolv.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "zh/neijiu.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "zh/taiduo.html": {
-      "refs": 1,
-      "pairs": 0
-    },
-    "zh/xiwang.html": {
-      "refs": 1,
       "pairs": 0
     }
   },
@@ -1780,6 +1720,8 @@
     "Ecclesiastes 1:1",
     "Ecclesiastes 1:2",
     "Ecclesiastes 3:1",
+    "Ecclesiastes 3:12",
+    "Ecclesiastes 3:12-13",
     "Ecclesiastes 3:5",
     "Ecclesiastes 4:12",
     "Ecclesiastes 4:9",
@@ -2265,6 +2207,7 @@
     "Isaiah 53:5",
     "Isaiah 53:6",
     "Isaiah 54:10",
+    "Isaiah 54:13",
     "Isaiah 54:17",
     "Isaiah 54:5",
     "Isaiah 54:6",
@@ -3075,6 +3018,7 @@
     "Matthew 17:21",
     "Matthew 17:5",
     "Matthew 17:6-7",
+    "Matthew 18:14",
     "Matthew 18:15",
     "Matthew 18:17",
     "Matthew 18:20",
@@ -3400,6 +3344,7 @@
     "Philippians 3:2",
     "Philippians 3:20",
     "Philippians 4:11",
+    "Philippians 4:11-13",
     "Philippians 4:13",
     "Philippians 4:19",
     "Philippians 4:4",
@@ -3596,6 +3541,7 @@
     "Psalm 12:6",
     "Psalm 130:5",
     "Psalm 130:7",
+    "Psalm 131:1-2",
     "Psalm 131:3",
     "Psalm 133:1",
     "Psalm 134:2",
@@ -3611,6 +3557,7 @@
     "Psalm 139:17",
     "Psalm 139:23-24",
     "Psalm 13:5",
+    "Psalm 142:3",
     "Psalm 142:7",
     "Psalm 143:8",
     "Psalm 144:1",
@@ -4056,6 +4003,7 @@
     "Colossians 3:3-4": "For ye are dead, and your life is hid with Christ in God. When Christ, who is our life, shall appear, then shall ye also appear with him in glory.",
     "Deuteronomy 28:1-2": "And it shall come to pass, if thou shalt hearken diligently unto the voice of the LORD thy God... that the LORD thy God will set thee on high above all nations of the earth: And all these blessings shall come on thee...",
     "Deuteronomy 6:6-7": "And these words, which I command thee this day, shall be in thine heart: And thou shalt teach them diligently unto thy children, and shalt talk of them when thou sittest in thine house, and when thou walkest by the way, and when thou liest down, and when thou risest up.",
+    "Ecclesiastes 3:12-13": "I know that there is no good in them, but for a man to rejoice, and to do good in his life. And also that every man should eat and drink, and enjoy the good of all his labour, it is the gift of God.",
     "Ecclesiastes 4:9-10": "Two are better than one; because they have a good reward for their labour. For if they fall, the one will lift up his fellow: but woe to him that is alone when he falleth; for he hath not another to help him up.",
     "Ephesians 2:8-9": "For by grace are ye saved through faith; and that not of yourselves: it is the gift of God: Not of works, lest any man should boast.",
     "Ephesians 4:26-27": "Be ye angry, and sin not: let not the sun go down upon your wrath: Neither give place to the devil.",
@@ -4116,6 +4064,7 @@
     "Micah 7:18-19": "Who is a God like unto thee, that pardoneth iniquity, and passeth by the transgression of the remnant of his heritage? he retaineth not his anger for ever, because he delighteth in mercy. He will turn again, he will have compassion upon us; he will subdue our iniquities; and thou wilt cast all their sins into the depths of the sea.",
     "Numbers 6:24-26": "The Lord bless thee, and keep thee: The LORD make his face shine upon thee, and be gracious unto thee: The LORD lift up his countenance upon thee, and give thee peace.",
     "Philippians 3:13-14": "Brethren, I count not myself to have apprehended: but this one thing I do, forgetting those things which are behind, and reaching forth unto those things which are before, I press toward the mark for the prize of the high calling of God in Christ Jesus.",
+    "Philippians 4:11-13": "Not that I speak in respect of want: for I have learned, in whatsoever state I am, therewith to be content. I know both how to be abased, and I know how to abound: every where and in all things I am instructed both to be full and to be hungry, both to abound and to suffer need. I can do all things through Christ which strengtheneth me.",
     "Philippians 4:6-7": "Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.",
     "Proverbs 22:24-25": "Make no friendship with an angry man; and with a furious man shalt thou not go: Lest thou learn his ways, and get a snare to thy soul.",
     "Proverbs 3:5-6": "Trust in the LORD with all thine heart; and lean not unto thine own understanding. In all thy ways acknowledge him, and he shall direct thy paths.",
@@ -4233,6 +4182,7 @@
     "Psalm 12:6": "The words of the Lord are pure words.",
     "Psalm 130:5": "I wait for the LORD, my soul doth wait, and in his word do I hope.",
     "Psalm 130:7": "Let Israel hope in the Lord: for with the Lord there is mercy.",
+    "Psalm 131:1-2": "Lord, my heart is not haughty, nor mine eyes lofty: neither do I exercise myself in great matters, or in things too high for me. Surely I have behaved and quieted myself, as a child that is weaned of his mother: my soul is even as a weaned child.",
     "Psalm 131:3": "Let Israel hope in the Lord from henceforth and for ever.",
     "Psalm 133:1": "Behold, how good and how pleasant it is for brethren to dwell together in unity!",
     "Psalm 134:2": "Lift up your hands in the sanctuary, and bless the Lord.",
@@ -4248,6 +4198,7 @@
     "Psalm 139:17": "How precious also are thy thoughts unto me, O God! how great is the sum of them!",
     "Psalm 139:23-24": "Search me, O God, and know my heart: try me, and know my thoughts: And see if there be any wicked way in me, and lead me in the way everlasting.",
     "Psalm 13:5": "I have trusted in thy mercy; my heart shall rejoice in thy salvation.",
+    "Psalm 142:3": "When my spirit was overwhelmed within me, then thou knewest my path. In the way wherein I walked have they privily laid a snare for me.",
     "Psalm 142:7": "Bring my soul out of prison, that I may praise thy name: the righteous shall compass me about; for thou shalt deal bountifully with me.",
     "Psalm 143:8": "Cause me to hear thy lovingkindness in the morning; for in thee do I trust: cause me to know the way wherein I should walk.",
     "Psalm 144:1": "Blessed be the LORD my strength, which teacheth my hands to war, and my fingers to fight.",
@@ -10127,6 +10078,22 @@
         "to": "All"
       }
     },
+    "Ecclesiastes 3:12": {
+      "general": {
+        "plainExplanation": "I know that there is no good in them, but for a man to rejoice, and to do good in his life.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Solomon",
+        "to": "All"
+      }
+    },
+    "Ecclesiastes 3:12-13": {
+      "general": {
+        "plainExplanation": "Key idea: I know that there is no good in them, but for a man to rejoice, and to do good in his life. And also that every man should eat and drink, and enjoy the good...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Solomon",
+        "to": "All"
+      }
+    },
     "Ecclesiastes 3:5": {
       "general": {
         "plainExplanation": "A time to cast away stones, and a time to gather stones together; a time to embrace, and a time to refrain from embracing;",
@@ -14002,6 +13969,14 @@
     "Isaiah 54:10": {
       "general": {
         "plainExplanation": "God's love and peace won't leave you—He has promised.",
+        "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
+        "about": "Isaiah",
+        "to": "Judah"
+      }
+    },
+    "Isaiah 54:13": {
+      "general": {
+        "plainExplanation": "And all your children shall be taught of the LORD; and great shall be the peace of your children.",
         "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
         "about": "Isaiah",
         "to": "Judah"
@@ -20487,6 +20462,14 @@
         "to": "Believers"
       }
     },
+    "Matthew 18:14": {
+      "general": {
+        "plainExplanation": "Even so it is not the will of your Father which is in heaven, that one of these little ones should be lost.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Matthew 18:15": {
       "general": {
         "plainExplanation": "Moreover if your brother shall trespass against you, go and tell him his fault between you and him alone: if he shall hear you, you hast gained your brother.",
@@ -23087,6 +23070,14 @@
         "to": "Philippi"
       }
     },
+    "Philippians 4:11-13": {
+      "general": {
+        "plainExplanation": "Key idea: Not that I speak in respect of want: for I have learned, in whatever state I am, therewith to be content. I know both how to be abased, and I know how to ab...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Philippi"
+      }
+    },
     "Philippians 4:13": {
       "general": {
         "plainExplanation": "Christ gives me the strength to face whatever I'm going through today.",
@@ -24655,6 +24646,14 @@
         "to": "Everyone hurting or thankful"
       }
     },
+    "Psalm 131:1-2": {
+      "general": {
+        "plainExplanation": "Key idea: Lord, my heart is not haughty, nor mine eyes lofty: neither do I exercise myself in great matters, or in things too high for me. Surely I have behaved and q...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
     "Psalm 131:3": {
       "general": {
         "plainExplanation": "Let Israel hope in the Lord from henceforth and for ever.",
@@ -24771,6 +24770,14 @@
       "general": {
         "plainExplanation": "I have trusted in your mercy; my heart shall rejoice in your salvation.",
         "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
+    "Psalm 142:3": {
+      "general": {
+        "plainExplanation": "When my spirit was overwhelmed within me, then you knewest my path. In the way wherein I walked have they privily laid a snare for me.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"
       }

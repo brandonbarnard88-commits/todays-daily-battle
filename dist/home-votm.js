@@ -23,9 +23,20 @@
         if (lbl) lbl.textContent = 'Listen not open here';
         else btn.textContent = 'Listen not open here';
       } else {
+        var votmIdleAria = 'Listen to this month\u2019s KJV memory verse with your device speakers';
+        var votmStopAria = 'Stop reading this month\u2019s KJV memory verse';
+        btn.setAttribute('aria-pressed', 'false');
         btn.addEventListener('click', function () {
           var T = window.TDB_memoryVerses;
           if (!T || !window.speechSynthesis) return;
+          if (btn.getAttribute('aria-pressed') === 'true') {
+            try {
+              window.speechSynthesis.cancel();
+            } catch (eCancel) {}
+            btn.setAttribute('aria-pressed', 'false');
+            btn.setAttribute('aria-label', votmIdleAria);
+            return;
+          }
           var m = T.getMonthlyForDate(new Date());
           if (!m) return;
           try {
@@ -33,6 +44,18 @@
           } catch (e) {}
           var u = new SpeechSynthesisUtterance(m.ref + ' (KJV). ' + m.text);
           u.rate = 0.9;
+          u.onstart = function () {
+            btn.setAttribute('aria-pressed', 'true');
+            btn.setAttribute('aria-label', votmStopAria);
+          };
+          u.onend = function () {
+            btn.setAttribute('aria-pressed', 'false');
+            btn.setAttribute('aria-label', votmIdleAria);
+          };
+          u.onerror = function () {
+            btn.setAttribute('aria-pressed', 'false');
+            btn.setAttribute('aria-label', votmIdleAria);
+          };
           window.speechSynthesis.speak(u);
           try {
             if (typeof window.trackEvent === 'function') {

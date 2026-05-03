@@ -5783,35 +5783,63 @@ html[data-theme="sepia"] .hero-verse-card.verse-card p {
 }
 
 /* Ensure verse text is always readable (base state) — narration highlight is enhancement only.
-   Strong contrast for Matthew 21:22 and all daily/hero verses in every theme. */
+   Strong contrast for Matthew 21:22 (“All things, whatsoever ye shall ask...”) and all daily/hero verses.
+   Increased specificity + force for hero/quote containers in parchment/sepia and light themes. */
 .daily-verse-text,
 #heroVerse,
+#heroVerse * ,
 .verse-text,
+.verse-body,
 .daily-verse-body p,
 .tdb-vb-inline-verse-text,
 .hero-verse-card.verse-card p,
-#daily-verse-card .daily-verse-text {
-  color: var(--text, #e5e5e5);
+.hero-verse-card.verse-card .verse-body,
+.hero-verse-wrap .hero-verse-card p,
+#daily-verse-card .daily-verse-text,
+.hero-verse-card blockquote,
+.hero-verse-card .quote {
+  color: var(--text, #e5e5e5) !important;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
   font-weight: 500;
 }
 
 html[data-theme="light"] .daily-verse-text,
 html[data-theme="light"] #heroVerse,
+html[data-theme="light"] #heroVerse *,
 html[data-theme="light"] .verse-text,
+html[data-theme="light"] .verse-body,
 html[data-theme="light"] .daily-verse-body p,
 html[data-theme="light"] .tdb-vb-inline-verse-text,
 html[data-theme="light"] .hero-verse-card.verse-card p,
+html[data-theme="light"] .hero-verse-card.verse-card .verse-body,
+html[data-theme="light"] .hero-verse-wrap .hero-verse-card p,
 html[data-theme="light"] #daily-verse-card .daily-verse-text,
+html[data-theme="light"] .hero-verse-card blockquote,
+html[data-theme="light"] .hero-verse-card .quote,
 html[data-theme="sepia"] .daily-verse-text,
 html[data-theme="sepia"] #heroVerse,
+html[data-theme="sepia"] #heroVerse *,
 html[data-theme="sepia"] .verse-text,
+html[data-theme="sepia"] .verse-body,
 html[data-theme="sepia"] .daily-verse-body p,
 html[data-theme="sepia"] .tdb-vb-inline-verse-text,
 html[data-theme="sepia"] .hero-verse-card.verse-card p,
-html[data-theme="sepia"] #daily-verse-card .daily-verse-text {
-  color: #111827;
+html[data-theme="sepia"] .hero-verse-card.verse-card .verse-body,
+html[data-theme="sepia"] .hero-verse-wrap .hero-verse-card p,
+html[data-theme="sepia"] #daily-verse-card .daily-verse-text,
+html[data-theme="sepia"] .hero-verse-card blockquote,
+html[data-theme="sepia"] .hero-verse-card .quote {
+  color: #111827 !important;
   text-shadow: none;
+  font-weight: 600;
+}
+
+/* Hero card background must support dark text in light/sepia */
+html[data-theme="light"] .hero-verse-card.verse-card,
+html[data-theme="sepia"] .hero-verse-card.verse-card {
+  background: #f8f1e0 !important;
+  border-color: #d4b88a !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08) !important;
 }
 .america-in-card {
   margin: 0.75rem 0 0;

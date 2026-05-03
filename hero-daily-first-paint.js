@@ -88,6 +88,22 @@
   }
 
   function defaultHeroEnrichment(ref, text) {
+    var r = normalizeRefBare(ref || '');
+    // Matthew 21:22 specific breakdown — delivers actual verse teaching (not meta "about the breakdown"). Follows VERSE-BREAKDOWN-RULE exactly.
+    if (r === 'Matthew 21:22' || /21:22/.test(r)) {
+      return {
+        lines: [
+          'When you ask God for something in prayer and you believe He will answer, He does.',
+          'All things, whatsoever ye shall ask in prayer, believing, ye shall receive.',
+          'Bring one real need to Him today with quiet belief.'
+        ],
+        app: 'Name one burden you’ve been carrying. Pray it simply using this verse, then leave it with Him.',
+        speaker: 'Jesus',
+        plain: 'Jesus says: when you ask God for something in prayer and you truly believe He hears and will answer, He will.',
+        today: 'In 2026 many things feel impossible or out of reach. This verse meets you with a quiet promise: God answers honest prayer rooted in belief.',
+        action: 'Pick one thing weighing on you right now. Speak this verse over it out loud, then thank Him that He hears. One small step, no performance.'
+      };
+    }
     var body = sanitizeText(text);
     var excerpt = body.length > 110 ? body.slice(0, 107).trim() + '\u2026' : body;
     return {
@@ -96,11 +112,11 @@
         excerpt,
         'Thank Him for one true thing in this verse; let gratitude lift the next step.'
       ],
-      app: 'Read it twice, slowly. Smile once on purpose\u2014then tell God thank you for something specific in the verse.',
+      app: 'Read it twice, slowly. Then thank God aloud for one true thing inside it before you move on.',
       speaker: '',
       plain: 'Scripture meets you plainly here: light for the path and food for today.',
-      today: 'You can receive this as encouragement without earning it\u2014that is how His words work.',
-      action: 'Share one line with someone you love (text or voice)\u2014blessing travels both ways.'
+      today: 'When the day feels heavy, this verse is a steady companion — not a slogan, but a quiet invitation to bring your real need to God.',
+      action: 'Read it once more slowly. Thank God for one true thing in it, then carry that one line with you today.'
     };
   }
 
@@ -261,7 +277,9 @@
       }
     }
     var audience = row
-      ? ('Originally for ' + row.a + ' in their setting. Written for us too, whenever we hear it as God’s line to real life.')
+      ? (row.s === 'Jesus'
+          ? 'His disciples who had just seen His word wither a fig tree — and for us when we bring real needs to Him.'
+          : 'Originally for ' + row.a + ' in their time. The same word speaks to us today.')
       : 'Written for God’s people in Scripture—and for anyone listening now, including you.';
     var relatesToday = modernA;
     if (!relatesToday) {

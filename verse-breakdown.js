@@ -126,6 +126,9 @@
     if (/\b(hope|hopeth|hoped)\b/.test(l)) return 'Even when the day feels thin, this verse holds something steady.';
     if (/\b(peace|rest)\b/.test(l)) return 'This verse offers a quiet place to set the day down.';
     if (/\b(strength|strong|strengthen)\b/.test(l)) return 'This verse reminds you there is strength beyond your own.';
+    if (/\b(pray|prayer|believe|believing|ask.*believ|believ.*receive)\b/.test(l)) {
+      return 'Bring your real need to God in prayer. Believe He hears. He answers.';
+    }
     return 'Sit with this verse for one slow minute. What does it ask of you today?';
   }
 

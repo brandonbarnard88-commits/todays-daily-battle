@@ -7775,6 +7775,7 @@ var VERSE_PLAIN_MEANINGS = {
   'Romans 8:28': 'God works through everything—even the hard things—for the good of those who love Him.',
   'Romans 15:13': 'God fills you with hope and peace as you trust Him.',
   'Matthew 11:28': 'Jesus invites anyone who is tired and weighed down to come to Him and find rest.',
+  'Matthew 21:22': 'When you ask God for something in prayer and you truly believe He will answer, He will.',
   'Isaiah 41:10': 'God tells us not to fear—He is with us, strengthens us, and holds us up.',
   'Joshua 1:9': 'Be strong and courageous; God is with you wherever you go.',
   '1 Peter 5:7': 'Give God your worries—He cares about you.',

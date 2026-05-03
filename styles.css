@@ -4162,10 +4162,14 @@ button.tdb-header-account-nudge__link {
   white-space: nowrap;
 }
 .auth-daily-verse-text {
-  color: rgba(226, 232, 240, 0.68);
+  color: rgba(226, 232, 240, 0.92);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+html[data-theme="light"] .auth-daily-verse-text,
+html[data-theme="sepia"] .auth-daily-verse-text {
+  color: #1a2234;
 }
 .auth-daily-verse-more {
   display: inline-flex;
@@ -5770,8 +5774,44 @@ body.bible-tool-page #search-hero.search-hero.glass .verse-breakdown-content str
   font-family: var(--font-ui);
   font-size: 0.84rem;
   font-weight: 500;
-  line-height: 1.4;
-  color: rgba(226, 232, 240, 0.78);
+  line-height: 1.45;
+  color: rgba(226, 232, 240, 0.92);
+}
+html[data-theme="light"] .hero-verse-card.verse-card p,
+html[data-theme="sepia"] .hero-verse-card.verse-card p {
+  color: #1a2234;
+}
+
+/* Ensure verse text is always readable (base state) — narration highlight is enhancement only.
+   Strong contrast for Matthew 21:22 and all daily/hero verses in every theme. */
+.daily-verse-text,
+#heroVerse,
+.verse-text,
+.daily-verse-body p,
+.tdb-vb-inline-verse-text,
+.hero-verse-card.verse-card p,
+#daily-verse-card .daily-verse-text {
+  color: var(--text, #e5e5e5);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  font-weight: 500;
+}
+
+html[data-theme="light"] .daily-verse-text,
+html[data-theme="light"] #heroVerse,
+html[data-theme="light"] .verse-text,
+html[data-theme="light"] .daily-verse-body p,
+html[data-theme="light"] .tdb-vb-inline-verse-text,
+html[data-theme="light"] .hero-verse-card.verse-card p,
+html[data-theme="light"] #daily-verse-card .daily-verse-text,
+html[data-theme="sepia"] .daily-verse-text,
+html[data-theme="sepia"] #heroVerse,
+html[data-theme="sepia"] .verse-text,
+html[data-theme="sepia"] .daily-verse-body p,
+html[data-theme="sepia"] .tdb-vb-inline-verse-text,
+html[data-theme="sepia"] .hero-verse-card.verse-card p,
+html[data-theme="sepia"] #daily-verse-card .daily-verse-text {
+  color: #111827;
+  text-shadow: none;
 }
 .america-in-card {
   margin: 0.75rem 0 0;
@@ -11504,10 +11544,12 @@ body.red-letter-off .red-letter-card {
 }
 .dark-mode .mark-as-prayed-label { color: var(--text-muted, #e0e0e0); }
 
-.verse-highlight {
-  outline: 2px solid gold;
-  outline-offset: 2px;
-  transition: outline-offset 0.2s ease;
+.verse-highlight,
+.hero-verse-wrap.hero-verse-highlight .hero-verse-card.verse-card {
+  outline: 3px solid #e3bc67;
+  outline-offset: 4px;
+  background: rgba(227, 188, 103, 0.12);
+  transition: outline-offset 0.2s ease, background 0.2s ease;
 }
 
 .done-for-today-banner {

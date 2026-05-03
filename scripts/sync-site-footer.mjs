@@ -1,5 +1,5 @@
 /**
- * Replaces every <footer>...</footer> in each HTML file with partials/site-footer.html.
+ * Replaces every <footer>...</footer> in each HTML file with partials/site-footer.html (thematic sitemap: Narrow Paths, Tools of the Quiet Trade, For the Household of Faith, Further In).
  * If multiple footers exist (merge drift), keeps one canonical footer and strips the rest.
  * Excludes lightweight pages, Spanish topic pages, kids hubs, tool-minimal footers, and 404s.
  * Run from repo root: node scripts/sync-site-footer.mjs

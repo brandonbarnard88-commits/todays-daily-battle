@@ -27,8 +27,7 @@ const TAGLINE_SPAN =
 
 const UOG_UNIV_LINE =
   /<p class="tdb-brand-subtitle-learning uog-header-learning-line" lang="en">The University of God &mdash; learning of Him, one day at a time\.<\/p>/g;
-const UOG_REPLACE =
-  '<p class="tdb-brand-subtitle-learning uog-header-learning-line" lang="en">Learning of Him, one day at a time.</p>';
+const UOG_REPLACE = '';
 
 function walkHtml(dir, baseRel, out) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });

@@ -9043,27 +9043,6 @@
       </nav>
     </header>
 
-    <dialog id="tdbFirstVisitDialog" class="tdb-first-visit-dialog" aria-labelledby="tdbFirstVisitH1" aria-modal="true">
-      <div class="tdb-first-visit-panel">
-        <h2 id="tdbFirstVisitH1" class="tdb-first-visit-title">First time?</h2>
-        <p class="tdb-first-visit-lead">Same quiet campus&mdash;verse, plans, and prayer on your timing.</p>
-        <div class="tdb-first-visit-actions">
-          <a href="#feel-section" class="btn btn-primary" id="tdbFirstVisitFeel">Name how I feel</a>
-          <button type="button" class="btn btn-secondary" id="tdbFirstVisitTour">Open site tour</button>
-          <button type="button" class="btn btn-secondary" id="tdbFirstVisitNotNow">Not now</button>
-        </div>
-      </div>
-    </dialog>
-    <style>
-      .tdb-first-visit-dialog { max-width: min(100vw - 2rem, 24rem); width: 100%; padding: 0; border: none; border-radius: 16px; background: var(--card); color: var(--text); box-shadow: 0 20px 48px rgba(0,0,0,0.5); }
-      :root[data-theme="light"] .tdb-first-visit-dialog { box-shadow: 0 16px 40px rgba(15,20,35,0.12); }
-      .tdb-first-visit-dialog::backdrop { background: rgba(4,8,16,0.65); backdrop-filter: blur(3px); }
-      .tdb-first-visit-panel { padding: 1.1rem 1.2rem 1.2rem; }
-      .tdb-first-visit-title { margin: 0 0 0.6rem; font-size: 1.15rem; color: var(--gold-soft, #e3bc67); }
-      .tdb-first-visit-lead { margin: 0 0 1rem; font-size: 0.95rem; line-height: 1.55; color: var(--muted); }
-      .tdb-first-visit-actions { display: flex; flex-direction: column; gap: 0.5rem; align-items: stretch; }
-      .tdb-first-visit-actions .btn { min-height: 48px; justify-content: center; text-align: center; }
-    </style>
 
     <nav class="tdb-home-quickbar" aria-label="Persistent site navigation">
       <a class="tdb-home-quickbar-link" href="/">Home</a>
@@ -15177,7 +15156,6 @@
   <!-- Phase 6: home secondary stack (injected by script.js after idle): memory-verses.js home-votm.js?v=20260402homevotm4 tdb-home-mobius-week.js?v=20260330home sky-ip-geo.js?v=20260327ipgeo word-study.js verse-narration.js verse-study.js family-verse-bridge.js gentle-suggest.js verse-breakdown-overrides.js?v=20260417-hydration verse-breakdown.js?v=20260417-hydration -->
   <script nonce="tdb2025s" type="module" fetchpriority="high" src="config.js"></script>
   <script nonce="tdb2025s" defer src="start-my-day.js?v=20260423-phase5-perf"></script>
-  <script nonce="tdb2025s" defer src="first-visit-welcome.js?v=20260423-phase5-perf"></script>
   <script nonce="tdb2025s" type="module" src="script.js?v=20260423-phase5-perf" data-cfasync="false" fetchpriority="high"></script>
   <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->
   <script nonce="tdb2025s" src="utils.js?v=20260331-patriotic-home" defer fetchpriority="low"></script>

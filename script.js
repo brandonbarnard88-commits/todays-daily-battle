@@ -3068,22 +3068,30 @@ function tdbSiteWideCookieDomain() {
 function safeWriteCookie(name, value, maxAgeSeconds, opts) {
   if (typeof document === 'undefined' || typeof name !== 'string' || !name) return;
   try {
-    var parts = [
-      name + '=' + encodeURIComponent(String(value == null ? '' : value)),
-      'Path=/',
-      'SameSite=Lax'
-    ];
+    function buildCookieParts(useDomain) {
+      var parts = [
+        name + '=' + encodeURIComponent(String(value == null ? '' : value)),
+        'Path=/',
+        'SameSite=Lax'
+      ];
+      if (useDomain) {
+        var dom = tdbSiteWideCookieDomain();
+        if (dom) parts.push('Domain=' + dom);
+      }
+      if (Number(maxAgeSeconds) > 0) {
+        parts.push('Max-Age=' + Math.floor(Number(maxAgeSeconds)));
+      }
+      if (typeof window !== 'undefined' && window.location && window.location.protocol === 'https:') {
+        parts.push('Secure');
+      }
+      return parts;
+    }
+    // Write the host cookie first, then also write the sitewide cookie when applicable.
+    // This protects consent persistence when a browser rejects/ignores the Domain attribute.
+    document.cookie = buildCookieParts(false).join('; ');
     if (opts && opts.siteWideDomain) {
-      var dom = tdbSiteWideCookieDomain();
-      if (dom) parts.push('Domain=' + dom);
+      document.cookie = buildCookieParts(true).join('; ');
     }
-    if (Number(maxAgeSeconds) > 0) {
-      parts.push('Max-Age=' + Math.floor(Number(maxAgeSeconds)));
-    }
-    if (typeof window !== 'undefined' && window.location && window.location.protocol === 'https:') {
-      parts.push('Secure');
-    }
-    document.cookie = parts.join('; ');
   } catch (_) {}
 }
 
@@ -3157,6 +3165,12 @@ function dispatchTdbAnalyticsConsentChange(status) {
   } catch (_) {}
 }
 
+function writeTdbPrivacyPopupAccepted() {
+  safeSetItem(TDB_PRIVACY_POPUP_ACCEPTED_KEY, 'yes');
+  safeSessionSet(TDB_PRIVACY_POPUP_ACCEPTED_KEY, 'yes');
+  safeWriteCookie(TDB_PRIVACY_POPUP_ACCEPTED_KEY, 'yes', TDB_COOKIE_CONSENT_MAX_AGE_SECONDS, { siteWideDomain: true });
+}
+
 function writeTdbCookieConsentState(status) {
   var normalized = status === 'accepted' ? 'accepted' : 'later';
   var payload = JSON.stringify({
@@ -3166,6 +3180,8 @@ function writeTdbCookieConsentState(status) {
   safeSetItem(TDB_COOKIE_CONSENT_KEY, payload);
   safeSessionSet(TDB_COOKIE_CONSENT_KEY, payload);
   safeWriteCookie(TDB_COOKIE_CONSENT_KEY, payload, TDB_COOKIE_CONSENT_MAX_AGE_SECONDS, { siteWideDomain: true });
+  // Mirror the one-time dismissal flag so the privacy notice stays gone after navigation.
+  writeTdbPrivacyPopupAccepted();
   dispatchTdbAnalyticsConsentChange(normalized);
 }
 

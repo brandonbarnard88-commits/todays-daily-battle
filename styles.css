@@ -22286,6 +22286,31 @@ html[data-theme="sepia"] .tdb-verse-page #daily-verse-card.verse-card {
   border-color: #d4b88a !important;
 }
 
+.tdb-verse-appearance-help {
+  margin-top: 0.6rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.86rem;
+}
+.tdb-verse-appearance-help-label {
+  color: var(--muted-readable, #a8b8cc);
+}
+.tdb-verse-appearance-help-btn {
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.42);
+  color: inherit;
+  padding: 0.34rem 0.58rem;
+  min-height: 38px;
+  font-size: 0.82rem;
+}
+html[data-theme="light"] .tdb-verse-appearance-help-btn,
+html[data-theme="sepia"] .tdb-verse-appearance-help-btn {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(120, 96, 56, 0.3);
+}
+
 /* Theme alias hardening: support legacy/body class and label aliases (night/daylight/parchment). */
 html[data-theme="night"] #heroVerse,
 html[data-theme="night"] #heroVerse *,

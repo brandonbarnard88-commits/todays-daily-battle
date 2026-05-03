@@ -883,6 +883,35 @@ function ensureVisibleThemeShortcut() {
   });
 }
 
+function ensureVerseAppearanceNudge() {
+  if (typeof document === 'undefined') return;
+  var hosts = [
+    document.getElementById('verseCard'),
+    document.getElementById('daily-verse-card'),
+    document.querySelector('.hero-verse-wrap')
+  ].filter(Boolean);
+  hosts.forEach(function (host) {
+    if (!host || host.querySelector('.tdb-verse-appearance-help')) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'tdb-verse-appearance-help';
+    var label = document.createElement('span');
+    label.className = 'tdb-verse-appearance-help-label';
+    label.textContent = "Can't read? ";
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tdb-verse-appearance-help-btn';
+    btn.setAttribute('data-tdb-theme-toggle', 'verse_help');
+    btn.setAttribute('aria-label', 'Switch appearance for better readability');
+    var txt = document.createElement('span');
+    txt.setAttribute('data-tdb-theme-toggle-text', '');
+    txt.textContent = 'Appearance: Night';
+    btn.appendChild(txt);
+    wrap.appendChild(label);
+    wrap.appendChild(btn);
+    host.appendChild(wrap);
+  });
+}
+
 function syncThemeToggleButtons() {
   if (typeof document === 'undefined') return;
   var theme = getTdbCurrentTheme();
@@ -900,6 +929,7 @@ function syncThemeToggleButtons() {
       btn.textContent = 'Appearance: ' + themeCopy.current;
     }
   });
+  ensureVerseAppearanceNudge();
 }
 
 function toggleTdbTheme(source) {
@@ -914,7 +944,7 @@ function toggleTdbTheme(source) {
     } catch (_) {}
   }
   ensureVisibleThemeShortcut();
-  ensureVisibleThemeShortcut();
+  ensureVerseAppearanceNudge();
   syncThemeToggleButtons();
 
   // Verse Image canvas redraw for perfect contrast on new T13–T15 templates and Story preset

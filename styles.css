@@ -16396,33 +16396,7 @@ body.has-promo-banner .header-search-sticky {
   width: min(100%, 14rem);
 }
 
-/* FINAL HIGH-SPECIFICITY OVERRIDE for primary verse text (Matthew 21:22 quote and all similar). 
-   Placed at end of file to win all cascades. Guarantees dark readable text on parchment/light backgrounds. 
-   Narration highlight remains visual enhancement only. */
-html[data-theme="sepia"] .hero-verse-card.verse-card,
-html[data-theme="light"] .hero-verse-card.verse-card,
-html[data-theme="sepia"] #heroVerse,
-html[data-theme="light"] #heroVerse,
-.hero-verse-card.verse-card p,
-#heroVerse,
-#heroVerse p,
-#heroVerse span,
-#heroVerse strong,
-#heroVerse em,
-.verse-card p,
-.daily-verse-text,
-.hero-verse-wrap .verse-text,
-.hero-verse-wrap .verse-body,
-.verse-body,
-blockquote.verse-text {
-  color: #111827 !important;
-  background-color: #f8f1e0 !important;
-  text-shadow: none !important;
-  font-weight: 600 !important;
-  line-height: 1.55 !important;
-}
-
-/* Force parchment-friendly card in light/sepia so dark text has contrast */
+/* Primary verse readability baseline (kept scoped; broad rules live near EOF for final cascade win). */
 html[data-theme="sepia"] .hero-verse-card.verse-card,
 html[data-theme="light"] .hero-verse-card.verse-card,
 html[data-theme="sepia"] .hero-verse-wrap .hero-verse-card,
@@ -22251,4 +22225,27 @@ details[open] > .tdb-gentle-suggest-summary::after {
     padding-left: 0.72rem;
     padding-right: 0.72rem;
   }
+}
+
+/* FINAL CASCADE WINNER: force primary verse readability (Matthew 21:22 and all similar) across themes.
+   Kept at true end-of-file so no later rules can override it. */
+#heroVerse,
+#heroVerse *,
+.hero-verse-wrap #heroVerse,
+.hero-verse-card.verse-card #heroVerse,
+.hero-verse-card.verse-card p,
+.tdb-verse-page #daily-verse-card .daily-verse-text,
+.tdb-verse-page #daily-verse-card .daily-verse-body,
+.tdb-verse-page #daily-verse-card .daily-verse-body * {
+  color: #111827 !important;
+  text-shadow: none !important;
+  font-weight: 600 !important;
+}
+
+html[data-theme="light"] .hero-verse-card.verse-card,
+html[data-theme="sepia"] .hero-verse-card.verse-card,
+html[data-theme="light"] .tdb-verse-page #daily-verse-card.verse-card,
+html[data-theme="sepia"] .tdb-verse-page #daily-verse-card.verse-card {
+  background: #f8f1e0 !important;
+  border-color: #d4b88a !important;
 }

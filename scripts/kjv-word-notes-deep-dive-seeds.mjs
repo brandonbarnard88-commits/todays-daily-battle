@@ -1,29 +1,29 @@
 export const DEEP_DIVE_SEEDS = {
   charity: {
-    kjvEraUsage: 'In 1611 English, "charity" carried the sense of costly Christian love, not mainly a donation drive or fundraising appeal.',
+    kjvEraUsage: 'In 1611 English, "charity" carried the full weight of sacrificial, costly love, not mainly a donation drive or fundraising appeal.',
     keyCrossRefs: ['1 Corinthians 13:1-13', 'Colossians 3:14', '1 Peter 4:8'],
-    studyNotes: 'Paul uses this word for the kind of love that stays when gifts, noise, and pride fall away. Read it as self-giving love that keeps choosing the good of another person.',
+    studyNotes: 'Paul uses it powerfully in 1 Corinthians 13: "Though I bestow all my goods to feed the poor, and though I give my body to be burned, and have not charity, it profiteth me nothing." This is love that puts others first even when no one is watching. In your daily battles, with family irritations, a hard neighbor, or your own exhaustion, this is the love that covers, bears, believes, hopes, and endures. It is Christ\'s love working in you. One small step: when tension rises today, quietly ask the Lord for His charity in that moment.',
     relatedWords: ['grace', 'mercy', 'longsuffering'],
     theologicalWeight: 'High'
   },
   conversation: {
     kjvEraUsage: 'Older English often used "conversation" for a whole manner of life, conduct, or citizenship, not only spoken words.',
-    keyCrossRefs: ['Philippians 1:27', 'Philippians 3:20', 'James 3:13'],
-    studyNotes: 'When Paul speaks about your conversation, he is asking how your whole walk carries the gospel. This word turns attention from polished speech to lived faithfulness.',
+    keyCrossRefs: ['Philippians 1:27', '1 Peter 2:12', '1 Peter 3:16'],
+    studyNotes: 'It is your whole pattern of life, what people see when they watch how you handle pressure, family, money, and speech. This word calls us to live as citizens of heaven right in the middle of earthly battles. In 2026 hurry and noise, a godly conversation becomes a quiet testimony. Small step: choose one ordinary moment today, a conversation with your child or a reply at work, and let it reflect the gospel.',
     relatedWords: ['church', 'study', 'works'],
     theologicalWeight: 'Medium'
   },
   quick: {
     kjvEraUsage: 'The older sense of "quick" often meant living, alive, or life-giving. That is why the KJV can speak of "the quick and the dead."',
     keyCrossRefs: ['Hebrews 4:12', 'Acts 10:42', '2 Timothy 4:1'],
-    studyNotes: 'This word matters because it keeps you from hearing speed where the verse is teaching life. In Hebrews 4:12, the word of God is living and active, not merely fast-moving.',
+    studyNotes: 'The Word of God is "quick, and powerful, and sharper than any twoedged sword." Here quick means living and active, full of life and energy from the Holy Spirit. Jesus is the quickening Spirit. In seasons when you feel dead inside, grief, exhaustion, or spiritual dryness, this truth is medicine: His Word and His presence make dead things live again. Small step: speak one quick verse aloud over an area that feels lifeless in your life right now and thank Him that He is still the God who quickens.',
     relatedWords: ['spirit', 'resurrection', 'new birth'],
     theologicalWeight: 'Medium'
   },
   peculiar: {
     kjvEraUsage: 'In KJV-era English, "peculiar" could mean specially owned, treasured, or set apart, not merely odd or socially awkward.',
     keyCrossRefs: ['Titus 2:14', '1 Peter 2:9', 'Psalm 135:4'],
-    studyNotes: 'The point is belonging. God is not calling His people strange for strangeness\' sake, but naming them as His treasured possession.',
+    studyNotes: '"Peculiar people" means a people for His own possession, treasured, purchased, and set apart for God\'s glory. You are not odd; you are chosen and dearly loved. In a world that pressures you to blend in, this word is quiet dignity. You belong to the King. Small step: when comparison or insecurity rises, speak this truth: "I am one of His peculiar people, treasured by my Father."',
     relatedWords: ['holiness', 'church', 'adoption'],
     theologicalWeight: 'Medium'
   },
@@ -36,22 +36,22 @@ export const DEEP_DIVE_SEEDS = {
   },
   prevent: {
     kjvEraUsage: 'Older English used "prevent" for going before, anticipating, or meeting someone first, not only for stopping them.',
-    keyCrossRefs: ['1 Thessalonians 4:15', 'Psalm 59:10', 'Matthew 17:11'],
-    studyNotes: 'This keeps resurrection passages from sounding backward. The point is order, not obstruction: those alive will not go before the saints already asleep in Christ.',
+    keyCrossRefs: ['Psalm 88:13', '1 Thessalonians 4:15', 'Psalm 59:10'],
+    studyNotes: 'In the KJV, prevent frequently means to go before someone in kindness or preparation. It is God meeting you ahead of time with mercy. When you feel behind or caught off guard by life, remember the Lord often prevents you with blessings. He goes before His people. Small step: in prayer tonight, thank Him for ways He has already gone before you this week, even the ones you have not seen yet.',
     relatedWords: ['hope', 'resurrection', 'peace'],
     theologicalWeight: 'Medium'
   },
   suffer: {
     kjvEraUsage: 'The verb "suffer" could mean permit, allow, or leave room for, alongside its pain-bearing sense.',
     keyCrossRefs: ['Matthew 19:14', 'Mark 10:14', 'Luke 18:16'],
-    studyNotes: 'Context decides whether the word means endure pain or allow access. In Jesus\' words about children, it is a tender command to stop blocking the way.',
+    studyNotes: 'Jesus said, "Suffer little children to come unto me," meaning, "Let the little children come." In many places suffer simply means permit or allow. When the Lord says suffer in the sense of endurance, He never leaves you alone in it. He suffered first. Whether you are allowing good things or bearing hard things, He is with you. Small step: if something heavy needs to be suffered today, allowed or endured, bring it to Him and ask for grace to walk through it.',
     relatedWords: ['mercy', 'charity', 'meek'],
     theologicalWeight: 'Medium'
   },
   virtue: {
     kjvEraUsage: 'The word could speak of moral excellence, but in Gospel scenes it can also carry the sense of strength or power proceeding from Christ.',
     keyCrossRefs: ['Luke 8:46', '2 Peter 1:3', '2 Peter 1:5'],
-    studyNotes: 'This helps you hear both character and power. In Luke 8, virtue is not modesty language, but power going out from Jesus to heal.',
+    studyNotes: 'When the woman with the issue of blood touched Jesus, virtue went out of Him. This was healing power, the strength and goodness of Christ flowing to those who reach for Him in faith. In your weakness, His virtue is still available. It is not something you manufacture; it is received from Him. Small step: in a moment of need today, reach for Jesus the same way, "Lord, let Your virtue touch this place in me."',
     relatedWords: ['grace', 'faith', 'holiness'],
     theologicalWeight: 'Medium'
   },
@@ -79,7 +79,7 @@ export const DEEP_DIVE_SEEDS = {
   bowels: {
     kjvEraUsage: 'This was a common biblical-English way to speak about the deep inward seat of compassion, affection, and mercy.',
     keyCrossRefs: ['Philippians 2:1', 'Colossians 3:12', '1 John 3:17'],
-    studyNotes: 'The word sounds clinical to modern ears, but the Bible is aiming at deep feeling. Read it as tenderhearted compassion that moves from inside outward.',
+    studyNotes: '"Bowels of mercies" or "bowels of compassion" point to gut-level mercy, the deep, moving compassion God has toward us and that we are to have toward others. This is not shallow sentiment. It is the same compassion that moved Jesus when He saw the multitudes. In parenting, marriage, or hard relationships, ask the Lord to fill your bowels with His mercy when you feel empty. It changes how you respond in the heat of the moment.',
     relatedWords: ['charity', 'mercy', 'longsuffering'],
     theologicalWeight: 'Medium'
   },

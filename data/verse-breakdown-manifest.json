@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-05-04T10:09:22.214Z",
-  "surfacedRefCount": 3002,
-  "overrideCount": 3002,
+  "generatedAt": "2026-05-04T10:23:03.248Z",
+  "surfacedRefCount": 3003,
+  "overrideCount": 3003,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -336,7 +336,7 @@
       "pairs": 0
     },
     "kjv-word-notes.json": {
-      "refs": 1017,
+      "refs": 1019,
       "pairs": 0
     },
     "late-summer-reset-one-page-print.html": {
@@ -1146,6 +1146,7 @@
     "1 Peter 1:9",
     "1 Peter 2:1",
     "1 Peter 2:11",
+    "1 Peter 2:12",
     "1 Peter 2:21",
     "1 Peter 2:9",
     "1 Peter 3:11",
@@ -5652,6 +5653,14 @@
     "1 Peter 2:11": {
       "general": {
         "plainExplanation": "Dearly beloved, I ask you as strangers and pilgrims, abstain from fleshly lusts, which war against the soul.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Peter",
+        "to": "Believers"
+      }
+    },
+    "1 Peter 2:12": {
+      "general": {
+        "plainExplanation": "Key idea: Having your conversation honest among the Gentiles: that, whereas they speak against you as evildoers, they may by your good works, which they shall look, g...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Peter",
         "to": "Believers"

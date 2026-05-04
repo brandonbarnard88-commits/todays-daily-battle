@@ -11,6 +11,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 const outDir = path.join(root, 'data');
 const outFile = path.join(outDir, 'site-search-index.json');
+const rootMirrorFile = path.join(root, 'site-search-index.json');
 
 /** @type {{ t: string, u: string, k?: string }[]} */
 const ENTRIES = [
@@ -148,6 +149,7 @@ function main() {
     }),
   };
   fs.writeFileSync(outFile, JSON.stringify(payload, null, 2), 'utf8');
+  fs.writeFileSync(rootMirrorFile, JSON.stringify(payload, null, 2), 'utf8');
   console.log('Wrote', path.relative(root, outFile), '(' + payload.entries.length + ' entries)');
 }
 

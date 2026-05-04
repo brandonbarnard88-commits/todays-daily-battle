@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-04T12:16:32.347Z",
+  "generatedAt": "2026-05-04T14:00:11.729Z",
   "surfacedRefCount": 3053,
   "overrideCount": 3053,
   "sourceCounts": {
@@ -166,6 +166,10 @@
     "data/plans-battle-shared.json": {
       "refs": 315,
       "pairs": 455
+    },
+    "data/unified-search-index.json": {
+      "refs": 1118,
+      "pairs": 0
     },
     "easter-eggs.js": {
       "refs": 34,
@@ -767,6 +771,10 @@
       "refs": 421,
       "pairs": 251
     },
+    "search.html": {
+      "refs": 1,
+      "pairs": 0
+    },
     "search.js": {
       "refs": 14,
       "pairs": 0
@@ -885,6 +893,10 @@
     },
     "tree.json": {
       "refs": 99,
+      "pairs": 0
+    },
+    "unified-search-index.json": {
+      "refs": 1118,
       "pairs": 0
     },
     "university-anger-one-page-print.html": {

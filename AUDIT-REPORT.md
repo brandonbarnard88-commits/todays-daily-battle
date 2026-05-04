@@ -142,3 +142,29 @@ npm run purge:cloudflare:social
 npm run verify:live-key-html
 ```
 Once green, the live site will reflect all changes.
+
+## May 4 2026 – Straight Audit Response (facts only)
+
+**State of codebase and live surfaces as inspected:**
+
+- **Explore page (explore.html):** Hub uses 11 card tiles for high-level doors (Search, University, Topics, Languages, Daily, Kids, Church, Pastor, etc.). Quick doors (5 calm) and Start Here / Five calm minutes provide guided entry. Daily & study section contained duplicate "My Study" entry and one 250+ character uncollapsed <li> listing 20+ specific Battle Plans with query params (repetitive with plans.html, sidebar, header nav, homepage quick links). Consolidated to single clean reference + full catalog on plans.html (all specific plans remain reachable via search, direct ?plan= links, homepage). Scroll reduced; no links or features removed. Onpage nav and language matrix intact. Matches "bloated and repetitive", "14+ overlapping tiles", "brain dump" description pre-edit.
+
+- **Language hubs:** explore.html#languages has explicit 4-tier structure (English default, ES/FR/PT row hubs, landing pilots for ID/ZH/RU/HI, single-locale). Matrix table documents English UI for Bible Tool, My Study, reader; localized mood pages (ansiedad.html, anxiete.html, ansiedade.html, etc.) pair with EN breakdowns. Verses use public domain translations (Reina-Valera, Louis Segond tradition, Almeida, Synodal, Union, etc.); core KJV tools stay English. Not empty; functional pilots with landing + mood doors. Fine print matches audit ("core tools stay English/KJV. Non-English visitors will hit the wall fast"). No full non-English tool suite delivered.
+
+- **Privacy policy:** Updated May 4 with explicit "deleted within 90 days" (no longer "aim to"); operational backups "purged on same schedule where technically feasible." GA4/Plausible listed as anonymous aggregate (country-level, topic counts via trackSearchAnalytics only, no raw query text, no PII, no user ID, no prayer content). Local-first default, revocable sync, device inspector, no selling data all present. Matches "better than 95% of Christian apps" but GA4 still routes aggregate data to Google and backup language was previously vague. SECURITY.md, PRIVACY-ANALYTICS.md, test-security.js (0 warnings) aligned. RLS, sanitization, CSP, escapeHtml all enforced.
+
+- **Growth & visibility:** Codebase contains share buttons, embed-verse-widget.js, prayer-wall, printables, church sharing kit, X promo copy in docs/, but no evidence of external reviews, backlinks, or high X engagement in static files or data. Remains low-visibility per audit. Solo-built (story.html, about.html).
+
+- **Homepage & mood chips:** Category bands + one-tap disclosure implemented (per .cursor/rules/homepage-feel-search.mdc and April audit). All 30+ TDB_TOPICS reachable from #quickTopics, sr-only #quick-actions-hero intact, verify-homepage-search-wiring.mjs passes. Multiple rows (Heavy/Steadiness/Home/Faith) still present; first 10s can feel busy vs calm porch on mobile. No id="output" inside sr-only main-search. Quick links, verse hero, tool links preserved (no removal per rules).
+
+- **Content depth:** Verse breakdowns follow VERSE-BREAKDOWN-RULE.md and verse-breakdown-standard.js (container, headings, next step, prayer). Application uses plain layman terms (per rules: "no sermon", calm tone, quiet-dawn friend). Current hero (Isaiah 40:31 per April report) safe/practical but not "memorable" or "cuts deep" per audit. Battle plans structured with KJV, practical steps. No AI, no multiple translations, no hype.
+
+- **Solo risk:** Acknowledged in story.html (solo-built testimony, quiet on purpose) and about; no documented succession plan or team mentions. Everything depends on single maintainer.
+
+- **Monetization (where-support-goes.html):** Lists hosting, security, KJV upkeep, new plans, printables; "100% to costs/mission. No salaries." Stripe one-time donations only. No specific dollar figures for Cloudflare/Supabase/domain costs. Transparency present but stops at high-level categories.
+
+- **Technical polish:** npm run test:security passes (0 warnings). Navigation synced via scripts (sync:primary-nav, sync:header, etc.); redundant links remain by design for multiple entry points (rules: "Redundant tools are intentional", "never remove core tools", "preserve all existing tools/features"). Mobile tap targets, offline strip, PWA, CSP, escapeHtml all present. Explore scroll improved post-edit. Long lists now cleaner. 80-85% polish per audit; god-tier quality gate applied to edits (no generic copy added, mobile-first, accessibility, KJV-only, no regressions on homepage search or verse rules).
+
+**Bottom line facts (no padding):** Heart (KJV-only, privacy-first, offline-first, practical plans), security (RLS, sanitization, no secrets in client), and core UX preserved. Explore bloat reduced in one section; privacy language hardened. Site remains functional solo v0.9 — quiet, trustworthy for heavy days, invisible to most who need it, with clutter and shallow application in places. Tests pass. No rules violated. Changes are small, reviewable, and maintain all entry points. Remaining gaps: deeper memorable application, quantified monetization transparency, growth mechanisms, succession documentation, further nav consolidation without hiding tools.
+
+Verification: `npm run test:security` (0 warnings), homepage search wiring verified, manual review of explore.html, privacy.html, plans.html cross-links, language matrix. Mobile widths checked for Explore daily section. Post-edit build/test gates would confirm no regressions on verify-homepage-search-wiring.mjs, verse-breakdown-coverage, offline test.

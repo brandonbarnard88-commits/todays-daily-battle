@@ -178,6 +178,7 @@ const rootFiles = [
   'lazy-loader.js',
   'utils.js',
   'fallback-search.js',
+  'unified-search.js',
   'language-switcher.js',
   'search-wire.js',
   'share-page.js',
@@ -573,6 +574,13 @@ if (fs.existsSync(siteSearchIdx)) {
   console.log('Copied site-search-index.json to dist/ root for search.html fetch');
 } else {
   console.warn('build-copy-static.js: data/site-search-index.json missing in dist — run scripts/build-site-search-index.mjs before copy.');
+}
+const unifiedSearchIdx = path.join(dist, 'data', 'unified-search-index.json');
+if (fs.existsSync(unifiedSearchIdx)) {
+  copyFile(unifiedSearchIdx, path.join(dist, 'unified-search-index.json'));
+  console.log('Copied unified-search-index.json to dist/ root for search.html fallback fetch');
+} else {
+  console.warn('build-copy-static.js: data/unified-search-index.json missing in dist — run scripts/build-unified-search-index.mjs before copy.');
 }
 if (fs.existsSync(path.join(root, 'coloring-pages'))) {
   copyDir(path.join(root, 'coloring-pages'), path.join(dist, 'coloring-pages'));

@@ -21463,6 +21463,144 @@ html[data-tdb-contrast="high"] .card {
   margin: 1rem 0 0;
   padding: 0;
 }
+.tdb-unified-search-porch {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+.tdb-unified-search-see-all {
+  margin-top: 0.9rem;
+}
+.tdb-unified-search-full-results {
+  display: grid;
+  gap: 1.1rem;
+  margin-top: 1rem;
+}
+.tdb-unified-search-section {
+  display: grid;
+  gap: 0.75rem;
+}
+.tdb-unified-search-section__heading,
+.tdb-search-map__heading,
+.tdb-unified-search-empty__title {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--text);
+}
+.tdb-unified-search-card {
+  padding: 0.95rem 1rem;
+  border-radius: 18px;
+  border: 1px solid var(--border-subtle, rgba(148, 163, 184, 0.18));
+  background: color-mix(in srgb, var(--card, rgba(12, 18, 30, 0.94)) 94%, rgba(227, 188, 103, 0.05));
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+}
+.tdb-unified-search-card--porch {
+  border-color: color-mix(in srgb, var(--gold, #e3bc67) 22%, var(--border-subtle, rgba(148, 163, 184, 0.18)));
+}
+.tdb-unified-search-card__top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.tdb-unified-search-card__type,
+.tdb-unified-search-card__room {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.75rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  font-family: var(--font-ui, sans-serif);
+}
+.tdb-unified-search-card__type {
+  background: rgba(227, 188, 103, 0.12);
+  color: var(--gold, #e3bc67);
+  border: 1px solid rgba(227, 188, 103, 0.2);
+}
+.tdb-unified-search-card__room {
+  background: rgba(148, 163, 184, 0.08);
+  color: var(--muted-readable, var(--muted));
+  text-transform: capitalize;
+}
+.tdb-unified-search-card__title {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+}
+.tdb-unified-search-card__title a {
+  color: var(--text);
+  text-decoration: none;
+}
+.tdb-unified-search-card__title a:hover,
+.tdb-unified-search-card__title a:focus-visible {
+  color: var(--link-content-hover);
+  text-decoration: underline;
+}
+.tdb-unified-search-card__summary,
+.tdb-unified-search-card__step,
+.tdb-unified-search-card__refs,
+.tdb-unified-search-empty__copy,
+.tdb-site-search-results__meta {
+  margin: 0;
+}
+.tdb-unified-search-card__summary,
+.tdb-site-search-results__meta {
+  color: var(--muted-readable, var(--muted));
+}
+.tdb-unified-search-card__step {
+  margin-top: 0.5rem;
+  color: color-mix(in srgb, var(--gold, #e3bc67) 62%, var(--text, #f8fafc));
+}
+.tdb-unified-search-card__refs {
+  margin-top: 0.45rem;
+  font-size: 0.84rem;
+  color: var(--muted);
+  font-family: var(--font-ui, sans-serif);
+}
+.tdb-unified-search-card__actions,
+.tdb-unified-search-empty__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.8rem;
+}
+.tdb-unified-search-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--line, rgba(148, 163, 184, 0.35));
+  background: rgba(15, 20, 30, 0.75);
+  color: var(--text);
+  font-family: var(--font-ui, sans-serif);
+  font-size: 0.92rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+.tdb-unified-search-action--primary {
+  border-color: rgba(227, 188, 103, 0.3);
+}
+.tdb-unified-search-action:hover,
+.tdb-unified-search-action:focus-visible {
+  color: var(--link-content-hover);
+  border-color: color-mix(in srgb, var(--gold, #e3bc67) 32%, var(--line, rgba(148, 163, 184, 0.35)));
+}
+.tdb-unified-search-empty {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 18px;
+  border: 1px dashed color-mix(in srgb, var(--gold, #e3bc67) 28%, var(--line, rgba(148, 163, 184, 0.35)));
+  background: color-mix(in srgb, var(--card, rgba(12, 18, 30, 0.94)) 93%, rgba(227, 188, 103, 0.04));
+}
+.tdb-search-map {
+  margin-top: 1.15rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle, rgba(148, 163, 184, 0.14));
+}
 .tdb-site-search-results li {
   border-bottom: 1px solid var(--border-subtle, rgba(148, 163, 184, 0.14));
   padding: 0.75rem 0;
@@ -21485,6 +21623,21 @@ html[data-tdb-contrast="high"] .card {
   color: var(--muted);
   font-family: var(--font-ui, sans-serif);
   word-break: break-all;
+}
+@media (max-width: 640px) {
+  .tdb-unified-search-card {
+    padding: 0.9rem;
+  }
+
+  .tdb-unified-search-card__actions,
+  .tdb-unified-search-empty__actions {
+    flex-direction: column;
+  }
+
+  .tdb-unified-search-action,
+  .tdb-unified-search-empty__actions .btn {
+    width: 100%;
+  }
 }
 
 /* Home trust + doorways */
@@ -21900,7 +22053,11 @@ html[data-tdb-contrast="high"] .card {
   /* Site search — printable door list; hide live filter chrome */
   .tdb-search-page .tdb-site-search-input,
   .tdb-search-page .tdb-search-label,
-  .tdb-search-page #tdb-site-search-status {
+  .tdb-search-page #tdb-unified-search-status,
+  .tdb-search-page #tdb-page-map-status,
+  .tdb-search-page .tdb-unified-search-see-all,
+  .tdb-search-page .tdb-unified-search-card__actions,
+  .tdb-search-page .tdb-unified-search-empty__actions {
     display: none !important;
   }
 

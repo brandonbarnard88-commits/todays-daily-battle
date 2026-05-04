@@ -8,8 +8,8 @@
   <script defer src="analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Search the Site • Today's Daily Battle</title>
-  <meta name="description" content="A quiet map of this site: plans, tools, and doors you can open next. You are already welcome here. The list is hand-built; your search stays on your device.">
+  <title>Search the KJV and Site • Today's Daily Battle</title>
+  <meta name="description" content="Search the KJV, hard Bible words, plans, tools, and page doors in one calm place. Your filter stays on this device.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/search.html">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
@@ -66,17 +66,37 @@
 
   <main id="main-content" class="content-inner tdb-search-main" role="main">
     <header class="hero-banner util-mb-1 tdb-search-hero tdb-dawn-bg--mist" aria-labelledby="tdb-search-page-title">
-      <p class="section-note topic-mood-porch util-mb-0_5">You&rsquo;re already welcome here&mdash;exactly as you are. This porch keeps a hand-built map of pages; it isn&rsquo;t a live crawl, and your filter never leaves this browser.</p>
-      <h1 id="tdb-search-page-title">Search the site</h1>
-      <p class="privacy-line">When you&rsquo;re ready, you could type a word&mdash;plan names, topics, or tools&mdash;or only read a title and put the rest away. Nothing here grades you; it only opens doors. For a gentle first path, open <a href="/site-guide.html">Start here</a>. For verse-first help by mood, use <a href="/#feel-section">Ask The Word on Home</a> or open <a href="explore.html">Explore</a>.</p>
-      <p class="section-note util-mb-0">No pressure if today is just rest&mdash;the list will wait. If you want a next step, the matches below are optional doors, not a checklist.</p>
+      <p class="section-note topic-mood-porch util-mb-0_5">You&rsquo;re already welcome here&mdash;exactly as you are. This porch now lets you search a verse, a hard KJV word, a plan, or a page name without turning the site into noise.</p>
+      <h1 id="tdb-search-page-title">Search the KJV and site</h1>
+      <p class="privacy-line">When you&rsquo;re ready, type a verse reference, a hard Bible word, a plan name, or how the day feels. The first layer stays calm. The fuller page map is still here underneath if you want to browse by hand. For a gentle first path, open <a href="/site-guide.html">Start here</a>. For verse-first help by mood, use <a href="/#feel-section">Ask The Word on Home</a> or open <a href="explore.html">Explore</a>.</p>
+      <p class="section-note util-mb-0">Nothing here grades you. It only offers one quiet next step at a time.</p>
     </header>
 
-    <section class="glass tdb-porch-paper-glass tdb-search-panel" aria-labelledby="tdb-site-search-label">
+    <section class="glass tdb-porch-paper-glass tdb-search-panel" aria-labelledby="tdb-site-search-label" data-tdb-page-map-index="/site-search-index.json" data-tdb-unified-index="/data/unified-search-index.json">
       <label id="tdb-site-search-label" class="tdb-search-label" for="tdb-site-search-input">Where would you like to go?</label>
-      <input type="search" id="tdb-site-search-input" class="tdb-site-search-input" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="Try a feeling, a plan name, or a tool&hellip;" aria-describedby="tdb-site-search-status">
-      <p id="tdb-site-search-status" class="section-note util-mb-0" role="status" aria-live="polite">Laying out the gentle map&mdash;no rush.</p>
-      <ul id="tdb-site-search-results" class="tdb-site-search-results" role="list" aria-label="Matching pages"></ul>
+      <input type="search" id="tdb-site-search-input" class="tdb-site-search-input" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="Try John 3:16, charity, grief, or a plan name&hellip;" aria-describedby="tdb-unified-search-status tdb-page-map-status">
+      <p id="tdb-unified-search-status" class="section-note util-mb-0_75" role="status" aria-live="polite">Laying out the first calm results&mdash;no rush.</p>
+      <div id="tdb-unified-search-porch" class="tdb-unified-search-porch" hidden></div>
+      <button type="button" id="tdb-unified-search-see-all" class="btn btn-secondary tdb-unified-search-see-all" hidden>See fuller results</button>
+      <div id="tdb-unified-search-full-results" class="tdb-unified-search-full-results" hidden>
+        <section id="tdb-unified-search-verses" class="tdb-unified-search-section" hidden aria-label="Verse search results"></section>
+        <section id="tdb-unified-search-wordhelps" class="tdb-unified-search-section" hidden aria-label="Word help search results"></section>
+        <section id="tdb-unified-search-plans" class="tdb-unified-search-section" hidden aria-label="Plan search results"></section>
+        <section id="tdb-unified-search-pages" class="tdb-unified-search-section" hidden aria-label="Page and tool search results"></section>
+      </div>
+      <section id="tdb-unified-search-empty" class="tdb-unified-search-empty" hidden aria-label="No close unified result">
+        <h2 class="tdb-unified-search-empty__title">No exact first match yet</h2>
+        <p class="tdb-unified-search-empty__copy">That is all right. Try a simpler word, open the Bible Tool, or use the slower page map below.</p>
+        <div class="tdb-unified-search-empty__actions">
+          <a href="/bible-tool.html" class="btn btn-secondary">Open Bible Tool</a>
+          <a href="/explore.html" class="btn btn-secondary">Open Explore</a>
+        </div>
+      </section>
+      <div class="tdb-search-map">
+        <h2 class="tdb-search-map__heading">Full page map</h2>
+        <p id="tdb-page-map-status" class="section-note util-mb-0_5" role="status" aria-live="polite">All the quiet doors are still here below.</p>
+        <ul id="tdb-site-search-results" class="tdb-site-search-results" role="list" aria-label="Matching pages"></ul>
+      </div>
     </section>
   </main>
 
@@ -249,108 +269,6 @@
 
   <script type="module" src="script.js?v=20260423-phase5-perf" data-cfasync="false"></script>
   <script src="/tdb-offline-strip.js?v=20260329pass2off"></script>
-  <script nonce="tdb2025s">
-(function () {
-  var input = document.getElementById('tdb-site-search-input');
-  var list = document.getElementById('tdb-site-search-results');
-  var status = document.getElementById('tdb-site-search-status');
-  if (!input || !list || !status) return;
-
-  var entries = [];
-
-  function tokens(s) {
-    return String(s || '')
-      .toLowerCase()
-      .split(/\s+/)
-      .map(function (t) {
-        return t.replace(/[^\w\-./]/g, '');
-      })
-      .filter(Boolean);
-  }
-
-  function matchesEntry(needle, e) {
-    if (!needle) return true;
-    var blob = (e.t + ' ' + (e.k || '') + ' ' + e.u).toLowerCase();
-    if (blob.indexOf(needle) !== -1) return true;
-    var toks = tokens(needle);
-    if (!toks.length) return true;
-    var i;
-    for (i = 0; i < toks.length; i++) {
-      if (blob.indexOf(toks[i]) === -1) return false;
-    }
-    return true;
-  }
-
-  function render(q) {
-    list.replaceChildren();
-    var needle = String(q || '').trim().toLowerCase();
-    var hits = !needle
-      ? entries.slice()
-      : entries.filter(function (e) {
-          return matchesEntry(needle, e);
-        });
-    status.textContent = hits.length
-      ? (needle
-        ? hits.length + ' quiet door' + (hits.length === 1 ? '' : 's') + ' — take your time; open one only if it helps today.'
-        : 'All ' + hits.length + ' doors are here — type if you want to narrow, or read a title and let the rest wait.')
-      : 'Nothing here right now — that\'s okay. You\'re still welcome here. Try another gentle word, or open Explore for a slower walk.';
-    hits.forEach(function (e) {
-      var li = document.createElement('li');
-      li.setAttribute('role', 'listitem');
-      var a = document.createElement('a');
-      a.href = e.u;
-      a.textContent = e.t;
-      li.appendChild(a);
-      var span = document.createElement('span');
-      span.className = 'tdb-site-search-results__url';
-      span.textContent = e.u;
-      li.appendChild(span);
-      list.appendChild(li);
-    });
-  }
-
-  fetch('/site-search-index.json', { credentials: 'same-origin' })
-    .then(function (r) {
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      return r.json();
-    })
-    .then(function (data) {
-      entries = (data && data.entries) || [];
-      try {
-        var stripOk = document.getElementById('tdb-offline-strip');
-        if (stripOk) stripOk.removeAttribute('data-tdb-offline-forced');
-        if (globalThis.TDB_hideOfflineStripIfOnline) globalThis.TDB_hideOfflineStripIfOnline();
-      } catch (eStrip) {}
-      try {
-        var qp = new URLSearchParams(window.location.search || '');
-        var preset = String(qp.get('q') || '').trim();
-        if (preset) input.value = preset;
-      } catch (e) {}
-      render(input.value);
-    })
-    .catch(function () {
-      entries = [
-        { t: "Home", u: '/' },
-        { t: 'Battle Plans', u: '/plans.html' },
-        { t: 'Explore', u: '/explore.html' },
-        { t: 'Bible Tool', u: '/bible-tool.html' }
-      ];
-      try {
-        if (globalThis.TDB_showOfflineStrip) globalThis.TDB_showOfflineStrip('search', { force: true });
-      } catch (eStrip) {}
-      status.textContent = 'Offline — still got you. Showing a few core links.';
-      try {
-        var qp2 = new URLSearchParams(window.location.search || '');
-        var preset2 = String(qp2.get('q') || '').trim();
-        if (preset2) input.value = preset2;
-      } catch (e2) {}
-      render('');
-    });
-
-  input.addEventListener('input', function () {
-    render(input.value);
-  });
-})();
-  </script>
+  <script defer src="/unified-search.js"></script>
 </body>
 </html>

@@ -405,12 +405,19 @@
     } catch (e) {
       origin = '';
     }
-    var urls = ['/kjv.json'];
-    if (origin) urls.push(origin.replace(/\/$/, '') + '/kjv.json');
+    var urls = ['/data/kjv-full.json', '/kjv-full.json', '/kjv.json'];
+    if (origin) {
+      var base = origin.replace(/\/$/, '');
+      urls.push(base + '/data/kjv-full.json');
+      urls.push(base + '/kjv-full.json');
+      urls.push(base + '/kjv.json');
+    }
+    urls.push('https://todaysdailybattle.com/data/kjv-full.json');
+    urls.push('https://todaysdailybattle.com/kjv-full.json');
     urls.push('https://todaysdailybattle.com/kjv.json');
     bibleMapPromise = (function tryFetch(i) {
       if (i >= urls.length) return Promise.resolve({});
-      return fetch(urls[i], { credentials: 'same-origin' })
+      return fetch(urls[i], { credentials: 'same-origin', cache: 'force-cache' })
         .then(function (res) {
           return res.ok ? res.json() : Promise.reject();
         })

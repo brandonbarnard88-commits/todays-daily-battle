@@ -20,7 +20,7 @@
   <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260423-phase5-perf"></script>
 
   <title>Today’s Daily Battle — One KJV Verse, One Small Step, One Prayer</title>
-  <meta name="description" content="Today’s KJV: Matthew 21:22. Quiet KJV daily devotional. No ads, no login. Start with today’s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.">
+  <meta name="description" content="Today’s KJV: Mark 9:23. Quiet KJV daily devotional. No ads, no login. Start with today’s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.">
   <meta name="keywords" content="bible verses when feeling heartbroken, bible for anxiety, verses when alone, KJV devotional, Bible verse of the day, KJV Bible app, Christian anxiety help, Bible verses for fear, offline Bible, daily scripture, verse of the day KJV, Bible breakdown plain English, calm verse, crisis verse, need verse now">
   <link rel="canonical" href="https://todaysdailybattle.com/">
 
@@ -68,8 +68,8 @@
       "@type": "WebPage",
       "@id": "https://todaysdailybattle.com/#webpage",
       "url": "https://todaysdailybattle.com/",
-      "name": "Today’s Daily Battle — One KJV Verse, One Small Step, One Prayer · Today’s KJV: Matthew 21:22",
-      "description": "Today’s KJV: Matthew 21:22. Quiet KJV daily devotional. No ads, no login. Start with today’s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.",
+      "name": "Today’s Daily Battle — One KJV Verse, One Small Step, One Prayer · Today’s KJV: Mark 9:23",
+      "description": "Today’s KJV: Mark 9:23. Quiet KJV daily devotional. No ads, no login. Start with today’s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.",
       "inLanguage": "en-US",
       "isPartOf": {
         "@type": "WebSite",
@@ -83,9 +83,9 @@
     {
       "@type": "CreativeWork",
       "@id": "https://todaysdailybattle.com/#home-daily-verse",
-      "name": "Matthew 21:22 (KJV)",
-      "headline": "Matthew 21:22 (KJV)",
-      "text": "All things, whatsoever ye shall ask in prayer, believing, ye shall receive.",
+      "name": "Mark 9:23 (KJV)",
+      "headline": "Mark 9:23 (KJV)",
+      "text": "All things are possible to him that believeth.",
       "inLanguage": "en-US",
       "isAccessibleForFree": true,
       "isBasedOn": {
@@ -109,12 +109,12 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Quiet place · Matthew 21:22">
+  <meta name="apple-mobile-web-app-title" content="Quiet place · Mark 9:23">
   <!-- Open Graph (iMessage, Facebook, Slack previews) -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Today's Daily Battle">
   <meta property="og:title" content="Today’s Daily Battle — One KJV Verse, One Small Step, One Prayer">
-  <meta property="og:description" content="Today’s KJV: Matthew 21:22. Quiet KJV daily devotional. No ads, no login. Start with today’s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.">
+  <meta property="og:description" content="Today’s KJV: Mark 9:23. Quiet KJV daily devotional. No ads, no login. Start with today’s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.">
   <meta property="og:url" content="https://todaysdailybattle.com/">
   <meta property="og:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260422og">
   <meta property="og:image:width" content="1200">
@@ -124,7 +124,7 @@
   <!-- Twitter / X card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Today’s Daily Battle — One KJV Verse, One Small Step, One Prayer">
-  <meta name="twitter:description" content="Today’s KJV: Matthew 21:22. Quiet KJV daily devotional. No ads, no login. Start with today’s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.">
+  <meta name="twitter:description" content="Today’s KJV: Mark 9:23. Quiet KJV daily devotional. No ads, no login. Start with today’s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260422og">
   <meta name="twitter:image:alt" content="Today&#39;s Daily Battle &mdash; calm KJV verse and tools">
   <!-- Cormorant + Caveat: self-hosted latin woff2 (gstatic-derived). No Google Fonts on homepage. -->
@@ -3548,12 +3548,24 @@
       .hymn-lyrics-modal-inner { max-height: 85vh; overflow-y: auto; }
     }
 
-    /* ── Hero Verse — deeper Patek serenity & focal peace ── */
+    /* ── Hero Verse — readable by default in Night; warm parchment only in light themes ── */
     #hero-verse-wrap,
     .verse-card {
-      background: #FAF7F2;
+      background: color-mix(in srgb, var(--card) 96%, #fff 4%);
       padding: 2.75rem 1.75rem 2.5rem;
       border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
+      border: 1px solid color-mix(in srgb, var(--line) 88%, rgba(227, 188, 103, 0.12));
+    }
+    :root[data-theme="light"] #hero-verse-wrap,
+    :root[data-theme="light"] .verse-card,
+    :root[data-theme="daylight"] #hero-verse-wrap,
+    :root[data-theme="daylight"] .verse-card,
+    :root[data-theme="sepia"] #hero-verse-wrap,
+    :root[data-theme="sepia"] .verse-card,
+    :root[data-theme="parchment"] #hero-verse-wrap,
+    :root[data-theme="parchment"] .verse-card {
+      background: #faf7f2;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.025);
       border: 1px solid rgba(191, 164, 111, 0.09);
     }
@@ -3563,6 +3575,14 @@
       Re-pin prose ink here so headings, ribbons, and notes are not body --text on cream.
     */
     #verseCard.verse-card {
+      --text: #eaf2ff;
+      --muted: #bdc9db;
+      --line: rgba(148, 163, 184, 0.26);
+    }
+    :root[data-theme="light"] #verseCard.verse-card,
+    :root[data-theme="daylight"] #verseCard.verse-card,
+    :root[data-theme="sepia"] #verseCard.verse-card,
+    :root[data-theme="parchment"] #verseCard.verse-card {
       --text: #172230;
       --muted: #4d5f72;
       --line: rgba(76, 90, 108, 0.22);
@@ -3570,7 +3590,7 @@
 
     .hero-verse {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      color: #1F2529;
+      color: var(--text);
       font-size: clamp(1.85rem, 5vw, 2.35rem);
       line-height: 1.82;
       font-weight: 400;
@@ -3833,6 +3853,16 @@
       font-size: 0.92rem;
       line-height: 1.56;
       color: var(--text);
+    }
+    /* Hard readability guard for Night/Night alias states */
+    :root[data-theme="dark"] #verseCard :is(#heroVerse, #heroVerse *, .hero-daily-headline, .hero-daily-subline, .verse-breakdown > p, .next-step, .prayer-block, .prayer-block p, #heroVotdOneStep, #heroVotdPrayer, .kids-card-sub),
+    :root[data-theme="night"] #verseCard :is(#heroVerse, #heroVerse *, .hero-daily-headline, .hero-daily-subline, .verse-breakdown > p, .next-step, .prayer-block, .prayer-block p, #heroVotdOneStep, #heroVotdPrayer, .kids-card-sub) {
+      color: #eaf2ff !important;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+    }
+    :root[data-theme="dark"] #verseCard :is(.verse-ref, .hero-daily-ref-above, .verse-breakdown > h4),
+    :root[data-theme="night"] #verseCard :is(.verse-ref, .hero-daily-ref-above, .verse-breakdown > h4) {
+      color: #f2dc98 !important;
     }
     .hero-calendar-breakdown-wrap .hero-breakdown-panels {
       margin: 0.45rem 0 0.65rem;
@@ -9077,27 +9107,6 @@
       </nav>
     </header>
 
-    <dialog id="tdbFirstVisitDialog" class="tdb-first-visit-dialog" aria-labelledby="tdbFirstVisitH1" aria-modal="true">
-      <div class="tdb-first-visit-panel">
-        <h2 id="tdbFirstVisitH1" class="tdb-first-visit-title">First time?</h2>
-        <p class="tdb-first-visit-lead">Same quiet campus&mdash;verse, plans, and prayer on your timing.</p>
-        <div class="tdb-first-visit-actions">
-          <a href="#feel-section" class="btn btn-primary" id="tdbFirstVisitFeel">Name how I feel</a>
-          <button type="button" class="btn btn-secondary" id="tdbFirstVisitTour">Open site tour</button>
-          <button type="button" class="btn btn-secondary" id="tdbFirstVisitNotNow">Not now</button>
-        </div>
-      </div>
-    </dialog>
-    <style>
-      .tdb-first-visit-dialog { max-width: min(100vw - 2rem, 24rem); width: 100%; padding: 0; border: none; border-radius: 16px; background: var(--card); color: var(--text); box-shadow: 0 20px 48px rgba(0,0,0,0.5); }
-      :root[data-theme="light"] .tdb-first-visit-dialog { box-shadow: 0 16px 40px rgba(15,20,35,0.12); }
-      .tdb-first-visit-dialog::backdrop { background: rgba(4,8,16,0.65); backdrop-filter: blur(3px); }
-      .tdb-first-visit-panel { padding: 1.1rem 1.2rem 1.2rem; }
-      .tdb-first-visit-title { margin: 0 0 0.6rem; font-size: 1.15rem; color: var(--gold-soft, #e3bc67); }
-      .tdb-first-visit-lead { margin: 0 0 1rem; font-size: 0.95rem; line-height: 1.55; color: var(--muted); }
-      .tdb-first-visit-actions { display: flex; flex-direction: column; gap: 0.5rem; align-items: stretch; }
-      .tdb-first-visit-actions .btn { min-height: 48px; justify-content: center; text-align: center; }
-    </style>
 
     <nav class="tdb-home-quickbar" aria-label="Persistent site navigation">
       <a class="tdb-home-quickbar-link" href="/">Home</a>
@@ -9155,10 +9164,10 @@
         </div>
         <div class="tdb-home-verse-sticky-shell" role="region" aria-label="Today’s verse text and quick actions">
         <div class="verse-breakdown-container hero-calendar-breakdown-wrap" id="heroVotdBreakdown" role="region" aria-label="Today&rsquo;s verse &mdash; reference, text, and breakdown (KJV)">
-        <p class="big-kjv verse-ref hero-daily-ref-above" id="heroRef"><strong>Matthew 21:22 (KJV)</strong></p>
+        <p class="big-kjv verse-ref hero-daily-ref-above" id="heroRef"><strong>Mark 9:23 (KJV)</strong></p>
         <div class="verse-ref-row">
           <div class="hero-verse-wrap-inner">
-            <p class="hero-verse verse-body is-visible" id="heroVerse" elementtiming="tdb-hero-verse">“All things, whatsoever ye shall ask in prayer, believing, ye shall receive.”</p>
+            <p class="hero-verse verse-body is-visible" id="heroVerse" elementtiming="tdb-hero-verse">“All things are possible to him that believeth.”</p>
             <div class="verse-font-controls" aria-label="Adjust verse text size">
               <button type="button" class="verse-font-btn verse-font-smaller" id="verseFontSmaller" aria-label="Decrease text size">A−</button>
               <button type="button" class="verse-font-btn verse-font-larger" id="verseFontLarger" aria-label="Increase text size">A+</button>
@@ -9482,7 +9491,7 @@
         <p id="hero-listen-hint" class="hero-listen-hint">Tap Listen for a quiet hear-through of today&rsquo;s verse and breakdown (calm pace on your device). Keyboard: Tab to Listen, then Space.</p>
         <p class="hero-word-study-wrap">
           <span id="hero-study-verse-hint" class="hero-study-verse-hint">Slow on one word—concordance and short glosses, offline when you need them.</span>
-          <button type="button" id="heroWordStudyBtn" class="btn btn-secondary hero-word-study-btn" data-tdb-wordstudy-ref="Matthew 21:22" data-tdb-wordstudy-text="All things, whatsoever ye shall ask in prayer, believing, ye shall receive." aria-describedby="hero-study-verse-hint" aria-label="Open verse study for today’s verse of the day">Study this verse</button>
+          <button type="button" id="heroWordStudyBtn" class="btn btn-secondary hero-word-study-btn" data-tdb-wordstudy-ref="Mark 9:23" data-tdb-wordstudy-text="All things are possible to him that believeth." aria-describedby="hero-study-verse-hint" aria-label="Open verse study for today’s verse of the day">Study this verse</button>
         </p>
         <div class="hero-my-verses-row hero-my-verses-row--below-card" role="region" aria-label="Memorize and My Study">
           <a href="memorize.html" class="btn btn-secondary hero-memorize-link" id="hero-memorize-link" aria-label="Open gentle memorize tools for today’s verse">Memorize</a>
@@ -9703,17 +9712,17 @@
           <h2 id="tdb-home-welcome-heading" class="new-here-title">Welcome to a quiet campus</h2>
         </div>
         <div class="tdb-home-welcome-body">
-          <p class="tdb-home-welcome-lead">Hey friend &mdash; this is still the same porch I built from my own hospital season. One verse today. One honest step. One simple prayer. No performance, no polish. Just Jesus and you, right where you are.</p>
-          <p class="tdb-home-welcome-guol"><strong>God&rsquo;s University of Life</strong> is a quiet place for real battles: anxiety, parenting young kids, grief, fear, exhaustion, and family strain. Everything here is KJV only, private by default, and works completely offline after the first visit. No grades, no streaks, no scores &mdash; plain KJV truth for the moments that matter.</p>
+          <p class="tdb-home-welcome-lead">One verse today. One honest step. One simple prayer. This home is here for real battles like anxiety, grief, fear, exhaustion, and family strain.</p>
+          <p class="tdb-home-welcome-guol"><strong>God&rsquo;s University of Life</strong> keeps the KJV open without pressure: private by default, ready offline after the first visit. No grades, no streaks, and no scores to carry.</p>
           <h3 id="new-here-steps-heading" class="new-here-steps-heading">Three gentle steps</h3>
           <ol class="new-here-steps-ol" aria-labelledby="new-here-steps-heading">
             <li><strong>Read today&rsquo;s verse</strong> &mdash; one calm word from Scripture to carry with you.</li>
             <li><strong>Name how you feel</strong> &mdash; the search listens without judgment.</li>
             <li><strong>Pick a gentle tool when you&rsquo;re ready</strong> &mdash; <a href="/kids/index.html?v=hub20260321">Kids Corner</a>, a <a href="plans.html">Battle Plan</a>, or the <a href="explore.html#start-here">full map</a>.</li>
           </ol>
-          <p class="new-here-family-note">Especially written for parents like me, with three young girls who need the Word without pressure. Offline-first. Private by default. No scores, just help. No ads; we never sell data. Built solo, still in the fight with you.</p>
+          <p class="new-here-family-note">Made for homes, tired hearts, and hard weeks that need Scripture without pressure. Offline-first. Private by default. No scores, just help. No ads; we never sell data.</p>
         </div>
-        <p class="section-note tdb-home-welcome-story-links">Read the <a href="/story.html">story</a>, learn <a href="about.html#gods-university-quiet-name">why we say God&rsquo;s University of Life</a>, see <a href="/where-support-goes.html">where support goes</a>, hear from <a href="/testimonials.html">readers</a>, or start with this week&rsquo;s <a href="/journal/">journal posts</a>.</p>
+        <p class="section-note tdb-home-welcome-story-links">Want the why behind the work? Read the <a href="/story.html">story</a>, learn <a href="about.html#gods-university-quiet-name">why we say God&rsquo;s University of Life</a>, see <a href="/where-support-goes.html">where support goes</a>, or hear from <a href="/testimonials.html">readers</a>.</p>
         <div class="new-here-cta-row">
           <a href="#hero-verse-wrap" class="new-here-cta primary">Begin Today &rarr;</a>
           <button type="button" class="new-here-cta secondary" id="tdbNewHereDismissBtn">I know my way around</button>
@@ -9732,7 +9741,7 @@
           <a class="tdb-home-reader-stories-link" href="/testimonials.html">Reader stories</a>
         </div>
         <h2 class="tdb-home-reader-stories-title">Quiet proof before you stay</h2>
-        <p class="tdb-home-reader-stories-lead">The story is small because the aim is stewardship, not spectacle. Peek at <a href="/story.html">why this exists</a> or read the receipts on privacy and security anytime.</p>
+        <p class="tdb-home-reader-stories-lead">If you want the receipts before you stay, this is where the story, privacy promise, security notes, and reader feedback live together.</p>
         <p class="tdb-home-reader-stories-links">
           <a href="/story.html">Why this exists</a>
           <a href="/privacy.html">Privacy promise</a>
@@ -9757,7 +9766,7 @@
       </section>
       <section class="tdb-home-more-tools" id="tdbHomeMoreTools" aria-labelledby="tdbHomeMoreToolsH" aria-label="More tools and paths">
         <h2 class="tdb-home-more-tools-h" id="tdbHomeMoreToolsH">More tools &amp; paths</h2>
-        <p class="tdb-home-more-tools-lead section-note">Kids, memory, plans, full search, prayer wall, and the rest&mdash;still here. Slightly quieter on purpose so the top of Home can stay simple.</p>
+        <p class="tdb-home-more-tools-lead section-note">The wider site map still opens here; this section simply keeps the rest of the doors together so the top of Home can stay simple.</p>
         <div class="tdb-home-more-tools-body">
       <section class="tdb-home-companion-doors" id="tdb-home-companion-doors" aria-labelledby="tdb-companion-doors-heading">
         <h2 class="tdb-companion-doors-vis-h2" id="tdb-companion-doors-heading">Three quiet doorways into Scripture</h2>
@@ -9844,9 +9853,9 @@
       <!-- ── Daily Verse Image Card (shareable preview under today’s verse) ── -->
       <div class="verse-img-card tdb-quiet-container" id="verseImgCard" role="region" aria-label="Today’s verse as a shareable image preview">
         <div class="verse-img-inner">
-          <p class="verse-img-text" id="verseImgText">“All things, whatsoever ye shall ask in prayer, believing, ye shall receive.”</p>
+          <p class="verse-img-text" id="verseImgText">“All things are possible to him that believeth.”</p>
           <hr class="verse-img-rule">
-          <p class="verse-img-ref" id="verseImgRef">Matthew 21:22</p>
+          <p class="verse-img-ref" id="verseImgRef">Mark 9:23</p>
         </div>
       </div>
       <div class="verse-growth-row" id="verseFeedbackRow" role="region" aria-label="Tell a friend, gentle feedback" hidden>
@@ -9869,7 +9878,7 @@
           <a href="site-guide.html">Start here guide</a>
         </span>
         <p class="hero-daily-path-support">
-          Want the wider picture first? <a href="/testimonials.html">Reader stories</a> · <a href="/about.html">About</a> · <a href="prayer-wall.html?tab=with-others" aria-label="Pray with others — quiet wall">Pray with others</a> · <a href="/give" id="heroSupportQuietPlace" aria-label="Support the ministry — optional gift; you choose the amount">Support the ministry</a>
+          Need context before more tools? <a href="/explore.html">Explore</a> · <a href="/about.html">About</a> · <a href="prayer-wall.html?tab=with-others" aria-label="Pray with others — quiet wall">Pray with others</a> · <a href="/give" id="heroSupportQuietPlace" aria-label="Support the ministry — optional gift; you choose the amount">Support the ministry</a>
         </p>
         <p id="tdbHomeMobiusWeek" class="tdb-home-mobius-week" role="status" aria-live="polite" hidden></p>
       </nav>
@@ -10175,7 +10184,7 @@
       <p class="site-family-mission-nudge section-note tdb-quiet-container">For home and ministry teams: <a href="/family.html">Family hub</a> (verse, plans, printables) · <a href="/mission-outreach-packs.html">Mission &amp; outreach packs</a>.</p>
       <!-- ── Read full chapter ── -->
       <div class="read-chapter-row tdb-quiet-container">
-        <a href="reader.html?book=Matthew&chapter=21&ref=Matthew%2021%3A22" id="readChapterLink" class="read-chapter-link" aria-label="Read Matthew chapter 21 in full context">📖 Read the full chapter</a>
+        <a href="reader.html?book=Mark&chapter=9&ref=Mark%209%3A23" id="readChapterLink" class="read-chapter-link" aria-label="Read Mark chapter 9 in full context">📖 Read the full chapter</a>
       </div>
       <div class="explore-hero-row tdb-quiet-container">
         <a href="explore.html" class="explore-hero-link" aria-label="Browse every topic, tool, and plan on the site">🗺 Explore all topics, tools, and plans</a>
@@ -10546,9 +10555,9 @@
   </details>
 
   <p class="footer-humility">We battle. He wins.</p>
-  <!-- Canonical short signature (edit here; run npm run sync:footer): Built solo by Brandon · porch copy lives in .site-footer-story below -->
+  <!-- Canonical short signature (edit here; run npm run sync:footer): footer story lives in .site-footer-story below -->
   <p class="site-footer-story">
-    Built from pain, not polish&mdash;solo-built. Steady KJV for honest days; no ads, no selling your data; prayers stay on this device unless you sync on purpose.
+    Steady KJV for honest days&mdash;no ads, no selling your data; prayers stay on this device unless you sync on purpose.
   </p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" aria-label="Friday verse and prayer email signup">
@@ -10567,7 +10576,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">May 3, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">May 4, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
@@ -15211,7 +15220,6 @@
   <!-- Phase 6: home secondary stack (injected by script.js after idle): memory-verses.js home-votm.js?v=20260402homevotm4 tdb-home-mobius-week.js?v=20260330home sky-ip-geo.js?v=20260327ipgeo word-study.js verse-narration.js verse-study.js family-verse-bridge.js gentle-suggest.js verse-breakdown-overrides.js?v=20260417-hydration verse-breakdown.js?v=20260417-hydration -->
   <script nonce="tdb2025s" type="module" fetchpriority="high" src="config.js"></script>
   <script nonce="tdb2025s" defer src="start-my-day.js?v=20260423-phase5-perf"></script>
-  <script nonce="tdb2025s" defer src="first-visit-welcome.js?v=20260423-phase5-perf"></script>
   <script nonce="tdb2025s" type="module" src="script.js?v=20260423-phase5-perf" data-cfasync="false" fetchpriority="high"></script>
   <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->
   <script nonce="tdb2025s" src="utils.js?v=20260331-patriotic-home" defer fetchpriority="low"></script>

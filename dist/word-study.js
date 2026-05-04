@@ -50,6 +50,20 @@
     '#ws-sample-verses ul{list-style:none;margin:0;padding:0}' +
     '#ws-sample-verses li{margin:.28rem 0}' +
     '#ws-sample-verses a{color:#1d4ed8;text-decoration:underline;text-underline-offset:2px;min-height:40px;display:inline-flex;align-items:center}' +
+    '.ws-deep-study{margin:.6rem 0 .8rem;border-radius:14px;border:1px solid rgba(138,112,48,.22);background:rgba(255,250,241,.95);overflow:hidden}' +
+    '.ws-deep-study.tdb-ws-hidden{display:none!important}' +
+    '.ws-deep-study summary{cursor:pointer;font-weight:700;color:#5c4a24;min-height:46px;display:flex;align-items:center;padding:.65rem .8rem;list-style:none;font-size:.92rem;background:rgba(227,188,103,.12)}' +
+    '.ws-deep-study summary::-webkit-details-marker{display:none}' +
+    '#ws-deep-body{padding:.1rem .8rem .8rem}' +
+    '.ws-deep-weight{display:inline-flex;align-items:center;min-height:32px;padding:.16rem .52rem;margin:.1rem 0 .55rem;border-radius:999px;border:1px solid rgba(138,112,48,.32);background:rgba(255,255,255,.92);font-size:.74rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#6b5a3c}' +
+    '.ws-deep-block{margin:.62rem 0 0}' +
+    '.ws-deep-block strong{display:block;margin:0 0 .3rem;font-size:.76rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#6b5a3c}' +
+    '.ws-deep-block p{margin:0;font-size:.92rem;line-height:1.62;color:#292524}' +
+    '.ws-deep-list{display:flex;flex-wrap:wrap;gap:.45rem;margin:.15rem 0 0;padding:0;list-style:none}' +
+    '.ws-deep-list li{margin:0}' +
+    '.ws-deep-list a,.ws-deep-related-btn{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:.28rem .7rem;border-radius:10px;border:1px solid rgba(138,112,48,.28);background:#fff;color:#1d4ed8;font-weight:600;font-size:.84rem;text-decoration:none;font-family:inherit;cursor:pointer}' +
+    '.ws-deep-related-btn{color:#5c4a24}' +
+    '.ws-deep-list a:hover,.ws-deep-list a:focus-visible,.ws-deep-related-btn:hover,.ws-deep-related-btn:focus-visible{outline:2px solid rgba(227,188,103,.5);outline-offset:2px;border-color:rgba(138,112,48,.42)}' +
     '.tdb-ws-deep{margin:.55rem 0 .5rem;padding:.55rem .7rem;border-radius:12px;border:1px solid rgba(90,78,58,.12);background:rgba(255,255,255,.5)}' +
     '.tdb-ws-deep summary{cursor:pointer;font-weight:600;color:#6b5a3c;min-height:44px;display:flex;align-items:center;list-style:none;font-size:.88rem}' +
     '.tdb-ws-deep-hint{margin:.35rem 0 0;font-size:.82rem;color:#57534e;line-height:1.48}' +
@@ -84,6 +98,7 @@
   var globalSyncWired = false;
   /** @type {Element|null} */
   var focusBeforeOpen = null;
+  var pendingDeepOpen = false;
 
   function listPanelFocusables(panel) {
     if (!panel || !panel.querySelectorAll) return [];
@@ -237,12 +252,19 @@
     } catch (e) {
       origin = '';
     }
-    var urls = ['/kjv.json'];
-    if (origin) urls.push(origin.replace(/\/$/, '') + '/kjv.json');
+    var urls = ['/data/kjv-full.json', '/kjv-full.json', '/kjv.json'];
+    if (origin) {
+      var base = origin.replace(/\/$/, '');
+      urls.push(base + '/data/kjv-full.json');
+      urls.push(base + '/kjv-full.json');
+      urls.push(base + '/kjv.json');
+    }
+    urls.push('https://todaysdailybattle.com/data/kjv-full.json');
+    urls.push('https://todaysdailybattle.com/kjv-full.json');
     urls.push('https://todaysdailybattle.com/kjv.json');
     biblePromise = (function tryFetch(i) {
       if (i >= urls.length) return Promise.resolve({});
-      return fetch(urls[i], { credentials: 'same-origin' })
+      return fetch(urls[i], { credentials: 'same-origin', cache: 'force-cache' })
         .then(function (res) {
           return res.ok ? res.json() : Promise.reject();
         })
@@ -291,10 +313,11 @@
               g: String(e.g != null ? e.g : '').trim(),
               s: String(e.s != null ? e.s : '').trim(),
               w: String(e.w != null ? e.w : '').trim(),
-              x: Array.isArray(e.x) ? e.x : []
+              x: Array.isArray(e.x) ? e.x : [],
+              d: e.d && typeof e.d === 'object' ? e.d : null
             };
           } else {
-            lexiconMap[key] = { g: String(e || '').trim(), s: '', w: '', x: [] };
+            lexiconMap[key] = { g: String(e || '').trim(), s: '', w: '', x: [], d: null };
           }
         });
         return lexiconMap;
@@ -320,6 +343,30 @@
       if (lexiconMap[base]) return lexiconMap[base];
     }
     return null;
+  }
+
+  function normalizeDeepDive(rawDeep) {
+    if (!rawDeep || typeof rawDeep !== 'object') return null;
+    var deep = {};
+    var era = String(rawDeep.kjvEraUsage || '').trim();
+    var notes = String(rawDeep.studyNotes || '').trim();
+    var refs = Array.isArray(rawDeep.keyCrossRefs)
+      ? rawDeep.keyCrossRefs.map(function (ref) {
+          return String(ref || '').replace(/\s+/g, ' ').trim();
+        }).filter(Boolean)
+      : [];
+    var related = Array.isArray(rawDeep.relatedWords)
+      ? rawDeep.relatedWords.map(function (word) {
+          return String(word || '').replace(/\s+/g, ' ').trim().toLowerCase();
+        }).filter(Boolean)
+      : [];
+    var weight = String(rawDeep.theologicalWeight || '').trim();
+    if (era) deep.kjvEraUsage = era;
+    if (notes) deep.studyNotes = notes;
+    if (refs.length) deep.keyCrossRefs = refs.slice(0, 5);
+    if (related.length) deep.relatedWords = related.slice(0, 6);
+    if (weight) deep.theologicalWeight = weight;
+    return Object.keys(deep).length ? deep : null;
   }
 
   function collectConcordance(bibleObj, normalizedToken) {
@@ -388,7 +435,16 @@
       '<p id="ws-why-matters-text"></p></div>' +
       '<details class="ws-samples" id="ws-samples-details">' +
       '<summary>Sample verses using this word <span class="count" id="ws-sample-count-label"></span></summary>' +
-      '<div id="ws-sample-verses"></div></details></div>' +
+      '<div id="ws-sample-verses"></div></details>' +
+      '<details class="ws-deep-study tdb-ws-hidden" id="ws-deep-details">' +
+      '<summary>Deep Dive</summary>' +
+      '<div id="ws-deep-body">' +
+      '<span id="ws-deep-weight" class="ws-deep-weight tdb-ws-hidden"></span>' +
+      '<div id="ws-deep-era-wrap" class="ws-deep-block tdb-ws-hidden"><strong>KJV-era usage</strong><p id="ws-deep-era"></p></div>' +
+      '<div id="ws-deep-notes-wrap" class="ws-deep-block tdb-ws-hidden"><strong>Study note</strong><p id="ws-deep-notes"></p></div>' +
+      '<div id="ws-deep-refs-wrap" class="ws-deep-block tdb-ws-hidden"><strong>Key cross references</strong><ul id="ws-deep-refs" class="ws-deep-list"></ul></div>' +
+      '<div id="ws-deep-related-wrap" class="ws-deep-block tdb-ws-hidden"><strong>Related words</strong><ul id="ws-deep-related" class="ws-deep-list"></ul></div>' +
+      '</div></details></div>' +
       '<details class="tdb-ws-deep"><summary>About this list</summary>' +
       '<p class="tdb-ws-deep-hint">Below is a whole-word concordance for this English form in the KJV text we ship. It is not Greek or Hebrew; use it to see how the same English word carries in different verses.</p></details>' +
       '<div id="tdb-ws-body" class="tdb-ws-results"></div>' +
@@ -433,6 +489,16 @@
     var sampD = document.getElementById('ws-samples-details');
     var sampV = document.getElementById('ws-sample-verses');
     var sampL = document.getElementById('ws-sample-count-label');
+    var deepD = document.getElementById('ws-deep-details');
+    var deepWeight = document.getElementById('ws-deep-weight');
+    var deepEra = document.getElementById('ws-deep-era');
+    var deepEraW = document.getElementById('ws-deep-era-wrap');
+    var deepNotes = document.getElementById('ws-deep-notes');
+    var deepNotesW = document.getElementById('ws-deep-notes-wrap');
+    var deepRefs = document.getElementById('ws-deep-refs');
+    var deepRefsW = document.getElementById('ws-deep-refs-wrap');
+    var deepRelated = document.getElementById('ws-deep-related');
+    var deepRelatedW = document.getElementById('ws-deep-related-wrap');
     if (body) body.textContent = '';
     if (emptyEl) {
       emptyEl.textContent = 'Tap a word above, or type and search.';
@@ -460,7 +526,23 @@
       sampD.classList.add('tdb-ws-hidden');
       sampD.open = false;
     }
+    if (deepD) {
+      deepD.classList.add('tdb-ws-hidden');
+      deepD.open = false;
+    }
+    if (deepWeight) {
+      deepWeight.textContent = '';
+      deepWeight.classList.add('tdb-ws-hidden');
+    }
+    if (deepEra) deepEra.textContent = '';
+    if (deepNotes) deepNotes.textContent = '';
+    if (deepRefs) deepRefs.textContent = '';
+    if (deepRelated) deepRelated.textContent = '';
+    [deepEraW, deepNotesW, deepRefsW, deepRelatedW].forEach(function (el) {
+      if (el) el.classList.add('tdb-ws-hidden');
+    });
     lastPayload = null;
+    pendingDeepOpen = false;
   }
 
   function applyFilter(q) {
@@ -486,14 +568,26 @@
     var sampD = document.getElementById('ws-samples-details');
     var sampV = document.getElementById('ws-sample-verses');
     var sampL = document.getElementById('ws-sample-count-label');
+    var deepD = document.getElementById('ws-deep-details');
+    var deepWeight = document.getElementById('ws-deep-weight');
+    var deepEra = document.getElementById('ws-deep-era');
+    var deepEraW = document.getElementById('ws-deep-era-wrap');
+    var deepNotes = document.getElementById('ws-deep-notes');
+    var deepNotesW = document.getElementById('ws-deep-notes-wrap');
+    var deepRefs = document.getElementById('ws-deep-refs');
+    var deepRefsW = document.getElementById('ws-deep-refs-wrap');
+    var deepRelated = document.getElementById('ws-deep-related');
+    var deepRelatedW = document.getElementById('ws-deep-related-wrap');
     if (!body) return;
     body.textContent = '';
-    var lex = lookupLexicon(displayToken) || { g: '', s: '', w: '', x: [] };
+    var lex = lookupLexicon(displayToken) || { g: '', s: '', w: '', x: [], d: null };
+    var deep = normalizeDeepDive(lex.d);
     var lexSnap = {
       g: lex.g || '',
       s: lex.s || '',
       w: lex.w || '',
-      sampleRefs: Array.isArray(lex.x) ? lex.x.slice() : []
+      sampleRefs: Array.isArray(lex.x) ? lex.x.slice() : [],
+      d: deep
     };
     if (panel) {
       panel.classList.remove('tdb-ws-hidden');
@@ -552,6 +646,79 @@
         sampD.open = false;
       }
     }
+    if (deepD && deepWeight && deepEra && deepEraW && deepNotes && deepNotesW && deepRefs && deepRefsW && deepRelated && deepRelatedW) {
+      deepRefs.textContent = '';
+      deepRelated.textContent = '';
+      if (deep) {
+        deepD.classList.remove('tdb-ws-hidden');
+        if (deep.theologicalWeight) {
+          deepWeight.textContent = deep.theologicalWeight + ' priority';
+          deepWeight.classList.remove('tdb-ws-hidden');
+        } else {
+          deepWeight.textContent = '';
+          deepWeight.classList.add('tdb-ws-hidden');
+        }
+        if (deep.kjvEraUsage) {
+          deepEra.textContent = deep.kjvEraUsage;
+          deepEraW.classList.remove('tdb-ws-hidden');
+        } else {
+          deepEra.textContent = '';
+          deepEraW.classList.add('tdb-ws-hidden');
+        }
+        if (deep.studyNotes) {
+          deepNotes.textContent = deep.studyNotes;
+          deepNotesW.classList.remove('tdb-ws-hidden');
+        } else {
+          deepNotes.textContent = '';
+          deepNotesW.classList.add('tdb-ws-hidden');
+        }
+        if (Array.isArray(deep.keyCrossRefs) && deep.keyCrossRefs.length) {
+          deepRefsW.classList.remove('tdb-ws-hidden');
+          deep.keyCrossRefs.forEach(function (ref) {
+            var refText = String(ref || '').replace(/\s+/g, ' ').trim();
+            if (!refText) return;
+            var li = document.createElement('li');
+            var a = document.createElement('a');
+            a.href = buildReaderUrl(refText, anchorRef);
+            a.textContent = refText;
+            li.appendChild(a);
+            deepRefs.appendChild(li);
+          });
+        } else {
+          deepRefsW.classList.add('tdb-ws-hidden');
+        }
+        if (Array.isArray(deep.relatedWords) && deep.relatedWords.length) {
+          deepRelatedW.classList.remove('tdb-ws-hidden');
+          deep.relatedWords.forEach(function (relatedWord) {
+            var rel = String(relatedWord || '').trim();
+            if (!rel) return;
+            var li = document.createElement('li');
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'ws-deep-related-btn';
+            btn.textContent = formatDisplayWord(rel);
+            btn.setAttribute('aria-label', 'Study related word: ' + rel);
+            btn.addEventListener('click', function () {
+              runStudy(rel);
+            });
+            li.appendChild(btn);
+            deepRelated.appendChild(li);
+          });
+        } else {
+          deepRelatedW.classList.add('tdb-ws-hidden');
+        }
+        deepD.open = pendingDeepOpen;
+      } else {
+        deepD.classList.add('tdb-ws-hidden');
+        deepD.open = false;
+        deepWeight.textContent = '';
+        deepWeight.classList.add('tdb-ws-hidden');
+        [deepEraW, deepNotesW, deepRefsW, deepRelatedW].forEach(function (el) {
+          if (el) el.classList.add('tdb-ws-hidden');
+        });
+      }
+    }
+    pendingDeepOpen = false;
     if (emptyEl) emptyEl.classList.add('tdb-ws-hidden');
     var books = Object.keys(conc.byBook || {}).sort(function (a, b) {
       return a.localeCompare(b);
@@ -618,13 +785,15 @@
     Promise.all([getBibleObject(), ensureLexicon()]).then(function (res) {
       var bo = res[0];
       if (!bo || Object.keys(bo).length < 100) {
-        clearResults();
+        renderResults(norm, { byBook: {}, total: 0, capped: false });
         var emptyEl = document.getElementById('tdb-ws-empty');
+        var status = document.getElementById('tdb-ws-status');
         if (emptyEl) {
           emptyEl.textContent =
-            'Bible text is still loading. Wait a moment, open the homepage once, or try again.';
+            'Full concordance results are still loading. Your calm gloss and Deep Dive are ready now; the wider verse list can catch up in a moment.';
           emptyEl.classList.remove('tdb-ws-hidden');
         }
+        if (status) status.textContent = 'Showing the curated study layer first while the full verse map catches up.';
         return;
       }
       var conc = collectConcordance(bo, norm);
@@ -633,6 +802,12 @@
         if (typeof global.trackEvent === 'function') global.trackEvent('tdb_wordstudy_run', { hits: conc.total });
       } catch (e) {}
     });
+  }
+
+  function studyWord(rawToken, refRaw, textOpt, opts) {
+    open(refRaw || anchorRef || '', textOpt || verseText || '');
+    pendingDeepOpen = !!(opts && opts.openDeep);
+    runStudy(rawToken);
   }
 
   function populateChips(text) {
@@ -670,6 +845,11 @@
       if (lx.g) glossLines.push('Primary gloss: ' + lx.g);
       if (lx.s) glossLines.push('How to read it: ' + lx.s);
       if (lx.w) glossLines.push('Why it matters today: ' + lx.w);
+      if (lx.d && lx.d.kjvEraUsage) glossLines.push('KJV-era usage: ' + lx.d.kjvEraUsage);
+      if (lx.d && lx.d.studyNotes) glossLines.push('Deep study note: ' + lx.d.studyNotes);
+      if (lx.d && Array.isArray(lx.d.keyCrossRefs) && lx.d.keyCrossRefs.length) {
+        glossLines.push('Key cross references: ' + lx.d.keyCrossRefs.join('; '));
+      }
       var bookLines = (p.groups || []).map(function (g) {
         return g.book + ': ' + g.refs.join('; ');
       });
@@ -711,6 +891,16 @@
     if (lx.g) bodyHtml += '<p class="g"><strong>Primary gloss</strong> — ' + esc(lx.g) + '</p>';
     if (lx.s) bodyHtml += '<p class="g"><strong>How to read it</strong> — ' + esc(lx.s) + '</p>';
     if (lx.w) bodyHtml += '<p class="g why"><strong>Why this word matters today</strong> — ' + esc(lx.w) + '</p>';
+    if (lx.d && lx.d.kjvEraUsage) bodyHtml += '<p class="g"><strong>KJV-era usage</strong> — ' + esc(lx.d.kjvEraUsage) + '</p>';
+    if (lx.d && lx.d.studyNotes) bodyHtml += '<p class="g"><strong>Deep study note</strong> — ' + esc(lx.d.studyNotes) + '</p>';
+    if (lx.d && Array.isArray(lx.d.keyCrossRefs) && lx.d.keyCrossRefs.length) {
+      bodyHtml += '<p class="cap">Key cross references</p><ul>';
+      lx.d.keyCrossRefs.forEach(function (ref) {
+        var rr = String(ref || '').trim();
+        if (rr) bodyHtml += '<li>' + esc(rr) + '</li>';
+      });
+      bodyHtml += '</ul>';
+    }
     if (lx.sampleRefs && lx.sampleRefs.length) {
       bodyHtml += '<p class="cap">Sample verses</p><ul>';
       lx.sampleRefs.forEach(function (ref) {
@@ -849,6 +1039,7 @@
     open: open,
     close: close,
     runStudy: runStudy,
+    studyWord: studyWord,
     syncHeroWordStudyButton: syncHeroWordStudyButton,
     syncVersePageWordStudyButton: syncVersePageWordStudyButton
   };

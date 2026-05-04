@@ -174,6 +174,42 @@
   margin-bottom: 1.25rem;
 }
 
+.kjv-word-helps-intro {
+  margin: 0 0 0.55rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #e2e8f0;
+}
+
+.kjv-word-helps-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 44px;
+  margin: 0 0 0.4rem;
+  padding: 0.42rem 0.72rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  background: rgba(15, 23, 42, 0.42);
+  color: #f8fafc;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.kjv-word-helps-toggle input {
+  inline-size: 1rem;
+  block-size: 1rem;
+  accent-color: #e3bc67;
+}
+
+.kjv-word-helps-mode-note {
+  margin: 0 0 0.6rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #cbd5e1;
+}
+
 .kjv-word-helps-list {
   list-style: none;
   margin: 0.5rem 0 0;
@@ -191,11 +227,18 @@
   border-bottom: 1px solid rgba(148, 163, 184, 0.12);
 }
 
+.kjv-word-helps-item[data-has-deep="1"] {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.01) 0%, rgba(227, 188, 103, 0.04) 100%);
+}
+
 .kjv-word-helps-item:last-child {
   border-bottom: none;
 }
 
 .kjv-word-helps-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
   line-height: 1.45;
   font-size: 0.92rem;
   color: #e2e8f0;
@@ -226,6 +269,135 @@
   font-size: 0.82rem;
 }
 
+.kjv-word-helps-preview {
+  margin-top: 0.45rem;
+  padding: 0.55rem 0.65rem;
+  border-radius: 10px;
+  border: 1px solid rgba(227, 188, 103, 0.18);
+  background: rgba(255, 248, 230, 0.08);
+}
+
+.kjv-word-helps-preview[hidden] {
+  display: none !important;
+}
+
+.kjv-word-helps-preview p {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: #dbe6f3;
+}
+
+.kjv-word-helps-preview p + p {
+  margin-top: 0.35rem;
+}
+
+.kjv-word-helps-preview strong,
+.kjv-word-helps-deep-block strong {
+  color: var(--bible-gold);
+}
+
+.kjv-word-helps-deep-dive {
+  margin-top: 0.55rem;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: rgba(15, 23, 42, 0.22);
+  overflow: hidden;
+}
+
+.kjv-word-helps-deep-dive[hidden] {
+  display: none !important;
+}
+
+.kjv-word-helps-deep-dive summary {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.52rem 0.65rem;
+  cursor: pointer;
+  list-style: none;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.kjv-word-helps-deep-dive summary::-webkit-details-marker {
+  display: none;
+}
+
+.kjv-word-helps-deep-inner {
+  padding: 0 0.65rem 0.68rem;
+}
+
+.kjv-word-helps-deep-weight {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0.16rem 0.5rem;
+  margin: 0.1rem 0 0.55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(227, 188, 103, 0.25);
+  background: rgba(255, 248, 230, 0.1);
+  color: var(--bible-gold);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.kjv-word-helps-deep-weight[hidden] {
+  display: none !important;
+}
+
+.kjv-word-helps-deep-block {
+  margin-top: 0.62rem;
+}
+
+.kjv-word-helps-deep-block p {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.58;
+  color: #dbe6f3;
+}
+
+.kjv-word-helps-deep-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0.24rem 0 0;
+  padding: 0;
+}
+
+.kjv-word-helps-deep-link,
+.kjv-word-helps-related-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0.26rem 0.66rem;
+  border-radius: 10px;
+  border: 1px solid rgba(147, 197, 253, 0.28);
+  background: rgba(15, 23, 42, 0.38);
+  color: #bfdbfe;
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.kjv-word-helps-related-link {
+  border-color: rgba(227, 188, 103, 0.2);
+  color: #fde68a;
+}
+
+.kjv-word-helps-deep-link:hover,
+.kjv-word-helps-deep-link:focus-visible,
+.kjv-word-helps-related-link:hover,
+.kjv-word-helps-related-link:focus-visible,
+.kjv-word-helps-toggle:focus-within {
+  outline: 2px solid rgba(227, 188, 103, 0.45);
+  outline-offset: 2px;
+}
+
 .kjv-word-helps-ref {
   color: #93c5fd;
   text-decoration: none;
@@ -236,6 +408,26 @@
 .kjv-word-helps-ref:focus-visible {
   color: #bfdbfe;
   outline: none;
+}
+
+:root[data-theme="light"] .kjv-word-helps-intro,
+:root[data-theme="light"] .kjv-word-helps-row,
+:root[data-theme="light"] .kjv-word-helps-mode-note,
+:root[data-theme="light"] .kjv-word-helps-preview p,
+:root[data-theme="light"] .kjv-word-helps-deep-block p,
+:root[data-theme="light"] .kjv-word-helps-deep-dive summary {
+  color: #334155;
+}
+
+:root[data-theme="light"] .kjv-word-helps-toggle,
+:root[data-theme="light"] .kjv-word-helps-list,
+:root[data-theme="light"] .kjv-word-helps-deep-dive {
+  background: rgba(255, 255, 255, 0.88);
+  color: #1e293b;
+}
+
+:root[data-theme="light"] .kjv-word-helps-preview {
+  background: rgba(255, 248, 230, 0.55);
 }
 
 .concordance-chain-refs {

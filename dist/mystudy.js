@@ -932,6 +932,8 @@
     if (art) {
       if (study.verseText) art.setAttribute('data-kjv-context-verse', study.verseText);
       else art.removeAttribute('data-kjv-context-verse');
+      if (study.verseRef) art.setAttribute('data-kjv-context-ref', study.verseRef);
+      else art.removeAttribute('data-kjv-context-ref');
     }
     if (window.TdbKjvDictionary && typeof window.TdbKjvDictionary.applyToElement === 'function') {
       textEl.removeAttribute('data-tdb-kjv-wrapped');
@@ -1196,6 +1198,12 @@
     byId('mystudy-highlight-selected')?.addEventListener('click', function () {
       if (!study.verseRef || !study.verseText) return;
       saveHighlight(study.verseRef, study.verseText);
+    });
+    byId('mystudy-word-study-selected')?.addEventListener('click', function () {
+      if (!study.verseRef || !study.verseText) return;
+      if (window.TDBWordStudy && typeof window.TDBWordStudy.open === 'function') {
+        window.TDBWordStudy.open(study.verseRef, study.verseText);
+      }
     });
     notesEl?.addEventListener('input', function () {
       study.notes = notesEl.value;

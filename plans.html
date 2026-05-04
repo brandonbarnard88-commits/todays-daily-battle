@@ -759,6 +759,31 @@
       text-align: center;
       line-height: 1.5;
     }
+    .plans-browse-by-season__link {
+      color: var(--gold-soft);
+      text-decoration-color: color-mix(in srgb, var(--gold) 55%, transparent);
+      text-underline-offset: 0.16em;
+      font-weight: 700;
+    }
+    .plans-browse-by-season__link:hover,
+    .plans-browse-by-season__link:focus-visible {
+      color: var(--gold);
+      text-decoration-color: currentColor;
+    }
+    html[data-theme="light"] .plans-browse-by-season__link,
+    html[data-theme="light"] .plans-browse-by-season__link:visited,
+    html[data-theme="sepia"] .plans-browse-by-season__link,
+    html[data-theme="sepia"] .plans-browse-by-season__link:visited {
+      color: #28405c;
+      text-decoration-color: rgba(40, 64, 92, 0.38);
+    }
+    html[data-theme="light"] .plans-browse-by-season__link:hover,
+    html[data-theme="light"] .plans-browse-by-season__link:focus-visible,
+    html[data-theme="sepia"] .plans-browse-by-season__link:hover,
+    html[data-theme="sepia"] .plans-browse-by-season__link:focus-visible {
+      color: #1a2f48;
+      text-decoration-color: currentColor;
+    }
     .plans-browse-by-season__grid {
       display: grid;
       gap: 0.85rem;
@@ -1678,25 +1703,23 @@
       <a href="index.html" class="plans-back" aria-label="Back to homepage">← Today's Battle</a>
       <div class="plans-hero plans-hero--soar-dawn tdb-micro-hero-dawn">
         <h1>Courses in the University of God</h1>
-        <p class="plans-hero-hint topic-mood-porch" style="margin-bottom:0.5rem;">You&rsquo;re already welcome here&mdash;open one door, or only read this screen; the Spirit still meets you either way.</p>
+        <p class="plans-hero-hint topic-mood-porch" style="margin-bottom:0.5rem;">You&rsquo;re already welcome here. This page is the course catalog: open one plan now, or just use it to see what is available.</p>
         <p class="plans-hero-subtitle-uog">Rest, not rush &mdash; grace for the long walk.</p>
         <p class="plans-porch-ingress" id="plans-porch-ingress">
-          The day feels loud before you even sat down? Stay right here.
-          You don&rsquo;t have to get anything right first.
-          <strong>God&rsquo;s University of Life</strong> is just the name on the door &mdash;
-          a quiet porch where you can sit with God in the KJV,
-          no performance, no pressure.
+          <strong>Courses in the University of God</strong> gathers the day-by-day plans in one place:
+          short lanes, seasonal paths, and longer rhythms.
+          If you want the five anchor verses only, open the <a href="university.html">University map</a>.
+          If you want the broader pace map, open <a href="gods-university-of-life.html">God&rsquo;s University of Life</a>.
         </p>
-        <p class="plans-hero-hint">One line of Scripture. One small move forward. One honest prayer. Grace is already the house &mdash; you&rsquo;re not knocking.</p>
         <p>On this device. Still there offline. <a href="university.html">Anchor verses</a> if a map helps.</p>
       </div>
       <section class="plans-situation-jump" id="find-your-plan" aria-labelledby="plans-situation-jump-h">
         <h2 class="plans-find-your-plan-h" id="plans-situation-jump-h">Find your plan</h2>
         <p class="plans-situation-jump__lead">
-          When you&rsquo;re ready, name what you&rsquo;re carrying today&mdash;even quietly&mdash;then find your row in <a href="#all-plans">the full list</a>.
-          Open a day when you want. Stay as long as you need.
+          Name what you&rsquo;re carrying today, then jump into that row in <a href="#all-plans">the full list</a>.
+          This section is for fast routing inside the catalog.
         </p>
-        <p class="plans-hero-hint">You&rsquo;re not behind. Any day&rsquo;s a door. Pick up where you left off.</p>
+        <p class="plans-hero-hint">Any day can be your starting day. Pick up where you left off when you come back.</p>
         <ul class="plans-situation-jump__list" role="list" aria-label="Common situations; jump to a course in the list below">
           <li><a href="#plan-row-universityanxiety">Anxiety</a></li>
           <li><a href="#plan-row-worrytrust">Worry</a></li>
@@ -1711,7 +1734,7 @@
           <li><a href="#plan-row-overwhelmedburnout">Too much</a></li>
           <li><a href="#plan-row-selfworth">Worth &amp; identity</a></li>
         </ul>
-        <p class="plans-situation-jump__more section-note" role="note">Still scanning? <a href="#plans-browse-by-feeling">More by feeling</a> &middot; <a href="#plans-start-here-title">Start here</a> &middot; <a href="index.html#feel-section">How I feel (home)</a></p>
+        <p class="plans-situation-jump__more section-note" role="note">Still scanning? <a href="#plans-browse-by-feeling">More by feeling</a> &middot; <a href="#plans-browse-by-season">Browse by season</a> &middot; <a href="#all-plans">Every plan</a></p>
       </section>
       <div class="plans-hero-continued" aria-label="More about courses and help">
         <p class="plans-audio-roadmap tdb-listen-privacy-hint" role="note">We hope to add warm <strong>human narration</strong> for plan days (and Möbius breathing) when recording lines up&mdash;nothing extra to buy or turn on yet. Each day&rsquo;s <strong>Listen</strong> still uses steady device TTS. Playback stays on your device&mdash;nothing is uploaded for listening.</p>
@@ -1719,12 +1742,10 @@
           <button type="button" id="tdb-plans-print-votd-btn" class="btn btn-secondary tdb-print-delight" aria-label="Print today&rsquo;s KJV verse on a simple sheet">Print today&rsquo;s verse (sheet)</button>
         </p>
         <p class="plans-prayer-callout">Others pray quietly too — <a href="/prayer-wall.html?tab=with-others">Prayer</a> is there when you want company without noise.</p>
-        <p class="plans-hero-hint plans-mystudy-print-hint">Your checkmarks and notes stay on this device. <a href="mystudy.html">My Study</a> can print them when you want paper.</p>
-        <p class="plans-hero-hint">Paper-friendly index: <a href="printables.html">Printables hub</a>.</p>
-        <p class="plans-hero-hint">Morning doorway: <a href="daily-quiet-time.html">Daily quiet time</a>. Scripture-first Psalms: <a href="psalms.html">Psalms hub</a>.</p>
-        <p class="plans-hero-hint" id="plans-year-round-rhythm-hint">Homeschool &amp; families pacing the whole year: <a href="yearly-rhythm.html">Year-round rhythm</a> (August&ndash;July grid, summer &ldquo;Summer Seeds,&rdquo; holiday links) plus an <a href="yearly-rhythm.html#yr-ages-5-18">ages 5&ndash;18 weekly + daily map</a>. <a href="family.html#family-year-round-memory">Memory Verses</a> stay on this device; seasonal tracks: <a href="plans.html?plan=schoolcourage">Back-to-School Courage</a>, <a href="plans.html?plan=harvestthanks">Harvest Gratitude</a>, <a href="plans.html?plan=adventquiet">Advent Quiet</a>, <a href="plans.html?plan=gentleyear">Gentle New Year Reset</a>, <a href="plans.html?plan=summerstill">Summer Stillness</a>, <a href="plans.html?plan=latesummerrest">Late summer, early rest</a> (bridge).</p>
+        <p class="plans-hero-hint plans-mystudy-print-hint">Your checkmarks and notes stay on this device. <a href="mystudy.html">My Study</a> can print them, and the <a href="printables.html">Printables hub</a> keeps the paper-friendly index together.</p>
+        <p class="plans-hero-hint" id="plans-year-round-rhythm-hint">For school-year and family pacing, use <a href="yearly-rhythm.html">Year-round rhythm</a> for the August&ndash;July map, the <a href="yearly-rhythm.html#yr-ages-5-18">ages 5&ndash;18 guide</a>, and the memory-verse links that sit beside these plans.</p>
         <p class="plans-url-hint"><strong>Plan day checkmarks</strong> stay in this browser (offline-friendly). <strong>Signed in?</strong> Saved verses and collections can sync across devices; your reading rhythm, prayers you save, and gentle milestones can too&mdash;see <a href="privacy.html">Privacy</a> for what crosses devices. <a href="mystudy.html">My Study</a> can still print a full bundle when you want paper. Links with <code class="plans-code">?plan=id&amp;day=N</code> open day <em>N</em> when you&rsquo;ve already unlocked it; otherwise we land you on the latest day you can open.</p>
-        <p class="plans-hero-hint">Brand-new to faith? <a href="first-steps.html">Calm doorway</a> · <a href="plans.html?plan=firststeps">14-day plan</a>. Who God says you are: <a href="identity-in-christ.html">calm hub</a> or <a href="plans.html?plan=identityinchrist">7-day plan</a>. A month of thanks: <a href="plans.html?plan=praisethanks30">Praise &amp; Thanksgiving</a>. <a href="plans.html?plan=armorofgod">Armor of God</a>, <a href="plans.html?plan=fearnot14">Fear Not (14)</a>, <a href="plans.html?plan=dailylabor">work &amp; labor</a>, <a href="family-home.html">family hub</a>. Resurrection: <a href="he-is-risen.html">He is risen</a> (readings anytime) · <a href="plans.html?plan=easter">Resurrection Hope</a> (7 days). Holidays: <a href="seasonal.html">Seasonal paths</a> · <a href="plans.html?plan=christmas7">Christmas week</a> · <a href="plans.html?plan=newyear7">New Year week</a>. Use <strong>Listen</strong> on any day card to hear the verse plus the day&rsquo;s plain words and prayer (device TTS).</p>
+        <p class="plans-hero-hint">Need a doorway before the full catalog? Try <a href="first-steps.html">First steps</a>, <a href="identity-in-christ.html">Who God says you are</a>, <a href="seasonal.html">Seasonal paths</a>, or <a href="family-home.html">Family hub</a>.</p>
       </div>
       <p class="plans-homeschool-banner" role="region" aria-label="Homeschool and private school"><strong>For homeschool &amp; private-school Bible class:</strong> one screen maps August&ndash;July, summer weeks, holidays, and the same monthly memory verses you can mark on this device &mdash; <a href="yearly-rhythm.html">Year-round rhythm</a>. Need age-banded pacing? Open the <a href="yearly-rhythm.html#yr-ages-5-18">ages 5&ndash;18 weekly + daily map</a>. Printables: <a href="year-at-a-glance.html">Year at a glance</a> · <a href="yearly-rhythm.html#yr-print-planners">planners</a> · <a href="church-sharing-kit.html#csk-homeschool-year-round">Church kit</a>.</p>
       <p class="section-note plans-memory-activities-teaser" id="plans-memory-activities-teaser" style="margin:0.5rem 0 0;font-size:0.88rem;line-height:1.55;color:rgba(203,213,225,0.92)">Gentle ways to hide God&rsquo;s Word in your heart (no quizzes)&mdash;see <a href="church-sharing-kit.html#csk-memory-verse-activities">Memory Verse Activities</a> in the Church Sharing Kit.</p>
@@ -1776,7 +1797,7 @@
       </nav>
       <section class="plans-browse-by-season" id="plans-browse-by-season" aria-labelledby="plans-browse-season-h">
         <h2 class="plans-browse-by-season__h" id="plans-browse-season-h">Browse by season</h2>
-        <p class="plans-browse-by-season__lead">A soft map&mdash;not every plan, just calm doorways that match the light outside. The full list stays below; <a href="#all-plans">every plan</a> is still here.</p>
+        <p class="plans-browse-by-season__lead">A soft map&mdash;not every plan, just calm doorways that match the light outside. The full list stays below; <a class="plans-browse-by-season__link" href="#all-plans">every plan</a> is still here.</p>
         <div class="plans-browse-by-season__grid">
           <div class="plans-browse-by-season__col" id="plans-browse-winter" tabindex="-1">
             <h3>Winter (Dec&ndash;Feb)</h3>
@@ -1836,7 +1857,7 @@
       </nav>
       <section class="plans-start-here" aria-labelledby="plans-start-here-title">
         <h2 class="plans-start-here-title" id="plans-start-here-title">Start here</h2>
-        <p class="plans-start-here-lead">If choosing feels like too much, start with the lane that fits today. Each link opens the same plan you will see in the full list below.</p>
+        <p class="plans-start-here-lead">Use this when you want help choosing inside the catalog. Each link opens the same plan you will see in the full list below.</p>
         <div class="plans-lane-quick" role="navigation" aria-label="Jump to a plan lane">
           <a class="plans-lane-chip" href="#sermon-on-mount-intro">Sermon on the Mount</a>
           <a class="plans-lane-chip" href="#bible-studies-free">Bible Studies</a>
@@ -2971,9 +2992,9 @@
   <script src="/plans-data.js"></script>
   <script src="/memory-verses.js"></script>
   <script src="/tdb-offline-strip.js?v=20260329pass2off"></script>
-  <script src="/word-study.js?v=20260329pass2off"></script>
+  <script src="/word-study.js?v=20260503worddepth1"></script>
   <script src="/verse-narration.js?v=20260329narr12"></script>
-  <script src="/verse-study.js?v=20260328pass4vs"></script>
+  <script src="/verse-study.js?v=20260503worddepth1"></script>
   <script src="/tdb-mobius-journal.js?v=20260330mlj1"></script>
   <script src="/easter-season.js"></script>
   <script nonce="tdb2025s">

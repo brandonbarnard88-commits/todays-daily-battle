@@ -6,8 +6,8 @@ import {
   syncSiteAssetVersions,
 } from './site-asset-version.mjs';
 
-const SKIP_DIRS = new Set(['.git', 'node_modules', 'dist']);
-const DIST_SKIP = new Set(['.git', 'node_modules']);
+const SKIP_DIRS = new Set(['.git', 'node_modules', 'dist', '.worktrees']);
+const DIST_SKIP = new Set(['.git', 'node_modules', '.worktrees']);
 
 function walkHtml(dir, results = [], dirSkip) {
   const skip = dirSkip || SKIP_DIRS;

@@ -21324,8 +21324,19 @@ body.tdb-kjv-dict-open {
 }
 
 .tdb-kjv-dict-close {
-  width: 100%;
+  flex: 1 1 9rem;
+  min-height: 44px;
+}
+
+.tdb-kjv-dict-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
   margin-top: 0.15rem;
+}
+
+.tdb-kjv-dict-deep {
+  flex: 1 1 9rem;
   min-height: 44px;
 }
 

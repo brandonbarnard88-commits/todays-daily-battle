@@ -78,6 +78,7 @@ const CORE_ASSETS = [
   '/cross-refs.json',
   '/book-intros.json',
   '/kjv-word-notes.json',
+  '/data/kjv-full.json',
   '/ask-the-word.js',
   '/share-page.js',
   '/vendor/dompurify.min.js',

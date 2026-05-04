@@ -8,6 +8,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { ENTRIES } from './kjv-word-notes-entries.mjs';
+import { DEEP_DIVE_SEEDS } from './kjv-word-notes-deep-dive-seeds.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const out = path.join(__dirname, '..', 'kjv-word-notes.json');
@@ -18,6 +19,7 @@ const concKeys = new Set(Object.keys(concordance));
 
 /** Preserve “why” blurbs across rebuilds when entries in .mjs omit them (see merge-kjv-whys-batch.mjs). */
 let existingWhyByWord = new Map();
+let existingDeepByWord = new Map();
 if (fs.existsSync(out)) {
   try {
     const prev = JSON.parse(fs.readFileSync(out, 'utf8'));
@@ -25,10 +27,38 @@ if (fs.existsSync(out)) {
       if (e && e.word && String(e.why || '').trim()) {
         existingWhyByWord.set(String(e.word).toLowerCase().trim(), String(e.why).trim());
       }
+      if (e && e.word && e.deepDive && typeof e.deepDive === 'object') {
+        existingDeepByWord.set(String(e.word).toLowerCase().trim(), e.deepDive);
+      }
     }
   } catch (_) {
     /* ignore corrupt prior file */
   }
+}
+
+function cleanText(value) {
+  return String(value == null ? '' : value).replace(/\s+/g, ' ').trim();
+}
+
+function normalizeDeepDive(raw) {
+  if (!raw || typeof raw !== 'object') return null;
+  const era = cleanText(raw.kjvEraUsage);
+  const notes = cleanText(raw.studyNotes);
+  const refs = Array.isArray(raw.keyCrossRefs)
+    ? raw.keyCrossRefs.map((ref) => cleanText(ref)).filter(Boolean).slice(0, 5)
+    : [];
+  const related = Array.isArray(raw.relatedWords)
+    ? raw.relatedWords.map((word) => cleanText(word).toLowerCase()).filter(Boolean).slice(0, 6)
+    : [];
+  const weight = cleanText(raw.theologicalWeight);
+  if (!era && !notes && !refs.length && !related.length && !weight) return null;
+  const deepDive = {};
+  if (era) deepDive.kjvEraUsage = era;
+  if (refs.length) deepDive.keyCrossRefs = refs;
+  if (notes) deepDive.studyNotes = notes;
+  if (related.length) deepDive.relatedWords = related;
+  if (weight) deepDive.theologicalWeight = weight;
+  return deepDive;
 }
 
 /** Hub concordance indexes a limited lemma set; map headword → an indexed lemma for useful hit lists. */
@@ -271,7 +301,7 @@ const words = ENTRIES.map(function (e) {
   if (ex.length < 3 || ex.length > 5) {
     throw new Error('Entry "' + w + '" must have 3–5 examples (got ' + ex.length + ').');
   }
-  const note = String(e.note || '').trim();
+  const note = cleanText(e.shortGloss || e.note);
   if (!w || !note) throw new Error('Entry needs w and note.');
   const conc = resolveConcordance(w, e.c);
   if (!concKeys.has(conc)) {
@@ -280,20 +310,33 @@ const words = ENTRIES.map(function (e) {
   const row = {
     word: w,
     note: note,
+    shortGloss: note,
     concordance: conc,
     examples: ex.slice(0, 5)
   };
-  if (e.step && String(e.step).trim()) row.step = String(e.step).trim();
-  const srcWhy = e.why && String(e.why).trim();
-  if (srcWhy) row.why = srcWhy;
-  else if (existingWhyByWord.has(w)) row.why = existingWhyByWord.get(w);
+  const howToRead = cleanText(e.howToRead || e.step);
+  if (howToRead) {
+    row.step = howToRead;
+    row.howToRead = howToRead;
+  }
+  const srcWhy = cleanText(e.whyToday || e.why);
+  if (srcWhy) {
+    row.why = srcWhy;
+    row.whyToday = srcWhy;
+  } else if (existingWhyByWord.has(w)) {
+    const prevWhy = existingWhyByWord.get(w);
+    row.why = prevWhy;
+    row.whyToday = prevWhy;
+  }
+  const deepDive = normalizeDeepDive(e.deepDive || DEEP_DIVE_SEEDS[w] || existingDeepByWord.get(w));
+  if (deepDive) row.deepDive = deepDive;
   return row;
 });
 
 const payload = {
-  version: 2,
+  version: 3,
   about:
-    'KJV word helps: short glosses + example refs. Hub concordance lists a growing subset of lemmas; each entry includes a concordance key for Search. See scripts/README-kjv-word-notes.md.',
+    'KJV word helps: calm short glosses with optional deep-dive study fields. Hub concordance lists a growing subset of lemmas; each entry includes a concordance key for Search. See scripts/README-kjv-word-notes.md.',
   words: words
 };
 

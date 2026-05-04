@@ -175,6 +175,13 @@
     ex.className = 'tdb-kjv-dict-example';
     exWrap.appendChild(exLabel);
     exWrap.appendChild(ex);
+    var actions = document.createElement('div');
+    actions.className = 'tdb-kjv-dict-actions';
+    var deepBtn = document.createElement('button');
+    deepBtn.type = 'button';
+    deepBtn.className = 'btn btn-secondary tdb-kjv-dict-deep';
+    deepBtn.textContent = 'Deep Dive';
+    deepBtn.setAttribute('aria-label', 'Open deeper word study');
     var closeBtn = document.createElement('button');
     closeBtn.type = 'button';
     closeBtn.className = 'btn btn-secondary tdb-kjv-dict-close';
@@ -183,7 +190,9 @@
     card.appendChild(title);
     card.appendChild(body);
     card.appendChild(exWrap);
-    card.appendChild(closeBtn);
+    actions.appendChild(deepBtn);
+    actions.appendChild(closeBtn);
+    card.appendChild(actions);
     overlay.appendChild(backdrop);
     overlay.appendChild(card);
     document.body.appendChild(overlay);
@@ -207,6 +216,18 @@
       }
     }
     backdrop.addEventListener('click', close);
+    deepBtn.addEventListener('click', function () {
+      var lemma = overlay.getAttribute('data-kjv-lemma') || '';
+      var surface = overlay.getAttribute('data-kjv-surface') || lemma;
+      var verse = overlay.getAttribute('data-kjv-verse') || '';
+      var ref = overlay.getAttribute('data-kjv-ref') || '';
+      close();
+      if (window.TDBWordStudy && typeof window.TDBWordStudy.studyWord === 'function') {
+        window.TDBWordStudy.studyWord(lemma || surface, ref, verse, { openDeep: true });
+      } else if (window.TDBWordStudy && typeof window.TDBWordStudy.open === 'function') {
+        window.TDBWordStudy.open(ref, verse);
+      }
+    });
     closeBtn.addEventListener('click', close);
     overlay._tdbKjvClose = close;
     overlay._tdbKjvOnDocKey = onDocKey;
@@ -227,7 +248,7 @@
     return (start > 0 ? '\u2026' : '') + slice + (start + max < v.length ? '\u2026' : '');
   }
 
-  function showDictionaryPopover(lemma, surfaceForm, exampleVerse, returnFocusEl) {
+  function showDictionaryPopover(lemma, surfaceForm, exampleVerse, returnFocusEl, contextRef) {
     if (shouldSkipPage() || isUserDisabled()) return;
     loadEntries().then(function () {
       var lem = String(lemma || '').toLowerCase().replace(/\s+/g, ' ').trim();
@@ -243,6 +264,10 @@
       lastFocus = returnFocusEl || document.activeElement;
       wordEl.textContent = surfaceForm || lemma;
       defEl.textContent = def;
+      el.setAttribute('data-kjv-lemma', lem);
+      el.setAttribute('data-kjv-surface', surfaceForm || lemma || '');
+      el.setAttribute('data-kjv-verse', exampleVerse || '');
+      el.setAttribute('data-kjv-ref', contextRef || '');
       var exText = truncateExample(exampleVerse || '', surfaceForm || lemma);
       if (exText) {
         exEl.textContent = '\u201c' + exText + '\u201d';
@@ -297,11 +322,35 @@
     return p ? String(p.textContent || '') : '';
   }
 
+  function verseRefForSpan(span) {
+    var host = span.closest('[data-kjv-context-ref]');
+    if (host) {
+      var markedRef = host.getAttribute('data-kjv-context-ref');
+      if (markedRef) return markedRef;
+    }
+    var inlineBk = span.closest('.tdb-verse-breakdown-inline');
+    if (inlineBk) {
+      var inlineRef = inlineBk.getAttribute('data-ref');
+      if (inlineRef) return inlineRef;
+    }
+    var card = span.closest('.verse-card, .mystudy-verse-card, #daily-verse-card, [data-tdb-calm-verse-surface], .mystudy-highlight-detail');
+    if (card && typeof window.tdbGetDailyVerseRefFromCard === 'function') {
+      try {
+        var cardRef = window.tdbGetDailyVerseRefFromCard(card);
+        if (cardRef) return cardRef;
+      } catch (e) {}
+    }
+    var line = span.closest('.context-line');
+    if (line && line.dataset && line.dataset.ref) return line.dataset.ref;
+    return '';
+  }
+
   function openFromSpan(span) {
     var lemma = span.getAttribute('data-kjv-lemma') || span.textContent;
     var surface = span.textContent;
     var ctx = verseContextForSpan(span);
-    showDictionaryPopover(lemma, surface, ctx, span);
+    var ref = verseRefForSpan(span);
+    showDictionaryPopover(lemma, surface, ctx, span, ref);
   }
 
   function onPointerDown(e) {

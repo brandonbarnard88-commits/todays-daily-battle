@@ -2,7 +2,7 @@
 // Bump CACHE_NAME when you deploy new HTML/CSS or want to invalidate (e.g. tdb-static-YYYYMMDD).
 // script.js is network-first with a cache fallback (not precached) so online users get fresh JS immediately; offline users get the last successful fetch until CACHE_NAME clears.
 // config.js is NOT intercepted so updates deploy immediately.
-const CACHE_NAME = 'tdb-cache-v20260428-kids-hub-precache';
+const CACHE_NAME = 'tdb-cache-v20260503-night-contrast-guard';
 const CACHE_API = 'tdb-api-20260309c';
 const OFFLINE_URL = '/offline.html';
 const TODAY_VERSE_URL = '/today-kjv-verse.json';
@@ -78,6 +78,7 @@ const CORE_ASSETS = [
   '/cross-refs.json',
   '/book-intros.json',
   '/kjv-word-notes.json',
+  '/data/kjv-full.json',
   '/ask-the-word.js',
   '/share-page.js',
   '/vendor/dompurify.min.js',

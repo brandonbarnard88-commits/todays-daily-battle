@@ -10,6 +10,7 @@
   const KJV_URL = '../kjv.json';
   const CHAPTERS_URL = '../chapters.json';
   const KJV_WORD_NOTES_URL = '../kjv-word-notes.json';
+  const KJV_WORD_HELPS_DEEP_KEY = 'tdb_kjv_word_helps_deep_mode';
   const BOOK_INTROS_URL = '../book-intros.json';
   /** Loaded from cross-refs.json; used for chain blurbs in Hub concordance. */
   var crossChainsRemote = null;
@@ -166,6 +167,170 @@
   var bible = {};
   var currentNoteRef = null;
   var currentSearchWord = '';
+
+  function readWordHelpsDeepMode() {
+    try {
+      return localStorage.getItem(KJV_WORD_HELPS_DEEP_KEY) === '1';
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function writeWordHelpsDeepMode(enabled) {
+    try {
+      localStorage.setItem(KJV_WORD_HELPS_DEEP_KEY, enabled ? '1' : '0');
+    } catch (e) {}
+  }
+
+  function applyWordHelpsDeepModeUi(enabled) {
+    var toggle = document.getElementById('kjv-word-helps-deep-toggle');
+    var note = document.getElementById('kjv-word-helps-mode-note');
+    var list = document.getElementById('kjv-word-helps-list');
+    if (toggle) toggle.checked = !!enabled;
+    if (list) list.setAttribute('data-deep-mode', enabled ? '1' : '0');
+    if (note) {
+      note.textContent = enabled
+        ? 'Deep mode is on for this device. Calm glosses stay first; extra reading cues now show across the workshop.'
+        : 'Calm view stays short by default.';
+    }
+  }
+
+  function makeWordHelpAnchor(word) {
+    return 'kjv-word-help-' + String(word || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  }
+
+  function buildWordHelpQuery(word) {
+    return 'tools.html?q=' + encodeURIComponent(word || '') + '#concordance-section';
+  }
+
+  function renderWordHelpDeepDive(li, w, deepMode) {
+    var how = String(w.howToRead || w.step || '').trim();
+    var why = String(w.whyToday || w.why || '').trim();
+    var deep = w.deepDive && typeof w.deepDive === 'object' ? w.deepDive : null;
+    var hasDeep = !!(deep && (
+      String(deep.kjvEraUsage || '').trim() ||
+      String(deep.studyNotes || '').trim() ||
+      (Array.isArray(deep.keyCrossRefs) && deep.keyCrossRefs.length) ||
+      (Array.isArray(deep.relatedWords) && deep.relatedWords.length) ||
+      String(deep.theologicalWeight || '').trim()
+    ));
+    li.setAttribute('data-has-deep', hasDeep ? '1' : '0');
+
+    var preview = document.createElement('div');
+    preview.className = 'kjv-word-helps-preview';
+    preview.hidden = !deepMode || (!how && !why);
+    if (how) {
+      var howP = document.createElement('p');
+      var howStrong = document.createElement('strong');
+      howStrong.textContent = 'How to read it: ';
+      howP.appendChild(howStrong);
+      howP.appendChild(document.createTextNode(how));
+      preview.appendChild(howP);
+    }
+    if (why) {
+      var whyP = document.createElement('p');
+      var whyStrong = document.createElement('strong');
+      whyStrong.textContent = 'Why today: ';
+      whyP.appendChild(whyStrong);
+      whyP.appendChild(document.createTextNode(why));
+      preview.appendChild(whyP);
+    }
+    li.appendChild(preview);
+
+    var details = document.createElement('details');
+    details.className = 'kjv-word-helps-deep-dive';
+    details.hidden = !hasDeep;
+    if (!hasDeep) {
+      li.appendChild(details);
+      return;
+    }
+    var summary = document.createElement('summary');
+    summary.textContent = 'Deep Dive';
+    details.appendChild(summary);
+    var inner = document.createElement('div');
+    inner.className = 'kjv-word-helps-deep-inner';
+
+    var weight = String(deep.theologicalWeight || '').trim();
+    var era = String(deep.kjvEraUsage || '').trim();
+    var notes = String(deep.studyNotes || '').trim();
+    var refs = Array.isArray(deep.keyCrossRefs) ? deep.keyCrossRefs : [];
+    var related = Array.isArray(deep.relatedWords) ? deep.relatedWords : [];
+
+    var weightEl = document.createElement('span');
+    weightEl.className = 'kjv-word-helps-deep-weight';
+    weightEl.hidden = !weight;
+    weightEl.textContent = weight ? weight + ' priority' : '';
+    inner.appendChild(weightEl);
+
+    if (era) {
+      var eraWrap = document.createElement('div');
+      eraWrap.className = 'kjv-word-helps-deep-block';
+      var eraStrong = document.createElement('strong');
+      eraStrong.textContent = 'KJV-era usage';
+      var eraP = document.createElement('p');
+      eraP.textContent = era;
+      eraWrap.appendChild(eraStrong);
+      eraWrap.appendChild(eraP);
+      inner.appendChild(eraWrap);
+    }
+    if (notes) {
+      var notesWrap = document.createElement('div');
+      notesWrap.className = 'kjv-word-helps-deep-block';
+      var notesStrong = document.createElement('strong');
+      notesStrong.textContent = 'Study note';
+      var notesP = document.createElement('p');
+      notesP.textContent = notes;
+      notesWrap.appendChild(notesStrong);
+      notesWrap.appendChild(notesP);
+      inner.appendChild(notesWrap);
+    }
+    if (refs.length) {
+      var refsWrap = document.createElement('div');
+      refsWrap.className = 'kjv-word-helps-deep-block';
+      var refsStrong = document.createElement('strong');
+      refsStrong.textContent = 'Key cross references';
+      var refsList = document.createElement('ul');
+      refsList.className = 'kjv-word-helps-deep-list';
+      refs.slice(0, 5).forEach(function (ref) {
+        var refText = String(ref || '').replace(/\s+/g, ' ').trim();
+        if (!refText) return;
+        var refLi = document.createElement('li');
+        var refA = document.createElement('a');
+        refA.href = '../bible-tool.html?ref=' + encodeURIComponent(refText);
+        refA.className = 'kjv-word-helps-deep-link';
+        refA.textContent = refText;
+        refLi.appendChild(refA);
+        refsList.appendChild(refLi);
+      });
+      refsWrap.appendChild(refsStrong);
+      refsWrap.appendChild(refsList);
+      inner.appendChild(refsWrap);
+    }
+    if (related.length) {
+      var relatedWrap = document.createElement('div');
+      relatedWrap.className = 'kjv-word-helps-deep-block';
+      var relatedStrong = document.createElement('strong');
+      relatedStrong.textContent = 'Related words';
+      var relatedList = document.createElement('ul');
+      relatedList.className = 'kjv-word-helps-deep-list';
+      related.slice(0, 6).forEach(function (word) {
+        var relWord = String(word || '').trim().toLowerCase();
+        if (!relWord) return;
+        var relLi = document.createElement('li');
+        var relA = document.createElement('a');
+        relA.href = '#' + makeWordHelpAnchor(relWord);
+        relA.className = 'kjv-word-helps-related-link';
+        relA.textContent = relWord;
+        relLi.appendChild(relA);
+        relatedList.appendChild(relLi);
+      });
+      relatedWrap.appendChild(relatedStrong);
+      relatedWrap.appendChild(relatedList);
+      inner.appendChild(relatedWrap);
+    }
+    details.appendChild(inner);
+    li.appendChild(details);
+  }
 
   function getHighlights() {
     try {
@@ -1037,6 +1202,8 @@
   function loadKjvWordHelpsPanel() {
     var ul = document.getElementById('kjv-word-helps-list');
     if (!ul) return;
+    var deepMode = readWordHelpsDeepMode();
+    applyWordHelpsDeepModeUi(deepMode);
     fetch(KJV_WORD_NOTES_URL)
       .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error('bad status')); })
       .then(function (data) {
@@ -1045,10 +1212,11 @@
         words.forEach(function (w) {
           var li = document.createElement('li');
           li.className = 'kjv-word-helps-item';
+          li.id = makeWordHelpAnchor(w.word || w.concordance || 'word');
           var row = document.createElement('div');
           row.className = 'kjv-word-helps-row';
           var a = document.createElement('a');
-          a.href = 'tools.html?q=' + encodeURIComponent(w.concordance || w.word || '');
+          a.href = buildWordHelpQuery(w.concordance || w.word || '');
           a.className = 'kjv-word-helps-headlink';
           a.textContent = w.word || w.concordance || 'word';
           a.setAttribute('aria-label', 'Search Hub concordance for ' + (w.concordance || w.word));
@@ -1072,6 +1240,7 @@
             exWrap.appendChild(document.createTextNode(' '));
           });
           li.appendChild(exWrap);
+          renderWordHelpDeepDive(li, w, deepMode);
           ul.appendChild(li);
         });
       })
@@ -1088,6 +1257,16 @@
     loadData().then(function () {
       loadBookIntrosPanel();
       loadKjvWordHelpsPanel();
+      var deepToggle = document.getElementById('kjv-word-helps-deep-toggle');
+      if (deepToggle && deepToggle.dataset.tdbWired !== '1') {
+        deepToggle.dataset.tdbWired = '1';
+        deepToggle.checked = readWordHelpsDeepMode();
+        deepToggle.addEventListener('change', function () {
+          writeWordHelpsDeepMode(!!deepToggle.checked);
+          applyWordHelpsDeepModeUi(!!deepToggle.checked);
+          loadKjvWordHelpsPanel();
+        });
+      }
       renderConcordanceResults([], '');
       var searchInput = document.getElementById('concordance-search-input');
       var searchBtn = document.getElementById('concordance-search-btn');

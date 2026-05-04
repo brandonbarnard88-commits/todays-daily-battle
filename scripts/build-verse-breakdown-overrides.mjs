@@ -14,6 +14,7 @@ const scriptPath = path.join(repoRoot, 'script.js');
 const SCANABLE_EXTENSIONS = new Set(['.html', '.js', '.json']);
 const EXCLUDED_DIRS = new Set([
   '.git',
+  '.worktrees',
   '.cursor',
   'dist',
   'docs',

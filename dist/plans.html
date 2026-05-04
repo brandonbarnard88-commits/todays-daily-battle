@@ -757,6 +757,31 @@
       text-align: center;
       line-height: 1.5;
     }
+    .plans-browse-by-season__link {
+      color: var(--gold-soft);
+      text-decoration-color: color-mix(in srgb, var(--gold) 55%, transparent);
+      text-underline-offset: 0.16em;
+      font-weight: 700;
+    }
+    .plans-browse-by-season__link:hover,
+    .plans-browse-by-season__link:focus-visible {
+      color: var(--gold);
+      text-decoration-color: currentColor;
+    }
+    html[data-theme="light"] .plans-browse-by-season__link,
+    html[data-theme="light"] .plans-browse-by-season__link:visited,
+    html[data-theme="sepia"] .plans-browse-by-season__link,
+    html[data-theme="sepia"] .plans-browse-by-season__link:visited {
+      color: #28405c;
+      text-decoration-color: rgba(40, 64, 92, 0.38);
+    }
+    html[data-theme="light"] .plans-browse-by-season__link:hover,
+    html[data-theme="light"] .plans-browse-by-season__link:focus-visible,
+    html[data-theme="sepia"] .plans-browse-by-season__link:hover,
+    html[data-theme="sepia"] .plans-browse-by-season__link:focus-visible {
+      color: #1a2f48;
+      text-decoration-color: currentColor;
+    }
     .plans-browse-by-season__grid {
       display: grid;
       gap: 0.85rem;
@@ -1774,7 +1799,7 @@
       </nav>
       <section class="plans-browse-by-season" id="plans-browse-by-season" aria-labelledby="plans-browse-season-h">
         <h2 class="plans-browse-by-season__h" id="plans-browse-season-h">Browse by season</h2>
-        <p class="plans-browse-by-season__lead">A soft map&mdash;not every plan, just calm doorways that match the light outside. The full list stays below; <a href="#all-plans">every plan</a> is still here.</p>
+        <p class="plans-browse-by-season__lead">A soft map&mdash;not every plan, just calm doorways that match the light outside. The full list stays below; <a class="plans-browse-by-season__link" href="#all-plans">every plan</a> is still here.</p>
         <div class="plans-browse-by-season__grid">
           <div class="plans-browse-by-season__col" id="plans-browse-winter" tabindex="-1">
             <h3>Winter (Dec&ndash;Feb)</h3>

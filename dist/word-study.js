@@ -86,6 +86,7 @@
     'body.tdb-wordstudy-open{overflow:hidden}';
 
   var NOTES_KEY = 'tdb_bible_tool_notes';
+  var WORD_HELPS_DEEP_KEY = 'tdb_kjv_word_helps_deep_mode';
   var anchorRef = '';
   var verseText = '';
   var lastPayload = null;
@@ -218,6 +219,14 @@
       .trim();
   }
 
+  function readWordHelpsDeepModePreference() {
+    try {
+      return localStorage.getItem(WORD_HELPS_DEEP_KEY) === '1';
+    } catch (e) {
+      return false;
+    }
+  }
+
   function formatDisplayWord(t) {
     var s = String(t || '').trim();
     if (!s) return '';
@@ -343,6 +352,65 @@
       if (lexiconMap[base]) return lexiconMap[base];
     }
     return null;
+  }
+
+  function resolveLexiconKey(token) {
+    if (!lexiconMap || !token) return '';
+    var k = String(token).toLowerCase();
+    if (lexiconMap[k]) return k;
+    if (k.length > 4 && k.slice(-1) === 's') {
+      var base = k.slice(0, -1);
+      if (lexiconMap[base]) return base;
+    }
+    return '';
+  }
+
+  function hasDeepWordHelp(entry) {
+    var deep = entry && entry.d && typeof entry.d === 'object' ? entry.d : null;
+    return !!(deep && (
+      String(deep.kjvEraUsage || '').trim() ||
+      String(deep.studyNotes || '').trim() ||
+      (Array.isArray(deep.keyCrossRefs) && deep.keyCrossRefs.length) ||
+      (Array.isArray(deep.relatedWords) && deep.relatedWords.length) ||
+      String(deep.theologicalWeight || '').trim()
+    ));
+  }
+
+  function makeWordHelpAnchor(word) {
+    return 'kjv-word-help-' + String(word || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  }
+
+  function buildWorkshopWordHelpHref(word) {
+    return '/bible/tools.html#' + makeWordHelpAnchor(word);
+  }
+
+  function findWordHelpLinks(text, opts) {
+    var limit = opts && opts.limit ? Math.max(1, Number(opts.limit) || 0) : 3;
+    var raw = String(text || '').trim();
+    if (!raw) return Promise.resolve([]);
+    return ensureLexicon().then(function () {
+      var seen = {};
+      var links = [];
+      var tokens = raw.match(/[A-Za-z']+/g) || [];
+      tokens.forEach(function (token) {
+        if (links.length >= limit) return;
+        var norm = normKjvToken(token).toLowerCase();
+        if (!norm || norm.length < 3) return;
+        var key = resolveLexiconKey(norm);
+        if (!key || seen[key]) return;
+        var entry = lookupLexicon(key);
+        if (!entry || !hasDeepWordHelp(entry)) return;
+        seen[key] = true;
+        links.push({
+          word: key,
+          label: formatDisplayWord(key),
+          href: buildWorkshopWordHelpHref(key)
+        });
+      });
+      return links;
+    }).catch(function () {
+      return [];
+    });
   }
 
   function normalizeDeepDive(rawDeep) {
@@ -780,6 +848,7 @@
   function runStudy(rawToken) {
     var norm = normKjvToken(rawToken);
     if (norm.length < 2) return;
+    pendingDeepOpen = pendingDeepOpen || readWordHelpsDeepModePreference();
     var fi = document.getElementById('tdb-ws-filter');
     if (fi) fi.value = '';
     Promise.all([getBibleObject(), ensureLexicon()]).then(function (res) {
@@ -806,7 +875,7 @@
 
   function studyWord(rawToken, refRaw, textOpt, opts) {
     open(refRaw || anchorRef || '', textOpt || verseText || '');
-    pendingDeepOpen = !!(opts && opts.openDeep);
+    pendingDeepOpen = !!(opts && opts.openDeep) || readWordHelpsDeepModePreference();
     runStudy(rawToken);
   }
 
@@ -1040,6 +1109,8 @@
     close: close,
     runStudy: runStudy,
     studyWord: studyWord,
+    findWordHelpLinks: findWordHelpLinks,
+    buildWorkshopWordHelpHref: buildWorkshopWordHelpHref,
     syncHeroWordStudyButton: syncHeroWordStudyButton,
     syncVersePageWordStudyButton: syncVersePageWordStudyButton
   };

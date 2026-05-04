@@ -128,7 +128,7 @@
             <li>
               <a class="bible-tools-overview-card tdb-surface-card" href="#kjv-word-helps">
                 <span class="bible-tools-overview-name">KJV word helps</span>
-                <span class="bible-tools-overview-desc">Short glosses for older or easy-to-misread words</span>
+                <span class="bible-tools-overview-desc">Short helps first, with deeper pastoral word study ready when you want it</span>
               </a>
             </li>
             <li>
@@ -216,11 +216,20 @@
             <p class="concordance-hint">Short glosses for wording that often misleads modern readers. Tap the headword to search the concordance below; tap a verse to open it in the Bible Tool. After a lookup, the Tool&rsquo;s study companion can show glosses for words in <em>that</em> verse only—<strong>this</strong> list is the full A&ndash;Z index.</p>
           </div>
           <p id="kjv-word-helps-intro-line" class="kjv-word-helps-intro">Short help for everyday reading. Deep Dive for longer study. Both stay on this device.</p>
-          <label class="kjv-word-helps-toggle" for="kjv-word-helps-deep-toggle">
-            <input type="checkbox" id="kjv-word-helps-deep-toggle">
-            <span>Deep KJV Word Study</span>
-          </label>
-          <p id="kjv-word-helps-mode-note" class="kjv-word-helps-mode-note" role="status" aria-live="polite">Calm view stays short by default.</p>
+          <div class="kjv-word-helps-mode-block" aria-labelledby="kjv-word-helps-mode-label">
+            <p id="kjv-word-helps-mode-label" class="kjv-word-helps-mode-label">Choose how this shelf opens on this device.</p>
+            <label class="kjv-word-helps-toggle kjv-word-helps-toggle--prominent" for="kjv-word-helps-deep-toggle">
+              <input type="checkbox" id="kjv-word-helps-deep-toggle">
+              <span class="kjv-word-helps-toggle-body">
+                <span class="kjv-word-helps-toggle-pillset">
+                  <span class="kjv-word-helps-toggle-pill kjv-word-helps-toggle-pill--short">Short Helps</span>
+                  <span class="kjv-word-helps-toggle-pill kjv-word-helps-toggle-pill--deep">Deep Dive Mode</span>
+                </span>
+                <span class="kjv-word-helps-toggle-copy">Start with calm glosses, or show the fuller pastoral layer across the workshop.</span>
+              </span>
+            </label>
+            <p id="kjv-word-helps-mode-note" class="kjv-word-helps-mode-note" role="status" aria-live="polite">Short Helps stay on by default.</p>
+          </div>
           <ul id="kjv-word-helps-list" class="kjv-word-helps-list" aria-label="KJV word help entries"></ul>
         </section>
 

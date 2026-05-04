@@ -56,11 +56,11 @@ export const DEEP_DIVE_SEEDS = {
     theologicalWeight: 'Medium'
   },
   meat: {
-    kjvEraUsage: 'In older English, "meat" could simply mean food, and in teaching passages it often points to solid nourishment rather than animal flesh alone.',
-    keyCrossRefs: ['Hebrews 5:12-14', '1 Corinthians 3:2', 'Romans 14:2'],
-    studyNotes: 'Scripture uses food imagery to describe growth. Milk is beginner nourishment; meat is teaching that requires practice, patience, and spiritual maturity.',
-    relatedWords: ['study', 'faith', 'works'],
-    theologicalWeight: 'Medium'
+    kjvEraUsage: 'In 1611 English, "meat" most often meant solid food or nourishment of any kind, not necessarily animal flesh.',
+    keyCrossRefs: ['1 Corinthians 3:2', 'John 4:34', 'Hebrews 5:12-14'],
+    studyNotes: 'Jesus said, "My meat is to do the will of him that sent me." This shows how real spiritual food satisfies the soul. In seasons when you feel spiritually empty or when parenting feels like constant feeding, remember: Christ Himself is the true meat that strengthens. Small step: when you feel weak or drained today, ask the Lord to feed you with His will and Word.',
+    relatedWords: ['food', 'bread', 'sustenance'],
+    theologicalWeight: 'Medium-High'
   },
   corn: {
     kjvEraUsage: 'The KJV uses "corn" for grain crops such as wheat or barley, not for modern maize.',
@@ -210,32 +210,32 @@ export const DEEP_DIVE_SEEDS = {
     theologicalWeight: 'High'
   },
   let: {
-    kjvEraUsage: 'Context may give the sense of permit, allow, or restrain. The older English range is wider than modern everyday speech.',
-    keyCrossRefs: ['Romans 12:1', '2 Thessalonians 2:7', 'Hebrews 12:1'],
-    studyNotes: 'This is a context-check word. In one place it is permission language; in another it is restraint. Slow down and let the sentence teach you which sense is active.',
-    relatedWords: ['suffer', 'prevent', 'study'],
+    kjvEraUsage: 'Often means hinder, prevent, or allow depending on context, not the modern "permit me to."',
+    keyCrossRefs: ['2 Thessalonians 2:7', 'Romans 1:13', 'Isaiah 43:13'],
+    studyNotes: '"Only he who now letteth will let, until he be taken out of the way." Here let means restrain or hold back. In daily battles, we sometimes need the Lord to let, hinder, wrong desires or to allow good things in His timing. Small step: when something feels blocked today, pause and ask whether the Lord is letting, restraining, for your protection.',
+    relatedWords: ['hinder', 'restrain', 'allow'],
     theologicalWeight: 'Medium'
   },
   ensample: {
     kjvEraUsage: 'An ensample is a pattern, model, or example set before others to follow.',
-    keyCrossRefs: ['1 Peter 2:21', 'Philippians 3:17', '1 Corinthians 10:6'],
-    studyNotes: 'The Bible often gives examples not for trivia but for imitation or warning. Christ is the perfect ensample; Israel\'s failures are ensamples in the other direction.',
-    relatedWords: ['works', 'holiness', 'church'],
+    keyCrossRefs: ['1 Corinthians 10:6', '1 Timothy 4:12', '1 Peter 5:3'],
+    studyNotes: 'We are called to be ensamples, patterns, to the flock. Your quiet faithfulness in hard days can become someone else\'s roadmap. Small step: live one ordinary moment today as a gentle pattern of trust for those watching.',
+    relatedWords: ['example', 'pattern', 'model'],
     theologicalWeight: 'Medium'
   },
   lust: {
-    kjvEraUsage: 'The word can mean strong desire generally, though in moral teaching it often points to desire bent away from God\'s will.',
-    keyCrossRefs: ['James 1:14-15', 'Romans 7:7', '1 John 2:16'],
-    studyNotes: 'Not every desire is evil, but this word often warns about desire ruling the soul. James traces the path from inward desire to outward sin to spiritual death.',
-    relatedWords: ['flesh', 'temptation', 'mortify'],
+    kjvEraUsage: 'Strong desire or craving, can be good or evil, not only sexual sin.',
+    keyCrossRefs: ['James 1:14-15', 'Psalm 84:2', 'Galatians 5:17'],
+    studyNotes: 'The flesh lusts against the Spirit. But the psalmist also says, "My soul longeth, yea, even fainteth for the courts of the Lord." This word reminds us that desire itself is powerful and must be directed toward Christ. Small step: when a wrong craving rises, redirect it by speaking a verse of holy longing.',
+    relatedWords: ['desire', 'craving', 'longing'],
     theologicalWeight: 'High'
   },
   study: {
-    kjvEraUsage: 'In 2 Timothy 2:15 the older force is diligent labor, earnest care, and disciplined effort, not merely modern academic study habits.',
-    keyCrossRefs: ['2 Timothy 2:15', 'Ezra 7:10', 'Proverbs 15:28'],
-    studyNotes: 'The command is not about becoming flashy with information. It is about handling God\'s word straight, with patient effort and clean motives.',
-    relatedWords: ['faith', 'works', 'ensample'],
-    theologicalWeight: 'Medium'
+    kjvEraUsage: 'Means to be diligent, eager, or to labor earnestly, not academic homework.',
+    keyCrossRefs: ['2 Timothy 2:15', '1 Thessalonians 4:11', 'Ezra 7:10'],
+    studyNotes: '"Study to shew thyself approved unto God" is a call to earnest effort and diligence in handling the Word rightly. In a distracted 2026 world, this word invites focused, quiet work before the Lord. Small step: give one undistracted portion of your day to Scripture, not to check a box, but to meet God.',
+    relatedWords: ['diligent', 'labour', 'endeavour'],
+    theologicalWeight: 'High'
   },
   blood: {
     kjvEraUsage: 'Blood can stand for life, violent death, sacrificial offering, and covenant sealing all at once.',
@@ -302,10 +302,10 @@ export const DEEP_DIVE_SEEDS = {
   },
   longsuffering: {
     kjvEraUsage: 'The word pictures long patience, slow anger, and enduring restraint toward difficult people and seasons.',
-    keyCrossRefs: ['Galatians 5:22', 'Colossians 3:12', '2 Peter 3:15'],
-    studyNotes: 'This is not weak passivity. Longsuffering is strength that refuses to strike back too soon, and in God it becomes space for repentance and mercy.',
-    relatedWords: ['charity', 'mercy', 'meek'],
-    theologicalWeight: 'Medium'
+    keyCrossRefs: ['Galatians 5:22', '2 Peter 3:9', 'Ephesians 4:2'],
+    studyNotes: 'The Lord is longsuffering toward us. He gives us time to repent, and He asks us to show the same to others, especially in family and parenting. Small step: when irritation rises today, ask for Christ\'s longsuffering to flow through you.',
+    relatedWords: ['patience', 'forbearance', 'slow to anger'],
+    theologicalWeight: 'High'
   },
   meek: {
     kjvEraUsage: 'Meekness names gentleness and lowliness under God, not spinelessness or lack of conviction.',
@@ -378,10 +378,10 @@ export const DEEP_DIVE_SEEDS = {
     theologicalWeight: 'Medium'
   },
   abide: {
-    kjvEraUsage: 'The verb means remain, stay, dwell, or continue. In John 15 it carries the settled sense of ongoing union rather than brief religious contact.',
-    keyCrossRefs: ['John 15:4-5', 'John 15:7', 'Psalm 91:1'],
-    studyNotes: 'Abide is a staying word. Christ is not calling for frantic proving, but for nearness that keeps receiving life from Him. Fruit grows from remaining, not from restless self-effort.',
-    relatedWords: ['faith', 'peace', 'communion'],
+    kjvEraUsage: 'To remain, stay, continue, or dwell in a place or relationship, not just to put up with something.',
+    keyCrossRefs: ['John 15:4-7', 'Psalm 91:1', '1 John 2:6'],
+    studyNotes: '"Abide in me, and I in you" is Jesus\' invitation to stay close to Him moment by moment. In seasons when life feels unstable or your heart wants to run, abiding is the quiet answer. Small step: when anxiety or hurry rises today, pause and simply say, "Lord, I choose to abide in You right now."',
+    relatedWords: ['remain', 'dwell', 'continue in'],
     theologicalWeight: 'High'
   },
   cast: {
@@ -392,18 +392,53 @@ export const DEEP_DIVE_SEEDS = {
     theologicalWeight: 'Medium'
   },
   faint: {
-    kjvEraUsage: 'The word can mean grow weak, lose heart, or collapse under strain. It often names inner discouragement as much as bodily weakness.',
-    keyCrossRefs: ['Isaiah 40:29-31', 'Galatians 6:9', 'Luke 18:1'],
-    studyNotes: 'Faint is one of the Bible\'s mercy words for tired people. It tells the truth about low strength without surrendering hope. The answer is not pretending you are fine, but waiting on the Lord who renews strength.',
-    relatedWords: ['hope', 'peace', 'grace'],
-    theologicalWeight: 'Medium'
+    kjvEraUsage: 'To grow weak, weary, or discouraged, not only to lose consciousness.',
+    keyCrossRefs: ['Isaiah 40:31', 'Galatians 6:9', 'Hebrews 12:3'],
+    studyNotes: '"They that wait upon the Lord shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint." This is for the exhausted parent, the discouraged believer, the tired laborer. Small step: when you feel faint today, pause and wait on the Lord, even for one quiet minute.',
+    relatedWords: ['weary', 'discouraged', 'grow weak'],
+    theologicalWeight: 'High'
   },
   reins: {
-    kjvEraUsage: 'In Hebrew thought the reins, literally kidneys, could stand for the deepest inward motions of desire, conscience, and affection.',
-    keyCrossRefs: ['Psalm 7:9', 'Psalm 26:2', 'Revelation 2:23'],
-    studyNotes: 'The word sounds strange now, but it keeps an important truth: God searches deeper than image management. He knows the hidden motives, cravings, and fears underneath the outer life.',
-    relatedWords: ['heart', 'spirit', 'repent'],
+    kjvEraUsage: 'Kidneys, an ancient idiom for the innermost thoughts, desires, and affections.',
+    keyCrossRefs: ['Psalm 7:9', 'Revelation 2:23', 'Jeremiah 17:10'],
+    studyNotes: 'The Lord tries the reins and the heart. He knows the deepest parts of us better than we do. In battles with hidden motives or secret fears, this brings comfort and holy fear. Small step: invite the Lord to search your reins today and align them with His will.',
+    relatedWords: ['heart', 'inward parts', 'affections'],
+    theologicalWeight: 'Medium-High'
+  },
+  vain: {
+    kjvEraUsage: 'Empty, worthless, or without result, not only proud or conceited.',
+    keyCrossRefs: ['Psalm 127:1', '1 Corinthians 15:58', 'Exodus 20:7'],
+    studyNotes: '"Except the Lord build the house, they labour in vain." This warns against effort without God. In parenting, work, or spiritual striving, anything done apart from Him can feel empty. Small step: before a task today, quietly commit it to the Lord so it is not in vain.',
+    relatedWords: ['empty', 'worthless', 'fruitless'],
+    theologicalWeight: 'High'
+  },
+  reprove: {
+    kjvEraUsage: 'To convict, correct, or rebuke with the goal of restoration, not just scold.',
+    keyCrossRefs: ['2 Timothy 3:16', 'John 16:8', 'Proverbs 9:8'],
+    studyNotes: 'All Scripture is profitable for reproof. The Holy Spirit still gently reproves us because He loves us. In hard conversations or self-examination, receive reproof as kindness from the Lord. Small step: when conviction comes today, do not rush past it, let it lead you back to Christ.',
+    relatedWords: ['convict', 'correct', 'rebuke'],
+    theologicalWeight: 'High'
+  },
+  perfect: {
+    kjvEraUsage: 'Complete, mature, or finished, not sinless flawlessness in every modern sense.',
+    keyCrossRefs: ['Matthew 5:48', 'James 1:4', 'Philippians 3:12'],
+    studyNotes: '"Be ye therefore perfect, even as your Father which is in heaven is perfect" calls us to mature love and wholeness. We press toward it but rest in Christ\'s finished work. Small step: in an area where you feel incomplete, thank God that He is making you complete in Him.',
+    relatedWords: ['mature', 'complete', 'whole'],
+    theologicalWeight: 'High'
+  },
+  straightway: {
+    kjvEraUsage: 'Immediately, at once, carries urgency and readiness.',
+    keyCrossRefs: ['Mark 1:18', 'Acts 9:20', 'James 1:5'],
+    studyNotes: 'When Jesus called, the disciples followed straightway. This word pictures instant, willing obedience. In 2026 delay and distraction, the Lord still invites straightway responses. Small step: when the Spirit prompts you today, answer straightway with a quiet "yes, Lord."',
+    relatedWords: ['immediately', 'forthwith', 'at once'],
     theologicalWeight: 'Medium'
+  },
+  mortify: {
+    kjvEraUsage: 'Put to death, actively kill sin by the power of the Spirit.',
+    keyCrossRefs: ['Romans 8:13', 'Colossians 3:5', 'Galatians 5:24'],
+    studyNotes: 'Mortify therefore your members which are upon the earth. This is not self-effort but Spirit-empowered dying to sin so we can live to Christ. Small step: name one sin pattern that needs mortifying and ask the Holy Spirit to help you put it to death today.',
+    relatedWords: ['crucify', 'put to death', 'die to sin'],
+    theologicalWeight: 'High'
   },
   stedfast: {
     kjvEraUsage: 'This older spelling means steadfast: fixed, settled, anchored, and not easily turned aside.',
@@ -420,11 +455,11 @@ export const DEEP_DIVE_SEEDS = {
     theologicalWeight: 'Medium'
   },
   temperance: {
-    kjvEraUsage: 'The word means self-control, mastery, or disciplined restraint rather than personality chill or emotional shutdown.',
+    kjvEraUsage: 'Self-control, moderation, and balance, a fruit of the Spirit.',
     keyCrossRefs: ['Galatians 5:23', 'Acts 24:25', '2 Peter 1:6'],
-    studyNotes: 'Temperance is not coldness. It is desire brought under a better King. The Bible treats it as fruit of the Spirit and as a grace to be pursued with diligence.',
-    relatedWords: ['flesh', 'holiness', 'faith'],
-    theologicalWeight: 'Medium'
+    studyNotes: 'Temperance is the Spirit\'s gift of mastery over our appetites and reactions. In parenting, eating, screen time, or anger, temperance brings peace. Small step: in one area where you feel out of control today, ask the Holy Spirit for His temperance.',
+    relatedWords: ['self-control', 'moderation', 'discipline'],
+    theologicalWeight: 'High'
   },
   vexed: {
     kjvEraUsage: 'The word can mean harassed, tormented, troubled, or worn down, whether by oppression, sin around you, or spiritual affliction.',
@@ -483,11 +518,81 @@ export const DEEP_DIVE_SEEDS = {
     theologicalWeight: 'Medium'
   },
   husbandman: {
-    kjvEraUsage: 'A husbandman is a cultivator or farmer, especially one who patiently works land for harvest.',
-    keyCrossRefs: ['James 5:7', '2 Timothy 2:6', 'John 15:1'],
-    studyNotes: 'This word is slow-growth wisdom. The husbandman does not yank fruit out of the ground. He waits, tends, and trusts the season. Scripture uses that patience to teach believers how God works in fields and hearts alike.',
-    relatedWords: ['abide', 'study', 'hope'],
+    kjvEraUsage: 'Farmer, tiller of the ground, or caretaker of a vineyard.',
+    keyCrossRefs: ['John 15:1', '2 Timothy 2:6', 'James 5:7'],
+    studyNotes: '"My Father is the husbandman." God is the careful farmer who prunes, waters, and waits for fruit. He knows exactly what each branch needs. Small step: in any area that feels barren or pruned today, remember you are under the hand of the perfect Husbandman.',
+    relatedWords: ['farmer', 'vinedresser', 'caretaker'],
+    theologicalWeight: 'High'
+  },
+  chasten: {
+    kjvEraUsage: 'To correct, discipline, or train through hardship, never to destroy.',
+    keyCrossRefs: ['Hebrews 12:5-11', 'Proverbs 3:11-12', 'Revelation 3:19'],
+    studyNotes: '"Whom the Lord loveth he chasteneth." Chastening is the loving hand of a Father who wants us to share His holiness. In hard seasons that feel like punishment, this word brings comfort: the Lord is not against you; He is training you. Small step: when correction or hardship comes today, receive it as the Lord\'s loving chastening and ask Him to produce the peaceable fruit of righteousness.',
+    relatedWords: ['discipline', 'correct', 'train'],
+    theologicalWeight: 'High'
+  },
+  constrained: {
+    kjvEraUsage: 'Pressed, compelled, or powerfully moved, not forced against your will.',
+    keyCrossRefs: ['2 Corinthians 5:14', 'Acts 18:5', 'Luke 24:29'],
+    studyNotes: '"The love of Christ constraineth us." This is not cold duty but a holy pressure that moves us forward. Christ\'s love becomes the gentle force that keeps us going when we want to quit. Small step: when you feel weary or tempted to pull back today, remember the love of Christ that constrains you and let it carry you one more step.',
+    relatedWords: ['compelled', 'pressed', 'moved'],
+    theologicalWeight: 'High'
+  },
+  earnest: {
+    kjvEraUsage: 'A pledge, down payment, or guarantee, like a first installment.',
+    keyCrossRefs: ['2 Corinthians 1:22', 'Ephesians 1:14', '2 Corinthians 5:5'],
+    studyNotes: 'The Holy Spirit is given as the earnest of our inheritance. He is God\'s guarantee that everything He has promised will one day be fully ours. In days when the battle feels long, this word is quiet assurance: the Spirit inside you is the first payment on glory. Small step: thank the Lord today for the earnest of the Spirit already living in you.',
+    relatedWords: ['pledge', 'guarantee', 'down payment'],
+    theologicalWeight: 'High'
+  },
+  fain: {
+    kjvEraUsage: 'Gladly, willingly, or with desire, an older way of saying I would gladly.',
+    keyCrossRefs: ['Luke 15:16', 'Acts 26:28', 'Job 27:22'],
+    studyNotes: 'The prodigal would fain have filled his belly with the husks. This word reveals deep longing. In our own battles with lesser things, fain reminds us we were made for more. Small step: when you catch yourself reaching for something empty today, turn that fain desire toward the Father who runs to meet you.',
+    relatedWords: ['gladly', 'willingly', 'eagerly'],
     theologicalWeight: 'Medium'
+  },
+  froward: {
+    kjvEraUsage: 'Stubbornly contrary, perverse, or difficult to deal with.',
+    keyCrossRefs: ['Proverbs 2:12', '1 Peter 2:18', 'Deuteronomy 32:20'],
+    studyNotes: 'The Lord is good even to the froward. This word names the crooked, contrary part of the human heart. Yet God still shows kindness to the froward. Small step: when you feel your own froward spirit rising today, ask the Lord to make you gentle where you are naturally contrary.',
+    relatedWords: ['perverse', 'stubborn', 'contrary'],
+    theologicalWeight: 'Medium-High'
+  },
+  gainsay: {
+    kjvEraUsage: 'To contradict, oppose, or speak against.',
+    keyCrossRefs: ['Titus 1:9', 'Luke 21:15', 'Acts 10:29'],
+    studyNotes: '"That he may be able... to convince the gainsayers." Gainsayers are those who speak against the truth. The Lord gives us both courage and wisdom not to be silenced. Small step: when someone contradicts truth in your hearing today, respond with gentle confidence instead of fear.',
+    relatedWords: ['contradict', 'oppose', 'speak against'],
+    theologicalWeight: 'Medium'
+  },
+  hale: {
+    kjvEraUsage: 'To drag or pull roughly, often by force.',
+    keyCrossRefs: ['Luke 12:58', 'Acts 8:3', 'James 2:6'],
+    studyNotes: '"Lest he hale thee to the judge." This word pictures forceful dragging. In spiritual battles we can feel haled by fear, guilt, or pressure. Christ never hales us; He gently leads. Small step: when you feel dragged by anxiety or accusation today, come to the Lord who draws instead of drags.',
+    relatedWords: ['drag', 'pull roughly', 'force'],
+    theologicalWeight: 'Medium'
+  },
+  intreat: {
+    kjvEraUsage: 'To plead with, ask earnestly, or make a strong request.',
+    keyCrossRefs: ['1 Timothy 5:1', 'Hebrews 12:19', 'Luke 15:28'],
+    studyNotes: '"Intreat the younger as brethren." This word carries respectful, heartfelt pleading. It is how we are to speak to one another and how we come to God. Small step: when you need to correct or encourage someone today, do it with the gentle tone of intreat.',
+    relatedWords: ['plead', 'beseech', 'entreat'],
+    theologicalWeight: 'Medium'
+  },
+  jot: {
+    kjvEraUsage: 'The smallest letter in the Hebrew alphabet, the tiniest detail.',
+    keyCrossRefs: ['Matthew 5:18', 'Luke 16:17'],
+    studyNotes: '"Till heaven and earth pass, one jot or one tittle shall in no wise pass from the law." Jesus cares about the smallest strokes of Scripture. Nothing in God\'s Word is insignificant. Small step: when you read a tiny detail in your Bible today, thank the Lord that not even a jot will fail.',
+    relatedWords: ['smallest letter', 'tittle', 'detail'],
+    theologicalWeight: 'High'
+  },
+  notwithstanding: {
+    kjvEraUsage: 'Nevertheless, in spite of that, or although.',
+    keyCrossRefs: ['Philippians 1:18', 'Acts 28:19', '2 Timothy 4:17'],
+    studyNotes: '"Notwithstanding the Lord stood with me." This word carries triumphant faith in the middle of hard facts. It says, "This is true... but God is greater." Small step: when circumstances are against you today, speak a quiet "notwithstanding the Lord is with me."',
+    relatedWords: ['nevertheless', 'yet', 'in spite of'],
+    theologicalWeight: 'Medium-High'
   },
   publican: {
     kjvEraUsage: 'The word names a tax collector, a figure often despised in Jewish society because of compromise, greed, and Roman association.',
@@ -595,11 +700,137 @@ export const DEEP_DIVE_SEEDS = {
     theologicalWeight: 'Medium'
   },
   meet: {
-    kjvEraUsage: 'The word can mean fitting, suitable, proper, or well-matched, not only an encounter between persons.',
-    keyCrossRefs: ['Genesis 2:18', 'Matthew 3:8', '2 Timothy 2:21'],
-    studyNotes: 'Meet is one of the words that steadies modern readers in creation and sanctification passages. It asks not what is convenient, but what is fitting to God\'s design, purpose, and holiness.',
-    relatedWords: ['discretion', 'holiness', 'works'],
+    kjvEraUsage: 'Fitting, suitable, or right, not only to encounter someone.',
+    keyCrossRefs: ['Genesis 2:18', 'Matthew 3:15', 'Philippians 1:27'],
+    studyNotes: '"It is not good that the man should be alone; I will make him an help meet for him." Meet here means perfectly suited and corresponding. God still provides what is meet for His children. Small step: thank the Lord today for ways He has already given you what is meet for your situation.',
+    relatedWords: ['fitting', 'suitable', 'appropriate'],
     theologicalWeight: 'Medium'
+  },
+  cleave: {
+    kjvEraUsage: 'To cling to, stick fast, or adhere closely, both physically and in loyalty.',
+    keyCrossRefs: ['Genesis 2:24', 'Deuteronomy 10:20', 'Ruth 1:14'],
+    studyNotes: '"Therefore shall a man leave his father and his mother, and shall cleave unto his wife." This word pictures a strong, lasting bond. In your battles with distraction, loneliness, or wavering faith, the Lord invites you to cleave to Him with all your heart. Small step: when you feel pulled in many directions today, intentionally cleave to one promise from Scripture and hold fast.',
+    relatedWords: ['cling', 'adhere', 'hold fast'],
+    theologicalWeight: 'High'
+  },
+  comely: {
+    kjvEraUsage: 'Beautiful, fitting, or becoming in appearance and conduct, not just pretty.',
+    keyCrossRefs: ['Song of Solomon 1:5', '1 Timothy 2:9', 'Psalm 33:1'],
+    studyNotes: '"I am black, but comely" and "Praise is comely for the upright." This word speaks of beauty that is proper and honoring to God. In a world obsessed with outward looks, comely reminds us that quiet dignity and godly conduct are truly beautiful. Small step: choose one modest, fitting action today that honors the Lord.',
+    relatedWords: ['becoming', 'fitting', 'beautiful'],
+    theologicalWeight: 'Medium'
+  },
+  edify: {
+    kjvEraUsage: 'To build up or strengthen spiritually, like constructing a house.',
+    keyCrossRefs: ['1 Corinthians 14:26', 'Romans 14:19', '1 Thessalonians 5:11'],
+    studyNotes: '"Let all things be done unto edifying." Our words, actions, and time together should build one another up in Christ. In family tension or church struggles, choose what edifies rather than tears down. Small step: speak or do one thing today that strengthens someone else\'s faith.',
+    relatedWords: ['build up', 'strengthen', 'encourage'],
+    theologicalWeight: 'High'
+  },
+  gird: {
+    kjvEraUsage: 'To prepare, brace, or arm yourself for action, like tightening a belt.',
+    keyCrossRefs: ['1 Peter 1:13', 'Ephesians 6:14', 'Luke 12:35'],
+    studyNotes: '"Wherefore gird up the loins of your mind." This is a call to mental and spiritual readiness for the day\'s battles. Small step: before you step into your responsibilities today, quietly gird your mind with truth, one verse, one prayer, one steadying thought.',
+    relatedWords: ['prepare', 'brace', 'ready yourself'],
+    theologicalWeight: 'Medium-High'
+  },
+  instant: {
+    kjvEraUsage: 'Urgent, persistent, or at once, not merely a moment in time.',
+    keyCrossRefs: ['Romans 12:12', '2 Timothy 4:2', 'Luke 23:23'],
+    studyNotes: '"Rejoicing in hope; patient in tribulation; continuing instant in prayer." This word calls us to pray without ceasing, steady, urgent, ongoing. In busy 2026 life, instant in prayer is a lifeline. Small step: turn one ordinary moment today into an instant prayer.',
+    relatedWords: ['persistent', 'urgent', 'continual'],
+    theologicalWeight: 'Medium'
+  },
+  occupy: {
+    kjvEraUsage: 'To use, employ, or be busy with, not merely to take up space.',
+    keyCrossRefs: ['Luke 19:13', '1 Timothy 4:15', '1 Corinthians 7:31'],
+    studyNotes: '"Occupy till I come." Jesus calls us to be faithful with what He has given us until He returns. In daily work, parenting, or ministry, occupy means to use your time and gifts well. Small step: whatever is in your hands today, occupy it faithfully for the King.',
+    relatedWords: ['use', 'employ', 'be busy with'],
+    theologicalWeight: 'High'
+  },
+  quicken: {
+    kjvEraUsage: 'To make alive, give life, or revive, not merely to speed up.',
+    keyCrossRefs: ['Psalm 119:25', 'Romans 8:11', 'Ephesians 2:1'],
+    studyNotes: '"Quicken thou me according to thy word." The same Spirit that raised Christ quickens us when we feel spiritually dead. In grief, exhaustion, or dryness, this is resurrection hope. Small step: speak this prayer over any area that feels lifeless: "Lord, quicken me according to Thy word."',
+    relatedWords: ['make alive', 'revive', 'give life'],
+    theologicalWeight: 'High'
+  },
+  tarry: {
+  beseech: {
+    kjvEraUsage: 'To plead urgently, beg, or implore with deep feeling, not a casual request.',
+    keyCrossRefs: ['Romans 12:1', '2 Corinthians 5:20', 'Ephesians 4:1'],
+    studyNotes: '"I beseech you therefore, brethren, by the mercies of God..." Paul pleads on the basis of God\'s mercy. This word carries the weight of a heart that cares deeply. Small step: when you pray for a loved one or for your own struggling heart today, let your words carry the gentle urgency of beseech.',
+    relatedWords: ['plead', 'implore', 'entreat'],
+    theologicalWeight: 'Medium-High'
+  },
+  circumspect: {
+    kjvEraUsage: 'Careful, watchful, prudent in conduct, looking all around before stepping.',
+    keyCrossRefs: ['Exodus 23:13', 'Ephesians 5:15', 'Colossians 4:5'],
+    studyNotes: '"See then that ye walk circumspectly." This is not fearful overthinking. It is wise, Spirit-led carefulness in a noisy, dangerous world. Small step: before a decision or conversation today, quietly ask the Lord to help you walk circumspectly.',
+    relatedWords: ['careful', 'watchful', 'prudent'],
+    theologicalWeight: 'Medium'
+  },
+  diligent: {
+    kjvEraUsage: 'Careful, persistent effort, earnest and thorough work.',
+    keyCrossRefs: ['Proverbs 4:23', '2 Timothy 2:15', 'Hebrews 11:6'],
+    studyNotes: '"Keep thy heart with all diligence." Diligence is not frantic striving but steady, loving care over the things God has entrusted to you. Small step: choose one area of your life today, heart, home, work, or walk with God, and give it quiet, diligent attention.',
+    relatedWords: ['earnest', 'thorough', 'persistent'],
+    theologicalWeight: 'High'
+  },
+  ensue: {
+    kjvEraUsage: 'To follow after, pursue, or result from, often in the sense of chasing peace.',
+    keyCrossRefs: ['1 Peter 3:11', 'Psalm 34:14', 'Hebrews 12:14'],
+    studyNotes: '"Seek peace, and ensue it." This word calls us to actively chase after peace instead of waiting for it to happen. Small step: when conflict or unrest rises today, intentionally ensue, pursue, peace with a gentle word or quiet prayer.',
+    relatedWords: ['pursue', 'follow after', 'chase'],
+    theologicalWeight: 'Medium'
+  },
+  forbear: {
+    kjvEraUsage: 'To refrain, hold back, or be patient with, especially in the face of irritation.',
+    keyCrossRefs: ['Ephesians 4:2', 'Colossians 3:13', '1 Corinthians 13:7'],
+    studyNotes: '"With all lowliness and meekness, with longsuffering, forbearing one another in love." Forbearance is love that chooses not to strike back. In parenting, marriage, or difficult relationships, this is powerful grace. Small step: when you feel like reacting sharply today, choose to forbear in Christ\'s strength.',
+    relatedWords: ['refrain', 'be patient', 'hold back'],
+    theologicalWeight: 'High'
+  },
+  holpen: {
+    kjvEraUsage: 'Helped, assisted, or supported, an older form of helped.',
+    keyCrossRefs: ['Psalm 118:13', 'Isaiah 41:10', '2 Corinthians 1:11'],
+    studyNotes: '"Thou hast holpen me." This word carries the tender memory of God stepping in when we were about to fall. In moments when you feel alone in the battle, remember: you have been holpen by the Lord many times already. Small step: thank Him today for every way He has holpen you in the past.',
+    relatedWords: ['helped', 'assisted', 'supported'],
+    theologicalWeight: 'Medium'
+  },
+  issue: {
+    kjvEraUsage: 'Outflow, discharge, or result, often used for physical or spiritual flow.',
+    keyCrossRefs: ['Mark 5:25', 'Luke 8:43', 'Proverbs 4:23'],
+    studyNotes: 'The woman with the issue of blood had suffered many years. Issue reminds us that what flows out of us, words, emotions, actions, matters. Small step: guard the issues of your heart today and ask the Lord to let only what is good and life-giving flow out.',
+    relatedWords: ['outflow', 'discharge', 'result'],
+    theologicalWeight: 'Medium-High'
+  },
+  lowliness: {
+    kjvEraUsage: 'Humility, lowliness of mind, not thinking of yourself more highly than you ought.',
+    keyCrossRefs: ['Ephesians 4:2', 'Philippians 2:3', '1 Peter 5:5'],
+    studyNotes: '"With all lowliness and meekness..." This is not self-hatred. It is freedom from pride and the quiet strength of Christ who made Himself of no reputation. Small step: in one interaction today, choose lowliness and watch how the Lord lifts you up.',
+    relatedWords: ['humility', 'meekness', 'lowly mind'],
+    theologicalWeight: 'High'
+  },
+  magnify: {
+    kjvEraUsage: 'To make great, exalt, or declare the greatness of, not to exaggerate.',
+    keyCrossRefs: ['Luke 1:46', 'Psalm 34:3', 'Philippians 1:20'],
+    studyNotes: '"My soul doth magnify the Lord." When we magnify God, we do not make Him bigger; we see and declare how big He already is. In hard days this becomes a powerful act of faith. Small step: when the battle feels loud, pause and magnify the Lord with one honest sentence of praise.',
+    relatedWords: ['exalt', 'declare great', 'glorify'],
+    theologicalWeight: 'High'
+  },
+  raiment: {
+    kjvEraUsage: 'Clothing or garments, often carrying spiritual or symbolic meaning.',
+    keyCrossRefs: ['Matthew 6:28-29', 'Revelation 3:5', 'Isaiah 61:10'],
+    studyNotes: '"Consider the lilies... even Solomon in all his glory was not arrayed like one of these." Raiment reminds us that God clothes His children with beauty, righteousness, and dignity. Small step: when you feel exposed or inadequate today, thank the Lord that He provides the true raiment you need.',
+    relatedWords: ['clothing', 'garments', 'array'],
+    theologicalWeight: 'Medium'
+  },
+    kjvEraUsage: 'To wait, remain, or stay a while, not simply to be late.',
+    keyCrossRefs: ['Luke 24:49', 'Habakkuk 2:3', 'Acts 1:4'],
+    studyNotes: '"Tarry ye in the city of Jerusalem, until ye be endued with power from on high." Waiting on God is never wasted time. In a hurry-up world, tarry teaches us to stay until the Lord moves. Small step: when you want to rush ahead, choose to tarry in prayer and trust His timing.',
+    relatedWords: ['wait', 'remain', 'stay'],
+    theologicalWeight: 'Medium-High'
   },
   leasing: {
     kjvEraUsage: 'Leasing is an older noun for lying, falsehood, empty speech, or deceptive talk that cannot bear truth\'s weight.',

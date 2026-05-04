@@ -180,8 +180,8 @@
     var deepBtn = document.createElement('button');
     deepBtn.type = 'button';
     deepBtn.className = 'btn btn-secondary tdb-kjv-dict-deep';
-    deepBtn.textContent = 'Deep Dive';
-    deepBtn.setAttribute('aria-label', 'Open deeper word study');
+    deepBtn.textContent = 'Read the full pastoral note';
+    deepBtn.setAttribute('aria-label', 'Open full pastoral note for this word');
     var closeBtn = document.createElement('button');
     closeBtn.type = 'button';
     closeBtn.className = 'btn btn-secondary tdb-kjv-dict-close';

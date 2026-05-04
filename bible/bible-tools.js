@@ -167,6 +167,7 @@
   var bible = {};
   var currentNoteRef = null;
   var currentSearchWord = '';
+  var wordHelpHashWired = false;
 
   function readWordHelpsDeepMode() {
     try {
@@ -190,8 +191,8 @@
     if (list) list.setAttribute('data-deep-mode', enabled ? '1' : '0');
     if (note) {
       note.textContent = enabled
-        ? 'Deep mode is on for this device. Calm glosses stay first; extra reading cues now show across the workshop.'
-        : 'Calm view stays short by default.';
+        ? 'Deep Dive Mode is on for this device. Short Helps still stay first, and the fuller pastoral layer now shows sooner across the workshop.'
+        : 'Short Helps stay on by default. Turn on Deep Dive Mode when you want fuller pastoral notes, KJV-era meaning, and cross references.';
     }
   }
 
@@ -201,6 +202,23 @@
 
   function buildWordHelpQuery(word) {
     return 'tools.html?q=' + encodeURIComponent(word || '') + '#concordance-section';
+  }
+
+  function applyWordHelpHashState(container, deepMode) {
+    if (!container) return;
+    var hash = String(location.hash || '').replace(/^#/, '').trim();
+    if (!hash || hash.indexOf('kjv-word-help-') !== 0) return;
+    var target = document.getElementById(hash);
+    if (!target || !container.contains(target)) return;
+    if (deepMode) {
+      var details = target.querySelector('.kjv-word-helps-deep-dive');
+      if (details) details.open = true;
+    }
+    try {
+      target.scrollIntoView({ block: 'center' });
+    } catch (e) {
+      target.scrollIntoView();
+    }
   }
 
   function renderWordHelpDeepDive(li, w, deepMode) {
@@ -219,6 +237,12 @@
     var preview = document.createElement('div');
     preview.className = 'kjv-word-helps-preview';
     preview.hidden = !deepMode || (!how && !why);
+    if (!preview.hidden) {
+      var previewLead = document.createElement('p');
+      previewLead.className = 'kjv-word-helps-preview-lead';
+      previewLead.textContent = 'Deep Dive shows sooner in this mode';
+      preview.appendChild(previewLead);
+    }
     if (how) {
       var howP = document.createElement('p');
       var howStrong = document.createElement('strong');
@@ -245,7 +269,22 @@
       return;
     }
     var summary = document.createElement('summary');
-    summary.textContent = 'Deep Dive';
+    var summaryMain = document.createElement('span');
+    summaryMain.className = 'kjv-word-helps-deep-summary-main';
+    var summaryPill = document.createElement('span');
+    summaryPill.className = 'kjv-word-helps-deep-pill';
+    summaryPill.textContent = deepMode ? 'Deep Dive ready' : 'Read the full pastoral note';
+    var summaryCopy = document.createElement('span');
+    summaryCopy.className = 'kjv-word-helps-deep-summary-copy';
+    summaryCopy.textContent = 'Open KJV-era usage, a fuller pastoral note, and cross references.';
+    summaryMain.appendChild(summaryPill);
+    summaryMain.appendChild(summaryCopy);
+    summary.appendChild(summaryMain);
+    var caret = document.createElement('span');
+    caret.className = 'kjv-word-helps-deep-caret';
+    caret.setAttribute('aria-hidden', 'true');
+    caret.textContent = '>';
+    summary.appendChild(caret);
     details.appendChild(summary);
     var inner = document.createElement('div');
     inner.className = 'kjv-word-helps-deep-inner';
@@ -1243,6 +1282,7 @@
           renderWordHelpDeepDive(li, w, deepMode);
           ul.appendChild(li);
         });
+        applyWordHelpHashState(ul, deepMode);
       })
       .catch(function () {
         ul.innerHTML = '';
@@ -1265,6 +1305,12 @@
           writeWordHelpsDeepMode(!!deepToggle.checked);
           applyWordHelpsDeepModeUi(!!deepToggle.checked);
           loadKjvWordHelpsPanel();
+        });
+      }
+      if (!wordHelpHashWired && typeof window.addEventListener === 'function') {
+        wordHelpHashWired = true;
+        window.addEventListener('hashchange', function () {
+          applyWordHelpHashState(document.getElementById('kjv-word-helps-list'), readWordHelpsDeepMode());
         });
       }
       renderConcordanceResults([], '');

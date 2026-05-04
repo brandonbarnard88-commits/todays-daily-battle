@@ -2946,7 +2946,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[src*="kjv-dictionary.js"]')) return;
   if (document.querySelector('script[data-lazy-src*="kjv-dictionary.js"]')) return;
   if (document.querySelector('script[data-tdb-kjv-dictionary="1"]')) return;
-  var trusted = trustedScriptURL('/kjv-dictionary.js?v=20260503worddepth1');
+  var trusted = trustedScriptURL('/kjv-dictionary.js?v=20260504worddepth2');
   if (!trusted) return;
   var script = document.createElement('script');
   script.src = trusted;
@@ -3188,7 +3188,9 @@ function ensureTdbCookieNoticeStyles() {
   style.id = 'tdb-cookie-notice-style';
   style.textContent =
     'body.tdb-cookie-notice-visible{padding-bottom:clamp(7rem,22vw,10rem);}' +
+    'body.tdb-has-bottom-app-nav.tdb-cookie-notice-visible{padding-bottom:calc(clamp(7rem,22vw,10rem) + 4.4rem + env(safe-area-inset-bottom,0px));}' +
     '#tdb-cookie-notice{position:fixed;left:50%;bottom:max(0.75rem,env(safe-area-inset-bottom,0px));transform:translateX(-50%);width:min(calc(100% - 1rem),40rem);max-height:calc(100vh - 1.5rem);overflow-y:auto;padding:0.95rem 1rem;background:rgba(8,12,22,0.97);color:#f5f7fb;border:1px solid rgba(227,188,103,0.28);border-radius:18px;box-shadow:0 18px 42px rgba(0,0,0,0.42);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);z-index:450;}' +
+    'body.tdb-has-bottom-app-nav #tdb-cookie-notice{bottom:calc(4.15rem + env(safe-area-inset-bottom,0px));}' +
     '#tdb-cookie-notice[hidden]{display:none!important;}' +
     '#tdb-cookie-notice .tdb-cookie-notice__title{margin:0 0 0.3rem;font:600 1rem/1.3 var(--font-ui,Inter,sans-serif);color:#fcfcfd;}' +
     '#tdb-cookie-notice .tdb-cookie-notice__copy{margin:0;font:500 0.96rem/1.55 var(--font-ui,Inter,sans-serif);color:rgba(245,247,251,0.88);}' +
@@ -3204,7 +3206,7 @@ function ensureTdbCookieNoticeStyles() {
     'html[data-theme="light"] #tdb-cookie-notice .tdb-cookie-notice__title{color:#2f2f2f;}' +
     'html[data-theme="light"] #tdb-cookie-notice .tdb-cookie-notice__copy{color:#4d525c;}' +
     'html[data-theme="light"] #tdb-cookie-notice .tdb-cookie-notice__btn--secondary,html[data-theme="light"] #tdb-cookie-notice .tdb-cookie-notice__link{color:#2f2f2f;background:rgba(64,41,8,0.04);border-color:rgba(64,41,8,0.12);}' +
-    '@media (max-width:640px){#tdb-cookie-notice{width:calc(100% - 0.8rem);padding:0.9rem 0.85rem;}#tdb-cookie-notice .tdb-cookie-notice__actions{gap:0.55rem;}#tdb-cookie-notice .tdb-cookie-notice__btn{flex:1 1 calc(50% - 0.3rem);}#tdb-cookie-notice .tdb-cookie-notice__link{flex:1 1 100%;}}';
+    '@media (max-width:640px){#tdb-cookie-notice{width:calc(100% - 0.8rem);padding:0.9rem 0.85rem;}body.tdb-has-bottom-app-nav #tdb-cookie-notice{bottom:calc(4.45rem + env(safe-area-inset-bottom,0px));}#tdb-cookie-notice .tdb-cookie-notice__actions{gap:0.55rem;}#tdb-cookie-notice .tdb-cookie-notice__btn{flex:1 1 calc(50% - 0.3rem);}#tdb-cookie-notice .tdb-cookie-notice__link{flex:1 1 100%;}}';
   document.head.appendChild(style);
 }
 
@@ -23211,6 +23213,36 @@ function appendSavedListWordStudyButton(actionsEl, ref, verseText) {
   actionsEl.appendChild(ws);
 }
 
+function appendSavedListWordHelpNudge(hostEl, verseText) {
+  if (!hostEl) return;
+  const text = String(verseText || '').trim();
+  if (!text || !window.TDBWordStudy || typeof window.TDBWordStudy.findWordHelpLinks !== 'function') return;
+  const nudge = document.createElement('p');
+  nudge.className = 'section-note util-mt-0_5';
+  nudge.textContent = 'Looking for a hard word here?';
+  hostEl.appendChild(nudge);
+  window.TDBWordStudy.findWordHelpLinks(text, { limit: 3 }).then(function (links) {
+    if (!nudge.isConnected) return;
+    if (!Array.isArray(links) || !links.length) {
+      nudge.remove();
+      return;
+    }
+    nudge.textContent = 'Study these words deeper: ';
+    links.forEach(function (link, idx) {
+      if (!link || !link.href || !link.label) return;
+      if (idx) nudge.appendChild(document.createTextNode(' · '));
+      const a = document.createElement('a');
+      a.href = link.href;
+      a.textContent = link.label;
+      a.setAttribute('aria-label', 'Open Study workshop word help for ' + (link.word || link.label));
+      nudge.appendChild(a);
+    });
+    nudge.appendChild(document.createTextNode('.'));
+  }).catch(function () {
+    if (nudge.isConnected) nudge.remove();
+  });
+}
+
 function appendSavedListMemorizeLink(actionsEl, ref) {
   if (!actionsEl || !ref) return;
   const r = String(ref || '').replace(/\s+/g, ' ').trim();
@@ -23321,6 +23353,7 @@ function renderSavedVerses() {
       appendSavedListMemorizeLink(actions, ref);
       actions.appendChild(deleteBtn);
       card.appendChild(actions);
+      appendSavedListWordHelpNudge(card, text);
       container.appendChild(card);
     });
   }
@@ -23388,6 +23421,7 @@ function renderSavedVerses() {
       appendSavedListMemorizeLink(actions, item.ref);
       actions.appendChild(removeBtn);
       row.appendChild(actions);
+      appendSavedListWordHelpNudge(row, item.text || '');
       section.appendChild(row);
     });
     container.appendChild(section);

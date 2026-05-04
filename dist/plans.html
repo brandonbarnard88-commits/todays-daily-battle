@@ -1123,6 +1123,9 @@
     .day-card-more-context summary { cursor: pointer; font-weight: 600; color: rgba(203, 213, 225, 0.95); }
     .day-card-more-context[open] summary { color: #e3bc67; }
     .day-card-wordstudy { font-size: 0.88rem; }
+    .day-card-wordhelp-row { margin: 0.55rem 0 0; line-height: 1.55; }
+    .day-card-wordhelp-row a { color: #fde68a; text-underline-offset: 2px; }
+    .day-card-wordhelp-row a:hover, .day-card-wordhelp-row a:focus-visible { color: #fff3bf; }
     .day-card-ribbon-note {
       margin: 0 0 1rem;
       padding: 0.75rem 0.85rem;
@@ -6078,6 +6081,36 @@
       }
     }
 
+    function appendPlanWordHelpLinks(hostEl, verseText) {
+      if (!hostEl) return;
+      var text = cleanPlanPlain(verseText == null ? '' : String(verseText));
+      if (!text || !window.TDBWordStudy || typeof window.TDBWordStudy.findWordHelpLinks !== 'function') return;
+      var row = document.createElement('p');
+      row.className = 'day-card-wordhelp-row section-note';
+      row.textContent = 'Looking for a hard word in this verse?';
+      hostEl.appendChild(row);
+      window.TDBWordStudy.findWordHelpLinks(text, { limit: 3 }).then(function (links) {
+        if (!row.isConnected) return;
+        if (!Array.isArray(links) || !links.length) {
+          row.remove();
+          return;
+        }
+        row.textContent = 'Study a hard word in the Workshop: ';
+        links.forEach(function (link, idx) {
+          if (!link || !link.href || !link.label) return;
+          if (idx) row.appendChild(document.createTextNode(' · '));
+          var a = document.createElement('a');
+          a.href = link.href;
+          a.textContent = link.label;
+          a.setAttribute('aria-label', 'Open Study workshop word help for ' + (link.word || link.label));
+          row.appendChild(a);
+        });
+        row.appendChild(document.createTextNode('.'));
+      }).catch(function () {
+        if (row.isConnected) row.remove();
+      });
+    }
+
     function renderDayCard() {
       try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (_) {}
       var hlClear = document.getElementById('plan-day-verse-text');
@@ -6192,6 +6225,7 @@
           });
           wsWrap.appendChild(mvBtn);
         }
+        appendPlanWordHelpLinks(wsWrap, txtWs);
         card.appendChild(wsWrap);
       }
 

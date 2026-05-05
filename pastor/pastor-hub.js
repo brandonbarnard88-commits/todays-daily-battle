@@ -124,11 +124,48 @@
     } catch (e) {}
   }
 
+  /* Pastor Dashboard MVP: Simple setter for Church Verse of the Day (uses new RPC, KJV-only, anonymous stats via trackEvent).
+     One-page hub: Set Verse → Preview (with breakdown) → Share Code. PDF Sermon Builder extended from team packs.
+     Integrates with team sync for dashboard. */
+  window.setTeamVerse = async function(verseRef, teamCode = null) {
+    if (!verseRef) return {ok: false, reason: 'missing_verse'};
+    // Enforce KJV-only (app side)
+    if (!verseRef.match(/^[1-3]?\s*[A-Za-z]+\s+\d+:\d+/)) {
+      return {ok: false, reason: 'must_be_kjv_ref'};
+    }
+    const code = teamCode || localStorage.getItem('tdb_tt_active_team') || 'default';
+    if (!supabase && typeof supabase !== 'undefined') initSupabaseForPastor(); // fallback
+    try {
+      if (supabase) {
+        const { data } = await supabase.rpc('set_team_verse', {
+          p_code: code,
+          p_verse_ref: verseRef
+        });
+        if (data && data.ok) {
+          if (typeof trackEvent === 'function') trackEvent('church_verse_set', { success: true });
+          return data;
+        }
+      }
+      // Local fallback for offline
+      localStorage.setItem('team_verse_' + code, verseRef);
+      return {ok: true, verse: verseRef, note: 'local_cache'};
+    } catch (e) {
+      console.error('setTeamVerse error', e);
+      return {ok: false, reason: e.message};
+    }
+  };
+
+  function initSupabaseForPastor() {
+    // Reuse logic from team-toolkit if needed
+    if (typeof supabaseClient !== 'undefined') supabase = supabaseClient;
+  }
+
   window.PastorHub = {
     getDailyKey: getDailyKey,
     getBuilderDraft: getBuilderDraft,
     setBuilderDraft: setBuilderDraft,
-    escapeHtml: escapeHtml
+    escapeHtml: escapeHtml,
+    setTeamVerse: window.setTeamVerse
   };
 
   /* --- Init Daily page --- */

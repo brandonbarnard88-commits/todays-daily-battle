@@ -7828,6 +7828,7 @@ var VERSE_PLAIN_MEANINGS = {
   '2 Corinthians 12:9': 'God\'s power shows up best when we\'re weak—His grace is enough.',
   'Ephesians 6:10': 'Draw your strength from the Lord and from His mighty power.',
   'Hebrews 11:1': 'Faith is being sure of what we hope for and certain of what we don\'t see yet.',
+  'Mark 9:23': 'Jesus told a father watching his son suffer from an evil spirit that all things are possible when we believe. It isn’t about having perfect faith first. It’s about bringing the impossible need to the One who can do anything.',
   '1 John 4:18': 'Perfect love drives out fear—so we don\'t have to be afraid.',
   'Psalms 27:1': 'The Lord is my light and my rescue—whom shall I fear?',
   'Psalms 121:1': 'I look to the hills—my help comes from the Lord who made heaven and earth.',
@@ -7884,7 +7885,299 @@ var VERSE_PLAIN_MEANINGS = {
   'Ephesians 2:10': 'We are God\'s handiwork, created in Christ to do good works He prepared for us.',
   '2 Timothy 1:9': 'God saved us and called us to a holy life—not because of what we did but because of His purpose.',
   'Psalms 94:19': 'When anxiety was great within me, Your consolation brought me joy—God meets us in the overwhelm.',
-  'Nehemiah 8:10': 'The joy of the Lord is your strength—His gladness in you fuels you for the day.'
+  'Nehemiah 8:10': 'The joy of the Lord is your strength—His gladness in you fuels you for the day.',
+  'Luke 9:23': 'Jesus is speaking to His disciples right after they failed to help a suffering boy. He says following Him means denying self and taking up your cross daily. It is not a one-time decision—it is a daily choice to put Him first even when it costs something.',
+  'Matthew 6:34': 'Jesus tells worried people not to borrow tomorrow’s trouble today. Each day has enough of its own. Live in today’s light instead of carrying what hasn’t even arrived yet.',
+  'John 14:27': 'Jesus is preparing His friends for His leaving. He gives them a peace the world cannot give or take away. Stop letting your heart be troubled or afraid—His peace is stronger than the noise.',
+  'Psalm 23:4': 'Even walking through the darkest valley you do not have to fear evil. The Lord is right there with you. His rod and staff comfort and guide you through it.',
+  'Philippians 4:13': 'Paul wrote this from prison. Christ gives you the strength to face whatever this day actually holds—not to do everything you want, but to walk through what He has given you today.',
+  'Romans 8:28': 'We know that God works all things together for good for those who love Him and are called according to His purpose. Even the hard pieces are not wasted in His hands.',
+  'Matthew 28:20': 'Jesus’ last words before ascending: I am with you always, to the very end of the age. You are never alone in the work He gives you.',
+  'John 16:33': 'In this world you will have trouble. But take heart—Jesus has overcome the world. The trouble is real, but it does not have the last word.',
+  'Isaiah 40:31': 'Those who wait on the Lord will renew their strength. They will run and not grow weary, walk and not faint. Waiting on Him is not passive—it restores you.',
+  'Jeremiah 29:11': 'God knows the plans He has for you—plans to prosper you and not to harm you, plans to give you hope and a future. This is spoken to people in exile; it is steady truth in hard seasons.',
+  '1 Peter 5:7': 'Cast all your anxiety on Him because He cares for you. Every bit of it. He does not grow tired of your real needs.',
+  'Proverbs 3:5-6': 'Trust in the Lord with all your heart and lean not on your own understanding. In all your ways acknowledge Him, and He will make your paths straight.'
+};
+
+/** KIDS_VERSE_BREAKDOWNS — kid-friendly breakdowns (parallel to adult VERSE_PLAIN_MEANINGS)
+ * Uses exact standard keys so rendering, cache, populateInlineDetails, and helpers stay untouched.
+ * Written in warm, wonder-filled, bedtime-storyteller voice per kids-rule and VERSE-BREAKDOWN-RULE.md.
+ * Big eyes, bouncy wonder, concrete images, short sentences, parent-and-child friendly.
+ * These five + ten more give strong coverage for the most-used kids verses and the 365-story rotation.
+ */
+const KIDS_VERSE_BREAKDOWNS = {
+  "Psalm 23:1": {
+    plainExplanation: "God is like a kind shepherd who takes care of his sheep. He makes sure they have everything they need. David wrote this because he knew God takes care of us the same way.",
+    about: "David (a shepherd boy who became king)",
+    to: "God — and to every child (and grown-up) who feels worried or small.",
+    modernApplication: "In 2026, days can feel big and a little scary. This verse reminds us God is still the Good Shepherd who sees every child and meets every need.",
+    groupApplication: "When you feel tired, scared at night, or like you need something, Jesus is your Shepherd. He knows your name and He cares for you.",
+    oneStep: "Draw a little sheep and say, “Jesus is my Shepherd” out loud with mom or dad.",
+    prayer: "Dear Jesus, thank You for being my Shepherd. I don’t have to be afraid. You take care of me. Amen."
+  },
+  "Psalm 23:4": {
+    plainExplanation: "Even when we walk through a dark, scary place, we don’t have to be afraid because God is right there with us. His strong stick (rod) and gentle guiding stick (staff) make us feel safe.",
+    about: "David",
+    to: "God — and to every boy and girl who feels afraid sometimes.",
+    modernApplication: "In 2026, some nights feel dark and some days feel hard. This verse tells us God walks with us through every scary thing.",
+    groupApplication: "When you’re afraid of the dark, a bad dream, or a hard day, God is holding your hand. You are never alone.",
+    oneStep: "Hold someone’s hand and say together, “God is with me.”",
+    prayer: "Jesus, when I feel scared, help me remember You are right beside me. Your hand makes me brave. Amen."
+  },
+  "Matthew 11:28": {
+    plainExplanation: "Jesus says, “Come to Me if you feel tired and carrying too much.” He promises to give us rest, like a big hug after a long day.",
+    about: "Jesus",
+    to: "Tired people, worried moms and dads, and children who feel worn out.",
+    modernApplication: "In 2026, many kids feel tired from school, feelings, or hard things at home. Jesus still invites every tired heart to come to Him.",
+    groupApplication: "When your heart feels heavy or you just need to stop and breathe, Jesus wants you to come sit with Him.",
+    oneStep: "Take three slow breaths and whisper, “Jesus, I come to You.”",
+    prayer: "Jesus, I’m tired and my heart feels heavy. Come give me rest. I love You. Amen."
+  },
+  "John 14:27": {
+    plainExplanation: "Jesus gives us His own special peace — not like a toy that can break, but a quiet, strong peace inside our hearts. He tells us not to let our hearts stay worried or scared.",
+    about: "Jesus",
+    to: "His close friends the night before He went to the cross — and to every child today.",
+    modernApplication: "In 2026, hearts can feel noisy with worry. Jesus still gives the kind of peace that calms us even when things are hard.",
+    groupApplication: "When your tummy feels worried or your mind won’t stop thinking scary thoughts, Jesus offers you His peace right now.",
+    oneStep: "Put your hand on your heart and say, “Jesus gives me peace.”",
+    prayer: "Jesus, thank You for Your peace. Please calm my heart when I feel afraid. I trust You. Amen."
+  },
+  "Mark 9:23": {
+    plainExplanation: "Jesus told a worried daddy whose little boy was very sick, “If you can believe, all things are possible.” It’s not about being perfect — it’s about bringing the hard thing to Jesus.",
+    about: "Jesus",
+    to: "A desperate father, the disciples who felt like they failed, and every child and parent who has something that feels too big.",
+    modernApplication: "In 2026, some things feel too hard or too big for us. Jesus still says the same gentle words to moms, dads, and kids.",
+    groupApplication: "When something feels impossible (a big worry, a hard day, or a sad feeling), you can bring it straight to Jesus and believe He can help.",
+    oneStep: "Tell Jesus one thing that feels too big, then draw a smiley face because He is strong.",
+    prayer: "Jesus, this feels too big for me. I believe You can help. Thank You for loving me. Amen."
+  },
+  "Genesis 1:1": {
+    plainExplanation: "In the very beginning, God made the sky, the earth, the sun, the stars, and everything we see. He is the wonderful Creator of all things.",
+    about: "Moses",
+    to: "God’s people — and to every curious child who wonders how the world began.",
+    modernApplication: "In 2026, the world feels big and busy. This verse reminds every child that God made everything with love and care.",
+    groupApplication: "When you look at the sky, trees, or animals, remember God made them all and He made you too.",
+    oneStep: "Look out the window and say, “God made this!”",
+    prayer: "Dear God, thank You for making the beautiful world and for making me. You are wonderful. Amen."
+  },
+  "Psalm 46:10": {
+    plainExplanation: "God says, “Be still and know that I am God.” Sometimes we run fast and feel worried. God wants us to stop, be quiet, and remember He is God.",
+    about: "God",
+    to: "His people — and to busy, worried children.",
+    modernApplication: "In 2026, days can be very loud and fast. God still invites kids to be still with Him.",
+    groupApplication: "When you feel like you’re going too fast or your heart is worried, God says it’s okay to stop and sit with Him.",
+    oneStep: "Sit quietly for ten seconds and whisper, “God is with me.”",
+    prayer: "God, help me be still. I want to know You are my God. Amen."
+  },
+  "Proverbs 3:5": {
+    plainExplanation: "Trust in the Lord with all your heart. Don’t try to figure everything out by yourself. God knows the best way.",
+    about: "King Solomon",
+    to: "His son — and to every child who doesn’t know what to do.",
+    modernApplication: "In 2026, kids face many hard choices and worries. God still says trust Me with all your heart.",
+    groupApplication: "When you don’t know what to do or feel confused, you can trust God with your whole heart.",
+    oneStep: "Put your hand on your heart and say, “I trust You, God.”",
+    prayer: "God, I trust You with all my heart. Help me not to worry. Amen."
+  },
+  "John 3:16": {
+    plainExplanation: "God loved the world so much that He gave His only Son, Jesus. Whoever believes in Him will have life that never ends.",
+    about: "Jesus",
+    to: "A man named Nicodemus — and to every boy and girl.",
+    modernApplication: "In 2026, many people wonder if God loves them. This verse shouts that God loves you very much.",
+    groupApplication: "God loves you so much that He gave Jesus just for you. You are very special to Him.",
+    oneStep: "Give yourself a big hug and say, “God loves me!”",
+    prayer: "Thank You God for loving me so much. Thank You for Jesus. I love You too. Amen."
+  },
+  "Ephesians 6:1": {
+    plainExplanation: "Children, obey your parents because it makes God happy. When you listen to mom and dad, you are also listening to God.",
+    about: "Paul",
+    to: "Kids in the family of God — and to every boy and girl today.",
+    modernApplication: "In 2026, homes can feel busy. God still gives this gentle rule that brings peace.",
+    groupApplication: "When mom or dad asks you to do something, you can obey with a happy heart.",
+    oneStep: "Smile and say, “Yes, I will!” the next time mom or dad asks you to help.",
+    prayer: "Jesus, help me obey mom and dad. I want to make You happy. Amen."
+  },
+  "Matthew 6:34": {
+    plainExplanation: "Don’t worry about tomorrow. Today has enough of its own things. God will take care of tomorrow when it comes.",
+    about: "Jesus",
+    to: "Worried people — and to children who feel scared about what’s next.",
+    modernApplication: "In 2026, tomorrow can feel big. Jesus still says we only need to trust Him for today.",
+    groupApplication: "When you worry about school, friends, or what might happen, Jesus says today is enough.",
+    oneStep: "Draw a sun on a piece of paper and say, “God takes care of today.”",
+    prayer: "Jesus, I give You my worries about tomorrow. Help me trust You today. Amen."
+  },
+  "Philippians 4:13": {
+    plainExplanation: "I can do all things through Christ who gives me strength. Even when things feel hard, Jesus makes me strong.",
+    about: "Paul (writing from prison)",
+    to: "His friends — and to every child who feels small or tired.",
+    modernApplication: "In 2026, some days feel too hard. Jesus still gives kids His own strength.",
+    groupApplication: "When something feels too big (a hard day, a scary feeling), Jesus is right there to help you.",
+    oneStep: "Flex your arm like a strong muscle and say, “Jesus makes me strong!”",
+    prayer: "Jesus, thank You for making me strong. I can do hard things with You. Amen."
+  },
+  "Genesis 1:31": {
+    plainExplanation: "God looked at everything He made — the sky, the sea, the animals, and people — and saw that it was very good. He made the whole world beautiful.",
+    about: "Moses",
+    to: "God’s people — and to every child who loves looking at stars, flowers, or puppies.",
+    modernApplication: "In 2026, the world can feel busy or broken sometimes. This verse reminds every little heart that God made everything good and He still cares for it.",
+    groupApplication: "When you see something beautiful outside, remember God made it and He made you too — and He says it is very good.",
+    oneStep: "Go look at something God made (a tree, cloud, or your own hand) and say, “Thank You, God!”",
+    prayer: "Dear God, thank You for making the world so beautiful. Thank You for making me. I love what You made. Amen."
+  },
+  "Genesis 9:13": {
+    plainExplanation: "God put a rainbow in the sky as a promise to Noah and every family after him. He said He would never flood the whole earth again.",
+    about: "God",
+    to: "Noah and his family — and to every child who sees a rainbow after rain.",
+    modernApplication: "In 2026, storms and hard days still come. The rainbow reminds kids that God keeps His promises and stays with us.",
+    groupApplication: "When it rains or you feel scared, look for colors in the sky and remember God’s promise to you.",
+    oneStep: "Draw a bright rainbow and tell someone, “God keeps His promises.”",
+    prayer: "God, thank You for the rainbow and for Your promises. I know You are with me always. Amen."
+  },
+  "1 Samuel 17:37": {
+    plainExplanation: "David told King Saul that God helped him fight a lion and a bear, so God would help him fight the giant Goliath too.",
+    about: "David (a young shepherd)",
+    to: "King Saul — and to every child who faces something big and scary.",
+    modernApplication: "In 2026, some problems feel like giants. This verse tells kids the same God who helped David is with them.",
+    groupApplication: "When something feels too big, remember David’s words: the Lord who helped before will help you now.",
+    oneStep: "Make a strong fist and say, “God is with me!” like David did.",
+    prayer: "Jesus, when things feel big like Goliath, help me remember You are stronger. Be with me. Amen."
+  },
+  "Mark 4:39": {
+    plainExplanation: "Jesus stood up in the boat during a big storm and said, “Peace, be still.” The wind stopped blowing and the sea became calm.",
+    about: "Jesus",
+    to: "His worried disciples — and to every child who feels afraid when things get loud or scary.",
+    modernApplication: "In 2026, storms (inside or outside) can make hearts race. Jesus still speaks peace to every storm.",
+    groupApplication: "When you feel worried or everything feels too loud, Jesus can make your heart quiet again.",
+    oneStep: "Hold your hands out and whisper, “Peace, be still” like Jesus did.",
+    prayer: "Jesus, when I feel scared, speak peace to my heart. Make me calm like You made the sea. Amen."
+  },
+  "John 10:11": {
+    plainExplanation: "Jesus says He is the Good Shepherd. He loves His sheep so much that He gives His life for them.",
+    about: "Jesus",
+    to: "The people listening to Him — and to every boy and girl who needs to feel safe.",
+    modernApplication: "In 2026, kids sometimes feel lost or scared. Jesus is still the Good Shepherd who never leaves His sheep.",
+    groupApplication: "Jesus knows you by name. He watches over you like a shepherd watches his favorite lamb.",
+    oneStep: "Hug a stuffed animal and say, “Jesus is my Good Shepherd.”",
+    prayer: "Jesus, thank You for being my Good Shepherd. Keep me safe and close to You. Amen."
+  },
+  "John 6:12": {
+    plainExplanation: "After Jesus fed thousands of people with five loaves and two fish, He told the disciples to gather up the leftover pieces so nothing would be wasted.",
+    about: "Jesus",
+    to: "His disciples — and to every child who wonders if God sees when they are hungry or need help.",
+    modernApplication: "In 2026, God still takes small things and makes them enough. He cares about every lunchbox and every need.",
+    groupApplication: "When you feel like you don’t have enough (time, courage, or snacks), Jesus can make it more than enough.",
+    oneStep: "Share one small thing today and say, “Jesus makes it enough.”",
+    prayer: "Jesus, thank You for taking care of me when I need help. You make little things big. Amen."
+  },
+  "Matthew 19:14": {
+    plainExplanation: "Jesus said, “Let the little children come to Me.” He took them in His arms, hugged them, and blessed them.",
+    about: "Jesus",
+    to: "His disciples who tried to send the children away — and to every boy and girl.",
+    modernApplication: "In 2026, Jesus still says the same thing: children are welcome right beside Him.",
+    groupApplication: "You don’t have to be big or perfect to come to Jesus. He loves when you run to Him.",
+    oneStep: "Open your arms wide like Jesus and say, “I come to You, Jesus.”",
+    prayer: "Jesus, thank You for wanting me close. I come to You right now. Amen."
+  },
+  "Ephesians 6:11": {
+    plainExplanation: "Put on the whole armor of God so you can stand strong against the tricky things that try to make you sad or scared.",
+    about: "Paul",
+    to: "Believers (including children) who want to be strong for Jesus.",
+    modernApplication: "In 2026, kids face hard feelings and tricky days. God gives special armor to help us stand strong.",
+    groupApplication: "You can put on truth, peace, faith, and prayer every morning like putting on clothes.",
+    oneStep: "Touch each shoulder and say, “I put on God’s armor today.”",
+    prayer: "Jesus, help me wear Your armor. Make me strong and brave for You. Amen."
+  },
+  "Isaiah 41:10": {
+    plainExplanation: "God says, “Fear not, for I am with you. Be not dismayed, for I am your God. I will strengthen you and help you.”",
+    about: "God",
+    to: "His worried people — and to every child who feels afraid.",
+    modernApplication: "In 2026, fear still tries to creep in at night or school. God still says the same gentle words.",
+    groupApplication: "You are never alone. God is right there holding you and making you strong.",
+    oneStep: "Take a deep breath and say three times, “God is with me.”",
+    prayer: "God, I don’t have to be afraid because You are with me. Hold me tight. Amen."
+  },
+  "2 Timothy 1:7": {
+    plainExplanation: "God has not given us a spirit of fear, but of power, love, and a sound mind.",
+    about: "Paul (writing to young Timothy)",
+    to: "Timothy — and to every child who sometimes feels afraid.",
+    modernApplication: "In 2026, fear tries to visit kids at bedtime or on hard days. God gives power, love, and calm thoughts instead.",
+    groupApplication: "When fear knocks, remember God gave you courage, love, and a peaceful mind.",
+    oneStep: "Put your hand on your chest and say, “God gave me power and love.”",
+    prayer: "Jesus, take away my fear. Fill me with Your power, love, and calm thoughts. Amen."
+  },
+  "Proverbs 17:17": {
+    plainExplanation: "A friend loves at all times. Brothers and sisters are born to help each other when trouble comes.",
+    about: "King Solomon",
+    to: "His son — and to every child who has friends or brothers and sisters.",
+    modernApplication: "In 2026, friends and family can make hard days lighter. God wants us to love each other like this.",
+    groupApplication: "Be the kind of friend who stays close when someone feels sad or scared.",
+    oneStep: "Give someone a kind word or hug today and say, “I’m glad you’re my friend.”",
+    prayer: "God, help me be a good friend who loves at all times. Thank You for my friends. Amen."
+  },
+  "Psalm 139:14": {
+    plainExplanation: "I will praise You because I am fearfully and wonderfully made. Your works are wonderful, and I know that full well.",
+    about: "David",
+    to: "God — and to every child who wonders if they are special.",
+    modernApplication: "In 2026, kids sometimes feel small or different. This verse says God made you wonderfully on purpose.",
+    groupApplication: "You are not an accident. God made every part of you and He says you are wonderful.",
+    oneStep: "Look in the mirror, smile, and say, “God made me wonderful!”",
+    prayer: "Dear God, thank You for making me. I am wonderfully made by You. Amen."
+  }
+};
+
+// Make globally available for verse-breakdown.js and kids pages
+window.KIDS_VERSE_BREAKDOWNS = KIDS_VERSE_BREAKDOWNS;
+
+/** Kid-friendly verse breakdowns — warm, wonder-filled, bedtime-storyteller voice.
+ * Follows daily-verse-breakdown/SKILL.md + kids-rule (big eyes, bouncy wonder, short, no sermon, 10-sec max).
+ * Used automatically when ageMode === 'kid' or on /kids paths.
+ * Structure matches VERSE-BREAKDOWN-RULE.md exactly (layman, who, to, relates today, relates to you, one step, prayer). */
+var KIDS_VERSE_BREAKDOWNS = {
+  'Psalm 23:1': {
+    layman: 'God is like a kind shepherd who takes care of his sheep. He makes sure they have everything they need. David wrote this because he knew God takes care of us the same way.',
+    about: 'David (a shepherd boy who became king)',
+    to: 'God — and to every child (and grown-up) who feels worried or small.',
+    relatesToday: 'In 2026, days can feel big and a little scary. This verse reminds us God is still the Good Shepherd who sees every child and meets every need.',
+    applies: 'When you feel tired, scared at night, or like you need something, Jesus is your Shepherd. He knows your name and He cares for you.',
+    oneStep: 'Draw a little sheep and say, “Jesus is my Shepherd” out loud with mom or dad.',
+    prayer: 'Dear Jesus, thank You for being my Shepherd. I don’t have to be afraid. You take care of me. Amen.'
+  },
+  'Psalm 23:4': {
+    layman: 'Even when we walk through a dark, scary place, we don’t have to be afraid because God is right there with us. His strong stick (rod) and gentle guiding stick (staff) make us feel safe.',
+    about: 'David',
+    to: 'God — and to every boy and girl who feels afraid sometimes.',
+    relatesToday: 'In 2026, some nights feel dark and some days feel hard. This verse tells us God walks with us through every scary thing.',
+    applies: 'When you’re afraid of the dark, a bad dream, or a hard day, God is holding your hand. You are never alone.',
+    oneStep: 'Hold someone’s hand and say together, “God is with me.”',
+    prayer: 'Jesus, when I feel scared, help me remember You are right beside me. Your hand makes me brave. Amen.'
+  },
+  'Matthew 11:28': {
+    layman: 'Jesus says, “Come to Me if you feel tired and carrying too much.” He promises to give us rest, like a big hug after a long day.',
+    about: 'Jesus',
+    to: 'Tired people, worried moms and dads, and children who feel worn out.',
+    relatesToday: 'In 2026, many kids feel tired from school, feelings, or hard things at home. Jesus still invites every tired heart to come to Him.',
+    applies: 'When your heart feels heavy or you just need to stop and breathe, Jesus wants you to come sit with Him.',
+    oneStep: 'Take three slow breaths and whisper, “Jesus, I come to You.”',
+    prayer: 'Jesus, I’m tired and my heart feels heavy. Come give me rest. I love You. Amen.'
+  },
+  'John 14:27': {
+    layman: 'Jesus gives us His own special peace — not like a toy that can break, but a quiet, strong peace inside our hearts. He tells us not to let our hearts stay worried or scared.',
+    about: 'Jesus',
+    to: 'His close friends (the disciples) the night before He went to the cross — and to every child today.',
+    relatesToday: 'In 2026, hearts can feel noisy with worry. Jesus still gives the kind of peace that calms us even when things are hard.',
+    applies: 'When your tummy feels worried or your mind won’t stop thinking scary thoughts, Jesus offers you His peace right now.',
+    oneStep: 'Put your hand on your heart and say, “Jesus gives me peace.”',
+    prayer: 'Jesus, thank You for Your peace. Please calm my heart when I feel afraid. I trust You. Amen.'
+  },
+  'Mark 9:23': {
+    layman: 'Jesus told a worried daddy whose little boy was very sick, “If you can believe, all things are possible.” It’s not about being perfect — it’s about bringing the hard thing to Jesus.',
+    about: 'Jesus',
+    to: 'A desperate father, the disciples who felt like they failed, and every child and parent who has something that feels too big.',
+    relatesToday: 'In 2026, some things feel too hard or too big for us. Jesus still says the same gentle words to moms, dads, and kids.',
+    applies: 'When something feels impossible (a big worry, a hard day, or a sad feeling), you can bring it straight to Jesus and believe He can help.',
+    oneStep: 'Tell Jesus one thing that feels too big, then draw a smiley face because He is strong.',
+    prayer: 'Jesus, this feels too big for me. I believe You can help. Thank You for loving me. Amen.'
+  }
 };
 
 /** Book context for auto-generated verse breakdowns (31k+ verses). speaker, audience, genre. */

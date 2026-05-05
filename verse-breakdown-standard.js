@@ -25,7 +25,7 @@
     return (
       'In ' +
       y +
-      ', life can feel loud—headlines, hurry, tension. God’s Word here still cuts through as something steady you can carry today.'
+      ', many things feel impossible or too heavy. This word from Jesus still meets real needs with steady truth you can carry today.'
     );
   }
 

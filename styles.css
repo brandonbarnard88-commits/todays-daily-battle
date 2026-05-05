@@ -22602,3 +22602,143 @@ body.dark-mode #verseCard :is(p, span, strong, em, h2, h3, h4, li, blockquote) {
   color: #eaf2ff !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
 }
+
+/* Kids Corner & Church Kit Entry Polish — Porch at Dawn (final stage) */
+/* Matches refined hero, mood/tiers, site-wide spacing (1.82 line-height, generous margins), god-tier serene quality. */
+.tdb-kids-church-section {
+  margin: clamp(2rem, 5vw, 3.25rem) auto;
+  max-width: var(--tdb-home-content-max, 52rem);
+  padding: 0 var(--tdb-quiet-pad-x, 1.75rem);
+}
+
+.tdb-kids-church-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.85rem;
+}
+
+@media (min-width: 768px) {
+  .tdb-kids-church-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.tdb-kids-card,
+.tdb-church-kit-card {
+  display: flex;
+  flex-direction: column;
+  padding: 2.25rem 1.85rem 2rem;
+  border-radius: 20px;
+  background: var(--card, #fffdf7);
+  border: 1px solid color-mix(in srgb, var(--line, #e8e4d9) 65%, #c9b28a 35%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255,255,255,0.65);
+  text-decoration: none;
+  color: var(--text, #1c2a44);
+  transition: all 0.25s cubic-bezier(0.33, 1, 0.68, 1);
+  min-height: 280px;
+  position: relative;
+  overflow: hidden;
+}
+
+.tdb-kids-card::before,
+.tdb-church-kit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, transparent, #c9b28a, transparent);
+  opacity: 0.45;
+}
+
+.tdb-kids-card:hover,
+.tdb-church-kit-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.09), inset 0 1px 0 rgba(255,255,255,0.8);
+  border-color: #c9b28a;
+}
+
+.tdb-kids-card .icon,
+.tdb-church-kit-card .icon {
+  font-size: 2.75rem;
+  line-height: 1;
+  margin-bottom: 1.35rem;
+  display: block;
+  opacity: 0.85;
+}
+
+.tdb-kids-card strong,
+.tdb-church-kit-card strong {
+  font-size: 1.4rem;
+  line-height: 1.35;
+  margin-bottom: 0.85rem;
+  display: block;
+  color: #2c3a2f;
+  font-weight: 600;
+}
+
+.tdb-kids-card p,
+.tdb-church-kit-card p {
+  line-height: 1.82;
+  margin-bottom: 1.65rem;
+  flex-grow: 1;
+  color: #4a5a6e;
+  font-size: 0.97rem;
+}
+
+.tdb-kids-card .cta,
+.tdb-church-kit-card .cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.65rem;
+  background: #e8e4d9;
+  color: #2c3a2f;
+  border-radius: 9999px;
+  font-size: 0.96rem;
+  font-weight: 500;
+  align-self: flex-start;
+  margin-top: auto;
+  transition: all 0.2s ease;
+  min-height: 48px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.tdb-kids-card .cta:hover,
+.tdb-church-kit-card .cta:hover {
+  background: #d4c9b0;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+:root[data-theme="light"] .tdb-kids-card,
+:root[data-theme="light"] .tdb-church-kit-card {
+  background: #fffdf7;
+  border-color: color-mix(in srgb, #d4c0a0 55%, #e8e4d9 45%);
+  box-shadow: 0 8px 32px rgba(28, 42, 68, 0.06), inset 0 1px 0 #fff;
+}
+
+:root[data-theme="light"] .tdb-kids-card:hover,
+:root[data-theme="light"] .tdb-church-kit-card:hover {
+  box-shadow: 0 18px 42px rgba(28, 42, 68, 0.1);
+}
+
+.tdb-kids-card .cta,
+:root[data-theme="light"] .tdb-kids-card .cta {
+  background: #f0ede6;
+}
+
+/* Mobile-first tap targets & breathing (44px+ , matches site-wide spacing) */
+@media (max-width: 640px) {
+  .tdb-kids-card,
+  .tdb-church-kit-card {
+    padding: 1.85rem 1.5rem 1.75rem;
+    min-height: 240px;
+  }
+  .tdb-kids-card p,
+  .tdb-church-kit-card p {
+    margin-bottom: 1.5rem;
+    line-height: 1.78;
+  }
+}

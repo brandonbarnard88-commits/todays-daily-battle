@@ -122,14 +122,16 @@
 
   function inferApplies(text) {
     var l = String(text || '').toLowerCase();
-    if (/\b(careful|worry|anxious|fear|afraid)\b/.test(l)) return 'This verse meets you when fear presses close. You are not asked to carry it alone.';
-    if (/\b(hope|hopeth|hoped)\b/.test(l)) return 'Even when the day feels thin, this verse holds something steady.';
-    if (/\b(peace|rest)\b/.test(l)) return 'This verse offers a quiet place to set the day down.';
-    if (/\b(strength|strong|strengthen)\b/.test(l)) return 'This verse reminds you there is strength beyond your own.';
-    if (/\b(pray|prayer|believe|believing|ask.*believ|believ.*receive)\b/.test(l)) {
-      return 'Bring your real need to God in prayer. Believe He hears. He answers.';
+    if (/\b(careful|worry|anxious|fear|afraid|troubled)\b/.test(l)) return 'This verse meets you when fear presses close. You are not asked to carry it alone.';
+    if (/\b(hope|hopeth|hoped|wait)\b/.test(l)) return 'This verse keeps your eyes up when the day feels slow, heavy, or unfinished.';
+    if (/\b(peace|rest|quiet)\b/.test(l)) return 'This verse makes room to breathe, slow down, and let God settle your heart.';
+    if (/\b(strength|strong|strengthen|power)\b/.test(l)) return 'This verse reminds you that God gives strength that does not start with your own reserves.';
+    if (/\b(believ|possible|impossible|faith|believe|cross|deny)\b/.test(l)) {
+      return 'When what you face feels impossible or costly, this verse meets you with Jesus’ words to a desperate father or struggling disciple: bring the real need and believe He can act.';
     }
-    return 'Sit with this verse for one slow minute. What does it ask of you today?';
+    if (/\b(love|loveth|charity|mercy|forgive)\b/.test(l)) return 'This verse calls you to live with the same mercy and steadiness you need from God.';
+    if (/\b(today|tomorrow|sufficient|enough|daily)\b/.test(l)) return 'Each day has enough of its own. This verse invites you to live fully in today instead of borrowing tomorrow’s weight.';
+    return 'Sit with the words slowly. What one small thing does this verse ask you to do or release right now?';
   }
 
   function plainSpeaker(raw) {
@@ -580,6 +582,22 @@
     if (cached) return cached;
     var base = buildGeneratedBase(ref, raw);
     var merged = Object.assign({}, base, getRegisteredOverride(ref, group), manualOverride);
+
+    // Kid-specific curated breakdowns (warm, wonder-filled, parent-friendly)
+    // Now loaded from the dedicated kids/kids-verse-breakdowns.js for scalability to 365 stories
+    if (group === 'kid' && typeof window.KIDS_VERSE_BREAKDOWNS !== 'undefined') {
+      var kidData = window.KIDS_VERSE_BREAKDOWNS[normalizeRef(ref)];
+      if (kidData) {
+        merged.plainExplanation = kidData.plainExplanation || merged.plainExplanation;
+        merged.about = kidData.about || merged.about;
+        merged.to = kidData.to || merged.to;
+        merged.modernApplication = kidData.modernApplication || merged.modernApplication;
+        merged.groupApplication = kidData.groupApplication || merged.groupApplication;
+        merged.oneStep = kidData.oneStep || merged.oneStep;
+        merged.prayer = kidData.prayer || merged.prayer;
+      }
+    }
+
     if (!merged.groupApplication) merged.groupApplication = buildGroupApplication(group, inferRelationTopic(ref, raw));
     if (!merged.modernApplication) merged.modernApplication = inferApplies(raw);
     var finalBreakdown = finalizeBreakdown(merged, group);

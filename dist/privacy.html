@@ -158,7 +158,7 @@
           <p class="section-note topic-mood-porch">You&rsquo;re already welcome here&mdash;your privacy matters; this page names how we guard it.</p>
           <p class="hero-tagline">What stays on your device, what we see in aggregate, and how to reach us.</p>
           <p class="section-note util-mt-0_5" style="margin-bottom:0">Read at your own pace&mdash;clarity over speed, always.</p>
-          <p class="section-note privacy-updated-meta">Last updated: April 12, 2026 — added serene one-time privacy consent popup (v2 key), unified with analytics consent, elevated copy and glass UI across consent flows for clarity and reverence.</p>
+          <p class="section-note privacy-updated-meta">Last updated: May 4, 2026 — hardened retention language to explicit 90-day deletion for contact/moderation data (backups purged on same schedule), clarified GA4 as aggregate-only with no PII/raw queries per PRIVACY-ANALYTICS.md. Matches straight audit feedback on policy precision. All core promises (local-first default, no selling data, revocable sync) unchanged.</p>
         </header>
 
         <section class="glass tdb-porch-paper-glass">
@@ -229,7 +229,7 @@
         <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Contact form &amp; shop waitlist</h2>
           <p class="section-note">If you use the <a href="contact.html">contact form</a> or the <a href="shop.html#shop-waitlist">shop launch list</a>, we store your email and message or product interest in our database (Supabase) so we can reply or notify you—<strong>not</strong> for general marketing or resale. Email us anytime to request deletion of those rows.</p>
-          <p class="section-note"><strong>Retention</strong> — We keep contact messages and shop waitlist entries only as long as needed to respond or to send the launch notice you asked for, and we aim to delete them within <strong>about ninety (90) days</strong> after the issue is resolved or after the shop launch (whichever applies), unless a longer period is required by law. Operational backups may persist briefly after deletion.</p>
+          <p class="section-note"><strong>Retention</strong> — Contact messages, shop waitlist entries, and moderation reports are deleted within <strong>90 days</strong> of resolution or launch (or sooner if no longer needed). Operational backups follow the same 90-day purge schedule where technically feasible. We do not retain user content beyond this window except where required by law. See SUPABASE-SYNC-TABLES.md for sync data controls (revocable by user at any time).</p>
         </section>
 
         <section class="glass tdb-porch-paper-glass">

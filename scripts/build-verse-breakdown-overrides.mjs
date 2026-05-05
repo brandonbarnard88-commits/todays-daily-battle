@@ -110,8 +110,11 @@ function inferApplies(text) {
   if (/\b(hope|wait|waiting|trust)\b/.test(lower)) return 'This verse keeps your eyes up when the day feels slow, heavy, or unfinished.';
   if (/\b(peace|rest|quiet)\b/.test(lower)) return 'This verse makes room to breathe, slow down, and let God settle your heart.';
   if (/\b(strength|strong|strengthen|power)\b/.test(lower)) return 'This verse reminds you that God gives strength that does not start with your own reserves.';
+  if (/\b(believ|possible|impossible|faith|believe|cross|deny)\b/.test(lower)) return 'When what you face feels impossible or costly, this verse meets you with Jesus’ words to a desperate father or struggling disciple: bring the real need and believe He can act.';
   if (/\b(love|loveth|charity|mercy|forgive)\b/.test(lower)) return 'This verse calls you to live with the same mercy and steadiness you need from God.';
-  return 'Carry this verse into the next choice, the next conversation, and the next quiet minute with God.';
+  if (/\b(today|tomorrow|sufficient|enough|daily)\b/.test(lower)) return 'Each day has enough of its own. This verse invites you to live fully in today instead of borrowing tomorrow’s weight.';
+  // Last resort is now warmer and less meta
+  return 'Sit with the words slowly. What one small thing does this verse ask you to do or release right now?';
 }
 
 function getPlainExplanation(ref, text, plainMeanings) {

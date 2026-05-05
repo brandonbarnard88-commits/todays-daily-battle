@@ -1641,14 +1641,15 @@
       if (copyBtn) copyBtn.addEventListener('click', copyTeamCode);
       if (shareBtn) shareBtn.addEventListener('click', shareTeamCode);
 
-      // Auto load from URL param
+      // Auto load from URL param (?team=123456 or ?code=123456) — prefill and auto-join for seamless sharing
       const urlParams = new URLSearchParams(window.location.search);
       const urlTeam = urlParams.get('team') || urlParams.get('code');
       if (urlTeam && /^\d{6}$/.test(urlTeam)) {
         teamInput.value = urlTeam;
-        joinTeam(); // auto join
+        // Auto-join immediately for UX win (shows loading via toast)
+        setTimeout(() => joinTeam(), 100);
       } else {
-        // Load saved
+        // Load saved team
         try {
           var saved = localStorage.getItem('tdb_tt_active_team');
           if (saved && /^\d{6}$/.test(saved)) {

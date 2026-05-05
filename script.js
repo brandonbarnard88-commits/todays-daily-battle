@@ -22060,8 +22060,11 @@ function applyRoleAccess() {
     const section = link.getAttribute('data-section');
     if (section === 'wins-report') {
       link.style.display = (showPro || isMasterUser) ? 'inline-flex' : 'none';
-    } else if (section === 'sermon-builder' || section === 'pastor-toolkit' || section === 'team-toolkit') {
-      link.style.display = showChurch ? 'inline-flex' : 'none';
+    } else if (section === 'sermon-builder') {
+      // Supporter gets sermon builder per updated pricing; Church Partnership gets full team use
+      link.style.display = (showPro || showChurch || isMasterUser) ? 'inline-flex' : 'none';
+    } else if (section === 'pastor-toolkit' || section === 'team-toolkit' || section === 'church-center') {
+      link.style.display = (showChurch || isMasterUser) ? 'inline-flex' : 'none';
     } else {
       link.style.display = 'inline-flex';
     }
@@ -22071,20 +22074,17 @@ function applyRoleAccess() {
     a.style.display = (showPro || isMasterUser) ? '' : 'none';
   });
   document.querySelectorAll('.header-nav a[href="sermon.html"]').forEach(function (a) {
-    a.style.display = showChurch ? '' : 'none';
+    a.style.display = (showPro || showChurch || isMasterUser) ? '' : 'none';
   });
 
   document.querySelectorAll('.quick-links a[href="sermon.html"]').forEach(function (a) {
-    a.style.display = showChurch ? '' : 'none';
+    a.style.display = (showPro || showChurch || isMasterUser) ? '' : 'none';
   });
   document.querySelectorAll('.quick-links a[href="wins-report.html"]').forEach(function (a) {
     a.style.display = (showPro || isMasterUser) ? '' : 'none';
   });
-  document.querySelectorAll('.quick-links a[href="pastor-toolkit.html"]').forEach(function (a) {
-    a.style.display = showChurch ? '' : 'none';
-  });
-  document.querySelectorAll('.quick-links a[href="team-toolkit.html"]').forEach(function (a) {
-    a.style.display = showChurch ? '' : 'none';
+  document.querySelectorAll('.quick-links a[href="pastor-toolkit.html"], .quick-links a[href="team-toolkit.html"], .quick-links a[href="church.html"]').forEach(function (a) {
+    a.style.display = (showChurch || isMasterUser) ? '' : 'none';
   });
 }
 

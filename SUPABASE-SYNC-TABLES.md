@@ -111,3 +111,25 @@ After running `supabase-rls-quick.sql`, confirm anon cannot read public tables:
 **Secure result:** Each returns `[]` or **403** (no rows). If any returns real data, RLS is not applied for that table—re-run the quick SQL or check policies.
 
 **Note:** The project ref is not exposed on the site (good). Use it only in your own browser or `curl` for this check; never commit it.
+
+---
+
+**Team Sync (Free Tier - 6-digit codes, Church Verse, shared tools):**  
+Run `supabase-team-sync.sql` in the SQL Editor. Creates `team_codes` (6-digit PK, members jsonb, max 25), `team_verse_of_day` (KJV ref per team), and `team_sync_data` (for calendar/prayer/notes/attendance jsonb). 
+
+**RPCs provided:** `create_team_code()`, `join_team_by_code(code, member_id)`, `set_team_verse(code, verse_ref)`, `get_team_verse(code)`. 
+
+**RLS:** service_role only on tables; RPCs are SECURITY DEFINER and granted to anon/authenticated. Enforces 25 member limit, unique codes, KJV comment in schema. 
+
+**Usage in app:** Client generates/joins via RPC (no direct table access). Verse is read-only for free tier members. Sync data uses localStorage by default (`tdb_tt_<code>_...` keys from team-toolkit.html); merges on join when online. "Sync works when online; always falls back to local cache" UI message required. See `team-toolkit.html` updates and `script.js` patterns from church flows.
+
+**Testing:** 
+- Create team → get code.
+- Join from another device/browser with same code → verify verse syncs and member count.
+- Pastor sets verse → realtime or poll updates on other clients.
+- Verify anon cannot SELECT raw tables (use verify RLS steps above).
+- Run `npm run test:security` after integration.
+
+Update SECURITY.md with new table in checklist. Enable Realtime on `team_verse_of_day` and `team_sync_data` in Supabase Dashboard for live updates (optional for MVP).
+
+This completes the backend for Free Team Sync MVP.

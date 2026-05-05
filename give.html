@@ -4,7 +4,7 @@
   <!-- tdb-cache-hygiene: bump purge if prayer-wall layout or CSP changes -->
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js?v=20260423-phase5-perf"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
 
   <!-- GA4 lazy-loaded after interaction -->
   <script defer src="analytics-loader.js"></script>
@@ -28,8 +28,8 @@
   <meta name="twitter:description" content="Optional gifts keep verse, plans, and tools online.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260423-phase5-perf" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260423-phase5-perf" nonce="tdb2025s">
+  <link rel="preload" href="styles.css?v=20260503-consent-persist-fix" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix" nonce="tdb2025s">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" nonce="tdb2025s" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -144,58 +144,87 @@
     <main class="app-content" id="main-content">
       <div class="content-inner">
         <header class="hero-banner tdb-dawn-hub--mist">
-          <h1>Support this quiet place</h1>
-          <p class="section-note topic-mood-porch">You&rsquo;re already welcome here&mdash;giving never buys your place on the porch.</p>
-          <p class="hero-tagline">Giving is optional. The first job is to keep Scripture close, calm, and trustworthy when somebody lands here in a hard moment.</p>
-          <p class="privacy-line">No ads. No data sold. KJV first.</p>
+          <h1>Support the Porch</h1>
+          <p class="section-note topic-mood-porch">You are already welcome here — completely free, no account, no pressure. These gifts are simply one way to help the porch stay open for the next weary heart.</p>
+          <p class="hero-tagline">KJV-only. Privacy-first. Offline-first. The site will always be free. Giving is optional and never tied to access.</p>
           <div class="cta-group cta-group-flex-wrap">
-            <a class="btn btn-primary" href="#support-options">See the current support path</a>
+            <a class="btn btn-primary" href="#porch-options">See the ways to help</a>
             <a class="btn btn-secondary" href="/where-support-goes.html">Where support goes</a>
-            <a class="btn btn-secondary" href="/">Back home</a>
+            <a class="btn btn-secondary" href="/">Return to Today’s Verse</a>
           </div>
         </header>
-        <section class="glass tdb-porch-paper-glass" id="support-options" aria-labelledby="give-status-heading">
-          <h2 class="section-divider" id="give-status-heading">Current support path</h2>
-          <p class="section-note" id="pricing-availability-note">The old external support link has been retired so nobody gets sent to a dead page. For now, join the support waitlist below and I will reopen giving with a working path.</p>
-          <div class="tdb-support-waitlist">
-            <label class="sr-only" for="supporter-waitlist-email">Email for support updates</label>
-            <div class="tdb-support-waitlist-row">
-              <input id="supporter-waitlist-email" type="email" placeholder="your@email.com" aria-label="Email me when support reopens" autocomplete="email">
-              <button type="button" class="btn btn-primary" id="supporter-waitlist-btn">Email me when support reopens</button>
+
+        <section class="glass tdb-porch-paper-glass" id="porch-options" aria-labelledby="porch-options-heading">
+          <h2 class="section-divider" id="porch-options-heading">Ways to Help the Porch</h2>
+          <p class="section-note" style="text-align:center;max-width:620px;margin:0 auto 2.5rem;">Whether you give once, become a steady Porch Partner, leave a legacy, or honor someone with a memorial gift — every amount helps keep calm, trustworthy KJV tools available when someone needs them most. No pressure. You are already welcome here.</p>
+
+          <div class="options-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-bottom:3rem;">
+            <!-- One-time -->
+            <div class="glass tdb-porch-paper-glass option-card" style="padding:2rem;text-align:center;">
+              <h3 style="margin:0 0 0.5rem;color:var(--gold-soft,#c9a84c);">One-time Gift</h3>
+              <div class="amount" style="font-size:2.25rem;font-weight:500;color:var(--gold-soft,#c9a84c);margin:1rem 0;">$25</div>
+              <p class="section-note">Keeps servers running, new Battle Plans written, and free printables going to churches and hospitals.</p>
+              <div class="cta-group" style="margin-top:1.5rem;">
+                <button onclick="startDonation(2500,'one_time')" class="btn btn-primary" style="margin:0.25rem;">$25</button>
+                <button onclick="startDonation(5000,'one_time')" class="btn btn-secondary" style="margin:0.25rem;">$50</button>
+                <button onclick="startDonation(10000,'one_time')" class="btn btn-secondary" style="margin:0.25rem;">$100</button>
+                <button onclick="startCustomDonation()" class="btn btn-secondary" style="margin:0.25rem;">Custom</button>
+              </div>
             </div>
-            <p id="supporter-waitlist-status" class="section-note" aria-live="polite"></p>
+
+            <!-- Porch Partner (Monthly) -->
+            <div class="glass tdb-porch-paper-glass option-card" style="padding:2rem;text-align:center;">
+              <h3 style="margin:0 0 0.5rem;color:var(--gold-soft,#c9a84c);">Porch Partner</h3>
+              <div class="amount" style="font-size:2.25rem;font-weight:500;color:var(--gold-soft,#c9a84c);margin:1rem 0;">$7<span style="font-size:1rem;">/mo</span></div>
+              <p class="section-note">Steady support for ongoing KJV upkeep, new family tools, and keeping the porch open for the next generation.</p>
+              <button onclick="startDonation(700,'monthly')" class="btn btn-primary" style="margin-top:1.5rem;width:100%;">Become a Porch Partner</button>
+            </div>
+
+            <!-- Legacy / Endowment -->
+            <div class="glass tdb-porch-paper-glass option-card legacy-card" style="padding:2rem;text-align:center;border-color:var(--gold-soft,#c9a84c);background:rgba(212,175,55,0.03);">
+              <h3 style="margin:0 0 0.5rem;color:var(--gold-soft,#c9a84c);">Legacy / Endowment</h3>
+              <div class="amount" style="font-size:2.25rem;font-weight:500;color:var(--gold-soft,#c9a84c);margin:1rem 0;">$500+</div>
+              <p class="section-note">Help build something that outlives us — a steady endowment so the porch can support rural churches, print resources for the hurting, and one day sustain a small faithful team.</p>
+              <button onclick="startDonation(50000,'one_time')" class="btn btn-primary" style="margin-top:1.5rem;width:100%;">Give a Legacy Gift</button>
+            </div>
+
+            <!-- Memorial -->
+            <div class="glass tdb-porch-paper-glass option-card" style="padding:2rem;text-align:center;">
+              <h3 style="margin:0 0 0.5rem;color:var(--gold-soft,#c9a84c);">Memorial Gift</h3>
+              <p class="section-note">In memory or honor of a loved one. A quiet way to remember them while supporting the work they would have loved.</p>
+              <button onclick="startMemorial()" class="btn btn-primary" style="margin-top:1.5rem;width:100%;">Make a Memorial Gift</button>
+            </div>
           </div>
-          <p class="section-note">Need to reach me now about receipts, support, or the site itself? Use the <a href="/contact.html">contact form</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="" data-email-display="address">support email</a>.</p>
+
+          <div class="glass tdb-porch-paper-glass" style="margin-top:2rem;">
+            <h3 style="text-align:center;margin-bottom:1.5rem;">Where Your Gift Goes (Transparency)</h3>
+            <ul class="section-note" style="line-height:1.85;">
+              <li>Cloudflare hosting, CDN, and security hardening so the site stays fast and private even on hard days.</li>
+              <li>Hand-written KJV Battle Plans, family Scripture packs, and verse cards (no AI, no filler).</li>
+              <li>Free printables and resources for rural churches, hospitals, prisons, and new believers.</li>
+              <li>Quiet development toward a self-sustaining endowment and legacy that can support a small team or ministry one day.</li>
+            </ul>
+            <p class="section-note" style="text-align:center;margin-top:2rem;"><a href="/where-support-goes.html" class="gold-link">Read the full transparency report →</a></p>
+          </div>
         </section>
-        <section class="glass tdb-porch-paper-glass" aria-labelledby="give-why-heading">
-          <h2 class="section-divider" id="give-why-heading">What your gift supports</h2>
-          <p class="section-note">Servers, careful security work, and time to tend the KJV verse, prayer wall, battle plans, and family tools. The site stays free to use; this is a door for people who want to help carry the cost.</p>
-          <p class="section-note util-mt-0_5">Recent care also kept the <a href="/bible-tool.html">Bible Tool</a> readable in every appearance—night, daylight, and dawn parchment—so search, chips, and verse cards do not fight the colors you chose.</p>
-          <p class="section-note util-mt-0_5">Quiet spring notes: steadier Sunday backgrounds in the small seasonal touches, cleaner console compatibility for analytics under our Trusted Types policy, and a gentle <a href="/plans.html?plan=aftereaster">post-Easter plan</a> for tired Mondays after Holy Week.</p>
-          <ul class="section-note">
-            <li>Cloudflare hosting and CDN so the site stays fast, quiet, and reachable on hard days.</li>
-            <li>KJV upkeep, search index refreshes, and offline reliability so verses still load when service is weak.</li>
-            <li>New Bible Studies, Battle Plans, and family printables reviewed by hand instead of auto-generated filler.</li>
-          </ul>
-          <p class="section-note"><a href="/where-support-goes.html">See where support goes</a> (plain-language transparency page).</p>
-        </section>
-        <section class="glass tdb-porch-paper-glass" aria-labelledby="give-help-heading">
-          <h2 class="section-divider" id="give-help-heading">Three ways to help right now</h2>
+
+        <section class="glass tdb-porch-paper-glass">
+          <h2 class="section-divider">Three quiet ways to help today</h2>
           <div class="tdb-support-ways-grid">
             <article class="tdb-support-way-card">
               <h3>Pray</h3>
-              <p>Pray the site stays useful, clean, and faithful for people who open it in pain, fear, grief, or exhaustion.</p>
+              <p class="section-note">Pray that the site remains useful, clean, and faithful for every person who opens it in pain, fear, grief, or exhaustion.</p>
             </article>
             <article class="tdb-support-way-card">
               <h3>Share</h3>
-              <p>If the site helped you, share <a href="/">the homepage</a>, a <a href="/verse.html">daily verse</a>, or a <a href="/plans.html">Battle Plan</a> with one person.</p>
+              <p class="section-note">If this porch has helped you, quietly share the homepage, a daily verse, or a Battle Plan with one person who needs it.</p>
             </article>
             <article class="tdb-support-way-card">
-              <h3>Give later, with clarity</h3>
-              <p>When support checkout reopens, it will return here first so you can see the current path before leaving the site.</p>
+              <h3>Return tomorrow</h3>
+              <p class="section-note">Come back for the next verse, the next plan, the next quiet moment with Scripture. Your presence here is already a gift.</p>
             </article>
           </div>
-          <p class="section-note">More on privacy and trust: <a href="/privacy.html">Privacy</a>, <a href="/security.html">Security basics</a>, and <a href="/story.html">The Story</a>.</p>
+          <p class="section-note" style="text-align:center;margin-top:2rem;">More on our foundations: <a href="/privacy.html">Privacy</a>, <a href="/security.html">Security</a>, <a href="/story.html">Our Story</a>, and <a href="/why-not-ai.html">Why not AI</a>.</p>
         </section>
       </div>
     </main>
@@ -364,13 +393,13 @@
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
-  <script defer src="/language-switcher.js?v=20260423-phase5-perf"></script>
+  <script defer src="/language-switcher.js?v=20260503-consent-persist-fix"></script>
 </footer>
   </div>
 
   <script src="inline-bootstrap.js"></script>
   <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260423-phase5-perf" data-cfasync="false"></script>
-  <script src="share-page.js?v=20260423-phase5-perf" defer></script>
+  <script type="module" src="script.js?v=20260503-consent-persist-fix" data-cfasync="false"></script>
+  <script src="share-page.js?v=20260503-consent-persist-fix" defer></script>
 </body>
 </html>

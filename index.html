@@ -7384,8 +7384,8 @@
     /* ── SOS Button ── */
     .sos-btn {
       position: fixed;
-      bottom: 90px;
-      right: 18px;
+      bottom: max(5.25rem, calc(4.5rem + env(safe-area-inset-bottom)));
+      right: max(18px, env(safe-area-inset-right));
       width: 58px;
       height: 58px;
       border-radius: 50%;
@@ -7397,7 +7397,7 @@
       border: none;
       cursor: pointer;
       box-shadow: 0 4px 18px rgba(227,188,103,0.45);
-      z-index: 280;
+      z-index: 425; /* Above floating share/memory pills (z 419/420) */
       transition: transform 0.15s ease, box-shadow 0.15s ease;
       display: flex;
       align-items: center;

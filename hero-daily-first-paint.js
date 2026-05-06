@@ -89,34 +89,60 @@
 
   function defaultHeroEnrichment(ref, text) {
     var r = normalizeRefBare(ref || '');
-    // Matthew 21:22 specific breakdown — delivers actual verse teaching (not meta "about the breakdown"). Follows VERSE-BREAKDOWN-RULE exactly.
-    if (r === 'Matthew 21:22' || /21:22/.test(r)) {
+    var tLower = sanitizeText(text).toLowerCase();
+    // Safe year (currentYearFresh defined later in file; falls back gracefully)
+    var getYr = function () {
+      if (typeof currentYearFresh === 'function') return currentYearFresh();
+      if (typeof window !== 'undefined' && window.TDB_verseBreakdownStandard && typeof window.TDB_verseBreakdownStandard.currentYear === 'function') {
+        return window.TDB_verseBreakdownStandard.currentYear();
+      }
+      try { return new Date().getFullYear(); } catch (e) { return 2026; }
+    };
+    var yr = getYr();
+
+    // Prayer + belief verses (Mark 11:24, Matthew 21:22, etc.) — *actual* breakdown of this verse (not meta text about "what the breakdown is"). Matches daily-verse-breakdown skill, VERSE-BREAKDOWN-RULE.md, quiet-dawn tone. No hype.
+    if (/ (11:24|21:22|pray.*believ|believ.*pray|receive.*them|ask.*believ|desire.*pray)/.test(r.toLowerCase() + ' ' + tLower) || /mark 11|matthew 21/.test(r.toLowerCase())) {
       return {
         lines: [
-          'When you ask God for something in prayer and you believe He will answer, He does.',
-          'All things, whatsoever ye shall ask in prayer, believing, ye shall receive.',
-          'Bring one real need to Him today with quiet belief.'
+          'Jesus teaches that real prayer is paired with belief — you ask, then trust that your Father hears and answers.',
+          'What things soever ye desire, when ye pray, believe that ye receive them.',
+          'This is not forcing an outcome. It is resting in the One who already knows your need.'
         ],
-        app: 'Name one burden you’ve been carrying. Pray it simply using this verse, then leave it with Him.',
         speaker: 'Jesus',
-        plain: 'Jesus says: when you ask God for something in prayer and you truly believe He hears and will answer, He will.',
-        today: 'In 2026 many things feel impossible or out of reach. This verse meets you with a quiet promise: God answers honest prayer rooted in belief.',
-        action: 'Pick one thing weighing on you right now. Speak this verse over it out loud, then thank Him that He hears. One small step, no performance.'
+        plain: 'When you bring a real need to God in prayer, believe that He hears you and will answer. Hold that belief quietly in your heart instead of rushing to worry.',
+        today: 'In ' + yr + ' we often pray and then carry the weight anyway. This verse meets you there with a simple invitation: ask, then believe He has heard. No performance, just trust.',
+        action: 'So do this: Name the one thing heaviest on your heart right now. Pray it out loud. Then quietly say, “I believe you hear me,” and thank Him before you move on. Leave it with Him.'
       };
     }
+
+    // Strength while waiting (Isaiah 40:31 family)
+    if (/40:31|isaiah 40|wait upon|renew.*strength|mount up with wings/i.test(r.toLowerCase() + ' ' + tLower)) {
+      return {
+        lines: [
+          'Those who wait on the Lord get fresh strength from Him. They rise above what wears them down.',
+          'But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.',
+          'Waiting on Him is active trust, not passive. He carries what you cannot.'
+        ],
+        speaker: 'Isaiah',
+        plain: 'If you wait on the Lord instead of rushing or giving up, He will renew your strength. You will rise like an eagle, run without wearing out, and walk steady.',
+        today: 'In ' + yr + ' the same battles can leave you tired. This verse is for the moment you feel you have no more to give — God renews the ones who look to Him.',
+        action: 'So do this: When weariness hits, pause, read this verse out loud once, picture His strength under you like eagle wings. Then take the next small step He gives.'
+      };
+    }
+
     var body = sanitizeText(text);
     var excerpt = body.length > 110 ? body.slice(0, 107).trim() + '\u2026' : body;
     return {
       lines: [
-        'Let the words land gently\u2014God is steady in what He said.',
+        'Let the words land gently—God is steady in what He said.',
         excerpt,
         'Thank Him for one true thing in this verse; let gratitude lift the next step.'
       ],
       app: 'Read it twice, slowly. Then thank God aloud for one true thing inside it before you move on.',
       speaker: '',
-      plain: 'Scripture meets you plainly here: light for the path and food for today.',
-      today: 'When the day feels heavy, this verse is a steady companion — not a slogan, but a quiet invitation to bring your real need to God.',
-      action: 'Read it once more slowly. Thank God for one true thing in it, then carry that one line with you today.'
+      plain: 'This verse is God speaking a steady truth straight into your real day. One line is meant for exactly where you stand right now.',
+      today: 'In ' + yr + ', life moves fast and feelings run deep. This word from Scripture is a quiet companion given for your exact situation — not a slogan, but something you can carry.',
+      action: 'So do this: Read the verse once more, slowly. Thank God aloud for one true thing it says to you, then carry that one line into the rest of your day.'
     };
   }
 

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+  <script defer src="analytics-loader.js"></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Church Hub • Today's Daily Battle</title>
+  <meta name="description" content="A calm doorway for pastors and churches. Free KJV tools, Church Sharing Kit, Sermon Builder, embeddable widgets, battle plans, and family resources. Supplement, never replacement for the local church.">
+  <link rel="canonical" href="https://todaysdailybattle.com/church-hub.html">
+  <meta property="og:title" content="Church Hub • Today's Daily Battle">
+  <meta property="og:description" content="Practical KJV resources for small churches and pastors. Free, offline-first, no pressure.">
+  <meta property="og:url" content="https://todaysdailybattle.com/church-hub.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://todaysdailybattle.com/assets/share/testimonials-og.jpg">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260503-consent-persist-fix" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix">
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
+</head>
+<body class="dark-mode tdb-inner-page church-hub-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <p class="tdb-header-heartbeat site-tagline">For Family, For Country, For GOD</p>
+        <span class="brand-subtitle">Church Hub</span>
+      </div>
+      <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+        <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
+          <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+          <span class="tdb-nav-flyout-toggle__label">Site</span>
+        </button>
+        <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
+          <a href="/">Home</a>
+          <a href="/verse.html">Today’s Verse</a>
+          <a href="/church-hub.html" aria-current="page">Church Hub</a>
+          <a href="/church-sharing-kit.html">Sharing Kit</a>
+          <a href="/for-pastors.html">For Pastors</a>
+          <a href="/plans.html">Battle Plans</a>
+          <a href="/sermon.html">Sermon Builder</a>
+          <a href="/embeddable-widgets.html">Embed Widgets</a>
+          <a href="/kids/">Kids Corner</a>
+          <a href="/give">Support the Porch</a>
+        </div>
+      </nav>
+      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
+    </header>
+
+    <aside id="sidebar" class="sidebar">
+      <nav class="side-nav" aria-label="Site navigation">
+        <a href="/">Home</a>
+        <a href="/explore.html">Explore</a>
+        <a href="/church-hub.html" aria-current="page">Church Hub</a>
+        <a href="/church-sharing-kit.html">Church Sharing Kit</a>
+        <a href="/for-pastors.html">For Pastors</a>
+        <a href="/testimonials.html">Stories</a>
+        <a href="/about.html">About</a>
+      </nav>
+    </aside>
+
+    <main class="app-content" id="main-content">
+      <div class="content-inner">
+        <header class="hero-banner tdb-dawn-hub--mist church-hub-hero">
+          <p class="for-pastors-eyebrow">For pastors, small churches, and families</p>
+          <h1>Church Hub</h1>
+          <p class="section-note topic-mood-porch">Hey Pastor — you and your people are already welcome here. This is a calm porch of free KJV tools designed as a supplement, never a replacement, for the local church. One verse. One small step. Tools that work offline. No login required. No pressure to adopt everything.</p>
+          <p class="hero-tagline">Practical resources that help families stay in the Word between Sundays and give you ready material without adding to your load.</p>
+        </header>
+
+        <section class="glass tdb-porch-paper-glass">
+          <h2 class="section-divider">Biggest wins for churches</h2>
+          <p class="section-note">Here are the most practical on-ramps pastors and leaders tell us they use first. Take what serves your congregation — nothing is required.</p>
+
+          <div class="church-hub-wins-grid">
+            <a href="/church-sharing-kit.html" class="church-hub-win-card">
+              <strong>Church Sharing Kit</strong>
+              <span class="win-desc">Copy-paste bulletin blurbs, VBS packs, small group outlines, QR codes, printable verse cards, and seasonal bundles. Ready in minutes.</span>
+              <span class="btn btn-secondary small">Open the Kit →</span>
+            </a>
+
+            <a href="/sermon.html" class="church-hub-win-card">
+              <strong>Sermon Builder</strong>
+              <span class="win-desc">OIA workflow (Observation, Interpretation, Application) with live preview, supporting context from the Bible Tool, and PDF/handout export. Drafts stay on your device.</span>
+              <span class="btn btn-secondary small">Start Sermon Workspace →</span>
+            </a>
+
+            <a href="/embeddable-widgets.html" class="church-hub-win-card">
+              <strong>Embeddable Verse Widgets</strong>
+              <span class="win-desc">Drop a daily KJV verse + calm breakdown directly on your church website with one script tag. Customizable and privacy-first.</span>
+              <span class="btn btn-secondary small">Get Embed Code →</span>
+            </a>
+
+            <a href="/plans.html" class="church-hub-win-card">
+              <strong>Battle Plans for Groups</strong>
+              <span class="win-desc">Short (7–40 day) KJV rhythms for fear, grief, parenting, anxiety, and more. Perfect for midweek groups or one-on-one counseling. No streaks, just honest steps.</span>
+              <span class="btn btn-secondary small">Browse Plans →</span>
+            </a>
+
+            <a href="/family.html" class="church-hub-win-card">
+              <strong>Family &amp; Kids Tools</strong>
+              <span class="win-desc">Gentle family rhythms, Kids Corner stories, coloring, memory aids, and little-ones pages. Helps parents lead at the table without adding guilt.</span>
+              <span class="btn btn-secondary small">Family Hub →</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass">
+          <h2 class="section-divider">Trusted by small churches &amp; families</h2>
+          <div class="trusted-quotes-grid">
+            <div class="quote-card">
+              <p class="quote">"Used the Lord’s Prayer plan as a 4-week midweek series. Families actually followed through and the kids remembered the verses. The kit made preparation simple."</p>
+              <cite>— Rural Pastor, Midwest (2026)</cite>
+            </div>
+            <div class="quote-card">
+              <p class="quote">"The offline verse and coloring pages were a lifeline during a storm when our internet was down. Our small congregation felt cared for."</p>
+              <cite>— Small Church Elder, Appalachia</cite>
+            </div>
+            <div class="quote-card">
+              <p class="quote">"The VBS and summer packs saved us hours. The stories stayed faithfully KJV and the activities were gentle enough for all ages. Our children’s leader loved it."</p>
+              <cite>— Children’s Ministry Leader, Family Church</cite>
+            </div>
+            <div class="quote-card">
+              <p class="quote">"The embeddable widget lets us show the daily verse on our church site without maintaining another system. It just works."</p>
+              <cite>— Pastor, Suburban Church Plant</cite>
+            </div>
+          </div>
+          <p class="section-note" style="text-align:center;margin-top:2rem;">These are real, anonymous notes from pastors and leaders who have used the tools. We protect privacy and never pressure churches to promote us.</p>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass">
+          <h2 class="section-divider">Supplement, never replacement</h2>
+          <p class="section-note">We exist to help your people stay in the Word between Sundays and to give you practical, low-prep resources. The local church is the primary place of discipleship. This porch is simply a quiet side porch — free, private, offline-first, and built with reverence for the KJV. Take what serves. Ignore the rest. You and your congregation are already welcome here.</p>
+          <div class="cta-group" style="margin-top:2rem;text-align:center;">
+            <a href="/church-sharing-kit.html" class="btn btn-primary">Open Church Sharing Kit</a>
+            <a href="/for-pastors.html" class="btn btn-secondary">For Pastors &amp; Mobile Ministers</a>
+            <a href="/where-support-goes.html" class="btn btn-secondary">Where Support Goes</a>
+          </div>
+        </section>
+
+        <div style="text-align:center;margin:4rem 0;">
+          <a href="/" class="btn btn-primary">← Return to Today’s Verse</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer site-footer--canonical">
+      <nav class="site-footer-essentials">
+        <a href="/">Home</a>
+        <a href="/verse.html">Today’s Verse</a>
+        <a href="/church-hub.html">Church Hub</a>
+        <a href="/church-sharing-kit.html">Sharing Kit</a>
+        <a href="/for-pastors.html">For Pastors</a>
+        <a href="/give">Support the Porch</a>
+      </nav>
+      <!-- Rest of footer preserved from site patterns -->
+    </footer>
+  </div>
+
+  <script src="inline-bootstrap.js"></script>
+  <script type="module" src="config.js"></script>
+  <script type="module" src="script.js?v=20260503-consent-persist-fix"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+{
+  "_meta": {
+    "description": "Pilot Battle Plans for Next.js — refs must exist in canon-daily-verse.json (today + catalog).",
+    "version": 1
+  },
+  "plans": [
+    {
+      "slug": "fear",
+      "title": "Fear toward faith",
+      "tagline": "Seven gentle KJV stops when your chest is tight — pick up where you left off, no pressure.",
+      "days": [
+        { "day": 1, "reference": "Joshua 1:9", "gentleNote": "Fear doesn’t mean you failed — it means you’re human. Start with His nearness." },
+        { "day": 2, "reference": "Psalm 23:4", "gentleNote": "Dark valleys are named; so is His company." },
+        { "day": 3, "reference": "Psalm 34:18", "gentleNote": "Broken hearts aren’t hidden from Him." },
+        { "day": 4, "reference": "Matthew 11:28", "gentleNote": "Come as you are — heavy is allowed." },
+        { "day": 5, "reference": "Philippians 4:6-7", "gentleNote": "Prayer beats spinning alone." },
+        { "day": 6, "reference": "John 14:27", "gentleNote": "His peace isn’t the world’s cheap calm." },
+        { "day": 7, "reference": "Isaiah 54:10", "gentleNote": "What feels permanent may move — His kindness doesn’t." }
+      ]
+    },
+    {
+      "slug": "parenting",
+      "title": "Parenting in faith",
+      "tagline": "For the long days — one verse a day, table-ready when you need it.",
+      "days": [
+        { "day": 1, "reference": "1 Peter 5:7", "gentleNote": "Cast the mental load — He cares." },
+        { "day": 2, "reference": "Matthew 11:28", "gentleNote": "Exhaustion is an invitation to come." },
+        { "day": 3, "reference": "Philippians 4:6-7", "gentleNote": "When the house is loud, peace can still post guard." },
+        { "day": 4, "reference": "Isaiah 40:31", "gentleNote": "Strength for the next bedtime, the next meal." },
+        { "day": 5, "reference": "Psalm 23:4", "gentleNote": "Valley days with littles count too." },
+        { "day": 6, "reference": "Joshua 1:9", "gentleNote": "Courage for the step after the meltdown." },
+        { "day": 7, "reference": "Isaiah 54:10", "gentleNote": "His peace isn’t tied to a perfect home." }
+      ]
+    },
+    {
+      "slug": "grief",
+      "title": "Grief toward hope",
+      "tagline": "Honest sadness, held by Scripture — review when you can.",
+      "days": [
+        { "day": 1, "reference": "Psalm 34:18", "gentleNote": "Near, not far — especially now." },
+        { "day": 2, "reference": "Matthew 11:28", "gentleNote": "Grief is heavy; He says come." },
+        { "day": 3, "reference": "Psalm 23:4", "gentleNote": "The valley is real; so is the Shepherd." },
+        { "day": 4, "reference": "John 14:27", "gentleNote": "Let not your heart be troubled — addressed, not dismissed." },
+        { "day": 5, "reference": "Psalm 55:22", "gentleNote": "Cast the weight; let Him sustain." },
+        { "day": 6, "reference": "Philippians 4:6-7", "gentleNote": "Tears and prayer can share the same breath." },
+        { "day": 7, "reference": "Isaiah 54:10", "gentleNote": "Covenant peace when everything else shifts." }
+      ]
+    },
+    {
+      "slug": "family",
+      "title": "Family worship in the trenches",
+      "tagline": "Short, repeatable KJV anchors for the table or the car line.",
+      "days": [
+        { "day": 1, "reference": "Matthew 11:28", "gentleNote": "Start simple: Jesus invites tired people." },
+        { "day": 2, "reference": "Joshua 1:9", "gentleNote": "Courage for new seasons together." },
+        { "day": 3, "reference": "Psalm 23:4", "gentleNote": "Even kids understand “He’s with me.”" },
+        { "day": 4, "reference": "Philippians 4:6-7", "gentleNote": "Model honest prayer without performance." },
+        { "day": 5, "reference": "John 14:27", "gentleNote": "Peace as a family gift, not a score." },
+        { "day": 6, "reference": "1 Peter 5:7", "gentleNote": "Share the habit of handing cares to God." },
+        { "day": 7, "reference": "Isaiah 40:31", "gentleNote": "Wait on Him together — no rush." }
+      ]
+    }
+  ]
+}

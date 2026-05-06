@@ -1,0 +1,38 @@
+{
+  "input_dir": "media/kids-battle/clips",
+  "input_glob_suffixes": [".mp4", ".mov", ".m4v"],
+  "music_path": "media/music/quiet-piano-strings.mp3",
+  "output_path": "media/kids-battle/reels/kids-battle-batch-reel.mp4",
+  "clip_duration_s": 5,
+  "crossfade_s": 0.4,
+  "target_reel_duration_s": 180,
+  "resolution": "1080x1920",
+  "fps": 30,
+  "max_clips": 36,
+  "add_dust_overlay": true,
+  "zoom_increment": 0.0009,
+  "max_zoom": 1.08,
+  "pan_step": 8,
+  "eq": {
+    "brightness": 0.02,
+    "saturation": 1.08,
+    "contrast": 1.03
+  },
+  "music_volume": 0.16,
+  "dust_alpha": 0.035,
+  "profiles": {
+    "night": {
+      "output_path": "media/kids-battle/reels/kids-battle-batch-reel-night.mp4",
+      "zoom_increment": 0.0006,
+      "max_zoom": 1.05,
+      "pan_step": 6,
+      "eq": {
+        "brightness": -0.01,
+        "saturation": 0.94,
+        "contrast": 1.01
+      },
+      "music_volume": 0.14,
+      "dust_alpha": 0.02
+    }
+  }
+}

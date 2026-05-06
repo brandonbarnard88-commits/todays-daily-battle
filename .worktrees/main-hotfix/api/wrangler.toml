@@ -1,0 +1,25 @@
+# Hono API on Cloudflare Workers — run from `api/` (`wrangler dev` / `wrangler deploy`).
+# Node local dev is unchanged: `npm run dev` → `src/index.ts`
+
+name = "todaysdailybattle-api"
+main = "src/worker.ts"
+compatibility_date = "2025-10-01"
+
+# Optional: uncomment and set zone + pattern for api.todaysdailybattle.com
+# [[routes]]
+# pattern = "api.todaysdailybattle.com/*"
+# zone_name = "todaysdailybattle.com"
+
+[vars]
+SERVICE_VERSION = "0.1.0"
+
+# Optional: serve extra static files (JSON copies, etc.) at /_static/* → files in ./public
+[assets]
+directory = "public"
+binding = "ASSETS"
+
+# Workers have no filesystem for TDB_DATA_DIR — data is bundled from `next-app/data` (see `tdb-init-worker.ts`).
+# For R2/KV overrides later, add bindings here and read them in `tdb-init-worker.ts`.
+
+[observability]
+enabled = true

@@ -1,0 +1,23 @@
+# Ensures production document responses include CSP (Pages _headers or equivalent).
+# Fails fast if Transform Rules strip CSP or output dir is wrong.
+name: Live CSP
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  verify-csp:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Verify live CSP + security headers (apex + www)
+        env:
+          LIVE_CSP_ATTEMPTS: '6'
+          LIVE_CSP_SLEEP_MS: '10000'
+        run: node scripts/verify-live-csp.mjs

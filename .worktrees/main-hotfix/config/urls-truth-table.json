@@ -1,0 +1,72 @@
+{
+  "$comment": "Canonical URL map for the English shell. Keep _redirects (Cloudflare Pages) and vercel.json aligned. Run: node scripts/verify-url-truth-table.mjs",
+  "version": 1,
+  "entries": [
+    {
+      "id": "ask-the-word",
+      "note": "Ask the Word lives inside Bible Tool; tdb_focus=ask scrolls to #ask-the-word-section and is replaced with the hash for sharing.",
+      "aliases": ["/ask-the-word", "/ask-the-word/"],
+      "redirect": { "to": "/bible-tool.html?tdb_focus=ask", "status": 301 }
+    },
+    {
+      "id": "battle-plans",
+      "note": "Common guessed slug for Battle Plans library.",
+      "aliases": ["/battle-plans", "/battle-plans/"],
+      "redirect": { "to": "/plans", "status": 301 }
+    },
+    {
+      "id": "my-study-hyphen",
+      "note": "Hyphenated variant; canonical clean path is /mystudy (already linked from nav).",
+      "aliases": ["/my-study", "/my-study/"],
+      "redirect": { "to": "/mystudy", "status": 301 }
+    },
+    {
+      "id": "memorize-clean",
+      "aliases": ["/memorize", "/memorize/"],
+      "rewrite": { "to": "/memorize.html", "status": 200 }
+    },
+    {
+      "id": "quiet-morning-clean",
+      "aliases": ["/quiet-morning", "/quiet-morning/"],
+      "rewrite": { "to": "/quiet-morning.html", "status": 200 }
+    },
+    {
+      "id": "quiet-evening-clean",
+      "aliases": ["/quiet-evening", "/quiet-evening/"],
+      "rewrite": { "to": "/quiet-evening.html", "status": 200 }
+    },
+    {
+      "id": "explore-clean",
+      "aliases": ["/explore", "/explore/"],
+      "rewrite": { "to": "/explore.html", "status": 200 }
+    },
+    {
+      "id": "site-guide-clean",
+      "aliases": ["/site-guide", "/site-guide/"],
+      "rewrite": { "to": "/site-guide.html", "status": 200 }
+    },
+    {
+      "id": "university-clean",
+      "note": "Quiet University of God anchor-verses map.",
+      "aliases": ["/university", "/university/"],
+      "rewrite": { "to": "/university.html", "status": 200 }
+    },
+    {
+      "id": "family-clean",
+      "aliases": ["/family", "/family/"],
+      "rewrite": { "to": "/family.html", "status": 200 }
+    },
+    {
+      "id": "family-legacy-html",
+      "note": "Legacy HTML path now resolves to the clean Family hub URL.",
+      "aliases": ["/family.html"],
+      "redirect": { "to": "/family", "status": 301 }
+    },
+    {
+      "id": "about-clean",
+      "note": "About page: clean /about and /about/ rewrites; about/index.html in dist is a static fallback for /about/ on simple hosts.",
+      "aliases": ["/about", "/about/"],
+      "rewrite": { "to": "/about.html", "status": 200 }
+    }
+  ]
+}

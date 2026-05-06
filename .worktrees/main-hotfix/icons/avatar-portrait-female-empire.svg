@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <circle cx="64" cy="64" r="58" fill="#090E18"/>
+  <circle cx="64" cy="64" r="54" stroke="#FACC15" stroke-width="3"/>
+  <!-- imperial crown -->
+  <path d="M40 22L50 12L64 22L78 12L88 22V30H40V22Z" fill="#FACC15"/>
+  <circle cx="64" cy="12.5" r="3.5" fill="#FDE68A"/>
+  <!-- head -->
+  <ellipse cx="64" cy="34" rx="11.5" ry="12.5" fill="#EBC8A6"/>
+  <path d="M52.5 34C52.5 25 58 20.5 64 20.5C70 20.5 75.5 25 75.5 34V37H52.5V34Z" fill="#374151"/>
+  <path d="M52.5 37C52.5 50 43.5 61 39.5 73C49 68.5 53.5 63 57.5 56.5" stroke="#374151" stroke-width="5.5" stroke-linecap="round"/>
+  <path d="M75.5 37C75.5 50 84.5 61 88.5 73C79 68.5 74.5 63 70.5 56.5" stroke="#374151" stroke-width="5.5" stroke-linecap="round"/>
+  <circle cx="59.1" cy="34.8" r="1.7" fill="#0F172A"/>
+  <circle cx="68.9" cy="34.8" r="1.7" fill="#0F172A"/>
+  <path d="M60 41C61.2 42.2 62.5 42.9 64 42.9C65.5 42.9 66.8 42.2 68 41" stroke="#7C4A2D" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- imperial robe + armor -->
+  <path d="M41 57C45 47.5 52 44 64 44C76 44 83 47.5 87 57L83 95H45L41 57Z" fill="#111827"/>
+  <path d="M48 56L64 49L80 56L76 88H52L48 56Z" fill="#4B5563"/>
+  <path d="M57 57H71V85H57V57Z" fill="#1F2937"/>
+  <path d="M57 66H71" stroke="#FACC15" stroke-width="3" stroke-linecap="round"/>
+  <path d="M57 74H71" stroke="#FACC15" stroke-width="3" stroke-linecap="round"/>
+  <path d="M53 88H75L79 96H49L53 88Z" fill="#374151"/>
+  <!-- arms -->
+  <path d="M47 61L37 84" stroke="#4B5563" stroke-width="6" stroke-linecap="round"/>
+  <path d="M81 61L91 84" stroke="#4B5563" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="36.8" cy="85.2" r="3.2" fill="#EBC8A6"/>
+  <circle cx="91.2" cy="85.2" r="3.2" fill="#EBC8A6"/>
+  <!-- legs -->
+  <rect x="55" y="96" width="7" height="12" rx="3" fill="#1F2937"/>
+  <rect x="66" y="96" width="7" height="12" rx="3" fill="#1F2937"/>
+  <rect x="53" y="107" width="9" height="4" rx="2" fill="#111827"/>
+  <rect x="66" y="107" width="9" height="4" rx="2" fill="#111827"/>
+</svg>

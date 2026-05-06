@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
+  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="480" cy="400" rx="80" ry="50"/>
+    <circle cx="480" cy="340" r="14"/>
+    <circle cx="360" cy="320" r="18"/><circle cx="600" cy="320" r="18"/>
+    <line x1="360" y1="338" x2="360" y2="400"/><line x1="600" y1="338" x2="600" y2="400"/>
+    <path d="M100 480 L800 480"/>
+  </g>
+</svg>

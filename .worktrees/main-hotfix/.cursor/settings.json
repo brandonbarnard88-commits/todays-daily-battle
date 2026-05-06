@@ -1,0 +1,10 @@
+{
+  "plugins": {
+    "stripe": {
+      "enabled": true
+    },
+    "vercel": {
+      "enabled": true
+    }
+  }
+}

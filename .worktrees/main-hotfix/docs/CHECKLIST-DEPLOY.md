@@ -1,0 +1,70 @@
+# Deploy & Launch Checklist
+
+Use this before or after each deploy to keep the site healthy and ready for real traffic.
+
+## Before merging a feature branch to `main`
+
+- **Install API deps once** (if you work in `api/`): `cd api && npm install` — then `npm run test:api` from repo root type-checks the pilot.
+- **Automated gate:** `npm run release:check` (full build, Mobius audio verify, `test:api`, `test`, `test:site`, `test:security`). Fix anything red before merge.
+- **Start My Day (manual):** On a phone-width and desktop viewport, open home → **Start My Day** → step through verse, pick a feeling, confirm Step 3 copy → **Start this plan** (or Back/Close). No console errors. The flow uses only `start-my-day.js` + `plans.html`; it does not call the TDB API pilot in production.
+- **API pilot:** The Node/Worker app under `api/` is separate from the static Vercel site. Merging it does not change how `script.js` or the homepage load unless you add fetches to the new base URL. Keep it that way until you intentionally wire a client.
+
+## Quick wins (do once)
+
+### 1. Cache-bust after deploy
+- Bump `script.js?v=YYYYMMDD` in all HTML when you change script (e.g. `20260301`). Prevents users stuck on old JS (404s, `shareStreakBtn`, etc.). `/*.js` is cached long-term in `_headers`; the **query string** is the real cache buster.
+- **Before deploy:** run `npm run test` (or `python3 test-site.py --offline`) so all page checks pass.
+- After deploy: hard refresh (Cmd+Shift+R) and confirm Console shows latest behavior.
+- **Verify origin (not your browser cache):** use **`curl -sSL`** (capital **L** = follow redirects). Some paths return **308** to a canonical URL; without `-L`, `curl` gets an empty body and greps find nothing—easy to mistake for “not deployed.”  
+  `curl -sSL https://todaysdailybattle.com/ | grep script.js` → should show `script.js?v=…` on `modulepreload` and `<script type="module">`.  
+  `curl -sSL https://todaysdailybattle.com/ | grep data-daily-verse` → should show `data-daily-verse="true"` on `#verseCard`.  
+  `curl -sSL https://todaysdailybattle.com/mobius.html | grep mobius-kjv-banner` → should find the hero banner line.  
+  `curl -sS "https://todaysdailybattle.com/script.js?v=THAT_VERSION" | grep 'readChapterLink'` → should show the early-return guard in `mountRotatingHeroVerse` (script URL returns **200**; both `?v=20260320a` and `?v=20260320b` may still exist while caches roll forward).  
+  If HTML is new but behavior is old, purge Cloudflare cache (`npm run purge:cloudflare` with `CF_API_TOKEN`) or **Purge Everything** in the dashboard.
+- **Targeted purge list:** keep `scripts/cloudflare-purge.mjs` in sync when you bump shared query tokens (`script.js`, `styles.css`, `tdb-quiet-luxury.css`, OG image `?v=` on `verse-share.jpg`, etc.) so a scripted purge hits the URLs edges still cache. After mobile or shell fixes, run **`npm run build`**, deploy, then **`npm run purge:cloudflare`** once `CF_API_TOKEN` is set.
+
+### 2. “Prayed by X warriors today” (optional)
+- Run `supabase-get-prayers-today-count.sql` in Supabase SQL Editor (creates `get_prayers_today_count` RPC).
+- In `config.js` set `PRAYERS_TODAY_COUNT_ENABLED = true`.
+- Redeploy so home shows live count instead of “—”.
+
+### 3. Supabase forms + retention (after deploy)
+- Run SQL for `contact_messages`, `shop_waitlist`, and optional `pg_cron` cleanup — see **`docs/SITE-OPS-RUNBOOK.md` §1**.
+- Verify cron: `SELECT * FROM cron.job WHERE jobname = 'cleanup-old-contact-shop';`
+
+### 4. One test payment (Stripe)
+- Stripe Dashboard → Payment Links → open your **$9.99/mo, 7-day trial** link.
+- Send the link to yourself or a friend; complete one test payment.
+- Confirms checkout, webhooks, and Pro access end-to-end.
+
+---
+
+## RLS (Supabase)
+
+- **prayers**: anonymous insert allowed; select for “recent” and counts; RLS so users only see what you intend (e.g. no PII in public list).
+- **sermons**: RLS so users see/update only their own rows (`auth.uid() = user_id`).
+- **bible_studies**: public read; restrict write to admin if you add an editor later.
+- **supporter_waitlist** / **newsletter**: restrict by role or use service key for admin reads.
+
+See `SUPABASE-SYNC-TABLES.md` and Supabase docs for exact policies.
+
+---
+
+## Error reporting (optional)
+
+- Set `ERROR_REPORT_URL` in config to a backend endpoint that accepts POST JSON `{ message, stack, url }`.
+- Script already calls `__tdb_reportError()` in key catch blocks and on unhandled rejection; with a URL set, those are sent server-side for debugging.
+
+---
+
+## First 50 promo
+
+- Countdown uses `TDB_CONFIG.PROMO_END_DATE` (home + pricing stay in sync).
+- When promo ends, banner auto-hides and shows “Promo ended” where applicable.
+- To show “X of 50 spots claimed”: use total prayer count or a dedicated Pro signup count and cap at 50 in the copy (e.g. in `updateBetaWarriorsCount` or promo section).
+
+---
+
+## Related
+
+- **Operations (cron, shop launch, Lighthouse, prayer seeding ethics):** `docs/SITE-OPS-RUNBOOK.md`

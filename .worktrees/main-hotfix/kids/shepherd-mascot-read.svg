@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" width="200" height="220" role="img" aria-labelledby="sread">
+  <title id="sread">Little Shepherd holds God&apos;s Word open</title>
+  <defs>
+    <radialGradient id="swR" cx="45%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="55%" stop-color="#fde68a"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </radialGradient>
+    <linearGradient id="ggrassR" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#bbf7d0"/>
+      <stop offset="100%" stop-color="#4ade80"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="100" cy="200" rx="95" ry="16" fill="rgba(34,197,94,0.35)"/>
+  <rect x="0" y="175" width="200" height="45" fill="url(#ggrassR)" opacity="0.5"/>
+  <circle cx="100" cy="75" r="38" fill="url(#swR)" stroke="#b45309" stroke-width="2.5"/>
+  <circle cx="85" cy="70" r="5" fill="#1e293b"/>
+  <circle cx="115" cy="70" r="5" fill="#1e293b"/>
+  <path d="M90 90 Q100 98 110 90" fill="none" stroke="#1e293b" stroke-width="2" stroke-linecap="round"/>
+  <ellipse cx="100" cy="40" rx="12" ry="7" fill="#fef9c3" opacity="0.95"/>
+  <path d="M125 55 L150 30 L140 60 Z" fill="#7c2d12" stroke="#451a03" stroke-width="1.2"/>
+  <line x1="128" y1="60" x2="170" y2="120" stroke="#5c3d2e" stroke-width="3.5" stroke-linecap="round"/>
+  <rect x="70" y="100" width="60" height="44" rx="3" fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+  <line x1="100" y1="102" x2="100" y2="142" stroke="#94a3b8" stroke-width="1.2"/>
+  <line x1="76" y1="115" x2="96" y2="115" stroke="#cbd5e1" stroke-width="1.5"/>
+  <line x1="76" y1="125" x2="96" y2="125" stroke="#cbd5e1" stroke-width="1.5"/>
+  <line x1="104" y1="115" x2="124" y2="115" stroke="#cbd5e1" stroke-width="1.5"/>
+  <path d="M58 95 L50 120 L70 110 Z" fill="#fde68a" stroke="#b45309" stroke-width="1.2"/>
+  <path d="M142 95 L150 120 L130 110 Z" fill="#fde68a" stroke="#b45309" stroke-width="1.2"/>
+</svg>

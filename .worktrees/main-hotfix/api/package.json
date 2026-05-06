@@ -1,0 +1,28 @@
+{
+  "name": "todaysdailybattle-api",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "sync:pilot-data": "node scripts/sync-pilot-data.mjs",
+    "dev:worker": "npm run sync:pilot-data && wrangler dev",
+    "deploy:worker": "npm run sync:pilot-data && wrangler deploy"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.19.0",
+    "@trpc/server": "^11.7.0",
+    "hono": "^4.11.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260423.1",
+    "@types/node": "^20.19.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.0",
+    "wrangler": "^4.84.1"
+  }
+}

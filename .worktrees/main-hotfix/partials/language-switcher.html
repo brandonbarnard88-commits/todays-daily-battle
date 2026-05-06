@@ -1,0 +1,29 @@
+<!--
+  Language switcher — reusable fragment for Today's Daily Battle
+  - Text only: English · Español · Français · Português · More languages (no flags).
+  - Footer: included in partials/site-footer.html (class tdb-lang-switcher--footer).
+  - Header: inserted after the top-bar header element via: npm run sync:lang-header
+  - Behavior: /language-switcher.js (defer) — sets hrefs for paired EN↔ES pages, localStorage tdb_lang_pref on pick.
+  - "More languages" → explore.html#languages (Spanish topical pages still route "More" to #topics-es via language-switcher.js).
+
+  When editing link labels or structure, update the nav below and re-run:
+    npm run sync:footer && npm run sync:lang-header
+  To refresh header/footer blocks already in HTML: node scripts/patch-lang-switcher-labeled.mjs
+  If headers still lack Bahasa / More#languages: node scripts/patch-lang-switcher-header-four.mjs
+  After adding Tagalog: node scripts/patch-lang-switcher-header-five.mjs
+  After adding FR/ZH: node scripts/patch-lang-switcher-add-fr-zh.mjs && node scripts/patch-lang-footer-six-space-fr-zh.mjs
+-->
+<nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+  <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+  <span class="tdb-lang-switcher-inner">
+    <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+    <span class="tdb-lang-sep" aria-hidden="true">·</span>
+    <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+    <span class="tdb-lang-sep" aria-hidden="true">·</span>
+    <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+    <span class="tdb-lang-sep" aria-hidden="true">·</span>
+    <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+    <span class="tdb-lang-sep" aria-hidden="true">·</span>
+    <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+  </span>
+</nav>

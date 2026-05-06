@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-label="Story backdrop">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#082f49"/>
+      <stop offset="48%" stop-color="#0c4a6e"/>
+      <stop offset="82%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#fde68a"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0.384" cy="0.244" r="0.265">
+      <stop offset="0%" stop-color="rgba(255,255,255,.34)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+    <linearGradient id="mist" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(255,255,255,0)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,.14)"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect width="1280" height="720" fill="url(#halo)"/>
+  <g><circle cx="631" cy="98" r="1.50" fill="rgba(255,255,255,0.22)"/><circle cx="728" cy="111" r="1.30" fill="rgba(255,255,255,0.29)"/><circle cx="825" cy="123" r="1.10" fill="rgba(255,255,255,0.36)"/><circle cx="922" cy="135" r="0.90" fill="rgba(255,255,255,0.43)"/><circle cx="1019" cy="147" r="1.60" fill="rgba(255,255,255,0.50)"/><circle cx="1116" cy="159" r="1.40" fill="rgba(255,255,255,0.15)"/><circle cx="93" cy="171" r="1.20" fill="rgba(255,255,255,0.22)"/><circle cx="190" cy="183" r="1.00" fill="rgba(255,255,255,0.29)"/><circle cx="287" cy="195" r="0.80" fill="rgba(255,255,255,0.36)"/><circle cx="384" cy="208" r="1.50" fill="rgba(255,255,255,0.43)"/><circle cx="481" cy="220" r="1.30" fill="rgba(255,255,255,0.50)"/><circle cx="578" cy="232" r="1.10" fill="rgba(255,255,255,0.15)"/><circle cx="675" cy="244" r="0.90" fill="rgba(255,255,255,0.22)"/><circle cx="772" cy="256" r="1.60" fill="rgba(255,255,255,0.29)"/><circle cx="869" cy="268" r="1.40" fill="rgba(255,255,255,0.36)"/><circle cx="966" cy="280" r="1.20" fill="rgba(255,255,255,0.43)"/><circle cx="1063" cy="52" r="1.00" fill="rgba(255,255,255,0.50)"/><circle cx="1160" cy="65" r="0.80" fill="rgba(255,255,255,0.15)"/></g>
+  <path d="M 0 501 L 116.4 468.4 L 232.7 462.9 L 349.1 503.7 L 465.5 482.0 L 581.8 471.1 L 698.2 509.2 L 814.5 484.7 L 930.9 471.1 L 1047.3 465.6 L 1163.6 506.4 L 1280.0 482.0 L 1280 720 L 0 720 Z" fill="rgba(8,15,35,.36)"/>
+  <path d="M 0 581 L 128.0 556.4 L 256.0 582.8 L 384.0 568.7 L 512.0 561.6 L 640.0 586.3 L 768.0 570.4 L 896.0 561.6 L 1024.0 558.1 L 1152.0 584.5 L 1280.0 568.7 L 1280 720 L 0 720 Z" fill="rgba(4,10,24,.52)"/>
+  <rect y="510" width="1280" height="210" fill="url(#mist)"/>
+  <g opacity=".95">
+    <path d="M 251 241 L 311 269 L 391 225" stroke="rgba(255,255,255,.44)" stroke-width="6" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>

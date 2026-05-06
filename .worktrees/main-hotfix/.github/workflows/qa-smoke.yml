@@ -1,0 +1,40 @@
+name: QA Smoke
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Playwright Firefox
+        run: npx playwright install firefox
+
+      - name: Run smoke checks
+        env:
+          QA_URL: http://127.0.0.1:4173/index.html
+        run: |
+          python3 -m http.server 4173 >/tmp/qa-smoke-http.log 2>&1 &
+          SERVER_PID=$!
+          sleep 1
+          npm run qa:smoke
+          kill $SERVER_PID || true

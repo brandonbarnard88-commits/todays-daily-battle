@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
+  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="450" cy="420" rx="220" ry="50"/>
+    <rect x="260" y="240" width="380" height="30" rx="8"/>
+    <circle cx="380" cy="340" r="18"/>
+    <line x1="380" y1="358" x2="380" y2="400"/>
+    <circle cx="520" cy="335" r="22"/>
+    <line x1="520" y1="357" x2="520" y2="400"/>
+    <circle cx="450" cy="300" r="20"/>
+    <line x1="450" y1="320" x2="450" y2="380"/>
+    <line x1="450" y1="340" x2="410" y2="320"/>
+    <line x1="450" y1="340" x2="490" y2="320"/>
+    <circle cx="580" cy="350" r="16"/>
+    <line x1="580" y1="366" x2="580" y2="400"/>
+  </g>
+</svg>

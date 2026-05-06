@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+
+  <!-- GA4 lazy-loaded after interaction -->
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Action Bible Archive • Today's Daily Battle</title>
+  <meta name="description" content="Browse all available character entries with read-along story mode and natural-voice listening.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/action-bible.html">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260503-consent-persist-fix" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix">
+  <style>
+    .ab-shell { max-width: 1200px; margin: 0 auto; padding: 1rem; }
+    .ab-controls { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .ab-viewer, .ab-list { margin-top: 1rem; }
+    .ab-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; align-items: center; }
+    .ab-grid { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .ab-card { padding: 0.9rem; border: 1px solid rgba(212, 175, 55, 0.28); border-radius: 12px; background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.78)); box-shadow: 0 12px 28px rgba(0, 0, 0, 0.32); }
+    .ab-card h3 { margin: 0 0 0.3rem; font-size: 1.03rem; color: #f8fafc; letter-spacing: 0.01em; }
+    .ab-card p { margin: 0.22rem 0; font-size: 0.92rem; color: #e2e8f0; }
+    .ab-card .btn { margin-top: 0.4rem; }
+    .ab-prompts { margin-top: 0.5rem; }
+    .ab-prompts summary { cursor: pointer; color: #fde68a; }
+    .ab-prompts code { display: block; white-space: pre-wrap; margin-top: 0.4rem; font-size: 0.8rem; color: #dbeafe; line-height: 1.45; }
+    .ab-meta-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.35rem; }
+    .ab-chip { display: inline-block; padding: 0.22rem 0.5rem; border-radius: 999px; background: rgba(212, 175, 55, 0.18); color: #fde68a; font-size: 0.75rem; border: 1px solid rgba(212, 175, 55, 0.28); }
+    .ab-loop-toggle { display: inline-flex; align-items: center; gap: 0.35rem; color: #f1f5f9; font-size: 0.88rem; }
+    .ab-progress { margin-top: 0.65rem; }
+    .ab-progress progress { width: 100%; height: 0.65rem; }
+    .ab-progress-label { margin-top: 0.3rem; color: #cbd5e1; font-size: 0.82rem; }
+    .ab-episode-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.6rem; }
+    .ab-episode-note { color: #fde68a; font-size: 0.84rem; }
+    .ab-current-transition { animation: ab-fade-slide 380ms ease; }
+    .ab-season-cards { margin-top: 0.8rem; display: grid; gap: 0.6rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .ab-season-card { padding: 0.7rem; border-radius: 10px; border: 1px solid rgba(212, 175, 55, 0.22); background: rgba(15, 23, 42, 0.5); }
+    .ab-season-card h3 { margin: 0 0 0.3rem; font-size: 0.95rem; }
+    .ab-season-card p { margin: 0.2rem 0; color: #e2e8f0; font-size: 0.82rem; }
+    .ab-season-card .btn { margin-top: 0.35rem; width: 100%; }
+    .ab-season-progress { margin-top: 0.35rem; }
+    .ab-season-progress progress { width: 100%; height: 0.55rem; }
+    .ab-season-progress-label { margin-top: 0.2rem; color: #fef3c7; font-size: 0.77rem; }
+    .ab-featured { margin-top: 0.85rem; padding: 0.8rem; border-radius: 12px; border: 1px solid rgba(212, 175, 55, 0.35); background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.84)); }
+    .ab-featured h3 { margin: 0 0 0.35rem; }
+    .ab-featured p { margin: 0.25rem 0; color: #f1f5f9; }
+    .ab-featured .btn { margin-top: 0.45rem; }
+    .ab-resume { margin-top: 0.7rem; padding: 0.75rem; border-radius: 12px; border: 1px solid rgba(212, 175, 55, 0.28); background: rgba(30, 41, 59, 0.45); }
+    .ab-resume h3 { margin: 0 0 0.3rem; }
+    .ab-resume p { margin: 0.2rem 0; color: #f1f5f9; }
+    .ab-resume .btn { margin-top: 0.35rem; }
+    .ab-resume .btn-secondary { margin-left: 0.4rem; }
+    @keyframes ab-fade-slide {
+      from { opacity: 0.45; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 640px) {
+      .ab-card { padding: 0.9rem; }
+      .ab-card h3 { font-size: 1.04rem; }
+    }
+  </style>
+</head>
+<body class="dark-mode tdb-inner-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="tdb-lang-switcher-header-wrap">
+        <nav class="tdb-lang-switcher tdb-lang-switcher--header tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+          <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+                    <span class="tdb-lang-switcher-inner">
+            <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+          </span>
+        </nav>
+      </div>
+
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <p class="tdb-header-heartbeat site-tagline" lang="en">For Family, For Country, For GOD</p>
+        <span class="brand-subtitle">Action Bible Archive</span>
+      </div>
+      <a href="/" class="header-menu-link">Home</a>
+    </header>
+
+    <main id="main-content" class="app-content">
+      <div class="ab-shell">
+        <section class="glass tdb-porch-paper-glass">
+          <h1 class="section-divider">Action Bible Documentary Archive</h1>
+          <p class="section-note topic-mood-porch">You&rsquo;re already welcome here&mdash;browse, listen, or pause; this archive isn&rsquo;t keeping score on your pace.</p>
+          <p class="section-note">Every available entry is accessible: character, verse anchor, and guided story flow. Read along or listen with your device's best natural voice.</p>
+          <p id="ab-status" class="section-note" aria-live="polite">Loading documentary dataset...</p>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass ab-viewer" aria-label="Documentary controls">
+          <h2 class="section-divider">Documentary Controls</h2>
+          <div class="ab-controls">
+            <label>
+              Search character or verse
+              <input id="ab-search" type="search" placeholder="e.g. David, John 3:16, entry 200">
+            </label>
+            <label>
+              Jump to entry
+              <input id="ab-day" type="number" min="1" placeholder="Jump to entry number">
+            </label>
+            <label>
+              Auto-play interval
+              <select id="ab-interval">
+                <option value="4000">4 seconds</option>
+                <option value="6000" selected>6 seconds</option>
+                <option value="9000">9 seconds</option>
+                <option value="12000">12 seconds</option>
+              </select>
+            </label>
+            <label>
+              Testament
+              <select id="ab-testament">
+                <option value="">All</option>
+                <option value="Old Testament">Old Testament</option>
+                <option value="New Testament">New Testament</option>
+              </select>
+            </label>
+            <label>
+              Documentary season
+              <select id="ab-season">
+                <option value="">All seasons</option>
+              </select>
+            </label>
+            <label>
+              My witness profile
+              <select id="ab-avatar-gender">
+                <option value="auto" selected>Auto discernment</option>
+                <option value="male">Brother profile</option>
+                <option value="female">Sister profile</option>
+              </select>
+            </label>
+          </div>
+          <div class="ab-actions">
+            <button id="ab-play-all" class="btn btn-primary" type="button">Play Documentary (All Available)</button>
+            <button id="ab-play-season" class="btn btn-secondary" type="button">Play Selected Season</button>
+            <a class="btn btn-secondary" href="action-bible-workshop.html">Worksheet & Class Toolkit</a>
+            <button id="ab-pause" class="btn btn-secondary" type="button">Pause</button>
+            <button id="ab-prev" class="btn btn-secondary" type="button">Previous Entry</button>
+            <button id="ab-next" class="btn btn-secondary" type="button">Next Entry</button>
+            <button id="ab-read-along" class="btn btn-secondary" type="button">Read Along</button>
+            <button id="ab-listen-entry" class="btn btn-secondary" type="button">Listen</button>
+            <button id="ab-stop-audio" class="btn btn-secondary" type="button">Stop Audio</button>
+            <label class="ab-loop-toggle" for="ab-loop">
+              <input id="ab-loop" type="checkbox" checked>
+              Loop playlist
+            </label>
+          </div>
+          <div class="ab-progress" aria-live="polite">
+            <progress id="ab-progress-bar" max="1" value="0"></progress>
+            <p id="ab-progress-label" class="ab-progress-label">Entry progress is not on the page yet—that is all right.</p>
+          </div>
+          <div class="ab-episode-row">
+            <p id="ab-episode-note" class="ab-episode-note">Episode mode standby: select a season, then play.</p>
+          </div>
+          <article id="ab-featured-episode" class="ab-featured" aria-live="polite">
+            <h3>Featured Episode</h3>
+            <p>Preparing today&apos;s featured entry...</p>
+          </article>
+          <article id="ab-resume" class="ab-resume" aria-live="polite">
+            <h3>Continue Watching</h3>
+            <p>No saved progress yet. Start any episode to enable instant resume.</p>
+          </article>
+          <div id="ab-season-cards" class="ab-season-cards" aria-label="Season trailers"></div>
+          <p class="section-note">Keyboard shortcuts: Left/Right arrows for previous/next, Space to play/pause.</p>
+          <article id="ab-current" class="ab-card util-mt-1" aria-live="polite" tabindex="0"></article>
+          <article id="ab-readalong" class="ab-card util-mt-0_5" aria-live="polite">
+            <h3>Read Along</h3>
+            <p id="ab-readalong-text" class="section-note">Select an entry to view its read-along script.</p>
+          </article>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass ab-list" aria-label="All documentary entries">
+          <h2 class="section-divider">All Entries</h2>
+          <div id="ab-grid" class="ab-grid"></div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
+  <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+    <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+    <span class="tdb-lang-switcher-inner">
+      <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-essentials" aria-label="Key pages">
+    <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/verse.html">Today&rsquo;s Lesson</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <p class="site-footer-share-wrap">
+    <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
+    <span class="site-footer-share-sep" aria-hidden="true">·</span>
+    <button type="button" class="share-page-btn site-footer-tour-restart tdb-tour-restart-btn" aria-label="Restart the five-minute site tour">Restart site tour</button>
+  </p>
+
+  <nav class="bottom-nav" role="navigation" aria-label="Plans, kids, and Spanish topics">
+    <a href="/plans.html">Plans</a>
+    <a href="/kids/">Kids Battle</a>
+    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
+      <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
+      <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
+      <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-nav" aria-label="Footer links">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/media.html">Media</a>
+    <a href="/roadmap.html">Roadmap</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/for-pastors.html">For pastors &amp; teachers</a>
+    <a href="/reader.html">Chapter reader</a>
+    <a href="/bible/tools.html">Study workshop</a>
+    <a href="/bible-tool.html">Bible tool</a>
+    <a href="/testimonials.html">Reader stories</a>
+    <a href="/journal/">Journal</a>
+    <a href="/where-support-goes.html">Where support goes</a>
+    <a href="/verse-cards/">Verse cards</a>
+    <a href="/security.html">Security</a>
+    <a href="/contact.html">Contact</a>
+    <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
+  </nav>
+
+  <details class="footer-sitemap">
+    <summary>Sitemap — topics, tools, church &amp; family (tap to expand)</summary>
+    <div class="footer-sitemap-grid">
+      <div class="footer-sitemap-col">
+        <h3>The Narrow Paths</h3>
+        <a href="/explore.html">Full list (all pages)</a>
+        <a href="/topic-anxiety.html">Anxiety</a>
+        <a href="/topic-fear.html">Fear</a>
+        <a href="/topic-grief.html">Grief</a>
+        <a href="/topic-hope.html">Hope</a>
+        <a href="/topic-strength.html">Strength</a>
+        <a href="/topic-parenting.html">Parenting</a>
+        <a href="/topic-loneliness.html">Loneliness</a>
+        <a href="/topic-forgiveness.html">Forgiveness</a>
+        <a href="/topic-guilt.html">Guilt</a>
+        <a href="/topic-overwhelmed.html">Overwhelmed</a>
+        <a href="/topic-worthless.html">Worth / identity</a>
+      </div>
+      <div class="footer-sitemap-col footer-sitemap-col--es-links">
+        <h3>Spanish devotionals</h3>
+        <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es">Paz</a>
+        <a href="/explore.html#topics-es">All Spanish topics on Explore</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Tools of the Quiet Trade</h3>
+        <a href="/verse.html">Verse of the Day</a>
+        <a href="/reader.html">Chapter reader</a>
+        <a href="/bible/tools.html">Study workshop</a>
+        <a href="/bible-tool.html">Bible tool</a>
+        <a href="/mystudy">My Study</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/mobius.html">Möbius</a>
+        <a href="/plans.html">Courses</a>
+        <a href="/reading-plan.html">7-day plan</a>
+        <a href="/study.html">Study workspace</a>
+        <a href="/wins.html">Wins</a>
+        <a href="/progress.html">Progress</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>For the Household of Faith</h3>
+        <a href="/church.html">Church center</a>
+        <a href="/church/">Church join hub</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit</a>
+        <a href="/pastor/">Pastor hub</a>
+        <a href="/sermon.html">Sermon builder</a>
+        <a href="/family.html">Family hub</a>
+        <a href="/little-ones.html">For the Little Ones</a>
+        <a href="/family-armor.html">Family Armor</a>
+        <a href="/kids/">Kids Battle home</a>
+        <a href="/kids/corner.html">Bible Story Library</a>
+        <a href="/kids-corner.html">Bible Loop Library</a>
+        <a href="/coloring.html">Color &amp; Tell</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Further In</h3>
+        <a href="/prayer-wall.html">Prayer</a>
+        <a href="/bible-study.html">Bible studies</a>
+        <a href="/shop.html">Shop</a>
+        <a href="/story.html">Story</a>
+        <a href="/media.html">Media</a>
+        <a href="/roadmap.html">Roadmap</a>
+        <a href="/approach.html">How we respond</a>
+        <a href="/why-not-ai.html">Why not AI?</a>
+        <a href="/curriculum.html">Curriculum</a>
+        <a href="/verse-cards/">Verse cards</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </details>
+
+  <p class="footer-humility">We battle. He wins.</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): footer story lives in .site-footer-story below -->
+  <p class="site-footer-story">
+    Steady KJV for honest days&mdash;no ads, no selling your data; prayers stay on this device unless you sync on purpose.
+  </p>
+
+  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" aria-label="Friday verse and prayer email signup">
+    <p class="footer-friday-signup-label">Friday recap email&mdash;one message a week; leave anytime.</p>
+    <div class="footer-friday-signup-row">
+      <label for="footer-friday-email" class="sr-only">Email for Friday recap</label>
+      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="your@email.com" aria-label="Email for Friday recap" autocomplete="email">
+      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit">Subscribe</button>
+    </div>
+    <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
+  </div>
+
+  <p class="site-footer-copy site-footer-legal-line">&copy; 2026 Today&rsquo;s Daily Battle &middot; Christian Messenger Service. All rights reserved.</p>
+  <p class="site-footer-copy site-footer-legal-line">All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
+
+  <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
+  <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
+  </div>
+  <script defer src="/language-switcher.js?v=20260503-consent-persist-fix"></script>
+</footer>
+  </div>
+
+  <script src="verse-breakdown.js?v=20260405-relations-fix" defer></script>
+  <script src="action-bible.js?v=20260306r"></script>
+  <script type="module" src="script.js?v=20260503-consent-persist-fix" data-cfasync="false"></script>
+  <script src="/easter-eggs.js" defer data-tdb-easter-eggs="1"></script>
+</body>
+</html>

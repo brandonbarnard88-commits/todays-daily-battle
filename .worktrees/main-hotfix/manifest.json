@@ -1,0 +1,83 @@
+{
+  "id": "/",
+  "name": "Today's Daily Battle",
+  "short_name": "Daily Battle",
+  "description": "God's University of Life — KJV-only, calm campus: daily verse, plans, prayer. Less scroll, more soul. Works offline.",
+  "lang": "en-US",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#000000",
+  "theme_color": "#ff8c00",
+  "icons": [
+    {
+      "src": "/logo-shield-600.png",
+      "sizes": "600x600",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Daily Verse",
+      "short_name": "Verse",
+      "url": "/verse.html",
+      "description": "Jump into today's verse."
+    },
+    {
+      "name": "Bible Tool",
+      "short_name": "Bible",
+      "url": "/bible-tool.html",
+      "description": "Search and study scripture."
+    },
+    {
+      "name": "My Study",
+      "short_name": "Study",
+      "url": "/mystudy.html",
+      "description": "Notes, tags, memorize queue, and print — on this device."
+    },
+    {
+      "name": "Möbius Loop",
+      "short_name": "Loop",
+      "url": "/mobius.html",
+      "description": "One journey, no dead ends. Every mood connects."
+    },
+    {
+      "name": "Steady now",
+      "short_name": "Steady",
+      "url": "/sos.html",
+      "description": "Three KJV verses when the moment is heavy—not emergency services."
+    },
+    {
+      "name": "Progress",
+      "short_name": "Progress",
+      "url": "/progress.html",
+      "description": "Quiet streaks and plan rhythm on this device."
+    }
+  ]
+}

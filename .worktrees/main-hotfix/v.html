@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- tdb-cache-hygiene: purge SOCIAL_PURGE_PATHS for /v.html + verse-ref-slug.js when changing verse links -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+  <script defer src="analytics-loader.js"></script>
+  <script src="verse-ref-slug.js"></script>
+  <script type="module" src="config.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Verse link (KJV) • Today's Daily Battle</title>
+  <meta name="description" content="Open a shared KJV verse link. Works best if you have visited the site before or saved it for offline.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/v.html">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260503-consent-persist-fix" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    .v-page { min-height: 100vh; min-height: 100dvh; padding: 1.5rem 1.25rem 2.5rem; max-width: 36rem; margin: 0 auto; }
+    .v-page h1 { font-size: 1.05rem; font-weight: 600; color: var(--muted, #94a3b8); margin: 0 0 0.75rem; }
+    .v-ref { font-size: 1.1rem; color: var(--gold, #e3bc67); margin: 0 0 1rem; font-weight: 600; }
+    .v-text {
+      font-family: Cormorant Garamond, Georgia, serif;
+      font-size: clamp(1.25rem, 3.8vw, 1.65rem);
+      line-height: 1.55;
+      color: var(--text, #e2e8f0);
+      margin: 0 0 1.5rem;
+    }
+    .v-status { font-size: 0.92rem; color: var(--muted, #94a3b8); margin: 0 0 1rem; min-height: 1.25em; }
+    .v-actions { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 0.5rem; }
+    .v-actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      color: #e2e8f0;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .v-actions a:focus-visible { outline: 2px solid var(--gold, #e3bc67); outline-offset: 2px; }
+    .v-actions a.v-primary { border-color: rgba(227, 188, 103, 0.45); background: rgba(227, 188, 103, 0.08); color: var(--gold, #e3bc67); }
+    .v-offline {
+      padding: 0.75rem 0.9rem;
+      border-radius: 10px;
+      border: 1px solid rgba(227, 188, 103, 0.25);
+      background: rgba(227, 188, 103, 0.05);
+      font-size: 0.88rem;
+      color: var(--muted, #94a3b8);
+      line-height: 1.45;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body class="dark-mode">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <main class="v-page" id="main-content">
+    <h1>KJV verse</h1>
+    <p class="section-note topic-mood-porch" lang="en">You&rsquo;re already welcome here&mdash;shared link, same gentle Word.</p>
+    <p id="v-status" class="v-status" role="status" aria-live="polite"></p>
+    <p id="v-ref" class="v-ref" hidden></p>
+    <p id="v-text" class="v-text" hidden></p>
+    <div id="v-offline" class="v-offline" hidden></div>
+    <nav class="v-actions" aria-label="Next steps">
+      <a class="v-primary" href="/bible-tool.html">Bible Tool</a>
+      <a href="/reader.html">Chapter reader</a>
+      <a href="/">Home</a>
+    </nav>
+  </main>
+  <script nonce="tdb2025s">
+  (function () {
+    'use strict';
+    var API_BASE = 'https://bible-api.com';
+    var CACHE_KEY = 'tdb_v_reader_cache_v1';
+
+    function trackEvent(name, params) {
+      if (typeof window.trackEvent === 'function') window.trackEvent(name, params || {});
+    }
+
+    function getSlug() {
+      try {
+        var p = new URLSearchParams(window.location.search);
+        return (p.get('ref') || '').trim().toLowerCase();
+      } catch (e) {
+        return '';
+      }
+    }
+
+    function loadCache(slug) {
+      try {
+        var raw = localStorage.getItem(CACHE_KEY);
+        if (!raw) return null;
+        var o = JSON.parse(raw);
+        if (o && o.slug === slug && o.text) return o;
+      } catch (e) {}
+      return null;
+    }
+
+    function saveCache(slug, apiRef, text) {
+      try {
+        localStorage.setItem(
+          CACHE_KEY,
+          JSON.stringify({ slug: slug, apiRef: apiRef, text: text, ts: Date.now() })
+        );
+      } catch (e) {}
+    }
+
+    var statusEl = document.getElementById('v-status');
+    var refEl = document.getElementById('v-ref');
+    var textEl = document.getElementById('v-text');
+    var offEl = document.getElementById('v-offline');
+
+    function setStatus(t) {
+      if (statusEl) statusEl.textContent = t || '';
+    }
+
+    function showVerse(apiRef, text) {
+      if (refEl) {
+        refEl.textContent = apiRef + ' (KJV)';
+        refEl.hidden = false;
+      }
+      if (textEl) {
+        textEl.textContent = text;
+        textEl.hidden = false;
+      }
+      setStatus('');
+      trackEvent('verse_link_viewed', { ref_len: String(apiRef).length });
+    }
+
+    var slug = getSlug();
+    if (!slug) {
+      setStatus('Add a reference to the link, or open a verse card QR.');
+      return;
+    }
+
+    var apiRef = window.TDB_VERSE_SLUG && window.TDB_VERSE_SLUG.decode(slug);
+    if (!apiRef) {
+      setStatus('That link is not quite right. Try the Bible Tool and pick your passage.');
+      trackEvent('verse_link_invalid', {});
+      return;
+    }
+
+    var cached = loadCache(slug);
+    if (cached && cached.text) {
+      showVerse(cached.apiRef || apiRef, cached.text);
+      setStatus('Checking for latest text…');
+    } else {
+      setStatus('Loading verse…');
+    }
+
+    var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    var id = controller ? setTimeout(function () { controller.abort(); }, 12000) : null;
+    var opts = controller ? { signal: controller.signal } : {};
+
+    fetch(API_BASE + '/' + encodeURIComponent(apiRef) + '?translation=kjv', opts)
+      .then(function (res) {
+        return res.ok ? res.json() : Promise.reject(new Error('status'));
+      })
+      .then(function (data) {
+        if (id) clearTimeout(id);
+        var refOut = data.reference || apiRef;
+        var body = (data.text || '').trim();
+        if (!body) throw new Error('empty');
+        saveCache(slug, refOut, body);
+        showVerse(refOut, body);
+        if (offEl) offEl.hidden = true;
+      })
+      .catch(function () {
+        if (id) clearTimeout(id);
+        if (cached && cached.text) {
+          if (offEl) {
+            offEl.textContent =
+              'Offline — still got you. Showing the last text we saved on this device for this link.';
+            offEl.hidden = false;
+          }
+          setStatus('');
+          return;
+        }
+        setStatus('Verse did not load—that is all right. Check signal, or open the Bible Tool.');
+        if (refEl) {
+          refEl.textContent = apiRef + ' (KJV)';
+          refEl.hidden = false;
+        }
+        if (offEl) {
+          offEl.textContent =
+            'If you opened this link before on this phone, try again when you have a moment of signal — we cache what we can.';
+          offEl.hidden = false;
+        }
+        trackEvent('verse_link_fetch_failed', {});
+      });
+  })();
+  </script>
+</body>
+</html>

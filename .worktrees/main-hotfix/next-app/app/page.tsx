@@ -1,0 +1,361 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useCallback, useEffect, useId, useLayoutEffect, useState } from "react";
+
+import { Button, buttonVariants } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  TDBCard,
+} from "@/components/ui/card";
+import { TDBVerseBreakdown } from "@/components/tdb-verse-breakdown";
+import { TdbPageFooter } from "@/components/tdb-page-footer";
+import { TdbSiteNav } from "@/components/tdb-site-nav";
+import { CANON_VERSION, dailyVerse, type TdbAudience } from "@/lib/daily-verse";
+import { syncCanonSchemaVersion } from "@/lib/tdb-canon-version";
+import { buildHomeVerseJsonLd } from "@/lib/verse-jsonld";
+import {
+  applyTdbTheme,
+  readInitialTdbTheme,
+  tdbThemeToCardVariant,
+  type TdbThemeId,
+  TDB_THEME_LABEL,
+} from "@/lib/tdb-theme";
+import {
+  LISTEN_PRESETS,
+  LISTEN_RATE_SSR_DEFAULT,
+  presetForRate,
+  readListenRate,
+  writeListenRate,
+} from "@/lib/tdb-listen-rate";
+import { GENTLE_PICKS, memorizeHrefForRef } from "@/lib/tdb-gentle-picks";
+import { migratePilotLocalStorageOnce, appendSavedVerse, buildSavedVerseSnapshot } from "@/lib/tdb-study-db";
+import { cn } from "@/lib/utils";
+import { Moon, Scroll, SunMedium } from "lucide-react";
+
+const THEME_ORDER: TdbThemeId[] = ["light", "dark", "sepia"];
+
+export default function Home() {
+  const pathname = usePathname();
+  const audienceLabelId = useId();
+  const [theme, setTheme] = useState<TdbThemeId | null>(null);
+  const [audience, setAudience] = useState<TdbAudience>("adult");
+  const [saved, setSaved] = useState(false);
+  const [prayOpen, setPrayOpen] = useState(false);
+  const [listenRate, setListenRate] = useState<number>(LISTEN_RATE_SSR_DEFAULT);
+  const [listenHint, setListenHint] = useState<string | null>(null);
+
+  useLayoutEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate listen rate from localStorage after SSR
+    setListenRate(readListenRate());
+    const initial = readInitialTdbTheme();
+    setTheme(initial);
+    applyTdbTheme(initial);
+  }, []);
+
+  useEffect(() => {
+    void migratePilotLocalStorageOnce();
+    syncCanonSchemaVersion(CANON_VERSION);
+  }, []);
+
+  useEffect(() => {
+    if (!listenHint) return;
+    const t = window.setTimeout(() => setListenHint(null), 5200);
+    return () => window.clearTimeout(t);
+  }, [listenHint]);
+
+  const setTdbTheme = useCallback((next: TdbThemeId) => {
+    setTheme(next);
+    applyTdbTheme(next);
+  }, []);
+
+  const applyListenPreset = useCallback((rate: number) => {
+    writeListenRate(rate);
+    setListenRate(rate);
+  }, []);
+
+  const handleListen = useCallback(async () => {
+    const rate = listenRate;
+    const text = dailyVerse.text;
+    if (typeof window === "undefined") return;
+    setListenHint(null);
+
+    if (!window.speechSynthesis) {
+      try {
+        await navigator.clipboard.writeText(`${dailyVerse.reference} (KJV)\n${text}`);
+        setListenHint("Copied — read aloud in your own time, or share with someone you trust.");
+      } catch {
+        setListenHint("Sit with the verse quietly for a moment — your browser can't read aloud here.");
+      }
+      return;
+    }
+
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.rate = rate;
+    u.onerror = () => {
+      void navigator.clipboard
+        .writeText(`${dailyVerse.reference} (KJV)\n${text}`)
+        .then(() => {
+          setListenHint("Reading hit a snag — verse copied so you can read it yourself.");
+        })
+        .catch(() => {
+          setListenHint("Reading paused — stay with the verse a moment.");
+        });
+    };
+    window.speechSynthesis.speak(u);
+  }, [listenRate]);
+
+  const handleSave = useCallback(async () => {
+    const result = await appendSavedVerse(dailyVerse.reference, buildSavedVerseSnapshot(dailyVerse, audience));
+    if (result.ok) {
+      setSaved(true);
+      window.setTimeout(() => setSaved(false), 2200);
+    }
+  }, [audience]);
+
+  const handleShare = useCallback(async () => {
+    const title = `${dailyVerse.reference} (KJV) — Today's Daily Battle`;
+    const text = `${dailyVerse.reference}\n${dailyVerse.text}`;
+    try {
+      if (navigator.share) {
+        await navigator.share({ title, text, url: window.location.href });
+        return;
+      }
+    } catch {
+      /* user cancelled or share failed */
+    }
+    try {
+      await navigator.clipboard.writeText(`${text}\n${window.location.href}`);
+    } catch {
+      /* ignore */
+    }
+  }, []);
+
+  const activePreset = presetForRate(listenRate);
+
+  const themeIcon = (id: TdbThemeId) => {
+    if (id === "dark") return <Moon className="size-3.5 shrink-0 opacity-80" aria-hidden />;
+    if (id === "sepia") return <Scroll className="size-3.5 shrink-0 opacity-80" aria-hidden />;
+    return <SunMedium className="size-3.5 shrink-0 opacity-80" aria-hidden />;
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildHomeVerseJsonLd()) }}
+      />
+
+      <div className="min-h-screen">
+        <TdbSiteNav currentPath={pathname ?? "/"} />
+
+        <main className="mx-auto max-w-3xl px-4 pb-24 pt-10 sm:px-6 sm:pt-12">
+          <header className="mb-12 text-center sm:mb-16">
+            <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+              KJV only · Private · No pressure
+            </p>
+            <h1 className="font-heading text-4xl font-semibold leading-tight text-foreground sm:text-5xl md:text-6xl">
+              A quiet place
+              <br />
+              for real battles
+            </h1>
+            <p className="mx-auto mt-5 max-w-md text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
+              Anxiety. Parenting. Grief. Fear. The long days of raising little ones. One gentle KJV
+              word to steady your heart. Nothing else required.
+            </p>
+          </header>
+
+          <section className="tdb-no-print mb-12 rounded-xl border border-border/60 bg-muted/15 px-5 py-6 sm:mb-14 sm:px-6">
+            <h2 className="font-heading text-lg font-semibold text-foreground sm:text-xl">
+              For the long days of raising little ones
+            </h2>
+            <p className="mt-2 max-w-xl text-pretty text-sm leading-relaxed text-muted-foreground">
+              Same KJV verse below — gentler language for the supper table or bedtime. No quiz, no streak; just
+              Scripture that meets tired parents and squirmy kids where they are.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <Link href="/family" className={cn(buttonVariants({ variant: "secondary", size: "sm" }))}>
+                Open family room
+              </Link>
+              <Link href="/plans/parenting" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
+                Parenting plan
+              </Link>
+            </div>
+          </section>
+
+          <TDBCard
+            variant={tdbThemeToCardVariant(theme)}
+            className="tdb-print-verse mb-14 sm:mb-16"
+          >
+            <CardHeader className="gap-4 border-b border-border/50 pb-4 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+                  Today&apos;s verse
+                </p>
+                <CardTitle className="mt-2 font-heading text-2xl font-semibold sm:text-3xl">
+                  {dailyVerse.reference}
+                </CardTitle>
+              </div>
+              <div
+                className="tdb-no-print flex flex-wrap gap-2"
+                role="group"
+                aria-label="Appearance: Daylight, Quiet night, or Dawn parchment"
+              >
+                {THEME_ORDER.map((id) => (
+                  <Button
+                    key={id}
+                    size="sm"
+                    variant={theme === id ? "default" : "outline"}
+                    aria-pressed={theme === id}
+                    onClick={() => setTdbTheme(id)}
+                    className="gap-1.5 text-xs"
+                  >
+                    {themeIcon(id)}
+                    {TDB_THEME_LABEL[id]}
+                  </Button>
+                ))}
+              </div>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <blockquote className="tdb-speakable-verse font-heading border-l-4 border-primary/35 pl-5 text-xl font-normal leading-relaxed text-foreground sm:text-2xl">
+                {dailyVerse.text}
+              </blockquote>
+
+              <div className="tdb-no-print mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-xs text-muted-foreground">Pace</span>
+                  {LISTEN_PRESETS.map((p) => (
+                    <Button
+                      key={p.id}
+                      type="button"
+                      size="sm"
+                      variant={activePreset === p.id ? "secondary" : "ghost"}
+                      className="text-xs"
+                      onClick={() => applyListenPreset(p.rate)}
+                    >
+                      {p.label}
+                    </Button>
+                  ))}
+                </div>
+                <Button type="button" onClick={() => void handleListen()}>
+                  Listen slow
+                </Button>
+              </div>
+              {listenHint ? (
+                <p className="tdb-no-print mt-3 text-sm text-muted-foreground" role="status" aria-live="polite">
+                  {listenHint}
+                </p>
+              ) : null}
+
+              <TDBVerseBreakdown
+                className="tdb-no-print mt-8"
+                verse={dailyVerse}
+                audience={audience}
+                onAudienceChange={setAudience}
+                tabsLabelId={audienceLabelId}
+              />
+
+              <div className="tdb-no-print mt-10 flex flex-wrap gap-2">
+                <Button type="button" variant="outline" onClick={() => void handleSave()}>
+                  {saved ? "Saved — My Study ✓" : "Save to My Study"}
+                </Button>
+                <Link
+                  href={`/memorize?ref=${encodeURIComponent(dailyVerse.reference)}`}
+                  className={cn(buttonVariants({ variant: "outline", size: "default" }))}
+                >
+                  Memorize
+                </Link>
+              </div>
+              <div className="tdb-no-print mt-3 flex flex-wrap gap-2">
+                <Link
+                  href="/verse"
+                  className={cn(buttonVariants({ variant: "ghost", size: "sm" }))}
+                >
+                  Study
+                </Link>
+                <Button type="button" variant="ghost" size="sm" onClick={() => setPrayOpen((o) => !o)}>
+                  {prayOpen ? "Close prayer" : "Pray this with me"}
+                </Button>
+                <Button type="button" variant="ghost" size="sm" onClick={handleShare}>
+                  Share
+                </Button>
+              </div>
+              {prayOpen ? (
+                <p className="mt-4 rounded-md border border-dashed border-border/70 bg-muted/20 p-4 text-sm leading-relaxed text-muted-foreground">
+                  Lord, I&apos;m tired. Teach me what it means to wait on You today — not passive
+                  giving up, but trusting You with the next breath. Renew my strength for what&apos;s
+                  in front of me. In Jesus&apos; name, Amen.
+                </p>
+              ) : null}
+            </CardContent>
+          </TDBCard>
+
+          <div className="tdb-no-print mt-12 grid gap-6 md:grid-cols-3">
+            <Link href="/calm" className="group block rounded-xl outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring">
+              <Card className="h-full transition-[box-shadow,transform] group-hover:ring-1 group-hover:ring-primary/25">
+                <CardHeader>
+                  <CardTitle className="text-base">Heavy right now?</CardTitle>
+                  <p className="text-sm text-muted-foreground">
+                    One gentle verse in a tap. No judgment.
+                  </p>
+                </CardHeader>
+              </Card>
+            </Link>
+            <Link href="/plans" className="group block rounded-xl outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring">
+              <Card className="h-full transition-[box-shadow,transform] group-hover:ring-1 group-hover:ring-primary/25">
+                <CardHeader>
+                  <CardTitle className="text-base">Battle Plans</CardTitle>
+                  <p className="text-sm text-muted-foreground">
+                    7–40 day KJV lanes for fear, grief, family, peace. Pick up where you left off.
+                  </p>
+                </CardHeader>
+              </Card>
+            </Link>
+            <Link href="/family" className="group block rounded-xl outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring">
+              <Card className="h-full transition-[box-shadow,transform] group-hover:ring-1 group-hover:ring-primary/25">
+                <CardHeader>
+                  <CardTitle className="text-base">Family &amp; kids</CardTitle>
+                  <p className="text-sm text-muted-foreground">
+                    Low-pressure rhythms and printables. You&apos;re not behind.
+                  </p>
+                </CardHeader>
+              </Card>
+            </Link>
+          </div>
+
+          <div className="tdb-no-print mt-14 border-t border-border/40 pt-10">
+            <p className="mb-3 text-xs font-medium uppercase tracking-widest text-muted-foreground">
+              Gentle picks (on device)
+            </p>
+            <p className="mb-4 max-w-lg text-sm text-muted-foreground">
+              Optional lanes from the same pilot catalog — open Memorize with that reference when you
+              need a next step. No scores, no tracking.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {GENTLE_PICKS.map((p) => (
+                <Link
+                  key={p.id}
+                  href={memorizeHrefForRef(p.reference)}
+                  className={cn(
+                    buttonVariants({ variant: "outline", size: "sm" }),
+                    "h-auto min-h-9 flex-col items-start gap-0 py-1.5 text-left",
+                  )}
+                >
+                  <span className="text-xs font-medium text-foreground">{p.mood}</span>
+                  <span className="text-[11px] font-normal text-muted-foreground">{p.hint}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <TdbPageFooter />
+        </main>
+      </div>
+    </>
+  );
+}

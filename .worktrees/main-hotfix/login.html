@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+
+  <!-- GA4 lazy-loaded after interaction -->
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login • Today's Daily Battle</title>
+  <meta name="description" content="Secure login for Today's Daily Battle.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://todaysdailybattle.com/login.html">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260503-consent-persist-fix" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix">
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true"></script>
+  <script nonce="tdb2025s">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
+  <style>
+    .login-panel {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: clamp(1.2rem, 3vw, 2rem);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      box-shadow: 0 22px 48px rgba(2, 6, 23, 0.3);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .login-panel[data-auth-ready="false"] {
+      opacity: 0.96;
+    }
+    .login-form-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      margin-top: 1rem;
+    }
+    .login-form-stack input {
+      width: 100%;
+      margin: 0;
+      min-height: 54px;
+      padding: 0.95rem 1rem;
+      box-sizing: border-box;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.78);
+      color: #f8fafc;
+      font-size: 1rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+    .login-form-stack input::placeholder {
+      color: rgba(226, 232, 240, 0.72);
+    }
+    .login-form-stack input:focus {
+      outline: none;
+      border-color: rgba(125, 211, 252, 0.5);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.14);
+      background: rgba(15, 23, 42, 0.9);
+    }
+    .login-form-stack .btn,
+    .login-oauth-group .btn {
+      width: 100%;
+      margin: 0;
+      min-height: 52px;
+      border-radius: 14px;
+    }
+    .login-password-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin: 0;
+      color: rgba(226, 232, 240, 0.88);
+    }
+    .login-password-toggle input {
+      width: auto;
+      min-height: 0;
+      margin: 0;
+      padding: 0;
+    }
+    .login-panel .section-note {
+      color: rgba(226, 232, 240, 0.82);
+    }
+    .login-panel a {
+      color: #c7d2fe;
+    }
+    .login-panel a:hover,
+    .login-panel a:focus-visible {
+      color: #e0e7ff;
+    }
+    .auth-loading {
+      margin-top: 0.85rem;
+      margin-bottom: 0.25rem;
+      padding: 0.75rem 0.95rem;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      background: rgba(15, 23, 42, 0.52);
+      color: rgba(226, 232, 240, 0.82);
+      font-size: 0.96rem;
+    }
+    .login-oauth-group {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.95rem;
+    }
+    @media (min-width: 640px) {
+      .login-oauth-group {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 640px) {
+      .login-panel {
+        padding: 1rem;
+      }
+      .login-form-stack {
+        gap: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body class="dark-mode tdb-inner-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="tdb-lang-switcher-header-wrap">
+        <nav class="tdb-lang-switcher tdb-lang-switcher--header tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+          <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+                    <span class="tdb-lang-switcher-inner">
+            <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+          </span>
+        </nav>
+      </div>
+
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <p class="tdb-header-heartbeat site-tagline" lang="en">For Family, For Country, For GOD</p>
+        <span class="brand-subtitle">Secure Login</span>
+      </div>
+      <nav class="header-nav" aria-label="Main">
+        <a href="/">Home</a>
+        <a href="explore.html">Explore</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+    </header>
+
+    <main class="app-content" id="main-content">
+      <div class="content-inner">
+        <section class="glass tdb-porch-paper-glass login-panel">
+          <h1 id="login-title" class="section-divider">Sign In</h1>
+          <p class="section-note topic-mood-porch">You&rsquo;re already welcome here&mdash;signing in is for gentle sync across devices, not for measuring you.</p>
+          <p id="login-intro" class="section-note">Sign in to your account to sync across devices.</p>
+          <p class="section-note"><strong id="login-mode-tag">Sign in</strong></p>
+          <div id="auth-loading" class="auth-loading" aria-live="polite">Loading secure login...</div>
+          <form id="login-form" class="login-form-stack" autocomplete="on">
+            <label for="login-email" class="sr-only">Email</label>
+            <input id="login-email" type="email" placeholder="Email" required autocomplete="email">
+            <label for="login-password" class="sr-only">Password</label>
+            <input id="login-password" type="password" placeholder="Password" required autocomplete="current-password">
+            <label class="section-note login-password-toggle">
+              <input id="login-show-password" type="checkbox" aria-label="Show password">
+              Show password
+            </label>
+            <button id="login-submit" type="submit" class="btn btn-primary">Continue</button>
+          </form>
+          <div class="login-oauth-group" aria-label="OAuth sign in">
+            <button id="login-oauth-google" type="button" class="btn btn-secondary">Continue with Google</button>
+            <button id="login-oauth-apple" type="button" class="btn btn-secondary">Continue with Apple</button>
+          </div>
+          <p class="section-note util-mt-0_35">
+            <a href="#" id="login-forgot-password">Forgot password?</a>
+            <span aria-hidden="true"> · </span>
+            <a href="#" id="login-resend-confirmation">Resend confirmation</a>
+          </p>
+          <p id="login-status" class="section-note" aria-live="polite"></p>
+          <p class="section-note util-mb-0">
+            <span id="login-switch-copy">Need an account?</span> <a id="login-switch-link" href="/login.html?mode=signup">Create one</a>.
+          </p>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script defer src="/language-switcher.js?v=20260503-consent-persist-fix"></script>
+  <script src="auth.js"></script>
+  <script>
+  console.log('=== TDB Login Forced Init v11 - Ultra Simple Late Mode Switch ===');
+  (function () {
+    function applySignupMode() {
+      var isSignup = window.location.search.indexOf('mode=signup') !== -1;
+
+      console.log('v11 Mode detected:', isSignup ? 'SIGNUP' : 'LOGIN');
+
+      var heading = document.querySelector('h1, #login-title, .auth-heading, .page-title');
+      if (heading) heading.textContent = isSignup ? 'Create Account' : 'Sign In';
+
+      var intro = document.getElementById('login-intro');
+      if (intro) {
+        intro.textContent = isSignup
+          ? 'Create an account to sync your progress across devices.'
+          : 'Sign in to your account to sync across devices.';
+      }
+
+      var submitBtn = document.getElementById('login-submit') || document.querySelector('button[type="submit"], .auth-submit');
+      if (submitBtn) submitBtn.textContent = isSignup ? 'Create Account' : 'Continue';
+
+      var switchCopy = document.getElementById('login-switch-copy');
+      if (switchCopy) switchCopy.textContent = isSignup ? 'Already have an account?' : 'Need an account?';
+      var switchLink = document.getElementById('login-switch-link') || document.querySelector('a[href*="mode="]');
+      if (switchLink) {
+        if (isSignup) {
+          switchLink.textContent = 'Sign in';
+          switchLink.href = '/login.html';
+        } else {
+          switchLink.textContent = 'Create one';
+          switchLink.href = '/login.html?mode=signup';
+        }
+      }
+
+      var loading = document.getElementById('auth-loading');
+      if (loading) loading.style.display = 'none';
+    }
+    window.addEventListener('load', applySignupMode);
+    window.setTimeout(applySignupMode, 50);
+    window.setTimeout(applySignupMode, 300);
+    window.setTimeout(applySignupMode, 800);
+    window.setTimeout(applySignupMode, 1500);
+    window.setTimeout(applySignupMode, 3000);
+
+    console.log('v11 script registered - ready for mode switch');
+  })();
+  </script>
+</body>
+</html>

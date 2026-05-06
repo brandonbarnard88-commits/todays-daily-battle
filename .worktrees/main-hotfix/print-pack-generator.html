@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- tdb-cache-hygiene: _headers no-cache tool pages -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Printable Pack Generator • Calm KJV Companions • Today's Daily Battle</title>
+  <meta name="description" content="Build calm, ink-friendly KJV printable packs for anxiety, bedtime peace for littles, and grief comfort. Offline-capable after first visit.">
+  <link rel="canonical" href="https://todaysdailybattle.com/print-pack-generator.html">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preload" href="styles.css?v=20260503-consent-persist-fix" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix">
+  <style>
+    body.print-pack-generator-page {
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse 72% 48% at 50% -10%, rgba(227, 188, 103, 0.08), transparent 55%),
+        linear-gradient(180deg, #070b12 0%, #0b1220 42%, #09111c 100%);
+    }
+
+    .ppg-wrap {
+      max-width: 74rem;
+      margin: 0 auto;
+      padding: 1rem 1rem 3rem;
+    }
+
+    .ppg-back-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 0.4rem 0 1rem;
+    }
+
+    .ppg-back-links a {
+      color: var(--gold-soft);
+      font-weight: 600;
+    }
+
+    .ppg-hero,
+    .ppg-sheet {
+      border: 1px solid rgba(201, 162, 107, 0.18);
+      background: rgba(8, 12, 20, 0.68);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+      border-radius: 24px;
+    }
+
+    .ppg-hero {
+      padding: 1.35rem 1.1rem 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .ppg-kicker,
+    .ppg-sheet__eyebrow,
+    .ppg-copy-card__label {
+      margin: 0 0 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.76rem;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .ppg-hero h1,
+    .ppg-sheet__title {
+      margin: 0 0 0.45rem;
+      line-height: 1.12;
+    }
+
+    .ppg-hero p,
+    .ppg-sheet__subtitle,
+    .ppg-sheet__description,
+    .ppg-sheet__speaker,
+    .ppg-sheet__ref,
+    .ppg-copy-card__text,
+    .ppg-writing-prompt,
+    .ppg-choice__text {
+      margin: 0;
+      color: var(--text);
+    }
+
+    .ppg-hero-lead {
+      max-width: 50rem;
+      line-height: 1.7;
+    }
+
+    .ppg-hero-porch {
+      margin: 0.35rem 0 0.2rem;
+      max-width: 44rem;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .ppg-offline-note {
+      margin-top: 0.9rem;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .ppg-current-pack {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(201, 162, 107, 0.18);
+    }
+
+    .ppg-current-pack h2 {
+      margin: 0 0 0.2rem;
+      font-size: 1.25rem;
+    }
+
+    .ppg-chooser {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+      gap: 0.8rem;
+      margin: 1rem 0 0.9rem;
+    }
+
+    .ppg-choice {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.35rem;
+      min-height: 44px;
+      padding: 0.95rem 1rem;
+      border-radius: 18px;
+      border: 1px solid rgba(201, 162, 107, 0.18);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      cursor: pointer;
+      text-align: left;
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .ppg-choice:hover,
+    .ppg-choice:focus-visible,
+    .ppg-choice.is-active {
+      transform: translateY(-1px);
+      border-color: rgba(227, 188, 103, 0.52);
+      background: rgba(227, 188, 103, 0.08);
+      outline: none;
+    }
+
+    .ppg-choice__title {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .ppg-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .ppg-toolbar .btn {
+      min-height: 44px;
+    }
+
+    .ppg-status {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .ppg-pack-root {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .ppg-sheet {
+      padding: 1.15rem 1.05rem 1.25rem;
+    }
+
+    .ppg-sheet--cover .ppg-sheet__description {
+      max-width: 44rem;
+      line-height: 1.7;
+    }
+
+    .ppg-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin: 1rem 0;
+    }
+
+    .ppg-chip {
+      padding: 0.38rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(227, 188, 103, 0.1);
+      border: 1px solid rgba(227, 188, 103, 0.18);
+      color: var(--gold-soft);
+      font-size: 0.88rem;
+    }
+
+    .ppg-cover-grid,
+    .ppg-breakdown-grid,
+    .ppg-extra-grid {
+      display: grid;
+      gap: 0.8rem;
+      grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    }
+
+    .ppg-cover-grid {
+      margin-top: 0.2rem;
+    }
+
+    .ppg-breakdown-grid,
+    .ppg-extra-grid {
+      margin-top: 1rem;
+    }
+
+    .ppg-copy-card {
+      padding: 0.9rem 0.95rem;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(201, 162, 107, 0.12);
+    }
+
+    .ppg-copy-card--soft {
+      background: rgba(255, 248, 235, 0.03);
+    }
+
+    .ppg-copy-card--prayer {
+      margin-top: 1rem;
+    }
+
+    .ppg-sheet__speaker {
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 0.4rem;
+    }
+
+    .ppg-sheet__ref {
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .ppg-verse {
+      padding: 1rem 1rem 1.05rem;
+      border-radius: 18px;
+      border: 1px solid rgba(201, 162, 107, 0.36);
+      background:
+        radial-gradient(ellipse 90% 70% at 50% 20%, rgba(227, 188, 103, 0.08), transparent 58%),
+        rgba(7, 10, 16, 0.8);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.22rem;
+      line-height: 1.6;
+      color: var(--text);
+    }
+
+    .ppg-writing-zone {
+      margin-top: 1rem;
+      padding: 0.9rem 0.95rem 0.95rem;
+      border-radius: 18px;
+      border: 1px dashed rgba(201, 162, 107, 0.34);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .ppg-writing-prompt {
+      margin-bottom: 0.6rem;
+      color: var(--muted);
+    }
+
+    .ppg-lines {
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .ppg-lines__line {
+      display: block;
+      min-height: 1rem;
+      border-bottom: 1px solid rgba(255, 248, 235, 0.24);
+    }
+
+    @media (max-width: 640px) {
+      .ppg-wrap {
+        padding-left: 0.85rem;
+        padding-right: 0.85rem;
+      }
+
+      .ppg-hero,
+      .ppg-sheet {
+        border-radius: 20px;
+      }
+
+      .ppg-verse {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media print {
+      @page {
+        margin: 12mm 14mm;
+      }
+
+      .skip-link,
+      .tdb-global-nav,
+      .ppg-back-links,
+      .ppg-chooser,
+      .ppg-toolbar {
+        display: none !important;
+      }
+
+      body.print-pack-generator-page,
+      .ppg-wrap {
+        background: #fff !important;
+        color: #111 !important;
+        padding: 0 !important;
+      }
+
+      .ppg-hero {
+        border: none;
+        background: #fff !important;
+        box-shadow: none !important;
+        padding: 0 0 0.45rem;
+      }
+
+      .ppg-sheet {
+        page-break-after: always;
+        break-after: page;
+        border: 1px solid #cfc4b3 !important;
+        background: #fff !important;
+        box-shadow: none !important;
+        color: #111 !important;
+      }
+
+      .ppg-sheet:last-child {
+        page-break-after: auto;
+        break-after: auto;
+      }
+
+      .ppg-chip {
+        color: #333;
+        background: #fff !important;
+        border-color: #bbb !important;
+      }
+
+      .ppg-verse {
+        color: #111 !important;
+        background: #fffef9 !important;
+        border-color: #ad8a54 !important;
+        box-shadow: none !important;
+        font-size: 14pt;
+      }
+
+      .ppg-copy-card,
+      .ppg-writing-zone {
+        background: #fff !important;
+        border-color: #ccc !important;
+      }
+
+      .ppg-lines__line {
+        border-bottom-color: #999;
+      }
+    }
+  </style>
+</head>
+<body class="print-pack-generator-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <nav class="tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+    <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel-standalone" id="tdb-primary-nav-toggle-standalone">
+      <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+      <span class="tdb-nav-flyout-toggle__label">Site</span>
+    </button>
+    <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-standalone">
+      <a href="/verse.html">Today&rsquo;s Lesson</a>
+      <a href="/explore.html">Explore</a>
+      <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map and gentle paths">Curriculum</a>
+      <a href="/plans.html" id="nav-browse-curriculum" aria-label="Browse the curriculum — KJV courses and gentle battle plans">Browse the curriculum</a>
+      <a href="/university.html" id="nav-university-core" aria-label="University of God — five anchor verses, quiet map">University map</a>
+      <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read</a>
+      <a href="/memorize.html">Memorize</a>
+      <a href="/#feel-section">How I Feel</a>
+      <a href="/daily-rhythm.html">Daily Rhythm</a>
+      <a href="/prayer-wall.html">Pray</a>
+      <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
+      <details class="tdb-nav-more">
+        <summary aria-haspopup="true">More tools</summary>
+        <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+          <a href="/">Home</a>
+          <a href="/mystudy">My Study</a>
+          <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
+          <a href="/plans.html">Courses</a>
+          <a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">Family Armor for little ones</a>
+          <a href="/kids/corner.html">Kids &amp; Family</a>
+          <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
+          <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
+          <a href="/site-guide.html" id="nav-site-guide" aria-label="Start here — calm map of where to begin">Start here</a>
+          <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
+          <a href="/about.html">About</a>
+          <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
+          <a href="/mobius.html">Möbius</a>
+          <a href="/calm.html">Calm</a>
+          <a href="/story.html">Story</a>
+          <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
+        </div>
+      </details>
+    </div>
+  </nav>
+  <main id="main-content" class="ppg-wrap">
+    <div class="ppg-back-links">
+      <a href="printables.html">← Print hub</a>
+      <a href="family.html">Family hub</a>
+      <a href="family-activity-packs.html">Family activity sheets</a>
+    </div>
+
+    <section class="ppg-hero" aria-labelledby="ppg-hero-heading">
+      <p class="ppg-kicker">Printable Pack Generator</p>
+      <h1 id="ppg-hero-heading">Build a calm paper companion for the battle in front of you.</h1>
+      <p class="ppg-hero-porch topic-mood-porch">You&rsquo;re already welcome here&mdash;pick a pack when you want paper; skip if today is only rest.</p>
+      <p class="ppg-hero-lead">Choose a ready-made KJV pack, print it in one quiet motion, and keep only what helps. No signup. No noise. Just a gentle paper companion when you want something you can hold in your hand.</p>
+      <p class="ppg-offline-note">Works offline after the first visit and stays local to this device. Browser print can also save as PDF if you need a digital copy.</p>
+
+      <div class="ppg-current-pack" aria-live="polite">
+        <h2 id="ppg-current-pack-title">Anxiety Anchor Pack</h2>
+        <p id="ppg-current-pack-subtitle">Four steady KJV sheets for noisy days and overfull thoughts.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="ppg-chooser-heading">
+      <h2 id="ppg-chooser-heading" class="section-divider">Choose a pack</h2>
+      <p class="section-note">Start with the one that matches tonight. You can come back and print a different pack later without losing your place.</p>
+      <p class="section-note">Current starters: Anxiety Anchor Pack, Bedtime Peace for Littles, and Grief Comfort Bundle.</p>
+      <div id="ppg-chooser" class="ppg-chooser" role="group" aria-label="Printable pack choices"></div>
+    </section>
+
+    <div class="ppg-toolbar">
+      <button type="button" id="ppg-print-btn" class="btn btn-secondary">Print or Save PDF</button>
+      <button type="button" id="ppg-copy-link-btn" class="btn btn-secondary">Copy pack link</button>
+      <a class="btn btn-secondary" href="printables.html">Open print hub</a>
+      <span id="ppg-status" class="ppg-status" role="status" aria-live="polite"></span>
+    </div>
+
+    <section id="ppg-pack-root" class="ppg-pack-root" aria-label="Printable pack sheets"></section>
+  </main>
+
+  <script src="plans-data.js"></script>
+  <script src="verse-breakdown.js"></script>
+  <script defer src="script.js?v=20260503-consent-persist-fix"></script>
+  <script defer src="print-pack-generator.js?v=20260417phase2print"></script>
+  <script defer src="register-sw.js"></script>
+</body>
+</html>

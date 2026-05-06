@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+
+  <!-- GA4 lazy-loaded after interaction -->
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wins Report • Today's Daily Battle</title>
+  <meta name="description" content="Your 2026 Wins—streak, verses, and growth. Share your progress. Part of Battle Pro.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/wins-report.html">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260503-consent-persist-fix" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
+  <script type="module" src="config.js"></script>
+</head>
+<body class="dark-mode tdb-inner-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="tdb-lang-switcher-header-wrap">
+        <nav class="tdb-lang-switcher tdb-lang-switcher--header tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+          <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+                    <span class="tdb-lang-switcher-inner">
+            <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+          </span>
+        </nav>
+      </div>
+
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <p class="tdb-header-heartbeat site-tagline" lang="en">For Family, For Country, For GOD</p>
+        <span class="brand-subtitle">Your 2026 Wins</span>
+      </div>
+      <a href="/" class="header-menu-link">Home</a>
+    </header>
+
+    <main class="app-content" id="main-content">
+      <div class="content-inner">
+        <header class="hero-banner tdb-dawn-bg--mist">
+          <h1>Your 2026 Wins</h1>
+          <p class="section-note topic-mood-porch util-mb-0_5">You&rsquo;re already welcome here&mdash;these numbers can encourage you without defining you.</p>
+          <p class="hero-tagline">A look at your daily battle habit — streak, days read, and how you've shown up. Share it if you want.</p>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="/">Daily Battle</a>
+            <a class="btn btn-secondary" href="pricing.html">Battle Pro</a>
+          </div>
+        </header>
+
+        <div id="wins-report-locked" class="glass tdb-porch-paper-glass wins-report-locked" role="region" aria-label="Premium feature — Battle Pro required" style="display: none;">
+          <h2 class="section-divider">Wins Report</h2>
+          <p class="section-note">Your streak graphic, shareable summary, and year-end report are part of Battle Pro.</p>
+          <p class="section-note" style="margin-top: 0.5rem;">Unlock Wins Report, offline devotional PDFs, and premium devotionals with a Supporter or Church plan.</p>
+          <a href="pricing.html" class="btn btn-primary" aria-label="Upgrade to Battle Pro">Unlock with Battle Pro</a>
+        </div>
+
+        <section id="wins-report-pro-content" class="glass tdb-porch-paper-glass wins-report-section">
+          <h2 class="section-divider">This year so far</h2>
+          <div id="wins-stats" class="wins-stats" aria-live="polite" aria-label="Your wins summary">
+            <p class="section-note" aria-live="polite">Loading your wins…</p>
+          </div>
+          <div id="wins-graphic-wrap" class="wins-graphic-wrap" style="display: none;">
+            <p class="section-note">Shareable graphic</p>
+            <canvas id="wins-graphic-canvas" width="800" height="400" aria-hidden="true"></canvas>
+          </div>
+          <div class="cta-group" id="wins-actions" style="display: none;">
+            <button type="button" id="wins-copy-btn" class="btn btn-primary" aria-label="Copy your wins summary to clipboard">Copy my Wins</button>
+            <button type="button" id="wins-copy-short-btn" class="btn btn-secondary" aria-label="Copy short share text">Copy short share</button>
+            <button type="button" id="wins-download-btn" class="btn btn-secondary" aria-label="Download wins graphic as image">Download image</button>
+            <a href="/" class="btn btn-secondary">Back to Daily Battle</a>
+          </div>
+          <p id="wins-copy-status" class="section-note" style="margin-top: 0.5rem; display: none;" role="status"></p>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass">
+          <h2 class="section-divider">Battle Pro</h2>
+          <p class="section-note">The full Wins Report at year’s end—shareable graphic, verses engaged, topics that helped most—is part of <a href="pricing.html">Battle Pro</a>. This page gives you a quick shareable summary today.</p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
+  <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+    <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+    <span class="tdb-lang-switcher-inner">
+      <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-essentials" aria-label="Key pages">
+    <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/verse.html">Today&rsquo;s Lesson</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <p class="site-footer-share-wrap">
+    <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
+    <span class="site-footer-share-sep" aria-hidden="true">·</span>
+    <button type="button" class="share-page-btn site-footer-tour-restart tdb-tour-restart-btn" aria-label="Restart the five-minute site tour">Restart site tour</button>
+  </p>
+
+  <nav class="bottom-nav" role="navigation" aria-label="Plans, kids, and Spanish topics">
+    <a href="/plans.html">Plans</a>
+    <a href="/kids/">Kids Battle</a>
+    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
+      <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
+      <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
+      <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-nav" aria-label="Footer links">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/media.html">Media</a>
+    <a href="/roadmap.html">Roadmap</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/for-pastors.html">For pastors &amp; teachers</a>
+    <a href="/reader.html">Chapter reader</a>
+    <a href="/bible/tools.html">Study workshop</a>
+    <a href="/bible-tool.html">Bible tool</a>
+    <a href="/testimonials.html">Reader stories</a>
+    <a href="/journal/">Journal</a>
+    <a href="/where-support-goes.html">Where support goes</a>
+    <a href="/verse-cards/">Verse cards</a>
+    <a href="/security.html">Security</a>
+    <a href="/contact.html">Contact</a>
+    <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
+  </nav>
+
+  <details class="footer-sitemap">
+    <summary>Sitemap — topics, tools, church &amp; family (tap to expand)</summary>
+    <div class="footer-sitemap-grid">
+      <div class="footer-sitemap-col">
+        <h3>The Narrow Paths</h3>
+        <a href="/explore.html">Full list (all pages)</a>
+        <a href="/topic-anxiety.html">Anxiety</a>
+        <a href="/topic-fear.html">Fear</a>
+        <a href="/topic-grief.html">Grief</a>
+        <a href="/topic-hope.html">Hope</a>
+        <a href="/topic-strength.html">Strength</a>
+        <a href="/topic-parenting.html">Parenting</a>
+        <a href="/topic-loneliness.html">Loneliness</a>
+        <a href="/topic-forgiveness.html">Forgiveness</a>
+        <a href="/topic-guilt.html">Guilt</a>
+        <a href="/topic-overwhelmed.html">Overwhelmed</a>
+        <a href="/topic-worthless.html">Worth / identity</a>
+      </div>
+      <div class="footer-sitemap-col footer-sitemap-col--es-links">
+        <h3>Spanish devotionals</h3>
+        <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es">Paz</a>
+        <a href="/explore.html#topics-es">All Spanish topics on Explore</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Tools of the Quiet Trade</h3>
+        <a href="/verse.html">Verse of the Day</a>
+        <a href="/reader.html">Chapter reader</a>
+        <a href="/bible/tools.html">Study workshop</a>
+        <a href="/bible-tool.html">Bible tool</a>
+        <a href="/mystudy">My Study</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/mobius.html">Möbius</a>
+        <a href="/plans.html">Courses</a>
+        <a href="/reading-plan.html">7-day plan</a>
+        <a href="/study.html">Study workspace</a>
+        <a href="/wins.html">Wins</a>
+        <a href="/progress.html">Progress</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>For the Household of Faith</h3>
+        <a href="/church.html">Church center</a>
+        <a href="/church/">Church join hub</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit</a>
+        <a href="/pastor/">Pastor hub</a>
+        <a href="/sermon.html">Sermon builder</a>
+        <a href="/family.html">Family hub</a>
+        <a href="/little-ones.html">For the Little Ones</a>
+        <a href="/family-armor.html">Family Armor</a>
+        <a href="/kids/">Kids Battle home</a>
+        <a href="/kids/corner.html">Bible Story Library</a>
+        <a href="/kids-corner.html">Bible Loop Library</a>
+        <a href="/coloring.html">Color &amp; Tell</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Further In</h3>
+        <a href="/prayer-wall.html">Prayer</a>
+        <a href="/bible-study.html">Bible studies</a>
+        <a href="/shop.html">Shop</a>
+        <a href="/story.html">Story</a>
+        <a href="/media.html">Media</a>
+        <a href="/roadmap.html">Roadmap</a>
+        <a href="/approach.html">How we respond</a>
+        <a href="/why-not-ai.html">Why not AI?</a>
+        <a href="/curriculum.html">Curriculum</a>
+        <a href="/verse-cards/">Verse cards</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </details>
+
+  <p class="footer-humility">We battle. He wins.</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): footer story lives in .site-footer-story below -->
+  <p class="site-footer-story">
+    Steady KJV for honest days&mdash;no ads, no selling your data; prayers stay on this device unless you sync on purpose.
+  </p>
+
+  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" aria-label="Friday verse and prayer email signup">
+    <p class="footer-friday-signup-label">Friday recap email&mdash;one message a week; leave anytime.</p>
+    <div class="footer-friday-signup-row">
+      <label for="footer-friday-email" class="sr-only">Email for Friday recap</label>
+      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="your@email.com" aria-label="Email for Friday recap" autocomplete="email">
+      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit">Subscribe</button>
+    </div>
+    <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
+  </div>
+
+  <p class="site-footer-copy site-footer-legal-line">&copy; 2026 Today&rsquo;s Daily Battle &middot; Christian Messenger Service. All rights reserved.</p>
+  <p class="site-footer-copy site-footer-legal-line">All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
+
+  <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
+  <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
+  </div>
+  <script defer src="/language-switcher.js?v=20260503-consent-persist-fix"></script>
+</footer>
+  </div>
+
+  <script nonce="tdb2025s">
+    (function() {
+      var isPro = false;
+      try { isPro = localStorage.getItem('tdb_battle_pro') === '1'; } catch (e) {}
+      var lockedEl = document.getElementById('wins-report-locked');
+      var proContentEl = document.getElementById('wins-report-pro-content');
+      if (lockedEl && proContentEl) {
+        if (isPro) {
+          lockedEl.style.display = 'none';
+          proContentEl.style.display = 'block';
+        } else {
+          lockedEl.style.display = 'block';
+          proContentEl.style.display = 'none';
+        }
+      }
+
+      var STREAK_KEY = 'dailyBattleStreak';
+      var PRAYER_KEY = 'tdb_prayer_list';
+      var statsEl = document.getElementById('wins-stats');
+      var actionsEl = document.getElementById('wins-actions');
+      var copyBtn = document.getElementById('wins-copy-btn');
+      var copyStatus = document.getElementById('wins-copy-status');
+
+      var winsData = { streakCount: 0, lastKey: '', prayerCount: 0 };
+
+      function loadWins() {
+        try {
+          var streakRaw = localStorage.getItem(STREAK_KEY);
+          if (streakRaw) {
+            var data = JSON.parse(streakRaw);
+            winsData.streakCount = Number(data.count) || 0;
+            winsData.lastKey = data.lastKey || '';
+          }
+          var listRaw = localStorage.getItem(PRAYER_KEY);
+          if (listRaw) {
+            var list = JSON.parse(listRaw);
+            winsData.prayerCount = Array.isArray(list) ? list.length : 0;
+          }
+        } catch (e) {}
+
+        var sc = winsData.streakCount;
+        var lastKey = winsData.lastKey;
+        var prayerCount = winsData.prayerCount;
+
+        var html = '<p class="section-note"><strong>Current streak:</strong> ' + sc + ' day' + (sc === 1 ? '' : 's') + '</p>';
+        if (lastKey) {
+          // Escape for HTML (matches script.js escapeHtml: & < > " ')
+          var safeKey = String(lastKey).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+          html += '<p class="section-note"><strong>Last verse day:</strong> ' + safeKey + '</p>';
+        }
+        if (prayerCount > 0) html += '<p class="section-note"><strong>Prayer list:</strong> ' + prayerCount + ' item' + (prayerCount === 1 ? '' : 's') + '</p>';
+        if (sc === 0 && !lastKey) html = '<p class="section-note">No streak recorded yet—that is all right. Start your first day on the <a href="/">Daily Battle</a> page—one verse, one moment, every day.</p>';
+
+        if (statsEl) statsEl.innerHTML = html;
+        if (sc > 0 || prayerCount > 0) {
+          actionsEl.style.display = 'flex';
+          var wrap = document.getElementById('wins-graphic-wrap');
+          if (wrap) {
+            wrap.style.display = 'block';
+            drawWinsGraphic(winsData);
+          }
+        }
+      }
+
+      function drawWinsGraphic(data) {
+        var canvas = document.getElementById('wins-graphic-canvas');
+        if (!canvas) return;
+        var ctx = canvas.getContext('2d');
+        var w = canvas.width;
+        var h = canvas.height;
+
+        var grad = ctx.createLinearGradient(0, 0, w, h);
+        grad.addColorStop(0, '#0f172a');
+        grad.addColorStop(0.5, '#1e293b');
+        grad.addColorStop(1, '#0f172a');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, w, h);
+
+        ctx.fillStyle = 'rgba(76, 175, 80, 0.15)';
+        ctx.fillRect(0, h * 0.6, w, h * 0.4);
+
+        ctx.fillStyle = '#e2e8f0';
+        ctx.font = 'bold 72px Georgia, serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(String(data.streakCount), w / 2, h * 0.38);
+        ctx.font = '28px Georgia, serif';
+        ctx.fillStyle = 'rgba(226, 232, 240, 0.9)';
+        ctx.fillText('day streak', w / 2, h * 0.48);
+        ctx.font = '22px Georgia, serif';
+        ctx.fillStyle = 'rgba(226, 232, 240, 0.75)';
+        ctx.fillText('Less scroll, more soul.', w / 2, h * 0.58);
+        ctx.font = '18px Georgia, serif';
+        ctx.fillStyle = 'rgba(148, 163, 184, 0.9)';
+        ctx.fillText('Today\'s Daily Battle • 2026', w / 2, h * 0.72);
+      }
+
+      function buildShareText() {
+        var sc = winsData.streakCount;
+        return 'My 2026 Wins: ' + sc + ' day streak on Today\'s Daily Battle. Less scroll, more soul. https://todaysdailybattle.com #TodaysDailyBattle';
+      }
+
+      function buildShortShareText() {
+        var sc = winsData.streakCount;
+        return sc + ' day streak @ TodaysDailyBattle • https://todaysdailybattle.com';
+      }
+
+      function doCopy(text, successMsg) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function() {
+            copyStatus.textContent = successMsg || 'Copied!';
+            copyStatus.style.display = 'block';
+            setTimeout(function() { copyStatus.style.display = 'none'; }, 3000);
+            if (window.gtag) window.gtag('event', 'wins_copy', {});
+          }).catch(function() {
+            copyStatus.textContent = 'Copy failed. Please select and copy manually.';
+            copyStatus.style.display = 'block';
+          });
+        } else {
+          copyStatus.textContent = 'Select the text below and copy.';
+          copyStatus.style.display = 'block';
+        }
+      }
+
+      if (copyBtn) {
+        copyBtn.addEventListener('click', function() {
+          doCopy(buildShareText(), 'Copied! Paste anywhere to share.');
+        });
+      }
+
+      var copyShortBtn = document.getElementById('wins-copy-short-btn');
+      if (copyShortBtn) {
+        copyShortBtn.addEventListener('click', function() {
+          doCopy(buildShortShareText(), 'Short share copied!');
+        });
+      }
+
+      var downloadBtn = document.getElementById('wins-download-btn');
+      if (downloadBtn) {
+        downloadBtn.addEventListener('click', function() {
+          drawWinsGraphic(winsData);
+          var canvas = document.getElementById('wins-graphic-canvas');
+          if (!canvas) return;
+          try {
+            var link = document.createElement('a');
+            link.download = 'my-wins-todaysdailybattle.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+            if (window.gtag) window.gtag('event', 'wins_download', {});
+          } catch (e) {
+            copyStatus.textContent = 'Image download is not supported in this browser.';
+            copyStatus.style.display = 'block';
+          }
+        });
+      }
+
+      loadWins();
+
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'wins_report_view', { page_path: '/wins-report.html' });
+      }
+    })();
+  </script>
+</body>
+</html>

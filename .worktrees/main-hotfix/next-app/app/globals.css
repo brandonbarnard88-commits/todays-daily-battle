@@ -1,0 +1,274 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-serif), ui-serif, Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-heading: var(--font-serif), ui-serif, Georgia, "Times New Roman", serif;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* --- Daylight (default) — calm cream, parchment-friendly neutrals --- */
+:root {
+  --background: oklch(0.97 0.012 85);
+  --foreground: oklch(0.22 0.02 260);
+  --card: oklch(0.98 0.01 80);
+  --card-foreground: oklch(0.22 0.02 260);
+  --popover: oklch(0.99 0.008 80);
+  --popover-foreground: oklch(0.22 0.02 260);
+  --primary: oklch(0.38 0.07 55);
+  --primary-foreground: oklch(0.99 0.01 85);
+  --secondary: oklch(0.94 0.02 85);
+  --secondary-foreground: oklch(0.25 0.03 260);
+  --muted: oklch(0.93 0.02 85);
+  --muted-foreground: oklch(0.45 0.025 260);
+  --accent: oklch(0.93 0.03 75);
+  --accent-foreground: oklch(0.28 0.04 42);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.88 0.02 80);
+  --input: oklch(0.88 0.02 80);
+  --ring: oklch(0.52 0.09 55);
+  --chart-1: oklch(0.72 0.12 55);
+  --chart-2: oklch(0.55 0.06 260);
+  --chart-3: oklch(0.45 0.04 260);
+  --chart-4: oklch(0.38 0.03 260);
+  --chart-5: oklch(0.32 0.02 260);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.98 0.01 80);
+  --sidebar-foreground: oklch(0.22 0.02 260);
+  --sidebar-primary: oklch(0.38 0.07 55);
+  --sidebar-primary-foreground: oklch(0.99 0.01 85);
+  --sidebar-accent: oklch(0.94 0.02 85);
+  --sidebar-accent-foreground: oklch(0.25 0.03 260);
+  --sidebar-border: oklch(0.88 0.02 80);
+  --sidebar-ring: oklch(0.52 0.09 55);
+}
+
+/* Quiet night — soft deep, warm undertone (not harsh OLED black) */
+html.dark {
+  --background: oklch(0.14 0.018 260);
+  --foreground: oklch(0.96 0.012 260);
+  --card: oklch(0.18 0.022 260);
+  --card-foreground: oklch(0.96 0.012 260);
+  --popover: oklch(0.18 0.022 260);
+  --popover-foreground: oklch(0.96 0.012 260);
+  --primary: oklch(0.88 0.06 85);
+  --primary-foreground: oklch(0.16 0.02 260);
+  --secondary: oklch(0.26 0.03 260);
+  --secondary-foreground: oklch(0.96 0.012 260);
+  --muted: oklch(0.26 0.03 260);
+  --muted-foreground: oklch(0.72 0.02 260);
+  --accent: oklch(0.28 0.04 260);
+  --accent-foreground: oklch(0.96 0.012 260);
+  --destructive: oklch(0.65 0.2 22);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.72 0.08 85);
+  --chart-1: oklch(0.8 0.1 85);
+  --chart-2: oklch(0.65 0.04 260);
+  --chart-3: oklch(0.55 0.04 260);
+  --chart-4: oklch(0.45 0.03 260);
+  --chart-5: oklch(0.35 0.02 260);
+  --sidebar: oklch(0.18 0.022 260);
+  --sidebar-foreground: oklch(0.96 0.012 260);
+  --sidebar-primary: oklch(0.88 0.06 85);
+  --sidebar-primary-foreground: oklch(0.16 0.02 260);
+  --sidebar-accent: oklch(0.26 0.03 260);
+  --sidebar-accent-foreground: oklch(0.96 0.012 260);
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: oklch(0.72 0.08 85);
+}
+
+/* Dawn parchment — sepia in storage (`tdb-theme: sepia`); never uses `.dark` */
+html[data-theme="sepia"] {
+  --background: oklch(0.94 0.035 72);
+  --foreground: oklch(0.28 0.04 42);
+  /* Slightly warmer Dawn parchment — gentle chroma bump, paper-friendly */
+  --card: oklch(0.965 0.028 68);
+  --card-foreground: oklch(0.28 0.04 42);
+  --popover: oklch(0.98 0.02 68);
+  --popover-foreground: oklch(0.28 0.04 42);
+  --primary: oklch(0.42 0.1 55);
+  --primary-foreground: oklch(0.99 0.01 85);
+  --secondary: oklch(0.9 0.04 72);
+  --secondary-foreground: oklch(0.3 0.05 42);
+  --muted: oklch(0.895 0.038 72);
+  --muted-foreground: oklch(0.48 0.04 48);
+  --accent: oklch(0.91 0.04 68);
+  --accent-foreground: oklch(0.32 0.05 42);
+  --destructive: oklch(0.52 0.18 28);
+  --border: oklch(0.815 0.042 65);
+  --input: oklch(0.815 0.042 65);
+  --ring: oklch(0.48 0.12 55);
+  --chart-1: oklch(0.65 0.12 55);
+  --chart-2: oklch(0.52 0.06 48);
+  --chart-3: oklch(0.45 0.05 42);
+  --chart-4: oklch(0.4 0.04 42);
+  --chart-5: oklch(0.35 0.03 42);
+  --sidebar: oklch(0.96 0.03 70);
+  --sidebar-foreground: oklch(0.28 0.04 42);
+  --sidebar-primary: oklch(0.42 0.1 55);
+  --sidebar-primary-foreground: oklch(0.99 0.01 85);
+  --sidebar-accent: oklch(0.91 0.04 68);
+  --sidebar-accent-foreground: oklch(0.3 0.05 42);
+  --sidebar-border: oklch(0.815 0.042 65);
+  --sidebar-ring: oklch(0.48 0.12 55);
+}
+
+/* Verse breakdown surfaces: a touch more parchment on cards (screen) */
+html[data-theme="sepia"] .tdb-breakdown-card {
+  background-color: oklch(0.96 0.03 69 / 0.92);
+  border-color: oklch(0.78 0.045 63 / 0.55);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+/* --- Print: verse card reads cleanly on paper --- */
+@media print {
+  .tdb-no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .tdb-print-verse {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    border: 1px solid #ccc;
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    box-shadow: none !important;
+  }
+  .tdb-print-verse blockquote {
+    border-left-color: #444 !important;
+    color: #111 !important;
+  }
+  .tdb-print-verse .tdb-print-breakdown-print dl,
+  .tdb-print-verse .tdb-print-breakdown-print dd {
+    color: #222 !important;
+  }
+
+  /* Gentle takeaway: breakdown definition list on paper */
+  .tdb-verse-breakdown .tdb-print-breakdown-print {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #c9b08a;
+  }
+  .tdb-print-breakdown-heading {
+    color: #3f2a1e !important;
+    letter-spacing: 0.12em !important;
+  }
+  .tdb-print-audience-tier-note,
+  .audience-tier-note {
+    font-style: italic;
+    color: #5c4633 !important;
+  }
+  .tdb-print-audience-tier-note strong {
+    font-style: normal;
+    color: #3f2a1e !important;
+  }
+  .tdb-print-breakdown-dl {
+    font-size: 0.95rem !important;
+    line-height: 1.65 !important;
+  }
+  .tdb-print-breakdown-dt {
+    font-weight: 600 !important;
+    color: #3f2a1e !important;
+    margin-top: 1.15rem !important;
+    margin-bottom: 0.2rem !important;
+  }
+  .tdb-print-breakdown-pair:first-child .tdb-print-breakdown-dt {
+    margin-top: 0 !important;
+  }
+  .tdb-print-breakdown-dd {
+    margin: 0 0 0.85rem 0 !important;
+    padding: 0 0 0 1rem !important;
+    border-left: 3px solid #d8b89a !important;
+    color: #1a1510 !important;
+  }
+  .tdb-print-breakdown-pair:last-child .tdb-print-breakdown-dd {
+    margin-bottom: 0 !important;
+  }
+
+  .tdb-print-family-band {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    border: 1px dashed #888 !important;
+    background: #fafafa !important;
+  }
+
+  /* /reader: chapter banner + verse cards (warm parchment with breakdown dt/dd) */
+  .tdb-reader-print-root .tdb-print-reader-banner {
+    border-bottom: 1px solid #c4b49a;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+  .tdb-reader-print-root .tdb-print-reader-banner-title {
+    font-size: 1.15rem !important;
+    font-weight: 600 !important;
+    color: #3f2a1e !important;
+    letter-spacing: 0.02em !important;
+  }
+  .tdb-reader-print-root .tdb-reader-verse-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  @page {
+    margin: 1.2cm;
+  }
+}

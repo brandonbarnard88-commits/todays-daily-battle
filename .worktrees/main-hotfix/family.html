@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- tdb-cache-hygiene: _headers no-cache tool pages; bump script query with substantive JS changes -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Families &amp; Parents • Today's Daily Battle</title>
+  <meta name="description" content="A quiet place for your family to meet God together: today’s KJV verse, family worship and comfort plans, printable packs, teen journal, and a local prayer list—on-device, offline-friendly.">
+  <link rel="canonical" href="https://todaysdailybattle.com/family.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:site_name" content="Today's Daily Battle">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://todaysdailybattle.com/family.html">
+  <meta property="og:title" content="Family hub &mdash; quiet KJV tools, plans, and printables | Today&#39;s Daily Battle">
+  <meta property="og:description" content="A quiet place for real battles with KJV Scripture: today&rsquo;s verse path, family worship and comfort plans, printables, teen journal, and a device-local prayer list&mdash;offline-friendly, no hype.">
+  <meta property="og:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260422og">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Family hub &mdash; KJV tools for parents and little ones | Today&#39;s Daily Battle">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Family hub &mdash; quiet KJV for home | Today&#39;s Daily Battle">
+  <meta name="twitter:description" content="Gentle KJV verse, family plans, printables, teen journal, and prayer&mdash;stays on your device until you print.">
+  <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260422og">
+  <meta name="twitter:image:alt" content="Family hub &mdash; KJV tools for parents and little ones | Today&#39;s Daily Battle">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260503-consent-persist-fix" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <script nonce="tdb2025s" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "For Families & Parents • Today's Daily Battle",
+        "url": "https://todaysdailybattle.com/family.html",
+        "description": "A quiet place for your family to meet God together: today’s KJV verse, family worship and comfort plans, printable packs, teen journal, and a local prayer list—on-device, offline-friendly.",
+        "isPartOf": { "@type": "WebSite", "name": "Today's Daily Battle", "url": "https://todaysdailybattle.com/" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://todaysdailybattle.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Explore", "item": "https://todaysdailybattle.com/explore.html" },
+          { "@type": "ListItem", "position": 3, "name": "Family hub", "item": "https://todaysdailybattle.com/family.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+  <style nonce="tdb2025s">
+    body.family-hub-deep-page {
+      background:
+        radial-gradient(ellipse 90% 50% at 50% -5%, rgba(227, 188, 103, 0.06), transparent 50%),
+        radial-gradient(ellipse 55% 40% at 100% 85%, rgba(48, 38, 72, 0.14), transparent 45%),
+        linear-gradient(178deg, #06080e 0%, #0c1018 40%, #080a12 100%);
+      min-height: 100vh;
+    }
+    /* Shell: .tdb-quiet-container supplies max-width + side/bottom padding; top tuned here */
+    main.family-hub-page.tdb-quiet-container {
+      padding-top: clamp(0.85rem, 2.1vw, 1.2rem);
+    }
+    .family-hub-page {
+      min-width: 0;
+    }
+    /* Hero: one-time soft dawn ring (reduced motion disables). Bridge gradient ties hero to the page. */
+    body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn {
+      position: relative;
+      z-index: 0;
+      overflow: visible;
+    }
+    body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      inset: -6px;
+      border-radius: 18px;
+      pointer-events: none;
+      background: radial-gradient(ellipse 85% 75% at 50% 0%, rgba(227, 188, 103, 0.22), transparent 62%);
+      opacity: 0;
+      animation: family-hub-hero-dawn-glow 1.75s ease-out 0.15s 1 forwards;
+    }
+    @keyframes family-hub-hero-dawn-glow {
+      0% { opacity: 0; }
+      40% { opacity: 0.55; }
+      100% { opacity: 0; }
+    }
+    :root[data-theme="light"] body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn::before {
+      background: radial-gradient(ellipse 85% 75% at 50% 0%, rgba(180, 100, 30, 0.14), transparent 62%);
+    }
+    body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn::after {
+      content: '';
+      display: block;
+      height: 1px;
+      margin-top: 0.4rem;
+      max-width: min(100%, 28rem);
+      margin-left: auto;
+      margin-right: auto;
+      background: linear-gradient(90deg, transparent, rgba(227, 188, 103, 0.28) 20%, rgba(227, 188, 103, 0.28) 80%, transparent);
+      border-radius: 1px;
+      opacity: 0.9;
+    }
+    .family-hub-kicker {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(227, 188, 103, 0.62);
+      margin: 0 0 0.4rem;
+    }
+    .family-hub-hero h1 {
+      font-size: clamp(1.5rem, 4.2vw, 1.95rem);
+      margin: 0 0 0.45rem;
+      font-weight: 700;
+      color: var(--text);
+      max-width: 100%;
+      min-width: 0;
+      text-wrap: balance;
+    }
+    .family-hub-tagline {
+      font-size: clamp(1.02rem, 2.8vw, 1.18rem);
+      color: var(--gold-soft);
+      line-height: 1.45;
+      margin: 0 0 0.65rem;
+      font-weight: 500;
+      max-width: 100%;
+      min-width: 0;
+      text-wrap: pretty;
+    }
+    .family-hub-lead {
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0 0 1.1rem;
+      max-width: min(100%, 40rem);
+      min-width: 0;
+      text-wrap: pretty;
+      overflow-wrap: break-word;
+    }
+    .family-hub-parent-nudge { margin-top: -0.25rem; font-size: 0.96rem; color: rgba(200, 210, 225, 0.92); }
+    .family-hub-parent-nudge a { font-weight: 600; }
+    .family-parent-at-a-glance {
+      border-radius: 16px;
+      padding: 1rem 1.1rem 1.05rem;
+      margin-bottom: 1.15rem;
+      background: rgba(10, 14, 22, 0.55);
+      border: 1px solid rgba(227, 188, 103, 0.2);
+      box-shadow: inset 0 1px 0 rgba(255, 248, 235, 0.04);
+    }
+    .family-parent-at-a-glance__title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(227, 188, 103, 0.75);
+      margin: 0 0 0.35rem;
+    }
+    .family-parent-at-a-glance__lead {
+      margin: 0 0 0.65rem;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .family-parent-at-a-glance__list {
+      margin: 0;
+      padding-left: 1.15rem;
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: rgba(200, 210, 225, 0.94);
+    }
+    .family-parent-at-a-glance__list li { margin-bottom: 0.45rem; }
+    .family-parent-at-a-glance__list a { color: var(--gold-soft); font-weight: 600; }
+    .family-year-round-tools-card {
+      border-radius: 16px;
+      padding: 1rem 1.1rem 1.05rem;
+      margin-bottom: 1.15rem;
+      background: rgba(12, 18, 30, 0.58);
+      border: 1px solid rgba(139, 166, 217, 0.26);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 248, 235, 0.035),
+        0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+    .family-year-round-tools-eyebrow {
+      margin: 0 0 0.3rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(139, 166, 217, 0.85);
+    }
+    .family-year-round-tools-title {
+      margin: 0 0 0.45rem;
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .family-yrt-votm-line {
+      margin: 0 0 0.55rem !important;
+      padding: 0.55rem 0.65rem;
+      border-radius: 10px;
+      border: 1px solid rgba(227, 188, 103, 0.22);
+      background: rgba(12, 16, 26, 0.45);
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: rgba(226, 232, 240, 0.92);
+    }
+    .family-yrt-votm-snippet { font-style: italic; color: rgba(200, 210, 225, 0.95); }
+    .family-year-round-tools-desc {
+      margin: 0 0 0.65rem;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    .family-year-round-tools-links {
+      margin: 0;
+      padding-left: 1.15rem;
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: rgba(200, 210, 225, 0.94);
+    }
+    .family-year-round-tools-links li { margin-bottom: 0.4rem; }
+    .family-year-round-tools-links a { color: var(--gold-soft); font-weight: 600; }
+    .family-parent-quick-dash {
+      border-radius: 16px;
+      padding: 1rem 1.1rem 1.05rem;
+      margin-bottom: 1.15rem;
+      background: rgba(10, 14, 22, 0.5);
+      border: 1px solid rgba(227, 188, 103, 0.22);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+    }
+    .family-parent-quick-dash__title {
+      margin: 0 0 0.35rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .family-parent-quick-dash__lead {
+      margin: 0 0 0.55rem;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    .family-parent-quick-dash__steps {
+      margin: 0;
+      padding-left: 1.15rem;
+      color: rgba(200, 210, 225, 0.94);
+      line-height: 1.55;
+      font-size: 0.92rem;
+    }
+    .family-parent-quick-dash__steps li { margin-bottom: 0.4rem; }
+    .family-parent-quick-dash__steps a { color: var(--gold-soft); font-weight: 600; }
+    .family-parent-quick-dash__note { margin: 0.65rem 0 0; font-size: 0.84rem; }
+    .family-parent-quick-start {
+      border-radius: 16px;
+      padding: 1rem 1.1rem 1.05rem;
+      margin-bottom: 1.15rem;
+      background: rgba(12, 16, 26, 0.55);
+      border: 1px solid rgba(139, 166, 217, 0.2);
+    }
+    .family-parent-quick-start__title {
+      margin: 0 0 0.35rem;
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .family-parent-quick-start__lead {
+      margin: 0 0 0.5rem;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    .family-parent-quick-start__ref {
+      margin: 0 0 0.45rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--gold-soft);
+    }
+    .family-parent-quick-start__verse {
+      margin: 0 0 0.55rem;
+      font-size: 0.94rem;
+      line-height: 1.58;
+      color: rgba(218, 226, 238, 0.96);
+      font-style: normal;
+    }
+    .family-parent-quick-start__question {
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: rgba(200, 210, 225, 0.95);
+      font-style: italic;
+    }
+    @media (max-width: 480px) {
+      .family-year-round-tools-card {
+        padding: 1.15rem 1rem 1.2rem;
+        margin-bottom: 1.35rem;
+      }
+      .family-parent-quick-dash,
+      .family-parent-quick-start {
+        padding: 1.15rem 1rem 1.2rem;
+        margin-bottom: 1.35rem;
+      }
+      .family-parent-quick-start__ref,
+      .family-parent-quick-start__verse {
+        font-size: clamp(0.94rem, 3.9vw, 1.04rem);
+      }
+      .family-parent-quick-start__question {
+        font-size: clamp(0.9rem, 3.6vw, 1rem);
+        line-height: 1.55;
+      }
+      .family-parent-quick-dash__steps { padding-left: 1.25rem; }
+    }
+    .family-month-stat {
+      border-radius: 16px;
+      padding: 0.95rem 1.05rem 1rem;
+      margin-bottom: 1.2rem;
+      font-size: 0.96rem;
+      line-height: 1.55;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse 85% 80% at 50% 0%, rgba(227, 188, 103, 0.07), transparent 55%),
+        rgba(12, 16, 26, 0.58);
+      border: 1px solid rgba(201, 162, 107, 0.22);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 248, 235, 0.06),
+        0 16px 44px rgba(0, 0, 0, 0.3),
+        0 0 48px rgba(227, 188, 103, 0.05);
+    }
+    .family-month-stat strong { color: var(--gold-soft); font-weight: 700; }
+    .family-month-note { display: block; font-size: 0.82rem; color: var(--muted); margin-top: 0.4rem; line-height: 1.45; }
+    .family-verse-card {
+      border-radius: 18px;
+      padding: 1.15rem 1.2rem 1.25rem;
+      margin-bottom: 1.4rem;
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(227, 188, 103, 0.06), transparent 50%),
+        rgba(8, 11, 18, 0.72);
+      border: 1px solid rgba(201, 162, 107, 0.2);
+      box-shadow:
+        0 16px 48px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 248, 235, 0.06),
+        0 0 40px rgba(227, 188, 103, 0.06);
+    }
+    .family-verse-card h2 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(227, 188, 103, 0.78); margin: 0 0 0.65rem; }
+    .family-verse-frame {
+      border-radius: 14px;
+      padding: 1.05rem 1.15rem 1.1rem;
+      border: 1px solid rgba(201, 162, 107, 0.42);
+      background:
+        radial-gradient(ellipse 90% 75% at 50% 25%, rgba(227, 188, 103, 0.09), transparent 58%),
+        linear-gradient(165deg, rgba(22, 18, 14, 0.55) 0%, rgba(6, 8, 14, 0.85) 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 248, 235, 0.08),
+        inset 0 0 0 1px rgba(0, 0, 0, 0.35),
+        0 0 28px rgba(227, 188, 103, 0.1);
+    }
+    .family-daily-verse-body {
+      margin: 0.4rem 0 0;
+      border: none;
+      padding: 0;
+    }
+    .family-verse-quote {
+      font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      font-weight: 500;
+      font-size: clamp(1.22rem, 3.8vw, 1.42rem);
+      line-height: 1.52;
+      letter-spacing: 0.02em;
+      margin: 0;
+      color: #f2ebe3;
+    }
+    .family-verse-ref {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: rgba(227, 188, 103, 0.88);
+      margin: 0 0 0.25rem;
+      letter-spacing: 0.04em;
+    }
+    .family-plan-progress-whisper {
+      margin-top: 0.65rem;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .family-verse-print-delight { margin: 0.5rem 0 0; }
+    .family-verse-foot { margin: 0.85rem 0 0; font-size: 0.86rem; color: var(--muted); line-height: 1.45; }
+    .family-verse-foot a { color: var(--gold-soft); font-weight: 600; }
+    .family-plan-hint {
+      margin-top: 0.75rem;
+      padding: 0.7rem 0.8rem;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(227, 188, 103, 0.12);
+      font-size: 0.87rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .family-plan-hint a { color: var(--gold-soft); font-weight: 600; }
+    .family-section-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(227, 188, 103, 0.7);
+      margin: 0 0 0.65rem;
+      font-weight: 700;
+    }
+    .family-section-block { margin-bottom: 2rem; }
+    .family-section-block > p.section-lead {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+      margin: -0.35rem 0 1rem;
+      max-width: 40rem;
+    }
+    #family-plan-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    @media (min-width: 640px) {
+      #family-plan-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
+      #family-plan-cards .family-plan-card--wide { grid-column: 1 / -1; }
+    }
+    @media (min-width: 1024px) {
+      #family-plan-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    .family-plan-card {
+      border-radius: 16px;
+      padding: 1.1rem 1.15rem 1.2rem;
+      background: rgba(12, 16, 26, 0.58);
+      border: 1px solid rgba(227, 188, 103, 0.15);
+      box-shadow: inset 0 1px 0 rgba(255, 248, 235, 0.04);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+    .family-plan-card h3 { margin: 0 0 0.35rem; font-size: 1.08rem; color: var(--text); }
+    .family-plan-card-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.5; margin: 0 0 0.75rem; flex: 1; }
+    .family-plan-card-bar {
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+      margin-bottom: 0.45rem;
+    }
+    .family-plan-card-bar-fill {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, rgba(143, 98, 48, 0.9), rgba(227, 188, 103, 0.95));
+      width: 0%;
+      transition: width 0.5s ease;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .family-plan-card-bar-fill { transition: none; }
+    }
+    .family-plan-card-meta { font-size: 0.82rem; color: var(--muted); margin: 0 0 0.85rem; }
+    .family-plan-card .btn { align-self: flex-start; min-height: 44px; }
+    .family-memory-section .family-memory-verses-root { margin-top: 0.5rem; }
+    .family-memory-verses-title { font-size: 1.02rem; margin: 0 0 0.5rem; color: var(--text); }
+    .family-memory-hint { margin-bottom: 1rem !important; }
+    .memory-verse-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) {
+      .memory-verse-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    .memory-verse-card,
+    .family-memory-card {
+      border-radius: 14px;
+      border: 1px solid rgba(227, 188, 103, 0.22);
+      background: rgba(12, 16, 26, 0.45);
+      padding: 1rem 1.1rem;
+      margin-bottom: 0;
+    }
+    .memory-verse-calm-note { color: rgba(245, 247, 251, 0.88); }
+    .memory-verse-card-header { display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 0.45rem; }
+    .memory-verse-card-month { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(227, 188, 103, 0.82); }
+    .memory-verse-card-track { font-size: 0.88rem; font-weight: 500; color: rgba(226, 232, 240, 0.9); line-height: 1.45; }
+    .memory-verse-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.65rem; align-items: stretch; }
+    .memory-verse-actions .btn { min-height: 44px; }
+    .memory-verse-btn-touch { flex: 1 1 100%; min-height: 44px; padding: 0.55rem 0.9rem; }
+    @media (min-width: 480px) {
+      .memory-verse-btn-touch { flex: 1 1 calc(50% - 0.35rem); min-width: 0; }
+    }
+    @media (max-width: 479px) {
+      .memory-verse-actions { flex-direction: column; align-items: stretch; }
+      .memory-verse-actions .memory-verse-btn-touch,
+      .memory-verse-actions .btn { width: 100%; min-height: 48px; }
+    }
+    .family-memory-eyebrow { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(227, 188, 103, 0.75); margin: 0 0 0.35rem; }
+    .family-memory-ref { font-weight: 700; color: var(--gold-soft); margin: 0 0 0.35rem; font-size: 0.95rem; }
+    .family-memory-text { margin: 0 0 0.65rem; line-height: 1.55; font-size: 0.93rem; color: rgba(245, 247, 251, 0.92); }
+    .family-memory-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; align-items: center; }
+    .family-memory-actions .btn { min-height: 44px; }
+    .family-memory-prompt { margin-top: 0.75rem !important; margin-bottom: 0 !important; }
+    .family-memory-pin { border: 1px dashed rgba(227, 188, 103, 0.35); border-radius: 12px; padding: 0.75rem 1rem; margin-top: 0.65rem; }
+    .family-memory-pin .family-memory-text { margin-bottom: 0.45rem; }
+    .family-gentle-empty {
+      border-radius: 16px;
+      border: 1px dashed rgba(227, 188, 103, 0.28);
+      padding: 1rem 1.15rem;
+      margin-bottom: 1.25rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+      background: rgba(8, 10, 16, 0.35);
+    }
+    .family-gentle-empty p { margin: 0 0 0.55rem; }
+    .family-gentle-empty ul { margin: 0.25rem 0 0; padding-left: 1.2rem; }
+    .family-gentle-empty a { color: var(--gold-soft); font-weight: 600; }
+    .family-active-plans { margin-bottom: 1.5rem; }
+    .family-active-plans h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.07em; color: rgba(227, 188, 103, 0.65); margin: 0 0 0.5rem; }
+    .family-active-list { list-style: none; padding: 0; margin: 0; }
+    .family-active-list li { margin-bottom: 0.45rem; }
+    .family-active-list a { color: var(--gold-soft); font-weight: 600; }
+    /* Columns: .calm-grid--2 (768+) + --3 (1024+) match prior family-hub breakpoints */
+    .family-hub-grid {
+      align-items: stretch;
+    }
+    .family-hub-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border-radius: 16px;
+      padding: 1.05rem 1.1rem;
+      min-height: 44px;
+      background:
+        radial-gradient(ellipse 80% 70% at 50% 0%, rgba(227, 188, 103, 0.05), transparent 52%),
+        rgba(10, 14, 22, 0.58);
+      border: 1px solid rgba(201, 162, 107, 0.22);
+      box-shadow:
+        0 12px 36px rgba(0, 0, 0, 0.28),
+        0 0 40px rgba(227, 188, 103, 0.04),
+        inset 0 1px 0 rgba(255, 248, 235, 0.05);
+      transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
+    }
+    .family-hub-card:hover,
+    .family-hub-card:focus-visible {
+      border-color: rgba(227, 188, 103, 0.48);
+      box-shadow:
+        0 14px 40px rgba(0, 0, 0, 0.32),
+        0 0 32px rgba(227, 188, 103, 0.14),
+        inset 0 1px 0 rgba(255, 248, 235, 0.07);
+      outline: none;
+      transform: translateY(-1px);
+    }
+    .family-hub-card-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(227, 188, 103, 0.75); margin: 0 0 0.3rem; }
+    .family-hub-card-title { font-size: 1.03rem; font-weight: 700; margin: 0 0 0.35rem; color: var(--text); }
+    .family-hub-card-desc { font-size: 0.86rem; color: var(--muted); line-height: 1.45; margin: 0; }
+    .family-print-links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+    .family-print-links a { min-height: 44px; display: inline-flex; align-items: center; }
+    .family-youth-box {
+      border-radius: 16px;
+      padding: 1.15rem 1.2rem;
+      background: rgba(12, 16, 26, 0.5);
+      border: 1px solid rgba(227, 188, 103, 0.14);
+    }
+    .family-youth-box p { margin: 0 0 0.75rem; color: var(--muted); line-height: 1.55; font-size: 0.93rem; }
+    .family-youth-box p:last-child { margin-bottom: 0; }
+    .family-youth-note { font-style: italic; color: rgba(227, 188, 103, 0.85) !important; }
+    .family-parent-tips { list-style: none; padding: 0; margin: 0; }
+    .family-parent-tips li {
+      position: relative;
+      padding-left: 1.1rem;
+      margin-bottom: 0.65rem;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    .family-parent-tips li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55rem;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(227, 188, 103, 0.55);
+    }
+    .family-prayer-wall {
+      border-radius: 16px;
+      padding: 1.1rem 1.15rem 1.2rem;
+      background: rgba(10, 14, 22, 0.55);
+      border: 1px solid rgba(227, 188, 103, 0.18);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 248, 235, 0.04),
+        0 14px 38px rgba(0, 0, 0, 0.26),
+        0 0 36px rgba(227, 188, 103, 0.04);
+    }
+    .family-prayer-wall label { display: block; font-size: 0.88rem; color: var(--muted); margin-bottom: 0.35rem; }
+    .family-prayer-input {
+      width: 100%;
+      box-sizing: border-box;
+      min-height: 4.5rem;
+      padding: 0.65rem 0.75rem;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(0, 0, 0, 0.25);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.95rem;
+      resize: vertical;
+      margin-bottom: 0.55rem;
+    }
+    .family-prayer-input:focus { outline: 3px solid rgba(227, 188, 103, 0.45); outline-offset: 2px; border-color: rgba(227, 188, 103, 0.4); }
+    .family-prayer-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-bottom: 0.85rem; }
+    .family-prayer-list { list-style: none; padding: 0; margin: 0; }
+    .family-prayer-list li {
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.9rem;
+      line-height: 1.45;
+      color: var(--text);
+    }
+    .family-prayer-list li:last-child { border-bottom: none; }
+    .family-prayer-text { flex: 1; min-width: 0; word-break: break-word; }
+    .family-prayer-remove {
+      flex-shrink: 0;
+      padding: 0.35rem 0.65rem;
+      font-size: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      min-height: 44px;
+    }
+    .family-prayer-remove:hover,
+    .family-prayer-remove:focus-visible { color: var(--gold-soft); border-color: rgba(227, 188, 103, 0.4); outline: none; }
+    .family-prayer-foot { font-size: 0.82rem; color: var(--muted); margin: 0.75rem 0 0; line-height: 1.45; }
+    .family-prayer-foot a { color: var(--gold-soft); font-weight: 600; }
+    .family-share-shell {
+      border-radius: 16px;
+      padding: 1.1rem 1.15rem 1.2rem;
+      background: rgba(10, 14, 22, 0.55);
+      border: 1px solid rgba(227, 188, 103, 0.18);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 248, 235, 0.04),
+        0 14px 38px rgba(0, 0, 0, 0.26),
+        0 0 36px rgba(227, 188, 103, 0.04);
+    }
+    .family-share-grid {
+      display: grid;
+      gap: 0.9rem;
+      margin-top: 0.85rem;
+    }
+    .family-share-card {
+      border-radius: 14px;
+      padding: 0.95rem 1rem 1rem;
+      background: rgba(0, 0, 0, 0.16);
+      border: 1px solid rgba(227, 188, 103, 0.14);
+    }
+    .family-share-card h3 {
+      margin: 0 0 0.45rem;
+      font-size: 0.98rem;
+      color: var(--text);
+    }
+    .family-share-card p {
+      margin: 0 0 0.7rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+    .family-share-label { display: block; font-size: 0.88rem; color: var(--muted); margin-bottom: 0.35rem; }
+    .family-share-input {
+      width: 100%;
+      box-sizing: border-box;
+      min-height: 44px;
+      padding: 0.7rem 0.78rem;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(0, 0, 0, 0.22);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.95rem;
+      margin-bottom: 0.6rem;
+    }
+    .family-share-input:focus {
+      outline: 3px solid rgba(227, 188, 103, 0.45);
+      outline-offset: 2px;
+      border-color: rgba(227, 188, 103, 0.4);
+    }
+    .family-share-actions { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+    .family-share-code {
+      margin: 0 0 0.65rem;
+      color: rgba(226, 232, 240, 0.94);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+    .family-share-code strong,
+    .family-share-includes strong { color: var(--gold-soft); }
+    .family-share-includes {
+      margin: 0.8rem 0 0;
+      font-size: 0.85rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    @media (min-width: 760px) {
+      .family-share-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    .family-dashboard-grid {
+      display: grid;
+      gap: 0.9rem;
+      margin-top: 0.9rem;
+    }
+    .family-dashboard-card {
+      border-radius: 16px;
+      padding: 0.95rem 1rem 1rem;
+      background: rgba(10, 14, 22, 0.52);
+      border: 1px solid rgba(227, 188, 103, 0.18);
+      box-shadow: inset 0 1px 0 rgba(255, 248, 235, 0.04);
+    }
+    .family-dashboard-card h3 {
+      margin: 0 0 0.35rem;
+      font-size: 0.98rem;
+      color: var(--text);
+    }
+    .family-dashboard-card p {
+      margin: 0 0 0.45rem;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: rgba(226, 232, 240, 0.94);
+    }
+    .family-dashboard-card strong { color: var(--gold-soft); }
+    .family-dashboard-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.65rem;
+    }
+    .family-dashboard-links a,
+    .family-dashboard-links button { min-height: 44px; }
+    @media (min-width: 760px) {
+      .family-dashboard-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    .family-kids-tie { font-size: 0.9rem; color: var(--muted); line-height: 1.55; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(227, 188, 103, 0.1); }
+    .family-kids-tie a { color: var(--gold-soft); font-weight: 600; }
+    .family-hub-desktop-cta { display: none; }
+    @media (min-width: 1024px) {
+      .family-hub-page .tdb-breadcrumb {
+        max-width: none;
+        margin-bottom: 0.85rem;
+      }
+      body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn {
+        margin-bottom: 1.45rem;
+        padding: 1.3rem 1.25rem 1.4rem;
+      }
+      .family-section-block { margin-bottom: 2.4rem; }
+      .family-section-block > p.section-lead { margin-bottom: 1.1rem; }
+      .family-parent-at-a-glance,
+      .family-year-round-tools-card,
+      .family-parent-quick-dash,
+      .family-parent-quick-start { margin-bottom: 1.4rem; }
+      .family-month-stat { margin-bottom: 1.45rem; }
+      .family-verse-card { margin-bottom: 1.55rem; }
+      #family-plan-cards { gap: 1.1rem; }
+      .memory-verse-grid { gap: 1.1rem; }
+      .family-gentle-empty { margin-bottom: 1.4rem; }
+      .family-active-plans { margin-bottom: 1.75rem; }
+      .family-hub-desktop-cta {
+        display: block;
+        margin: 0.5rem 0 0;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: var(--muted);
+        max-width: 40rem;
+      }
+      .family-hub-desktop-cta a { font-weight: 600; color: var(--gold-soft); }
+    }
+    /* Desk “paper” — align with --tdb-bp-xl; measure already from global --tdb-inner-max */
+    @media (min-width: 1280px) {
+      .family-hub-page {
+        position: relative;
+        box-shadow:
+          0 0 0 1px rgba(227, 188, 103, 0.07),
+          0 24px 80px rgba(0, 0, 0, 0.32);
+        border-radius: 0 0 20px 20px;
+        padding-top: 1.6rem;
+      }
+      body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn {
+        margin-bottom: 1.8rem;
+      }
+    }
+    @media (max-width: 430px) {
+      main.family-hub-page.tdb-quiet-container {
+        padding-left: max(var(--tdb-quiet-pad-x), env(safe-area-inset-left, 0px));
+        padding-right: max(var(--tdb-quiet-pad-x), env(safe-area-inset-right, 0px));
+        padding-top: 0.85rem;
+        padding-bottom: 2.75rem;
+      }
+      .family-verse-card,
+      .family-month-stat,
+      .family-section-block {
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+      }
+      .family-verse-quote {
+        font-size: clamp(1.12rem, 4.5vw, 1.38rem);
+        line-height: 1.52;
+      }
+    }
+    .family-hub-animate {
+      opacity: 0;
+      transform: translateY(8px);
+      animation: family-hub-rise 0.75s ease forwards;
+    }
+    @keyframes family-hub-rise {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .family-hub-d1 { animation-delay: 0.06s; }
+    .family-hub-d2 { animation-delay: 0.12s; }
+    .family-hub-d3 { animation-delay: 0.18s; }
+    .family-hub-d4 { animation-delay: 0.24s; }
+    @media (prefers-reduced-motion: reduce) {
+      .family-hub-animate { opacity: 1; transform: none; animation: none; }
+      .family-hub-card { transition: none; }
+      .family-hub-card:hover,
+      .family-hub-card:focus-visible { transform: none; }
+      body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn::before { animation: none; opacity: 0; }
+    }
+    /* Wide viewports: calm “On this page” map — Family hub is long; anchors aid scanning. */
+    .family-hub-onpage-nav { display: none; }
+    @media (min-width: 1100px) {
+      .family-hub-onpage-nav {
+        display: block;
+        position: sticky;
+        top: 3.25rem;
+        z-index: 8;
+        margin: 0.25rem 0 1.2rem;
+        padding: 0.5rem 0.75rem 0.6rem;
+        border-radius: 14px;
+        background: rgba(6, 9, 14, 0.82);
+        border: 1px solid rgba(227, 188, 103, 0.2);
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+        backdrop-filter: blur(10px);
+        text-align: left;
+      }
+      .family-hub-onpage-nav__label {
+        margin: 0 0 0.4rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(227, 188, 103, 0.65);
+      }
+      .family-hub-onpage-nav__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem 0.55rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+      }
+      .family-hub-onpage-nav__list a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 0.25rem 0.65rem;
+        border-radius: 999px;
+        font-size: 0.86rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: rgba(226, 232, 240, 0.92);
+        border: 1px solid rgba(227, 188, 103, 0.22);
+        background: rgba(12, 16, 26, 0.55);
+      }
+      .family-hub-onpage-nav__list a:hover,
+      .family-hub-onpage-nav__list a:focus-visible {
+        border-color: rgba(227, 188, 103, 0.45);
+        color: var(--gold-soft);
+        outline: 2px solid rgba(227, 188, 103, 0.45);
+        outline-offset: 2px;
+      }
+    }
+    .family-hub-page h2[id],
+    .family-hub-page section[id] {
+      scroll-margin-top: 5rem;
+    }
+    @media (min-width: 1100px) {
+      .family-hub-page h2[id],
+      .family-hub-page section[id] {
+        scroll-margin-top: 7.5rem;
+      }
+    }
+    @media (min-width: 1100px) and (prefers-reduced-motion: reduce) {
+      .family-hub-onpage-nav {
+        position: static;
+        margin-bottom: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body class="family-hub-deep-page tdb-inner-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div
+    id="tdb-offline-strip"
+    class="tdb-offline-strip hidden"
+    role="status"
+    aria-live="polite"
+    data-tdb-offline-page="family"
+  ><p class="offline-msg"></p></div>
+  <nav class="tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+    <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel-standalone" id="tdb-primary-nav-toggle-standalone">
+      <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+      <span class="tdb-nav-flyout-toggle__label">Site</span>
+    </button>
+    <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-standalone">
+      <a href="/verse.html">Today&rsquo;s Lesson</a>
+      <a href="/explore.html">Explore</a>
+      <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map and gentle paths">Curriculum</a>
+      <a href="/plans.html" id="nav-browse-curriculum" aria-label="Browse the curriculum — KJV courses and gentle battle plans">Browse the curriculum</a>
+      <a href="/university.html" id="nav-university-core" aria-label="University of God — five anchor verses, quiet map">University map</a>
+      <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read</a>
+      <a href="/memorize.html">Memorize</a>
+      <a href="/#feel-section">How I Feel</a>
+      <a href="/daily-rhythm.html">Daily Rhythm</a>
+      <a href="/prayer-wall.html">Pray</a>
+      <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
+      <details class="tdb-nav-more">
+        <summary aria-haspopup="true">More tools</summary>
+        <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+          <a href="/">Home</a>
+          <a href="/mystudy">My Study</a>
+          <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
+          <a href="/plans.html">Courses</a>
+          <a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">Family Armor for little ones</a>
+          <a href="/kids/corner.html">Kids &amp; Family</a>
+          <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
+          <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
+          <a href="/site-guide.html" id="nav-site-guide" aria-label="Start here — calm map of where to begin">Start here</a>
+          <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
+          <a href="/about.html">About</a>
+          <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
+          <a href="/mobius.html">Möbius</a>
+          <a href="/calm.html">Calm</a>
+          <a href="/story.html">Story</a>
+          <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
+        </div>
+      </details>
+    </div>
+  </nav>
+  <main id="main-content" class="family-hub-page tdb-quiet-container">
+    <nav class="tdb-breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/explore.html">Explore</a></li>
+        <li aria-current="page">Family hub</li>
+      </ol>
+    </nav>
+    <a href="explore.html" class="plans-back plans-back-hub">← Explore</a>
+    <header class="family-hub-hero family-hub-hero--soar-dawn family-hub-animate family-hub-d1" aria-labelledby="family-hub-hero-heading">
+      <p class="family-hub-kicker">Family hub</p>
+      <h1 id="family-hub-hero-heading">For Families &amp; Parents</h1>
+      <p class="section-note topic-mood-porch">You&rsquo;re already welcome here&mdash;this hub helps your household meet God, not pass an invisible inspection.</p>
+      <p class="family-hub-tagline">A quiet place for your family to meet God together.</p>
+      <p class="family-hub-lead">Daily worship, heavy days, ordinary Tuesdays, teaching little ones, and growing together—without hype or pressure. Everything here is <strong>KJV</strong> for Scripture, human-curated, and saved on <strong>this device</strong> until you choose to print.</p>
+      <p class="family-hub-lead family-hub-parent-nudge">Parents: your own soul matters too—<a href="daily-quiet-time.html">Daily quiet time</a> and <a href="what-god-has-done.html">What God has done</a> (private journal) are gentle doorways before the table fills up.</p>
+      <p class="family-year-rhythm-callout family-hub-animate family-hub-d2" id="family-year-round-rhythm" style="margin:0.85rem 0 0;padding:0.85rem 1rem;border-radius:14px;border:1px solid rgba(227,188,103,0.28);background:rgba(12,16,26,0.55);font-size:0.92rem;line-height:1.55;color:rgba(218,226,238,0.96)"><strong>Homeschool, private school, or year-round:</strong> <a href="yearly-rhythm.html">Year-round rhythm</a> maps August&ndash;July, lighter summer weeks, and holiday doors&mdash;same one-day-at-a-time pace, saved on this device.</p>
+      <p class="section-note family-hub-tour-nudge">New to the site? <button type="button" class="link-button tdb-tour-open-btn">Take the five-minute tour</button> (same welcome you get on home, verse, or explore).</p>
+      <p class="section-note family-hub-desktop-cta">Want something to hold? <a href="family-activity-packs.html">Printable family packs</a> &mdash; same calm KJV, ready for the table.</p>
+      <p class="tdb-trust-return tdb-lux-inscription">Family rhythms and notes stay on this device unless you export or print.</p>
+      <p class="tdb-offline-trust">Still here when the signal isn&rsquo;t.</p>
+      <div class="tdb-soft-retry-row"><button type="button" class="btn btn-secondary tdb-soft-retry-btn">Try again</button><span class="section-note util-mb-0">Reloads if today&rsquo;s verse or plans didn&rsquo;t load.</span></div>
+    </header>
+
+    <nav class="family-hub-onpage-nav" aria-label="On this page">
+      <p class="family-hub-onpage-nav__label" id="family-onpage-toc-label">On this page</p>
+      <ul class="family-hub-onpage-nav__list" aria-labelledby="family-onpage-toc-label">
+        <li><a href="#family-two-minute-heading">2-minute start</a></li>
+        <li><a href="#family-daily-verse-root">Verse &amp; dashboard</a></li>
+        <li><a href="#family-plans-heading">Family plans</a></li>
+        <li><a href="#family-print-heading">Print &amp; offline</a></li>
+        <li><a href="#family-prayer-heading">Prayer list</a></li>
+        <li><a href="#family-when-to-use-heading">Kids &amp; stories</a></li>
+      </ul>
+    </nav>
+
+    <section class="family-parent-at-a-glance family-hub-animate family-hub-d2" aria-labelledby="family-parent-glance-heading">
+      <h2 class="family-parent-at-a-glance__title" id="family-parent-glance-heading">At a glance for parents</h2>
+      <p class="family-parent-at-a-glance__lead">A calm checklist of what your child can land on from this hub today—everything stays on this device until you print or export.</p>
+      <ul class="family-parent-at-a-glance__list">
+        <li><strong>Same verse as home</strong> — read it aloud together from the card below (KJV).</li>
+        <li><strong>Story tone</strong> — <a href="kids/corner.html">Bible Story Library</a> for read-alongs, <a href="kids-corner.html">Bible Loop Library</a> for quicker replays, and <a href="family-armor.html">Family Armor</a> for household Scripture stories.</li>
+        <li><strong>Short plans</strong> — family worship and Psalms comfort tracks with parent prompts, one day at a time.</li>
+        <li><strong>Paper when you want it</strong> — <a href="printables.html">Print hub</a>, activity packs and the teen journal sheet; nothing uploads from the family prayer list on this page.</li>
+      </ul>
+    </section>
+
+    <section class="family-parent-quick-dash family-hub-animate family-hub-d2" aria-labelledby="family-two-minute-heading">
+      <h2 class="family-parent-quick-dash__title" id="family-two-minute-heading">Start here in 2 minutes</h2>
+      <p class="family-parent-quick-dash__lead">If tonight is all you can hold, do one card from each line and stop there.</p>
+      <ol class="family-parent-quick-dash__steps">
+        <li><a href="#family-daily-verse-root">Read today&rsquo;s family verse</a> and let one person repeat the line that sticks.</li>
+        <li><a href="kids/corner.html?story=david">Open one Bible Story Library card</a>, <a href="kids-corner.html">one Bible Loop Library replay</a>, or <a href="coloring.html?story=jesus">one Color &amp; Tell story</a>.</li>
+        <li><a href="#family-prayer-wall">Add one name or need</a> to the household prayer list, then whisper one short prayer.</li>
+      </ol>
+      <p class="family-parent-quick-dash__note section-note">For weekly rhythm instead of just tonight, use the kids paths below. Nothing here requires a second account or a cloud sync to be useful.</p>
+    </section>
+
+    <section class="family-parent-at-a-glance family-hub-animate family-hub-d2" aria-labelledby="family-doorways-heading">
+      <h2 class="family-parent-at-a-glance__title" id="family-doorways-heading">Know the four kid doorways</h2>
+      <p class="family-parent-at-a-glance__lead">Same Scripture thread, different pace. Use this map when you are deciding where to land tonight.</p>
+      <ul class="family-parent-at-a-glance__list">
+        <li><strong><a href="/little-ones.html">For the Little Ones</a></strong> — one calm page that brings the verse, one story, and one coloring handoff into a single first stop.</li>
+        <li><strong><a href="/family.html">Family hub</a></strong> — parent doorway for plans, prayer list, printables, and calm next steps.</li>
+        <li><strong><a href="/kids/">Kids Battle home</a></strong> — daily kid doorway with one verse, one prayer, and a first-win path.</li>
+        <li><strong><a href="kids/corner.html">Bible Story Library</a></strong> — read-aloud story cards, comic panels, and gentle quizzes.</li>
+        <li><strong><a href="kids-corner.html">Bible Loop Library</a></strong> — short replay-safe loops when attention is short.</li>
+        <li><strong><a href="coloring.html">Color &amp; Tell</a></strong> — hands-busy retelling that saves on this device.</li>
+      </ul>
+      <p class="section-note">For ages 3&ndash;4 with a grown-up, start with <a href="/little-ones.html">For the Little Ones</a>, <a href="coloring.html?story=jesus">Jesus &amp; the children</a>, <a href="coloring.html?story=creation">Creation</a>, or one comfort loop, then end while it still feels peaceful.</p>
+    </section>
+
+    <section class="family-year-round-tools-card family-hub-animate family-hub-d2" id="family-year-round-tools" aria-labelledby="family-year-round-tools-heading">
+      <p class="family-year-round-tools-eyebrow">Year-round tools</p>
+      <h2 class="family-year-round-tools-title" id="family-year-round-tools-heading">School year, summer, and memory</h2>
+      <p class="family-yrt-votm-line section-note" id="family-yrt-votm-line" hidden></p>
+      <p class="family-year-round-tools-desc">One page maps August through July, lighter summer weeks, holiday doorways, and printables&mdash;the same gentle memory verses you review on this device live there too.</p>
+      <ul class="family-year-round-tools-links">
+        <li><a href="yearly-rhythm.html">Year-round rhythm</a> &mdash; pacing, summer, chapel block, bundles</li>
+        <li><a href="yearly-rhythm.html#yr-ages-5-18">Ages 5&ndash;18 weekly + daily map</a> &mdash; one theme, age-banded response for home, class, or co-op</li>
+        <li><a href="yearly-rhythm.html#yr-monthly-lesson-sheets">Monthly lesson sheets</a> &mdash; twelve calm teaching guides for year-round rhythm</li>
+        <li><a href="yearly-rhythm.html#yr-memory">Monthly memory grid</a> &mdash; matches the cards below</li>
+        <li><a href="year-at-a-glance.html">Year at a glance</a> &mdash; one printable page (all months + seasonal doors)</li>
+        <li><a href="plans.html?plan=summer-seeds">Summer Seeds for Kids</a> &mdash; eight one-day weeks</li>
+        <li><a href="church-sharing-kit.html#csk-memory-verse-activities">Gentle memory verse activities</a> &mdash; calm ideas for table, class, and church (print sheet: <a href="memory-verse-activities-print.html">one page</a>)</li>
+        <li><a href="yearly-rhythm.html#yearly-rhythm-planner">Printable year-at-a-glance table</a> &middot; <a href="yearly-rhythm.html#yr-print-planners">planners</a> &middot; <a href="church-sharing-kit.html#csk-homeschool-year-round">Church &amp; school kit</a></li>
+        <li><a href="seasonal.html">Seasonal paths</a> for Advent, Easter, harvest, and more</li>
+      </ul>
+    </section>
+
+    <section class="family-parent-quick-dash family-hub-animate family-hub-d2" aria-labelledby="family-parent-dash-heading">
+      <h2 class="family-parent-quick-dash__title" id="family-parent-dash-heading">Tonight&rsquo;s gentle path</h2>
+      <p class="family-parent-quick-dash__lead">Three calm stops you can repeat any evening—nothing posts; it stays on this device until you share on purpose.</p>
+      <ol class="family-parent-quick-dash__steps">
+        <li><a href="/verse.html">Read today&rsquo;s verse</a> (KJV) together or echo one line.</li>
+        <li><a href="kids/corner.html">Open one Bible Story Library card</a> or a short loop from the <a href="kids-corner.html">Bible Loop Library</a>—keep it light.</li>
+        <li><a href="calm.html">Pray one sentence in plain words</a>, or add a name on <a href="#family-prayer-wall">your family prayer list</a>.</li>
+      </ol>
+      <p class="family-parent-quick-dash__note section-note">Later, simple plan marks here could mirror what you already complete in Battle Plans—today this block is just a steady map.</p>
+    </section>
+
+    <section class="family-parent-quick-start family-hub-animate family-hub-d2" aria-labelledby="family-quick-start-heading">
+      <h2 class="family-parent-quick-start__title" id="family-quick-start-heading">Today&rsquo;s family quick start</h2>
+      <p class="family-parent-quick-start__lead">A one-glance line: today&rsquo;s reference, a short KJV line from the same pick as home, then one gentle question. No quiz; just listening.</p>
+      <p class="family-parent-quick-start__ref" id="family-quick-start-ref" aria-live="polite">Same daily pick (KJV)</p>
+      <p class="family-parent-quick-start__verse" id="family-quick-start-verse" aria-live="polite">&ldquo;Open the verse card below if today&rsquo;s line has not landed yet.&rdquo;</p>
+      <p class="family-parent-quick-start__question" id="family-quick-start-question" aria-live="polite">What one word from this verse do we want to carry into tonight?</p>
+    </section>
+
+    <section class="family-section-block family-hub-animate family-hub-d3" aria-labelledby="family-weekly-kids-heading">
+      <h2 class="family-section-title" id="family-weekly-kids-heading">Weekly kids paths</h2>
+      <p class="section-lead">These are packaged from plans and printables already on the site. Pick one, stay with it, and let grace beat streaks.</p>
+      <div class="family-hub-grid calm-grid calm-grid--2 calm-grid--3">
+        <a class="family-hub-card" href="plans.html?plan=lordsprayer-kids">
+          <p class="family-hub-card-label">Pray</p>
+          <p class="family-hub-card-title">Lord&rsquo;s Prayer for Kids</p>
+          <p class="family-hub-card-desc">Seven short days. One phrase at a time, made for table time or bedtime.</p>
+        </a>
+        <a class="family-hub-card" href="plans.html?plan=beatitudes-kids">
+          <p class="family-hub-card-label">Heart</p>
+          <p class="family-hub-card-title">Beatitudes for Kids</p>
+          <p class="family-hub-card-desc">Nine gentle days for mercy, meekness, and peacemaking without a heavy tone.</p>
+        </a>
+        <a class="family-hub-card" href="plans.html?plan=sower-kids">
+          <p class="family-hub-card-label">Listen</p>
+          <p class="family-hub-card-title">Parable of the Sower for Kids</p>
+          <p class="family-hub-card-desc">A story-centered path when you want one clear action step to carry into the week.</p>
+        </a>
+        <a class="family-hub-card" href="plans.html?plan=summer-seeds">
+          <p class="family-hub-card-label">Summer</p>
+          <p class="family-hub-card-title">Summer Seeds</p>
+          <p class="family-hub-card-desc">Eight anchor days for the lightest weekly family rhythm on the site.</p>
+        </a>
+      </div>
+    </section>
+
+    <p class="family-month-stat family-hub-animate family-hub-d2" id="family-month-stat" role="status" aria-live="polite"></p>
+
+    <section class="family-section-block family-hub-animate family-hub-d2" id="family-household-dashboard" aria-labelledby="family-dashboard-heading">
+      <h2 class="family-section-title" id="family-dashboard-heading">Family dashboard</h2>
+      <p class="section-lead">A local-first household snapshot: same device, no cloud required. Use it to see the next gentle step, not to build pressure.</p>
+      <div class="family-dashboard-grid">
+        <article class="family-dashboard-card">
+          <h3>Today&rsquo;s verse, family-sized</h3>
+          <p id="family-dashboard-verse-line">Today&rsquo;s family verse will show here with one calm line to carry into the room.</p>
+          <p id="family-dashboard-verse-step">If the page is still waking up, open the verse card below or tap Try again.</p>
+          <div class="family-dashboard-links">
+            <a class="btn btn-primary" id="family-dashboard-verse-link" href="#family-daily-verse-root">Open today&rsquo;s verse</a>
+            <button type="button" class="btn btn-secondary" id="family-dashboard-verse-speak">Read aloud</button>
+          </div>
+        </article>
+        <article class="family-dashboard-card">
+          <h3>Kids Battle on this device</h3>
+          <p id="family-dashboard-kids-line">Kids progress will show here when one story or streak starts.</p>
+          <p id="family-dashboard-kids-note">Stories, badges, and doodles stay mercy-first and local on this device.</p>
+          <div class="family-dashboard-links">
+            <a class="btn btn-secondary" href="kids/parent.html">Parent Dashboard</a>
+            <a class="btn btn-secondary" href="kids/corner.html">Story Library</a>
+          </div>
+        </article>
+        <article class="family-dashboard-card">
+          <h3>Prayer + journal shelf</h3>
+          <p id="family-dashboard-prayer-line">Household prayer and gratitude notes will show here.</p>
+          <p id="family-dashboard-journal-line">What God has done stays private unless you export or print it yourself.</p>
+          <div class="family-dashboard-links">
+            <a class="btn btn-secondary" href="#family-prayer-wall">Household prayer list</a>
+            <a class="btn btn-secondary" href="what-god-has-done.html">What God has done</a>
+          </div>
+        </article>
+        <article class="family-dashboard-card">
+          <h3>Next gentle family step</h3>
+          <p id="family-dashboard-plan-line">Your next family plan step will show here.</p>
+          <p id="family-dashboard-plan-note">If nothing is started yet, this will point you to the gentlest first path.</p>
+          <div class="family-dashboard-links">
+            <a class="btn btn-primary" id="family-dashboard-plan-link" href="plans.html?plan=familyworship">Start Family Worship</a>
+            <a class="btn btn-secondary" href="year-at-a-glance.html">Print year pack</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="family-verse-card family-hub-animate family-hub-d2" id="family-daily-verse-root" aria-labelledby="family-daily-verse-heading">
+      <h2 id="family-daily-verse-heading">Today&rsquo;s family verse</h2>
+      <div class="family-verse-frame">
+        <p class="family-verse-ref daily-verse-ref" id="family-daily-verse-ref">Same daily pick (KJV)</p>
+        <blockquote class="daily-verse-body family-daily-verse-body" aria-labelledby="family-daily-verse-ref">
+          <p class="family-verse-quote daily-verse-text" id="family-daily-verse-text" aria-live="polite">The same KJV verse from home will appear here. If the signal is slow, open <a href="verse.html">Verse of the Day</a> or tap Try again above.</p>
+        </blockquote>
+      </div>
+      <p class="family-verse-print-delight">
+        <button type="button" id="tdb-family-print-verse-btn" class="btn btn-secondary tdb-print-delight" aria-label="Print today&apos;s family KJV verse on a simple sheet">Print this verse (sheet)</button>
+      </p>
+      <p class="family-verse-foot">Same pick as the home page today (KJV). Full page: <a href="verse.html">Verse of the Day</a>.</p>
+      <div class="family-plan-hint" id="family-plan-context" hidden></div>
+    </section>
+
+    <section class="family-section-block family-hub-animate family-hub-d2 family-memory-section" id="family-year-round-memory" aria-labelledby="family-memory-heading">
+      <h2 class="family-section-title" id="family-memory-heading">Year-round &amp; Memory Verses</h2>
+      <p class="section-lead">Gentle review on this device only&mdash;no account. Mark what you&rsquo;re learning or celebrate what you&rsquo;ve hidden in your heart. <a href="seasonal.html">Seasonal paths</a> &middot; <a href="yearly-rhythm.html#yr-memory">Year-round rhythm</a> (month grid). Printables: <a href="church-sharing-kit.html#csk-memory-verse-cards">cut-out cards</a>, <a href="yearly-rhythm.html#yr-print-planners">one-page planners</a> (also <a href="church-sharing-kit.html#csk-print-planners">church kit</a>).</p>
+      <div id="memory-verses" class="memory-verses-shell memory-section">
+      <div id="family-memory-verses-root" class="family-memory-verses-root"></div>
+      </div>
+      <p class="section-note" id="family-seasonal-plans-links">Seasonal Battle Plans (same day-count as the main plans page): <a href="plans.html?plan=schoolcourage">Back-to-School Courage</a> &middot; <a href="plans.html?plan=harvestthanks">Harvest Gratitude</a> &middot; <a href="plans.html?plan=adventquiet">Advent Quiet</a> &middot; <a href="plans.html?plan=gentleyear">Gentle New Year Reset</a> &middot; <a href="plans.html?plan=summerstill">Summer Stillness</a> &middot; <a href="plans.html?plan=easter">Resurrection Hope</a>.</p>
+    </section>
+
+    <div id="family-gentle-empty"></div>
+
+    <section class="family-section-block family-hub-animate family-hub-d3" aria-labelledby="family-plans-heading">
+      <h2 class="family-section-title" id="family-plans-heading">Family reading plans</h2>
+      <p class="section-lead">Seven-day rhythms with See / Understand / Live, parent prompts, and kid-ready questions. Tap <strong>Mark complete</strong> on each day in the plan to move forward—progress stays on this device.</p>
+      <p class="section-note tdb-privacy-whisper family-plan-progress-whisper" role="note">Each plan keeps its own day count here. A family plan does not share progress with a different Battle Plan you might open for yourself&mdash;no mixing, no pressure to &ldquo;catch up&rdquo; across two tracks.</p>
+      <div id="family-plan-cards"></div>
+    </section>
+
+    <div class="family-active-plans family-hub-animate family-hub-d3" id="family-active-wrap" hidden>
+      <h2>Other plans on this device</h2>
+      <ul class="family-active-list" id="family-active-list"></ul>
+    </div>
+
+    <section class="family-section-block family-hub-animate family-hub-d3" aria-labelledby="family-quick-heading">
+      <h2 class="family-section-title" id="family-quick-heading">Quick starts</h2>
+      <p class="section-lead">One tap each—no account, no cloud for these tools.</p>
+      <div class="family-hub-grid calm-grid calm-grid--2 calm-grid--3">
+        <a class="family-hub-card" href="family-armor.html">
+          <p class="family-hub-card-label">Armor</p>
+          <p class="family-hub-card-title">Family Armor &amp; Stories</p>
+          <p class="family-hub-card-desc">Read the KJV foundation (Ephesians 6), then open the workspace on the home page for Bible stories and household progress.</p>
+        </a>
+        <a class="family-hub-card" href="plans.html?plan=familyworship">
+          <p class="family-hub-card-label">Worship</p>
+          <p class="family-hub-card-title">Start Family Worship</p>
+          <p class="family-hub-card-desc">Open <em>Family Worship in the Trenches</em>—Christ at the table, real rooms, short steps.</p>
+        </a>
+        <a class="family-hub-card" href="plans.html?plan=eveninguog">
+          <p class="family-hub-card-label">Evening</p>
+          <p class="family-hub-card-title">Evening in the University</p>
+          <p class="family-hub-card-desc">Four nights—one verse, one hush, one prayer—read aloud for parents and kids. Separate save from your solo plans; no quiz, no show. <a href="family-rhythm.html">Simple family rhythm</a> gathers morning, evening, and prints in one place &middot; <a href="evening-university-print.html">One-page print for table or fridge</a> &middot; <a href="university-at-the-table-print.html">University at the Table</a> (four verses + one-minute aloud) &middot; <a href="morning-evening-family-print.html">Morning &amp; evening pair</a> &middot; <a href="one-week-in-the-university-print.html">One week sheet</a>.</p>
+        </a>
+        <a class="family-hub-card" href="daily-quiet-time.html">
+          <p class="family-hub-card-label">Quiet</p>
+          <p class="family-hub-card-title">Family quiet time</p>
+          <p class="family-hub-card-desc">One KJV line rotates with the date—read it together at the table or before bed, then open word study on that verse if you want to slow down on a word. Stays on this device.</p>
+        </a>
+        <a class="family-hub-card" href="family-activity-packs.html">
+          <p class="family-hub-card-label">Print</p>
+          <p class="family-hub-card-title">Printable Activity Packs</p>
+          <p class="family-hub-card-desc">Large-print verse, drawing space, ages 5–8 / 9–12 / teens, talk-together and prayer.</p>
+        </a>
+        <a class="family-hub-card" href="family-discussion-guide.html">
+          <p class="family-hub-card-label">Table</p>
+          <p class="family-hub-card-title">Family Discussion Guide</p>
+          <p class="family-hub-card-desc">A clean one-page See / Understand / Live sheet for busy nights, paired with Family Worship or the comfort plan.</p>
+        </a>
+        <a class="family-hub-card" href="family-youth-journal.html">
+          <p class="family-hub-card-label">Teens</p>
+          <p class="family-hub-card-title">Teen OIA Journal</p>
+          <p class="family-hub-card-desc">See &rarr; Understand &rarr; Live on one page—pairs with family plans or Galatians.</p>
+        </a>
+        <a class="family-hub-card" href="#family-prayer-wall">
+          <p class="family-hub-card-label">Pray</p>
+          <p class="family-hub-card-title">Family Prayer</p>
+          <p class="family-hub-card-desc">A simple, local list for your household on this device—add names and needs; nothing is uploaded.</p>
+        </a>
+        <a class="family-hub-card" href="plans.html">
+          <p class="family-hub-card-label">Browse</p>
+          <p class="family-hub-card-title">All Battle Plans</p>
+          <p class="family-hub-card-desc">Peace, fear, grief, gratitude, longer tracks—same gentle KJV rhythm.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="family-section-block family-hub-animate family-hub-d4" aria-labelledby="family-print-heading">
+      <h2 class="family-section-title" id="family-print-heading">Printable resources</h2>
+      <p class="section-lead">Choose a day or open the index—print only what you need. For a calm printable year calendar with verses, seasons, and activities, open the <a href="year-at-a-glance.html">Print year pack</a>.</p>
+      <div class="family-print-links">
+        <a class="btn btn-secondary" href="family-activity-packs.html">All family sheets (index)</a>
+        <a class="btn btn-secondary" href="family-discussion-guide.html">Discussion guide (print)</a>
+        <a class="btn btn-secondary" href="family-youth-journal.html">Teen journal (print)</a>
+      </div>
+    </section>
+
+    <section class="family-section-block family-hub-animate family-hub-d4" aria-labelledby="family-offline-kit-heading">
+      <h2 class="family-section-title" id="family-offline-kit-heading">Offline adventure kit</h2>
+      <p class="section-lead">When the tablet needs to rest, keep the same Scripture thread going on paper or around the table.</p>
+      <div class="family-print-links">
+        <a class="btn btn-secondary" href="kids-activities-print.html">Kids activity sheet</a>
+        <a class="btn btn-secondary" href="family-activity-packs.html">Family activity packs</a>
+        <a class="btn btn-secondary" href="memory-verse-activities-print.html">Memory verse methods</a>
+        <a class="btn btn-secondary" href="year-at-a-glance.html">Print year pack</a>
+      </div>
+    </section>
+
+    <section class="family-section-block family-hub-animate family-hub-d4" aria-labelledby="family-youth-heading">
+      <h2 class="family-section-title" id="family-youth-heading">For teens</h2>
+      <div class="family-youth-box">
+        <p class="family-youth-note">A quiet place to meet God in your own words.</p>
+        <p>Use the <a href="family-youth-journal.html">printable OIA sheet</a> with <a href="plans.html?plan=familyworship">Family Worship in the Trenches</a>, <a href="plans.html?plan=eveninguog">Evening in the University</a>, <a href="plans.html?plan=psalmscomfortfamily">Psalms of Comfort (Family Edition)</a>, or <a href="plans.html?plan=galatiansfreedom">Galatians: Freedom in Christ</a>. Keep it private on paper; the site never sees what you write.</p>
+        <p>For younger children, the <a href="kids-corner.html">Bible Loop Library</a> stays the gentler replay-safe space, and the <a href="kids/corner.html">Bible Story Library</a> is the next step when you want a read-aloud card.</p>
+      </div>
+    </section>
+
+    <section class="family-section-block family-hub-animate family-hub-d4" aria-labelledby="family-parent-heading">
+      <h2 class="family-section-title" id="family-parent-heading">Parent tools</h2>
+      <p class="section-lead">Short ideas—pick one when you are tired.</p>
+      <ul class="family-parent-tips">
+        <li>Read the verse aloud once, then ask: &ldquo;What word stuck with you?&rdquo; Silence is fine.</li>
+        <li>When correction lands hard, pause and pray one sentence before the next line.</li>
+        <li>Let littles draw while you talk; they are still in the room with God&rsquo;s Word.</li>
+        <li>Hard week? Do one day from <a href="plans.html?plan=psalmscomfortfamily">Psalms of Comfort (Family Edition)</a> instead of skipping altogether.</li>
+        <li>Busy night? Print the <a href="family-discussion-guide.html">Family Discussion Guide</a> and stop after one See / Understand / Live round.</li>
+      </ul>
+      <p class="section-lead util-mt-1"><a class="btn btn-secondary" href="plans.html?plan=parenting">When parenting feels heavy</a> — seven days in the <em>Parenting</em> plan (KJV).</p>
+    </section>
+
+    <section class="family-section-block family-hub-animate family-hub-d4" aria-labelledby="family-private-share-heading">
+      <h2 class="family-section-title" id="family-private-share-heading">Private family sharing, gently</h2>
+      <p class="section-lead">No public profiles. No family feed. If you want to share something today, keep it small and trusted.</p>
+      <ul class="family-parent-tips">
+        <li>Use <a href="/mystudy?tab=join#panel-join-study">My Study share codes</a> when one trusted person needs the same verse and note trail.</li>
+        <li>Use <a href="family-armor.html">Family Armor</a> when you want one household-facing doorway instead of a public space.</li>
+        <li>Print the <a href="family-discussion-guide.html">discussion guide</a> or <a href="family-activity-packs.html">family packs</a> when paper is calmer than another screen.</li>
+        <li>The invite flow below shares only what you choose on purpose: family name, household prayer lines, and local family-plan progress.</li>
+      </ul>
+    </section>
+
+    <section class="family-share-shell family-hub-animate family-hub-d4" id="family-invite-share" aria-labelledby="family-invite-share-heading">
+      <h2 class="family-section-title" id="family-invite-share-heading">Invite-only family sharing</h2>
+      <p class="section-lead">Send one private link or code to a trusted person. No public listing. No family feed. Nothing is uploaded just because you open this panel.</p>
+      <div class="family-share-grid">
+        <article class="family-share-card" aria-labelledby="family-invite-send-heading">
+          <h3 id="family-invite-send-heading">Send an invite</h3>
+          <label class="family-share-label" for="family-share-name">Household name</label>
+          <input id="family-share-name" class="family-share-input" type="text" maxlength="48" autocomplete="off" placeholder="e.g., The Johnson home">
+          <p class="family-share-code">Private household code: <strong id="family-share-code">Loading…</strong></p>
+          <div class="family-share-actions">
+            <button type="button" class="btn btn-primary" id="family-share-copy-link">Copy invite link</button>
+            <button type="button" class="btn btn-secondary" id="family-share-copy-code">Copy invite code</button>
+          </div>
+          <p class="family-share-includes"><strong>Includes:</strong> household name, prayer list, and saved progress for the family plans on this device. The other person still chooses whether to import it.</p>
+        </article>
+        <article class="family-share-card" aria-labelledby="family-invite-join-heading">
+          <h3 id="family-invite-join-heading">Join from an invite</h3>
+          <label class="family-share-label" for="family-share-join-input">Paste the invite link or code</label>
+          <textarea id="family-share-join-input" class="family-share-input" rows="4" spellcheck="false" placeholder="Paste a trusted family invite here"></textarea>
+          <div class="family-share-actions">
+            <button type="button" class="btn btn-primary" id="family-share-join-btn">Join this household</button>
+          </div>
+          <p class="family-share-includes">Joining merges in the shared prayer lines and the family-plan progress from that invite. Your private notes elsewhere stay on this device.</p>
+        </article>
+      </div>
+      <p class="section-note" id="family-share-status" role="status" aria-live="polite"></p>
+      <div class="family-youth-box" aria-label="Family sharing comparison">
+        <p class="family-youth-note">Three different family paths, kept plain:</p>
+        <ul class="family-parent-tips">
+          <li><strong>Family Mode on home:</strong> one same-device verse view for reading together right now.</li>
+          <li><strong>Invite-only family sharing here:</strong> one trusted link or code for household name, prayer lines, and family-plan progress only.</li>
+          <li><strong>Optional sign-in sync:</strong> your own saved verses and notes across your devices, not a public family feed.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="family-section-block family-hub-animate family-hub-d4" aria-labelledby="family-wins-gently-heading">
+      <h2 class="family-section-title" id="family-wins-gently-heading">How to use wins gently</h2>
+      <p class="section-lead">If you use the kids streaks, badges, or parent view, let them stay mercy-first.</p>
+      <ul class="family-parent-tips">
+        <li>Name what you saw: &ldquo;You opened God&rsquo;s Word today.&rdquo; Save bigger praise for faithfulness, not performance.</li>
+        <li>Use the <a href="kids/parent.html">Parent Dashboard</a> as a conversation helper, not a scoreboard.</li>
+        <li>Missed days do not need a speech. Pick up the next story and thank God for new mercy.</li>
+        <li>If a child shares a doodle or favorite story, ask one question before offering your own lesson.</li>
+      </ul>
+    </section>
+
+    <section class="family-section-block family-hub-animate family-hub-d4" aria-labelledby="family-kids-plans-guide-heading">
+      <h2 class="family-section-title" id="family-kids-plans-guide-heading">How to use Battle Plans with your kids</h2>
+      <p class="section-lead">Short days, real <abbr title="King James Version">KJV</abbr> on screen, no quiz pressure. Pick one trail and let it fit your table.</p>
+      <ol class="family-parent-tips" style="list-style: decimal; margin-left: 0; padding-left: 1.35rem; line-height: 1.55;">
+        <li>Start with one kids plan&mdash;<a href="plans.html?plan=lordsprayer-kids">Lord&rsquo;s Prayer for Kids</a>, <a href="plans.html?plan=beatitudes-kids">Beatitudes for Kids</a>, or <a href="plans.html?plan=sower-kids">Parable of the Sower for Kids</a>&mdash;and stay with it until the rhythm feels familiar.</li>
+        <li>Read the verse aloud once. The plain paragraph underneath is there if you want simpler words; let them ask one honest question before you turn the page.</li>
+        <li>Try the small step together, or whisper it as a prayer. If the day is loud, skip gently and come back tomorrow&mdash;grace beats streaks.</li>
+        <li>Progress saves on this device; no account needed. For take-home ideas or lobby cards, see the <a href="church-sharing-kit.html">Church sharing kit</a> (copy blocks and printable QR images).</li>
+      </ol>
+      <p class="section-lead util-mt-1" id="family-homeschool-sharing-note">Homeschooling or co-op days? The same one-day rhythm fits morning basket and independent Bible time&mdash;see the <a href="yearly-rhythm.html#yr-ages-5-18">ages 5&ndash;18 map</a>, plus the <a href="church-sharing-kit.html#csk-homesch">homeschool guide</a> and <a href="church-sharing-kit.html#csk-homesch-tracker">printable week tracker</a> on the Church sharing kit.</p>
+    </section>
+
+    <section class="family-section-block family-hub-animate family-hub-d4" aria-labelledby="family-devotion-rhythm-heading">
+      <h2 class="family-section-title" id="family-devotion-rhythm-heading">A simple family devotion rhythm</h2>
+      <p class="section-lead">About ten to fifteen minutes, centered on one kids plan day. No quiz; the site keeps your place on this device.</p>
+      <ol class="family-parent-tips" style="list-style: decimal; margin-left: 0; padding-left: 1.35rem; line-height: 1.55;">
+        <li>Gather in one spot (table, couch, or bedtime).</li>
+        <li>Open <a href="plans.html?plan=lordsprayer-kids">Lord&rsquo;s Prayer for Kids</a>, <a href="plans.html?plan=beatitudes-kids">Beatitudes for Kids</a>, or <a href="plans.html?plan=sower-kids">Sower for Kids</a> on one device.</li>
+        <li>Read the <abbr title="King James Version">KJV</abbr> verse and reflection together.</li>
+        <li>Do the step as a family&mdash;draw, whisper, a small kindness, or pray.</li>
+        <li>Pray the day&rsquo;s prayer; anyone who wants may add one short sentence.</li>
+        <li>Close with: &ldquo;The site will remember where we are for next time.&rdquo;</li>
+      </ol>
+      <p class="section-lead util-mt-1"><strong>Weekly shape:</strong> Monday&ndash;Friday, one day from the same study. Saturday, revisit a favorite prayer or step. Sunday, glance at progress on this page. <strong>Ages:</strong> littles lean on drawing and repeating the phrase; older kids can hear one line from the adult plan beside you if it helps.</p>
+      <p class="section-lead util-mt-1">Leaders and churches: printable wording and parent handouts live in the <a href="church-sharing-kit.html#csk-family-devotion-expanded">Church sharing kit &mdash; family devotion rhythm</a>.</p>
+    </section>
+
+    <section class="family-prayer-wall family-hub-animate family-hub-d4" id="family-prayer-wall" aria-labelledby="family-prayer-heading">
+      <h2 class="family-section-title" id="family-prayer-heading">Household prayer list</h2>
+      <p class="section-lead" style="margin-top:0">For your family on this device only. Add short lines (names, thanks, needs). Remove anytime.</p>
+      <label for="family-prayer-input">Add a prayer line</label>
+      <textarea id="family-prayer-input" class="family-prayer-input" maxlength="220" rows="3" autocomplete="off" placeholder="e.g., Thank God for Grandma&rsquo;s healing &mdash; or &mdash; Peace for our teacher"></textarea>
+      <div class="family-prayer-actions">
+        <button type="button" class="btn btn-primary" id="family-prayer-add">Add to our list</button>
+        <button type="button" class="btn btn-secondary" id="family-prayer-clear" hidden>Clear all</button>
+      </div>
+      <p class="section-note" id="family-prayer-status" role="status" aria-live="polite"></p>
+      <ul class="family-prayer-list" id="family-prayer-list" aria-label="Saved prayer lines"></ul>
+      <p class="family-prayer-foot">Church-wide requests (separate): <a href="/prayer-wall.html?tab=with-others">Prayer</a>.</p>
+    </section>
+
+    <section class="family-section-block family-hub-animate family-hub-d4" aria-labelledby="family-when-to-use-heading">
+      <h2 class="family-section-title" id="family-when-to-use-heading">When to use stories, loops, coloring, prayer habits, or Family Armor</h2>
+      <ul class="family-parent-tips">
+        <li><strong>Loops:</strong> use when a child needs a fast reset, a smile, or a small doorway into Scripture.</li>
+        <li><strong>Story Library:</strong> use when you have enough time to read, listen, and ask one honest question.</li>
+        <li><strong>Color &amp; Tell:</strong> use when little hands need to stay busy while the verse sinks in.</li>
+        <li><strong>Prayer habits:</strong> use when the screen should get lighter and your family needs a calm response.</li>
+        <li><strong>Family Armor:</strong> use when you want the whole household on one shared Scripture frame and one mercy-first rhythm.</li>
+      </ul>
+    </section>
+
+    <p class="family-kids-tie"><a href="kids-corner.html">Bible Loop Library</a> stays the younger-child space for quick replays, and <a href="kids/corner.html">Bible Story Library</a> is the fuller read-aloud path. <a href="plans.html?plan=beatitudes-kids">The Beatitudes for Kids</a> is nine gentle KJV days with simple words&mdash;read beside them. <a href="plans.html?plan=lordsprayer-kids">The Lord&rsquo;s Prayer for Kids</a> walks Matthew 6 phrase by phrase in the same calm voice (seven days, pray together). Try <a href="plans.html?plan=sower">the Parable of the Sower</a> together, too: a calm story about how our hearts receive God&rsquo;s Word; younger children may prefer <a href="plans.html?plan=sower-kids">Parable of the Sower for Kids</a> (same verses, simpler steps). <a href="plans.html?plan=galatiansfreedom">Galatians: Freedom in Christ</a> pairs well with teens. Coloring: <a href="coloring.html">Color &amp; Tell</a>.</p>
+  </main>
+  <script src="family-hierarchy.js"></script>
+  <script src="memory-verses.js"></script>
+  <script nonce="tdb2025s">
+    (function () {
+      function prog(key) {
+        try { return parseInt(localStorage.getItem(key) || '0', 10); } catch (e) { return 0; }
+      }
+      var now = new Date();
+      var mo = now.getMonth() + 1;
+      var monthKey = 'tdb-family-plan-days-' + now.getFullYear() + '-' + (mo < 10 ? '0' : '') + mo;
+      var monthCount = prog(monthKey);
+      var statEl = document.getElementById('family-month-stat');
+      if (statEl) {
+        statEl.replaceChildren();
+        statEl.appendChild(document.createTextNode('Your family has walked '));
+        var strong = document.createElement('strong');
+        strong.textContent = String(monthCount);
+        statEl.appendChild(strong);
+        statEl.appendChild(document.createTextNode(' plan day' + (monthCount === 1 ? '' : 's') + ' this month on this device.'));
+        var note = document.createElement('span');
+        note.className = 'family-month-note';
+        note.textContent = 'Counts when you tap Mark complete on Family Worship, Psalms of Comfort (Family Edition), or Parenting. Resets with the calendar month.';
+        statEl.appendChild(note);
+      }
+
+      var featured = [
+        {
+          key: 'tdb-plan-familyworship-day',
+          max: 7,
+          planId: 'familyworship',
+          title: 'Family Worship in the Trenches',
+          desc: 'Christ at the table in real life—short KJV verses, See / Understand / Live, parent prompts, kid questions, one family prayer.',
+          href: 'plans.html?plan=familyworship',
+          wide: false
+        },
+        {
+          key: 'tdb-plan-psalmscomfortfamily-day',
+          max: 7,
+          planId: 'psalmscomfortfamily',
+          title: 'Psalms of Comfort (Family Edition)',
+          desc: 'Seven comforting Psalms—same readings as the classic comfort plan, reframed for the table with family discussion.',
+          href: 'plans.html?plan=psalmscomfortfamily',
+          wide: false
+        },
+        {
+          key: 'tdb-plan-parenting-day',
+          max: 7,
+          planId: 'parenting',
+          title: 'Parenting',
+          desc: 'When parenting feels heavy—seven gentle days in the Word for moms and dads (KJV), with honest steps and prayer.',
+          href: 'plans.html?plan=parenting',
+          wide: true
+        }
+      ];
+
+      var cardsRoot = document.getElementById('family-plan-cards');
+      if (cardsRoot) {
+        featured.forEach(function (f) {
+          var n = prog(f.key);
+          var pct = f.max > 0 ? Math.min(100, Math.round((n / f.max) * 100)) : 0;
+          var art = document.createElement('article');
+          art.className = 'family-plan-card' + (f.wide ? ' family-plan-card--wide' : '');
+          art.setAttribute('aria-label', f.title);
+
+          var h = document.createElement('h3');
+          h.textContent = f.title;
+          art.appendChild(h);
+
+          var d = document.createElement('p');
+          d.className = 'family-plan-card-desc';
+          d.textContent = f.desc;
+          art.appendChild(d);
+
+          var barWrap = document.createElement('div');
+          barWrap.className = 'family-plan-card-bar';
+          barWrap.setAttribute('role', 'progressbar');
+          barWrap.setAttribute('aria-valuemin', '0');
+          barWrap.setAttribute('aria-valuemax', String(f.max));
+          barWrap.setAttribute('aria-valuenow', String(Math.min(n, f.max)));
+          barWrap.setAttribute('aria-label', 'Days completed: ' + Math.min(n, f.max) + ' of ' + f.max);
+          var fill = document.createElement('span');
+          fill.className = 'family-plan-card-bar-fill';
+          fill.style.width = pct + '%';
+          barWrap.appendChild(fill);
+          art.appendChild(barWrap);
+
+          var meta = document.createElement('p');
+          meta.className = 'family-plan-card-meta';
+          if (n <= 0) meta.textContent = 'Not started — Day 1 of ' + f.max + ' ready.';
+          else if (n >= f.max) meta.textContent = 'Finished all ' + f.max + ' days — reopen anytime to revisit.';
+          else meta.textContent = 'Day ' + (n + 1) + ' of ' + f.max + ' next — pick up where you left off.';
+          art.appendChild(meta);
+
+          var a = document.createElement('a');
+          a.className = 'btn btn-primary';
+          a.href = f.href;
+          if (n <= 0) {
+            a.textContent = 'Start — Day 1';
+          } else if (n >= f.max) {
+            a.textContent = 'Revisit plan';
+          } else {
+            a.textContent = 'Continue — Day ' + (n + 1);
+          }
+          art.appendChild(a);
+
+          cardsRoot.appendChild(art);
+        });
+      }
+
+      var gentleEmpty = document.getElementById('family-gentle-empty');
+      var anyFeatured = featured.some(function (f) { return prog(f.key) > 0; });
+      if (gentleEmpty && !anyFeatured) {
+        var empty = document.createElement('div');
+        empty.className = 'family-gentle-empty';
+        empty.setAttribute('role', 'status');
+        var ep = document.createElement('p');
+        ep.textContent = 'No family plan progress on this device yet—that is a fine place to begin. When you are ready, choose one:';
+        empty.appendChild(ep);
+        var ul = document.createElement('ul');
+        [['plans.html?plan=familyworship', 'Family Worship in the Trenches'], ['plans.html?plan=psalmscomfortfamily', 'Psalms of Comfort (Family Edition)'], ['plans.html?plan=parenting', 'Parenting']].forEach(function (pair) {
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          a.href = pair[0];
+          a.textContent = pair[1];
+          li.appendChild(a);
+          ul.appendChild(li);
+        });
+        empty.appendChild(ul);
+        var ep2 = document.createElement('p');
+        ep2.textContent = 'Or linger with today\u2019s verse above—no checklist required.';
+        empty.appendChild(ep2);
+        gentleEmpty.appendChild(empty);
+      }
+
+      var otherPlans = [
+        { key: 'tdb-plan-beatitudes-kids-day', max: 9, href: 'plans.html?plan=beatitudes-kids', label: 'Beatitudes for Kids' },
+        { key: 'tdb-plan-lordsprayer-kids-day', max: 7, href: 'plans.html?plan=lordsprayer-kids', label: 'The Lord\u2019s Prayer for Kids' },
+        { key: 'tdb-plan-sower-kids-day', max: 7, href: 'plans.html?plan=sower-kids', label: 'Parable of the Sower for Kids' },
+        { key: 'tdb-plan-sower-day', max: 7, href: 'plans.html?plan=sower', label: 'Parable of the Sower' },
+        { key: 'tdb-plan-galatiansfreedom-day', max: 7, href: 'plans.html?plan=galatiansfreedom', label: 'Galatians: Freedom in Christ' },
+        { key: 'tdb-plan-psalmscomfort-day', max: 7, href: 'plans.html?plan=psalmscomfort', label: 'Psalms of Comfort (classic)' }
+      ];
+      var anyOther = false;
+      var list = document.getElementById('family-active-list');
+      var wrap = document.getElementById('family-active-wrap');
+      otherPlans.forEach(function (p) {
+        var n = prog(p.key);
+        if (n <= 0) return;
+        anyOther = true;
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        a.href = p.href;
+        if (n >= p.max) {
+          a.textContent = p.label + ' — finished (open to revisit)';
+        } else {
+          a.textContent = p.label + ' — day ' + (n + 1) + ' of ' + p.max;
+        }
+        li.appendChild(a);
+        list.appendChild(li);
+      });
+      if (anyOther) wrap.hidden = false;
+
+      var ctx = document.getElementById('family-plan-context');
+      var fw = prog('tdb-plan-familyworship-day');
+      var pcf = prog('tdb-plan-psalmscomfortfamily-day');
+      if (ctx && ((fw > 0 && fw < 7) || (pcf > 0 && pcf < 7))) {
+        ctx.hidden = false;
+        ctx.replaceChildren();
+        function lineFor(progress, planName, planId) {
+          if (progress <= 0 || progress >= 7) return;
+          var sheetDay = progress + 1;
+          var p = document.createElement('p');
+          p.className = 'family-plan-hint-line';
+          p.appendChild(document.createTextNode('You are on ' + planName + ' — day ' + sheetDay + ' of 7. '));
+          var la = document.createElement('a');
+          la.href = 'plans.html?plan=' + planId;
+          la.textContent = 'Open today\u2019s reading';
+          p.appendChild(la);
+          p.appendChild(document.createTextNode(' or '));
+          var pa = document.createElement('a');
+          pa.href = 'family-activity-packs.html?plan=' + planId + '&day=' + sheetDay;
+          pa.textContent = 'print today\u2019s sheet';
+          p.appendChild(pa);
+          p.appendChild(document.createTextNode('.'));
+          ctx.appendChild(p);
+        }
+        lineFor(fw, 'Family Worship in the Trenches', 'familyworship');
+        lineFor(pcf, 'Psalms of Comfort (Family Edition)', 'psalmscomfortfamily');
+      }
+
+      if (window.TDB_memoryVerses && typeof window.TDB_memoryVerses.mountFamilySection === 'function') {
+        window.TDB_memoryVerses.mountFamilySection();
+      }
+    })();
+  </script>
+  <script nonce="tdb2025s">
+    (function () {
+      var KEY = 'tdb-family-prayer-wall-v1';
+      var MAX_ITEMS = 18;
+      var input = document.getElementById('family-prayer-input');
+      var addBtn = document.getElementById('family-prayer-add');
+      var clearBtn = document.getElementById('family-prayer-clear');
+      var listEl = document.getElementById('family-prayer-list');
+      var statusEl = document.getElementById('family-prayer-status');
+      if (!input || !addBtn || !listEl) return;
+
+      function loadList() {
+        try {
+          var raw = localStorage.getItem(KEY);
+          if (!raw) return [];
+          var a = JSON.parse(raw);
+          if (!Array.isArray(a)) return [];
+          return a.filter(function (x) { return typeof x === 'string'; }).slice(0, MAX_ITEMS);
+        } catch (e) {
+          return [];
+        }
+      }
+      function saveList(arr) {
+        try {
+          localStorage.setItem(KEY, JSON.stringify(arr.slice(0, MAX_ITEMS)));
+        } catch (e) { /* ignore quota */ }
+      }
+      function setStatus(msg) {
+        if (statusEl) {
+          statusEl.textContent = msg || '';
+          if (!msg) statusEl.setAttribute('hidden', '');
+          else statusEl.removeAttribute('hidden');
+        }
+      }
+      function render() {
+        var items = loadList();
+        listEl.replaceChildren();
+        items.forEach(function (text, idx) {
+          var li = document.createElement('li');
+          var span = document.createElement('span');
+          span.className = 'family-prayer-text';
+          span.textContent = text;
+          li.appendChild(span);
+          var rm = document.createElement('button');
+          rm.type = 'button';
+          rm.className = 'family-prayer-remove';
+          rm.setAttribute('aria-label', 'Remove this prayer line');
+          rm.textContent = 'Remove';
+          rm.addEventListener('click', function () {
+            var cur = loadList();
+            cur.splice(idx, 1);
+            saveList(cur);
+            render();
+            setStatus('Removed.');
+          });
+          li.appendChild(rm);
+          listEl.appendChild(li);
+        });
+        if (clearBtn) clearBtn.hidden = items.length === 0;
+      }
+      addBtn.addEventListener('click', function () {
+        var t = (input.value || '').trim().replace(/\s+/g, ' ');
+        if (!t) {
+          setStatus('Write a short line first.');
+          return;
+        }
+        if (t.length > 220) t = t.slice(0, 220);
+        var cur = loadList();
+        if (cur.length >= MAX_ITEMS) {
+          setStatus('List is full (' + MAX_ITEMS + ' lines). Remove one to add another.');
+          return;
+        }
+        cur.push(t);
+        saveList(cur);
+        input.value = '';
+        render();
+        setStatus('Saved on this device.');
+      });
+      if (clearBtn) {
+        clearBtn.addEventListener('click', function () {
+          try { localStorage.removeItem(KEY); } catch (e3) {}
+          render();
+          setStatus('Cleared.');
+        });
+      }
+      render();
+    })();
+  </script>
+  <script nonce="tdb2025s">
+    (function () {
+      var PRAYER_KEY = 'tdb-family-prayer-wall-v1';
+      var FAMILY_NAME_KEY = 'tdb_family_name';
+      var MAX_PRAYER_ITEMS = 18;
+      var PLAN_KEYS = [
+        { key: 'tdb-plan-familyworship-day', max: 7 },
+        { key: 'tdb-plan-psalmscomfortfamily-day', max: 7 },
+        { key: 'tdb-plan-parenting-day', max: 7 },
+        { key: 'tdb-plan-beatitudes-kids-day', max: 9 },
+        { key: 'tdb-plan-lordsprayer-kids-day', max: 7 },
+        { key: 'tdb-plan-sower-kids-day', max: 7 },
+        { key: 'tdb-plan-sower-day', max: 7 },
+        { key: 'tdb-plan-galatiansfreedom-day', max: 7 },
+        { key: 'tdb-plan-psalmscomfort-day', max: 7 }
+      ];
+      var nameInput = document.getElementById('family-share-name');
+      var codeEl = document.getElementById('family-share-code');
+      var copyLinkBtn = document.getElementById('family-share-copy-link');
+      var copyCodeBtn = document.getElementById('family-share-copy-code');
+      var joinInput = document.getElementById('family-share-join-input');
+      var joinBtn = document.getElementById('family-share-join-btn');
+      var statusEl = document.getElementById('family-share-status');
+      if (!nameInput || !codeEl || !copyLinkBtn || !copyCodeBtn || !joinInput || !joinBtn || !statusEl) return;
+
+      function setStatus(msg) {
+        statusEl.textContent = msg || '';
+      }
+      function readText(key) {
+        try { return String(localStorage.getItem(key) || '').trim(); } catch (e) { return ''; }
+      }
+      function writeText(key, value) {
+        try {
+          if (value) localStorage.setItem(key, value);
+          else localStorage.removeItem(key);
+        } catch (e) {}
+      }
+      function readPrayerList() {
+        try {
+          var parsed = JSON.parse(localStorage.getItem(PRAYER_KEY) || '[]');
+          if (!Array.isArray(parsed)) return [];
+          return parsed
+            .filter(function (item) { return typeof item === 'string' && item.trim(); })
+            .map(function (item) { return item.trim().replace(/\s+/g, ' '); })
+            .slice(0, MAX_PRAYER_ITEMS);
+        } catch (e) {
+          return [];
+        }
+      }
+      function writePrayerList(items) {
+        try { localStorage.setItem(PRAYER_KEY, JSON.stringify((items || []).slice(0, MAX_PRAYER_ITEMS))); } catch (e) {}
+      }
+      function readPlanProgress() {
+        var out = {};
+        PLAN_KEYS.forEach(function (plan) {
+          var raw = 0;
+          try { raw = parseInt(localStorage.getItem(plan.key) || '0', 10) || 0; } catch (e) {}
+          var safe = Math.max(0, Math.min(plan.max, raw));
+          if (safe > 0) out[plan.key] = safe;
+        });
+        return out;
+      }
+      function mergePlanProgress(progress) {
+        if (!progress || typeof progress !== 'object') return;
+        PLAN_KEYS.forEach(function (plan) {
+          var incoming = Math.max(0, Math.min(plan.max, Number(progress[plan.key] || 0)));
+          if (!incoming) return;
+          var current = 0;
+          try { current = parseInt(localStorage.getItem(plan.key) || '0', 10) || 0; } catch (e) {}
+          if (incoming > current) {
+            try { localStorage.setItem(plan.key, String(incoming)); } catch (e2) {}
+          }
+        });
+      }
+      function getHouseholdCode() {
+        if (window.TDBFamilyHierarchy && typeof window.TDBFamilyHierarchy.getFamilyCode === 'function') {
+          return window.TDBFamilyHierarchy.getFamilyCode();
+        }
+        return readText('tdb_family_link_code') || 'household-local';
+      }
+      function setHouseholdCode(code) {
+        var clean = String(code || '').trim();
+        if (!clean) return;
+        if (window.TDBFamilyHierarchy && typeof window.TDBFamilyHierarchy.setFamilyCode === 'function') {
+          window.TDBFamilyHierarchy.setFamilyCode(clean);
+          if (typeof window.TDBFamilyHierarchy.ensureMember === 'function') {
+            window.TDBFamilyHierarchy.ensureMember(clean, 0, 0, { name: nameInput.value || readText(FAMILY_NAME_KEY) || '' });
+          }
+          return;
+        }
+        writeText('tdb_family_link_code', clean);
+      }
+      function encodePayload(payload) {
+        var json = JSON.stringify(payload || {});
+        if (typeof TextEncoder !== 'undefined') {
+          var bytes = new TextEncoder().encode(json);
+          var binary = '';
+          bytes.forEach(function (b) { binary += String.fromCharCode(b); });
+          return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, '');
+        }
+        return btoa(unescape(encodeURIComponent(json))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, '');
+      }
+      function decodePayload(raw) {
+        var value = String(raw || '').trim();
+        if (!value) throw new Error('Paste an invite link or code first.');
+        if (/^https?:\/\//i.test(value)) {
+          try {
+            var url = new URL(value);
+            value = url.searchParams.get('invite') || '';
+          } catch (e) {
+            throw new Error('That link could not be read.');
+          }
+        }
+        value = value.replace(/-/g, '+').replace(/_/g, '/');
+        while (value.length % 4) value += '=';
+        var binary = atob(value);
+        var json = '';
+        if (typeof TextDecoder !== 'undefined') {
+          var bytes = new Uint8Array(binary.length);
+          for (var i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+          json = new TextDecoder().decode(bytes);
+        } else {
+          json = decodeURIComponent(escape(binary));
+        }
+        var parsed = JSON.parse(json);
+        if (!parsed || parsed.type !== 'family-invite' || parsed.v !== 1) {
+          throw new Error('That invite code is not valid for this family page.');
+        }
+        return parsed;
+      }
+      function copyText(value, successMessage) {
+        var text = String(value || '');
+        if (!text) {
+          setStatus('Nothing was ready to copy yet.');
+          return;
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function () {
+            setStatus(successMessage);
+          }).catch(function () {
+            setStatus('Copy failed here. Press and hold to copy manually.');
+          });
+          return;
+        }
+        setStatus('Copy is not available here. Press and hold to copy manually.');
+      }
+      function buildInvitePayload() {
+        var name = (nameInput.value || '').trim().slice(0, 48);
+        if (name) writeText(FAMILY_NAME_KEY, name);
+        return {
+          v: 1,
+          type: 'family-invite',
+          familyName: name || readText(FAMILY_NAME_KEY) || '',
+          code: getHouseholdCode(),
+          prayerList: readPrayerList(),
+          planProgress: readPlanProgress(),
+          createdAt: Date.now()
+        };
+      }
+      function refreshCode() {
+        codeEl.textContent = getHouseholdCode();
+        if (!nameInput.value) nameInput.value = readText(FAMILY_NAME_KEY);
+      }
+      function mergeUniquePrayerLines(incoming) {
+        var current = readPrayerList();
+        var seen = {};
+        current.forEach(function (item) { seen[item] = true; });
+        (incoming || []).forEach(function (item) {
+          var clean = String(item || '').trim().replace(/\s+/g, ' ');
+          if (!clean || seen[clean]) return;
+          seen[clean] = true;
+          current.push(clean);
+        });
+        writePrayerList(current.slice(0, MAX_PRAYER_ITEMS));
+      }
+
+      nameInput.value = readText(FAMILY_NAME_KEY);
+      refreshCode();
+      nameInput.addEventListener('change', function () {
+        var clean = (nameInput.value || '').trim().slice(0, 48);
+        nameInput.value = clean;
+        writeText(FAMILY_NAME_KEY, clean);
+        setStatus(clean ? 'Household name saved on this device.' : 'Household name cleared on this device.');
+      });
+      copyLinkBtn.addEventListener('click', function () {
+        var payload = buildInvitePayload();
+        var code = encodePayload(payload);
+        var link = window.location.origin.replace(/\/$/, '') + '/family.html?invite=' + encodeURIComponent(code);
+        copyText(link, 'Invite link copied. Send it only to someone you trust.');
+      });
+      copyCodeBtn.addEventListener('click', function () {
+        var code = encodePayload(buildInvitePayload());
+        copyText(code, 'Invite code copied. It carries the shared family bundle.');
+      });
+      joinBtn.addEventListener('click', function () {
+        try {
+          var payload = decodePayload(joinInput.value);
+          if (payload.familyName) {
+            writeText(FAMILY_NAME_KEY, String(payload.familyName).trim().slice(0, 48));
+          }
+          if (payload.code) setHouseholdCode(payload.code);
+          mergeUniquePrayerLines(Array.isArray(payload.prayerList) ? payload.prayerList : []);
+          mergePlanProgress(payload.planProgress);
+          setStatus('Invite joined. Reloading this family page with the shared household data.');
+          setTimeout(function () { window.location.href = '/family.html'; }, 450);
+        } catch (err) {
+          setStatus(err && err.message ? err.message : 'That invite could not be joined.');
+        }
+      });
+
+      try {
+        var inviteFromUrl = new URL(window.location.href).searchParams.get('invite');
+        if (inviteFromUrl) {
+          joinInput.value = inviteFromUrl;
+          setStatus('Invite loaded from the link. Press “Join this household” when you are ready.');
+          var box = document.getElementById('family-invite-share');
+          if (box && typeof box.scrollIntoView === 'function') {
+            box.scrollIntoView({ block: 'start', behavior: 'smooth' });
+          }
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <script nonce="tdb2025s">
+    window.TDB_DAILY_VERSE_ROOT_ID = 'family-daily-verse-root';
+    window.TDB_DAILY_VERSE_TEXT_ID = 'family-daily-verse-text';
+    window.TDB_DAILY_VERSE_REF_ID = 'family-daily-verse-ref';
+  </script>
+  <script src="tdb-offline-strip.js?v=20260421pwa1"></script>
+  <script type="module" src="script.js?v=20260503-consent-persist-fix" data-cfasync="false"></script>
+  <script src="kids-corner-daily-verse.js?v=20260408quickstart" defer></script>
+  <script src="family-dashboard.js?v=20260405familydash1" defer></script>
+</body>
+</html>

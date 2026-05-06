@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+  <!-- tdb-cache-hygiene: _headers no-cache tool pages; bump script query with substantive JS changes -->
+
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>For Pastors &amp; Mobile Ministers • Today's Daily Battle</title>
+  <meta name="description" content="Free, curated links for pastors and traveling ministers: printable KJV verse cards, sermon prep, mood-door QR paths, battle plans, and tools that stay honest about language and privacy.">
+  <meta name="robots" content="index, follow">
+  <meta name="referrer" content="no-referrer">
+  <link rel="canonical" href="https://todaysdailybattle.com/for-pastors.html">
+  <meta property="og:title" content="For Pastors &amp; Mobile Ministers • Today's Daily Battle">
+  <meta property="og:description" content="Printable cards, sermon tools, mood doors in many languages, offline plans — no pitch, just what already exists.">
+  <meta property="og:url" content="https://todaysdailybattle.com/for-pastors.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Today's Daily Battle">
+  <meta property="og:image" content="https://todaysdailybattle.com/assets/share/testimonials-og.jpg?v=20260322">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Words from the field — reader stories">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="For Pastors &amp; Mobile Ministers • Today's Daily Battle">
+  <meta name="twitter:description" content="Curated free tools: verse cards, sermon builder, mood doors, battle plans.">
+  <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/testimonials-og.jpg?v=20260322">
+  <script nonce="tdb2025s" type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"For pastors and mobile ministers","url":"https://todaysdailybattle.com/for-pastors.html","description":"Curated hub linking printable verse cards, sermon tools, localized mood doors, and battle plans.","isPartOf":{"@type":"WebSite","name":"Today's Daily Battle","url":"https://todaysdailybattle.com"}}
+  </script>
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260503-consent-persist-fix" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix">
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .testimonial-page-card { border-radius: 12px; padding: 1rem 1.15rem; margin-bottom: 1rem; }
+    .testimonial-page-card p { margin: 0; font-style: italic; color: var(--muted, #94a3b8); line-height: 1.55; }
+    .testimonial-page-meta { margin-top: 0.65rem; font-size: 0.82rem; color: var(--gold-soft, #c9a84c); }
+    .fp-pastors-cta { display: flex; flex-wrap: wrap; gap: 0.65rem; align-items: center; margin-top: 0.5rem; }
+    .fp-pastors-cta .btn { min-height: 44px; }
+    .fp-oia-examples-wrap { margin-top: 0.35rem; }
+    .fp-oia-example-block {
+      margin: 1rem 0 0;
+      padding: 0.85rem 1rem;
+      border-radius: 10px;
+    }
+    .fp-oia-example-block h3 { font-size: 1rem; margin: 0 0 0.5rem; color: var(--gold-soft, #e3bc67); }
+    .fp-oia-example-block .fp-kjv-quote {
+      margin: 0 0 0.65rem;
+      padding-left: 0.75rem;
+      border-left: 3px solid rgba(227, 188, 103, 0.45);
+      font-style: italic;
+      color: var(--text, #e2e8f0);
+      line-height: 1.55;
+    }
+    .fp-oia-example-block dl { margin: 0; }
+    .fp-oia-example-block dt { font-weight: 700; font-size: 0.82rem; margin-top: 0.5rem; color: var(--muted, #94a3b8); text-transform: uppercase; letter-spacing: 0.04em; }
+    .fp-oia-example-block dt:first-child { margin-top: 0; }
+    .fp-oia-example-block dd { margin: 0.25rem 0 0; padding: 0; line-height: 1.55; color: var(--text, #e2e8f0); }
+    .fp-oia-table-wrap { overflow-x: auto; margin: 0.65rem 0; -webkit-overflow-scrolling: touch; }
+    .fp-oia-compare-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; min-width: 280px; }
+    .fp-oia-compare-table th, .fp-oia-compare-table td { border: 1px solid rgba(148, 163, 184, 0.25); padding: 0.5rem 0.6rem; text-align: left; vertical-align: top; }
+    .fp-oia-compare-table th { background: rgba(0, 0, 0, 0.2); color: var(--gold-soft, #e3bc67); font-weight: 600; }
+    .fp-workflow-list { margin: 0.5rem 0 0; padding-left: 1.2rem; line-height: 1.55; color: var(--text, #e2e8f0); }
+    .fp-workflow-list li { margin: 0.35rem 0; }
+    .fp-workflow-list code { font-size: 0.85em; }
+    .fp-sample-pre {
+      margin: 0.65rem 0 0;
+      padding: 0.85rem 1rem;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      background: rgba(0, 0, 0, 0.22);
+      font-size: 0.78rem;
+      line-height: 1.45;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+      color: var(--text, #e2e8f0);
+    }
+    :root[data-theme="light"] .fp-sample-pre {
+      background: #f1f5f9;
+      border-color: rgba(148, 163, 184, 0.35);
+      color: var(--text, #334155);
+    }
+  </style>
+</head>
+<body class="dark-mode tdb-inner-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="tdb-lang-switcher-header-wrap">
+        <nav class="tdb-lang-switcher tdb-lang-switcher--header tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+          <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+                    <span class="tdb-lang-switcher-inner">
+            <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+          </span>
+        </nav>
+      </div>
+
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <p class="tdb-header-heartbeat site-tagline" lang="en">For Family, For Country, For GOD</p>
+        <span class="brand-subtitle">For pastors &amp; mobile ministers</span>
+      </div>
+      <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+      <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
+        <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+        <span class="tdb-nav-flyout-toggle__label">Site</span>
+      </button>
+      <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
+        <a href="/verse.html">Today&rsquo;s Lesson</a>
+        <a href="/explore.html">Explore</a>
+        <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map and gentle paths">Curriculum</a>
+        <a href="/plans.html" id="nav-browse-curriculum" aria-label="Browse the curriculum — KJV courses and gentle battle plans">Browse the curriculum</a>
+        <a href="/university.html" id="nav-university-core" aria-label="University of God — five anchor verses, quiet map">University map</a>
+        <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read</a>
+        <a href="/memorize.html">Memorize</a>
+        <a href="/#feel-section">How I Feel</a>
+        <a href="/daily-rhythm.html">Daily Rhythm</a>
+        <a href="/prayer-wall.html">Pray</a>
+        <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
+        <details class="tdb-nav-more">
+          <summary aria-haspopup="true">More tools</summary>
+          <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+            <a href="/">Home</a>
+            <a href="/mystudy">My Study</a>
+            <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
+            <a href="/plans.html">Courses</a>
+            <a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">Family Armor for little ones</a>
+            <a href="/kids/corner.html">Kids &amp; Family</a>
+            <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
+            <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
+            <a href="/site-guide.html" id="nav-site-guide" aria-label="Start here — calm map of where to begin">Start here</a>
+            <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
+            <a href="/about.html">About</a>
+            <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
+            <a href="/mobius.html">Möbius</a>
+            <a href="/calm.html">Calm</a>
+            <a href="/story.html">Story</a>
+            <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
+          </div>
+        </details>
+      </div>
+    </nav>
+      <div class="tdb-header-account-nudge" role="group" aria-label="Account shortcuts">
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" aria-label="Open the five-minute site tour">Site tour</button>
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-restart-btn" aria-label="Restart the five-minute site tour from the beginning">Restart</button>
+        <a href="/login.html" class="tdb-header-account-nudge__link">Log in</a>
+        <a href="/mystudy?tab=library#saved-verses" class="tdb-header-account-nudge__link">My Study</a>
+      </div>
+
+      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
+</header>
+
+    <aside id="sidebar" class="sidebar">
+      <nav class="side-nav" aria-label="Site navigation">
+        <a href="/">Home</a>
+        <a href="explore.html">Explore</a>
+        <a href="about.html">About</a>
+        <a href="testimonials.html">Stories</a>
+        <a href="for-pastors.html" aria-current="page">For pastors</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="pricing.html">Pricing</a>
+      </nav>
+    </aside>
+
+    <main class="app-content" id="main-content">
+      <div class="content-inner for-pastors-page">
+        <header class="hero-banner for-pastors-hero">
+          <p class="for-pastors-eyebrow">Curated links · same tools as the rest of the site</p>
+          <h1>For pastors &amp; mobile ministers</h1>
+          <p class="section-note topic-mood-porch">You&rsquo;re already welcome here&mdash;thin week or full week, you don&rsquo;t have to earn the desk.</p>
+          <p class="hero-tagline">Everything here is already on the site—gathered in one calm page so you can grab what you need on a travel day or a thin week. English tools use <abbr title="King James Version">KJV</abbr> on screen; localized &ldquo;mood door&rdquo; pages name their own public-domain text. No funnel, no signup wall for the tools themselves.</p>
+        </header>
+
+        <section class="glass tdb-porch-paper-glass fp-workflow" id="fp-workflow" aria-labelledby="fp-workflow-heading">
+          <h2 class="section-divider" id="fp-workflow-heading">How people use this</h2>
+          <ol class="fp-workflow-list">
+            <li>Collect verses—Bible Tool, Battle Plans, or open <a href="sermon.html">Sermon Builder</a> with <code>?ref=Book%201:1</code> in the URL.</li>
+            <li>Paste short lines into <strong>Supporting context</strong>—optional; pull context from the <a href="/bible/tools.html">study workshop</a> and <a href="/bible-tool.html">Bible Tool</a> after a lookup.</li>
+            <li>Fill <strong>Observation</strong>, <strong>Interpretation</strong>, and <strong>Application</strong> for each main point (same rhythm as plans&rsquo; See / Mean / Live).</li>
+            <li>Export PDF, handout, or lesson pack; drafts stay on your device until you share.</li>
+          </ol>
+          <div class="fp-pastors-cta util-mt-0_75" role="group" aria-label="Teaching entry points">
+            <a class="btn btn-primary" href="sermon.html">Start Sermon workspace</a>
+            <a class="btn btn-secondary" href="bible/tools.html#book-intros">Browse book intros for teaching</a>
+            <a class="btn btn-secondary" href="plans.html">Find plans for small groups</a>
+            <a class="btn btn-secondary" href="church-sharing-kit.html">Church sharing kit (copy-paste)</a>
+            <a class="btn btn-secondary" href="embeddable-widgets.html">Embeddable verse widgets</a>
+            <a class="btn btn-secondary" href="yearly-rhythm.html#yr-ages-5-18">Ages 5&ndash;18 weekly + daily map</a>
+          </div>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass" id="fp-church-sharing-kit" aria-labelledby="fp-church-sharing-kit-heading">
+          <h2 class="section-divider" id="fp-church-sharing-kit-heading">Share with your church</h2>
+          <p class="section-note">Bulletin blurbs, short emails, SMS lines, social posts, small-group prompts, and a study-picker table&mdash;written to stay low-pressure: KJV on the page, no login required to read, progress on the device. Use any slice; ignore what does not fit your context.</p>
+          <p class="section-note">If you want a live verse card on your own church or counseling page, the new <a href="embeddable-widgets.html">Embeddable Verse Widgets</a> page gives you copy-ready script tags and previews.</p>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="church-sharing-kit.html">Open Church sharing kit</a>
+            <a class="btn btn-secondary" href="embeddable-widgets.html">Open embeddable widgets</a>
+            <a class="btn btn-secondary" href="bible-study.html">Bible Studies hub</a>
+          </div>
+          <p class="section-note util-mt-0_75" id="fp-church-kit-completeness">Everything you need for children&rsquo;s ministry, VBS, family devotions, and small groups lives in the <a href="church-sharing-kit.html">Church Sharing Kit</a>&mdash;ready to copy, print, or share. For private-school and multi-age class pacing, use the <a href="yearly-rhythm.html#yr-ages-5-18">ages 5&ndash;18 weekly + daily map</a> and the <a href="yearly-rhythm.html#yr-monthly-lesson-sheets">12-month lesson sheets</a>.</p>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass fp-oia-teach" id="fp-oia-teach" aria-labelledby="fp-oia-heading">
+          <h2 class="section-divider" id="fp-oia-heading">Teach from the text (OIA)</h2>
+          <p class="section-note"><strong>Observation</strong> &rarr; <strong>Interpretation</strong> &rarr; <strong>Application</strong> matches Battle Plans&rsquo; optional &ldquo;Go deeper&rdquo; lines—spelled out in <a href="sermon.html">Sermon Builder</a>. Use <strong>Quick Start</strong> there for calm starters (Expository, Topical, Devotional talk) with OIA blocks already laid out.</p>
+          <p class="section-note util-mb-0">Verse collection, live preview, and exports stay on your device: PDF, larger-type handout, and a <strong>lesson pack</strong> with discussion prompts from your application notes—plus optional supporting excerpts. <a href="#fp-oia-examples">Worked examples (KJV) and OIA vs. SOAP</a> are below; <a href="#fp-sample-lesson">sample Galatians sketch</a> shows a light lesson-pack shape.</p>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass fp-oia-examples-wrap" id="fp-oia-examples" aria-labelledby="fp-oia-examples-heading">
+          <h2 class="section-divider" id="fp-oia-examples-heading">OIA in practice (KJV)</h2>
+          <p class="section-note"><strong>Observation</strong> &rarr; <strong>Interpretation</strong> &rarr; <strong>Application</strong> is the inductive rhythm built into <a href="plans.html">Battle Plans</a> (&ldquo;Go deeper&rdquo;) and <a href="sermon.html">Sermon Builder</a>. It keeps the text in front: look carefully, understand in context, then live it. Below are three full examples—psalm, epistle, doctrine—so you can see each step plainly.</p>
+
+          <article class="fp-oia-example-block" aria-labelledby="fp-ex1-h">
+            <h3 id="fp-ex1-h">Example 1: Psalm 23:1&ndash;2 (comfort, poetry)</h3>
+            <p class="fp-kjv-quote">&ldquo;The LORD is my shepherd; I shall not want. He maketh me to lie down in green pastures: he leadeth me beside the still waters.&rdquo;</p>
+            <dl>
+              <dt>Observation</dt>
+              <dd>Speaker: David, writing as one who knew sheep and shepherds. Metaphor: God as shepherd, the believer as sheep. Repeated ideas: care and provision (&ldquo;my shepherd,&rdquo; &ldquo;I shall not want,&rdquo; &ldquo;maketh me,&rdquo; &ldquo;leadeth me&rdquo;). Verbs: he <em>maketh</em> me lie down (rest); he <em>leadeth</em> me (gentle guidance). Imagery: green pastures (food and rest), still waters (peace, refreshment). Tone: quiet confidence. Structure: two short declarations.</dd>
+              <dt>Interpretation</dt>
+              <dd>In the world of the Psalms, a shepherd guarded, fed, and led the flock; the sheep depended on him for everything. &ldquo;I shall not want&rdquo; is not a promise of every desire, but that the believer will not lack what God knows is needed under his care. The waters are <em>still</em>—safe to drink—not chaotic. See also Psalm 95:7, Ezekiel 34, John 10:11 for the same picture.</dd>
+              <dt>Application</dt>
+              <dd>When anxiety or lack feels loud, pause and say aloud that the Lord is my Shepherd. One small step: speak Psalm 23:1&ndash;2 once in the morning and again when worry rises; then rest in his care instead of striving alone.</dd>
+            </dl>
+          </article>
+
+          <article class="fp-oia-example-block" aria-labelledby="fp-ex2-h">
+            <h3 id="fp-ex2-h">Example 2: James 1:2&ndash;4 (epistle, trials)</h3>
+            <p class="fp-kjv-quote">&ldquo;My brethren, count it all joy when ye fall into divers temptations; Knowing this, that the trying of your faith worketh patience. But let patience have her perfect work, that ye may be perfect and entire, wanting nothing.&rdquo;</p>
+            <dl>
+              <dt>Observation</dt>
+              <dd>Speaker: James, to believers scattered and under pressure. Command: <em>count</em> it all joy—an act of the mind, not a command to pretend feelings. Contrast: you <em>fall into</em> trials (often sudden) with <em>knowing this</em> (God&rsquo;s purpose can be named). Chain: trials test faith &rarr; patience &rarr; maturity (&ldquo;perfect and entire, wanting nothing&rdquo;). Key words: patience, perfect, wanting nothing. Tone: honest about pain, still forward-looking.</dd>
+              <dt>Interpretation</dt>
+              <dd>&ldquo;Divers temptations&rdquo; means various trials—not only inward sin temptation. James does not call evil good; he says God produces something good <em>through</em> testing: endurance that completes faith. &ldquo;Perfect and entire, wanting nothing&rdquo; is wholeness of character, not ease. This fits the letter&rsquo;s theme: faith that shows up in real life.</dd>
+              <dt>Application</dt>
+              <dd>When a trial lands this week, I will <em>count</em> it joy by rehearsing that God is forming patience and maturity—not by denying grief. One small step: write James 1:2&ndash;4 on a card; read it aloud when the trial feels heavy; pray that patience would finish its work.</dd>
+            </dl>
+          </article>
+
+          <article class="fp-oia-example-block" aria-labelledby="fp-ex3-h">
+            <h3 id="fp-ex3-h">Example 3: Ephesians 2:8&ndash;9 (doctrine, grace)</h3>
+            <p class="fp-kjv-quote">&ldquo;For by grace are ye saved through faith; and that not of yourselves: it is the gift of God: Not of works, lest any man should boast.&rdquo;</p>
+            <dl>
+              <dt>Observation</dt>
+              <dd>Contrast: &ldquo;by grace &hellip; through faith&rdquo; set against &ldquo;not of yourselves&rdquo; and &ldquo;not of works.&rdquo; Emphasis doubled on &ldquo;not of&rdquo;; salvation is a <em>gift</em>. Structure: means (grace), instrument (faith), negations (not self, not works), purpose (no boasting). Tone: firm, clear.</dd>
+              <dt>Interpretation</dt>
+              <dd>Salvation is God&rsquo;s gift, not wages. Faith is the empty hand that receives; grace is the giver. Works are excluded as the ground of acceptance before God, so no one can boast (see Romans 3:27&ndash;28; Titus 3:5). The text guards both humility and assurance.</dd>
+              <dt>Application</dt>
+              <dd>When I feel I must perform to earn God&rsquo;s favor, I will speak this verse and remember: received, not earned. One small step: when guilt or pressure rises, say Ephesians 2:8&ndash;9 aloud and rest in grace rather than striving.</dd>
+            </dl>
+          </article>
+
+          <h3 class="section-divider util-mt-1" id="fp-soap-compare">OIA and SOAP (choose what fits the day)</h3>
+          <p class="section-note"><strong>SOAP</strong> = Scripture, Observation, Application, Prayer. It is common in devotional habits because it ends in prayer and moves quickly. <strong>OIA</strong> keeps a full <strong>Interpretation</strong> step—context, meaning, cross-references—before application, which helps teaching and guards against reading our own ideas into the text.</p>
+          <div class="fp-oia-table-wrap" role="region" aria-label="Comparison of OIA and SOAP steps">
+            <table class="fp-oia-compare-table">
+              <caption class="sr-only">OIA and SOAP compared by step</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Step</th>
+                  <th scope="col">OIA (this site)</th>
+                  <th scope="col">SOAP (common devotional)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Scripture</th>
+                  <td>Read and observe closely before meaning.</td>
+                  <td>Write out the verse.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Observation</th>
+                  <td>Words, structure, tone, who speaks to whom.</td>
+                  <td>Often brief facts only.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Interpretation</th>
+                  <td>Context, original sense, Scripture with Scripture.</td>
+                  <td>Often light or skipped.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Application</th>
+                  <td>Specific, personal, obedient &ldquo;I will.&rdquo;</td>
+                  <td>Personal insight and response.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Prayer</th>
+                  <td>Natural close after application (not a separate box on the page).</td>
+                  <td>Fixed final step; often the longest.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="section-note"><strong>Same verse (James 1:2&ndash;4), SOAP-style sketch:</strong> <em>Scripture:</em> (write the verses). <em>Observation:</em> God uses trials to produce patience. <em>Application:</em> I will complain less and ask God to grow my patience in a specific situation. <em>Prayer:</em> Lord, help me count trials as joy today; give patience in [name the circumstance].</p>
+          <p class="section-note"><strong>When SOAP helps:</strong> very tired days, new believers, a short quiet time. <strong>When OIA goes deeper:</strong> sermon or lesson prep, long-term growth, and whenever you want the text itself to lead. Here, OIA stays the default in plans and Sermon Builder; you can still end any study with prayer.</p>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass fp-sample-lesson" id="fp-sample-lesson" aria-labelledby="fp-sample-lesson-h">
+          <h2 class="section-divider" id="fp-sample-lesson-h">Sample lesson outline (Galatians — static sketch)</h2>
+          <p class="section-note">A light example of what a <strong>lesson pack</strong> can hold—copy into Sermon Builder and replace every line with your own study. Not prescriptive; just a shape.</p>
+          <pre class="fp-sample-pre" tabindex="0">LESSON PACK (KJV) — Galatians: no other gospel (sketch)
+Primary text: Galatians 1:6-9
+Aim: Warn the church—do not turn from the One who called you.
+
+MAIN POINTS (OIA)
+
+1. I marvel that ye are so soon removed (v.6)
+Observation: Who is addressed? What is “another gospel”?
+Interpretation: “Removed” implies a turn from the true message; compare 1:7.
+Application: I will name one teaching I need to test against Christ crucified.
+
+2. Would pervert the gospel of Christ (v.7)
+Observation: Who troubles you? What is “not another” yet corrupts?
+Interpretation: Not always a different book—sometimes a twist on grace.
+Application: Our group will read the passage twice slowly, then pray for discernment.
+
+VERSE COLLECTOR
+Galatians 1:6-7
+Galatians 1:8-9
+
+SUPPORTING CONTEXT
+(Paste from Bible Tool → Galatians book intro; add chain verses from lookup.)
+
+WHOLE-GROUP APPLICATION
+Pray together: one person names a pressure to “add” to the gospel; thank God for Christ alone.</pre>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass for-pastors-hub" id="for-pastors-hub" aria-labelledby="for-pastors-hub-heading">
+          <h2 class="section-divider for-pastors-hub-section-title" id="for-pastors-hub-heading">Jump to a block</h2>
+          <p class="section-note for-pastors-hub-lead util-mb-0_5">Same sections below—this row is a quick index for phone or pulpit prep.</p>
+          <ul class="for-pastors-hub-grid">
+            <li><a href="#fp-workflow" class="for-pastors-hub-card tdb-surface-card">
+              <span class="for-pastors-hub-card-label">Start</span>
+              <span class="for-pastors-hub-card-title">How people use this</span>
+              <span class="for-pastors-hub-card-desc">Workflow + entry points</span>
+            </a></li>
+            <li><a href="#fp-oia-examples" class="for-pastors-hub-card tdb-surface-card">
+              <span class="for-pastors-hub-card-label">Study</span>
+              <span class="for-pastors-hub-card-title">OIA examples</span>
+              <span class="for-pastors-hub-card-desc">Worked texts, SOAP compare</span>
+            </a></li>
+            <li><a href="#fp-sample-lesson" class="for-pastors-hub-card tdb-surface-card">
+              <span class="for-pastors-hub-card-label">Sample</span>
+              <span class="for-pastors-hub-card-title">Galatians sketch</span>
+              <span class="for-pastors-hub-card-desc">Lesson-pack shape</span>
+            </a></li>
+            <li><a href="#fp-print" class="for-pastors-hub-card tdb-surface-card">
+              <span class="for-pastors-hub-card-label">Print</span>
+              <span class="for-pastors-hub-card-title">Room &amp; handouts</span>
+              <span class="for-pastors-hub-card-desc">Verse cards, images, daily line</span>
+            </a></li>
+            <li><a href="#fp-teach" class="for-pastors-hub-card tdb-surface-card">
+              <span class="for-pastors-hub-card-label">Teach</span>
+              <span class="for-pastors-hub-card-title">Prep &amp; Bible</span>
+              <span class="for-pastors-hub-card-desc">Sermon builder, pastor shelf</span>
+            </a></li>
+            <li><a href="#fp-care" class="for-pastors-hub-card tdb-surface-card">
+              <span class="for-pastors-hub-card-label">Care</span>
+              <span class="for-pastors-hub-card-title">Where people hurt</span>
+              <span class="for-pastors-hub-card-desc">Topics, Calm, prayer wall</span>
+            </a></li>
+            <li><a href="#fp-rhythm" class="for-pastors-hub-card tdb-surface-card">
+              <span class="for-pastors-hub-card-label">Rhythm</span>
+              <span class="for-pastors-hub-card-title">Plans &amp; groups</span>
+              <span class="for-pastors-hub-card-desc">Battle plans, teams, church</span>
+            </a></li>
+            <li><a href="#fp-voices" class="for-pastors-hub-card tdb-surface-card">
+              <span class="for-pastors-hub-card-label">Voices</span>
+              <span class="for-pastors-hub-card-title">Stories &amp; contact</span>
+              <span class="for-pastors-hub-card-desc">Reader notes, email, trust</span>
+            </a></li>
+          </ul>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass" id="fp-print">
+          <h2 class="section-divider">Print &amp; share in the room</h2>
+          <ul class="explore-link-list">
+            <li><a href="/verse-cards/">Verse cards gallery</a> — printable KJV cards.</li>
+            <li><a href="/verse-image.html">Verse image generator</a> — quiet graphics for slides or texts.</li>
+            <li><a href="/verse.html">Verse of the Day</a> — copy or share the daily line.</li>
+          </ul>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass" id="fp-teach">
+          <h2 class="section-divider">Teach &amp; prep</h2>
+          <ul class="explore-link-list">
+            <li><a href="/sermon.html">Sermon Builder</a> — Quick Start templates (Expository, Topical, Devotional talk) with OIA blocks; PDF, handouts, and lesson pack. Stays on your device until you export or share.</li>
+            <li><a href="/pastor/builder.html">Pastor Builder</a> and <a href="/pastor/library.html">Pastor Library</a> — study and shelf.</li>
+            <li><a href="/pastor-toolkit.html">Pastor Toolkit</a> and <a href="/resources.html">Pastor Resources</a>.</li>
+            <li><a href="/bible/tools.html">Study workshop</a> (Bible Hub → Tools).</li>
+            <li><a href="/bible-tool.html">Bible Tool</a> — verse lookup, topic search, notes, and reading plan (KJV in tool).</li>
+          </ul>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass" id="fp-care">
+          <h2 class="section-divider">Care where people hurt</h2>
+          <p class="section-note">English hubs: <a href="/topic-anxiety.html">Anxiety</a>, <a href="/topic-worry.html">Worry</a>, <a href="/topic-hope.html">Hope</a>, <a href="/topic-loneliness.html">Loneliness</a>, <a href="/topic-grief.html">Grief</a>, <a href="/topic-guilt.html">Guilt</a>, <a href="/topic-overwhelmed.html">Overwhelmed</a> — and the full list on <a href="/explore.html">Explore</a>. Localized mood doors (many languages) live under <a href="/explore.html#languages">Languages on Explore</a> — good targets for a QR code on a handout.</p>
+          <p class="section-note"><a href="/calm.html">Calm</a> — one verse and breath. <a href="/prayer-wall.html?tab=with-others">Prayer</a> — anonymous intents, no performance.</p>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass" id="fp-rhythm">
+          <h2 class="section-divider">Rhythm &amp; groups</h2>
+          <ul class="explore-link-list">
+            <li><a href="/plans.html">Battle Plans</a> — multi-day tracks, offline-friendly.</li>
+            <li><a href="/reading-plan.html">7-Day Plan</a> — short anchor.</li>
+            <li><a href="/team-toolkit.html">Team Toolkit</a> and <a href="/church/">Church Join Hub</a> — when you are equipping others.</li>
+          </ul>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass" id="fp-voices">
+          <h2 class="section-divider">Voices &amp; contact</h2>
+          <p class="section-note">Real notes from readers: <a href="/testimonials.html">Reader stories</a>. Questions or a permission to reprint: <a href="/contact.html">Contact</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="" data-email-display="address">support email</a>.</p>
+          <p class="section-note">All tools are private by design. Your data stays on your device unless you sign in to sync.</p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
+  <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+    <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+    <span class="tdb-lang-switcher-inner">
+      <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-essentials" aria-label="Key pages">
+    <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/verse.html">Today&rsquo;s Lesson</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <p class="site-footer-share-wrap">
+    <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
+    <span class="site-footer-share-sep" aria-hidden="true">·</span>
+    <button type="button" class="share-page-btn site-footer-tour-restart tdb-tour-restart-btn" aria-label="Restart the five-minute site tour">Restart site tour</button>
+  </p>
+
+  <nav class="bottom-nav" role="navigation" aria-label="Plans, kids, and Spanish topics">
+    <a href="/plans.html">Plans</a>
+    <a href="/kids/">Kids Battle</a>
+    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
+      <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
+      <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
+      <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-nav" aria-label="Footer links">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/media.html">Media</a>
+    <a href="/roadmap.html">Roadmap</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/for-pastors.html">For pastors &amp; teachers</a>
+    <a href="/reader.html">Chapter reader</a>
+    <a href="/bible/tools.html">Study workshop</a>
+    <a href="/bible-tool.html">Bible tool</a>
+    <a href="/testimonials.html">Reader stories</a>
+    <a href="/journal/">Journal</a>
+    <a href="/where-support-goes.html">Where support goes</a>
+    <a href="/verse-cards/">Verse cards</a>
+    <a href="/security.html">Security</a>
+    <a href="/contact.html">Contact</a>
+    <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
+  </nav>
+
+  <details class="footer-sitemap">
+    <summary>Sitemap — topics, tools, church &amp; family (tap to expand)</summary>
+    <div class="footer-sitemap-grid">
+      <div class="footer-sitemap-col">
+        <h3>The Narrow Paths</h3>
+        <a href="/explore.html">Full list (all pages)</a>
+        <a href="/topic-anxiety.html">Anxiety</a>
+        <a href="/topic-fear.html">Fear</a>
+        <a href="/topic-grief.html">Grief</a>
+        <a href="/topic-hope.html">Hope</a>
+        <a href="/topic-strength.html">Strength</a>
+        <a href="/topic-parenting.html">Parenting</a>
+        <a href="/topic-loneliness.html">Loneliness</a>
+        <a href="/topic-forgiveness.html">Forgiveness</a>
+        <a href="/topic-guilt.html">Guilt</a>
+        <a href="/topic-overwhelmed.html">Overwhelmed</a>
+        <a href="/topic-worthless.html">Worth / identity</a>
+      </div>
+      <div class="footer-sitemap-col footer-sitemap-col--es-links">
+        <h3>Spanish devotionals</h3>
+        <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es">Paz</a>
+        <a href="/explore.html#topics-es">All Spanish topics on Explore</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Tools of the Quiet Trade</h3>
+        <a href="/verse.html">Verse of the Day</a>
+        <a href="/reader.html">Chapter reader</a>
+        <a href="/bible/tools.html">Study workshop</a>
+        <a href="/bible-tool.html">Bible tool</a>
+        <a href="/mystudy">My Study</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/mobius.html">Möbius</a>
+        <a href="/plans.html">Courses</a>
+        <a href="/reading-plan.html">7-day plan</a>
+        <a href="/study.html">Study workspace</a>
+        <a href="/wins.html">Wins</a>
+        <a href="/progress.html">Progress</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>For the Household of Faith</h3>
+        <a href="/church.html">Church center</a>
+        <a href="/church/">Church join hub</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit</a>
+        <a href="/pastor/">Pastor hub</a>
+        <a href="/sermon.html">Sermon builder</a>
+        <a href="/family.html">Family hub</a>
+        <a href="/little-ones.html">For the Little Ones</a>
+        <a href="/family-armor.html">Family Armor</a>
+        <a href="/kids/">Kids Battle home</a>
+        <a href="/kids/corner.html">Bible Story Library</a>
+        <a href="/kids-corner.html">Bible Loop Library</a>
+        <a href="/coloring.html">Color &amp; Tell</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Further In</h3>
+        <a href="/prayer-wall.html">Prayer</a>
+        <a href="/bible-study.html">Bible studies</a>
+        <a href="/shop.html">Shop</a>
+        <a href="/story.html">Story</a>
+        <a href="/media.html">Media</a>
+        <a href="/roadmap.html">Roadmap</a>
+        <a href="/approach.html">How we respond</a>
+        <a href="/why-not-ai.html">Why not AI?</a>
+        <a href="/curriculum.html">Curriculum</a>
+        <a href="/verse-cards/">Verse cards</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </details>
+
+  <p class="footer-humility">We battle. He wins.</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): footer story lives in .site-footer-story below -->
+  <p class="site-footer-story">
+    Steady KJV for honest days&mdash;no ads, no selling your data; prayers stay on this device unless you sync on purpose.
+  </p>
+
+  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" aria-label="Friday verse and prayer email signup">
+    <p class="footer-friday-signup-label">Friday recap email&mdash;one message a week; leave anytime.</p>
+    <div class="footer-friday-signup-row">
+      <label for="footer-friday-email" class="sr-only">Email for Friday recap</label>
+      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="your@email.com" aria-label="Email for Friday recap" autocomplete="email">
+      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit">Subscribe</button>
+    </div>
+    <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
+  </div>
+
+  <p class="site-footer-copy site-footer-legal-line">&copy; 2026 Today&rsquo;s Daily Battle &middot; Christian Messenger Service. All rights reserved.</p>
+  <p class="site-footer-copy site-footer-legal-line">All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
+
+  <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
+  <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
+  </div>
+  <script defer src="/language-switcher.js?v=20260503-consent-persist-fix"></script>
+</footer>
+  </div>
+
+  <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
+  <script type="module" src="config.js"></script>
+  <script type="module" src="script.js?v=20260503-consent-persist-fix" data-cfasync="false"></script>
+</body>
+</html>

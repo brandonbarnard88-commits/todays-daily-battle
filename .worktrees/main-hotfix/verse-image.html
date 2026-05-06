@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Verse image generator • KJV share cards • Today's Daily Battle</title>
+  <meta name="description" content="Create a KJV verse image: dawn share templates (square, story, print) or a custom wide canvas. Export PNG offline. Supporter feature.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/verse-image.html">
+  <meta property="og:title" content="Verse image generator • Today's Daily Battle">
+  <meta property="og:description" content="Custom KJV verse cards—export PNG and share. A Supporter perk.">
+  <meta property="og:url" content="https://todaysdailybattle.com/verse-image.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Today's Daily Battle">
+  <meta property="og:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260410og">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Custom KJV verse image — Today's Daily Battle">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Verse image generator • Today's Daily Battle">
+  <meta name="twitter:description" content="Custom KJV verse cards—export PNG and share. A Supporter perk.">
+  <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260410og">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260503-consent-persist-fix" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix">
+  <link rel="preload" href="cormorant-latin-subset.css?v=20260423-phase5-perf" as="style">
+  <link rel="stylesheet" href="cormorant-latin-subset.css?v=20260423-phase5-perf" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
+  <script type="module" src="config.js"></script>
+  <style>
+    .verse-image-page .verse-image-preview-wrap {
+      max-width: min(100%, 720px);
+      margin: 1rem auto;
+      border-radius: var(--tdb-surface-radius, 12px);
+      overflow: hidden;
+      border: 1px solid var(--tdb-surface-card-border, rgba(148, 163, 184, 0.2));
+      background: var(--tdb-surface-card-bg, rgba(12, 18, 30, 0.5));
+      background-image: var(--tdb-surface-veil-subtle, none);
+      box-shadow: var(--tdb-surface-card-shadow, none);
+    }
+    .verse-image-page #verse-image-canvas {
+      display: block;
+      width: 100%;
+      height: auto;
+      vertical-align: middle;
+    }
+    .verse-image-page .verse-image-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: flex-end;
+      margin-top: 0.75rem;
+    }
+    .verse-image-page .verse-image-controls label { display: block; font-size: 0.88rem; color: var(--muted, #94a3b8); margin-bottom: 0.25rem; }
+    .verse-image-page .verse-image-controls input[type="text"],
+    .verse-image-page .verse-image-controls select,
+    .verse-image-page .verse-image-controls textarea {
+      min-height: 44px;
+      padding: 0.5rem 0.65rem;
+      border-radius: calc(var(--tdb-surface-radius, 12px) - 4px);
+      border: 1px solid var(--tdb-surface-panel-border, rgba(148, 163, 184, 0.35));
+      background: var(--tdb-surface-panel-bg, rgba(15, 23, 42, 0.85));
+      background-image: var(--tdb-surface-veil-subtle, none);
+      color: var(--text, #e2e8f0);
+      font-size: 1rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .verse-image-page .verse-image-controls textarea { min-height: 6rem; resize: vertical; }
+    .verse-image-page .verse-image-locked {
+      padding: 1.25rem;
+      border-radius: var(--tdb-surface-radius, 12px);
+      border: 1px solid color-mix(in srgb, var(--gold, #d4af37) 38%, var(--tdb-surface-card-border, rgba(148, 163, 184, 0.25)));
+      background: color-mix(in srgb, var(--gold, #d4af37) 8%, var(--tdb-surface-card-bg, rgba(12, 18, 30, 0.65)));
+    }
+    .verse-image-page .verse-image-app[hidden],
+    .verse-image-page .verse-image-locked[hidden] { display: none !important; }
+    .verse-image-page .verse-image-status { font-size: 0.92rem; color: var(--muted, #94a3b8); margin-top: 0.5rem; min-height: 1.25em; }
+    .verse-image-page .verse-image-recent { font-size: 0.88rem; color: var(--muted, #94a3b8); margin-top: 0.75rem; }
+    .verse-image-page .verse-image-recent button {
+      background: none;
+      border: none;
+      color: #a78bfa;
+      text-decoration: underline;
+      cursor: pointer;
+      font-size: inherit;
+      padding: 0.15rem 0.25rem;
+      min-height: 44px;
+    }
+    .verse-image-page .verse-image-recent button:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; }
+    .verse-image-recent-gens { margin-top: 1rem; }
+    .verse-image-recent-gens h3 { font-size: 1rem; margin: 0 0 0.5rem; color: var(--muted, #94a3b8); }
+    .recent-gens-grid {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 0.75rem;
+    }
+    .recent-gens-grid li {
+      margin: 0;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: rgba(15, 23, 42, 0.6);
+    }
+    .recent-gens-grid button {
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      text-align: left;
+    }
+    .recent-gens-grid button:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; }
+    .recent-gens-grid img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1200 / 630;
+      object-fit: cover;
+    }
+    .recent-gens-grid .recent-gen-ref {
+      display: block;
+      padding: 0.35rem 0.5rem;
+      font-size: 0.78rem;
+      color: #cbd5e1;
+      line-height: 1.3;
+    }
+    /* Preview first on narrow screens; side-by-side on wide */
+    .verse-image-workspace {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    .verse-image-editor {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+    .verse-image-page .verse-image-workspace .verse-image-preview-wrap {
+      margin-top: 0;
+    }
+    @media (min-width: 900px) {
+      .verse-image-workspace {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 440px);
+        gap: 1.25rem;
+        align-items: start;
+        flex-direction: row;
+      }
+      .verse-image-workspace .verse-image-preview-wrap {
+        position: sticky;
+        top: 0.75rem;
+      }
+    }
+    .verse-image-actions .btn {
+      min-height: 44px;
+    }
+    .vi-preset-bar-inner { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .vi-mood-swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 0.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .vi-mood-swatch {
+      min-height: 64px;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: var(--vi-swatch, #1e293b);
+      color: rgba(255,255,255,0.95);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.45);
+    }
+    .vi-mood-swatch:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; }
+    .verse-image-page .verse-image-uog-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      gap: 0.65rem 0.9rem;
+      margin: 0.55rem 0 0;
+    }
+    .verse-image-page .verse-image-uog-cat-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      align-items: center;
+    }
+    .verse-image-page .verse-image-uog-cat-btn {
+      min-height: 40px;
+      padding: 0.35rem 0.7rem;
+      font-size: 0.86rem;
+      font-weight: 600;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.35);
+      color: var(--text, #e2e8f0);
+      cursor: pointer;
+    }
+    .verse-image-page .verse-image-uog-cat-btn[aria-selected="true"] {
+      border-color: rgba(167, 139, 250, 0.75);
+      background: rgba(88, 28, 135, 0.25);
+    }
+    .verse-image-page .verse-image-uog-cat-btn:focus-visible {
+      outline: 2px solid #a78bfa;
+      outline-offset: 2px;
+    }
+    .verse-image-page .verse-image-uog-preset-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      margin: 0.45rem 0 0;
+      padding: 0;
+    }
+    .verse-image-page .verse-image-uog-preset-row[hidden] {
+      display: none !important;
+    }
+    .verse-image-page .verse-image-uog-preset-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 0.75rem;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 0.6rem 0.8rem;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      background: rgba(15, 23, 42, 0.4);
+    }
+    .verse-image-page .verse-image-uog-preset-body {
+      margin: 0;
+      flex: 1 1 14rem;
+      line-height: 1.55;
+      font-size: 0.95rem;
+    }
+    .verse-image-page .verse-image-uog-preset-row .btn-verse-image-uog-copy {
+      flex: 0 0 auto;
+      min-height: 44px;
+    }
+    @media print {
+      body.verse-image-page .app-shell > header,
+      body.verse-image-page .tdb-lang-switcher-header-wrap,
+      body.verse-image-page .verse-image-editor,
+      body.verse-image-page .skip-link { display: none !important; }
+      body.verse-image-page .verse-image-workspace { display: block !important; }
+      body.verse-image-page .verse-image-preview-wrap {
+        max-width: 100% !important;
+        border: none !important;
+        box-shadow: none !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      body.verse-image-page #verse-image-canvas {
+        max-width: 100%;
+        height: auto !important;
+      }
+    }
+  </style>
+</head>
+<body class="dark-mode verse-image-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="tdb-lang-switcher-header-wrap">
+        <nav class="tdb-lang-switcher tdb-lang-switcher--header tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+          <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+                    <span class="tdb-lang-switcher-inner">
+            <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+          </span>
+        </nav>
+      </div>
+
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <p class="tdb-header-heartbeat site-tagline" lang="en">For Family, For Country, For GOD</p>
+        <span class="brand-subtitle">Verse image generator</span>
+      </div>
+      <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+      <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
+        <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+        <span class="tdb-nav-flyout-toggle__label">Site</span>
+      </button>
+      <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
+        <a href="/verse.html">Today&rsquo;s Lesson</a>
+        <a href="/explore.html">Explore</a>
+        <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map and gentle paths">Curriculum</a>
+        <a href="/plans.html" id="nav-browse-curriculum" aria-label="Browse the curriculum — KJV courses and gentle battle plans">Browse the curriculum</a>
+        <a href="/university.html" id="nav-university-core" aria-label="University of God — five anchor verses, quiet map">University map</a>
+        <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read</a>
+        <a href="/memorize.html">Memorize</a>
+        <a href="/#feel-section">How I Feel</a>
+        <a href="/daily-rhythm.html">Daily Rhythm</a>
+        <a href="/prayer-wall.html">Pray</a>
+        <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
+        <details class="tdb-nav-more">
+          <summary aria-haspopup="true">More tools</summary>
+          <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+            <a href="/">Home</a>
+            <a href="/mystudy">My Study</a>
+            <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
+            <a href="/plans.html">Courses</a>
+            <a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">Family Armor for little ones</a>
+            <a href="/kids/corner.html">Kids &amp; Family</a>
+            <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
+            <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
+            <a href="/site-guide.html" id="nav-site-guide" aria-label="Start here — calm map of where to begin">Start here</a>
+            <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
+            <a href="/about.html">About</a>
+            <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
+            <a href="/mobius.html">Möbius</a>
+            <a href="/calm.html">Calm</a>
+            <a href="/story.html">Story</a>
+            <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
+          </div>
+        </details>
+      </div>
+    </nav>
+      <div class="tdb-header-account-nudge" role="group" aria-label="Account shortcuts">
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" aria-label="Open the five-minute site tour">Site tour</button>
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-restart-btn" aria-label="Restart the five-minute site tour from the beginning">Restart</button>
+        <a href="/login.html" class="tdb-header-account-nudge__link">Log in</a>
+        <a href="/mystudy?tab=library#saved-verses" class="tdb-header-account-nudge__link">My Study</a>
+      </div>
+
+    </header>
+
+    <main class="app-content" id="main-content">
+      <div class="content-inner bible-tool">
+        <header class="hero-banner tdb-dawn-bg--mist">
+          <h1>Verse image generator</h1>
+          <p class="section-note topic-mood-porch">You&rsquo;re already welcome here&mdash;make one card or only preview; sharing never buys your place.</p>
+          <p class="hero-tagline">Build a calm, share-ready KJV card—start with a <strong>dawn template</strong> (square, story, or print) or stay on the wide custom canvas. Export PNG or share from your device; no upload required.</p>
+        </header>
+
+        <details class="glass tdb-porch-paper-glass verse-image-v2-roadmap" id="verse-image-v2-roadmap" style="margin-top: 0.5rem; padding: 0.9rem 1.1rem 1rem; border-radius: 12px;">
+          <summary style="cursor: pointer; font-weight: 600; color: var(--text, #e2e8f0); list-style: none;">Gentle roadmap (verse images v2)</summary>
+          <p class="section-note" style="margin: 0.6rem 0 0.5rem;">No hype, no rush—these are the next calm upgrades we are working toward. Everything stays KJV, offline-friendly, and pressure-free. <strong>Deep link:</strong> <code>verse-image.html?ref=John%203:16</code> (optional <code>&amp;autoload=1</code> to load text + preview). <strong>v2 line balance on canvas:</strong> <code>?vi_v2=1</code> and <strong>Update preview</strong>.</p>
+          <ul class="section-note" style="margin: 0; padding-left: 1.2rem; line-height: 1.55;">
+            <li><strong>Smarter line breaks</strong> — Poetic KJV phrasing, fewer orphans on tall templates.</li>
+            <li><strong>Size presets in one tap</strong> — Lock to square, story, or slide without guesswork.</li>
+            <li><strong>Font pairs that stay readable</strong> — Titles and verse body tuned for small screens and print.</li>
+            <li><strong>Optional batch for series</strong> — Same style across a short plan, still gentle (no &ldquo;productivity&rdquo; language).</li>
+          </ul>
+        </details>
+
+        <details class="glass tdb-porch-paper-glass" id="verse-image-uog-prompts" style="margin-top: 0.5rem; padding: 0.9rem 1.1rem 1rem; border-radius: 12px;">
+          <summary style="cursor: pointer; font-weight: 600; color: var(--text, #e2e8f0); list-style: none;">University of God &mdash; calm background prompts (copy to your image model)</summary>
+          <p class="section-note" style="margin: 0.6rem 0 0.4rem;">Use with your own generator&mdash;no hype, KJV-true tone, soft dawn palette (slate, mist gold, still water). Add &ldquo;no text, no legible words&rdquo; in your model if it tends to print letters. University of God is not a place of pressure; the art should read <em>room to breathe, learn, return</em>.</p>
+          <div class="verse-image-uog-toolbar" role="toolbar" aria-label="Filter or batch-copy University of God prompts">
+            <div class="verse-image-uog-cat-tabs" id="verse-image-uog-cat-tabs" role="tablist" aria-label="Prompt categories">
+              <button type="button" class="verse-image-uog-cat-btn" role="tab" data-tdb-uog-cat="all" aria-selected="true" id="uog-cat-all">All</button>
+              <button type="button" class="verse-image-uog-cat-btn" role="tab" data-tdb-uog-cat="study" aria-selected="false" id="uog-cat-study">Study</button>
+              <button type="button" class="verse-image-uog-cat-btn" role="tab" data-tdb-uog-cat="care" aria-selected="false" id="uog-cat-care">Care</button>
+              <button type="button" class="verse-image-uog-cat-btn" role="tab" data-tdb-uog-cat="home" aria-selected="false" id="uog-cat-home">Home</button>
+              <button type="button" class="verse-image-uog-cat-btn" role="tab" data-tdb-uog-cat="summer" aria-selected="false" id="uog-cat-summer">Summer</button>
+              <button type="button" class="verse-image-uog-cat-btn" role="tab" data-tdb-uog-cat="harvest" aria-selected="false" id="uog-cat-harvest">Harvest</button>
+            </div>
+            <button type="button" class="btn btn-secondary" id="verse-image-uog-copy-summer" data-verse-image-uog-copy-summer="1" aria-label="Copy all summer background prompts to the clipboard">Copy all summer prompts</button>
+            <button type="button" class="btn btn-secondary" id="verse-image-uog-copy-fall" data-verse-image-uog-copy-fall="1" aria-label="Copy all fall harvest background prompts to the clipboard">Copy all fall harvest prompts</button>
+          </div>
+          <p class="section-note" id="verse-image-uog-copy-status" style="min-height:1.25em;margin:0.5rem 0 0" aria-live="polite" role="status"></p>
+          <div class="verse-image-uog-preset-list" id="verse-image-uog-preset-list" data-tdb-uog-active-cat="all" role="list">
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="study">
+              <p class="verse-image-uog-preset-body">Open stone doorway at first light, empty lectern, single oil lamp, gentle fog&mdash;invitation, not a crowd.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 1">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="study">
+              <p class="verse-image-uog-preset-body">Calm map table with a folded scroll, quill, small compass, ocean-mist haze&mdash;Christ as compass point.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 2">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="study">
+              <p class="verse-image-uog-preset-body">Row of arched windows in an old study hall, rain on glass, warm lamp pools on an open book&mdash;quiet school in storm.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 3">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="study">
+              <p class="verse-image-uog-preset-body">Path through wheat toward a thin golden horizon, one figure in silhouette (small, humble)&mdash;daily lesson on the way home.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 4">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="care">
+              <p class="verse-image-uog-preset-body">Cliff top bench overlooking sea at dawn, empty seat, gulls far off&mdash;secret prayer, wind as friend not threat.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 5">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="care">
+              <p class="verse-image-uog-preset-body">Two small garden paths at grey dawn, same rain on both, mists, low wildflowers&mdash;no scoreboard, no faces; University of Comparison mood: enough, not parade; no legible app text, no &ldquo;winning&rdquo; signs.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt, comparison two paths">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="care">
+              <p class="verse-image-uog-preset-body">Open window at dusk, empty chair, glass of water, Bible closed on sill, last cool light&mdash;University of Anger mood: heat leaving the room, no shouting figures, no readable screens; indigo to pale gold.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt, calm after heat">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="home">
+              <p class="verse-image-uog-preset-body">Child-sized desk with crayons, open Psalms, tiny globe, light shaft&mdash;children&rsquo;s classroom, joy without noise.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 6">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="study">
+              <p class="verse-image-uog-preset-body">Stack of course booklets with linen covers, olive branch, wax seal (blank)&mdash;Battle plans as gentle companions, not a badge.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 7">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="study">
+              <p class="verse-image-uog-preset-body">Library ladder in half-light, KJV-shelf mood (no legible spines), single bookmark ribbon&mdash;Word as lamp, next step only.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 8">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="care">
+              <p class="verse-image-uog-preset-body">Hand reaching down to help someone up a grassy slope, soft focus faces&mdash;fear and anxiety class: accompany, not fix.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 9">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="care">
+              <p class="verse-image-uog-preset-body">Empty chapel chairs in semicircle, one stem of wildflowers, sun through dust&mdash;grief and waiting, room for tears and hope.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 10">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="summer">
+              <p class="verse-image-uog-preset-body">Shaded porch, wooden swing, glass of water and closed book on a side table&mdash;summer stillness, heat without noise, no pool party, no people-pleasing; room to be still before the day runs.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 11">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="summer">
+              <p class="verse-image-uog-preset-body">Lakeside dock at mid-morning, still water, one bird mid-flight, soft gold haze&mdash;Summer in the University mood: same gentle school, new light, Christ as quiet companion (no legible text).</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 12">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="harvest">
+              <p class="verse-image-uog-preset-body">Harvest table, loaf, simple bowl, wheat stalks, low candle, linen cloth&mdash;thanksgiving that names the Giver, not a feast flex; warm ink-friendly tones, no readable words on paper props.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 13">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="home">
+              <p class="verse-image-uog-preset-body">Dawn kitchen window, steam from a mug, open Bible on counter, child-height chair empty&mdash;Family Armor morning reset: new mercies, small hands soon to come, hush before the rush (no text on mug).</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 14">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="summer">
+              <p class="verse-image-uog-preset-body">Field edge at deep twilight, fireflies, single hay bale, long grass&mdash;late summer hush, questions and hope in the same sky; no people, no party lights; warm-not-neon gold.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 15">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="harvest">
+              <p class="verse-image-uog-preset-body">Small orchard, ladder leaning on one tree, basket of apples on grass, long harvest shadows&mdash;thanksgiving that names the Giver; no readable crate labels, no people required.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 16">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="harvest">
+              <p class="verse-image-uog-preset-body">Wheat stubble at sundown, one sheaf tied with twine, crow far off&mdash;quiet fall harvest, Psalm-shaped joy after tears, no parade; warm ochre, no text on burlap.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 17">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="harvest">
+              <p class="verse-image-uog-preset-body">Barn door half open, last light, empty bushel, brass lantern (no label), dust-motes&mdash;the floor full later; thanks before the count; ink-friendly, no legible signs.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 18">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="harvest">
+              <p class="verse-image-uog-preset-body">Grape arbor turning red-gold, snips on a wood crate, one cluster left for the sparrows&mdash;gleaning humbles the eye, joy without the flex; KJV-calm palette.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 19">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="harvest">
+              <p class="verse-image-uog-preset-body">Creek under turning maples, mist, two stones for sitting, thermos and closed Bible on a check wool blanket&mdash;fall praise outside performance; no faces; no brand marks.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt 20">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="home">
+              <p class="verse-image-uog-preset-body">Kitchen table before dawn, single mug, modest plate, curtains half-drawn, crumbs on linen&mdash;Contentment in small seasons mood: warm paper white, restrained gold, no parade; no faces; tiny optional <abbr title="King James Version">KJV</abbr> marginalia only (&ldquo;Sufficient unto the day&rdquo; Matthew 6:34 or &ldquo;I will never leave thee&rdquo; Hebrews 13:5); no app UI.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt, contentment small seasons">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="home">
+              <p class="verse-image-uog-preset-body">Counter stack of mail and school papers slightly out of focus, one cleared corner with open Bible and pen, cool blue hour light&mdash;Contentment in small seasons: ordinary weight, quiet mercy; no faces, no legible addresses; ink-friendly blues and sand.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt, contentment ordinary table">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="home">
+              <p class="verse-image-uog-preset-body">Windowsill herbs in small pots, watering can, rain on glass, empty chair at the table behind&mdash;small things honored; muted sage, grey, gold rim; no people; optional tiny KJV line from Zechariah 4:10 about the day of small things&mdash;not legible app text.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt, contentment herbs small things">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="care">
+              <p class="verse-image-uog-preset-body">Desk edge at night, three sticky notes half curling, lamp low, glass of water&mdash;University of Overwhelm mood: too many threads, one hush of light; indigo to warm sand; no faces; no readable screen pixels; optional tiny KJV from Psalm 142:3 (&ldquo;thou knewest my path&rdquo;) in margin only.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt, overwhelm desk threads">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="care">
+              <p class="verse-image-uog-preset-body">Foggy porch steps, one anchor rope coiled on rail, still air&mdash;too much at once, but something holds; University of Overwhelm palette; no storm worship, no people; optional tiny KJV from Matthew 11:28 (&ldquo;Come unto me&rdquo;) as whisper-small margin text.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt, overwhelm anchor porch">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="care">
+              <p class="verse-image-uog-preset-body">Soft morning light through a kitchen window onto a plain table: a few scattered toys, open Bible, steaming mug beside&mdash;University of Overwhelm in daylight hours; muted blues and greys, warm ceramic; no faces; optional tiny Matthew 11:28 line (&ldquo;Come unto me&rdquo;) in margin only; no packaging text, no app UI.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt, overwhelm morning kitchen table">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="home">
+              <p class="verse-image-uog-preset-body">Hallway night-light glow, two small shoes by the door, jacket on hook, empty frame for silhouette (no faces)&mdash;Fear for my children mood: vigil without doom-scroll; soft amber, deep blue; optional tiny KJV from Matthew 18:14 about the Father&rsquo;s will toward little ones&mdash;no legible feeds.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt, parent fear hallway">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="home">
+              <p class="verse-image-uog-preset-body">Backseat of parked car at dusk, empty booster silhouette, rain on window, streetlights soft bokeh&mdash;prayer before pickup energy; University fear-for-children mood; no readable plates; muted steel blue and gold; optional tiny KJV from Isaiah 54:13 (&ldquo;great shall be the peace of thy children&rdquo;) in margin.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt, parent fear car vigil">Copy</button>
+            </div>
+            <div class="verse-image-uog-preset-row" role="listitem" data-tdb-uog-cat="home">
+              <p class="verse-image-uog-preset-body">Gentle nursery corner at twilight, small empty bed, closed Bible on a nightstand, one soft lamp&mdash;Fear for my children mood; linen and dusk blue, no faces; optional tiny KJV from Psalm 91:11 (&ldquo;he shall give his angels charge over thee&rdquo;) as whisper margin only; no glowing screens, no legible monitors.</p>
+              <button type="button" class="btn btn-secondary btn-verse-image-uog-copy" data-verse-image-uog-copy="1" aria-label="Copy background prompt, parent fear nursery twilight">Copy</button>
+            </div>
+          </div>
+        </details>
+
+        <section id="verse-image-locked" class="glass tdb-porch-paper-glass verse-image-locked" aria-labelledby="verse-image-locked-h">
+          <h2 id="verse-image-locked-h" class="section-divider">Supporter feature</h2>
+          <p class="section-note">Custom verse images are part of the <strong>Supporter</strong> plan—along with sync, sermon tools, and more. Sign in with the account tied to your subscription, then return here.</p>
+          <p class="section-note" style="margin-top: 0.75rem;">Not subscribed yet? See <a href="pricing.html">Pricing</a> for Supporter.</p>
+          <div class="cta-group" style="margin-top: 1rem;">
+            <a href="pricing.html" class="btn btn-primary" id="verse-image-upgrade-cta" data-track-upgrade="1">View Supporter plans</a>
+            <a href="bible-tool.html" class="btn btn-secondary">Bible Tool</a>
+          </div>
+        </section>
+
+        <section id="verse-image-app" class="glass tdb-porch-paper-glass" aria-label="Verse image controls" hidden data-verse-idb="tdb_verse_image_v1" data-verse-store="verseGens">
+          <h2 class="section-divider util-mt-0">Your card</h2>
+          <p class="section-note">Enter a KJV reference (e.g. Philippians 4:13) and load the text, or paste text yourself. On phones, the preview sits up top so you can see the card first. Tap <strong>Update preview</strong> when you change styles.</p>
+
+          <div class="verse-image-workspace">
+          <div class="verse-image-editor">
+          <div class="verse-image-controls">
+            <div style="flex: 1 1 12rem;">
+              <label for="verse-image-ref">Reference</label>
+              <input type="text" id="verse-image-ref" autocomplete="off" placeholder="e.g. John 3:16" maxlength="80" />
+            </div>
+            <div style="flex: 0 0 auto;">
+              <span class="section-note" style="display:block; margin-bottom:0.25rem;">&nbsp;</span>
+              <button type="button" class="btn btn-primary" id="verse-image-load" aria-label="Load verse text from reference">Load verse</button>
+            </div>
+          </div>
+
+          <div class="verse-image-controls" style="margin-top: 0.5rem;">
+            <div style="flex: 1 1 100%;">
+              <label for="verse-image-body">Verse text (KJV)</label>
+              <textarea id="verse-image-body" maxlength="2800" aria-label="Verse text to render on the image"></textarea>
+            </div>
+          </div>
+
+          <div class="verse-image-controls" style="margin-top: 0.5rem;">
+            <div style="flex: 1 1 100%;">
+              <label for="verse-image-template">Share template</label>
+              <select id="verse-image-template" aria-label="Share template size and style">
+                <option value="custom" selected>Custom — wide preview (1200×630)</option>
+                <optgroup label="Peace &amp; hope">
+                  <option value="T01-classic-soar">T01 — Classic soar (1080×1080)</option>
+                  <option value="T02-gentle-water">T02 — Gentle water reflection (1080×1350)</option>
+                  <option value="T03-open-field">T03 — Open field at dawn (1080×1080)</option>
+                </optgroup>
+                <optgroup label="Strength &amp; endurance">
+                  <option value="T04-eagle-flight">T04 — Eagle flight (1080×1080)</option>
+                  <option value="T05-lily-bloom">T05 — Lily bloom (1080×1080)</option>
+                  <option value="T06-rock-river">T06 — Rock &amp; river (1080×1080)</option>
+                </optgroup>
+                <optgroup label="Comfort &amp; rest">
+                  <option value="T07-night-peace">T07 — Night peace (1080×1920)</option>
+                  <option value="T08-cross-shadow">T08 — Cross shadow, minimal (1080×1080)</option>
+                  <option value="T09-morning-mist">T09 — Morning mist (1080×1080)</option>
+                </optgroup>
+                <optgroup label="Memory &amp; share">
+                  <option value="T10-scripture-memory">T10 — Scripture memory / print (1080×1080)</option>
+                  <option value="T11-family-blessing">T11 — Family blessing (1080×1080)</option>
+                  <option value="T12-minimal-landscape">T12 — Minimal blank (1200×630)</option>
+                </optgroup>
+              </select>
+              <p id="verse-image-template-hint" class="section-note" style="margin: 0.35rem 0 0;">Twelve calm templates (square, portrait, story, or wide). Custom stays at 1200×630 for link previews. Old A–F bookmarks still load in Recent.</p>
+            </div>
+          </div>
+
+          <div class="verse-image-controls vi-preset-bar" style="align-items: flex-end;">
+            <div style="flex: 1 1 100%;">
+              <span class="section-note" style="display:block; margin-bottom:0.3rem;">One-tap size</span>
+              <div class="vi-preset-bar-inner" role="group" aria-label="Quick canvas size and aspect">
+                <button type="button" class="btn btn-secondary vi-preset-size" data-vi-preset="square" id="vi-preset-square" aria-label="Square share 1080 by 1080">Square 1:1</button>
+                <button type="button" class="btn btn-secondary vi-preset-size" data-vi-preset="story" id="vi-preset-story" aria-label="Vertical story 1080 by 1920">Story 9:16</button>
+                <button type="button" class="btn btn-secondary vi-preset-size" data-vi-preset="wide" id="vi-preset-wide" aria-label="Wide link preview 1200 by 630">Link 1.91:1</button>
+              </div>
+            </div>
+            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; min-height: 44px; margin: 0; white-space: nowrap;">
+              <input type="checkbox" id="verse-image-lock-dimensions" aria-describedby="verse-image-lock-hint" />
+              <span>Lock canvas size</span>
+            </label>
+            <p id="verse-image-lock-hint" class="section-note" style="flex: 1 1 100%; margin: 0.25rem 0 0;">When on, changing the template does not resize the canvas (colors and layout still follow the template you pick).</p>
+          </div>
+
+          <details class="vi-mood-details glass tdb-porch-paper-glass" style="margin-top: 0.5rem; padding: 0.65rem 0.85rem; border-radius: 12px; border: 1px solid rgba(148,163,184,0.2);">
+            <summary style="cursor: pointer; font-weight: 600; color: var(--text, #e2e8f0); list-style: none;">Same-mood template picks (lazy; tap a swatch)</summary>
+            <p class="section-note util-mb-0_5" style="margin: 0.5rem 0 0.35rem;">Calm color hints — the full render still uses the canvas. Opens fast on slow connections because swatches are CSS only.</p>
+            <div class="vi-mood-swatch-grid" role="list">
+              <button type="button" class="vi-mood-swatch" data-vi-tpl="T01-classic-soar" style="--vi-swatch: linear-gradient(145deg, #1e3a5f 0%, #7c5cbf 100%);" aria-label="Template T01 classic soar" role="listitem">Peace</button>
+              <button type="button" class="vi-mood-swatch" data-vi-tpl="T04-eagle-flight" style="--vi-swatch: linear-gradient(145deg, #0f172a 0%, #b45309 100%);" aria-label="Template T04 eagle flight" role="listitem">Strength</button>
+              <button type="button" class="vi-mood-swatch" data-vi-tpl="T09-morning-mist" style="--vi-swatch: linear-gradient(145deg, #334155 0%, #94a3b8 100%);" aria-label="Template T09 morning mist" role="listitem">Rest</button>
+              <button type="button" class="vi-mood-swatch" data-vi-tpl="T10-scripture-memory" style="--vi-swatch: linear-gradient(145deg, #f5f0e6 0%, #c4b5a0 100%);" aria-label="Template T10 scripture memory" role="listitem">Print</button>
+            </div>
+          </details>
+
+          <div class="verse-image-controls">
+            <div style="flex: 1 1 10rem;">
+              <label for="verse-image-bg">Background</label>
+              <select id="verse-image-bg" aria-label="Background style">
+                <option value="dawn">Dawn violet</option>
+                <option value="deep">Deep blue</option>
+                <option value="still">Still night</option>
+                <option value="cross">Subtle cross</option>
+                <option value="field">Quiet field</option>
+                <option value="mist">Silver mist</option>
+                <option value="candle">Warm candle</option>
+                <option value="seashore">Seashore calm</option>
+                <option value="linen">Linen paper</option>
+                <option value="soar">Soar — dawn sky</option>
+                <option value="hush">Twilight hush</option>
+                <option value="ember">Ember glow</option>
+                <option value="veil">Lavender veil</option>
+                <option value="aurora">Quiet aurora</option>
+              </select>
+            </div>
+            <div style="flex: 1 1 10rem;">
+              <label for="verse-image-layout">Card layout</label>
+              <select id="verse-image-layout" aria-label="Text layout on the image">
+                <option value="classic" selected>Classic — top left</option>
+                <option value="balanced">Balanced — more breathing room</option>
+                <option value="centered">Centered — calm focus</option>
+              </select>
+            </div>
+            <div style="flex: 1 1 10rem;">
+              <label for="verse-image-font">Type</label>
+              <select id="verse-image-font" aria-label="Font style">
+                <option value="serif">Serif (reading)</option>
+                <option value="sans">Sans (clean)</option>
+              </select>
+            </div>
+            <div style="flex: 1 1 10rem;">
+              <label for="verse-image-text-color">Verse color</label>
+              <select id="verse-image-text-color" aria-label="Verse and reference color">
+                <option value="ink" selected>Ink (near black)</option>
+                <option value="paper">Paper white</option>
+                <option value="navy">Navy</option>
+                <option value="gold">Gold</option>
+                <option value="wine">Deep red</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="verse-image-controls" style="margin-top: 0.35rem; align-items: center;">
+            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; min-height: 44px; margin: 0;">
+              <input type="checkbox" id="verse-image-include-qr" checked aria-describedby="verse-image-qr-hint" />
+              <span>Include scan link (QR) on the card</span>
+            </label>
+            <p id="verse-image-qr-hint" class="section-note" style="flex: 1 1 100%; margin: 0.25rem 0 0;">Points to a short link on this site so people can open the verse after a meeting. Handouts work best when someone has opened the site once before (cache helps).</p>
+          </div>
+          <div class="verse-image-controls" style="margin-top: 0.2rem; align-items: center;">
+            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; min-height: 44px; margin: 0;">
+              <input type="checkbox" id="verse-image-include-watermark" checked />
+              <span>Include “Made on Today&rsquo;s Daily Battle” mark</span>
+            </label>
+            <p class="section-note" style="flex: 1 1 100%; margin: 0.25rem 0 0;">Leave it on for story shares and handouts; turn it off if you need a cleaner print-ready card.</p>
+          </div>
+
+          <div class="cta-group verse-image-actions" style="margin-top: 1rem; flex-wrap: wrap;">
+            <button type="button" class="btn btn-primary" id="verse-image-preview-btn">Update preview</button>
+            <button type="button" class="btn btn-secondary" id="verse-image-download-btn">Download PNG</button>
+            <button type="button" class="btn btn-secondary" id="verse-image-share-btn">Share image</button>
+            <button type="button" class="btn btn-secondary" id="verse-image-tweet-btn" aria-label="Post text on X with verse snippet and link">Post on X</button>
+            <button type="button" class="btn btn-secondary" id="verse-image-print-btn" aria-label="Print or save as PDF from the browser">Print / Save as PDF</button>
+          </div>
+
+          <p id="verse-image-status" class="verse-image-status" role="status" aria-live="polite"></p>
+          <div id="recent-gens" class="verse-image-recent-gens" hidden aria-label="Recent verse images">
+            <h3>Recent</h3>
+            <p id="recent-gens-empty" class="section-note" style="margin: 0 0 0.5rem;">No saved previews yet—that is all right. Update preview to store one here (saved on this device).</p>
+            <ul class="recent-gens-grid" id="recent-gens-list" role="list"></ul>
+          </div>
+          </div><!-- /.verse-image-editor -->
+
+          <div class="verse-image-preview-wrap" id="verse-image-preview-panel">
+            <canvas id="verse-image-canvas" width="1200" height="630" role="img" aria-label="Preview of your verse image"></canvas>
+          </div>
+          </div><!-- /.verse-image-workspace -->
+        </section>
+
+        <p class="section-note util-mt-1"><a href="/">← Home</a> · <a href="bible-tool.html">Bible Tool</a> · <a href="explore.html">Explore</a> · <a href="pricing.html">Pricing</a></p>
+      </div>
+    </main>
+
+    <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
+  <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+    <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+    <span class="tdb-lang-switcher-inner">
+      <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-essentials" aria-label="Key pages">
+    <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/verse.html">Today&rsquo;s Lesson</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <p class="site-footer-share-wrap">
+    <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
+    <span class="site-footer-share-sep" aria-hidden="true">·</span>
+    <button type="button" class="share-page-btn site-footer-tour-restart tdb-tour-restart-btn" aria-label="Restart the five-minute site tour">Restart site tour</button>
+  </p>
+
+  <nav class="bottom-nav" role="navigation" aria-label="Plans, kids, and Spanish topics">
+    <a href="/plans.html">Plans</a>
+    <a href="/kids/">Kids Battle</a>
+    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
+      <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
+      <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
+      <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-nav" aria-label="Footer links">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/media.html">Media</a>
+    <a href="/roadmap.html">Roadmap</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/for-pastors.html">For pastors &amp; teachers</a>
+    <a href="/reader.html">Chapter reader</a>
+    <a href="/bible/tools.html">Study workshop</a>
+    <a href="/bible-tool.html">Bible tool</a>
+    <a href="/testimonials.html">Reader stories</a>
+    <a href="/journal/">Journal</a>
+    <a href="/where-support-goes.html">Where support goes</a>
+    <a href="/verse-cards/">Verse cards</a>
+    <a href="/security.html">Security</a>
+    <a href="/contact.html">Contact</a>
+    <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
+  </nav>
+
+  <details class="footer-sitemap">
+    <summary>Sitemap — topics, tools, church &amp; family (tap to expand)</summary>
+    <div class="footer-sitemap-grid">
+      <div class="footer-sitemap-col">
+        <h3>The Narrow Paths</h3>
+        <a href="/explore.html">Full list (all pages)</a>
+        <a href="/topic-anxiety.html">Anxiety</a>
+        <a href="/topic-fear.html">Fear</a>
+        <a href="/topic-grief.html">Grief</a>
+        <a href="/topic-hope.html">Hope</a>
+        <a href="/topic-strength.html">Strength</a>
+        <a href="/topic-parenting.html">Parenting</a>
+        <a href="/topic-loneliness.html">Loneliness</a>
+        <a href="/topic-forgiveness.html">Forgiveness</a>
+        <a href="/topic-guilt.html">Guilt</a>
+        <a href="/topic-overwhelmed.html">Overwhelmed</a>
+        <a href="/topic-worthless.html">Worth / identity</a>
+      </div>
+      <div class="footer-sitemap-col footer-sitemap-col--es-links">
+        <h3>Spanish devotionals</h3>
+        <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es">Paz</a>
+        <a href="/explore.html#topics-es">All Spanish topics on Explore</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Tools of the Quiet Trade</h3>
+        <a href="/verse.html">Verse of the Day</a>
+        <a href="/reader.html">Chapter reader</a>
+        <a href="/bible/tools.html">Study workshop</a>
+        <a href="/bible-tool.html">Bible tool</a>
+        <a href="/mystudy">My Study</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/mobius.html">Möbius</a>
+        <a href="/plans.html">Courses</a>
+        <a href="/reading-plan.html">7-day plan</a>
+        <a href="/study.html">Study workspace</a>
+        <a href="/wins.html">Wins</a>
+        <a href="/progress.html">Progress</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>For the Household of Faith</h3>
+        <a href="/church.html">Church center</a>
+        <a href="/church/">Church join hub</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit</a>
+        <a href="/pastor/">Pastor hub</a>
+        <a href="/sermon.html">Sermon builder</a>
+        <a href="/family.html">Family hub</a>
+        <a href="/little-ones.html">For the Little Ones</a>
+        <a href="/family-armor.html">Family Armor</a>
+        <a href="/kids/">Kids Battle home</a>
+        <a href="/kids/corner.html">Bible Story Library</a>
+        <a href="/kids-corner.html">Bible Loop Library</a>
+        <a href="/coloring.html">Color &amp; Tell</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Further In</h3>
+        <a href="/prayer-wall.html">Prayer</a>
+        <a href="/bible-study.html">Bible studies</a>
+        <a href="/shop.html">Shop</a>
+        <a href="/story.html">Story</a>
+        <a href="/media.html">Media</a>
+        <a href="/roadmap.html">Roadmap</a>
+        <a href="/approach.html">How we respond</a>
+        <a href="/why-not-ai.html">Why not AI?</a>
+        <a href="/curriculum.html">Curriculum</a>
+        <a href="/verse-cards/">Verse cards</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </details>
+
+  <p class="footer-humility">We battle. He wins.</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): footer story lives in .site-footer-story below -->
+  <p class="site-footer-story">
+    Steady KJV for honest days&mdash;no ads, no selling your data; prayers stay on this device unless you sync on purpose.
+  </p>
+
+  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" aria-label="Friday verse and prayer email signup">
+    <p class="footer-friday-signup-label">Friday recap email&mdash;one message a week; leave anytime.</p>
+    <div class="footer-friday-signup-row">
+      <label for="footer-friday-email" class="sr-only">Email for Friday recap</label>
+      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="your@email.com" aria-label="Email for Friday recap" autocomplete="email">
+      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit">Subscribe</button>
+    </div>
+    <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
+  </div>
+
+  <p class="site-footer-copy site-footer-legal-line">&copy; 2026 Today&rsquo;s Daily Battle &middot; Christian Messenger Service. All rights reserved.</p>
+  <p class="site-footer-copy site-footer-legal-line">All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
+
+  <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
+  <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
+  </div>
+  <script defer src="/language-switcher.js?v=20260503-consent-persist-fix"></script>
+</footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous"></script>
+  <script type="module" src="script.js?v=20260503-consent-persist-fix"></script>
+  <script src="verse-ref-slug.js"></script>
+  <script src="/vendor/qrcode.browser.min.js"></script>
+  <script src="verse-image.js?v=20260411shareurl" defer></script>
+</body>
+</html>

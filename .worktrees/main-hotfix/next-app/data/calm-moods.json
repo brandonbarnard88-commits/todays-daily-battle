@@ -1,0 +1,68 @@
+{
+  "_meta": {
+    "description": "Calm mood lanes → ordered KJV refs (must exist in canon-daily-verse.json). No network; all resolve client-side.",
+    "version": 1
+  },
+  "moods": [
+    {
+      "id": "anxious_fear",
+      "title": "Anxious or afraid",
+      "hint": "Chest tight, mind racing, worst-case loops",
+      "referenceOrder": ["Philippians 4:6-7", "1 Peter 5:7", "Matthew 11:28"]
+    },
+    {
+      "id": "overwhelmed",
+      "title": "Worried or overwhelmed",
+      "hint": "Too much at once — hard to catch your breath",
+      "referenceOrder": ["Matthew 11:28", "Psalm 55:22", "Philippians 4:6-7"]
+    },
+    {
+      "id": "need_peace",
+      "title": "Need peace tonight",
+      "hint": "Soul noisy, body won’t settle",
+      "referenceOrder": ["John 14:27", "Isaiah 54:10", "Philippians 4:6-7"]
+    },
+    {
+      "id": "strength_courage",
+      "title": "Need strength or courage",
+      "hint": "The next step feels too heavy",
+      "referenceOrder": ["Isaiah 40:31", "Joshua 1:9", "Psalm 23:4"]
+    },
+    {
+      "id": "grief_sadness",
+      "title": "Grief or deep sadness",
+      "hint": "Heart heavy, tears close",
+      "referenceOrder": ["Psalm 34:18", "Matthew 11:28", "Psalm 23:4"]
+    },
+    {
+      "id": "parenting_exhaustion",
+      "title": "Parenting exhaustion",
+      "hint": "Little ones, big feelings, empty tank",
+      "referenceOrder": ["Isaiah 40:31", "Matthew 11:28", "1 Peter 5:7"]
+    },
+    {
+      "id": "night_shift",
+      "title": "Night shift heavy",
+      "hint": "Dark hours, lonely work, wired and tired",
+      "referenceOrder": ["Isaiah 40:31", "Psalm 23:4", "Joshua 1:9"]
+    },
+    {
+      "id": "lonely_tonight",
+      "title": "Lonely tonight",
+      "hint": "Alone in a crowd — or actually alone",
+      "referenceOrder": ["Psalm 34:18", "Isaiah 54:10", "John 14:27"]
+    }
+  ],
+  "feelKeywords": [
+    { "keywords": ["anxious", "anxiety", "panic", "afraid", "fear", "scared", "freaking", "worry", "worried", "nervous"], "moodId": "anxious_fear" },
+    { "keywords": ["overwhelm", "overwhelmed", "too much", "drowning", "cant cope", "can't cope", "burned out", "burnt out"], "moodId": "overwhelmed" },
+    { "keywords": ["peace", "quiet", "cant sleep", "can't sleep", "racing thoughts", "restless", "wired", "insomnia"], "moodId": "need_peace" },
+    { "keywords": ["strong", "strength", "courage", "brave", "weak", "weakness"], "moodId": "strength_courage" },
+    { "keywords": ["grief", "grieving", "sad", "sadness", "cry", "crying", "loss", "died", "death", "funeral"], "moodId": "grief_sadness" },
+    { "keywords": ["parent", "parenting", "kids", "kid", "toddler", "baby", "mom", "mum", "dad", "exhausted parent"], "moodId": "parenting_exhaustion" },
+    { "keywords": ["night shift", "nightshift", "overnight", "graveyard"], "moodId": "night_shift" },
+    { "keywords": ["lonely", "alone", "isolated", "no one", "nobody"], "moodId": "lonely_tonight" },
+    { "keywords": ["exhausted", "tired", "empty", "burnt out", "burned out", "wiped", "drained"], "moodId": "overwhelmed" },
+    { "keywords": ["heavy", "heavy laden", "burden"], "moodId": "overwhelmed" }
+  ]
+}

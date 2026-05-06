@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
+  <script src="/vendor/dompurify.min.js" fetchpriority="low"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix" fetchpriority="low"></script>
+
+  <script defer src="../analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KJV verse cards for Pinterest • Today&#8217;s Daily Battle</title>
+  <meta name="description" content="Shareable KJV verse cards—strength, peace, anxiety, hope, fear. Dark background, gold type. Save or pin with a direct link to each image.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/verse-cards/">
+  <meta property="og:title" content="KJV verse cards • Today&#8217;s Daily Battle">
+  <meta property="og:description" content="Minimal KJV verse cards for Pinterest and sharing. One verse, one day.">
+  <meta property="og:url" content="https://todaysdailybattle.com/verse-cards/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://todaysdailybattle.com/verse-cards/verse-strength-philippians-4-13.png">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="../styles.css?v=20260503-consent-persist-fix" as="style">
+  <link rel="stylesheet" href="../styles.css?v=20260503-consent-persist-fix">
+  <style>
+    .vc-wrap { padding-top: 1.5rem; padding-bottom: 3rem; }
+    .vc-wrap h1 { font-size: clamp(1.35rem, 4vw, 1.75rem); margin-bottom: 0.35rem; }
+    .vc-lead { color: var(--muted-readable, #b8c5d4); font-size: 0.95rem; line-height: 1.55; margin: 0 0 1.25rem; }
+    .vc-grid { display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
+    @media (min-width: 520px) { .vc-grid { grid-template-columns: repeat(2, 1fr); } }
+    .vc-card.tdb-surface-panel { margin: 0; padding: 0; overflow: hidden; }
+    .vc-card a { display: block; line-height: 0; }
+    .vc-card img { width: 100%; height: auto; vertical-align: middle; }
+    .vc-cap { padding: 0.65rem 0.85rem; font-size: 0.82rem; color: var(--muted-readable, #b8c5d4); line-height: 1.45; }
+    .vc-cap strong { color: var(--text, #e2e8f0); font-weight: 600; }
+    .vc-back { display: inline-block; margin-bottom: 1rem; font-size: 0.9rem; color: var(--gold, #e3bc67); text-decoration: none; }
+    .vc-back:hover, .vc-back:focus-visible { text-decoration: underline; outline: none; }
+    .vc-lead a {
+      color: var(--gold, #e3bc67);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .vc-lead a:hover, .vc-lead a:focus-visible { color: #f0d78c; }
+    .vc-ws-row { margin-top: 0.5rem; }
+    .vc-ws-btn {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
+      padding: 0.4rem 0.65rem; border-radius: 10px; font-size: 0.82rem; font-weight: 600;
+      border: 1px solid rgba(227, 188, 103, 0.4); background: rgba(227, 188, 103, 0.1);
+      color: var(--gold, #e3bc67); cursor: pointer; font-family: inherit;
+    }
+    .vc-ws-btn:hover, .vc-ws-btn:focus-visible {
+      background: rgba(227, 188, 103, 0.2); outline: 2px solid rgba(227, 188, 103, 0.5); outline-offset: 2px;
+    }
+    .vc-supporter-intro {
+      margin-top: 2rem; padding: 1rem 1.1rem; border-radius: 14px;
+      border: 1px solid rgba(227, 188, 103, 0.28); background: rgba(22, 28, 38, 0.92);
+      max-width: 40rem;
+    }
+    .vc-supporter-intro h2 { font-size: 1.05rem; margin: 0 0 0.5rem; color: var(--gold, #e3bc67); }
+    .vc-supporter-intro p { margin: 0 0 0.75rem; font-size: 0.9rem; line-height: 1.55; color: var(--muted-readable, #b8c5d4); }
+    .vc-unlock-btn {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
+      padding: 0.45rem 0.85rem; border-radius: 10px; font-size: 0.88rem; font-weight: 600;
+      border: 1px solid rgba(227, 188, 103, 0.45); background: rgba(227, 188, 103, 0.12);
+      color: var(--gold, #e3bc67); cursor: pointer; font-family: inherit;
+    }
+    .vc-unlock-btn:hover, .vc-unlock-btn:focus-visible {
+      background: rgba(227, 188, 103, 0.22); outline: 2px solid rgba(227, 188, 103, 0.5); outline-offset: 2px;
+    }
+    .vc-supporter-pack { margin-top: 2.5rem; }
+    .vc-supporter-pack h2 { font-size: 1.15rem; margin: 0 0 0.75rem; color: var(--gold, #e3bc67); }
+    .vc-supporter-pack > p { font-size: 0.9rem; color: var(--muted-readable, #b8c5d4); line-height: 1.55; margin: 0 0 1.25rem; max-width: 42rem; }
+    .vc-ribbon-grid { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
+    @media (min-width: 560px) { .vc-ribbon-grid { grid-template-columns: repeat(2, 1fr); } }
+    .vc-ribbon {
+      position: relative; padding: 1.35rem 1.15rem 1.5rem; border-radius: 12px;
+      background: linear-gradient(165deg, rgba(30, 38, 52, 0.98) 0%, rgba(12, 16, 24, 0.99) 100%);
+      border: 1px solid rgba(227, 188, 103, 0.22);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+      min-height: 11rem;
+    }
+    .vc-ribbon::before {
+      content: ""; position: absolute; top: 0; left: 1.25rem; right: 1.25rem; height: 3px;
+      border-radius: 0 0 4px 4px;
+      background: linear-gradient(90deg, transparent, rgba(227, 188, 103, 0.55), transparent);
+    }
+    .vc-ribbon-ref { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(227, 188, 103, 0.85); margin: 0 0 0.65rem; font-weight: 600; }
+    .vc-ribbon-body { font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.02rem, 2.8vw, 1.18rem); line-height: 1.58; color: #f1f5f9; margin: 0; }
+    .vc-ribbon-kjv { margin-top: 1rem; font-size: 0.72rem; color: rgba(148, 163, 184, 0.9); letter-spacing: 0.06em; }
+  </style>
+</head>
+<body class="dark-mode tdb-inner-page">
+  <a href="#main-content" class="skip-link">Skip to cards</a>
+  <main class="vc-wrap" id="main-content">
+    <a class="vc-back" href="/">&larr; Today&#8217;s Daily Battle</a>
+    <h1>KJV verse cards</h1>
+    <p class="section-note topic-mood-porch" style="max-width: 42rem;">You&rsquo;re already welcome here&mdash;save, pin, or only look; nothing here scores your outreach.</p>
+    <p class="vc-lead">Pinterest-ready images on a dark field. Each file opens in a new tab so you can save or pin. Link pins to <strong>todaysdailybattle.com</strong>. See <a href="PINTEREST-README.md">PINTEREST-README</a> for alt text and hashtags.</p>
+    <div class="vc-grid" role="list">
+      <figure class="vc-card tdb-surface-panel" role="listitem">
+        <a href="verse-strength-philippians-4-13.png" target="_blank" rel="noopener"><img src="verse-strength-philippians-4-13.png" width="1000" height="1500" alt="KJV Bible verse for strength – Philippians 4:13 – Today&#8217;s Daily Battle" loading="lazy" decoding="async"></a>
+        <figcaption class="vc-cap"><strong>Strength</strong> · Philippians 4:13
+          <span class="vc-ws-row"><button type="button" class="vc-ws-btn" data-tdb-wordstudy-ref="Philippians 4:13" data-tdb-wordstudy-text="I can do all things through Christ which strengtheneth me." aria-label="Open verse study for Philippians 4:13">Study this verse</button></span>
+        </figcaption>
+      </figure>
+      <figure class="vc-card tdb-surface-panel" role="listitem">
+        <a href="verse-anxiety-philippians-4-6-7.png" target="_blank" rel="noopener"><img src="verse-anxiety-philippians-4-6-7.png" width="1000" height="1500" alt="KJV Bible verse for anxiety – Philippians 4:6-7 – Today&#8217;s Daily Battle" loading="lazy" decoding="async"></a>
+        <figcaption class="vc-cap"><strong>Anxiety</strong> · Philippians 4:6&ndash;7
+          <span class="vc-ws-row"><button type="button" class="vc-ws-btn" data-tdb-wordstudy-ref="Philippians 4:6" data-tdb-wordstudy-text="Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus." aria-label="Open verse study for Philippians 4:6">Study this verse</button></span>
+        </figcaption>
+      </figure>
+      <figure class="vc-card tdb-surface-panel" role="listitem">
+        <a href="verse-peace-1-peter-5-7.png" target="_blank" rel="noopener"><img src="verse-peace-1-peter-5-7.png" width="1000" height="1500" alt="KJV Bible verse for peace – 1 Peter 5:7 – Today&#8217;s Daily Battle" loading="lazy" decoding="async"></a>
+        <figcaption class="vc-cap"><strong>Peace (cares)</strong> · 1 Peter 5:7
+          <span class="vc-ws-row"><button type="button" class="vc-ws-btn" data-tdb-wordstudy-ref="1 Peter 5:7" data-tdb-wordstudy-text="Casting all your care upon him; for he careth for you." aria-label="Open verse study for 1 Peter 5:7">Study this verse</button></span>
+        </figcaption>
+      </figure>
+      <figure class="vc-card tdb-surface-panel" role="listitem">
+        <a href="verse-peace-john-14-27.png" target="_blank" rel="noopener"><img src="verse-peace-john-14-27.png" width="1000" height="1500" alt="KJV Bible verse for peace – John 14:27 – Today&#8217;s Daily Battle" loading="lazy" decoding="async"></a>
+        <figcaption class="vc-cap"><strong>Peace (Christ&#8217;s gift)</strong> · John 14:27
+          <span class="vc-ws-row"><button type="button" class="vc-ws-btn" data-tdb-wordstudy-ref="John 14:27" data-tdb-wordstudy-text="Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid." aria-label="Open verse study for John 14:27">Study this verse</button></span>
+        </figcaption>
+      </figure>
+      <figure class="vc-card tdb-surface-panel" role="listitem">
+        <a href="verse-fear-isaiah-41-10.png" target="_blank" rel="noopener"><img src="verse-fear-isaiah-41-10.png" width="1000" height="1500" alt="KJV Bible verse for fear – Isaiah 41:10 – Today&#8217;s Daily Battle" loading="lazy" decoding="async"></a>
+        <figcaption class="vc-cap"><strong>Fear</strong> · Isaiah 41:10
+          <span class="vc-ws-row"><button type="button" class="vc-ws-btn" data-tdb-wordstudy-ref="Isaiah 41:10" data-tdb-wordstudy-text="Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness." aria-label="Open verse study for Isaiah 41:10">Study this verse</button></span>
+        </figcaption>
+      </figure>
+      <figure class="vc-card tdb-surface-panel" role="listitem">
+        <a href="verse-hope-romans-8-28.png" target="_blank" rel="noopener"><img src="verse-hope-romans-8-28.png" width="1000" height="1500" alt="KJV Bible verse for hope – Romans 8:28 – Today&#8217;s Daily Battle" loading="lazy" decoding="async"></a>
+        <figcaption class="vc-cap"><strong>Hope</strong> · Romans 8:28
+          <span class="vc-ws-row"><button type="button" class="vc-ws-btn" data-tdb-wordstudy-ref="Romans 8:28" data-tdb-wordstudy-text="And we know that all things work together for good to them that love God, to them who are the called according to his purpose." aria-label="Open verse study for Romans 8:28">Study this verse</button></span>
+        </figcaption>
+      </figure>
+      <figure class="vc-card tdb-surface-panel" role="listitem">
+        <a href="verse-strength-isaiah-40-31.png" target="_blank" rel="noopener"><img src="verse-strength-isaiah-40-31.png" width="1000" height="1500" alt="KJV Bible verse for strength – Isaiah 40:31 – Today&#8217;s Daily Battle" loading="lazy" decoding="async"></a>
+        <figcaption class="vc-cap"><strong>Strength</strong> · Isaiah 40:31
+          <span class="vc-ws-row"><button type="button" class="vc-ws-btn" data-tdb-wordstudy-ref="Isaiah 40:31" data-tdb-wordstudy-text="But they that wait upon the Lord shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint." aria-label="Open verse study for Isaiah 40:31">Study this verse</button></span>
+        </figcaption>
+      </figure>
+      <figure class="vc-card tdb-surface-panel" role="listitem">
+        <a href="verse-strength-2-corinthians-12-9.png" target="_blank" rel="noopener"><img src="verse-strength-2-corinthians-12-9.png" width="1000" height="1500" alt="KJV Bible verse for strength – 2 Corinthians 12:9 – Today&#8217;s Daily Battle" loading="lazy" decoding="async"></a>
+        <figcaption class="vc-cap"><strong>Strength in weakness</strong> · 2 Corinthians 12:9
+          <span class="vc-ws-row"><button type="button" class="vc-ws-btn" data-tdb-wordstudy-ref="2 Corinthians 12:9" data-tdb-wordstudy-text="And he said unto me, My grace is sufficient for thee: for my strength is made perfect in weakness. Most gladly therefore will I rather glory in my infirmities, that the power of Christ may rest upon me." aria-label="Open verse study for 2 Corinthians 12:9">Study this verse</button></span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <section id="vc-supporter-intro" class="vc-supporter-intro" aria-labelledby="vc-supporter-heading" hidden>
+      <h2 id="vc-supporter-heading">Quiet thank-you layouts</h2>
+      <p>If you have chosen to support this work, here are six extra KJV layouts you can screenshot or print&mdash;no login, nothing uploaded. Core cards above stay free for everyone. Your word is enough; tap only if this fits you.</p>
+      <button type="button" class="vc-unlock-btn" id="vc-unlock-perks-btn" aria-expanded="false" aria-controls="vc-supporter-pack">Show thank-you layouts</button>
+    </section>
+
+    <section id="vc-supporter-pack" class="vc-supporter-pack" aria-labelledby="vc-supporter-pack-heading" hidden>
+      <h2 id="vc-supporter-pack-heading">Supporter thank-you layouts</h2>
+      <p>King James Version. Same quiet field as the Pinterest set&mdash;ribbon accent, readable type. For personal use; pins can still point to todaysdailybattle.com.</p>
+      <div class="vc-ribbon-grid" role="list">
+        <article class="vc-ribbon" role="listitem">
+          <p class="vc-ribbon-ref">Psalm 46:1</p>
+          <p class="vc-ribbon-body">God is our refuge and strength, a very present help in trouble.</p>
+          <p class="vc-ribbon-kjv">KJV &middot; Today&rsquo;s Daily Battle</p>
+        </article>
+        <article class="vc-ribbon" role="listitem">
+          <p class="vc-ribbon-ref">Romans 15:13</p>
+          <p class="vc-ribbon-body">Now the God of hope fill you with all joy and peace in believing, that ye may abound in hope, through the power of the Holy Ghost.</p>
+          <p class="vc-ribbon-kjv">KJV &middot; Today&rsquo;s Daily Battle</p>
+        </article>
+        <article class="vc-ribbon" role="listitem">
+          <p class="vc-ribbon-ref">John 16:33</p>
+          <p class="vc-ribbon-body">These things I have spoken unto you, that in me ye might have peace. In the world ye shall have tribulation: but be of good cheer; I have overcome the world.</p>
+          <p class="vc-ribbon-kjv">KJV &middot; Today&rsquo;s Daily Battle</p>
+        </article>
+        <article class="vc-ribbon" role="listitem">
+          <p class="vc-ribbon-ref">Deuteronomy 31:6</p>
+          <p class="vc-ribbon-body">Be strong and of a good courage, fear not, nor be afraid of them: for the LORD thy God, he it is that doth go with thee; he will not fail thee, nor forsake thee.</p>
+          <p class="vc-ribbon-kjv">KJV &middot; Today&rsquo;s Daily Battle</p>
+        </article>
+        <article class="vc-ribbon" role="listitem">
+          <p class="vc-ribbon-ref">Matthew 11:28</p>
+          <p class="vc-ribbon-body">Come unto me, all ye that labour and are heavy laden, and I will give you rest.</p>
+          <p class="vc-ribbon-kjv">KJV &middot; Today&rsquo;s Daily Battle</p>
+        </article>
+        <article class="vc-ribbon" role="listitem">
+          <p class="vc-ribbon-ref">1 Corinthians 10:13</p>
+          <p class="vc-ribbon-body">There hath no temptation taken you but such as is common to man: but God is faithful, who will not suffer you to be tempted above that ye are able; but will with the temptation also make a way to escape, that ye may be able to bear it.</p>
+          <p class="vc-ribbon-kjv">KJV &middot; Today&rsquo;s Daily Battle</p>
+        </article>
+      </div>
+    </section>
+
+    <p style="margin-top:2rem;font-size:0.88rem;color:#94a3b8;text-align:center;"><a href="../explore.html" style="color:#e3bc67;">Explore all pages</a> · <a href="/" style="color:#94a3b8;">Home</a></p>
+  </main>
+  <script defer fetchpriority="low" src="/word-study.js?v=20260329pass2off"></script>
+  <script defer fetchpriority="low" src="/verse-narration.js?v=20260329narr12"></script>
+  <script defer fetchpriority="low" src="/verse-study.js?v=20260328pass4vs"></script>
+  <script>
+    (function () {
+      var KEY = 'tdb_verse_card_perks_v1';
+      var intro = document.getElementById('vc-supporter-intro');
+      var pack = document.getElementById('vc-supporter-pack');
+      var btn = document.getElementById('vc-unlock-perks-btn');
+      function revealPack() {
+        if (pack) pack.hidden = false;
+        if (intro) intro.hidden = true;
+      }
+      function showIntroOnly() {
+        if (intro) intro.hidden = false;
+        if (pack) pack.hidden = true;
+      }
+      try {
+        if (localStorage.getItem(KEY) === '1') revealPack();
+        else showIntroOnly();
+      } catch (e) {
+        showIntroOnly();
+      }
+      try {
+        var params = new URLSearchParams(window.location.search || '');
+        if (params.get('perks') === '1') {
+          try {
+            localStorage.setItem(KEY, '1');
+          } catch (e2) {}
+          revealPack();
+          if (window.history && window.history.replaceState) {
+            window.history.replaceState({}, '', window.location.pathname);
+          }
+        }
+      } catch (e3) {}
+      if (btn) {
+        btn.addEventListener('click', function () {
+          try {
+            localStorage.setItem(KEY, '1');
+          } catch (e4) {}
+          btn.setAttribute('aria-expanded', 'true');
+          revealPack();
+          if (pack && pack.scrollIntoView) {
+            try {
+              pack.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            } catch (e5) {}
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

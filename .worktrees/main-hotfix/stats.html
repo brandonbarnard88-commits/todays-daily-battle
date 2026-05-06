@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+
+  <!-- GA4 lazy-loaded after interaction -->
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stats — Today's Daily Battle</title>
+  <meta name="description" content="Password-protected site stats and push health for builders. Not indexed.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260503-consent-persist-fix" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix">
+  <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
+  <script nonce="tdb2025s">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
+  <script type="module" src="config.js"></script>
+  <style nonce="tdb2025s">
+    .stats-wrap { max-width: 560px; margin: 2rem auto; padding: 1.5rem; }
+    .stats-login { background: var(--glass-bg, rgba(15,23,42,0.6)); border-radius: 12px; padding: 1.5rem; }
+    .stats-dashboard { background: var(--glass-bg, rgba(15,23,42,0.6)); border-radius: 12px; padding: 1.5rem; }
+    .stats-dashboard h2 { margin-top: 0; }
+    .stats-row { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0; }
+    .stats-card { flex: 1; min-width: 140px; padding: 1rem; background: rgba(109,40,217,0.15); border-radius: 8px; }
+    .stats-card strong { display: block; font-size: 1.5rem; }
+    .stats-note { font-size: 0.9rem; color: var(--muted, #94a3b8); margin-top: 1rem; }
+  </style>
+</head>
+<body class="theme-dark">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="stats-wrap" id="main-content">
+    <div id="stats-login" class="stats-login glass tdb-porch-paper-glass">
+      <h2>Stats</h2>
+      <p class="section-note topic-mood-porch">Private. Enter password to view.</p>
+      <form id="stats-form">
+        <input type="password" id="stats-password" placeholder="Password" autocomplete="current-password" class="input" style="margin-bottom: 0.75rem; width: 100%; max-width: 240px;" aria-label="Password to view stats">
+        <button type="submit" class="btn btn-primary" aria-label="View stats">View</button>
+      </form>
+    </div>
+    <div id="stats-dashboard" class="stats-dashboard glass tdb-porch-paper-glass" style="display: none;">
+      <h2>Dashboard</h2>
+      <div class="stats-row">
+        <div class="stats-card"><strong id="stat-active">—</strong> Active today</div>
+        <div class="stats-card"><strong id="stat-shares">—</strong> Shares</div>
+        <div class="stats-card"><strong id="stat-push-status">—</strong> Push status</div>
+        <div class="stats-card"><strong id="stat-push-sent">—</strong> Push sent (last run)</div>
+      </div>
+      <p id="stats-push-note" class="stats-note">Push health: loading latest run...</p>
+      <p class="stats-note">Connect Cloudflare Analytics (or your backend) to show real numbers. See CONFIG.md for CF_ANALYTICS_TOKEN and API usage.</p>
+      <p><a href="index.html" class="btn btn-secondary">Back to site</a></p>
+    </div>
+    <p class="stats-note" style="margin-top: 1.25rem; text-align: center;">
+      <a href="explore.html">Explore</a>
+      <span aria-hidden="true"> · </span>
+      <a href="index.html">Home</a>
+    </p>
+  </div>
+  <script nonce="tdb2025s">
+    (function () {
+      var AUTH_KEY = 'tdb_stats_auth';
+      var dash = document.getElementById('stats-dashboard');
+      var login = document.getElementById('stats-login');
+      var passwordRequired = (window.TDB_CONFIG && window.TDB_CONFIG.STATS_PASSWORD) || '';
+      function loadPushHealth() {
+        var note = document.getElementById('stats-push-note');
+        var statusEl = document.getElementById('stat-push-status');
+        var sentEl = document.getElementById('stat-push-sent');
+        var cfg = window.TDB_CONFIG || {};
+        if (!cfg.SUPABASE_URL || !cfg.SUPABASE_ANON_KEY) {
+          if (note) note.textContent = 'Push health needs Supabase in config—that is all right. Add keys and refresh.';
+          return;
+        }
+        fetch(String(cfg.SUPABASE_URL).replace(/\/$/, '') + '/rest/v1/rpc/get_push_health_latest', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            apikey: cfg.SUPABASE_ANON_KEY,
+            Authorization: 'Bearer ' + cfg.SUPABASE_ANON_KEY
+          },
+          body: '{}'
+        }).then(function (res) {
+          if (!res.ok) throw new Error('Failed to load push health');
+          return res.json();
+        }).then(function (rows) {
+          var row = Array.isArray(rows) ? rows[0] : null;
+          if (!row) {
+            if (statusEl) statusEl.textContent = 'No runs';
+            if (sentEl) sentEl.textContent = '0';
+            if (note) note.textContent = 'No push runs logged yet.';
+            return;
+          }
+          if (statusEl) statusEl.textContent = String(row.status || 'ok').toUpperCase();
+          if (sentEl) sentEl.textContent = String(row.sent_count || 0);
+          if (note) {
+            var runAt = row.created_at ? new Date(row.created_at).toLocaleString() : 'Unknown';
+            note.textContent = 'Last run: ' + runAt + ' | failed: ' + (row.failed_count || 0) + ' | pruned: ' + (row.pruned_count || 0);
+          }
+        }).catch(function () {
+          if (note) note.textContent = 'Push health did not load—that is all right. Run supabase-push-health-rpc.sql and try again.';
+        });
+      }
+      if (!passwordRequired) {
+        login.querySelector('.section-note').textContent = 'Set STATS_PASSWORD in config.js to enable.';
+        document.getElementById('stats-form').style.display = 'none';
+        return;
+      }
+      if (sessionStorage.getItem(AUTH_KEY)) {
+        login.style.display = 'none';
+        dash.style.display = 'block';
+        loadPushHealth();
+        return;
+      }
+      document.getElementById('stats-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var input = document.getElementById('stats-password');
+        if (input && input.value === passwordRequired) {
+          sessionStorage.setItem(AUTH_KEY, '1');
+          login.style.display = 'none';
+          dash.style.display = 'block';
+          loadPushHealth();
+        } else {
+          alert('Wrong password.');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+*.txt
+!data/official-export-hash.txt
+!.well-known/security.txt
+!CLOUDFLARE-CSP-COPY-PASTE.txt
+!scripts/mobius-breathe-human-say-input.txt
+!scripts/mobius-guided-human-say-input.txt
+token*
+*.key
+.env
+.env.save
+config.js
+firebase-config.js
+.DS_Store
+node_modules/
+dist/
+/build
+/build/
+*.tar.gz
+android/
+ios/
+.idea/
+.vscode/
+supabase/.temp/
+lighthouse-*.html
+lighthouse-*.json
+lhr-ci.json
+*.zip
+playwright-report/
+test-results/
+
+# Kids full-story video sources (large binaries — deploy via CDN/host; .vtt may stay tracked)
+media/kids-stories/*.mp4
+media/kids-stories/*.webm
+.vercel
+
+# Accidental duplicate filenames (e.g. Finder "File 2.ext") — do not commit these
+**/* 2.html
+**/* 2.js
+**/* 2.mjs
+**/* 2.css
+**/* 2.json
+**/* 2.md
+**/* 2.svg
+**/* 2.m4a
+**/* 2.cjs
+**/* 2.map
+**/* 2.txt
+**/* 2.py
+
+# Möbius breathe generator temps (track audio/mobius-breathe-human.mp3 only)
+audio/mobius-breathe-human-temp.*
+# Möbius guided alternate-track generator temps
+audio/mobius-guided-human-temp.*
+audio/mobius-guided-pad-temp.wav
+audio/mobius-guided-merged-temp.wav

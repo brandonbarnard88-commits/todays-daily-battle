@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
+  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="450" cy="200" r="28"/>
+    <line x1="450" y1="228" x2="450" y2="360"/>
+    <line x1="450" y1="260" x2="380" y2="220"/>
+    <line x1="450" y1="260" x2="520" y2="220"/>
+    <line x1="450" y1="290" x2="350" y2="270"/>
+    <line x1="450" y1="290" x2="550" y2="270"/>
+    <circle cx="360" cy="380" r="15"/>
+    <line x1="360" y1="365" x2="410" y2="310"/>
+    <circle cx="450" cy="400" r="14"/>
+    <line x1="450" y1="386" x2="450" y2="330"/>
+    <circle cx="540" cy="382" r="15"/>
+    <line x1="540" y1="367" x2="490" y2="310"/>
+    <path d="M280 460 Q450 420 620 460"/>
+  </g>
+</svg>

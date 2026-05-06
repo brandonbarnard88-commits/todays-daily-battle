@@ -1,0 +1,972 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Year-round rhythm • Homeschool, family &amp; summer • Today&apos;s Daily Battle</title>
+  <meta name="description" content="Gentle August–July rhythm for homeschool and private-school families: one short KJV day at a time, lighter summer weeks, holiday doors, printable month grid—no account required.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/yearly-rhythm.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="preload" href="tdb-quiet-luxury.css?v=20260503-consent-persist-fix" as="style">
+  <link rel="stylesheet" href="tdb-quiet-luxury.css?v=20260503-consent-persist-fix">
+  <style>
+    :root { --bg:#0d1117; --text:#f5f7fb; --muted:#8896b0; --gold:#e3bc67; --line:#242d3d; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: ui-rounded,"Avenir Next","Segoe UI","Inter",sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; font-size: 1rem; }
+    .skip-link { position: absolute; left: -9999px; }
+    .skip-link:focus { left: 1rem; top: 1rem; z-index: 999; padding: 0.5rem 0.75rem; background: var(--gold); color: #111; }
+    .tdb-global-nav {
+      display: flex; align-items: center; gap: 0.2rem 0.5rem; flex-wrap: wrap;
+      padding: 0.35rem 0.75rem; min-height: 52px;
+      background: rgba(8, 12, 22, 0.55); border-bottom: 1px solid rgba(227, 188, 103, 0.22);
+      position: sticky; top: 0; z-index: 201; backdrop-filter: blur(10px); font-size: 0.86rem;
+    }
+    .tdb-global-nav a {
+      color: rgba(226, 232, 240, 0.85); text-decoration: none; padding: 0.3rem 0.5rem; border-radius: 6px;
+      min-height: 44px; display: inline-flex; align-items: center;
+    }
+    .tdb-global-nav a:hover, .tdb-global-nav a:focus-visible { color: var(--gold); background: rgba(227, 188, 103, 0.1); outline: 2px solid rgba(227, 188, 103, 0.55); outline-offset: 2px; }
+    .tdb-global-nav a[aria-current="page"] { color: var(--gold); font-weight: 600; }
+    main { max-width: 40rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+    h1 { font-size: clamp(1.5rem, 4vw, 2rem); color: var(--gold); margin: 0 0 0.75rem; font-weight: 800; }
+    .lead { color: var(--muted); font-size: 0.95rem; margin: 0 0 1.25rem; }
+    .yr-month-glance {
+      margin: 0 0 1.35rem;
+      padding: 0.8rem 0.9rem 0.95rem;
+      border-radius: 12px;
+      border: 1px solid rgba(139, 166, 217, 0.28);
+      background: rgba(12, 18, 30, 0.5);
+    }
+    .yr-month-glance-h {
+      margin: 0 0 0.55rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(200, 210, 225, 0.92);
+      line-height: 1.45;
+    }
+    .yr-month-glance-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.35rem;
+    }
+    @media (max-width: 400px) {
+      .yr-month-glance-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.45rem; }
+      .yr-month-glance-grid a { min-height: 56px; padding: 0.42rem 0.28rem; }
+      .yr-mg-ic { font-size: 1.15rem; }
+    }
+    .yr-month-glance-grid a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.2rem;
+      min-height: 52px;
+      padding: 0.35rem 0.2rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      color: rgba(226, 232, 240, 0.92);
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: rgba(8, 12, 20, 0.55);
+    }
+    .yr-mg-ic { font-size: 1.05rem; line-height: 1; }
+    .yr-mg-lbl { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.06em; }
+    .yr-month-glance-grid a:hover,
+    .yr-month-glance-grid a:focus-visible {
+      border-color: var(--gold);
+      color: var(--gold);
+      outline: none;
+    }
+    section { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--line); }
+    section:last-of-type { border-bottom: none; }
+    h2 { font-size: 1.05rem; color: var(--gold); margin: 0 0 0.65rem; font-weight: 700; }
+    p { margin: 0 0 0.85rem; color: rgba(245, 247, 251, 0.92); }
+    ul { margin: 0.35rem 0 0; padding-left: 1.2rem; color: rgba(245, 247, 251, 0.9); }
+    li { margin-bottom: 0.45rem; }
+    a { color: var(--gold); text-underline-offset: 2px; }
+    a:hover, a:focus-visible { color: #f0d28a; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 1rem; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
+      padding: 0.55rem 1rem; border-radius: 10px; font-size: 0.9rem; font-weight: 600;
+      text-decoration: none; border: 1px solid rgba(227, 188, 103, 0.45);
+      background: rgba(227, 188, 103, 0.12); color: var(--gold);
+    }
+    .btn:hover, .btn:focus-visible { background: rgba(227, 188, 103, 0.22); outline: 2px solid rgba(227, 188, 103, 0.55); outline-offset: 2px; }
+    .btn-secondary { background: transparent; color: rgba(226, 232, 240, 0.9); border-color: var(--line); }
+    .btn-secondary:hover, .btn-secondary:focus-visible { border-color: var(--gold); color: var(--gold); }
+    footer { max-width: 40rem; margin: 0 auto; padding: 0 1.25rem 2.5rem; font-size: 0.82rem; color: var(--muted); }
+    footer a { color: var(--gold); }
+    .seasonal-easter-spotlight {
+      margin: 0 0 1.1rem;
+      padding: 0.95rem 1.05rem;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--gold) 28%, var(--line));
+      background: color-mix(in srgb, var(--bg) 90%, var(--gold));
+    }
+    .seasonal-easter-spotlight .spot-eyebrow {
+      margin: 0 0 0.35rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .seasonal-easter-spotlight p { margin: 0 0 0.65rem; }
+    .seasonal-easter-spotlight p:last-child { margin-bottom: 0; }
+    .yr-table-wrap { overflow-x: auto; margin: 0.75rem 0 0; -webkit-overflow-scrolling: touch; }
+    .yr-table-wrap--mv {
+      margin: 1rem 0 1.25rem;
+      border-radius: 12px;
+      border: 1px solid rgba(227, 188, 103, 0.2);
+      padding: 0.15rem;
+      background: rgba(8, 12, 20, 0.35);
+    }
+    .yr-mv-table th:first-child,
+    .yr-mv-table td:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 2;
+      background: rgba(13, 17, 23, 0.97);
+      box-shadow: 4px 0 10px rgba(0, 0, 0, 0.18);
+      min-width: 3.2rem;
+    }
+    .yr-mv-table thead th:first-child { z-index: 3; background: rgba(20, 24, 32, 0.98); }
+    .yr-mv-table th, .yr-mv-table td { padding: 0.65rem 0.55rem; }
+    @media (max-width: 480px) {
+      .yr-mv-table th, .yr-mv-table td { font-size: 0.88rem; padding: 0.7rem 0.5rem; }
+    }
+    table.yr-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; min-width: 280px; }
+    .yr-table th, .yr-table td { border: 1px solid var(--line); padding: 0.45rem 0.5rem; text-align: left; vertical-align: top; }
+    .yr-table th { color: var(--gold); font-weight: 700; background: rgba(227, 188, 103, 0.08); }
+    .yr-table .yr-write { min-height: 2rem; background: transparent; }
+    .yr-plain-planner-wrap { margin-top: 1rem; }
+    .yr-plain-planner-wrap summary {
+      cursor: pointer; color: var(--gold); font-weight: 600; min-height: 44px;
+      display: flex; align-items: center; list-style-position: outside;
+    }
+    .yr-plain-planner-wrap summary:focus-visible { outline: 2px solid rgba(227, 188, 103, 0.55); outline-offset: 3px; border-radius: 6px; }
+    .yr-plain-planner-wrap[open] summary { margin-bottom: 0.35rem; }
+    .yr-planner-plain {
+      margin: 0; padding: 0.75rem 1rem;
+      font-size: 0.78rem; line-height: 1.5; color: rgba(245, 247, 251, 0.9);
+      background: rgba(12, 16, 26, 0.65); border: 1px solid var(--line); border-radius: 10px;
+      white-space: pre-wrap; font-family: ui-monospace, "Cascadia Code", "Source Code Pro", monospace; overflow-x: auto;
+    }
+    table.yr-mv-table td.yr-mv-text { font-size: 0.78rem; color: rgba(245, 247, 251, 0.85); max-width: 12rem; }
+    #yr-memory.yearly-rhythm-section {
+      padding: 1.25rem 1rem;
+      border-radius: 14px;
+      border: 1px solid rgba(227, 188, 103, 0.18);
+      background: rgba(12, 16, 26, 0.42);
+    }
+    .memory-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    .memory-table th,
+    .memory-table td {
+      padding: 0.85rem 0.55rem;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(136, 150, 176, 0.35);
+      font-size: 0.9rem;
+    }
+    .memory-table thead th {
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(227, 188, 103, 0.95);
+    }
+    .yr-copy-plain-btn {
+      margin: 0.35rem 0 0.5rem;
+      min-height: 48px;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--line);
+      background: rgba(12, 16, 26, 0.55);
+      color: rgba(226, 232, 240, 0.92);
+      font-family: inherit;
+    }
+    .yr-copy-plain-btn:hover,
+    .yr-copy-plain-btn:focus-visible {
+      border-color: var(--gold);
+      color: var(--gold);
+      outline: 2px solid rgba(227, 188, 103, 0.45);
+      outline-offset: 2px;
+    }
+    .yr-memory-spotlight { margin: 0.75rem 0 1rem; }
+    .yr-memory-spotlight-lead { margin: 0 0 0.65rem !important; }
+    .memory-verse-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) {
+      .memory-verse-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    .memory-verse-card { border-radius: 14px; border: 1px solid rgba(227, 188, 103, 0.22); background: rgba(12, 16, 26, 0.45); padding: 1rem 1.1rem; }
+    .memory-verse-card--compact { padding: 0.85rem 1rem; }
+    .memory-verse-card--compact .family-memory-text { font-size: 0.88rem; }
+    .memory-verse-card-header { display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 0.45rem; }
+    .memory-verse-card-month { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(227, 188, 103, 0.82); }
+    .memory-verse-card-track { font-size: 0.88rem; font-weight: 500; color: rgba(226, 232, 240, 0.9); line-height: 1.45; }
+    .memory-verse-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.65rem; align-items: stretch; }
+    .memory-verse-actions .btn { min-height: 44px; }
+    .memory-verse-btn-touch { flex: 1 1 100%; min-height: 44px; padding: 0.55rem 0.9rem; }
+    @media (min-width: 480px) {
+      .memory-verse-btn-touch { flex: 1 1 calc(50% - 0.35rem); min-width: 0; }
+    }
+    .memory-verse-calm-note { color: rgba(245, 247, 251, 0.88); }
+    .yr-planner-sheet {
+      margin: 0.75rem 0 1.25rem;
+      padding: 1rem 1.1rem 1.15rem;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(12, 16, 26, 0.65);
+    }
+    .yr-planner-sheet-title { margin: 0 0 0.65rem; font-size: 0.95rem; font-weight: 700; color: var(--gold); }
+    .yr-planner-sheet p { margin: 0 0 0.5rem; font-size: 0.86rem; line-height: 1.55; color: rgba(245, 247, 251, 0.92); }
+    .yr-planner-sheet .yr-planner-checklist { margin: 0.35rem 0 0.65rem; padding-left: 1.15rem; color: rgba(245, 247, 251, 0.9); }
+    .yr-planner-sheet .yr-planner-checklist li { margin: 0.25rem 0; }
+    .yr-planner-verse-lines { min-height: 3.2rem; border-bottom: 1px dashed rgba(136, 150, 176, 0.45); margin-bottom: 0.35rem; }
+    .yr-print-planners-zone { margin-top: 0.25rem; }
+    .yr-print-planners-zone .yr-planner-sheet { margin-bottom: 1.1rem; }
+    .yr-week-launch-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.65rem 0 0; }
+    .yr-week-launch-row .btn { min-height: 44px; }
+    .yr-teacher-pack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .yr-teacher-pack-card {
+      border: 1px solid rgba(136, 150, 176, 0.4);
+      border-radius: 10px;
+      padding: 0.75rem 0.85rem;
+      background: rgba(15, 23, 42, 0.45);
+    }
+    .yr-teacher-pack-card h3 { margin: 0 0 0.35rem; font-size: 0.95rem; color: var(--gold); }
+    .yr-teacher-pack-card p { margin: 0; font-size: 0.86rem; line-height: 1.5; color: rgba(245, 247, 251, 0.9); }
+    .yr-handoff-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .yr-handoff-card {
+      border: 1px dashed rgba(227, 188, 103, 0.45);
+      border-radius: 10px;
+      padding: 0.75rem 0.85rem;
+      background: rgba(10, 14, 22, 0.48);
+    }
+    .yr-handoff-card h3 { margin: 0 0 0.3rem; font-size: 0.9rem; color: var(--gold); }
+    .yr-handoff-card p { margin: 0; font-size: 0.84rem; line-height: 1.5; color: rgba(245, 247, 251, 0.88); }
+    @media (max-width: 480px) {
+      .memory-verse-actions { flex-direction: column; }
+      .memory-verse-actions .memory-verse-btn-touch,
+      .memory-verse-actions .btn { width: 100%; min-height: 48px; }
+      .yr-planner-sheet { padding: 1.15rem 1rem; }
+      .yr-table-wrap { margin-left: -0.15rem; margin-right: -0.15rem; }
+      .yr-week-launch-row .btn { width: 100%; }
+      .memory-table th,
+      .memory-table td {
+        padding: 0.65rem 0.4rem;
+        font-size: 0.95rem;
+      }
+      #yr-memory-tbody tr {
+        border-bottom: 1px solid rgba(136, 150, 176, 0.28);
+      }
+    }
+    @media print {
+      .tdb-global-nav, .tdb-global-subnav { position: static; }
+      .yr-print-zone { break-inside: avoid; }
+      .yr-plain-planner-wrap, .yr-planner-plain { break-inside: avoid; }
+      .yr-print-planners-zone, .yr-planner-sheet { break-inside: avoid; page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+    <nav class="tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+    <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel-standalone" id="tdb-primary-nav-toggle-standalone">
+      <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+      <span class="tdb-nav-flyout-toggle__label">Site</span>
+    </button>
+    <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-standalone">
+      <a href="/verse.html">Today&rsquo;s Lesson</a>
+      <a href="/explore.html">Explore</a>
+      <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map and gentle paths">Curriculum</a>
+      <a href="/plans.html" id="nav-browse-curriculum" aria-label="Browse the curriculum — KJV courses and gentle battle plans">Browse the curriculum</a>
+      <a href="/university.html" id="nav-university-core" aria-label="University of God — five anchor verses, quiet map">University map</a>
+      <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read</a>
+      <a href="/memorize.html">Memorize</a>
+      <a href="/#feel-section">How I Feel</a>
+      <a href="/daily-rhythm.html">Daily Rhythm</a>
+      <a href="/prayer-wall.html">Pray</a>
+      <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
+      <details class="tdb-nav-more">
+        <summary aria-haspopup="true">More tools</summary>
+        <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+          <a href="/">Home</a>
+          <a href="/mystudy">My Study</a>
+          <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
+          <a href="/plans.html">Courses</a>
+          <a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">Family Armor for little ones</a>
+          <a href="/kids/corner.html">Kids &amp; Family</a>
+          <a href="/yearly-rhythm.html" id="nav-year-round" aria-current="page" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
+          <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
+          <a href="/site-guide.html" id="nav-site-guide" aria-label="Start here — calm map of where to begin">Start here</a>
+          <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
+          <a href="/about.html">About</a>
+          <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
+          <a href="/mobius.html">Möbius</a>
+          <a href="/calm.html">Calm</a>
+          <a href="/story.html">Story</a>
+          <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
+        </div>
+      </details>
+    </div>
+  </nav>
+  <nav class="tdb-global-subnav" aria-label="Rhythm, printables, and family">
+    <a href="/calm.html">Calm</a>
+    <a href="/mobius.html">Möbius</a>
+    <a href="/identity-in-christ.html">Identity</a>
+    <a href="/first-steps.html">First steps</a>
+    <a href="/family-home.html">Family</a>
+    <a href="/printables.html">Printables</a>
+    <a href="/daily-quiet-time.html">Daily quiet</a>
+    <a href="/psalms.html">Psalms</a>
+    <a href="/seasonal.html">Seasonal</a>
+    <a href="/yearly-rhythm.html" aria-current="page">Year-round rhythm</a>
+    <a href="/#feel-section">Feel &amp; topics</a>
+    <a href="/kids/?v=hub20260321">Kids</a>
+  </nav>
+  <main id="main" class="yearly-rhythm-hub">
+    <header class="tdb-porch-hero-local">
+      <h1>Year-round rhythm</h1>
+      <p class="tdb-porch-welcome-local topic-mood-porch">You&rsquo;re already welcome here. Rest first; this rhythm meets you at the family table or the desk&mdash;no rush, no perfect year.</p>
+      <p class="lead">For homeschool, private-school Bible class, co-op, church kids club, or the family table (ages 5&ndash;18): <strong>one gentle day at a time</strong>. No account is required to read; progress stays on each device and works offline after the first visit.</p>
+    </header>
+    <nav class="yr-month-glance" aria-labelledby="yr-month-glance-l">
+      <p class="yr-month-glance-h" id="yr-month-glance-l">School-year months (August first)&mdash;each tile is a calm hint for the season; tap any month to jump to the memory grid and cards below.</p>
+      <div class="yr-month-glance-grid">
+        <a href="#yr-memory"><span class="yr-mg-ic" aria-hidden="true">🎒</span><span class="yr-mg-lbl">Aug</span></a>
+        <a href="#yr-memory"><span class="yr-mg-ic" aria-hidden="true">📚</span><span class="yr-mg-lbl">Sep</span></a>
+        <a href="#yr-memory"><span class="yr-mg-ic" aria-hidden="true">🌾</span><span class="yr-mg-lbl">Oct</span></a>
+        <a href="#yr-memory"><span class="yr-mg-ic" aria-hidden="true">🙏</span><span class="yr-mg-lbl">Nov</span></a>
+        <a href="#yr-memory"><span class="yr-mg-ic" aria-hidden="true">✨</span><span class="yr-mg-lbl">Dec</span></a>
+        <a href="#yr-memory"><span class="yr-mg-ic" aria-hidden="true">⭐</span><span class="yr-mg-lbl">Jan</span></a>
+        <a href="#yr-memory"><span class="yr-mg-ic" aria-hidden="true">💧</span><span class="yr-mg-lbl">Feb</span></a>
+        <a href="#yr-memory"><span class="yr-mg-ic" aria-hidden="true">🌿</span><span class="yr-mg-lbl">Mar</span></a>
+        <a href="#yr-memory"><span class="yr-mg-ic" aria-hidden="true">✝️</span><span class="yr-mg-lbl">Apr</span></a>
+        <a href="#yr-memory"><span class="yr-mg-ic" aria-hidden="true">☀️</span><span class="yr-mg-lbl">May</span></a>
+        <a href="#yr-memory"><span class="yr-mg-ic" aria-hidden="true">🌊</span><span class="yr-mg-lbl">Jun</span></a>
+        <a href="#yr-memory"><span class="yr-mg-ic" aria-hidden="true">🌱</span><span class="yr-mg-lbl">Jul</span></a>
+      </div>
+    </nav>
+    <div class="cta-row">
+      <a class="btn" href="family.html">Family hub</a>
+      <a class="btn btn-secondary" href="plans.html">Battle Plans</a>
+      <a class="btn btn-secondary" href="seasonal.html">Seasonal paths</a>
+      <a class="btn btn-secondary" href="church-sharing-kit.html#csk-homeschool-year-round">Church kit &mdash; homeschool &amp; school</a>
+    </div>
+
+    <section id="yr-memory" class="yearly-rhythm-section" aria-labelledby="yr-memory-h">
+      <h2 id="yr-memory-h">Memory verses (calendar year)</h2>
+      <p>One anchor verse per month in the KJV&mdash;gentle review on <strong>this device</strong> only. Mark &ldquo;learning&rdquo; or celebrate &ldquo;memorized&rdquo; on the <a href="family.html#family-year-round-memory">Family hub</a>; this grid lists the same verses. <strong>Weekly:</strong> say one aloud. <strong>Summer (June&ndash;July):</strong> one or two a week is plenty.</p>
+      <p class="section-note yr-memory-calm-note" style="margin-top:0">Printable cut-out cards: <a href="church-sharing-kit.html#csk-memory-verse-cards">Church kit &mdash; Memory Verse Cards</a>. <strong>One-page print:</strong> <a href="year-at-a-glance.html">Year at a glance</a> (all months + seasonal doors + gentle activity reminders). <strong>Activity ideas (no quizzes):</strong> <a href="church-sharing-kit.html#csk-memory-verse-activities">Gentle Memory Verse Activities</a> &middot; <a href="memory-verse-activities-print.html">print sheet</a>. Trackers: <a href="#yr-print-planners">Printable planners</a> (also <a href="church-sharing-kit.html#csk-print-planners">church kit</a>).</p>
+      <div class="yr-table-wrap yr-table-wrap--mv">
+        <table class="yr-table yr-mv-table memory-table" aria-label="Monthly memory verses — full year grid">
+          <thead>
+            <tr>
+              <th scope="col">Month</th>
+              <th scope="col">Reference</th>
+              <th scope="col">Verse (short)</th>
+              <th scope="col">Status on device</th>
+            </tr>
+          </thead>
+          <tbody id="yr-memory-tbody"></tbody>
+        </table>
+      </div>
+      <div id="yr-memory-spotlight" class="yr-memory-spotlight" aria-label="This month and season"></div>
+      <p class="section-note" style="margin-top:0.75rem">Pin any Battle Plan day to this list: open <a href="plans.html">Battle Plans</a> and tap <strong>Pin to Memory Verses</strong> on a day card.</p>
+    </section>
+
+    <section id="yr-philosophy" aria-labelledby="yr-philosophy-h">
+      <h2 id="yr-philosophy-h">How to use this page</h2>
+      <ul>
+        <li><strong>School year (about August&ndash;May):</strong> steady Mon&ndash;Fri bites from a kids plan; one midweek check-in on <a href="family.html">family.html</a> for progress on a shared device.</li>
+        <li><strong>Summer (about June&ndash;July):</strong> fewer days per week, shorter sits, more outside&mdash;still KJV on the screen.</li>
+        <li><strong>Holidays:</strong> named doors below link to plans you already have; use them when the calendar asks for focus, not because you &ldquo;owe&rdquo; God a program.</li>
+      </ul>
+    </section>
+
+    <section id="yr-ages-5-18" aria-labelledby="yr-ages-5-18-h">
+      <h2 id="yr-ages-5-18-h">Weekly + daily curriculum map (ages 5&ndash;18)</h2>
+      <p>Use one shared Scripture theme across the whole group, then scale the response by age. Keep it calm: read the <abbr title="King James Version">KJV</abbr> verse, use one small step, and close with one honest prayer.</p>
+      <div class="yr-table-wrap">
+        <table class="yr-table" aria-label="Age-band curriculum map for weekly and daily use">
+          <thead>
+            <tr>
+              <th scope="col">Age band</th>
+              <th scope="col">Daily rhythm (10&ndash;15 min)</th>
+              <th scope="col">Weekly rhythm (45&ndash;75 min total)</th>
+              <th scope="col">Suggested track</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">5&ndash;7</th>
+              <td>Read one short verse line aloud twice, one story picture or motion, one sentence prayer.</td>
+              <td>3 short days (Mon/Wed/Fri) + one gentle review circle.</td>
+              <td><a href="plans.html?plan=lordsprayer-kids">Lord&rsquo;s Prayer for Kids</a> or <a href="plans.html?plan=beatitudes-kids">Beatitudes for Kids</a></td>
+            </tr>
+            <tr>
+              <th scope="row">8&ndash;10</th>
+              <td>Read full day card, answer one question in their own words, write or draw one takeaway.</td>
+              <td>4 days (Mon&ndash;Thu) + Friday recap verse and prayer pair.</td>
+              <td><a href="plans.html?plan=sower-kids">Sower for Kids</a> + <a href="plans.html?plan=summer-seeds">Summer Seeds</a> in June/July</td>
+            </tr>
+            <tr>
+              <th scope="row">11&ndash;13</th>
+              <td>Read day card, write one journal line, choose one practice step (kindness, apology, service, or prayer).</td>
+              <td>4&ndash;5 days + one discussion block where students explain the verse in plain words.</td>
+              <td><a href="plans.html?plan=beatitudes-kids">Beatitudes for Kids</a> then <a href="plans.html?plan=peacemakers">Peacemakers</a></td>
+            </tr>
+            <tr>
+              <th scope="row">14&ndash;18</th>
+              <td>Read day card and verse context, write one application line, close with one intercession for school/friends.</td>
+              <td>5 days + one weekly reflection huddle (what changed this week?).</td>
+              <td><a href="plans.html?plan=lordsprayer">Lord&rsquo;s Prayer</a>, <a href="plans.html?plan=beatitudes">Beatitudes</a>, or <a href="plans.html#sermon-on-mount-intro">Sermon on the Mount intro</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="section-note">Multi-age class tip: keep everyone on the same weekly theme, then split response time by age (draw, discuss, journal). Printable support: <a href="church-sharing-kit.html#csk-homesch-tracker">week tracker</a> and <a href="#yr-print-planners">planner worksheets</a>.</p>
+    </section>
+
+    <section id="yr-teacher-pack" class="yr-print-zone" aria-labelledby="yr-teacher-pack-h">
+      <h2 id="yr-teacher-pack-h">Teacher Pack — one-page scope and sequence</h2>
+      <p>Run one coherent flow across classroom, co-op, or church team in 45&ndash;60 minutes. Keep Scripture central, then scale the response by age. Print this section or save to PDF.</p>
+      <div class="yr-table-wrap">
+        <table class="yr-table" aria-label="Teacher scope and sequence by lesson block">
+          <thead>
+            <tr>
+              <th scope="col">Lesson block</th>
+              <th scope="col">Timing</th>
+              <th scope="col">What to do</th>
+              <th scope="col">Age adjustment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Warm start</th><td>5 min</td><td>Open with one KJV verse and one short story hook.</td><td>5&ndash;10: echo phrase; 11&ndash;18: read full verse aloud.</td></tr>
+            <tr><th scope="row">Understanding</th><td>12&ndash;15 min</td><td>Read day card, then ask one observation and one meaning question.</td><td>5&ndash;10: picture response; 11&ndash;18: one journal line.</td></tr>
+            <tr><th scope="row">Practice step</th><td>10 min</td><td>Choose one concrete action (kindness, apology, gratitude, service).</td><td>5&ndash;10: group action; 11&ndash;18: individual commitment.</td></tr>
+            <tr><th scope="row">Prayer close</th><td>5 min</td><td>Pray one sentence from the verse and one intercession.</td><td>Younger: repeat-after-leader; older: volunteer prayers.</td></tr>
+            <tr><th scope="row">Home handoff</th><td>3 min</td><td>Send verse + one practice line to caregivers.</td><td>Use printable cards in <a href="#yr-parent-handoff-cards" data-teacher-resource="handoff_cards_anchor">handoff cards</a>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="yr-week-launch-row" role="group" aria-label="Weekly quick launch buttons">
+        <a class="btn btn-primary" href="plans.html?plan=lordsprayer-kids" data-teacher-resource="week1_launch">Week 1 launch</a>
+        <a class="btn btn-secondary" href="plans.html?plan=beatitudes-kids" data-teacher-resource="week2_launch">Week 2 launch</a>
+        <a class="btn btn-secondary" href="plans.html?plan=sower-kids" data-teacher-resource="week3_launch">Week 3 launch</a>
+        <a class="btn btn-secondary" href="plans.html?plan=peacemakers" data-teacher-resource="week4_launch">Week 4 launch</a>
+      </div>
+      <p class="section-note" style="margin-top:0.65rem">Need leader scripting and classroom variants? Open <a href="church-sharing-kit.html#csk-children-print-leader" data-teacher-resource="leader_guide_open">Quick leader guide</a> and <a href="church-sharing-kit.html#csk-homeschool-year-round" data-teacher-resource="church_school_lane_open">Church &amp; school lane</a>.</p>
+    </section>
+
+    <section id="yr-monthly-lesson-sheets" class="yr-print-zone" aria-labelledby="yr-monthly-lesson-sheets-h">
+      <h2 id="yr-monthly-lesson-sheets-h">Monthly lesson sheets (12-month set)</h2>
+      <p>Each month gives one focus verse, one teaching aim, one activity, and one prayer close. Use these as a repeatable spine for private Christian schools, co-ops, or church teams.</p>
+      <div class="yr-teacher-pack-grid">
+        <article class="yr-teacher-pack-card"><h3>August</h3><p>Focus: courage in transition (Joshua 1:9). Activity: backpack prayer tags. Close: courage prayer before school starts.</p></article>
+        <article class="yr-teacher-pack-card"><h3>September</h3><p>Focus: Lord's Prayer phrases. Activity: line-by-line echo prayer. Close: one sentence thanksgiving.</p></article>
+        <article class="yr-teacher-pack-card"><h3>October</h3><p>Focus: gratitude rhythms (Psalm 100:4). Activity: thankful table cards. Close: family thank-you prayer.</p></article>
+        <article class="yr-teacher-pack-card"><h3>November</h3><p>Focus: praise and remembrance. Activity: gratitude chain links. Close: spoken praise around the room.</p></article>
+        <article class="yr-teacher-pack-card"><h3>December</h3><p>Focus: Advent hope (Luke 2:10-11). Activity: simple nativity verse card. Close: Christ-centered peace prayer.</p></article>
+        <article class="yr-teacher-pack-card"><h3>January</h3><p>Focus: new mercies (Lamentations 3:22-23). Activity: reset journal line. Close: prayer for steady beginnings.</p></article>
+        <article class="yr-teacher-pack-card"><h3>February</h3><p>Focus: heart soil (Sower). Activity: four soils visual chart. Close: ask God for receptive hearts.</p></article>
+        <article class="yr-teacher-pack-card"><h3>March</h3><p>Focus: repentance and trust. Activity: one turn-back-to-God step. Close: humble confession prayer.</p></article>
+        <article class="yr-teacher-pack-card"><h3>April</h3><p>Focus: resurrection hope. Activity: empty-tomb reading prompts. Close: prayer of hope and joy.</p></article>
+        <article class="yr-teacher-pack-card"><h3>May</h3><p>Focus: family encouragement. Activity: blessing words for home. Close: prayer for parents and caregivers.</p></article>
+        <article class="yr-teacher-pack-card"><h3>June</h3><p>Focus: summer stillness. Activity: verse walk outdoors. Close: be-still breath prayer.</p></article>
+        <article class="yr-teacher-pack-card"><h3>July</h3><p>Focus: perseverance in heat and travel. Activity: one-verse memory check. Close: keep-us-steady prayer.</p></article>
+      </div>
+      <p class="section-note" style="margin-top:0.65rem">Full print companion: <a href="church-sharing-kit.html#csk-print-planners" data-teacher-resource="monthly_print_companion_open">Church kit planner sheets</a>.</p>
+    </section>
+
+    <section id="yr-parent-handoff-cards" class="yr-print-zone" aria-labelledby="yr-parent-handoff-cards-h">
+      <h2 id="yr-parent-handoff-cards-h">Parent handoff cards (printable)</h2>
+      <p>Cut and send these home so caregivers can reinforce the same verse and step in one minute. Keep wording short and calm.</p>
+      <div class="yr-handoff-cards-grid" aria-label="Parent handoff cards">
+        <article class="yr-handoff-card"><h3>Card 1 — What we learned</h3><p>This week: God is with us in fear. Verse: Joshua 1:9. Ask your child to say one phrase they remember.</p></article>
+        <article class="yr-handoff-card"><h3>Card 2 — One small step</h3><p>Practice this week: speak one kind sentence before dinner each day. Keep it simple and specific.</p></article>
+        <article class="yr-handoff-card"><h3>Card 3 — Prayer line</h3><p>Pray together: &ldquo;Lord, help our family trust Thee this week. Amen.&rdquo;</p></article>
+        <article class="yr-handoff-card"><h3>Card 4 — Keep going</h3><p>Next week opens here: <a href="plans.html?plan=beatitudes-kids" data-teacher-resource="parent_next_week_open">Beatitudes for Kids</a>. One short day is enough.</p></article>
+      </div>
+    </section>
+
+    <section id="yr-school-year" aria-labelledby="yr-school-year-h">
+      <h2 id="yr-school-year-h">School-year week (example)</h2>
+      <p>Swap studies when you finish one; repeat years if you like. All links open the same gentle day cards as everywhere else on the site.</p>
+      <ul>
+        <li><strong>Monday&ndash;Tuesday&ndash;Thursday:</strong> one day per session from <a href="plans.html?plan=lordsprayer-kids">Lord&rsquo;s Prayer for Kids</a>, <a href="plans.html?plan=beatitudes-kids">Beatitudes for Kids</a>, or <a href="plans.html?plan=sower-kids">Parable of the Sower for Kids</a> (pick one track per term, or rotate).</li>
+        <li><strong>Wednesday:</strong> <a href="family.html">Family hub</a> &mdash; glance at progress, pray one sentence together, optional <a href="plans.html?plan=familyworship">Family Worship in the Trenches</a> day.</li>
+        <li><strong>Friday:</strong> light review (favorite verse from the week) or a hands-on idea from <a href="church-sharing-kit.html#csk-vbs-crafts">Church kit crafts</a> / <a href="church-sharing-kit.html#csk-vbs-prayer-activities">prayer activities</a> &mdash; no quiz required.</li>
+      </ul>
+      <p><strong>Older students beside you:</strong> the same week&rsquo;s theme in an adult plan (for example <a href="plans.html?plan=lordsprayer">Lord&rsquo;s Prayer</a> or <a href="plans.html?plan=beatitudes">Beatitudes</a>) can follow the kids day.</p>
+    </section>
+
+    <section id="yr-summer" aria-labelledby="yr-summer-h">
+      <h2 id="yr-summer-h">Summer Seeds (lighter weeks)</h2>
+      <p><strong>Quiet summer with Jesus</strong> &mdash; aim for three short visits a week (about 3&ndash;5 minutes), not seven.</p>
+      <p><strong>Eight-week spine:</strong> <a href="plans.html?plan=summer-seeds">Summer Seeds for Kids</a> &mdash; one KJV anchor day per week beside a grown-up; progress saves on this device like your other Battle Plans.</p>
+      <p class="section-note" style="margin-top:0.5rem">Optional second habit: whisper one phrase from each week&rsquo;s verse at breakfast. The <a href="#yr-memory">monthly memory grid</a> below lists a full verse per month if you want a gentle parallel track&mdash;never required.</p>
+      <p><strong>Optional deeper rotation</strong> (same summer, if you want more pages open):</p>
+      <ul>
+        <li><strong>Weeks 1&ndash;2:</strong> <a href="plans.html?plan=beatitudes-kids">Beatitudes for Kids</a> at half pace.</li>
+        <li><strong>Weeks 3&ndash;4:</strong> <a href="plans.html?plan=lordsprayer-kids">Lord&rsquo;s Prayer for Kids</a>.</li>
+        <li><strong>Weeks 5&ndash;6:</strong> <a href="plans.html?plan=sower-kids">Sower for Kids</a> plus a real seed in a cup (water together; pray a one-line thanks).</li>
+        <li><strong>Weeks 7&ndash;8:</strong> free-choice review <em>or</em> five restful days from <a href="plans.html?plan=peace">7-Day Peace</a> (stop when five days feel complete).</li>
+      </ul>
+      <p><strong>Optional rhythm:</strong> Monday &mdash; one study day &middot; Wednesday &mdash; family devotion on <a href="family.html">family.html</a> &middot; Friday &mdash; story or craft; other days optional.</p>
+    </section>
+
+    <section id="yr-holidays" aria-labelledby="yr-holidays-h">
+      <h2 id="yr-holidays-h">Holidays &amp; seasonal doors</h2>
+      <p>More context and alternates: <a href="seasonal.html">Seasonal paths</a>.</p>
+      <ul>
+        <li><strong>Back to school:</strong> <a href="plans.html?plan=schoolcourage">Back-to-School Courage</a> (seven days) &middot; <a href="plans.html?plan=peace">7-Day Peace</a> &middot; <a href="plans.html?plan=worrytrust">Worry to Trust</a> &middot; <a href="seasonal.html#back-to-school">Seasonal &mdash; back to school</a>.</li>
+        <li><strong>Harvest / thanks:</strong> <a href="plans.html?plan=harvestthanks">Harvest Gratitude</a> (seven days) &middot; any week in <a href="plans.html?plan=praisethanks30">30-Day Praise &amp; Thanksgiving</a>.</li>
+        <li><strong>Advent / Christmas:</strong> <a href="plans.html?plan=adventquiet">Advent Quiet</a> (seven days) &middot; <a href="plans.html?plan=christmas7">Christmas Week</a> &mdash; Christ the Light.</li>
+        <li><strong>New Year:</strong> <a href="plans.html?plan=newyear7">New Year Week &mdash; Steady Mercies</a> &middot; <a href="plans.html?plan=gentleyear">Gentle New Year Reset</a> (five short days).</li>
+        <li><strong>Easter:</strong> <a href="he-is-risen.html">He is risen</a> readings &middot; <a href="plans.html?plan=easter">Resurrection Hope</a> (seven-day plan) &mdash; prominent doorway in spring.</li>
+        <li><strong>Summer:</strong> <a href="plans.html?plan=summerstill">Summer Stillness</a> (five days) &middot; <a href="plans.html?plan=summer-seeds">Summer Seeds for Kids</a> (eight-week spine).</li>
+      </ul>
+    </section>
+
+    <section id="yr-units" aria-labelledby="yr-units-h">
+      <h2 id="yr-units-h">Unit-style bundles (mix and match)</h2>
+      <ul>
+        <li><strong>Kingdom living (~9 weeks at one day/week):</strong> <a href="plans.html?plan=beatitudes-kids">Beatitudes for Kids</a> &rarr; <a href="plans.html#sermon-on-mount-intro">Sermon on the Mount intro</a> (on the plans page) for older listeners &rarr; <a href="plans.html?plan=sower-kids">Sower for Kids</a>.</li>
+        <li><strong>Prayer journey (~7 weeks):</strong> <a href="plans.html?plan=lordsprayer-kids">Lord&rsquo;s Prayer for Kids</a> with <a href="plans.html?plan=lordsprayer">Lord&rsquo;s Prayer</a> for teens or parents on the same evenings.</li>
+        <li><strong>Heart soil (summer-friendly):</strong> <a href="plans.html?plan=sower-kids">Sower for Kids</a> plus a paper &ldquo;four soils&rdquo; drawing; jot one sentence after a walk (&ldquo;What did God make that reminded you of Him?&rdquo;).</li>
+      </ul>
+    </section>
+
+    <section id="yr-school-chapel" aria-labelledby="yr-school-chapel-h">
+      <h2 id="yr-school-chapel-h">Private school, chapel, or Bible class</h2>
+      <p>One fifteen-minute block weekly: open the day on a projector or tablet, read the <abbr title="King James Version">KJV</abbr> verse aloud, read the short reflection, do the small step (whisper, draw, or kindness), pray the printed prayer. Leader notes and copy for families: <a href="church-sharing-kit.html#csk-children-print-leader">Children&rsquo;s ministry leader guide</a> and <a href="church-sharing-kit.html#csk-volunteer-training">Volunteer training</a> on the Church Sharing Kit.</p>
+    </section>
+
+    <section class="yr-print-zone" id="yearly-rhythm-planner" aria-labelledby="yearly-rhythm-planner-h">
+      <h2 id="yearly-rhythm-planner-h">Printable year-at-a-glance (August&ndash;July)</h2>
+      <p>Screenshot or print; check boxes when you like&mdash;the site never grades you. Write a memory verse reference in the notes column.</p>
+      <div class="yr-table-wrap">
+        <table class="yr-table" aria-label="School year month planner">
+          <thead>
+            <tr>
+              <th scope="col">Month</th>
+              <th scope="col">Suggested focus</th>
+              <th scope="col">Notes / memory verse</th>
+              <th scope="col">Done</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">August</th><td>Back to school calm &middot; <a href="plans.html?plan=peace">Peace</a></td><td class="yr-write" aria-label="Notes August"></td><td class="yr-write" aria-label="Done August"></td></tr>
+            <tr><th scope="row">September</th><td><a href="plans.html?plan=lordsprayer-kids">Lord&rsquo;s Prayer for Kids</a> starts</td><td class="yr-write"></td><td class="yr-write"></td></tr>
+            <tr><th scope="row">October</th><td>Continue prayer kids or <a href="plans.html?plan=beatitudes-kids">Beatitudes for Kids</a></td><td class="yr-write"></td><td class="yr-write"></td></tr>
+            <tr><th scope="row">November</th><td><a href="plans.html?plan=praisethanks30">Praise &amp; Thanksgiving</a> (any 7&ndash;14 days)</td><td class="yr-write"></td><td class="yr-write"></td></tr>
+            <tr><th scope="row">December</th><td><a href="plans.html?plan=christmas7">Christmas Week</a></td><td class="yr-write"></td><td class="yr-write"></td></tr>
+            <tr><th scope="row">January</th><td><a href="plans.html?plan=newyear7">New Year Week</a></td><td class="yr-write"></td><td class="yr-write"></td></tr>
+            <tr><th scope="row">February</th><td><a href="plans.html?plan=sower-kids">Sower for Kids</a></td><td class="yr-write"></td><td class="yr-write"></td></tr>
+            <tr><th scope="row">March</th><td>Lenten quiet optional &middot; <a href="plans.html?plan=easter">Resurrection Hope</a> before Easter</td><td class="yr-write"></td><td class="yr-write"></td></tr>
+            <tr><th scope="row">April</th><td>Easter season &middot; <a href="he-is-risen.html">He is risen</a></td><td class="yr-write"></td><td class="yr-write"></td></tr>
+            <tr><th scope="row">May</th><td>Finish a kids track or <a href="plans.html?plan=psalmscomfortfamily">Psalms of Comfort (Family)</a></td><td class="yr-write"></td><td class="yr-write"></td></tr>
+            <tr><th scope="row">June</th><td><a href="plans.html?plan=summer-seeds">Summer Seeds for Kids</a> &mdash; weeks 1&ndash;4 spine + optional rotation (see above)</td><td class="yr-write"></td><td class="yr-write"></td></tr>
+            <tr><th scope="row">July</th><td><a href="plans.html?plan=summer-seeds">Summer Seeds for Kids</a> &mdash; weeks 5&ndash;8 spine <em>or</em> <a href="plans.html?plan=peace">Peace</a> days</td><td class="yr-write"></td><td class="yr-write"></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <details class="yr-plain-planner-wrap">
+        <summary>Plain text for copy or print-to-PDF</summary>
+        <button type="button" class="yr-copy-plain-btn" id="yr-copy-planner-plain-btn" aria-label="Copy year-at-a-glance plain text to clipboard">Copy plain text</button>
+        <pre class="yr-planner-plain" id="yearly-rhythm-planner-plain">Today&apos;s Daily Battle — Year-at-a-glance (August through July)
+https://todaysdailybattle.com/yearly-rhythm.html
+
+Month     Suggested focus
+--------  ----------------------------------------------------------
+August    Back to school calm — Peace (plans.html?plan=peace)
+September Lord&apos;s Prayer for Kids starts (plans.html?plan=lordsprayer-kids)
+October   Continue prayer kids or Beatitudes for Kids
+November  Praise &amp; Thanksgiving, any 7–14 days (plans.html?plan=praisethanks30)
+December  Christmas Week (plans.html?plan=christmas7)
+January   New Year Week (plans.html?plan=newyear7)
+February  Sower for Kids (plans.html?plan=sower-kids)
+March     Lenten quiet optional; Resurrection Hope before Easter (plans.html?plan=easter)
+April     Easter season — He is risen (he-is-risen.html)
+May       Finish a kids track or Psalms of Comfort Family (plans.html?plan=psalmscomfortfamily)
+June      Summer Seeds for Kids weeks 1–4 (plans.html?plan=summer-seeds) + optional rotation
+July      Summer Seeds for Kids weeks 5–8 or Peace days (plans.html?plan=peace)
+
+Weekly printable tracker:
+https://todaysdailybattle.com/church-sharing-kit.html#csk-homesch-tracker
+
+One-page memory + rhythm planners:
+https://todaysdailybattle.com/yearly-rhythm.html#yr-print-planners
+https://todaysdailybattle.com/church-sharing-kit.html#csk-print-planners</pre>
+      </details>
+      <p>Weekly detail sheet: <a href="church-sharing-kit.html#csk-homesch-tracker">Homeschool week tracker</a> on the Church Sharing Kit.</p>
+    </section>
+
+    <section class="yr-print-planners-zone yr-print-zone" id="yr-print-planners" aria-labelledby="yr-print-planners-h">
+      <h2 id="yr-print-planners-h">Printable planners (memory verse &amp; year rhythm)</h2>
+      <p>Same gentle one-pagers as the <a href="church-sharing-kit.html#csk-print-planners">Church sharing kit</a>&mdash;duplicated here so families who live on this page can print without hunting.</p>
+
+      <h3 id="yr-print-planner-mv-h">Monthly Memory Verse Planner</h3>
+      <div class="yr-planner-sheet" aria-label="Monthly memory verse planner worksheet">
+        <p class="yr-planner-sheet-title">Today&rsquo;s Daily Battle &mdash; Memory Verse Planner</p>
+        <p><strong>Month:</strong> _______________________</p>
+        <p><strong>Verse to Hide in My Heart:</strong></p>
+        <div class="yr-planner-verse-lines" aria-hidden="true"></div>
+        <div class="yr-planner-verse-lines" aria-hidden="true"></div>
+        <p style="margin:0.15rem 0 0.5rem;font-size:0.8rem;color:rgba(245,247,251,0.75)">(<abbr title="King James Version">KJV</abbr>)</p>
+        <p style="margin-top:0.5rem"><strong>Review ideas</strong> (check when done):</p>
+        <ul class="yr-planner-checklist">
+          <li>&#9744; Say it aloud each morning</li>
+          <li>&#9744; Write it three times</li>
+          <li>&#9744; Draw a picture about the verse</li>
+          <li>&#9744; Pray the verse back to God</li>
+          <li>&#9744; Share it with someone in my family</li>
+        </ul>
+        <div class="yr-table-wrap" style="margin-top:0.65rem">
+          <table class="yr-table" aria-label="Weekly check-in dates for this verse">
+            <thead>
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Reviewed?</th>
+                <th scope="col">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>&#9744;</td><td class="yr-write" aria-label="Notes week one"></td></tr>
+              <tr><td>8</td><td>&#9744;</td><td class="yr-write" aria-label="Notes week two"></td></tr>
+              <tr><td>15</td><td>&#9744;</td><td class="yr-write" aria-label="Notes week three"></td></tr>
+              <tr><td>22</td><td>&#9744;</td><td class="yr-write" aria-label="Notes week four"></td></tr>
+              <tr><td>29</td><td>&#9744;</td><td class="yr-write" aria-label="Notes week five"></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top:0.75rem; font-size:0.82rem; font-style:italic">&ldquo;Thy word have I hid in mine heart&hellip;&rdquo; (Psalm 119:11)</p>
+      </div>
+
+      <h3 id="yr-print-planner-rhythm-h">Year-round rhythm overview (printable)</h3>
+      <div class="yr-planner-sheet" aria-label="Year-round rhythm planner worksheet">
+        <p class="yr-planner-sheet-title">Year-Round Rhythm &mdash; One Gentle Day at a Time</p>
+        <p><strong>School Year (Aug&ndash;May)</strong></p>
+        <ul class="yr-planner-checklist">
+          <li>Mon&ndash;Fri: One day from current study</li>
+          <li>Wednesday: Family devotion on <a href="family.html">family.html</a></li>
+          <li>Friday: Light review or dramatization</li>
+        </ul>
+        <p><strong>Summer (June&ndash;July)</strong></p>
+        <ul class="yr-planner-checklist">
+          <li>3 days per week: <a href="plans.html?plan=summer-seeds">Summer Seeds</a> track or free choice</li>
+          <li>Use <a href="#yr-summer">this page &mdash; summer ideas</a> when you want a gentle nudge</li>
+        </ul>
+        <p><strong>Seasonal Highlights</strong></p>
+        <ul class="yr-planner-checklist">
+          <li>Back-to-School Courage (Aug/Sep) &mdash; <a href="plans.html?plan=schoolcourage">schoolcourage</a></li>
+          <li>Harvest Gratitude (Nov) &mdash; <a href="plans.html?plan=harvestthanks">harvestthanks</a></li>
+          <li>Advent Quiet (Dec) &mdash; <a href="plans.html?plan=adventquiet">adventquiet</a></li>
+          <li>New Year Reset (Jan) &mdash; <a href="plans.html?plan=gentleyear">gentleyear</a> / <a href="plans.html?plan=newyear7">newyear7</a></li>
+          <li>Easter Resurrection Hope (Mar/Apr) &mdash; <a href="plans.html?plan=easter">easter</a></li>
+          <li>Summer Stillness (Jun/Jul) &mdash; <a href="plans.html?plan=summerstill">summerstill</a></li>
+        </ul>
+        <p><strong>Memory Verse Goal:</strong> One gentle verse per month</p>
+        <p style="margin-bottom:0; font-size:0.82rem">Print and keep in a folder or on the fridge. Mark lightly&mdash;no pressure.</p>
+      </div>
+      <details class="yr-plain-planner-wrap">
+        <summary>Plain text for copy or print-to-PDF</summary>
+        <button type="button" class="yr-copy-plain-btn" id="yr-copy-print-planners-plain-btn" aria-label="Copy printable planners plain text to clipboard">Copy plain text</button>
+        <pre class="yr-planner-plain" id="yr-print-planners-plain">Today&apos;s Daily Battle – Memory Verse Planner
+
+Month: _______________________
+
+Verse to Hide in My Heart:
+________________________________________________
+________________________________________________
+(KJV)
+
+Review ideas (check when done):
+□ Say it aloud each morning
+□ Write it three times
+□ Draw a picture about the verse
+□ Pray the verse back to God
+□ Share it with someone in my family
+
+Date       Reviewed?     Notes
+---------- -----------   ---------------------------------
+1         □             _________________________________
+8         □             _________________________________
+15        □             _________________________________
+22        □             _________________________________
+29        □             _________________________________
+
+"Thy word have I hid in mine heart..." (Psalm 119:11)
+
+---
+
+Year-Round Rhythm – One Gentle Day at a Time
+
+School Year (Aug–May)
+• Mon–Fri: One day from current study
+• Wednesday: Family devotion on family.html
+• Friday: Light review or dramatization
+
+Summer (June–July)
+• 3 days per week: Summer Seeds track or free choice
+• Use yearly-rhythm.html for ideas
+
+Seasonal Highlights
+• Back-to-School Courage (Aug/Sep)
+• Harvest Gratitude (Nov)
+• Advent Quiet (Dec)
+• New Year Reset (Jan)
+• Easter Resurrection Hope (Mar/Apr)
+• Summer Stillness (Jun/Jul)
+
+Memory Verse Goal: One gentle verse per month
+
+Print and keep in a folder or on the fridge. Mark lightly — no pressure.
+
+https://todaysdailybattle.com/yearly-rhythm.html#yr-print-planners
+https://todaysdailybattle.com/church-sharing-kit.html#csk-print-planners</pre>
+      </details>
+    </section>
+
+    <section id="yr-more" aria-labelledby="yr-more-h">
+      <h2 id="yr-more-h">More on the site</h2>
+      <p><a href="plans.html">Browse every Battle Plan</a> &middot; <a href="bible-study.html">Bible Studies hub</a> &middot; <a href="kids/corner.html">Kids Story Library</a> &middot; <a href="/">Home</a> (feel search).</p>
+    </section>
+  </main>
+  <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
+  <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+    <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+    <span class="tdb-lang-switcher-inner">
+      <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-essentials" aria-label="Key pages">
+    <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/verse.html">Today&rsquo;s Lesson</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <p class="site-footer-share-wrap">
+    <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
+    <span class="site-footer-share-sep" aria-hidden="true">·</span>
+    <button type="button" class="share-page-btn site-footer-tour-restart tdb-tour-restart-btn" aria-label="Restart the five-minute site tour">Restart site tour</button>
+  </p>
+
+  <nav class="bottom-nav" role="navigation" aria-label="Plans, kids, and Spanish topics">
+    <a href="/plans.html">Plans</a>
+    <a href="/kids/">Kids Battle</a>
+    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
+      <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
+      <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
+      <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-nav" aria-label="Footer links">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/media.html">Media</a>
+    <a href="/roadmap.html">Roadmap</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/for-pastors.html">For pastors &amp; teachers</a>
+    <a href="/reader.html">Chapter reader</a>
+    <a href="/bible/tools.html">Study workshop</a>
+    <a href="/bible-tool.html">Bible tool</a>
+    <a href="/testimonials.html">Reader stories</a>
+    <a href="/journal/">Journal</a>
+    <a href="/where-support-goes.html">Where support goes</a>
+    <a href="/verse-cards/">Verse cards</a>
+    <a href="/security.html">Security</a>
+    <a href="/contact.html">Contact</a>
+    <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
+  </nav>
+
+  <details class="footer-sitemap">
+    <summary>Sitemap — topics, tools, church &amp; family (tap to expand)</summary>
+    <div class="footer-sitemap-grid">
+      <div class="footer-sitemap-col">
+        <h3>The Narrow Paths</h3>
+        <a href="/explore.html">Full list (all pages)</a>
+        <a href="/topic-anxiety.html">Anxiety</a>
+        <a href="/topic-fear.html">Fear</a>
+        <a href="/topic-grief.html">Grief</a>
+        <a href="/topic-hope.html">Hope</a>
+        <a href="/topic-strength.html">Strength</a>
+        <a href="/topic-parenting.html">Parenting</a>
+        <a href="/topic-loneliness.html">Loneliness</a>
+        <a href="/topic-forgiveness.html">Forgiveness</a>
+        <a href="/topic-guilt.html">Guilt</a>
+        <a href="/topic-overwhelmed.html">Overwhelmed</a>
+        <a href="/topic-worthless.html">Worth / identity</a>
+      </div>
+      <div class="footer-sitemap-col footer-sitemap-col--es-links">
+        <h3>Spanish devotionals</h3>
+        <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es">Paz</a>
+        <a href="/explore.html#topics-es">All Spanish topics on Explore</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Tools of the Quiet Trade</h3>
+        <a href="/verse.html">Verse of the Day</a>
+        <a href="/reader.html">Chapter reader</a>
+        <a href="/bible/tools.html">Study workshop</a>
+        <a href="/bible-tool.html">Bible tool</a>
+        <a href="/mystudy">My Study</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/mobius.html">Möbius</a>
+        <a href="/plans.html">Courses</a>
+        <a href="/reading-plan.html">7-day plan</a>
+        <a href="/study.html">Study workspace</a>
+        <a href="/wins.html">Wins</a>
+        <a href="/progress.html">Progress</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>For the Household of Faith</h3>
+        <a href="/church.html">Church center</a>
+        <a href="/church/">Church join hub</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit</a>
+        <a href="/pastor/">Pastor hub</a>
+        <a href="/sermon.html">Sermon builder</a>
+        <a href="/family.html">Family hub</a>
+        <a href="/little-ones.html">For the Little Ones</a>
+        <a href="/family-armor.html">Family Armor</a>
+        <a href="/kids/">Kids Battle home</a>
+        <a href="/kids/corner.html">Bible Story Library</a>
+        <a href="/kids-corner.html">Bible Loop Library</a>
+        <a href="/coloring.html">Color &amp; Tell</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Further In</h3>
+        <a href="/prayer-wall.html">Prayer</a>
+        <a href="/bible-study.html">Bible studies</a>
+        <a href="/shop.html">Shop</a>
+        <a href="/story.html">Story</a>
+        <a href="/media.html">Media</a>
+        <a href="/roadmap.html">Roadmap</a>
+        <a href="/approach.html">How we respond</a>
+        <a href="/why-not-ai.html">Why not AI?</a>
+        <a href="/curriculum.html">Curriculum</a>
+        <a href="/verse-cards/">Verse cards</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </details>
+
+  <p class="footer-humility">We battle. He wins.</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): footer story lives in .site-footer-story below -->
+  <p class="site-footer-story">
+    Steady KJV for honest days&mdash;no ads, no selling your data; prayers stay on this device unless you sync on purpose.
+  </p>
+
+  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" aria-label="Friday verse and prayer email signup">
+    <p class="footer-friday-signup-label">Friday recap email&mdash;one message a week; leave anytime.</p>
+    <div class="footer-friday-signup-row">
+      <label for="footer-friday-email" class="sr-only">Email for Friday recap</label>
+      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="your@email.com" aria-label="Email for Friday recap" autocomplete="email">
+      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit">Subscribe</button>
+    </div>
+    <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
+  </div>
+
+  <p class="site-footer-copy site-footer-legal-line">&copy; 2026 Today&rsquo;s Daily Battle &middot; Christian Messenger Service. All rights reserved.</p>
+  <p class="site-footer-copy site-footer-legal-line">All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
+
+  <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
+  <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
+  </div>
+  <script defer src="/language-switcher.js?v=20260503-consent-persist-fix"></script>
+</footer>
+  <script src="memory-verses.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.TDB_memoryVerses && typeof window.TDB_memoryVerses.mountYearlyMemorySpotlight === 'function') {
+        window.TDB_memoryVerses.mountYearlyMemorySpotlight('#yr-memory-spotlight');
+      }
+      if (window.TDB_memoryVerses && typeof window.TDB_memoryVerses.mountYearlyTable === 'function') {
+        window.TDB_memoryVerses.mountYearlyTable('#yr-memory-tbody');
+      }
+      function wireCopy(btnId, preId) {
+        var btn = document.getElementById(btnId);
+        var pre = document.getElementById(preId);
+        if (!btn || !pre || !navigator.clipboard || !navigator.clipboard.writeText) {
+          if (btn) btn.hidden = true;
+          return;
+        }
+        btn.addEventListener('click', function () {
+          navigator.clipboard.writeText(pre.textContent || '').then(function () {
+            var t = btn.textContent;
+            btn.textContent = 'Copied';
+            setTimeout(function () { btn.textContent = t; }, 2000);
+          }).catch(function () {});
+        });
+      }
+      wireCopy('yr-copy-planner-plain-btn', 'yearly-rhythm-planner-plain');
+      wireCopy('yr-copy-print-planners-plain-btn', 'yr-print-planners-plain');
+      document.addEventListener('click', function (event) {
+        var link = event.target && event.target.closest ? event.target.closest('[data-teacher-resource]') : null;
+        if (!link) return;
+        try {
+          if (typeof window.trackEvent === 'function') {
+            window.trackEvent('teacher_resource_open', {
+              resource_id: String(link.getAttribute('data-teacher-resource') || '').slice(0, 80),
+              source_page: 'yearly_rhythm'
+            });
+          }
+        } catch (_) {}
+      });
+    });
+  </script>
+</body>
+</html>

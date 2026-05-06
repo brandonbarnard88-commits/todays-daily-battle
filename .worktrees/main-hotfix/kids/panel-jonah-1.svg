@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" role="img" aria-label="Jonah running from God">
+  <defs>
+    <linearGradient id="j1-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#87CEEB"/><stop offset="1" stop-color="#E0F6FF"/></linearGradient>
+    <linearGradient id="j1-robe" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4A90D9"/><stop offset="1" stop-color="#2E5A8A"/></linearGradient>
+  </defs>
+  <rect width="200" height="160" fill="url(#j1-sky)"/>
+  <rect x="0" y="100" width="200" height="60" fill="#6B8E23"/>
+  <ellipse cx="50" cy="115" rx="35" ry="25" fill="#7BA05B"/>
+  <ellipse cx="150" cy="110" rx="40" ry="30" fill="#8FBC8F"/>
+  <!-- Ship in distance -->
+  <path d="M30 95 L50 95 L55 85 L45 85 Z" fill="#8B4513" stroke="#5D4E37" stroke-width="1"/>
+  <!-- Jonah running (arms back, legs mid-stride) -->
+  <ellipse cx="115" cy="80" rx="18" ry="22" fill="#F5DEB3" stroke="#333" stroke-width="1.5"/>
+  <circle cx="110" cy="75" r="2.5" fill="#333"/>
+  <circle cx="120" cy="75" r="2.5" fill="#333"/>
+  <path d="M108 88 Q115 91 122 88" stroke="#333" stroke-width="1" fill="none"/>
+  <path d="M97 85 L97 115 L112 115 L112 85 Q104 75 97 85" fill="url(#j1-robe)" stroke="#333" stroke-width="1"/>
+  <path d="M118 85 L118 115 L133 115 L133 85 Q126 75 118 85" fill="url(#j1-robe)" stroke="#333" stroke-width="1"/>
+  <line x1="105" y1="115" x2="95" y2="130" stroke="#5D4E37" stroke-width="3"/>
+  <line x1="125" y1="115" x2="135" y2="128" stroke="#5D4E37" stroke-width="3"/>
+  <!-- Arms running -->
+  <line x1="97" y1="90" x2="80" y2="95" stroke="#F5DEB3" stroke-width="4" stroke-linecap="round"/>
+  <line x1="133" y1="90" x2="148" y2="92" stroke="#F5DEB3" stroke-width="4" stroke-linecap="round"/>
+  <!-- Speech bubble -->
+  <path d="M135 45 L175 45 L180 58 L168 63 L135 63 Z" fill="white" stroke="#333" stroke-width="2"/>
+  <text x="140" y="56" font-family="Comic Sans MS, cursive" font-size="8" fill="#333">Running away!</text>
+</svg>

@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+  <!-- tdb-cache-hygiene: _headers no-cache /explore (+ /explore); purge SOCIAL_PURGE_PATHS; bump service-worker CACHE_NAME if edge/PWA stale -->
+
+  <!-- GA4 lazy-loaded after interaction -->
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Explore &bull; Quiet Campus Doorways &bull; Today&rsquo;s Daily Battle</title>
+  <meta name="description" content="Find your next quiet path: Kids Corner, Calm, Family Mode, Prayer Wall, Pastor Tools, seasonal plans, and more. All KJV, all offline-first.">
+  <meta name="robots" content="index, follow">
+  <meta name="referrer" content="no-referrer">
+  <link rel="canonical" href="https://todaysdailybattle.com/explore.html">
+  <meta property="og:site_name" content="Today's Daily Battle">
+  <meta property="og:title" content="Explore • Quiet Campus Doorways • Today's Daily Battle">
+  <meta property="og:description" content="Find your next quiet path: Kids Corner, Calm, Family Mode, Prayer Wall, Pastor Tools, seasonal plans, and more. All KJV, all offline-first.">
+  <meta property="og:url" content="https://todaysdailybattle.com/explore.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260422og">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Today&#39;s Daily Battle &mdash; explore KJV tools and family pages">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Explore • Quiet Campus Doorways • Today's Daily Battle">
+  <meta name="twitter:description" content="Find your next quiet path: Kids Corner, Calm, Family Mode, Prayer Wall, Pastor Tools, seasonal plans, and more. All KJV, all offline-first.">
+  <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260422og">
+  <meta name="twitter:image:alt" content="Today&#39;s Daily Battle &mdash; explore KJV tools and family pages">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260503-consent-persist-fix" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix">
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Explore • Quiet Campus Doorways • Today's Daily Battle",
+    "url": "https://todaysdailybattle.com/explore.html",
+    "description": "Find your next quiet path: Kids Corner, Calm, Family Mode, Prayer Wall, Pastor Tools, seasonal plans, and more. All KJV, all offline-first.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Today's Daily Battle",
+      "url": "https://todaysdailybattle.com"
+    }
+  }
+  </script>
+  <style>
+    /* Languages block is dense; wide screens get same-page jump chips. */
+    .explore-lang-jump { display: none; }
+    @media (min-width: 900px) {
+      .explore-lang-jump {
+        display: block;
+        margin: 0 0 1rem;
+        padding: 0.5rem 0.75rem;
+        border-radius: 12px;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        background: rgba(15, 23, 42, 0.45);
+      }
+      .explore-lang-jump__label {
+        display: block;
+        margin: 0 0 0.4rem;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(148, 163, 184, 0.85);
+      }
+      .explore-lang-jump__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem 0.5rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+      }
+      .explore-lang-jump__list a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 0.2rem 0.6rem;
+        border-radius: 999px;
+        font-size: 0.84rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: rgba(226, 232, 240, 0.92);
+        border: 1px solid rgba(99, 102, 241, 0.28);
+        background: rgba(15, 23, 42, 0.55);
+      }
+      .explore-lang-jump__list a:hover,
+      .explore-lang-jump__list a:focus-visible {
+        border-color: rgba(99, 102, 241, 0.55);
+        color: #c7d2fe;
+        outline: 2px solid rgba(99, 102, 241, 0.4);
+        outline-offset: 2px;
+      }
+    }
+    .explore-languages h3[id] {
+      scroll-margin-top: 5rem;
+    }
+    /* Wide viewports: calm “On this page” map — long index; desktop scanning only. */
+    .explore-onpage-nav { display: none; }
+    @media (min-width: 1100px) {
+      .explore-onpage-nav {
+        display: block;
+        position: sticky;
+        top: 3.25rem;
+        z-index: 8;
+        margin: 0.25rem 0 1.2rem;
+        padding: 0.5rem 0.75rem 0.6rem;
+        border-radius: 14px;
+        background: rgba(6, 9, 14, 0.82);
+        border: 1px solid rgba(227, 188, 103, 0.2);
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+        backdrop-filter: blur(10px);
+        text-align: left;
+      }
+      .explore-onpage-nav__label {
+        margin: 0 0 0.4rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(227, 188, 103, 0.65);
+      }
+      .explore-onpage-nav__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem 0.55rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+      }
+      .explore-onpage-nav__list a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 0.25rem 0.65rem;
+        border-radius: 999px;
+        font-size: 0.86rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: rgba(226, 232, 240, 0.92);
+        border: 1px solid rgba(227, 188, 103, 0.22);
+        background: rgba(12, 16, 26, 0.55);
+      }
+      .explore-onpage-nav__list a:hover,
+      .explore-onpage-nav__list a:focus-visible {
+        border-color: rgba(227, 188, 103, 0.45);
+        color: #c9a84c;
+        outline: 2px solid rgba(227, 188, 103, 0.45);
+        outline-offset: 2px;
+      }
+    }
+    html[data-theme="light"] .explore-onpage-nav {
+      background: rgba(255, 253, 247, 0.94);
+      border-color: rgba(201, 162, 39, 0.28);
+      box-shadow: 0 8px 24px rgba(64, 41, 8, 0.1);
+    }
+    html[data-theme="light"] .explore-onpage-nav__label {
+      color: rgba(120, 90, 30, 0.75);
+    }
+    html[data-theme="light"] .explore-onpage-nav__list a {
+      color: #1e293b;
+      border-color: rgba(201, 162, 39, 0.35);
+      background: rgba(255, 255, 255, 0.88);
+    }
+    html[data-theme="light"] .explore-onpage-nav__list a:hover,
+    html[data-theme="light"] .explore-onpage-nav__list a:focus-visible {
+      color: #0f172a;
+      border-color: rgba(201, 162, 39, 0.55);
+    }
+    .tdb-explore-page #explore-overview,
+    .tdb-explore-page #explore-quick-doors,
+    .tdb-explore-page #start-here,
+    .tdb-explore-page #first-visit-tour,
+    .tdb-explore-page #whats-new-spring-2026,
+    .tdb-explore-page #explore-hub,
+    .tdb-explore-page #languages,
+    .tdb-explore-page #topics-en,
+    .tdb-explore-page #daily {
+      scroll-margin-top: 5rem;
+    }
+    @media (min-width: 1100px) {
+      .tdb-explore-page #explore-overview,
+      .tdb-explore-page #explore-quick-doors,
+      .tdb-explore-page #start-here,
+      .tdb-explore-page #first-visit-tour,
+      .tdb-explore-page #whats-new-spring-2026,
+      .tdb-explore-page #explore-hub,
+      .tdb-explore-page #languages,
+      .tdb-explore-page #topics-en,
+      .tdb-explore-page #daily {
+        scroll-margin-top: 7.5rem;
+      }
+    }
+    @media (min-width: 1100px) and (prefers-reduced-motion: reduce) {
+      .explore-onpage-nav {
+        position: static;
+        margin-bottom: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body class="dark-mode tdb-inner-page tdb-explore-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="tdb-lang-switcher-header-wrap">
+        <nav class="tdb-lang-switcher tdb-lang-switcher--header tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+          <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+          <span class="tdb-lang-switcher-inner">
+            <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+          </span>
+        </nav>
+      </div>
+
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <p class="tdb-header-heartbeat site-tagline" lang="en">For Family, For Country, For GOD</p>
+        <span class="brand-subtitle">Quiet map — every door still here</span>
+      </div>
+      <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+      <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
+        <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+        <span class="tdb-nav-flyout-toggle__label">Site</span>
+      </button>
+      <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
+        <a href="/verse.html">Today&rsquo;s Lesson</a>
+        <a href="/explore.html" aria-current="page">Explore</a>
+        <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map and gentle paths">Curriculum</a>
+        <a href="/plans.html" id="nav-browse-curriculum" aria-label="Browse the curriculum — KJV courses and gentle battle plans">Browse the curriculum</a>
+        <a href="/university.html" id="nav-university-core" aria-label="University of God — five anchor verses, quiet map">University map</a>
+        <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read</a>
+        <a href="/memorize.html">Memorize</a>
+        <a href="/#feel-section">How I Feel</a>
+        <a href="/daily-rhythm.html">Daily Rhythm</a>
+        <a href="/prayer-wall.html">Pray</a>
+        <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
+        <details class="tdb-nav-more">
+          <summary aria-haspopup="true">More tools</summary>
+          <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+            <a href="/">Home</a>
+            <a href="/mystudy">My Study</a>
+            <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
+            <a href="/plans.html">Courses</a>
+            <a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">Family Armor for little ones</a>
+            <a href="/kids/corner.html">Kids &amp; Family</a>
+            <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
+            <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
+            <a href="/site-guide.html" id="nav-site-guide" aria-label="Start here — calm map of where to begin">Start here</a>
+            <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
+            <a href="/about.html">About</a>
+            <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
+            <a href="/mobius.html">Möbius</a>
+            <a href="/calm.html">Calm</a>
+            <a href="/story.html">Story</a>
+            <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
+          </div>
+        </details>
+      </div>
+    </nav>
+      <div class="tdb-header-account-nudge" role="group" aria-label="Account shortcuts">
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" aria-label="Open the five-minute site tour">Site tour</button>
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-restart-btn" aria-label="Restart the five-minute site tour from the beginning">Restart</button>
+        <a href="/login.html" class="tdb-header-account-nudge__link">Log in</a>
+        <a href="/mystudy?tab=library#saved-verses" class="tdb-header-account-nudge__link">My Study</a>
+      </div>
+
+      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
+</header>
+
+    <aside id="sidebar" class="sidebar">
+      <nav class="side-nav" aria-label="Site navigation">
+        <a href="/">Home</a>
+        <a href="explore.html#start-here">Start here</a>
+        <a href="explore.html" aria-current="page">Explore</a>
+        <a href="verse.html">Verse of the Day</a>
+        <a href="calm.html">Calm</a>
+        <a href="plans.html">Battle plans</a>
+        <a href="prayer-wall.html">Prayer</a>
+        <a href="#topics-es" hreflang="es" aria-label="Jump to Spanish topics on this page">Spanish topics</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="why-not-ai.html">Why not AI?</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </aside>
+
+    <main class="app-content tdb-quiet-container" id="main-content">
+      <div class="content-inner explore-page">
+        <header id="explore-overview" class="hero-banner explore-hero explore-hero--soar-dawn" tabindex="-1">
+          <p class="explore-eyebrow">Same tools — clearer doors</p>
+          <div class="explore-hero-motto" role="group" aria-label="Site motto">
+            <p class="explore-hero-soul-tag">Less scroll, more soul</p>
+            <p class="explore-hero-core-tagline">For God · For Country · For Family</p>
+          </div>
+          <h1>Explore the site</h1>
+          <p class="section-note util-mb-0_5 topic-mood-porch">You&rsquo;re already welcome here&mdash;this page sorts doors; it doesn&rsquo;t rank you.</p>
+          <p class="privacy-line explore-trust-line">Completely private. No login wall. Grace, not grades &mdash; no ads or selling data. Prayers stay on your device. Anonymous page stats only&mdash;<a href="privacy.html">Privacy</a>.</p>
+          <p class="hero-tagline">KJV-first tools and topic pages — find the right door without memorizing URLs. Human-built, calm, and meant to be lived with&mdash;not chatted at. <a href="why-not-ai.html">Why not AI?</a></p>
+          <p class="explore-positioning-line">We built scripture-first paths: look up, study, and apply—clear steps, not open-ended AI chat.</p>
+          <p class="section-note explore-first-visit util-mt-0_75 util-mb-0" id="explore-first-visit-hint"><strong>First visit?</strong> You are in the right place. <a href="#start-here">Start here</a> gives a calm first order&mdash;Home, Calm, plans, My Study, prayer&mdash;then the fuller map opens below. On Home, today&rsquo;s verse lands before Ask The Word. Prefer the same path stretched to about five minutes? <a href="#first-visit-tour">Optional tour</a>. One-page picture: <a href="site-guide.html">Start here guide</a>. Want the quiet proof first? <a href="testimonials.html">Reader stories</a>. You can leave anytime and come back when you are ready.</p>
+        </header>
+
+        <nav class="explore-onpage-nav" aria-label="On this page">
+          <p class="explore-onpage-nav__label" id="explore-onpage-toc-label">On this page</p>
+          <ul class="explore-onpage-nav__list" aria-labelledby="explore-onpage-toc-label">
+            <li><a href="#explore-overview">Overview</a></li>
+            <li><a href="gods-university-of-life.html">Curriculum hub</a></li>
+            <li><a href="#explore-quick-doors">Quick doors</a></li>
+            <li><a href="#start-here">Start here</a></li>
+            <li><a href="#first-visit-tour">Optional tour</a></li>
+            <li><a href="#whats-new-spring-2026">What&rsquo;s new</a></li>
+            <li><a href="#explore-hub">Section hub</a></li>
+            <li><a href="#languages">Languages</a></li>
+            <li><a href="#topics-en">Topics (EN)</a></li>
+            <li><a href="#daily">Daily &amp; study</a></li>
+          </ul>
+        </nav>
+
+        <section class="explore-quick-doors" id="explore-quick-doors" aria-labelledby="explore-quick-doors-h">
+          <h2 class="explore-quick-doors-heading" id="explore-quick-doors-h">Five calm doors</h2>
+          <p class="section-note explore-quick-doors-lead">Which door feels right right now? Skip the long map when you already know what you need&mdash;same site, fewer taps.</p>
+          <ul class="explore-quick-doors-list">
+            <li><a href="/verse.html" class="explore-quick-door" aria-label="Verse of the Day — one verse, KJV">Verse of the Day</a></li>
+            <li><a href="/mobius.html" class="explore-quick-door" aria-label="Möbius Loop — one ribbon for fear and faith">Möbius</a></li>
+            <li><a href="/calm.html" class="explore-quick-door" aria-label="Calm — one verse by feeling">Calm</a></li>
+            <li><a href="/bible-tool.html#bible-tool-hub" class="explore-quick-door" aria-label="Bible tool — lookup, reader, verse image">Bible tool</a></li>
+            <li><a href="/yearly-rhythm.html" class="explore-quick-door" aria-label="Year-round rhythm — school year, summer, memory verses">Year-round rhythm</a></li>
+          </ul>
+          <p class="section-note explore-quick-doors-search-nudge util-mt-0_75 util-mb-0">Hunting a page by name? <a href="/search.html">Search the site</a> &mdash; hand-built list; your filter stays in this browser.</p>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass explore-start-here" id="start-here" aria-labelledby="start-here-heading">
+          <h2 class="section-divider" id="start-here-heading">Start here</h2>
+          <p class="section-note util-mb-0_5">If you are new, try these few steps in order&mdash;then open the full walkthrough or <a href="#explore-hub-heading">jump to a section</a> below whenever you are ready. Glance when you like; progress stays on your device.</p>
+          <ol class="explore-start-here-list explore-start-here-essentials section-note">
+            <li><a href="site-guide.html">Start here guide</a> — calm first-visit map (where Home, Calm, plans, prayer, and family tools live). Not the same as <a href="first-steps.html">First steps in faith</a>. If you want quiet proof before tools, open <a href="testimonials.html">Reader stories</a>.</li>
+            <li><a href="/">Home</a> — today&rsquo;s verse, feel search, and <a href="/prayer-wall.html">Prayer</a> (private line or shared wall).</li>
+            <li><a href="sos.html">Steady now</a> — three KJV anchors when the moment is heavy (not emergency services; see the page disclaimer). <a href="progress.html">Progress</a> — quiet visit rhythm and plan streaks on this device.</li>
+            <li><a href="calm.html">Calm</a> for one verse and breath, or <a href="plans.html">Battle Plans</a> for a multi-day path — progress stays on your device. Resurrection: <a href="he-is-risen.html">He is risen</a> (short readings anytime) · <a href="plans.html?plan=easter">Resurrection Hope</a> (7 days). Paper-friendly index: <a href="printables.html">Printables hub</a>. Morning doorway: <a href="daily-quiet-time.html">Daily quiet time</a> · <a href="psalms.html">Psalms hub</a>.</li>
+            <li>Homeschool, classroom, or family table pacing the whole year: <a href="yearly-rhythm.html">Year-round rhythm</a> (August&ndash;July map, summer &ldquo;Summer Seeds,&rdquo; holidays, monthly memory grid on <a href="family.html#family-year-round-memory">Family hub</a>).</li>
+            <li><a href="/mystudy">My Study</a> — saved verses, notes, highlights, and progress in one place.</li>
+            <li><a href="what-god-has-done.html">What God has done</a> — private journal on this device only (no posting in v1).</li>
+            <li>Leaders: <a href="sermon.html">Sermon Builder</a>, <a href="pastor-toolkit.html">Pastor Toolkit</a>, <a href="team-toolkit.html">Team Toolkit</a> — hub for pastors &amp; mobile ministers: <a href="for-pastors.html">For pastors &amp; ministers</a>.</li>
+            <li>Spanish topical pages (Reina-Valera 1960 on page; site Bible tool stays KJV English): <a href="ansiedad.html" hreflang="es">Ansiedad</a>, <a href="fuerza.html" hreflang="es">Fuerza</a>, <a href="paz.html" hreflang="es">Paz</a> — or <a href="#topics-es">Spanish topics</a> below.</li>
+            <li>Every other language pilot (anxiety, hope, and more) lives in <a href="#languages">Languages</a> — same links as the expandable walkthrough.</li>
+          </ol>
+          <details class="explore-start-here-details">
+            <summary class="explore-start-here-summary">Full walkthrough — every language entry (continues from Start here above)</summary>
+            <p class="section-note util-mb-0_75 util-mt-0">The first steps match <a href="#start-here-heading">Start here</a>—below is the full language and mood list (including hubs not repeated above).</p>
+            <ol class="explore-start-here-list explore-start-here-full section-note">
+            <li>Language-row hubs: <a href="/es/" hreflang="es">Español — inicio</a>, <a href="/fr/" hreflang="fr">Français — accueil</a>, <a href="/pt/" hreflang="pt">Português — início</a> — every mood link also lives under <a href="#languages">Languages</a>.</li>
+            <li>Indonesian hub (pilot): <a href="/id/" hreflang="id">Beranda ID</a> — <a href="/id/kecemasan.html" hreflang="id">Kecemasan</a>, <a href="/id/harapan.html" hreflang="id">Harapan</a>, &amp; <a href="/id/ketakutan.html" hreflang="id">Ketakutan</a> (fear / courage, KJV on page); or <a href="#languages">all language entry points</a>.</li>
+            <li>Chinese hub: <a href="/zh/" hreflang="zh-CN">中文 — hub</a> — mood pilots (和合本 on page where noted): <a href="/zh/jiaolv.html" hreflang="zh-CN">焦虑</a>, <a href="/zh/kongju.html" hreflang="zh-CN">恐惧</a>, <a href="/zh/liliang.html" hreflang="zh-CN">力量</a>, <a href="/zh/xiwang.html" hreflang="zh-CN">盼望</a>, <a href="/zh/gudu.html" hreflang="zh-CN">孤独</a>; tools stay English + KJV in Bible tool.</li>
+            <li>Russian hub: <a href="/ru/" hreflang="ru">Русский — hub</a> — Synodal 1876 on pilots (e.g. <a href="/ru/trevoga.html" hreflang="ru">тревога</a>, <a href="/ru/strakh.html" hreflang="ru">страх</a>, <a href="/ru/sila.html" hreflang="ru">сила</a>, <a href="/ru/mir.html" hreflang="ru">мир</a> / pairs <a href="calm.html">calm.html</a>, <a href="/ru/odinochestvo.html" hreflang="ru">одиночество</a>).</li>
+            <li>Hindi hub: <a href="/hi/" hreflang="hi">हिन्दी — hub</a> — 1851 Hindi Bible tradition on pilots (<a href="/hi/chinta.html" hreflang="hi">चिंता</a>, <a href="/hi/dar.html" hreflang="hi">डर</a>, <a href="/hi/shakti.html" hreflang="hi">शक्ति</a>, <a href="/hi/shanti.html" hreflang="hi">शांति</a> / <a href="calm.html">calm.html</a>, <a href="/hi/akelapan.html" hreflang="hi">अकेलापन</a>).</li>
+            <li>Tagalog pilot (anxiety / worry, KJV on screen): <a href="/tl/kabalisahan.html" hreflang="tl">Kabalisahan</a> — same hub: <a href="#languages">Languages</a>.</li>
+            <li>French hub + pilots (Louis Segond 1910 on mood pages, public domain): <a href="/fr/" hreflang="fr">Accueil FR</a> — <a href="/fr/anxiete.html" hreflang="fr">Anxiété</a> — <a href="#languages">Languages</a>.</li>
+            <li>Arabic anxiety (Van Dyck 1865 on page, public domain): <a href="/ar/qalaq.html" hreflang="ar">قلق</a> — <a href="#languages">Languages</a>.</li>
+            <li>Swedish anxiety (1917 Bible on page, public domain): <a href="/sv/oro.html" hreflang="sv">Oro</a> — <a href="#languages">Languages</a>.</li>
+            <li>Portuguese anxiety (Almeida tradition on page, public domain): <a href="/pt/ansiedade.html" hreflang="pt">Ansiedade</a> — <a href="#languages">Languages</a>.</li>
+            <li>Bengali anxiety (Calcutta 1909 tradition on page, public domain): <a href="/bn/chinta.html" hreflang="bn">চিন্তা</a> — <a href="#languages">Languages</a> (Hindi uses <a href="/hi/chinta.html" hreflang="hi">/hi/chinta.html</a>).</li>
+            <li>Swahili anxiety (public-domain Swahili Scripture tradition on page): <a href="/sw/wasiwasi.html" hreflang="sw">Wasiwasi</a> — <a href="#languages">Languages</a>.</li>
+            <li>French hope: <a href="/fr/espoir.html" hreflang="fr">Espoir</a> — pairs <a href="topic-hope.html">Hope (EN)</a>.</li>
+            <li>Chinese hope: <a href="/zh/xiwang.html" hreflang="zh-CN">盼望</a> — same hub: <a href="#languages">Languages</a>.</li>
+            <li>More hope pilots (localized Scripture on page; tools stay English, KJV in Bible tool): <a href="/ar/rajaa.html" hreflang="ar">رجاء</a>, <a href="/hi/asha.html" hreflang="hi">आशा</a>, <a href="/ru/nadezhda.html" hreflang="ru">Надежда</a>, <a href="/sv/hopp.html" hreflang="sv">Hopp</a>, <a href="/pt/esperanca.html" hreflang="pt">Esperança</a>, <a href="/bn/asha.html" hreflang="bn">আশা</a>, <a href="/sw/tumaini.html" hreflang="sw">Tumaini</a>, <a href="/id/harapan.html" hreflang="id">Harapan</a>, <a href="/tl/pagasa.html" hreflang="tl">Pag-asa</a> — <a href="#languages">Languages</a>.</li>
+            <li>French loneliness: <a href="/fr/solitude.html" hreflang="fr">Solitude</a> — pairs <a href="topic-loneliness.html">Loneliness (EN)</a>.</li>
+            <li>Chinese loneliness: <a href="/zh/gudu.html" hreflang="zh-CN">孤独</a> — same hub: <a href="#languages">Languages</a>.</li>
+            <li>French guilt: <a href="/fr/culpabilite.html" hreflang="fr">Culpabilité</a> — pairs <a href="topic-guilt.html">Guilt (EN)</a>.</li>
+            <li>Chinese guilt: <a href="/zh/neijiu.html" hreflang="zh-CN">内疚</a> — same hub: <a href="#languages">Languages</a>.</li>
+            <li>French overwhelm: <a href="/fr/deborde.html" hreflang="fr">Débordé</a> — pairs <a href="topic-overwhelmed.html">Overwhelmed (EN)</a>.</li>
+            <li>Chinese overwhelm: <a href="/zh/taiduo.html" hreflang="zh-CN">太多</a> — same hub: <a href="#languages">Languages</a>.</li>
+            <li>French forgiveness: <a href="/fr/pardon.html" hreflang="fr">Pardon</a> — pairs <a href="topic-forgiveness.html">Forgiveness (EN)</a>.</li>
+            <li>Spanish forgiveness: <a href="/perdon.html" hreflang="es">Perdón</a> — pairs <a href="topic-forgiveness.html">topic-forgiveness.html</a>.</li>
+            <li>Chinese forgiveness: <a href="/zh/kuanshu.html" hreflang="zh-CN">宽恕</a> — pairs <a href="topic-forgiveness.html">Forgiveness (EN)</a>; CUV on page.</li>
+            <li>Russian forgiveness: <a href="/ru/proshchenie.html" hreflang="ru">Прощение</a> — pairs <a href="topic-forgiveness.html">Forgiveness (EN)</a>; Synodal on page.</li>
+            <li>Hindi forgiveness: <a href="/hi/kshama.html" hreflang="hi">क्षमा</a> — pairs <a href="topic-forgiveness.html">Forgiveness (EN)</a>; 1851 Hindi tradition on page.</li>
+            <li>Chinese peace (Calm pair): <a href="/zh/heping.html" hreflang="zh-CN">平安</a> — pairs <a href="calm.html">calm.html</a>; CUV on page.</li>
+          </ol>
+          </details>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass explore-section explore-five-tour" id="first-visit-tour" aria-labelledby="first-visit-tour-heading">
+          <h2 class="section-divider" id="first-visit-tour-heading">Five calm minutes (optional)</h2>
+          <p class="section-note util-mb-0_75">Same path as <a href="#start-here-heading">Start here</a> above&mdash;numbered slowly if that fits your pace. About one minute per step. Pause anytime; nothing tracks you through this list.</p>
+          <ol class="explore-start-here-list explore-five-tour-list section-note util-mb-0">
+            <li><strong>Minute 1 &mdash; Today&rsquo;s verse.</strong> Open <a href="/">Home</a>. Read (or tap Listen) once. That is enough for this step.</li>
+            <li><strong>Minute 2 &mdash; Name how it feels.</strong> Scroll to <strong>How&rsquo;re you feeling?</strong> Type a few honest words or tap one topic chip. Results stay on your device.</li>
+            <li><strong>Minute 3 &mdash; Battle Plans.</strong> Open <a href="plans.html">Battle Plans</a>. Skim one row that fits the week; you do not have to start today.</li>
+            <li><strong>Minute 4 &mdash; Prayer (optional).</strong> <a href="/prayer-wall.html">Prayer</a> &mdash; one line, no account, if that would help.</li>
+            <li><strong>Minute 5 &mdash; Save or explore.</strong> <a href="/mystudy?tab=library#saved-verses">My Study</a> if you want to keep a verse, or <a href="#start-here-heading">Start here</a> / <a href="#explore-hub-heading">Jump to a section</a> when you are ready for more tools.</li>
+          </ol>
+          <p class="section-note util-mb-0 util-mt-0_75">Done? You have already used the site well. Come back when you need the next quiet step.</p>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass explore-section explore-whats-new" id="whats-new-spring-2026" aria-labelledby="whats-new-spring-heading">
+          <h2 class="section-divider" id="whats-new-spring-heading">What&rsquo;s new (Spring 2026)</h2>
+          <p class="section-note util-mb-0_5">Small improvements, said plainly&mdash;no hype. Glance when you like; progress stays on your device.</p>
+          <ul class="explore-link-list section-note util-mb-0_75">
+            <li>Home: on phones, today&rsquo;s verse before mood search; a slim &ldquo;your progress&rdquo; line when you already have a plan or saved verses (My Study stays private on-device).</li>
+            <li>Battle Plans: new week-long paths for heavy weeks plus a hand-picked &ldquo;plans we often point people to&rdquo; row&mdash;curated, not analytics.</li>
+            <li>Explore: <a href="#start-here-heading">Start here</a> leads this page now; the <a href="#first-visit-tour">optional five-minute tour</a> is the same path, slower.</li>
+            <li>Verse of the Day page: a quiet link to the full prayer board when posting a line might help.</li>
+          </ul>
+          <p class="section-note util-mb-0_75">Want the plain public version of what is shipping next? See <a href="/roadmap.html">What&rsquo;s next</a>.</p>
+          <p class="section-note util-mb-0" id="whats-new-march-2026"><strong>Same daily-battle posture, wider doorways:</strong> <strong>Family &amp; home</strong> &mdash; <a href="family.html">Family hub</a>, <a href="family-armor.html">Family Armor &amp; Stories</a>, family plans, <a href="family-activity-packs.html">printable activity packs</a>, <a href="family-youth-journal.html">teen journal</a>&mdash;KJV, on-device, for the people around your table. <strong>Mission &amp; outreach</strong> &mdash; <a href="mission-outreach-packs.html">five print packs</a> (hospital, grief, prison, new believer, missionary): quiet paper for hurting rooms, same reverence as the homepage. <a href="about.html#whats-new-family-mission">A bit more on About</a>. (Older links to &ldquo;March&rdquo; notes resolve here.)</p>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass explore-hub" id="explore-hub" aria-labelledby="explore-hub-heading">
+          <h2 class="section-divider explore-hub-section-title" id="explore-hub-heading">Jump to a section</h2>
+          <p class="section-note explore-hub-lead util-mb-0_5">Tap a tile &mdash; <strong>Find any page</strong> is first if you are hunting a URL. The full lists are unchanged below.</p>
+          <ul class="explore-hub-grid">
+            <li><a href="/search.html" class="explore-hub-card tdb-surface-card" id="find-any-page-tile">
+              <span class="explore-hub-card-label">Search</span>
+              <span class="explore-hub-card-title">Find any page</span>
+              <span class="explore-hub-card-desc">Hand-built list of doors — your filter never leaves this browser</span>
+            </a></li>
+            <li><a href="gods-university-of-life.html" class="explore-hub-card tdb-surface-card" id="gods-university-hub-tile">
+              <span class="explore-hub-card-label">Path</span>
+              <span class="explore-hub-card-title">God&rsquo;s University of Life</span>
+              <span class="explore-hub-card-desc">7, 21, 30, and 40-day lanes, reader, study, and family&mdash;one calm map (KJV)</span>
+            </a></li>
+            <li><a href="university.html" class="explore-hub-card tdb-surface-card" id="university-map-tile">
+              <span class="explore-hub-card-label">Anchors</span>
+              <span class="explore-hub-card-title">University map</span>
+              <span class="explore-hub-card-desc">Five <abbr title="King James Version">KJV</abbr> verses &mdash; rest, learn, walk without pressure</span>
+            </a></li>
+            <li><a href="#topics-en" class="explore-hub-card tdb-surface-card">
+              <span class="explore-hub-card-label">Topics</span>
+              <span class="explore-hub-card-title">English mood pages</span>
+              <span class="explore-hub-card-desc">Anxiety, hope, grief — KJV with plain help</span>
+            </a></li>
+            <li><a href="#languages" class="explore-hub-card explore-hub-card--languages tdb-surface-card">
+              <span class="explore-hub-card-label">Languages</span>
+              <span class="explore-hub-card-title">Localized pages</span>
+              <span class="explore-hub-card-desc">ES, FR, and PT hubs; other locales are pilots (mood pages or thin shells). Tools stay English; KJV in the Bible tool.</span>
+            </a></li>
+            <li><a href="#daily" class="explore-hub-card tdb-surface-card">
+              <span class="explore-hub-card-label">Scripture</span>
+              <span class="explore-hub-card-title">Daily &amp; study rhythm</span>
+              <span class="explore-hub-card-desc">Study workshop, Bible tool, reader, plans, My Study, Calm</span>
+            </a></li>
+            <li><a href="#kids" class="explore-hub-card tdb-surface-card">
+              <span class="explore-hub-card-label">Family</span>
+              <span class="explore-hub-card-title">Kids &amp; home</span>
+              <span class="explore-hub-card-desc">Kids Battle, coloring, family hub, parent tools</span>
+            </a></li>
+            <li><a href="#church" class="explore-hub-card tdb-surface-card">
+              <span class="explore-hub-card-label">Church</span>
+              <span class="explore-hub-card-title">Teams &amp; groups</span>
+              <span class="explore-hub-card-desc">Church hub, team toolkit, daily for churches</span>
+            </a></li>
+            <li><a href="#pastor" class="explore-hub-card tdb-surface-card">
+              <span class="explore-hub-card-label">Teach</span>
+              <span class="explore-hub-card-title">Pastors &amp; prep</span>
+              <span class="explore-hub-card-desc">Sermon builder, pastor toolkit, library</span>
+            </a></li>
+            <li><a href="#progress" class="explore-hub-card tdb-surface-card">
+              <span class="explore-hub-card-label">Together</span>
+              <span class="explore-hub-card-title">Wall, wins, stories</span>
+              <span class="explore-hub-card-desc">Prayer, progress, reader notes</span>
+            </a></li>
+            <li><a href="#legal" class="explore-hub-card tdb-surface-card">
+              <span class="explore-hub-card-label">Trust</span>
+              <span class="explore-hub-card-title">Legal &amp; safety</span>
+              <span class="explore-hub-card-desc">Privacy, terms, security, approach</span>
+            </a></li>
+          </ul>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass explore-section explore-languages" id="languages" aria-labelledby="languages-heading">
+          <h2 class="section-divider" id="languages-heading">Languages</h2>
+          <nav class="explore-lang-jump" aria-label="Jump to language groups on this page">
+            <span class="explore-lang-jump__label" id="explore-lang-jump-lbl">Jump to group</span>
+            <ul class="explore-lang-jump__list" aria-labelledby="explore-lang-jump-lbl">
+              <li><a href="#explore-lang-tier-en">English (default)</a></li>
+              <li><a href="#explore-lang-tier-row">ES, FR, PT hubs</a></li>
+              <li><a href="#explore-lang-tier-landings">Pilots (ID, ZH, RU, HI&hellip;)</a></li>
+              <li><a href="#explore-lang-tier-small">Single-locale &amp; more</a></li>
+            </ul>
+          </nav>
+          <div class="tdb-open-beta-callout" role="region" aria-labelledby="open-beta-explore-heading">
+            <h3 class="tdb-open-beta-callout-title" id="open-beta-explore-heading">Language coverage</h3>
+            <p class="section-note util-mb-0">You&rsquo;re welcome to start in whatever language fits tonight&mdash;no test at the door. This section stays straightforward: English is the full home experience, and the language-row hubs (Español, Français, Português) are actively maintained with clear labels where a tool opens in English. <a href="/contact.html">Tell us what felt off</a>.</p>
+          </div>
+          <p class="section-note explore-languages-lead util-mb-0_5"><strong>Supported hubs</strong> are the same four as the header row plus English (this site&rsquo;s home): full landing pages and direct links into tools. <strong>Additional languages</strong> remain available at stable URLs. Quoted Scripture is either KJV (English tools) or a named public-domain translation on that page.</p>
+
+          <div class="explore-languages-tiers">
+            <div class="explore-lang-tier">
+              <h3 class="explore-lang-tier-title" id="explore-lang-tier-en">English (default)</h3>
+              <ul class="explore-link-list explore-lang-tier-list">
+                <li><a href="/">English home</a> &mdash; Daily verse, feel search, full toolset, topics.</li>
+              </ul>
+            </div>
+
+            <div class="explore-lang-tier">
+              <h3 class="explore-lang-tier-title" id="explore-lang-tier-row">Language-row hubs</h3>
+              <p class="section-note explore-lang-tier-note">On-page verses use the translation named on each page (<strong>Reina-Valera 1960</strong> for ES topical; <strong>Louis Segond</strong> 1910 tradition on FR mood pilots; <strong>Almeida</strong> tradition on PT mood pages). Tool screens stay English; Bible tool text stays KJV unless a page says otherwise.</p>
+              <ul class="explore-link-list explore-lang-tier-list">
+                <li><a href="/es/" hreflang="es">Español — inicio (hub)</a> &mdash; Landing + shortcuts. Topical list: <a href="explore.html#topics-es">Spanish topics</a> (<a href="ansiedad.html" hreflang="es">Ansiedad</a>, <a href="fuerza.html" hreflang="es">Fuerza</a>, <a href="paz.html" hreflang="es">Paz</a>). Forgiveness: <a href="/perdon.html" hreflang="es">Perdón</a> &rarr; <a href="topic-forgiveness.html">Forgiveness (EN)</a>.</li>
+                <li><a href="/fr/" hreflang="fr">Français — accueil (hub)</a> &mdash; Landing + EN tool links. Mood pilots: <a href="/fr/anxiete.html" hreflang="fr">Anxiété</a>, <a href="/fr/espoir.html" hreflang="fr">Espoir</a>, <a href="/fr/solitude.html" hreflang="fr">Solitude</a>, <a href="/fr/culpabilite.html" hreflang="fr">Culpabilité</a>, <a href="/fr/deborde.html" hreflang="fr">Débordé</a>, <a href="/fr/pardon.html" hreflang="fr">Pardon</a> (each pairs an English topic page).</li>
+                <li><a href="/pt/" hreflang="pt">Português — início (hub)</a> &mdash; Landing, mood pages, and PT <em>shells</em> (cover pages) for tools: <a href="/pt/planos.html" hreflang="pt">planos</a>, <a href="/pt/mural.html" hreflang="pt">mural</a>, <a href="/pt/leitor.html" hreflang="pt">leitor</a>, <a href="/pt/criancas.html" hreflang="pt">crianças</a>, <a href="/pt/privacy.html" hreflang="pt">privacidade</a>, <a href="/pt/terms.html" hreflang="pt">termos</a>. Mood / topic: <a href="/pt/ansiedade.html" hreflang="pt">ansiedade</a>, <a href="/pt/medo.html" hreflang="pt">medo</a>, <a href="/pt/esperanca.html" hreflang="pt">esperança</a>, <a href="/pt/forca.html" hreflang="pt">força</a>, <a href="/pt/paz.html" hreflang="pt">paz</a>, <a href="/pt/solidao.html" hreflang="pt">solidão</a>, <a href="/pt/culpa.html" hreflang="pt">culpa</a>, <a href="/pt/sobrecarga.html" hreflang="pt">sobrecarga</a>, <a href="/pt/raiva.html" hreflang="pt">raiva</a> (ES pair <a href="/ira.html" hreflang="es">ira</a>), <a href="/pt/luto.html" hreflang="pt">luto</a>, <a href="/pt/perdao.html" hreflang="pt">perdão</a>.</li>
+              </ul>
+            </div>
+
+            <div class="explore-lang-tier">
+              <h3 class="explore-lang-tier-title" id="explore-lang-tier-landings">Landing hubs (pilots)</h3>
+              <p class="section-note explore-lang-tier-note">Real index pages plus mood doors; depth varies. <strong>Synodal</strong> 1876 tradition on RU pilots; <strong>1851 Hindi</strong> tradition on HI pilots; <strong>和合本</strong> (union) on ZH pilots where noted.</p>
+              <ul class="explore-link-list explore-lang-tier-list">
+                <li><a href="/id/" hreflang="id">Bahasa Indonesia</a> &mdash; <a href="/id/kecemasan.html" hreflang="id">Kecemasan</a>, <a href="/id/harapan.html" hreflang="id">Harapan</a>, <a href="/id/ketakutan.html" hreflang="id">Ketakutan</a>.</li>
+                <li><a href="/zh/" hreflang="zh-CN">中文 — hub</a> &mdash; Split daily verse (KJV calendar on <a href="/verse.html" hreflang="en">verse.html</a> + rotating 和合本 anchors on the hub). Mood: <a href="/zh/jiaolv.html" hreflang="zh-CN">焦虑</a>, <a href="/zh/kongju.html" hreflang="zh-CN">恐惧</a>, <a href="/zh/liliang.html" hreflang="zh-CN">力量</a>, <a href="/zh/xiwang.html" hreflang="zh-CN">盼望</a>, <a href="/zh/gudu.html" hreflang="zh-CN">孤独</a>, <a href="/zh/neijiu.html" hreflang="zh-CN">内疚</a>, <a href="/zh/taiduo.html" hreflang="zh-CN">太多</a>, <a href="/zh/kuanshu.html" hreflang="zh-CN">宽恕</a>, <a href="/zh/heping.html" hreflang="zh-CN">平安</a> (Calm pair).</li>
+                <li><a href="/ru/" hreflang="ru">Русский — hub</a> &mdash; <a href="/ru/trevoga.html" hreflang="ru">тревога</a>, <a href="/ru/strakh.html" hreflang="ru">страх</a>, <a href="/ru/nadezhda.html" hreflang="ru">надежда</a>, <a href="/ru/proshchenie.html" hreflang="ru">Прощение</a>, <a href="/ru/sila.html" hreflang="ru">сила</a>, <a href="/ru/mir.html" hreflang="ru">мир</a>, <a href="/ru/odinochestvo.html" hreflang="ru">одиночество</a>.</li>
+                <li><a href="/hi/" hreflang="hi">हिन्दी — hub</a> &mdash; <a href="/hi/chinta.html" hreflang="hi">चिंता</a>, <a href="/hi/dar.html" hreflang="hi">डर</a>, <a href="/hi/asha.html" hreflang="hi">आशा</a>, <a href="/hi/kshama.html" hreflang="hi">क्षमा</a>, <a href="/hi/shakti.html" hreflang="hi">शक्ति</a>, <a href="/hi/shanti.html" hreflang="hi">शांति</a>, <a href="/hi/akelapan.html" hreflang="hi">अकेलापन</a>.</li>
+              </ul>
+            </div>
+
+            <div class="explore-lang-tier">
+              <h3 class="explore-lang-tier-title" id="explore-lang-tier-small">Single-locale pilots</h3>
+              <p class="section-note explore-lang-tier-note"><strong>Van Dyck</strong> (1865) on Arabic pages; <strong>1917</strong> Swedish Bible on SV; <strong>Calcutta 1909</strong> tradition on BN; <strong>Kiswahili</strong> public-domain tradition on SW. Tagalog: worry <a href="/tl/kabalisahan.html" hreflang="tl">Kabalisahan</a> &middot; hope <a href="/tl/pagasa.html" hreflang="tl">Pag-asa</a>.</p>
+              <ul class="explore-link-list explore-lang-tier-list">
+                <li><a href="/ar/qalaq.html" hreflang="ar">العربية — قلق</a> &middot; <a href="/ar/rajaa.html" hreflang="ar">رجاء</a></li>
+                <li><a href="/sv/oro.html" hreflang="sv">Svenska — oro</a> &middot; <a href="/sv/hopp.html" hreflang="sv">hopp</a></li>
+                <li><a href="/bn/chinta.html" hreflang="bn">বাংলা — চিন্তা</a> &middot; <a href="/bn/asha.html" hreflang="bn">আশা</a></li>
+                <li><a href="/sw/wasiwasi.html" hreflang="sw">Kiswahili — wasiwasi</a> &middot; <a href="/sw/tumaini.html" hreflang="sw">tumaini</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="section-note util-mb-0 util-mt-1">Expand the <a href="#core-tools-language-matrix">Core tools matrix</a> for door-by-door links (Bible Tool, My Study, plans, readers, and more). On mobile, tap the Core tools heading to open or close it.</p>
+
+          <details class="explore-lang-tool-matrix-disclosure util-mt-1" id="core-tools-language-matrix">
+            <summary class="explore-lang-tool-matrix-summary">Core tools &mdash; which language opens which door</summary>
+            <p class="section-note util-mb-0_75">English remains the full tool experience. Other columns link to localized <em>hubs</em>, <em>mood pages</em>, or <em>shell covers</em> that open the same English tools where noted. <strong>Bible Tool</strong> and <strong>My Study</strong> stay English UI (KJV in the tool) until a future scoped pass &mdash; this table says so plainly.</p>
+            <div class="explore-lang-tool-matrix-scroll" role="region" aria-label="Tool URLs by language">
+              <table class="explore-lang-tool-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Door</th>
+                    <th scope="col">English</th>
+                    <th scope="col">Español</th>
+                    <th scope="col">Français</th>
+                    <th scope="col">Português</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Home / hub</th>
+                    <td><a href="/">Home</a></td>
+                    <td><a href="/es/" hreflang="es">/es/</a></td>
+                    <td><a href="/fr/" hreflang="fr">/fr/</a></td>
+                    <td><a href="/pt/" hreflang="pt">/pt/</a></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Battle Plans</th>
+                    <td><a href="/plans.html">plans</a></td>
+                    <td><a href="/planes.html" hreflang="es">planes</a></td>
+                    <td><a href="/fr/plans.html" hreflang="fr">plans</a></td>
+                    <td><a href="/pt/planos.html" hreflang="pt">planos</a></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Chapter reader</th>
+                    <td><a href="/reader.html">reader</a></td>
+                    <td><a href="/lector.html" hreflang="es">lector</a></td>
+                    <td><a href="/fr/lecteur.html" hreflang="fr">lecteur</a></td>
+                    <td><a href="/pt/leitor.html" hreflang="pt">leitor</a></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Prayer wall</th>
+                    <td><a href="/prayer-wall.html">prayer</a></td>
+                    <td><a href="/muro.html" hreflang="es">muro</a></td>
+                    <td><a href="/fr/mural.html" hreflang="fr">mural</a></td>
+                    <td><a href="/pt/mural.html" hreflang="pt">mural</a></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Kids &amp; family doorway</th>
+                    <td><a href="/kids/">Kids Battle</a></td>
+                    <td><a href="/ninos.html" hreflang="es">niños</a></td>
+                    <td><a href="/fr/enfants.html" hreflang="fr">enfants</a></td>
+                    <td><a href="/pt/criancas.html" hreflang="pt">crianças</a></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Bible Tool (KJV)</th>
+                    <td><a href="/bible-tool.html">bible-tool</a></td>
+                    <td colspan="3" class="explore-lang-tool-note">Same English KJV tool from every hub — bookmark <a href="/bible-tool.html">bible-tool.html</a> if you prefer one tap.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">My Study (private)</th>
+                    <td><a href="/mystudy">My Study</a></td>
+                    <td colspan="3" class="explore-lang-tool-note">English UI; your saves stay on-device. Use <a href="/search.html?q=my%20study">site search</a> anytime.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Find any page</th>
+                    <td colspan="4"><a href="/search.html">Search the site</a> (filter stays in your browser)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass">
+          <h2 class="section-divider">How to use this page</h2>
+          <p class="section-note">Jump to a section below, or use your browser’s find (Ctrl+F / ⌘F) on this page. Core routes follow the public sitemap; a few trusted tools (documentary archive, class workshop, print packs) are listed here too so nothing important stays URL-only.</p>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass explore-section">
+          <h2 class="section-divider" id="topics-en">Topics (English)</h2>
+          <p class="section-note util-mb-0_5">Short devotionals keyed to real struggles — each page is KJV text with plain help.</p>
+          <ul class="explore-link-list">
+            <li><a href="topic-anxiety.html">Anxiety</a> — When your mind won’t slow down.</li>
+            <li><a href="topic-worry.html">Worry</a> — When &ldquo;what if&rdquo; won&rsquo;t stop circling.</li>
+            <li><a href="topic-fear.html">Fear</a> — When fear runs ahead of facts.</li>
+            <li><a href="topic-grief.html">Grief</a> — When loss still aches.</li>
+            <li><a href="topic-hope.html">Hope</a> — Anchors when tomorrow feels thin.</li>
+            <li><a href="topic-forgiveness.html">Forgiveness</a> — Letting go without pretending.</li>
+            <li><a href="topic-strength.html">Strength</a> — Weak days, strong Word.</li>
+            <li><a href="topic-parenting.html">Parenting</a> — Leading little hearts with Scripture.</li>
+            <li><a href="topic-loneliness.html">Loneliness</a> — When it feels like no one sees you.</li>
+            <li><a href="topic-guilt.html">Guilt</a> — Truth without drowning in shame.</li>
+            <li><a href="topic-overwhelmed.html">Overwhelmed</a> — When everything hits at once.</li>
+            <li><a href="topic-worthless.html">Worth / identity</a> — Who God says you are.</li>
+          </ul>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass explore-section">
+          <h2 class="section-divider" id="topics-es">Spanish topics</h2>
+          <p class="section-note util-mb-0_5">UI in Spanish; quoted verses follow <strong>Reina-Valera 1960</strong> (public domain). The site Bible tool and reader stay <strong>KJV</strong> in English.</p>
+          <ul class="explore-link-list">
+            <li><a href="ansiedad.html" hreflang="es">Ansiedad</a> — Ansiedad y versículos (Reina-Valera 1960).</li>
+            <li><a href="fuerza.html" hreflang="es">Fuerza</a> — Fuerza y descanso (Reina-Valera 1960).</li>
+            <li><a href="paz.html" hreflang="es">Paz</a> — Paz que guarda el corazón (Reina-Valera 1960).</li>
+          </ul>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass explore-section">
+          <h2 class="section-divider" id="daily">Daily Scripture &amp; study</h2>
+          <ul class="explore-link-list">
+            <li><a href="/">Home</a> — Verse of the day, mood search, prayer wall.</li>
+            <li><a href="verse.html">Verse of the Day</a> — Standalone daily verse view.</li>
+            <li><a href="reader.html">Chapter reader</a> — Full chapters, book by book.</li>
+            <li><a href="bible/">Bible hub</a> — Entry to Bible tools and rhythm.</li>
+            <li><a href="bible/study.html">Bible study (hub)</a> — Study path from the Bible section.</li>
+            <li><a href="bible/tools.html">Bible tools (hub)</a> — Tools index inside Bible.</li>
+            <li><a href="bible-tool.html">Bible tool</a> — Ask-the-Word style lookup and context.</li>
+            <li><a href="verse-image.html">Verse image generator</a> — Custom KJV share cards (Supporters): colors, backgrounds, PNG, X share.</li>
+            <li><a href="reading-plan.html">7-day reading plan</a> — Structured week of readings.</li>
+            <li><a href="plans.html">Battle plans</a> — Multi-day library: <a href="first-steps.html">First steps hub</a>, <a href="family-home.html">Marriage, family &amp; home hub</a>, <a href="plans.html?plan=armorofgod">Armor of God</a>, <a href="plans.html?plan=lettinggo">Bitterness &amp; Letting Go</a>, <a href="plans.html?plan=fearnot14">Fear Not (14 days)</a>, <a href="plans.html?plan=dailylabor">Work &amp; Daily Labor</a>, <a href="plans.html?plan=stewardship">Stewardship</a>, <a href="plans.html?plan=christmas7">Christmas Week</a>, <a href="plans.html?plan=newyear7">New Year Week</a>; <a href="plans.html?plan=firststeps">New Believer — First Steps (14 days)</a>, <a href="identity-in-christ.html">Identity in Christ hub</a>, <a href="plans.html?plan=identityinchrist">Who God Says You Are (7 days)</a>, <a href="plans.html?plan=holyspirit">Holy Spirit</a>, <a href="plans.html?plan=walktheword">Walk the Word</a>, <a href="plans.html?plan=standfirm">Stand firm</a>, <a href="plans.html?plan=greatcommission">Great Commission</a>, <a href="plans.html?plan=praisethanks30">30-Day Praise &amp; Thanksgiving</a>, <a href="seasonal.html">Seasonal KJV paths</a>, <a href="he-is-risen.html">He is risen (Easter readings)</a>; also <a href="plans.html?plan=psalmscomfort">Psalms of Comfort</a>, <a href="plans.html?plan=psalmspraise">Psalms of Praise</a>, <a href="plans.html?plan=proverbswisdom">Proverbs Wisdom</a>, <a href="plans.html?plan=hopeuncertain">Hope in Uncertainty</a>, <a href="plans.html?plan=gospeljohn">John sampler</a>, <a href="plans.html?plan=galatiansfreedom">Galatians: Freedom in Christ</a>, <a href="plans.html?plan=sufferendure">Suffering &amp; Endurance</a> (Bible Tool checklists match Psalms/Proverbs/John samplers where noted).</li>
+            <li><a href="study.html">Study workspace</a> — Notes and workspace in one place.</li>
+            <li><a href="/mystudy?tab=library#saved-verses">My Study</a> — Saved KJV verses, notes, and progress in one calmer place.</li>
+            <li><a href="calm.html">Calm</a> — When you need one verse right now.</li>
+            <li><a href="mobius.html">Möbius</a> — Canon graph and exploration.</li>
+            <li><a href="bible-study.html">Bible studies</a> — Study starters and helps.</li>
+            <li><a href="curriculum.html">Curriculum</a> — Structured learning tracks.</li>
+            <li><a href="mystudy.html">My Study</a> — Private verse, notes, and prayer; tagged note library, light memorize queue, and print from this device.</li>
+          </ul>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass explore-section">
+          <h2 class="section-divider" id="documentary">Documentary &amp; class tools</h2>
+          <p class="section-note util-mb-0_5">Public pages; some are not yet in the main XML sitemap — they stay linked from tools and this hub.</p>
+          <ul class="explore-link-list">
+            <li><a href="action-bible.html">Action Bible Archive</a> — Season-style documentary entries, listen, read-along.</li>
+            <li><a href="action-bible-workshop.html">Action Bible Workshop</a> — Worksheets, leader dashboard JSON, weekly packs.</li>
+          </ul>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass explore-section">
+          <h2 class="section-divider" id="progress">Progress &amp; community</h2>
+          <ul class="explore-link-list">
+            <li><a href="testimonials.html">Reader stories</a> — Short anonymized notes from the field.</li>
+            <li><a href="/journal/">Journal</a> — Weekly KJV posts for common battles with one next step.</li>
+            <li><a href="/prayer-wall.html?tab=with-others">Prayer</a> — Quiet posts; anonymous option.</li>
+            <li><a href="wins.html">Wins</a> — Track encouragements and copy wins.</li>
+            <li><a href="progress.html">Progress</a> — Streaks and plan progress.</li>
+            <li><a href="wins-report.html">Wins report</a> — Shareable summary of wins.</li>
+          </ul>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass explore-section">
+          <h2 class="section-divider" id="kids">Kids &amp; family</h2>
+          <ul class="explore-link-list">
+            <li><a href="kids/">Kids Battle</a> — Home for kids’ loops and games.</li>
+            <li><a href="kids/parent.html">Parent dashboard</a> — Family view and favorites.</li>
+            <li><a href="kids/corner.html">Kids library</a> — Stories and activities.</li>
+            <li><a href="kids-corner.html">Kids corner</a> — Family activities hub.</li>
+            <li><a href="coloring.html">Kids coloring</a> — Printable pages.</li>
+            <li><a href="kids-activities-print.html">Kids activities (print)</a> — Printable activities pack.</li>
+            <li><a href="family.html">Family hub</a> — For parents: today’s verse, family plan, printables, teen journal.</li>
+            <li><a href="family-armor.html">Family Armor &amp; Stories</a> — Ephesians 6 foundation, then the home-page workspace for stories and armor progress.</li>
+            <li><a href="kids-coloring-pack.html">Kids coloring pack</a> — Extra coloring pack.</li>
+          </ul>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass explore-section">
+          <h2 class="section-divider" id="church">Church &amp; teams</h2>
+          <ul class="explore-link-list">
+            <li><a href="church/">Church join hub</a> — Groups and onboarding.</li>
+            <li><a href="church/daily.html">Daily for churches</a> — Corporate daily rhythm.</li>
+            <li><a href="church.html">Church center</a> — Deacons, visitation, ministry helps.</li>
+            <li><a href="team-toolkit.html">Team toolkit</a> — Teams and group workflows.</li>
+          </ul>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass explore-section">
+          <h2 class="section-divider" id="mission-outreach">Mission &amp; outreach</h2>
+          <p class="section-note util-mb-0_5">Printable KJV packs for visits, grief, jail, new faith, and workers—calm notes, one tap to print. Nothing leaves your device until you print.</p>
+          <ul class="explore-link-list">
+            <li><a href="mission-outreach-packs.html">Mission &amp; outreach packs</a> — Five curated print packs: hospital &amp; bedside, grief &amp; funeral, prison &amp; jail, new believer &amp; evangelism, missionary encouragement.</li>
+          </ul>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass explore-section">
+          <h2 class="section-divider" id="pastor">Pastors &amp; teaching</h2>
+          <ul class="explore-link-list">
+            <li><a href="pastor/">Pastor hub</a> — Central pastor entry.</li>
+            <li><a href="pastor/library.html">Pastor library</a> — Sermon and study library.</li>
+            <li><a href="pastor/builder.html">Pastor builder</a> — Build lessons and outlines.</li>
+            <li><a href="pastor/tools.html">Pastor tools</a> — Tool index for shepherds.</li>
+            <li><a href="pastor-toolkit.html">Pastor toolkit</a> — Full toolkit page.</li>
+            <li><a href="sermon.html">Sermon builder</a> — Outline and prep starter.</li>
+            <li><a href="resources.html">Pastor resources</a> — Downloads and references.</li>
+          </ul>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass explore-section">
+          <h2 class="section-divider" id="share-media">Share &amp; media</h2>
+          <ul class="explore-link-list">
+            <li><a href="verse-cards/">Verse cards</a> — Shareable KJV verse images.</li>
+            <li><a href="verse-image.html">Verse image generator</a> — Custom KJV cards (Supporter): style, export PNG, share.</li>
+          </ul>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass explore-section">
+          <h2 class="section-divider" id="story-account">Story, account &amp; support</h2>
+          <ul class="explore-link-list">
+            <li><a href="story.html">Story</a> — Why this site exists.</li>
+            <li><a href="about.html">About</a> — People and purpose.</li>
+            <li><a href="faq.html">FAQ</a> — Common answers.</li>
+            <li><a href="why-not-ai.html">Why not AI?</a> — Honest comparison with typical AI Bible chats.</li>
+            <li><a href="pricing.html">Pricing</a> — Free core and paid tiers.</li>
+            <li><a href="shop.html">Shop</a> — Gear and waitlist.</li>
+            <li><a href="contact.html">Contact</a> — Reach the builder.</li>
+          </ul>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass explore-section">
+          <h2 class="section-divider" id="legal">Legal &amp; trust</h2>
+          <ul class="explore-link-list">
+            <li><a href="privacy.html">Privacy</a> — What is collected and what is not.</li>
+            <li><a href="terms.html">Terms</a> — Terms of use.</li>
+            <li><a href="security.html">Security</a> — How we protect accounts and data.</li>
+            <li><a href="approach.html">How we respond</a> — Feedback and accountability.</li>
+            <li><a href="why-not-ai.html">Why not AI?</a> — What we built instead of an AI chat loop.</li>
+          </ul>
+        </section>
+
+        <p class="section-note explore-back"><a href="/">← Back to home</a></p>
+          </div>
+    </main>
+
+    <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
+  <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+    <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+    <span class="tdb-lang-switcher-inner">
+      <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-essentials" aria-label="Key pages">
+    <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/verse.html">Today&rsquo;s Lesson</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <p class="site-footer-share-wrap">
+    <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
+    <span class="site-footer-share-sep" aria-hidden="true">·</span>
+    <button type="button" class="share-page-btn site-footer-tour-restart tdb-tour-restart-btn" aria-label="Restart the five-minute site tour">Restart site tour</button>
+  </p>
+
+  <nav class="bottom-nav" role="navigation" aria-label="Plans, kids, and Spanish topics">
+    <a href="/plans.html">Plans</a>
+    <a href="/kids/">Kids Battle</a>
+    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
+      <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
+      <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
+      <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-nav" aria-label="Footer links">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/media.html">Media</a>
+    <a href="/roadmap.html">Roadmap</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/for-pastors.html">For pastors &amp; teachers</a>
+    <a href="/reader.html">Chapter reader</a>
+    <a href="/bible/tools.html">Study workshop</a>
+    <a href="/bible-tool.html">Bible tool</a>
+    <a href="/testimonials.html">Reader stories</a>
+    <a href="/journal/">Journal</a>
+    <a href="/where-support-goes.html">Where support goes</a>
+    <a href="/verse-cards/">Verse cards</a>
+    <a href="/security.html">Security</a>
+    <a href="/contact.html">Contact</a>
+    <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
+  </nav>
+
+  <details class="footer-sitemap">
+    <summary>Sitemap — topics, tools, church &amp; family (tap to expand)</summary>
+    <div class="footer-sitemap-grid">
+      <div class="footer-sitemap-col">
+        <h3>The Narrow Paths</h3>
+        <a href="/explore.html">Full list (all pages)</a>
+        <a href="/topic-anxiety.html">Anxiety</a>
+        <a href="/topic-fear.html">Fear</a>
+        <a href="/topic-grief.html">Grief</a>
+        <a href="/topic-hope.html">Hope</a>
+        <a href="/topic-strength.html">Strength</a>
+        <a href="/topic-parenting.html">Parenting</a>
+        <a href="/topic-loneliness.html">Loneliness</a>
+        <a href="/topic-forgiveness.html">Forgiveness</a>
+        <a href="/topic-guilt.html">Guilt</a>
+        <a href="/topic-overwhelmed.html">Overwhelmed</a>
+        <a href="/topic-worthless.html">Worth / identity</a>
+      </div>
+      <div class="footer-sitemap-col footer-sitemap-col--es-links">
+        <h3>Spanish devotionals</h3>
+        <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es">Paz</a>
+        <a href="/explore.html#topics-es">All Spanish topics on Explore</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Tools of the Quiet Trade</h3>
+        <a href="/verse.html">Verse of the Day</a>
+        <a href="/reader.html">Chapter reader</a>
+        <a href="/bible/tools.html">Study workshop</a>
+        <a href="/bible-tool.html">Bible tool</a>
+        <a href="/mystudy">My Study</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/mobius.html">Möbius</a>
+        <a href="/plans.html">Courses</a>
+        <a href="/reading-plan.html">7-day plan</a>
+        <a href="/study.html">Study workspace</a>
+        <a href="/wins.html">Wins</a>
+        <a href="/progress.html">Progress</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>For the Household of Faith</h3>
+        <a href="/church.html">Church center</a>
+        <a href="/church/">Church join hub</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit</a>
+        <a href="/pastor/">Pastor hub</a>
+        <a href="/sermon.html">Sermon builder</a>
+        <a href="/family.html">Family hub</a>
+        <a href="/little-ones.html">For the Little Ones</a>
+        <a href="/family-armor.html">Family Armor</a>
+        <a href="/kids/">Kids Battle home</a>
+        <a href="/kids/corner.html">Bible Story Library</a>
+        <a href="/kids-corner.html">Bible Loop Library</a>
+        <a href="/coloring.html">Color &amp; Tell</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Further In</h3>
+        <a href="/prayer-wall.html">Prayer</a>
+        <a href="/bible-study.html">Bible studies</a>
+        <a href="/shop.html">Shop</a>
+        <a href="/story.html">Story</a>
+        <a href="/media.html">Media</a>
+        <a href="/roadmap.html">Roadmap</a>
+        <a href="/approach.html">How we respond</a>
+        <a href="/why-not-ai.html">Why not AI?</a>
+        <a href="/curriculum.html">Curriculum</a>
+        <a href="/verse-cards/">Verse cards</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </details>
+
+  <p class="footer-humility">We battle. He wins.</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): footer story lives in .site-footer-story below -->
+  <p class="site-footer-story">
+    Steady KJV for honest days&mdash;no ads, no selling your data; prayers stay on this device unless you sync on purpose.
+  </p>
+
+  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" aria-label="Friday verse and prayer email signup">
+    <p class="footer-friday-signup-label">Friday recap email&mdash;one message a week; leave anytime.</p>
+    <div class="footer-friday-signup-row">
+      <label for="footer-friday-email" class="sr-only">Email for Friday recap</label>
+      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="your@email.com" aria-label="Email for Friday recap" autocomplete="email">
+      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit">Subscribe</button>
+    </div>
+    <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
+  </div>
+
+  <p class="site-footer-copy site-footer-legal-line">&copy; 2026 Today&rsquo;s Daily Battle &middot; Christian Messenger Service. All rights reserved.</p>
+  <p class="site-footer-copy site-footer-legal-line">All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
+
+  <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
+  <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
+  </div>
+  <script defer src="/language-switcher.js?v=20260503-consent-persist-fix"></script>
+</footer>
+  </div>
+
+  <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
+  <script type="module" src="config.js"></script>
+  <script type="module" src="script.js?v=20260503-consent-persist-fix" data-cfasync="false"></script>
+</body>
+</html>

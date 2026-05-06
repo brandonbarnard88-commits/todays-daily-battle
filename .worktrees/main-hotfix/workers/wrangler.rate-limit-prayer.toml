@@ -1,0 +1,15 @@
+# Rate-limit prayer proxy (DRAFT) — deploy with:
+#   npx wrangler deploy -c wrangler.rate-limit-prayer.toml
+# Set secret: npx wrangler secret put SUPABASE_SUBMIT_PRAYER_URL -c wrangler.rate-limit-prayer.toml
+# Value: https://rixsnhpwrlbvvymkfamj.supabase.co/functions/v1/submit-prayer
+#
+# Add route in Cloudflare Dashboard: todaysdailybattle.com/api/prayer
+# Then update config: SUBMIT_PRAYER_URL = 'https://todaysdailybattle.com/api/prayer'
+
+name = "rate-limit-prayer"
+main = "rate-limit-prayer.js"
+compatibility_date = "2024-01-01"
+
+# [[routes]]
+# pattern = "todaysdailybattle.com/api/prayer"
+# zone_name = "todaysdailybattle.com"

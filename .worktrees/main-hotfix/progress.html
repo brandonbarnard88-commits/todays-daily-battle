@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+
+  <!-- GA4 lazy-loaded after interaction -->
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Progress • Today's Daily Battle</title>
+  <meta name="description" content="Rest-first progress: plans, streaks, and stats on this device only. You&rsquo;re already welcome here—your journey, your pace, no performance.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/progress.html">
+  <meta property="og:title" content="Progress • Today's Daily Battle">
+  <meta property="og:description" content="Your quiet map on this device—streaks, plans, and stats. Rest first; not a scoreboard.">
+  <meta property="og:url" content="https://todaysdailybattle.com/progress.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260503-consent-persist-fix" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix">
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode tdb-inner-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="tdb-lang-switcher-header-wrap">
+        <nav class="tdb-lang-switcher tdb-lang-switcher--header tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+          <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+          <span class="tdb-lang-switcher-inner">
+            <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+          </span>
+        </nav>
+      </div>
+
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <p class="tdb-header-heartbeat site-tagline" lang="en">For Family, For Country, For GOD</p>
+        <span class="brand-subtitle">Tiny wins on this device — also <a href="/dashboard">/dashboard</a></span>
+      </div>
+      <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+      <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
+        <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+        <span class="tdb-nav-flyout-toggle__label">Site</span>
+      </button>
+      <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
+        <a href="/verse.html">Today&rsquo;s Lesson</a>
+        <a href="/explore.html">Explore</a>
+        <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map and gentle paths">Curriculum</a>
+        <a href="/plans.html" id="nav-browse-curriculum" aria-label="Browse the curriculum — KJV courses and gentle battle plans">Browse the curriculum</a>
+        <a href="/university.html" id="nav-university-core" aria-label="University of God — five anchor verses, quiet map">University map</a>
+        <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read</a>
+        <a href="/memorize.html">Memorize</a>
+        <a href="/#feel-section">How I Feel</a>
+        <a href="/daily-rhythm.html">Daily Rhythm</a>
+        <a href="/prayer-wall.html">Pray</a>
+        <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
+        <details class="tdb-nav-more">
+          <summary aria-haspopup="true">More tools</summary>
+          <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+            <a href="/">Home</a>
+            <a href="/mystudy">My Study</a>
+            <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
+            <a href="/plans.html">Courses</a>
+            <a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">Family Armor for little ones</a>
+            <a href="/kids/corner.html">Kids &amp; Family</a>
+            <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
+            <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
+            <a href="/site-guide.html" id="nav-site-guide" aria-label="Start here — calm map of where to begin">Start here</a>
+            <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
+            <a href="/about.html">About</a>
+            <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
+            <a href="/mobius.html">Möbius</a>
+            <a href="/calm.html">Calm</a>
+            <a href="/story.html">Story</a>
+            <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
+          </div>
+        </details>
+      </div>
+    </nav>
+      <div class="tdb-header-account-nudge" role="group" aria-label="Account shortcuts">
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" aria-label="Open the five-minute site tour">Site tour</button>
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-restart-btn" aria-label="Restart the five-minute site tour from the beginning">Restart</button>
+        <a href="/login.html" class="tdb-header-account-nudge__link">Log in</a>
+        <a href="/mystudy?tab=library#saved-verses" class="tdb-header-account-nudge__link">My Study</a>
+      </div>
+
+      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
+</header>
+
+    <aside id="sidebar" class="sidebar">
+      <nav class="side-nav" aria-label="Site navigation">
+        <a href="/" data-section="search" data-icon="SR">Search</a>
+        <a href="verse.html" data-section="verse-of-day" data-icon="VD">Verse of the Day</a>
+        <a href="reading-plan.html" data-section="reading-plan" data-icon="RP">7-Day Plan</a>
+        <a href="study.html" data-section="study-tools" data-icon="ST">Study Workspace</a>
+        <a href="reader.html" data-section="chapter-reader" data-icon="CR">Chapter Reader</a>
+        <a href="church.html" data-section="church-center" data-icon="CC">Church Center</a>
+        <a href="coloring.html" data-section="kids-corner" data-icon="KC" aria-label="Kids Coloring">Kids Coloring</a>
+        <a href="kids-corner.html" data-section="family-activities" data-icon="FM" aria-label="Family Activities">Family Activities</a>
+        <a href="sermon.html" data-section="sermon-builder" data-icon="SB">Sermon Builder</a>
+        <a href="pastor-toolkit.html" data-section="pastor-toolkit" data-icon="PT">Pastor Toolkit</a>
+        <a href="team-toolkit.html" data-section="team-toolkit" data-icon="TM">Team Toolkit</a>
+        <a href="resources.html" data-section="pastor-resources" data-icon="PR">Pastor Resources</a>
+        <a href="/prayer-wall.html?tab=with-others" data-section="prayer" data-icon="MB">Prayer</a>
+        <a href="wins-report.html" data-section="wins-report" data-icon="WR">Wins Report</a>
+        <a href="shop.html" data-section="shop" data-icon="SH">Shop</a>
+        <a href="about.html" data-section="about" data-icon="AB">About</a>
+        <a href="faq.html" data-section="faq" data-icon="FQ">FAQ</a>
+        <a href="pricing.html" data-section="pricing" data-icon="PC">Pricing</a>
+      </nav>
+      <div class="sidebar-options">
+        <label class="inline-toggle">
+          <input id="red-letter-toggle" type="checkbox" checked aria-label="Show words of Jesus in red">
+          Red letters
+        </label>
+      </div>
+    </aside>
+
+    <main class="app-content" id="main-content">
+      <div class="content-inner progress-app-inner">
+        <header class="hero-banner progress-hero tdb-micro-hero-dawn tdb-dawn-bg--mist">
+          <h1>Progress</h1>
+          <p class="progress-hero-lead topic-mood-porch">You&rsquo;re already welcome here. This isn&rsquo;t a scoreboard&mdash;you don&rsquo;t have to earn your seat on the porch.</p>
+          <p class="progress-hero-sub">A light week is still a real week with God. One verse and closing the page is enough. There&rsquo;s always room to breathe.</p>
+          <div class="cta-group">
+            <a class="btn btn-secondary" href="/">Home</a>
+            <a class="btn btn-secondary" href="wins.html">Your Wins</a>
+            <a class="btn btn-secondary" href="explore.html">Explore</a>
+            <a class="btn btn-secondary" href="plans.html">Battle Plans</a>
+          </div>
+        </header>
+
+        <section class="glass tdb-porch-paper-glass progress-faith-loop-section" aria-labelledby="progress-faith-loop-h">
+          <h2 class="section-divider" id="progress-faith-loop-h">Faith loop</h2>
+          <p id="progress-faith-loop-line" class="section-note progress-faith-loop-line" role="status" aria-live="polite"></p>
+          <p class="section-note util-mb-0">No trial here&mdash;when a plan pauses, you&rsquo;re welcome to <a href="plans.html">begin again</a> or stay still. <a href="mobius.html">Möbius</a> shows the same gentle line: one path, room to turn.</p>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass" id="streak-section" aria-label="Gentle streak on this device">
+          <h2 class="section-divider">Streak right now</h2>
+          <div id="streak-display" class="progress-streak" role="status" aria-live="polite">Calculating…</div>
+          <div id="longest-display" class="progress-longest" aria-live="polite"></div>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass" id="progress-visit-rhythm" aria-labelledby="progress-visit-rhythm-h">
+          <h2 class="section-divider" id="progress-visit-rhythm-h">Visit rhythm</h2>
+          <p class="section-note progress-visit-rhythm-note">A soft map: four weeks on <strong>this device</strong>&mdash;the days you marked &ldquo;I prayed / I&rsquo;m done for today&rdquo; on the home card. No score&mdash;just light and quiet. A light week&rsquo;s still a week with God.</p>
+          <p id="progress-heat-empty" class="section-note progress-heat-empty hidden" role="status">No home check-ins in this window yet—that is all right. When you finish today&rsquo;s verse flow on the homepage, a square will glow here.</p>
+          <div id="progress-heat-grid" class="progress-heat-grid" role="group" aria-label="Last 28 days, lighter means no check-in"></div>
+          <h3 class="progress-milestones-heading">Gentle milestones</h3>
+          <ul id="progress-milestones" class="progress-milestones" aria-label="Quiet encouragement based on local progress"></ul>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass" id="active-plans" aria-label="Plans you are walking">
+          <h2 class="section-divider">Plans you&rsquo;re walking</h2>
+          <div id="active-list"></div>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass" id="completed-plans" aria-label="Plans you have finished">
+          <h2 class="section-divider">Plans you&rsquo;ve finished</h2>
+          <div id="completed-list"></div>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass" id="stats" aria-label="Quiet numbers on this device">
+          <h2 class="section-divider">Quiet numbers</h2>
+          <p class="section-note util-mb-0_75">A glance at this browser only&mdash;not a grade, not a verdict.</p>
+          <div class="progress-stats">
+            <div class="progress-stat">
+              <div class="progress-stat-value" id="total-verses">0</div>
+              <div class="progress-stat-label">Verses read</div>
+            </div>
+            <div class="progress-stat">
+              <div class="progress-stat-value" id="plans-started">0</div>
+              <div class="progress-stat-label">Plans started</div>
+            </div>
+            <div class="progress-stat">
+              <div class="progress-stat-value" id="days-battled">0</div>
+              <div class="progress-stat-label">Days marked here</div>
+            </div>
+          </div>
+          <p class="section-note progress-stats-actions" style="text-align:center; margin-top:1rem;">
+            <button type="button" id="export-stats" class="btn-export" aria-label="Copy my progress stats to clipboard">Copy My Stats</button>
+            <button type="button" id="share-quiet-invite" class="btn-export btn-export-secondary" aria-label="Copy a short invite to Today&apos;s Daily Battle">Copy quiet invite</button>
+          </p>
+          <p class="section-note" style="text-align:center; margin-top:0.5rem;">
+            <a href="plans.html">Pick a plan →</a>
+          </p>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass" aria-label="Reset local progress">
+          <h2 class="section-divider">Data on this device</h2>
+          <p class="section-note">Plans and streaks here live in your browser only&mdash;private, not a verdict on your walk. You can copy your stats above, or clear everything below if you need a gentle fresh start.</p>
+          <div class="progress-actions">
+            <button type="button" id="reset-progress" class="btn-reset" aria-label="Reset all progress">Reset Progress</button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
+  <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+    <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+    <span class="tdb-lang-switcher-inner">
+      <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-essentials" aria-label="Key pages">
+    <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/verse.html">Today&rsquo;s Lesson</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <p class="site-footer-share-wrap">
+    <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
+    <span class="site-footer-share-sep" aria-hidden="true">·</span>
+    <button type="button" class="share-page-btn site-footer-tour-restart tdb-tour-restart-btn" aria-label="Restart the five-minute site tour">Restart site tour</button>
+  </p>
+
+  <nav class="bottom-nav" role="navigation" aria-label="Plans, kids, and Spanish topics">
+    <a href="/plans.html">Plans</a>
+    <a href="/kids/">Kids Battle</a>
+    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
+      <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
+      <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
+      <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-nav" aria-label="Footer links">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/media.html">Media</a>
+    <a href="/roadmap.html">Roadmap</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/for-pastors.html">For pastors &amp; teachers</a>
+    <a href="/reader.html">Chapter reader</a>
+    <a href="/bible/tools.html">Study workshop</a>
+    <a href="/bible-tool.html">Bible tool</a>
+    <a href="/testimonials.html">Reader stories</a>
+    <a href="/journal/">Journal</a>
+    <a href="/where-support-goes.html">Where support goes</a>
+    <a href="/verse-cards/">Verse cards</a>
+    <a href="/security.html">Security</a>
+    <a href="/contact.html">Contact</a>
+    <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
+  </nav>
+
+  <details class="footer-sitemap">
+    <summary>Sitemap — topics, tools, church &amp; family (tap to expand)</summary>
+    <div class="footer-sitemap-grid">
+      <div class="footer-sitemap-col">
+        <h3>The Narrow Paths</h3>
+        <a href="/explore.html">Full list (all pages)</a>
+        <a href="/topic-anxiety.html">Anxiety</a>
+        <a href="/topic-fear.html">Fear</a>
+        <a href="/topic-grief.html">Grief</a>
+        <a href="/topic-hope.html">Hope</a>
+        <a href="/topic-strength.html">Strength</a>
+        <a href="/topic-parenting.html">Parenting</a>
+        <a href="/topic-loneliness.html">Loneliness</a>
+        <a href="/topic-forgiveness.html">Forgiveness</a>
+        <a href="/topic-guilt.html">Guilt</a>
+        <a href="/topic-overwhelmed.html">Overwhelmed</a>
+        <a href="/topic-worthless.html">Worth / identity</a>
+      </div>
+      <div class="footer-sitemap-col footer-sitemap-col--es-links">
+        <h3>Spanish devotionals</h3>
+        <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es">Paz</a>
+        <a href="/explore.html#topics-es">All Spanish topics on Explore</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Tools of the Quiet Trade</h3>
+        <a href="/verse.html">Verse of the Day</a>
+        <a href="/reader.html">Chapter reader</a>
+        <a href="/bible/tools.html">Study workshop</a>
+        <a href="/bible-tool.html">Bible tool</a>
+        <a href="/mystudy">My Study</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/mobius.html">Möbius</a>
+        <a href="/plans.html">Courses</a>
+        <a href="/reading-plan.html">7-day plan</a>
+        <a href="/study.html">Study workspace</a>
+        <a href="/wins.html">Wins</a>
+        <a href="/progress.html">Progress</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>For the Household of Faith</h3>
+        <a href="/church.html">Church center</a>
+        <a href="/church/">Church join hub</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit</a>
+        <a href="/pastor/">Pastor hub</a>
+        <a href="/sermon.html">Sermon builder</a>
+        <a href="/family.html">Family hub</a>
+        <a href="/little-ones.html">For the Little Ones</a>
+        <a href="/family-armor.html">Family Armor</a>
+        <a href="/kids/">Kids Battle home</a>
+        <a href="/kids/corner.html">Bible Story Library</a>
+        <a href="/kids-corner.html">Bible Loop Library</a>
+        <a href="/coloring.html">Color &amp; Tell</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Further In</h3>
+        <a href="/prayer-wall.html">Prayer</a>
+        <a href="/bible-study.html">Bible studies</a>
+        <a href="/shop.html">Shop</a>
+        <a href="/story.html">Story</a>
+        <a href="/media.html">Media</a>
+        <a href="/roadmap.html">Roadmap</a>
+        <a href="/approach.html">How we respond</a>
+        <a href="/why-not-ai.html">Why not AI?</a>
+        <a href="/curriculum.html">Curriculum</a>
+        <a href="/verse-cards/">Verse cards</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </details>
+
+  <p class="footer-humility">We battle. He wins.</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): footer story lives in .site-footer-story below -->
+  <p class="site-footer-story">
+    Steady KJV for honest days&mdash;no ads, no selling your data; prayers stay on this device unless you sync on purpose.
+  </p>
+
+  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" aria-label="Friday verse and prayer email signup">
+    <p class="footer-friday-signup-label">Friday recap email&mdash;one message a week; leave anytime.</p>
+    <div class="footer-friday-signup-row">
+      <label for="footer-friday-email" class="sr-only">Email for Friday recap</label>
+      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="your@email.com" aria-label="Email for Friday recap" autocomplete="email">
+      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit">Subscribe</button>
+    </div>
+    <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
+  </div>
+
+  <p class="site-footer-copy site-footer-legal-line">&copy; 2026 Today&rsquo;s Daily Battle &middot; Christian Messenger Service. All rights reserved.</p>
+  <p class="site-footer-copy site-footer-legal-line">All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
+
+  <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
+  <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
+  </div>
+  <script defer src="/language-switcher.js?v=20260503-consent-persist-fix"></script>
+</footer>
+  </div>
+
+  <div id="reset-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc" aria-hidden="true" tabindex="-1">
+    <div class="modal-content">
+      <h2 id="modal-title">Reset Progress?</h2>
+      <p id="modal-desc">This will clear all plans, streaks, and stats. Your data is local only—no recovery.</p>
+      <div class="modal-buttons">
+        <button type="button" id="confirm-reset" class="btn-confirm-reset">Yes, Reset</button>
+        <button type="button" id="cancel-reset" class="btn-cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-container" aria-live="polite"></div>
+
+  <script nonce="tdb2025s">
+  (function () {
+    'use strict';
+
+    var PLAN_CONFIGS = {
+      battle:    { id: 'battle',    label: 'Battle Distraction',  key: 'tdb-plan-day',            max: 7  },
+      gratitude: { id: 'gratitude', label: 'Gratitude',            key: 'tdb-plan-gratitude-day', max: 7  },
+      strength:  { id: 'strength',  label: '30-Day Strength',      key: 'tdb-plan-strength-day',  max: 30 },
+      marriage:  { id: 'marriage',  label: 'Marriage',             key: 'tdb-plan-marriage-day', max: 7  },
+      peace:     { id: 'peace',     label: '7-Day Peace',         key: 'tdb-plan-peace-day',     max: 7  },
+      trust:     { id: 'trust',     label: '7-Day Trust in Uncertainty', key: 'tdb-plan-trust-day', max: 7  },
+      anger:     { id: 'anger',     label: '7-Day Release from Anger & Bitterness', key: 'tdb-plan-anger-day', max: 7  },
+      grief:     { id: 'grief',     label: '7-Day Healing from Grief & Loss', key: 'tdb-plan-grief-day', max: 7  },
+      forgiveness: { id: 'forgiveness', label: 'Forgiveness', key: 'tdb-plan-forgiveness-day', max: 7  },
+      parenting: { id: 'parenting', label: 'Parenting', key: 'tdb-plan-parenting-day', max: 7  },
+      loneliness: { id: 'loneliness', label: '7-Day Victory Over Loneliness', key: 'tdb-plan-loneliness-day', max: 7  },
+      fearfaith: { id: 'fearfaith', label: 'Fear to Faith', key: 'tdb-plan-fearfaith-day', max: 7  },
+      worrytrust: { id: 'worrytrust', label: 'Worry to Trust', key: 'tdb-plan-worrytrust-day', max: 7  },
+      angerpeace: { id: 'angerpeace', label: 'Anger → Peace', key: 'tdb-plan-angerpeace-day', max: 7  },
+      doubtassurance: { id: 'doubtassurance', label: 'Doubt → Assurance', key: 'tdb-plan-doubtassurance-day', max: 7  },
+      griefhope: { id: 'griefhope', label: 'Grief → Hope', key: 'tdb-plan-griefhope-day', max: 7  },
+      painwontquit: { id: 'painwontquit', label: 'When Pain Won\u2019t Quit', key: 'tdb-plan-painwontquit-day', max: 7  },
+      cancercomfort: { id: 'cancercomfort', label: 'Cancer Comfort', key: 'tdb-plan-cancercomfort-day', max: 7  },
+      battle10:  { id: 'battle10',  label: '10-Day Battle',       key: 'tdb-plan-battle10-day', max: 10 },
+      battle14:  { id: 'battle14',  label: '14-Day Battle',        key: 'tdb-plan-battle14-day', max: 14 },
+      battle21:  { id: 'battle21',  label: '21-Day Battle',        key: 'tdb-plan-battle21-day', max: 21 },
+      battle30:  { id: 'battle30',  label: '30-Day Battle',       key: 'tdb-plan-battle30-day', max: 30 },
+      battle40:  { id: 'battle40',  label: '40-Day Wilderness',   key: 'tdb-plan-battle40-day', max: 40 },
+      easter:    { id: 'easter',    label: 'Resurrection Hope',  key: 'tdb-plan-easter-day',   max: 7  }
+    };
+
+    var LONGEST_KEY = 'tdb-longest-streak';
+    var DAILY_BATTLE_STREAK_KEY = 'dailyBattleStreak';
+
+    function dateKeyForOffset(off) {
+      var d = new Date();
+      d.setHours(0, 0, 0, 0);
+      d.setDate(d.getDate() + off);
+      var y = d.getFullYear();
+      var m = String(d.getMonth() + 1).padStart(2, '0');
+      var day = String(d.getDate()).padStart(2, '0');
+      return y + '-' + m + '-' + day;
+    }
+
+    function renderVisitRhythm() {
+      var wrap = document.getElementById('progress-visit-rhythm');
+      var grid = document.getElementById('progress-heat-grid');
+      var emptyEl = document.getElementById('progress-heat-empty');
+      if (!wrap || !grid) return;
+      var set = new Set();
+      try {
+        var raw = localStorage.getItem(DAILY_BATTLE_STREAK_KEY);
+        var data = raw ? JSON.parse(raw) : {};
+        if (data && Array.isArray(data.dates)) {
+          data.dates.forEach(function (dt) { if (typeof dt === 'string') set.add(dt); });
+        }
+      } catch (_) {}
+      grid.textContent = '';
+      var anyInWindow = false;
+      for (var i = -27; i <= 0; i++) {
+        var k = dateKeyForOffset(i);
+        var on = set.has(k);
+        if (on) anyInWindow = true;
+        var cell = document.createElement('span');
+        cell.className = 'progress-heat-cell' + (on ? ' progress-heat-cell--on' : '');
+        cell.title = k + (on ? ' — you showed up' : '');
+        cell.setAttribute('role', 'img');
+        cell.setAttribute('aria-label', k + (on ? ', checked in' : ', no check-in'));
+        grid.appendChild(cell);
+      }
+      if (emptyEl) emptyEl.classList.toggle('hidden', anyInWindow);
+    }
+
+    function renderMilestones(completedLen, longest, planStreak) {
+      var ul = document.getElementById('progress-milestones');
+      if (!ul) return;
+      ul.textContent = '';
+      var seen = new Set();
+      var items = [];
+      function push(t) {
+        if (seen.has(t)) return;
+        seen.add(t);
+        items.push(t);
+      }
+      if (planStreak >= 7) push('A week of plan days — quiet persistence.');
+      if (planStreak >= 21) push('Three weeks in the fight — steady steps.');
+      if (longest >= 7) push('Home rhythm: a seven-day stretch on your longest run.');
+      if (longest >= 30) push('Home rhythm: thirty days of showing up.');
+      if (completedLen >= 1) push('You finished a full reading plan here.');
+      if (completedLen >= 3) push('Several plans carried to the end.');
+      if (items.length === 0) {
+        var li0 = document.createElement('li');
+        li0.className = 'progress-milestone progress-milestone--soft';
+        li0.textContent = 'Keep going — small days stack up.';
+        ul.appendChild(li0);
+        return;
+      }
+      items.forEach(function (t) {
+        var li = document.createElement('li');
+        li.className = 'progress-milestone';
+        li.textContent = t;
+        ul.appendChild(li);
+      });
+    }
+
+    function getDay(plan) {
+      try {
+        var raw = localStorage.getItem(plan.key);
+        if (!raw) return 0;
+        var parsed = JSON.parse(raw);
+        if (parsed && typeof parsed === 'object' && typeof parsed.day === 'number') return parsed.day;
+        return parseInt(raw, 10) || 0;
+      } catch (_) {
+        return parseInt(localStorage.getItem(plan.key) || '0', 10) || 0;
+      }
+    }
+
+    function getStreak(planId) {
+      return parseInt(localStorage.getItem('tdb-streak-' + planId) || '0', 10) || 0;
+    }
+
+    function getLongestStreak() {
+      return parseInt(localStorage.getItem(LONGEST_KEY) || '0', 10) || 0;
+    }
+
+    function showToast(message) {
+      var container = document.getElementById('toast-container');
+      var toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.textContent = message;
+      container.appendChild(toast);
+      setTimeout(function () { toast.remove(); }, 3000);
+    }
+
+    function clearAllProgress() {
+      var keys = [];
+      for (var i = 0; i < localStorage.length; i++) {
+        var k = localStorage.key(i);
+        if (k && (k.indexOf('tdb-plan') === 0 || k.indexOf('tdb-streak') === 0 || k === LONGEST_KEY)) {
+          keys.push(k);
+        }
+      }
+      keys.forEach(function (k) { localStorage.removeItem(k); });
+    }
+
+    function loadProgress() {
+      var prevLongest = getLongestStreak();
+      var active = [];
+      var completed = [];
+      var totalVerses = 0;
+      var plansStarted = 0;
+      var maxStreak = 0;
+
+      Object.keys(PLAN_CONFIGS).forEach(function (planId) {
+        var plan = PLAN_CONFIGS[planId];
+        var day = Math.min(Math.max(getDay(plan), 0), plan.max);
+        var streak = getStreak(planId);
+
+        if (day > 0) {
+          plansStarted++;
+          totalVerses += day;
+        }
+        if (streak > maxStreak) maxStreak = streak;
+
+        if (day >= plan.max) {
+          completed.push({ plan: plan, day: day });
+        } else if (day > 0) {
+          active.push({ plan: plan, day: day, percent: Math.round((day / plan.max) * 100) });
+        }
+      });
+
+      var displayStreak = maxStreak;
+      if (displayStreak === 0 && active.length > 0) {
+        var best = active.reduce(function (a, b) { return a.day > b.day ? a : b; }, active[0]);
+        displayStreak = best.day;
+      }
+
+      var longest = getLongestStreak();
+      if (displayStreak > longest) longest = displayStreak;
+      var didIncrease = longest > prevLongest && prevLongest >= 0;
+      if (longest > 0 && getLongestStreak() < longest) {
+        try { localStorage.setItem(LONGEST_KEY, String(longest)); } catch (_) {}
+      }
+      if (didIncrease && longest > 0) {
+        var diff = longest - prevLongest;
+        showToast((diff === 1 ? '+1 to your streak!' : '+' + diff + ' to your streak!') + ' \uD83D\uDD25');
+      }
+
+      var streakEl = document.getElementById('streak-display');
+      streakEl.textContent = displayStreak > 0
+        ? '\uD83D\uDD25 ' + displayStreak + '-day gentle streak'
+        : '\uD83D\uDD25 When you\u2019re ready, a plan can add a quiet day-by-day rhythm here';
+      streakEl.classList.toggle('flame-active', displayStreak > 0);
+
+      var longestEl = document.getElementById('longest-display');
+      longestEl.textContent = longest > 0 ? 'Longest: ' + longest + ' day' + (longest > 1 ? 's' : '') : '';
+
+      var activeEl = document.getElementById('active-list');
+      if (active.length === 0) {
+        activeEl.innerHTML = '<p class="progress-empty">No plan open right now&mdash;that&rsquo;s allowed. When you want a slow lane again, <a href="plans.html">pick one</a>.</p>';
+      } else {
+        activeEl.innerHTML = '';
+        active.forEach(function (p) {
+          var card = document.createElement('div');
+          card.className = 'progress-card';
+          card.innerHTML =
+            '<h3>' + escapeHtml(p.plan.label) + '</h3>' +
+            '<p>Day ' + p.day + ' of ' + p.plan.max + '</p>' +
+            '<div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:' + p.percent + '%"></div></div>' +
+            '<a href="plans.html?plan=' + encodeURIComponent(p.plan.id) + '">Continue →</a>';
+          activeEl.appendChild(card);
+        });
+      }
+
+      var completedEl = document.getElementById('completed-list');
+      if (completed.length === 0) {
+        completedEl.innerHTML = '<p class="progress-empty">No finished plans here yet&mdash;first steps count even when nothing is &ldquo;done.&rdquo;</p>';
+      } else {
+        completedEl.innerHTML = '';
+        completed.forEach(function (p) {
+          var item = document.createElement('div');
+          item.className = 'progress-completed-item progress-completed';
+          item.innerHTML = '\u2713 ' + escapeHtml(p.plan.label) + ' \u2014 ' + p.plan.max + '/' + p.plan.max;
+          completedEl.appendChild(item);
+        });
+      }
+
+      document.getElementById('total-verses').textContent = totalVerses;
+      document.getElementById('plans-started').textContent = plansStarted;
+      document.getElementById('days-battled').textContent = totalVerses;
+
+      renderVisitRhythm();
+      renderMilestones(completed.length, longest, displayStreak);
+
+      var floop = document.getElementById('progress-faith-loop-line');
+      if (floop) {
+        if (active.length > 0) {
+          var p0 = active[0];
+          floop.textContent = 'You\'re on day ' + p0.day + ' of ' + p0.plan.max + ' in ' + p0.plan.label + ' — stay at your own pace; you can rest, loop back, or walk it again anytime.';
+        } else if (completed.length > 0) {
+          floop.textContent = 'No active plan right now — you\'ve already finished a full lane. When you want that slow rhythm again, start fresh on the plans page; there\'s room to breathe here.';
+        } else {
+          floop.textContent = 'No plan progress on this device yet — when you\'re ready for a day-by-day lane, open Battle Plans; your checkmarks will gather here, quietly.';
+        }
+      }
+    }
+
+    function escapeHtml(s) {
+      var div = document.createElement('div');
+      div.textContent = s;
+      return div.innerHTML;
+    }
+
+    function exportStats() {
+      var longest = getLongestStreak();
+      var totalVerses = document.getElementById('total-verses').textContent || '0';
+      var plansStarted = document.getElementById('plans-started').textContent || '0';
+      var daysBattled = document.getElementById('days-battled').textContent || '0';
+      var activeCount = document.querySelectorAll('#active-list .progress-card').length || 0;
+      var completedCount = document.querySelectorAll('#completed-list .progress-completed-item').length || 0;
+
+      var statsText = 'My Today\'s Daily Battle progress:\n' +
+        '\uD83D\uDD25 Longest streak: ' + longest + ' day' + (longest !== 1 ? 's' : '') + '\n' +
+        'Verses read: ' + totalVerses + '\n' +
+        'Plans started: ' + plansStarted + ' (' + activeCount + ' active, ' + completedCount + ' completed)\n' +
+        'Days marked here: ' + daysBattled + '\n\n' +
+        'Join me at https://todaysdailybattle.com';
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(statsText).then(function () {
+          showToast('Copied!');
+        }).catch(function () {
+          showToast('Copy failed');
+        });
+      } else {
+        showToast('Copy not available');
+      }
+    }
+
+    var resetModalEl = document.getElementById('reset-modal');
+    var resetProgressBtn = document.getElementById('reset-progress');
+    var resetFocusBefore = null;
+
+    function listResetFocusables() {
+      if (!resetModalEl) return [];
+      var nodes = resetModalEl.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      return Array.prototype.slice.call(nodes).filter(function (el) {
+        if (el.disabled) return false;
+        var s = window.getComputedStyle(el);
+        if (s.visibility === 'hidden' || s.display === 'none') return false;
+        return el.getClientRects && el.getClientRects().length > 0;
+      });
+    }
+
+    function onResetModalKeydown(e) {
+      if (!resetModalEl || !resetModalEl.classList.contains('show')) return;
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        closeResetModal();
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      var list = listResetFocusables();
+      if (list.length < 2) return;
+      var first = list[0];
+      var last = list[list.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          last.focus();
+          e.preventDefault();
+        }
+      } else if (document.activeElement === last) {
+        first.focus();
+        e.preventDefault();
+      }
+    }
+
+    function openResetModal() {
+      if (!resetModalEl) return;
+      resetFocusBefore = document.activeElement;
+      resetModalEl.classList.add('show');
+      resetModalEl.setAttribute('aria-hidden', 'false');
+      document.addEventListener('keydown', onResetModalKeydown, true);
+      var cancel = document.getElementById('cancel-reset');
+      if (cancel && typeof cancel.focus === 'function') {
+        setTimeout(function () {
+          try {
+            cancel.focus();
+          } catch (e) {}
+        }, 0);
+      }
+    }
+
+    function closeResetModal() {
+      if (!resetModalEl) return;
+      document.removeEventListener('keydown', onResetModalKeydown, true);
+      resetModalEl.classList.remove('show');
+      resetModalEl.setAttribute('aria-hidden', 'true');
+      if (resetFocusBefore && typeof resetFocusBefore.focus === 'function') {
+        try {
+          resetFocusBefore.focus();
+        } catch (e) {}
+      }
+      resetFocusBefore = null;
+    }
+
+    if (resetProgressBtn) {
+      resetProgressBtn.addEventListener('click', openResetModal);
+    }
+    document.getElementById('cancel-reset').addEventListener('click', closeResetModal);
+    document.getElementById('confirm-reset').addEventListener('click', function () {
+      clearAllProgress();
+      closeResetModal();
+      showToast('Progress cleared');
+      loadProgress();
+    });
+    document.getElementById('export-stats').addEventListener('click', exportStats);
+
+    function copyQuietInvite() {
+      var text = 'A quiet place for daily KJV battles — verse, prayer, plans. No noise. todaysdailybattle.com';
+      function done(ok) {
+        showToast(ok ? 'Invite copied' : 'Copy failed');
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () {
+          done(true);
+          if (typeof window.trackEvent === 'function') {
+            try { window.trackEvent('progress_quiet_invite_copy', { source: 'progress' }); } catch (e) {}
+          }
+        }).catch(function () { done(false); });
+      } else {
+        done(false);
+      }
+    }
+
+    var shareInviteBtn = document.getElementById('share-quiet-invite');
+    if (shareInviteBtn) shareInviteBtn.addEventListener('click', copyQuietInvite);
+
+    loadProgress();
+  })();
+  </script>
+  <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
+  <script nonce="tdb2025s">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
+  <script type="module" src="config.js"></script>
+  <script type="module" src="script.js?v=20260503-consent-persist-fix" data-cfasync="false"></script>
+</body>
+</html>

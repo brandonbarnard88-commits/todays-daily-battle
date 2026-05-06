@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" role="img" aria-label="God's rainbow promise">
+  <defs>
+    <linearGradient id="n3-wood" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8B4513"/><stop offset="1" stop-color="#A0522D"/></linearGradient>
+    <linearGradient id="n3-rainbow" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#E74C3C"/><stop offset="0.2" stop-color="#F39C12"/>
+      <stop offset="0.4" stop-color="#F1C40F"/><stop offset="0.6" stop-color="#2ECC71"/>
+      <stop offset="0.8" stop-color="#3498DB"/><stop offset="1" stop-color="#9B59B6"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="160" fill="#87CEEB"/>
+  <path d="M20 140 Q100 20 180 140 L180 160 L20 160 Z" fill="url(#n3-rainbow)" opacity="0.7"/>
+  <rect x="30" y="90" width="140" height="50" rx="5" fill="url(#n3-wood)" stroke="#5D4E37" stroke-width="2"/>
+  <rect x="50" y="75" width="100" height="25" fill="url(#n3-wood)" stroke="#5D4E37" stroke-width="1"/>
+  <ellipse cx="60" cy="115" rx="12" ry="8" fill="#8B4513"/>
+  <ellipse cx="100" cy="110" rx="10" ry="6" fill="#FFF" stroke="#333" stroke-width="1"/>
+  <ellipse cx="140" cy="115" rx="8" ry="10" fill="#F5DEB3"/>
+  <path d="M0 145 Q50 135 100 145 Q150 155 200 145 L200 160 L0 160 Z" fill="#3498DB" opacity="0.6"/>
+  <!-- Speech bubble -->
+  <path d="M60 35 L140 35 L145 52 L132 58 L60 58 Z" fill="white" stroke="#333" stroke-width="2"/>
+  <text x="100" y="50" font-family="Comic Sans MS, cursive" font-size="10" fill="#333" text-anchor="middle">God's promise! <</text>
+</svg>

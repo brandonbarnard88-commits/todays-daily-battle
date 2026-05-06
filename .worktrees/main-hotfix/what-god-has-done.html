@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What God has done • Private journal • Today&apos;s Daily Battle</title>
+  <meta name="description" content="A private, device-only place to name what God has done—short dated entries, export when you want. KJV site; nothing is shared or graded.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://todaysdailybattle.com/what-god-has-done.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="preload" href="tdb-quiet-luxury.css?v=20260503-consent-persist-fix" as="style">
+  <link rel="stylesheet" href="tdb-quiet-luxury.css?v=20260503-consent-persist-fix">
+  <link rel="preload" href="tdb-calm-hubs.css?v=20260331edge" as="style">
+  <link rel="stylesheet" href="tdb-calm-hubs.css?v=20260331edge">
+  <link rel="preload" href="what-god-has-done.css?v=20260331edge-wghd" as="style">
+  <link rel="stylesheet" href="what-god-has-done.css?v=20260331edge-wghd">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card: #161c26;
+      --text: #f5f7fb;
+      --muted: #8896b0;
+      --gold: #e3bc67;
+      --line: #242d3d;
+      --tdb-surface-veil-subtle: var(--tdb-lux-guilloche);
+      --tdb-surface-card-bg: color-mix(in srgb, var(--card) 93%, rgba(227, 188, 103, 0.09));
+      --tdb-surface-card-border: color-mix(in srgb, var(--line) 82%, rgba(227, 188, 103, 0.22));
+      --tdb-surface-card-shadow: 0 10px 32px rgba(0, 0, 0, 0.32),
+        0 0 0 1px color-mix(in srgb, rgba(227, 188, 103, 0.2) 50%, transparent),
+        inset 0 1px 0 rgba(255, 255, 255, 0.045);
+      --tdb-surface-panel-bg: color-mix(in srgb, var(--card) 96%, rgba(139, 166, 217, 0.06));
+      --tdb-surface-panel-border: color-mix(in srgb, var(--line) 90%, rgba(227, 188, 103, 0.12));
+      --tdb-surface-panel-shadow: 0 6px 22px rgba(0, 0, 0, 0.26),
+        0 0 0 1px color-mix(in srgb, var(--line) 70%, transparent),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+      --tdb-surface-radius: 18px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: ui-rounded,"Avenir Next","Segoe UI","Inter",sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; font-size: 1rem; }
+    .skip-link { position: absolute; left: -9999px; }
+    .skip-link:focus { left: 1rem; top: 1rem; z-index: 999; padding: 0.5rem 0.75rem; background: var(--gold); color: #111; }
+    .tdb-global-nav {
+      display: flex; align-items: center; gap: 0.2rem 0.5rem; flex-wrap: wrap;
+      padding: 0.35rem 0.75rem; min-height: 52px; box-sizing: border-box;
+      background-color: var(--tdb-surface-panel-bg);
+      background-image: var(--tdb-surface-veil-subtle);
+      border-bottom: 1px solid var(--tdb-surface-panel-border);
+      box-shadow: var(--tdb-surface-panel-shadow);
+      position: sticky; top: 0; z-index: 201;
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      font-size: 0.86rem;
+    }
+    .tdb-global-nav a {
+      color: rgba(226, 232, 240, 0.85); text-decoration: none; padding: 0.3rem 0.5rem; border-radius: 6px;
+      min-height: 44px; display: inline-flex; align-items: center;
+    }
+    .tdb-global-nav a:hover, .tdb-global-nav a:focus-visible { color: var(--gold); background: rgba(227, 188, 103, 0.1); outline: 2px solid rgba(227, 188, 103, 0.55); outline-offset: 2px; }
+    .tdb-global-nav a[aria-current="page"] { color: var(--gold); font-weight: 600; }
+    main.wghd-main.tdb-calm-hub { margin: 0 auto; padding-bottom: 6.5rem; }
+    h1 { font-size: clamp(1.5rem, 4vw, 2rem); color: var(--gold); margin: 0 0 0.25rem; font-weight: 800; }
+    .lead { color: var(--muted); font-size: 0.95rem; margin: 0 0 1rem; line-height: 1.55; }
+    .wghd-hero-lead { font-size: 1.05rem; color: rgba(245, 247, 251, 0.9); line-height: 1.6; margin: 0 0 1rem; }
+    section { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--line); }
+    section:last-of-type { border-bottom: none; }
+    h2 { font-size: 1.05rem; color: var(--gold); margin: 0 0 0.65rem; font-weight: 700; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
+      padding: 0.55rem 1rem; border-radius: 10px; font-size: 0.9rem; font-weight: 600;
+      text-decoration: none; border: 1px solid rgba(227, 188, 103, 0.45);
+      background: rgba(227, 188, 103, 0.12); color: var(--gold);
+      cursor: pointer; font-family: inherit;
+    }
+    .btn:hover, .btn:focus-visible { background: rgba(227, 188, 103, 0.22); outline: 2px solid rgba(227, 188, 103, 0.55); outline-offset: 2px; }
+    .btn-secondary { background: transparent; color: rgba(226, 232, 240, 0.9); border-color: var(--line); }
+    .btn-secondary:hover, .btn-secondary:focus-visible { border-color: var(--gold); color: var(--gold); }
+    footer.tdb-calm-hub-footer { font-size: 0.82rem; color: var(--muted); padding-bottom: 2.5rem; }
+    footer a { color: var(--gold); }
+    .wghd-char-row { font-size: 0.88rem; color: var(--muted); }
+    .wghd-char-gentle { color: rgba(245, 247, 251, 0.88); }
+    .wghd-char-num { color: var(--muted); font-weight: 500; }
+    .wghd-export-details { position: relative; display: inline-flex; flex-direction: column; align-items: stretch; }
+    .wghd-export-summary {
+      list-style: none; cursor: pointer; text-align: center;
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 44px; padding: 0.45rem 0.65rem; border-radius: 10px;
+      border: 1px solid rgba(227, 188, 103, 0.35); background: rgba(227, 188, 103, 0.1);
+      color: var(--gold); font-size: 0.82rem; font-weight: 600; font-family: inherit;
+    }
+    .wghd-export-summary::-webkit-details-marker { display: none; }
+    .wghd-export-summary:hover, .wghd-export-summary:focus-visible {
+      background: rgba(227, 188, 103, 0.2); outline: 2px solid rgba(227, 188, 103, 0.55); outline-offset: 2px;
+    }
+    .wghd-export-panel {
+      display: flex; flex-direction: column; gap: 0.35rem;
+      position: absolute; bottom: calc(100% + 0.35rem); left: 50%; transform: translateX(-50%);
+      min-width: 11rem; padding: 0.45rem; border-radius: 10px;
+      border: 1px solid var(--line); background: var(--bg); box-shadow: 0 -6px 24px rgba(0,0,0,0.35);
+      z-index: 5;
+    }
+    .wghd-export-panel .wghd-bar-btn { width: 100%; }
+  </style>
+</head>
+<body class="wghd-page">
+  <a href="#main" class="skip-link">Skip to content</a>
+  <nav class="tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+    <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel-standalone" id="tdb-primary-nav-toggle-standalone">
+      <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+      <span class="tdb-nav-flyout-toggle__label">Site</span>
+    </button>
+    <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-standalone">
+      <a href="/verse.html">Today&rsquo;s Lesson</a>
+      <a href="/explore.html">Explore</a>
+      <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map and gentle paths">Curriculum</a>
+      <a href="/plans.html" id="nav-browse-curriculum" aria-label="Browse the curriculum — KJV courses and gentle battle plans">Browse the curriculum</a>
+      <a href="/university.html" id="nav-university-core" aria-label="University of God — five anchor verses, quiet map">University map</a>
+      <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read</a>
+      <a href="/memorize.html">Memorize</a>
+      <a href="/#feel-section">How I Feel</a>
+      <a href="/daily-rhythm.html">Daily Rhythm</a>
+      <a href="/prayer-wall.html">Pray</a>
+      <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
+      <details class="tdb-nav-more">
+        <summary aria-haspopup="true">More tools</summary>
+        <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+          <a href="/">Home</a>
+          <a href="/mystudy">My Study</a>
+          <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
+          <a href="/plans.html">Courses</a>
+          <a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">Family Armor for little ones</a>
+          <a href="/kids/corner.html">Kids &amp; Family</a>
+          <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
+          <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
+          <a href="/site-guide.html" id="nav-site-guide" aria-label="Start here — calm map of where to begin">Start here</a>
+          <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
+          <a href="/about.html">About</a>
+          <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
+          <a href="/mobius.html">Möbius</a>
+          <a href="/calm.html">Calm</a>
+          <a href="/story.html">Story</a>
+          <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
+        </div>
+      </details>
+    </div>
+  </nav>
+  <div
+    id="tdb-offline-strip"
+    class="tdb-offline-strip hidden"
+    role="status"
+    aria-live="polite"
+    data-tdb-offline-page="what-god-has-done"
+  ><p class="offline-msg"></p></div>
+  <main id="main" class="wghd-main tdb-calm-hub">
+    <header class="wghd-hero wghd-hero--soar-dawn" aria-labelledby="wghd-hero-heading">
+    <h1 id="wghd-hero-heading">What God has done</h1>
+    <p class="wghd-subtitle">Private &mdash; everything stays on this device</p>
+    <p class="wghd-hero-lead topic-mood-porch">You&rsquo;re already welcome here. A quiet place to name what God has done &mdash; in the small moments, the hard battles, or the ordinary days.</p>
+    <p class="wghd-hero-lead wghd-lead-second">Just you and the Lord. No one else sees it. Nothing here is graded or compared.</p>
+
+    <div class="wghd-hero-new-wrap">
+      <button type="button" class="btn wghd-new-entry-hero" id="wghd-new-entry-hero">Name what God has done today</button>
+    </div>
+    </header>
+
+    <div id="wghd-status" class="wghd-status" role="status" aria-live="polite"></div>
+
+    <section class="wghd-form-card" id="wghd-form-card" aria-labelledby="wghd-form-section-title">
+      <h2 id="wghd-form-section-title">Your entry</h2>
+      <label class="wghd-label" for="wghd-title">Optional title <span class="wghd-label-hint">(or the first line becomes the preview)</span></label>
+      <input id="wghd-title" class="wghd-input-title" type="text" maxlength="120" autocomplete="off" aria-describedby="wghd-title-hint">
+      <p id="wghd-title-hint" class="hidden">Up to 120 characters.</p>
+
+      <label class="wghd-label" for="wghd-date">Date</label>
+      <input id="wghd-date" class="wghd-input-date" type="date" autocomplete="off" aria-describedby="wghd-date-hint">
+      <p id="wghd-date-hint" class="wghd-date-hint">Auto-filled for today; tap to change if needed.</p>
+
+      <label class="wghd-label" for="wghd-body">Write here&hellip;</label>
+      <textarea id="wghd-body" class="wghd-input-body" maxlength="800" rows="6" autocomplete="off" aria-describedby="wghd-body-count wghd-body-count-sr wghd-body-hint" placeholder="Write here&hellip;"></textarea>
+      <p id="wghd-body-hint" class="hidden">Up to 800 characters.</p>
+      <div id="wghd-body-count" class="wghd-char-row" aria-live="polite"><span class="wghd-char-gentle">A few sentences is perfect</span><span class="wghd-char-num" aria-hidden="true"> &middot; 0 / 800</span><span class="sr-only" id="wghd-body-count-sr">0 of 800 characters used.</span></div>
+
+      <div class="wghd-form-actions">
+        <button type="button" class="btn" id="wghd-save">Save</button>
+        <button type="button" class="btn btn-secondary hidden" id="wghd-cancel-edit">Cancel edit</button>
+      </div>
+    </section>
+
+    <section aria-labelledby="wghd-entries-heading">
+      <div class="wghd-entries-head">
+        <h2 id="wghd-entries-heading">Your entries</h2>
+      </div>
+      <p id="wghd-empty" class="wghd-empty wghd-hero-lead">Nothing here yet. When a verse or a moment touches your heart, name what God has done below&mdash;even a few sentences count. The Lord meets you right where you are.</p>
+      <ul id="wghd-list" class="wghd-list" aria-label="Saved journal entries"></ul>
+    </section>
+    <p class="wghd-footer-privacy" role="note">Everything here stays on this device.</p>
+  </main>
+  <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
+  <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+    <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+    <span class="tdb-lang-switcher-inner">
+      <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-essentials" aria-label="Key pages">
+    <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/verse.html">Today&rsquo;s Lesson</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <p class="site-footer-share-wrap">
+    <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
+    <span class="site-footer-share-sep" aria-hidden="true">·</span>
+    <button type="button" class="share-page-btn site-footer-tour-restart tdb-tour-restart-btn" aria-label="Restart the five-minute site tour">Restart site tour</button>
+  </p>
+
+  <nav class="bottom-nav" role="navigation" aria-label="Plans, kids, and Spanish topics">
+    <a href="/plans.html">Plans</a>
+    <a href="/kids/">Kids Battle</a>
+    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
+      <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
+      <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
+      <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-nav" aria-label="Footer links">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/media.html">Media</a>
+    <a href="/roadmap.html">Roadmap</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/for-pastors.html">For pastors &amp; teachers</a>
+    <a href="/reader.html">Chapter reader</a>
+    <a href="/bible/tools.html">Study workshop</a>
+    <a href="/bible-tool.html">Bible tool</a>
+    <a href="/testimonials.html">Reader stories</a>
+    <a href="/journal/">Journal</a>
+    <a href="/where-support-goes.html">Where support goes</a>
+    <a href="/verse-cards/">Verse cards</a>
+    <a href="/security.html">Security</a>
+    <a href="/contact.html">Contact</a>
+    <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
+  </nav>
+
+  <details class="footer-sitemap">
+    <summary>Sitemap — topics, tools, church &amp; family (tap to expand)</summary>
+    <div class="footer-sitemap-grid">
+      <div class="footer-sitemap-col">
+        <h3>The Narrow Paths</h3>
+        <a href="/explore.html">Full list (all pages)</a>
+        <a href="/topic-anxiety.html">Anxiety</a>
+        <a href="/topic-fear.html">Fear</a>
+        <a href="/topic-grief.html">Grief</a>
+        <a href="/topic-hope.html">Hope</a>
+        <a href="/topic-strength.html">Strength</a>
+        <a href="/topic-parenting.html">Parenting</a>
+        <a href="/topic-loneliness.html">Loneliness</a>
+        <a href="/topic-forgiveness.html">Forgiveness</a>
+        <a href="/topic-guilt.html">Guilt</a>
+        <a href="/topic-overwhelmed.html">Overwhelmed</a>
+        <a href="/topic-worthless.html">Worth / identity</a>
+      </div>
+      <div class="footer-sitemap-col footer-sitemap-col--es-links">
+        <h3>Spanish devotionals</h3>
+        <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es">Paz</a>
+        <a href="/explore.html#topics-es">All Spanish topics on Explore</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Tools of the Quiet Trade</h3>
+        <a href="/verse.html">Verse of the Day</a>
+        <a href="/reader.html">Chapter reader</a>
+        <a href="/bible/tools.html">Study workshop</a>
+        <a href="/bible-tool.html">Bible tool</a>
+        <a href="/mystudy">My Study</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/mobius.html">Möbius</a>
+        <a href="/plans.html">Courses</a>
+        <a href="/reading-plan.html">7-day plan</a>
+        <a href="/study.html">Study workspace</a>
+        <a href="/wins.html">Wins</a>
+        <a href="/progress.html">Progress</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>For the Household of Faith</h3>
+        <a href="/church.html">Church center</a>
+        <a href="/church/">Church join hub</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit</a>
+        <a href="/pastor/">Pastor hub</a>
+        <a href="/sermon.html">Sermon builder</a>
+        <a href="/family.html">Family hub</a>
+        <a href="/little-ones.html">For the Little Ones</a>
+        <a href="/family-armor.html">Family Armor</a>
+        <a href="/kids/">Kids Battle home</a>
+        <a href="/kids/corner.html">Bible Story Library</a>
+        <a href="/kids-corner.html">Bible Loop Library</a>
+        <a href="/coloring.html">Color &amp; Tell</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Further In</h3>
+        <a href="/prayer-wall.html">Prayer</a>
+        <a href="/bible-study.html">Bible studies</a>
+        <a href="/shop.html">Shop</a>
+        <a href="/story.html">Story</a>
+        <a href="/media.html">Media</a>
+        <a href="/roadmap.html">Roadmap</a>
+        <a href="/approach.html">How we respond</a>
+        <a href="/why-not-ai.html">Why not AI?</a>
+        <a href="/curriculum.html">Curriculum</a>
+        <a href="/verse-cards/">Verse cards</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </details>
+
+  <p class="footer-humility">We battle. He wins.</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): footer story lives in .site-footer-story below -->
+  <p class="site-footer-story">
+    Steady KJV for honest days&mdash;no ads, no selling your data; prayers stay on this device unless you sync on purpose.
+  </p>
+
+  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" aria-label="Friday verse and prayer email signup">
+    <p class="footer-friday-signup-label">Friday recap email&mdash;one message a week; leave anytime.</p>
+    <div class="footer-friday-signup-row">
+      <label for="footer-friday-email" class="sr-only">Email for Friday recap</label>
+      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="your@email.com" aria-label="Email for Friday recap" autocomplete="email">
+      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit">Subscribe</button>
+    </div>
+    <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
+  </div>
+
+  <p class="site-footer-copy site-footer-legal-line">&copy; 2026 Today&rsquo;s Daily Battle &middot; Christian Messenger Service. All rights reserved.</p>
+  <p class="site-footer-copy site-footer-legal-line">All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
+
+  <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
+  <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
+  </div>
+  <script defer src="/language-switcher.js?v=20260503-consent-persist-fix"></script>
+</footer>
+
+  <nav id="wghd-bottom-bar" class="wghd-bottom-bar" aria-label="Journal actions">
+    <button type="button" class="wghd-bar-btn" id="wghd-bar-new">New entry</button>
+    <details class="wghd-export-details" id="wghd-export-details">
+      <summary class="wghd-bar-btn wghd-export-summary">Export all</summary>
+      <div class="wghd-export-panel" role="group" aria-label="Export format">
+        <button type="button" class="wghd-bar-btn" id="wghd-bar-export-txt">Plain text</button>
+        <button type="button" class="wghd-bar-btn" id="wghd-bar-export-json">JSON</button>
+      </div>
+    </details>
+    <button type="button" class="wghd-bar-btn wghd-bar-btn-danger" id="wghd-bar-clear">Clear all</button>
+  </nav>
+
+  <script src="tdb-offline-strip.js?v=20260329pass2off"></script>
+  <script src="what-god-has-done.js?v=20260329pass2off"></script>
+</body>
+</html>

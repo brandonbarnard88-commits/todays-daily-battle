@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+
+  <!-- GA4 lazy-loaded after interaction -->
+  <script defer src="../analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Parent Dashboard • Kids Battle</title>
+  <meta name="description" content="See your kid's streak, doodles, and badges. Proud parent view — no login required.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://todaysdailybattle.com/kids/parent.html">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="../styles.css?v=20260503-consent-persist-fix" as="style">
+  <link rel="stylesheet" href="../styles.css?v=20260503-consent-persist-fix">
+  <link rel="preload" href="kids-battle.css?v=20260405kidsfollowup" as="style">
+  <link rel="stylesheet" href="kids-battle.css?v=20260405kidsfollowup">
+  <link rel="preload" href="kids-kids-world.css?v=20260428kids100" as="style">
+  <link rel="stylesheet" href="kids-kids-world.css?v=20260428kids100">
+  <link rel="preload" href="kids-hub-play.css?v=20260426lilshep1" as="style">
+  <link rel="stylesheet" href="kids-hub-play.css?v=20260426lilshep1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode kids-battle-page kids-parent-dashboard kids-world-surface">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar kids-battle-header kids-header-unified">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <p class="tdb-header-heartbeat site-tagline" lang="en">For Family, For Country, For GOD</p>
+        <span class="brand-subtitle kids-subtitle">Kids Battle</span>
+      </div>
+      <nav class="kids-header-nav" aria-label="Kids Battle navigation">
+        <a href="/kids/">Kids Battle Home</a>
+        <a href="corner.html">Bible Story Library</a>
+        <a href="prayer-activities.html">Prayer habits</a>
+        <a href="parent.html" aria-current="page">Parent Dashboard</a>
+      </nav>
+    </header>
+
+    <main class="app-content" id="main-content" role="main">
+      <div class="content-inner kids-battle-inner">
+        <p class="section-note topic-mood-porch kids-site-porch" lang="en">You&rsquo;re already welcome here&mdash;fun first, short moments, tiny KJV line. No rush.</p>
+        <header class="kids-battle-hero kids-parent-hero">
+          <h1 class="kids-battle-title">Family Quiet View</h1>
+          <p class="kids-battle-tagline">A gentle place to notice what the Word is doing in your home</p>
+        </header>
+
+        <section class="kids-shepherd-compact glass tdb-porch-paper-glass" aria-labelledby="kids-shepherd-compact-h" style="padding:0.75rem 1rem;border-radius:16px;margin:0 0 1rem">
+          <h2 class="sr-only" id="kids-shepherd-compact-h">Little Shepherd</h2>
+          <div class="kids-buddy-mascot-row">
+            <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, tap for a calm line">
+              <span class="kids-shepherd-hero-wrap">
+                <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="shepherd-mascot-welcome.svg" width="112" height="124" alt="Little Shepherd" decoding="async" loading="lazy"/>
+              </span>
+            </button>
+            <div class="kids-buddy-bubble kids-buddy-bubble--with-mascot" id="kids-little-shepherd-bubble" lang="en">
+              <p class="kids-bubble-hi" style="margin:0 0 0.25rem">I&rsquo;m <strong class="kids-bubble-name">Little Shepherd</strong>—with you in the quiet view.</p>
+              <p class="kids-bubble-voice" id="kids-little-shepherd-line" aria-live="polite">&nbsp;</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="kids-parent-today glass tdb-porch-paper-glass" role="region" aria-label="Gentle snapshot of today on this device">
+          <h2>Today&rsquo;s gentle snapshot</h2>
+          <p class="kids-parent-today-summary" id="parent-today-summary">Loading&hellip;</p>
+          <h3 class="kids-section-title" style="margin:1rem 0 0.35rem;font-size:1.05rem">What we did today (this device)</h3>
+          <p class="kids-parent-activity-today" id="parent-activity-today" style="margin:0;line-height:1.55;font-size:0.92rem;">Loading&hellip;</p>
+          <p class="section-note" style="margin:0.45rem 0 0; font-size:0.9rem">Seven-day view lives here too—for the fridge, a co-parent, or a calm review.</p>
+          <p style="margin:0.35rem 0 0"><button type="button" class="btn btn-secondary" id="parent-print-activity-week" style="min-height:44px;">Print 7-day activity recap</button></p>
+          <p class="section-note" style="margin:0.5rem 0 0">Gentle asks: &ldquo;Which story made you feel near Jesus?&rdquo; &ldquo;What was a hard but true line?&rdquo;</p>
+          <p class="kids-parent-streak-line" id="parent-streak-display" aria-live="polite"></p>
+          <div id="parent-badges-list" class="kids-parent-badge-row" aria-label="Streak milestone badges"></div>
+          <div id="parent-library-badges" class="kids-parent-badge-row" aria-label="Story library milestones"></div>
+        </section>
+
+        <section class="kids-parent-devotion glass tdb-porch-paper-glass" role="region" aria-label="Five minute family suggestion">
+          <h2>Five minutes together (KJV)</h2>
+          <ol class="kids-devotion-ol" id="parent-five-min-list">
+            <li>Read the verse in the box out loud&mdash;kid first if they like.</li>
+            <li>Ask: &ldquo;What word jumped out to you?&rdquo; Wait; no wrong answers.</li>
+            <li>Pray one sentence each, or the grown-up prays and the child says, &ldquo;Amen.&rdquo;</li>
+            <li>Optional: one quiet hug, one high-five for showing up for God&rsquo;s Word.</li>
+          </ol>
+          <p class="kids-devotion-verse" id="parent-devotion-verse">Loading&hellip;</p>
+        </section>
+
+        <section id="kids-parent-code-section" class="kids-parent-code glass tdb-porch-paper-glass hidden" role="region" aria-label="Invite code">
+          <h2 class="kids-section-title">Your Invite Code</h2>
+          <p id="kids-parent-code-display" class="kids-parent-code-display"></p>
+          <p id="kids-parent-code-used" class="kids-parent-code-used hidden">Code used by kid! ✓</p>
+          <p class="kids-parent-code-hint">Share this code with your kid — they enter it on Kids Battle to connect. Same device = instant sync!</p>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass" role="region" aria-label="How to use kids wins gently">
+          <h2 class="kids-section-title">Use wins gently</h2>
+          <p class="kids-parent-note" style="margin-top:0">This page is for encouragement, not scorekeeping. Everything here stays local to this device unless you choose optional sync elsewhere.</p>
+          <ul class="section-note" style="line-height:1.6; margin:0; padding-left:1.1rem;">
+            <li>Notice faithfulness before numbers: &ldquo;You opened God&rsquo;s Word today.&rdquo;</li>
+            <li>Ask one question about a doodle or favorite story before teaching back.</li>
+            <li>Missed days do not need a speech. Start again with one short story or one loop.</li>
+          </ul>
+          <p class="section-note" style="margin:0.85rem 0 0;">Want a calm handoff for another grown-up? Print this one-page guide and use it as the &ldquo;What your parent will see&rdquo; note before you connect devices.</p>
+          <button type="button" id="parent-print-guide" class="btn btn-secondary" style="margin-top:0.9rem;">Print gentle guide</button>
+        </section>
+
+        <section class="kids-parent-notice glass tdb-porch-paper-glass" role="region" aria-label="Gentle notice">
+          <div class="gentle-notice" id="gentle-notice">
+            Your child spent time with David today.<br>
+            They gave him very brave eyes.<br><br>
+            <strong>Maybe ask them: What made David brave?</strong>
+          </div>
+        </section>
+
+        <section class="kids-parent-doodles glass tdb-porch-paper-glass" role="region" aria-label="Colorings gallery">
+          <h2 class="kids-section-title">Colorings They Loved</h2>
+          <p class="kids-doodle-gallery-desc">Moments they lingered with a story. Tap one to remember together.</p>
+          <p id="parent-doodles-empty-copy" class="kids-no-doodles">When your child colors a story in the Library, it will appear here gently.<br><br>No pressure. Just quiet moments with the Word.</p>
+          <div id="parent-doodles-gallery" class="kids-doodles-gallery"></div>
+        </section>
+
+        <!-- Badges removed — replaced by gentle noticing. The heart of this page is conversation, not points. -->
+
+        <section class="kids-parent-favorites glass tdb-porch-paper-glass" role="region" aria-label="Stories worth noticing together">
+          <h2 class="kids-section-title">Stories Worth Noticing Together</h2>
+          <p class="kids-parent-favorites-desc">The ones that stayed with them. A quiet question is often enough.</p>
+          <p id="parent-favorites-empty-copy" class="kids-no-favorites">When your child opens a story in the Library, it will appear here.<br><br>Nothing to track — just gentle memories to talk about when the moment feels right.</p>
+          <div id="parent-favorites-grid" class="kids-parent-favorites-grid"></div>
+        </section>
+
+        <div class="note-area">
+          <h3 style="margin-top:0; color:var(--earth);">A quiet note from today</h3>
+          <textarea id="family-note" placeholder="What touched your heart today? What did your child notice or say? Write it here if you like..."></textarea>
+        </div>
+
+        <p class="kids-parent-note">Everything stays on this device. No login. No cloud. Just for your family.</p>
+      </div>
+    </main>
+
+    <footer class="kids-footer footer-fade-in" role="contentinfo" aria-label="Site footer">
+      <p class="footer-humility">We battle. He wins.</p>
+      <nav class="bottom-nav" role="navigation" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/plans.html">Plans</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/explore.html">Explore</a>
+        <a href="/kids/">Kids</a>
+        <a href="/ansiedad.html">Ansiedad</a>
+        <a href="/fuerza.html">Fuerza</a>
+        <a href="/paz.html">Paz</a>
+      </nav>
+      <p class="footer-lang-hint kids-footer-lang" role="group" aria-labelledby="footer-es-devotional-label"><span id="footer-es-devotional-label" class="footer-es-nav-label">Spanish devotionals</span> <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a><span aria-hidden="true"> · </span><a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a><span aria-hidden="true"> · </span><a href="/paz.html" hreflang="es" lang="es">Paz</a></p>
+      <p class="last-updated">Last updated: March 24, 2026 • Built in the trenches of Memphis</p>
+      <p class="site-footer-copy kids-footer-copy">© Today&rsquo;s Daily Battle 2026</p>
+      <p class="kids-footer-sub">Kids Battle · Faith Trail</p>
+      <nav class="kids-footer-exit" aria-label="Site exit links">
+        <a href="/explore.html">Explore</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/" aria-label="Back to Today&apos;s Daily Battle main site">Main site</a>
+      </nav>
+    
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
+
+</footer>
+
+    <nav class="kids-bottom-nav" aria-label="Kids Battle navigation">
+      <a href="/kids/">
+        <span class="kids-bottom-nav-icon" aria-hidden="true">📖</span>
+        <span class="kids-bottom-nav-label">Home</span>
+      </a>
+      <a href="corner.html">
+        <span class="kids-bottom-nav-icon" aria-hidden="true">🖼️</span>
+        <span class="kids-bottom-nav-label">Stories</span>
+      </a>
+      <a href="../coloring.html">
+        <span class="kids-bottom-nav-icon" aria-hidden="true">🖍️</span>
+        <span class="kids-bottom-nav-label">Color</span>
+      </a>
+      <a href="parent.html" aria-current="page">
+        <span class="kids-bottom-nav-icon" aria-hidden="true">👪</span>
+        <span class="kids-bottom-nav-label">Parent</span>
+      </a>
+    </nav>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
+  <script src="../inline-bootstrap.js"></script>
+  <script src="kids-verses-365.js?v=20260325kidsmeans"></script>
+  <script src="kids-wins-recap.js?v=20260426kidsfinish1"></script>
+  <script src="kids-shared.js?v=20260413efficiency"></script>
+  <script src="kids-battle.js?v=20260420elishabones"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" defer></script>
+  <script src="kids-gentle-shepherd.js?v=20260428kids100" defer></script>
+  <script src="kids-parent.js?v=20260426kidsfinish1" defer></script>
+</body>
+</html>

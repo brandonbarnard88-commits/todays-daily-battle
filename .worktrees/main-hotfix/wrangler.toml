@@ -1,0 +1,9 @@
+# Cloudflare Pages — build output (same as Vercel `outputDirectory`).
+# Dashboard: Build command `npm run build`, output directory `dist`.
+# CLI: CF_PAGES_PROJECT_NAME=my-project npm run deploy:cf-pages
+# Do not run `wrangler deploy` from repo root — Workers live in workers/wrangler.toml (admin-guard).
+# See docs/HOSTING-EDGE.md for single-host vs grey-cloud Vercel.
+
+name = "todaysdailybattle-site"
+compatibility_date = "2025-03-01"
+pages_build_output_dir = "dist"

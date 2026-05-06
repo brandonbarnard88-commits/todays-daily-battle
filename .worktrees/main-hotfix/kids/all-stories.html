@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+  <script defer src="../analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>All Bible Stories A–Z • Kids Battle • Today's Daily Battle</title>
+  <meta name="description" content="Browse every Kids Bible story A–Z: title, KJV reference, theme, and a one-line “For you” teaser. Tap through to read-aloud and quizzes.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/kids/all-stories.html">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="../styles.css?v=20260503-consent-persist-fix" as="style">
+  <link rel="stylesheet" href="../styles.css?v=20260503-consent-persist-fix">
+  <link rel="preload" href="kids-battle.css?v=20260331edge" as="style">
+  <link rel="stylesheet" href="kids-battle.css?v=20260331edge">
+  <link rel="preload" href="kids-kids-world.css?v=20260428kids100" as="style">
+  <link rel="stylesheet" href="kids-kids-world.css?v=20260428kids100">
+  <link rel="preload" href="kids-page-sky.css?v=20260326playful" as="style">
+  <link rel="stylesheet" href="kids-page-sky.css?v=20260326playful">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    .kids-all-stories-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
+    .kids-all-stories-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.92rem;
+      color: #e2e8f0;
+    }
+    .kids-all-stories-table th,
+    .kids-all-stories-table td {
+      padding: 0.55rem 0.65rem;
+      border-bottom: 1px solid rgba(255, 217, 61, 0.15);
+      text-align: left;
+      vertical-align: top;
+    }
+    .kids-all-stories-table th {
+      font-family: 'Bangers', cursive;
+      color: var(--kids-yellow);
+      font-size: 1rem;
+      letter-spacing: 0.03em;
+    }
+    .kids-all-stories-table a {
+      color: var(--kids-yellow);
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .kids-all-stories-table a:focus-visible {
+      outline: 2px solid var(--kids-yellow);
+      outline-offset: 2px;
+    }
+    .kids-all-stories-teaser {
+      font-size: 0.86rem;
+      color: #cbd5e1;
+      line-height: 1.35;
+      max-width: 28rem;
+    }
+    .kids-all-stories-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .kids-all-stories-toolbar .kids-search-input { flex: 1 1 220px; min-width: 0; }
+    .kids-all-stories-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 2px solid var(--kids-yellow);
+      background: rgba(255, 217, 61, 0.12);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: #fef08a;
+    }
+    @media (max-width: 720px) {
+      .kids-all-stories-table .kids-col-theme { display: none; }
+    }
+    .kids-all-stories-back-link {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--kids-yellow);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .kids-all-stories-back-link:focus-visible {
+      outline: 2px solid var(--kids-yellow);
+      outline-offset: 2px;
+    }
+    .kids-all-stories-hero-line {
+      margin-bottom: 0.5rem;
+    }
+    .kids-all-stories-hero-kicker {
+      font-size: 0.92rem;
+    }
+  </style>
+</head>
+<body class="dark-mode kids-battle-page kids-sky-enabled kids-sky-playful kids-world-surface">
+  <div class="sky-page-backdrop" aria-hidden="true">
+    <div class="sky" aria-hidden="true" id="sky-layer">
+      <div class="sky-stars-parallax" aria-hidden="true"></div>
+      <div class="sky-aurora" id="sky-aurora" aria-hidden="true">
+        <div class="sky-aurora-veil" aria-hidden="true"></div>
+      </div>
+      <div class="sky-viewport" id="sky-celestial-plane">
+        <div class="sky-sun" id="sky-sun"></div>
+        <div id="sky-moon" role="img" aria-label="Moon in the sky (decorative)">
+          <svg class="sky-moon-svg" viewBox="0 0 100 100" aria-hidden="true">
+            <defs>
+              <radialGradient id="moon-base" cx="38%" cy="35%" r="50%">
+                <stop offset="0%" stop-color="rgba(255,255,240,0.96)"/>
+                <stop offset="60%" stop-color="rgba(200,210,230,0.88)"/>
+                <stop offset="100%" stop-color="rgba(140,160,190,0.72)"/>
+              </radialGradient>
+            </defs>
+            <circle cx="50" cy="50" r="48" fill="url(#moon-base)"/>
+            <ellipse cx="36" cy="40" rx="7" ry="5" fill="#090918" opacity="0.22"/>
+            <ellipse cx="58" cy="48" rx="9" ry="6" fill="#0a0a1c" opacity="0.18"/>
+            <circle cx="32" cy="38" r="5" fill="#0a0a1f" opacity="0.45"/>
+            <ellipse cx="64" cy="54" rx="6.5" ry="5" fill="#080818" opacity="0.38"/>
+            <circle cx="28" cy="62" r="4" fill="#0c0c20" opacity="0.35"/>
+            <ellipse cx="70" cy="34" rx="5" ry="3.5" fill="#0a0a1f" opacity="0.42"/>
+            <circle cx="45" cy="55" r="3" fill="#0a0a1f" opacity="0.3"/>
+            <ellipse cx="54" cy="44" rx="4" ry="3" fill="#080818" opacity="0.34"/>
+            <circle cx="38" cy="28" r="2.5" fill="#0c0c20" opacity="0.32"/>
+            <ellipse cx="74" cy="60" rx="3" ry="2" fill="#0a0a1f" opacity="0.26"/>
+            <circle cx="48" cy="30" r="2" fill="#0b0b22" opacity="0.24"/>
+            <circle id="sky-moon-shadow" cx="50" cy="50" r="48" fill="rgba(2,4,18,0.93)" class="sky-moon-shadow-svg"/>
+            <circle cx="50" cy="50" r="52" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="6"/>
+          </svg>
+          <span class="sky-moon-label" id="sky-moon-label"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar kids-battle-header kids-header-unified">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <p class="tdb-header-heartbeat site-tagline" lang="en">For Family, For Country, For GOD</p>
+        <span class="brand-subtitle kids-subtitle">Kids Battle</span>
+      </div>
+      <nav class="kids-header-nav" aria-label="Kids Battle navigation">
+        <a href="/kids/">Kids Battle Home</a>
+        <a href="corner.html">Bible Story Library</a>
+        <a href="prayer-activities.html">Prayer habits</a>
+        <a href="parent.html">Parent Dashboard</a>
+      </nav>
+      <p class="kids-header-site-link-wrap">
+        <a href="/" class="kids-bc-whole-site">Today’s Daily Battle — whole site home</a>
+      </p>
+      <a href="parent.html" class="kids-parent-link-mobile" aria-label="Parent Dashboard">Parents</a>
+    </header>
+
+    <main class="app-content" id="main-content" role="main">
+      <div class="content-inner kids-battle-inner">
+        <p class="section-note topic-mood-porch kids-site-porch" lang="en">You&rsquo;re already welcome here&mdash;fun first, short moments, tiny KJV line. No rush.</p>
+        <header class="kids-battle-hero">
+          <nav class="kids-breadcrumb util-mb-0_5" aria-label="You are here">
+            <a href="/" class="kids-bc-whole-site">Whole site</a>
+            <span class="kids-bc-sep" aria-hidden="true">›</span>
+            <a href="/kids/">Kids home</a>
+            <span class="kids-bc-sep" aria-hidden="true">›</span>
+            <span aria-current="page">All stories A–Z</span>
+          </nav>
+          <p class="util-mb-0_5"><a href="/kids/" class="kids-all-stories-back-link">← Back to Kids Home</a></p>
+          <p class="kids-all-stories-hero-line"><span id="kids-all-stories-hero-badge" class="kids-all-stories-badge kids-all-stories-hero-kicker">307 Stories – Browse All</span></p>
+          <h1 class="kids-battle-title">All Bible Stories</h1>
+          <p class="sr-only">Each story opens at corner.html?story= followed by the story key.</p>
+          <p class="kids-battle-tagline">Every title in the library—A–Z—with one-line “For you” teasers. Tap a row to open read-aloud, pictures, and quizzes.</p>
+          <p id="kids-all-stories-count" class="section-note util-mb-0_25" aria-live="polite"></p>
+        </header>
+
+        <section class="kids-shepherd-compact glass tdb-porch-paper-glass" aria-labelledby="kids-shepherd-compact-h" style="padding:0.75rem 1rem;border-radius:16px;margin:0 0 1rem">
+          <h2 class="sr-only" id="kids-shepherd-compact-h">Little Shepherd</h2>
+          <div class="kids-buddy-mascot-row">
+            <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, tap for a calm line">
+              <span class="kids-shepherd-hero-wrap">
+                <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="shepherd-mascot-welcome.svg" width="112" height="124" alt="Little Shepherd" decoding="async" loading="lazy"/>
+              </span>
+            </button>
+            <div class="kids-buddy-bubble kids-buddy-bubble--with-mascot" id="kids-little-shepherd-bubble" lang="en">
+              <p class="kids-bubble-hi" style="margin:0 0 0.25rem">I&rsquo;m <strong class="kids-bubble-name">Little Shepherd</strong>—happy you&rsquo;re browsing every story name.</p>
+              <p class="kids-bubble-voice" id="kids-little-shepherd-line" aria-live="polite">&nbsp;</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="kids-search-section glass tdb-porch-paper-glass" role="region" aria-label="Search all stories">
+          <h2 class="kids-section-title">Find &amp; sort</h2>
+          <div id="kids-all-stories-theme-tabs" class="kids-all-stories-theme-tabs" role="tablist" aria-label="Filter by story theme">
+            <button type="button" role="tab" class="kids-theme-tab is-active" data-theme="" id="kids-theme-tab-all" aria-selected="true" aria-controls="kids-all-stories-tbody">All</button>
+            <button type="button" role="tab" class="kids-theme-tab" data-theme="Love" id="kids-theme-tab-love" aria-selected="false" aria-controls="kids-all-stories-tbody">Love</button>
+            <button type="button" role="tab" class="kids-theme-tab" data-theme="Obedience" id="kids-theme-tab-obedience" aria-selected="false" aria-controls="kids-all-stories-tbody">Obedience</button>
+            <button type="button" role="tab" class="kids-theme-tab" data-theme="Miracles" id="kids-theme-tab-miracles" aria-selected="false" aria-controls="kids-all-stories-tbody">Miracles</button>
+            <button type="button" role="tab" class="kids-theme-tab" data-theme="Protection" id="kids-theme-tab-protection" aria-selected="false" aria-controls="kids-all-stories-tbody">Protection</button>
+          </div>
+          <div class="kids-all-stories-toolbar">
+            <input type="search" id="kids-all-stories-search" class="kids-search-input" placeholder="Type story, character, or theme (typos ok!)" autocomplete="off" aria-label="Filter stories" aria-controls="kids-all-fuse-suggest">
+            <button type="button" id="kids-all-stories-sort" class="btn btn-secondary" aria-pressed="true" aria-label="Toggle sort order">Sort Z–A</button>
+          </div>
+          <div id="kids-all-fuse-suggest" class="kids-fuse-suggest" role="listbox" aria-label="Top story matches" hidden></div>
+          <p class="section-note util-mb-0_5">The full title list PDF lives on the <a href="corner.html">Bible Story Library</a> page (Download Story Library List). Top matches (typos OK) appear above while you type.</p>
+          <div class="kids-reflection-buttons">
+            <a href="corner.html" class="btn kids-btn-primary">Open Story Library</a>
+            <button type="button" id="kids-all-stories-random" class="btn kids-btn-memory">Random Story</button>
+            <a href="/kids/" class="btn btn-secondary">← Kids Battle Home</a>
+          </div>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass kids-all-stories-wrap" role="region" aria-label="All stories A–Z">
+          <h2 class="kids-section-title">A–Z list</h2>
+          <table class="kids-all-stories-table">
+            <thead>
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Scripture</th>
+                <th scope="col" class="kids-col-theme">Theme</th>
+                <th scope="col">For you (teaser)</th>
+              </tr>
+            </thead>
+            <tbody id="kids-all-stories-tbody">
+              <tr>
+                <td colspan="4">The full story list loads here after the page wakes up. If you are on a slow signal, use <a href="corner.html">Bible Story Library</a> or try a quick search above.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </main>
+
+    <footer class="kids-footer footer-fade-in" role="contentinfo" aria-label="Site footer">
+      <p class="footer-humility">We battle. He wins.</p>
+      <nav class="bottom-nav" role="navigation" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/plans.html">Plans</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/explore.html">Explore</a>
+        <a href="/kids/">Kids</a>
+        <a href="/ansiedad.html">Ansiedad</a>
+        <a href="/fuerza.html">Fuerza</a>
+        <a href="/paz.html">Paz</a>
+      </nav>
+      <p class="footer-lang-hint kids-footer-lang" role="group" aria-labelledby="footer-es-devotional-label"><span id="footer-es-devotional-label" class="footer-es-nav-label">Spanish devotionals</span> <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a><span aria-hidden="true"> · </span><a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a><span aria-hidden="true"> · </span><a href="/paz.html" hreflang="es" lang="es">Paz</a></p>
+      <p class="last-updated">Last updated: March 24, 2026 • Built in the trenches of Memphis</p>
+      <p class="site-footer-copy kids-footer-copy">© Today&rsquo;s Daily Battle 2026</p>
+      <p class="kids-footer-sub">Kids Battle · Faith Trail</p>
+      <nav class="kids-footer-exit" aria-label="Site exit links">
+        <a href="/explore.html">Explore</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/" aria-label="Back to Today&apos;s Daily Battle main site">Main site</a>
+      </nav>
+    
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love">Made with love as God&rsquo;s University of Life.</p>
+    <p class="tdb-site-footer-finale__about">A small, steady porch for real days&mdash;<a href="/about.html">read why it exists</a>.</p>
+    <p class="tdb-site-footer-finale__reach">
+      <a href="/contact.html" class="tdb-site-footer-finale__contact">Contact</a>
+    </p>
+  </div>
+
+</footer>
+
+    <nav class="kids-bottom-nav" aria-label="Kids Battle navigation">
+      <a href="/kids/">
+        <span class="kids-bottom-nav-icon" aria-hidden="true">📖</span>
+        <span class="kids-bottom-nav-label">Home</span>
+      </a>
+      <a href="corner.html">
+        <span class="kids-bottom-nav-icon" aria-hidden="true">🖼️</span>
+        <span class="kids-bottom-nav-label">Stories</span>
+      </a>
+      <a href="../coloring.html">
+        <span class="kids-bottom-nav-icon" aria-hidden="true">🖍️</span>
+        <span class="kids-bottom-nav-label">Color</span>
+      </a>
+      <a href="parent.html">
+        <span class="kids-bottom-nav-icon" aria-hidden="true">👪</span>
+        <span class="kids-bottom-nav-label">Parent</span>
+      </a>
+    </nav>
+  </div>
+
+  <script src="kids-gentle-shepherd.js?v=20260428kids100" defer></script>
+  <script src="bible-story-tool-index.js?v=20260327kidsmax"></script>
+  <script src="../vendor/uFuzzy.iife.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" integrity="sha384-PCSoOZTpbkikBEtd/+uV3WNdc676i9KUf01KOA8CnJotvlx8rRrETbDuwdjqTYvt" crossorigin="anonymous" defer></script>
+  <script src="kids-story-fuse-search.js?v=20260323fuse" defer></script>
+  <script src="kids-all-stories.js?v=20260331kidsthemes" defer></script>
+  <script type="module" src="../script.js?v=20260503-consent-persist-fix" data-cfasync="false" defer></script>
+  <script src="../sky-ip-geo.js?v=20260327ipgeo" defer></script>
+  <script src="kids-page-sky.js?v=20260327ipgeo" defer></script>
+</body>
+</html>

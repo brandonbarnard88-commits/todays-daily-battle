@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+
+  <!-- GA4 lazy-loaded after interaction -->
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Family Crest Generator • Today's Daily Battle</title>
+  <meta name="description" content="Create your family crest and save it to your family code.">
+  <link rel="canonical" href="https://todaysdailybattle.com/crest-generator.html">
+  <link rel="preload" href="styles.css?v=20260503-consent-persist-fix" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix">
+</head>
+<body class="dark-mode">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <main class="app-content" id="main-content" role="main">
+    <section class="content-inner">
+      <article class="glass tdb-porch-paper-glass crest-generator-wrap">
+        <h1 class="section-divider">Create Family Crest</h1>
+        <p class="section-note topic-mood-porch">You&rsquo;re already welcome here&mdash;this is a playful shield for your family story, not a design exam.</p>
+        <p class="section-note">Pick your crest symbol and exactly 2 gems. Gold shield base is fixed.</p>
+        <form id="crest-generator-form" class="crest-generator-form">
+          <fieldset id="crest-gems" class="crest-gems">
+            <legend class="mystudy-label">Pick 2 gems</legend>
+            <label><input type="checkbox" value="ruby"> Ruby (covenant)</label>
+            <label><input type="checkbox" value="sapphire"> Sapphire (law)</label>
+            <label><input type="checkbox" value="emerald"> Emerald (growth)</label>
+            <label><input type="checkbox" value="diamond"> Diamond (truth)</label>
+          </fieldset>
+          <p id="crest-gem-hint" class="section-note util-mb-0">Pick exactly 2 gems.</p>
+
+          <label for="crest-symbol" class="mystudy-label">Symbol</label>
+          <select id="crest-symbol" class="auth-select">
+            <option value="ark">Ark</option>
+            <option value="sling">Sling</option>
+            <option value="star">Star</option>
+            <option value="cross">Cross</option>
+            <option value="dove">Dove</option>
+            <option value="olive">Olive branch</option>
+          </select>
+
+          <div class="crest-preview-wrap">
+            <img id="crest-preview" class="crest-preview" alt="Crest preview" width="320" height="320" decoding="async">
+          </div>
+
+          <div class="mystudy-share-actions">
+            <button id="crest-save" class="btn btn-primary" type="submit">Save Crest</button>
+            <a href="/" class="btn btn-secondary">Back Home</a>
+          </div>
+          <p id="crest-status" class="section-note" aria-live="polite"></p>
+        </form>
+      </article>
+    </section>
+  </main>
+
+  <script src="family-hierarchy.js?v=20260316"></script>
+  <script src="crest.js?v=20260316"></script>
+</body>
+</html>

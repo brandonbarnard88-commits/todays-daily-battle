@@ -1,0 +1,9 @@
+# Deploy from this directory: npx wrangler deploy
+# Set secret: npx wrangler secret put TDB_ADMIN_SECRET
+name = "admin-guard"
+main = "admin-guard.js"
+compatibility_date = "2024-01-01"
+
+[[routes]]
+pattern = "todaysdailybattle.com/admin*"
+zone_name = "todaysdailybattle.com"

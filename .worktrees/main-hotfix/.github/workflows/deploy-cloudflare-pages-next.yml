@@ -1,0 +1,125 @@
+# Build next-app (static export → next-app/out) and deploy to a dedicated Cloudflare Pages project.
+#
+# Create a second Pages project (e.g. "todays-daily-battle-next") — do not reuse the static dist/ project.
+#
+# Repository secrets (same token family as deploy-cloudflare-pages.yml):
+#   CLOUDFLARE_ACCOUNT_ID
+#   CF_PAGES_NEXT_PROJECT_NAME  — Pages project name (slug) for the Next export
+#   CLOUDFLARE_API_TOKEN or CF_API_TOKEN — Pages — Edit
+#
+# Custom domain (optional): Cloudflare dashboard → Pages project → Custom domains → e.g. app.todaysdailybattle.com
+#
+# Push to main: if CF_PAGES_NEXT_PROJECT_NAME is empty, the workflow succeeds with a notice (no deploy).
+name: Deploy Cloudflare Pages (Next.js export)
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: deploy-cf-pages-next
+  cancel-in-progress: false
+
+jobs:
+  deploy-next:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    if: ${{ github.event.repository.fork == false }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: next-app/package-lock.json
+
+      - name: Install and build (static export)
+        run: |
+          set -euo pipefail
+          cd next-app
+          npm ci
+          npm run build
+
+      - name: Require Next Pages project name + token
+        id: req
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_PAGES_NEXT_PROJECT_NAME: ${{ secrets.CF_PAGES_NEXT_PROJECT_NAME }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          set -euo pipefail
+          echo "skip=false" >> "$GITHUB_OUTPUT"
+          echo "token_source=none" >> "$GITHUB_OUTPUT"
+          if [ -n "${CLOUDFLARE_API_TOKEN:-}" ]; then
+            PAGES_TOK="$CLOUDFLARE_API_TOKEN"
+            echo "token_source=cloudflare" >> "$GITHUB_OUTPUT"
+          else
+            PAGES_TOK="${CF_API_TOKEN:-}"
+            if [ -n "$PAGES_TOK" ]; then
+              echo "token_source=cf" >> "$GITHUB_OUTPUT"
+            fi
+          fi
+          if [ "$EVENT_NAME" = "push" ]; then
+            if [ -z "${CF_PAGES_NEXT_PROJECT_NAME:-}" ]; then
+              echo "::notice title=Next Pages deploy skipped::Add repository secret CF_PAGES_NEXT_PROJECT_NAME (second Pages project for next-app/out)."
+              echo "skip=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            if [ -z "${PAGES_TOK:-}" ]; then
+              echo "::notice title=Next Pages deploy skipped::Add CLOUDFLARE_API_TOKEN or CF_API_TOKEN with Pages deploy permission."
+              echo "skip=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+          fi
+          missing=0
+          if [ -z "${PAGES_TOK:-}" ]; then
+            echo "::error::Set CLOUDFLARE_API_TOKEN or CF_API_TOKEN with Cloudflare Pages — Edit."
+            missing=1
+          fi
+          if [ -z "${CF_PAGES_NEXT_PROJECT_NAME:-}" ]; then
+            echo "::error::Set CF_PAGES_NEXT_PROJECT_NAME to your Next.js Pages project slug."
+            missing=1
+          fi
+          exit $missing
+
+      - name: Deploy next-app/out to Cloudflare Pages
+        id: deploy_pages
+        if: ${{ steps.req.outputs.skip != 'true' }}
+        env:
+          DEPLOY_BRANCH: ${{ github.ref_name }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CF_PAGES_NEXT_PROJECT_NAME: ${{ secrets.CF_PAGES_NEXT_PROJECT_NAME }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        run: |
+          set -euo pipefail
+          PAGES_TOK=""
+          if [ -n "${CLOUDFLARE_API_TOKEN:-}" ]; then PAGES_TOK="$CLOUDFLARE_API_TOKEN"; else PAGES_TOK="${CF_API_TOKEN:-}"; fi
+          LOG_FILE="$(mktemp)"
+          cleanup() { rm -f "$LOG_FILE"; }
+          trap cleanup EXIT
+          deploy_ok=0
+          if [ -n "${CLOUDFLARE_ACCOUNT_ID:-}" ]; then
+            if CLOUDFLARE_API_TOKEN="$PAGES_TOK" npx --yes wrangler@latest pages deploy next-app/out \
+              --project-name="$CF_PAGES_NEXT_PROJECT_NAME" \
+              --branch="${DEPLOY_BRANCH:-main}" >"$LOG_FILE" 2>&1; then
+              deploy_ok=1
+            fi
+          else
+            if env -u CLOUDFLARE_ACCOUNT_ID CLOUDFLARE_API_TOKEN="$PAGES_TOK" npx --yes wrangler@latest pages deploy next-app/out \
+              --project-name="$CF_PAGES_NEXT_PROJECT_NAME" \
+              --branch="${DEPLOY_BRANCH:-main}" >"$LOG_FILE" 2>&1; then
+              deploy_ok=1
+            fi
+          fi
+          cat "$LOG_FILE"
+          if [ "$deploy_ok" -ne 1 ]; then exit 1; fi
+          url="$(python3 -c "import re, sys; from pathlib import Path; text = Path(sys.argv[1]).read_text(encoding='utf-8', errors='ignore'); m = re.findall(r'https://[A-Za-z0-9._-]+\\.pages\\.dev', text); print(m[-1] if m else '')" "$LOG_FILE")"
+          if [ -n "$url" ]; then
+            echo "deployed_url=$url" >> "$GITHUB_OUTPUT"
+            echo "Deployed Next pilot: $url"
+          fi

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+  <script defer src="../analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Match the Verse • Kids • Today&rsquo;s Daily Battle</title>
+  <meta name="description" content="Tap to match kid-friendly phrases to short KJV lines. One round, no score pressure.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/kids/match-buddies.html">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="../styles.css?v=20260503-consent-persist-fix" as="style">
+  <link rel="stylesheet" href="../styles.css?v=20260503-consent-persist-fix">
+  <link rel="preload" href="kids-battle.css?v=20260405kidsfollowup" as="style">
+  <link rel="stylesheet" href="kids-battle.css?v=20260405kidsfollowup">
+  <link rel="preload" href="kids-kids-world.css?v=20260428kids100" as="style">
+  <link rel="stylesheet" href="kids-kids-world.css?v=20260428kids100">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    .match-page { max-width: 36rem; margin: 0 auto; padding: 0.5rem 0 1.5rem; }
+    .match-hero h1 { font-family: "Bangers", cursive; font-size: 1.75rem; color: #fde68a; margin: 0 0 0.35rem; letter-spacing: 0.04em; }
+    .match-hero p { margin: 0 0 1rem; color: #e2e8f0; line-height: 1.5; font-size: 0.95rem; }
+    .match-board { display: grid; gap: 0.75rem; }
+    @media (min-width: 520px) { .match-board { grid-template-columns: 1fr 1fr; } }
+    .match-col h2 { font-family: "Nunito", sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin: 0 0 0.4rem; }
+    .match-btn {
+      display: block; width: 100%;
+      min-height: 56px; padding: 0.65rem 0.75rem; margin-bottom: 0.45rem;
+      border-radius: 14px; border: 3px solid rgba(255, 217, 61, 0.4);
+      background: rgba(15, 23, 42, 0.85);
+      color: #f8fafc; font-family: "Nunito", sans-serif; font-weight: 800; font-size: 0.92rem;
+      text-align: left; cursor: pointer; transition: background 0.15s, border-color 0.15s, transform 0.1s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .match-btn:hover, .match-btn:focus-visible { background: rgba(255, 217, 61, 0.12); border-color: #fde047; outline: none; }
+    .match-btn[aria-pressed="true"] { background: rgba(59, 130, 246, 0.35); border-color: #60a5fa; }
+    .match-btn.matched { opacity: 0.45; pointer-events: none; border-color: #22c55e; background: rgba(34, 197, 94, 0.15); }
+    .match-kjv { font-size: 0.82rem; line-height: 1.4; font-weight: 600; }
+    .match-status { min-height: 1.5rem; margin: 0.75rem 0; font-size: 0.9rem; color: #fde68a; }
+    .match-win { display: none; text-align: center; padding: 1rem; border-radius: 16px; border: 2px solid #22c55e; background: rgba(34, 197, 94, 0.12); color: #ecfccb; }
+    .match-win.show { display: block; }
+    .match-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+    .match-actions a, .match-actions button {
+      min-height: 48px; padding: 0.5rem 0.9rem; border-radius: 12px; font-weight: 800; font-family: "Nunito", sans-serif;
+      text-decoration: none; border: 2px solid #fde68a; background: rgba(255, 217, 61, 0.12); color: #fef9c3; cursor: pointer;
+    }
+  </style>
+</head>
+<body class="dark-mode kids-battle-page kids-world-surface kids-mini-game">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar kids-battle-header kids-header-unified">
+      <div class="brand">
+        <a class="brand-title" href="/">Today&rsquo;s Daily Battle</a>
+        <span class="brand-subtitle kids-subtitle">Match the Verse (KJV)</span>
+      </div>
+      <nav class="kids-header-nav" aria-label="Kids navigation">
+        <a href="/kids/">Kids home</a>
+        <a href="corner.html">Bible Story Library</a>
+        <a href="parent.html">Parent Dashboard</a>
+      </nav>
+    </header>
+    <main class="app-content" id="main-content" role="main">
+      <div class="content-inner match-page">
+        <p class="section-note topic-mood-porch kids-site-porch" lang="en">You&rsquo;re already welcome here&mdash;fun first, short moments, tiny KJV line. No rush.</p>
+        <div class="kids-pasture-shell kids-pasture-shell--compact" role="region" aria-label="Your quiet field with Little Shepherd">
+          <div class="kids-pasture-card kids-pasture-card--straggler" id="kids-pasture-strip" data-stage="0" data-token-bloom="0" role="img" aria-labelledby="kids-pasture-aria">
+            <p class="kids-pasture-title" id="kids-pasture-title">Your quiet pasture</p>
+            <div class="kids-pasture-illu" aria-hidden="true">
+              <span class="kids-pasture-bloom pt-a" aria-hidden="true"></span>
+              <span class="kids-pasture-bloom pt-b" aria-hidden="true"></span>
+              <span class="kids-pasture-bloom pt-c" aria-hidden="true"></span>
+              <span class="kids-pasture-bloom pt-d" aria-hidden="true"></span>
+              <span class="kids-pasture-sheep" aria-hidden="true"></span>
+              <span class="kids-pasture-sheep2" aria-hidden="true"></span>
+              <span class="kids-pasture-sheep3" aria-hidden="true"></span>
+              <span class="kids-pasture-flower1" aria-hidden="true"></span>
+              <span class="kids-pasture-flower2" aria-hidden="true"></span>
+              <span class="kids-pasture-tree" aria-hidden="true"></span>
+              <span class="kids-pasture-fruit" aria-hidden="true"></span>
+              <span class="kids-pasture-brook" aria-hidden="true"></span>
+              <span class="kids-pasture-fence" aria-hidden="true"></span>
+            </div>
+            <p class="kids-pasture-note" id="kids-pasture-label">A fresh patch of grass. Keep exploring.</p>
+            <p class="kids-sheep-tokens" id="kids-sheep-tokens-line" aria-live="polite"></p>
+            <p class="sr-only" id="kids-pasture-aria">Story opens on this device: loading.</p>
+            <p class="sr-only" id="kids-pasture-bloom-announce" role="status" aria-live="polite" aria-atomic="true"></p>
+          </div>
+          <section class="kids-shepherd-compact glass tdb-porch-paper-glass" aria-labelledby="kids-shepherd-compact-h" style="padding:0.75rem 1rem;border-radius:16px;margin:0.75rem 0 0">
+            <h2 class="sr-only" id="kids-shepherd-compact-h">Little Shepherd</h2>
+            <div class="kids-buddy-mascot-row">
+              <button type="button" class="kids-mascot-tap" id="kids-mascot-tap" aria-label="Little Shepherd, tap for a calm line">
+                <span class="kids-shepherd-hero-wrap">
+                  <img class="kids-shepherd-hero-img" id="kids-shepherd-hero" src="shepherd-mascot-welcome.svg" width="112" height="124" alt="Little Shepherd" decoding="async" loading="lazy"/>
+                </span>
+              </button>
+              <div class="kids-buddy-bubble kids-buddy-bubble--with-mascot" id="kids-little-shepherd-bubble" lang="en">
+                <p class="kids-bubble-hi" style="margin:0 0 0.25rem">I&rsquo;m <strong class="kids-bubble-name">Little Shepherd</strong>—with you in the match game.</p>
+                <p class="kids-bubble-voice" id="kids-little-shepherd-line" aria-live="polite">&nbsp;</p>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="match-hero glass tdb-porch-paper-glass" style="padding:1rem 1.1rem; border-radius:16px; margin-bottom:1rem;">
+          <h1>Match the buddy pairs</h1>
+          <p>Tap a picture + phrase, then the KJV line that goes with it. All King James&mdash;short lines so little eyes can win fast.</p>
+        </div>
+        <p id="match-status" class="match-status" role="status" aria-live="polite"></p>
+        <div class="match-board" id="match-board">
+          <div class="match-col" aria-label="What it means in kid words">
+            <h2>What it means</h2>
+            <div id="match-plain" role="group"></div>
+          </div>
+          <div class="match-col" aria-label="KJV lines from the Bible">
+            <h2>KJV line</h2>
+            <div id="match-kjv" role="group"></div>
+          </div>
+        </div>
+        <div id="match-win" class="match-win" hidden>
+          <p id="match-win-line" style="margin:0;font-size:1.1rem;"></p>
+          <div class="match-actions">
+            <a href="corner.html?random=1" class="kids-surprise-random">Read a surprise story</a>
+            <button type="button" id="match-shuffle">Play again (mixed)</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
+  <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+    <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+    <span class="tdb-lang-switcher-inner">
+      <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-essentials" aria-label="Key pages">
+    <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/verse.html">Today&rsquo;s Lesson</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <p class="site-footer-share-wrap">
+    <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
+    <span class="site-footer-share-sep" aria-hidden="true">·</span>
+    <button type="button" class="share-page-btn site-footer-tour-restart tdb-tour-restart-btn" aria-label="Restart the five-minute site tour">Restart site tour</button>
+  </p>
+
+  <nav class="bottom-nav" role="navigation" aria-label="Plans, kids, and Spanish topics">
+    <a href="/plans.html">Plans</a>
+    <a href="/kids/">Kids Battle</a>
+    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
+      <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
+      <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
+      <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-nav" aria-label="Footer links">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/media.html">Media</a>
+    <a href="/roadmap.html">Roadmap</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/for-pastors.html">For pastors &amp; teachers</a>
+    <a href="/reader.html">Chapter reader</a>
+    <a href="/bible/tools.html">Study workshop</a>
+    <a href="/bible-tool.html">Bible tool</a>
+    <a href="/testimonials.html">Reader stories</a>
+    <a href="/journal/">Journal</a>
+    <a href="/where-support-goes.html">Where support goes</a>
+    <a href="/verse-cards/">Verse cards</a>
+    <a href="/security.html">Security</a>
+    <a href="/contact.html">Contact</a>
+    <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
+  </nav>
+
+  <details class="footer-sitemap">
+    <summary>Sitemap — topics, tools, church &amp; family (tap to expand)</summary>
+    <div class="footer-sitemap-grid">
+      <div class="footer-sitemap-col">
+        <h3>The Narrow Paths</h3>
+        <a href="/explore.html">Full list (all pages)</a>
+        <a href="/topic-anxiety.html">Anxiety</a>
+        <a href="/topic-fear.html">Fear</a>
+        <a href="/topic-grief.html">Grief</a>
+        <a href="/topic-hope.html">Hope</a>
+        <a href="/topic-strength.html">Strength</a>
+        <a href="/topic-parenting.html">Parenting</a>
+        <a href="/topic-loneliness.html">Loneliness</a>
+        <a href="/topic-forgiveness.html">Forgiveness</a>
+        <a href="/topic-guilt.html">Guilt</a>
+        <a href="/topic-overwhelmed.html">Overwhelmed</a>
+        <a href="/topic-worthless.html">Worth / identity</a>
+      </div>
+      <div class="footer-sitemap-col footer-sitemap-col--es-links">
+        <h3>Spanish devotionals</h3>
+        <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es">Paz</a>
+        <a href="/explore.html#topics-es">All Spanish topics on Explore</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Tools of the Quiet Trade</h3>
+        <a href="/verse.html">Verse of the Day</a>
+        <a href="/reader.html">Chapter reader</a>
+        <a href="/bible/tools.html">Study workshop</a>
+        <a href="/bible-tool.html">Bible tool</a>
+        <a href="/mystudy">My Study</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/mobius.html">Möbius</a>
+        <a href="/plans.html">Courses</a>
+        <a href="/reading-plan.html">7-day plan</a>
+        <a href="/study.html">Study workspace</a>
+        <a href="/wins.html">Wins</a>
+        <a href="/progress.html">Progress</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>For the Household of Faith</h3>
+        <a href="/church.html">Church center</a>
+        <a href="/church/">Church join hub</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit</a>
+        <a href="/pastor/">Pastor hub</a>
+        <a href="/sermon.html">Sermon builder</a>
+        <a href="/family.html">Family hub</a>
+        <a href="/little-ones.html">For the Little Ones</a>
+        <a href="/family-armor.html">Family Armor</a>
+        <a href="/kids/">Kids Battle home</a>
+        <a href="/kids/corner.html">Bible Story Library</a>
+        <a href="/kids-corner.html">Bible Loop Library</a>
+        <a href="/coloring.html">Color &amp; Tell</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Further In</h3>
+        <a href="/prayer-wall.html">Prayer</a>
+        <a href="/bible-study.html">Bible studies</a>
+        <a href="/shop.html">Shop</a>
+        <a href="/story.html">Story</a>
+        <a href="/media.html">Media</a>
+        <a href="/roadmap.html">Roadmap</a>
+        <a href="/approach.html">How we respond</a>
+        <a href="/why-not-ai.html">Why not AI?</a>
+        <a href="/curriculum.html">Curriculum</a>
+        <a href="/verse-cards/">Verse cards</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </details>
+
+  <p class="footer-humility">We battle. He wins.</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): footer story lives in .site-footer-story below -->
+  <p class="site-footer-story">
+    Steady KJV for honest days&mdash;no ads, no selling your data; prayers stay on this device unless you sync on purpose.
+  </p>
+
+  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" aria-label="Friday verse and prayer email signup">
+    <p class="footer-friday-signup-label">Friday recap email&mdash;one message a week; leave anytime.</p>
+    <div class="footer-friday-signup-row">
+      <label for="footer-friday-email" class="sr-only">Email for Friday recap</label>
+      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="your@email.com" aria-label="Email for Friday recap" autocomplete="email">
+      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit">Subscribe</button>
+    </div>
+    <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
+  </div>
+
+  <p class="site-footer-copy site-footer-legal-line">&copy; 2026 Today&rsquo;s Daily Battle &middot; Christian Messenger Service. All rights reserved.</p>
+  <p class="site-footer-copy site-footer-legal-line">All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
+
+  <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
+  <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
+  </div>
+  <script defer src="/language-switcher.js?v=20260503-consent-persist-fix"></script>
+</footer>
+  </div>
+  <script src="kids-wins-recap.js?v=20260426kidsfinish1" defer></script>
+  <script src="kids-hub-play.js?v=20260428kids100" defer></script>
+  <script src="kids-gentle-shepherd.js?v=20260428kids100" defer></script>
+  <script nonce="tdb2025s">
+  document.addEventListener('DOMContentLoaded', function initMatchBuddies() {
+  (function () {
+    'use strict';
+    try {
+      if (window.tdbKidsActivityLog && tdbKidsActivityLog.log) {
+        tdbKidsActivityLog.log({ type: 'game', label: 'Play: Match the Verse' });
+      }
+    } catch (e0) { /* no-op */ }
+    var PAIRS = [
+      { id: 'a1', plain: '\uD83C\uDF3F God is my caring shepherd', kjv: 'The Lord is my shepherd; I shall not want.' },
+      { id: 'a2', plain: '\uD83C\uDF1F Jesus says come to me', kjv: 'Suffer the little children to come unto me.' },
+      { id: 'a3', plain: '\uD83C\uDF0E Do not be scared—God is with you', kjv: 'Be strong and of a good courage; be not afraid.' },
+      { id: 'a4', plain: '\uD83D\uDCD6 Give your worries to God', kjv: 'Casting all your care upon him; for he careth for you.' }
+    ];
+    var plainEl = document.getElementById('match-plain');
+    var kjvEl = document.getElementById('match-kjv');
+    var statusEl = document.getElementById('match-status');
+    var winEl = document.getElementById('match-win');
+    var firstPick = null;
+    var matched = {};
+
+    function shuffle(a) {
+      var x = a.slice();
+      for (var i = x.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = x[i]; x[i] = x[j]; x[j] = t;
+      }
+      return x;
+    }
+
+    function clearPressed() {
+      [].forEach.call(document.querySelectorAll('.match-btn[aria-pressed="true"]'), function (b) {
+        b.setAttribute('aria-pressed', 'false');
+      });
+    }
+
+    function render() {
+      matched = {};
+      firstPick = null;
+      winEl.classList.remove('show');
+      winEl.hidden = true;
+      if (statusEl) statusEl.textContent = 'Pick a white card, then a gold card.';
+      plainEl.textContent = '';
+      kjvEl.textContent = '';
+      var pOrder = shuffle(PAIRS);
+      var kOrder = shuffle(PAIRS);
+      pOrder.forEach(function (p) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'match-btn';
+        b.setAttribute('data-pair', p.id);
+        b.setAttribute('data-side', 'plain');
+        b.setAttribute('aria-pressed', 'false');
+        b.textContent = p.plain;
+        plainEl.appendChild(b);
+      });
+      kOrder.forEach(function (p) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'match-btn match-kjv';
+        b.setAttribute('data-pair', p.id);
+        b.setAttribute('data-side', 'kjv');
+        b.setAttribute('aria-pressed', 'false');
+        b.textContent = p.kjv;
+        kjvEl.appendChild(b);
+      });
+    }
+
+    function onBoardClick(ev) {
+      var t = ev.target;
+      if (!t || !t.getAttribute || t.classList.contains('matched')) return;
+      if (t.getAttribute('data-pair') == null) return;
+      if (t.getAttribute('aria-pressed') === 'true') {
+        t.setAttribute('aria-pressed', 'false');
+        if (firstPick === t) firstPick = null;
+        return;
+      }
+      if (!firstPick) {
+        clearPressed();
+        firstPick = t;
+        t.setAttribute('aria-pressed', 'true');
+        if (statusEl) statusEl.textContent = 'Now pick the matching KJV line (or the other way around).';
+        return;
+      }
+      if (firstPick === t) return;
+      var a = firstPick.getAttribute('data-pair');
+      var b = t.getAttribute('data-pair');
+      var sa = firstPick.getAttribute('data-side');
+      var sb = t.getAttribute('data-side');
+      if (a === b && sa !== sb) {
+        firstPick.classList.add('matched');
+        t.classList.add('matched');
+        firstPick.setAttribute('aria-pressed', 'false');
+        t.setAttribute('aria-pressed', 'false');
+        firstPick = null;
+        matched[a] = true;
+        if (Object.keys(matched).length === PAIRS.length) {
+          if (statusEl) statusEl.textContent = 'All four pairs found—you did it!';
+          var winP = document.getElementById('match-win-line');
+          if (winP) {
+            var winMsg = "You matched them all! God's words stick when we play with them.";
+            if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.pickMatchWin === 'function') {
+              try {
+                winMsg = window.tdbLittleShepherd.pickMatchWin();
+              } catch (e) {}
+            }
+            winP.textContent = winMsg;
+          }
+          winEl.classList.add('show');
+          winEl.hidden = false;
+          if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.notify === 'function') {
+            try { window.tdbLittleShepherd.notify('gameWin'); } catch (eN) {}
+          }
+        } else {
+          if (statusEl) statusEl.textContent = 'That pair matches—pick the next one.';
+        }
+      } else {
+        t.setAttribute('aria-pressed', 'true');
+        if (statusEl) statusEl.textContent = 'Not that pair—try a different second tap.';
+        if (window.tdbLittleShepherd && typeof window.tdbLittleShepherd.notify === 'function') {
+          try { window.tdbLittleShepherd.notify('wrongMatch'); } catch (eM) {}
+        }
+        setTimeout(function () {
+          firstPick.setAttribute('aria-pressed', 'false');
+          t.setAttribute('aria-pressed', 'false');
+          firstPick = null;
+        }, 650);
+      }
+    }
+
+    var board = document.getElementById('match-board');
+    if (board) board.addEventListener('click', onBoardClick);
+    var sh = document.getElementById('match-shuffle');
+    if (sh) sh.addEventListener('click', render);
+    render();
+  })();
+  });
+  </script>
+  <script src="/tdb-offline-strip.js?v=20260421pwa1" defer></script>
+</body>
+</html>

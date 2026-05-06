@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+  <script defer src="/analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Embeddable Verse Widgets • Calm KJV Cards • Today&rsquo;s Daily Battle</title>
+  <meta name="description" content="Copy calm KJV verse widgets onto ministry, church, counseling, and family pages with one script tag. Privacy-first, breakdown-ready, and gentle by design.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/embeddable-widgets.html">
+  <meta property="og:title" content="Embeddable Verse Widgets • Today&rsquo;s Daily Battle">
+  <meta property="og:description" content="Copy gentle KJV verse widgets onto your church or ministry site with one script tag.">
+  <meta property="og:url" content="https://todaysdailybattle.com/embeddable-widgets.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Embeddable Verse Widgets • Today&rsquo;s Daily Battle">
+  <meta name="twitter:description" content="Privacy-first KJV verse widgets with the same gentle breakdown language as the main site.">
+  <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="/styles.css?v=20260503-consent-persist-fix" as="style">
+  <link rel="stylesheet" href="/styles.css?v=20260503-consent-persist-fix">
+  <link rel="manifest" href="/manifest.json">
+  <style>
+    .embed-page .embed-shell {
+      display: grid;
+      gap: 1rem;
+    }
+    .embed-page .embed-chip-row,
+    .embed-page .embed-example-picker {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+    .embed-page .embed-chip,
+    .embed-page .embed-example-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.24);
+      padding: 0.45rem 0.9rem;
+      background: rgba(15, 23, 42, 0.22);
+      color: inherit;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+    .embed-page .embed-example-btn[aria-pressed="true"] {
+      border-color: rgba(227, 188, 103, 0.48);
+      background: rgba(227, 188, 103, 0.14);
+      color: var(--gold-soft, #e3bc67);
+    }
+    .embed-page .embed-two-up {
+      display: grid;
+      gap: 1rem;
+    }
+    .embed-page .embed-code-block {
+      margin: 0.9rem 0 0;
+      padding: 1rem 1rem 1.1rem;
+      border-radius: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.24);
+      background: rgba(2, 6, 23, 0.38);
+      overflow-x: auto;
+      font-size: 0.83rem;
+      line-height: 1.55;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .embed-page .embed-note-list {
+      margin: 0.65rem 0 0;
+      padding-left: 1.15rem;
+      line-height: 1.62;
+    }
+    .embed-page .embed-preview-card {
+      padding: 1rem;
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      background: rgba(2, 6, 23, 0.18);
+    }
+    .embed-page .embed-preview-card .section-note {
+      margin-top: 0.6rem;
+    }
+    .embed-page .embed-contract-list {
+      margin: 0.75rem 0 0;
+      padding-left: 1.15rem;
+      line-height: 1.62;
+    }
+    @media (min-width: 900px) {
+      .embed-page .embed-two-up {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+        align-items: start;
+      }
+    }
+  </style>
+</head>
+<body class="dark-mode tdb-inner-page embed-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="tdb-lang-switcher-header-wrap">
+        <nav class="tdb-lang-switcher tdb-lang-switcher--header tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+          <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+          <span class="tdb-lang-switcher-inner">
+            <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+          </span>
+        </nav>
+      </div>
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <p class="tdb-header-heartbeat site-tagline" lang="en">For Family, For Country, For GOD</p>
+        <span class="brand-subtitle">Embeddable verse widgets for churches, ministries, and family pages</span>
+      </div>
+      <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+      <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
+        <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+        <span class="tdb-nav-flyout-toggle__label">Site</span>
+      </button>
+      <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
+        <a href="/verse.html">Today&rsquo;s Lesson</a>
+        <a href="/explore.html">Explore</a>
+        <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map and gentle paths">Curriculum</a>
+        <a href="/plans.html" id="nav-browse-curriculum" aria-label="Browse the curriculum — KJV courses and gentle battle plans">Browse the curriculum</a>
+        <a href="/university.html" id="nav-university-core" aria-label="University of God — five anchor verses, quiet map">University map</a>
+        <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read</a>
+        <a href="/memorize.html">Memorize</a>
+        <a href="/#feel-section">How I Feel</a>
+        <a href="/daily-rhythm.html">Daily Rhythm</a>
+        <a href="/prayer-wall.html">Pray</a>
+        <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
+        <details class="tdb-nav-more">
+          <summary aria-haspopup="true">More tools</summary>
+          <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+            <a href="/">Home</a>
+            <a href="/mystudy">My Study</a>
+            <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
+            <a href="/plans.html">Courses</a>
+            <a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">Family Armor for little ones</a>
+            <a href="/kids/corner.html">Kids &amp; Family</a>
+            <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
+            <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
+            <a href="/site-guide.html" id="nav-site-guide" aria-label="Start here — calm map of where to begin">Start here</a>
+            <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
+            <a href="/about.html">About</a>
+            <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
+            <a href="/mobius.html">Möbius</a>
+            <a href="/calm.html">Calm</a>
+            <a href="/story.html">Story</a>
+            <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
+          </div>
+        </details>
+      </div>
+    </nav>
+    </header>
+
+    <main class="app-content" id="main-content">
+      <div class="content-inner embed-shell">
+        <header class="hero-banner tdb-dawn-bg--mist">
+          <p class="section-note topic-mood-porch">You&rsquo;re already welcome here&mdash;borrow this porch wood for churches, newsletters, and care teams. Copy only what helps; the rest can wait.</p>
+          <h1>Share a quiet KJV verse on your own page</h1>
+          <p class="hero-tagline">Offer your congregation a calm anchor: the same gentle &ldquo;plain English, for your group, real life today&rdquo; breakdowns as the main site, with one script tag. Works on any webpage you can edit. No login, no ads, no tracking. No iframe required.</p>
+          <div class="embed-chip-row" aria-label="Widget promises">
+            <span class="embed-chip">KJV only</span>
+            <span class="embed-chip">Copy, paste, done</span>
+            <span class="embed-chip">Three gentle breakdowns</span>
+            <span class="embed-chip">Privacy-first</span>
+          </div>
+        </header>
+
+        <section class="glass tdb-porch-paper-glass">
+          <h2 class="section-divider">Starter contract</h2>
+          <p class="section-note">Use explicit verse data for the most resilient embed. If your host page is online, the script can also reuse Today&rsquo;s Daily Battle breakdown runtime and fall back to KJV lookup when you omit <code>data-text</code>, but including the verse text is still the calmest path.</p>
+          <pre class="embed-code-block" id="embed-contract-snippet">&lt;div data-tdb-embed="verse-widget"
+  data-ref="Philippians 4:6-7"
+  data-text="Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus."
+  data-audience="general"
+  data-theme="night"
+  data-layout="card"
+  data-title="Quiet verse card"&gt;&lt;/div&gt;
+&lt;script src="https://todaysdailybattle.com/embed-verse-widget.js" defer&gt;&lt;/script&gt;</pre>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass">
+          <h2 class="section-divider">How to paste it on your site</h2>
+          <p class="section-note topic-mood-porch">You&rsquo;re already welcome here&mdash;paste what serves your people, leave the rest.</p>
+          <ol class="embed-howto">
+            <li><strong>Copy</strong> the embed code from the right-hand column (full or minimal version below).</li>
+            <li><strong>Paste</strong> it where you want the card to appear &mdash; usually near the bottom of an article, in a sidebar, or in a &ldquo;verse of the week&rdquo; block.</li>
+            <li><strong>Save and publish.</strong> The script loads once, caches like any other asset, and fills the empty <code>&lt;div&gt;</code> with the live card.</li>
+          </ol>
+          <p class="section-note">Works on static sites, WordPress HTML blocks, church site builders, and most ministry hosts. Pick a <strong>theme</strong> (<code>night</code>, <code>paper</code>, or <code>dawn</code>) so the card feels at home next to your own light or dark layout.</p>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass embed-two-up" aria-labelledby="embed-builder-heading">
+          <div>
+            <h2 class="section-divider" id="embed-builder-heading">Live preview</h2>
+            <p class="section-note">Choose a starter story, then adjust theme, audience, and layout. The preview uses the same <code>embed-verse-widget.js</code> your visitors will load.</p>
+            <div class="embed-example-picker" role="group" aria-label="Starter examples for ministries">
+              <button type="button" class="embed-example-btn" data-embed-example="anxiety-anchor" aria-pressed="true">Anxiety anchor</button>
+              <button type="button" class="embed-example-btn" data-embed-example="family-bedtime" aria-pressed="false">Family bedtime</button>
+              <button type="button" class="embed-example-btn" data-embed-example="grief-comfort" aria-pressed="false">Grief comfort</button>
+            </div>
+            <div class="embed-preview-card">
+              <h3 id="embed-builder-title" class="section-divider">Anxiety anchor</h3>
+              <p id="embed-builder-note" class="section-note">A quiet card for anxious rooms, counseling follow-up, or a single hard night.</p>
+              <div class="embed-controls" aria-label="Customize the preview">
+                <div class="embed-control-cluster">
+                  <span class="embed-control-label" id="embed-label-theme">Theme</span>
+                  <div class="embed-chip-row" role="group" aria-labelledby="embed-label-theme">
+                    <button type="button" class="embed-example-btn" data-embed-control="theme" data-value="night" aria-pressed="true">Night</button>
+                    <button type="button" class="embed-example-btn" data-embed-control="theme" data-value="paper" aria-pressed="false">Paper</button>
+                    <button type="button" class="embed-example-btn" data-embed-control="theme" data-value="dawn" aria-pressed="false">Dawn</button>
+                  </div>
+                </div>
+                <div class="embed-control-cluster">
+                  <span class="embed-control-label" id="embed-label-audience">Audience</span>
+                  <div class="embed-chip-row" role="group" aria-labelledby="embed-label-audience">
+                    <button type="button" class="embed-example-btn" data-embed-control="audience" data-value="general" aria-pressed="true">General</button>
+                    <button type="button" class="embed-example-btn" data-embed-control="audience" data-value="family" aria-pressed="false">Family</button>
+                  </div>
+                </div>
+                <div class="embed-control-cluster">
+                  <span class="embed-control-label" id="embed-label-layout">Layout</span>
+                  <div class="embed-chip-row" role="group" aria-labelledby="embed-label-layout">
+                    <button type="button" class="embed-example-btn" data-embed-control="layout" data-value="card" aria-pressed="true">Card</button>
+                    <button type="button" class="embed-example-btn" data-embed-control="layout" data-value="compact" aria-pressed="false">Compact</button>
+                  </div>
+                </div>
+                <div class="embed-control-cluster">
+                  <span class="embed-control-label" id="embed-label-width">Width on your page</span>
+                  <div class="embed-control-row">
+                    <select id="embed-opt-max-width" aria-labelledby="embed-label-width">
+                      <option value="">Default (~560px max)</option>
+                      <option value="480px">480px</option>
+                      <option value="560px">560px</option>
+                      <option value="100%">100% (fluid)</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="embed-control-cluster">
+                  <label class="embed-brand-toggle">
+                    <input type="checkbox" id="embed-opt-show-brand" checked aria-describedby="embed-brand-hint">
+                    <span>Show quiet credit line in the footer</span>
+                  </label>
+                  <p class="section-note" id="embed-brand-hint" style="margin:0;">Turn off only if your brand guidelines need a slimmer footer; the main link to Today&rsquo;s Daily Battle stays.</p>
+                </div>
+              </div>
+              <div class="embed-preview-live">
+                <p class="embed-preview-live__label">Live preview</p>
+                <div id="embed-preview"></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h2 class="section-divider">Copy this embed code</h2>
+            <p class="section-note">Paste this into your page as one block. The script URL is absolute so you do not need to host any files yourself.</p>
+            <pre class="embed-code-block" id="embed-code-output" aria-live="polite">Loading embed snippet…</pre>
+            <div class="cta-group">
+              <button type="button" class="btn btn-primary" id="embed-copy-btn">Copy full embed code</button>
+              <a class="btn btn-secondary" href="/church-sharing-kit.html">Church sharing kit</a>
+            </div>
+            <div class="embed-minimal-block">
+              <h3 class="section-divider" style="font-size:1.05rem;margin-top:1.25rem;">Minimal version (no shared library keys)</h3>
+              <p class="section-note">Use this on hosts where you want the fewest attributes. Breakdown text still loads when the visitor is online; including <code>data-text</code> keeps the verse visible even if a request is slow.</p>
+              <pre class="embed-code-block" id="embed-code-minimal" aria-live="polite"></pre>
+              <button type="button" class="btn btn-secondary" id="embed-copy-minimal-btn">Copy minimal embed</button>
+            </div>
+            <ul class="embed-note-list">
+              <li><code>data-audience="family"</code> &mdash; warmer phrasing for parents and groups.</li>
+              <li><code>data-theme</code> &mdash; <code>night</code>, <code>paper</code> (light), or <code>dawn</code>.</li>
+              <li><code>data-layout="compact"</code> &mdash; tighter card for sidebars and mobile columns.</li>
+              <li><code>data-max-width</code> &mdash; optional: <code>480px</code>, <code>560px</code>, or <code>100%</code>.</li>
+              <li><code>data-show-brand="false"</code> &mdash; hide the small credit line; link button remains.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass">
+          <h2 class="section-divider">For ministry teams</h2>
+          <p class="section-note">Bulletins, care emails, and hospital pages: paste the same block once per week or per teaching series. The script loads from this site&rsquo;s URL; visitors&rsquo; browsers cache it like any other JavaScript. Use the <strong>minimal</strong> snippet when your host needs the smallest HTML footprint — both versions still pull the same calm breakdown when the visitor is online.</p>
+          <ul class="embed-note-list">
+            <li><strong>Newsletters:</strong> paste in the HTML or &ldquo;source&rdquo; view; most tools have a custom HTML block.</li>
+            <li><strong>WordPress / Squarespace / church builders:</strong> use a Code or Custom HTML block so quotes stay straight.</li>
+            <li><strong>Pastoral care:</strong> try <code>data-layout="compact"</code> with <code>data-theme="dawn"</code> for handouts that read well on cream paper.</li>
+          </ul>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass">
+          <h2 class="section-divider">Stable contract</h2>
+          <ul class="embed-contract-list">
+            <li><code>data-ref</code> is the stable verse reference.</li>
+            <li><code>data-text</code> is optional but recommended so first load stays resilient on other sites.</li>
+            <li><code>data-audience</code> accepts <code>general</code> or <code>family</code>.</li>
+            <li><code>data-theme</code> accepts <code>night</code>, <code>paper</code>, or <code>dawn</code>.</li>
+            <li><code>data-layout</code> accepts <code>card</code> or <code>compact</code>.</li>
+            <li><code>data-title</code> and <code>data-subtitle</code> let a host tailor the framing without changing the Scripture.</li>
+            <li><code>data-max-width</code> optional: <code>480px</code>, <code>560px</code>, or <code>100%</code>.</li>
+            <li><code>data-show-brand="false"</code> hides the short credit line in the footer (link stays).</li>
+          </ul>
+          <p class="section-note">Internally, this surface still leans on the same verse breakdown runtime used by the main site and the printable pack generator. The copy stays calm because the source stays shared.</p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
+  <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+    <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+    <span class="tdb-lang-switcher-inner">
+      <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-essentials" aria-label="Key pages">
+    <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/verse.html">Today&rsquo;s Lesson</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <p class="site-footer-share-wrap">
+    <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
+    <span class="site-footer-share-sep" aria-hidden="true">·</span>
+    <button type="button" class="share-page-btn site-footer-tour-restart tdb-tour-restart-btn" aria-label="Restart the five-minute site tour">Restart site tour</button>
+  </p>
+
+  <nav class="bottom-nav" role="navigation" aria-label="Plans, kids, and Spanish topics">
+    <a href="/plans.html">Plans</a>
+    <a href="/kids/">Kids Battle</a>
+    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
+      <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
+      <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
+      <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-nav" aria-label="Footer links">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/media.html">Media</a>
+    <a href="/roadmap.html">Roadmap</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/for-pastors.html">For pastors &amp; teachers</a>
+    <a href="/reader.html">Chapter reader</a>
+    <a href="/bible/tools.html">Study workshop</a>
+    <a href="/bible-tool.html">Bible tool</a>
+    <a href="/testimonials.html">Reader stories</a>
+    <a href="/journal/">Journal</a>
+    <a href="/where-support-goes.html">Where support goes</a>
+    <a href="/verse-cards/">Verse cards</a>
+    <a href="/security.html">Security</a>
+    <a href="/contact.html">Contact</a>
+    <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
+  </nav>
+
+  <details class="footer-sitemap">
+    <summary>Sitemap — topics, tools, church &amp; family (tap to expand)</summary>
+    <div class="footer-sitemap-grid">
+      <div class="footer-sitemap-col">
+        <h3>The Narrow Paths</h3>
+        <a href="/explore.html">Full list (all pages)</a>
+        <a href="/topic-anxiety.html">Anxiety</a>
+        <a href="/topic-fear.html">Fear</a>
+        <a href="/topic-grief.html">Grief</a>
+        <a href="/topic-hope.html">Hope</a>
+        <a href="/topic-strength.html">Strength</a>
+        <a href="/topic-parenting.html">Parenting</a>
+        <a href="/topic-loneliness.html">Loneliness</a>
+        <a href="/topic-forgiveness.html">Forgiveness</a>
+        <a href="/topic-guilt.html">Guilt</a>
+        <a href="/topic-overwhelmed.html">Overwhelmed</a>
+        <a href="/topic-worthless.html">Worth / identity</a>
+      </div>
+      <div class="footer-sitemap-col footer-sitemap-col--es-links">
+        <h3>Spanish devotionals</h3>
+        <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es">Paz</a>
+        <a href="/explore.html#topics-es">All Spanish topics on Explore</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Tools of the Quiet Trade</h3>
+        <a href="/verse.html">Verse of the Day</a>
+        <a href="/reader.html">Chapter reader</a>
+        <a href="/bible/tools.html">Study workshop</a>
+        <a href="/bible-tool.html">Bible tool</a>
+        <a href="/mystudy">My Study</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/mobius.html">Möbius</a>
+        <a href="/plans.html">Courses</a>
+        <a href="/reading-plan.html">7-day plan</a>
+        <a href="/study.html">Study workspace</a>
+        <a href="/wins.html">Wins</a>
+        <a href="/progress.html">Progress</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>For the Household of Faith</h3>
+        <a href="/church.html">Church center</a>
+        <a href="/church/">Church join hub</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit</a>
+        <a href="/pastor/">Pastor hub</a>
+        <a href="/sermon.html">Sermon builder</a>
+        <a href="/family.html">Family hub</a>
+        <a href="/little-ones.html">For the Little Ones</a>
+        <a href="/family-armor.html">Family Armor</a>
+        <a href="/kids/">Kids Battle home</a>
+        <a href="/kids/corner.html">Bible Story Library</a>
+        <a href="/kids-corner.html">Bible Loop Library</a>
+        <a href="/coloring.html">Color &amp; Tell</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Further In</h3>
+        <a href="/prayer-wall.html">Prayer</a>
+        <a href="/bible-study.html">Bible studies</a>
+        <a href="/shop.html">Shop</a>
+        <a href="/story.html">Story</a>
+        <a href="/media.html">Media</a>
+        <a href="/roadmap.html">Roadmap</a>
+        <a href="/approach.html">How we respond</a>
+        <a href="/why-not-ai.html">Why not AI?</a>
+        <a href="/curriculum.html">Curriculum</a>
+        <a href="/verse-cards/">Verse cards</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </details>
+
+  <p class="footer-humility">We battle. He wins.</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): footer story lives in .site-footer-story below -->
+  <p class="site-footer-story">
+    Steady KJV for honest days&mdash;no ads, no selling your data; prayers stay on this device unless you sync on purpose.
+  </p>
+
+  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" aria-label="Friday verse and prayer email signup">
+    <p class="footer-friday-signup-label">Friday recap email&mdash;one message a week; leave anytime.</p>
+    <div class="footer-friday-signup-row">
+      <label for="footer-friday-email" class="sr-only">Email for Friday recap</label>
+      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="your@email.com" aria-label="Email for Friday recap" autocomplete="email">
+      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit">Subscribe</button>
+    </div>
+    <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
+  </div>
+
+  <p class="site-footer-copy site-footer-legal-line">&copy; 2026 Today&rsquo;s Daily Battle &middot; Christian Messenger Service. All rights reserved.</p>
+  <p class="site-footer-copy site-footer-legal-line">All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
+
+  <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
+  <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
+  </div>
+  <script defer src="/language-switcher.js?v=20260503-consent-persist-fix"></script>
+</footer>
+  </div>
+
+  <script defer src="/embed-verse-widget.js?v=20260418embedpolish"></script>
+  <script defer src="/embeddable-widgets-page.js?v=20260418embedpolish"></script>
+  <script defer src="/register-sw.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <circle cx="64" cy="64" r="58" fill="#0B1220"/>
+  <circle cx="64" cy="64" r="54" stroke="#A78BFA" stroke-width="3"/>
+  <!-- head -->
+  <ellipse cx="64" cy="30.5" rx="12" ry="13" fill="#EBC8A6"/>
+  <path d="M52 30C52 20.5 57.5 16 64 16C70.5 16 76 20.5 76 30V34H52V30Z" fill="#312E81"/>
+  <path d="M52 33C52 46 44 55 40 65C48 61 52 56 56 50" stroke="#312E81" stroke-width="5.5" stroke-linecap="round"/>
+  <path d="M76 33C76 46 84 55 88 65C80 61 76 56 72 50" stroke="#312E81" stroke-width="5.5" stroke-linecap="round"/>
+  <circle cx="59" cy="31" r="1.8" fill="#0F172A"/>
+  <circle cx="69" cy="31" r="1.8" fill="#0F172A"/>
+  <path d="M60 37C61.2 38.2 62.6 38.9 64 38.9C65.4 38.9 66.8 38.2 68 37" stroke="#7C4A2D" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- robe + mantle -->
+  <path d="M42 55C45 47 52 44 64 44C76 44 83 47 86 55L82 93H46L42 55Z" fill="#4338CA"/>
+  <path d="M50 54C53 49 57 47 64 47C71 47 75 49 78 54L75 94H53L50 54Z" fill="#EDE9FE"/>
+  <rect x="57" y="60" width="14" height="24" rx="3" fill="#6366F1"/>
+  <!-- arms -->
+  <path d="M48 58L39 80" stroke="#EDE9FE" stroke-width="6" stroke-linecap="round"/>
+  <path d="M80 58L89 80" stroke="#EDE9FE" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="38.8" cy="81.2" r="3.3" fill="#EBC8A6"/>
+  <circle cx="89.2" cy="81.2" r="3.3" fill="#EBC8A6"/>
+  <!-- legs -->
+  <rect x="55" y="94" width="7" height="14" rx="3" fill="#334155"/>
+  <rect x="66" y="94" width="7" height="14" rx="3" fill="#334155"/>
+  <rect x="53" y="107" width="9" height="4" rx="2" fill="#6B4F2A"/>
+  <rect x="66" y="107" width="9" height="4" rx="2" fill="#6B4F2A"/>
+</svg>

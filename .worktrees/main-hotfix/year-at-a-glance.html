@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Year at a glance • KJV verses, seasons &amp; gentle activities • Today&apos;s Daily Battle</title>
+  <meta name="description" content="One printable page: twelve monthly KJV memory verses, seasonal Battle Plan doors, and short no-quiz activity reminders for homeschool, private school, and family tables.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/year-at-a-glance.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="preload" href="tdb-quiet-luxury.css?v=20260503-consent-persist-fix" as="style">
+  <link rel="stylesheet" href="tdb-quiet-luxury.css?v=20260503-consent-persist-fix">
+  <style>
+    :root { --bg:#0d1117; --text:#f5f7fb; --muted:#8896b0; --gold:#e3bc67; --line:#242d3d; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: ui-rounded,"Avenir Next","Segoe UI","Inter",sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; font-size: 1rem; }
+    .skip-link { position: absolute; left: -9999px; }
+    .skip-link:focus { left: 1rem; top: 1rem; z-index: 999; padding: 0.5rem 0.75rem; background: var(--gold); color: #111; }
+    .tdb-global-nav {
+      display: flex; align-items: center; gap: 0.2rem 0.5rem; flex-wrap: wrap;
+      padding: 0.35rem 0.75rem; min-height: 52px;
+      background: rgba(8, 12, 22, 0.55); border-bottom: 1px solid rgba(227, 188, 103, 0.22);
+      position: sticky; top: 0; z-index: 201; backdrop-filter: blur(10px); font-size: 0.86rem;
+    }
+    .tdb-global-nav a {
+      color: rgba(226, 232, 240, 0.85); text-decoration: none; padding: 0.3rem 0.5rem; border-radius: 6px;
+      min-height: 44px; display: inline-flex; align-items: center;
+    }
+    .tdb-global-nav a:hover, .tdb-global-nav a:focus-visible { color: var(--gold); background: rgba(227, 188, 103, 0.1); outline: 2px solid rgba(227, 188, 103, 0.55); outline-offset: 2px; }
+    .yag-page main { max-width: 48rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+    h1 { font-size: clamp(1.45rem, 4vw, 1.95rem); color: var(--gold); margin: 0 0 0.75rem; font-weight: 800; }
+    .yag-porch { margin: 0 0 0.55rem; font-size: 0.88rem; color: var(--muted); line-height: 1.55; max-width: 40rem; }
+    .lead { color: var(--muted); font-size: 0.95rem; margin: 0 0 1.15rem; }
+    .yag-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0 0 1.25rem; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 48px;
+      padding: 0.55rem 1rem; border-radius: 10px; font-size: 0.9rem; font-weight: 600;
+      text-decoration: none; border: 1px solid rgba(227, 188, 103, 0.45);
+      background: rgba(227, 188, 103, 0.12); color: var(--gold); cursor: pointer; font-family: inherit;
+    }
+    .btn:hover, .btn:focus-visible { background: rgba(227, 188, 103, 0.22); outline: 2px solid rgba(227, 188, 103, 0.55); outline-offset: 2px; }
+    .btn-secondary { background: transparent; color: rgba(226, 232, 240, 0.9); border-color: var(--line); }
+    .yag-table-wrap { overflow-x: auto; margin: 0.75rem 0 1.25rem; -webkit-overflow-scrolling: touch; border-radius: 12px; border: 1px solid rgba(227, 188, 103, 0.2); }
+    table.yag-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; min-width: 320px; }
+    .yag-table th, .yag-table td { border: 1px solid var(--line); padding: 0.55rem 0.5rem; text-align: left; vertical-align: top; }
+    .yag-table th { color: var(--gold); font-weight: 700; background: rgba(227, 188, 103, 0.1); }
+    .yag-table td.yag-verse { font-size: 0.76rem; color: rgba(245, 247, 251, 0.88); max-width: 14rem; }
+    .yag-table td.yag-door { font-size: 0.74rem; color: rgba(200, 210, 225, 0.95); }
+    .yag-pre {
+      margin: 1rem 0 0; padding: 0.85rem 1rem; font-size: 0.76rem; line-height: 1.5;
+      background: rgba(12, 16, 26, 0.65); border: 1px solid var(--line); border-radius: 10px;
+      white-space: pre-wrap; font-family: ui-monospace, "Cascadia Code", monospace; overflow-x: auto; color: rgba(245, 247, 251, 0.9);
+    }
+    .yag-foot { margin-top: 1.5rem; font-size: 0.85rem; color: var(--muted); }
+    .yag-foot a { color: var(--gold); }
+    .yag-print-friendly-note {
+      margin: 0 0 0.85rem;
+      padding: 0.55rem 0.7rem;
+      border-radius: 10px;
+      border: 1px solid rgba(227, 188, 103, 0.22);
+      background: rgba(227, 188, 103, 0.08);
+      font-size: 0.84rem;
+      line-height: 1.5;
+      color: rgba(226, 232, 240, 0.88);
+    }
+    .yag-print-friendly-note strong { color: var(--gold); font-weight: 650; }
+    .yag-h2 { font-size: 1.05rem; color: var(--gold); margin: 1.5rem 0 0.65rem; font-weight: 700; }
+    .yag-cal-wrap { margin: 0.5rem 0 1.25rem; }
+    .yag-cal-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.45rem;
+    }
+    @media (min-width: 520px) { .yag-cal-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+    .yag-cal-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.15rem;
+      min-height: 52px;
+      padding: 0.35rem 0.2rem;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: rgba(12, 16, 26, 0.55);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-align: center;
+      color: rgba(226, 232, 240, 0.9);
+    }
+    @media (max-width: 400px) {
+      .yag-actions { gap: 0.78rem; margin-bottom: 1.35rem; }
+      .yag-actions .btn { min-height: 50px; }
+      .yag-cal-grid { gap: 0.58rem; }
+      .yag-cal-cell {
+        min-height: 56px;
+        padding: 0.45rem 0.25rem;
+        font-size: 0.68rem;
+      }
+      .yag-cal-ic { font-size: 1.2rem; }
+      .yag-table th, .yag-table td { padding: 0.65rem 0.45rem; font-size: 0.78rem; }
+      .yag-page main { padding-left: max(1rem, env(safe-area-inset-left)); padding-right: max(1rem, env(safe-area-inset-right)); }
+    }
+    .yag-cal-ic { font-size: 1.1rem; line-height: 1; }
+    .yag-act-lead { color: var(--muted); font-size: 0.88rem; margin: 0 0 0.65rem; line-height: 1.55; }
+    .yag-act-list { margin: 0; padding-left: 1.15rem; color: rgba(245, 247, 251, 0.9); font-size: 0.84rem; line-height: 1.55; }
+    .yag-act-list li { margin: 0.35rem 0; }
+    @media print {
+      .yag-cal-wrap, .yag-activities { break-inside: avoid; }
+    }
+    @media print {
+      .tdb-global-nav, .yag-actions, .yag-foot, .yag-print-friendly-note { display: none !important; }
+      body { background: #fff; color: #111; }
+      .yag-table th { color: #111; background: #f0f0f0; }
+      .yag-table td, .yag-table th { border-color: #ccc; }
+      .yag-pre { border-color: #ccc; background: #fafafa; color: #111; }
+    }
+  </style>
+</head>
+<body class="yag-page">
+  <a href="#main" class="skip-link">Skip to content</a>
+  <nav class="tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+    <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel-standalone" id="tdb-primary-nav-toggle-standalone">
+      <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+      <span class="tdb-nav-flyout-toggle__label">Site</span>
+    </button>
+    <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-standalone">
+      <a href="/verse.html">Today&rsquo;s Lesson</a>
+      <a href="/explore.html">Explore</a>
+      <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map and gentle paths">Curriculum</a>
+      <a href="/plans.html" id="nav-browse-curriculum" aria-label="Browse the curriculum — KJV courses and gentle battle plans">Browse the curriculum</a>
+      <a href="/university.html" id="nav-university-core" aria-label="University of God — five anchor verses, quiet map">University map</a>
+      <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read</a>
+      <a href="/memorize.html">Memorize</a>
+      <a href="/#feel-section">How I Feel</a>
+      <a href="/daily-rhythm.html">Daily Rhythm</a>
+      <a href="/prayer-wall.html">Pray</a>
+      <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
+      <details class="tdb-nav-more">
+        <summary aria-haspopup="true">More tools</summary>
+        <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+          <a href="/">Home</a>
+          <a href="/mystudy">My Study</a>
+          <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
+          <a href="/plans.html">Courses</a>
+          <a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">Family Armor for little ones</a>
+          <a href="/kids/corner.html">Kids &amp; Family</a>
+          <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
+          <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-current="page" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
+          <a href="/site-guide.html" id="nav-site-guide" aria-label="Start here — calm map of where to begin">Start here</a>
+          <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
+          <a href="/about.html">About</a>
+          <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
+          <a href="/mobius.html">Möbius</a>
+          <a href="/calm.html">Calm</a>
+          <a href="/story.html">Story</a>
+          <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
+        </div>
+      </details>
+    </div>
+  </nav>
+  <main id="main">
+    <h1>Year at a glance</h1>
+    <p class="yag-porch topic-mood-porch">You&rsquo;re already welcome here&mdash;this page maps the year; it doesn&rsquo;t grade you.</p>
+    <p class="lead">Twelve gentle <abbr title="King James Version">KJV</abbr> memory verses (one per calendar month), a short seasonal door for each block of the year, and calm activity reminders&mdash;print or save as PDF from your browser. Same verses you can mark on <a href="family.html#family-year-round-memory">Family hub</a> and <a href="yearly-rhythm.html#yr-memory">Year-round rhythm</a>. Full activity guide: <a href="church-sharing-kit.html#csk-memory-verse-activities">Church Sharing Kit</a>.</p>
+    <p class="yag-print-friendly-note" id="yag-print-friendly-note" role="note"><strong>Print-friendly.</strong> Use <strong>Print this page</strong> or your browser&rsquo;s print dialog (Ctrl/Cmd+P). The top menu hides automatically when you print.</p>
+    <div class="yag-actions">
+      <button type="button" class="btn" id="yag-print-btn" aria-label="Print or save this page as PDF">Print this page</button>
+      <button type="button" class="btn btn-secondary" id="yag-copy-btn" aria-label="Copy plain text to clipboard">Copy plain text</button>
+      <a class="btn btn-secondary" href="yearly-rhythm.html#yr-print-planners">More planners</a>
+      <a class="btn btn-secondary" href="memory-verse-activities-print.html">Activities only (print)</a>
+    </div>
+    <section class="yag-cal-wrap" aria-labelledby="yag-cal-h">
+      <h2 class="yag-h2" id="yag-cal-h">Twelve months (calendar)</h2>
+      <p class="yag-act-lead" style="margin-top:0">Small icons are gentle seasonal hints&mdash;not lessons. Same month order as the table below.</p>
+      <div class="yag-cal-grid" id="yag-month-grid" role="list" aria-label="Months January through December"></div>
+    </section>
+    <div class="yag-table-wrap">
+      <table class="yag-table" aria-label="Monthly memory verses and seasonal highlights">
+        <thead>
+          <tr>
+            <th scope="col">Month</th>
+            <th scope="col">Reference</th>
+            <th scope="col">Verse (KJV)</th>
+            <th scope="col">Seasonal door</th>
+          </tr>
+        </thead>
+        <tbody id="yag-tbody"></tbody>
+      </table>
+    </div>
+    <section class="yag-activities" id="yag-activities-block" aria-labelledby="yag-act-h">
+      <h2 class="yag-h2" id="yag-act-h">Gentle activity reminders (no quizzes)</h2>
+      <p class="yag-act-lead">Use with any month&rsquo;s verse. For fuller explanations, <a href="church-sharing-kit.html#csk-memory-verse-activities">open the Church Sharing Kit section</a>.</p>
+      <ul class="yag-act-list">
+        <li><strong>Morning whisper</strong> &mdash; say the verse once at breakfast or before school.</li>
+        <li><strong>Evening review</strong> &mdash; once at bedtime; one gentle question about what the verse shows of God.</li>
+        <li><strong>Verse walk</strong> &mdash; outdoors or down the hall; pause and repeat a phrase.</li>
+        <li><strong>Fridge or mirror</strong> &mdash; sticky note; read when you notice it.</li>
+        <li><strong>Family round</strong> &mdash; each person one phrase around the table.</li>
+        <li><strong>Prayer verse</strong> &mdash; turn the verse into one short prayer in plain words.</li>
+        <li><strong>Verse art card</strong> &mdash; verse on one side, small drawing on the other.</li>
+        <li><strong>Summer / VBS extras</strong> &mdash; porch review after play; whisper the verse at the door; road-trip phrases stop-by-stop.</li>
+      </ul>
+    </section>
+    <pre class="yag-pre" id="yag-plain-pre" aria-label="Plain text version for copy"></pre>
+    <p class="yag-foot" role="note">Today&rsquo;s Daily Battle &middot; <a href="https://todaysdailybattle.com/year-at-a-glance.html">todaysdailybattle.com/year-at-a-glance.html</a></p>
+  </main>
+  <script src="memory-verses.js"></script>
+  <script nonce="tdb2025s">
+  (function () {
+    var DOORS = [
+      'Gentle New Year — plans.html?plan=gentleyear',
+      'School-year trust — plans.html?plan=schoolcourage',
+      'Resurrection Hope — plans.html?plan=easter',
+      'Easter season — he-is-risen.html',
+      'Strength in Christ — plans.html?plan=peace',
+      'Summer Stillness — plans.html?plan=summerstill',
+      'Summer Seeds — plans.html?plan=summer-seeds',
+      'Back-to-School Courage — plans.html?plan=schoolcourage',
+      'Lord\'s Prayer for Kids — plans.html?plan=lordsprayer-kids',
+      'Harvest Gratitude — plans.html?plan=harvestthanks',
+      'Thanks rhythm — plans.html?plan=harvestthanks',
+      'Advent Quiet / Christmas — plans.html?plan=adventquiet'
+    ];
+    var MONTH_ICONS = ['\u2B50', '\uD83D\uDCA7', '\uD83C\uDF43', '\u271D\uFE0F', '\u2600\uFE0F', '\uD83C\uDF0A', '\uD83C\uDF31', '\uD83C\uDF92', '\uD83D\uDCDA', '\uD83C\uDF3E', '\uD83D\uDE4F', '\u2728'];
+    function build() {
+      var T = window.TDB_memoryVerses;
+      var tb = document.getElementById('yag-tbody');
+      var pre = document.getElementById('yag-plain-pre');
+      var cal = document.getElementById('yag-month-grid');
+      if (!T || !T.MONTHLY || !tb || !pre) return;
+      var lines = ['Today\'s Daily Battle — Year at a glance (KJV)', 'https://todaysdailybattle.com/year-at-a-glance.html', '', 'Month          Ref                 Seasonal door', '-------------- ------------------- --------------------------------'];
+      tb.replaceChildren();
+      if (cal) cal.replaceChildren();
+      for (var i = 0; i < T.MONTHLY.length; i++) {
+        var row = T.MONTHLY[i];
+        var tr = document.createElement('tr');
+        var th = document.createElement('th');
+        th.scope = 'row';
+        th.textContent = row.label;
+        var tdR = document.createElement('td');
+        tdR.textContent = row.ref;
+        var tdV = document.createElement('td');
+        tdV.className = 'yag-verse';
+        tdV.textContent = row.text.length > 100 ? row.text.slice(0, 97) + '…' : row.text;
+        var tdD = document.createElement('td');
+        tdD.className = 'yag-door';
+        tdD.textContent = DOORS[row.month] || '';
+        tr.appendChild(th);
+        tr.appendChild(tdR);
+        tr.appendChild(tdV);
+        tr.appendChild(tdD);
+        tb.appendChild(tr);
+        lines.push(row.label + '   ' + row.ref + '   ' + (DOORS[row.month] || ''));
+        if (cal) {
+          var cell = document.createElement('div');
+          cell.className = 'yag-cal-cell';
+          cell.setAttribute('role', 'listitem');
+          var ic = document.createElement('span');
+          ic.className = 'yag-cal-ic';
+          ic.setAttribute('aria-hidden', 'true');
+          ic.textContent = MONTH_ICONS[row.month] || '\uD83D\uDCD6';
+          var lab = document.createElement('span');
+          lab.className = 'yag-cal-lbl';
+          lab.textContent = row.label.slice(0, 3);
+          cell.appendChild(ic);
+          cell.appendChild(lab);
+          cal.appendChild(cell);
+        }
+      }
+      lines.push('', '---', 'Gentle activity reminders (short; full guide on Church Sharing Kit):', '\u2022 Morning whisper, evening review, verse walk, fridge note, family round, prayer verse, verse art card.', '\u2022 Summer / VBS: porch review, door whisper, road-trip phrases.', 'https://todaysdailybattle.com/church-sharing-kit.html#csk-memory-verse-activities');
+      lines.push('', 'Full rhythm & printable worksheets: https://todaysdailybattle.com/yearly-rhythm.html');
+      pre.textContent = lines.join('\n');
+    }
+    function initButtons() {
+      var printBtn = document.getElementById('yag-print-btn');
+      if (printBtn) {
+        printBtn.addEventListener('click', function () {
+          try {
+            if (typeof window.trackEvent === 'function') window.trackEvent('year_at_glance_print', {});
+          } catch (e) {}
+          window.print();
+        });
+      }
+      var copyBtn = document.getElementById('yag-copy-btn');
+      var pre = document.getElementById('yag-plain-pre');
+      if (copyBtn && pre && navigator.clipboard && navigator.clipboard.writeText) {
+        copyBtn.addEventListener('click', function () {
+          navigator.clipboard.writeText(pre.textContent || '').then(function () {
+            copyBtn.textContent = 'Copied';
+            setTimeout(function () { copyBtn.textContent = 'Copy plain text'; }, 2200);
+            try {
+              if (typeof window.trackEvent === 'function') window.trackEvent('year_at_glance_copy', {});
+            } catch (e) {}
+          }).catch(function () {});
+        });
+      } else if (copyBtn) {
+        copyBtn.hidden = true;
+      }
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () { build(); initButtons(); });
+    } else {
+      build();
+      initButtons();
+    }
+  })();
+  </script>
+</body>
+</html>

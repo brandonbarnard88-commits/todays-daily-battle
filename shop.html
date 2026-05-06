@@ -3,177 +3,151 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Quiet physical tools that support the free porch — Porch Journal, printed Battle Plans, Family Scripture packs, and verse cards. Every purchase helps keep the KJV site calm and open.">
   <title>The Shop • Today’s Daily Battle</title>
-  <link rel="stylesheet" href="styles.css?v=20260505-porch-legacy">
-  <style>
-    .shop-hero {
-      text-align: center;
-      padding: 4rem 1rem 2rem;
-    }
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin: 3rem 0;
-    }
-    .product-card {
-      background: var(--porch-paper, #f8f1e3);
-      border: 1px solid var(--gold-soft, #c9a84c);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-    .product-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    }
-    .product-card img {
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
-    }
-    .product-info {
-      padding: 1.5rem;
-    }
-    .flagship-badge {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: var(--gold-soft, #c9a84c);
-      color: var(--earth, #3f2a1e);
-      font-size: 0.75rem;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      font-weight: 500;
-    }
-    .price {
-      font-size: 1.75rem;
-      color: var(--gold-soft, #c9a84c);
-      font-weight: 500;
-      margin: 0.5rem 0;
-    }
-  </style>
+  <meta name="description" content="Quiet physical tools that support the free porch — Porch Journal (flagship), printed Battle Plans, Family Scripture packs, and verse cards. Every purchase helps keep the KJV site calm and open for everyone.">
+  <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix">
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+  <script defer src="analytics-loader.js"></script>
 </head>
 <body class="dark-mode tdb-inner-page shop-page">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="app-shell">
-    <!-- Existing header and sidebar from site shell -->
     <header class="top-bar">
-      <!-- Header content from existing site (brand, nav, etc.) -->
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
         <p class="tdb-header-heartbeat site-tagline">For Family, For Country, For GOD</p>
         <span class="brand-subtitle">The Shop</span>
       </div>
-      <!-- Navigation and other header elements preserved from original -->
+      <!-- Navigation preserved from site -->
     </header>
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <header class="shop-hero">
+        <header class="hero-banner tdb-dawn-hub--mist">
           <h1>The Shop</h1>
-          <p class="section-note topic-mood-porch">Quiet tools to carry the Word with you. Every purchase quietly helps keep the free porch open for the next weary heart.</p>
-          <p class="section-note">Digital versions of plans, verse tools, and searches remain 100% free forever.</p>
+          <p class="section-note topic-mood-porch">You are already welcome here — these physical tools are optional. The entire online porch (verse, search, plans, prayer) stays 100% free forever.</p>
+          <p class="hero-tagline">Quiet objects that help you carry Scripture. Every purchase supports the free porch.</p>
         </header>
 
         <section class="glass tdb-porch-paper-glass">
-          <div class="product-grid">
+          <div class="tdb-give-options-grid tdb-product-grid">
 
-            <!-- Flagship: Porch Journal -->
-            <div class="product-card flagship" style="position:relative;">
+            <div class="tdb-product-card">
               <div class="flagship-badge">Flagship</div>
-              <img src="/assets/shop/porch-journal.jpg" alt="The Porch Journal — undated with KJV anchors" loading="lazy">
+              <img src="/assets/shop/porch-journal.jpg" alt="The Porch Journal — quiet companion for daily battle" loading="lazy">
               <div class="product-info">
                 <h3>The Porch Journal</h3>
-                <p class="section-note">Undated. One gentle KJV anchor per spread with generous space for notes, prayers, and the battles you walk. Designed to feel like sitting on the porch with Scripture.</p>
+                <p class="section-note">Undated. One gentle KJV anchor per spread with generous white space for your own notes, prayers, and honest battles. Paper that feels like sitting on the porch with the Word — no pressure, no performance.</p>
                 <div class="price">$28</div>
-                <button onclick="addToCart('porch-journal')" class="btn btn-primary" style="width:100%;margin-top:1rem;">Add to Cart — $28</button>
+                <button onclick="addToCart('porch-journal', 2800)" class="btn btn-primary">Add to Cart — $28</button>
               </div>
             </div>
 
-            <!-- Battle Plan Journal Set -->
-            <div class="product-card">
-              <img src="/assets/shop/battle-plan-journal.jpg" alt="Printed Battle Plan Journals" loading="lazy">
+            <div class="tdb-product-card">
+              <img src="/assets/shop/battle-plan-journal.jpg" alt="Battle Plan Journal Set — printed rhythms for real fights" loading="lazy">
               <div class="product-info">
                 <h3>Battle Plan Journal Set</h3>
-                <p class="section-note">Printed versions of our most-used 7/21/40-day plans (Fear→Faith, Grief→Hope, Anxiety→Peace, etc.) with writing space. Perfect for table or nightstand.</p>
+                <p class="section-note">Printed editions of our most-used short KJV rhythms (Fear → Faith, Grief → Hope, Anxiety → Peace, and others). Space to write your own next small step and prayer. For when the fight feels long.</p>
                 <div class="price">$19</div>
-                <button onclick="addToCart('battle-plan-set')" class="btn btn-primary" style="width:100%;margin-top:1rem;">Add to Cart — $19</button>
+                <button onclick="addToCart('battle-plan-set', 1900)" class="btn btn-primary">Add to Cart — $19</button>
               </div>
             </div>
 
-            <!-- Family Scripture Pack -->
-            <div class="product-card">
-              <img src="/assets/shop/family-scripture-pack.jpg" alt="Family Scripture Pack" loading="lazy">
+            <div class="tdb-product-card">
+              <img src="/assets/shop/family-scripture-pack.jpg" alt="Family Scripture Pack — for the table and little ones" loading="lazy">
               <div class="product-info">
                 <h3>Family Scripture Pack</h3>
-                <p class="section-note">Printed verse cards, memory aids, and gentle discussion prompts for the table. Includes both parent and child versions — KJV only.</p>
+                <p class="section-note">Printed KJV verse cards, memory aids, and gentle prompts for the family table. Versions for parents and children. Simple tools to keep Scripture close without adding pressure.</p>
                 <div class="price">$24</div>
-                <button onclick="addToCart('family-pack')" class="btn btn-primary" style="width:100%;margin-top:1rem;">Add to Cart — $24</button>
+                <button onclick="addToCart('family-pack', 2400)" class="btn btn-primary">Add to Cart — $24</button>
               </div>
             </div>
 
           </div>
+
+          <p class="shop-support-note">Every purchase quietly helps keep the free porch open — hosting, new KJV plans, printables for churches and those in need. The online experience remains 100% free, ad-free, private, and offline-first forever.</p>
         </section>
 
-        <section class="glass tdb-porch-paper-glass">
-          <h2 class="section-divider" style="text-align:center;">How this supports the porch</h2>
-          <p class="section-note" style="text-align:center;max-width:620px;margin:0 auto;">
-            These physical items are made by a small, values-aligned print partner. Every purchase helps cover servers, security, new KJV plans, and free printables for churches, hospitals, and those who cannot afford them. 
-            The online porch — daily verse, search, plans, prayer wall, and kids tools — stays 100% free forever.
-          </p>
-          <div style="text-align:center;margin-top:2rem;">
-            <a href="/give.html" class="btn btn-secondary">Or support the porch with a gift →</a>
-          </div>
-        </section>
+        <div id="donation-status" class="donation-status section-note"></div>
 
-        <div style="text-align:center;margin:4rem 0 2rem;">
+        <div style="text-align:center;margin:3rem 0 4rem;">
+          <a href="/give.html" class="btn btn-secondary">Or support the porch with a quiet gift instead →</a>
+        </div>
+
+        <div style="text-align:center;margin:2rem 0 4rem;">
           <a href="/" class="btn btn-primary">← Return to Today’s Verse</a>
         </div>
       </div>
     </main>
 
-    <!-- Existing footer with updated shop link if needed -->
     <footer class="site-footer site-footer--canonical">
-      <!-- footer content preserved -->
+      <!-- Full existing footer with updated links to /give.html and /shop.html -->
       <nav class="site-footer-essentials">
-        <!-- ... existing links ... -->
+        <a href="/">Home</a>
+        <a href="/verse.html">Today’s Lesson</a>
+        <a href="/give.html">Support the Porch</a>
         <a href="/shop.html">The Shop</a>
-        <!-- ... -->
+        <a href="/where-support-goes.html">Where Support Goes</a>
       </nav>
+      <!-- Rest of footer preserved from site -->
     </footer>
   </div>
 
   <script>
-    function addToCart(product) {
-      const urls = {
-        'porch-journal': '/functions/create-checkout-session',
-        'battle-plan-set': '/functions/create-checkout-session',
-        'family-pack': '/functions/create-checkout-session'
-      };
-      fetch(urls[product] || '/functions/create-checkout-session', {
+    let currentStatusElement = null;
+
+    function showDonationStatus(message, isError = false) {
+      let status = document.getElementById('donation-status');
+      if (!status) {
+        status = document.createElement('div');
+        status.id = 'donation-status';
+        status.className = 'donation-status section-note';
+        const grid = document.querySelector('.tdb-product-grid');
+        if (grid && grid.parentNode) grid.parentNode.appendChild(status);
+      }
+      status.textContent = message;
+      status.style.color = isError ? '#e06c75' : 'var(--gold-soft, #c9a84c)';
+      status.setAttribute('aria-live', 'polite');
+      status.style.display = 'block';
+      setTimeout(() => {
+        if (status && status.parentNode) status.style.display = 'none';
+      }, 6500);
+    }
+
+    function addToCart(product, amountCents) {
+      showDonationStatus('Preparing secure checkout...');
+      fetch('/functions/create-donation-session', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          product: product, 
-          source: 'shop',
-          amount_cents: product === 'porch-journal' ? 2800 : product === 'battle-plan-set' ? 1900 : 2400 
+        body: JSON.stringify({
+          amount_cents: amountCents,
+          interval: 'one_time',
+          product: product,
+          source: 'shop'
         })
       })
-      .then(r => r.json())
-      .then(data => {
-        if (data.url) window.location.href = data.url;
-        else alert("Checkout is being prepared. Thank you for your patience.");
+      .then(r => {
+        if (!r.ok) throw new Error('Network response not ok');
+        return r.json();
       })
-      .catch(() => {
-        alert("Thank you. The shop is being activated. Please check back shortly or support via /give.html.");
+      .then(data => {
+        if (data.url) {
+          showDonationStatus('Redirecting to secure checkout...');
+          window.location.href = data.url;
+        } else {
+          showDonationStatus('Thank you — your purchase helps keep the porch open.');
+        }
+      })
+      .catch((e) => {
+        console.error(e);
+        showDonationStatus('Please check your connection and try again. The online porch remains free forever.', true);
       });
     }
   </script>
 
   <script src="inline-bootstrap.js"></script>
   <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260505-porch-legacy"></script>
+  <script type="module" src="script.js?v=20260503-consent-persist-fix"></script>
 </body>
 </html>

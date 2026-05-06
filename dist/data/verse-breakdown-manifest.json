@@ -1,8 +1,700 @@
 {
-  "generatedAt": "2026-05-03T22:35:25.125Z",
+  "generatedAt": "2026-05-06T02:11:42.557Z",
   "surfacedRefCount": 2951,
   "overrideCount": 2951,
   "sourceCounts": {
+    ".worktrees/main-hotfix/404-admin.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/404.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/action-bible.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/action-bible.js": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/admin.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/advent-christmas-university.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/api/src/pilot-data/battle-plans.json": {
+      "refs": 10,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/api/src/pilot-data/calm-moods.json": {
+      "refs": 10,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/api/src/pilot-data/canon-daily-verse.json": {
+      "refs": 10,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/as-the-year-ends-one-page-print.html": {
+      "refs": 5,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/ask-the-word.js": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/back-to-school-university.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/be-still-moments.html": {
+      "refs": 5,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/bible-characters.json": {
+      "refs": 106,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/bible-tool.html": {
+      "refs": 141,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/build-action-bible.js": {
+      "refs": 2,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/build-characters.js": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/build-curriculum.js": {
+      "refs": 1,
+      "pairs": 1
+    },
+    ".worktrees/main-hotfix/calm.html": {
+      "refs": 18,
+      "pairs": 22
+    },
+    ".worktrees/main-hotfix/cartoon.js": {
+      "refs": 8,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/chapters.json": {
+      "refs": 2,
+      "pairs": 46
+    },
+    ".worktrees/main-hotfix/church/church.js": {
+      "refs": 9,
+      "pairs": 9
+    },
+    ".worktrees/main-hotfix/church.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/church.js": {
+      "refs": 1,
+      "pairs": 1
+    },
+    ".worktrees/main-hotfix/coloring.html": {
+      "refs": 5,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/commentary.json": {
+      "refs": 66,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/concordance.json": {
+      "refs": 40,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/curriculum.json": {
+      "refs": 140,
+      "pairs": 365
+    },
+    ".worktrees/main-hotfix/daily-battle-core.js": {
+      "refs": 10,
+      "pairs": 4
+    },
+    ".worktrees/main-hotfix/daily-tile.js": {
+      "refs": 4,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/daily-verse-widget.js": {
+      "refs": 51,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/daily-verses.js": {
+      "refs": 40,
+      "pairs": 40
+    },
+    ".worktrees/main-hotfix/data/plans-battle-shared.json": {
+      "refs": 315,
+      "pairs": 455
+    },
+    ".worktrees/main-hotfix/easter-eggs.js": {
+      "refs": 34,
+      "pairs": 6
+    },
+    ".worktrees/main-hotfix/easter-resurrection-university.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/embed-verse-widget.js": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/embeddable-widgets-page.js": {
+      "refs": 3,
+      "pairs": 3
+    },
+    ".worktrees/main-hotfix/embeddable-widgets.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/evening-university-print.html": {
+      "refs": 4,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/fallback-search.js": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/family-armor-little-ones.html": {
+      "refs": 5,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/family-armor.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/family-home.html": {
+      "refs": 3,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/family-lineage.json": {
+      "refs": 53,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/firebase-functions/sendDailyVerseNotification.js": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/for-pastors.html": {
+      "refs": 10,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/gentle-new-year-week-print.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/gentle-suggest.js": {
+      "refs": 28,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/he-is-risen.html": {
+      "refs": 6,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/hero-daily-365-data.js": {
+      "refs": 365,
+      "pairs": 365
+    },
+    ".worktrees/main-hotfix/hero-daily-first-paint.js": {
+      "refs": 2,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/hero-hero-pools.js": {
+      "refs": 13,
+      "pairs": 18
+    },
+    ".worktrees/main-hotfix/hi/dar.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/id/index.html": {
+      "refs": 3,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/id/kecemasan.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/id/ketakutan.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/index.html": {
+      "refs": 104,
+      "pairs": 123
+    },
+    ".worktrees/main-hotfix/kids/bible-story-tool-index.js": {
+      "refs": 239,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/kids/color-and-tell.js": {
+      "refs": 332,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/kids/corner.html": {
+      "refs": 11,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/kids/good-night.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/kids/index.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/kids/kids-corner.js": {
+      "refs": 212,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/kids/kids-hub-play.js": {
+      "refs": 107,
+      "pairs": 3
+    },
+    ".worktrees/main-hotfix/kids/kids-parent.js": {
+      "refs": 4,
+      "pairs": 4
+    },
+    ".worktrees/main-hotfix/kids/kids-verses-365.js": {
+      "refs": 365,
+      "pairs": 365
+    },
+    ".worktrees/main-hotfix/kids/prayer-activities.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/kids/shepherds-path.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/kids-coloring-pack.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/kids-corner.html": {
+      "refs": 12,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/kjv-word-notes.json": {
+      "refs": 945,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/late-summer-reset-one-page-print.html": {
+      "refs": 6,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/loops.json": {
+      "refs": 229,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/memorize.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/memorize.js": {
+      "refs": 2,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/memory-verse-activities-print.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/memory-verses.js": {
+      "refs": 14,
+      "pairs": 15
+    },
+    ".worktrees/main-hotfix/mission-outreach-data.js": {
+      "refs": 25,
+      "pairs": 25
+    },
+    ".worktrees/main-hotfix/mobius-loop.js": {
+      "refs": 3,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/mobius-minimal.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/mobius-text-v2.js": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/mobius-universal.js": {
+      "refs": 14,
+      "pairs": 2
+    },
+    ".worktrees/main-hotfix/mobius.html": {
+      "refs": 22,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/morning-evening-family-print.html": {
+      "refs": 3,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/mystudy.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/mystudy.js": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/next-app/data/battle-plans.json": {
+      "refs": 10,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/next-app/data/calm-moods.json": {
+      "refs": 10,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/next-app/data/canon-daily-verse.json": {
+      "refs": 10,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/offline.html": {
+      "refs": 5,
+      "pairs": 5
+    },
+    ".worktrees/main-hotfix/one-week-in-the-university-print.html": {
+      "refs": 6,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/one-week-rhythm-kids.html": {
+      "refs": 8,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/one-week-rhythm.html": {
+      "refs": 8,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/pastor/builder.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/pastor/index.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/pastor/pastor-builder.js": {
+      "refs": 2,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/pastor/pastor-hub.js": {
+      "refs": 1,
+      "pairs": 1
+    },
+    ".worktrees/main-hotfix/pastor/pastor-tools.js": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/pastor/sermon-library.js": {
+      "refs": 57,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/pastor/tools.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/pastor-toolkit.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/pentecost-spirit-university.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/people-verse-map.js": {
+      "refs": 477,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/plans-data.js": {
+      "refs": 315,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/plans-engine.js": {
+      "refs": 1,
+      "pairs": 1
+    },
+    ".worktrees/main-hotfix/plans.html": {
+      "refs": 261,
+      "pairs": 272
+    },
+    ".worktrees/main-hotfix/printables.html": {
+      "refs": 9,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/psalms.html": {
+      "refs": 4,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/quiet-evening.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/quiet-morning.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/quiet-new-year-reset-one-page-print.html": {
+      "refs": 5,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/reading-plan.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/ru/strakh.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/script.js": {
+      "refs": 421,
+      "pairs": 251
+    },
+    ".worktrees/main-hotfix/search.js": {
+      "refs": 14,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/seasonal.html": {
+      "refs": 10,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/service-worker.js": {
+      "refs": 6,
+      "pairs": 6
+    },
+    ".worktrees/main-hotfix/shop.html": {
+      "refs": 5,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/sos.html": {
+      "refs": 3,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/spring-at-the-table-one-page-print.html": {
+      "refs": 5,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/start-my-day.js": {
+      "refs": 8,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/start-the-year-in-the-word.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/study.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/summer-harvest-university.html": {
+      "refs": 3,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/tdb-january-quiet.js": {
+      "refs": 31,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/tdb-uog-month-signpost.js": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/team-toolkit-packs-pdf.js": {
+      "refs": 19,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/team-toolkit.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/test-site.js": {
+      "refs": 124,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/tl/kabalisahan.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/topic-anxiety.html": {
+      "refs": 4,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/topic-fear.html": {
+      "refs": 3,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/topic-forgiveness.html": {
+      "refs": 5,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/topic-grief.html": {
+      "refs": 4,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/topic-guilt.html": {
+      "refs": 3,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/topic-hope.html": {
+      "refs": 5,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/topic-loneliness.html": {
+      "refs": 3,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/topic-overwhelmed.html": {
+      "refs": 3,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/topic-parenting.html": {
+      "refs": 5,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/topic-strength.html": {
+      "refs": 4,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/topic-worry.html": {
+      "refs": 4,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/topic-worthless.html": {
+      "refs": 4,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/tree.json": {
+      "refs": 99,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/university-anger-one-page-print.html": {
+      "refs": 6,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/university-at-the-table-print.html": {
+      "refs": 4,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/university-comparison-one-page-print.html": {
+      "refs": 6,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/university-contentment-one-page-print.html": {
+      "refs": 6,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/university-overwhelm-one-page-print.html": {
+      "refs": 6,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/university-parent-fear-one-page-print.html": {
+      "refs": 6,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/university-regret-one-page-print.html": {
+      "refs": 6,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/university.html": {
+      "refs": 49,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/utils.js": {
+      "refs": 10,
+      "pairs": 10
+    },
+    ".worktrees/main-hotfix/verse-breakdown-standard.js": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/verse-breakdown.js": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/verse-cards/index.html": {
+      "refs": 15,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/verse-image.html": {
+      "refs": 10,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/verse-image.js": {
+      "refs": 4,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/verse-rotator.js": {
+      "refs": 1,
+      "pairs": 1
+    },
+    ".worktrees/main-hotfix/verse-search-dropdown.js": {
+      "refs": 20,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/verse.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/when-fall-feels-heavy-one-page-print.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/when-school-feels-hard-one-page-print.html": {
+      "refs": 5,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/when-spring-feels-overwhelming-one-page-print.html": {
+      "refs": 5,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/when-spring-feels-scattered-one-page-print.html": {
+      "refs": 6,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/when-summer-feels-too-much-one-page-print.html": {
+      "refs": 6,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/when-thanksgiving-feels-lonely-or-hard-one-page-print.html": {
+      "refs": 6,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/when-the-days-grow-short-one-page-print.html": {
+      "refs": 5,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/when-the-leaves-start-turning-one-page-print.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/when-winter-lingers-one-page-print.html": {
+      "refs": 6,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/when-year-feels-heavy-one-page-print.html": {
+      "refs": 5,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/winter-readalouds-one-page-print.html": {
+      "refs": 5,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/year-end-rest-one-page-print.html": {
+      "refs": 5,
+      "pairs": 0
+    },
+    ".worktrees/main-hotfix/yearly-rhythm.html": {
+      "refs": 5,
+      "pairs": 0
+    },
     "404-admin.html": {
       "refs": 1,
       "pairs": 0
@@ -156,7 +848,7 @@
       "pairs": 0
     },
     "daily-verse-widget.js": {
-      "refs": 51,
+      "refs": 1,
       "pairs": 0
     },
     "daily-verses.js": {
@@ -343,6 +1035,10 @@
       "refs": 6,
       "pairs": 0
     },
+    "lighthouse-bible-tool.json": {
+      "refs": 1,
+      "pairs": 0
+    },
     "loops.json": {
       "refs": 229,
       "pairs": 0
@@ -403,6 +1099,162 @@
       "refs": 1,
       "pairs": 0
     },
+    "next-app/.next/dev/server/chunks/ssr/_0.u0agw._.js": {
+      "refs": 4,
+      "pairs": 0
+    },
+    "next-app/.next/dev/server/chunks/ssr/_05i7~_u._.js": {
+      "refs": 4,
+      "pairs": 0
+    },
+    "next-app/.next/dev/server/chunks/ssr/_0bykrou._.js": {
+      "refs": 10,
+      "pairs": 0
+    },
+    "next-app/.next/dev/server/chunks/ssr/_0fzrzy.._.js": {
+      "refs": 4,
+      "pairs": 0
+    },
+    "next-app/.next/dev/server/chunks/ssr/_0l1muz4._.js": {
+      "refs": 10,
+      "pairs": 0
+    },
+    "next-app/.next/dev/server/chunks/ssr/_0vt_5rw._.js": {
+      "refs": 4,
+      "pairs": 0
+    },
+    "next-app/.next/dev/static/chunks/_020n400._.js": {
+      "refs": 10,
+      "pairs": 0
+    },
+    "next-app/.next/dev/static/chunks/_062au7l._.js": {
+      "refs": 10,
+      "pairs": 0
+    },
+    "next-app/.next/dev/static/chunks/_0ibkmpj._.js": {
+      "refs": 4,
+      "pairs": 0
+    },
+    "next-app/.next/dev/static/chunks/_0tvv36o._.js": {
+      "refs": 4,
+      "pairs": 0
+    },
+    "next-app/.next/dev/static/chunks/_0w7jrho._.js": {
+      "refs": 4,
+      "pairs": 0
+    },
+    "next-app/.next/dev/static/chunks/_0~y0-3g._.js": {
+      "refs": 4,
+      "pairs": 0
+    },
+    "next-app/.next/server/app/family.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "next-app/.next/server/app/index.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "next-app/.next/server/app/mystudy.html": {
+      "refs": 10,
+      "pairs": 0
+    },
+    "next-app/.next/server/app/plans/family.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    "next-app/.next/server/app/plans/fear.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    "next-app/.next/server/app/plans/grief.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    "next-app/.next/server/app/plans/parenting.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    "next-app/.next/server/app/plans.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "next-app/.next/server/app/prayer-wall.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "next-app/.next/server/app/verse.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "next-app/.next/server/chunks/ssr/[root-of-the-server]__0_~edhp._.js": {
+      "refs": 10,
+      "pairs": 0
+    },
+    "next-app/.next/server/chunks/ssr/[root-of-the-server]__0dvulr-._.js": {
+      "refs": 10,
+      "pairs": 0
+    },
+    "next-app/.next/server/chunks/ssr/[root-of-the-server]__0wozh80._.js": {
+      "refs": 10,
+      "pairs": 0
+    },
+    "next-app/.next/server/chunks/ssr/_04j.or1._.js": {
+      "refs": 10,
+      "pairs": 0
+    },
+    "next-app/.next/server/chunks/ssr/_06cu1ab._.js": {
+      "refs": 10,
+      "pairs": 0
+    },
+    "next-app/.next/server/chunks/ssr/_08mnqom._.js": {
+      "refs": 3,
+      "pairs": 0
+    },
+    "next-app/.next/server/chunks/ssr/_0f5lyzm._.js": {
+      "refs": 3,
+      "pairs": 0
+    },
+    "next-app/.next/server/chunks/ssr/_0g7ept8._.js": {
+      "refs": 10,
+      "pairs": 0
+    },
+    "next-app/.next/server/chunks/ssr/_0j66g8o._.js": {
+      "refs": 3,
+      "pairs": 0
+    },
+    "next-app/.next/server/chunks/ssr/_0~ksvst._.js": {
+      "refs": 3,
+      "pairs": 0
+    },
+    "next-app/.next/static/chunks/0-acqbm~rdimm.js": {
+      "refs": 3,
+      "pairs": 0
+    },
+    "next-app/.next/static/chunks/03i-n8a~w1iee.js": {
+      "refs": 10,
+      "pairs": 0
+    },
+    "next-app/.next/static/chunks/0n.mahp6wvmy1.js": {
+      "refs": 10,
+      "pairs": 0
+    },
+    "next-app/.next/static/chunks/0o0-okl1at2l8.js": {
+      "refs": 3,
+      "pairs": 0
+    },
+    "next-app/.next/static/chunks/0vkl6a38n5j.z.js": {
+      "refs": 3,
+      "pairs": 0
+    },
+    "next-app/.next/static/chunks/0vu~wfdxud7ew.js": {
+      "refs": 3,
+      "pairs": 0
+    },
+    "next-app/.next/static/chunks/14uvk2naq0ii2.js": {
+      "refs": 10,
+      "pairs": 0
+    },
     "next-app/data/battle-plans.json": {
       "refs": 10,
       "pairs": 0
@@ -413,6 +1265,98 @@
     },
     "next-app/data/canon-daily-verse.json": {
       "refs": 10,
+      "pairs": 0
+    },
+    "next-app/out/_next/static/chunks/0-acqbm~rdimm.js": {
+      "refs": 3,
+      "pairs": 0
+    },
+    "next-app/out/_next/static/chunks/03i-n8a~w1iee.js": {
+      "refs": 10,
+      "pairs": 0
+    },
+    "next-app/out/_next/static/chunks/0n.mahp6wvmy1.js": {
+      "refs": 10,
+      "pairs": 0
+    },
+    "next-app/out/_next/static/chunks/0o0-okl1at2l8.js": {
+      "refs": 3,
+      "pairs": 0
+    },
+    "next-app/out/_next/static/chunks/0vkl6a38n5j.z.js": {
+      "refs": 3,
+      "pairs": 0
+    },
+    "next-app/out/_next/static/chunks/0vu~wfdxud7ew.js": {
+      "refs": 3,
+      "pairs": 0
+    },
+    "next-app/out/_next/static/chunks/14uvk2naq0ii2.js": {
+      "refs": 10,
+      "pairs": 0
+    },
+    "next-app/out/family 2.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "next-app/out/family.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "next-app/out/index 2.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "next-app/out/index.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "next-app/out/mystudy 2.html": {
+      "refs": 10,
+      "pairs": 0
+    },
+    "next-app/out/mystudy.html": {
+      "refs": 10,
+      "pairs": 0
+    },
+    "next-app/out/plans/family.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    "next-app/out/plans/fear.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    "next-app/out/plans/grief.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    "next-app/out/plans/parenting.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    "next-app/out/plans 3.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "next-app/out/plans.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "next-app/out/prayer-wall 2.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "next-app/out/prayer-wall.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "next-app/out/verse 3.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "next-app/out/verse.html": {
+      "refs": 1,
       "pairs": 0
     },
     "offline.html": {
@@ -436,7 +1380,7 @@
       "pairs": 0
     },
     "pastor/index.html": {
-      "refs": 1,
+      "refs": 2,
       "pairs": 0
     },
     "pastor/pastor-builder.js": {
@@ -530,10 +1474,6 @@
     "service-worker.js": {
       "refs": 6,
       "pairs": 6
-    },
-    "shop.html": {
-      "refs": 5,
-      "pairs": 0
     },
     "sos.html": {
       "refs": 3,
@@ -4001,7 +4941,7 @@
     "Psalm 34:1": "I will bless the LORD at all times: his praise shall continually be in my mouth.",
     "Psalm 34:10": "The young lions do lack, and suffer hunger: but they that seek the LORD shall not want any good thing.",
     "Psalm 34:17": "The righteous cry, and the Lord heareth, and delivereth them out of all their troubles.",
-    "Psalm 34:18": "The Lord is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.",
+    "Psalm 34:18": "The LORD is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.",
     "Psalm 34:19": "Many are the afflictions of the righteous: but the Lord delivereth him out of them all.",
     "Psalm 34:4": "I sought the Lord, and he heard me, and delivered me from all my fears.",
     "Psalm 34:5": "They looked unto him, and were lightened: and their faces were not ashamed.",

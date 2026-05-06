@@ -27,7 +27,7 @@ The product **does not** use leaderboards, public rankings, or social competitio
 
 ## Creator and story
 
-- **Builder:** Brandon Barnard — Dallas native, raised in West Tennessee (Union City, Martin, and Memphis areas). The work grew from a **hospital season** that made steady, simple KJV help essential; he still uses the site daily.
+- **Builder / Origin Story (Deep):** Solo-built and still run by Brandon Barnard (West Tennessee, formerly Dallas hospital season). The site was born in his own “hospital room” pain when he desperately needed plain KJV Scripture that met him exactly where he was—no lectures, no polished production, no performance metrics. He built what he couldn’t find anywhere else and still uses it himself every single day. It quietly continues the legacy of his father, Evangelist Thomas W. Barnard, who spent decades in Christian Messenger Service pointing hurting people straight to the KJV and the hope of Jesus. Brandon describes himself simply: “not a preacher… just a regular guy who needs the KJV the same way you do—especially on the heavy days.”
 - **Public voice / X (examples):** [@todaysdailybattle](https://x.com/todaysdailybattle) (site); personal handle [@8randon8arnard](https://x.com/8randon8arnard) may appear in founder contexts.
 - **Structure:** personal ministry; no corporate or organizational umbrella. Support flows described on [where-support-goes.html](https://todaysdailybattle.com/where-support-goes.html) and [give](https://todaysdailybattle.com/give).
 

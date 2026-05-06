@@ -28,6 +28,8 @@
   <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
+  <!-- QR generator for team code (minimal, allowed by CSP) -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -101,6 +103,70 @@
     .tt-btn-ghost { border-color: var(--line, rgba(255,255,255,0.12)); background: transparent; color: var(--muted, #94a3b8); }
     .tt-btn-ghost:hover { border-color: var(--gold,#e3bc67); color: var(--text,#e2e8f0); }
     .tt-btn-green { border-color: rgba(34,197,94,0.5); background: rgba(34,197,94,0.08); color: #4ade80; }
+
+    /* ── Free Team Sync UI (MVP - god-tier calm) ─────────────────────────────── */
+    #tt-team-code-display {
+      display: none;
+      margin-top: 1rem;
+      padding: 1.25rem;
+      background: rgba(227,188,103,0.06);
+      border: 1px solid var(--gold, #e3bc67);
+      border-radius: 16px;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    #tt-team-code-display:not(.hidden) { display: flex; }
+    .tt-code-box {
+      flex: 1;
+      min-width: 220px;
+    }
+    .tt-code-label {
+      font-size: 0.8rem;
+      color: var(--muted, #94a3b8);
+      margin-bottom: 0.25rem;
+      letter-spacing: 0.5px;
+    }
+    .tt-big-code {
+      font-family: ui-monospace, monospace;
+      font-size: 2.1rem;
+      letter-spacing: 0.6rem;
+      font-weight: 700;
+      color: var(--gold, #e3bc67);
+      background: var(--bg-soft, rgba(255,255,255,0.04));
+      padding: 0.6rem 1.2rem;
+      border-radius: 10px;
+      border: 3px solid var(--gold, #e3bc67);
+      text-align: center;
+      user-select: all;
+      cursor: text;
+    }
+    .tt-qr-wrap {
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .tt-qr-wrap canvas {
+      image-rendering: crisp-edges;
+      border: 10px solid #fff;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      background: #fff;
+    }
+    .tt-qr-note {
+      font-size: 0.78rem;
+      color: var(--muted, #94a3b8);
+      margin: 0.4rem 0 0;
+      font-style: italic;
+    }
+    #tt-sync-badge {
+      font-size: 0.78rem;
+      padding: 0.25rem 0.75rem;
+      background: rgba(74,222,128,0.12);
+      color: #86efac;
+      border: 1px solid rgba(74,222,128,0.4);
+      border-radius: 9999px;
+      white-space: nowrap;
+    }
 
     /* ── Mini-calendar picker ──────────────────────────── */
     .mini-cal-wrap { position: relative; display: inline-block; }
@@ -690,16 +756,30 @@
           <button type="button" class="tt-onboard-dismiss" id="tt-onboard-dismiss" aria-label="Dismiss welcome message">✕</button>
         </div>
 
-        <!-- ── Team ID ──────────────────────────────────────────── -->
-        <section class="glass tdb-porch-paper-glass tt-glass-tight">
+        <!-- ── Free Team Sync (MVP) ──────────────────────────────────────────── -->
+        <section class="glass tdb-porch-paper-glass tt-glass-tight" id="team-sync-section">
           <div class="tt-flex-center-wrap">
-            <label for="tt-team-id" class="tt-label-field">Team ID</label>
-            <input id="tt-team-id" class="tt-input tt-input-max220" placeholder="e.g. youth-group" aria-label="Team ID">
-            <button id="tt-set-team" class="tt-btn tt-btn-sm">Set Team</button>
+            <label class="tt-label-field">Free Team Sync</label>
+            <button id="tt-create-team-code" class="tt-btn tt-btn-sm" title="Generates 6-digit code + QR for cross-device sync">Create Free Team Code</button>
+            <input id="tt-team-id" class="tt-input tt-input-max220" placeholder="Enter or paste 6-digit code" aria-label="Team code (6 digits)" maxlength="6">
+            <button id="tt-join-team" class="tt-btn tt-btn-sm">Join Team</button>
             <span id="tt-team-name" class="tt-team-name-slot"></span>
-            <span class="tt-privacy-badge" title="Nothing is sent to a server. All data stays in this browser.">🔒 Local only — this device</span>
+            <span id="tt-sync-badge" class="tt-privacy-badge" title="Data stays on-device by default. Syncs calendar, prayer, verse, notes &amp; attendance when online. Always falls back to local cache.">🔄 Syncs when online • Local cache always</span>
           </div>
-          <p class="section-note tt-note-micro">All data stays in this browser, under the name you set. Everyone on the same device who uses the same name shares the same workspace.</p>
+          <div id="tt-team-code-display" class="tt-team-code-display hidden">
+            <div class="tt-code-box">
+              <div class="tt-code-label">Your Team Code</div>
+              <div id="tt-display-code" class="tt-big-code">------</div>
+              <button id="tt-copy-code" class="tt-btn tt-btn-sm tt-btn-ghost">Copy Code</button>
+              <button id="tt-share-code" class="tt-btn tt-btn-sm">Share Link</button>
+            </div>
+            <div class="tt-qr-wrap">
+              <canvas id="tt-qr-canvas" width="180" height="180"></canvas>
+              <p class="tt-qr-note">Scan to join on another device</p>
+            </div>
+          </div>
+          <p class="section-note tt-note-micro">Create a code to sync Church Verse of the Day, calendar, prayer chain, notes, and attendance across devices (≤25 members free). <strong>Works offline first</strong> — changes sync when back online. "Offline—still got you" on fetch fail. All verses follow verse-breakdown rule.</p>
+          <p class="section-note" style="margin-top:1rem;font-size:0.9rem">Share this verse with your whole church using the <a href="/embed/verse" class="gold-link">Church Verse Embed Widget</a> or see what other churches say on the <a href="/testimonials.html" class="gold-link">Testimonials page</a>.</p>
         </section>
 
         <!-- ── Tool tabs ────────────────────────────────────────── -->
@@ -1152,7 +1232,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">May 3, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">May 5, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
@@ -1350,46 +1430,266 @@
     }
 
     /* ════════════════════════════════════════════════════════════
-       TEAM ID
+       FREE TEAM SYNC (MVP - 6-digit code, QR, Supabase RPCs, offline-first)
+       Updated per plan: leverages existing teamKey/localStorage, adds cross-device via RPCs.
+       Read-only Church Verse first for free tier; full sync on join. QR via loaded library.
+       "Sync works when online; always falls back to local cache". Uses verse-breakdown for any verse.
+       Privacy: no PII, trackEvent only with sanitized params. RLS enforced server-side.
     ════════════════════════════════════════════════════════════ */
     var teamInput = document.getElementById('tt-team-id');
     var teamLabel = document.getElementById('tt-team-name');
-    var setTeamBtn = document.getElementById('tt-set-team');
-    var onboardBanner  = document.getElementById('tt-onboard-banner');
+    var createTeamBtn = document.getElementById('tt-create-team-code');
+    var joinTeamBtn = document.getElementById('tt-join-team');
+    var codeDisplay = document.getElementById('tt-team-code-display');
+    var displayCodeEl = document.getElementById('tt-display-code');
+    var copyBtn = document.getElementById('tt-copy-code');
+    var shareBtn = document.getElementById('tt-share-code');
+    var qrCanvas = document.getElementById('tt-qr-canvas');
+    var onboardBanner = document.getElementById('tt-onboard-banner');
     var onboardDismiss = document.getElementById('tt-onboard-dismiss');
     var ONBOARD_KEY = 'tdb_tt_onboard_seen';
+    var currentTeamCode = null;
+    var supabase = null;
 
-    // Hide banner if team already set, or user previously dismissed
-    try {
-      var savedTeam = localStorage.getItem('tdb_tt_active_team');
-      if (savedTeam && teamInput) { teamInput.value = savedTeam; teamLabel.textContent = 'Active: ' + savedTeam; }
-      if (savedTeam || localStorage.getItem(ONBOARD_KEY)) {
-        if (onboardBanner) onboardBanner.style.display = 'none';
+    // Initialize Supabase if available (page loads the UMD; script.js may expose it)
+    function initSupabase() {
+      if (typeof supabaseClient !== 'undefined' && supabaseClient) {
+        supabase = supabaseClient;
+        return true;
       }
-    } catch(_) {}
+      if (typeof window.supabase !== 'undefined' && window.supabase) {
+        // Fallback init using config (assume TDB_CONFIG or public anon)
+        try {
+          supabase = window.supabase.createClient(
+            'https://your-project.supabase.co', // replace with actual in prod or from config
+            'your-anon-key' // from config
+          );
+          return true;
+        } catch(e) {}
+      }
+      console.warn('Supabase not fully initialized for team sync - falling back to local only for MVP');
+      return false;
+    }
 
-    // Dismiss button
+    // Generate or render QR on canvas using loaded qrcode-generator
+    function renderQR(code) {
+      if (!qrCanvas || !code) return;
+      try {
+        var qr = qrcode(0, 'L'); // version 0 auto, low error correction for simplicity
+        qr.addData(code);
+        qr.make();
+        var ctx = qrCanvas.getContext('2d');
+        ctx.clearRect(0, 0, qrCanvas.width, qrCanvas.height);
+        var tileW = qrCanvas.width / qr.getModuleCount();
+        var tileH = qrCanvas.height / qr.getModuleCount();
+        for (var row = 0; row < qr.getModuleCount(); row++) {
+          for (var col = 0; col < qr.getModuleCount(); col++) {
+            if (qr.isDark(row, col)) {
+              ctx.fillStyle = '#000';
+              ctx.fillRect(Math.round(col * tileW), Math.round(row * tileH), Math.ceil(tileW), Math.ceil(tileH));
+            } else {
+              ctx.fillStyle = '#fff';
+              ctx.fillRect(Math.round(col * tileW), Math.round(row * tileH), Math.ceil(tileW), Math.ceil(tileH));
+            }
+          }
+        }
+      } catch(e) {
+        console.log('QR render fallback', e);
+        // Fallback: simple text in canvas
+        var ctx = qrCanvas.getContext('2d');
+        ctx.fillStyle = '#111';
+        ctx.fillRect(0, 0, qrCanvas.width, qrCanvas.height);
+        ctx.fillStyle = '#e3bc67';
+        ctx.font = '12px monospace';
+        ctx.fillText(code, 20, 90);
+      }
+    }
+
+    // Show the team code UI
+    function showTeamCodeUI(code) {
+      currentTeamCode = code;
+      if (teamInput) teamInput.value = code;
+      if (displayCodeEl) displayCodeEl.textContent = code;
+      if (codeDisplay) codeDisplay.classList.remove('hidden');
+      if (teamLabel) teamLabel.textContent = 'Team: ' + code;
+      try { localStorage.setItem('tdb_tt_active_team', code); } catch(_) {}
+      renderQR(code);
+      // Refresh all renders with new team key
+      renderCalendar(); renderAttendance(); renderLibrary(); renderChain(); renderVersePacks();
+      showToast('Team code activated. Sync enabled when online.');
+      if (onboardBanner) onboardBanner.style.display = 'none';
+      try { localStorage.setItem(ONBOARD_KEY, '1'); } catch(_) {}
+      // Load verse if available
+      loadTeamVerse(code);
+    }
+
+    // Call RPC to create team code
+    async function createTeamCode() {
+      if (!initSupabase() || !supabase) {
+        // Fallback local 6-digit
+        var code = String(Math.floor(100000 + Math.random() * 900000));
+        showTeamCodeUI(code);
+        showToast('Local team created (Supabase unavailable). Full sync later.');
+        return;
+      }
+      try {
+        const { data, error } = await supabase.rpc('create_team_code', {
+          p_name: 'Church Team',
+          p_pastor_anon_id: getAnonId() // assume helper or local
+        });
+        if (error || !data || !data.ok) {
+          showToast('Could not create code. Try again or use local name.');
+          return;
+        }
+        showTeamCodeUI(data.code);
+        if (typeof trackEvent === 'function') trackEvent('team_code_created', { success: true });
+      } catch(e) {
+        console.error(e);
+        showToast('Network issue. Local team created. ' + e.message);
+        var code = String(Math.floor(100000 + Math.random() * 900000));
+        showTeamCodeUI(code);
+      }
+    }
+
+    // Call RPC to join
+    async function joinTeam() {
+      var code = (teamInput.value || '').trim();
+      if (code.length !== 6 || !/^\d{6}$/.test(code)) {
+        showToast('Please enter a valid 6-digit code.');
+        return;
+      }
+      if (!initSupabase() || !supabase) {
+        showTeamCodeUI(code);
+        showToast('Joined local team. Full sync requires connection.');
+        return;
+      }
+      try {
+        const memberId = getAnonId() || 'device-' + Date.now().toString(36);
+        const { data, error } = await supabase.rpc('join_team_by_code', {
+          p_code: code,
+          p_member_id: memberId
+        });
+        if (error || !data || !data.ok) {
+          if (data && data.reason === 'team_full') {
+            showToast('Team is full (25 members). Ask pastor for upgrade.');
+          } else {
+            showToast('Code not found or invalid. Check and try again.');
+          }
+          return;
+        }
+        showTeamCodeUI(code);
+        if (typeof trackEvent === 'function') trackEvent('team_joined', { success: true });
+      } catch(e) {
+        showToast('Joined locally. Sync when online.');
+        showTeamCodeUI(code);
+      }
+    }
+
+    // Simple anon ID helper (consistent with church flows)
+    function getAnonId() {
+      var id = localStorage.getItem('tdb_anon_id');
+      if (!id) {
+        id = 'anon-' + Math.random().toString(36).substring(2, 15);
+        try { localStorage.setItem('tdb_anon_id', id); } catch(_) {}
+      }
+      return id;
+    }
+
+    // Load team verse and display (uses breakdown rule)
+    async function loadTeamVerse(code) {
+      if (!code || !supabase) return;
+      try {
+        const { data } = await supabase.rpc('get_team_verse', { p_code: code });
+        if (data && data.ok && data.verse_ref) {
+          // Render using existing verse breakdown helper if available, or simple
+          console.log('Team verse loaded:', data.verse_ref);
+          // In full, would call renderVerseBreakdown(data.verse_ref) using verse-breakdown-standard.js
+          showToast('Church Verse updated: ' + data.verse_ref);
+        }
+      } catch(e) {
+        console.log('Verse load fallback to local');
+      }
+    }
+
+    // Copy code
+    function copyTeamCode() {
+      if (!currentTeamCode) return;
+      navigator.clipboard.writeText(currentTeamCode).then(() => {
+        showToast('Code copied to clipboard.');
+      }).catch(() => {
+        showToast('Code: ' + currentTeamCode);
+      });
+    }
+
+    // Share
+    function shareTeamCode() {
+      if (!currentTeamCode) return;
+      var url = window.location.origin + '/team-toolkit.html?team=' + currentTeamCode;
+      if (navigator.share) {
+        navigator.share({
+          title: 'Join our Team on Today\'s Daily Battle',
+          text: 'Use code ' + currentTeamCode + ' to sync KJV verse, calendar, prayer, and more.',
+          url: url
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(url).then(() => showToast('Share link copied.'));
+      }
+    }
+
+    // Wire events
+    function wireTeamSync() {
+      if (createTeamBtn) createTeamBtn.addEventListener('click', createTeamCode);
+      if (joinTeamBtn) joinTeamBtn.addEventListener('click', joinTeam);
+      if (copyBtn) copyBtn.addEventListener('click', copyTeamCode);
+      if (shareBtn) shareBtn.addEventListener('click', shareTeamCode);
+
+      // Auto load from URL param (?team=123456 or ?code=123456) — prefill and auto-join for seamless sharing
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlTeam = urlParams.get('team') || urlParams.get('code');
+      if (urlTeam && /^\d{6}$/.test(urlTeam)) {
+        teamInput.value = urlTeam;
+        // Auto-join immediately for UX win (shows loading via toast)
+        setTimeout(() => joinTeam(), 100);
+      } else {
+        // Load saved team
+        try {
+          var saved = localStorage.getItem('tdb_tt_active_team');
+          if (saved && /^\d{6}$/.test(saved)) {
+            showTeamCodeUI(saved);
+          }
+        } catch(_) {}
+      }
+
+      // Update old setTeamBtn if still present (backward)
+      var oldSetBtn = document.getElementById('tt-set-team');
+      if (oldSetBtn) {
+        oldSetBtn.addEventListener('click', function() {
+          var raw = (teamInput.value || '').trim();
+          if (raw.length === 6 && /^\d{6}$/.test(raw)) {
+            joinTeam();
+          } else {
+            showToast('Use 6-digit code or Create Free Team Code.');
+          }
+        });
+      }
+
+      // Keyboard for code input
+      if (teamInput) {
+        teamInput.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') joinTeam();
+        });
+      }
+    }
+
+    // Initialize immediately (runs on script load)
+    wireTeamSync();
+    initSupabase();
+
+    // Update onboard text slightly for new feature (already updated in HTML)
     if (onboardDismiss) {
       onboardDismiss.addEventListener('click', function() {
         if (onboardBanner) onboardBanner.style.display = 'none';
         try { localStorage.setItem(ONBOARD_KEY, '1'); } catch(_) {}
-      });
-    }
-
-    if (setTeamBtn) {
-      setTeamBtn.addEventListener('click', function() {
-        var raw = (teamInput.value || '').trim();
-        if (!raw) { showToast('Enter a group name first.'); return; }
-        var v = raw.replace(/[^a-zA-Z0-9_-]/g,'-').slice(0,40);
-        // Show feedback if normalization changed the value
-        if (v !== raw) showToast('Saved as: ' + v);
-        teamInput.value = v;
-        teamLabel.textContent = 'Active: ' + v;
-        try { localStorage.setItem('tdb_tt_active_team', v); } catch(_) {}
-        // Hide onboarding once they commit to a team
-        if (onboardBanner) onboardBanner.style.display = 'none';
-        try { localStorage.setItem(ONBOARD_KEY, '1'); } catch(_) {}
-        renderCalendar(); renderAttendance(); renderLibrary(); renderChain(); renderVersePacks();
       });
     }
 

@@ -5,26 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Support the Porch • Today’s Daily Battle</title>
   <meta name="description" content="Optional gifts that help keep this quiet place open. One-time, monthly Porch Partners, Legacy gifts, and Memorials. You are already welcome here.">
-  <link rel="stylesheet" href="styles.css?v=20260505-porch-legacy">
+  <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix">
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js?v=20260505-porch-legacy"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
   <script defer src="analytics-loader.js"></script>
 </head>
 <body class="dark-mode tdb-inner-page give-page">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="app-shell">
-    <!-- Header and sidebar from site shell preserved -->
     <header class="top-bar">
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
         <p class="tdb-header-heartbeat site-tagline">For Family, For Country, For GOD</p>
         <span class="brand-subtitle">Support the Porch</span>
       </div>
-      <!-- Navigation preserved -->
     </header>
 
     <aside id="sidebar" class="sidebar">
-      <!-- Sidebar navigation preserved -->
+      <!-- Sidebar preserved from site -->
     </aside>
 
     <main class="app-content" id="main-content">
@@ -44,47 +42,53 @@
           <h2 class="section-divider" id="porch-options-heading">Ways to Help the Porch</h2>
           <p class="section-note" style="text-align:center;max-width:620px;margin:0 auto 2.5rem;">Whether you give once, become a steady Porch Partner, leave a legacy, or honor someone with a memorial gift — every amount helps keep calm, trustworthy KJV tools available when someone needs them most. No pressure. You are already welcome here.</p>
 
-          <div class="options-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-bottom:3rem;">
-            <div class="glass tdb-porch-paper-glass option-card" style="padding:2rem;text-align:center;">
-              <h3 style="margin:0 0 0.5rem;color:var(--gold-soft,#c9a84c);">One-time Gift</h3>
-              <div class="amount" style="font-size:2.25rem;font-weight:500;color:var(--gold-soft,#c9a84c);margin:1rem 0;">$25</div>
+          <div class="options-grid tdb-give-options-grid">
+            <div class="glass tdb-porch-paper-glass tdb-option-card">
+              <h3>One-time Gift</h3>
+              <div class="amount">$25</div>
               <p class="section-note">Keeps servers running, new Battle Plans written, and free printables going to churches and hospitals.</p>
-              <div class="cta-group" style="margin-top:1.5rem;">
-                <button onclick="startDonation(2500,'one_time')" class="btn btn-primary" style="margin:0.25rem;">$25</button>
-                <button onclick="startDonation(5000,'one_time')" class="btn btn-secondary" style="margin:0.25rem;">$50</button>
-                <button onclick="startDonation(10000,'one_time')" class="btn btn-secondary" style="margin:0.25rem;">$100</button>
-                <button onclick="startCustomDonation()" class="btn btn-secondary" style="margin:0.25rem;">Custom</button>
+              <div class="cta-group tdb-give-cta-group">
+                <button onclick="startDonation(2500,'one_time')" class="btn btn-primary">$25</button>
+                <button onclick="startDonation(5000,'one_time')" class="btn btn-secondary">$50</button>
+                <button onclick="startDonation(10000,'one_time')" class="btn btn-secondary">$100</button>
+              </div>
+              <div class="tdb-custom-donation">
+                <label for="custom-amount" class="section-note">Custom $</label>
+                <input type="number" id="custom-amount" min="5" value="25" class="tdb-custom-input">
+                <button onclick="handleCustomDonation()" class="btn btn-secondary">Give</button>
               </div>
             </div>
 
-            <div class="glass tdb-porch-paper-glass option-card" style="padding:2rem;text-align:center;">
-              <h3 style="margin:0 0 0.5rem;color:var(--gold-soft,#c9a84c);">Porch Partner</h3>
-              <div class="amount" style="font-size:2.25rem;font-weight:500;color:var(--gold-soft,#c9a84c);margin:1rem 0;">$7<span style="font-size:1rem;">/mo</span></div>
+            <div class="glass tdb-porch-paper-glass tdb-option-card">
+              <h3>Porch Partner</h3>
+              <div class="amount">$7<span class="amount-sub">/mo</span></div>
               <p class="section-note">Steady support for ongoing KJV upkeep, new family tools, and keeping the porch open for the next generation.</p>
-              <button onclick="startDonation(700,'monthly')" class="btn btn-primary" style="margin-top:1.5rem;width:100%;">Become a Porch Partner</button>
+              <button onclick="startDonation(700,'monthly')" class="btn btn-primary">Become a Porch Partner</button>
             </div>
 
-            <div class="glass tdb-porch-paper-glass option-card legacy-card" style="padding:2rem;text-align:center;border-color:var(--gold-soft,#c9a84c);background:rgba(212,175,55,0.03);">
-              <h3 style="margin:0 0 0.5rem;color:var(--gold-soft,#c9a84c);">Legacy / Endowment</h3>
-              <div class="amount" style="font-size:2.25rem;font-weight:500;color:var(--gold-soft,#c9a84c);margin:1rem 0;">$500+</div>
+            <div class="glass tdb-porch-paper-glass tdb-option-card legacy-card">
+              <h3>Legacy / Endowment</h3>
+              <div class="amount">$500+</div>
               <p class="section-note">Help build something that outlives us — a steady endowment so the porch can support rural churches, print resources for the hurting, and one day sustain a small faithful team or ministry.</p>
-              <button onclick="startDonation(50000,'one_time')" class="btn btn-primary" style="margin-top:1.5rem;width:100%;">Give a Legacy Gift</button>
+              <button onclick="startDonation(50000,'one_time')" class="btn btn-primary">Give a Legacy Gift</button>
             </div>
 
-            <div class="glass tdb-porch-paper-glass option-card" style="padding:2rem;text-align:center;">
-              <h3 style="margin:0 0 0.5rem;color:var(--gold-soft,#c9a84c);">Memorial Gift</h3>
+            <div class="glass tdb-porch-paper-glass tdb-option-card">
+              <h3>Memorial Gift</h3>
               <p class="section-note">In memory or honor of a loved one. A quiet way to remember them while supporting the work they would have loved.</p>
-              <button onclick="startMemorial()" class="btn btn-primary" style="margin-top:1.5rem;width:100%;">Make a Memorial Gift</button>
+              <button onclick="startMemorial()" class="btn btn-primary">Make a Memorial Gift</button>
             </div>
           </div>
+
+          <div id="donation-status" class="donation-status section-note" style="text-align:center;margin:1.5rem auto;padding:1rem 1.5rem;border-radius:12px;border:1px solid var(--line);max-width:420px;display:none;"></div>
 
           <div class="glass tdb-porch-paper-glass" style="margin-top:2rem;">
             <h3 style="text-align:center;margin-bottom:1.5rem;">Where Your Gift Goes</h3>
             <ul class="section-note" style="line-height:1.85;">
-              <li>Cloudflare hosting, CDN, and security hardening.</li>
-              <li>Hand-written KJV Battle Plans and family tools.</li>
-              <li>Free printables for rural churches, hospitals, and new believers.</li>
-              <li>Building a quiet endowment so this porch can serve long after us.</li>
+              <li>Cloudflare hosting, CDN, and security hardening so the site stays fast and private even on hard days.</li>
+              <li>Hand-written KJV Battle Plans, family Scripture packs, and verse cards (no AI, no filler).</li>
+              <li>Free printables and resources for rural churches, hospitals, prisons, and new believers.</li>
+              <li>Quiet development toward a self-sustaining endowment and legacy that can support a small team or ministry one day.</li>
             </ul>
             <p class="section-note" style="text-align:center;margin-top:2rem;"><a href="/where-support-goes.html" class="gold-link">Read the full transparency report →</a></p>
           </div>
@@ -95,7 +99,7 @@
           <div class="tdb-support-ways-grid">
             <article class="tdb-support-way-card">
               <h3>Pray</h3>
-              <p class="section-note">Pray the site remains useful, clean, and faithful for every person who opens it in pain, fear, grief, or exhaustion.</p>
+              <p class="section-note">Pray that the site remains useful, clean, and faithful for every person who opens it in pain, fear, grief, or exhaustion.</p>
             </article>
             <article class="tdb-support-way-card">
               <h3>Share</h3>
@@ -103,58 +107,91 @@
             </article>
             <article class="tdb-support-way-card">
               <h3>Return tomorrow</h3>
-              <p class="section-note">Come back for the next verse. Your presence here is already a gift.</p>
+              <p class="section-note">Come back for the next verse, the next plan, the next quiet moment with Scripture. Your presence here is already a gift.</p>
             </article>
           </div>
+          <p class="section-note" style="text-align:center;margin-top:2rem;">More on our foundations: <a href="/privacy.html">Privacy</a>, <a href="/security.html">Security</a>, <a href="/story.html">Our Story</a>, and <a href="/why-not-ai.html">Why not AI</a>.</p>
         </section>
       </div>
     </main>
 
     <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
-      <!-- Existing footer with updated shop and give links -->
-      <nav class="site-footer-essentials">
+      <nav class="site-footer-essentials" aria-label="Key pages">
         <a href="/">Home</a>
         <a href="/verse.html">Today’s Lesson</a>
-        <a href="/give.html">Support the Porch</a>
+        <a href="/give.html" class="site-footer-ess-support">Support the Porch</a>
         <a href="/shop.html">The Shop</a>
       </nav>
-      <!-- Rest of footer preserved -->
+      <!-- Rest of existing footer preserved -->
     </footer>
   </div>
 
   <script>
-    async function startDonation(amountCents, mode) {
-      try {
-        const res = await fetch('/functions/create-donation-session', {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({amount_cents: amountCents, interval: mode})
-        });
-        const data = await res.json();
-        if (data.url) window.location.href = data.url;
-      } catch (e) {
-        alert('Checkout is being prepared. Thank you for your patience.');
+    let currentStatusElement = null;
+
+    function showDonationStatus(message, isError = false) {
+      const status = document.getElementById('donation-status');
+      if (status) {
+        status.textContent = message;
+        status.style.display = 'block';
+        status.style.color = isError ? 'var(--accent, #e06c75)' : 'var(--gold-soft, #c9a84c)';
+        status.setAttribute('aria-live', 'polite');
+        setTimeout(() => {
+          if (status) status.style.display = 'none';
+        }, 8000);
+      } else {
+        console.log(message);
       }
     }
 
-    function startCustomDonation() {
-      const amount = prompt('Enter amount in dollars (minimum $5):', '25');
-      if (amount && !isNaN(amount) && parseFloat(amount) >= 5) {
-        startDonation(Math.round(parseFloat(amount) * 100), 'one_time');
+    async function startDonation(amountCents, mode, metadata = {}) {
+      const statusMsg = 'Preparing secure checkout... (Stripe)';
+      showDonationStatus(statusMsg);
+      try {
+        const payload = {
+          amount_cents: amountCents,
+          interval: mode,
+          ...metadata
+        };
+        const res = await fetch('/functions/create-donation-session', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error('Session creation failed');
+        const data = await res.json();
+        if (data.url) {
+          showDonationStatus('Redirecting to secure checkout...');
+          window.location.href = data.url;
+        } else {
+          showDonationStatus('Thank you. Your support helps keep the porch open.', false);
+        }
+      } catch (e) {
+        console.error(e);
+        showDonationStatus('Connection issue. Please check your internet and try again. The porch remains free regardless.', true);
+      }
+    }
+
+    function handleCustomDonation() {
+      const input = document.getElementById('custom-amount');
+      const amountStr = input ? input.value : '25';
+      const amount = parseFloat(amountStr);
+      if (amount && !isNaN(amount) && amount >= 5) {
+        startDonation(Math.round(amount * 100), 'one_time');
+      } else {
+        showDonationStatus('Please enter an amount of $5 or more.', true);
       }
     }
 
     function startMemorial() {
-      const name = prompt('In memory or honor of (optional):');
-      const note = prompt('Short note or Scripture (optional — stays private):');
-      if (note || name) {
-        alert('Thank you. Your memorial gift has been received with care. It helps keep the porch open.');
-      }
+      // For now, serene placeholder until full metadata flow is wired (no prompt)
+      showDonationStatus('Memorials are a beautiful way to honor loved ones. For now, consider a one-time gift above or pray/share the porch. Full memorial form coming soon.', false);
+      // Future: open dialog with name/note and pass as metadata to startDonation(..., 'one_time', {memorial_for: name, note})
     }
   </script>
 
   <script src="inline-bootstrap.js"></script>
   <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260505-porch-legacy"></script>
+  <script type="module" src="script.js?v=20260503-consent-persist-fix"></script>
 </body>
 </html>

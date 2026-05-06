@@ -5667,22 +5667,59 @@
       animation: feel-more-in 0.6s ease both;
     }
 
-    /* ── Bottom Nav (homepage dock only — not footer .bottom-nav) ── */
-    .nav-bottom-dock {
+    /* ── Single clean bottom navigation dock (combined from old overlapping bars) ── */
+    .tdb-bottom-dock {
       position: fixed;
-      bottom: 10px;
+      bottom: 12px;
       left: 50%;
       transform: translateX(-50%);
-      width: min(calc(100% - 20px), 420px);
+      width: min(calc(100% - 24px), 520px);
+      background: color-mix(in srgb, var(--card) 92%, transparent);
       border: 1px solid var(--line);
-      border-radius: 16px;
-      background: color-mix(in srgb, var(--card) 90%, transparent);
-      backdrop-filter: blur(12px);
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      padding: 8px 6px;
-      z-index: 40;
-      gap: 4px;
+      border-radius: 999px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+      padding: 6px 8px;
+      z-index: 200;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    .tdb-bottom-dock a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.78rem;
+      padding: 8px 14px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+      min-height: 44px;
+    }
+
+    .tdb-bottom-dock a:hover,
+    .tdb-bottom-dock a:focus-visible {
+      color: var(--gold-soft);
+      background: color-mix(in srgb, var(--gold) 10%, transparent);
+    }
+
+    :root[data-theme="light"] .tdb-bottom-dock {
+      background: color-mix(in srgb, var(--card) 96%, #fff 4%);
+      border-color: color-mix(in srgb, var(--line) 70%, #000 8%);
+    }
+
+    /* Hide old conflicting bottom bars that used to overlap */
+    .tdb-home-quickbar,
+    .tdb-wayfind-toggle,
+    .tdb-sticky-wayfind,
+    .tdb-start-my-day-band,
+    .tdb-home-fast-feel {
+      display: none !important;
     }
 
     .nav-link {
@@ -9074,39 +9111,17 @@
     </header>
 
 
-    <nav class="tdb-home-quickbar" aria-label="Persistent site navigation">
-      <a class="tdb-home-quickbar-link" href="/">Home</a>
-      <a class="tdb-home-quickbar-link" href="/plans.html">Battle Plans</a>
-      <a class="tdb-home-quickbar-link" href="/explore.html">Explore</a>
-      <a class="tdb-home-quickbar-link" href="/kids/">Kids Corner</a>
-      <a class="tdb-home-quickbar-link" href="/mystudy">My Study</a>
-      <a class="tdb-home-quickbar-link" href="/family.html">Family</a>
-      <a class="tdb-home-quickbar-link" href="/give">Give</a>
-      <button type="button" class="tdb-home-quickbar-btn tdb-tour-open-btn" aria-label="Open the calm 60-second site tour">Tour</button>
-      <button type="button" class="tdb-home-quickbar-btn" data-tdb-theme-toggle="home_quickbar" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Appearance</span></button>
-    </nav>
-
-    <button type="button" class="tdb-wayfind-toggle" id="tdb-wayfind-toggle" aria-expanded="false" aria-controls="tdb-sticky-wayfind">
-      <strong>More tools and rooms</strong>
-      <span>Open Bible Tool, Study, Kids, Family, Cards, and more without crowding the top of the page.</span>
-    </button>
-
-    <nav class="tdb-sticky-wayfind" id="tdb-sticky-wayfind" aria-label="Homepage tool shortcuts">
-      <a href="#hero-verse-wrap" data-tdb-wayfind="verse" aria-label="Today's verse"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">☀️</span><span>Today</span></a>
-      <a href="#feel-section" data-tdb-wayfind="feel" aria-label="Ask the Teacher search"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">💬</span><span>Ask</span></a>
-      <a href="/prayer-wall.html" aria-label="Open Prayer"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">🙏</span><span>Pray</span></a>
-      <a href="/plans.html" aria-label="Open Battle Plans"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">🗓️</span><span>Battle Plan</span></a>
-      <a href="/bible-tool.html" aria-label="Open Bible Tool"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">📖</span><span>Bible Tool</span></a>
-      <a href="/bible/tools.html" aria-label="Open Study workshop"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">🧰</span><span>Study</span></a>
-      <a href="/mystudy" aria-label="Open My Study"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">📌</span><span>My Study</span></a>
-      <a href="/sermon.html" aria-label="Open Sermon Builder"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">📝</span><span>Sermon</span></a>
-      <a href="/pastor-toolkit.html" aria-label="Open Pastor Toolkit"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">📋</span><span>Pastor</span></a>
-      <a href="/team-toolkit.html" aria-label="Open Team Toolkit"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">⚔️</span><span>Team</span></a>
-      <a href="/mobius.html" aria-label="Open Möbius Loop"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">∞</span><span>Möbius</span></a>
-      <a href="/verse-image.html" aria-label="Open verse image generator"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">🖼️</span><span>Cards</span></a>
-      <a href="/kids/" aria-label="Open Kids Corner"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">🧒</span><span>Kids</span></a>
-      <a href="/family.html" aria-label="Open Family hub"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">🏠</span><span>Family</span></a>
-      <a href="/explore.html" aria-label="Explore every page"><span class="tdb-sticky-wayfind-icon" aria-hidden="true">🗺️</span><span>Explore</span></a>
+    <!-- Single combined bottom navigation bar (replaces the old overlapping dual bars) -->
+    <nav class="tdb-bottom-dock" aria-label="Main site navigation">
+      <a href="#hero-verse-wrap" aria-label="Today’s verse">☀️ Today</a>
+      <a href="#feel-section" aria-label="Ask the Teacher">💬 Ask</a>
+      <a href="/plans.html" aria-label="Battle Plans">🗓️ Plans</a>
+      <a href="/bible-tool.html" aria-label="Bible Tool">📖 Bible</a>
+      <a href="/prayer-wall.html" aria-label="Prayer Wall">🙏 Pray</a>
+      <a href="/kids/" aria-label="Kids Corner">🧒 Kids</a>
+      <a href="/mystudy" aria-label="My Study">📌 Study</a>
+      <a href="/family.html" aria-label="Family hub">🏠 Family</a>
+      <a href="/explore.html" aria-label="Explore">🗺️ Explore</a>
     </nav>
 
     <!-- Hidden search plumbing for script.js compatibility -->

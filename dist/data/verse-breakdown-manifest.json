@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-06T02:11:42.557Z",
+  "generatedAt": "2026-05-06T19:38:05.190Z",
   "surfacedRefCount": 2951,
   "overrideCount": 2951,
   "sourceCounts": {
@@ -932,7 +932,7 @@
       "pairs": 365
     },
     "hero-daily-first-paint.js": {
-      "refs": 2,
+      "refs": 4,
       "pairs": 0
     },
     "hero-hero-pools.js": {

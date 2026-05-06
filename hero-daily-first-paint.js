@@ -109,8 +109,11 @@
           'This is not forcing an outcome. It is resting in the One who already knows your need.'
         ],
         speaker: 'Jesus',
+        about: 'Jesus, speaking to His disciples right after they saw the fig tree wither because of unbelief.',
+        to: 'His disciples who had just witnessed the power of faith (and for us today when we bring real needs to God).',
         plain: 'When you bring a real need to God in prayer, believe that He hears you and will answer. Hold that belief quietly in your heart instead of rushing to worry.',
-        today: 'In ' + yr + ' we often pray and then carry the weight anyway. This verse meets you there with a simple invitation: ask, then believe He has heard. No performance, just trust.',
+        modernApplication: 'In ' + yr + ' we often pray and then immediately start carrying the worry again. This verse meets you in that exact moment with a simple, steady invitation: ask once, then believe He has heard.',
+        today: 'In ' + yr + ' we often pray and then immediately start carrying the worry again. This verse meets you in that exact moment with a simple, steady invitation: ask once, then believe He has heard.',
         action: 'So do this: Name the one thing heaviest on your heart right now. Pray it out loud. Then quietly say, “I believe you hear me,” and thank Him before you move on. Leave it with Him.'
       };
     }
@@ -124,25 +127,38 @@
           'Waiting on Him is active trust, not passive. He carries what you cannot.'
         ],
         speaker: 'Isaiah',
+        about: 'The prophet Isaiah, bringing comfort from God to His weary people.',
+        to: 'God’s people in exile who felt worn out and hopeless (and for anyone today who feels they have no strength left).',
         plain: 'If you wait on the Lord instead of rushing or giving up, He will renew your strength. You will rise like an eagle, run without wearing out, and walk steady.',
-        today: 'In ' + yr + ' the same battles can leave you tired. This verse is for the moment you feel you have no more to give — God renews the ones who look to Him.',
+        modernApplication: 'In ' + yr + ' the same battles can leave you exhausted. This verse is for the exact moment you feel you have nothing left — God gives fresh strength to those who look to Him instead of ahead or behind.',
+        today: 'In ' + yr + ' the same battles can leave you exhausted. This verse is for the exact moment you feel you have nothing left — God gives fresh strength to those who look to Him instead of ahead or behind.',
         action: 'So do this: When weariness hits, pause, read this verse out loud once, picture His strength under you like eagle wings. Then take the next small step He gives.'
       };
     }
 
-    var body = sanitizeText(text);
-    var excerpt = body.length > 110 ? body.slice(0, 107).trim() + '\u2026' : body;
+    // Strong generic fallback — verse-aware using book context + simple theme detection. Always provides full who/audience/year-context/you-now/layman/step per rule + skill. No vague "companion" meta.
+    var book = parseHeroBookName(ref);
+    var ctx = heroBookRow(book) || { s: 'The biblical writer', a: 'God’s people in their time' };
+    var theme = '';
+    var bodyLower = sanitizeText(text).toLowerCase();
+    if (/anxious|careful|worry|fear|afraid|trouble|peace|rest|heavy|burden|cast|wait|strength|weary|faint|eagle|mount|renew/i.test(bodyLower)) theme = 'weariness or fear';
+    else if (/hope|trust|believe|pray|receive|ask|faith|possible/i.test(bodyLower)) theme = 'trust and prayer';
+    else if (/love|grace|mercy|forgiv|comfort|shepherd|light|salvation/i.test(bodyLower)) theme = 'God’s care';
+    else theme = 'your current battle';
+
     return {
       lines: [
-        'Let the words land gently—God is steady in what He said.',
-        excerpt,
-        'Thank Him for one true thing in this verse; let gratitude lift the next step.'
+        'This word from Scripture meets you exactly where you are today.',
+        sanitizeText(text),
+        'Let one clear promise or command stay with you as you walk the next hour.'
       ],
-      app: 'Read it twice, slowly. Then thank God aloud for one true thing inside it before you move on.',
-      speaker: '',
-      plain: 'This verse is God speaking a steady truth straight into your real day. One line is meant for exactly where you stand right now.',
-      today: 'In ' + yr + ', life moves fast and feelings run deep. This word from Scripture is a quiet companion given for your exact situation — not a slogan, but something you can carry.',
-      action: 'So do this: Read the verse once more, slowly. Thank God aloud for one true thing it says to you, then carry that one line into the rest of your day.'
+      speaker: ctx.s,
+      about: ctx.s + ' (through the words of the KJV).',
+      to: ctx.a + ' — and for you in ' + yr + ' facing the same kind of battle.',
+      plain: 'God is speaking directly to your real situation through this verse. One line is meant to steady or guide you right now.',
+      modernApplication: 'In ' + yr + ', ' + theme + ' can feel heavy or confusing. This verse cuts through with a quiet, steady truth you can carry without performing or pretending.',
+      today: 'In ' + yr + ', ' + theme + ' can feel heavy or confusing. This verse cuts through with a quiet, steady truth you can carry without performing or pretending.',
+      action: 'So do this: Read the verse slowly one more time out loud. Thank God for one true thing it says to your exact situation today, then take the next small step with that line in mind.'
     };
   }
 

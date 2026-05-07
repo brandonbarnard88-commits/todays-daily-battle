@@ -23656,5 +23656,59 @@ body[class*="kids"] .tool-button {
   border-bottom: 3px solid #d97706 !important;
 }
 
+/* ============================================================
+   ROOT CAUSE FIX — Dark-mode specificity defeat for kids pages
+   (May 2026)
+
+   The global dark rule is:
+     html:not([data-theme]) body { background: ... !important }
+   Specificity: (0,1,2) — beats body[class*="kids"] at (0,1,1).
+
+   Fix: include the html ancestor to reach (0,2,2).
+   We also kill .app-shell::before — the position:fixed dark
+   gradient pseudo-element that overlays the entire page.
+   ============================================================ */
+
+html:not([data-theme]) body[class*="kids"],
+html[data-theme="dark"] body[class*="kids"],
+html:not([data-theme]) body.tdb-kids-coloring-page,
+html[data-theme="dark"] body.tdb-kids-coloring-page,
+html:not([data-theme]) body.little-ones-page,
+html[data-theme="dark"] body.little-ones-page,
+html:not([data-theme]) body.kids-corner-page,
+html[data-theme="dark"] body.kids-corner-page {
+  background: #fff9eb !important;
+  color: #1c2526 !important;
+}
+
+html:not([data-theme]) body[class*="kids"] .app-shell,
+html[data-theme="dark"] body[class*="kids"] .app-shell,
+html:not([data-theme]) body.tdb-kids-coloring-page .app-shell,
+html[data-theme="dark"] body.tdb-kids-coloring-page .app-shell {
+  background: #fff9eb !important;
+}
+
+/* Kill the fixed dark-gradient overlay pseudo-elements on kids pages */
+body[class*="kids"] .app-shell::before,
+body[class*="kids"] .app-shell::after,
+body.tdb-kids-coloring-page .app-shell::before,
+body.tdb-kids-coloring-page .app-shell::after,
+body.little-ones-page .app-shell::before,
+body.little-ones-page .app-shell::after,
+body.kids-corner-page .app-shell::before,
+body.kids-corner-page .app-shell::after {
+  display: none !important;
+}
+
+/* Reset any dark content-area tinting — use transparent so body bg shows */
+body[class*="kids"] .content-inner,
+body[class*="kids"] .app-content,
+body.tdb-kids-coloring-page .content-inner,
+body.kids-corner-page .content-inner {
+  background: transparent !important;
+  color: #1c2526 !important;
+}
+
+
 
 

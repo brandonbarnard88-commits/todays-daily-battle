@@ -23357,56 +23357,66 @@ body[class*="kids"] .section-divider,
   visibility: visible !important;
 }
 
-/* 3. Readability — larger text, warm dark ink, generous line-height */
+/* 3. Readability — larger text, strong dark ink, generous line-height */
 body.kids-world-surface,
 body.kids-world-surface .content-inner,
 body.kids-world-surface .glass {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: var(--kw-ink, #1e293b);
+  color: #1c2526;
 }
 
 body.kids-world-surface h1,
 body.kids-world-surface h2,
 body.kids-world-surface h3 {
-  color: var(--kw-ink, #1e293b);
+  color: #0f172a;
   line-height: 1.25;
   font-weight: 700;
 }
-body.kids-world-surface h1 { font-size: clamp(1.5rem,  4vw, 2.1rem); }
-body.kids-world-surface h2 { font-size: clamp(1.25rem, 3vw, 1.7rem); }
-body.kids-world-surface h3 { font-size: clamp(1.1rem,  2.5vw, 1.4rem); }
+body.kids-world-surface h1 { font-size: clamp(1.55rem,  4.5vw, 2.2rem); }
+body.kids-world-surface h2 { font-size: clamp(1.3rem, 3.5vw, 1.8rem); }
+body.kids-world-surface h3 { font-size: clamp(1.15rem, 3vw, 1.5rem); }
 
-/* KJV verse lines — large, calm, dark ink */
+/* KJV verse lines — large, bold, very dark ink */
 body.kids-world-surface .kjv-verse,
 body.kids-world-surface .verse-text,
 body.kids-world-surface .kids-weekly-verse-card,
 body.kids-world-surface [class*="kids-verse"],
 body.kids-world-surface [class*="kjv"] {
-  font-size: clamp(1.15rem, 3.2vw, 1.45rem);
-  line-height: 1.75;
-  color: var(--kw-ink, #1e293b);
+  font-size: clamp(1.25rem, 3.5vw, 1.55rem);
+  line-height: 1.8;
+  color: #111827;
+  font-weight: 600;
 }
 
-/* Body copy — easy to read for parents and children */
+/* Body copy — clear and easy for parents and young children */
 body.kids-world-surface p,
 body.kids-world-surface li,
 body.kids-world-surface .section-note,
 body.kids-world-surface .kids-bubble-voice,
 body.kids-world-surface .kids-bubble-hi {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: var(--kw-ink-muted, #475569);
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: #1c2526;
 }
 
-/* .glass cards — soft cream surface, readable over the pastoral backdrop */
+/* .glass cards — warm cream surface, strong border and shadow for readability */
 body.kids-world-surface .glass {
-  background: rgba(255, 252, 243, 0.94);
-  border: 1.5px solid rgba(217, 119, 6, 0.16);
+  background: #fffaf0 !important;
+  border: 2.5px solid rgba(180, 83, 9, 0.45) !important;
   border-radius: 18px;
   padding: 1.5rem 1.25rem;
   margin-bottom: 1.5rem;
-  box-shadow: 0 4px 18px rgba(120, 80, 20, 0.07);
+  box-shadow: 0 8px 28px rgba(80, 40, 5, 0.14), 0 2px 6px rgba(80, 40, 5, 0.08) !important;
+  color: #1c2526 !important;
+}
+
+/* Override dark-mode glass on kids pages — keep warm cream readable light surface */
+body.kids-world-surface.dark-mode .glass,
+html[data-theme="dark"] body.kids-world-surface .glass {
+  background: #fffaf0 !important;
+  border-color: rgba(180, 83, 9, 0.45) !important;
+  color: #1c2526 !important;
 }
 
 body.kids-world-surface .glass > * + * {
@@ -23431,4 +23441,148 @@ body[class*="kids"] :focus-visible {
     font-size: 1.05rem;
   }
 }
+
+/* ============================================================
+   STRONG KIDS CONTRAST — May 2026
+   Final-layer hard overrides for any remaining low-contrast
+   cream-on-cream or washed-out elements on kids/coloring pages.
+   ============================================================ */
+
+/* Page background: warm cream, never dark */
+body.tdb-kids-coloring-page,
+body.kids-world-surface,
+body.kids-corner-page {
+  background-color: #fff9eb !important;
+}
+
+/* All text that might inherit a washed-out variable: force dark ink */
+body[class*="kids"] .content-inner,
+body[class*="kids"] .app-content,
+body[class*="kids"] main {
+  color: #1c2526 !important;
+}
+
+/* Headings — maximum readability */
+body[class*="kids"] h1,
+body[class*="kids"] h2,
+body[class*="kids"] h3,
+body[class*="kids"] h4 {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+
+/* Glass / porch-card — very clear warm card with strong amber border */
+body[class*="kids"] .glass,
+body[class*="kids"] .porch-card {
+  background: #fffaf0 !important;
+  border: 2.5px solid #d97706 !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.16),
+              0 2px 6px rgba(0, 0, 0, 0.08) !important;
+  color: #1c2526 !important;
+}
+
+/* Dark-mode override on kids pages: keep light surface */
+body[class*="kids"].dark-mode,
+html[data-theme="dark"] body[class*="kids"] {
+  background-color: #fff9eb !important;
+  color: #1c2526 !important;
+}
+body[class*="kids"].dark-mode .glass,
+html[data-theme="dark"] body[class*="kids"] .glass {
+  background: #fffaf0 !important;
+  border-color: #d97706 !important;
+  color: #1c2526 !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.16) !important;
+}
+
+/* Muted paragraph text — NOT grey on cream, use readable warm slate */
+body[class*="kids"] p,
+body[class*="kids"] li,
+body[class*="kids"] label,
+body[class*="kids"] .section-note {
+  color: #1e293b !important;
+}
+
+/* Buttons on kids pages — amber gold, strong contrast, big touch target */
+body[class*="kids"] button:not(.tdb-cat-slideshow-close):not(.tdb-cat-slideshow-nav button),
+body[class*="kids"] .kids-magic-btn,
+body[class*="kids"] .btn,
+body[class*="kids"] .filter-btn {
+  min-height: 52px !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+}
+
+/* Color-and-Tell coloring wrapper — strong border, visible card */
+.tdb-cat-jl-wrap {
+  background: #ffffff !important;
+  border: 2.5px solid #d97706 !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.13) !important;
+}
+
+/* Scene verse text — readable warm amber-brown, not grey */
+.tdb-cat-scene-verse {
+  color: #7c3d12 !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  font-style: normal !important;
+  line-height: 1.6 !important;
+}
+
+/* Scene caption — very dark, easy scan */
+.tdb-cat-scene-caption {
+  color: #0f172a !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  line-height: 1.55 !important;
+}
+
+/* Story title — larger, bolder, dark amber */
+.tdb-cat-story-title {
+  color: #92400e !important;
+  font-size: clamp(1.25rem, 3.5vw, 1.5rem) !important;
+  font-weight: 800 !important;
+}
+
+/* Story lead copy — dark slate */
+.tdb-cat-story-lead {
+  color: #1e293b !important;
+  font-size: 0.97rem !important;
+}
+
+/* Story card border — more defined */
+.tdb-cat-story {
+  border: 2px solid rgba(217, 119, 6, 0.55) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Scene tabs — strong contrast, readable active state */
+.tdb-cat-tab {
+  border: 2px solid rgba(37, 99, 235, 0.55) !important;
+  background: #f8faff !important;
+  color: #1e3a5f !important;
+  font-size: 0.9rem !important;
+  font-weight: 700 !important;
+}
+
+.tdb-cat-tab[aria-selected='true'] {
+  background: linear-gradient(180deg, #dbeafe 0%, #bfdbfe 100%) !important;
+  border-color: #2563eb !important;
+  color: #1e3a5f !important;
+}
+
+/* Parent tip card */
+.tdb-cat-parent-tip {
+  background: rgba(224, 242, 254, 0.9) !important;
+  border: 1.5px solid rgba(37, 99, 235, 0.45) !important;
+  color: #1e3a5f !important;
+  font-size: 0.96rem !important;
+}
+
+/* Line-art overlay: maximum crispness and depth */
+body[class*="kids"] .lineArtOverlay {
+  filter: drop-shadow(2px 3px 6px rgba(0, 0, 0, 0.5))
+          drop-shadow(0 0 3px rgba(0, 0, 0, 0.25)) !important;
+}
+
 

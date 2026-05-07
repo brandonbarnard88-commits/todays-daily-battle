@@ -16,15 +16,18 @@
 
 .toolbar {
   padding: 8px 4px 10px;
-  background-color: rgba(255, 251, 235, 0.95) !important;
+  background-color: #fff9eb !important;
+  border-bottom: 2px solid rgba(217, 119, 6, 0.35);
 }
 
 .tools .button {
   min-width: 48px;
   min-height: 48px;
   border-radius: 12px;
-  border: 2px solid rgba(59, 130, 246, 0.35);
-  background: #fff;
+  border: 2px solid rgba(37, 99, 235, 0.5);
+  background: #f8faff;
+  color: #1e3a5f;
+  font-weight: 700;
   margin: 4px !important;
 }
 
@@ -49,6 +52,8 @@
   min-height: 44px !important;
   margin: 4px !important;
   border-width: 4px !important;
+  border-color: rgba(0, 0, 0, 0.35) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
 }
 
 .canvasWrapper {
@@ -60,9 +65,9 @@
   box-sizing: border-box;
   touch-action: none;
   position: relative;
-  border: 14px solid #f5e8c7;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15),
-              inset 0 0 60px rgba(139, 69, 19, 0.08);
+  border: 14px solid #d97706;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2),
+              inset 0 0 60px rgba(139, 69, 19, 0.06);
 }
 
 /* Paper texture shimmer — sits above the color layer but below line-art overlay */
@@ -97,8 +102,8 @@
   user-select: none;
   -webkit-user-select: none;
   image-rendering: crisp-edges;
-  filter: drop-shadow(1px 2px 4px rgba(0, 0, 0, 0.35))
-          drop-shadow(0 0 2px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(2px 3px 6px rgba(0, 0, 0, 0.5))
+          drop-shadow(0 0 3px rgba(0, 0, 0, 0.25));
 }
 
 .canvasWrapper canvas {

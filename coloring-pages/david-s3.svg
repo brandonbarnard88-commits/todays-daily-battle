@@ -1,9 +1,88 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="450" cy="260" r="90"/>
-    <circle cx="380" cy="320" r="28"/>
-    <path d="M380 348 L380 420 M340 380 L420 380"/>
-    <line x1="450" y1="200" x2="450" y2="120"/>
-    <circle cx="450" cy="100" r="22"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" width="900" height="680" aria-hidden="true">
+  <!-- Background: interior scene, humble home -->
+  <path d="M0,290 Q225,274 450,292 Q675,310 900,282" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Ground -->
+  <path d="M0,522 Q225,506 450,524 Q675,542 900,514" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Wall behind (simple stones or plaster) -->
+  <path d="M0,180 L900,180" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+  <!-- Stone-like wall texture -->
+  <path d="M0,220 Q150,216 300,220 Q450,224 600,218 Q750,212 900,218" fill="none" stroke="#333" stroke-width="1.5" stroke-dasharray="30 10" stroke-linecap="round"/>
+  <path d="M0,260 Q150,256 300,260 Q450,264 600,258 Q750,252 900,258" fill="none" stroke="#333" stroke-width="1.5" stroke-dasharray="30 10" stroke-linecap="round"/>
+  <!-- SAMUEL — elder, kneeling left (x=220, pouring oil) -->
+  <!-- Head — elderly man, long beard -->
+  <circle cx="220" cy="246" r="40" fill="none" stroke="#0a0a0a" stroke-width="5"/>
+  <!-- White/grey long hair and beard (elder prophet) -->
+  <path d="M180,234 C178,204 188,186 202,178 Q211,174 220,173 Q229,174 238,178 C252,186 262,204 260,234 C264,258 270,290 266,318 Q244,330 220,334 Q196,330 174,318 C170,290 176,258 180,234" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Long flowing beard (elder) -->
+  <path d="M182,272 Q172,295 170,318 Q170,345 182,366 Q196,390 220,398 Q244,390 258,366 Q270,345 270,318 Q270,295 260,272" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Beard detail lines -->
+  <path d="M198,298 Q212,292 226,298" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M192,324 Q208,318 222,322 Q236,326 248,320" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M194,352 Q208,346 222,350 Q236,354 248,348" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Eyes (wise, focused) -->
+  <path d="M204,244 Q212,238 220,244" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M220,244 Q228,238 236,244" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M206,256 Q218,264 230,256" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Neck -->
+  <path d="M210,286 L208,308" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <path d="M230,286 L232,308" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <!-- Samuel's robe (kneeling, bent forward) -->
+  <path d="M208,308 Q172,312 146,326 C124,342 114,372 110,414 C106,452 108,490 112,530 Q154,548 220,550 Q286,548 328,530 C332,490 334,452 330,414 C326,372 316,342 294,326 Q268,312 232,308" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Robe folds -->
+  <path d="M215,318 Q208,414 210,544" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M202,324 Q192,420 194,542" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M232,322 Q242,418 240,542" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- LEFT ARM — bent forward, holding horn of oil over David's head -->
+  <path d="M146,332 Q110,346 84,376 Q64,400 56,430" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Horn of oil in left hand -->
+  <!-- Horn shape: curved vessel tapered to point -->
+  <path d="M52,424 Q40,434 34,448 Q28,464 35,476 Q44,488 58,488 Q74,488 88,478 Q100,468 104,454 Q108,436 100,424 Q90,412 76,410 Q62,410 52,420" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Horn curved tip/point -->
+  <path d="M34,476 Q18,494 12,512" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Oil drops flowing from horn point toward David -->
+  <path d="M12,512 Q14,526 16,536 Q18,542 22,546" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="24" cy="550" r="5" fill="none" stroke="#0d0d0d" stroke-width="3"/>
+  <circle cx="30" cy="562" r="4" fill="none" stroke="#0d0d0d" stroke-width="2.5"/>
+  <!-- Horn texture/bands -->
+  <path d="M54,432 Q70,426 86,432" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round"/>
+  <path d="M48,452 Q66,446 84,452" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round"/>
+  <!-- RIGHT ARM Samuel — extended gesture -->
+  <path d="M294,332 Q332,356 350,400 Q356,428 350,454" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- DAVID kneeling — receiving anointing (x=500, smaller/boy, kneeling) -->
+  <!-- David kneeling, head at cy=368 -->
+  <circle cx="500" cy="364" r="34" fill="none" stroke="#0a0a0a" stroke-width="5"/>
+  <!-- David hair (curly boy) -->
+  <path d="M468,354 Q472,326 482,318 Q491,312 500,310 Q509,312 518,318 Q528,326 532,354" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M468,354 Q464,370 466,390" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M532,354 Q536,370 534,390" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- David eyes (lowered, humble/reverent) -->
+  <path d="M486,363 Q493,357 500,363" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M500,363 Q507,357 514,363" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M490,374 Q500,381 510,374" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Neck -->
+  <path d="M492,398 L490,414" fill="none" stroke="#0d0d0d" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M508,398 L510,414" fill="none" stroke="#0d0d0d" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- David kneeling tunic/robe spreading on ground -->
+  <path d="M490,414 Q462,418 440,430 C420,444 412,472 410,508 C408,540 412,568 416,592 Q456,604 500,606 Q544,604 584,592 C588,568 592,540 590,508 C588,472 580,444 560,430 Q538,418 510,414" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- David arms at side (kneeling, humble) -->
+  <path d="M440,436 Q412,460 402,498 Q398,524 400,548" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M560,436 Q588,460 598,498 Q602,524 598,548" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- FAMILY WATCHING — three figures right side (x=680, 740, 790) smaller, back -->
+  <!-- Figure 1 (tallest, father Jesse) -->
+  <circle cx="680" cy="292" r="32" fill="none" stroke="#0a0a0a" stroke-width="4.5"/>
+  <path d="M652,282 Q654,254 664,246 Q671,240 680,239 Q689,240 696,246 Q706,254 708,282" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M652,282 C648,304 650,330 652,350" fill="none" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M708,282 C712,304 710,330 708,350" fill="none" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M668,304 Q674,298 680,304" fill="none" stroke="#0d0d0d" stroke-width="2" stroke-linecap="round"/>
+  <path d="M680,304 Q686,298 692,304" fill="none" stroke="#0d0d0d" stroke-width="2" stroke-linecap="round"/>
+  <path d="M672,316 Q680,323 688,316" fill="none" stroke="#0d0d0d" stroke-width="2" stroke-linecap="round"/>
+  <path d="M668,350 Q644,354 630,364 C614,376 606,400 604,430 C600,462 602,496 606,524 Q638,536 680,538 Q722,536 754,524 C758,496 760,462 756,430 C752,400 744,376 728,364 Q714,354 692,350" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Figure 2 (right of Jesse) -->
+  <circle cx="760" cy="298" r="26" fill="none" stroke="#0a0a0a" stroke-width="4"/>
+  <path d="M752,342 Q730,346 718,356 C706,368 700,392 698,420 C696,448 698,478 702,504 Q728,516 760,518 Q792,516 818,504 C822,478 824,448 822,420 C820,392 814,368 802,356 Q790,346 768,342" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Figure 3 (smallest, far right) -->
+  <circle cx="840" cy="308" r="20" fill="none" stroke="#0a0a0a" stroke-width="3.5"/>
+  <path d="M834,340 Q816,344 806,352 C796,362 791,382 790,408 C789,432 791,458 794,480 Q814,490 840,492 Q866,490 886,480 C889,458 891,432 890,408 C889,382 884,362 874,352 Q864,344 846,340" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Grass -->
+  <path d="M52,524 Q60,510 68,524" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round"/>
 </svg>

@@ -1,12 +1,133 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M380 420 L450 200 L520 420"/>
-    <path d="M340 420 L560 420"/>
-    <line x1="450" y1="200" x2="450" y2="160"/>
-    <line x1="420" y1="180" x2="480" y2="180"/>
-    <path d="M120 440 Q200 400 280 420 Q360 440 450 430 Q540 440 620 420 Q700 400 780 440"/>
-    <path d="M80 460 L820 460"/>
-    <circle cx="180" cy="380" r="12"/>
-    <circle cx="720" cy="375" r="12"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" width="900" height="680" aria-hidden="true">
+
+  <!-- SUNRISE RAYS — emanating from tomb entrance, wide fan -->
+  <!-- Long rays reaching sky edges -->
+  <line x1="450" y1="300" x2="50"  y2="10"  stroke="#111" stroke-width="10" stroke-linecap="round" stroke-dasharray="20 16"/>
+  <line x1="450" y1="300" x2="180" y2="0"   stroke="#111" stroke-width="11" stroke-linecap="round" stroke-dasharray="22 16"/>
+  <line x1="450" y1="300" x2="316" y2="0"   stroke="#111" stroke-width="12" stroke-linecap="round" stroke-dasharray="24 16"/>
+  <line x1="450" y1="300" x2="450" y2="0"   stroke="#111" stroke-width="14" stroke-linecap="round" stroke-dasharray="26 16"/>
+  <line x1="450" y1="300" x2="584" y2="0"   stroke="#111" stroke-width="12" stroke-linecap="round" stroke-dasharray="24 16"/>
+  <line x1="450" y1="300" x2="720" y2="0"   stroke="#111" stroke-width="11" stroke-linecap="round" stroke-dasharray="22 16"/>
+  <line x1="450" y1="300" x2="850" y2="10"  stroke="#111" stroke-width="10" stroke-linecap="round" stroke-dasharray="20 16"/>
+  <!-- Side rays -->
+  <line x1="450" y1="300" x2="0"   y2="110" stroke="#111" stroke-width="8"  stroke-linecap="round" stroke-dasharray="18 14"/>
+  <line x1="450" y1="300" x2="900" y2="110" stroke="#111" stroke-width="8"  stroke-linecap="round" stroke-dasharray="18 14"/>
+  <line x1="450" y1="300" x2="0"   y2="220" stroke="#111" stroke-width="7"  stroke-linecap="round" stroke-dasharray="16 14"/>
+  <line x1="450" y1="300" x2="900" y2="220" stroke="#111" stroke-width="7"  stroke-linecap="round" stroke-dasharray="16 14"/>
+
+  <!-- GARDEN HILLSIDE / CLIFF FACE (left side of tomb) -->
+  <!-- Large rock cliff -->
+  <path d="M0,140 Q40,100 100,88 Q160,76 210,96 Q260,116 280,170 Q300,220 296,290 Q292,380 280,468 Q268,548 260,640 L0,640 Z" fill="none" stroke="#111" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Rock surface cracks/texture -->
+  <path d="M40,160 Q60,148 88,162" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M30,210 Q54,198 80,208" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M50,268 Q80,252 116,260" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M20,330 Q60,314 100,322" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <path d="M36,398 Q80,380 120,390" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <path d="M60,460 Q100,444 140,452" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <!-- Rock surface diagonal fracture lines -->
+  <path d="M108,126 Q118,180 112,240" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M150,108 Q164,168 158,240" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M200,130 Q210,200 204,272" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <!-- Overhang ledge on cliff -->
+  <path d="M254,186 Q268,176 288,182 Q296,190 292,204" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- ROCK FACE EXTENSION (right side of tomb entry) -->
+  <path d="M640,200 Q680,180 720,176 Q780,172 840,194 Q890,216 900,260 L900,640 L640,640 Z" fill="none" stroke="#111" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Rock texture right -->
+  <path d="M680,218 Q710,204 744,214" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M660,274 Q700,258 740,268" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M650,340 Q696,322 740,334" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <path d="M660,412 Q706,394 748,406" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <path d="M680,484 Q718,468 760,478" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <!-- Fractures right side -->
+  <path d="M726,204 Q736,270 730,350" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M776,210 Q788,280 782,360" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- TOMB ARCH ENTRANCE -->
+  <!-- Outer arch frame -->
+  <path d="M278,310 Q278,224 366,188 Q450,160 534,188 Q622,224 622,310 L622,500 L278,500 Z" fill="none" stroke="#111" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Inner arch reveal (depth) -->
+  <path d="M302,318 Q302,238 374,206 Q450,180 526,206 Q598,238 598,318 L598,486 L302,486 Z" fill="none" stroke="#111" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Tomb depth back wall -->
+  <path d="M330,326 Q330,252 384,226 Q450,202 516,226 Q570,252 570,326 L570,472 L330,472 Z" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Tomb interior stone-cut lines (horizontal courses) -->
+  <path d="M302,360 L598,360" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <path d="M302,410 L598,410" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <path d="M302,454 L598,454" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <!-- Stone course vertical joints -->
+  <path d="M370,360 L370,410" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+  <path d="M420,360 L420,410" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+  <path d="M480,360 L480,410" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+  <path d="M530,360 L530,410" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+  <path d="M396,410 L396,454" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+  <path d="M456,410 L456,454" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+  <path d="M510,410 L510,454" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- BURIAL BENCH (low stone shelf inside tomb — where cloth was left) -->
+  <path d="M334,460 Q450,452 566,460 L566,480 Q450,474 334,480 Z" fill="none" stroke="#111" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Folded burial cloth on bench -->
+  <path d="M400,454 Q420,442 440,452 Q450,456 460,450 Q480,440 500,452 Q508,458 510,466 Q488,464 468,468 Q450,472 432,468 Q414,464 396,466 Z" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Cloth fold lines -->
+  <path d="M410,450 Q424,460 438,450" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <path d="M462,450 Q476,460 490,450" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- GREAT STONE — rolled away, right side of scene -->
+  <!-- Main stone body (large circle) -->
+  <circle cx="730" cy="486" r="106" fill="none" stroke="#111" stroke-width="20"/>
+  <!-- Stone surface texture — irregular curved fissures -->
+  <path d="M660,416 Q690,400 720,412 Q740,422 744,448" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M670,450 Q696,436 724,448" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M656,500 Q684,488 716,494 Q738,498 748,518" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M674,542 Q700,530 728,538 Q748,544 754,562" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M712,572 Q734,562 756,570" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M772,406 Q796,396 818,408" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M782,444 Q806,432 826,444" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M792,490 Q812,480 832,490" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <!-- Stone rolled track in ground -->
+  <path d="M624,530 Q680,518 730,524 Q780,530 814,524" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round" stroke-dasharray="14 10"/>
+
+  <!-- GROUND / GARDEN FLOOR -->
+  <path d="M0,530 Q225,514 450,532 Q675,550 900,522" fill="none" stroke="#111" stroke-width="16" stroke-linecap="round"/>
+
+  <!-- LILY FLOWERS — left side of entrance -->
+  <!-- Lily 1 (tall) -->
+  <line x1="174" y1="540" x2="174" y2="488" stroke="#111" stroke-width="10" stroke-linecap="round"/>
+  <path d="M174,490 Q154,476 148,456 Q162,448 176,460 Q178,444 174,428 Q188,432 192,450 Q200,436 210,446 Q208,462 196,466 Q208,470 210,486 Q198,494 186,486 Q186,494 180,500 Z" fill="none" stroke="#111" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M174,488 Q168,480 162,472" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M174,488 Q180,478 188,470" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <!-- Lily leaf left -->
+  <path d="M158,520 Q150,502 162,490" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <!-- Lily 2 (shorter) -->
+  <line x1="144" y1="548" x2="144" y2="510" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <path d="M144,512 Q130,500 126,484 Q138,478 148,488 Q152,474 148,462 Q160,466 162,482 Q168,468 176,478 Q172,490 162,494 Q172,498 172,510 Q162,518 152,510 Z" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Lily 3 (bud left) -->
+  <line x1="108" y1="558" x2="108" y2="528" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M100,528 Q104,512 108,504 Q112,512 116,528 Z" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- LILY FLOWERS — right side (between stone and tomb) -->
+  <line x1="586" y1="546" x2="586" y2="502" stroke="#111" stroke-width="10" stroke-linecap="round"/>
+  <path d="M586,504 Q566,490 560,470 Q574,462 588,474 Q590,458 586,442 Q600,446 604,464 Q612,450 622,460 Q620,476 608,480 Q620,484 622,500 Q610,508 598,500 Q598,508 592,514 Z" fill="none" stroke="#111" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M586,504 Q580,494 574,486" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M586,504 Q592,494 600,486" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <!-- Leaf right -->
+  <path d="M600,534 Q608,516 596,504" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- GRASS TUFTS -->
+  <path d="M216,534 Q224,516 232,534" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M240,530 Q248,512 256,530" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M616,536 Q624,518 632,536" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M644,530 Q652,512 660,530" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- SMALL BUTTERFLY (hope symbol) near tomb entrance -->
+  <path d="M390,290 Q372,270 358,276 Q346,290 362,306 Q376,316 390,300 Q392,294 390,290" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M390,290 Q408,270 422,276 Q434,290 418,306 Q404,316 390,300" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Butterfly body -->
+  <line x1="390" y1="290" x2="390" y2="308" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <!-- Antennae -->
+  <path d="M390,290 Q384,278 378,270" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+  <path d="M390,290 Q396,278 402,270" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="376" cy="268" r="4" fill="none" stroke="#111" stroke-width="6"/>
+  <circle cx="404" cy="268" r="4" fill="none" stroke="#111" stroke-width="6"/>
+
 </svg>

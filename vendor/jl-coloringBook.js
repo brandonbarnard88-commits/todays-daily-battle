@@ -182,6 +182,16 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
             }
             .canvasBackgroundImage{width:100%}
 
+            /* Line-art overlay — rendered above paint canvases so outlines stay crisp */
+            .lineArtOverlay {
+                position: absolute;
+                top: 0; left: 0;
+                width: 100%;
+                z-index: 1002;
+                pointer-events: none;
+                display: block;
+            }
+
             .undoButton > i::after{ content: "undo"}
             .clearButton > i::after{ content: "clear"}
             .printButton > i::after{ content: "print"}
@@ -390,6 +400,15 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
         this.activeCanvas.classList.add('activeCanvas');
         this.canvasWrapper.appendChild(this.activeCanvas);
 
+        // Line art overlay — same image rendered on top of both paint canvases so
+        // outlines can never be painted over. pointer-events:none so drawing still works.
+        this.lineArtOverlay = document.createElement('img');
+        this.lineArtOverlay.src = this.src;
+        this.lineArtOverlay.alt = '';
+        this.lineArtOverlay.setAttribute('aria-hidden', 'true');
+        this.lineArtOverlay.classList.add('lineArtOverlay');
+        this.canvasWrapper.appendChild(this.lineArtOverlay);
+
         this.ctx = this.canvas.getContext('2d');
         this.activeCtx = this.activeCanvas.getContext('2d');
 
@@ -539,12 +558,16 @@ customElements.define('jl-coloringbook', class extends HTMLElement {
         combinedCanvas.width = width;
         const c = combinedCanvas.getContext('2d');
 
-        // Draw the background image
-        c.drawImage(this.img, 0, 0, width, height);
+        // White base
+        c.fillStyle = '#ffffff';
+        c.fillRect(0, 0, width, height);
 
-        // Draw the colored lines from the main canvas
+        // Draw color strokes first (underneath line art)
         const coloringData = await this.loadImage(this.canvas.toDataURL('image/png'));
         c.drawImage(coloringData, 0, 0, width, height);
+
+        // Draw line art last so outlines always sit on top of color
+        c.drawImage(this.img, 0, 0, width, height);
 
         return combinedCanvas.toDataURL('image/png');
     }

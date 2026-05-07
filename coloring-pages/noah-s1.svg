@@ -1,7 +1,89 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M140 480 L760 480 L680 540 L220 540 Z"/>
-    <rect x="340" y="320" width="220" height="140" rx="10"/>
-    <path d="M200 280 L440 200 L700 280"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" width="900" height="680" aria-hidden="true">
+  <!-- Sky: threatening but purposeful -->
+  <path d="M0,190 Q225,174 450,192 Q675,210 900,184" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0,230 Q200,214 400,232 Q600,250 800,222 Q870,208 900,214" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Large dark cloud building (rain coming) -->
+  <path d="M100,160 Q130,138 166,148 Q196,130 232,142 Q266,154 268,178 Q264,202 240,212 Q210,220 180,218 Q148,216 122,202 Q96,188 96,172 Q97,164 100,160" fill="none" stroke="#0d0d0d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M116,172 Q148,158 178,168 Q202,162 228,172" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M600,140 Q635,118 678,130 Q714,112 756,126 Q792,140 794,168 Q790,196 762,206 Q728,214 694,212 Q658,208 628,192 Q598,176 600,156 Q600,148 600,140" fill="none" stroke="#0d0d0d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M616,158 Q654,144 690,156 Q718,148 750,160" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Ground -->
+  <path d="M0,524 Q225,508 450,526 Q675,544 900,516" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- ARK FRAME STRUCTURE — large curved wooden ribs visible, Noah is building it -->
+  <!-- Ark keel base -->
+  <path d="M80,500 Q180,492 280,494 Q380,496 480,494 Q580,492 680,494 Q780,496 840,500" fill="none" stroke="#0a0a0a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Hull curve (left bow) -->
+  <path d="M80,500 Q74,460 78,420 Q82,380 94,340 Q108,300 130,270" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Hull curve (right stern) -->
+  <path d="M840,500 Q846,460 842,420 Q838,380 826,340 Q812,300 790,270" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Ribs — 5 curved wooden ribs of the ark hull in progress -->
+  <path d="M180,494 Q176,450 180,404 Q184,356 200,310" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M300,496 Q296,452 300,406 Q304,358 320,312" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M420,496 Q416,452 420,406 Q424,358 440,312" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M540,496 Q536,452 540,406 Q544,358 558,314" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M660,494 Q656,450 660,404 Q664,358 678,314" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Top rail beam running across ribs -->
+  <path d="M200,312 Q320,294 440,298 Q558,302 678,310" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Planks between ribs (horizontal siding boards — partial) -->
+  <path d="M130,398 Q240,390 354,392 Q468,394 578,390 Q672,388 780,392" fill="none" stroke="#111" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M110,432 Q222,424 336,426 Q450,428 564,424 Q668,420 790,424" fill="none" stroke="#111" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M90,462 Q210,456 330,458 Q450,460 570,456 Q690,452 826,456" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Timber pieces on ground (lumber to be used) -->
+  <path d="M64,514 Q80,508 96,514" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round"/>
+  <path d="M62,520 Q80,514 98,520" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round"/>
+  <!-- Mallet/hammer on ground -->
+  <path d="M56,530 Q58,520 70,516 Q82,514 88,522 Q90,530 84,538 Q76,544 64,540 Q54,536 56,530" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M86,522 L110,500" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round"/>
+  <!-- NOAH — older man with beard, working (x=360, standing at ark, mallet raised) -->
+  <!-- Head -->
+  <circle cx="360" cy="228" r="40" fill="none" stroke="#0a0a0a" stroke-width="5"/>
+  <!-- White/grey hair and long beard (elderly Noah) -->
+  <path d="M322,216 C320,186 330,168 344,160 Q352,156 360,155 Q368,156 376,160 C390,168 400,186 398,216 C402,240 408,272 404,300 Q382,314 360,318 Q338,314 316,300 C312,272 318,240 322,216" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Long white beard -->
+  <path d="M324,254 Q314,277 312,302 Q312,330 325,355 Q340,380 360,388 Q380,380 395,355 Q408,330 408,302 Q408,277 398,254" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M338,282 Q352,276 366,282" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M330,310 Q346,304 360,308 Q374,312 386,306" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M332,340 Q346,334 360,338 Q374,342 386,336" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Eyes -->
+  <path d="M344,224 Q352,218 360,224" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M360,224 Q368,218 376,224" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M347,236 Q360,245 373,236" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <!-- Neck -->
+  <path d="M350,250 L348,270" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <path d="M370,250 L372,270" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <!-- Noah's working robe (shorter hem for working) -->
+  <path d="M348,270 Q312,274 288,286 C266,300 256,330 253,370 C249,412 251,456 255,498 Q300,514 360,516 Q420,514 465,498 C469,456 471,412 467,370 C464,330 454,300 432,286 Q408,274 372,270" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Belt (working belt) -->
+  <path d="M265,368 Q360,360 455,368" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Robe folds -->
+  <path d="M355,280 Q348,374 350,510" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M342,286 Q332,380 334,508" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M372,284 Q382,378 380,508" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- LEFT ARM raised high, holding mallet/hammer head -->
+  <path d="M288,292 Q246,254 214,212 Q194,186 184,158" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Mallet/hammer in raised hand -->
+  <path d="M176,152 Q162,148 154,158 Q148,170 156,180 Q166,190 182,186 Q192,180 192,168 Q186,154 178,150" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Mallet handle extending down toward work -->
+  <path d="M172,178 Q196,214 218,244" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- RIGHT ARM holding the plank being worked on -->
+  <path d="M432,292 Q478,338 510,390 Q522,420 516,450" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M520,444 Q532,454 528,468 Q516,476 502,469 Q494,459 498,447" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- HELPER figure — son, working at right (x=620) -->
+  <circle cx="620" cy="278" r="34" fill="none" stroke="#0a0a0a" stroke-width="4.5"/>
+  <path d="M590,268 Q592,242 602,236 Q610,230 620,229 Q630,230 638,236 Q648,242 650,268" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M590,268 C586,290 588,316 590,334" fill="none" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M650,268 C654,290 652,316 650,334" fill="none" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M605,276 Q612,270 619,276" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M621,276 Q628,270 635,276" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M608,288 Q618,296 628,288" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Helper neck -->
+  <path d="M611,312 L610,330" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <path d="M629,312 L630,330" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <!-- Helper robe -->
+  <path d="M610,330 Q582,334 562,344 C544,358 536,384 534,418 C530,452 532,490 536,524 Q572,536 620,538 Q668,536 704,524 C708,490 710,452 706,418 C704,384 696,358 678,344 Q658,334 630,330" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Helper arms (working pose) -->
+  <path d="M562,350 Q530,380 520,420 Q516,448 518,474" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M678,350 Q714,382 730,424 Q736,454 730,478" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Grass -->
+  <path d="M50" y1="520" fill="none" stroke="none"/>
 </svg>

@@ -1,11 +1,78 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M80 440 Q400 380 820 440"/>
-    <circle cx="520" cy="260" r="20"/>
-    <line x1="520" y1="280" x2="520" y2="380"/>
-    <path d="M480 300 L560 300"/>
-    <circle cx="280" cy="360" r="14"/><circle cx="340" cy="340" r="14"/><circle cx="400" cy="360" r="14"/>
-    <circle cx="640" cy="350" r="14"/><circle cx="700" cy="370" r="14"/>
-    <path d="M500 260 L480 200"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" width="900" height="680" aria-hidden="true">
+  <!-- Sky and rolling hills -->
+  <path d="M0,258 Q180,220 360,250 Q540,280 720,238 Q840,208 900,224" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0,300 Q200,268 400,296 Q600,324 800,288 Q870,270 900,278" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0,340 Q120,318 240,342 Q360,366 480,336 Q600,306 720,332 Q820,352 900,336" fill="none" stroke="#111" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Ground -->
+  <path d="M0,525 Q225,509 450,527 Q675,545 900,517" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- SHEPHERD standing at center-left (x=340, feet at 560) -->
+  <!-- Head -->
+  <circle cx="340" cy="186" r="42" fill="none" stroke="#0a0a0a" stroke-width="5.5"/>
+  <!-- Head cloth / keffiyeh style -->
+  <path d="M300,172 Q304,142 316,134 Q328,126 340,124 Q352,126 364,134 Q376,142 380,172 Q388,198 390,228" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M298,175 Q298,195 302,218 C306,236 312,248 310,264" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Cloth wrap line -->
+  <path d="M300,172 Q320,162 340,160 Q360,162 380,172" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Beard -->
+  <path d="M316,214 C308,232 306,250 316,264 C326,280 340,286 354,282 C366,276 372,260 370,244 C366,228 356,218 340,215 C330,213 320,214 316,214" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Eyes -->
+  <path d="M322,184 Q330,178 338,184" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M342,184 Q350,178 358,184" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M338,192 Q334,205 336,212 Q340,216 344,212 Q346,205 342,192" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M328,222 Q340,231 352,222" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <!-- Neck -->
+  <path d="M328,228 L326,252" fill="none" stroke="#0d0d0d" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M352,228 L354,252" fill="none" stroke="#0d0d0d" stroke-width="4.5" stroke-linecap="round"/>
+  <!-- Robe -->
+  <path d="M326,252 Q288,256 258,270 C234,286 222,318 218,362 C212,410 212,460 216,510 Q272,530 340,532 Q408,530 464,510 C468,460 468,410 462,362 C458,318 446,286 422,270 Q392,256 354,252" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Belt -->
+  <path d="M232,362 Q340,354 448,362" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Robe folds -->
+  <path d="M335,262 Q328,358 330,526" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M322,268 Q312,364 314,524" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M352,266 Q362,362 360,524" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- LEFT ARM — holding shepherd's crook staff -->
+  <path d="M258,276 Q218,312 202,372 Q196,400 198,426" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Left hand gripping staff -->
+  <path d="M194,420 Q182,430 186,444 Q198,452 212,445 Q220,436 216,424 Q206,416 196,418" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- RIGHT ARM — at side -->
+  <path d="M422,276 Q462,316 472,378 Q474,408 470,432" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M474,425 Q484,434 481,447 Q470,455 456,448 Q449,439 453,427" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- SHEPHERD'S STAFF (tall crook, held in left hand) -->
+  <!-- Staff shaft -->
+  <path d="M197,436 Q199,380 200,318 Q201,256 200,208 Q199,172 196,154" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Crook curve at top -->
+  <path d="M196,154 Q193,132 178,124 Q158,114 148,126 Q138,140 146,158 Q154,170 170,168" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- SHEEP — 3 sheep at right, various distances -->
+  <!-- Sheep 1 (x=590) -->
+  <path d="M556,450 Q566,434 586,428 Q612,424 632,436 Q648,448 646,468 Q642,490 624,498 Q598,506 574,496 Q554,486 552,468 Q550,458 556,450" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M562,442 Q570,434 580,440" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M584,430 Q596,424 606,430" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M610,430 Q620,426 629,432" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="546" cy="462" r="20" fill="none" stroke="#0a0a0a" stroke-width="4.5"/>
+  <path d="M528,454 Q524,462 526,470 Q530,476 536,474" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="540" cy="460" r="4" fill="none" stroke="#0d0d0d" stroke-width="3"/>
+  <line x1="570" y1="498" x2="566" y2="528" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round"/>
+  <line x1="592" y1="502" x2="589" y2="532" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round"/>
+  <line x1="614" y1="502" x2="613" y2="532" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round"/>
+  <line x1="634" y1="498" x2="634" y2="528" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round"/>
+  <!-- Sheep 2 (smaller, more distant, x=730) -->
+  <path d="M706,458 Q713,446 726,442 Q742,438 754,446 Q764,454 763,468 Q761,482 750,487 Q734,492 720,486 Q706,479 704,468 Q702,462 706,458" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="698" cy="468" r="16" fill="none" stroke="#0a0a0a" stroke-width="4"/>
+  <circle cx="694" cy="466" r="3" fill="none" stroke="#0d0d0d" stroke-width="2.5"/>
+  <line x1="714" y1="487" x2="711" y2="510" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <line x1="730" y1="490" x2="728" y2="512" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <line x1="746" y1="490" x2="745" y2="512" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <line x1="760" y1="486" x2="760" y2="508" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <!-- Sheep 3 (smallest, far background, x=840) -->
+  <path d="M822,462 Q828,453 838,450 Q849,447 857,453 Q863,459 862,469 Q860,479 852,483 Q840,487 828,483 Q818,477 818,467 Q818,464 822,462" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="816" cy="467" r="12" fill="none" stroke="#0a0a0a" stroke-width="3.5"/>
+  <!-- Sandals Shepherd -->
+  <path d="M232,514 Q242,526 264,530 Q288,534 295,526 Q288,513 265,510 Q242,510 232,514" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <path d="M385,514 Q394,526 416,530 Q440,534 447,526 Q440,513 417,510 Q394,510 385,514" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <!-- Grass and flowers -->
+  <path d="M500,527 Q508,513 516,527" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round"/>
+  <path d="M50,527 Q58,513 66,527" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="498" cy="516" r="7" fill="none" stroke="#222" stroke-width="2.5"/>
+  <line x1="498" y1="523" x2="498" y2="540" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
 </svg>

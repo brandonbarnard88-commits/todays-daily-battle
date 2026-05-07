@@ -22840,3 +22840,595 @@ body.dark-mode #verseCard :is(p, span, strong, em, h2, h3, h4, li, blockquote) {
   border: 1px solid color-mix(in srgb, var(--gold-soft) 30%, transparent);
   color: var(--muted-readable);
 }
+
+/* === Porch Spacing Consistency - May 2026 Audit === */
+/* .app-content covers all localized topic pages site-wide.
+   Kids pages explicitly override below — they manage their own layout. */
+.porch-section, .app-content {
+  padding: 2.5rem 1rem;
+}
+@media (min-width: 768px) {
+  .porch-section, .app-content { padding: 3.5rem 2rem; }
+}
+
+/* Kids pages: zero out porch padding so their own layout CSS takes over */
+body.kids-world-surface .app-content,
+body.kids-battle-page .app-content,
+.kids-corner-page,
+.tdb-kids-coloring-page main {
+  padding: 0;
+}
+
+.porch-card {
+  padding: 1.75rem;
+  margin-bottom: 2rem;
+  border-radius: 18px;
+}
+
+body {
+  line-height: 1.75;
+}
+.verse-text, .kjv-verse, .kjv-text, .plan-day-text {
+  line-height: 1.75;
+}
+
+/* Container standardization */
+main, .tdb-quiet-container, .content-inner, #main, #home-primary-flow {
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 768px) {
+  main, .tdb-quiet-container, .content-inner, #main, #home-primary-flow {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* Kids pages need full-width grid layouts — undo the container cap */
+main.kids-corner-page,
+main.kids-corner-page.tdb-quiet-container,
+.kids-corner-page .content-inner,
+.tdb-kids-coloring-page main,
+.tdb-kids-coloring-page .content-inner,
+.kids-world-surface main,
+.kids-world-surface .content-inner {
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+/* Restore inner breathing room inside kids containers */
+.kids-corner-page .glass,
+.tdb-kids-coloring-page .glass {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 768px) {
+  .kids-corner-page .glass,
+  .tdb-kids-coloring-page .glass {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* Mobile breathing room & touch targets */
+@media (max-width: 480px) {
+  .porch-card, .plan-row { margin-bottom: 1.75rem; }
+  button, .btn, .filter-chip, a[role="button"], .plan-row, .card {
+    min-height: 48px;
+  }
+}
+
+/* === Gentle Porch Animations - Full Site Upgrade May 2026 === */
+:root {
+  --porch-duration: 600ms;
+  --porch-ease: cubic-bezier(0.4, 0.0, 0.2, 1);
+  --porch-ease-out: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --porch-ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+@keyframes porchGentleRise {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Page-entry fade for major content regions */
+.porch-section,
+.glass,
+.porch-card,
+.plan-row,
+.cta-group,
+.section-divider,
+.hero-banner,
+.verse-card,
+.kjv-verse,
+.verse-text,
+.coloring-canvas-container {
+  animation: porchGentleRise var(--porch-duration) var(--porch-ease) both;
+}
+
+/* Kids pages manage their own reveal and layout — see bottom of file for the
+   definitive !important cancellation which must come after all stagger rules */
+
+/* Staggered children — exclude elements that manage their own reveal */
+.porch-section > *:not(.no-animate) {
+  animation: porchGentleRise 650ms var(--porch-ease) both;
+}
+.porch-section > *:nth-child(1) { animation-delay: 0ms; }
+.porch-section > *:nth-child(2) { animation-delay: 80ms; }
+.porch-section > *:nth-child(3) { animation-delay: 160ms; }
+.porch-section > *:nth-child(4) { animation-delay: 240ms; }
+.porch-section > *:nth-child(5) { animation-delay: 320ms; }
+
+/* Gentle glass card stagger */
+.content-inner > .glass:nth-child(1) { animation-delay: 60ms; }
+.content-inner > .glass:nth-child(2) { animation-delay: 130ms; }
+.content-inner > .glass:nth-child(3) { animation-delay: 200ms; }
+.content-inner > .glass:nth-child(4) { animation-delay: 260ms; }
+.content-inner > .glass:nth-child(5) { animation-delay: 320ms; }
+.content-inner > .glass:nth-child(6) { animation-delay: 380ms; }
+
+/* Interactive element transitions */
+.btn,
+button:not([aria-disabled="true"]),
+.filter-chip,
+.plan-row,
+.color-option,
+a[role="button"],
+.porch-card {
+  transition: transform 420ms var(--porch-ease),
+              box-shadow 420ms var(--porch-ease),
+              background-color 300ms ease,
+              color 300ms ease,
+              border-color 300ms ease,
+              opacity 300ms ease;
+}
+
+.btn:hover,
+.filter-chip:hover,
+.plan-row:hover,
+.porch-card:hover {
+  transform: translateY(-3px) scale(1.015);
+  box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.22);
+}
+
+.btn:active,
+.filter-chip:active,
+.plan-row:active {
+  transform: translateY(0) scale(1);
+  transition-duration: 120ms;
+}
+
+/* Verse text — slow, elegant reveal on load/swap */
+.verse-text,
+.kjv-verse,
+.kjv-text,
+.plan-day-text {
+  transition: opacity 850ms var(--porch-ease-out),
+              transform 850ms var(--porch-ease-out);
+}
+
+/* Coloring canvas — soft elevation on hover */
+.coloring-canvas-container {
+  transition: box-shadow 600ms var(--porch-ease),
+              transform 600ms var(--porch-ease);
+}
+.coloring-canvas-container:hover {
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.14);
+  transform: scale(1.012);
+}
+
+/* Battle plan progress bar — smooth fill */
+.plan-progress-bar,
+[class*="progress-bar"],
+[class*="plan-progress"] {
+  transition: width 800ms var(--porch-ease-out),
+              background-color 500ms ease;
+}
+
+/* Plan day cards — lift on unlock/completion */
+.plan-day,
+.plan-day-card,
+[class*="plan-day"] {
+  transition: all 500ms var(--porch-ease);
+}
+.plan-day.completed,
+.plan-day-card.completed {
+  background: color-mix(in srgb, var(--card) 88%, rgba(74, 222, 128, 0.18));
+  border-color: rgba(74, 222, 128, 0.28);
+}
+
+/* Prayer wall — new entries settle in softly */
+.prayer-entry,
+.prayer-item,
+[class*="prayer-card"] {
+  animation: porchGentleRise 600ms var(--porch-ease) both;
+}
+
+/* Mood chips / quick-topic ripple feel */
+.quick-topic,
+[class*="mood-chip"],
+[class*="feel-chip"] {
+  transition: transform 380ms var(--porch-ease),
+              background-color 300ms ease,
+              box-shadow 380ms var(--porch-ease);
+}
+.quick-topic:hover,
+[class*="mood-chip"]:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 18px -4px rgba(0, 0, 0, 0.18);
+}
+
+/* Sidebar / mobile drawer */
+.sidebar,
+.tdb-primary-nav-panel,
+.mobile-menu,
+.nav-drawer,
+.modal {
+  transition: transform 550ms var(--porch-ease-drawer),
+              opacity 400ms ease;
+}
+
+/* Focus rings — instant, never animated */
+:focus-visible {
+  transition: outline-offset 80ms ease;
+}
+
+/* Respect reduced motion — flatten everything, no exceptions */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* === Scroll-reveal states (toggled by porch-effects.js IntersectionObserver) === */
+/* Elements below the fold start hidden; JS adds .porch-visible when they enter viewport */
+.porch-reveal {
+  opacity: 0;
+  transform: translateY(22px) scale(0.985);
+  transition: opacity 620ms var(--porch-ease, cubic-bezier(0.4, 0, 0.2, 1)),
+              transform 620ms var(--porch-ease, cubic-bezier(0.4, 0, 0.2, 1));
+}
+.porch-reveal.porch-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+/* Stagger siblings that also carry porch-reveal */
+.porch-reveal:nth-child(2) { transition-delay: 70ms; }
+.porch-reveal:nth-child(3) { transition-delay: 140ms; }
+.porch-reveal:nth-child(4) { transition-delay: 210ms; }
+.porch-reveal:nth-child(5) { transition-delay: 280ms; }
+
+/* === Falling leaves — plan completion (porch-effects.js spawns .porch-particle divs) === */
+/* Base particle — 5 color/shape variants driven by --particle-color + --particle-radius */
+.porch-particle {
+  position: fixed;
+  top: -20px;
+  width: var(--particle-w, 11px);
+  height: var(--particle-h, 11px);
+  background: var(--particle-color, radial-gradient(circle at 35% 35%, #d4edda, #a8d5b5));
+  border-radius: var(--particle-radius, 40% 60% 30% 70% / 50% 40% 60% 50%);
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
+  animation: porchLeafFall linear forwards;
+  will-change: transform, opacity;
+}
+@keyframes porchLeafFall {
+  0%   { opacity: 0;    transform: translateY(0)     translateX(0)                         rotate(0deg); }
+  7%   { opacity: 0.7; }
+  50%  {                transform: translateY(50vh)   translateX(calc(var(--leaf-drift, 40px) * 0.5)) rotate(180deg); }
+  88%  { opacity: 0.5; }
+  100% { opacity: 0;    transform: translateY(110vh)  translateX(var(--leaf-drift, 40px))   rotate(720deg); }
+}
+
+/* === Prayer entry settling (tiny rotation drop) === */
+/* JS adds .porch-prayer-new; CSS handles the settle */
+.porch-prayer-new {
+  animation: porchPrayerSettle 700ms var(--porch-ease, cubic-bezier(0.4, 0, 0.2, 1)) both;
+}
+@keyframes porchPrayerSettle {
+  from {
+    opacity: 0;
+    transform: translateY(14px) rotate(-1.2deg) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+}
+
+/* === Calm focus states (gentle glow, never janky) === */
+:focus-visible {
+  outline: 2px solid var(--tdb-focus-ring, #e3bc67);
+  outline-offset: 3px;
+  transition: outline-offset 80ms ease;
+  border-radius: 4px;
+}
+.btn:focus-visible,
+.porch-card:focus-visible,
+.plan-row:focus-visible,
+.filter-chip:focus-visible {
+  outline-offset: 4px;
+  box-shadow: 0 0 0 4px rgba(227, 188, 103, 0.22);
+}
+
+/* === Soft porch particles — organic variety via JS-assigned CSS vars === */
+/* Shape/color variants; JS randomly picks --particle-color, --particle-radius, w, h */
+/* Variant A: sage green blob (default — see above base rule) */
+/* Variant B: soft gold teardrop */
+.porch-particle[data-v="1"] {
+  --particle-color: radial-gradient(circle at 40% 30%, #fef3c7, #e8d5a3);
+  --particle-radius: 50% 20% 50% 20% / 60% 30% 70% 40%;
+  --particle-w: 9px;
+  --particle-h: 13px;
+}
+/* Variant C: warm lavender round */
+.porch-particle[data-v="2"] {
+  --particle-color: radial-gradient(circle at 45% 40%, #ede9fe, #c4b5fd88);
+  --particle-radius: 50%;
+  --particle-w: 8px;
+  --particle-h: 8px;
+}
+/* Variant D: cream elongated */
+.porch-particle[data-v="3"] {
+  --particle-color: radial-gradient(circle at 30% 50%, #fdfcf7, #e8dfc8);
+  --particle-radius: 70% 30% 60% 40% / 30% 70% 30% 70%;
+  --particle-w: 14px;
+  --particle-h: 7px;
+}
+/* Variant E: muted blue-grey petal */
+.porch-particle[data-v="4"] {
+  --particle-color: radial-gradient(circle at 55% 35%, #dbeafe88, #93c5fd66);
+  --particle-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+  --particle-w: 10px;
+  --particle-h: 12px;
+}
+
+/* === Mood chip tap ripple === */
+.quick-topic,
+[class*="mood-chip"],
+[class*="feel-chip"] {
+  position: relative;
+  overflow: hidden;
+}
+.quick-topic::after,
+[class*="mood-chip"]::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.18) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 380ms ease;
+  pointer-events: none;
+  border-radius: inherit;
+}
+.quick-topic:active::after,
+[class*="mood-chip"]:active::after {
+  opacity: 1;
+  transition-duration: 80ms;
+}
+
+/* === Verse page-turn class (add/remove via JS on verse swap) === */
+/* Usage: el.classList.add('porch-verse-out'); on animationend replace text;
+          then el.classList.replace('porch-verse-out','porch-verse-in'); */
+@keyframes porchVerseOut {
+  from { opacity: 1; transform: translateY(0)   scale(1); }
+  to   { opacity: 0; transform: translateY(-8px) scale(0.99); }
+}
+@keyframes porchVerseIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.99); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+.porch-verse-out {
+  animation: porchVerseOut 340ms var(--porch-ease, cubic-bezier(0.4,0,0.2,1)) forwards;
+}
+.porch-verse-in {
+  animation: porchVerseIn 560ms var(--porch-ease-out, cubic-bezier(0.25,0.1,0.25,1)) both;
+}
+
+/* === Mobile menu drawer breathe (slower, softer than default) === */
+/* Ensure the sidebar slide doesn't feel snappy — already wired in transition block above;
+   this reinforces the open state so it feels like a curtain parting, not a snap */
+.sidebar[aria-hidden="false"],
+.sidebar.is-open,
+#sidebar:target {
+  transition: transform 520ms var(--porch-ease-drawer, cubic-bezier(0.32,0.72,0,1)),
+              opacity 420ms ease;
+}
+
+/* === Coloring canvas — paper texture reveal on load + saved-drawing settle === */
+.coloring-canvas-container {
+  position: relative;
+}
+/* Paper texture overlay fades out once canvas is ready */
+.coloring-canvas-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(200, 185, 155, 0.035) 2px,
+    rgba(200, 185, 155, 0.035) 4px
+  );
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 1;
+  transition: opacity 800ms ease;
+}
+.coloring-canvas-container.canvas-ready::before {
+  opacity: 0;
+}
+/* Saved drawing slot settles like placing a page on the table */
+.tdb-cat-saved-thumb,
+[class*="saved-drawing"],
+[class*="story-slide"] {
+  animation: porchGentleRise 580ms var(--porch-ease, cubic-bezier(0.4,0,0.2,1)) both;
+}
+
+/* === Plan day completion flash === */
+/* JS adds .porch-day-done; a brief soft green wash fades through the card */
+@keyframes porchDayDone {
+  0%   { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+  30%  { box-shadow: 0 0 0 6px rgba(74, 222, 128, 0.28); }
+  100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+}
+.porch-day-done {
+  animation: porchDayDone 900ms var(--porch-ease-out, cubic-bezier(0.25,0.1,0.25,1)) forwards;
+}
+
+/* === My Study note save confirmation === */
+/* JS adds .porch-note-saved to the saved note card */
+@keyframes porchNoteSaved {
+  0%   { transform: scale(1);    box-shadow: 0 0 0 0   rgba(227, 188, 103, 0); }
+  35%  { transform: scale(1.02); box-shadow: 0 0 0 5px rgba(227, 188, 103, 0.25); }
+  100% { transform: scale(1);    box-shadow: 0 0 0 0   rgba(227, 188, 103, 0); }
+}
+.porch-note-saved {
+  animation: porchNoteSaved 800ms var(--porch-ease-out, cubic-bezier(0.25,0.1,0.25,1)) forwards;
+}
+
+/* ============================================================
+   KIDS PAGES — VISIBILITY & READABILITY
+   This block is intentionally last in the file.
+   body[class*="kids"] catches every class variant without
+   enumerating each one; !important wins the cascade entirely.
+   ============================================================ */
+
+/* 1. Cancel every porch entrance animation on any kids page body.
+      Covers kids-world-surface, kids-battle-page, tdb-kids-coloring-page,
+      kids-gentle-journey-page, and any future kids-* body class. */
+body[class*="kids"] *,
+body[class*="kids"] *::before,
+body[class*="kids"] *::after {
+  animation-name: none !important;
+  animation-delay: 0ms !important;
+  animation-duration: 0.01ms !important;
+}
+
+/* 2. Hard visibility guarantee — nothing may be invisible on kids pages */
+body[class*="kids"] .glass,
+body[class*="kids"] .content-inner,
+body[class*="kids"] .app-content,
+body[class*="kids"] section,
+body[class*="kids"] article,
+body[class*="kids"] details,
+body[class*="kids"] nav,
+body[class*="kids"] header,
+body[class*="kids"] footer,
+body[class*="kids"] .porch-section,
+body[class*="kids"] .hero-banner,
+body[class*="kids"] .plan-row,
+body[class*="kids"] .cta-group,
+body[class*="kids"] .section-divider,
+.kids-library-card,
+.kids-library-grid,
+.kids-pasture-card,
+.kids-weekly-verse-card,
+.kids-buddy-bubble,
+.kids-buddy-block,
+.kids-play-zone,
+.kids-play-zone-inner,
+.kids-magic-btn,
+.kids-magic-hero-cta,
+.kids-magic-duo,
+.kids-bottom-nav,
+.kids-corner-page-nav {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+/* 3. Readability — larger text, warm dark ink, generous line-height */
+body.kids-world-surface,
+body.kids-world-surface .content-inner,
+body.kids-world-surface .glass {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--kw-ink, #1e293b);
+}
+
+body.kids-world-surface h1,
+body.kids-world-surface h2,
+body.kids-world-surface h3 {
+  color: var(--kw-ink, #1e293b);
+  line-height: 1.25;
+  font-weight: 700;
+}
+body.kids-world-surface h1 { font-size: clamp(1.5rem,  4vw, 2.1rem); }
+body.kids-world-surface h2 { font-size: clamp(1.25rem, 3vw, 1.7rem); }
+body.kids-world-surface h3 { font-size: clamp(1.1rem,  2.5vw, 1.4rem); }
+
+/* KJV verse lines — large, calm, dark ink */
+body.kids-world-surface .kjv-verse,
+body.kids-world-surface .verse-text,
+body.kids-world-surface .kids-weekly-verse-card,
+body.kids-world-surface [class*="kids-verse"],
+body.kids-world-surface [class*="kjv"] {
+  font-size: clamp(1.15rem, 3.2vw, 1.45rem);
+  line-height: 1.75;
+  color: var(--kw-ink, #1e293b);
+}
+
+/* Body copy — easy to read for parents and children */
+body.kids-world-surface p,
+body.kids-world-surface li,
+body.kids-world-surface .section-note,
+body.kids-world-surface .kids-bubble-voice,
+body.kids-world-surface .kids-bubble-hi {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--kw-ink-muted, #475569);
+}
+
+/* .glass cards — soft cream surface, readable over the pastoral backdrop */
+body.kids-world-surface .glass {
+  background: rgba(255, 252, 243, 0.94);
+  border: 1.5px solid rgba(217, 119, 6, 0.16);
+  border-radius: 18px;
+  padding: 1.5rem 1.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 18px rgba(120, 80, 20, 0.07);
+}
+
+body.kids-world-surface .glass > * + * {
+  margin-top: 0.85rem;
+}
+
+/* Kid-friendly focus rings — bold warm gold, high visibility */
+body[class*="kids"] :focus-visible {
+  outline: 3px solid #d97706 !important;
+  outline-offset: 4px !important;
+  border-radius: 6px;
+}
+
+/* 4. Large touch targets for little fingers */
+@media (max-width: 1024px) {
+  body[class*="kids"] button,
+  body[class*="kids"] a.kids-magic-btn,
+  body[class*="kids"] .kids-magic-btn,
+  body[class*="kids"] .filter-chip,
+  body[class*="kids"] a[role="button"] {
+    min-height: 52px;
+    font-size: 1.05rem;
+  }
+}
+

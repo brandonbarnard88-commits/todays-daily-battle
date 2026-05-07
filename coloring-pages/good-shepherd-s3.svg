@@ -1,11 +1,219 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M60 200 Q200 120 400 140 Q600 160 840 200"/>
-    <path d="M80 440 Q400 400 820 440"/>
-    <circle cx="480" cy="280" r="18"/>
-    <line x1="480" y1="298" x2="480" y2="380"/>
-    <path d="M440 300 L400 280"/>
-    <circle cx="220" cy="360" r="14"/>
-    <line x1="220" y1="346" x2="400" y2="300"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" width="900" height="680" aria-hidden="true">
+
+  <!-- STARS in evening sky -->
+  <path d="M112,54 L114,46 L116,54 L124,56 L116,58 L114,66 L112,58 L104,56 Z" fill="none" stroke="#111" stroke-width="4.5" stroke-linejoin="round"/>
+  <path d="M398,36 L400,28 L402,36 L410,38 L402,40 L400,48 L398,40 L390,38 Z" fill="none" stroke="#111" stroke-width="4.5" stroke-linejoin="round"/>
+  <path d="M682,44 L684,36 L686,44 L694,46 L686,48 L684,56 L682,48 L674,46 Z" fill="none" stroke="#111" stroke-width="4.5" stroke-linejoin="round"/>
+  <path d="M818,34 L819,28 L820,34 L826,36 L820,38 L819,44 L818,38 L812,36 Z" fill="none" stroke="#111" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M242,44 L243,38 L244,44 L250,46 L244,48 L243,54 L242,48 L236,46 Z" fill="none" stroke="#111" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M562,28 L563,22 L564,28 L570,30 L564,32 L563,38 L562,32 L556,30 Z" fill="none" stroke="#111" stroke-width="3.5" stroke-linejoin="round"/>
+
+  <!-- DISTANT HILLS -->
+  <path d="M0,362 Q180,322 360,352 Q540,382 720,338 Q840,308 900,326" fill="none" stroke="#444" stroke-width="5" stroke-linecap="round"/>
+  <path d="M0,402 Q200,372 400,398 Q600,424 800,388 Q870,372 900,382" fill="none" stroke="#333" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- MID HILLS with texture -->
+  <path d="M0,442 Q120,418 240,436 Q360,454 480,428 Q600,402 720,432 Q840,462 900,446" fill="none" stroke="#222" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- GROUND LINE -->
+  <path d="M0,534 Q225,518 450,536 Q675,554 900,526" fill="none" stroke="#111" stroke-width="16" stroke-linecap="round"/>
+
+  <!-- ========================================== -->
+  <!-- SHEPHERD FIGURE (centered x=450, feet y=600) -->
+  <!-- ========================================== -->
+
+  <!-- HEAD -->
+  <circle cx="450" cy="164" r="57" fill="none" stroke="#111" stroke-width="19"/>
+
+  <!-- HAIR — long, flowing to shoulders, head cloth -->
+  <path d="M388,152 C384,122 396,100 418,90 Q434,84 450,82 Q466,84 482,90 C504,100 516,122 512,152 C516,180 522,216 518,244 Q496,264 450,268 Q404,264 382,244 C378,216 384,180 388,152" fill="none" stroke="#111" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Head cloth top seam -->
+  <path d="M390,152 Q432,142 450,140 Q468,142 510,152" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <!-- Hair side strands -->
+  <path d="M386,160 Q378,194 382,232 Q386,258 396,268" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M514,160 Q522,194 518,232 Q514,258 504,268" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <!-- Hair center -->
+  <path d="M450,82 L450,124" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- BEARD -->
+  <path d="M414,210 C406,232 404,256 416,274 C428,292 450,298 474,292 C486,276 488,254 480,232 C474,216 464,210 450,207 C438,205 420,207 414,210" fill="none" stroke="#111" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Beard layering / texture lines -->
+  <path d="M430,238 Q444,230 458,238" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M424,258 Q440,250 456,254 Q468,256 478,252" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M428,278 Q448,270 468,276" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <!-- Chin point -->
+  <path d="M438,292 Q450,300 462,292" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- EYEBROWS -->
+  <path d="M418,148 Q434,141 450,145" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M450,145 Q466,141 482,148" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- EYES -->
+  <path d="M420,162 Q434,154 448,162" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <path d="M452,162 Q466,154 480,162" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <!-- Lower lids -->
+  <path d="M422,164 Q434,170 448,164" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <path d="M452,164 Q466,170 478,164" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- NOSE -->
+  <path d="M448,172 L442,194 Q440,202 444,208 Q450,212 456,208 Q460,202 458,194 L452,172" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M438,206 Q442,214 448,210" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <path d="M462,210 Q458,214 452,210" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- MOUTH — joyful, wide smile -->
+  <path d="M422,230 C432,252 468,252 478,230" fill="none" stroke="#111" stroke-width="10" stroke-linecap="round"/>
+  <path d="M430,228 Q450,222 470,228" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <!-- Joy creases -->
+  <path d="M418,228 Q412,216 416,206" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+  <path d="M482,228 Q488,216 484,206" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- NECK -->
+  <path d="M426,240 L424,266" fill="none" stroke="#111" stroke-width="15" stroke-linecap="round"/>
+  <path d="M474,240 L476,266" fill="none" stroke="#111" stroke-width="15" stroke-linecap="round"/>
+
+  <!-- ROBE BODY — main outline SW 19 -->
+  <path d="M424,266 Q382,272 344,290 C320,310 306,356 302,408 C296,462 298,518 302,572 Q398,604 450,606 Q502,604 598,572 C602,518 604,462 598,408 C594,356 580,310 556,290 Q518,272 476,266" fill="none" stroke="#111" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- BELT / SASH (tied across waist) -->
+  <path d="M316,404 Q450,396 584,404" fill="none" stroke="#111" stroke-width="13" stroke-linecap="round"/>
+  <!-- Sash knot loops -->
+  <path d="M440,394 Q448,382 456,394" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M444,394 L440,418" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <path d="M456,394 L460,418" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+
+  <!-- ROBE INTERIOR FOLDS -->
+  <path d="M447,276 C440,374 438,474 440,598" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M432,282 C422,380 418,480 420,596" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M464,278 C476,376 480,476 478,596" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M415,296 C402,394 398,494 400,594" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <path d="M482,294 C496,392 500,492 498,592" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <!-- Hem detail -->
+  <path d="M342,550 Q396,540 448,544" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <path d="M452,544 Q506,540 560,550" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- LEFT ARM (holding lamb's front legs, extended downward-left) -->
+  <path d="M344,296 Q288,340 250,412 Q232,446 228,478" fill="none" stroke="#111" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Inner sleeve line -->
+  <path d="M356,302 Q302,346 264,418 Q248,452 246,482" fill="none" stroke="#111" stroke-width="16" stroke-linecap="round"/>
+
+  <!-- LEFT HAND grasping staff -->
+  <path d="M222,470 Q208,484 210,500 Q222,514 244,506 Q256,494 252,476 Q238,464 224,468" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Finger knuckle lines -->
+  <path d="M216,476 Q208,488 212,500" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M222,472 Q214,484 218,496" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M228,468 Q222,480 226,492" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M236,466 Q230,478 234,490" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- RIGHT ARM (supporting lamb's hindquarters) -->
+  <path d="M556,296 Q612,340 650,412 Q668,446 672,478" fill="none" stroke="#111" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M544,304 Q600,348 638,420 Q654,456 654,484" fill="none" stroke="#111" stroke-width="16" stroke-linecap="round"/>
+
+  <!-- RIGHT HAND supporting lamb -->
+  <path d="M678,470 Q692,484 690,500 Q678,514 656,506 Q644,494 648,476 Q662,464 676,468" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M682,476 Q692,488 688,500" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M686,472 Q696,484 692,496" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M678,466 Q686,478 682,490" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- SANDALS -->
+  <path d="M312,572 Q326,592 354,598 Q384,604 394,592 Q384,574 356,570 Q328,568 312,572" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Sandal strap -->
+  <path d="M338,576 Q344,588 356,590" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M506,572 Q520,592 548,598 Q578,604 588,592 Q578,574 550,570 Q522,568 506,572" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M532,576 Q538,588 550,590" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- ============================= -->
+  <!-- LAMB DRAPED ACROSS SHOULDERS -->
+  <!-- ============================= -->
+
+  <!-- LAMB BODY — fluffy oval spanning both shoulders -->
+  <path d="M246,254 Q308,226 370,218 Q408,214 450,215 Q492,216 530,220 Q592,228 654,254 Q648,282 616,296 Q574,310 518,314 Q472,318 450,318 Q428,318 382,314 Q326,308 288,292 Q258,272 246,262 Q244,256 246,254" fill="none" stroke="#111" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- WOOL BUMP BUMPS across top of body -->
+  <path d="M276,250 Q296,236 318,244" fill="none" stroke="#111" stroke-width="10" stroke-linecap="round"/>
+  <path d="M324,232 Q346,220 368,228" fill="none" stroke="#111" stroke-width="10" stroke-linecap="round"/>
+  <path d="M374,218 Q396,210 420,216" fill="none" stroke="#111" stroke-width="10" stroke-linecap="round"/>
+  <path d="M426,214 Q450,206 474,212" fill="none" stroke="#111" stroke-width="10" stroke-linecap="round"/>
+  <path d="M478,216 Q500,208 522,216" fill="none" stroke="#111" stroke-width="10" stroke-linecap="round"/>
+  <path d="M528,222 Q550,214 572,222" fill="none" stroke="#111" stroke-width="10" stroke-linecap="round"/>
+  <path d="M580,232 Q600,224 618,232" fill="none" stroke="#111" stroke-width="10" stroke-linecap="round"/>
+  <path d="M626,244 Q642,236 652,248" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+
+  <!-- Wool texture inside body -->
+  <path d="M318,300 Q338,290 358,298" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M376,308 Q396,300 418,306" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M482,306 Q502,300 524,306" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M540,298 Q560,290 580,296" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- LAMB HEAD (hanging over left shoulder, facing out) -->
+  <circle cx="232" cy="236" r="38" fill="none" stroke="#111" stroke-width="17"/>
+
+  <!-- Lamb ear — long floppy -->
+  <path d="M208,212 Q192,194 202,180 Q216,168 230,182 Q240,196 226,212" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Ear inner detail -->
+  <path d="M210,210 Q200,196 206,184 Q214,175 222,183" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- Lamb eye — almond shaped, gentle -->
+  <path d="M216,228 Q224,220 232,228 Q228,236 218,232 Q216,230 216,228" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="226" cy="228" r="5" fill="none" stroke="#111" stroke-width="9"/>
+
+  <!-- Lamb nose -->
+  <path d="M206,248 Q216,262 234,260 Q252,258 256,246" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <path d="M218,256 Q224,262 230,258" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- LAMB FRONT LEGS over left shoulder (hanging down) -->
+  <path d="M250,286 Q242,320 240,358 Q238,390 242,416" fill="none" stroke="#111" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M278,296 Q272,330 270,368 Q268,400 272,426" fill="none" stroke="#111" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Front hooves -->
+  <path d="M236,414 Q240,430 252,434 Q264,430 264,418" fill="none" stroke="#111" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M266,424 Q270,440 282,444 Q294,440 292,428" fill="none" stroke="#111" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Leg joint hint -->
+  <path d="M240,352 Q244,362 252,360" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M268,364 Q272,374 280,372" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- LAMB HIND LEGS over right shoulder (hanging down) -->
+  <path d="M628,290 Q636,324 634,362 Q632,394 636,420" fill="none" stroke="#111" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M652,278 Q662,312 660,350 Q658,382 662,408" fill="none" stroke="#111" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Hind hooves -->
+  <path d="M630,418 Q634,434 646,438 Q658,434 658,422" fill="none" stroke="#111" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M656,406 Q660,422 672,426 Q684,422 682,410" fill="none" stroke="#111" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Hind joint hint -->
+  <path d="M634,354 Q638,364 646,362" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M660,344 Q664,354 672,352" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- LAMB TAIL (small curl at rump, over right shoulder) -->
+  <path d="M596,288 Q606,276 618,282 Q622,292 614,298" fill="none" stroke="#111" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- SHEPHERD'S STAFF / CROOK -->
+  <!-- Shaft -->
+  <path d="M228,492 Q226,424 226,344 Q226,264 228,198 Q230,162 232,130" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round"/>
+  <!-- Crook curve -->
+  <path d="M232,130 Q228,104 212,92 Q192,78 176,92 Q160,108 172,128 Q184,148 208,140" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Staff texture grain -->
+  <path d="M228,360 Q232,356 236,360" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+  <path d="M228,400 Q232,396 236,400" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+  <path d="M228,440 Q232,436 236,440" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- GRASS TUFTS FOREGROUND -->
+  <path d="M56,536 Q64,518 72,536" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <path d="M76,530 Q84,512 92,530" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M104,536 Q112,518 120,536" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M730,530 Q738,512 746,530" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <path d="M762,536 Q770,518 778,536" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M800,530 Q808,512 816,530" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Small wildflower foreground left -->
+  <circle cx="136" cy="520" r="9" fill="none" stroke="#111" stroke-width="8"/>
+  <line x1="136" y1="529" x2="136" y2="554" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <path d="M128,536 Q136,528 144,536" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- Small wildflower foreground right -->
+  <circle cx="832" cy="518" r="9" fill="none" stroke="#111" stroke-width="8"/>
+  <line x1="832" y1="527" x2="832" y2="552" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <path d="M824,534 Q832,526 840,534" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- STONE path on hillside leading down -->
+  <ellipse cx="740" cy="448" rx="28" ry="16" fill="none" stroke="#111" stroke-width="9"/>
+  <ellipse cx="784" cy="458" rx="22" ry="12" fill="none" stroke="#111" stroke-width="8"/>
+  <ellipse cx="718" cy="466" rx="18" ry="10" fill="none" stroke="#111" stroke-width="7"/>
+
 </svg>

@@ -1,17 +1,72 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M300 480 L300 300 Q450 230 600 300 L600 480 Z"/>
-    <ellipse cx="450" cy="380" rx="75" ry="95"/>
-    <path d="M375 380 L525 380"/>
-    <path d="M380 200 L400 120 L420 140 L450 100 L480 140 L500 120 L520 200"/>
-    <circle cx="450" cy="240" r="22"/>
-    <line x1="450" y1="262" x2="450" y2="320"/>
-    <path d="M420 285 L380 270"/>
-    <path d="M480 285 L520 270"/>
-    <path d="M400 200 L420 160 L450 175 L480 160 L500 200"/>
-    <circle cx="320" cy="420" r="14"/>
-    <line x1="320" y1="406" x2="340" y2="360"/>
-    <circle cx="580" cy="418" r="14"/>
-    <line x1="580" y1="404" x2="560" y2="360"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" width="900" height="680" aria-hidden="true">
+  <!-- Bright morning sky -->
+  <path d="M0,180 Q225,162 450,180 Q675,198 900,172" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0,220 Q200,204 400,222 Q600,240 800,212 Q870,198 900,204" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Sunrise upper right -->
+  <path d="M800,80 Q836,72 864,90 Q884,108 882,136 Q876,162 854,172 Q830,180 808,166 Q784,150 782,124 Q780,100 800,80" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M840,70 L840,46" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <path d="M872,90 L890,74" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <path d="M884,128 L900,120" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <path d="M876,162 L888,178" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <path d="M808,80 L798,62" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <path d="M780,110 L762,100" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <!-- Ground -->
+  <path d="M0,522 Q225,506 450,524 Q675,542 900,514" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Tomb in background — smaller, background detail -->
+  <path d="M140,290 Q166,276 192,280 Q218,286 230,306 Q240,326 240,358 L240,490 Q218,498 190,500 Q162,498 140,490 L130,358 Q128,326 130,300 Q132,292 140,290" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Rock face of tomb background -->
+  <path d="M80,240 Q100,222 120,228 Q128,260 130,300" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M240,306 Q254,270 262,240 Q276,220 296,222" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Stone rolled aside (background, small) -->
+  <circle cx="280" cy="400" r="52" fill="none" stroke="#0a0a0a" stroke-width="4.5"/>
+  <circle cx="280" cy="400" r="38" fill="none" stroke="#111" stroke-width="2.5"/>
+  <!-- Folded burial cloths inside tomb (visible through entrance) -->
+  <path d="M150,440 Q188,436 230,440" fill="none" stroke="#333" stroke-width="3" stroke-linecap="round"/>
+  <path d="M148,452 Q188,448 230,452" fill="none" stroke="#333" stroke-width="3" stroke-linecap="round"/>
+  <path d="M160,462 Q188,460 220,462" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Palm tree left foreground -->
+  <path d="M424,522 Q426,452 428,378" fill="none" stroke="#0a0a0a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M428,382 Q394,348 372,314 Q356,288 360,268 Q366,254 380,256 Q396,260 404,284 Q414,312 418,344" fill="none" stroke="#0d0d0d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M428,376 Q462,344 484,312 Q500,286 496,266 Q490,252 476,254 Q460,258 452,282 Q442,310 436,342" fill="none" stroke="#0d0d0d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M428,386 Q390,376 368,358 Q352,342 356,326 Q364,316 378,320 Q396,328 408,352" fill="none" stroke="#0d0d0d" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M428,388 Q466,380 490,364 Q506,348 502,332 Q494,322 480,326 Q462,334 450,358" fill="none" stroke="#0d0d0d" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Trunk texture -->
+  <path d="M425,418 Q429,414 433,418" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M424,448 Q428,444 432,448" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M424,478 Q428,474 432,478" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Garden flowers — prominent, beautiful, hope and life -->
+  <!-- Lily cluster left -->
+  <line x1="560" y1="514" x2="560" y2="558" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <path d="M544,514 Q560,498 576,514" fill="none" stroke="#0d0d0d" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M548,508 Q560,494 572,508" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="560" cy="514" r="7" fill="none" stroke="#0d0d0d" stroke-width="3"/>
+  <line x1="548" y1="522" x2="536" y2="538" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <line x1="572" y1="522" x2="584" y2="538" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <!-- Lily 2 -->
+  <line x1="612" y1="510" x2="612" y2="554" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <path d="M596,510 Q612,494 628,510" fill="none" stroke="#0d0d0d" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M600,504 Q612,490 624,504" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="612" cy="510" r="7" fill="none" stroke="#0d0d0d" stroke-width="3"/>
+  <!-- Lily 3 -->
+  <line x1="660" y1="512" x2="658" y2="556" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <path d="M644,512 Q660,496 676,512" fill="none" stroke="#0d0d0d" stroke-width="4.5" stroke-linecap="round"/>
+  <circle cx="660" cy="512" r="7" fill="none" stroke="#0d0d0d" stroke-width="3"/>
+  <!-- Small wildflowers foreground -->
+  <circle cx="700" cy="518" r="9" fill="none" stroke="#0d0d0d" stroke-width="3.5"/>
+  <circle cx="700" cy="518" r="4" fill="none" stroke="#0d0d0d" stroke-width="3"/>
+  <line x1="700" y1="527" x2="700" y2="548" stroke="#0d0d0d" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M688,506 Q700,496 712,506" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <path d="M688,530 Q700,540 712,530" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <line x1="688" y1="518" x2="674" y2="518" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <line x1="712" y1="518" x2="726" y2="518" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="760" cy="516" r="8" fill="none" stroke="#0d0d0d" stroke-width="3"/>
+  <line x1="760" y1="524" x2="760" y2="544" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <!-- Grass -->
+  <path d="M50" y1="524" fill="none" stroke="none"/>
+  <path d="M46,526 Q54,512 62,526" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round"/>
+  <path d="M830,518 Q838,504 846,518" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Small birds in sky (resurrection morning) -->
+  <path d="M480,152 Q492,144 504,152" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round"/>
+  <path d="M516,142 Q526,136 536,142" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round"/>
+  <path d="M550,158 Q560,150 570,158" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
 </svg>

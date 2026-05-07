@@ -1,12 +1,76 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M280 480 L280 280 Q450 200 620 280 L620 480 Z"/>
-    <path d="M300 280 Q450 220 600 280"/>
-    <ellipse cx="450" cy="360" rx="85" ry="105"/>
-    <path d="M340 360 L560 360"/>
-    <ellipse cx="220" cy="420" rx="70" ry="55"/>
-    <path d="M150 420 Q220 360 290 420"/>
-    <circle cx="380" cy="480" r="12"/>
-    <circle cx="520" cy="478" r="12"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" width="900" height="680" aria-hidden="true">
+  <!-- Sky: bright morning -->
+  <path d="M0,200 Q225,182 450,200 Q675,218 900,192" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0,240 Q200,224 400,242 Q600,260 800,232 Q870,218 900,224" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Ground -->
+  <path d="M0,522 Q225,506 450,524 Q675,542 900,514" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Tomb rock face — center/right -->
+  <path d="M420,180 Q490,162 530,178 Q570,196 590,234 Q608,272 606,324 Q604,372 592,408 Q578,440 558,462 Q536,482 508,490 Q480,496 452,490 Q424,482 406,462 Q388,440 382,408 Q374,372 376,324 Q378,274 390,234 Q402,194 420,180" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Rock texture -->
+  <path d="M426,202 Q472,192 516,200" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M390,266 Q420,254 454,258 Q486,262 514,252 Q542,242 568,246" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M380,332 Q410,320 444,324 Q476,328 506,318 Q536,308 564,312 Q582,316 594,328" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Tomb entrance arch -->
+  <path d="M420,282 Q420,250 438,238 Q456,228 478,234 Q500,242 508,266 Q514,292 513,332 L512,488 Q494,496 478,498 Q460,496 442,488 L419,332 Z" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Stone rolled to right of tomb entrance -->
+  <circle cx="592" cy="440" r="76" fill="none" stroke="#0a0a0a" stroke-width="5.5"/>
+  <circle cx="592" cy="440" r="56" fill="none" stroke="#111" stroke-width="3"/>
+  <path d="M534,418 Q562,408 592,412 Q622,416 648,406" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M524,440 Q552,430 592,432 Q632,434 660,424" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M528,464 Q558,454 592,456 Q626,458 654,448" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round"/>
+  <!-- ANGEL seated on the stone — white robes, large wings hinted behind -->
+  <!-- Angel is seated ON the stone, so at cx=592, cy=440-76=364 area -->
+  <!-- Angel head -->
+  <circle cx="592" cy="318" r="40" fill="none" stroke="#0a0a0a" stroke-width="5.5"/>
+  <!-- Radiant hair / crown of light — rays around head -->
+  <path d="M556,306 C554,278 564,262 578,254 Q585,250 592,249 Q599,250 606,254 C620,262 630,278 628,306 C630,328 634,356 631,378 Q610,390 592,392 Q574,390 553,378 C550,356 554,328 556,306" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Angel light crown rays -->
+  <path d="M592,248 L592,224" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M568,254 L554,234" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M616,254 L630,234" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M550,272 L532,260" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M634,272 L652,260" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Angel eyes (open, clear) -->
+  <path d="M576,314 Q584,308 592,314" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M592,314 Q600,308 608,314" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <!-- Angel mouth (calm) -->
+  <path d="M580,336 Q592,344 604,336" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <!-- Neck -->
+  <path d="M582,352 L580,372" fill="none" stroke="#0d0d0d" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M602,352 L604,372" fill="none" stroke="#0d0d0d" stroke-width="4.5" stroke-linecap="round"/>
+  <!-- Angel robe — brilliant white, flowing (coloring will make it glow) -->
+  <path d="M580,372 Q548,374 522,386 C500,400 490,430 488,466 C486,500 490,532 494,554 Q536,572 592,574 Q648,572 690,554 C694,532 698,500 696,466 C694,430 684,400 662,386 Q636,374 604,372" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Angel robe folds (smooth, flowing) -->
+  <path d="M587,382 Q580,460 582,568" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M574,388 Q564,466 566,566" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M602,386 Q612,464 610,566" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- ANGEL WINGS — large sweeping arcs behind the angel figure -->
+  <!-- Left wing -->
+  <path d="M522,392 Q468,360 428,318 Q394,280 382,240 Q376,214 384,200 Q396,190 412,198 Q432,210 444,238 Q456,268 466,304 Q478,340 492,372" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Left wing secondary feather lines -->
+  <path d="M490,374 Q464,346 440,310 Q420,276 410,242" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M480,376 Q454,350 436,318 Q422,290 415,258" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Right wing -->
+  <path d="M662,392 Q716,360 756,318 Q790,280 802,240 Q808,214 800,200 Q788,190 772,198 Q752,210 740,238 Q728,268 718,304 Q706,340 692,372" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Right wing feather lines -->
+  <path d="M694,374 Q720,346 744,310 Q764,276 774,242" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M704,376 Q730,350 748,318 Q762,290 769,258" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Angel arms (extended comforting) -->
+  <path d="M522,392 Q486,418 470,462 Q464,490 466,516" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M662,392 Q698,418 714,462 Q720,490 716,516" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- WOMEN — two small figures at left, bowing in awe -->
+  <!-- Woman 1 bowing (x=180) -->
+  <circle cx="180" cy="380" r="30" fill="none" stroke="#0a0a0a" stroke-width="4.5"/>
+  <path d="M152,370 C150,344 158,330 170,324 Q175,321 180,320 Q185,321 190,324 C202,330 210,344 208,370 C210,390 212,416 208,436 Q194,444 180,446 Q166,444 152,436 C148,416 150,390 152,370" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Woman bowing — body bent forward -->
+  <path d="M168,442 Q140,452 116,462 Q94,472 82,488 Q72,500 72,518" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M192,442 Q215,450 232,462 Q246,474 248,494" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Woman 2 small behind (x=96) -->
+  <circle cx="80" cy="396" r="24" fill="none" stroke="#0a0a0a" stroke-width="4"/>
+  <path d="M58,388 C56,366 62,354 72,348 Q76,346 80,345 Q84,346 88,348 C98,354 104,366 102,388 C104,406 106,428 102,444 Q90,450 80,452 Q70,450 58,444 C54,428 56,406 58,388" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Flowers and grass -->
+  <path d="M336,524 Q344,510 352,524" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="302" cy="514" r="7" fill="none" stroke="#222" stroke-width="2.5"/>
+  <line x1="302" y1="521" x2="302" y2="540" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M800,516 Q808,502 816,516" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
 </svg>

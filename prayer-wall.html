@@ -152,7 +152,7 @@
       </div>
     </aside>
 
-    <main class="app-content" id="main-content">
+    <main class="app-content porch-section" id="main-content">
         <div class="content-inner">
         <!-- tdb-offline-strip for prayer per Offline-Rule: shows 'Offline—still got you' on fetch fail or no connection. Prayer data stays local first. -->
         <div id="tdb-offline-strip" class="tdb-offline-strip hidden" data-tdb-offline-page="prayer" role="status" aria-live="polite"></div>
@@ -569,6 +569,7 @@
   <script src="inline-bootstrap.js"></script>
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260503-consent-persist-fix" data-cfasync="false"></script>
+  <script defer src="porch-effects.js?v=20260507"></script>
   <script>
     (function wirePrayerDoorTabs() {
       var tabs = Array.prototype.slice.call(document.querySelectorAll('[data-prayer-tab]'));

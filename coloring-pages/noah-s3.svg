@@ -1,8 +1,62 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M100 420 L800 420 L740 520 L160 520 Z"/>
-    <path d="M160 120 L200 200 M320 80 L360 180 M520 100 L480 200 M700 140 L660 240"/>
-    <path d="M120 240 C200 200 300 220 400 260 C500 300 620 280 780 320"/>
-    <path d="M140 300 C240 260 360 280 480 320 C600 360 720 340 820 380"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" width="900" height="680" aria-hidden="true">
+  <!-- Rain: diagonal lines across the whole scene -->
+  <path d="M60,0 L0,160" fill="none" stroke="#333" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 16"/>
+  <path d="M200,0 L100,260" fill="none" stroke="#333" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 16"/>
+  <path d="M340,0 L200,360" fill="none" stroke="#333" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 16"/>
+  <path d="M480,0 L300,490" fill="none" stroke="#333" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 16"/>
+  <path d="M620,0 L440,490" fill="none" stroke="#333" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 16"/>
+  <path d="M760,0 L580,490" fill="none" stroke="#333" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 16"/>
+  <path d="M900,0 L720,490" fill="none" stroke="#333" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 16"/>
+  <path d="M900,100 L800,400" fill="none" stroke="#333" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 16"/>
+  <path d="M130,0 L50,200" fill="none" stroke="#333" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 16"/>
+  <path d="M420,0 L260,420" fill="none" stroke="#333" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 16"/>
+  <path d="M680,0 L510,460" fill="none" stroke="#333" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 16"/>
+  <!-- Storm clouds -->
+  <path d="M0,100 Q80,74 160,98 Q228,76 304,100 Q360,118 362,144 Q358,168 332,178 Q296,186 258,184 Q218,182 186,174 Q150,164 122,148 Q88,128 56,130 Q24,132 10,150 Q-2,166 6,186" fill="none" stroke="#0d0d0d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M540,80 Q620,54 700,78 Q768,56 844,80 Q900,98 902,124 Q898,148 872,158 Q836,166 798,164 Q758,162 726,154 Q690,144 662,128 Q628,108 594,110 Q560,112 546,130 Q534,146 542,166" fill="none" stroke="#0d0d0d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Hint of hope: one ray of light beginning to break through upper right -->
+  <path d="M820,60 L750,290" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round"/>
+  <path d="M848,80 L796,280" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round"/>
+  <!-- Flood waters below — deep rolling waves -->
+  <path d="M0,380 Q90,356 180,382 Q270,408 360,378 Q450,348 540,378 Q630,408 720,378 Q810,348 900,376" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0,418 Q110,394 220,420 Q330,446 440,418 Q550,390 660,418 Q770,446 900,416" fill="none" stroke="#0d0d0d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0,456 Q140,434 280,458 Q420,482 560,454 Q700,426 900,454" fill="none" stroke="#111" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0,492 Q180,472 360,496 Q540,520 720,492 Q840,472 900,490" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0,528 Q225,510 450,532 Q675,554 900,524" fill="none" stroke="#111" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Wave crests detail -->
+  <path d="M160,394 Q178,382 196,394" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M400,370 Q418,358 436,370" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M640,382 Q658,370 676,382" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M260,428 Q278,416 296,428" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round"/>
+  <path d="M560,416 Q578,404 596,416" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round"/>
+  <!-- THE ARK — large floating hull on the waters -->
+  <!-- Main hull of the ark — large, rounded bottom, flat top deck -->
+  <!-- Hull bottom -->
+  <path d="M100,370 Q100,355 110,342 Q124,326 148,318 Q180,308 220,306 Q280,302 360,300 Q440,298 520,300 Q600,302 660,308 Q700,316 724,328 Q742,340 748,356 Q752,368 748,380" fill="none" stroke="#0a0a0a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M100,370 L100,248" fill="none" stroke="#0a0a0a" stroke-width="6" stroke-linecap="round"/>
+  <path d="M748,380 L748,248" fill="none" stroke="#0a0a0a" stroke-width="6" stroke-linecap="round"/>
+  <!-- Deck top rail -->
+  <path d="M100,248 Q200,240 300,242 Q400,244 500,242 Q600,240 700,242 Q728,244 748,248" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Hull planks (horizontal boards) -->
+  <path d="M100,290 Q400,282 748,290" fill="none" stroke="#111" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M100,330 Q400,322 748,330" fill="none" stroke="#111" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M102,360 Q400,352 746,360" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Ark house (upper cabin structure) -->
+  <path d="M200,248 Q200,198 206,178 Q212,158 226,148 Q244,140 260,142 Q278,144 290,158 Q300,172 302,198 Q304,222 304,248" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M460,248 Q460,198 466,178 Q472,158 486,148 Q504,140 520,142 Q538,144 550,158 Q560,172 562,198 Q564,222 564,248" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Cabin windows -->
+  <path d="M240,170 Q250,160 260,170 Q268,180 260,190 Q250,198 240,190 Q232,182 240,170" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <path d="M498,168 Q508,158 518,168 Q526,178 518,188 Q508,196 498,188 Q490,180 498,168" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <!-- Ark roof hatch/window at top -->
+  <path d="M360,220 Q380,208 400,208 Q420,208 440,220 Q448,228 448,238 Q448,248 440,254 Q420,262 400,262 Q380,262 360,254 Q352,248 352,238 Q352,228 360,220" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round"/>
+  <!-- DOVE flying with wings spread above ark — one dove -->
+  <path d="M390,148 Q404,134 420,142 Q411,148 408,157 Q412,166 404,162 Q396,158 390,148" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M403,141 L418,122" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <path d="M390,156 L378,144" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <!-- Dove body detail -->
+  <path d="M406,158 L412,168" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Second dove -->
+  <path d="M454,126 Q468,112 484,120 Q475,126 472,135 Q476,144 468,140 Q460,136 454,126" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M467,119 L482,100" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M454,134 L442,122" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round"/>
 </svg>

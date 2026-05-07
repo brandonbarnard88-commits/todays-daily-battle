@@ -1,8 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="450" cy="300" r="200"/>
-    <path d="M120 380 Q200 340 280 380 Q360 420 440 380 Q520 340 600 380 Q680 420 780 380"/>
-    <path d="M100 420 Q240 400 380 430 Q520 460 660 430 Q740 415 800 430"/>
-    <path d="M200 200 Q450 280 700 200"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" width="900" height="680" aria-hidden="true">
+  <!-- Void sky — layered swirling cloud masses -->
+  <path d="M0,38 Q180,8 360,42 Q540,76 720,38 Q840,14 900,28" fill="none" stroke="#111" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0,82 Q160,52 320,82 Q480,112 640,78 Q780,48 900,68" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0,128 Q200,98 400,130 Q600,162 800,126 Q870,114 900,118" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0,174 Q240,146 480,176 Q680,204 880,170 L900,168" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Swirling void cloud masses upper left -->
+  <path d="M58,52 Q88,28 122,50 Q146,66 140,96 Q128,122 96,124 Q63,124 53,98 Q46,76 66,60" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Swirling void cloud upper center -->
+  <path d="M378,28 Q413,6 448,26 Q476,44 470,76 Q458,106 426,112 Q392,116 378,90 Q366,66 378,42" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Swirling void cloud upper right -->
+  <path d="M738,20 Q773,0 806,22 Q832,42 824,74 Q810,102 778,106 Q746,108 734,84 Q724,62 738,36" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Secondary depth swirls -->
+  <path d="M178,98 Q208,78 238,96 Q258,110 252,136 Q240,156 216,158 Q192,158 182,138 Q174,120 186,106" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M558,62 Q590,42 622,60 Q644,76 638,104 Q624,128 598,130 Q572,130 560,108 Q550,88 564,72" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Void depth faint dashed horizontal texture -->
+  <path d="M0,213 Q450,198 900,208" fill="none" stroke="#2a2a2a" stroke-width="1.5" stroke-dasharray="12 20" stroke-linecap="round"/>
+  <path d="M0,246 Q450,234 900,242" fill="none" stroke="#2a2a2a" stroke-width="1.5" stroke-dasharray="10 22" stroke-linecap="round"/>
+  <path d="M0,280 Q450,270 900,276" fill="none" stroke="#2a2a2a" stroke-width="1.5" stroke-dasharray="8 24" stroke-linecap="round"/>
+  <!-- Horizon — void meets the deep -->
+  <path d="M0,333 Q225,316 450,338 Q675,360 900,330" fill="none" stroke="#0a0a0a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Deep waters — layered rolling waves -->
+  <path d="M0,356 Q88,332 176,358 Q264,384 352,354 Q440,324 528,354 Q616,384 704,354 Q792,324 900,352" fill="none" stroke="#0d0d0d" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0,390 Q100,366 200,392 Q300,418 400,390 Q500,362 600,390 Q700,418 800,390 Q870,374 900,383" fill="none" stroke="#0d0d0d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0,426 Q120,403 240,428 Q360,453 480,426 Q600,399 720,426 Q820,450 900,430" fill="none" stroke="#111" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0,462 Q150,440 300,464 Q450,488 600,462 Q750,436 900,460" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0,498 Q200,478 400,501 Q600,524 800,496 Q870,483 900,490" fill="none" stroke="#111" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0,534 Q250,514 500,538 Q750,562 900,532" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0,570 Q300,552 600,574 Q800,590 900,566" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Wave crests detail -->
+  <path d="M138,372 Q156,360 174,372" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M378,346 Q396,334 414,346" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M628,358 Q646,346 664,358" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M248,414 Q266,402 284,414" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round"/>
+  <path d="M558,402 Q576,390 594,402" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round"/>
+  <path d="M818,408 Q836,396 854,408" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round"/>
+  <!-- First glimmer of divine light — upper right, source partially emerging -->
+  <path d="M858,58 Q893,66 900,102" fill="none" stroke="#0a0a0a" stroke-width="6" stroke-linecap="round"/>
+  <path d="M818,46 Q853,40 874,58" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round"/>
+  <!-- Light rays piercing the darkness -->
+  <path d="M853,70 L768,318" fill="none" stroke="#1a1a1a" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M876,80 L818,308" fill="none" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
+  <path d="M892,100 L860,296" fill="none" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
+  <path d="M828,58 L718,313" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M804,52 L670,316" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round"/>
+  <path d="M780,50 L626,318" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round"/>
+  <!-- Water reflection of light -->
+  <path d="M686,368 Q698,358 710,368" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round"/>
+  <path d="M718,388 Q730,378 742,388" fill="none" stroke="#222" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M660,392 Q672,382 684,392" fill="none" stroke="#222" stroke-width="1.5" stroke-linecap="round"/>
 </svg>

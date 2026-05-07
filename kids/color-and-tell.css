@@ -623,6 +623,80 @@
   color: #94a3b8;
 }
 
+/* ============================================================
+   FORCE LIGHT THEME — coloring pages are always warm-cream,
+   regardless of whether the user's device is in dark mode.
+   Must live at the END of this file so the cascade wins.
+   ============================================================ */
+
+.dark-mode .tdb-cat-parent-tip {
+  background: rgba(224, 242, 254, 0.65) !important;
+  border-color: rgba(59, 130, 246, 0.28) !important;
+  color: #1e3a5f !important;
+}
+
+.dark-mode .tdb-cat-progress-jump-hint {
+  color: rgba(30, 58, 95, 0.88) !important;
+}
+
+.dark-mode .tdb-cat-hero-note {
+  background: rgba(254, 243, 199, 0.55) !important;
+  border-color: rgba(251, 191, 36, 0.45) !important;
+  color: #78350f !important;
+}
+
+.dark-mode .tdb-cat-story-bridge {
+  background: rgba(240, 233, 223, 0.82) !important;
+  border-color: rgba(148, 126, 101, 0.22) !important;
+}
+
+.dark-mode .tdb-cat-story-bridge p {
+  color: #3d2b1a !important;
+}
+
+.dark-mode .tdb-cat-progress-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(224, 242, 254, 0.5) 100%) !important;
+  border-color: rgba(59, 130, 246, 0.2) !important;
+  box-shadow: 0 6px 24px rgba(15, 23, 42, 0.1) !important;
+}
+
+.dark-mode .tdb-cat-progress-card-thumb {
+  background: rgba(241, 245, 249, 0.85) !important;
+  border-color: rgba(59, 130, 246, 0.18) !important;
+}
+
+.dark-mode .tdb-cat-progress-card-title {
+  color: #1e3a5f !important;
+}
+
+.dark-mode .tdb-cat-progress-card-status {
+  color: #334155 !important;
+}
+
+.dark-mode .tdb-cat-progress-card-status--done {
+  color: #15803d !important;
+}
+
+.dark-mode .tdb-cat-story {
+  background: linear-gradient(165deg, rgba(255, 251, 235, 0.98) 0%, rgba(224, 242, 254, 0.92) 100%) !important;
+  border-color: rgba(217, 119, 6, 0.5) !important;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.1) !important;
+}
+
+.dark-mode .tdb-cat-story-title {
+  color: #92400e !important;
+}
+
+.dark-mode .tdb-cat-story-lead {
+  color: #1e293b !important;
+}
+
+.dark-mode .tdb-cat-story-celebrate {
+  background: rgba(187, 247, 208, 0.55) !important;
+  color: #14532d !important;
+  border-color: rgba(34, 197, 94, 0.35) !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .tdb-cat-progress-meter-fill {
     transition: none;

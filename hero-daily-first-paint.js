@@ -136,6 +136,24 @@
       };
     }
 
+    // “Nothing is impossible with God” family (Luke 1:37, Genesis 18:14, Matthew 19:26, etc.)
+    if (/1:37|18:14|19:26|nothing.*impossible|impossible.*god|possible.*god/i.test(r.toLowerCase() + ' ' + tLower) || /luke 1|genesis 18|matthew 19/.test(r.toLowerCase())) {
+      return {
+        lines: [
+          'What looks impossible to us is still possible for God. He is not limited by what we can see or do.',
+          sanitizeText(text),
+          'Trust the One who makes a way where there is no way.'
+        ],
+        speaker: 'Gabriel (and ultimately God)',
+        about: 'The angel Gabriel speaking to Mary about the miracle of Jesus’ birth.',
+        to: 'Mary, and through her to everyone who faces what seems humanly impossible.',
+        plain: 'With God, nothing is truly impossible. What looks hopeless or out of reach to us is still possible for Him.',
+        modernApplication: 'In ' + yr + ' we face situations that feel final or impossible — health, relationships, future, provision. This verse reminds you that God is not bound by the limits you see.',
+        today: 'In ' + yr + ' we face situations that feel final or impossible — health, relationships, future, provision. This verse reminds you that God is not bound by the limits you see.',
+        action: 'So do this: Name the one thing that feels impossible right now. Say out loud, “With God this is possible,” then thank Him and take the next small step He gives.'
+      };
+    }
+
     // Strong generic fallback — verse-aware using book context + simple theme detection. Always provides full who/audience/year-context/you-now/layman/step per rule + skill. No vague "companion" meta.
     var book = parseHeroBookName(ref);
     var ctx = heroBookRow(book) || { s: 'The biblical writer', a: 'God’s people in their time' };
@@ -155,7 +173,7 @@
       speaker: ctx.s,
       about: ctx.s + ' (through the words of the KJV).',
       to: ctx.a + ' — and for you in ' + yr + ' facing the same kind of battle.',
-      plain: 'God is speaking directly to your real situation through this verse. One line is meant to steady or guide you right now.',
+      plain: sanitizeText(text) + ' — God can do what looks impossible to us.',
       modernApplication: 'In ' + yr + ', ' + theme + ' can feel heavy or confusing. This verse cuts through with a quiet, steady truth you can carry without performing or pretending.',
       today: 'In ' + yr + ', ' + theme + ' can feel heavy or confusing. This verse cuts through with a quiet, steady truth you can carry without performing or pretending.',
       action: 'So do this: Read the verse slowly one more time out loud. Thank God for one true thing it says to your exact situation today, then take the next small step with that line in mind.'

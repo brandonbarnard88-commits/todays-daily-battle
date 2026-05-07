@@ -23596,6 +23596,7 @@ body[class*="kids"] .lineArtOverlay {
 body[class*="kids"],
 body.tdb-kids-coloring-page,
 body.kids-corner-page,
+body.little-ones-page,
 body.coloring-page {
   background: #fff9eb !important;
   color: #1c2526 !important;
@@ -23632,6 +23633,7 @@ body.tdb-kids-coloring-page h1,
 body.tdb-kids-coloring-page h2,
 body.tdb-kids-coloring-page h3 {
   color: #0f172a !important;
+  font-weight: 700 !important;
 }
 
 /* Line-art overlay — stroke attributes only work on inline SVG,

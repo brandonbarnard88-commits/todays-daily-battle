@@ -121,6 +121,7 @@
     var labels = {
       fearfaith: 'Fear to Faith',
       worrytrust: 'Worry to Trust',
+      anxiety7: 'Anxiety — steady peace',
       griefhope: 'Grief to Hope',
       familyworship: 'Family Worship in the Trenches',
       psalmscomfortfamily: 'Psalms of Comfort (Family Edition)',

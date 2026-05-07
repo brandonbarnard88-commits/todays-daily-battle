@@ -5694,6 +5694,8 @@
       font-size: 0.78rem;
       padding: 8px 14px;
       border-radius: 999px;
+      background: color-mix(in srgb, var(--card) 65%, transparent);
+      border: 1px solid color-mix(in srgb, var(--line) 35%, transparent);
       display: flex;
       align-items: center;
       gap: 0.35rem;
@@ -5705,7 +5707,8 @@
     .tdb-bottom-dock a:hover,
     .tdb-bottom-dock a:focus-visible {
       color: var(--gold-soft);
-      background: color-mix(in srgb, var(--gold) 10%, transparent);
+      background: color-mix(in srgb, var(--gold) 18%, transparent);
+      border-color: color-mix(in srgb, var(--gold) 35%, transparent);
     }
 
     :root[data-theme="light"] .tdb-bottom-dock {

@@ -23585,4 +23585,74 @@ body[class*="kids"] .lineArtOverlay {
           drop-shadow(0 0 3px rgba(0, 0, 0, 0.25)) !important;
 }
 
+/* ============================================================
+   STRONG KIDS CONTRAST OVERRIDE — Final Layer (May 2026)
+   Absolute bottom of styles.css — wins all cascade.
+   NOTE: glass/h1/verse selectors are scoped to body[class*="kids"]
+   to protect the dark-theme aesthetic on every other page.
+   ============================================================ */
+
+/* Page background + base text */
+body[class*="kids"],
+body.tdb-kids-coloring-page,
+body.kids-corner-page,
+body.coloring-page {
+  background: #fff9eb !important;
+  color: #1c2526 !important;
+}
+
+/* Cards — strong amber border and warm cream surface, kids pages only */
+body[class*="kids"] .glass,
+body[class*="kids"] .porch-card,
+body[class*="kids"] .story-card,
+body.tdb-kids-coloring-page .glass,
+body.kids-corner-page .glass {
+  background: #fffaf0 !important;
+  border: 3px solid #d97706 !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18) !important;
+  color: #1c2526 !important;
+}
+
+/* Verse / KJV text — kids pages only */
+body[class*="kids"] .verse-text,
+body[class*="kids"] .kjv-verse,
+body[class*="kids"] .scene-verse,
+body[class*="kids"] .tdb-cat-scene-verse {
+  color: #1c2526 !important;
+  font-size: 1.55rem !important;
+  line-height: 1.8 !important;
+  font-weight: 600 !important;
+}
+
+/* Headings — kids pages only */
+body[class*="kids"] h1,
+body[class*="kids"] h2,
+body[class*="kids"] h3,
+body.tdb-kids-coloring-page h1,
+body.tdb-kids-coloring-page h2,
+body.tdb-kids-coloring-page h3 {
+  color: #0f172a !important;
+}
+
+/* Line-art overlay — stroke attributes only work on inline SVG,
+   but drop-shadow + stroke-width apply to the img overlay via filter */
+body[class*="kids"] .lineArtOverlay {
+  filter: drop-shadow(2px 3px 6px rgba(0, 0, 0, 0.5)) !important;
+}
+
+/* Canvas wrapper frame — warm paper border */
+body[class*="kids"] .canvasWrapper {
+  border: 16px solid #f5e8c7 !important;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Toolbar & tool buttons — Shadow DOM scoped via host CSS file,
+   but add host-level fallback here for pages that render outside jl-coloringbook */
+body[class*="kids"] .color-toolbar,
+body[class*="kids"] .tool-button {
+  background: #fff9eb !important;
+  border-bottom: 3px solid #d97706 !important;
+}
+
+
 

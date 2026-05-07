@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-05-06T19:38:05.190Z",
-  "surfacedRefCount": 2951,
-  "overrideCount": 2951,
+  "generatedAt": "2026-05-07T11:42:43.826Z",
+  "surfacedRefCount": 2952,
+  "overrideCount": 2952,
   "sourceCounts": {
     ".worktrees/main-hotfix/404-admin.html": {
       "refs": 1,
@@ -932,7 +932,7 @@
       "pairs": 365
     },
     "hero-daily-first-paint.js": {
-      "refs": 4,
+      "refs": 7,
       "pairs": 0
     },
     "hero-hero-pools.js": {
@@ -3729,6 +3729,7 @@
     "Matthew 19:21",
     "Matthew 19:22",
     "Matthew 19:23",
+    "Matthew 19:26",
     "Matthew 1:1",
     "Matthew 1:18",
     "Matthew 1:19",
@@ -21329,6 +21330,14 @@
     "Matthew 19:23": {
       "general": {
         "plainExplanation": "Then said Jesus to his disciples, truly I say to you, That a rich man shall hardly enter into the kingdom of heaven.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 19:26": {
+      "general": {
+        "plainExplanation": "But Jesus beheld them, and said to them, With men this is impossible; but with God all things are possible.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"

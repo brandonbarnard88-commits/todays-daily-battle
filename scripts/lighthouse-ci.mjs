@@ -14,7 +14,8 @@ import { freePort } from './free-port.mjs';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
 const dist = join(root, 'dist');
-const outJson = join(root, 'lhr-ci.json');
+const outJsonHome = join(root, 'lhr-ci-home.json');
+const outJsonReader = join(root, 'lhr-ci-reader.json');
 const MIME = {
   '.html': 'text/html',
   '.js': 'application/javascript',
@@ -77,28 +78,39 @@ if (!ready) {
 }
 
 const chromePath = chromium.executablePath();
-const args = [
-  'lighthouse',
-  'http://127.0.0.1:8080/',
-  '--form-factor=mobile',
-  '--screenEmulation.mobile=true',
-  '--output=json',
-  `--output-path=${outJson}`,
-  `--chrome-path=${chromePath}`,
-  '--chrome-flags=--headless=new --no-sandbox --disable-dev-shm-usage',
-  '--only-categories=accessibility,best-practices,performance',
-  '--quiet',
-];
-const lh = spawnSync('npx', args, { cwd: root, stdio: 'inherit', env: process.env });
-server.close();
-
-if (lh.status !== 0) {
-  console.error('lighthouse-ci: lighthouse exited', lh.status);
-  process.exit(lh.status || 1);
+function runLighthouse(url, outPath, label) {
+  console.log('\n[lighthouse-ci] Auditing', label, url);
+  const args = [
+    'lighthouse',
+    url,
+    '--form-factor=mobile',
+    '--screenEmulation.mobile=true',
+    '--output=json',
+    `--output-path=${outPath}`,
+    `--chrome-path=${chromePath}`,
+    '--chrome-flags=--headless=new --no-sandbox --disable-dev-shm-usage',
+    '--only-categories=accessibility,best-practices,performance',
+    '--quiet',
+  ];
+  const run = spawnSync('npx', args, { cwd: root, stdio: 'inherit', env: process.env });
+  if (run.status !== 0) {
+    console.error('lighthouse-ci: lighthouse exited for', label, run.status);
+    return false;
+  }
+  const assert = spawnSync(process.execPath, [join(__dirname, 'assert-lighthouse.mjs'), outPath], {
+    cwd: root,
+    stdio: 'inherit',
+    env: process.env,
+  });
+  if (assert.status !== 0) {
+    console.error('lighthouse-ci: thresholds failed for', label);
+    return false;
+  }
+  return true;
 }
 
-const assert = spawnSync(process.execPath, [join(__dirname, 'assert-lighthouse.mjs'), outJson], {
-  cwd: root,
-  stdio: 'inherit',
-});
-process.exit(assert.status !== 0 ? 1 : 0);
+const okHome = runLighthouse('http://127.0.0.1:8080/', outJsonHome, 'home');
+const okReader = runLighthouse('http://127.0.0.1:8080/reader.html', outJsonReader, 'reader');
+server.close();
+
+process.exit(okHome && okReader ? 0 : 1);

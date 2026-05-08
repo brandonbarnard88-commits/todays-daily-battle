@@ -105,6 +105,7 @@
     "audit:lighthouse:local:pages": "node scripts/lighthouse-local-pages.mjs",
     "audit:lighthouse:local:perf": "npm run build && LIGHTHOUSE_LOCAL_CATEGORIES=performance,accessibility,best-practices LIGHTHOUSE_LOCAL_URL=http://127.0.0.1:8080/calm.html node scripts/lighthouse-local.mjs --skip-build",
     "audit:lighthouse:live": "node scripts/lighthouse-live-two.mjs",
+    "audit:lighthouse:ci": "npm run build && node scripts/lighthouse-ci.mjs",
     "audit:lighthouse:local:manual": "npx lighthouse http://localhost:8080 --output=html --output-path=./lighthouse-report.html --view --form-factor=mobile --only-categories=performance,accessibility,best-practices",
     "pre-launch": "npm run quality:gate",
     "pre-launch:full": "npm run quality:gate && npm run audit:lighthouse && npm run qa:smoke:local",

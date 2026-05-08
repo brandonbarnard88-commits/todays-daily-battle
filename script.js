@@ -22330,6 +22330,99 @@ function populateTemplateList() {
   });
 }
 
+const READER_PROGRESSIVE_FIRST_BATCH = 28;
+const READER_PROGRESSIVE_BATCH_SIZE = 24;
+var readerChapterEnhanceToken = 0;
+
+function scheduleReaderIdleHydration(task, timeoutMs) {
+  const timeout = typeof timeoutMs === 'number' && timeoutMs > 0 ? timeoutMs : 1200;
+  if (typeof window !== 'undefined' && typeof window.requestIdleCallback === 'function') {
+    window.requestIdleCallback(task, { timeout });
+    return;
+  }
+  setTimeout(task, 180);
+}
+
+function appendReaderVerseLine(container, ref, text, useRedLetter) {
+  const line = document.createElement('div');
+  line.className = 'context-line context-line--reader-virtual';
+  line.dataset.ref = ref;
+  line.innerHTML = '<strong>' + escapeHtml(ref) + '</strong> ' + escapeHtml(String(text || '').trim());
+  if (useRedLetter && typeof isRedLetterEnabled === 'function' && isRedLetterEnabled() && typeof isRedLetterLike === 'function' && isRedLetterLike(ref, text)) {
+    line.classList.add('red-letter');
+  }
+  container.appendChild(line);
+}
+
+function renderReaderVersesProgressively(container, rows, onDone) {
+  if (!container) return;
+  const list = Array.isArray(rows) ? rows : [];
+  container.innerHTML = '';
+  if (!list.length) {
+    if (typeof onDone === 'function') onDone();
+    return;
+  }
+  let cursor = 0;
+  const firstBatch = Math.min(READER_PROGRESSIVE_FIRST_BATCH, list.length);
+  function appendChunk(limit) {
+    const frag = document.createDocumentFragment();
+    for (; cursor < limit; cursor++) {
+      const row = list[cursor] || {};
+      const line = document.createElement('div');
+      line.className = 'context-line context-line--reader-virtual';
+      line.dataset.ref = row.ref || '';
+      line.innerHTML = '<strong>' + escapeHtml(row.ref || '') + '</strong> ' + escapeHtml(String(row.text || '').trim());
+      if (row.red && typeof isRedLetterEnabled === 'function' && isRedLetterEnabled()) {
+        line.classList.add('red-letter');
+      }
+      frag.appendChild(line);
+    }
+    container.appendChild(frag);
+  }
+  appendChunk(firstBatch);
+  if (cursor >= list.length) {
+    if (typeof onDone === 'function') onDone();
+    return;
+  }
+  container.setAttribute('data-reader-pending', '1');
+  function pump() {
+    const nextLimit = Math.min(cursor + READER_PROGRESSIVE_BATCH_SIZE, list.length);
+    appendChunk(nextLimit);
+    if (cursor < list.length) {
+      scheduleReaderIdleHydration(pump, 900);
+      return;
+    }
+    container.removeAttribute('data-reader-pending');
+    if (typeof onDone === 'function') onDone();
+  }
+  scheduleReaderIdleHydration(pump, 700);
+}
+
+function queueReaderChapterEnhancements(book, chapter) {
+  const token = ++readerChapterEnhanceToken;
+  scheduleReaderIdleHydration(() => {
+    if (token !== readerChapterEnhanceToken) return;
+    try {
+      attachReaderVerseXrefControls();
+      attachReaderVerseWordStudyControls();
+    } catch (eVx) {
+      /* ignore */
+    }
+    try {
+      loadReaderChapterStudyNote(book, chapter);
+    } catch (eSn) {
+      /* ignore */
+    }
+    try {
+      if (window.TdbKjvDictionary && typeof window.TdbKjvDictionary.wrapReaderChapterLines === 'function') {
+        window.TdbKjvDictionary.wrapReaderChapterLines(document.getElementById('reader-output'));
+      }
+    } catch (eKjvR) {
+      /* ignore */
+    }
+  }, 1200);
+}
+
 function showReaderChapterSkeleton(output) {
   if (!output) return;
   output.classList.remove('reader-output-empty');
@@ -22485,16 +22578,14 @@ function renderReaderChapterFromApiData(output, book, chapter, key, list) {
     ctxWrap.innerHTML = ctxHtml;
     output.appendChild(ctxWrap);
   }
-  list.forEach(function (v) {
+  var verseHost = document.createElement('div');
+  verseHost.className = 'reader-verses';
+  output.appendChild(verseHost);
+  var rows = list.map(function (v) {
     var ref = (v.book_name || book) + ' ' + (v.chapter || chapter) + ':' + (v.verse || '');
-    var line = document.createElement('div');
-    line.className = 'context-line';
-    line.dataset.ref = ref;
-    line.innerHTML = '<strong>' + escapeHtml(ref) + '</strong> ' + escapeHtml((v.text || '').trim());
-    if (typeof isRedLetterEnabled === 'function' && isRedLetterEnabled() && typeof isRedLetterLike === 'function' && isRedLetterLike(ref, v.text)) {
-      line.classList.add('red-letter');
-    }
-    output.appendChild(line);
+    var text = String(v.text || '').trim();
+    var useRed = typeof isRedLetterLike === 'function' && isRedLetterLike(ref, text);
+    return { ref: ref, text: text, red: useRed };
   });
   var totalWords = list.reduce(function (sum, v) { return sum + ((v.text || '').trim().split(/\s+/).filter(Boolean).length); }, 0);
   var readNote = document.createElement('p');
@@ -22507,7 +22598,9 @@ function renderReaderChapterFromApiData(output, book, chapter, key, list) {
       globalThis.TDBStudyCompanion.recordRecentChapter(book, chapter);
     } catch (e) {}
   }
-  if (typeof readerOnChapterRendered === 'function') readerOnChapterRendered(book, chapter);
+  renderReaderVersesProgressively(verseHost, rows, function () {
+    if (typeof readerOnChapterRendered === 'function') readerOnChapterRendered(book, chapter);
+  });
 }
 
 function renderReaderChapterFromVerses(output, book, chapter, verses) {
@@ -22532,17 +22625,14 @@ function renderReaderChapterFromVerses(output, book, chapter, verses) {
     ctxWrap.innerHTML = ctxHtml;
     output.appendChild(ctxWrap);
   }
-  verses.forEach(function (v) {
+  var verseHost = document.createElement('div');
+  verseHost.className = 'reader-verses';
+  output.appendChild(verseHost);
+  var rows = verses.map(function (v) {
     var ref = typeof v.ref === 'string' ? v.ref : (book + ' ' + chapter + ':' + (v.verseNum || v.verse || ''));
     var text = typeof v.text === 'string' ? v.text : '';
-    var line = document.createElement('div');
-    line.className = 'context-line';
-    line.dataset.ref = ref;
-    line.innerHTML = '<strong>' + escapeHtml(ref) + '</strong> ' + escapeHtml(text);
-    if (typeof isRedLetterEnabled === 'function' && isRedLetterEnabled() && typeof isRedLetterLike === 'function' && isRedLetterLike(ref, text)) {
-      line.classList.add('red-letter');
-    }
-    output.appendChild(line);
+    var useRed = typeof isRedLetterLike === 'function' && isRedLetterLike(ref, text);
+    return { ref: ref, text: text, red: useRed };
   });
   var totalWords = verses.reduce(function (sum, v) { return sum + (String((v.text || '')).replace(/<[^>]+>/g, ' ').trim().split(/\s+/).filter(Boolean).length); }, 0);
   var readNote = document.createElement('p');
@@ -22555,7 +22645,9 @@ function renderReaderChapterFromVerses(output, book, chapter, verses) {
       globalThis.TDBStudyCompanion.recordRecentChapter(book, chapter);
     } catch (e) {}
   }
-  if (typeof readerOnChapterRendered === 'function') readerOnChapterRendered(book, chapter);
+  renderReaderVersesProgressively(verseHost, rows, function () {
+    if (typeof readerOnChapterRendered === 'function') readerOnChapterRendered(book, chapter);
+  });
 }
 
 function ensureBookIntrosLoaded() {
@@ -22787,22 +22879,7 @@ function readerOnChapterRendered(book, chapter) {
   } catch (eCr) {
     /* ignore */
   }
-  try {
-    attachReaderVerseXrefControls();
-    attachReaderVerseWordStudyControls();
-  } catch (eVx) {
-    /* ignore */
-  }
-  try {
-    loadReaderChapterStudyNote(b, ch);
-  } catch (eSn) {
-    /* ignore */
-  }
-  try {
-    if (window.TdbKjvDictionary && typeof window.TdbKjvDictionary.wrapReaderChapterLines === 'function') {
-      window.TdbKjvDictionary.wrapReaderChapterLines(document.getElementById('reader-output'));
-    }
-  } catch (eKjvR) { /* non-fatal */ }
+  queueReaderChapterEnhancements(b, ch);
 }
 
 function syncReaderBookmarkToggle(book, chapter) {

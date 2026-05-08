@@ -518,6 +518,17 @@
       min-height: 44px;
       box-sizing: border-box;
     }
+    .reader-verses .context-line {
+      content-visibility: auto;
+      contain-intrinsic-size: 1px 56px;
+    }
+    .reader-verses[data-reader-pending="1"]::after {
+      content: "Loading the rest of this chapter…";
+      display: block;
+      margin-top: 0.6rem;
+      font-size: 0.86rem;
+      color: rgba(226, 232, 240, 0.78);
+    }
     .context-line.reader-verse-line--tts-active {
       box-shadow: inset 3px 0 0 0 rgba(227, 188, 103, 0.88);
       border-radius: 6px;

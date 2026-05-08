@@ -1208,11 +1208,31 @@
       } else {
         run();
       }
-      setTimeout(run, 500);
-      setTimeout(run, 1600);
+      if (typeof requestIdleCallback === 'function') {
+        requestIdleCallback(run, { timeout: 1500 });
+      } else {
+        window.addEventListener('load', function () { setTimeout(run, 600); }, { once: true });
+      }
     })();
   </script>
-  <!-- Phase 6: narration + word/verse study + study companion load from script.js after idle (tdbScheduleDeferredVodAndReaderTooling) -->
-  <script type="module" src="script.js?v=20260503-consent-persist-fix" data-cfasync="false" fetchpriority="high"></script>
+  <!-- Reader enhancement stack: load app module on idle so first chapter paint wins. -->
+  <script nonce="tdb2025s">
+    (function () {
+      function loadReaderAppModule() {
+        if (document.querySelector('script[data-tdb-reader-app]')) return;
+        var s = document.createElement('script');
+        s.type = 'module';
+        s.src = 'script.js?v=20260503-consent-persist-fix';
+        s.setAttribute('data-cfasync', 'false');
+        s.setAttribute('data-tdb-reader-app', '1');
+        document.head.appendChild(s);
+      }
+      if (window.requestIdleCallback) {
+        requestIdleCallback(loadReaderAppModule, { timeout: 2000 });
+      } else {
+        window.addEventListener('load', function () { setTimeout(loadReaderAppModule, 0); }, { once: true });
+      }
+    })();
+  </script>
 </body>
 </html>

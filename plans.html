@@ -1741,6 +1741,7 @@
         <p class="plans-hero-hint plans-hero-print-delight" role="group" aria-label="Print today&rsquo;s KJV verse">
           <button type="button" id="tdb-plans-print-votd-btn" class="btn btn-secondary tdb-print-delight" aria-label="Print today&rsquo;s KJV verse on a simple sheet">Print today&rsquo;s verse (sheet)</button>
         </p>
+        <p class="plans-hero-hint"><strong>Pastor and church lane:</strong> <a href="plans.html?plan=preachingthroughexhaustion">Preaching Through Exhaustion</a> · <a href="plans.html?plan=smallchurchencouragement">Small Church Encouragement</a> · <a href="church-starter-pack.html">Church Starter Pack</a>.</p>
         <p class="plans-prayer-callout">Others pray quietly too — <a href="/prayer-wall.html?tab=with-others">Prayer</a> is there when you want company without noise.</p>
         <p class="plans-hero-hint plans-mystudy-print-hint">Your checkmarks and notes stay on this device. <a href="mystudy.html">My Study</a> can print them when you want paper.</p>
         <p class="plans-hero-hint">Paper-friendly index: <a href="printables.html">Printables hub</a>.</p>
@@ -2237,6 +2238,8 @@
           <a class="plans-editorial-pick" href="plans.html?plan=littlehearts"><span class="plans-editorial-pick-icon" aria-hidden="true">🧸</span> Little hearts, big fear</a>
           <a class="plans-editorial-pick" href="plans.html?plan=restlessnights"><span class="plans-editorial-pick-icon" aria-hidden="true">🌙</span> Restless nights</a>
           <a class="plans-editorial-pick" href="plans.html?plan=wearyhands"><span class="plans-editorial-pick-icon" aria-hidden="true">🤲</span> Weary hands</a>
+          <a class="plans-editorial-pick" href="plans.html?plan=preachingthroughexhaustion"><span class="plans-editorial-pick-icon" aria-hidden="true">🎙️</span> Preaching through exhaustion</a>
+          <a class="plans-editorial-pick" href="plans.html?plan=smallchurchencouragement"><span class="plans-editorial-pick-icon" aria-hidden="true">⛪</span> Small church encouragement</a>
           <a class="plans-editorial-pick" href="plans.html?plan=psalmscomfort"><span class="plans-editorial-pick-icon" aria-hidden="true">📜</span> Psalms of comfort</a>
           <a class="plans-editorial-pick" href="plans.html?plan=moneyworry"><span class="plans-editorial-pick-icon" aria-hidden="true">📋</span> Financial stress &amp; provision</a>
           <a class="plans-editorial-pick" href="plans.html?plan=addictionhope"><span class="plans-editorial-pick-icon" aria-hidden="true">🕯️</span> Addiction &amp; strongholds</a>
@@ -2568,6 +2571,16 @@
           <span class="plan-row-icon" aria-hidden="true">🤲</span>
           <div class="plan-row-info"><h2>Grace for Weary Hands</h2><p>A gentle 7-day reset for pastors, ministry leaders, caregivers, and anyone pouring out until empty—God sees the hidden cost of serving. Spiritual care alongside any counseling or medical support you need.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-wearyhands">Not started</span></div>
+        </a>
+        <a href="plans.html?plan=preachingthroughexhaustion" class="plan-row" data-plan="preachingthroughexhaustion" role="listitem" aria-label="Preaching Through Exhaustion — 7 days">
+          <span class="plan-row-icon" aria-hidden="true">🎙️</span>
+          <div class="plan-row-info"><h2>Preaching Through Exhaustion</h2><p>When you still have to open the Word while running on empty—seven KJV days for strength, humility, courage, and quiet rest after serving.</p></div>
+          <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-preachingthroughexhaustion">Not started</span></div>
+        </a>
+        <a href="plans.html?plan=smallchurchencouragement" class="plan-row" data-plan="smallchurchencouragement" role="listitem" aria-label="Small Church Encouragement — 7 days">
+          <span class="plan-row-icon" aria-hidden="true">⛪</span>
+          <div class="plan-row-info"><h2>Small Church Encouragement</h2><p>For bi-vocational leaders and faithful little flocks—seven KJV days for steady joy, courage, and hope when numbers feel small but the calling is real.</p></div>
+          <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-smallchurchencouragement">Not started</span></div>
         </a>
         <a href="plans.html?plan=teenfaith" class="plan-row" data-plan="teenfaith" role="listitem" aria-label="Teen Faith in a Noisy Week — 7 days">
           <span class="plan-row-icon" aria-hidden="true">✳️</span>
@@ -4158,6 +4171,34 @@
         key: 'tdb-plan-wearyhands-day', max: 7,
         days: B ? B.ministryBurnout7 : []
       },
+      preachingthroughexhaustion: {
+        id: 'preachingthroughexhaustion', icon: '\uD83C\uDFA4', label: 'Preaching Through Exhaustion',
+        desc: 'For the weeks when you still preach while your body and mind are worn thin—seven KJV days for steady strength, quiet courage, and soul-level rest. Built for pastors, teachers, and shepherds carrying real load.',
+        key: 'tdb-plan-preachingthroughexhaustion-day', max: 7,
+        days: [
+          { title: 'Power in weakness', ref: '2 Corinthians 12:9', text: 'And he said unto me, My grace is sufficient for thee: for my strength is made perfect in weakness.' },
+          { title: 'Bread for the weary servant', ref: '1 Kings 19:7-8', text: 'And the angel of the LORD came again the second time, and touched him, and said, Arise and eat; because the journey is too great for thee.' },
+          { title: 'Feed the flock of God', ref: '1 Peter 5:2-3', text: 'Feed the flock of God which is among you, taking the oversight thereof, not by constraint, but willingly; not for filthy lucre, but of a ready mind;' },
+          { title: 'Our sufficiency is of God', ref: '2 Corinthians 3:5', text: 'Not that we are sufficient of ourselves to think any thing as of ourselves; but our sufficiency is of God;' },
+          { title: 'Strengthened by the Word', ref: 'Acts 20:32', text: 'And now, brethren, I commend you to God, and to the word of his grace, which is able to build you up...' },
+          { title: 'Rest for your soul', ref: 'Matthew 11:28-29', text: 'Come unto me, all ye that labour and are heavy laden, and I will give you rest.' },
+          { title: 'Hold fast and keep serving', ref: '1 Corinthians 15:58', text: 'Therefore, my beloved brethren, be ye stedfast, unmoveable, always abounding in the work of the Lord...' }
+        ]
+      },
+      smallchurchencouragement: {
+        id: 'smallchurchencouragement', icon: '\u26EA', label: 'Small Church Encouragement',
+        desc: 'A seven-day KJV encouragement lane for small congregations, bi-vocational pastors, and faithful teams. Quiet courage for ordinary Sundays, unseen labor, and long obedience.',
+        key: 'tdb-plan-smallchurchencouragement-day', max: 7,
+        days: [
+          { title: 'Do not despise small beginnings', ref: 'Zechariah 4:10', text: 'For who hath despised the day of small things?...' },
+          { title: 'Faithful where He placed you', ref: '1 Corinthians 4:2', text: 'Moreover it is required in stewards, that a man be found faithful.' },
+          { title: 'Labor is not in vain', ref: '1 Corinthians 15:58', text: '...forasmuch as ye know that your labour is not in vain in the Lord.' },
+          { title: 'Grace for little strength', ref: 'Revelation 3:8', text: '...for thou hast a little strength, and hast kept my word, and hast not denied my name.' },
+          { title: 'The Chief Shepherd sees', ref: '1 Peter 5:4', text: 'And when the chief Shepherd shall appear, ye shall receive a crown of glory that fadeth not away.' },
+          { title: 'Encourage one another', ref: 'Hebrews 10:24-25', text: 'And let us consider one another to provoke unto love and to good works: Not forsaking the assembling of ourselves together...' },
+          { title: 'Steady hope for the flock', ref: 'Romans 15:13', text: 'Now the God of hope fill you with all joy and peace in believing...' }
+        ]
+      },
 
       cancercomfort: {
         id: 'cancercomfort', icon: '\uD83D\uDD4A\uFE0F', label: 'Cancer Comfort',
@@ -5532,12 +5573,34 @@
       wearyhands: {
         rows: [
           { planId: 'universityexhaustion', teaser: 'When you want a short University lane for soul-and-body tired\u2026' },
+          { planId: 'preachingthroughexhaustion', teaser: 'When sermon week arrives before your strength does\u2026' },
+          { planId: 'smallchurchencouragement', teaser: 'When you are shepherding a faithful little flock\u2026' },
           { planId: 'caregiverrest', teaser: 'When caregiving is the trench\u2026' },
           { planId: 'restlessnights', teaser: 'When nights steal your margin\u2026' },
           { planId: 'peace', teaser: 'When your soul won\u2019t settle\u2026' },
           { planId: 'dailylabor', teaser: 'When work and sacred duty blur\u2026' },
           { planId: 'sufferendure', teaser: 'When you need endurance without a stiff lip\u2026' },
           { planId: 'psalmscomfort', teaser: 'When Psalms fit the ache\u2026' }
+        ],
+        showBoard: true
+      },
+      preachingthroughexhaustion: {
+        rows: [
+          { planId: 'wearyhands', teaser: 'When you need a broader ministry-rest reset\u2026' },
+          { planId: 'smallchurchencouragement', teaser: 'When your local flock feels small and heavy\u2026' },
+          { planId: 'universityexhaustion', teaser: 'When you want a short University lane for deep fatigue\u2026' },
+          { planId: 'restlessnights', teaser: 'When sermon pressure follows you into the night\u2026' },
+          { planId: 'psalmscomfort', teaser: 'When your own soul needs shepherd care first\u2026' }
+        ],
+        showBoard: true
+      },
+      smallchurchencouragement: {
+        rows: [
+          { planId: 'preachingthroughexhaustion', teaser: 'When weekly preaching feels heavier than usual\u2026' },
+          { planId: 'wearyhands', teaser: 'When serving has drained your margin\u2026' },
+          { planId: 'greatcommission', teaser: 'When you need mission courage in ordinary places\u2026' },
+          { planId: 'dailylabor', teaser: 'When bi-vocational life splits your energy\u2026' },
+          { planId: 'hopeuncertain', teaser: 'When the future of your church feels unclear\u2026' }
         ],
         showBoard: true
       },

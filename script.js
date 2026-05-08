@@ -24593,6 +24593,22 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     topics: ['burnout', 'ministry', 'pastor', 'caregiver', 'rest', 'weakness', 'serve']
   },
   {
+    id: 'preachingthroughexhaustion',
+    title: 'Preaching Through Exhaustion',
+    href: 'plans.html?plan=preachingthroughexhaustion',
+    days: 7,
+    description: 'Seven KJV days for pastors preaching while tired—strength for the pulpit, rest for the soul, and mercy for weak weeks.',
+    topics: ['pastor', 'preaching', 'ministry', 'exhaustion', 'burnout', 'rest', 'strength']
+  },
+  {
+    id: 'smallchurchencouragement',
+    title: 'Small Church Encouragement',
+    href: 'plans.html?plan=smallchurchencouragement',
+    days: 7,
+    description: 'Seven KJV days for small congregations and bi-vocational leaders—steady faithfulness, humble hope, and courage for ordinary Sundays.',
+    topics: ['pastor', 'church', 'small church', 'encouragement', 'leadership', 'hope', 'ministry']
+  },
+  {
     id: 'hopeuncertain',
     title: 'Hope in Uncertainty',
     href: 'plans.html?plan=hopeuncertain',
@@ -30889,6 +30905,47 @@ async function tdbInitImpl() {
   }
 
   const exportSermonBtn = document.getElementById('export-sermon');
+  function copyTextWithSermonToast(text, okMessage) {
+    navigator.clipboard.writeText(text)
+      .then(() => { if (typeof showEliteToast === 'function') showEliteToast(okMessage || 'Copied.'); })
+      .catch(() => { if (typeof showEliteToast === 'function') showEliteToast('Copy did not go through—that is all right. Select all and copy manually.'); });
+  }
+  function buildSermonOneTapExportText(draft) {
+    const packet = [
+      'SERMON PACKET (KJV)',
+      `Title: ${draft.title || ''}`,
+      `Theme: ${draft.theme || ''}`,
+      `Primary Text: ${draft.textRef || ''}`,
+      '',
+      'OUTLINE',
+      draft.outline || '',
+      '',
+      'KEY POINTS & ILLUSTRATIONS',
+      draft.points || '',
+      '',
+      'APPLICATION',
+      draft.application || '',
+      '',
+      'CLOSING PRAYER',
+      draft.prayer || '',
+      '',
+      'todaysdailybattle.com | KJV'
+    ];
+    return packet.join('\n');
+  }
+  function downloadSermonOneTapExport(text) {
+    const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = 'sermon-one-tap-' + new Date().toISOString().slice(0, 10) + '.txt';
+    document.body.appendChild(anchor);
+    anchor.click();
+    setTimeout(function () {
+      URL.revokeObjectURL(url);
+      if (anchor.parentNode) anchor.parentNode.removeChild(anchor);
+    }, 1000);
+  }
   if (exportSermonBtn) {
     exportSermonBtn.addEventListener('click', () => {
       const draft = getSermonDraftFromForm();
@@ -30909,9 +30966,19 @@ async function tdbInitImpl() {
         'Closing Prayer:',
         draft.prayer || ''
       ];
-      navigator.clipboard.writeText(lines.join('\n'))
-        .then(() => { if (typeof showEliteToast === 'function') showEliteToast('Sermon copied.'); })
-        .catch(() => { if (typeof showEliteToast === 'function') showEliteToast('Copy did not go through—that is all right. Select all and copy manually.'); });
+      copyTextWithSermonToast(lines.join('\n'), 'Sermon copied.');
+    });
+  }
+  const exportSermonOneTapBtn = document.getElementById('export-sermon-one-tap');
+  if (exportSermonOneTapBtn) {
+    exportSermonOneTapBtn.addEventListener('click', () => {
+      const draft = getSermonDraftFromForm();
+      const packet = buildSermonOneTapExportText(draft);
+      downloadSermonOneTapExport(packet);
+      copyTextWithSermonToast(packet, 'One-tap export copied and downloaded.');
+      if (typeof trackEvent === 'function') {
+        trackEvent('sermon_one_tap_export', { has_title: !!(draft.title || '').trim(), has_text_ref: !!(draft.textRef || '').trim() });
+      }
     });
   }
 
@@ -30937,9 +31004,7 @@ async function tdbInitImpl() {
         'Closing Prayer:',
         draft.prayer || ''
       ].join('\n');
-      navigator.clipboard.writeText(email)
-        .then(() => { if (typeof showEliteToast === 'function') showEliteToast('Email-ready sermon copied.'); })
-        .catch(() => { if (typeof showEliteToast === 'function') showEliteToast('Copy did not go through—that is all right. Select all and copy manually.'); });
+      copyTextWithSermonToast(email, 'Email-ready sermon copied.');
     });
   }
 
@@ -30955,9 +31020,7 @@ async function tdbInitImpl() {
         'Slides 4+: Outline points',
         draft.outline || ''
       ].join('\n');
-      navigator.clipboard.writeText(slides)
-        .then(() => { if (typeof showEliteToast === 'function') showEliteToast('Slide outline copied.'); })
-        .catch(() => { if (typeof showEliteToast === 'function') showEliteToast('Copy did not go through—that is all right. Select all and copy manually.'); });
+      copyTextWithSermonToast(slides, 'Slide outline copied.');
     });
   }
 

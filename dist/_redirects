@@ -178,6 +178,8 @@
 # Battle Plans
 /plans /plans.html 200!
 /plans/ /plans.html 200!
+/church-starter-pack /church-starter-pack.html 200!
+/church-starter-pack/ /church-starter-pack.html 200!
 
 # URL truth table (see config/urls-truth-table.json) — guessed slugs + clean paths
 /ask-the-word /bible-tool.html?tdb_focus=ask 301

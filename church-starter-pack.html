@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Church Starter Pack • Today's Daily Battle</title>
+  <meta name="description" content="A calm, plug-and-play starter pack for pastors and small churches: Church Sharing Kit, Pastor Toolkit, Team Toolkit, Sermon Builder one-tap export, and family printable pathways.">
+  <meta name="robots" content="index, follow">
+  <meta name="referrer" content="no-referrer">
+  <link rel="canonical" href="https://todaysdailybattle.com/church-starter-pack.html">
+  <meta property="og:title" content="Church Starter Pack • Today's Daily Battle">
+  <meta property="og:description" content="Start your church workflow in one place: sermon prep, sharing kit, team tools, and family printables.">
+  <meta property="og:url" content="https://todaysdailybattle.com/church-starter-pack.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://todaysdailybattle.com/assets/share/testimonials-og.jpg?v=20260322">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Church Starter Pack • Today's Daily Battle">
+  <meta name="twitter:description" content="Calm starter workflow for pastors and small churches.">
+  <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/testimonials-og.jpg?v=20260322">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260503-consent-persist-fix" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix">
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
+  <script nonce="tdb2025s" type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"Church Starter Pack","url":"https://todaysdailybattle.com/church-starter-pack.html","description":"Starter workflow for pastors and churches using Today's Daily Battle tools.","isPartOf":{"@type":"WebSite","name":"Today's Daily Battle","url":"https://todaysdailybattle.com"}}
+  </script>
+  <style>
+    .church-hub-wins-grid {
+      display: grid;
+      gap: 0.85rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 760px) {
+      .church-hub-wins-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    .church-hub-win-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: rgba(0, 0, 0, 0.16);
+      padding: 0.9rem 1rem;
+    }
+    :root[data-theme="light"] .church-hub-win-card {
+      background: #f8fafc;
+      border-color: rgba(148, 163, 184, 0.4);
+    }
+    .church-hub-win-card strong {
+      display: block;
+      color: var(--gold-soft, #e3bc67);
+      margin-bottom: 0.35rem;
+    }
+    .church-hub-win-card .win-desc {
+      display: block;
+      margin-bottom: 0.65rem;
+      line-height: 1.55;
+      font-size: 0.88rem;
+    }
+    .church-hub-win-card .btn.small {
+      display: inline-flex;
+      min-height: 38px;
+      align-items: center;
+      padding: 0.4rem 0.7rem;
+      font-size: 0.82rem;
+    }
+    .fp-workflow-list {
+      margin: 0.45rem 0 0;
+      padding-left: 1.2rem;
+      line-height: 1.6;
+    }
+    .fp-workflow-list li { margin: 0.35rem 0; }
+    .csp-quick-strip {
+      margin-top: 0.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+    .csp-quick-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.32);
+      background: rgba(0, 0, 0, 0.12);
+      font-size: 0.79rem;
+      line-height: 1.35;
+      color: var(--text);
+    }
+    :root[data-theme="light"] .csp-quick-pill {
+      background: #f8fafc;
+      border-color: rgba(148, 163, 184, 0.42);
+    }
+    .csp-section {
+      margin-top: 1rem;
+    }
+    .church-hub-win-card:hover,
+    .church-hub-win-card:focus-visible {
+      border-color: color-mix(in srgb, var(--gold-soft, #e3bc67) 45%, rgba(148, 163, 184, 0.35));
+      background: color-mix(in srgb, rgba(0, 0, 0, 0.16) 84%, var(--gold-soft, #e3bc67) 8%);
+      outline: none;
+    }
+    :root[data-theme="light"] .church-hub-win-card:hover,
+    :root[data-theme="light"] .church-hub-win-card:focus-visible {
+      background: color-mix(in srgb, #f8fafc 88%, #e3bc67 12%);
+    }
+  </style>
+</head>
+<body class="dark-mode tdb-inner-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <p class="tdb-header-heartbeat site-tagline">For Family, For Country, For GOD</p>
+        <span class="brand-subtitle">Church Starter Pack</span>
+      </div>
+      <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+        <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
+          <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+          <span class="tdb-nav-flyout-toggle__label">Site</span>
+        </button>
+        <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
+          <a href="/">Home</a>
+          <a href="/for-pastors.html">For pastors</a>
+          <a href="/church.html">Church center</a>
+          <a href="/church-starter-pack.html" aria-current="page">Starter pack</a>
+          <a href="/plans.html">Battle Plans</a>
+          <a href="/sermon.html">Sermon Builder</a>
+          <a href="/printables.html">Printables</a>
+        </div>
+      </nav>
+      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
+    </header>
+
+    <aside id="sidebar" class="sidebar">
+      <nav class="side-nav" aria-label="Site navigation">
+        <a href="/">Home</a>
+        <a href="/for-pastors.html">For pastors</a>
+        <a href="/church.html">Church center</a>
+        <a href="/church-sharing-kit.html">Church sharing kit</a>
+        <a href="/sermon.html">Sermon builder</a>
+        <a href="/plans.html">Battle plans</a>
+        <a href="/printables.html">Printables</a>
+      </nav>
+    </aside>
+
+    <main class="app-content" id="main-content">
+      <div class="content-inner">
+        <header class="hero-banner tdb-dawn-bg--mist">
+          <p class="for-pastors-eyebrow">Plug-and-play for small churches</p>
+          <h1>Church Starter Pack</h1>
+          <p class="section-note topic-mood-porch">You are not behind. Start where you are with one verse, one practical step, and one prayer.</p>
+          <p class="hero-tagline">This page bundles the highest-use church tools so pastors and teams can move from prep to sharing without chasing links.</p>
+          <div class="csp-quick-strip" aria-label="Starter pack promises">
+            <span class="csp-quick-pill">KJV-only pathways</span>
+            <span class="csp-quick-pill">Built for small teams</span>
+            <span class="csp-quick-pill">One-sitting weekly setup</span>
+            <span class="csp-quick-pill">Print-ready family follow-through</span>
+          </div>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="/sermon.html">Open Sermon Builder</a>
+            <a class="btn btn-secondary" href="/church-sharing-kit.html">Open Church Sharing Kit</a>
+            <a class="btn btn-secondary" href="/printables.html">Open Family Printables</a>
+          </div>
+        </header>
+
+        <section class="glass tdb-porch-paper-glass csp-section" aria-labelledby="csp-first-hour-heading">
+          <h2 class="section-divider" id="csp-first-hour-heading">First hour workflow</h2>
+          <p class="section-note">When the week feels thin, run this order and stop there. It is enough for a faithful Sunday.</p>
+          <ol class="fp-workflow-list">
+            <li>Choose a text and draft in <a href="/sermon.html">Sermon Builder</a>; use <strong>One-Tap Export</strong> when ready.</li>
+            <li>Pull church-ready blurbs, QR paths, and social copy from <a href="/church-sharing-kit.html">Church Sharing Kit</a>.</li>
+            <li>Assign next steps in <a href="/team-toolkit.html">Team Toolkit</a> and keep volunteers aligned.</li>
+            <li>Send families to one printable from <a href="/printables.html">Printables</a> before Sunday closes.</li>
+          </ol>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass csp-section" aria-labelledby="csp-core-tools-heading">
+          <h2 class="section-divider" id="csp-core-tools-heading">Core tools in one place</h2>
+          <p class="section-note">Use these as your weekly base so prep, team communication, and family follow-through stay connected.</p>
+          <div class="church-hub-wins-grid">
+            <a href="/church-sharing-kit.html" class="church-hub-win-card">
+              <strong>Church Sharing Kit</strong>
+              <span class="win-desc">Bulletin blurbs, email/SMS copy, and group prompts that are ready to paste.</span>
+              <span class="btn btn-secondary small">Open kit →</span>
+            </a>
+            <a href="/pastor-toolkit.html" class="church-hub-win-card">
+              <strong>Pastor Toolkit</strong>
+              <span class="win-desc">Pastor-focused prep helpers for message flow and scripture support.</span>
+              <span class="btn btn-secondary small">Open pastor toolkit →</span>
+            </a>
+            <a href="/team-toolkit.html" class="church-hub-win-card">
+              <strong>Team Toolkit</strong>
+              <span class="win-desc">Simple planning support for volunteers and leaders serving together.</span>
+              <span class="btn btn-secondary small">Open team toolkit →</span>
+            </a>
+            <a href="/sermon.html" class="church-hub-win-card">
+              <strong>Sermon Builder + One-Tap Export</strong>
+              <span class="win-desc">Export outline, points, application, and closing prayer in one move.</span>
+              <span class="btn btn-secondary small">Build and export →</span>
+            </a>
+            <a href="/printables.html" class="church-hub-win-card">
+              <strong>Family printable packs</strong>
+              <span class="win-desc">Take-home pages for kids and households so Sunday keeps breathing midweek.</span>
+              <span class="btn btn-secondary small">Open printables →</span>
+            </a>
+            <a href="/for-pastors.html" class="church-hub-win-card">
+              <strong>For Pastors hub</strong>
+              <span class="win-desc">Practical preaching examples, OIA workflow, and quick links for bi-vocational weeks.</span>
+              <span class="btn btn-secondary small">Open pastor hub →</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass csp-section" aria-labelledby="csp-pastor-plans-heading">
+          <h2 class="section-divider" id="csp-pastor-plans-heading">Pastor-focused Battle Plans</h2>
+          <p class="section-note">Built for real ministry load, not ideal weeks. Keep each lane short, calm, and printable for your own rhythm.</p>
+          <ul class="fp-workflow-list">
+            <li><a href="/plans.html?plan=preachingthroughexhaustion">Preaching Through Exhaustion</a> — seven KJV days for sermon weeks when strength runs thin.</li>
+            <li><a href="/plans.html?plan=smallchurchencouragement">Small Church Encouragement</a> — seven KJV days for bi-vocational and small-flock faithfulness.</li>
+            <li><a href="/plans.html?plan=wearyhands">Grace for Weary Hands</a> — reset for hidden ministry fatigue.</li>
+          </ul>
+          <div class="cta-group">
+            <a class="btn btn-secondary" href="/plans.html">Browse all plans</a>
+            <a class="btn btn-secondary" href="/print-pack-generator.html">Build a print packet</a>
+          </div>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass csp-section" aria-labelledby="csp-send-home-heading">
+          <h2 class="section-divider" id="csp-send-home-heading">Send-home print pathway</h2>
+          <p class="section-note">If your church can only share one thing this week, share one calm printable and one verse. Keep it simple and repeatable.</p>
+          <ul class="fp-workflow-list">
+            <li>Open <a href="/printables.html">Printables</a> and choose one family page.</li>
+            <li>Pair it with one of the pastor plans above.</li>
+            <li>Add that link to your bulletin line from <a href="/church-sharing-kit.html">Church Sharing Kit</a>.</li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
+      <nav class="site-footer-essentials" aria-label="Key pages">
+        <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+        <a href="/for-pastors.html">For pastors</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+        <a href="/church.html">Church center</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+        <a href="/church-sharing-kit.html">Sharing kit</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+        <a href="/sermon.html">Sermon builder</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+        <a href="/printables.html">Printables</a>
+      </nav>
+      <p class="site-footer-copy site-footer-legal-line">&copy; 2026 Today&rsquo;s Daily Battle.</p>
+      <p class="site-footer-copy site-footer-legal-line">All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+      <script defer src="/language-switcher.js?v=20260503-consent-persist-fix"></script>
+    </footer>
+  </div>
+  <script src="inline-bootstrap.js"></script>
+  <script type="module" src="config.js"></script>
+  <script type="module" src="script.js?v=20260503-consent-persist-fix" data-cfasync="false"></script>
+</body>
+</html>

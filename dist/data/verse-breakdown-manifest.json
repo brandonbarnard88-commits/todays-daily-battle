@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-05-08T19:08:16.534Z",
-  "surfacedRefCount": 2952,
-  "overrideCount": 2952,
+  "generatedAt": "2026-05-08T19:29:47.220Z",
+  "surfacedRefCount": 2956,
+  "overrideCount": 2956,
   "sourceCounts": {
     ".worktrees/main-hotfix/404-admin.html": {
       "refs": 1,
@@ -1604,8 +1604,8 @@
       "pairs": 1
     },
     "plans.html": {
-      "refs": 261,
-      "pairs": 279
+      "refs": 269,
+      "pairs": 293
     },
     "printables 2.html": {
       "refs": 9,
@@ -2069,6 +2069,7 @@
     "1 Kings 19:19-21",
     "1 Kings 19:2",
     "1 Kings 19:4",
+    "1 Kings 19:7-8",
     "1 Kings 19:8",
     "1 Kings 19:9-18",
     "1 Kings 1:15",
@@ -2116,6 +2117,8 @@
     "1 Peter 4:5",
     "1 Peter 5:10",
     "1 Peter 5:2",
+    "1 Peter 5:2-3",
+    "1 Peter 5:4",
     "1 Peter 5:6",
     "1 Peter 5:6-7",
     "1 Peter 5:7",
@@ -4736,6 +4739,7 @@
     "Revelation 3:19",
     "Revelation 3:20",
     "Revelation 3:5",
+    "Revelation 3:8",
     "Revelation 4:2",
     "Revelation 5:12",
     "Revelation 6:1",
@@ -4945,6 +4949,8 @@
     "1 Cor. 15:57": "But thanks be to God, which giveth us the victory through our Lord Jesus Christ.",
     "1 Corinthians 12:4-7": "Now there are diversities of gifts, but the same Spirit. And there are differences of administrations, but the same Lord. And there are diversities of operations, but it is the same God which worketh all in all. But the manifestation of the Spirit is given to every man to profit withal.",
     "1 Corinthians 13:4-7": "Charity suffereth long, and is kind; charity envieth not; charity vaunteth not itself, is not puffed up, Doth not behave itself unseemly, seeketh not her own, is not easily provoked, thinketh no evil; Rejoiceth not in iniquity, but rejoiceth in the truth; Beareth all things, believeth all things, hopeth all things, endureth all things.",
+    "1 Kings 19:7-8": "And the angel of the LORD came again the second time, and touched him, and said, Arise and eat; because the journey is too great for thee.",
+    "1 Peter 5:2-3": "Feed the flock of God which is among you, taking the oversight thereof, not by constraint, but willingly; not for filthy lucre, but of a ready mind;",
     "1 Peter 5:8-9": "Be sober, be vigilant; because your adversary the devil, as a roaring lion, walketh about, seeking whom he may devour: Whom resist stedfast in the faith, knowing that the same afflictions are accomplished in your brethren that are in the world.",
     "1 Thess. 5:18": "In every thing give thanks: for this is the will of God in Christ Jesus.",
     "1 Thessalonians 4:11-12": "And that ye study to be quiet, and to do your own business, and to work with your own hands, as we commanded you; That ye may walk honestly toward them that are without, and that ye may have lack of nothing.",
@@ -6271,6 +6277,14 @@
         "to": "Israel"
       }
     },
+    "1 Kings 19:7-8": {
+      "general": {
+        "plainExplanation": "And the angel of the LORD came again the second time, and touched him, and said, Arise and eat; because the journey is too great for you.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
     "1 Kings 19:8": {
       "general": {
         "plainExplanation": "And he arose, and did eat and drink, and went in the strength of that meat forty days and forty nights to Horeb the mount of God.",
@@ -6642,6 +6656,22 @@
     "1 Peter 5:2": {
       "general": {
         "plainExplanation": "Feed the flock of God which is among you, taking the oversight thereof, not by constraint, but willingly; not for filthy lucre, but of a ready mind;",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Peter",
+        "to": "Believers"
+      }
+    },
+    "1 Peter 5:2-3": {
+      "general": {
+        "plainExplanation": "Feed the flock of God which is among you, taking the oversight thereof, not by constraint, but willingly; not for filthy lucre, but of a ready mind;",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Peter",
+        "to": "Believers"
+      }
+    },
+    "1 Peter 5:4": {
+      "general": {
+        "plainExplanation": "And when the chief Shepherd shall appear, you shall receive a crown of glory that fadeth not away.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Peter",
         "to": "Believers"
@@ -9489,7 +9519,7 @@
     },
     "Acts 20:32": {
       "general": {
-        "plainExplanation": "And now, brothers, I commend you to God, and to the word of his grace, which is able to build you up, and to give you an inheritance among all them which are sanctified.",
+        "plainExplanation": "And now, brothers, I commend you to God, and to the word of his grace, which is able to build you up...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Luke",
         "to": "Church"
@@ -27483,6 +27513,14 @@
       "general": {
         "plainExplanation": "Key idea: He that overcometh, the same shall be clothed in white raiment; and I will not blot out his name out of the book of life, but I will confess his name before...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "John",
+        "to": "Seven churches"
+      }
+    },
+    "Revelation 3:8": {
+      "general": {
+        "plainExplanation": "...for you hast a little strength, and hast kept my word, and hast not denied my name.",
+        "modernApplication": "This verse reminds you that God gives strength that does not start with your own reserves.",
         "about": "John",
         "to": "Seven churches"
       }

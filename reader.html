@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
-  <script src="/vendor/dompurify.min.js" fetchpriority="low"></script>
-  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix" fetchpriority="low"></script>
+  <script src="/vendor/dompurify.min.js" defer fetchpriority="low"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix" defer fetchpriority="low"></script>
 
   <!-- GA4 lazy-loaded after interaction -->
-  <script defer src="analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Chapter Reader • Today's Daily Battle</title>
@@ -31,10 +30,7 @@
   <link rel="preload" href="cormorant-latin-subset.css?v=20260423-phase5-perf" as="style">
   <link rel="stylesheet" href="cormorant-latin-subset.css?v=20260423-phase5-perf" />
   <link rel="manifest" href="manifest.json">
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Supabase SDK loads on-demand via ensureSupabaseLoaded() in script.js -->
   <style>
     /* Base reserve height when idle; loading/loaded pane uses matching min/max in styles.css */
     #reader-output {

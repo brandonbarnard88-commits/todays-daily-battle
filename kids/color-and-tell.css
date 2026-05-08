@@ -697,6 +697,23 @@
   border-color: rgba(34, 197, 94, 0.35) !important;
 }
 
+.dark-mode .tdb-cat-scene-caption {
+  color: #1e293b !important;
+}
+
+.dark-mode .tdb-cat-scene-verse {
+  color: #7c3d12 !important;
+}
+
+.dark-mode .tdb-cat-tab {
+  color: #1e3a5f !important;
+}
+
+.dark-mode .tdb-cat-tab[aria-selected='true'] {
+  background: rgba(254, 243, 199, 0.9) !important;
+  color: #92400e !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .tdb-cat-progress-meter-fill {
     transition: none;

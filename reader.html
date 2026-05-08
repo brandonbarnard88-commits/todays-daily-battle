@@ -1242,20 +1242,32 @@
       }
       function loadReaderAppModuleOnce() {
         loadReaderAppModule();
-        window.removeEventListener('pointerdown', loadReaderAppModuleOnce, true);
-        window.removeEventListener('keydown', loadReaderAppModuleOnce, true);
-        window.removeEventListener('focusin', loadReaderAppModuleOnce, true);
-        window.removeEventListener('touchstart', loadReaderAppModuleOnce, true);
         window.removeEventListener('scroll', loadReaderAppModuleOnScroll, true);
+        var ids = ['reader-open', 'reader-prev', 'reader-next', 'reader-listen', 'reader-audio', 'reader-book', 'reader-chapter', 'reader-output'];
+        for (var i = 0; i < ids.length; i++) {
+          var node = document.getElementById(ids[i]);
+          if (!node) continue;
+          node.removeEventListener('pointerdown', loadReaderAppModuleOnce, true);
+          node.removeEventListener('keydown', loadReaderAppModuleOnce, true);
+          node.removeEventListener('touchstart', loadReaderAppModuleOnce, true);
+          node.removeEventListener('change', loadReaderAppModuleOnce, true);
+          node.removeEventListener('click', loadReaderAppModuleOnce, true);
+        }
       }
       function loadReaderAppModuleOnScroll() {
         if ((window.scrollY || 0) < 24) return;
         loadReaderAppModuleOnce();
       }
-      window.addEventListener('pointerdown', loadReaderAppModuleOnce, true);
-      window.addEventListener('keydown', loadReaderAppModuleOnce, true);
-      window.addEventListener('focusin', loadReaderAppModuleOnce, true);
-      window.addEventListener('touchstart', loadReaderAppModuleOnce, true);
+      var intentTargets = ['reader-open', 'reader-prev', 'reader-next', 'reader-listen', 'reader-audio', 'reader-book', 'reader-chapter', 'reader-output'];
+      for (var ti = 0; ti < intentTargets.length; ti++) {
+        var el = document.getElementById(intentTargets[ti]);
+        if (!el) continue;
+        el.addEventListener('pointerdown', loadReaderAppModuleOnce, true);
+        el.addEventListener('keydown', loadReaderAppModuleOnce, true);
+        el.addEventListener('touchstart', loadReaderAppModuleOnce, true);
+        el.addEventListener('change', loadReaderAppModuleOnce, true);
+        el.addEventListener('click', loadReaderAppModuleOnce, true);
+      }
       window.addEventListener('scroll', loadReaderAppModuleOnScroll, true);
       window.addEventListener('load', function () {
         setTimeout(loadReaderAppModule, 14000);

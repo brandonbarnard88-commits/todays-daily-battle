@@ -100,8 +100,13 @@ function removeDistDuplicateArtifacts(dir) {
       continue;
     }
     if (/ 2\.[^/]+$/.test(entry.name)) {
-      fs.unlinkSync(fullPath);
-      removed += 1;
+      try {
+        fs.unlinkSync(fullPath);
+        removed += 1;
+      } catch (err) {
+        // Duplicate cleanup is best-effort; ignore if file vanished between scan and delete.
+        if (!err || err.code !== 'ENOENT') throw err;
+      }
     }
   }
   return removed;

@@ -30,6 +30,50 @@
   {"@context":"https://schema.org","@type":"WebPage","name":"Church Starter Pack","url":"https://todaysdailybattle.com/church-starter-pack.html","description":"Starter workflow for pastors and churches using Today's Daily Battle tools.","isPartOf":{"@type":"WebSite","name":"Today's Daily Battle","url":"https://todaysdailybattle.com"}}
   </script>
   <style>
+    .csp-premium-hero {
+      border: 1px solid color-mix(in srgb, var(--gold-soft, #e3bc67) 22%, rgba(148, 163, 184, 0.22));
+      box-shadow: 0 16px 36px rgba(2, 6, 23, 0.24);
+      padding-bottom: 1.35rem;
+    }
+    :root[data-theme="light"] .csp-premium-hero {
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+    }
+    .csp-premium-note {
+      margin-top: 0.7rem;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      max-width: 44rem;
+      color: var(--muted, #9ca3af);
+    }
+    .csp-launch-grid {
+      margin-top: 1rem;
+      display: grid;
+      gap: 0.75rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 760px) {
+      .csp-launch-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    .csp-launch-card {
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      background: color-mix(in srgb, rgba(15, 23, 42, 0.55) 90%, var(--gold-soft, #e3bc67) 10%);
+      padding: 0.85rem 0.9rem;
+    }
+    :root[data-theme="light"] .csp-launch-card {
+      background: color-mix(in srgb, #f8fafc 92%, #e3bc67 8%);
+    }
+    .csp-launch-card strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 0.92rem;
+      color: var(--gold-soft, #e3bc67);
+    }
+    .csp-launch-card span {
+      display: block;
+      font-size: 0.84rem;
+      line-height: 1.5;
+    }
     .church-hub-wins-grid {
       display: grid;
       gap: 0.85rem;
@@ -98,7 +142,56 @@
       border-color: rgba(148, 163, 184, 0.42);
     }
     .csp-section {
-      margin-top: 1rem;
+      margin-top: 1.15rem;
+    }
+    .csp-section .section-divider {
+      margin-bottom: 0.45rem;
+    }
+    .csp-section .section-note {
+      max-width: 44rem;
+    }
+    .csp-command-center {
+      margin-top: 0.95rem;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--gold-soft, #e3bc67) 28%, rgba(148, 163, 184, 0.34));
+      background: color-mix(in srgb, rgba(15, 23, 42, 0.64) 90%, var(--gold-soft, #e3bc67) 10%);
+      padding: 0.85rem 0.9rem;
+    }
+    :root[data-theme="light"] .csp-command-center {
+      background: color-mix(in srgb, #f8fafc 90%, #e3bc67 10%);
+    }
+    .csp-command-center h2 {
+      margin: 0 0 0.35rem;
+      font-size: 0.98rem;
+      color: var(--gold-soft, #e3bc67);
+      letter-spacing: 0.01em;
+    }
+    .csp-command-center p {
+      margin: 0;
+      font-size: 0.84rem;
+      line-height: 1.52;
+      color: var(--muted, #9ca3af);
+      max-width: 42rem;
+    }
+    .csp-command-center-list {
+      list-style: none;
+      margin: 0.7rem 0 0;
+      padding: 0;
+      display: grid;
+      gap: 0.35rem;
+      grid-template-columns: 1fr;
+    }
+    .csp-command-center-list li {
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      padding: 0.45rem 0.6rem;
+      font-size: 0.82rem;
+      line-height: 1.46;
+      background: rgba(0, 0, 0, 0.12);
+    }
+    :root[data-theme="light"] .csp-command-center-list li {
+      background: #ffffff;
+      border-color: rgba(148, 163, 184, 0.42);
     }
     .church-hub-win-card:hover,
     .church-hub-win-card:focus-visible {
@@ -110,6 +203,85 @@
     :root[data-theme="light"] .church-hub-win-card:focus-visible {
       background: color-mix(in srgb, #f8fafc 88%, #e3bc67 12%);
     }
+    .csp-assets-grid {
+      margin-top: 0.8rem;
+      display: grid;
+      gap: 0.8rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 880px) {
+      .csp-assets-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    .csp-asset-card {
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      border-radius: 14px;
+      padding: 0.95rem 1rem;
+      background: rgba(0, 0, 0, 0.14);
+    }
+    :root[data-theme="light"] .csp-asset-card {
+      background: #f8fafc;
+      border-color: rgba(148, 163, 184, 0.42);
+    }
+    .csp-asset-card h3 {
+      margin: 0 0 0.45rem;
+      font-size: 0.96rem;
+      letter-spacing: 0.01em;
+    }
+    .csp-asset-card p {
+      margin: 0.35rem 0 0.7rem;
+      font-size: 0.85rem;
+      line-height: 1.56;
+      color: var(--muted, #9ca3af);
+    }
+    .csp-asset-card textarea {
+      width: 100%;
+      min-height: 170px;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.42);
+      background: rgba(15, 23, 42, 0.52);
+      color: var(--text);
+      padding: 0.7rem 0.75rem;
+      font: inherit;
+      line-height: 1.5;
+      resize: vertical;
+    }
+    :root[data-theme="light"] .csp-asset-card textarea {
+      background: #ffffff;
+      color: #0f172a;
+      border-color: rgba(148, 163, 184, 0.6);
+    }
+    .csp-template-actions {
+      margin-top: 0.65rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+    .csp-template-actions .btn { min-height: 40px; }
+    .csp-status {
+      margin-top: 0.5rem;
+      min-height: 1.35rem;
+      font-size: 0.8rem;
+      color: var(--muted, #9ca3af);
+    }
+    .csp-thin-week-list {
+      margin: 0.5rem 0 0;
+      padding-left: 1rem;
+      line-height: 1.56;
+      font-size: 0.83rem;
+    }
+    .csp-thin-week-list li { margin: 0.3rem 0; }
+    @media print {
+      .top-bar, .sidebar, .site-footer, .skip-link, .csp-no-print { display: none !important; }
+      body { background: #fff !important; color: #111 !important; }
+      .app-content, .content-inner { padding: 0 !important; margin: 0 !important; }
+      .glass, .hero-banner, .csp-asset-card, .csp-launch-card {
+        box-shadow: none !important;
+        border-color: #cbd5e1 !important;
+        background: #fff !important;
+      }
+      .csp-print-only { display: block !important; }
+    }
+    .csp-print-only { display: none; }
   </style>
 </head>
 <body class="dark-mode tdb-inner-page">
@@ -153,17 +325,32 @@
 
     <main class="app-content" id="main-content">
       <div class="content-inner">
-        <header class="hero-banner tdb-dawn-bg--mist">
+        <header class="hero-banner tdb-dawn-bg--mist csp-premium-hero">
           <p class="for-pastors-eyebrow">Plug-and-play for small churches</p>
           <h1>Church Starter Pack</h1>
           <p class="section-note topic-mood-porch">You are not behind. Start where you are with one verse, one practical step, and one prayer.</p>
           <p class="hero-tagline">This page bundles the highest-use church tools so pastors and teams can move from prep to sharing without chasing links.</p>
+          <p class="csp-premium-note">Think of this as your quiet weekly operating system: message prep, team alignment, and family follow-through in one calm lane.</p>
           <div class="csp-quick-strip" aria-label="Starter pack promises">
             <span class="csp-quick-pill">KJV-only pathways</span>
             <span class="csp-quick-pill">Built for small teams</span>
             <span class="csp-quick-pill">One-sitting weekly setup</span>
             <span class="csp-quick-pill">Print-ready family follow-through</span>
           </div>
+          <div class="csp-launch-grid" aria-label="Launch rhythm highlights">
+            <article class="csp-launch-card"><strong>Monday / Tuesday</strong><span>Build the message outline and one practical next step.</span></article>
+            <article class="csp-launch-card"><strong>Wednesday / Thursday</strong><span>Send copy + volunteer direction so nobody guesses.</span></article>
+            <article class="csp-launch-card"><strong>Sunday follow-through</strong><span>Share one family printable and one pastor plan link.</span></article>
+          </div>
+          <section class="csp-command-center" aria-labelledby="csp-command-center-heading">
+            <h2 id="csp-command-center-heading">Start this week in 15 minutes</h2>
+            <p>When your margin is gone, run this minimum lane first. You can add depth later.</p>
+            <ol class="csp-command-center-list">
+              <li><strong>Minute 1–5:</strong> choose one anchor text and one sentence sermon burden.</li>
+              <li><strong>Minute 6–10:</strong> draft outline + one clear application in <a href="/sermon.html">Sermon Builder</a>.</li>
+              <li><strong>Minute 11–15:</strong> copy one church message and one family follow-through link below.</li>
+            </ol>
+          </section>
           <div class="cta-group">
             <a class="btn btn-primary" href="/sermon.html">Open Sermon Builder</a>
             <a class="btn btn-secondary" href="/church-sharing-kit.html">Open Church Sharing Kit</a>
@@ -233,6 +420,83 @@
           </div>
         </section>
 
+        <section class="glass tdb-porch-paper-glass csp-section" aria-labelledby="csp-pastor-assets-heading">
+          <h2 class="section-divider" id="csp-pastor-assets-heading">Pastor reset + ready copy</h2>
+          <p class="section-note">Three practical helpers you can use this week without new setup: monthly reset, thin-week guide, and copy-ready church templates.</p>
+          <div class="csp-assets-grid">
+            <article class="csp-asset-card">
+              <h3>Monthly Pastor Reset (print-ready)</h3>
+              <p>Use this once a month to keep preaching, people care, and rest from drifting. Calm rhythm, no complexity.</p>
+              <ul class="fp-workflow-list">
+                <li>One sentence: what God is pressing on your heart this month.</li>
+                <li>Three sermon anchors (text + next faithful action).</li>
+                <li>Two people to encourage personally this week.</li>
+                <li>One non-negotiable rest block to guard.</li>
+                <li>One family follow-through habit after Sunday.</li>
+              </ul>
+              <div class="csp-template-actions csp-no-print">
+                <button type="button" class="btn btn-secondary" id="csp-print-reset-btn">Print monthly reset sheet</button>
+              </div>
+              <p class="csp-print-only">Monthly Pastor Reset — print and fill by hand.</p>
+            </article>
+            <article class="csp-asset-card">
+              <h3>Thin Week Survival Guide (one page)</h3>
+              <p>For weeks where you feel under water before you begin. Keep the minimum faithful path visible.</p>
+              <ol class="csp-thin-week-list">
+                <li>Preach one clear burden, not five ideas competing.</li>
+                <li>Call or text one weary member before polishing slides.</li>
+                <li>Delegate one task that does not require your voice.</li>
+                <li>Choose one family follow-through item and repeat it.</li>
+                <li>Guard one rest block and treat it as ministry stewardship.</li>
+              </ol>
+              <div class="csp-template-actions csp-no-print">
+                <button type="button" class="btn btn-secondary" id="csp-print-thin-week-btn">Print thin-week guide</button>
+              </div>
+            </article>
+            <article class="csp-asset-card">
+              <h3>Weekly announcement template (copy/paste)</h3>
+              <p>Use this in bulletin, SMS, or email to direct your church to one clear weekly next step.</p>
+              <label for="csp-announcement-template" class="sr-only">Church announcement template text</label>
+              <textarea id="csp-announcement-template" readonly>Church family,
+
+This week’s Scripture pathway is now posted: [INSERT PLAN LINK].
+
+If your week feels heavy, start with one day only. Read the KJV verse, take one next step, and pray the short prayer.
+
+For households, we also posted one printable for family follow-through: [INSERT PRINTABLE LINK].
+
+Grace and peace,
+[PASTOR / CHURCH NAME]</textarea>
+              <div class="csp-template-actions csp-no-print">
+                <button type="button" class="btn btn-secondary" id="csp-copy-announcement-btn">Copy template</button>
+                <button type="button" class="btn btn-secondary" id="csp-print-announcement-btn">Print template</button>
+              </div>
+            </article>
+            <article class="csp-asset-card">
+              <h3>Monthly church email template (copy/paste)</h3>
+              <p>Use this at month-start to align your church around one calm rhythm.</p>
+              <label for="csp-monthly-email-template" class="sr-only">Monthly church email template text</label>
+              <textarea id="csp-monthly-email-template" readonly>Church family,
+
+As we begin a new month, we are keeping one simple ministry rhythm:
+
+1) One Scripture pathway for adults: [INSERT PLAN LINK]
+2) One family follow-through printable: [INSERT PRINTABLE LINK]
+3) One prayer invitation with others: [INSERT PRAYER LINK]
+
+If your week is heavy, do not try to carry everything. Start with one day, one verse, one next step.
+
+With love,
+[PASTOR / CHURCH NAME]</textarea>
+              <div class="csp-template-actions csp-no-print">
+                <button type="button" class="btn btn-secondary" id="csp-copy-monthly-email-btn">Copy monthly email</button>
+                <button type="button" class="btn btn-secondary" id="csp-print-monthly-email-btn">Print monthly email</button>
+              </div>
+              <p class="csp-status" id="csp-template-status" aria-live="polite"></p>
+            </article>
+          </div>
+        </section>
+
         <section class="glass tdb-porch-paper-glass csp-section" aria-labelledby="csp-send-home-heading">
           <h2 class="section-divider" id="csp-send-home-heading">Send-home print pathway</h2>
           <p class="section-note">If your church can only share one thing this week, share one calm printable and one verse. Keep it simple and repeatable.</p>
@@ -260,6 +524,86 @@
     </footer>
   </div>
   <script src="inline-bootstrap.js"></script>
+  <script nonce="tdb2025s">
+    (function () {
+      var copyBtn = document.getElementById('csp-copy-announcement-btn');
+      var copyMonthlyBtn = document.getElementById('csp-copy-monthly-email-btn');
+      var printAnnouncementBtn = document.getElementById('csp-print-announcement-btn');
+      var printMonthlyBtn = document.getElementById('csp-print-monthly-email-btn');
+      var printResetBtn = document.getElementById('csp-print-reset-btn');
+      var printThinWeekBtn = document.getElementById('csp-print-thin-week-btn');
+      var template = document.getElementById('csp-announcement-template');
+      var monthlyTemplate = document.getElementById('csp-monthly-email-template');
+      var status = document.getElementById('csp-template-status');
+
+      function setStatus(message) {
+        if (status) status.textContent = message || '';
+      }
+
+      function copyTemplate(text, fallbackEl, okMessage) {
+        var content = text || '';
+        if (!content.trim()) {
+          setStatus('Template text is empty.');
+          return;
+        }
+        if (!navigator.clipboard || typeof navigator.clipboard.writeText !== 'function') {
+          if (fallbackEl) {
+            fallbackEl.focus();
+            fallbackEl.select();
+          }
+          setStatus('Clipboard access is unavailable here. Template selected for manual copy.');
+          return;
+        }
+        navigator.clipboard.writeText(content).then(function () {
+          setStatus(okMessage || 'Template copied.');
+        }).catch(function () {
+          if (fallbackEl) {
+            fallbackEl.focus();
+            fallbackEl.select();
+          }
+          setStatus('Copy did not go through. Template selected for manual copy.');
+        });
+      }
+
+      if (copyBtn && template) {
+        copyBtn.addEventListener('click', function () {
+          var text = template.value || '';
+          copyTemplate(text, template, 'Weekly template copied. Replace links, then send to your church.');
+        });
+      }
+
+      if (copyMonthlyBtn && monthlyTemplate) {
+        copyMonthlyBtn.addEventListener('click', function () {
+          var text = monthlyTemplate.value || '';
+          copyTemplate(text, monthlyTemplate, 'Monthly email copied. Replace links, then send.');
+        });
+      }
+
+      if (printAnnouncementBtn) {
+        printAnnouncementBtn.addEventListener('click', function () {
+          window.print();
+        });
+      }
+
+      if (printMonthlyBtn) {
+        printMonthlyBtn.addEventListener('click', function () {
+          window.print();
+        });
+      }
+
+      if (printResetBtn) {
+        printResetBtn.addEventListener('click', function () {
+          window.print();
+        });
+      }
+
+      if (printThinWeekBtn) {
+        printThinWeekBtn.addEventListener('click', function () {
+          window.print();
+        });
+      }
+    })();
+  </script>
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260503-consent-persist-fix" data-cfasync="false"></script>
 </body>

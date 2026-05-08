@@ -726,6 +726,63 @@
       border-color: #7a5818;
       background: color-mix(in srgb, #fff 90%, #7a5818 10%);
     }
+    .plans-pastor-spotlight {
+      margin: 0 0 1.2rem;
+      border-radius: 16px;
+      border: 1px solid color-mix(in srgb, var(--line) 86%, var(--gold) 14%);
+      background: color-mix(in srgb, var(--card) 92%, var(--gold) 8%);
+      padding: 1rem 1rem 1.05rem;
+    }
+    .plans-pastor-spotlight h2 {
+      margin: 0 0 0.35rem;
+      font-size: clamp(1.03rem, 2.7vw, 1.2rem);
+      color: var(--gold);
+      letter-spacing: 0.01em;
+    }
+    .plans-pastor-spotlight p {
+      margin: 0;
+      font-size: 0.87rem;
+      line-height: 1.56;
+      color: var(--muted);
+      max-width: 44rem;
+    }
+    .plans-pastor-spotlight-grid {
+      margin-top: 0.75rem;
+      display: grid;
+      gap: 0.65rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 760px) {
+      .plans-pastor-spotlight-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    .plans-pastor-spotlight-card {
+      border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--line) 84%, var(--gold) 16%);
+      background: color-mix(in srgb, var(--card) 95%, rgba(255, 255, 255, 0.03));
+      padding: 0.85rem 0.9rem;
+      text-decoration: none;
+      color: var(--text);
+      display: block;
+      min-height: 44px;
+    }
+    .plans-pastor-spotlight-card strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.92rem;
+      color: var(--gold-soft);
+    }
+    .plans-pastor-spotlight-card span {
+      display: block;
+      font-size: 0.84rem;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .plans-pastor-spotlight-card:hover,
+    .plans-pastor-spotlight-card:focus-visible {
+      border-color: var(--gold);
+      background: color-mix(in srgb, var(--card) 88%, var(--gold) 12%);
+      outline: none;
+    }
     .plan-row[id^="plan-row-"] {
       scroll-margin-top: 5.5rem;
     }
@@ -1734,6 +1791,20 @@
         </ul>
         <p class="plans-situation-jump__more section-note" role="note">Still scanning? <a href="#plans-browse-by-feeling">More by feeling</a> &middot; <a href="#plans-start-here-title">Start here</a> &middot; <a href="index.html#feel-section">How I feel (home)</a></p>
       </section>
+      <section class="plans-pastor-spotlight" aria-labelledby="plans-pastor-spotlight-h">
+        <h2 id="plans-pastor-spotlight-h">Pastor leadership spotlight</h2>
+        <p>These two lanes are built for trench weeks: sermon prep after a long job shift, hospital calls, low attendance Sundays, and the quiet pressure to keep shepherding anyway.</p>
+        <div class="plans-pastor-spotlight-grid">
+          <a class="plans-pastor-spotlight-card" href="plans.html?plan=preachingthroughexhaustion">
+            <strong>Preaching Through Exhaustion</strong>
+            <span>For the Saturday-night strain when your body is spent but you still have to open the Word.</span>
+          </a>
+          <a class="plans-pastor-spotlight-card" href="plans.html?plan=smallchurchencouragement">
+            <strong>Small Church Encouragement</strong>
+            <span>For bi-vocational pastors carrying a faithful little flock with limited hands and real burdens.</span>
+          </a>
+        </div>
+      </section>
       <div class="plans-hero-continued" aria-label="More about courses and help">
         <p class="plans-audio-roadmap tdb-listen-privacy-hint" role="note">We hope to add warm <strong>human narration</strong> for plan days (and Möbius breathing) when recording lines up&mdash;nothing extra to buy or turn on yet. Each day&rsquo;s <strong>Listen</strong> still uses steady device TTS. Playback stays on your device&mdash;nothing is uploaded for listening.</p>
         <p class="plans-hero-hint plans-hero-print-delight" role="group" aria-label="Print today&rsquo;s KJV verse">
@@ -2572,12 +2643,12 @@
         </a>
         <a href="plans.html?plan=preachingthroughexhaustion" class="plan-row" data-plan="preachingthroughexhaustion" role="listitem" aria-label="Preaching Through Exhaustion — 7 days">
           <span class="plan-row-icon" aria-hidden="true">🎙️</span>
-          <div class="plan-row-info"><h2>Preaching Through Exhaustion</h2><p>When you still have to open the Word while running on empty—seven KJV days for strength, humility, courage, and quiet rest after serving.</p></div>
+          <div class="plan-row-info"><h2>Preaching Through Exhaustion</h2><p>For the week where you work all day, prep at night, and still stand up Sunday morning—seven KJV days for faithful preaching under real fatigue.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-preachingthroughexhaustion">Not started</span></div>
         </a>
         <a href="plans.html?plan=smallchurchencouragement" class="plan-row" data-plan="smallchurchencouragement" role="listitem" aria-label="Small Church Encouragement — 7 days">
           <span class="plan-row-icon" aria-hidden="true">⛪</span>
-          <div class="plan-row-info"><h2>Small Church Encouragement</h2><p>For bi-vocational leaders and faithful little flocks—seven KJV days for steady joy, courage, and hope when numbers feel small but the calling is real.</p></div>
+          <div class="plan-row-info"><h2>Small Church Encouragement</h2><p>For pastors carrying a small flock where every absence is felt—seven KJV days for courage, stamina, and hope in ordinary Sundays.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-smallchurchencouragement">Not started</span></div>
         </a>
         <a href="plans.html?plan=teenfaith" class="plan-row" data-plan="teenfaith" role="listitem" aria-label="Teen Faith in a Noisy Week — 7 days">
@@ -4171,30 +4242,100 @@
       },
       preachingthroughexhaustion: {
         id: 'preachingthroughexhaustion', icon: '\uD83C\uDFA4', label: 'Preaching Through Exhaustion',
-        desc: 'For the weeks when you still preach while your body and mind are worn thin—seven KJV days for steady strength, quiet courage, and soul-level rest. Built for pastors, teachers, and shepherds carrying real load.',
+        desc: 'For the weeks when you still preach after long shifts, hard calls, and little sleep—seven KJV days with practical next steps for the pulpit, people care, and honest rest. Built for pastors, teachers, and shepherds carrying real load.',
         key: 'tdb-plan-preachingthroughexhaustion-day', max: 7,
         days: [
-          { title: 'Power in weakness', ref: '2 Corinthians 12:9', text: 'And he said unto me, My grace is sufficient for thee: for my strength is made perfect in weakness.' },
-          { title: 'Bread for the weary servant', ref: '1 Kings 19:7-8', text: 'And the angel of the LORD came again the second time, and touched him, and said, Arise and eat; because the journey is too great for thee.' },
-          { title: 'Feed the flock of God', ref: '1 Peter 5:2-3', text: 'Feed the flock of God which is among you, taking the oversight thereof, not by constraint, but willingly; not for filthy lucre, but of a ready mind;' },
-          { title: 'Our sufficiency is of God', ref: '2 Corinthians 3:5', text: 'Not that we are sufficient of ourselves to think any thing as of ourselves; but our sufficiency is of God;' },
-          { title: 'Strengthened by the Word', ref: 'Acts 20:32', text: 'And now, brethren, I commend you to God, and to the word of his grace, which is able to build you up...' },
-          { title: 'Rest for your soul', ref: 'Matthew 11:28-29', text: 'Come unto me, all ye that labour and are heavy laden, and I will give you rest.' },
-          { title: 'Hold fast and keep serving', ref: '1 Corinthians 15:58', text: 'Therefore, my beloved brethren, be ye stedfast, unmoveable, always abounding in the work of the Lord...' }
+          { title: 'Renewed strength for tired shepherds', ref: 'Isaiah 40:31', text: 'But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.',
+            speaker: 'Isaiah, to weary people tempted to outrun God',
+            plain: 'Renewal is received, not manufactured. You do not have to fake strength to serve faithfully.',
+            today: 'Where are you striving instead of waiting on Him?',
+            action: 'Cancel one non-essential meeting and give that window to prayer in the text.',
+            prayer: 'Lord, renew my strength. Keep me from preaching in the flesh. Amen.' },
+          { title: 'Bread before the journey', ref: '1 Kings 19:7', text: 'And the angel of the LORD came again the second time, and touched him, and said, Arise and eat; because the journey is too great for thee.',
+            speaker: 'The Lord caring for Elijah before assigning the next step',
+            plain: 'God did not shame exhaustion. He fed His servant first.',
+            today: 'What simple nourishment and rest are you refusing because you feel behind?',
+            action: 'Take one real meal and one short rest before returning to sermon prep.',
+            prayer: 'Father, teach me to receive care, not just give it. Amen.' },
+          { title: 'Pressed but not crushed', ref: '2 Corinthians 4:8-9', text: 'We are troubled on every side, yet not distressed; we are perplexed, but not in despair; Persecuted, but not forsaken; cast down, but not destroyed;',
+            speaker: 'Paul describing ministry pressure without pretending it is light',
+            plain: 'Pressure is real. Destruction is not your destiny in Christ.',
+            today: 'Where do you feel pressed this week — body, mind, family, or ministry?',
+            action: 'Name the pressure in one sentence to God before preparing your next outline point.',
+            prayer: 'Lord, I feel pressed but not crushed. Let Your strength carry me. Amen.' },
+          { title: 'Our sufficiency is of God', ref: '2 Corinthians 3:5', text: 'Not that we are sufficient of ourselves to think any thing as of ourselves; but our sufficiency is of God;',
+            speaker: 'Paul grounding ministry confidence in God alone',
+            plain: 'Your call is not sustained by personality or output. It is sustained by God.',
+            today: 'Where are you measuring yourself by energy level instead of faithfulness?',
+            action: 'Pray this verse before touching your notes: “My sufficiency is of God.”',
+            prayer: 'Jesus, keep me faithful without pretending I am self-sufficient. Amen.' },
+          { title: 'Come unto me, heavy laden', ref: 'Matthew 11:28-30', text: 'Come unto me, all ye that labour and are heavy laden, and I will give you rest. Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls. For my yoke is easy, and my burden is light.',
+            speaker: 'Jesus calling burdened servants to Himself, not to performance',
+            plain: 'You are allowed to be tired. Christ asks for nearness, not pretending.',
+            today: 'What burden are you still carrying as if Jesus never invited you to come?',
+            action: 'Read this passage aloud slowly and pause at “I will give you rest.”',
+            prayer: 'Lord Jesus, I come heavy and tired. Yoke me to You, not to panic. Amen.' },
+          { title: 'Feed the flock willingly', ref: '1 Peter 5:2', text: 'Feed the flock of God which is among you, taking the oversight thereof, not by constraint, but willingly; not for filthy lucre, but of a ready mind;',
+            speaker: 'Peter to shepherds under pressure',
+            plain: 'Your people need shepherding, not polished performance.',
+            today: 'What one person in your flock needs a quiet check-in this week?',
+            action: 'Send one simple line: “I prayed for you today. I am here.”',
+            prayer: 'Chief Shepherd, help me feed the flock with a ready mind. Amen.' },
+          { title: 'Steadfast in hidden labor', ref: '1 Corinthians 15:58', text: 'Therefore, my beloved brethren, be ye stedfast, unmoveable, always abounding in the work of the Lord, forasmuch as ye know that your labour is not in vain in the Lord.',
+            speaker: 'Paul to weary servants who wonder if it matters',
+            plain: 'Bi-vocational and small-church labor is not invisible to God.',
+            today: 'Where are you tempted to call your labor “pointless”?',
+            action: 'Write one line of thanksgiving for one life God let you serve this month.',
+            prayer: 'Lord, keep me steadfast. My labor is not in vain in You. Amen.' }
         ]
       },
       smallchurchencouragement: {
         id: 'smallchurchencouragement', icon: '\u26EA', label: 'Small Church Encouragement',
-        desc: 'A seven-day KJV encouragement lane for small congregations, bi-vocational pastors, and faithful teams. Quiet courage for ordinary Sundays, unseen labor, and long obedience.',
+        desc: 'A seven-day KJV encouragement lane for small congregations, bi-vocational pastors, and faithful teams when every volunteer matters and every Sunday takes real effort.',
         key: 'tdb-plan-smallchurchencouragement-day', max: 7,
         days: [
-          { title: 'Do not despise small beginnings', ref: 'Zechariah 4:10', text: 'For who hath despised the day of small things?...' },
-          { title: 'Faithful where He placed you', ref: '1 Corinthians 4:2', text: 'Moreover it is required in stewards, that a man be found faithful.' },
-          { title: 'Labor is not in vain', ref: '1 Corinthians 15:58', text: '...forasmuch as ye know that your labour is not in vain in the Lord.' },
-          { title: 'Grace for little strength', ref: 'Revelation 3:8', text: '...for thou hast a little strength, and hast kept my word, and hast not denied my name.' },
-          { title: 'The Chief Shepherd sees', ref: '1 Peter 5:4', text: 'And when the chief Shepherd shall appear, ye shall receive a crown of glory that fadeth not away.' },
-          { title: 'Encourage one another', ref: 'Hebrews 10:24-25', text: 'And let us consider one another to provoke unto love and to good works: Not forsaking the assembling of ourselves together...' },
-          { title: 'Steady hope for the flock', ref: 'Romans 15:13', text: 'Now the God of hope fill you with all joy and peace in believing...' }
+          { title: 'Faithful in small places', ref: 'Zechariah 4:10', text: 'For who hath despised the day of small things? for they shall rejoice, and shall see the plummet in the hand of Zerubbabel with those seven; they are the eyes of the LORD, which run to and fro through the whole earth.',
+            speaker: 'Zechariah to builders who felt small and exposed',
+            plain: 'God does not despise your small church season.',
+            today: 'Where have numbers made you forget faithfulness?',
+            action: 'Thank God by name for the faithful few in your church today.',
+            prayer: 'Lord, keep me grateful for small beginnings and steady work. Amen.' },
+          { title: 'Stewardship over spotlight', ref: '1 Corinthians 4:2', text: 'Moreover it is required in stewards, that a man be found faithful.',
+            speaker: 'Paul measuring ministry by faithfulness, not applause',
+            plain: 'You are called to be faithful, not famous.',
+            today: 'What ordinary task still matters before God this week?',
+            action: 'Do one overlooked task quietly as worship.',
+            prayer: 'Father, make me a faithful steward in this small place. Amen.' },
+          { title: 'Open door with little strength', ref: 'Revelation 3:8', text: 'I know thy works: behold, I have set before thee an open door, and no man can shut it: for thou hast a little strength, and hast kept my word, and hast not denied my name.',
+            speaker: 'Christ to a church with little strength',
+            plain: 'Little strength is not disqualification in Christ’s eyes.',
+            today: 'Where do you feel “little strength” right now?',
+            action: 'Take one small obedient step through today’s open door.',
+            prayer: 'Jesus, with little strength I still want to keep Your word. Amen.' },
+          { title: 'Labor is not in vain', ref: '1 Corinthians 15:58', text: 'Therefore, my beloved brethren, be ye stedfast, unmoveable, always abounding in the work of the Lord, forasmuch as ye know that your labour is not in vain in the Lord.',
+            speaker: 'Paul steadying believers tempted to quit',
+            plain: 'Bi-vocational life is brutal, but your labor still counts eternally.',
+            today: 'What part of your service feels unseen?',
+            action: 'Write one “not in vain” reminder and keep it with your sermon notes.',
+            prayer: 'Lord, keep me steadfast when my strength is thin. Amen.' },
+          { title: 'Encourage one another', ref: 'Hebrews 10:24-25', text: 'And let us consider one another to provoke unto love and to good works: Not forsaking the assembling of ourselves together, as the manner of some is; but exhorting one another: and so much the more, as ye see the day approaching.',
+            speaker: 'Hebrews urging worn believers to keep gathering',
+            plain: 'Small churches survive by mutual encouragement, not endless activity.',
+            today: 'Who in your church needs courage to stay connected?',
+            action: 'Send one member a short encouragement before Sunday.',
+            prayer: 'Father, teach us to provoke one another to love and good works. Amen.' },
+          { title: 'The Chief Shepherd sees', ref: '1 Peter 5:4', text: 'And when the chief Shepherd shall appear, ye shall receive a crown of glory that fadeth not away.',
+            speaker: 'Peter reminding shepherds who they finally answer to',
+            plain: 'Your labor is seen by the Chief Shepherd, even when attendance is low.',
+            today: 'Where do you need to release comparison with larger churches?',
+            action: 'Pray blessing over another church in your area instead of comparing.',
+            prayer: 'Chief Shepherd, keep my eyes on You, not on numbers. Amen.' },
+          { title: 'Abound in hope', ref: 'Romans 15:13', text: 'Now the God of hope fill you with all joy and peace in believing, that ye may abound in hope, through the power of the Holy Ghost.',
+            speaker: 'Paul blessing a people who needed durable hope',
+            plain: 'Hope in small church ministry is not optimism; it is Spirit-given.',
+            today: 'What would hope look like in your next ordinary Sunday?',
+            action: 'Pray this verse over your church name aloud.',
+            prayer: 'God of hope, fill our church with joy and peace in believing. Amen.' }
         ]
       },
 

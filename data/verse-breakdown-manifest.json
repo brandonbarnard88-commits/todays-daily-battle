@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-08T19:29:47.220Z",
+  "generatedAt": "2026-05-08T20:49:45.211Z",
   "surfacedRefCount": 2956,
   "overrideCount": 2956,
   "sourceCounts": {
@@ -2069,7 +2069,7 @@
     "1 Kings 19:19-21",
     "1 Kings 19:2",
     "1 Kings 19:4",
-    "1 Kings 19:7-8",
+    "1 Kings 19:7",
     "1 Kings 19:8",
     "1 Kings 19:9-18",
     "1 Kings 1:15",
@@ -2117,7 +2117,6 @@
     "1 Peter 4:5",
     "1 Peter 5:10",
     "1 Peter 5:2",
-    "1 Peter 5:2-3",
     "1 Peter 5:4",
     "1 Peter 5:6",
     "1 Peter 5:6-7",
@@ -2282,6 +2281,7 @@
     "2 Corinthians 4:17",
     "2 Corinthians 4:17-18",
     "2 Corinthians 4:8",
+    "2 Corinthians 4:8-9",
     "2 Corinthians 5:1",
     "2 Corinthians 5:17",
     "2 Corinthians 5:18-19",
@@ -4949,8 +4949,6 @@
     "1 Cor. 15:57": "But thanks be to God, which giveth us the victory through our Lord Jesus Christ.",
     "1 Corinthians 12:4-7": "Now there are diversities of gifts, but the same Spirit. And there are differences of administrations, but the same Lord. And there are diversities of operations, but it is the same God which worketh all in all. But the manifestation of the Spirit is given to every man to profit withal.",
     "1 Corinthians 13:4-7": "Charity suffereth long, and is kind; charity envieth not; charity vaunteth not itself, is not puffed up, Doth not behave itself unseemly, seeketh not her own, is not easily provoked, thinketh no evil; Rejoiceth not in iniquity, but rejoiceth in the truth; Beareth all things, believeth all things, hopeth all things, endureth all things.",
-    "1 Kings 19:7-8": "And the angel of the LORD came again the second time, and touched him, and said, Arise and eat; because the journey is too great for thee.",
-    "1 Peter 5:2-3": "Feed the flock of God which is among you, taking the oversight thereof, not by constraint, but willingly; not for filthy lucre, but of a ready mind;",
     "1 Peter 5:8-9": "Be sober, be vigilant; because your adversary the devil, as a roaring lion, walketh about, seeking whom he may devour: Whom resist stedfast in the faith, knowing that the same afflictions are accomplished in your brethren that are in the world.",
     "1 Thess. 5:18": "In every thing give thanks: for this is the will of God in Christ Jesus.",
     "1 Thessalonians 4:11-12": "And that ye study to be quiet, and to do your own business, and to work with your own hands, as we commanded you; That ye may walk honestly toward them that are without, and that ye may have lack of nothing.",
@@ -4960,6 +4958,7 @@
     "2 Corinthians 12:9-10": "And he said unto me, My grace is sufficient for thee: for my strength is made perfect in weakness. Most gladly therefore will I rather glory in my infirmities, that the power of Christ may rest upon me. Therefore I take pleasure in infirmities, in reproaches, in necessities, in persecutions, in distresses for Christ's sake: for when I am weak, then am I strong.",
     "2 Corinthians 1:3-4": "Blessed be God, even the Father of our Lord Jesus Christ, the Father of mercies, and the God of all comfort; who comforteth us in all our tribulation, that we may be able to comfort others which are in any trouble, by the comfort wherewith we ourselves are comforted of God.",
     "2 Corinthians 4:16-18": "For which cause we faint not; but though our outward man perish, yet the inward man is renewed day by day. For our light affliction, which is but for a moment, worketh for us a far more exceeding and eternal weight of glory; While we look not at the things which are seen, but at the things which are not seen: for the things which are seen are temporal; but the things which are not seen are eternal.",
+    "2 Corinthians 4:8-9": "We are troubled on every side, yet not distressed; we are perplexed, but not in despair; Persecuted, but not forsaken; cast down, but not destroyed;",
     "2 Corinthians 5:18-19": "And all things are of God, who hath reconciled us to himself by Jesus Christ, and hath given to us the ministry of reconciliation; To wit, that God was in Christ, reconciling the world unto himself, not imputing their trespasses unto them; and hath committed unto us the word of reconciliation.",
     "2 Thess. 3:16": "Now the Lord of peace himself give you peace always by all means.",
     "2 Timothy 3:16-17": "All scripture is given by inspiration of God, and is profitable for doctrine, for reproof, for correction, for instruction in righteousness: That the man of God may be perfect, throughly furnished unto all good works.",
@@ -6277,7 +6276,7 @@
         "to": "Israel"
       }
     },
-    "1 Kings 19:7-8": {
+    "1 Kings 19:7": {
       "general": {
         "plainExplanation": "And the angel of the LORD came again the second time, and touched him, and said, Arise and eat; because the journey is too great for you.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
@@ -6654,14 +6653,6 @@
       }
     },
     "1 Peter 5:2": {
-      "general": {
-        "plainExplanation": "Feed the flock of God which is among you, taking the oversight thereof, not by constraint, but willingly; not for filthy lucre, but of a ready mind;",
-        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
-        "about": "Peter",
-        "to": "Believers"
-      }
-    },
-    "1 Peter 5:2-3": {
       "general": {
         "plainExplanation": "Feed the flock of God which is among you, taking the oversight thereof, not by constraint, but willingly; not for filthy lucre, but of a ready mind;",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
@@ -7912,6 +7903,14 @@
     "2 Corinthians 4:8": {
       "general": {
         "plainExplanation": "We are troubled on every side, yet not distressed; we are perplexed, but not in despair;",
+        "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
+        "about": "Paul",
+        "to": "Corinth"
+      }
+    },
+    "2 Corinthians 4:8-9": {
+      "general": {
+        "plainExplanation": "We are troubled on every side, yet not distressed; we are perplexed, but not in despair; Persecuted, but not forsaken; cast down, but not destroyed;",
         "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
         "about": "Paul",
         "to": "Corinth"
@@ -9519,7 +9518,7 @@
     },
     "Acts 20:32": {
       "general": {
-        "plainExplanation": "And now, brothers, I commend you to God, and to the word of his grace, which is able to build you up...",
+        "plainExplanation": "And now, brothers, I commend you to God, and to the word of his grace, which is able to build you up, and to give you an inheritance among all them which are sanctified.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Luke",
         "to": "Church"
@@ -27519,7 +27518,7 @@
     },
     "Revelation 3:8": {
       "general": {
-        "plainExplanation": "...for you hast a little strength, and hast kept my word, and hast not denied my name.",
+        "plainExplanation": "I know your works: look, I have set before you an open door, and no man can shut it: for you hast a little strength, and hast kept my word, and hast not denied my name.",
         "modernApplication": "This verse reminds you that God gives strength that does not start with your own reserves.",
         "about": "John",
         "to": "Seven churches"

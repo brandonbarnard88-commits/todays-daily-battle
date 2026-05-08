@@ -1218,8 +1218,10 @@
   <!-- Reader enhancement stack: load app module on idle so first chapter paint wins. -->
   <script nonce="tdb2025s">
     (function () {
+      var hasLoadedReaderAppModule = false;
       function loadReaderAppModule() {
-        if (document.querySelector('script[data-tdb-reader-app]')) return;
+        if (hasLoadedReaderAppModule || document.querySelector('script[data-tdb-reader-app]')) return;
+        hasLoadedReaderAppModule = true;
         var s = document.createElement('script');
         s.type = 'module';
         s.src = 'script.js?v=20260503-consent-persist-fix';
@@ -1227,11 +1229,20 @@
         s.setAttribute('data-tdb-reader-app', '1');
         document.head.appendChild(s);
       }
-      if (window.requestIdleCallback) {
-        requestIdleCallback(loadReaderAppModule, { timeout: 2000 });
-      } else {
-        window.addEventListener('load', function () { setTimeout(loadReaderAppModule, 0); }, { once: true });
+      function loadReaderAppModuleOnce() {
+        loadReaderAppModule();
+        window.removeEventListener('pointerdown', loadReaderAppModuleOnce, true);
+        window.removeEventListener('keydown', loadReaderAppModuleOnce, true);
+        window.removeEventListener('focusin', loadReaderAppModuleOnce, true);
+        window.removeEventListener('touchstart', loadReaderAppModuleOnce, true);
       }
+      window.addEventListener('pointerdown', loadReaderAppModuleOnce, true);
+      window.addEventListener('keydown', loadReaderAppModuleOnce, true);
+      window.addEventListener('focusin', loadReaderAppModuleOnce, true);
+      window.addEventListener('touchstart', loadReaderAppModuleOnce, true);
+      window.addEventListener('load', function () {
+        setTimeout(loadReaderAppModule, 6500);
+      }, { once: true });
     })();
   </script>
 </body>

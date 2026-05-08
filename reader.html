@@ -1235,13 +1235,19 @@
         window.removeEventListener('keydown', loadReaderAppModuleOnce, true);
         window.removeEventListener('focusin', loadReaderAppModuleOnce, true);
         window.removeEventListener('touchstart', loadReaderAppModuleOnce, true);
+        window.removeEventListener('scroll', loadReaderAppModuleOnScroll, true);
+      }
+      function loadReaderAppModuleOnScroll() {
+        if ((window.scrollY || 0) < 24) return;
+        loadReaderAppModuleOnce();
       }
       window.addEventListener('pointerdown', loadReaderAppModuleOnce, true);
       window.addEventListener('keydown', loadReaderAppModuleOnce, true);
       window.addEventListener('focusin', loadReaderAppModuleOnce, true);
       window.addEventListener('touchstart', loadReaderAppModuleOnce, true);
+      window.addEventListener('scroll', loadReaderAppModuleOnScroll, true);
       window.addEventListener('load', function () {
-        setTimeout(loadReaderAppModule, 6500);
+        setTimeout(loadReaderAppModule, 14000);
       }, { once: true });
     })();
   </script>

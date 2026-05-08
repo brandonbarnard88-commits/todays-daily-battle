@@ -1,18 +1,80 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="450" cy="200" r="28"/>
-    <line x1="450" y1="228" x2="450" y2="380"/>
-    <line x1="450" y1="270" x2="370" y2="230"/>
-    <line x1="450" y1="270" x2="530" y2="230"/>
-    <line x1="450" y1="300" x2="340" y2="280"/>
-    <line x1="450" y1="300" x2="560" y2="280"/>
-    <circle cx="340" cy="400" r="16"/>
-    <line x1="340" y1="384" x2="400" y2="300"/>
-    <circle cx="400" cy="420" r="14"/>
-    <line x1="400" y1="406" x2="430" y2="320"/>
-    <circle cx="500" cy="418" r="14"/>
-    <line x1="500" y1="404" x2="470" y2="320"/>
-    <circle cx="560" cy="398" r="16"/>
-    <line x1="560" y1="382" x2="500" y2="300"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" width="900" height="680" aria-hidden="true">
+  <!-- Background hills -->
+  <path d="M0,290 Q180,258 360,286 Q540,314 720,274 Q840,246 900,262" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0,330 Q200,302 400,328 Q600,354 800,320 Q870,304 900,312" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Ground -->
+  <path d="M0,530 Q225,514 450,532 Q675,550 900,522" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Background tree -->
+  <path d="M800,530 Q804,470 806,406" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <ellipse cx="800" cy="390" rx="40" ry="34" fill="none" stroke="#111" stroke-width="4"/>
+  <ellipse cx="826" cy="406" rx="30" ry="24" fill="none" stroke="#111" stroke-width="3.5"/>
+  <!-- JESUS kneeling — head lower (cy=322), kneeling body -->
+  <circle cx="520" cy="318" r="44" fill="none" stroke="#0a0a0a" stroke-width="5.5"/>
+  <!-- Long hair kneeling -->
+  <path d="M479,307 C474,279 486,261 506,253 Q513,250 520,250 Q527,250 534,253 C554,261 566,279 561,307 C564,331 570,361 567,385 Q544,397 520,400 Q496,397 473,385 C470,361 476,331 479,307" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Beard -->
+  <path d="M487,345 C479,363 477,381 487,395 C497,411 520,417 543,411 C555,403 563,387 559,369 C555,351 544,345 520,341 C506,339 493,341 487,345" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Eyes gentle -->
+  <path d="M503,314 Q511,308 519,314" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M521,314 Q529,308 537,314" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M518,322 Q514,335 516,342 Q520,346 524,342 Q526,335 522,322" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M507,353 Q520,363 533,353" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <!-- Neck -->
+  <path d="M508,362 L506,385" fill="none" stroke="#0d0d0d" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M532,362 L534,385" fill="none" stroke="#0d0d0d" stroke-width="4.5" stroke-linecap="round"/>
+  <!-- Kneeling robe — spreads wide at base, Jesus is on knees -->
+  <path d="M506,385 Q468,389 438,403 C414,419 402,451 398,495 C394,535 400,565 406,578 Q462,596 520,598 Q578,596 634,578 C640,565 646,535 642,495 C638,451 626,419 602,403 Q572,389 534,385" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Belt -->
+  <path d="M412,468 Q520,460 628,468" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Robe folds -->
+  <path d="M514,394 Q507,470 508,592" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M501,400 Q491,476 493,590" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M533,398 Q543,474 540,590" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Jesus hands — placed gently on child's head -->
+  <path d="M438,408 Q400,392 362,386 Q340,382 326,388" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Left hand on child's head -->
+  <path d="M320,382 Q306,388 304,402 Q310,414 326,412 Q340,408 340,394 Q332,382 320,382" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Right arm coming forward toward child -->
+  <path d="M602,408 Q630,396 654,390 Q672,386 684,392" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Right hand on child's head (other side) -->
+  <path d="M690,386 Q704,392 706,406 Q700,418 686,416 Q672,412 672,398 Q680,386 690,386" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- CHILD standing before Jesus (x=510, head cy=312) — child faces the viewer, center -->
+  <circle cx="510" cy="312" r="27" fill="none" stroke="#0a0a0a" stroke-width="5"/>
+  <!-- Child hair (girl with longer hair) -->
+  <path d="M484,302 C482,282 492,272 502,268 Q506,266 510,266 Q514,266 518,268 C528,272 538,282 536,302 C538,318 540,338 536,352 Q522,356 510,356 Q498,356 484,352 C480,338 482,318 484,302" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Child eyes -->
+  <path d="M498,308 Q504,302 510,308" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M510,308 Q516,302 522,308" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M501,322 Q510,330 519,322" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Child neck -->
+  <path d="M502,356 L500,370" fill="none" stroke="#0d0d0d" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M518,356 L520,370" fill="none" stroke="#0d0d0d" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Child tunic -->
+  <path d="M500,370 Q476,374 464,384 Q455,396 453,418 Q451,440 453,464 Q455,482 458,494 Q480,500 510,500 Q540,500 562,494 Q565,482 567,464 Q569,440 567,418 Q565,396 556,384 Q544,374 520,370" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Child arms slightly raised (receiving blessing) -->
+  <path d="M464,386 Q444,400 434,418" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M556,386 Q576,400 586,418" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Child legs -->
+  <path d="M464,492 Q456,512 450,532" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M556,492 Q564,512 570,530" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- MOTHER standing back right -->
+  <circle cx="740" cy="252" r="38" fill="none" stroke="#0a0a0a" stroke-width="5"/>
+  <!-- Head covering (veil) -->
+  <path d="M702,240 C700,210 710,194 724,186 Q732,182 740,181 Q748,182 756,186 C770,194 780,210 778,240 C782,264 788,296 784,324 Q762,338 740,342 Q718,338 696,324 C692,296 698,264 702,240" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Mother eyes -->
+  <path d="M724,248 Q731,243 738,248" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M742,248 Q749,243 756,248" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M730,260 Q740,268 750,260" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Mother neck -->
+  <path d="M730,290 L728,308" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <path d="M750,290 L752,308" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <!-- Mother robe -->
+  <path d="M728,308 Q702,312 680,324 Q664,336 660,366 Q656,400 658,442 Q660,478 664,508 Q700,524 740,526 Q780,524 816,508 Q820,478 822,442 Q824,400 820,366 Q816,336 800,324 Q778,312 752,308" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Mother hands (clasped in prayer/reverence) -->
+  <path d="M680,330 Q658,360 650,396" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M800,330 Q820,360 826,396" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Grass tufts -->
+  <path d="M72,534 Q80,520 88,534" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round"/>
+  <path d="M168,534 Q176,520 184,534" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M860,524 Q868,510 876,524" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
 </svg>

@@ -1,9 +1,86 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M120 420 L780 420 L720 500 L180 500 Z"/>
-    <ellipse cx="280" cy="340" rx="70" ry="50"/>
-    <ellipse cx="480" cy="330" rx="55" ry="40"/>
-    <ellipse cx="650" cy="350" rx="75" ry="48"/>
-    <path d="M260 300 Q280 260 300 300 M450 280 Q470 240 490 280"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" width="900" height="680" aria-hidden="true">
+  <!-- Sky -->
+  <path d="M0,200 Q225,184 450,202 Q675,220 900,194" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Ground -->
+  <path d="M0,522 Q225,506 450,524 Q675,542 900,514" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- ARK — hull and doorway, right side of scene -->
+  <!-- Ark lower hull -->
+  <path d="M552,200 Q590,196 628,198 Q700,200 760,198 Q820,196 868,200 Q886,216 892,250 Q896,280 892,310 Q888,340 880,360 Q868,380 852,390 Q836,400 808,404 Q780,408 752,406 Q720,404 694,396 Q668,386 650,372 Q630,356 618,334 Q608,310 604,280 Q600,250 604,224 Q608,208 552,200" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Ark upper house structure -->
+  <path d="M604,200 Q608,180 616,166 Q624,152 636,146 Q650,140 666,140 Q682,140 696,146 Q708,152 716,166 Q724,180 728,200" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M636,200 Q636,178 640,164 Q644,152 650,148" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <path d="M700,200 Q700,178 698,164 Q694,150 688,146" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <!-- Ark side planks texture -->
+  <path d="M604,240 Q720,234 880,240" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M604,278 Q720,272 890,278" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M606,316 Q720,310 888,316" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M610,352 Q720,346 884,352" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- ARK DOORWAY — large opening with ramp -->
+  <path d="M616,390 Q616,320 620,278 Q624,240 636,220 Q650,206 668,204 Q686,204 700,220 Q712,238 716,278 Q720,320 720,390" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Door opening (darker interior) -->
+  <path d="M630,390 Q630,328 634,290 Q638,254 648,234 Q658,220 668,218 Q678,220 686,234 Q694,252 698,290 Q702,330 702,390" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Interior darkness lines -->
+  <path d="M634,320 Q666,316 698,320" fill="none" stroke="#333" stroke-width="1.5" stroke-dasharray="4 8" stroke-linecap="round"/>
+  <path d="M634,350 Q666,346 698,350" fill="none" stroke="#333" stroke-width="1.5" stroke-dasharray="4 8" stroke-linecap="round"/>
+  <!-- Ramp from doorway down -->
+  <path d="M616,390 Q554,418 520,440 Q506,450 504,458" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M720,390 Q720,410 720,420 Q718,432 714,440" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Ramp boards -->
+  <path d="M580,406 Q614,400 644,402" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <path d="M550,422 Q584,416 614,418" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <!-- NOAH at doorway (elderly, arms welcoming) -->
+  <circle cx="668" cy="232" r="28" fill="none" stroke="#0a0a0a" stroke-width="4.5"/>
+  <path d="M644,224 C642,202 650,190 660,184 Q664,181 668,180 Q672,181 676,184 C686,190 694,202 692,224 C694,242 698,264 695,280 Q680,288 668,290 Q656,288 641,280 C638,264 642,242 644,224" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M647,246 C641,258 639,272 647,282 C655,294 668,298 681,294 C690,288 696,274 694,262 C690,250 683,244 668,242 C659,240 650,242 647,246" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Noah robe at doorway (smaller, distance) -->
+  <path d="M654,276 Q634,280 620,290 C608,302 602,324 600,352 C598,378 600,406 603,428 Q632,438 668,440 Q704,438 733,428 C736,406 738,378 736,352 C734,324 728,302 716,290 Q702,280 682,276" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Noah arms wide open welcoming -->
+  <path d="M620,296 Q592,320 578,356" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M716,296 Q744,320 758,356" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- ANIMALS walking toward ark in pairs -->
+  <!-- PAIR OF SHEEP (x=400, walking right) -->
+  <path d="M358,456 Q366,442 382,436 Q402,432 418,440 Q430,448 429,462 Q427,478 414,484 Q394,490 374,484 Q356,476 354,464 Q353,460 358,456" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M364,448 Q372,440 382,446" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M390,434 Q402,428 412,434" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="348" cy="466" r="18" fill="none" stroke="#0a0a0a" stroke-width="4.5"/>
+  <circle cx="342" cy="464" r="3" fill="none" stroke="#0d0d0d" stroke-width="2.5"/>
+  <line x1="362" y1="484" x2="358" y2="510" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <line x1="378" y1="488" x2="376" y2="514" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <line x1="396" y1="488" x2="395" y2="514" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <line x1="414" y1="484" x2="414" y2="510" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <!-- Second sheep in pair (behind first, x=280) -->
+  <path d="M240,462 Q248,450 262,446 Q278,442 290,450 Q300,458 299,470 Q297,482 286,488 Q270,492 256,488 Q241,482 239,472 Q237,466 240,462" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="232" cy="472" r="16" fill="none" stroke="#0a0a0a" stroke-width="4"/>
+  <circle cx="226" cy="470" r="3" fill="none" stroke="#0d0d0d" stroke-width="2.5"/>
+  <line x1="248" y1="488" x2="244" y2="512" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <line x1="262" y1="490" x2="260" y2="514" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <line x1="278" y1="490" x2="277" y2="514" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <line x1="292" y1="488" x2="292" y2="512" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <!-- PAIR OF DOVES flying above -->
+  <path d="M220,290 Q232,278 246,287 Q238,292 234,300 Q238,308 230,304 Q222,300 220,290" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M233,285 L246,268" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M220,298 L209,286" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M288,268 Q300,256 314,265 Q306,270 302,278 Q306,286 298,282 Q290,278 288,268" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M301,263 L314,246" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M288,276 L277,264" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- ELEPHANT outline (large background animal pair) -->
+  <!-- Body -->
+  <path d="M60,390 Q50,362 60,336 Q72,308 96,294 Q122,282 150,284 Q178,286 196,304 Q214,322 216,348 Q218,374 206,396 Q190,416 164,422 Q136,428 110,420 Q82,410 68,398 Q60,394 60,390" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Elephant head -->
+  <path d="M196,304 Q220,288 236,272 Q248,258 246,244 Q244,232 234,228 Q222,226 210,234 Q196,244 188,260" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Trunk -->
+  <path d="M234,276 Q254,302 258,332 Q260,354 252,372" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Ear -->
+  <path d="M160,288 Q148,262 152,242 Q158,224 170,220 Q182,216 190,226 Q198,238 192,260 Q186,280 176,292" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Eye -->
+  <circle cx="210" cy="266" r="7" fill="none" stroke="#0d0d0d" stroke-width="3.5"/>
+  <!-- Legs -->
+  <path d="M78,418 Q76,446 74,472 Q72,490 72,510" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M110,426 Q110,454 110,480 Q110,498 110,514" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M148,428 Q150,456 150,482 Q150,500 150,514" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M184,420 Q186,448 186,474 Q186,492 186,510" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Tail -->
+  <path d="M62,390 Q44,386 38,400 Q34,410 40,420" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <!-- Grass -->
+  <path d="M440,524 Q448,510 456,524" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round"/>
 </svg>

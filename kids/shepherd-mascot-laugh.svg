@@ -1,24 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" width="200" height="220" role="img" aria-labelledby="laughT">
-  <title id="laughT">Little Shepherd laughing gently with you</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 200" width="160" height="200" role="img" aria-labelledby="sm-la-t">
+  <title id="sm-la-t">Little Shepherd laughs with you</title>
   <defs>
-    <radialGradient id="gL" cx="48%" cy="38%" r="55%">
-      <stop offset="0%" stop-color="#fffbeb"/>
+    <radialGradient id="fg-la" cx="40%" cy="35%" r="58%">
+      <stop offset="0%" stop-color="#fffbf0"/>
       <stop offset="100%" stop-color="#fde68a"/>
     </radialGradient>
-    <linearGradient id="gGL" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#d9f99d"/>
-      <stop offset="100%" stop-color="#4ade80"/>
-    </linearGradient>
   </defs>
-  <ellipse cx="100" cy="200" rx="95" ry="16" fill="rgba(34,197,94,0.25)"/>
-  <rect x="0" y="170" width="200" height="50" fill="url(#gGL)" opacity="0.45"/>
-  <circle cx="100" cy="92" r="36" fill="url(#gL)" stroke="#b45309" stroke-width="2.5"/>
-  <path d="M88 80 Q100 70 112 80" fill="none" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round"/>
-  <path d="M80 100 Q100 118 120 100" fill="none" stroke="#1e293b" stroke-width="2" stroke-linecap="round"/>
-  <circle cx="86" cy="86" r="3.5" fill="#1e293b"/>
-  <circle cx="114" cy="86" r="3.5" fill="#1e293b"/>
-  <path d="M50 40 Q55 20 60 40 M150 40 Q145 20 140 40" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.85" aria-hidden="true"/>
-  <rect x="70" y="120" width="60" height="44" rx="9" fill="#e0f2fe" fill-opacity="0.4" stroke="#38bdf8" stroke-width="2"/>
-  <line x1="100" y1="50" x2="155" y2="22" stroke="#5c3d2e" stroke-width="2.5" stroke-linecap="round"/>
-  <circle cx="100" cy="50" r="8" fill="#fef9c3"/>
+  <!-- robe -->
+  <path d="M50,105 C46,124 41,157 39,192 L121,192 C119,157 114,124 110,105 Z" fill="#fef9eb" stroke="#c9a55a" stroke-width="2" stroke-linejoin="round"/>
+  <line x1="69" y1="108" x2="63" y2="148" stroke="#c9a55a" stroke-width="1.2" opacity="0.45" stroke-linecap="round"/>
+  <line x1="91" y1="108" x2="97" y2="148" stroke="#c9a55a" stroke-width="1.2" opacity="0.45" stroke-linecap="round"/>
+  <!-- arms raised in laugh/delight -->
+  <path d="M52,112 Q40,102 34,90" fill="none" stroke="#c9a55a" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="33" cy="88" r="7" fill="#fef3c7" stroke="#d97706" stroke-width="1.6"/>
+  <path d="M108,112 Q120,102 126,90" fill="none" stroke="#c9a55a" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="127" cy="88" r="7" fill="#fef3c7" stroke="#d97706" stroke-width="1.6"/>
+  <!-- woolly bumps -->
+  <circle cx="63" cy="57" r="13" fill="#fef9eb" stroke="#d97706" stroke-width="1.8"/>
+  <circle cx="80" cy="50" r="15" fill="#fef9eb" stroke="#d97706" stroke-width="1.8"/>
+  <circle cx="97" cy="57" r="12" fill="#fef9eb" stroke="#d97706" stroke-width="1.8"/>
+  <!-- face -->
+  <circle cx="80" cy="78" r="30" fill="url(#fg-la)" stroke="#d97706" stroke-width="2"/>
+  <!-- laughing eyes (slightly squinted with joy — arcs) -->
+  <path d="M64,72 Q70,67 76,72" fill="none" stroke="#2d1a0e" stroke-width="2.8" stroke-linecap="round"/>
+  <path d="M84,72 Q90,67 96,72" fill="none" stroke="#2d1a0e" stroke-width="2.8" stroke-linecap="round"/>
+  <!-- open laughing mouth -->
+  <path d="M65,86 Q80,101 95,86" fill="#ffe4b5" stroke="#92400e" stroke-width="2.2" stroke-linecap="round"/>
+  <!-- big rosy cheeks -->
+  <ellipse cx="62" cy="83" rx="7" ry="4" fill="#f87171" opacity="0.27"/>
+  <ellipse cx="98" cy="83" rx="7" ry="4" fill="#f87171" opacity="0.27"/>
 </svg>

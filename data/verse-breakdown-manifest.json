@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-07T11:42:43.826Z",
+  "generatedAt": "2026-05-08T19:08:16.534Z",
   "surfacedRefCount": 2952,
   "overrideCount": 2952,
   "sourceCounts": {
@@ -695,11 +695,23 @@
       "refs": 5,
       "pairs": 0
     },
+    "404 2.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "404-admin 2.html": {
+      "refs": 1,
+      "pairs": 0
+    },
     "404-admin.html": {
       "refs": 1,
       "pairs": 0
     },
     "404.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "action-bible 2.html": {
       "refs": 1,
       "pairs": 0
     },
@@ -711,8 +723,16 @@
       "refs": 1,
       "pairs": 0
     },
+    "admin 2.html": {
+      "refs": 1,
+      "pairs": 0
+    },
     "admin.html": {
       "refs": 1,
+      "pairs": 0
+    },
+    "advent-christmas-university 2.html": {
+      "refs": 7,
       "pairs": 0
     },
     "advent-christmas-university.html": {
@@ -739,6 +759,10 @@
       "refs": 1,
       "pairs": 0
     },
+    "back-to-school-university 2.html": {
+      "refs": 1,
+      "pairs": 0
+    },
     "back-to-school-university.html": {
       "refs": 1,
       "pairs": 0
@@ -759,6 +783,10 @@
       "refs": 66,
       "pairs": 24
     },
+    "bible/index 2.html": {
+      "refs": 1,
+      "pairs": 0
+    },
     "bible/index.html": {
       "refs": 1,
       "pairs": 0
@@ -767,8 +795,16 @@
       "refs": 106,
       "pairs": 0
     },
+    "bible-study 2.html": {
+      "refs": 7,
+      "pairs": 0
+    },
     "bible-study.html": {
       "refs": 7,
+      "pairs": 0
+    },
+    "bible-tool 2.html": {
+      "refs": 141,
       "pairs": 0
     },
     "bible-tool.html": {
@@ -791,6 +827,10 @@
       "refs": 1,
       "pairs": 1
     },
+    "calm 2.html": {
+      "refs": 18,
+      "pairs": 22
+    },
     "calm.html": {
       "refs": 18,
       "pairs": 22
@@ -807,6 +847,14 @@
       "refs": 9,
       "pairs": 9
     },
+    "church 2.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "church-sharing-kit 2.html": {
+      "refs": 16,
+      "pairs": 0
+    },
     "church-sharing-kit.html": {
       "refs": 16,
       "pairs": 0
@@ -819,8 +867,12 @@
       "refs": 1,
       "pairs": 1
     },
-    "coloring.html": {
+    "coloring 2.html": {
       "refs": 5,
+      "pairs": 0
+    },
+    "coloring.html": {
+      "refs": 6,
       "pairs": 0
     },
     "commentary.json": {
@@ -838,6 +890,10 @@
     "daily-battle-core.js": {
       "refs": 10,
       "pairs": 4
+    },
+    "daily-quiet-time 2.html": {
+      "refs": 18,
+      "pairs": 8
     },
     "daily-quiet-time.html": {
       "refs": 18,
@@ -863,11 +919,19 @@
       "refs": 34,
       "pairs": 6
     },
+    "easter-resurrection-university 2.html": {
+      "refs": 2,
+      "pairs": 0
+    },
     "easter-resurrection-university.html": {
       "refs": 2,
       "pairs": 0
     },
     "embed-verse-widget.js": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "embeddable-widgets 2.html": {
       "refs": 1,
       "pairs": 0
     },
@@ -887,6 +951,14 @@
       "refs": 1,
       "pairs": 0
     },
+    "family-armor 2.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "family-armor-little-ones 2.html": {
+      "refs": 5,
+      "pairs": 0
+    },
     "family-armor-little-ones.html": {
       "refs": 5,
       "pairs": 0
@@ -903,12 +975,20 @@
       "refs": 53,
       "pairs": 0
     },
+    "family-rhythm 2.html": {
+      "refs": 36,
+      "pairs": 0
+    },
     "family-rhythm.html": {
       "refs": 36,
       "pairs": 0
     },
     "firebase-functions/sendDailyVerseNotification.js": {
       "refs": 1,
+      "pairs": 0
+    },
+    "for-pastors 2.html": {
+      "refs": 10,
       "pairs": 0
     },
     "for-pastors.html": {
@@ -921,6 +1001,10 @@
     },
     "gentle-suggest.js": {
       "refs": 28,
+      "pairs": 0
+    },
+    "he-is-risen 2.html": {
+      "refs": 6,
       "pairs": 0
     },
     "he-is-risen.html": {
@@ -939,15 +1023,31 @@
       "refs": 13,
       "pairs": 18
     },
+    "hi/dar 2.html": {
+      "refs": 1,
+      "pairs": 0
+    },
     "hi/dar.html": {
       "refs": 1,
+      "pairs": 0
+    },
+    "id/index 2.html": {
+      "refs": 3,
       "pairs": 0
     },
     "id/index.html": {
       "refs": 3,
       "pairs": 0
     },
+    "id/kecemasan 2.html": {
+      "refs": 2,
+      "pairs": 0
+    },
     "id/kecemasan.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "id/ketakutan 2.html": {
       "refs": 2,
       "pairs": 0
     },
@@ -959,7 +1059,15 @@
       "refs": 104,
       "pairs": 123
     },
+    "journal/anxiety-before-tomorrow 2.html": {
+      "refs": 3,
+      "pairs": 0
+    },
     "journal/anxiety-before-tomorrow.html": {
+      "refs": 3,
+      "pairs": 0
+    },
+    "journal/forgiveness-when-you-replay-it 2.html": {
       "refs": 3,
       "pairs": 0
     },
@@ -967,7 +1075,15 @@
       "refs": 3,
       "pairs": 0
     },
+    "journal/loneliness-at-night 2.html": {
+      "refs": 3,
+      "pairs": 0
+    },
     "journal/loneliness-at-night.html": {
+      "refs": 3,
+      "pairs": 0
+    },
+    "journal/peace-when-your-mind-runs 2.html": {
       "refs": 3,
       "pairs": 0
     },
@@ -983,11 +1099,19 @@
       "refs": 332,
       "pairs": 0
     },
+    "kids/corner 2.html": {
+      "refs": 11,
+      "pairs": 0
+    },
     "kids/corner.html": {
       "refs": 11,
       "pairs": 0
     },
     "kids/good-night.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "kids/index 2.html": {
       "refs": 1,
       "pairs": 0
     },
@@ -1011,7 +1135,15 @@
       "refs": 365,
       "pairs": 365
     },
+    "kids/prayer-activities 2.html": {
+      "refs": 1,
+      "pairs": 0
+    },
     "kids/prayer-activities.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "kids/shepherds-path 2.html": {
       "refs": 1,
       "pairs": 0
     },
@@ -1019,8 +1151,16 @@
       "refs": 1,
       "pairs": 0
     },
+    "kids-coloring-pack 2.html": {
+      "refs": 2,
+      "pairs": 0
+    },
     "kids-coloring-pack.html": {
       "refs": 2,
+      "pairs": 0
+    },
+    "kids-corner 2.html": {
+      "refs": 12,
       "pairs": 0
     },
     "kids-corner.html": {
@@ -1043,6 +1183,10 @@
       "refs": 229,
       "pairs": 0
     },
+    "memorize 2.html": {
+      "refs": 1,
+      "pairs": 0
+    },
     "memorize.html": {
       "refs": 1,
       "pairs": 0
@@ -1059,6 +1203,10 @@
       "refs": 14,
       "pairs": 15
     },
+    "message 2.html": {
+      "refs": 1,
+      "pairs": 0
+    },
     "message.html": {
       "refs": 1,
       "pairs": 0
@@ -1066,6 +1214,10 @@
     "mission-outreach-data.js": {
       "refs": 25,
       "pairs": 25
+    },
+    "mobius 2.html": {
+      "refs": 22,
+      "pairs": 0
     },
     "mobius-loop.js": {
       "refs": 3,
@@ -1089,6 +1241,10 @@
     },
     "morning-evening-family-print.html": {
       "refs": 3,
+      "pairs": 0
+    },
+    "mystudy 2.html": {
+      "refs": 1,
       "pairs": 0
     },
     "mystudy.html": {
@@ -1359,6 +1515,10 @@
       "refs": 1,
       "pairs": 0
     },
+    "offline 2.html": {
+      "refs": 5,
+      "pairs": 5
+    },
     "offline.html": {
       "refs": 5,
       "pairs": 5
@@ -1375,7 +1535,15 @@
       "refs": 8,
       "pairs": 0
     },
+    "pastor/builder 2.html": {
+      "refs": 1,
+      "pairs": 0
+    },
     "pastor/builder.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "pastor/index 2.html": {
       "refs": 1,
       "pairs": 0
     },
@@ -1399,7 +1567,15 @@
       "refs": 57,
       "pairs": 0
     },
+    "pastor/tools 2.html": {
+      "refs": 1,
+      "pairs": 0
+    },
     "pastor/tools.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "pastor-toolkit 2.html": {
       "refs": 1,
       "pairs": 0
     },
@@ -1415,6 +1591,10 @@
       "refs": 477,
       "pairs": 0
     },
+    "plans 2.html": {
+      "refs": 261,
+      "pairs": 272
+    },
     "plans-data.js": {
       "refs": 315,
       "pairs": 0
@@ -1425,14 +1605,26 @@
     },
     "plans.html": {
       "refs": 261,
-      "pairs": 272
+      "pairs": 279
+    },
+    "printables 2.html": {
+      "refs": 9,
+      "pairs": 0
     },
     "printables.html": {
       "refs": 9,
       "pairs": 0
     },
+    "psalms 2.html": {
+      "refs": 4,
+      "pairs": 0
+    },
     "psalms.html": {
       "refs": 4,
+      "pairs": 0
+    },
+    "quiet-evening 2.html": {
+      "refs": 1,
       "pairs": 0
     },
     "quiet-evening.html": {
@@ -1467,6 +1659,10 @@
       "refs": 10,
       "pairs": 0
     },
+    "sermon 2.html": {
+      "refs": 66,
+      "pairs": 8
+    },
     "sermon.html": {
       "refs": 66,
       "pairs": 8
@@ -1474,6 +1670,10 @@
     "service-worker.js": {
       "refs": 6,
       "pairs": 6
+    },
+    "shop 2.html": {
+      "refs": 5,
+      "pairs": 0
     },
     "sos.html": {
       "refs": 3,
@@ -1487,12 +1687,24 @@
       "refs": 8,
       "pairs": 0
     },
+    "start-the-year-in-the-word 2.html": {
+      "refs": 7,
+      "pairs": 0
+    },
     "start-the-year-in-the-word.html": {
       "refs": 7,
       "pairs": 0
     },
+    "study 2.html": {
+      "refs": 1,
+      "pairs": 0
+    },
     "study.html": {
       "refs": 1,
+      "pairs": 0
+    },
+    "summer-harvest-university 2.html": {
+      "refs": 3,
       "pairs": 0
     },
     "summer-harvest-university.html": {
@@ -1505,6 +1717,10 @@
     },
     "tdb-uog-month-signpost.js": {
       "refs": 1,
+      "pairs": 0
+    },
+    "team-toolkit 2.html": {
+      "refs": 2,
       "pairs": 0
     },
     "team-toolkit-packs-pdf.js": {
@@ -1523,24 +1739,48 @@
       "refs": 2,
       "pairs": 0
     },
+    "topic-anxiety 2.html": {
+      "refs": 4,
+      "pairs": 0
+    },
     "topic-anxiety.html": {
       "refs": 4,
+      "pairs": 0
+    },
+    "topic-fear 2.html": {
+      "refs": 3,
       "pairs": 0
     },
     "topic-fear.html": {
       "refs": 3,
       "pairs": 0
     },
+    "topic-forgiveness 2.html": {
+      "refs": 5,
+      "pairs": 0
+    },
     "topic-forgiveness.html": {
       "refs": 5,
+      "pairs": 0
+    },
+    "topic-grief 2.html": {
+      "refs": 4,
       "pairs": 0
     },
     "topic-grief.html": {
       "refs": 4,
       "pairs": 0
     },
+    "topic-guilt 2.html": {
+      "refs": 3,
+      "pairs": 0
+    },
     "topic-guilt.html": {
       "refs": 3,
+      "pairs": 0
+    },
+    "topic-hope 2.html": {
+      "refs": 5,
       "pairs": 0
     },
     "topic-hope.html": {
@@ -1551,8 +1791,16 @@
       "refs": 3,
       "pairs": 0
     },
+    "topic-overwhelmed 2.html": {
+      "refs": 3,
+      "pairs": 0
+    },
     "topic-overwhelmed.html": {
       "refs": 3,
+      "pairs": 0
+    },
+    "topic-parenting 2.html": {
+      "refs": 5,
       "pairs": 0
     },
     "topic-parenting.html": {
@@ -1563,7 +1811,15 @@
       "refs": 4,
       "pairs": 0
     },
+    "topic-worry 2.html": {
+      "refs": 4,
+      "pairs": 0
+    },
     "topic-worry.html": {
+      "refs": 4,
+      "pairs": 0
+    },
+    "topic-worthless 2.html": {
       "refs": 4,
       "pairs": 0
     },
@@ -1573,6 +1829,10 @@
     },
     "tree.json": {
       "refs": 99,
+      "pairs": 0
+    },
+    "university 2.html": {
+      "refs": 49,
       "pairs": 0
     },
     "university-anger-one-page-print.html": {
@@ -1611,6 +1871,10 @@
       "refs": 10,
       "pairs": 10
     },
+    "verse 2.html": {
+      "refs": 1,
+      "pairs": 0
+    },
     "verse-breakdown-standard.js": {
       "refs": 1,
       "pairs": 0
@@ -1621,6 +1885,10 @@
     },
     "verse-cards/index.html": {
       "refs": 15,
+      "pairs": 0
+    },
+    "verse-image 2.html": {
+      "refs": 10,
       "pairs": 0
     },
     "verse-image.html": {
@@ -1688,6 +1956,10 @@
       "pairs": 0
     },
     "year-end-rest-one-page-print.html": {
+      "refs": 5,
+      "pairs": 0
+    },
+    "yearly-rhythm 2.html": {
       "refs": 5,
       "pairs": 0
     },
@@ -15313,8 +15585,8 @@
     },
     "Jeremiah 17:7": {
       "general": {
-        "plainExplanation": "Blessed is the man that trusteth in the Lord.",
-        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "plainExplanation": "Blessed is the man that trusteth in the LORD, and whose hope the LORD is.",
+        "modernApplication": "This verse keeps your eyes up when the day feels slow, heavy, or unfinished.",
         "about": "Jeremiah",
         "to": "Judah and the exiles"
       }

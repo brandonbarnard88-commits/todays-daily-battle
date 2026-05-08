@@ -1,10 +1,69 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="580" cy="200" r="75"/>
-    <line x1="580" y1="275" x2="580" y2="520"/>
-    <line x1="580" y1="360" x2="480" y2="420"/>
-    <line x1="580" y1="360" x2="680" y2="420"/>
-    <line x1="580" y1="520" x2="520" y2="580"/>
-    <line x1="580" y1="520" x2="640" y2="580"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" width="900" height="680" aria-hidden="true">
+  <!-- Sky and mountains — heroic scene -->
+  <path d="M0,240 Q180,208 360,236 Q540,264 720,224 Q840,196 900,212" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0,280 Q200,252 400,278 Q600,304 800,270 Q870,252 900,260" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Rocky mountain background detail -->
+  <path d="M600,280 Q640,230 680,238 Q720,248 730,280" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M720,278 Q760,228 800,236 Q840,246 860,278" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Ground — rocky terrain -->
+  <path d="M0,524 Q225,508 450,526 Q675,544 900,516" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Rocky ground bumps -->
+  <path d="M80,524 Q108,510 136,516 Q160,522 180,516 Q204,510 228,524" fill="none" stroke="#111" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M680,524 Q708,510 736,516 Q760,522 780,516 Q804,510 828,524" fill="none" stroke="#111" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- YOUNG DAVID STANDING — brave posture, arm raised with sling (x=380) -->
+  <!-- Head -->
+  <circle cx="380" cy="196" r="38" fill="none" stroke="#0a0a0a" stroke-width="5"/>
+  <!-- Hair — curly, young -->
+  <path d="M344,186 Q348,156 360,148 Q369,142 378,140 Q388,142 396,148 Q410,156 416,186" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M344,186 Q340,204 342,228" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M416,186 Q420,204 418,228" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Determined expression (brave) -->
+  <path d="M360,194 Q368,188 376,194" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M384,194 Q392,188 400,194" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <!-- Firm set brows -->
+  <path d="M357,186 Q368,180 379,186" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M381,186 Q392,180 403,186" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M378,202 Q374,214 376,220 Q380,224 384,220 Q386,214 382,202" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Determined mouth (slightly set, not fearful) -->
+  <path d="M368,228 Q380,234 392,228" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Neck -->
+  <path d="M371,234 L369,256" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <path d="M389,234 L391,256" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <!-- Tunic — shorter (boy fighting outfit) -->
+  <path d="M369,256 Q336,260 312,272 C292,286 283,314 280,352 C276,392 278,436 282,476 C286,506 292,530 298,548 Q338,560 380,562 Q422,560 462,548 C468,530 474,506 478,476 C482,436 484,392 480,352 C477,314 468,286 448,272 Q424,260 391,256" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Short tunic hem visible (legs visible below) -->
+  <path d="M296,440 Q380,432 464,440" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Boy legs below tunic -->
+  <path d="M316,546 Q308,566 300,586 Q296,600 292,612" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M444,546 Q452,566 460,584" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Sandals -->
+  <path d="M276,610 Q284,622 300,626 Q318,630 325,622 Q318,609 299,606 Q280,606 276,610" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <!-- Robe folds -->
+  <path d="M375,266 Q368,360 370,554" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M360,272 Q350,366 353,552" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- LEFT ARM — RAISED HIGH, holding sling ready to throw -->
+  <path d="M312,278 Q262,240 222,198 Q196,172 190,148" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Left hand holding end of sling strap -->
+  <path d="M184,142 Q170,148 166,162 Q172,174 188,172 Q200,166 198,154 Q192,142 186,140" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Sling thong extending from raised hand with stone in pouch -->
+  <path d="M186,158 Q280,118 360,108 Q420,102 478,110" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <!-- Stone in pouch -->
+  <ellipse cx="478" cy="118" rx="16" ry="12" fill="none" stroke="#0a0a0a" stroke-width="4"/>
+  <!-- Sling strap to right hand -->
+  <path d="M490,122 Q540,160 560,210" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <!-- RIGHT ARM — lower, balanced pose -->
+  <path d="M448,278 Q494,320 540,370 Q560,396 564,424" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M568,418 Q580,428 576,442 Q564,450 550,443 Q542,433 546,421" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Simple stone bag / pouch at hip -->
+  <path d="M430,386 Q436,374 448,372 Q462,370 470,380 Q476,392 470,404 Q462,414 448,412 Q434,410 430,400 Q428,392 430,386" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Five smooth stones suggestion (small circles in bag) -->
+  <path d="M438,388 Q448,382 458,388" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round"/>
+  <!-- Symbolic background: distant hillside — non-scary (just landscape) -->
+  <!-- Rocky shapes in far background -->
+  <path d="M680,360 Q700,338 720,342 Q740,348 752,364 Q760,378 758,396 Q754,414 740,422 Q720,430 700,424 Q680,416 672,400 Q666,386 672,370 Q676,362 680,360" fill="none" stroke="#333" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Rock texture (distant) -->
+  <path d="M684,374 Q706,368 726,372" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+  <!-- Grass -->
+  <path d="M60,526 Q68,512 76,526" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round"/>
+  <path d="M840,518 Q848,504 856,518" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
 </svg>

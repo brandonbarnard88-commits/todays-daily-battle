@@ -1,19 +1,87 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="180" cy="200" r="40"/>
-    <path d="M140 320 Q160 240 180 240 Q200 240 220 320"/>
-    <path d="M120 340 L240 340"/>
-    <ellipse cx="400" cy="360" rx="70" ry="40"/>
-    <path d="M360 360 L330 300"/>
-    <path d="M440 360 L470 300"/>
-    <circle cx="620" cy="220" r="22"/>
-    <circle cx="700" cy="220" r="22"/>
-    <path d="M620 242 L620 340"/>
-    <path d="M700 242 L700 340"/>
-    <line x1="590" y1="290" x2="650" y2="290"/>
-    <line x1="670" y1="290" x2="730" y2="290"/>
-    <path d="M520 400 Q580 360 640 400 Q700 440 760 400"/>
-    <path d="M100 480 Q300 440 450 460 Q600 480 800 440"/>
-    <circle cx="450" cy="100" r="36"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" width="900" height="680" aria-hidden="true">
+  <!-- Sky and distant hills -->
+  <path d="M0,280 Q180,248 360,278 Q540,308 720,268 Q840,240 900,256" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0,320 Q200,292 400,318 Q600,344 800,312 Q870,296 900,304" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Ground -->
+  <path d="M0,518 Q225,502 450,520 Q675,538 900,512" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Trees framing — left palm tree -->
+  <path d="M72,518 Q68,448 66,378 Q64,308 68,260" fill="none" stroke="#0a0a0a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M68,264 Q32,228 16,193 Q8,173 20,168 Q34,164 50,188 Q64,212 70,238" fill="none" stroke="#0d0d0d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M68,258 Q88,220 108,188 Q122,166 134,163 Q146,161 150,173 Q152,186 134,203 Q114,223 92,246" fill="none" stroke="#0d0d0d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M66,270 Q28,260 10,242 Q0,230 4,218 Q12,208 26,213 Q46,220 60,238" fill="none" stroke="#0d0d0d" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M70,256 Q88,238 102,208 Q112,186 124,183" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Trunk texture left -->
+  <path d="M66,308 Q70,304 74,308" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M64,340 Q68,336 72,340" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M64,370 Q68,366 72,370" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M64,400 Q68,396 72,400" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Right palm tree -->
+  <path d="M832,518 Q836,448 838,378 Q840,308 835,260" fill="none" stroke="#0a0a0a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M835,264 Q868,230 882,196 Q888,176 878,171 Q866,166 850,188 Q834,212 832,238" fill="none" stroke="#0d0d0d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M835,258 Q815,224 795,196 Q780,174 768,172 Q756,172 754,184 Q752,198 772,214 Q794,234 816,252" fill="none" stroke="#0d0d0d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M837,270 Q875,260 892,246 Q902,234 898,222 Q890,212 875,216 Q855,222 840,238" fill="none" stroke="#0d0d0d" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- ADAM figure — left of center (x=290, feet at 565) -->
+  <circle cx="290" cy="198" r="42" fill="none" stroke="#0a0a0a" stroke-width="5.5"/>
+  <path d="M250,186 Q252,154 266,148 Q273,144 282,144 Q291,144 298,148 C314,154 318,170 320,186 Q324,208 328,240" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M250,186 C246,210 248,238 252,258 Q266,268 290,270 Q314,268 328,258 C332,238 334,210 330,186" fill="none" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M262,194 Q270,188 278,194" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M302,194 Q310,188 318,194" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M278,204 Q274,217 276,224 Q280,228 284,224 Q286,217 282,204" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M268,230 Q280,239 292,230" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M278,240 L276,263" fill="none" stroke="#0d0d0d" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M302,240 L304,263" fill="none" stroke="#0d0d0d" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M276,263 Q240,268 210,284 Q188,300 182,346 Q176,398 178,463 Q180,508 185,543 Q236,560 290,562 Q344,560 395,543 Q400,508 402,463 Q404,398 398,346 Q392,300 370,284 Q340,268 304,263" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M196,366 Q290,358 384,366" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M285,273 Q278,368 280,556" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M272,280 Q262,375 264,554" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M302,278 Q312,373 310,554" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M210,290 Q168,326 150,386 Q142,414 144,440" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M140,434 Q130,442 134,454 Q144,461 157,455 Q164,447 160,436" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M370,290 Q408,330 420,393 Q424,420 420,443" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M424,437 Q434,445 430,457 Q420,464 407,458 Q400,450 404,438" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M202,545 Q212,557 234,561 Q258,565 265,557 Q258,544 236,541 Q212,541 202,545" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <path d="M315,545 Q324,557 346,561 Q370,565 377,557 Q370,544 347,541 Q324,541 315,545" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <!-- EVE figure — right of center (x=620, feet at 565) -->
+  <circle cx="620" cy="202" r="40" fill="none" stroke="#0a0a0a" stroke-width="5.5"/>
+  <path d="M580,192 C578,162 590,148 606,142 Q613,139 620,139 Q627,139 634,142 C650,148 662,162 660,192 C664,216 668,253 664,278 Q642,290 620,293 Q598,290 576,278 C572,253 576,216 580,192" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M580,192 C576,216 578,244 582,262" fill="none" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M660,192 C664,216 662,244 658,262" fill="none" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M603,198 Q611,192 619,198" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M621,198 Q629,192 637,198" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M618,207 Q614,220 616,227 Q620,231 624,227 Q626,220 622,207" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M607,234 Q620,243 633,234" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M608,242 L606,263" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <path d="M632,242 L634,263" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <path d="M606,263 Q570,266 540,280 Q518,296 512,342 Q506,394 508,459 Q510,504 515,540 Q566,558 620,560 Q674,558 725,540 Q730,504 732,459 Q734,394 728,342 Q722,296 700,280 Q670,266 634,263" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M526,358 Q620,350 714,358" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M615,270 Q608,366 610,554" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M602,276 Q592,372 594,553" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M632,274 Q642,370 640,552" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M540,286 Q496,322 478,383 Q470,410 472,436" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M468,430 Q458,438 462,450 Q472,457 485,451 Q492,443 488,432" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M700,286 Q738,328 748,390 Q752,418 748,442" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M752,436 Q762,444 758,456 Q748,463 735,457 Q728,449 732,438" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M530,542 Q540,554 562,558 Q586,562 593,554 Q586,541 563,538 Q540,538 530,542" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <path d="M648,542 Q657,554 679,558 Q703,562 710,554 Q703,541 680,538 Q657,538 648,542" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <!-- Gentle sheep at far left -->
+  <path d="M103,428 Q113,412 133,406 Q160,402 180,414 Q196,426 194,448 Q190,470 172,478 Q146,486 122,476 Q102,466 100,448 Q98,438 103,428" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M112,420 Q120,412 130,418" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <path d="M134,408 Q146,402 156,408" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <path d="M162,408 Q173,404 182,410" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="94" cy="440" r="22" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round"/>
+  <path d="M76,432 Q72,440 74,448 Q78,454 84,452" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="88" cy="438" r="4" fill="none" stroke="#0d0d0d" stroke-width="3"/>
+  <line x1="118" y1="478" x2="114" y2="508" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round"/>
+  <line x1="143" y1="482" x2="140" y2="512" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round"/>
+  <line x1="163" y1="482" x2="162" y2="512" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round"/>
+  <line x1="184" y1="478" x2="184" y2="508" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round"/>
+  <!-- Dove flying over garden -->
+  <path d="M433,138 Q444,126 456,134 Q448,138 443,146 Q446,154 438,150 Q430,146 433,138" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M446,132 L458,118" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M433,146 L423,134" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Grass tufts -->
+  <path d="M348,520 Q356,506 364,520" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round"/>
+  <path d="M488,524 Q496,510 504,524" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round"/>
+  <path d="M740,522 Q748,508 756,522" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round"/>
+  <path d="M798,518 Q806,504 814,518" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
 </svg>

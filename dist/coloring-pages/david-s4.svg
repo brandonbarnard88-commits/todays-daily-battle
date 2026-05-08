@@ -1,8 +1,217 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="340" cy="300" r="50"/>
-    <line x1="340" y1="350" x2="340" y2="480"/>
-    <path d="M520 380 L620 340 L600 440 Z"/>
-    <path d="M200 200 Q450 140 700 200"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" width="900" height="680" aria-hidden="true">
+
+  <!-- NIGHT SKY STARS -->
+  <path d="M82,50 L84,42 L86,50 L94,52 L86,54 L84,62 L82,54 L74,52 Z" fill="none" stroke="#111" stroke-width="4.5" stroke-linejoin="round"/>
+  <path d="M190,28 L192,20 L194,28 L202,30 L194,32 L192,40 L190,32 L182,30 Z" fill="none" stroke="#111" stroke-width="4.5" stroke-linejoin="round"/>
+  <path d="M358,44 L360,36 L362,44 L370,46 L362,48 L360,56 L358,48 L350,46 Z" fill="none" stroke="#111" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M530,32 L531,25 L532,32 L539,34 L532,36 L531,43 L530,36 L523,34 Z" fill="none" stroke="#111" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M710,40 L712,32 L714,40 L722,42 L714,44 L712,52 L710,44 L702,42 Z" fill="none" stroke="#111" stroke-width="4.5" stroke-linejoin="round"/>
+  <path d="M826,24 L828,16 L830,24 L838,26 L830,28 L828,36 L826,28 L818,26 Z" fill="none" stroke="#111" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M870,68 L871,62 L872,68 L878,70 L872,72 L871,78 L870,72 L864,70 Z" fill="none" stroke="#111" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M150,74 L151,68 L152,74 L158,76 L152,78 L151,84 L150,78 L144,76 Z" fill="none" stroke="#111" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M460,54 L461,48 L462,54 L468,56 L462,58 L461,64 L460,58 L454,56 Z" fill="none" stroke="#111" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M628,56 L629,50 L630,56 L636,58 L630,60 L629,66 L628,60 L622,58 Z" fill="none" stroke="#111" stroke-width="3.5" stroke-linejoin="round"/>
+
+  <!-- FULL MOON (large, beautiful) -->
+  <circle cx="130" cy="130" r="68" fill="none" stroke="#111" stroke-width="17"/>
+  <!-- Moon crater details -->
+  <circle cx="108" cy="110" r="16" fill="none" stroke="#111" stroke-width="8"/>
+  <circle cx="148" cy="148" r="22" fill="none" stroke="#111" stroke-width="8"/>
+  <circle cx="90" cy="148" r="11" fill="none" stroke="#111" stroke-width="7"/>
+  <circle cx="152" cy="108" r="9" fill="none" stroke="#111" stroke-width="7"/>
+  <!-- Moon edge glow ring -->
+  <circle cx="130" cy="130" r="80" fill="none" stroke="#111" stroke-width="5" stroke-dasharray="6 8"/>
+
+  <!-- HILLTOP / GROUND (rolling) -->
+  <path d="M0,482 Q180,444 360,464 Q540,484 720,452 Q840,428 900,442" fill="none" stroke="#333" stroke-width="6" stroke-linecap="round"/>
+  <path d="M0,520 Q200,492 400,512 Q600,532 800,502 Q870,486 900,494" fill="none" stroke="#222" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- GROUND LINE -->
+  <path d="M0,558 Q225,540 450,558 Q675,576 900,548" fill="none" stroke="#111" stroke-width="16" stroke-linecap="round"/>
+
+  <!-- SHEEP FLOCK on hillside (Psalm 23 reference) -->
+  <!-- Sheep 1 -->
+  <ellipse cx="96" cy="504" rx="32" ry="18" fill="none" stroke="#111" stroke-width="13"/>
+  <circle cx="126" cy="496" r="14" fill="none" stroke="#111" stroke-width="12"/>
+  <path d="M114,493 Q120,486 130,490" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <line x1="72" y1="522" x2="68" y2="540" stroke="#111" stroke-width="11" stroke-linecap="round"/>
+  <line x1="90" y1="522" x2="86" y2="540" stroke="#111" stroke-width="11" stroke-linecap="round"/>
+  <line x1="106" y1="522" x2="102" y2="540" stroke="#111" stroke-width="11" stroke-linecap="round"/>
+  <line x1="120" y1="520" x2="116" y2="538" stroke="#111" stroke-width="11" stroke-linecap="round"/>
+
+  <!-- Sheep 2 -->
+  <ellipse cx="200" cy="498" rx="28" ry="16" fill="none" stroke="#111" stroke-width="12"/>
+  <circle cx="226" cy="490" r="12" fill="none" stroke="#111" stroke-width="11"/>
+  <line x1="178" y1="514" x2="174" y2="530" stroke="#111" stroke-width="10" stroke-linecap="round"/>
+  <line x1="194" y1="514" x2="190" y2="530" stroke="#111" stroke-width="10" stroke-linecap="round"/>
+  <line x1="212" y1="514" x2="208" y2="530" stroke="#111" stroke-width="10" stroke-linecap="round"/>
+
+  <!-- Sheep 3 (distant, smaller) -->
+  <ellipse cx="820" cy="494" rx="24" ry="14" fill="none" stroke="#111" stroke-width="10"/>
+  <circle cx="842" cy="487" r="10" fill="none" stroke="#111" stroke-width="10"/>
+  <line x1="800" y1="508" x2="797" y2="522" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <line x1="818" y1="508" x2="815" y2="522" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <line x1="834" y1="508" x2="831" y2="522" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+
+  <!-- ========================================== -->
+  <!-- DAVID FIGURE (centered x=450, feet y=614) -->
+  <!-- ========================================== -->
+
+  <!-- HEAD -->
+  <circle cx="450" cy="178" r="54" fill="none" stroke="#111" stroke-width="19"/>
+
+  <!-- HAIR — curly, youthful, medium length -->
+  <!-- Outer hair boundary -->
+  <path d="M394,166 C392,140 404,120 424,110 Q436,104 450,102 Q464,104 476,110 C496,120 508,140 506,166 C510,190 516,220 514,248 Q492,266 450,270 Q408,266 386,248 C384,220 390,190 394,166" fill="none" stroke="#111" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Hair curls / waves -->
+  <path d="M394,166 Q380,154 382,138 Q396,142 400,158" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M394,200 Q376,194 372,178 Q388,174 396,188" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M506,168 Q518,156 516,140 Q502,144 498,160" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M508,202 Q524,196 526,180 Q510,176 504,190" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Forehead hair line -->
+  <path d="M414,110 Q432,104 450,102 Q468,104 486,110" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <!-- Hair at sides, wavy bands -->
+  <path d="M388,166 Q380,194 384,232 Q388,256 394,268" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M512,166 Q520,194 516,232 Q512,256 506,268" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- No full beard (David was young) — just light shadow suggestion and lip -->
+  <!-- Chin definition -->
+  <path d="M424,236 C430,252 470,252 476,236" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <path d="M430,232 Q450,226 470,232" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <!-- Light jaw shadow marks -->
+  <path d="M416,228 Q410,218 412,206" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <path d="M484,228 Q490,218 488,206" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- EYEBROWS — expressive, uplifted in worship -->
+  <path d="M418,156 C428,146 440,142 450,148" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M450,148 C460,142 472,146 482,156" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- EYES — wide, upward gaze, worshipful -->
+  <path d="M420,168 Q434,158 448,168" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <path d="M452,168 Q466,158 480,168" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <!-- Lower lids -->
+  <path d="M422,170 Q434,176 448,170" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <path d="M452,170 Q466,176 478,170" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <!-- Eye pupils directed upward-right -->
+  <circle cx="436" cy="163" r="5" fill="none" stroke="#111" stroke-width="9"/>
+  <circle cx="466" cy="163" r="5" fill="none" stroke="#111" stroke-width="9"/>
+
+  <!-- NOSE -->
+  <path d="M448,178 L442,200 Q440,208 444,214 Q450,218 456,214 Q460,208 458,200 L452,178" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M438,212 Q442,218 448,214" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <path d="M462,214 Q458,218 452,214" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- NECK -->
+  <path d="M428,246 L426,270" fill="none" stroke="#111" stroke-width="15" stroke-linecap="round"/>
+  <path d="M472,246 L474,270" fill="none" stroke="#111" stroke-width="15" stroke-linecap="round"/>
+
+  <!-- ROBE — main body outline SW 19 -->
+  <path d="M426,270 Q384,276 346,296 C322,316 308,362 304,416 C298,470 300,526 304,582 Q400,614 450,616 Q500,614 596,582 C600,526 602,470 596,416 C592,362 578,316 554,296 Q516,276 474,270" fill="none" stroke="#111" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- ROBE BELT / SASH -->
+  <path d="M318,412 Q450,404 582,412" fill="none" stroke="#111" stroke-width="13" stroke-linecap="round"/>
+  <path d="M440,402 Q450,390 460,402" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M444,402 L440,424" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <path d="M456,402 L460,424" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+
+  <!-- ROBE FOLDS -->
+  <path d="M448,280 C440,380 438,480 440,608" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M434,286 C424,386 420,486 422,606" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M466,282 C478,382 482,482 480,606" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M418,300 C406,400 402,500 404,604" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <path d="M482,298 C496,398 500,498 498,602" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <!-- Hem drape folds -->
+  <path d="M346,556 Q396,546 448,550" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <path d="M452,550 Q504,546 556,556" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- LEFT ARM raised high, elbow bent — praising posture -->
+  <path d="M346,302 Q298,318 268,276 Q258,256 272,240 Q290,228 308,244 Q320,264 316,292 Q334,310 350,302" fill="none" stroke="#111" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Left hand open, palm toward harp -->
+  <path d="M262,236 Q246,224 246,208 Q258,196 276,204 Q284,218 274,234 Q268,240 264,238" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Left hand fingers spread -->
+  <path d="M248,204 Q240,192 244,180" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M256,200 Q250,188 254,176" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M264,198 Q260,184 266,172" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M274,200 Q272,186 278,176" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M280,208 Q280,194 288,186" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- RIGHT ARM raised high — mirror pose -->
+  <path d="M554,302 Q602,318 632,276 Q642,256 628,240 Q610,228 592,244 Q580,264 584,292 Q566,310 550,302" fill="none" stroke="#111" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Right hand plucking strings -->
+  <path d="M638,236 Q654,224 654,208 Q642,196 624,204 Q616,218 626,234 Q632,240 636,238" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Right hand fingers on strings -->
+  <path d="M652,204 Q660,192 656,180" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M644,200 Q650,188 646,176" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M636,198 Q640,184 634,172" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M626,200 Q628,186 622,176" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M620,208 Q620,194 612,186" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- SANDALS -->
+  <path d="M314,580 Q328,600 356,606 Q386,612 396,600 Q386,582 358,578 Q330,576 314,580" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M338,584 Q344,596 356,598" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M506,580 Q520,600 548,606 Q578,612 588,600 Q578,582 550,578 Q522,576 506,580" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M530,584 Q536,596 548,598" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- ====================== -->
+  <!-- ORNATE HARP (between David's arms) -->
+  <!-- ====================== -->
+
+  <!-- HARP BODY — resonance box (sound box) bottom right -->
+  <path d="M500,548 Q540,498 556,434 Q564,390 558,344 Q554,302 540,270 Q526,242 508,230 Q490,220 472,228 Q460,234 450,248" fill="none" stroke="#111" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Sound box face -->
+  <path d="M500,548 Q470,560 448,556 Q432,548 430,520 Q430,490 450,480 Q466,472 490,472 Q510,472 524,488 Q534,500 534,522 Q534,540 520,548 Q510,554 500,548" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Sound holes in resonance box -->
+  <ellipse cx="474" cy="504" rx="10" ry="16" fill="none" stroke="#111" stroke-width="8"/>
+  <ellipse cx="504" cy="512" rx="10" ry="16" fill="none" stroke="#111" stroke-width="8"/>
+
+  <!-- NECK PILLAR (front column, from sound box up to tuning pegs) -->
+  <path d="M430,520 Q328,500 298,428 Q280,372 302,312 Q320,264 354,236 Q388,210 432,208 Q448,206 460,210" fill="none" stroke="#111" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Neck carved detail lines -->
+  <path d="M350,440 Q326,408 314,366 Q306,330 312,296" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M364,454 Q340,422 330,380 Q322,344 328,308" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- FOREPILLAR — the decorative column -->
+  <!-- Base shoulder -->
+  <path d="M500,548 Q500,560 496,572 Q492,584 488,592" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round"/>
+  <!-- Forepillar carved ornament (capital at top) -->
+  <path d="M464,210 Q462,198 450,190 Q438,196 436,208" fill="none" stroke="#111" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Tuning peg row along neck -->
+  <circle cx="436" cy="252" r="7" fill="none" stroke="#111" stroke-width="9"/>
+  <circle cx="428" cy="278" r="7" fill="none" stroke="#111" stroke-width="9"/>
+  <circle cx="322" cy="332" r="7" fill="none" stroke="#111" stroke-width="9"/>
+  <circle cx="304" cy="362" r="7" fill="none" stroke="#111" stroke-width="9"/>
+  <circle cx="298" cy="396" r="7" fill="none" stroke="#111" stroke-width="9"/>
+  <circle cx="300" cy="432" r="7" fill="none" stroke="#111" stroke-width="9"/>
+
+  <!-- HARP STRINGS — 10 strings from neck curve down to sound box, varying length -->
+  <line x1="446" y1="234" x2="456" y2="482" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <line x1="442" y1="252" x2="458" y2="486" stroke="#111" stroke-width="5.5" stroke-linecap="round"/>
+  <line x1="432" y1="276" x2="462" y2="490" stroke="#111" stroke-width="5.5" stroke-linecap="round"/>
+  <line x1="416" y1="300" x2="466" y2="494" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+  <line x1="392" y1="322" x2="472" y2="498" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+  <line x1="358" y1="340" x2="478" y2="502" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+  <line x1="322" y1="352" x2="484" y2="504" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+  <line x1="302" y1="370" x2="490" y2="508" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+  <line x1="296" y1="396" x2="496" y2="514" stroke="#111" stroke-width="4.5" stroke-linecap="round"/>
+  <line x1="298" y1="426" x2="500" y2="522" stroke="#111" stroke-width="4.5" stroke-linecap="round"/>
+
+  <!-- DECORATIVE CARVING on neck pillar -->
+  <path d="M420,300 Q416,292 424,286 Q432,292 428,300 Q424,304 420,300" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M408,330 Q402,322 410,316 Q418,322 414,330 Q410,334 408,330" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M366,370 Q360,362 368,356 Q376,362 372,370 Q368,374 366,370" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M340,404 Q334,396 342,390 Q350,396 346,404 Q342,408 340,404" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- GRASS TUFTS FOREGROUND -->
+  <path d="M60,560 Q68,542 76,560" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <path d="M84,554 Q92,536 100,554" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M792,556 Q800,538 808,556" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <path d="M820,562 Q828,544 836,562" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <!-- Wildflowers by David's feet -->
+  <circle cx="112" cy="544" r="9" fill="none" stroke="#111" stroke-width="8"/>
+  <line x1="112" y1="553" x2="112" y2="576" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <path d="M104,560 Q112,552 120,560" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="778" cy="546" r="9" fill="none" stroke="#111" stroke-width="8"/>
+  <line x1="778" y1="555" x2="778" y2="578" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <path d="M770,562 Q778,554 786,562" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+
 </svg>

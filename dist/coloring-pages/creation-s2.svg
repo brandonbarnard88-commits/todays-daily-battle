@@ -1,10 +1,140 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="450" y1="40" x2="450" y2="200"/>
-    <path d="M380 200 L450 120 L520 200"/>
-    <path d="M60 320 Q200 280 450 300 Q700 320 840 280"/>
-    <line x1="60" y1="320" x2="840" y2="320"/>
-    <path d="M80 400 Q220 360 450 380 Q680 400 820 360"/>
-    <path d="M100 480 Q280 440 450 460 Q620 480 800 440"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" width="900" height="680" aria-hidden="true">
+
+  <!-- SUN — large central radiant circle -->
+  <circle cx="450" cy="188" r="92" fill="none" stroke="#111" stroke-width="20" stroke-linecap="round"/>
+  <!-- Inner glow ring -->
+  <circle cx="450" cy="188" r="68" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <!-- Inner detail circle -->
+  <circle cx="450" cy="188" r="44" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- SUN RAYS — 16 rays alternating long and short -->
+  <line x1="450" y1="82" x2="450" y2="28" stroke="#111" stroke-width="14" stroke-linecap="round"/>
+  <line x1="450" y1="294" x2="450" y2="350" stroke="#111" stroke-width="14" stroke-linecap="round"/>
+  <line x1="344" y1="188" x2="290" y2="188" stroke="#111" stroke-width="14" stroke-linecap="round"/>
+  <line x1="556" y1="188" x2="610" y2="188" stroke="#111" stroke-width="14" stroke-linecap="round"/>
+
+  <!-- Diagonal rays long -->
+  <line x1="376" y1="114" x2="336" y2="74" stroke="#111" stroke-width="12" stroke-linecap="round"/>
+  <line x1="524" y1="114" x2="564" y2="74" stroke="#111" stroke-width="12" stroke-linecap="round"/>
+  <line x1="376" y1="262" x2="336" y2="302" stroke="#111" stroke-width="12" stroke-linecap="round"/>
+  <line x1="524" y1="262" x2="564" y2="302" stroke="#111" stroke-width="12" stroke-linecap="round"/>
+
+  <!-- Diagonal rays short -->
+  <line x1="362" y1="150" x2="330" y2="128" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <line x1="538" y1="150" x2="570" y2="128" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <line x1="362" y1="226" x2="330" y2="248" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <line x1="538" y1="226" x2="570" y2="248" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <line x1="408" y1="96" x2="396" y2="62" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <line x1="492" y1="96" x2="504" y2="62" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <line x1="408" y1="280" x2="396" y2="314" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <line x1="492" y1="280" x2="504" y2="314" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+
+  <!-- LIGHT BEAMS descending from sun to water — wide, softly tapering -->
+  <path d="M402,278 Q340,390 292,490 Q274,532 268,568" fill="none" stroke="#111" stroke-width="10" stroke-linecap="round" stroke-dasharray="18 14"/>
+  <path d="M428,284 Q388,400 368,500 Q360,540 358,572" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round" stroke-dasharray="16 12"/>
+  <path d="M472,284 Q512,400 532,500 Q540,540 542,572" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round" stroke-dasharray="16 12"/>
+  <path d="M498,278 Q560,390 608,490 Q626,532 632,568" fill="none" stroke="#111" stroke-width="10" stroke-linecap="round" stroke-dasharray="18 14"/>
+
+  <!-- LARGE CLOUD LEFT -->
+  <circle cx="128" cy="148" r="52" fill="none" stroke="#111" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="172" cy="124" r="46" fill="none" stroke="#111" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="222" cy="136" r="42" fill="none" stroke="#111" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="84" cy="164" r="38" fill="none" stroke="#111" stroke-width="16" stroke-linecap="round"/>
+  <!-- Cloud base flatten line -->
+  <path d="M54,190 Q128,204 264,190" fill="none" stroke="#111" stroke-width="18" stroke-linecap="round"/>
+  <!-- Cloud interior puffs -->
+  <path d="M108,148 Q128,138 148,148" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M162,130 Q178,122 194,130" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- LARGE CLOUD RIGHT -->
+  <circle cx="772" cy="144" r="52" fill="none" stroke="#111" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="728" cy="120" r="46" fill="none" stroke="#111" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="678" cy="132" r="42" fill="none" stroke="#111" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="816" cy="160" r="38" fill="none" stroke="#111" stroke-width="16" stroke-linecap="round"/>
+  <path d="M636,186 Q730,200 846,186" fill="none" stroke="#111" stroke-width="18" stroke-linecap="round"/>
+  <path d="M692,132 Q712,122 732,132" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M760,148 Q780,140 800,148" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- SMALL CLOUD UPPER LEFT -->
+  <circle cx="66" cy="86" r="28" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="96" cy="72" r="24" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="126" cy="82" r="22" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round"/>
+  <path d="M42,104 Q90,114 152,104" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round"/>
+
+  <!-- SMALL CLOUD UPPER RIGHT -->
+  <circle cx="834" cy="82" r="28" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="804" cy="68" r="24" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="774" cy="78" r="22" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round"/>
+  <path d="M748,100 Q808,110 860,100" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round"/>
+
+  <!-- BIRDS — three, proper arched wing shapes -->
+  <!-- Bird 1 center upper -->
+  <path d="M412,316 Q434,298 450,306 Q466,298 488,316" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M432,310 Q450,316 468,310" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <!-- Bird body stub -->
+  <ellipse cx="450" cy="308" rx="10" ry="6" fill="none" stroke="#111" stroke-width="10"/>
+
+  <!-- Bird 2 left -->
+  <path d="M224,354 Q242,338 256,346 Q270,338 288,354" fill="none" stroke="#111" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M242,348 Q256,354 270,348" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <ellipse cx="256" cy="348" rx="8" ry="5" fill="none" stroke="#111" stroke-width="9"/>
+
+  <!-- Bird 3 right -->
+  <path d="M614,342 Q634,326 648,334 Q662,326 682,342" fill="none" stroke="#111" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M632,336 Q648,342 664,336" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <ellipse cx="648" cy="336" rx="8" ry="5" fill="none" stroke="#111" stroke-width="9"/>
+
+  <!-- Bird 4 far left small -->
+  <path d="M80,390 Q90,382 98,386 Q106,382 116,390" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Bird 5 far right small -->
+  <path d="M790,374 Q800,366 808,370 Q816,366 826,374" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- HORIZON LINE -->
+  <path d="M0,458 Q225,442 450,462 Q675,482 900,452" fill="none" stroke="#111" stroke-width="18" stroke-linecap="round"/>
+
+  <!-- WATER WAVES — 5 layers with natural rhythm -->
+  <!-- Wave 1 -->
+  <path d="M0,490 Q40,476 80,490 Q120,504 160,490 Q200,476 240,490 Q280,504 320,490 Q360,476 400,490 Q440,504 480,490 Q520,476 560,490 Q600,504 640,490 Q680,476 720,490 Q760,504 800,490 Q840,476 900,490" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round"/>
+  <!-- Wave 2 -->
+  <path d="M0,516 Q50,500 100,516 Q150,532 200,516 Q250,500 300,516 Q350,532 400,516 Q450,500 500,516 Q550,532 600,516 Q650,500 700,516 Q750,532 800,516 Q850,500 900,516" fill="none" stroke="#111" stroke-width="12" stroke-linecap="round"/>
+  <!-- Wave 3 -->
+  <path d="M0,540 Q60,524 120,540 Q180,556 240,540 Q300,524 360,540 Q420,556 480,540 Q540,524 600,540 Q660,556 720,540 Q780,524 840,540 Q870,548 900,538" fill="none" stroke="#111" stroke-width="10" stroke-linecap="round"/>
+  <!-- Wave 4 -->
+  <path d="M0,562 Q70,546 140,562 Q210,578 280,562 Q350,546 420,562 Q490,578 560,562 Q630,546 700,562 Q770,578 840,562 Q876,550 900,558" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <!-- Wave 5 foreground -->
+  <path d="M0,590 Q80,572 160,590 Q240,608 320,590 Q400,572 480,590 Q560,608 640,590 Q720,572 800,590 Q850,600 900,584" fill="none" stroke="#111" stroke-width="16" stroke-linecap="round"/>
+
+  <!-- Wave foam / caps (small arcs on crest lines) -->
+  <path d="M120,486 Q132,478 144,486" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M340,476 Q352,468 364,476" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M560,480 Q572,472 584,480" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M760,474 Q772,466 784,474" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- FOREGROUND LAND STRIP — left and right shores suggesting garden -->
+  <path d="M0,640 Q60,618 120,640 L120,680 L0,680 Z" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M780,640 Q840,618 900,640 L900,680 L780,680 Z" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Grass tufts left shore -->
+  <path d="M18,632 Q26,612 34,632" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <path d="M42,626 Q50,606 58,626" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M66,620 Q74,600 82,620" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M90,628 Q98,608 106,628" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- Grass tufts right shore -->
+  <path d="M796,632 Q804,612 812,632" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <path d="M820,620 Q828,600 836,620" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M848,626 Q856,606 864,626" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M874,634 Q882,614 890,634" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- Simple flower left shore -->
+  <circle cx="54" cy="612" r="8" fill="none" stroke="#111" stroke-width="8"/>
+  <line x1="54" y1="620" x2="54" y2="644" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <path d="M46,626 Q54,618 62,626" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- Simple flower right shore -->
+  <circle cx="862" cy="608" r="8" fill="none" stroke="#111" stroke-width="8"/>
+  <line x1="862" y1="616" x2="862" y2="640" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <path d="M854,622 Q862,614 870,622" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+
 </svg>

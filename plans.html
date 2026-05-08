@@ -13,16 +13,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Battle Plans &bull; KJV Devotionals &amp; Daily Bible Reading Plans</title>
   <meta name="description" content="Hundreds of grace-filled KJV battle plans for every season and feeling. No schedule pressure &mdash; open any day. Offline, ad-free, family &amp; church tools included.">
+  <meta name="robots" content="index, follow">
+  <meta name="referrer" content="no-referrer">
   <link rel="canonical" href="https://todaysdailybattle.com/plans.html">
   <link rel="alternate" hreflang="en" href="https://todaysdailybattle.com/plans.html">
   <link rel="alternate" hreflang="pt" href="https://todaysdailybattle.com/pt/planos.html">
   <link rel="alternate" hreflang="x-default" href="https://todaysdailybattle.com/">
+  <meta property="og:site_name" content="Today's Daily Battle">
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Battle Plans • KJV Devotionals &amp; Daily Bible Reading Plans">
   <meta property="og:description" content="Hundreds of grace-filled KJV battle plans for every season and feeling. No schedule pressure — open any day. Offline, ad-free, family &amp; church tools included.">
   <meta property="og:url" content="https://todaysdailybattle.com/plans.html">
   <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
+  <meta property="og:image:alt" content="Battle Plans hub — KJV daily plans for real-life battles">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Battle Plans • KJV Devotionals &amp; Daily Bible Reading Plans">
   <meta name="twitter:description" content="Hundreds of grace-filled KJV battle plans for every season and feeling. Offline, ad-free, family &amp; church tools included.">
+  <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="manifest.json">
@@ -153,8 +160,9 @@
         padding-top: 1.35rem;
         padding-bottom: 5.5rem;
       }
-      .plan-row { padding: 1.05rem 1rem; gap: 0.85rem; flex-wrap: wrap; }
+      .plan-row { padding: 1.2rem 1.1rem; gap: 0.85rem; flex-wrap: wrap; }
       .plan-row-meta { width: 100%; flex-direction: row; justify-content: flex-start; align-items: center; }
+      .plans-all-heading { margin-top: 3.5rem; }
     }
     @media (min-width: 1280px) {
       main.plans-page.tdb-quiet-container {
@@ -243,7 +251,7 @@
       opacity: 0.55;
     }
     .plans-hero h1 { font-size: clamp(1.6rem,4vw,2.2rem); font-weight: 800; margin: 0 0 0.4rem; }
-    .plans-hero-subtitle-uog {
+    .plans-hero-subtitle {
       margin: 0 0 0.75rem;
       font-size: clamp(0.95rem, 2.2vw, 1.1rem);
       font-weight: 500;
@@ -450,23 +458,23 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--muted);
-      margin: 0 0 0.35rem;
+      margin: 3rem 0 0.5rem;
     }
     .plans-all-lead {
       font-size: 0.84rem;
       color: var(--muted);
-      line-height: 1.5;
-      margin: 0 0 0.85rem;
+      line-height: 1.6;
+      margin: 0 0 1.5rem;
       max-width: 40rem;
     }
 
     /* ── Plan list (index view) ── */
-    .plan-list { display: grid; gap: 1rem; }
+    .plan-list { display: grid; gap: 1.5rem; }
     .plan-row {
       background: var(--card);
       border: 1px solid color-mix(in srgb, var(--gold) 22%, transparent);
       border-radius: 18px;
-      padding: 1.2rem 1.25rem;
+      padding: 1.5rem 1.4rem;
       display: flex; align-items: center; gap: 1rem;
       cursor: pointer;
       transition: border-color 0.15s, box-shadow 0.15s;
@@ -481,8 +489,8 @@
     .plan-row { text-decoration: none; }
     .plan-row-icon { font-size: 1.8rem; flex-shrink: 0; }
     .plan-row-info { flex: 1; min-width: 0; }
-    .plan-row-info h2 { font-size: 1rem; font-weight: 700; margin: 0 0 0.2rem; color: var(--text); }
-    .plan-row-info p  { font-size: 0.84rem; color: var(--muted); margin: 0; line-height: 1.5; }
+    .plan-row-info h2 { font-size: 1rem; font-weight: 700; margin: 0 0 0.5rem; color: var(--text); }
+    .plan-row-info p  { font-size: 0.84rem; color: var(--muted); margin: 0; line-height: 1.7; }
     /* Dark rows: --muted alone is slightly dim on --card (axe). */
     html[data-theme="dark"] .plan-row-info p,
     html:not([data-theme]) .plan-row-info p {
@@ -1703,17 +1711,7 @@
       <a href="index.html" class="plans-back" aria-label="Back to homepage">← Today's Battle</a>
       <div class="plans-hero plans-hero--soar-dawn tdb-micro-hero-dawn">
         <h1>Courses in the University of God</h1>
-        <p class="plans-hero-hint topic-mood-porch" style="margin-bottom:0.5rem;">You&rsquo;re already welcome here&mdash;open one door, or only read this screen; the Spirit still meets you either way.</p>
-        <p class="plans-hero-subtitle-uog">Rest, not rush &mdash; grace for the long walk.</p>
-        <p class="plans-porch-ingress" id="plans-porch-ingress">
-          The day feels loud before you even sat down? Stay right here.
-          You don&rsquo;t have to get anything right first.
-          <strong>God&rsquo;s University of Life</strong> is just the name on the door &mdash;
-          a quiet porch where you can sit with God in the KJV,
-          no performance, no pressure.
-        </p>
-        <p class="plans-hero-hint">One line of Scripture. One small move forward. One honest prayer. Grace is already the house &mdash; you&rsquo;re not knocking.</p>
-        <p>On this device. Still there offline. <a href="university.html">Anchor verses</a> if a map helps.</p>
+        <p class="plans-hero-subtitle">Rest, not rush.</p>
       </div>
       <section class="plans-situation-jump" id="find-your-plan" aria-labelledby="plans-situation-jump-h">
         <h2 class="plans-find-your-plan-h" id="plans-situation-jump-h">Find your plan</h2>
@@ -1746,6 +1744,7 @@
         <p class="plans-prayer-callout">Others pray quietly too — <a href="/prayer-wall.html?tab=with-others">Prayer</a> is there when you want company without noise.</p>
         <p class="plans-hero-hint plans-mystudy-print-hint">Your checkmarks and notes stay on this device. <a href="mystudy.html">My Study</a> can print them when you want paper.</p>
         <p class="plans-hero-hint">Paper-friendly index: <a href="printables.html">Printables hub</a>.</p>
+        <p class="plans-hero-hint">Need a one-tap week for heavy days? Start the <a href="emergency-calm-pack.html">7-day emergency calm pack</a>.</p>
         <p class="plans-hero-hint">Morning doorway: <a href="daily-quiet-time.html">Daily quiet time</a>. Scripture-first Psalms: <a href="psalms.html">Psalms hub</a>.</p>
         <p class="plans-hero-hint" id="plans-year-round-rhythm-hint">Homeschool &amp; families pacing the whole year: <a href="yearly-rhythm.html">Year-round rhythm</a> (August&ndash;July grid, summer &ldquo;Summer Seeds,&rdquo; holiday links) plus an <a href="yearly-rhythm.html#yr-ages-5-18">ages 5&ndash;18 weekly + daily map</a>. <a href="family.html#family-year-round-memory">Memory Verses</a> stay on this device; seasonal tracks: <a href="plans.html?plan=schoolcourage">Back-to-School Courage</a>, <a href="plans.html?plan=harvestthanks">Harvest Gratitude</a>, <a href="plans.html?plan=adventquiet">Advent Quiet</a>, <a href="plans.html?plan=gentleyear">Gentle New Year Reset</a>, <a href="plans.html?plan=summerstill">Summer Stillness</a>, <a href="plans.html?plan=latesummerrest">Late summer, early rest</a> (bridge).</p>
         <p class="plans-url-hint"><strong>Plan day checkmarks</strong> stay in this browser (offline-friendly). <strong>Signed in?</strong> Saved verses and collections can sync across devices; your reading rhythm, prayers you save, and gentle milestones can too&mdash;see <a href="privacy.html">Privacy</a> for what crosses devices. <a href="mystudy.html">My Study</a> can still print a full bundle when you want paper. Links with <code class="plans-code">?plan=id&amp;day=N</code> open day <em>N</em> when you&rsquo;ve already unlocked it; otherwise we land you on the latest day you can open.</p>
@@ -2881,6 +2880,8 @@
     <a href="/bible-tool.html">Bible tool</a>
     <a href="/testimonials.html">Reader stories</a>
     <a href="/journal/">Journal</a>
+    <a href="/updates.html">Monthly updates</a>
+    <a href="/emergency-calm-pack.html">Emergency calm pack</a>
     <a href="/where-support-goes.html">Where support goes</a>
     <a href="/verse-cards/">Verse cards</a>
     <a href="/security.html">Security</a>

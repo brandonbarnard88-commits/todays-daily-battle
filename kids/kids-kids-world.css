@@ -1473,3 +1473,16 @@ body.kids-world-surface .kids-shepherd-compact .kids-bubble-voice {
 body.kids-coloring-shepherd .kids-shepherd-compact {
   margin: 0 0 1rem;
 }
+
+/* ---- Mascot image: always warm cream bg regardless of theme ---- */
+.kids-shepherd-hero-img,
+.dark-mode .kids-shepherd-hero-img,
+html[data-theme="dark"] .kids-shepherd-hero-img {
+  background: linear-gradient(180deg, #fffbf0 0%, #fef3c7 100%) !important;
+  border-radius: 18px !important;
+}
+.kids-shepherd-hero-wrap,
+.dark-mode .kids-shepherd-hero-wrap,
+html[data-theme="dark"] .kids-shepherd-hero-wrap {
+  background: radial-gradient(ellipse 80% 60% at 50% 28%, rgba(255,255,255,0.65) 0%, transparent 65%) !important;
+}

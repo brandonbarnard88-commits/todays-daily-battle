@@ -1,10 +1,82 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M80 460 Q400 420 820 460"/>
-    <circle cx="500" cy="260" r="18"/>
-    <line x1="500" y1="278" x2="500" y2="360"/>
-    <path d="M460 300 L520 300"/>
-    <ellipse cx="400" cy="340" rx="50" ry="35"/>
-    <path d="M350 340 L450 300"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" width="900" height="680" aria-hidden="true">
+  <!-- Peaceful sky and hills — green pastures -->
+  <path d="M0,280 Q180,248 360,276 Q540,304 720,264 Q840,236 900,252" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0,320 Q200,292 400,318 Q600,344 800,310 Q870,294 900,302" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Ground -->
+  <path d="M0,524 Q225,508 450,526 Q675,544 900,516" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Small hill bump foreground right -->
+  <path d="M680,524 Q720,490 760,495 Q800,500 840,524" fill="none" stroke="#111" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Flowers scattered in meadow -->
+  <circle cx="80" cy="514" r="9" fill="none" stroke="#0d0d0d" stroke-width="3.5"/>
+  <circle cx="80" cy="514" r="4" fill="none" stroke="#0d0d0d" stroke-width="2.5"/>
+  <line x1="80" y1="523" x2="80" y2="545" stroke="#0d0d0d" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M68,502 Q80,492 92,502" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <path d="M68,526 Q80,536 92,526" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <line x1="68" y1="514" x2="54" y2="514" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <line x1="92" y1="514" x2="106" y2="514" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="240" cy="508" r="9" fill="none" stroke="#0d0d0d" stroke-width="3.5"/>
+  <circle cx="240" cy="508" r="4" fill="none" stroke="#0d0d0d" stroke-width="2.5"/>
+  <line x1="240" y1="517" x2="240" y2="539" stroke="#0d0d0d" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M228,496 Q240,486 252,496" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <path d="M228,520 Q240,530 252,520" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <line x1="228" y1="508" x2="214" y2="508" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <line x1="252" y1="508" x2="266" y2="508" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="400" cy="512" r="8" fill="none" stroke="#0d0d0d" stroke-width="3"/>
+  <line x1="400" y1="520" x2="400" y2="540" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <!-- SHEEP resting in foreground — 4 sheep lying down -->
+  <!-- Sheep 1 (x=150, lying down) -->
+  <path d="M110,460 Q120,444 140,438 Q166,434 186,446 Q202,458 200,478 Q196,500 178,508 Q152,516 128,506 Q108,496 106,478 Q104,468 110,460" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M118,452 Q126,444 136,450" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <path d="M140,440 Q152,434 162,440" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <path d="M166,438 Q177,434 186,440" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="100" cy="472" r="22" fill="none" stroke="#0a0a0a" stroke-width="4.5"/>
+  <path d="M80,464 Q74,472 76,480 Q80,486 86,484" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="94" cy="470" r="4" fill="none" stroke="#0d0d0d" stroke-width="3"/>
+  <!-- Lying legs (tucked under) -->
+  <path d="M116,502 Q112,514 108,524" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <path d="M152,510 Q150,522 148,532" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <path d="M178,508 Q178,520 176,530" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <!-- Sheep 2 (x=340) -->
+  <path d="M300,462 Q310,446 330,440 Q356,436 376,448 Q392,460 390,480 Q386,502 368,510 Q342,518 318,508 Q298,498 296,480 Q294,470 300,462" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M308,454 Q316,446 326,452" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <path d="M330,442 Q342,436 352,442" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="290" cy="474" r="22" fill="none" stroke="#0a0a0a" stroke-width="4.5"/>
+  <circle cx="284" cy="472" r="4" fill="none" stroke="#0d0d0d" stroke-width="3"/>
+  <path d="M306,504 Q302,516 298,526" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <path d="M344,512 Q342,524 340,534" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <path d="M368,510 Q368,522 366,532" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <!-- Sheep 3 (x=530) grazing (head down) -->
+  <path d="M488,448 Q498,432 518,426 Q544,422 564,434 Q580,446 578,466 Q574,488 556,496 Q530,504 506,494 Q486,484 484,466 Q482,456 488,448" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M496,440 Q504,432 514,438" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <path d="M518,428 Q530,422 540,428" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <!-- Sheep 3 head angled down (grazing) -->
+  <circle cx="470" cy="480" r="22" fill="none" stroke="#0a0a0a" stroke-width="4.5"/>
+  <path d="M454,490 Q448,502 455,510 Q462,516 470,512" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="462" cy="482" r="4" fill="none" stroke="#0d0d0d" stroke-width="3"/>
+  <line x1="494" y1="494" x2="490" y2="524" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round"/>
+  <line x1="530" y1="498" x2="528" y2="528" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round"/>
+  <line x1="554" y1="496" x2="553" y2="526" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round"/>
+  <!-- SHEPHERD seated on rock — right background (x=720, head cy=352) -->
+  <!-- Rock -->
+  <path d="M658,524 Q665,498 684,486 Q710,472 740,472 Q766,472 782,484 Q796,496 796,518 Q794,538 778,546 Q752,558 718,556 Q686,554 668,542 Q656,532 658,524" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M676,492 Q700,486 722,488" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Shepherd head (smaller, distance) -->
+  <circle cx="718" cy="348" r="36" fill="none" stroke="#0a0a0a" stroke-width="5"/>
+  <path d="M684,337 Q686,310 696,302 Q707,294 718,292 Q729,294 740,302 Q750,310 752,337 Q758,360 758,386" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M682,338 C678,360 680,386 682,404" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M684,337 Q700,328 718,326 Q736,328 752,337" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Shepherd beard (distance) -->
+  <path d="M706,374 C700,388 700,402 708,412 C716,424 718,428 730,424 C742,418 746,404 744,392 C740,380 733,374 718,372 C711,370 708,372 706,374" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Eyes -->
+  <path d="M706,346 Q712,340 718,346" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M718,346 Q724,340 730,346" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M707,357 Q718,365 729,357" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Shepherd seated robe -->
+  <path d="M696,402 Q670,406 654,416 C640,428 634,452 632,484 Q630,510 634,540 Q674,558 718,560 Q762,558 802,540 Q806,510 804,484 C802,452 796,428 782,416 Q766,406 740,402" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Staff held beside shepherd -->
+  <path d="M660,540 Q658,480 657,420 Q656,362 656,318 Q655,288 651,268" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M651,268 Q648,248 634,240 Q616,230 606,242 Q596,256 604,272 Q612,284 628,280" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Grass tufts -->
+  <path d="M460" y1="530" fill="none" stroke="none"/>
+  <path d="M860,518 Q868,504 876,518" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round"/>
 </svg>

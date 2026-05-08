@@ -1,12 +1,84 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M280 480 L280 280 Q450 200 620 280 L620 480 Z"/>
-    <path d="M300 280 Q450 220 600 280"/>
-    <ellipse cx="450" cy="360" rx="80" ry="100"/>
-    <line x1="370" y1="360" x2="530" y2="360"/>
-    <rect x="400" y="320" width="100" height="80" rx="6"/>
-    <circle cx="520" cy="440" r="45"/>
-    <line x1="520" y1="395" x2="520" y2="485"/>
-    <line x1="475" y1="440" x2="565" y2="440"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" width="900" height="680" aria-hidden="true">
+  <!-- Early dawn sky -->
+  <path d="M0,280 Q225,256 450,278 Q675,300 900,268" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0,320 Q200,300 400,322 Q600,344 800,314 Q870,300 900,308" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Dawn light on horizon right -->
+  <path d="M600,320 L750,240" fill="none" stroke="#333" stroke-width="1.5" stroke-dasharray="6 16" stroke-linecap="round"/>
+  <path d="M640,340 L810,272" fill="none" stroke="#333" stroke-width="1.5" stroke-dasharray="6 16" stroke-linecap="round"/>
+  <!-- Ground -->
+  <path d="M0,524 Q225,508 450,526 Q675,544 900,516" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Tomb rock face right — partially visible -->
+  <path d="M620,240 Q680,220 720,238 Q760,258 780,298 Q800,340 798,390 Q796,436 782,470 Q770,498 750,510 Q720,520 690,516 Q660,512 640,496 Q618,478 614,448 Q608,408 612,358 Q614,308 620,240" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Rock texture -->
+  <path d="M648,270 Q678,260 708,266" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M628,320 Q660,308 694,312 Q722,316 748,306" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M618,380 Q650,370 682,372 Q712,374 740,364" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Tomb entrance arch in the rock face -->
+  <path d="M638,326 Q638,294 658,282 Q678,272 700,278 Q722,286 730,310 Q738,336 737,374 L736,504 Q718,512 698,514 Q676,512 657,504 L636,374 Z" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Inner arch darkness -->
+  <path d="M652,338 Q652,310 668,300 Q684,292 700,298 Q716,306 720,328 L720,498 Q706,506 700,506 Q692,506 678,502 L652,498 Z" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Stone rolled to side (partially visible) -->
+  <path d="M756,430 Q768,414 782,412 Q800,410 812,422 Q824,436 820,456 Q816,474 800,480 Q782,486 768,478 Q754,468 752,452 Q750,440 756,430" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Stone texture -->
+  <path d="M762,434 Q784,428 808,436" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round"/>
+  <!-- WOMAN 1 — head covering, carrying spice jar (x=300, walking right) -->
+  <circle cx="300" cy="230" r="40" fill="none" stroke="#0a0a0a" stroke-width="5.5"/>
+  <!-- Head covering veil -->
+  <path d="M260,218 C258,188 268,170 282,162 Q291,158 300,157 Q309,158 318,162 C332,170 342,188 340,218 C344,244 350,276 346,304 Q324,318 300,322 Q276,318 254,304 C250,276 256,244 260,218" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Veil drapery -->
+  <path d="M258,220 C252,248 250,280 252,306 Q268,322 300,326" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M342,220 C348,248 350,280 348,306 Q332,322 300,326" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Eyes (downcast, sorrowful) -->
+  <path d="M284,227 Q292,221 300,227" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M300,227 Q308,221 316,227" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M290,240 Q300,248 310,240" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Neck -->
+  <path d="M290,270 L288,292" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <path d="M310,270 L312,292" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <!-- Robe woman 1 -->
+  <path d="M288,292 Q250,296 222,308 C200,322 188,354 184,398 C178,446 180,496 184,544 Q240,562 300,564 Q360,562 416,544 C420,496 422,446 416,398 C412,354 400,322 378,308 Q350,296 312,292" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Robe folds -->
+  <path d="M295,302 Q288,398 290,558" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M282,308 Q272,404 274,556" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M312,306 Q322,402 320,556" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- LEFT ARM woman 1 — forward walking, carries spice jar -->
+  <path d="M222,314 Q180,350 166,410 Q162,440 164,466" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Spice jar / jar of ointment held in left hand -->
+  <!-- Jar body -->
+  <path d="M148,460 Q142,468 140,482 Q140,500 148,510 Q160,522 174,520 Q188,518 192,506 Q196,492 192,476 Q188,462 176,456 Q162,452 148,460" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Jar neck and top -->
+  <path d="M158,456 Q168,448 178,456" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <path d="M162,450 Q168,444 174,450" fill="none" stroke="#0d0d0d" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Jar texture lines -->
+  <path d="M148,476 Q168,472 190,476" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round"/>
+  <path d="M148,492 Q168,488 190,492" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round"/>
+  <!-- RIGHT ARM walking pose -->
+  <path d="M378,314 Q416,354 428,418 Q430,448 424,472" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M428,466 Q438,476 434,490 Q422,498 408,491 Q400,482 404,470" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- WOMAN 2 — behind woman 1 (x=162, slightly smaller/farther, veil) -->
+  <circle cx="140" cy="256" r="34" fill="none" stroke="#0a0a0a" stroke-width="5"/>
+  <!-- Veil woman 2 -->
+  <path d="M108,246 C106,218 114,202 126,196 Q133,192 140,191 Q147,192 154,196 C166,202 174,218 172,246 C175,268 180,296 177,320 Q159,332 140,336 Q121,332 103,320 C100,296 105,268 108,246" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Eyes woman 2 -->
+  <path d="M126,253 Q133,247 140,253" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M140,253 Q147,247 154,253" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M130,264 Q140,272 150,264" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Neck woman 2 -->
+  <path d="M131,290 L130,310" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <path d="M149,290 L150,310" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <!-- Robe woman 2 (narrower) -->
+  <path d="M130,310 Q104,314 84,324 C64,338 54,366 50,404 C46,446 48,490 52,530 Q96,546 140,548 Q184,546 228,530 C232,490 234,446 230,404 C226,366 216,338 196,324 Q176,314 150,310" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M136,320 Q129,412 130,542" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M122,326 Q113,418 115,540" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Arms woman 2 -->
+  <path d="M84,330 Q52,366 42,420 Q38,448 40,472" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M196,330 Q228,368 236,426 Q238,454 232,478" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Flowers ground leading to tomb -->
+  <circle cx="470" cy="516" r="8" fill="none" stroke="#222" stroke-width="2.5"/>
+  <line x1="470" y1="524" x2="470" y2="544" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="538" cy="514" r="8" fill="none" stroke="#222" stroke-width="2.5"/>
+  <line x1="538" y1="522" x2="538" y2="542" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Grass -->
+  <path d="M828,518 Q836,504 844,518" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round"/>
+  <path d="M876,514 Q884,500 892,514" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
 </svg>

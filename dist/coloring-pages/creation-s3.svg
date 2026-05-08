@@ -1,15 +1,91 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="220" cy="140" r="48"/>
-    <path d="M172 140 A48 48 0 0 1 268 140"/>
-    <circle cx="620" cy="120" r="28"/>
-    <circle cx="580" cy="100" r="4"/>
-    <circle cx="650" cy="95" r="4"/>
-    <circle cx="680" cy="130" r="4"/>
-    <circle cx="720" cy="110" r="4"/>
-    <circle cx="750" cy="150" r="4"/>
-    <path d="M320 480 L380 380 L420 420 L480 340 L540 400 L600 320 L660 400 L720 360 L780 450"/>
-    <path d="M300 500 Q400 460 500 500 Q600 540 700 500"/>
-    <path d="M200 520 L240 440 L280 500 L340 400 L400 510 L460 420 L520 500"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" width="900" height="680" aria-hidden="true">
+  <!-- Sun — upper left -->
+  <circle cx="142" cy="132" r="60" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="142" cy="132" r="44" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="142" y1="66" x2="142" y2="28" stroke="#0d0d0d" stroke-width="4.5" stroke-linecap="round"/>
+  <line x1="142" y1="198" x2="142" y2="234" stroke="#0d0d0d" stroke-width="4.5" stroke-linecap="round"/>
+  <line x1="76" y1="132" x2="38" y2="132" stroke="#0d0d0d" stroke-width="4.5" stroke-linecap="round"/>
+  <line x1="208" y1="132" x2="244" y2="132" stroke="#0d0d0d" stroke-width="4.5" stroke-linecap="round"/>
+  <line x1="96" y1="86" x2="68" y2="56" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <line x1="188" y1="178" x2="216" y2="208" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <line x1="188" y1="86" x2="216" y2="56" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <line x1="96" y1="178" x2="68" y2="208" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <!-- Moon and stars — upper right -->
+  <path d="M792,56 Q838,62 858,100 Q878,140 862,180 Q844,220 804,230 Q822,202 826,170 Q830,136 816,104 Q802,76 792,56" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M812,88 Q826,128 820,168" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Stars -->
+  <path d="M698,58 L702,48 L706,58 L716,62 L706,66 L702,76 L698,66 L688,62 Z" fill="none" stroke="#111" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M828,38 L831,30 L834,38 L842,41 L834,44 L831,52 L828,44 L820,41 Z" fill="none" stroke="#111" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M750,93 L752,87 L754,93 L760,95 L754,97 L752,103 L750,97 L744,95 Z" fill="none" stroke="#111" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M862,128 L864,122 L866,128 L872,130 L866,132 L864,138 L862,132 L856,130 Z" fill="none" stroke="#111" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M658,118 L660,112 L662,118 L668,120 L662,122 L660,128 L658,122 L652,120 Z" fill="none" stroke="#111" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Central large tree (olive tree) -->
+  <!-- Trunk (two sides) -->
+  <path d="M436,542 Q430,478 424,414 Q418,352 428,296" fill="none" stroke="#0a0a0a" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M464,542 Q470,478 476,414 Q482,352 472,296" fill="none" stroke="#0a0a0a" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Trunk texture -->
+  <path d="M432,428 Q440,424 448,428" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M430,460 Q440,456 450,460" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M432,490 Q440,486 450,490" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Main branches -->
+  <path d="M430,306 Q388,266 348,238 Q318,218 298,223" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M470,300 Q512,262 554,236 Q584,218 602,224" fill="none" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M448,292 Q452,248 456,208" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Sub-branches left -->
+  <path d="M368,256 Q338,228 314,220" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M348,242 Q326,206 308,194" fill="none" stroke="#0d0d0d" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M388,268 Q360,240 348,216" fill="none" stroke="#0d0d0d" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Sub-branches right -->
+  <path d="M532,250 Q562,222 586,216" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M554,236 Q574,202 592,190" fill="none" stroke="#0d0d0d" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M510,262 Q540,234 552,212" fill="none" stroke="#0d0d0d" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Top sub-branches -->
+  <path d="M454,214 Q420,186 400,168" fill="none" stroke="#0d0d0d" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M457,210 Q490,180 508,162" fill="none" stroke="#0d0d0d" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Leaf clusters — rounded oval groups -->
+  <ellipse cx="292" cy="218" rx="36" ry="30" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round"/>
+  <ellipse cx="314" cy="192" rx="28" ry="24" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="266" cy="198" rx="24" ry="20" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="608" cy="216" rx="36" ry="30" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round"/>
+  <ellipse cx="586" cy="190" rx="28" ry="24" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="634" cy="196" rx="24" ry="20" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="394" cy="160" rx="30" ry="26" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="512" cy="154" rx="30" ry="26" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="453" cy="144" rx="34" ry="30" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round"/>
+  <!-- Ground and hills -->
+  <path d="M0,418 Q180,378 360,408 Q540,438 720,393 Q842,360 900,376" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0,448 Q140,418 280,442 Q420,466 560,434 Q700,402 900,428" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0,528 Q225,512 450,530 Q675,548 900,520" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Flowers foreground -->
+  <circle cx="178" cy="520" r="14" fill="none" stroke="#0d0d0d" stroke-width="4"/>
+  <circle cx="178" cy="520" r="6" fill="none" stroke="#0d0d0d" stroke-width="3"/>
+  <line x1="178" y1="534" x2="178" y2="566" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <path d="M164,508 Q178,498 192,508" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <path d="M164,532 Q178,542 192,532" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <line x1="164" y1="520" x2="150" y2="520" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <line x1="192" y1="520" x2="206" y2="520" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <path d="M162,552 Q170,542 178,546" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M194,550 Q186,540 178,546" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <!-- Flower 2 -->
+  <circle cx="288" cy="513" r="12" fill="none" stroke="#0d0d0d" stroke-width="4"/>
+  <circle cx="288" cy="513" r="5" fill="none" stroke="#0d0d0d" stroke-width="3"/>
+  <line x1="288" y1="525" x2="288" y2="556" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <path d="M276,501 Q288,492 300,501" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <path d="M276,525 Q288,534 300,525" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <line x1="276" y1="513" x2="264" y2="513" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <line x1="300" y1="513" x2="312" y2="513" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <!-- Flower 3 right -->
+  <circle cx="678" cy="516" r="14" fill="none" stroke="#0d0d0d" stroke-width="4"/>
+  <circle cx="678" cy="516" r="6" fill="none" stroke="#0d0d0d" stroke-width="3"/>
+  <line x1="678" y1="530" x2="678" y2="562" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <path d="M662,504 Q678,494 694,504" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <path d="M662,528 Q678,538 694,528" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <line x1="664" y1="516" x2="650" y2="516" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <line x1="692" y1="516" x2="706" y2="516" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <!-- Grass tufts -->
+  <path d="M118,532 Q126,518 134,532" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round"/>
+  <path d="M380,524 Q388,510 396,524" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round"/>
+  <path d="M498,530 Q506,516 514,530" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round"/>
+  <path d="M758,526 Q766,512 774,526" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round"/>
+  <path d="M808,522 Q816,508 824,522" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
 </svg>

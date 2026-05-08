@@ -65,13 +65,86 @@
   };
 
   var PALETTE = [
-    'rgba(220, 38, 38, 0.95)',
-    'rgba(37, 99, 235, 0.95)',
-    'rgba(234, 179, 8, 0.95)',
-    'rgba(22, 163, 74, 0.95)',
-    'rgba(126, 34, 206, 0.95)',
+    /* warm reds & pinks */
+    'rgba(214, 40, 40, 0.92)',
+    'rgba(236, 100, 100, 0.92)',
+    'rgba(255, 182, 193, 0.92)',
+    /* oranges */
+    'rgba(230, 110, 20, 0.92)',
+    'rgba(255, 165, 0, 0.92)',
+    /* yellows */
+    'rgba(240, 200, 18, 0.92)',
+    'rgba(255, 240, 150, 0.92)',
+    /* greens */
+    'rgba(34, 139, 34, 0.92)',
+    'rgba(120, 190, 80, 0.92)',
+    /* blues */
+    'rgba(37, 99, 235, 0.92)',
+    'rgba(100, 170, 230, 0.92)',
+    /* purples & violets */
+    'rgba(126, 34, 206, 0.92)',
+    'rgba(195, 130, 220, 0.92)',
+    /* earth tones */
+    'rgba(139, 90, 43, 0.92)',
+    'rgba(205, 170, 125, 0.92)',
+    /* skin tones */
+    'rgba(255, 219, 172, 0.92)',
+    'rgba(198, 134, 66, 0.92)',
+    /* grays & blacks */
+    'rgba(60, 60, 60, 0.92)',
+    'rgba(160, 160, 160, 0.92)',
+    /* eraser — must stay last */
     'white'
   ];
+
+  /**
+   * PRO IMAGE SWAP SYSTEM
+   * Drop a professional PNG into /coloring-pages/ using the naming convention below,
+   * and it will automatically replace the matching SVG scene on next page load.
+   * No code changes needed — just place the file.
+   *
+   * Naming convention:  <story-id>-pro.png
+   * Examples:
+   *   /coloring-pages/creation-pro.png        → replaces creation-s2 (Let There Be Light)
+   *   /coloring-pages/jesus-children-pro.png  → replaces jesus-children-s2 (Jesus holding child)
+   *   /coloring-pages/good-shepherd-pro.png   → replaces good-shepherd-s3 (Carrying the lamb)
+   *   /coloring-pages/empty-tomb-pro.png      → replaces empty-tomb-s1 (Stone rolled away)
+   *   /coloring-pages/noah-pro.png            → replaces noah-s4 (Rainbow covenant)
+   *   /coloring-pages/david-pro.png           → replaces david-s4 (David with harp)
+   *
+   * Sources with excellent thick-line professional Bible coloring art:
+   *   ministry-to-children.com/bible-coloring-pages/
+   *   freebibleimages.org
+   *   ministryspark.com/52-bible-coloring-pages/
+   */
+
+  /** Maps the SVG src of each hero scene → the pro PNG path to use instead when available. */
+  var TDB_PRO_SOURCES = {
+    '/coloring-pages/creation-s2.svg':       '/coloring-pages/creation-pro.png',
+    '/coloring-pages/jesus-children-s2.svg': '/coloring-pages/jesus-children-pro.png',
+    '/coloring-pages/good-shepherd-s3.svg':  '/coloring-pages/good-shepherd-pro.png',
+    '/coloring-pages/empty-tomb-s1.svg':     '/coloring-pages/empty-tomb-pro.png',
+    '/coloring-pages/noah-s4.svg':           '/coloring-pages/noah-pro.png',
+    '/coloring-pages/david-s4.svg':          '/coloring-pages/david-pro.png'
+  };
+
+  /** Populated at init — only entries where the pro PNG actually loaded (HTTP 200). */
+  var TDB_PRO_LOADED = {};
+
+  /** Pre-probe each pro path at module init time. Fire-and-forget. */
+  (function probePro() {
+    Object.keys(TDB_PRO_SOURCES).forEach(function (svgKey) {
+      var proPath = TDB_PRO_SOURCES[svgKey];
+      var probe = new window.Image();
+      probe.onload = function () { TDB_PRO_LOADED[svgKey] = proPath; };
+      probe.src = proPath;
+    });
+  }());
+
+  /** Returns the best available src for a scene — pro PNG if loaded, SVG otherwise. */
+  function bestSceneSrc(scene) {
+    return TDB_PRO_LOADED[scene.src] || scene.src;
+  }
 
   /** KJV refs in captions — short for on-screen (OT first, then Gospels) */
   var STORIES = [
@@ -3354,7 +3427,7 @@
     jl.setAttribute('maxbrushsize', '56');
     jl.setAttribute('css', '/kids/jl-coloringbook-tdb.css');
     var im = document.createElement('img');
-    im.src = scene.src;
+    im.src = bestSceneSrc(scene);
     im.alt = scene.alt;
     jl.appendChild(im);
     for (var c = 0; c < PALETTE.length; c++) {
@@ -3625,7 +3698,7 @@
       card.className = 'tdb-cat-progress-card';
       var thumb = document.createElement('img');
       thumb.className = 'tdb-cat-progress-card-thumb';
-      thumb.src = story.scenes[0].src;
+      thumb.src = bestSceneSrc(story.scenes[0]);
       thumb.alt = '';
       thumb.loading = 'lazy';
       var title = document.createElement('p');

@@ -1,9 +1,82 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="320" cy="280" r="55"/>
-    <line x1="320" y1="335" x2="320" y2="480"/>
-    <line x1="320" y1="400" x2="250" y2="450"/>
-    <line x1="320" y1="400" x2="390" y2="450"/>
-    <path d="M400 360 L520 320 L480 400 Z"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" width="900" height="680" aria-hidden="true">
+  <!-- Evening sky with stars — David often played outdoors at dusk -->
+  <path d="M110,52 L112,44 L114,52 L122,54 L114,56 L112,64 L110,56 L102,54 Z" fill="none" stroke="#333" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M400,38 L402,30 L404,38 L412,40 L404,42 L402,50 L400,42 L392,40 Z" fill="none" stroke="#333" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M700,60 L702,52 L704,60 L712,62 L704,64 L702,72 L700,64 L692,62 Z" fill="none" stroke="#333" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M820,38 L821,33 L822,38 L827,40 L822,42 L821,47 L820,42 L815,40 Z" fill="none" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Rolling hillside -->
+  <path d="M0,290 Q180,258 360,286 Q540,314 720,272 Q840,244 900,260" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0,330 Q200,302 400,328 Q600,354 800,320 Q870,302 900,310" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Ground -->
+  <path d="M0,526 Q225,510 450,528 Q675,546 900,518" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Rock David sits on -->
+  <path d="M296,508 Q306,486 332,476 Q368,464 408,468 Q440,472 456,488 Q466,502 462,524 Q458,542 438,550 Q410,560 374,558 Q340,556 316,544 Q298,532 296,520 Q295,514 296,508" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M318,482 Q346,474 376,476" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M308,500 Q340,492 372,494 Q402,496 432,486" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round"/>
+  <!-- YOUNG DAVID seated on rock (boy, shorter proportions, x=380) -->
+  <!-- Head — boy, no beard, round youthful face -->
+  <circle cx="380" cy="318" r="38" fill="none" stroke="#0a0a0a" stroke-width="5"/>
+  <!-- Hair (curly/wavy boy hair) -->
+  <path d="M344,308 Q348,278 360,270 Q369,264 378,262 Q388,264 396,270 Q410,278 416,308" fill="none" stroke="#0a0a0a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Curly hair detail on sides -->
+  <path d="M344,308 Q340,326 342,348 Q350,366 360,374" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M416,308 Q420,326 418,348 Q410,366 400,374" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Eyes (bright, joyful) -->
+  <path d="M364,316 Q372,308 380,316" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M380,316 Q388,308 396,316" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <!-- Eyebrows -->
+  <path d="M362,308 Q372,302 382,308" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M378,308 Q388,302 398,308" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Nose (youthful) -->
+  <path d="M378,324 Q374,335 376,341 Q380,345 384,341 Q386,335 382,324" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Smile — happy, peaceful -->
+  <path d="M368,350 Q380,360 392,350" fill="none" stroke="#0d0d0d" stroke-width="3" stroke-linecap="round"/>
+  <!-- Neck -->
+  <path d="M371,356 L369,374" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <path d="M389,356 L391,374" fill="none" stroke="#0d0d0d" stroke-width="4" stroke-linecap="round"/>
+  <!-- Tunic robe (boy, seated) -->
+  <path d="M369,374 Q338,378 316,390 C298,404 290,432 288,466 C286,498 289,522 292,544 Q334,558 380,560 Q426,558 468,544 C471,522 474,498 472,466 C470,432 462,404 444,390 Q422,378 391,374" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Belt -->
+  <path d="M300,450 Q380,442 460,450" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Robe folds -->
+  <path d="M375,384 Q368,460 370,554" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M362,390 Q352,466 354,552" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M393,388 Q402,464 400,552" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- LEFT ARM holding lyre/harp -->
+  <path d="M316,396 Q280,418 260,460 Q252,488 253,514" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Left hand supporting harp bottom -->
+  <path d="M248,508 Q234,518 236,532 Q248,542 264,536 Q274,526 270,514 Q260,506 250,506" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- RIGHT ARM plucking harp strings -->
+  <path d="M444,396 Q480,420 498,466 Q504,492 500,518" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Right hand -->
+  <path d="M504,512 Q516,522 514,536 Q502,546 488,540 Q480,530 484,518 Q494,510 504,510" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- LYRE / HARP — held between hands -->
+  <!-- Harp frame: curved body + two upright arms + curved neck -->
+  <!-- Sound box base -->
+  <path d="M242,508 Q246,480 248,452 Q250,424 252,400 Q254,372 258,350" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M516,504 Q510,476 508,448 Q506,420 504,396 Q502,368 498,346" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Harp neck (curved top bar connecting) -->
+  <path d="M258,350 Q320,296 380,278 Q440,296 498,346" fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Harp strings (5 strings) -->
+  <path d="M272,460 Q340,380 484,458" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M270,480 Q340,400 488,478" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M268,500 Q338,422 492,498" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M268,518 Q338,442 494,516" fill="none" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M278,432 Q344,360 480,436" fill="none" stroke="#0d0d0d" stroke-width="2" stroke-linecap="round"/>
+  <!-- SHEEP in background -->
+  <path d="M630,438 Q638,426 652,422 Q670,418 682,426 Q692,434 691,448 Q689,462 678,468 Q660,474 644,468 Q630,460 628,448 Q626,442 630,438" fill="none" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="622" cy="448" r="18" fill="none" stroke="#0a0a0a" stroke-width="4"/>
+  <circle cx="616" cy="446" r="3" fill="none" stroke="#0d0d0d" stroke-width="2.5"/>
+  <line x1="636" y1="468" x2="632" y2="494" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <line x1="650" y1="472" x2="648" y2="498" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <line x1="666" y1="472" x2="665" y2="498" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <line x1="680" y1="468" x2="680" y2="494" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
+  <!-- Second sheep farther back -->
+  <path d="M748,446 Q754,436 764,432 Q776,428 784,434 Q792,440 791,452 Q789,464 782,468 Q770,472 758,468 Q747,462 745,452 Q743,448 748,446" fill="none" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="740" cy="452" r="15" fill="none" stroke="#0a0a0a" stroke-width="3.5"/>
+  <!-- Grass and flowers -->
+  <path d="M54,528 Q62,514 70,528" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round"/>
+  <path d="M840,520 Q848,506 856,520" fill="none" stroke="#222" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="558" cy="518" r="7" fill="none" stroke="#222" stroke-width="2.5"/>
+  <line x1="558" y1="525" x2="558" y2="546" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
 </svg>

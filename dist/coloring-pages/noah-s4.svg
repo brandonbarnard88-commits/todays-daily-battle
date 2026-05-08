@@ -1,7 +1,156 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M120 440 L780 440 L700 520 L200 520 Z"/>
-    <path d="M140 220 Q260 120 380 200 Q500 120 620 200 Q740 120 860 220"/>
-    <line x1="200" y1="220" x2="800" y2="220"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" width="900" height="680" aria-hidden="true">
+
+  <!-- RAINBOW — 5 concentric arcs spanning full canvas width -->
+  <!-- Arc 1 outermost (red) -->
+  <path d="M0,480 Q450,-60 900,480" fill="none" stroke="#111" stroke-width="17" stroke-linecap="round"/>
+  <!-- Arc 2 (orange) -->
+  <path d="M28,492 Q450,0 872,492" fill="none" stroke="#111" stroke-width="15" stroke-linecap="round"/>
+  <!-- Arc 3 (yellow) -->
+  <path d="M56,504 Q450,58 844,504" fill="none" stroke="#111" stroke-width="13" stroke-linecap="round"/>
+  <!-- Arc 4 (green) -->
+  <path d="M84,516 Q450,112 816,516" fill="none" stroke="#111" stroke-width="11" stroke-linecap="round"/>
+  <!-- Arc 5 innermost (blue/violet) -->
+  <path d="M112,528 Q450,164 788,528" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+
+  <!-- SUN emerging from left side clouds -->
+  <path d="M0,220 Q20,200 48,206 Q40,178 64,166 Q74,188 72,210 Q92,190 114,194 Q110,218 94,232 Q114,232 118,254 Q96,258 74,248 Q74,266 54,272 Q40,256 46,234 Q24,242 0,232 Z" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Sun rays hints -->
+  <line x1="118" y1="220" x2="138" y2="220" stroke="#111" stroke-width="10" stroke-linecap="round"/>
+  <line x1="100" y1="196" x2="114" y2="180" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <line x1="100" y1="248" x2="116" y2="264" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- CLOUDS left group -->
+  <circle cx="178" cy="162" r="42" fill="none" stroke="#111" stroke-width="16"/>
+  <circle cx="222" cy="142" r="36" fill="none" stroke="#111" stroke-width="16"/>
+  <circle cx="262" cy="154" r="32" fill="none" stroke="#111" stroke-width="16"/>
+  <circle cx="140" cy="176" r="30" fill="none" stroke="#111" stroke-width="14"/>
+  <path d="M108,196 Q180,210 296,196" fill="none" stroke="#111" stroke-width="16" stroke-linecap="round"/>
+
+  <!-- CLOUDS right group -->
+  <circle cx="722" cy="158" r="42" fill="none" stroke="#111" stroke-width="16"/>
+  <circle cx="678" cy="138" r="36" fill="none" stroke="#111" stroke-width="16"/>
+  <circle cx="638" cy="150" r="32" fill="none" stroke="#111" stroke-width="16"/>
+  <circle cx="760" cy="172" r="30" fill="none" stroke="#111" stroke-width="14"/>
+  <path d="M604,192 Q720,206 792,192" fill="none" stroke="#111" stroke-width="16" stroke-linecap="round"/>
+
+  <!-- MOUNTAIN LEFT under ark -->
+  <path d="M0,580 Q100,430 260,370 Q360,334 450,330 Q540,334 640,370 Q800,430 900,580" fill="none" stroke="#111" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Mountain ridgeline detail -->
+  <path d="M60,570 Q160,458 280,400 Q360,362 450,360" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M840,570 Q740,458 620,400 Q540,362 450,360" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <!-- Mountain snow cap lines -->
+  <path d="M370,358 Q410,344 450,340 Q490,344 530,358" fill="none" stroke="#111" stroke-width="10" stroke-linecap="round"/>
+  <path d="M394,368 Q420,356 450,352 Q480,356 506,368" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- RECEDING FLOOD WATERS (lower portion) -->
+  <!-- Water line with gentle waves -->
+  <path d="M0,640 Q60,624 120,640 Q180,656 240,640 Q300,624 360,640 Q420,656 480,640 Q540,624 600,640 Q660,656 720,640 Q780,624 840,640 Q870,648 900,636 L900,680 L0,680 Z" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Wave details -->
+  <path d="M0,648 Q50,636 100,648 Q150,660 200,648 Q250,636 300,648 Q350,660 400,648 Q450,636 500,648 Q550,660 600,648 Q650,636 700,648 Q750,660 800,648 Q850,636 900,648" fill="none" stroke="#111" stroke-width="10" stroke-linecap="round"/>
+
+  <!-- ARK — large vessel, high on mountain -->
+  <!-- Hull main body -->
+  <path d="M212,458 Q220,374 258,354 L642,354 Q680,374 688,458 Z" fill="none" stroke="#111" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Keel bottom curve -->
+  <path d="M214,456 Q340,484 450,486 Q560,484 686,456" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round"/>
+  <!-- Hull planking lines (horizontal) -->
+  <path d="M222,390 Q450,382 678,390" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M220,418 Q450,408 680,418" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M218,446 Q450,434 682,446" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <!-- Hull frame ribs (vertical) -->
+  <path d="M290,356 Q286,396 280,442" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M360,354 Q356,394 350,440" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M450,354 L450,452" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M540,354 Q544,394 550,440" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M610,356 Q614,396 620,442" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- UPPER DECK / CABIN -->
+  <!-- Cabin walls -->
+  <path d="M278,354 L278,298 L622,298 L622,354" fill="none" stroke="#111" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Cabin roof (pitched) -->
+  <path d="M258,298 Q450,246 642,298" fill="none" stroke="#111" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Roof ridge beam -->
+  <path d="M450,248 L450,298" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <!-- Roof planking -->
+  <path d="M334,268 Q394,252 450,248 Q506,252 566,268" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M306,282 Q380,262 450,258 Q520,262 594,282" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- WINDOWS in cabin -->
+  <!-- Left window -->
+  <rect x="308" y="308" width="52" height="38" rx="6" fill="none" stroke="#111" stroke-width="11"/>
+  <line x1="334" y1="308" x2="334" y2="346" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <line x1="308" y1="327" x2="360" y2="327" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <!-- Center window -->
+  <rect x="424" y="308" width="52" height="38" rx="6" fill="none" stroke="#111" stroke-width="11"/>
+  <line x1="450" y1="308" x2="450" y2="346" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <line x1="424" y1="327" x2="476" y2="327" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <!-- Right window -->
+  <rect x="540" y="308" width="52" height="38" rx="6" fill="none" stroke="#111" stroke-width="11"/>
+  <line x1="566" y1="308" x2="566" y2="346" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <line x1="540" y1="327" x2="592" y2="327" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- DOOR opening on side -->
+  <path d="M628,298 Q640,286 652,298 L652,350 L628,350 Z" fill="none" stroke="#111" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- DOVE WITH OLIVE BRANCH — prominent, center sky -->
+  <!-- Dove body -->
+  <ellipse cx="450" cy="268" rx="34" ry="18" fill="none" stroke="#111" stroke-width="14"/>
+  <!-- Dove head -->
+  <circle cx="482" cy="256" r="14" fill="none" stroke="#111" stroke-width="13"/>
+  <!-- Dove eye -->
+  <circle cx="486" cy="253" r="4" fill="none" stroke="#111" stroke-width="8"/>
+  <!-- Dove beak with branch -->
+  <path d="M496,260 Q508,258 520,252" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <!-- Olive branch from beak -->
+  <path d="M520,252 Q534,244 548,250 Q540,262 524,258" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Olive leaves -->
+  <path d="M528,244 Q532,236 540,242 Q536,252 528,248" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M540,248 Q548,240 554,248 Q550,256 542,254" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Dove left wing spread (descending) -->
+  <path d="M416,264 Q384,244 356,258 Q362,278 390,280 Q404,282 416,272" fill="none" stroke="#111" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Wing feather tips -->
+  <path d="M368,260 Q372,272 382,272" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M380,256 Q386,268 396,270" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M396,252 Q404,264 412,266" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <!-- Dove tail fan -->
+  <path d="M416,280 Q424,298 416,308 Q406,296 410,280" fill="none" stroke="#111" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M418,280 Q432,300 426,312 Q416,300 418,280" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M420,278 Q438,296 434,310 Q424,298 422,278" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- NOAH FIGURE on deck (small but detailed silhouette) -->
+  <!-- Head -->
+  <circle cx="326" cy="274" r="18" fill="none" stroke="#111" stroke-width="13"/>
+  <!-- Hair/beard rough mass -->
+  <path d="M308,268 Q310,252 326,246 Q342,252 344,268" fill="none" stroke="#111" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M308,278 Q310,290 322,296 Q334,292 340,278" fill="none" stroke="#111" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Eyes -->
+  <path d="M318,272 Q324,267 330,272" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <!-- Robe body -->
+  <path d="M308,292 Q296,302 292,320 Q290,334 292,350 Q310,354 326,356 Q342,354 360,350 Q362,334 360,320 Q356,302 344,292" fill="none" stroke="#111" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Arms raised praising -->
+  <path d="M296,302 Q276,288 268,272 Q276,262 288,266 Q296,278 298,296" fill="none" stroke="#111" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M356,302 Q374,288 382,272 Q374,262 362,266 Q354,278 352,296" fill="none" stroke="#111" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- SECOND FAMILY MEMBER on deck -->
+  <circle cx="526" cy="277" r="16" fill="none" stroke="#111" stroke-width="12"/>
+  <path d="M510,264 Q512,250 526,244 Q540,250 542,264" fill="none" stroke="#111" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M512,292 Q500,302 498,320 Q498,334 500,350 Q514,354 526,356 Q538,354 554,350 Q556,334 554,320 Q552,302 540,292" fill="none" stroke="#111" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- ANIMAL PAIR on deck — dove returning suggests other animals visible -->
+  <!-- Giraffe neck peeking over cabin roof on right -->
+  <path d="M664,286 Q668,256 672,224 Q676,200 680,186" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round"/>
+  <path d="M674,286 Q678,256 684,224 Q688,200 692,186" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round"/>
+  <!-- Giraffe head -->
+  <ellipse cx="686" cy="180" rx="18" ry="14" fill="none" stroke="#111" stroke-width="13"/>
+  <!-- Giraffe ossicones -->
+  <line x1="679" y1="167" x2="676" y2="152" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="676" cy="150" r="5" fill="none" stroke="#111" stroke-width="9"/>
+  <line x1="690" y1="168" x2="694" y2="154" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="694" cy="152" r="5" fill="none" stroke="#111" stroke-width="9"/>
+  <!-- Giraffe eye -->
+  <circle cx="693" cy="178" r="5" fill="none" stroke="#111" stroke-width="8"/>
+  <!-- Giraffe spots on neck -->
+  <path d="M666,248 Q670,244 676,248 Q672,254 666,250" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M672,224 Q678,220 684,224 Q680,230 674,226" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
 </svg>

@@ -1,24 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" width="200" height="220" role="img" aria-labelledby="peT">
-  <title id="peT">Little Shepherd points, excited for your surprise story</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 200" width="160" height="200" role="img" aria-labelledby="sm-pe-t">
+  <title id="sm-pe-t">Little Shepherd points to your surprise story</title>
   <defs>
-    <radialGradient id="gE" cx="45%" cy="40%" r="50%">
-      <stop offset="0%" stop-color="#fffbeb"/>
-      <stop offset="100%" stop-color="#fcd34d"/>
+    <radialGradient id="fg-pe" cx="40%" cy="35%" r="58%">
+      <stop offset="0%" stop-color="#fffbf0"/>
+      <stop offset="100%" stop-color="#fde68a"/>
     </radialGradient>
-    <linearGradient id="gGrE" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#bae6fd"/>
-      <stop offset="100%" stop-color="#86efac"/>
-    </linearGradient>
   </defs>
-  <ellipse cx="100" cy="200" rx="95" ry="16" fill="rgba(14,165,233,0.12)"/>
-  <rect x="0" y="170" width="200" height="50" fill="url(#gGrE)" opacity="0.5"/>
-  <circle cx="100" cy="90" r="33" fill="url(#gE)" stroke="#b45309" stroke-width="2.5"/>
-  <circle cx="90" cy="85" r="4" fill="#1e293b"/>
-  <circle cx="110" cy="85" r="4" fill="#1e293b"/>
-  <path d="M90 100 Q100 108 110 100" fill="none" stroke="#1e293b" stroke-width="2" stroke-linecap="round"/>
-  <rect x="65" y="120" width="50" height="45" rx="8" fill="#0ea5e9" fill-opacity="0.18" stroke="#0ea5e9" stroke-width="2"/>
-  <line x1="100" y1="50" x2="100" y2="75" stroke="#5c3d2e" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="100" y1="55" x2="168" y2="28" stroke="#5c3d2e" stroke-width="3" stroke-linecap="round"/>
-  <circle cx="175" cy="25" r="7" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
-  <path d="M175 20 L180 8 L190 20 Z" fill="#f59e0b" opacity="0.95" aria-hidden="true"/>
+  <!-- robe (slightly angled — excited lean) -->
+  <path d="M50,105 C46,124 41,157 39,192 L121,192 C119,157 114,124 110,105 Z" fill="#fef9eb" stroke="#c9a55a" stroke-width="2" stroke-linejoin="round"/>
+  <line x1="69" y1="108" x2="63" y2="148" stroke="#c9a55a" stroke-width="1.2" opacity="0.45" stroke-linecap="round"/>
+  <line x1="91" y1="108" x2="97" y2="148" stroke="#c9a55a" stroke-width="1.2" opacity="0.45" stroke-linecap="round"/>
+  <!-- left arm (down/back) -->
+  <path d="M52,112 Q43,133 39,153" fill="none" stroke="#c9a55a" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="38" cy="155" r="7" fill="#fef3c7" stroke="#d97706" stroke-width="1.6"/>
+  <!-- right arm (pointing up and forward — excited) -->
+  <path d="M108,112 Q124,100 138,86" fill="none" stroke="#c9a55a" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="140" cy="84" r="5.5" fill="#fef3c7" stroke="#d97706" stroke-width="1.6"/>
+  <!-- small star burst near pointing hand -->
+  <path d="M144,76 L146,71 L148,76 L153,74 L149,78 L153,82 L148,80 L146,85 L144,80 L139,82 L143,78 L139,74 Z" fill="#fde68a" stroke="#d97706" stroke-width="1" opacity="0.7"/>
+  <!-- woolly bumps -->
+  <circle cx="63" cy="57" r="13" fill="#fef9eb" stroke="#d97706" stroke-width="1.8"/>
+  <circle cx="80" cy="50" r="15" fill="#fef9eb" stroke="#d97706" stroke-width="1.8"/>
+  <circle cx="97" cy="57" r="12" fill="#fef9eb" stroke="#d97706" stroke-width="1.8"/>
+  <!-- face -->
+  <circle cx="80" cy="78" r="30" fill="url(#fg-pe)" stroke="#d97706" stroke-width="2"/>
+  <!-- bright excited eyes -->
+  <circle cx="70" cy="73" r="5" fill="#2d1a0e"/>
+  <circle cx="72" cy="71.5" r="1.5" fill="#fff" opacity="0.8"/>
+  <circle cx="90" cy="73" r="5" fill="#2d1a0e"/>
+  <circle cx="92" cy="71.5" r="1.5" fill="#fff" opacity="0.8"/>
+  <!-- excited big smile -->
+  <path d="M67,87 Q80,99 93,87" fill="none" stroke="#92400e" stroke-width="2.6" stroke-linecap="round"/>
+  <ellipse cx="63" cy="83" rx="6" ry="3.5" fill="#f87171" opacity="0.24"/>
+  <ellipse cx="97" cy="83" rx="6" ry="3.5" fill="#f87171" opacity="0.24"/>
 </svg>

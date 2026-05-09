@@ -307,6 +307,58 @@
         margin-bottom: 1.1rem;
       }
     }
+    .memorize-hero-tagline {
+      font-size: 0.97rem;
+      color: rgba(245,247,251,0.7);
+      margin: 0.1rem 0 0.8rem;
+      font-style: italic;
+    }
+    .memorize-hero-lead {
+      font-size: 1.05rem;
+      line-height: 1.55;
+      max-width: 44rem;
+      color: rgba(245,247,251,0.82);
+      margin: 0 0 0.9rem;
+    }
+    .memorize-pills {
+      background: rgba(227,188,103,0.07);
+      border: 1px solid rgba(227,188,103,0.22);
+      padding: 0.7rem 1rem;
+      border-radius: 12px;
+      margin: 0.65rem 0 0.85rem;
+      font-size: 0.855rem;
+      color: rgba(245,247,251,0.68);
+      letter-spacing: 0.01em;
+    }
+    .memorize-reassurance {
+      font-size: 0.92rem;
+      font-style: italic;
+      color: var(--muted, #8896b0);
+      margin: 0 0 0.9rem;
+    }
+    .memorize-quickstart-card {
+      background-color: var(--tdb-surface-card-bg);
+      background-image: var(--tdb-surface-veil-subtle);
+      border: 1px solid var(--tdb-surface-card-border);
+      box-shadow: var(--tdb-surface-card-shadow);
+      border-radius: var(--tdb-surface-radius);
+      padding: 1.2rem 1.15rem 1.1rem;
+      margin: 1rem 0 0.75rem;
+    }
+    .memorize-quickstart-card h3 {
+      font-size: 1.02rem;
+      margin: 0 0 0.3rem;
+      color: var(--gold);
+    }
+    .mqsc-icon { font-size: 1.5rem; display: block; margin-bottom: 0.3rem; }
+    .mqsc-lead {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin: 0 0 0.8rem;
+      line-height: 1.45;
+    }
+    .mqsc-actions { display: flex; flex-direction: column; gap: 0.55rem; }
+    .mqsc-actions .btn { width: 100%; }
   </style>
 </head>
 <body class="tdb-inner-page memorize-page">
@@ -378,11 +430,23 @@
     data-tdb-offline-page="memorize"
   ><p class="offline-msg"></p></div>
   <main id="main" class="mem-main tdb-calm-hub tdb-quiet-container porch-section">
-    <header id="memorize-overview" class="mem-intro-panel" aria-labelledby="mem-page-title" tabindex="-1">
-      <h1 id="mem-page-title">Memorize</h1>
-      <p class="section-note util-mb-0_5 topic-mood-porch">You&rsquo;re already welcome here&mdash;memory is practice, not a contest.</p>
-      <p class="subtitle">Private &mdash; everything stays on this device</p>
-      <p class="lead">Quiet tools to hide God&rsquo;s Word in your heart. No streaks, no scores, no competition&mdash;just gentle repetition that still works on hard days. Verses you keep in <a href="/mystudy?tab=library#saved-verses" style="color:var(--gold);text-decoration:underline;text-underline-offset:2px;">My Study</a> have a Memorize link on each card.</p>
+    <header id="memorize-overview" class="mem-intro-panel memorize-hero" aria-labelledby="mem-page-title" tabindex="-1">
+      <h1 id="mem-page-title" style="margin-bottom:0.1rem;">Memorize</h1>
+      <p class="lead" style="margin-bottom:0.35rem;">You are not behind.</p>
+      <p class="memorize-hero-tagline">Some days you just need one verse that stays with you.</p>
+      <p class="memorize-hero-lead">No streaks. No pressure. Just gentle practice with God&rsquo;s Word&mdash;for you, your family, or your next sermon.</p>
+      <div class="memorize-pills" aria-label="Feature highlights">KJV only &bull; No scores &bull; Spaced gently &bull; Works offline &bull; Print anytime</div>
+      <p class="memorize-reassurance">The Lord meets you right where you are. One verse, one small step, one honest try is enough.</p>
+      <div class="memorize-quickstart-card">
+        <span class="mqsc-icon" aria-hidden="true">📖</span>
+        <h3>Start with today&rsquo;s verse?</h3>
+        <p class="mqsc-lead">One tap adds it to your list and opens gentle spaced practice.</p>
+        <div class="mqsc-actions">
+          <button type="button" class="btn btn-primary" id="mem-add-today-verse">Add Today&rsquo;s Verse &amp; Start &rarr;</button>
+          <a href="/plans.html" class="btn btn-secondary">Or browse themed plans</a>
+        </div>
+      </div>
+      <p class="subtitle" style="margin-top:0.25rem;">Private &mdash; everything stays on this device. Verses you keep in <a href="/mystudy?tab=library#saved-verses" style="color:var(--gold);text-decoration:underline;text-underline-offset:2px;">My Study</a> have a Memorize link on each card.</p>
       <p class="section-note mem-year-round-bridge" style="margin:0.85rem 0 0;max-width:38rem;line-height:1.55">Families &amp; classrooms: the same gentle <strong>month-by-month KJV grid</strong> (mark learning or memorized on this device) lives on <a href="/yearly-rhythm.html#yr-memory">Year-round rhythm</a> and <a href="/family.html#family-year-round-memory">Family hub</a>. <a href="/year-at-a-glance.html">Year at a glance</a> prints every month plus seasonal doors on one page. Calm practice ideas (no quizzes): <a href="/church-sharing-kit.html#csk-memory-verse-activities">Memory Verse Activities</a> in the Church Sharing Kit &middot; <a href="/memory-verse-activities-print.html">one-page print sheet</a>.</p>
     </header>
 
@@ -658,6 +722,39 @@
   <script src="bible-study-companion.js?v=20260328mem"></script>
   <script src="tdb-offline-strip.js?v=20260329pass2off"></script>
   <script src="memorize.js?v=20260430a11y-print"></script>
+  <script nonce="tdb2025s">
+  (function () {
+    'use strict';
+    var btn = document.getElementById('mem-add-today-verse');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var origText = btn.textContent;
+      btn.textContent = 'Loading\u2026';
+      btn.disabled = true;
+      function restore() { btn.textContent = origText; btn.disabled = false; }
+      fetch('/today-kjv-verse.json')
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (data) {
+          var ref = data && data.ref ? String(data.ref).trim() : '';
+          if (!ref) { restore(); return; }
+          var inp = document.getElementById('mem-ref-input');
+          var loadBtn = document.getElementById('mem-load-verse');
+          var addBtn = document.getElementById('mem-add-queue');
+          if (!inp || !loadBtn) { restore(); return; }
+          inp.value = ref;
+          loadBtn.click();
+          // Give async verse fetch time to resolve before adding to queue
+          setTimeout(function () {
+            if (addBtn) addBtn.click();
+            var card = document.getElementById('mem-card');
+            if (card) card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            restore();
+          }, 1200);
+        })
+        .catch(restore);
+    });
+  }());
+  </script>
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260503-consent-persist-fix" data-cfasync="false"></script>
   <script src="share-page.js?v=20260503-consent-persist-fix" defer></script>

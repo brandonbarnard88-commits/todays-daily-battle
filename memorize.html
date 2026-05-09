@@ -403,6 +403,23 @@
 }
 .mem-hub-links li { margin: 0; font-size: 0.9rem; }
 .mem-hub-links a { color: var(--gold); text-underline-offset: 2px; }
+
+/* memorize.html Phase 4 — print/export polish */
+.mem-print-lead {
+  font-size: 1rem;
+  line-height: 1.52;
+  color: var(--muted);
+  max-width: 42rem;
+  margin: 0 0 0.65rem;
+}
+.mem-print-reassurance {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--muted);
+  max-width: 42rem;
+  line-height: 1.55;
+  margin: 0 0 1rem;
+}
 </style>
   <script type="application/ld+json" nonce="tdb2025s">
   {
@@ -588,7 +605,8 @@
 
     <section aria-labelledby="mem-print-h2">
       <h2 id="mem-print-h2">Printable cards</h2>
-      <p class="section-note">Opens a quiet print sheet: reference, then text&mdash;one card per verse. Trim or fold if you like. Text appears when you have loaded that verse on this page before (same cache as typing practice).</p>
+      <p class="mem-print-lead">One page is enough. Print what you need tonight&mdash;no perfection required.</p>
+      <p class="mem-print-reassurance">Whether you&rsquo;re a parent printing for bedtime or a pastor pulling sermon anchors, this sheet is designed for tired hands. Each verse prints as a clean, fold-able card&mdash;reference on the front, text on the back. Load a verse here first to fill the text.</p>
       <div class="mem-row">
         <button type="button" class="btn btn-secondary" id="mem-print-cards" aria-label="Open printable memory verse cards">Open print sheet</button>
       </div>
@@ -597,7 +615,7 @@
 
     <section aria-labelledby="mem-export-h2">
       <h2 id="mem-export-h2">Export My Memory List</h2>
-      <p class="section-note">Private backup from this device &mdash; reference plus verse text when you have loaded it here. Never a score.</p>
+      <p class="mem-print-lead">A private backup that lives only on this device&mdash;reference plus verse text. No score. No sync. Yours to keep.</p>
       <div class="mem-row" role="group" aria-label="Export memory list format">
         <button type="button" class="btn btn-secondary" id="mem-export-txt" aria-label="Export memory list as plain text file">Plain text</button>
         <button type="button" class="btn btn-secondary" id="mem-export-md" aria-label="Export memory list as Markdown file">Markdown</button>

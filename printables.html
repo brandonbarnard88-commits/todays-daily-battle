@@ -145,6 +145,22 @@
       cursor: pointer;
       margin: 1rem 0;
     }
+    .family-back-link {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.2rem 0.6rem;
+      align-items: center;
+      padding: 0.5rem 0 0.25rem;
+      margin: 0 0 0.75rem;
+      font-size: 0.875rem;
+      color: var(--muted, #8896b0);
+    }
+    .family-back-link a {
+      color: rgba(227,188,103,0.85);
+      text-decoration: none;
+    }
+    .family-back-link a:hover,
+    .family-back-link a:focus-visible { color: var(--gold, #e3bc67); text-decoration: underline; }
   </style>
 </head>
 <body class="dark-mode tdb-inner-page">
@@ -161,6 +177,13 @@
     <h1>Print hub &mdash; paper companions</h1>
     <p class="topic-mood-porch" style="margin: 0.35rem 0 0; font-size: 0.95rem; color: rgba(245, 247, 251, 0.92);">You&rsquo;re already welcome here&mdash;take what helps, leave the rest. Paper is optional. KJV only, no pressure.</p>
   </header>
+  <nav class="family-back-link" aria-label="Family cluster navigation">
+    <a href="/family.html">&larr; Family Hub</a>
+    <span aria-hidden="true">&middot;</span>
+    <a href="/family-armor.html">Family Armor</a>
+    <span aria-hidden="true">&middot;</span>
+    <a href="/plans.html?plan=familyworship">Family Worship Plan</a>
+  </nav>
 
   <p class="site-note">Most printable doors on the site point back here so you can find them again without hunting. Think of it as a drawer on the porch&mdash;open it when paper helps; leave it closed when today is only rest.</p>
 

@@ -232,6 +232,20 @@
         gap: 1rem;
       }
     }
+    .family-return-hub {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.2rem 0.65rem;
+      align-items: center;
+      padding: 0.9rem 0 0.4rem;
+      margin: 1.5rem 0 0;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      font-size: 0.875rem;
+      color: #8896b0;
+    }
+    .family-return-hub a { color: rgba(227,188,103,0.85); text-decoration: none; }
+    .family-return-hub a:hover,
+    .family-return-hub a:focus-visible { color: #e3bc67; text-decoration: underline; }
   </style>
 </head>
 <body class="dark-mode tdb-inner-page kids-battle-page kids-world-surface little-ones-kids-surface">
@@ -430,6 +444,14 @@
         </div>
       </div>
     </details>
+    <nav class="family-return-hub" aria-label="Family hub navigation">
+      <span>Part of the</span>
+      <a href="/family.html">Family Hub</a>
+      <span aria-hidden="true">&middot;</span>
+      <a href="/printables.html">Printables</a>
+      <span aria-hidden="true">&middot;</span>
+      <a href="/plans.html?plan=beatitudes-kids">Kids Beatitudes Plan</a>
+    </nav>
   </main>
 
   <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">

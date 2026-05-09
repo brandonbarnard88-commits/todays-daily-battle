@@ -946,6 +946,39 @@
     @media (max-width: 640px) {
       .family-overwhelmed-card { padding: 1.3rem 1.1rem; margin: 1rem 0 0.5rem; }
     }
+    .family-hub-cta-cluster {
+      padding: 1.1rem 1.4rem;
+      background: rgba(227,188,103,0.05);
+      border: 1px solid rgba(227,188,103,0.13);
+      border-radius: 12px;
+      margin: 1.5rem 0 0.75rem;
+    }
+    .family-hub-cta-cluster .fhcc-label {
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 0 0 0.65rem;
+    }
+    .family-hub-cta-cluster .fhcc-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem 1.5rem;
+    }
+    .family-hub-cta-cluster .fhcc-links a {
+      color: rgba(227,188,103,0.9);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    .family-hub-cta-cluster .fhcc-links a:hover,
+    .family-hub-cta-cluster .fhcc-links a:focus-visible { text-decoration: underline; }
+    .family-hub-cta-cluster .fhcc-links .fhcc-sub {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
   </style>
 </head>
 <body class="family-hub-deep-page tdb-inner-page">
@@ -1080,6 +1113,16 @@
         </div>
       </div>
     </section>
+
+    <nav class="family-hub-cta-cluster" aria-label="Quick links to family tools">
+      <p class="fhcc-label">Need something specific tonight?</p>
+      <ul class="fhcc-links">
+        <li><a href="/printables.html">&rarr; Grab a Printable <span class="fhcc-sub">(one page is enough)</span></a></li>
+        <li><a href="/family-armor.html">&rarr; Family Armor &amp; Stories</a></li>
+        <li><a href="/plans.html?plan=familyworship">&rarr; Family Worship in the Trenches <span class="fhcc-sub">(7 days)</span></a></li>
+        <li><a href="/little-ones.html">&rarr; For the Little Ones</a></li>
+      </ul>
+    </nav>
 
     <section class="family-parent-at-a-glance family-hub-animate family-hub-d2" aria-labelledby="family-doorways-heading">
       <h2 class="family-parent-at-a-glance__title" id="family-doorways-heading">Know the four kid doorways</h2>

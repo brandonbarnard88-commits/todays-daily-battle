@@ -161,6 +161,42 @@
     }
     .family-back-link a:hover,
     .family-back-link a:focus-visible { color: var(--gold, #e3bc67); text-decoration: underline; }
+    .print-index-section { margin: 1.5rem 0 0.5rem; }
+    .print-index-category {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.09em;
+      text-transform: uppercase; color: rgba(227,188,103,0.7);
+      margin: 1.25rem 0 0.5rem;
+    }
+    .print-index-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 0.6rem;
+    }
+    .print-index-card {
+      display: flex; flex-direction: column; gap: 0.2rem;
+      padding: 0.75rem 0.9rem;
+      background: rgba(22,28,38,0.65);
+      border: 1px solid rgba(148,163,184,0.14);
+      border-radius: 10px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s, background 0.15s;
+      min-height: 44px;
+    }
+    .print-index-card:hover,
+    .print-index-card:focus-visible {
+      border-color: rgba(227,188,103,0.38);
+      background: rgba(22,28,38,0.85);
+    }
+    .print-index-card-icon { font-size: 1.15rem; line-height: 1; margin-bottom: 0.15rem; }
+    .print-index-card-name {
+      font-size: 0.88rem; font-weight: 600;
+      color: rgba(226,232,240,0.95); line-height: 1.3;
+    }
+    .print-index-card-desc {
+      font-size: 0.77rem; color: rgba(148,163,184,0.9); line-height: 1.4;
+    }
+    @media print { .print-index-section { display: none; } }
     .print-hero-lead {
       font-size: 1.05rem;
       line-height: 1.55;
@@ -236,6 +272,104 @@
     <span aria-hidden="true">&middot;</span>
     <a href="/plans.html?plan=familyworship">Family Worship Plan</a>
   </nav>
+
+  <section class="print-index-section" aria-label="Printables at a glance">
+    <p class="print-index-category">When you need it tonight</p>
+    <div class="print-index-grid">
+      <a href="emergency-calm-pack.html" class="print-index-card">
+        <span class="print-index-card-icon" aria-hidden="true">🆘</span>
+        <span class="print-index-card-name">Emergency Calm Pack</span>
+        <span class="print-index-card-desc">One verse, one step, one prayer — 7 days. Prints easily.</span>
+      </a>
+      <a href="print-pack-generator.html" class="print-index-card">
+        <span class="print-index-card-icon" aria-hidden="true">🖨️</span>
+        <span class="print-index-card-name">Printable Pack Generator</span>
+        <span class="print-index-card-desc">Build a themed bundle (anxiety, grief, bedtime) in one step.</span>
+      </a>
+      <a href="be-still-moments.html" class="print-index-card">
+        <span class="print-index-card-icon" aria-hidden="true">🕊️</span>
+        <span class="print-index-card-name">Be Still Moments</span>
+        <span class="print-index-card-desc">Five 5-minute pause cards — one verse, one quiet prompt each.</span>
+      </a>
+      <a href="#armor" class="print-index-card">
+        <span class="print-index-card-icon" aria-hidden="true">🛡️</span>
+        <span class="print-index-card-name">Family Armor Checklist</span>
+        <span class="print-index-card-desc">Weekly Ephesians 6 armor sheet for families. Print and use tonight.</span>
+      </a>
+    </div>
+
+    <p class="print-index-category">Daily &amp; weekly rhythm</p>
+    <div class="print-index-grid">
+      <a href="one-week-rhythm.html" class="print-index-card">
+        <span class="print-index-card-icon" aria-hidden="true">📅</span>
+        <span class="print-index-card-name">One Week of Quiet Rhythm</span>
+        <span class="print-index-card-desc">Seven gentle days with morning, evening, and a family table prompt.</span>
+      </a>
+      <a href="one-week-rhythm-kids.html" class="print-index-card">
+        <span class="print-index-card-icon" aria-hidden="true">👨‍👩‍👧</span>
+        <span class="print-index-card-name">One Week — Kids &amp; Family</span>
+        <span class="print-index-card-desc">Same rhythm, simpler for children. Larger fonts, drawing space.</span>
+      </a>
+      <a href="morning-evening-family-print.html" class="print-index-card">
+        <span class="print-index-card-icon" aria-hidden="true">🌅</span>
+        <span class="print-index-card-name">Morning &amp; Evening (two cards)</span>
+        <span class="print-index-card-desc">Morning reset + evening University on one page.</span>
+      </a>
+      <a href="#memory" class="print-index-card">
+        <span class="print-index-card-icon" aria-hidden="true">📖</span>
+        <span class="print-index-card-name">Memory Verse Worksheets</span>
+        <span class="print-index-card-desc">Simple ink-friendly sheets for hiding Scripture. One verse per sheet.</span>
+      </a>
+    </div>
+
+    <p class="print-index-category">For pastors &amp; church</p>
+    <div class="print-index-grid">
+      <a href="church-starter-pack.html" class="print-index-card">
+        <span class="print-index-card-icon" aria-hidden="true">⛪</span>
+        <span class="print-index-card-name">Church Starter Pack</span>
+        <span class="print-index-card-desc">Monthly reset, thin-week guide, and announcement templates for small churches.</span>
+      </a>
+      <a href="plans.html?plan=dailyrenewing" class="print-index-card">
+        <span class="print-index-card-icon" aria-hidden="true">🕊️</span>
+        <span class="print-index-card-name">Daily Renewing of the Inner Man</span>
+        <span class="print-index-card-desc">Five days in 2 Corinthians 4 — for the pastor whose outward man feels worn.</span>
+      </a>
+      <a href="plans.html?plan=preachingthroughexhaustion" class="print-index-card">
+        <span class="print-index-card-icon" aria-hidden="true">🎙️</span>
+        <span class="print-index-card-name">Preaching Through Exhaustion</span>
+        <span class="print-index-card-desc">Seven days for the Sunday that still has to happen. KJV, no pressure.</span>
+      </a>
+      <a href="university-at-the-table-print.html" class="print-index-card">
+        <span class="print-index-card-icon" aria-hidden="true">📋</span>
+        <span class="print-index-card-name">University at the Table</span>
+        <span class="print-index-card-desc">Four short KJV verses for any family table, small group, or meeting.</span>
+      </a>
+    </div>
+
+    <p class="print-index-category">Seasonal companions</p>
+    <div class="print-index-grid">
+      <a href="when-year-feels-heavy-one-page-print.html" class="print-index-card">
+        <span class="print-index-card-icon" aria-hidden="true">❄️</span>
+        <span class="print-index-card-name">When the year feels heavy</span>
+        <span class="print-index-card-desc">Five anchor verses for New Year's Eve or early January.</span>
+      </a>
+      <a href="spring-at-the-table-one-page-print.html" class="print-index-card">
+        <span class="print-index-card-icon" aria-hidden="true">🌱</span>
+        <span class="print-index-card-name">Spring at the table</span>
+        <span class="print-index-card-desc">Five KJV verses for March — winter past, joy in the morning, new mercies.</span>
+      </a>
+      <a href="when-summer-feels-too-much-one-page-print.html" class="print-index-card">
+        <span class="print-index-card-icon" aria-hidden="true">☀️</span>
+        <span class="print-index-card-name">When summer feels too much</span>
+        <span class="print-index-card-desc">Five verses for heat, full calendars, and everyone-home-at-once days.</span>
+      </a>
+      <a href="when-fall-feels-heavy-one-page-print.html" class="print-index-card">
+        <span class="print-index-card-icon" aria-hidden="true">🍂</span>
+        <span class="print-index-card-name">When fall feels heavy</span>
+        <span class="print-index-card-desc">Five verses for busier, darker fall weeks — hope, new mercies, not crushed.</span>
+      </a>
+    </div>
+  </section>
 
   <p class="site-note">Most printable doors on the site point back here so you can find them again without hunting. Think of it as a drawer on the porch&mdash;open it when paper helps; leave it closed when today is only rest.</p>
 

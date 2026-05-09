@@ -1605,6 +1605,9 @@
     .recent-plan-label { font-size: 0.85rem; font-weight: 600; }
     .recent-plan-progress { height: 4px; border-radius: 2px; background: var(--line); overflow: hidden; }
     .recent-plan-bar { height: 100%; border-radius: 2px; background: linear-gradient(90deg, var(--gold-soft), var(--gold)); transition: width 0.3s; }
+    .recent-plan-day-hint { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+    .recent-plan-day-hint.active { color: var(--gold-soft); }
+    .recent-plan-day-hint.done { color: color-mix(in srgb, var(--muted) 60%, var(--gold-soft) 40%); }
 
     .plan-extra-panel {
       margin: 1.25rem 0 0;
@@ -2695,6 +2698,11 @@
           <span class="plan-row-icon" aria-hidden="true">⛪</span>
           <div class="plan-row-info"><h2>Small Church Encouragement</h2><p>For bi-vocational leaders and faithful little flocks—seven KJV days for steady joy, courage, and hope when numbers feel small but the calling is real.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-smallchurchencouragement">Not started</span></div>
+        </a>
+        <a href="plans.html?plan=pastoraloneliness" class="plan-row plan-row--pastor-featured" data-plan="pastoraloneliness" role="listitem" aria-label="The Lone Watch — 5 days">
+          <span class="plan-row-icon" aria-hidden="true">🕯️</span>
+          <div class="plan-row-info"><h2>The Lone Watch</h2><p>For pastors and ministry leaders carrying the weight alone—five KJV days for the shepherd whose ache has no pulpit. Elijah under the tree, David's betrayal, Jesus naming the scattering.</p></div>
+          <div class="plan-row-meta"><span class="plan-badge">5 days</span><span class="plan-progress-pill" id="planPill-pastoraloneliness">Not started</span></div>
         </a>
         <a href="plans.html?plan=teenfaith" class="plan-row" data-plan="teenfaith" role="listitem" aria-label="Teen Faith in a Noisy Week — 7 days">
           <span class="plan-row-icon" aria-hidden="true">✳️</span>
@@ -4409,6 +4417,29 @@
         ]
       },
 
+      pastoraloneliness: {
+        id: 'pastoraloneliness', icon: '\uD83D\uDD6F\uFE0F', label: 'The Lone Watch',
+        desc: 'For pastors, ministry leaders, and anyone who pours out for others while carrying the weight alone&mdash;five KJV days for the shepherd whose ache has no pulpit.',
+        key: 'tdb-plan-pastoraloneliness-day', max: 5,
+        days: [
+          { title: 'He sat down under a juniper tree', ref: '1 Kings 19:4', text: 'But he himself went a day\'s journey into the wilderness, and came and sat down under a juniper tree: and he requested for himself that he might die; and said, It is enough; O LORD, take away my life; for I am not better than my fathers.',
+            speaker: 'Elijah\u2014after Carmel, before the still small voice', plain: 'Elijah did not fall apart in front of Israel. He waited until the wilderness. God did not rebuke him for it. He sent an angel and bread instead.', today: 'Pastors are often the last ones in the room to admit they are empty. You are allowed to sit under the tree.', action: 'Name the actual weight\u2014quietly, to God alone\u2014without softening it for an audience.', prayer: 'Lord, I am worn through. I have enough. But I am still here, under the tree with You. Amen.',
+            goal: 'If you want, name the weight once without wrapping it in a sermon point.' },
+          { title: 'Cast thy burden', ref: 'Psalm 55:22', text: 'Cast thy burden upon the LORD, and he shall sustain thee: he shall never suffer the righteous to be moved.',
+            speaker: 'David\u2014writing from betrayal by a close friend, the loneliest wound', plain: 'David did not write this from comfort. He wrote it from the deep ache of being abandoned by someone near. God can hold the weight a trusted person could not.', today: 'What burden are you still carrying because there is no safe person to hand it to?', action: 'Write it down once. Then read Psalm 55:22 aloud. Let the verse be the handing-over.', prayer: 'I cast this on You because there is nowhere else to cast it. Sustain me. Amen.',
+            goal: 'If it feels right, one honest cast\u2014no rehearsal, no audience.' },
+          { title: 'Yet I am not alone', ref: 'John 16:32', text: 'Behold, the hour cometh, yea, is now come, that ye shall be scattered, every man to his own, and shall leave me alone: and yet I am not alone, because the Father is with me.',
+            speaker: 'Jesus\u2014hours before Gethsemane, watching His own disciples begin to scatter', plain: 'Jesus knew what pastoral loneliness felt like at its deepest. He did not pretend they would stay. He named the scattering and then named what it could not touch.', today: 'Where are you watching people scatter\u2014not in crisis, just quietly away\u2014and feeling the space that leaves?', action: 'Read the verse slowly. Sit in the second half: \u201cand yet I am not alone.\u201d Say it once over your actual week.', prayer: 'Even now, even here, I am not alone. The Father is with me too. Amen.',
+            goal: 'If you want, repeat the second half once over the loneliest moment of the week.' },
+          { title: 'A friend that sticketh', ref: 'Proverbs 18:24', text: 'A man that hath friends must shew himself friendly: and there is a friend that sticketh closer than a brother.',
+            speaker: 'Solomon\u2014plain and pastoral', plain: 'Ministry can empty every horizontal friendship. The verse does not deny the cost of that\u2014it names One who sticks closer than anyone who stayed.', today: 'Where has the pastoral role made normal friendship harder to maintain? Name it honestly.', action: 'Reach out to one person you have been too busy or too guarded to contact this month.', prayer: 'Thank You for the Friend who has never left. Remind me that You are also my brother. Amen.',
+            goal: 'If it feels right, send one line to one person\u2014just a word, no agenda.' },
+          { title: 'The LORD make his face shine upon thee', ref: 'Numbers 6:24-26', text: 'The LORD bless thee, and keep thee: The LORD make his face shine upon thee, and be gracious unto thee: The LORD lift up his countenance upon thee, and give thee peace.',
+            speaker: 'Aaron over Israel\u2014the ancient blessing over a whole people who could not see the face of God', plain: 'The Aaronic blessing was not for polished congregations. It was for wilderness wanderers. It lands on you too, this week, in the long watch.', today: 'You bless others every week. When did someone last speak a blessing over you?', action: 'Read these three verses over yourself aloud. Receive them slowly\u2014not as an exercise, but as an actual benediction.', prayer: 'LORD, bless me and keep me. Let Your face shine upon me. Give me peace in this long watch. Amen.',
+            goal: 'If you want, receive the benediction once without immediately giving it to someone else.' }
+        ]
+      },
+
       cancercomfort: {
         id: 'cancercomfort', icon: '\uD83D\uDD4A\uFE0F', label: 'Cancer Comfort',
         desc: 'When the word cancer lands hard and your body feels like a battlefield\u2014seven honest KJV days for fear, weariness, anger, and the days you want to disappear. Not medical advice; Christ beside you.',
@@ -4959,9 +4990,15 @@
       }
       wrap.style.display = 'block';
       wrap.replaceChildren();
+      var inProgressCount = recent.filter(function(id) {
+        var p = PLANS[id];
+        if (!p) return false;
+        var prog = getDayProgress(p);
+        return prog > 0 && prog < p.max;
+      }).length;
       var heading = document.createElement('p');
       heading.className = 'recent-plans-label';
-      heading.textContent = 'Continue';
+      heading.textContent = inProgressCount ? 'Where you left off' : 'Recently viewed';
       wrap.appendChild(heading);
       var row = document.createElement('div');
       row.className = 'recent-plans-row';
@@ -4970,12 +5007,16 @@
         if (!plan) return;
         var progress = getDayProgress(plan);
         var pct = plan.max > 0 ? Math.round((progress / plan.max) * 100) : 0;
-        var planLabel = progress >= plan.max ? plan.label + ' \u2713' : plan.label;
+        var isDone = progress >= plan.max;
+        var planLabel = isDone ? plan.label + ' \u2713' : plan.label;
         var a = document.createElement('a');
         a.href = 'plans.html?plan=' + encodeURIComponent(id);
         a.className = 'recent-plan-card';
         a.setAttribute('data-plan', id);
-        a.setAttribute('aria-label', 'Continue ' + plan.label);
+        var dayHint = isDone ? 'Complete'
+          : progress > 0 ? 'Day ' + (progress + 1) + ' ready'
+          : 'Begin';
+        a.setAttribute('aria-label', plan.label + ' — ' + dayHint);
         var ic = document.createElement('span');
         ic.className = 'recent-plan-icon';
         ic.setAttribute('aria-hidden', 'true');
@@ -4983,6 +5024,10 @@
         var lb = document.createElement('span');
         lb.className = 'recent-plan-label';
         lb.textContent = planLabel;
+        var dayPill = document.createElement('span');
+        dayPill.className = 'recent-plan-day-hint' + (isDone ? ' done' : progress > 0 ? ' active' : '');
+        dayPill.setAttribute('aria-hidden', 'true');
+        dayPill.textContent = dayHint;
         var progOuter = document.createElement('div');
         progOuter.className = 'recent-plan-progress';
         var bar = document.createElement('div');
@@ -4991,6 +5036,7 @@
         progOuter.appendChild(bar);
         a.appendChild(ic);
         a.appendChild(lb);
+        a.appendChild(dayPill);
         a.appendChild(progOuter);
         row.appendChild(a);
       });
@@ -5124,6 +5170,10 @@
       }
       currentPlan = PLANS[id];
       if (!currentPlan) return;
+      try {
+        localStorage.setItem('tdb-plan-' + id + '-label', currentPlan.label || id);
+        localStorage.setItem('tdb-plan-' + id + '-max', String(currentPlan.max || 0));
+      } catch (eLabelSave) {}
       var progress = getDayProgress(currentPlan);
       pushRecentPlan(id);
       if (progress === 0) trackPlanStart(currentPlan, 'plans_index');

@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 const dist = path.join(root, 'dist');
-const required = ['register-sw.js', 'kids-shared.js'];
+const required = ['register-sw.js', 'kids-shared.js', 'core-home.js', 'porch-effects.js'];
 
 for (const file of required) {
   if (!fs.existsSync(path.join(dist, file))) {

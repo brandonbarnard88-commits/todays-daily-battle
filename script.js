@@ -13220,6 +13220,10 @@ function wireHomeContinueLoopCard() {
   var eyebrow = document.getElementById('tdb-home-continue-loop-eyebrow');
   var title = document.getElementById('tdb-home-continue-loop-title');
   if (!wrap || !link || !eyebrow || !title) return;
+  var planLink = document.getElementById('tdb-home-plan-loop-link');
+  var planEyebrow = document.getElementById('tdb-home-plan-loop-eyebrow');
+  var planTitle = document.getElementById('tdb-home-plan-loop-title');
+  var loopHeading = document.getElementById('tdb-home-continue-loop-heading');
 
   var MEM_KEY = 'tdb_memorize_lite_v1';
   var MEM_INTERVALS_DAYS = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144];
@@ -13351,69 +13355,120 @@ function wireHomeContinueLoopCard() {
     }
   }
 
+  /** Read the most recent in-progress plan from localStorage.
+   *  Returns { id, label, dayNumber, max } or null. */
+  function getTopInProgressPlan() {
+    try {
+      var raw = localStorage.getItem('tdb_recent_plans_v1');
+      if (!raw) return null;
+      var ids = JSON.parse(raw);
+      if (!Array.isArray(ids) || !ids.length) return null;
+      for (var pi = 0; pi < ids.length; pi++) {
+        var pid = String(ids[pi] || '').trim();
+        if (!pid) continue;
+        var pkey = pid === 'battle' ? 'tdb-plan-day' : 'tdb-plan-' + pid + '-day';
+        var prog = parseInt(localStorage.getItem(pkey) || '0', 10) || 0;
+        if (prog <= 0) continue;
+        var maxRaw = localStorage.getItem('tdb-plan-' + pid + '-max');
+        var pmax = maxRaw ? (parseInt(maxRaw, 10) || 0) : 0;
+        if (pmax > 0 && prog >= pmax) continue; // completed — skip
+        var plabel = clampStr(localStorage.getItem('tdb-plan-' + pid + '-label') || pid, 52);
+        return { id: pid, label: plabel, dayNumber: prog + 1, max: pmax || null };
+      }
+    } catch (ePlan) {}
+    return null;
+  }
+
   function refreshHomeContinueLoop() {
     wrap.classList.remove('tdb-home-continue-loop-wrap--soft');
     var now = Date.now();
+    var hasContent = false;
+
+    // ── 1. In-progress Battle Plan ────────────────────────────────────────
+    var inProg = getTopInProgressPlan();
+    if (inProg && planLink && planEyebrow && planTitle) {
+      planLink.removeAttribute('hidden');
+      planEyebrow.textContent = 'Battle Plan' + (inProg.max ? ' · Day ' + inProg.dayNumber + ' of ' + inProg.max : ' · Day ' + inProg.dayNumber);
+      planTitle.textContent = inProg.label + ' — Day ' + inProg.dayNumber + ' is ready when you are.';
+      planLink.href = 'plans.html?plan=' + encodeURIComponent(inProg.id);
+      planLink.setAttribute('data-tdb-continue-kind', 'plan');
+      planLink.setAttribute('aria-label', 'Continue ' + inProg.label + ', Day ' + inProg.dayNumber);
+      hasContent = true;
+    } else if (planLink) {
+      planLink.setAttribute('hidden', '');
+    }
+
+    // ── 2. Memorize / journal / WGHD ──────────────────────────────────────
     var mem = getSoonestMemorize();
     if (mem && mem.ref && mem.dueAt <= now + MEM_LOOKAHEAD_MS) {
-      wrap.hidden = false;
+      link.removeAttribute('hidden');
       eyebrow.textContent = memorizeEyebrowForDue(mem.dueAt, now);
       title.textContent = memorizeTitleLine(mem.ref, mem.dueAt, now);
       link.href = 'memorize.html?ref=' + encodeURIComponent(mem.ref);
       link.setAttribute('data-tdb-continue-kind', 'memorize');
-      link.setAttribute(
-        'aria-label',
-        'Open Memorize for ' + mem.ref + ' — on-device review queue'
-      );
-      return;
+      link.setAttribute('aria-label', 'Open Memorize for ' + mem.ref + ' — on-device review queue');
+      hasContent = true;
+    } else {
+      var jn = loadMobiusJournalEntries();
+      if (jn.length) {
+        var je = jn[0];
+        var ctx = clampStr(je.context || 'Loop journal', 72);
+        link.removeAttribute('hidden');
+        eyebrow.textContent = 'Continue your loop';
+        title.textContent = ctx;
+        link.href = 'mobius.html#mobius-loop-journal';
+        link.setAttribute('data-tdb-continue-kind', 'journal');
+        link.setAttribute('aria-label', 'Open Möbius loop journal — last saved on this device');
+        hasContent = true;
+      } else {
+        var wg = loadWghdEntries();
+        if (wg.length) {
+          var we = wg[wg.length - 1];
+          var wline = clampStr(we.title || we.entryDate || 'Last entry', 64);
+          link.removeAttribute('hidden');
+          eyebrow.textContent = 'What God has done';
+          title.textContent = wline;
+          link.href = 'what-god-has-done.html';
+          link.setAttribute('data-tdb-continue-kind', 'wghd');
+          link.setAttribute('aria-label', 'Open What God has done — private on this device');
+          hasContent = true;
+        } else {
+          link.setAttribute('hidden', '');
+        }
+      }
     }
 
-    var jn = loadMobiusJournalEntries();
-    if (jn.length) {
-      var je = jn[0];
-      var ctx = clampStr(je.context || 'Loop journal', 72);
+    // ── 3. Show section ───────────────────────────────────────────────────
+    if (hasContent) {
       wrap.hidden = false;
-      eyebrow.textContent = 'Continue your loop';
-      title.textContent = ctx;
-      link.href = 'mobius.html#mobius-loop-journal';
-      link.setAttribute('data-tdb-continue-kind', 'journal');
-      link.setAttribute('aria-label', 'Open Möbius loop journal — last saved on this device');
-      return;
-    }
-
-    var wg = loadWghdEntries();
-    if (wg.length) {
-      var we = wg[wg.length - 1];
-      var line = clampStr(we.title || we.entryDate || 'Last entry', 64);
+      if (loopHeading) loopHeading.removeAttribute('hidden');
+    } else {
       wrap.hidden = false;
-      eyebrow.textContent = 'What God has done';
-      title.textContent = line;
-      link.href = 'what-god-has-done.html';
-      link.setAttribute('data-tdb-continue-kind', 'wghd');
-      link.setAttribute('aria-label', 'Open What God has done — private on this device');
-      return;
+      wrap.classList.add('tdb-home-continue-loop-wrap--soft');
+      if (loopHeading) loopHeading.setAttribute('hidden', '');
+      link.removeAttribute('hidden');
+      eyebrow.textContent = 'Pick up where you left off';
+      title.textContent = 'Start a new ribbon on Möbius — or open gentle memorize when you are ready.';
+      link.href = 'mobius.html';
+      link.setAttribute('data-tdb-continue-kind', 'soft_mobius');
+      link.setAttribute('aria-label', 'Open Möbius to start or continue a quiet ribbon on this device');
     }
-
-    wrap.hidden = false;
-    wrap.classList.add('tdb-home-continue-loop-wrap--soft');
-    eyebrow.textContent = 'Pick up where you left off';
-    title.textContent = 'Start a new ribbon on Möbius — or open gentle memorize when you are ready.';
-    link.href = 'mobius.html';
-    link.setAttribute('data-tdb-continue-kind', 'soft_mobius');
-    link.setAttribute(
-      'aria-label',
-      'Open Möbius to start or continue a quiet ribbon on this device'
-    );
   }
 
   link.addEventListener('click', function () {
     var k = link.getAttribute('data-tdb-continue-kind');
     if (k && typeof trackEvent === 'function') {
-      try {
-        trackEvent('home_continue_loop_click', { kind: k });
-      } catch (e) {}
+      try { trackEvent('home_continue_loop_click', { kind: k }); } catch (e) {}
     }
   });
+
+  if (planLink) {
+    planLink.addEventListener('click', function () {
+      if (typeof trackEvent === 'function') {
+        try { trackEvent('home_continue_loop_click', { kind: 'plan' }); } catch (e) {}
+      }
+    });
+  }
 
   refreshHomeContinueLoop();
   window.tdbRefreshHomeContinueLoop = refreshHomeContinueLoop;
@@ -18327,6 +18382,28 @@ function tdbUpdateWelcomeBackMsg() {
     var day = d.getDate();
     return y + '-' + (m < 10 ? '0' : '') + m + '-' + (day < 10 ? '0' : '') + day;
   }
+  function getActivePlanContext() {
+    try {
+      var raw = localStorage.getItem('tdb_recent_plans_v1');
+      if (!raw) return '';
+      var ids = JSON.parse(raw);
+      if (!Array.isArray(ids) || !ids.length) return '';
+      for (var i = 0; i < ids.length; i++) {
+        var pid = String(ids[i] || '').trim();
+        if (!pid) continue;
+        var pkey = pid === 'battle' ? 'tdb-plan-day' : 'tdb-plan-' + pid + '-day';
+        var prog = parseInt(localStorage.getItem(pkey) || '0', 10) || 0;
+        if (prog <= 0) continue;
+        var maxRaw = localStorage.getItem('tdb-plan-' + pid + '-max');
+        var pmax = maxRaw ? (parseInt(maxRaw, 10) || 0) : 0;
+        if (pmax > 0 && prog >= pmax) continue;
+        var plabel = localStorage.getItem('tdb-plan-' + pid + '-label') || '';
+        if (plabel) return plabel + ' — Day ' + (prog + 1) + ' is ready.';
+        return '';
+      }
+    } catch (e) {}
+    return '';
+  }
   try {
     var key = 'tdb_visit_local_ymd';
     var today = new Date();
@@ -18334,7 +18411,10 @@ function tdbUpdateWelcomeBackMsg() {
     var last = localStorage.getItem(key) || '';
     var yYesterday = ymd(new Date(today.getFullYear(), today.getMonth(), today.getDate() - 1));
     if (last && last === yYesterday) {
-      el.textContent = 'You were here yesterday. Glad you came back.';
+      var planCtx = getActivePlanContext();
+      el.textContent = planCtx
+        ? 'You were here yesterday. ' + planCtx
+        : 'You were here yesterday. Glad you came back.';
       el.removeAttribute('hidden');
       el.setAttribute('aria-hidden', 'false');
     } else {
@@ -27337,20 +27417,17 @@ async function tdbInitImpl() {
         var isSeed = item.seed === true;
         var li = document.createElement('li');
         li.className = 'prayer-wall-item' + (idx < 3 ? ' prayer-wall-top' : '') + (isSeed ? ' prayer-wall-seed' : '');
-        var iHearted = !isSeed && hearts[item.id];
+        var iHearted = isSeed ? !!hearts[item.id] : !!hearts[item.id];
         var heartBtn = document.createElement('button');
         heartBtn.type = 'button';
         heartBtn.className = 'prayer-wall-heart ' + (iHearted ? 'hearted' : '');
         heartBtn.setAttribute('data-id', String(item.id));
-        heartBtn.setAttribute('aria-label', 'Pray');
+        heartBtn.setAttribute('aria-label', iHearted ? 'Prayed — tap to undo' : 'Pray');
         heartBtn.textContent = '\u2665';
-        if (isSeed) {
-          heartBtn.setAttribute('aria-hidden', 'true');
-          heartBtn.disabled = true;
-        }
         var countSpan = document.createElement('span');
         countSpan.className = 'prayer-wall-count';
-        countSpan.textContent = String(item.hearts || 0);
+        var displayCount = isSeed ? (iHearted ? 1 : 0) : (item.hearts || 0);
+        countSpan.textContent = String(displayCount);
         var textSpan = document.createElement('span');
         textSpan.className = 'prayer-wall-text';
         textSpan.textContent = (item.text || '');
@@ -27404,8 +27481,16 @@ async function tdbInitImpl() {
       listEl.querySelectorAll('.prayer-wall-heart').forEach(function (btn) {
         btn.addEventListener('click', function () {
           var id = this.getAttribute('data-id');
-          var items = getItems();
+          var isSeedBtn = id && id.indexOf('seed-') === 0;
           var hearts = getHearts();
+          if (isSeedBtn) {
+            // Local-only amen for seed prayers — never uploaded
+            if (hearts[id]) { delete hearts[id]; } else { hearts[id] = true; }
+            saveHearts(hearts);
+            render();
+            return;
+          }
+          var items = getItems();
           var item = items.find(function (i) { return String(i.id) === String(id); });
           if (!item) return;
           if (hearts[id]) {

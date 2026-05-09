@@ -7,23 +7,23 @@
   <script defer src="analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For Families &amp; Parents • Today's Daily Battle</title>
-  <meta name="description" content="A quiet place for your family to meet God together: today’s KJV verse, family worship and comfort plans, printable packs, teen journal, and a local prayer list—on-device, offline-friendly.">
+  <title>For Families &amp; Parents &mdash; Gentle KJV Tools for Real Home Life</title>
+  <meta name="description" content="Quiet KJV family worship, daily verses, printables, and battle plans for tired parents, little ones, and chaotic evenings. No guilt. No account. Works offline.">
   <link rel="canonical" href="https://todaysdailybattle.com/family.html">
   <meta name="robots" content="index, follow">
   <meta name="referrer" content="no-referrer">
   <meta property="og:site_name" content="Today's Daily Battle">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://todaysdailybattle.com/family.html">
-  <meta property="og:title" content="Family hub &mdash; quiet KJV tools, plans, and printables | Today&#39;s Daily Battle">
-  <meta property="og:description" content="A quiet place for real battles with KJV Scripture: today&rsquo;s verse path, family worship and comfort plans, printables, teen journal, and a device-local prayer list&mdash;offline-friendly, no hype.">
+  <meta property="og:title" content="For Families &amp; Parents &mdash; Gentle KJV Tools for Real Home Life">
+  <meta property="og:description" content="Quiet KJV family worship, daily verses, printables, and battle plans for tired parents and little ones. No guilt. No account. Works offline.">
   <meta property="og:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260422og">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Family hub &mdash; KJV tools for parents and little ones | Today&#39;s Daily Battle">
+  <meta property="og:image:alt" content="For Families &amp; Parents &mdash; Gentle KJV Tools for Real Home Life">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Family hub &mdash; quiet KJV for home | Today&#39;s Daily Battle">
-  <meta name="twitter:description" content="Gentle KJV verse, family plans, printables, teen journal, and prayer&mdash;stays on your device until you print.">
+  <meta name="twitter:title" content="For Families &amp; Parents &mdash; Gentle KJV Tools for Real Home Life">
+  <meta name="twitter:description" content="Quiet KJV family worship, printables, and battle plans for tired parents and chaotic evenings. No guilt. Offline.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260422og">
   <meta name="twitter:image:alt" content="Family hub &mdash; KJV tools for parents and little ones | Today&#39;s Daily Battle">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
@@ -39,9 +39,10 @@
     "@graph": [
       {
         "@type": "WebPage",
-        "name": "For Families & Parents • Today's Daily Battle",
+        "name": "For Families & Parents — Gentle KJV Tools for Real Home Life",
         "url": "https://todaysdailybattle.com/family.html",
-        "description": "A quiet place for your family to meet God together: today’s KJV verse, family worship and comfort plans, printable packs, teen journal, and a local prayer list—on-device, offline-friendly.",
+        "description": "Quiet KJV family worship, daily verses, printables, and battle plans for tired parents, little ones, and chaotic evenings. No guilt. No account. Works offline.",
+        "audience": { "@type": "Audience", "audienceType": "Parents and Families" },
         "isPartOf": { "@type": "WebSite", "name": "Today's Daily Battle", "url": "https://todaysdailybattle.com/" }
       },
       {
@@ -595,6 +596,7 @@
         0 0 36px rgba(227, 188, 103, 0.04);
     }
     .family-prayer-wall label { display: block; font-size: 0.88rem; color: var(--muted); margin-bottom: 0.35rem; }
+    .family-prayer-wall-tagline { margin: 0 0 0.6rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; color: color-mix(in srgb, var(--muted) 70%, var(--gold-soft) 30%); }
     .family-prayer-input {
       width: 100%;
       box-sizing: border-box;
@@ -903,6 +905,90 @@
         margin-bottom: 1.1rem;
       }
     }
+    /* ── Overwhelmed-parent card + promise pills ── */
+    .family-promise-pills {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+      margin: 0.6rem 0 0.85rem;
+    }
+    .family-promise-pills span {
+      display: inline-block;
+      padding: 0.28rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid color-mix(in srgb, var(--gold-soft, #e3bc67) 32%, transparent);
+      background: rgba(0,0,0,0.16);
+      font-size: 0.76rem;
+      color: color-mix(in srgb, var(--text, #f5f7fb) 80%, var(--gold-soft, #e3bc67) 20%);
+      white-space: nowrap;
+    }
+    .family-hub-reassurance {
+      font-size: 0.92rem;
+      font-style: italic;
+      color: var(--muted, #8896b0);
+      margin: 0 0 0.75rem;
+      line-height: 1.5;
+    }
+    .family-overwhelmed-card {
+      background: color-mix(in srgb, var(--card, #161c26) 95%, rgba(227, 188, 103, 0.06));
+      border: 2px solid color-mix(in srgb, var(--gold-soft, #e3bc67) 32%, transparent);
+      border-radius: 18px;
+      padding: 1.5rem 1.4rem;
+      margin: 1.25rem 0 0.5rem;
+    }
+    .family-overwhelmed-card .foc-inner { max-width: 42rem; margin: 0 auto; }
+    .family-overwhelmed-card .foc-icon { display: inline-block; font-size: 2rem; margin-bottom: 0.4rem; opacity: 0.85; }
+    .family-overwhelmed-card h3 { font-size: 1.22rem; margin: 0 0 0.55rem; }
+    .family-overwhelmed-card .foc-lead { font-size: 1rem; line-height: 1.45; color: var(--muted); margin: 0 0 0.85rem; }
+    .family-overwhelmed-card .foc-actions { display: flex; flex-direction: column; gap: 0.75rem; }
+    .family-overwhelmed-card .btn { width: 100%; text-align: left; padding: 1rem 1.25rem; border-radius: 12px; }
+    .family-overwhelmed-card .foc-sub { display: block; font-size: 0.85rem; opacity: 0.72; margin-top: 0.2rem; }
+    .family-overwhelmed-card .foc-footer {
+      text-align: center; font-size: 0.88rem; color: var(--muted); margin-top: 1.25rem;
+    }
+    @media (max-width: 640px) {
+      .family-overwhelmed-card { padding: 1.3rem 1.1rem; margin: 1rem 0 0.5rem; }
+    }
+    .family-hub-cta-cluster {
+      padding: 1.1rem 1.4rem;
+      background: rgba(227,188,103,0.05);
+      border: 1px solid rgba(227,188,103,0.13);
+      border-radius: 12px;
+      margin: 1.5rem 0 0.75rem;
+    }
+    .family-hub-cta-cluster .fhcc-label {
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 0 0 0.65rem;
+    }
+    .family-hub-cta-cluster .fhcc-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem 1.5rem;
+    }
+    .family-hub-cta-cluster .fhcc-links a {
+      color: rgba(227,188,103,0.9);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    .family-hub-cta-cluster .fhcc-links a:hover,
+    .family-hub-cta-cluster .fhcc-links a:focus-visible { text-decoration: underline; }
+    .family-hub-cta-cluster .fhcc-links .fhcc-sub {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    .family-final-reassurance {
+      font-style: italic;
+      color: var(--muted, #8896b0);
+      text-align: center;
+      max-width: 38rem;
+      margin: 2.5rem auto 1.5rem;
+      line-height: 1.6;
+      font-size: 0.97rem;
+    }
   </style>
 </head>
 <body class="family-hub-deep-page tdb-inner-page">
@@ -966,9 +1052,13 @@
     <header class="family-hub-hero family-hub-hero--soar-dawn family-hub-animate family-hub-d1" aria-labelledby="family-hub-hero-heading">
       <p class="family-hub-kicker">Family hub</p>
       <h1 id="family-hub-hero-heading">For Families &amp; Parents</h1>
-      <p class="section-note topic-mood-porch">You&rsquo;re already welcome here&mdash;this hub helps your household meet God, not pass an invisible inspection.</p>
-      <p class="family-hub-tagline">A quiet place for your family to meet God together.</p>
-      <p class="family-hub-lead">Daily worship, heavy days, ordinary Tuesdays, teaching little ones, and growing together—without hype or pressure. Everything here is <strong>KJV</strong> for Scripture, human-curated, and saved on <strong>this device</strong> until you choose to print.</p>
+      <p class="family-hub-tagline">You are not behind.</p>
+      <p class="section-note topic-mood-porch">Tuesday night, kids are tired, nothing is prepared&mdash;that&rsquo;s okay. This is your quiet family operating system: one verse, one small step, one honest prayer that fits real life.</p>
+      <div class="family-promise-pills" aria-label="Feature highlights">
+        <span>KJV-only</span><span>Works offline</span><span>Print-ready</span><span>No guilt</span><span>Built for chaotic evenings</span>
+      </div>
+      <p class="family-hub-reassurance">One page is enough. You&rsquo;re already doing the hard part by showing up.</p>
+      <p class="family-hub-lead">Daily worship, heavy days, ordinary Tuesdays, teaching little ones, and growing together&mdash;without hype or pressure. Everything here is <strong>KJV</strong> for Scripture, human-curated, and saved on <strong>this device</strong> until you choose to print.</p>
       <p class="family-hub-lead family-hub-parent-nudge">Parents: your own soul matters too—<a href="daily-quiet-time.html">Daily quiet time</a> and <a href="what-god-has-done.html">What God has done</a> (private journal) are gentle doorways before the table fills up.</p>
       <p class="family-year-rhythm-callout family-hub-animate family-hub-d2" id="family-year-round-rhythm" style="margin:0.85rem 0 0;padding:0.85rem 1rem;border-radius:14px;border:1px solid rgba(227,188,103,0.28);background:rgba(12,16,26,0.55);font-size:0.92rem;line-height:1.55;color:rgba(218,226,238,0.96)"><strong>Homeschool, private school, or year-round:</strong> <a href="yearly-rhythm.html">Year-round rhythm</a> maps August&ndash;July, lighter summer weeks, and holiday doors&mdash;same one-day-at-a-time pace, saved on this device.</p>
       <p class="section-note family-hub-tour-nudge">New to the site? <button type="button" class="link-button tdb-tour-open-btn">Take the five-minute tour</button> (same welcome you get on home, verse, or explore).</p>
@@ -1010,7 +1100,39 @@
         <li><a href="#family-prayer-wall">Add one name or need</a> to the household prayer list, then whisper one short prayer.</li>
       </ol>
       <p class="family-parent-quick-dash__note section-note">For weekly rhythm instead of just tonight, use the kids paths below. Nothing here requires a second account or a cloud sync to be useful.</p>
+      <div class="family-overwhelmed-card" role="region" aria-label="Overwhelmed parent quick start">
+        <div class="foc-inner">
+          <span class="foc-icon" aria-hidden="true">🏡</span>
+          <h3>It&rsquo;s 8pm and everything feels chaotic?</h3>
+          <p class="foc-lead">You&rsquo;re not failing. You just need one gentle next step&mdash;and this is it.</p>
+          <div class="foc-actions">
+            <a href="#family-two-minute-heading" class="btn btn-primary">
+              Family Quick Start (2 minutes) &rarr;
+              <span class="foc-sub">One verse, one story, one prayer. Done.</span>
+            </a>
+            <a href="/printables.html" class="btn btn-secondary">
+              Grab a Printable for tonight &rarr;
+              <span class="foc-sub">One page, ready to hand out or read together</span>
+            </a>
+            <a href="/plans.html?plan=familyworship" class="btn btn-secondary">
+              Family Worship in the Trenches (7 days) &rarr;
+              <span class="foc-sub">For real weeks with kids, not ideal ones</span>
+            </a>
+          </div>
+          <p class="foc-footer">No perfect evenings required. Just one verse, one small step, one prayer.</p>
+        </div>
+      </div>
     </section>
+
+    <nav class="family-hub-cta-cluster" aria-label="Quick links to family tools">
+      <p class="fhcc-label">Need something specific tonight?</p>
+      <ul class="fhcc-links">
+        <li><a href="/printables.html">&rarr; Grab a Printable <span class="fhcc-sub">(one page is enough)</span></a></li>
+        <li><a href="/family-armor.html">&rarr; Family Armor &amp; Stories</a></li>
+        <li><a href="/plans.html?plan=familyworship">&rarr; Family Worship in the Trenches <span class="fhcc-sub">(7 days)</span></a></li>
+        <li><a href="/little-ones.html">&rarr; For the Little Ones</a></li>
+      </ul>
+    </nav>
 
     <section class="family-parent-at-a-glance family-hub-animate family-hub-d2" aria-labelledby="family-doorways-heading">
       <h2 class="family-parent-at-a-glance__title" id="family-doorways-heading">Know the four kid doorways</h2>
@@ -1357,6 +1479,7 @@
 
     <section class="family-prayer-wall family-hub-animate family-hub-d4" id="family-prayer-wall" aria-labelledby="family-prayer-heading">
       <h2 class="family-section-title" id="family-prayer-heading">Household prayer list</h2>
+      <p class="family-prayer-wall-tagline">A quiet place for your family</p>
       <p class="section-lead" style="margin-top:0">For your family on this device only. Add short lines (names, thanks, needs). Remove anytime.</p>
       <label for="family-prayer-input">Add a prayer line</label>
       <textarea id="family-prayer-input" class="family-prayer-input" maxlength="220" rows="3" autocomplete="off" placeholder="e.g., Thank God for Grandma&rsquo;s healing &mdash; or &mdash; Peace for our teacher"></textarea>
@@ -1381,6 +1504,7 @@
     </section>
 
     <p class="family-kids-tie"><a href="kids-corner.html">Bible Loop Library</a> stays the younger-child space for quick replays, and <a href="kids/corner.html">Bible Story Library</a> is the fuller read-aloud path. <a href="plans.html?plan=beatitudes-kids">The Beatitudes for Kids</a> is nine gentle KJV days with simple words&mdash;read beside them. <a href="plans.html?plan=lordsprayer-kids">The Lord&rsquo;s Prayer for Kids</a> walks Matthew 6 phrase by phrase in the same calm voice (seven days, pray together). Try <a href="plans.html?plan=sower">the Parable of the Sower</a> together, too: a calm story about how our hearts receive God&rsquo;s Word; younger children may prefer <a href="plans.html?plan=sower-kids">Parable of the Sower for Kids</a> (same verses, simpler steps). <a href="plans.html?plan=galatiansfreedom">Galatians: Freedom in Christ</a> pairs well with teens. Coloring: <a href="coloring.html">Color &amp; Tell</a>.</p>
+    <p class="family-final-reassurance">You don&rsquo;t have to be a perfect parent to give your kids Jesus. One gentle verse, one small step, one honest prayer is enough.</p>
   </main>
   <script src="family-hierarchy.js"></script>
   <script src="memory-verses.js"></script>

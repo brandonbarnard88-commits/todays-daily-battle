@@ -242,6 +242,8 @@ const rootFiles = [
   'lineage-tree.js',
   'story-manifest.js',
   'verse-rotator.js',
+  'core-home.js',
+  'porch-effects.js',
   'start-my-day.js',
   'first-visit-welcome.js',
   'auth.js',

@@ -13,7 +13,9 @@ const dist = path.join(root, 'dist');
 
 const assets = [
   { src: path.join(root, 'register-sw.js'), dest: path.join(dist, 'register-sw.js') },
-  { src: path.join(root, 'kids', 'kids-shared.js'), dest: path.join(dist, 'kids-shared.js') }
+  { src: path.join(root, 'kids', 'kids-shared.js'), dest: path.join(dist, 'kids-shared.js') },
+  { src: path.join(root, 'core-home.js'), dest: path.join(dist, 'core-home.js') },
+  { src: path.join(root, 'porch-effects.js'), dest: path.join(dist, 'porch-effects.js') }
 ];
 
 function fail(message) {

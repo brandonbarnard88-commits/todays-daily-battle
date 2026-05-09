@@ -7,23 +7,24 @@
   <script defer src="analytics-loader.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Memorize • Gentle KJV memory tools • Today&apos;s Daily Battle</title>
-  <meta name="description" content="Private verse cards, gentle review, typing and listening practice—King James Bible only; everything stays on your device.">
+  <title>Memorize Scripture &mdash; Gentle KJV Memory Tools (No Streaks, No Pressure)</title>
+  <meta name="description" content="Gentle KJV memorization tools for real life: spaced practice, flip cards, listen-and-repeat, print sheets, and no-pressure rhythms. For weary parents, pastors, and families. Works offline.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/memorize.html">
-  <meta property="og:title" content="Memorize • Gentle KJV memory tools • Today&apos;s Daily Battle">
-  <meta property="og:description" content="Private verse cards, gentle review, typing and listening practice—King James Bible only; everything stays on your device.">
+  <meta property="og:title" content="Memorize Scripture &mdash; Gentle KJV Memory Tools">
+  <meta property="og:description" content="No streaks. No pressure. Just one verse at a time with God’s Word. Spaced practice, printables, and calm tools for parents, pastors, and families.">
   <meta property="og:url" content="https://todaysdailybattle.com/memorize.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Today&apos;s Daily Battle">
   <meta property="og:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260410og">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Today&apos;s Daily Battle — gentle KJV memory tools">
+  <meta property="og:image:alt" content="Memorize Scripture — Gentle KJV Memory Tools | Today’s Daily Battle">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Memorize • Gentle KJV memory tools • Today&apos;s Daily Battle">
-  <meta name="twitter:description" content="Private verse cards, gentle review, typing and listening practice—King James Bible only; everything stays on your device.">
+  <meta name="twitter:title" content="Memorize Scripture — Gentle KJV Tools">
+  <meta name="twitter:description" content="No streaks. No pressure. Just gentle practice with God’s Word.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260410og">
+  <meta name="twitter:image:alt" content="Memorize Scripture — Gentle KJV Memory Tools | Today’s Daily Battle">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="preload" href="tdb-quiet-luxury.css?v=20260503-consent-persist-fix" as="style">
   <link rel="stylesheet" href="tdb-quiet-luxury.css?v=20260503-consent-persist-fix">
@@ -308,7 +309,143 @@
         margin-bottom: 1.1rem;
       }
     }
-  </style>
+    .memorize-hero-tagline {
+      font-size: 0.97rem;
+      color: rgba(245,247,251,0.7);
+      margin: 0.1rem 0 0.8rem;
+      font-style: italic;
+    }
+    .memorize-hero-lead {
+      font-size: 1.05rem;
+      line-height: 1.55;
+      max-width: 44rem;
+      color: rgba(245,247,251,0.82);
+      margin: 0 0 0.9rem;
+    }
+    .memorize-pills {
+      background: rgba(227,188,103,0.07);
+      border: 1px solid rgba(227,188,103,0.22);
+      padding: 0.7rem 1rem;
+      border-radius: 12px;
+      margin: 0.65rem 0 0.85rem;
+      font-size: 0.855rem;
+      color: rgba(245,247,251,0.68);
+      letter-spacing: 0.01em;
+    }
+    .memorize-reassurance {
+      font-size: 0.92rem;
+      font-style: italic;
+      color: var(--muted, #8896b0);
+      margin: 0 0 0.9rem;
+    }
+    .memorize-quickstart-card {
+      background-color: var(--tdb-surface-card-bg);
+      background-image: var(--tdb-surface-veil-subtle);
+      border: 1px solid var(--tdb-surface-card-border);
+      box-shadow: var(--tdb-surface-card-shadow);
+      border-radius: var(--tdb-surface-radius);
+      padding: 1.2rem 1.15rem 1.1rem;
+      margin: 1rem 0 0.75rem;
+    }
+    .memorize-quickstart-card h3 {
+      font-size: 1.02rem;
+      margin: 0 0 0.3rem;
+      color: var(--gold);
+    }
+    .mqsc-icon { font-size: 1.5rem; display: block; margin-bottom: 0.3rem; }
+    .mqsc-lead {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin: 0 0 0.8rem;
+      line-height: 1.45;
+    }
+    .mqsc-actions { display: flex; flex-direction: column; gap: 0.55rem; }
+    .mqsc-actions .btn { width: 100%; }
+  
+/* memorize.html Phase 3 — internal linking */
+.mem-context-link {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin: 0.75rem 0 0;
+  line-height: 1.5;
+}
+.mem-context-link a { color: var(--gold); text-underline-offset: 2px; }
+
+.mem-pastor-bridge {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 2rem 0 0.75rem;
+  line-height: 1.55;
+  max-width: 40rem;
+}
+.mem-pastor-bridge a { color: var(--gold); text-underline-offset: 2px; }
+
+.mem-hub-cluster {
+  background: rgba(227,188,103,0.06);
+  border: 1px solid rgba(227,188,103,0.2);
+  border-radius: 14px;
+  padding: 1.25rem 1.4rem;
+  margin: 0.5rem 0 2.5rem;
+}
+.cluster-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin: 0 0 0.65rem;
+}
+.mem-hub-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.4rem 1.25rem;
+}
+.mem-hub-links li { margin: 0; font-size: 0.9rem; }
+.mem-hub-links a { color: var(--gold); text-underline-offset: 2px; }
+
+/* memorize.html Phase 4 — print/export polish */
+.mem-print-lead {
+  font-size: 1rem;
+  line-height: 1.52;
+  color: var(--muted);
+  max-width: 42rem;
+  margin: 0 0 0.65rem;
+}
+.mem-print-reassurance {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--muted);
+  max-width: 42rem;
+  line-height: 1.55;
+  margin: 0 0 1rem;
+}
+
+/* memorize.html Phase 5 — final reassurance footer */
+.mem-final-reassurance {
+  font-style: italic;
+  color: var(--muted);
+  text-align: center;
+  max-width: 42rem;
+  margin: 3rem auto 2rem;
+  line-height: 1.6;
+  padding: 0 1rem;
+  font-size: 0.95rem;
+}
+</style>
+  <script type="application/ld+json" nonce="tdb2025s">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Memorize Scripture — Gentle KJV Memory Tools",
+    "url": "https://todaysdailybattle.com/memorize.html",
+    "description": "Calm, no-pressure Scripture memorization for families, pastors, and individuals. KJV only, works offline, no streaks.",
+    "audience": { "@type": "Audience", "audienceType": "Parents, Pastors, and Families" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "isPartOf": { "@type": "WebSite", "name": "Today's Daily Battle", "url": "https://todaysdailybattle.com/" }
+  }
+  </script>
 </head>
 <body class="tdb-inner-page memorize-page">
   <a href="#main" class="skip-link">Skip to content</a>
@@ -379,11 +516,23 @@
     data-tdb-offline-page="memorize"
   ><p class="offline-msg"></p></div>
   <main id="main" class="mem-main tdb-calm-hub tdb-quiet-container porch-section">
-    <header id="memorize-overview" class="mem-intro-panel" aria-labelledby="mem-page-title" tabindex="-1">
-      <h1 id="mem-page-title">Memorize</h1>
-      <p class="section-note util-mb-0_5 topic-mood-porch">You&rsquo;re already welcome here&mdash;memory is practice, not a contest.</p>
-      <p class="subtitle">Private &mdash; everything stays on this device</p>
-      <p class="lead">Quiet tools to hide God&rsquo;s Word in your heart. No streaks, no scores, no competition&mdash;just gentle repetition that still works on hard days. Verses you keep in <a href="/mystudy?tab=library#saved-verses" style="color:var(--gold);text-decoration:underline;text-underline-offset:2px;">My Study</a> have a Memorize link on each card.</p>
+    <header id="memorize-overview" class="mem-intro-panel memorize-hero" aria-labelledby="mem-page-title" tabindex="-1">
+      <h1 id="mem-page-title" style="margin-bottom:0.1rem;">Memorize</h1>
+      <p class="lead" style="margin-bottom:0.35rem;">You are not behind.</p>
+      <p class="memorize-hero-tagline">Some days you just need one verse that stays with you.</p>
+      <p class="memorize-hero-lead">No streaks. No pressure. Just gentle practice with God&rsquo;s Word&mdash;for you, your family, or your next sermon.</p>
+      <div class="memorize-pills" aria-label="Feature highlights">KJV only &bull; No scores &bull; Spaced gently &bull; Works offline &bull; Print anytime</div>
+      <p class="memorize-reassurance">The Lord meets you right where you are. One verse, one small step, one honest try is enough.</p>
+      <div class="memorize-quickstart-card">
+        <span class="mqsc-icon" aria-hidden="true">📖</span>
+        <h3>Start with today&rsquo;s verse?</h3>
+        <p class="mqsc-lead">One tap adds it to your list and opens gentle spaced practice.</p>
+        <div class="mqsc-actions">
+          <button type="button" class="btn btn-primary" id="mem-add-today-verse">Add Today&rsquo;s Verse &amp; Start &rarr;</button>
+          <a href="/plans.html" class="btn btn-secondary">Or browse themed plans</a>
+        </div>
+      </div>
+      <p class="subtitle" style="margin-top:0.25rem;">Private &mdash; everything stays on this device. Verses you keep in <a href="/mystudy?tab=library#saved-verses" style="color:var(--gold);text-decoration:underline;text-underline-offset:2px;">My Study</a> have a Memorize link on each card.</p>
       <p class="section-note mem-year-round-bridge" style="margin:0.85rem 0 0;max-width:38rem;line-height:1.55">Families &amp; classrooms: the same gentle <strong>month-by-month KJV grid</strong> (mark learning or memorized on this device) lives on <a href="/yearly-rhythm.html#yr-memory">Year-round rhythm</a> and <a href="/family.html#family-year-round-memory">Family hub</a>. <a href="/year-at-a-glance.html">Year at a glance</a> prints every month plus seasonal doors on one page. Calm practice ideas (no quizzes): <a href="/church-sharing-kit.html#csk-memory-verse-activities">Memory Verse Activities</a> in the Church Sharing Kit &middot; <a href="/memory-verse-activities-print.html">one-page print sheet</a>.</p>
     </header>
 
@@ -469,15 +618,17 @@
 
     <section aria-labelledby="mem-print-h2">
       <h2 id="mem-print-h2">Printable cards</h2>
-      <p class="section-note">Opens a quiet print sheet: reference, then text&mdash;one card per verse. Trim or fold if you like. Text appears when you have loaded that verse on this page before (same cache as typing practice).</p>
+      <p class="mem-print-lead">One page is enough. Print what you need tonight&mdash;no perfection required.</p>
+      <p class="mem-print-reassurance">Whether you&rsquo;re a parent printing for bedtime or a pastor pulling sermon anchors, this sheet is designed for tired hands. Each verse prints as a clean, fold-able card&mdash;reference on the front, text on the back. Load a verse here first to fill the text.</p>
       <div class="mem-row">
         <button type="button" class="btn btn-secondary" id="mem-print-cards" aria-label="Open printable memory verse cards">Open print sheet</button>
       </div>
+      <p class="mem-context-link">These sheets also work well with the <a href="/plans.html?plan=familyworship">Family Worship Plan</a> and the <a href="/yearly-rhythm.html">Year-Round Memory Tools</a>. Grab extra blank cards from the <a href="/printables.html">Family Printables</a> hub.</p>
     </section>
 
     <section aria-labelledby="mem-export-h2">
       <h2 id="mem-export-h2">Export My Memory List</h2>
-      <p class="section-note">Private backup from this device &mdash; reference plus verse text when you have loaded it here. Never a score.</p>
+      <p class="mem-print-lead">A private backup that lives only on this device&mdash;reference plus verse text. No score. No sync. Yours to keep.</p>
       <div class="mem-row" role="group" aria-label="Export memory list format">
         <button type="button" class="btn btn-secondary" id="mem-export-txt" aria-label="Export memory list as plain text file">Plain text</button>
         <button type="button" class="btn btn-secondary" id="mem-export-md" aria-label="Export memory list as Markdown file">Markdown</button>
@@ -489,6 +640,21 @@
       <h2 id="mem-remind-h2">Optional reminders</h2>
       <p class="section-note">Browser reminders stay off by default. Nothing here nags you; open this page when you want a quiet round.</p>
     </section>
+
+    <p class="mem-pastor-bridge">Pastors weaving verses into a sermon may also find the <a href="/for-pastors.html">Pastor Resources</a> page and the <a href="/plans.html?plan=preachingthroughexhaustion">Preaching Through Exhaustion</a> plan useful anchors.</p>
+
+    <nav class="mem-hub-cluster" aria-label="Related tools and hubs">
+      <p class="cluster-label">This page connects to:</p>
+      <ul class="mem-hub-links">
+        <li><a href="/family.html">Family Hub</a> &mdash; memory tools for parents and kids</li>
+        <li><a href="/printables.html">Family Printables</a> &mdash; memory verse cards and activities</li>
+        <li><a href="/yearly-rhythm.html">Year-Round Rhythm</a> &mdash; long-term memory planning</li>
+        <li><a href="/for-pastors.html">Pastor Resources</a> &mdash; sermon anchors and preaching helps</li>
+        <li><a href="/plans.html?plan=familyworship">Family Worship Plan</a> &mdash; 7-day family rhythm</li>
+      </ul>
+    </nav>
+
+    <p class="mem-final-reassurance">You don&rsquo;t have to memorize perfectly to hide God&rsquo;s Word in your heart. One gentle verse, one small step, one honest try is enough.</p>
   </main>
   <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
   <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
@@ -659,6 +825,39 @@
   <script src="bible-study-companion.js?v=20260328mem"></script>
   <script src="tdb-offline-strip.js?v=20260329pass2off"></script>
   <script src="memorize.js?v=20260430a11y-print"></script>
+  <script nonce="tdb2025s">
+  (function () {
+    'use strict';
+    var btn = document.getElementById('mem-add-today-verse');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var origText = btn.textContent;
+      btn.textContent = 'Loading\u2026';
+      btn.disabled = true;
+      function restore() { btn.textContent = origText; btn.disabled = false; }
+      fetch('/today-kjv-verse.json')
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (data) {
+          var ref = data && data.ref ? String(data.ref).trim() : '';
+          if (!ref) { restore(); return; }
+          var inp = document.getElementById('mem-ref-input');
+          var loadBtn = document.getElementById('mem-load-verse');
+          var addBtn = document.getElementById('mem-add-queue');
+          if (!inp || !loadBtn) { restore(); return; }
+          inp.value = ref;
+          loadBtn.click();
+          // Give async verse fetch time to resolve before adding to queue
+          setTimeout(function () {
+            if (addBtn) addBtn.click();
+            var card = document.getElementById('mem-card');
+            if (card) card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            restore();
+          }, 1200);
+        })
+        .catch(restore);
+    });
+  }());
+  </script>
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260503-consent-persist-fix" data-cfasync="false"></script>
   <script src="share-page.js?v=20260503-consent-persist-fix" defer></script>

@@ -2697,6 +2697,27 @@
     :root[data-theme="light"] .tdb-home-continue-loop-wrap--soft .tdb-home-continue-loop-link {
       border-color: color-mix(in srgb, var(--line) 85%, var(--gold) 15%);
     }
+    /* Multi-item return loop: heading label + stacked links */
+    .tdb-continue-loop-heading {
+      margin: 0 0 0.38rem;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--muted) 72%, var(--gold-soft) 28%);
+    }
+    .tdb-continue-loop-heading[hidden] { display: none !important; }
+    .tdb-home-continue-loop-wrap .tdb-home-continue-loop-link + .tdb-home-continue-loop-link {
+      margin-top: 0.4rem;
+    }
+    /* Plan link: left accent strip */
+    .tdb-home-plan-loop-link {
+      border-left: 2px solid color-mix(in srgb, var(--gold-soft) 55%, transparent);
+    }
+    .tdb-home-plan-loop-link[hidden] { display: none !important; }
+    :root[data-theme="light"] .tdb-home-plan-loop-link {
+      border-left-color: color-mix(in srgb, var(--gold) 45%, transparent);
+    }
     /* Easter season (Gregorian window): same calm band as Battle Plans */
     .easter-banner {
       display: flex; align-items: flex-start; justify-content: space-between; gap: 0.65rem;
@@ -10009,6 +10030,11 @@
       </section>
 
       <div id="tdb-home-continue-loop-wrap" class="tdb-home-continue-loop-wrap" role="region" aria-label="Pick up on this device" hidden>
+        <p class="tdb-continue-loop-heading" id="tdb-home-continue-loop-heading" hidden>Pick up where you left off</p>
+        <a id="tdb-home-plan-loop-link" class="tdb-home-continue-loop-link tdb-home-plan-loop-link" href="plans.html" hidden>
+          <span class="tdb-home-continue-loop-eyebrow" id="tdb-home-plan-loop-eyebrow"></span>
+          <span class="tdb-home-continue-loop-title" id="tdb-home-plan-loop-title"></span>
+        </a>
         <a id="tdb-home-continue-loop-link" class="tdb-home-continue-loop-link" href="mobius.html#mobius-loop-journal">
           <span class="tdb-home-continue-loop-eyebrow" id="tdb-home-continue-loop-eyebrow"></span>
           <span class="tdb-home-continue-loop-title" id="tdb-home-continue-loop-title"></span>

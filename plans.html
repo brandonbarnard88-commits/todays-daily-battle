@@ -4890,7 +4890,10 @@
     }
     var PLANS = null;
     function ensurePlansLoaded() {
-      if (!PLANS) PLANS = buildPlans();
+      if (!PLANS) {
+        PLANS = buildPlans();
+        seedPlanBreakdownOverrides();
+      }
       return PLANS;
     }
 
@@ -6407,6 +6410,7 @@
     }
 
     function seedPlanBreakdownOverrides() {
+      if (!PLANS || typeof PLANS !== 'object') return;
       if (!window.TDB_VERSE_BREAKDOWN_OVERRIDES) window.TDB_VERSE_BREAKDOWN_OVERRIDES = {};
       Object.keys(PLANS).forEach(function (planId) {
         var plan = PLANS[planId];
@@ -7664,7 +7668,6 @@
 
     // ── URL routing — open plan directly if ?plan=id in URL ──────────────────
     function init() {
-      seedPlanBreakdownOverrides();
       var list = document.getElementById('planList');
       if (list) {
         list.setAttribute('aria-busy', 'true');

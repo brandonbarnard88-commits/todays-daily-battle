@@ -161,6 +161,41 @@
     }
     .family-back-link a:hover,
     .family-back-link a:focus-visible { color: var(--gold, #e3bc67); text-decoration: underline; }
+    .print-hero-lead {
+      font-size: 1.05rem;
+      line-height: 1.55;
+      color: rgba(245,247,251,0.82);
+      margin: 0 0 0.9rem;
+      max-width: 44rem;
+    }
+    .print-hero-tagline {
+      font-size: 0.97rem;
+      color: rgba(245,247,251,0.72);
+      margin: 0.15rem 0 0.85rem;
+      font-style: italic;
+    }
+    .family-print-pills {
+      background: rgba(227,188,103,0.07);
+      border: 1px solid rgba(227,188,103,0.22);
+      padding: 0.7rem 1rem;
+      border-radius: 12px;
+      margin: 0.75rem 0 0.85rem;
+      font-size: 0.855rem;
+      color: rgba(245,247,251,0.68);
+      letter-spacing: 0.01em;
+    }
+    .print-reassurance {
+      font-size: 0.92rem;
+      color: var(--muted, #8896b0);
+      margin: 0 0 0.75rem;
+    }
+    .print-quick-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 1rem 0 0.25rem;
+    }
+    .print-quick-strip .btn { flex: 1 1 auto; min-width: 180px; text-align: center; }
   </style>
 </head>
 <body class="dark-mode tdb-inner-page">
@@ -173,9 +208,17 @@
     </ol>
   </nav>
   <main id="main-content" class="printables-page-main" style="max-width: 48rem; margin: 0 auto; padding: 0 1rem 2.5rem;">
-  <header class="hero-banner tdb-dawn-bg--mist glass tdb-porch-paper-glass" style="padding: 1.15rem 1.1rem; margin: 0 0 1.25rem; border-radius: 14px;">
-    <h1>Print hub &mdash; paper companions</h1>
-    <p class="topic-mood-porch" style="margin: 0.35rem 0 0; font-size: 0.95rem; color: rgba(245, 247, 251, 0.92);">You&rsquo;re already welcome here&mdash;take what helps, leave the rest. Paper is optional. KJV only, no pressure.</p>
+  <header class="hero-banner tdb-dawn-bg--mist glass tdb-porch-paper-glass" style="padding: 1.25rem 1.2rem 1rem; margin: 0 0 1rem; border-radius: 14px;">
+    <h1 style="margin:0 0 0.2rem;">Family Printables</h1>
+    <p class="print-hero-tagline" style="margin-top:0;">Tuesday night. Kids are melting down. You just need one page that works.</p>
+    <p class="print-hero-lead">Paper-friendly KJV tools for real families: memory verse sheets, armor of God activities, bedtime rhythms, littles coloring pages, and thin-week survival guides.</p>
+    <div class="family-print-pills" aria-label="Feature highlights">One page is enough &bull; Print tonight &bull; KJV only &bull; No guilt &bull; Works offline</div>
+    <p class="print-reassurance">You don&rsquo;t need a perfect family devotion time. You just need something gentle you can reach for right now.</p>
+    <div class="print-quick-strip">
+      <a href="#tonight" class="btn btn-primary">Tonight&rsquo;s Easiest Printable &rarr;</a>
+      <a href="#armor" class="btn btn-secondary">Family Armor Sheets</a>
+      <a href="#memory" class="btn btn-secondary">Memory Verse Cards</a>
+    </div>
   </header>
   <nav class="family-back-link" aria-label="Family cluster navigation">
     <a href="/family.html">&larr; Family Hub</a>
@@ -200,7 +243,7 @@
     </p>
   </section>
 
-  <section class="printable-section">
+  <section class="printable-section" id="tonight">
     <h3>7-Day Emergency Calm Pack</h3>
     <p>A one-tap doorway for heavy weeks: one verse, one small step, one prayer each day, with printable companions for home, bedside, or travel.</p>
     <p><strong><a href="emergency-calm-pack.html">Open the emergency calm pack</a></strong> &mdash; includes links to Calm, plans, and ready print sheets.</p>
@@ -346,13 +389,13 @@
     </ul>
   </section>
 
-  <section class="memory-verse printable-section">
+  <section class="memory-verse printable-section" id="memory">
     <h3>Memory Verse Activities</h3>
     <p>Simple, ink-friendly worksheets for hiding Scripture in your heart. One verse per sheet with space to write, draw, or copy the KJV text. Perfect for individuals, families, or homeschool.</p>
     <button type="button" class="btn print-trigger" onclick="window.print()">Print Memory Verse Worksheets</button>
   </section>
 
-  <section class="family-armor printable-section">
+  <section class="family-armor printable-section" id="armor">
     <h3>Family Armor Checklist</h3>
     <p>Weekly checklist for putting on the full armor of God together (Ephesians 6). Space for each family member to note one way they saw God’s protection that week. Calm, reverent, no pressure.</p>
     <button type="button" class="btn print-trigger" onclick="window.print()">Print Family Armor Checklist</button>

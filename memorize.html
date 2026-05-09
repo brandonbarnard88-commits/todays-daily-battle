@@ -360,7 +360,50 @@
     }
     .mqsc-actions { display: flex; flex-direction: column; gap: 0.55rem; }
     .mqsc-actions .btn { width: 100%; }
-  </style>
+  
+/* memorize.html Phase 3 — internal linking */
+.mem-context-link {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin: 0.75rem 0 0;
+  line-height: 1.5;
+}
+.mem-context-link a { color: var(--gold); text-underline-offset: 2px; }
+
+.mem-pastor-bridge {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 2rem 0 0.75rem;
+  line-height: 1.55;
+  max-width: 40rem;
+}
+.mem-pastor-bridge a { color: var(--gold); text-underline-offset: 2px; }
+
+.mem-hub-cluster {
+  background: rgba(227,188,103,0.06);
+  border: 1px solid rgba(227,188,103,0.2);
+  border-radius: 14px;
+  padding: 1.25rem 1.4rem;
+  margin: 0.5rem 0 2.5rem;
+}
+.cluster-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin: 0 0 0.65rem;
+}
+.mem-hub-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.4rem 1.25rem;
+}
+.mem-hub-links li { margin: 0; font-size: 0.9rem; }
+.mem-hub-links a { color: var(--gold); text-underline-offset: 2px; }
+</style>
   <script type="application/ld+json" nonce="tdb2025s">
   {
     "@context": "https://schema.org",
@@ -549,6 +592,7 @@
       <div class="mem-row">
         <button type="button" class="btn btn-secondary" id="mem-print-cards" aria-label="Open printable memory verse cards">Open print sheet</button>
       </div>
+      <p class="mem-context-link">These sheets also work well with the <a href="/plans.html?plan=familyworship">Family Worship Plan</a> and the <a href="/yearly-rhythm.html">Year-Round Memory Tools</a>. Grab extra blank cards from the <a href="/printables.html">Family Printables</a> hub.</p>
     </section>
 
     <section aria-labelledby="mem-export-h2">
@@ -565,6 +609,19 @@
       <h2 id="mem-remind-h2">Optional reminders</h2>
       <p class="section-note">Browser reminders stay off by default. Nothing here nags you; open this page when you want a quiet round.</p>
     </section>
+
+    <p class="mem-pastor-bridge">Pastors weaving verses into a sermon may also find the <a href="/for-pastors.html">Pastor Resources</a> page and the <a href="/plans.html?plan=preachingthroughexhaustion">Preaching Through Exhaustion</a> plan useful anchors.</p>
+
+    <nav class="mem-hub-cluster" aria-label="Related tools and hubs">
+      <p class="cluster-label">This page connects to:</p>
+      <ul class="mem-hub-links">
+        <li><a href="/family.html">Family Hub</a> &mdash; memory tools for parents and kids</li>
+        <li><a href="/printables.html">Family Printables</a> &mdash; memory verse cards and activities</li>
+        <li><a href="/yearly-rhythm.html">Year-Round Rhythm</a> &mdash; long-term memory planning</li>
+        <li><a href="/for-pastors.html">Pastor Resources</a> &mdash; sermon anchors and preaching helps</li>
+        <li><a href="/plans.html?plan=familyworship">Family Worship Plan</a> &mdash; 7-day family rhythm</li>
+      </ul>
+    </nav>
   </main>
   <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
   <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">

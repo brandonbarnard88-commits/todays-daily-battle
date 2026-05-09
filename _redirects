@@ -165,6 +165,8 @@
 # Pastor Hub
 /pastor /pastor/index.html 200!
 /pastor/ /pastor/index.html 200!
+/pastors /for-pastors.html 301
+/pastors/ /for-pastors.html 301
 
 # Church Hub
 /church /church/index.html 200!

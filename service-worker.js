@@ -2,7 +2,7 @@
 // Bump CACHE_NAME when you deploy new HTML/CSS or want to invalidate (e.g. tdb-static-YYYYMMDD).
 // script.js is network-first with a cache fallback (not precached) so online users get fresh JS immediately; offline users get the last successful fetch until CACHE_NAME clears.
 // config.js is NOT intercepted so updates deploy immediately.
-const CACHE_NAME = 'tdb-cache-v20260503-consent-persist-fix';
+const CACHE_NAME = 'tdb-cache-v20260508-sw-repeat-visit';
 const CACHE_API = 'tdb-api-20260309c';
 const OFFLINE_URL = '/offline.html';
 const TODAY_VERSE_URL = '/today-kjv-verse.json';
@@ -190,6 +190,10 @@ const CORE_ASSETS = [
   '/family.html',
   '/family-armor.html',
   '/family-armor-little-ones.html',
+  '/little-ones.html',
+  '/coloring.html',
+  '/church-starter-pack.html',
+  '/for-pastors.html',
   '/yearly-rhythm.html',
   '/year-at-a-glance.html',
   '/one-week-rhythm.html',
@@ -714,29 +718,43 @@ self.addEventListener('fetch', (event) => {
   // Never cache config.js or footer-build-stamp.js so deployments take effect immediately
   if (url.pathname.endsWith('config.js') || url.pathname.endsWith('footer-build-stamp.js')) return;
 
-  // HTML navigations should prefer network so deploys are visible immediately.
+  // HTML navigations: stale-while-revalidate for instant repeat-visit loads.
+  // Cached HTML is served immediately on return visits; network refreshes the cache in background.
+  // On first visit or when offline, falls back to the full offline chain.
   if (event.request.mode === 'navigate') {
     event.respondWith(
-      fetch(event.request)
-        .then((res) => {
-          if (res && res.ok) {
-            const clone = res.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone)).catch(() => {});
+      caches.open(CACHE_NAME).then(function (cache) {
+        return cache.match(event.request).then(function (cached) {
+          var networkFetch = fetch(event.request)
+            .then(function (res) {
+              if (res && res.ok) cache.put(event.request, res.clone()).catch(function () {});
+              return res;
+            })
+            .catch(function () {
+              // Offline: walk the fallback chain
+              var base = cached
+                ? Promise.resolve(cached)
+                : (url.pathname === '/' || url.pathname === '')
+                  ? cache.match('/index.html')
+                  : (function () {
+                      var alt = offlineNavigateFallbackPath(url.pathname);
+                      return alt ? cache.match(alt) : Promise.resolve(null);
+                    }());
+              return base.then(function (hit) {
+                if (hit) return hit;
+                return cache.match(OFFLINE_URL).then(function (op) {
+                  return op || new Response('You are offline. Check back later.', { status: 503 });
+                });
+              });
+            });
+          // Serve cached immediately; let network fetch update the cache in background
+          if (cached) {
+            networkFetch.catch(function () {});
+            return cached;
           }
-          return res;
-        })
-        .catch(() => caches.match(event.request).then((cached) => {
-          if (cached) return cached;
-          if (url.pathname === '/' || url.pathname === '') {
-            return caches.match('/index.html');
-          }
-          var altPath = offlineNavigateFallbackPath(url.pathname);
-          if (altPath) return caches.match(altPath);
-          return null;
-        }).then((cached) => {
-          if (cached) return cached;
-          return caches.match(OFFLINE_URL).then((offlinePage) => offlinePage || new Response('You are offline. Check back later.', { status: 503 }));
-        }))
+          return networkFetch;
+        });
+      })
     );
     return;
   }

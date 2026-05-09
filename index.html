@@ -6,6 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preload" href="/today-kjv-verse.json" as="fetch" type="application/json" crossorigin>
+  <link rel="preload" href="/core-home.js?v=20260508-home-core-split" as="script" fetchpriority="high">
   <style id="tdb-critical-shell">html{background:#080c14}body{margin:0;background:#080c14;color:#f0f2f7}</style>
   <link rel="preload" as="script" href="/assets/perf-hint.js" fetchpriority="high">
   <script nonce="tdb2025s" src="/assets/perf-hint.js"></script>
@@ -19,8 +20,8 @@
   <script nonce="tdb2025s">(function(){try{if(location.hash!=='#prayer-wall')return;location.replace('prayer-wall.html'+location.search);}catch(e){}})();</script>
   <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260503-consent-persist-fix"></script>
 
-  <title>Today&rsquo;s Daily Battle &mdash; One KJV Verse, One Small Step, One Prayer</title>
-  <meta name="description" content="A quiet KJV doorway for real battles: one verse, one small step, one prayer. Works offline after first load. No ads, no pressure, no account required for most tools.">
+  <title>Today&rsquo;s Daily Battle &mdash; Gentle KJV Help for Weary Pastors &amp; Small Churches</title>
+  <meta name="description" content="Quiet KJV daily verse, Battle Plans, Church Starter Pack, and tools for small churches and tired pastors. No ads. No account. Works offline.">
   <meta name="keywords" content="bible verses when feeling heartbroken, bible for anxiety, verses when alone, KJV devotional, Bible verse of the day, KJV Bible app, Christian anxiety help, Bible verses for fear, offline Bible, daily scripture, verse of the day KJV, Bible breakdown plain English, calm verse, crisis verse, need verse now">
   <link rel="canonical" href="https://todaysdailybattle.com/">
 
@@ -94,8 +95,8 @@
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260422og">
   <meta name="twitter:image:alt" content="Today&#39;s Daily Battle &mdash; calm KJV verse and tools">
   <!-- Cormorant + Caveat: self-hosted latin woff2 (gstatic-derived). No Google Fonts on homepage. -->
-  <link rel="preload" as="font" type="font/woff2" href="/fonts/cormorant-garamond-latin-normal.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="/fonts/caveat-latin-700.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/cormorant-garamond-latin-normal.woff2" crossorigin fetchpriority="high">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/caveat-latin-700.woff2" crossorigin fetchpriority="low">
   <!-- Idler/third-party: resolve DNS only — avoids early TCP+TLS to GA/Plausible/JSDelivr before first paint. -->
   <link rel="dns-prefetch" href="https://www.google-analytics.com">
   <link rel="dns-prefetch" href="https://plausible.io">
@@ -4365,6 +4366,82 @@
       text-underline-offset: 3px;
     }
     .tdb-home-feel-result-more { margin: 0.75rem 0 0; text-align: center; font-size: 0.86rem; }
+    .overwhelmed-quickstart-card {
+      background: color-mix(in srgb, var(--card) 95%, rgba(227, 188, 103, 0.06));
+      border: 2px solid color-mix(in srgb, var(--gold-soft, #e3bc67) 35%, transparent);
+      border-radius: 18px;
+      padding: 2rem 1.75rem;
+      margin: 2.5rem 0 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      max-width: 100%;
+    }
+    .overwhelmed-quickstart-card .card-inner {
+      max-width: 42rem;
+      margin: 0 auto;
+    }
+    .overwhelmed-quickstart-card .gentle-icon {
+      display: inline-block;
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.85;
+    }
+    .overwhelmed-quickstart-card h3 {
+      font-size: 1.45rem;
+      margin: 0 0 0.75rem;
+      color: var(--text);
+      line-height: 1.35;
+    }
+    .overwhelmed-quickstart-card .lead {
+      font-size: 1.1rem;
+      line-height: 1.45;
+      margin-bottom: 1rem;
+      color: var(--muted);
+    }
+    .overwhelmed-quickstart-card .reassurance {
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    .overwhelmed-quickstart-card .quick-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .overwhelmed-quickstart-card .quick-actions .btn {
+      width: 100%;
+      text-align: left;
+      justify-content: flex-start;
+      padding: 1.1rem 1.4rem;
+      border-radius: 12px;
+      transition: all 0.2s ease;
+      min-height: 46px;
+      line-height: 1.35;
+    }
+    .overwhelmed-quickstart-card .quick-actions .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.09);
+    }
+    .overwhelmed-quickstart-card .btn-sub {
+      display: block;
+      font-size: 0.9rem;
+      opacity: 0.75;
+      margin-top: 0.2rem;
+      font-weight: 500;
+    }
+    .overwhelmed-quickstart-card .gentle-footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 640px) {
+      .overwhelmed-quickstart-card {
+        padding: 1.8rem 1rem;
+        margin: 2.2rem 0;
+      }
+    }
     .verse-card.is-loading .tdb-home-fast-feel { opacity: 0.55; pointer-events: none; }
     .verse-card.is-loading .tdb-home-feel-result { display: none; }
 
@@ -10102,6 +10179,29 @@
             </div>
           </details>
         </div>
+        <div class="overwhelmed-quickstart-card" role="region" aria-label="Overwhelmed quick start">
+          <div class="card-inner">
+            <span class="gentle-icon" aria-hidden="true">🪴</span>
+            <h3>Feeling overwhelmed right now?</h3>
+            <p class="lead">You&rsquo;re not behind. You don&rsquo;t have to figure everything out today.</p>
+            <p class="reassurance">Start here in under 3 minutes with one verse, one small step, and one honest prayer.</p>
+            <div class="quick-actions">
+              <a href="/church-starter-pack.html" class="btn btn-primary" aria-label="Open Church Starter Pack">
+                Open Church Starter Pack &rarr;<br>
+                <span class="btn-sub">Your quiet weekly operating system</span>
+              </a>
+              <a href="/plans.html?plan=preachingthroughexhaustion" class="btn btn-secondary" aria-label="Open Preaching Through Exhaustion plan">
+                Preaching Through Exhaustion (7 days) &rarr;<br>
+                <span class="btn-sub">For weary pastors and teachers</span>
+              </a>
+              <a href="/prayer-wall.html?tab=with-others" class="btn btn-secondary" aria-label="Pray with others quietly">
+                Pray with others (quietly) &rarr;<br>
+                <span class="btn-sub">Anonymous and no pressure</span>
+              </a>
+            </div>
+            <p class="gentle-footer">No account. No performance. Just one gentle next step.</p>
+          </div>
+        </div>
         <div id="plans-teaser" class="plans-teaser plans-teaser--nested" aria-label="Battle Plans lanes">
           <div class="plans-teaser-header">
             <span class="plans-teaser-title">📋 Battle Plans</span>
@@ -15212,7 +15312,21 @@
   <script nonce="tdb2025s" defer src="start-my-day.js?v=20260423-phase5-perf"></script>
   <!-- Home core first: load script.js interaction stack on user intent/idle (core-home.js). -->
   <script nonce="tdb2025s" defer src="core-home.js?v=20260508-home-core-split" data-cfasync="false" fetchpriority="high"></script>
-  <script defer src="porch-effects.js?v=20260507"></script>
+  <script nonce="tdb2025s">
+    (function () {
+      var loadPorchEffects = function () {
+        var s = document.createElement('script');
+        s.src = 'porch-effects.js?v=20260507';
+        s.defer = true;
+        document.body.appendChild(s);
+      };
+      if (typeof window.requestIdleCallback === 'function') {
+        window.requestIdleCallback(loadPorchEffects, { timeout: 1500 });
+      } else {
+        setTimeout(loadPorchEffects, 420);
+      }
+    })();
+  </script>
   <!-- Patriotic scriptures/hymns: not in main bundle; load here so home always gets expand UI (lazy inject alone can be late or skipped). -->
   <script nonce="tdb2025s" src="utils.js?v=20260331-patriotic-home" defer fetchpriority="low"></script>
   <!-- Sync: following inline calls TDB_EASTER_SEASON on parse; defer would run too late. -->

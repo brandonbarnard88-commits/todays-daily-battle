@@ -434,6 +434,46 @@
       transition: border-color 0.14s;
     }
     .sb-notes-textarea:focus { border-color: var(--gold, #e3bc67); }
+
+    /* ── Handout print layer ── */
+    #sb-handout-print-root { display: none; }
+    @media print {
+      body > *          { display: none !important; }
+      #sb-handout-print-root {
+        display: block !important;
+        font-family: Georgia, 'Times New Roman', serif;
+        font-size: 11.5pt;
+        line-height: 1.6;
+        color: #000;
+        background: #fff;
+        margin: 0;
+        padding: 0.6in 0.75in 0.5in;
+        max-width: 100%;
+      }
+      .sb-ho-header { text-align: center; margin-bottom: 0.35in; }
+      .sb-ho-title  { font-size: 18pt; font-weight: bold; margin: 0 0 0.08in; }
+      .sb-ho-ref    { font-size: 12pt; color: #444; margin: 0; }
+      .sb-ho-date   { font-size: 10pt; color: #888; margin: 0.06in 0 0; }
+      .sb-ho-rule   { border: none; border-top: 1px solid #ccc; margin: 0.25in 0; }
+      .sb-ho-section-label {
+        font-size: 8.5pt; font-weight: bold; letter-spacing: 0.07em;
+        text-transform: uppercase; color: #555; margin: 0 0 0.1in;
+      }
+      .sb-ho-point  { margin: 0 0 0.18in; page-break-inside: avoid; }
+      .sb-ho-point-title { font-size: 12pt; font-weight: bold; margin: 0 0 0.06in; }
+      .sb-ho-point-body  { font-size: 11pt; margin: 0 0 0.05in; white-space: pre-wrap; }
+      .sb-ho-oia-label   { font-size: 9pt; font-weight: bold; color: #555; text-transform: uppercase; letter-spacing: 0.04em; }
+      .sb-ho-body   { font-size: 11pt; white-space: pre-wrap; margin: 0 0 0.18in; }
+      .sb-ho-discussion { margin-top: 0.2in; page-break-inside: avoid; }
+      .sb-ho-disc-line  {
+        border-top: 1px solid #ccc; margin: 0.18in 0 0;
+        height: 0; display: block;
+      }
+      .sb-ho-footer {
+        margin-top: 0.35in; font-size: 9pt; color: #aaa;
+        text-align: center; border-top: 1px solid #eee; padding-top: 0.1in;
+      }
+    }
     .sb-notes-label {
       font-size: 0.73rem;
       font-weight: 600;
@@ -781,7 +821,7 @@
               <button id="export-sermon" type="button" aria-label="Copy sermon text for sharing">Copy for Sharing</button>
               <button id="export-sermon-email" type="button" aria-label="Copy sermon formatted for email">Copy for Email</button>
               <button id="export-sermon-slides" type="button" aria-label="Copy sermon formatted for presentation slides">Copy for Slides</button>
-              <button id="print-sermon" type="button" aria-label="Print sermon or save as PDF">Print / Save as PDF</button>
+              <button id="print-sermon" type="button" aria-label="Print clean one-page handout or save as PDF">Print Handout</button>
               <button id="email-sermon" type="button" aria-label="Email this sermon">Email Sermon</button>
               <button id="pastor-toolkit" type="button" aria-label="Open the Pastor Toolkit">Pastor Toolkit</button>
               <button id="share-sermon" type="button" aria-label="Email this sermon to your congregation">Email to Congregation</button>
@@ -2368,6 +2408,97 @@
     window.addEventListener('scroll',  hideBubble, true);
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') hideBubble();
+    });
+  }());
+
+  /* ── Print handout ── */
+  (function () {
+    function esc(s) {
+      return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+    function lines(s) { return esc(s).replace(/\n/g,'<br>'); }
+    function rule() { return '<hr class="sb-ho-rule">'; }
+
+    document.getElementById('print-sermon')?.addEventListener('click', function () {
+      var draft = sbGetDraft();
+      var oiaPoints = sbCollectOiaPoints().filter(function (p) {
+        return p.title || p.observation || p.interpretation || p.application;
+      });
+
+      var html = [];
+
+      /* Header */
+      html.push('<div class="sb-ho-header">');
+      if (draft.title) html.push('<p class="sb-ho-title">' + esc(draft.title) + '</p>');
+      if (draft.textRef) html.push('<p class="sb-ho-ref">' + esc(draft.textRef) + ' &mdash; KJV</p>');
+      if (draft.date) html.push('<p class="sb-ho-date">' + esc(draft.date) + '</p>');
+      html.push('</div>');
+      html.push(rule());
+
+      /* OIA main points (modern workspace) */
+      if (oiaPoints.length) {
+        html.push('<p class="sb-ho-section-label">Main Points</p>');
+        oiaPoints.forEach(function (p, i) {
+          html.push('<div class="sb-ho-point">');
+          html.push('<p class="sb-ho-point-title">' + (i + 1) + '. ' + (esc(p.title) || 'Point ' + (i + 1)) + '</p>');
+          if (p.observation)    html.push('<p class="sb-ho-point-body"><span class="sb-ho-oia-label">Observation&nbsp;&mdash;</span> ' + lines(p.observation) + '</p>');
+          if (p.interpretation) html.push('<p class="sb-ho-point-body"><span class="sb-ho-oia-label">Interpretation&nbsp;&mdash;</span> ' + lines(p.interpretation) + '</p>');
+          if (p.application)    html.push('<p class="sb-ho-point-body"><span class="sb-ho-oia-label">Application&nbsp;&mdash;</span> ' + lines(p.application) + '</p>');
+          html.push('</div>');
+        });
+        html.push(rule());
+      } else if (draft.outline) {
+        /* Classic outline fallback */
+        html.push('<p class="sb-ho-section-label">Outline</p>');
+        html.push('<p class="sb-ho-body">' + lines(draft.outline) + '</p>');
+        if (draft.points) {
+          html.push('<p class="sb-ho-section-label">Key Points</p>');
+          html.push('<p class="sb-ho-body">' + lines(draft.points) + '</p>');
+        }
+        html.push(rule());
+      }
+
+      /* Application */
+      if (draft.application) {
+        html.push('<p class="sb-ho-section-label">Application</p>');
+        html.push('<p class="sb-ho-body">' + lines(draft.application) + '</p>');
+        html.push(rule());
+      }
+
+      /* Closing prayer */
+      if (draft.prayer) {
+        html.push('<p class="sb-ho-section-label">Closing Prayer</p>');
+        html.push('<p class="sb-ho-body">' + lines(draft.prayer) + '</p>');
+        html.push(rule());
+      }
+
+      /* Discussion space */
+      html.push('<div class="sb-ho-discussion">');
+      html.push('<p class="sb-ho-section-label">For Reflection &amp; Discussion</p>');
+      html.push('<span class="sb-ho-disc-line"></span>');
+      html.push('<span class="sb-ho-disc-line"></span>');
+      html.push('<span class="sb-ho-disc-line"></span>');
+      html.push('</div>');
+
+      /* Footer */
+      html.push('<p class="sb-ho-footer">todaysdailybattle.com &nbsp;&bull;&nbsp; KJV &nbsp;&bull;&nbsp; Print freely</p>');
+
+      /* Inject, print, clean up */
+      var root = document.getElementById('sb-handout-print-root');
+      if (!root) {
+        root = document.createElement('div');
+        root.id = 'sb-handout-print-root';
+        document.body.appendChild(root);
+      }
+      root.innerHTML = html.join('');
+
+      var cleanup = function () {
+        root.innerHTML = '';
+        window.removeEventListener('afterprint', cleanup);
+      };
+      window.addEventListener('afterprint', cleanup);
+
+      window.print();
     });
   }());
   </script>

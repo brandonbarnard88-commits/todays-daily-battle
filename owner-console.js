@@ -686,6 +686,7 @@
     { icon: '&#x1F4B3;', label: 'Billing', tab: 'billing', hint: '7' },
     { icon: '&#x2699;&#xFE0F;', label: 'Ops & Deploy', tab: 'ops', hint: '8' },
     { icon: '&#x1F4CB;', label: 'Audit Log', tab: 'audit', hint: '9' },
+    { icon: '&#x1F4E9;', label: 'Contact Inbox', tab: 'inbox', hint: 'I' },
     { icon: '&#x1F4D3;', label: 'Ministry Journal', tab: 'journal', hint: 'J' }
   ];
 
@@ -962,6 +963,197 @@
     });
   }
 
+  // ── Subscriber list viewer ──────────────────────────────────────
+  var _subscriberRows = [];
+
+  function renderSubscriberTable(filter) {
+    var tbody = document.getElementById('subscriber-tbody');
+    var countEl = document.getElementById('subscriber-list-count');
+    var statusEl = document.getElementById('subscriber-list-status');
+    if (!tbody) return;
+    var rows = filter
+      ? _subscriberRows.filter(function (r) { return (r.email || '').toLowerCase().includes(filter.toLowerCase()); })
+      : _subscriberRows;
+    tbody.innerHTML = '';
+    if (!rows.length) {
+      tbody.innerHTML = '<tr><td colspan="5" style="opacity:0.5;padding:1rem;">No subscribers found.</td></tr>';
+      if (countEl) countEl.textContent = '';
+      return;
+    }
+    rows.forEach(function (row) {
+      var tr = document.createElement('tr');
+      var date = row.created_at ? new Date(row.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '—';
+      var time = row.preferred_time ? (row.preferred_time + ':00') : '—';
+      tr.innerHTML =
+        '<td>' + escapeHtml(row.email || '—') + '</td>' +
+        '<td><span class="td-badge">' + (row.weekly_opt_in ? '✓' : '—') + '</span></td>' +
+        '<td><span class="td-badge">' + (row.daily_opt_in ? '✓' : '—') + '</span></td>' +
+        '<td class="td-date">' + escapeHtml(time) + '</td>' +
+        '<td class="td-date">' + escapeHtml(date) + '</td>';
+      tbody.appendChild(tr);
+    });
+    if (countEl) countEl.textContent = '— ' + rows.length + ' of ' + _subscriberRows.length;
+    if (statusEl) statusEl.textContent = '';
+  }
+
+  async function loadSubscriberList() {
+    var statusEl = document.getElementById('subscriber-list-status');
+    try {
+      if (statusEl) statusEl.textContent = 'Loading list\u2026';
+      var data = await ownerApiRequest('/api/admin/data?dataset=newsletter_signups');
+      _subscriberRows = (data.rows || []).slice().sort(function (a, b) {
+        return new Date(b.created_at || 0) - new Date(a.created_at || 0);
+      });
+      renderSubscriberTable('');
+    } catch (err) {
+      if (statusEl) statusEl.textContent = err && err.message ? err.message : 'Could not load list.';
+    }
+  }
+
+  function bindSubscriberSearch() {
+    var input = document.getElementById('subscriber-search');
+    if (!input) return;
+    input.addEventListener('input', function () { renderSubscriberTable(input.value.trim()); });
+  }
+
+  // ── Contact inbox ───────────────────────────────────────────────
+  var _inboxRows = [];
+
+  function renderInboxTable(filter) {
+    var tbody = document.getElementById('inbox-tbody');
+    var countEl = document.getElementById('inbox-count');
+    var statusEl = document.getElementById('inbox-status');
+    if (!tbody) return;
+    var rows = filter
+      ? _inboxRows.filter(function (r) {
+          var q = filter.toLowerCase();
+          return (r.email || '').toLowerCase().includes(q) ||
+                 (r.name || '').toLowerCase().includes(q) ||
+                 (r.message || '').toLowerCase().includes(q) ||
+                 (r.topic || '').toLowerCase().includes(q);
+        })
+      : _inboxRows;
+    tbody.innerHTML = '';
+    if (!rows.length) {
+      tbody.innerHTML = '<tr><td colspan="6" style="opacity:0.5;padding:1rem;">No messages.</td></tr>';
+      if (countEl) countEl.textContent = '';
+      return;
+    }
+    rows.forEach(function (row) {
+      var tr = document.createElement('tr');
+      var date = row.created_at ? new Date(row.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '—';
+      var preview = (row.message || '').slice(0, 80) + ((row.message || '').length > 80 ? '\u2026' : '');
+      var mailtoHref = row.email
+        ? 'mailto:' + encodeURIComponent(row.email) + '?subject=' + encodeURIComponent('Re: Your message to Today\u2019s Daily Battle') + '&body=' + encodeURIComponent('\n\n---\nOriginal message: ' + (row.message || ''))
+        : null;
+      tr.innerHTML =
+        '<td><span class="td-badge">' + escapeHtml(row.topic || '—') + '</span></td>' +
+        '<td>' + escapeHtml(row.name || '—') + '</td>' +
+        '<td>' + escapeHtml(row.email || '—') + '</td>' +
+        '<td style="max-width:240px;">' + escapeHtml(preview) + '</td>' +
+        '<td class="td-date">' + escapeHtml(date) + '</td>' +
+        '<td>' + (mailtoHref ? '<a href="' + mailtoHref + '" class="btn btn-secondary" style="font-size:0.75rem;padding:0.25rem 0.6rem;">Reply</a>' : '') + '</td>';
+      tbody.appendChild(tr);
+    });
+    if (countEl) countEl.textContent = '— ' + rows.length + ' message' + (rows.length === 1 ? '' : 's');
+    if (statusEl) statusEl.textContent = '';
+  }
+
+  async function loadInbox() {
+    var statusEl = document.getElementById('inbox-status');
+    try {
+      if (statusEl) statusEl.textContent = 'Loading messages\u2026';
+      var data = await ownerApiRequest('/api/admin/data?dataset=contact_messages');
+      _inboxRows = (data.rows || []).slice().sort(function (a, b) {
+        return new Date(b.created_at || 0) - new Date(a.created_at || 0);
+      });
+      renderInboxTable('');
+    } catch (err) {
+      if (statusEl) statusEl.textContent = err && err.message ? err.message : 'Could not load inbox.';
+    }
+  }
+
+  function bindInboxSearch() {
+    var input = document.getElementById('inbox-search');
+    if (!input) return;
+    input.addEventListener('input', function () { renderInboxTable(input.value.trim()); });
+  }
+
+  // ── Announcement publisher ──────────────────────────────────────
+  var ANNOUNCE_KEY = 'tdb-admin-announcement';
+
+  function loadAnnouncement() {
+    try { return JSON.parse(localStorage.getItem(ANNOUNCE_KEY) || 'null'); } catch (_) { return null; }
+  }
+
+  function saveAnnouncement(obj) {
+    if (obj) localStorage.setItem(ANNOUNCE_KEY, JSON.stringify(obj));
+    else localStorage.removeItem(ANNOUNCE_KEY);
+  }
+
+  function refreshAnnounceBadge() {
+    var a = loadAnnouncement();
+    var badge = document.getElementById('announce-live-badge');
+    var preview = document.getElementById('announce-preview');
+    if (!badge) return;
+    if (a && a.text) {
+      badge.className = 'owner-announce-live-badge';
+      badge.textContent = 'live';
+      if (preview) { preview.hidden = false; preview.textContent = (a.text || '') + (a.link ? ' \u2192 ' + a.link : ''); }
+    } else {
+      badge.className = 'owner-announce-off-badge';
+      badge.textContent = 'off';
+      if (preview) preview.hidden = true;
+    }
+  }
+
+  function initAnnouncementPublisher() {
+    refreshAnnounceBadge();
+    var a = loadAnnouncement();
+    if (a) {
+      var textEl = document.getElementById('announce-text');
+      var linkEl = document.getElementById('announce-link');
+      var typeEl = document.getElementById('announce-type');
+      if (textEl) textEl.value = a.text || '';
+      if (linkEl) linkEl.value = a.link || '';
+      if (typeEl) typeEl.value = a.type || 'info';
+    }
+    var saveBtn = document.getElementById('announce-save');
+    var clearBtn = document.getElementById('announce-clear');
+    var statusEl = document.getElementById('announce-status');
+    if (saveBtn) {
+      saveBtn.addEventListener('click', function () {
+        var text = (document.getElementById('announce-text') || {}).value || '';
+        var link = (document.getElementById('announce-link') || {}).value || '';
+        var type = (document.getElementById('announce-type') || {}).value || 'info';
+        if (!text.trim()) { if (statusEl) statusEl.textContent = 'Enter announcement text first.'; return; }
+        saveAnnouncement({ text: text.trim(), link: link.trim(), type: type, set: new Date().toISOString() });
+        refreshAnnounceBadge();
+        if (statusEl) { statusEl.textContent = 'Banner published. Visible on homepage for this browser session.'; setTimeout(function () { statusEl.textContent = ''; }, 3500); }
+        // Sync to Supabase owner_content so it persists across devices
+        ownerApiRequest('/api/admin/content', {
+          method: 'POST',
+          body: JSON.stringify({ action: 'save-owner-content', content_key: 'site_announcement', title: text.trim(), summary: type, body: link.trim() })
+        }).catch(function () {});
+      });
+    }
+    if (clearBtn) {
+      clearBtn.addEventListener('click', function () {
+        saveAnnouncement(null);
+        var textEl = document.getElementById('announce-text');
+        var linkEl = document.getElementById('announce-link');
+        if (textEl) textEl.value = '';
+        if (linkEl) linkEl.value = '';
+        refreshAnnounceBadge();
+        if (statusEl) statusEl.textContent = 'Banner cleared.';
+        ownerApiRequest('/api/admin/content', {
+          method: 'POST',
+          body: JSON.stringify({ action: 'save-owner-content', content_key: 'site_announcement', title: '', summary: 'off', body: '' })
+        }).catch(function () {});
+      });
+    }
+  }
+
   // ── Update init ─────────────────────────────────────────────────
   var _originalInit = init;
   init = async function () {
@@ -969,8 +1161,27 @@
     renderQuietVerse();
     initJournal();
     initEmailTemplates();
+    initAnnouncementPublisher();
     bindSendTest();
     bindExportAll();
+    bindSubscriberSearch();
+    bindInboxSearch();
+    // Load subscriber list and inbox when those tabs are first opened
+    var emailTabLoaded = false;
+    var inboxTabLoaded = false;
+    document.querySelectorAll('[data-owner-tab]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var tab = btn.getAttribute('data-owner-tab');
+        if (tab === 'email' && !emailTabLoaded) {
+          emailTabLoaded = true;
+          loadSubscriberList();
+        }
+        if (tab === 'inbox' && !inboxTabLoaded) {
+          inboxTabLoaded = true;
+          loadInbox();
+        }
+      });
+    });
     await _originalInit();
     initIdleTimer();
   };

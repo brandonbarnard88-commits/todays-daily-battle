@@ -276,6 +276,50 @@
       background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.2);
       border-radius: 5px; padding: 0.1rem 0.45rem; opacity: 0.7; margin-left: 0.4rem;
     }
+
+    /* ── Subscriber list / data tables ──────────────────────────── */
+    .owner-data-table-wrap { overflow-x: auto; margin-top: 0.85rem; }
+    .owner-data-table {
+      width: 100%; border-collapse: collapse; font-size: 0.86rem;
+    }
+    .owner-data-table th {
+      text-align: left; padding: 0.55rem 0.75rem;
+      background: rgba(212,175,55,0.08); border-bottom: 1px solid rgba(212,175,55,0.2);
+      font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; opacity: 0.75;
+    }
+    .owner-data-table td {
+      padding: 0.55rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.05);
+      vertical-align: top; word-break: break-all;
+    }
+    .owner-data-table tr:last-child td { border-bottom: none; }
+    .owner-data-table tr:hover td { background: rgba(212,175,55,0.05); }
+    .owner-data-table .td-date { white-space: nowrap; opacity: 0.6; font-size: 0.78rem; }
+    .owner-data-table .td-badge {
+      display: inline-block; font-size: 0.72rem; padding: 0.1rem 0.45rem;
+      border-radius: 4px; background: rgba(212,175,55,0.12);
+      border: 1px solid rgba(212,175,55,0.22); color: #d4af37;
+    }
+    .owner-table-search {
+      width: 100%; box-sizing: border-box; margin-bottom: 0.75rem;
+    }
+    .owner-table-meta { font-size: 0.78rem; opacity: 0.5; margin-bottom: 0.5rem; }
+
+    /* ── Announcement publisher ──────────────────────────────────── */
+    .owner-announce-preview {
+      margin-top: 0.75rem; padding: 0.85rem 1rem;
+      background: rgba(212,175,55,0.08); border-left: 4px solid #d4af37;
+      border-radius: 0 8px 8px 0; font-size: 0.92rem; line-height: 1.5;
+    }
+    .owner-announce-live-badge {
+      display: inline-block; font-size: 0.72rem; padding: 0.15rem 0.55rem;
+      border-radius: 999px; background: rgba(50,200,100,0.18);
+      border: 1px solid rgba(50,200,100,0.35); color: #8ef0b0; margin-left: 0.5rem;
+    }
+    .owner-announce-off-badge {
+      display: inline-block; font-size: 0.72rem; padding: 0.15rem 0.55rem;
+      border-radius: 999px; background: rgba(120,120,120,0.18);
+      border: 1px solid rgba(120,120,120,0.3); color: #aaa; margin-left: 0.5rem;
+    }
   </style>
 </head>
 <body class="dark-mode">
@@ -390,6 +434,7 @@
               <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="billing" aria-pressed="false">Billing</button>
               <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="ops" aria-pressed="false">Ops &amp; Deploy</button>
               <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="audit" aria-pressed="false">Audit Log</button>
+              <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="inbox" aria-pressed="false">&#x1F4E9; Inbox</button>
               <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="journal" aria-pressed="false">&#x1F4D3; Journal</button>
               <button class="btn btn-secondary" type="button" id="owner-open-palette" aria-label="Open command palette" title="Command palette (⌘K)">&#x2318;K<span class="owner-kbd-badge" aria-hidden="true">⌘K</span></button>
             </div>
@@ -467,6 +512,18 @@ todaysdailybattle.com/where-support-goes</textarea>
                   <div id="email-preview-body"></div>
                 </div>
               </div>
+              <div class="owner-card">
+                <h3>Subscriber List <span id="subscriber-list-count" class="owner-section-note" style="font-weight:400;"></span></h3>
+                <p class="owner-section-note">Everyone who has signed up. Sorted newest first.</p>
+                <input id="subscriber-search" class="owner-table-search" type="search" placeholder="Search by email&hellip;" aria-label="Search subscribers" style="margin-top:0.65rem;">
+                <div class="owner-data-table-wrap">
+                  <table class="owner-data-table" id="subscriber-table">
+                    <thead><tr><th>Email</th><th>Weekly</th><th>Daily</th><th>Time</th><th>Joined</th></tr></thead>
+                    <tbody id="subscriber-tbody"></tbody>
+                  </table>
+                </div>
+                <p id="subscriber-list-status" class="section-note" aria-live="polite" style="margin-top:0.5rem;"></p>
+              </div>
             </section>
 
             <section class="owner-pane owner-pane-grid" data-owner-pane="moderation" hidden>
@@ -523,6 +580,27 @@ todaysdailybattle.com/where-support-goes</textarea>
                   <p id="owner-content-status" class="section-note"></p>
                   <div id="owner-content-entries" class="owner-console-list"></div>
                 </div>
+              </div>
+              <div class="owner-card">
+                <h3>Site Announcement Banner
+                  <span id="announce-live-badge" class="owner-announce-off-badge" aria-live="polite">off</span>
+                </h3>
+                <p class="owner-section-note">Set a quiet banner that appears at the top of the homepage for all visitors. Leave empty to hide it.</p>
+                <div class="owner-inline-form" style="margin-top:0.75rem;">
+                  <input id="announce-text" type="text" placeholder="Announcement text (e.g. New Battle Plan: Daily Renewing is live)" aria-label="Announcement text" maxlength="160">
+                  <input id="announce-link" type="url" placeholder="Optional link URL (e.g. /plans.html?plan=dailyrenewing)" aria-label="Announcement link">
+                  <select id="announce-type" aria-label="Announcement type">
+                    <option value="info">Quiet info (gold)</option>
+                    <option value="new">New content (soft blue)</option>
+                    <option value="urgent">Important (amber)</option>
+                  </select>
+                  <div class="owner-console-actions">
+                    <button id="announce-save" class="btn btn-secondary" type="button">Publish Banner</button>
+                    <button id="announce-clear" class="btn btn-secondary" type="button">Clear Banner</button>
+                  </div>
+                  <p id="announce-status" class="section-note" aria-live="polite"></p>
+                </div>
+                <div id="announce-preview" class="owner-announce-preview" hidden></div>
               </div>
             </section>
             <section class="owner-pane owner-pane-grid" data-owner-pane="users" hidden>
@@ -616,6 +694,21 @@ todaysdailybattle.com/where-support-goes</textarea>
                 <div id="owner-audit-log" class="owner-console-list"></div>
               </div>
             </section>
+            <section class="owner-pane owner-pane-grid" data-owner-pane="inbox" hidden>
+              <div class="owner-card">
+                <h3>Contact Inbox <span id="inbox-count" class="owner-section-note" style="font-weight:400;"></span></h3>
+                <p class="owner-section-note">Every message from the contact form. Click Reply to open your email client.</p>
+                <input id="inbox-search" class="owner-table-search" type="search" placeholder="Search messages&hellip;" aria-label="Search contact messages" style="margin-top:0.65rem;">
+                <div class="owner-data-table-wrap">
+                  <table class="owner-data-table" id="inbox-table">
+                    <thead><tr><th>Topic</th><th>Name</th><th>Email</th><th>Message</th><th>Date</th><th></th></tr></thead>
+                    <tbody id="inbox-tbody"></tbody>
+                  </table>
+                </div>
+                <p id="inbox-status" class="section-note" aria-live="polite" style="margin-top:0.5rem;"></p>
+              </div>
+            </section>
+
             <section class="owner-pane owner-pane-grid" data-owner-pane="journal" hidden>
               <div class="owner-card">
                 <h3>Ministry Journal <span class="owner-section-note" style="font-weight:400;">&mdash; private, on this device only</span></h3>

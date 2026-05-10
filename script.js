@@ -5303,7 +5303,77 @@ const PHRASE_TO_TOKENS = {
   'dog died bible': ['grief'],
   'cat died heartbroken': ['grief'],
   'lost my pet': ['grief', 'loneliness'],
-  'pet loss bible verse': ['grief']
+  'pet loss bible verse': ['grief'],
+  // Surgery / medical fear / spine / physical illness
+  'scared of surgery': ['fear', 'anxiety', 'faith', 'strength'],
+  'terrified of surgery': ['fear', 'anxiety', 'faith', 'trust'],
+  'fear of surgery': ['fear', 'anxiety', 'faith'],
+  'facing surgery': ['fear', 'faith', 'peace', 'strength'],
+  'scared about surgery': ['fear', 'anxiety', 'peace', 'faith'],
+  'have to have surgery': ['fear', 'anxiety', 'faith', 'strength'],
+  'surgery anxiety': ['anxiety', 'fear', 'faith', 'peace'],
+  'scared to go under': ['fear', 'anxiety', 'faith'],
+  'scared of not waking up': ['fear', 'anxiety', 'faith', 'hope'],
+  'pre surgery fear': ['fear', 'anxiety', 'faith', 'peace'],
+  'fear of paralysis': ['fear', 'anxiety', 'faith', 'strength'],
+  'terrified of paralysis': ['fear', 'anxiety', 'faith', 'trust'],
+  'scared of paralysis': ['fear', 'anxiety', 'faith'],
+  'scared of nerve damage': ['fear', 'anxiety', 'faith'],
+  'scared of being paralyzed': ['fear', 'anxiety', 'faith', 'strength'],
+  'scared of losing feeling': ['fear', 'anxiety', 'faith'],
+  'bad diagnosis': ['fear', 'grief', 'faith', 'hope'],
+  'doctor gave bad news': ['fear', 'grief', 'faith', 'hope'],
+  'got bad news from doctor': ['fear', 'grief', 'faith', 'hope'],
+  'doctor said surgery': ['fear', 'anxiety', 'faith'],
+  'scary diagnosis': ['fear', 'grief', 'faith'],
+  'terrifying diagnosis': ['fear', 'grief', 'faith', 'hope'],
+  'back is killing me': ['suffering', 'strength', 'rest', 'faith'],
+  'chronic back pain': ['suffering', 'strength', 'patience', 'faith'],
+  'spine damage': ['suffering', 'strength', 'faith', 'hope'],
+  'body is breaking down': ['suffering', 'strength', 'faith', 'hope'],
+  'hurting every day': ['suffering', 'strength', 'faith', 'patience'],
+  'pain wont stop': ['suffering', 'strength', 'faith', 'hope'],
+  'serious illness': ['suffering', 'fear', 'faith', 'hope'],
+  // Caregiver exhaustion / feeling unseen / carrying it alone
+  'tired of caring for everyone': ['caregiver', 'strength', 'loneliness', 'rest'],
+  'tired of caregiving': ['caregiver', 'strength', 'rest', 'loneliness'],
+  'exhausted from caregiving': ['caregiver', 'strength', 'rest', 'loneliness'],
+  'caregiving is draining me': ['caregiver', 'strength', 'rest'],
+  'caring for everyone alone': ['caregiver', 'loneliness', 'strength'],
+  'alone in caregiving': ['caregiver', 'loneliness', 'strength'],
+  'nobody sees how much i do': ['loneliness', 'grief', 'strength'],
+  'nobody sees how tired i am': ['loneliness', 'strength', 'grief'],
+  'no one sees how hard this is': ['loneliness', 'strength', 'grief'],
+  'no one helps me': ['loneliness', 'strength', 'grief'],
+  'doing it all alone': ['loneliness', 'strength', 'grief'],
+  // Carrying too much
+  'carrying it all alone': ['strength', 'loneliness', 'anxiety', 'rest'],
+  'im carrying everything': ['strength', 'loneliness', 'anxiety'],
+  'carrying too much': ['anxiety', 'strength', 'rest', 'peace'],
+  'holding everything together': ['strength', 'loneliness', 'anxiety'],
+  // Feeling unseen / invisible
+  'feel unseen': ['loneliness', 'grief', 'love'],
+  'nobody notices me': ['loneliness', 'grief', 'love'],
+  'invisible to everyone': ['loneliness', 'grief', 'love'],
+  // Can't keep going
+  'i cant keep going': ['strength', 'grief', 'hope', 'faith'],
+  'how much more can i take': ['strength', 'grief', 'hope'],
+  'i dont know how much more': ['strength', 'grief', 'hope'],
+  'i dont know how to keep going': ['strength', 'hope', 'faith', 'rest'],
+  'running out of strength': ['strength', 'rest', 'faith', 'hope'],
+  // Future fear / what-if dread
+  'what if something goes wrong': ['anxiety', 'fear', 'faith', 'trust'],
+  'what if it doesnt work': ['anxiety', 'fear', 'faith'],
+  'scared about what comes next': ['anxiety', 'fear', 'faith', 'hope'],
+  'terrified of what happens next': ['anxiety', 'fear', 'faith', 'hope'],
+  'scared of the unknown': ['anxiety', 'fear', 'faith', 'trust'],
+  'terrified of the unknown': ['anxiety', 'fear', 'faith', 'trust'],
+  // Fear for children / family when personally ill
+  'scared what happens to my kids': ['parenting', 'fear', 'anxiety', 'faith'],
+  'worried about my children if i die': ['parenting', 'fear', 'faith', 'hope'],
+  'afraid what happens to my kids': ['parenting', 'fear', 'anxiety', 'faith'],
+  'what happens to my kids': ['parenting', 'fear', 'faith', 'hope'],
+  'who will take care of my children': ['parenting', 'fear', 'faith', 'trust']
 };
 
 const topics = {
@@ -18881,7 +18951,43 @@ var PHRASE_SEMANTIC_MAP = {
   'my marriage feels cold': 'marriage', 'i feel distant from my spouse': 'marriage',
   // Pet loss / animal grief
   'pet died': 'grief', 'pet died sad': 'grief', 'dog died bible': 'grief',
-  'cat died heartbroken': 'grief', 'lost my pet': 'grief', 'pet loss bible verse': 'grief'
+  'cat died heartbroken': 'grief', 'lost my pet': 'grief', 'pet loss bible verse': 'grief',
+  // Surgery / medical fear / spine / physical illness
+  'scared of surgery': 'fear', 'terrified of surgery': 'fear', 'fear of surgery': 'fear',
+  'facing surgery': 'fear', 'scared about surgery': 'fear', 'have to have surgery': 'fear',
+  'surgery is coming': 'anxiety', 'surgery soon': 'anxiety', 'surgery anxiety': 'anxiety',
+  'fear of paralysis': 'fear', 'terrified of paralysis': 'fear', 'scared of being paralyzed': 'fear',
+  'scared of paralysis': 'fear', 'scared of nerve damage': 'fear', 'scared of losing feeling': 'fear',
+  'scared of not waking up': 'fear', 'scared to go under': 'fear', 'scared of anesthesia': 'fear',
+  'pre surgery fear': 'fear', 'medical procedure fear': 'fear',
+  'spine damage': 'suffering', 'back is killing me': 'suffering', 'chronic back pain': 'suffering',
+  'body is breaking down': 'suffering', 'hurting every day': 'suffering', 'pain wont stop': 'suffering',
+  'serious illness': 'suffering', 'bad diagnosis': 'fear', 'doctor gave bad news': 'fear',
+  'got bad news from doctor': 'fear', 'doctor said surgery': 'fear', 'scary diagnosis': 'fear',
+  'terrifying diagnosis': 'fear', 'medical fear': 'fear',
+  // Caregiver exhaustion — feeling unseen / carrying it all alone
+  'tired of caring for everyone': 'caregiver', 'tired of caregiving': 'caregiver',
+  'exhausted from caregiving': 'caregiver', 'caregiving is draining me': 'caregiver',
+  'caring for everyone alone': 'caregiver', 'alone in caregiving': 'caregiver',
+  'nobody sees how much i do': 'loneliness', 'nobody sees how tired i am': 'loneliness',
+  'no one sees how hard this is': 'loneliness', 'no one helps me': 'loneliness',
+  'doing it all alone': 'loneliness', 'feel unseen': 'loneliness',
+  'nobody notices me': 'loneliness', 'invisible to everyone': 'loneliness',
+  // Carrying too much
+  'carrying it all alone': 'strength', 'im carrying everything': 'strength',
+  'carrying too much': 'anxiety', 'holding everything together': 'strength',
+  // Can't keep going
+  'i cant keep going': 'strength', 'how much more can i take': 'strength',
+  'i dont know how much more': 'strength', 'i cant do this anymore': 'grief',
+  'i dont know how to keep going': 'strength', 'running out of strength': 'strength',
+  // Future fear / what-if dread
+  'what if something goes wrong': 'anxiety', 'what if it doesnt work': 'anxiety',
+  'scared about what comes next': 'anxiety', 'terrified of what happens next': 'anxiety',
+  'scared of the unknown': 'anxiety', 'terrified of the unknown': 'anxiety',
+  // Fear for children / family when personally ill
+  'scared what happens to my kids': 'parenting', 'worried about my children if i die': 'parenting',
+  'afraid what happens to my kids': 'parenting', 'scared about my kids if something happens': 'parenting',
+  'what happens to my kids': 'parenting', 'who will take care of my children': 'parenting'
 };
 
 /** Maps script.js topics to index.html FEEL_GROUPS keys for unified semantic feel-search. */
@@ -19040,14 +19146,18 @@ function getSemanticMatchesAboveThreshold(input) {
   }
   if (typeof PHRASE_TO_TOKENS !== 'undefined') {
     var pk = Object.keys(PHRASE_TO_TOKENS).sort(function (a, b) { return b.length - a.length; });
+    var phraseMatchCount = 0;
     for (var k = 0; k < pk.length; k++) {
+      if (phraseMatchCount >= SEMANTIC_BLEND_CAP) break;
       var p = pk[k];
       var pn = p.replace(/[^\w\s]/g, '').replace(/\s+/g, ' ').toLowerCase();
       if (pn.length >= 4 && q.indexOf(pn) !== -1) {
         var tokensArr = PHRASE_TO_TOKENS[p];
         var phraseMatch = tokensArr && tokensArr[0] ? tokensArr[0] : null;
-        if (phraseMatch && topics && topics[phraseMatch]) add(phraseMatch, (TOPIC_TO_FEEL_GROUP && TOPIC_TO_FEEL_GROUP[phraseMatch]) || phraseMatch, 0.75);
-        break;
+        if (phraseMatch && topics && topics[phraseMatch]) {
+          add(phraseMatch, (TOPIC_TO_FEEL_GROUP && TOPIC_TO_FEEL_GROUP[phraseMatch]) || phraseMatch, 0.75);
+          phraseMatchCount++;
+        }
       }
     }
   }

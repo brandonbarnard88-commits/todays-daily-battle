@@ -23,55 +23,322 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    /* ── Admin shell ────────────────────────────────────────────── */
     .owner-console-shell { display: grid; gap: 1rem; }
-    .owner-tabbar { display: flex; flex-wrap: wrap; gap: 0.65rem; }
-    .owner-tabbar .btn[aria-pressed="true"] { background: rgba(212, 175, 55, 0.18); border-color: rgba(212, 175, 55, 0.45); color: #f4e7b2; }
+    .owner-tabbar { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+    .owner-tabbar .btn[aria-pressed="true"] {
+      background: rgba(212, 175, 55, 0.18);
+      border-color: rgba(212, 175, 55, 0.5);
+      color: #f4e7b2;
+      font-weight: 600;
+    }
     .owner-pane[hidden] { display: none; }
     .owner-pane-grid { display: grid; gap: 1rem; }
     .owner-pane-grid--two { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+    /* ── Cards ───────────────────────────────────────────────────── */
     .owner-card {
-      background: rgba(11, 16, 35, 0.72);
+      background: rgba(11, 16, 35, 0.78);
       border: 1px solid rgba(201, 168, 76, 0.18);
       border-radius: 1rem;
-      padding: 1rem;
-      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.16);
+      padding: 1.1rem 1.1rem 1.25rem;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.22);
     }
-    .owner-card h3 { margin: 0 0 0.55rem; }
+    .owner-card h3 { margin: 0 0 0.6rem; font-size: 0.95rem; letter-spacing: 0.03em; opacity: 0.9; }
     .owner-card p { margin: 0.35rem 0; }
+
+    /* ── God-tier stat cards ─────────────────────────────────────── */
+    .owner-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+      gap: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+    .owner-stat-card {
+      background: linear-gradient(145deg, rgba(18, 24, 48, 0.9), rgba(11, 16, 35, 0.95));
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 14px;
+      padding: 1.25rem 0.85rem 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.2);
+    }
+    .owner-stat-card:hover {
+      border-color: rgba(212, 175, 55, 0.5);
+      box-shadow: 0 8px 28px rgba(212, 175, 55, 0.12);
+    }
+    .owner-stat-icon { font-size: 1.55rem; line-height: 1; margin-bottom: 0.2rem; }
+    .owner-stat-num {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #d4af37;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.02em;
+    }
+    .owner-stat-label {
+      font-size: 0.72rem;
+      opacity: 0.65;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-top: 0.1rem;
+    }
+    .owner-stat-card--highlight { border-color: rgba(212, 175, 55, 0.45); }
+    .owner-stat-card--highlight .owner-stat-num { color: #f4e7b2; }
+
+    /* ── Email composer ──────────────────────────────────────────── */
+    .owner-email-meta {
+      font-size: 0.88rem;
+      padding: 0.55rem 0.7rem;
+      background: rgba(212, 175, 55, 0.07);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 8px;
+    }
+    .owner-email-meta strong { color: #d4af37; }
+    #email-body { min-height: 14rem; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1rem; line-height: 1.55; }
+    .owner-email-preview-shell {
+      background: rgba(248, 245, 240, 0.06);
+      border: 1px solid rgba(212, 175, 55, 0.18);
+      border-radius: 10px;
+      padding: 1.25rem 1.4rem;
+      white-space: pre-wrap;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1rem;
+      line-height: 1.65;
+      color: #e8d9c0;
+    }
+    .owner-email-preview-header {
+      font-size: 0.82rem;
+      opacity: 0.65;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+      padding-bottom: 0.6rem;
+      margin-bottom: 0.85rem;
+      display: grid;
+      gap: 0.2rem;
+    }
+    .owner-composer-toast {
+      font-size: 0.85rem;
+      padding: 0.45rem 0.75rem;
+      border-radius: 6px;
+      background: rgba(50, 180, 100, 0.18);
+      border: 1px solid rgba(50, 180, 100, 0.35);
+      color: #a8f0c0;
+      display: inline-block;
+    }
+
+    /* ── Status / pills ──────────────────────────────────────────── */
     .owner-status-bar { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
     .owner-pill {
       display: inline-flex;
       align-items: center;
       border-radius: 999px;
-      padding: 0.35rem 0.7rem;
-      font-size: 0.82rem;
-      background: rgba(87, 103, 132, 0.2);
+      padding: 0.35rem 0.8rem;
+      font-size: 0.8rem;
+      background: rgba(87, 103, 132, 0.22);
       color: #d8e1ef;
+      border: 1px solid rgba(87, 103, 132, 0.3);
     }
-    .owner-console-list { display: grid; gap: 0.85rem; }
+    .owner-pill--ok { background: rgba(50, 180, 100, 0.14); border-color: rgba(50, 180, 100, 0.3); color: #a8f0c0; }
+    .owner-pill--warn { background: rgba(220, 160, 50, 0.14); border-color: rgba(220, 160, 50, 0.3); color: #f4d98a; }
+
+    /* ── Lists ───────────────────────────────────────────────────── */
+    .owner-console-list { display: grid; gap: 0.75rem; }
     .owner-console-list .list-item { margin: 0; }
-    .owner-console-actions { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 0.7rem; }
+    .owner-console-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.65rem; }
     .owner-inline-form { display: grid; gap: 0.75rem; }
     .owner-inline-form textarea,
     .owner-inline-form input,
-    .owner-inline-form select {
-      width: 100%;
-      box-sizing: border-box;
-    }
+    .owner-inline-form select { width: 100%; box-sizing: border-box; }
     .owner-inline-form textarea { min-height: 8rem; resize: vertical; }
-    .owner-section-note { margin-top: 0.25rem; opacity: 0.88; }
+    .owner-section-note { margin-top: 0.25rem; opacity: 0.82; font-size: 0.88rem; }
     .owner-user-row,
     .owner-data-row { display: grid; gap: 0.75rem; }
     .owner-user-row { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr) auto; align-items: end; }
     .owner-data-row { grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; }
-    .owner-log-meta { font-size: 0.82rem; opacity: 0.78; }
+    .owner-log-meta { font-size: 0.8rem; opacity: 0.72; margin: 0.15rem 0 0; }
     @media (max-width: 720px) {
       .owner-user-row,
       .owner-data-row { grid-template-columns: 1fr; }
+      .owner-stat-num { font-size: 2rem; }
+    }
+
+    /* ── Pane enter animation ────────────────────────────────────── */
+    .owner-pane { animation: ownerFadeIn 0.16s ease; }
+    @keyframes ownerFadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Command palette ─────────────────────────────────────────── */
+    .owner-cmd-palette {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(5px);
+      z-index: 9999;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 13vh;
+    }
+    .owner-cmd-palette[hidden] { display: none !important; }
+    .owner-cmd-inner {
+      width: min(560px, 92vw);
+      background: rgba(10, 15, 35, 0.98);
+      border: 1px solid rgba(212,175,55,0.38);
+      border-radius: 18px;
+      box-shadow: 0 36px 90px rgba(0,0,0,0.65), 0 0 0 1px rgba(212,175,55,0.08);
+      overflow: hidden;
+    }
+    #owner-cmd-input {
+      width: 100%; box-sizing: border-box;
+      background: transparent; border: none;
+      border-bottom: 1px solid rgba(212,175,55,0.15);
+      padding: 1rem 1.25rem;
+      font-size: 1.05rem; color: #e8d9c0; outline: none;
+    }
+    #owner-cmd-input::placeholder { opacity: 0.38; }
+    .owner-cmd-hint {
+      font-size: 0.72rem; opacity: 0.38;
+      padding: 0.35rem 1.25rem 0.55rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .owner-cmd-list {
+      list-style: none; margin: 0; padding: 0.35rem 0;
+      max-height: 330px; overflow-y: auto;
+    }
+    .owner-cmd-list li {
+      padding: 0.65rem 1.25rem;
+      cursor: pointer;
+      display: flex; align-items: center; gap: 0.7rem;
+      font-size: 0.9rem; color: #d8e1ef;
+      transition: background 0.1s;
+    }
+    .owner-cmd-list li:hover,
+    .owner-cmd-list li[aria-selected="true"] {
+      background: rgba(212,175,55,0.13); color: #f4e7b2;
+    }
+    .owner-cmd-icon { width: 1.4rem; text-align: center; opacity: 0.65; }
+    .owner-cmd-shortcut {
+      margin-left: auto; font-size: 0.72rem; opacity: 0.35;
+      background: rgba(255,255,255,0.07); border-radius: 4px;
+      padding: 0.12rem 0.4rem; font-family: monospace;
+    }
+
+    /* ── Quiet verse panel ───────────────────────────────────────── */
+    .owner-quiet-verse-card { text-align: center; border-color: rgba(212,175,55,0.3); }
+    .owner-quiet-verse-eyebrow {
+      font-size: 0.72rem; opacity: 0.45;
+      text-transform: uppercase; letter-spacing: 0.09em; margin: 0 0 0.75rem;
+    }
+    .owner-quiet-verse-text {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.18rem; font-style: italic; line-height: 1.6;
+      color: #f4e7b2; margin: 0 0 0.6rem; padding: 0; border: none;
+    }
+    .owner-quiet-verse-ref { font-size: 0.8rem; color: #d4af37; margin: 0; opacity: 0.82; }
+
+    /* ── Ministry Journal ────────────────────────────────────────── */
+    #owner-journal-body { min-height: 6rem; resize: vertical; width: 100%; box-sizing: border-box; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1rem; line-height: 1.55; }
+    .owner-journal-entries { display: grid; gap: 0.9rem; margin-top: 1.1rem; }
+    .owner-journal-entry {
+      background: rgba(212,175,55,0.05);
+      border: 1px solid rgba(212,175,55,0.14);
+      border-radius: 11px; padding: 1rem 1.1rem;
+    }
+    .owner-journal-entry-meta { font-size: 0.76rem; opacity: 0.5; margin: 0 0 0.45rem; }
+    .owner-journal-entry-verse { font-size: 0.84rem; color: #d4af37; font-style: italic; margin: 0 0 0.4rem; }
+    .owner-journal-entry-body {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1rem; line-height: 1.55; margin: 0; white-space: pre-wrap;
+    }
+    .owner-journal-del { font-size: 0.75rem; opacity: 0.35; background: none; border: none; cursor: pointer; color: inherit; padding: 0.2rem 0; margin-top: 0.4rem; display: block; }
+    .owner-journal-del:hover { opacity: 0.7; }
+
+    /* ── Idle sign-out warning ───────────────────────────────────── */
+    #owner-idle-warning {
+      position: fixed; bottom: 1.25rem; right: 1.25rem;
+      background: rgba(10,15,35,0.97);
+      border: 1px solid rgba(212,175,55,0.4);
+      border-radius: 13px; padding: 1rem 1.2rem;
+      z-index: 9998; max-width: 270px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.45);
+    }
+    #owner-idle-warning[hidden] { display: none !important; }
+    #owner-idle-warning p { margin: 0 0 0.55rem; font-size: 0.88rem; color: #f4e7b2; }
+    #owner-idle-warning .owner-console-actions { margin-top: 0; }
+
+    /* ── Kbd shortcut badge ──────────────────────────────────────── */
+    .owner-kbd-badge {
+      display: inline-block; font-size: 0.72rem; font-family: monospace;
+      background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 5px; padding: 0.1rem 0.45rem; opacity: 0.7; margin-left: 0.4rem;
+    }
+
+    /* ── Subscriber list / data tables ──────────────────────────── */
+    .owner-data-table-wrap { overflow-x: auto; margin-top: 0.85rem; }
+    .owner-data-table {
+      width: 100%; border-collapse: collapse; font-size: 0.86rem;
+    }
+    .owner-data-table th {
+      text-align: left; padding: 0.55rem 0.75rem;
+      background: rgba(212,175,55,0.08); border-bottom: 1px solid rgba(212,175,55,0.2);
+      font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; opacity: 0.75;
+    }
+    .owner-data-table td {
+      padding: 0.55rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.05);
+      vertical-align: top; word-break: break-all;
+    }
+    .owner-data-table tr:last-child td { border-bottom: none; }
+    .owner-data-table tr:hover td { background: rgba(212,175,55,0.05); }
+    .owner-data-table .td-date { white-space: nowrap; opacity: 0.6; font-size: 0.78rem; }
+    .owner-data-table .td-badge {
+      display: inline-block; font-size: 0.72rem; padding: 0.1rem 0.45rem;
+      border-radius: 4px; background: rgba(212,175,55,0.12);
+      border: 1px solid rgba(212,175,55,0.22); color: #d4af37;
+    }
+    .owner-table-search {
+      width: 100%; box-sizing: border-box; margin-bottom: 0.75rem;
+    }
+    .owner-table-meta { font-size: 0.78rem; opacity: 0.5; margin-bottom: 0.5rem; }
+
+    /* ── Announcement publisher ──────────────────────────────────── */
+    .owner-announce-preview {
+      margin-top: 0.75rem; padding: 0.85rem 1rem;
+      background: rgba(212,175,55,0.08); border-left: 4px solid #d4af37;
+      border-radius: 0 8px 8px 0; font-size: 0.92rem; line-height: 1.5;
+    }
+    .owner-announce-live-badge {
+      display: inline-block; font-size: 0.72rem; padding: 0.15rem 0.55rem;
+      border-radius: 999px; background: rgba(50,200,100,0.18);
+      border: 1px solid rgba(50,200,100,0.35); color: #8ef0b0; margin-left: 0.5rem;
+    }
+    .owner-announce-off-badge {
+      display: inline-block; font-size: 0.72rem; padding: 0.15rem 0.55rem;
+      border-radius: 999px; background: rgba(120,120,120,0.18);
+      border: 1px solid rgba(120,120,120,0.3); color: #aaa; margin-left: 0.5rem;
     }
   </style>
 </head>
 <body class="dark-mode">
+  <!-- Command Palette -->
+  <div id="owner-cmd-palette" class="owner-cmd-palette" hidden role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="owner-cmd-inner">
+      <input id="owner-cmd-input" type="text" placeholder="Go to section… (type to filter)" aria-label="Command search" autocomplete="off" spellcheck="false">
+      <p class="owner-cmd-hint">↑↓ navigate &nbsp;·&nbsp; ↵ select &nbsp;·&nbsp; Esc close</p>
+      <ul id="owner-cmd-list" class="owner-cmd-list" role="listbox" aria-label="Sections"></ul>
+    </div>
+  </div>
+  <!-- Idle sign-out warning -->
+  <div id="owner-idle-warning" hidden role="alertdialog" aria-label="Session expiring soon">
+    <p>You&rsquo;ll be signed out in 5 minutes due to inactivity.</p>
+    <div class="owner-console-actions">
+      <button id="owner-idle-stay" class="btn btn-secondary" type="button">Stay signed in</button>
+    </div>
+  </div>
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="app-shell">
     <header class="top-bar">
@@ -160,6 +427,7 @@
             </div>
             <div class="owner-tabbar" role="tablist" aria-label="Owner console sections">
               <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="overview" aria-pressed="true">Overview</button>
+              <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="email" aria-pressed="false">✉️ Email</button>
               <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="moderation" aria-pressed="false">Moderation</button>
               <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="content" aria-pressed="false">Content</button>
               <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="users" aria-pressed="false">Users &amp; Roles</button>
@@ -167,6 +435,9 @@
               <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="billing" aria-pressed="false">Billing</button>
               <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="ops" aria-pressed="false">Ops &amp; Deploy</button>
               <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="audit" aria-pressed="false">Audit Log</button>
+              <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="inbox" aria-pressed="false">&#x1F4E9; Inbox</button>
+              <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="journal" aria-pressed="false">&#x1F4D3; Journal</button>
+              <button class="btn btn-secondary" type="button" id="owner-open-palette" aria-label="Open command palette" title="Command palette (⌘K)">&#x2318;K<span class="owner-kbd-badge" aria-hidden="true">⌘K</span></button>
             </div>
             <section class="owner-pane owner-pane-grid" data-owner-pane="overview">
               <div id="owner-overview-cards" class="admin-grid"></div>
@@ -187,7 +458,75 @@
                 <p class="owner-section-note">Per-browser counters and diagnostics still matter when debugging stale deploys or local regressions.</p>
                 <div id="admin-stats" class="admin-grid"></div>
               </div>
+              <div class="owner-card owner-quiet-verse-card" id="owner-quiet-verse-wrap">
+                <p class="owner-quiet-verse-eyebrow">A word for the builder</p>
+                <blockquote class="owner-quiet-verse-text" id="owner-quiet-verse-text">&hellip;</blockquote>
+                <p class="owner-quiet-verse-ref" id="owner-quiet-verse-ref"></p>
+              </div>
             </section>
+            <section class="owner-pane owner-pane-grid" data-owner-pane="email" hidden>
+              <div class="owner-card">
+                <h3>Email Composer</h3>
+                <p class="owner-section-note">Write and preview your next email. Copy it to clipboard, then paste into Gmail or your tool&mdash;or download the subscriber CSV first.</p>
+                <div class="owner-inline-form" style="margin-top:0.75rem;">
+                  <div class="owner-email-meta">
+                    <strong>To:</strong> <span id="email-to-count">loading&hellip;</span> &nbsp;&middot;&nbsp;
+                    <strong>From:</strong> Brandon &mdash; Today&rsquo;s Daily Battle
+                  </div>
+                  <select id="email-template-select" aria-label="Load email template">
+                    <option value="">— Load a template —</option>
+                    <option value="ministry">Ministry Announcement</option>
+                    <option value="friday">Friday Quiet Recap</option>
+                    <option value="plan">New Battle Plan Available</option>
+                    <option value="encouragement">Quiet Encouragement</option>
+                    <option value="blank">Blank (clear and start fresh)</option>
+                  </select>
+                  <input id="email-subject" type="text" placeholder="Subject line" aria-label="Email subject" value="A quiet word from Today&apos;s Daily Battle">
+                  <textarea id="email-body" aria-label="Email body">Good morning,
+
+I wanted to quietly share something with you.
+
+Today's Daily Battle is gently shifting from a simple website into a small, Bible-teaching ministry. It's still the same calm, ad-free, KJV-only place it's always been — built for real hard days, anxiety, parenting, grief, exhaustion, and everything in between — but now I'm more clearly seeing it as a ministry that simply holds out God's Word for whoever needs rest in it.
+
+No big launches. No pressure. Just steady faithfulness with family and God's help.
+
+If you've been here a while, thank you for walking with me. Your quiet presence means more than you know.
+
+With care,
+Brandon
+
+todaysdailybattle.com/about
+todaysdailybattle.com/where-support-goes</textarea>
+                  <div class="owner-console-actions">
+                    <button id="email-preview-btn" class="btn btn-secondary" type="button">Preview</button>
+                    <button id="email-copy-btn" class="btn btn-secondary" type="button">Copy to Clipboard</button>
+                    <button id="email-send-test-btn" class="btn btn-secondary" type="button">Send Test to Me</button>
+                    <button id="email-export-list-btn" class="btn btn-secondary" type="button">Download Subscriber CSV</button>
+                  </div>
+                  <p id="email-composer-status" class="section-note" aria-live="polite"></p>
+                </div>
+              </div>
+              <div class="owner-card" id="email-preview-card" hidden>
+                <h3>Preview</h3>
+                <div class="owner-email-preview-shell">
+                  <div class="owner-email-preview-header" id="email-preview-header"></div>
+                  <div id="email-preview-body"></div>
+                </div>
+              </div>
+              <div class="owner-card">
+                <h3>Subscriber List <span id="subscriber-list-count" class="owner-section-note" style="font-weight:400;"></span></h3>
+                <p class="owner-section-note">Everyone who has signed up. Sorted newest first.</p>
+                <input id="subscriber-search" class="owner-table-search" type="search" placeholder="Search by email&hellip;" aria-label="Search subscribers" style="margin-top:0.65rem;">
+                <div class="owner-data-table-wrap">
+                  <table class="owner-data-table" id="subscriber-table">
+                    <thead><tr><th>Email</th><th>Weekly</th><th>Daily</th><th>Time</th><th>Joined</th></tr></thead>
+                    <tbody id="subscriber-tbody"></tbody>
+                  </table>
+                </div>
+                <p id="subscriber-list-status" class="section-note" aria-live="polite" style="margin-top:0.5rem;"></p>
+              </div>
+            </section>
+
             <section class="owner-pane owner-pane-grid" data-owner-pane="moderation" hidden>
               <div class="owner-pane-grid owner-pane-grid--two">
                 <div class="owner-card">
@@ -242,6 +581,27 @@
                   <p id="owner-content-status" class="section-note"></p>
                   <div id="owner-content-entries" class="owner-console-list"></div>
                 </div>
+              </div>
+              <div class="owner-card">
+                <h3>Site Announcement Banner
+                  <span id="announce-live-badge" class="owner-announce-off-badge" aria-live="polite">off</span>
+                </h3>
+                <p class="owner-section-note">Set a quiet banner that appears at the top of the homepage for all visitors. Leave empty to hide it.</p>
+                <div class="owner-inline-form" style="margin-top:0.75rem;">
+                  <input id="announce-text" type="text" placeholder="Announcement text (e.g. New Battle Plan: Daily Renewing is live)" aria-label="Announcement text" maxlength="160">
+                  <input id="announce-link" type="url" placeholder="Optional link URL (e.g. /plans.html?plan=dailyrenewing)" aria-label="Announcement link">
+                  <select id="announce-type" aria-label="Announcement type">
+                    <option value="info">Quiet info (gold)</option>
+                    <option value="new">New content (soft blue)</option>
+                    <option value="urgent">Important (amber)</option>
+                  </select>
+                  <div class="owner-console-actions">
+                    <button id="announce-save" class="btn btn-secondary" type="button">Publish Banner</button>
+                    <button id="announce-clear" class="btn btn-secondary" type="button">Clear Banner</button>
+                  </div>
+                  <p id="announce-status" class="section-note" aria-live="polite"></p>
+                </div>
+                <div id="announce-preview" class="owner-announce-preview" hidden></div>
               </div>
             </section>
             <section class="owner-pane owner-pane-grid" data-owner-pane="users" hidden>
@@ -335,10 +695,42 @@
                 <div id="owner-audit-log" class="owner-console-list"></div>
               </div>
             </section>
+            <section class="owner-pane owner-pane-grid" data-owner-pane="inbox" hidden>
+              <div class="owner-card">
+                <h3>Contact Inbox <span id="inbox-count" class="owner-section-note" style="font-weight:400;"></span></h3>
+                <p class="owner-section-note">Every message from the contact form. Click Reply to open your email client.</p>
+                <input id="inbox-search" class="owner-table-search" type="search" placeholder="Search messages&hellip;" aria-label="Search contact messages" style="margin-top:0.65rem;">
+                <div class="owner-data-table-wrap">
+                  <table class="owner-data-table" id="inbox-table">
+                    <thead><tr><th>Topic</th><th>Name</th><th>Email</th><th>Message</th><th>Date</th><th></th></tr></thead>
+                    <tbody id="inbox-tbody"></tbody>
+                  </table>
+                </div>
+                <p id="inbox-status" class="section-note" aria-live="polite" style="margin-top:0.5rem;"></p>
+              </div>
+            </section>
+
+            <section class="owner-pane owner-pane-grid" data-owner-pane="journal" hidden>
+              <div class="owner-card">
+                <h3>Ministry Journal <span class="owner-section-note" style="font-weight:400;">&mdash; private, on this device only</span></h3>
+                <p class="owner-section-note">Honest notes to yourself. Never leaves this browser. Write freely.</p>
+                <div class="owner-inline-form" style="margin-top:0.75rem;">
+                  <input id="owner-journal-verse" type="text" placeholder="KJV verse ref (optional, e.g. 2 Cor 4:16)" aria-label="Verse reference">
+                  <textarea id="owner-journal-body" placeholder="What&apos;s on your heart today?" aria-label="Journal entry"></textarea>
+                  <div class="owner-console-actions">
+                    <button id="owner-journal-save" class="btn btn-secondary" type="button">Save Entry</button>
+                    <button id="owner-journal-export" class="btn btn-secondary" type="button">Export as Text</button>
+                  </div>
+                  <p id="owner-journal-status" class="section-note" aria-live="polite"></p>
+                </div>
+                <div id="owner-journal-entries" class="owner-journal-entries"></div>
+              </div>
+            </section>
           </div>
           <div class="admin-actions">
             <button id="newsletter-export" class="btn btn-secondary" type="button">Export Newsletter CSV</button>
-            <span class="section-note">Exports signups saved on this browser.</span>
+            <button id="owner-export-all" class="btn btn-secondary" type="button">Export All Datasets</button>
+            <span class="section-note" id="owner-export-all-status"></span>
           </div>
           <div class="admin-actions">
             <button id="waitlist-export" class="btn btn-secondary" type="button">Export Supporter Waitlist CSV</button>
@@ -545,7 +937,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">May 8, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">May 10, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>

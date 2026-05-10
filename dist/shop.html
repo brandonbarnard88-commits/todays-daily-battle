@@ -7,12 +7,12 @@
     <script defer src="analytics-loader.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Porch Shop • Today's Daily Battle</title>
-    <meta name="description" content="Quiet, honest tools to walk alongside the free daily KJV porch — printed coloring packs, Battle Plans, verse cards, and the Porch Journal. Every purchase helps keep the ad-free site open for weary hearts.">
+    <title>Free Resources &amp; Support • Today's Daily Battle</title>
+    <meta name="description" content="Quiet physical and printable tools that walk alongside the completely free KJV porch. Coloring packs, Battle Plans, and the Porch Journal. Every gift helps keep the site calm and open for weary hearts.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://todaysdailybattle.com/shop.html">
-    <meta property="og:title" content="The Porch Shop • Today's Daily Battle">
-    <meta property="og:description" content="Quiet, honest tools alongside the free KJV porch — coloring packs, Battle Plans, verse cards, Porch Journal. Everything online stays free forever.">
+    <meta property="og:title" content="Free Resources &amp; Support • Today's Daily Battle">
+    <meta property="og:description" content="Quiet tools alongside the free KJV porch — coloring packs, Battle Plans, Porch Journal. Everything online stays free forever.">
     <meta property="og:url" content="https://todaysdailybattle.com/shop.html">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260410og">
@@ -23,56 +23,41 @@
             --bg: #0c1018;
             --text: #e8e8e8;
             --accent: #a38b6e;
+            --card: rgba(20, 25, 35, 0.85);
         }
         *, *::before, *::after { box-sizing: border-box; }
         body {
-            margin: 0;
-            padding: 0;
-            font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+            font-family: system-ui, -apple-system, sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.7;
-        }
-        .page-wrap {
             max-width: 720px;
-            margin: 0 auto;
-            padding: 40px 20px 80px;
         }
-        .nav {
-            margin-bottom: 36px;
-            text-align: center;
-        }
-        .nav a {
-            color: #888;
-            text-decoration: none;
-            margin: 0 12px;
-            font-size: 14px;
-            transition: color 0.15s;
-        }
-        .nav a:hover { color: #d4c4a8; }
         header {
             text-align: center;
-            margin-bottom: 52px;
+            margin-bottom: 50px;
         }
         h1 {
-            font-size: 28px;
+            font-size: 27px;
             font-weight: 400;
             color: #d4c4a8;
-            margin: 0 0 8px;
-            font-family: Georgia, 'Times New Roman', serif;
+            margin: 0 0 6px;
         }
         .subtitle {
             font-size: 15px;
             color: #888;
+            letter-spacing: 0.5px;
             margin: 0;
         }
         .intro {
             background: rgba(20, 25, 35, 0.6);
             border: 1px solid #3a2f22;
-            padding: 28px;
+            padding: 26px 28px;
             border-radius: 8px;
-            margin-bottom: 50px;
-            font-size: 15.5px;
+            margin-bottom: 48px;
+            font-size: 15.2px;
             color: #bbb;
         }
         .intro p { margin: 0 0 1em; }
@@ -80,239 +65,186 @@
         .resource-grid {
             display: grid;
             gap: 32px;
-            margin-bottom: 60px;
         }
         .card {
-            background: rgba(20, 25, 35, 0.8);
+            background: var(--card);
             border: 1px solid #3a2f22;
             border-radius: 8px;
             overflow: hidden;
-            transition: transform 0.25s ease, border-color 0.25s ease;
+            transition: all 0.3s ease;
         }
         .card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-3px);
             border-color: #a38b6e;
         }
-        .card-cover {
+        .card img {
             width: 100%;
-            height: 220px;
-            overflow: hidden;
-            background: #1a202f;
-            line-height: 0;
-        }
-        .card-cover img {
-            width: 100%;
-            height: 220px;
+            height: 240px;
             object-fit: cover;
             display: block;
+            background: #1a202f;
         }
         .card-body {
             padding: 24px;
         }
         .card h3 {
-            margin: 0 0 8px;
+            margin: 0 0 10px;
             font-size: 19px;
             color: #d4c4a8;
-            font-family: Georgia, serif;
-            font-weight: 600;
         }
         .card p {
             font-size: 15px;
             color: #aaa;
-            margin: 0 0 16px;
+            margin: 0 0 18px;
             line-height: 1.65;
         }
         .price {
-            font-size: 15px;
+            font-size: 17px;
             color: #c9b89a;
             font-weight: 500;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
+        }
+        .free {
+            color: #8ab88a;
         }
         .btn {
             display: inline-block;
             background: transparent;
             color: #d4c4a8;
             border: 1px solid #a38b6e;
-            padding: 10px 24px;
+            padding: 10px 26px;
             border-radius: 4px;
             text-decoration: none;
             font-size: 14.5px;
             margin-top: 4px;
-            cursor: pointer;
             transition: background 0.15s, color 0.15s;
+            cursor: pointer;
         }
         .btn:hover {
             background: #a38b6e;
             color: #0c1018;
         }
-        .badge-free {
-            display: inline-block;
-            font-size: 11px;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            background: rgba(163,139,110,0.15);
-            color: #a38b6e;
-            border-radius: 4px;
-            padding: 2px 8px;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
         .support {
+            margin-top: 60px;
             background: rgba(20, 25, 35, 0.6);
-            padding: 36px 32px;
+            padding: 32px;
             border-radius: 8px;
             text-align: center;
-            font-size: 15px;
             border: 1px solid #3a2f22;
         }
         .support h3 {
-            margin: 0 0 12px;
+            margin-top: 0;
             color: #d4c4a8;
-            font-family: Georgia, serif;
-            font-weight: 500;
-            font-size: 20px;
-        }
-        .support p { color: #999; margin: 0 0 20px; }
-        .support-tiers {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 16px;
-        }
-        .tier-btn {
-            padding: 10px 20px;
-            border: 1px solid #a38b6e;
-            background: transparent;
-            color: #c9b89a;
-            border-radius: 4px;
-            font-size: 14px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: background 0.15s, color 0.15s;
-        }
-        .tier-btn:hover {
-            background: rgba(163,139,110,0.2);
+            font-weight: 400;
         }
         footer {
-            margin-top: 72px;
+            margin-top: 70px;
             text-align: center;
-            font-size: 13px;
+            font-size: 13.5px;
             color: #555;
-            border-top: 1px solid #1e2230;
-            padding-top: 32px;
+            line-height: 1.6;
         }
-        footer p { margin: 0 0 6px; }
-        footer a { color: #888; text-decoration: none; }
-        footer a:hover { color: #d4c4a8; }
-        @media (max-width: 520px) {
-            .page-wrap { padding: 28px 16px 60px; }
+        .nav {
+            text-align: center;
+            margin-bottom: 36px;
+            font-size: 14px;
+        }
+        .nav a {
+            color: #888;
+            text-decoration: none;
+            margin: 0 14px;
+            transition: color 0.15s;
+        }
+        .nav a:hover { color: #d4c4a8; }
+        @media (max-width: 500px) {
+            body { padding: 28px 16px 60px; }
             .card-body { padding: 18px; }
-            .support { padding: 28px 18px; }
+            .support { padding: 24px 18px; }
         }
     </style>
 </head>
 <body>
-    <a href="#main-content" style="position:absolute;left:-9999px;top:0">Skip to main content</a>
-    <div class="page-wrap">
-        <nav class="nav" aria-label="Quick links">
-            <a href="/">Home</a>
-            <a href="/plans.html">Battle Plans</a>
-            <a href="/kids-coloring-pack.html">Kids Corner</a>
-            <a href="/give">Support the porch</a>
-        </nav>
+    <a href="#main-content" style="position:absolute;left:-9999px;top:0;z-index:9999;padding:0.5rem 1rem;background:#0c1018;color:#d4c4a8" onfocus="this.style.left='0'">Skip to main content</a>
 
-        <header>
-            <h1>The Porch Shop</h1>
-            <p class="subtitle">Gentle tools that help keep the free porch open</p>
-        </header>
+    <nav class="nav" aria-label="Quick links">
+        <a href="/">Home</a>
+        <a href="/plans.html">Battle Plans</a>
+        <a href="/kids-coloring-pack.html">Kids Corner</a>
+        <a href="/shop.html" aria-current="page">Shop</a>
+    </nav>
 
-        <div class="intro">
-            <p>Everything here is optional. The entire site &mdash; daily KJV verse, Battle Plans, Ask The Word, Kids Corner, Prayer Wall &mdash; remains completely free forever. These printables and journals exist for those who want something tangible to hold on hard days.</p>
-            <p>Every dollar received quietly covers hosting, new coloring pages, and quiet improvements so the porch can stay calm and open for every weary heart.</p>
+    <header>
+        <h1>Free Resources &amp; Support</h1>
+        <p class="subtitle">Gentle tools for the porch</p>
+    </header>
+
+    <div class="intro">
+        <p>The entire site remains completely free &mdash; daily KJV verse, all Battle Plans, Kids Corner, Prayer Wall, everything. These printables and journals are simply here for those who want something to hold in their hands on hard days.</p>
+        <p>Every gift received quietly helps cover hosting and new gentle content so the porch can stay open and pressure-free for every weary heart.</p>
+    </div>
+
+    <main id="main-content">
+        <div class="resource-grid">
+
+            <!-- Full Coloring Book -->
+            <div class="card">
+                <img src="/images/covers/coloring-book-cover.svg" alt="83 Bible Stories Coloring Book Cover — open book spread showing Creation, Daniel, and the Empty Tomb" width="720" height="240" loading="lazy">
+                <div class="card-body">
+                    <h3>83 Bible Stories Coloring Book</h3>
+                    <p>Eight peaceful sections with real KJV verses on every page. Genesis through Acts. Designed for screen viewing and clean home printing.</p>
+                    <div class="price free">Free &bull; Print at home</div>
+                    <a href="/kids-coloring-pack.html" class="btn">Open Coloring Book</a>
+                </div>
+            </div>
+
+            <!-- Jesus & Children Pack -->
+            <div class="card">
+                <img src="/images/covers/jesus-children-cover.svg" alt="Jesus Welcomes Little Children Cover — line art of Jesus with children gathered near" width="720" height="240" loading="lazy">
+                <div class="card-body">
+                    <h3>Jesus &amp; the Children Pack</h3>
+                    <p>Five gentle stories showing how Jesus welcomes little ones. KJV verses included. Perfect for young hearts and tired parents.</p>
+                    <div class="price free">Free &bull; Print at home</div>
+                    <a href="/kids-coloring-pack.html#story-jesus-children" class="btn">Get this pack</a>
+                </div>
+            </div>
+
+            <!-- Battle Plans -->
+            <div class="card">
+                <img src="/images/covers/battle-plans-cover.svg" alt="Battle Plans Cover — shield with cross and sword, KJV scripture paths" width="720" height="240" loading="lazy">
+                <div class="card-body">
+                    <h3>Battle Plans Collection</h3>
+                    <p>Printed-friendly collection of the most-used scripture paths for anxiety, exhaustion, fear, parenting, grief, and more. All King James Version.</p>
+                    <div class="price free">Free &bull; Print from site</div>
+                    <a href="/plans.html" class="btn">Browse &amp; Print Plans</a>
+                </div>
+            </div>
+
+            <!-- Porch Journal -->
+            <div class="card">
+                <img src="/images/covers/porch-journal-cover.svg" alt="Porch Journal Cover — leather journal with embossed cross" width="720" height="240" loading="lazy">
+                <div class="card-body">
+                    <h3>The Porch Journal</h3>
+                    <p>Undated peaceful notebook with space for the daily KJV verse, quiet reflections, and gentle prayer prompts. No dates, no pressure.</p>
+                    <div class="price">Coming soon &bull; Physical journal</div>
+                    <a href="/give" class="btn">Support &amp; Pre-order</a>
+                </div>
+            </div>
+
         </div>
 
-        <main id="main-content">
-            <div class="resource-grid">
+        <div class="support">
+            <h3>Other ways to keep the porch open</h3>
+            <p style="margin:18px 0 12px;">One-time gift of any amount &mdash; $5, $10, $25, or whatever the Lord lays on your heart.</p>
+            <a href="/give" class="btn">Give quietly</a>
+            <p style="margin-top:24px; font-size:14px; color:#777;">No tiers. No rewards. No pressure. Just partnership in keeping this place calm and free. <a href="/where-support-goes.html" style="color:#a38b6e">Where it goes &rarr;</a></p>
+        </div>
+    </main>
 
-                <!-- Kids Coloring Book — full pack, free print -->
-                <div class="card">
-                    <div class="card-cover">
-                        <img src="/images/covers/coloring-book-cover.svg" alt="83 Bible Stories Coloring Book — line art cover showing Creation, Daniel, and the Empty Tomb" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <span class="badge-free">Free &middot; Print at home</span>
-                        <h3>83 Bible Stories Coloring Book</h3>
-                        <p>Full printable pack with real KJV verses. Eight gentle sections: Genesis, Moses, Kings &amp; Prophets, Daniel, Life of Jesus, Miracles, Parables, Acts. One story per page with line-art illustrations drawn for coloring.</p>
-                        <div class="price">Free &mdash; open and print all 83 pages</div>
-                        <a href="/kids-coloring-pack.html" class="btn">View &amp; Print Pages</a>
-                    </div>
-                </div>
-
-                <!-- Jesus & the Children — gentle starter pack -->
-                <div class="card">
-                    <div class="card-cover">
-                        <img src="/images/covers/jesus-children-cover.svg" alt="Jesus and the children — gentle scene with children coming to Jesus" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <span class="badge-free">Free &middot; Ages 3–7</span>
-                        <h3>Jesus &amp; the Children Pack</h3>
-                        <p>Five gentle stories focused on how Jesus loves little ones &mdash; Jesus &amp; the children, Creation, Noah, David &amp; Goliath, the Empty Tomb. Simple scenes, short KJV verses, perfect for small hands and young hearts.</p>
-                        <div class="price">Free &mdash; best starting place for ages 3–7</div>
-                        <a href="/coloring.html?story=jesus" class="btn">Start with this story</a>
-                    </div>
-                </div>
-
-                <!-- Battle Plans -->
-                <div class="card">
-                    <div class="card-cover">
-                        <img src="/images/covers/battle-plans-cover.svg" alt="Battle Plans — shield and cross, KJV scripture paths for real battles" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <span class="badge-free">Free &middot; 76 plans</span>
-                        <h3>Battle Plans Collection</h3>
-                        <p>Short, practical KJV scripture paths for anxiety, exhaustion, fear, parenting, grief, anger, loneliness, and more. Each plan is 3–7 days. No fluff. Real battles. Works offline and stays on your device.</p>
-                        <div class="price">Free &mdash; browse and follow any plan now</div>
-                        <a href="/plans.html" class="btn">Browse all plans</a>
-                    </div>
-                </div>
-
-                <!-- Porch Journal — physical product, pre-order -->
-                <div class="card">
-                    <div class="card-cover">
-                        <img src="/images/covers/porch-journal-cover.svg" alt="The Porch Journal — leather journal cover with cross embossed" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <span class="badge-free" style="background:rgba(163,139,110,0.1);color:#c9b89a">Coming &middot; Physical</span>
-                        <h3>The Porch Journal</h3>
-                        <p>Undated, peaceful daily pages with space for the day&rsquo;s KJV verse, a short reflection, and gentle prayer prompts. No dates, no pressure &mdash; just a quiet place to meet God on the hard days and the good ones.</p>
-                        <div class="price">$18 &middot; Physical journal (ships within 7 days)</div>
-                        <a href="/give" class="btn">Pre-order &middot; Support the porch</a>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Support section -->
-            <div class="support">
-                <h3>Other ways to support the porch</h3>
-                <p>One-time gift &mdash; any amount quietly covers hosting, new KJV plans, and printables for churches and families in need.</p>
-                <div class="support-tiers">
-                    <a href="/give?amount=5" class="tier-btn">$5</a>
-                    <a href="/give?amount=10" class="tier-btn">$10</a>
-                    <a href="/give?amount=25" class="tier-btn">$25</a>
-                    <a href="/give" class="btn">Choose your own amount</a>
-                </div>
-                <p style="font-size:13px;color:#555;margin:0">No tiers. No rewards. No guilt. Just quiet partnership. <a href="/where-support-goes.html" style="color:#a38b6e">Where it goes &rarr;</a></p>
-            </div>
-        </main>
-
-        <footer>
-            <p>All resources use only the King James Version.</p>
-            <p>Built for real battles. No pressure. No perfection required.</p>
-            <p style="margin-top:16px"><a href="/">Home</a> &middot; <a href="/plans.html">Battle Plans</a> &middot; <a href="/coloring.html">Color &amp; Tell</a> &middot; <a href="/printables.html">Printables</a> &middot; <a href="/privacy.html">Privacy</a></p>
-        </footer>
-    </div>
+    <footer>
+        <p>All content uses only the King James Version.<br>
+        Built for real battles, not perfection.<br>
+        Thank you for walking gently with us.</p>
+    </footer>
 
     <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
     <script type="module" src="config.js"></script>

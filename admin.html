@@ -22,51 +22,147 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    /* ── Admin shell ────────────────────────────────────────────── */
     .owner-console-shell { display: grid; gap: 1rem; }
-    .owner-tabbar { display: flex; flex-wrap: wrap; gap: 0.65rem; }
-    .owner-tabbar .btn[aria-pressed="true"] { background: rgba(212, 175, 55, 0.18); border-color: rgba(212, 175, 55, 0.45); color: #f4e7b2; }
+    .owner-tabbar { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+    .owner-tabbar .btn[aria-pressed="true"] {
+      background: rgba(212, 175, 55, 0.18);
+      border-color: rgba(212, 175, 55, 0.5);
+      color: #f4e7b2;
+      font-weight: 600;
+    }
     .owner-pane[hidden] { display: none; }
     .owner-pane-grid { display: grid; gap: 1rem; }
     .owner-pane-grid--two { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+    /* ── Cards ───────────────────────────────────────────────────── */
     .owner-card {
-      background: rgba(11, 16, 35, 0.72);
+      background: rgba(11, 16, 35, 0.78);
       border: 1px solid rgba(201, 168, 76, 0.18);
       border-radius: 1rem;
-      padding: 1rem;
-      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.16);
+      padding: 1.1rem 1.1rem 1.25rem;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.22);
     }
-    .owner-card h3 { margin: 0 0 0.55rem; }
+    .owner-card h3 { margin: 0 0 0.6rem; font-size: 0.95rem; letter-spacing: 0.03em; opacity: 0.9; }
     .owner-card p { margin: 0.35rem 0; }
+
+    /* ── God-tier stat cards ─────────────────────────────────────── */
+    .owner-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+      gap: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+    .owner-stat-card {
+      background: linear-gradient(145deg, rgba(18, 24, 48, 0.9), rgba(11, 16, 35, 0.95));
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 14px;
+      padding: 1.25rem 0.85rem 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.2);
+    }
+    .owner-stat-card:hover {
+      border-color: rgba(212, 175, 55, 0.5);
+      box-shadow: 0 8px 28px rgba(212, 175, 55, 0.12);
+    }
+    .owner-stat-icon { font-size: 1.55rem; line-height: 1; margin-bottom: 0.2rem; }
+    .owner-stat-num {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #d4af37;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.02em;
+    }
+    .owner-stat-label {
+      font-size: 0.72rem;
+      opacity: 0.65;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-top: 0.1rem;
+    }
+    .owner-stat-card--highlight { border-color: rgba(212, 175, 55, 0.45); }
+    .owner-stat-card--highlight .owner-stat-num { color: #f4e7b2; }
+
+    /* ── Email composer ──────────────────────────────────────────── */
+    .owner-email-meta {
+      font-size: 0.88rem;
+      padding: 0.55rem 0.7rem;
+      background: rgba(212, 175, 55, 0.07);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 8px;
+    }
+    .owner-email-meta strong { color: #d4af37; }
+    #email-body { min-height: 14rem; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1rem; line-height: 1.55; }
+    .owner-email-preview-shell {
+      background: rgba(248, 245, 240, 0.06);
+      border: 1px solid rgba(212, 175, 55, 0.18);
+      border-radius: 10px;
+      padding: 1.25rem 1.4rem;
+      white-space: pre-wrap;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1rem;
+      line-height: 1.65;
+      color: #e8d9c0;
+    }
+    .owner-email-preview-header {
+      font-size: 0.82rem;
+      opacity: 0.65;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+      padding-bottom: 0.6rem;
+      margin-bottom: 0.85rem;
+      display: grid;
+      gap: 0.2rem;
+    }
+    .owner-composer-toast {
+      font-size: 0.85rem;
+      padding: 0.45rem 0.75rem;
+      border-radius: 6px;
+      background: rgba(50, 180, 100, 0.18);
+      border: 1px solid rgba(50, 180, 100, 0.35);
+      color: #a8f0c0;
+      display: inline-block;
+    }
+
+    /* ── Status / pills ──────────────────────────────────────────── */
     .owner-status-bar { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
     .owner-pill {
       display: inline-flex;
       align-items: center;
       border-radius: 999px;
-      padding: 0.35rem 0.7rem;
-      font-size: 0.82rem;
-      background: rgba(87, 103, 132, 0.2);
+      padding: 0.35rem 0.8rem;
+      font-size: 0.8rem;
+      background: rgba(87, 103, 132, 0.22);
       color: #d8e1ef;
+      border: 1px solid rgba(87, 103, 132, 0.3);
     }
-    .owner-console-list { display: grid; gap: 0.85rem; }
+    .owner-pill--ok { background: rgba(50, 180, 100, 0.14); border-color: rgba(50, 180, 100, 0.3); color: #a8f0c0; }
+    .owner-pill--warn { background: rgba(220, 160, 50, 0.14); border-color: rgba(220, 160, 50, 0.3); color: #f4d98a; }
+
+    /* ── Lists ───────────────────────────────────────────────────── */
+    .owner-console-list { display: grid; gap: 0.75rem; }
     .owner-console-list .list-item { margin: 0; }
-    .owner-console-actions { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 0.7rem; }
+    .owner-console-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.65rem; }
     .owner-inline-form { display: grid; gap: 0.75rem; }
     .owner-inline-form textarea,
     .owner-inline-form input,
-    .owner-inline-form select {
-      width: 100%;
-      box-sizing: border-box;
-    }
+    .owner-inline-form select { width: 100%; box-sizing: border-box; }
     .owner-inline-form textarea { min-height: 8rem; resize: vertical; }
-    .owner-section-note { margin-top: 0.25rem; opacity: 0.88; }
+    .owner-section-note { margin-top: 0.25rem; opacity: 0.82; font-size: 0.88rem; }
     .owner-user-row,
     .owner-data-row { display: grid; gap: 0.75rem; }
     .owner-user-row { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr) auto; align-items: end; }
     .owner-data-row { grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; }
-    .owner-log-meta { font-size: 0.82rem; opacity: 0.78; }
+    .owner-log-meta { font-size: 0.8rem; opacity: 0.72; margin: 0.15rem 0 0; }
     @media (max-width: 720px) {
       .owner-user-row,
       .owner-data-row { grid-template-columns: 1fr; }
+      .owner-stat-num { font-size: 2rem; }
     }
   </style>
 </head>
@@ -159,6 +255,7 @@
             </div>
             <div class="owner-tabbar" role="tablist" aria-label="Owner console sections">
               <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="overview" aria-pressed="true">Overview</button>
+              <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="email" aria-pressed="false">✉️ Email</button>
               <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="moderation" aria-pressed="false">Moderation</button>
               <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="content" aria-pressed="false">Content</button>
               <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="users" aria-pressed="false">Users &amp; Roles</button>
@@ -187,6 +284,48 @@
                 <div id="admin-stats" class="admin-grid"></div>
               </div>
             </section>
+            <section class="owner-pane owner-pane-grid" data-owner-pane="email" hidden>
+              <div class="owner-card">
+                <h3>Email Composer</h3>
+                <p class="owner-section-note">Write and preview your next email. Copy it to clipboard, then paste into Gmail or your tool&mdash;or download the subscriber CSV first.</p>
+                <div class="owner-inline-form" style="margin-top:0.75rem;">
+                  <div class="owner-email-meta">
+                    <strong>To:</strong> <span id="email-to-count">loading&hellip;</span> &nbsp;&middot;&nbsp;
+                    <strong>From:</strong> Brandon &mdash; Today&rsquo;s Daily Battle
+                  </div>
+                  <input id="email-subject" type="text" placeholder="Subject line" aria-label="Email subject" value="A quiet word from Today&apos;s Daily Battle">
+                  <textarea id="email-body" aria-label="Email body">Good morning,
+
+I wanted to quietly share something with you.
+
+Today's Daily Battle is gently shifting from a simple website into a small, Bible-teaching ministry. It's still the same calm, ad-free, KJV-only place it's always been — built for real hard days, anxiety, parenting, grief, exhaustion, and everything in between — but now I'm more clearly seeing it as a ministry that simply holds out God's Word for whoever needs rest in it.
+
+No big launches. No pressure. Just steady faithfulness with family and God's help.
+
+If you've been here a while, thank you for walking with me. Your quiet presence means more than you know.
+
+With care,
+Brandon
+
+todaysdailybattle.com/about
+todaysdailybattle.com/where-support-goes</textarea>
+                  <div class="owner-console-actions">
+                    <button id="email-preview-btn" class="btn btn-secondary" type="button">Preview</button>
+                    <button id="email-copy-btn" class="btn btn-secondary" type="button">Copy to Clipboard</button>
+                    <button id="email-export-list-btn" class="btn btn-secondary" type="button">Download Subscriber CSV</button>
+                  </div>
+                  <p id="email-composer-status" class="section-note" aria-live="polite"></p>
+                </div>
+              </div>
+              <div class="owner-card" id="email-preview-card" hidden>
+                <h3>Preview</h3>
+                <div class="owner-email-preview-shell">
+                  <div class="owner-email-preview-header" id="email-preview-header"></div>
+                  <div id="email-preview-body"></div>
+                </div>
+              </div>
+            </section>
+
             <section class="owner-pane owner-pane-grid" data-owner-pane="moderation" hidden>
               <div class="owner-pane-grid owner-pane-grid--two">
                 <div class="owner-card">
@@ -337,7 +476,7 @@
           </div>
           <div class="admin-actions">
             <button id="newsletter-export" class="btn btn-secondary" type="button">Export Newsletter CSV</button>
-            <span class="section-note">Exports signups saved on this browser.</span>
+            <span class="section-note">Downloads the full list from Supabase.</span>
           </div>
           <div class="admin-actions">
             <button id="waitlist-export" class="btn btn-secondary" type="button">Export Supporter Waitlist CSV</button>

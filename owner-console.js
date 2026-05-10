@@ -140,6 +140,36 @@
     }).join('');
   }
 
+  var STAT_ICONS = {
+    'Newsletter signups': '✉️',
+    'Messages': '💬',
+    'Message reports': '🚩',
+    'Prayer reports': '🙏',
+    'Supporter waitlist': '⭐',
+    'Owner audit entries': '📋',
+    'Prayers': '🕊️',
+    'Contact messages': '📩',
+    'Daily battles': '⚔️',
+    'Plans': '📖'
+  };
+
+  function renderStatGrid(container, items) {
+    if (!container) return;
+    container.innerHTML = '';
+    container.className = 'owner-stat-grid';
+    (items || []).forEach(function (item) {
+      var card = document.createElement('div');
+      var isHighlight = item.highlight;
+      card.className = 'owner-stat-card' + (isHighlight ? ' owner-stat-card--highlight' : '');
+      var icon = STAT_ICONS[item.label] || '📊';
+      card.innerHTML =
+        '<span class="owner-stat-icon" aria-hidden="true">' + icon + '</span>' +
+        '<span class="owner-stat-num">' + escapeHtml(String(item.value == null ? '—' : item.value)) + '</span>' +
+        '<span class="owner-stat-label">' + escapeHtml(item.label) + '</span>';
+      container.appendChild(card);
+    });
+  }
+
   function createActionButton(label, onClick) {
     var btn = document.createElement('button');
     btn.type = 'button';
@@ -193,16 +223,29 @@
 
   function renderOverview(data) {
     var cards = document.getElementById('owner-overview-cards');
-    if (!cards) return;
-    renderMiniCards(cards, [
-      { label: 'Messages', value: data.counts.messages },
-      { label: 'Message reports', value: data.counts.messageReports },
-      { label: 'Prayer reports', value: data.counts.prayerReports },
-      { label: 'Newsletter signups', value: data.counts.newsletterSignups },
-      { label: 'Supporter waitlist', value: data.counts.supporterWaitlist },
-      { label: 'Owner audit entries', value: data.counts.ownerAuditEntries }
-    ]);
+    if (cards) {
+      renderStatGrid(cards, [
+        { label: 'Newsletter signups', value: data.counts.newsletterSignups, highlight: true },
+        { label: 'Supporter waitlist', value: data.counts.supporterWaitlist },
+        { label: 'Messages', value: data.counts.messages },
+        { label: 'Message reports', value: data.counts.messageReports },
+        { label: 'Prayers', value: data.counts.prayers },
+        { label: 'Prayer reports', value: data.counts.prayerReports },
+        { label: 'Contact messages', value: data.counts.contactMessages },
+        { label: 'Daily battles', value: data.counts.dailyBattles },
+        { label: 'Owner audit entries', value: data.counts.ownerAuditEntries }
+      ]);
+    }
     setPills(data.owner, data.env);
+    var authPill = document.getElementById('owner-console-auth-pill');
+    if (authPill && data.env) {
+      authPill.className = data.env.serviceRole ? 'owner-pill owner-pill--ok' : 'owner-pill owner-pill--warn';
+    }
+    var toCount = document.getElementById('email-to-count');
+    if (toCount) {
+      var n = data.counts.newsletterSignups;
+      toCount.textContent = n + ' subscriber' + (n === 1 ? '' : 's');
+    }
   }
 
   function renderModeration(data) {
@@ -493,6 +536,84 @@
         loadAll().catch(function (error) {
           setStatus(error && error.message ? error.message : 'Refresh failed.', 'error');
         });
+      });
+    }
+
+    // ── Email composer ────────────────────────────────────────────
+    var previewBtn = document.getElementById('email-preview-btn');
+    var copyBtn = document.getElementById('email-copy-btn');
+    var exportListBtn = document.getElementById('email-export-list-btn');
+    var composerStatus = document.getElementById('email-composer-status');
+    var previewCard = document.getElementById('email-preview-card');
+    var previewHeader = document.getElementById('email-preview-header');
+    var previewBodyEl = document.getElementById('email-preview-body');
+
+    function getComposerValues() {
+      return {
+        subject: (document.getElementById('email-subject') || {}).value || '',
+        body: (document.getElementById('email-body') || {}).value || ''
+      };
+    }
+
+    function setComposerStatus(msg, ok) {
+      if (!composerStatus) return;
+      composerStatus.className = ok ? 'section-note owner-composer-toast' : 'section-note';
+      composerStatus.textContent = msg;
+    }
+
+    if (previewBtn) {
+      previewBtn.addEventListener('click', function () {
+        var v = getComposerValues();
+        var toEl = document.getElementById('email-to-count');
+        var toText = toEl ? toEl.textContent : 'your subscribers';
+        if (previewCard) previewCard.hidden = false;
+        if (previewHeader) {
+          previewHeader.textContent = '';
+          ['To: ' + toText, 'Subject: ' + (v.subject || '(no subject)'), 'From: Brandon — Today\'s Daily Battle'].forEach(function (line) {
+            var p = document.createElement('p');
+            p.style.margin = '0';
+            p.textContent = line;
+            previewHeader.appendChild(p);
+          });
+        }
+        if (previewBodyEl) previewBodyEl.textContent = v.body;
+        previewCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+
+    if (copyBtn) {
+      copyBtn.addEventListener('click', function () {
+        var v = getComposerValues();
+        var full = 'Subject: ' + v.subject + '\n\n' + v.body;
+        navigator.clipboard.writeText(full).then(function () {
+          setComposerStatus('Copied to clipboard — paste into Gmail or your email tool.', true);
+        }).catch(function () {
+          setComposerStatus('Copy failed. Select the text above and copy manually.', false);
+        });
+      });
+    }
+
+    if (exportListBtn) {
+      exportListBtn.addEventListener('click', async function () {
+        try {
+          setComposerStatus('Downloading subscriber list…', false);
+          await ownerApiDownload('/api/admin/data?dataset=newsletter_signups&format=csv', 'tdb-subscribers-' + new Date().toISOString().slice(0, 10) + '.csv');
+          setComposerStatus('Downloaded. Import into Gmail, Mailchimp, or your tool.', true);
+        } catch (err) {
+          setComposerStatus(err && err.message ? err.message : 'Download failed.', false);
+        }
+      });
+    }
+
+    // ── Newsletter export (bottom of page) ── wire to API not localStorage
+    var newsletterExport = document.getElementById('newsletter-export');
+    if (newsletterExport) {
+      newsletterExport.addEventListener('click', async function () {
+        try {
+          await ownerApiDownload('/api/admin/data?dataset=newsletter_signups&format=csv', 'tdb-newsletter-' + new Date().toISOString().slice(0, 10) + '.csv');
+        } catch (err) {
+          setStatus(err && err.message ? err.message : 'Export failed.', 'error');
+        }
       });
     }
   }

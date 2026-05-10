@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-05-10T21:08:04.653Z",
-  "surfacedRefCount": 2973,
-  "overrideCount": 2973,
+  "generatedAt": "2026-05-10T21:24:33.048Z",
+  "surfacedRefCount": 2986,
+  "overrideCount": 2986,
   "sourceCounts": {
     ".worktrees/main-hotfix/404-admin.html": {
       "refs": 1,
@@ -1160,7 +1160,7 @@
       "pairs": 0
     },
     "kids-coloring-pack.html": {
-      "refs": 2,
+      "refs": 81,
       "pairs": 0
     },
     "kids-corner 2.html": {
@@ -2060,6 +2060,7 @@
     "1 Kings 17:14",
     "1 Kings 17:16",
     "1 Kings 17:3",
+    "1 Kings 17:4",
     "1 Kings 17:4-5",
     "1 Kings 17:6",
     "1 Kings 17:7",
@@ -2178,6 +2179,7 @@
     "1 Samuel 24:3",
     "1 Samuel 24:4-6",
     "1 Samuel 25:1-42",
+    "1 Samuel 26:11",
     "1 Samuel 28:7",
     "1 Samuel 2:1",
     "1 Samuel 2:13",
@@ -2406,6 +2408,7 @@
     "2 Timothy 2:6",
     "2 Timothy 3:13",
     "2 Timothy 3:15",
+    "2 Timothy 3:16",
     "2 Timothy 3:16-17",
     "2 Timothy 3:8",
     "2 Timothy 4:1",
@@ -2514,6 +2517,7 @@
     "Acts 26:5",
     "Acts 27:15",
     "Acts 27:2",
+    "Acts 27:22",
     "Acts 27:23",
     "Acts 27:29",
     "Acts 27:44",
@@ -3451,6 +3455,7 @@
     "John 2:16",
     "John 2:21",
     "John 2:3",
+    "John 2:5",
     "John 2:7",
     "John 2:9",
     "John 3:1",
@@ -3492,6 +3497,7 @@
     "John 8:36",
     "John 8:51",
     "John 9:1-38",
+    "John 9:25",
     "Jonah 1:1-17",
     "Jonah 1:15",
     "Jonah 1:17",
@@ -3655,6 +3661,7 @@
     "Luke 17:14",
     "Luke 17:15-16",
     "Luke 17:15-19",
+    "Luke 17:17",
     "Luke 17:19",
     "Luke 17:3-4",
     "Luke 17:7",
@@ -3870,8 +3877,10 @@
     "Mark 1:30",
     "Mark 1:34",
     "Mark 1:35",
+    "Mark 1:41",
     "Mark 1:9",
     "Mark 2:1-12",
+    "Mark 2:11",
     "Mark 2:14",
     "Mark 2:17",
     "Mark 2:19",
@@ -3879,6 +3888,7 @@
     "Mark 3:18",
     "Mark 3:28",
     "Mark 3:29",
+    "Mark 3:5",
     "Mark 4:1-20",
     "Mark 4:21",
     "Mark 4:26",
@@ -3911,6 +3921,7 @@
     "Mark 8:1-9",
     "Mark 8:3",
     "Mark 8:34",
+    "Mark 8:8",
     "Mark 8:9",
     "Mark 9:13",
     "Mark 9:23",
@@ -4139,6 +4150,7 @@
     "Matthew 3:13-17",
     "Matthew 3:15",
     "Matthew 3:16",
+    "Matthew 3:17",
     "Matthew 3:2",
     "Matthew 3:3",
     "Matthew 3:4",
@@ -4266,6 +4278,7 @@
     "Nehemiah 1:4",
     "Nehemiah 2:17",
     "Nehemiah 2:18",
+    "Nehemiah 2:20",
     "Nehemiah 2:4",
     "Nehemiah 2:4-5",
     "Nehemiah 4:17",
@@ -6182,6 +6195,14 @@
         "to": "Israel"
       }
     },
+    "1 Kings 17:4": {
+      "general": {
+        "plainExplanation": "And it shall be, that you shalt drink of the brook; and I have commanded the ravens to feed you there.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
     "1 Kings 17:4-5": {
       "general": {
         "plainExplanation": "Key idea: And it shall be, that you shalt drink of the brook; and I have commanded the ravens to feed you there. So he went and did according to the word of the LORD:...",
@@ -7122,6 +7143,14 @@
       "general": {
         "plainExplanation": "Key idea: And Samuel died; and all the Israelites were gathered together, and lamented him, and buried him in his house at Ramah. And David arose, and went down to th...",
         "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
+        "about": "Samuel",
+        "to": "Israel"
+      }
+    },
+    "1 Samuel 26:11": {
+      "general": {
+        "plainExplanation": "Key idea: The LORD forbid that I should stretch forth mine hand against the LORD’s anointed: but, I pray you, take you now the spear that is at his bolster, and the c...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Samuel",
         "to": "Israel"
       }
@@ -8886,6 +8915,14 @@
         "to": "Timothy"
       }
     },
+    "2 Timothy 3:16": {
+      "general": {
+        "plainExplanation": "All scripture is given by inspiration of God, and is profitable for doctrine, for reproof, for correction, for instruction in righteousness:",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Timothy"
+      }
+    },
     "2 Timothy 3:16-17": {
       "general": {
         "plainExplanation": "Key idea: All scripture is given by inspiration of God, and is profitable for doctrine, for reproof, for correction, for instruction in righteousness: That the man of...",
@@ -9689,6 +9726,14 @@
     "Acts 27:2": {
       "general": {
         "plainExplanation": "And entering into a ship of Adramyttium, we launched, meaning to sail by the coasts of Asia; one Aristarchus, a Macedonian of Thessalonica, being with us.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Luke",
+        "to": "Church"
+      }
+    },
+    "Acts 27:22": {
+      "general": {
+        "plainExplanation": "And now I exhort you to be of good cheer: for there shall be no loss of any man’s life among you, but of the ship.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Luke",
         "to": "Church"
@@ -17190,6 +17235,14 @@
         "to": "Believers"
       }
     },
+    "John 2:5": {
+      "general": {
+        "plainExplanation": "His mother says to the servants, whatever he says to you, do it.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "John 2:7": {
       "general": {
         "plainExplanation": "Jesus says to them, Fill the waterpots with water. And they filled them up to the brim.",
@@ -17513,6 +17566,14 @@
     "John 9:1-38": {
       "general": {
         "plainExplanation": "Key idea: And as Jesus passed by, he saw a man which was blind from his birth. And his disciples asked him, saying, Master, who did sin, this man, or his parents, tha...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "John 9:25": {
+      "general": {
+        "plainExplanation": "He answered and said, Whether he be a sinner or no, I know not: one thing I know, that, whereas I was blind, now I see.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -18817,6 +18878,14 @@
     "Luke 17:15-19": {
       "general": {
         "plainExplanation": "Key idea: And one of them, when he saw that he was healed, turned back, and with a loud voice glorified God, And fell down on his face at his feet, giving him thanks:...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Luke 17:17": {
+      "general": {
+        "plainExplanation": "And Jesus answering said, Were there not ten cleansed? but where are the nine?",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -20542,6 +20611,14 @@
         "to": "Believers"
       }
     },
+    "Mark 1:41": {
+      "general": {
+        "plainExplanation": "And Jesus, moved with compassion, put forth his hand, and touched him, and says to him, I will; be you clean.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Mark 1:9": {
       "general": {
         "plainExplanation": "And it came to pass in those days, that Jesus came from Nazareth of Galilee, and was baptized of John in Jordan.",
@@ -20554,6 +20631,14 @@
       "general": {
         "plainExplanation": "Key idea: And again he entered into Capernaum after some days; and it was noised that he was in the house. And straightway many were gathered together, insomuch that...",
         "modernApplication": "This verse reminds you that God gives strength that does not start with your own reserves.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Mark 2:11": {
+      "general": {
+        "plainExplanation": "I say to you, Arise, and take up your bed, and go your way into thine house.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
       }
@@ -20609,6 +20694,14 @@
     "Mark 3:29": {
       "general": {
         "plainExplanation": "But he that shall blaspheme against the Holy Ghost has never forgiveness, but is in danger of eternal damnation:",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Mark 3:5": {
+      "general": {
+        "plainExplanation": "Key idea: And when he had looked round about on them with anger, being grieved for the hardness of their hearts, he says to the man, Stretch forth thine hand. And he...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -20865,6 +20958,14 @@
     "Mark 8:34": {
       "general": {
         "plainExplanation": "And when he had called the people to him with his disciples also, he said to them, whoever will come after me, let him deny himself, and take up his cross, and follow me.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Mark 8:8": {
+      "general": {
+        "plainExplanation": "So they did eat, and were filled: and they took up of the broken meat that was left seven baskets.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -22694,6 +22795,14 @@
         "to": "Believers"
       }
     },
+    "Matthew 3:17": {
+      "general": {
+        "plainExplanation": "And lo a voice from heaven, saying, This is my beloved Son, in whom I am well pleased.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Matthew 3:2": {
       "general": {
         "plainExplanation": "And saying, Repent you: for the kingdom of heaven is at hand.",
@@ -23705,6 +23814,14 @@
     "Nehemiah 2:18": {
       "general": {
         "plainExplanation": "Key idea: Then I told them of the hand of my God which was good upon me; as also the king’s words that he had spoken to me. And they said, Let us rise up and build. S...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Nehemiah",
+        "to": "Exiles"
+      }
+    },
+    "Nehemiah 2:20": {
+      "general": {
+        "plainExplanation": "Key idea: Then answered I them, and said to them, The God of heaven, he will prosper us; therefore we his servants will arise and build: but you have no portion, nor...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Nehemiah",
         "to": "Exiles"

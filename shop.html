@@ -3,152 +3,472 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Shop • Today’s Daily Battle</title>
-  <meta name="description" content="Quiet physical tools that support the free porch — Porch Journal (flagship), printed Battle Plans, Family Scripture packs, and verse cards. Every purchase helps keep the KJV site calm and open for everyone.">
+  <title>Free Resources &amp; Support • Today's Daily Battle</title>
+  <meta name="description" content="Free Bible coloring books, battle plans, family packs, and printables — 83 KJV stories, 76+ battle plans, family activity sheets. No account. No ads. Free forever.">
+  <link rel="canonical" href="https://todaysdailybattle.com/shop.html">
+  <meta property="og:title" content="Free Resources &amp; Support • Today's Daily Battle">
+  <meta property="og:description" content="83 KJV coloring stories, 76+ battle plans, family packs. Free forever. No ads. If the site helps, you can support it.">
+  <meta property="og:url" content="https://todaysdailybattle.com/shop.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260410og">
   <link rel="preload" href="styles.css?v=20260503-consent-persist-fix" as="style">
   <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix">
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
   <script defer src="analytics-loader.js"></script>
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.json">
+  <style nonce="tdb2025s">
+    /* ─── Resource hub layout ─── */
+    .shop-wrap { max-width: 56rem; margin: 0 auto; padding: 0 1.2rem 3rem; }
+
+    .shop-hero {
+      text-align: center;
+      padding: 2.5rem 1rem 2rem;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      margin-bottom: 2rem;
+    }
+    .shop-hero__eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #c9a84c;
+      margin: 0 0 0.5rem;
+    }
+    .shop-hero__title {
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      font-weight: 700;
+      margin: 0 0 0.6rem;
+      line-height: 1.2;
+    }
+    .shop-hero__note {
+      color: #8a8fa0;
+      font-size: 0.95rem;
+      max-width: 38rem;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .shop-hero__note strong { color: #c9a84c; }
+
+    /* ─── Section headings ─── */
+    .shop-section-head {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 2.5rem 0 1.1rem;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      padding-bottom: 0.6rem;
+    }
+    .shop-section-head h2 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin: 0;
+      color: #e8eaf0;
+    }
+    .shop-section-head__badge {
+      font-size: 0.72rem;
+      background: rgba(201,168,76,0.15);
+      color: #c9a84c;
+      padding: 0.15rem 0.55rem;
+      border-radius: 99px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── Resource cards grid ─── */
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+      gap: 1.25rem;
+    }
+
+    .shop-card {
+      background: rgba(14,18,28,0.55);
+      border: 1px solid rgba(201,168,76,0.18);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .shop-card:hover {
+      border-color: rgba(201,168,76,0.45);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+    }
+
+    .shop-card__cover {
+      background: #0a0e16;
+      line-height: 0;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+    }
+    .shop-card__cover img, .shop-card__cover svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3/2;
+      object-fit: cover;
+    }
+
+    .shop-card__body {
+      padding: 1rem 1.1rem 0.75rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .shop-card__badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #c9a84c;
+      margin: 0 0 0.35rem;
+    }
+    .shop-card__title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 0 0 0.4rem;
+      color: #f0e8d0;
+      line-height: 1.25;
+    }
+    .shop-card__desc {
+      font-size: 0.86rem;
+      color: #8a8fa0;
+      margin: 0 0 0.75rem;
+      line-height: 1.6;
+      flex: 1;
+    }
+    .shop-card__desc strong { color: #b0b5c4; }
+    .shop-card__stats {
+      font-size: 0.76rem;
+      color: rgba(201,168,76,0.7);
+      margin: 0 0 0.85rem;
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .shop-card__stat::before { content: '· '; }
+    .shop-card__stat:first-child::before { content: ''; }
+    .shop-card__actions {
+      display: flex;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+    }
+
+    /* ─── Support section ─── */
+    .shop-support {
+      background: rgba(201,168,76,0.07);
+      border: 1px solid rgba(201,168,76,0.22);
+      border-radius: 16px;
+      padding: 1.75rem 1.5rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .shop-support__title { font-size: 1.2rem; font-weight: 700; margin: 0 0 0.5rem; }
+    .shop-support__note { color: #8a8fa0; font-size: 0.9rem; margin: 0 0 1.25rem; max-width: 36rem; margin-left: auto; margin-right: auto; line-height: 1.65; }
+    .shop-support__tiers {
+      display: flex;
+      gap: 0.6rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 0.85rem;
+    }
+    .shop-support__tier {
+      padding: 0.5rem 1.1rem;
+      border-radius: 99px;
+      font-size: 0.88rem;
+      border: 1px solid rgba(201,168,76,0.35);
+      background: rgba(201,168,76,0.1);
+      color: #c9a84c;
+      cursor: pointer;
+      text-decoration: none;
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      transition: background 0.15s;
+    }
+    .shop-support__tier:hover { background: rgba(201,168,76,0.22); }
+    .shop-support__tier--primary {
+      background: rgba(201,168,76,0.2);
+      border-color: rgba(201,168,76,0.6);
+    }
+    .shop-support__micro {
+      font-size: 0.78rem;
+      color: #5a5f72;
+      margin: 0;
+    }
+
+    @media (max-width: 600px) {
+      .shop-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-<body class="dark-mode tdb-inner-page shop-page">
+<body class="dark-mode tdb-inner-page">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="app-shell">
     <header class="top-bar">
       <div class="brand">
-        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <a class="brand-title" href="/">Today&rsquo;s Daily Battle</a>
         <p class="tdb-header-heartbeat site-tagline">For Family, For Country, For GOD</p>
-        <span class="brand-subtitle">The Shop</span>
+        <span class="brand-subtitle">Free Resources</span>
       </div>
-      <!-- Navigation preserved from site -->
+      <nav class="header-nav" aria-label="Quick links">
+        <a href="/">Home</a>
+        <a href="/plans.html">Plans</a>
+        <a href="/coloring.html">Coloring</a>
+        <a href="/printables.html">Printables</a>
+        <a href="/give">Support</a>
+      </nav>
     </header>
 
     <main class="app-content" id="main-content">
-      <div class="content-inner">
-        <header class="hero-banner tdb-dawn-hub--mist">
-          <h1>The Shop</h1>
-          <p class="section-note topic-mood-porch">You are already welcome here — these physical tools are optional. The entire online porch (verse, search, plans, prayer) stays 100% free forever.</p>
-          <p class="hero-tagline">Quiet objects that help you carry Scripture. Every purchase supports the free porch.</p>
+      <div class="shop-wrap">
+
+        <header class="shop-hero">
+          <p class="shop-hero__eyebrow">Today&rsquo;s Daily Battle — Resources</p>
+          <h1 class="shop-hero__title">Everything here is free.</h1>
+          <p class="shop-hero__note">83 KJV coloring stories. 76 battle plans. Family packs. Printables. No account required. <strong>Print, use, share — no strings.</strong> If the site quietly helps you, there&rsquo;s a way to support it below — completely optional.</p>
         </header>
 
-        <section class="glass tdb-porch-paper-glass">
-          <div class="tdb-give-options-grid tdb-product-grid">
+        <!-- ── Digital Coloring Books ── -->
+        <div class="shop-section-head">
+          <h2>Color &amp; Tell — Bible Coloring Books</h2>
+          <span class="shop-section-head__badge">Free &middot; Print at Home</span>
+        </div>
+        <div class="shop-grid">
 
-            <div class="tdb-product-card">
-              <div class="flagship-badge">Flagship</div>
-              <img src="/assets/shop/porch-journal.jpg" alt="The Porch Journal — quiet companion for daily battle" loading="lazy">
-              <div class="product-info">
-                <h3>The Porch Journal</h3>
-                <p class="section-note">Undated. One gentle KJV anchor per spread with generous white space for your own notes, prayers, and honest battles. Paper that feels like sitting on the porch with the Word — no pressure, no performance.</p>
-                <div class="price">$28</div>
-                <button onclick="addToCart('porch-journal', 2800)" class="btn btn-primary">Add to Cart — $28</button>
+          <div class="shop-card">
+            <div class="shop-card__cover">
+              <img src="/assets/shop/coloring-book-cover.svg" alt="Color & Tell — Full Coloring Book cover" width="900" height="600" loading="lazy">
+            </div>
+            <div class="shop-card__body">
+              <p class="shop-card__badge">Complete Book</p>
+              <h3 class="shop-card__title">Color &amp; Tell — Full Book</h3>
+              <p class="shop-card__desc">All 83 KJV Bible stories. Real line-art scenes. <strong>Creation through Acts</strong> — Old Testament foundations, the life of Jesus, miracles, parables, and the early church. One page per story with the key verse.</p>
+              <div class="shop-card__stats">
+                <span class="shop-card__stat">83 stories</span>
+                <span class="shop-card__stat">332 scenes total</span>
+                <span class="shop-card__stat">KJV captions</span>
+                <span class="shop-card__stat">Print-ready</span>
+              </div>
+              <div class="shop-card__actions">
+                <a class="btn btn-primary" href="/kids-coloring-pack.html">Open &amp; Print</a>
+                <a class="btn btn-secondary" href="/coloring.html">Color digitally</a>
               </div>
             </div>
-
-            <div class="tdb-product-card">
-              <img src="/assets/shop/battle-plan-journal.jpg" alt="Battle Plan Journal Set — printed rhythms for real fights" loading="lazy">
-              <div class="product-info">
-                <h3>Battle Plan Journal Set</h3>
-                <p class="section-note">Printed editions of our most-used short KJV rhythms (Fear → Faith, Grief → Hope, Anxiety → Peace, and others). Space to write your own next small step and prayer. For when the fight feels long.</p>
-                <div class="price">$19</div>
-                <button onclick="addToCart('battle-plan-set', 1900)" class="btn btn-primary">Add to Cart — $19</button>
-              </div>
-            </div>
-
-            <div class="tdb-product-card">
-              <img src="/assets/shop/family-scripture-pack.jpg" alt="Family Scripture Pack — for the table and little ones" loading="lazy">
-              <div class="product-info">
-                <h3>Family Scripture Pack</h3>
-                <p class="section-note">Printed KJV verse cards, memory aids, and gentle prompts for the family table. Versions for parents and children. Simple tools to keep Scripture close without adding pressure.</p>
-                <div class="price">$24</div>
-                <button onclick="addToCart('family-pack', 2400)" class="btn btn-primary">Add to Cart — $24</button>
-              </div>
-            </div>
-
           </div>
 
-          <p class="shop-support-note">Every purchase quietly helps keep the free porch open — hosting, new KJV plans, printables for churches and those in need. The online experience remains 100% free, ad-free, private, and offline-first forever.</p>
-        </section>
+          <div class="shop-card">
+            <div class="shop-card__cover">
+              <img src="/coloring-pages/nativity-s2.svg" alt="Nativity scene coloring page" width="900" height="680" loading="lazy" style="object-fit:cover;background:#fff">
+            </div>
+            <div class="shop-card__body">
+              <p class="shop-card__badge">Old Testament Pack</p>
+              <h3 class="shop-card__title">OT Stories — Genesis to Daniel</h3>
+              <p class="shop-card__desc">Creation, Noah, Abraham, Moses, David, Elijah, Daniel, Esther &mdash; <strong>43 Old Testament stories</strong>, each with a scene and KJV verse caption.</p>
+              <div class="shop-card__stats">
+                <span class="shop-card__stat">43 stories</span>
+                <span class="shop-card__stat">Genesis &rarr; Malachi</span>
+                <span class="shop-card__stat">KJV only</span>
+              </div>
+              <div class="shop-card__actions">
+                <a class="btn btn-primary" href="/kids-coloring-pack.html#story-creation">Open OT Pack</a>
+              </div>
+            </div>
+          </div>
 
-        <div id="donation-status" class="donation-status section-note"></div>
+          <div class="shop-card">
+            <div class="shop-card__cover">
+              <img src="/coloring-pages/empty-tomb-s3.svg" alt="Empty tomb coloring page" width="900" height="680" loading="lazy" style="object-fit:cover;background:#fff">
+            </div>
+            <div class="shop-card__body">
+              <p class="shop-card__badge">New Testament Pack</p>
+              <h3 class="shop-card__title">NT Stories — Gospels &amp; Acts</h3>
+              <p class="shop-card__desc">Jesus&rsquo; birth, baptism, miracles, parables, death, resurrection, and the early church. <strong>40 New Testament stories</strong> with KJV verses.</p>
+              <div class="shop-card__stats">
+                <span class="shop-card__stat">40 stories</span>
+                <span class="shop-card__stat">Gospels &rarr; Acts</span>
+                <span class="shop-card__stat">KJV only</span>
+              </div>
+              <div class="shop-card__actions">
+                <a class="btn btn-primary" href="/kids-coloring-pack.html#story-nativity">Open NT Pack</a>
+              </div>
+            </div>
+          </div>
 
-        <div style="text-align:center;margin:3rem 0 4rem;">
-          <a href="/give.html" class="btn btn-secondary">Or support the porch with a quiet gift instead →</a>
+          <div class="shop-card">
+            <div class="shop-card__cover">
+              <img src="/coloring-pages/jesus-children-s3.svg" alt="Jesus welcomes children coloring page" width="900" height="680" loading="lazy" style="object-fit:cover;background:#fff">
+            </div>
+            <div class="shop-card__body">
+              <p class="shop-card__badge">For Little Ones (Ages 3–7)</p>
+              <h3 class="shop-card__title">Gentlest First Stories</h3>
+              <p class="shop-card__desc">The five softest entry points: Jesus &amp; the children, Creation, Noah, David &amp; Goliath, and the Empty Tomb. Simple scenes, short verses, perfect for small hands.</p>
+              <div class="shop-card__stats">
+                <span class="shop-card__stat">5 stories</span>
+                <span class="shop-card__stat">Ages 3–7</span>
+                <span class="shop-card__stat">One scene each</span>
+              </div>
+              <div class="shop-card__actions">
+                <a class="btn btn-primary" href="/coloring.html?story=jesus">Start here</a>
+                <a class="btn btn-secondary" href="/little-ones.html">For the Little Ones</a>
+              </div>
+            </div>
+          </div>
+
         </div>
 
-        <div style="text-align:center;margin:2rem 0 4rem;">
-          <a href="/" class="btn btn-primary">← Return to Today’s Verse</a>
+        <!-- ── Battle Plans ── -->
+        <div class="shop-section-head">
+          <h2>Battle Plans — KJV Scripture Plans</h2>
+          <span class="shop-section-head__badge">Free &middot; 76 Plans</span>
         </div>
+        <div class="shop-grid">
+
+          <div class="shop-card">
+            <div class="shop-card__cover">
+              <img src="/assets/shop/battle-plans-cover.svg" alt="Battle Plans — KJV scripture plans for real battles" width="900" height="600" loading="lazy">
+            </div>
+            <div class="shop-card__body">
+              <p class="shop-card__badge">Full Library</p>
+              <h3 class="shop-card__title">76+ KJV Battle Plans</h3>
+              <p class="shop-card__desc">Short, practical KJV scripture plans for <strong>fear, grief, anxiety, anger, loneliness, overwhelm, identity, family, parenting,</strong> and more. Each plan is 3–7 days. No fluff. Real battles.</p>
+              <div class="shop-card__stats">
+                <span class="shop-card__stat">76 plans</span>
+                <span class="shop-card__stat">KJV only</span>
+                <span class="shop-card__stat">Works offline</span>
+              </div>
+              <div class="shop-card__actions">
+                <a class="btn btn-primary" href="/plans.html">Browse all plans</a>
+                <a class="btn btn-secondary" href="/daily-rhythm.html">Daily rhythm</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="shop-card">
+            <div class="shop-card__cover" style="background:#0a0e16;display:flex;align-items:center;justify-content:center;min-height:12rem">
+              <svg viewBox="0 0 300 200" width="300" height="200" style="width:100%;height:auto">
+                <rect width="300" height="200" fill="#0a0e16"/>
+                <text x="150" y="75" font-family="Georgia,serif" font-size="15" fill="rgba(201,168,76,0.9)" text-anchor="middle">Fear → Faith</text>
+                <text x="150" y="100" font-family="Georgia,serif" font-size="15" fill="rgba(201,168,76,0.9)" text-anchor="middle">Grief → Hope</text>
+                <text x="150" y="125" font-family="Georgia,serif" font-size="15" fill="rgba(201,168,76,0.9)" text-anchor="middle">Anxiety → Peace</text>
+                <line x1="60" y1="148" x2="240" y2="148" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
+                <text x="150" y="168" font-family="Georgia,serif" font-size="11" fill="rgba(200,210,230,0.5)" text-anchor="middle">KJV short plans for hard days</text>
+              </svg>
+            </div>
+            <div class="shop-card__body">
+              <p class="shop-card__badge">Most Used</p>
+              <h3 class="shop-card__title">Short Plans for Hard Days</h3>
+              <p class="shop-card__desc">The four most-reached-for plans: <strong>Fear → Faith</strong>, <strong>Grief → Hope</strong>, <strong>Anxiety → Peace</strong>, and <strong>Overwhelmed → Still</strong>. Start any of them today.</p>
+              <div class="shop-card__stats">
+                <span class="shop-card__stat">4 plans</span>
+                <span class="shop-card__stat">3–5 days each</span>
+                <span class="shop-card__stat">KJV only</span>
+              </div>
+              <div class="shop-card__actions">
+                <a class="btn btn-primary" href="/plans.html?plan=fear-to-faith">Fear → Faith</a>
+                <a class="btn btn-secondary" href="/plans.html?plan=grief-to-hope">Grief → Hope</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ── Family & Printables ── -->
+        <div class="shop-section-head">
+          <h2>Family Packs &amp; Printables</h2>
+          <span class="shop-section-head__badge">Free &middot; Print at Home</span>
+        </div>
+        <div class="shop-grid">
+
+          <div class="shop-card">
+            <div class="shop-card__cover">
+              <img src="/assets/shop/family-pack-cover.svg" alt="Family Activity Packs cover" width="900" height="600" loading="lazy">
+            </div>
+            <div class="shop-card__body">
+              <p class="shop-card__badge">Family</p>
+              <h3 class="shop-card__title">Family Activity Packs</h3>
+              <p class="shop-card__desc">Print-friendly sheets for the family table: <strong>large-print KJV verse, drawing prompt, age-banded discussion questions, and a family prayer</strong>. Everything stays on your device until you print.</p>
+              <div class="shop-card__stats">
+                <span class="shop-card__stat">Multiple packs</span>
+                <span class="shop-card__stat">All ages</span>
+                <span class="shop-card__stat">KJV verse-anchored</span>
+              </div>
+              <div class="shop-card__actions">
+                <a class="btn btn-primary" href="/family-activity-packs.html">Open packs</a>
+                <a class="btn btn-secondary" href="/family.html">Family hub</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="shop-card">
+            <div class="shop-card__cover" style="background:#0a0e16;display:flex;align-items:center;justify-content:center;min-height:12rem">
+              <svg viewBox="0 0 300 200" width="300" height="200" style="width:100%;height:auto">
+                <rect width="300" height="200" fill="#0a0e16"/>
+                <!-- printable icon suggestion -->
+                <rect x="95" y="40" width="110" height="130" rx="8" fill="none" stroke="rgba(201,168,76,0.6)" stroke-width="2"/>
+                <line x1="112" y1="75" x2="188" y2="75" stroke="rgba(240,232,208,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="112" y1="95" x2="188" y2="95" stroke="rgba(240,232,208,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="112" y1="115" x2="165" y2="115" stroke="rgba(240,232,208,0.3)" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="112" y1="135" x2="155" y2="135" stroke="rgba(240,232,208,0.25)" stroke-width="1.5" stroke-linecap="round"/>
+                <text x="150" y="190" font-family="Georgia,serif" font-size="11" fill="rgba(200,210,230,0.45)" text-anchor="middle">KJV verse cards &amp; memory sheets</text>
+              </svg>
+            </div>
+            <div class="shop-card__body">
+              <p class="shop-card__badge">Print Hub</p>
+              <h3 class="shop-card__title">All Printables</h3>
+              <p class="shop-card__desc">Memory verse sheets, armor of God activity cards, weekly rhythm pages, thin-week survival guides, and kids activity sheets. Ink-friendly, high-contrast.</p>
+              <div class="shop-card__stats">
+                <span class="shop-card__stat">Verse cards</span>
+                <span class="shop-card__stat">Activity sheets</span>
+                <span class="shop-card__stat">Offline kit</span>
+              </div>
+              <div class="shop-card__actions">
+                <a class="btn btn-primary" href="/printables.html">Browse printables</a>
+                <a class="btn btn-secondary" href="/kids-activities-print.html">Kids sheet</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ── Support section ── -->
+        <div class="shop-support">
+          <h2 class="shop-support__title">Everything stays free &mdash; forever.</h2>
+          <p class="shop-support__note">The verse, plans, coloring book, prayer wall, and tools are free to everyone &mdash; no account, no ads, no paywall. If this quiet place has helped you, a gift supports the hosting, new plans, and printables for churches and families in need.</p>
+          <div class="shop-support__tiers">
+            <a href="/give?amount=5" class="shop-support__tier">$5 &mdash; a quiet thank-you</a>
+            <a href="/give?amount=12" class="shop-support__tier shop-support__tier--primary">$12 &mdash; keep the porch open</a>
+            <a href="/give?amount=25" class="shop-support__tier">$25 &mdash; support a church too</a>
+            <a href="/give" class="shop-support__tier">Choose your own amount</a>
+          </div>
+          <p class="shop-support__micro">One-time or monthly. Any amount helps. <a href="/where-support-goes.html" style="color:#c9a84c">Where it goes &rarr;</a></p>
+        </div>
+
       </div>
     </main>
 
-    <footer class="site-footer site-footer--canonical">
-      <!-- Full existing footer with updated links to /give.html and /shop.html -->
-      <nav class="site-footer-essentials">
-        <a href="/">Home</a>
-        <a href="/verse.html">Today’s Lesson</a>
-        <a href="/give.html">Support the Porch</a>
-        <a href="/shop.html">The Shop</a>
-        <a href="/where-support-goes.html">Where Support Goes</a>
+    <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
+      <nav class="site-footer-essentials" aria-label="Key pages">
+        <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">&middot;</span>
+        <a href="/verse.html">Today&rsquo;s Lesson</a><span class="site-footer-ess-sep" aria-hidden="true">&middot;</span>
+        <a href="/coloring.html">Color &amp; Tell</a><span class="site-footer-ess-sep" aria-hidden="true">&middot;</span>
+        <a href="/plans.html">Battle Plans</a><span class="site-footer-ess-sep" aria-hidden="true">&middot;</span>
+        <a href="/printables.html">Printables</a><span class="site-footer-ess-sep" aria-hidden="true">&middot;</span>
+        <a href="/give" class="site-footer-ess-support">Support this quiet place</a>
       </nav>
-      <!-- Rest of footer preserved from site -->
+      <p class="site-footer-copy site-footer-legal-line">&copy; 2026 Today&rsquo;s Daily Battle &middot; Christian Messenger Service. All rights reserved.</p>
+      <p class="site-footer-copy site-footer-legal-line">All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+      <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+      <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+        <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
+      </div>
+      <script defer src="/language-switcher.js?v=20260503-consent-persist-fix"></script>
     </footer>
   </div>
 
-  <script>
-    let currentStatusElement = null;
-
-    function showDonationStatus(message, isError = false) {
-      let status = document.getElementById('donation-status');
-      if (!status) {
-        status = document.createElement('div');
-        status.id = 'donation-status';
-        status.className = 'donation-status section-note';
-        const grid = document.querySelector('.tdb-product-grid');
-        if (grid && grid.parentNode) grid.parentNode.appendChild(status);
-      }
-      status.textContent = message;
-      status.style.color = isError ? '#e06c75' : 'var(--gold-soft, #c9a84c)';
-      status.setAttribute('aria-live', 'polite');
-      status.style.display = 'block';
-      setTimeout(() => {
-        if (status && status.parentNode) status.style.display = 'none';
-      }, 6500);
-    }
-
-    function addToCart(product, amountCents) {
-      showDonationStatus('Preparing secure checkout...');
-      fetch('/functions/create-donation-session', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          amount_cents: amountCents,
-          interval: 'one_time',
-          product: product,
-          source: 'shop'
-        })
-      })
-      .then(r => {
-        if (!r.ok) throw new Error('Network response not ok');
-        return r.json();
-      })
-      .then(data => {
-        if (data.url) {
-          showDonationStatus('Redirecting to secure checkout...');
-          window.location.href = data.url;
-        } else {
-          showDonationStatus('Thank you — your purchase helps keep the porch open.');
-        }
-      })
-      .catch((e) => {
-        console.error(e);
-        showDonationStatus('Please check your connection and try again. The online porch remains free forever.', true);
-      });
-    }
-  </script>
-
-  <script src="inline-bootstrap.js"></script>
+  <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260503-consent-persist-fix"></script>
+  <script type="module" src="script.js?v=20260503-consent-persist-fix" data-cfasync="false"></script>
 </body>
 </html>

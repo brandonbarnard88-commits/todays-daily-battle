@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1420"/>
+      <stop offset="100%" style="stop-color:#141c2c"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="600" fill="url(#bg2)"/>
+
+  <!-- Subtle border -->
+  <rect x="30" y="30" width="840" height="540" rx="16" fill="none" stroke="rgba(201,168,76,0.18)" stroke-width="1.5"/>
+
+  <!-- Family silhouette: parent + two children figures (line art style) -->
+  <!-- Parent 1 -->
+  <circle cx="370" cy="210" r="32" fill="none" stroke="rgba(240,232,208,0.85)" stroke-width="3"/>
+  <path d="M370 242 L370 360" stroke="rgba(240,232,208,0.85)" stroke-width="3" stroke-linecap="round"/>
+  <path d="M370 280 L330 330" stroke="rgba(240,232,208,0.85)" stroke-width="3" stroke-linecap="round"/>
+  <path d="M370 280 L410 320" stroke="rgba(240,232,208,0.85)" stroke-width="3" stroke-linecap="round"/>
+  <path d="M370 360 L340 430" stroke="rgba(240,232,208,0.85)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M370 360 L400 430" stroke="rgba(240,232,208,0.85)" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Parent 2 -->
+  <circle cx="530" cy="210" r="32" fill="none" stroke="rgba(240,232,208,0.85)" stroke-width="3"/>
+  <path d="M530 242 L530 360" stroke="rgba(240,232,208,0.85)" stroke-width="3" stroke-linecap="round"/>
+  <path d="M530 280 L490 320" stroke="rgba(240,232,208,0.85)" stroke-width="3" stroke-linecap="round"/>
+  <path d="M530 280 L570 330" stroke="rgba(240,232,208,0.85)" stroke-width="3" stroke-linecap="round"/>
+  <path d="M530 360 L500 430" stroke="rgba(240,232,208,0.85)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M530 360 L560 430" stroke="rgba(240,232,208,0.85)" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Child 1 (smaller, left) -->
+  <circle cx="255" cy="260" r="22" fill="none" stroke="rgba(201,168,76,0.9)" stroke-width="2.5"/>
+  <path d="M255 282 L255 365" stroke="rgba(201,168,76,0.9)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M255 310 L228 340" stroke="rgba(201,168,76,0.9)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M255 310 L282 340" stroke="rgba(201,168,76,0.9)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M255 365 L235 420" stroke="rgba(201,168,76,0.9)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M255 365 L275 420" stroke="rgba(201,168,76,0.9)" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Child 2 (smaller, right) -->
+  <circle cx="645" cy="260" r="22" fill="none" stroke="rgba(201,168,76,0.9)" stroke-width="2.5"/>
+  <path d="M645 282 L645 365" stroke="rgba(201,168,76,0.9)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M645 310 L618 340" stroke="rgba(201,168,76,0.9)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M645 310 L672 340" stroke="rgba(201,168,76,0.9)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M645 365 L625 420" stroke="rgba(201,168,76,0.9)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M645 365 L665 420" stroke="rgba(201,168,76,0.9)" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Connecting hands (parents to children) -->
+  <path d="M330 320 L282 345" stroke="rgba(240,232,208,0.5)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 3"/>
+  <path d="M570 320 L618 345" stroke="rgba(240,232,208,0.5)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 3"/>
+
+  <!-- Ground line -->
+  <path d="M80 440 Q450 425 820 440" fill="none" stroke="rgba(201,168,76,0.3)" stroke-width="1.5"/>
+
+  <!-- Title -->
+  <text x="450" y="490" font-family="Georgia,'Times New Roman',serif" font-size="26" font-weight="700" fill="#f0e8d0" text-anchor="middle">Family Activity Packs</text>
+  <text x="450" y="518" font-family="Georgia,serif" font-size="13" fill="rgba(201,168,76,0.85)" text-anchor="middle">KJV verse · drawing prompt · family questions · prayer</text>
+  <text x="450" y="548" font-family="Georgia,serif" font-size="10" fill="rgba(200,210,230,0.45)" text-anchor="middle" letter-spacing="0.06em">TODAYSDAILYBATTLE.COM · FREE TO PRINT</text>
+</svg>

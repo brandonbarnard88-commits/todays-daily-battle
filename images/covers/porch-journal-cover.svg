@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" width="720" height="480">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.6" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#0d1520"/>
+      <stop offset="100%" stop-color="#0a0e18"/>
+    </linearGradient>
+    <linearGradient id="leatherGrad" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#2a1f14"/>
+      <stop offset="60%" stop-color="#1e1610"/>
+      <stop offset="100%" stop-color="#150f0a"/>
+    </linearGradient>
+    <linearGradient id="pageGrad" x1="0" y1="0" x2="1" y2="0" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#f5f0e8"/>
+      <stop offset="100%" stop-color="#efe8d8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="720" height="480" fill="url(#bg)"/>
+
+  <!-- Journal book illustration, centered, sitting at slight angle -->
+  <!-- Book shadow -->
+  <ellipse cx="364" cy="388" rx="165" ry="22" fill="rgba(0,0,0,0.5)"/>
+
+  <!-- Back cover (leather, darker) -->
+  <rect x="205" y="74" width="314" height="294" rx="6" fill="#120c08" stroke="rgba(163,139,110,0.2)" stroke-width="1"/>
+
+  <!-- Main journal cover (leather) -->
+  <rect x="194" y="68" width="314" height="294" rx="6" fill="url(#leatherGrad)" stroke="rgba(212,196,168,0.3)" stroke-width="1.5"/>
+
+  <!-- Leather texture lines (very subtle) -->
+  <path d="M198 90 Q310 86 504 90" fill="none" stroke="rgba(163,139,110,0.06)" stroke-width="1"/>
+  <path d="M198 130 Q310 127 504 130" fill="none" stroke="rgba(163,139,110,0.05)" stroke-width="1"/>
+  <path d="M198 200 Q310 197 504 200" fill="none" stroke="rgba(163,139,110,0.05)" stroke-width="1"/>
+  <path d="M198 270 Q310 267 504 270" fill="none" stroke="rgba(163,139,110,0.04)" stroke-width="1"/>
+
+  <!-- Gold corner ornaments -->
+  <!-- top-left -->
+  <path d="M194 80 L210 68 L508 68" fill="none" stroke="rgba(212,196,168,0.4)" stroke-width="1.2" stroke-linejoin="round"/>
+  <!-- bottom-right -->
+  <path d="M508 362 L508 362 L490 362 L490 362" fill="none" stroke="none"/>
+  <path d="M506 362 L508 340 M508 362 L486 362" fill="none" stroke="rgba(212,196,168,0.35)" stroke-width="1.2" stroke-linecap="round"/>
+  <!-- top-right -->
+  <path d="M506 80 L508 100 M508 68 L486 68" fill="none" stroke="rgba(212,196,168,0.35)" stroke-width="1.2" stroke-linecap="round"/>
+  <!-- bottom-left -->
+  <path d="M196 342 L194 360 L216 362" fill="none" stroke="rgba(212,196,168,0.35)" stroke-width="1.2" stroke-linecap="round"/>
+
+  <!-- Spine (left edge with stitching) -->
+  <rect x="194" y="68" width="14" height="294" rx="2" fill="#0d0905" stroke="rgba(212,196,168,0.18)" stroke-width="1"/>
+  <!-- Spine stitches -->
+  <line x1="201" y1="100" x2="201" y2="108" stroke="rgba(163,139,110,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="201" y1="115" x2="201" y2="123" stroke="rgba(163,139,110,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="201" y1="310" x2="201" y2="318" stroke="rgba(163,139,110,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="201" y1="325" x2="201" y2="333" stroke="rgba(163,139,110,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Page edges (right side, fanned slightly) -->
+  <rect x="508" y="72" width="10" height="288" rx="1" fill="#f0e8d0" stroke="rgba(163,139,110,0.2)" stroke-width="0.5"/>
+  <rect x="514" y="76" width="8" height="280" rx="1" fill="#ede4cc" stroke="rgba(163,139,110,0.15)" stroke-width="0.5"/>
+  <rect x="520" y="80" width="6" height="272" rx="1" fill="#e8dfc6"/>
+
+  <!-- Cover embossed design: simple cross + wreath suggestion -->
+  <!-- Wreath circle -->
+  <circle cx="351" cy="185" r="62" fill="none" stroke="rgba(212,196,168,0.28)" stroke-width="1.5" stroke-dasharray="4 6"/>
+  <!-- Cross (embossed, slightly raised look) -->
+  <line x1="351" y1="140" x2="351" y2="230" stroke="rgba(212,196,168,0.55)" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="305" y1="182" x2="397" y2="182" stroke="rgba(212,196,168,0.55)" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Inner cross glow -->
+  <line x1="351" y1="140" x2="351" y2="230" stroke="rgba(255,248,225,0.12)" stroke-width="6" stroke-linecap="round"/>
+  <line x1="305" y1="182" x2="397" y2="182" stroke="rgba(255,248,225,0.12)" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- Small decorative elements at corners of cross -->
+  <circle cx="351" cy="140" r="4" fill="none" stroke="rgba(212,196,168,0.4)" stroke-width="1.2"/>
+  <circle cx="351" cy="230" r="4" fill="none" stroke="rgba(212,196,168,0.4)" stroke-width="1.2"/>
+  <circle cx="305" cy="182" r="4" fill="none" stroke="rgba(212,196,168,0.4)" stroke-width="1.2"/>
+  <circle cx="397" cy="182" r="4" fill="none" stroke="rgba(212,196,168,0.4)" stroke-width="1.2"/>
+
+  <!-- Book title on cover -->
+  <text x="351" y="280" font-family="Georgia,'Times New Roman',serif" font-size="17" fill="rgba(212,196,168,0.75)" text-anchor="middle" letter-spacing="1.5">THE PORCH</text>
+  <text x="351" y="300" font-family="Georgia,serif" font-size="17" fill="rgba(212,196,168,0.75)" text-anchor="middle" letter-spacing="1.5">JOURNAL</text>
+  <line x1="296" y1="310" x2="406" y2="310" stroke="rgba(212,196,168,0.25)" stroke-width="0.8"/>
+  <text x="351" y="326" font-family="Georgia,serif" font-size="9" fill="rgba(212,196,168,0.35)" text-anchor="middle" letter-spacing="0.5">TODAY&apos;S DAILY BATTLE</text>
+
+  <!-- Ribbon bookmark (small hint) -->
+  <path d="M484 362 L484 395 L479 390 L474 395 L474 362" fill="rgba(163,139,110,0.45)" stroke="none"/>
+
+  <!-- Below book  description text on dark bg -->
+  <text x="360" y="430" font-family="Georgia,'Times New Roman',serif" font-size="14" fill="rgba(212,196,168,0.8)" text-anchor="middle">Undated. One verse per spread.</text>
+  <text x="360" y="452" font-family="Georgia,serif" font-size="11" fill="rgba(163,139,110,0.6)" text-anchor="middle">Generous white space  quiet place to meet God.</text>
+  <text x="360" y="470" font-family="Georgia,serif" font-size="8.5" fill="rgba(163,139,110,0.32)" text-anchor="middle" letter-spacing="0.08em">TODAYSDAILYBATTLE.COM</text>
+</svg>

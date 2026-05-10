@@ -164,9 +164,136 @@
       .owner-data-row { grid-template-columns: 1fr; }
       .owner-stat-num { font-size: 2rem; }
     }
+
+    /* ── Pane enter animation ────────────────────────────────────── */
+    .owner-pane { animation: ownerFadeIn 0.16s ease; }
+    @keyframes ownerFadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Command palette ─────────────────────────────────────────── */
+    .owner-cmd-palette {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(5px);
+      z-index: 9999;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 13vh;
+    }
+    .owner-cmd-palette[hidden] { display: none !important; }
+    .owner-cmd-inner {
+      width: min(560px, 92vw);
+      background: rgba(10, 15, 35, 0.98);
+      border: 1px solid rgba(212,175,55,0.38);
+      border-radius: 18px;
+      box-shadow: 0 36px 90px rgba(0,0,0,0.65), 0 0 0 1px rgba(212,175,55,0.08);
+      overflow: hidden;
+    }
+    #owner-cmd-input {
+      width: 100%; box-sizing: border-box;
+      background: transparent; border: none;
+      border-bottom: 1px solid rgba(212,175,55,0.15);
+      padding: 1rem 1.25rem;
+      font-size: 1.05rem; color: #e8d9c0; outline: none;
+    }
+    #owner-cmd-input::placeholder { opacity: 0.38; }
+    .owner-cmd-hint {
+      font-size: 0.72rem; opacity: 0.38;
+      padding: 0.35rem 1.25rem 0.55rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .owner-cmd-list {
+      list-style: none; margin: 0; padding: 0.35rem 0;
+      max-height: 330px; overflow-y: auto;
+    }
+    .owner-cmd-list li {
+      padding: 0.65rem 1.25rem;
+      cursor: pointer;
+      display: flex; align-items: center; gap: 0.7rem;
+      font-size: 0.9rem; color: #d8e1ef;
+      transition: background 0.1s;
+    }
+    .owner-cmd-list li:hover,
+    .owner-cmd-list li[aria-selected="true"] {
+      background: rgba(212,175,55,0.13); color: #f4e7b2;
+    }
+    .owner-cmd-icon { width: 1.4rem; text-align: center; opacity: 0.65; }
+    .owner-cmd-shortcut {
+      margin-left: auto; font-size: 0.72rem; opacity: 0.35;
+      background: rgba(255,255,255,0.07); border-radius: 4px;
+      padding: 0.12rem 0.4rem; font-family: monospace;
+    }
+
+    /* ── Quiet verse panel ───────────────────────────────────────── */
+    .owner-quiet-verse-card { text-align: center; border-color: rgba(212,175,55,0.3); }
+    .owner-quiet-verse-eyebrow {
+      font-size: 0.72rem; opacity: 0.45;
+      text-transform: uppercase; letter-spacing: 0.09em; margin: 0 0 0.75rem;
+    }
+    .owner-quiet-verse-text {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.18rem; font-style: italic; line-height: 1.6;
+      color: #f4e7b2; margin: 0 0 0.6rem; padding: 0; border: none;
+    }
+    .owner-quiet-verse-ref { font-size: 0.8rem; color: #d4af37; margin: 0; opacity: 0.82; }
+
+    /* ── Ministry Journal ────────────────────────────────────────── */
+    #owner-journal-body { min-height: 6rem; resize: vertical; width: 100%; box-sizing: border-box; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1rem; line-height: 1.55; }
+    .owner-journal-entries { display: grid; gap: 0.9rem; margin-top: 1.1rem; }
+    .owner-journal-entry {
+      background: rgba(212,175,55,0.05);
+      border: 1px solid rgba(212,175,55,0.14);
+      border-radius: 11px; padding: 1rem 1.1rem;
+    }
+    .owner-journal-entry-meta { font-size: 0.76rem; opacity: 0.5; margin: 0 0 0.45rem; }
+    .owner-journal-entry-verse { font-size: 0.84rem; color: #d4af37; font-style: italic; margin: 0 0 0.4rem; }
+    .owner-journal-entry-body {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1rem; line-height: 1.55; margin: 0; white-space: pre-wrap;
+    }
+    .owner-journal-del { font-size: 0.75rem; opacity: 0.35; background: none; border: none; cursor: pointer; color: inherit; padding: 0.2rem 0; margin-top: 0.4rem; display: block; }
+    .owner-journal-del:hover { opacity: 0.7; }
+
+    /* ── Idle sign-out warning ───────────────────────────────────── */
+    #owner-idle-warning {
+      position: fixed; bottom: 1.25rem; right: 1.25rem;
+      background: rgba(10,15,35,0.97);
+      border: 1px solid rgba(212,175,55,0.4);
+      border-radius: 13px; padding: 1rem 1.2rem;
+      z-index: 9998; max-width: 270px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.45);
+    }
+    #owner-idle-warning[hidden] { display: none !important; }
+    #owner-idle-warning p { margin: 0 0 0.55rem; font-size: 0.88rem; color: #f4e7b2; }
+    #owner-idle-warning .owner-console-actions { margin-top: 0; }
+
+    /* ── Kbd shortcut badge ──────────────────────────────────────── */
+    .owner-kbd-badge {
+      display: inline-block; font-size: 0.72rem; font-family: monospace;
+      background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 5px; padding: 0.1rem 0.45rem; opacity: 0.7; margin-left: 0.4rem;
+    }
   </style>
 </head>
 <body class="dark-mode">
+  <!-- Command Palette -->
+  <div id="owner-cmd-palette" class="owner-cmd-palette" hidden role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="owner-cmd-inner">
+      <input id="owner-cmd-input" type="text" placeholder="Go to section… (type to filter)" aria-label="Command search" autocomplete="off" spellcheck="false">
+      <p class="owner-cmd-hint">↑↓ navigate &nbsp;·&nbsp; ↵ select &nbsp;·&nbsp; Esc close</p>
+      <ul id="owner-cmd-list" class="owner-cmd-list" role="listbox" aria-label="Sections"></ul>
+    </div>
+  </div>
+  <!-- Idle sign-out warning -->
+  <div id="owner-idle-warning" hidden role="alertdialog" aria-label="Session expiring soon">
+    <p>You&rsquo;ll be signed out in 5 minutes due to inactivity.</p>
+    <div class="owner-console-actions">
+      <button id="owner-idle-stay" class="btn btn-secondary" type="button">Stay signed in</button>
+    </div>
+  </div>
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="app-shell">
     <header class="top-bar">
@@ -263,6 +390,8 @@
               <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="billing" aria-pressed="false">Billing</button>
               <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="ops" aria-pressed="false">Ops &amp; Deploy</button>
               <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="audit" aria-pressed="false">Audit Log</button>
+              <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="journal" aria-pressed="false">&#x1F4D3; Journal</button>
+              <button class="btn btn-secondary" type="button" id="owner-open-palette" aria-label="Open command palette" title="Command palette (⌘K)">&#x2318;K<span class="owner-kbd-badge" aria-hidden="true">⌘K</span></button>
             </div>
             <section class="owner-pane owner-pane-grid" data-owner-pane="overview">
               <div id="owner-overview-cards" class="admin-grid"></div>
@@ -283,6 +412,11 @@
                 <p class="owner-section-note">Per-browser counters and diagnostics still matter when debugging stale deploys or local regressions.</p>
                 <div id="admin-stats" class="admin-grid"></div>
               </div>
+              <div class="owner-card owner-quiet-verse-card" id="owner-quiet-verse-wrap">
+                <p class="owner-quiet-verse-eyebrow">A word for the builder</p>
+                <blockquote class="owner-quiet-verse-text" id="owner-quiet-verse-text">&hellip;</blockquote>
+                <p class="owner-quiet-verse-ref" id="owner-quiet-verse-ref"></p>
+              </div>
             </section>
             <section class="owner-pane owner-pane-grid" data-owner-pane="email" hidden>
               <div class="owner-card">
@@ -293,6 +427,14 @@
                     <strong>To:</strong> <span id="email-to-count">loading&hellip;</span> &nbsp;&middot;&nbsp;
                     <strong>From:</strong> Brandon &mdash; Today&rsquo;s Daily Battle
                   </div>
+                  <select id="email-template-select" aria-label="Load email template">
+                    <option value="">— Load a template —</option>
+                    <option value="ministry">Ministry Announcement</option>
+                    <option value="friday">Friday Quiet Recap</option>
+                    <option value="plan">New Battle Plan Available</option>
+                    <option value="encouragement">Quiet Encouragement</option>
+                    <option value="blank">Blank (clear and start fresh)</option>
+                  </select>
                   <input id="email-subject" type="text" placeholder="Subject line" aria-label="Email subject" value="A quiet word from Today&apos;s Daily Battle">
                   <textarea id="email-body" aria-label="Email body">Good morning,
 
@@ -312,6 +454,7 @@ todaysdailybattle.com/where-support-goes</textarea>
                   <div class="owner-console-actions">
                     <button id="email-preview-btn" class="btn btn-secondary" type="button">Preview</button>
                     <button id="email-copy-btn" class="btn btn-secondary" type="button">Copy to Clipboard</button>
+                    <button id="email-send-test-btn" class="btn btn-secondary" type="button">Send Test to Me</button>
                     <button id="email-export-list-btn" class="btn btn-secondary" type="button">Download Subscriber CSV</button>
                   </div>
                   <p id="email-composer-status" class="section-note" aria-live="polite"></p>
@@ -473,10 +616,27 @@ todaysdailybattle.com/where-support-goes</textarea>
                 <div id="owner-audit-log" class="owner-console-list"></div>
               </div>
             </section>
+            <section class="owner-pane owner-pane-grid" data-owner-pane="journal" hidden>
+              <div class="owner-card">
+                <h3>Ministry Journal <span class="owner-section-note" style="font-weight:400;">&mdash; private, on this device only</span></h3>
+                <p class="owner-section-note">Honest notes to yourself. Never leaves this browser. Write freely.</p>
+                <div class="owner-inline-form" style="margin-top:0.75rem;">
+                  <input id="owner-journal-verse" type="text" placeholder="KJV verse ref (optional, e.g. 2 Cor 4:16)" aria-label="Verse reference">
+                  <textarea id="owner-journal-body" placeholder="What&apos;s on your heart today?" aria-label="Journal entry"></textarea>
+                  <div class="owner-console-actions">
+                    <button id="owner-journal-save" class="btn btn-secondary" type="button">Save Entry</button>
+                    <button id="owner-journal-export" class="btn btn-secondary" type="button">Export as Text</button>
+                  </div>
+                  <p id="owner-journal-status" class="section-note" aria-live="polite"></p>
+                </div>
+                <div id="owner-journal-entries" class="owner-journal-entries"></div>
+              </div>
+            </section>
           </div>
           <div class="admin-actions">
             <button id="newsletter-export" class="btn btn-secondary" type="button">Export Newsletter CSV</button>
-            <span class="section-note">Downloads the full list from Supabase.</span>
+            <button id="owner-export-all" class="btn btn-secondary" type="button">Export All Datasets</button>
+            <span class="section-note" id="owner-export-all-status"></span>
           </div>
           <div class="admin-actions">
             <button id="waitlist-export" class="btn btn-secondary" type="button">Export Supporter Waitlist CSV</button>

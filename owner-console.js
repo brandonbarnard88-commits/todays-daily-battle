@@ -647,6 +647,334 @@
     }
   }
 
+  // ── Quiet verse ────────────────────────────────────────────────
+  var QUIET_VERSES = [
+    { text: 'For which cause we faint not; but though our outward man perish, yet the inward man is renewed day by day.', ref: '2 Corinthians 4:16' },
+    { text: 'But we have this treasure in earthen vessels, that the excellency of the power may be of God, and not of us.', ref: '2 Corinthians 4:7' },
+    { text: 'Thy word is a lamp unto my feet, and a light unto my path.', ref: 'Psalm 119:105' },
+    { text: 'I can do all things through Christ which strengtheneth me.', ref: 'Philippians 4:13' },
+    { text: 'Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.', ref: 'Joshua 1:9' },
+    { text: 'Commit thy works unto the LORD, and thy thoughts shall be established.', ref: 'Proverbs 16:3' },
+    { text: 'And let us not be weary in well doing: for in due season we shall reap, if we faint not.', ref: 'Galatians 6:9' },
+    { text: 'The LORD is my shepherd; I shall not want.', ref: 'Psalm 23:1' },
+    { text: 'Trust in the LORD with all thine heart; and lean not unto thine own understanding.', ref: 'Proverbs 3:5' },
+    { text: 'But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles.', ref: 'Isaiah 40:31' },
+    { text: 'I will instruct thee and teach thee in the way which thou shalt go: I will guide thee with mine eye.', ref: 'Psalm 32:8' },
+    { text: 'Now unto him that is able to do exceeding abundantly above all that we ask or think, according to the power that worketh in us.', ref: 'Ephesians 3:20' },
+    { text: 'Being confident of this very thing, that he which hath begun a good work in you will perform it until the day of Jesus Christ.', ref: 'Philippians 1:6' },
+    { text: 'The LORD hath done great things for us; whereof we are glad.', ref: 'Psalm 126:3' },
+    { text: 'He giveth power to the faint; and to them that have no might he increaseth strength.', ref: 'Isaiah 40:29' }
+  ];
+
+  function renderQuietVerse() {
+    var textEl = document.getElementById('owner-quiet-verse-text');
+    var refEl = document.getElementById('owner-quiet-verse-ref');
+    if (!textEl || !refEl) return;
+    var v = QUIET_VERSES[Math.floor(Math.random() * QUIET_VERSES.length)];
+    textEl.textContent = '\u201c' + v.text + '\u201d';
+    refEl.textContent = '\u2014 ' + v.ref + ' (KJV)';
+  }
+
+  // ── Command palette ─────────────────────────────────────────────
+  var CMD_ITEMS = [
+    { icon: '&#x1F4CA;', label: 'Overview', tab: 'overview', hint: '1' },
+    { icon: '&#x2709;&#xFE0F;', label: 'Email Composer', tab: 'email', hint: '2' },
+    { icon: '&#x1F6A9;', label: 'Moderation', tab: 'moderation', hint: '3' },
+    { icon: '&#x270F;&#xFE0F;', label: 'Content', tab: 'content', hint: '4' },
+    { icon: '&#x1F465;', label: 'Users & Roles', tab: 'users', hint: '5' },
+    { icon: '&#x1F4E5;', label: 'Data & Exports', tab: 'data', hint: '6' },
+    { icon: '&#x1F4B3;', label: 'Billing', tab: 'billing', hint: '7' },
+    { icon: '&#x2699;&#xFE0F;', label: 'Ops & Deploy', tab: 'ops', hint: '8' },
+    { icon: '&#x1F4CB;', label: 'Audit Log', tab: 'audit', hint: '9' },
+    { icon: '&#x1F4D3;', label: 'Ministry Journal', tab: 'journal', hint: 'J' }
+  ];
+
+  function initCommandPalette() {
+    var overlay = document.getElementById('owner-cmd-palette');
+    var input = document.getElementById('owner-cmd-input');
+    var list = document.getElementById('owner-cmd-list');
+    var openBtn = document.getElementById('owner-open-palette');
+    if (!overlay || !input || !list) return;
+
+    var selectedIdx = 0;
+
+    function buildList(filter) {
+      var items = CMD_ITEMS.filter(function (item) {
+        return !filter || item.label.toLowerCase().includes(filter.toLowerCase());
+      });
+      list.innerHTML = '';
+      selectedIdx = 0;
+      items.forEach(function (item, idx) {
+        var li = document.createElement('li');
+        li.setAttribute('role', 'option');
+        li.setAttribute('aria-selected', idx === 0 ? 'true' : 'false');
+        li.innerHTML = '<span class="owner-cmd-icon">' + item.icon + '</span>' +
+          escapeHtml(item.label) +
+          '<span class="owner-cmd-shortcut">' + escapeHtml(item.hint) + '</span>';
+        li.addEventListener('click', function () {
+          selectTab(item.tab);
+          closePalette();
+        });
+        list.appendChild(li);
+      });
+      return items;
+    }
+
+    function openPalette() {
+      overlay.hidden = false;
+      input.value = '';
+      buildList('');
+      input.focus();
+    }
+
+    function closePalette() {
+      overlay.hidden = true;
+    }
+
+    function moveSelection(dir) {
+      var items = list.querySelectorAll('li');
+      if (!items.length) return;
+      items[selectedIdx] && items[selectedIdx].setAttribute('aria-selected', 'false');
+      selectedIdx = (selectedIdx + dir + items.length) % items.length;
+      items[selectedIdx] && items[selectedIdx].setAttribute('aria-selected', 'true');
+      items[selectedIdx] && items[selectedIdx].scrollIntoView({ block: 'nearest' });
+    }
+
+    input.addEventListener('input', function () { buildList(input.value.trim()); });
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown') { e.preventDefault(); moveSelection(1); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); moveSelection(-1); }
+      else if (e.key === 'Enter') {
+        var selected = list.querySelector('[aria-selected="true"]');
+        if (selected) selected.click();
+      } else if (e.key === 'Escape') { closePalette(); }
+    });
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) closePalette();
+    });
+    if (openBtn) openBtn.addEventListener('click', openPalette);
+
+    document.addEventListener('keydown', function (e) {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        overlay.hidden ? openPalette() : closePalette();
+      }
+    });
+  }
+
+  // ── Idle sign-out (30 min) ──────────────────────────────────────
+  function initIdleTimer() {
+    var IDLE_MS = 30 * 60 * 1000;
+    var WARN_MS = 25 * 60 * 1000;
+    var warning = document.getElementById('owner-idle-warning');
+    var stayBtn = document.getElementById('owner-idle-stay');
+    var warnTimer, signOutTimer;
+
+    function resetTimers() {
+      clearTimeout(warnTimer);
+      clearTimeout(signOutTimer);
+      if (warning) warning.hidden = true;
+      warnTimer = setTimeout(function () {
+        if (warning) warning.hidden = false;
+      }, WARN_MS);
+      signOutTimer = setTimeout(async function () {
+        var client = await getClient();
+        if (client && client.auth) client.auth.signOut().catch(function () {});
+        window.location.reload();
+      }, IDLE_MS);
+    }
+
+    if (stayBtn) stayBtn.addEventListener('click', resetTimers);
+    ['mousemove', 'keydown', 'touchstart', 'click'].forEach(function (evt) {
+      document.addEventListener(evt, resetTimers, { passive: true });
+    });
+    resetTimers();
+  }
+
+  // ── Ministry Journal ─────────────────────────────────────────────
+  var JOURNAL_KEY = 'tdb-owner-journal';
+
+  function loadJournal() {
+    try { return JSON.parse(localStorage.getItem(JOURNAL_KEY) || '[]'); } catch (_) { return []; }
+  }
+
+  function saveJournal(entries) {
+    localStorage.setItem(JOURNAL_KEY, JSON.stringify(entries));
+  }
+
+  function renderJournal() {
+    var wrap = document.getElementById('owner-journal-entries');
+    if (!wrap) return;
+    var entries = loadJournal();
+    wrap.innerHTML = '';
+    if (!entries.length) {
+      wrap.innerHTML = '<p class="section-note">No entries yet. Write what\u2019s on your heart.</p>';
+      return;
+    }
+    entries.slice().reverse().forEach(function (entry, revIdx) {
+      var realIdx = entries.length - 1 - revIdx;
+      var card = document.createElement('div');
+      card.className = 'owner-journal-entry';
+      var meta = document.createElement('p');
+      meta.className = 'owner-journal-entry-meta';
+      meta.textContent = entry.date || '';
+      card.appendChild(meta);
+      if (entry.verse) {
+        var verse = document.createElement('p');
+        verse.className = 'owner-journal-entry-verse';
+        verse.textContent = entry.verse;
+        card.appendChild(verse);
+      }
+      var body = document.createElement('p');
+      body.className = 'owner-journal-entry-body';
+      body.textContent = entry.body || '';
+      card.appendChild(body);
+      var del = document.createElement('button');
+      del.className = 'owner-journal-del';
+      del.type = 'button';
+      del.textContent = 'Delete this entry';
+      del.addEventListener('click', function () {
+        if (!window.confirm('Delete this journal entry?')) return;
+        var all = loadJournal();
+        all.splice(realIdx, 1);
+        saveJournal(all);
+        renderJournal();
+      });
+      card.appendChild(del);
+      wrap.appendChild(card);
+    });
+  }
+
+  function initJournal() {
+    var saveBtn = document.getElementById('owner-journal-save');
+    var exportBtn = document.getElementById('owner-journal-export');
+    var statusEl = document.getElementById('owner-journal-status');
+    renderJournal();
+    if (saveBtn) {
+      saveBtn.addEventListener('click', function () {
+        var body = (document.getElementById('owner-journal-body') || {}).value || '';
+        var verse = (document.getElementById('owner-journal-verse') || {}).value || '';
+        if (!body.trim()) {
+          if (statusEl) statusEl.textContent = 'Write something before saving.';
+          return;
+        }
+        var entries = loadJournal();
+        entries.push({ date: new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }), verse: verse.trim(), body: body.trim() });
+        saveJournal(entries);
+        if (document.getElementById('owner-journal-body')) document.getElementById('owner-journal-body').value = '';
+        if (document.getElementById('owner-journal-verse')) document.getElementById('owner-journal-verse').value = '';
+        if (statusEl) { statusEl.textContent = 'Entry saved.'; setTimeout(function () { statusEl.textContent = ''; }, 2500); }
+        renderJournal();
+      });
+    }
+    if (exportBtn) {
+      exportBtn.addEventListener('click', function () {
+        var entries = loadJournal();
+        if (!entries.length) { if (statusEl) statusEl.textContent = 'No entries to export.'; return; }
+        var text = entries.map(function (e) {
+          return [e.date, e.verse ? ('Verse: ' + e.verse) : '', '', e.body, '\n---\n'].filter(Boolean).join('\n');
+        }).join('\n');
+        var a = document.createElement('a');
+        a.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(text);
+        a.download = 'ministry-journal-' + new Date().toISOString().slice(0, 10) + '.txt';
+        a.click();
+      });
+    }
+  }
+
+  // ── Email templates ─────────────────────────────────────────────
+  var EMAIL_TEMPLATES = {
+    ministry: {
+      subject: 'A quiet word from Today\u2019s Daily Battle',
+      body: 'Good morning,\n\nI wanted to quietly share something with you.\n\nToday\u2019s Daily Battle is gently shifting from a simple website into a small, Bible-teaching ministry. It\u2019s still the same calm, ad-free, KJV-only place it\u2019s always been \u2014 built for real hard days, anxiety, parenting, grief, exhaustion, and everything in between \u2014 but now I\u2019m more clearly seeing it as a ministry that simply holds out God\u2019s Word for whoever needs rest in it.\n\nNo big launches. No pressure. Just steady faithfulness with family and God\u2019s help.\n\nIf you\u2019ve been here a while, thank you for walking with me. Your quiet presence means more than you know.\n\nWith care,\nBrandon\n\ntodaysdailybattle.com/about\ntodaysdailybattle.com/where-support-goes'
+    },
+    friday: {
+      subject: 'Friday \u2014 A quiet word before the weekend',
+      body: 'Good morning,\n\nThis week\u2019s verse:\n[paste verse here]\n\nOne small step for the weekend:\n[write it here]\n\nA short prayer:\n[write it here]\n\nRest well. The Lord is still faithful.\n\nWith care,\nBrandon\ntodaysdailybattle.com'
+    },
+    plan: {
+      subject: 'New Battle Plan: [Plan Name]',
+      body: 'Good morning,\n\nA new KJV Battle Plan is now live on the site:\n\n[Plan Name]\n[1-sentence description]\n\nYou can find it at:\ntodaysdailybattle.com/plans.html\n\nNo pressure to start today. It\u2019ll be there when you need it.\n\nWith care,\nBrandon\ntodaysdailybattle.com'
+    },
+    encouragement: {
+      subject: 'A quiet word \u2014 just for you',
+      body: 'Good morning,\n\n[Write what\u2019s on your heart here.]\n\n\u201c[KJV verse]\u201d \u2014 [reference]\n\nYou are not behind. You are not alone.\n\nWith care,\nBrandon\ntodaysdailybattle.com'
+    },
+    blank: { subject: '', body: '' }
+  };
+
+  function initEmailTemplates() {
+    var sel = document.getElementById('email-template-select');
+    if (!sel) return;
+    sel.addEventListener('change', function () {
+      var tpl = EMAIL_TEMPLATES[sel.value];
+      if (!tpl) return;
+      var subj = document.getElementById('email-subject');
+      var body = document.getElementById('email-body');
+      if (subj) subj.value = tpl.subject;
+      if (body) body.value = tpl.body;
+      sel.value = '';
+    });
+  }
+
+  // ── Send Test to Me via mailto ──────────────────────────────────
+  function bindSendTest() {
+    var btn = document.getElementById('email-send-test-btn');
+    var statusEl = document.getElementById('email-composer-status');
+    if (!btn) return;
+    btn.addEventListener('click', async function () {
+      var subject = (document.getElementById('email-subject') || {}).value || '';
+      var body = (document.getElementById('email-body') || {}).value || '';
+      var user = await getSessionUser().catch(function () { return null; });
+      var to = (user && user.email) ? user.email : '';
+      if (!to) {
+        if (statusEl) { statusEl.className = 'section-note'; statusEl.textContent = 'Could not find your email address from session.'; }
+        return;
+      }
+      var mailto = 'mailto:' + encodeURIComponent(to) +
+        '?subject=' + encodeURIComponent('[TEST] ' + subject) +
+        '&body=' + encodeURIComponent(body);
+      window.open(mailto, '_blank');
+      if (statusEl) { statusEl.className = 'section-note owner-composer-toast'; statusEl.textContent = 'Opening your email client with a test send to ' + to; }
+    });
+  }
+
+  // ── Export All datasets ─────────────────────────────────────────
+  function bindExportAll() {
+    var btn = document.getElementById('owner-export-all');
+    var statusEl = document.getElementById('owner-export-all-status');
+    if (!btn) return;
+    var ALL_DATASETS = ['newsletter_signups', 'contact_messages', 'messages', 'message_reports', 'prayer_reports', 'owner_audit_log'];
+    btn.addEventListener('click', async function () {
+      btn.disabled = true;
+      for (var i = 0; i < ALL_DATASETS.length; i++) {
+        var ds = ALL_DATASETS[i];
+        try {
+          if (statusEl) statusEl.textContent = 'Downloading ' + ds + '\u2026';
+          await ownerApiDownload('/api/admin/data?dataset=' + encodeURIComponent(ds) + '&format=csv', ds + '-' + new Date().toISOString().slice(0, 10) + '.csv');
+          await new Promise(function (r) { setTimeout(r, 600); });
+        } catch (err) {
+          if (statusEl) statusEl.textContent = 'Skipped ' + ds + ' (no data or error)';
+        }
+      }
+      if (statusEl) statusEl.textContent = 'All datasets downloaded.';
+      btn.disabled = false;
+    });
+  }
+
+  // ── Update init ─────────────────────────────────────────────────
+  var _originalInit = init;
+  init = async function () {
+    initCommandPalette();
+    renderQuietVerse();
+    initJournal();
+    initEmailTemplates();
+    bindSendTest();
+    bindExportAll();
+    await _originalInit();
+    initIdleTimer();
+  };
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
       init();

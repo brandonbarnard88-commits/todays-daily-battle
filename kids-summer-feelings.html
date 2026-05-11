@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>When Your Heart Feels Heavy • Kids • Today's Daily Battle</title>
+  <meta name="description" content="A gentle read-aloud story, coloring page, and quiet questions for little ones who feel sad or heavy-hearted — even on a sunny summer day. KJV. No pressure.">
+  <meta name="robots" content="index, follow">
+  <link rel="preload" href="styles.css?v=20260503-consent-persist-fix" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix">
+  <script defer src="analytics-loader.js"></script>
+  <style nonce="tdb2025s">
+    :root {
+      --kf-bg: #0c1018;
+      --kf-surface: rgba(20,25,38,0.85);
+      --kf-gold: #c9a84c;
+      --kf-gold-soft: #e8d5a0;
+      --kf-muted: #8892a4;
+      --kf-text: #dde0e8;
+      --kf-border: rgba(201,168,76,0.18);
+      --kf-green: #5a9a5a;
+      --kf-green-bg: rgba(42,66,42,0.45);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--kf-bg);
+      color: var(--kf-text);
+      font-family: system-ui, -apple-system, sans-serif;
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    /* ── nav ── */
+    .kf-nav {
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      font-size: 0.82rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .kf-nav a { color: var(--kf-muted); text-decoration: none; }
+    .kf-nav a:hover { color: var(--kf-gold-soft); }
+    .kf-nav-sep { color: rgba(255,255,255,0.18); }
+
+    /* ── page shell ── */
+    .kf-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    /* ── header ── */
+    .kf-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .kf-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--kf-muted);
+      margin: 0 0 0.5rem;
+    }
+    .kf-title {
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      font-weight: 700;
+      color: var(--kf-gold-soft);
+      margin: 0 0 0.55rem;
+      line-height: 1.2;
+    }
+    .kf-subtitle {
+      font-size: 0.92rem;
+      color: var(--kf-muted);
+      margin: 0;
+    }
+    .kf-print-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      background: transparent;
+      border: 1px solid rgba(201,168,76,0.4);
+      color: var(--kf-gold-soft);
+      padding: 0.45rem 1.1rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .kf-print-btn:hover { background: rgba(201,168,76,0.1); }
+
+    /* ── story section ── */
+    .kf-story {
+      background: var(--kf-surface);
+      border: 1px solid var(--kf-border);
+      border-radius: 10px;
+      padding: 1.75rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .kf-story-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--kf-muted);
+      margin: 0 0 1rem;
+    }
+    .kf-story-label em { font-style: normal; color: var(--kf-gold); }
+    .kf-story p {
+      font-size: 1.05rem;
+      color: var(--kf-text);
+      margin: 0 0 1rem;
+      line-height: 1.8;
+    }
+    .kf-story p:last-child { margin-bottom: 0; }
+    .kf-story .kf-verse-block {
+      border-left: 3px solid var(--kf-gold);
+      padding: 0.75rem 1rem;
+      margin: 1.25rem 0;
+      background: rgba(201,168,76,0.07);
+      border-radius: 0 6px 6px 0;
+      font-size: 0.95rem;
+      color: var(--kf-gold-soft);
+      font-style: italic;
+      line-height: 1.6;
+    }
+    .kf-story .kf-verse-block cite {
+      display: block;
+      font-style: normal;
+      font-size: 0.78rem;
+      color: var(--kf-muted);
+      margin-top: 0.35rem;
+    }
+    .kf-story .kf-parent-note {
+      font-size: 0.8rem;
+      color: var(--kf-muted);
+      background: rgba(255,255,255,0.04);
+      border-radius: 5px;
+      padding: 0.55rem 0.8rem;
+      margin-top: 1rem;
+      line-height: 1.5;
+    }
+    .kf-story .kf-parent-note strong { color: var(--kf-gold-soft); }
+
+    /* ── coloring section ── */
+    .kf-coloring {
+      margin-bottom: 2rem;
+      background: var(--kf-surface);
+      border: 1px solid var(--kf-border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .kf-coloring-label {
+      padding: 0.9rem 1.5rem 0;
+      font-size: 0.72rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--kf-muted);
+    }
+    .kf-coloring-label em { font-style: normal; color: var(--kf-gold); }
+    .kf-coloring svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 380px;
+    }
+    .kf-coloring-caption {
+      padding: 0.75rem 1.5rem 1.25rem;
+      font-size: 0.82rem;
+      color: var(--kf-muted);
+      text-align: center;
+    }
+
+    /* ── Q&A section ── */
+    .kf-qa {
+      background: var(--kf-surface);
+      border: 1px solid var(--kf-border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .kf-qa__heading {
+      color: var(--kf-gold);
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0 0 0.2rem;
+    }
+    .kf-qa__sub {
+      font-size: 0.82rem;
+      color: var(--kf-muted);
+      margin: 0 0 1.25rem;
+    }
+    .qa-card { margin-bottom: 1.25rem; }
+    .qa-card:last-child { margin-bottom: 0; }
+    .qa-card__q {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #dde0e8;
+      margin: 0 0 0.5rem;
+      line-height: 1.45;
+    }
+    .qa-options { display: flex; flex-direction: column; gap: 0.35rem; }
+    .qa-opt {
+      background: rgba(14,18,28,0.65);
+      border: 1px solid var(--kf-border);
+      color: #b8bcc8;
+      padding: 0.52rem 0.85rem;
+      border-radius: 5px;
+      font-size: 0.86rem;
+      text-align: left;
+      cursor: pointer;
+      transition: border-color 0.14s, color 0.14s;
+      line-height: 1.35;
+    }
+    .qa-opt:hover:not(:disabled) { border-color: var(--kf-gold); color: #e8eaf0; }
+    .qa-opt:disabled { cursor: default; }
+    .qa-opt--correct { background: rgba(42,66,42,0.7) !important; border-color: var(--kf-green) !important; color: #90cf90 !important; }
+    .qa-opt--wrong { opacity: 0.45; }
+    .qa-feedback {
+      font-size: 0.82rem;
+      margin-top: 0.4rem;
+      padding: 0.4rem 0.65rem;
+      border-radius: 4px;
+      display: none;
+      line-height: 1.4;
+    }
+    .qa-feedback--correct { background: var(--kf-green-bg); color: #90cf90; display: block; }
+    .qa-feedback--hint { background: rgba(40,30,15,0.5); color: #c9a84c; display: block; }
+
+    /* ── closing ── */
+    .kf-closing {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      background: var(--kf-surface);
+      border: 1px solid var(--kf-border);
+      border-radius: 10px;
+      margin-bottom: 2rem;
+    }
+    .kf-closing p { font-size: 0.9rem; color: var(--kf-muted); margin: 0 0 0.75rem; }
+    .kf-closing .kf-still {
+      font-size: 0.88rem;
+      color: var(--kf-gold-soft);
+      font-style: italic;
+      margin: 0 0 1.1rem;
+    }
+    .kf-closing-links { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+    .kf-closing-links a {
+      font-size: 0.8rem;
+      color: var(--kf-muted);
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 0.38rem 0.85rem;
+      border-radius: 4px;
+    }
+    .kf-closing-links a:hover { color: var(--kf-gold-soft); border-color: rgba(201,168,76,0.35); }
+
+    /* ── print ── */
+    @media print {
+      body { background: #fff; color: #111; }
+      .kf-nav, .kf-print-btn, .kf-qa, .kf-closing-links { display: none !important; }
+      .kf-story, .kf-coloring, .kf-closing { border: 1px solid #ccc; background: #fff; }
+      .kf-story p, .kf-coloring-caption, .kf-closing p { color: #111; }
+      .kf-verse-block { border-left-color: #888; background: #f8f4ec; color: #333; }
+      .kf-title { color: #333; }
+      .kf-gold-soft { color: #555; }
+      .kf-coloring svg { max-height: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="kf-nav" aria-label="Site navigation">
+    <a href="/">Home</a>
+    <span class="kf-nav-sep" aria-hidden="true">·</span>
+    <a href="/kids-corner.html">Kids Corner</a>
+    <span class="kf-nav-sep" aria-hidden="true">·</span>
+    <a href="/kids-coloring-pack.html">Coloring Book</a>
+    <span class="kf-nav-sep" aria-hidden="true">·</span>
+    <a href="/plans.html?plan=summertimesadness">Summer Time Sadness (grown-ups)</a>
+    <span class="kf-nav-sep" aria-hidden="true">·</span>
+    <a href="/plans.html?plan=summergrief">When Grief Feels Heavy (grown-ups)</a>
+  </nav>
+
+  <div class="kf-wrap">
+
+    <header class="kf-header">
+      <p class="kf-eyebrow">Kids Corner &rsaquo; Summer Feelings</p>
+      <h1 class="kf-title">When Your Heart Feels Heavy</h1>
+      <p class="kf-subtitle">A gentle read-aloud story for little ones &mdash; even on sunny days</p>
+      <button class="kf-print-btn" onclick="window.print()">Print this page</button>
+    </header>
+
+    <!-- ── Read-Aloud Story ── -->
+    <section class="kf-story" aria-label="Read-aloud story">
+      <p class="kf-story-label"><em>Read aloud</em> &rsaquo; take your time &rsaquo; pause wherever feels right</p>
+
+      <p>Have you ever felt sad even when the sun was shining?</p>
+
+      <p>Maybe it was a summer day — bright and warm and long — and everyone else seemed happy. But something inside you felt heavy. Like a little cloud sitting right in your chest. You didn&rsquo;t know exactly why. You just felt it.</p>
+
+      <p>That happens sometimes. And that&rsquo;s okay.</p>
+
+      <p>Here is something very important that the Bible tells us:</p>
+
+      <div class="kf-verse-block">
+        &ldquo;The LORD is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.&rdquo;
+        <cite>— Psalm 34:18 (KJV)</cite>
+      </div>
+
+      <p>&ldquo;Nigh&rdquo; is an old word. It means <em>very, very close</em> &mdash; like right beside you.</p>
+
+      <p>So the Bible is saying: when your heart feels heavy or sad, God does not stay far away. He moves <em>close</em>. He sees the heavy feeling. He is right there with you, even when no one else can see it.</p>
+
+      <p>Jesus had a friend named Lazarus who died, and all the people around him were crying. Do you know what Jesus did? The Bible says something very short and very important:</p>
+
+      <div class="kf-verse-block">
+        &ldquo;Jesus wept.&rdquo;
+        <cite>— John 11:35 (KJV)</cite>
+      </div>
+
+      <p>Jesus cried too. Right there with the people who were sad. He was not far away, telling everyone to cheer up. He sat down in the sadness with them.</p>
+
+      <p>He will sit in the sadness with you too.</p>
+
+      <p>You can talk to Him about how you feel. You don&rsquo;t need big, fancy words. You can just say: <em>&ldquo;God, my heart feels heavy today. Will You stay close?&rdquo;</em></p>
+
+      <p>He will. He promised.</p>
+
+      <div class="kf-parent-note">
+        <strong>For the grown-up reading aloud:</strong> After the story, you might ask your child, &ldquo;Has your heart ever felt heavy like that? What did it feel like?&rdquo; There are no wrong answers. Just listening is enough. If they want to pray, keep it simple — one honest sentence is more than enough.
+      </div>
+    </section>
+
+    <!-- ── Coloring Page ── -->
+    <section class="kf-coloring" aria-label="Coloring page">
+      <p class="kf-coloring-label"><em>Color this</em> &rsaquo; take your time</p>
+      <svg viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A child sitting by a sunny window with a heart nearby and the words God is close">
+        <!-- window frame -->
+        <rect x="60" y="40" width="180" height="220" rx="8" fill="none" stroke="#333" stroke-width="3"/>
+        <line x1="150" y1="40" x2="150" y2="260" stroke="#333" stroke-width="2"/>
+        <line x1="60" y1="150" x2="240" y2="150" stroke="#333" stroke-width="2"/>
+        <!-- sun outside window -->
+        <circle cx="110" cy="100" r="28" fill="none" stroke="#333" stroke-width="2.5"/>
+        <line x1="110" y1="62" x2="110" y2="52" stroke="#333" stroke-width="2"/>
+        <line x1="110" y1="138" x2="110" y2="148" stroke="#333" stroke-width="2"/>
+        <line x1="72" y1="100" x2="62" y2="100" stroke="#333" stroke-width="2"/>
+        <line x1="148" y1="100" x2="158" y2="100" stroke="#333" stroke-width="2"/>
+        <line x1="83" y1="73" x2="76" y2="66" stroke="#333" stroke-width="2"/>
+        <line x1="137" y1="127" x2="144" y2="134" stroke="#333" stroke-width="2"/>
+        <line x1="137" y1="73" x2="144" y2="66" stroke="#333" stroke-width="2"/>
+        <line x1="83" y1="127" x2="76" y2="134" stroke="#333" stroke-width="2"/>
+        <!-- small clouds outside -->
+        <ellipse cx="190" cy="85" rx="22" ry="12" fill="none" stroke="#333" stroke-width="1.5"/>
+        <ellipse cx="205" cy="78" rx="14" ry="10" fill="none" stroke="#333" stroke-width="1.5"/>
+        <!-- grass outside window bottom -->
+        <path d="M65 248 Q80 235 95 248 Q110 235 125 248 Q140 235 155 248 Q170 235 185 248 Q200 235 215 248" fill="none" stroke="#333" stroke-width="1.5"/>
+        <!-- window sill -->
+        <rect x="50" y="258" width="200" height="10" rx="3" fill="none" stroke="#333" stroke-width="2"/>
+        <!-- child sitting on stool beside window -->
+        <!-- stool -->
+        <rect x="270" y="270" width="70" height="8" rx="3" fill="none" stroke="#333" stroke-width="2"/>
+        <line x1="280" y1="278" x2="278" y2="310" stroke="#333" stroke-width="2"/>
+        <line x1="330" y1="278" x2="332" y2="310" stroke="#333" stroke-width="2"/>
+        <!-- child body -->
+        <ellipse cx="305" cy="230" rx="28" ry="38" fill="none" stroke="#333" stroke-width="2.5"/>
+        <!-- child head -->
+        <circle cx="305" cy="178" r="28" fill="none" stroke="#333" stroke-width="2.5"/>
+        <!-- hair -->
+        <path d="M278 170 Q280 148 305 150 Q330 148 332 170" fill="none" stroke="#333" stroke-width="2.5"/>
+        <path d="M278 170 Q274 175 276 185" fill="none" stroke="#333" stroke-width="2"/>
+        <path d="M332 170 Q336 175 334 185" fill="none" stroke="#333" stroke-width="2"/>
+        <!-- child face — gentle, quiet expression -->
+        <circle cx="295" cy="176" r="3" fill="#333"/>
+        <circle cx="315" cy="176" r="3" fill="#333"/>
+        <path d="M297 190 Q305 195 313 190" fill="none" stroke="#333" stroke-width="1.8"/>
+        <!-- arms — one resting on knee, one raised slightly toward window -->
+        <path d="M278 222 Q258 238 250 260" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M332 222 Q350 210 360 195" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- legs on stool -->
+        <path d="M290 268 Q285 310 280 320" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M320 268 Q325 310 330 320" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- heart floating near child -->
+        <path d="M390 130 C390 120 378 110 368 120 C358 110 346 120 346 130 C346 145 368 162 368 162 C368 162 390 145 390 130 Z" fill="none" stroke="#333" stroke-width="2.5"/>
+        <!-- small sparkle dots near heart -->
+        <circle cx="398" cy="115" r="2.5" fill="#333"/>
+        <circle cx="340" cy="118" r="2" fill="#333"/>
+        <circle cx="395" cy="155" r="2" fill="#333"/>
+        <!-- text at bottom -->
+        <text x="250" y="355" text-anchor="middle" font-size="15" font-family="Georgia, serif" fill="#333" letter-spacing="1">&ldquo;God is close when my heart feels heavy.&rdquo;</text>
+        <text x="250" y="373" text-anchor="middle" font-size="11" font-family="Georgia, serif" fill="#555">Psalm 34:18 (KJV)</text>
+      </svg>
+      <p class="kf-coloring-caption">Color the child, the sunny window, and the heart any colors you like.</p>
+    </section>
+
+    <!-- ── Q&A ── -->
+    <section class="kf-qa" aria-label="Story questions">
+      <p class="kf-qa__heading">Let&rsquo;s Talk About the Story</p>
+      <p class="kf-qa__sub">Choose the best answer. If it&rsquo;s not quite right, you&rsquo;ll get a gentle hint.</p>
+
+      <!-- Q1 -->
+      <div class="qa-card">
+        <p class="qa-card__q">1. In the story, how did the child&rsquo;s heart feel on the sunny summer day?</p>
+        <div class="qa-options">
+          <button class="qa-opt" onclick="tdbQAAnswer(this,false,'The sun was shining — but the heart still felt heavy. Try again.')">Happy and excited</button>
+          <button class="qa-opt" onclick="tdbQAAnswer(this,true,'Yes! The heart felt heavy — like a little cloud in the chest — even on a bright day.')">Heavy and a little sad</button>
+          <button class="qa-opt" onclick="tdbQAAnswer(this,false,'That wasn\'t the feeling in the story. Try again.')">Angry and upset</button>
+          <button class="qa-opt" onclick="tdbQAAnswer(this,false,'Boredom is different from the heavy feeling in the story. Try again.')">Bored with nothing to do</button>
+        </div>
+        <div class="qa-feedback" role="status"></div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="qa-card">
+        <p class="qa-card__q">2. What does the word &ldquo;nigh&rdquo; mean in Psalm 34:18?</p>
+        <div class="qa-options">
+          <button class="qa-opt" onclick="tdbQAAnswer(this,false,'That\'s a good guess, but nigh means something much closer. Try again.')">Far away</button>
+          <button class="qa-opt" onclick="tdbQAAnswer(this,false,'Night-time is a different word. Think about how close God gets. Try again.')">Night-time</button>
+          <button class="qa-opt" onclick="tdbQAAnswer(this,true,'Yes! Nigh means very, very close — like right beside you.')">Very, very close</button>
+          <button class="qa-opt" onclick="tdbQAAnswer(this,false,'Mighty is a different word. Nigh is about closeness. Try again.')">Mighty and strong</button>
+        </div>
+        <div class="qa-feedback" role="status"></div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="qa-card">
+        <p class="qa-card__q">3. What did Jesus do when his friends were crying at the tomb of Lazarus?</p>
+        <div class="qa-options">
+          <button class="qa-opt" onclick="tdbQAAnswer(this,false,'Jesus did not walk away. He stayed right there. Try again.')">He walked away quietly</button>
+          <button class="qa-opt" onclick="tdbQAAnswer(this,false,'Jesus did not tell them to stop. He understood their sadness. Try again.')">He told everyone to stop crying</button>
+          <button class="qa-opt" onclick="tdbQAAnswer(this,true,'Yes! Jesus wept too — right there with them. He enters into sadness with us.')">He cried too, right there with them</button>
+          <button class="qa-opt" onclick="tdbQAAnswer(this,false,'He did raise Lazarus — but first He wept with the people. Try again.')">He raised Lazarus immediately without stopping</button>
+        </div>
+        <div class="qa-feedback" role="status"></div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="qa-card">
+        <p class="qa-card__q">4. What can you say to God when your heart feels heavy?</p>
+        <div class="qa-options">
+          <button class="qa-opt" onclick="tdbQAAnswer(this,false,'You don\'t need to pretend with God. He wants to hear how you really feel. Try again.')">Nothing — just pretend to feel happy</button>
+          <button class="qa-opt" onclick="tdbQAAnswer(this,false,'God does not need long prayers. Short and honest is exactly right. Try again.')">Only very long and perfect prayers</button>
+          <button class="qa-opt" onclick="tdbQAAnswer(this,true,'Yes! Simple and honest. \"God, my heart feels heavy today — will You stay close?\" That\'s enough.')">Something simple and honest, like &ldquo;God, my heart feels heavy today&rdquo;</button>
+          <button class="qa-opt" onclick="tdbQAAnswer(this,false,'You can talk to God anywhere, even inside on a quiet summer day. Try again.')">Only outside on a sunny day</button>
+        </div>
+        <div class="qa-feedback" role="status"></div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="qa-card">
+        <p class="qa-card__q">5. According to what we learned today, when your heart feels sad, what does God do?</p>
+        <div class="qa-options">
+          <button class="qa-opt" onclick="tdbQAAnswer(this,false,'God does not wait until you feel better. He comes close right in the middle of the sad feeling. Try again.')">Waits until you feel better before coming close</button>
+          <button class="qa-opt" onclick="tdbQAAnswer(this,false,'God always notices how you feel. Nothing is invisible to Him. Try again.')">Does not notice the sadness</button>
+          <button class="qa-opt" onclick="tdbQAAnswer(this,false,'God does not ask you to be happy first. He loves you exactly as you are. Try again.')">Asks you to be happy first</button>
+          <button class="qa-opt" onclick="tdbQAAnswer(this,true,'Yes! God moves very close — right then, right in the middle of the heavy feeling.')">Moves very close — right in the middle of the sadness</button>
+        </div>
+        <div class="qa-feedback" role="status"></div>
+      </div>
+    </section>
+
+    <!-- ── Closing ── -->
+    <div class="kf-closing">
+      <p class="kf-still">&ldquo;The LORD is nigh unto them that are of a broken heart.&rdquo; &mdash; Psalm 34:18 (KJV)</p>
+      <p>God is close to your heart today &mdash; even when it feels heavy. You are not alone.</p>
+      <details class="tdb-vb-reflection__sat" style="margin-bottom:1rem;">
+        <summary>I sat with this</summary>
+        <div class="tdb-vb-reflection__sat-note">
+          <em>&ldquo;The LORD thy God in the midst of thee is mighty; he will save, he will rejoice over thee with joy.&rdquo; &mdash; Zephaniah 3:17 (KJV)</em>
+          <p>You are not alone.</p>
+        </div>
+      </details>
+      <div class="kf-closing-links">
+        <a href="/kids-coloring-pack.html">83 Bible Stories Coloring Book</a>
+        <a href="/plans.html?plan=summertimesadness">Summer Time Sadness (grown-ups)</a>
+        <a href="/plans.html?plan=summergrief">When Grief Feels Heavy (grown-ups)</a>
+        <a href="/kids-corner.html">Kids Corner</a>
+        <a href="/">Home</a>
+      </div>
+    </div>
+
+  </div><!-- /.kf-wrap -->
+
+  <script nonce="tdb2025s">
+    function tdbQAAnswer(btn, correct, msg) {
+      var card = btn.closest ? btn.closest('.qa-card') : (function(el){while(el&&!el.classList.contains('qa-card'))el=el.parentElement;return el;})(btn);
+      if (!card) return;
+      var fb = card.querySelector('.qa-feedback');
+      if (!fb) return;
+      if (correct) {
+        fb.textContent = '\u2713 ' + msg;
+        fb.className = 'qa-feedback qa-feedback--correct';
+        btn.className = btn.className + ' qa-opt--correct';
+        var btns = card.querySelectorAll('.qa-opt');
+        for (var i = 0; i < btns.length; i++) btns[i].disabled = true;
+      } else {
+        fb.textContent = msg;
+        fb.className = 'qa-feedback qa-feedback--hint';
+        btn.className = btn.className + ' qa-opt--wrong';
+        btn.disabled = true;
+      }
+      if (fb.scrollIntoView) fb.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  </script>
+
+</body>
+</html>

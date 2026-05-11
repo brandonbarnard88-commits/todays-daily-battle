@@ -184,7 +184,7 @@
                 <input id="note-private" type="checkbox" aria-label="Private note (excluded from shared links)">
                 Private (excluded from shared links)
               </label>
-              <button id="save-note">Save Note</button>
+              <button type="button" id="save-note">Save Note</button>
               <input type="hidden" id="note-edit-id" value="" aria-hidden="true">
               <p id="study-note-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
               <div id="notes-list" class="list" role="list" aria-label="Saved notes" aria-live="polite" aria-relevant="additions text"></div>
@@ -237,7 +237,7 @@
                 <option value="family">Families</option>
                 <option value="church">Church</option>
               </select>
-              <button id="build-lesson">Build Lesson</button>
+              <button type="button" id="build-lesson">Build Lesson</button>
               <button type="button" id="share-lesson-btn" class="btn btn-secondary util-ml-0_5 hidden" aria-label="Copy share link for this lesson">Share lesson</button>
               <div id="saved-lessons-list" class="list util-mt-1" aria-live="polite"></div>
               <div id="lesson-output" class="list" aria-live="polite" aria-relevant="additions text"></div>
@@ -251,13 +251,13 @@
               </select>
               <label for="curriculum-week">Week</label>
               <select id="curriculum-week"></select>
-              <button id="load-curriculum">Load Week</button>
+              <button type="button" id="load-curriculum">Load Week</button>
               <div id="curriculum-output" class="list"></div>
             </div>
             <div class="study-card">
               <h3>Invite your group</h3>
               <p class="section-note">Optional: gather today&rsquo;s verses, notes, and prompts into a link for people you trust.</p>
-              <button id="share-study">Create Share Link</button>
+              <button type="button" id="share-study">Create Share Link</button>
               <input id="share-link" placeholder="Share link will appear here" readonly>
             </div>
           </div>

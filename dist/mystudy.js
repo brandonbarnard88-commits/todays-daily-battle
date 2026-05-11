@@ -793,6 +793,7 @@
     });
   }
 
+  var _noteLibraryInitialized = false;
   function renderNoteLibrary() {
     var listEl = byId('mystudy-library-list');
     var recentEl = byId('mystudy-recent-chapters');
@@ -916,7 +917,10 @@
         });
       }
     }
-    setTab(getRequestedTab());
+    if (!_noteLibraryInitialized) {
+      _noteLibraryInitialized = true;
+      setTab(getRequestedTab());
+    }
     updateMemorizePill();
   }
 
@@ -1099,6 +1103,341 @@
       });
     }
 
+    // ── Export Progress & Notes ───────────────────────────────────────────────
+    var PLAN_LABEL_MAP = {
+      'battle': 'Battle Distraction (7 days)',
+      'gratitude': 'Gratitude (7 days)',
+      'strength': '30-Day Strength',
+      'marriage': 'Marriage (7 days)',
+      'peace': '7-Day Peace',
+      'trust': 'Worry to Trust (7 days)',
+      'universitywaiting': 'The University of Waiting (6 days)',
+      'universitygrief': 'The University of Grief (6 days)',
+      'universityparenting': 'The University of Parenting Young Kids (6 days)',
+      'universitysecretprayer': 'The University of Secret Prayer (6 days)',
+      'universityanxiety': 'The University of Anxiety & Fear (7 days)',
+      'universityexhaustion': 'The University of Exhaustion (6 days)',
+      'universitygratitude': 'The University of Gratitude (6 days)',
+      'universityloneliness': 'The University of Loneliness (7 days)',
+      'universityforgiveness': 'The University of Forgiveness (6 days)',
+      'universitydoubt': 'The University of Doubt (6 days)',
+      'universitybitterness': 'The University of Bitterness (6 days)',
+      'eveninguog': 'Evening in the University — Family (4 days)',
+      'universitybroken': 'The University of Broken Relationships (6 days)',
+      'universitycomparison': 'The University of Comparison & Contentment (6 days)',
+      'universityanger': 'The University of Anger (6 days)',
+      'universityregret': 'The University of Regret (6 days)',
+      'universityoverwhelm': 'The University of Overwhelm (6 days)',
+      'universitycontentment': 'The University of Contentment in Small Seasons (6 days)',
+      'universityparentfear': 'The University of Fear for My Children (6 days)',
+      'fearfaith': 'Fear to Faith (7 days)',
+      'worrytrust': 'Worry to Trust (7 days)',
+      'psalmscomfort': 'Psalms of Comfort (7 days)',
+      'heavyhope': 'The University of Depression & Hopelessness (7 days)',
+      'heartalone': 'When the Heart Feels Alone (7 days)',
+      'littlehearts': 'When Little Hearts Feel Big Fear (7 days)',
+      'restlessnights': 'Peace for Restless Nights (7 days)',
+      'wearyhands': 'Grace for Weary Hands (7 days)',
+      'preachingthroughexhaustion': 'Preaching Through Exhaustion (7 days)',
+      'smallchurchencouragement': 'Small Church Encouragement (7 days)',
+      'hopeuncertain': 'Hope in Uncertainty (7 days)',
+      'moneyworry': 'Financial Stress & Provision (7 days)',
+      'addictionhope': 'Addiction & Strongholds (7 days)',
+      'guiltshame': 'Guilt & Shame (7 days)',
+      'overwhelmedburnout': 'Overwhelmed / Burnout (7 days)',
+      'selfworth': 'Self-Worth / Identity (7 days)',
+      'caregiverrest': 'Caregiver Rest (7 days)',
+      'familyworship': 'Family Worship in the Trenches (7 days)',
+      'psalmscomfortfamily': 'Psalms of Comfort — Family Edition (7 days)',
+      'galatiansfreedom': 'Galatians: Freedom in Christ (7 days)',
+      'gospeljohn': 'Gospel of John Sampler (7 days)',
+      'firststeps': 'New Believer — First Steps (14 days)',
+      'griefhope': 'Grief → Hope (7 days)',
+      'grief': 'Healing from Grief & Loss (7 days)',
+      'painwontquit': 'When Pain Won\'t Quit (7 days)',
+      'cancercomfort': 'Cancer Comfort (7 days)',
+      'longillness': 'Long Illness — Steady Mercies (7 days)',
+      'sufferendure': 'Suffering & Endurance (7 days)',
+      'anxiety7': 'Anxiety — Steady Peace (7 days)',
+      'fearnot14': 'Fear Not — 14 Days',
+      'anger': 'Anger Release (7 days)',
+      'forgiveness': 'Forgiveness (7 days)',
+      'lettinggo': 'Bitterness & Letting Go (7 days)',
+      'dailylabor': 'Work & Daily Labor (7 days)',
+      'stewardship': 'Stewardship — Contentment & Giving (7 days)',
+      'identityinchrist': 'Who God Says You Are (7 days)',
+      'armorofgod': 'Armor of God — Daily Battle (7 days)',
+      'standfirm': 'Stand Firm — Temptation (7 days)',
+      'holyspirit': 'Holy Spirit — Comforter & Walk (7 days)',
+      'walktheword': 'Walk the Word — Hear & Do (7 days)',
+      'sower': 'Parable of the Sower (7 days)',
+      'greatcommission': 'Great Commission — Witness (7 days)',
+      'adventquiet': 'Advent Quiet (7 days)',
+      'christmas7': 'Christmas Week — Christ the Light (7 days)',
+      'newyear7': 'New Year Week (7 days)',
+      'gentleyear': 'Gentle New Year Reset (7 days)',
+      'easter': 'Resurrection Hope (7 days)',
+      'aftereaster': 'After Easter — Quiet Mondays (7 days)',
+      'schoolcourage': 'Back-to-School Courage (7 days)',
+      'harvestthanks': 'Harvest Gratitude (7 days)',
+      'summerstill': 'Summer Stillness (7 days)',
+      'summertimesadness': 'Summertime Sadness (7 days)',
+      'summergrief': 'When Grief Feels Heavy in Summer (7 days)',
+      'backtoschoolfear': 'Back-to-School Fear (7 days)',
+      'longdayslittle': 'Long Days with Little Ones (7 days)',
+      'praisethanks30': '30-Day Praise & Thanksgiving',
+      'dailyrenewing': 'Daily Renewing of the Inner Man (7 days)',
+      'quietfallharvest': 'Quiet Fall Harvest (5 days)',
+      'latefallwinter': 'Late Fall, Quiet Winter (7 days)',
+      'parenting': 'Parenting (7 days)',
+      'reading': '7-Day Reading Plan',
+      'doubtassurance': 'From Doubt to Assurance (7 days)',
+      'latesummerrest': 'Late Summer, Early Rest (5 days)',
+      'beatitudeskids': 'Beatitudes for Kids (8 days)'
+    };
+
+    function getPlanLabelFromKey(lsKey) {
+      var m = String(lsKey || '').match(/^tdb-plan-(.+)-day$/);
+      if (!m) {
+        if (lsKey === 'tdb-plan-day') return PLAN_LABEL_MAP['battle'] || 'Battle Distraction (7 days)';
+        return null;
+      }
+      var planId = m[1];
+      return PLAN_LABEL_MAP[planId] || ('Plan: ' + planId);
+    }
+
+    function gatherPlanProgress() {
+      var plans = [];
+      try {
+        var keys = [];
+        for (var i = 0; i < localStorage.length; i++) {
+          var k = localStorage.key(i);
+          if (k && (k === 'tdb-plan-day' || /^tdb-plan-.+-day$/.test(k))) {
+            keys.push(k);
+          }
+        }
+        keys.sort();
+        keys.forEach(function (k) {
+          var day = parseInt(localStorage.getItem(k) || '0', 10);
+          if (day <= 0) return;
+          var label = getPlanLabelFromKey(k);
+          if (!label) return;
+          plans.push({ label: label, day: day, key: k });
+        });
+      } catch (e) {}
+      return plans;
+    }
+
+    function gatherSavedVerses() {
+      try {
+        var arr = JSON.parse(localStorage.getItem('savedVerses') || '[]');
+        return Array.isArray(arr) ? arr : [];
+      } catch (e) { return []; }
+    }
+
+    function gatherStudyNotes() {
+      try {
+        var s = JSON.parse(localStorage.getItem(STUDY_KEY) || 'null');
+        if (!s || typeof s !== 'object') return null;
+        return {
+          verseRef: String(s.verseRef || '').trim(),
+          verseText: String(s.verseText || '').trim(),
+          notes: String(s.notes || '').trim(),
+          prayer: String(s.prayer || '').trim()
+        };
+      } catch (e) { return null; }
+    }
+
+    function gatherBattleLog() {
+      try {
+        var raw = localStorage.getItem('tdb_bible_tool_notes');
+        if (!raw) return '';
+        var obj = JSON.parse(raw);
+        if (obj && typeof obj === 'object' && obj['Battle log']) return String(obj['Battle log']).trim();
+      } catch (e) {}
+      return '';
+    }
+
+    function gatherDailyMoodNotes() {
+      try {
+        var arr = JSON.parse(localStorage.getItem('tdb_daily_mood_notes_v1') || '[]');
+        return Array.isArray(arr) ? arr.filter(function (n) { return n && (n.note || n.text); }) : [];
+      } catch (e) { return []; }
+    }
+
+    function buildExportHtml(plans, savedVerses, studyNotes, battleLog, moodNotes) {
+      var now = new Date();
+      var dateStr = now.toISOString().split('T')[0];
+      var dateLong = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
+      var totalDays = plans.reduce(function (sum, p) { return sum + p.day; }, 0);
+      var completedPlans = plans.filter(function (p) {
+        return p.day > 0;
+      });
+
+      var html = '<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="UTF-8">\n' +
+        '<meta name="viewport" content="width=device-width, initial-scale=1">\n' +
+        '<title>My Progress &amp; Notes \u2014 Today\u2019s Daily Battle \u2014 ' + escapeHtml(dateStr) + '</title>\n' +
+        '<style>\n' +
+        '  :root { --gold: #c9a84c; --gold-soft: #e8c97a; --porch: #f9f5ec; --ink: #1e1a14; --muted: #6b5e4a; --rule: #d4c9b0; }\n' +
+        '  * { box-sizing: border-box; }\n' +
+        '  body { font-family: Georgia, "Times New Roman", serif; background: var(--porch); color: var(--ink); max-width: 780px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; line-height: 1.7; }\n' +
+        '  h1 { font-family: "Playfair Display", Georgia, serif; font-size: 2rem; color: var(--ink); margin: 0 0 0.25rem; }\n' +
+        '  h2 { font-family: Georgia, serif; font-size: 1.2rem; color: var(--muted); font-weight: 600; border-bottom: 1px solid var(--rule); padding-bottom: 0.3rem; margin: 2rem 0 0.75rem; }\n' +
+        '  h3 { font-size: 0.95rem; font-weight: 700; margin: 0 0 0.2rem; color: var(--ink); }\n' +
+        '  .porch-header { border-bottom: 2px solid var(--gold); padding-bottom: 1.25rem; margin-bottom: 2rem; }\n' +
+        '  .dateline { font-size: 0.9rem; color: var(--muted); margin: 0 0 0.75rem; }\n' +
+        '  .summary-banner { background: #fffcf4; border-left: 4px solid var(--gold); padding: 0.75rem 1rem; border-radius: 0 6px 6px 0; margin-bottom: 1.5rem; font-size: 0.95rem; }\n' +
+        '  .summary-banner strong { color: var(--ink); }\n' +
+        '  .plan-row { display: flex; align-items: baseline; gap: 0.5rem; padding: 0.45rem 0; border-bottom: 1px solid var(--rule); }\n' +
+        '  .plan-row:last-child { border-bottom: none; }\n' +
+        '  .plan-label { flex: 1; font-size: 0.9rem; }\n' +
+        '  .plan-day { font-size: 0.85rem; color: var(--muted); white-space: nowrap; }\n' +
+        '  .plan-done { color: #2a7a3a; font-weight: 700; font-size: 0.78rem; }\n' +
+        '  .verse-card { border: 1px solid var(--rule); border-radius: 8px; padding: 0.85rem 1rem; margin-bottom: 0.85rem; background: #fff; }\n' +
+        '  .verse-ref { font-weight: 700; font-size: 0.95rem; margin: 0 0 0.3rem; }\n' +
+        '  .verse-text { font-style: italic; font-size: 0.9rem; color: var(--ink); margin: 0 0 0.3rem; }\n' +
+        '  .verse-note { font-size: 0.82rem; color: var(--muted); margin: 0; }\n' +
+        '  .study-block { background: #fff; border: 1px solid var(--rule); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; }\n' +
+        '  .study-ref { font-weight: 700; font-size: 1rem; margin: 0 0 0.4rem; }\n' +
+        '  .study-verse { font-style: italic; font-size: 0.9rem; margin: 0 0 0.6rem; color: var(--muted); }\n' +
+        '  .study-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 0.5rem 0 0.15rem; }\n' +
+        '  .study-text { font-size: 0.9rem; white-space: pre-wrap; margin: 0; }\n' +
+        '  .mood-note { font-size: 0.85rem; padding: 0.4rem 0; border-bottom: 1px solid var(--rule); }\n' +
+        '  .mood-note:last-child { border-bottom: none; }\n' +
+        '  .mood-date { font-size: 0.75rem; color: var(--muted); }\n' +
+        '  .empty-note { font-size: 0.88rem; color: var(--muted); font-style: italic; }\n' +
+        '  .footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--rule); font-size: 0.8rem; color: var(--muted); text-align: center; }\n' +
+        '  @media print { body { max-width: 100%; padding: 1rem; } .no-print { display: none; } }\n' +
+        '</style>\n</head>\n<body>\n';
+
+      // Header
+      html += '<div class="porch-header">\n';
+      html += '  <h1>My Progress &amp; Notes</h1>\n';
+      html += '  <p class="dateline">Today\u2019s Daily Battle \u2014 Exported ' + escapeHtml(dateLong) + '</p>\n';
+
+      // Summary banner
+      html += '  <div class="summary-banner">\n';
+      html += '    <strong>' + totalDays + ' plan day' + (totalDays !== 1 ? 's' : '') + ' recorded</strong>';
+      if (plans.length) html += ' across <strong>' + plans.length + ' plan' + (plans.length !== 1 ? 's' : '') + '</strong>';
+      if (savedVerses.length) html += ' &nbsp;\u00b7&nbsp; <strong>' + savedVerses.length + ' saved verse' + (savedVerses.length !== 1 ? 's' : '') + '</strong>';
+      var hasNotes = studyNotes && (studyNotes.notes || studyNotes.prayer);
+      if (hasNotes) html += ' &nbsp;\u00b7&nbsp; study notes included';
+      html += '\n  </div>\n';
+      html += '</div>\n';
+
+      // Battle Plans section
+      html += '<h2>Battle Plan Progress</h2>\n';
+      if (plans.length === 0) {
+        html += '<p class="empty-note">No plan days recorded yet on this device. The porch is always open when you\u2019re ready.</p>\n';
+      } else {
+        html += '<div>\n';
+        plans.forEach(function (p) {
+          var dayLine = 'Day ' + p.day + ' reached';
+          html += '  <div class="plan-row">';
+          html += '<span class="plan-label">' + escapeHtml(p.label) + '</span>';
+          html += '<span class="plan-day">' + escapeHtml(dayLine) + '</span>';
+          html += '</div>\n';
+        });
+        html += '</div>\n';
+      }
+
+      // Saved Verses section
+      html += '<h2>Saved Verses</h2>\n';
+      if (savedVerses.length === 0) {
+        html += '<p class="empty-note">No saved verses yet. Save any verse from Home, the Bible Tool, or a Battle Plan day.</p>\n';
+      } else {
+        savedVerses.forEach(function (v) {
+          html += '<div class="verse-card">\n';
+          html += '  <p class="verse-ref">' + escapeHtml(v.ref || '') + '</p>\n';
+          if (v.text) html += '  <p class="verse-text">' + escapeHtml(v.text) + '</p>\n';
+          if (v.note) html += '  <p class="verse-note"><strong>Note:</strong> ' + escapeHtml(v.note) + '</p>\n';
+          if (v.date) html += '  <p class="verse-note"><em>Saved: ' + escapeHtml(v.date) + '</em></p>\n';
+          html += '</div>\n';
+        });
+      }
+
+      // My Study Notes section
+      if (studyNotes && (studyNotes.verseRef || studyNotes.notes || studyNotes.prayer)) {
+        html += '<h2>My Study Notes</h2>\n';
+        html += '<div class="study-block">\n';
+        if (studyNotes.verseRef) {
+          html += '  <p class="study-ref">' + escapeHtml(studyNotes.verseRef) + '</p>\n';
+          if (studyNotes.verseText) html += '  <p class="study-verse">' + escapeHtml(studyNotes.verseText) + '</p>\n';
+        }
+        if (studyNotes.notes) {
+          html += '  <p class="study-label">Study notes</p>\n';
+          html += '  <p class="study-text">' + escapeHtml(studyNotes.notes) + '</p>\n';
+        }
+        html += '</div>\n';
+      }
+
+      // Battle Log section
+      if (battleLog) {
+        html += '<h2>Bible Tool — Battle Log</h2>\n';
+        html += '<div class="study-block"><p class="study-text">' + escapeHtml(battleLog) + '</p></div>\n';
+      }
+
+      // Daily mood notes
+      if (moodNotes.length > 0) {
+        html += '<h2>Daily Reflections</h2>\n';
+        html += '<div class="study-block">\n';
+        moodNotes.slice(0, 50).forEach(function (n) {
+          var text = String(n.note || n.text || '').trim();
+          var date = String(n.date || n.ts || '').trim();
+          if (!text) return;
+          html += '  <div class="mood-note">';
+          html += escapeHtml(text);
+          if (date) html += ' <span class="mood-date">— ' + escapeHtml(date) + '</span>';
+          html += '</div>\n';
+        });
+        html += '</div>\n';
+      }
+
+      // Footer
+      html += '<div class="footer">\n';
+      html += '  Generated from <strong>todaysdailybattle.com</strong> &mdash; KJV-only &middot; No ads &middot; No account required<br>\n';
+      html += '  All your data stays on your device &mdash; completely private. Nothing was sent anywhere to make this file.\n';
+      html += '</div>\n';
+      html += '</body>\n</html>';
+      return html;
+    }
+
+    function exportProgressAndNotes() {
+      var statusEl = byId('mystudy-export-status');
+      var btn = byId('mystudy-export-progress');
+      if (btn) { btn.disabled = true; btn.textContent = 'Building your file\u2026'; }
+      try {
+        var plans = gatherPlanProgress();
+        var savedVerses = gatherSavedVerses();
+        var studyNotes = gatherStudyNotes();
+        var battleLog = gatherBattleLog();
+        var moodNotes = gatherDailyMoodNotes();
+        var html = buildExportHtml(plans, savedVerses, studyNotes, battleLog, moodNotes);
+        var blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+        var url = URL.createObjectURL(blob);
+        var now = new Date();
+        var dateStr = now.toISOString().split('T')[0];
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = 'TDB_Progress_' + dateStr + '.html';
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function () {
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        }, 1000);
+        if (statusEl) {
+          var totalDays = plans.reduce(function (s, p) { return s + p.day; }, 0);
+          statusEl.textContent = 'File downloaded \u2014 ' + totalDays + ' plan day' + (totalDays !== 1 ? 's' : '') + ' and ' + savedVerses.length + ' saved verse' + (savedVerses.length !== 1 ? 's' : '') + ' included. Open the file in any browser to read or print it.';
+        }
+      } catch (err) {
+        if (statusEl) statusEl.textContent = 'Something went wrong building the file. Your data is still safe on this device \u2014 try again or use Download JSON backup.';
+      } finally {
+        if (btn) { btn.disabled = false; btn.textContent = 'Export my progress \u0026 notes (HTML)'; }
+      }
+    }
+
     if (notesEl) notesEl.value = study.notes || '';
     if (prayerEl) prayerEl.value = study.prayer || '';
     if (showNameEl) showNameEl.checked = !!study.showName;
@@ -1115,6 +1454,10 @@
         window.showEliteToast('Allow pop-ups to print, or use Export JSON on the Bible Tool.');
       }
     });
+    byId('mystudy-export-progress')?.addEventListener('click', function () {
+      exportProgressAndNotes();
+    });
+
     byId('mystudy-export-json')?.addEventListener('click', function () {
       if (!window.TDBStudyCompanion || typeof window.TDBStudyCompanion.downloadStudyLocalBackup !== 'function') return;
       window.TDBStudyCompanion.downloadStudyLocalBackup();

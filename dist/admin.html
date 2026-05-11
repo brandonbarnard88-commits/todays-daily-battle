@@ -479,6 +479,7 @@
                     <option value="friday">Friday Quiet Recap</option>
                     <option value="plan">New Battle Plan Available</option>
                     <option value="encouragement">Quiet Encouragement</option>
+                    <option value="spring2026">&#x1F331; Spring/Summer 2026 Update</option>
                     <option value="blank">Blank (clear and start fresh)</option>
                   </select>
                   <input id="email-subject" type="text" placeholder="Subject line" aria-label="Email subject" value="A quiet word from Today&apos;s Daily Battle">
@@ -502,6 +503,20 @@ todaysdailybattle.com/where-support-goes</textarea>
                     <button id="email-copy-btn" class="btn btn-secondary" type="button">Copy to Clipboard</button>
                     <button id="email-send-test-btn" class="btn btn-secondary" type="button">Send Test to Me</button>
                     <button id="email-export-list-btn" class="btn btn-secondary" type="button">Download Subscriber CSV</button>
+                  </div>
+                  <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(212,175,55,0.15);">
+                    <p class="owner-section-note" style="margin-bottom:0.75rem;">Ready to send? This delivers to all subscribers via Resend. Irreversible — confirm below.</p>
+                    <div style="display:flex;flex-wrap:wrap;gap:0.55rem;align-items:center;">
+                      <select id="email-segment-select" aria-label="Recipient segment" style="flex:0 0 auto;min-width:160px;">
+                        <option value="all">All subscribers</option>
+                        <option value="weekly">Weekly opt-in only</option>
+                        <option value="daily">Daily opt-in only</option>
+                      </select>
+                      <button id="email-send-all-btn" class="btn btn-primary" type="button" style="background:linear-gradient(135deg,#c9a84c,#e3bc67);color:#0d1117;font-weight:700;border:none;min-height:40px;">
+                        Send to All Subscribers
+                      </button>
+                    </div>
+                    <p id="email-send-all-status" class="section-note" aria-live="polite" style="margin-top:0.55rem;"></p>
                   </div>
                   <p id="email-composer-status" class="section-note" aria-live="polite"></p>
                 </div>
@@ -937,7 +952,7 @@ todaysdailybattle.com/where-support-goes</textarea>
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">May 10, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">May 11, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>

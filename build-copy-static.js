@@ -757,7 +757,7 @@ fs.writeFileSync(path.join(dist, 'build-date.txt'), BUILD_DATE_STR, 'utf8');
 // Verify critical pages exist (fail build if missing)
 const CRITICAL_PAGES = [
   'index.html', 'bible-tool.html', 'pastor-toolkit.html', 'sermon.html', 'plans.html',
-  'testimonials.html', 'why-not-ai.html', 'login.html',
+  'testimonials.html', 'why-not-ai.html', 'why-no-ai.html', 'login.html',
   'pastor/index.html', 'bible/index.html', 'script.js', 'auth.js', 'browser-shared.js',
   'footer-build-stamp.js', 'build-date.txt'
 ];

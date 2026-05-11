@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-05-11T13:33:32.708Z",
-  "surfacedRefCount": 2993,
-  "overrideCount": 2993,
+  "generatedAt": "2026-05-11T16:39:10.874Z",
+  "surfacedRefCount": 2994,
+  "overrideCount": 2994,
   "sourceCounts": {
     ".worktrees/main-hotfix/404-admin.html": {
       "refs": 1,
@@ -1668,8 +1668,8 @@
       "pairs": 0
     },
     "script.js": {
-      "refs": 421,
-      "pairs": 251
+      "refs": 424,
+      "pairs": 261
     },
     "search.js": {
       "refs": 14,
@@ -2751,6 +2751,7 @@
     "Ephesians 4:29",
     "Ephesians 4:3",
     "Ephesians 4:30",
+    "Ephesians 4:31",
     "Ephesians 4:31-32",
     "Ephesians 4:32",
     "Ephesians 5:15-16",
@@ -11527,6 +11528,14 @@
     "Ephesians 4:30": {
       "general": {
         "plainExplanation": "And grieve not the holy Spirit of God, whereby you are sealed to the day of redemption.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Ephesus"
+      }
+    },
+    "Ephesians 4:31": {
+      "general": {
+        "plainExplanation": "Let all bitterness, and wrath, and anger, and clamour, and evil speaking, be put away from you, with all malice:",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Paul",
         "to": "Ephesus"

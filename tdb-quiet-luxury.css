@@ -37,7 +37,7 @@
   --bg: #f8f4eb;           /* light dawn cream */
   --text: #3a3a35;
   --muted: #8a8a80;
-  --accent: #6b7a6b;
+  --accent: #6b7a6b;       /* intentional sage override for seasonal/university pages */
   --border: #d8d0c0;
   --canvas-bg: #f8f4eb;    /* for verse image fallback */
   --card: rgba(12, 18, 30, 0.94);
@@ -51,7 +51,7 @@
   --bg: #1f1f1b;           /* deep, warm charcoal — never cold black */
   --text: #e8e4d8;         /* warm off-white */
   --muted: #a8a89c;
-  --accent: #9ca89c;
+  --accent: #9ca89c;       /* dark-mode sage override for seasonal/university pages */
   --border: #4a4a42;
   --canvas-bg: #2a2a24;    /* slightly warmer dark for canvas readability */
   --card: rgba(31, 31, 27, 0.96);

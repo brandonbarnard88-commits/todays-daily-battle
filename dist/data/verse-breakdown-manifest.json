@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-05-11T03:06:09.135Z",
-  "surfacedRefCount": 2986,
-  "overrideCount": 2986,
+  "generatedAt": "2026-05-11T16:39:10.874Z",
+  "surfacedRefCount": 2994,
+  "overrideCount": 2994,
   "sourceCounts": {
     ".worktrees/main-hotfix/404-admin.html": {
       "refs": 1,
@@ -968,7 +968,7 @@
       "pairs": 0
     },
     "family-armor.html": {
-      "refs": 1,
+      "refs": 2,
       "pairs": 0
     },
     "family-home.html": {
@@ -1155,6 +1155,10 @@
       "refs": 1,
       "pairs": 0
     },
+    "kids-back-to-school.html": {
+      "refs": 2,
+      "pairs": 0
+    },
     "kids-coloring-pack 2.html": {
       "refs": 2,
       "pairs": 0
@@ -1169,6 +1173,14 @@
     },
     "kids-corner.html": {
       "refs": 12,
+      "pairs": 0
+    },
+    "kids-grief-story.html": {
+      "refs": 3,
+      "pairs": 0
+    },
+    "kids-summer-feelings.html": {
+      "refs": 3,
       "pairs": 0
     },
     "kjv-word-notes.json": {
@@ -1612,8 +1624,8 @@
       "pairs": 1
     },
     "plans.html": {
-      "refs": 274,
-      "pairs": 314
+      "refs": 284,
+      "pairs": 342
     },
     "printables 2.html": {
       "refs": 9,
@@ -1656,15 +1668,15 @@
       "pairs": 0
     },
     "script.js": {
-      "refs": 421,
-      "pairs": 251
+      "refs": 424,
+      "pairs": 261
     },
     "search.js": {
       "refs": 14,
       "pairs": 0
     },
     "seasonal.html": {
-      "refs": 10,
+      "refs": 11,
       "pairs": 0
     },
     "sermon 2.html": {
@@ -1740,7 +1752,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 124,
+      "refs": 125,
       "pairs": 0
     },
     "tl/kabalisahan.html": {
@@ -1884,7 +1896,7 @@
       "pairs": 0
     },
     "verse-breakdown-standard.js": {
-      "refs": 2,
+      "refs": 3,
       "pairs": 0
     },
     "verse-breakdown.js": {
@@ -2281,6 +2293,7 @@
     "2 Corinthians 1:12",
     "2 Corinthians 1:3",
     "2 Corinthians 1:3-4",
+    "2 Corinthians 1:3\\u20134",
     "2 Corinthians 2:7",
     "2 Corinthians 3:17",
     "2 Corinthians 3:5",
@@ -2738,6 +2751,7 @@
     "Ephesians 4:29",
     "Ephesians 4:3",
     "Ephesians 4:30",
+    "Ephesians 4:31",
     "Ephesians 4:31-32",
     "Ephesians 4:32",
     "Ephesians 5:15-16",
@@ -2911,6 +2925,7 @@
     "Galatians 5:21",
     "Galatians 5:22",
     "Galatians 5:22-23",
+    "Galatians 5:22\\u201323",
     "Galatians 5:24",
     "Galatians 5:25",
     "Galatians 5:26",
@@ -3168,6 +3183,7 @@
     "Isaiah 40:28",
     "Isaiah 40:29",
     "Isaiah 40:29-31",
+    "Isaiah 40:29\\u201331",
     "Isaiah 40:31",
     "Isaiah 40:8",
     "Isaiah 41:10",
@@ -3314,6 +3330,7 @@
     "Job 30:29",
     "Job 32:22",
     "Job 33:4",
+    "Job 35:10",
     "Job 36:15",
     "Job 36:16",
     "Job 37:14",
@@ -3582,6 +3599,7 @@
     "Judges 7:9-15",
     "Lamentations 3:22",
     "Lamentations 3:22-23",
+    "Lamentations 3:22\\u201323",
     "Lamentations 3:23",
     "Lamentations 3:24",
     "Lamentations 3:24-26",
@@ -3943,6 +3961,7 @@
     "Matthew 11:28",
     "Matthew 11:28-29",
     "Matthew 11:28-30",
+    "Matthew 11:28\\u201329",
     "Matthew 11:29",
     "Matthew 11:29-30",
     "Matthew 11:30",
@@ -4441,6 +4460,7 @@
     "Psalm 103:11",
     "Psalm 103:12",
     "Psalm 103:13",
+    "Psalm 103:13\\u201314",
     "Psalm 103:17",
     "Psalm 103:2",
     "Psalm 103:2-3",
@@ -4995,6 +5015,7 @@
     "2 Cor. 12:9": "My grace is sufficient for thee: for my strength is made perfect in weakness.",
     "2 Corinthians 12:9-10": "And he said unto me, My grace is sufficient for thee: for my strength is made perfect in weakness. Most gladly therefore will I rather glory in my infirmities, that the power of Christ may rest upon me. Therefore I take pleasure in infirmities, in reproaches, in necessities, in persecutions, in distresses for Christ's sake: for when I am weak, then am I strong.",
     "2 Corinthians 1:3-4": "Blessed be God, even the Father of our Lord Jesus Christ, the Father of mercies, and the God of all comfort; who comforteth us in all our tribulation, that we may be able to comfort others which are in any trouble, by the comfort wherewith we ourselves are comforted of God.",
+    "2 Corinthians 1:3\\u20134": "Blessed be God, even the Father of our Lord Jesus Christ, the Father of mercies, and the God of all comfort; Who comforteth us in all our tribulation, that we may be able to comfort them which are in any trouble, by the comfort wherewith we ourselves are comforted of God.",
     "2 Corinthians 4:16-18": "For which cause we faint not; but though our outward man perish, yet the inward man is renewed day by day. For our light affliction, which is but for a moment, worketh for us a far more exceeding and eternal weight of glory; While we look not at the things which are seen, but at the things which are not seen: for the things which are seen are temporal; but the things which are not seen are eternal.",
     "2 Corinthians 4:8-9": "We are troubled on every side, yet not distressed; we are perplexed, but not in despair; Persecuted, but not forsaken; cast down, but not destroyed;",
     "2 Corinthians 5:18-19": "And all things are of God, who hath reconciled us to himself by Jesus Christ, and hath given to us the ministry of reconciliation; To wit, that God was in Christ, reconciling the world unto himself, not imputing their trespasses unto them; and hath committed unto us the word of reconciliation.",
@@ -5027,12 +5048,14 @@
     "Ephesians\\u00a06:17": "And the sword of the Spirit, which is the word of God.",
     "Galatians 3:26-28": "For ye are all the children of God by faith in Christ Jesus. For as many of you as have been baptized into Christ have put on Christ. There is neither Jew nor Greek, there is neither bond nor free, there is neither male nor female: for ye are all one in Christ Jesus.",
     "Galatians 5:22-23": "But the fruit of the Spirit is love, joy, peace, longsuffering, gentleness, goodness, faith, Meekness, temperance: against such there is no law.",
+    "Galatians 5:22\\u201323": "But the fruit of the Spirit is love, joy, peace, longsuffering, gentleness, goodness, faith, Meekness, temperance: against such there is no law.",
     "Galatians 6:4-5": "But let every man prove his own work, and then shall he have rejoicing in himself alone, and not in another. For every man shall bear his own burden.",
     "Haggai 2:3-4": "Who is left among you that saw this house in her first glory? and how do ye see it now? is it not in your eyes in comparison of it as nothing? Yet now be strong, O Zerubbabel, saith the LORD; and be strong, O Joshua, son of Josedech, the high priest; and be strong, all ye people of the land, saith the LORD, and work: for I am with you, saith the LORD of hosts:",
     "Hebrews 10:24-25": "And let us consider one another to provoke unto love and to good works: Not forsaking the assembling of ourselves together, as the manner of some is; but exhorting one another: and so much the more, as ye see the day approaching.",
     "Hebrews 12:1-2": "Wherefore seeing we also are compassed about with so great a cloud of witnesses, let us lay aside every weight, and the sin which doth so easily beset us, and let us run with patience the race that is set before us, Looking unto Jesus the author and finisher of our faith; who for the joy that was set before him endured the cross, despising the shame, and is set down at the right hand of the throne of God.",
     "Hebrews 13:5-6": "Let your conversation be without covetousness; and be content with such things as ye have: for he hath said, I will never leave thee, nor forsake thee. So that we may boldly say, The Lord is my helper, and I will not fear what man shall do unto me.",
     "Isaiah 40:29-31": "He giveth power to the faint; and to them that have no might he increaseth strength. Even the youths shall faint and be weary, and the young men shall utterly fall: But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.",
+    "Isaiah 40:29\\u201331": "He giveth power to the faint; and to them that have no might he increaseth strength. Even the youths shall faint and be weary, and the young men shall utterly fall: But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.",
     "Isaiah 43:18-19": "Remember ye not the former things, neither consider the things of old. Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
     "Isaiah 49:15-16": "Can a woman forget her sucking child, that she should not have compassion on the son of her womb? yea, they may forget, yet will I not forget thee. Behold, I have graven thee upon the palms of my hands; thy walls are continually before me.",
     "Isaiah 55:8-9": "For my thoughts are not your thoughts, neither are your ways my ways, saith the LORD. For as the heavens are higher than the earth, so are my ways higher than your ways, and my thoughts than your thoughts.",
@@ -5048,6 +5071,7 @@
     "John 14:16-17": "And I will pray the Father, and he shall give you another Comforter, that he may abide with you for ever; Even the Spirit of truth; whom the world cannot receive, because it seeth him not, neither knoweth him: but ye know him; for he dwelleth with you, and shall be in you.",
     "John 4:35-36": "Say not ye, There are yet four months, and then cometh harvest? behold, I say unto you, Lift up your eyes, and look on the fields; for they are white already to harvest. And he that reapeth receiveth wages, and gathereth fruit unto life eternal: that both he that soweth and he that reapeth may rejoice together.",
     "Lamentations 3:22-23": "It is of the LORD\\u2019s mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.",
+    "Lamentations 3:22\\u201323": "It is of the LORD\\u2019s mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.",
     "Lamentations 3:24-26": "The LORD is my portion, saith my soul; therefore will I hope in him. The LORD is good unto them that wait for him, to the soul that seeketh him. It is good that a man should both hope and quietly wait for the salvation of the LORD.",
     "Lamentations 3:25-26": "The LORD is good unto them that wait for him, to the soul that seeketh him. It is good that a man should both hope and quietly wait for the salvation of the LORD.",
     "Luke 10:41-42": "And Jesus answered and said unto her, Martha, Martha, thou art careful and troubled about many things: But one thing is needful: and Mary hath chosen that good part, which shall not be taken away from her.",
@@ -5063,6 +5087,7 @@
     "Matthew 10:29-31": "Are not two sparrows sold for a farthing? and one of them shall not fall on the ground without your Father. But the very hairs of your head are all numbered. Fear ye not therefore, ye are of more value than many sparrows.",
     "Matthew 11:28-29": "Come unto me, all ye that labour and are heavy laden, and I will give you rest. Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls.",
     "Matthew 11:28-30": "Come unto me, all ye that labour and are heavy laden, and I will give you rest. Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls. For my yoke is easy, and my burden is light.",
+    "Matthew 11:28\\u201329": "Come unto me, all ye that labour and are heavy laden, and I will give you rest. Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls.",
     "Matthew 11:29-30": "Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls. For my yoke is easy, and my burden is light.",
     "Matthew 13:20-21": "But he that received the seed into stony places, the same is he that heareth the word, and anon with joy receiveth it; Yet hath he not root in himself, but dureth for a while: for when tribulation or persecution ariseth because of the word, by and by he is offended.",
     "Matthew 18:21-22": "Then came Peter to him, and said, Lord, how oft shall my brother sin against me, and I forgive him? till seven times? Jesus saith unto him, I say not unto thee, Until seven times: but, Until seventy times seven.",
@@ -5100,6 +5125,7 @@
     "Psalm 103:11": "For as the heaven is high above the earth, so great is his mercy toward them that fear him.",
     "Psalm 103:12": "As far as the east is from the west, so far hath he removed our transgressions from us.",
     "Psalm 103:13": "Like as a father pitieth his children, so the Lord pitieth them that fear him.",
+    "Psalm 103:13\\u201314": "Like as a father pitieth his children, so the LORD pitieth them that fear him. For he knoweth our frame; he remembereth that we are dust.",
     "Psalm 103:17": "But the mercy of the Lord is from everlasting to everlasting upon them that fear him.",
     "Psalm 103:2": "Bless the Lord, O my soul, and forget not all his benefits.",
     "Psalm 103:2-3": "Bless the Lord, O my soul, and forget not all his benefits: Who forgiveth all thine iniquities; who healeth all thy diseases.",
@@ -7894,6 +7920,14 @@
     "2 Corinthians 1:3-4": {
       "general": {
         "plainExplanation": "Key idea: Blessed be God, even the Father of our Lord Jesus Christ, the Father of mercies, and the God of all comfort; who comforteth us in all our tribulation, that...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Corinth"
+      }
+    },
+    "2 Corinthians 1:3\\u20134": {
+      "general": {
+        "plainExplanation": "Key idea: Blessed be God, even the Father of our Lord Jesus Christ, the Father of mercies, and the God of all comfort; Who comforteth us in all our tribulation, that...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Paul",
         "to": "Corinth"
@@ -11499,6 +11533,14 @@
         "to": "Ephesus"
       }
     },
+    "Ephesians 4:31": {
+      "general": {
+        "plainExplanation": "Let all bitterness, and wrath, and anger, and clamour, and evil speaking, be put away from you, with all malice:",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Ephesus"
+      }
+    },
     "Ephesians 4:31-32": {
       "general": {
         "plainExplanation": "Key idea: Let all bitterness, and wrath, and anger, and clamour, and evil speaking, be put away from you, with all malice: And be you kind one to another, tenderheart...",
@@ -12876,6 +12918,14 @@
       }
     },
     "Galatians 5:22-23": {
+      "general": {
+        "plainExplanation": "But the fruit of the Spirit is love, joy, peace, longsuffering, gentleness, goodness, faith, Meekness, temperance: against such there is no law.",
+        "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
+        "about": "Paul",
+        "to": "Galatia"
+      }
+    },
+    "Galatians 5:22\\u201323": {
       "general": {
         "plainExplanation": "But the fruit of the Spirit is love, joy, peace, longsuffering, gentleness, goodness, faith, Meekness, temperance: against such there is no law.",
         "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
@@ -14389,7 +14439,7 @@
     },
     "Hebrews 13:6": {
       "general": {
-        "plainExplanation": "The Lord is my helper, and I will not fear.",
+        "plainExplanation": "So that we may boldly say, The Lord is my helper, and I will not fear what man shall do to me.",
         "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
         "about": "Unknown",
         "to": "Hebrew believers"
@@ -14932,6 +14982,14 @@
       }
     },
     "Isaiah 40:29-31": {
+      "general": {
+        "plainExplanation": "Key idea: He gives power to the faint; and to them that have no might he increaseth strength. Even the youths shall faint and be weary, and the young men shall utterl...",
+        "modernApplication": "This verse keeps your eyes up when the day feels slow, heavy, or unfinished.",
+        "about": "Isaiah",
+        "to": "Judah"
+      }
+    },
+    "Isaiah 40:29\\u201331": {
       "general": {
         "plainExplanation": "Key idea: He gives power to the faint; and to them that have no might he increaseth strength. Even the youths shall faint and be weary, and the young men shall utterl...",
         "modernApplication": "This verse keeps your eyes up when the day feels slow, heavy, or unfinished.",
@@ -16102,6 +16160,14 @@
     "Job 33:4": {
       "general": {
         "plainExplanation": "The spirit of God has made me, and the breath of the Almighty has given me life.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Job and the Lord",
+        "to": "All"
+      }
+    },
+    "Job 35:10": {
+      "general": {
+        "plainExplanation": "But none says, Where is God my maker, who gives songs in the night;",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Job and the Lord",
         "to": "All"
@@ -18244,6 +18310,14 @@
       }
     },
     "Lamentations 3:22-23": {
+      "general": {
+        "plainExplanation": "It is of the LORD\\u2019s mercies that we are not consumed, because his compassions fail not. They are new every morning: great is your faithfulness.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jeremiah",
+        "to": "Exiles"
+      }
+    },
+    "Lamentations 3:22\\u201323": {
       "general": {
         "plainExplanation": "It is of the LORD\\u2019s mercies that we are not consumed, because his compassions fail not. They are new every morning: great is your faithfulness.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
@@ -21132,6 +21206,14 @@
       }
     },
     "Matthew 11:28-30": {
+      "general": {
+        "plainExplanation": "Key idea: Come to me, all you that labor and are heavy burdened, and I will give you rest. Take my yoke upon you, and learn of me; for I am meek and lowly in heart: a...",
+        "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 11:28\\u201329": {
       "general": {
         "plainExplanation": "Key idea: Come to me, all you that labor and are heavy burdened, and I will give you rest. Take my yoke upon you, and learn of me; for I am meek and lowly in heart: a...",
         "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
@@ -25118,6 +25200,14 @@
     "Psalm 103:13": {
       "general": {
         "plainExplanation": "Like as a father pitieth his children, so the Lord pitieth them that fear him.",
+        "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
+    "Psalm 103:13\\u201314": {
+      "general": {
+        "plainExplanation": "Like as a father pitieth his children, so the LORD pitieth them that fear him. For he knows our frame; he remembereth that we are dust.",
         "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"

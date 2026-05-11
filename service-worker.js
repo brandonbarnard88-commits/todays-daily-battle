@@ -2,7 +2,7 @@
 // Bump CACHE_NAME when you deploy new HTML/CSS or want to invalidate (e.g. tdb-static-YYYYMMDD).
 // script.js is network-first with a cache fallback (not precached) so online users get fresh JS immediately; offline users get the last successful fetch until CACHE_NAME clears.
 // config.js is NOT intercepted so updates deploy immediately.
-const CACHE_NAME = 'tdb-cache-v20260508-sw-repeat-visit';
+const CACHE_NAME = 'tdb-cache-v20260511b-no-redirect';
 const CACHE_API = 'tdb-api-20260309c';
 const OFFLINE_URL = '/offline.html';
 const TODAY_VERSE_URL = '/today-kjv-verse.json';
@@ -721,38 +721,63 @@ self.addEventListener('fetch', (event) => {
   // HTML navigations: stale-while-revalidate for instant repeat-visit loads.
   // Cached HTML is served immediately on return visits; network refreshes the cache in background.
   // On first visit or when offline, falls back to the full offline chain.
+  // NOTE: Never serve or cache a redirected response — WebKit/Safari rejects them from SW cache.
   if (event.request.mode === 'navigate') {
     event.respondWith(
       caches.open(CACHE_NAME).then(function (cache) {
+        // Try exact match first, then /pathname.html fallback (handles /about → /about.html).
+        // Discard any cached response that is itself a redirect (legacy stale entries).
         return cache.match(event.request).then(function (cached) {
-          var networkFetch = fetch(event.request)
-            .then(function (res) {
-              if (res && res.ok) cache.put(event.request, res.clone()).catch(function () {});
-              return res;
-            })
-            .catch(function () {
-              // Offline: walk the fallback chain
-              var base = cached
-                ? Promise.resolve(cached)
-                : (url.pathname === '/' || url.pathname === '')
-                  ? cache.match('/index.html')
-                  : (function () {
-                      var alt = offlineNavigateFallbackPath(url.pathname);
-                      return alt ? cache.match(alt) : Promise.resolve(null);
-                    }());
-              return base.then(function (hit) {
-                if (hit) return hit;
-                return cache.match(OFFLINE_URL).then(function (op) {
-                  return op || new Response('You are offline. Check back later.', { status: 503 });
+          var validCached = (cached && !cached.redirected) ? cached : null;
+          var htmlFallbackFetch = !validCached
+            ? cache.match(url.pathname.replace(/\/?$/, '.html').replace(/\/\.html$/, '/index.html'))
+            : Promise.resolve(null);
+          return htmlFallbackFetch.then(function (htmlFallback) {
+            var bestCached = validCached || (htmlFallback && !htmlFallback.redirected ? htmlFallback : null);
+            var networkFetch = fetch(event.request)
+              .then(function (res) {
+                // Only cache a final, non-redirected 2xx response to avoid storing redirect chains.
+                if (res && res.ok && !res.redirected) {
+                  cache.put(event.request, res.clone()).catch(function () {});
+                  return res;
+                }
+                // WebKit/Safari rejects redirected responses served from a SW.
+                // When the network follows a redirect (e.g. /explore → /explore.html),
+                // re-fetch the final URL directly so the browser gets a clean 200.
+                if (res && res.redirected && res.ok && res.url) {
+                  return fetch(res.url).then(function (finalRes) {
+                    if (finalRes && finalRes.ok && !finalRes.redirected) {
+                      cache.put(event.request, finalRes.clone()).catch(function () {});
+                    }
+                    return finalRes;
+                  }).catch(function () { return res; });
+                }
+                return res;
+              })
+              .catch(function () {
+                // Offline: walk the fallback chain
+                var base = bestCached
+                  ? Promise.resolve(bestCached)
+                  : (url.pathname === '/' || url.pathname === '')
+                    ? cache.match('/index.html')
+                    : (function () {
+                        var alt = offlineNavigateFallbackPath(url.pathname);
+                        return alt ? cache.match(alt) : Promise.resolve(null);
+                      }());
+                return base.then(function (hit) {
+                  if (hit) return hit;
+                  return cache.match(OFFLINE_URL).then(function (op) {
+                    return op || new Response('You are offline. Check back later.', { status: 503 });
+                  });
                 });
               });
-            });
-          // Serve cached immediately; let network fetch update the cache in background
-          if (cached) {
-            networkFetch.catch(function () {});
-            return cached;
-          }
-          return networkFetch;
+            // Serve cached immediately; let network fetch update the cache in background
+            if (bestCached) {
+              networkFetch.catch(function () {});
+              return bestCached;
+            }
+            return networkFetch;
+          });
         });
       })
     );

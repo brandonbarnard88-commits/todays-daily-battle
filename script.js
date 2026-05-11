@@ -24893,8 +24893,551 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     days: 14,
     description: 'Gentle first steps for grace, prayer, Scripture, and starting again without hype.',
     topics: ['jesus', 'salvation', 'faith', 'purpose']
+  },
+  // University of God series
+  {
+    id: 'universityanxiety',
+    title: 'The University of Anxiety & Fear',
+    href: 'plans.html?plan=universityanxiety',
+    days: 7,
+    description: 'Seven KJV days when what-ifs won\'t stop — cast care, pray plainly, and walk from panic toward peace.',
+    topics: ['anxiety', 'fear', 'worry', 'panic', 'stress', 'overwhelmed']
+  },
+  {
+    id: 'universityexhaustion',
+    title: 'The University of Exhaustion',
+    href: 'plans.html?plan=universityexhaustion',
+    days: 6,
+    description: 'When the tank is empty and the body won\'t cooperate — rest, power to the faint, and His strength not yours.',
+    topics: ['exhaustion', 'burnout', 'weary', 'tired', 'caregiver', 'rest', 'strength']
+  },
+  {
+    id: 'universitygrief',
+    title: 'The University of Grief',
+    href: 'plans.html?plan=universitygrief',
+    days: 6,
+    description: 'Six KJV days for loss, mourning, and the ache that does not explain itself — comfort without rushing.',
+    topics: ['grief', 'loss', 'mourning', 'death', 'bereavement', 'sorrow', 'heartache']
+  },
+  {
+    id: 'universitywaiting',
+    title: 'The University of Waiting',
+    href: 'plans.html?plan=universitywaiting',
+    days: 6,
+    description: 'When God says not yet and the calendar keeps moving — tarry, hope, and trust His timing.',
+    topics: ['patience', 'waiting', 'hope', 'delay', 'unanswered prayer', 'trust']
+  },
+  {
+    id: 'universityloneliness',
+    title: 'The University of Loneliness',
+    href: 'plans.html?plan=universityloneliness',
+    days: 7,
+    description: 'When the room feels full of absence — He will not leave you comfortless; you are seen and kept.',
+    topics: ['loneliness', 'alone', 'isolated', 'singleness', 'friendship', 'community']
+  },
+  {
+    id: 'universityforgiveness',
+    title: 'The University of Forgiveness',
+    href: 'plans.html?plan=universityforgiveness',
+    days: 6,
+    description: 'Pardon given, pardon offered — six KJV days on releasing what you carry toward someone who hurt you.',
+    topics: ['forgiveness', 'resentment', 'bitterness', 'release', 'mercy', 'pardon']
+  },
+  {
+    id: 'universitybitterness',
+    title: 'The University of Bitterness',
+    href: 'plans.html?plan=universitybitterness',
+    days: 6,
+    description: 'When a sour aftertaste won\'t leave the soul — put it away, watch the root, walk peaceably forward.',
+    topics: ['bitterness', 'resentment', 'anger', 'unforgiveness', 'grudge', 'betrayal', 'hurt', 'boss', 'workplace', 'injustice']
+  },
+  {
+    id: 'universitydoubt',
+    title: 'The University of Doubt',
+    href: 'plans.html?plan=universitydoubt',
+    days: 6,
+    description: 'When questions stay loud in a quiet room — honest doubt, steady faith, and a God who does not flee your questions.',
+    topics: ['doubt', 'questions', 'faith crisis', 'unbelief', 'skeptic', 'wondering', 'confusion', 'spiritual']
+  },
+  {
+    id: 'universityregret',
+    title: 'The University of Regret',
+    href: 'plans.html?plan=universityregret',
+    days: 6,
+    description: 'When yesterday replays and the past feels like a prison — grace for the one who cannot stop looking back.',
+    topics: ['regret', 'guilt', 'shame', 'past mistakes', 'failure', 'remorse', 'past', 'forgiven']
+  },
+  {
+    id: 'universityoverwhelm',
+    title: 'The University of Overwhelm',
+    href: 'plans.html?plan=universityoverwhelm',
+    days: 6,
+    description: 'When every inbox, voice, and need lines up at once — troubled on every side yet not undone.',
+    topics: ['overwhelmed', 'stress', 'too much', 'burden', 'pressure', 'anxious', 'overloaded']
+  },
+  {
+    id: 'universitycontentment',
+    title: 'The University of Contentment in Small Seasons',
+    href: 'plans.html?plan=universitycontentment',
+    days: 6,
+    description: 'When ordinary days weigh more than they ought — enough-for-today, learned contentment, small labor as gift.',
+    topics: ['contentment', 'comparison', 'envy', 'ordinary', 'discontent', 'jealousy', 'comparison']
+  },
+  {
+    id: 'universityparenting',
+    title: 'The University of Parenting Young Kids',
+    href: 'plans.html?plan=universityparenting',
+    days: 6,
+    description: 'Train up a child — six KJV days for parents in the thick of it, tired but trying.',
+    topics: ['parenting', 'children', 'toddlers', 'discipline', 'family', 'home', 'training']
+  },
+  {
+    id: 'universityparentfear',
+    title: 'The University of Fear for My Children',
+    href: 'plans.html?plan=universityparentfear',
+    days: 6,
+    description: 'When parental vigil runs ahead into fear — His will toward little ones, peace, courageous trust.',
+    topics: ['parenting', 'fear for kids', 'worry about children', 'anxiety', 'child safety', 'kids', 'teen', 'prodigal']
+  },
+  {
+    id: 'universityanger',
+    title: 'The University of Anger',
+    href: 'plans.html?plan=universityanger',
+    days: 6,
+    description: 'When anger rises and the days get sharp — slow down, hear God\'s patience, and put away the fire.',
+    topics: ['anger', 'rage', 'frustration', 'wrath', 'temper', 'conflict', 'relationship', 'boss', 'workplace']
+  },
+  {
+    id: 'universitygratitude',
+    title: 'The University of Gratitude',
+    href: 'plans.html?plan=universitygratitude',
+    days: 6,
+    description: 'A lighter thanks week in short daily steps — notice, name, and return what He gives.',
+    topics: ['gratitude', 'thanksgiving', 'thanks', 'praise', 'contentment', 'joy']
+  },
+  {
+    id: 'universitysecretprayer',
+    title: 'The University of Secret Prayer',
+    href: 'plans.html?plan=universitysecretprayer',
+    days: 6,
+    description: 'Door shut, heart open — six KJV days on the secret place and prayer that is honest rather than performed.',
+    topics: ['prayer', 'quiet time', 'devotional', 'alone with God', 'communion', 'closet', 'discipline']
+  },
+  // Anger, forgiveness, letting go
+  {
+    id: 'anger',
+    title: 'Anger Release',
+    href: 'plans.html?plan=anger',
+    days: 7,
+    description: 'Seven KJV days to release anger before it becomes a root — slow, honest, and free.',
+    topics: ['anger', 'frustration', 'conflict', 'temper', 'rage', 'wrath', 'relationship', 'boss', 'unfair', 'injustice']
+  },
+  {
+    id: 'forgiveness',
+    title: 'Forgiveness',
+    href: 'plans.html?plan=forgiveness',
+    days: 7,
+    description: 'Seven days to forgive as you have been forgiven — hard, real, and utterly freeing.',
+    topics: ['forgiveness', 'bitterness', 'resentment', 'hurt', 'betrayal', 'release', 'grudge', 'pardon']
+  },
+  {
+    id: 'lettinggo',
+    title: 'Bitterness & Letting Go',
+    href: 'plans.html?plan=lettinggo',
+    days: 7,
+    description: 'When you have been genuinely wronged and the bitterness is still working — let it go, one honest day at a time.',
+    topics: ['bitterness', 'letting go', 'anger', 'resentment', 'unforgiveness', 'hurt', 'betrayal', 'toxic', 'abuse', 'injustice']
+  },
+  // Grief paths
+  {
+    id: 'griefhope',
+    title: 'Grief → Hope',
+    href: 'plans.html?plan=griefhope',
+    days: 7,
+    description: 'From the valley of grief toward the steadier ground of hope — one honest KJV day at a time.',
+    topics: ['grief', 'loss', 'death', 'mourning', 'bereavement', 'hope', 'sorrow', 'missing someone', 'heartbreak']
+  },
+  {
+    id: 'grief',
+    title: 'Healing from Grief & Loss',
+    href: 'plans.html?plan=grief',
+    days: 7,
+    description: 'Seven KJV days for the long ache of loss — no rush, no performance, just presence and truth.',
+    topics: ['grief', 'loss', 'death', 'mourning', 'bereavement', 'sorrow', 'missing', 'widow', 'divorce', 'miscarriage']
+  },
+  {
+    id: 'summergrief',
+    title: 'When Grief Feels Heavy in Summer',
+    href: 'plans.html?plan=summergrief',
+    days: 7,
+    description: 'When bright days make grief harder — gentle plans for the hidden hours.',
+    topics: ['grief', 'loss', 'sorrow', 'mourning', 'missing', 'summer', 'loneliness', 'heartache']
+  },
+  // Physical suffering
+  {
+    id: 'painwontquit',
+    title: 'When Pain Won\'t Quit',
+    href: 'plans.html?plan=painwontquit',
+    days: 7,
+    description: 'Seven KJV days for persistent pain, illness, or the body that will not cooperate.',
+    topics: ['pain', 'illness', 'chronic', 'suffering', 'sick', 'body', 'disability', 'health', 'hospital', 'disease']
+  },
+  {
+    id: 'cancercomfort',
+    title: 'Cancer Comfort',
+    href: 'plans.html?plan=cancercomfort',
+    days: 7,
+    description: 'KJV comfort for the cancer journey — for the patient and the ones walking alongside.',
+    topics: ['cancer', 'illness', 'fear', 'death', 'suffering', 'chemo', 'diagnosis', 'terminal', 'hospital', 'health']
+  },
+  {
+    id: 'longillness',
+    title: 'Long Illness — Steady Mercies',
+    href: 'plans.html?plan=longillness',
+    days: 7,
+    description: 'For the long road of chronic illness — new mercies for every morning of the drawn-out battle.',
+    topics: ['chronic illness', 'long illness', 'suffering', 'pain', 'disability', 'health', 'exhaustion', 'caregiver', 'sick']
+  },
+  {
+    id: 'sufferendure',
+    title: 'Suffering & Endurance',
+    href: 'plans.html?plan=sufferendure',
+    days: 7,
+    description: 'Seven KJV days for the long road of suffering — not quick fixes, but patient endurance and real hope.',
+    topics: ['suffering', 'endurance', 'trials', 'perseverance', 'patience', 'hardship', 'tribulation', 'pain']
+  },
+  // Anxiety paths
+  {
+    id: 'anxiety7',
+    title: 'Anxiety — Steady Peace',
+    href: 'plans.html?plan=anxiety7',
+    days: 7,
+    description: 'Seven KJV days of cast-care, prayer, and stillness — a distinct lane from the University series.',
+    topics: ['anxiety', 'panic', 'worry', 'stress', 'fear', 'peace', 'overthinking', 'racing thoughts', 'nervous']
+  },
+  {
+    id: 'fearnot14',
+    title: 'Fear Not — 14 Days',
+    href: 'plans.html?plan=fearnot14',
+    days: 14,
+    description: 'Fourteen KJV days of God\'s steady command — fear not, I am with thee, be strong and courageous.',
+    topics: ['fear', 'courage', 'anxiety', 'dread', 'phobia', 'scared', 'afraid', 'safety', 'protection']
+  },
+  // Work, finances, and daily life
+  {
+    id: 'dailylabor',
+    title: 'Work & Daily Labor',
+    href: 'plans.html?plan=dailylabor',
+    days: 7,
+    description: 'Seven KJV days for the working day — faithful work, honest labor, and serving as unto the Lord.',
+    topics: ['work', 'job', 'labor', 'workplace', 'coworkers', 'boss', 'career', 'employment', 'fired', 'layoff', 'daily grind', 'purpose']
+  },
+  {
+    id: 'stewardship',
+    title: 'Stewardship — Contentment & Giving',
+    href: 'plans.html?plan=stewardship',
+    days: 7,
+    description: 'Seven KJV days on faithful stewardship — money, time, gifts, and what it means to hold lightly.',
+    topics: ['finances', 'money', 'giving', 'generosity', 'stewardship', 'contentment', 'debt', 'poverty', 'budget', 'provision']
+  },
+  // Identity, purpose, salvation
+  {
+    id: 'identityinchrist',
+    title: 'Who God Says You Are',
+    href: 'plans.html?plan=identityinchrist',
+    days: 7,
+    description: 'Seven KJV days on identity in Christ — worthy, chosen, loved, and kept — when the world says otherwise.',
+    topics: ['identity', 'worth', 'self-worth', 'image of God', 'belonging', 'chosen', 'valued', 'worthless', 'unloved', 'rejected']
+  },
+  // Spiritual battle and disciplines
+  {
+    id: 'armorofgod',
+    title: 'Armor of God — Daily Battle',
+    href: 'plans.html?plan=armorofgod',
+    days: 7,
+    description: 'Seven KJV days on the full armor — truth, righteousness, peace, faith, salvation, and the Word.',
+    topics: ['spiritual warfare', 'armor', 'devil', 'enemy', 'temptation', 'battle', 'stand firm', 'faith', 'prayer']
+  },
+  {
+    id: 'standfirm',
+    title: 'Stand Firm — Temptation',
+    href: 'plans.html?plan=standfirm',
+    days: 7,
+    description: 'Seven KJV days to resist temptation — flee, resist, stand in His strength when the pull is strong.',
+    topics: ['temptation', 'addiction', 'sin', 'habit', 'lust', 'resist', 'spiritual warfare', 'weakness', 'struggle', 'porn', 'alcohol']
+  },
+  {
+    id: 'holyspirit',
+    title: 'Holy Spirit — Comforter & Walk',
+    href: 'plans.html?plan=holyspirit',
+    days: 7,
+    description: 'Seven KJV days on the Holy Spirit as Comforter, Guide, and the power of the indwelling presence.',
+    topics: ['holy spirit', 'spirit', 'comforter', 'guide', 'spiritual growth', 'sanctification', 'filled', 'power']
+  },
+  {
+    id: 'walktheword',
+    title: 'Walk the Word — Hear & Do',
+    href: 'plans.html?plan=walktheword',
+    days: 7,
+    description: 'Seven KJV days on hearing God\'s Word and doing it — obedience, fruit, and a life built on the rock.',
+    topics: ['obedience', 'discipleship', 'spiritual growth', 'word of God', 'faith', 'action', 'fruit', 'doer']
+  },
+  {
+    id: 'sower',
+    title: 'Parable of the Sower',
+    href: 'plans.html?plan=sower',
+    days: 7,
+    description: 'Seven KJV days in the parable — good soil, endurance, and fruit that stays.',
+    topics: ['spiritual growth', 'word of God', 'faith', 'endurance', 'fruit', 'parable', 'jesus', 'discipleship']
+  },
+  {
+    id: 'greatcommission',
+    title: 'Great Commission — Witness',
+    href: 'plans.html?plan=greatcommission',
+    days: 7,
+    description: 'Seven KJV days on the call to go — witness, disciple, and trust Him for the harvest.',
+    topics: ['evangelism', 'witness', 'mission', 'sharing faith', 'gospel', 'disciple', 'salvation', 'go']
+  },
+  // Family and kids
+  {
+    id: 'longdayslittle',
+    title: 'Long Days with Little Ones',
+    href: 'plans.html?plan=longdayslittle',
+    days: 7,
+    description: 'For the exhausted parent of small children — the hidden hours, the aches bright days can make harder.',
+    topics: ['parenting', 'toddlers', 'exhaustion', 'burnout', 'family', 'stay at home', 'caregiver', 'overwhelmed', 'mom', 'dad']
+  },
+  {
+    id: 'backtoschoolfear',
+    title: 'Back-to-School Fear',
+    href: 'plans.html?plan=backtoschoolfear',
+    days: 7,
+    description: 'For kids and parents facing school anxiety — social fear, new year nerves, and steady courage.',
+    topics: ['school', 'anxiety', 'kids', 'fear', 'parenting', 'back to school', 'bullying', 'social', 'teen', 'new year']
+  },
+  {
+    id: 'eveninguog',
+    title: 'Evening in the University (Family)',
+    href: 'plans.html?plan=eveninguog',
+    days: 4,
+    description: 'Four short table-or-bedtime lights for parents and kids from the University of God series.',
+    topics: ['family', 'kids', 'parenting', 'bedtime', 'devotional', 'table time', 'children']
+  },
+  // Seasonal
+  {
+    id: 'adventquiet',
+    title: 'Advent Quiet',
+    href: 'plans.html?plan=adventquiet',
+    days: 7,
+    description: 'Seven KJV Advent days for waiting and watching — the Savior\'s arrival into the quiet.',
+    topics: ['advent', 'christmas', 'waiting', 'hope', 'jesus', 'incarnation', 'seasonal', 'december']
+  },
+  {
+    id: 'christmas7',
+    title: 'Christmas Week — Christ the Light',
+    href: 'plans.html?plan=christmas7',
+    days: 7,
+    description: 'Seven KJV days at Christmas — the Light that came into the darkness and was not overcome.',
+    topics: ['christmas', 'advent', 'jesus', 'light', 'hope', 'incarnation', 'holiday', 'december', 'winter']
+  },
+  {
+    id: 'newyear7',
+    title: 'New Year Week',
+    href: 'plans.html?plan=newyear7',
+    days: 7,
+    description: 'Seven KJV days to start a new year — not resolution pressure, just a quiet handing-it-over.',
+    topics: ['new year', 'fresh start', 'january', 'reset', 'hope', 'beginnings', 'goals', 'resolve', 'seasonal']
+  },
+  {
+    id: 'gentleyear',
+    title: 'Gentle New Year Reset',
+    href: 'plans.html?plan=gentleyear',
+    days: 7,
+    description: 'A soft re-entry into the new year — no pressure, no streaks, just His mercies new every morning.',
+    topics: ['new year', 'reset', 'fresh start', 'rest', 'mercy', 'january', 'hope', 'quiet']
+  },
+  {
+    id: 'easter',
+    title: 'Resurrection Hope',
+    href: 'plans.html?plan=easter',
+    days: 7,
+    description: 'Seven KJV days around the resurrection — the empty tomb, the living Christ, and hope that cannot be sealed in.',
+    topics: ['easter', 'resurrection', 'jesus', 'hope', 'salvation', 'death', 'risen', 'spring', 'seasonal']
+  },
+  {
+    id: 'aftereaster',
+    title: 'After Easter — Quiet Mondays',
+    href: 'plans.html?plan=aftereaster',
+    days: 7,
+    description: 'Seven gentle days when Holy Week is behind you but your heart still needs the empty tomb.',
+    topics: ['easter', 'resurrection', 'hope', 'quiet', 'reflection', 'rest', 'jesus', 'seasonal']
+  },
+  {
+    id: 'schoolcourage',
+    title: 'Back-to-School Courage',
+    href: 'plans.html?plan=schoolcourage',
+    days: 7,
+    description: 'Seven KJV days for new school year — courage, identity, and steady grace for the social and academic stretch.',
+    topics: ['school', 'courage', 'kids', 'teen', 'back to school', 'anxiety', 'identity', 'new year', 'parenting']
+  },
+  {
+    id: 'harvestthanks',
+    title: 'Harvest Gratitude',
+    href: 'plans.html?plan=harvestthanks',
+    days: 7,
+    description: 'Seven KJV days of thanks in the harvest season — provision, faithfulness, and gratitude for simple things.',
+    topics: ['gratitude', 'thanksgiving', 'thanks', 'autumn', 'fall', 'harvest', 'provision', 'contentment', 'seasonal']
+  },
+  {
+    id: 'summerstill',
+    title: 'Summer Stillness',
+    href: 'plans.html?plan=summerstill',
+    days: 7,
+    description: 'Seven KJV days for the slow pace of summer — stillness, simplicity, and the God who meets you in quiet.',
+    topics: ['summer', 'rest', 'stillness', 'quiet', 'seasonal', 'vacation', 'simplicity', 'peace']
+  },
+  {
+    id: 'summertimesadness',
+    title: 'Summertime Sadness',
+    href: 'plans.html?plan=summertimesadness',
+    days: 7,
+    description: 'For the melancholy that bright days can make louder — grief, sadness, and the hidden ache of summer.',
+    topics: ['grief', 'sadness', 'depression', 'loneliness', 'summer', 'seasonal depression', 'melancholy', 'hope']
+  },
+  // Scripture walks and study
+  {
+    id: 'praisethanks30',
+    title: '30-Day Praise & Thanksgiving',
+    href: 'plans.html?plan=praisethanks30',
+    days: 30,
+    description: 'Thirty KJV days of praise — a month-long walk through thanksgiving, blessing, and honest worship.',
+    topics: ['praise', 'thanksgiving', 'thanks', 'worship', 'gratitude', 'joy', 'psalms', 'blessing']
+  },
+  {
+    id: 'dailyrenewing',
+    title: 'Daily Renewing of the Inner Man',
+    href: 'plans.html?plan=dailyrenewing',
+    days: 7,
+    description: 'Seven KJV days for the pastor, teacher, or believer needing interior renewal — not just more output.',
+    topics: ['pastor', 'ministry', 'renewal', 'spiritual growth', 'inner life', 'soul care', 'prayer', 'burnout', 'exhaustion']
+  },
+  {
+    id: 'quietfallharvest',
+    title: 'Quiet Fall Harvest',
+    href: 'plans.html?plan=quietfallharvest',
+    days: 5,
+    description: 'Five KJV days in the quiet harvest — end-of-year rest, slow pace, and a grateful close.',
+    topics: ['fall', 'autumn', 'rest', 'gratitude', 'harvest', 'quiet', 'seasonal', 'reflection']
+  },
+  {
+    id: 'latefallwinter',
+    title: 'Late Fall, Quiet Winter',
+    href: 'plans.html?plan=latefallwinter',
+    days: 7,
+    description: 'When light thins before the noise — stillness, warmth, and God\'s presence in the hard, short days.',
+    topics: ['winter', 'seasonal depression', 'quiet', 'darkness', 'loneliness', 'hope', 'rest', 'fall', 'november', 'december']
   }
 ];
+
+/**
+ * Life-situation keyword → topic array mapping.
+ * When a query token matches a key here, the mapped topics are injected into
+ * getHomeSearchActiveTopics so plan matching works for any real-life query.
+ */
+var SITUATION_TO_TOPICS = {
+  boss: ['anger', 'bitterness', 'patience', 'work'],
+  coworker: ['anger', 'bitterness', 'relationships', 'work'],
+  coworkers: ['anger', 'bitterness', 'relationships', 'work'],
+  workplace: ['anger', 'work', 'bitterness', 'patience'],
+  fired: ['finances', 'worry', 'anxiety', 'strength', 'work'],
+  layoff: ['finances', 'worry', 'anxiety', 'strength', 'work'],
+  job: ['work', 'finances', 'purpose', 'anxiety'],
+  career: ['work', 'purpose', 'finances', 'identity'],
+  unemployed: ['finances', 'worry', 'anxiety', 'strength', 'identity'],
+  unfair: ['bitterness', 'anger', 'patience', 'trust'],
+  injustice: ['bitterness', 'anger', 'patience', 'trust'],
+  divorce: ['grief', 'loneliness', 'heartache', 'hope', 'family'],
+  separated: ['grief', 'loneliness', 'heartache', 'marriage'],
+  breakup: ['grief', 'heartache', 'loneliness', 'hope'],
+  heartbreak: ['grief', 'heartache', 'loneliness', 'hope'],
+  cheating: ['bitterness', 'anger', 'grief', 'marriage'],
+  betrayal: ['bitterness', 'forgiveness', 'grief', 'anger'],
+  toxic: ['bitterness', 'anxiety', 'anger', 'forgiveness', 'strength'],
+  abuse: ['fear', 'strength', 'anxiety', 'grief', 'loneliness'],
+  abusive: ['fear', 'strength', 'anxiety', 'grief'],
+  prodigal: ['parenting', 'grief', 'hope', 'patience'],
+  wayward: ['parenting', 'grief', 'hope', 'patience'],
+  teen: ['parenting', 'anxiety', 'fear', 'kids', 'hope'],
+  teenager: ['parenting', 'anxiety', 'fear', 'kids'],
+  toddler: ['parenting', 'exhaustion', 'family', 'overwhelmed'],
+  mom: ['parenting', 'exhaustion', 'overwhelmed', 'family'],
+  dad: ['parenting', 'family', 'strength', 'purpose'],
+  father: ['parenting', 'family', 'identity', 'strength'],
+  mother: ['parenting', 'exhaustion', 'family', 'overwhelmed'],
+  death: ['grief', 'loss', 'hope', 'comfort', 'fear'],
+  died: ['grief', 'loss', 'hope', 'comfort'],
+  dead: ['grief', 'loss', 'hope', 'comfort'],
+  widow: ['grief', 'loneliness', 'loss', 'hope'],
+  widower: ['grief', 'loneliness', 'loss', 'hope'],
+  funeral: ['grief', 'loss', 'comfort', 'hope'],
+  miscarriage: ['grief', 'loss', 'hope', 'heartache'],
+  cancer: ['cancer', 'fear', 'grief', 'strength', 'hope', 'suffering'],
+  illness: ['pain', 'suffering', 'strength', 'hope', 'rest'],
+  sick: ['pain', 'suffering', 'strength', 'hope'],
+  sickness: ['pain', 'suffering', 'strength', 'hope'],
+  hospital: ['pain', 'fear', 'suffering', 'strength', 'hope'],
+  diagnosis: ['cancer', 'fear', 'suffering', 'strength'],
+  chronic: ['pain', 'suffering', 'exhaustion', 'hope', 'endurance'],
+  disability: ['pain', 'suffering', 'identity', 'strength', 'hope'],
+  addiction: ['addiction', 'temptation', 'shame', 'strength', 'freedom'],
+  addicted: ['addiction', 'temptation', 'shame', 'strength'],
+  porn: ['addiction', 'temptation', 'shame', 'guilt', 'forgiveness'],
+  pornography: ['addiction', 'temptation', 'shame', 'guilt'],
+  alcohol: ['addiction', 'temptation', 'shame', 'strength'],
+  drinking: ['addiction', 'temptation', 'strength', 'shame'],
+  drugs: ['addiction', 'temptation', 'shame', 'strength'],
+  habit: ['addiction', 'temptation', 'discipline', 'strength'],
+  money: ['finances', 'worry', 'anxiety', 'contentment'],
+  bills: ['finances', 'worry', 'anxiety', 'trust'],
+  debt: ['finances', 'worry', 'anxiety', 'trust', 'shame'],
+  broke: ['finances', 'worry', 'anxiety', 'trust'],
+  poor: ['finances', 'contentment', 'trust', 'hope'],
+  eviction: ['finances', 'fear', 'anxiety', 'trust'],
+  bankruptcy: ['finances', 'shame', 'anxiety', 'trust', 'hope'],
+  depressed: ['grief', 'hope', 'strength', 'loneliness', 'overwhelmed'],
+  depression: ['grief', 'hope', 'strength', 'loneliness', 'overwhelmed'],
+  hopeless: ['hope', 'grief', 'strength', 'loneliness'],
+  empty: ['hope', 'grief', 'loneliness', 'rest'],
+  numb: ['grief', 'hope', 'rest', 'loneliness'],
+  panic: ['anxiety', 'fear', 'peace', 'rest'],
+  insomnia: ['sleep', 'anxiety', 'rest', 'peace'],
+  sleepless: ['sleep', 'anxiety', 'rest', 'peace'],
+  nightmares: ['sleep', 'fear', 'peace', 'rest'],
+  burnout: ['exhaustion', 'burnout', 'rest', 'strength', 'overwhelmed'],
+  doubt: ['doubt', 'faith', 'questions', 'spiritual'],
+  doubting: ['doubt', 'faith', 'questions', 'spiritual'],
+  questioning: ['doubt', 'faith', 'questions', 'spiritual'],
+  tempted: ['temptation', 'strength', 'sin', 'forgiveness'],
+  guilt: ['guilt', 'shame', 'forgiveness', 'hope'],
+  shame: ['shame', 'guilt', 'forgiveness', 'identity', 'worth'],
+  worthless: ['worth', 'identity', 'hope', 'love'],
+  lonely: ['loneliness', 'hope', 'community', 'love'],
+  invisible: ['loneliness', 'worth', 'identity', 'hope'],
+  rejected: ['loneliness', 'identity', 'worth', 'forgiveness'],
+  regret: ['regret', 'guilt', 'forgiveness', 'hope'],
+  failure: ['regret', 'identity', 'hope', 'grace'],
+  failed: ['regret', 'identity', 'hope', 'grace'],
+  calling: ['purpose', 'identity', 'faith', 'obedience'],
+  confused: ['wisdom', 'faith', 'purpose', 'guidance'],
+  guidance: ['wisdom', 'faith', 'purpose', 'prayer'],
+  school: ['anxiety', 'kids', 'parenting', 'fear', 'courage'],
+  bullying: ['fear', 'anxiety', 'strength', 'identity', 'kids'],
+  bully: ['fear', 'anxiety', 'strength', 'identity', 'kids'],
+  husband: ['marriage', 'relationships', 'love'],
+  wife: ['marriage', 'relationships', 'love'],
+  caregiver: ['exhaustion', 'grief', 'strength', 'rest'],
+  unanswered: ['patience', 'hope', 'trust', 'doubt']
+};
 
 /** Homepage fast-feel: one anchor verse + “to you” line per quick-topic `data-topic` (KJV); used by hero chips, category chips, and sr-only #quick-actions-hero. */
 var TDB_HOME_FEEL_DEFAULT = {
@@ -25098,6 +25641,56 @@ var TDB_HOME_FEEL_ANCHORS = {
     ref: 'Colossians 3:23',
     text: 'And whatsoever ye do, do it heartily, as to the Lord, and not unto men;',
     leadYou: 'Right now, work can feel personal and unfair. Serve as unto the Lord—integrity first, and His presence in the grind.'
+  },
+  bitterness: {
+    ref: 'Ephesians 4:31',
+    text: 'Let all bitterness, and wrath, and anger, and clamour, and evil speaking, be put away from you, with all malice:',
+    leadYou: 'Right now, bitterness feels justified — but it eats the one who holds it. He invites you to put it away, not because they deserve it, but because you do not have to carry it.'
+  },
+  regret: {
+    ref: 'Isaiah 43:18',
+    text: 'Remember ye not the former things, neither consider the things of old.',
+    leadYou: 'Right now, the past is loud. But He says: do not only look there. He is doing something new — even in what yesterday broke.'
+  },
+  doubt: {
+    ref: 'Mark 9:24',
+    text: 'And straightway the father of the child cried out, and said with tears, Lord, I believe; help thou mine unbelief.',
+    leadYou: 'Right now, "I believe — help my unbelief" is honest prayer. Doubt brought to Jesus is not the end of faith; it is where it starts.'
+  },
+  waiting: {
+    ref: 'Isaiah 40:31',
+    text: 'But they that wait upon the Lord shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.',
+    leadYou: 'Right now, waiting on God is not passive — it is the position where He renews what the long stretch has thinned.'
+  },
+  work: {
+    ref: 'Colossians 3:23',
+    text: 'And whatsoever ye do, do it heartily, as to the Lord, and not unto men;',
+    leadYou: 'Right now, whatever your work feels like today — perform it as unto the Lord. That reframes the grind.'
+  },
+  shame: {
+    ref: 'Romans 8:1',
+    text: 'There is therefore now no condemnation to them which are in Christ Jesus, who walk not after the flesh, but after the Spirit.',
+    leadYou: 'Right now, shame says you are what you did. God says in Christ there is no condemnation — not excusing, but freeing.'
+  },
+  suffering: {
+    ref: 'Romans 8:18',
+    text: 'For I reckon that the sufferings of this present time are not worthy to be compared with the glory which shall be revealed in us.',
+    leadYou: 'Right now, suffering is real and heavy. But it is not the last word — the weight of future glory outweighs present pain.'
+  },
+  betrayal: {
+    ref: 'Psalm 55:22',
+    text: 'Cast thy burden upon the LORD, and he shall sustain thee: he shall never suffer the righteous to be moved.',
+    leadYou: 'Right now, the wound of betrayal is real. Cast that weight on Him — He will sustain you and will not let you be swept away.'
+  },
+  loss: {
+    ref: 'Psalm 34:18',
+    text: 'The Lord is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.',
+    leadYou: 'Right now, loss hollows out a place that nothing quite fills. He draws near to the broken-hearted — near, not silent.'
+  },
+  finances: {
+    ref: 'Matthew 6:33',
+    text: 'But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.',
+    leadYou: 'Right now, when money worry is loud, He already knows what you need — seek Him first today, one simple step.'
   }
 };
 
@@ -25500,6 +26093,9 @@ function getHomeSearchActiveTopics(results, queryText) {
     }
     if (typeof topics !== 'undefined' && topics && topics[token]) topicsFound.push(token);
     if (token === 'jesus' || token === 'salvation') topicsFound.push(token);
+    // Life-situation clusters: map real-world words ("boss", "cancer", "divorce") to topics
+    var situationTopics = typeof SITUATION_TO_TOPICS !== 'undefined' && SITUATION_TO_TOPICS && SITUATION_TO_TOPICS[token];
+    if (situationTopics) situationTopics.forEach(function (t) { topicsFound.push(t); });
   });
   return uniqueList(topicsFound);
 }

@@ -92,6 +92,10 @@
 /kids/library.html /kids/corner.html 301
 # Root /corner.html → Kids Story Library (fix 404 when linked without /kids/)
 /corner.html /kids/corner.html 301
+# Kids feeling-story pages (clean URLs)
+/kids-back-to-school /kids-back-to-school.html 200!
+/kids-grief-story /kids-grief-story.html 200!
+/kids-summer-feelings /kids-summer-feelings.html 200!
 
 # Pinterest / shareable KJV verse images
 /verse-cards /verse-cards/index.html 200!

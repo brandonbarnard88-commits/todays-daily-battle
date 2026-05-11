@@ -1340,3 +1340,52 @@ html[data-theme="light"] .mystudy-onpage-nav__list a:focus-visible {
     margin-bottom: 1.1rem;
   }
 }
+
+/* ── Export Progress & Notes ───────────────────────────────────────────────── */
+.mystudy-export-progress-wrap {
+  background: color-mix(in srgb, rgba(201, 162, 39, 0.07) 80%, transparent);
+  border: 1px solid rgba(201, 162, 39, 0.28);
+  border-radius: 10px;
+  padding: 1.25rem 1.25rem 1rem;
+  margin-bottom: 1.25rem;
+}
+.mystudy-export-progress-wrap .mystudy-h2 {
+  margin-top: 0;
+}
+.mystudy-export-lead {
+  margin: 0.1rem 0 1rem;
+  font-size: 0.9rem;
+  color: var(--text-muted, rgba(226, 232, 240, 0.68));
+}
+.mystudy-export-btn-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.mystudy-export-btn {
+  min-height: 44px;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.mystudy-export-hint-text {
+  margin: 0.6rem 0 0;
+  font-size: 0.82rem;
+  color: var(--text-muted, rgba(226, 232, 240, 0.55));
+}
+html[data-theme="light"] .mystudy-export-progress-wrap {
+  background: rgba(255, 250, 230, 0.7);
+  border-color: rgba(201, 162, 39, 0.35);
+}
+@media (max-width: 480px) {
+  .mystudy-export-btn-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .mystudy-export-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -901,6 +901,10 @@
       subject: 'A quiet word \u2014 just for you',
       body: 'Good morning,\n\n[Write what\u2019s on your heart here.]\n\n\u201c[KJV verse]\u201d \u2014 [reference]\n\nYou are not behind. You are not alone.\n\nWith care,\nBrandon\ntodaysdailybattle.com'
     },
+    spring2026: {
+      subject: 'What\u2019s new on the porch \u2014 summer 2026',
+      body: 'Good morning,\n\nI\u2019ve been building quietly for the past few months, and there\u2019s a lot that\u2019s new. Not big announcements \u2014 just real improvements that I think will make a difference on the hard days.\n\nHere\u2019s what\u2019s been added to the porch:\n\n\u2014 EXPORT YOUR PROGRESS\nGo to My Study \u2192 Saved & Notes and tap \u201cExport my progress & notes (HTML)\u201d. It generates a clean, printable file with every plan day you\u2019ve completed, your saved verses, notes, and reflections. No upload, no account needed. Your data, your device, your quiet record with the Lord.\n\n\u2014 SUMMER BATTLE PLANS\nNew plans for the season: Summer Stillness, Summertime Sadness, Healing from Grief & Loss in Summer, Quiet Fall Harvest, Late Summer Rest, and more \u2014 including the full University of God series, now with paths for bitterness, comparison, regret, anger, overwhelm, and broken relationships.\n\n\u2014 SMARTER SEARCH\nThe \u201cHow do you feel?\u201d search on the homepage now understands real-life situations \u2014 not just topic words. Type \u201cboss is unfair,\u201d \u201ccan\u2019t stop worrying,\u201d or \u201ckid failing school\u201d and it\u2019ll find something real for you. All 85+ plans are now fully reachable through search.\n\n\u2014 PLANS PAGE ON MOBILE\nThe plans page now shows five plans per category with a \u201cShow more\u201d button, so the list doesn\u2019t feel overwhelming at 10pm. If you\u2019re in progress on a plan, it always stays visible.\n\n\u2014 VERSE THREAD LABEL\nWhen a plan\u2019s verse thread is collapsed, it now tells you exactly where you are: \u201cThis plan\u2019s verse thread \u00b7 Day 4 of 7 highlighted.\u201d No need to open it just to check.\n\nNone of this is for show. It\u2019s built for tired people who need plain KJV Scripture and one honest next step \u2014 nothing more.\n\nThank you for being here.\n\nWith care,\nBrandon\n\ntodaysdailybattle.com\ntodaysdailybattle.com/plans.html\ntodaysdailybattle.com/mystudy'
+    },
     blank: { subject: '', body: '' }
   };
 
@@ -937,6 +941,74 @@
         '&body=' + encodeURIComponent(body);
       window.open(mailto, '_blank');
       if (statusEl) { statusEl.className = 'section-note owner-composer-toast'; statusEl.textContent = 'Opening your email client with a test send to ' + to; }
+    });
+  }
+
+  // ── Send Broadcast to All Subscribers ──────────────────────────
+  function bindSendAll() {
+    var btn = document.getElementById('email-send-all-btn');
+    var statusEl = document.getElementById('email-send-all-status');
+    var segmentSel = document.getElementById('email-segment-select');
+    if (!btn) return;
+
+    btn.addEventListener('click', async function () {
+      var subject = (document.getElementById('email-subject') || {}).value || '';
+      var body = (document.getElementById('email-body') || {}).value || '';
+      var segment = segmentSel ? segmentSel.value : 'all';
+
+      if (!subject.trim() || !body.trim()) {
+        if (statusEl) { statusEl.className = 'section-note'; statusEl.textContent = 'Add a subject and body before sending.'; }
+        return;
+      }
+
+      var recipientLabel = segment === 'weekly' ? 'weekly opt-in subscribers'
+        : segment === 'daily' ? 'daily opt-in subscribers'
+        : 'all subscribers';
+
+      var confirmed = window.confirm(
+        'Send this email to ' + recipientLabel + '?\n\n' +
+        'Subject: ' + subject + '\n\n' +
+        'This is irreversible. Make sure you\u2019ve previewed the email first.'
+      );
+      if (!confirmed) return;
+
+      btn.disabled = true;
+      btn.textContent = 'Sending\u2026';
+      if (statusEl) { statusEl.className = 'section-note'; statusEl.textContent = 'Sending \u2014 this may take a moment\u2026'; }
+
+      try {
+        var token = await getAccessToken();
+        if (!token) throw new Error('Owner session required. Sign in first.');
+
+        var cfg = getConfig();
+        var fnUrl = cfg.SUPABASE_URL
+          ? cfg.SUPABASE_URL.replace('/rest/v1', '') + '/functions/v1/send-broadcast'
+          : '/functions/v1/send-broadcast';
+
+        var res = await fetch(fnUrl, {
+          method: 'POST',
+          headers: {
+            'Authorization': 'Bearer ' + token,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ subject: subject, body: body, segment: segment })
+        });
+
+        var data = await res.json().catch(function () { return {}; });
+
+        if (!res.ok) {
+          throw new Error(data.error || 'Broadcast failed (' + res.status + ').');
+        }
+
+        var msg = 'Sent to ' + (data.sent || 0) + ' of ' + (data.total || 0) + ' subscribers.';
+        if (data.failed > 0) msg += ' ' + data.failed + ' failed — check Resend dashboard.';
+        if (statusEl) { statusEl.className = 'section-note owner-composer-toast'; statusEl.textContent = msg; }
+      } catch (err) {
+        if (statusEl) { statusEl.className = 'section-note'; statusEl.textContent = err && err.message ? err.message : 'Broadcast failed.'; }
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Send to All Subscribers';
+      }
     });
   }
 
@@ -1163,6 +1235,7 @@
     initEmailTemplates();
     initAnnouncementPublisher();
     bindSendTest();
+    bindSendAll();
     bindExportAll();
     bindSubscriberSearch();
     bindInboxSearch();

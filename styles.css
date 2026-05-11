@@ -1,5 +1,30 @@
 @import url("tdb-quiet-luxury.css");
 
+/*
+ * ── Design System Architecture ────────────────────────────────────────────────
+ *
+ * This file (styles.css) is the global stylesheet for ALL pages EXCEPT the
+ * homepage (index.html). The homepage is intentionally self-contained:
+ *
+ *   index.html         → inline <style> blocks only. Does NOT load styles.css.
+ *                        Has its own :root with matching tokens (see comments there).
+ *   styles.css         → all other pages (sermon, plans, pastor-toolkit, etc.)
+ *   tdb-quiet-luxury.css → seasonal/university pages only (imported above).
+ *                          Has intentional sage --accent overrides — leave them.
+ *
+ * Token alignment (May 2026):
+ *   --accent      #8ba6d9   periwinkle blue — matches homepage inline :root
+ *   --accent-hover #a8c5e8  lighter periwinkle for hover/active states
+ *   --primary      #6d28d9  purple — Easter, royalty, CTAs (separate from accent)
+ *   --gold         #e3bc67  site gold (dark) / #c9b28a (light themes)
+ *
+ * Hard-coded #a78bfa (lavender) still exists for decorative jewel/armor elements
+ * (amethyst gem, armor crown) — those are intentional purple, not accent tokens.
+ *
+ * Maintenance rule: if you add a new :root override anywhere, document it here.
+ * ──────────────────────────────────────────────────────────────────────────────
+ */
+
 /* Narrow phones: prevent stray horizontal scroll from wide children; clip is gentler than hidden for sticky */
 html {
   overflow-x: clip;
@@ -15,8 +40,8 @@ html {
   --primary: #6d28d9;
   --primary-dark: #5b21b6;
   --primary-glow: rgba(109, 40, 217, 0.42);
-  --accent: #a78bfa;
-  --accent-hover: #c4b5fd;
+  --accent: #8ba6d9;       /* periwinkle blue — matches homepage self-contained root */
+  --accent-hover: #a8c5e8; /* lighter periwinkle for hover/active states */
   /* Super elite: rich gold & cream */
   --elite-gold-rgb: 255, 213, 79;
   --elite-gold: rgba(var(--elite-gold-rgb), 0.94);
@@ -22739,6 +22764,95 @@ body.dark-mode #verseCard :is(p, span, strong, em, h2, h3, h4, li, blockquote) {
   line-height: 1.6;
   color: var(--muted-readable);
   margin: 0;
+}
+
+/* Church/Pastor callout — elevated from quiet-launch-banner */
+.tdb-church-callout {
+  text-align: center;
+}
+.tdb-church-callout-eyebrow {
+  margin: 0 0 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--gold-soft, var(--gold));
+}
+.tdb-church-callout-heading {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.2rem, 3vw, 1.55rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  letter-spacing: -0.01em;
+}
+.tdb-church-callout-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: center;
+  margin: 1.1rem 0 0.7rem;
+}
+.tdb-church-callout-foot {
+  margin: 0.5rem 0 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.tdb-church-callout-foot a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Pastor / Church hub — consistent section nav across sermon, pastor-toolkit, for-pastors */
+.tdb-pastor-hub-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.5rem;
+  align-items: center;
+  padding: 0.55rem 0.65rem;
+  margin: 0 0 1.25rem;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--card, #1a2235) 80%, rgba(227,188,103,0.04));
+  border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 18%, var(--line, #2a3348));
+  font-size: 0.8rem;
+}
+.tdb-pastor-hub-nav a {
+  color: var(--muted, #bcc5d6);
+  text-decoration: none;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  transition: color 0.12s, background 0.12s;
+  white-space: nowrap;
+}
+.tdb-pastor-hub-nav a:hover,
+.tdb-pastor-hub-nav a:focus-visible {
+  color: var(--gold, #e3bc67);
+  background: color-mix(in srgb, var(--gold, #e3bc67) 10%, transparent);
+  outline: none;
+}
+.tdb-pastor-hub-nav a[aria-current="page"] {
+  color: var(--gold, #e3bc67);
+  font-weight: 600;
+  pointer-events: none;
+}
+:root[data-theme="light"] .tdb-pastor-hub-nav,
+:root[data-theme="daylight"] .tdb-pastor-hub-nav,
+:root[data-theme="parchment"] .tdb-pastor-hub-nav {
+  background: color-mix(in srgb, #f4f6fb 90%, rgba(227,188,103,0.08));
+  border-color: color-mix(in srgb, #b8860b 22%, #d5dbe8);
+}
+:root[data-theme="light"] .tdb-pastor-hub-nav a,
+:root[data-theme="daylight"] .tdb-pastor-hub-nav a,
+:root[data-theme="parchment"] .tdb-pastor-hub-nav a {
+  color: var(--text-muted, #6b7a99);
+}
+:root[data-theme="light"] .tdb-pastor-hub-nav a[aria-current="page"],
+:root[data-theme="daylight"] .tdb-pastor-hub-nav a[aria-current="page"],
+:root[data-theme="parchment"] .tdb-pastor-hub-nav a[aria-current="page"] {
+  color: var(--gold-dark, #a0720a);
 }
 
 /* Monetization pages — serene, unified (migrated from inline styles in give.html/shop.html) */

@@ -190,6 +190,18 @@
             <h2 class="section-divider mystudy-h2 mystudy-h2-tight">Saved verses</h2>
             <p class="section-note">Verses you saved from Home, search, or the Bible Tool. Tap a reference to reopen it, or keep moving with memorize and notes right here.</p>
             <div id="saved-verses" class="list my-verses-saved-list" role="list" aria-label="Saved verses" aria-live="polite" aria-relevant="additions text"></div>
+            <div class="mystudy-export-progress-wrap" role="region" aria-labelledby="mystudy-export-heading">
+              <h3 id="mystudy-export-heading" class="mystudy-h2 mystudy-h2-tight">Export my progress &amp; notes</h3>
+              <p class="section-note mystudy-export-lead">Creates a clean, printable file on this device — every plan day you&rsquo;ve completed, saved verses, and notes. No upload, no account needed. Open or print it anytime.</p>
+              <div class="mystudy-export-btn-row">
+                <button type="button" id="mystudy-export-progress" class="btn btn-primary mystudy-export-btn" aria-describedby="mystudy-export-hint">
+                  Export my progress &amp; notes (HTML)
+                </button>
+              </div>
+              <p id="mystudy-export-hint" class="section-note mystudy-export-hint-text">All your data stays on this device &mdash; completely private. Nothing is sent anywhere. Open the file in any browser or print it as a PDF whenever you want.</p>
+              <p id="mystudy-export-status" class="section-note" aria-live="polite" aria-atomic="true"></p>
+            </div>
+
             <div class="mystudy-library-actions" role="group" aria-label="Library actions">
               <button type="button" id="mystudy-print-notes" class="btn btn-secondary mystudy-print-btn">Print notes (PDF via browser)</button>
               <button type="button" id="mystudy-print-bundle" class="btn btn-secondary mystudy-print-btn">Print full bundle (notes + memorize + recent chapters)</button>

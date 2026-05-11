@@ -111,7 +111,8 @@
           .insert({
             email: email,
             name: name || null,
-            body: msg
+            topic: currentTopic || null,
+            message: msg
           })
           .then(function (res) {
             if (res.error) {

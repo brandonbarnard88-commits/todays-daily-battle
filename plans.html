@@ -12,7 +12,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>KJV Battle Plans for Pastors &amp; Small Churches &mdash; Preaching Through Exhaustion &amp; More</title>
-  <meta name="description" content="71 gentle 7-day KJV plans for weary pastors, small churches, anxiety, grief, parenting, and bi-vocational life. Print-ready. Offline. No pressure.">
+  <meta name="description" content="100+ gentle KJV battle plans for anxiety, grief, exhaustion, parenting, and more. 7 to 30 days. Print-ready. Offline. No pressure.">
   <meta name="robots" content="index, follow">
   <meta name="referrer" content="no-referrer">
   <link rel="canonical" href="https://todaysdailybattle.com/plans.html">
@@ -23,13 +23,13 @@
   <meta property="og:site_name" content="Today's Daily Battle">
   <meta property="og:type" content="website">
   <meta property="og:title" content="KJV Battle Plans for Pastors &amp; Small Churches — Preaching Through Exhaustion &amp; More">
-  <meta property="og:description" content="71 gentle 7-day KJV plans for weary pastors, small churches, anxiety, grief, parenting, and bi-vocational life. Print-ready. Offline. No pressure.">
+  <meta property="og:description" content="100+ gentle KJV battle plans for anxiety, grief, exhaustion, parenting, and more. 7 to 30 days. Print-ready. Offline. No pressure.">
   <meta property="og:url" content="https://todaysdailybattle.com/plans.html">
   <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <meta property="og:image:alt" content="KJV Battle Plans for Pastors &amp; Small Churches — Preaching Through Exhaustion &amp; More">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="KJV Battle Plans for Pastors &amp; Small Churches — Preaching Through Exhaustion &amp; More">
-  <meta name="twitter:description" content="71 gentle 7-day KJV plans for weary pastors, small churches, anxiety, grief, and bi-vocational life. Print-ready. Offline. No pressure.">
+  <meta name="twitter:description" content="100+ gentle KJV battle plans for anxiety, grief, exhaustion, parenting, and more. 7 to 30 days. Print-ready. Offline. No pressure.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -1204,8 +1204,132 @@
     }
     .day-bp.action-panel {
       border-left-color: var(--gold);
-      background: color-mix(in srgb, var(--gold) 10%, var(--card));
+      border-left-width: 4px;
+      background: color-mix(in srgb, var(--gold) 13%, var(--card));
+      padding: 0.75rem 1rem;
+      border-radius: 0 10px 10px 0;
+      margin-top: 0.25rem;
     }
+    .day-bp.action-panel .day-bp-label {
+      color: var(--gold);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+    }
+    .day-bp.action-panel .day-bp-text {
+      font-size: 0.97rem;
+      font-weight: 600;
+      line-height: 1.5;
+      color: var(--text);
+    }
+    /* ── Plan list category accordion ── */
+    .plan-category-group {
+      border: 1px solid var(--tdb-surface-card-border);
+      border-radius: 14px;
+      margin-bottom: 0.55rem;
+      background: var(--tdb-surface-card-bg);
+      overflow: hidden;
+    }
+    .plan-category-summary {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.85rem 1rem;
+      cursor: pointer;
+      list-style: none;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--text);
+      min-height: 52px;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .plan-category-summary::-webkit-details-marker { display: none; }
+    .plan-category-summary::marker { display: none; }
+    .plan-cat-icon { font-size: 1.05rem; flex-shrink: 0; }
+    .plan-cat-label { flex: 1; }
+    .plan-cat-count {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--muted);
+      background: color-mix(in srgb, var(--line) 65%, transparent);
+      border-radius: 20px;
+      padding: 0.1rem 0.5rem;
+      min-width: 1.8rem;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .plan-cat-chevron {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-right: 2px solid var(--muted);
+      border-bottom: 2px solid var(--muted);
+      transform: rotate(45deg);
+      transition: transform 220ms ease;
+      flex-shrink: 0;
+      margin-right: 0.1rem;
+    }
+    .plan-category-group[open] > .plan-category-summary .plan-cat-chevron {
+      transform: rotate(-135deg);
+    }
+    .plan-category-group[open] > .plan-category-summary {
+      border-bottom: 1px solid var(--tdb-surface-card-border);
+      color: var(--gold);
+    }
+    .plan-category-group[open] > .plan-category-summary .plan-cat-count {
+      background: color-mix(in srgb, var(--gold) 18%, transparent);
+      color: var(--gold-soft);
+    }
+    .plan-category-body { padding: 0.3rem 0; }
+    .plan-category-body .plan-row { border-radius: 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 50%, transparent); }
+    .plan-category-body .plan-row:last-child { border-bottom: none; }
+    .plan-category-group.has-progress > .plan-category-summary .plan-cat-label::after {
+      content: ' ·';
+      color: var(--green);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .plan-cat-chevron { transition: none; }
+    }
+    /* Light/sepia: action-panel label contrast fix (gold on cream = ~1.8:1 — too low for 0.65rem text) */
+    html[data-theme="light"] .day-bp.action-panel .day-bp-label,
+    html[data-theme="sepia"] .day-bp.action-panel .day-bp-label {
+      color: #7a5010;
+    }
+
+    /* ── Per-category Show more ── */
+    .plan-cat-more-wrap[hidden] { display: none; }
+    .plan-cat-show-more {
+      display: block;
+      width: 100%;
+      margin: 0.55rem 0 0.2rem;
+      padding: 0.6rem 1rem;
+      min-height: 44px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-align: center;
+      background: transparent;
+      border: 1px dashed color-mix(in srgb, var(--gold) 38%, transparent);
+      border-radius: 10px;
+      color: var(--gold);
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .plan-cat-show-more:hover,
+    .plan-cat-show-more:focus-visible {
+      background: color-mix(in srgb, var(--gold) 8%, transparent);
+      border-color: var(--gold);
+      outline: none;
+    }
+    html[data-theme="light"] .plan-cat-show-more,
+    html[data-theme="sepia"] .plan-cat-show-more {
+      color: #7a5010;
+      border-color: rgba(122, 80, 16, 0.35);
+    }
+    html[data-theme="light"] .plan-cat-show-more:hover,
+    html[data-theme="sepia"] .plan-cat-show-more:hover {
+      background: rgba(122, 80, 16, 0.07);
+      border-color: rgba(122, 80, 16, 0.6);
+    }
+
     .day-bp.prayer-panel {
       border-left-color: color-mix(in srgb, var(--gold) 60%, var(--accent));
       background: color-mix(in srgb, var(--gold) 8%, var(--card));
@@ -1221,6 +1345,71 @@
     }
     .day-bp-text { font-size: 0.9rem; color: var(--text); margin: 0; line-height: 1.45; }
 
+    /* ── Plan verse trail ── */
+    .plan-verse-trail {
+      margin-bottom: 0.85rem;
+      border: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+      border-radius: 12px;
+      padding: 0.35rem 0.75rem;
+      background: color-mix(in srgb, var(--bg) 50%, var(--card));
+    }
+    .plan-verse-trail > summary {
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      list-style: none;
+      padding: 0.45rem 0;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .plan-verse-trail > summary::-webkit-details-marker { display: none; }
+    .plan-verse-trail[open] > summary { color: var(--gold-soft); }
+    .plan-verse-trail-inner { padding-bottom: 0.5rem; }
+    .trail-entry {
+      display: flex;
+      align-items: baseline;
+      gap: 0.45rem;
+      padding: 0.2rem 0;
+      font-size: 0.82rem;
+      line-height: 1.4;
+    }
+    .trail-entry-day {
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      flex-shrink: 0;
+      min-width: 3.2rem;
+    }
+    .trail-entry-ref {
+      background: none;
+      border: none;
+      padding: 0;
+      color: color-mix(in srgb, var(--text) 70%, transparent);
+      font-size: 0.82rem;
+      cursor: pointer;
+      text-align: left;
+      text-decoration: underline;
+      text-decoration-color: transparent;
+      transition: color 0.15s, text-decoration-color 0.15s;
+    }
+    .trail-entry-ref:hover,
+    .trail-entry-ref:focus-visible { color: var(--gold); text-decoration-color: var(--gold-soft); }
+    .trail-entry.is-current .trail-entry-ref {
+      color: var(--gold);
+      font-weight: 700;
+      text-decoration: none;
+      cursor: default;
+    }
+    .trail-entry.is-done .trail-entry-day { color: color-mix(in srgb, var(--green) 55%, var(--muted)); }
+    .trail-entry.is-locked { opacity: 0.45; pointer-events: none; }
+    .trail-done-badge { font-size: 0.65rem; color: var(--green); }
     .day-inductive {
       margin-bottom: 1rem;
       border: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
@@ -1868,9 +2057,9 @@
     </div>
   </div>
   <div id="tdb-offline-strip" class="tdb-offline-strip hidden" role="status" aria-live="polite" data-tdb-offline-page="plans"><p class="offline-msg"></p></div>
-  <script>(function(){try{if(localStorage.getItem('tdb_plans_quiet_update_dismiss')==='2026-04-24-courses')document.documentElement.classList.add('tdb-plans-quiet-update-dismissed');}catch(e){}})();</script>
-  <div id="plans-quiet-update" class="tdb-quiet-update-strip tdb-quiet-update-strip--plans" data-tdb-plans-quiet-version="2026-04-24-courses" role="status" aria-live="polite">
-    <p class="tdb-quiet-update-strip__text">Update: these tracks are now framed as courses in the University of God &mdash; same gentle days, clearer signpost. <a href="/university.html">See the five anchor verses</a>.</p>
+  <script>(function(){try{if(localStorage.getItem('tdb_plans_quiet_update_dismiss')==='2026-05-11-plans')document.documentElement.classList.add('tdb-plans-quiet-update-dismissed');}catch(e){}})();</script>
+  <div id="plans-quiet-update" class="tdb-quiet-update-strip tdb-quiet-update-strip--plans" data-tdb-plans-quiet-version="2026-05-11-plans" role="status" aria-live="polite">
+    <p class="tdb-quiet-update-strip__text">Update: these are KJV Battle Plans.</p>
     <button type="button" class="tdb-quiet-update-strip__dismiss" id="plans-quiet-update-dismiss" aria-label="Dismiss this update">✕</button>
   </div>
 
@@ -1880,8 +2069,8 @@
     <div class="plan-index" id="planIndex">
       <a href="index.html" class="plans-back" aria-label="Back to homepage">← Today's Battle</a>
       <div class="plans-hero plans-hero--soar-dawn tdb-micro-hero-dawn">
-        <h1>Courses in the University of God</h1>
-        <p class="plans-hero-subtitle">Rest, not rush.</p>
+        <h1>Battle Plans</h1>
+        <p class="plans-hero-subtitle">God&rsquo;s University of Life &mdash; open any door, any day. Rest, not rush.</p>
       </div>
       <section class="plans-situation-jump" id="find-your-plan" aria-labelledby="plans-situation-jump-h">
         <h2 class="plans-find-your-plan-h" id="plans-situation-jump-h">Find your plan</h2>
@@ -3612,7 +3801,7 @@
 
       universitywaiting: {
         id: 'universitywaiting', icon: '\uD83D\uDD6F\uFE0F', label: 'The University of Waiting',
-        desc: 'When the lesson feels long and the answer is "not yet." Six calm KJV days in the University of God — courage, renewal, quiet hope, rest from comparison, His appointed time, and patience with what we cannot see.',
+        desc: 'When the lesson feels long and the answer is "not yet." Six calm KJV days — courage, renewal, quiet hope, rest from comparison, His appointed time, and patience with what we cannot see.',
         key: 'tdb-plan-universitywaiting-day', max: 6,
         days: [
           { title: 'Courage while you wait', ref: 'Psalm 27:14', text: 'Wait on the LORD: be of good courage, and he shall strengthen thine heart: wait, I say, on the LORD.',
@@ -3638,7 +3827,7 @@
 
       universitygrief: {
         id: 'universitygrief', icon: '\uD83C\uDF3F', label: 'The University of Grief',
-        desc: 'When sorrow sits down beside you and holy tears need room. Six calm KJV days in the University of God — nearness to the brokenhearted, binding up, blessing in mourning, Christ weeping with us, comfort that overflows, and the end of every tear.',
+        desc: 'When sorrow sits down beside you and holy tears need room. Six calm KJV days — nearness to the brokenhearted, binding up, blessing in mourning, Christ weeping with us, comfort that overflows, and the end of every tear.',
         key: 'tdb-plan-universitygrief-day', max: 6,
         days: [
           { title: 'Near the broken heart', ref: 'Psalm 34:18', text: 'The LORD is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.',
@@ -5529,6 +5718,7 @@
       if (nqrList) nqrList.replaceChildren();
       var rblk = document.getElementById('planReflectionBlock');
       if (rblk) rblk.hidden = true;
+      groupPlanListByCategory();
     }
     function renderIndexShell() {
       var index = document.getElementById('planIndex');
@@ -5553,6 +5743,231 @@
       } else {
         setTimeout(hydrate, 320);
       }
+    }
+
+    function groupPlanListByCategory() {
+      var list = document.getElementById('planList');
+      if (!list || list.dataset.grouped === '1') return;
+
+      var CATEGORIES = [
+        {
+          id: 'cat-heavy',
+          icon: '🕊️',
+          label: 'When it\'s heavy right now',
+          plans: ['fearfaith','worrytrust','anxiety7','anxiety7day','angerpeace','doubtassurance','griefhope','grief','anger','forgiveness','loneliness','heartalone','restlessnights','painwontquit','heavyhope','cancercomfort','moneyworry','addictionhope','guiltshame','overwhelmedburnout','selfworth','caregiverrest','wearyhands','longillness','peace','trust','marriage','peacemakers','lettinggo','fearnot14','summergrief','summertimesadness']
+        },
+        {
+          id: 'cat-university',
+          icon: '🎓',
+          label: 'University of Life',
+          plans: ['universitywaiting','universitygrief','universityparenting','universitysecretprayer','universityanxiety','universityexhaustion','universitygratitude','universityloneliness','universityforgiveness','universitydoubt','universitybitterness','universitybroken','universitycomparison','universityanger','universityregret','universitycontentment','universityoverwhelm','universityparentfear','eveninguog']
+        },
+        {
+          id: 'cat-family',
+          icon: '🏠',
+          label: 'Families & kids',
+          plans: ['parenting','littlehearts','longdayslittle','familyworship','psalmscomfortfamily','beatitudes-kids','lordsprayer-kids','sower-kids','armorofgod-kids','summer-seeds','backtoschoolfear','schoolcourage','teenfaith']
+        },
+        {
+          id: 'cat-seasonal',
+          icon: '🍂',
+          label: 'Seasonal rhythms',
+          plans: ['harvestthanks','adventquiet','christmas7','newyear7','gentleyear','summerstill','latesummerrest','quietfallharvest','latefallwinter','emmanuel7','aftereaster','easter']
+        },
+        {
+          id: 'cat-pastor',
+          icon: '⛪',
+          label: 'Pastors & church',
+          plans: ['preachingthroughexhaustion','smallchurchencouragement','dailyrenewing','kjvhowtoread','pastoraloneliness','greatcommission','walktheword','standfirm']
+        },
+        {
+          id: 'cat-scripture',
+          icon: '📖',
+          label: 'Scripture walks',
+          plans: ['beatitudes','lordsprayer','sower','armorofgod','galatiansfreedom','gospeljohn','psalmscomfort','proverbswisdom','psalmspraise','sufferendure','holyspirit']
+        },
+        {
+          id: 'cat-foundation',
+          icon: '🌱',
+          label: 'Foundation plans',
+          plans: ['battle','firststeps','identityinchrist','praisethanks30','battle10','battle14','battle21','battle30','battle40','strength','gratitude','dailylabor','stewardship','hopeuncertain']
+        }
+      ];
+
+      var planTocat = {};
+      CATEGORIES.forEach(function (cat) {
+        cat.plans.forEach(function (id) {
+          if (!planTocat[id]) planTocat[id] = cat.id;
+        });
+      });
+
+      var rows = Array.from(list.querySelectorAll(':scope > .plan-row'));
+      if (!rows.length) return;
+
+      var grouped = {};
+      var uncategorized = [];
+      rows.forEach(function (row) {
+        var planId = row.getAttribute('data-plan') || '';
+        var catId = planTocat[planId];
+        if (catId) {
+          if (!grouped[catId]) grouped[catId] = [];
+          grouped[catId].push(row);
+        } else {
+          uncategorized.push(row);
+        }
+      });
+
+      list.replaceChildren();
+      list.removeAttribute('role');
+
+      CATEGORIES.forEach(function (cat) {
+        var catRows = grouped[cat.id];
+        if (!catRows || !catRows.length) return;
+
+        var hasProgress = catRows.some(function (row) {
+          var pill = row.querySelector('.plan-progress-pill');
+          return pill && pill.textContent && pill.textContent !== 'Not started' && pill.textContent !== 'Ready \u2013 Tap to begin';
+        });
+
+        var savedState = null;
+        try { savedState = localStorage.getItem('tdb-cat-' + cat.id); } catch (_) {}
+        var isOpen = savedState === '1' || (savedState === null && (cat.id === 'cat-heavy' || hasProgress));
+
+        var det = document.createElement('details');
+        det.className = 'plan-category-group' + (hasProgress ? ' has-progress' : '');
+        det.id = cat.id;
+        if (isOpen) det.open = true;
+
+        var sum = document.createElement('summary');
+        sum.className = 'plan-category-summary';
+        sum.setAttribute('aria-label', cat.label + ' \u2014 ' + catRows.length + ' plans');
+        var iconEl = document.createElement('span');
+        iconEl.className = 'plan-cat-icon';
+        iconEl.setAttribute('aria-hidden', 'true');
+        iconEl.textContent = cat.icon;
+        var labelEl = document.createElement('span');
+        labelEl.className = 'plan-cat-label';
+        labelEl.textContent = cat.label;
+        var countEl = document.createElement('span');
+        countEl.className = 'plan-cat-count';
+        countEl.setAttribute('aria-hidden', 'true');
+        countEl.textContent = catRows.length;
+        var chevEl = document.createElement('span');
+        chevEl.className = 'plan-cat-chevron';
+        chevEl.setAttribute('aria-hidden', 'true');
+        sum.appendChild(iconEl);
+        sum.appendChild(labelEl);
+        sum.appendChild(countEl);
+        sum.appendChild(chevEl);
+        det.appendChild(sum);
+
+        var body = document.createElement('div');
+        body.className = 'plan-category-body';
+        body.setAttribute('role', 'list');
+
+        var SHOW_MORE_THRESHOLD = 5;
+        if (catRows.length > SHOW_MORE_THRESHOLD) {
+          var moreWrap = document.createElement('div');
+          moreWrap.className = 'plan-cat-more-wrap';
+          moreWrap.hidden = true;
+          var hiddenCount = 0;
+
+          catRows.forEach(function (row, idx) {
+            row.setAttribute('role', 'listitem');
+            var pill = row.querySelector('.plan-progress-pill');
+            var isActive = pill && pill.classList.contains('active');
+            // Always show: rows within threshold, OR rows that have active progress
+            if (idx < SHOW_MORE_THRESHOLD || isActive) {
+              body.appendChild(row);
+            } else {
+              moreWrap.appendChild(row);
+              hiddenCount++;
+            }
+          });
+
+          if (hiddenCount > 0) {
+            body.appendChild(moreWrap);
+            var moreBtn = document.createElement('button');
+            moreBtn.type = 'button';
+            moreBtn.className = 'plan-cat-show-more';
+            moreBtn.textContent = 'Show ' + hiddenCount + ' more\u2009\u25be';
+            moreBtn.setAttribute('aria-expanded', 'false');
+            moreBtn.addEventListener('click', function () {
+              moreWrap.hidden = false;
+              moreBtn.hidden = true;
+            });
+            body.appendChild(moreBtn);
+          }
+        } else {
+          catRows.forEach(function (row) {
+            row.setAttribute('role', 'listitem');
+            body.appendChild(row);
+          });
+        }
+
+        det.appendChild(body);
+
+        det.addEventListener('toggle', function () {
+          try { localStorage.setItem('tdb-cat-' + cat.id, det.open ? '1' : '0'); } catch (_) {}
+        });
+
+        list.appendChild(det);
+      });
+
+      if (uncategorized.length) {
+        var det2 = document.createElement('details');
+        det2.className = 'plan-category-group';
+        det2.id = 'cat-more';
+        var sum2 = document.createElement('summary');
+        sum2.className = 'plan-category-summary';
+        sum2.setAttribute('aria-label', 'More plans \u2014 ' + uncategorized.length + ' plans');
+        sum2.innerHTML = '<span class="plan-cat-icon" aria-hidden="true">\uD83D\uDCCB</span><span class="plan-cat-label">More plans</span><span class="plan-cat-count" aria-hidden="true">' + uncategorized.length + '</span><span class="plan-cat-chevron" aria-hidden="true"></span>';
+        det2.appendChild(sum2);
+        var body2 = document.createElement('div');
+        body2.className = 'plan-category-body';
+        body2.setAttribute('role', 'list');
+
+        if (uncategorized.length > SHOW_MORE_THRESHOLD) {
+          var moreWrap2 = document.createElement('div');
+          moreWrap2.className = 'plan-cat-more-wrap';
+          moreWrap2.hidden = true;
+          var hiddenCount2 = 0;
+          uncategorized.forEach(function (row, idx) {
+            row.setAttribute('role', 'listitem');
+            var pill2 = row.querySelector('.plan-progress-pill');
+            var isActive2 = pill2 && pill2.classList.contains('active');
+            if (idx < SHOW_MORE_THRESHOLD || isActive2) {
+              body2.appendChild(row);
+            } else {
+              moreWrap2.appendChild(row);
+              hiddenCount2++;
+            }
+          });
+          if (hiddenCount2 > 0) {
+            body2.appendChild(moreWrap2);
+            var moreBtn2 = document.createElement('button');
+            moreBtn2.type = 'button';
+            moreBtn2.className = 'plan-cat-show-more';
+            moreBtn2.textContent = 'Show ' + hiddenCount2 + ' more\u2009\u25be';
+            moreBtn2.setAttribute('aria-expanded', 'false');
+            moreBtn2.addEventListener('click', function () {
+              moreWrap2.hidden = false;
+              moreBtn2.hidden = true;
+            });
+            body2.appendChild(moreBtn2);
+          }
+        } else {
+          uncategorized.forEach(function (row) {
+            row.setAttribute('role', 'listitem');
+            body2.appendChild(row);
+          });
+        }
+
+        det2.appendChild(body2);
+        list.appendChild(det2);
+      }
+
+      list.dataset.grouped = '1';
     }
     (function wirePlanListClicks() {
       var list = document.getElementById('planList');
@@ -7236,7 +7651,7 @@
         appendDayBp(breakdown, 'Real life today', breakdownData.modernApplication || dayData.familyTogether || dayData.action, '');
         appendDayBp(breakdown, 'Parent prompt', dayData.parentPrompt, '');
         appendDayBp(breakdown, 'For kids', dayData.kidQ, '');
-        appendDayBp(breakdown, 'Together', dayData.familyTogether, 'action-panel');
+        appendDayBp(breakdown, 'One small step together', dayData.familyTogether, 'action-panel');
         if (dayData.prayer) {
           appendDayBp(breakdown, 'Family prayer', dayData.prayer, 'prayer-panel');
         }
@@ -7253,7 +7668,7 @@
         appendDayBp(breakdown, 'Plain English', breakdownData.plainExplanation || dayData.plain, '');
         appendDayBp(breakdown, 'For your group', breakdownData.groupApplication || dayData.today, '');
         appendDayBp(breakdown, 'Real life today', breakdownData.modernApplication || dayData.action, '');
-        appendDayBp(breakdown, 'If you like', dayData.action, 'action-panel');
+        appendDayBp(breakdown, 'One small step', dayData.action, 'action-panel');
         if (dayData.prayer) {
           appendDayBp(breakdown, 'Prayer', dayData.prayer, 'prayer-panel');
         }
@@ -7265,6 +7680,65 @@
         );
       }
       card.appendChild(breakdown);
+
+      // ── Plan verse trail (all refs in this plan, one-glance thread) ──
+      if (plan.days && plan.days.length > 1) {
+        var progress = getDayProgress(plan);
+        var trailDet = document.createElement('details');
+        trailDet.className = 'plan-verse-trail';
+        var trailSum = document.createElement('summary');
+        var trailDayLabel = (function () {
+          var displayDay = Math.min(currentDay + 1, plan.days.length);
+          var total = plan.days.length;
+          var isDone = progress >= total;
+          if (isDone) return 'This plan\u2019s verse thread \u00b7 ' + total + ' days \u2014 complete';
+          if (progress === 0) return 'This plan\u2019s verse thread \u00b7 ' + total + ' days';
+          return 'This plan\u2019s verse thread \u00b7 Day ' + displayDay + ' of ' + total + ' highlighted';
+        }());
+        trailSum.textContent = trailDayLabel;
+        trailDet.appendChild(trailSum);
+        var trailInner = document.createElement('div');
+        trailInner.className = 'plan-verse-trail-inner';
+        plan.days.forEach(function (d, idx) {
+          if (!d || !d.ref) return;
+          var entry = document.createElement('div');
+          var isDone = idx < progress;
+          var isCur = idx === currentDay;
+          var isLocked = !isDone && !isCur;
+          entry.className = 'trail-entry' + (isCur ? ' is-current' : '') + (isDone ? ' is-done' : '') + (isLocked ? ' is-locked' : '');
+          var dayLbl = document.createElement('span');
+          dayLbl.className = 'trail-entry-day';
+          dayLbl.textContent = 'Day ' + (idx + 1);
+          entry.appendChild(dayLbl);
+          var refEl = document.createElement('button');
+          refEl.type = 'button';
+          refEl.className = 'trail-entry-ref';
+          refEl.textContent = cleanPlanPlain(d.ref);
+          if (isDone && !isCur) {
+            refEl.setAttribute('aria-label', 'Go to Day ' + (idx + 1) + ' \u2014 ' + cleanPlanPlain(d.ref));
+            refEl.addEventListener('click', (function (i) {
+              return function () { currentDay = i; renderDayCard(); };
+            })(idx));
+          } else if (isCur) {
+            refEl.setAttribute('aria-current', 'true');
+            refEl.setAttribute('aria-label', 'Today \u2014 Day ' + (idx + 1) + ' \u2014 ' + cleanPlanPlain(d.ref));
+          } else {
+            refEl.setAttribute('aria-label', 'Day ' + (idx + 1) + ' (not yet reached)');
+            refEl.disabled = true;
+          }
+          entry.appendChild(refEl);
+          if (isDone && !isCur) {
+            var doneBadge = document.createElement('span');
+            doneBadge.className = 'trail-done-badge';
+            doneBadge.setAttribute('aria-hidden', 'true');
+            doneBadge.textContent = '\u2713';
+            entry.appendChild(doneBadge);
+          }
+          trailInner.appendChild(entry);
+        });
+        trailDet.appendChild(trailInner);
+        card.appendChild(trailDet);
+      }
 
       var inductive = document.createElement('details');
       inductive.className = 'day-inductive';
@@ -8249,19 +8723,25 @@
     function shareDay() {
       var plan    = currentPlan;
       var dayData = plan.days[currentDay];
-      var refShare = cleanPlanPlain(dayData.ref == null ? '' : String(dayData.ref));
+      var refShare  = cleanPlanPlain(dayData.ref  == null ? '' : String(dayData.ref));
       var bodyShare = cleanPlanPlain(dayData.text == null ? '' : String(dayData.text));
-      var text    = refShare + ' (KJV)\n\u201c' + bodyShare + '\u201d';
+      var planUrl   = 'https://todaysdailybattle.com/plans.html?plan=' + encodeURIComponent(plan.id);
+      var stepShare = dayData.action ? '\n\nOne small step: ' + cleanPlanPlain(dayData.action) : '';
+      var text = refShare + ' (KJV)\n\u201c' + bodyShare + '\u201d'
+               + stepShare
+               + '\n\n\u2014 Day ' + (currentDay + 1) + ' of ' + plan.label
+               + '\n' + planUrl
+               + '\n(Free, no ads, no account \u2014 todaysdailybattle.com)';
       if (navigator.share) {
-        navigator.share({ text: text }).catch(function(){
+        navigator.share({ title: refShare + ' \u2014 Today\u2019s Daily Battle', text: text, url: planUrl }).catch(function(){
           if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(text).then(function(){ showToast('Copied ✓'); }).catch(function(){ showToast('Copy did not go through—that is all right. Select and copy manually.'); });
-          } else { showToast('Share did not open—that is all right. Select and copy manually.'); }
+            navigator.clipboard.writeText(text).then(function(){ showToast('Copied \u2713'); }).catch(function(){ showToast('Copy did not go through\u2014that is all right. Select and copy manually.'); });
+          } else { showToast('Share did not open\u2014that is all right. Select and copy manually.'); }
         });
       } else if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(function(){ showToast('Copied ✓'); }).catch(function(){ showToast('Copy did not go through—that is all right. Select and copy manually.'); });
+        navigator.clipboard.writeText(text).then(function(){ showToast('Copied \u2713'); }).catch(function(){ showToast('Copy did not go through\u2014that is all right. Select and copy manually.'); });
       } else {
-        showToast('Share is not open on this device—that is all right. Select and copy manually.');
+        showToast('Share is not open on this device\u2014that is all right. Select and copy manually.');
       }
     }
 
@@ -8291,7 +8771,8 @@
     document.getElementById('btnShareComplete').addEventListener('click', function shareComplete(){
       var plan = currentPlan;
       if (!plan) return;
-      var text = 'I completed the ' + plan.label + ' plan — ' + plan.max + ' days with God\'s Word. todaysdailybattle.com';
+      var planUrl = 'https://todaysdailybattle.com/plans.html?plan=' + encodeURIComponent(plan.id);
+      var text = plan.max + ' days in God\u2019s Word\u2014 ' + plan.label + ' plan finished.\n' + planUrl + '\n(Free, no ads, no account \u2014 todaysdailybattle.com)';
       if (navigator.share) {
         navigator.share({ text: text }).catch(function(){
           if (navigator.clipboard && navigator.clipboard.writeText) {

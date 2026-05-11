@@ -2286,7 +2286,7 @@
             '<div class="lib-actions">' +
               '<a class="tt-btn tt-btn-sm" href="' + escHtml(f.data) + '" download="' + escHtml(f.name) + '" aria-label="Download ' + escHtml(f.name) + '">⬇ Get</a>' +
               (f.data && f.data.startsWith('data:application/pdf')
-                ? '<a class="tt-btn tt-btn-sm tt-btn-ghost" href="' + escHtml(f.data) + '" target="_blank" rel="noopener" aria-label="Open ' + escHtml(f.name) + ' in new tab">Open</a>'
+                ? '<a class="tt-btn tt-btn-sm tt-btn-ghost" href="' + escHtml(f.data) + '" target="_blank" rel="noopener noreferrer" aria-label="Open ' + escHtml(f.name) + ' in new tab">Open</a>'
                 : '') +
               '<button class="tt-btn tt-btn-sm tt-btn-danger lib-del-btn" data-id="' + escHtml(f.id) + '" type="button" aria-label="Delete ' + escHtml(f.name) + '">✕</button>' +
             '</div>';

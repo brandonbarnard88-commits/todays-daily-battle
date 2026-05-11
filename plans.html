@@ -1302,6 +1302,12 @@
       color: var(--gold);
       margin: 0 0 0.2rem;
     }
+    .plan-reflection__intro {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin: 0 0 0.5rem;
+      font-style: italic;
+    }
     .plan-reflection__sub {
       font-size: 0.82rem;
       color: var(--muted);
@@ -3050,6 +3056,7 @@
       <!-- Reflection block — shown on the last day of any plan -->
       <div id="planReflectionBlock" class="plan-reflection" hidden aria-label="Sit with this plan">
         <p class="plan-reflection__heading">Sit with This Plan</p>
+        <p class="plan-reflection__intro" id="planReflectionIntro" hidden></p>
         <p class="plan-reflection__sub">A quiet moment with the Lord. No pressure &mdash; just honesty.</p>
         <div class="plan-reflection-q"><strong>1.</strong> Which part of this battle feels most real in your life right now?</div>
         <div class="plan-reflection-q"><strong>2.</strong> What is one small step of trust you sense the Lord inviting you to take?</div>
@@ -6765,6 +6772,99 @@
         if (isLastDay) {
           reflBlock.removeAttribute('hidden');
           reflBlock.hidden = false;
+          /* Set per-plan theme intro */
+          var introEl = document.getElementById('planReflectionIntro');
+          if (introEl) {
+            var introText = ({
+              battle: 'You\'ve walked through seven days of cutting through the noise with God\'s Word.',
+              gratitude: 'You\'ve spent these days practicing thankfulness — even on the hard ones.',
+              strength: 'You\'ve leaned into His strength, not your own, through these verses.',
+              marriage: 'You\'ve brought your marriage before the Lord in these days.',
+              peace: 'You\'ve pursued the peace that passes understanding through these scriptures.',
+              trust: 'You\'ve walked through what it means to trust God when it\'s hard.',
+              universitywaiting: 'You\'ve sat with God through the difficult season of waiting.',
+              universitygrief: 'You\'ve walked through grief with the Lord beside you.',
+              universityparenting: 'You\'ve brought the weight of parenting before God in these days.',
+              universitysecretprayer: 'You\'ve walked through the quiet discipline of secret prayer.',
+              universityanxiety: 'You\'ve brought your anxiety to God day by day through these verses.',
+              universityexhaustion: 'You\'ve walked through exhaustion with the God who renews.',
+              universitygratitude: 'You\'ve practiced gratitude even when it didn\'t come easily.',
+              universityloneliness: 'You\'ve sat with God through the ache of loneliness.',
+              universityforgiveness: 'You\'ve walked the hard road of forgiveness with these scriptures.',
+              universitydoubt: 'You\'ve brought your honest doubts to God in these verses.',
+              universitybitterness: 'You\'ve walked through bitterness toward the freedom God offers.',
+              eveninguog: 'You\'ve ended these days with God\'s Word as the last thing you held.',
+              universitybroken: 'You\'ve walked through brokenness with the God who restores.',
+              universitycomparison: 'You\'ve sat with God through the quiet trap of comparison.',
+              universityanger: 'You\'ve walked through anger with the God who understands.',
+              universityregret: 'You\'ve brought your regrets before the Lord in these days.',
+              universitycontentment: 'You\'ve walked toward contentment with Paul through these verses.',
+              universityoverwhelm: 'You\'ve walked through overwhelm with the God who holds you.',
+              universityparentfear: 'You\'ve brought your fears as a parent before God in these days.',
+              anger: 'You\'ve walked through anger toward the peace God offers.',
+              grief: 'You\'ve walked through grief with the Lord in these verses.',
+              forgiveness: 'You\'ve walked the road of forgiveness through these scriptures.',
+              parenting: 'You\'ve brought the weight of parenting to God in these days.',
+              loneliness: 'You\'ve sat with the God who sees you — even through loneliness.',
+              fearfaith: 'You\'ve walked from fear toward faith through these verses.',
+              worrytrust: 'You\'ve walked from worry toward trust in these scriptures.',
+              anxiety7: 'You\'ve brought your anxiety to God for these seven days.',
+              angerpeace: 'You\'ve walked through anger toward peace in these verses.',
+              doubtassurance: 'You\'ve walked through doubt toward assurance in God\'s Word.',
+              griefhope: 'You\'ve walked through grief toward hope in these scriptures.',
+              painwontquit: 'You\'ve walked through persistent pain with God beside you.',
+              heavyhope: 'You\'ve carried heavy things to God through these verses.',
+              heartalone: 'You\'ve sat with the God who sees you — even in the alone.',
+              littlehearts: 'You\'ve walked through these gentle verses with little ones.',
+              restlessnights: 'You\'ve brought restless nights before the God who gives sleep.',
+              wearyhands: 'You\'ve rested weary hands in God\'s strength through these days.',
+              preachingthroughexhaustion: 'You\'ve walked through the exhaustion of ministry with God\'s Word.',
+              smallchurchencouragement: 'You\'ve walked through encouragement for small, faithful work.',
+              pastoraloneliness: 'You\'ve brought the loneliness of pastoral ministry before God.',
+              dailyrenewing: 'You\'ve walked through the daily renewing of the inner man.',
+              kjvhowtoread: 'You\'ve walked through the practice of reading the KJV for yourself.',
+              cancercomfort: 'You\'ve walked through these verses of comfort in a very hard season.',
+              psalmscomfort: 'You\'ve sat with the comfort of the Psalms through these days.',
+              proverbswisdom: 'You\'ve walked through Proverbs\' wisdom for daily living.',
+              hopeuncertain: 'You\'ve walked through hope in an uncertain season.',
+              gospeljohn: 'You\'ve walked through the Gospel of John with fresh eyes.',
+              sufferendure: 'You\'ve walked through endurance in suffering with God\'s Word.',
+              psalmspraise: 'You\'ve walked through the Psalms of praise in these days.',
+              galatiansfreedom: 'You\'ve walked through Galatians\' freedom in Christ.',
+              firststeps: 'You\'ve walked through first steps in the faith — a foundation is being laid.',
+              identityinchrist: 'You\'ve walked through who you are in Christ through these verses.',
+              praisethanks30: 'You\'ve spent thirty days building a life of praise and thanks.',
+              armorofgod: 'You\'ve walked through the full armor of God in Ephesians 6.',
+              lettinggo: 'You\'ve walked through the hard grace of letting go.',
+              fearnot14: 'You\'ve walked through fourteen days of "Fear not" with the Lord.',
+              dailylabor: 'You\'ve walked through the dignity and purpose of daily work.',
+              christmas7: 'You\'ve walked through the wonder of the Incarnation in these days.',
+              newyear7: 'You\'ve brought the new year before God in these seven verses.',
+              emmanuel7: 'You\'ve walked through seven days of Emmanuel — God with us.',
+              holyspirit: 'You\'ve walked through the person and work of the Holy Spirit.',
+              walktheword: 'You\'ve walked through the practice of daily time in God\'s Word.',
+              standfirm: 'You\'ve walked through what it means to stand firm in the faith.',
+              greatcommission: 'You\'ve walked through the Great Commission and what it asks.',
+              stewardship: 'You\'ve walked through faithful stewardship of what God has given.',
+              moneyworry: 'You\'ve brought financial worry before the God who provides.',
+              addictionhope: 'You\'ve walked through hope in the middle of addiction.',
+              guiltshame: 'You\'ve walked from guilt and shame toward God\'s forgiveness.',
+              overwhelmedburnout: 'You\'ve walked through burnout with the God who restores.',
+              selfworth: 'You\'ve walked through what God says about your worth.',
+              caregiverrest: 'You\'ve brought the exhaustion of caregiving before God.',
+              teenfaith: 'You\'ve walked through building a real faith for real life.',
+              longillness: 'You\'ve walked through long illness with the God who stays.',
+              familyworship: 'You\'ve walked through these days of family worship together.',
+              psalmscomfortfamily: 'You\'ve walked through the comfort of the Psalms as a family.'
+            })[plan.id] || '';
+            if (introText) {
+              introEl.textContent = introText;
+              introEl.hidden = false;
+              introEl.removeAttribute('hidden');
+            } else {
+              introEl.hidden = true;
+            }
+          }
         } else {
           reflBlock.hidden = true;
         }

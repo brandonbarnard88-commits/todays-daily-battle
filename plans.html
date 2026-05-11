@@ -2556,6 +2556,11 @@
           <div class="plan-row-info"><h2>Summer Stillness</h2><p>Five gentle days&mdash;be still, good Shepherd, rest awhile. Pairs with summer on the year-round rhythm page (Family or Seasonal).</p></div>
           <div class="plan-row-meta"><span class="plan-badge">5 days</span><span class="plan-progress-pill" id="planPill-summerstill">Not started</span></div>
         </a>
+        <a href="plans.html?plan=longdayslittle" class="plan-row" data-plan="longdayslittle" role="listitem" aria-label="Long Days with Little Ones — 7 days">
+          <span class="plan-row-icon" aria-hidden="true">🌼</span>
+          <div class="plan-row-info"><h2>Long Days with Little Ones</h2><p>A gentle 7-day plan for parents worn thin by the long summer&mdash;too little sleep, too much needed. God sees what you pour out in the hidden hours.</p></div>
+          <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-longdayslittle">Not started</span></div>
+        </a>
         <a href="plans.html?plan=latesummerrest" class="plan-row" data-plan="latesummerrest" role="listitem" aria-label="Late Summer, Early Rest — 5 days">
           <span class="plan-row-icon" aria-hidden="true">🌅</span>
           <div class="plan-row-info"><h2>Late Summer, Early Rest</h2><p>Five KJV days when the year leans toward harvest but light still lingers&mdash;thanks, table, evening hush, and Christ&rsquo;s yoke. A soft bridge you can open from Seasonal or the University map.</p></div>
@@ -3062,6 +3067,13 @@
         <div class="plan-reflection-q"><strong>2.</strong> What is one small step of trust you sense the Lord inviting you to take?</div>
         <div class="plan-reflection-q"><strong>3.</strong> Would you like to bring this whole plan to Him in prayer right now?</div>
         <p class="plan-reflection__still">&ldquo;Come unto me, all ye that labour and are heavy laden, and I will give you rest.&rdquo; &mdash; Matthew 11:28 (KJV)</p>
+        <details class="tdb-vb-reflection__sat">
+          <summary>I sat with this</summary>
+          <div class="tdb-vb-reflection__sat-note">
+            <em>&ldquo;The LORD thy God in the midst of thee is mighty; he will save, he will rejoice over thee with joy.&rdquo; &mdash; Zephaniah 3:17 (KJV)</em>
+            <p>You are not alone.</p>
+          </div>
+        </details>
         <!-- Print journaling space (screen: hidden; print: two open boxes) -->
         <div class="plan-journal-print" aria-hidden="true">
           <p class="plan-journal-print__label">Journal space &mdash; write or draw whatever is on your heart</p>
@@ -5019,6 +5031,56 @@
         days: B ? B.summerStillness5 : []
       },
 
+      longdayslittle: {
+        id: 'longdayslittle', icon: '\uD83C\uDF3C', label: 'Long Days with Little Ones',
+        desc: 'A gentle 7-day plan for parents worn thin by the long summer\u2014too little sleep, too much noise, too much needed of you. God sees what you pour out in the hidden hours. These seven verses are not a to-do list\u2014just a quiet hand placed beside yours.',
+        key: 'tdb-plan-longdayslittle-day', max: 7,
+        days: [
+          { title: 'Power to the faint', ref: 'Isaiah 40:29', text: 'He giveth power to the faint; and to them that have no might he increaseth strength.',
+            speaker: 'Isaiah, God\u2019s word to the weary', plain: 'You do not have to manufacture energy you do not have. God\u2019s specialty is giving power to exactly the kind of tired you feel today.',
+            today: 'What would it look like to receive strength rather than grind for it\u2014even in one small moment today?',
+            action: 'Before you get up from wherever you are, ask God quietly for today\u2019s portion\u2014not the whole week, just today.',
+            prayer: 'Lord, I am faint. I have no might left. Give me power\u2014just for what is in front of me right now. Amen.',
+            goal: 'Rest in the asking before the doing.' },
+          { title: 'Mercies new every morning', ref: 'Lamentations 3:22\u201323', text: 'It is of the LORD\u2019s mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.',
+            speaker: 'Jeremiah, writing from ruins', plain: 'Even on the morning after a hard night, God\u2019s mercies reset. You are not behind. You did not use them all up yesterday.',
+            today: 'What is one mercy\u2014small or large\u2014that is already present this morning, before the day begins?',
+            action: 'Name it out loud if you can, even in a whisper.',
+            prayer: 'Thank You for this new morning. Your compassions did not fail overnight. Great is Your faithfulness. Amen.',
+            goal: 'Notice one fresh mercy before the first need of the day arrives.' },
+          { title: 'He knows your frame', ref: 'Psalm 103:13\u201314', text: 'Like as a father pitieth his children, so the LORD pitieth them that fear him. For he knoweth our frame; he remembereth that we are dust.',
+            speaker: 'The Psalmist, a word of tenderness', plain: 'God does not look at a worn-out parent and expect more than the frame can hold. He remembers you are dust\u2014not as a criticism, but as the most compassionate understanding imaginable.',
+            today: 'Where are you being hard on yourself for what the frame simply cannot do right now?',
+            action: 'Say it gently to God: \u201cI am dust today. You know my frame.\u201d',
+            prayer: 'Lord, have pity on me the way a father does\u2014remembering I am dust, not punishing me for it. Amen.',
+            goal: 'Receive His compassion without deflecting it.' },
+          { title: 'The fruit of longsuffering', ref: 'Galatians 5:22\u201323', text: 'But the fruit of the Spirit is love, joy, peace, longsuffering, gentleness, goodness, faith, Meekness, temperance: against such there is no law.',
+            speaker: 'Paul, to a church learning what freedom looks like', plain: 'Longsuffering is in the list. God listed it on purpose. The patience you need with little ones does not come from trying harder\u2014it comes from the Spirit you already have.',
+            today: 'Which of these fruits do you need the Spirit to grow in you today\u2014not by willpower, but by asking?',
+            action: 'Ask the Spirit for one fruit you feel short of right now.',
+            prayer: 'Holy Spirit, grow in me what I cannot grow myself. Longsuffering. Gentleness. Today, with these little ones. Amen.',
+            goal: 'Ask the Spirit to produce what only He can produce.' },
+          { title: 'Unto the Lord, not unto men', ref: 'Colossians 3:23', text: 'And whatsoever ye do, do it heartily, as to the Lord, and not unto men;',
+            speaker: 'Paul, even about ordinary labor', plain: 'The lunch you packed, the spill you cleaned, the question you answered for the twentieth time\u2014those are done unto the Lord. None of it is invisible.',
+            today: 'What \u201cwhatsoever\u201d task today can be quietly offered to God rather than done resentfully?',
+            action: 'Before one ordinary task, say to yourself: \u201cThis is for You, Lord.\u201d',
+            prayer: 'Lord, receive what my hands do today\u2014even the small things, even the repeated things. Amen.',
+            goal: 'Offer one hidden act as worship before the day ends.' },
+          { title: 'My grace is sufficient', ref: '2 Corinthians 12:9', text: 'And he said unto me, My grace is sufficient for thee: for my strength is made perfect in weakness. Most gladly therefore will I rather glory in my infirmities, that the power of Christ may rest upon me.',
+            speaker: 'God\u2019s direct word to Paul\u2014and through him, to you', plain: 'Sufficient does not mean lavish. It means exactly enough. God\u2019s grace does not run out the day before you do.',
+            today: 'What weakness today is the place where His power is actually at work, even if it does not feel like it?',
+            action: 'Write down one word that names today\u2019s hardest thing. Hand it to God.',
+            prayer: 'Lord, I am weak. Let Your strength be perfect right here, in this exact weakness. Amen.',
+            goal: 'Trust that His sufficiency covers what you cannot.' },
+          { title: 'Come, rest', ref: 'Matthew 11:28\u201329', text: 'Come unto me, all ye that labour and are heavy laden, and I will give you rest. Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls.',
+            speaker: 'Jesus, the same steady invitation', plain: 'He said \u201call ye that labour.\u201d Long summer days with small children qualify. This invitation was written for you.',
+            today: 'What would it mean to come to Him before you come to the next thing on your list today?',
+            action: 'Sit for two quiet minutes with this verse before the next thing begins.',
+            prayer: 'Jesus, I come. I am heavy laden. Give me the rest you promised\u2014for my soul, not just my schedule. Amen.',
+            goal: 'End this week by coming to Him, not just enduring to the end.' }
+        ]
+      },
+
       latesummerrest: {
         id: 'latesummerrest', icon: '\uD83C\uDF05', label: 'Late Summer, Early Rest',
         desc: 'When August heat and September pace share the same week\u2014five KJV days of thanks, glad service, table blessing, evening sleep, and Christ&rsquo;s yoke. A seasonal bridge between summer stillness and harvest gratitude; same on-device save as every plan.',
@@ -5446,7 +5508,7 @@
       }
       var fIntro = document.getElementById('planFamilyIntro');
       if (fIntro) {
-        var isFamilyPlan = plan.id === 'familyworship' || plan.id === 'psalmscomfortfamily' || plan.id === 'parenting' || plan.id === 'littlehearts' || plan.id === 'eveninguog' || plan.id === 'universityparentfear';
+        var isFamilyPlan = plan.id === 'familyworship' || plan.id === 'psalmscomfortfamily' || plan.id === 'parenting' || plan.id === 'littlehearts' || plan.id === 'eveninguog' || plan.id === 'universityparentfear' || plan.id === 'longdayslittle';
         if (isFamilyPlan) {
           fIntro.hidden = false;
           fIntro.removeAttribute('hidden');
@@ -6855,7 +6917,8 @@
               teenfaith: 'You\'ve walked through building a real faith for real life.',
               longillness: 'You\'ve walked through long illness with the God who stays.',
               familyworship: 'You\'ve walked through these days of family worship together.',
-              psalmscomfortfamily: 'You\'ve walked through the comfort of the Psalms as a family.'
+              psalmscomfortfamily: 'You\'ve walked through the comfort of the Psalms as a family.',
+              longdayslittle: 'You\'ve walked through seven long days — and God saw every hidden hour of it.'
             })[plan.id] || '';
             if (introText) {
               introEl.textContent = introText;

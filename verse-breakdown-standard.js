@@ -82,6 +82,17 @@
     still.textContent = '\u201cBe still, and know that I am God\u2026\u201d \u2014 Psalm 46:10 (KJV)';
     wrap.appendChild(still);
 
+    var details = document.createElement('details');
+    details.className = 'tdb-vb-reflection__sat';
+    var summary = document.createElement('summary');
+    summary.textContent = 'I sat with this';
+    details.appendChild(summary);
+    var note = document.createElement('div');
+    note.className = 'tdb-vb-reflection__sat-note';
+    note.innerHTML = '<em>\u201cThe LORD thy God in the midst of thee is mighty; he will save, he will rejoice over thee with joy.\u201d \u2014 Zephaniah 3:17 (KJV)</em><p>You are not alone.</p>';
+    details.appendChild(note);
+    wrap.appendChild(details);
+
     return wrap;
   }
 

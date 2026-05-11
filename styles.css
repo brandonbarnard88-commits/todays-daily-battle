@@ -15538,6 +15538,44 @@ body.sepia-mode:not(.dark-mode) .tdb-vb-reflection-q { color: #292524; backgroun
 html[data-theme="sepia"] .tdb-vb-reflection__still,
 body.sepia-mode:not(.dark-mode) .tdb-vb-reflection__still { color: #5c4a2a; background: rgba(240,236,220,0.5); }
 
+/* ─── Reflection: "I sat with this" gentle disclosure ─── */
+.tdb-vb-reflection__sat {
+  margin-top: 1.1rem;
+}
+.tdb-vb-reflection__sat summary {
+  display: inline-block;
+  font-size: 0.79rem;
+  color: #a38b6e;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  list-style: none;
+  padding: 0.3rem 0;
+  border-bottom: 1px dotted rgba(163, 139, 110, 0.4);
+  user-select: none;
+}
+.tdb-vb-reflection__sat summary::-webkit-details-marker { display: none; }
+.tdb-vb-reflection__sat[open] summary { color: #c9b89a; border-bottom-color: transparent; }
+.tdb-vb-reflection__sat-note {
+  margin-top: 0.75rem;
+  padding: 0.85rem 1rem;
+  background: rgba(20, 25, 35, 0.55);
+  border-radius: 6px;
+  border-left: 2px solid rgba(163, 139, 110, 0.5);
+  font-size: 0.84rem;
+  color: #c9b89a;
+  line-height: 1.65;
+}
+.tdb-vb-reflection__sat-note em { display: block; margin-bottom: 0.5rem; font-style: italic; }
+.tdb-vb-reflection__sat-note p { margin: 0; color: #ddd; font-size: 0.9rem; letter-spacing: 0.02em; }
+html[data-theme="light"] .tdb-vb-reflection__sat-note,
+body.light:not(.dark-mode) .tdb-vb-reflection__sat-note { background: rgba(245,240,230,0.6); color: #5c4a2a; }
+html[data-theme="light"] .tdb-vb-reflection__sat-note p,
+body.light:not(.dark-mode) .tdb-vb-reflection__sat-note p { color: #3a2a10; }
+html[data-theme="sepia"] .tdb-vb-reflection__sat-note,
+body.sepia-mode:not(.dark-mode) .tdb-vb-reflection__sat-note { background: rgba(240,236,220,0.6); color: #5c4a2a; }
+html[data-theme="sepia"] .tdb-vb-reflection__sat-note p,
+body.sepia-mode:not(.dark-mode) .tdb-vb-reflection__sat-note p { color: #3a2a10; }
+
 .tdb-vb-inline-prayer-block {
   margin-top: 0.58rem;
   padding: 0.65rem 0.78rem;

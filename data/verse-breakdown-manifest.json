@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-11T13:16:18.589Z",
+  "generatedAt": "2026-05-11T13:33:32.708Z",
   "surfacedRefCount": 2993,
   "overrideCount": 2993,
   "sourceCounts": {
@@ -1155,6 +1155,10 @@
       "refs": 1,
       "pairs": 0
     },
+    "kids-back-to-school.html": {
+      "refs": 2,
+      "pairs": 0
+    },
     "kids-coloring-pack 2.html": {
       "refs": 2,
       "pairs": 0
@@ -1672,7 +1676,7 @@
       "pairs": 0
     },
     "seasonal.html": {
-      "refs": 10,
+      "refs": 11,
       "pairs": 0
     },
     "sermon 2.html": {
@@ -1748,7 +1752,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 124,
+      "refs": 125,
       "pairs": 0
     },
     "tl/kabalisahan.html": {

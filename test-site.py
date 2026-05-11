@@ -96,6 +96,7 @@ PAGES = [
     ("/kids-activities-print.html", "Kids Activities Print", ["Kids Activity Sheet", "Verse Echo", "Draw the Story", "Prayer Circle", "Kindness Challenge", "Print this page"]),
     ("/kids-coloring-pack.html", "Kids Coloring Pack", ["Color &amp; Tell", "Full Coloring Book", "Print all pages", "83 Bible stories", "coloring.html", "Old Testament"]),
     ("/kids-summer-feelings.html", "Kids Summer Feelings", ["When Your Heart Feels Heavy", "Psalm 34:18", "Jesus wept", "tdbQAAnswer", "summertimesadness"]),
+    ("/kids-grief-story.html", "Kids Grief Story", ["When Your Heart Misses Someone", "Psalm 23:4", "Jesus wept", "tdbQAAnswer", "summergrief"]),
     ("/shop.html", "Shop", ["Free Resources", "Battle Plans", "kids-coloring-pack.html", "plans.html"]),
     ("/wins-report.html", "Wins Report", ["Wins", "Today's Daily Battle"]),
     ("/where-support-goes.html", "Where support goes", ["Where support goes", "Human-curated", "Privacy-first", "KJV only"]),

@@ -1486,3 +1486,284 @@ html[data-theme="dark"] .kids-shepherd-hero-img {
 html[data-theme="dark"] .kids-shepherd-hero-wrap {
   background: radial-gradient(ellipse 80% 60% at 50% 28%, rgba(255,255,255,0.65) 0%, transparent 65%) !important;
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   Kids World Surface — comprehensive text legibility overrides
+   All kids pages use kids-world-surface (cream/paper bg).
+   These rules correct every element that was styled for the dark
+   sky background and would otherwise be invisible on light paper.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Header subtitle: override kids-battle.css !important yellow */
+body.kids-world-surface .kids-subtitle {
+  color: #92400e !important;
+}
+
+/* Footer nav links (separate from .kids-footer a) */
+body.kids-world-surface .kids-footer-nav a {
+  color: #0369a1;
+}
+
+/* Section titles: yellow → warm amber */
+body.kids-world-surface .kids-section-title {
+  color: #92400e;
+}
+
+/* Buddy tagline (light slate → readable ink) */
+body.kids-world-surface .kids-buddy-tagline {
+  color: var(--kw-ink-muted);
+}
+body.kids-world-surface .kids-buddy-tagline strong {
+  color: var(--kw-ink);
+}
+
+/* Kicker labels: yellow → dark amber */
+body.kids-world-surface .kids-age-lane-kicker,
+body.kids-world-surface .kids-weekly-card-kicker,
+body.kids-world-surface .kids-offline-kit-title,
+body.kids-world-surface .kids-verse-action-kicker {
+  color: #b45309;
+}
+
+/* Age-lane / weekly cards: dark navy → warm paper */
+body.kids-world-surface .kids-age-lane,
+body.kids-world-surface .kids-weekly-card {
+  background: linear-gradient(180deg, rgba(255, 252, 245, 0.98), rgba(255, 245, 230, 0.9));
+  border-color: rgba(217, 119, 6, 0.22);
+}
+body.kids-world-surface .kids-age-lane h3 {
+  color: #92400e;
+}
+body.kids-world-surface .kids-age-lane p,
+body.kids-world-surface .kids-weekly-card span:last-child,
+body.kids-world-surface .kids-first-steps-lead,
+body.kids-world-surface .kids-weekly-paths-lead {
+  color: var(--kw-ink-muted);
+}
+
+/* Preview cards: dark → light */
+body.kids-world-surface .kids-preview-card {
+  background: rgba(255, 252, 245, 0.95);
+  border-color: rgba(217, 119, 6, 0.18);
+}
+
+/* Story-of-day elements */
+body.kids-world-surface .kids-story-of-day-title {
+  color: #92400e;
+}
+body.kids-world-surface .kids-story-of-day-caption {
+  color: #475569;
+}
+body.kids-world-surface .kids-story-of-day-cta {
+  color: #0e7490;
+}
+
+/* Play zone text inside the shepherdfield cream zone */
+body.kids-world-surface .kids-play-zone--shepherdfield .kids-play-zone-kicker {
+  color: #b45309;
+}
+body.kids-world-surface .kids-play-zone--shepherdfield .kids-play-zone-title {
+  color: var(--kw-ink);
+  text-shadow: none;
+}
+body.kids-world-surface .kids-play-zone--shepherdfield .kids-play-zone-lead {
+  color: var(--kw-ink-muted);
+}
+
+/* Disclosure/details summaries: yellow or light slate → readable */
+body.kids-world-surface .kids-play-more > summary {
+  color: #92400e;
+}
+body.kids-world-surface .kids-play-more {
+  border-color: rgba(217, 119, 6, 0.28);
+  background: rgba(255, 250, 235, 0.6);
+}
+body.kids-world-surface .kids-play-extra-lanes > summary,
+body.kids-world-surface .kids-kjv-extra > summary,
+body.kids-world-surface .kids-tech-hint > summary,
+body.kids-world-surface .kids-lanes-details > summary {
+  color: var(--kw-ink-muted);
+}
+body.kids-world-surface .kids-play-extra-lanes,
+body.kids-world-surface .kids-tech-hint,
+body.kids-world-surface .kids-lanes-details,
+body.kids-world-surface .kids-kjv-extra {
+  background: rgba(255, 252, 245, 0.55);
+  border-color: rgba(30, 41, 59, 0.12);
+}
+body.kids-world-surface .kids-grownup-long > summary {
+  color: var(--kw-ink-muted);
+}
+body.kids-world-surface .kids-grownup-long {
+  background: rgba(255, 252, 245, 0.45);
+  border-color: rgba(30, 41, 59, 0.1);
+}
+body.kids-world-surface .kids-quick-themes > summary,
+body.kids-world-surface .kids-gj-details > summary {
+  color: #92400e;
+}
+body.kids-world-surface .kids-quick-themes,
+body.kids-world-surface .kids-gj-details {
+  background: rgba(255, 250, 235, 0.5);
+  border-color: rgba(217, 119, 6, 0.15);
+}
+body.kids-world-surface .kids-classroom-details > summary {
+  color: #92400e;
+}
+body.kids-world-surface .kids-classroom-details {
+  background: rgba(255, 250, 240, 0.7);
+  border-color: rgba(217, 119, 6, 0.28);
+}
+
+/* Weekly verse card on world surface */
+body.kids-world-surface .kids-weekly-verse-card h3 {
+  color: #b45309;
+}
+body.kids-world-surface .kids-weekly-verse-line {
+  color: var(--kw-ink);
+}
+body.kids-world-surface .kids-weekly-verse-ref {
+  color: #b45309;
+}
+body.kids-world-surface .kids-chant-hint {
+  color: var(--kw-ink-muted);
+}
+
+/* Weekly verse easy / KJV strip */
+body.kids-world-surface .kids-weekly-verse-easy {
+  background: rgba(14, 116, 144, 0.07);
+  border-color: rgba(14, 116, 144, 0.2);
+  color: #0c4a6e;
+}
+body.kids-world-surface .kids-verse-easy-k {
+  color: #0e7490;
+}
+
+/* Progress labels */
+body.kids-world-surface .kids-progress-eyebrow {
+  color: #64748b;
+}
+body.kids-world-surface .kids-progress-pct-line {
+  color: #475569;
+}
+body.kids-world-surface .kids-play-progress label {
+  color: var(--kw-ink);
+}
+
+/* Pills and tags on light backgrounds */
+body.kids-world-surface .kids-play-tier-pill {
+  background: rgba(180, 83, 9, 0.1);
+  color: #92400e;
+  border-color: rgba(180, 83, 9, 0.3);
+}
+body.kids-world-surface .kids-kjv-pill {
+  background: rgba(14, 116, 144, 0.12);
+  color: #0e7490;
+  border-color: rgba(14, 116, 144, 0.3);
+}
+body.kids-world-surface .kids-faith-trail-badge,
+body.kids-world-surface .kids-corner-explorer-badge {
+  color: #92400e;
+  background: rgba(255, 250, 235, 0.92);
+  border-color: rgba(217, 119, 6, 0.45);
+}
+
+/* Search input on world surface */
+body.kids-world-surface .kids-search-input {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--kw-ink);
+  border-color: rgba(217, 119, 6, 0.45);
+}
+
+/* Match-buddies page: inline styles need specific overrides */
+body.kids-world-surface.kids-mini-game .match-hero h1 {
+  color: #92400e;
+}
+body.kids-world-surface.kids-mini-game .match-hero p {
+  color: var(--kw-ink-muted);
+}
+body.kids-world-surface.kids-mini-game .match-col h2 {
+  color: #64748b;
+}
+
+/* Corner Explorer badge on corner page */
+body.kids-world-surface .kids-corner-explorer-badge {
+  color: #92400e;
+  background: rgba(255, 250, 235, 0.92);
+  border-color: rgba(217, 119, 6, 0.4);
+}
+
+/* Breadcrumb / page nav (light opacity → clearer) */
+body.kids-world-surface .kids-corner-breadcrumb,
+body.kids-world-surface .kids-corner-page-nav--compact {
+  opacity: 1;
+}
+
+/* kids-corner.css elements that lose contrast on world surface */
+body.kids-world-surface .kids-corner-armor-hint {
+  color: #b45309;
+}
+body.kids-world-surface .kids-activity-text {
+  color: var(--kw-ink-muted);
+}
+body.kids-world-surface .loop-quick-start-kicker {
+  color: #b45309;
+}
+body.kids-world-surface .loop-quick-start-card {
+  background: rgba(255, 252, 245, 0.92);
+  border-color: rgba(217, 119, 6, 0.22);
+}
+body.kids-world-surface .loop-quick-start-card h3 {
+  color: var(--kw-ink);
+}
+body.kids-world-surface .loop-quick-start-card p:last-of-type {
+  color: var(--kw-ink-muted);
+}
+/* Filter chips on world surface */
+body.kids-world-surface .loop-filter-chip {
+  color: var(--kw-ink);
+}
+body.kids-world-surface .loop-filter-chip.is-active {
+  color: #92400e;
+  background: rgba(217, 119, 6, 0.12);
+  border-color: rgba(217, 119, 6, 0.5);
+}
+/* Loop status notes */
+body.kids-world-surface .loop-filter-status,
+body.kids-world-surface .loop-progress-gentle-note {
+  color: var(--kw-ink-muted);
+}
+
+/* kids-hub-play.css: lib-cache-hint */
+body.kids-world-surface .kids-lib-cache-hint {
+  color: #64748b;
+}
+
+/* Parent dashboard text (kids-hub-play.css parent deck) */
+body.kids-world-surface .kids-parent-today h2,
+body.kids-world-surface .kids-parent-devotion h2 {
+  color: var(--kw-ink);
+}
+body.kids-world-surface .kids-parent-today-summary {
+  color: var(--kw-ink-muted);
+}
+body.kids-world-surface .kids-parent-streak-line {
+  color: #b45309;
+}
+body.kids-world-surface .kids-devotion-ol {
+  color: var(--kw-ink-muted);
+}
+body.kids-world-surface .kids-devotion-verse {
+  background: rgba(217, 119, 6, 0.06);
+  border-color: rgba(217, 119, 6, 0.2);
+  color: var(--kw-ink);
+}
+body.kids-world-surface .kids-devotion-verse cite {
+  color: #b45309;
+}
+body.kids-world-surface .kids-parent-badge-row .kids-badge,
+body.kids-world-surface .kids-parent-badge-row .kids-library-badge {
+  background: rgba(217, 119, 6, 0.08);
+  border-color: rgba(217, 119, 6, 0.32);
+  color: #92400e;
+}

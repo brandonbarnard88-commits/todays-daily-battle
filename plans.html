@@ -3051,6 +3051,9 @@
       <div id="planUniversityAtTablePrintIntro" class="plan-detail-intro" hidden aria-label="University at the Table print">
         <p>Need something shorter than the full weekly path? Four steady KJV lines from the quiet rooms plus a one-minute family aloud on one sheet: <a href="university-at-the-table-print.html">University at the Table</a> (print-friendly, no sign-in).</p>
       </div>
+      <div id="planKidsCompanionIntro" class="plan-detail-intro" hidden aria-label="Kids companion story">
+        <p>Reading this with little ones at home? There&rsquo;s a gentle companion story for children: <a id="planKidsCompanionLink" href="/kids-grief-story.html">When Your Heart Misses Someone</a> &mdash; a quiet read-aloud, coloring page, and soft questions for little hearts walking through the same season.</p>
+      </div>
       <div class="day-pills" id="dayPills" role="list" aria-label="Day selector"></div>
       <p class="plans-detail-nav-hint" id="plansDetailNavHint"><strong>Next day:</strong> tap the next open circle. <strong>Revisit:</strong> tap a day you&rsquo;ve already opened. <strong>Links:</strong> a <code class="plans-code">?day=</code> URL only opens a day you&rsquo;ve already reached&mdash;not past what you&rsquo;ve finished.</p>
       <div id="planCompleteCard" class="plan-complete-card">
@@ -5681,6 +5684,22 @@
         } else {
           fIntro.hidden = true;
           fIntro.setAttribute('hidden', '');
+        }
+      }
+      var kidsCompanionIntro = document.getElementById('planKidsCompanionIntro');
+      if (kidsCompanionIntro) {
+        var KIDS_COMPANION = {
+          summergrief: { href: '/kids-grief-story.html', label: 'When Your Heart Misses Someone' },
+          summertimesadness: { href: '/kids-summer-feelings.html', label: 'When Your Heart Feels Heavy' }
+        };
+        var companion = KIDS_COMPANION[plan.id];
+        if (companion) {
+          var link = document.getElementById('planKidsCompanionLink');
+          if (link) { link.href = companion.href; link.textContent = companion.label; }
+          kidsCompanionIntro.hidden = false;
+          kidsCompanionIntro.removeAttribute('hidden');
+        } else {
+          kidsCompanionIntro.hidden = true;
         }
       }
       var ePrint = document.getElementById('planEveningUogPrintIntro');

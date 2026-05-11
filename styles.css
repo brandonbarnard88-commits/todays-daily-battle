@@ -15488,6 +15488,56 @@ body.has-promo-banner .header-search-sticky {
   line-height: 1.5;
   color: rgba(241, 245, 249, 0.95);
 }
+/* ─── Verse Reflection (adult sit-with-this block) ─── */
+.tdb-vb-reflection {
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(163,139,110,0.22);
+}
+.tdb-vb-reflection__heading {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #d4c4a8;
+  margin: 0 0 0.22rem;
+  letter-spacing: 0.01em;
+}
+.tdb-vb-reflection__sub {
+  font-size: 0.82rem;
+  color: #8a8fa0;
+  margin: 0 0 0.9rem;
+}
+.tdb-vb-reflection-q {
+  background: rgba(20,25,35,0.7);
+  border-left: 3px solid #a38b6e;
+  padding: 0.7rem 0.9rem;
+  margin-bottom: 0.6rem;
+  border-radius: 0 4px 4px 0;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: #dde0e8;
+}
+.tdb-vb-reflection-q strong {
+  color: #c9a84c;
+  margin-right: 0.3rem;
+}
+.tdb-vb-reflection__still {
+  margin-top: 1rem;
+  padding: 0.65rem 0.9rem;
+  background: rgba(20,25,35,0.55);
+  border-radius: 6px;
+  font-size: 0.82rem;
+  color: #b8a98a;
+  font-style: italic;
+}
+html[data-theme="light"] .tdb-vb-reflection-q,
+body.light:not(.dark-mode) .tdb-vb-reflection-q { color: #292524; background: rgba(240,236,228,0.6); }
+html[data-theme="light"] .tdb-vb-reflection__still,
+body.light:not(.dark-mode) .tdb-vb-reflection__still { color: #5c4a2a; background: rgba(240,236,228,0.5); }
+html[data-theme="sepia"] .tdb-vb-reflection-q,
+body.sepia-mode:not(.dark-mode) .tdb-vb-reflection-q { color: #292524; background: rgba(240,236,220,0.6); }
+html[data-theme="sepia"] .tdb-vb-reflection__still,
+body.sepia-mode:not(.dark-mode) .tdb-vb-reflection__still { color: #5c4a2a; background: rgba(240,236,220,0.5); }
+
 .tdb-vb-inline-prayer-block {
   margin-top: 0.58rem;
   padding: 0.65rem 0.78rem;

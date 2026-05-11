@@ -881,6 +881,12 @@
     prayBlk.appendChild(prayPwrap);
     panel.appendChild(prayBlk);
 
+    /* Reflection block — gentle adult "sit with this" questions */
+    var std = window.TDB_verseBreakdownStandard;
+    if (std && typeof std.buildReflectionBlock === 'function') {
+      panel.appendChild(std.buildReflectionBlock());
+    }
+
     var actions = document.createElement('div');
     actions.className = 'tdb-vb-inline-actions';
     [['pray', 'Pray it'], ['note', 'Save'], ['share', 'Share']].forEach(function (pair) {

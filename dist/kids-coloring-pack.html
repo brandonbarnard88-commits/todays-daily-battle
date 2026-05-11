@@ -344,6 +344,79 @@
     @media (max-width: 600px) {
       .cb-toc__sections { grid-template-columns: 1fr; }
     }
+
+    /* ─── Kids Q&A (screen only) ─── */
+    .kids-qa {
+      margin: 1.5rem 0 0;
+      padding: 1.25rem 1.25rem 1rem;
+      background: rgba(201,168,76,0.05);
+      border: 1px solid rgba(201,168,76,0.18);
+      border-radius: 8px;
+    }
+    .kids-qa__heading {
+      color: var(--cb-gold);
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin: 0 0 0.2rem;
+      letter-spacing: 0.01em;
+    }
+    .kids-qa__sub {
+      font-size: 0.8rem;
+      color: var(--cb-muted);
+      margin: 0 0 1rem;
+    }
+    .qa-card { margin-bottom: 1.1rem; }
+    .qa-card:last-child { margin-bottom: 0; }
+    .qa-card__q {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #dde0e8;
+      margin: 0 0 0.45rem;
+      line-height: 1.4;
+    }
+    .qa-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.32rem;
+    }
+    .qa-opt {
+      background: rgba(14,18,28,0.65);
+      border: 1px solid rgba(201,168,76,0.18);
+      color: #b8bcc8;
+      padding: 0.48rem 0.8rem;
+      border-radius: 5px;
+      font-size: 0.83rem;
+      text-align: left;
+      cursor: pointer;
+      transition: border-color 0.14s, color 0.14s;
+      line-height: 1.35;
+    }
+    .qa-opt:hover:not(:disabled) { border-color: var(--cb-gold); color: #e8eaf0; }
+    .qa-opt:disabled { cursor: default; }
+    .qa-opt--correct {
+      background: rgba(42,66,42,0.7) !important;
+      border-color: #5a9a5a !important;
+      color: #90cf90 !important;
+    }
+    .qa-opt--wrong { opacity: 0.45; }
+    .qa-feedback {
+      font-size: 0.8rem;
+      margin-top: 0.38rem;
+      padding: 0.38rem 0.6rem;
+      border-radius: 4px;
+      display: none;
+      line-height: 1.4;
+    }
+    .qa-feedback--correct {
+      background: rgba(42,66,42,0.45);
+      color: #90cf90;
+      display: block;
+    }
+    .qa-feedback--hint {
+      background: rgba(58,47,28,0.5);
+      color: #c9a07a;
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -401,6 +474,32 @@
       <a class="btn btn-secondary" href="/">Home</a>
     </div>
   </footer>
+
+  <!-- Q&A data (349 stories with read-aloud + quiz) — deferred so it never blocks paint -->
+  <script defer src="kids/kids-read-quiz-data.js"></script>
+
+  <script nonce="tdb2025s">
+  /* Global Q&A answer handler — gentle hints on wrong, praise on correct */
+  function tdbQAAnswer(btn, correct, msg) {
+    var card = btn.closest ? btn.closest('.qa-card') : (function(el){while(el&&!el.classList.contains('qa-card'))el=el.parentElement;return el;})(btn);
+    if (!card) return;
+    var fb = card.querySelector('.qa-feedback');
+    if (!fb) return;
+    if (correct) {
+      fb.textContent = '\u2713 ' + msg;
+      fb.className = 'qa-feedback qa-feedback--correct';
+      btn.className = btn.className + ' qa-opt--correct';
+      var btns = card.querySelectorAll('.qa-opt');
+      for (var i = 0; i < btns.length; i++) btns[i].disabled = true;
+    } else {
+      fb.textContent = msg + ' Try again!';
+      fb.className = 'qa-feedback qa-feedback--hint';
+      btn.className = btn.className + ' qa-opt--wrong';
+      btn.disabled = true;
+    }
+    if (fb.scrollIntoView) fb.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+  </script>
 
   <script nonce="tdb2025s">
   (function () {
@@ -683,6 +782,101 @@
         verseRef:'Acts 27:22,25 (KJV)' }
     ];
 
+    /* ─── Q&A: mapping from coloring-book IDs → TDB_KIDS_READ_QUIZ keys ─── */
+    var CB_QUIZ_MAP = {
+      'creation':'creation','noah':'noah','abraham-isaac':'abrahamIsaac',
+      'joseph-coat':'josephCoat','joseph-dreams':'josephRuler',
+      'baby-moses':'mosesBaby','burning-bush':'burningBush','moses-red-sea':'mosesSea',
+      'balaams-donkey':'balaamDonkey','jordan-crossing':'jordanCrossing',
+      'rahab-spies':'rahabJericho','jericho':'jerichoWalls',
+      'gideon-fleece':'gideonFleece','samson':'samson',
+      'ruth-naomi':'ruthNaomi','ruth-boaz':'ruthBoaz','hannah-samuel':'hannahSamuel',
+      'boy-samuel':'samuelCalls','boy-david':'davidSheep','david':'davidGoliath',
+      'david-jonathan':'davidJonathan','david-spares-saul':'davidCave',
+      'elijah-ravens':'elijahRavens','elijah-widow':'elijahWidow',
+      'elijah-carmel':'elijahFire','elijah-taken-up':'elijahChariot',
+      'elisha-oil':'widowOil','naaman':'naaman','esther':'esther',
+      'nehemiah-walls':'nehemiahWalls','fiery-furnace':'danielFieryFurnace',
+      'daniel-lions':'danielLionsDen','writing-on-wall':'daniel','jonah':'jonah',
+      'nativity':'jesusManger','jesus-baptism':'jesusBaptism',
+      'jesus-tempted':'jesusTempted','triumphal-entry':'triumphalEntry',
+      'jesus-washes-feet':'jesusLastSupper','transfiguration':'transfigure',
+      'empty-tomb':'tombEmpty','emmaus-road':'emmausRoad',
+      'fishers-of-men':'jesusCallingDisciples','wedding-cana':'jesusWaterWine',
+      'healing-paralytic':'jesusHealsParalytic','withered-hand':'witheredHand',
+      'centurion-servant':'centurionServant','feeding-5000':'jesusFeeds5000',
+      'feeding-4000':'jesusFeeds4000','jesus-storm':'jesusCalmsStorm',
+      'walks-on-water':'jesusWalksWater','healing-leper':'healLeper',
+      'ten-lepers':'tenLepers','jairus-daughter':'jairus','lazarus':'lazarus',
+      'blind-man':'jesusHealsBlind','woman-at-well':'samaritanWoman',
+      'good-shepherd':'jesusParableGoodShepherd','good-samaritan':'goodSamaritan',
+      'prodigal-son':'prodigalSon','lost-sheep':'lostSheep','lost-coin':'lostCoin',
+      'mustard-seed':'jesusParableMustardSeed','the-sower':'jesusParableSower',
+      'the-talents':'parableTalents','persistent-widow':'persistentWidow',
+      'unforgiving-servant':'unforgivingServant','rich-young-ruler':'richYoungRuler',
+      'widows-mite':'widowsMite','jesus-children':'jesusAndChildren',
+      'zacchaeus':'zacchaeus','paul-silas-prison':'paulSilas',
+      'lydia-purple':'lydiaSell','tabitha-dorcas':'dorcasRaise',
+      'philip-ethiopian':'philipEthiopian','paul-shipwreck':'paulShipwreck'
+    };
+
+    /* ─── Inject Q&A block into each story article ─── */
+    function buildQA(story, article) {
+      var quiz = window.TDB_KIDS_READ_QUIZ;
+      if (!quiz) return;
+      var key = CB_QUIZ_MAP[story.id];
+      if (!key) return;
+      var data = quiz[key];
+      if (!data || !data.questions || !data.questions.length) return;
+
+      var section = document.createElement('section');
+      section.className = 'kids-qa no-print';
+      section.setAttribute('aria-label', 'Story questions for ' + story.title);
+
+      var heading = document.createElement('h4');
+      heading.className = 'kids-qa__heading';
+      heading.textContent = data.quizHeading || 'Let\u2019s talk about the story';
+      section.appendChild(heading);
+
+      var sub = document.createElement('p');
+      sub.className = 'kids-qa__sub';
+      sub.textContent = data.hintAboveQuiz || 'Choose the best answer. A gentle hint will help if needed.';
+      section.appendChild(sub);
+
+      data.questions.forEach(function (q, qi) {
+        var card = document.createElement('div');
+        card.className = 'qa-card';
+
+        var qp = document.createElement('p');
+        qp.className = 'qa-card__q';
+        qp.textContent = (qi + 1) + '. ' + q.question;
+        card.appendChild(qp);
+
+        var opts = document.createElement('div');
+        opts.className = 'qa-options';
+
+        q.choices.forEach(function (choice, ci) {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'qa-opt';
+          btn.textContent = String.fromCharCode(65 + ci) + '. ' + choice;
+          var isCorrect = ci === q.correctIndex;
+          var msg = isCorrect ? (q.correctFeedback || 'Yes!') : (q.wrongFeedback || 'Not quite — try again.');
+          btn.addEventListener('click', function () { tdbQAAnswer(btn, isCorrect, msg); });
+          opts.appendChild(btn);
+        });
+
+        card.appendChild(opts);
+        var fb = document.createElement('div');
+        fb.className = 'qa-feedback';
+        fb.setAttribute('aria-live', 'polite');
+        card.appendChild(fb);
+        section.appendChild(card);
+      });
+
+      article.appendChild(section);
+    }
+
     /* ─── Build the table of contents ─── */
     function buildToc() {
       var tocEl = document.getElementById('cbTocSections');
@@ -834,6 +1028,9 @@
         printFooter.appendChild(pfRight);
         article.appendChild(printFooter);
 
+        /* Q&A — injected after art, screen-only */
+        buildQA(story, article);
+
         if (grid) {
           grid.appendChild(article);
         } else {
@@ -873,16 +1070,41 @@
     }
 
     /* ─── Init ─── */
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', function () {
-        buildToc();
-        buildStories();
-        wireFilters();
-      });
-    } else {
+    function init() {
       buildToc();
       buildStories();
       wireFilters();
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+
+    /* ─── Lazy Q&A injection: fires when the deferred quiz script loads ─── */
+    /* If TDB_KIDS_READ_QUIZ loaded after stories were already built, inject now */
+    function injectQALate() {
+      if (!window.TDB_KIDS_READ_QUIZ) return;
+      var articles = document.querySelectorAll('.cb-story');
+      articles.forEach(function (article) {
+        if (article.querySelector('.kids-qa')) return; /* already injected */
+        var storyId = article.id.replace('story-', '');
+        var story = STORIES.filter(function (s) { return s.id === storyId; })[0];
+        if (story) buildQA(story, article);
+      });
+    }
+    /* Poll once after a short delay in case defer fires after DOMContentLoaded */
+    setTimeout(injectQALate, 800);
+    /* Also listen for the script's load event via the global callback pattern */
+    var _prevQuizSetter = Object.getOwnPropertyDescriptor(window, 'TDB_KIDS_READ_QUIZ');
+    if (!_prevQuizSetter) {
+      Object.defineProperty(window, 'TDB_KIDS_READ_QUIZ', {
+        configurable: true,
+        set: function (val) {
+          Object.defineProperty(window, 'TDB_KIDS_READ_QUIZ', { value: val, writable: true, configurable: true });
+          injectQALate();
+        }
+      });
     }
   }());
   </script>

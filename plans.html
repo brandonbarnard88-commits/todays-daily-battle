@@ -1290,6 +1290,67 @@
     .streak-banner.show { display: block; }
 
     /* Plan complete card */
+    /* ─── Plan reflection block ─── */
+    .plan-reflection {
+      margin-top: 2rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid color-mix(in srgb, var(--gold) 22%, transparent);
+    }
+    .plan-reflection__heading {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin: 0 0 0.2rem;
+    }
+    .plan-reflection__sub {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin: 0 0 0.9rem;
+    }
+    .plan-reflection-q {
+      background: color-mix(in srgb, var(--card) 90%, rgba(163,139,110,0.1));
+      border-left: 3px solid var(--accent, #a38b6e);
+      padding: 0.7rem 0.9rem;
+      margin-bottom: 0.6rem;
+      border-radius: 0 5px 5px 0;
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--text);
+    }
+    .plan-reflection-q strong { color: var(--gold); margin-right: 0.3rem; }
+    .plan-reflection__still {
+      margin-top: 1rem;
+      padding: 0.65rem 0.9rem;
+      background: color-mix(in srgb, var(--card) 70%, transparent);
+      border-radius: 6px;
+      font-size: 0.82rem;
+      color: #b8a98a;
+      font-style: italic;
+    }
+    /* Print journaling space — hidden on screen, visible when printing */
+    .plan-journal-print { display: none; }
+    @media print {
+      .plan-reflection__heading,
+      .plan-reflection__sub,
+      .plan-reflection-q,
+      .plan-reflection__still { color: #222 !important; background: none !important; border-color: #aaa !important; }
+      .plan-journal-print {
+        display: block;
+        margin-top: 2rem;
+      }
+      .plan-journal-print__label {
+        font-size: 0.8rem;
+        color: #777;
+        margin: 0 0 0.6rem;
+      }
+      .plan-journal-print__box {
+        height: 5.5cm;
+        border: 1px dashed #bbb;
+        border-radius: 4px;
+        margin-bottom: 0.75rem;
+      }
+    }
+
     .plan-complete-card {
       display: none;
       background: color-mix(in srgb, var(--gold) 8%, var(--card));
@@ -2985,6 +3046,23 @@
         <button type="button" class="btn-restart" id="btnRestart" aria-label="Restart this plan from day one">Start Over</button>
       </div>
       <div id="dayCardContainer"></div>
+
+      <!-- Reflection block — shown on the last day of any plan -->
+      <div id="planReflectionBlock" class="plan-reflection" hidden aria-label="Sit with this plan">
+        <p class="plan-reflection__heading">Sit with This Plan</p>
+        <p class="plan-reflection__sub">A quiet moment with the Lord. No pressure &mdash; just honesty.</p>
+        <div class="plan-reflection-q"><strong>1.</strong> Which part of this battle feels most real in your life right now?</div>
+        <div class="plan-reflection-q"><strong>2.</strong> What is one small step of trust you sense the Lord inviting you to take?</div>
+        <div class="plan-reflection-q"><strong>3.</strong> Would you like to bring this whole plan to Him in prayer right now?</div>
+        <p class="plan-reflection__still">&ldquo;Come unto me, all ye that labour and are heavy laden, and I will give you rest.&rdquo; &mdash; Matthew 11:28 (KJV)</p>
+        <!-- Print journaling space (screen: hidden; print: two open boxes) -->
+        <div class="plan-journal-print" aria-hidden="true">
+          <p class="plan-journal-print__label">Journal space &mdash; write or draw whatever is on your heart</p>
+          <div class="plan-journal-print__box"></div>
+          <div class="plan-journal-print__box"></div>
+        </div>
+      </div>
+
       <nav id="planNextQuietRooms" class="plan-next-quiet-rooms" hidden aria-labelledby="planNextQuietRoomsHeading">
         <p id="planNextQuietRoomsHeading" class="plan-next-quiet-rooms-eyebrow">Next quiet room</p>
         <p class="plan-next-quiet-rooms-lead">Wander gently—another short path if this one stirred something beside it. Same pace on every door.</p>
@@ -5211,6 +5289,8 @@
       var nqrList = document.getElementById('planNextQuietRoomsList');
       if (nqr) nqr.hidden = true;
       if (nqrList) nqrList.replaceChildren();
+      var rblk = document.getElementById('planReflectionBlock');
+      if (rblk) rblk.hidden = true;
     }
     function renderIndexShell() {
       var index = document.getElementById('planIndex');
@@ -6677,6 +6757,18 @@
       var isDone   = (currentDay < progress);
 
       container.replaceChildren();
+
+      /* Show reflection block on the last day of the plan */
+      var reflBlock = document.getElementById('planReflectionBlock');
+      if (reflBlock) {
+        var isLastDay = (currentDay === plan.max - 1);
+        if (isLastDay) {
+          reflBlock.removeAttribute('hidden');
+          reflBlock.hidden = false;
+        } else {
+          reflBlock.hidden = true;
+        }
+      }
 
       var card = document.createElement('div');
       card.className = 'day-card';

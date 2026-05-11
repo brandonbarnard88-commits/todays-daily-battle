@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-10T21:36:36.667Z",
+  "generatedAt": "2026-05-11T03:06:09.135Z",
   "surfacedRefCount": 2986,
   "overrideCount": 2986,
   "sourceCounts": {
@@ -1884,7 +1884,7 @@
       "pairs": 0
     },
     "verse-breakdown-standard.js": {
-      "refs": 1,
+      "refs": 2,
       "pairs": 0
     },
     "verse-breakdown.js": {

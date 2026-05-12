@@ -44,7 +44,8 @@
   </script>
   <link rel="preload" href="/plans-data.js" as="script" fetchpriority="low">
   <link rel="preload" href="styles.css?v=20260503-consent-persist-fix" as="style" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix" media="print" onload="this.media='all'">
+  <!-- Full stylesheet: no print/onload unlock (CSP blocks inline handlers; preload still warms the fetch). -->
+  <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix" media="all">
   <style>
     :root {
       --bg:       #0d1117;
@@ -56,7 +57,7 @@
       --line:     #242d3d;
       --shadow:   0 2px 16px rgba(0,0,0,0.32);
       --green:    #4ade80;
-      /* critical layout tokens (styles.css loads async; defined here for immediate paint) */
+      /* critical layout tokens (styles.css follows in head; defined here for first paint) */
       --tdb-inner-max: min(46rem, 100%);
       --tdb-quiet-pad-x: clamp(0.9rem, 2.4vw, 1.9rem);
       --tdb-quiet-pad-b: clamp(2.5rem, 4.5vw, 3.75rem);

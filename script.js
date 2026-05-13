@@ -170,6 +170,8 @@ function tdbIsHomePage() {
     ],
     gratitude: [
       { href: '/plans.html?plan=universitygratitude', label: 'Gratitude' },
+      { href: '/plans.html?plan=simplethanks', label: 'Simple Thanks (7 days)' },
+      { href: '/plans.html?plan=steadydays', label: 'Steady Days (5 days)' },
       { href: '/plans.html?plan=universitycontentment', label: 'Contentment in Small Seasons' },
       { href: '/plans.html?plan=gratitude', label: '7-Day Gratitude' },
       { href: '/plans.html?plan=psalmspraise', label: 'Psalms of Praise' }
@@ -18997,7 +18999,7 @@ var TOPIC_TO_FEEL_GROUP = {
   loneliness: 'lonely',
   anger: 'angry',
   peace: 'peace', rest: 'peace',
-  hope: 'hopeful', gratitude: 'hopeful', joy: 'hopeful',
+  hope: 'hopeful', gratitude: 'hopeful', joy: 'hopeful', love: 'hopeful', faith: 'hopeful', wonder: 'hopeful',
   strength: 'tired', courage: 'hopeful',
   forgiveness: 'difficult', patience: 'difficult',
   suffering: 'sad', caregiver: 'tired'
@@ -25305,6 +25307,22 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     topics: ['grief', 'sadness', 'depression', 'loneliness', 'summer', 'seasonal depression', 'melancholy', 'hope']
   },
   // Scripture walks and study
+  {
+    id: 'simplethanks',
+    title: 'Simple Thanks — Seven Gentle Days',
+    href: 'plans.html?plan=simplethanks',
+    days: 7,
+    description: 'When your heart is light, full, or quietly ordinary — seven KJV days of praise, blessing, mercy, thanks in Jesus\' name, and gifts from the Father of lights. Same porch, no scorecard.',
+    topics: ['gratitude', 'thanksgiving', 'thanks', 'praise', 'joy', 'peace', 'ordinary', 'light heart']
+  },
+  {
+    id: 'steadydays',
+    title: 'Steady Days — Five Gentle Steps',
+    href: 'plans.html?plan=steadydays',
+    days: 5,
+    description: 'When life feels plain, ordinary, or quietly steady — five very gentle KJV days for faithfulness in small things, contentment, and walking with God when nothing loud is happening. Same quiet porch. No scorecard.',
+    topics: ['steady', 'ordinary', 'contentment', 'faithfulness', 'quiet', 'small things', 'daily walk', 'gratitude', 'peace', 'thanks']
+  },
   {
     id: 'praisethanks30',
     title: '30-Day Praise & Thanksgiving',

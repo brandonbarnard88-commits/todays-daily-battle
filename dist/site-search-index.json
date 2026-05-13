@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "generatedAt": "2026-05-13T02:16:44.151Z",
+  "generatedAt": "2026-05-13T14:28:01.463Z",
   "entries": [
     {
       "t": "Home — Today's Daily Battle",
@@ -461,6 +461,26 @@
       "t": "Wins report",
       "u": "/wins.html",
       "k": "gratitude"
+    },
+    {
+      "t": "Simple Thanks — Seven Gentle Days (plan)",
+      "u": "/plans.html?plan=simplethanks",
+      "k": "thanks gratitude praise light day ordinary porch kjv seven"
+    },
+    {
+      "t": "Steady Days — Five Gentle Steps (plan)",
+      "u": "/plans.html?plan=steadydays",
+      "k": "steady quiet ordinary plain contentment faithfulness small things mercy micah colossians psalm 131 lamentations five porch kjv"
+    },
+    {
+      "t": "Simple Thanks — 7 quiet days (print)",
+      "u": "/simple-thanks-one-page-print.html",
+      "k": "simple thanks gratitude praise kjv print one page fridge seven days"
+    },
+    {
+      "t": "Steady Days — 5 quiet steps (print)",
+      "u": "/steady-days-one-page-print.html",
+      "k": "steady days ordinary quiet contentment faithfulness kjv print one page five micah colossians psalm lamentations porch"
     },
     {
       "t": "Church center",

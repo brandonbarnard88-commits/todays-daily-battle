@@ -21,7 +21,7 @@
   <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260503-consent-persist-fix"></script>
 
   <title>Today’s Daily Battle — One KJV Verse, One Small Step, One Prayer</title>
-  <meta name="description" content="Today’s KJV: John 1:12. Quiet KJV daily devotional. No ads, no login. Start with today’s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.">
+  <meta name="description" content="Today’s KJV: John 8:12. Quiet KJV daily devotional. No ads, no login. Start with today’s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.">
   <meta name="keywords" content="bible verses when feeling heartbroken, bible for anxiety, verses when alone, KJV devotional, Bible verse of the day, KJV Bible app, Christian anxiety help, Bible verses for fear, offline Bible, daily scripture, verse of the day KJV, Bible breakdown plain English, calm verse, crisis verse, need verse now">
   <link rel="canonical" href="https://todaysdailybattle.com/">
 
@@ -69,8 +69,8 @@
       "@type": "WebPage",
       "@id": "https://todaysdailybattle.com/#webpage",
       "url": "https://todaysdailybattle.com/",
-      "name": "Today’s Daily Battle — One KJV Verse, One Small Step, One Prayer · Today’s KJV: John 1:12",
-      "description": "Today’s KJV: John 1:12. Quiet KJV daily devotional. No ads, no login. Start with today’s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.",
+      "name": "Today’s Daily Battle — One KJV Verse, One Small Step, One Prayer · Today’s KJV: John 8:12",
+      "description": "Today’s KJV: John 8:12. Quiet KJV daily devotional. No ads, no login. Start with today’s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.",
       "inLanguage": "en-US",
       "isPartOf": {
         "@type": "WebSite",
@@ -84,9 +84,9 @@
     {
       "@type": "CreativeWork",
       "@id": "https://todaysdailybattle.com/#home-daily-verse",
-      "name": "John 1:12 (KJV)",
-      "headline": "John 1:12 (KJV)",
-      "text": "As many as received him, to them gave he power to become the sons of God.",
+      "name": "John 8:12 (KJV)",
+      "headline": "John 8:12 (KJV)",
+      "text": "I am the light of the world: he that followeth me shall not walk in darkness.",
       "inLanguage": "en-US",
       "isAccessibleForFree": true,
       "isBasedOn": {
@@ -110,12 +110,12 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Quiet place · John 1:12">
+  <meta name="apple-mobile-web-app-title" content="Quiet place · John 8:12">
   <!-- Open Graph (iMessage, Facebook, Slack previews) -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Today's Daily Battle">
   <meta property="og:title" content="Today’s Daily Battle — One KJV Verse, One Small Step, One Prayer">
-  <meta property="og:description" content="Today’s KJV: John 1:12. Quiet KJV daily devotional. No ads, no login. Start with today’s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.">
+  <meta property="og:description" content="Today’s KJV: John 8:12. Quiet KJV daily devotional. No ads, no login. Start with today’s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.">
   <meta property="og:url" content="https://todaysdailybattle.com/">
   <meta property="og:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260422og">
   <meta property="og:image:width" content="1200">
@@ -125,7 +125,7 @@
   <!-- Twitter / X card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Today’s Daily Battle — One KJV Verse, One Small Step, One Prayer">
-  <meta name="twitter:description" content="Today’s KJV: John 1:12. Quiet KJV daily devotional. No ads, no login. Start with today’s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.">
+  <meta name="twitter:description" content="Today’s KJV: John 8:12. Quiet KJV daily devotional. No ads, no login. Start with today’s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260422og">
   <meta name="twitter:image:alt" content="Today&#39;s Daily Battle &mdash; calm KJV verse and tools">
   <!-- Cormorant + Caveat: self-hosted latin woff2 (gstatic-derived). No Google Fonts on homepage. -->
@@ -243,7 +243,14 @@
       /* No sticky strip on home — main links sit below “Need Him right now?” */
       --tdb-sticky-nav-h: 0px;
       --tdb-focus-ring: #e3bc67;
-      /* Quiet-place tokens (align with site styles.css; index stays self-contained) */
+      /*
+       * Design system note: index.html does NOT load styles.css — it is intentionally
+       * self-contained for performance. Tokens here must be kept manually in sync with
+       * styles.css :root. Key aligned values (May 2026):
+       *   --accent #8ba6d9 (dark) / #5a8a9e (light) — periwinkle blue, matches styles.css
+       *   --gold   #e3bc67 (dark) / #c9b28a (light)
+       * tdb-quiet-luxury.css has its own sage --accent for seasonal pages — leave it alone.
+       */
       --tdb-bp-sm: 480px;
       --tdb-bp-md: 768px;
       --tdb-bp-lg: 1024px;
@@ -4241,10 +4248,11 @@
     /* Fast feeling row — one tap into Ask the Teacher (60-second path) */
     .tdb-home-fast-feel {
       margin: clamp(1.35rem, 4vw, 2.15rem) 0 0;
-      padding: 1.15rem 1.2rem 1.25rem;
-      border-radius: 16px;
-      border: 1px solid color-mix(in srgb, var(--line) 90%, var(--gold) 8%);
-      background: color-mix(in srgb, var(--card) 96%, rgba(107, 124, 147, 0.06));
+      padding: 1.35rem 1.3rem 1.4rem;
+      border-radius: 18px;
+      border: 1px solid color-mix(in srgb, var(--gold) 28%, var(--line) 70%);
+      background: color-mix(in srgb, var(--card) 94%, rgba(227, 188, 103, 0.06));
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12), 0 0 0 1px color-mix(in srgb, var(--gold) 8%, transparent);
     }
     :root[data-theme="light"] .tdb-home-fast-feel {
       background: linear-gradient(180deg, #fafbfe 0%, #f0f3f8 100%);
@@ -4260,12 +4268,13 @@
     }
     .tdb-home-fast-feel-heading {
       margin: 0 0 0.5rem;
-      font-size: clamp(1.2rem, 3.2vw, 1.5rem);
-      font-weight: 500;
-      line-height: 1.35;
+      font-size: clamp(1.35rem, 3.8vw, 1.75rem);
+      font-weight: 600;
+      line-height: 1.3;
       text-align: center;
       color: var(--text);
-      letter-spacing: -0.01em;
+      letter-spacing: -0.02em;
+      font-family: 'Cormorant Garamond', Georgia, serif;
     }
     .tdb-home-fast-feel-lead {
       text-align: center;
@@ -4457,6 +4466,22 @@
       color: var(--gold-soft);
       text-decoration: underline;
       text-underline-offset: 3px;
+    }
+    .tdb-home-feel-study-deeper {
+      display: block;
+      text-align: center;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--accent, #8ba6d9);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      opacity: 0.85;
+    }
+    .tdb-home-feel-study-deeper:hover,
+    .tdb-home-feel-study-deeper:focus-visible {
+      opacity: 1;
+      color: var(--accent-hover, #b3c9e8);
     }
     .tdb-home-feel-result-more { margin: 0.75rem 0 0; text-align: center; font-size: 0.86rem; }
     .overwhelmed-quickstart-card {
@@ -5145,13 +5170,29 @@
     @media (min-width: 640px) {
       .tdb-home-companion-doors-list {
         flex-direction: row;
+        flex-wrap: wrap;
         gap: 0.75rem;
         align-items: stretch;
       }
       .tdb-home-companion-doors-list > li {
-        flex: 1;
+        flex: 1 1 calc(50% - 0.75rem);
         min-width: 0;
       }
+    }
+    @media (min-width: 900px) {
+      .tdb-home-companion-doors-list > li {
+        flex: 1 1 0;
+      }
+    }
+    /* Pastor door: subtle gold background to signal it's a different audience */
+    .tdb-companion-door[href="church-hub.html"] {
+      border-color: color-mix(in srgb, var(--gold) 35%, var(--line));
+      background: color-mix(in srgb, var(--gold) 4%, var(--card) 96%);
+    }
+    .tdb-companion-door[href="church-hub.html"]:hover,
+    .tdb-companion-door[href="church-hub.html"]:focus-visible {
+      background: color-mix(in srgb, var(--gold) 10%, var(--card));
+      border-color: color-mix(in srgb, var(--gold) 60%, var(--line));
     }
     .tdb-companion-door {
       display: flex;
@@ -5458,10 +5499,23 @@
     }
     .tdb-home-reader-story {
       margin: 0;
-      padding: 0.8rem 0.85rem;
+      padding: 0.85rem 0.9rem 0.85rem 1.1rem;
       border-radius: 14px;
       background: color-mix(in srgb, var(--card) 94%, transparent);
       border: 1px solid color-mix(in srgb, var(--line) 88%, var(--gold) 12%);
+      border-left: 2px solid color-mix(in srgb, var(--gold) 45%, transparent);
+      position: relative;
+    }
+    .tdb-home-reader-story::before {
+      content: '\201C';
+      position: absolute;
+      top: 0.45rem;
+      left: 0.6rem;
+      font-size: 1.5rem;
+      line-height: 1;
+      color: color-mix(in srgb, var(--gold) 35%, transparent);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      pointer-events: none;
     }
     .tdb-home-reader-story p {
       margin: 0;
@@ -9128,7 +9182,7 @@
 <body>
   <a href="#home-primary-flow" class="skip-link">Skip to main content</a>
   <div id="quiet-update" class="tdb-quiet-update-strip" data-tdb-quiet-update-version="2026-04-24-uog-rollout" role="status" aria-live="polite">
-    <p class="tdb-quiet-update-strip__text">Update: today&rsquo;s lesson, Ask the Teacher, and the courses library now share the same University of God signposts &mdash; still calm, still offline-friendly.</p>
+        <p class="tdb-quiet-update-strip__text">Update: today&rsquo;s lesson and Ask the Teacher refreshed.</p>
     <button type="button" class="tdb-quiet-update-strip__dismiss" id="quiet-update-dismiss" aria-label="Dismiss this update">✕</button>
   </div>
   <!-- Full-page sky/stars (absolute on body — scrolls with page); tiles sit above in .app -->
@@ -9218,7 +9272,7 @@
         <p class="soul-tag">Less scroll, more soul</p>
         <p class="tdb-header-heartbeat hero-home-heartbeat site-tagline" lang="en">For Family, For Country, For GOD</p>
       </div>
-      <h1 class="site-title">Today's Daily Battle</h1>
+      <span class="site-title" aria-label="Today's Daily Battle">Today&rsquo;s Daily Battle</span>
       <span class="site-title-underline" aria-hidden="true"></span>
       <nav class="site-top-links" aria-label="Account and site information">
         <span id="header-auth-links">
@@ -9244,7 +9298,7 @@
           <a href="/verse.html">Today&rsquo;s Lesson</a>
           <a href="/explore.html">Explore</a>
         <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map and gentle paths">Curriculum</a>
-        <a href="/plans.html" id="nav-browse-curriculum" aria-label="Browse the curriculum — KJV courses and gentle battle plans">Browse the curriculum</a>
+        <a href="/plans.html" id="nav-browse-curriculum" aria-label="Battle Plans — KJV tracks for hard weeks and quiet seasons">Battle Plans</a>
         <a href="/university.html" id="nav-university-core" aria-label="University of God — five anchor verses, quiet map">University map</a>
           <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read</a>
           <a href="/memorize.html">Memorize</a>
@@ -9310,6 +9364,46 @@
 
     <main id="home-primary-flow" class="porch-section">
 
+      <!-- ── Feeling-first hero — the primary entry point ── -->
+      <section class="tdb-porch-feel tdb-porch-feel--hero" id="tdbPorchFeel" aria-labelledby="tdbPorchFeelH">
+        <p class="tdb-porch-feel__eyebrow">Today&rsquo;s Daily Battle &mdash; KJV &middot; No account &middot; Works offline</p>
+        <h1 class="tdb-porch-feel__heading" id="tdbPorchFeelH">What are you carrying right now?</h1>
+        <p class="tdb-porch-feel__sub">One tap&mdash;a KJV verse matched to where you are. Worst days, best days, ordinary Tuesdays&mdash;you belong here on the porch. No typing yet. No account. Works offline after first visit.</p>
+        <div class="tdb-porch-feel__grid" role="group" aria-label="What you are carrying — tap one for a matching KJV verse and plan">
+          <button type="button" class="tdb-porch-feel__btn" data-porch-topic="anxiety" aria-pressed="false">Anxious or afraid</button>
+          <button type="button" class="tdb-porch-feel__btn" data-porch-topic="strength" aria-pressed="false">Tired or weary</button>
+          <button type="button" class="tdb-porch-feel__btn" data-porch-topic="overwhelmed" aria-pressed="false">Overwhelmed</button>
+          <button type="button" class="tdb-porch-feel__btn" data-porch-topic="grief" aria-pressed="false">Grieving</button>
+          <button type="button" class="tdb-porch-feel__btn" data-porch-topic="anger" aria-pressed="false">Angry or bitter</button>
+          <button type="button" class="tdb-porch-feel__btn" data-porch-topic="parenting" aria-pressed="false">Parenting is hard</button>
+          <button type="button" class="tdb-porch-feel__btn" data-porch-topic="hope" aria-pressed="false">Discouraged</button>
+          <button type="button" class="tdb-porch-feel__btn" data-porch-topic="peace" data-porch-label="Longing for peace" aria-pressed="false">Longing for peace</button>
+        </div>
+        <div class="tdb-porch-feel__thanks" id="tdbPorchThanks" aria-labelledby="tdbPorchThanksH">
+          <h2 class="tdb-porch-feel__thanks-h" id="tdbPorchThanksH">Heart feeling light today?</h2>
+          <p class="tdb-porch-feel__thanks-sub">Same quiet porch&mdash;when your heart is light, full, or simply grateful. One tap still brings straight <abbr title="King James Version">KJV</abbr> company.</p>
+          <div class="tdb-porch-feel__grid tdb-porch-feel__grid--thanks" role="group" aria-label="Good days and grateful moments — tap one of eight for a matching KJV verse">
+            <button type="button" class="tdb-porch-feel__btn" data-porch-topic="gratitude" data-porch-label="Grateful today" aria-pressed="false">Grateful today</button>
+            <button type="button" class="tdb-porch-feel__btn" data-porch-topic="joy" data-porch-label="Joyful heart" aria-pressed="false">Joyful heart</button>
+            <button type="button" class="tdb-porch-feel__btn" data-porch-topic="peace" data-porch-label="Peaceful and content" aria-pressed="false">Peaceful &amp; content</button>
+            <button type="button" class="tdb-porch-feel__btn" data-porch-topic="peace" data-porch-label="Quietly steady" aria-pressed="false">Quietly steady</button>
+            <button type="button" class="tdb-porch-feel__btn" data-porch-topic="peace" data-porch-label="Ordinary but steady" aria-pressed="false">Ordinary but steady</button>
+            <button type="button" class="tdb-porch-feel__btn" data-porch-topic="gratitude" data-porch-label="Thankful for answered prayer" aria-pressed="false">Thankful for answered prayer</button>
+            <button type="button" class="tdb-porch-feel__btn" data-porch-topic="faith" data-porch-label="Ordinary but blessed" aria-pressed="false">Ordinary but blessed</button>
+            <button type="button" class="tdb-porch-feel__btn" data-porch-topic="joy" data-porch-label="Celebrating God's goodness" aria-pressed="false">Celebrating God&rsquo;s goodness</button>
+          </div>
+          <p class="tdb-porch-feel__thanks-foot">Want a slower rhythm of praise? <a href="plans.html?plan=simplethanks">Simple Thanks</a> (seven light-or-ordinary days) &middot; <a href="simple-thanks-one-page-print.html">print all seven on one page</a> &middot; <a href="plans.html?plan=steadydays">Steady Days</a> (five, even softer) &middot; <a href="steady-days-one-page-print.html">print all five on one page</a> &middot; <a href="plans.html?plan=praisethanks30">Praise &amp; Thanksgiving</a> (flexible length), or <a href="plans.html?plan=universitygratitude">University of Gratitude</a>&mdash;same gentle pace, no rush.</p>
+        </div>
+        <p class="tdb-porch-feel__status" id="tdbPorchFeelStatus" role="status" aria-live="polite"></p>
+        <p class="tdb-porch-feel__last" id="tdbPorchFeelLast" hidden></p>
+        <div class="tdb-porch-feel__footer">
+          <p class="tdb-porch-feel__more">Something more specific? <a href="#quick-search-hero">Type it in Ask the Teacher</a> below&mdash;short phrases work well.</p>
+          <a class="tdb-porch-feel__plans" href="plans.html" aria-label="Browse all 80+ Battle Plans">or browse all plans &rarr;</a>
+        </div>
+      </section>
+
+      <!-- ── Today's verse (secondary — below the feeling-first hero) ── -->
+      <p class="tdb-verse-section-label" aria-hidden="true">Today&rsquo;s verse</p>
       <div id="hero-verse-wrap" class="hero-verse-wrap tdb-home-soar-aura tdb-quiet-container tdb-micro-hero-dawn">
       <section class="card verse-card verse-card-loaded" id="verseCard" aria-live="polite" data-daily-verse="true" data-tdb-hero-prebuilt="1">
         <p class="welcome-back-msg" id="welcomeBackMsg" aria-live="polite" hidden></p>
@@ -9318,10 +9412,10 @@
         </div>
         <div class="tdb-home-verse-sticky-shell" role="region" aria-label="Today’s verse text and quick actions">
         <div class="verse-breakdown-container hero-calendar-breakdown-wrap" id="heroVotdBreakdown" role="region" aria-label="Today&rsquo;s verse &mdash; reference, text, and breakdown (KJV)">
-        <p class="big-kjv verse-ref hero-daily-ref-above" id="heroRef"><strong>John 1:12 (KJV)</strong></p>
+        <p class="big-kjv verse-ref hero-daily-ref-above" id="heroRef"><strong>John 8:12 (KJV)</strong></p>
         <div class="verse-ref-row">
           <div class="hero-verse-wrap-inner">
-            <p class="hero-verse verse-body is-visible" id="heroVerse" elementtiming="tdb-hero-verse">“As many as received him, to them gave he power to become the sons of God.”</p>
+            <p class="hero-verse verse-body is-visible" id="heroVerse" elementtiming="tdb-hero-verse">“I am the light of the world: he that followeth me shall not walk in darkness.”</p>
             <div class="verse-font-controls" aria-label="Adjust verse text size">
               <button type="button" class="verse-font-btn verse-font-smaller" id="verseFontSmaller" aria-label="Decrease text size">A−</button>
               <button type="button" class="verse-font-btn verse-font-larger" id="verseFontLarger" aria-label="Increase text size">A+</button>
@@ -9386,29 +9480,13 @@
           <span id="heroVotdPrayer"></span></p>
         </div>
         <div class="tdb-hero-curriculum" id="tdb-hero-curriculum-slot" role="region" aria-labelledby="tdb-hero-curriculum-h" hidden>
-          <h3 class="tdb-hero-curriculum-heading" id="tdb-hero-curriculum-h">How this lesson connects to the whole curriculum</h3>
+          <h3 class="tdb-hero-curriculum-heading" id="tdb-hero-curriculum-h">Where this lesson fits in your battle plan</h3>
           <ul class="tdb-hero-curriculum-list" id="tdb-hero-curriculum-list"></ul>
         </div>
         <ul class="breakdown" id="heroBreakdown" hidden></ul>
         <div class="hero-breakdown-panels" id="heroBreakdownPanels" hidden></div>
         <p class="application" id="heroApplication" hidden></p>
         </div>
-        <aside class="tdb-home-kids-ribbon tdb-home-kids-ribbon--hero-priority" role="region" aria-label="For kids and parents" id="tdb-home-kids-ribbon">
-          <p class="tdb-kids-ribbon-eyebrow" id="tdb-kids-ribbon-eyebrow">For parents and little ones</p>
-          <a class="tdb-home-kids-ribbon-link" href="/kids/index.html?v=hub20260321">Kids Corner</a>
-          <span class="tdb-home-kids-ribbon-text">Read-aloud stories, Bible loops, and calm tools for little ones&mdash;KJV at the center.</span>
-        </aside>
-        <div class="tdb-hero-votd-search-kids" id="tdb-hero-votd-search-kids">
-        <form class="tdb-hero-votd-search" id="tdb-hero-votd-search" role="search" aria-label="Find KJV verses by one word" onsubmit="return false;">
-          <label for="hero-votd-word-search" class="tdb-hero-votd-search-label">One word &rarr; verses</label>
-          <div class="tdb-hero-votd-search-row">
-            <input type="search" id="hero-votd-word-search" name="q" inputmode="search" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="e.g. peace, courage, rest" aria-label="Type one word to find matching KJV verses" />
-            <button type="button" class="btn btn-secondary tdb-hero-votd-search-go" id="hero-votd-word-search-btn" aria-label="Search for KJV verses for this word">Find verses</button>
-          </div>
-          <p class="section-note tdb-hero-votd-search-hint" id="hero-votd-search-hint">Same gentle lookup as <a href="#quick-search-hero">Ask the Teacher</a>&mdash;full results open just below. Press Enter or tap Find.</p>
-        </form>
-        </div>
-        <p class="tdb-today-lesson-foot" id="tdb-today-lesson-wrap">Today&rsquo;s Daily Battle lesson &mdash; <time id="tdbTodayLessonDate" datetime=""></time></p>
         <div class="hero-verse-toolbar hero-verse-primary-toolbar" aria-label="Verse: copy, share, image, save to My Study">
             <div class="tdb-hero-votd-tools-wrap" role="toolbar" aria-label="Verse: copy, share, image, save to My Study">
             <button type="button" class="hero-toolbar-btn" id="heroCopyVerseBtn" aria-label="Copy verse and page link to clipboard">Copy</button>
@@ -9419,8 +9497,8 @@
         </div>
         </div>
         <section class="tdb-home-fast-feel" id="tdbHomeFastFeel" aria-labelledby="tdbHomeFastFeelHeading">
-          <h2 class="tdb-home-fast-feel-heading" id="tdbHomeFastFeelHeading">Quick mood doorway</h2>
-          <p class="tdb-home-fast-feel-soft">One tap, no typing yet&mdash;same verses and plans as <a href="#feel-section">Ask the Teacher</a> below (<abbr title="King James Version">KJV</abbr>).</p>
+          <h2 class="tdb-home-fast-feel-heading" id="tdbHomeFastFeelHeading">How are you feeling right now?</h2>
+          <p class="tdb-home-fast-feel-soft">One tap. A KJV verse matched to what you&rsquo;re carrying or celebrating&mdash;no account, works offline. Type something more specific in <a href="#feel-section">Ask the Teacher</a> below.</p>
           <div class="tdb-home-fast-feel-grid" role="group" aria-label="Quick mood doorway: pick one button for a matching verse and plan">
             <button type="button" class="btn btn-secondary tdb-home-fast-feel-btn" data-topic="anxiety" aria-pressed="false" aria-label="Anxious or afraid">Anxious / Afraid</button>
             <button type="button" class="btn btn-secondary tdb-home-fast-feel-btn" data-topic="strength" aria-pressed="false" aria-label="Tired or weary">Tired / Weary</button>
@@ -9458,8 +9536,9 @@
             <li><a class="tdb-home-feel-result-plan-link btn btn-primary" id="tdbHomeFeelResultPlan" href="plans.html">Start a 7-day plan</a></li>
             <li><button type="button" class="btn btn-secondary" id="tdbHomeFeelResultSave">Save this verse to My Study</button></li>
             <li><a class="tdb-home-feel-read-chapter" id="tdbHomeFeelResultRead" href="reader.html">Read full chapter</a></li>
+            <li><a class="tdb-home-feel-study-deeper" id="tdbHomeFeelResultStudy" href="bible-tool.html">Study this verse deeper &rarr;</a></li>
           </ul>
-          <p class="section-note tdb-home-feel-result-more"><a href="#quick-search-hero">More matching verses</a> in Ask the Teacher below when you&rsquo;re ready.</p>
+          <p class="section-note tdb-home-feel-result-more"><a href="#quick-search-hero">More matching verses</a> in Ask the Teacher below &middot; <a href="plans.html">All Battle Plans</a></p>
         </div>
         <div class="tdb-start-my-day-band" role="region" aria-label="Start my day: verse, feeling, and a gentle plan">
           <p class="tdb-start-my-day-line">One verse. One honest feeling. One simple plan.</p>
@@ -9642,10 +9721,26 @@
     }
     .tdb-smd-verse-pulse { animation: tdb-smd-verse-pulse 1.1s ease 1; }
         </style>
+        <aside class="tdb-home-kids-ribbon tdb-home-kids-ribbon--hero-priority" role="region" aria-label="For kids and parents" id="tdb-home-kids-ribbon">
+          <p class="tdb-kids-ribbon-eyebrow" id="tdb-kids-ribbon-eyebrow">For parents and little ones</p>
+          <a class="tdb-home-kids-ribbon-link" href="/kids/index.html?v=hub20260321">Kids Corner</a>
+          <span class="tdb-home-kids-ribbon-text">Read-aloud stories, Bible loops, and calm tools for little ones&mdash;KJV at the center.</span>
+        </aside>
+        <div class="tdb-hero-votd-search-kids" id="tdb-hero-votd-search-kids">
+        <form class="tdb-hero-votd-search" id="tdb-hero-votd-search" role="search" aria-label="Find KJV verses by one word" onsubmit="return false;">
+          <label for="hero-votd-word-search" class="tdb-hero-votd-search-label">One word &rarr; verses</label>
+          <div class="tdb-hero-votd-search-row">
+            <input type="search" id="hero-votd-word-search" name="q" inputmode="search" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="e.g. peace, courage, rest" aria-label="Type one word to find matching KJV verses" />
+            <button type="button" class="btn btn-secondary tdb-hero-votd-search-go" id="hero-votd-word-search-btn" aria-label="Search for KJV verses for this word">Find verses</button>
+          </div>
+          <p class="section-note tdb-hero-votd-search-hint" id="hero-votd-search-hint">Same gentle lookup as <a href="#quick-search-hero">Ask the Teacher</a>&mdash;full results open just below. Press Enter or tap Find.</p>
+        </form>
+        </div>
+        <p class="tdb-today-lesson-foot" id="tdb-today-lesson-wrap">Today&rsquo;s Daily Battle lesson &mdash; <time id="tdbTodayLessonDate" datetime=""></time></p>
         <p id="hero-listen-hint" class="hero-listen-hint">Tap Listen for a quiet hear-through of today&rsquo;s verse and breakdown (calm pace on your device). Keyboard: Tab to Listen, then Space.</p>
         <p class="hero-word-study-wrap">
           <span id="hero-study-verse-hint" class="hero-study-verse-hint">Slow on one word—concordance and short glosses, offline when you need them.</span>
-          <button type="button" id="heroWordStudyBtn" class="btn btn-secondary hero-word-study-btn" data-tdb-wordstudy-ref="John 1:12" data-tdb-wordstudy-text="As many as received him, to them gave he power to become the sons of God." aria-describedby="hero-study-verse-hint" aria-label="Open verse study for today’s verse of the day">Study this verse</button>
+          <button type="button" id="heroWordStudyBtn" class="btn btn-secondary hero-word-study-btn" data-tdb-wordstudy-ref="John 8:12" data-tdb-wordstudy-text="I am the light of the world: he that followeth me shall not walk in darkness." aria-describedby="hero-study-verse-hint" aria-label="Open verse study for today’s verse of the day">Study this verse</button>
         </p>
         <div class="hero-my-verses-row hero-my-verses-row--below-card" role="region" aria-label="Memorize and My Study">
           <a href="memorize.html" class="btn btn-secondary hero-memorize-link" id="hero-memorize-link" aria-label="Open gentle memorize tools for today’s verse">Memorize</a>
@@ -9736,34 +9831,12 @@
       <button type="button" class="tdb-float-share-verse" id="tdb-float-share-verse-home" aria-label="Share today’s verse">Share verse</button>
       </div><!-- /#hero-verse-wrap -->
 
-      <!-- ── How are you feeling today? (standalone porch entry) ── -->
-      <section class="tdb-porch-feel" id="tdbPorchFeel" aria-labelledby="tdbPorchFeelH">
-        <h2 class="tdb-porch-feel__heading" id="tdbPorchFeelH">What are you carrying today?</h2>
-        <p class="tdb-porch-feel__sub">One tap&mdash;no account, no typing. The right <abbr title="King James Version">KJV</abbr> verse for where you are right now.</p>
-        <div class="tdb-porch-feel__grid" role="group" aria-label="What you are carrying — tap one for a matching KJV verse and plan">
-          <button type="button" class="tdb-porch-feel__btn" data-porch-topic="anxiety" aria-pressed="false">Anxious or afraid</button>
-          <button type="button" class="tdb-porch-feel__btn" data-porch-topic="strength" aria-pressed="false">Tired or weary</button>
-          <button type="button" class="tdb-porch-feel__btn" data-porch-topic="overwhelmed" aria-pressed="false">Overwhelmed</button>
-          <button type="button" class="tdb-porch-feel__btn" data-porch-topic="grief" aria-pressed="false">Grieving</button>
-          <button type="button" class="tdb-porch-feel__btn" data-porch-topic="anger" aria-pressed="false">Angry or bitter</button>
-          <button type="button" class="tdb-porch-feel__btn" data-porch-topic="parenting" aria-pressed="false">Parenting is hard</button>
-          <button type="button" class="tdb-porch-feel__btn" data-porch-topic="hope" aria-pressed="false">Discouraged</button>
-          <button type="button" class="tdb-porch-feel__btn" data-porch-topic="peace" aria-pressed="false">Longing for peace</button>
-        </div>
-        <p class="tdb-porch-feel__status" id="tdbPorchFeelStatus" role="status" aria-live="polite"></p>
-        <p class="tdb-porch-feel__last" id="tdbPorchFeelLast" hidden></p>
-        <div class="tdb-porch-feel__footer">
-          <p class="tdb-porch-feel__more">Something more specific? <a href="#quick-search-hero">Type it in Ask the Teacher</a> below&mdash;short phrases work well.</p>
-          <a class="tdb-porch-feel__plans" href="plans.html" aria-label="Browse all 76+ Battle Plans">or browse all plans &rarr;</a>
-        </div>
-      </section>
-
       <!-- ── Three Porch Cards ── -->
       <div class="tdb-porch-cards" role="group" aria-label="Three main rooms">
-        <a class="tdb-porch-card" href="plans.html" aria-label="Battle Plans — 76+ gentle KJV paths for fear, grief, peace, and hard weeks">
+        <a class="tdb-porch-card" href="plans.html" aria-label="Battle Plans — 76+ gentle KJV paths for fear, grief, peace, praise, and every kind of week">
           <span class="tdb-porch-card__eyebrow">Need a steady rhythm</span>
           <strong class="tdb-porch-card__title">Battle Plans</strong>
-          <span class="tdb-porch-card__desc">Gentle 7&ndash;40 day <abbr title="King James Version">KJV</abbr> paths for fear, grief, parenting, peace, and hard weeks. 76+ plans. Nothing required upfront.</span>
+          <span class="tdb-porch-card__desc">Gentle 7&ndash;40 day <abbr title="King James Version">KJV</abbr> paths for fear, grief, parenting, peace, praise, hard weeks, and good ones you want to anchor in the Word. 76+ plans. Nothing required upfront.</span>
           <span class="tdb-porch-card__arrow" aria-hidden="true">Open Plans &rarr;</span>
         </a>
         <a class="tdb-porch-card" href="family.html" aria-label="Kids and Family — read-aloud stories, family armor, calm daily rhythms">
@@ -9820,7 +9893,7 @@
           <span class="calm-crisis-text"><strong>Heavy moment?</strong> One gentle verse is here.</span>
           <span class="calm-crisis-enter">→</span>
         </a>
-        <p class="calm-cta-note">Any hour counts&mdash;heavy day, quiet day, or something in between.</p>
+        <p class="calm-cta-note">Any hour counts&mdash;heavy day, grateful day, quiet day, or something in between.</p>
       </div>
 
       <nav class="tdb-campus-schools" id="tdb-campus-schools" aria-label="Schools of Life &mdash; gentle doorways to rooms you already have">
@@ -9832,7 +9905,7 @@
           </li>
           <li>
             <a href="/plans.html">School of Battle</a>
-            <span class="tdb-campus-hint">Core curriculum &mdash; Battle Plans library</span>
+            <span class="tdb-campus-hint">Battle Plans library &mdash; open any door, any day</span>
           </li>
           <li>
             <a href="/family.html">School of Family &amp; Home</a>
@@ -9956,14 +10029,20 @@
         <p class="tdb-home-reader-story-foot">Short anonymized notes only. No hype, no names, no polished success stories. <a href="/testimonials.html">Read the full page</a>.</p>
       </section>
 
-      <!-- Quiet Launch Banner — humble porch whisper -->
-      <div class="quiet-launch-banner">
-        <p class="section-note">The <a href="/church-hub.html">Church Hub</a> is open — Sharing Kit, Sermon Builder, embeddable widgets, and a new <a href="/church-starter-pack.html">Church Starter Pack</a> that helps small churches launch in one sitting. Every purchase keeps the free porch open for weary hearts. <a href="/where-support-goes.html">Where support goes</a>.</p>
-        <a href="/church-starter-pack.html" class="btn btn-secondary" style="margin-top:1.25rem;display:inline-block;">Open Church Starter Pack →</a>
+      <!-- Church/Pastor callout — visible entry point for pastors and small churches -->
+      <div class="quiet-launch-banner tdb-church-callout">
+        <p class="tdb-church-callout-eyebrow">For pastors &amp; small churches</p>
+        <h2 class="tdb-church-callout-heading">Low-prep tools for the KJV pastor</h2>
+        <p class="section-note">Sermon Builder with OIA workflow and one-tap export. Sharing Kit. Embeddable verse widgets. Church Starter Pack. Pastor-specific Battle Plans for exhaustion, doubt, and grief. Built small, on purpose.</p>
+        <div class="tdb-church-callout-cta-row">
+          <a href="/church-hub.html" class="btn btn-primary">Open Church Hub &rarr;</a>
+          <a href="/for-pastors.html" class="btn btn-secondary">Pastor toolkit</a>
+        </div>
+        <p class="tdb-church-callout-foot"><a href="/where-support-goes.html">Where support goes</a> &mdash; every purchase keeps the free porch open.</p>
       </div>
 
       <section class="tdb-home-companion-doors" id="tdb-home-companion-doors" aria-labelledby="tdb-companion-doors-heading">
-        <h2 class="tdb-companion-doors-vis-h2" id="tdb-companion-doors-heading">Three quiet doorways into Scripture</h2>
+        <h2 class="tdb-companion-doors-vis-h2" id="tdb-companion-doors-heading">Quiet doorways into Scripture</h2>
         <ul class="tdb-home-companion-doors-list">
           <li>
             <a class="tdb-companion-door" href="#feel-section">
@@ -9981,6 +10060,12 @@
             <a class="tdb-companion-door" href="daily-rhythm.html">
               <span class="tdb-companion-door-title">Start your quiet rhythm</span>
               <p class="tdb-companion-door-desc">Morning and evening anchors; My Study keeps notes and saved verses on this device.</p>
+            </a>
+          </li>
+          <li>
+            <a class="tdb-companion-door" href="church-hub.html">
+              <span class="tdb-companion-door-title">For pastors &amp; small churches</span>
+              <p class="tdb-companion-door-desc">Sermon Builder, Sharing Kit, Church Starter Pack&mdash;low-prep tools for the KJV pastor.</p>
             </a>
           </li>
         </ul>
@@ -10012,7 +10097,7 @@
         </span>
       </nav>
 
-      <p class="tdb-whats-new-hint" id="whats-new-study-hint"><span class="tdb-whats-new-label">What&rsquo;s new</span> <span class="tdb-whats-new-date">(Spring 2026)</span> &mdash; Clearer <a href="explore.html#start-here">Start here</a> flow on Explore, family and mission tools alongside the daily rhythm, new reading-plan paths for hard weeks. Lately: <a href="university.html">University of God</a> adds <a href="/plans.html?plan=universitybroken">honest mending</a> beside <a href="/plans.html?plan=universitydoubt">honest doubt</a>, <a href="/plans.html?plan=universitybitterness">honest bitterness</a>, and <a href="/plans.html?plan=universitycomparison">the quiet battle of comparison</a>, with <a href="/plans.html?plan=universityanger">the University of Anger</a> and <a href="/plans.html?plan=universityregret">the University of Regret</a> (six KJV days each&mdash;heat that needs hushing, or &ldquo;I should have&rdquo; that needs a truer word); <a href="/plans.html?plan=quietfallharvest">Quiet fall harvest</a> (five days) and <a href="/plans.html?plan=latesummerrest">Late summer, early rest</a> link thanks, table, and the turning season; <a href="/plans.html?plan=latefallwinter">Late fall, quiet winter</a> (five days) is a soft lamp-light path before Advent; <a href="/plans.html?plan=eveninguog">Evening in the University</a> has a <a href="evening-university-print.html">one-page print</a> and pairs with <a href="morning-evening-family-print.html">morning &amp; evening (two cards)</a> and a <a href="one-week-in-the-university-print.html">one-week family sheet</a> (see <a href="family-rhythm.html">Simple family rhythm</a> to gather them in one place); <a href="verse-image.html#verse-image-uog-prompts">verse image prompts</a> are easier to browse and batch-copy; <a href="family-armor-little-ones.html#fa-littles-morning-reset">Family Armor for little ones</a> still carries morning reset&mdash;one KJV verse a day, no noise. <a href="explore.html#whats-new-spring-2026">Spring notes</a> &middot; <a href="explore.html#first-visit-tour">Five calm minutes tour</a> &middot; <a href="about.html#whats-new-study">Study tools</a> &middot; <a href="/updates.html">Monthly updates</a>.</p>
+      <p class="tdb-whats-new-hint" id="whats-new-study-hint"><span class="tdb-whats-new-label">What&rsquo;s new</span> <span class="tdb-whats-new-date">(Spring 2026)</span> &mdash; Clearer <a href="explore.html#start-here">Start here</a> flow on Explore, family and mission tools alongside the daily rhythm, new reading-plan paths for hard weeks. New plans: <a href="/plans.html?plan=universitybroken">honest mending</a>, <a href="/plans.html?plan=universitydoubt">honest doubt</a>, <a href="/plans.html?plan=universitybitterness">honest bitterness</a>, <a href="/plans.html?plan=universitycomparison">the quiet battle of comparison</a>, <a href="/plans.html?plan=universityanger">anger</a>, and <a href="/plans.html?plan=universityregret">regret</a> (six KJV days each); <a href="/plans.html?plan=quietfallharvest">Quiet fall harvest</a> (five days) and <a href="/plans.html?plan=latesummerrest">Late summer, early rest</a>; <a href="/plans.html?plan=latefallwinter">Late fall, quiet winter</a> (five days) before Advent; <a href="/plans.html?plan=eveninguog">Evening rhythm</a> has a <a href="evening-university-print.html">one-page print</a> and pairs with <a href="morning-evening-family-print.html">morning &amp; evening (two cards)</a> and a <a href="one-week-in-the-university-print.html">one-week family sheet</a> (see <a href="family-rhythm.html">Simple family rhythm</a>); <a href="verse-image.html#verse-image-uog-prompts">verse image prompts</a> easier to browse; <a href="family-armor-little-ones.html#fa-littles-morning-reset">Family Armor for little ones</a> &mdash; one KJV verse a day, no noise. <a href="explore.html#whats-new-spring-2026">Spring notes</a> &middot; <a href="explore.html#first-visit-tour">Five calm minutes tour</a> &middot; <a href="about.html#whats-new-study">Study tools</a> &middot; <a href="/updates.html">Monthly updates</a>.</p>
 
       <details class="porch-accordion" id="porch-rooms">
         <summary>
@@ -10092,7 +10177,12 @@
           <a class="tdb-home-doorway-card" href="plans.html" aria-label="Open Battle Plans">
             <span class="tdb-home-doorway-eyebrow">Need a steady rhythm</span>
             <strong>Start a Battle Plan</strong>
-            <span>Short KJV paths for fear, grief, peace, home, and hard weeks.</span>
+            <span>Short KJV paths for fear, grief, peace, praise, home, hard weeks, and good days you want to mark in Scripture.</span>
+          </a>
+          <a class="tdb-home-doorway-card" href="plans.html?plan=praisethanks30" aria-label="Open Praise and Thanksgiving plan">
+            <span class="tdb-home-doorway-eyebrow">Heart is light today</span>
+            <strong>Praise &amp; thanks</strong>
+            <span>A flexible month of KJV thanks when you want the porch for gladness, not only for weight.</span>
           </a>
           <a class="tdb-home-doorway-card" href="emergency-calm-pack.html" aria-label="Open the 7-day emergency calm pack">
             <span class="tdb-home-doorway-eyebrow">Need one calm week</span>
@@ -10113,7 +10203,7 @@
       </section>
       <section class="tdb-home-chain-of-hope" aria-labelledby="tdb-home-chain-of-hope-heading">
         <h2 class="section-divider" id="tdb-home-chain-of-hope-heading">Chain of Hope</h2>
-        <p class="tdb-home-chain-of-hope-lead">When one hard week blends into the next, keep moving through a quiet chain instead of starting from scratch: fear to trust, grief to hope, then steadier praise.</p>
+        <p class="tdb-home-chain-of-hope-lead">When one hard week blends into the next, keep moving through a quiet chain instead of starting from scratch: fear to trust, grief to hope, then steadier praise&mdash;and when the sun comes out again, stay on the porch with thanks.</p>
         <div class="tdb-home-chain-of-hope-links">
           <a class="tdb-home-chain-of-hope-link" href="plans.html?plan=fearfaith">
             <strong>Fear → Faith</strong>
@@ -10130,6 +10220,10 @@
           <a class="tdb-home-chain-of-hope-link" href="plans.html?plan=psalmspraise">
             <strong>Hope → Praise</strong>
             <span>When you are ready to end the week with thanks instead of noise.</span>
+          </a>
+          <a class="tdb-home-chain-of-hope-link" href="plans.html?plan=praisethanks30">
+            <strong>Praise &amp; steady days</strong>
+            <span>When life feels kind and you want Scripture to hold the gladness&mdash;flexible length, same gentle pace.</span>
           </a>
         </div>
       </section>
@@ -10173,12 +10267,12 @@
       <p class="tdb-hero-search-priority-hint">On a phone, today&rsquo;s verse lands first; this search and the rest of the page follow&mdash;no rush.</p>
       <!-- ── First-visit hint (dismissible, once per device) ── -->
       <div class="first-visit-hint" id="firstVisitHint" role="status" aria-live="polite" hidden>
-        <p class="first-visit-text">Short honest phrases work best here: &ldquo;I feel numb,&rdquo; &ldquo;angry at work,&rdquo; &ldquo;overwhelmed as a parent.&rdquo; You can also open a calm category below, then press Search when you want the fuller lookup.</p>
+        <p class="first-visit-text">Short honest phrases work best here: &ldquo;I feel numb,&rdquo; &ldquo;angry at work,&rdquo; &ldquo;overwhelmed as a parent,&rdquo; or &ldquo;thankful for answered prayer.&rdquo; You can also open a calm category below, then press Search when you want the fuller lookup.</p>
         <button type="button" class="first-visit-dismiss" id="firstVisitDismiss" aria-label="Dismiss welcome tip">Understood</button>
       </div>
       <section class="card" id="feel-section" aria-label="Ask the Teacher search">
         <h2 class="mood-title">Ask the Teacher</h2>
-        <p class="mood-subtitle section-note" id="feelSectionSubtitle">What&rsquo;s weighing on your heart today? Bring whatever you&rsquo;re carrying&mdash;fear, weariness, family strain&mdash;and get straight <abbr title="King James Version">KJV</abbr> help without fake polish.</p>
+        <p class="mood-subtitle section-note" id="feelSectionSubtitle">Short honest phrases work best&mdash;carrying something heavy or something good. Type below for straight <abbr title="King James Version">KJV</abbr> company without fake polish; no account, works offline after first load.</p>
         <p class="feel-first-action-assurance" id="feelFirstActionAssurance">Speak honestly. Scripture meets you right where you are. No account needed; works offline after first load; <abbr title="King James Version">KJV</abbr> only. Your words stay on this device whenever possible.</p>
         <div class="feel-search-wrap">
           <label for="feel-search" class="sr-only">Ask the Teacher</label>
@@ -10207,7 +10301,7 @@
           <div class="feel-suggest" id="feelSuggestDropdown" role="listbox" aria-label="Feeling suggestions">
           </div>
         </div>
-        <p class="section-note util-mt-0_5 util-mb-0">Try: "Who is Jesus?", "angry at work", "overwhelmed as a parent", "caring for aging parents", or "joy".</p>
+        <p class="section-note util-mt-0_5 util-mb-0">Try: "Who is Jesus?", "angry at work", "overwhelmed as a parent", "thankful for my kids", "peaceful ordinary day", or "joy".</p>
         <p class="topic-plans-hint section-note" id="topicPlansHint">Short phrases work well. Press <strong>Search</strong> or Enter for the fuller KJV lookup. <span class="topic-plans-hint-detail">Inside a category: tap a chip to search verses fast. Alt-click (desktop) or long-press (phone) opens a matching <a href="plans.html">Battle Plans</a> lane.</span></p>
         <p class="feel-topic-action-strip" id="feelTopicActionStrip"><strong>Quick tip:</strong> Tap a feeling below, or open <strong>Show all feelings</strong> for every topic. <span class="feel-topic-action-strip-detail">On phone, hold a chip for the matching plan.</span></p>
         <p class="tdb-feel-strip-intro section-note" id="tdbFeelStripIntro">Start with a tap—<strong>or</strong> type in the search box. Ten common picks; the full list stays one disclosure away.</p>
@@ -10414,7 +10508,7 @@
       <p class="site-family-mission-nudge section-note tdb-quiet-container">For home and ministry teams: <a href="/family.html">Family hub</a> (verse, plans, printables) · <a href="/mission-outreach-packs.html">Mission &amp; outreach packs</a> · <a href="/emergency-calm-pack.html">7-day emergency calm pack</a>.</p>
       <!-- ── Read full chapter ── -->
       <div class="read-chapter-row tdb-quiet-container">
-        <a href="reader.html?book=John&chapter=1&ref=John%201%3A12" id="readChapterLink" class="read-chapter-link" aria-label="Read John chapter 1 in full context">📖 Read the full chapter</a>
+        <a href="reader.html?book=John&chapter=8&ref=John%208%3A12" id="readChapterLink" class="read-chapter-link" aria-label="Read John chapter 8 in full context">📖 Read the full chapter</a>
       </div>
       <div class="explore-hero-row tdb-quiet-container">
         <a href="explore.html" class="explore-hero-link" aria-label="Browse every topic, tool, and plan on the site">🗺 Explore all topics, tools, and plans</a>
@@ -10466,7 +10560,7 @@
           <span class="tool-teaser-icon" aria-hidden="true">📝</span>
           <div>
             <p class="tool-teaser-label">Sermon Builder</p>
-            <p class="tool-teaser-sub">Outline + notes starter with one-tap export (outline, points, application, prayer)</p>
+            <p class="tool-teaser-sub">KJV outline with OIA workflow, verse lookup, and one-tap export of points, application &amp; prayer. Built for bi-vocational pastors.</p>
           </div>
           <span class="tool-teaser-arrow" aria-hidden="true">→</span>
         </a>
@@ -10655,21 +10749,44 @@
 
     <!-- ── Porch Restructure Styles (May 2026) ── -->
     <style nonce="tdb2025s">
-    /* === Porch feel section (new standalone How are you feeling) === */
+    /* === Porch feel section — hero position (first interactive element) === */
     .tdb-porch-feel {
-      margin: 1.75rem 0 0;
+      margin: 0 0 0;
       padding: 1.5rem 1.25rem 1.65rem;
       border-radius: 18px;
       background: var(--card);
       border: 1px solid var(--line);
     }
-    .tdb-porch-feel__heading {
-      margin: 0 0 0.3rem;
-      font-size: clamp(1.2rem, 3vw, 1.45rem);
+    /* Hero variant — first section on homepage, true above-fold primary */
+    .tdb-porch-feel--hero {
+      padding: 2rem 1.5rem 2.1rem;
+      border-radius: 20px;
+      background: linear-gradient(
+        165deg,
+        color-mix(in srgb, var(--card) 88%, rgba(227,188,103,0.09)) 0%,
+        color-mix(in srgb, var(--card) 96%, rgba(139,166,217,0.08)) 100%
+      );
+      border: 1px solid color-mix(in srgb, var(--gold) 28%, var(--line) 72%);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18), 0 0 0 1px color-mix(in srgb, var(--gold) 7%, transparent);
+      margin-bottom: 0.5rem;
+    }
+    .tdb-porch-feel__eyebrow {
+      display: block;
+      margin: 0 0 0.7rem;
+      font-size: 0.74rem;
       font-weight: 600;
-      line-height: 1.3;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--gold) 80%, var(--muted));
+    }
+    .tdb-porch-feel__heading {
+      margin: 0 0 0.35rem;
+      font-size: clamp(1.55rem, 4.5vw, 2.15rem);
+      font-weight: 600;
+      line-height: 1.25;
       font-family: 'Cormorant Garamond', Georgia, serif;
       color: var(--text);
+      letter-spacing: -0.02em;
     }
     .tdb-porch-feel__sub {
       margin: 0 0 1.1rem;
@@ -10677,6 +10794,37 @@
       color: var(--muted);
       line-height: 1.5;
     }
+    .tdb-porch-feel__thanks {
+      margin: 1.35rem 0 0;
+      padding: 1.15rem 0 0;
+      border-top: 1px solid color-mix(in srgb, var(--line) 78%, var(--gold) 22%);
+    }
+    .tdb-porch-feel__thanks-h {
+      margin: 0 0 0.35rem;
+      font-size: clamp(1.12rem, 3.2vw, 1.45rem);
+      font-weight: 600;
+      line-height: 1.28;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      color: var(--text);
+      letter-spacing: -0.015em;
+    }
+    .tdb-porch-feel__thanks-sub {
+      margin: 0 0 0.85rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .tdb-porch-feel__thanks-foot {
+      margin: 0.85rem 0 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .tdb-porch-feel__thanks-foot a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .tdb-porch-feel__thanks-foot a:hover { text-decoration: underline; }
     .tdb-porch-feel__grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -10751,6 +10899,14 @@
       background: #fffdf7;
       border-color: #e6dcc1;
     }
+    :root[data-theme="light"] .tdb-porch-feel--hero {
+      background: linear-gradient(165deg, #fffdf7 0%, #f7f4ee 100%);
+      border-color: color-mix(in srgb, #b8860b 25%, #e6dcc1);
+      box-shadow: 0 3px 18px rgba(28,42,68,0.07), 0 0 0 1px color-mix(in srgb, #b8860b 8%, transparent);
+    }
+    :root[data-theme="light"] .tdb-porch-feel__eyebrow {
+      color: color-mix(in srgb, #a0720a 80%, #6b7a99);
+    }
     :root[data-theme="light"] .tdb-porch-feel__btn {
       background: #f8f5f0;
       border-color: #d8d0be;
@@ -10760,6 +10916,45 @@
     :root[data-theme="light"] .tdb-porch-feel__btn:focus-visible {
       background: #eff2f8;
       border-color: #5a8a9e;
+    }
+    /* "Today's verse" secondary section label */
+    .tdb-verse-section-label {
+      margin: 1.5rem 0 0.5rem;
+      font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+      font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.85;
+      padding-left: 0.1rem;
+    }
+    :root[data-theme="light"] .tdb-verse-section-label,
+    :root[data-theme="daylight"] .tdb-verse-section-label,
+    :root[data-theme="parchment"] .tdb-verse-section-label {
+      color: #b8860b;
+      opacity: 0.9;
+    }
+    /* Verse card: slightly stronger gold border so it reads as intentional when scrolled to */
+    #hero-verse-wrap {
+      border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line) 78%) !important;
+    }
+    /* Mobile balance: compact feel hero at small phones so verse is reachable in ~1 scroll */
+    @media (max-width: 479px) {
+      .tdb-porch-feel--hero {
+        padding: 1.4rem 1.1rem 1.5rem;
+      }
+      .tdb-porch-feel__sub {
+        font-size: 0.87rem;
+        margin-bottom: 0.85rem;
+      }
+      .tdb-porch-feel__eyebrow {
+        margin-bottom: 0.5rem;
+      }
+      .tdb-verse-section-label {
+        margin-top: 1.1rem;
+        font-size: 0.9rem;
+      }
     }
 
     /* === Three porch cards === */
@@ -11150,7 +11345,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">May 11, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">May 13, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
@@ -13461,6 +13656,8 @@
       firststeps: { label: '\uD83C\uDF31 New Believer — First Steps', key: 'tdb-plan-firststeps-day', max: 14 },
       identityinchrist: { label: '\u2728 Who God Says You Are', key: 'tdb-plan-identityinchrist-day', max: 7 },
       praisethanks30: { label: '\uD83D\uDE4C 30-Day Praise & Thanksgiving', key: 'tdb-plan-praisethanks30-day', max: 30 },
+      simplethanks: { label: '\u2728 Simple Thanks — Seven Gentle Days', key: 'tdb-plan-simplethanks-day', max: 7 },
+      steadydays: { label: '\u2601 Steady Days — Five Gentle Steps', key: 'tdb-plan-steadydays-day', max: 5 },
       armorofgod: { label: '\uD83D\uDEE1\uFE0F Armor of God', key: 'tdb-plan-armorofgod-day', max: 7 },
       lettinggo: { label: '\uD83D\uDCA7 Bitterness & Letting Go', key: 'tdb-plan-lettinggo-day', max: 7 },
       fearnot14: { label: '\uD83C\uDF19 Fear Not (14 days)', key: 'tdb-plan-fearnot14-day', max: 14 },
@@ -15836,6 +16033,12 @@
       peace:      'Longing for peace'
     };
 
+    function porchLabelFor(btn, topic) {
+      var custom = btn && btn.getAttribute && btn.getAttribute('data-porch-label');
+      if (custom) return custom;
+      return LABEL_MAP[topic] || topic;
+    }
+
     function setStatus(text) {
       var el = document.getElementById('tdbPorchFeelStatus');
       if (el) el.textContent = text;
@@ -15865,11 +16068,24 @@
         if (!saved) return;
         var data = JSON.parse(saved);
         if (!data || !data.topic) return;
-        var label = LABEL_MAP[data.topic] || data.topic;
-        // Pre-select the matching button visually
+        var label = (data.label && String(data.label)) || LABEL_MAP[data.topic] || data.topic;
+        // Pre-select one matching button (two grids can share a topic, e.g. peace)
         document.querySelectorAll('.tdb-porch-feel__btn').forEach(function (b) {
-          if (b.dataset.porchTopic === data.topic) b.setAttribute('aria-pressed', 'true');
+          b.setAttribute('aria-pressed', 'false');
         });
+        var candidates = document.querySelectorAll('.tdb-porch-feel__btn[data-porch-topic="' + data.topic + '"]');
+        var picked = null;
+        if (candidates.length === 1) picked = candidates[0];
+        else if (data.label && candidates.length > 1) {
+          for (var ci = 0; ci < candidates.length; ci++) {
+            if (candidates[ci].getAttribute('data-porch-label') === data.label) {
+              picked = candidates[ci];
+              break;
+            }
+          }
+        }
+        if (!picked && candidates.length) picked = candidates[0];
+        if (picked) picked.setAttribute('aria-pressed', 'true');
         // Show returning-visitor hint (only if the visit was within 14 days)
         var age = Date.now() - (data.ts || 0);
         if (age < 14 * 86400 * 1000) setLastHint(data.topic, label);
@@ -15888,10 +16104,10 @@
       });
 
       // Persist choice (lightweight, device-only)
-      try { localStorage.setItem(LS_KEY, JSON.stringify({ topic: topic, ts: Date.now() })); } catch (_) {}
+      try { localStorage.setItem(LS_KEY, JSON.stringify({ topic: topic, label: porchLabelFor(btn, topic), ts: Date.now() })); } catch (_) {}
 
       // Brief status feedback
-      var label = LABEL_MAP[topic] || topic;
+      var label = porchLabelFor(btn, topic);
       setStatus('Finding verses for \u201c' + label + '\u201d\u2026 \u2193');
       // Hide the returning hint once a new choice is made
       var lastEl = document.getElementById('tdbPorchFeelLast');

@@ -1107,6 +1107,8 @@
     var PLAN_LABEL_MAP = {
       'battle': 'Battle Distraction (7 days)',
       'gratitude': 'Gratitude (7 days)',
+      'simplethanks': 'Simple Thanks — Seven Gentle Days (7 days)',
+      'steadydays': 'Steady Days — Five Gentle Steps (5 days)',
       'strength': '30-Day Strength',
       'marriage': 'Marriage (7 days)',
       'peace': '7-Day Peace',

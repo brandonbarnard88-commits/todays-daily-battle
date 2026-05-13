@@ -2,7 +2,7 @@
 // Bump CACHE_NAME when you deploy new HTML/CSS or want to invalidate (e.g. tdb-static-YYYYMMDD).
 // script.js is network-first with a cache fallback (not precached) so online users get fresh JS immediately; offline users get the last successful fetch until CACHE_NAME clears.
 // config.js is NOT intercepted so updates deploy immediately.
-const CACHE_NAME = 'tdb-cache-v20260511-no-redirect';
+const CACHE_NAME = 'tdb-cache-v20260511-uniext-u21-porch-v1';
 const CACHE_API = 'tdb-api-20260309c';
 const OFFLINE_URL = '/offline.html';
 const TODAY_VERSE_URL = '/today-kjv-verse.json';
@@ -66,6 +66,7 @@ const CORE_ASSETS = [
   '/psalms.html',
   '/he-is-risen.html',
   '/plans-data.js',
+  '/university-plan-extensions.js',
   '/easter-season.js',
   '/logo-shield-600.png',
   '/logo-crest.jpg',
@@ -739,6 +740,18 @@ self.addEventListener('fetch', (event) => {
                 // Only cache a final, non-redirected 2xx response to avoid storing redirect chains.
                 if (res && res.ok && !res.redirected) {
                   cache.put(event.request, res.clone()).catch(function () {});
+                  return res;
+                }
+                // WebKit/Safari rejects redirected responses served from a SW.
+                // When the network follows a redirect (e.g. /explore → /explore.html),
+                // re-fetch the final URL directly so the browser gets a clean 200.
+                if (res && res.redirected && res.ok && res.url) {
+                  return fetch(res.url).then(function (finalRes) {
+                    if (finalRes && finalRes.ok && !finalRes.redirected) {
+                      cache.put(event.request, finalRes.clone()).catch(function () {});
+                    }
+                    return finalRes;
+                  }).catch(function () { return res; });
                 }
                 return res;
               })

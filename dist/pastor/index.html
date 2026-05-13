@@ -108,6 +108,12 @@
 
     <main class="app-content" id="main-content" role="main">
       <div class="content-inner pastor-hub-inner">
+        <nav class="tdb-pastor-hub-nav" aria-label="Pastor and church tools">
+          <a href="/church-hub.html">Church Hub</a>
+          <a href="/for-pastors.html">For Pastors</a>
+          <a href="/sermon.html">Sermon Builder</a>
+          <a href="/pastor-toolkit.html">Pastor Toolkit</a>
+        </nav>
         <header class="pastor-daily-hero">
           <h1>Today's Verse: <span class="pastor-daily-ref" id="pastor-daily-ref">—</span></h1>
           <p class="section-note topic-mood-porch">You&rsquo;re already welcome here&mdash;study day or travel day, you don&rsquo;t have to earn this desk.</p>
@@ -142,14 +148,14 @@
           <h2 class="pastor-section-title">Church Verse of the Day</h2>
           <p class="section-note">Set one KJV verse for your whole team. It appears on every member’s homepage (no login needed).</p>
           <div class="cta-group cta-group-flex-wrap cta-group-align-center">
-            <button onclick="setChurchVerseForTeam()" class="btn btn-primary" style="padding:0.75rem 1.5rem">Set Church Verse of the Day for My Team</button>
+            <button type="button" onclick="setChurchVerseForTeam()" class="btn btn-primary" style="padding:0.75rem 1.5rem">Set Church Verse of the Day for My Team</button>
           </div>
           <p id="team-verse-status" class="section-note" style="margin-top:0.75rem;min-height:1.2em"></p>
         </section>
       </div>
     </main>
 
-    <script>
+    <script nonce="tdb2025s">
       function setChurchVerseForTeam() {
         const verse = prompt('Enter the KJV reference (e.g. John 3:16):', 'John 3:16');
         if (!verse) return;

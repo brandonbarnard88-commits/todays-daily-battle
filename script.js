@@ -24907,8 +24907,8 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     id: 'universityexhaustion',
     title: 'The University of Exhaustion',
     href: 'plans.html?plan=universityexhaustion',
-    days: 6,
-    description: 'When the tank is empty and the body won\'t cooperate — rest, power to the faint, and His strength not yours.',
+    days: 21,
+    description: 'When the tank is empty — six anchor KJV days, then a fifteen-day porch of renewal without hustle.',
     topics: ['exhaustion', 'burnout', 'weary', 'tired', 'caregiver', 'rest', 'strength']
   },
   {
@@ -24931,8 +24931,8 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     id: 'universityloneliness',
     title: 'The University of Loneliness',
     href: 'plans.html?plan=universityloneliness',
-    days: 7,
-    description: 'When the room feels full of absence — He will not leave you comfortless; you are seen and kept.',
+    days: 21,
+    description: 'When the room feels full of absence — seven anchor days on His nearness, fourteen more for friendship with God and the Comforter.',
     topics: ['loneliness', 'alone', 'isolated', 'singleness', 'friendship', 'community']
   },
   {
@@ -24963,7 +24963,7 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     id: 'universityregret',
     title: 'The University of Regret',
     href: 'plans.html?plan=universityregret',
-    days: 6,
+    days: 21,
     description: 'When yesterday replays and the past feels like a prison — grace for the one who cannot stop looking back.',
     topics: ['regret', 'guilt', 'shame', 'past mistakes', 'failure', 'remorse', 'past', 'forgiven']
   },
@@ -24971,8 +24971,8 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     id: 'universityoverwhelm',
     title: 'The University of Overwhelm',
     href: 'plans.html?plan=universityoverwhelm',
-    days: 6,
-    description: 'When every inbox, voice, and need lines up at once — troubled on every side yet not undone.',
+    days: 21,
+    description: 'When every inbox, voice, and need lines up at once — six anchors, fifteen porch steps; troubled on every side yet not undone.',
     topics: ['overwhelmed', 'stress', 'too much', 'burden', 'pressure', 'anxious', 'overloaded']
   },
   {
@@ -24987,16 +24987,16 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     id: 'universityparenting',
     title: 'The University of Parenting Young Kids',
     href: 'plans.html?plan=universityparenting',
-    days: 6,
-    description: 'Train up a child — six KJV days for parents in the thick of it, tired but trying.',
+    days: 21,
+    description: 'Train up a child — six anchor KJV days, then fifteen porch steps for gracious rhythms at home.',
     topics: ['parenting', 'children', 'toddlers', 'discipline', 'family', 'home', 'training']
   },
   {
     id: 'universityparentfear',
     title: 'The University of Fear for My Children',
     href: 'plans.html?plan=universityparentfear',
-    days: 6,
-    description: 'When parental vigil runs ahead into fear — His will toward little ones, peace, courageous trust.',
+    days: 28,
+    description: 'When parental vigil runs ahead into fear — a porch-long month releasing worry to the Father who loves your children more.',
     topics: ['parenting', 'fear for kids', 'worry about children', 'anxiety', 'child safety', 'kids', 'teen', 'prodigal']
   },
   {

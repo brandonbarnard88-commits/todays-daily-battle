@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="canonical" href="https://todaysdailybattle.com/give.html">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Support the Ministry • Today’s Daily Battle</title>
   <meta name="description" content="Support a Bible-teaching ministry. Gifts fund teaching content, free outreach to prisons and hospitals, and keeping the porch open for anyone who needs it. One-time, monthly, legacy. You are already welcome here.">
@@ -49,14 +50,14 @@
               <div class="amount">$25</div>
               <p class="section-note">Keeps servers running, new Battle Plans written, and free printables going to churches and hospitals.</p>
               <div class="cta-group tdb-give-cta-group">
-                <button onclick="startDonation(2500,'one_time')" class="btn btn-primary">$25</button>
-                <button onclick="startDonation(5000,'one_time')" class="btn btn-secondary">$50</button>
-                <button onclick="startDonation(10000,'one_time')" class="btn btn-secondary">$100</button>
+                <button type="button" onclick="startDonation(2500,'one_time')" class="btn btn-primary">$25</button>
+                <button type="button" onclick="startDonation(5000,'one_time')" class="btn btn-secondary">$50</button>
+                <button type="button" onclick="startDonation(10000,'one_time')" class="btn btn-secondary">$100</button>
               </div>
               <div class="tdb-custom-donation">
                 <label for="custom-amount" class="section-note">Custom $</label>
                 <input type="number" id="custom-amount" min="5" value="25" class="tdb-custom-input">
-                <button onclick="handleCustomDonation()" class="btn btn-secondary">Give</button>
+                <button type="button" onclick="handleCustomDonation()" class="btn btn-secondary">Give</button>
               </div>
             </div>
 
@@ -64,20 +65,20 @@
               <h3>Porch Partner</h3>
               <div class="amount">$7<span class="amount-sub">/mo</span></div>
               <p class="section-note">Steady, monthly support that sustains teaching content creation, free outreach packs, and the porch for anyone who finds it in a hard moment. The most consistent way to help the ministry grow.</p>
-              <button onclick="startDonation(700,'monthly')" class="btn btn-primary">Become a Porch Partner</button>
+              <button type="button" onclick="startDonation(700,'monthly')" class="btn btn-primary">Become a Porch Partner</button>
             </div>
 
             <div class="glass tdb-porch-paper-glass tdb-option-card legacy-card">
               <h3>Legacy / Endowment</h3>
               <div class="amount">$500+</div>
               <p class="section-note">Help build something that outlives us — a steady endowment so the porch can support rural churches, print resources for the hurting, and one day sustain a small faithful team or ministry.</p>
-              <button onclick="startDonation(50000,'one_time')" class="btn btn-primary">Give a Legacy Gift</button>
+              <button type="button" onclick="startDonation(50000,'one_time')" class="btn btn-primary">Give a Legacy Gift</button>
             </div>
 
             <div class="glass tdb-porch-paper-glass tdb-option-card">
               <h3>Memorial Gift</h3>
               <p class="section-note">In memory or honor of a loved one. A quiet way to remember them while supporting the work they would have loved.</p>
-              <button onclick="startMemorial()" class="btn btn-primary">Make a Memorial Gift</button>
+              <button type="button" onclick="startMemorial()" class="btn btn-primary">Make a Memorial Gift</button>
             </div>
           </div>
 
@@ -128,7 +129,7 @@
     </footer>
   </div>
 
-  <script>
+  <script nonce="tdb2025s">
     let currentStatusElement = null;
 
     function showDonationStatus(message, isError = false) {

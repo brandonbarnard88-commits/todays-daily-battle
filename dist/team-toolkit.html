@@ -760,9 +760,9 @@
         <section class="glass tdb-porch-paper-glass tt-glass-tight" id="team-sync-section">
           <div class="tt-flex-center-wrap">
             <label class="tt-label-field">Free Team Sync</label>
-            <button id="tt-create-team-code" class="tt-btn tt-btn-sm" title="Generates 6-digit code + QR for cross-device sync">Create Free Team Code</button>
+            <button type="button" id="tt-create-team-code" class="tt-btn tt-btn-sm" title="Generates 6-digit code + QR for cross-device sync">Create Free Team Code</button>
             <input id="tt-team-id" class="tt-input tt-input-max220" placeholder="Enter or paste 6-digit code" aria-label="Team code (6 digits)" maxlength="6">
-            <button id="tt-join-team" class="tt-btn tt-btn-sm">Join Team</button>
+            <button type="button" id="tt-join-team" class="tt-btn tt-btn-sm">Join Team</button>
             <span id="tt-team-name" class="tt-team-name-slot"></span>
             <span id="tt-sync-badge" class="tt-privacy-badge" title="Data stays on-device by default. Syncs calendar, prayer, verse, notes &amp; attendance when online. Always falls back to local cache.">🔄 Syncs when online • Local cache always</span>
           </div>
@@ -770,8 +770,8 @@
             <div class="tt-code-box">
               <div class="tt-code-label">Your Team Code</div>
               <div id="tt-display-code" class="tt-big-code">------</div>
-              <button id="tt-copy-code" class="tt-btn tt-btn-sm tt-btn-ghost">Copy Code</button>
-              <button id="tt-share-code" class="tt-btn tt-btn-sm">Share Link</button>
+              <button type="button" id="tt-copy-code" class="tt-btn tt-btn-sm tt-btn-ghost">Copy Code</button>
+              <button type="button" id="tt-share-code" class="tt-btn tt-btn-sm">Share Link</button>
             </div>
             <div class="tt-qr-wrap">
               <canvas id="tt-qr-canvas" width="180" height="180"></canvas>
@@ -785,12 +785,12 @@
         <!-- ── Tool tabs ────────────────────────────────────────── -->
         <section class="glass tdb-porch-paper-glass">
           <div class="tt-tabs" role="tablist" aria-label="Team tools">
-            <button class="tt-tab" role="tab" aria-selected="true"  aria-controls="panel-calendar"    id="tab-calendar">📅 Calendar</button>
-            <button class="tt-tab" role="tab" aria-selected="false" aria-controls="panel-attendance"  id="tab-attendance">✅ Attendance</button>
-            <button class="tt-tab" role="tab" aria-selected="false" aria-controls="panel-library"     id="tab-library">📁 Files</button>
-            <button class="tt-tab" role="tab" aria-selected="false" aria-controls="panel-prayer"      id="tab-prayer">🔴 Prayer Chain</button>
-            <button class="tt-tab" role="tab" aria-selected="false" aria-controls="panel-verse-packs" id="tab-verse-packs">📖 Verse Packs</button>
-            <button class="tt-tab" role="tab" aria-selected="false" aria-controls="panel-comms"       id="tab-comms">🔗 More Tools</button>
+            <button type="button" class="tt-tab" role="tab" aria-selected="true"  aria-controls="panel-calendar"    id="tab-calendar">📅 Calendar</button>
+            <button type="button" class="tt-tab" role="tab" aria-selected="false" aria-controls="panel-attendance"  id="tab-attendance">✅ Attendance</button>
+            <button type="button" class="tt-tab" role="tab" aria-selected="false" aria-controls="panel-library"     id="tab-library">📁 Files</button>
+            <button type="button" class="tt-tab" role="tab" aria-selected="false" aria-controls="panel-prayer"      id="tab-prayer">🔴 Prayer Chain</button>
+            <button type="button" class="tt-tab" role="tab" aria-selected="false" aria-controls="panel-verse-packs" id="tab-verse-packs">📖 Verse Packs</button>
+            <button type="button" class="tt-tab" role="tab" aria-selected="false" aria-controls="panel-comms"       id="tab-comms">🔗 More Tools</button>
           </div>
 
           <!-- ════════ CALENDAR ═══════════════════════════════════ -->
@@ -2287,7 +2287,7 @@
             '<div class="lib-actions">' +
               '<a class="tt-btn tt-btn-sm" href="' + escHtml(f.data) + '" download="' + escHtml(f.name) + '" aria-label="Download ' + escHtml(f.name) + '">⬇ Get</a>' +
               (f.data && f.data.startsWith('data:application/pdf')
-                ? '<a class="tt-btn tt-btn-sm tt-btn-ghost" href="' + escHtml(f.data) + '" target="_blank" rel="noopener" aria-label="Open ' + escHtml(f.name) + ' in new tab">Open</a>'
+                ? '<a class="tt-btn tt-btn-sm tt-btn-ghost" href="' + escHtml(f.data) + '" target="_blank" rel="noopener noreferrer" aria-label="Open ' + escHtml(f.name) + ' in new tab">Open</a>'
                 : '') +
               '<button class="tt-btn tt-btn-sm tt-btn-danger lib-del-btn" data-id="' + escHtml(f.id) + '" type="button" aria-label="Delete ' + escHtml(f.name) + '">✕</button>' +
             '</div>';

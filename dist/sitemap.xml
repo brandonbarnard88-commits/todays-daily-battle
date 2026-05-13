@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Core / homepage -->
-  <url><loc>https://todaysdailybattle.com/</loc><lastmod>2026-03-24</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://todaysdailybattle.com/</loc><lastmod>2026-05-11</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
   <url><loc>https://todaysdailybattle.com/explore.html</loc><lastmod>2026-03-24</lastmod><changefreq>monthly</changefreq><priority>0.92</priority></url>
   <url><loc>https://todaysdailybattle.com/gods-university-of-life.html</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://todaysdailybattle.com/university.html</loc><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
@@ -35,7 +35,7 @@
   <url><loc>https://todaysdailybattle.com/verse.html</loc><lastmod>2026-05-09</lastmod><changefreq>daily</changefreq><priority>0.95</priority></url>
   <url><loc>https://todaysdailybattle.com/reader.html</loc><lastmod>2026-05-09</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://todaysdailybattle.com/memorize.html</loc><lastmod>2026-03-28</lastmod><changefreq>monthly</changefreq><priority>0.84</priority></url>
-  <url><loc>https://todaysdailybattle.com/what-god-has-done.html</loc><lastmod>2026-03-28</lastmod><changefreq>monthly</changefreq><priority>0.82</priority></url>
+  <!-- what-god-has-done.html omitted: robots.txt Disallow — not intended for general indexing -->
   <url><loc>https://todaysdailybattle.com/bible-tool.html</loc><lastmod>2026-03-24</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://todaysdailybattle.com/reading-plan.html</loc><lastmod>2026-03-24</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://todaysdailybattle.com/verse-image.html</loc><lastmod>2026-03-24</lastmod><changefreq>monthly</changefreq><priority>0.82</priority></url>
@@ -230,6 +230,7 @@
   <url><loc>https://todaysdailybattle.com/kids-coloring-pack.html</loc><lastmod>2026-03-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- Church / team -->
+  <url><loc>https://todaysdailybattle.com/church-hub.html</loc><lastmod>2026-05-11</lastmod><changefreq>weekly</changefreq><priority>0.92</priority></url>
   <url><loc>https://todaysdailybattle.com/church/</loc><lastmod>2026-03-24</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://todaysdailybattle.com/church/daily.html</loc><lastmod>2026-03-24</lastmod><changefreq>daily</changefreq><priority>0.85</priority></url>
   <url><loc>https://todaysdailybattle.com/church.html</loc><lastmod>2026-03-24</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
@@ -251,7 +252,7 @@
   <url><loc>https://todaysdailybattle.com/curriculum.html</loc><lastmod>2026-03-24</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://todaysdailybattle.com/approach.html</loc><lastmod>2026-03-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
-  <!-- Public engagement + loop entry points (index.html lists same home as /; canonical on-page is /) -->
+  <!-- Public engagement + loop entry points -->
   <url><loc>https://todaysdailybattle.com/wins.html</loc><lastmod>2026-03-24</lastmod><changefreq>weekly</changefreq><priority>0.78</priority></url>
   <url><loc>https://todaysdailybattle.com/progress.html</loc><lastmod>2026-03-24</lastmod><changefreq>weekly</changefreq><priority>0.78</priority></url>
   <url><loc>https://todaysdailybattle.com/where-support-goes.html</loc><lastmod>2026-04-03</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
@@ -265,5 +266,4 @@
   <url><loc>https://todaysdailybattle.com/kids-grief-story.html</loc><lastmod>2026-05-11</lastmod><changefreq>yearly</changefreq><priority>0.72</priority></url>
   <url><loc>https://todaysdailybattle.com/kids-summer-feelings.html</loc><lastmod>2026-05-11</lastmod><changefreq>yearly</changefreq><priority>0.72</priority></url>
   <url><loc>https://todaysdailybattle.com/mobius-minimal.html</loc><lastmod>2026-03-24</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://todaysdailybattle.com/index.html</loc><lastmod>2026-03-24</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
 </urlset>

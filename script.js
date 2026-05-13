@@ -159,6 +159,7 @@ function tdbIsHomePage() {
       { href: '/plans.html?plan=universityparenting', label: 'Parenting Young Kids' },
       { href: '/plans.html?plan=universityparentfear', label: 'Fear for My Children' },
       { href: '/plans.html?plan=parenting', label: 'Parenting' },
+      { href: '/plans.html?plan=steadydays-kids', label: 'Steady Days for Families (5 days)' },
       { href: '/plans.html?plan=familyworship', label: 'Family Worship' }
     ],
     exhaustion: [
@@ -25322,6 +25323,14 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     days: 5,
     description: 'When life feels plain, ordinary, or quietly steady — five very gentle KJV days for faithfulness in small things, contentment, and walking with God when nothing loud is happening. Same quiet porch. No scorecard.',
     topics: ['steady', 'ordinary', 'contentment', 'faithfulness', 'quiet', 'small things', 'daily walk', 'gratitude', 'peace', 'thanks']
+  },
+  {
+    id: 'steadydays-kids',
+    title: 'Steady Days for Families',
+    href: 'plans.html?plan=steadydays-kids',
+    days: 5,
+    description: 'Same five KJV verses as Steady Days — read-aloud plain words and tiny table steps beside a grown-up for plain weeks (about ages 5–10).',
+    topics: ['family', 'kids', 'parenting', 'read aloud', 'steady', 'ordinary', 'gratitude', 'peace', 'KJV']
   },
   {
     id: 'praisethanks30',

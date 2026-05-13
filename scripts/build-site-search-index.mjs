@@ -110,6 +110,7 @@ const ENTRIES = [
   { t: 'Steady Days — Five Gentle Steps (plan)', u: '/plans.html?plan=steadydays', k: 'steady quiet ordinary plain contentment faithfulness small things mercy micah colossians psalm 131 lamentations five porch kjv' },
   { t: 'Simple Thanks — 7 quiet days (print)', u: '/simple-thanks-one-page-print.html', k: 'simple thanks gratitude praise kjv print one page fridge seven days' },
   { t: 'Steady Days — 5 quiet steps (print)', u: '/steady-days-one-page-print.html', k: 'steady days ordinary quiet contentment faithfulness kjv print one page five micah colossians psalm lamentations porch' },
+  { t: 'Steady Days for Families (plan)', u: '/plans.html?plan=steadydays-kids', k: 'steady days family kids read aloud table plain week kjv five parents children' },
   { t: 'Church center', u: '/church.html', k: 'congregation' },
   { t: 'Little ones', u: '/little-ones.html', k: 'toddler preschool' },
   { t: 'Family home hub', u: '/family-home.html', k: 'household' },

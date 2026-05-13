@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-13T14:28:02.124Z",
+  "generatedAt": "2026-05-13T14:52:55.913Z",
   "surfacedRefCount": 3163,
   "overrideCount": 3163,
   "sourceCounts": {
@@ -1429,7 +1429,7 @@
     },
     "plans.html": {
       "refs": 303,
-      "pairs": 366
+      "pairs": 371
     },
     "printables.html": {
       "refs": 9,

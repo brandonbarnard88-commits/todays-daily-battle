@@ -357,6 +357,18 @@ function run() {
         console.log('\nOK  One Family heritage layers (women + cloud of witnesses)');
       }
     }
+    const plansHtml = fs.readFileSync(path.join(__dirname, 'plans.html'), 'utf8');
+    const heavyDaysOk =
+      plansHtml.includes("longheavydays:") &&
+      plansHtml.includes('When the Days Feel Long and Heavy') &&
+      plansHtml.includes('restTone: true') &&
+      plansHtml.includes('Cast thy burden upon the LORD');
+    if (!heavyDaysOk) {
+      console.log('\nFAIL longheavydays Battle Plan (plans.html)');
+      failed++;
+    } else {
+      console.log('\nOK  longheavydays Battle Plan');
+    }
     // Search logic: full-text search with synonym expansion (selfless→love) and fallback verses
     const script = fs.readFileSync(__dirname + '/script.js', 'utf8');
     const hasSelflessExpansion = script.includes("'selfless'") && script.includes('love');

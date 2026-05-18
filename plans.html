@@ -1892,6 +1892,13 @@
     .plan-extra-panel h3 { margin: 0 0 0.5rem; font-size: 0.98rem; color: var(--gold); font-weight: 700; }
     .plan-extra-panel ul { margin: 0.5rem 0 0; padding-left: 1.2rem; }
     .plan-extra-panel li { margin-bottom: 0.4rem; }
+    .plan-extra-closing-note {
+      margin: 0;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: rgba(245, 247, 251, 0.88);
+      font-style: italic;
+    }
     .plan-extra-panel p { margin: 0.65rem 0 0; }
     .plan-extra-panel a { color: var(--gold-soft); text-decoration: underline; text-underline-offset: 2px; }
     .plan-extra-panel a:hover, .plan-extra-panel a:focus-visible { color: var(--gold); }
@@ -2151,6 +2158,7 @@
         <a class="plans-plan-filter-chip" href="plans.html?plan=heartalone" title="When the heart feels alone">Heart alone</a>
         <a class="plans-plan-filter-chip" href="plans.html?plan=guiltshame" title="Guilt and shame">Guilt &amp; shame</a>
         <a class="plans-plan-filter-chip" href="plans.html?plan=overwhelmedburnout" title="Overwhelmed or burnt out">Too much</a>
+        <a class="plans-plan-filter-chip" href="plans.html?plan=longheavydays" title="When the days feel long and heavy">Long heavy days</a>
         <a class="plans-plan-filter-chip" href="plans.html?plan=selfworth" title="Worth and identity">Worth &amp; identity</a>
       </nav>
       </div>
@@ -2336,6 +2344,7 @@
               <li><a href="plans.html?plan=stewardship">Stewardship</a> (with <a href="plans.html?plan=dailylabor">work &amp; labor</a>)</li>
               <li><a href="plans.html?plan=addictionhope">Addiction &amp; strongholds</a> (with <a href="plans.html?plan=standfirm">stand firm</a>)</li>
               <li><a href="plans.html?plan=guiltshame">Guilt &amp; shame</a> &middot; <a href="plans.html?plan=overwhelmedburnout">Overwhelmed / burnout</a> &middot; <a href="plans.html?plan=selfworth">Self-worth / identity</a></li>
+              <li><a href="plans.html?plan=longheavydays">When the days feel long and heavy</a> (7 days)</li>
               <li><a href="plans.html?plan=caregiverrest">Caregiver rest</a></li>
               <li><a href="plans.html?plan=wearyhands">Grace for Weary Hands</a> (ministry &amp; constant giving)</li>
             </ul>
@@ -2885,6 +2894,11 @@
           <span class="plan-row-icon" aria-hidden="true">💬</span>
           <div class="plan-row-info"><h2>After a Hard Conversation</h2><p>Seven gentle days when words landed wrong, silence feels loud, or you are not sure what to say next. No fixing marathon&mdash;just Scripture, one small step, and room to breathe.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-afterhardtalk">Not started</span></div>
+        </a>
+        <a href="plans.html?plan=longheavydays" class="plan-row" id="plan-row-longheavydays" data-plan="longheavydays" role="listitem" aria-label="When the Days Feel Long and Heavy — 7 days">
+          <span class="plan-row-icon" aria-hidden="true">🌙</span>
+          <div class="plan-row-info"><h2>When the Days Feel Long and Heavy</h2><p>Seven quiet anchors for ordinary exhaustion, parenting fatigue, long weeks, and the weight that settles in without fanfare. One verse, one resting thought, one short prayer each day.</p></div>
+          <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-longheavydays">Not started</span></div>
         </a>
         <a href="plans.html?plan=peace" class="plan-row" data-plan="peace" role="listitem" aria-label="7-Day Peace — 7 days">
           <span class="plan-row-icon" aria-hidden="true">🕊️</span>
@@ -3877,6 +3891,77 @@
           { title: 'Love keeps bearing', ref: '1 Corinthians 13:7', text: 'Beareth all things, believeth all things, hopeth all things, endureth all things.',
             plain: 'Love is not naive \u2014 it keeps showing up with hope.', today: 'What would patient love look like tomorrow morning?', action: 'If you can, one small kindness with no lecture attached.', prayer: 'Lord, help love bear, believe, hope, and endure in this home. Amen.',
             goal: 'If it feels right, one kindness with no lecture \u2014 that is enough.' }
+        ]
+      },
+
+      longheavydays: {
+        id: 'longheavydays',
+        icon: '\uD83C\uDF19',
+        label: 'When the Days Feel Long and Heavy',
+        desc: 'Seven quiet anchors for ordinary exhaustion, parenting fatigue, long weeks, and the weight that settles in without fanfare. One verse, one resting thought, one short prayer each day. Open any day you need it.',
+        key: 'tdb-plan-longheavydays-day',
+        max: 7,
+        restTone: true,
+        closingNote:
+          'You do not have to finish all seven days in a row. Return as often as the days feel heavy. These verses remain open for you. The porch is always here.',
+        days: [
+          {
+            title: 'Cast the weight',
+            ref: 'Psalm 55:22',
+            text: 'Cast thy burden upon the LORD, and he shall sustain thee: he shall never suffer the righteous to be moved.',
+            plain: 'The burden does not have to stay in your hands today. You may lay it down without explanation or apology.',
+            prayer: 'Father, here is the weight I have carried alone. Sustain me as only You can. Let me rest in Your hold. Amen.',
+            goal: 'If it feels right, name the weight once to God — fixing it is not required today.'
+          },
+          {
+            title: 'Strength for today',
+            ref: 'Isaiah 40:31',
+            text: 'But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.',
+            plain: 'Renewal often comes in small measures — enough for today\u2019s steps, not tomorrow\u2019s miles. Waiting is not weakness; it is trust with tired hands.',
+            prayer: 'Lord, I feel empty today. Renew my strength in the way You see best. Help me walk the next small part without fainting. Amen.',
+            goal: 'If you want, ask for strength for one step — not the whole week.'
+          },
+          {
+            title: 'Gentle yoke',
+            ref: 'Matthew 11:28-29',
+            text: 'Come unto me, all ye that labour and are heavy laden, and I will give you rest. Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls.',
+            redLetterRanges: [{ start: 0, end: 999 }],
+            plain: 'His yoke is not another demand. It is companionship with One who is gentle toward the weary.',
+            prayer: 'Jesus, I come. Teach me to walk beside You in meekness and lowliness. Give rest to my soul today. Amen.',
+            goal: 'If it helps, sit with this invitation a minute before the next task.'
+          },
+          {
+            title: 'Sufficient grace',
+            ref: '2 Corinthians 12:9',
+            text: 'And he said unto me, My grace is sufficient for thee: for my strength is made perfect in weakness. Most gladly therefore will I rather glory in my infirmities, that the power of Christ may rest upon me.',
+            plain: 'Grace does not remove the weakness today; it rests upon it. Christ\u2019s power shows most clearly here.',
+            prayer: 'Father, this weakness is real. Let Your sufficient grace cover it, and let Christ\u2019s power rest on me. Amen.',
+            goal: 'If it feels right, let weakness be where you look for His strength today.'
+          },
+          {
+            title: 'One thing needful',
+            ref: 'Luke 10:42',
+            text: 'But one thing is needful: and Mary hath chosen that good part, which shall not be taken away from her.',
+            plain: 'Many things pull for attention. One thing remains: sitting quietly at His feet. The rest can wait a little longer.',
+            prayer: 'Lord, help me choose the one needful thing today. Quiet my heart at Your feet. Amen.',
+            goal: 'If you can, protect a few quiet minutes at His feet — short counts.'
+          },
+          {
+            title: 'He careth for you',
+            ref: '1 Peter 5:7',
+            text: 'Casting all your care upon him; for he careth for you.',
+            plain: 'You are not forgotten in the long days. He cares — truly and tenderly — for every part you carry.',
+            prayer: 'Thank You that You care for me. I cast these cares into Your hands. Keep me in Your peace. Amen.',
+            goal: 'If it helps, hand God one care by name — He already knows it.'
+          },
+          {
+            title: 'Hope for the weary',
+            ref: 'Isaiah 41:13',
+            text: 'For I the LORD thy God will hold thy right hand, saying unto thee, Fear not; I will help thee.',
+            plain: 'He does not stand far off. He holds your right hand and speaks the words you most need: Fear not. I will help thee.',
+            prayer: 'Father, take my hand today. Speak peace over my fear and help me as only You can. Amen.',
+            goal: 'If it feels right, receive His help for today only — tomorrow can wait.'
+          }
         ]
       },
 
@@ -5976,7 +6061,7 @@
           id: 'cat-heavy',
           icon: '🕊️',
           label: 'When it\'s heavy right now',
-          plans: ['fearfaith','worrytrust','anxiety7','anxiety7day','angerpeace','doubtassurance','griefhope','grief','anger','forgiveness','loneliness','heartalone','restlessnights','painwontquit','heavyhope','cancercomfort','moneyworry','addictionhope','guiltshame','overwhelmedburnout','selfworth','caregiverrest','wearyhands','longillness','peace','trust','marriage','afterhardtalk','peacemakers','lettinggo','fearnot14','summergrief','summertimesadness']
+          plans: ['fearfaith','worrytrust','anxiety7','anxiety7day','angerpeace','doubtassurance','griefhope','grief','anger','forgiveness','loneliness','heartalone','restlessnights','painwontquit','heavyhope','cancercomfort','moneyworry','addictionhope','guiltshame','overwhelmedburnout','longheavydays','selfworth','caregiverrest','wearyhands','longillness','peace','trust','marriage','afterhardtalk','peacemakers','lettinggo','fearnot14','summergrief','summertimesadness']
         },
         {
           id: 'cat-university',
@@ -7835,6 +7920,7 @@
               familyworship: 'You\'ve walked through these days of family worship together.',
               psalmscomfortfamily: 'You\'ve walked through the comfort of the Psalms as a family.',
               longdayslittle: 'You\'ve walked through seven long days — and God saw every hidden hour of it.',
+              longheavydays: 'You\'ve walked seven quiet days when the weight felt long — one verse, one resting thought, one prayer at a time.',
               backtoschoolfear: 'You\'ve walked through seven days of back-to-school fear — with the God who goes before you.',
               summergrief: 'You\'ve walked through seven days of summer grief — and He sat with you in every one of them.',
               summertimesadness: 'You\'ve walked through seven days of summer sadness — and He held you in every quiet, heavy one.'
@@ -7979,6 +8065,17 @@
         appendDayBp(breakdown, 'One small step together', dayData.familyTogether, 'action-panel');
         if (dayData.prayer) {
           appendDayBp(breakdown, 'Family prayer', dayData.prayer, 'prayer-panel');
+        }
+        appendDayBp(
+          breakdown,
+          'Gentle direction (optional)',
+          dayData.goal || PLAN_DAY_DEFAULT_GOAL,
+          'plan-day-goal',
+        );
+      } else if (plan.restTone) {
+        appendDayBp(breakdown, 'Resting thought', breakdownData.plainExplanation || dayData.plain, '');
+        if (dayData.prayer) {
+          appendDayBp(breakdown, 'Prayer', dayData.prayer, 'prayer-panel');
         }
         appendDayBp(
           breakdown,
@@ -8201,6 +8298,16 @@
       if (!el || !currentPlan) return;
       el.replaceChildren();
       var pid = currentPlan.id;
+      if (currentPlan.closingNote) {
+        el.hidden = false;
+        el.removeAttribute('hidden');
+        el.setAttribute('aria-label', 'A quiet note for this plan');
+        var noteP = document.createElement('p');
+        noteP.className = 'plan-extra-closing-note';
+        noteP.textContent = currentPlan.closingNote;
+        el.appendChild(noteP);
+        return;
+      }
       if (pid !== 'fearfaith' && pid !== 'worrytrust' && pid !== 'angerpeace' && pid !== 'doubtassurance' && pid !== 'griefhope' && pid !== 'painwontquit' && pid !== 'heavyhope' && pid !== 'heartalone' && pid !== 'loneliness' && pid !== 'universityloneliness' && pid !== 'littlehearts' && pid !== 'restlessnights' && pid !== 'wearyhands' && pid !== 'cancercomfort' && pid !== 'psalmscomfort' && pid !== 'proverbswisdom' && pid !== 'hopeuncertain' && pid !== 'gospeljohn' && pid !== 'galatiansfreedom' && pid !== 'sufferendure' && pid !== 'psalmspraise') {
         el.hidden = true;
         return;

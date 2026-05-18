@@ -466,7 +466,7 @@
             v('Acts 16:25', 'And at midnight Paul and Silas prayed, and sang praises unto God: and the prisoners heard them.'),
             v('Acts 16:34', 'And when he had brought them into his house, he set meat before them, and rejoiced, believing in God with all his house.')
           ],
-          note: 'Chains could not silence worship — God turned a cell into a doorway for a household to believe.'
+          note: 'Chains could not silence their worship — God turned a prison cell into a doorway for a whole household to believe.'
         },
         {
           id: 'timothy',
@@ -593,6 +593,7 @@
     links: [
       { href: '/one-family-in-christ-print.html', label: 'Print the main line (one page)' },
       { href: '/plans.html?plan=afterhardtalk', label: 'After a Hard Conversation (7 days)' },
+      { href: '/plans.html?plan=longheavydays', label: 'When the days feel long and heavy (7 days)' },
       { href: '/plans.html?plan=peace', label: '7-Day Peace' },
       { href: '/plans.html?plan=heartalone', label: 'When the Heart Feels Alone' },
       { href: '/family-rhythm.html', label: 'Family rhythm hub' },

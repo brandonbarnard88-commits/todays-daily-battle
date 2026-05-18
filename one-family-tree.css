@@ -283,6 +283,29 @@
   color: rgba(245, 247, 251, 0.88);
 }
 
+.one-family-wider__anchor {
+  margin: 0 0 1.1rem;
+  padding: 0.85rem 1rem;
+  border-left: 3px solid var(--of-gold);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: rgba(245, 247, 251, 0.92);
+  background: rgba(8, 12, 22, 0.25);
+  border-radius: 0 8px 8px 0;
+}
+
+.one-family-wider__closing {
+  margin: 1.15rem 0 0;
+  padding: 0.9rem 1rem;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  font-style: italic;
+  color: rgba(245, 247, 251, 0.85);
+  border: 1px solid var(--of-line);
+  border-radius: 10px;
+  background: rgba(8, 12, 22, 0.28);
+}
+
 .heritage-wider-accordion {
   border: 1px solid var(--of-line);
   border-radius: 12px;

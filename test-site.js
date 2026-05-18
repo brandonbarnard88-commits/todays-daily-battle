@@ -344,13 +344,17 @@ function run() {
         heritageData.includes('Women in the line & beside it') &&
         heritageData.includes("id: 'bathsheba'") &&
         heritageData.includes("id: 'sarah'") &&
+        heritageData.includes('The cloud of witnesses') &&
+        heritageData.includes("id: 'witnesses'") &&
+        heritageData.includes("id: 'lydia'") &&
         heritageTree.includes('renderWiderFamilyGroup') &&
-        heritageTree.includes('heritage-wider-accordion');
+        heritageTree.includes('heritage-wider-accordion') &&
+        heritageTree.includes('wider-witnesses');
       if (!heritageOk) {
-        console.log('\nFAIL One Family wider-women layer (bible-heritage-data.js / one-family-tree.js)');
+        console.log('\nFAIL One Family heritage layers (bible-heritage-data.js / one-family-tree.js)');
         failed++;
       } else {
-        console.log('\nOK  One Family wider-women layer');
+        console.log('\nOK  One Family heritage layers (women + cloud of witnesses)');
       }
     }
     // Search logic: full-text search with synonym expansion (selfless→love) and fallback verses

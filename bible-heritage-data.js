@@ -422,6 +422,97 @@
           note: 'The line of promise becomes flesh in her — see her also in David to Christ above.'
         }
       ]
+    },
+    {
+      id: 'witnesses',
+      title: 'The cloud of witnesses',
+      summaryLabel: 'Show the cloud of witnesses (7)',
+      intro:
+        'The main line runs from Adam to Christ. After the cross, Scripture names another kind of family — believers who pray, suffer, encourage, and belong to one another. Hebrews calls them a cloud of witnesses: not spectators far away, but sisters and brothers who already ran their race and still cheer us toward patience.',
+      anchorVerse: v(
+        'Hebrews 12:1',
+        'Wherefore seeing we also are compassed about with so great a cloud of witnesses, let us lay aside every weight, and the sin which doth so easily beset us, and let us run with patience the race that is set before us,'
+      ),
+      closing:
+        'Father, thank You that we are not alone on hard days. Surround us with Your Word, with faithful people, and with the hope of Christ. Help us run today with patience — not to prove ourselves, but because we belong to Your household. In Jesus\' name, Amen.',
+      people: [
+        {
+          id: 'priscilla-aquila',
+          name: 'Priscilla & Aquila',
+          relation: 'Tentmakers — teachers and hosts in the early church',
+          relationBeside: 'Beside Paul — opened their home and taught Apollos',
+          verses: [
+            v('Acts 18:26', 'And he began to speak boldly in the synagogue: whom when Aquila and Priscilla had heard, they took him unto them, and expounded unto him the way of God more perfectly.'),
+            v('Romans 16:3', 'Greet Priscilla and Aquila my helpers in Christ Jesus:')
+          ],
+          note: 'Ordinary work, open table, clear Word — the family of God often grows in kitchens and workshops as much as in temples.'
+        },
+        {
+          id: 'lydia',
+          name: 'Lydia',
+          relation: 'Seller of purple — first convert in Philippi',
+          relationBeside: 'Beside the missionary road — hostess of the church in her house',
+          verses: [
+            v('Acts 16:14-15', 'And a certain woman named Lydia, a seller of purple, of the city of Thyatira, which worshipped God, heard us: whose heart the Lord opened, that she attended unto the things which were spoken of Paul. And when she was baptized, and her household, she besought us, saying, If ye have judged me to be faithful to the Lord, come into my house, and abide there.')
+          ],
+          note: 'The Lord opened her heart — then she opened her home. Belonging often begins with a simple invitation to stay.'
+        },
+        {
+          id: 'paul-silas',
+          name: 'Paul & Silas',
+          relation: 'Apostle and companion — prisoners who prayed at midnight',
+          relationBeside: 'Beside the Philippian jail — praise when the night felt endless',
+          verses: [
+            v('Acts 16:25', 'And at midnight Paul and Silas prayed, and sang praises unto God: and the prisoners heard them.'),
+            v('Acts 16:34', 'And when he had brought them into his house, he set meat before them, and rejoiced, believing in God with all his house.')
+          ],
+          note: 'Chains could not silence worship — God turned a cell into a doorway for a household to believe.'
+        },
+        {
+          id: 'timothy',
+          name: 'Timothy',
+          relation: 'Son in the faith — pastor from Lystra',
+          relationBeside: 'Beside Paul — young, faithful, often afraid, still sent',
+          verses: [
+            v('2 Timothy 1:5', 'When I call to remembrance the unfeigned faith that is in thee, which dwelt first in thy grandmother Lois, and thy mother Eunice; and I am persuaded that in thee also.'),
+            v('1 Timothy 1:2', 'Unto Timothy, my own son in the faith: Grace, mercy, and peace, from God our Father and Jesus Christ our Lord.')
+          ],
+          note: 'Faith handed down through a mother and grandmother — then carried forward in gentleness, not swagger.'
+        },
+        {
+          id: 'onesimus',
+          name: 'Onesimus',
+          relation: 'Once a runaway servant — now a beloved brother',
+          relationBeside: 'Beside Philemon — reconciled and sent back in love',
+          verses: [
+            v('Philemon 1:10', 'I beseech thee for my son Onesimus, whom I have begotten in my bonds:'),
+            v('Colossians 4:9', 'With Onesimus, a faithful and beloved brother, who is one of you.')
+          ],
+          note: 'A broken relationship became family language — Paul called him son and brother, not a problem to hide.'
+        },
+        {
+          id: 'barnabas',
+          name: 'Barnabas',
+          relation: 'Son of consolation — encourager of the early church',
+          relationBeside: 'Beside Paul and John Mark — stood with people others had quit on',
+          verses: [
+            v('Acts 4:36', 'And Joses, who by the apostles was surnamed Barnabas, (which is, being interpreted, The son of consolation,) a Levite, and of the country of Cyprus:'),
+            v('Acts 11:24', 'For he was a good man, and full of the Holy Ghost and of faith: and much people was added unto the Lord.')
+          ],
+          note: 'His name meant encouragement — the cloud of witnesses includes those who make room for second chances.'
+        },
+        {
+          id: 'stephen',
+          name: 'Stephen',
+          relation: 'Deacon and first martyr — full of faith and the Holy Ghost',
+          relationBeside: 'Beside the young church — saw heaven open as stones fell',
+          verses: [
+            v('Acts 6:5', 'And the saying pleased the whole multitude: and they chose Stephen, a man full of faith and of the Holy Ghost, and Philip, and Prochorus, and Nicanor, and Timon, and Parmenas, and Nicolas a proselyte of Antioch:'),
+            v('Acts 7:59', 'And they stoned Stephen, calling upon God, and saying, Lord Jesus, receive my spirit.')
+          ],
+          note: 'He did not run his race for applause — he finished looking to Christ, and the church remembered.'
+        }
+      ]
     }
   ];
 
@@ -467,6 +558,7 @@
     { id: 'to-christ', title: 'David to Christ', startId: 'solomon', endId: 'jesus' },
     { id: 'branches', title: 'Gentle side branches' },
     { id: 'wider-women', title: 'Women in the line & beside it' },
+    { id: 'wider-witnesses', title: 'The cloud of witnesses' },
     { id: 'adoption', title: 'Our place in the family' }
   ];
 

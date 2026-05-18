@@ -144,6 +144,14 @@
     if (group.intro) {
       html += '<p class="one-family-wider__intro">' + esc(group.intro) + '</p>';
     }
+    if (group.anchorVerse) {
+      html +=
+        '<blockquote class="one-family-wider__anchor"><strong>' +
+        esc(group.anchorVerse.ref) +
+        '</strong> — ' +
+        esc(group.anchorVerse.text) +
+        '</blockquote>';
+    }
     html +=
       '<details class="heritage-wider-accordion" id="heritage-accordion-' +
       esc(group.id) +
@@ -155,7 +163,11 @@
     group.people.forEach(function (person) {
       html += renderWiderPersonCard(person);
     });
-    html += '</div></details></section>';
+    html += '</div></details>';
+    if (group.closing) {
+      html += '<p class="one-family-wider__closing">' + esc(group.closing) + '</p>';
+    }
+    html += '</section>';
     return html;
   }
 
@@ -225,6 +237,11 @@
       if (sec.id === 'wider-women') {
         var womenGroup = findWiderGroup('women');
         if (womenGroup) html += renderWiderFamilyGroup(womenGroup, 'wider-women');
+        return;
+      }
+      if (sec.id === 'wider-witnesses') {
+        var witnessesGroup = findWiderGroup('witnesses');
+        if (witnessesGroup) html += renderWiderFamilyGroup(witnessesGroup, 'wider-witnesses');
         return;
       }
       if (sec.id === 'adoption') {

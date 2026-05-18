@@ -173,6 +173,7 @@ function tdbIsHomePage() {
       { href: '/plans.html?plan=universitygratitude', label: 'Gratitude' },
       { href: '/plans.html?plan=simplethanks', label: 'Simple Thanks (7 days)' },
       { href: '/plans.html?plan=steadydays', label: 'Steady Days (5 days)' },
+      { href: '/plans.html?plan=giftsfromabove', label: 'Gifts from the Father of Lights (5 days)' },
       { href: '/plans.html?plan=universitycontentment', label: 'Contentment in Small Seasons' },
       { href: '/plans.html?plan=gratitude', label: '7-Day Gratitude' },
       { href: '/plans.html?plan=psalmspraise', label: 'Psalms of Praise' }
@@ -1033,9 +1034,8 @@ function tdbMountBottomAppNav() {
   if (document.body.classList.contains('no-tdb-bottom-nav')) return;
   var rawPath = window.location && window.location.pathname ? String(window.location.pathname) : '/';
   var path = rawPath.replace(/\/$/, '') || '/';
+  /* Home (/) ships its own .tdb-bottom-dock in index.html — mounting this bar there doubles mobile chrome. */
   var allowed =
-    path === '/' ||
-    path === '/index.html' ||
     /^\/verse(\.html)?$/i.test(path) ||
     /^\/reader(\.html)?$/i.test(path) ||
     /^\/plans(\.html)?$/i.test(path) ||
@@ -11636,7 +11636,7 @@ function wireFooterFridaySignup() {
   var doneKey = 'tdb_friday_signup_done';
   try {
     if (localStorage.getItem(doneKey) === '1') {
-      if (status) status.textContent = 'You\'re in. See you Friday.';
+      if (status) status.textContent = 'Fridays are already covered. Want the daily verse in email too? Open the home page and use the card just under today’s verse.';
       input.disabled = true;
       btn.disabled = true;
       return;
@@ -11645,7 +11645,7 @@ function wireFooterFridaySignup() {
   btn.addEventListener('click', function () {
     var email = String((input && input.value) || '').trim().toLowerCase();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      if (status) status.textContent = 'Use a full email (name@domain.com).';
+      if (status) status.textContent = 'Use a complete email (you@domain.com).';
       try {
         input.setAttribute('aria-invalid', 'true');
         input.setAttribute('aria-describedby', status && status.id ? status.id : '');
@@ -11656,10 +11656,10 @@ function wireFooterFridaySignup() {
       input.removeAttribute('aria-invalid');
     } catch (eRm) {}
     btn.disabled = true;
-    if (status) status.textContent = 'Adding you…';
+    if (status) status.textContent = 'Saving that for you…';
     var client = supabaseClient || (typeof window.__tdbSupabaseClient !== 'undefined' ? window.__tdbSupabaseClient : null);
     if (!client) {
-      if (status) status.textContent = 'Connection is still waking up. Try again in a moment.';
+      if (status) status.textContent = 'Connection is still waking up—try again in a moment.';
       btn.disabled = false;
       return;
     }
@@ -11669,15 +11669,15 @@ function wireFooterFridaySignup() {
     } catch (e) {}
     client.from('newsletter_signups').insert(payload).then(function (res) {
       if (res && res.error) {
-        if (status) status.textContent = 'That did not save just now—that is all right. Try again, or use the newsletter box on the home page.';
+        if (status) status.textContent = 'That did not save—try again, or use the email card on the home page (just under today’s verse).';
         btn.disabled = false;
         return;
       }
       try { localStorage.setItem(doneKey, '1'); } catch (e) {}
-      if (status) status.textContent = 'You are in. One verse and a short prayer land on Fridays—nothing noisy.';
+      if (status) status.textContent = 'You are on the Friday list. One short letter each week—unsubscribe any time; we never sell addresses.';
       input.disabled = true;
     }).catch(function () {
-      if (status) status.textContent = 'Small network hiccup—that is all right. Try again in a moment.';
+      if (status) status.textContent = 'Small network hiccup—try again in a minute.';
       btn.disabled = false;
     });
   });
@@ -12821,6 +12821,79 @@ function wirePrayThisWithMe() {
       if (div) div.appendChild(btn);
     });
   }
+}
+
+/** SMS prefilled body: useful on phones/tablets; hide on fine-pointer desktop (dead sms: URI). */
+function shouldShowSmsButton() {
+  try {
+    return window.matchMedia && window.matchMedia('(pointer: coarse) or (max-width: 1023px)').matches;
+  } catch (e) {
+    return true;
+  }
+}
+
+function applyFriendSmsButtonVisibility() {
+  var smsHome = document.getElementById('heroFriendSmsBtn');
+  var smsVerse = document.getElementById('verse-page-friend-sms');
+  var show = shouldShowSmsButton();
+  if (smsHome) smsHome.style.display = show ? '' : 'none';
+  if (smsVerse) smsVerse.style.display = show ? '' : 'none';
+}
+
+/** Prefilled mailto / sms: same verse payload as Share, zero backend. */
+function wireDailyBattleFriendSend() {
+  var emailHome = document.getElementById('heroFriendEmailBtn');
+  if (emailHome) {
+    emailHome.addEventListener('click', function () {
+      openDailyBattleFriendEmail();
+    });
+  }
+  var smsHome = document.getElementById('heroFriendSmsBtn');
+  if (smsHome) {
+    smsHome.addEventListener('click', function () {
+      openDailyBattleFriendSms();
+    });
+  }
+  var emailVerse = document.getElementById('verse-page-friend-email');
+  if (emailVerse) {
+    emailVerse.addEventListener('click', function () {
+      openDailyBattleFriendEmail();
+    });
+  }
+  var smsVerse = document.getElementById('verse-page-friend-sms');
+  if (smsVerse) {
+    smsVerse.addEventListener('click', function () {
+      openDailyBattleFriendSms();
+    });
+  }
+  applyFriendSmsButtonVisibility();
+  if (typeof window === 'undefined' || window.__tdbFriendSmsResizeWired) return;
+  window.__tdbFriendSmsResizeWired = true;
+  var deb;
+  function onLayoutChange() {
+    clearTimeout(deb);
+    deb = setTimeout(applyFriendSmsButtonVisibility, 150);
+  }
+  window.addEventListener('resize', onLayoutChange);
+  try {
+    if (window.matchMedia) {
+      var mqCoarse = window.matchMedia('(pointer: coarse)');
+      var mqFine = window.matchMedia('(pointer: fine)');
+      var mqNarrow = window.matchMedia('(max-width: 1023px)');
+      var mqWide = window.matchMedia('(min-width: 1024px)');
+      if (mqCoarse.addEventListener) {
+        mqCoarse.addEventListener('change', applyFriendSmsButtonVisibility);
+        mqFine.addEventListener('change', applyFriendSmsButtonVisibility);
+        mqNarrow.addEventListener('change', applyFriendSmsButtonVisibility);
+        mqWide.addEventListener('change', applyFriendSmsButtonVisibility);
+      } else if (mqCoarse.addListener) {
+        mqCoarse.addListener(applyFriendSmsButtonVisibility);
+        mqFine.addListener(applyFriendSmsButtonVisibility);
+        mqNarrow.addListener(applyFriendSmsButtonVisibility);
+        mqWide.addListener(applyFriendSmsButtonVisibility);
+      }
+    }
+  } catch (e) {}
 }
 
 /**
@@ -15892,16 +15965,26 @@ if (typeof window !== 'undefined') {
   Object.defineProperty(window, 'bible', { get: function () { return bible; }, configurable: true });
 }
 
+function getDailyBattleShareUrl() {
+  var origin = (window.location && window.location.origin) ? window.location.origin.replace(/\/$/, '') : 'https://todaysdailybattle.com';
+  if (!window.location || !window.location.pathname) return origin + '/#hero-verse-wrap';
+  var path = window.location.pathname || '/';
+  if (path === '/' || path === '/index.html') return origin + '/#hero-verse-wrap';
+  if (path === '/verse.html' || path.endsWith('/verse.html')) return origin + '/verse.html';
+  return origin + path.split('#')[0];
+}
+
 function shareDailyBattle() {
   trackEvent('share_daily_battle');
   const shareText = buildDailyBattleShareText();
   if (!shareText) return;
+  var shareUrl = getDailyBattleShareUrl();
   emitEasterEgg('share_cape', { source: 'daily_battle' });
   if (navigator.share) {
-    navigator.share({ title: "God's University of Life — Today's Daily Battle", text: shareText, url: window.location.href }).catch(() => {});
+    navigator.share({ title: "Today's Daily Battle (KJV)", text: shareText, url: shareUrl }).catch(() => {});
     return;
   }
-  var full = shareText + '\n' + (window.location.href || window.location.origin + '/');
+  var full = shareText + '\n' + shareUrl;
   navigator.clipboard.writeText(full).then(function () {
     if (typeof showEliteToast === 'function') showEliteToast('Verse + link copied—paste to share.');
     else alert('Copied.');
@@ -15921,8 +16004,50 @@ function buildDailyBattleShareText() {
     if (dt) verse = dt;
   }
   if (!ref) return '';
-  var short = verse ? (verse.length > 120 ? verse.slice(0, 117) + '…' : verse) : ref;
-  return 'Found this KJV verse helpful today: ' + short + ' via @todaysdailybattle';
+  var step = '';
+  if (typeof document !== 'undefined') {
+    var stepEl = document.getElementById('heroVotdOneStep');
+    if (stepEl && stepEl.textContent) {
+      step = String(stepEl.textContent).replace(/\s+/g, ' ').trim();
+      if (step.length > 220) step = step.slice(0, 217) + '\u2026';
+    }
+  }
+  var short = verse ? (verse.length > 220 ? verse.slice(0, 217) + '\u2026' : verse) : '';
+  var parts = [];
+  parts.push('KJV today — ' + ref);
+  if (short) parts.push('\u201c' + short + '\u201d');
+  if (step) parts.push('One small step: ' + step);
+  parts.push('Free porch; private on your device; works offline after your first visit.');
+  return parts.join('\n\n');
+}
+
+/** Plain body + canonical link for mailto / SMS (no duplicate URL inside buildDailyBattleShareText). */
+function buildDailyBattleFriendFullMessage() {
+  var body = buildDailyBattleShareText();
+  if (!body) return '';
+  return body + '\n\n' + getDailyBattleShareUrl();
+}
+
+function openDailyBattleFriendEmail() {
+  var full = buildDailyBattleFriendFullMessage();
+  if (!full) return;
+  trackEvent('share_friend_mailto', { surface: 'daily_verse' });
+  var maxLen = 1500;
+  if (full.length > maxLen) {
+    var url = getDailyBattleShareUrl();
+    full = full.slice(0, Math.max(0, maxLen - url.length - 8)) + '\u2026\n\n' + url;
+  }
+  var subject = "Today's KJV verse — thought of you";
+  window.location.href = 'mailto:?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(full);
+}
+
+function openDailyBattleFriendSms() {
+  var full = buildDailyBattleFriendFullMessage();
+  if (!full) return;
+  trackEvent('share_friend_sms', { surface: 'daily_verse' });
+  var maxSms = 320;
+  var smsBody = full.length > maxSms ? full.slice(0, maxSms - 1) + '\u2026' : full;
+  window.location.href = 'sms:?&body=' + encodeURIComponent(smsBody);
 }
 
 /** Quiet pre-filled share for a friend (verse of the day page). No hype; link to verse hub. */
@@ -18503,8 +18628,53 @@ function tdbUpdateWelcomeBackMsg() {
   }
 }
 
+/** After a few porch visits, show a tiny wayfinding row so returning users feel “same table,” not day one again. */
+function tdbFillQuietCornerVerseLink() {
+  var a = document.getElementById('tdbQuietCornerVerse');
+  var card = document.getElementById('verseCard');
+  if (!a || !card || typeof tdbGetDailyVerseRefFromCard !== 'function') return;
+  var ref = String(tdbGetDailyVerseRefFromCard(card) || '').trim();
+  if (!ref) return;
+  var plain = ref.replace(/\s*\(KJV\)\s*$/i, '').trim();
+  try {
+    a.setAttribute('aria-label', 'Open today’s verse — ' + plain + ' (KJV)');
+  } catch (eAl) {}
+}
+
+function tdbUpdateQuietCornerStrip() {
+  if (typeof document === 'undefined' || !document.getElementById('home-primary-flow')) return;
+  var strip = document.getElementById('tdbQuietCornerStrip');
+  if (!strip) return;
+  if (window.__tdbQuietCornerVisitCounted) {
+    tdbFillQuietCornerVerseLink();
+    return;
+  }
+  window.__tdbQuietCornerVisitCounted = true;
+  var visitKey = 'tdb_home_porch_visits_v1';
+  var n = 0;
+  try {
+    n = parseInt(localStorage.getItem(visitKey) || '0', 10) || 0;
+  } catch (eRead) {}
+  var next = n + 1;
+  try {
+    localStorage.setItem(visitKey, String(next));
+  } catch (eWrite) {}
+  if (next < 3) return;
+  try {
+    strip.removeAttribute('hidden');
+  } catch (eH) {}
+  tdbFillQuietCornerVerseLink();
+}
+
 function tdbRunHomeMoodShuffleAndWelcome() {
   try {
+    if (typeof tdbUpdateQuietCornerStrip === 'function') tdbUpdateQuietCornerStrip();
+    setTimeout(function () {
+      if (typeof tdbFillQuietCornerVerseLink === 'function') tdbFillQuietCornerVerseLink();
+    }, 700);
+    setTimeout(function () {
+      if (typeof tdbFillQuietCornerVerseLink === 'function') tdbFillQuietCornerVerseLink();
+    }, 3200);
     if (!document.getElementById('quickTopics')) return;
     shuffleHomeQuickTopicSurfaces();
     pickHomeWelcomeLine();
@@ -25333,6 +25503,14 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     topics: ['family', 'kids', 'parenting', 'read aloud', 'steady', 'ordinary', 'gratitude', 'peace', 'KJV']
   },
   {
+    id: 'giftsfromabove',
+    title: 'Gifts from the Father of Lights',
+    href: 'plans.html?plan=giftsfromabove',
+    days: 5,
+    description: 'Five slow KJV days — not a test — to notice gifts from the Father of lights: James 1:17, Bezalel, Romans 12, 1 Corinthians 12, 1 Peter 4; steward grace where you are.',
+    topics: ['gifts', 'spiritual gifts', 'grace', 'stewardship', 'James', 'Romans', 'Corinthians', 'Peter', 'thanks', 'faithfulness', 'KJV']
+  },
+  {
     id: 'praisethanks30',
     title: '30-Day Praise & Thanksgiving',
     href: 'plans.html?plan=praisethanks30',
@@ -29260,6 +29438,7 @@ async function tdbInitImpl() {
   wireBreatheWithHim();
   wireQuickPrayAutocomplete();
   wirePrayThisWithMe();
+  wireDailyBattleFriendSend();
   wireTdbPrintDelightPass();
   wireVersePageListen();
   wireVersePageNarrationPrefs();
@@ -30490,14 +30669,14 @@ async function tdbInitImpl() {
       }
       if (emailEl) emailEl.removeAttribute('aria-invalid');
       if (!weekly && !daily) {
-        if (statusEl) statusEl.textContent = 'Pick at least one: weekly recap or daily verse.';
+        if (statusEl) statusEl.textContent = 'Pick at least one: the short Friday note or the daily verse.';
         return;
       }
       const timeEl = document.getElementById('newsletter-time');
       const preferredTime = timeEl && timeEl.value ? timeEl.value : '';
       if (chosenName) saveMessageDisplayName(chosenName);
       newsletterBtn.disabled = true;
-      if (statusEl) statusEl.textContent = 'Saving your preferences…';
+      if (statusEl) statusEl.textContent = 'Saving that for you…';
       let result = null;
       try {
         result = await saveNewsletterSignup(email, { weekly, daily, preferredTime }, chosenName);
@@ -30509,14 +30688,14 @@ async function tdbInitImpl() {
       if (nameEl && chosenName) nameEl.value = chosenName;
       if (statusEl) {
         if (result && result.cloudOk) {
-          statusEl.textContent = 'You are on the list. Watch your inbox—calm rhythm, easy unsubscribe anytime.';
+          statusEl.textContent = 'You are on the list. Watch your inbox for the next send—unsubscribe any time. We never sell addresses.';
         } else if (result) {
-          statusEl.textContent = 'Saved here on this device. If email does not arrive, check spam or try again when you are online.';
+          statusEl.textContent = 'Saved on this device for now. When you are online again we will try to finish the handoff—or check spam if you were already expecting mail.';
         } else {
-          statusEl.textContent = 'That save did not go through—that is all right. Try again in a moment.';
+          statusEl.textContent = 'That save did not go through—nothing is wrong with you. Try once more in a minute.';
         }
       }
-      if (typeof showEliteToast === 'function') showEliteToast(result && result.cloudOk ? 'You are signed up.' : 'Preferences saved locally.');
+      if (typeof showEliteToast === 'function') showEliteToast(result && result.cloudOk ? 'You are on the quiet list.' : 'Stored on this device for now.');
     });
   }
 

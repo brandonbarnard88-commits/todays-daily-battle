@@ -39,9 +39,10 @@ jobs:
           node-version: '22'
           cache: npm
 
+      # ffmpeg-static postinstall often fails on GitHub (upstream 500). Static site build does not need it.
       - name: Install and build
         run: |
-          npm ci
+          npm ci --ignore-scripts
           npm run build
 
       # Fail before upload if critical /kids/*.js never reached dist/ (catches CI/build regressions).

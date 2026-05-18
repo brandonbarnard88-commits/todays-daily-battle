@@ -99,6 +99,16 @@ function tdbIsHomePage() {
   injectVerseBreakdownStack();
 })();
 
+(function tdbEnsureRedLetterScript() {
+  if (typeof window === 'undefined' || typeof document === 'undefined') return;
+  if (window.TDBRedLetter) return;
+  if (document.querySelector('script[data-tdb-red-letter]')) return;
+  var rl = document.createElement('script');
+  rl.src = '/red-letter.js?v=20260518-rl';
+  rl.setAttribute('data-tdb-red-letter', '1');
+  (document.head || document.documentElement).appendChild(rl);
+})();
+
 /**
  * University of God: gentle links from any verse to on-site Battle Plans (same KJV “courses” as /plans).
  * Homepage also sets this from hero-daily-first-paint.js before inline verse render; redefining is harmless.
@@ -14955,14 +14965,48 @@ function saveAmenCounts(map) {
 }
 
 function isRedLetterEnabled() {
+  if (typeof window !== 'undefined' && window.TDBRedLetter && typeof window.TDBRedLetter.isEnabled === 'function') {
+    return window.TDBRedLetter.isEnabled();
+  }
   const stored = localStorage.getItem(RED_LETTER_TOGGLE_KEY);
-  if (stored === null) return true;
+  if (stored === null) return false;
   return stored === 'true';
 }
 
 function setRedLetterEnabled(value) {
+  if (typeof window !== 'undefined' && window.TDBRedLetter && typeof window.TDBRedLetter.setEnabled === 'function') {
+    window.TDBRedLetter.setEnabled(!!value);
+    refreshRedLetterSurfaces();
+    return;
+  }
   localStorage.setItem(RED_LETTER_TOGGLE_KEY, value ? 'true' : 'false');
   document.body.classList.toggle('red-letter-off', !value);
+  refreshRedLetterSurfaces();
+}
+
+/** Re-apply inline red-letter markup on visible verse surfaces after toggle changes. */
+function refreshRedLetterSurfaces() {
+  try {
+    if (typeof renderDailyVerse === 'function') renderDailyVerse();
+  } catch (e) { /* non-fatal */ }
+  try {
+    var heroEl = document.getElementById('heroVerse');
+    var heroRef = document.getElementById('heroRef');
+    if (heroEl && window.TDBRedLetter && heroRef) {
+      var ref = String(heroRef.textContent || '').replace(/\s*\(KJV\)\s*$/i, '').trim();
+      var text = String(heroEl.textContent || '').replace(/^[\s"\u201c]+|[\s"\u201d]+$/g, '').trim();
+      if (ref && text) window.TDBRedLetter.applyToElement(heroEl, ref, text, { quote: true });
+    }
+  } catch (e2) { /* non-fatal */ }
+  try {
+    if (typeof currentDailyBattle !== 'undefined' && currentDailyBattle && currentDailyBattle.ref) {
+      var battleCard = document.getElementById('daily-battle-card') || document.querySelector('.daily-battle-card');
+      var battleVerse = battleCard && battleCard.querySelector('p');
+      if (battleVerse && window.TDBRedLetter) {
+        window.TDBRedLetter.applyToElement(battleVerse, currentDailyBattle.ref, currentDailyBattle.verse || battleVerse.textContent, { quote: false });
+      }
+    }
+  } catch (e3) { /* non-fatal */ }
 }
 
 var SPACING_LEVEL_MIN = 0;
@@ -15852,7 +15896,11 @@ function tdbMountDailyVerseCardShell(card, refStr, verseStr, offlineNoteText) {
   var verseP = document.createElement('p');
   verseP.className = 'daily-verse-text';
   verseP.id = 'daily-verse-text';
-  verseP.textContent = String(verseStr || '');
+  if (typeof window !== 'undefined' && window.TDBRedLetter && typeof window.TDBRedLetter.applyToElement === 'function') {
+    window.TDBRedLetter.applyToElement(verseP, String(refStr || ''), String(verseStr || ''), { quote: false });
+  } else {
+    verseP.textContent = String(verseStr || '');
+  }
   bq.appendChild(verseP);
   card.appendChild(refP);
   card.appendChild(bq);
@@ -16837,9 +16885,13 @@ if (c && c.ref) {
     tryAgainWrap.style.marginTop = '0.5rem';
     prayerEl.after(tryAgainWrap);
   }
-  if (isRedLetterLike(battle.ref, verseText || '')) {
+  const verseEl = card.querySelector('p');
+  if (verseEl && window.TDBRedLetter && typeof window.TDBRedLetter.applyToElement === 'function') {
+    window.TDBRedLetter.applyToElement(verseEl, battle.ref, verseText || '', { quote: false });
+    if (isRedLetterLike(battle.ref, verseText || '')) card.classList.add('red-letter-card');
+    else card.classList.remove('red-letter-card');
+  } else if (isRedLetterLike(battle.ref, verseText || '')) {
     card.classList.add('red-letter-card');
-    const verseEl = card.querySelector('p');
     if (verseEl) verseEl.classList.add('red-letter');
   } else {
     card.classList.remove('red-letter-card');
@@ -22707,14 +22759,24 @@ function scheduleReaderIdleHydration(task, timeoutMs) {
   setTimeout(task, 180);
 }
 
+function tdbVerseBodyHtml(ref, text, options) {
+  const plain = String(text || '').replace(/<[^>]+>/g, '');
+  if (typeof isRedLetterEnabled === 'function' && isRedLetterEnabled() && window.TDBRedLetter && typeof window.TDBRedLetter.renderHtml === 'function') {
+    return window.TDBRedLetter.renderHtml(ref, plain, options || { quote: false });
+  }
+  return escapeHtml(plain);
+}
+
 function appendReaderVerseLine(container, ref, text, useRedLetter) {
   const line = document.createElement('div');
   line.className = 'context-line context-line--reader-virtual';
   line.dataset.ref = ref;
-  line.innerHTML = '<strong>' + escapeHtml(ref) + '</strong> ' + escapeHtml(String(text || '').trim());
-  if (useRedLetter && typeof isRedLetterEnabled === 'function' && isRedLetterEnabled() && typeof isRedLetterLike === 'function' && isRedLetterLike(ref, text)) {
-    line.classList.add('red-letter');
+  var bodyHtml = escapeHtml(String(text || '').trim());
+  if (useRedLetter && typeof isRedLetterEnabled === 'function' && isRedLetterEnabled()) {
+    bodyHtml = tdbVerseBodyHtml(ref, text, { quote: false });
+    if (typeof isRedLetterLike === 'function' && isRedLetterLike(ref, text)) line.classList.add('red-letter-card');
   }
+  line.innerHTML = '<strong>' + escapeHtml(ref) + '</strong> ' + bodyHtml;
   container.appendChild(line);
 }
 
@@ -22735,10 +22797,18 @@ function renderReaderVersesProgressively(container, rows, onDone) {
       const line = document.createElement('div');
       line.className = 'context-line context-line--reader-virtual';
       line.dataset.ref = row.ref || '';
-      line.innerHTML = '<strong>' + escapeHtml(row.ref || '') + '</strong> ' + escapeHtml(String(row.text || '').trim());
-      if (row.red && typeof isRedLetterEnabled === 'function' && isRedLetterEnabled()) {
+      var rowRef = row.ref || '';
+      var rowText = String(row.text || '').trim();
+      var rowBody = escapeHtml(rowText);
+      if (typeof isRedLetterEnabled === 'function' && isRedLetterEnabled()) {
+        rowBody = tdbVerseBodyHtml(rowRef, rowText, { quote: false });
+        if (row.red || (typeof isRedLetterLike === 'function' && isRedLetterLike(rowRef, rowText))) {
+          line.classList.add('red-letter-card');
+        }
+      } else if (row.red) {
         line.classList.add('red-letter');
       }
+      line.innerHTML = '<strong>' + escapeHtml(rowRef) + '</strong> ' + rowBody;
       frag.appendChild(line);
     }
     container.appendChild(frag);
@@ -24439,6 +24509,9 @@ function isGospelBook(ref) {
 
 /** Only Gospels contain Jesus' direct words (red-letter). James, Hebrews, etc. are never red-letter. */
 function isRedLetterLike(ref, text) {
+  if (typeof window !== 'undefined' && window.TDBRedLetter && typeof window.TDBRedLetter.isRedLetterLike === 'function') {
+    return window.TDBRedLetter.isRedLetterLike(ref, text);
+  }
   if (!ref || !text) return false;
   if (!isGospelBook(ref)) return false;
   if (ref.startsWith('James ') || ref.startsWith('Jude ') || ref.startsWith('Hebrews ') || ref.startsWith('Revelation ')) return false;
@@ -26868,7 +26941,21 @@ function buildHomeVerseCard(output, verse, queryText) {
 
   var versePreview = document.createElement('p');
   versePreview.className = 'home-search-card-copy';
-  appendHighlightedText(versePreview, stripHtmlToPlainText(verse.text || ''), buildHomeSearchHighlightRegex(queryText));
+  var plainVerse = stripHtmlToPlainText(verse.text || '');
+  if (typeof isRedLetterEnabled === 'function' && isRedLetterEnabled() && typeof isRedLetterLike === 'function' && isRedLetterLike(verse.ref, plainVerse)) {
+    try {
+      if (window.trustedTypes && window.trustedTypes.defaultPolicy && window.trustedTypes.defaultPolicy.createHTML) {
+        versePreview.innerHTML = window.trustedTypes.defaultPolicy.createHTML(tdbVerseBodyHtml(verse.ref, plainVerse, { quote: false }));
+      } else {
+        versePreview.innerHTML = tdbVerseBodyHtml(verse.ref, plainVerse, { quote: false });
+      }
+    } catch (eRlHome) {
+      versePreview.textContent = plainVerse;
+    }
+    card.classList.add('red-letter-card');
+  } else {
+    appendHighlightedText(versePreview, plainVerse, buildHomeSearchHighlightRegex(queryText));
+  }
   card.appendChild(versePreview);
 
   var plainMeaning = typeof getPlainMeaning === 'function' ? getPlainMeaning(verse.ref) : '';
@@ -27530,7 +27617,7 @@ function renderResults(results) {
       items.forEach(v => {
         const card = document.createElement('div');
         card.className = 'verse-card verse-item';
-        card.innerHTML = '<strong>' + escapeHtml(v.ref) + '</strong><p>' + escapeHtml(v.text || '') + '</p>';
+        card.innerHTML = '<strong>' + escapeHtml(v.ref) + '</strong><p>' + tdbVerseBodyHtml(v.ref, v.text || '', { quote: false }) + '</p>';
         if (v.originatingTopicsDisplay && results.semanticBlendedTopics && results.semanticBlendedTopics.length >= 2) {
           var badge = document.createElement('span');
           badge.className = 'badge multi-origin';
@@ -27549,8 +27636,6 @@ function renderResults(results) {
         }
         if (isRedLetterLike(v.ref, v.text.replace(/<[^>]+>/g, ''))) {
           card.classList.add('red-letter-card');
-          const verseText = card.querySelector('p');
-          if (verseText) verseText.classList.add('red-letter');
         }
         if (output && (output.closest('#quick-search-hero') || output.closest('#search-hero'))) {
           var refBlock = document.createElement('div');
@@ -27662,8 +27747,8 @@ function renderResults(results) {
           if (!p) return;
           if (p.classList.contains('memory-mode')) {
             p.classList.remove('memory-mode');
-            p.innerHTML = escapeHtml(v.text || '');
-            if (isRedLetterLike(v.ref, v.text.replace(/<[^>]+>/g, ''))) p.classList.add('red-letter');
+            p.innerHTML = tdbVerseBodyHtml(v.ref, v.text || '', { quote: false });
+            if (isRedLetterLike(v.ref, v.text.replace(/<[^>]+>/g, ''))) card.classList.add('red-letter-card');
             tdbApplyKjvLookupIfReady(p, { plainText: cleanText(), contextVerse: cleanText() });
             memoryBtn.textContent = 'Memory';
             return;
@@ -27851,10 +27936,22 @@ function renderResults(results) {
   }
   var initialVerseLimit = (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(max-width: 768px)').matches) ? 6 : 10;
   renderSection(resultsTitle, verses, initialVerseLimit, isJesusSaidQuery);
-  if (queryText.includes('family') || queryText.includes('parenting') || queryText.includes('parents') || queryText.includes('home')) {
+  if (
+    queryText.includes('family') ||
+    queryText.includes('parenting') ||
+    queryText.includes('parents') ||
+    queryText.includes('home') ||
+    /\b(alone|lonely|loneliness|heritage|genealog|family tree|begat|lineage)\b/i.test(queryText)
+  ) {
     const familyTreeWrap = document.createElement('div');
     familyTreeWrap.className = 'family-tree-image-wrap';
-    familyTreeWrap.innerHTML = '<figure class="family-tree-figure"><img src="/images/family-tree.png" alt="Biblical Family Tree: Abraham to Jesus" loading="lazy" class="family-tree-img" style="max-width:100%; margin:20px 0; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.2);"><figcaption class="family-tree-caption">Faith through the generations</figcaption></figure>';
+    familyTreeWrap.innerHTML =
+      '<figure class="family-tree-figure">' +
+      '<a href="one-family-in-christ.html" class="family-tree-figure-link" aria-label="Open One Family in Christ — Bible heritage from Adam to Jesus">' +
+      '<img src="/images/family-tree.png" alt="Biblical family line: Abraham to Jesus" loading="lazy" class="family-tree-img" style="max-width:100%; margin:20px 0; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,0.2);">' +
+      '</a>' +
+      '<figcaption class="family-tree-caption">Come see the long family story in Scripture &mdash; <a href="one-family-in-christ.html">One Family in Christ</a> (Adam and Eve to Christ)</figcaption>' +
+      '</figure>';
     output.appendChild(familyTreeWrap);
   }
   const contextNote = document.createElement('div');
@@ -32502,11 +32599,11 @@ async function tdbInitImpl() {
     });
   }
 
-  const readerRedLetterToggle = document.getElementById('reader-red-letter-toggle');
-  if (readerRedLetterToggle) {
-    readerRedLetterToggle.checked = isRedLetterEnabled();
-    readerRedLetterToggle.addEventListener('change', () => {
-      setRedLetterEnabled(readerRedLetterToggle.checked);
+  const readerRedLetterToggleEarly = document.getElementById('reader-red-letter-toggle');
+  if (readerRedLetterToggleEarly) {
+    readerRedLetterToggleEarly.checked = isRedLetterEnabled();
+    readerRedLetterToggleEarly.addEventListener('change', () => {
+      setRedLetterEnabled(readerRedLetterToggleEarly.checked);
       const book = document.getElementById('reader-book')?.value;
       const chapter = document.getElementById('reader-chapter')?.value;
       if (book && chapter) renderReaderChapter(book, chapter);
@@ -33252,20 +33349,45 @@ async function tdbInitImpl() {
     ttsStopBtn.addEventListener('click', stopTts);
   }
 
-  const redLetterToggle = document.getElementById('red-letter-toggle');
-  if (redLetterToggle) {
-    const enabled = isRedLetterEnabled();
-    redLetterToggle.checked = enabled;
-    setRedLetterEnabled(enabled);
-    redLetterToggle.addEventListener('change', () => {
-      setRedLetterEnabled(redLetterToggle.checked);
-      var readerBook = document.getElementById('reader-book');
-      var readerChapter = document.getElementById('reader-chapter');
-      if (readerBook && readerChapter && readerBook.value && readerChapter.value && typeof renderReaderChapter === 'function') {
-        renderReaderChapter(readerBook.value, readerChapter.value);
-      }
-    });
+  function syncRedLetterToggles(enabled) {
+    const redLetterToggle = document.getElementById('red-letter-toggle');
+    if (redLetterToggle) redLetterToggle.checked = !!enabled;
+    const settingsRedLetter = document.getElementById('settings-red-letter');
+    if (settingsRedLetter) settingsRedLetter.checked = !!enabled;
+    const readerRedLetterToggle = document.getElementById('reader-red-letter-toggle');
+    if (readerRedLetterToggle) readerRedLetterToggle.checked = !!enabled;
   }
+
+  const redLetterToggle = document.getElementById('red-letter-toggle');
+  const settingsRedLetter = document.getElementById('settings-red-letter');
+  const enabled = isRedLetterEnabled();
+  syncRedLetterToggles(enabled);
+  setRedLetterEnabled(enabled);
+  function onRedLetterToggleChange(checked) {
+    setRedLetterEnabled(checked);
+    syncRedLetterToggles(checked);
+    var readerBook = document.getElementById('reader-book');
+    var readerChapter = document.getElementById('reader-chapter');
+    if (readerBook && readerChapter && readerBook.value && readerChapter.value && typeof renderReaderChapter === 'function') {
+      renderReaderChapter(readerBook.value, readerChapter.value);
+    }
+    if (typeof lastResults !== 'undefined' && lastResults && lastResults.verses && lastResults.verses.length && typeof renderResults === 'function') {
+      renderResults(lastResults);
+    }
+  }
+  if (redLetterToggle) {
+    redLetterToggle.addEventListener('change', () => onRedLetterToggleChange(redLetterToggle.checked));
+  }
+  if (settingsRedLetter) {
+    settingsRedLetter.addEventListener('change', () => onRedLetterToggleChange(settingsRedLetter.checked));
+  }
+  try {
+    window.addEventListener('tdb-red-letter-changed', function (ev) {
+      var on = ev && ev.detail && typeof ev.detail.enabled === 'boolean' ? ev.detail.enabled : isRedLetterEnabled();
+      syncRedLetterToggles(on);
+      if (typeof refreshRedLetterSurfaces === 'function') refreshRedLetterSurfaces();
+    });
+  } catch (eRlEvt) { /* non-fatal */ }
 
   const spacingMinus = document.getElementById('spacing-minus');
   const spacingPlus = document.getElementById('spacing-plus');

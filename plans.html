@@ -3551,6 +3551,7 @@
     })();
   </script>
   <script src="/university-plan-extensions.js?v=20260511uniext-u21-porch-v1"></script>
+  <script src="/red-letter.js?v=20260518-rl" data-tdb-red-letter="1"></script>
   <script nonce="tdb2025s">
     (function () {
       var optionalScripts = [
@@ -3861,6 +3862,7 @@
             plain: 'Tone can change the temperature of a room.', today: 'Where did voices rise yesterday?', action: 'If you speak again, try one gentler sentence than you feel.', prayer: 'Lord, put a soft answer in my mouth. Amen.',
             goal: 'If you want, one soft sentence is enough for today.' },
           { title: 'Go and be reconciled', ref: 'Matthew 5:23-24', text: 'Therefore if thou bring thy gift to the altar, and there rememberest that thy brother hath ought against thee; Leave there thy gift before the altar, and go thy way; first be reconciled to thy brother, and then come and offer thy gift.',
+            redLetterRanges: [{ start: 0, end: 999 }],
             plain: 'Worship and repair belong together \u2014 God cares about the rift.', today: 'Is there a first step of peace you can take without a lecture?', action: 'If safe and wise, name one true line: I am sorry for my part.', prayer: 'Lord, show me the humble first step. Amen.',
             goal: 'If it feels right, one honest line of repair \u2014 no speech required.' },
           { title: 'Forgive as you were forgiven', ref: 'Ephesians 4:32', text: 'And be ye kind one to another, tenderhearted, forgiving one another, even as God for Christ\'s sake hath forgiven you.',
@@ -7683,6 +7685,19 @@
       }
     }
 
+    var HERITAGE_QUIET_PLAN_IDS = { heartalone: true, loneliness: true, universityloneliness: true };
+
+    function appendHeritageQuietLink(card) {
+      if (!card || !currentPlan || !HERITAGE_QUIET_PLAN_IDS[currentPlan.id]) return;
+      var note = document.createElement('p');
+      note.className = 'section-note plan-heritage-quiet-link';
+      note.innerHTML =
+        'Feeling alone? The Bible holds one long family story \u2014 and how you belong in it. ' +
+        '<a href="one-family-in-christ.html">One Family in Christ</a> \u00b7 ' +
+        '<a href="one-family-in-christ-print.html">Print the main line</a>';
+      card.appendChild(note);
+    }
+
     function renderDayCard() {
       try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (_) {}
       var hlClear = document.getElementById('plan-day-verse-text');
@@ -7851,6 +7866,7 @@
       header.appendChild(numSpan);
       header.appendChild(titleSpan);
       card.appendChild(header);
+      appendHeritageQuietLink(card);
 
       var verseShell = document.createElement('div');
       verseShell.className = 'plan-day-verse-shell';
@@ -7868,7 +7884,16 @@
       var verseP = document.createElement('p');
       verseP.className = 'day-card-verse-text daily-verse-text';
       verseP.id = 'plan-day-verse-text';
-      verseP.textContent = '\u201c' + cleanPlanPlain(dayData.text == null ? '' : String(dayData.text)) + '\u201d';
+      var planVerseText = cleanPlanPlain(dayData.text == null ? '' : String(dayData.text));
+      var planVerseRef = cleanPlanPlain(dayData.ref == null ? '' : String(dayData.ref));
+      if (window.TDBRedLetter && typeof window.TDBRedLetter.applyToElement === 'function') {
+        window.TDBRedLetter.applyToElement(verseP, planVerseRef, planVerseText, {
+          quote: true,
+          redLetterRanges: dayData.redLetterRanges
+        });
+      } else {
+        verseP.textContent = '\u201c' + planVerseText + '\u201d';
+      }
 
       bq.appendChild(verseP);
       verseShell.appendChild(refP);
@@ -8176,7 +8201,7 @@
       if (!el || !currentPlan) return;
       el.replaceChildren();
       var pid = currentPlan.id;
-      if (pid !== 'fearfaith' && pid !== 'worrytrust' && pid !== 'angerpeace' && pid !== 'doubtassurance' && pid !== 'griefhope' && pid !== 'painwontquit' && pid !== 'heavyhope' && pid !== 'heartalone' && pid !== 'littlehearts' && pid !== 'restlessnights' && pid !== 'wearyhands' && pid !== 'cancercomfort' && pid !== 'psalmscomfort' && pid !== 'proverbswisdom' && pid !== 'hopeuncertain' && pid !== 'gospeljohn' && pid !== 'galatiansfreedom' && pid !== 'sufferendure' && pid !== 'psalmspraise') {
+      if (pid !== 'fearfaith' && pid !== 'worrytrust' && pid !== 'angerpeace' && pid !== 'doubtassurance' && pid !== 'griefhope' && pid !== 'painwontquit' && pid !== 'heavyhope' && pid !== 'heartalone' && pid !== 'loneliness' && pid !== 'universityloneliness' && pid !== 'littlehearts' && pid !== 'restlessnights' && pid !== 'wearyhands' && pid !== 'cancercomfort' && pid !== 'psalmscomfort' && pid !== 'proverbswisdom' && pid !== 'hopeuncertain' && pid !== 'gospeljohn' && pid !== 'galatiansfreedom' && pid !== 'sufferendure' && pid !== 'psalmspraise') {
         el.hidden = true;
         return;
       }
@@ -8390,6 +8415,19 @@
         moreh.appendChild(ah);
         moreh.appendChild(t2h);
         el.appendChild(moreh);
+        return;
+      }
+      if (pid === 'loneliness' || pid === 'universityloneliness') {
+        el.setAttribute('aria-label', 'Heritage and nearness');
+        var h3Lon = document.createElement('h3');
+        h3Lon.textContent = 'You belong to a longer story';
+        el.appendChild(h3Lon);
+        var introLon = document.createElement('p');
+        introLon.innerHTML =
+          'Trace God\u2019s family from the beginning \u2014 and how we are grafted into it through Christ. ' +
+          '<a href="one-family-in-christ.html">One Family in Christ</a> \u00b7 ' +
+          '<a href="one-family-in-christ-print.html">Print the main line</a>';
+        el.appendChild(introLon);
         return;
       }
       if (pid === 'heartalone') {

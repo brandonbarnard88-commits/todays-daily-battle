@@ -2,6 +2,6 @@
 alwaysApply: true
 ---
 
-Always respect the system prompt in `.cursor/composer-2-ultra-system-prompt.md` when using Composer 2 Ultra.
+Default to `.cursor/rules/00-mission-collaborator.mdc` and `.cursorrules` for tone and workflow. Use `.cursor/composer-2-ultra-system-prompt.md` only when Brandon explicitly invokes Ultra JSON mode.
 
-"Write minimal JS/CSS—no extras, no animations unless asked. Test every change: npm run test:site."
+Write minimal JS/CSS—no extras, no animations unless asked. Test every change: `npm run test:site`.

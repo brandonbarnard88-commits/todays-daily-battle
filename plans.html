@@ -2374,6 +2374,7 @@
               <li><a href="family-home.html">Marriage, family &amp; home hub</a> (plans doorway)</li>
               <li><a href="family.html">Family hub</a> (printables &amp; journal)</li>
               <li><a href="plans.html?plan=marriage">Marriage (7 days)</a></li>
+              <li><a href="plans.html?plan=afterhardtalk">After a hard conversation (7 days)</a></li>
               <li><a href="plans.html?plan=familyworship">Family Worship in the Trenches</a></li>
               <li><a href="plans.html?plan=eveninguog">Evening in the University (4 days)</a> &mdash; read-aloud, one hush, no quiz; saved apart from your solo plans</li>
               <li><a href="plans.html?plan=psalmscomfortfamily">Psalms of Comfort (Family Edition)</a></li>
@@ -2879,6 +2880,11 @@
           <span class="plan-row-icon" aria-hidden="true">💍</span>
           <div class="plan-row-info"><h2>Marriage</h2><p>Seven days with Him for your marriage&mdash;whether it feels strong, strained, or somewhere in between. Come hopeful. Come tired. Come exactly as you are. You&rsquo;re already welcome here.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-marriage">Not started</span></div>
+        </a>
+        <a href="plans.html?plan=afterhardtalk" class="plan-row" id="plan-row-afterhardtalk" data-plan="afterhardtalk" role="listitem" aria-label="After a Hard Conversation — 7 days">
+          <span class="plan-row-icon" aria-hidden="true">💬</span>
+          <div class="plan-row-info"><h2>After a Hard Conversation</h2><p>Seven gentle days when words landed wrong, silence feels loud, or you are not sure what to say next. No fixing marathon&mdash;just Scripture, one small step, and room to breathe.</p></div>
+          <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-afterhardtalk">Not started</span></div>
         </a>
         <a href="plans.html?plan=peace" class="plan-row" data-plan="peace" role="listitem" aria-label="7-Day Peace — 7 days">
           <span class="plan-row-icon" aria-hidden="true">🕊️</span>
@@ -3840,6 +3846,35 @@
           { title: '30 days deep', ref: 'Psalm 46:1', text: 'God is our refuge and strength, a very present help in trouble.',
             speaker: 'The sons of Korah — after surviving what should have destroyed them', plain: 'Not a distant help. A very present one. Right here. Right now.', today: 'You made it 30 days. Look at the strength He\'s built. It\'s real.', action: 'Write down three ways you are stronger than when you started. Offer them back to Him.', prayer: 'Lord, You are my refuge and strength. Thank You for 30 days. Amen.',
             goal: 'If it feels right, bookmark this month-long path — come back when the tank runs low; you\u2019re already welcome here.' }
+        ]
+      },
+
+      afterhardtalk: {
+        id: 'afterhardtalk', icon: '\uD83D\uDCAC', label: 'After a Hard Conversation',
+        desc: 'Seven gentle days when words landed wrong, silence feels loud, or you are not sure what to say next. No fixing marathon \u2014 just Scripture, one small step, and room to breathe.',
+        key: 'tdb-plan-afterhardtalk-day', max: 7,
+        days: [
+          { title: 'Slow down first', ref: 'James 1:19', text: 'Wherefore, my beloved brethren, let every man be swift to hear, slow to speak, slow to wrath:',
+            plain: 'Before more words, God invites you to listen and slow down.', today: 'What do you wish you had not said \u2014 or wish you had said?', action: 'If you can, pause ten breaths before the next sentence.', prayer: 'Lord, make me swift to hear and slow to speak. Amen.',
+            goal: 'If it feels right, one slow breath before you speak today.' },
+          { title: 'A soft answer', ref: 'Proverbs 15:1', text: 'A soft answer turneth away wrath: but grievous words stir up anger.',
+            plain: 'Tone can change the temperature of a room.', today: 'Where did voices rise yesterday?', action: 'If you speak again, try one gentler sentence than you feel.', prayer: 'Lord, put a soft answer in my mouth. Amen.',
+            goal: 'If you want, one soft sentence is enough for today.' },
+          { title: 'Go and be reconciled', ref: 'Matthew 5:23-24', text: 'Therefore if thou bring thy gift to the altar, and there rememberest that thy brother hath ought against thee; Leave there thy gift before the altar, and go thy way; first be reconciled to thy brother, and then come and offer thy gift.',
+            plain: 'Worship and repair belong together \u2014 God cares about the rift.', today: 'Is there a first step of peace you can take without a lecture?', action: 'If safe and wise, name one true line: I am sorry for my part.', prayer: 'Lord, show me the humble first step. Amen.',
+            goal: 'If it feels right, one honest line of repair \u2014 no speech required.' },
+          { title: 'Forgive as you were forgiven', ref: 'Ephesians 4:32', text: 'And be ye kind one to another, tenderhearted, forgiving one another, even as God for Christ\'s sake hath forgiven you.',
+            plain: 'You have received mercy; mercy can flow through you.', today: 'What are you still holding that Christ already paid for?', action: 'Tell God you want to want to forgive \u2014 that counts on a hard day.', prayer: 'Lord, help me forgive as You forgave me. Amen.',
+            goal: 'If you want, whisper I want to forgive once today.' },
+          { title: 'Do not let the sun go down', ref: 'Ephesians 4:26', text: 'Be ye angry, and sin not: let not the sun go down upon your wrath:',
+            plain: 'Anger may visit; it does not have to own the night.', today: 'What anger is still sitting in your chest?', action: 'Before sleep, hand God one sentence of the hurt \u2014 no fixing required.', prayer: 'Lord, do not let wrath own this night. Amen.',
+            goal: 'If it helps, one honest sentence to God before bed.' },
+          { title: 'Let peace rule', ref: 'Colossians 3:15', text: 'And let the peace of God rule in your hearts, to the which also ye are called in one body; and be ye thankful.',
+            plain: 'Peace can be the referee instead of pride.', today: 'What decision today needs peace, not winning?', action: 'Choose one action that lowers the volume in the house.', prayer: 'Lord, let Your peace rule between us. Amen.',
+            goal: 'If it feels right, one choice that lowers the volume today.' },
+          { title: 'Love keeps bearing', ref: '1 Corinthians 13:7', text: 'Beareth all things, believeth all things, hopeth all things, endureth all things.',
+            plain: 'Love is not naive \u2014 it keeps showing up with hope.', today: 'What would patient love look like tomorrow morning?', action: 'If you can, one small kindness with no lecture attached.', prayer: 'Lord, help love bear, believe, hope, and endure in this home. Amen.',
+            goal: 'If it feels right, one kindness with no lecture \u2014 that is enough.' }
         ]
       },
 
@@ -5939,7 +5974,7 @@
           id: 'cat-heavy',
           icon: '🕊️',
           label: 'When it\'s heavy right now',
-          plans: ['fearfaith','worrytrust','anxiety7','anxiety7day','angerpeace','doubtassurance','griefhope','grief','anger','forgiveness','loneliness','heartalone','restlessnights','painwontquit','heavyhope','cancercomfort','moneyworry','addictionhope','guiltshame','overwhelmedburnout','selfworth','caregiverrest','wearyhands','longillness','peace','trust','marriage','peacemakers','lettinggo','fearnot14','summergrief','summertimesadness']
+          plans: ['fearfaith','worrytrust','anxiety7','anxiety7day','angerpeace','doubtassurance','griefhope','grief','anger','forgiveness','loneliness','heartalone','restlessnights','painwontquit','heavyhope','cancercomfort','moneyworry','addictionhope','guiltshame','overwhelmedburnout','selfworth','caregiverrest','wearyhands','longillness','peace','trust','marriage','afterhardtalk','peacemakers','lettinggo','fearnot14','summergrief','summertimesadness']
         },
         {
           id: 'cat-university',

@@ -1,9 +1,12 @@
 # Cursor Ultra Composer Prime — Composer 2 Ultra system prompt
 
+> **Soft gate (default off):** Do **not** use this persona, JSON-only reply format, or growth/competitive language in normal chat or Composer sessions. Default behavior is governed by `.cursor/rules/00-mission-collaborator.mdc` and `.cursorrules` — calm porch tone, explore → plan → small steps.  
+> **Activate only when Brandon explicitly says:** “Ultra JSON mode” (or similar) in that message. Wait for “apply” / “go” before writing code unless the same message already includes both spec and green light.
+
 **Workspace:** todaysdailybattle.com · **Next.js:** 16.2.4 (match `next-app/package.json` if it drifts)
 
-Paste the **Prompt body** section below into **Cursor → Settings → Composer → Custom instructions** (system prompt).  
-Project rules under `.cursor/rules/` (KJV-only, offline, kids, etc.) stay authoritative; this file versions the Composer persona and **strict JSON-first replies**.
+Paste the **Prompt body** section below into **Cursor → Settings → Composer → Custom instructions** (system prompt) **only when you want structured Ultra sessions** — not as everyday custom instructions.  
+Project rules under `.cursor/rules/` (mission, KJV-only, offline, kids, etc.) stay authoritative; this file versions the optional Composer persona and **strict JSON-first replies when invoked**.
 
 ---
 

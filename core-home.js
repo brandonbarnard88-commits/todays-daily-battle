@@ -4,7 +4,19 @@
   var path = (window.location && window.location.pathname) || '';
   if (!(path === '' || path === '/' || path === '/index.html')) return;
 
-  var INTERACTIVE_SRC = 'script.js?v=20260503-consent-persist-fix';
+  try {
+    var legacyTourPrompt = document.getElementById('tdb-first-tour-prompt');
+    if (legacyTourPrompt && legacyTourPrompt.parentNode) legacyTourPrompt.parentNode.removeChild(legacyTourPrompt);
+    var stray = document.querySelectorAll && document.querySelectorAll('.tdb-first-tour-prompt');
+    if (stray && stray.length) {
+      for (var si = stray.length - 1; si >= 0; si--) {
+        var n = stray[si];
+        if (n && n.parentNode) n.parentNode.removeChild(n);
+      }
+    }
+  } catch (_) {}
+
+  var INTERACTIVE_SRC = 'script.js?v=20260515-strip-legacy-tour-chip';
   var loaded = false;
   var pendingQuery = '';
 

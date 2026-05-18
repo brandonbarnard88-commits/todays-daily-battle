@@ -6,10 +6,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preload" href="/today-kjv-verse.json" as="fetch" type="application/json" crossorigin>
-  <link rel="preload" href="/core-home.js?v=20260508-home-core-split" as="script" fetchpriority="high">
-  <style id="tdb-critical-shell">html{background:#080c14}body{margin:0;background:#080c14;color:#f0f2f7}</style>
-  <link rel="preload" as="script" href="/assets/perf-hint.js" fetchpriority="high">
-  <script nonce="tdb2025s" src="/assets/perf-hint.js"></script>
+  <link rel="preload" href="/core-home.js?v=20260515-strip-legacy-tour-chip" as="script" fetchpriority="high">
+  <style id="tdb-critical-shell">html{background:#080c14}body{margin:0;background:#080c14;color:#f0f2f7}#tdb-first-tour-prompt,.tdb-first-tour-prompt{display:none!important;visibility:hidden!important;pointer-events:none!important;position:absolute!important;left:-9999px!important;width:0!important;height:0!important;overflow:hidden!important}</style>
+  <link rel="preload" as="script" href="/assets/perf-hint.js?v=20260515-strip-tour-chip-early-v3" fetchpriority="high">
+  <script nonce="tdb2025s" src="/assets/perf-hint.js?v=20260515-strip-tour-chip-early-v3"></script>
 
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) — before deferred scripts -->
   <!-- DOMPurify + tt-bootstrap stay synchronous before any body innerHTML (Trusted Types). Low fetch priority reduces contention with LCP text paint. -->
@@ -2255,46 +2255,14 @@
     .site-top-links .header-auth-welcome { color: #b4c0d0; margin-right: 0.25rem; display: inline-flex; align-items: center; gap: 0.35rem; }
     .site-top-links .header-auth-sep { color: rgba(180, 192, 208, 0.75); margin: 0 0.25rem; }
     .site-top-links .auth-avatar { background: rgba(234, 179, 8, 0.35); color: rgba(255,255,255,0.95); border-radius: 50%; width: 26px; height: 26px; line-height: 26px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; flex-shrink: 0; vertical-align: middle; margin-right: 0.5rem; }
-    .tdb-first-tour-prompt {
-      position: fixed;
-      right: max(0.8rem, env(safe-area-inset-right));
-      bottom: max(4.8rem, calc(env(safe-area-inset-bottom) + 4.8rem));
-      z-index: 58;
-      min-height: 48px;
-      padding: 0.72rem 1rem;
-      border-radius: 999px;
-      border: 1px solid rgba(227, 188, 103, 0.36);
-      background: linear-gradient(180deg, rgba(15, 22, 36, 0.96), rgba(10, 14, 24, 0.92));
-      color: #f6ecd2;
-      font: inherit;
-      font-size: 0.88rem;
-      font-weight: 600;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
-      cursor: pointer;
-    }
-    .tdb-first-tour-prompt:hover,
-    .tdb-first-tour-prompt:focus-visible {
-      background: linear-gradient(180deg, rgba(28, 36, 54, 0.98), rgba(16, 22, 34, 0.95));
-      border-color: rgba(227, 188, 103, 0.55);
-      outline: none;
-    }
-    .tdb-first-tour-prompt:focus-visible {
-      outline: 2px solid rgba(227, 188, 103, 0.68);
-      outline-offset: 2px;
-    }
-    :root[data-theme="light"] .tdb-first-tour-prompt {
-      background: linear-gradient(180deg, rgba(255, 252, 246, 0.98), rgba(249, 244, 233, 0.96));
-      color: #3f2f12;
-      border-color: color-mix(in srgb, var(--gold) 32%, var(--line));
-    }
-    /* Keep fixed SOS / first-tour chips above the pill dock (dock z-index 200) and clear wrapped dock height */
+    /*
+      Phones: pill dock can wrap — keep SOS above dock + safe area (floating first-tour chip removed).
+    */
     @media (max-width: 768px) {
-      .tdb-first-tour-prompt {
-        z-index: 210;
-        bottom: max(6.35rem, calc(env(safe-area-inset-bottom) + 5.5rem));
-      }
-      .sos-btn {
-        bottom: max(6.1rem, calc(env(safe-area-inset-bottom) + 5.25rem));
+      body:has(.tdb-bottom-dock) .sos-btn {
+        z-index: 280;
+        right: max(0.65rem, env(safe-area-inset-right));
+        bottom: max(7.75rem, calc(env(safe-area-inset-bottom) + 6.75rem));
       }
     }
     .tdb-home-chain-of-hope {
@@ -9271,6 +9239,22 @@
   <script nonce="tdb2025s">(function(){try{if(localStorage.getItem('tdb_quiet_update_dismiss')==='2026-04-24-uog-rollout')document.documentElement.classList.add('tdb-quiet-update-dismissed');}catch(e){}})();</script>
 </head>
 <body class="no-tdb-bottom-nav">
+  <script nonce="tdb2025s">
+  (function () {
+    function stripLegacyFirstTourChip() {
+      try {
+        if (!document.querySelectorAll) return;
+        var list = document.querySelectorAll('#tdb-first-tour-prompt, .tdb-first-tour-prompt');
+        for (var i = list.length - 1; i >= 0; i--) {
+          var el = list[i];
+          if (el && el.parentNode) el.parentNode.removeChild(el);
+        }
+      } catch (e) {}
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', stripLegacyFirstTourChip, { once: true });
+    else stripLegacyFirstTourChip();
+  })();
+  </script>
   <a href="#home-primary-flow" class="skip-link">Skip to main content</a>
   <div id="quiet-update" class="tdb-quiet-update-strip" data-tdb-quiet-update-version="2026-04-24-uog-rollout" role="status" aria-live="polite">
         <p class="tdb-quiet-update-strip__text">Update: today&rsquo;s lesson and Ask the Teacher refreshed.</p>
@@ -10884,8 +10868,6 @@
           </div>
         </details>
       </section>
-
-      <button type="button" class="tdb-first-tour-prompt tdb-tour-open-btn" id="tdb-first-tour-prompt" hidden aria-label="First time? Take the five-minute site tour">First time? Take the five-minute tour</button>
 
     </main>
 
@@ -16422,7 +16404,7 @@
   <script nonce="tdb2025s" type="module" fetchpriority="high" src="config.js"></script>
   <script nonce="tdb2025s" defer src="start-my-day.js?v=20260423-phase5-perf"></script>
   <!-- Home core first: load script.js interaction stack on user intent/idle (core-home.js). -->
-  <script nonce="tdb2025s" defer src="core-home.js?v=20260508-home-core-split" data-cfasync="false" fetchpriority="high"></script>
+  <script nonce="tdb2025s" defer src="core-home.js?v=20260515-strip-legacy-tour-chip" data-cfasync="false" fetchpriority="high"></script>
   <script nonce="tdb2025s">
     (function () {
       var loadPorchEffects = function () {

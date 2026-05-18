@@ -12,7 +12,7 @@
   if (!('serviceWorker' in navigator)) return;
   if (document.querySelector('script[data-tdb-sw-register]')) return;
   var s = document.createElement('script');
-  s.src = '/register-sw.js';
+  s.src = '/register-sw.js?v=20260515-strip-tour-chip-early-v3';
   s.defer = true;
   s.setAttribute('data-tdb-sw-register', '1');
   (document.head || document.documentElement).appendChild(s);
@@ -1505,6 +1505,15 @@ function wireWelcomeTour() {
   if (typeof window === 'undefined' || window.__tdbWelcomeTourWired) return;
   window.__tdbWelcomeTourWired = true;
 
+  /* Stale SW / CDN can still serve an old index shell that included this chip — drop it so layout matches current HTML. */
+  try {
+    var legacyNodes = document.querySelectorAll('#tdb-first-tour-prompt, .tdb-first-tour-prompt');
+    for (var li = legacyNodes.length - 1; li >= 0; li--) {
+      var leg = legacyNodes[li];
+      if (leg && leg.parentNode) leg.parentNode.removeChild(leg);
+    }
+  } catch (_) {}
+
   window.openTdbWelcomeTour = function (o) {
     try {
       return openTdbWelcomeTour(o && typeof o === 'object' ? o : { manual: true });
@@ -1545,17 +1554,9 @@ function wireWelcomeTour() {
     return tag === 'home' || tag === 'verse' || tag === 'explore';
   }
 
-  function syncWelcomeTourPrompt() {
-    var prompt = document.getElementById('tdb-first-tour-prompt');
-    if (!prompt) return;
-    prompt.hidden = !shouldAutoTour();
-  }
-
   ensureVisibleThemeShortcut();
   syncThemeToggleButtons();
-  syncWelcomeTourPrompt();
   window.addEventListener('tdb-theme-change', syncThemeToggleButtons);
-  window.addEventListener('tdb-welcome-tour-seen', syncWelcomeTourPrompt);
 
   if (shouldAutoTour()) {
     window.setTimeout(function () {

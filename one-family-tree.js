@@ -80,6 +80,85 @@
     return html;
   }
 
+  function findWiderGroup(groupId) {
+    if (!data.widerFamily) return null;
+    for (var g = 0; g < data.widerFamily.length; g++) {
+      if (data.widerFamily[g].id === groupId) return data.widerFamily[g];
+    }
+    return null;
+  }
+
+  function renderWiderPersonCard(person) {
+    var detailId = 'heritage-wider-detail-' + person.id;
+    var connectHtml = '';
+    if (person.trunkRef) {
+      connectHtml = '<p class="heritage-branch-card__connect">On the main line above — tap her name in the trunk to read more.</p>';
+    } else if (person.connectTo) {
+      var connect = personById(person.connectTo);
+      connectHtml =
+        '<p class="heritage-branch-card__connect">Joined to the story at <strong>' +
+        esc(connect ? connect.name : person.connectTo) +
+        '</strong></p>';
+    } else if (person.relationBeside) {
+      connectHtml = '<p class="heritage-branch-card__connect">' + esc(person.relationBeside) + '</p>';
+    }
+    var versesHtml = renderVerses(person.verses);
+    var noteHtml = person.note ? '<p class="heritage-note">' + esc(person.note) + '</p>' : '';
+
+    return (
+      '<article class="heritage-wider-card" data-heritage-id="' +
+      esc(person.id) +
+      '" data-heritage-name="' +
+      esc(person.name.toLowerCase()) +
+      '">' +
+      connectHtml +
+      '<button type="button" class="heritage-person heritage-person--wider" aria-expanded="false" aria-controls="' +
+      detailId +
+      '" data-heritage-toggle>' +
+      '<span class="heritage-person__name">' +
+      esc(person.name) +
+      '</span>' +
+      '<span class="heritage-person__relation">' +
+      esc(person.relation || '') +
+      '</span>' +
+      '</button>' +
+      '<div id="' +
+      detailId +
+      '" class="heritage-detail" hidden>' +
+      versesHtml +
+      noteHtml +
+      '</div>' +
+      '</article>'
+    );
+  }
+
+  function renderWiderFamilyGroup(group, sectionId) {
+    var sid = sectionId || group.id;
+    var html =
+      '<section class="one-family-section one-family-wider" id="heritage-' +
+      esc(sid) +
+      '">' +
+      '<h2>' +
+      esc(group.title) +
+      '</h2>';
+    if (group.intro) {
+      html += '<p class="one-family-wider__intro">' + esc(group.intro) + '</p>';
+    }
+    html +=
+      '<details class="heritage-wider-accordion" id="heritage-accordion-' +
+      esc(group.id) +
+      '">' +
+      '<summary class="heritage-wider-accordion__summary">' +
+      esc(group.summaryLabel || 'Show more') +
+      '</summary>' +
+      '<div class="heritage-wider-list">';
+    group.people.forEach(function (person) {
+      html += renderWiderPersonCard(person);
+    });
+    html += '</div></details></section>';
+    return html;
+  }
+
   function renderBranches() {
     var html = '<div class="heritage-tree heritage-tree--branch">';
     data.branches.forEach(function (branch) {
@@ -143,6 +222,11 @@
         html += '<section class="one-family-section" id="heritage-branches"><h2>' + esc(sec.title) + '</h2>' + renderBranches() + '</section>';
         return;
       }
+      if (sec.id === 'wider-women') {
+        var womenGroup = findWiderGroup('women');
+        if (womenGroup) html += renderWiderFamilyGroup(womenGroup, 'wider-women');
+        return;
+      }
       if (sec.id === 'adoption') {
         html += renderAdoption();
         return;
@@ -184,6 +268,10 @@
           var hit = !q || name.indexOf(q) !== -1;
           el.classList.toggle('is-filtered-out', !hit);
           el.classList.toggle('is-search-hit', !!q && hit);
+          if (q && hit) {
+            var accordion = el.closest('.heritage-wider-accordion');
+            if (accordion) accordion.open = true;
+          }
         });
       });
     }
@@ -200,6 +288,9 @@
           var detail = document.getElementById(btn.getAttribute('aria-controls'));
           btn.setAttribute('aria-expanded', anyClosed ? 'true' : 'false');
           if (detail) detail.hidden = !anyClosed;
+        });
+        root.querySelectorAll('.heritage-wider-accordion').forEach(function (accordion) {
+          accordion.open = anyClosed;
         });
         expandAll.textContent = anyClosed ? 'Collapse all' : 'Expand all';
       });

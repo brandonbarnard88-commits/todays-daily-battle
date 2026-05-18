@@ -276,6 +276,83 @@
   margin: 0 0 0.5rem;
 }
 
+.one-family-wider__intro {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(245, 247, 251, 0.88);
+}
+
+.heritage-wider-accordion {
+  border: 1px solid var(--of-line);
+  border-radius: 12px;
+  background: rgba(8, 12, 22, 0.35);
+  overflow: hidden;
+}
+
+.heritage-wider-accordion__summary {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0.85rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--of-gold);
+  list-style: none;
+  user-select: none;
+}
+
+.heritage-wider-accordion__summary::-webkit-details-marker {
+  display: none;
+}
+
+.heritage-wider-accordion__summary::before {
+  content: '▸';
+  display: inline-block;
+  margin-right: 0.5rem;
+  transition: transform 0.2s ease;
+  color: var(--of-muted);
+}
+
+.heritage-wider-accordion[open] .heritage-wider-accordion__summary::before {
+  transform: rotate(90deg);
+}
+
+.heritage-wider-accordion__summary:hover,
+.heritage-wider-accordion__summary:focus-visible {
+  background: var(--of-card-hover);
+  outline: none;
+}
+
+.heritage-wider-accordion__summary:focus-visible {
+  outline: 2px solid rgba(227, 188, 103, 0.55);
+  outline-offset: -2px;
+}
+
+.heritage-wider-list {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0 0.85rem 1rem;
+  border-top: 1px solid var(--of-line);
+}
+
+.heritage-wider-card {
+  margin: 0;
+}
+
+.heritage-wider-card.is-filtered-out {
+  display: none;
+}
+
+.heritage-wider-card.is-search-hit .heritage-person {
+  border-color: color-mix(in srgb, var(--of-gold) 65%, transparent);
+}
+
+.heritage-person--wider {
+  margin-top: 0.35rem;
+}
+
 .one-family-adoption blockquote {
   margin: 0 0 0.85rem;
   padding: 0.85rem 1rem;
@@ -356,11 +433,28 @@
   color: #e3bc67;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .heritage-wider-accordion__summary::before {
+    transition: none;
+  }
+}
+
 @media print {
   .one-family-toolbar,
   .one-family-toc,
   .one-family-back-top {
     display: none !important;
+  }
+  .heritage-wider-accordion {
+    border: none;
+  }
+  .heritage-wider-accordion[open] summary,
+  .heritage-wider-accordion summary {
+    display: none;
+  }
+  .heritage-wider-list {
+    padding: 0;
+    border: none;
   }
   .heritage-detail[hidden] {
     display: block !important;

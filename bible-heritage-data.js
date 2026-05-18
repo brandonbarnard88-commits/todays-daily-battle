@@ -252,6 +252,179 @@
     }
   ];
 
+  var WIDER_FAMILY = [
+    {
+      id: 'women',
+      title: 'Women in the line & beside it',
+      summaryLabel: 'Show women in the family story (16)',
+      intro:
+        'The main trunk above names many fathers; Scripture also remembers mothers, wives, and faithful women beside the line. Matthew names several without shame — God welcomed them into the story of Christ.',
+      people: [
+        {
+          id: 'eve-wider',
+          name: 'Eve',
+          relation: 'Mother of all living — with Adam on the trunk above',
+          trunkRef: true,
+          verses: [
+            v('Genesis 3:20', 'And Adam called his wife\'s name Eve; because she was the mother of all living.')
+          ],
+          note: 'Every human family begins with her — the line of promise runs through real marriage and real sorrow.'
+        },
+        {
+          id: 'sarah',
+          name: 'Sarah',
+          relation: 'Wife of Abraham — mother of Isaac',
+          connectTo: 'abraham',
+          verses: [
+            v('Genesis 17:19', 'And God said, Sarah thy wife shall bear thee a son indeed; and thou shalt call his name Isaac: and I will establish my covenant with him for an everlasting covenant, and with his seed after him.')
+          ],
+          note: 'She waited long — God kept His word when her hope felt finished.'
+        },
+        {
+          id: 'rebekah',
+          name: 'Rebekah',
+          relation: 'Wife of Isaac — mother of Jacob and Esau',
+          connectTo: 'isaac',
+          verses: [
+            v('Genesis 24:67', 'And Isaac brought her into his mother Sarah\'s tent, and took Rebekah, and she became his wife; and he loved her: and Isaac was comforted after his mother\'s death.')
+          ],
+          note: 'Chosen for the next generation — love and promise pass through her household.'
+        },
+        {
+          id: 'leah',
+          name: 'Leah',
+          relation: 'Wife of Jacob — mother of Judah',
+          connectTo: 'judah',
+          verses: [
+            v('Genesis 29:35', 'And she conceived again, and bare a son: and she said, Now will I praise the LORD: therefore she called his name Judah; and left bearing.')
+          ],
+          note: 'From Judah the royal line and Messiah would come — God saw her in a hard marriage.'
+        },
+        {
+          id: 'rachel',
+          name: 'Rachel',
+          relation: 'Wife of Jacob — mother of Joseph and Benjamin',
+          connectTo: 'jacob',
+          verses: [
+            v('Genesis 30:22', 'And God remembered Rachel, and God hearkened to her, and opened her womb.')
+          ],
+          note: 'Her sons carry Israel forward — grief and longing are not forgotten by God.'
+        },
+        {
+          id: 'tamar-wider',
+          name: 'Tamar',
+          relation: 'Mother of Phares in Judah\'s line',
+          connectTo: 'phares',
+          verses: [v('Matthew 1:3', 'And Judas begat Phares and Zara of Thamar;')],
+          note: 'Matthew does not hide hard stories — God redeems and still keeps His promise.'
+        },
+        {
+          id: 'rahab-wider',
+          name: 'Rahab',
+          relation: 'Mother of Boaz in the line (by Salmon)',
+          connectTo: 'salmon',
+          verses: [
+            v('Joshua 2:11', '…for the LORD your God, he is God in heaven above, and in earth beneath.'),
+            v('Matthew 1:5', 'And Salmon begat Booz of Rachab;')
+          ],
+          note: 'A Gentile who feared the LORD — grafted into Israel and into Messiah\'s line.'
+        },
+        {
+          id: 'ruth-wider',
+          name: 'Ruth',
+          relation: 'Wife of Boaz — the Moabitess',
+          connectTo: 'boaz',
+          verses: [
+            v('Ruth 1:16', '…whither thou goest, I will go; and where thou lodgest, I will lodge: thy people shall be my people, and thy God my God:'),
+            v('Matthew 1:5', '…and Booz begat Obed of Ruth;')
+          ],
+          note: 'Loyal love across borders — she is not a footnote but a grandmother of David.'
+        },
+        {
+          id: 'bathsheba',
+          name: 'Bathsheba',
+          relation: 'Wife of David — mother of Solomon in the line',
+          connectTo: 'solomon',
+          verses: [
+            v('Matthew 1:6', 'And Jesse begat David the king; and David the king begat Solomon of her that had been the wife of Urias;')
+          ],
+          note: 'Matthew names the painful past honestly — yet Solomon still stands in the line toward Christ.'
+        },
+        {
+          id: 'hannah',
+          name: 'Hannah',
+          relation: 'Mother of Samuel the prophet',
+          relationBeside: 'Beside the royal line — mother of Samuel who anointed David',
+          verses: [
+            v('1 Samuel 1:27', 'For this child I prayed; and the LORD hath given me my petition which I asked of him:')
+          ],
+          note: 'Her prayer shaped a nation — God hears the weary who keep coming to Him.'
+        },
+        {
+          id: 'miriam',
+          name: 'Miriam',
+          relation: 'Sister of Moses and Aaron',
+          relationBeside: 'Beside the Exodus — prophetess who led praise',
+          verses: [
+            v('Exodus 15:20', 'And Miriam the prophetess, the sister of Aaron, took a timbrel in her hand; and all the women went out after her with timbrels and with dances.')
+          ],
+          note: 'She stood in the deliverance God gave — a voice beside the lawgiver.'
+        },
+        {
+          id: 'deborah',
+          name: 'Deborah',
+          relation: 'Judge and prophetess in Israel',
+          relationBeside: 'Beside the judges — led Israel when men hesitated',
+          verses: [
+            v('Judges 4:4', 'And Deborah, a prophetess, the wife of Lapidoth, she judged Israel at that time.')
+          ],
+          note: 'God raised whom He pleased — courage at a desperate hour.'
+        },
+        {
+          id: 'esther',
+          name: 'Esther',
+          relation: 'Queen in Persia — Jewish deliverer',
+          relationBeside: 'Beside the exile — queen for such a time',
+          verses: [
+            v('Esther 4:14', '…and who knoweth whether thou art come to the kingdom for such a time as this?')
+          ],
+          note: 'Hidden identity, open risk — many lived because she stepped forward.'
+        },
+        {
+          id: 'elizabeth',
+          name: 'Elizabeth',
+          relation: 'Mother of John the Baptist — kinswoman of Mary',
+          relationBeside: 'Beside Christ\'s coming — faithful in old age',
+          verses: [
+            v('Luke 1:42', 'And she spake out with a loud voice, and said, Blessed art thou among women, and blessed is the fruit of thy womb.')
+          ],
+          note: 'Her miracle prepared the way — the family story bends toward Bethlehem.'
+        },
+        {
+          id: 'anna',
+          name: 'Anna',
+          relation: 'Prophetess in the temple',
+          relationBeside: 'Beside the infant Christ — waited decades to see Him',
+          verses: [
+            v('Luke 2:37-38', '…she was a widow of about fourscore and four years, which departed not from the temple… And she coming in that instant gave thanks likewise unto the Lord, and spake of him to all them that looked for redemption in Jerusalem.')
+          ],
+          note: 'Long waiting, then joy — she told everyone who hoped in God\'s redemption.'
+        },
+        {
+          id: 'mary-wider',
+          name: 'Mary',
+          relation: 'Mother of Jesus — on the trunk above',
+          trunkRef: true,
+          connectTo: 'mary',
+          verses: [
+            v('Luke 1:38', 'And Mary said, Behold the handmaid of the Lord; be it unto me according to thy word.')
+          ],
+          note: 'The line of promise becomes flesh in her — see her also in David to Christ above.'
+        }
+      ]
+    }
+  ];
+
   var BRANCHES = [
     {
       id: 'rahab',
@@ -293,6 +466,7 @@
     { id: 'to-david', title: 'Abraham to David', startId: 'isaac', endId: 'david' },
     { id: 'to-christ', title: 'David to Christ', startId: 'solomon', endId: 'jesus' },
     { id: 'branches', title: 'Gentle side branches' },
+    { id: 'wider-women', title: 'Women in the line & beside it' },
     { id: 'adoption', title: 'Our place in the family' }
   ];
 
@@ -309,6 +483,7 @@
     sections: SECTIONS,
     mainLine: MAIN_LINE,
     branches: BRANCHES,
+    widerFamily: WIDER_FAMILY,
     adoption: {
       heading: 'Grafted in by grace',
       paragraphs: [

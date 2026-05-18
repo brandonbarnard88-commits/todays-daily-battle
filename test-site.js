@@ -74,7 +74,7 @@ const pages = [
   { path: '/journal/anxiety-before-tomorrow.html', name: 'Journal anxiety', mustInclude: ['anxiety before tomorrow', 'Philippians 4:6-7 (KJV)', 'One next step'] },
   { path: '/journal/forgiveness-when-you-replay-it.html', name: 'Journal forgiveness', mustInclude: ['forgiveness when you replay it', 'Ephesians 4:31-32 (KJV)', 'One next step'] },
   { path: '/for-pastors.html', name: 'For pastors', mustInclude: ['For pastors', 'mobile ministers', 'for-pastors-hub-grid', 'id="for-pastors-hub"', 'id="fp-print"', 'verse-cards', 'sermon.html', 'explore.html#languages', 'plans.html', 'data-tdb-lang-switcher', 'tdb-cache-hygiene:', 'fp-oia-teach', 'Teach from the text', 'Start Sermon workspace', 'bible/tools.html#book-intros', 'Study workshop', '/bible/tools.html', 'id="fp-oia-examples"', 'OIA in practice', 'Psalm 23:1', 'James 1:2', 'Ephesians 2:8', 'fp-oia-compare-table', 'id="fp-workflow"', 'How people use this', 'id="fp-sample-lesson"', 'Galatians 1:6-9', 'church-sharing-kit.html', 'id="fp-church-sharing-kit"', 'Share with your church', 'id="fp-church-kit-completeness"'] },
-  { path: '/one-family-in-christ.html', name: 'One Family in Christ', mustInclude: ['One Family in Christ', 'id="one-family-tree-root"', 'bible-heritage-data.js', 'one-family-tree.js', 'one-family-search', 'God created humanity', 'Jesus Christ', 'heritage tree'] },
+  { path: '/one-family-in-christ.html', name: 'One Family in Christ', mustInclude: ['One Family in Christ', 'id="one-family-tree-root"', 'bible-heritage-data.js?v=20260519-ofw1', 'one-family-tree.js?v=20260519-ofw1', 'one-family-search', 'God created humanity', 'Jesus Christ', 'heritage tree'] },
   { path: '/explore.html', name: 'Explore', mustInclude: ['Explore the site', 'explore-onpage-nav', 'explore-onpage-toc-label', 'On this page', 'id="explore-overview"', 'href="#explore-hub"', 'explore-hero--soar-dawn', 'explore-hero-motto', 'Less scroll, more soul', 'styles.css?v=20260418prayerwall2', 'explore-positioning-line', 'scripture-first paths', 'explore-quick-doors', 'id="explore-quick-doors"', 'university.html', 'id="university-map-tile"', 'University map', 'Five calm doors',
 'one-family-in-christ.html',
 'One Family in Christ',
@@ -332,6 +332,25 @@ function run() {
       } catch (e) {
         console.log('FAIL', p.name, e.message);
         failed++;
+      }
+    }
+    const heritageDataPath = path.join(__dirname, 'bible-heritage-data.js');
+    const heritageTreePath = path.join(__dirname, 'one-family-tree.js');
+    if (fs.existsSync(heritageDataPath) && fs.existsSync(heritageTreePath)) {
+      const heritageData = fs.readFileSync(heritageDataPath, 'utf8');
+      const heritageTree = fs.readFileSync(heritageTreePath, 'utf8');
+      const heritageOk =
+        heritageData.includes('WIDER_FAMILY') &&
+        heritageData.includes('Women in the line & beside it') &&
+        heritageData.includes("id: 'bathsheba'") &&
+        heritageData.includes("id: 'sarah'") &&
+        heritageTree.includes('renderWiderFamilyGroup') &&
+        heritageTree.includes('heritage-wider-accordion');
+      if (!heritageOk) {
+        console.log('\nFAIL One Family wider-women layer (bible-heritage-data.js / one-family-tree.js)');
+        failed++;
+      } else {
+        console.log('\nOK  One Family wider-women layer');
       }
     }
     // Search logic: full-text search with synonym expansion (selfless→love) and fallback verses

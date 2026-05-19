@@ -10,7 +10,7 @@ import { LIFE_LESSONS } from './life-lessons-content.mjs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 const lessonsDir = path.join(root, 'life-lessons');
-const cssV = '20260519lldeep4';
+const cssV = '20260519lldeep5';
 
 /** Deep dives named on the hub before pages exist — honest, no fake links */
 const DEEP_COMING_SOON = [];
@@ -556,7 +556,7 @@ ${items}
   return `    <section class="glass tdb-porch-paper-glass tdb-ll-growing-note" aria-labelledby="tdb-ll-growing-heading">
       <p class="tdb-ll-start-eyebrow">Steady growth</p>
       <h2 class="section-divider" id="tdb-ll-growing-heading">${LIFE_LESSONS.filter((l) => l.deep).length} deep rooms to sit in</h2>
-      <p class="section-note util-mt-0">Twelve Sermon on the Mount teachings, plus Cast Your Care, Be Anxious for Nothing, Psalm 23, and Forgive Seventy Times Seven\u2014each with anchor <abbr title="King James Version">KJV</abbr>, battles, cross-references, My Study save, and a print sheet. More may arrive one room at a time; no schedule, no pressure. <a href="/sermon-on-the-mount-twelve-one-page-print.html">Family overview printable</a> &middot; <a href="/plans.html?plan=beatitudes">Sermon plan</a>.</p>
+      <p class="section-note util-mt-0">Sermon teachings, Cast Your Care, Be Anxious for Nothing, Psalm 23, Forgive Seventy Times Seven, and Render Unto Caesar (authority &amp; conscience)\u2014each with anchor <abbr title="King James Version">KJV</abbr>, battles, cross-references, My Study save, and a print sheet. Six-day <a href="/plans.html?plan=authorityconscience">Authority and Conscience</a> plan pairs with the newest room. More may arrive one room at a time; no schedule, no pressure. <a href="/sermon-on-the-mount-twelve-one-page-print.html">Family overview printable</a> &middot; <a href="/plans.html?plan=beatitudes">Sermon plan</a>.</p>
     </section>`;
 }
 

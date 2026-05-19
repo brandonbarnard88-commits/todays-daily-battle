@@ -306,6 +306,26 @@
     "deep": true
   },
   {
+    "slug": "render-unto-caesar-when-laws-pull-apart",
+    "title": "Render Unto Caesar — When Earthly Authority and God’s Law Seem to Pull Apart",
+    "keyVerseRef": "Matthew 22:21",
+    "summary": "Jesus answers a trap with calm wisdom: honor what belongs to earthly rulers, never surrender what belongs to God alone—and when the two conflict, obey Him.",
+    "topics": [
+      "obedience",
+      "honesty",
+      "parenting",
+      "anxiety",
+      "courage",
+      "family",
+      "conflict",
+      "judgment",
+      "trust"
+    ],
+    "families": true,
+    "grownups": true,
+    "deep": true
+  },
+  {
     "slug": "god-provides-in-the-worry",
     "title": "God Provides in the Worry",
     "keyVerseRef": "Matthew 6:34",

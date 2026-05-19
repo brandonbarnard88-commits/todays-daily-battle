@@ -37,6 +37,7 @@ const ENTRIES = [
   { t: 'Psalms of Comfort', u: '/plans.html?plan=psalmscomfort', k: 'grief fear psalm' },
   { t: 'Site guide — where to start', u: '/site-guide.html', k: 'map help new' },
   { t: 'Explore full site map', u: '/explore.html', k: 'topics tools languages' },
+  { t: 'One Family in Christ — Bible heritage tree', u: '/one-family-in-christ.html', k: 'adam jesus lineage genealogy family tree heritage cloud witnesses women' },
   { t: 'Site search (this page)', u: '/search.html', k: 'find page tool' },
   { t: 'Prayer Wall', u: '/prayer-wall.html', k: 'pray request community' },
   { t: 'Bible Tool', u: '/bible-tool.html', k: 'lookup chapter reader verse image' },

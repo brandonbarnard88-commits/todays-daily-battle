@@ -326,6 +326,43 @@
     "deep": true
   },
   {
+    "slug": "peace-in-the-storm-when-waves-are-louder",
+    "title": "Peace in the Storm — When the Waves Are Louder Than His Voice",
+    "keyVerseRef": "Mark 4:39",
+    "summary": "Storms still come—but the Lord who taught the multitudes is in the boat. His word still commands wind and sea, and gently asks why fear forgot who sails with you.",
+    "topics": [
+      "fear",
+      "anxiety",
+      "grief",
+      "parenting",
+      "exhaustion",
+      "trust",
+      "family",
+      "trauma"
+    ],
+    "families": true,
+    "grownups": true,
+    "deep": true
+  },
+  {
+    "slug": "come-unto-me-when-weary-heavy-laden",
+    "title": "Come Unto Me — When Weariness Outlasts the Season",
+    "keyVerseRef": "Matthew 11:28",
+    "summary": "After heavy seasons, many hearts still labour under weight Jesus never assigned. He invites you to come—not perform—and receive rest for your soul.",
+    "topics": [
+      "exhaustion",
+      "grief",
+      "burnout",
+      "parenting",
+      "anxiety",
+      "trust",
+      "hope"
+    ],
+    "families": true,
+    "grownups": true,
+    "deep": true
+  },
+  {
     "slug": "god-provides-in-the-worry",
     "title": "God Provides in the Worry",
     "keyVerseRef": "Matthew 6:34",

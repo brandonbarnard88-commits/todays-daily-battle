@@ -52,7 +52,7 @@ The ribbon journal label links to both anchors for people who want extra phrases
 
 ## Stations on the Ribbon (deep Life Lessons)
 
-- **`#mobius-ribbon-stations`** — All seventeen Sermon deep rooms listed as calm turns (anchor line, breath, small step, **Enter the room**). Data: `mobius-deep-lesson-stations.js`; UI: `mobius-stations-ui.js`.
+- **`#mobius-ribbon-stations`** — All nineteen deep rooms listed as calm turns (anchor line, breath, small step, **Enter the room**). Data: `mobius-deep-lesson-stations.js`; UI: `mobius-stations-ui.js`.
 - **Optional graph layer** — `#mobius-deep-lesson-layer-toggle` shows featured lesson chips above the mood graph; node cards link to a matching station when `stationSlug` is set (`mobius-universal.js` + `TDB_MOBIUS_STATION_BY_MOOD`).
 - **Authority breath** — Deep Walk step 2 includes Matthew 22:21 + Acts 5:29 optional exhale when Caesar and conscience pull apart.
 - **Cross-links** — Each deep lesson page includes **On the Möbius ribbon** (build: `scripts/build-life-lessons-pages.mjs`).

@@ -1,5 +1,5 @@
 /**
- * Deep Life Lesson stations on the Möbius ribbon — KJV deep rooms (17).
+ * Deep Life Lesson stations on the Möbius ribbon — KJV deep rooms (19).
  * Used by mobius.html Stations block and optional graph layer chips.
  */
 (function (g) {
@@ -220,6 +220,32 @@
       group: 'Rest on the ribbon',
       featured: true,
       moodKeys: ['grief', 'loneliness', 'sleep'],
+    },
+    {
+      slug: 'peace-in-the-storm-when-waves-are-louder',
+      title: 'Peace in the Storm',
+      subtitle: 'When waves are louder than His voice',
+      ref: 'Mark 4:39',
+      line: 'The Lord of the storm is in the boat\u2014His word still says, Peace, be still.',
+      breathInhale: 'The waves feel louder than His voice today…',
+      breathExhale: 'Peace, be still. And the wind ceased, and there was a great calm.',
+      smallStep: 'Name the storm once\u2014then speak Peace, be still and remember who is in the boat.',
+      group: 'Gospels for hard days',
+      featured: true,
+      moodKeys: ['fear', 'anxiety', 'trauma', 'grief'],
+    },
+    {
+      slug: 'come-unto-me-when-weary-heavy-laden',
+      title: 'Come Unto Me',
+      subtitle: 'When weariness outlasts the season',
+      ref: 'Matthew 11:28',
+      line: 'Come as you are\u2014labouring, heavy laden\u2014and receive rest for your soul.',
+      breathInhale: 'I am still heavy laden after all I have carried…',
+      breathExhale: 'Come unto me, all ye that labour and are heavy laden, and I will give you rest.',
+      smallStep: 'Five quiet minutes with Matthew 11:28\u2014no fixing tomorrow, only coming.',
+      group: 'Gospels for hard days',
+      featured: true,
+      moodKeys: ['exhaustion', 'grief', 'burnout'],
     },
   ];
 

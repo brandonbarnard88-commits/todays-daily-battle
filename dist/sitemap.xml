@@ -10,6 +10,8 @@
   <url><loc>https://todaysdailybattle.com/for-pastors.html</loc><lastmod>2026-05-08</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
   <url><loc>https://todaysdailybattle.com/church-starter-pack.html</loc><lastmod>2026-05-08</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://todaysdailybattle.com/family.html</loc><lastmod>2026-05-09</lastmod><changefreq>weekly</changefreq><priority>0.84</priority></url>
+  <url><loc>https://todaysdailybattle.com/one-family-in-christ.html</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.82</priority></url>
+  <url><loc>https://todaysdailybattle.com/one-family-in-christ-print.html</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
   <url><loc>https://todaysdailybattle.com/family-armor.html</loc><lastmod>2026-03-28</lastmod><changefreq>weekly</changefreq><priority>0.82</priority></url>
   <url><loc>https://todaysdailybattle.com/family-armor-little-ones.html</loc><lastmod>2026-04-23</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://todaysdailybattle.com/family-activity-packs.html</loc><lastmod>2026-03-27</lastmod><changefreq>monthly</changefreq><priority>0.78</priority></url>
@@ -42,6 +44,7 @@
   <url><loc>https://todaysdailybattle.com/v.html</loc><lastmod>2026-03-24</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
   <url><loc>https://todaysdailybattle.com/calm.html</loc><lastmod>2026-03-24</lastmod><changefreq>weekly</changefreq><priority>0.88</priority></url>
   <url><loc>https://todaysdailybattle.com/mobius.html</loc><lastmod>2026-03-24</lastmod><changefreq>monthly</changefreq><priority>0.82</priority></url>
+  <url><loc>https://todaysdailybattle.com/red-letters.html</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.82</priority></url>
   <url><loc>https://todaysdailybattle.com/study.html</loc><lastmod>2026-03-24</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://todaysdailybattle.com/my-verses.html</loc><lastmod>2026-03-24</lastmod><changefreq>monthly</changefreq><priority>0.82</priority></url>
   <url><loc>https://todaysdailybattle.com/message.html</loc><lastmod>2026-03-24</lastmod><changefreq>weekly</changefreq><priority>0.85</priority></url>
@@ -52,10 +55,16 @@
   <url><loc>https://todaysdailybattle.com/plans.html?plan=dailyrenewing</loc><lastmod>2026-05-09</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://todaysdailybattle.com/plans.html?plan=kjvhowtoread</loc><lastmod>2026-05-10</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://todaysdailybattle.com/plans.html?plan=armorofgod-kids</loc><lastmod>2026-05-10</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://todaysdailybattle.com/plans.html?plan=winterwaiting</loc><lastmod>2026-05-13</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://todaysdailybattle.com/plans.html?plan=springhopemud</loc><lastmod>2026-05-13</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://todaysdailybattle.com/plans.html?plan=latesummergentle</loc><lastmod>2026-05-13</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://todaysdailybattle.com/plans.html?plan=adventbridge</loc><lastmod>2026-05-13</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://todaysdailybattle.com/identity-in-christ.html</loc><lastmod>2026-03-28</lastmod><changefreq>monthly</changefreq><priority>0.82</priority></url>
   <url><loc>https://todaysdailybattle.com/first-steps.html</loc><lastmod>2026-03-28</lastmod><changefreq>monthly</changefreq><priority>0.82</priority></url>
   <url><loc>https://todaysdailybattle.com/printables.html</loc><lastmod>2026-05-09</lastmod><changefreq>monthly</changefreq><priority>0.82</priority></url>
+  <url><loc>https://todaysdailybattle.com/porch-map-one-page-print.html</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.78</priority></url>
   <url><loc>https://todaysdailybattle.com/emergency-calm-pack.html</loc><lastmod>2026-05-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://todaysdailybattle.com/offline-porch.html</loc><lastmod>2026-05-15</lastmod><changefreq>monthly</changefreq><priority>0.78</priority></url>
   <url><loc>https://todaysdailybattle.com/print-pack-generator.html</loc><lastmod>2026-04-17</lastmod><changefreq>monthly</changefreq><priority>0.81</priority></url>
   <url><loc>https://todaysdailybattle.com/embeddable-widgets.html</loc><lastmod>2026-04-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://todaysdailybattle.com/daily-quiet-time.html</loc><lastmod>2026-04-02</lastmod><changefreq>monthly</changefreq><priority>0.82</priority></url>
@@ -225,6 +234,14 @@
   <url><loc>https://todaysdailybattle.com/kids/parent.html</loc><lastmod>2026-03-24</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://todaysdailybattle.com/kids/corner.html</loc><lastmod>2026-03-24</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://todaysdailybattle.com/kids/prayer-activities.html</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://todaysdailybattle.com/kids/porch-read-little-hearts.html</loc><lastmod>2026-05-13</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
+  <url><loc>https://todaysdailybattle.com/kids/porch-read-ordinary-tuesday.html</loc><lastmod>2026-05-13</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
+  <url><loc>https://todaysdailybattle.com/kids/porch-read-after-grief.html</loc><lastmod>2026-05-13</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
+  <url><loc>https://todaysdailybattle.com/kids/porch-read-steady-days.html</loc><lastmod>2026-05-13</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
+  <url><loc>https://todaysdailybattle.com/kids/porch-read-family-worship.html</loc><lastmod>2026-05-13</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
+  <url><loc>https://todaysdailybattle.com/kids/porch-read-parent-weary.html</loc><lastmod>2026-05-13</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
+  <url><loc>https://todaysdailybattle.com/kids/porch-read-summer-seeds.html</loc><lastmod>2026-05-13</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
+  <url><loc>https://todaysdailybattle.com/kids/porch-read-school-courage.html</loc><lastmod>2026-05-13</lastmod><changefreq>monthly</changefreq><priority>0.72</priority></url>
   <url><loc>https://todaysdailybattle.com/coloring.html</loc><lastmod>2026-03-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://todaysdailybattle.com/kids-activities-print.html</loc><lastmod>2026-03-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://todaysdailybattle.com/kids-coloring-pack.html</loc><lastmod>2026-03-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>

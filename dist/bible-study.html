@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260503-consent-persist-fix"></script>
   <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260503-consent-persist-fix"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
@@ -267,6 +268,11 @@
             </article>
           </div>
         </section>
+        <section class="glass tdb-porch-paper-glass util-mt-1" id="life-lessons-bridge" aria-labelledby="life-lessons-bridge-h">
+          <h2 class="section-divider" id="life-lessons-bridge-h">Life Lessons from the Word</h2>
+          <p class="section-note">Scripture-soaked paths&mdash;not shallow moral stories. Each lesson: full KJV passage, reverent setting, clear truth, honest application for hard days, steps to prepare the heart, optional reflection, something for little ones, and ties to Battle Plans. Search by worry, forgiveness, parenting, and more.</p>
+          <p class="section-note util-mb-0"><a class="btn btn-primary" href="life-lessons.html">Open Life Lessons</a> &middot; <a href="kids/corner.html">Kids Story Library</a> &middot; <a href="kids-corner.html">Kids Corner</a></p>
+        </section>
         <p class="section-note util-mt-1" role="note" id="bible-study-church-sharing-note">Leaders and churches&mdash;copy-ready bulletin lines, texts, and a calm study-picker live in our <a href="church-sharing-kit.html">Church sharing kit</a>. Same quiet spirit as these studies: KJV on the page, no login required to read.</p>
         <p class="section-note util-mt-1"><a href="/">← Back to Home</a> · <a href="reading-plan.html">7-Day Reading Plan</a> · <a href="study.html">Study Workspace</a></p>
       </div>
@@ -329,6 +335,8 @@
     <a href="/bible-tool.html">Bible tool</a>
     <a href="/testimonials.html">Reader stories</a>
     <a href="/journal/">Journal</a>
+    <a href="/updates.html">Monthly updates</a>
+    <a href="/emergency-calm-pack.html">Emergency calm pack</a>
     <a href="/where-support-goes.html">Where support goes</a>
     <a href="/verse-cards/">Verse cards</a>
     <a href="/security.html">Security</a>
@@ -395,6 +403,7 @@
       <div class="footer-sitemap-col">
         <h3>Further In</h3>
         <a href="/prayer-wall.html">Prayer</a>
+        <a href="/offline-porch.html">Offline porch</a>
         <a href="/bible-study.html">Bible studies</a>
         <a href="/shop.html">Shop</a>
         <a href="/story.html">Story</a>
@@ -416,12 +425,12 @@
     Steady KJV for honest days&mdash;no ads, no selling your data; prayers stay on this device unless you sync on purpose.
   </p>
 
-  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" aria-label="Friday verse and prayer email signup">
-    <p class="footer-friday-signup-label">Friday recap email&mdash;one message a week; leave anytime.</p>
+  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" aria-labelledby="footerFridaySignupHeading">
+    <p class="footer-friday-signup-label" id="footerFridaySignupHeading">Short <abbr title="King James Version">KJV</abbr> Friday letter only&mdash;one message a week, easy unsubscribe, never sold. Want the daily calendar verse too? <a href="/#newsletter">Use the home signup</a>.</p>
     <div class="footer-friday-signup-row">
-      <label for="footer-friday-email" class="sr-only">Email for Friday recap</label>
-      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="your@email.com" aria-label="Email for Friday recap" autocomplete="email">
-      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit">Subscribe</button>
+      <label for="footer-friday-email" class="sr-only">Email for Friday letter</label>
+      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="you@example.com" aria-label="Email for Friday letter" autocomplete="email">
+      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit" aria-label="Sign up for the short Friday email">Sign me up</button>
     </div>
     <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
   </div>
@@ -432,7 +441,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">May 13, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">May 19, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>

@@ -1,0 +1,280 @@
+/* Life Lessons — Scripture-soaked porch tool */
+.tdb-ll-main,
+.tdb-ll-layout {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 0 0 2.5rem;
+}
+.tdb-ll-hub .tdb-ll-main {
+  max-width: 52rem;
+}
+.tdb-ll-hero {
+  margin-bottom: 1.25rem;
+}
+.tdb-ll-start-here {
+  margin-bottom: 1.25rem;
+  border: 1px solid rgba(227, 188, 103, 0.28);
+}
+.tdb-ll-start-eyebrow {
+  margin: 0 0 0.25rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold, #e3bc67);
+}
+.tdb-ll-start-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+}
+.tdb-ll-key-verse {
+  margin: 0.5rem 0 0.35rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.02rem;
+  line-height: 1.5;
+  color: rgba(232, 228, 220, 0.96);
+  font-style: italic;
+}
+.tdb-ll-hero-tags,
+.tdb-ll-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+  margin-top: 0.75rem;
+}
+.tdb-ll-audience {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.45rem;
+  border-radius: 6px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+}
+.tdb-ll-audience--family {
+  color: #c4daf5;
+}
+.tdb-ll-audience--grown {
+  color: #e8d4a8;
+}
+.tdb-ll-return-btn.is-active {
+  border-color: rgba(227, 188, 103, 0.55);
+  color: var(--gold, #e3bc67);
+}
+.tdb-ll-tool {
+  margin-bottom: 1.25rem;
+}
+.tdb-ll-search-label {
+  display: block;
+  font-size: 0.88rem;
+  margin-bottom: 0.35rem;
+  color: rgba(203, 213, 225, 0.95);
+}
+.tdb-ll-search-input {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.55rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(8, 12, 20, 0.55);
+  color: #e2e8f0;
+  font-size: 1rem;
+}
+.tdb-ll-topic-label {
+  margin: 0.85rem 0 0.4rem;
+  font-size: 0.85rem;
+}
+.tdb-ll-topic-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.tdb-ll-topic-chip {
+  min-height: 40px;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(8, 12, 20, 0.4);
+  color: rgba(226, 232, 240, 0.95);
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+.tdb-ll-topic-chip.is-active,
+.tdb-ll-topic-chip:hover,
+.tdb-ll-topic-chip:focus-visible {
+  border-color: rgba(227, 188, 103, 0.5);
+  outline: none;
+}
+.tdb-ll-filter-status {
+  margin: 0.65rem 0 0;
+  font-size: 0.82rem;
+  color: rgba(148, 163, 184, 0.95);
+}
+.tdb-ll-grid {
+  display: grid;
+  gap: 1rem;
+  margin: 1.25rem 0 0;
+}
+@media (min-width: 640px) {
+  .tdb-ll-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.tdb-ll-card {
+  display: block;
+  padding: 1rem 1.05rem;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: rgba(8, 12, 20, 0.35);
+  color: inherit;
+}
+.tdb-ll-card[hidden] {
+  display: none;
+}
+.tdb-ll-card h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.02rem;
+}
+.tdb-ll-card h2 a {
+  color: var(--gold, #e3bc67);
+  text-decoration: none;
+}
+.tdb-ll-card h2 a:hover,
+.tdb-ll-card h2 a:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
+.tdb-ll-card-verse {
+  margin: 0 0 0.4rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: rgba(203, 213, 225, 0.9);
+  font-family: Georgia, "Times New Roman", serif;
+}
+.tdb-ll-card-ref {
+  font-weight: 600;
+  font-style: normal;
+  font-family: "Inter", system-ui, sans-serif;
+}
+.tdb-ll-card-summary {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(203, 213, 225, 0.92);
+}
+.tdb-ll-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+  margin-top: 0.55rem;
+}
+.tdb-ll-tag {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(148, 163, 184, 0.95);
+}
+.tdb-ll-card-links {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+}
+.tdb-ll-card-links a {
+  color: #93c5fd;
+}
+.tdb-ll-layout {
+  max-width: 56rem;
+}
+@media (min-width: 900px) {
+  .tdb-ll-layout {
+    display: grid;
+    grid-template-columns: 1fr min(16rem, 32%);
+    gap: 1.25rem;
+    align-items: start;
+  }
+}
+.tdb-ll-sidebar {
+  margin-top: 1rem;
+}
+@media (min-width: 900px) {
+  .tdb-ll-sidebar {
+    margin-top: 0;
+    position: sticky;
+    top: 1rem;
+  }
+}
+.tdb-ll-sidebar-list,
+.tdb-ll-porch-list {
+  margin: 0.5rem 0 0;
+  padding-left: 1.1rem;
+}
+.tdb-ll-sidebar-list a,
+.tdb-ll-porch-list a {
+  color: #93c5fd;
+}
+.tdb-ll-section {
+  margin: 1.35rem 0 0;
+}
+.tdb-ll-section h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: var(--gold, #e3bc67);
+}
+.tdb-ll-optional {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgba(148, 163, 184, 0.95);
+}
+.tdb-ll-section p,
+.tdb-ll-section li {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(226, 232, 240, 0.96);
+}
+.tdb-ll-section ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+}
+.tdb-ll-section li {
+  margin-bottom: 0.45rem;
+}
+.tdb-ll-reflection li {
+  font-style: italic;
+}
+.tdb-ll-scripture {
+  margin: 1rem 0;
+  padding: 0.9rem 1rem;
+  border-left: 4px solid color-mix(in srgb, var(--gold, #c9a962) 55%, var(--line, #334155));
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 0 12px 12px 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: #e8e4dc;
+}
+.tdb-ll-scripture cite {
+  display: block;
+  margin-top: 0.65rem;
+  font-size: 0.88rem;
+  font-style: normal;
+  color: var(--muted, #94a3b8);
+  font-family: "Inter", system-ui, sans-serif;
+}
+.tdb-ll-red-note {
+  margin-bottom: 0.5rem;
+  font-size: 0.88rem;
+}
+.tdb-ll-bridge {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+body.red-letter-off .tdb-ll-kjv .red-letter {
+  color: inherit;
+}
+.tdb-ll-kjv .red-letter {
+  color: #c45c5c;
+}

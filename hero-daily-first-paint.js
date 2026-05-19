@@ -466,7 +466,11 @@
     var heroApplication = document.getElementById('heroApplication');
     var panelsEl = document.getElementById('heroBreakdownPanels');
 
-    heroVerse.textContent = '\u201c' + v.text + '\u201d';
+    if (window.TDBRedLetter && typeof window.TDBRedLetter.applyToElement === 'function') {
+      window.TDBRedLetter.applyToElement(heroVerse, v.ref, v.text, { quote: true });
+    } else {
+      heroVerse.textContent = '\u201c' + v.text + '\u201d';
+    }
     try {
       heroVerse.classList.add('verse-body');
     } catch (eCls) { /* non-fatal */ }

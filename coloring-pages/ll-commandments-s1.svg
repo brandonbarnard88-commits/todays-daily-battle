@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" width="900" height="680" aria-hidden="true">
+  <path d="M220,160 L220,560 Q220,600 260,600 L380,600 Q420,600 420,560 L420,160 Q420,120 380,120 L260,120 Q220,120 220,160 Z" fill="none" stroke="#111" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M480,160 L480,560 Q480,600 520,600 L640,600 Q680,600 680,560 L680,160 Q680,120 640,120 L520,120 Q480,120 480,160 Z" fill="none" stroke="#111" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M260,220 L380,220 M260,280 L380,280 M260,340 L360,340 M260,400 L380,400" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M520,220 L640,220 M520,280 L640,280 M520,340 L620,340 M520,400 L640,400" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="450" y="80" text-anchor="middle" font-family="Georgia, serif" font-size="38" fill="#111">God's guardrails</text>
+</svg>

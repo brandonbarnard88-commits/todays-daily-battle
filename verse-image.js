@@ -379,6 +379,51 @@
       textColor: 'paper',
       memorize: false,
       footer: 'site'
+    },
+    'T16-open-bible-table': {
+      w: 1080,
+      h: 1080,
+      bg: 'open_bible_table',
+      layout: 'centered',
+      textColor: 'ink',
+      memorize: false,
+      footer: 'site'
+    },
+    'T17-quiet-porch': {
+      w: 1080,
+      h: 1350,
+      bg: 'quiet_porch',
+      layout: 'centered',
+      textColor: 'paper',
+      memorize: false,
+      footer: 'site'
+    },
+    'T18-woodland-path': {
+      w: 1080,
+      h: 1080,
+      bg: 'woodland_path',
+      layout: 'centered',
+      textColor: 'paper',
+      memorize: false,
+      footer: 'site'
+    },
+    'T19-morning-window': {
+      w: 1080,
+      h: 1080,
+      bg: 'morning_window',
+      layout: 'centered',
+      textColor: 'ink',
+      memorize: false,
+      footer: 'site'
+    },
+    'T20-season-bridge-soft': {
+      w: 1080,
+      h: 1080,
+      bg: 'season_bridge_soft',
+      layout: 'centered',
+      textColor: 'paper',
+      memorize: false,
+      footer: 'site'
     }
   };
 
@@ -921,6 +966,121 @@
     ctx.restore();
   }
 
+  /** T16 — warm table, open book suggestion (no photo). */
+  function drawOpenBibleTableBackground(ctx, w, h) {
+    var gr = ctx.createLinearGradient(0, 0, w, h);
+    gr.addColorStop(0, '#3d2f24');
+    gr.addColorStop(0.55, '#2a1f18');
+    gr.addColorStop(1, '#1a1410');
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, w, h);
+    ctx.save();
+    ctx.globalAlpha = 0.22;
+    ctx.fillStyle = '#c4a574';
+    ctx.fillRect(w * 0.12, h * 0.58, w * 0.76, h * 0.06);
+    ctx.globalAlpha = 0.35;
+    ctx.fillStyle = '#f5efe4';
+    ctx.fillRect(w * 0.28, h * 0.38, w * 0.22, h * 0.22);
+    ctx.fillRect(w * 0.52, h * 0.4, w * 0.22, h * 0.2);
+    ctx.strokeStyle = 'rgba(90, 70, 50, 0.35)';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(w * 0.28, h * 0.38, w * 0.22, h * 0.22);
+    ctx.strokeRect(w * 0.52, h * 0.4, w * 0.22, h * 0.2);
+    ctx.restore();
+  }
+
+  /** T17 — quiet porch rail at dusk (suggestive lines only). */
+  function drawQuietPorchBackground(ctx, w, h) {
+    var sky = ctx.createLinearGradient(0, 0, w, h * 0.55);
+    sky.addColorStop(0, '#2c3e50');
+    sky.addColorStop(1, '#4a5f6f');
+    ctx.fillStyle = sky;
+    ctx.fillRect(0, 0, w, h * 0.55);
+    var floor = ctx.createLinearGradient(0, h * 0.55, w, h);
+    floor.addColorStop(0, '#3a3028');
+    floor.addColorStop(1, '#221c18');
+    ctx.fillStyle = floor;
+    ctx.fillRect(0, h * 0.55, w, h * 0.45);
+    ctx.save();
+    ctx.strokeStyle = 'rgba(226, 232, 240, 0.18)';
+    ctx.lineWidth = Math.max(3, w * 0.008);
+    ctx.beginPath();
+    ctx.moveTo(0, h * 0.52);
+    ctx.lineTo(w, h * 0.52);
+    ctx.stroke();
+    for (var i = 0; i < 5; i++) {
+      ctx.beginPath();
+      ctx.moveTo(w * (0.08 + i * 0.21), h * 0.52);
+      ctx.lineTo(w * (0.08 + i * 0.21), h * 0.62);
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+
+  /** T18 — woodland path opening (soft greens, no photo). */
+  function drawWoodlandPathBackground(ctx, w, h) {
+    var gr = ctx.createLinearGradient(0, 0, w, h);
+    gr.addColorStop(0, '#1e293b');
+    gr.addColorStop(0.45, '#274032');
+    gr.addColorStop(1, '#0f172a');
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, w, h);
+    ctx.save();
+    ctx.globalAlpha = 0.2;
+    ctx.fillStyle = '#94a3b8';
+    ctx.beginPath();
+    ctx.moveTo(w * 0.35, h);
+    ctx.lineTo(w * 0.5, h * 0.42);
+    ctx.lineTo(w * 0.65, h);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+  }
+
+  /** T19 — morning light through a window (soft geometry). */
+  function drawMorningWindowBackground(ctx, w, h) {
+    var gr = ctx.createLinearGradient(0, 0, w, h);
+    gr.addColorStop(0, '#fef9c3');
+    gr.addColorStop(0.4, '#fde68a');
+    gr.addColorStop(1, '#cbd5e1');
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, w, h);
+    ctx.save();
+    ctx.globalAlpha = 0.35;
+    ctx.fillStyle = '#fffbeb';
+    ctx.fillRect(w * 0.18, h * 0.12, w * 0.42, h * 0.55);
+    ctx.strokeStyle = 'rgba(100, 116, 139, 0.25)';
+    ctx.lineWidth = 3;
+    ctx.strokeRect(w * 0.18, h * 0.12, w * 0.42, h * 0.55);
+    ctx.restore();
+  }
+
+  /** T20 — cool slate with soft warm side-light (seasonal porch / winter–spring bridge). */
+  function drawSeasonBridgeSoftBackground(ctx, w, h) {
+    var gr = ctx.createLinearGradient(0, 0, w, h * 1.05);
+    gr.addColorStop(0, '#1e293b');
+    gr.addColorStop(0.38, '#334155');
+    gr.addColorStop(0.72, '#475569');
+    gr.addColorStop(1, '#0f172a');
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, w, h);
+    ctx.save();
+    var g2 = ctx.createRadialGradient(w * 0.72, h * 0.26, 0, w * 0.72, h * 0.26, Math.max(w, h) * 0.58);
+    g2.addColorStop(0, 'rgba(254, 249, 199, 0.5)');
+    g2.addColorStop(0.42, 'rgba(226, 232, 240, 0.1)');
+    g2.addColorStop(1, 'rgba(15, 23, 42, 0)');
+    ctx.globalAlpha = 0.48;
+    ctx.fillStyle = g2;
+    ctx.fillRect(0, 0, w, h);
+    ctx.restore();
+    ctx.save();
+    ctx.globalAlpha = 0.22;
+    ctx.strokeStyle = 'rgba(212, 175, 55, 0.18)';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(w * 0.11, h * 0.09, w * 0.4, h * 0.5);
+    ctx.restore();
+  }
+
   /** Minimal lily form used by T14. Extremely faint. */
   function drawLilySilhouette(ctx, x, y, size) {
     ctx.beginPath();
@@ -1043,6 +1203,26 @@
     }
     if (bg === 'rock_river_dawn') {
       drawRockRiverDawnBackground(ctx, w, h);
+      return;
+    }
+    if (bg === 'open_bible_table') {
+      drawOpenBibleTableBackground(ctx, w, h);
+      return;
+    }
+    if (bg === 'quiet_porch') {
+      drawQuietPorchBackground(ctx, w, h);
+      return;
+    }
+    if (bg === 'woodland_path') {
+      drawWoodlandPathBackground(ctx, w, h);
+      return;
+    }
+    if (bg === 'morning_window') {
+      drawMorningWindowBackground(ctx, w, h);
+      return;
+    }
+    if (bg === 'season_bridge_soft') {
+      drawSeasonBridgeSoftBackground(ctx, w, h);
       return;
     }
     var g = bgGradients(bg === 'cross' ? 'dawn' : bg);
@@ -1653,6 +1833,11 @@
       if (tk === 'T13-soft-mist-dawn') return 'Soft mist at dawn — strength quietly rising. Breathe and remember He is near.';
       if (tk === 'T14-lily-silhouette') return 'Consider the lilies... they neither toil nor spin. (Matthew 6:28) — rest in His care.';
       if (tk === 'T15-rock-river') return 'He leads me beside still waters... (Psalm 23) — one calm step today: read it once, then breathe.';
+      if (tk === 'T16-open-bible-table') return 'Open Bible on the table mood — let one verse sit with you before the day runs.';
+      if (tk === 'T17-quiet-porch') return 'Quiet porch at dusk — share truth without noise; one honest line is enough.';
+      if (tk === 'T18-woodland-path') return 'Woodland path — slow steps are still steps; read the verse once, then walk.';
+      if (tk === 'T19-morning-window') return 'Morning window light — gentle clarity; match the verse to the first quiet hour you get.';
+      if (tk === 'T20-season-bridge-soft') return 'Season bridge — cool air, soft side-light; good for winter waiting, spring mud days, or Advent hush without glitter.';
       return 'Template sets size, colors, and subtle dawn light. One calm step: choose what matches the verse’s quiet truth today.';
     }
 
@@ -1884,9 +2069,18 @@
     try {
       var p = new URLSearchParams(String(window.location.search || ''));
       var r = p.get('ref') || p.get('verse');
-      if (!r) return;
-      var el = document.getElementById('verse-image-ref');
-      if (el) el.value = decodeURIComponent(r).replace(/\+/g, ' ').trim();
+      if (r) {
+        var el = document.getElementById('verse-image-ref');
+        if (el) el.value = decodeURIComponent(r).replace(/\+/g, ' ').trim();
+      }
+      var tpl = p.get('tpl') || p.get('template');
+      if (tpl) {
+        var templateEl = document.getElementById('verse-image-template');
+        if (templateEl) {
+          var canon = normalizeTemplateKey(decodeURIComponent(tpl).replace(/\+/g, ' ').trim());
+          templateEl.value = canon;
+        }
+      }
     } catch (e) {}
   }
 
@@ -2068,6 +2262,74 @@
         fallbackCopy();
       }
       trackEvent('verse_image_uog_prompt_copied', { len: text.length });
+    });
+  })();
+
+  (function wireGiftsPlanPromptCopy() {
+    var root = document.getElementById('verse-image-gifts-plan-prompts');
+    if (!root) return;
+    var statusEl = document.getElementById('verse-image-gifts-copy-status');
+    var listEl = document.getElementById('verse-image-gifts-plan-preset-list');
+
+    function showBtnCopied(btn, msg) {
+      var old = btn.textContent;
+      btn.textContent = 'Copied';
+      if (statusEl) statusEl.textContent = msg;
+      setTimeout(function () {
+        btn.textContent = old;
+      }, 1600);
+    }
+
+    function copyString(str, btn, msg) {
+      var text = String(str || '').replace(/\s+/g, ' ').trim();
+      if (!text || !btn) return;
+      function fb() {
+        try {
+          var ta = document.createElement('textarea');
+          ta.value = text;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'fixed';
+          ta.style.left = '-9999px';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          showBtnCopied(btn, msg);
+        } catch (e) {}
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () {
+          showBtnCopied(btn, msg);
+        }).catch(fb);
+      } else {
+        fb();
+      }
+    }
+
+    root.addEventListener('click', function (ev) {
+      var t = ev.target;
+      if (!t || t.nodeName !== 'BUTTON' || !t.getAttribute) return;
+      if (t.getAttribute('data-verse-image-gifts-copy-all') === '1') {
+        if (!listEl) return;
+        var bodies = listEl.querySelectorAll('.verse-image-uog-preset-body');
+        var parts = [];
+        for (var i = 0; i < bodies.length; i++) {
+          var p = String(bodies[i].textContent || '').replace(/\s+/g, ' ').trim();
+          if (p) parts.push(p);
+        }
+        var block = parts.join('\n\n');
+        if (!block) return;
+        copyString(block, t, 'All five Gifts plan prompts copied. Paste into your image tool.');
+        trackEvent('verse_image_gifts_plan_all_copied', { n: parts.length, len: block.length });
+        return;
+      }
+      if (t.getAttribute('data-verse-image-uog-copy') !== '1') return;
+      var row = t.closest && t.closest('.verse-image-uog-preset-row');
+      var body = row && row.querySelector && row.querySelector('.verse-image-uog-preset-body');
+      var one = body ? String(body.textContent || '').replace(/\s+/g, ' ').trim() : '';
+      if (!one) return;
+      copyString(one, t, 'Prompt copied. Paste it into your image tool.');
+      trackEvent('verse_image_gifts_plan_prompt_copied', { len: one.length });
     });
   })();
 

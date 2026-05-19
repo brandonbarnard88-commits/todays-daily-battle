@@ -25,7 +25,11 @@
     mosesredsea: 'moses-red-sea',
     redsea: 'moses-red-sea',
     babymoses: 'baby-moses',
-    jesus: 'jesus-children'
+    jesus: 'jesus-children',
+    'll-honesty': 'll-honesty',
+    llhonesty: 'll-honesty',
+    'll-commandments': 'll-commandments',
+    llcommandments: 'll-commandments'
   };
 
   var STORY_RETURN_HANDOFFS = {
@@ -61,6 +65,16 @@
     },
     'daniel-lions': {
       storyHref: '/kids/corner.html?story=daniel'
+    },
+    'll-honesty': {
+      storyHref: '/life-lessons/walk-in-honesty.html',
+      sourceHref: '/life-lessons.html',
+      sourceLabel: 'Back to Life Lessons'
+    },
+    'll-commandments': {
+      storyHref: '/life-lessons/ten-commandments-guardrails.html',
+      sourceHref: '/life-lessons.html',
+      sourceLabel: 'Back to Life Lessons'
     }
   };
 
@@ -3329,6 +3343,52 @@
           caption:
             'Saul lifted up his voice, and wept… for thou hast rewarded me good, whereas I have rewarded thee evil… So David went on his way, and Saul returned to his place.',
           verse: '1 Samuel 24:16-17, 22 (KJV)'
+        }
+      ]
+    },
+    {
+      id: 'll-honesty',
+      title: 'Life Lesson — Walk in Honesty',
+      verse:
+        'Lying lips are abomination to the LORD: but they that deal truly are his delight. - Proverbs 12:22',
+      lead: 'Two calm scenes from the honesty lesson—save each, then watch your story.',
+      scenes: [
+        {
+          id: '1',
+          src: '/coloring-pages/ll-honesty-s1.svg',
+          alt: 'Open hands',
+          caption: 'Open hands—room for true words.',
+          verse: 'Ephesians 4:25 (KJV)'
+        },
+        {
+          id: '2',
+          src: '/coloring-pages/ll-honesty-s2.svg',
+          alt: 'Words yes and thank you',
+          caption: 'Small honest words: yes, thank you, I was wrong.',
+          verse: 'Proverbs 12:22 (KJV)'
+        }
+      ]
+    },
+    {
+      id: 'll-commandments',
+      title: 'Life Lesson — Love God & Neighbor',
+      verse:
+        'On these two commandments hang all the law and the prophets. - Matthew 22:40',
+      lead: 'Two scenes from the commandments lesson—tablets and helping hands.',
+      scenes: [
+        {
+          id: '1',
+          src: '/coloring-pages/ll-commandments-s1.svg',
+          alt: 'Two stone tablets',
+          caption: 'God gave commandments in love—to guard and bless.',
+          verse: 'Exodus 20:1 (KJV)'
+        },
+        {
+          id: '2',
+          src: '/coloring-pages/ll-commandments-s2.svg',
+          alt: 'Hands reaching up and toward a friend',
+          caption: 'Love the Lord your God—and your neighbor as yourself.',
+          verse: 'Matthew 22:37-39 (KJV)'
         }
       ]
     }

@@ -21,7 +21,7 @@
   <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260503-consent-persist-fix"></script>
 
   <title>Today’s Daily Battle — One KJV Verse, One Small Step, One Prayer</title>
-  <meta name="description" content="Today’s KJV: John 10:11. Quiet KJV daily devotional. No ads, no login. Start with today’s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.">
+  <meta name="description" content="Today’s KJV: John 14:6. Quiet KJV daily devotional. No ads, no login. Start with today’s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.">
   <meta name="keywords" content="bible verses when feeling heartbroken, bible for anxiety, verses when alone, KJV devotional, Bible verse of the day, KJV Bible app, Christian anxiety help, Bible verses for fear, offline Bible, daily scripture, verse of the day KJV, Bible breakdown plain English, calm verse, crisis verse, need verse now">
   <link rel="canonical" href="https://todaysdailybattle.com/">
 
@@ -69,8 +69,8 @@
       "@type": "WebPage",
       "@id": "https://todaysdailybattle.com/#webpage",
       "url": "https://todaysdailybattle.com/",
-      "name": "Today’s Daily Battle — One KJV Verse, One Small Step, One Prayer · Today’s KJV: John 10:11",
-      "description": "Today’s KJV: John 10:11. Quiet KJV daily devotional. No ads, no login. Start with today’s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.",
+      "name": "Today’s Daily Battle — One KJV Verse, One Small Step, One Prayer · Today’s KJV: John 14:6",
+      "description": "Today’s KJV: John 14:6. Quiet KJV daily devotional. No ads, no login. Start with today’s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.",
       "inLanguage": "en-US",
       "isPartOf": {
         "@type": "WebSite",
@@ -84,9 +84,9 @@
     {
       "@type": "CreativeWork",
       "@id": "https://todaysdailybattle.com/#home-daily-verse",
-      "name": "John 10:11 (KJV)",
-      "headline": "John 10:11 (KJV)",
-      "text": "I am the good shepherd: the good shepherd giveth his life for the sheep.",
+      "name": "John 14:6 (KJV)",
+      "headline": "John 14:6 (KJV)",
+      "text": "I am the way, the truth, and the life.",
       "inLanguage": "en-US",
       "isAccessibleForFree": true,
       "isBasedOn": {
@@ -110,12 +110,12 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Quiet place · John 10:11">
+  <meta name="apple-mobile-web-app-title" content="Quiet place · John 14:6">
   <!-- Open Graph (iMessage, Facebook, Slack previews) -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Today's Daily Battle">
   <meta property="og:title" content="Today’s Daily Battle — One KJV Verse, One Small Step, One Prayer">
-  <meta property="og:description" content="Today’s KJV: John 10:11. Quiet KJV daily devotional. No ads, no login. Start with today’s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.">
+  <meta property="og:description" content="Today’s KJV: John 14:6. Quiet KJV daily devotional. No ads, no login. Start with today’s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.">
   <meta property="og:url" content="https://todaysdailybattle.com/">
   <meta property="og:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260422og">
   <meta property="og:image:width" content="1200">
@@ -125,7 +125,7 @@
   <!-- Twitter / X card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Today’s Daily Battle — One KJV Verse, One Small Step, One Prayer">
-  <meta name="twitter:description" content="Today’s KJV: John 10:11. Quiet KJV daily devotional. No ads, no login. Start with today’s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.">
+  <meta name="twitter:description" content="Today’s KJV: John 14:6. Quiet KJV daily devotional. No ads, no login. Start with today’s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260422og">
   <meta name="twitter:image:alt" content="Today&#39;s Daily Battle &mdash; calm KJV verse and tools">
   <!-- Cormorant + Caveat: self-hosted latin woff2 (gstatic-derived). No Google Fonts on homepage. -->
@@ -1326,6 +1326,15 @@
         background: linear-gradient(165deg, color-mix(in srgb, var(--card) 94%, #fff 6%), var(--bg-soft));
         color: color-mix(in srgb, var(--accent) 55%, #1e2a3d 45%);
         border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
+      }
+      /*
+        Fixed pills live inside main, but main uses overflow-x: clip (stacking context), so they
+        cannot paint above the sibling .tdb-bottom-dock and read as “ghost bubbles” through the
+        glass dock. The dock is the single mobile nav; Share stays on the verse toolbar (#heroShareBtn).
+      */
+      #tdb-float-share-verse-home,
+      #tdb-float-memory-pill {
+        display: none !important;
       }
     }
     @media (min-width: 769px) {
@@ -3373,7 +3382,39 @@
     #newsletter h2.section-divider {
       font-size: clamp(1.02rem, 2.9vw, 1.22rem);
     }
-
+    /* Always-visible home newsletter — clear “its own card” frame on long scroll (esp. phones) */
+    main#home-primary-flow .tdb-home-newsletter-card {
+      margin-top: 0;
+      background: linear-gradient(
+        168deg,
+        color-mix(in srgb, var(--card) 93%, rgba(139, 166, 217, 0.07)) 0%,
+        color-mix(in srgb, var(--card) 97%, rgba(227, 188, 103, 0.05)) 100%
+      );
+      border: 1px solid color-mix(in srgb, var(--gold) 26%, var(--line) 74%);
+      box-shadow:
+        0 8px 26px rgba(0, 0, 0, 0.16),
+        inset 0 1px 0 color-mix(in srgb, var(--gold) 14%, transparent);
+    }
+    :root[data-theme="light"] main#home-primary-flow .tdb-home-newsletter-card,
+    :root[data-theme="daylight"] main#home-primary-flow .tdb-home-newsletter-card,
+    :root[data-theme="parchment"] main#home-primary-flow .tdb-home-newsletter-card {
+      background: linear-gradient(168deg, #fffdf9 0%, #f6f2ea 100%);
+      border-color: color-mix(in srgb, #b8860b 22%, #e0d6c4 78%);
+      box-shadow:
+        0 6px 22px rgba(28, 42, 68, 0.06),
+        inset 0 1px 0 color-mix(in srgb, #b8860b 12%, transparent);
+    }
+    main#home-primary-flow .tdb-home-newsletter-lead {
+      max-width: 40rem;
+      line-height: 1.58;
+      font-size: clamp(0.9rem, 2.25vw, 0.98rem);
+      color: color-mix(in srgb, var(--muted) 88%, var(--text) 12%);
+    }
+    :root[data-theme="light"] main#home-primary-flow .tdb-home-newsletter-lead,
+    :root[data-theme="daylight"] main#home-primary-flow .tdb-home-newsletter-lead,
+    :root[data-theme="parchment"] main#home-primary-flow .tdb-home-newsletter-lead {
+      color: #4a5568;
+    }
     /* Patriotic bundle — closed by default; same grids inside */
     /* Tool grid + patriotic: default-closed so hero / Start My Day stay visually primary */
     .tdb-home-tools-shelf { padding: 0.75rem 1rem 0.5rem; margin-top: 0.5rem; }
@@ -4606,6 +4647,10 @@
       outline: 2px solid var(--gold, #e3bc67);
       outline-offset: 3px;
     }
+    /* Friend Text: mouse-first desktop — hidden before/without JS (verse page uses styles.css copy). */
+    @media (pointer: fine) and (min-width: 1024px) {
+      .friend-sms-btn { display: none; }
+    }
     .header-battle-plans--solo {
       flex: 1 1 auto;
       width: 100%;
@@ -5593,7 +5638,13 @@
 
     .plan-start-note { font-size: 0.8rem; color: var(--muted); margin: 0.25rem 0 0.5rem 0; }
     .prayer-wall-badge { font-size: 0.75rem; color: var(--muted); font-weight: 500; }
-    .welcome-back-msg { font-size: 0.85rem; color: var(--muted); margin: 0 0 0.5rem 0; }
+    .welcome-back-msg {
+      font-size: 0.85rem;
+      color: color-mix(in srgb, var(--muted) 78%, var(--gold-soft) 22%);
+      margin: 0 0 0.5rem 0;
+      line-height: 1.45;
+      letter-spacing: 0.01em;
+    }
     .welcome-back-msg[hidden] { display: none !important; }
     .armor-builder-card { border-left: 3px solid color-mix(in srgb, var(--gold) 40%, transparent); }
     .armor-progress-teaser { font-size: 0.85rem; color: var(--gold-soft); margin-bottom: 0.5rem; display: flex; flex-direction: column; gap: 0.4rem; align-items: flex-start; }
@@ -5877,7 +5928,8 @@
       left: 50%;
       transform: translateX(-50%);
       width: min(calc(100% - 24px), 520px);
-      background: color-mix(in srgb, var(--card) 92%, transparent);
+      /* Nearly solid so footer rows / old chrome do not read as stacked “ghost” buttons behind the dock */
+      background: color-mix(in srgb, var(--card) 97%, transparent);
       border: 1px solid var(--line);
       border-radius: 999px;
       backdrop-filter: blur(16px);
@@ -5885,17 +5937,20 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 0.25rem;
       padding: 6px 8px;
       z-index: 200;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      isolation: isolate;
     }
 
-    .tdb-bottom-dock a {
+    .tdb-bottom-dock a,
+    .tdb-bottom-dock button.tdb-bottom-dock-more {
       color: var(--muted);
       text-decoration: none;
       font-size: 0.78rem;
-      padding: 8px 14px;
+      padding: 8px 10px;
       border-radius: 999px;
       background: color-mix(in srgb, var(--card) 65%, transparent);
       border: 1px solid color-mix(in srgb, var(--line) 35%, transparent);
@@ -5907,16 +5962,59 @@
       min-height: 44px;
     }
 
+    .tdb-bottom-dock button.tdb-bottom-dock-more {
+      margin: 0;
+      font: inherit;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+      max-width: 100%;
+    }
+
     .tdb-bottom-dock a:hover,
-    .tdb-bottom-dock a:focus-visible {
+    .tdb-bottom-dock a:focus-visible,
+    .tdb-bottom-dock button.tdb-bottom-dock-more:hover,
+    .tdb-bottom-dock button.tdb-bottom-dock-more:focus-visible {
       color: var(--gold-soft);
       background: color-mix(in srgb, var(--gold) 18%, transparent);
       border-color: color-mix(in srgb, var(--gold) 35%, transparent);
     }
 
     :root[data-theme="light"] .tdb-bottom-dock {
-      background: color-mix(in srgb, var(--card) 96%, #fff 4%);
+      background: color-mix(in srgb, var(--card) 99%, #fff 1%);
       border-color: color-mix(in srgb, var(--line) 70%, #000 8%);
+    }
+
+    /*
+      Phones: footer nav rows (essentials / bottom-nav) still scroll under the fixed dock.
+      backdrop-filter + translucent fills composites those links as a “second bar”. Solid shell
+      and no blur on small viewports blocks that completely; inner chips stay readable.
+    */
+    @media (max-width: 768px) {
+      .tdb-bottom-dock {
+        background: var(--card);
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+        box-shadow:
+          0 10px 28px rgba(0, 0, 0, 0.42),
+          0 0 0 1px color-mix(in srgb, var(--line) 55%, transparent);
+      }
+      :root[data-theme="light"] .tdb-bottom-dock,
+      :root[data-theme="daylight"] .tdb-bottom-dock,
+      :root[data-theme="parchment"] .tdb-bottom-dock {
+        background: var(--card);
+      }
+      .tdb-bottom-dock a,
+      .tdb-bottom-dock button.tdb-bottom-dock-more {
+        background: var(--bg-soft);
+        border-color: color-mix(in srgb, var(--line) 70%, transparent);
+      }
+      .tdb-bottom-dock a:hover,
+      .tdb-bottom-dock a:focus-visible,
+      .tdb-bottom-dock button.tdb-bottom-dock-more:hover,
+      .tdb-bottom-dock button.tdb-bottom-dock-more:focus-visible {
+        background: color-mix(in srgb, var(--gold) 22%, var(--bg-soft));
+      }
     }
 
     /* Hide old conflicting bottom bars that used to overlap */
@@ -6198,6 +6296,12 @@
     .site-footer.site-footer--canonical {
       padding-bottom: max(5.75rem, calc(4.5rem + env(safe-area-inset-bottom, 0px)));
     }
+    /* Home: dock can wrap to two rows on narrow phones — extra air so footer link strips sit above the dock zone */
+    @media (max-width: 768px) {
+      body:has(#home-primary-flow) .site-footer.site-footer--canonical {
+        padding-bottom: max(7.25rem, calc(5.5rem + env(safe-area-inset-bottom, 0px)));
+      }
+    }
     .site-footer-uog-whisper {
       margin: 0 0 0.35rem;
       font-size: clamp(0.8rem, 1.9vw, 0.88rem);
@@ -6224,6 +6328,16 @@
     }
 
     .site-footer a:hover { text-decoration: underline; }
+
+    .site-footer .footer-friday-signup-label a {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .site-footer .footer-friday-signup-label a:focus-visible {
+      outline: 2px solid var(--gold, #e3bc67);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
 
     .share-page-btn { padding: 0.4rem 0.9rem; font-size: 0.85rem; color: var(--gold-soft); background: transparent; border: 1px solid var(--gold); border-radius: 999px; cursor: pointer; transition: color 0.18s, border-color 0.18s, box-shadow 0.18s; }
     .share-page-btn:hover, .share-page-btn:focus-visible { color: var(--gold-soft); border-color: var(--gold); box-shadow: 0 0 12px rgba(227, 188, 103, 0.35); outline: none; }
@@ -7468,6 +7582,23 @@
     .tool-teaser-card:focus-within {
       border-color: color-mix(in srgb, var(--gold) 55%, transparent);
       box-shadow: 0 0 0 1px color-mix(in srgb, var(--gold) 20%, transparent);
+    }
+    .tool-teaser-card--has-new { position: relative; }
+    .tool-teaser-new-badge {
+      position: absolute;
+      top: 0.55rem;
+      right: 0.55rem;
+      z-index: 2;
+      padding: 0.12rem 0.45rem;
+      border-radius: 6px;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #c8d0dc;
+      background: rgba(148, 163, 184, 0.22);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      pointer-events: none;
     }
 
     /* ── Visible focus outline site-wide ── */
@@ -9158,7 +9289,7 @@
   </script>
   <script nonce="tdb2025s">(function(){try{if(localStorage.getItem('tdb_quiet_update_dismiss')==='2026-04-24-uog-rollout')document.documentElement.classList.add('tdb-quiet-update-dismissed');}catch(e){}})();</script>
 </head>
-<body>
+<body class="no-tdb-bottom-nav">
   <script nonce="tdb2025s">
   (function () {
     function stripLegacyFirstTourChip() {
@@ -9345,6 +9476,8 @@
       <a href="/mystudy" aria-label="My Study">📌 Study</a>
       <a href="/family.html" aria-label="Family hub">🏠 Family</a>
       <a href="/explore.html" aria-label="Explore">🗺️ Explore</a>
+      <a href="#quick-search-hero" id="nav-search-btn" aria-label="Search Scripture">🔍 Search</a>
+      <button type="button" id="nav-more-btn" class="tdb-bottom-dock-more" aria-label="More tools" aria-haspopup="true" aria-expanded="false">☰ More</button>
     </nav>
 
     <!-- Hidden search plumbing for script.js compatibility -->
@@ -9359,6 +9492,16 @@
     </section>
 
     <main id="home-primary-flow" class="porch-section">
+
+      <div class="tdb-quiet-corner-strip" id="tdbQuietCornerStrip" role="navigation" aria-label="Your quiet corner" hidden>
+        <p class="tdb-quiet-corner-strip__label" id="tdbQuietCornerLabel">Your quiet corner</p>
+        <ul class="tdb-quiet-corner-strip__list">
+          <li><a href="#hero-verse-wrap" id="tdbQuietCornerVerse">Today&rsquo;s verse</a></li>
+          <li><a href="/mystudy">My Study</a></li>
+          <li><a href="#plan-progress-card" aria-label="Battle plan progress on this page">Plan progress</a></li>
+          <li><a href="/prayer-wall.html">Prayer Wall</a></li>
+        </ul>
+      </div>
 
       <!-- ── Feeling-first hero — the primary entry point ── -->
       <section class="tdb-porch-feel tdb-porch-feel--hero" id="tdbPorchFeel" aria-labelledby="tdbPorchFeelH">
@@ -9400,8 +9543,8 @@
       <div class="spacer" aria-hidden="true"></div>
 
       <!-- ── Today's verse (secondary — below the feeling-first hero) ── -->
-      <p class="tdb-verse-section-label" aria-hidden="true">Today&rsquo;s verse</p>
-      <div id="hero-verse-wrap" class="hero-verse-wrap tdb-home-soar-aura tdb-quiet-container tdb-micro-hero-dawn">
+      <h2 class="tdb-verse-section-label" id="tdbTodaysVerseHeading">Today&rsquo;s verse</h2>
+      <div id="hero-verse-wrap" class="hero-verse-wrap tdb-home-soar-aura tdb-quiet-container tdb-micro-hero-dawn" role="region" aria-labelledby="tdbTodaysVerseHeading">
       <section class="card verse-card verse-card-loaded" id="verseCard" aria-live="polite" data-daily-verse="true" data-tdb-hero-prebuilt="1">
         <p class="welcome-back-msg" id="welcomeBackMsg" aria-live="polite" hidden></p>
         <div class="verse-skeleton" id="verseSkeleton" aria-hidden="true">
@@ -9409,10 +9552,10 @@
         </div>
         <div class="tdb-home-verse-sticky-shell" role="region" aria-label="Today’s verse text and quick actions">
         <div class="verse-breakdown-container hero-calendar-breakdown-wrap" id="heroVotdBreakdown" role="region" aria-label="Today&rsquo;s verse &mdash; reference, text, and breakdown (KJV)">
-        <p class="big-kjv verse-ref hero-daily-ref-above" id="heroRef"><strong>John 10:11 (KJV)</strong></p>
+        <p class="big-kjv verse-ref hero-daily-ref-above" id="heroRef"><strong>John 14:6 (KJV)</strong></p>
         <div class="verse-ref-row">
           <div class="hero-verse-wrap-inner">
-            <p class="hero-verse verse-body is-visible" id="heroVerse" elementtiming="tdb-hero-verse">“I am the good shepherd: the good shepherd giveth his life for the sheep.”</p>
+            <p class="hero-verse verse-body is-visible" id="heroVerse" elementtiming="tdb-hero-verse">“I am the way, the truth, and the life.”</p>
             <div class="verse-font-controls" aria-label="Adjust verse text size">
               <button type="button" class="verse-font-btn verse-font-smaller" id="verseFontSmaller" aria-label="Decrease text size">A−</button>
               <button type="button" class="verse-font-btn verse-font-larger" id="verseFontLarger" aria-label="Increase text size">A+</button>
@@ -9442,8 +9585,9 @@
         </div>
 
         <div class="tdb-home-hero-gentle-after-verse">
-        <h2 class="hero-daily-headline">Today&rsquo;s Daily Battle</h2>
+        <p class="hero-daily-headline">Today&rsquo;s Daily Battle</p>
         <p class="hero-daily-subline" id="heroDailySubline">No ads. No account. No pressure.</p>
+        <p class="hero-heavy-week-nudge section-note" style="margin:.5rem 0 0;font-size:.9rem;line-height:1.5;max-width:40rem;">Heavy week? <a href="/emergency-calm-pack.html">7-day emergency calm pack</a> &mdash; one KJV verse, one small step, one honest prayer each day.</p>
         </div>
         <p class="tdb-verse-of-day-eyebrow" id="heroVerseEyebrow">Today&rsquo;s lesson</p>
 
@@ -9484,13 +9628,23 @@
         <div class="hero-breakdown-panels" id="heroBreakdownPanels" hidden></div>
         <p class="application" id="heroApplication" hidden></p>
         </div>
-        <div class="hero-verse-toolbar hero-verse-primary-toolbar" aria-label="Verse: copy, share, image, save to My Study">
-            <div class="tdb-hero-votd-tools-wrap" role="toolbar" aria-label="Verse: copy, share, image, save to My Study">
+        <div class="hero-verse-toolbar hero-verse-primary-toolbar" aria-label="Verse: copy, share, email or text a friend, image, save to My Study">
+            <div class="tdb-hero-votd-tools-wrap" role="toolbar" aria-label="Verse: copy, share, email or text a friend, image, save to My Study">
             <button type="button" class="hero-toolbar-btn" id="heroCopyVerseBtn" aria-label="Copy verse and page link to clipboard">Copy</button>
-            <button type="button" class="hero-toolbar-btn" id="heroShareBtn" aria-label="Share today’s verse (copy or device share)">Share</button>
+            <button type="button" class="hero-toolbar-btn" id="heroShareBtn" aria-label="Share today’s verse: KJV text, one small step when available, and a link a friend can open without an account">Share</button>
+            <button type="button" class="hero-toolbar-btn" id="heroFriendEmailBtn" aria-label="Open your email app with today’s verse, one small step if shown, and a link">Email</button>
+            <button type="button" class="hero-toolbar-btn friend-sms-btn" id="heroFriendSmsBtn" aria-label="Open your texting app with a short prefilled message and link (phone)">Text</button>
             <button type="button" class="hero-toolbar-btn" id="heroImageBtn" aria-label="Create shareable verse image">Image</button>
             <button type="button" id="hero-save-my-verses" class="btn btn-primary hero-votd-save-btn" aria-describedby="hero-my-verses-hint hero-my-verses-privacy-line" aria-label="Save today’s verse to My Study on this device">Save to My Study</button>
             </div>
+        </div>
+        <div class="tdb-verse-hub-strip" id="tdbVerseHubStrip" role="note" aria-label="Quiet habits beside today’s verse">
+          <span class="tdb-verse-hub-strip__lead">Keep showing up:</span>
+          <a class="tdb-verse-hub-strip__a" href="/mystudy">My Study</a>
+          <span class="tdb-verse-hub-strip__sep" aria-hidden="true">·</span>
+          <a class="tdb-verse-hub-strip__a" href="/progress.html">Gentle progress</a>
+          <span class="tdb-verse-hub-strip__sep" aria-hidden="true">·</span>
+          <a class="tdb-verse-hub-strip__a" href="/what-god-has-done.html">What God did</a>
         </div>
         </div>
         <section class="tdb-home-fast-feel" id="tdbHomeFastFeel" aria-labelledby="tdbHomeFastFeelHeading">
@@ -9737,7 +9891,7 @@
         <p id="hero-listen-hint" class="hero-listen-hint">Tap Listen for a quiet hear-through of today&rsquo;s verse and breakdown (calm pace on your device). Keyboard: Tab to Listen, then Space.</p>
         <p class="hero-word-study-wrap">
           <span id="hero-study-verse-hint" class="hero-study-verse-hint">Slow on one word—concordance and short glosses, offline when you need them.</span>
-          <button type="button" id="heroWordStudyBtn" class="btn btn-secondary hero-word-study-btn" data-tdb-wordstudy-ref="John 10:11" data-tdb-wordstudy-text="I am the good shepherd: the good shepherd giveth his life for the sheep." aria-describedby="hero-study-verse-hint" aria-label="Open verse study for today’s verse of the day">Study this verse</button>
+          <button type="button" id="heroWordStudyBtn" class="btn btn-secondary hero-word-study-btn" data-tdb-wordstudy-ref="John 14:6" data-tdb-wordstudy-text="I am the way, the truth, and the life." aria-describedby="hero-study-verse-hint" aria-label="Open verse study for today’s verse of the day">Study this verse</button>
         </p>
         <div class="hero-my-verses-row hero-my-verses-row--below-card" role="region" aria-label="Memorize and My Study">
           <a href="memorize.html" class="btn btn-secondary hero-memorize-link" id="hero-memorize-link" aria-label="Open gentle memorize tools for today’s verse">Memorize</a>
@@ -9827,6 +9981,22 @@
       <a href="#tdb-home-votm" class="tdb-float-memory-pill" id="tdb-float-memory-pill" hidden aria-label="Jump to verse of the month">Memory</a>
       <button type="button" class="tdb-float-share-verse" id="tdb-float-share-verse-home" aria-label="Share today’s verse">Share verse</button>
       </div><!-- /#hero-verse-wrap -->
+
+      <!-- ── Daily email signup (always visible — same form as before, no “More rooms” gate) ── -->
+      <section class="card tdb-home-newsletter-card" id="newsletter" aria-labelledby="tdbNewsletterHeading">
+        <h2 class="section-divider" id="tdbNewsletterHeading"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Have tomorrow&rsquo;s verse meet you first</h2>
+        <p class="section-note newsletter-thesis tdb-home-newsletter-lead">Choose the same calendar verse the site shows, a short Friday letter, or both&mdash;straight <abbr title="King James Version">KJV</abbr>, plain English beside it when there is room, no ads, and no account wall. Leave any time; your address is not for sale.</p>
+        <p class="section-note newsletter-friday-footer-hint">Only want the light Friday note? <a href="#footerFridaySignup">Use the footer signup</a>&mdash;same list spirit, same easy out.</p>
+        <div class="newsletter-form">
+          <input id="newsletter-name" type="text" placeholder="First name (optional)" aria-label="First name, optional" autocomplete="name">
+          <input id="newsletter-email" type="email" placeholder="you@example.com" aria-label="Email address" autocomplete="email" required>
+          <label class="newsletter-opt"><input type="checkbox" id="newsletter-weekly" checked> Short Friday recap</label>
+          <label class="newsletter-opt"><input type="checkbox" id="newsletter-daily"> Daily verse (same calendar as the home page)</label>
+          <select id="newsletter-time" aria-label="Preferred send time"><option value="">Any time</option><option value="7">7 AM</option><option value="9">9 AM</option><option value="19">7 PM</option></select>
+          <button type="button" id="newsletter-submit" class="btn btn-primary" aria-label="Join the email list with the choices above">Sign me up</button>
+        </div>
+        <p id="newsletter-status" class="section-note" aria-live="polite"></p>
+      </section>
 
       <!-- ── Three Porch Cards ── -->
       <div class="tdb-porch-cards" role="group" aria-label="Three main rooms">
@@ -10173,10 +10343,10 @@
             <span class="tdb-porch-sign-title">Parenting is exhausting right now</span>
             <span class="tdb-porch-sign-desc">A six-day parent-weary plan; porch read-alouds for kids pair quietly when little ears are beside you.</span>
           </a>
-          <a class="tdb-porch-sign-card" role="listitem" href="plans.html?plan=aftergrief" aria-label="Grief is still sitting here: open After Grief, six gentle KJV days">
+          <a class="tdb-porch-sign-card" role="listitem" href="plans.html?plan=aftergrief" aria-label="Grief is still sitting here: open After Grief, seven gentle KJV days">
             <span class="tdb-porch-sign-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21a9 9 0 0 0 9-9c0-4.5-4-8-9-13-5 5-9 8.5-9 13a9 9 0 0 0 9 9z"/><path d="M12 11v5"/><circle cx="12" cy="8" r="0.5" fill="currentColor"/></svg></span>
             <span class="tdb-porch-sign-title">Grief is still sitting here</span>
-            <span class="tdb-porch-sign-desc">After Grief&mdash;six soft-return KJV days when sorrow does not hurry.</span>
+            <span class="tdb-porch-sign-desc">After Grief&mdash;seven soft-return KJV days when sorrow does not hurry.</span>
           </a>
           <a class="tdb-porch-sign-card" role="listitem" href="plans.html?plan=ordinarytuesday" aria-label="Just an ordinary tired Tuesday: open Ordinary Tuesday Weariness, six KJV days">
             <span class="tdb-porch-sign-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/><path d="M8 2v4"/><path d="M16 2v4"/><path d="M9 15h.01"/><path d="M15 15h.01"/></svg></span>
@@ -10524,13 +10694,13 @@
       </section>
       </div><!-- /#quick-search-hero -->
 
-      <p class="tdb-gentle-next-steps tdb-quiet-container" id="tdbGentleNextSteps">After you search, pick one small next step: save in <a href="/mystudy">My Study</a>, read a full chapter, or start a short <a href="plans.html">Battle Plan</a>. The rows below (Family Armor, 30-day start, Invite &amp; Share, and email) are optional&mdash;you are not behind.</p>
+      <p class="tdb-gentle-next-steps tdb-quiet-container" id="tdbGentleNextSteps">After you search, pick one small next step: save in <a href="/mystudy">My Study</a>, read a full chapter, or start a short <a href="plans.html">Battle Plan</a>. The daily email card sits just under today&rsquo;s verse; the rows in &ldquo;More rooms&rdquo; are optional&mdash;you are not behind.</p>
 
       <p class="site-plan-nudge tdb-quiet-container">Need deeper study after this search? Open the <a href="bible/tools.html">Study workshop</a> or the full <a href="bible-tool.html">Bible Tool</a>.</p>
       <p class="site-family-mission-nudge section-note tdb-quiet-container">For home and ministry teams: <a href="/family.html">Family hub</a> (verse, plans, printables) · <a href="/mission-outreach-packs.html">Mission &amp; outreach packs</a> · <a href="/emergency-calm-pack.html">7-day emergency calm pack</a>.</p>
       <!-- ── Read full chapter ── -->
       <div class="read-chapter-row tdb-quiet-container">
-        <a href="reader.html?book=John&chapter=10&ref=John%2010%3A11" id="readChapterLink" class="read-chapter-link" aria-label="Read John chapter 10 in full context">📖 Read the full chapter</a>
+        <a href="reader.html?book=John&chapter=14&ref=John%2014%3A6" id="readChapterLink" class="read-chapter-link" aria-label="Read John chapter 14 in full context">📖 Read the full chapter</a>
       </div>
       <div class="explore-hero-row tdb-quiet-container">
         <a href="explore.html" class="explore-hero-link" aria-label="Browse every topic, tool, and plan on the site">🗺 Explore all topics, tools, and plans</a>
@@ -10642,11 +10812,47 @@
         </a>
         <button type="button" class="quick-story-btn" id="quickStoryBtn" aria-label="Quick Story">⚡ Quick Story</button>
       </section>
+
+      <section class="card tool-teaser-card tool-teaser-card--has-new" data-tdb-tool-new-until="2026-06-02" aria-label="Möbius Loop">
+        <span class="tool-teaser-new-badge" hidden>New</span>
+        <a href="mobius.html" class="tool-teaser-link" aria-label="Möbius Loop — Endless grace, returning always to the cross">
+          <span class="tool-teaser-icon" aria-hidden="true">∞</span>
+          <div>
+            <p class="tool-teaser-label">Möbius Loop</p>
+            <p class="tool-teaser-sub">Endless grace, returning always to the cross—graph, breath, Deep Walk, and a private loop journal. KJV only.</p>
+          </div>
+          <span class="tool-teaser-arrow" aria-hidden="true">→</span>
+        </a>
+      </section>
+
+      <section class="card tool-teaser-card tool-teaser-card--has-new" data-tdb-tool-new-until="2026-06-02" aria-label="One Family in Christ">
+        <span class="tool-teaser-new-badge" hidden>New</span>
+        <a href="one-family-in-christ.html" class="tool-teaser-link" aria-label="One Family in Christ — Unity from the same Father">
+          <span class="tool-teaser-icon" aria-hidden="true">🌳</span>
+          <div>
+            <p class="tool-teaser-label">One Family in Christ</p>
+            <p class="tool-teaser-sub">Unity from the same Father—Adam to Jesus, KJV verses on tap, gentle branches, witnesses, adoption in Christ. Works offline.</p>
+          </div>
+          <span class="tool-teaser-arrow" aria-hidden="true">→</span>
+        </a>
+      </section>
+
+      <section class="card tool-teaser-card tool-teaser-card--has-new" data-tdb-tool-new-until="2026-06-02" aria-label="Red letters">
+        <span class="tool-teaser-new-badge" hidden>New</span>
+        <a href="red-letters.html" class="tool-teaser-link" aria-label="Red letters — Rest in the Saviour's own words">
+          <span class="tool-teaser-icon" aria-hidden="true">📕</span>
+          <div>
+            <p class="tool-teaser-label">Red letters</p>
+            <p class="tool-teaser-sub">Rest in the Saviour&rsquo;s own words—optional red speech in Matthew&ndash;John across search, reader, plans, and the heritage tree.</p>
+          </div>
+          <span class="tool-teaser-arrow" aria-hidden="true">→</span>
+        </a>
+      </section>
       </div><!-- /.quick-links -->
       </details>
 
       <details class="tdb-home-more-rooms tdb-quiet-container" id="tdb-home-more-rooms">
-        <summary><span>More rooms when you want them</span><span>Family hooks, a 30-day restart, sharing, and email.</span></summary>
+        <summary><span>More rooms when you want them</span><span>Family hooks, a 30-day restart, and sharing&mdash;daily email signup is just above the porch cards.</span></summary>
         <div class="tdb-home-more-rooms-inner">
       <section class="card armor-builder-card" id="armor-builder-btn" aria-label="Family Armor &amp; Stories">
         <h2 class="section-divider"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Family Armor &amp; Stories</h2>
@@ -10673,20 +10879,6 @@
           </div>
           <p class="referral-share-blurb section-note" id="referralShareBlurb"><span class="sr-only">Copy-paste to share: </span>KJV encouragement and plans when life hits hard. <a href="https://todaysdailybattle.com/">todaysdailybattle.com</a></p>
         </div>
-      </section>
-      <section class="card" id="newsletter" aria-label="Join the Battle Plan">
-        <h2 class="section-divider"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Get Daily Verse + Prayer Nudge</h2>
-        <p class="section-note newsletter-thesis">One email&mdash;Friday recap or daily verse. One rhythm you can keep. No spam.</p>
-        <p class="section-note newsletter-friday-footer-hint">Prefer only the short Friday recap? <a href="#footerFridaySignup">It&rsquo;s in the site footer</a>&mdash;leave anytime, same spirit as this card.</p>
-        <div class="newsletter-form">
-          <input id="newsletter-name" type="text" placeholder="Name" aria-label="Your name" autocomplete="name">
-          <input id="newsletter-email" type="email" placeholder="Email" aria-label="Email" autocomplete="email" required>
-          <label class="newsletter-opt"><input type="checkbox" id="newsletter-weekly" checked> Weekly recap</label>
-          <label class="newsletter-opt"><input type="checkbox" id="newsletter-daily"> Daily verse</label>
-          <select id="newsletter-time" aria-label="Preferred time"><option value="">Any time</option><option value="7">7 AM</option><option value="9">9 AM</option><option value="19">7 PM</option></select>
-          <button type="button" id="newsletter-submit" class="btn btn-primary" aria-label="Subscribe">Subscribe</button>
-        </div>
-        <p id="newsletter-status" class="section-note" aria-live="polite"></p>
       </section>
         </div>
       </details>
@@ -10769,6 +10961,61 @@
 
     <!-- ── Porch Restructure Styles (May 2026) ── -->
     <style nonce="tdb2025s">
+    /* Quiet corner — small wayfinding row for returning porch visitors (shown from script after a few visits) */
+    .tdb-quiet-corner-strip[hidden] {
+      display: none !important;
+    }
+    .tdb-quiet-corner-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.6rem 1rem;
+      margin: 0 0 1rem;
+      padding: 0.65rem 1rem 0.72rem;
+      border-radius: 14px;
+      background: color-mix(in srgb, var(--card) 92%, var(--gold) 8%);
+      border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line) 78%);
+      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.14);
+    }
+    .tdb-quiet-corner-strip__label {
+      margin: 0;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--gold) 72%, var(--muted));
+      flex: 0 0 auto;
+    }
+    .tdb-quiet-corner-strip__list {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.35rem 0.45rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .tdb-quiet-corner-strip__list li {
+      margin: 0;
+      padding: 0;
+    }
+    .tdb-quiet-corner-strip__list a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0.3rem 0.65rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      color: color-mix(in srgb, var(--text) 93%, var(--gold));
+      text-decoration: none;
+      border: 1px solid transparent;
+    }
+    .tdb-quiet-corner-strip__list a:hover,
+    .tdb-quiet-corner-strip__list a:focus-visible {
+      background: color-mix(in srgb, var(--bg-soft) 78%, transparent);
+      border-color: color-mix(in srgb, var(--gold) 28%, var(--line));
+      outline: none;
+    }
     /* === Porch feel section — hero position (first interactive element) === */
     .tdb-porch-feel {
       margin: 0 0 0;
@@ -10937,7 +11184,7 @@
       background: #eff2f8;
       border-color: #5a8a9e;
     }
-    /* "Today's verse" secondary section label */
+    /* "Today's verse" secondary section label (h2 — one clear landmark for the daily verse block) */
     .tdb-verse-section-label {
       margin: 1.5rem 0 0.5rem;
       font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
@@ -10948,6 +11195,8 @@
       color: var(--gold);
       opacity: 0.85;
       padding-left: 0.1rem;
+      line-height: 1.25;
+      text-wrap: balance;
     }
     :root[data-theme="light"] .tdb-verse-section-label,
     :root[data-theme="daylight"] .tdb-verse-section-label,
@@ -10975,6 +11224,20 @@
         margin-top: 1.1rem;
         font-size: 0.9rem;
         margin-bottom: 0.58rem;
+      }
+      /* Landmark the daily block on small / mid phones — label + frame read as one beat */
+      #tdbTodaysVerseHeading.tdb-verse-section-label {
+        padding-bottom: 0.4rem;
+        border-bottom: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line) 78%);
+        opacity: 0.94;
+      }
+      :root[data-theme="light"] #tdbTodaysVerseHeading.tdb-verse-section-label,
+      :root[data-theme="daylight"] #tdbTodaysVerseHeading.tdb-verse-section-label,
+      :root[data-theme="parchment"] #tdbTodaysVerseHeading.tdb-verse-section-label {
+        border-bottom-color: color-mix(in srgb, #b8860b 26%, #d8d0be 74%);
+      }
+      main#home-primary-flow #tdbTodaysVerseHeading + #hero-verse-wrap {
+        margin-top: 0;
       }
     }
 
@@ -11126,13 +11389,65 @@
     /* Start My Day band — tighter top gap after toolbar */
     .tdb-start-my-day-band { margin-top: 0.6rem; }
 
+    /* Quiet row under verse tools — retention without noise */
+    .tdb-verse-hub-strip {
+      margin: 0.62rem 0 0;
+      padding: 0.55rem 0.15rem 0;
+      border-top: 1px solid color-mix(in srgb, var(--line) 86%, var(--gold) 14%);
+      font-size: clamp(0.8rem, 2.1vw, 0.88rem);
+      line-height: 1.5;
+      color: color-mix(in srgb, var(--muted) 90%, var(--gold-soft) 10%);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.2rem 0.42rem;
+      max-width: 100%;
+    }
+    .tdb-verse-hub-strip__lead {
+      font-weight: 600;
+      color: color-mix(in srgb, var(--muted) 82%, var(--gold-soft) 18%);
+      margin-right: 0.2rem;
+    }
+    .tdb-verse-hub-strip__a {
+      font-weight: 600;
+      color: var(--accent, #8ba6d9);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      padding: 0.42rem 0.1rem;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 6px;
+    }
+    .tdb-verse-hub-strip__a:hover {
+      color: color-mix(in srgb, var(--accent, #8ba6d9) 85%, #fff 15%);
+    }
+    .tdb-verse-hub-strip__a:focus-visible {
+      outline: 2px solid var(--gold, #e3bc67);
+      outline-offset: 2px;
+    }
+    .tdb-verse-hub-strip__sep {
+      color: color-mix(in srgb, var(--muted) 75%, transparent);
+      user-select: none;
+    }
+    :root[data-theme="light"] .tdb-verse-hub-strip__a,
+    :root[data-theme="daylight"] .tdb-verse-hub-strip__a,
+    :root[data-theme="parchment"] .tdb-verse-hub-strip__a {
+      color: color-mix(in srgb, #4a6a9a 55%, #5a4a2a 45%);
+    }
+
     /* === Final hero & mobile polish === */
     /* Note: actual verse card selector is #verseCard.verse-card (not .tdb-hero-verse-card) */
     #verseCard.verse-card {
       padding-bottom: 1.4rem;
       margin-bottom: 2.25rem;
     }
+    /* Portrait / small tablets: outer verse frame stays quiet so #verseCard remains the visual center */
     @media (max-width: 640px) {
+      #hero-verse-wrap {
+        padding: clamp(0.72rem, 2.1vw, 1.05rem) clamp(0.68rem, 3.2vw, 1.2rem) clamp(0.82rem, 2.4vw, 1.12rem);
+        border-radius: clamp(14px, 3.2vw, 18px);
+      }
       #verseCard.verse-card {
         padding: 1.5rem 1.25rem 1.1rem;
       }
@@ -11148,14 +11463,36 @@
       }
     }
 
-    /* ~iPhone SE / narrow Android: one composed “today’s verse” object — thin outer wrap, prose in the card */
-    @media (max-width: 420px) {
+    /* ~375–430px: one composed “today’s verse” object — frame reads as its own chapter, not an afterthought */
+    @media (max-width: 430px) {
       #hero-verse-wrap {
-        padding: 0.5rem 0.48rem 0.68rem;
+        padding: 0.58rem 0.58rem 0.82rem;
+        border-radius: 14px;
+        box-shadow:
+          0 10px 28px rgba(0, 0, 0, 0.24),
+          0 0 0 1px color-mix(in srgb, var(--gold) 16%, transparent);
+      }
+      :root[data-theme="light"] #hero-verse-wrap,
+      :root[data-theme="daylight"] #hero-verse-wrap,
+      :root[data-theme="parchment"] #hero-verse-wrap {
+        box-shadow:
+          0 8px 26px rgba(0, 0, 0, 0.06),
+          0 0 0 1px color-mix(in srgb, #b8860b 14%, rgba(191, 164, 111, 0.35));
       }
       #verseCard.verse-card {
-        padding: 1.25rem 0.875rem 1.35rem;
+        padding: 1.3rem 1rem 1.42rem;
         margin-bottom: 2rem;
+        border-radius: 12px;
+        box-shadow:
+          0 4px 20px rgba(0, 0, 0, 0.2),
+          inset 0 0 0 1px color-mix(in srgb, var(--gold) 11%, transparent);
+      }
+      :root[data-theme="light"] #verseCard.verse-card,
+      :root[data-theme="daylight"] #verseCard.verse-card,
+      :root[data-theme="parchment"] #verseCard.verse-card {
+        box-shadow:
+          0 4px 18px rgba(0, 0, 0, 0.05),
+          inset 0 0 0 1px color-mix(in srgb, #b8860b 10%, rgba(191, 164, 111, 0.25));
       }
       #verseCard .hero-daily-ref-above {
         margin: 0.3rem 0 0.75rem;
@@ -11165,6 +11502,48 @@
         font-size: clamp(1.5rem, 4.85vw, 1.78rem);
         line-height: 1.72;
         margin: 0 0 1rem;
+      }
+      /* Inner breakdown frame: less “nested box” at ~375px so the verse stays the clear focal point */
+      #verseCard .hero-calendar-breakdown-wrap {
+        margin-top: 0.72rem;
+        padding: 0.98rem 0.68rem 1.02rem;
+        border-radius: 10px;
+        border-color: color-mix(in srgb, var(--line) 90%, var(--gold) 10%);
+        box-shadow: 0 2px 14px rgba(0, 0, 0, 0.14);
+      }
+      :root[data-theme="light"] #verseCard .hero-calendar-breakdown-wrap,
+      :root[data-theme="daylight"] #verseCard .hero-calendar-breakdown-wrap,
+      :root[data-theme="parchment"] #verseCard .hero-calendar-breakdown-wrap {
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        border-color: color-mix(in srgb, #d8d0be 82%, #b8860b 18%);
+      }
+      #verseCard .verse-breakdown-container .big-kjv {
+        font-size: 1.04rem;
+        line-height: 1.32;
+      }
+      #verseCard .verse-breakdown-container .verse-breakdown > p {
+        font-size: 0.94rem;
+        line-height: 1.58;
+      }
+      #verseCard .verse-breakdown-container .next-step,
+      #verseCard .verse-breakdown-container .prayer-block {
+        padding-left: 0.78rem;
+        padding-right: 0.78rem;
+      }
+      /* Deliberate pause before the quiet site stamp — reads as “still part of today’s card,” not tail debris */
+      #verseCard .tdb-home-hero-gentle-after-verse {
+        margin-top: 0.7rem;
+        padding-top: 0.92rem;
+        border-top-color: color-mix(in srgb, var(--gold) 20%, var(--line) 80%);
+      }
+      :root[data-theme="light"] #verseCard .tdb-home-hero-gentle-after-verse,
+      :root[data-theme="daylight"] #verseCard .tdb-home-hero-gentle-after-verse,
+      :root[data-theme="parchment"] #verseCard .tdb-home-hero-gentle-after-verse {
+        border-top-color: color-mix(in srgb, #b8860b 22%, #e6dcc1 78%);
+      }
+      .tdb-hero-votd-listen-under-verse {
+        margin-top: 0.45rem;
+        margin-bottom: 0.12rem;
       }
       .tdb-home-verse-sticky-shell {
         margin: 0;
@@ -11185,9 +11564,21 @@
         border-radius: 8px;
         font-size: 0.78rem;
       }
-      .tdb-verse-section-label {
+      #tdbTodaysVerseHeading.tdb-verse-section-label {
         margin-top: 1.05rem;
-        margin-bottom: 0.42rem;
+        margin-bottom: 0.48rem;
+        padding-bottom: 0.48rem;
+        border-bottom: 1px solid color-mix(in srgb, var(--gold) 24%, var(--line) 76%);
+        opacity: 0.95;
+      }
+      :root[data-theme="light"] #tdbTodaysVerseHeading.tdb-verse-section-label,
+      :root[data-theme="daylight"] #tdbTodaysVerseHeading.tdb-verse-section-label,
+      :root[data-theme="parchment"] #tdbTodaysVerseHeading.tdb-verse-section-label {
+        border-bottom-color: color-mix(in srgb, #b8860b 28%, #d8d0be 72%);
+      }
+      .welcome-back-msg {
+        font-size: 0.88rem;
+        margin-bottom: 0.62rem;
       }
     }
     /* Headline label — quieter stamp */
@@ -11459,7 +11850,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">May 13, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">May 19, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
@@ -11476,14 +11867,7 @@
     </div>
   </div>
 
-  <!-- ── Bottom Nav ── -->
-  <nav class="nav-bottom-dock" aria-label="Primary tools">
-    <a class="nav-link nav-link--active" href="/" aria-label="Home"><span>🏠</span><span>Home</span></a>
-    <a class="nav-link" href="reader.html" aria-label="Chapter Reader"><span>📖</span><span>Read</span></a>
-    <a class="nav-link" href="#quick-search-hero" id="nav-search-btn" aria-label="Search Scripture"><span>🔍</span><span>Search</span></a>
-    <a class="nav-link" href="plans.html" aria-label="Battle Plans"><span>🗓️</span><span>Plans</span></a>
-    <button type="button" id="nav-more-btn" class="nav-link nav-link-btn" aria-label="More tools" aria-haspopup="true" aria-expanded="false"><span>☰</span><span>More</span></button>
-  </nav>
+  <!-- Legacy nav-bottom-dock removed: same links live in .tdb-bottom-dock inside .app; #nav-search-btn and #nav-more-btn moved there. -->
 
   <!-- ── More drawer ── -->
   <div id="nav-more-sheet" class="nav-more-overlay" role="dialog" aria-modal="true" aria-label="More tools" hidden>
@@ -11508,6 +11892,9 @@
         <li><a href="bible-tool.html#ask-the-word-section" id="nav-more-ask-the-word" aria-label="Ask the Teacher by question, feeling, or verse">✝️ Ask the Teacher</a></li>
         <li><a href="calm.html#night-prayer" aria-label="Night prayer with Psalm 4:8">🌙 Night Prayer</a></li>
         <li><a href="bible-tool.html">📚 Bible Tool</a></li>
+        <li><a href="mobius.html">∞ Möbius Loop</a></li>
+        <li><a href="one-family-in-christ.html">🌳 One Family in Christ</a></li>
+        <li><a href="red-letters.html">📕 Red letters</a></li>
         <li><a href="/mystudy">📌 My Study</a></li>
         <li><a href="verse-image.html">🖼 Verse image</a></li>
         <li><a href="kids/index.html?v=hub20260321">🧒 Kids Corner</a></li>
@@ -11558,6 +11945,7 @@
   <script nonce="tdb2025s" src="hero-hero-pools.js?v=20260328pools" fetchpriority="low"></script>
   <script nonce="tdb2025s" src="hero-daily-365-data.js?v=20260325b" fetchpriority="low"></script>
   <script nonce="tdb2025s" src="verse-breakdown-standard.js?v=20260428-vbd" data-tdb-verse-breakdown-standard="1"></script>
+  <script nonce="tdb2025s" src="red-letter.js?v=20260518-rl" data-tdb-red-letter="1"></script>
   <script nonce="tdb2025s" src="hero-daily-first-paint.js?v=20260417-hydration" fetchpriority="low"></script>
   <!-- Phase 6: tdb-home-mobius-week.js?v=20260330home + /sky-ip-geo.js?v=20260327ipgeo load with home secondary stack (see script.js tdbScheduleDeferredVodAndReaderTooling) -->
   <script nonce="tdb2025s">
@@ -14629,6 +15017,7 @@
 
       var largeTextToggle = document.getElementById('settings-large-text');
       var highContrastToggle = document.getElementById('settings-high-contrast');
+      var redLetterSettings = document.getElementById('settings-red-letter');
       function syncA11yTogglesFromDom() {
         if (largeTextToggle) {
           largeTextToggle.checked = document.documentElement.dataset.tdbTextScale === 'large';
@@ -14636,6 +15025,26 @@
         if (highContrastToggle) {
           highContrastToggle.checked = document.documentElement.dataset.tdbContrast === 'high';
         }
+        if (redLetterSettings) {
+          if (typeof isRedLetterEnabled === 'function') {
+            redLetterSettings.checked = isRedLetterEnabled();
+          } else if (window.TDBRedLetter && typeof window.TDBRedLetter.isEnabled === 'function') {
+            redLetterSettings.checked = window.TDBRedLetter.isEnabled();
+          } else {
+            try { redLetterSettings.checked = localStorage.getItem('redLetterEnabled') === 'true'; } catch (eRl) { /* ignore */ }
+          }
+        }
+      }
+      if (redLetterSettings) {
+        redLetterSettings.addEventListener('change', function () {
+          if (typeof setRedLetterEnabled === 'function') {
+            setRedLetterEnabled(redLetterSettings.checked);
+          } else if (window.TDBRedLetter && typeof window.TDBRedLetter.setEnabled === 'function') {
+            window.TDBRedLetter.setEnabled(redLetterSettings.checked);
+          } else {
+            try { localStorage.setItem('redLetterEnabled', redLetterSettings.checked ? 'true' : 'false'); } catch (eRl2) { /* ignore */ }
+          }
+        });
       }
       syncA11yTogglesFromDom();
       if (largeTextToggle) {
@@ -16005,6 +16414,14 @@
     </div>
 
     <div class="settings-row">
+      <label class="settings-label" for="settings-red-letter">
+        <span class="settings-label-text">📕 Red letters</span>
+        <span class="settings-label-sub">Show the words of Jesus in red (Gospels)</span>
+      </label>
+      <input type="checkbox" id="settings-red-letter" class="settings-toggle" aria-label="Show words of Jesus in red" role="switch">
+    </div>
+
+    <div class="settings-row">
       <label class="settings-label" for="settings-large-text">
         <span class="settings-label-text">🔠 Larger text</span>
         <span class="settings-label-sub">Slightly bigger type across the page</span>
@@ -16269,6 +16686,19 @@
       el.classList.remove('tdb-cache-whisper--show');
       setTimeout(function () { el.hidden = true; }, 400);
     }, 2800);
+  })();
+  </script>
+  <script nonce="tdb2025s">
+  (function () {
+    var cards = document.querySelectorAll('[data-tdb-tool-new-until]');
+    if (!cards.length) return;
+    var today = new Date().toISOString().slice(0, 10);
+    cards.forEach(function (card) {
+      var until = card.getAttribute('data-tdb-tool-new-until');
+      if (!until || today > until) return;
+      var badge = card.querySelector('.tool-teaser-new-badge');
+      if (badge) { badge.hidden = false; badge.removeAttribute('hidden'); }
+    });
   })();
   </script>
 </body>

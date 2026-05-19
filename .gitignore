@@ -34,6 +34,8 @@ media/kids-stories/*.webm
 .vercel
 
 # Accidental duplicate filenames (e.g. Finder "File 2.ext") — do not commit these
+**/* [0-9].html
+**/* [0-9][0-9].html
 **/* 2.html
 **/* 2.js
 **/* 2.mjs

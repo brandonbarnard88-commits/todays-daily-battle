@@ -20,6 +20,14 @@ const SOURCE_WEBPAGE_GRAPHS = [
   'printables.html',
   'family.html',
   'kids/prayer-activities.html',
+  'kids/porch-read-little-hearts.html',
+  'kids/porch-read-ordinary-tuesday.html',
+  'kids/porch-read-after-grief.html',
+  'kids/porch-read-steady-days.html',
+  'kids/porch-read-family-worship.html',
+  'kids/porch-read-parent-weary.html',
+  'kids/porch-read-summer-seeds.html',
+  'kids/porch-read-school-courage.html',
 ];
 
 function fail(msg) {

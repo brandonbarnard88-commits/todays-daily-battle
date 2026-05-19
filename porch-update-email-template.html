@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Porch Update Email &mdash; Red-Letters &amp; Life Lessons &middot; Today&apos;s Daily Battle</title>
+  <meta name="description" content="Copy-ready email announcing new Red-Letters plans and Life Lessons from the Word. Pressure-free, KJV, offline-friendly.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://todaysdailybattle.com/porch-update-email-template.html">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260503-consent-persist-fix" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix">
+  <style nonce="tdb2025">
+    .template-box { white-space: pre-wrap; background: rgba(15,23,42,0.6); padding: 1rem; border-radius: 12px; font-size: 0.95rem; line-height: 1.55; }
+    .template-subject { font-weight: 600; color: var(--gold, #e3bc67); margin-bottom: 0.75rem; }
+  </style>
+</head>
+<body class="dark-mode tdb-inner-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <main id="main-content" class="tdb-quiet-container" style="max-width:42rem;margin:0 auto;padding:0 0 2.5rem">
+    <header class="glass tdb-porch-paper-glass" style="margin-bottom:1rem">
+      <p class="section-note topic-mood-porch">For your list&mdash;short, honest, no pressure.</p>
+      <h1>Porch update email</h1>
+      <p class="section-note">Announces <strong>Only His Voice</strong>, <strong>Come Unto Me</strong>, <strong>When Fear Presses In</strong>, and <strong>Life Lessons from the Word</strong>. Adapt before sending.</p>
+      <div class="cta-group util-mt-0_75">
+        <button id="porch-email-copy" class="btn btn-primary" type="button">Copy full email</button>
+        <button id="porch-email-copy-subject" class="btn btn-secondary" type="button">Copy subject only</button>
+        <a class="btn btn-secondary" href="resources.html">Resources</a>
+        <a class="btn btn-secondary" href="life-lessons.html">Life Lessons</a>
+        <a class="btn btn-secondary" href="red-letters.html">Red letters</a>
+      </div>
+    </header>
+    <section class="glass tdb-porch-paper-glass">
+      <p class="template-subject" id="porch-email-subject">Subject: A few new quiet rooms on the porch</p>
+      <div id="porch-email-template" class="template-box">
+Dear friend,
+
+We&rsquo;ve gently added some new spaces to Today&rsquo;s Daily Battle. They are simple, built for real hard days, and ready whenever your heart needs them.
+
+<strong>New Red-Letters paths</strong>
+&bull; Only His Voice &mdash; five days with nothing but the words Jesus spoke
+  https://todaysdailybattle.com/plans.html?plan=hisownwords
+&bull; Come Unto Me &mdash; His own invitation when your words have run dry
+  https://todaysdailybattle.com/plans.html?plan=comeuntome
+&bull; When Fear Presses In &mdash; steady Scripture for anxious and fearful days
+  https://todaysdailybattle.com/plans.html?plan=fearpressesin
+
+<strong>Life Lessons from the Word</strong>
+Sixteen deeper studies that walk through what the Bible teaches, how it meets us in real life, and how we can quietly prepare our hearts. Each one has a printable sheet and gentle ties back to the plans and tools.
+https://todaysdailybattle.com/life-lessons.html
+
+None of these ask anything extra from you. They are simply here &mdash; like a familiar chair you can sit in at any hour, with or without perfect words.
+
+You are always welcome. Come as you are.
+
+With quiet prayers,
+Brandon
+
+todaysdailybattle.com
+
+---
+Reply with &ldquo;unsubscribe&rdquo; if you want to be removed from this list.
+      </div>
+      <p class="section-note util-mt-0_75"><strong>Plain-text tip:</strong> After copying, paste into your sender and remove the HTML if your tool requires plain text only. Links above are full URLs for email clients that do not auto-link.</p>
+    </section>
+  </main>
+  <footer class="site-footer site-footer--canonical" role="contentinfo">
+    <p class="footer-humility">We battle. He wins.</p>
+  </footer>
+  <script>
+    (function () {
+      var box = document.getElementById('porch-email-template');
+      var subjectEl = document.getElementById('porch-email-subject');
+      function copyText(text) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          return navigator.clipboard.writeText(text);
+        }
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        return Promise.resolve();
+      }
+      document.getElementById('porch-email-copy').addEventListener('click', function () {
+        var subj = subjectEl ? subjectEl.textContent.replace(/^Subject:\s*/i, '').trim() : '';
+        var body = box ? box.innerText.trim() : '';
+        copyText(subj + '\n\n' + body).then(function () {
+          if (typeof window.trackEvent === 'function') window.trackEvent('porch_email_copy', { part: 'full' });
+        });
+      });
+      document.getElementById('porch-email-copy-subject').addEventListener('click', function () {
+        var subj = subjectEl ? subjectEl.textContent.replace(/^Subject:\s*/i, '').trim() : '';
+        copyText(subj);
+      });
+    })();
+  </script>
+</body>
+</html>

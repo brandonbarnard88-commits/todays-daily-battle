@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-05-13T14:52:55.913Z",
-  "surfacedRefCount": 3163,
-  "overrideCount": 3163,
+  "generatedAt": "2026-05-19T17:32:36.138Z",
+  "surfacedRefCount": 3254,
+  "overrideCount": 3254,
   "sourceCounts": {
     ".worktrees/main-hotfix/404-admin.html": {
       "refs": 1,
@@ -767,6 +767,14 @@
       "refs": 106,
       "pairs": 0
     },
+    "bible-heritage-data 2.js": {
+      "refs": 65,
+      "pairs": 0
+    },
+    "bible-heritage-data.js": {
+      "refs": 90,
+      "pairs": 0
+    },
     "bible-study.html": {
       "refs": 7,
       "pairs": 0
@@ -824,6 +832,10 @@
       "pairs": 1
     },
     "coloring.html": {
+      "refs": 6,
+      "pairs": 0
+    },
+    "come-unto-me-one-page-print.html": {
       "refs": 6,
       "pairs": 0
     },
@@ -927,6 +939,10 @@
       "refs": 28,
       "pairs": 0
     },
+    "gifts-from-above-one-page-print.html": {
+      "refs": 6,
+      "pairs": 0
+    },
     "he-is-risen.html": {
       "refs": 6,
       "pairs": 0
@@ -945,6 +961,10 @@
     },
     "hi/dar.html": {
       "refs": 1,
+      "pairs": 0
+    },
+    "his-own-words-one-page-print.html": {
+      "refs": 6,
       "pairs": 0
     },
     "id/index.html": {
@@ -984,11 +1004,11 @@
       "pairs": 0
     },
     "kids/color-and-tell.js": {
-      "refs": 332,
+      "refs": 337,
       "pairs": 0
     },
     "kids/corner.html": {
-      "refs": 11,
+      "refs": 22,
       "pairs": 0
     },
     "kids/good-night.html": {
@@ -1014,6 +1034,42 @@
     "kids/kids-verses-365.js": {
       "refs": 365,
       "pairs": 365
+    },
+    "kids/porch-read-after-grief.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "kids/porch-read-family-worship.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "kids/porch-read-lilies.html": {
+      "refs": 3,
+      "pairs": 0
+    },
+    "kids/porch-read-little-hearts.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "kids/porch-read-ordinary-tuesday.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "kids/porch-read-parent-weary.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "kids/porch-read-school-courage.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "kids/porch-read-steady-days.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "kids/porch-read-summer-seeds.html": {
+      "refs": 1,
+      "pairs": 0
     },
     "kids/prayer-activities.html": {
       "refs": 1,
@@ -1049,6 +1105,142 @@
     },
     "late-summer-reset-one-page-print.html": {
       "refs": 6,
+      "pairs": 0
+    },
+    "life-lessons/contentment-in-little-print.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "life-lessons/contentment-in-little.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "life-lessons/courage-for-hard-days-print.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "life-lessons/courage-for-hard-days.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "life-lessons/forgiveness-that-heals-print.html": {
+      "refs": 3,
+      "pairs": 0
+    },
+    "life-lessons/forgiveness-that-heals.html": {
+      "refs": 3,
+      "pairs": 0
+    },
+    "life-lessons/gentle-anger-print.html": {
+      "refs": 3,
+      "pairs": 0
+    },
+    "life-lessons/gentle-anger.html": {
+      "refs": 3,
+      "pairs": 0
+    },
+    "life-lessons/god-provides-in-the-worry-print.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "life-lessons/god-provides-in-the-worry.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "life-lessons/god-provides-wilderness-print.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "life-lessons/god-provides-wilderness.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "life-lessons/joseph-forgives-print.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "life-lessons/joseph-forgives.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "life-lessons/let-little-children-come-print.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "life-lessons/let-little-children-come.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "life-lessons/love-your-neighbor-print.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "life-lessons/love-your-neighbor.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "life-lessons/ruth-stays-loyal-print.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "life-lessons/ruth-stays-loyal.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "life-lessons/sabbath-rest-print.html": {
+      "refs": 3,
+      "pairs": 0
+    },
+    "life-lessons/sabbath-rest.html": {
+      "refs": 3,
+      "pairs": 0
+    },
+    "life-lessons/ten-commandments-guardrails-print.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "life-lessons/ten-commandments-guardrails.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "life-lessons/waiting-on-god-print.html": {
+      "refs": 3,
+      "pairs": 0
+    },
+    "life-lessons/waiting-on-god.html": {
+      "refs": 3,
+      "pairs": 0
+    },
+    "life-lessons/walk-in-honesty-print.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "life-lessons/walk-in-honesty.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "life-lessons/when-the-heart-feels-alone-print.html": {
+      "refs": 3,
+      "pairs": 0
+    },
+    "life-lessons/when-the-heart-feels-alone.html": {
+      "refs": 3,
+      "pairs": 0
+    },
+    "life-lessons/when-words-fail-print.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "life-lessons/when-words-fail.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "life-lessons-data.js": {
+      "refs": 16,
+      "pairs": 0
+    },
+    "life-lessons.html": {
+      "refs": 16,
       "pairs": 0
     },
     "lighthouse-bible-tool.json": {
@@ -1363,6 +1555,14 @@
       "refs": 5,
       "pairs": 5
     },
+    "one-family-in-christ-print 2.html": {
+      "refs": 19,
+      "pairs": 0
+    },
+    "one-family-in-christ-print.html": {
+      "refs": 19,
+      "pairs": 0
+    },
     "one-week-in-the-university-print.html": {
       "refs": 6,
       "pairs": 0
@@ -1428,11 +1628,11 @@
       "pairs": 1
     },
     "plans.html": {
-      "refs": 303,
-      "pairs": 371
+      "refs": 344,
+      "pairs": 455
     },
     "printables.html": {
-      "refs": 9,
+      "refs": 11,
       "pairs": 0
     },
     "psalms.html": {
@@ -1455,6 +1655,14 @@
       "refs": 7,
       "pairs": 0
     },
+    "red-letters.html": {
+      "refs": 4,
+      "pairs": 4
+    },
+    "road-to-salvation-one-page-print.html": {
+      "refs": 11,
+      "pairs": 0
+    },
     "ru/strakh.html": {
       "refs": 1,
       "pairs": 0
@@ -1468,7 +1676,7 @@
       "pairs": 0
     },
     "seasonal.html": {
-      "refs": 11,
+      "refs": 12,
       "pairs": 0
     },
     "sermon.html": {
@@ -1528,7 +1736,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 124,
+      "refs": 140,
       "pairs": 0
     },
     "tl/kabalisahan.html": {
@@ -1640,7 +1848,7 @@
       "pairs": 0
     },
     "verse-image.html": {
-      "refs": 10,
+      "refs": 15,
       "pairs": 0
     },
     "verse-image.js": {
@@ -1660,6 +1868,10 @@
       "pairs": 0
     },
     "when-fall-feels-heavy-one-page-print.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    "when-fear-presses-in-one-page-print.html": {
       "refs": 7,
       "pairs": 0
     },
@@ -1727,6 +1939,7 @@
     "1 Corinthians 10:6",
     "1 Corinthians 11:23-26",
     "1 Corinthians 12:27",
+    "1 Corinthians 12:4-11",
     "1 Corinthians 12:4-7",
     "1 Corinthians 13:1",
     "1 Corinthians 13:12",
@@ -1850,6 +2063,7 @@
     "1 Peter 2:2",
     "1 Peter 2:21",
     "1 Peter 2:23",
+    "1 Peter 2:24",
     "1 Peter 2:5",
     "1 Peter 2:9",
     "1 Peter 3:11",
@@ -1860,6 +2074,7 @@
     "1 Peter 3:21",
     "1 Peter 3:7",
     "1 Peter 3:8-9",
+    "1 Peter 4:10-11",
     "1 Peter 4:12",
     "1 Peter 4:15",
     "1 Peter 4:19",
@@ -2218,6 +2433,7 @@
     "Acts 16:11-15",
     "Acts 16:13",
     "Acts 16:14",
+    "Acts 16:14-15",
     "Acts 16:15",
     "Acts 16:16-40",
     "Acts 16:21",
@@ -2226,6 +2442,7 @@
     "Acts 16:27-28",
     "Acts 16:31",
     "Acts 16:33-34",
+    "Acts 16:34",
     "Acts 16:40",
     "Acts 17:16",
     "Acts 17:18",
@@ -2456,6 +2673,8 @@
     "Deuteronomy 6:7",
     "Deuteronomy 8:10",
     "Deuteronomy 8:2",
+    "Deuteronomy 8:2-3",
+    "Deuteronomy 8:3",
     "Deuteronomy 8:5",
     "Deuteronomy\\u00a06:6\\u20137",
     "Ecclesiastes 12:13",
@@ -2490,6 +2709,7 @@
     "Ephesians 2:8",
     "Ephesians 2:8-10",
     "Ephesians 2:8-9",
+    "Ephesians 2:8-9; Acts 16:31",
     "Ephesians 2:9",
     "Ephesians 3:16",
     "Ephesians 3:17",
@@ -2500,6 +2720,7 @@
     "Ephesians 4:2",
     "Ephesians 4:2-3",
     "Ephesians 4:23-24",
+    "Ephesians 4:25",
     "Ephesians 4:26",
     "Ephesians 4:26-27",
     "Ephesians 4:28",
@@ -2584,6 +2805,7 @@
     "Exodus 20:1-17",
     "Exodus 20:17",
     "Exodus 20:8",
+    "Exodus 20:8-11",
     "Exodus 22:26",
     "Exodus 23:5",
     "Exodus 25:18",
@@ -2597,6 +2819,7 @@
     "Exodus 2:3",
     "Exodus 2:5",
     "Exodus 2:6",
+    "Exodus 31:1-6",
     "Exodus 31:18",
     "Exodus 32:1-8",
     "Exodus 32:32",
@@ -2668,7 +2891,9 @@
     "Galatians 3:26",
     "Galatians 3:26-28",
     "Galatians 3:27",
+    "Galatians 3:28-29",
     "Galatians 4:24",
+    "Galatians 4:4-5",
     "Galatians 4:5",
     "Galatians 4:6",
     "Galatians 4:7",
@@ -2697,9 +2922,18 @@
     "Galatians 6:5",
     "Galatians 6:6",
     "Galatians 6:9",
+    "Genesis 11:10",
+    "Genesis 11:12",
+    "Genesis 11:14",
+    "Genesis 11:16",
+    "Genesis 11:18",
+    "Genesis 11:20",
+    "Genesis 11:22",
+    "Genesis 11:24",
     "Genesis 11:4",
     "Genesis 11:7",
     "Genesis 12:1",
+    "Genesis 12:1-2",
     "Genesis 13:10",
     "Genesis 14:18",
     "Genesis 14:18-20",
@@ -2713,7 +2947,9 @@
     "Genesis 16:7",
     "Genesis 17:14",
     "Genesis 17:15",
+    "Genesis 17:19",
     "Genesis 17:22",
+    "Genesis 17:5",
     "Genesis 18:10",
     "Genesis 18:12",
     "Genesis 18:14",
@@ -2733,6 +2969,7 @@
     "Genesis 1:31",
     "Genesis 1:6",
     "Genesis 1:8",
+    "Genesis 21:12",
     "Genesis 21:17",
     "Genesis 21:2",
     "Genesis 21:20",
@@ -2765,6 +3002,7 @@
     "Genesis 2:11",
     "Genesis 2:15",
     "Genesis 2:18",
+    "Genesis 2:21-22",
     "Genesis 2:22",
     "Genesis 2:24",
     "Genesis 2:7",
@@ -2810,9 +3048,18 @@
     "Genesis 4:4",
     "Genesis 4:5",
     "Genesis 4:8",
+    "Genesis 50:19-21",
     "Genesis 50:20",
+    "Genesis 5:12",
+    "Genesis 5:15",
+    "Genesis 5:22-24",
     "Genesis 5:24",
+    "Genesis 5:25",
+    "Genesis 5:28",
     "Genesis 5:3",
+    "Genesis 5:32",
+    "Genesis 5:6",
+    "Genesis 5:9",
     "Genesis 6:14",
     "Genesis 6:22",
     "Genesis 6:8",
@@ -2893,6 +3140,7 @@
     "Hebrews 4:16",
     "Hebrews 4:2",
     "Hebrews 4:9",
+    "Hebrews 4:9-10",
     "Hebrews 5:12",
     "Hebrews 5:14",
     "Hebrews 5:4",
@@ -2917,6 +3165,7 @@
     "Hosea 2:18",
     "Hosea 3:1",
     "Hosea 4:7",
+    "Hosea 6:3",
     "Hosea 6:6",
     "Isaiah 10:28",
     "Isaiah 10:33",
@@ -2979,6 +3228,8 @@
     "Isaiah 53:12",
     "Isaiah 53:3",
     "Isaiah 53:5",
+    "Isaiah 53:5-6",
+    "Isaiah 53:5-6; 1 Peter 2:24",
     "Isaiah 53:6",
     "Isaiah 54:10",
     "Isaiah 54:13",
@@ -2987,6 +3238,7 @@
     "Isaiah 54:6",
     "Isaiah 55:1",
     "Isaiah 55:10",
+    "Isaiah 55:11",
     "Isaiah 55:12",
     "Isaiah 55:2",
     "Isaiah 55:6",
@@ -3172,6 +3424,8 @@
     "John 13:4",
     "John 13:5",
     "John 14:1",
+    "John 14:1, 27",
+    "John 14:1-6",
     "John 14:15",
     "John 14:16",
     "John 14:16-17",
@@ -3267,6 +3521,7 @@
     "John 2:9",
     "John 3:1",
     "John 3:16",
+    "John 3:16; Romans 5:8",
     "John 3:17",
     "John 3:2",
     "John 3:29",
@@ -3294,6 +3549,7 @@
     "John 5:29",
     "John 6:11",
     "John 6:35",
+    "John 6:37",
     "John 6:45",
     "John 6:5",
     "John 6:8",
@@ -3425,6 +3681,7 @@
     "Luke 10:30",
     "Luke 10:31-32",
     "Luke 10:33",
+    "Luke 10:33-37",
     "Luke 10:34",
     "Luke 10:37",
     "Luke 10:38",
@@ -3521,9 +3778,11 @@
     "Luke 1:28",
     "Luke 1:31",
     "Luke 1:31-33",
+    "Luke 1:35",
     "Luke 1:37",
     "Luke 1:38",
     "Luke 1:41",
+    "Luke 1:42",
     "Luke 1:44",
     "Luke 1:46",
     "Luke 1:46-47",
@@ -3577,6 +3836,7 @@
     "Luke 2:1-20",
     "Luke 2:10",
     "Luke 2:10-11",
+    "Luke 2:11",
     "Luke 2:15",
     "Luke 2:16-20",
     "Luke 2:19",
@@ -3589,6 +3849,7 @@
     "Luke 2:34",
     "Luke 2:36",
     "Luke 2:36-38",
+    "Luke 2:37-38",
     "Luke 2:38",
     "Luke 2:4",
     "Luke 2:4-5",
@@ -3644,6 +3905,7 @@
     "Malachi 3:10",
     "Malachi 4:5",
     "Mark 10:13",
+    "Mark 10:13-14",
     "Mark 10:13-16",
     "Mark 10:14",
     "Mark 10:14-16",
@@ -3703,6 +3965,7 @@
     "Mark 2:14",
     "Mark 2:17",
     "Mark 2:19",
+    "Mark 2:27",
     "Mark 3:1-6",
     "Mark 3:18",
     "Mark 3:28",
@@ -3714,12 +3977,14 @@
     "Mark 4:26-27",
     "Mark 4:28",
     "Mark 4:30-32",
+    "Mark 4:31",
     "Mark 4:35",
     "Mark 4:35-41",
     "Mark 4:36",
     "Mark 4:37",
     "Mark 4:38",
     "Mark 4:39",
+    "Mark 4:39-40",
     "Mark 5:21-43",
     "Mark 5:22",
     "Mark 5:23",
@@ -3859,6 +4124,17 @@
     "Matthew 19:23",
     "Matthew 19:26",
     "Matthew 1:1",
+    "Matthew 1:10",
+    "Matthew 1:11",
+    "Matthew 1:12",
+    "Matthew 1:12-15",
+    "Matthew 1:13",
+    "Matthew 1:13-14",
+    "Matthew 1:14",
+    "Matthew 1:14-15",
+    "Matthew 1:15",
+    "Matthew 1:15-16",
+    "Matthew 1:16",
     "Matthew 1:18",
     "Matthew 1:19",
     "Matthew 1:2",
@@ -3869,7 +4145,17 @@
     "Matthew 1:23",
     "Matthew 1:24",
     "Matthew 1:3",
+    "Matthew 1:3-4",
+    "Matthew 1:4",
     "Matthew 1:5",
+    "Matthew 1:6",
+    "Matthew 1:6-11",
+    "Matthew 1:7",
+    "Matthew 1:7-8",
+    "Matthew 1:8",
+    "Matthew 1:8-9",
+    "Matthew 1:9",
+    "Matthew 1:9-10",
     "Matthew 20:1-16",
     "Matthew 20:10",
     "Matthew 20:12",
@@ -3892,7 +4178,9 @@
     "Matthew 22:29",
     "Matthew 22:35-40",
     "Matthew 22:37-39",
+    "Matthew 22:37-40",
     "Matthew 22:4",
+    "Matthew 22:40",
     "Matthew 22:46",
     "Matthew 23:37",
     "Matthew 24:28",
@@ -4034,10 +4322,13 @@
     "Matthew 6:21",
     "Matthew 6:24",
     "Matthew 6:25",
+    "Matthew 6:25-26",
+    "Matthew 6:25-26, 32-34",
     "Matthew 6:25-34",
     "Matthew 6:26",
     "Matthew 6:28",
     "Matthew 6:29",
+    "Matthew 6:30",
     "Matthew 6:31",
     "Matthew 6:31-32",
     "Matthew 6:31-33",
@@ -4047,6 +4338,7 @@
     "Matthew 6:6",
     "Matthew 6:7-8",
     "Matthew 6:9",
+    "Matthew 6:9-15",
     "Matthew 7:12",
     "Matthew 7:13",
     "Matthew 7:14",
@@ -4183,6 +4475,7 @@
     "Proverbs 11:17",
     "Proverbs 11:22",
     "Proverbs 12:1",
+    "Proverbs 12:22",
     "Proverbs 12:25",
     "Proverbs 13:24",
     "Proverbs 13:25",
@@ -4197,6 +4490,7 @@
     "Proverbs 15:3",
     "Proverbs 16:18",
     "Proverbs 16:3",
+    "Proverbs 16:31",
     "Proverbs 16:32",
     "Proverbs 16:8",
     "Proverbs 16:9",
@@ -4599,6 +4893,7 @@
     "Psalm 86:11",
     "Psalm 86:15",
     "Psalm 86:5",
+    "Psalm 86:6",
     "Psalm 87:3",
     "Psalm 88:13",
     "Psalm 89:1",
@@ -4668,6 +4963,7 @@
     "Revelation 22:11",
     "Revelation 22:12-13",
     "Revelation 22:13",
+    "Revelation 22:17",
     "Revelation 22:2",
     "Revelation 22:20",
     "Revelation 22:5",
@@ -4689,6 +4985,7 @@
     "Romans 10:21",
     "Romans 10:9",
     "Romans 10:9-10",
+    "Romans 10:9-10, 13; John 5:24",
     "Romans 11:16",
     "Romans 11:2",
     "Romans 11:36",
@@ -4706,6 +5003,7 @@
     "Romans 12:21",
     "Romans 12:3",
     "Romans 12:5",
+    "Romans 12:6-8",
     "Romans 12:8",
     "Romans 12:9",
     "Romans 13:1",
@@ -4737,6 +5035,7 @@
     "Romans 2:24",
     "Romans 3:22",
     "Romans 3:23",
+    "Romans 3:23; 6:23",
     "Romans 3:24",
     "Romans 3:25",
     "Romans 3:27",
@@ -4776,9 +5075,11 @@
     "Romans 8:1-4",
     "Romans 8:11",
     "Romans 8:13",
+    "Romans 8:14-15",
     "Romans 8:15",
     "Romans 8:16",
     "Romans 8:16-17",
+    "Romans 8:17",
     "Romans 8:18",
     "Romans 8:18-23",
     "Romans 8:2-3",
@@ -4808,6 +5109,7 @@
     "Romans 9:4",
     "Ruth 1:1-18",
     "Ruth 1:16",
+    "Ruth 1:16-17",
     "Ruth 1:19",
     "Ruth 1:2",
     "Ruth 1:20",
@@ -4827,6 +5129,7 @@
     "Ruth 4:11",
     "Ruth 4:13",
     "Ruth 4:14",
+    "Ruth 4:17",
     "Ruth 4:18",
     "Ruth 4:9",
     "Song of Sol. 3:4",
@@ -4898,9 +5201,11 @@
     "1 Cor. 13:4": "Charity suffereth long, and is kind; charity envieth not; charity vaunteth not itself.",
     "1 Cor. 13:7": "Beareth all things, believeth all things, hopeth all things, endureth all things.",
     "1 Cor. 15:57": "But thanks be to God, which giveth us the victory through our Lord Jesus Christ.",
+    "1 Corinthians 12:4-11": "Now there are diversities of gifts, but the same Spirit. And there are differences of administrations, but the same Lord. And there are diversities of operations, but it is the same God which worketh all in all. But the manifestation of the Spirit is given to every man to profit withal. For to one is given by the Spirit the word of wisdom; to another the word of knowledge by the same Spirit; To another faith by the same Spirit; to another the gifts of healing by the same Spirit; To another the working of miracles; to another prophecy; to another discerning of spirits; to another divers kinds of tongues; to another the interpretation of tongues: But all these worketh that one and the selfsame Spirit, dividing to every man severally as he will.",
     "1 Corinthians 12:4-7": "Now there are diversities of gifts, but the same Spirit. And there are differences of administrations, but the same Lord. And there are diversities of operations, but it is the same God which worketh all in all. But the manifestation of the Spirit is given to every man to profit withal.",
     "1 Corinthians 13:4-7": "Charity suffereth long, and is kind; charity envieth not; charity vaunteth not itself, is not puffed up, Doth not behave itself unseemly, seeketh not her own, is not easily provoked, thinketh no evil; Rejoiceth not in iniquity, but rejoiceth in the truth; Beareth all things, believeth all things, hopeth all things, endureth all things.",
     "1 Peter 3:8-9": "Finally, be ye all of one mind, having compassion one of another, love as brethren, be pitiful, be courteous: Not rendering evil for evil, or railing for railing: but contrariwise blessing; knowing that ye are thereunto called, that ye should inherit a blessing.",
+    "1 Peter 4:10-11": "As every man hath received the gift, even so minister the same one to another, as good stewards of the manifold grace of God. If any man speak, let him speak as the oracles of God; if any man minister, let him do it as of the ability which God giveth: that God in all things may be glorified through Jesus Christ, to whom be praise and dominion for ever and ever. Amen.",
     "1 Peter 5:8-9": "Be sober, be vigilant; because your adversary the devil, as a roaring lion, walketh about, seeking whom he may devour: Whom resist stedfast in the faith, knowing that the same afflictions are accomplished in your brethren that are in the world.",
     "1 Thess. 5:18": "In every thing give thanks: for this is the will of God in Christ Jesus.",
     "1 Thessalonians 4:11-12": "And that ye study to be quiet, and to do your own business, and to work with your own hands, as we commanded you; That ye may walk honestly toward them that are without, and that ye may have lack of nothing.",
@@ -4932,6 +5237,7 @@
     "Ecclesiastes 3:12-13": "I know that there is no good in them, but for a man to rejoice, and to do good in his life. And also that every man should eat and drink, and enjoy the good of all his labour, it is the gift of God.",
     "Ecclesiastes 4:9-10": "Two are better than one; because they have a good reward for their labour. For if they fall, the one will lift up his fellow: but woe to him that is alone when he falleth; for he hath not another to help him up.",
     "Ephesians 2:8-9": "For by grace are ye saved through faith; and that not of yourselves: it is the gift of God: Not of works, lest any man should boast.",
+    "Ephesians 2:8-9; Acts 16:31": "For by grace are ye saved through faith; and that not of yourselves: it is the gift of God: Not of works, lest any man should boast. And they said, Believe on the Lord Jesus Christ, and thou shalt be saved, and thy house.",
     "Ephesians 4:23-24": "And be renewed in the spirit of your mind; And that ye put on the new man, which after God is created in righteousness and true holiness.",
     "Ephesians 4:26-27": "Be ye angry, and sin not: let not the sun go down upon your wrath: Neither give place to the devil.",
     "Ephesians 4:31-32": "Let all bitterness, and wrath, and anger, and clamour, and evil speaking, be put away from you, with all malice: And be ye kind one to another, tenderhearted, forgiving one another, even as God for Christ's sake hath forgiven you.",
@@ -4943,6 +5249,7 @@
     "Ephesians\\u00a06:15": "And your feet shod with the preparation of the gospel of peace.",
     "Ephesians\\u00a06:16": "Above all, taking the shield of faith, wherewith ye shall be able to quench all the fiery darts of the wicked.",
     "Ephesians\\u00a06:17": "And the sword of the Spirit, which is the word of God.",
+    "Exodus 31:1-6": "And the LORD spake unto Moses, saying, See, I have called by name Bezaleel the son of Uri, the son of Hur, of the tribe of Judah: And I have filled him with the spirit of God, in wisdom, and in understanding, and in knowledge, and in all manner of workmanship, To devise cunning works, to work in gold, and in silver, and in brass, And in cutting of stones, to set them, and in carving of timber, to work in all manner of workmanship. And I, behold, I have appointed with him Aholiab, the son of Ahisamach, of the tribe of Dan: and in the hearts of all that are wise hearted I have put wisdom, that they may make all that I have commanded them:",
     "Galatians 3:26-28": "For ye are all the children of God by faith in Christ Jesus. For as many of you as have been baptized into Christ have put on Christ. There is neither Jew nor Greek, there is neither bond nor free, there is neither male nor female: for ye are all one in Christ Jesus.",
     "Galatians 5:22-23": "But the fruit of the Spirit is love, joy, peace, longsuffering, gentleness, goodness, faith, Meekness, temperance: against such there is no law.",
     "Galatians 5:22\\u201323": "But the fruit of the Spirit is love, joy, peace, longsuffering, gentleness, goodness, faith, Meekness, temperance: against such there is no law.",
@@ -4953,10 +5260,12 @@
     "Hebrews 10:24-25": "And let us consider one another to provoke unto love and to good works: Not forsaking the assembling of ourselves together, as the manner of some is; but exhorting one another: and so much the more, as ye see the day approaching.",
     "Hebrews 12:1-2": "Wherefore seeing we also are compassed about with so great a cloud of witnesses, let us lay aside every weight, and the sin which doth so easily beset us, and let us run with patience the race that is set before us, Looking unto Jesus the author and finisher of our faith; who for the joy that was set before him endured the cross, despising the shame, and is set down at the right hand of the throne of God.",
     "Hebrews 13:5-6": "Let your conversation be without covetousness; and be content with such things as ye have: for he hath said, I will never leave thee, nor forsake thee. So that we may boldly say, The Lord is my helper, and I will not fear what man shall do unto me.",
+    "Hebrews 4:9-10": "There remaineth therefore a rest to the people of God. For he that is entered into his rest, he also hath ceased from his own works, as God did from his.",
     "Isaiah 40:29-31": "He giveth power to the faint; and to them that have no might he increaseth strength. Even the youths shall faint and be weary, and the young men shall utterly fall: But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.",
     "Isaiah 40:29\\u201331": "He giveth power to the faint; and to them that have no might he increaseth strength. Even the youths shall faint and be weary, and the young men shall utterly fall: But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.",
     "Isaiah 43:18-19": "Remember ye not the former things, neither consider the things of old. Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
     "Isaiah 49:15-16": "Can a woman forget her sucking child, that she should not have compassion on the son of her womb? yea, they may forget, yet will I not forget thee. Behold, I have graven thee upon the palms of my hands; thy walls are continually before me.",
+    "Isaiah 53:5-6; 1 Peter 2:24": "But he was wounded for our transgressions, he was bruised for our iniquities: the chastisement of our peace was upon him; and with his stripes we are healed. All we like sheep have gone astray; we have turned every one to his own way; and the LORD hath laid on him the iniquity of us all. Who his own self bare our sins in his own body on the tree, that we, being dead to sins, should live unto righteousness: by whose stripes ye were healed.",
     "Isaiah 55:8-9": "For my thoughts are not your thoughts, neither are your ways my ways, saith the LORD. For as the heavens are higher than the earth, so are my ways higher than your ways, and my thoughts than your thoughts.",
     "James 1:19-20": "Wherefore, my beloved brethren, let every man be swift to hear, slow to speak, slow to wrath: For the wrath of man worketh not the righteousness of God.",
     "James 1:2-3": "My brethren, count it all joy when ye fall into divers temptations; Knowing this, that the trying of your faith worketh patience.",
@@ -4969,7 +5278,10 @@
     "Jeremiah 29:12-13": "Then shall ye call upon me, and ye shall go and pray unto me, and I will hearken unto you. And ye shall seek me, and find me, when ye shall search for me with all your heart.",
     "Job 19:25-26": "For I know that my redeemer liveth, and that he shall stand at the latter day upon the earth: And though after my skin worms destroy this body, yet in my flesh shall I see God:",
     "John 10:27-28": "My sheep hear my voice, and I know them, and they follow me: And I give unto them eternal life; and they shall never perish, neither shall any man pluck them out of my hand.",
+    "John 14:1, 27": "Let not your heart be troubled: ye believe in God, believe also in me. Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid.",
+    "John 14:1-6": "Let not your heart be troubled: ye believe in God, believe also in me. In my Father's house are many mansions: if it were not so, I would have told you. I go to prepare a place for you. And if I go and prepare a place for you, I will come again, and receive you unto myself; that where I am, there ye may be also. And whither I go ye know, and the way ye know. Thomas saith unto him, Lord, we know not whither thou goest; and how can we know the way? Jesus saith unto him, I am the way, the truth, and the life: no man cometh unto the Father, but by me.",
     "John 14:16-17": "And I will pray the Father, and he shall give you another Comforter, that he may abide with you for ever; Even the Spirit of truth; whom the world cannot receive, because it seeth him not, neither knoweth him: but ye know him; for he dwelleth with you, and shall be in you.",
+    "John 3:16; Romans 5:8": "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us.",
     "John 4:35-36": "Say not ye, There are yet four months, and then cometh harvest? behold, I say unto you, Lift up your eyes, and look on the fields; for they are white already to harvest. And he that reapeth receiveth wages, and gathereth fruit unto life eternal: that both he that soweth and he that reapeth may rejoice together.",
     "Lamentations 3:22-23": "It is of the LORD\\u2019s mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.",
     "Lamentations 3:22\\u201323": "It is of the LORD\\u2019s mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.",
@@ -4986,6 +5298,7 @@
     "Luke 6:27-28": "But I say unto you which hear, Love your enemies, do good to them which hate you, Bless them that curse you, and pray for them which despitefully use you.",
     "Mark 10:14-16": "But when Jesus saw it, he was much displeased, and said unto them, Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God. Verily I say unto you, Whosoever shall not receive the kingdom of God as a little child, he shall not enter therein. And he took them up in his arms, put his hands upon them, and blessed them.",
     "Mark 4:26-27": "And he said, So is the kingdom of God, as if a man should cast seed into the ground; And should sleep, and rise night and day, and the seed should spring and grow up, he knoweth not how.",
+    "Mark 4:39-40": "And he arose, and rebuked the wind, and said unto the sea, Peace, be still. And the wind ceased, and there was a great calm. And he said unto them, Why are ye so fearful? how is it that ye have no faith?",
     "Matthew 10:29-31": "Are not two sparrows sold for a farthing? and one of them shall not fall on the ground without your Father. But the very hairs of your head are all numbered. Fear ye not therefore, ye are of more value than many sparrows.",
     "Matthew 11:28-29": "Come unto me, all ye that labour and are heavy laden, and I will give you rest. Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls.",
     "Matthew 11:28-30": "Come unto me, all ye that labour and are heavy laden, and I will give you rest. Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls. For my yoke is easy, and my burden is light.",
@@ -5002,6 +5315,8 @@
     "Matthew 5:13-14": "Ye are the salt of the earth: but if the salt have lost his savour, wherewith shall it be salted? it is thenceforth good for nothing, but to be cast out, and to be trodden under foot of men. Ye are the light of the world. A city that is set on an hill cannot be hid.",
     "Matthew 5:23-24": "Therefore if thou bring thy gift to the altar, and there rememberest that thy brother hath ought against thee; Leave there thy gift before the altar, and go thy way; first be reconciled to thy brother, and then come and offer thy gift.",
     "Matthew 6:14-15": "For if ye forgive men their trespasses, your heavenly Father will also forgive you: But if ye forgive not men their trespasses, neither will your Father forgive your trespasses.",
+    "Matthew 6:25-26, 32-34": "Therefore I say unto you, Take no thought for your life, what ye shall eat, or what ye shall drink; nor yet for your body, what ye shall put on. Is not the life more than meat, and the body than raiment? Behold the fowls of the air: for they sow not, neither do they reap, nor gather into barns; yet your heavenly Father feedeth them. Are ye not much better than they? Which of you by taking thought can add one cubit unto his stature? And why take ye thought for raiment? Consider the lilies of the field, how they grow; they toil not, neither do they spin: And yet I say unto you, That even Solomon in all his glory was not arrayed like one of these. Wherefore, if God so clothe the grass of the field, which to day is, and to morrow is cast into the oven, shall he not much more clothe you, O ye of little faith? Therefore take no thought, saying, What shall we eat? or, What shall we drink? or, Wherewithal shall we be clothed? (For after all these things do the Gentiles seek:) for your heavenly Father knoweth that ye have need of all these things. But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you. Take therefore no thought for the morrow: for the morrow shall take thought for the things of itself. Sufficient unto the day is the evil thereof.",
+    "Matthew 6:25-34": "Therefore I say unto you, Take no thought for your life, what ye shall eat, or what ye shall drink; nor yet for your body, what ye shall put on. Is not the life more than meat, and the body than raiment? Behold the fowls of the air: for they sow not, neither do they reap, nor gather into barns; yet your heavenly Father feedeth them. Are ye not much better than they? Which of you by taking thought can add one cubit unto his stature? And why take ye thought for raiment? Consider the lilies of the field, how they grow; they toil not, neither do they spin: And yet I say unto you, That even Solomon in all his glory was not arrayed like one of these. Wherefore, if God so clothe the grass of the field, which to day is, and to morrow is cast into the oven, shall he not much more clothe you, O ye of little faith? Therefore take no thought, saying, What shall we eat? or, What shall we drink? or, Wherewithal shall we be clothed? (For after all these things do the Gentiles seek:) for your heavenly Father knoweth that ye have need of all these things. But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you. Take therefore no thought for the morrow: for the morrow shall take thought for the things of itself. Sufficient unto the day is the evil thereof.",
     "Matthew 6:31-32": "Therefore take no thought, saying, What shall we eat? or, What shall we drink? or, Wherewithal shall we be clothed? (For after all these things do the Gentiles seek:) for your heavenly Father knoweth that ye have need of all these things.",
     "Matthew 6:31-33": "Therefore take no thought, saying, What shall we eat? or, What shall we drink? or, Wherewithal shall we be clothed? (For after all these things do the Gentiles seek:) for your heavenly Father knoweth that ye have need of all these things. But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.",
     "Matthew 6:7-8": "But when ye pray, use not vain repetitions, as the heathen do: for they think that they shall be heard for their much speaking. Be not ye therefore like unto them: for your Father knoweth what things ye have need of, before ye ask him.",
@@ -5341,6 +5656,7 @@
     "Psalm 86:11": "Teach me thy way, O LORD; I will walk in thy truth: unite my heart to fear thy name.",
     "Psalm 86:15": "But thou, O Lord, art a God full of compassion, and gracious, longsuffering, and plenteous in mercy and truth.",
     "Psalm 86:5": "For thou, Lord, art good, and ready to forgive.",
+    "Psalm 86:6": "Give ear, O LORD, unto my prayer; and attend to the voice of my supplications.",
     "Psalm 87:3": "Glorious things are spoken of thee, O city of God.",
     "Psalm 88:13": "But unto thee have I cried, O Lord; and in the morning shall my prayer prevent thee.",
     "Psalm 89:1": "I will sing of the mercies of the Lord for ever.",
@@ -5373,7 +5689,7 @@
     "Psalm 96:1": "O sing unto the Lord a new song: sing unto the Lord, all the earth.",
     "Psalm 96:2": "Sing unto the Lord, bless his name; shew forth his salvation from day to day.",
     "Psalm 97:11": "Light is sown for the righteous, and gladness for the upright in heart.",
-    "Psalm 98:1": "O sing unto the Lord a new song; for he hath done marvellous things.",
+    "Psalm 98:1": "O sing unto the LORD a new song; for he hath done marvellous things: his right hand, and his holy arm, hath gotten him the victory.",
     "Psalm 99:2": "The Lord is great in Zion; and he is high above all the people.",
     "Psalm 9:1": "I will praise thee, O LORD, with my whole heart; I will shew forth all thy marvellous works.",
     "Psalm 9:9": "The LORD also will be a refuge for the oppressed, a refuge in times of trouble.",
@@ -5381,6 +5697,9 @@
     "Psalm\\u00a01:2": "But his delight is in the law of the LORD; and in his law doth he meditate day and night.",
     "Romans 10:14-15": "How then shall they call on him in whom they have not believed? and how shall they believe in him of whom they have not heard? and how shall they hear without a preacher? And how shall they preach, except they be sent? as it is written, How beautiful are the feet of them that preach the gospel of peace, and bring glad tidings of good things!",
     "Romans 10:9-10": "That if thou shalt confess with thy mouth the Lord Jesus, and shalt believe in thine heart that God hath raised him from the dead, thou shalt be saved. For with the heart man believeth unto righteousness; and with the mouth confession is made unto salvation.",
+    "Romans 10:9-10, 13; John 5:24": "That if thou shalt confess with thy mouth the Lord Jesus, and shalt believe in thine heart that God hath raised him from the dead, thou shalt be saved. For with the heart man believeth unto righteousness; and with the mouth confession is made unto salvation. For whosoever shall call upon the name of the Lord shall be saved. Verily, verily, I say unto you, He that heareth my word, and believeth on him that sent me, hath everlasting life, and shall not come into condemnation; but is passed from death unto life.",
+    "Romans 12:6-8": "Having then gifts differing according to the grace that is given unto us, whether prophecy, let us prophesy according to the proportion of faith; Or ministry, let us wait on our ministering: or he that teacheth, on teaching; Or he that exhorteth, on exhortation: he that giveth, let him do it with simplicity; he that ruleth, with diligence; he that sheweth mercy, with cheerfulness.",
+    "Romans 3:23; 6:23": "For all have sinned, and come short of the glory of God; For the wages of sin is death; but the gift of God is eternal life through Jesus Christ our Lord.",
     "Romans 4:20-21": "He staggered not at the promise of God through unbelief; but was strong in faith, giving glory to God; And being fully persuaded that, what he had promised, he was able also to perform.",
     "Romans 5:3-4": "And not only so, but we glory in tribulations also: knowing that tribulation worketh patience; And patience, experience; and experience, hope:",
     "Romans 8:16-17": "The Spirit itself beareth witness with our spirit, that we are the children of God: And if children, then heirs; heirs of God, and joint-heirs with Christ; if so be that we suffer with him, that we may be also glorified together.",
@@ -5619,6 +5938,14 @@
     "1 Corinthians 12:27": {
       "general": {
         "plainExplanation": "Now you are the body of Christ, and members in particular.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Corinth"
+      }
+    },
+    "1 Corinthians 12:4-11": {
+      "general": {
+        "plainExplanation": "Key idea: Now there are diversities of gifts, but the same Spirit. And there are differences of administrations, but the same Lord. And there are diversities of opera...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Paul",
         "to": "Corinth"
@@ -6608,6 +6935,14 @@
         "to": "Believers"
       }
     },
+    "1 Peter 2:24": {
+      "general": {
+        "plainExplanation": "Who his own self bare our sins in his own body on the tree, that we, being dead to sins, should live to righteousness: by whose stripes you were healed.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Peter",
+        "to": "Believers"
+      }
+    },
     "1 Peter 2:5": {
       "general": {
         "plainExplanation": "you also, as lively stones, are built up a spiritual house, an holy priesthood, to offer up spiritual sacrifices, acceptable to God by Jesus Christ.",
@@ -6684,6 +7019,14 @@
       "general": {
         "plainExplanation": "Key idea: Finally, be you all of one mind, having compassion one of another, love as brothers, be pitiful, be courteous: Not rendering evil for evil, or railing for r...",
         "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
+        "about": "Peter",
+        "to": "Believers"
+      }
+    },
+    "1 Peter 4:10-11": {
+      "general": {
+        "plainExplanation": "Key idea: As every man has received the gift, even so minister the same one to another, as good stewards of the manifold grace of God. If any man speak, let him speak...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Peter",
         "to": "Believers"
       }
@@ -9432,6 +9775,14 @@
         "to": "Church"
       }
     },
+    "Acts 16:14-15": {
+      "general": {
+        "plainExplanation": "Key idea: And a certain woman named Lydia, a seller of purple, of the city of Thyatira, which worshipped God, heard us: whose heart the Lord opened, that she attended...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Luke",
+        "to": "Church"
+      }
+    },
     "Acts 16:15": {
       "general": {
         "plainExplanation": "Key idea: And when she was baptized, and her household, she besought us, saying, If you have judged me to be faithful to the Lord, come into my house, and abide there...",
@@ -9491,6 +9842,14 @@
     "Acts 16:33-34": {
       "general": {
         "plainExplanation": "Key idea: And he took them the same hour of the night, and washed their stripes; and was baptized, he and all his, straightway. And when he had brought them into his...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Luke",
+        "to": "Church"
+      }
+    },
+    "Acts 16:34": {
+      "general": {
+        "plainExplanation": "And when he had brought them into his house, he set meat before them, and rejoiced, believing in God with all his house.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Luke",
         "to": "Church"
@@ -11336,6 +11695,22 @@
         "to": "Israel"
       }
     },
+    "Deuteronomy 8:2-3": {
+      "general": {
+        "plainExplanation": "Key idea: And you shalt remember all the way which the LORD your God led you these forty years in the wilderness, to humble you, and to prove you, to know what was in...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Deuteronomy 8:3": {
+      "general": {
+        "plainExplanation": "Key idea: And he humbled you, and suffered you to hunger, and fed you with manna, which you knewest not, neither did your fathers know; that he might make you know th...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
     "Deuteronomy 8:5": {
       "general": {
         "plainExplanation": "you shalt also consider in thine heart, that, as a man chasteneth his son, so the LORD your God chasteneth you.",
@@ -11608,6 +11983,14 @@
         "to": "Ephesus"
       }
     },
+    "Ephesians 2:8-9; Acts 16:31": {
+      "general": {
+        "plainExplanation": "Key idea: For by grace are you saved through faith; and that not of yourselves: it is the gift of God: Not of works, lest any man should boast. And they said, Believe...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Ephesus"
+      }
+    },
     "Ephesians 2:9": {
       "general": {
         "plainExplanation": "Not of works, lest any man should boast.",
@@ -11683,6 +12066,14 @@
     "Ephesians 4:23-24": {
       "general": {
         "plainExplanation": "And be renewed in the spirit of your mind; And that you put on the new man, which after God is created in righteousness and true holiness.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Ephesus"
+      }
+    },
+    "Ephesians 4:25": {
+      "general": {
+        "plainExplanation": "Wherefore putting away lying, speak every man truth with his neighbour: for we are members one of another.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Paul",
         "to": "Ephesus"
@@ -12360,6 +12751,14 @@
         "to": "Israel"
       }
     },
+    "Exodus 20:8-11": {
+      "general": {
+        "plainExplanation": "Key idea: Remember the sabbath day, to keep it holy. Six days shalt you labor, and do all your work: But the seventh day is the sabbath of the LORD your God: in it yo...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
     "Exodus 22:26": {
       "general": {
         "plainExplanation": "If you at all take your neighbour’s raiment to pledge, you shalt deliver it to him by that the sun goeth down:",
@@ -12459,6 +12858,14 @@
     "Exodus 2:6": {
       "general": {
         "plainExplanation": "And when she had opened it, she saw the child: and, look, the babe wept. And she had compassion on him, and said, This is one of the Hebrews’ children.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Exodus 31:1-6": {
+      "general": {
+        "plainExplanation": "Key idea: And the LORD spake to Moses, saying, See, I have called by name Bezaleel the son of Uri, the son of Hur, of the tribe of Judah: And I have filled him with t...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Moses",
         "to": "Israel"
@@ -13032,9 +13439,25 @@
         "to": "Galatia"
       }
     },
+    "Galatians 3:28-29": {
+      "general": {
+        "plainExplanation": "Key idea: There is neither Jew nor Greek, there is neither bond nor free, there is neither male nor female: for you are all one in Christ Jesus. And if you be Christ’...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Galatia"
+      }
+    },
     "Galatians 4:24": {
       "general": {
         "plainExplanation": "Which things are an allegory: for these are the two covenants; the one from the mount Sinai, which gendereth to bondage, which is Agar.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Galatia"
+      }
+    },
+    "Galatians 4:4-5": {
+      "general": {
+        "plainExplanation": "Key idea: But when the fulness of the time was come, God sent forth his Son, made of a woman, made under the law, To redeem them that were under the law, that we migh...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Paul",
         "to": "Galatia"
@@ -13264,6 +13687,70 @@
         "to": "Galatia"
       }
     },
+    "Genesis 11:10": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Genesis 11:12": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Genesis 11:14": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Genesis 11:16": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Genesis 11:18": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Genesis 11:20": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Genesis 11:22": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Genesis 11:24": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
     "Genesis 11:4": {
       "general": {
         "plainExplanation": "And they said, Go to, let us build us a city and a tower, whose top may reach to heaven; and let us make us a name, lest we be scattered abroad upon the face of the whole earth.",
@@ -13283,6 +13770,14 @@
     "Genesis 12:1": {
       "general": {
         "plainExplanation": "Now the LORD had said to Abram, Get you out of your country, and from your kindred, and from your father’s house, to a land that I will shew you:",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Genesis 12:1-2": {
+      "general": {
+        "plainExplanation": "Key idea: Now the LORD had said to Abram, Get you out of your country, and from your kindred, and from your father’s house, to a land that I will shew you: And I will...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Moses",
         "to": "Israel"
@@ -13392,9 +13887,25 @@
         "to": "Israel"
       }
     },
+    "Genesis 17:19": {
+      "general": {
+        "plainExplanation": "Key idea: And God said, Sarah your wife shall bear you a son indeed; and you shalt call his name Isaac: and I will establish my covenant with him for an eternal coven...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
     "Genesis 17:22": {
       "general": {
         "plainExplanation": "And he left off talking with him, and God went up from Abraham.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Genesis 17:5": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Moses",
         "to": "Israel"
@@ -13547,6 +14058,14 @@
     "Genesis 1:8": {
       "general": {
         "plainExplanation": "And God called the firmament Heaven. And the evening and the morning were the second day.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Genesis 21:12": {
+      "general": {
+        "plainExplanation": "Key idea: And God said to Abraham, Let it not be grievous in your sight because of the lad, and because of your bondwoman; in all that Sarah has said to you, hearken...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Moses",
         "to": "Israel"
@@ -13803,6 +14322,14 @@
     "Genesis 2:18": {
       "general": {
         "plainExplanation": "And the LORD God said, It is not good that the man should be alone; I will make him an help meet for him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Genesis 2:21-22": {
+      "general": {
+        "plainExplanation": "Key idea: And the LORD God caused a deep sleep to fall upon Adam, and he slept: and he took one of his ribs, and closed up the flesh instead thereof; And the rib, whi...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Moses",
         "to": "Israel"
@@ -14168,9 +14695,41 @@
         "to": "Israel"
       }
     },
+    "Genesis 50:19-21": {
+      "general": {
+        "plainExplanation": "Key idea: And Joseph said to them, Fear not: for am I in the place of God? But as for you, you thought evil against me; but God meant it to good, to bring to pass, as...",
+        "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
     "Genesis 50:20": {
       "general": {
         "plainExplanation": "But as for you, you thought evil against me; but God meant it to good, to bring to pass, as it is this day, to save much people alive.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Genesis 5:12": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Genesis 5:15": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Genesis 5:22-24": {
+      "general": {
+        "plainExplanation": "Key idea: And Enoch walked with God after he begat Methuselah three hundred years, and begat sons and daughters: And all the days of Enoch were three hundred sixty an...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Moses",
         "to": "Israel"
@@ -14184,7 +14743,47 @@
         "to": "Israel"
       }
     },
+    "Genesis 5:25": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Genesis 5:28": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
     "Genesis 5:3": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Genesis 5:32": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Genesis 5:6": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Genesis 5:9": {
       "general": {
         "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
@@ -14832,6 +15431,14 @@
         "to": "Hebrew believers"
       }
     },
+    "Hebrews 4:9-10": {
+      "general": {
+        "plainExplanation": "There remaineth therefore a rest to the people of God. For he that is entered into his rest, he also has ceased from his own works, as God did from his.",
+        "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
+        "about": "Unknown",
+        "to": "Hebrew believers"
+      }
+    },
     "Hebrews 5:12": {
       "general": {
         "plainExplanation": "Key idea: For when for the time you ought to be teachers, you have need that one teach you again which be the first principles of the oracles of God; and are become s...",
@@ -15019,6 +15626,14 @@
     "Hosea 4:7": {
       "general": {
         "plainExplanation": "As they were increased, so they sinned against me: therefore will I change their glory into shame.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Hosea",
+        "to": "Israel"
+      }
+    },
+    "Hosea 6:3": {
+      "general": {
+        "plainExplanation": "Then shall we know, if we follow on to know the LORD: his going forth is prepared as the morning; and he shall come to us as the rain, as the latter and former rain to the earth.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Hosea",
         "to": "Israel"
@@ -15520,6 +16135,22 @@
         "to": "Judah"
       }
     },
+    "Isaiah 53:5-6": {
+      "general": {
+        "plainExplanation": "Key idea: But he was wounded for our transgressions, he was bruised for our iniquities: the chastisement of our peace was upon him; and with his stripes we are healed...",
+        "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
+        "about": "Isaiah",
+        "to": "Judah"
+      }
+    },
+    "Isaiah 53:5-6; 1 Peter 2:24": {
+      "general": {
+        "plainExplanation": "Key idea: But he was wounded for our transgressions, he was bruised for our iniquities: the chastisement of our peace was upon him; and with his stripes we are healed...",
+        "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
+        "about": "Isaiah",
+        "to": "Judah"
+      }
+    },
     "Isaiah 53:6": {
       "general": {
         "plainExplanation": "All we like sheep have gone astray; we have turned every one to his own way; and the LORD has laid on him the iniquity of us all.",
@@ -15579,6 +16210,14 @@
     "Isaiah 55:10": {
       "general": {
         "plainExplanation": "Key idea: For as the rain cometh down, and the snow from heaven, and returneth not thither, but watereth the earth, and makes it bring forth and bud, that it may give...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Isaiah",
+        "to": "Judah"
+      }
+    },
+    "Isaiah 55:11": {
+      "general": {
+        "plainExplanation": "Key idea: So shall my word be that goeth forth out of my mouth: it shall not return to me void, but it shall accomplish that which I please, and it shall prosper in t...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Isaiah",
         "to": "Judah"
@@ -17064,6 +17703,22 @@
         "to": "Believers"
       }
     },
+    "John 14:1, 27": {
+      "general": {
+        "plainExplanation": "Key idea: Let not your heart be troubled: you believe in God, believe also in me. Peace I leave with you, my peace I give to you: not as the world gives, give I to yo...",
+        "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "John 14:1-6": {
+      "general": {
+        "plainExplanation": "Key idea: Let not your heart be troubled: you believe in God, believe also in me. In my Father's house are many mansions: if it were not so, I would have told you. I...",
+        "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "John 14:15": {
       "general": {
         "plainExplanation": "If you love me, keep my commandments.",
@@ -17824,6 +18479,14 @@
         "to": "Believers"
       }
     },
+    "John 3:16; Romans 5:8": {
+      "general": {
+        "plainExplanation": "Key idea: For God so loved the world, that he gave his only only Son, that whoever believes in him should not be lost, but have eternal life. But God commendeth his l...",
+        "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "John 3:17": {
       "general": {
         "plainExplanation": "For God sent not his Son into the world to condemn the world; but that the world through him might be saved.",
@@ -18035,6 +18698,14 @@
     "John 6:35": {
       "general": {
         "plainExplanation": "And Jesus said to them, I am the bread of life: he that cometh to me shall never hunger; and he that believes on me shall never thirst.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "John 6:37": {
+      "general": {
+        "plainExplanation": "All that the Father gives me shall come to me; and him that cometh to me I will in no wise cast out.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -19088,6 +19759,14 @@
         "to": "Believers"
       }
     },
+    "Luke 10:33-37": {
+      "general": {
+        "plainExplanation": "Key idea: But a certain Samaritan, as he journeyed, came where he was: and when he saw him, he had compassion on him, And went to him, and bound up his wounds, pourin...",
+        "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Luke 10:34": {
       "general": {
         "plainExplanation": "And went to him, and bound up his wounds, pouring in oil and wine, and set him on his own beast, and brought him to an inn, and took care of him.",
@@ -19856,6 +20535,14 @@
         "to": "Believers"
       }
     },
+    "Luke 1:35": {
+      "general": {
+        "plainExplanation": "Key idea: And the angel answered and said to her, The Holy Ghost shall come upon you, and the power of the Highest shall overshadow you: therefore also that holy thin...",
+        "modernApplication": "This verse reminds you that God gives strength that does not start with your own reserves.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Luke 1:37": {
       "general": {
         "plainExplanation": "With God nothing shall be impossible.",
@@ -19875,6 +20562,14 @@
     "Luke 1:41": {
       "general": {
         "plainExplanation": "And it came to pass, that, when Elisabeth heard the salutation of Mary, the babe leaped in her womb; and Elisabeth was filled with the Holy Ghost:",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Luke 1:42": {
+      "general": {
+        "plainExplanation": "And she spake out with a loud voice, and said, Blessed art you among women, and blessed is the fruit of your womb.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -20304,6 +20999,14 @@
         "to": "Believers"
       }
     },
+    "Luke 2:11": {
+      "general": {
+        "plainExplanation": "For to you is born this day in the city of David a Saviour, which is Christ the Lord.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Luke 2:15": {
       "general": {
         "plainExplanation": "Key idea: And it came to pass, as the angels were gone away from them into heaven, the shepherds said one to another, Let us now go even to Bethlehem, and see this th...",
@@ -20395,6 +21098,14 @@
     "Luke 2:36-38": {
       "general": {
         "plainExplanation": "Key idea: And there was one Anna, a prophetess, the daughter of Phanuel, of the tribe of Aser: she was of a great age, and had lived with an husband seven years from...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Luke 2:37-38": {
+      "general": {
+        "plainExplanation": "Key idea: And she was a widow of about fourscore and four years, which departed not from the temple, but served God with fastings and prayers night and day. And she c...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -20835,6 +21546,14 @@
     "Mark 10:13": {
       "general": {
         "plainExplanation": "And they brought young children to him, that he should touch them: and his disciples rebuked those that brought them.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Mark 10:13-14": {
+      "general": {
+        "plainExplanation": "Key idea: And they brought young children to him, that he should touch them: and his disciples rebuked those that brought them. But when Jesus saw it, he was much dis...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -21312,6 +22031,14 @@
         "to": "Believers"
       }
     },
+    "Mark 2:27": {
+      "general": {
+        "plainExplanation": "And he said to them, The sabbath was made for man, and not man for the sabbath:",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Mark 3:1-6": {
       "general": {
         "plainExplanation": "Key idea: And he entered again into the synagogue; and there was a man there which had a withered hand. And they watched him, whether he would heal him on the sabbath...",
@@ -21400,6 +22127,14 @@
         "to": "Believers"
       }
     },
+    "Mark 4:31": {
+      "general": {
+        "plainExplanation": "It is like a grain of mustard seed, which, when it is sown in the earth, is less than all the seeds that be in the earth:",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Mark 4:35": {
       "general": {
         "plainExplanation": "And the same day, when the even was come, he says to them, Let us pass over to the other side.",
@@ -21443,6 +22178,14 @@
     "Mark 4:39": {
       "general": {
         "plainExplanation": "And he arose, and rebuked the wind, and said to the sea, Peace, be still. And the wind ceased, and there was a great calm.",
+        "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Mark 4:39-40": {
+      "general": {
+        "plainExplanation": "Key idea: And he arose, and rebuked the wind, and said to the sea, Peace, be still. And the wind ceased, and there was a great calm. And he said to them, Why are you...",
         "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
         "about": "Jesus",
         "to": "Believers"
@@ -22560,6 +23303,94 @@
         "to": "Believers"
       }
     },
+    "Matthew 1:10": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 1:11": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 1:12": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 1:12-15": {
+      "general": {
+        "plainExplanation": "Key idea: And after they were brought to Babylon, Jechonias begat Salathiel; and Salathiel begat Zorobabel; And Zorobabel begat Abiud; and Abiud begat Eliakim; and El...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 1:13": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 1:13-14": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 1:14": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 1:14-15": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 1:15": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 1:15-16": {
+      "general": {
+        "plainExplanation": "And Eliud begat Eleazar; and Eleazar begat Matthan; and Matthan begat Jacob; And Jacob begat Joseph the husband of Mary, of whom was born Jesus, who is called Christ.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 1:16": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Matthew 1:18": {
       "general": {
         "plainExplanation": "Now the birth of Jesus Christ was on this wise: When as his mother Mary was espoused to Joseph, before they came together, she was found with child of the Holy Ghost.",
@@ -22640,7 +23471,87 @@
         "to": "Believers"
       }
     },
+    "Matthew 1:3-4": {
+      "general": {
+        "plainExplanation": "And Judas begat Phares and Zara of Thamar; and Phares begat Esrom; and Esrom begat Aram; And Aram begat Aminadab; and Aminadab begat Naasson; and Naasson begat Salmon;",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 1:4": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Matthew 1:5": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 1:6": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 1:6-11": {
+      "general": {
+        "plainExplanation": "Key idea: And Jesse begat David the king; and David the king begat Solomon of her that had been the wife of Urias; And Solomon begat Roboam; and Roboam begat Abia; an...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 1:7": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 1:7-8": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 1:8": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 1:8-9": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 1:9": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 1:9-10": {
       "general": {
         "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
@@ -22824,9 +23735,25 @@
         "to": "Believers"
       }
     },
+    "Matthew 22:37-40": {
+      "general": {
+        "plainExplanation": "Key idea: Jesus said to him, you shalt love the Lord your God with all your heart, and with all your soul, and with all your mind. This is the first and great command...",
+        "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Matthew 22:4": {
       "general": {
         "plainExplanation": "Key idea: Again, he sent forth other servants, saying, Tell them which are bidden, look, I have prepared my dinner: my oxen and my fatlings are killed, and all things...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 22:40": {
+      "general": {
+        "plainExplanation": "On these two commandments hang all the law and the prophets.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -23960,6 +24887,22 @@
         "to": "Believers"
       }
     },
+    "Matthew 6:25-26": {
+      "general": {
+        "plainExplanation": "Key idea: Therefore I say to you, Take no thought for your life, what you shall eat, or what you shall drink; nor yet for your body, what you shall put on. Is not the...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 6:25-26, 32-34": {
+      "general": {
+        "plainExplanation": "Key idea: Therefore I say to you, Take no thought for your life, what you shall eat, or what you shall drink; nor yet for your body, what you shall put on. Is not the...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Matthew 6:25-34": {
       "general": {
         "plainExplanation": "Key idea: Therefore I say to you, Take no thought for your life, what you shall eat, or what you shall drink; nor yet for your body, what you shall put on. Is not the...",
@@ -23987,6 +24930,14 @@
     "Matthew 6:29": {
       "general": {
         "plainExplanation": "And yet I say to you, That even Solomon in all his glory was not arrayed like one of these.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 6:30": {
+      "general": {
+        "plainExplanation": "Wherefore, if God so clothe the grass of the field, which to day is, and to morrow is cast into the oven, shall he not much more clothe you, O you of little faith?",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -24060,6 +25011,14 @@
       "general": {
         "plainExplanation": "After this manner therefore pray you: Our Father which art in heaven,",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 6:9-15": {
+      "general": {
+        "plainExplanation": "Key idea: After this manner therefore pray you: Our Father which art in heaven, Hallowed be your name. your kingdom come. your will be done in earth, as it is in heav...",
+        "modernApplication": "This verse reminds you that God gives strength that does not start with your own reserves.",
         "about": "Jesus",
         "to": "Believers"
       }
@@ -25152,6 +26111,14 @@
         "to": "Everyone seeking guidance"
       }
     },
+    "Proverbs 12:22": {
+      "general": {
+        "plainExplanation": "Lying lips are abomination to the LORD: but they that deal truly are his delight.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Solomon giving wisdom",
+        "to": "Everyone seeking guidance"
+      }
+    },
     "Proverbs 12:25": {
       "general": {
         "plainExplanation": "Heaviness in the heart of man makes it stoop: but a good word makes it glad.",
@@ -25259,6 +26226,14 @@
     "Proverbs 16:3": {
       "general": {
         "plainExplanation": "And let us not be weary in well doing: for in due season we shall reap, if we faint not.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Solomon giving wisdom",
+        "to": "Everyone seeking guidance"
+      }
+    },
+    "Proverbs 16:31": {
+      "general": {
+        "plainExplanation": "The hoary head is a crown of glory, if it be found in the way of righteousness.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Solomon giving wisdom",
         "to": "Everyone seeking guidance"
@@ -28480,6 +29455,14 @@
         "to": "Everyone hurting or thankful"
       }
     },
+    "Psalm 86:6": {
+      "general": {
+        "plainExplanation": "Give ear, O LORD, to my prayer; and attend to the voice of my supplications.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
     "Psalm 87:3": {
       "general": {
         "plainExplanation": "Glorious things are spoken of you, O city of God.",
@@ -28738,7 +29721,7 @@
     },
     "Psalm 98:1": {
       "general": {
-        "plainExplanation": "O sing to the Lord a new song; for he has done marvellous things.",
+        "plainExplanation": "O sing to the LORD a new song; for he has done marvellous things: his right hand, and his holy arm, has gotten him the victory.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"
@@ -29032,6 +30015,14 @@
         "to": "Seven churches"
       }
     },
+    "Revelation 22:17": {
+      "general": {
+        "plainExplanation": "And the Spirit and the bride say, Come. And let him that heareth say, Come. And let him that is athirst come. And whoever will, let him take the water of life freely.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "John",
+        "to": "Seven churches"
+      }
+    },
     "Revelation 22:2": {
       "general": {
         "plainExplanation": "Key idea: In the midst of the street of it, and on either side of the river, was there the tree of life, which bare twelve manner of fruits, and yielded her fruit eve...",
@@ -29090,7 +30081,7 @@
     },
     "Revelation 3:20": {
       "general": {
-        "plainExplanation": "look, I stand at the door, and knock: if any man hear my voice, I will come in to him.",
+        "plainExplanation": "look, I stand at the door, and knock: if any man hear my voice, and open the door, I will come in to him, and will sup with him, and he with me.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "John",
         "to": "Seven churches"
@@ -29193,6 +30184,14 @@
       }
     },
     "Romans 10:9-10": {
+      "general": {
+        "plainExplanation": "Key idea: That if you shalt confess with your mouth the Lord Jesus, and shalt believe in thine heart that God has raised him from the dead, you shalt be saved. For wi...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Rome"
+      }
+    },
+    "Romans 10:9-10, 13; John 5:24": {
       "general": {
         "plainExplanation": "Key idea: That if you shalt confess with your mouth the Lord Jesus, and shalt believe in thine heart that God has raised him from the dead, you shalt be saved. For wi...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
@@ -29332,6 +30331,14 @@
       "general": {
         "plainExplanation": "So we, being many, are one body in Christ, and every one members one of another.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Rome"
+      }
+    },
+    "Romans 12:6-8": {
+      "general": {
+        "plainExplanation": "Key idea: Having then gifts differing according to the grace that is given to us, whether prophecy, let us prophesy according to the proportion of faith; Or ministry,...",
+        "modernApplication": "This verse keeps your eyes up when the day feels slow, heavy, or unfinished.",
         "about": "Paul",
         "to": "Rome"
       }
@@ -29579,6 +30586,14 @@
     "Romans 3:23": {
       "general": {
         "plainExplanation": "For all have sinned, and come short of the glory of God;",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Rome"
+      }
+    },
+    "Romans 3:23; 6:23": {
+      "general": {
+        "plainExplanation": "For all have sinned, and come short of the glory of God; For the wages of sin is death; but the gift of God is eternal life through Jesus Christ our Lord.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Paul",
         "to": "Rome"
@@ -29896,6 +30911,14 @@
         "to": "Rome"
       }
     },
+    "Romans 8:14-15": {
+      "general": {
+        "plainExplanation": "Key idea: For as many as are led by the Spirit of God, they are the sons of God. For you have not received the spirit of bondage again to fear; but you have received...",
+        "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
+        "about": "Paul",
+        "to": "Rome"
+      }
+    },
     "Romans 8:15": {
       "general": {
         "plainExplanation": "For you have not received the spirit of bondage again to fear; but you have received the Spirit of adoption, whereby we cry, Abba, Father.",
@@ -29915,6 +30938,14 @@
     "Romans 8:16-17": {
       "general": {
         "plainExplanation": "Key idea: The Spirit itself beareth witness with our spirit, that we are the children of God: And if children, then heirs; heirs of God, and joint-heirs with Christ;...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Rome"
+      }
+    },
+    "Romans 8:17": {
+      "general": {
+        "plainExplanation": "And if children, then heirs; heirs of God, and joint-heirs with Christ; if so be that we suffer with him, that we may be also glorified together.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Paul",
         "to": "Rome"
@@ -30152,6 +31183,14 @@
         "to": "Israel"
       }
     },
+    "Ruth 1:16-17": {
+      "general": {
+        "plainExplanation": "Key idea: And Ruth said, Intreat me not to leave you, or to return from following after you: for whither you goest, I will go; and where you lodgest, I will lodge: yo...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
     "Ruth 1:19": {
       "general": {
         "plainExplanation": "So they two went until they came to Bethlehem. And it came to pass, when they were come to Bethlehem, that all the city was moved about them, and they said, Is this Naomi?",
@@ -30299,6 +31338,14 @@
     "Ruth 4:14": {
       "general": {
         "plainExplanation": "And the women said to Naomi, Blessed be the LORD, which has not left you this day without a kinsman, that his name may be famous in Israel.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
+    "Ruth 4:17": {
+      "general": {
+        "plainExplanation": "And the women her neighbours gave it a name, saying, There is a son born to Naomi; and they called his name Obed: he is the father of Jesse, the father of David.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Unknown",
         "to": "Israel"

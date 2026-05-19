@@ -1,11 +1,16 @@
 {
   "v": 1,
-  "generatedAt": "2026-05-13T14:52:55.269Z",
+  "generatedAt": "2026-05-19T17:32:35.104Z",
   "entries": [
     {
       "t": "Home — Today's Daily Battle",
       "u": "/",
       "k": "verse feel search daily"
+    },
+    {
+      "t": "Home porch signs — Start here",
+      "u": "/#tdb-home-doorways",
+      "k": "start here first visit heavy grief parenting winter quiet family pastor porch lane anxiety"
     },
     {
       "t": "Today's Verse",
@@ -88,6 +93,11 @@
       "k": "burnout ministry pastor leader caregiver serve tired"
     },
     {
+      "t": "When the Days Feel Long and Heavy (7 days)",
+      "u": "/plans.html?plan=longheavydays",
+      "k": "exhaustion fatigue weary heavy long week parenting tired rest"
+    },
+    {
       "t": "When Pain Won't Quit",
       "u": "/plans.html?plan=painwontquit",
       "k": "pain illness body"
@@ -106,6 +116,11 @@
       "t": "Explore full site map",
       "u": "/explore.html",
       "k": "topics tools languages"
+    },
+    {
+      "t": "One Family in Christ — Bible heritage tree",
+      "u": "/one-family-in-christ.html",
+      "k": "adam jesus lineage genealogy family tree heritage cloud witnesses women"
     },
     {
       "t": "Site search (this page)",
@@ -165,7 +180,12 @@
     {
       "t": "Möbius loops",
       "u": "/mobius.html",
-      "k": "audio journal"
+      "k": "audio journal loop fear faith"
+    },
+    {
+      "t": "Red letters — words of Jesus (Gospels)",
+      "u": "/red-letters.html",
+      "k": "red letter jesus said matthew mark luke john gospel speech"
     },
     {
       "t": "Message board",
@@ -488,6 +508,11 @@
       "k": "steady days family kids read aloud table plain week kjv five parents children"
     },
     {
+      "t": "Gifts from the Father of Lights (print)",
+      "u": "/gifts-from-above-one-page-print.html",
+      "k": "gifts father of lights james bezalel spiritual gifts kjv print one page five days no test porch"
+    },
+    {
       "t": "Church center",
       "u": "/church.html",
       "k": "congregation"
@@ -566,6 +591,201 @@
       "t": "Kids prayer activities",
       "u": "/kids/prayer-activities.html",
       "k": "print slips"
+    },
+    {
+      "t": "Porch read-aloud: little hearts, big fear",
+      "u": "/kids/porch-read-little-hearts.html",
+      "k": "read aloud kids kjv fear worry family plan little hearts coloring verse image"
+    },
+    {
+      "t": "Porch read-aloud: plain Tuesday weariness",
+      "u": "/kids/porch-read-ordinary-tuesday.html",
+      "k": "read aloud kids tired ordinary tuesday family matthew 11 coloring"
+    },
+    {
+      "t": "Porch read-aloud: after grief soft steps",
+      "u": "/kids/porch-read-after-grief.html",
+      "k": "read aloud kids grief loss psalm comfort family coloring"
+    },
+    {
+      "t": "Porch read-aloud: steady days at the table",
+      "u": "/kids/porch-read-steady-days.html",
+      "k": "read aloud steady days family psalm 131 kids kjv coloring"
+    },
+    {
+      "t": "Porch read-aloud: family worship at home",
+      "u": "/kids/porch-read-family-worship.html",
+      "k": "read aloud family worship deuteronomy table kids coloring"
+    },
+    {
+      "t": "Porch read-aloud: when grown-ups feel weary",
+      "u": "/kids/porch-read-parent-weary.html",
+      "k": "read aloud parent tired isaiah shepherd kids family coloring"
+    },
+    {
+      "t": "Porch read-aloud: summer seeds of faith",
+      "u": "/kids/porch-read-summer-seeds.html",
+      "k": "read aloud summer kids mustard seed mark family coloring"
+    },
+    {
+      "t": "Porch read-aloud: back-to-school courage",
+      "u": "/kids/porch-read-school-courage.html",
+      "k": "read aloud school courage joshua kids anxiety family coloring"
+    },
+    {
+      "t": "Porch read-aloud: consider the lilies",
+      "u": "/kids/porch-read-lilies.html",
+      "k": "read aloud lilies matthew 6 worry tomorrow kids family come unto me coloring birds"
+    },
+    {
+      "t": "Winter Waiting — five-day seasonal plan (KJV)",
+      "u": "/plans.html?plan=winterwaiting",
+      "k": "winter january february wait hope cold calendar seasonal five kjv porch"
+    },
+    {
+      "t": "Spring Hope in the Mud — five-day seasonal plan (KJV)",
+      "u": "/plans.html?plan=springhopemud",
+      "k": "spring march april mud thaw new life isaiah hosea seasonal five kjv porch"
+    },
+    {
+      "t": "Late Summer Gentle Close — five-day seasonal plan (KJV)",
+      "u": "/plans.html?plan=latesummergentle",
+      "k": "august september summer end gentle close seasons matthew 11 seasonal five kjv porch"
+    },
+    {
+      "t": "Quiet Advent Bridge — five-day seasonal plan (KJV)",
+      "u": "/plans.html?plan=adventbridge",
+      "k": "thanksgiving advent december christmas bridge seasonal five kjv porch"
+    },
+    {
+      "t": "Come Unto Me — Red-Letters plan when words fail (KJV)",
+      "u": "/plans.html?plan=comeuntome",
+      "k": "come unto me matthew 11 rest heavy laden words fail prayer dry red letters jesus gospel five kjv porch"
+    },
+    {
+      "t": "When Fear Presses In — gentle Scripture for anxious days (KJV)",
+      "u": "/plans.html?plan=fearpressesin",
+      "k": "fear anxious afraid red letters matthew 10 sparrows mark 4 peace still lilies isaiah 41 john 4 love 2 timothy 1 7 sound mind five kjv porch only his voice"
+    },
+    {
+      "t": "When Fear Presses In — one-page print (KJV)",
+      "u": "/when-fear-presses-in-one-page-print.html",
+      "k": "when fear presses in print anxious five days john 14 27 matthew 10 31 kjv porch"
+    },
+    {
+      "t": "Life Lessons from the Word",
+      "u": "/life-lessons.html",
+      "k": "life lessons family kids adults scripture worry anxiety forgiveness waiting anger contentment lesson learned apply prepare heart quiet reflection print kjv bible study porch tool"
+    },
+    {
+      "t": "Life Lesson: God Provides in the Worry",
+      "u": "/life-lessons/god-provides-in-the-worry.html",
+      "k": "matthew 6 25 34 worry anxiety provision lilies birds father tomorrow life lesson family print"
+    },
+    {
+      "t": "Life Lesson: God Provides in the Wilderness",
+      "u": "/life-lessons/god-provides-wilderness.html",
+      "k": "manna wilderness deuteronomy 8 life lesson family provision daily bread"
+    },
+    {
+      "t": "Life Lesson: Joseph Forgives",
+      "u": "/life-lessons/joseph-forgives.html",
+      "k": "joseph forgives brothers genesis 50 life lesson family forgiveness"
+    },
+    {
+      "t": "Life Lesson: Forgiveness that Heals the Heart",
+      "u": "/life-lessons/forgiveness-that-heals.html",
+      "k": "forgiveness matthew 6 14 15 lords prayer ephesians 4 32 tenderhearted forgive life lesson"
+    },
+    {
+      "t": "Life Lesson: The Waiting Heart",
+      "u": "/life-lessons/waiting-on-god.html",
+      "k": "psalm 27 14 lamentations 3 isaiah 40 31 wait renew strength waiting heart life lesson"
+    },
+    {
+      "t": "Life Lesson: When Anger Burns",
+      "u": "/life-lessons/gentle-anger.html",
+      "k": "james 1 19 ephesians 4 26 anger wrath parenting family life lesson"
+    },
+    {
+      "t": "Life Lesson: Walk in Honesty",
+      "u": "/life-lessons/walk-in-honesty.html",
+      "k": "ephesians 4 25 proverbs 12 22 truth honesty lying life lesson family"
+    },
+    {
+      "t": "Life Lesson: Ten Commandments guardrails",
+      "u": "/life-lessons/ten-commandments-guardrails.html",
+      "k": "exodus 20 ten commandments matthew 22 love god neighbor guardrails life lesson"
+    },
+    {
+      "t": "Life Lesson: Contentment in Little",
+      "u": "/life-lessons/contentment-in-little.html",
+      "k": "philippians 4 11 contentment money comparison christ strengthen life lesson"
+    },
+    {
+      "t": "Life Lesson: Who Is My Neighbor?",
+      "u": "/life-lessons/love-your-neighbor.html",
+      "k": "good samaritan luke 10 mercy neighbor life lesson family"
+    },
+    {
+      "t": "Life Lesson: Ruth Stays Loyal",
+      "u": "/life-lessons/ruth-stays-loyal.html",
+      "k": "ruth loyalty naomi life lesson family faithfulness"
+    },
+    {
+      "t": "Life Lesson: Let the Little Children Come",
+      "u": "/life-lessons/let-little-children-come.html",
+      "k": "suffer little children mark 10 jesus welcome kids life lesson"
+    },
+    {
+      "t": "Life Lesson: When Words Fail",
+      "u": "/life-lessons/when-words-fail.html",
+      "k": "matthew 11 28 come unto me rest heavy laden words fail life lesson comeuntome"
+    },
+    {
+      "t": "Life Lesson: Courage for Hard Days",
+      "u": "/life-lessons/courage-for-hard-days.html",
+      "k": "joshua 1 9 be strong courage fear life lesson"
+    },
+    {
+      "t": "Life Lesson: When the Heart Feels Alone",
+      "u": "/life-lessons/when-the-heart-feels-alone.html",
+      "k": "hebrews 13 5 never leave forsake loneliness solitary life lesson"
+    },
+    {
+      "t": "Life Lesson: Sabbath Rest",
+      "u": "/life-lessons/sabbath-rest.html",
+      "k": "exodus 20 sabbath rest mark 2 27 exhaustion life lesson"
+    },
+    {
+      "t": "Porch update email template",
+      "u": "/porch-update-email-template.html",
+      "k": "email newsletter red letters only his voice come unto me fear life lessons list copy"
+    },
+    {
+      "t": "Only His Voice — red letters only plan (KJV)",
+      "u": "/plans.html?plan=hisownwords",
+      "k": "only his voice red letters only jesus speech matthew 11 john 14 peace come rest five kjv porch listen pure"
+    },
+    {
+      "t": "Only His Voice — one-page print (KJV)",
+      "u": "/his-own-words-one-page-print.html",
+      "k": "only his voice print red letters jesus only five days matthew 11 revelation 3 kjv porch"
+    },
+    {
+      "t": "Come Unto Me — one-page print (KJV)",
+      "u": "/come-unto-me-one-page-print.html",
+      "k": "come unto me print five days matthew 11 rest heavy laden words fail john 14 lilies red letters kjv porch"
+    },
+    {
+      "t": "The Road to Salvation — quiet gospel path (KJV)",
+      "u": "/plans.html?plan=roadtosalvation",
+      "k": "salvation gospel saved believe john 3:16 romans cross grace faith new believer come to christ five kjv porch"
+    },
+    {
+      "t": "The Road to Salvation — one-page print (KJV)",
+      "u": "/road-to-salvation-one-page-print.html",
+      "k": "salvation gospel print five days romans john 3:16 cross grace road to salvation kjv porch"
     },
     {
       "t": "Kids parent dashboard",

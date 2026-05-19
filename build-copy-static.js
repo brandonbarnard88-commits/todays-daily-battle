@@ -99,7 +99,7 @@ function removeDistDuplicateArtifacts(dir) {
       removed += removeDistDuplicateArtifacts(fullPath);
       continue;
     }
-    if (/ 2\.[^/]+$/.test(entry.name)) {
+    if (/ \d+\.[^/]+$/.test(entry.name) || / 2\.[^/]+$/.test(entry.name)) {
       try {
         fs.unlinkSync(fullPath);
         removed += 1;
@@ -143,6 +143,7 @@ const rootFiles = [
   'script.js',
   'script.js.map',
   'footer-build-stamp.js',
+  'tdb-back-to-verse-float.js',
   'service-worker.js',
   'sw.js',
   'register-sw.js',
@@ -156,6 +157,9 @@ const rootFiles = [
   'bible-heritage-data.js',
   'one-family-tree.js',
   'one-family-tree.css',
+  'life-lessons.css',
+  'life-lessons-data.js',
+  'life-lessons-tool.js',
   'verse-breakdown-standard.js',
   'tdb-home-mobius-week.js',
   'tdb-january-quiet.js',
@@ -392,6 +396,22 @@ for (const f of otherHtml) {
       console.error('BUILD FAIL: plans.html must include The University of Grief plan (universitygrief / tdb-plan-universitygrief-day).');
       process.exit(1);
     }
+    if (!content.includes('parentweary') || !content.includes('tdb-plan-parentweary-day')) {
+      console.error('BUILD FAIL: plans.html must include parentweary porch plan (parentweary / tdb-plan-parentweary-day).');
+      process.exit(1);
+    }
+    if (!content.includes('aftergrief') || !content.includes('tdb-plan-aftergrief-day')) {
+      console.error('BUILD FAIL: plans.html must include aftergrief porch plan (aftergrief / tdb-plan-aftergrief-day).');
+      process.exit(1);
+    }
+    if (!content.includes('ordinarytuesday') || !content.includes('tdb-plan-ordinarytuesday-day')) {
+      console.error('BUILD FAIL: plans.html must include ordinarytuesday porch plan (ordinarytuesday / tdb-plan-ordinarytuesday-day).');
+      process.exit(1);
+    }
+    if (!content.includes('smallchurchheavy') || !content.includes('tdb-plan-smallchurchheavy-day')) {
+      console.error('BUILD FAIL: plans.html must include smallchurchheavy porch plan (smallchurchheavy / tdb-plan-smallchurchheavy-day).');
+      process.exit(1);
+    }
     if (!content.includes('universityparenting') || !content.includes('tdb-plan-universityparenting-day')) {
       console.error('BUILD FAIL: plans.html must include The University of Parenting Young Kids plan (universityparenting / tdb-plan-universityparenting-day).');
       process.exit(1);
@@ -604,6 +624,11 @@ if (fs.existsSync(path.join(root, 'kids'))) {
   console.log('Copied kids/ folder (Kids Battle + parent dashboard)');
 }
 
+if (fs.existsSync(path.join(root, 'life-lessons'))) {
+  copyDir(path.join(root, 'life-lessons'), path.join(dist, 'life-lessons'));
+  console.log('Copied life-lessons/ folder (Life Lessons from the Word)');
+}
+
 if (fs.existsSync(path.join(root, 'about'))) {
   copyDir(path.join(root, 'about'), path.join(dist, 'about'));
   console.log('Copied about/ (static /about/ index → about.html for simple hosts)');
@@ -745,6 +770,42 @@ if (fs.existsSync(wellKnown)) {
   });
   if (injected) {
     console.log('build-copy-static.js: injected footer-build-stamp.js in ' + injected + ' dist HTML file(s)');
+  }
+})();
+
+// Mobile: fixed "Today's verse" on inner pages (not home / verse / embed).
+(function injectBackToVerseFloatScript() {
+  var SNIPPET = '\n  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=' + SITE_ASSET_VERSION + '"></script>';
+  var SKIP_BASENAMES = {
+    'index.html': true,
+    'verse.html': true,
+    '404.html': true,
+    '404-admin.html': true
+  };
+  function shouldInject(filePath, html) {
+    var base = path.basename(filePath);
+    if (SKIP_BASENAMES[base]) return false;
+    if (/\/embed\//i.test(filePath.replace(/\\/g, '/'))) return false;
+    if (!/\btdb-inner-page\b/.test(html)) return false;
+    if (html.indexOf('tdb-back-to-verse-float.js') !== -1) return false;
+    return true;
+  }
+  function ensure(html) {
+    if (!/<head[^>]*>/i.test(html)) return html;
+    return html.replace(/<head([^>]*)>/i, function (m) { return m + SNIPPET; });
+  }
+  var injected = 0;
+  walkHtmlUnder(dist, function (filePath) {
+    var html = fs.readFileSync(filePath, 'utf8');
+    if (!shouldInject(filePath, html)) return;
+    var next = ensure(html);
+    if (next !== html) {
+      fs.writeFileSync(filePath, next, 'utf8');
+      injected++;
+    }
+  });
+  if (injected) {
+    console.log('build-copy-static.js: injected tdb-back-to-verse-float.js in ' + injected + ' dist HTML file(s)');
   }
 })();
 

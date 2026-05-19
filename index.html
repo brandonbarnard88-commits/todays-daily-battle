@@ -7549,6 +7549,23 @@
       border-color: color-mix(in srgb, var(--gold) 55%, transparent);
       box-shadow: 0 0 0 1px color-mix(in srgb, var(--gold) 20%, transparent);
     }
+    .tool-teaser-card--has-new { position: relative; }
+    .tool-teaser-new-badge {
+      position: absolute;
+      top: 0.55rem;
+      right: 0.55rem;
+      z-index: 2;
+      padding: 0.12rem 0.45rem;
+      border-radius: 6px;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #c8d0dc;
+      background: rgba(148, 163, 184, 0.22);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      pointer-events: none;
+    }
 
     /* ── Visible focus outline site-wide ── */
     :focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 4px; }
@@ -10292,10 +10309,10 @@
             <span class="tdb-porch-sign-title">Parenting is exhausting right now</span>
             <span class="tdb-porch-sign-desc">A six-day parent-weary plan; porch read-alouds for kids pair quietly when little ears are beside you.</span>
           </a>
-          <a class="tdb-porch-sign-card" role="listitem" href="plans.html?plan=aftergrief" aria-label="Grief is still sitting here: open After Grief, six gentle KJV days">
+          <a class="tdb-porch-sign-card" role="listitem" href="plans.html?plan=aftergrief" aria-label="Grief is still sitting here: open After Grief, seven gentle KJV days">
             <span class="tdb-porch-sign-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21a9 9 0 0 0 9-9c0-4.5-4-8-9-13-5 5-9 8.5-9 13a9 9 0 0 0 9 9z"/><path d="M12 11v5"/><circle cx="12" cy="8" r="0.5" fill="currentColor"/></svg></span>
             <span class="tdb-porch-sign-title">Grief is still sitting here</span>
-            <span class="tdb-porch-sign-desc">After Grief&mdash;six soft-return KJV days when sorrow does not hurry.</span>
+            <span class="tdb-porch-sign-desc">After Grief&mdash;seven soft-return KJV days when sorrow does not hurry.</span>
           </a>
           <a class="tdb-porch-sign-card" role="listitem" href="plans.html?plan=ordinarytuesday" aria-label="Just an ordinary tired Tuesday: open Ordinary Tuesday Weariness, six KJV days">
             <span class="tdb-porch-sign-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/><path d="M8 2v4"/><path d="M16 2v4"/><path d="M9 15h.01"/><path d="M15 15h.01"/></svg></span>
@@ -10760,6 +10777,42 @@
           <span class="tool-teaser-arrow" aria-hidden="true">→</span>
         </a>
         <button type="button" class="quick-story-btn" id="quickStoryBtn" aria-label="Quick Story">⚡ Quick Story</button>
+      </section>
+
+      <section class="card tool-teaser-card tool-teaser-card--has-new" data-tdb-tool-new-until="2026-06-02" aria-label="Möbius Loop">
+        <span class="tool-teaser-new-badge" hidden>New</span>
+        <a href="mobius.html" class="tool-teaser-link" aria-label="Möbius Loop — Endless grace, returning always to the cross">
+          <span class="tool-teaser-icon" aria-hidden="true">∞</span>
+          <div>
+            <p class="tool-teaser-label">Möbius Loop</p>
+            <p class="tool-teaser-sub">Endless grace, returning always to the cross—graph, breath, Deep Walk, and a private loop journal. KJV only.</p>
+          </div>
+          <span class="tool-teaser-arrow" aria-hidden="true">→</span>
+        </a>
+      </section>
+
+      <section class="card tool-teaser-card tool-teaser-card--has-new" data-tdb-tool-new-until="2026-06-02" aria-label="One Family in Christ">
+        <span class="tool-teaser-new-badge" hidden>New</span>
+        <a href="one-family-in-christ.html" class="tool-teaser-link" aria-label="One Family in Christ — Unity from the same Father">
+          <span class="tool-teaser-icon" aria-hidden="true">🌳</span>
+          <div>
+            <p class="tool-teaser-label">One Family in Christ</p>
+            <p class="tool-teaser-sub">Unity from the same Father—Adam to Jesus, KJV verses on tap, gentle branches, witnesses, adoption in Christ. Works offline.</p>
+          </div>
+          <span class="tool-teaser-arrow" aria-hidden="true">→</span>
+        </a>
+      </section>
+
+      <section class="card tool-teaser-card tool-teaser-card--has-new" data-tdb-tool-new-until="2026-06-02" aria-label="Red letters">
+        <span class="tool-teaser-new-badge" hidden>New</span>
+        <a href="red-letters.html" class="tool-teaser-link" aria-label="Red letters — Rest in the Saviour's own words">
+          <span class="tool-teaser-icon" aria-hidden="true">📕</span>
+          <div>
+            <p class="tool-teaser-label">Red letters</p>
+            <p class="tool-teaser-sub">Rest in the Saviour&rsquo;s own words—optional red speech in Matthew&ndash;John across search, reader, plans, and the heritage tree.</p>
+          </div>
+          <span class="tool-teaser-arrow" aria-hidden="true">→</span>
+        </a>
       </section>
       </div><!-- /.quick-links -->
       </details>
@@ -11805,6 +11858,9 @@
         <li><a href="bible-tool.html#ask-the-word-section" id="nav-more-ask-the-word" aria-label="Ask the Teacher by question, feeling, or verse">✝️ Ask the Teacher</a></li>
         <li><a href="calm.html#night-prayer" aria-label="Night prayer with Psalm 4:8">🌙 Night Prayer</a></li>
         <li><a href="bible-tool.html">📚 Bible Tool</a></li>
+        <li><a href="mobius.html">∞ Möbius Loop</a></li>
+        <li><a href="one-family-in-christ.html">🌳 One Family in Christ</a></li>
+        <li><a href="red-letters.html">📕 Red letters</a></li>
         <li><a href="/mystudy">📌 My Study</a></li>
         <li><a href="verse-image.html">🖼 Verse image</a></li>
         <li><a href="kids/index.html?v=hub20260321">🧒 Kids Corner</a></li>
@@ -11855,6 +11911,7 @@
   <script nonce="tdb2025s" src="hero-hero-pools.js?v=20260328pools" fetchpriority="low"></script>
   <script nonce="tdb2025s" src="hero-daily-365-data.js?v=20260325b" fetchpriority="low"></script>
   <script nonce="tdb2025s" src="verse-breakdown-standard.js?v=20260428-vbd" data-tdb-verse-breakdown-standard="1"></script>
+  <script nonce="tdb2025s" src="red-letter.js?v=20260518-rl" data-tdb-red-letter="1"></script>
   <script nonce="tdb2025s" src="hero-daily-first-paint.js?v=20260417-hydration" fetchpriority="low"></script>
   <!-- Phase 6: tdb-home-mobius-week.js?v=20260330home + /sky-ip-geo.js?v=20260327ipgeo load with home secondary stack (see script.js tdbScheduleDeferredVodAndReaderTooling) -->
   <script nonce="tdb2025s">
@@ -14926,6 +14983,7 @@
 
       var largeTextToggle = document.getElementById('settings-large-text');
       var highContrastToggle = document.getElementById('settings-high-contrast');
+      var redLetterSettings = document.getElementById('settings-red-letter');
       function syncA11yTogglesFromDom() {
         if (largeTextToggle) {
           largeTextToggle.checked = document.documentElement.dataset.tdbTextScale === 'large';
@@ -14933,6 +14991,26 @@
         if (highContrastToggle) {
           highContrastToggle.checked = document.documentElement.dataset.tdbContrast === 'high';
         }
+        if (redLetterSettings) {
+          if (typeof isRedLetterEnabled === 'function') {
+            redLetterSettings.checked = isRedLetterEnabled();
+          } else if (window.TDBRedLetter && typeof window.TDBRedLetter.isEnabled === 'function') {
+            redLetterSettings.checked = window.TDBRedLetter.isEnabled();
+          } else {
+            try { redLetterSettings.checked = localStorage.getItem('redLetterEnabled') === 'true'; } catch (eRl) { /* ignore */ }
+          }
+        }
+      }
+      if (redLetterSettings) {
+        redLetterSettings.addEventListener('change', function () {
+          if (typeof setRedLetterEnabled === 'function') {
+            setRedLetterEnabled(redLetterSettings.checked);
+          } else if (window.TDBRedLetter && typeof window.TDBRedLetter.setEnabled === 'function') {
+            window.TDBRedLetter.setEnabled(redLetterSettings.checked);
+          } else {
+            try { localStorage.setItem('redLetterEnabled', redLetterSettings.checked ? 'true' : 'false'); } catch (eRl2) { /* ignore */ }
+          }
+        });
       }
       syncA11yTogglesFromDom();
       if (largeTextToggle) {
@@ -16302,6 +16380,14 @@
     </div>
 
     <div class="settings-row">
+      <label class="settings-label" for="settings-red-letter">
+        <span class="settings-label-text">📕 Red letters</span>
+        <span class="settings-label-sub">Show the words of Jesus in red (Gospels)</span>
+      </label>
+      <input type="checkbox" id="settings-red-letter" class="settings-toggle" aria-label="Show words of Jesus in red" role="switch">
+    </div>
+
+    <div class="settings-row">
       <label class="settings-label" for="settings-large-text">
         <span class="settings-label-text">🔠 Larger text</span>
         <span class="settings-label-sub">Slightly bigger type across the page</span>
@@ -16566,6 +16652,19 @@
       el.classList.remove('tdb-cache-whisper--show');
       setTimeout(function () { el.hidden = true; }, 400);
     }, 2800);
+  })();
+  </script>
+  <script nonce="tdb2025s">
+  (function () {
+    var cards = document.querySelectorAll('[data-tdb-tool-new-until]');
+    if (!cards.length) return;
+    var today = new Date().toISOString().slice(0, 10);
+    cards.forEach(function (card) {
+      var until = card.getAttribute('data-tdb-tool-new-until');
+      if (!until || today > until) return;
+      var badge = card.querySelector('.tool-teaser-new-badge');
+      if (badge) { badge.hidden = false; badge.removeAttribute('hidden'); }
+    });
   })();
   </script>
 </body>

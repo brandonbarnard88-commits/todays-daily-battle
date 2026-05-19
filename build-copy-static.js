@@ -160,6 +160,7 @@ const rootFiles = [
   'life-lessons.css',
   'life-lessons-data.js',
   'life-lessons-tool.js',
+  'life-lessons-mystudy-bridge.js',
   'verse-breakdown-standard.js',
   'tdb-home-mobius-week.js',
   'tdb-january-quiet.js',

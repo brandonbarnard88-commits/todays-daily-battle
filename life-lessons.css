@@ -37,6 +37,156 @@
   color: rgba(232, 228, 220, 0.96);
   font-style: italic;
 }
+.tdb-ll-key-verse--anchor {
+  font-size: 1.08rem;
+  line-height: 1.55;
+}
+.tdb-ll-tag--deep {
+  color: #e8d4a8;
+  border: 1px solid rgba(227, 188, 103, 0.38);
+  border-radius: 6px;
+  padding: 0.12rem 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.tdb-ll-deep-spotlight {
+  margin-bottom: 1.25rem;
+  border: 1px solid rgba(227, 188, 103, 0.32);
+}
+.tdb-ll-deep-spotlight-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  margin-top: 0.75rem;
+}
+.tdb-ll-deep-spotlight-item {
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.18);
+}
+.tdb-ll-deep-spotlight-item:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+.tdb-ll-deep-spotlight-item h3 {
+  font-size: 1.05rem;
+  margin: 0 0 0.35rem;
+}
+.tdb-ll-deep-spotlight-item h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+.tdb-ll-deep-spotlight-item h3 a:hover,
+.tdb-ll-deep-spotlight-item h3 a:focus-visible {
+  text-decoration: underline;
+}
+.tdb-ll-coming-soon {
+  margin-bottom: 1.25rem;
+}
+.tdb-ll-coming-list {
+  list-style: none;
+  margin: 0.65rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+.tdb-ll-coming-item {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.55rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: rgba(15, 23, 42, 0.22);
+  font-size: 0.92rem;
+}
+.tdb-ll-coming-ref {
+  color: rgba(227, 188, 103, 0.92);
+  font-size: 0.82rem;
+}
+.tdb-ll-coming-note {
+  color: rgba(203, 213, 225, 0.88);
+  font-size: 0.88rem;
+}
+.tdb-ll-coming-invite {
+  color: rgba(226, 232, 240, 0.82);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+.tdb-ll-growing-note {
+  margin-bottom: 1.25rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+.tdb-ll-mystudy-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.65rem;
+}
+.tdb-ll-save-status {
+  min-height: 1.25em;
+  margin-top: 0.35rem;
+}
+.tdb-ll-lesson-page--deep .tdb-ll-layout {
+  max-width: 58rem;
+}
+.tdb-ll-scripture--anchor {
+  border-left: 3px solid rgba(227, 188, 103, 0.45);
+  padding-left: 0.85rem;
+}
+.tdb-ll-battle-block {
+  margin-top: 0.85rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.18);
+}
+.tdb-ll-battle-block:first-of-type {
+  margin-top: 0.35rem;
+  padding-top: 0;
+  border-top: none;
+}
+.tdb-ll-battle-block h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.98rem;
+  color: rgba(226, 232, 240, 0.98);
+}
+.tdb-ll-cross-refs {
+  list-style: none;
+  margin: 0.35rem 0 0;
+  padding: 0;
+}
+.tdb-ll-cross-refs li {
+  margin: 0 0 0.85rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+}
+.tdb-ll-cross-refs li:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+.tdb-ll-cross-text {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.92rem;
+  line-height: 1.48;
+  color: rgba(226, 232, 240, 0.94);
+}
+.tdb-ll-cross-refs cite {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  font-style: normal;
+  color: rgba(148, 163, 184, 0.95);
+}
+.tdb-ll-prayer {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  line-height: 1.55;
+  font-style: italic;
+  color: rgba(232, 228, 220, 0.96);
+}
 .tdb-ll-hero-tags,
 .tdb-ll-hero-actions {
   display: flex;

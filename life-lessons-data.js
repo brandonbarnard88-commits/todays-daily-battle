@@ -3,6 +3,309 @@
   'use strict';
   g.TDB_LIFE_LESSONS = [
   {
+    "slug": "golden-rule-when-it-costs",
+    "title": "The Golden Rule — When Loving Others Feels Like the Last Thing You Can Do",
+    "keyVerseRef": "Matthew 7:12",
+    "summary": "Jesus sums the law and the prophets in one living sentence—and calls you to treat others the way you wish to be treated, even when it costs.",
+    "topics": [
+      "love",
+      "parenting",
+      "marriage",
+      "anger",
+      "anxiety",
+      "grief",
+      "exhaustion",
+      "forgiveness",
+      "family",
+      "loneliness",
+      "conflict",
+      "judgment"
+    ],
+    "families": true,
+    "grownups": true,
+    "deep": true
+  },
+  {
+    "slug": "judge-not-when-eyes-are-heavy",
+    "title": "Judge Not — When Your Eyes Feel Heavy with Criticism or Shame",
+    "keyVerseRef": "Matthew 7:1-2",
+    "summary": "Jesus tears down proud, self-righteous judging—and invites mercy that begins in your own heart before it reaches anyone else.",
+    "topics": [
+      "judgment",
+      "parenting",
+      "marriage",
+      "anxiety",
+      "grief",
+      "exhaustion",
+      "forgiveness",
+      "family",
+      "loneliness",
+      "conflict",
+      "honesty"
+    ],
+    "families": true,
+    "grownups": true,
+    "deep": true
+  },
+  {
+    "slug": "ask-seek-knock-when-prayer-feels-dry",
+    "title": "Ask, Seek, Knock — When Prayer Feels Dry and Answers Feel Far Away",
+    "keyVerseRef": "Matthew 7:7-8",
+    "summary": "Jesus invites weary hearts to keep coming—not because prayer is a formula, but because the Father who hears is good.",
+    "topics": [
+      "prayer",
+      "anxiety",
+      "waiting",
+      "exhaustion",
+      "grief",
+      "parenting",
+      "trust",
+      "hope",
+      "loneliness"
+    ],
+    "families": true,
+    "grownups": true,
+    "deep": true
+  },
+  {
+    "slug": "take-no-thought-when-tomorrow-roars",
+    "title": "Take No Thought — When Tomorrow Roars and Today Feels Too Small",
+    "keyVerseRef": "Matthew 6:34",
+    "summary": "Jesus does not scold anxious hearts—He points to the Father who feeds birds, clothes lilies, and holds your tomorrow.",
+    "topics": [
+      "worry",
+      "anxiety",
+      "provision",
+      "parenting",
+      "exhaustion",
+      "money",
+      "trust",
+      "grief"
+    ],
+    "families": true,
+    "grownups": true,
+    "deep": true
+  },
+  {
+    "slug": "love-your-enemies-when-love-costs",
+    "title": "Love Your Enemies — When Love Costs More Than You Think You Have",
+    "keyVerseRef": "Matthew 5:44",
+    "summary": "Jesus calls His people to a love that does not mirror the world’s hatred—blessing, praying, and doing good when the heart wants to repay evil.",
+    "topics": [
+      "forgiveness",
+      "anger",
+      "conflict",
+      "family",
+      "marriage",
+      "grief",
+      "loneliness",
+      "parenting",
+      "honesty"
+    ],
+    "families": true,
+    "grownups": true,
+    "deep": true
+  },
+  {
+    "slug": "house-on-rock-when-storms-hit",
+    "title": "Build Your House on the Rock — When Storms Hit Marriage, Grief, or Money",
+    "keyVerseRef": "Matthew 7:24-25",
+    "summary": "Jesus closes the Sermon with a picture of obedience that holds when rain, floods, and wind beat on real life—not hearing alone, but doing His words.",
+    "topics": [
+      "trust",
+      "parenting",
+      "marriage",
+      "grief",
+      "money",
+      "anxiety",
+      "family",
+      "exhaustion",
+      "obedience"
+    ],
+    "families": true,
+    "grownups": true,
+    "deep": true
+  },
+  {
+    "slug": "narrow-gate-when-wide-way-easier",
+    "title": "The Narrow Gate — When the Wide Way Feels Easier",
+    "keyVerseRef": "Matthew 7:13-14",
+    "summary": "Jesus does not hide the cost of following Him—the path to life is narrow, and exhaustion or culture will often pull toward the wide gate.",
+    "topics": [
+      "obedience",
+      "anxiety",
+      "exhaustion",
+      "parenting",
+      "honesty",
+      "trust",
+      "family"
+    ],
+    "families": true,
+    "grownups": true,
+    "deep": true
+  },
+  {
+    "slug": "blessed-merciful-when-forgiveness-costs",
+    "title": "Blessed Are the Merciful — When Forgiveness Costs More Than Pride",
+    "keyVerseRef": "Matthew 5:7",
+    "summary": "At the start of the Beatitudes, Jesus blesses those who extend mercy—because they have met His mercy first, and will need it again.",
+    "topics": [
+      "forgiveness",
+      "grief",
+      "marriage",
+      "parenting",
+      "conflict",
+      "judgment",
+      "family"
+    ],
+    "families": true,
+    "grownups": true,
+    "deep": true
+  },
+  {
+    "slug": "blessed-peacemakers-when-peace-feels-impossible",
+    "title": "Blessed Are the Peacemakers — When Peace Feels Impossible at Home or Church",
+    "keyVerseRef": "Matthew 5:9",
+    "summary": "Jesus blesses those who actively pursue peace—not avoiders of conflict, but people who bring His reconciliation into divided rooms.",
+    "topics": [
+      "forgiveness",
+      "family",
+      "marriage",
+      "conflict",
+      "parenting",
+      "loneliness",
+      "honesty"
+    ],
+    "families": true,
+    "grownups": true,
+    "deep": true
+  },
+  {
+    "slug": "anger-reconciliation-when-words-fired",
+    "title": "Anger and Reconciliation — When Words Already Fired",
+    "keyVerseRef": "Matthew 5:23-24",
+    "summary": "Jesus treats unreconciled anger as urgent—worship waits while you pursue repair, because broken fellowship grieves the Father.",
+    "topics": [
+      "anger",
+      "marriage",
+      "family",
+      "parenting",
+      "conflict",
+      "honesty",
+      "forgiveness"
+    ],
+    "families": true,
+    "grownups": true,
+    "deep": true
+  },
+  {
+    "slug": "salt-and-light-when-you-feel-small",
+    "title": "Salt and Light — When You Feel Too Small to Matter for Christ",
+    "keyVerseRef": "Matthew 5:13-16",
+    "summary": "Jesus names His people salt and light—faithful presence in ordinary places, without performance or hiding.",
+    "topics": [
+      "obedience",
+      "parenting",
+      "family",
+      "honesty",
+      "anxiety",
+      "loneliness"
+    ],
+    "families": true,
+    "grownups": true,
+    "deep": true
+  },
+  {
+    "slug": "treasure-in-heaven-when-hearts-divide",
+    "title": "Treasure in Heaven — When Money, Comparison, or Worry Divide the Heart",
+    "keyVerseRef": "Matthew 6:21",
+    "summary": "Jesus teaches where treasure sits, the heart follows—and calls divided service to God and money to an end.",
+    "topics": [
+      "money",
+      "worry",
+      "anxiety",
+      "contentment",
+      "honesty",
+      "parenting",
+      "trust"
+    ],
+    "families": true,
+    "grownups": true,
+    "deep": true
+  },
+  {
+    "slug": "cast-your-care-when-burden-is-heavy",
+    "title": "Cast Your Care — When the Burden Feels Too Heavy to Carry",
+    "keyVerseRef": "1 Peter 5:7",
+    "summary": "Peter invites you to hand God every weight you have been gripping—because He already cares for you on the hard days.",
+    "topics": [
+      "anxiety",
+      "grief",
+      "exhaustion",
+      "parenting",
+      "worry",
+      "trust",
+      "loneliness"
+    ],
+    "families": true,
+    "grownups": true,
+    "deep": true
+  },
+  {
+    "slug": "anxious-for-nothing-peace-of-god",
+    "title": "Be Anxious for Nothing — When Peace Feels Far and the Mind Will Not Rest",
+    "keyVerseRef": "Philippians 4:6-7",
+    "summary": "Paul’s gentle command: bring everything to God with thanksgiving—and let His peace guard your heart when life makes no sense.",
+    "topics": [
+      "anxiety",
+      "worry",
+      "prayer",
+      "thanksgiving",
+      "exhaustion",
+      "parenting",
+      "trust"
+    ],
+    "families": true,
+    "grownups": true,
+    "deep": true
+  },
+  {
+    "slug": "the-lord-is-my-shepherd",
+    "title": "The Lord Is My Shepherd — When You Need Green Pasture in a Dry Season",
+    "keyVerseRef": "Psalm 23:1",
+    "summary": "David’s psalm names the Lord as shepherd in valley and table alike—provision, guidance, comfort, and presence through death’s shadow.",
+    "topics": [
+      "grief",
+      "fear",
+      "exhaustion",
+      "loneliness",
+      "trust",
+      "rest",
+      "anxiety"
+    ],
+    "families": true,
+    "grownups": true,
+    "deep": true
+  },
+  {
+    "slug": "forgive-seventy-times-seven-when-hurt-lingers",
+    "title": "Forgive Seventy Times Seven — When the Hurt Keeps Coming Back",
+    "keyVerseRef": "Matthew 18:21-22",
+    "summary": "Jesus answers Peter with mercy that does not keep score—forgiveness as a way of life, not a one-time performance when you feel noble.",
+    "topics": [
+      "forgiveness",
+      "anger",
+      "marriage",
+      "family",
+      "conflict",
+      "grief",
+      "parenting"
+    ],
+    "families": true,
+    "grownups": true,
+    "deep": true
+  },
+  {
     "slug": "god-provides-in-the-worry",
     "title": "God Provides in the Worry",
     "keyVerseRef": "Matthew 6:34",
@@ -15,7 +318,8 @@
       "exhaustion"
     ],
     "families": true,
-    "grownups": true
+    "grownups": true,
+    "deep": false
   },
   {
     "slug": "god-provides-wilderness",
@@ -29,7 +333,8 @@
       "parenting"
     ],
     "families": true,
-    "grownups": true
+    "grownups": true,
+    "deep": false
   },
   {
     "slug": "joseph-forgives",
@@ -43,7 +348,8 @@
       "anger"
     ],
     "families": true,
-    "grownups": true
+    "grownups": true,
+    "deep": false
   },
   {
     "slug": "forgiveness-that-heals",
@@ -58,7 +364,8 @@
       "marriage"
     ],
     "families": true,
-    "grownups": true
+    "grownups": true,
+    "deep": false
   },
   {
     "slug": "waiting-on-god",
@@ -73,7 +380,8 @@
       "grief"
     ],
     "families": true,
-    "grownups": true
+    "grownups": true,
+    "deep": false
   },
   {
     "slug": "gentle-anger",
@@ -87,7 +395,8 @@
       "marriage"
     ],
     "families": true,
-    "grownups": true
+    "grownups": true,
+    "deep": false
   },
   {
     "slug": "walk-in-honesty",
@@ -101,7 +410,8 @@
       "parenting"
     ],
     "families": true,
-    "grownups": true
+    "grownups": true,
+    "deep": false
   },
   {
     "slug": "contentment-in-little",
@@ -115,7 +425,8 @@
       "anxiety"
     ],
     "families": true,
-    "grownups": true
+    "grownups": true,
+    "deep": false
   },
   {
     "slug": "love-your-neighbor",
@@ -129,7 +440,8 @@
       "loneliness"
     ],
     "families": true,
-    "grownups": true
+    "grownups": true,
+    "deep": false
   },
   {
     "slug": "ruth-stays-loyal",
@@ -143,7 +455,8 @@
       "waiting"
     ],
     "families": true,
-    "grownups": true
+    "grownups": true,
+    "deep": false
   },
   {
     "slug": "ten-commandments-guardrails",
@@ -157,7 +470,8 @@
       "love"
     ],
     "families": true,
-    "grownups": true
+    "grownups": true,
+    "deep": false
   },
   {
     "slug": "when-words-fail",
@@ -171,7 +485,8 @@
       "hope"
     ],
     "families": true,
-    "grownups": true
+    "grownups": true,
+    "deep": false
   },
   {
     "slug": "courage-for-hard-days",
@@ -185,7 +500,8 @@
       "family"
     ],
     "families": true,
-    "grownups": true
+    "grownups": true,
+    "deep": false
   },
   {
     "slug": "when-the-heart-feels-alone",
@@ -199,7 +515,8 @@
       "hope"
     ],
     "families": true,
-    "grownups": true
+    "grownups": true,
+    "deep": false
   },
   {
     "slug": "sabbath-rest",
@@ -213,7 +530,8 @@
       "obedience"
     ],
     "families": true,
-    "grownups": true
+    "grownups": true,
+    "deep": false
   },
   {
     "slug": "let-little-children-come",
@@ -226,7 +544,8 @@
       "love"
     ],
     "families": true,
-    "grownups": true
+    "grownups": true,
+    "deep": false
   }
 ];
 })(typeof window !== 'undefined' ? window : this);

@@ -2333,6 +2333,74 @@
     });
   })();
 
+  (function wireLifeLessonsPromptCopy() {
+    var root = document.getElementById('verse-image-life-lessons-prompts');
+    if (!root) return;
+    var statusEl = document.getElementById('verse-image-ll-copy-status');
+    var listEl = document.getElementById('verse-image-life-lessons-preset-list');
+
+    function showBtnCopied(btn, msg) {
+      var old = btn.textContent;
+      btn.textContent = 'Copied';
+      if (statusEl) statusEl.textContent = msg;
+      setTimeout(function () {
+        btn.textContent = old;
+      }, 1600);
+    }
+
+    function copyString(str, btn, msg) {
+      var text = String(str || '').replace(/\s+/g, ' ').trim();
+      if (!text || !btn) return;
+      function fb() {
+        try {
+          var ta = document.createElement('textarea');
+          ta.value = text;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'fixed';
+          ta.style.left = '-9999px';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          showBtnCopied(btn, msg);
+        } catch (e) {}
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () {
+          showBtnCopied(btn, msg);
+        }).catch(fb);
+      } else {
+        fb();
+      }
+    }
+
+    root.addEventListener('click', function (ev) {
+      var t = ev.target;
+      if (!t || t.nodeName !== 'BUTTON' || !t.getAttribute) return;
+      if (t.getAttribute('data-verse-image-ll-copy-all') === '1') {
+        if (!listEl) return;
+        var bodies = listEl.querySelectorAll('.verse-image-uog-preset-body');
+        var parts = [];
+        for (var i = 0; i < bodies.length; i++) {
+          var p = String(bodies[i].textContent || '').replace(/\s+/g, ' ').trim();
+          if (p) parts.push(p);
+        }
+        var block = parts.join('\n\n');
+        if (!block) return;
+        copyString(block, t, 'All Life Lessons prompts copied. Paste into your image tool.');
+        trackEvent('verse_image_life_lessons_all_copied', { n: parts.length, len: block.length });
+        return;
+      }
+      if (t.getAttribute('data-verse-image-uog-copy') !== '1') return;
+      var row = t.closest && t.closest('.verse-image-uog-preset-row');
+      var body = row && row.querySelector && row.querySelector('.verse-image-uog-preset-body');
+      var one = body ? String(body.textContent || '').replace(/\s+/g, ' ').trim() : '';
+      if (!one) return;
+      copyString(one, t, 'Prompt copied. Paste it into your image tool.');
+      trackEvent('verse_image_life_lessons_prompt_copied', { len: one.length });
+    });
+  })();
+
   waitForIsProUser(function () {
     var up = document.getElementById('verse-image-upgrade-cta');
     if (up) {

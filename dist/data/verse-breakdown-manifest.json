@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-05-19T17:32:36.138Z",
-  "surfacedRefCount": 3254,
-  "overrideCount": 3254,
+  "generatedAt": "2026-05-19T18:01:21.840Z",
+  "surfacedRefCount": 3307,
+  "overrideCount": 3307,
   "sourceCounts": {
     ".worktrees/main-hotfix/404-admin.html": {
       "refs": 1,
@@ -1008,7 +1008,7 @@
       "pairs": 0
     },
     "kids/corner.html": {
-      "refs": 22,
+      "refs": 24,
       "pairs": 0
     },
     "kids/good-night.html": {
@@ -1043,12 +1043,20 @@
       "refs": 1,
       "pairs": 0
     },
+    "kids/porch-read-golden-rule.html": {
+      "refs": 1,
+      "pairs": 0
+    },
     "kids/porch-read-lilies.html": {
       "refs": 3,
       "pairs": 0
     },
     "kids/porch-read-little-hearts.html": {
       "refs": 2,
+      "pairs": 0
+    },
+    "kids/porch-read-little-shepherd.html": {
+      "refs": 1,
       "pairs": 0
     },
     "kids/porch-read-ordinary-tuesday.html": {
@@ -1107,6 +1115,54 @@
       "refs": 6,
       "pairs": 0
     },
+    "life-lessons/anger-reconciliation-when-words-fired-print.html": {
+      "refs": 8,
+      "pairs": 0
+    },
+    "life-lessons/anger-reconciliation-when-words-fired.html": {
+      "refs": 8,
+      "pairs": 0
+    },
+    "life-lessons/anxious-for-nothing-peace-of-god-print.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    "life-lessons/anxious-for-nothing-peace-of-god.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    "life-lessons/ask-seek-knock-when-prayer-feels-dry-print.html": {
+      "refs": 8,
+      "pairs": 0
+    },
+    "life-lessons/ask-seek-knock-when-prayer-feels-dry.html": {
+      "refs": 8,
+      "pairs": 0
+    },
+    "life-lessons/blessed-merciful-when-forgiveness-costs-print.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    "life-lessons/blessed-merciful-when-forgiveness-costs.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    "life-lessons/blessed-peacemakers-when-peace-feels-impossible-print.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    "life-lessons/blessed-peacemakers-when-peace-feels-impossible.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    "life-lessons/cast-your-care-when-burden-is-heavy-print.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    "life-lessons/cast-your-care-when-burden-is-heavy.html": {
+      "refs": 7,
+      "pairs": 0
+    },
     "life-lessons/contentment-in-little-print.html": {
       "refs": 1,
       "pairs": 0
@@ -1121,6 +1177,14 @@
     },
     "life-lessons/courage-for-hard-days.html": {
       "refs": 1,
+      "pairs": 0
+    },
+    "life-lessons/forgive-seventy-times-seven-when-hurt-lingers-print.html": {
+      "refs": 8,
+      "pairs": 0
+    },
+    "life-lessons/forgive-seventy-times-seven-when-hurt-lingers.html": {
+      "refs": 8,
       "pairs": 0
     },
     "life-lessons/forgiveness-that-heals-print.html": {
@@ -1155,12 +1219,36 @@
       "refs": 2,
       "pairs": 0
     },
+    "life-lessons/golden-rule-when-it-costs-print.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    "life-lessons/golden-rule-when-it-costs.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    "life-lessons/house-on-rock-when-storms-hit-print.html": {
+      "refs": 8,
+      "pairs": 0
+    },
+    "life-lessons/house-on-rock-when-storms-hit.html": {
+      "refs": 8,
+      "pairs": 0
+    },
     "life-lessons/joseph-forgives-print.html": {
       "refs": 2,
       "pairs": 0
     },
     "life-lessons/joseph-forgives.html": {
       "refs": 2,
+      "pairs": 0
+    },
+    "life-lessons/judge-not-when-eyes-are-heavy-print.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    "life-lessons/judge-not-when-eyes-are-heavy.html": {
+      "refs": 7,
       "pairs": 0
     },
     "life-lessons/let-little-children-come-print.html": {
@@ -1171,12 +1259,28 @@
       "refs": 2,
       "pairs": 0
     },
+    "life-lessons/love-your-enemies-when-love-costs-print.html": {
+      "refs": 8,
+      "pairs": 0
+    },
+    "life-lessons/love-your-enemies-when-love-costs.html": {
+      "refs": 8,
+      "pairs": 0
+    },
     "life-lessons/love-your-neighbor-print.html": {
       "refs": 2,
       "pairs": 0
     },
     "life-lessons/love-your-neighbor.html": {
       "refs": 2,
+      "pairs": 0
+    },
+    "life-lessons/narrow-gate-when-wide-way-easier-print.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    "life-lessons/narrow-gate-when-wide-way-easier.html": {
+      "refs": 7,
       "pairs": 0
     },
     "life-lessons/ruth-stays-loyal-print.html": {
@@ -1195,12 +1299,44 @@
       "refs": 3,
       "pairs": 0
     },
+    "life-lessons/salt-and-light-when-you-feel-small-print.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    "life-lessons/salt-and-light-when-you-feel-small.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    "life-lessons/take-no-thought-when-tomorrow-roars-print.html": {
+      "refs": 8,
+      "pairs": 0
+    },
+    "life-lessons/take-no-thought-when-tomorrow-roars.html": {
+      "refs": 8,
+      "pairs": 0
+    },
     "life-lessons/ten-commandments-guardrails-print.html": {
       "refs": 2,
       "pairs": 0
     },
     "life-lessons/ten-commandments-guardrails.html": {
       "refs": 2,
+      "pairs": 0
+    },
+    "life-lessons/the-lord-is-my-shepherd-print.html": {
+      "refs": 8,
+      "pairs": 0
+    },
+    "life-lessons/the-lord-is-my-shepherd.html": {
+      "refs": 8,
+      "pairs": 0
+    },
+    "life-lessons/treasure-in-heaven-when-hearts-divide-print.html": {
+      "refs": 8,
+      "pairs": 0
+    },
+    "life-lessons/treasure-in-heaven-when-hearts-divide.html": {
+      "refs": 8,
       "pairs": 0
     },
     "life-lessons/waiting-on-god-print.html": {
@@ -1236,11 +1372,11 @@
       "pairs": 0
     },
     "life-lessons-data.js": {
-      "refs": 16,
+      "refs": 31,
       "pairs": 0
     },
     "life-lessons.html": {
-      "refs": 16,
+      "refs": 31,
       "pairs": 0
     },
     "lighthouse-bible-tool.json": {
@@ -1579,6 +1715,10 @@
       "refs": 15,
       "pairs": 14
     },
+    "partials/verse-image-life-lessons-prompts.html": {
+      "refs": 27,
+      "pairs": 0
+    },
     "pastor/builder.html": {
       "refs": 1,
       "pairs": 0
@@ -1628,11 +1768,11 @@
       "pairs": 1
     },
     "plans.html": {
-      "refs": 344,
+      "refs": 347,
       "pairs": 455
     },
     "printables.html": {
-      "refs": 11,
+      "refs": 12,
       "pairs": 0
     },
     "psalms.html": {
@@ -1677,6 +1817,10 @@
     },
     "seasonal.html": {
       "refs": 12,
+      "pairs": 0
+    },
+    "sermon-on-the-mount-twelve-one-page-print.html": {
+      "refs": 15,
       "pairs": 0
     },
     "sermon.html": {
@@ -1736,7 +1880,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 140,
+      "refs": 144,
       "pairs": 0
     },
     "tl/kabalisahan.html": {
@@ -1848,7 +1992,7 @@
       "pairs": 0
     },
     "verse-image.html": {
-      "refs": 15,
+      "refs": 41,
       "pairs": 0
     },
     "verse-image.js": {
@@ -1970,9 +2114,11 @@
     "1 Corinthians 1:27",
     "1 Corinthians 2:3",
     "1 Corinthians 3:1",
+    "1 Corinthians 3:11",
     "1 Corinthians 3:2",
     "1 Corinthians 3:3",
     "1 Corinthians 4:2",
+    "1 Corinthians 4:5",
     "1 Corinthians 5:9",
     "1 Corinthians 6:11",
     "1 Corinthians 6:18",
@@ -1995,6 +2141,7 @@
     "1 John 4:17",
     "1 John 4:18",
     "1 John 4:19",
+    "1 John 4:20-21",
     "1 John 4:4",
     "1 John 4:7",
     "1 John 4:8",
@@ -2060,6 +2207,7 @@
     "1 Peter 1:9",
     "1 Peter 2:1",
     "1 Peter 2:11",
+    "1 Peter 2:12",
     "1 Peter 2:2",
     "1 Peter 2:21",
     "1 Peter 2:23",
@@ -2074,6 +2222,7 @@
     "1 Peter 3:21",
     "1 Peter 3:7",
     "1 Peter 3:8-9",
+    "1 Peter 3:9",
     "1 Peter 4:10-11",
     "1 Peter 4:12",
     "1 Peter 4:15",
@@ -2197,6 +2346,7 @@
     "1 Timothy 5:1",
     "1 Timothy 5:17",
     "1 Timothy 5:2",
+    "1 Timothy 6:10",
     "1 Timothy 6:18",
     "1 Timothy 6:20",
     "1 Timothy 6:6",
@@ -2257,6 +2407,7 @@
     "2 Corinthians 4:8-9",
     "2 Corinthians 5:1",
     "2 Corinthians 5:17",
+    "2 Corinthians 5:18",
     "2 Corinthians 5:18-19",
     "2 Corinthians 5:7",
     "2 Corinthians 6:3",
@@ -2576,6 +2727,7 @@
     "Colossians 1:15",
     "Colossians 1:15-20",
     "Colossians 1:18",
+    "Colossians 1:20",
     "Colossians 1:9",
     "Colossians 2:10",
     "Colossians 2:12",
@@ -2592,6 +2744,7 @@
     "Colossians 3:13-15",
     "Colossians 3:14",
     "Colossians 3:15",
+    "Colossians 3:16",
     "Colossians 3:17",
     "Colossians 3:19",
     "Colossians 3:2",
@@ -2607,6 +2760,7 @@
     "Colossians 4:14",
     "Colossians 4:16",
     "Colossians 4:2",
+    "Colossians 4:6",
     "Colossians 4:9",
     "Daniel 1:4",
     "Daniel 1:7",
@@ -2737,6 +2891,7 @@
     "Ephesians 5:25",
     "Ephesians 5:27",
     "Ephesians 5:3",
+    "Ephesians 5:8",
     "Ephesians 6:1",
     "Ephesians 6:1-3",
     "Ephesians 6:10",
@@ -2856,6 +3011,7 @@
     "Ezekiel 26:2",
     "Ezekiel 2:3",
     "Ezekiel 34:14",
+    "Ezekiel 34:15-16",
     "Ezekiel 36:26",
     "Ezekiel 37:1",
     "Ezekiel 37:1-14",
@@ -2900,6 +3056,7 @@
     "Galatians 5:1",
     "Galatians 5:12",
     "Galatians 5:13",
+    "Galatians 5:14",
     "Galatians 5:15",
     "Galatians 5:16",
     "Galatians 5:16-25",
@@ -2913,6 +3070,7 @@
     "Galatians 5:25",
     "Galatians 5:26",
     "Galatians 5:6",
+    "Galatians 6:1",
     "Galatians 6:1-2",
     "Galatians 6:12",
     "Galatians 6:14",
@@ -3120,6 +3278,7 @@
     "Hebrews 12:6",
     "Hebrews 13:15",
     "Hebrews 13:16",
+    "Hebrews 13:20-21",
     "Hebrews 13:3",
     "Hebrews 13:4",
     "Hebrews 13:5",
@@ -3281,10 +3440,12 @@
     "James 1:2-4",
     "James 1:20",
     "James 1:22",
+    "James 1:22-25",
     "James 1:3",
     "James 1:4",
     "James 1:5",
     "James 1:5-6",
+    "James 2:13",
     "James 2:14-26",
     "James 2:17",
     "James 2:19",
@@ -3293,14 +3454,17 @@
     "James 2:25",
     "James 2:5",
     "James 2:7",
+    "James 2:8",
     "James 3:13",
     "James 3:14",
     "James 3:14-15",
     "James 3:16",
     "James 3:17",
+    "James 3:17-18",
     "James 3:6",
     "James 3:9",
     "James 4:10",
+    "James 4:11-12",
     "James 4:13",
     "James 4:13-15",
     "James 4:2",
@@ -3695,11 +3859,14 @@
     "Luke 11:33",
     "Luke 11:4",
     "Luke 11:41",
+    "Luke 11:9-13",
     "Luke 12:15",
+    "Luke 12:22-24",
     "Luke 12:25",
     "Luke 12:27",
     "Luke 12:3",
     "Luke 12:32",
+    "Luke 12:34",
     "Luke 12:35",
     "Luke 12:6",
     "Luke 12:6-7",
@@ -3882,8 +4049,10 @@
     "Luke 6:27-28",
     "Luke 6:29",
     "Luke 6:31",
+    "Luke 6:36",
     "Luke 6:37",
     "Luke 6:38",
+    "Luke 6:47-49",
     "Luke 7:20",
     "Luke 7:6",
     "Luke 8:16",
@@ -4290,19 +4459,27 @@
     "Matthew 5:10",
     "Matthew 5:11",
     "Matthew 5:11-12",
+    "Matthew 5:13",
     "Matthew 5:13-14",
+    "Matthew 5:13-16",
     "Matthew 5:14",
+    "Matthew 5:14-16",
     "Matthew 5:15",
     "Matthew 5:16",
     "Matthew 5:18",
+    "Matthew 5:21",
+    "Matthew 5:21-24",
     "Matthew 5:22",
     "Matthew 5:23-24",
+    "Matthew 5:24",
     "Matthew 5:28",
     "Matthew 5:3",
     "Matthew 5:3-11",
     "Matthew 5:3-6",
     "Matthew 5:4",
     "Matthew 5:40",
+    "Matthew 5:43",
+    "Matthew 5:43-48",
     "Matthew 5:44",
     "Matthew 5:46",
     "Matthew 5:48",
@@ -4318,6 +4495,8 @@
     "Matthew 6:14",
     "Matthew 6:14-15",
     "Matthew 6:16",
+    "Matthew 6:19",
+    "Matthew 6:19-24",
     "Matthew 6:2",
     "Matthew 6:21",
     "Matthew 6:24",
@@ -4327,6 +4506,7 @@
     "Matthew 6:25-34",
     "Matthew 6:26",
     "Matthew 6:28",
+    "Matthew 6:28-30",
     "Matthew 6:29",
     "Matthew 6:30",
     "Matthew 6:31",
@@ -4339,15 +4519,24 @@
     "Matthew 6:7-8",
     "Matthew 6:9",
     "Matthew 6:9-15",
+    "Matthew 7:1",
+    "Matthew 7:1-2",
+    "Matthew 7:11",
     "Matthew 7:12",
     "Matthew 7:13",
+    "Matthew 7:13-14",
     "Matthew 7:14",
+    "Matthew 7:21",
     "Matthew 7:24",
+    "Matthew 7:24-25",
     "Matthew 7:24-27",
     "Matthew 7:25",
     "Matthew 7:26",
     "Matthew 7:26-27",
+    "Matthew 7:3-5",
     "Matthew 7:7",
+    "Matthew 7:7-11",
+    "Matthew 7:7-8",
     "Matthew 8:10",
     "Matthew 8:13",
     "Matthew 8:14-15",
@@ -4445,6 +4634,7 @@
     "Philippians 2:1",
     "Philippians 2:10",
     "Philippians 2:13",
+    "Philippians 2:15",
     "Philippians 2:25",
     "Philippians 2:3",
     "Philippians 2:8",
@@ -4479,6 +4669,7 @@
     "Proverbs 12:25",
     "Proverbs 13:24",
     "Proverbs 13:25",
+    "Proverbs 14:12",
     "Proverbs 14:26",
     "Proverbs 14:29",
     "Proverbs 14:30",
@@ -4525,6 +4716,7 @@
     "Proverbs 23:26",
     "Proverbs 23:7",
     "Proverbs 24:1",
+    "Proverbs 25:21-22",
     "Proverbs 25:28",
     "Proverbs 25:4",
     "Proverbs 25:9",
@@ -4549,6 +4741,7 @@
     "Proverbs 30:29",
     "Proverbs 30:33",
     "Proverbs 30:5",
+    "Proverbs 30:8-9",
     "Proverbs 31:10",
     "Proverbs 31:28",
     "Proverbs 31:30",
@@ -4977,6 +5170,7 @@
     "Revelation 5:12",
     "Revelation 6:1",
     "Revelation 6:2",
+    "Revelation 7:17",
     "Revelation 7:4",
     "Romans 10:10",
     "Romans 10:13",
@@ -4999,6 +5193,7 @@
     "Romans 12:17-19",
     "Romans 12:18",
     "Romans 12:19",
+    "Romans 12:19-21",
     "Romans 12:2",
     "Romans 12:21",
     "Romans 12:3",
@@ -5010,10 +5205,12 @@
     "Romans 13:13",
     "Romans 13:14",
     "Romans 13:2",
+    "Romans 13:8-10",
     "Romans 14:1",
     "Romans 14:13",
     "Romans 14:19",
     "Romans 14:2",
+    "Romans 14:4",
     "Romans 14:5",
     "Romans 14:8",
     "Romans 15:1",
@@ -6191,6 +6388,14 @@
         "to": "Corinth"
       }
     },
+    "1 Corinthians 3:11": {
+      "general": {
+        "plainExplanation": "For other foundation can no man lay than that is laid, which is Jesus Christ.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Corinth"
+      }
+    },
     "1 Corinthians 3:2": {
       "general": {
         "plainExplanation": "I have fed you with milk, and not with meat: for hitherto you were not able to bear it, neither yet now are you able.",
@@ -6210,6 +6415,14 @@
     "1 Corinthians 4:2": {
       "general": {
         "plainExplanation": "Moreover it is required in stewards, that a man be found faithful.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Corinth"
+      }
+    },
+    "1 Corinthians 4:5": {
+      "general": {
+        "plainExplanation": "Key idea: Therefore judge nothing before the time, until the Lord come, who both will bring to light the hidden things of darkness, and will make manifest the counsel...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Paul",
         "to": "Corinth"
@@ -6386,6 +6599,14 @@
     "1 John 4:19": {
       "general": {
         "plainExplanation": "We love him, because he first loved us.",
+        "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
+        "about": "John",
+        "to": "Believers"
+      }
+    },
+    "1 John 4:20-21": {
+      "general": {
+        "plainExplanation": "Key idea: If a man say, I love God, and hateth his brother, he is a liar: for he that loves not his brother whom he has seen, how can he love God whom he has not seen...",
         "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
         "about": "John",
         "to": "Believers"
@@ -6911,6 +7132,14 @@
         "to": "Believers"
       }
     },
+    "1 Peter 2:12": {
+      "general": {
+        "plainExplanation": "Key idea: Having your conversation honest among the Gentiles: that, whereas they speak against you as evildoers, they may by your good works, which they shall look, g...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Peter",
+        "to": "Believers"
+      }
+    },
     "1 Peter 2:2": {
       "general": {
         "plainExplanation": "As newborn babes, desire the sincere milk of the word, that you may grow thereby:",
@@ -7019,6 +7248,14 @@
       "general": {
         "plainExplanation": "Key idea: Finally, be you all of one mind, having compassion one of another, love as brothers, be pitiful, be courteous: Not rendering evil for evil, or railing for r...",
         "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
+        "about": "Peter",
+        "to": "Believers"
+      }
+    },
+    "1 Peter 3:9": {
+      "general": {
+        "plainExplanation": "Not rendering evil for evil, or railing for railing: but contrariwise blessing; knowing that you are thereunto called, that you should inherit a blessing.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Peter",
         "to": "Believers"
       }
@@ -8007,6 +8244,14 @@
         "to": "Timothy"
       }
     },
+    "1 Timothy 6:10": {
+      "general": {
+        "plainExplanation": "For the love of money is the root of all evil: which while some coveted after, they have erred from the faith, and pierced themselves through with many sorrows.",
+        "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
+        "about": "Paul",
+        "to": "Timothy"
+      }
+    },
     "1 Timothy 6:18": {
       "general": {
         "plainExplanation": "That they do good, that they be rich in good works, ready to distribute, willing to communicate;",
@@ -8418,6 +8663,14 @@
     "2 Corinthians 5:17": {
       "general": {
         "plainExplanation": "Therefore if any man be in Christ, he is a new creature: old things are passed away; look, all things are become new.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Corinth"
+      }
+    },
+    "2 Corinthians 5:18": {
+      "general": {
+        "plainExplanation": "And all things are of God, who has reconciled us to himself by Jesus Christ, and has given to us the ministry of reconciliation;",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Paul",
         "to": "Corinth"
@@ -10919,6 +11172,14 @@
         "to": "Colosse"
       }
     },
+    "Colossians 1:20": {
+      "general": {
+        "plainExplanation": "And, having made peace through the blood of his cross, by him to reconcile all things to himself; by him, I say, whether they be things in earth, or things in heaven.",
+        "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
+        "about": "Paul",
+        "to": "Colosse"
+      }
+    },
     "Colossians 1:9": {
       "general": {
         "plainExplanation": "Key idea: For this cause we also, since the day we heard it, do not cease to pray for you, and to desire that you might be filled with the knowledge of his will in al...",
@@ -11047,6 +11308,14 @@
         "to": "Colosse"
       }
     },
+    "Colossians 3:16": {
+      "general": {
+        "plainExplanation": "Key idea: Let the word of Christ dwell in you richly in all wisdom; teaching and admonishing one another in psalms and hymns and spiritual songs, singing with grace i...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Colosse"
+      }
+    },
     "Colossians 3:17": {
       "general": {
         "plainExplanation": "And whatever you do in word or deed, do all in the name of the Lord Jesus, giving thanks to God and the Father by him.",
@@ -11162,6 +11431,14 @@
     "Colossians 4:2": {
       "general": {
         "plainExplanation": "Continue in prayer, and watch in the same with thanksgiving;",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Colosse"
+      }
+    },
+    "Colossians 4:6": {
+      "general": {
+        "plainExplanation": "Let your speech be alway with grace, seasoned with salt, that you may know how you ought to answer every man.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Paul",
         "to": "Colosse"
@@ -12207,6 +12484,14 @@
         "to": "Ephesus"
       }
     },
+    "Ephesians 5:8": {
+      "general": {
+        "plainExplanation": "For you were sometimes darkness, but now are you light in the Lord: walk as children of light:",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Ephesus"
+      }
+    },
     "Ephesians 6:1": {
       "general": {
         "plainExplanation": "Children, obey your parents in the Lord: for this is right.",
@@ -13159,6 +13444,14 @@
         "to": "Exiles"
       }
     },
+    "Ezekiel 34:15-16": {
+      "general": {
+        "plainExplanation": "Key idea: I will feed my flock, and I will cause them to lie down, says the Lord GOD. I will seek that which was lost, and bring again that which was driven away, and...",
+        "modernApplication": "This verse reminds you that God gives strength that does not start with your own reserves.",
+        "about": "Ezekiel",
+        "to": "Exiles"
+      }
+    },
     "Ezekiel 36:26": {
       "general": {
         "plainExplanation": "A new heart also will I give you, and a new spirit will I put within you: and I will take away the stony heart out of your flesh, and I will give you an heart of flesh.",
@@ -13511,6 +13804,14 @@
         "to": "Galatia"
       }
     },
+    "Galatians 5:14": {
+      "general": {
+        "plainExplanation": "For all the law is fulfilled in one word, even in this; you shalt love your neighbour as thyself.",
+        "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
+        "about": "Paul",
+        "to": "Galatia"
+      }
+    },
     "Galatians 5:15": {
       "general": {
         "plainExplanation": "But if you bite and devour one another, take heed that you be not consumed one of another.",
@@ -13611,6 +13912,14 @@
       "general": {
         "plainExplanation": "For in Jesus Christ neither circumcision availeth any thing, nor uncircumcision; but faith which works by love.",
         "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
+        "about": "Paul",
+        "to": "Galatia"
+      }
+    },
+    "Galatians 6:1": {
+      "general": {
+        "plainExplanation": "brothers, if a man be overtaken in a fault, you which are spiritual, restore such an one in the spirit of meekness; considering thyself, lest you also be tempted.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Paul",
         "to": "Galatia"
       }
@@ -15271,6 +15580,14 @@
         "to": "Hebrew believers"
       }
     },
+    "Hebrews 13:20-21": {
+      "general": {
+        "plainExplanation": "Key idea: Now the God of peace, that brought again from the dead our Lord Jesus, that great shepherd of the sheep, through the blood of the eternal covenant, Make you...",
+        "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
+        "about": "Unknown",
+        "to": "Hebrew believers"
+      }
+    },
     "Hebrews 13:3": {
       "general": {
         "plainExplanation": "Remember them that are in bonds, as bound with them; and them which suffer adversity, as being yourselves also in the body.",
@@ -16559,6 +16876,14 @@
         "to": "Believers"
       }
     },
+    "James 1:22-25": {
+      "general": {
+        "plainExplanation": "Key idea: But be you doers of the word, and not hearers only, deceiving your own selves. For if any be a hearer of the word, and not a doer, he is like to a man behol...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "James",
+        "to": "Believers"
+      }
+    },
     "James 1:3": {
       "general": {
         "plainExplanation": "Knowing this, that the trying of your faith works patience.",
@@ -16587,6 +16912,14 @@
       "general": {
         "plainExplanation": "Key idea: If any of you lack wisdom, let him ask of God, that gives to all men liberally, and upbraideth not; and it shall be given him. But let him ask in faith, not...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "James",
+        "to": "Believers"
+      }
+    },
+    "James 2:13": {
+      "general": {
+        "plainExplanation": "For he shall have judgment without mercy, that has shewed no mercy; and mercy rejoiceth against judgment.",
+        "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
         "about": "James",
         "to": "Believers"
       }
@@ -16655,6 +16988,14 @@
         "to": "Believers"
       }
     },
+    "James 2:8": {
+      "general": {
+        "plainExplanation": "If you fulfil the royal law according to the scripture, you shalt love your neighbour as thyself, you do well:",
+        "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
+        "about": "James",
+        "to": "Believers"
+      }
+    },
     "James 3:13": {
       "general": {
         "plainExplanation": "Who is a wise man and endued with knowledge among you? let him shew out of a good conversation his works with meekness of wisdom.",
@@ -16695,6 +17036,14 @@
         "to": "Believers"
       }
     },
+    "James 3:17-18": {
+      "general": {
+        "plainExplanation": "Key idea: But the wisdom that is from above is first pure, then peaceable, gentle, and easy to be intreated, full of mercy and good fruits, without partiality, and wi...",
+        "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
+        "about": "James",
+        "to": "Believers"
+      }
+    },
     "James 3:6": {
       "general": {
         "plainExplanation": "Key idea: And the tongue is a fire, a world of iniquity: so is the tongue among our members, that it defileth the whole body, and setteth on fire the course of nature...",
@@ -16714,6 +17063,14 @@
     "James 4:10": {
       "general": {
         "plainExplanation": "Humble yourselves in the sight of the Lord, and he shall lift you up.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "James",
+        "to": "Believers"
+      }
+    },
+    "James 4:11-12": {
+      "general": {
+        "plainExplanation": "Key idea: Speak not evil one of another, brothers. He that speaketh evil of his brother, and judgeth his brother, speaketh evil of the law, and judgeth the law: but i...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "James",
         "to": "Believers"
@@ -19871,9 +20228,25 @@
         "to": "Believers"
       }
     },
+    "Luke 11:9-13": {
+      "general": {
+        "plainExplanation": "Key idea: And I say to you, Ask, and it shall be given you; seek, and you shall find; knock, and it shall be opened to you. For every one that asketh receiveth; and h...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Luke 12:15": {
       "general": {
         "plainExplanation": "And he said to them, Take heed, and beware of covetousness: for a man's life consisteth not in the abundance of the things which he possesseth.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Luke 12:22-24": {
+      "general": {
+        "plainExplanation": "Key idea: And he said to his disciples, Therefore I say to you, Take no thought for your life, what you shall eat; neither for the body, what you shall put on. The li...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -19907,6 +20280,14 @@
       "general": {
         "plainExplanation": "Fear not, little flock; for it is your Father's good pleasure to give you the kingdom.",
         "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Luke 12:34": {
+      "general": {
+        "plainExplanation": "For where your treasure is, there will your heart be also.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
       }
@@ -21367,6 +21748,14 @@
         "to": "Believers"
       }
     },
+    "Luke 6:36": {
+      "general": {
+        "plainExplanation": "Be you therefore merciful, as your Father also is merciful.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Luke 6:37": {
       "general": {
         "plainExplanation": "Do not judge, and you won't be judged; forgive, and you will be forgiven.",
@@ -21378,6 +21767,14 @@
     "Luke 6:38": {
       "general": {
         "plainExplanation": "Give, and it shall be given to you; good measure, pressed down, and shaken together, and running over, shall men give into your bosom.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Luke 6:47-49": {
+      "general": {
+        "plainExplanation": "Key idea: whoever cometh to me, and heareth my sayings, and doeth them, I will shew you to whom he is like: He is like a man which built an house, and digged deep, an...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -24631,7 +25028,23 @@
         "to": "Believers"
       }
     },
+    "Matthew 5:13": {
+      "general": {
+        "plainExplanation": "Key idea: you are the salt of the earth: but if the salt have lost his savour, wherewith shall it be salted? it is thenceforth good for nothing, but to be cast out, a...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Matthew 5:13-14": {
+      "general": {
+        "plainExplanation": "Key idea: you are the salt of the earth: but if the salt have lost his savour, wherewith shall it be salted? it is thenceforth good for nothing, but to be cast out, a...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 5:13-16": {
       "general": {
         "plainExplanation": "Key idea: you are the salt of the earth: but if the salt have lost his savour, wherewith shall it be salted? it is thenceforth good for nothing, but to be cast out, a...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
@@ -24642,6 +25055,14 @@
     "Matthew 5:14": {
       "general": {
         "plainExplanation": "Jesus says His people are the world’s light—let your life point others to God (see the full KJV line above).",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 5:14-16": {
+      "general": {
+        "plainExplanation": "Key idea: you are the light of the world. A city that is set on an hill cannot be hid. Neither do men light a candle, and put it under a bushel, but on a candlestick;...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -24671,6 +25092,22 @@
         "to": "Believers"
       }
     },
+    "Matthew 5:21": {
+      "general": {
+        "plainExplanation": "you have heard that it was said by them of old time, you shalt not kill; and whoever shall kill shall be in danger of the judgment:",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 5:21-24": {
+      "general": {
+        "plainExplanation": "Key idea: you have heard that it was said by them of old time, you shalt not kill; and whoever shall kill shall be in danger of the judgment: But I say to you, That w...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Matthew 5:22": {
       "general": {
         "plainExplanation": "Key idea: But I say to you, That whoever is angry with his brother without a cause shall be in danger of the judgment: and whoever shall say to his brother, Raca, sha...",
@@ -24682,6 +25119,14 @@
     "Matthew 5:23-24": {
       "general": {
         "plainExplanation": "Key idea: Therefore if you bring your gift to the altar, and there rememberest that your brother has ought against you; Leave there your gift before the altar, and go...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 5:24": {
+      "general": {
+        "plainExplanation": "Leave there your gift before the altar, and go your way; first be reconciled to your brother, and then come and offer your gift.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -24731,6 +25176,22 @@
       "general": {
         "plainExplanation": "And if any man will sue you at the law, and take away your coat, let him have your cloak also.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 5:43": {
+      "general": {
+        "plainExplanation": "you have heard that it has been said, you shalt love your neighbour, and hate thine enemy.",
+        "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 5:43-48": {
+      "general": {
+        "plainExplanation": "Key idea: you have heard that it has been said, you shalt love your neighbour, and hate thine enemy. But I say to you, Love your enemies, bless them that curse you, d...",
+        "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
         "about": "Jesus",
         "to": "Believers"
       }
@@ -24855,6 +25316,22 @@
         "to": "Believers"
       }
     },
+    "Matthew 6:19": {
+      "general": {
+        "plainExplanation": "Lay not up for yourselves treasures upon earth, where moth and rust does corrupt, and where thieves break through and steal:",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 6:19-24": {
+      "general": {
+        "plainExplanation": "Key idea: Lay not up for yourselves treasures upon earth, where moth and rust does corrupt, and where thieves break through and steal: But lay up for yourselves treas...",
+        "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Matthew 6:2": {
       "general": {
         "plainExplanation": "Key idea: Therefore when you doest thine alms, do not sound a trumpet before you, as the hypocrites do in the synagogues and in the streets, that they may have glory...",
@@ -24922,6 +25399,14 @@
     "Matthew 6:28": {
       "general": {
         "plainExplanation": "And why take you thought for raiment? Consider the lilies of the field, how they grow; they toil not, neither do they spin:",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 6:28-30": {
+      "general": {
+        "plainExplanation": "Key idea: And why take you thought for raiment? Consider the lilies of the field, how they grow; they toil not, neither do they spin: And yet I say to you, That even...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -25023,6 +25508,30 @@
         "to": "Believers"
       }
     },
+    "Matthew 7:1": {
+      "general": {
+        "plainExplanation": "Judge not, that you be not judged.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 7:1-2": {
+      "general": {
+        "plainExplanation": "Judge not, that you be not judged. For with what judgment you judge, you shall be judged: and with what measure you mete, it shall be measured to you again.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 7:11": {
+      "general": {
+        "plainExplanation": "If you then, being evil, know how to give good gifts to your children, how much more shall your Father which is in heaven give good things to them that ask him?",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Matthew 7:12": {
       "general": {
         "plainExplanation": "All things whatever you would that men should do to you, do you even so to them.",
@@ -25039,6 +25548,14 @@
         "to": "Believers"
       }
     },
+    "Matthew 7:13-14": {
+      "general": {
+        "plainExplanation": "Key idea: Enter you in at the strait gate: for wide is the gate, and broad is the way, that leadeth to destruction, and many there be which go in thereat: Because str...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Matthew 7:14": {
       "general": {
         "plainExplanation": "Because strait is the gate, and narrow is the way, which leadeth to life, and few there be that find it.",
@@ -25047,9 +25564,25 @@
         "to": "Believers"
       }
     },
+    "Matthew 7:21": {
+      "general": {
+        "plainExplanation": "Not every one that says to me, Lord, Lord, shall enter into the kingdom of heaven; but he that doeth the will of my Father which is in heaven.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Matthew 7:24": {
       "general": {
         "plainExplanation": "Therefore whoever heareth these sayings of mine, and doeth them, I will liken him to a wise man, which built his house upon a rock:",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 7:24-25": {
+      "general": {
+        "plainExplanation": "Key idea: Therefore whoever heareth these sayings of mine, and doeth them, I will liken him to a wise man, which built his house upon a rock: And the rain descended,...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -25087,9 +25620,33 @@
         "to": "Believers"
       }
     },
+    "Matthew 7:3-5": {
+      "general": {
+        "plainExplanation": "Key idea: And why beholdest you the mote that is in your brother’s eye, but considerest not the beam that is in thine own eye? Or how wilt you say to your brother, Le...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Matthew 7:7": {
       "general": {
         "plainExplanation": "Ask, and it shall be given you; seek, and you shall find; knock, and it shall be opened to you.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 7:7-11": {
+      "general": {
+        "plainExplanation": "Key idea: Ask, and it shall be given you; seek, and you shall find; knock, and it shall be opened to you: For every one that asketh receiveth; and he that seeketh fin...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 7:7-8": {
+      "general": {
+        "plainExplanation": "Key idea: Ask, and it shall be given you; seek, and you shall find; knock, and it shall be opened to you: For every one that asketh receiveth; and he that seeketh fin...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -25871,6 +26428,14 @@
         "to": "Philippi"
       }
     },
+    "Philippians 2:15": {
+      "general": {
+        "plainExplanation": "That you may be blameless and harmless, the sons of God, without rebuke, in the midst of a crooked and perverse nation, among whom you shine as lights in the world;",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Philippi"
+      }
+    },
     "Philippians 2:25": {
       "general": {
         "plainExplanation": "Yet I supposed it necessary to send to you Epaphroditus, my brother, and companion in labor, and fellowsoldier, but your messenger, and he that ministered to my wants.",
@@ -26138,6 +26703,14 @@
     "Proverbs 13:25": {
       "general": {
         "plainExplanation": "The righteous eateth to the satisfying of his soul: but the belly of the wicked shall want.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Solomon giving wisdom",
+        "to": "Everyone seeking guidance"
+      }
+    },
+    "Proverbs 14:12": {
+      "general": {
+        "plainExplanation": "There is a way which seemeth right to a man, but the end thereof are the ways of death.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Solomon giving wisdom",
         "to": "Everyone seeking guidance"
@@ -26511,6 +27084,14 @@
         "to": "Everyone seeking guidance"
       }
     },
+    "Proverbs 25:21-22": {
+      "general": {
+        "plainExplanation": "If thine enemy be hungry, give him bread to eat; and if he be thirsty, give him water to drink: For you shalt heap coals of fire upon his head, and the LORD shall reward you.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Solomon giving wisdom",
+        "to": "Everyone seeking guidance"
+      }
+    },
     "Proverbs 25:28": {
       "general": {
         "plainExplanation": "He that has no rule over his own spirit is like a city that is broken down, and without walls.",
@@ -26699,6 +27280,14 @@
       "general": {
         "plainExplanation": "Every word of God is pure: he is a shield to them that put their trust in him.",
         "modernApplication": "This verse keeps your eyes up when the day feels slow, heavy, or unfinished.",
+        "about": "Solomon giving wisdom",
+        "to": "Everyone seeking guidance"
+      }
+    },
+    "Proverbs 30:8-9": {
+      "general": {
+        "plainExplanation": "Key idea: Remove far from me vanity and lies: give me neither poverty nor riches; feed me with food convenient for me: Lest I be full, and deny you, and say, Who is t...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Solomon giving wisdom",
         "to": "Everyone seeking guidance"
       }
@@ -30127,6 +30716,14 @@
         "to": "Seven churches"
       }
     },
+    "Revelation 7:17": {
+      "general": {
+        "plainExplanation": "For the Lamb which is in the midst of the throne shall feed them, and shall lead them to living fountains of waters: and God shall wipe away all tears from their eyes.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "John",
+        "to": "Seven churches"
+      }
+    },
     "Revelation 7:4": {
       "general": {
         "plainExplanation": "And I heard the number of them which were sealed: and there were sealed an hundred and forty and four thousand of all the tribes of the children of Israel.",
@@ -30303,6 +30900,14 @@
         "to": "Rome"
       }
     },
+    "Romans 12:19-21": {
+      "general": {
+        "plainExplanation": "Key idea: Dearly beloved, avenge not yourselves, but rather give place to wrath: for it is written, Vengeance is mine; I will repay, says the Lord. Therefore if thine...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Rome"
+      }
+    },
     "Romans 12:2": {
       "general": {
         "plainExplanation": "Don't copy the world; let God transform you by renewing your mind.",
@@ -30391,6 +30996,14 @@
         "to": "Rome"
       }
     },
+    "Romans 13:8-10": {
+      "general": {
+        "plainExplanation": "Key idea: Owe no man any thing, but to love one another: for he that loves another has fulfilled the law. For this, you shalt not commit adultery, you shalt not kill,...",
+        "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
+        "about": "Paul",
+        "to": "Rome"
+      }
+    },
     "Romans 14:1": {
       "general": {
         "plainExplanation": "Him that is weak in the faith receive you, but not to doubtful disputations.",
@@ -30418,6 +31031,14 @@
     "Romans 14:2": {
       "general": {
         "plainExplanation": "For one believes that he may eat all things: another, who is weak, eateth herbs.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Rome"
+      }
+    },
+    "Romans 14:4": {
+      "general": {
+        "plainExplanation": "Who art you that judgest another man’s servant? to his own master he standeth or falleth. Yea, he shall be holden up: for God is able to make him stand.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Paul",
         "to": "Rome"

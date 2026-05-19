@@ -57,3 +57,5 @@ The ribbon journal label links to both anchors for people who want extra phrases
 - **Authority breath** — Deep Walk step 2 includes Matthew 22:21 + Acts 5:29 optional exhale when Caesar and conscience pull apart.
 - **Cross-links** — Each deep lesson page includes **On the Möbius ribbon** (build: `scripts/build-life-lessons-pages.mjs`).
 - **Little Shepherd ribbon** — `<details class="mobius-family-ribbon">` on `mobius.html` points to Kids read-alouds, two deep rooms, and `authorityconscience` plan.
+- **Porch Pathways print** — `porch-pathways-ribbon-one-page-print.html` lists all nineteen stations, anchor breath, gentle plans, and Little Shepherd read-alouds (ink-friendly; no required order).
+- **Ribbon journal in My Study** — `mystudy.html#mystudy-ribbon-journal` uses the same device-local store as `#mobius-loop-journal` (`tdb-mobius-journal.js`); optional station picker from `mobius-deep-lesson-stations.js`.

@@ -1,0 +1,106 @@
+/* Lessons from the Valley — quiet markers, KJV-only */
+.tdb-lfv-main {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 0 1rem 2.5rem;
+}
+.tdb-lfv-hero {
+  margin-bottom: 1.25rem;
+}
+.tdb-lfv-eyebrow {
+  margin: 0 0 0.25rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold, #e3bc67);
+}
+.tdb-lfv-north-star {
+  margin: 0.75rem 0 0;
+  padding: 0.75rem 0.9rem;
+  border-radius: 14px;
+  border: 1px solid rgba(227, 188, 103, 0.28);
+  background: rgba(15, 23, 42, 0.35);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: rgba(232, 228, 220, 0.92);
+}
+.tdb-lfv-north-star em {
+  display: block;
+  margin-top: 0.35rem;
+  font-style: italic;
+  color: rgba(201, 184, 154, 0.95);
+}
+.tdb-lfv-actions-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+}
+.tdb-lfv-toc {
+  margin-bottom: 1.25rem;
+}
+.tdb-lfv-toc ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.1rem;
+  line-height: 1.55;
+}
+.tdb-lfv-toc a {
+  color: var(--gold, #e3bc67);
+}
+.tdb-lfv-entry {
+  margin-bottom: 1.15rem;
+}
+.tdb-lfv-entry h2 {
+  font-size: 1.12rem;
+  margin: 0 0 0.65rem;
+  color: var(--gold, #e3bc67);
+}
+.tdb-lfv-field {
+  margin: 0 0 0.85rem;
+}
+.tdb-lfv-field:last-child {
+  margin-bottom: 0;
+}
+.tdb-lfv-field h3 {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(201, 184, 154, 0.95);
+  margin: 0 0 0.28rem;
+}
+.tdb-lfv-field p {
+  margin: 0;
+  line-height: 1.55;
+}
+.tdb-lfv-verse {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 1.02rem;
+  line-height: 1.5;
+  color: rgba(232, 228, 220, 0.96);
+}
+.tdb-lfv-verse .tdb-lfv-ref {
+  display: block;
+  font-style: normal;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: var(--gold, #e3bc67);
+}
+.tdb-lfv-rooms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.65rem;
+  margin-top: 0.35rem;
+}
+.tdb-lfv-rooms a {
+  font-size: 0.88rem;
+}
+.tdb-lfv-foot-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}

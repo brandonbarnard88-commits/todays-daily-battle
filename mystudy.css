@@ -623,6 +623,66 @@ html[data-theme="light"] .mystudy-streak-badge-figure {
   display: none;
 }
 
+.mystudy-ribbon-station-select {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 0.35rem;
+  padding: 0.55rem 0.65rem;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  background: rgba(15, 23, 42, 0.55);
+  color: var(--text, #e8eef5);
+  font-size: 0.95rem;
+}
+
+.mystudy-ribbon-journal-input {
+  width: 100%;
+  min-height: 5.5rem;
+}
+
+.mystudy-ribbon-prompts-list {
+  margin: 0.35rem 0 0;
+  padding-left: 1.15rem;
+}
+
+.mystudy-ribbon-journal-list {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.mystudy-ribbon-journal-list li {
+  padding: 0.65rem 0.75rem;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: rgba(9, 14, 24, 0.45);
+}
+
+.mystudy-ribbon-journal-ctx {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--gold, #c9a227);
+  margin-bottom: 0.25rem;
+}
+
+.mystudy-ribbon-journal-preview {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: rgba(226, 232, 240, 0.88);
+}
+
+#mystudy-ribbon-journal-status.tdb-mobius-journal-status--ok {
+  color: #8fd4a8;
+}
+
+#mystudy-ribbon-journal-status.tdb-mobius-journal-status--err {
+  color: #e8b4a8;
+}
+
 .mystudy-panel-flow {
   display: grid;
   gap: 1.25rem;

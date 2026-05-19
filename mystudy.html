@@ -77,6 +77,7 @@
             <li><a href="#mystudy-streak-badges">Quiet markers</a></li>
             <li><a href="#mystudy-memorize-strip">Memorize</a></li>
             <li><a href="#panel-my-study">My Study</a></li>
+            <li><a href="#mystudy-ribbon-journal">Ribbon journal</a></li>
             <li><a href="#panel-note-library">Saved &amp; notes</a></li>
             <li><a href="#panel-highlights">Highlights</a></li>
             <li><a href="#panel-join-study">Join Study</a></li>
@@ -178,12 +179,40 @@
 
       <section id="panel-note-library" class="mystudy-panel hidden" role="tabpanel" aria-labelledby="tab-note-library">
         <div class="mystudy-panel-flow">
+          <section id="mystudy-ribbon-journal" class="mystudy-section-card mystudy-ribbon-journal-card" aria-labelledby="mystudy-ribbon-journal-heading">
+            <div class="mystudy-section-head">
+              <h2 id="mystudy-ribbon-journal-heading" class="section-divider mystudy-h2 mystudy-h2-tight">Ribbon journal</h2>
+              <p class="section-note">Quiet lines for the M&ouml;bius path&mdash;which station you were near, what breath you needed, what the Lord showed you. Same gentle store as the <a href="mobius.html#mobius-loop-journal">M&ouml;bius room</a>; stays on this device. No dates on screen, no streaks, no schedule.</p>
+            </div>
+            <label for="mystudy-ribbon-station" class="mystudy-label">Station on the ribbon (optional)</label>
+            <select id="mystudy-ribbon-station" class="mystudy-ribbon-station-select" aria-label="Which deep room or turn on the ribbon"></select>
+            <details class="mystudy-ribbon-prompts-peek util-mb-0_75">
+              <summary class="mystudy-data-peek-summary">Gentle prompts (optional)</summary>
+              <ul class="mystudy-ribbon-prompts-list section-note">
+                <li>Which turn on the ribbon felt closest today&mdash;fear, weariness, conscience, or peace?</li>
+                <li>One inhale you spoke honestly; one exhale from Scripture you received.</li>
+                <li>What small step might love look like before the day ends?</li>
+                <li>If the waves were loud: who is in the boat with you?</li>
+              </ul>
+            </details>
+            <label for="mystudy-ribbon-journal-input" class="mystudy-label">Your lines</label>
+            <textarea id="mystudy-ribbon-journal-input" class="mystudy-ribbon-journal-input" rows="4" maxlength="2000" placeholder="A line for the path&mdash;no polish required&hellip;" autocomplete="off"></textarea>
+            <div class="mystudy-share-actions">
+              <button type="button" id="mystudy-ribbon-journal-save" class="btn btn-primary">Save ribbon note</button>
+              <button type="button" id="mystudy-ribbon-journal-export" class="btn btn-secondary">Export ribbon journal (.txt)</button>
+            </div>
+            <p id="mystudy-ribbon-journal-status" class="section-note mystudy-ribbon-journal-status" role="status" aria-live="polite" hidden></p>
+            <h3 class="mystudy-h2 mystudy-h2-tight util-mt-1">Recent ribbon lines</h3>
+            <div id="mystudy-ribbon-journal-recent" aria-live="polite"></div>
+            <p class="section-note util-mb-0"><a href="porch-pathways-ribbon-one-page-print.html">Porch Pathways map (print)</a> &middot; <a href="mobius.html#mobius-ribbon-stations">All nineteen stations</a></p>
+          </section>
+
           <section class="mystudy-section-card">
             <p class="section-note mystudy-library-lead">Your saved verses, Bible Tool notes, memorize rhythm, and recent chapters rest together here on this device&mdash;one gentle shelf, not a to-do list. Open a row to keep studying that reference, then use the print buttons below for a clean PDF when you need one.</p>
             <details class="mystudy-data-peek util-mb-0_75">
               <summary class="mystudy-data-peek-summary">What stays on this device</summary>
               <div class="mystudy-data-peek-body">
-                <p class="section-note util-mb-0_5">No raw storage dump&mdash;just an honest scope. This browser may keep: saved verse list, verse notes and tags, prayer text you type here, highlight marks, memorize review times, recent reader chapters, and gentle activity dots for the month view. Signed-in sync uses your account only for that feature; we do not sell data.</p>
+                <p class="section-note util-mb-0_5">No raw storage dump&mdash;just an honest scope. This browser may keep: saved verse list, verse notes and tags, ribbon journal lines (M&ouml;bius path), prayer text you type here, highlight marks, memorize review times, recent reader chapters, and gentle activity dots for the month view. Signed-in sync uses your account only for that feature; we do not sell data.</p>
                 <p class="section-note util-mb-0">Use <strong>Download JSON backup</strong> below when you switch phones or want a file in your own hands.</p>
               </div>
             </details>
@@ -293,6 +322,9 @@
   <script src="verse-narration.js?v=20260329narr12" defer></script>
   <script src="verse-study.js?v=20260328pass4vs" defer></script>
   <script src="mystudy.js?v=20260422mystudy-onpage" defer></script>
+  <script src="mobius-deep-lesson-stations.js?v=20260518ribbon" defer></script>
+  <script src="tdb-mobius-journal.js?v=20260518ribbon" defer></script>
+  <script src="mystudy-ribbon-journal.js?v=20260518ribbon" defer></script>
   <script type="module" src="script.js?v=20260503-consent-persist-fix" data-cfasync="false"></script>
   <script src="/easter-eggs.js" defer data-tdb-easter-eggs="1"></script>
 </body>

@@ -172,7 +172,7 @@ const ENTRIES = [
   { t: 'Kids porch read-aloud: Come Unto Me (Little Shepherd)', u: '/kids/porch-read-come-unto-me.html', k: 'kids matthew 11 28 come unto me rest weary little shepherd bedtime' },
   { t: 'Sermon on the Mount — twelve Life Lessons overview (print)', u: '/sermon-on-the-mount-twelve-one-page-print.html', k: 'sermon on the mount twelve lessons family map print golden rule narrow gate house on rock' },
   { t: 'Porch Pathways on the Möbius ribbon (print)', u: '/porch-pathways-ribbon-one-page-print.html', k: 'mobius ribbon stations deep life lessons map print pathways nineteen peace storm come unto me authority conscience' },
-  { t: 'Lessons from the Valley — quiet markers', u: '/lessons-from-the-valley.html', k: 'valley lessons markers grief parenting weariness authority conscience storm heavy laden what god showed kjv humble' },
+  { t: 'Lessons from the Valley — quiet markers', u: '/lessons-from-the-valley.html', k: 'valley lessons markers grief parenting weariness authority conscience storm heavy laden marriage financial fear small church what god showed kjv humble eight' },
   { t: 'Lessons from the Valley (print)', u: '/lessons-from-the-valley-print.html', k: 'valley lessons print five markers parenting grief storm kjv' },
   { t: 'Kids porch read-aloud: Golden Rule (Little Shepherd)', u: '/kids/porch-read-golden-rule.html', k: 'kids golden rule matthew 7 12 little shepherd read aloud sermon' },
   { t: 'Kids porch read-aloud: mercy (Little Shepherd)', u: '/kids/porch-read-little-shepherd.html', k: 'kids merciful matthew 5 7 little shepherd read aloud forgiveness' },

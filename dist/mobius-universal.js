@@ -233,6 +233,10 @@
     var verseRef = (sm.verseRef && findVerse(sm.verseRef)) || (topic.verses && topic.verses[0] && findVerse(topic.verses[0]));
     var verseText = verseRef ? verseRef.text : '';
     var prayerPrompt = sm.action ? sm.action + ' → ' + (sm.outcome || '') : 'Trust His path.';
+    var stationMatch =
+      typeof window !== 'undefined' && window.TDB_MOBIUS_STATION_BY_MOOD && window.TDB_MOBIUS_STATION_BY_MOOD[key]
+        ? window.TDB_MOBIUS_STATION_BY_MOOD[key].slug
+        : '';
     return {
       id: key,
       label: label,
@@ -246,7 +250,8 @@
       color: NODE_COLORS[key] || '#8b9dc3',
       isStart: key === startKey,
       isPivot: false,
-      isPreferred: preferred && (key === preferred || (key === 'loneliness' && preferred === 'lonely') || (key === 'heartache' && preferred === 'grief'))
+      isPreferred: preferred && (key === preferred || (key === 'loneliness' && preferred === 'lonely') || (key === 'heartache' && preferred === 'grief')),
+      stationSlug: stationMatch
     };
   }
 
@@ -316,6 +321,12 @@
     }
     if (node.guidance) html += '<p class="mobius-card-guidance">' + escapeHtml(plainForCard(node.guidance)) + '</p>';
     html += '<p id="mobius-card-prayer" class="mobius-card-prayer"><strong>Pray:</strong> ' + escapeHtml(plainForCard(node.prayerPrompt)) + '</p>';
+    if (node.stationSlug) {
+      html +=
+        '<p class="mobius-card-station-link"><a href="/life-lessons/' +
+        escapeHtml(node.stationSlug) +
+        '.html">Station on the ribbon: open deep room</a></p>';
+    }
     safeSetHTML(card, html);
     container.appendChild(card);
   }

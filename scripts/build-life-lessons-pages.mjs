@@ -46,6 +46,15 @@ function porchLinks(porch) {
     .join('\n');
 }
 
+const mobiusRibbonBlock = `    <section class="glass tdb-porch-paper-glass tdb-ll-section tdb-ll-mobius-ribbon" aria-labelledby="tdb-ll-mobius-h">
+      <h2 id="tdb-ll-mobius-h">On the M&ouml;bius ribbon</h2>
+      <p class="section-note util-mt-0">This teaching walks on the M&ouml;bius ribbon&mdash;return here for the slow breath when the truth loops back.</p>
+      <p class="tdb-ll-mobius-actions">
+        <a class="btn btn-secondary" href="../mobius.html">Enter M&ouml;bius</a>
+        <a class="btn btn-secondary" href="../mobius.html#mobius-ribbon-stations">Stations on the ribbon</a>
+      </p>
+    </section>`;
+
 function paragraphs(arr, allowHtml) {
   return (arr || [])
     .map((p) => `      <p>${allowHtml ? p : esc(p)}</p>`)
@@ -182,6 +191,7 @@ ${reflectionBlock}
       <p>${lesson.littleOnes}</p>
     </section>
 ${mystudyBlock}
+${mobiusRibbonBlock}
     <section class="glass tdb-porch-paper-glass tdb-ll-section" aria-labelledby="tdb-ll-porch-h">
       <h2 id="tdb-ll-porch-h">Tie to the porch</h2>
       <ul class="tdb-ll-porch-list">

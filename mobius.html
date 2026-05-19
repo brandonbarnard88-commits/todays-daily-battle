@@ -200,6 +200,8 @@
     .mobius-exhale-parts li { margin: 0 0 0.85rem; padding: 0 0 0.85rem; border-bottom: 1px solid rgba(227, 188, 103, 0.12); line-height: 1.6; color: var(--tool-text); font-size: 0.9rem; }
     .mobius-exhale-parts li:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
     .mobius-exhale-parts strong { color: var(--tool-gold-soft); font-weight: 600; }
+    .mobius-exhale-optional-title { margin: 1.1rem 0 0.35rem; font-size: 0.95rem; color: var(--tool-gold-soft); font-weight: 600; }
+    .mobius-exhale-parts--optional { margin-top: 0.35rem; }
     .mobius-greek-note { font-size: 0.8rem; color: var(--tool-muted); font-style: normal; font-weight: 400; }
     .mobius-endurance-card { margin-top: 1rem; padding: 0.9rem 1rem; border: 1px solid rgba(227, 188, 103, 0.15); border-radius: 10px; background: rgba(8, 10, 16, 0.35); }
     .mobius-endurance-card:first-of-type { margin-top: 0.75rem; }
@@ -207,6 +209,107 @@
     .mobius-endurance-card .mobius-endurance-ref { margin: 0 0 0.5rem; font-size: 0.8rem; color: var(--tool-gold); letter-spacing: 0.02em; }
     .mobius-endurance-card blockquote { margin: 0 0 0.55rem; font-size: 0.86rem; line-height: 1.6; color: var(--tool-muted); font-style: italic; border-left: 2px solid rgba(227, 188, 103, 0.35); padding-left: 0.75rem; }
     .mobius-endurance-card .mobius-endurance-practice { margin: 0; font-size: 0.88rem; line-height: 1.55; color: var(--tool-text); }
+    .mobius-deep-lesson-layer-wrap {
+      margin: 0.85rem auto 0.35rem;
+      max-width: 44rem;
+      text-align: left;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--tool-line);
+      border-radius: 10px;
+      background: rgba(26, 33, 45, 0.28);
+    }
+    .mobius-deep-lesson-layer-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      min-height: 44px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      color: var(--tool-text);
+    }
+    .mobius-deep-lesson-layer-toggle input { width: 1.1rem; height: 1.1rem; accent-color: var(--tool-gold); }
+  #mobius-deep-lesson-layer { margin-top: 0.65rem; }
+    .mobius-deep-lesson-chips { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.55rem; }
+    .mobius-deep-lesson-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(227, 188, 103, 0.28);
+      background: rgba(8, 10, 16, 0.45);
+      color: var(--tool-gold-soft);
+      font-size: 0.82rem;
+      text-decoration: none;
+      transition: border-color 0.18s, background 0.18s;
+    }
+    .mobius-deep-lesson-chip:hover, .mobius-deep-lesson-chip:focus-visible {
+      border-color: rgba(227, 188, 103, 0.55);
+      background: rgba(227, 188, 103, 0.08);
+    }
+    .mobius-card-station-link { margin: 0.65rem 0 0; font-size: 0.85rem; }
+    .mobius-card-station-link a { color: var(--tool-gold-soft); }
+    .mobius-ribbon-stations {
+      text-align: left;
+      margin-top: 1.35rem;
+      padding: 1rem 1.1rem 1.1rem;
+      border: 1px solid var(--tool-line);
+      border-radius: 10px;
+      background: rgba(26, 33, 45, 0.35);
+    }
+    .mobius-ribbon-stations > h3 { margin-top: 0; color: var(--tool-gold-soft); }
+    .mobius-ribbon-stations > p { margin: 0 0 0.85rem; line-height: 1.6; color: var(--tool-text); font-size: 0.92rem; }
+    .mobius-station-group { margin-top: 1rem; }
+    .mobius-station-group-title {
+      margin: 0 0 0.55rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--tool-gold);
+      font-weight: 600;
+    }
+    .mobius-station-card {
+      margin: 0 0 0.85rem;
+      padding: 0.85rem 0.95rem;
+      border: 1px solid rgba(227, 188, 103, 0.14);
+      border-radius: 10px;
+      background: rgba(8, 10, 16, 0.32);
+    }
+    .mobius-station-title { margin: 0 0 0.35rem; font-size: 1rem; line-height: 1.4; }
+    .mobius-station-title a { color: var(--tool-gold-soft); text-decoration: none; }
+    .mobius-station-title a:hover, .mobius-station-title a:focus-visible { text-decoration: underline; }
+    .mobius-station-sub { display: block; font-size: 0.82rem; color: var(--tool-muted); font-weight: 400; margin-top: 0.15rem; }
+    .mobius-station-ref { margin: 0 0 0.45rem; font-size: 0.8rem; color: var(--tool-gold); }
+    .mobius-station-line, .mobius-station-breath, .mobius-station-step {
+      margin: 0 0 0.5rem;
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: var(--tool-text);
+    }
+    .mobius-station-breath-label, .mobius-station-step-label { color: var(--tool-gold-soft); font-weight: 600; }
+    .mobius-station-enter { margin: 0.55rem 0 0; }
+    .mobius-family-ribbon {
+      margin-top: 1rem;
+      text-align: left;
+      border: 1px solid var(--tool-line);
+      border-radius: 10px;
+      padding: 0 1rem 0.85rem;
+      background: rgba(26, 33, 45, 0.25);
+    }
+    .mobius-family-ribbon summary {
+      cursor: pointer;
+      padding: 0.85rem 0;
+      font-size: 1rem;
+      color: var(--tool-gold-soft);
+      font-weight: 600;
+      list-style: none;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+    }
+    .mobius-family-ribbon summary::-webkit-details-marker { display: none; }
+    .mobius-family-ribbon ul { margin: 0; padding-left: 1.25rem; line-height: 1.6; color: var(--tool-text); font-size: 0.9rem; }
+    .mobius-family-ribbon li { margin-bottom: 0.45rem; }
     .mobius-diy-details { margin-top: 1.25rem; text-align: left; border: 1px solid var(--tool-line); border-radius: 10px; padding: 0 1rem 0.75rem; background: rgba(26, 33, 45, 0.25); }
     .mobius-diy-details summary { cursor: pointer; padding: 0.85rem 0; font-size: 1.05rem; color: var(--tool-gold-soft); font-weight: 600; list-style: none; min-height: 44px; display: flex; align-items: center; }
     .mobius-diy-details summary::-webkit-details-marker { display: none; }
@@ -804,6 +907,13 @@
         <p id="mobius-human-voice-hint" class="mobius-guided-voice-hint">Uses <span class="sr-only">file </span><code>mobius-guided-human.mp3</code> when present. Default is a gentle system voice; replace the file for a human studio read anytime. See <code>audio/README.md</code>.</p>
       </fieldset>
       <p id="mobius-streak-display" class="mobius-streak-display" role="status" aria-live="polite"></p>
+      <div class="mobius-deep-lesson-layer-wrap" aria-labelledby="mobius-deep-lesson-layer-label">
+        <label id="mobius-deep-lesson-layer-label" class="mobius-deep-lesson-layer-toggle" for="mobius-deep-lesson-layer-toggle">
+          <input type="checkbox" id="mobius-deep-lesson-layer-toggle" aria-controls="mobius-deep-lesson-layer">
+          Show deep lesson turns on the graph (optional)
+        </label>
+        <div id="mobius-deep-lesson-layer" class="mobius-deep-lesson-layer" hidden></div>
+      </div>
       <div id="mobius-universal-viz" class="mobius-viz-wrap" role="img" aria-label="Universal mood cycle&mdash;through 2 Timothy 1:7 and back around the ribbon"></div>
       <section id="mobius-deep-walk" class="mobius-section" aria-labelledby="mobius-deep-walk-title">
         <h2 id="mobius-deep-walk-title">Möbius Deep Walk</h2>
@@ -828,7 +938,7 @@
         </div>
 
         <p class="core-truth">
-          This is not an escape; it is training for the long walk. The Möbius has one surface and one edge&mdash;no &ldquo;other side.&rdquo; Pressure, temptation, grief, exhaustion, and doubt sit on the <strong>same ribbon</strong> as God&rsquo;s strength, peace, and victory. The half-twist is the Cross: what feels like reversal still moves you forward; He forms you on that one unbroken path.
+          This is not an escape; it is training for the long walk. The Möbius has one surface and one edge&mdash;no &ldquo;other side.&rdquo; Pressure, temptation, grief, exhaustion, and doubt sit on the <strong>same ribbon</strong> as God&rsquo;s strength, peace, and victory. The half-twist is the Cross: what feels like reversal still moves you forward; He forms you on that one unbroken path. At the Cross the path turns&mdash;what looks like reversal still moves forward in the hands of the One who overcame the world.
         </p>
 
         <div class="mobius-exhale-breakdown" id="mobius-exhale-verse">
@@ -846,6 +956,13 @@
             <li><strong>Sound mind</strong> <span class="mobius-greek-note">(<em>sōphronismos</em>)</span> &mdash; a mind brought to sobriety and clarity under pressure: self-control and right thinking when thoughts want to spiral.</li>
           </ul>
           <p>Together: God displaces the spirit of fear with <strong>power</strong> to stay on the path, <strong>love</strong> to stay human, and a <strong>sound mind</strong> to stay clear. That is endurance fuel for a ribbon that does not end&mdash;only deepens.</p>
+          <h4 class="mobius-exhale-optional-title">Optional breath phrases on the ribbon</h4>
+          <p class="section-note util-mt-0">Same rhythm: inhale the honest weight, exhale Scripture. Use one when it fits; default exhale stays <strong>2 Timothy 1:7</strong>.</p>
+          <ul class="mobius-exhale-parts mobius-exhale-parts--optional">
+            <li><strong>Authority &amp; conscience</strong> &mdash; Inhale: &ldquo;This law or pressure feels against Your commandments&hellip;&rdquo; Exhale: &ldquo;Render unto Caesar the things which are Caesar&rsquo;s; and unto God the things that are God&rsquo;s&hellip; We ought to obey God rather than men.&rdquo; (Matthew 22:21; Acts 5:29 KJV). <a href="#mobius-ribbon-stations">Stations on the Ribbon</a>.</li>
+            <li><strong>When tomorrow roars</strong> &mdash; Inhale the worry; exhale Philippians 4:6&ndash;7 or the <a href="/life-lessons/anxious-for-nothing-peace-of-god.html">Be Anxious for Nothing</a> station.</li>
+            <li><strong>When the path feels shadowed</strong> &mdash; Exhale Psalm 23:1; walk the <a href="/life-lessons/the-lord-is-my-shepherd.html">Shepherd</a> station.</li>
+          </ul>
         </div>
 
         <h3>Enter the Loop — Face Reality</h3>
@@ -865,6 +982,7 @@
               <li>Temptation that returns: “God is faithful, who will not suffer you to be tempted above that ye are able…” (1 Corinthians 10:13)</li>
               <li>Suffering feels pointless: “Tribulation worketh patience; and patience, experience; and experience, hope…” (Romans 5:3–5) + “Our light affliction, which is but for a moment, worketh for us a far more exceeding and eternal weight of glory…” (2 Corinthians 4:17–18)</li>
               <li>Attacked or opposed: “The LORD is my light and my salvation; whom shall I fear?” (Psalm 27:1)</li>
+              <li>Authority and conscience in tension: Inhale&mdash;&ldquo;This law or pressure feels against Your commandments&hellip;&rdquo; Exhale&mdash;&ldquo;Render unto Caesar the things which are Caesar&rsquo;s; and unto God the things that are God&rsquo;s&hellip; We ought to obey God rather than men.&rdquo; (Matthew 22:21; Acts 5:29 KJV). See <a href="#mobius-ribbon-stations">Stations on the Ribbon</a>.</li>
             </ul>
           </li>
           <li><strong>Rest in the Flow</strong> &mdash; Sit in the silence. Ask the Holy Spirit to burn one verse deep into your spirit for the days ahead this week.</li>
@@ -933,6 +1051,25 @@
             <p class="mobius-endurance-practice"><strong>Practice:</strong> Same ribbon, different eyes: ask for daily inward renewal while the outward loop stays hard; keep the unseen weight of glory in view.</p>
           </article>
         </div>
+
+        <section class="mobius-ribbon-stations" id="mobius-ribbon-stations" aria-labelledby="mobius-ribbon-stations-title">
+          <h3 id="mobius-ribbon-stations-title">Stations on the Ribbon</h3>
+          <p>KJV deep rooms to walk slowly&mdash;natural turns on the same surface as fear, grief, and weariness. No extra pressure: one anchor line, one breath, one small step. Tap <strong>Enter the room</strong> when a turn fits today.</p>
+          <div id="mobius-ribbon-stations-list" role="list" aria-label="Deep life lesson stations grouped by theme"></div>
+        </section>
+
+        <details class="mobius-family-ribbon">
+          <summary>Little Shepherd ribbon (families)</summary>
+          <p class="section-note util-mt-0">A gentler trace for Kids Corner&mdash;same one-surface idea, fewer turns.</p>
+          <ul>
+            <li><a href="/kids/porch-read-render-unto-caesar.html">Render Unto Caesar</a> (read-aloud)</li>
+            <li><a href="/kids/porch-read-good-shepherd.html">The Good Shepherd</a> (read-aloud)</li>
+            <li><a href="/life-lessons/golden-rule-when-it-costs.html">Golden Rule</a> deep room</li>
+            <li><a href="/life-lessons/blessed-merciful-when-forgiveness-costs.html">Blessed Are the Merciful</a> deep room</li>
+            <li><a href="/life-lessons/the-lord-is-my-shepherd.html">The Lord Is My Shepherd</a> deep room</li>
+            <li><a href="/plans.html#plan-row-authorityconscience">Walking the Ribbon &mdash; Authority &amp; Conscience</a> (6-day plan)</li>
+          </ul>
+        </details>
 
         <details class="mobius-diy-details">
           <summary>Make Your Own Physical Möbius (5 minutes)</summary>
@@ -1216,6 +1353,8 @@
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260503-consent-persist-fix" data-cfasync="false"></script>
   <script src="/vendor/d3.v7.min.js" defer></script>
+  <script src="mobius-deep-lesson-stations.js?v=20260519mobius1" defer></script>
+  <script src="mobius-stations-ui.js?v=20260519mobius1" defer></script>
   <script src="mobius-universal.js?v=20260403full-cycle-ring" defer></script>
   <script src="tdb-mobius-journal.js?v=20260330mlj1" defer></script>
   <script src="mobius-text-v2.js?v=20260413audio-lazy" defer></script>

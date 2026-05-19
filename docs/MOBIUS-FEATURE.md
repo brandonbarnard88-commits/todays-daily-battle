@@ -49,3 +49,11 @@ In `mobius.html` → **Möbius Deep Walk**:
 - **`#mobius-endurance-companions`** — Five KJV blocks with short “practice” lines: James 1:2–4, Romans 5:3–5, Hebrews 12:1–2, Isaiah 40:31, 2 Corinthians 4:16–18.
 
 The ribbon journal label links to both anchors for people who want extra phrases after a round.
+
+## Stations on the Ribbon (deep Life Lessons)
+
+- **`#mobius-ribbon-stations`** — All seventeen Sermon deep rooms listed as calm turns (anchor line, breath, small step, **Enter the room**). Data: `mobius-deep-lesson-stations.js`; UI: `mobius-stations-ui.js`.
+- **Optional graph layer** — `#mobius-deep-lesson-layer-toggle` shows featured lesson chips above the mood graph; node cards link to a matching station when `stationSlug` is set (`mobius-universal.js` + `TDB_MOBIUS_STATION_BY_MOOD`).
+- **Authority breath** — Deep Walk step 2 includes Matthew 22:21 + Acts 5:29 optional exhale when Caesar and conscience pull apart.
+- **Cross-links** — Each deep lesson page includes **On the Möbius ribbon** (build: `scripts/build-life-lessons-pages.mjs`).
+- **Little Shepherd ribbon** — `<details class="mobius-family-ribbon">` on `mobius.html` points to Kids read-alouds, two deep rooms, and `authorityconscience` plan.

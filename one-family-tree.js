@@ -34,6 +34,15 @@
     return data.mainLine.slice(start, end + 1);
   }
 
+  function renderVerseText(verse) {
+    var ref = verse.ref || '';
+    var text = verse.text || '';
+    if (typeof global.TDBRedLetter !== 'undefined' && global.TDBRedLetter.isEnabled && global.TDBRedLetter.isEnabled()) {
+      return global.TDBRedLetter.renderHtml(ref, text, { quote: false });
+    }
+    return esc(text);
+  }
+
   function renderVerses(verses) {
     if (!verses || !verses.length) return '';
     var html = '';
@@ -41,7 +50,7 @@
       html +=
         '<figure class="heritage-verse">' +
         '<span class="heritage-verse__ref">' + esc(verse.ref) + '</span>' +
-        '<blockquote class="heritage-verse__text">' + esc(verse.text) + '</blockquote>' +
+        '<blockquote class="heritage-verse__text">' + renderVerseText(verse) + '</blockquote>' +
         '</figure>';
     });
     return html;
@@ -336,6 +345,12 @@
     buildPage();
     wireInteractions();
     wireBackToTop();
+    if (typeof global.addEventListener === 'function') {
+      global.addEventListener('tdb-red-letter-changed', function () {
+        buildPage();
+        wireInteractions();
+      });
+    }
   }
 
   if (document.readyState === 'loading') {

@@ -1201,6 +1201,89 @@
     .plans-ribbon-note-status { margin: 0.35rem 0 0; min-height: 1.25em; }
     /* Breakdown panels */
     .day-breakdown { display: grid; gap: 8px; margin-bottom: 1rem; }
+    .day-breakdown.plan-verse-card { gap: 0.65rem; }
+    .plan-vbd-primary { display: grid; gap: 8px; }
+    .day-breakdown-deep { display: grid; gap: 8px; }
+    /* Pass 7 — More from the Word on Battle Plan day cards (matches homepage Pass 6) */
+    .day-card details.tdb-dig-deeper {
+      margin-top: 0.35rem;
+      border-top: 1px solid color-mix(in srgb, var(--line) 78%, var(--gold) 12%);
+    }
+    .day-card details.tdb-dig-deeper[hidden] { display: none !important; }
+    .day-card details.tdb-dig-deeper > summary.tdb-dig-deeper__summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 0.72rem 0 0.65rem;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      color: color-mix(in srgb, var(--muted) 88%, var(--text) 12%);
+    }
+    .day-card details.tdb-dig-deeper > summary.tdb-dig-deeper__summary::-webkit-details-marker { display: none; }
+    .day-card details.tdb-dig-deeper > summary.tdb-dig-deeper__summary:focus-visible {
+      outline: 2px solid color-mix(in srgb, var(--gold) 55%, var(--line));
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+    .day-card details.tdb-dig-deeper[open] > summary.tdb-dig-deeper__summary {
+      padding-bottom: 0.55rem;
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, var(--gold) 10%);
+      margin-bottom: 0.55rem;
+    }
+    .day-card .tdb-dig-deeper__main {
+      display: block;
+      font-weight: 600;
+      color: color-mix(in srgb, var(--text) 90%, var(--muted) 10%);
+    }
+    .day-card .tdb-dig-deeper__hint {
+      display: block;
+      margin-top: 0.28rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--gold-soft, #c9a84c);
+      line-height: 1.4;
+    }
+    .day-card .tdb-dig-deeper__content { padding-bottom: 0.35rem; }
+    .day-card .tdb-dig-deeper__cross { margin-top: 0.85rem; }
+    .day-card .tdb-dig-deeper__cross[hidden],
+    .day-card .tdb-dig-deeper__plan[hidden],
+    .day-card .tdb-dig-deeper__next[hidden] { display: none !important; }
+    .day-card .tdb-dig-deeper__cross-label {
+      margin: 0 0 0.35rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .day-card .tdb-dig-deeper__cross-list { margin: 0; font-size: 0.9rem; line-height: 1.55; }
+    .day-card .tdb-dig-deeper__cross-link {
+      color: var(--gold-soft, #c9a84c);
+      text-decoration: none;
+      border-bottom: 1px solid color-mix(in srgb, var(--gold-soft, #c9a84c) 35%, transparent);
+    }
+    .day-card .tdb-dig-deeper__cross-link:hover,
+    .day-card .tdb-dig-deeper__cross-link:focus-visible {
+      color: var(--gold, #d4af37);
+    }
+    .day-card .tdb-dig-deeper__plan,
+    .day-card .tdb-dig-deeper__next { margin: 0.85rem 0 0; }
+    .day-card .tdb-dig-deeper__plan-link,
+    .day-card .tdb-dig-deeper__next-link {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--gold-soft, #c9a84c);
+      text-decoration: none;
+      border-bottom: 1px solid color-mix(in srgb, var(--gold-soft, #c9a84c) 35%, transparent);
+    }
+    .day-card .tdb-dig-deeper__plan-link:hover,
+    .day-card .tdb-dig-deeper__plan-link:focus-visible,
+    .day-card .tdb-dig-deeper__next-link:hover,
+    .day-card .tdb-dig-deeper__next-link:focus-visible {
+      color: var(--gold, #d4af37);
+    }
+    @media (max-width: 360px) {
+      .day-card .tdb-dig-deeper__hint { display: none; }
+    }
     .day-bp {
       background: color-mix(in srgb, var(--gold) 6%, var(--card));
       border-left: 3px solid color-mix(in srgb, var(--gold) 45%, transparent);
@@ -3818,6 +3901,7 @@
       };
     })();
   </script>
+  <script src="/verse-breakdown-standard.js?v=20260520-dig-deeper" data-tdb-verse-breakdown-standard="1"></script>
   <script src="/university-plan-extensions.js?v=20260511uniext-u21-porch-v1"></script>
   <script src="/red-letter.js?v=20260518-rl" data-tdb-red-letter="1"></script>
   <script nonce="tdb2025s">
@@ -8771,59 +8855,117 @@
         card.appendChild(moreDet);
       }
 
+      function appendDayBpIf(parent, label, text, extraClass) {
+        var t = cleanPlanPlain(text == null ? '' : String(text));
+        if (!t) return;
+        appendDayBp(parent, label, t, extraClass);
+      }
+
       var breakdown = document.createElement('div');
-      breakdown.className = 'day-breakdown';
+      breakdown.className = 'day-breakdown plan-verse-card';
       var breakdownData = getPlanDayBreakdown(plan, dayData, groupKey);
       var isFamilyPlanStyle = (plan.id === 'familyworship' || plan.id === 'psalmscomfortfamily') && dayData.familySee;
-      if (isFamilyPlanStyle) {
-        if (dayData.speaker) {
-          appendDayBp(breakdown, 'Context', dayData.speaker, '');
-        }
-        appendDayBp(breakdown, 'Plain English', breakdownData.plainExplanation || dayData.familyUnderstand || dayData.familySee, '');
-        appendDayBp(breakdown, 'For your group', breakdownData.groupApplication || dayData.familyLive || dayData.parentPrompt, '');
-        appendDayBp(breakdown, 'Real life today', breakdownData.modernApplication || dayData.familyTogether || dayData.action, '');
-        appendDayBp(breakdown, 'Parent prompt', dayData.parentPrompt, '');
-        appendDayBp(breakdown, 'For kids', dayData.kidQ, '');
-        appendDayBp(breakdown, 'One small step together', dayData.familyTogether, 'action-panel');
-        if (dayData.prayer) {
-          appendDayBp(breakdown, 'Family prayer', dayData.prayer, 'prayer-panel');
-        }
-        appendDayBp(
-          breakdown,
-          'Gentle direction (optional)',
-          dayData.goal || PLAN_DAY_DEFAULT_GOAL,
-          'plan-day-goal',
-        );
-      } else if (plan.restTone) {
-        appendDayBp(breakdown, 'Resting thought', breakdownData.plainExplanation || dayData.plain, '');
-        if (dayData.prayer) {
-          appendDayBp(breakdown, 'Prayer', dayData.prayer, 'prayer-panel');
-        }
-        appendDayBp(
-          breakdown,
-          'Gentle direction (optional)',
-          dayData.goal || PLAN_DAY_DEFAULT_GOAL,
-          'plan-day-goal',
+      var goalText = dayData.goal || PLAN_DAY_DEFAULT_GOAL;
+
+      var primary = document.createElement('div');
+      primary.className = 'plan-vbd-primary hero-vbd-primary';
+
+      var digDet = document.createElement('details');
+      digDet.className = 'tdb-dig-deeper';
+      var vbStdFactory = window.TDB_verseBreakdownStandard;
+      if (vbStdFactory && typeof vbStdFactory.createDigDeeperSummary === 'function') {
+        digDet.appendChild(
+          vbStdFactory.createDigDeeperSummary(
+            'More from the Word',
+            'Cross-references and plain notes \u2014 only if you want them'
+          )
         );
       } else {
-        if (dayData.speaker) {
-          appendDayBp(breakdown, 'Who\u2019s speaking', dayData.speaker, '');
-        }
-        appendDayBp(breakdown, 'Plain English', breakdownData.plainExplanation || dayData.plain, '');
-        appendDayBp(breakdown, 'For your group', breakdownData.groupApplication || dayData.today, '');
-        appendDayBp(breakdown, 'Real life today', breakdownData.modernApplication || dayData.action, '');
-        appendDayBp(breakdown, 'One small step', dayData.action, 'action-panel');
-        if (dayData.prayer) {
-          appendDayBp(breakdown, 'Prayer', dayData.prayer, 'prayer-panel');
-        }
-        appendDayBp(
-          breakdown,
-          'Gentle direction (optional)',
-          dayData.goal || PLAN_DAY_DEFAULT_GOAL,
-          'plan-day-goal',
-        );
+        var sumFallback = document.createElement('summary');
+        sumFallback.className = 'tdb-dig-deeper__summary';
+        sumFallback.textContent = 'More from the Word';
+        digDet.appendChild(sumFallback);
       }
+
+      var digContent = document.createElement('div');
+      digContent.className = 'tdb-dig-deeper__content';
+      var digDeep = document.createElement('div');
+      digDeep.className = 'day-breakdown-deep';
+
+      var crossSection =
+        vbStdFactory && typeof vbStdFactory.createDigDeeperCrossSection === 'function'
+          ? vbStdFactory.createDigDeeperCrossSection()
+          : null;
+      var crossWrap = crossSection ? crossSection.wrap : null;
+      var crossListEl = crossSection ? crossSection.list : null;
+
+      var nextSection =
+        vbStdFactory && typeof vbStdFactory.createDigDeeperLinkSection === 'function'
+          ? vbStdFactory.createDigDeeperLinkSection('tdb-dig-deeper__next', 'tdb-dig-deeper__next-link')
+          : null;
+      var nextWrap = nextSection ? nextSection.wrap : null;
+      var nextLinkEl = nextSection ? nextSection.link : null;
+
+      if (isFamilyPlanStyle) {
+        appendDayBpIf(primary, 'Plain English', breakdownData.plainExplanation || dayData.familyUnderstand || dayData.familySee, '');
+        appendDayBpIf(primary, 'One small step together', dayData.familyTogether, 'action-panel');
+        appendDayBpIf(primary, 'Family prayer', dayData.prayer, 'prayer-panel');
+        appendDayBpIf(digDeep, 'Context', dayData.speaker, '');
+        appendDayBpIf(digDeep, 'For your group', breakdownData.groupApplication || dayData.familyLive || dayData.parentPrompt, '');
+        appendDayBpIf(digDeep, 'Real life today', breakdownData.modernApplication || dayData.familyTogether || dayData.action, '');
+        appendDayBpIf(digDeep, 'Parent prompt', dayData.parentPrompt, '');
+        appendDayBpIf(digDeep, 'For kids', dayData.kidQ, '');
+        appendDayBpIf(digDeep, 'Gentle direction (optional)', goalText, 'plan-day-goal');
+      } else if (plan.restTone) {
+        appendDayBpIf(primary, 'Resting thought', breakdownData.plainExplanation || dayData.plain, '');
+        appendDayBpIf(primary, 'Prayer', dayData.prayer, 'prayer-panel');
+        appendDayBpIf(digDeep, 'Gentle direction (optional)', goalText, 'plan-day-goal');
+      } else {
+        appendDayBpIf(primary, 'Plain English', breakdownData.plainExplanation || dayData.plain, '');
+        appendDayBpIf(primary, 'One small step', dayData.action, 'action-panel');
+        appendDayBpIf(primary, 'Prayer', dayData.prayer, 'prayer-panel');
+        appendDayBpIf(digDeep, 'Who\u2019s speaking', dayData.speaker, '');
+        appendDayBpIf(digDeep, 'For your group', breakdownData.groupApplication || dayData.today, '');
+        appendDayBpIf(digDeep, 'Real life today', breakdownData.modernApplication || dayData.action, '');
+        appendDayBpIf(digDeep, 'Gentle direction (optional)', goalText, 'plan-day-goal');
+      }
+
+      digContent.appendChild(digDeep);
+      if (crossWrap) digContent.appendChild(crossWrap);
+      if (nextWrap) digContent.appendChild(nextWrap);
+      digDet.appendChild(digContent);
+
+      breakdown.appendChild(primary);
+      breakdown.appendChild(digDet);
       card.appendChild(breakdown);
+
+      var nextInPlan = null;
+      var nextDayIdx = currentDay + 1;
+      if (plan.days && nextDayIdx < plan.days.length && plan.days[nextDayIdx]) {
+        var nextDay = plan.days[nextDayIdx];
+        var nextTitle = cleanPlanPlain(nextDay.title == null ? '' : String(nextDay.title));
+        var nextLabel = nextTitle
+          ? 'Next: Day ' + (nextDayIdx + 1) + ' \u2014 ' + nextTitle + ' \u2192'
+          : 'Next day in this plan \u2192';
+        nextInPlan = {
+          href: 'plans.html?plan=' + encodeURIComponent(plan.id) + '&day=' + (nextDayIdx + 1),
+          label: nextLabel
+        };
+      }
+
+      if (vbStdFactory && typeof vbStdFactory.hydrateDigDeeperBlock === 'function' && refWs) {
+        vbStdFactory.hydrateDigDeeperBlock({ ref: refWs, text: txtWs }, breakdown, {
+          detailsEl: digDet,
+          deepRoot: digDeep,
+          crossWrap: crossWrap,
+          crossListEl: crossListEl,
+          nextWrap: nextWrap,
+          nextLinkEl: nextLinkEl,
+          nextInPlan: nextInPlan
+        });
+      } else if (!digDeep.childElementCount && !nextInPlan) {
+        digDet.hidden = true;
+      }
 
       // ── Plan verse trail (all refs in this plan, one-glance thread) ──
       if (plan.days && plan.days.length > 1) {

@@ -103,20 +103,91 @@
     return false;
   }
 
-  function syncHeroDigDeeperVisibility() {
-    var details = document.getElementById('heroDigDeeper');
-    if (!details) return;
-    var crossWrap = document.getElementById('heroDigDeeperCross');
-    var planWrap = document.getElementById('heroDigDeeperPlan');
-    var hasCross = !!(crossWrap && !crossWrap.hidden);
-    var hasPlan = !!(planWrap && !planWrap.hidden);
-    var hasRows = heroDigDeeperHasDeepRows();
-    if (hasRows || hasCross || hasPlan) {
-      details.hidden = false;
-      details.removeAttribute('hidden');
+  function syncDigDeeperBlockVisibility(detailsEl, cfg) {
+    if (!detailsEl) return;
+    cfg = cfg || {};
+    var hasDeep = false;
+    if (typeof cfg.hasDeepRows === 'function') {
+      hasDeep = cfg.hasDeepRows();
+    } else if (cfg.deepRoot) {
+      hasDeep = cfg.deepRoot.childElementCount > 0;
+    }
+    var hasCross = !!(cfg.crossWrap && !cfg.crossWrap.hidden);
+    var hasPlan = !!(cfg.planWrap && !cfg.planWrap.hidden);
+    var hasNext = !!(cfg.nextWrap && !cfg.nextWrap.hidden);
+    if (hasDeep || hasCross || hasPlan || hasNext) {
+      detailsEl.hidden = false;
+      detailsEl.removeAttribute('hidden');
     } else {
-      details.hidden = true;
-      details.setAttribute('hidden', '');
+      detailsEl.hidden = true;
+      detailsEl.setAttribute('hidden', '');
+    }
+  }
+
+  function syncHeroDigDeeperVisibility() {
+    syncDigDeeperBlockVisibility(document.getElementById('heroDigDeeper'), {
+      hasDeepRows: heroDigDeeperHasDeepRows,
+      crossWrap: document.getElementById('heroDigDeeperCross'),
+      planWrap: document.getElementById('heroDigDeeperPlan')
+    });
+  }
+
+  function createDigDeeperSummary(mainText, hintText) {
+    var summary = document.createElement('summary');
+    summary.className = 'tdb-dig-deeper__summary';
+    var main = document.createElement('span');
+    main.className = 'tdb-dig-deeper__main';
+    main.textContent = mainText || 'More from the Word';
+    summary.appendChild(main);
+    if (hintText) {
+      var hint = document.createElement('span');
+      hint.className = 'tdb-dig-deeper__hint';
+      hint.textContent = hintText;
+      summary.appendChild(hint);
+    }
+    return summary;
+  }
+
+  function createDigDeeperCrossSection() {
+    var crossWrap = document.createElement('div');
+    crossWrap.className = 'tdb-dig-deeper__cross';
+    crossWrap.hidden = true;
+    var h4 = document.createElement('h4');
+    h4.className = 'tdb-dig-deeper__cross-label';
+    h4.textContent = 'See also (KJV)';
+    var list = document.createElement('p');
+    list.className = 'tdb-dig-deeper__cross-list';
+    crossWrap.appendChild(h4);
+    crossWrap.appendChild(list);
+    return { wrap: crossWrap, list: list };
+  }
+
+  function createDigDeeperLinkSection(className, linkClassName) {
+    var wrap = document.createElement('p');
+    wrap.className = className || 'tdb-dig-deeper__plan';
+    wrap.hidden = true;
+    var link = document.createElement('a');
+    link.className = linkClassName || 'tdb-dig-deeper__plan-link';
+    wrap.appendChild(link);
+    return { wrap: wrap, link: link };
+  }
+
+  function fillCurriculumPlanLink(ref, verseText, planWrap, planLink) {
+    if (!planWrap || !planLink) return;
+    var build =
+      typeof window !== 'undefined' && typeof window.tdbUogBuildCurriculumPlanList === 'function'
+        ? window.tdbUogBuildCurriculumPlanList
+        : null;
+    var rows = build ? build(ref, verseText) || [] : [];
+    var row = rows.length ? rows[0] : null;
+    if (row && row.href) {
+      planLink.href = row.href;
+      planLink.textContent = row.label ? 'Continue in ' + row.label + ' \u2192' : 'Continue in this Battle Plan \u2192';
+      planWrap.hidden = false;
+      planWrap.removeAttribute('hidden');
+    } else {
+      planWrap.hidden = true;
+      planWrap.setAttribute('hidden', '');
     }
   }
 
@@ -147,46 +218,77 @@
       .catch(done);
   }
 
-  /** @param {string} ref @param {string} [verseText] */
-  function fillHeroDigDeeperPlan(ref, verseText) {
-    var planWrap = document.getElementById('heroDigDeeperPlan');
-    var planLink = document.getElementById('heroDigDeeperPlanLink');
-    if (!planWrap || !planLink) return;
-    var build =
-      typeof window !== 'undefined' && typeof window.tdbUogBuildCurriculumPlanList === 'function'
-        ? window.tdbUogBuildCurriculumPlanList
-        : null;
-    var rows = build ? build(ref, verseText) || [] : [];
-    var row = rows.length ? rows[0] : null;
-    if (row && row.href) {
-      planLink.href = row.href;
-      planLink.textContent = row.label ? 'Continue in ' + row.label + ' \u2192' : 'Continue in this Battle Plan \u2192';
-      planWrap.hidden = false;
-      planWrap.removeAttribute('hidden');
-    } else {
-      planWrap.hidden = true;
-      planWrap.setAttribute('hidden', '');
+  /**
+   * Shared Dig Deeper hydration for homepage + Battle Plan day cards.
+   * @param {{ ref?: string, text?: string }} verseData
+   * @param {HTMLElement|null} container unused; reserved for future mount helpers
+   * @param {object} [options]
+   */
+  function hydrateDigDeeperBlock(verseData, container, options) {
+    options = options || {};
+    var ref = normalizeRefKey(verseData && verseData.ref);
+    var verseText = verseData && verseData.text ? verseData.text : '';
+    var details = options.detailsEl || null;
+    if (!details) return;
+
+    var crossWrap = options.crossWrap || null;
+    var crossListEl = options.crossListEl || null;
+    var planWrap = options.planWrap || null;
+    var planLinkEl = options.planLinkEl || null;
+    var nextWrap = options.nextWrap || null;
+    var nextLinkEl = options.nextLinkEl || null;
+
+    if (options.fillCurriculumPlan && planWrap && planLinkEl) {
+      fillCurriculumPlanLink(ref, verseText, planWrap, planLinkEl);
     }
-    syncHeroDigDeeperVisibility();
+
+    if (nextWrap && nextLinkEl && options.nextInPlan && options.nextInPlan.href) {
+      nextLinkEl.href = options.nextInPlan.href;
+      nextLinkEl.textContent = options.nextInPlan.label || 'Next day in this plan \u2192';
+      nextWrap.hidden = false;
+      nextWrap.removeAttribute('hidden');
+    } else if (nextWrap) {
+      nextWrap.hidden = true;
+      nextWrap.setAttribute('hidden', '');
+    }
+
+    var visibilityCfg = {
+      deepRoot: options.deepRoot || null,
+      hasDeepRows: options.hasDeepRows,
+      crossWrap: crossWrap,
+      planWrap: planWrap,
+      nextWrap: nextWrap
+    };
+
+    syncDigDeeperBlockVisibility(details, visibilityCfg);
+
+    if (!ref || !crossWrap || !crossListEl) return;
+
+    ensureCrossRefsMapLoaded(function () {
+      var refs = getCuratedCrossRefs(ref, options.crossRefLimit || 5);
+      if (refs.length) {
+        fillCrossRefLinks(crossListEl, refs);
+        crossWrap.hidden = false;
+        crossWrap.removeAttribute('hidden');
+      } else {
+        crossWrap.hidden = true;
+        crossWrap.setAttribute('hidden', '');
+      }
+      syncDigDeeperBlockVisibility(details, visibilityCfg);
+    });
   }
 
   /** @param {string} ref @param {string} [verseText] */
   function hydrateHeroDigDeeper(ref, verseText) {
-    syncHeroDigDeeperVisibility();
-    fillHeroDigDeeperPlan(ref, verseText);
-    ensureCrossRefsMapLoaded(function () {
-      var refs = getCuratedCrossRefs(ref, 5);
-      var crossWrap = document.getElementById('heroDigDeeperCross');
-      var listEl = document.getElementById('heroDigDeeperCrossList');
-      if (refs.length && crossWrap && listEl) {
-        fillCrossRefLinks(listEl, refs);
-        crossWrap.hidden = false;
-        crossWrap.removeAttribute('hidden');
-      } else if (crossWrap) {
-        crossWrap.hidden = true;
-        crossWrap.setAttribute('hidden', '');
-      }
-      syncHeroDigDeeperVisibility();
+    hydrateDigDeeperBlock({ ref: ref, text: verseText }, null, {
+      detailsEl: document.getElementById('heroDigDeeper'),
+      deepRoot: document.getElementById('heroDeepBreakdown'),
+      hasDeepRows: heroDigDeeperHasDeepRows,
+      crossWrap: document.getElementById('heroDigDeeperCross'),
+      crossListEl: document.getElementById('heroDigDeeperCrossList'),
+      planWrap: document.getElementById('heroDigDeeperPlan'),
+      planLinkEl: document.getElementById('heroDigDeeperPlanLink'),
+      fillCurriculumPlan: true
     });
     var legacyWrap = document.getElementById('tdb-hero-curriculum-slot');
     if (legacyWrap) {
@@ -273,7 +375,12 @@
     getCuratedCrossRefs: getCuratedCrossRefs,
     fillCrossRefLinks: fillCrossRefLinks,
     hydrateHeroDigDeeper: hydrateHeroDigDeeper,
+    hydrateDigDeeperBlock: hydrateDigDeeperBlock,
     syncHeroDigDeeperVisibility: syncHeroDigDeeperVisibility,
+    syncDigDeeperBlockVisibility: syncDigDeeperBlockVisibility,
+    createDigDeeperSummary: createDigDeeperSummary,
+    createDigDeeperCrossSection: createDigDeeperCrossSection,
+    createDigDeeperLinkSection: createDigDeeperLinkSection,
     CLS: {
       container: 'verse-breakdown-container',
       bigKjv: 'big-kjv',

@@ -87,7 +87,7 @@
         return requested;
       }
       var hash = String(window.location.hash || '').trim().toLowerCase();
-      if (hash === '#saved-verses' || hash === '#panel-note-library') return 'library';
+      if (hash === '#saved-verses' || hash === '#panel-note-library' || hash === '#mystudy-ribbon-journal') return 'library';
       if (hash === '#panel-highlights') return 'highlights';
       if (hash === '#panel-join-study') return 'join';
       if (hash === '#panel-my-study') return 'my';
@@ -1519,7 +1519,7 @@
 
     window.addEventListener('hashchange', function () {
       var h = String(window.location.hash || '').trim().toLowerCase();
-      if (h === '#saved-verses' || h === '#panel-note-library') setTab('library');
+      if (h === '#saved-verses' || h === '#panel-note-library' || h === '#mystudy-ribbon-journal') setTab('library');
       else if (h === '#panel-highlights') setTab('highlights');
       else if (h === '#panel-join-study') setTab('join');
       else if (h === '#panel-my-study') setTab('my');

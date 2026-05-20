@@ -1,3 +1,4 @@
+@import url("tdb-visual-tokens.css");
 @import url("tdb-quiet-luxury.css");
 
 /*
@@ -7,7 +8,7 @@
  * homepage (index.html). The homepage is intentionally self-contained:
  *
  *   index.html         → inline <style> blocks only. Does NOT load styles.css.
- *                        Has its own :root with matching tokens (see comments there).
+ *                        Links tdb-visual-tokens.css + inline :root (see comments there).
  *   styles.css         → all other pages (sermon, plans, pastor-toolkit, etc.)
  *   tdb-quiet-luxury.css → seasonal/university pages only (imported above).
  *                          Has intentional sage --accent overrides — leave them.
@@ -108,21 +109,13 @@ html {
   --tdb-dawn-border: #d4b88a;
   --tdb-dawn-shadow: 0 4px 12px rgba(180, 140, 80, 0.08);
   --tdb-dawn-shadow-soft: 0 4px 12px rgba(180, 140, 80, 0.06);
-  /* Quiet luxury — reusable surfaces (cards, panels, long-tail pages) */
-  --tdb-surface-card-bg: color-mix(in srgb, var(--card, rgba(12, 18, 30, 0.94)) 93%, rgba(227, 188, 103, 0.09));
-  --tdb-surface-card-border: color-mix(in srgb, var(--line, #2a3344) 82%, rgba(227, 188, 103, 0.22));
-  --tdb-surface-card-shadow: 0 10px 32px rgba(0, 0, 0, 0.32),
-    0 0 0 1px color-mix(in srgb, rgba(227, 188, 103, 0.2) 50%, transparent),
-    inset 0 1px 0 rgba(255, 255, 255, 0.045);
-  --tdb-surface-card-shadow-hover: 0 14px 40px rgba(0, 0, 0, 0.38),
-    0 0 0 1px color-mix(in srgb, rgba(227, 188, 103, 0.32) 55%, transparent),
-    inset 0 1px 0 rgba(255, 255, 255, 0.055);
+  /* Quiet luxury — reusable surfaces (cards, panels, long-tail pages)
+     Porch card tokens live in tdb-visual-tokens.css; bridge vars set there. */
   --tdb-surface-panel-bg: color-mix(in srgb, var(--card, rgba(12, 18, 30, 0.94)) 96%, rgba(139, 166, 217, 0.06));
   --tdb-surface-panel-border: color-mix(in srgb, var(--line, #2a3344) 90%, rgba(227, 188, 103, 0.12));
   --tdb-surface-panel-shadow: 0 6px 22px rgba(0, 0, 0, 0.26),
     0 0 0 1px color-mix(in srgb, var(--line, #2a3344) 70%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.035);
-  --tdb-surface-radius: var(--radius-md, 18px);
   --tdb-inner-max: min(46rem, 100%);
   --tdb-inner-gap: clamp(1.35rem, 2.5vw, 2rem);
   --tdb-inner-section-pad: clamp(1.15rem, 2.2vw, 1.65rem);
@@ -1147,14 +1140,7 @@ html[data-theme="light"] .app-shell {
   --input-placeholder-on-dark: #5a6578;
   --card-light: rgba(255, 253, 247, 0.96);
   --border-subtle: rgba(15, 23, 42, 0.12);
-  --tdb-surface-card-bg: color-mix(in srgb, var(--card) 97%, rgba(201, 162, 39, 0.08));
-  --tdb-surface-card-border: color-mix(in srgb, rgba(15, 23, 42, 0.14) 75%, rgba(201, 162, 39, 0.35));
-  --tdb-surface-card-shadow: 0 8px 28px rgba(64, 41, 8, 0.1),
-    0 0 0 1px color-mix(in srgb, rgba(201, 162, 39, 0.28) 40%, transparent),
-    inset 0 1px 0 rgba(255, 255, 255, 0.65);
-  --tdb-surface-card-shadow-hover: 0 12px 36px rgba(64, 41, 8, 0.12),
-    0 0 0 1px color-mix(in srgb, rgba(201, 162, 39, 0.4) 45%, transparent),
-    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  /* Porch + surface card tokens: tdb-visual-tokens.css (light overrides there) */
   --tdb-surface-panel-bg: color-mix(in srgb, var(--card) 98%, rgba(0, 102, 204, 0.04));
   --tdb-surface-panel-border: rgba(15, 23, 42, 0.1);
   --tdb-surface-panel-shadow: 0 5px 20px rgba(64, 41, 8, 0.07),
@@ -8795,25 +8781,29 @@ body:has(.pricing-grid) .cta-group {
 }
 
 .section-divider {
-  margin: 0 0 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid rgba(148, 163, 184, 0.2);
-  box-shadow: 0 2px 0 var(--elite-gold);
+  margin: 0 0 var(--tdb-porch-space-sm, 0.85rem);
+  padding-bottom: var(--tdb-porch-space-xs, 0.5rem);
+  border-bottom: 1px solid var(--tdb-heading-rule, rgba(148, 163, 184, 0.2));
+  box-shadow: none;
   font-family: var(--font-ui);
-  font-weight: 700;
-  font-size: 1.5rem;
-  letter-spacing: 0.04em;
-  color: rgba(248, 250, 252, 0.95);
+  font-weight: var(--tdb-heading-weight-strong, 650);
+  font-size: var(--tdb-heading-panel-size, clamp(1rem, 2.4vw, 1.18rem));
+  letter-spacing: var(--tdb-heading-tracking, 0.02em);
+  color: var(--tdb-heading-color, rgba(248, 250, 252, 0.95));
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.42rem;
+  line-height: 1.25;
 }
 .section-divider-icon {
   flex-shrink: 0;
-  width: 1.35rem;
-  height: 1.35rem;
-  color: var(--elite-gold);
-  opacity: 0.9;
+  width: 1.05rem;
+  height: 1.05rem;
+  max-width: 1.05rem;
+  max-height: 1.05rem;
+  color: color-mix(in srgb, var(--gold, #e3bc67) 75%, var(--muted, #a8b3c4) 25%);
+  opacity: 0.78;
+  display: block;
 }
 body:has(.pricing-grid) .section-divider {
   margin-top: 0.25rem;
@@ -13234,10 +13224,10 @@ body.kids-battle-page.kids-parent-dashboard .kids-parent-note {
     font-size: 0.7rem;
   }
   .section-divider {
-    font-size: 1.4rem;
-    margin: 0.6rem 0 0.85rem;
+    font-size: var(--tdb-heading-panel-size, clamp(1rem, 2.4vw, 1.18rem));
+    margin: 0.6rem 0 var(--tdb-porch-space-sm, 0.85rem);
   }
-  .newsletter .section-divider { font-size: 1.35rem; }
+  .newsletter .section-divider { font-size: var(--tdb-heading-section-size, clamp(1.05rem, 2.5vw, 1.22rem)); }
   .newsletter-tagline { margin-bottom: 0.85rem; font-size: 1.05rem; }
   .newsletter-form {
     flex-direction: column;
@@ -13389,7 +13379,7 @@ body.kids-battle-page.kids-parent-dashboard .kids-parent-note {
   #chapter-reader #reader-output:not(.reader-output-empty) {
     min-height: 320px;
   }
-  .section-divider { font-size: 1.3rem; }
+  .section-divider { font-size: var(--tdb-heading-panel-size, clamp(1rem, 2.4vw, 1.18rem)); }
   .daily-battle-actions .btn { font-size: 1rem; min-height: 52px; }
   .newsletter-tagline { font-size: 1rem; }
   .reader-pickers { grid-template-columns: 1fr 1fr; gap: 0.6rem; }
@@ -19197,7 +19187,7 @@ main > .card {
   padding: 0;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.65rem;
+  gap: var(--tdb-porch-gap-cards, 0.65rem);
 }
 
 @media (min-width: 520px) {
@@ -19237,7 +19227,7 @@ main > .card {
   justify-content: center;
   gap: 0.22rem;
   min-height: 5.75rem;
-  padding: 0.9rem 1.05rem;
+  padding: var(--tdb-porch-card-pad-compact-y, 0.9rem) var(--tdb-porch-card-pad-compact-x, 1.05rem);
   text-decoration: none;
   box-sizing: border-box;
   height: 100%;
@@ -19841,8 +19831,8 @@ main > .card {
 
 .explore-page .explore-section .section-divider,
 .explore-page .explore-hub .section-divider {
-  font-size: clamp(1.06rem, 2.4vw, 1.24rem);
-  letter-spacing: 0.055em;
+  margin-bottom: var(--tdb-porch-space-xs, 0.5rem);
+  padding-bottom: var(--tdb-porch-space-xs, 0.5rem);
 }
 
 .explore-page .explore-link-list li {
@@ -19852,11 +19842,11 @@ main > .card {
 }
 
 .explore-page .explore-section {
-  margin-top: 1.25rem;
+  margin-top: var(--tdb-porch-space-md, 1.25rem);
 }
 
 .explore-page .explore-start-here {
-  margin-top: 1.25rem;
+  margin-top: var(--tdb-porch-space-md, 1.25rem);
 }
 
 .explore-page .explore-start-here-list {
@@ -23268,6 +23258,16 @@ main, .tdb-quiet-container, .content-inner, #main, #home-primary-flow {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
+}
+
+/* Experience audit (May 2026): calmer hierarchy on inner pages — porch tokens */
+.explore-start-here-essentials li:first-child {
+  font-weight: 600;
+}
+body.tdb-inner-page .section-note,
+.tdb-inner-page .section-note {
+  color: var(--tdb-section-note-color, color-mix(in srgb, var(--text) 78%, var(--muted)));
+  line-height: 1.55;
 }
 
 /* Kids pages need full-width grid layouts — undo the container cap */

@@ -2,6 +2,8 @@
 
 Constructive feedback from a full-site pass—tracked here so shipped work stays honest and small diffs stay reviewable. **Not a promise timeline**; items need design, privacy review, or content time.
 
+**May 2026 deep audit (homepage IA, hierarchy, onboarding):** see **`docs/EXPERIENCE-AUDIT-2026-05.md`** — phased roadmap; start with Phase 1 homepage surface.
+
 ## Shipped in-repo (this pass)
 
 - Primary nav: **Site guide** + **Print hub** (More).
@@ -33,6 +35,8 @@ Constructive feedback from a full-site pass—tracked here so shipped work stays
 
 ## Navigation & onboarding
 
+- **Phase 1 homepage** (audit): cut duplicate feel/search surfaces; collapse what's-new; one hero path — see EXPERIENCE-AUDIT Phase 1.
+- **Core 7 nav** (audit): align top nav + Explore Start here — see EXPERIENCE-AUDIT Phase 2.
 - Optional **floating “Need help finding something?”** (links Explore + Site guide + Feel).
 - Stronger **first-visit** treatment (tour already exists—surface without noise).
 - **Theme toggle** more visible on non-home shells (today: strong on home settings; `tt-bootstrap.js` persists `tdb-theme`).

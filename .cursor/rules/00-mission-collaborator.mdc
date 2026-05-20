@@ -16,8 +16,13 @@ Brandon is the solo builder of this quiet, ad-free, KJV-only digital porch and g
 - The live site is never an AI spiritual advisor; Cursor is strictly a development and human-curation tool. We already have a “Why not AI” page for a reason.
 
 ## Foundational References
+- Persistent session API: **docs/PROJECT_CONTEXT.md** (site map, code patterns, priorities — use `@docs/PROJECT_CONTEXT.md` for big work)
+- Composer paste-ready prompt: `.cursor/composer-2.5-custom-instructions.md`
 - Four foundations: docs/NORTH-STAR-PRINCIPLES.md
-- Verse display & handling: docs/VERSE-BREAKDOWN-RULE.md (if present)
+- Verse display & handling: docs/VERSE-BREAKDOWN-RULE.md
+
+## Surface-layer priorities (recent feedback)
+Soul and philosophy are strong. Highest priority: **ruthless simplification of the surface** — homepage density, visual hierarchy, calmer navigation, gentler onboarding — while protecting the heart and every core tool (never remove; relocate or collapse secondary CTAs).
 
 ## How You Must Work
 - Always explore relevant files first using your tools.

@@ -29,6 +29,11 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260503-consent-persist-fix" as="style">
   <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix">
+  <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
+  <link rel="stylesheet" href="tdb-core-seven.css?v=20260519-audit">
+  <link rel="preload" href="tdb-porch-verse-widget.css?v=20260519-porch-verse" as="style">
+  <link rel="stylesheet" href="tdb-porch-verse-widget.css?v=20260519-porch-verse">
+  <script nonce="tdb2025s">(function(){try{var d=new Date();var k=d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0');if(localStorage.getItem('tdb-porch-verse-hidden')===k)document.documentElement.classList.add('tdb-porch-verse-hidden');}catch(e){}})();</script>
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1006,35 +1011,36 @@
       <span class="tdb-nav-flyout-toggle__label">Site</span>
     </button>
     <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-standalone">
-      <a href="/verse.html">Today&rsquo;s Lesson</a>
-      <a href="/explore.html">Explore</a>
-      <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map and gentle paths">Curriculum</a>
-      <a href="/plans.html" id="nav-browse-curriculum" aria-label="Browse the curriculum — KJV courses and gentle battle plans">Browse the curriculum</a>
-      <a href="/university.html" id="nav-university-core" aria-label="University of God — five anchor verses, quiet map">University map</a>
-      <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read</a>
-      <a href="/memorize.html">Memorize</a>
+      <a href="/">Home</a>
       <a href="/#feel-section">How I Feel</a>
-      <a href="/daily-rhythm.html">Daily Rhythm</a>
-      <a href="/prayer-wall.html">Pray</a>
+      <a href="/plans.html" id="nav-browse-curriculum" aria-label="Battle Plans — KJV tracks for hard weeks and quiet seasons">Battle Plans</a>
+      <a href="/mystudy">My Study</a>
+      <a href="/family.html" aria-label="Family hub — verse, plans, printables">Family &amp; Kids</a>
+      <a href="/explore.html">Explore</a>
+      <a href="/church-hub.html" id="nav-pastors" aria-label="Pastor and church tools">Pastors</a>
       <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
       <details class="tdb-nav-more">
         <summary aria-haspopup="true">More tools</summary>
         <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
-          <a href="/">Home</a>
-          <a href="/mystudy">My Study</a>
-          <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
-          <a href="/plans.html">Courses</a>
-          <a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">Family Armor for little ones</a>
+          <a href="/verse.html">Today&rsquo;s Lesson</a>
+          <a href="/calm.html">Calm</a>
+          <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map and gentle paths">Curriculum</a>
+          <a href="/university.html" id="nav-university-core" aria-label="University of God — five anchor verses, quiet map">University map</a>
+          <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read</a>
+          <a href="/memorize.html">Memorize</a>
+          <a href="/daily-rhythm.html">Daily Rhythm</a>
+          <a href="/prayer-wall.html">Pray</a>
           <a href="/kids/corner.html">Kids &amp; Family</a>
-          <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
-          <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
+          <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
+          <a href="/mobius.html">M&ouml;bius</a>
           <a href="/site-guide.html" id="nav-site-guide" aria-label="Start here — calm map of where to begin">Start here</a>
           <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
           <a href="/about.html">About</a>
-          <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
-          <a href="/mobius.html">Möbius</a>
-          <a href="/calm.html">Calm</a>
           <a href="/story.html">Story</a>
+          <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
+          <a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">Family Armor for little ones</a>
+          <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm">Year-round</a>
+          <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar">Print year</a>
           <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
         </div>
       </details>
@@ -1058,6 +1064,9 @@
         <span>KJV-only</span><span>Works offline</span><span>Print-ready</span><span>No guilt</span><span>Built for chaotic evenings</span>
       </div>
       <p class="family-hub-reassurance">One page is enough. You&rsquo;re already doing the hard part by showing up.</p>
+      <details class="tdb-hub-disclosure" id="family-hub-more-about">
+        <summary class="tdb-hub-disclosure__summary">More about this hub</summary>
+        <div class="tdb-hub-disclosure__inner">
       <p class="family-hub-lead">Daily worship, heavy days, ordinary Tuesdays, teaching little ones, and growing together&mdash;without hype or pressure. Everything here is <strong>KJV</strong> for Scripture, human-curated, and saved on <strong>this device</strong> until you choose to print.</p>
       <p class="family-hub-lead family-hub-parent-nudge">Parents: your own soul matters too—<a href="daily-quiet-time.html">Daily quiet time</a> and <a href="what-god-has-done.html">What God has done</a> (private journal) are gentle doorways before the table fills up.</p>
       <p class="family-year-rhythm-callout family-hub-animate family-hub-d2" id="family-year-round-rhythm" style="margin:0.85rem 0 0;padding:0.85rem 1rem;border-radius:14px;border:1px solid rgba(227,188,103,0.28);background:rgba(12,16,26,0.55);font-size:0.92rem;line-height:1.55;color:rgba(218,226,238,0.96)"><strong>Homeschool, private school, or year-round:</strong> <a href="yearly-rhythm.html">Year-round rhythm</a> maps August&ndash;July, lighter summer weeks, and holiday doors&mdash;same one-day-at-a-time pace, saved on this device.</p>
@@ -1066,7 +1075,23 @@
       <p class="tdb-trust-return tdb-lux-inscription">Family rhythms and notes stay on this device unless you export or print.</p>
       <p class="tdb-offline-trust">Still here when the signal isn&rsquo;t.</p>
       <div class="tdb-soft-retry-row"><button type="button" class="btn btn-secondary tdb-soft-retry-btn">Try again</button><span class="section-note util-mb-0">Reloads if today&rsquo;s verse or plans didn&rsquo;t load.</span></div>
+        </div>
+      </details>
     </header>
+
+    <nav class="tdb-core-seven" aria-labelledby="family-core-seven-label">
+      <p class="tdb-core-seven__label" id="family-core-seven-label">Seven calm doors</p>
+      <ul class="tdb-core-seven__grid">
+        <li><a class="tdb-core-seven__link" href="/"><span>Today&rsquo;s verse</span><span class="tdb-core-seven__desc">Read or listen</span></a></li>
+        <li><a class="tdb-core-seven__link" href="/#feel-section"><span>How I feel</span><span class="tdb-core-seven__desc">Ask the Teacher</span></a></li>
+        <li><a class="tdb-core-seven__link" href="/plans.html"><span>Battle Plans</span><span class="tdb-core-seven__desc">7&ndash;40 day paths</span></a></li>
+        <li><a class="tdb-core-seven__link" href="/mystudy"><span>My Study</span><span class="tdb-core-seven__desc">Saved on device</span></a></li>
+        <li><a class="tdb-core-seven__link" href="/family.html" aria-current="page"><span>Family &amp; Kids</span><span class="tdb-core-seven__desc">You are here</span></a></li>
+        <li><a class="tdb-core-seven__link" href="/explore.html#start-here"><span>Explore</span><span class="tdb-core-seven__desc">Full site map</span></a></li>
+        <li><a class="tdb-core-seven__link" href="/church-hub.html"><span>Pastors</span><span class="tdb-core-seven__desc">Sermon &amp; church tools</span></a></li>
+        <li><a class="tdb-core-seven__link" href="/calm.html"><span>Calm</span><span class="tdb-core-seven__desc">One verse now</span></a></li>
+      </ul>
+    </nav>
 
     <nav class="family-hub-onpage-nav" aria-label="On this page">
       <p class="family-hub-onpage-nav__label" id="family-onpage-toc-label">On this page</p>
@@ -1135,6 +1160,9 @@
     </nav>
 
     <section class="family-parent-at-a-glance family-hub-animate family-hub-d2" aria-labelledby="family-doorways-heading">
+      <details class="tdb-hub-disclosure" id="family-kid-doorways-disclosure">
+        <summary class="tdb-hub-disclosure__summary">Know the four kid doorways (map for tonight)</summary>
+        <div class="tdb-hub-disclosure__inner">
       <h2 class="family-parent-at-a-glance__title" id="family-doorways-heading">Know the four kid doorways</h2>
       <p class="family-parent-at-a-glance__lead">Same Scripture thread, different pace. Use this map when you are deciding where to land tonight.</p>
       <ul class="family-parent-at-a-glance__list">
@@ -1146,6 +1174,8 @@
         <li><strong><a href="coloring.html">Color &amp; Tell</a></strong> — hands-busy retelling that saves on this device.</li>
       </ul>
       <p class="section-note">For ages 3&ndash;4 with a grown-up, start with <a href="/little-ones.html">For the Little Ones</a>, <a href="coloring.html?story=jesus">Jesus &amp; the children</a>, <a href="coloring.html?story=creation">Creation</a>, or one comfort loop, then end while it still feels peaceful.</p>
+        </div>
+      </details>
     </section>
 
     <section class="family-year-round-tools-card family-hub-animate family-hub-d2" id="family-year-round-tools" aria-labelledby="family-year-round-tools-heading">
@@ -1271,6 +1301,18 @@
       <p class="family-verse-foot">Same pick as the home page today (KJV). Full page: <a href="verse.html">Verse of the Day</a>.</p>
       <div class="family-plan-hint" id="family-plan-context" hidden></div>
     </section>
+
+    <aside class="tdb-porch-verse-widget tdb-surface-card family-hub-animate family-hub-d2" id="tdbPorchVerseWidget" role="complementary" aria-labelledby="tdbPorchVerseWidgetH" data-tdb-porch-verse-prebuilt="0">
+      <p class="tdb-porch-verse-widget__label" id="tdbPorchVerseWidgetH">Today&rsquo;s verse</p>
+      <p class="tdb-porch-verse-widget__ref" id="tdbPorchVerseRef">&mdash;</p>
+      <blockquote class="tdb-porch-verse-widget__text" id="tdbPorchVerseText">
+        <p class="section-note">Same quiet KJV calendar as Home.</p>
+      </blockquote>
+      <div class="tdb-porch-verse-widget__actions">
+        <a class="btn btn-secondary" href="/">Read with breakdown</a>
+        <button type="button" class="link-button" id="tdbPorchVerseHide">Hide for today</button>
+      </div>
+    </aside>
 
     <section class="family-section-block family-hub-animate family-hub-d2 family-memory-section" id="family-year-round-memory" aria-labelledby="family-memory-heading">
       <h2 class="family-section-title" id="family-memory-heading">Year-round &amp; Memory Verses</h2>
@@ -2023,6 +2065,8 @@
     window.TDB_DAILY_VERSE_REF_ID = 'family-daily-verse-ref';
   </script>
   <script src="tdb-offline-strip.js?v=20260421pwa1"></script>
+  <script defer src="hero-daily-365-data.js?v=20260519-porch-verse"></script>
+  <script defer src="tdb-porch-verse-widget.js?v=20260519-porch-verse"></script>
   <script type="module" src="script.js?v=20260503-consent-persist-fix" data-cfasync="false"></script>
   <script src="kids-corner-daily-verse.js?v=20260408quickstart" defer></script>
   <script src="family-dashboard.js?v=20260405familydash1" defer></script>

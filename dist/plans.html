@@ -45,6 +45,11 @@
   <!-- Full stylesheet: no print/onload unlock (CSP blocks inline handlers; preload still warms the fetch). -->
   <link rel="preload" href="styles.css?v=20260503-consent-persist-fix" as="style" fetchpriority="high">
   <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix" media="all">
+  <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
+  <link rel="stylesheet" href="tdb-core-seven.css?v=20260519-audit" media="all">
+  <link rel="preload" href="tdb-porch-verse-widget.css?v=20260519-porch-verse" as="style">
+  <link rel="stylesheet" href="tdb-porch-verse-widget.css?v=20260519-porch-verse" media="all">
+  <script nonce="tdb2025s">(function(){try{var d=new Date();var k=d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0');if(localStorage.getItem('tdb-porch-verse-hidden')===k)document.documentElement.classList.add('tdb-porch-verse-hidden');}catch(e){}})();</script>
   <style>
     :root {
       --bg:       #0d1117;
@@ -2071,35 +2076,36 @@
       <span class="tdb-nav-flyout-toggle__label">Site</span>
     </button>
     <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-standalone">
-      <a href="/verse.html">Today&rsquo;s Lesson</a>
-      <a href="/explore.html">Explore</a>
-      <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map and gentle paths">Curriculum</a>
-      <a href="/plans.html" id="nav-browse-curriculum" aria-label="Browse the curriculum — KJV courses and gentle battle plans">Browse the curriculum</a>
-      <a href="/university.html" id="nav-university-core" aria-label="University of God — five anchor verses, quiet map">University map</a>
-      <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read</a>
-      <a href="/memorize.html">Memorize</a>
+      <a href="/">Home</a>
       <a href="/#feel-section">How I Feel</a>
-      <a href="/daily-rhythm.html">Daily Rhythm</a>
-      <a href="/prayer-wall.html">Pray</a>
+      <a href="/plans.html" id="nav-browse-curriculum" aria-label="Battle Plans — KJV tracks for hard weeks and quiet seasons">Battle Plans</a>
+      <a href="/mystudy">My Study</a>
+      <a href="/family.html" aria-label="Family hub — verse, plans, printables">Family &amp; Kids</a>
+      <a href="/explore.html">Explore</a>
+      <a href="/church-hub.html" id="nav-pastors" aria-label="Pastor and church tools">Pastors</a>
       <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
       <details class="tdb-nav-more">
         <summary aria-haspopup="true">More tools</summary>
         <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
-          <a href="/">Home</a>
-          <a href="/mystudy">My Study</a>
-          <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
-          <a href="/plans.html" aria-current="page">Courses</a>
-          <a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">Family Armor for little ones</a>
+          <a href="/verse.html">Today&rsquo;s Lesson</a>
+          <a href="/calm.html">Calm</a>
+          <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map and gentle paths">Curriculum</a>
+          <a href="/university.html" id="nav-university-core" aria-label="University of God — five anchor verses, quiet map">University map</a>
+          <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read</a>
+          <a href="/memorize.html">Memorize</a>
+          <a href="/daily-rhythm.html">Daily Rhythm</a>
+          <a href="/prayer-wall.html">Pray</a>
           <a href="/kids/corner.html">Kids &amp; Family</a>
-          <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
-          <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar with twelve months, seasons, and activity reminders">Print year</a>
+          <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
+          <a href="/mobius.html">M&ouml;bius</a>
           <a href="/site-guide.html" id="nav-site-guide" aria-label="Start here — calm map of where to begin">Start here</a>
           <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
           <a href="/about.html">About</a>
-          <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
-          <a href="/mobius.html">Möbius</a>
-          <a href="/calm.html">Calm</a>
           <a href="/story.html">Story</a>
+          <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
+          <a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">Family Armor for little ones</a>
+          <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm">Year-round</a>
+          <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar">Print year</a>
           <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
         </div>
       </details>
@@ -2131,8 +2137,6 @@
       <div class="plans-hero plans-hero--soar-dawn tdb-micro-hero-dawn">
         <h1>Battle Plans</h1>
         <p class="plans-hero-subtitle">God&rsquo;s University of Life &mdash; open any door, any day. Rest, not rush.</p>
-        <p class="plans-hero-red-letters-teaser"><a href="plans.html?plan=hisownwords">Only His Voice</a> &mdash; five quiet days with nothing but the red letters of the Lord Jesus.</p>
-        <p class="plans-hero-red-letters-teaser"><a href="plans.html?plan=fearpressesin">When Fear Presses In</a> &mdash; gentle Scripture for anxious and fearful days. For pure red letters: <a href="plans.html?plan=hisownwords">Only His Voice</a>.</p>
       </div>
       <section class="plans-situation-jump" id="find-your-plan" aria-labelledby="plans-situation-jump-h">
         <h2 class="plans-find-your-plan-h" id="plans-situation-jump-h">Find your plan</h2>
@@ -2157,6 +2161,36 @@
         </ul>
         <p class="plans-situation-jump__more section-note" role="note">Still scanning? <a href="#plans-browse-by-feeling">More by feeling</a> &middot; <a href="#plans-start-here-title">Start here</a> &middot; <a href="index.html#feel-section">How I feel (home)</a></p>
       </section>
+
+      <nav class="tdb-core-seven tdb-quiet-container" aria-labelledby="plans-core-seven-label">
+        <p class="tdb-core-seven__label" id="plans-core-seven-label">Seven calm doors</p>
+        <ul class="tdb-core-seven__grid">
+          <li><a class="tdb-core-seven__link" href="/"><span>Today&rsquo;s verse</span><span class="tdb-core-seven__desc">Read or listen</span></a></li>
+          <li><a class="tdb-core-seven__link" href="/#feel-section"><span>How I feel</span><span class="tdb-core-seven__desc">Ask the Teacher</span></a></li>
+          <li><a class="tdb-core-seven__link" href="/plans.html" aria-current="page"><span>Battle Plans</span><span class="tdb-core-seven__desc">You are here</span></a></li>
+          <li><a class="tdb-core-seven__link" href="/mystudy"><span>My Study</span><span class="tdb-core-seven__desc">Saved on device</span></a></li>
+          <li><a class="tdb-core-seven__link" href="/family.html"><span>Family &amp; Kids</span><span class="tdb-core-seven__desc">Table &amp; stories</span></a></li>
+          <li><a class="tdb-core-seven__link" href="/explore.html#start-here"><span>Explore</span><span class="tdb-core-seven__desc">Full site map</span></a></li>
+          <li><a class="tdb-core-seven__link" href="/church-hub.html"><span>Pastors</span><span class="tdb-core-seven__desc">Sermon &amp; church tools</span></a></li>
+          <li><a class="tdb-core-seven__link" href="/calm.html"><span>Calm</span><span class="tdb-core-seven__desc">One verse now</span></a></li>
+        </ul>
+      </nav>
+
+      <aside class="tdb-porch-verse-widget tdb-surface-card" id="tdbPorchVerseWidget" role="complementary" aria-labelledby="tdbPorchVerseWidgetH" data-tdb-porch-verse-prebuilt="1">
+        <p class="tdb-porch-verse-widget__label" id="tdbPorchVerseWidgetH">Today&rsquo;s verse</p>
+        <p class="tdb-porch-verse-widget__ref" id="tdbPorchVerseRef">John 15:12 (KJV)</p>
+        <blockquote class="tdb-porch-verse-widget__text" id="tdbPorchVerseText"><p>“This is my commandment, That ye love one another, as I have loved you.”</p></blockquote>
+        <div class="tdb-porch-verse-widget__actions">
+          <a class="btn btn-secondary" href="/">Read with breakdown</a>
+          <button type="button" class="link-button" id="tdbPorchVerseHide">Hide for today</button>
+        </div>
+      </aside>
+
+      <details class="tdb-hub-disclosure" id="plans-hero-more">
+        <summary class="tdb-hub-disclosure__summary">Featured lanes, printables, and pastor help</summary>
+        <div class="tdb-hub-disclosure__inner">
+        <p class="plans-hero-red-letters-teaser"><a href="plans.html?plan=hisownwords">Only His Voice</a> &mdash; five quiet days with nothing but the red letters of the Lord Jesus.</p>
+        <p class="plans-hero-red-letters-teaser"><a href="plans.html?plan=fearpressesin">When Fear Presses In</a> &mdash; gentle Scripture for anxious and fearful days. For pure red letters: <a href="plans.html?plan=hisownwords">Only His Voice</a>.</p>
       <div class="plans-hero-continued" aria-label="More about courses and help">
         <p class="plans-audio-roadmap tdb-listen-privacy-hint" role="note">We hope to add warm <strong>human narration</strong> for plan days (and Möbius breathing) when recording lines up&mdash;nothing extra to buy or turn on yet. Each day&rsquo;s <strong>Listen</strong> still uses steady device TTS. Playback stays on your device&mdash;nothing is uploaded for listening.</p>
         <p class="plans-hero-hint plans-hero-print-delight" role="group" aria-label="Print today&rsquo;s KJV verse">
@@ -2177,6 +2211,8 @@
       <p class="plans-homeschool-banner" role="region" aria-label="Homeschool and private school"><strong>For homeschool &amp; private-school Bible class:</strong> one screen maps August&ndash;July, summer weeks, holidays, and the same monthly memory verses you can mark on this device &mdash; <a href="yearly-rhythm.html">Year-round rhythm</a>. Need age-banded pacing? Open the <a href="yearly-rhythm.html#yr-ages-5-18">ages 5&ndash;18 weekly + daily map</a>. Printables: <a href="year-at-a-glance.html">Year at a glance</a> · <a href="yearly-rhythm.html#yr-print-planners">planners</a> · <a href="church-sharing-kit.html#csk-homeschool-year-round">Church kit</a>.</p>
       <p class="section-note plans-memory-activities-teaser" id="plans-memory-activities-teaser" style="margin:0.5rem 0 0;font-size:0.88rem;line-height:1.55;color:rgba(203,213,225,0.92)">Gentle ways to hide God&rsquo;s Word in your heart (no quizzes)&mdash;see <a href="church-sharing-kit.html#csk-memory-verse-activities">Memory Verse Activities</a> in the Church Sharing Kit.</p>
       <p class="plans-hero-hint" style="margin:0.6rem 0 1.1rem; color:#b8a98a; font-size:0.86rem;">New this summer: <a href="plans.html?plan=longdayslittle" style="color:#c9b89a;">Long Days with Little Ones</a> &middot; <a href="plans.html?plan=backtoschoolfear" style="color:#c9b89a;">Back-to-School Fear</a> &middot; <a href="plans.html?plan=summergrief" style="color:#c9b89a;">When Grief Feels Heavy in Summer</a> &middot; <a href="plans.html?plan=summertimesadness" style="color:#c9b89a;">Summer Time Sadness</a> &mdash; gentle plans for the hidden hours and the aches that bright days can make harder.</p>
+        </div>
+      </details>
       <nav class="plans-plan-filter-bar" aria-label="Jump to plan groups in the list below">
         <span class="plans-plan-filter-label">Quick jump</span>
         <a class="plans-plan-filter-chip" href="#all-plans">All</a>
@@ -3667,7 +3703,7 @@
         <a href="/mystudy">My Study</a>
         <a href="/calm.html">Calm</a>
         <a href="/mobius.html">Möbius</a>
-        <a href="/plans.html">Courses</a>
+        <a href="/plans.html" aria-current="page">Courses</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
         <a href="/wins.html">Wins</a>
@@ -3734,6 +3770,8 @@
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
   <script defer src="/language-switcher.js?v=20260503-consent-persist-fix"></script>
+  <script defer src="hero-daily-365-data.js?v=20260519-porch-verse"></script>
+  <script defer src="tdb-porch-verse-widget.js?v=20260519-porch-verse"></script>
 </footer>
 
   <noscript>

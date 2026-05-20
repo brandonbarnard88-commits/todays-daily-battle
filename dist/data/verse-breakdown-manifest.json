@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-05-19T18:10:33.197Z",
-  "surfacedRefCount": 3307,
-  "overrideCount": 3307,
+  "generatedAt": "2026-05-20T02:12:58.076Z",
+  "surfacedRefCount": 3317,
+  "overrideCount": 3317,
   "sourceCounts": {
     ".worktrees/main-hotfix/404-admin.html": {
       "refs": 1,
@@ -1008,7 +1008,7 @@
       "pairs": 0
     },
     "kids/corner.html": {
-      "refs": 24,
+      "refs": 26,
       "pairs": 0
     },
     "kids/good-night.html": {
@@ -1039,11 +1039,19 @@
       "refs": 2,
       "pairs": 0
     },
+    "kids/porch-read-come-unto-me.html": {
+      "refs": 1,
+      "pairs": 0
+    },
     "kids/porch-read-family-worship.html": {
       "refs": 1,
       "pairs": 0
     },
     "kids/porch-read-golden-rule.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "kids/porch-read-good-shepherd.html": {
       "refs": 1,
       "pairs": 0
     },
@@ -1064,6 +1072,14 @@
       "pairs": 0
     },
     "kids/porch-read-parent-weary.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "kids/porch-read-peace-in-storm.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "kids/porch-read-render-unto-caesar.html": {
       "refs": 1,
       "pairs": 0
     },
@@ -1115,6 +1131,14 @@
       "refs": 6,
       "pairs": 0
     },
+    "lessons-from-the-valley-print.html": {
+      "refs": 8,
+      "pairs": 0
+    },
+    "lessons-from-the-valley.html": {
+      "refs": 8,
+      "pairs": 0
+    },
     "life-lessons/anger-reconciliation-when-words-fired-print.html": {
       "refs": 8,
       "pairs": 0
@@ -1160,6 +1184,14 @@
       "pairs": 0
     },
     "life-lessons/cast-your-care-when-burden-is-heavy.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    "life-lessons/come-unto-me-when-weary-heavy-laden-print.html": {
+      "refs": 7,
+      "pairs": 0
+    },
+    "life-lessons/come-unto-me-when-weary-heavy-laden.html": {
       "refs": 7,
       "pairs": 0
     },
@@ -1283,6 +1315,22 @@
       "refs": 7,
       "pairs": 0
     },
+    "life-lessons/peace-in-the-storm-when-waves-are-louder-print.html": {
+      "refs": 8,
+      "pairs": 0
+    },
+    "life-lessons/peace-in-the-storm-when-waves-are-louder.html": {
+      "refs": 8,
+      "pairs": 0
+    },
+    "life-lessons/render-unto-caesar-when-laws-pull-apart-print.html": {
+      "refs": 9,
+      "pairs": 0
+    },
+    "life-lessons/render-unto-caesar-when-laws-pull-apart.html": {
+      "refs": 10,
+      "pairs": 0
+    },
     "life-lessons/ruth-stays-loyal-print.html": {
       "refs": 2,
       "pairs": 0
@@ -1372,11 +1420,11 @@
       "pairs": 0
     },
     "life-lessons-data.js": {
-      "refs": 31,
+      "refs": 33,
       "pairs": 0
     },
     "life-lessons.html": {
-      "refs": 31,
+      "refs": 33,
       "pairs": 0
     },
     "lighthouse-bible-tool.json": {
@@ -1411,6 +1459,10 @@
       "refs": 25,
       "pairs": 25
     },
+    "mobius-deep-lesson-stations.js": {
+      "refs": 19,
+      "pairs": 0
+    },
     "mobius-loop.js": {
       "refs": 3,
       "pairs": 0
@@ -1428,7 +1480,7 @@
       "pairs": 2
     },
     "mobius.html": {
-      "refs": 22,
+      "refs": 28,
       "pairs": 0
     },
     "morning-evening-family-print.html": {
@@ -1716,7 +1768,7 @@
       "pairs": 14
     },
     "partials/verse-image-life-lessons-prompts.html": {
-      "refs": 27,
+      "refs": 32,
       "pairs": 0
     },
     "pastor/builder.html": {
@@ -1768,8 +1820,12 @@
       "pairs": 1
     },
     "plans.html": {
-      "refs": 347,
-      "pairs": 455
+      "refs": 355,
+      "pairs": 461
+    },
+    "porch-pathways-ribbon-one-page-print.html": {
+      "refs": 3,
+      "pairs": 0
     },
     "printables.html": {
       "refs": 12,
@@ -1820,7 +1876,7 @@
       "pairs": 0
     },
     "sermon-on-the-mount-twelve-one-page-print.html": {
-      "refs": 15,
+      "refs": 16,
       "pairs": 0
     },
     "sermon.html": {
@@ -1880,7 +1936,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 144,
+      "refs": 150,
       "pairs": 0
     },
     "tl/kabalisahan.html": {
@@ -1992,7 +2048,7 @@
       "pairs": 0
     },
     "verse-image.html": {
-      "refs": 41,
+      "refs": 45,
       "pairs": 0
     },
     "verse-image.js": {
@@ -2208,6 +2264,8 @@
     "1 Peter 2:1",
     "1 Peter 2:11",
     "1 Peter 2:12",
+    "1 Peter 2:13",
+    "1 Peter 2:13-17",
     "1 Peter 2:2",
     "1 Peter 2:21",
     "1 Peter 2:23",
@@ -2669,10 +2727,13 @@
     "Acts 3:6",
     "Acts 3:8",
     "Acts 4:14",
+    "Acts 4:19",
+    "Acts 4:19-20",
     "Acts 4:28",
     "Acts 4:36",
     "Acts 5:12-16",
     "Acts 5:15",
+    "Acts 5:29",
     "Acts 5:34",
     "Acts 5:34-39",
     "Acts 5:39",
@@ -2771,6 +2832,7 @@
     "Daniel 3:15",
     "Daniel 3:16",
     "Daniel 3:17",
+    "Daniel 3:17-18",
     "Daniel 3:23",
     "Daniel 3:25",
     "Daniel 3:27",
@@ -2956,6 +3018,7 @@
     "Exodus 18:21",
     "Exodus 18:24",
     "Exodus 19:20",
+    "Exodus 1:17",
     "Exodus 20:1",
     "Exodus 20:1-17",
     "Exodus 20:17",
@@ -4342,7 +4405,9 @@
     "Matthew 21:8",
     "Matthew 21:9",
     "Matthew 22:1-14",
+    "Matthew 22:15",
     "Matthew 22:15-22",
+    "Matthew 22:21",
     "Matthew 22:23-33",
     "Matthew 22:29",
     "Matthew 22:35-40",
@@ -4541,6 +4606,7 @@
     "Matthew 8:13",
     "Matthew 8:14-15",
     "Matthew 8:2",
+    "Matthew 8:23-27",
     "Matthew 8:3",
     "Matthew 8:31",
     "Matthew 8:4",
@@ -5428,6 +5494,7 @@
     "Colossians 3:13-15": "Forbearing one another, and forgiving one another, if any man have a quarrel against any: even as Christ forgave you, so also do ye. And above all these things put on charity, which is the bond of perfectness. And let the peace of God rule in your hearts, to the which also ye are called in one body; and be ye thankful.",
     "Colossians 3:23-24": "And whatsoever ye do, do it heartily, as to the Lord, and not unto men; Knowing that of the Lord ye shall receive the reward of the inheritance: for ye serve the Lord Christ.",
     "Colossians 3:3-4": "For ye are dead, and your life is hid with Christ in God. When Christ, who is our life, shall appear, then shall ye also appear with him in glory.",
+    "Daniel 3:17-18": "If it be so, our God whom we serve is able to deliver us from the burning fiery furnace, and he will deliver us out of thine hand, O king. But if not, be it known unto thee, O king, that we will not serve thy gods, nor worship the golden image which thou hast set up.",
     "Deuteronomy 28:1-2": "And it shall come to pass, if thou shalt hearken diligently unto the voice of the LORD thy God... that the LORD thy God will set thee on high above all nations of the earth: And all these blessings shall come on thee...",
     "Deuteronomy 6:6-7": "And these words, which I command thee this day, shall be in thine heart: And thou shalt teach them diligently unto thy children, and shalt talk of them when thou sittest in thine house, and when thou walkest by the way, and when thou liest down, and when thou risest up.",
     "Deuteronomy\\u00a06:6\\u20137": "And these words, which I command thee this day, shall be in thine heart: And thou shalt teach them diligently unto thy children, and shalt talk of them when thou sittest in thine house, and when thou walkest by the way, and when thou liest down, and when thou risest up.",
@@ -7136,6 +7203,22 @@
       "general": {
         "plainExplanation": "Key idea: Having your conversation honest among the Gentiles: that, whereas they speak against you as evildoers, they may by your good works, which they shall look, g...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Peter",
+        "to": "Believers"
+      }
+    },
+    "1 Peter 2:13": {
+      "general": {
+        "plainExplanation": "Submit yourselves to every ordinance of man for the Lord\\u2019s sake: whether it be to the king, as supreme;",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Peter",
+        "to": "Believers"
+      }
+    },
+    "1 Peter 2:13-17": {
+      "general": {
+        "plainExplanation": "Key idea: Submit yourselves to every ordinance of man for the Lord’s sake: whether it be to the king, as supreme; Or to governors, as to them that are sent by him for...",
+        "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
         "about": "Peter",
         "to": "Believers"
       }
@@ -10708,6 +10791,22 @@
         "to": "Church"
       }
     },
+    "Acts 4:19": {
+      "general": {
+        "plainExplanation": "But Peter and John answered and said to them, Whether it be right in the sight of God to hearken to you more than to God, judge you.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Luke",
+        "to": "Church"
+      }
+    },
+    "Acts 4:19-20": {
+      "general": {
+        "plainExplanation": "Key idea: But Peter and John answered and said to them, Whether it be right in the sight of God to hearken to you more than to God, judge you. For we cannot but speak...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Luke",
+        "to": "Church"
+      }
+    },
     "Acts 4:28": {
       "general": {
         "plainExplanation": "For to do whatever your hand and your counsel determined before to be done.",
@@ -10735,6 +10834,14 @@
     "Acts 5:15": {
       "general": {
         "plainExplanation": "Insomuch that they brought forth the sick into the streets, and laid them on beds and couches, that at the least the shadow of Peter passing by might overshadow some of them.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Luke",
+        "to": "Church"
+      }
+    },
+    "Acts 5:29": {
+      "general": {
+        "plainExplanation": "Then Peter and the other apostles answered and said, We ought to obey God rather than men.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Luke",
         "to": "Church"
@@ -11519,6 +11626,14 @@
     "Daniel 3:17": {
       "general": {
         "plainExplanation": "If it be so, our God whom we serve is able to deliver us from the burning fiery furnace, and he will deliver us out of thine hand, O king.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Daniel",
+        "to": "Exiles"
+      }
+    },
+    "Daniel 3:17-18": {
+      "general": {
+        "plainExplanation": "Key idea: If it be so, our God whom we serve is able to deliver us from the burning fiery furnace, and he will deliver us out of thine hand, O king. But if not, be it...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Daniel",
         "to": "Exiles"
@@ -12999,6 +13114,14 @@
     "Exodus 19:20": {
       "general": {
         "plainExplanation": "And the LORD came down upon mount Sinai, on the top of the mount: and the LORD called Moses up to the top of the mount; and Moses went up.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Exodus 1:17": {
+      "general": {
+        "plainExplanation": "But the midwives feared God, and did not as the king of Egypt commanded them, but saved the men children alive.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Moses",
         "to": "Israel"
@@ -24092,9 +24215,25 @@
         "to": "Believers"
       }
     },
+    "Matthew 22:15": {
+      "general": {
+        "plainExplanation": "Then went the Pharisees, and took counsel how they might entangle him in his talk.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Matthew 22:15-22": {
       "general": {
         "plainExplanation": "Key idea: Then went the Pharisees, and took counsel how they might entangle him in his talk. And they sent out to him their disciples with the Herodians, saying, Mast...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 22:21": {
+      "general": {
+        "plainExplanation": "Render therefore to Caesar the things which are Caesar\\u2019s; and to God the things that are God\\u2019s.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -25679,6 +25818,14 @@
     "Matthew 8:2": {
       "general": {
         "plainExplanation": "And, look, there came a leper and worshipped him, saying, Lord, if you wilt, you canst make me clean.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 8:23-27": {
+      "general": {
+        "plainExplanation": "Key idea: And when he was entered into a ship, his disciples followed him. And, look, there arose a great tempest in the sea, insomuch that the ship was covered with...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"

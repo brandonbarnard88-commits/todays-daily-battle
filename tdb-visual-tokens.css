@@ -1,0 +1,129 @@
+/*
+ * Porch visual tokens — shared rhythm for Home + Explore.
+ * Home: <link> before inline styles in index.html.
+ * Inner pages: @import in styles.css (before component rules).
+ *
+ * Tokens only + porch-surface/heading application. No feature removal.
+ */
+
+:root {
+  /* ── Spacing scale (porch rhythm) ── */
+  --tdb-porch-space-2xs: 0.35rem;
+  --tdb-porch-space-xs: 0.5rem;
+  --tdb-porch-space-sm: 0.85rem;
+  --tdb-porch-space-md: 1.25rem;
+  --tdb-porch-space-lg: 1.75rem;
+  --tdb-porch-space-xl: 2.5rem;
+  --tdb-porch-gap-stack: clamp(0.85rem, 2.2vw, 1.35rem);
+  --tdb-porch-gap-cards: clamp(0.65rem, 1.8vw, 0.85rem);
+
+  /* ── Heading rhythm ── */
+  --tdb-heading-display-size: clamp(1.35rem, 3.2vw, 1.75rem);
+  --tdb-heading-section-size: clamp(1.28rem, 3vw, 1.62rem);
+  --tdb-heading-panel-size: clamp(1rem, 2.4vw, 1.18rem);
+  --tdb-heading-eyebrow-size: 0.72rem;
+  --tdb-heading-weight-strong: 650;
+  --tdb-heading-weight-panel: 600;
+  --tdb-heading-tracking: 0.02em;
+  --tdb-heading-color: var(--text, #f5f7fb);
+  --tdb-heading-muted: var(--muted, #a8b3c4);
+  --tdb-heading-rule: color-mix(in srgb, var(--line, #2a3344) 88%, rgba(227, 188, 103, 0.12));
+  --tdb-section-note-color: color-mix(in srgb, var(--muted, #a8b3c4) 94%, transparent);
+
+  /* ── Porch card surface (Home verse frame + Explore hub tiles) ── */
+  --tdb-porch-card-radius: 16px;
+  --tdb-porch-card-radius-sm: 14px;
+  --tdb-porch-card-pad-y: clamp(1.35rem, 2.8vw, 2.75rem);
+  --tdb-porch-card-pad-x: clamp(1rem, 2.4vw, 1.75rem);
+  --tdb-porch-card-pad-compact-y: 0.9rem;
+  --tdb-porch-card-pad-compact-x: 1.05rem;
+  --tdb-porch-card-bg: color-mix(in srgb, var(--card, #1b212d) 96%, #fff 4%);
+  --tdb-porch-card-border: color-mix(in srgb, var(--line, #2a3344) 88%, rgba(227, 188, 103, 0.12));
+  --tdb-porch-card-shadow:
+    0 10px 32px rgba(0, 0, 0, 0.26),
+    0 0 0 1px color-mix(in srgb, rgba(227, 188, 103, 0.18) 45%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  --tdb-porch-card-shadow-hover:
+    0 14px 38px rgba(0, 0, 0, 0.3),
+    0 0 0 1px color-mix(in srgb, rgba(227, 188, 103, 0.28) 50%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  /* Bridge to existing surface system (Explore + inner pages) */
+  --tdb-surface-radius: var(--tdb-porch-card-radius);
+  --tdb-surface-card-bg: var(--tdb-porch-card-bg);
+  --tdb-surface-card-border: var(--tdb-porch-card-border);
+  --tdb-surface-card-shadow: var(--tdb-porch-card-shadow);
+  --tdb-surface-card-shadow-hover: var(--tdb-porch-card-shadow-hover);
+}
+
+:root[data-theme="light"],
+:root[data-theme="daylight"],
+:root[data-theme="sepia"],
+:root[data-theme="parchment"] {
+  --tdb-porch-card-bg: #faf7f2;
+  --tdb-porch-card-border: rgba(191, 164, 111, 0.11);
+  --tdb-porch-card-shadow:
+    0 8px 28px rgba(28, 42, 68, 0.08),
+    0 0 0 1px rgba(191, 164, 111, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  --tdb-porch-card-shadow-hover:
+    0 12px 34px rgba(28, 42, 68, 0.1),
+    0 0 0 1px rgba(191, 164, 111, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  --tdb-heading-color: #1c2a44;
+  --tdb-heading-muted: #4d5f72;
+  --tdb-heading-rule: color-mix(in srgb, rgba(191, 164, 111, 0.35) 28%, rgba(76, 90, 108, 0.22) 72%);
+  --tdb-section-note-color: #4a5a6e;
+}
+
+/* ── Porch card surfaces ── */
+#hero-verse-wrap {
+  background: var(--tdb-porch-card-bg);
+  border: 1px solid var(--tdb-porch-card-border);
+  border-radius: var(--tdb-porch-card-radius);
+  box-shadow: var(--tdb-porch-card-shadow);
+}
+
+.tdb-first-visit-next-step,
+.tdb-porch-card {
+  border-color: var(--tdb-porch-card-border);
+}
+
+/* ── Heading rhythm (Home + Explore) ── */
+#tdbTodaysVerseHeading,
+.tdb-verse-section-label {
+  font-size: var(--tdb-heading-display-size);
+  font-weight: var(--tdb-heading-weight-strong);
+  letter-spacing: var(--tdb-heading-tracking);
+  color: var(--tdb-heading-color);
+}
+
+#quick-search-hero .mood-title,
+#feel-section .mood-title {
+  font-size: var(--tdb-heading-section-size);
+  font-weight: var(--tdb-heading-weight-strong);
+  color: var(--tdb-heading-color);
+  margin-bottom: var(--tdb-porch-space-xs);
+}
+
+main#home-primary-flow h2.section-divider,
+.explore-page .explore-section .section-divider,
+.explore-page .explore-hub .section-divider {
+  font-size: var(--tdb-heading-panel-size);
+  font-weight: var(--tdb-heading-weight-strong);
+  letter-spacing: var(--tdb-heading-tracking);
+  color: var(--tdb-heading-color);
+  border-bottom-color: var(--tdb-heading-rule);
+}
+
+.explore-page .explore-eyebrow {
+  font-size: var(--tdb-heading-eyebrow-size);
+}
+
+/* Secondary copy — light-theme contrast for tired eyes */
+main#home-primary-flow .section-note,
+.explore-page .section-note,
+body.tdb-inner-page .section-note {
+  color: var(--tdb-section-note-color);
+  line-height: 1.55;
+}

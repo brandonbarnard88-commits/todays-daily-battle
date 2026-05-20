@@ -26931,7 +26931,7 @@ function buildHomeSearchFilterRow(output, availableSections, activeTopics) {
 
 function buildHomeVerseCard(output, verse, queryText) {
   var card = document.createElement('article');
-  card.className = 'verse-card home-search-card home-search-card--verse';
+  card.className = 'verse-card home-search-card home-search-card--verse tdb-result-card';
   card.setAttribute('data-home-result-card', 'verse');
 
   var ref = document.createElement('p');
@@ -26958,48 +26958,23 @@ function buildHomeVerseCard(output, verse, queryText) {
   }
   card.appendChild(versePreview);
 
+  var verseText = plainVerse;
+
   var plainMeaning = typeof getPlainMeaning === 'function' ? getPlainMeaning(verse.ref) : '';
   if (!plainMeaning && typeof getVerseBreakdown === 'function') {
-    var vtext = stripHtmlToPlainText(verse.text || '');
-    var autoBd = getVerseBreakdown(verse.ref, vtext, null);
+    var autoBd = getVerseBreakdown(verse.ref, verseText, null);
     if (autoBd && autoBd.layman) plainMeaning = String(autoBd.layman).trim();
   }
-  if (plainMeaning) {
-    var plainMeaningEl = document.createElement('p');
-    plainMeaningEl.className = 'verse-plain-meaning home-search-card-plain';
-    plainMeaningEl.textContent = PLAIN_MEANING_LABEL + ' ' + plainMeaning;
-    card.appendChild(plainMeaningEl);
-  }
 
-  var uogListFn = typeof window.tdbUogBuildCurriculumPlanList === 'function' ? window.tdbUogBuildCurriculumPlanList : null;
-  var uogRows = uogListFn ? (uogListFn(verse.ref, stripHtmlToPlainText(verse.text || '')) || []) : [];
-  var uogFirst = uogRows && uogRows[0];
-  var connectP = document.createElement('p');
-  connectP.className = 'home-search-card-connect';
-  connectP.appendChild(document.createTextNode('This connects to '));
-  var connectA = document.createElement('a');
-  connectA.href = (uogFirst && uogFirst.href) || '/university.html';
-  connectA.textContent = (uogFirst && uogFirst.label) || 'the University map';
-  connectP.appendChild(connectA);
-  connectP.appendChild(document.createTextNode('.'));
-  card.appendChild(connectP);
+  var primary = document.createElement('div');
+  primary.className = 'search-vbd-primary home-search-vbd';
+  appendSearchBpIf(primary, 'Plain English', plainMeaning);
+  appendSearchBpIf(primary, 'One small step', getHomeSearchNextStepTeaser(verse), 'action-panel');
+  appendSearchBpIf(primary, 'Prayer', getHomeSearchPrayerText(verse), 'prayer-panel');
+  if (primary.childElementCount) card.appendChild(primary);
 
-  var teaser = document.createElement('p');
-  teaser.className = 'home-search-card-teaser';
-  teaser.textContent = getHomeSearchNextStepTeaser(verse);
-  card.appendChild(teaser);
-
-  var breakdownRow = document.createElement('div');
-  breakdownRow.className = 'home-search-card-actions';
-  var breakdownBtn = document.createElement('button');
-  breakdownBtn.type = 'button';
-  breakdownBtn.className = 'home-search-inline-link';
-  breakdownBtn.textContent = 'Why this verse today';
-  breakdownBtn.addEventListener('click', function () {
-    renderHomeSearchDetail(output, verse, queryText);
-  });
-  breakdownRow.appendChild(breakdownBtn);
-  card.appendChild(breakdownRow);
+  var digDet = attachHomeSearchDigDeeper(verse, verseText);
+  if (digDet) card.appendChild(digDet);
 
   var actionBar = document.createElement('div');
   actionBar.className = 'ask-word-action-bar';
@@ -27030,7 +27005,6 @@ function buildHomeVerseCard(output, verse, queryText) {
     }
   }
 
-  var verseText = stripHtmlToPlainText(verse.text || '');
   var verseWords = verseText.split(/\s+/).filter(Boolean);
 
   var quickGroup = buildActionGroup('Quick actions');
@@ -27157,9 +27131,92 @@ function buildHomeLinkCard(entry, sectionType) {
   return card;
 }
 
+function appendSearchBpIf(parent, label, text, extraClass) {
+  var t = String(text || '').trim();
+  if (!t || !parent) return;
+  var div = document.createElement('div');
+  div.className = 'day-bp search-vbd-bp' + (extraClass ? ' ' + extraClass : '');
+  var pl = document.createElement('p');
+  pl.className = 'day-bp-label';
+  pl.textContent = label;
+  var pt = document.createElement('p');
+  pt.className = 'day-bp-text';
+  pt.textContent = t;
+  div.appendChild(pl);
+  div.appendChild(pt);
+  parent.appendChild(div);
+}
+
+function attachHomeSearchDigDeeper(verse, verseText) {
+  var vbStd = window.TDB_verseBreakdownStandard;
+  if (!vbStd || typeof vbStd.hydrateAskTheTeacherDigDeeper !== 'function' || !verse || !verse.ref) return null;
+
+  var digDet = document.createElement('details');
+  digDet.className = 'tdb-dig-deeper';
+
+  if (typeof vbStd.createDigDeeperSummary === 'function') {
+    digDet.appendChild(
+      vbStd.createDigDeeperSummary(
+        'More from the Word',
+        'Cross-references and plain notes \u2014 only if you want them'
+      )
+    );
+  } else {
+    var sumFallback = document.createElement('summary');
+    sumFallback.className = 'tdb-dig-deeper__summary';
+    sumFallback.textContent = 'More from the Word';
+    digDet.appendChild(sumFallback);
+  }
+
+  var digContent = document.createElement('div');
+  digContent.className = 'tdb-dig-deeper__content';
+  var digDeep = document.createElement('div');
+  digDeep.className = 'search-breakdown-deep';
+
+  var ctx = typeof getVerseContext === 'function' ? getVerseContext(verse.ref) : null;
+  appendSearchBpIf(digDeep, 'Who\u2019s speaking', ctx && ctx.speaker);
+  appendSearchBpIf(digDeep, 'To whom', ctx && ctx.audience);
+  appendSearchBpIf(digDeep, 'Word study / today', ctx && ctx.application);
+
+  if (typeof buildReaderUrl === 'function') {
+    var readerP = document.createElement('p');
+    readerP.className = 'search-vbd-reader-link';
+    var readerA = document.createElement('a');
+    readerA.href = buildReaderUrl(verse.ref);
+    readerA.className = 'tdb-dig-deeper__plan-link';
+    readerA.textContent = 'Open the full chapter \u2192';
+    readerA.setAttribute('aria-label', 'Open full chapter for ' + verse.ref);
+    readerP.appendChild(readerA);
+    digDeep.appendChild(readerP);
+  }
+
+  var crossSection =
+    typeof vbStd.createDigDeeperCrossSection === 'function' ? vbStd.createDigDeeperCrossSection() : null;
+  var planSection =
+    typeof vbStd.createDigDeeperLinkSection === 'function'
+      ? vbStd.createDigDeeperLinkSection('tdb-dig-deeper__plan', 'tdb-dig-deeper__plan-link')
+      : null;
+
+  digContent.appendChild(digDeep);
+  if (crossSection && crossSection.wrap) digContent.appendChild(crossSection.wrap);
+  if (planSection && planSection.wrap) digContent.appendChild(planSection.wrap);
+  digDet.appendChild(digContent);
+
+  vbStd.hydrateAskTheTeacherDigDeeper({ ref: verse.ref, text: verseText }, {
+    detailsEl: digDet,
+    deepRoot: digDeep,
+    crossWrap: crossSection ? crossSection.wrap : null,
+    crossListEl: crossSection ? crossSection.list : null,
+    planWrap: planSection ? planSection.wrap : null,
+    planLinkEl: planSection ? planSection.link : null
+  });
+
+  return digDet;
+}
+
 function buildHomeSearchGuideLine(planMatches, resourceMatches) {
   var lines = [
-    'Verses first. Tap one for the fuller breakdown, plain meaning, and a simple prayer.'
+    'Verses first. Each card keeps plain help, one small step, and a prayer up front; open More from the Word when you want depth.'
   ];
   if (planMatches && planMatches.length) {
     lines.push('If this battle needs more than one day, start with the first Battle Plan below.');

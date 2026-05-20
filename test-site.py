@@ -49,7 +49,7 @@ PAGES = [
     ("/my-verses.html", "My Verses", ["My Study", "my-verses-hero--soar-dawn", "id=\"my-verses-hero-heading\"", "id=\"saved-verses\"", "id=\"my-verses-panel\"", "id=\"my-verses-export-json\"", "memorize.html", "bible-tool.html", "/mystudy?tab=library#saved-verses", "styles.css?v=20260412launch", "forwards there automatically", "footer-humility", "We battle. He wins.", "tdb-cache-hygiene:"]),
     ("/stories.html", "Battle stories", ["How a verse met me", "Send yours", "contact.html", "Reader stories", "Battle stories"]),
     ("/search.html", "Site search", ["Search the site", "id=\"tdb-site-search-input\"", "site-search-index.json", "id=\"nav-site-search\"", "Where would you like to go?"]),
-    ("/mystudy.html", "My Study", ["My Study", "mystudy-onpage-nav", "mystudy-onpage-toc-label", "On this page", "id=\"mystudy-overview\"", "id=\"mystudy-whats-new-note\"", "honest doubt", "morning reset", "href=\"#panel-note-library\"", "id=\"mystudy-export-json\"", "Download JSON backup", "What stays on this device", "bible-study-companion.js", "mystudy-activity-calendar", "mystudy-backup-nudge", "Search site"]),
+    ("/mystudy.html", "My Study", ["My Study", "mystudy-onpage-nav", "mystudy-onpage-toc-label", "On this page", "id=\"mystudy-overview\"", "id=\"mystudySyncHonesty\"", "Saved privately on this device only", "Nothing is sent to our servers", "id=\"mystudySavedSyncHonesty\"", "id=\"mystudy-whats-new-note\"", "honest doubt", "morning reset", "href=\"#panel-note-library\"", "id=\"mystudy-export-json\"", "Download JSON backup", "What stays on this device", "bible-study-companion.js", "mystudy-activity-calendar", "mystudy-backup-nudge", "Search site"]),
     ("/reader.html", "Chapter Reader", ["Reader", "Chapter", "reader-xrefs-sheet-desc", "reader-wordstudy-sheet-desc", "bible/tools.html#book-intros", "href=\"/bible/tools.html\"", "Study workshop", "hero-banner--soar-dawn", "chapter-reader-hero--soar-dawn", "id=\"chapter-reader-hero-heading\"", "id=\"reader-book-quick\"", "styles.css?v=20260412launch", "hreflang=\"pt\" href=\"https://todaysdailybattle.com/pt/leitor.html\""]),
     ("/church.html", "Church Center", ["Church"]),
     ("/church-starter-pack.html", "Church Starter Pack", ["Church Starter Pack", "For pastors", "First hour workflow", "Preaching Through Exhaustion", "Small Church Encouragement", "Sermon Builder + One-Tap Export", "Family printable packs"]),
@@ -215,6 +215,27 @@ def main():
             failed += 1
     except Exception as e:
         print("\nFAIL reading script.js", e)
+        failed += 1
+
+    # script.js Ask the Teacher Dig Deeper on search result cards
+    try:
+        with open("script.js", "r", encoding="utf-8") as f:
+            script = f.read()
+        with open("verse-breakdown-standard.js", "r", encoding="utf-8") as f:
+            vbd_std = f.read()
+        ok = (
+            "hydrateAskTheTeacherDigDeeper" in vbd_std
+            and "attachHomeSearchDigDeeper" in script
+            and "tdb-result-card" in script
+            and "More from the Word" in script
+        )
+        if ok:
+            print("OK   Ask the Teacher Dig Deeper (search result cards)")
+        else:
+            print("FAIL Ask the Teacher Dig Deeper check in script.js / verse-breakdown-standard.js")
+            failed += 1
+    except Exception as e:
+        print("FAIL reading script.js for Ask the Teacher Dig Deeper", e)
         failed += 1
 
     # script.js quick topic + runSearchWithInput

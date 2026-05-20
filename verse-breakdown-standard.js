@@ -219,7 +219,7 @@
   }
 
   /**
-   * Shared Dig Deeper hydration for homepage + Battle Plan day cards.
+   * Shared Dig Deeper hydration for homepage hero, Battle Plan day cards, and Ask the Teacher results.
    * @param {{ ref?: string, text?: string }} verseData
    * @param {HTMLElement|null} container unused; reserved for future mount helpers
    * @param {object} [options]
@@ -276,6 +276,11 @@
       }
       syncDigDeeperBlockVisibility(details, visibilityCfg);
     });
+  }
+
+  /** Ask the Teacher search result cards — cross-refs + curriculum plan link; no next-day link. */
+  function hydrateAskTheTeacherDigDeeper(verseData, options) {
+    return hydrateDigDeeperBlock(verseData, null, Object.assign({ fillCurriculumPlan: true }, options || {}));
   }
 
   /** @param {string} ref @param {string} [verseText] */
@@ -375,6 +380,7 @@
     getCuratedCrossRefs: getCuratedCrossRefs,
     fillCrossRefLinks: fillCrossRefLinks,
     hydrateHeroDigDeeper: hydrateHeroDigDeeper,
+    hydrateAskTheTeacherDigDeeper: hydrateAskTheTeacherDigDeeper,
     hydrateDigDeeperBlock: hydrateDigDeeperBlock,
     syncHeroDigDeeperVisibility: syncHeroDigDeeperVisibility,
     syncDigDeeperBlockVisibility: syncDigDeeperBlockVisibility,

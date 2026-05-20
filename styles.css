@@ -18540,12 +18540,117 @@ html[data-theme="sepia"] .home-qa-title {
   line-height: 1.65;
 }
 
+.home-search-vbd {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 0.15rem;
+}
+
+.home-search-card .search-vbd-primary {
+  margin-bottom: 0.15rem;
+}
+
+.home-search-card .search-vbd-bp .day-bp-label {
+  margin: 0 0 0.15rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-soft, #e3bc67);
+}
+
+.home-search-card .search-vbd-bp .day-bp-text {
+  margin: 0;
+  color: var(--text-muted, #cbd5e1);
+  line-height: 1.65;
+  font-size: 0.95rem;
+}
+
+.home-search-card .search-vbd-bp.prayer-panel .day-bp-text {
+  font-style: italic;
+}
+
+.home-search-card details.tdb-dig-deeper {
+  margin-top: 0.35rem;
+}
+
+.home-search-card details.tdb-dig-deeper[hidden] {
+  display: none !important;
+}
+
+.home-search-card details.tdb-dig-deeper > summary.tdb-dig-deeper__summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.55rem 0;
+  border-top: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+.home-search-card details.tdb-dig-deeper > summary.tdb-dig-deeper__summary::-webkit-details-marker {
+  display: none;
+}
+
+.home-search-card details.tdb-dig-deeper > summary.tdb-dig-deeper__summary:focus-visible {
+  outline: 2px solid var(--border-focus, rgba(167, 139, 250, 0.55));
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.home-search-card details.tdb-dig-deeper[open] > summary.tdb-dig-deeper__summary {
+  padding-bottom: 0.45rem;
+}
+
+.home-search-card .tdb-dig-deeper__main {
+  display: block;
+  font-weight: 600;
+  color: var(--gold-soft, #e3bc67);
+}
+
+.home-search-card .tdb-dig-deeper__hint {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--text-muted, #94a3b8);
+}
+
+.home-search-card .tdb-dig-deeper__content {
+  padding-bottom: 0.35rem;
+}
+
+.home-search-card .tdb-dig-deeper__cross {
+  margin-top: 0.85rem;
+}
+
+.home-search-card .tdb-dig-deeper__cross[hidden],
+.home-search-card .tdb-dig-deeper__plan[hidden] {
+  display: none !important;
+}
+
+.home-search-card .search-vbd-reader-link {
+  margin: 0.65rem 0 0;
+}
+
+@media (max-width: 360px) {
+  .home-search-card .tdb-dig-deeper__hint {
+    display: none;
+  }
+  .home-search-card details.tdb-dig-deeper > summary.tdb-dig-deeper__summary {
+    padding-top: 0.45rem;
+  }
+}
+
 .home-search-card-actions,
 .home-search-link-meta {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.5rem;
+}
+
+.tdb-sync-honesty-line {
+  margin: 0.45rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--muted-readable, var(--muted, #94a3b8));
 }
 
 .home-search-inline-link {

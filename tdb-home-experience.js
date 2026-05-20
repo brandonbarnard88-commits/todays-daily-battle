@@ -177,6 +177,23 @@
     if (details) details.open = false;
   }
 
+  function collapseMidPageOptionalRows() {
+    if (document.getElementById('tdb-home-optional-rows')) return;
+    var nodes = [
+      document.getElementById('tdbGentleNextSteps'),
+      document.querySelector('.site-plan-nudge'),
+      document.querySelector('.site-family-mission-nudge'),
+      document.querySelector('.explore-hero-row')
+    ].filter(Boolean);
+    if (!nodes.length) return;
+    var details = wrapInDetails(
+      'tdb-home-optional-rows',
+      'Optional next steps after search',
+      nodes
+    );
+    if (details) details.open = false;
+  }
+
   function collapseMidPageClutter() {
     var whatsNew = document.getElementById('whats-new-study-hint');
     if (whatsNew) whatsNew.classList.add('tdb-home-audit-collapsed');
@@ -255,6 +272,7 @@
     moveNewHereAfterCore7();
     positionSidebarCards();
     collapseDoorwayInvitations();
+    collapseMidPageOptionalRows();
     pushDisclosuresBelowPrimary();
     collapseMidPageClutter();
     initNewHereProminence();
@@ -384,6 +402,7 @@
       'tdbPorchFeelDisclosure',
       'tdb-hero-more-tools',
       'tdb-home-doorway-invites',
+      'tdb-home-optional-rows',
       'tdb-home-more-porch',
       'tdb-home-tools-shelf',
       'tdb-home-more-rooms',

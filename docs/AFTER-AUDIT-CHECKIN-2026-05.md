@@ -65,6 +65,41 @@ Answer when you have a quiet minute — no scores, no streaks:
 | May 2026 | Visual tokens B | `tdb-visual-tokens.css` — porch spacing, heading rhythm, card surface bridge (Home + Explore) |
 | May 2026 | Visual tokens A | Global `.section-divider` calmed; inner-page `.section-note` uses porch contrast tokens |
 | May 2026 | Raw audit pass | Heavy-now fast path (Home/Explore/Plans/topics), topic depth, Family widget hint, CSP cdn-cgi fix, porch widget verify |
+| May 2026 | Homepage Pass 4 | Calmer hero: extra verse air, one Battle Plan CTA + breath divider, returning-visitor doorway disclosure; nothing removed |
+| May 2026 | Homepage Pass 5 | Copy trim (what's new, builder note, porch voice), mid-page visual rest, sync honesty lines, optional-row disclosure, compact first-visit HeavyNow |
+
+---
+
+## Pass 4 shipped — calmer first breath (May 2026)
+
+**Goal:** Someone arriving on a heavy day gets verse + prayer + one honest step before the rest of the porch.
+
+| Everyone | Returning visitor (`has_visited_porch`) |
+|----------|----------------------------------------|
+| Verse + breakdown + prayer | Same calm hero rhythm |
+| Lead: *When you're ready—one small step in the Word.* | Fast-feel row + Start My Day tucked in existing disclosures |
+| **Open today's Battle Plan** (single primary CTA) | *After today* nav + porch signs in **Quiet invitations — when you want another room** (collapsed) |
+| Soft gradient breath divider → Ask the Teacher | `html.tdb-home-calm-hero` |
+
+**First visit:** unchanged pass-3 surface — *See the rest of the porch when you're ready ↓* holds full porch in DOM.
+
+**Commit:** `6c8dc383` · Live spot-check May 2026 (mobile hero, CTA tap target, disclosures).
+
+---
+
+## External Review Mirror (May 2026)
+
+A detailed third-party review confirmed our north-star priorities. We will fiercely protect privacy, gentleness, and offline-first design. We'll improve KJV accessibility through clearer breakdowns, listen features, and plain-language helps (never by adding translations). We'll soften sync friction with honest, low-pressure copy. Visual calm polish continues in the right season. We intentionally decline gamification, social loops, rich media, and "app polish" that would trade away the high scores people thank us for. **This narrowness is on purpose.**
+
+### Optional next lanes (porch pace — not promises)
+
+| Lane | Intent |
+|------|--------|
+| **Sync honesty pass** | My Study + plan trackers: one sentence that progress lives on this device; sign-in optional, never nagging |
+| **Dig deeper (collapsed)** | Optional breakdown/Bible Tool expansion: *What this word meant then*, one *See also*, Listen — default view unchanged |
+| **Visual refresh** | Typography, card rhythm, subtle rest — not chrome or app polish |
+
+Draft copy patterns captured in builder notes May 2026; implement when a pass feels light.
 
 ---
 
@@ -113,7 +148,7 @@ Independent full-site pass after audit passes 1–2. Verdict: moved from **“si
 
 | Gap | Detail |
 |-----|--------|
-| **Homepage still dense** | Post-verse scroll: feelings rows, teasers, pastor block, VOTM, patriotic, tools — crisis visitor may still ask “where do I start?” |
+| **Homepage still dense** | Pass 4 eased first impression (one CTA, breath divider, returning doorway disclosure). Mid-page density may still grow — watch for creep. |
 | **Visual hierarchy** | Cleaner but dated; desktop reads long-document; typography/spacing/cards don’t fully sell “quiet porch” |
 | **Navigation** | Explore helps; power users fine; pained first-timers may still wander; gems buried |
 | **Feature sprawl** | Thin language pilots; duplication across plans/tools; needs tighter editing at surface |
@@ -123,7 +158,7 @@ Independent full-site pass after audit passes 1–2. Verdict: moved from **“si
 
 ### Pass 3 candidates (max impact, when energy allows)
 
-1. **Ruthless homepage edit** — one hero path, more whitespace, stronger calm visuals (below verse: feel OR one next step, not both + teasers)
+1. **Ruthless homepage edit** — one hero path, more whitespace, stronger calm visuals (below verse: feel OR one next step, not both + teasers) | **Shipped Pass 4** (one CTA + disclosures; feel row hidden first-visit / calm-hero)
 2. **Visual refresh** — typography scale, card rhythm, contrast tokens (keep warm porch; not corporate)
 3. **Progressive disclosure for first visits** — `localStorage` hides advanced blocks until return visit or explicit “Show more tools” | **Shipped pass 3** (`has_visited_porch`, `#tdbFirstVisitNextStep`, `#tdb-first-visit-more-porch`)
 4. **One hero entry experience** — refined 3-minute calm onboarding (verse → feel → one plan link; optional, skippable)

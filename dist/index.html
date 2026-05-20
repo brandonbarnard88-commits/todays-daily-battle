@@ -41,7 +41,7 @@
     "name": "Today's Daily Battle",
     "url": "https://todaysdailybattle.com",
     "logo": "https://todaysdailybattle.com/logo-shield-600.png",
-    "description": "God's University of Life — a calm, ad-free KJV web app: daily verse, search by how you feel, battle plans, prayer, offline-first privacy. No grades; just open doors to learn of Him."
+    "description": "Today's Daily Battle — ad-free KJV daily verse, search by how you feel, battle plans, prayer. Private on your device; works offline. God's University of Life is our quiet name for learning from Scripture, not a school with grades."
   }
   </script>
   <script nonce="tdb2025s" type="application/ld+json">
@@ -50,7 +50,7 @@
     "@type": "WebSite",
     "name": "Today's Daily Battle",
     "url": "https://todaysdailybattle.com",
-    "description": "God's University of Life — a calm, ad-free KJV companion: daily verse, porch-style Start here signs, quiet search, battle plans, prayer, private on-device progress. The Teacher is the Holy Spirit; the textbook is the KJV.",
+    "description": "Ad-free KJV companion: daily verse, search by feeling, battle plans, prayer. Private on your device; works offline after first visit.",
     "publisher": { "@id": "https://todaysdailybattle.com/#organization" },
     "potentialAction": {
       "@type": "SearchAction",
@@ -3424,6 +3424,7 @@
       main#home-primary-flow > #tdbPorchFeelDisclosure,
       main#home-primary-flow > #tdb-hero-more-tools,
       main#home-primary-flow > #tdb-home-doorway-invites,
+      main#home-primary-flow > #tdb-home-optional-rows,
       main#home-primary-flow > #tdb-home-more-porch,
       main#home-primary-flow > #tdb-home-tools-shelf {
         order: 110;
@@ -3814,6 +3815,69 @@
     html.tdb-home-calm-hero #tdbHomeFastFeel,
     html.tdb-home-calm-hero .tdb-start-my-day-band {
       display: none !important;
+    }
+    /* Pass 5 — first visit: compact crisis strip so verse sits higher on phones */
+    @media (max-width: 1023px) {
+      html.tdb-first-visit-mode #tdbHeavyNow {
+        padding-top: calc(var(--tdb-quiet-pad-b) * 0.55);
+        padding-bottom: calc(var(--tdb-quiet-pad-b) * 0.6);
+      }
+      html.tdb-first-visit-mode #tdbHeavyNow .tdb-heavy-now__eyebrow {
+        margin-bottom: 0.15rem;
+      }
+      html.tdb-first-visit-mode #tdbHeavyNow .tdb-heavy-now__title {
+        font-size: clamp(1.05rem, 3vw, 1.2rem);
+        margin-bottom: 0.25rem;
+      }
+      html.tdb-first-visit-mode #tdbHeavyNow .tdb-heavy-now__lead {
+        font-size: 0.92rem;
+        margin-bottom: 0.55rem;
+      }
+      html.tdb-first-visit-mode #tdbHeavyNow .tdb-heavy-now__secondary {
+        display: none;
+      }
+      html.tdb-first-visit-mode #tdbHeavyNow .tdb-heavy-now__foot {
+        display: none;
+      }
+    }
+    /* Pass 5 — mid-page rest: lighter secondary blocks below the hero stack */
+    .tdb-home-mid-rest {
+      margin-top: clamp(1.35rem, 3.5vw, 2rem);
+      padding-top: clamp(0.85rem, 2.2vw, 1.25rem);
+      border-top: 1px solid color-mix(in srgb, var(--line) 82%, transparent);
+    }
+    #tdb-home-core-seven.tdb-home-mid-rest {
+      padding-bottom: calc(var(--tdb-quiet-pad-b) * 0.75);
+    }
+    #tdb-home-core-seven .tdb-core-seven__label {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: color-mix(in srgb, var(--muted) 88%, var(--gold) 12%);
+    }
+    #tdb-home-core-seven .tdb-core-seven__link {
+      border-color: color-mix(in srgb, var(--line) 90%, transparent);
+      box-shadow: none;
+    }
+    .tdb-gentle-next-steps,
+    .site-plan-nudge,
+    .site-family-mission-nudge {
+      font-size: clamp(0.88rem, 2.2vw, 0.95rem);
+      line-height: 1.55;
+      color: var(--muted);
+      max-width: 36rem;
+    }
+    .plan-progress-sync-note {
+      margin: 0.65rem 0 0;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .tdb-from-builder {
+      margin-top: clamp(1.5rem, 4vw, 2.25rem);
+    }
+    .tdb-from-builder__body {
+      font-size: clamp(0.92rem, 2.3vw, 1rem);
+      line-height: 1.58;
     }
     .verse-card {
       background: transparent;
@@ -9667,13 +9731,13 @@
       <section class="tdb-heavy-now tdb-quiet-container" id="tdbHeavyNow" role="region" aria-labelledby="tdbHeavyNowH">
         <p class="tdb-heavy-now__eyebrow">When the moment is too much</p>
         <h2 class="tdb-heavy-now__title" id="tdbHeavyNowH">Heavy right now?</h2>
-        <p class="tdb-heavy-now__lead">No choices first. One KJV verse, one breath, one small step.</p>
+        <p class="tdb-heavy-now__lead">One KJV verse, one breath, one small step.</p>
         <div class="tdb-heavy-now__actions">
           <a class="btn btn-primary tdb-heavy-now__primary" href="/calm.html" id="tdbHeavyNowCalm">Take me to Calm</a>
-          <a class="btn btn-secondary" href="/emergency-calm-pack.html">7-day emergency pack</a>
-          <a class="btn btn-secondary" href="/sos.html">Steady now (3 anchors)</a>
+          <a class="btn btn-secondary tdb-heavy-now__secondary" href="/emergency-calm-pack.html">7-day emergency pack</a>
+          <a class="btn btn-secondary tdb-heavy-now__secondary" href="/sos.html">Steady now (3 anchors)</a>
         </div>
-        <p class="tdb-heavy-now__foot section-note">Everything else on this page can wait.</p>
+        <p class="tdb-heavy-now__foot section-note">The rest of the page can wait.</p>
       </section>
 
       <div class="tdb-quiet-corner-strip" id="tdbQuietCornerStrip" role="navigation" aria-label="Your quiet corner" hidden>
@@ -9689,8 +9753,8 @@
       <!-- ── Feeling-first hero — the primary entry point ── -->
       <section class="tdb-porch-feel tdb-porch-feel--hero" id="tdbPorchFeel" aria-labelledby="tdbPorchFeelH">
         <p class="tdb-porch-feel__eyebrow">Today&rsquo;s Daily Battle &mdash; KJV &middot; No account &middot; Works offline</p>
-        <h1 class="tdb-porch-feel__heading" id="tdbPorchFeelH">Where are you on the porch today?</h1>
-        <p class="tdb-porch-feel__sub">Heavy week or quiet thanks&mdash;either way, one tap brings Scripture beside you. Hard days, glad days, and ordinary Tuesdays in between all belong here. No typing yet. No account. Works offline after your first visit.</p>
+        <h1 class="tdb-porch-feel__heading" id="tdbPorchFeelH">How is the day sitting with you?</h1>
+        <p class="tdb-porch-feel__sub">Heavy week or light heart&mdash;one tap brings matching Scripture beside you. No typing yet.</p>
         <div class="tdb-porch-feel__grid" role="group" aria-label="When the day feels heavy — tap one for a matching KJV verse and gentle plan">
           <button type="button" class="tdb-porch-feel__btn" data-porch-topic="anxiety" aria-pressed="false">Anxious or afraid</button>
           <button type="button" class="tdb-porch-feel__btn" data-porch-topic="strength" aria-pressed="false">Tired or weary</button>
@@ -9703,7 +9767,7 @@
         </div>
         <div class="tdb-porch-feel__thanks" id="tdbPorchThanks" aria-labelledby="tdbPorchThanksH">
           <h2 class="tdb-porch-feel__thanks-h" id="tdbPorchThanksH">Heart feeling light today?</h2>
-          <p class="tdb-porch-feel__thanks-sub">When the air feels lighter&mdash;grateful, steady, or glad&mdash;this row is the same gentle porch. One tap still brings straight <abbr title="King James Version">KJV</abbr> company.</p>
+          <p class="tdb-porch-feel__thanks-sub">When the air feels lighter, this row works the same way&mdash;one tap, straight KJV.</p>
           <div class="tdb-porch-feel__grid tdb-porch-feel__grid--thanks" role="group" aria-label="Good days and grateful moments — tap one of eight for a matching KJV verse">
             <button type="button" class="tdb-porch-feel__btn" data-porch-topic="gratitude" data-porch-label="Grateful today" aria-pressed="false">Grateful today</button>
             <button type="button" class="tdb-porch-feel__btn" data-porch-topic="joy" data-porch-label="Joyful heart" aria-pressed="false">Joyful heart</button>
@@ -10084,7 +10148,7 @@
         <div class="hero-my-verses-row hero-my-verses-row--below-card" role="region" aria-label="Memorize and My Study">
           <a href="memorize.html" class="btn btn-secondary hero-memorize-link" id="hero-memorize-link" aria-label="Open gentle memorize tools for today’s verse">Memorize</a>
           <p id="hero-my-verses-hint" class="section-note hero-my-verses-hint">Same list as Search and the <a href="/bible-tool.html">Bible tool</a>. <a href="/mystudy?tab=library#saved-verses">Open My Study</a>.</p>
-          <p class="hero-my-verses-privacy-note" id="hero-my-verses-privacy-line">Saves stay here on this device unless you sign in.</p>
+          <p class="hero-my-verses-privacy-note" id="hero-my-verses-privacy-line">Saved privately on this device. Sign in only if you want the same notes on another phone or laptop.</p>
         </div>
         <p id="hero-save-my-verses-status" class="hero-save-my-verses-status-line" role="status" aria-live="polite"></p>
         <section class="hero-family-mode" id="tdbFamilyModeBridge" aria-labelledby="tdbFamilyModeTitle">
@@ -10320,12 +10384,12 @@
       </aside>
       <aside class="tdb-uog-month" id="tdb-home-uog-month" data-tdb-uog-month-signpost hidden aria-labelledby="tdb-home-uog-month-h">
         <h2 class="tdb-uog-month__h" id="tdb-home-uog-month-h">
-          <span class="tdb-uog-month__label">This month in the University</span><span class="tdb-uog-month__sep" aria-hidden="true"> — </span><span data-tdb-uog-month-name></span>
+          <span class="tdb-uog-month__label">This month</span><span class="tdb-uog-month__sep" aria-hidden="true"> — </span><span data-tdb-uog-month-name></span>
         </h2>
         <p class="tdb-uog-month__lead" data-tdb-uog-month-lead></p>
         <p class="tdb-uog-month__whisper" data-tdb-uog-month-whisper hidden></p>
         <ul class="tdb-uog-month__links" data-tdb-uog-month-links></ul>
-        <p class="tdb-uog-month__foot">By your local month only—no account. The full <a href="/university.html#uog-next">map</a> stays open all year.</p>
+        <p class="tdb-uog-month__foot">By your local month only&mdash;no account. <a href="/university.html#uog-next">Full map</a> (we sometimes call it God&rsquo;s University of Life&mdash;learning from Scripture, not grades).</p>
       </aside>
       <div class="tdb-home-resume" id="tdbHomeResume" role="region" aria-label="Your progress on this device" hidden></div>
       <script defer src="/tdb-january-quiet.js?v=20260423-phase5-perf"></script>
@@ -10335,20 +10399,20 @@
       <section class="tdb-new-here-card tdb-home-welcome-campus" id="tdbNewHereCard" role="region" aria-labelledby="tdb-home-welcome-heading">
         <div class="new-here-header">
           <div class="new-here-crest" aria-hidden="true">🕊️</div>
-          <h2 id="tdb-home-welcome-heading" class="new-here-title">A quiet campus</h2>
+          <h2 id="tdb-home-welcome-heading" class="new-here-title">Welcome</h2>
         </div>
         <div class="spacer" aria-hidden="true"></div>
         <div class="tdb-home-welcome-body">
           <p class="tdb-home-welcome-lead">One verse. One honest feeling. One small step.</p>
           <h3 id="new-here-steps-heading" class="new-here-steps-heading">Best next step</h3>
-          <p class="new-here-ribbon">After the verse above, tap <strong>How are you feeling?</strong> (or use the Start My Day button) for calm KJV help matched to your battle. The 4 category cards and full quick topics stay fully reachable.</p>
+          <p class="new-here-ribbon">After the verse, tap <strong>Open today&rsquo;s Battle Plan</strong> or use <strong>Ask the Teacher</strong> below when you need Scripture matched to what you&rsquo;re carrying.</p>
           <ol class="new-here-steps-ol" aria-labelledby="new-here-steps-heading">
             <li>Read today’s verse slowly.</li>
             <li>Name how you feel (search or category below).</li>
             <li>Take one small step or open a gentle Battle Plan when ready.</li>
           </ol>
         </div>
-        <p class="section-note tdb-home-welcome-story-links">Read the <a href="/story.html">story</a>, learn <a href="about.html#gods-university-quiet-name">why we say God&rsquo;s University of Life</a>, see <a href="/where-support-goes.html">where support goes</a>, hear from <a href="/testimonials.html">readers</a>, or start with this week&rsquo;s <a href="/journal/">journal posts</a>.</p>
+        <p class="section-note tdb-home-welcome-story-links"><a href="/story.html">Our story</a> &middot; <a href="about.html#gods-university-quiet-name">Why &ldquo;God&rsquo;s University of Life&rdquo;</a> (a name, not a school) &middot; <a href="/testimonials.html">Reader notes</a></p>
         <div class="new-here-cta-row">
           <a href="#hero-verse-wrap" class="new-here-cta primary">Begin Today &rarr;</a>
           <button type="button" class="new-here-cta secondary" id="tdbNewHereDismissBtn">I know my way around</button>
@@ -10430,7 +10494,7 @@
       <section class="tdb-home-votm" id="tdb-home-votm" aria-labelledby="tdb-home-votm-heading" aria-describedby="tdb-home-votm-lead">
         <span id="verse-of-the-month" class="sr-only" tabindex="-1"></span>
         <h2 class="tdb-home-votm-h" id="tdb-home-votm-heading">Verse of the month</h2>
-        <p class="tdb-home-votm-lead section-note" id="tdb-home-votm-lead">The same KJV memory anchor as <a href="yearly-rhythm.html#yr-memory">Year-round rhythm</a>&mdash;mark progress on <a href="family.html#family-year-round-memory">Family hub</a> (this device). No quiz; review when you can. <a href="year-at-a-glance.html">Year at a glance</a> prints all twelve verses, seasons, and calm activity reminders on one page.</p>
+        <p class="tdb-home-votm-lead section-note" id="tdb-home-votm-lead">The same KJV memory anchor as <a href="yearly-rhythm.html#yr-memory">Year-round rhythm</a>&mdash;mark progress on <a href="family.html#family-year-round-memory">Family hub</a> (this device). No quiz; review when you can. <a href="#tdb-home-votm">verse of the month</a> &middot; <a href="year-at-a-glance.html">Year at a glance</a> prints all twelve verses on one page.</p>
         <div id="tdb-home-votm-card" class="tdb-home-votm-card-host" aria-live="polite"></div>
         <div class="tdb-home-votm-listen-row">
           <button type="button" class="btn tdb-votm-read-aloud--primary" id="tdb-votm-read-aloud" aria-label="Listen to this month&rsquo;s KJV memory verse with your device speakers">
@@ -10440,7 +10504,7 @@
           <a class="btn btn-secondary" href="year-at-a-glance.html" aria-label="Open printable year at a glance with verses, seasons, and activities">Print full year pack</a>
         </div>
         <p class="tdb-home-votm-review-hint" id="tdb-home-votm-review-hint">Review gently: say the verse once when you can. Use <strong>Mark reviewed</strong> below so this device remembers&mdash;no streak pressure.</p>
-        <p class="section-note tdb-home-memory-activities-teaser" id="tdb-home-memory-activities-teaser" style="margin-top:0.35rem">Teaching ideas and printables: <a href="church-sharing-kit.html#csk-memory-verse-activities">Gentle Memory Verse Teaching Methods, Print hub</a> in the Church Sharing Kit.</p>
+        <p class="section-note tdb-home-memory-activities-teaser" id="tdb-home-memory-activities-teaser" style="margin-top:0.35rem">Teaching ideas: <a href="church-sharing-kit.html#csk-memory-verse-activities">Gentle Memory Verse Teaching Methods</a> &middot; <a href="family-armor-little-ones.html#fa-littles-morning-reset">Little ones morning reset</a></p>
       </section>
 
       <nav class="hero-daily-path tdb-home-spotlight-deeper" aria-label="Saves and family on this device">
@@ -10453,13 +10517,14 @@
         </span>
       </nav>
 
-      <p class="tdb-whats-new-hint" id="whats-new-study-hint"><span class="tdb-whats-new-label">What&rsquo;s new</span> <span class="tdb-whats-new-date">(Spring 2026)</span> &mdash; Clearer <a href="explore.html#start-here">Start here</a> flow on Explore, family and mission tools alongside the daily rhythm, new reading-plan paths for hard weeks. New plans: <a href="/plans.html?plan=universitybroken">honest mending</a>, <a href="/plans.html?plan=universitydoubt">honest doubt</a>, <a href="/plans.html?plan=universitybitterness">honest bitterness</a>, <a href="/plans.html?plan=universitycomparison">the quiet battle of comparison</a>, <a href="/plans.html?plan=universityanger">anger</a>, and <a href="/plans.html?plan=universityregret">regret</a> (six KJV days each); <a href="/plans.html?plan=quietfallharvest">Quiet fall harvest</a> (five days) and <a href="/plans.html?plan=latesummerrest">Late summer, early rest</a>; <a href="/plans.html?plan=latefallwinter">Late fall, quiet winter</a> (five days) before Advent; four short seasonal bridges join the year-round porch&mdash;<a href="/plans.html?plan=winterwaiting">Winter waiting</a>, <a href="/plans.html?plan=springhopemud">Spring hope in the mud</a>, <a href="/plans.html?plan=latesummergentle">Late summer gentle close</a>, <a href="/plans.html?plan=adventbridge">Quiet Advent bridge</a>; <a href="/plans.html?plan=eveninguog">Evening rhythm</a> has a <a href="evening-university-print.html">one-page print</a> and pairs with <a href="morning-evening-family-print.html">morning &amp; evening (two cards)</a> and a <a href="one-week-in-the-university-print.html">one-week family sheet</a> (see <a href="family-rhythm.html">Simple family rhythm</a>); <a href="verse-image.html#verse-image-uog-prompts">verse image prompts</a> easier to browse; <a href="family-armor-little-ones.html#fa-littles-morning-reset">Family Armor for little ones</a> &mdash; one KJV verse a day, no noise. <a href="explore.html#whats-new-spring-2026">Spring notes</a> &middot; <a href="explore.html#first-visit-tour">Five calm minutes tour</a> &middot; <a href="about.html#whats-new-study">Study tools</a> &middot; <a href="/updates.html">Monthly updates</a>.</p>
+      <p class="tdb-whats-new-hint" id="whats-new-study-hint"><span class="tdb-whats-new-label">Recent</span> &mdash; New Battle Plans for hard weeks (including <a href="/plans.html?plan=universitydoubt">honest doubt</a>), clearer Explore path, free Bible Studies on <a href="plans.html#bible-studies-free">Battle Plans</a>. <a href="/updates.html">Monthly updates</a> &middot; <a href="explore.html#first-visit-tour">Five-minute tour</a> &middot; <a href="explore.html#whats-new-spring-2026">Spring notes</a></p>
 
       <details class="porch-accordion" id="porch-rooms">
         <summary>
-          <span class="title">Porch Rooms — More Quiet Tools</span>
+          <span class="title">More rooms</span>
           <span class="icon">↓</span>
         </summary>
+        <p class="sr-only">Porch Rooms — More Quiet Tools</p>
         <div class="accordion-content">
           <div class="room-grid">
 
@@ -10519,7 +10584,7 @@
 
       <section class="glass tdb-porch-paper-glass tdb-home-porch-signs" id="tdb-home-doorways" aria-labelledby="tdb-home-doorways-heading">
         <h2 class="section-divider" id="tdb-home-doorways-heading">Start here</h2>
-        <p class="tdb-home-porch-signs-lead section-note">Honest porch signs&mdash;pick the line that matches today. Each opens a calm KJV starting place. No rush, no score.</p>
+        <p class="tdb-home-porch-signs-lead section-note">Honest porch signs&mdash;pick the line that matches today. Each opens a KJV starting place. No rush, no score.</p>
         <div class="tdb-porch-sign-grid" role="list">
           <a class="tdb-porch-sign-card" role="listitem" href="plans.html?plan=universityanxiety" aria-label="Today feels heavy: open the University of Anxiety and Fear, seven gentle KJV days">
             <span class="tdb-porch-sign-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21h6"/><path d="M10 21V11l2-3 2 3v10"/><path d="M8 11h8l-1-7H9l-1 7z"/><path d="M12 3v1"/></svg></span>
@@ -10892,24 +10957,24 @@
         <p class="tdb-first-visit-next-step__foot section-note">Optional: <button type="button" class="link-button" id="tdbFirstVisitKnowWay">I know my way around the porch</button></p>
       </section>
 
-      <nav class="tdb-core-seven tdb-quiet-container" id="tdb-home-core-seven" aria-labelledby="tdb-core-seven-label">
-        <p class="tdb-core-seven__label" id="tdb-core-seven-label">Seven calm doors</p>
+      <nav class="tdb-core-seven tdb-quiet-container tdb-home-mid-rest" id="tdb-home-core-seven" aria-labelledby="tdb-core-seven-label">
+        <p class="tdb-core-seven__label" id="tdb-core-seven-label">Seven doors</p>
         <ul class="tdb-core-seven__grid">
           <li><a class="tdb-core-seven__link" href="#hero-verse-wrap"><span>Today&rsquo;s verse</span><span class="tdb-core-seven__desc">Read or listen</span></a></li>
           <li><a class="tdb-core-seven__link" href="#feel-section"><span>How I feel</span><span class="tdb-core-seven__desc">Ask the Teacher</span></a></li>
           <li><a class="tdb-core-seven__link" href="/plans.html"><span>Battle Plans</span><span class="tdb-core-seven__desc">7&ndash;40 day paths</span></a></li>
+          <li><a class="tdb-core-seven__link" href="/calm.html"><span>Calm</span><span class="tdb-core-seven__desc">One verse now</span></a></li>
           <li><a class="tdb-core-seven__link" href="/mystudy"><span>My Study</span><span class="tdb-core-seven__desc">Saved on device</span></a></li>
           <li><a class="tdb-core-seven__link" href="/family.html"><span>Family &amp; Kids</span><span class="tdb-core-seven__desc">Table &amp; stories</span></a></li>
           <li><a class="tdb-core-seven__link" href="/explore.html#start-here"><span>Explore</span><span class="tdb-core-seven__desc">Full site map</span></a></li>
           <li><a class="tdb-core-seven__link" href="/church-hub.html"><span>Pastors</span><span class="tdb-core-seven__desc">Sermon &amp; church tools</span></a></li>
-          <li><a class="tdb-core-seven__link" href="/calm.html"><span>Calm</span><span class="tdb-core-seven__desc">One verse now</span></a></li>
         </ul>
       </nav>
 
-      <p class="tdb-gentle-next-steps tdb-quiet-container" id="tdbGentleNextSteps">After you search, pick one small next step: save in <a href="/mystudy">My Study</a>, read a full chapter, or start a short <a href="plans.html">Battle Plan</a>. The daily email card sits just under today&rsquo;s verse; the rows in &ldquo;More rooms&rdquo; are optional&mdash;you are not behind.</p>
+      <p class="tdb-gentle-next-steps tdb-quiet-container" id="tdbGentleNextSteps">After you search: save in <a href="/mystudy">My Study</a>, read a chapter, or open a <a href="plans.html">Battle Plan</a>.</p>
 
-      <p class="site-plan-nudge tdb-quiet-container">Need deeper study after this search? Open the <a href="bible/tools.html">Study workshop</a> or the full <a href="bible-tool.html">Bible Tool</a>.</p>
-      <p class="site-family-mission-nudge section-note tdb-quiet-container">For home and ministry teams: <a href="/family.html">Family hub</a> (verse, plans, printables) · <a href="/mission-outreach-packs.html">Mission &amp; outreach packs</a> · <a href="/emergency-calm-pack.html">7-day emergency calm pack</a>.</p>
+      <p class="site-plan-nudge tdb-quiet-container">Deeper study? <a href="bible/tools.html">Study workshop</a> or <a href="bible-tool.html">Bible Tool</a>.</p>
+      <p class="site-family-mission-nudge section-note tdb-quiet-container"><a href="/family.html">Family hub</a> &middot; <a href="/kids/">Kids Corner</a> &middot; <a href="/mission-outreach-packs.html">Mission packs</a> &middot; <a href="/emergency-calm-pack.html">7-day calm pack</a> &middot; <a href="verse-image.html">Verse images</a></p>
       <!-- ── Read full chapter ── -->
       <div class="read-chapter-row tdb-quiet-container">
         <a href="reader.html?book=John&chapter=15&ref=John%2015%3A12" id="readChapterLink" class="read-chapter-link" aria-label="Read John chapter 15 in full context">📖 Read the full chapter</a>
@@ -10928,6 +10993,7 @@
           <div class="plan-progress-bar" id="planProgressBar" style="--plan-day:1"></div>
         </div>
         <a href="plans.html" class="plan-progress-link" id="planProgressLink" aria-label="View all plans">All plans →</a>
+        <p class="plan-progress-sync-note section-note" id="planProgressSyncNote">Progress stays on this browser. Sign in only if you want it on another device.</p>
       </section>
 
       <!-- ── Notification Permission Card (shown when daily rhythm warrants a gentle nudge) ── -->
@@ -11095,7 +11161,7 @@
         </div>
       </details>
 
-        <p class="tdb-home-year-round-nudge section-note" style="margin:1rem 0 0;text-align:center;max-width:36rem;margin-left:auto;margin-right:auto;line-height:1.55">Homeschool, private-school Bible class, or the family table: <a href="yearly-rhythm.html">one gentle year-round rhythm</a> (August&ndash;July, summer seeds, holidays, monthly memory grid) plus an <a href="yearly-rhythm.html#yr-ages-5-18">ages 5&ndash;18 weekly + daily map</a>. Need a first step tonight? <a href="#tdb-home-doorways">Start here on the porch</a>.</p>
+        <p class="tdb-home-year-round-nudge section-note" style="margin:1rem 0 0;text-align:center;max-width:36rem;margin-left:auto;margin-right:auto;line-height:1.55">Family table or homeschool week? <a href="yearly-rhythm.html">Year-round rhythm</a> and <a href="yearly-rhythm.html#yr-ages-5-18">ages 5&ndash;18 map</a>. First step tonight: <a href="#tdb-home-doorways">Start here</a>.</p>
 
       <p class="tdb-back-to-today tdb-back-to-today--footer"><a href="#hero-verse-wrap">Back to today&rsquo;s verse</a></p>
 
@@ -11119,23 +11185,19 @@
         </div>
       </details>
 
-        </div>
-      </section>
-
-      <section class="tdb-home-porch-light-wrap" aria-label="Optional porch reading before the site footer">
-        <section class="tdb-from-builder glass tdb-porch-paper-glass" id="tdb-from-builder" aria-label="A note from the builder">
-          <p class="tdb-from-builder__eyebrow" aria-hidden="true">From the builder</p>
-          <p class="tdb-from-builder__body">I wanted to quietly share something with you. Today&rsquo;s Daily Battle is gently shifting from a simple website into a small, Bible-teaching ministry. It&rsquo;s still the same calm, ad-free, KJV-only place it&rsquo;s always been&mdash;built for real hard days, anxiety, parenting, grief, exhaustion, and everything in between&mdash;but now I&rsquo;m more clearly seeing it as a ministry that simply holds out God&rsquo;s Word for whoever needs rest in it. No big launches, no pressure, just steady faithfulness with family and God&rsquo;s help.</p>
-          <p class="tdb-from-builder__sign">If you&rsquo;ve been here a while, thank you for walking with me. Your quiet presence means more than you know.</p>
-          <p class="tdb-from-builder__foot">With care, Brandon &mdash; <a href="/about.html">About</a> &middot; <a href="/where-support-goes.html">Where support goes</a></p>
-        </section>
-
+      <section class="tdb-home-porch-light-wrap tdb-home-mid-rest" aria-label="Optional porch reading before the site footer">
         <details class="tdb-home-porch-light tdb-quiet-container" id="tdb-home-porch-light">
           <summary>
             <span class="tdb-home-porch-light__main">More porch light</span>
-            <span class="tdb-home-porch-light__more section-note">Privacy, Why not AI, sample plans, prayer tally, and Spring notes&mdash;expand only if you want the full stack.</span>
+            <span class="tdb-home-porch-light__more section-note">Privacy, Why not AI, sample plans, builder note, and update notes&mdash;expand if you want the stack.</span>
           </summary>
           <div class="tdb-home-porch-light-stack">
+            <section class="tdb-from-builder glass tdb-porch-paper-glass" id="tdb-from-builder" aria-label="A note from the builder">
+              <p class="tdb-from-builder__eyebrow" aria-hidden="true">From the builder</p>
+              <p class="tdb-from-builder__body">Today&rsquo;s Daily Battle is a small Bible-teaching ministry now&mdash;still ad-free, KJV-only, and built for real hard days. Same porch; clearer calling to hold out God&rsquo;s Word without pressure.</p>
+              <p class="tdb-from-builder__sign">If you&rsquo;ve been here a while, thank you for walking with me.</p>
+              <p class="tdb-from-builder__foot">With care, Brandon &mdash; <a href="/about.html">About</a> &middot; <a href="/where-support-goes.html">Where support goes</a></p>
+            </section>
             <div class="tdb-moat-banner tdb-moat-banner--porch-stack" role="region" aria-label="Privacy, AI clarity, and sample week-long plans">
               <div class="tdb-moat-banner-inner">
                 <p class="section-note tdb-moat-deck-teaser"><span class="tdb-moat-summary-main">Grace, not grades &middot; verses and notes stay on this device unless you sync</span><span class="tdb-moat-summary-more">Why not AI, privacy paths, sample plans.</span></p>
@@ -11157,13 +11219,9 @@
               </div>
             </div>
             <section class="tdb-whats-new-spring" id="whats-new-spring-2026" aria-labelledby="tdb-whats-new-spring-heading">
-              <h2 class="tdb-whats-new-spring__title" id="tdb-whats-new-spring-heading">What&rsquo;s new &mdash; Spring 2026</h2>
-              <p class="tdb-whats-new-spring__body"><strong>Ministry shift:</strong> Today&rsquo;s Daily Battle is gently becoming a small, Bible-teaching ministry&mdash;same calm KJV porch, now more clearly focused on equipping people to know the Word and steward the gifts God gave them. <a href="/where-support-goes.html">See what that means</a> and <a href="/about.html">read the story</a>.</p>
-              <p class="tdb-whats-new-spring__year-round" id="tdb-whats-new-spring-year-round"><strong>Year-round rhythm &amp; memory:</strong> the site menu now lifts up <strong>Year-round</strong> and <strong>Print year</strong>. The home <a href="#tdb-home-votm">verse of the month</a> has a clearer listen control; print sheets gently remind you how to get a clean page. <a href="#tdb-home-doorways">Porch signs</a> on the home page point first-timers to the right starting plan.</p>
-              <p class="tdb-whats-new-spring__body">A steadier site menu on phones, a gentle first-visit welcome on home, verse, and explore, clearer prayer-wall feedback, and a calmer <a href="/give">support</a> page before you give. Family and kids hubs include a short parent-facing summary so you always know what the room is for.</p>
-              <p class="tdb-whats-new-spring__studies"><strong>Bible Studies — free for all:</strong> nine short tracks (Armor of God, peace, fruit of the Spirit, and more) now sit on <a href="plans.html#bible-studies-free">Battle Plans</a> with the same on-device save—or open the <a href="bible-study.html">full hub</a>.</p>
-              <p class="tdb-whats-new-spring__easter">Holy Week or Easter morning? <a href="seasonal.html#easter">Seasonal paths</a> points to <a href="he-is-risen.html">He is risen</a> and the seven-day <a href="plans.html?plan=easter">Resurrection Hope</a> plan&mdash;same quiet KJV pace as the rest of the site.</p>
-              <p class="tdb-whats-new-spring__foot"><a href="about.html#whats-new-study">Study tools</a> &middot; <a href="about.html#whats-new-family-mission">Family and mission</a> &middot; <a href="seasonal.html">All seasonal doors</a></p>
+              <h2 class="tdb-whats-new-spring__title" id="tdb-whats-new-spring-heading">Spring 2026 notes</h2>
+              <p class="tdb-whats-new-spring__body" id="tdb-whats-new-spring-year-round">Nine free Bible Studies on <a href="plans.html#bible-studies-free">Battle Plans</a>, steadier phone menus, and clearer first-visit paths on home and Explore. Family and kids hubs now say plainly what each room is for.</p>
+              <p class="tdb-whats-new-spring__studies"><a href="seasonal.html#easter">Seasonal paths</a> &middot; <a href="about.html#whats-new-study">Study tools</a> &middot; <a href="/updates.html">Monthly updates</a></p>
             </section>
           </div>
         </details>
@@ -11557,6 +11615,7 @@
     .tdb-hero-search-priority-hint,
     .first-visit-hint,
     #tdb-hero-lang-hint,
+    .calm-cta-wrap,
     .tdb-back-to-today:not(.tdb-back-to-today--footer) { display: none !important; }
 
     /* Feel section: reduce copy overhead */

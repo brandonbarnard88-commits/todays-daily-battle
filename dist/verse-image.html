@@ -95,6 +95,42 @@
       min-height: 44px;
     }
     .verse-image-page .verse-image-recent button:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; }
+    .verse-image-page .vi-free-starters { margin-top: 0.75rem; padding: 1rem 1.1rem 1.15rem; }
+    .verse-image-page .vi-free-starter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+      gap: 0.75rem;
+      margin-top: 0.65rem;
+    }
+    .verse-image-page .vi-free-starter-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      min-height: 7.5rem;
+      padding: 0.85rem 0.95rem;
+      border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--gold, #d4af37) 28%, rgba(148, 163, 184, 0.25));
+      background: color-mix(in srgb, var(--tdb-surface-card-bg, rgba(12, 18, 30, 0.65)) 94%, rgba(212, 175, 55, 0.06));
+      color: var(--text, #e2e8f0);
+      text-decoration: none;
+      transition: border-color 0.16s ease, transform 0.16s ease;
+    }
+    .verse-image-page .vi-free-starter-card:hover,
+    .verse-image-page .vi-free-starter-card:focus-visible {
+      border-color: color-mix(in srgb, var(--gold, #d4af37) 48%, transparent);
+      transform: translateY(-1px);
+      outline: none;
+    }
+    .verse-image-page .vi-free-starter-kicker {
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gold, #d4af7b);
+      font-weight: 600;
+    }
+    .verse-image-page .vi-free-starter-title { font-size: 0.95rem; font-weight: 600; margin: 0; line-height: 1.35; }
+    .verse-image-page .vi-free-starter-verse { font-size: 0.82rem; color: var(--muted, #94a3b8); margin: 0; line-height: 1.45; font-family: Georgia, "Times New Roman", serif; }
+    .verse-image-page .vi-free-starter-action { font-size: 0.78rem; color: var(--muted, #94a3b8); margin-top: auto; }
     .verse-image-recent-gens { margin-top: 1rem; }
     .verse-image-recent-gens h3 { font-size: 1rem; margin: 0 0 0.5rem; color: var(--muted, #94a3b8); }
     .recent-gens-grid {
@@ -353,6 +389,31 @@
           <p class="section-note topic-mood-porch">You&rsquo;re already welcome here&mdash;make one card or only preview; sharing never buys your place.</p>
           <p class="hero-tagline">Build a calm, share-ready KJV card—start with a <strong>dawn template</strong> (square, story, or print) or stay on the wide custom canvas. Export PNG or share from your device; no upload required.</p>
         </header>
+
+        <section class="glass tdb-porch-paper-glass vi-free-starters" id="verse-image-free-starters" aria-labelledby="verse-image-free-starters-h">
+          <h2 class="section-divider" id="verse-image-free-starters-h" style="margin-top:0">Free starter examples</h2>
+          <p class="section-note util-mb-0">Tap one to load verse + dawn template in the builder below. Calm KJV cards anyone can preview&mdash;full custom canvas stays available for supporters.</p>
+          <div class="vi-free-starter-grid" role="list">
+            <a class="vi-free-starter-card" role="listitem" href="verse-image.html?ref=Isaiah%2040%3A31&tpl=T03-open-field&autoload=1">
+              <span class="vi-free-starter-kicker">Waiting days</span>
+              <p class="vi-free-starter-title">Renewed strength</p>
+              <p class="vi-free-starter-verse">&ldquo;But they that wait upon the LORD shall renew their strength&hellip;&rdquo; &mdash; Isaiah 40:31</p>
+              <span class="vi-free-starter-action">Open field at dawn &rarr;</span>
+            </a>
+            <a class="vi-free-starter-card" role="listitem" href="verse-image.html?ref=Deuteronomy%206%3A6-7&tpl=T16-open-bible-table&autoload=1">
+              <span class="vi-free-starter-kicker">Family table</span>
+              <p class="vi-free-starter-title">Teach them diligently</p>
+              <p class="vi-free-starter-verse">&ldquo;And these words&hellip; shall be in thine heart&hellip;&rdquo; &mdash; Deuteronomy 6:6&ndash;7</p>
+              <span class="vi-free-starter-action">Open Bible on table &rarr;</span>
+            </a>
+            <a class="vi-free-starter-card" role="listitem" href="verse-image.html?ref=Psalm%2023%3A1-2&tpl=T09-morning-mist&autoload=1">
+              <span class="vi-free-starter-kicker">Daily rest</span>
+              <p class="vi-free-starter-title">The Lord is my shepherd</p>
+              <p class="vi-free-starter-verse">&ldquo;The LORD is my shepherd; I shall not want. He maketh me to lie down in green pastures&hellip;&rdquo; &mdash; Psalm 23:1&ndash;2</p>
+              <span class="vi-free-starter-action">Morning mist &rarr;</span>
+            </a>
+          </div>
+        </section>
 
         <details class="glass tdb-porch-paper-glass verse-image-v2-roadmap" id="verse-image-v2-roadmap" style="margin-top: 0.5rem; padding: 0.9rem 1.1rem 1rem; border-radius: 12px;">
           <summary style="cursor: pointer; font-weight: 600; color: var(--text, #e2e8f0); list-style: none;">Gentle roadmap (verse images v2)</summary>
@@ -964,7 +1025,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">May 19, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">May 20, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>

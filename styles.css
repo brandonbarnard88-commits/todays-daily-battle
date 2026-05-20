@@ -21873,6 +21873,66 @@ html[data-tdb-contrast="high"] .card {
   margin: 0.35rem auto 0;
   max-width: 34rem;
 }
+.tdb-porch-sign-quick-note {
+  margin: 0.25rem auto 0.65rem;
+  max-width: 40rem;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--muted, #94a3b8);
+  line-height: 1.5;
+}
+.tdb-porch-sign-quick-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 0 0 0.85rem;
+  padding: 0 0.25rem;
+}
+.tdb-porch-sign-quick-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 35%, var(--tdb-surface-card-border, rgba(148, 163, 184, 0.28)));
+  background: color-mix(in srgb, var(--tdb-surface-card-bg, rgba(12, 18, 30, 0.88)) 92%, rgba(139, 166, 217, 0.08));
+  color: var(--text);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 0.16s ease, background 0.16s ease, transform 0.16s ease;
+}
+.tdb-porch-sign-quick-chip:hover,
+.tdb-porch-sign-quick-chip:focus-visible {
+  border-color: color-mix(in srgb, var(--gold, #e3bc67) 55%, transparent);
+  transform: translateY(-1px);
+  outline: none;
+}
+.tdb-porch-sign-shelf-details {
+  margin-top: 0.15rem;
+}
+.tdb-porch-sign-shelf-details > summary {
+  cursor: pointer;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--gold, #d4af7b);
+  margin: 0 0 0.65rem;
+  list-style: none;
+  text-align: center;
+}
+.tdb-porch-sign-shelf-details > summary::-webkit-details-marker { display: none; }
+.tdb-porch-sign-shelf-details[open] > summary { margin-bottom: 0.75rem; }
+.tdb-porch-sign-print-link {
+  margin: 0.35rem 0 0;
+  text-align: center;
+  font-size: 0.88rem;
+}
+:root[data-theme="light"] .tdb-porch-sign-quick-chip {
+  background: #fff;
+  border-color: color-mix(in srgb, var(--gold, #b98d33) 40%, #d7dfeb);
+}
 :root[data-theme="light"] .tdb-porch-sign-card {
   background: color-mix(in srgb, #fffdf7 96%, rgba(139, 166, 217, 0.06));
   border-color: color-mix(in srgb, #e6dcc1 82%, rgba(90, 138, 158, 0.22));

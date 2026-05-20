@@ -1,0 +1,12 @@
+{
+  "home": {
+    "performanceMin": 0.7,
+    "lcpMsMax": 4500,
+    "tbtMsMax": 350
+  },
+  "reader": {
+    "performanceMin": 0.65,
+    "lcpMsMax": 4000,
+    "tbtMsMax": 1300
+  }
+}

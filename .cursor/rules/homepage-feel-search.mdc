@@ -8,7 +8,7 @@ alwaysApply: false
 
 The homepage **“How’re you feeling?”** flow is intentionally split:
 
-1. **Inline `index.html` script** — debounced `#feel-search` input, `#feelSuggestDropdown`, `FEEL_GROUPS` / `feelCards`, `runSearch` → `runSearchWithInput`.
+1. **`tdb-home-feel.js`** (deferred) — debounced `#feel-search` input, `#feelSuggestDropdown`, `FEEL_GROUPS` / `feelCards`, `runSearch` → `runSearchWithInput`.
 2. **`script.js`** — `wireSearchAndQuickTopics`, `executeQuery` / `renderResults`, `getSearchOutputElement()` → **`#feel-results`** (visible).
 
 ## Never do this

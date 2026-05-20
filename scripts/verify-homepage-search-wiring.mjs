@@ -21,11 +21,21 @@ function fail(msg) {
 
 let index;
 let script;
+let homeFeel;
 try {
   index = readFileSync(join(root, 'index.html'), 'utf8');
   script = readFileSync(join(root, 'script.js'), 'utf8');
+  homeFeel = readFileSync(join(root, 'tdb-home-feel.js'), 'utf8');
 } catch (e) {
   fail(String(e && e.message));
+}
+
+if (!index.includes('tdb-home-feel.js')) {
+  fail('index.html must load deferred tdb-home-feel.js (homepage feel-search bundle).');
+}
+
+if (!homeFeel.includes('feelSuggestDropdown') || !homeFeel.includes('FEEL_GROUPS')) {
+  fail('tdb-home-feel.js must wire feelSuggestDropdown + FEEL_GROUPS.');
 }
 
 if (!index.includes('id="feel-results"')) {

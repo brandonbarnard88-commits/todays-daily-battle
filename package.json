@@ -43,7 +43,7 @@
     "verify:asset-versions": "node scripts/verify-asset-versions.mjs",
     "test:surface-tokens": "node scripts/verify-tdb-surface-token-sync.mjs",
     "test:api": "npm --prefix api run typecheck",
-    "release:check": "npm run build && npm run audit:paranoid && npm run verify:mobius-audio && npm run test:api && npm run test && npm run test:site && npm run test:security",
+    "release:check": "npm run build && npm run audit:paranoid && npm run verify:mobius-audio && npm run test:api && npm run test && npm run test:site && npm run test:security && npm run audit:lighthouse:ci",
     "deploy:reminder": "node scripts/post-deploy-reminder.mjs",
     "verify:live-key-html": "node scripts/verify-live-key-html.mjs",
     "verify:live-key-html:retry": "node scripts/verify-live-retry.mjs",

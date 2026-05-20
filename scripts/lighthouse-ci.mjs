@@ -100,7 +100,7 @@ function runLighthouse(url, outPath, label) {
   const assert = spawnSync(process.execPath, [join(__dirname, 'assert-lighthouse.mjs'), outPath], {
     cwd: root,
     stdio: 'inherit',
-    env: process.env,
+    env: { ...process.env, LH_PAGE: label === 'home' ? 'home' : label === 'reader' ? 'reader' : '' },
   });
   if (assert.status !== 0) {
     console.error('lighthouse-ci: thresholds failed for', label);

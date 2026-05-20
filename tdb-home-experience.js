@@ -152,6 +152,8 @@
       'en-hub-daily-verse'
     ];
     var nodes = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
+    var startBand = document.querySelector('.tdb-start-my-day-band');
+    if (startBand) nodes.push(startBand);
     if (nodes.length) {
       wrapInDetails(
         'tdb-hero-more-tools',
@@ -159,6 +161,20 @@
         nodes
       );
     }
+  }
+
+  function collapseDoorwayInvitations() {
+    if (document.getElementById('tdb-home-doorway-invites')) return;
+    var afterNav = document.querySelector('nav.hero-daily-path.tdb-start-here-nav');
+    var doorways = document.getElementById('tdb-home-doorways');
+    var nodes = [afterNav, doorways].filter(Boolean);
+    if (!nodes.length) return;
+    var details = wrapInDetails(
+      'tdb-home-doorway-invites',
+      'Quiet invitations \u2014 when you want another room',
+      nodes
+    );
+    if (details) details.open = false;
   }
 
   function collapseMidPageClutter() {
@@ -235,8 +251,10 @@
   }
 
   function applyReturningLayout() {
+    document.documentElement.classList.add('tdb-home-calm-hero');
     moveNewHereAfterCore7();
     positionSidebarCards();
+    collapseDoorwayInvitations();
     pushDisclosuresBelowPrimary();
     collapseMidPageClutter();
     initNewHereProminence();
@@ -281,6 +299,9 @@
 
     var heavyCalm = document.getElementById('tdbHeavyNowCalm');
     if (heavyCalm) heavyCalm.addEventListener('click', go);
+
+    var primaryPlan = document.getElementById('tdbHomeHeroPrimaryPlan');
+    if (primaryPlan) primaryPlan.addEventListener('click', go);
 
     var startMyDay = document.getElementById('tdbStartMyDayBtn');
     if (startMyDay) startMyDay.addEventListener('click', go);
@@ -362,6 +383,7 @@
     var ids = [
       'tdbPorchFeelDisclosure',
       'tdb-hero-more-tools',
+      'tdb-home-doorway-invites',
       'tdb-home-more-porch',
       'tdb-home-tools-shelf',
       'tdb-home-more-rooms',

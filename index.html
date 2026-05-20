@@ -2407,6 +2407,17 @@
       border-top: 1px solid color-mix(in srgb, var(--line) 74%, var(--gold) 26%);
       box-shadow: inset 0 1px 0 color-mix(in srgb, var(--gold-soft) 12%, transparent);
     }
+    #tdb-home-doorways .tdb-porch-sign-grid {
+      gap: clamp(0.65rem, 2vw, 0.9rem);
+    }
+    #tdb-home-doorways .tdb-porch-sign-card {
+      padding: clamp(0.85rem, 2.2vw, 1rem) clamp(0.9rem, 2.4vw, 1.05rem);
+      border-color: color-mix(in srgb, var(--line) 88%, transparent);
+      box-shadow: none;
+    }
+    #tdb-home-doorways .tdb-porch-sign-desc {
+      line-height: 1.5;
+    }
     :root[data-theme="light"] section#tdb-home-doorways.tdb-home-porch-signs {
       border-top-color: color-mix(in srgb, var(--line) 82%, #9e7625 18%);
       box-shadow: inset 0 1px 0 color-mix(in srgb, #9e7625 12%, transparent);
@@ -3290,7 +3301,7 @@
     /* Long home scroll: clearer “rooms” between major blocks on phones/tablets */
     @media (max-width: 1023px) {
       main#home-primary-flow {
-        gap: clamp(1.35rem, 4.2vw, 2.35rem);
+        gap: clamp(1.55rem, 4.8vw, 2.65rem);
       }
     }
 
@@ -3378,6 +3389,7 @@
       /* Disclosures and “more porch” sit clearly below primary column */
       main#home-primary-flow > #tdbPorchFeelDisclosure,
       main#home-primary-flow > #tdb-hero-more-tools,
+      main#home-primary-flow > #tdb-home-doorway-invites,
       main#home-primary-flow > #tdb-home-more-porch,
       main#home-primary-flow > #tdb-home-tools-shelf {
         order: 110;
@@ -3715,6 +3727,59 @@
     #hero-verse-wrap {
       padding: var(--tdb-porch-card-pad-y) var(--tdb-porch-card-pad-x);
       padding-bottom: calc(var(--tdb-porch-card-pad-y) - 0.25rem);
+    }
+    @media (max-width: 1023px) {
+      #hero-verse-wrap {
+        padding-top: calc(var(--tdb-porch-card-pad-y) + 0.45rem);
+        padding-bottom: calc(var(--tdb-porch-card-pad-y) + 0.55rem);
+      }
+      #heroVerse.hero-verse,
+      #heroVerse.hero-verse.verse-body {
+        line-height: 1.58;
+      }
+    }
+    .tdb-home-hero-primary-cta {
+      margin: clamp(1.15rem, 3.2vw, 1.75rem) 0 0;
+      padding: clamp(1.05rem, 2.8vw, 1.4rem) clamp(0.9rem, 2.4vw, 1.2rem);
+      text-align: center;
+      border-radius: 14px;
+      background: color-mix(in srgb, var(--card) 93%, var(--gold) 7%);
+      border: 1px solid color-mix(in srgb, var(--line) 78%, var(--gold) 22%);
+    }
+    .tdb-home-hero-primary-cta__lead {
+      margin: 0 0 0.85rem;
+      font-size: clamp(0.95rem, 2.4vw, 1.05rem);
+      line-height: 1.55;
+      color: var(--muted);
+      max-width: 28rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .tdb-home-hero-primary-cta__btn {
+      min-height: 48px;
+      min-width: min(100%, 16rem);
+      padding-left: 1.65rem;
+      padding-right: 1.65rem;
+      font-size: clamp(1rem, 2.5vw, 1.06rem);
+    }
+    .tdb-home-breath-divider {
+      height: 1px;
+      margin: clamp(1.05rem, 2.6vw, 1.55rem) 0 clamp(0.35rem, 1.2vw, 0.65rem);
+      background: linear-gradient(
+        90deg,
+        transparent,
+        color-mix(in srgb, var(--gold) 32%, var(--line)),
+        transparent
+      );
+      border: 0;
+    }
+    html.tdb-first-visit-mode #tdbHomeFastFeel,
+    html.tdb-first-visit-mode .tdb-start-my-day-band {
+      display: none !important;
+    }
+    html.tdb-home-calm-hero #tdbHomeFastFeel,
+    html.tdb-home-calm-hero .tdb-start-my-day-band {
+      display: none !important;
     }
     .verse-card {
       background: transparent;
@@ -9704,6 +9769,11 @@
           <p><strong>A simple prayer:</strong><br />
           <span id="heroVotdPrayer"></span></p>
         </div>
+        <nav class="tdb-home-hero-primary-cta" id="tdbHomeHeroPrimaryCta" aria-label="One gentle next step">
+          <p class="tdb-home-hero-primary-cta__lead">When you&rsquo;re ready&mdash;one small step in the Word.</p>
+          <a class="btn btn-primary tdb-home-hero-primary-cta__btn" href="plans.html?plan=battle" id="tdbHomeHeroPrimaryPlan">Open today&rsquo;s Battle Plan</a>
+        </nav>
+        <div class="tdb-home-breath-divider" aria-hidden="true"></div>
         <div class="tdb-hero-curriculum" id="tdb-hero-curriculum-slot" role="region" aria-labelledby="tdb-hero-curriculum-h" hidden>
           <h3 class="tdb-hero-curriculum-heading" id="tdb-hero-curriculum-h">Where this lesson fits in your battle plan</h3>
           <ul class="tdb-hero-curriculum-list" id="tdb-hero-curriculum-list"></ul>

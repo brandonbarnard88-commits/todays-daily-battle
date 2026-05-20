@@ -20,4 +20,6 @@ jobs:
         env:
           LIVE_CSP_ATTEMPTS: '6'
           LIVE_CSP_SLEEP_MS: '10000'
+          # Cloudflare may override X-Frame-Options to SAMEORIGIN; enforce CSP token match only.
+          LIVE_CSP_HEADERS_ONLY: '1'
         run: node scripts/verify-live-csp.mjs

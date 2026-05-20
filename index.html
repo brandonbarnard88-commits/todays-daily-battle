@@ -296,6 +296,82 @@
       outline-offset: 2px;
     }
 
+    /* Homepage does not load styles.css — skip link + core button tokens (axe / keyboard) */
+    .skip-link {
+      position: absolute;
+      top: -3rem;
+      left: var(--tdb-quiet-pad-x);
+      z-index: 100;
+      padding: 0.5rem 0.75rem;
+      background: var(--gold);
+      color: var(--bg);
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus,
+    .skip-link:focus-visible {
+      top: 0.75rem;
+      outline: 2px solid var(--gold-soft);
+      outline-offset: 2px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      border: 1px solid transparent;
+      min-height: 44px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    a.btn { color: inherit; }
+    .btn-primary,
+    a.btn-primary {
+      background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 85%, #fff) 0%, var(--accent) 100%);
+      color: #fff;
+      border-color: color-mix(in srgb, var(--gold) 30%, transparent);
+    }
+    .btn-primary:hover,
+    .btn-primary:focus-visible,
+    a.btn-primary:hover,
+    a.btn-primary:focus-visible {
+      filter: brightness(1.06);
+    }
+    .btn-secondary {
+      background: color-mix(in srgb, var(--muted) 12%, var(--card));
+      color: var(--text);
+      border-color: color-mix(in srgb, var(--line) 80%, transparent);
+    }
+    .link-button {
+      background: none;
+      border: 0;
+      color: var(--gold);
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
+      padding: 0.35rem 0.4rem;
+      font-size: inherit;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .link-button:hover,
+    .link-button:focus-visible {
+      color: var(--gold-soft);
+    }
+    :root[data-theme="light"] .btn-secondary,
+    :root[data-theme="daylight"] .btn-secondary,
+    :root[data-theme="parchment"] .btn-secondary {
+      background: color-mix(in srgb, var(--text) 7%, var(--card));
+      color: var(--text);
+      border-color: color-mix(in srgb, var(--text) 18%, transparent);
+    }
+
     /* Dismissible update strip (see also styles.css for non-index pages) */
     html.tdb-quiet-update-dismissed .tdb-quiet-update-strip {
       display: none !important;

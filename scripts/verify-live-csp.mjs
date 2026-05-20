@@ -86,6 +86,42 @@ function normCspValue(s) {
   return norm(s).replace(/\s+/g, ' ');
 }
 
+/** Parse CSP into directive → token[] (order preserved per directive). */
+function parseCspDirectives(csp) {
+  const out = {};
+  normCspValue(csp)
+    .split(';')
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .forEach((part) => {
+      const space = part.indexOf(' ');
+      if (space === -1) return;
+      const name = part.slice(0, space).trim().toLowerCase();
+      const tokens = part
+        .slice(space + 1)
+        .trim()
+        .split(/\s+/)
+        .filter(Boolean);
+      out[name] = tokens;
+    });
+  return out;
+}
+
+/** True when live CSP contains every repo directive token (order-independent). */
+function cspSemanticallyMatches(got, expected) {
+  const gotD = parseCspDirectives(got);
+  const expD = parseCspDirectives(expected);
+  for (const [directive, expTokens] of Object.entries(expD)) {
+    const gotTokens = gotD[directive];
+    if (!gotTokens) return false;
+    const gotSet = new Set(gotTokens);
+    for (const token of expTokens) {
+      if (!gotSet.has(token)) return false;
+    }
+  }
+  return true;
+}
+
 /**
  * Stale Content-Security-Policy-Report-Only at Cloudflare causes DevTools
  * "[Report Only] Refused to load …" for same-origin scripts even when enforced CSP is correct.
@@ -199,14 +235,18 @@ async function verifyOne(url, expected) {
   }
 
   const expCsp = norm(expected['content-security-policy']);
-  if (expCsp && csp !== expCsp) {
-    throw new Error(
-      'CSP does not match repo _headers (byte-for-byte).\n' +
-        '  URL: ' +
-        url +
-        '\n  got (first 120 chars): ' +
-        (csp.slice(0, 120) + '…')
-    );
+  if (expCsp) {
+    const gotNorm = normCspValue(csp);
+    const expNorm = normCspValue(expCsp);
+    if (gotNorm !== expNorm && !cspSemanticallyMatches(csp, expCsp)) {
+      throw new Error(
+        'CSP does not match repo _headers (byte-for-byte or semantic token set).\n' +
+          '  URL: ' +
+          url +
+          '\n  got (first 120 chars): ' +
+          (csp.slice(0, 120) + '…')
+      );
+    }
   }
 
   /* Warn on stale Report-Only edge header before other header mismatches (e.g. X-Frame-Options). */

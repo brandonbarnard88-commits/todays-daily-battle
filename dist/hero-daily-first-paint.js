@@ -417,6 +417,10 @@
       var yrChip = document.getElementById('heroVotdBreakdownYear');
       if (yrChip) yrChip.textContent = String(yr);
     } catch (eYChip) { /* non-fatal */ }
+    var std = window.TDB_verseBreakdownStandard;
+    if (std && typeof std.hydrateHeroDigDeeper === 'function') {
+      std.hydrateHeroDigDeeper(v && v.ref ? v.ref : '', v && v.text ? v.text : '');
+    }
     var wrap = document.getElementById('heroVotdBreakdown');
     if (wrap) {
       try {

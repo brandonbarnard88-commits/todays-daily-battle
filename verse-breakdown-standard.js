@@ -44,6 +44,157 @@
     return 'Read it slowly one more time—then thank God aloud for one true thing inside it before you move.';
   }
 
+  function normalizeRefKey(ref) {
+    return sanitize(ref).replace(/\s+/g, ' ').trim();
+  }
+
+  function readerUrlForRef(ref) {
+    var r = normalizeRefKey(ref);
+    if (!r) return 'reader.html';
+    return 'reader.html?ref=' + encodeURIComponent(r);
+  }
+
+  /** @param {string} ref @param {number} [limit] */
+  function getCuratedCrossRefs(ref, limit) {
+    var max = typeof limit === 'number' && limit > 0 ? limit : 5;
+    var clean = normalizeRefKey(ref);
+    var map =
+      typeof globalThis !== 'undefined' && globalThis._tdbCrossRefsRefsMap && typeof globalThis._tdbCrossRefsRefsMap === 'object'
+        ? globalThis._tdbCrossRefsRefsMap
+        : null;
+    var raw = map && clean && Array.isArray(map[clean]) ? map[clean] : [];
+    var out = [];
+    for (var i = 0; i < raw.length && out.length < max; i++) {
+      var x = normalizeRefKey(raw[i]);
+      if (x && x !== clean) out.push(x);
+    }
+    if (!out.length && clean && typeof window !== 'undefined' && typeof window.getRelatedRefsForVerse === 'function') {
+      try {
+        out = (window.getRelatedRefsForVerse(clean) || []).slice(0, max);
+      } catch (eRel) {
+        out = [];
+      }
+    }
+    return out;
+  }
+
+  /** @param {HTMLElement|null} containerEl @param {string[]} refs */
+  function fillCrossRefLinks(containerEl, refs) {
+    if (!containerEl) return;
+    containerEl.replaceChildren();
+    var list = Array.isArray(refs) ? refs : [];
+    if (!list.length) return;
+    list.forEach(function (r, i) {
+      if (i > 0) containerEl.appendChild(document.createTextNode(', '));
+      var a = document.createElement('a');
+      a.className = 'tdb-dig-deeper__cross-link cross-ref-link';
+      a.href = readerUrlForRef(r);
+      a.textContent = r;
+      containerEl.appendChild(a);
+    });
+  }
+
+  function heroDigDeeperHasDeepRows() {
+    var ids = ['heroVbdRowWho', 'heroVbdRowAud', 'heroVbdRowCtx', 'heroVbdRowYou'];
+    for (var i = 0; i < ids.length; i++) {
+      var el = document.getElementById(ids[i]);
+      if (el && !el.hidden) return true;
+    }
+    return false;
+  }
+
+  function syncHeroDigDeeperVisibility() {
+    var details = document.getElementById('heroDigDeeper');
+    if (!details) return;
+    var crossWrap = document.getElementById('heroDigDeeperCross');
+    var planWrap = document.getElementById('heroDigDeeperPlan');
+    var hasCross = !!(crossWrap && !crossWrap.hidden);
+    var hasPlan = !!(planWrap && !planWrap.hidden);
+    var hasRows = heroDigDeeperHasDeepRows();
+    if (hasRows || hasCross || hasPlan) {
+      details.hidden = false;
+      details.removeAttribute('hidden');
+    } else {
+      details.hidden = true;
+      details.setAttribute('hidden', '');
+    }
+  }
+
+  function ensureCrossRefsMapLoaded(then) {
+    var done = typeof then === 'function' ? then : function () {};
+    if (typeof globalThis !== 'undefined' && globalThis._tdbCrossRefsRefsMap) {
+      done();
+      return;
+    }
+    if (typeof window !== 'undefined' && typeof window.ensureCrossRefsLoaded === 'function') {
+      window.ensureCrossRefsLoaded().then(done).catch(done);
+      return;
+    }
+    if (typeof fetch !== 'function') {
+      done();
+      return;
+    }
+    fetch('cross-refs.json', { credentials: 'same-origin' })
+      .then(function (res) {
+        return res.ok ? res.json() : null;
+      })
+      .then(function (data) {
+        if (data && data.refs && typeof globalThis !== 'undefined') {
+          globalThis._tdbCrossRefsRefsMap = data.refs;
+        }
+        done();
+      })
+      .catch(done);
+  }
+
+  /** @param {string} ref @param {string} [verseText] */
+  function fillHeroDigDeeperPlan(ref, verseText) {
+    var planWrap = document.getElementById('heroDigDeeperPlan');
+    var planLink = document.getElementById('heroDigDeeperPlanLink');
+    if (!planWrap || !planLink) return;
+    var build =
+      typeof window !== 'undefined' && typeof window.tdbUogBuildCurriculumPlanList === 'function'
+        ? window.tdbUogBuildCurriculumPlanList
+        : null;
+    var rows = build ? build(ref, verseText) || [] : [];
+    var row = rows.length ? rows[0] : null;
+    if (row && row.href) {
+      planLink.href = row.href;
+      planLink.textContent = row.label ? 'Continue in ' + row.label + ' \u2192' : 'Continue in this Battle Plan \u2192';
+      planWrap.hidden = false;
+      planWrap.removeAttribute('hidden');
+    } else {
+      planWrap.hidden = true;
+      planWrap.setAttribute('hidden', '');
+    }
+    syncHeroDigDeeperVisibility();
+  }
+
+  /** @param {string} ref @param {string} [verseText] */
+  function hydrateHeroDigDeeper(ref, verseText) {
+    syncHeroDigDeeperVisibility();
+    fillHeroDigDeeperPlan(ref, verseText);
+    ensureCrossRefsMapLoaded(function () {
+      var refs = getCuratedCrossRefs(ref, 5);
+      var crossWrap = document.getElementById('heroDigDeeperCross');
+      var listEl = document.getElementById('heroDigDeeperCrossList');
+      if (refs.length && crossWrap && listEl) {
+        fillCrossRefLinks(listEl, refs);
+        crossWrap.hidden = false;
+        crossWrap.removeAttribute('hidden');
+      } else if (crossWrap) {
+        crossWrap.hidden = true;
+        crossWrap.setAttribute('hidden', '');
+      }
+      syncHeroDigDeeperVisibility();
+    });
+    var legacyWrap = document.getElementById('tdb-hero-curriculum-slot');
+    if (legacyWrap) {
+      legacyWrap.hidden = true;
+      legacyWrap.setAttribute('hidden', '');
+    }
+  }
+
   /**
    * Builds the "Sit with This Verse" adult reflection block (screen-only).
    * Returns a detached DOM element ready to append after the prayer block.
@@ -118,6 +269,11 @@
     nextStepFallback: nextStepFallback,
     fillBigKjvStrong: fillBigKjvStrong,
     buildReflectionBlock: buildReflectionBlock,
+    normalizeRefKey: normalizeRefKey,
+    getCuratedCrossRefs: getCuratedCrossRefs,
+    fillCrossRefLinks: fillCrossRefLinks,
+    hydrateHeroDigDeeper: hydrateHeroDigDeeper,
+    syncHeroDigDeeperVisibility: syncHeroDigDeeperVisibility,
     CLS: {
       container: 'verse-breakdown-container',
       bigKjv: 'big-kjv',
@@ -125,7 +281,8 @@
       breakdownRoot: 'verse-breakdown',
       nextStep: 'next-step',
       prayerBlock: 'prayer-block',
-      reflection: 'tdb-vb-reflection'
+      reflection: 'tdb-vb-reflection',
+      digDeeper: 'tdb-dig-deeper'
     }
   };
 })();

@@ -4141,6 +4141,122 @@
       letter-spacing: normal;
       font-size: 0.95em;
     }
+    /* Pass 6 — More from the Word: collapsed optional depth on today’s verse */
+    .hero-vbd-primary {
+      margin: 0;
+    }
+    .hero-vbd-primary > h4 {
+      margin: 0.65rem 0 0.35rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .hero-vbd-primary > p {
+      margin: 0;
+      font-size: 0.96rem;
+      line-height: 1.58;
+      color: var(--text);
+    }
+    details.tdb-dig-deeper {
+      margin-top: 1rem;
+      border-top: 1px solid color-mix(in srgb, var(--line) 78%, var(--gold) 12%);
+    }
+    details.tdb-dig-deeper[hidden] {
+      display: none !important;
+    }
+    details.tdb-dig-deeper > summary.tdb-dig-deeper__summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 0.72rem 0 0.65rem;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      color: color-mix(in srgb, var(--muted) 88%, var(--text) 12%);
+    }
+    details.tdb-dig-deeper > summary.tdb-dig-deeper__summary::-webkit-details-marker {
+      display: none;
+    }
+    details.tdb-dig-deeper > summary.tdb-dig-deeper__summary:focus-visible {
+      outline: 2px solid color-mix(in srgb, var(--gold) 55%, var(--line));
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+    details.tdb-dig-deeper[open] > summary.tdb-dig-deeper__summary {
+      padding-bottom: 0.55rem;
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, var(--gold) 10%);
+      margin-bottom: 0.55rem;
+    }
+    .tdb-dig-deeper__main {
+      display: block;
+      font-weight: 600;
+      color: color-mix(in srgb, var(--text) 90%, var(--muted) 10%);
+      letter-spacing: 0.01em;
+    }
+    .tdb-dig-deeper__hint {
+      display: block;
+      margin-top: 0.28rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--gold-soft, #c9a84c);
+      line-height: 1.4;
+    }
+    .tdb-dig-deeper__content {
+      padding-bottom: 0.35rem;
+    }
+    .tdb-dig-deeper__cross {
+      margin-top: 0.85rem;
+    }
+    .tdb-dig-deeper__cross[hidden],
+    .tdb-dig-deeper__plan[hidden] {
+      display: none !important;
+    }
+    .tdb-dig-deeper__cross-label {
+      margin: 0 0 0.35rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .tdb-dig-deeper__cross-list {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+    .tdb-dig-deeper__cross-link {
+      color: var(--gold-soft, #c9a84c);
+      text-decoration: none;
+      border-bottom: 1px solid color-mix(in srgb, var(--gold-soft, #c9a84c) 35%, transparent);
+    }
+    .tdb-dig-deeper__cross-link:hover,
+    .tdb-dig-deeper__cross-link:focus-visible {
+      color: var(--gold, #d4af37);
+      border-bottom-color: color-mix(in srgb, var(--gold, #d4af37) 55%, transparent);
+    }
+    .tdb-dig-deeper__plan {
+      margin: 0.85rem 0 0;
+    }
+    .tdb-dig-deeper__plan-link {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--gold-soft, #c9a84c);
+      text-decoration: none;
+      border-bottom: 1px solid color-mix(in srgb, var(--gold-soft, #c9a84c) 35%, transparent);
+    }
+    .tdb-dig-deeper__plan-link:hover,
+    .tdb-dig-deeper__plan-link:focus-visible {
+      color: var(--gold, #d4af37);
+      border-bottom-color: color-mix(in srgb, var(--gold, #d4af37) 55%, transparent);
+    }
+    @media (max-width: 480px) {
+      .tdb-dig-deeper__hint {
+        font-size: 0.76rem;
+      }
+      details.tdb-dig-deeper > summary.tdb-dig-deeper__summary {
+        padding: 0.65rem 0 0.58rem;
+      }
+    }
     .verse-breakdown-container .next-step {
       margin-top: 1rem;
       padding: 0.85rem 1rem;
@@ -9838,27 +9954,44 @@
         </div>
         <p class="tdb-verse-of-day-eyebrow" id="heroVerseEyebrow">Today&rsquo;s lesson</p>
 
-        <div class="verse-breakdown" id="heroDeepBreakdown" role="group" aria-label="Verse breakdown sections">
+        <div class="hero-vbd-primary" id="heroVbdPrimary">
           <h4>Simple layman terms</h4>
           <p id="heroSimpleBreakdown"></p>
-
-          <div class="hero-vbd-bundle" id="heroVbdRowWho" hidden>
-            <h4>Who&rsquo;s talking?</h4>
-            <p id="heroDeepWho"></p>
-          </div>
-          <div class="hero-vbd-bundle" id="heroVbdRowAud" hidden>
-            <h4>Who is He / she talking to?</h4>
-            <p id="heroDeepAudience"></p>
-          </div>
-          <div class="hero-vbd-bundle" id="heroVbdRowCtx" hidden>
-            <h4>How it relates today (<span id="heroVotdBreakdownYear">2026</span>)</h4>
-            <p id="heroDeepContext"></p>
-          </div>
-          <div class="hero-vbd-bundle" id="heroVbdRowYou" hidden>
-            <h4>How it relates to you right now</h4>
-            <p id="heroDeepYou"></p>
-          </div>
         </div>
+
+        <details class="tdb-dig-deeper" id="heroDigDeeper">
+          <summary class="tdb-dig-deeper__summary">
+            <span class="tdb-dig-deeper__main">More from the Word</span>
+            <span class="tdb-dig-deeper__hint">Cross-references and plain notes &mdash; only if you want them</span>
+          </summary>
+          <div class="tdb-dig-deeper__content">
+            <div class="verse-breakdown" id="heroDeepBreakdown" role="group" aria-label="More context from the Word">
+              <div class="hero-vbd-bundle" id="heroVbdRowWho" hidden>
+                <h4>Who&rsquo;s talking?</h4>
+                <p id="heroDeepWho"></p>
+              </div>
+              <div class="hero-vbd-bundle" id="heroVbdRowAud" hidden>
+                <h4>Who is He / she talking to?</h4>
+                <p id="heroDeepAudience"></p>
+              </div>
+              <div class="hero-vbd-bundle" id="heroVbdRowCtx" hidden>
+                <h4>How it relates today (<span id="heroVotdBreakdownYear">2026</span>)</h4>
+                <p id="heroDeepContext"></p>
+              </div>
+              <div class="hero-vbd-bundle" id="heroVbdRowYou" hidden>
+                <h4>How it relates to you right now</h4>
+                <p id="heroDeepYou"></p>
+              </div>
+            </div>
+            <div class="tdb-dig-deeper__cross" id="heroDigDeeperCross" hidden>
+              <h4 class="tdb-dig-deeper__cross-label">See also (KJV)</h4>
+              <p class="tdb-dig-deeper__cross-list" id="heroDigDeeperCrossList"></p>
+            </div>
+            <p class="tdb-dig-deeper__plan" id="heroDigDeeperPlan" hidden>
+              <a class="tdb-dig-deeper__plan-link" id="heroDigDeeperPlanLink" href="/plans.html?plan=battle">Continue in this Battle Plan &rarr;</a>
+            </p>
+          </div>
+        </details>
 
         <div class="next-step" id="heroVotdNextStep">
           <strong>One small step today:</strong> <span id="heroVotdOneStep"></span>
@@ -12861,31 +12994,14 @@
         timeEl.setAttribute("datetime", now.toISOString().slice(0, 10));
         timeEl.textContent = new Intl.DateTimeFormat("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" }).format(now);
       })();
-      (function tdbFillHeroCurriculum() {
-        var wrap = document.getElementById("tdb-hero-curriculum-slot");
-        var ul = document.getElementById("tdb-hero-curriculum-list");
-        if (!wrap || !ul) return;
-        ul.replaceChildren();
-        var build = typeof window.tdbUogBuildCurriculumPlanList === "function" ? window.tdbUogBuildCurriculumPlanList : null;
-        if (!build) {
-          wrap.setAttribute("hidden", "");
-          return;
+      (function tdbFillHeroDigDeeper() {
+        var vbStd = window.TDB_verseBreakdownStandard;
+        if (vbStd && typeof vbStd.hydrateHeroDigDeeper === "function") {
+          vbStd.hydrateHeroDigDeeper(v.ref, v.text);
+        } else {
+          var legacyWrap = document.getElementById("tdb-hero-curriculum-slot");
+          if (legacyWrap) legacyWrap.setAttribute("hidden", "");
         }
-        var rows = build(v.ref, v.text) || [];
-        if (!rows.length) {
-          wrap.setAttribute("hidden", "");
-          return;
-        }
-        for (var i = 0; i < rows.length; i++) {
-          if (!rows[i] || !rows[i].href) continue;
-          var li = document.createElement("li");
-          var a = document.createElement("a");
-          a.href = rows[i].href;
-          a.textContent = rows[i].label;
-          li.appendChild(a);
-          ul.appendChild(li);
-        }
-        wrap.removeAttribute("hidden");
       })();
 
       // ── Update "Read full chapter" deep-link ──

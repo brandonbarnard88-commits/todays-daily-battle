@@ -61,6 +61,7 @@ for (const file of htmlFiles) {
   const matches = htmlOnly.matchAll(/href=["']([^"']+)["']/g);
   for (const m of matches) {
     const href = (m[1] || '').trim();
+    if (/\.md(?:[?#]|$)/i.test(href.split('#')[0])) continue;
     const target = resolveTarget(file, href);
     if (!target) continue;
     const key = path.relative(dist, file) + ' -> ' + href;

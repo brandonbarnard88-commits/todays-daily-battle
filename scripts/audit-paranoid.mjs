@@ -7,9 +7,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const root = path.resolve(__dirname, '..');
 
-const IGNORE_DIRS = new Set(['.git', 'node_modules']);
+const IGNORE_DIRS = new Set(['.git', 'node_modules', '.worktrees']);
 /* next-app/ is an optional Next subtree with its own build outputs (.next/*.html); skip so anchor scan matches static site only. */
-const SOURCE_IGNORE_DIRS = new Set(['.git', 'node_modules', 'vendor', 'dist', 'next-app']);
+const SOURCE_IGNORE_DIRS = new Set(['.git', 'node_modules', 'vendor', 'dist', 'next-app', '.worktrees', 'partials']);
 
 function walkFiles(startDir, extensions, ignoreDirs = IGNORE_DIRS) {
   const out = [];
@@ -125,6 +125,7 @@ function checkHtmlAnchors(baseDir, opts = {}) {
       if (/^(mailto:|tel:|javascript:|https?:)/i.test(href)) continue;
       const raw = String(href || '').trim();
       if (!raw || raw === '#') continue;
+      if (/\.md(?:[?#]|$)/i.test(raw.split('#')[0])) continue;
       let url;
       try {
         url = new URL(raw, 'https://todaysdailybattle.local/');

@@ -158,6 +158,7 @@ const rootFiles = [
   'one-family-tree.js',
   'one-family-tree.css',
   'life-lessons.css',
+  'lessons-from-the-valley.css',
   'life-lessons-data.js',
   'life-lessons-tool.js',
   'life-lessons-mystudy-bridge.js',
@@ -718,6 +719,7 @@ if (fs.existsSync(path.join(root, 'sw'))) {
 
 if (fs.existsSync(path.join(root, 'verse-cards'))) {
   copyDir(path.join(root, 'verse-cards'), path.join(dist, 'verse-cards'));
+  copyDir(path.join(root, 'embed'), path.join(dist, 'embed'));
   console.log('Copied verse-cards/ folder (Pinterest verse images)');
 }
 if (fs.existsSync(path.join(root, 'journal'))) {

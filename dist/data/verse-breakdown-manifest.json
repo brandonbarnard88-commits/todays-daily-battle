@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-20T02:12:58.076Z",
+  "generatedAt": "2026-05-20T02:31:52.788Z",
   "surfacedRefCount": 3317,
   "overrideCount": 3317,
   "sourceCounts": {
@@ -1944,7 +1944,7 @@
       "pairs": 0
     },
     "topic-anxiety.html": {
-      "refs": 4,
+      "refs": 8,
       "pairs": 0
     },
     "topic-fear.html": {
@@ -1956,7 +1956,7 @@
       "pairs": 0
     },
     "topic-grief.html": {
-      "refs": 4,
+      "refs": 8,
       "pairs": 0
     },
     "topic-guilt.html": {
@@ -1972,11 +1972,11 @@
       "pairs": 0
     },
     "topic-overwhelmed.html": {
-      "refs": 3,
+      "refs": 8,
       "pairs": 0
     },
     "topic-parenting.html": {
-      "refs": 5,
+      "refs": 9,
       "pairs": 0
     },
     "topic-strength.html": {

@@ -11,6 +11,7 @@
   var RETURNING_KEY = 'has_visited_porch';
 
   var FIRST_VISIT_KEEP_IDS = {
+    tdbHeavyNow: true,
     tdbFirstVisitBanner: true,
     tdbTodaysVerseHeading: true,
     'hero-verse-wrap': true,
@@ -83,6 +84,7 @@
 
   function reorderPrimaryFlow() {
     var main = document.getElementById('home-primary-flow');
+    var heavyNow = document.getElementById('tdbHeavyNow');
     var heading = document.getElementById('tdbTodaysVerseHeading');
     var verse = document.getElementById('hero-verse-wrap');
     var search = document.getElementById('quick-search-hero');
@@ -91,6 +93,14 @@
     var banner = document.getElementById('tdbFirstVisitBanner');
     var porch = document.getElementById('tdbPorchFeel');
     if (!main || !verse || !search) return;
+
+    if (heavyNow && heavyNow.parentNode === main) {
+      if (banner && banner.parentNode === main) {
+        main.insertBefore(heavyNow, banner.nextSibling);
+      } else {
+        main.insertBefore(heavyNow, main.firstChild);
+      }
+    }
 
     if (porch && heading && heading.parentNode === main) {
       main.insertBefore(heading, porch);
@@ -268,6 +278,9 @@
 
     var calmCta = document.getElementById('tdbFirstVisitCalmCta');
     if (calmCta) calmCta.addEventListener('click', go);
+
+    var heavyCalm = document.getElementById('tdbHeavyNowCalm');
+    if (heavyCalm) heavyCalm.addEventListener('click', go);
 
     var startMyDay = document.getElementById('tdbStartMyDayBtn');
     if (startMyDay) startMyDay.addEventListener('click', go);

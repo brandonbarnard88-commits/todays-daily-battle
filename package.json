@@ -39,7 +39,7 @@
     "test:search-wiring": "node scripts/verify-homepage-search-wiring.mjs",
     "test:security": "node test-security.js",
     "verify:dist-html-sanity": "node scripts/verify-dist-html-sanity.mjs",
-    "test:site": "node test-site.js --offline && node scripts/inject-home-hero.mjs && node scripts/inject-porch-verse-widget.mjs && node scripts/inject-structured-data-pages.mjs && node scripts/verify-dist-html-sanity.mjs && node scripts/verify-offline-strip-coverage.mjs && node scripts/verify-structured-data.mjs --verify-dist && node scripts/verify-a11y-controls.mjs && node scripts/verify-family-kids-links.mjs && node scripts/verify-print-styles.mjs && node scripts/verify-performance.mjs && node scripts/verify-service-worker.mjs && node scripts/verify-js-assets.mjs && node scripts/verify-verse-breakdown-coverage.mjs",
+    "test:site": "node test-site.js --offline && node scripts/inject-home-hero.mjs && node scripts/inject-porch-verse-widget.mjs && node scripts/verify-porch-verse-widget.mjs && node scripts/inject-structured-data-pages.mjs && node scripts/verify-dist-html-sanity.mjs && node scripts/verify-offline-strip-coverage.mjs && node scripts/verify-structured-data.mjs --verify-dist && node scripts/verify-a11y-controls.mjs && node scripts/verify-family-kids-links.mjs && node scripts/verify-print-styles.mjs && node scripts/verify-performance.mjs && node scripts/verify-service-worker.mjs && node scripts/verify-js-assets.mjs && node scripts/verify-verse-breakdown-coverage.mjs",
     "verify:asset-versions": "node scripts/verify-asset-versions.mjs",
     "test:surface-tokens": "node scripts/verify-tdb-surface-token-sync.mjs",
     "test:api": "npm --prefix api run typecheck",

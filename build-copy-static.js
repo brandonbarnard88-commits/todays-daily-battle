@@ -166,6 +166,7 @@ const rootFiles = [
   'tdb-home-experience.js',
   'tdb-core-seven.css',
   'tdb-visual-tokens.css',
+  'tdb-heavy-now.css',
   'tdb-porch-verse-widget.css',
   'tdb-porch-verse-widget.js',
   'tdb-january-quiet.js',

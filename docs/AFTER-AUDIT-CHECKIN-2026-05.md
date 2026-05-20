@@ -64,7 +64,7 @@ Answer when you have a quiet minute — no scores, no streaks:
 | May 2026 | Audit pass 3 | First-visit crisis surface: verse + Ask + one step; `has_visited_porch` unlocks full porch |
 | May 2026 | Visual tokens B | `tdb-visual-tokens.css` — porch spacing, heading rhythm, card surface bridge (Home + Explore) |
 | May 2026 | Visual tokens A | Global `.section-divider` calmed; inner-page `.section-note` uses porch contrast tokens |
-| May 2026 | Porch verse widget B | Soft optional Today&rsquo;s verse on Explore + Plans + Family (`tdb-porch-verse-widget.js`, hide-for-today, build inject) |
+| May 2026 | Raw audit pass | Heavy-now fast path (Home/Explore/Plans/topics), topic depth, Family widget hint, CSP cdn-cgi fix, porch widget verify |
 
 ---
 

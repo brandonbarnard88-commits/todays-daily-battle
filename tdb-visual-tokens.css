@@ -215,3 +215,79 @@ body.tdb-inner-page .section-note {
   background: #fffdf7;
   color: #1c2a44;
 }
+
+/* ── Discoverability pass (May 2026) — one honest next door ── */
+.tdb-porch-path-card {
+  margin: clamp(0.85rem, 2vw, 1.15rem) 0 0;
+  padding: clamp(0.75rem, 1.8vw, 0.95rem) clamp(0.85rem, 2vw, 1.05rem);
+  border-radius: var(--tdb-porch-card-radius-sm, 14px);
+  border: 1px solid color-mix(in srgb, var(--line, #2a3344) 78%, rgba(227, 188, 103, 0.14));
+  background: color-mix(in srgb, var(--card, #1b212d) 92%, transparent);
+  max-width: 40rem;
+}
+
+.tdb-porch-path-card__eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tdb-section-note-color, var(--muted));
+}
+
+.tdb-porch-path-card__invitation {
+  margin: 0 0 0.65rem;
+  font-size: clamp(0.92rem, 2.2vw, 1.02rem);
+  line-height: 1.62;
+  color: var(--text, #f5f7fb);
+}
+
+.tdb-porch-path-card__primary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.45rem 0.15rem 0.45rem 0;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--gold, #e3bc67) 88%, var(--text, #f5f7fb));
+  text-decoration: none;
+}
+
+.tdb-porch-path-card__primary:hover,
+.tdb-porch-path-card__primary:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
+
+.tdb-porch-path-card__primary:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--tdb-focus-ring, #e3bc67) 55%, transparent);
+  border-radius: 6px;
+}
+
+.tdb-porch-path-card__secondary {
+  margin-top: 0.55rem;
+}
+
+.tdb-porch-path-card__secondary summary {
+  cursor: pointer;
+  font-size: 0.84rem;
+  color: var(--tdb-section-note-color, var(--muted));
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.tdb-porch-path-card__secondary summary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--tdb-focus-ring, #e3bc67) 55%, transparent);
+  border-radius: 6px;
+}
+
+:root[data-theme="light"] .tdb-porch-path-card {
+  background: color-mix(in srgb, #faf7f2 94%, #fff);
+}
+
+:root[data-theme="light"] .tdb-porch-path-card__invitation {
+  color: #1c2a44;
+}

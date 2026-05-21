@@ -56,4 +56,4 @@ Not: *Does this look like a trending app?*
 
 **Implementation home:** `tdb-visual-tokens.css` (shared tokens + porch polish pass), `tdb-home-page.css` (home layout), `styles.css` (inner pages).
 
-**Related:** [visual-north-star.html](../visual-north-star.html) · [PORCH-VISUAL-AUDIT-2026-05.md](./PORCH-VISUAL-AUDIT-2026-05.md) · [PORCH-VISUAL-SYSTEM.md](./PORCH-VISUAL-SYSTEM.md)
+**Related:** [PORCH-DISCOVERABILITY-PRINCIPLES.md](./PORCH-DISCOVERABILITY-PRINCIPLES.md) · [visual-north-star.html](../visual-north-star.html) · [PORCH-VISUAL-AUDIT-2026-05.md](./PORCH-VISUAL-AUDIT-2026-05.md) · [PORCH-VISUAL-SYSTEM.md](./PORCH-VISUAL-SYSTEM.md)

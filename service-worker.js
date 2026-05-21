@@ -213,6 +213,8 @@ const CORE_ASSETS = [
   '/tdb-home-feel.js',
   '/tdb-porch-restfulness.js',
   '/tdb-visual-tokens.css',
+  '/fonts/cormorant-garamond-hero-latin.woff2',
+  '/tdb-home-hero-lcp-critical.css',
   '/family-activity-packs.html',
   '/print-pack-generator.js',
   '/embed-verse-widget.js',

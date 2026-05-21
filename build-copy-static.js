@@ -170,6 +170,7 @@ const rootFiles = [
   'tdb-porch-restfulness.js',
   'tdb-core-seven.css',
   'tdb-visual-tokens.css',
+  'tdb-home-hero-lcp-critical.css',
   'tdb-heavy-now.css',
   'tdb-porch-verse-widget.css',
   'tdb-porch-verse-widget.js',

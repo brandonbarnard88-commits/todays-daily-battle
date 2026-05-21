@@ -148,6 +148,17 @@ function main() {
     fail('pastor/index.html: expected link rel=preload for pastor.css (as=style)');
   }
 
+  const home = read('index.html');
+  if (!home.includes('id="tdb-hero-lcp-critical"')) {
+    fail('index.html: expected inline #tdb-hero-lcp-critical for hero LCP font + verse paint');
+  }
+  if (!home.includes('/fonts/cormorant-garamond-hero-latin.woff2')) {
+    fail('index.html: expected preload for cormorant-garamond-hero-latin.woff2 (hero LCP subset)');
+  }
+  if (!/font-display:\s*swap/.test(home) || !home.includes('#heroVerse')) {
+    fail('index.html: hero LCP critical block should include font-display:swap and #heroVerse rules');
+  }
+
   verifyLocalStylesheetPreloads();
 
   console.log('verify-performance: OK');

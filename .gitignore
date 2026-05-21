@@ -12,6 +12,7 @@ config.js
 firebase-config.js
 .DS_Store
 node_modules/
+.venv-fonttools/
 dist/
 /build
 /build/

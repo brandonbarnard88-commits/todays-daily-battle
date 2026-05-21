@@ -167,6 +167,7 @@ const rootFiles = [
   'tdb-home-mobius-week.js',
   'tdb-home-experience.js',
   'tdb-home-feel.js',
+  'tdb-porch-restfulness.js',
   'tdb-core-seven.css',
   'tdb-visual-tokens.css',
   'tdb-heavy-now.css',

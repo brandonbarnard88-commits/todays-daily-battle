@@ -127,3 +127,91 @@ body.tdb-inner-page .section-note {
   color: var(--tdb-section-note-color);
   line-height: 1.55;
 }
+
+/* ── Porch polish pass (May 2026) — visual tier without clutter ── */
+#hero-verse-wrap .hero-verse-wrap-inner #heroVerse,
+#hero-verse-wrap #heroVerse {
+  line-height: 1.62;
+  letter-spacing: 0.012em;
+  font-size: clamp(1.05rem, 2.8vw, 1.22rem);
+}
+
+#hero-verse-wrap .tdb-home-verse-sticky-shell {
+  padding: clamp(0.15rem, 0.6vw, 0.35rem) 0 clamp(0.35rem, 1vw, 0.55rem);
+}
+
+#hero-verse-wrap .tdb-home-breath-divider {
+  margin: clamp(0.85rem, 2vw, 1.15rem) auto;
+  max-width: min(12rem, 42%);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--gold, #e3bc67) 38%, var(--line, #2a3344)),
+    transparent
+  );
+  opacity: 0.72;
+}
+
+#hero-verse-wrap .hero-verse-primary-toolbar {
+  margin-top: clamp(0.65rem, 1.6vw, 0.95rem);
+  padding-top: clamp(0.55rem, 1.2vw, 0.75rem);
+  border-top: 1px solid color-mix(in srgb, var(--line, #2a3344) 72%, transparent);
+}
+
+.tdb-porch-restfulness {
+  margin: clamp(0.85rem, 2vw, 1.15rem) 0 0;
+  padding: clamp(0.75rem, 1.8vw, 0.95rem) clamp(0.85rem, 2vw, 1.05rem);
+  border-radius: var(--tdb-porch-card-radius-sm, 14px);
+  border: 1px solid color-mix(in srgb, var(--line, #2a3344) 78%, rgba(227, 188, 103, 0.14));
+  background: color-mix(in srgb, var(--card, #1b212d) 92%, transparent);
+}
+
+.tdb-porch-restfulness__label {
+  margin: 0 0 0.55rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--tdb-section-note-color, var(--muted));
+}
+
+.tdb-porch-restfulness__choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.tdb-porch-restfulness__btn {
+  min-height: 44px;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--line, #2a3344) 82%, transparent);
+  background: color-mix(in srgb, var(--bg-soft, #171c25) 88%, var(--card, #1b212d));
+  color: var(--text, #f5f7fb);
+  font-size: 0.84rem;
+  cursor: pointer;
+}
+
+.tdb-porch-restfulness__btn:hover,
+.tdb-porch-restfulness__btn:focus-visible {
+  border-color: color-mix(in srgb, var(--gold, #e3bc67) 42%, var(--line, #2a3344));
+  outline: none;
+}
+
+.tdb-porch-restfulness__btn:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--tdb-focus-ring, #e3bc67) 55%, transparent);
+}
+
+.tdb-porch-restfulness__thanks {
+  margin: 0.55rem 0 0;
+  font-size: 0.82rem;
+  color: var(--tdb-section-note-color, var(--muted));
+}
+
+:root[data-theme="light"] .tdb-porch-restfulness {
+  background: color-mix(in srgb, #faf7f2 94%, #fff);
+}
+
+:root[data-theme="light"] .tdb-porch-restfulness__btn {
+  background: #fffdf7;
+  color: #1c2a44;
+}

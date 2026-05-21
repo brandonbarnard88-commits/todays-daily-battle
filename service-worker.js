@@ -211,6 +211,7 @@ const CORE_ASSETS = [
   '/tdb-calm-hubs.css',
   '/tdb-home-page.css',
   '/tdb-home-feel.js',
+  '/tdb-porch-restfulness.js',
   '/tdb-visual-tokens.css',
   '/family-activity-packs.html',
   '/print-pack-generator.js',

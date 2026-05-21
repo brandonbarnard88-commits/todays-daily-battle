@@ -102,8 +102,8 @@
   <link rel="dns-prefetch" href="https://plausible.io">
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
-  <link rel="preload" href="tdb-visual-tokens.css?v=20260519-tokens-a" as="style">
-  <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260519-tokens-a">
+  <link rel="preload" href="tdb-visual-tokens.css?v=20260520-polish-a" as="style">
+  <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260520-polish-a">
   <link rel="preload" href="tdb-home-page.css?v=20260520-home-ext" as="style">
   <link rel="stylesheet" href="tdb-home-page.css?v=20260520-home-ext">
   <!-- JSON-LD: DailyVerse + WebSite schema for SEO -->
@@ -852,6 +852,15 @@
       </section>
       <a href="#tdb-home-votm" class="tdb-float-memory-pill" id="tdb-float-memory-pill" hidden aria-label="Jump to verse of the month">Memory</a>
       <button type="button" class="tdb-float-share-verse" id="tdb-float-share-verse-home" aria-label="Share today’s verse">Share verse</button>
+      <div class="tdb-porch-restfulness" id="tdbPorchRestfulness" role="group" aria-labelledby="tdbPorchRestfulnessLabel">
+        <p class="tdb-porch-restfulness__label" id="tdbPorchRestfulnessLabel">Did this feel like a slow breath?</p>
+        <div class="tdb-porch-restfulness__choices">
+          <button type="button" class="tdb-porch-restfulness__btn" data-tdb-rest="yes">A little calmer</button>
+          <button type="button" class="tdb-porch-restfulness__btn" data-tdb-rest="unsure">Hard to say</button>
+          <button type="button" class="tdb-porch-restfulness__btn" data-tdb-rest="no">Still loud</button>
+        </div>
+        <p class="tdb-porch-restfulness__thanks" id="tdbPorchRestfulnessThanks" hidden>Saved on this device only—thank you.</p>
+      </div>
       </div><!-- /#hero-verse-wrap -->
 
       <!-- ── Daily email signup (always visible — same form as before, no “More rooms” gate) ── -->
@@ -2376,6 +2385,7 @@
   <script nonce="tdb2025s" defer src="start-my-day.js?v=20260423-phase5-perf"></script>
   <!-- Homepage feel-search + FEEL_GROUPS (deferred — was ~209KB inline) -->
   <script nonce="tdb2025s" defer src="tdb-home-feel.js?v=20260520-feel-ext"></script>
+  <script nonce="tdb2025s" defer src="tdb-porch-restfulness.js?v=20260520-polish-a"></script>
   <!-- Home core first: load script.js interaction stack on user intent/idle (core-home.js). -->
   <script nonce="tdb2025s" defer src="core-home.js?v=20260515-strip-legacy-tour-chip" data-cfasync="false" fetchpriority="high"></script>
   <script nonce="tdb2025s">

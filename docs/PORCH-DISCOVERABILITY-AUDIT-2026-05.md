@@ -1,6 +1,6 @@
 # Porch Discoverability Audit — May 2026
 
-Seven high-traffic moments reviewed for Pass 1. Each lists what already helps, what adds subtle strain, and one fix candidate for Pass 2 (not yet coded unless noted).
+Seven high-traffic moments reviewed for Pass 1. Pass 2 and Pass 3 shipped June 2026 (path cards, porch map, cross-links).
 
 Principles: [PORCH-DISCOVERABILITY-PRINCIPLES.md](./PORCH-DISCOVERABILITY-PRINCIPLES.md)
 
@@ -8,122 +8,55 @@ Principles: [PORCH-DISCOVERABILITY-PRINCIPLES.md](./PORCH-DISCOVERABILITY-PRINCI
 
 ## 1. Home — after today’s verse (toolbar area)
 
-**Already helps**
-
-- Verse toolbar (copy, share, email, save) is calm and reachable.
-- Companion doors and porch signs exist below the fold.
-
-**Subtle strain**
-
-- After the verse lands, the next step can feel hidden — especially on mobile before scroll.
-
-**Fix candidate (Pass 2)**
-
-- One short path card under the verse toolbar: *“Carrying a heavy weight tonight?”* → one relevant plan chip + quiet “more paths” link to porch signs or Explore.
+**Shipped (Pass 2):** `#tdbHomeVersePathCard` under the verse toolbar — *“Carrying more than one verse can hold?”* → `plans.html?plan=universityanxiety`; `<details>` for parent weary, porch signs, Explore map.
 
 ---
 
 ## 2. Home — after feel-search result
 
-**Already helps**
-
-- Direct KJV results and plan CTA when feel-search fires.
-
-**Subtle strain**
-
-- When the first result is close but not quite the weight, there is no gentle “still heavy in another way?” bridge.
-
-**Fix candidate (Pass 2)**
-
-- Soft footer on feel results: one or two feeling-first suggestions (not a second search wall).
+**Shipped (Pass 2):** `#tdbHomeFeelPathMore` inside `#tdbHomeFeelResult` — *“Still heavy in another way?”* → overwhelm plan + exhaustion/calm in `<details>`.
 
 ---
 
 ## 3. Battle Plans — plan detail footer
 
-**Already helps**
-
-- Day checkmarks, dig-deeper, and plan rhythm stay text-forward.
-
-**Subtle strain**
-
-- Detail view often ends abruptly — no quiet “what about tomorrow?” or “when this lingers.”
-
-**Fix candidate (Pass 2)**
-
-- Path card: **Tomorrow’s portion** (next day in plan) + **When this weight lingers** (one related plan, feeling-matched).
+**Shipped (Pass 2):** `#planPorchPathCard` after `#dayCardContainer`; `updatePlanPorchPathCard()` sets tomorrow link + first related plan from `PLAN_NEXT_QUIET_ROOMS`.
 
 ---
 
 ## 4. Verse / daily lesson (`verse.html` foot)
 
-**Already helps**
-
-- Share row is honest; My Study and prayer nudges stay secondary.
-
-**Subtle strain**
-
-- Single-day visit with no bridge to a week of the same truth.
-
-**Fix candidate (Pass 2)**
-
-- One parallel line: *“Need this truth for more than one day?”* → matching Battle Plan.
+**Shipped (Pass 2):** `#versePorchPathCard` after save hint — Battle Plan primary; Come Unto Me / 7-Day Peace in `<details>`.
 
 ---
 
 ## 5. Kids Corner landing (`kids/index.html`)
 
-**Already helps**
-
-- Welcome band and `.kids-site-porch` rest well on the sky; fun-first tone holds.
-
-**Subtle strain**
-
-- Parent who is weary while tending little hearts may not see a grown-up door.
-
-**Fix candidate (Pass 2)**
-
-- One parent bridge: *“Grown-up weary while tending little hearts?”* → `plans.html?plan=parentweary` or Family Armor.
+**Shipped (Pass 2):** `#kidsParentPorchPath` after `.kids-site-porch` — parent weary plan + Family Armor / Family hub.
 
 ---
 
 ## 6. Family hub (`family.html`)
 
-**Already helps**
-
-- Table and rhythm language are strong and honest.
-
-**Subtle strain**
-
-- Kids Corner and Armor rhythms are discoverable but not always one tap from the family story.
-
-**Fix candidate (Pass 2)**
-
-- Quiet cross-link row: Kids Corner + one Family Armor rhythm path (same tone as porch signs).
+**Shipped (Pass 2):** `#familyPorchPathCross` in hero — Kids Battle primary; Family Armor + family rhythm in `<details>`.
 
 ---
 
 ## 7. Explore — `#explore-hub`
 
-**Already helps**
-
-- Start here, five-minute tour, and hub tiles cover the full porch.
-
-**Subtle strain**
-
-- Tiles can read like a catalog (“Plans library”) instead of feeling-first doors.
-
-**Fix candidate (Pass 3)**
-
-- Soften hub lead copy + tile subtitles (*“When fear is loud at night”* not *“Plans library”*). Optional porch-map band above tiles.
+**Shipped (Pass 3):** `#explore-porch-map` band above hub tiles; feeling-first hub subtitles; lead copy softened.
 
 ---
 
-## Pass 2 priority (when ready)
+## Pass 3 cross-links (shipped)
 
-1. Home verse → plan path card  
-2. Plans detail footer path card  
-3. Feel-search result footer (smallest copy-only win)
+| Surface | ID | Links |
+|---------|-----|-------|
+| Plans hero | `#plansPorchDiscoverFoot` | Today’s verse · Explore porch map |
+| Calm | `#calmPorchDiscoverFoot` | Today’s verse · Explore porch map |
+| My Study | `#mystudyPorchDiscoverFoot` | Today’s verse · Explore porch map |
+
+Public changelog: [updates.html](../updates.html) — June 2026 section.
 
 ---
 

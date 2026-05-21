@@ -73,4 +73,4 @@ New path cards **bridge** these — they do not replace them.
 
 ## Changelog surface
 
-Public: [updates.html](../updates.html) — “Discoverability (June 2026)” when Pass 3 ships.
+Public: [updates.html](../updates.html) — “Discoverability (June 2026)” section (Pass 2 & 3 shipped).

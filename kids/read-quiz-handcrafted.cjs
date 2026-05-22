@@ -5157,6 +5157,112 @@ function buildJobSufferingReadQuiz() {
   };
 }
 
+/** Do not fear — Isaiah 41:10; God with us, strengthens and helps. Library key: doNotFearIsaiah41 */
+function buildDoNotFearIsaiah41ReadQuiz() {
+  return {
+    kjvRef: 'Isaiah 41:10 (KJV)',
+    verseExcerpt:
+      'Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness. — Isaiah 41:10 (KJV)',
+    readAlongTitle: 'Do Not Fear — God Is With You',
+    quizWrongHumilityHint:
+      'Listen again — fear not; I am with thee; be not dismayed; I am thy God; strengthen; help; uphold; right hand.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'God spoke through His prophet Isaiah to people who felt afraid.',
+      'He said, “Fear thou not; for I am with thee.”',
+      'He said, “Be not dismayed; for I am thy God.”',
+      'He promised, “I will strengthen thee; yea, I will help thee.”',
+      'He promised to uphold them with the right hand of His righteousness.',
+      'God’s words are still true for little hearts and tired grown-ups tonight.',
+      'Reference: Isaiah 41:10 (KJV)'
+    ],
+    readAlongSections: [
+      { text: 'God spoke through Isaiah to people who felt afraid.', caption: 'God speaks', image: 'panel-david-1.svg' },
+      { text: '“Fear thou not; for I am with thee.”', caption: 'I am with thee', image: 'panel-david-1.svg' },
+      { text: '“Be not dismayed; for I am thy God.”', caption: 'I am thy God', image: 'panel-david-2.svg' },
+      { text: '“I will strengthen thee; yea, I will help thee.”', caption: 'Help and strength', image: 'panel-david-2.svg' },
+      {
+        text: '“I will uphold thee with the right hand of my righteousness.”',
+        caption: 'Uphold thee',
+        image: 'panel-david-3.svg'
+      },
+      { text: 'God’s words are still true for us tonight.', caption: 'Still true', image: 'panel-david-3.svg' }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this promise found in the Bible?',
+        choices: ['Psalm 23', 'Isaiah 41:10', 'John 3:16', 'Genesis 1:1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: Isaiah 41:10.)'
+      },
+      {
+        question: 'Who is speaking in Isaiah 41:10?',
+        choices: ['A giant fish', 'The LORD — God', 'Only a king', 'Nobody'],
+        correctIndex: 1,
+        correctFeedback: 'Right—God Himself is speaking comfort to afraid hearts.',
+        wrongFeedback:
+          'Look for who says “I am with thee” and “I am thy God.” (Answer: The LORD — God.)'
+      },
+      {
+        question: 'Which choice sounds most like what God promises here?',
+        choices: [
+          'God leaves us when we feel afraid.',
+          'We must never feel scared.',
+          'God is with us, will strengthen us, help us, and uphold us.',
+          'The Bible is only pretend stories.'
+        ],
+        correctIndex: 2,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          'Reread the last paragraphs slowly. Which option matches God’s kindness and truth? (Answer: God is with us, will strengthen us, help us, and uphold us.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible promise (not a silly made-up one)?',
+        choices: [
+          'A spaceship landed in the parking lot.',
+          'Fear thou not; for I am with thee.',
+          'Everyone decided to never sleep again.',
+          'Let us rise up and build.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Yes—that detail comes from the promise God gave us.',
+        wrongFeedback:
+          'Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: Fear thou not; for I am with thee.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ignore God until we are older.',
+          'Tell God what feels scary and trust that He is with us.',
+          'Never say sorry when we do wrong.',
+          'Only be kind to people who are exactly like us.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: does this choice show trust in God when feelings are hard? Pick the one that honors Him. (Answer: Tell God what feels scary and trust that He is with us.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Do Not Fear — God Is With You with God's Word today.",
+    takeaway:
+      'When fear whispers you are alone, God says He is with you — and He will help you.',
+    prayer:
+      'Lord, when we feel afraid, thank You that You are with us. Strengthen us and help us trust You. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children ages 3–8: a small lamp glowing in a window at night soft stars outside a child and grown-up sitting close on a couch thick bold outlines with large open spaces for easy coloring calm safe mood focus on God is with us not alone clean minimal no scary faces plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Fear thou not — God is with thee (isaiah 41)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: I will strengthen thee and help thee (isaiah 41)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Uphold with His right hand (isaiah 41)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Still true tonight — not alone (hope)"
+    ],
+    readAlongImages: []
+  };
+}
+
 /** God promises a Savior — Isaiah 9:2–7; names of the coming child, hope. Library key: isaiahMessianic */
 function buildIsaiahMessianicReadQuiz() {
   return {
@@ -14862,6 +14968,112 @@ function buildUnforgivingServantReadQuiz() {
   };
 }
 
+/** Do not fear — Isaiah 41:10; God with us, strengthens and helps. Library key: doNotFearIsaiah41 */
+function buildDoNotFearIsaiah41ReadQuiz() {
+  return {
+    kjvRef: 'Isaiah 41:10 (KJV)',
+    verseExcerpt:
+      'Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness. — Isaiah 41:10 (KJV)',
+    readAlongTitle: 'Do Not Fear — God Is With You',
+    quizWrongHumilityHint:
+      'Listen again — fear not; I am with thee; be not dismayed; I am thy God; strengthen; help; uphold; right hand.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'God spoke through His prophet Isaiah to people who felt afraid.',
+      'He said, “Fear thou not; for I am with thee.”',
+      'He said, “Be not dismayed; for I am thy God.”',
+      'He promised, “I will strengthen thee; yea, I will help thee.”',
+      'He promised to uphold them with the right hand of His righteousness.',
+      'God’s words are still true for little hearts and tired grown-ups tonight.',
+      'Reference: Isaiah 41:10 (KJV)'
+    ],
+    readAlongSections: [
+      { text: 'God spoke through Isaiah to people who felt afraid.', caption: 'God speaks', image: 'panel-david-1.svg' },
+      { text: '“Fear thou not; for I am with thee.”', caption: 'I am with thee', image: 'panel-david-1.svg' },
+      { text: '“Be not dismayed; for I am thy God.”', caption: 'I am thy God', image: 'panel-david-2.svg' },
+      { text: '“I will strengthen thee; yea, I will help thee.”', caption: 'Help and strength', image: 'panel-david-2.svg' },
+      {
+        text: '“I will uphold thee with the right hand of my righteousness.”',
+        caption: 'Uphold thee',
+        image: 'panel-david-3.svg'
+      },
+      { text: 'God’s words are still true for us tonight.', caption: 'Still true', image: 'panel-david-3.svg' }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this promise found in the Bible?',
+        choices: ['Psalm 23', 'Isaiah 41:10', 'John 3:16', 'Genesis 1:1'],
+        correctIndex: 1,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: Isaiah 41:10.)'
+      },
+      {
+        question: 'Who is speaking in Isaiah 41:10?',
+        choices: ['A giant fish', 'The LORD — God', 'Only a king', 'Nobody'],
+        correctIndex: 1,
+        correctFeedback: 'Right—God Himself is speaking comfort to afraid hearts.',
+        wrongFeedback:
+          'Look for who says “I am with thee” and “I am thy God.” (Answer: The LORD — God.)'
+      },
+      {
+        question: 'Which choice sounds most like what God promises here?',
+        choices: [
+          'God leaves us when we feel afraid.',
+          'We must never feel scared.',
+          'God is with us, will strengthen us, help us, and uphold us.',
+          'The Bible is only pretend stories.'
+        ],
+        correctIndex: 2,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          'Reread the last paragraphs slowly. Which option matches God’s kindness and truth? (Answer: God is with us, will strengthen us, help us, and uphold us.)'
+      },
+      {
+        question: 'Which detail belongs in this Bible promise (not a silly made-up one)?',
+        choices: [
+          'A spaceship landed in the parking lot.',
+          'Fear thou not; for I am with thee.',
+          'Everyone decided to never sleep again.',
+          'Let us rise up and build.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Yes—that detail comes from the promise God gave us.',
+        wrongFeedback:
+          'Cross out the joke answers. Which one matches the pictures or the paragraphs you read? (Answer: Fear thou not; for I am with thee.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ignore God until we are older.',
+          'Tell God what feels scary and trust that He is with us.',
+          'Never say sorry when we do wrong.',
+          'Only be kind to people who are exactly like us.'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: does this choice show trust in God when feelings are hard? Pick the one that honors Him. (Answer: Tell God what feels scary and trust that He is with us.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Do Not Fear — God Is With You with God's Word today.",
+    takeaway:
+      'When fear whispers you are alone, God says He is with you — and He will help you.',
+    prayer:
+      'Lord, when we feel afraid, thank You that You are with us. Strengthen us and help us trust You. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children ages 3–8: a small lamp glowing in a window at night soft stars outside a child and grown-up sitting close on a couch thick bold outlines with large open spaces for easy coloring calm safe mood focus on God is with us not alone clean minimal no scary faces plenty of white space age-appropriate for ages 3–8 coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Fear thou not — God is with thee (isaiah 41)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: I will strengthen thee and help thee (isaiah 41)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Uphold with His right hand (isaiah 41)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Still true tonight — not alone (hope)"
+    ],
+    readAlongImages: []
+  };
+}
+
 module.exports = {
   jerichoWalls: buildJerichoReadQuiz(),
   fallOfJericho: buildJerichoReadQuiz(),
@@ -15034,5 +15246,6 @@ module.exports = {
   bethesda: buildBethesdaReadQuiz(),
   unforgivingServant: buildUnforgivingServantReadQuiz(),
   zacchaeus: buildZacchaeusReadQuiz(),
-  jobSuffering: buildJobSufferingReadQuiz()
+  jobSuffering: buildJobSufferingReadQuiz(),
+  doNotFearIsaiah41: buildDoNotFearIsaiah41ReadQuiz()
 };

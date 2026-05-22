@@ -12,7 +12,7 @@ Builds on Discoverability Pass 2 bridges (`#kidsParentPorchPath`, `#familyPorchP
 
 | Surface | Count / state | Notes |
 |---------|----------------|--------|
-| Gentle Journey `ORDER.length` | **324** distinct keys | Goal: **365** (`CANONICAL_DISTINCT_STORY_GOAL` in `kids/kids-gentle-journey.js`) — **41** stories remain toward north star |
+| Gentle Journey `ORDER.length` | **325** distinct keys | Goal: **365** (`CANONICAL_DISTINCT_STORY_GOAL` in `kids/kids-gentle-journey.js`) — **40** stories remain toward north star |
 | Gentle Journey sections | **12** themed bands | `STARTERS` = first 12 keys; full package = read-aloud + coloring + read-quiz + corner integration (per file comment) |
 | Porch read-aloud HTML pages | **18** under `kids/porch-read-*.html` | Shelved on `kids/corner.html#kids-porch-readalouds` and `kids/index.html#kids-porch-readalouds-home` |
 | Discoverability path cards (shipped) | Kids + Family heroes | `parentweary`, Family Armor, Family hub cross-links |
@@ -32,14 +32,14 @@ Builds on Discoverability Pass 2 bridges (`#kidsParentPorchPath`, `#familyPorchP
 
 **Subtle strain**
 
-- **41 keys** still separate us from the 365 north star — builders know; parents should never feel “behind.”
+- **40 keys** still separate us from the 365 north star — builders know; parents should never feel “behind.”
 - Not every ORDER key has an obvious **table-tonight** companion (porch read-aloud or one-tap color link).
 - Journey progress UI must stay mercy-first (local only; no public gap counter).
 
 **Fix candidate (Pass 2)**
 
 - Add stories in **small themed batches** (bedtime fear, table worship, parent weary, ordinary Tuesday) with full calm package before expanding random OT/NT coverage.
-- **Batch 1 started (June 2026):** Lost Sheep full story already in journey (`lostSheep`); table companion `porch-read-lost-sheep-carried-home.html` shipped (Luke 15:4–6 · coloring `lost-sheep` · full story door). Next new ORDER keys toward 365: still waters focus, suffer little children (if distinct), mustard faith beat, **Do not fear** (Isaiah 41:10).
+- **Batch 1 (June 2026):** Lost Sheep table companion shipped; **`doNotFearIsaiah41`** — new ORDER key with read-quiz, corner card, porch read `porch-read-do-not-fear.html`, coloring door (`good-shepherd`). Next batch candidates: still waters focus, suffer little children (if distinct), mustard faith beat.
 - Optional builder checklist (internal doc only): read-quiz ✓ · corner card ✓ · coloring or SVG ✓ · porch read-aloud or plan link when theme fits family table.
 
 ---

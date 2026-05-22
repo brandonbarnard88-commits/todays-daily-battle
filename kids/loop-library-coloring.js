@@ -107,6 +107,7 @@
   "jesusWaterWine": "jesusWaterWine",
   "jesusWeepsJerusalem": "jesusWeepsJerusalem",
   "jobSuffering": "jobSuffering",
+  "doNotFearIsaiah41": "good-shepherd",
   "johnBaptize": "johnBaptize",
   "johnPatmos": "revelationThrone",
   "jonah": "jonah",

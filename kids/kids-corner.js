@@ -2504,6 +2504,23 @@
         '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Job 1:21</text>'
       ),
 
+      /* ── Isaiah 41:10 — lamp at night, God is with thee (doNotFearIsaiah41) ── */
+      doNotFearIsaiah41: svg(
+        ground() +
+        '<rect x="168" y="168" width="64" height="52" rx="4" ' +
+        sf +
+        ' fill="white" stroke-width="2.2" opacity="0.92"/>' +
+        '<rect x="176" y="176" width="48" height="36" rx="2" fill="#fef9c3" stroke="#d4af7b" stroke-width="1.5"/>' +
+        '<circle cx="200" cy="188" r="8" fill="#fde68a" opacity="0.85"/>' +
+        '<circle cx="72" cy="48" r="3" fill="#fde68a" opacity="0.7"/>' +
+        '<circle cx="96" cy="36" r="2" fill="#fde68a" opacity="0.55"/>' +
+        '<circle cx="318" cy="42" r="2.5" fill="#fde68a" opacity="0.6"/>' +
+        '<circle cx="340" cy="58" r="2" fill="#fde68a" opacity="0.5"/>' +
+        person(148, 210, 10, 24) +
+        person(248, 208, 11, 26) +
+        '<text x="200" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#444">Isa 41:10</text>'
+      ),
+
       /* ── Week 4: Psalm 23 — shepherd, still water, sheep (psalm23 + psalm23Shepherd) ── */
       psalm23Shepherd: svg(
         ground() +
@@ -5471,6 +5488,7 @@
     esther: 'estherBrave',
     nehemiahWalls: 'nehemiahWalls',
     jobSuffering: 'jobSuffering',
+    doNotFearIsaiah41: 'doNotFearIsaiah41',
     psalm23Shepherd: 'psalm23Shepherd',
     psalm23: 'psalm23Shepherd',
     solomonWisdom: 'solomonWisdom',

@@ -335,7 +335,8 @@
     'abigailWise',
     'annaProphet',
     'weddingWine',
-    'psalm23Shepherd'
+    'psalm23Shepherd',
+    'doNotFearIsaiah41'
   ];
 
   var STARTERS = ORDER.slice(0, 12);

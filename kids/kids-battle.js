@@ -9576,7 +9576,7 @@
       'davidSaulJealousy', 'davidJonathanFriendship', 'davidSaul', 'davidJonathan',
       'saulKing', 'saulDisobedience',
       /* Week 4 */
-      'elishaShunammite', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'gehaziGreed', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'doNotFearIsaiah41', 'psalm23Shepherd', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers',
+      'elishaShunammite', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'gehaziGreed', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'doNotFearIsaiah41', 'forgive70x7', 'psalm23Shepherd', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers',
       'solomonTemple',
       'elijahRavens',
       'elijahWidow',
@@ -12875,7 +12875,7 @@
     davidSaul: 'Protection', davidJonathan: 'Love', saulKing: 'Obedience', saulDisobedience: 'Obedience',
     /* Week 4 */
     elishaShunammite: 'Miracles', shunammiteReturn: 'Miracles', samariaSiege: 'Miracles', elishaFinal: 'Miracles', elishaBones: 'Miracles', gehaziGreed: 'Obedience', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
-    jobSuffering: 'Protection', doNotFearIsaiah41: 'Protection', psalm23Shepherd: 'Love', psalm23: 'Love', davidKing: 'Obedience', mephibosheth: 'Love', davidBathsheba: 'Love', absalomRebellion: 'Protection', solomonWisdom: 'Obedience', solomonTwoMothers: 'Obedience', solomonTemple: 'Obedience',
+    jobSuffering: 'Protection', doNotFearIsaiah41: 'Protection', forgive70x7: 'Love', psalm23Shepherd: 'Love', psalm23: 'Love', davidKing: 'Obedience', mephibosheth: 'Love', davidBathsheba: 'Love', absalomRebellion: 'Protection', solomonWisdom: 'Obedience', solomonTwoMothers: 'Obedience', solomonTemple: 'Obedience',
     elijahRavens: 'Miracles',
     elijahWidow: 'Miracles',
     elijahHoreb: 'Love',

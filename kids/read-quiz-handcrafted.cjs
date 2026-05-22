@@ -15247,5 +15247,6 @@ module.exports = {
   unforgivingServant: buildUnforgivingServantReadQuiz(),
   zacchaeus: buildZacchaeusReadQuiz(),
   jobSuffering: buildJobSufferingReadQuiz(),
-  doNotFearIsaiah41: buildDoNotFearIsaiah41ReadQuiz()
+  doNotFearIsaiah41: buildDoNotFearIsaiah41ReadQuiz(),
+  forgive70x7: buildUnforgivingServantReadQuiz()
 };

@@ -28,6 +28,7 @@ const SOURCE_WEBPAGE_GRAPHS = [
   'kids/porch-read-parent-weary.html',
   'kids/porch-read-summer-seeds.html',
   'kids/porch-read-school-courage.html',
+  'kids/porch-read-mealtime-thankfulness.html',
 ];
 
 function fail(msg) {

@@ -39,7 +39,7 @@ Builds on Discoverability Pass 2 bridges (`#kidsParentPorchPath`, `#familyPorchP
 **Fix candidate (Pass 2)**
 
 - Add stories in **small themed batches** (bedtime fear, table worship, parent weary, ordinary Tuesday) with full calm package before expanding random OT/NT coverage.
-- **Batch 1 (June 2026):** Lost Sheep table companion shipped; **`doNotFearIsaiah41`** — new ORDER key with read-quiz, corner card, porch read `porch-read-do-not-fear.html`, coloring door (`good-shepherd`). Next batch candidates: still waters focus, suffer little children (if distinct), mustard faith beat.
+- **Batch 1 (June 2026):** Lost Sheep + Still Waters table companions shipped (`porch-read-lost-sheep-carried-home.html`, `porch-read-still-waters.html` beside `psalm23Shepherd`); **`doNotFearIsaiah41`** — new ORDER key with full calm package + porch read. Next batch candidates: mealtime thankfulness, suffer little children (if distinct), mustard faith beat.
 - Optional builder checklist (internal doc only): read-quiz ✓ · corner card ✓ · coloring or SVG ✓ · porch read-aloud or plan link when theme fits family table.
 
 ---

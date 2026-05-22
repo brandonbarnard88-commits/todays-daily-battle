@@ -80,7 +80,7 @@ Builds on Discoverability Pass 2 bridges (`#kidsParentPorchPath`, `#familyPorchP
 
 **Fix candidate (Pass 2)**
 
-- **3–5 new porch reads** for table moments — **2 shipped:** `porch-read-soft-answer.html` (Proverbs 15:1 · `afterhardtalk`), `porch-read-bedtime-hush.html` (Psalm 4:8 · `restlessnights`). Sibling friction still open.
+- **3–5 new porch reads** for table moments — **3 shipped:** `porch-read-soft-answer.html` (Proverbs 15:1 · `afterhardtalk`), `porch-read-bedtime-hush.html` (Psalm 4:8 · `restlessnights`), `porch-read-sibling-friction.html` (Matthew 5:9 · `peacemakers`).
 
 ---
 

@@ -75,7 +75,7 @@ Builds on Discoverability Pass 2 bridges (`#kidsParentPorchPath`, `#familyPorchP
 
 **Subtle strain**
 
-- `kids/index.html` intro copy says **“Eleven quiet KJV stories”** while the shelf lists **17** bundles — honest count drift (Pass 2 copy fix, not new features).
+- ~~`kids/index.html` intro copy said **“Eleven quiet KJV stories”** while the shelf lists **17** bundles~~ — **aligned June 2026** on Kids home and Story Library (Pass 2 micro-win).
 - Gaps for **real-table moments** still light: sibling friction, after a hard talk, first day of school *for the parent*, evening University at the table (partially covered elsewhere).
 
 **Fix candidate (Pass 2)**
@@ -182,7 +182,7 @@ Builds on Discoverability Pass 2 bridges (`#kidsParentPorchPath`, `#familyPorchP
 
 ## Pass 2 priority (when ready)
 
-1. **Align Kids home copy** with porch read-aloud count (quick honesty fix).  
+1. ~~**Align Kids home copy** with porch read-aloud count (quick honesty fix).~~ **Done** (June 2026 — Kids home + Story Library).  
 2. **Family Armor path card** — story first, armor second.  
 3. **Gentle Journey batch** — next 5–10 distinct keys toward 365 (themed, full package).  
 4. **3 new porch read-alouds** — table moments still thin.  

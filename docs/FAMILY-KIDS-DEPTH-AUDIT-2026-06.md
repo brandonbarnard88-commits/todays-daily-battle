@@ -14,7 +14,7 @@ Builds on Discoverability Pass 2 bridges (`#kidsParentPorchPath`, `#familyPorchP
 |---------|----------------|--------|
 | Gentle Journey `ORDER.length` | **324** distinct keys | Goal: **365** (`CANONICAL_DISTINCT_STORY_GOAL` in `kids/kids-gentle-journey.js`) — **41** stories remain toward north star |
 | Gentle Journey sections | **12** themed bands | `STARTERS` = first 12 keys; full package = read-aloud + coloring + read-quiz + corner integration (per file comment) |
-| Porch read-aloud HTML pages | **17** under `kids/porch-read-*.html` | Shelved on `kids/corner.html#kids-porch-readalouds` and `kids/index.html#kids-porch-readalouds-home` |
+| Porch read-aloud HTML pages | **18** under `kids/porch-read-*.html` | Shelved on `kids/corner.html#kids-porch-readalouds` and `kids/index.html#kids-porch-readalouds-home` |
 | Discoverability path cards (shipped) | Kids + Family heroes | `parentweary`, Family Armor, Family hub cross-links |
 | Coloring entry | `coloring.html?story=` + Verse Image ties on porch reads | Porch bundles end with coloring / verse-image paths; not every journey key has a dedicated color door |
 
@@ -80,8 +80,7 @@ Builds on Discoverability Pass 2 bridges (`#kidsParentPorchPath`, `#familyPorchP
 
 **Fix candidate (Pass 2)**
 
-- **3–5 new porch reads** for table moments not yet named (feeling-first titles; pair with existing plans where possible).
-- Align Kids home kicker copy with actual shelf count after additions.
+- **3–5 new porch reads** for table moments — **1 shipped:** `porch-read-soft-answer.html` (Proverbs 15:1 · `afterhardtalk`). More themes still open (sibling friction, bedtime hush).
 
 ---
 
@@ -147,20 +146,19 @@ Builds on Discoverability Pass 2 bridges (`#kidsParentPorchPath`, `#familyPorchP
 
 ### 4c. Family Armor (`family-armor.html`) & little ones (`family-armor-little-ones.html`)
 
+**Shipped (Pass 2, partial)**
+
+- `#familyArmorStoryFirstPath` on `family-armor.html` — story first, then workspace.
+- `#faLittlesTonightPath` on `family-armor-little-ones.html` — tired-parent read-aloud primary.
+
 **Already helps**
 
 - Clear links to Story Library, Loop Library, Color & Tell, armor workspace.
 - Morning reset / bedtime prayer anchors on little-ones page.
 
-**Subtle strain**
+**Fix candidate (Pass 2+, if needed)**
 
-- **No path card** yet — armor rhythm and kids fun sit in prose blocks; tired parent may not see “read one story first, then armor.”
-- Little-ones page lacks reciprocal bridge back to **one porch read-aloud tonight**.
-
-**Fix candidate (Pass 2)**
-
-- Path card on Family Armor: primary → one story card; `<details>` → `eveninguog` / family rhythm.
-- Path card on little-ones: primary → `porch-read-when-mommy-daddy-is-tired.html` or morning reset; `<details>` → Kids Battle home.
+- Optional chip row on Family hub pointing to named porch reads (see 4b).
 
 ---
 

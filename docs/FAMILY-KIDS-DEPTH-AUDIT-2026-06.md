@@ -14,7 +14,7 @@ Builds on Discoverability Pass 2 bridges (`#kidsParentPorchPath`, `#familyPorchP
 |---------|----------------|--------|
 | Gentle Journey `ORDER.length` | **326** distinct keys | Goal: **365** (`CANONICAL_DISTINCT_STORY_GOAL` in `kids/kids-gentle-journey.js`) — **39** stories remain toward north star |
 | Gentle Journey sections | **12** themed bands | `STARTERS` = first 12 keys; full package = read-aloud + coloring + read-quiz + corner integration (per file comment) |
-| Porch read-aloud HTML pages | **26** under `kids/porch-read-*.html` | Shelved on `kids/corner.html#kids-porch-readalouds` and `kids/index.html#kids-porch-readalouds-home` |
+| Porch read-aloud HTML pages | **27** under `kids/porch-read-*.html` | Shelved on `kids/corner.html#kids-porch-readalouds` and `kids/index.html#kids-porch-readalouds-home` |
 | Discoverability path cards (shipped) | Kids + Family heroes | `parentweary`, Family Armor, Family hub cross-links |
 | Coloring entry | `coloring.html?story=` + Verse Image ties on porch reads | Porch bundles end with coloring / verse-image paths; not every journey key has a dedicated color door |
 
@@ -39,7 +39,7 @@ Builds on Discoverability Pass 2 bridges (`#kidsParentPorchPath`, `#familyPorchP
 **Fix candidate (Pass 2)**
 
 - Add stories in **small themed batches** (bedtime fear, table worship, parent weary, ordinary Tuesday) with full calm package before expanding random OT/NT coverage.
-- **Batch 1 (June 2026):** Lost Sheep + Still Waters table companions shipped (`porch-read-lost-sheep-carried-home.html`, `porch-read-still-waters.html` beside `psalm23Shepherd`); **`doNotFearIsaiah41`** — new ORDER key with full calm package + porch read. **Mealtime thankfulness** table companion shipped (`porch-read-mealtime-thankfulness.html` · Psalm 145:15–16 · `simplethanks` plan bridge · feeding-5000 coloring). **Batch 2 (June 2026):** **`forgive70x7`** journey key (Matthew 18:22 table lane · alias of unforgiving servant package); **`porch-read-suffer-little-children.html`** (Mark 10:14 · `jesusBlessKids`); **`porch-read-forgiveness-after-fight.html`** (Matthew 18:22 · `peacemakers` plan). Next batch candidates: mustard faith porch companion, ten lepers thanks, mary/martha busy table.
+- **Batch 1 (June 2026):** Lost Sheep + Still Waters table companions shipped (`porch-read-lost-sheep-carried-home.html`, `porch-read-still-waters.html` beside `psalm23Shepherd`); **`doNotFearIsaiah41`** — new ORDER key with full calm package + porch read. **Mealtime thankfulness** table companion shipped (`porch-read-mealtime-thankfulness.html` · Psalm 145:15–16 · `simplethanks` plan bridge · feeding-5000 coloring). **Batch 2 (June 2026):** **`forgive70x7`** journey key (Matthew 18:22 table lane · alias of unforgiving servant package); **`porch-read-suffer-little-children.html`** (Mark 10:14 · `jesusBlessKids`); **`porch-read-forgiveness-after-fight.html`** (Matthew 18:22 · `peacemakers` plan). **`porch-read-one-leper-came-back.html`** (Luke 17:15–16 · `tenLepers` · pairs with mealtime thanks). Next batch candidates: mustard faith porch companion, mary/martha busy table.
 - Optional builder checklist (internal doc only): read-quiz ✓ · corner card ✓ · coloring or SVG ✓ · porch read-aloud or plan link when theme fits family table.
 
 ---

@@ -32,6 +32,8 @@ const SOURCE_WEBPAGE_GRAPHS = [
   'kids/porch-read-suffer-little-children.html',
   'kids/porch-read-forgiveness-after-fight.html',
   'kids/porch-read-one-leper-came-back.html',
+  'kids/porch-read-busy-table.html',
+  'kids/porch-read-mustard-quiet.html',
 ];
 
 function fail(msg) {

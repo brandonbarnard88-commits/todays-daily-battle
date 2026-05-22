@@ -284,10 +284,48 @@ body.tdb-inner-page .section-note {
   border-radius: 6px;
 }
 
+.tdb-porch-path-card__chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.65rem 0 0;
+}
+
+.tdb-porch-path-card__chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.35rem 0.78rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--line, #2a3344) 70%, rgba(227, 188, 103, 0.18));
+  background: color-mix(in srgb, var(--card, #1b212d) 85%, rgba(255, 255, 255, 0.04));
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: color-mix(in srgb, var(--text, #f5f7fb) 92%, var(--gold, #e3bc67));
+  text-decoration: none;
+}
+
+.tdb-porch-path-card__chip:hover,
+.tdb-porch-path-card__chip:focus-visible {
+  border-color: color-mix(in srgb, var(--gold, #e3bc67) 45%, var(--line, #2a3344));
+  outline: none;
+}
+
+.tdb-porch-path-card__chip:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--tdb-focus-ring, #e3bc67) 55%, transparent);
+}
+
 :root[data-theme="light"] .tdb-porch-path-card {
   background: color-mix(in srgb, #faf7f2 94%, #fff);
 }
 
 :root[data-theme="light"] .tdb-porch-path-card__invitation {
   color: #1c2a44;
+}
+
+:root[data-theme="light"] .tdb-porch-path-card__chip {
+  background: color-mix(in srgb, #faf7f2 92%, #fff);
+  color: #1c2a44;
+  border-color: color-mix(in srgb, #c9b896 35%, #d8dce6);
 }

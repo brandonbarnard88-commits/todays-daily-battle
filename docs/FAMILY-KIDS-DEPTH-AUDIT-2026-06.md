@@ -39,6 +39,7 @@ Builds on Discoverability Pass 2 bridges (`#kidsParentPorchPath`, `#familyPorchP
 **Fix candidate (Pass 2)**
 
 - Add stories in **small themed batches** (bedtime fear, table worship, parent weary, ordinary Tuesday) with full calm package before expanding random OT/NT coverage.
+- **Batch 1 started (June 2026):** Lost Sheep full story already in journey (`lostSheep`); table companion `porch-read-lost-sheep-carried-home.html` shipped (Luke 15:4–6 · coloring `lost-sheep` · full story door). Next new ORDER keys toward 365: still waters focus, suffer little children (if distinct), mustard faith beat, **Do not fear** (Isaiah 41:10).
 - Optional builder checklist (internal doc only): read-quiz ✓ · corner card ✓ · coloring or SVG ✓ · porch read-aloud or plan link when theme fits family table.
 
 ---
@@ -136,11 +137,11 @@ Builds on Discoverability Pass 2 bridges (`#kidsParentPorchPath`, `#familyPorchP
 
 **Subtle strain**
 
-- Family hub → **specific tonight read-aloud** still requires scroll to kids paths section.
+- ~~Family hub → **specific tonight read-aloud** still requires scroll to kids paths section.~~ **Eased (June 2026)** — chip row on `#familyPorchPathCross` surfaces three named tonight doors without scrolling.
 
 **Fix candidate (Pass 2)**
 
-- One feeling-first chip row under path card: “Scared bedtime” · “Parent weary” · “Color one story” linking to named porch reads.
+- ~~One feeling-first chip row under path card~~ **Shipped (June 2026):** `#familyPorchPathCross` chip row — sibling friction, bedtime hush, Family Armor little ones; `<details>` holds soft answer, scared hearts, parent weary, color door, rhythm paths.
 
 ---
 
@@ -158,7 +159,7 @@ Builds on Discoverability Pass 2 bridges (`#kidsParentPorchPath`, `#familyPorchP
 
 **Fix candidate (Pass 2+, if needed)**
 
-- Optional chip row on Family hub pointing to named porch reads (see 4b).
+- Optional chip row on Family hub pointing to named porch reads (see 4b). ~~**Shipped on Family hub (June 2026).**~~
 
 ---
 
@@ -181,10 +182,11 @@ Builds on Discoverability Pass 2 bridges (`#kidsParentPorchPath`, `#familyPorchP
 ## Pass 2 priority (when ready)
 
 1. ~~**Align Kids home copy** with porch read-aloud count (quick honesty fix).~~ **Done** (June 2026 — Kids home + Story Library).  
-2. **Family Armor path card** — story first, armor second.  
-3. **Gentle Journey batch** — next 5–10 distinct keys toward 365 (themed, full package).  
-4. **3 new porch read-alouds** — table moments still thin.  
-5. **Stable coloring doors** on new/existing porch reads.
+2. ~~**Family Armor path card** — story first, armor second.~~ **Done** (June 2026).  
+3. ~~**Family hub chip row** — feeling-first tonight doors under `#familyPorchPathCross`.~~ **Done** (June 2026).  
+4. **Gentle Journey batch** — next distinct ORDER keys toward 365 (batch 1 table companion for Lost Sheep shipped).  
+5. ~~**3 new porch read-alouds** — table moments (soft answer, bedtime hush, sibling friction).~~ **Done** (+ Lost Sheep table companion).  
+6. **Stable coloring doors** on new/existing porch reads.
 
 Pass 3: Explore map link example, updates entry, test markers, optional “tonight at the table” band on Kids home.
 

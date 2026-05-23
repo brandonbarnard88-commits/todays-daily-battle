@@ -1697,6 +1697,16 @@
     "kw": "job trust sad friends job 1 job 2 lord gave bless faith quiet weep"
   },
   {
+    "key": "doNotFearIsaiah41",
+    "title": "Do Not Fear — God Is With You",
+    "kjvRef": "Isaiah 41:10",
+    "who": "The LORD",
+    "to": "His people — and every heart that feels afraid",
+    "apply": "When fear whispers you are alone, God says He is with you — and He will help you.",
+    "theme": "Protection",
+    "kw": "isaiah 41 isaiah 41:10 fear not fear thou not i am with thee strengthen help uphold afraid night comfort prophet isaiah"
+  },
+  {
     "key": "johnBaptize",
     "title": "John Baptizes Jesus",
     "kjvRef": "Matthew 3:13–17",

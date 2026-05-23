@@ -307,6 +307,75 @@ main.tdb-calm-hub a:focus-visible {
 :root[data-theme="light"] .tdb-uog-month__label {
   color: #0f172a;
 }
+
+/* Calm — inline 7-Day Rest Kit panel */
+.calm-rest-kit-launch {
+  margin: 1.25rem 0 0;
+  padding: 1rem 1.05rem;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--gold, #c9a227) 22%, var(--line, #334155));
+  background: color-mix(in srgb, var(--card, #0f1419) 92%, rgba(201, 162, 55, 0.08));
+}
+.calm-rest-kit-launch__title {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+}
+.calm-rest-kit-launch__lead {
+  margin: 0 0 0.85rem;
+}
+.calm-rest-kit-launch__btn {
+  width: 100%;
+  max-width: 22rem;
+}
+.calm-rest-kit-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: 0;
+  background: rgba(6, 10, 18, 0.72);
+  backdrop-filter: blur(4px);
+}
+.calm-rest-kit-panel[hidden] {
+  display: none !important;
+}
+.calm-rest-kit-panel__sheet {
+  width: 100%;
+  max-width: 42rem;
+  max-height: 100vh;
+  overflow: auto;
+  background: var(--bg, #0a0c14);
+  border-left: 1px solid var(--line, #334155);
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.35);
+}
+.calm-rest-kit-panel__head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  padding: 0.85rem 1rem;
+  background: color-mix(in srgb, var(--bg, #0a0c14) 94%, transparent);
+  border-bottom: 1px solid var(--line, #334155);
+}
+.calm-rest-kit-panel__title {
+  margin: 0;
+  font-size: 1.05rem;
+}
+.calm-rest-kit-panel__close {
+  min-height: 44px;
+}
+.calm-rest-kit-panel__body {
+  padding: 0.75rem 1rem 2rem;
+}
+body.calm-rest-kit-open {
+  overflow: hidden;
+}
 :root[data-theme="light"] .tdb-uog-month__links {
   color: #1e293b;
 }

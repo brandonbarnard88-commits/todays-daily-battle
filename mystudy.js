@@ -432,11 +432,53 @@
     maybeRenderBackupNudge();
   }
 
+  function isoDayFromOffset(off) {
+    var d = new Date();
+    d.setHours(0, 0, 0, 0);
+    d.setDate(d.getDate() + off);
+    var y = d.getFullYear();
+    var m = String(d.getMonth() + 1).padStart(2, '0');
+    var day = String(d.getDate()).padStart(2, '0');
+    return y + '-' + m + '-' + day;
+  }
+
+  function renderQuietSteps() {
+    var grid = byId('mystudy-quiet-steps-grid');
+    var empty = byId('mystudy-quiet-steps-empty');
+    if (!grid) return;
+    var set = new Set();
+    try {
+      var raw = localStorage.getItem(STREAK_LS_KEY);
+      var data = raw ? JSON.parse(raw) : {};
+      if (data && Array.isArray(data.dates)) {
+        data.dates.forEach(function (dt) {
+          if (typeof dt === 'string') set.add(dt);
+        });
+      }
+    } catch (e) {}
+    clearNode(grid);
+    var any = false;
+    var i;
+    for (i = -27; i <= 0; i++) {
+      var k = isoDayFromOffset(i);
+      var on = set.has(k);
+      if (on) any = true;
+      var cell = document.createElement('span');
+      cell.className = 'mystudy-quiet-steps-cell' + (on ? ' mystudy-quiet-steps-cell--on' : '');
+      cell.title = k + (on ? ' — you showed up' : '');
+      cell.setAttribute('role', 'img');
+      cell.setAttribute('aria-label', k + (on ? ', checked in' : ', quiet'));
+      grid.appendChild(cell);
+    }
+    if (empty) empty.classList.toggle('hidden', any);
+  }
+
   function renderProgressSummary() {
     var el = byId('mystudy-progress-summary');
     if (!el) return;
     el.textContent = '';
     var comp = window.TDBStudyCompanion;
+    renderQuietSteps();
     if (!comp || typeof comp.getDashboardStats !== 'function') {
       var err = document.createElement('p');
       err.className = 'mystudy-progress-summary-line';

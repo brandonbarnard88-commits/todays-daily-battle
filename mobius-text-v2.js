@@ -164,7 +164,7 @@
         displayName: '',
       };
     }
-    var block = '\n\n—— Möbius Loop —— ' + new Date().toLocaleString() + '\n' + String(text || '');
+    var block = '\n\n—— Grace Ribbon Journal —— ' + new Date().toLocaleString() + '\n' + String(text || '');
     study.notes = (study.notes || '') + block;
     try {
       localStorage.setItem(STUDY_KEY, JSON.stringify(study));
@@ -200,7 +200,7 @@
     } catch (e) {}
 
     var summary =
-      'Möbius Loop — calm path\n' +
+      'Grace Ribbon Journal — calm path\n' +
       new Date().toLocaleString() +
       '\n\n' +
       KJV_2TIM +

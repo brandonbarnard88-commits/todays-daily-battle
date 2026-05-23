@@ -496,7 +496,7 @@ function queueHeroBreakdownRefresh(data, attempt) {
     var metaDesc = document.querySelector('meta[name="description"]');
     var seoDesc =
       ref +
-      ' (KJV) \u2014 today\u2019s verse for anxiety, grief, parenting, and hard days. Ask the Teacher, battle plans, reader, memorize. No ads; no account required; grace, not grades.';
+      ' (KJV) \u2014 today\u2019s verse for anxiety, grief, parenting, and hard days. Ask the Word, battle plans, reader, memorize. No ads; no account required; grace, not grades.';
     if (metaDesc) metaDesc.setAttribute('content', seoDesc);
     var og = ['og:title', 'twitter:title'];
     og.forEach(function(p) {
@@ -4240,7 +4240,7 @@ function wireMoreDrawer() {
     });
     openBtn.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
-    // First focus: Ask the Teacher (primary doorway); close ✕ is last in the sheet
+    // First focus: Ask the Word (primary doorway); close ✕ is last in the sheet
     setTimeout(function() {
       if (askFirst) askFirst.focus();
       else if (xBtn) xBtn.focus();

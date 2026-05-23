@@ -93,7 +93,7 @@
   function exportTxt() {
     var state = loadState();
     var lines = [
-      "Möbius loop journal — Today's Daily Battle (this device only)",
+      "Grace Ribbon Journal — Today's Daily Battle (this device only)",
       'Exported ' + new Date().toLocaleString(),
       ''
     ];

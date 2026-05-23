@@ -39,6 +39,8 @@
   <link rel="stylesheet" href="tdb-core-seven.css?v=20260519-audit">
   <link rel="preload" href="tdb-porch-verse-widget.css?v=20260519-porch-verse" as="style">
   <link rel="stylesheet" href="tdb-porch-verse-widget.css?v=20260519-porch-verse">
+  <link rel="preload" href="tdb-visual-tokens.css?v=20260521-discover-b" as="style">
+  <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260521-discover-b">
   <link rel="manifest" href="manifest.json">
   <script nonce="tdb2025s">(function(){try{var d=new Date();var k=d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0');if(localStorage.getItem('tdb-porch-verse-hidden')===k)document.documentElement.classList.add('tdb-porch-verse-hidden');}catch(e){}})();</script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
@@ -271,7 +273,7 @@
             <a href="/prayer-wall.html">Pray</a>
             <a href="/kids/corner.html">Kids &amp; Family</a>
             <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
-            <a href="/mobius.html">M&ouml;bius</a>
+            <a href="/mobius.html">Grace Ribbon</a>
             <a href="/site-guide.html" id="nav-site-guide" aria-label="Start here — calm map of where to begin">Start here</a>
             <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
             <a href="/about.html">About</a>
@@ -331,7 +333,7 @@
           <p class="tdb-core-seven__label" id="explore-core-seven-label">Seven calm doors</p>
           <ul class="tdb-core-seven__grid">
             <li><a class="tdb-core-seven__link" href="/"><span>Today&rsquo;s verse</span><span class="tdb-core-seven__desc">Read or listen</span></a></li>
-            <li><a class="tdb-core-seven__link" href="/#feel-section"><span>How I feel</span><span class="tdb-core-seven__desc">Ask the Teacher</span></a></li>
+            <li><a class="tdb-core-seven__link" href="/#feel-section"><span>How I feel</span><span class="tdb-core-seven__desc">Ask the Word</span></a></li>
             <li><a class="tdb-core-seven__link" href="/plans.html"><span>Battle Plans</span><span class="tdb-core-seven__desc">7&ndash;40 day paths</span></a></li>
             <li><a class="tdb-core-seven__link" href="/mystudy"><span>My Study</span><span class="tdb-core-seven__desc">Saved on device</span></a></li>
             <li><a class="tdb-core-seven__link" href="/family.html"><span>Family &amp; Kids</span><span class="tdb-core-seven__desc">Table &amp; stories</span></a></li>
@@ -356,8 +358,8 @@
         <div class="tdb-explore-sidebar-stack" id="tdb-explore-sidebar-stack">
         <aside class="tdb-porch-verse-widget tdb-surface-card" id="tdbPorchVerseWidget" role="complementary" aria-labelledby="tdbPorchVerseWidgetH" data-tdb-porch-verse-prebuilt="1">
           <p class="tdb-porch-verse-widget__label" id="tdbPorchVerseWidgetH">Today&rsquo;s verse</p>
-          <p class="tdb-porch-verse-widget__ref" id="tdbPorchVerseRef">1 Peter 1:8 (KJV)</p>
-          <blockquote class="tdb-porch-verse-widget__text" id="tdbPorchVerseText"><p>“Whom having not seen, ye love; in whom, though now ye see him not, yet believing, ye rejoice with joy unspeakable and full of glory.”</p></blockquote>
+          <p class="tdb-porch-verse-widget__ref" id="tdbPorchVerseRef">Romans 8:31 (KJV)</p>
+          <blockquote class="tdb-porch-verse-widget__text" id="tdbPorchVerseText"><p>“If God be for us, who can be against us?”</p></blockquote>
           <div class="tdb-porch-verse-widget__actions">
             <a class="btn btn-secondary" href="/">Read with breakdown</a>
             <button type="button" class="link-button" id="tdbPorchVerseHide">Hide for today</button>
@@ -386,7 +388,7 @@
           <p class="section-note explore-quick-doors-lead">Which door feels right right now? Skip the long map when you already know what you need&mdash;same site, fewer taps.</p>
           <ul class="explore-quick-doors-list">
             <li><a href="/verse.html" class="explore-quick-door" aria-label="Verse of the Day — one verse, KJV">Verse of the Day</a></li>
-            <li><a href="/mobius.html" class="explore-quick-door" aria-label="Möbius Loop — one ribbon for fear and faith">Möbius</a></li>
+            <li><a href="/mobius.html" class="explore-quick-door" aria-label="Grace Ribbon Journal — one ribbon for fear and faith">Grace Ribbon</a></li>
             <li><a href="/calm.html" class="explore-quick-door" aria-label="Calm — one verse by feeling">Calm</a></li>
             <li><a href="/bible-tool.html#bible-tool-hub" class="explore-quick-door" aria-label="Bible tool — lookup, reader, verse image">Bible tool</a></li>
             <li><a href="/yearly-rhythm.html" class="explore-quick-door" aria-label="Year-round rhythm — school year, summer, memory verses">Year-round rhythm</a></li>
@@ -471,64 +473,76 @@
           <p class="section-note util-mb-0" id="whats-new-march-2026"><strong>Same daily-battle posture, wider doorways:</strong> <strong>Family &amp; home</strong> &mdash; <a href="family.html">Family hub</a>, <a href="family-armor.html">Family Armor &amp; Stories</a>, family plans, <a href="family-activity-packs.html">printable activity packs</a>, <a href="family-youth-journal.html">teen journal</a>&mdash;KJV, on-device, for the people around your table. <strong>Mission &amp; outreach</strong> &mdash; <a href="mission-outreach-packs.html">five print packs</a> (hospital, grief, prison, new believer, missionary): quiet paper for hurting rooms, same reverence as the homepage. <a href="about.html#whats-new-family-mission">A bit more on About</a>. (Older links to &ldquo;March&rdquo; notes resolve here.)</p>
         </section>
 
+        <section class="glass tdb-porch-paper-glass explore-section" id="explore-porch-map" aria-labelledby="explore-porch-map-heading">
+          <h2 class="section-divider" id="explore-porch-map-heading">Find your path</h2>
+          <p class="section-note util-mb-0_75">Four calm rows when you need orientation&mdash;not a catalog. Same doors as home; feeling-first labels. Pause anywhere.</p>
+          <ul class="explore-link-list section-note util-mb-0_75">
+            <li><strong>Today&rsquo;s verse</strong> &mdash; <a href="/">Home</a> or <a href="/verse.html">Today&rsquo;s Lesson</a> when you need one honest word.</li>
+            <li><strong>When the week feels heavy</strong> &mdash; <a href="plans.html?plan=universityanxiety">Anxiety &amp; fear</a>, <a href="emergency-calm-pack.html">7-day calm pack</a>, or <a href="calm.html">breathing room</a>.</li>
+            <li><strong>Family at the table</strong> &mdash; <a href="family.html">Family hub</a>, <a href="/kids/">Kids Battle</a>, <a href="family-armor.html">Family Armor</a>.</li>
+            <li><strong>When you&rsquo;re hunting a door</strong> &mdash; <a href="#explore-hub">Jump to a section</a> below or <a href="/search.html">Find any page</a>.</li>
+          </ul>
+          <p class="section-note util-mb-0"><a href="porch-map-one-page-print.html">Print the one-page path map</a> for the fridge or bedside table.</p>
+        </section>
+
         <section class="glass tdb-porch-paper-glass explore-hub" id="explore-hub" aria-labelledby="explore-hub-heading">
           <h2 class="section-divider explore-hub-section-title" id="explore-hub-heading">Jump to a section</h2>
-          <p class="section-note explore-hub-lead util-mb-0_5">Tap a tile &mdash; <strong>Find any page</strong> is first if you are hunting a URL. The full lists are unchanged below.</p>
+          <p class="section-note explore-hub-lead util-mb-0_5">When fear is loud at night, start with a feeling&mdash;not a menu. Tap a tile; the full lists below stay unchanged.</p>
           <ul class="explore-hub-grid">
             <li><a href="/search.html" class="explore-hub-card tdb-surface-card" id="find-any-page-tile">
               <span class="explore-hub-card-label">Search</span>
               <span class="explore-hub-card-title">Find any page</span>
-              <span class="explore-hub-card-desc">Hand-built list of doors — your filter never leaves this browser</span>
+              <span class="explore-hub-card-desc">Hand-built list of doors &mdash; your filter never leaves this browser</span>
             </a></li>
             <li><a href="/emergency-calm-pack.html" class="explore-hub-card tdb-surface-card">
               <span class="explore-hub-card-label">Calm</span>
               <span class="explore-hub-card-title">7-day emergency calm pack</span>
-              <span class="explore-hub-card-desc">One calm week with printable companions for heavy days</span>
+              <span class="explore-hub-card-desc">When the week already feels too heavy for browsing</span>
             </a></li>
             <li><a href="gods-university-of-life.html" class="explore-hub-card tdb-surface-card" id="gods-university-hub-tile">
               <span class="explore-hub-card-label">Path</span>
               <span class="explore-hub-card-title">God&rsquo;s University of Life</span>
-              <span class="explore-hub-card-desc">7, 21, 30, and 40-day lanes, reader, study, and family&mdash;one calm map (KJV)</span>
+              <span class="explore-hub-card-desc">When life keeps teaching hard lessons&mdash;7 to 40 calm days</span>
             </a></li>
             <li><a href="university.html" class="explore-hub-card tdb-surface-card" id="university-map-tile">
               <span class="explore-hub-card-label">Anchors</span>
               <span class="explore-hub-card-title">University map</span>
-              <span class="explore-hub-card-desc">Five <abbr title="King James Version">KJV</abbr> verses &mdash; rest, learn, walk without pressure</span>
+              <span class="explore-hub-card-desc">Five KJV verses when you need rest, not a program</span>
             </a></li>
             <li><a href="#topics-en" class="explore-hub-card tdb-surface-card">
               <span class="explore-hub-card-label">Topics</span>
               <span class="explore-hub-card-title">English mood pages</span>
-              <span class="explore-hub-card-desc">Anxiety, hope, grief — KJV with plain help</span>
+              <span class="explore-hub-card-desc">When anxiety, grief, or hope needs plain KJV help</span>
             </a></li>
             <li><a href="#languages" class="explore-hub-card explore-hub-card--languages tdb-surface-card">
               <span class="explore-hub-card-label">Languages</span>
               <span class="explore-hub-card-title">Localized pages</span>
-              <span class="explore-hub-card-desc">ES, FR, and PT hubs; other locales are pilots (mood pages or thin shells). Tools stay English; KJV in the Bible tool.</span>
+              <span class="explore-hub-card-desc">When English is not tonight&rsquo;s door&mdash;ES, FR, PT hubs and pilots</span>
             </a></li>
             <li><a href="#daily" class="explore-hub-card tdb-surface-card">
               <span class="explore-hub-card-label">Scripture</span>
               <span class="explore-hub-card-title">Daily &amp; study rhythm</span>
-              <span class="explore-hub-card-desc">Study workshop, Bible tool, reader, plans, My Study, Calm</span>
+              <span class="explore-hub-card-desc">When you want verse rhythm without pressure</span>
             </a></li>
             <li><a href="#kids" class="explore-hub-card tdb-surface-card">
               <span class="explore-hub-card-label">Family</span>
               <span class="explore-hub-card-title">Kids &amp; home</span>
-              <span class="explore-hub-card-desc">Kids Battle, coloring, family hub, parent tools</span>
+              <span class="explore-hub-card-desc">When little ones need fun-first KJV at the table</span>
             </a></li>
             <li><a href="#church" class="explore-hub-card tdb-surface-card">
               <span class="explore-hub-card-label">Church</span>
               <span class="explore-hub-card-title">Teams &amp; groups</span>
-              <span class="explore-hub-card-desc">Church hub, team toolkit, daily for churches</span>
+              <span class="explore-hub-card-desc">When your small group needs steady KJV together</span>
             </a></li>
             <li><a href="#pastor" class="explore-hub-card tdb-surface-card">
               <span class="explore-hub-card-label">Teach</span>
               <span class="explore-hub-card-title">Pastors &amp; prep</span>
-              <span class="explore-hub-card-desc">Sermon builder, pastor toolkit, library</span>
+              <span class="explore-hub-card-desc">When Sunday prep feels heavy on a tired week</span>
             </a></li>
             <li><a href="#progress" class="explore-hub-card tdb-surface-card">
               <span class="explore-hub-card-label">Together</span>
               <span class="explore-hub-card-title">Wall, wins, stories</span>
-              <span class="explore-hub-card-desc">Prayer, progress, reader notes</span>
+              <span class="explore-hub-card-desc">When you want to know you&rsquo;re not alone in the fight</span>
             </a></li>
             <li><a href="#legal" class="explore-hub-card tdb-surface-card">
               <span class="explore-hub-card-label">Trust</span>
@@ -718,7 +732,7 @@
             <li><a href="study.html">Study workspace</a> — Notes and workspace in one place.</li>
             <li><a href="/mystudy?tab=library#saved-verses">My Study</a> — Saved KJV verses, notes, and progress in one calmer place.</li>
             <li><a href="calm.html">Calm</a> — When you need one verse right now.</li>
-            <li><a href="mobius.html">Möbius</a> — Meditative loop: graph, breath, Deep Walk, private journal.</li>
+            <li><a href="mobius.html">Grace Ribbon Journal</a> &mdash; Meditative loop: graph, breath, quiet walk, private journal.</li>
             <li><a href="one-family-in-christ.html">One Family in Christ</a> — Heritage tree from Adam to Jesus (KJV).</li>
             <li><a href="red-letters.html">Red letters</a> — Optional words of Jesus in red across the Gospels.</li>
             <li><a href="bible-study.html">Bible studies</a> — Study starters and helps.</li>
@@ -929,7 +943,7 @@
         <a href="/bible-tool.html">Bible tool</a>
         <a href="/mystudy">My Study</a>
         <a href="/calm.html">Calm</a>
-        <a href="/mobius.html">Möbius</a>
+        <a href="/mobius.html">Grace Ribbon</a>
         <a href="/plans.html">Courses</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
@@ -993,7 +1007,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">May 21, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">May 23, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>

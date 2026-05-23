@@ -24271,3 +24271,10 @@ body.kids-corner-page .content-inner {
   }
 }
 
+/* Quiet acronym after plain-language headings (e.g. Observe, Understand, Apply OIA) */
+.tdb-acronym-quiet {
+  font-size: 0.82em;
+  font-weight: 400;
+  color: var(--muted, #8ba6d9);
+  letter-spacing: 0.02em;
+}

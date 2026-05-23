@@ -4774,6 +4774,40 @@
       narration:
         "Job Trusts God When He Is Sad — Job 1:1–22; 2:11–13. Job was a good man who loved God. One day he lost almost everything that was dear to him. He felt very sad, but he did not stop loving God. He said, The Lord gave, and the Lord hath taken away; blessed be the name of the Lord. Three friends came and sat with him quietly for seven days and seven nights. Even when he was sad, Job still trusted God. For you: you can tell God how you feel — and trust Him on hard days too."
     },
+    doNotFearIsaiah41: {
+      title: 'Do Not Fear — God Is With You',
+      panels: [
+        { src: 'panel-david-1.svg', alt: 'Night feels big — God speaks through Isaiah' },
+        { src: 'panel-david-2.svg', alt: 'Fear thou not — I am with thee; I will strengthen thee' },
+        { src: 'panel-david-3.svg', alt: 'I will uphold thee — God stays near' }
+      ],
+      caption: 'Swipe when the night feels bigger than you — God is with you! 🌙',
+      videoId: '',
+      videoTitle: '',
+      keywords: [
+        'isaiah 41',
+        'isaiah 41:10',
+        'fear not',
+        'fear thou not',
+        'i am with thee',
+        'strengthen',
+        'help',
+        'uphold',
+        'afraid',
+        'night',
+        'comfort',
+        'prophet isaiah'
+      ],
+      kjvRef: 'Isaiah 41:10',
+      kidContext: {
+        who: 'The LORD',
+        to: 'His people — and every heart that feels afraid',
+        apply:
+          'When fear whispers you are alone, God says He is with you — and He will help you.'
+      },
+      narration:
+        "Do Not Fear — God Is With You — Isaiah 41:10. God spoke through His prophet Isaiah to people who felt afraid. He said, Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness. For you: You can tell God what feels scary — and trust that He is with you tonight."
+    },
     psalm23Shepherd: {
       title: 'Psalm 23 — The Lord Is My Shepherd',
       panels: [
@@ -9542,7 +9576,7 @@
       'davidSaulJealousy', 'davidJonathanFriendship', 'davidSaul', 'davidJonathan',
       'saulKing', 'saulDisobedience',
       /* Week 4 */
-      'elishaShunammite', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'gehaziGreed', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers',
+      'elishaShunammite', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'gehaziGreed', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'doNotFearIsaiah41', 'forgive70x7', 'psalm23Shepherd', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers',
       'solomonTemple',
       'elijahRavens',
       'elijahWidow',
@@ -12841,7 +12875,7 @@
     davidSaul: 'Protection', davidJonathan: 'Love', saulKing: 'Obedience', saulDisobedience: 'Obedience',
     /* Week 4 */
     elishaShunammite: 'Miracles', shunammiteReturn: 'Miracles', samariaSiege: 'Miracles', elishaFinal: 'Miracles', elishaBones: 'Miracles', gehaziGreed: 'Obedience', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
-    jobSuffering: 'Protection', psalm23Shepherd: 'Love', psalm23: 'Love', davidKing: 'Obedience', mephibosheth: 'Love', davidBathsheba: 'Love', absalomRebellion: 'Protection', solomonWisdom: 'Obedience', solomonTwoMothers: 'Obedience', solomonTemple: 'Obedience',
+    jobSuffering: 'Protection', doNotFearIsaiah41: 'Protection', forgive70x7: 'Love', psalm23Shepherd: 'Love', psalm23: 'Love', davidKing: 'Obedience', mephibosheth: 'Love', davidBathsheba: 'Love', absalomRebellion: 'Protection', solomonWisdom: 'Obedience', solomonTwoMothers: 'Obedience', solomonTemple: 'Obedience',
     elijahRavens: 'Miracles',
     elijahWidow: 'Miracles',
     elijahHoreb: 'Love',

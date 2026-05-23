@@ -1092,6 +1092,81 @@ html[data-theme="light"] .mystudy-streak-badge-figure {
   color: #fef3c7;
 }
 
+@media (max-width: 640px) {
+  .mystudy-tabs {
+    display: none;
+  }
+
+  .mystudy-panel {
+    display: block !important;
+    margin: 0 0 1.15rem;
+    padding: 1rem 0.85rem 1.1rem;
+    border: 1px solid color-mix(in srgb, var(--line, #334155) 85%, transparent);
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--card, #0f1419) 96%, rgba(139, 166, 217, 0.04));
+  }
+
+  .mystudy-panel::before {
+    content: attr(data-mobile-label);
+    display: block;
+    margin: 0 0 0.75rem;
+    font-family: var(--font-display, Georgia, serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text, #e8e4d9);
+  }
+
+  .mystudy-quiet-steps {
+    margin-bottom: 1rem;
+    padding: 0.85rem 0.9rem;
+  }
+
+  .mystudy-quiet-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 5px;
+    max-width: 11rem;
+    margin: 0.5rem 0 0.65rem;
+  }
+
+  .mystudy-quiet-steps-cell {
+    aspect-ratio: 1;
+    min-width: 0;
+    border-radius: 4px;
+    background: color-mix(in srgb, var(--line, #334155) 70%, transparent);
+    border: 1px solid color-mix(in srgb, var(--line, #334155) 55%, transparent);
+  }
+
+  .mystudy-quiet-steps-cell--on {
+    background: color-mix(in srgb, var(--gold, #e3bc67) 42%, var(--card, #0f1419));
+    border-color: color-mix(in srgb, var(--gold, #e3bc67) 55%, transparent);
+  }
+}
+
+@media (min-width: 641px) {
+  .mystudy-quiet-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 5px;
+    max-width: 11rem;
+    margin: 0.5rem 0 0.65rem;
+  }
+
+  .mystudy-quiet-steps-cell {
+    aspect-ratio: 1;
+    min-width: 0;
+    border-radius: 4px;
+    background: color-mix(in srgb, var(--line, #334155) 70%, transparent);
+    border: 1px solid color-mix(in srgb, var(--line, #334155) 55%, transparent);
+  }
+
+  .mystudy-quiet-steps-cell--on {
+    background: color-mix(in srgb, var(--gold, #e3bc67) 42%, var(--card, #0f1419));
+    border-color: color-mix(in srgb, var(--gold, #e3bc67) 55%, transparent);
+  }
+}
+
+
 @media (max-width: 768px) {
   .mystudy-card {
     padding: 0.9rem;

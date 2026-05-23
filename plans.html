@@ -44,6 +44,7 @@
   <!-- Full stylesheet: no print/onload unlock (CSP blocks inline handlers; preload still warms the fetch). -->
   <link rel="preload" href="styles.css?v=20260503-consent-persist-fix" as="style" fetchpriority="high">
   <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix" media="all">
+  <link rel="preload" href="tdb-visual-tokens.css?v=20260521-discover-b" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260521-discover-b">
   <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
   <link rel="stylesheet" href="tdb-core-seven.css?v=20260519-audit" media="all">
@@ -2262,7 +2263,7 @@
         <p class="tdb-core-seven__label" id="plans-core-seven-label">Seven calm doors</p>
         <ul class="tdb-core-seven__grid">
           <li><a class="tdb-core-seven__link" href="/"><span>Today&rsquo;s verse</span><span class="tdb-core-seven__desc">Read or listen</span></a></li>
-          <li><a class="tdb-core-seven__link" href="/#feel-section"><span>How I feel</span><span class="tdb-core-seven__desc">Ask the Teacher</span></a></li>
+          <li><a class="tdb-core-seven__link" href="/#feel-section"><span>How I feel</span><span class="tdb-core-seven__desc">Ask the Word</span></a></li>
           <li><a class="tdb-core-seven__link" href="/plans.html" aria-current="page"><span>Battle Plans</span><span class="tdb-core-seven__desc">You are here</span></a></li>
           <li><a class="tdb-core-seven__link" href="/mystudy"><span>My Study</span><span class="tdb-core-seven__desc">Saved on device</span></a></li>
           <li><a class="tdb-core-seven__link" href="/family.html"><span>Family &amp; Kids</span><span class="tdb-core-seven__desc">Table &amp; stories</span></a></li>
@@ -2290,7 +2291,7 @@
         <p class="plans-hero-red-letters-teaser"><a href="plans.html?plan=hisownwords">Only His Voice</a> &mdash; five quiet days with nothing but the red letters of the Lord Jesus.</p>
         <p class="plans-hero-red-letters-teaser"><a href="plans.html?plan=fearpressesin">When Fear Presses In</a> &mdash; gentle Scripture for anxious and fearful days. For pure red letters: <a href="plans.html?plan=hisownwords">Only His Voice</a>.</p>
       <div class="plans-hero-continued" aria-label="More about courses and help">
-        <p class="plans-audio-roadmap tdb-listen-privacy-hint" role="note">We hope to add warm <strong>human narration</strong> for plan days (and Möbius breathing) when recording lines up&mdash;nothing extra to buy or turn on yet. Each day&rsquo;s <strong>Listen</strong> still uses steady device TTS. Playback stays on your device&mdash;nothing is uploaded for listening.</p>
+        <p class="plans-audio-roadmap tdb-listen-privacy-hint" role="note">We hope to add warm <strong>human narration</strong> for plan days (and Grace Ribbon breathing) when recording lines up&mdash;nothing extra to buy or turn on yet. Each day&rsquo;s <strong>Listen</strong> still uses steady device TTS. Playback stays on your device&mdash;nothing is uploaded for listening.</p>
         <p class="plans-hero-hint plans-hero-print-delight" role="group" aria-label="Print today&rsquo;s KJV verse">
           <button type="button" id="tdb-plans-print-votd-btn" class="btn btn-secondary tdb-print-delight" aria-label="Print today&rsquo;s KJV verse on a simple sheet">Print today&rsquo;s verse (sheet)</button>
         </p>
@@ -3629,13 +3630,13 @@
         <div class="plan-complete-icon" aria-hidden="true">🕯️</div>
         <p class="plan-complete-title" id="planCompleteTitle">A gentle close</p>
         <p class="plan-complete-sub" id="planCompleteSub"></p>
-        <div id="planLoopRibbonPanel" class="plan-loop-ribbon-panel" aria-label="Optional Möbius loop follow-up">
+        <div id="planLoopRibbonPanel" class="plan-loop-ribbon-panel" aria-label="Optional Grace Ribbon follow-up">
           <h3 class="plan-loop-ribbon-heading">Return to the ribbon</h3>
           <p class="plan-loop-ribbon-lead">Soft turn. Days count off; grace doesn&rsquo;t.</p>
           <p class="plan-loop-breath">Breathe slow if you can. One promise to carry &mdash; yesterday&rsquo;s verse still counts.</p>
           <p class="plan-loop-prompt"><strong>Again?</strong> Only when you want to.</p>
           <div class="plan-loop-ribbon-actions">
-            <a class="btn btn-secondary" href="/mobius.html">Open the Möbius loop</a>
+            <a class="btn btn-secondary" href="/mobius.html">Open Grace Ribbon Journal</a>
             <a class="btn btn-secondary" href="/mobius.html#mobius-loop-journal">Loop journal</a>
           </div>
         </div>
@@ -3810,7 +3811,7 @@
         <a href="/bible-tool.html">Bible tool</a>
         <a href="/mystudy">My Study</a>
         <a href="/calm.html">Calm</a>
-        <a href="/mobius.html">Möbius</a>
+        <a href="/mobius.html">Grace Ribbon</a>
         <a href="/plans.html" aria-current="page">Courses</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
@@ -9127,7 +9128,7 @@
       jNote.className = 'day-bp-text';
       jNote.style.marginBottom = '0.5rem';
       jNote.textContent =
-        'One honest line for this day—saved only on this device, same list as the Möbius loop journal.';
+        'One honest line for this day—saved only on this device, same list as the Grace Ribbon Journal.';
       var jTa = document.createElement('textarea');
       jTa.className = 'plans-ribbon-note-ta';
       jTa.setAttribute('rows', '2');
@@ -9156,7 +9157,7 @@
         if (r.ok) {
           jTa.value = '';
           jStat.hidden = false;
-          jStat.textContent = 'Saved on this device. Export a .txt from Möbius when you want everything in one file.';
+          jStat.textContent = 'Saved on this device. Export a .txt from Grace Ribbon Journal when you want everything in one file.';
           try {
             if (typeof window.trackEvent === 'function') {
               window.trackEvent('mobius_loop_journal_save', { source: 'plans_day' });
@@ -9173,7 +9174,7 @@
       var jLink = document.createElement('a');
       jLink.href = 'mobius.html#mobius-loop-journal';
       jLink.className = 'plans-ribbon-note-export-link';
-      jLink.textContent = 'Export on Möbius →';
+      jLink.textContent = 'Export on Grace Ribbon Journal →';
       jBlock.appendChild(jLab);
       jBlock.appendChild(jNote);
       jBlock.appendChild(jTa);

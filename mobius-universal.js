@@ -1,5 +1,5 @@
 /**
- * Universal Möbius Loop — One endless journey. Any mood connects; 2 Timothy 1:7 as central pivot.
+ * Universal Grace Ribbon Journal — One endless journey. Any mood connects; 2 Timothy 1:7 as central pivot.
  * KJV-only on-page: graph + text modes; Deep Walk is Scripture-grounded (see mobius.html).
  * Vanilla JS, D3 v7, offline-first.
  */
@@ -386,7 +386,7 @@
     if (!container) return;
     var d3 = window.d3;
     if (!d3) {
-      safeSetHTML(container, '<p class="mobius-fallback">Möbius Loop requires D3.js. Refresh to load.</p>');
+      safeSetHTML(container, '<p class="mobius-fallback">Grace Ribbon Journal requires D3.js. Refresh to load.</p>');
       return;
     }
     var topics = getTopicData();
@@ -1328,7 +1328,7 @@
     if (shareBtn) {
       shareBtn.addEventListener('click', function () {
         var url = window.location.origin + window.location.pathname + '?mood=' + encodeURIComponent(currentStart);
-        var shareData = { title: 'Möbius Loop — meditative endurance (KJV) | Today\'s Daily Battle', text: 'One ribbon, one path: graph the loop, breathe 2 Timothy 1:7, walk the Deep Walk. KJV only.', url: url };
+        var shareData = { title: 'Grace Ribbon Journal — meditative endurance (KJV) | Today\'s Daily Battle', text: 'One ribbon, one path: graph the loop, breathe 2 Timothy 1:7, walk the Deep Walk. KJV only.', url: url };
         try {
           if (navigator.share && (!navigator.canShare || navigator.canShare(shareData))) {
             navigator.share(shareData).then(function () {

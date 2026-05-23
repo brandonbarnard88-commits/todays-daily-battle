@@ -335,7 +335,15 @@
     'abigailWise',
     'annaProphet',
     'weddingWine',
-    'psalm23Shepherd'
+    'psalm23Shepherd',
+    'doNotFearIsaiah41',
+    'forgive70x7',
+    'samuelAnointsDavid',
+    'goliathChallenge',
+    'jesusCallingDisciples',
+    'jesusTempt',
+    'davidJonathanFriendship',
+    'jesusSermonMount'
   ];
 
   var STARTERS = ORDER.slice(0, 12);
@@ -356,7 +364,7 @@
     { id: 'churchBegins', title: 'The church begins', start: 179, end: 205 },
     { id: 'lettersCourage', title: 'Letters for steady hearts', start: 206, end: 233 },
     { id: 'holdFastTruth', title: 'Hold fast in truth', start: 234, end: 250 },
-    { id: 'foreverHope', title: 'Forever hope', start: 251, end: 285 }
+    { id: 'foreverHope', title: 'Forever hope', start: 251, end: 331 }
   ];
 
   function hasKey(key) {

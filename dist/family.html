@@ -34,6 +34,8 @@
   <link rel="stylesheet" href="tdb-core-seven.css?v=20260519-audit">
   <link rel="preload" href="tdb-porch-verse-widget.css?v=20260519-porch-verse" as="style">
   <link rel="stylesheet" href="tdb-porch-verse-widget.css?v=20260519-porch-verse">
+  <link rel="preload" href="tdb-visual-tokens.css?v=20260522-family-chips" as="style">
+  <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260522-family-chips">
   <script nonce="tdb2025s">(function(){try{var d=new Date();var k=d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0');if(localStorage.getItem('tdb-porch-verse-hidden')===k)document.documentElement.classList.add('tdb-porch-verse-hidden');}catch(e){}})();</script>
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1065,6 +1067,60 @@
         <span>KJV-only</span><span>Works offline</span><span>Print-ready</span><span>No guilt</span><span>Built for chaotic evenings</span>
       </div>
       <p class="family-hub-reassurance">One page is enough. You&rsquo;re already doing the hard part by showing up.</p>
+      <div class="tdb-porch-path-card" id="familyPorchPathCross" role="region" aria-labelledby="familyPorchPathHeading">
+        <p class="tdb-porch-path-card__eyebrow" id="familyPorchPathHeading">At the table tonight&hellip;</p>
+        <p class="tdb-porch-path-card__invitation">Little hearts bumping or needing quiet?</p>
+        <a class="tdb-porch-path-card__primary" href="/kids/">Kids Battle &mdash; fun-first KJV for little hearts &rarr;</a>
+        <nav class="tdb-porch-path-card__chip-row" aria-label="Tonight at the table">
+          <a class="tdb-porch-path-card__chip" href="kids/porch-read-sibling-friction.html">When siblings bump hard</a>
+          <a class="tdb-porch-path-card__chip" href="kids/porch-read-bedtime-hush.html">When the house gets quiet</a>
+          <a class="tdb-porch-path-card__chip" href="family-armor-little-ones.html">Gentle words for little ones</a>
+        </nav>
+        <details class="tdb-porch-path-card__secondary">
+          <summary>More quiet doors</summary>
+          <p class="section-note util-mb-0">
+            <a href="kids/porch-read-soft-answer.html">After voices were loud</a>
+            &middot;
+            <a href="kids/porch-read-lost-sheep-carried-home.html">One sheep carried home</a>
+            &middot;
+            <a href="kids/porch-read-little-hearts.html">When little hearts feel big fear</a>
+            &middot;
+            <a href="kids/porch-read-do-not-fear.html">When the night feels bigger</a>
+            &middot;
+            <a href="kids/porch-read-still-waters.html">Beside still waters</a>
+            &middot;
+            <a href="kids/porch-read-mealtime-thankfulness.html">When the day felt long at the table</a>
+            &middot;
+            <a href="kids/porch-read-one-leper-came-back.html">When I forgot to say thank you</a>
+            &middot;
+            <a href="kids/porch-read-busy-table.html">When supper feels too busy</a>
+            &middot;
+            <a href="kids/porch-read-mustard-quiet.html">When faith feels small</a>
+            &middot;
+            <a href="kids/porch-read-when-god-speaks-quietly.html">When God speaks quietly</a>
+            &middot;
+            <a href="kids/porch-read-when-waiting-feels-long.html">When the waiting feels long</a>
+            &middot;
+            <a href="kids/porch-read-suffer-little-children.html">When I feel too small</a>
+            &middot;
+            <a href="kids/porch-read-forgiveness-after-fight.html">When sorry feels hard</a>
+            &middot;
+            <a href="kids/porch-read-when-wrong-feels-loud.html">When the wrong choice feels loud</a>
+            &middot;
+            <a href="kids/porch-read-when-friendship-costs.html">When friendship feels hard</a>
+            &middot;
+            <a href="kids/porch-read-narrow-way.html">When the way feels narrow</a>
+            &middot;
+            <a href="plans.html?plan=parentweary">Parent weary plan</a>
+            &middot;
+            <a href="coloring.html">Color one story</a>
+            &middot;
+            <a href="family-armor.html">Family Armor &amp; Stories</a>
+            &middot;
+            <a href="family-rhythm.html">Simple family rhythm</a>
+          </p>
+        </details>
+      </div>
       <details class="tdb-hub-disclosure" id="family-hub-more-about">
         <summary class="tdb-hub-disclosure__summary">More about this hub</summary>
         <div class="tdb-hub-disclosure__inner">
@@ -1084,7 +1140,7 @@
       <p class="tdb-core-seven__label" id="family-core-seven-label">Seven calm doors</p>
       <ul class="tdb-core-seven__grid">
         <li><a class="tdb-core-seven__link" href="/"><span>Today&rsquo;s verse</span><span class="tdb-core-seven__desc">Read or listen</span></a></li>
-        <li><a class="tdb-core-seven__link" href="/#feel-section"><span>How I feel</span><span class="tdb-core-seven__desc">Ask the Teacher</span></a></li>
+        <li><a class="tdb-core-seven__link" href="/#feel-section"><span>How I feel</span><span class="tdb-core-seven__desc">Ask the Word</span></a></li>
         <li><a class="tdb-core-seven__link" href="/plans.html"><span>Battle Plans</span><span class="tdb-core-seven__desc">7&ndash;40 day paths</span></a></li>
         <li><a class="tdb-core-seven__link" href="/mystudy"><span>My Study</span><span class="tdb-core-seven__desc">Saved on device</span></a></li>
         <li><a class="tdb-core-seven__link" href="/family.html" aria-current="page"><span>Family &amp; Kids</span><span class="tdb-core-seven__desc">You are here</span></a></li>
@@ -1306,8 +1362,8 @@
     <aside class="tdb-porch-verse-widget tdb-surface-card family-hub-animate family-hub-d2" id="tdbPorchVerseWidget" role="complementary" aria-labelledby="tdbPorchVerseWidgetH" data-tdb-porch-verse-prebuilt="1">
       <p class="tdb-porch-verse-widget__label" id="tdbPorchVerseWidgetH">Today&rsquo;s verse</p>
       <p class="tdb-porch-verse-widget__hint">Same daily KJV as Home&mdash;a quiet household anchor when you want the porch verse here too.</p>
-      <p class="tdb-porch-verse-widget__ref" id="tdbPorchVerseRef">1 Peter 1:8 (KJV)</p>
-      <blockquote class="tdb-porch-verse-widget__text" id="tdbPorchVerseText"><p>“Whom having not seen, ye love; in whom, though now ye see him not, yet believing, ye rejoice with joy unspeakable and full of glory.”</p></blockquote>
+      <p class="tdb-porch-verse-widget__ref" id="tdbPorchVerseRef">Romans 8:31 (KJV)</p>
+      <blockquote class="tdb-porch-verse-widget__text" id="tdbPorchVerseText"><p>“If God be for us, who can be against us?”</p></blockquote>
       <div class="tdb-porch-verse-widget__actions">
         <a class="btn btn-secondary" href="/">Read with breakdown</a>
         <button type="button" class="link-button" id="tdbPorchVerseHide">Hide for today</button>

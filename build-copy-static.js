@@ -132,6 +132,7 @@ const rootFiles = [
   'cormorant-latin-subset.css',
   'tdb-quiet-luxury.css',
   'tdb-calm-hubs.css',
+  'calm-rest-kit.js',
   'tool-pages.css',
   'church.css',
   'loop-player.css',

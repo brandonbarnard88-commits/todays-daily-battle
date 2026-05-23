@@ -73,6 +73,8 @@ const CORE_ASSETS = [
   '/logo-crest.jpg',
   '/verse.html',
   '/calm.html',
+  '/calm-rest-kit.js',
+  '/emergency-calm-pack.html',
   '/story.html',
   '/about.html',
   '/bible-tool.html',

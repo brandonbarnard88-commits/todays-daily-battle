@@ -52,6 +52,7 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260503-consent-persist-fix" as="style">
   <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix">
+  <link rel="preload" href="tdb-visual-tokens.css?v=20260521-discover-b" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260521-discover-b">
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -458,7 +459,7 @@
             <button type="button" class="calm-helped-btn" id="helped-btn" aria-label="Verse helped">Helped? 👍</button>
           </div>
           <div id="calm-mobius-cta" class="calm-mobius-cta" style="display: none;">
-            <a href="mobius.html?mood=fear" class="calm-btn calm-mobius-link" aria-label="Walk the Möbius Loop—fear and faith on one ribbon">Walk the Möbius Loop →</a>
+            <a href="mobius.html?mood=fear" class="calm-btn calm-mobius-link" aria-label="Walk the Grace Ribbon Journal—fear and faith on one ribbon">Walk the Grace Ribbon Journal →</a>
           </div>
           <div class="calm-actions">
             <button type="button" class="calm-btn" id="another-btn" aria-label="Show another verse in this category">Another in this category</button>
@@ -480,7 +481,7 @@
             <button type="button" class="calm-helped-btn" id="desktop-helped-btn" aria-label="Verse helped">Helped? 👍</button>
           </div>
           <div id="desktop-mobius-cta" class="calm-mobius-cta" style="display: none;">
-            <a href="mobius.html?mood=fear" class="calm-btn calm-mobius-link" aria-label="Walk the Möbius Loop—fear and faith on one ribbon">Walk the Möbius Loop →</a>
+            <a href="mobius.html?mood=fear" class="calm-btn calm-mobius-link" aria-label="Walk the Grace Ribbon Journal—fear and faith on one ribbon">Walk the Grace Ribbon Journal →</a>
           </div>
           <div class="calm-actions">
             <button type="button" class="calm-btn" id="desktop-another" aria-label="Show another verse">Another verse</button>
@@ -506,8 +507,26 @@
             <button type="button" id="restart-breathe" class="small-calm-btn" aria-label="Run the 60-second breathing exercise again">Breathe again</button>
           </div>
         </div>
+
+        <div class="calm-rest-kit-launch" role="region" aria-labelledby="calm-rest-kit-launch-heading">
+          <h2 id="calm-rest-kit-launch-heading" class="section-divider calm-rest-kit-launch__title">When the week stays heavy</h2>
+          <p class="section-note calm-rest-kit-launch__lead">One verse, one small step, one honest prayer&mdash;for seven days. No catch-up. Print if the screen is too much.</p>
+          <button type="button" id="calm-open-rest-kit" class="big-calm-btn calm-rest-kit-launch__btn" aria-controls="calm-rest-kit-panel" aria-expanded="false">
+            Printable 7-Day Rest Kit
+          </button>
+        </div>
+
+        <div id="calm-rest-kit-panel" class="calm-rest-kit-panel" role="dialog" aria-modal="true" aria-labelledby="calm-rest-kit-dialog-title" hidden aria-hidden="true">
+          <div class="calm-rest-kit-panel__sheet">
+            <header class="calm-rest-kit-panel__head">
+              <h2 id="calm-rest-kit-dialog-title" class="calm-rest-kit-panel__title">7-Day Rest Kit</h2>
+              <button type="button" id="calm-rest-kit-close" class="btn btn-secondary calm-rest-kit-panel__close" aria-label="Back to Calm">← Back to Calm</button>
+            </header>
+            <div id="calm-rest-kit-content" class="calm-rest-kit-panel__body tdb-quiet-container"></div>
+          </div>
+        </div>
         <a href="/" id="calm-back-home" class="calm-btn back-home" aria-label="Back to Today’s Daily Battle home">Back to home</a>
-        <p class="section-note tdb-porch-discover-foot util-mt-1 util-mb-0" id="calmPorchDiscoverFoot">Back to <a href="/#hero-verse-wrap">today&rsquo;s verse</a> &middot; <a href="explore.html#explore-porch-map">Explore porch map</a></p>
+        <p class="section-note tdb-porch-discover-foot util-mt-1 util-mb-0" id="calmPorchDiscoverFoot">Back to <a href="/#hero-verse-wrap">today&rsquo;s verse</a> &middot; <a href="explore.html#explore-porch-map">Find your path</a></p>
       </div>
     </main>
   </div>
@@ -610,7 +629,7 @@
         <a href="/bible-tool.html">Bible tool</a>
         <a href="/mystudy">My Study</a>
         <a href="/calm.html">Calm</a>
-        <a href="/mobius.html">Möbius</a>
+        <a href="/mobius.html">Grace Ribbon</a>
         <a href="/plans.html">Courses</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
@@ -1218,6 +1237,7 @@
       initBreatheTool();
     })();
   </script>
+  <script defer src="calm-rest-kit.js?v=20260523"></script>
   <script defer src="porch-effects.js?v=20260507"></script>
 </body>
 </html>

@@ -1239,14 +1239,14 @@ function openTdbWelcomeTour(opts) {
       ? [
           {
             title: 'Welcome',
-            body: 'About a minute, four gentle stops\u2014today\u2019s lesson, Ask the Teacher, a courses door, then My Study and quiet rhythm. Skip anytime. Reopen from Tour on the quick bar or Explore\u2019s Site tour.'
+            body: 'About a minute, four gentle stops\u2014today\u2019s lesson, Ask the Word, a courses door, then My Study and quiet rhythm. Skip anytime. Reopen from Tour on the quick bar or Explore\u2019s Site tour.'
           },
           {
             title: 'Today\u2019s verse',
             body: 'Your daily KJV anchor lands here: listen, save to My Study, share, or jump to the full chapter\u2014still KJV, still private by default.'
           },
           {
-            title: 'Ask the Teacher',
+            title: 'Ask the Word',
             body: 'Heavy, worried, or numb? Search Scripture by how you feel\u2014plain-English breakdowns for you and for kids. No performance; just the Word.'
           },
           {
@@ -4230,7 +4230,7 @@ function quickTopicHeroButtonHtml(item, isPrimary) {
     '" data-topic="' +
     escapeHtml(item.topic) +
     '" aria-label="' +
-    escapeHtml('Search verses about ' + item.label + '. Tap runs Ask the Teacher. Alt-click or long-press opens a matching Battle Plan.') +
+    escapeHtml('Search verses about ' + item.label + '. Tap runs Ask the Word. Alt-click or long-press opens a matching Battle Plan.') +
     '">' +
     escapeHtml(item.label) +
     '</button>'
@@ -13575,7 +13575,7 @@ function wireHomeContinueLoopCard() {
         title.textContent = ctx;
         link.href = 'mobius.html#mobius-loop-journal';
         link.setAttribute('data-tdb-continue-kind', 'journal');
-        link.setAttribute('aria-label', 'Open Möbius loop journal — last saved on this device');
+        link.setAttribute('aria-label', 'Open Grace Ribbon Journal loop journal — last saved on this device');
         hasContent = true;
       } else {
         var wg = loadWghdEntries();
@@ -13605,10 +13605,10 @@ function wireHomeContinueLoopCard() {
       if (loopHeading) loopHeading.setAttribute('hidden', '');
       link.removeAttribute('hidden');
       eyebrow.textContent = 'Pick up where you left off';
-      title.textContent = 'Start a new ribbon on Möbius — or open gentle memorize when you are ready.';
+      title.textContent = 'Start a new ribbon on Grace Ribbon Journal — or open gentle memorize when you are ready.';
       link.href = 'mobius.html';
       link.setAttribute('data-tdb-continue-kind', 'soft_mobius');
-      link.setAttribute('aria-label', 'Open Möbius to start or continue a quiet ribbon on this device');
+      link.setAttribute('aria-label', 'Open Grace Ribbon Journal to start or continue a quiet ribbon on this device');
     }
   }
 
@@ -21668,7 +21668,7 @@ async function buildAdminDeploymentReport() {
       scriptVersion: extractAdminVersionToken(home.text, 'script.js'),
       styleVersion: extractAdminVersionToken(home.text, 'styles.css'),
       prayersFlag: extractAdminConfigFlag(config.text, 'PRAYERS_TODAY_COUNT_ENABLED'),
-      hasAskTheWord: home.ok && /Ask the Teacher/i.test(home.text),
+      hasAskTheWord: home.ok && /Ask the Word/i.test(home.text),
       hasMobiusShortcut: home.ok && /M(?:&ouml;|ö)bius/i.test(home.text),
       assetChecks: assetChecks
     };
@@ -21764,7 +21764,7 @@ async function renderAdminDeploymentDiagnostics() {
       detail: 'Confirms the Pages deployment has the expected static files.'
     },
     {
-      label: 'Ask the Teacher visible',
+      label: 'Ask the Word visible',
       value: (report.custom && report.custom.hasAskTheWord ? 'Live yes' : 'Live no') + ' | ' + (report.pages && report.pages.hasAskTheWord ? 'Pages yes' : 'Pages no'),
       tone: report.custom && report.custom.hasAskTheWord && report.pages && report.pages.hasAskTheWord ? 'ok' : 'warn',
       detail: 'Sanity check that the main homepage search branding exists.'
@@ -23205,7 +23205,7 @@ function renderBookIntroIntoContainer(container, normalized, linkPrefix, readerB
     sa.textContent = 'Build a sermon or lesson';
     sa.setAttribute('aria-label', `Open Sermon Builder with ${sermonSeed} as primary text`);
     sp.appendChild(sa);
-    sp.appendChild(document.createTextNode(' — OIA workspace; stays on your device.'));
+    sp.appendChild(document.createTextNode(' — Observe, Understand, Apply workspace; stays on your device.'));
     container.appendChild(sp);
   }
   if (readerBookName) {
@@ -26169,6 +26169,15 @@ function tdbShowHomeFeelResult(topicKey) {
     readA.href = tdbBuildReaderHrefFromRef(ref);
     readA.setAttribute('aria-label', 'Read ' + ref + ' in full chapter context');
   }
+  var moreLink = document.getElementById('tdbHomeFeelMoreVerses');
+  if (moreLink) {
+    var topicLabel =
+      typeof topics !== 'undefined' && topics[key] && topics[key].label ? String(topics[key].label) : key;
+    moreLink.textContent = topicLabel
+      ? 'More verses for ' + topicLabel.toLowerCase()
+      : 'More verses for this feeling';
+    moreLink.setAttribute('data-tdb-feel-topic', key);
+  }
   wrap.hidden = false;
   wrap.removeAttribute('hidden');
   setTimeout(function () {
@@ -26205,6 +26214,27 @@ function tdbRunFeelTopicWithInstantCard(topic) {
 try {
   window.tdbRunFeelTopicWithInstantCard = tdbRunFeelTopicWithInstantCard;
 } catch (_) {}
+
+document.addEventListener('DOMContentLoaded', function tdbWireHomeFeelMoreVerses() {
+  var moreLink = document.getElementById('tdbHomeFeelMoreVerses');
+  if (!moreLink || moreLink.dataset.tdbFeelMoreWired === '1') return;
+  moreLink.dataset.tdbFeelMoreWired = '1';
+  moreLink.addEventListener('click', function () {
+    var topic = moreLink.getAttribute('data-tdb-feel-topic') || '';
+    if (!topic) return;
+    var q = document.getElementById('feel-search') || document.getElementById('query');
+    if (q) q.value = topic;
+    try {
+      window.__tdbSuppressNextSearchScroll = true;
+    } catch (_) {}
+    if (typeof window.runSearchWithInput === 'function') window.runSearchWithInput(topic);
+    setTimeout(function () {
+      try {
+        window.__tdbSuppressNextSearchScroll = false;
+      } catch (_) {}
+    }, 600);
+  });
+});
 
 var HOME_SEARCH_RESOURCE_LIBRARY = [
   {
@@ -27294,7 +27324,7 @@ function renderHomeSearchResults(results, output, queryText) {
 
   var kicker = document.createElement('p');
   kicker.className = 'home-search-kicker';
-  kicker.textContent = 'Ask the Teacher';
+  kicker.textContent = 'Ask the Word';
   header.appendChild(kicker);
 
   var title = document.createElement('h3');
@@ -28905,7 +28935,7 @@ async function tdbInitImpl() {
         if (!els.wrap || !els.answer) return;
         els.wrap.classList.remove('hidden');
         els.wrap.removeAttribute('hidden');
-        els.answer.textContent = 'Ask the Teacher is searching Scripture...';
+        els.answer.textContent = 'Ask the Word is searching Scripture...';
         if (els.prayer) {
           els.prayer.classList.add('hidden');
           els.prayer.setAttribute('hidden', '');

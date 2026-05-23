@@ -16,6 +16,7 @@
   <meta name="theme-color" content="#0a0c14">
   <link rel="preload" href="styles.css?v=20260503-consent-persist-fix" as="style">
   <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix">
+  <link rel="preload" href="tdb-visual-tokens.css?v=20260521-discover-b" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260521-discover-b">
   <link rel="preload" href="mystudy.css?v=20260426mystudy-porch-d" as="style">
   <link rel="stylesheet" href="mystudy.css?v=20260426mystudy-porch-d">
@@ -75,6 +76,7 @@
           <p class="mystudy-onpage-nav__label" id="mystudy-onpage-toc-label">On this page</p>
           <ul class="mystudy-onpage-nav__list" aria-labelledby="mystudy-onpage-toc-label">
             <li><a href="#mystudy-overview">Overview</a></li>
+            <li><a href="#mystudy-quiet-steps">My Quiet Steps</a></li>
             <li><a href="#mystudy-progress-summary">Your rhythm</a></li>
             <li><a href="#mystudy-streak-badges">Quiet markers</a></li>
             <li><a href="#mystudy-memorize-strip">Memorize</a></li>
@@ -85,6 +87,13 @@
             <li><a href="#panel-join-study">Join Study</a></li>
           </ul>
         </nav>
+        <section id="mystudy-quiet-steps" class="mystudy-quiet-steps glass tdb-porch-paper-glass" aria-labelledby="mystudy-quiet-steps-heading">
+          <h2 id="mystudy-quiet-steps-heading" class="section-divider mystudy-h2 mystudy-h2-tight">My Quiet Steps</h2>
+          <p class="section-note mystudy-quiet-steps-lead">Not behind&mdash;just here. A soft map of days you showed up on this device (home check-ins). No score.</p>
+          <div id="mystudy-quiet-steps-grid" class="mystudy-quiet-steps-grid" role="group" aria-label="Last 28 days on this device"></div>
+          <p id="mystudy-quiet-steps-empty" class="section-note mystudy-quiet-steps-empty hidden" role="status">No check-ins in this window yet&mdash;that is all right. One verse today is enough.</p>
+          <p class="section-note util-mb-0"><a href="progress.html">Open full progress view</a> for plans, stats, and milestones.</p>
+        </section>
         <div id="mystudy-progress-summary" class="mystudy-progress-summary" role="region" aria-label="Your gentle study rhythm on this device"></div>
         <div id="mystudy-backup-nudge" class="mystudy-backup-nudge hidden" role="region" aria-live="polite" aria-label="Backup reminder"></div>
         <section id="mystudy-activity-calendar" class="mystudy-activity-calendar" role="region" aria-labelledby="mystudy-activity-cal-heading" hidden>
@@ -114,7 +123,7 @@
         <button id="tab-join-study" class="mystudy-tab" role="tab" aria-selected="false" aria-controls="panel-join-study" type="button">Join Study</button>
       </div>
 
-      <section id="panel-my-study" class="mystudy-panel" role="tabpanel" aria-labelledby="tab-my-study">
+      <section id="panel-my-study" class="mystudy-panel" role="tabpanel" aria-labelledby="tab-my-study" data-mobile-label="My Study">
         <div class="mystudy-panel-flow">
           <section class="mystudy-section-card mystudy-section-card--search">
             <div class="mystudy-section-head">
@@ -179,7 +188,7 @@
         </div>
       </section>
 
-      <section id="panel-note-library" class="mystudy-panel hidden" role="tabpanel" aria-labelledby="tab-note-library">
+      <section id="panel-note-library" class="mystudy-panel hidden" role="tabpanel" aria-labelledby="tab-note-library" data-mobile-label="Saved &amp; notes">
         <div class="mystudy-panel-flow">
           <section id="mystudy-ribbon-journal" class="mystudy-section-card mystudy-ribbon-journal-card" aria-labelledby="mystudy-ribbon-journal-heading">
             <div class="mystudy-section-head">
@@ -271,7 +280,7 @@
         </div>
       </section>
 
-      <section id="panel-join-study" class="mystudy-panel hidden" role="tabpanel" aria-labelledby="tab-join-study">
+      <section id="panel-join-study" class="mystudy-panel hidden" role="tabpanel" aria-labelledby="tab-join-study" data-mobile-label="Join Study">
         <div class="mystudy-panel-flow">
           <section class="mystudy-section-card">
             <div class="mystudy-section-head">
@@ -290,7 +299,7 @@
         </div>
       </section>
 
-      <section id="panel-highlights" class="mystudy-panel hidden" role="tabpanel" aria-labelledby="tab-highlights">
+      <section id="panel-highlights" class="mystudy-panel hidden" role="tabpanel" aria-labelledby="tab-highlights" data-mobile-label="Highlights">
         <div class="mystudy-panel-flow">
           <section class="mystudy-section-card">
             <div class="mystudy-section-head">

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-05-21T22:35:46.725Z",
-  "surfacedRefCount": 3317,
-  "overrideCount": 3317,
+  "generatedAt": "2026-05-23T06:33:44.823Z",
+  "surfacedRefCount": 3320,
+  "overrideCount": 3320,
   "sourceCounts": {
     ".worktrees/main-hotfix/404-admin.html": {
       "refs": 1,
@@ -1000,7 +1000,7 @@
       "pairs": 0
     },
     "kids/bible-story-tool-index.js": {
-      "refs": 239,
+      "refs": 240,
       "pairs": 0
     },
     "kids/color-and-tell.js": {
@@ -1008,7 +1008,7 @@
       "pairs": 0
     },
     "kids/corner.html": {
-      "refs": 28,
+      "refs": 44,
       "pairs": 0
     },
     "kids/good-night.html": {
@@ -1016,11 +1016,11 @@
       "pairs": 0
     },
     "kids/index.html": {
-      "refs": 5,
+      "refs": 18,
       "pairs": 0
     },
     "kids/kids-corner.js": {
-      "refs": 212,
+      "refs": 213,
       "pairs": 0
     },
     "kids/kids-hub-play.js": {
@@ -1039,11 +1039,27 @@
       "refs": 2,
       "pairs": 0
     },
+    "kids/porch-read-bedtime-hush.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "kids/porch-read-busy-table.html": {
+      "refs": 2,
+      "pairs": 0
+    },
     "kids/porch-read-come-unto-me.html": {
       "refs": 1,
       "pairs": 0
     },
+    "kids/porch-read-do-not-fear.html": {
+      "refs": 1,
+      "pairs": 0
+    },
     "kids/porch-read-family-worship.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "kids/porch-read-forgiveness-after-fight.html": {
       "refs": 1,
       "pairs": 0
     },
@@ -1067,6 +1083,26 @@
       "refs": 1,
       "pairs": 0
     },
+    "kids/porch-read-lost-sheep-carried-home.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "kids/porch-read-mealtime-thankfulness.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "kids/porch-read-mustard-quiet.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "kids/porch-read-narrow-way.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "kids/porch-read-one-leper-came-back.html": {
+      "refs": 2,
+      "pairs": 0
+    },
     "kids/porch-read-ordinary-tuesday.html": {
       "refs": 1,
       "pairs": 0
@@ -1087,11 +1123,35 @@
       "refs": 1,
       "pairs": 0
     },
+    "kids/porch-read-sibling-friction.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "kids/porch-read-soft-answer.html": {
+      "refs": 1,
+      "pairs": 0
+    },
     "kids/porch-read-steady-days.html": {
       "refs": 1,
       "pairs": 0
     },
+    "kids/porch-read-still-waters.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "kids/porch-read-suffer-little-children.html": {
+      "refs": 1,
+      "pairs": 0
+    },
     "kids/porch-read-summer-seeds.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "kids/porch-read-when-friendship-costs.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "kids/porch-read-when-god-speaks-quietly.html": {
       "refs": 1,
       "pairs": 0
     },
@@ -1101,6 +1161,14 @@
     },
     "kids/porch-read-when-mommy-daddy-is-tired.html": {
       "refs": 2,
+      "pairs": 0
+    },
+    "kids/porch-read-when-waiting-feels-long.html": {
+      "refs": 2,
+      "pairs": 0
+    },
+    "kids/porch-read-when-wrong-feels-loud.html": {
+      "refs": 1,
       "pairs": 0
     },
     "kids/prayer-activities.html": {
@@ -1952,7 +2020,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 151,
+      "refs": 165,
       "pairs": 0
     },
     "tl/kabalisahan.html": {
@@ -2353,6 +2421,7 @@
     "1 Samuel 1:10",
     "1 Samuel 1:10-11",
     "1 Samuel 1:17",
+    "1 Samuel 1:18",
     "1 Samuel 1:20",
     "1 Samuel 1:21-28",
     "1 Samuel 1:27",
@@ -3967,6 +4036,7 @@
     "Luke 15:3",
     "Luke 15:3-7",
     "Luke 15:4",
+    "Luke 15:4-6",
     "Luke 15:5",
     "Luke 15:5-6",
     "Luke 15:6",
@@ -3981,6 +4051,7 @@
     "Luke 17:11-19",
     "Luke 17:12-13",
     "Luke 17:14",
+    "Luke 17:15",
     "Luke 17:15-16",
     "Luke 17:15-19",
     "Luke 17:17",
@@ -7775,6 +7846,14 @@
       "general": {
         "plainExplanation": "Then Eli answered and said, Go in peace: and the God of Israel grant you your petition that you hast asked of him.",
         "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
+        "about": "Samuel",
+        "to": "Israel"
+      }
+    },
+    "1 Samuel 1:18": {
+      "general": {
+        "plainExplanation": "And she said, Let thine handmaid find grace in your sight. So the woman went her way, and did eat, and her countenance was no more sad.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Samuel",
         "to": "Israel"
       }
@@ -20571,6 +20650,14 @@
         "to": "Believers"
       }
     },
+    "Luke 15:4-6": {
+      "general": {
+        "plainExplanation": "Key idea: What man of you, having an hundred sheep, if he lose one of them, does not leave the ninety and nine in the wilderness, and go after that which is lost, unt...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "Luke 15:5": {
       "general": {
         "plainExplanation": "And when he has found it, he layeth it on his shoulders, rejoicing.",
@@ -20678,6 +20765,14 @@
     "Luke 17:14": {
       "general": {
         "plainExplanation": "And when he saw them, he said to them, Go shew yourselves to the priests. And it came to pass, that, as they went, they were cleansed.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Luke 17:15": {
+      "general": {
+        "plainExplanation": "And one of them, when he saw that he was healed, turned back, and with a loud voice glorified God,",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"

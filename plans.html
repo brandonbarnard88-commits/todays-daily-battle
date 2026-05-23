@@ -2968,6 +2968,7 @@
               <select id="plans-builder-source-day" class="plans-builder-select"></select>
             </div>
             <button type="button" class="btn btn-secondary" id="plans-builder-add-day">Add day</button>
+            <button type="button" class="btn btn-secondary" id="plans-builder-add-today-verse" title="Add today&apos;s porch verse as a lane day">Add today&rsquo;s verse</button>
           </div>
           <ol id="plans-builder-queue" class="plans-builder-queue" aria-label="Days in your lane"></ol>
           <div class="plans-builder-actions">
@@ -3322,6 +3323,26 @@
           <span class="plan-row-icon" aria-hidden="true">🌿</span>
           <div class="plan-row-info"><h2>When You Feel You&rsquo;re Failing as a Parent</h2><p>Six KJV days for exhausted parenting&mdash;no report card. Pairs with <a href="kids/porch-read-parent-weary.html">porch read-aloud</a> and <a href="kids/porch-read-when-waiting-feels-long.html">when the waiting feels long</a>.</p></div>
           <div class="plan-row-meta"><span class="plan-badge">6 days</span><span class="plan-progress-pill" id="planPill-parentweary">Not started</span></div>
+        </a>
+        <a href="plans.html?plan=parentinvisible" class="plan-row" id="plan-row-parentinvisible" data-plan="parentinvisible" aria-label="When Parenting Feels Overwhelming and Invisible — 6 days">
+          <span class="plan-row-icon" aria-hidden="true">🌱</span>
+          <div class="plan-row-info"><h2>When Parenting Feels Overwhelming and Invisible</h2><p>Six KJV days when the work is constant and unseen&mdash;God sees the holy ordinary. Pairs with <a href="kids/porch-read-god-sees-quiet-work.html">porch read-aloud</a>.</p></div>
+          <div class="plan-row-meta"><span class="plan-badge">6 days</span><span class="plan-progress-pill" id="planPill-parentinvisible">Not started</span></div>
+        </a>
+        <a href="plans.html?plan=griefwaves" class="plan-row" id="plan-row-griefwaves" data-plan="griefwaves" aria-label="When Grief Returns in Waves — 6 days">
+          <span class="plan-row-icon" aria-hidden="true">🌊</span>
+          <div class="plan-row-info"><h2>When Grief Returns in Waves</h2><p>Six KJV days when sorrow surges again&mdash;no schedule for healing, only steady Word.</p></div>
+          <div class="plan-row-meta"><span class="plan-badge">6 days</span><span class="plan-progress-pill" id="planPill-griefwaves">Not started</span></div>
+        </a>
+        <a href="plans.html?plan=anxietyexhaust" class="plan-row" id="plan-row-anxietyexhaust" data-plan="anxietyexhaust" aria-label="Finding Rest When Anxiety and Exhaustion Mix — 7 days">
+          <span class="plan-row-icon" aria-hidden="true">🌙</span>
+          <div class="plan-row-info"><h2>Finding Rest When Anxiety and Exhaustion Mix</h2><p>Seven KJV days when worry and weariness tangle&mdash;spiritual care alongside any medical help you use.</p></div>
+          <div class="plan-row-meta"><span class="plan-badge">7 days</span><span class="plan-progress-pill" id="planPill-anxietyexhaust">Not started</span></div>
+        </a>
+        <a href="plans.html?plan=pastorhardweek" class="plan-row" id="plan-row-pastorhardweek" data-plan="pastorhardweek" aria-label="Steady Strength for Pastors in a Hard Week — 5 days">
+          <span class="plan-row-icon" aria-hidden="true">🙏</span>
+          <div class="plan-row-info"><h2>Steady Strength for Pastors in a Hard Week</h2><p>Five KJV days for shepherds carrying crisis, criticism, or hidden weariness.</p></div>
+          <div class="plan-row-meta"><span class="plan-badge">5 days</span><span class="plan-progress-pill" id="planPill-pastorhardweek">Not started</span></div>
         </a>
         <a href="plans.html?plan=authorityconscience" class="plan-row" id="plan-row-authorityconscience" data-plan="authorityconscience" aria-label="Walking the Ribbon — Authority and Conscience — 6 days">
           <span class="plan-row-icon" aria-hidden="true">⚖️</span>
@@ -4019,6 +4040,7 @@
   </script>
   <script src="/verse-breakdown-standard.js?v=20260520-dig-deeper" data-tdb-verse-breakdown-standard="1"></script>
   <script src="/university-plan-extensions.js?v=20260511uniext-u21-porch-v1"></script>
+  <script src="/plans-weary-season-plans.js?v=20260523"></script>
   <script src="/red-letter.js?v=20260518-rl" data-tdb-red-letter="1"></script>
   <script nonce="tdb2025s">
     (function () {
@@ -6695,6 +6717,9 @@
         if (typeof window.TDB_mergeCustomBattlePlans === 'function') {
           window.TDB_mergeCustomBattlePlans(PLANS);
         }
+        if (typeof window.TDB_mergeWearySeasonPlans === 'function') {
+          window.TDB_mergeWearySeasonPlans(PLANS);
+        }
         seedPlanBreakdownOverrides();
       }
       return PLANS;
@@ -6876,7 +6901,7 @@
           id: 'cat-heavy',
           icon: '🕊️',
           label: 'When it\'s heavy right now',
-          plans: ['fearfaith','worrytrust','anxiety7','anxiety7day','angerpeace','doubtassurance','griefhope','grief','anger','forgiveness','loneliness','heartalone','restlessnights','painwontquit','heavyhope','comeuntome','fearpressesin','hisownwords','cancercomfort','moneyworry','addictionhope','guiltshame','overwhelmedburnout','longheavydays','selfworth','caregiverrest','wearyhands','longillness','peace','trust','marriage','afterhardtalk','peacemakers','lettinggo','fearnot14','summergrief','summertimesadness']
+          plans: ['fearfaith','worrytrust','anxiety7','anxiety7day','angerpeace','doubtassurance','griefhope','grief','griefwaves','anger','forgiveness','loneliness','heartalone','restlessnights','anxietyexhaust','painwontquit','heavyhope','comeuntome','fearpressesin','hisownwords','cancercomfort','moneyworry','addictionhope','guiltshame','overwhelmedburnout','longheavydays','selfworth','caregiverrest','wearyhands','longillness','peace','trust','marriage','afterhardtalk','peacemakers','lettinggo','fearnot14','summergrief','summertimesadness']
         },
         {
           id: 'cat-university',
@@ -6888,7 +6913,7 @@
           id: 'cat-family',
           icon: '🏠',
           label: 'Families & kids',
-          plans: ['parenting','littlehearts','longdayslittle','familyworship','psalmscomfortfamily','beatitudes-kids','lordsprayer-kids','sower-kids','steadydays-kids','armorofgod-kids','summer-seeds','backtoschoolfear','schoolcourage','teenfaith']
+          plans: ['parenting','littlehearts','longdayslittle','parentinvisible','parentweary','familyworship','psalmscomfortfamily','beatitudes-kids','lordsprayer-kids','sower-kids','steadydays-kids','armorofgod-kids','summer-seeds','backtoschoolfear','schoolcourage','teenfaith']
         },
         {
           id: 'cat-seasonal',
@@ -6900,7 +6925,7 @@
           id: 'cat-pastor',
           icon: '⛪',
           label: 'Pastors & church',
-          plans: ['preachingthroughexhaustion','smallchurchencouragement','dailyrenewing','kjvhowtoread','pastoraloneliness','greatcommission','walktheword','standfirm']
+          plans: ['preachingthroughexhaustion','pastorhardweek','smallchurchencouragement','dailyrenewing','kjvhowtoread','pastoraloneliness','greatcommission','walktheword','standfirm']
         },
         {
           id: 'cat-scripture',
@@ -10383,7 +10408,7 @@
 
   }());
   </script>
-  <script defer src="plans-builder.js?v=20260523"></script>
+  <script defer src="plans-builder.js?v=20260523b"></script>
   <!-- sync-shell-parity:plans-scripts -->
 
   <script type="module" src="config.js"></script>

@@ -134,6 +134,7 @@ const rootFiles = [
   'tdb-calm-hubs.css',
   'calm-rest-kit.js',
   'plans-builder.js',
+  'plans-weary-season-plans.js',
   'tdb-feel-combo.js',
   'tool-pages.css',
   'church.css',

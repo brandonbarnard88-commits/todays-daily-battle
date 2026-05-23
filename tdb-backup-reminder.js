@@ -141,7 +141,7 @@
     var copy = document.createElement('p');
     copy.className = 'tdb-backup-reminder__copy';
     copy.textContent =
-      'Your notes, verses, and quiet steps live on this device only. A JSON backup in My Study takes one tap—and gives you a file you can keep.';
+      'Your notes, verses, plan marks, and quiet steps live on this device only. A JSON backup in My Study takes one tap—and gives you a file you can keep somewhere safe.';
 
     var actions = document.createElement('div');
     actions.className = 'tdb-backup-reminder__actions';

@@ -20,7 +20,11 @@
     'heavyhope',
     'gratitude',
     'forgiveness',
-    'restlessnights'
+    'restlessnights',
+    'parentinvisible',
+    'griefwaves',
+    'anxietyexhaust',
+    'pastorhardweek'
   ];
 
   function byId(id) {
@@ -203,6 +207,17 @@
           (item.ref ? ' — ' + item.ref : '');
         var actions = document.createElement('span');
         actions.className = 'plans-builder-queue-actions';
+        var top = document.createElement('button');
+        top.type = 'button';
+        top.className = 'btn btn-secondary plans-builder-queue-btn';
+        top.textContent = 'Top';
+        top.setAttribute('aria-label', 'Move day to top');
+        top.disabled = idx === 0;
+        top.addEventListener('click', function () {
+          var item = draft.splice(idx, 1)[0];
+          draft.unshift(item);
+          renderQueue();
+        });
         var up = document.createElement('button');
         up.type = 'button';
         up.className = 'btn btn-secondary plans-builder-queue-btn';
@@ -235,6 +250,7 @@
           draft.splice(idx, 1);
           renderQueue();
         });
+        actions.appendChild(top);
         actions.appendChild(up);
         actions.appendChild(down);
         actions.appendChild(rm);
@@ -272,6 +288,63 @@
     }
 
     if (planSelect) planSelect.addEventListener('change', refreshDaySelect);
+
+    function readTodayVerse() {
+      try {
+        var cached = localStorage.getItem('tdb-porch-verse-cache');
+        if (cached) {
+          var parsed = JSON.parse(cached);
+          if (parsed && parsed.ref && parsed.text) return parsed;
+        }
+      } catch (e1) {}
+      var refEl = document.getElementById('tdbPorchVerseRef');
+      var textEl = document.getElementById('tdbPorchVerseText');
+      if (!refEl || !refEl.textContent) return null;
+      var ref = String(refEl.textContent).replace(/\s*\(KJV\)\s*$/i, '').trim();
+      var textNode = textEl && textEl.querySelector ? textEl.querySelector('p') : null;
+      var text = textNode
+        ? String(textNode.textContent).replace(/^[\s\u201c"]+|[\s\u201d"]+$/g, '').trim()
+        : textEl
+          ? String(textEl.textContent).trim()
+          : '';
+      if (!ref || !text || ref === '\u2014' || ref === '—') return null;
+      return { ref: ref, text: text };
+    }
+
+    var todayBtn = byId('plans-builder-add-today-verse');
+    if (todayBtn) {
+      todayBtn.addEventListener('click', function () {
+        if (draft.length >= MAX_DAYS) {
+          setStatus('Up to ' + MAX_DAYS + ' days keeps the lane gentle.');
+          return;
+        }
+        var v = readTodayVerse();
+        if (!v) {
+          setStatus('Today\u2019s verse is not ready yet \u2014 wait a moment and try again.');
+          return;
+        }
+        draft.push({
+          planId: 'today-verse',
+          planLabel: 'Today\u2019s verse',
+          dayIndex: 0,
+          ref: v.ref,
+          day: {
+            title: 'Today\u2019s porch verse',
+            ref: v.ref,
+            text: v.text,
+            speaker: 'Today\u2019s Daily Battle calendar',
+            plain: 'The same KJV anchor on the porch today \u2014 a gentle day to weave into your lane.',
+            today: 'What is one honest line this verse speaks into your week?',
+            action: 'If you want, read it once aloud before the next task.',
+            prayer: 'Lord, let today\u2019s verse meet me where I am. Amen.',
+            goal: 'From the porch verse widget \u2014 same calendar as Home.',
+            _tdbSource: 'today-verse:1'
+          }
+        });
+        renderQueue();
+        setStatus('Added today\u2019s verse (' + v.ref + ').');
+      });
+    }
 
     var saveBtn = byId('plans-builder-save');
     if (saveBtn) {

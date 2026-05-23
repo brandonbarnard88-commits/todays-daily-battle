@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-05-23T07:02:37.268Z",
-  "surfacedRefCount": 3320,
-  "overrideCount": 3320,
+  "generatedAt": "2026-05-23T12:29:59.480Z",
+  "surfacedRefCount": 3326,
+  "overrideCount": 3326,
   "sourceCounts": {
     ".worktrees/main-hotfix/404-admin.html": {
       "refs": 1,
@@ -920,7 +920,7 @@
       "pairs": 0
     },
     "family-rhythm.html": {
-      "refs": 36,
+      "refs": 37,
       "pairs": 0
     },
     "firebase-functions/sendDailyVerseNotification.js": {
@@ -1008,7 +1008,7 @@
       "pairs": 0
     },
     "kids/corner.html": {
-      "refs": 44,
+      "refs": 45,
       "pairs": 0
     },
     "kids/good-night.html": {
@@ -1060,6 +1060,10 @@
       "pairs": 0
     },
     "kids/porch-read-forgiveness-after-fight.html": {
+      "refs": 1,
+      "pairs": 0
+    },
+    "kids/porch-read-god-sees-quiet-work.html": {
       "refs": 1,
       "pairs": 0
     },
@@ -1524,7 +1528,7 @@
       "pairs": 0
     },
     "memory-verse-activities-print.html": {
-      "refs": 1,
+      "refs": 2,
       "pairs": 0
     },
     "memory-verses.js": {
@@ -1899,6 +1903,10 @@
       "refs": 1,
       "pairs": 1
     },
+    "plans-weary-season-plans.js": {
+      "refs": 25,
+      "pairs": 24
+    },
     "plans.html": {
       "refs": 355,
       "pairs": 461
@@ -2020,7 +2028,7 @@
       "pairs": 0
     },
     "test-site.js": {
-      "refs": 165,
+      "refs": 166,
       "pairs": 0
     },
     "tl/kabalisahan.html": {
@@ -2321,6 +2329,7 @@
     "1 Kings 19:19-21",
     "1 Kings 19:2",
     "1 Kings 19:4",
+    "1 Kings 19:5-8",
     "1 Kings 19:8",
     "1 Kings 19:9-18",
     "1 Kings 1:15",
@@ -2379,6 +2388,7 @@
     "1 Peter 4:8",
     "1 Peter 5:10",
     "1 Peter 5:2",
+    "1 Peter 5:2-3",
     "1 Peter 5:5",
     "1 Peter 5:6",
     "1 Peter 5:6-7",
@@ -2681,6 +2691,7 @@
     "2 Timothy 4:11",
     "2 Timothy 4:17",
     "2 Timothy 4:18",
+    "2 Timothy 4:2",
     "2 Timothy 4:3",
     "2 Timothy 4:6",
     "2 Timothy 4:6-7",
@@ -3961,6 +3972,8 @@
     "Judges 7:20",
     "Judges 7:7",
     "Judges 7:9-15",
+    "Lamentations 3:19-20",
+    "Lamentations 3:21",
     "Lamentations 3:22",
     "Lamentations 3:22-23",
     "Lamentations 3:22\\u201323",
@@ -5163,6 +5176,7 @@
     "Psalm 41:1",
     "Psalm 42:11",
     "Psalm 42:5",
+    "Psalm 42:7",
     "Psalm 43:3",
     "Psalm 43:4",
     "Psalm 44:8",
@@ -5558,8 +5572,10 @@
     "1 Corinthians 12:4-11": "Now there are diversities of gifts, but the same Spirit. And there are differences of administrations, but the same Lord. And there are diversities of operations, but it is the same God which worketh all in all. But the manifestation of the Spirit is given to every man to profit withal. For to one is given by the Spirit the word of wisdom; to another the word of knowledge by the same Spirit; To another faith by the same Spirit; to another the gifts of healing by the same Spirit; To another the working of miracles; to another prophecy; to another discerning of spirits; to another divers kinds of tongues; to another the interpretation of tongues: But all these worketh that one and the selfsame Spirit, dividing to every man severally as he will.",
     "1 Corinthians 12:4-7": "Now there are diversities of gifts, but the same Spirit. And there are differences of administrations, but the same Lord. And there are diversities of operations, but it is the same God which worketh all in all. But the manifestation of the Spirit is given to every man to profit withal.",
     "1 Corinthians 13:4-7": "Charity suffereth long, and is kind; charity envieth not; charity vaunteth not itself, is not puffed up, Doth not behave itself unseemly, seeketh not her own, is not easily provoked, thinketh no evil; Rejoiceth not in iniquity, but rejoiceth in the truth; Beareth all things, believeth all things, hopeth all things, endureth all things.",
+    "1 Kings 19:5-8": "And as he lay and slept under a juniper tree, behold, then an angel touched him, and said unto him, Arise and eat. And he looked, and, behold, there was a cake baken on the coals, and a cruse of water at his head. And he did eat and drink, and laid him down again. And the angel of the LORD came again the second time, and touched him, and said, Arise and eat; because the journey is too great for thee.",
     "1 Peter 3:8-9": "Finally, be ye all of one mind, having compassion one of another, love as brethren, be pitiful, be courteous: Not rendering evil for evil, or railing for railing: but contrariwise blessing; knowing that ye are thereunto called, that ye should inherit a blessing.",
     "1 Peter 4:10-11": "As every man hath received the gift, even so minister the same one to another, as good stewards of the manifold grace of God. If any man speak, let him speak as the oracles of God; if any man minister, let him do it as of the ability which God giveth: that God in all things may be glorified through Jesus Christ, to whom be praise and dominion for ever and ever. Amen.",
+    "1 Peter 5:2-3": "Feed the flock of God which is among you, taking the oversight thereof, not by constraint, but willingly; not for filthy lucre, but of a ready mind; Neither as being lords over God\\u2019s heritage, but being ensamples to the flock.",
     "1 Peter 5:8-9": "Be sober, be vigilant; because your adversary the devil, as a roaring lion, walketh about, seeking whom he may devour: Whom resist stedfast in the faith, knowing that the same afflictions are accomplished in your brethren that are in the world.",
     "1 Thess. 5:18": "In every thing give thanks: for this is the will of God in Christ Jesus.",
     "1 Thessalonians 4:11-12": "And that ye study to be quiet, and to do your own business, and to work with your own hands, as we commanded you; That ye may walk honestly toward them that are without, and that ye may have lack of nothing.",
@@ -5638,6 +5654,7 @@
     "John 14:16-17": "And I will pray the Father, and he shall give you another Comforter, that he may abide with you for ever; Even the Spirit of truth; whom the world cannot receive, because it seeth him not, neither knoweth him: but ye know him; for he dwelleth with you, and shall be in you.",
     "John 3:16; Romans 5:8": "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life. But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us.",
     "John 4:35-36": "Say not ye, There are yet four months, and then cometh harvest? behold, I say unto you, Lift up your eyes, and look on the fields; for they are white already to harvest. And he that reapeth receiveth wages, and gathereth fruit unto life eternal: that both he that soweth and he that reapeth may rejoice together.",
+    "Lamentations 3:19-20": "Remembering mine affliction and my misery, the wormwood and the gall. My soul hath them still in remembrance, and is humbled in me.",
     "Lamentations 3:22-23": "It is of the LORD\\u2019s mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.",
     "Lamentations 3:22\\u201323": "It is of the LORD\\u2019s mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.",
     "Lamentations 3:24-26": "The LORD is my portion, saith my soul; therefore will I hope in him. The LORD is good unto them that wait for him, to the soul that seeketh him. It is good that a man should both hope and quietly wait for the salvation of the LORD.",
@@ -5931,6 +5948,7 @@
     "Psalm 41:1": "Blessed is he that considereth the poor: the Lord will deliver him in time of trouble.",
     "Psalm 42:11": "Why art thou cast down, O my soul? and why art thou disquieted within me? hope thou in God: for I shall yet praise him, who is the health of my countenance, and my God.",
     "Psalm 42:5": "Why art thou cast down, O my soul? and why art thou disquieted in me? hope thou in God: for I shall yet praise him, who is the health of my countenance, and my God.",
+    "Psalm 42:7": "Deep calleth unto deep at the noise of thy waterspouts: all thy waves and thy billows are gone over me.",
     "Psalm 43:3": "O send out thy light and thy truth: let them lead me.",
     "Psalm 43:4": "Then will I go unto the altar of God, unto God my exceeding joy.",
     "Psalm 44:8": "In God we boast all the day long, and praise thy name for ever.",
@@ -7050,6 +7068,14 @@
         "to": "Israel"
       }
     },
+    "1 Kings 19:5-8": {
+      "general": {
+        "plainExplanation": "Key idea: And as he lay and slept under a juniper tree, look, then an angel touched him, and said to him, Arise and eat. And he looked, and, look, there was a cake ba...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Israel"
+      }
+    },
     "1 Kings 19:8": {
       "general": {
         "plainExplanation": "And he arose, and did eat and drink, and went in the strength of that meat forty days and forty nights to Horeb the mount of God.",
@@ -7509,6 +7535,14 @@
     "1 Peter 5:2": {
       "general": {
         "plainExplanation": "Feed the flock of God which is among you, taking the oversight thereof, not by constraint, but willingly; not for filthy lucre, but of a ready mind;",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Peter",
+        "to": "Believers"
+      }
+    },
+    "1 Peter 5:2-3": {
+      "general": {
+        "plainExplanation": "Key idea: Feed the flock of God which is among you, taking the oversight thereof, not by constraint, but willingly; not for filthy lucre, but of a ready mind; Neither...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Peter",
         "to": "Believers"
@@ -9861,6 +9895,14 @@
     "2 Timothy 4:18": {
       "general": {
         "plainExplanation": "And the Lord shall deliver me from every evil work, and will preserve me to his heavenly kingdom: to whom be glory for ever and ever. Amen.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Timothy"
+      }
+    },
+    "2 Timothy 4:2": {
+      "general": {
+        "plainExplanation": "Preach the word; be instant in season, out of season; reprove, rebuke, exhort with all longsuffering and doctrine.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Paul",
         "to": "Timothy"
@@ -20050,6 +20092,22 @@
         "to": "Israel"
       }
     },
+    "Lamentations 3:19-20": {
+      "general": {
+        "plainExplanation": "Remembering mine affliction and my misery, the wormwood and the gall. My soul has them still in remembrance, and is humbled in me.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jeremiah",
+        "to": "Exiles"
+      }
+    },
+    "Lamentations 3:21": {
+      "general": {
+        "plainExplanation": "This I recall to my mind, therefore have I hope.",
+        "modernApplication": "This verse keeps your eyes up when the day feels slow, heavy, or unfinished.",
+        "about": "Jeremiah",
+        "to": "Exiles"
+      }
+    },
     "Lamentations 3:22": {
       "general": {
         "plainExplanation": "God's love never runs out; His compassion is new every morning.",
@@ -29662,6 +29720,14 @@
       "general": {
         "plainExplanation": "Why art you cast down, O my soul? and why art you disquieted in me? hope you in God: for I shall yet praise him, who is the health of my countenance, and my God.",
         "modernApplication": "This verse keeps your eyes up when the day feels slow, heavy, or unfinished.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
+    "Psalm 42:7": {
+      "general": {
+        "plainExplanation": "Deep calleth to deep at the noise of your waterspouts: all your waves and your billows are gone over me.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"
       }

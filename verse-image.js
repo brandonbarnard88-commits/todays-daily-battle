@@ -442,6 +442,33 @@
       textColor: 'paper',
       memorize: false,
       footer: 'site'
+    },
+    'T23-grief-rain': {
+      w: 1080,
+      h: 1350,
+      bg: 'water_reflection',
+      layout: 'centered',
+      textColor: 'paper',
+      memorize: false,
+      footer: 'site'
+    },
+    'T24-morning-hope': {
+      w: 1080,
+      h: 1080,
+      bg: 'soft_mist_dawn',
+      layout: 'centered',
+      textColor: 'ink',
+      memorize: false,
+      footer: 'site'
+    },
+    'T25-wallpaper-quiet': {
+      w: 1080,
+      h: 1920,
+      bg: 'night_peace',
+      layout: 'centered',
+      textColor: 'paper',
+      memorize: false,
+      footer: 'site'
     }
   };
 

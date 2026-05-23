@@ -38,6 +38,7 @@ const SOURCE_WEBPAGE_GRAPHS = [
   'kids/porch-read-when-waiting-feels-long.html',
   'kids/porch-read-when-wrong-feels-loud.html',
   'kids/porch-read-when-friendship-costs.html',
+  'kids/porch-read-narrow-way.html',
 ];
 
 function fail(msg) {

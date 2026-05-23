@@ -101,7 +101,7 @@
   "jesusHealsParalytic": "jesusHealsParalytic",
   "jesusParableGoodShepherd": "jesusParableGoodShepherd",
   "jesusSermon": "jesusSermon",
-  "jesusSermonMount": "mustardSeed",
+  "jesusSermonMount": "wise-foolish-builders",
   "jesusTemple": "jesusTemple",
   "jesusTemptation": "jesusTempt",
   "jesusTempt": "jesus-tempted",

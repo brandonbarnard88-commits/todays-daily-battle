@@ -7089,6 +7089,126 @@ function buildJesusSermonReadQuiz() {
   };
 }
 
+/** Sermon on the Mount — Matthew 5–7 (gentle). Library key: jesusSermonMount */
+function buildJesusSermonMountReadQuiz() {
+  return {
+    kjvRef: 'Matthew 5–7 (KJV) — gentle summary for little hearts',
+    verseExcerpt:
+      'Because strait is the gate, and narrow is the way, which leadeth unto life. — Matthew 7:14 (KJV)',
+    readAlongTitle: 'Sermon on the Mount',
+    quizWrongHumilityHint:
+      'Listen again — mountain; blessed; meek; merciful; narrow way; wise man; rock; house stands.',
+    hintAboveQuiz: 'Use the pictures while you read. Tap each part slowly.',
+    paragraphs: [
+      'Jesus went up on a mountain. Many people came to listen.',
+      'He taught them how to live God’s way — blessed are the meek, the merciful, the peacemakers.',
+      'He told them to love God and love their neighbor, and to let their light shine.',
+      'Jesus also said the way that leads to life is narrow — not always the easy road everyone else walks.',
+      'He told a story about two builders: one built on rock, one on sand. When the storm came, the house on the rock stood firm.',
+      'Jesus wants us to hear His words and put them into practice — like building on a rock.',
+      'Reference: Matthew 5–7 (KJV) — gentle summary for little hearts'
+    ],
+    readAlongSections: [
+      {
+        text: 'Jesus taught on the mountain.',
+        caption: 'On the hill',
+        image: 'panel-jesus-1.svg'
+      },
+      {
+        text: 'Blessed are the meek and merciful.',
+        caption: 'Blessed',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'The narrow way leads to life.',
+        caption: 'Narrow way',
+        image: 'panel-jesus-2.svg'
+      },
+      {
+        text: 'The wise man built on the rock.',
+        caption: 'On the rock',
+        image: 'panel-jesus-3.svg'
+      }
+    ],
+    quizHeading: 'Quiz — think it through',
+    questions: [
+      {
+        question: 'Where is this teaching found in the Bible?',
+        choices: ['Matthew 5–7', 'Genesis 1', 'Psalm 23', 'Jonah 1'],
+        correctIndex: 0,
+        correctFeedback: "Yes—that matches this story's place in God's Word.",
+        wrongFeedback:
+          'Skim the line under the title in the story block, or check the reference paragraph. (Answer: Matthew 5–7.)'
+      },
+      {
+        question: 'What did Jesus say about the way that leads to life?',
+        choices: [
+          'It is narrow — not always the easy road',
+          'Nobody can ever find it',
+          'It is only for grown-ups',
+          'It means running as fast as you can'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Yes — Jesus said the narrow way leads to life.',
+        wrongFeedback:
+          'Think about the narrow gate Jesus described. (Answer: It is narrow — not always the easy road.)'
+      },
+      {
+        question: 'In Jesus’ story, which house stood when the storm came?',
+        choices: [
+          'The house built on sand',
+          'The house built on rock',
+          'Neither house',
+          'A house made of clouds'
+        ],
+        correctIndex: 1,
+        correctFeedback: 'Right — the wise builder built on rock.',
+        wrongFeedback:
+          'Remember the two builders. (Answer: The house built on rock.)'
+      },
+      {
+        question: 'Which choice sounds most like what Jesus teaches?',
+        choices: [
+          'Hear His words and put them into practice — like building on a rock',
+          'Ignore the Bible until we are older',
+          'Only love people who are exactly like us',
+          'Mountains are only for racing'
+        ],
+        correctIndex: 0,
+        correctFeedback: "Exactly—that lines up with the story and the 'For you' heart of it.",
+        wrongFeedback:
+          'Reread the parts about the rock and the narrow way. (Answer: Hear His words and put them into practice — like building on a rock.)'
+      },
+      {
+        question: 'What is one good way to respond to God after this story?',
+        choices: [
+          'Ask Jesus to help us obey one small true thing today',
+          'Never show kindness at home',
+          'Hide from God when we mess up',
+          'Only listen but never try'
+        ],
+        correctIndex: 0,
+        correctFeedback: 'Beautiful—that is faith with feet: small, real, and pleasing to God.',
+        wrongFeedback:
+          'Think: which choice matches building on the rock? (Answer: Ask Jesus to help us obey one small true thing today.)'
+      }
+    ],
+    doneHeading: 'You did it!',
+    doneMessage: "Great job reading Sermon on the Mount with God's Word today.",
+    takeaway: 'Hear Jesus’ words and put them into practice — like building on a rock.',
+    prayer:
+      'Lord Jesus, thank You for teaching us on the mountain. Help us walk the narrow way and build on Your Word. Amen.',
+    imagePrompts: [
+      'A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus on a gentle hillside teaching people with a narrow path and a small house on a rock in the background thick bold outlines large open spaces for easy coloring soft hills calm sky kind and wise mood clean minimal no fear plenty of white space age-appropriate coloring page',
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Mountain teaching (gather)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Blessed and merciful (heart)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Narrow path beside a hill",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Wise house on the rock"
+    ],
+    readAlongImages: []
+  };
+}
+
 /** Woman at the well — living water (gentle). Library key: samaritanWoman */
 function buildSamaritanWomanReadQuiz() {
   return {
@@ -15180,6 +15300,7 @@ module.exports = {
   /** Journey ORDER alias — same Matthew 4 read-quiz as jesusTempted (gentle). */
   jesusTempt: buildJesusTemptedReadQuiz(),
   jesusSermon: buildJesusSermonReadQuiz(),
+  jesusSermonMount: buildJesusSermonMountReadQuiz(),
   samaritanWoman: buildSamaritanWomanReadQuiz(),
   noblemanSon: buildNoblemanSonReadQuiz(),
   centurionServant: buildCenturionServantReadQuiz(),

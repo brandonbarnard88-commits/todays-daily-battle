@@ -179,11 +179,11 @@ Builds on Discoverability Pass 2 bridges (`#kidsParentPorchPath`, `#familyPorchP
 
 ---
 
-## Gentle Journey gap review — 34 remain (June 2026, builder-only)
+## Gentle Journey gap review — 33 remain (June 2026, builder-only)
 
-**Measure:** `ORDER.length` = **331** · goal = **365** · **34** distinct keys remain. Parents never see a gap counter; this is for calm batch planning only.
+**Measure:** `ORDER.length` = **332** · goal = **365** · **33** distinct keys remain. Parents never see a gap counter; this is for calm batch planning only.
 
-**What “34 remain” means**
+**What “33 remain” means**
 
 - Not 36 missing coloring pages or porch reads — many ORDER keys already have full packages.
 - New keys should be **distinct stories** (not duplicate aliases like `parableMustardSeed` / `mustardSeed` unless intentionally parallel).
@@ -198,6 +198,7 @@ Builds on Discoverability Pass 2 bridges (`#kidsParentPorchPath`, `#familyPorchP
 | `hannahPray` / `hannahSamuel` | Waiting, answered prayer | Porch shipped (`when-waiting-feels-long`) |
 | `jesusFirstMiracle` | Wedding / Cana | Alias `weddingWine` in ORDER |
 | `jesusTempt` | Standing firm | **ORDER shipped batch 5** · porch `when-wrong-feels-loud` |
+| `jesusSermonMount` | How to live / narrow way | **ORDER shipped batch 6** · porch `narrow-way` · Beatitudes for Kids |
 | `jesusSermonMount` | Beatitudes table | Little Shepherd bridge |
 | `rahabJericho` / `rahabRope` / `rahabWindow` | Brave trust | Courage batch |
 | `naaman` | Humble obedience | Healing / pride batch |
@@ -206,7 +207,9 @@ Builds on Discoverability Pass 2 bridges (`#kidsParentPorchPath`, `#familyPorchP
 
 **Shipped in batch 5 (now in ORDER):** `jesusTempt`, `davidJonathanFriendship` — porch companions `when-wrong-feels-loud`, `when-friendship-costs`.
 
-**Porch/table coverage after batch 5 (33 read-alouds)**
+**Shipped in batch 6 (now in ORDER):** `jesusSermonMount` — handcrafted read-quiz · wise-foolish-builders coloring · porch `narrow-way`.
+
+**Porch/table coverage after batch 6 (34 read-alouds)**
 
 | Moment | Doors |
 |--------|--------|
@@ -218,11 +221,12 @@ Builds on Discoverability Pass 2 bridges (`#kidsParentPorchPath`, `#familyPorchP
 | Welcome / small | Suffer little children |
 | After bump | Forgiveness after fight · soft answer · sibling friction · friendship costs |
 | Hard choice / temptation | Wrong choice feels loud · mustard quiet |
+| How to live (daytime) | Narrow way · busy table |
 | Evening / fear | Lost sheep · do not fear · still waters · bedtime hush |
 
 **Still light (future porch or plan bridges, no rush):** first-day-of-school *for the parent*, after a hard talk *for kids*, hospital/sick visit, moving house, deployment goodbye.
 
-**Recommended next journey batch (4–6 keys):** `jesusSermonMount`, `naaman`, `rahabJericho`, `hannahSamuel`, `samuelCall` — each with read-quiz + corner + coloring before ORDER append; extend `foreverHope` section end index when adding.
+**Recommended next journey batch (4–6 keys):** `naaman`, `rahabJericho`, `hannahSamuel`, `samuelCall` — each with read-quiz + corner + coloring before ORDER append; extend `foreverHope` section end index when adding.
 
 ---
 

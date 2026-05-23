@@ -14934,87 +14934,117 @@
     "readAlongImages": []
   },
   "jesusSermonMount": {
-    "kjvRef": "Matthew 5–7",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Matthew 5–7 (KJV) — gentle summary for little hearts",
+    "verseExcerpt": "Because strait is the gate, and narrow is the way, which leadeth unto life. — Matthew 7:14 (KJV)",
+    "readAlongTitle": "Sermon on the Mount",
+    "quizWrongHumilityHint": "Listen again — mountain; blessed; meek; merciful; narrow way; wise man; rock; house stands.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Sermon on the Mount (Matthew 5–7).",
-      "Jesus teaches crowds on a mountain Blessed are the meek, merciful, peacemakers Wise man builds his house on the rock Jesus shows God's way to live.",
-      "hear His words and put them into practice, like building on a rock."
+      "Jesus went up on a mountain. Many people came to listen.",
+      "He taught them how to live God’s way — blessed are the meek, the merciful, the peacemakers.",
+      "He told them to love God and love their neighbor, and to let their light shine.",
+      "Jesus also said the way that leads to life is narrow — not always the easy road everyone else walks.",
+      "He told a story about two builders: one built on rock, one on sand. When the storm came, the house on the rock stood firm.",
+      "Jesus wants us to hear His words and put them into practice — like building on a rock.",
+      "Reference: Matthew 5–7 (KJV) — gentle summary for little hearts"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus taught on the mountain.",
+        "caption": "On the hill",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Blessed are the meek and merciful.",
+        "caption": "Blessed",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "The narrow way leads to life.",
+        "caption": "Narrow way",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "The wise man built on the rock.",
+        "caption": "On the rock",
+        "image": "panel-jesus-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "Where is this teaching found in the Bible?",
         "choices": [
-          "Galatians 5",
-          "2 Kings 6:1-7",
           "Matthew 5–7",
-          "Genesis 28:10–22"
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Matthew 5–7.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "Peter",
-          "The LORD",
-          "James",
-          "Jesus"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "Jesus shows God's way to live — hear His words and put them into practice, like building on a rock.",
-          "We should hide from God when we mess up.",
-          "The Bible is only pretend stories.",
-          "God never hears when kids pray."
+          "Genesis 1",
+          "Psalm 23",
+          "Jonah 1"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Jesus shows God's way to live — hear His words and put them into practice, like building….)"
+        "correctFeedback": "Yes—that matches this story's place in God's Word.",
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Matthew 5–7.)"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "What did Jesus say about the way that leads to life?",
         "choices": [
-          "A talking toaster became king of the city.",
-          "Jesus teaches crowds on a mountain",
-          "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again."
+          "It is narrow — not always the easy road",
+          "Nobody can ever find it",
+          "It is only for grown-ups",
+          "It means running as fast as you can"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Yes — Jesus said the narrow way leads to life.",
+        "wrongFeedback": "Think about the narrow gate Jesus described. (Answer: It is narrow — not always the easy road.)"
+      },
+      {
+        "question": "In Jesus’ story, which house stood when the storm came?",
+        "choices": [
+          "The house built on sand",
+          "The house built on rock",
+          "Neither house",
+          "A house made of clouds"
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctFeedback": "Right — the wise builder built on rock.",
+        "wrongFeedback": "Remember the two builders. (Answer: The house built on rock.)"
+      },
+      {
+        "question": "Which choice sounds most like what Jesus teaches?",
+        "choices": [
+          "Hear His words and put them into practice — like building on a rock",
+          "Ignore the Bible until we are older",
+          "Only love people who are exactly like us",
+          "Mountains are only for racing"
+        ],
+        "correctIndex": 0,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the parts about the rock and the narrow way. (Answer: Hear His words and put them into practice — like building on a rock.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Only be kind to people who are exactly like us.",
-          "Ignore God until we are older.",
-          "Jesus shows God's way to live — hear His words and put them into practice, like building on a rock.",
-          "Never say sorry when we do wrong."
+          "Ask Jesus to help us obey one small true thing today",
+          "Never show kindness at home",
+          "Hide from God when we mess up",
+          "Only listen but never try"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Jesus shows God's way to live — hear His words and put them into practice, like building….)"
+        "wrongFeedback": "Think: which choice matches building on the rock? (Answer: Ask Jesus to help us obey one small true thing today.)"
       }
     ],
     "doneHeading": "You did it!",
     "doneMessage": "Great job reading Sermon on the Mount with God's Word today.",
-    "takeaway": "Jesus shows God's way to live — hear His words and put them into practice, like building on a rock.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Sermon on the Mount. Amen.",
+    "takeaway": "Hear Jesus’ words and put them into practice — like building on a rock.",
+    "prayer": "Lord Jesus, thank You for teaching us on the mountain. Help us walk the narrow way and build on Your Word. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus teaches crowds on a mountain (sermon on the mount)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Blessed are the meek, merciful, peacemakers (beatitudes)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Wise man builds his house on the rock (matthew 5)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus teaches crowds on a mountain (matthew 6)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Blessed are the meek, merciful, peacemakers (matthew 7)"
-    ]
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus on a gentle hillside teaching people with a narrow path and a small house on a rock in the background thick bold outlines large open spaces for easy coloring soft hills calm sky kind and wise mood clean minimal no fear plenty of white space age-appropriate coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Mountain teaching (gather)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Blessed and merciful (heart)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Narrow path beside a hill",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft green and sky blue, friendly not scary, no text in image: Wise house on the rock"
+    ],
+    "readAlongImages": []
   },
   "jesusTemple": {
     "kjvRef": "Luke 2:41–52 (KJV)",

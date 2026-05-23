@@ -71,6 +71,7 @@ function escapeRegExp(value) {
 function normalizeRef(ref) {
   return String(ref || '')
     .replace(/\s+/g, ' ')
+    .replace(/\\u2013|\\u2014/gi, '-')
     .replace(/[–—]/g, '-')
     .replace(/^Psalms\s+/i, 'Psalm ')
     .replace(/\s*\(KJV\)\s*$/i, '')

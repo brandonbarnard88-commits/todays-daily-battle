@@ -6,25 +6,25 @@
 
   var KJV_BETWEEN = {
     60: [
-      { text: 'Be still, and know that I am God.', ref: 'Psalm 46:10' },
-      { text: 'What time I am afraid, I will trust in thee.', ref: 'Psalm 56:3' },
-      { text: 'Thou wilt keep him in perfect peace, whose mind is stayed on thee.', ref: 'Isaiah 26:3' }
+      { ref: 'Psalm 46:10', text: 'Be still, and know that I am God.' },
+      { ref: 'Psalm 56:3', text: 'What time I am afraid, I will trust in thee.' },
+      { ref: 'Isaiah 26:3', text: 'Thou wilt keep him in perfect peace, whose mind is stayed on thee.' }
     ],
     120: [
-      { text: 'Come unto me, all ye that labour and are heavy laden, and I will give you rest.', ref: 'Matthew 11:28' },
-      { text: 'It is of the LORD\u2019S mercies that we are not consumed, because his compassions fail not.', ref: 'Lamentations 3:22' },
-      { text: 'And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.', ref: 'Philippians 4:7' },
-      { text: 'Cast thy burden upon the LORD, and he shall sustain thee.', ref: 'Psalm 55:22' }
+      { ref: 'Matthew 11:28', text: 'Come unto me, all ye that labour and are heavy laden, and I will give you rest.' },
+      { ref: 'Lamentations 3:22', text: 'It is of the LORD\u2019S mercies that we are not consumed, because his compassions fail not.' },
+      { ref: 'Philippians 4:7', text: 'And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.' },
+      { ref: 'Psalm 55:22', text: 'Cast thy burden upon the LORD, and he shall sustain thee.' }
     ],
     300: [
-      { text: 'But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles.', ref: 'Isaiah 40:31' },
-      { text: 'The LORD is my shepherd; I shall not want. He maketh me to lie down in green pastures.', ref: 'Psalm 23:1\u20132' },
-      { text: 'My grace is sufficient for thee: for my strength is made perfect in weakness.', ref: '2 Corinthians 12:9' },
-      { text: 'My soul, wait thou only upon God; for my expectation is from him.', ref: 'Psalm 62:5' },
-      { text: 'Take therefore no thought for the morrow: for the morrow shall take thought for the things of itself.', ref: 'Matthew 6:34' },
-      { text: 'Have not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed.', ref: 'Joshua 1:9' },
-      { text: 'He that dwelleth in the secret place of the most High shall abide under the shadow of the Almighty.', ref: 'Psalm 91:1' },
-      { text: 'If God be for us, who can be against us?', ref: 'Romans 8:31' }
+      { ref: 'Isaiah 40:31', text: 'But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles.' },
+      { ref: 'Psalm 23:1-2', text: 'The LORD is my shepherd; I shall not want. He maketh me to lie down in green pastures.' },
+      { ref: '2 Corinthians 12:9', text: 'My grace is sufficient for thee: for my strength is made perfect in weakness.' },
+      { ref: 'Psalm 62:5', text: 'My soul, wait thou only upon God; for my expectation is from him.' },
+      { ref: 'Matthew 6:34', text: 'Take therefore no thought for the morrow: for the morrow shall take thought for the things of itself.' },
+      { ref: 'Joshua 1:9', text: 'Have not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed.' },
+      { ref: 'Psalm 91:1', text: 'He that dwelleth in the secret place of the most High shall abide under the shadow of the Almighty.' },
+      { ref: 'Romans 8:31', text: 'If God be for us, who can be against us?' }
     ]
   };
 

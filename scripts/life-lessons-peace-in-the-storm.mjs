@@ -85,7 +85,7 @@ export const PEACE_IN_THE_STORM_LESSON = {
     { label: 'House on the Rock (deep lesson)', href: '/life-lessons/house-on-rock-when-storms-hit.html' },
     { label: 'The Lord Is My Shepherd (deep lesson)', href: '/life-lessons/the-lord-is-my-shepherd.html' },
     { label: 'Render Unto Caesar (deep lesson)', href: '/life-lessons/render-unto-caesar-when-laws-pull-apart.html' },
-    { label: 'M\u00f6bius ribbon', href: '/mobius.html#mobius-ribbon-stations' },
+    { label: 'Grace Ribbon stations', href: '/mobius.html#mobius-ribbon-stations' },
     { label: 'When Fear Presses In (plan)', href: '/plans.html?plan=fearpressesin' },
     { label: 'My Study', href: '/mystudy.html' },
   ],

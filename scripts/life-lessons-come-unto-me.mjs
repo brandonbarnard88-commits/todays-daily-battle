@@ -85,7 +85,7 @@ export const COME_UNTO_ME_LESSON = {
     { label: 'Cast Your Care (deep lesson)', href: '/life-lessons/cast-your-care-when-burden-is-heavy.html' },
     { label: 'Peace in the Storm (deep lesson)', href: '/life-lessons/peace-in-the-storm-when-waves-are-louder.html' },
     { label: 'Take No Thought (deep lesson)', href: '/life-lessons/take-no-thought-when-tomorrow-roars.html' },
-    { label: 'M\u00f6bius ribbon', href: '/mobius.html#mobius-ribbon-stations' },
+    { label: 'Grace Ribbon stations', href: '/mobius.html#mobius-ribbon-stations' },
     { label: 'My Study', href: '/mystudy.html' },
   ],
 };

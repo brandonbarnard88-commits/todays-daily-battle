@@ -311,6 +311,83 @@
           goal: 'Bookmark <a href="calm.html">Need a verse now</a> when anxiety spikes between plan days.'
         }
       ]
+    },
+
+    spirituallydry: {
+      id: 'spirituallydry',
+      icon: '\uD83C\uDF42',
+      label: 'When You Feel Spiritually Dry',
+      desc: 'Six gentle KJV days when prayer feels flat and God feels far&mdash;not failure, not a report card. Wait in the dark with small, grace-filled steps. No trying harder; just staying with the Vine.',
+      key: 'tdb-plan-spirituallydry-day',
+      max: 6,
+      days: [
+        {
+          title: 'The honest thirst',
+          ref: 'Psalm 42:1-2',
+          text: 'As the hart panteth after the water brooks, so panteth my soul after thee, O God. My soul thirsteth for God, for the living God: when shall I come and appear before God?',
+          speaker: 'The psalmist \u2014 thirsting in exile',
+          plain: 'Dryness is not failure. It is the honest cry of a heart that still knows it needs God.',
+          today: 'How dry does prayer feel right now\u2014flat, distant, or mechanical?',
+          action: 'If you can, sit quietly two minutes and tell the Lord how dry you feel. No fancy words.',
+          prayer: 'Lord, my soul thirsteth for Thee. I bring the dryness to Thee. Help me wait. Amen.',
+          goal: 'If it helps, speak the truth about how you feel without shame\u2014one sentence counts.'
+        },
+        {
+          title: 'Mercy that never fails',
+          ref: 'Lamentations 3:22-23',
+          text: 'It is of the LORD\u2019S mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.',
+          speaker: 'Jeremiah \u2014 honest grief, then mercy remembered',
+          plain: 'When feelings are dry, His mercy is not. His faithfulness does not depend on how alive you feel.',
+          today: 'Can you receive mercy before the feeling returns?',
+          action: 'If you want, read this verse slowly three times when you first open the app today.',
+          prayer: 'Father, my heart feels empty, but Thy mercies are new this morning. I rest in Thy faithfulness, not my feelings. Amen.',
+          goal: 'If it feels right, thank Him once for mercy that did not run out yesterday.'
+        },
+        {
+          title: 'Walking in darkness',
+          ref: 'Isaiah 50:10',
+          text: 'Who is among you that feareth the LORD, that obeyeth the voice of his servant, that walketh in darkness, and hath no light? let him trust in the name of the LORD, and stay upon his God.',
+          speaker: 'The Lord \u2014 to servants in the dark',
+          plain: 'The answer in dryness is not try harder. It is trust and stay.',
+          today: 'Where are you walking with no light and no feeling to guide you?',
+          action: 'If you can, one small act of obedience today\u2014one chapter, one honest sentence of prayer, one quiet kindness\u2014even if you feel nothing.',
+          prayer: 'Lord, I walk in darkness and have no light. I trust Thy name and stay upon Thee. Hold me. Amen.',
+          goal: 'If you want, obey in the dark without waiting for feelings to catch up.'
+        },
+        {
+          title: 'Waiting on the Lord',
+          ref: 'Psalm 62:5',
+          text: 'My soul, wait thou only upon God; for my expectation is from him.',
+          speaker: 'David \u2014 when enemies and noise pressed in',
+          plain: 'When everything feels dry, the soul is invited to wait on God alone.',
+          today: 'What are you expecting from your own heart instead of from Him?',
+          action: 'If you can, one quiet minute today with no agenda\u2014just wait. Timer optional.',
+          prayer: 'My soul, wait thou only upon God. My expectation is from Thee. Amen.',
+          goal: 'If it helps, practice waiting without rushing God for a feeling.'
+        },
+        {
+          title: 'Abiding when we feel nothing',
+          ref: 'John 15:5',
+          text: 'I am the vine, ye are the branches: He that abideth in me, and I in him, the same bringeth forth much fruit: for without me ye can do nothing.',
+          speaker: 'Jesus \u2014 the night before the cross',
+          plain: 'Abiding is not a feeling. It is staying connected to the Vine when fruit feels far off.',
+          today: 'Where are you tempted to prove your faith by effort instead of staying?',
+          action: 'If you want, tell the Lord once: \u201cI am the branch and Thou art the Vine. I stay with Thee.\u201d',
+          prayer: 'Lord Jesus, even when I feel dry and fruitless, I abide in Thee. Amen.',
+          goal: 'If it feels right, rest in the truth that staying with Jesus is enough today.'
+        },
+        {
+          title: 'Hope that returns',
+          ref: 'Habakkuk 3:17-18',
+          text: 'Although the fig tree shall not blossom, neither shall fruit be in the vines; the labour of the olive shall fail, and the fields shall yield no meat; the flock shall be cut off from the fold, and there shall be no herd in the stalls: Yet I will rejoice in the LORD, I will joy in the God of my salvation.',
+          speaker: 'Habakkuk \u2014 barren fields, yet rejoicing in God',
+          plain: 'Joy can live beside dryness. A quiet yet can stand in a barren season.',
+          today: 'What looks fruitless right now\u2014and can you still say yet before the Lord?',
+          action: 'If you want, write or speak \u201cYet I will rejoice in the LORD\u201d once today.',
+          prayer: 'Father, though my heart feels dry, yet I will rejoice in Thee and joy in the God of my salvation. Amen.',
+          goal: 'Pairs with <a href="plans.html?plan=doubtassurance">Doubt \u2192 Assurance</a> or <a href="plans.html?plan=universitydoubt">University of Doubt</a> when questions crowd the dry season.'
+        }
+      ]
     }
   };
 

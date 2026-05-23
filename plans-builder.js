@@ -24,7 +24,8 @@
     'parentinvisible',
     'griefwaves',
     'anxietyexhaust',
-    'pastorhardweek'
+    'pastorhardweek',
+    'spirituallydry'
   ];
 
   function byId(id) {

@@ -24278,3 +24278,77 @@ body.kids-corner-page .content-inner {
   color: var(--muted, #8ba6d9);
   letter-spacing: 0.02em;
 }
+
+/* Site-wide device backup reminder (tdb-backup-reminder.js) */
+.tdb-backup-reminder {
+  position: fixed;
+  z-index: 900;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 0.85rem;
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 38%, transparent);
+  background: color-mix(in srgb, var(--card, #0f1419) 92%, rgba(227, 188, 103, 0.12));
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.35);
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.tdb-backup-reminder__copy {
+  margin: 0;
+  flex: 1 1 14rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text, #e8e4d9);
+}
+
+.tdb-backup-reminder__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 0.55rem;
+}
+
+.tdb-backup-reminder__btn {
+  min-height: 44px;
+}
+
+.tdb-backup-reminder__close {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--muted, #8ba6d9);
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.tdb-backup-reminder__close:hover,
+.tdb-backup-reminder__close:focus-visible {
+  color: var(--text, #e8e4d9);
+  outline: 2px solid color-mix(in srgb, var(--gold, #e3bc67) 45%, transparent);
+  outline-offset: 2px;
+}
+
+html.tdb-backup-reminder-open body {
+  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+}
+
+@media (max-width: 520px) {
+  .tdb-backup-reminder__actions {
+    width: 100%;
+  }
+
+  .tdb-backup-reminder__btn {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+}

@@ -69,6 +69,12 @@ function main() {
   const run = spawnSync(pyCmd, args, { stdio: 'inherit', env });
   fs.unlinkSync(textPath);
   if (run.status !== 0) {
+    if (fs.existsSync(outFont)) {
+      console.log(
+        'build-hero-font-subset: skip rebuild (fontTools unavailable; using committed hero subset)'
+      );
+      return;
+    }
     fail(
       'fontTools.subset failed — run: pip3 install fonttools --target .venv-fonttools'
     );

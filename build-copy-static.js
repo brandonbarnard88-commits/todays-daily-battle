@@ -146,6 +146,7 @@ const rootFiles = [
   'script.js.map',
   'footer-build-stamp.js',
   'tdb-back-to-verse-float.js',
+  'tdb-backup-reminder.js',
   'service-worker.js',
   'sw.js',
   'register-sw.js',
@@ -820,6 +821,40 @@ if (fs.existsSync(wellKnown)) {
   });
   if (injected) {
     console.log('build-copy-static.js: injected tdb-back-to-verse-float.js in ' + injected + ' dist HTML file(s)');
+  }
+})();
+
+// Site-wide backup reminder on standard porch pages (canonical footer).
+(function injectBackupReminderScript() {
+  var SNIPPET = '\n  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=' + SITE_ASSET_VERSION + '"></script>';
+  var SKIP_BASENAMES = {
+    '404.html': true,
+    '404-admin.html': true
+  };
+  function shouldInject(filePath, html) {
+    var base = path.basename(filePath);
+    if (SKIP_BASENAMES[base]) return false;
+    if (/\/embed\//i.test(filePath.replace(/\\/g, '/'))) return false;
+    if (html.indexOf('tdb-backup-reminder.js') !== -1) return false;
+    if (!/\bsite-footer--canonical\b/.test(html)) return false;
+    return true;
+  }
+  function ensure(html) {
+    if (!/<head[^>]*>/i.test(html)) return html;
+    return html.replace(/<head([^>]*)>/i, function (m) { return m + SNIPPET; });
+  }
+  var injected = 0;
+  walkHtmlUnder(dist, function (filePath) {
+    var html = fs.readFileSync(filePath, 'utf8');
+    if (!shouldInject(filePath, html)) return;
+    var next = ensure(html);
+    if (next !== html) {
+      fs.writeFileSync(filePath, next, 'utf8');
+      injected++;
+    }
+  });
+  if (injected) {
+    console.log('build-copy-static.js: injected tdb-backup-reminder.js in ' + injected + ' dist HTML file(s)');
   }
 })();
 

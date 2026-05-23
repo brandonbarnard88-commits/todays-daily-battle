@@ -5560,7 +5560,7 @@
     jesusTempt: 'jesusTempt',
     weddingWine: 'weddingWine',
     jesusFirstMiracle: 'weddingWine',
-    jesusCallingDisciples: 'jesusCalmsStorm',
+    jesusCallingDisciples: 'fishers-of-men',
     jesusSermonMount: 'mustardSeed',
     jesusHealsBlind: 'healBlind',
     healBlind: 'healBlind',

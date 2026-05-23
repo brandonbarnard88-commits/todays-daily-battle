@@ -34,6 +34,8 @@ const SOURCE_WEBPAGE_GRAPHS = [
   'kids/porch-read-one-leper-came-back.html',
   'kids/porch-read-busy-table.html',
   'kids/porch-read-mustard-quiet.html',
+  'kids/porch-read-when-god-speaks-quietly.html',
+  'kids/porch-read-when-waiting-feels-long.html',
 ];
 
 function fail(msg) {

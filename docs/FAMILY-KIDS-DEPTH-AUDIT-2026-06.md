@@ -12,9 +12,9 @@ Builds on Discoverability Pass 2 bridges (`#kidsParentPorchPath`, `#familyPorchP
 
 | Surface | Count / state | Notes |
 |---------|----------------|--------|
-| Gentle Journey `ORDER.length` | **326** distinct keys | Goal: **365** (`CANONICAL_DISTINCT_STORY_GOAL` in `kids/kids-gentle-journey.js`) — **39** stories remain toward north star |
+| Gentle Journey `ORDER.length` | **329** distinct keys | Goal: **365** (`CANONICAL_DISTINCT_STORY_GOAL` in `kids/kids-gentle-journey.js`) — **36** stories remain toward north star |
 | Gentle Journey sections | **12** themed bands | `STARTERS` = first 12 keys; full package = read-aloud + coloring + read-quiz + corner integration (per file comment) |
-| Porch read-aloud HTML pages | **29** under `kids/porch-read-*.html` | Shelved on `kids/corner.html#kids-porch-readalouds` and `kids/index.html#kids-porch-readalouds-home` |
+| Porch read-aloud HTML pages | **31** under `kids/porch-read-*.html` | Shelved on `kids/corner.html#kids-porch-readalouds` and `kids/index.html#kids-porch-readalouds-home` |
 | Discoverability path cards (shipped) | Kids + Family heroes | `parentweary`, Family Armor, Family hub cross-links |
 | Coloring entry | `coloring.html?story=` + Verse Image ties on porch reads | Porch bundles end with coloring / verse-image paths; not every journey key has a dedicated color door |
 
@@ -32,14 +32,14 @@ Builds on Discoverability Pass 2 bridges (`#kidsParentPorchPath`, `#familyPorchP
 
 **Subtle strain**
 
-- **40 keys** still separate us from the 365 north star — builders know; parents should never feel “behind.” *(June 2026 batch 2: **`forgive70x7`** journey key + little-children + forgiveness porch reads — now **39** remain.)*
+- **36 keys** still separate us from the 365 north star — builders know; parents should never feel “behind.” *(June 2026 batch 4: **`samuelAnointsDavid`**, **`goliathChallenge`**, **`jesusCallingDisciples`** journey keys; **`porch-read-when-god-speaks-quietly.html`** + **`porch-read-when-waiting-feels-long.html`**; busy-table + mustard-quiet polish.)*
 - Not every ORDER key has an obvious **table-tonight** companion (porch read-aloud or one-tap color link).
 - Journey progress UI must stay mercy-first (local only; no public gap counter).
 
 **Fix candidate (Pass 2)**
 
 - Add stories in **small themed batches** (bedtime fear, table worship, parent weary, ordinary Tuesday) with full calm package before expanding random OT/NT coverage.
-- **Batch 1 (June 2026):** Lost Sheep + Still Waters table companions shipped (`porch-read-lost-sheep-carried-home.html`, `porch-read-still-waters.html` beside `psalm23Shepherd`); **`doNotFearIsaiah41`** — new ORDER key with full calm package + porch read. **Mealtime thankfulness** table companion shipped (`porch-read-mealtime-thankfulness.html` · Psalm 145:15–16 · `simplethanks` plan bridge · feeding-5000 coloring). **Batch 2 (June 2026):** **`forgive70x7`** journey key (Matthew 18:22 table lane · alias of unforgiving servant package); **`porch-read-suffer-little-children.html`** (Mark 10:14 · `jesusBlessKids`); **`porch-read-forgiveness-after-fight.html`** (Matthew 18:22 · `peacemakers` plan). **`porch-read-one-leper-came-back.html`** (Luke 17:15–16 · `tenLepers` · pairs with mealtime thanks). **Batch 3 (June 2026):** **`porch-read-busy-table.html`** (Luke 10:41–42 · `maryMartha` · `familyworship` plan); **`porch-read-mustard-quiet.html`** (Matthew 17:20 · `faithMustard` · When I feel… band · pairs with summer seeds growth read). Next journey batch: media-ready keys below (39 remain toward 365).
+- **Batch 1 (June 2026):** Lost Sheep + Still Waters table companions shipped (`porch-read-lost-sheep-carried-home.html`, `porch-read-still-waters.html` beside `psalm23Shepherd`); **`doNotFearIsaiah41`** — new ORDER key with full calm package + porch read. **Mealtime thankfulness** table companion shipped (`porch-read-mealtime-thankfulness.html` · Psalm 145:15–16 · `simplethanks` plan bridge · feeding-5000 coloring). **Batch 2 (June 2026):** **`forgive70x7`** journey key (Matthew 18:22 table lane · alias of unforgiving servant package); **`porch-read-suffer-little-children.html`** (Mark 10:14 · `jesusBlessKids`); **`porch-read-forgiveness-after-fight.html`** (Matthew 18:22 · `peacemakers` plan). **`porch-read-one-leper-came-back.html`** (Luke 17:15–16 · `tenLepers` · pairs with mealtime thanks). **Batch 3 (June 2026):** **`porch-read-busy-table.html`** (Luke 10:41–42 · `maryMartha` · `familyworship` plan); **`porch-read-mustard-quiet.html`** (Matthew 17:20 · `faithMustard` · When I feel… band · pairs with summer seeds growth read). **Batch 4 (June 2026):** **`samuelAnointsDavid`**, **`goliathChallenge`**, **`jesusCallingDisciples`** ORDER keys (calling/courage batch start); **`porch-read-when-god-speaks-quietly.html`** (1 Samuel 3:10 · `samuelCalls` · bedtime hush neighbor); **`porch-read-when-waiting-feels-long.html`** (1 Samuel 1:17–18 · `hannahPrayer` · `parentweary` plan). Next journey keys: `jesusTempt`, `davidJonathanFriendship`, `hannahPray` alias wiring as needed.
 - Optional builder checklist (internal doc only): read-quiz ✓ · corner card ✓ · coloring or SVG ✓ · porch read-aloud or plan link when theme fits family table.
 
 ---
@@ -179,13 +179,13 @@ Builds on Discoverability Pass 2 bridges (`#kidsParentPorchPath`, `#familyPorchP
 
 ---
 
-## Gentle Journey gap review — 39 remain (June 2026, builder-only)
+## Gentle Journey gap review — 36 remain (June 2026, builder-only)
 
-**Measure:** `ORDER.length` = **326** · goal = **365** · **39** distinct keys remain. Parents never see a gap counter; this is for calm batch planning only.
+**Measure:** `ORDER.length` = **329** · goal = **365** · **36** distinct keys remain. Parents never see a gap counter; this is for calm batch planning only.
 
-**What “39 remain” means**
+**What “36 remain” means**
 
-- Not 39 missing coloring pages or porch reads — many ORDER keys already have full packages.
+- Not 36 missing coloring pages or porch reads — many ORDER keys already have full packages.
 - New keys should be **distinct stories** (not duplicate aliases like `parableMustardSeed` / `mustardSeed` unless intentionally parallel).
 - Prefer **themed batches** (table worship, calling, temptation, Samuel/David youth) over random OT/NT fill.
 
@@ -193,32 +193,33 @@ Builds on Discoverability Pass 2 bridges (`#kidsParentPorchPath`, `#familyPorchP
 
 | Key | Table / family lane | Notes |
 |-----|---------------------|--------|
-| `samuelCall` | Listening when God speaks quietly | Pairs with bedtime hush tone |
-| `samuelAnointsDavid` | Small person, big calling | School courage neighbor |
+| `samuelCall` | Listening when God speaks quietly | Alias of `samuelCalls` (already ORDER); porch shipped |
 | `davidJonathanFriendship` | Sibling / friend loyalty | Peacemakers neighbor |
-| `goliathChallenge` | Courage when giant feels loud | Distinct from `davidGoliath` journey beat |
-| `hannahPray` / `hannahSamuel` | Waiting, answered prayer | Parent weary lane |
-| `jesusCallingDisciples` | Follow me — ordinary obedience | Family worship lane |
-| `jesusFirstMiracle` | Wedding / Cana (alias `weddingWine` in ORDER) | Likely alias, not new key |
+| `hannahPray` / `hannahSamuel` | Waiting, answered prayer | Porch shipped (`when-waiting-feels-long`) |
+| `jesusFirstMiracle` | Wedding / Cana | Alias `weddingWine` in ORDER |
 | `jesusTempt` | Standing firm | Lent / ordinary Tuesday |
 | `jesusSermonMount` | Beatitudes table | Little Shepherd bridge |
 | `rahabJericho` / `rahabRope` / `rahabWindow` | Brave trust | Courage batch |
 | `naaman` | Humble obedience | Healing / pride batch |
 
-**Porch/table coverage after batch 3 (29 read-alouds)**
+**Shipped in batch 4 (now in ORDER):** `samuelAnointsDavid`, `goliathChallenge`, `jesusCallingDisciples`.
+
+**Porch/table coverage after batch 4 (31 read-alouds)**
 
 | Moment | Doors |
 |--------|--------|
 | Thanks (daytime) | Mealtime · one leper returned |
 | Scattered supper | Busy table (Mary/Martha) |
 | Small faith | Mustard quiet · summer seeds (growth rhythm) |
+| Quiet listen | God speaks quietly · bedtime hush |
+| Waiting / weary parent | Waiting feels long · parent weary |
 | Welcome / small | Suffer little children |
 | After bump | Forgiveness after fight · soft answer · sibling friction |
 | Evening / fear | Lost sheep · do not fear · still waters · bedtime hush |
 
 **Still light (future porch or plan bridges, no rush):** first-day-of-school *for the parent*, after a hard talk *for kids*, hospital/sick visit, moving house, deployment goodbye.
 
-**Recommended next journey batch (5–7 keys):** `samuelCall`, `samuelAnointsDavid`, `jesusCallingDisciples`, `hannahPray`, `goliathChallenge`, `jesusTempt`, `davidJonathanFriendship` — each with read-quiz + corner + coloring before ORDER append; extend `foreverHope` section end index when adding.
+**Recommended next journey batch (4–6 keys):** `jesusTempt`, `davidJonathanFriendship`, `jesusSermonMount`, `naaman`, `rahabJericho`, `hannahSamuel` — each with read-quiz + corner + coloring before ORDER append; extend `foreverHope` section end index when adding.
 
 ---
 

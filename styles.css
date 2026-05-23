@@ -1599,6 +1599,104 @@ img, video {
   outline-offset: 2px;
 }
 
+.breathe-duration-pick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  justify-content: center;
+  margin: 0 0 0.75rem;
+}
+
+.breathe-duration-btn {
+  flex: 1 1 6.5rem;
+  min-height: 44px;
+  padding: 0.55rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--gold-soft, #c9a66b) 42%, transparent);
+  background: transparent;
+  color: var(--text, #e2e8f0);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.breathe-duration-btn.is-selected,
+.breathe-duration-btn[aria-pressed="true"] {
+  background: color-mix(in srgb, var(--gold-soft, #c9a66b) 18%, transparent);
+  border-color: var(--gold-soft, #c9a66b);
+  color: var(--gold-soft, #c9a66b);
+}
+
+.breathe-duration-btn:hover,
+.breathe-duration-btn:focus-visible {
+  outline: 2px solid var(--gold, #e3bc67);
+  outline-offset: 2px;
+}
+
+.breathe-progress-wrap {
+  margin: 0.75rem 0 0.25rem;
+  max-width: 16rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.breathe-progress-track {
+  height: 6px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--line, #334155) 88%, transparent);
+  overflow: hidden;
+}
+
+.breathe-progress-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--gold-soft, #c9a66b) 70%, #8ba6d9), var(--gold-soft, #c9a66b));
+  transition: width 0.35s ease;
+}
+
+.breathe-progress-label {
+  margin: 0.45rem 0 0;
+  font-size: 0.82rem;
+  color: var(--muted, #94a3b8);
+}
+
+.breathe-kjv-line {
+  margin: 0.85rem auto 0;
+  max-width: 22rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text, #e2e8f0);
+  font-style: italic;
+}
+
+.breathe-kjv-line .breathe-kjv-ref {
+  display: block;
+  margin-top: 0.35rem;
+  font-style: normal;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--muted, #94a3b8);
+}
+
+#stop-breathe {
+  margin-top: 0.85rem;
+}
+
+@media (max-width: 380px) {
+  .breathe-duration-btn {
+    flex: 1 1 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .breathe-progress-fill {
+    transition: none;
+  }
+}
+
 @keyframes tdb-breathe-scale {
   0% { transform: scale(0.88); }
   33.333% { transform: scale(1.12); }

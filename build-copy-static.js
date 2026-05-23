@@ -133,6 +133,7 @@ const rootFiles = [
   'tdb-quiet-luxury.css',
   'tdb-calm-hubs.css',
   'calm-rest-kit.js',
+  'calm-breathe.js',
   'plans-builder.js',
   'plans-weary-season-plans.js',
   'tdb-feel-combo.js',

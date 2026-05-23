@@ -104,6 +104,7 @@
   "jesusSermonMount": "mustardSeed",
   "jesusTemple": "jesusTemple",
   "jesusTemptation": "jesusTempt",
+  "jesusTempt": "jesus-tempted",
   "jesusTempted": "jesusTempted",
   "jesusWalksWater": "jesusWalksWater",
   "jesusWaterWine": "jesusWaterWine",

@@ -15177,6 +15177,8 @@ module.exports = {
   jesusDisciples: buildJesusDisciplesReadQuiz(),
   jesusWaterWine: buildJesusWaterWineReadQuiz(),
   jesusTempted: buildJesusTemptedReadQuiz(),
+  /** Journey ORDER alias — same Matthew 4 read-quiz as jesusTempted (gentle). */
+  jesusTempt: buildJesusTemptedReadQuiz(),
   jesusSermon: buildJesusSermonReadQuiz(),
   samaritanWoman: buildSamaritanWomanReadQuiz(),
   noblemanSon: buildNoblemanSonReadQuiz(),

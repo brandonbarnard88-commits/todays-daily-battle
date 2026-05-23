@@ -179,11 +179,11 @@ Builds on Discoverability Pass 2 bridges (`#kidsParentPorchPath`, `#familyPorchP
 
 ---
 
-## Gentle Journey gap review — 36 remain (June 2026, builder-only)
+## Gentle Journey gap review — 34 remain (June 2026, builder-only)
 
-**Measure:** `ORDER.length` = **329** · goal = **365** · **36** distinct keys remain. Parents never see a gap counter; this is for calm batch planning only.
+**Measure:** `ORDER.length` = **331** · goal = **365** · **34** distinct keys remain. Parents never see a gap counter; this is for calm batch planning only.
 
-**What “36 remain” means**
+**What “34 remain” means**
 
 - Not 36 missing coloring pages or porch reads — many ORDER keys already have full packages.
 - New keys should be **distinct stories** (not duplicate aliases like `parableMustardSeed` / `mustardSeed` unless intentionally parallel).
@@ -194,17 +194,19 @@ Builds on Discoverability Pass 2 bridges (`#kidsParentPorchPath`, `#familyPorchP
 | Key | Table / family lane | Notes |
 |-----|---------------------|--------|
 | `samuelCall` | Listening when God speaks quietly | Alias of `samuelCalls` (already ORDER); porch shipped |
-| `davidJonathanFriendship` | Sibling / friend loyalty | Peacemakers neighbor |
+| `davidJonathanFriendship` | Sibling / friend loyalty | Peacemakers neighbor · **ORDER shipped batch 5** |
 | `hannahPray` / `hannahSamuel` | Waiting, answered prayer | Porch shipped (`when-waiting-feels-long`) |
 | `jesusFirstMiracle` | Wedding / Cana | Alias `weddingWine` in ORDER |
-| `jesusTempt` | Standing firm | Lent / ordinary Tuesday |
+| `jesusTempt` | Standing firm | **ORDER shipped batch 5** · porch `when-wrong-feels-loud` |
 | `jesusSermonMount` | Beatitudes table | Little Shepherd bridge |
 | `rahabJericho` / `rahabRope` / `rahabWindow` | Brave trust | Courage batch |
 | `naaman` | Humble obedience | Healing / pride batch |
 
 **Shipped in batch 4 (now in ORDER):** `samuelAnointsDavid`, `goliathChallenge`, `jesusCallingDisciples`.
 
-**Porch/table coverage after batch 4 (31 read-alouds)**
+**Shipped in batch 5 (now in ORDER):** `jesusTempt`, `davidJonathanFriendship` — porch companions `when-wrong-feels-loud`, `when-friendship-costs`.
+
+**Porch/table coverage after batch 5 (33 read-alouds)**
 
 | Moment | Doors |
 |--------|--------|
@@ -214,12 +216,13 @@ Builds on Discoverability Pass 2 bridges (`#kidsParentPorchPath`, `#familyPorchP
 | Quiet listen | God speaks quietly · bedtime hush |
 | Waiting / weary parent | Waiting feels long · parent weary |
 | Welcome / small | Suffer little children |
-| After bump | Forgiveness after fight · soft answer · sibling friction |
+| After bump | Forgiveness after fight · soft answer · sibling friction · friendship costs |
+| Hard choice / temptation | Wrong choice feels loud · mustard quiet |
 | Evening / fear | Lost sheep · do not fear · still waters · bedtime hush |
 
 **Still light (future porch or plan bridges, no rush):** first-day-of-school *for the parent*, after a hard talk *for kids*, hospital/sick visit, moving house, deployment goodbye.
 
-**Recommended next journey batch (4–6 keys):** `jesusTempt`, `davidJonathanFriendship`, `jesusSermonMount`, `naaman`, `rahabJericho`, `hannahSamuel` — each with read-quiz + corner + coloring before ORDER append; extend `foreverHope` section end index when adding.
+**Recommended next journey batch (4–6 keys):** `jesusSermonMount`, `naaman`, `rahabJericho`, `hannahSamuel`, `samuelCall` — each with read-quiz + corner + coloring before ORDER append; extend `foreverHope` section end index when adding.
 
 ---
 

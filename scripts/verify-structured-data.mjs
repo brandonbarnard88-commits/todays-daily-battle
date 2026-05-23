@@ -36,6 +36,8 @@ const SOURCE_WEBPAGE_GRAPHS = [
   'kids/porch-read-mustard-quiet.html',
   'kids/porch-read-when-god-speaks-quietly.html',
   'kids/porch-read-when-waiting-feels-long.html',
+  'kids/porch-read-when-wrong-feels-loud.html',
+  'kids/porch-read-when-friendship-costs.html',
 ];
 
 function fail(msg) {

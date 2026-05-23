@@ -10135,88 +10135,123 @@
     "readAlongImages": []
   },
   "goliathChallenge": {
-    "kjvRef": "1 Samuel 17:8–11, 16, 23–30",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "1 Samuel 17:1-11, 32-50 (KJV)",
+    "verseExcerpt": "Thou comest to me with a sword, and with a spear, and with a shield: but I come to thee in the name of the LORD of hosts, the God of the armies of Israel, whom thou hast defied. — 1 Samuel 17:45 (KJV)",
+    "readAlongTitle": "Read along",
+    "quizWrongHumilityHint": "David couldn't win that fight alone—and neither can we. God could.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
+    "readAlongSections": [
+      {
+        "text": "Now the Philistines gathered together their armies to battle, and were gathered together at Shochoh, which belongeth to Judah, and pitched between Shochoh and Azekah, in Ephesdammim. And Saul and the men of Israel were gathered together, and pitched by the valley of Elah, and set the battle in array against the Philistines. And the Philistines stood on a mountain on the one side, and Israel stood on a mountain on the other side: and there was a valley between them. And there went out a champion out of the camp of the Philistines, named Goliath, of Gath, whose height was six cubits and a span.",
+        "caption": "Armies in the valley — Goliath comes out",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "And he had an helmet of brass upon his head, and he was armed with a coat of mail; and the weight of the coat was five thousand shekels of brass. And he had greaves of brass upon his legs, and a target of brass between his shoulders. And the staff of his spear was like a weaver's beam; and his spear's head weighed six hundred shekels of iron: and one bearing a shield went before him. And he stood and cried unto the armies of Israel, and said unto them, Why are ye come out to set your battle in array? am not I a Philistine, and ye servants to Saul? choose you a man for you, and let him come down to me. If he be able to fight with me, and to kill me, then will we be your servants: but if I prevail against him, and kill him, then shall ye be our servants, and serve us. And the Philistine said, I defy the armies of Israel this day; give me a man, that we may fight together. When Saul and all Israel heard those words of the Philistine, they were dismayed, and greatly afraid.",
+        "caption": "Goliath's challenge — all Israel afraid",
+        "image": "panel-david-1.svg"
+      },
+      {
+        "text": "And David said to Saul, Let no man's heart fail because of him; thy servant will go and fight with this Philistine. And Saul said to David, Thou art not able to go against this Philistine to fight with him: for thou art but a youth, and he a man of war from his youth. And David said unto Saul, Thy servant kept his father's sheep, and there came a lion, and a bear, and took a lamb out of the flock: And I went out after him, and smote him, and delivered it out of his mouth: and when he arose against me, I caught him by his beard, and smote him, and slew him. Thy servant slew both the lion and the bear: and this uncircumcised Philistine shall be as one of them, seeing he hath defied the armies of the living God. David said moreover, The LORD that delivered me out of the paw of the lion, and out of the paw of the bear, he will deliver me out of the hand of this Philistine. And Saul said unto David, Go, and the LORD be with thee.",
+        "caption": "David — thy servant will go; the living God",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "And Saul armed David with his armour, and he put an helmet of brass upon his head; also he armed him with a coat of mail. And David girded his sword upon his armour, and he assayed to go; for he had not proved it. And David said unto Saul, I cannot go with these; for I have not proved them. And David put them off him. And he took his staff in his hand, and chose him five smooth stones out of the brook, and put them in a shepherd's bag which he had, even in a scrip; and his sling was in his hand: and he drew near to the Philistine. And the Philistine came on and drew near unto David; and the man that bare the shield went before him. And when the Philistine looked about, and saw David, he disdained him: for he was but a youth, and ruddy, and of a fair countenance. And the Philistine said unto David, Am I a dog, that thou comest to me with staves? And the Philistine cursed David by his gods. And the Philistine said to David, Come to me, and I will give thy flesh unto the fowls of the air, and to the beasts of the field.",
+        "caption": "Five smooth stones — drawing near",
+        "image": "panel-david-2.svg"
+      },
+      {
+        "text": "Then said David to the Philistine, Thou comest to me with a sword, and with a spear, and with a shield: but I come to thee in the name of the LORD of hosts, the God of the armies of Israel, whom thou hast defied. This day will the LORD deliver thee into mine hand; and I will smite thee, and take thine head from thee; and I will give the carcases of the host of the Philistines this day unto the fowls of the air, and to the wild beasts of the earth; that all the earth may know that there is a God in Israel. And all this assembly shall know that the LORD saveth not with sword and spear: for the battle is the LORD's, and he will give you into our hands. And it came to pass, when the Philistine arose, and came, and drew nigh to meet David, that David hastened, and ran toward the army to meet the Philistine. And David put his hand in his bag, and took thence a stone, and slang it, and smote the Philistine in his forehead, that the stone sunk into his forehead; and he fell upon his face to the earth. So David prevailed over the Philistine with a sling and with a stone, and smote the Philistine, and slew him; but there was no sword in the hand of David.",
+        "caption": "In the name of the LORD — the stone; no sword in David's hand",
+        "image": "panel-david-3.svg"
+      }
+    ],
     "paragraphs": [
-      "Goliath's Challenge (1 Samuel 17:8–11, 16, 23–30).",
-      "Goliath shouts—who will fight me?",
-      "Everyone is afraid—except David David says: The Lord will deliver you!",
-      "God is bigger than any giant!",
-      "Face your fears—He's with you."
+      "The Philistines gathered their armies to fight against Israel. Their champion was a giant named Goliath who was over nine feet tall. Every day for forty days he stood and shouted, \"Choose you a man, and let him come down to me. If he be able to fight with me, and to kill me, then will we be your servants: but if I prevail against him, and kill him, then shall ye be our servants.\"",
+      "All the men of Israel were afraid.",
+      "David, a young shepherd boy, came to the camp with food for his brothers. He heard Goliath's words and asked, \"Who is this uncircumcised Philistine, that he should defy the armies of the living God?\"",
+      "David said to King Saul, \"Let no man's heart fail because of him; thy servant will go and fight with this Philistine.\"",
+      "Saul tried to put his own armor on David, but David took it off. He took his staff, five smooth stones from the brook, and his sling.",
+      "David ran toward Goliath and said, \"Thou comest to me with a sword, and with a spear, and with a shield: but I come to thee in the name of the Lord of hosts… This day will the Lord deliver thee into mine hand.\"",
+      "David put a stone in his sling, and slung it, and smote the Philistine in his forehead. The stone sank into his forehead, and he fell upon his face to the earth.",
+      "So David prevailed with a sling and a stone, and there was no sword in the hand of David. The Lord gave David the victory that day because David trusted in the name of the Lord.",
+      "The Bible goes on to tell how David finished the giant that day; the important heart-lesson is this: the battle was the Lord's.",
+      "For you: Real courage is trusting God — He is with you when trouble feels huge."
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
-        "question": "Where is this story found in the Bible?",
+        "question": "Who was the Philistine champion who defied Israel?",
         "choices": [
-          "Matthew 4:1–11",
-          "Matthew 4:18–22; Luke 5:1–11",
-          "1 Samuel 17:8–11, 16, 23–30",
-          "Joshua 7:1-11"
-        ],
-        "correctIndex": 2,
-        "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: 1 Samuel 17:8–11, 16, 23–30.)"
-      },
-      {
-        "question": "Who do we mainly learn from or watch in this story?",
-        "choices": [
-          "Mary — and Jesus who receives her love",
-          "Stephen",
-          "Jonathan",
-          "David"
-        ],
-        "correctIndex": 3,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: David.)"
-      },
-      {
-        "question": "Which choice sounds most like what this story teaches?",
-        "choices": [
-          "God is bigger than any giant! Face your fears—He's with you.",
-          "We should hide from God when we mess up.",
-          "The Bible is only pretend stories.",
-          "God never hears when kids pray."
+          "Goliath",
+          "David",
+          "King Saul",
+          "Samuel"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: God is bigger than any giant! Face your fears—He's with you..)"
+        "correctFeedback": "Yes — and God was greater still.",
+        "wrongFeedback": "Think of the very tall man from Gath. (Answer: Goliath.)"
       },
       {
-        "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
+        "question": "How did Israel's army feel when they heard Goliath?",
         "choices": [
-          "A talking toaster became king of the city.",
-          "Goliath shouts—who will fight me?",
-          "A spaceship landed in the parking lot.",
-          "Everyone decided to never sleep again."
+          "They were glad.",
+          "They were dismayed, and greatly afraid.",
+          "They sang.",
+          "They went home."
         ],
         "correctIndex": 1,
-        "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "correctFeedback": "Honest — and God still had a plan.",
+        "wrongFeedback": "Listen for afraid. (Answer: …greatly afraid….)"
       },
       {
-        "question": "What is one good way to respond to God after this story?",
+        "question": "What did David take besides his sling?",
         "choices": [
-          "Only be kind to people who are exactly like us.",
-          "Ignore God until we are older.",
-          "God is bigger than any giant! Face your fears—He's with you.",
-          "Never say sorry when we do wrong."
+          "Ten heavy stones.",
+          "Five smooth stones from the brook.",
+          "A chariot.",
+          "Nothing."
         ],
-        "correctIndex": 2,
-        "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: God is bigger than any giant! Face your fears—He's with you..)"
+        "correctIndex": 1,
+        "correctFeedback": "Simple tools — big trust in God.",
+        "wrongFeedback": "Think brook. (Answer: Five smooth stones….)"
+      },
+      {
+        "question": "How did David say he came to the giant?",
+        "choices": [
+          "In his own pride.",
+          "In the name of the LORD of hosts, the God of the armies of Israel.",
+          "To run away.",
+          "Without speaking."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "Beautiful — God's name first.",
+        "wrongFeedback": "Listen for LORD of hosts. (Answer: In the name of the LORD….)"
+      },
+      {
+        "question": "How did David prevail over the Philistine?",
+        "choices": [
+          "With Saul's sword in his hand.",
+          "With a sling and a stone — no sword in David's hand.",
+          "The story does not say.",
+          "He did not fight."
+        ],
+        "correctIndex": 1,
+        "correctFeedback": "The Lord gave the victory.",
+        "wrongFeedback": "Listen for sling. (Answer: …with a sling and with a stone….)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Goliath's Challenge with God's Word today.",
-    "takeaway": "God is bigger than any giant! Face your fears—He's with you.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Goliath's Challenge. Amen.",
+    "doneMessage": "Great job reading David and Goliath with God's Word today.",
+    "takeaway": "David trusted the living God — the battle was the LORD's — and He gave the victory.",
+    "prayer": "Lord, when we feel small or afraid, help us trust You like David. Thank You that the battle is Yours. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Goliath shouts—who will fight me? (goliath)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Everyone is afraid—except David (challenge)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: David says: The Lord will deliver you! (david)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Goliath shouts—who will fight me? (1 samuel 17)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Everyone is afraid—except David (giant)"
+      "Simple peaceful black-and-white line-art young children bold thick outlines large open spaces young David standing bravely calmly sling in hand five smooth stones at feet giant Goliath distant smaller spear shield far away not scary David face looks up trusting heaven soft hills sky background courageous faithful mood no blood minimal white space ages 3-8 coloring page",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Living God armies (1 sam 17)",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Five smooth stones sling",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Name of the LORD of hosts",
+      "Hand-drawn bouncy cartoon kids KJV mood soft blues gold friendly not scary no text Sling and stone victory"
     ]
   },
   "goodSamaritan": {
@@ -12782,89 +12817,136 @@
     "readAlongImages": []
   },
   "jesusCallingDisciples": {
-    "kjvRef": "Matthew 4:18–22; Luke 5:1–11",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Matthew 4:18–22 (KJV)",
+    "verseExcerpt": "Follow me, and I will make you fishers of men. — Matthew 4:19 (KJV)",
+    "readAlongTitle": "Jesus Calls His Helpers",
+    "quizWrongHumilityHint": "Listen again — Sea of Galilee; Peter and Andrew; follow Me; fishers of men; nets; James and John; boat; Zebedee their father.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Jesus Calls Disciples (Matthew 4:18–22; Luke 5:1–11). Jesus walks by the sea.",
-      "Peter and Andrew fishing Follow me. I will make you fishers of men A huge catch of fish.",
-      "nets full!",
-      "Jesus calls ordinary people — kids too!",
-      "— to follow Him and tell others the good news."
+      "Jesus was walking by the Sea of Galilee.",
+      "He saw two brothers, Simon (called Peter) and Andrew, throwing a net into the sea because they were fishermen.",
+      "Jesus said to them, “Follow me, and I will make you fishers of men.”",
+      "They left their nets right away and followed Him.",
+      "A little farther on, Jesus saw James and John in a boat with their father, mending their nets.",
+      "He called them too.",
+      "They left the boat and their father and followed Jesus.",
+      "Jesus calls people to be with Him and help tell others about God’s love.",
+      "Reference: Matthew 4:18–22 (KJV)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "Jesus walked by the Sea of Galilee.",
+        "caption": "By the sea",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "He saw Peter and Andrew fishing.",
+        "caption": "Fishermen",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "Jesus said, “Follow me.”",
+        "caption": "Kind call",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "They left their nets and followed Him.",
+        "caption": "Right away",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jesus saw James and John in their boat.",
+        "caption": "Mending nets",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "They left the boat and followed Jesus too.",
+        "caption": "Come, follow",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "Jesus calls people to be with Him.",
+        "caption": "With Him",
+        "image": "panel-jesus-2.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "1 Samuel 17:8–11, 16, 23–30",
-          "Matthew 4:18–22; Luke 5:1–11",
-          "Matthew 28:1–10, 16–20 (KJV) (par. Mark 16; Luke 24; John 20)",
-          "Luke 24:50–53; Acts 1:6–11"
+          "Psalm 23",
+          "Matthew 4:18–22",
+          "Jonah 1",
+          "Genesis 1"
         ],
         "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Matthew 4:18–22; Luke 5:1–11.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Matthew 4:18–22.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "Who called Peter, Andrew, James, and John to follow Him?",
         "choices": [
           "Jesus",
-          "David — and the Lord",
-          "Priscilla",
-          "Elisha"
+          "Herod",
+          "A nameless crowd only",
+          "Caesar"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
+        "correctFeedback": "Yes—Jesus said, “Follow me,” by the sea.",
+        "wrongFeedback": "Think about who speaks “Follow me” and “fishers of men.” (Answer: Jesus.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "The Bible is only pretend stories.",
-          "We should hide from God when we mess up.",
-          "God never hears when kids pray.",
-          "Jesus calls ordinary people — kids too! — to follow Him and tell others the good news."
+          "Jesus only cares about boats, not people.",
+          "Jesus invites people to come be with Him and help share God’s love.",
+          "Fishing nets are always bad.",
+          "The sea of Galilee was only pretend."
         ],
-        "correctIndex": 3,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Jesus calls ordinary people — kids too! — to follow Him and tell others the good news..)"
+        "correctIndex": 1,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the ending paragraphs slowly. Which matches Jesus’ kind call? (Answer: Jesus invites people to come be with Him and help share God’s love.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "Everyone decided to never sleep again.",
-          "A talking toaster became king of the city.",
-          "Jesus walks by the sea — Peter and Andrew fishing",
-          "A spaceship landed in the parking lot."
+          "Follow me, and I will make you fishers of men.",
+          "Everyone traded their boats for spaceships.",
+          "The disciples forgot how to walk.",
+          "A whale taught them to fish."
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "wrongFeedback": "Cross out the joke answers. Which one matches Jesus’ words? (Answer: Follow me, and I will make you fishers of men.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Ignore God until we are older.",
-          "Jesus calls ordinary people — kids too! — to follow Him and tell others the good news.",
-          "Never say sorry when we do wrong.",
-          "Only be kind to people who are exactly like us."
+          "Thank Jesus that He still calls people to trust Him and help others hear of God’s love.",
+          "Never listen when someone says “follow.”",
+          "Ignore the Bible until we feel perfect.",
+          "Only love people when it is easy."
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Jesus calls ordinary people — kids too! — to follow Him and tell others the good news..)"
+        "wrongFeedback": "Think: which choice shows trust in Jesus’ call? (Answer: Thank Jesus that He still calls people to trust Him and help others hear of God’s love.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Jesus Calls Disciples with God's Word today.",
-    "takeaway": "Jesus calls ordinary people — kids too! — to follow Him and tell others the good news.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Jesus Calls Disciples. Amen.",
+    "doneMessage": "Great job reading Jesus Calls His Helpers with God's Word today.",
+    "takeaway": "Jesus calls people to be with Him and help tell others about God’s love.",
+    "prayer": "Lord Jesus, thank You for calling people to follow You. Help us listen to Your voice and love others in Your name. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus walks by the sea — Peter and Andrew fishing (disciples)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Follow me — I will make you fishers of men (fishers of men)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: A huge catch of fish — nets full! (sea of galilee)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus walks by the sea — Peter and Andrew fishing (peter)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Follow me — I will make you fishers of men (andrew)"
-    ]
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus standing by the sea calling two fishermen Peter and Andrew are leaving their nets and boat to follow Him thick bold outlines with large open spaces on Jesus' robe the fishermen' robes the nets and the water for easy coloring gentle waves and a soft sky with minimal lines kind and inviting mood focus on Jesus calling His helpers clean minimal no fear plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and blue, friendly not scary, no text in image: Walking by the Sea of Galilee (shore)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and blue, friendly not scary, no text in image: Peter and Andrew casting nets (fishers)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and blue, friendly not scary, no text in image: Follow me — fishers of men (call)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and blue, friendly not scary, no text in image: Leaving nets to follow (obey)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and blue, friendly not scary, no text in image: James and John — boat and nets (come)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft cream and blue, friendly not scary, no text in image: With Jesus — helper hearts (love)"
+    ],
+    "readAlongImages": []
   },
   "jesusCalmsStorm": {
     "kjvRef": "Mark 4:35–41 (KJV) — gentle summary for little hearts",
@@ -15067,88 +15149,139 @@
     "readAlongImages": []
   },
   "jesusTempt": {
-    "kjvRef": "Matthew 4:1–11",
-    "hintAboveQuiz": "Use the comic pictures above while you read.",
+    "kjvRef": "Matthew 4:1–11 (KJV)",
+    "verseExcerpt": "Man shall not live by bread alone, but by every word that proceedeth out of the mouth of God. — Matthew 4:4 (KJV)",
+    "readAlongTitle": "Jesus Says No to Wrong Things",
+    "quizWrongHumilityHint": "Listen again — Spirit led Jesus into the wilderness; forty days; stones and bread; every word of God; do not tempt God; worship God only; devil left; angels ministered.",
+    "hintAboveQuiz": "Use the pictures while you read. Tap each part slowly.",
     "paragraphs": [
-      "Jesus Is Tempted (Matthew 4:1–11).",
-      "Jesus fasts in the desert for 40 days The devil tries to trick Jesus with bread, power, and glory Jesus uses God's Word—the devil leaves!",
-      "Use God's Word when you're tempted!",
-      "Jesus showed us how—it works."
+      "After Jesus was baptized, the Spirit led Him into the wilderness.",
+      "He was there for forty days and forty nights without eating.",
+      "The devil came and tried to get Jesus to do wrong things three times.",
+      "First the devil said, “If thou be the Son of God, command that these stones be made bread.”",
+      "Jesus answered, “It is written, Man shall not live by bread alone, but by every word that proceedeth out of the mouth of God.”",
+      "Then the devil took Him to a high place and said, “Cast thyself down.”",
+      "Jesus answered, “It is written again, Thou shalt not tempt the Lord thy God.”",
+      "Finally the devil showed Him all the kingdoms of the world and said, “All these things will I give thee, if thou wilt fall down and worship me.”",
+      "Jesus said, “Get thee hence, Satan: for it is written, Thou shalt worship the Lord thy God, and him only shalt thou serve.”",
+      "Then the devil left Him, and angels came and took care of Jesus.",
+      "Jesus always chose to obey His Father, even when it was hard.",
+      "Reference: Matthew 4:1–11 (KJV)"
+    ],
+    "readAlongSections": [
+      {
+        "text": "The Spirit led Jesus into the wilderness.",
+        "caption": "Quiet place",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "He was there forty days without eating.",
+        "caption": "Forty days",
+        "image": "panel-jesus-1.svg"
+      },
+      {
+        "text": "The devil tried to get Him to do wrong things.",
+        "caption": "Say no",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jesus said, “Man shall not live by bread alone.”",
+        "caption": "God’s Word",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jesus said, “Thou shalt not tempt the Lord thy God.”",
+        "caption": "Trust God",
+        "image": "panel-jesus-2.svg"
+      },
+      {
+        "text": "Jesus said, “Thou shalt worship the Lord thy God only.”",
+        "caption": "Worship God",
+        "image": "panel-jesus-3.svg"
+      },
+      {
+        "text": "Angels came and took care of Jesus.",
+        "caption": "God’s care",
+        "image": "panel-jesus-3.svg"
+      }
     ],
     "quizHeading": "Quiz — think it through",
     "questions": [
       {
         "question": "Where is this story found in the Bible?",
         "choices": [
-          "Matthew 17:20; Mark 11:23–24",
-          "John 2:13–16",
-          "Revelation 21",
-          "Matthew 4:1–11"
+          "Psalm 23",
+          "Matthew 4:1–11",
+          "Jonah 1",
+          "Genesis 1"
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "correctFeedback": "Yes—that matches this story's place in God's Word.",
-        "wrongFeedback": "Skim the line under the title in the story block, or check the first paragraph’s Bible note. (Answer: Matthew 4:1–11.)"
+        "wrongFeedback": "Skim the line under the title in the story block, or check the reference paragraph. (Answer: Matthew 4:1–11.)"
       },
       {
-        "question": "Who do we mainly learn from or watch in this story?",
+        "question": "What did Jesus use to answer wrong ideas?",
         "choices": [
-          "Jesus",
-          "Stephen",
-          "John",
-          "Jonathan"
+          "It is written — God’s Word",
+          "Loud shouting only",
+          "Running away without speaking",
+          "Pretending He did not hear"
         ],
         "correctIndex": 0,
-        "correctFeedback": "Right—keep that person (or group) in mind as you think about God.",
-        "wrongFeedback": "Look for who the story follows first—names in the title often help. (Answer: Jesus.)"
+        "correctFeedback": "Yes—Jesus answered with Scripture, over and over.",
+        "wrongFeedback": "Listen for “It is written” and what Jesus trusted. (Answer: It is written — God’s Word.)"
       },
       {
         "question": "Which choice sounds most like what this story teaches?",
         "choices": [
-          "We should hide from God when we mess up.",
-          "Use God's Word when you're tempted! Jesus showed us how—it works.",
-          "God never hears when kids pray.",
-          "The Bible is only pretend stories."
+          "Jesus always chose to obey His Father — we can trust God’s Word too.",
+          "Jesus said bread does not matter at all, ever.",
+          "The wilderness was only a dream.",
+          "Angels never help anyone."
         ],
-        "correctIndex": 1,
-        "correctFeedback": "Exactly—that lines up with the story and the “For you” heart of it.",
-        "wrongFeedback": "Reread the last paragraph slowly. Which option matches God's kindness and truth? (Answer: Use God's Word when you're tempted! Jesus showed us how—it works..)"
+        "correctIndex": 0,
+        "correctFeedback": "Exactly—that lines up with the story and the 'For you' heart of it.",
+        "wrongFeedback": "Reread the ending about obeying the Father and angels caring for Jesus. (Answer: Jesus always chose to obey His Father — we can trust God’s Word too.)"
       },
       {
         "question": "Which detail belongs in this Bible story (not a silly made-up one)?",
         "choices": [
-          "Everyone decided to never sleep again.",
-          "A spaceship landed in the parking lot.",
-          "Jesus fasts in the desert for 40 days",
-          "A talking toaster became king of the city."
+          "Thou shalt worship the Lord thy God, and him only shalt thou serve.",
+          "The kingdoms were made of jelly.",
+          "Jesus forgot how to talk.",
+          "The stones turned into ducks."
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "correctFeedback": "Yes—that detail comes from the story God gave us.",
-        "wrongFeedback": "Cross out the joke answers. Which one matches the comic pictures or the paragraphs you read? (Answer: the story detail, not the silly line.)"
+        "wrongFeedback": "Cross out the joke answers. Which matches Jesus’ words about worship? (Answer: Thou shalt worship the Lord thy God, and him only shalt thou serve.)"
       },
       {
         "question": "What is one good way to respond to God after this story?",
         "choices": [
-          "Ignore God until we are older.",
-          "Never say sorry when we do wrong.",
-          "Only be kind to people who are exactly like us.",
-          "Use God's Word when you're tempted! Jesus showed us how—it works."
+          "Thank Jesus for obeying the Father — ask Him to help us remember the Bible when we are tempted.",
+          "Never read the Bible when we feel worried.",
+          "Ignore parents when they quote Scripture.",
+          "Only pray on birthdays."
         ],
-        "correctIndex": 3,
+        "correctIndex": 0,
         "correctFeedback": "Beautiful—that is faith with feet: small, real, and pleasing to God.",
-        "wrongFeedback": "Think: does this choice show trust, kindness, or saying sorry to God? Pick the one that honors Him. (Answer: Use God's Word when you're tempted! Jesus showed us how—it works..)"
+        "wrongFeedback": "Think: which choice honors Jesus’ example? (Answer: Thank Jesus for obeying the Father — ask Him to help us remember the Bible when we are tempted.)"
       }
     ],
     "doneHeading": "You did it!",
-    "doneMessage": "Great job reading Jesus Is Tempted with God's Word today.",
-    "takeaway": "Use God's Word when you're tempted! Jesus showed us how—it works.",
-    "prayer": "God, thank You for the Bible. Help me remember what You showed me in Jesus Is Tempted. Amen.",
+    "doneMessage": "Great job reading Jesus Says No to Wrong Things with God's Word today.",
+    "takeaway": "Jesus always chose to obey His Father, even when it was hard.",
+    "prayer": "Lord Jesus, thank You for obeying the Father and using God’s Word. Help us trust You and say no to wrong things. Amen.",
     "imagePrompts": [
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus fasts in the desert for 40 days (jesus)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The devil tries to trick Jesus with bread, power, and glory (temptation)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus uses God's Word—the devil leaves! (desert)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: Jesus fasts in the desert for 40 days (matthew 4)",
-      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft blues and gold accents, friendly not scary, no text in image: The devil tries to trick Jesus with bread, power, and glory (devil)"
-    ]
+      "A simple peaceful black-and-white line-art scene for young children ages 3–8: Jesus standing in the quiet wilderness with soft hills and sky He has a calm strong face thick bold outlines with large open spaces on Jesus' robe and the ground for easy coloring gentle rocks and a few small bushes with minimal lines trusting and obedient mood focus on Jesus choosing to obey God clean minimal no scary devil or fear plenty of white space age-appropriate for ages 3–8 coloring page",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky, friendly not scary, no text in image: Spirit-led — wilderness (quiet)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky, friendly not scary, no text in image: Forty days — hungry but strong (trust)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky, friendly not scary, no text in image: Bread and stones — God’s Word answers (obey)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky, friendly not scary, no text in image: Do not tempt God (faith)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky, friendly not scary, no text in image: Worship the Lord only (heart)",
+      "Hand-drawn bouncy cartoon for kids, KJV Bible-story mood, soft sand and sky, friendly not scary, no text in image: Angels came — cared for Jesus (love)"
+    ],
+    "readAlongImages": []
   },
   "jesusTemptation": {
     "kjvRef": "Matthew 4:1–11; Luke 4:1–13",

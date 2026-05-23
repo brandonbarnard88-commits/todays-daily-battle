@@ -5296,22 +5296,71 @@
       color: var(--gold-soft);
       border-color: color-mix(in srgb, var(--gold) 38%, transparent);
     }
-    .tdb-hero-search-priority-hint {
-      display: none;
-      margin: 0 0 0.35rem;
+    .tdb-discover-quiet-tools {
+      margin: 0.55rem 0 0.65rem;
       padding: 0.55rem 0.75rem;
       font-size: 0.88rem;
-      line-height: 1.45;
+      line-height: 1.55;
+      color: var(--muted);
+      border-radius: 10px;
+      border: 1px dashed color-mix(in srgb, var(--line) 82%, var(--gold) 18%);
+      background: color-mix(in srgb, var(--card) 97%, var(--gold) 3%);
+      text-wrap: balance;
+    }
+    .tdb-discover-quiet-tools a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 550;
+    }
+    .tdb-discover-quiet-tools a:hover,
+    .tdb-discover-quiet-tools a:focus-visible {
+      text-decoration: underline;
+      outline: none;
+    }
+      margin: 0 0 0.65rem;
+      padding: 0.65rem 0.85rem;
+      font-size: 0.92rem;
+      line-height: 1.55;
       color: var(--muted);
       border-radius: 12px;
-      border: 1px solid color-mix(in srgb, var(--gold) 22%, transparent);
-      background: color-mix(in srgb, var(--gold) 6%, transparent);
+      border: 1px solid color-mix(in srgb, var(--line) 88%, var(--gold) 12%);
+      background: color-mix(in srgb, var(--card) 96%, var(--gold) 4%);
+      text-wrap: balance;
+    }
+    .tdb-verse-ask-bridge a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 550;
+    }
+    .tdb-verse-ask-bridge a:hover,
+    .tdb-verse-ask-bridge a:focus-visible {
+      text-decoration: underline;
+      outline: none;
+    }
+    #quick-search-hero #feel-section.card {
+      padding: 1.05rem 1.15rem 1.25rem;
+      border: 1px solid color-mix(in srgb, var(--line) 92%, var(--gold) 8%);
+      box-shadow: var(--shadow);
+    }
+    #quick-search-hero #feel-section .mood-title {
+      font-size: clamp(1.08rem, 2.55vw, 1.28rem);
+      font-weight: 600;
+      color: color-mix(in srgb, var(--text) 90%, var(--muted));
+    }
+    #quick-search-hero #feel-section .mood-subtitle.section-note {
+      font-size: 0.86rem;
     }
     @media (max-width: 1023px) {
-      .tdb-hero-search-priority-hint { display: block; }
-      /* #hero-verse-wrap + offline row stay first in DOM; avoid pulling #main-content above the verse via order */
-      #quick-search-hero { order: -34; }
-      main.tdb-home-has-progress #plan-progress-card { order: -30; }
+      /* Verse → Ask the Word: explicit stack order (matches tdb-home-experience.js reorder) */
+      main#home-primary-flow > #tdbFirstVisitBanner { order: 0; }
+      main#home-primary-flow > #tdbHeavyNow { order: 1; }
+      main#home-primary-flow > #tdbQuietCornerStrip { order: 2; }
+      main#home-primary-flow > #tdbTodaysVerseHeading { order: 3; }
+      main#home-primary-flow > #hero-verse-wrap { order: 4; }
+      main#home-primary-flow > #quick-search-hero { order: 5; }
+      main#home-primary-flow > #tdbFirstVisitNextStep { order: 6; }
+      main#home-primary-flow > #tdb-home-core-seven { order: 7; }
+      main#home-primary-flow > #plan-progress-card { order: 8; }
     }
 
     .tdb-home-resume {
@@ -9536,7 +9585,7 @@
       border-color: color-mix(in srgb, var(--gold) 28%, var(--line));
       outline: none;
     }
-    /* === Porch feel section — hero position (first interactive element) === */
+    /* === Porch feel section — one-tap doorways (disclosure below verse + Ask) === */
     .tdb-porch-feel {
       margin: 0 0 0;
       padding: 1.5rem 1.25rem 1.65rem;
@@ -9544,7 +9593,7 @@
       background: var(--card);
       border: 1px solid var(--line);
     }
-    /* Hero variant — first section on homepage, true above-fold primary */
+    /* Hero variant — full grid when expanded from disclosure */
     .tdb-porch-feel--hero {
       padding: 2rem 1.5rem 2.1rem;
       border-radius: 20px;
@@ -9862,7 +9911,7 @@
     .tdb-start-here-nav,
     .tdb-home-chain-of-hope,
     .tdb-home-todays-battle-card,
-    .tdb-hero-search-priority-hint,
+    .tdb-verse-ask-bridge,
     .first-visit-hint,
     #tdb-hero-lang-hint,
     .calm-cta-wrap,
@@ -10312,8 +10361,7 @@
     #tdbTodaysVerseHeading {
       margin: 0 0 0.65rem;
     }
-    #quick-search-hero .tdb-back-to-today,
-    #quick-search-hero .tdb-hero-search-priority-hint {
+    #quick-search-hero .tdb-back-to-today {
       display: none;
     }
     :root[data-theme="light"] .tdb-first-visit-banner,

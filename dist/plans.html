@@ -1879,6 +1879,83 @@
       outline: none;
     }
     .plans-editorial-pick-icon { font-size: 1rem; line-height: 1; }
+    .plans-builder-section {
+      margin-bottom: 1.35rem;
+      padding: 1rem 1.05rem;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--line, #30363d) 88%, var(--gold, #e3bc67) 12%);
+    }
+    .plans-builder-form label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin: 0 0 0.35rem;
+      color: var(--muted, #8b949e);
+    }
+    .plans-builder-name {
+      width: 100%;
+      max-width: 28rem;
+      min-height: 44px;
+      margin-bottom: 0.85rem;
+      padding: 0.55rem 0.75rem;
+      border-radius: 10px;
+      border: 1px solid var(--line, #30363d);
+      background: var(--card, #161c26);
+      color: var(--text, #e6edf3);
+      box-sizing: border-box;
+    }
+    .plans-builder-pick-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      align-items: flex-end;
+      margin-bottom: 0.85rem;
+    }
+    .plans-builder-field { flex: 1 1 10rem; min-width: 0; }
+    .plans-builder-select {
+      width: 100%;
+      min-height: 44px;
+      padding: 0.45rem 0.65rem;
+      border-radius: 10px;
+      border: 1px solid var(--line, #30363d);
+      background: var(--card, #161c26);
+      color: var(--text, #e6edf3);
+    }
+    .plans-builder-queue {
+      margin: 0 0 0.85rem;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .plans-builder-queue-item {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 0.65rem;
+      border-radius: 10px;
+      border: 1px solid var(--line, #30363d);
+      background: color-mix(in srgb, var(--card, #161c26) 94%, #1a2332);
+    }
+    .plans-builder-queue-item-title { flex: 1 1 12rem; font-size: 0.88rem; }
+    .plans-builder-queue-actions { display: flex; gap: 0.35rem; }
+    .plans-builder-queue-actions button {
+      min-height: 36px;
+      min-width: 36px;
+      padding: 0.35rem 0.55rem;
+      border-radius: 8px;
+      border: 1px solid var(--line, #30363d);
+      background: transparent;
+      color: var(--text, #e6edf3);
+      cursor: pointer;
+    }
+    .plans-builder-actions { margin-top: 0.35rem; }
+    .plans-builder-status { margin: 0.5rem 0 0; min-height: 1.25rem; }
+    .plan-row--custom {
+      border-color: color-mix(in srgb, var(--gold, #e3bc67) 35%, var(--line, #30363d) 65%);
+    }
     .plans-pastor-spotlight {
       margin-bottom: 1.25rem;
       padding: 1rem 1.05rem;
@@ -2421,6 +2498,7 @@
           <li><a href="#sermon-on-mount-intro">Sermon on the Mount</a></li>
           <li><a href="#bible-studies-free-title">Bible studies (free)</a></li>
           <li><a href="#plans-editorial-picks-title">Hand-picked</a></li>
+          <li><a href="#plans-builder-heading">Build your lane</a></li>
           <li><a href="#plan-suggestions-title">Suggest a plan</a></li>
           <li><a href="#all-plans">Every plan</a></li>
         </ul>
@@ -2873,6 +2951,30 @@
         </div>
         <p style="margin-top:0.65rem;">Need a ready sheet for staff or volunteer rhythm? Use the <a href="/printables.html">Printables hub</a> or the <a href="/pastor-toolkit.html">Pastor Toolkit</a>.</p>
         <p style="margin-top:0.55rem;font-size:0.85rem;color:var(--muted);">These plans are part of the <a href="/church-starter-pack.html" style="color:var(--gold-soft);">Church Starter Pack</a> — your quiet weekly operating system with Sermon Builder, printables, and pastor reset tools. &middot; <a href="/for-pastors.html" style="color:var(--gold-soft);">More tools for pastors &rarr;</a></p>
+      </section>
+      <section class="glass tdb-porch-paper-glass plans-builder-section" id="plans-builder-section" aria-labelledby="plans-builder-heading">
+        <h2 class="plans-editorial-picks-title" id="plans-builder-heading">Build your own lane</h2>
+        <p class="plans-editorial-picks-lead">Mix full Battle Plan days from the library&mdash;same KJV, reflection, and prayer. Saved on this device only. No score, no catch-up.</p>
+        <div class="plans-builder-form">
+          <label for="plans-builder-name">Name your lane (optional)</label>
+          <input type="text" id="plans-builder-name" class="plans-builder-name" maxlength="80" placeholder="e.g. Anxious parenting week" autocomplete="off">
+          <div class="plans-builder-pick-row">
+            <div class="plans-builder-field">
+              <label for="plans-builder-source-plan">From plan</label>
+              <select id="plans-builder-source-plan" class="plans-builder-select"></select>
+            </div>
+            <div class="plans-builder-field">
+              <label for="plans-builder-source-day">Day</label>
+              <select id="plans-builder-source-day" class="plans-builder-select"></select>
+            </div>
+            <button type="button" class="btn btn-secondary" id="plans-builder-add-day">Add day</button>
+          </div>
+          <ol id="plans-builder-queue" class="plans-builder-queue" aria-label="Days in your lane"></ol>
+          <div class="plans-builder-actions">
+            <button type="button" class="btn btn-primary" id="plans-builder-save">Save &amp; start lane</button>
+          </div>
+          <p id="plans-builder-status" class="section-note plans-builder-status" role="status" aria-live="polite"></p>
+        </div>
       </section>
       <section class="plans-editorial-picks" id="plan-suggestions" aria-labelledby="plan-suggestions-title">
         <h2 class="plans-editorial-picks-title" id="plan-suggestions-title">Suggest a 7-day plan</h2>
@@ -6590,6 +6692,9 @@
     function ensurePlansLoaded() {
       if (!PLANS) {
         PLANS = buildPlans();
+        if (typeof window.TDB_mergeCustomBattlePlans === 'function') {
+          window.TDB_mergeCustomBattlePlans(PLANS);
+        }
         seedPlanBreakdownOverrides();
       }
       return PLANS;
@@ -10259,6 +10364,11 @@
         scheduleIndexHydration();
         finishLoadingState();
       }
+      window.__TDBPlansBuilderGetPlans = ensurePlansLoaded;
+      window.__TDBPlansBuilderOpenPlan = openPlan;
+      if (typeof window.TDB_initPlansBuilder === 'function') {
+        window.TDB_initPlansBuilder();
+      }
     }
     window.addEventListener('tdb-red-letter-changed', function () {
       if (currentPlan && currentPlan.id === 'hisownwords') tdbApplyHisOwnWordsClosingVerse();
@@ -10273,6 +10383,7 @@
 
   }());
   </script>
+  <script defer src="plans-builder.js?v=20260523"></script>
   <!-- sync-shell-parity:plans-scripts -->
 
   <script type="module" src="config.js"></script>

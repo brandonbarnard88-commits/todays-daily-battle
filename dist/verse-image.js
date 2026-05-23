@@ -424,6 +424,24 @@
       textColor: 'paper',
       memorize: false,
       footer: 'site'
+    },
+    'T21-candle-glow': {
+      w: 1080,
+      h: 1080,
+      bg: 'night_peace',
+      layout: 'centered',
+      textColor: 'paper',
+      memorize: false,
+      footer: 'site'
+    },
+    'T22-still-cove': {
+      w: 1080,
+      h: 1350,
+      bg: 'water_reflection',
+      layout: 'centered',
+      textColor: 'paper',
+      memorize: false,
+      footer: 'site'
     }
   };
 
@@ -1242,6 +1260,160 @@
     return { key: key, main: hex };
   }
 
+  function escapeXml(str) {
+    return String(str || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function wrapSvgLines(text, maxChars) {
+    var words = String(text || '').split(/\s+/).filter(Boolean);
+    var lines = [];
+    var line = '';
+    var i;
+    for (i = 0; i < words.length; i++) {
+      var test = line ? line + ' ' + words[i] : words[i];
+      if (test.length > maxChars && line) {
+        lines.push(line);
+        line = words[i];
+      } else {
+        line = test;
+      }
+    }
+    if (line) lines.push(line);
+    return lines;
+  }
+
+  function svgGradientDef(bg, w, h) {
+    var presets = {
+      night_peace: { a: '#0f172a', b: '#1e293b', c: '#334155' },
+      water_reflection: { a: '#0c1929', b: '#155e75', c: '#0891b2' },
+      dawn: { a: '#fef9c3', b: '#fde68a', c: '#f59e0b' },
+      soft_mist_dawn: { a: '#e2e8f0', b: '#cbd5e1', c: '#94a3b8' },
+      quiet_porch: { a: '#1c1917', b: '#292524', c: '#44403c' },
+      season_bridge_soft: { a: '#ecfdf5', b: '#d1fae5', c: '#6ee7b7' },
+      open_bible_table: { a: '#292524', b: '#44403c', c: '#78716c' },
+      woodland_path: { a: '#14532d', b: '#166534', c: '#22c55e' }
+    };
+    var p = presets[bg] || presets.night_peace;
+    return (
+      '<defs><linearGradient id="tdbBg" x1="0" y1="0" x2="0" y2="1">' +
+      '<stop offset="0%" stop-color="' +
+      p.a +
+      '"/>' +
+      '<stop offset="55%" stop-color="' +
+      p.b +
+      '"/>' +
+      '<stop offset="100%" stop-color="' +
+      p.c +
+      '"/>' +
+      '</linearGradient></defs><rect width="' +
+      w +
+      '" height="' +
+      h +
+      '" fill="url(#tdbBg)"/>'
+    );
+  }
+
+  function buildSvgCard(ref, body, opts) {
+    opts = opts || {};
+    var tk = normalizeTemplateKey((opts && opts.templateKey) || 'custom');
+    var tdef = TEMPLATES[tk];
+    var isTpl = tdef && tk !== 'custom';
+    var w = isTpl ? tdef.w : 1200;
+    var h = isTpl ? tdef.h : 630;
+    var bg = (opts && opts.bg) || (tdef && tdef.bg) || 'dawn';
+    var tc = resolveTextColor(opts);
+    var serif = !opts || opts.font !== 'sans';
+    var refStr = String(ref || '');
+    var hasKjv = /\bkjv\b|\(kjv\)|\u2014\s*KJV\s*$/i.test(refStr);
+    var refDisplay = hasKjv ? refStr : refStr + (refStr ? ' \u2014 KJV' : 'KJV');
+    var sf = Math.min(w, h) / 1080;
+    if (sf < 0.48) sf = 0.48;
+    if (sf > 1.18) sf = 1.18;
+    var pad = Math.round(Math.min(w, h) * 0.18);
+    var refPx = Math.round((serif ? 54 : 50) * sf);
+    var bodyPx =
+      body.length > 520 ? Math.round((serif ? 24 : 22) * sf) : Math.round((serif ? 30 : 28) * sf);
+    var lh = Math.round((body.length > 520 ? 34 : 38) * sf);
+    var fontFam = serif ? 'Georgia, serif' : 'system-ui, sans-serif';
+    var maxChars = Math.max(18, Math.floor((w - pad * 2) / (bodyPx * 0.52)));
+    var lines = wrapSvgLines(body, maxChars);
+    var refY = pad + Math.round(refPx * 0.9);
+    var bodyStartY = refY + Math.round(refPx * 1.15);
+    var cx = w / 2;
+    var parts = [];
+    parts.push('<?xml version="1.0" encoding="UTF-8"?>');
+    parts.push(
+      '<svg xmlns="http://www.w3.org/2000/svg" width="' +
+        w +
+        '" height="' +
+        h +
+        '" viewBox="0 0 ' +
+        w +
+        ' ' +
+        h +
+        '" role="img" aria-label="' +
+        escapeXml(refDisplay) +
+        '">'
+    );
+    parts.push(svgGradientDef(bg, w, h));
+    parts.push(
+      '<text x="' +
+        cx +
+        '" y="' +
+        refY +
+        '" text-anchor="middle" fill="' +
+        tc.main +
+        '" font-family="' +
+        fontFam +
+        '" font-size="' +
+        refPx +
+        '" font-weight="700">' +
+        escapeXml(refDisplay) +
+        '</text>'
+    );
+    var lineY = bodyStartY;
+    var j;
+    for (j = 0; j < lines.length; j++) {
+      parts.push(
+        '<text x="' +
+          cx +
+          '" y="' +
+          lineY +
+          '" text-anchor="middle" fill="' +
+          tc.main +
+          '" font-family="' +
+          fontFam +
+          '" font-size="' +
+          bodyPx +
+          '">' +
+          escapeXml(lines[j]) +
+          '</text>'
+      );
+      lineY += lh;
+    }
+    if (opts.includeBranding !== false) {
+      parts.push(
+        '<text x="' +
+          cx +
+          '" y="' +
+          (h - pad * 0.55) +
+          '" text-anchor="middle" fill="' +
+          (tc.key === 'paper' ? '#64748b' : '#94a3b8') +
+          '" font-family="system-ui, sans-serif" font-size="' +
+          Math.round(18 * sf) +
+          '">' +
+          escapeXml("Made on Today's Daily Battle") +
+          '</text>'
+      );
+    }
+    parts.push('</svg>');
+    return parts.join('\n');
+  }
+
   function drawCard(canvas, ref, body, opts) {
     var ctx = canvas.getContext('2d');
     if (!ctx) return;
@@ -1955,6 +2127,38 @@
         }, 'image/png');
       });
     });
+
+    var svgBtn = document.getElementById('verse-image-download-svg-btn');
+    if (svgBtn) {
+      svgBtn.addEventListener('click', function () {
+        var ref = normRef(refEl.value);
+        var body = stripHtml(bodyEl.value);
+        if (!ref || !body) {
+          setStatus('Load a verse and update preview first.');
+          return;
+        }
+        var optsSvg = getCardOpts();
+        optsSvg.includeQr = false;
+        var svg = buildSvgCard(ref, body, optsSvg);
+        var baseSvg = 'tdb-verse-' + ref.replace(/[^a-z0-9]+/gi, '-').slice(0, 40) + '.svg';
+        try {
+          var blobSvg = new Blob([svg], { type: 'image/svg+xml;charset=utf-8' });
+          var aSvg = document.createElement('a');
+          aSvg.download = baseSvg;
+          aSvg.href = URL.createObjectURL(blobSvg);
+          aSvg.click();
+          URL.revokeObjectURL(aSvg.href);
+          trackEvent('verse_image_downloaded', {
+            ref_len: ref.length,
+            format: 'svg',
+            branding: optsSvg.includeBranding === false ? 0 : 1
+          });
+          setStatus('SVG download started.');
+        } catch (e2) {
+          setStatus('SVG download did not start—that is all right. Try PNG or print instead.');
+        }
+      });
+    }
 
     document.getElementById('verse-image-share-btn').addEventListener('click', function () {
       var ref = normRef(refEl.value);

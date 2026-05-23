@@ -56,8 +56,8 @@
     while (el.firstChild) el.removeChild(el.firstChild);
     var msg =
       n === 1
-        ? 'My loops this week: 1 quiet pass on the Möbius ribbon.'
-        : 'My loops this week: ' + n + ' quiet passes on the Möbius ribbon.';
+        ? 'My loops this week: 1 quiet pass on the Grace Ribbon.'
+        : 'My loops this week: ' + n + ' quiet passes on the Grace Ribbon.';
     el.appendChild(document.createTextNode(msg + ' '));
     var a = document.createElement('a');
     a.href = 'mobius.html';

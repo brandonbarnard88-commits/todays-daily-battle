@@ -202,6 +202,13 @@
       min-height: 44px;
     }
     .vi-preset-bar-inner { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .vi-peaceful-presets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+    .vi-peaceful-preset { min-height: 44px; font-size: 0.88rem; }
     .vi-mood-swatch-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -792,6 +799,14 @@
 
           <div class="verse-image-controls vi-preset-bar" style="align-items: flex-end;">
             <div style="flex: 1 1 100%;">
+              <span class="section-note" style="display:block; margin-bottom:0.3rem;">Peaceful presets</span>
+              <div class="vi-peaceful-presets" role="group" aria-label="Peaceful background presets with KJV anchors">
+                <button type="button" class="btn btn-secondary vi-peaceful-preset" data-vi-bg="still_waters" data-vi-ref="Psalm 23:2" title="He maketh me to lie down in green pastures: he leadeth me beside the still waters. — Psalm 23:2 (KJV)">Still waters</button>
+                <button type="button" class="btn btn-secondary vi-peaceful-preset" data-vi-bg="linen_rest" data-vi-ref="Matthew 11:28" title="Come unto me, all ye that labour and are heavy laden, and I will give you rest. — Matthew 11:28 (KJV)">Linen rest</button>
+                <button type="button" class="btn btn-secondary vi-peaceful-preset" data-vi-bg="lampstand_night" data-vi-ref="Psalm 119:105" title="Thy word is a lamp unto my feet, and a light unto my path. — Psalm 119:105 (KJV)">Lampstand night</button>
+              </div>
+            </div>
+            <div style="flex: 1 1 100%;">
               <span class="section-note" style="display:block; margin-bottom:0.3rem;">One-tap size</span>
               <div class="vi-preset-bar-inner" role="group" aria-label="Quick canvas size and aspect">
                 <button type="button" class="btn btn-secondary vi-preset-size" data-vi-preset="square" id="vi-preset-square" aria-label="Square share 1080 by 1080">Square 1:1</button>
@@ -835,6 +850,9 @@
                 <option value="ember">Ember glow</option>
                 <option value="veil">Lavender veil</option>
                 <option value="aurora">Quiet aurora</option>
+                <option value="still_waters">Still waters</option>
+                <option value="linen_rest">Linen rest</option>
+                <option value="lampstand_night">Lampstand night</option>
               </select>
             </div>
             <div style="flex: 1 1 10rem;">

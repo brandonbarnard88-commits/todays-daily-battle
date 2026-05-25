@@ -257,6 +257,13 @@
   })();
   </script>
   <a href="#home-primary-flow" class="skip-link">Skip to main content</a>
+  <div id="backup-reminder" class="gentle-banner" hidden role="region" aria-label="Quiet backup reminder">
+    <p>Your quiet work here stays on this device. When you have a calm minute, a simple JSON backup can keep your notes and verses safe.</p>
+    <div class="gentle-banner__actions">
+      <button type="button" id="backup-export-btn">Download backup</button>
+      <button type="button" id="backup-dismiss-btn">Not today</button>
+    </div>
+  </div>
   <div id="quiet-update" class="tdb-quiet-update-strip" data-tdb-quiet-update-version="2026-04-24-uog-rollout" role="status" aria-live="polite">
         <p class="tdb-quiet-update-strip__text">Update: today&rsquo;s lesson and Ask the Word refreshed.</p>
     <button type="button" class="tdb-quiet-update-strip__dismiss" id="quiet-update-dismiss" aria-label="Dismiss this update">✕</button>
@@ -1430,6 +1437,13 @@
         <p class="tdb-feel-combo-toggle-wrap">
           <button type="button" class="btn btn-secondary tdb-feel-combo-toggle" id="tdbFeelComboToggle" aria-pressed="false" aria-controls="tdbFeelComboBar">Combine two feelings</button>
         </p>
+        <!-- Combine feelings presets — small, practical, judgment-free -->
+        <div class="feel-combo-presets" role="group" aria-label="Common gentle feeling pairs">
+          <button type="button" class="feel-preset-btn" data-topics="anxiety,parenting">Anxious + parenting</button>
+          <button type="button" class="feel-preset-btn" data-topics="grief,exhaustion">Grief + exhausted</button>
+          <button type="button" class="feel-preset-btn" data-topics="anger,forgiveness">Angry + need forgiveness</button>
+          <button type="button" class="feel-preset-btn" data-topics="loneliness,hope">Lonely + need hope</button>
+        </div>
         <div class="feel-quick-topics-root" id="quickTopics" role="group" aria-label="Quick topic shortcuts. Ten feelings first; all topics behind Show all. Tap searches; Alt-click or long-press opens a matching reading plan lane. Combine mode: pick two then search.">
           <div class="tdb-feel-quick-strip" id="tdbFeelQuickStrip" role="group" aria-label="Ten common feeling shortcuts">
             <button type="button" class="btn btn-secondary quick-topic" data-topic="anxiety" aria-label="Restless or anxious">Restless</button>
@@ -2425,7 +2439,8 @@
   <script nonce="tdb2025s" defer src="start-my-day.js?v=20260423-phase5-perf"></script>
   <!-- Homepage feel-search + FEEL_GROUPS (deferred — was ~209KB inline) -->
   <script nonce="tdb2025s" defer src="tdb-home-feel.js?v=20260520-feel-ext"></script>
-  <script nonce="tdb2025s" defer src="tdb-feel-combo.js?v=20260523"></script>
+  <script nonce="tdb2025s" defer src="tdb-feel-combo.js?v=20260524-presets"></script>
+  <script nonce="tdb2025s" defer src="/js/feel-combo-presets.js"></script>
   <script nonce="tdb2025s" defer src="tdb-porch-restfulness.js?v=20260520-polish-a"></script>
   <!-- Home core first: load script.js interaction stack on user intent/idle (core-home.js). -->
   <script nonce="tdb2025s" defer src="core-home.js?v=20260515-strip-legacy-tour-chip" data-cfasync="false" fetchpriority="high"></script>
@@ -2604,5 +2619,6 @@
     });
   })();
   </script>
+  <script nonce="tdb2025s" defer src="/js/backup-reminder.js"></script>
 </body>
 </html>

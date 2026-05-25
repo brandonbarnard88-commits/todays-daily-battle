@@ -365,6 +365,9 @@ for (const f of scriptFiles) {
     copyFile(src, path.join(dist, f));
   }
 }
+if (fs.existsSync(path.join(root, 'js'))) {
+  copyDir(path.join(root, 'js'), path.join(dist, 'js'));
+}
 
 const otherHtml = htmlFiles.filter((f) => !TOPIC_FILES.includes(f) && !f.startsWith('lighthouse-'));
 for (const f of otherHtml) {
@@ -838,6 +841,7 @@ if (fs.existsSync(wellKnown)) {
   function shouldInject(filePath, html) {
     var base = path.basename(filePath);
     if (SKIP_BASENAMES[base]) return false;
+    if (base === 'index.html' && html.indexOf('backup-reminder.js') !== -1) return false;
     if (/\/embed\//i.test(filePath.replace(/\\/g, '/'))) return false;
     if (html.indexOf('tdb-backup-reminder.js') !== -1) return false;
     if (!/\bsite-footer--canonical\b/.test(html)) return false;

@@ -1524,3 +1524,55 @@ html[data-theme="light"] .mystudy-export-progress-wrap {
     text-align: center;
   }
 }
+
+/* My Study mobile collapsibles — Day 5 */
+@media (max-width: 640px) {
+  .mystudy-panel-flow {
+    gap: 1.15rem;
+  }
+
+  .mystudy-section[data-mobile-collapsible='true'] {
+    margin-bottom: 1.5rem;
+    padding: 0.25rem 0 1rem;
+  }
+
+  .mystudy-section-head {
+    cursor: pointer;
+    padding-right: 2rem;
+    position: relative;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    min-height: 44px;
+    scroll-margin-top: 1rem;
+  }
+
+  .mystudy-section-head::after {
+    content: '−';
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.4rem;
+    color: var(--muted, #94a3b8);
+    transition: transform 0.2s ease;
+    pointer-events: none;
+  }
+
+  .mystudy-section[aria-expanded='false'] .mystudy-section-head::after {
+    content: '+';
+  }
+
+  .mystudy-section-body {
+    padding-top: 0.65rem;
+    line-height: 1.75;
+  }
+
+  .mystudy-section[aria-expanded='false'] .mystudy-section-body {
+    display: none;
+  }
+
+  #mystudy-memorize-strip.mystudy-section .mystudy-section-head::after {
+    top: 0.65rem;
+    transform: none;
+  }
+}

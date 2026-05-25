@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-23T13:23:46.060Z",
+  "generatedAt": "2026-05-25T04:46:03.542Z",
   "surfacedRefCount": 3324,
   "overrideCount": 3324,
   "sourceCounts": {
@@ -2148,11 +2148,11 @@
       "pairs": 0
     },
     "verse-image.html": {
-      "refs": 49,
+      "refs": 51,
       "pairs": 0
     },
     "verse-image.js": {
-      "refs": 4,
+      "refs": 7,
       "pairs": 0
     },
     "verse-rotator.js": {

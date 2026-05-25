@@ -6,7 +6,7 @@
   'use strict';
 
   /** @type {string} Single bump token — keep in sync with SW-VERSION, verify-service-worker.mjs, and precache. */
-  var TDB_SW_QUERY = 'v=20260515-strip-tour-chip-early-v3';
+  var TDB_SW_QUERY = 'v=20260524-porch-week';
   var SW_URL = '/sw.js?' + TDB_SW_QUERY;
 
   if (typeof window === 'undefined') return;

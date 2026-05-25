@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="/vendor/dompurify.min.js"></script>
+  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Custom Battle Plan &bull; Today&rsquo;s Daily Battle</title>
+  <meta name="description" content="Create a gentle personal Battle Plan from today&apos;s KJV verse and verses saved in My Study. Five to seven verses, one calm title, saved on your device only. No account. Works offline.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/custom-plan-builder.html">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix">
+  <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260521-discover-b">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body class="dark-mode tdb-inner-page custom-plan-builder-page">
+  <a href="#main" class="skip-link">Skip to plan builder</a>
+
+  <nav class="tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+    <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel-custom-plan" id="tdb-primary-nav-toggle-custom-plan">
+      <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+      <span class="tdb-nav-flyout-toggle__label">Site</span>
+    </button>
+    <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-custom-plan">
+      <a href="/">Home</a>
+      <a href="/plans.html">Battle Plans</a>
+      <a href="/mystudy.html">My Study</a>
+      <a href="/calm.html">Calm</a>
+    </div>
+  </nav>
+
+  <main id="main" class="custom-plan-builder tdb-quiet-container">
+    <header class="custom-plan-builder__head">
+      <h1 class="custom-plan-builder__title">Create my own gentle Battle Plan</h1>
+      <p class="custom-plan-builder__lead">Pick five to seven KJV verses from today&rsquo;s porch verse or My Study. Give it an honest title. Everything stays on this device.</p>
+    </header>
+
+    <label class="custom-plan-builder__label" for="plan-title">Title (something calm and honest)</label>
+    <input id="plan-title" class="custom-plan-builder__input" type="text" maxlength="80" placeholder="When the Evenings Feel Heavy" autocomplete="off">
+
+    <section class="custom-plan-builder__section" aria-labelledby="daily-section-heading">
+      <h2 class="custom-plan-builder__section-title" id="daily-section-heading">Today&rsquo;s Daily Verse</h2>
+      <div id="daily-section" class="custom-plan-builder__source-list"></div>
+    </section>
+
+    <section class="custom-plan-builder__section" aria-labelledby="saved-section-heading">
+      <h2 class="custom-plan-builder__section-title" id="saved-section-heading">From My Study</h2>
+      <div id="saved-section" class="custom-plan-builder__source-list"></div>
+    </section>
+
+    <section class="custom-plan-builder__section" aria-labelledby="selected-section-heading">
+      <h2 class="custom-plan-builder__section-title" id="selected-section-heading">Your plan so far</h2>
+      <p class="custom-plan-builder__hint section-note" id="selected-count" aria-live="polite">0 verses — three to seven feels peaceful.</p>
+      <div id="selected-verses" class="custom-plan-builder__selected-list"></div>
+    </section>
+
+    <div class="custom-plan-builder__actions">
+      <button type="button" class="btn btn-primary" id="save-custom-plan">Save this gentle plan</button>
+      <button type="button" class="btn btn-secondary" id="cancel-custom-plan">Cancel</button>
+    </div>
+    <p id="builder-status" class="custom-plan-builder__status section-note" role="status" aria-live="polite"></p>
+  </main>
+
+  <script nonce="tdb2025s" defer src="/js/custom-plan-builder.js"></script>
+</body>
+</html>

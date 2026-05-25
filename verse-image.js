@@ -1126,6 +1126,56 @@
     ctx.restore();
   }
 
+  /** Still waters — Psalm 23:2 mood; deep teal calm. */
+  function drawStillWatersBackground(ctx, w, h) {
+    var gr = ctx.createLinearGradient(0, 0, 0, h);
+    gr.addColorStop(0, '#0f2027');
+    gr.addColorStop(0.55, '#203a43');
+    gr.addColorStop(1, '#2c5364');
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, w, h);
+    ctx.save();
+    ctx.strokeStyle = 'rgba(226, 232, 240, 0.1)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(0, h * 0.58);
+    ctx.quadraticCurveTo(w * 0.35, h * 0.54, w * 0.7, h * 0.6);
+    ctx.lineTo(w, h * 0.57);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  /** Linen rest — Matthew 11:28 mood; warm paper quiet. */
+  function drawLinenRestBackground(ctx, w, h) {
+    var gr = ctx.createLinearGradient(0, 0, w, h);
+    gr.addColorStop(0, '#faf7f2');
+    gr.addColorStop(0.5, '#f0ebe3');
+    gr.addColorStop(1, '#d6cfc4');
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, w, h);
+    var rg = ctx.createRadialGradient(w * 0.3, h * 0.25, 0, w * 0.3, h * 0.25, w * 0.85);
+    rg.addColorStop(0, 'rgba(255, 255, 255, 0.55)');
+    rg.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    ctx.fillStyle = rg;
+    ctx.fillRect(0, 0, w, h);
+  }
+
+  /** Lampstand night — Psalm 119:105 mood; muted indigo with soft warm glow. */
+  function drawLampstandNightBackground(ctx, w, h) {
+    var gr = ctx.createLinearGradient(0, 0, 0, h);
+    gr.addColorStop(0, '#1a1a2e');
+    gr.addColorStop(0.5, '#16213e');
+    gr.addColorStop(1, '#0f172a');
+    ctx.fillStyle = gr;
+    ctx.fillRect(0, 0, w, h);
+    var lamp = ctx.createRadialGradient(w * 0.5, h * 0.22, 0, w * 0.5, h * 0.22, h * 0.42);
+    lamp.addColorStop(0, 'rgba(254, 243, 199, 0.22)');
+    lamp.addColorStop(0.45, 'rgba(196, 92, 106, 0.08)');
+    lamp.addColorStop(1, 'rgba(15, 23, 42, 0)');
+    ctx.fillStyle = lamp;
+    ctx.fillRect(0, 0, w, h);
+  }
+
   /** Minimal lily form used by T14. Extremely faint. */
   function drawLilySilhouette(ctx, x, y, size) {
     ctx.beginPath();
@@ -1270,6 +1320,18 @@
       drawSeasonBridgeSoftBackground(ctx, w, h);
       return;
     }
+    if (bg === 'still_waters') {
+      drawStillWatersBackground(ctx, w, h);
+      return;
+    }
+    if (bg === 'linen_rest') {
+      drawLinenRestBackground(ctx, w, h);
+      return;
+    }
+    if (bg === 'lampstand_night') {
+      drawLampstandNightBackground(ctx, w, h);
+      return;
+    }
     var g = bgGradients(bg === 'cross' ? 'dawn' : bg);
     var gr = ctx.createLinearGradient(0, 0, w, h);
     gr.addColorStop(0, g.start);
@@ -1322,7 +1384,10 @@
       quiet_porch: { a: '#1c1917', b: '#292524', c: '#44403c' },
       season_bridge_soft: { a: '#ecfdf5', b: '#d1fae5', c: '#6ee7b7' },
       open_bible_table: { a: '#292524', b: '#44403c', c: '#78716c' },
-      woodland_path: { a: '#14532d', b: '#166534', c: '#22c55e' }
+      woodland_path: { a: '#14532d', b: '#166534', c: '#22c55e' },
+      still_waters: { a: '#0f2027', b: '#203a43', c: '#2c5364' },
+      linen_rest: { a: '#faf7f2', b: '#f0ebe3', c: '#d6cfc4' },
+      lampstand_night: { a: '#1a1a2e', b: '#16213e', c: '#0f172a' }
     };
     var p = presets[bg] || presets.night_peace;
     return (
@@ -2098,6 +2163,29 @@
         trackEvent('verse_image_mood_swatch', { template: tpl });
       });
     }
+
+    document.querySelectorAll('.vi-peaceful-preset').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var bg = btn.getAttribute('data-vi-bg');
+        var ref = btn.getAttribute('data-vi-ref');
+        if (bgEl && bg) {
+          bgEl.value = bg;
+        }
+        if (ref && refEl) {
+          refEl.value = ref;
+          fetchVerse(ref, function (data) {
+            if (data && bodyEl) {
+              bodyEl.value = data.text || '';
+            }
+            maybeLiveRedraw();
+            setStatus('Peaceful preset ready — download PNG or SVG when you like.');
+          });
+        } else {
+          maybeLiveRedraw();
+        }
+        trackEvent('verse_image_peaceful_preset', { bg: bg || '', ref: ref || '' });
+      });
+    });
 
     var printBtn = document.getElementById('verse-image-print-btn');
     if (printBtn) {

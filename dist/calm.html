@@ -403,7 +403,7 @@
             <li><a href="#calm-categories">Pick a feeling</a></li>
             <li><a href="#verse-container">Verse</a></li>
             <li><a href="#night-prayer">Night prayer</a></li>
-            <li><a href="#breathe-tool-heading">Breathe 60s</a></li>
+            <li><a href="#breathe-tool-heading">Breathe</a></li>
             <li><a href="#calm-back-home">Back home</a></li>
           </ul>
         </nav>
@@ -492,21 +492,40 @@
         </div>
         <!-- tdb: calm breathe UI is English; if you see Spanish here, edge or SW cache is stale — hard-refresh or bump CACHE_NAME -->
         <div class="breathe-tool" role="region" aria-labelledby="breathe-tool-heading">
-          <h2 id="breathe-tool-heading">Breathe with me for 60 seconds</h2>
-          <p class="quiet-note">When pain or anxiety tightens its grip, use this. No music, no pressure—just breath.</p>
+          <h2 id="breathe-tool-heading">Breathe with me</h2>
+          <p class="quiet-note">When pain or anxiety tightens its grip, use this. No music, no pressure&mdash;just breath and a quiet KJV phrase between cycles when you want longer room.</p>
 
-          <button type="button" id="start-breathe" class="big-calm-btn" aria-label="Start 60-second guided breathing exercise">
-            Start breathing (60 seconds)
-          </button>
+          <div id="breathe-picker-wrap">
+            <div class="breathe-duration-pick" id="breathe-duration-pick" role="group" aria-label="Choose how long to breathe">
+              <button type="button" class="breathe-duration-btn is-selected" data-breathe-sec="60" aria-pressed="true">60 seconds</button>
+              <button type="button" class="breathe-duration-btn" data-breathe-sec="120" aria-pressed="false">2 minutes</button>
+              <button type="button" class="breathe-duration-btn" data-breathe-sec="300" aria-pressed="false">5 minutes</button>
+            </div>
+
+            <button type="button" id="start-breathe" class="big-calm-btn" aria-label="Start 60-second guided breathing exercise">
+              Start breathing
+            </button>
+          </div>
+
+          <div id="breathe-progress-wrap" class="breathe-progress-wrap hidden" aria-hidden="true">
+            <div class="breathe-progress-track" id="breathe-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Breathing session progress">
+              <div class="breathe-progress-fill" id="breathe-progress-fill"></div>
+            </div>
+            <p class="breathe-progress-label" id="breathe-progress-label" aria-live="polite"></p>
+          </div>
 
           <div id="breathe-circle" class="breathe-circle hidden" role="img" aria-label="Breathing circle animation" aria-hidden="true">
             <div class="inner-circle"></div>
-            <div id="breathe-text" class="breathe-text" role="status" aria-live="polite" aria-atomic="true">Inhale…</div>
+            <div id="breathe-text" class="breathe-text" role="status" aria-live="polite" aria-atomic="true">Inhale&hellip;</div>
           </div>
 
+          <p class="breathe-kjv-line hidden" id="breathe-kjv-line" aria-live="polite"></p>
+
+          <button type="button" id="stop-breathe" class="small-calm-btn hidden" aria-label="Stop breathing exercise and return to duration choices">Stop when ready</button>
+
           <div id="breathe-complete" class="breathe-complete hidden" role="status" aria-live="polite">
-            <p>You did it.<br>Rest here for a moment.</p>
-            <button type="button" id="restart-breathe" class="small-calm-btn" aria-label="Run the 60-second breathing exercise again">Breathe again</button>
+            <p id="breathe-complete-text">You did it.<br>Rest here for a moment.</p>
+            <button type="button" id="restart-breathe" class="small-calm-btn" aria-label="Choose another breathing length">Choose another length</button>
           </div>
         </div>
 
@@ -695,7 +714,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">May 23, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">May 26, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
@@ -1156,89 +1175,9 @@
       }
       calmApplyNightPrayerHash();
       window.addEventListener('hashchange', calmApplyNightPrayerHash);
-
-      function initBreatheTool() {
-        var startBtn = document.getElementById('start-breathe');
-        var circle = document.getElementById('breathe-circle');
-        var text = document.getElementById('breathe-text');
-        var complete = document.getElementById('breathe-complete');
-        var restartBtn = document.getElementById('restart-breathe');
-        if (!startBtn || !circle || !text || !complete) return;
-
-        var tickId = null;
-        var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        var TOTAL_MS = reduceMotion ? 72000 : 60000;
-        var phases = reduceMotion
-          ? [
-              { label: 'Inhale…', ms: 5200 },
-              { label: 'Hold…', ms: 2800 },
-              { label: 'Exhale…', ms: 7800 }
-            ]
-          : [
-              { label: 'Inhale…', ms: 4000 },
-              { label: 'Hold…', ms: 2000 },
-              { label: 'Exhale…', ms: 6000 }
-            ];
-        var cycleMs = phases.reduce(function (a, p) { return a + p.ms; }, 0);
-
-        function phaseLabelAt(elapsedMs) {
-          var t = elapsedMs % cycleMs;
-          var acc = 0;
-          for (var i = 0; i < phases.length; i++) {
-            acc += phases[i].ms;
-            if (t < acc) return phases[i].label;
-          }
-          return phases[phases.length - 1].label;
-        }
-
-        function stopBreathe() {
-          if (tickId != null) {
-            clearInterval(tickId);
-            tickId = null;
-          }
-        }
-
-        function startBreathing() {
-          stopBreathe();
-          startBtn.classList.add('hidden');
-          circle.classList.remove('hidden');
-          circle.setAttribute('aria-hidden', 'false');
-          complete.classList.add('hidden');
-          var startTime = Date.now();
-          var lastLabel = '';
-          function tick() {
-            var elapsed = Date.now() - startTime;
-            if (elapsed >= TOTAL_MS) {
-              stopBreathe();
-              circle.classList.add('hidden');
-              circle.setAttribute('aria-hidden', 'true');
-              complete.classList.remove('hidden');
-              if (typeof gtag === 'function') gtag('event', 'calm_breathe_complete', { duration_sec: 60 });
-              return;
-            }
-            var label = phaseLabelAt(elapsed);
-            if (label !== lastLabel) {
-              lastLabel = label;
-              text.textContent = label;
-            }
-          }
-          tick();
-          tickId = setInterval(tick, 200);
-          if (typeof gtag === 'function') gtag('event', 'calm_breathe_start', {});
-        }
-
-        startBtn.addEventListener('click', startBreathing);
-        if (restartBtn) {
-          restartBtn.addEventListener('click', function () {
-            complete.classList.add('hidden');
-            text.textContent = 'Inhale…';
-            startBreathing();
-          });
-        }
-      }
-      initBreatheTool();
     })();
   </script>
+  <script defer src="calm-breathe.js?v=20260523"></script>
   <script defer src="calm-rest-kit.js?v=20260523"></script>
   <script defer src="porch-effects.js?v=20260507"></script>
 </body>

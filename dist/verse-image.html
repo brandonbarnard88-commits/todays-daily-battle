@@ -204,6 +204,13 @@
       min-height: 44px;
     }
     .vi-preset-bar-inner { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .vi-peaceful-presets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+    .vi-peaceful-preset { min-height: 44px; font-size: 0.88rem; }
     .vi-mood-swatch-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -778,6 +785,9 @@
                   <option value="T20-season-bridge-soft">T20 — Season bridge soft (1080×1080)</option>
                   <option value="T21-candle-glow">T21 — Candle glow at night (1080×1080)</option>
                   <option value="T22-still-cove">T22 — Still cove reflection (1080×1350)</option>
+                  <option value="T23-grief-rain">T23 — Gentle grief rain (1080×1350)</option>
+                  <option value="T24-morning-hope">T24 — Morning hope mist (1080×1080)</option>
+                  <option value="T25-wallpaper-quiet">T25 — Phone wallpaper quiet (1080×1920)</option>
                 </optgroup>
                 <optgroup label="Memory &amp; share">
                   <option value="T10-scripture-memory">T10 — Scripture memory / print (1080×1080)</option>
@@ -785,11 +795,19 @@
                   <option value="T12-minimal-landscape">T12 — Minimal blank (1200×630)</option>
                 </optgroup>
               </select>
-              <p id="verse-image-template-hint" class="section-note" style="margin: 0.35rem 0 0;">Calm templates for square, portrait, story, or wide share cards. Custom stays at 1200×630 for link previews. Old A–F bookmarks still load in Recent.</p>
+              <p id="verse-image-template-hint" class="section-note" style="margin: 0.35rem 0 0;">Calm templates for square, portrait, story, or wide share cards. <strong>T25</strong> fits many phone lock screens&mdash;download PNG or SVG, then set as wallpaper in your device settings. Custom stays at 1200×630 for link previews.</p>
             </div>
           </div>
 
           <div class="verse-image-controls vi-preset-bar" style="align-items: flex-end;">
+            <div style="flex: 1 1 100%;">
+              <span class="section-note" style="display:block; margin-bottom:0.3rem;">Peaceful presets</span>
+              <div class="vi-peaceful-presets" role="group" aria-label="Peaceful background presets with KJV anchors">
+                <button type="button" class="btn btn-secondary vi-peaceful-preset" data-vi-bg="still_waters" data-vi-ref="Psalm 23:2" title="He maketh me to lie down in green pastures: he leadeth me beside the still waters. — Psalm 23:2 (KJV)">Still waters</button>
+                <button type="button" class="btn btn-secondary vi-peaceful-preset" data-vi-bg="linen_rest" data-vi-ref="Matthew 11:28" title="Come unto me, all ye that labour and are heavy laden, and I will give you rest. — Matthew 11:28 (KJV)">Linen rest</button>
+                <button type="button" class="btn btn-secondary vi-peaceful-preset" data-vi-bg="lampstand_night" data-vi-ref="Psalm 119:105" title="Thy word is a lamp unto my feet, and a light unto my path. — Psalm 119:105 (KJV)">Lampstand night</button>
+              </div>
+            </div>
             <div style="flex: 1 1 100%;">
               <span class="section-note" style="display:block; margin-bottom:0.3rem;">One-tap size</span>
               <div class="vi-preset-bar-inner" role="group" aria-label="Quick canvas size and aspect">
@@ -834,6 +852,9 @@
                 <option value="ember">Ember glow</option>
                 <option value="veil">Lavender veil</option>
                 <option value="aurora">Quiet aurora</option>
+                <option value="still_waters">Still waters</option>
+                <option value="linen_rest">Linen rest</option>
+                <option value="lampstand_night">Lampstand night</option>
               </select>
             </div>
             <div style="flex: 1 1 10rem;">
@@ -1068,7 +1089,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">May 23, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">May 26, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
@@ -1080,6 +1101,6 @@
   <script type="module" src="script.js?v=20260503-consent-persist-fix"></script>
   <script src="verse-ref-slug.js"></script>
   <script src="/vendor/qrcode.browser.min.js"></script>
-  <script src="verse-image.js?v=20260523svgT21" defer></script>
+  <script src="verse-image.js?v=20260523wearyT25" defer></script>
 </body>
 </html>

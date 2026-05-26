@@ -1510,7 +1510,7 @@
       window.TDBStudyCompanion.downloadStudyLocalBackup();
       recordBackupExported();
       var backupStatus = byId('mystudy-backup-status');
-      if (backupStatus) backupStatus.textContent = 'Backup download started for this device.';
+      if (backupStatus) backupStatus.textContent = 'Backup download started. Keep the file somewhere safe—notes, verses, and plan marks are inside.';
     });
     byId('mystudy-restore-json')?.addEventListener('click', function () {
       byId('mystudy-restore-file')?.click();

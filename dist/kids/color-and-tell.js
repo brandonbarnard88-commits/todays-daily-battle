@@ -8,6 +8,47 @@
   var STORAGE_PREFIX = 'tdb-cat-v1:';
   var JPEG_QUALITY = 0.82;
   var AUTOPLAY_MS = 4500;
+
+  /** Split scene verse into quote body + KJV reference when possible. */
+  function formatVerseStrip(verseText) {
+    var raw = String(verseText || '').trim();
+    if (!raw) return { quote: '', ref: '' };
+    var m = raw.match(
+      /^(.+?)\s+((?:[1-3]\s+)?[A-Za-z]+(?:\s+[A-Za-z]+)?\s+\d[\d:,-]*(?:\s*\(KJV\))?)$/i
+    );
+    if (m && m[1].length > 12) {
+      return { quote: m[1].trim(), ref: m[2].trim() };
+    }
+    return { quote: raw, ref: '' };
+  }
+
+  function buildVerseStrip(verseText) {
+    var strip = document.createElement('div');
+    strip.className = 'kids-verse-strip';
+    var parts = formatVerseStrip(verseText);
+    var pq = document.createElement('p');
+    if (parts.quote) {
+      pq.textContent =
+        parts.quote.charAt(0) === '\u201c' || parts.quote.charAt(0) === '"'
+          ? parts.quote
+          : '\u201c' + parts.quote + '\u201d';
+    }
+    strip.appendChild(pq);
+    if (parts.ref) {
+      var sm = document.createElement('small');
+      sm.textContent = '\u2014 ' + parts.ref;
+      strip.appendChild(sm);
+    }
+    return strip;
+  }
+
+  window.printColoringScene = function () {
+    document.body.classList.add('tdb-kids-printing');
+    window.print();
+    window.setTimeout(function () {
+      document.body.classList.remove('tdb-kids-printing');
+    }, 400);
+  };
   var STORY_QUERY_ALIASES = {
     'baby-jesus': 'nativity',
     babyjesus: 'nativity',
@@ -4023,24 +4064,32 @@
             panel.hidden = sceneIdx !== 0;
 
             var cap = document.createElement('p');
-            cap.className = 'tdb-cat-scene-caption';
+            cap.className = 'tdb-cat-scene-caption no-print';
             cap.textContent = sc.caption;
-            var verse = document.createElement('p');
-            verse.className = 'tdb-cat-scene-verse';
-            verse.textContent = sc.verse;
 
             var jlBox = document.createElement('div');
-            jlBox.className = 'tdb-cat-jl-wrap';
+            jlBox.className = 'tdb-cat-jl-wrap kids-gold-frame';
             var jl = createJl(sc);
             jlBox.appendChild(jl);
 
+            var verseStrip = buildVerseStrip(sc.verse);
+
+            var printBtn = document.createElement('button');
+            printBtn.type = 'button';
+            printBtn.className = 'no-print kids-print-btn';
+            printBtn.textContent = 'Print this scene';
+            printBtn.setAttribute('aria-label', 'Print coloring page with KJV verse');
+            printBtn.addEventListener('click', function () {
+              window.printColoringScene();
+            });
+
             var saveBtn = document.createElement('button');
             saveBtn.type = 'button';
-            saveBtn.className = 'btn btn-primary tdb-cat-save-scene';
+            saveBtn.className = 'btn btn-primary tdb-cat-save-scene no-print';
             saveBtn.textContent = 'Save this scene to My Story';
 
             var msg = document.createElement('p');
-            msg.className = 'tdb-cat-scene-saved-msg';
+            msg.className = 'tdb-cat-scene-saved-msg no-print';
             if (getSaved(story.id, sc.id)) {
               msg.textContent = 'Saved on this device — you can change it anytime.';
             }
@@ -4079,8 +4128,9 @@
             });
 
             panel.appendChild(cap);
-            panel.appendChild(verse);
             panel.appendChild(jlBox);
+            panel.appendChild(verseStrip);
+            panel.appendChild(printBtn);
             panel.appendChild(saveBtn);
             panel.appendChild(msg);
             panelsWrap.appendChild(panel);

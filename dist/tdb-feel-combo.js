@@ -103,6 +103,38 @@
     } catch (e3) {}
   }
 
+  /** Public porch API — preset chips and external callers pass topic slugs (max 2). */
+  function applyTopicsAndSearch(topics) {
+    var list = (topics || [])
+      .map(function (t) {
+        return String(t || '').trim();
+      })
+      .filter(Boolean)
+      .slice(0, MAX_TOPICS);
+    if (!list.length) return;
+    selected.length = 0;
+    list.forEach(function (t) {
+      selected.push(t);
+    });
+    var bar = byId('tdbFeelComboBar');
+    var toggle = byId('tdbFeelComboToggle');
+    if (bar) {
+      bar.setAttribute('data-combo-on', '1');
+      bar.hidden = false;
+    }
+    if (toggle) toggle.setAttribute('aria-pressed', 'true');
+    syncChipPressed();
+    renderComboBar();
+    runComboSearch();
+  }
+
+  window.TDB_runFeelComboWithTopics = applyTopicsAndSearch;
+  window.runComboSearch = function (topics) {
+    if (Array.isArray(topics) && topics.length) {
+      applyTopicsAndSearch(topics);
+    }
+  };
+
   function toggleTopic(topic) {
     var idx = selected.indexOf(topic);
     if (idx !== -1) {

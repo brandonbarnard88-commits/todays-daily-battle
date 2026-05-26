@@ -13,6 +13,7 @@
   var FIRST_VISIT_KEEP_IDS = {
     tdbHeavyNow: true,
     tdbFirstVisitBanner: true,
+    tdbPorchFeel: true,
     tdbTodaysVerseHeading: true,
     'hero-verse-wrap': true,
     'quick-search-hero': true,
@@ -92,6 +93,7 @@
     var core7 = document.getElementById('tdb-home-core-seven');
     var banner = document.getElementById('tdbFirstVisitBanner');
     var porch = document.getElementById('tdbPorchFeel');
+    var startBand = document.querySelector('.tdb-start-my-day-band');
     if (!main || !verse || !search) return;
 
     if (heavyNow && heavyNow.parentNode === main) {
@@ -102,19 +104,34 @@
       }
     }
 
-    if (porch && heading && heading.parentNode === main) {
-      main.insertBefore(heading, porch);
-    } else if (banner && banner.parentNode === main && heading) {
-      after(heading, banner);
+    var flowAnchor = heavyNow || banner;
+    if (porch && porch.parentNode === main) {
+      if (flowAnchor && flowAnchor.parentNode === main) {
+        after(porch, flowAnchor);
+        flowAnchor = porch;
+      }
     }
 
-    if (porch && verse && verse.parentNode === main) {
-      main.insertBefore(verse, porch);
-    } else if (heading && verse.parentNode === main) {
-      after(verse, heading);
+    if (heading && heading.parentNode === main) {
+      if (flowAnchor && flowAnchor.parentNode === main) {
+        after(heading, flowAnchor);
+        flowAnchor = heading;
+      }
     }
 
-    after(search, verse);
+    if (verse.parentNode === main) {
+      if (flowAnchor && flowAnchor.parentNode === main) {
+        after(verse, flowAnchor);
+        flowAnchor = verse;
+      }
+    }
+
+    if (startBand) {
+      after(startBand, verse);
+      flowAnchor = startBand;
+    }
+
+    after(search, flowAnchor || verse);
 
     if (nextStep && nextStep.parentNode === main) {
       after(nextStep, search);
@@ -126,22 +143,20 @@
   }
 
   function collapseDuplicateFeel() {
+    if (document.getElementById('tdb-home-more-feelings')) return;
+
     var fastFeel = document.getElementById('tdbHomeFastFeel');
     var feelResult = document.getElementById('tdbHomeFeelResult');
-    if (fastFeel) {
-      fastFeel.classList.add('tdb-home-audit-collapsed');
-      fastFeel.setAttribute('hidden', '');
-    }
-    if (feelResult && feelResult.hasAttribute('hidden')) {
-      feelResult.classList.add('tdb-home-audit-collapsed');
-    }
+    var nodes = [fastFeel, feelResult].filter(Boolean);
+    if (!nodes.length) return;
 
-    var porch = document.getElementById('tdbPorchFeel');
-    if (porch && !porch.closest('details')) {
-      wrapInDetails('tdbPorchFeelDisclosure', 'More porch feeling doorways (heavy or grateful days)', [porch]);
-      var porchDetails = document.getElementById('tdbPorchFeelDisclosure');
-      if (porchDetails) porchDetails.open = false;
-    }
+    var details = wrapInDetails(
+      'tdb-home-more-feelings',
+      'More feelings \u2014 same one-tap verses',
+      nodes,
+      'tdb-home-more-feelings'
+    );
+    if (details) details.open = false;
   }
 
   function collapseHeroExtras() {
@@ -152,8 +167,6 @@
       'en-hub-daily-verse'
     ];
     var nodes = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
-    var startBand = document.querySelector('.tdb-start-my-day-band');
-    if (startBand) nodes.push(startBand);
     if (nodes.length) {
       wrapInDetails(
         'tdb-hero-more-tools',
@@ -399,7 +412,7 @@
     var anchor = document.getElementById('tdbNewHereCard') || document.getElementById('tdb-home-core-seven');
     if (!anchor) return;
     var ids = [
-      'tdbPorchFeelDisclosure',
+      'tdb-home-more-feelings',
       'tdb-hero-more-tools',
       'tdb-home-doorway-invites',
       'tdb-home-optional-rows',

@@ -21,8 +21,9 @@
     'tdb-first-visit-more-porch': true
   };
 
-  function after(ref, el) {
-    if (!ref || !el || !ref.parentNode) return;
+  /** Insert `el` immediately after `ref` (same parent). Works when `el` is nested inside `ref`. */
+  function after(el, ref) {
+    if (!ref || !el || !ref.parentNode || el === ref) return;
     ref.parentNode.insertBefore(el, ref.nextSibling);
   }
 

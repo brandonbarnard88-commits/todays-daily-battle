@@ -105,8 +105,8 @@
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <link rel="preload" href="tdb-visual-tokens.css?v=20260521-discover-b" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260521-discover-b">
-  <link rel="preload" href="tdb-home-page.css?v=20260523-discover" as="style">
-  <link rel="stylesheet" href="tdb-home-page.css?v=20260523-discover">
+  <link rel="preload" href="tdb-home-page.css?v=20260526-polish" as="style">
+  <link rel="stylesheet" href="tdb-home-page.css?v=20260526-polish">
   <!-- JSON-LD: DailyVerse + WebSite schema for SEO -->
   <script nonce="tdb2025s" type="application/ld+json">
   {
@@ -474,7 +474,7 @@
 
       <!-- ── Porch feel doorways — collapsed below primary flow; verse lands first ── -->
       <section class="tdb-porch-feel tdb-porch-feel--hero" id="tdbPorchFeel" aria-labelledby="tdbPorchFeelH">
-        <p class="tdb-porch-feel__eyebrow">Today&rsquo;s Daily Battle &mdash; KJV &middot; No account &middot; Works offline &middot; Works without signal&mdash;add to your home screen and it&rsquo;s always there.</p>
+        <p class="tdb-porch-feel__eyebrow">Today&rsquo;s Daily Battle &mdash; KJV &middot; No account &middot; Offline &middot; Add to home screen</p>
         <h2 class="tdb-porch-feel__heading" id="tdbPorchFeelH">How is the day sitting with you?</h2>
         <p class="tdb-porch-feel__sub">Heavy week or light heart&mdash;one tap brings matching Scripture beside you. No typing yet.</p>
         <div class="tdb-porch-feel__grid" role="group" aria-label="When the day feels heavy — tap one for a matching KJV verse and gentle plan">
@@ -2441,7 +2441,7 @@
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <!-- Phase 6: home secondary stack (injected by script.js after idle): memory-verses.js home-votm.js?v=20260402homevotm4 tdb-home-mobius-week.js?v=20260330home sky-ip-geo.js?v=20260327ipgeo word-study.js verse-narration.js verse-study.js family-verse-bridge.js gentle-suggest.js verse-breakdown-overrides.js?v=20260417-hydration verse-breakdown.js?v=20260417-hydration -->
   <script nonce="tdb2025s" type="module" fetchpriority="high" src="config.js"></script>
-  <script nonce="tdb2025s" defer src="tdb-home-experience.js?v=20260526-after-fix2"></script>
+  <script nonce="tdb2025s" defer src="tdb-home-experience.js?v=20260526-polish"></script>
   <script nonce="tdb2025s" defer src="start-my-day.js?v=20260423-phase5-perf"></script>
   <!-- Homepage feel-search + FEEL_GROUPS (deferred — was ~209KB inline) -->
   <script nonce="tdb2025s" defer src="tdb-home-feel.js?v=20260520-feel-ext"></script>

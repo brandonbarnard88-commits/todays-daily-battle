@@ -16,6 +16,7 @@
     tdbPorchFeel: true,
     tdbTodaysVerseHeading: true,
     'hero-verse-wrap': true,
+    tdbStartMyDayBand: true,
     'quick-search-hero': true,
     tdbFirstVisitNextStep: true,
     'tdb-first-visit-more-porch': true

@@ -21,10 +21,15 @@
     'tdb-first-visit-more-porch': true
   };
 
-  /** Insert `el` immediately after `ref` (same parent). Works when `el` is nested inside `ref`. */
+  /** Insert `el` immediately after `ref`. Safe when `el` is nested inside `ref`. */
   function after(el, ref) {
     if (!ref || !el || !ref.parentNode || el === ref) return;
-    ref.parentNode.insertBefore(el, ref.nextSibling);
+    if (el.previousElementSibling === ref) return;
+    try {
+      ref.parentNode.insertBefore(el, ref.nextSibling);
+    } catch (e) {
+      /* ignore invalid moves — static HTML order is the fallback */
+    }
   }
 
   function wrapInDetails(id, summaryText, nodes, extraClass) {
@@ -94,7 +99,7 @@
     var core7 = document.getElementById('tdb-home-core-seven');
     var banner = document.getElementById('tdbFirstVisitBanner');
     var porch = document.getElementById('tdbPorchFeel');
-    var startBand = document.querySelector('.tdb-start-my-day-band');
+    var startBand = document.getElementById('tdbStartMyDayBand') || document.querySelector('.tdb-start-my-day-band');
     if (!main || !verse || !search) return;
 
     if (heavyNow && heavyNow.parentNode === main) {
@@ -127,8 +132,10 @@
       }
     }
 
-    if (startBand) {
-      after(startBand, verse);
+    if (startBand && verse) {
+      if (verse.contains(startBand) || startBand.previousElementSibling !== verse) {
+        after(startBand, verse);
+      }
       flowAnchor = startBand;
     }
 

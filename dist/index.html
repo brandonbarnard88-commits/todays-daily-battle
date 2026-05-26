@@ -744,10 +744,6 @@
             </details>
           </div>
         </div>
-        <div class="tdb-start-my-day-band" role="region" aria-label="Start my day: verse, feeling, and a gentle plan">
-          <p class="tdb-start-my-day-line">One verse. One honest feeling. One simple plan.</p>
-          <button type="button" id="tdbStartMyDayBtn" class="btn btn-primary tdb-start-my-day-btn" aria-haspopup="dialog" aria-controls="tdbStartMyDayDialog">Start My Day</button>
-        </div>
         <dialog id="tdbStartMyDayDialog" class="tdb-start-my-day-dialog" aria-modal="true" aria-labelledby="tdbSmdH1">
           <div class="tdb-smd-panel">
             <div class="tdb-smd-top">
@@ -927,6 +923,11 @@
         <p class="tdb-porch-restfulness__thanks" id="tdbPorchRestfulnessThanks" hidden>Saved on this device only—thank you.</p>
       </div>
       </div><!-- /#hero-verse-wrap -->
+
+      <div class="tdb-start-my-day-band" id="tdbStartMyDayBand" role="region" aria-label="Start my day: verse, feeling, and a gentle plan">
+        <p class="tdb-start-my-day-line">One verse. One honest feeling. One simple plan.</p>
+        <button type="button" id="tdbStartMyDayBtn" class="btn btn-primary tdb-start-my-day-btn" aria-haspopup="dialog" aria-controls="tdbStartMyDayDialog">Start My Day</button>
+      </div>
 
       <!-- ── Daily email signup (always visible — same form as before, no “More rooms” gate) ── -->
       <section class="card tdb-home-newsletter-card" id="newsletter" aria-labelledby="tdbNewsletterHeading">
@@ -2474,7 +2475,7 @@
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <!-- Phase 6: home secondary stack (injected by script.js after idle): memory-verses.js home-votm.js?v=20260402homevotm4 tdb-home-mobius-week.js?v=20260330home sky-ip-geo.js?v=20260327ipgeo word-study.js verse-narration.js verse-study.js family-verse-bridge.js gentle-suggest.js verse-breakdown-overrides.js?v=20260417-hydration verse-breakdown.js?v=20260417-hydration -->
   <script nonce="tdb2025s" type="module" fetchpriority="high" src="config.js"></script>
-  <script nonce="tdb2025s" defer src="tdb-home-experience.js?v=20260526-hero-collapse"></script>
+  <script nonce="tdb2025s" defer src="tdb-home-experience.js?v=20260526-after-fix2"></script>
   <script nonce="tdb2025s" defer src="start-my-day.js?v=20260423-phase5-perf"></script>
   <!-- Homepage feel-search + FEEL_GROUPS (deferred — was ~209KB inline) -->
   <script nonce="tdb2025s" defer src="tdb-home-feel.js?v=20260520-feel-ext"></script>

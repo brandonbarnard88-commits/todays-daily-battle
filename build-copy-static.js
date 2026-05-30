@@ -884,7 +884,7 @@ if (fs.existsSync(wellKnown)) {
 
 // Inner pages: explicit swoop JS (do not rely on script.js dynamic inject alone).
 (function injectTdbSwoopSurfacesScript() {
-  var SWOOP_V = '20260530-swoop-fix3';
+  var SWOOP_V = '20260530-swoop-final';
   var SNIPPET = '\n  <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=' + SWOOP_V + '"></script>';
   var SKIP_BASENAMES = { '404.html': true, '404-admin.html': true };
   function shouldInject(filePath, html) {
@@ -916,7 +916,7 @@ if (fs.existsSync(wellKnown)) {
 
 // Inner pages: explicit swoop CSS link (belt-and-suspenders beside bundled styles.css).
 (function injectTdbSwoopSurfacesCssLink() {
-  var SWOOP_V = '20260530-swoop-fix3';
+  var SWOOP_V = '20260530-swoop-final';
   var PRELOAD = '  <link rel="preload" href="/tdb-swoop-surfaces.css?v=' + SWOOP_V + '" as="style">\n';
   var SWOOP_LINK = '  <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=' + SWOOP_V + '">\n';
   var SNIPPET = PRELOAD + SWOOP_LINK;

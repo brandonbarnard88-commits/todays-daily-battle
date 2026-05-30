@@ -85,13 +85,30 @@ blockquote.day-card-verse-text,
   margin-bottom: calc(var(--tdb-swoop-section-gap) - 0.5rem);
 }
 
-.tdb-topic-mood-page .list-item {
-  padding: 1rem 0;
-  border-bottom: 1px solid color-mix(in srgb, var(--line, #2a3344) 80%, transparent);
+/* Topic mood — gold-bordered verse rows (do not strip styles.css glass .list-item cards) */
+.tdb-topic-mood-page .content-inner section.glass .list .list-item {
+  line-height: 1.7;
+  padding: clamp(1.35rem, 3vw, 2rem) clamp(1.15rem, 2.8vw, 1.75rem);
+  margin-bottom: 1rem;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--card, #1b212d) 92%, rgba(255, 255, 255, 0.04));
+  border: 1px solid color-mix(in srgb, var(--gold, #f4c95d) 22%, var(--line, #2a3344) 78%);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+  border-left: none;
 }
 
-.tdb-topic-mood-page .list-item:last-child {
-  border-bottom: 0;
+.tdb-topic-mood-page .content-inner section.glass .list .list-item:last-child {
+  margin-bottom: 0;
+}
+
+.tdb-topic-mood-page .content-inner section.glass .list .list-item p {
+  line-height: 1.7;
+}
+
+.tdb-topic-mood-page .key-verse,
+.plans-page .plan-day-verse-shell,
+.plans-page .day-card {
+  line-height: 1.7;
 }
 
 /* ── Phase 1: Buttons ── */
@@ -159,6 +176,11 @@ blockquote.day-card-verse-text,
   padding-top: 0.65rem;
 }
 
+.tdb-vb-share-row--plan {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+}
+
 /* ── Phase 3: Trust quotes near hero ── */
 .tdb-home-reader-stories.tdb-home-reader-stories--hero-trust {
   display: block !important;
@@ -190,14 +212,29 @@ blockquote.day-card-verse-text,
   color: var(--gold-soft, #e8d088);
 }
 
-.tdb-hero-quiet-eyebrow {
-  margin: 0.35rem 0 0.15rem;
+.tdb-hero-quiet-eyebrow,
+#tdbHeroQuietEyebrow.tdb-hero-quiet-eyebrow {
+  display: block !important;
+  visibility: visible !important;
+  margin: 0.15rem 0 0.35rem;
   font-size: 0.74rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: color-mix(in srgb, var(--gold, #f4c95d) 78%, var(--muted, #94a3b8));
+  color: color-mix(in srgb, var(--gold, #f4c95d) 80%, var(--muted, #94a3b8));
   line-height: 1.45;
+}
+
+/* Hero eyebrow carries Why not AI? — hide duplicate line inside porch feel block */
+#tdbPorchFeel > .tdb-porch-feel__eyebrow {
+  display: none !important;
+}
+
+#tdbHeroQuietEyebrow .tdb-porch-feel__eyebrow-link {
+  color: var(--gold-soft, #e8d088);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
 }
 
 /* ── Site-wide bottom dock (homepage + inner pages) ── */

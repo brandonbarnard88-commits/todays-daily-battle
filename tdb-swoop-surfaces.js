@@ -102,17 +102,37 @@
     });
   }
 
+  function verseBlockHost(block) {
+    if (!block) return null;
+    if (block.classList && block.classList.contains('list-item')) {
+      return block.querySelector(':scope > div') || block.firstElementChild || block;
+    }
+    return block;
+  }
+
+  function attachShareRow(host, getPayload, extraClass) {
+    if (!host || host.querySelector('.tdb-vb-share-row')) return;
+    var row = document.createElement('div');
+    row.className = 'tdb-vb-share-row' + (extraClass ? ' ' + extraClass : '');
+    row.appendChild(makeShareButton(getPayload));
+    host.appendChild(row);
+  }
+
   function attachTopicShareButtons() {
     if (!document.body.classList.contains('tdb-topic-mood-page')) return;
-    document.querySelectorAll('.tdb-topic-mood-page .list-item').forEach(function (item) {
-      if (item.querySelector('.tdb-vb-share-row')) return;
-      var host = item.querySelector(':scope > div') || item;
-      var row = document.createElement('div');
-      row.className = 'tdb-vb-share-row tdb-vb-share-row--topic';
-      row.appendChild(makeShareButton(function () {
+    document.querySelectorAll('.tdb-topic-mood-page .list-item, .tdb-topic-mood-page .key-verse').forEach(function (item) {
+      attachShareRow(verseBlockHost(item), function () {
         return shareTextFromTopicItem(item);
-      }));
-      host.appendChild(row);
+      }, 'tdb-vb-share-row--topic');
+    });
+  }
+
+  function attachPlanShareButtons() {
+    if (!document.querySelector('.plans-page') && !document.querySelector('.plan-detail')) return;
+    document.querySelectorAll('.plan-day-verse-shell, .day-card').forEach(function (block) {
+      attachShareRow(block, function () {
+        return shareTextFromBreakdown(block);
+      }, 'tdb-vb-share-row--plan');
     });
   }
 
@@ -120,6 +140,7 @@
     injectTopicStartStrip();
     attachBreakdownShareButtons();
     attachTopicShareButtons();
+    attachPlanShareButtons();
   }
 
   if (document.readyState === 'loading') {
@@ -130,6 +151,15 @@
 
   document.addEventListener('tdb-verse-breakdown-ready', init);
   window.addEventListener('load', init);
+  window.addEventListener('pageshow', init);
+
+  /* Belt-and-suspenders for inner templates that paint late (topic mood + plans). */
+  if (document.body.classList.contains('tdb-topic-mood-page') ||
+      document.querySelector('.plans-page') ||
+      document.querySelector('.plan-detail')) {
+    setTimeout(init, 0);
+    setTimeout(init, 400);
+  }
 
   if (typeof MutationObserver === 'function') {
     var inner = document.querySelector('.content-inner, main');

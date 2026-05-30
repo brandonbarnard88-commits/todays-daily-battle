@@ -154,6 +154,11 @@ blockquote.day-card-verse-text,
   outline-offset: 2px;
 }
 
+.tdb-vb-share-row--topic {
+  margin-top: 0.65rem;
+  padding-top: 0.65rem;
+}
+
 /* ── Phase 3: Trust quotes near hero ── */
 .tdb-home-reader-stories--hero-trust {
   margin: 1.25rem 0 1.75rem;

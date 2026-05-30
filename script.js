@@ -2789,10 +2789,12 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
 (function loadTdbSwoopSurfaces() {
   if (typeof document === 'undefined') return;
   if (document.querySelector('script[src*="tdb-swoop-surfaces.js"]')) return;
-  var trusted = trustedScriptURL('/tdb-swoop-surfaces.js?v=20260526-swoop');
-  if (!trusted) return;
+  var url = '/tdb-swoop-surfaces.js?v=20260530-swoop-fix1';
+  var trusted = trustedScriptURL(url);
+  var src = trusted || url;
+  if (window.trustedTypes && window.trustedTypes.defaultPolicy && !trusted) return;
   var swoop = document.createElement('script');
-  swoop.src = trusted;
+  swoop.src = src;
   swoop.defer = true;
   swoop.setAttribute('data-tdb-swoop-surfaces', '1');
   document.head.appendChild(swoop);

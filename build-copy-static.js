@@ -868,6 +868,52 @@ if (fs.existsSync(wellKnown)) {
   }
 })();
 
+// Bundle swoop CSS into dist/styles.css so inner pages get typography/cards (clean-css drops loose @imports).
+(function bundleTdbSwoopSurfacesCss() {
+  var SWOOP_MARKER = '/* tdb-swoop-surfaces bundled */';
+  var stylesPath = path.join(dist, 'styles.css');
+  var swoopPath = path.join(dist, 'tdb-swoop-surfaces.css');
+  if (!fs.existsSync(stylesPath) || !fs.existsSync(swoopPath)) return;
+  var styles = fs.readFileSync(stylesPath, 'utf8');
+  if (styles.indexOf(SWOOP_MARKER) !== -1) return;
+  styles = styles.replace(/@import url\("tdb-swoop-surfaces\.css"\);\s*/g, '');
+  var swoop = fs.readFileSync(swoopPath, 'utf8');
+  fs.writeFileSync(stylesPath, styles + '\n' + SWOOP_MARKER + '\n' + swoop, 'utf8');
+  console.log('build-copy-static.js: bundled tdb-swoop-surfaces.css into dist/styles.css');
+})();
+
+// Inner pages: explicit swoop JS (do not rely on script.js dynamic inject alone).
+(function injectTdbSwoopSurfacesScript() {
+  var SWOOP_V = '20260530-swoop-fix1';
+  var SNIPPET = '\n  <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=' + SWOOP_V + '"></script>';
+  var SKIP_BASENAMES = { '404.html': true, '404-admin.html': true };
+  function shouldInject(filePath, html) {
+    var base = path.basename(filePath);
+    if (SKIP_BASENAMES[base]) return false;
+    if (/\/embed\//i.test(filePath.replace(/\\/g, '/'))) return false;
+    if (html.indexOf('tdb-swoop-surfaces.js') !== -1) return false;
+    if (base === 'index.html') return false;
+    return /\btdb-inner-page\b/.test(html) || base === 'start.html';
+  }
+  function ensure(html) {
+    if (!/<\/body>/i.test(html)) return html;
+    return html.replace(/<\/body>/i, SNIPPET + '\n</body>');
+  }
+  var injected = 0;
+  walkHtmlUnder(dist, function (filePath) {
+    var html = fs.readFileSync(filePath, 'utf8');
+    if (!shouldInject(filePath, html)) return;
+    var next = ensure(html);
+    if (next !== html) {
+      fs.writeFileSync(filePath, next, 'utf8');
+      injected++;
+    }
+  });
+  if (injected) {
+    console.log('build-copy-static.js: injected tdb-swoop-surfaces.js in ' + injected + ' dist HTML file(s)');
+  }
+})();
+
 // Write build-date.txt so JS can fetch it as fallback if HTML replacement missed
 fs.writeFileSync(path.join(dist, 'build-date.txt'), BUILD_DATE_STR, 'utf8');
 

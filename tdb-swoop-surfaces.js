@@ -1,8 +1,10 @@
 /**
- * TDB swoop — Phase 2 topic start strip + Phase 3 share on breakdown containers.
+ * TDB swoop — topic start strip + share on breakdown and topic verse blocks.
  */
 (function () {
   'use strict';
+
+  var SWOOP_BOOT = 'tdb-swoop-surfaces-v1';
 
   function injectTopicStartStrip() {
     if (!document.body.classList.contains('tdb-topic-mood-page')) return;
@@ -21,73 +23,121 @@
     strip.appendChild(mapLink);
     strip.appendChild(document.createTextNode(' — hard moment, daily rhythm, family, or church.'));
     var hero = inner.querySelector('header.hero-banner, #topic-top');
-    if (hero && hero.nextSibling) {
-      inner.insertBefore(strip, hero.nextSibling);
+    if (hero && hero.parentNode) {
+      hero.parentNode.insertBefore(strip, hero.nextSibling);
     } else {
       inner.insertBefore(strip, inner.firstChild);
     }
   }
 
-  function shareTextFromContainer(container) {
-    var refEl = container.querySelector('.big-kjv strong, .big-kjv, .verse-ref, [id$="Ref"]');
-    var verseEl = container.querySelector('.verse-body, .hero-verse, .verse-text, blockquote');
-    var ref = refEl ? refEl.textContent.replace(/\s+/g, ' ').trim() : '';
-    var text = verseEl ? verseEl.textContent.replace(/\s+/g, ' ').trim() : '';
-    if (!ref && !text) return '';
-    return (ref ? ref + ': ' : '') + '\u201c' + text + '\u201d\n\u2014 todaysdailybattle.com';
+  function sharePayload(ref, text) {
+    if (!ref && !text) return null;
+    return {
+      title: 'Today\u2019s Daily Battle',
+      text: (ref ? ref + ': ' : '') + '\u201c' + text + '\u201d\n\u2014 todaysdailybattle.com',
+      url: window.location.href.split('#')[0]
+    };
   }
 
-  function attachShareButtons() {
-    var containers = document.querySelectorAll('.verse-breakdown-container');
-    containers.forEach(function (container) {
-      if (container.querySelector('.tdb-vb-share-row')) return;
-      var row = document.createElement('div');
-      row.className = 'tdb-vb-share-row';
-      var btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'tdb-vb-share-btn hero-toolbar-btn';
-      btn.textContent = 'Share this verse';
-      btn.setAttribute('aria-label', 'Share this KJV verse');
-      btn.addEventListener('click', function () {
-        var text = shareTextFromContainer(container);
-        if (!text) return;
-        var payload = {
-          title: 'Today\u2019s Daily Battle',
-          text: text,
-          url: window.location.href.split('#')[0]
-        };
-        if (navigator.share) {
-          navigator.share(payload).catch(function () {
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-              navigator.clipboard.writeText(text).then(function () {
-                btn.textContent = 'Copied';
-                setTimeout(function () { btn.textContent = 'Share this verse'; }, 1800);
-              });
-            }
-          });
-        } else if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(text).then(function () {
+  function runShare(btn, payload) {
+    if (!payload) return;
+    if (navigator.share) {
+      navigator.share(payload).catch(function () {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(payload.text).then(function () {
             btn.textContent = 'Copied';
             setTimeout(function () { btn.textContent = 'Share this verse'; }, 1800);
           });
         }
-        if (typeof trackEvent === 'function') {
-          trackEvent('verse_share', { surface: 'breakdown' });
-        }
       });
-      row.appendChild(btn);
+    } else if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(payload.text).then(function () {
+        btn.textContent = 'Copied';
+        setTimeout(function () { btn.textContent = 'Share this verse'; }, 1800);
+      });
+    }
+    if (typeof trackEvent === 'function') {
+      trackEvent('verse_share', { surface: 'breakdown' });
+    }
+  }
+
+  function makeShareButton(getPayload) {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tdb-vb-share-btn hero-toolbar-btn';
+    btn.textContent = 'Share this verse';
+    btn.setAttribute('aria-label', 'Share this KJV verse');
+    btn.addEventListener('click', function () {
+      runShare(btn, getPayload());
+    });
+    return btn;
+  }
+
+  function shareTextFromBreakdown(container) {
+    var refEl = container.querySelector('.big-kjv strong, .big-kjv, .verse-ref, [id$="Ref"]');
+    var verseEl = container.querySelector('.verse-body, .hero-verse, .verse-text, blockquote');
+    var ref = refEl ? refEl.textContent.replace(/\s+/g, ' ').trim() : '';
+    var text = verseEl ? verseEl.textContent.replace(/\s+/g, ' ').trim() : '';
+    return sharePayload(ref, text);
+  }
+
+  function shareTextFromTopicItem(item) {
+    var refEl = item.querySelector('strong');
+    var verseEl = item.querySelector('p');
+    var ref = refEl ? refEl.textContent.replace(/\s+/g, ' ').trim() : '';
+    var text = verseEl ? verseEl.textContent.replace(/\s+/g, ' ').trim() : '';
+    return sharePayload(ref, text);
+  }
+
+  function attachBreakdownShareButtons() {
+    document.querySelectorAll('.verse-breakdown-container').forEach(function (container) {
+      if (container.querySelector('.tdb-vb-share-row')) return;
+      var row = document.createElement('div');
+      row.className = 'tdb-vb-share-row';
+      row.appendChild(makeShareButton(function () {
+        return shareTextFromBreakdown(container);
+      }));
       container.appendChild(row);
     });
   }
 
+  function attachTopicShareButtons() {
+    if (!document.body.classList.contains('tdb-topic-mood-page')) return;
+    document.querySelectorAll('.tdb-topic-mood-page .list-item').forEach(function (item) {
+      if (item.querySelector('.tdb-vb-share-row')) return;
+      var row = document.createElement('div');
+      row.className = 'tdb-vb-share-row tdb-vb-share-row--topic';
+      row.appendChild(makeShareButton(function () {
+        return shareTextFromTopicItem(item);
+      }));
+      item.appendChild(row);
+    });
+  }
+
   function init() {
+    if (window.__TDB_SWOOP_SURFACES_BOOTED === SWOOP_BOOT) return;
+    window.__TDB_SWOOP_SURFACES_BOOTED = SWOOP_BOOT;
     injectTopicStartStrip();
-    attachShareButtons();
+    attachBreakdownShareButtons();
+    attachTopicShareButtons();
   }
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
     init();
+  }
+
+  document.addEventListener('tdb-verse-breakdown-ready', init);
+  if (typeof MutationObserver === 'function') {
+    var inner = document.querySelector('.content-inner, main');
+    if (inner) {
+      var timer;
+      var obs = new MutationObserver(function () {
+        clearTimeout(timer);
+        timer = setTimeout(init, 120);
+      });
+      obs.observe(inner, { childList: true, subtree: true });
+    }
   }
 })();

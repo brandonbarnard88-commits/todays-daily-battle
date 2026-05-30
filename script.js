@@ -2786,6 +2786,18 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   document.head.appendChild(script);
 })();
 
+(function loadTdbSwoopSurfaces() {
+  if (typeof document === 'undefined') return;
+  if (document.querySelector('script[src*="tdb-swoop-surfaces.js"]')) return;
+  var trusted = trustedScriptURL('/tdb-swoop-surfaces.js?v=20260526-swoop');
+  if (!trusted) return;
+  var swoop = document.createElement('script');
+  swoop.src = trusted;
+  swoop.defer = true;
+  swoop.setAttribute('data-tdb-swoop-surfaces', '1');
+  document.head.appendChild(swoop);
+})();
+
 /**
  * Verse of the Day + Chapter Reader + Home: narration, word/verse study, (vod) Möbius ribbon / (reader) study companion
  * / (home) gentle-suggest + family bridge + VOTM + Möbius week + IP geo. Phase 6 loads after idle (5s cap) or on

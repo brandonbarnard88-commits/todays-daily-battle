@@ -131,6 +131,8 @@ const rootFiles = [
   'tdb-home-page.css',
   'cormorant-latin-subset.css',
   'tdb-quiet-luxury.css',
+  'tdb-swoop-surfaces.css',
+  'tdb-swoop-surfaces.js',
   'tdb-calm-hubs.css',
   'calm-rest-kit.js',
   'calm-breathe.js',

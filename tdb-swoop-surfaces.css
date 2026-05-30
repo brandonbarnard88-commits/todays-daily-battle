@@ -1,0 +1,303 @@
+/**
+ * TDB swoop — surface discipline (Phases 1 & 4).
+ * Refines typography, card rhythm, and mobile polish without a palette rebrand.
+ */
+
+:root {
+  --gold: #f4c95d;
+  --gold-soft: #e8d088;
+  --tdb-swoop-section-gap: 2.5rem;
+}
+
+/* ── Phase 1: Typography ── */
+body,
+.app-content,
+.content-inner,
+.tdb-body {
+  font-family: var(--font-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+h1,
+h2,
+h3,
+.hero-banner h1,
+.section-divider {
+  font-family: var(--font-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  line-height: 1.3;
+}
+
+h1,
+.hero-banner h1 {
+  font-size: clamp(1.55rem, 4.2vw, 2.05rem);
+}
+
+h2,
+.section-divider {
+  font-size: clamp(1.05rem, 2.6vw, 1.28rem);
+}
+
+.hero-verse,
+.verse-body,
+.verse-text,
+.big-kjv,
+#heroVerse,
+blockquote.day-card-verse-text,
+.plan-day-verse-shell .day-card-verse-text {
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  line-height: 1.62;
+}
+
+.tdb-card,
+.plan-day-verse-shell,
+.verse-breakdown-container,
+.glass.tdb-porch-paper-glass,
+.topic-mood-hero {
+  line-height: 1.6;
+}
+
+/* ── Phase 1: Card surfaces ── */
+.tdb-swoop-card,
+.verse-breakdown-container,
+.glass.tdb-porch-paper-glass,
+.plan-day-verse-shell,
+.topic-mood-hero.tdb-dawn-bg--mist {
+  background: color-mix(in srgb, var(--card, #1b212d) 92%, rgba(255, 255, 255, 0.04));
+  border: 1px solid color-mix(in srgb, var(--gold, #f4c95d) 18%, var(--line, #2a3344) 82%);
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+}
+
+.glass.tdb-porch-paper-glass,
+.verse-breakdown-container,
+.plan-day-verse-shell {
+  padding: clamp(1.35rem, 3vw, 2rem) clamp(1.15rem, 2.8vw, 1.75rem);
+  margin-bottom: var(--tdb-swoop-section-gap);
+}
+
+.content-inner > section.glass,
+.content-inner > aside.glass {
+  margin-bottom: var(--tdb-swoop-section-gap);
+}
+
+.content-inner > header.hero-banner {
+  margin-bottom: calc(var(--tdb-swoop-section-gap) - 0.5rem);
+}
+
+.tdb-topic-mood-page .list-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--line, #2a3344) 80%, transparent);
+}
+
+.tdb-topic-mood-page .list-item:last-child {
+  border-bottom: 0;
+}
+
+/* ── Phase 1: Buttons ── */
+.btn,
+.hero-toolbar-btn,
+.tdb-porch-feel__btn,
+.quick-topic {
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .hero-toolbar-btn,
+  .tdb-porch-feel__btn,
+  .quick-topic {
+    transition: none;
+  }
+}
+
+/* ── Phase 2: Start strip (topic landers) ── */
+.tdb-start-strip {
+  margin: 0 0 1.25rem;
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--gold, #f4c95d) 28%, var(--line, #2a3344) 72%);
+  background: color-mix(in srgb, var(--card, #1b212d) 94%, rgba(139, 166, 217, 0.06));
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.tdb-start-strip a {
+  font-weight: 600;
+}
+
+/* ── Phase 3: Share on breakdown surfaces ── */
+.tdb-vb-share-row {
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid color-mix(in srgb, var(--line, #2a3344) 75%, transparent);
+}
+
+.tdb-vb-share-btn {
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--gold, #f4c95d) 35%, var(--line, #2a3344) 65%);
+  background: color-mix(in srgb, var(--gold, #f4c95d) 10%, transparent);
+  color: var(--gold-soft, #e8d088);
+  font-family: var(--font-ui, sans-serif);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tdb-vb-share-btn:hover,
+.tdb-vb-share-btn:focus-visible {
+  border-color: color-mix(in srgb, var(--gold, #f4c95d) 55%, transparent);
+  background: color-mix(in srgb, var(--gold, #f4c95d) 16%, transparent);
+  outline: 2px solid color-mix(in srgb, var(--gold, #f4c95d) 45%, transparent);
+  outline-offset: 2px;
+}
+
+/* ── Phase 3: Trust quotes near hero ── */
+.tdb-home-reader-stories--hero-trust {
+  margin: 1.25rem 0 1.75rem;
+}
+
+.tdb-home-reader-stories--hero-trust .tdb-home-reader-stories-grid {
+  gap: 0.85rem;
+}
+
+.tdb-porch-feel__eyebrow-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  opacity: 0.92;
+}
+
+.tdb-porch-feel__eyebrow-link:hover,
+.tdb-porch-feel__eyebrow-link:focus-visible {
+  opacity: 1;
+  color: var(--gold-soft, #e8d088);
+}
+
+/* ── Phase 4: Mobile polish ── */
+@media (max-width: 768px) {
+  .content-inner {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+
+  .tdb-bottom-dock a.tdb-bottom-dock-sr-tool,
+  .tdb-bottom-dock #nav-search-btn.tdb-bottom-dock-sr-tool {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+    min-height: 0;
+    min-width: 0;
+    display: block;
+    flex: none;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .tdb-porch-feel__eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    line-height: 1.45;
+  }
+}
+
+:root[data-theme="light"] .glass.tdb-porch-paper-glass,
+:root[data-theme="daylight"] .glass.tdb-porch-paper-glass,
+:root[data-theme="parchment"] .glass.tdb-porch-paper-glass {
+  background: color-mix(in srgb, var(--card, #f8f9fc) 96%, rgba(255, 255, 255, 0.4));
+  border-color: color-mix(in srgb, var(--gold, #c9b28a) 22%, var(--line, #d8d0be) 78%);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+}
+
+/* ── Phase 2: Start map (/start.html) ── */
+.tdb-start-page .content-inner {
+  max-width: 42rem;
+}
+
+.tdb-start-map-lead {
+  margin: 0 0 1.75rem;
+  color: var(--muted, #94a3b8);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.tdb-start-doors {
+  display: grid;
+  gap: 1rem;
+  margin: 0 0 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 640px) {
+  .tdb-start-doors {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.tdb-start-door {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 1.35rem 1.25rem;
+}
+
+.tdb-start-door__eyebrow {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-soft, #e8d088);
+}
+
+.tdb-start-door:hover,
+.tdb-start-door:focus-within {
+  border-color: color-mix(in srgb, var(--gold, #f4c95d) 42%, transparent);
+}
+
+.tdb-start-door__title {
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.35;
+}
+
+.tdb-start-door__title a {
+  color: var(--text, #f0f2f7);
+  text-decoration: none;
+}
+
+.tdb-start-door__title a:hover,
+.tdb-start-door__title a:focus-visible {
+  color: var(--gold-soft, #e8d088);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.tdb-start-door__links {
+  margin: 0.15rem 0 0;
+  font-size: 0.88rem;
+}
+
+.tdb-start-door__desc {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--muted, #94a3b8);
+}
+
+.tdb-start-foot {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--muted, #94a3b8);
+}

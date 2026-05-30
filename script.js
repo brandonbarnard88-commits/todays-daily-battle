@@ -2789,7 +2789,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
 (function loadTdbSwoopSurfaces() {
   if (typeof document === 'undefined') return;
   if (document.querySelector('script[src*="tdb-swoop-surfaces.js"]')) return;
-  var url = '/tdb-swoop-surfaces.js?v=20260530-swoop-fix2';
+  var url = '/tdb-swoop-surfaces.js?v=20260530-swoop-fix3';
   var trusted = trustedScriptURL(url);
   var src = trusted || url;
   if (window.trustedTypes && window.trustedTypes.defaultPolicy && !trusted) return;

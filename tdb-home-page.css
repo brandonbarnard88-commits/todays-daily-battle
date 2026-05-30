@@ -3249,12 +3249,14 @@
       main#home-primary-flow > #tdbFirstVisitBanner { order: 1; }
       main#home-primary-flow > #tdbQuietCornerStrip { order: 2; }
       main#home-primary-flow > #tdbTodaysVerseHeading { order: 3; grid-column: 1; }
+      main#home-primary-flow > #tdbHeroQuietEyebrow { order: 3; grid-column: 1; }
       main#home-primary-flow > #hero-verse-wrap {
         order: 4;
         grid-column: 1;
         grid-row: auto !important;
       }
       main#home-primary-flow > #tdbStartMyDayBand { order: 5; grid-column: 1; }
+      main#home-primary-flow > #tdbHeroTrustQuotes,
       main#home-primary-flow > .tdb-home-reader-stories--hero-trust { order: 6; grid-column: 1; }
       main#home-primary-flow > #quick-search-hero {
         order: 7;
@@ -5354,8 +5356,10 @@
       main#home-primary-flow > #tdbHeavyNow { order: 1; }
       main#home-primary-flow > #tdbQuietCornerStrip { order: 2; }
       main#home-primary-flow > #tdbTodaysVerseHeading { order: 3; }
+      main#home-primary-flow > #tdbHeroQuietEyebrow { order: 3; }
       main#home-primary-flow > #hero-verse-wrap { order: 4; }
       main#home-primary-flow > #tdbStartMyDayBand { order: 5; }
+      main#home-primary-flow > #tdbHeroTrustQuotes,
       main#home-primary-flow > .tdb-home-reader-stories--hero-trust { order: 6; }
       main#home-primary-flow > #quick-search-hero { order: 7; }
       main#home-primary-flow > #tdbFirstVisitNextStep { order: 8; }

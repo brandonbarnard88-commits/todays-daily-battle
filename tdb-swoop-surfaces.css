@@ -190,6 +190,86 @@ blockquote.day-card-verse-text,
   color: var(--gold-soft, #e8d088);
 }
 
+.tdb-hero-quiet-eyebrow {
+  margin: 0.35rem 0 0.15rem;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--gold, #f4c95d) 78%, var(--muted, #94a3b8));
+  line-height: 1.45;
+}
+
+/* ── Site-wide bottom dock (homepage + inner pages) ── */
+.tdb-bottom-dock {
+  position: fixed;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(calc(100% - 24px), 520px);
+  background: color-mix(in srgb, var(--card, #1b212d) 97%, transparent);
+  border: 1px solid var(--line, #2a3344);
+  border-radius: 999px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  padding: 6px 8px;
+  z-index: 200;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  isolation: isolate;
+}
+
+.tdb-bottom-dock a,
+.tdb-bottom-dock button.tdb-bottom-dock-more,
+.tdb-bottom-dock a.tdb-bottom-dock-more {
+  color: var(--muted, #94a3b8);
+  text-decoration: none;
+  font-size: 0.78rem;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--card, #1b212d) 65%, transparent);
+  border: 1px solid color-mix(in srgb, var(--line, #2a3344) 35%, transparent);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  min-height: 44px;
+}
+
+.tdb-bottom-dock button.tdb-bottom-dock-more {
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.tdb-bottom-dock a:hover,
+.tdb-bottom-dock a:focus-visible,
+.tdb-bottom-dock button.tdb-bottom-dock-more:hover,
+.tdb-bottom-dock button.tdb-bottom-dock-more:focus-visible {
+  color: var(--gold-soft, #e8d088);
+  background: color-mix(in srgb, var(--gold, #f4c95d) 18%, transparent);
+  border-color: color-mix(in srgb, var(--gold, #f4c95d) 35%, transparent);
+}
+
+body.tdb-inner-page:has(.tdb-bottom-dock),
+body.no-tdb-bottom-nav:has(.tdb-bottom-dock) {
+  padding-bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px));
+}
+
+:root[data-theme="light"] .tdb-bottom-dock,
+:root[data-theme="daylight"] .tdb-bottom-dock,
+:root[data-theme="parchment"] .tdb-bottom-dock {
+  background: color-mix(in srgb, var(--card, #f8f9fc) 99%, #fff 1%);
+  border-color: color-mix(in srgb, var(--line, #d8d0be) 70%, #000 8%);
+}
+
 /* ── Phase 4: Mobile polish ── */
 @media (max-width: 768px) {
   .content-inner {

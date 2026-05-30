@@ -4,12 +4,12 @@
 (function () {
   'use strict';
 
-  var SWOOP_BOOT = 'tdb-swoop-surfaces-v1';
-
   function injectTopicStartStrip() {
     if (!document.body.classList.contains('tdb-topic-mood-page')) return;
+    if (document.getElementById('tdb-start-strip')) return;
     var inner = document.querySelector('.content-inner');
-    if (!inner || document.getElementById('tdb-start-strip')) return;
+    if (!inner) return;
+
     var strip = document.createElement('p');
     strip.id = 'tdb-start-strip';
     strip.className = 'tdb-start-strip section-note';
@@ -22,6 +22,7 @@
     mapLink.textContent = 'See the full map';
     strip.appendChild(mapLink);
     strip.appendChild(document.createTextNode(' — hard moment, daily rhythm, family, or church.'));
+
     var hero = inner.querySelector('header.hero-banner, #topic-top');
     if (hero && hero.parentNode) {
       hero.parentNode.insertBefore(strip, hero.nextSibling);
@@ -105,18 +106,17 @@
     if (!document.body.classList.contains('tdb-topic-mood-page')) return;
     document.querySelectorAll('.tdb-topic-mood-page .list-item').forEach(function (item) {
       if (item.querySelector('.tdb-vb-share-row')) return;
+      var host = item.querySelector(':scope > div') || item;
       var row = document.createElement('div');
       row.className = 'tdb-vb-share-row tdb-vb-share-row--topic';
       row.appendChild(makeShareButton(function () {
         return shareTextFromTopicItem(item);
       }));
-      item.appendChild(row);
+      host.appendChild(row);
     });
   }
 
   function init() {
-    if (window.__TDB_SWOOP_SURFACES_BOOTED === SWOOP_BOOT) return;
-    window.__TDB_SWOOP_SURFACES_BOOTED = SWOOP_BOOT;
     injectTopicStartStrip();
     attachBreakdownShareButtons();
     attachTopicShareButtons();
@@ -129,6 +129,8 @@
   }
 
   document.addEventListener('tdb-verse-breakdown-ready', init);
+  window.addEventListener('load', init);
+
   if (typeof MutationObserver === 'function') {
     var inner = document.querySelector('.content-inner, main');
     if (inner) {

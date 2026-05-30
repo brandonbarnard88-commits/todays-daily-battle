@@ -884,7 +884,7 @@ if (fs.existsSync(wellKnown)) {
 
 // Inner pages: explicit swoop JS (do not rely on script.js dynamic inject alone).
 (function injectTdbSwoopSurfacesScript() {
-  var SWOOP_V = '20260530-swoop-fix2';
+  var SWOOP_V = '20260530-swoop-fix3';
   var SNIPPET = '\n  <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=' + SWOOP_V + '"></script>';
   var SKIP_BASENAMES = { '404.html': true, '404-admin.html': true };
   function shouldInject(filePath, html) {
@@ -911,6 +911,119 @@ if (fs.existsSync(wellKnown)) {
   });
   if (injected) {
     console.log('build-copy-static.js: injected tdb-swoop-surfaces.js in ' + injected + ' dist HTML file(s)');
+  }
+})();
+
+// Inner pages: explicit swoop CSS link (belt-and-suspenders beside bundled styles.css).
+(function injectTdbSwoopSurfacesCssLink() {
+  var SWOOP_V = '20260530-swoop-fix3';
+  var PRELOAD = '  <link rel="preload" href="/tdb-swoop-surfaces.css?v=' + SWOOP_V + '" as="style">\n';
+  var SWOOP_LINK = '  <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=' + SWOOP_V + '">\n';
+  var SNIPPET = PRELOAD + SWOOP_LINK;
+  var SKIP_BASENAMES = { '404.html': true, '404-admin.html': true, 'index.html': true };
+  function shouldInject(filePath, html) {
+    var base = path.basename(filePath);
+    if (SKIP_BASENAMES[base]) return false;
+    if (/\/embed\//i.test(filePath.replace(/\\/g, '/'))) return false;
+    if (html.indexOf('tdb-swoop-surfaces.css') !== -1) return false;
+    return /\btdb-inner-page\b/.test(html) || base === 'start.html';
+  }
+  function ensure(html) {
+    var sheetRe = /(<link[^>]+rel=["']stylesheet["'][^>]+href="[^"]*styles\.css[^"]*"[^>]*>)/i;
+    if (sheetRe.test(html)) {
+      return html.replace(sheetRe, '$1\n' + SNIPPET);
+    }
+    if (!/<\/head>/i.test(html)) return html;
+    return html.replace(/<\/head>/i, SNIPPET + '</head>');
+  }
+  var injected = 0;
+  walkHtmlUnder(dist, function (filePath) {
+    var html = fs.readFileSync(filePath, 'utf8');
+    if (!shouldInject(filePath, html)) return;
+    var next = ensure(html);
+    if (next !== html) {
+      fs.writeFileSync(filePath, next, 'utf8');
+      injected++;
+    }
+  });
+  if (injected) {
+    console.log('build-copy-static.js: injected tdb-swoop-surfaces.css link in ' + injected + ' dist HTML file(s)');
+  }
+})();
+
+// Inner pages: polished bottom dock (CSS lives in tdb-swoop-surfaces.css).
+(function injectTdbBottomDockInner() {
+  var dockPath = path.join(root, 'partials', 'tdb-bottom-dock-inner.html');
+  if (!fs.existsSync(dockPath)) return;
+  var SNIPPET = fs.readFileSync(dockPath, 'utf8');
+  var SKIP_BASENAMES = { '404.html': true, '404-admin.html': true, 'index.html': true };
+  function shouldInject(filePath, html) {
+    var base = path.basename(filePath);
+    if (SKIP_BASENAMES[base]) return false;
+    if (/\/embed\//i.test(filePath.replace(/\\/g, '/'))) return false;
+    if (html.indexOf('class="tdb-bottom-dock"') !== -1) return false;
+    return /\btdb-inner-page\b/.test(html) || base === 'start.html';
+  }
+  function ensure(html) {
+    if (/<footer[^>]+class="[^"]*site-footer/i.test(html)) {
+      return html.replace(/(\s*<footer[^>]+class="[^"]*site-footer)/i, '\n' + SNIPPET + '$1');
+    }
+    if (!/<\/body>/i.test(html)) return html;
+    return html.replace(/<\/body>/i, SNIPPET + '</body>');
+  }
+  var injected = 0;
+  walkHtmlUnder(dist, function (filePath) {
+    var html = fs.readFileSync(filePath, 'utf8');
+    if (!shouldInject(filePath, html)) return;
+    var next = ensure(html);
+    if (next !== html) {
+      fs.writeFileSync(filePath, next, 'utf8');
+      injected++;
+    }
+  });
+  if (injected) {
+    console.log('build-copy-static.js: injected tdb-bottom-dock in ' + injected + ' dist HTML file(s)');
+  }
+})();
+
+// Topic mood pages: static start strip under hero (works without JS).
+(function injectTopicStartStripHtml() {
+  var STRIP =
+    '\n        <p id="tdb-start-strip" class="tdb-start-strip section-note">' +
+    '<strong>New here?</strong> This page meets one hard moment with KJV verses. ' +
+    '<a href="/start.html">See the full map</a> &mdash; hard moment, daily rhythm, family, or church.</p>\n';
+  function shouldInject(filePath, html) {
+    if (path.basename(filePath) === 'index.html') return false;
+    if (html.indexOf('id="tdb-start-strip"') !== -1) return false;
+    return /\btdb-topic-mood-page\b/.test(html);
+  }
+  function ensure(html) {
+    if (/<header[^>]+id="topic-top"[^>]*>[\s\S]*?<\/header>/i.test(html)) {
+      return html.replace(
+        /(<header[^>]+id="topic-top"[^>]*>[\s\S]*?<\/header>)/i,
+        '$1' + STRIP
+      );
+    }
+    if (/<header[^>]+class="[^"]*hero-banner[^"]*"[^>]*>[\s\S]*?<\/header>/i.test(html)) {
+      return html.replace(
+        /(<header[^>]+class="[^"]*hero-banner[^"]*"[^>]*>[\s\S]*?<\/header>)/i,
+        '$1' + STRIP
+      );
+    }
+    return html;
+  }
+  var injected = 0;
+  walkHtmlUnder(dist, function (filePath) {
+    var html = fs.readFileSync(filePath, 'utf8');
+    if (!shouldInject(filePath, html)) return;
+    var next = ensure(html);
+    if (next !== html) {
+      fs.writeFileSync(filePath, next, 'utf8');
+      injected++;
+    }
+  });
+  if (injected) {
+    console.log('build-copy-static.js: injected topic start strip in ' + injected + ' dist HTML file(s)');
   }
 })();
 

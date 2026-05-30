@@ -3254,16 +3254,18 @@
         grid-column: 1;
         grid-row: auto !important;
       }
+      main#home-primary-flow > #tdbStartMyDayBand { order: 5; grid-column: 1; }
+      main#home-primary-flow > .tdb-home-reader-stories--hero-trust { order: 6; grid-column: 1; }
       main#home-primary-flow > #quick-search-hero {
-        order: 5;
+        order: 7;
         grid-column: 1;
         grid-row: auto !important;
         display: flex;
         flex-direction: column;
         gap: 0.75rem;
       }
-      main#home-primary-flow > #tdb-home-core-seven { order: 6; grid-column: 1; }
-      main#home-primary-flow > #tdbNewHereCard { order: 7; grid-column: 1; }
+      main#home-primary-flow > #tdb-home-core-seven { order: 8; grid-column: 1; }
+      main#home-primary-flow > #tdbNewHereCard { order: 9; grid-column: 1; }
       main#home-primary-flow > #plan-progress-card {
         order: 4;
         grid-column: 2;
@@ -3668,11 +3670,7 @@
       border: 0;
     }
     html.tdb-first-visit-mode #tdbHomeFastFeel,
-    html.tdb-first-visit-mode .tdb-start-my-day-band {
-      display: none !important;
-    }
-    html.tdb-home-calm-hero #tdbHomeFastFeel,
-    html.tdb-home-calm-hero .tdb-start-my-day-band {
+    html.tdb-home-calm-hero #tdbHomeFastFeel {
       display: none !important;
     }
     /* Pass 5 — first visit: compact crisis strip so verse sits higher on phones */
@@ -5357,10 +5355,12 @@
       main#home-primary-flow > #tdbQuietCornerStrip { order: 2; }
       main#home-primary-flow > #tdbTodaysVerseHeading { order: 3; }
       main#home-primary-flow > #hero-verse-wrap { order: 4; }
-      main#home-primary-flow > #quick-search-hero { order: 5; }
-      main#home-primary-flow > #tdbFirstVisitNextStep { order: 6; }
-      main#home-primary-flow > #tdb-home-core-seven { order: 7; }
-      main#home-primary-flow > #plan-progress-card { order: 8; }
+      main#home-primary-flow > #tdbStartMyDayBand { order: 5; }
+      main#home-primary-flow > .tdb-home-reader-stories--hero-trust { order: 6; }
+      main#home-primary-flow > #quick-search-hero { order: 7; }
+      main#home-primary-flow > #tdbFirstVisitNextStep { order: 8; }
+      main#home-primary-flow > #tdb-home-core-seven { order: 9; }
+      main#home-primary-flow > #plan-progress-card { order: 10; }
     }
 
     .tdb-home-resume {
@@ -6302,11 +6302,10 @@
       }
     }
 
-    /* Hide old conflicting bottom bars that used to overlap */
+    /* Hide old conflicting bottom bars that used to overlap (keep #tdbStartMyDayBand visible) */
     .tdb-home-quickbar,
     .tdb-wayfind-toggle,
     .tdb-sticky-wayfind,
-    .tdb-start-my-day-band,
     .tdb-home-fast-feel {
       display: none !important;
     }
@@ -9936,7 +9935,7 @@
     #tdbNewHereCard,
     .tdb-new-here-hint,
     .tdb-home-proof-strip,
-    .tdb-home-reader-stories,
+    .tdb-home-reader-stories:not(.tdb-home-reader-stories--hero-trust),
     .quiet-launch-banner,
     .tdb-home-companion-doors,
     .tdb-home-spotlight-deeper,

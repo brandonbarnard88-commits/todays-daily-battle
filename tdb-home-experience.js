@@ -140,6 +140,12 @@
       flowAnchor = startBand;
     }
 
+    var readerTrust = document.querySelector('.tdb-home-reader-stories--hero-trust');
+    if (readerTrust && readerTrust.parentNode === main && startBand) {
+      after(readerTrust, startBand);
+      flowAnchor = readerTrust;
+    }
+
     after(search, flowAnchor || verse);
 
     if (nextStep && nextStep.parentNode === main) {

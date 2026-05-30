@@ -160,6 +160,14 @@ blockquote.day-card-verse-text,
 }
 
 /* ── Phase 3: Trust quotes near hero ── */
+.tdb-home-reader-stories.tdb-home-reader-stories--hero-trust {
+  display: block !important;
+}
+
+#tdbStartMyDayBand.tdb-start-my-day-band {
+  display: block !important;
+}
+
 .tdb-home-reader-stories--hero-trust {
   margin: 1.25rem 0 1.75rem;
 }
@@ -169,10 +177,11 @@ blockquote.day-card-verse-text,
 }
 
 .tdb-porch-feel__eyebrow-link {
-  color: inherit;
+  color: var(--gold-soft, #e8d088);
   text-decoration: underline;
   text-underline-offset: 0.15em;
-  opacity: 0.92;
+  font-weight: 600;
+  opacity: 1;
 }
 
 .tdb-porch-feel__eyebrow-link:hover,

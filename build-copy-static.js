@@ -884,7 +884,7 @@ if (fs.existsSync(wellKnown)) {
 
 // Inner pages: explicit swoop JS (do not rely on script.js dynamic inject alone).
 (function injectTdbSwoopSurfacesScript() {
-  var SWOOP_V = '20260530-swoop-fix1';
+  var SWOOP_V = '20260530-swoop-fix2';
   var SNIPPET = '\n  <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=' + SWOOP_V + '"></script>';
   var SKIP_BASENAMES = { '404.html': true, '404-admin.html': true };
   function shouldInject(filePath, html) {

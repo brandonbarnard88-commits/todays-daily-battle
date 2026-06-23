@@ -218,7 +218,7 @@ function main() {
     if (rel === 'plans.html' && touched) {
       next = next.replace(
         /<a href="\/plans\.html">Courses<\/a>/,
-        '<a href="/plans.html" aria-current="page">Courses</a>'
+        '<a href="/plans.html" aria-current="page">Battle Plans</a>'
       );
     }
 

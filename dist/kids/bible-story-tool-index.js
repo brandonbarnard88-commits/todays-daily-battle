@@ -3465,6 +3465,396 @@
     "apply": "God used David's gentle playing to bring ease. The gifts God gives you — a song, a calm voice, a steady hand — can be a kindness to someone who is hurting.",
     "theme": "Love",
     "kw": "david harp young david king saul saul 1 samuel 16 1 samuel 16:14 1 samuel 16:23 evil spirit refreshed played with his hand cunning player on an harp armourbearer armorbearer send me david thy son son of jesse the bethlehemite music comfort peace"
+  },
+  {
+    id: "david-goliath",
+    title: "David & Goliath",
+    verse: "1 Samuel 17:1-54",
+    keywords: "david, goliath, giant, sling, trust, courage, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful and courageous scene: young David standing brave with his sling, looking up at God, while the giant Goliath lies on the ground far away. A few sheep in the distance and soft hills. Focus on trusting God. Joyful, calm, reverent — never scary.",
+    retelling: "The giant Goliath stood and shouted at God’s people. Everyone was afraid. But young David trusted God. He said, “The Lord who saved me from the lion and the bear will save me from this giant.” David took only his sling and five smooth stones. He ran toward Goliath and said, “You come with a sword, but I come in the name of the Lord.” One stone flew and the giant fell. God was with him.",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "jesus-children",
+    title: "Jesus & the Children",
+    verse: "Mark 10:13-16",
+    keywords: "jesus children, little ones, blessing, kingdom, welcome, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Joyful scene: Jesus kneeling gently with open arms, smiling as several little children run to Him. Soft hills and flowers. Focus on Jesus welcoming the children. Peaceful, loving, reverent.",
+    retelling: "Mothers and fathers brought their little children to Jesus so He could bless them. The disciples said, “Do not trouble the Master.” But Jesus said, “Let the little children come unto me, and forbid them not: for of such is the kingdom of God.” He took them in His arms and blessed them.",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "good-shepherd",
+    title: "The Good Shepherd",
+    verse: "John 10:1-18; Psalm 23",
+    keywords: "good shepherd, jesus, sheep, lost, found, psalm 23, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: Jesus as the Good Shepherd carrying a little lost lamb in His arms, with soft green hills and a quiet stream nearby. Focus on being safely found. Calm, tender, joyful.",
+    retelling: "Jesus said, “I am the good shepherd. The good shepherd giveth his life for the sheep.” He knows each one by name and leads them to green pastures and still waters. When one little lamb wanders away, the shepherd leaves the ninety-nine to find it and carries it home safely.",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "noah-rainbow",
+    title: "Noah’s Rainbow Promise",
+    verse: "Genesis 9:1-17",
+    keywords: "noah, rainbow, promise, covenant, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: Noah and his family standing on dry ground with the ark in the distance, a bright rainbow arching across the sky, gentle animals nearby. Focus on God’s faithful promise. Joyful, calm, reverent.",
+    retelling: "After the waters went down, God spoke kindly to Noah and his family. He said, “I establish my covenant with you… neither shall there any more be a flood to destroy the earth.” Then God set a beautiful rainbow in the cloud as a token of that promise. Whenever the rainbow appears, God remembers His word and keeps it forever.",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "feeding-five-thousand",
+    title: "Feeding the Five Thousand",
+    verse: "Matthew 14:13-21; Mark 6:30-44",
+    keywords: "jesus, feeding, five thousand, loaves, fishes, miracle, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: Jesus blessing a small basket of five loaves and two fishes while a large crowd sits on the grass. Focus on the heart moment of Jesus providing for everyone. Gentle, joyful, reverent.",
+    retelling: "A great crowd followed Jesus. It grew late and they had nothing to eat. A lad brought five loaves and two small fishes. Jesus looked up to heaven, blessed them, and gave them to the disciples to set before the people. Everyone ate and was filled, and twelve baskets of leftovers were taken up. God’s provision is more than enough.",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "lost-sheep",
+    title: "The Lost Sheep",
+    verse: "Luke 15:3-7",
+    keywords: "lost sheep, good shepherd, jesus, found, joy, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: the Good Shepherd gently carrying a little lost lamb on His shoulders across soft green hills, with the other sheep watching from a distance. Focus on the heart moment of being safely found. Calm, tender, joyful, reverent.",
+    retelling: "Jesus told a gentle story: a shepherd has one hundred sheep. When one little lamb wanders away, the shepherd leaves the ninety-nine safe ones and goes to look for the lost lamb. When he finds it, he carries it home on his shoulders, rejoicing. Jesus said, “There is joy in heaven over one sinner that repenteth.” He is the Good Shepherd who never stops looking for us.",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "daniel-lions-den",
+    title: "Daniel in the Lions’ Den",
+    verse: "Daniel 6:1-28",
+    keywords: "daniel, lions den, prayer, protection, angel, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: Daniel standing calm in the den with lions resting quietly around him, soft light from above. Focus on the heart moment of God’s protection. Calm, reverent, hopeful — never scary.",
+    retelling: "Daniel prayed to God three times every day, even when the king made a law against it. The king loved Daniel but had to throw him into the lions’ den. All night the lions stayed quiet because God sent His angel to shut their mouths. In the morning the king ran to the den and called, “Daniel, servant of the living God, is thy God able to deliver thee?” Daniel answered, “My God hath sent his angel, and hath shut the lions’ mouths.” The king was glad and made a new law: everyone must fear Daniel’s God.",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "seventh-day",
+    title: "The Seventh Day",
+    verse: "Genesis 2:1-3",
+    keywords: "seventh day, creation rest, sabbath, blessed, holy, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: a gentle sunset over the finished creation with tall trees, flowers, a quiet stream, and a smiling child sitting peacefully beside a lamb. Focus on the heart moment of God resting and blessing the day. Calm, joyful, reverent.",
+    retelling: "God made the heaven and the earth in six days. On the seventh day He ended His work and rested. He blessed the seventh day and made it holy, because on it He rested from all the work He had created and made. Everything God made was very good, and He gave us a gentle day to rest with Him.",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "jesus-walks-water",
+    title: "Jesus Walks on the Water",
+    verse: "Matthew 14:22-33",
+    keywords: "jesus walks on water, peter, faith, storm, save me, son of god, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: Jesus standing calmly on the water with His hand reaching out to Peter, who is walking toward Him while the boat with the other disciples is in the background. Soft waves and moonlight. Focus on the heart moment of Jesus saving Peter. Calm, hopeful, reverent — never scary.",
+    retelling: "After feeding the crowd, Jesus sent His disciples across the sea in a boat. A strong wind came and the waves tossed the ship. In the middle of the night the disciples saw Jesus walking on the water toward them. They were afraid, but Jesus said, “Be of good cheer; it is I; be not afraid.” Peter said, “Lord, if it be thou, bid me come unto thee on the water.” Jesus said, “Come.” Peter walked on the water to Jesus, but when he saw the wind he was afraid and began to sink. He cried, “Lord, save me.” Jesus stretched forth His hand and caught him, saying, “O thou of little faith, wherefore didst thou doubt?” When they came into the ship, the wind ceased. Those in the ship worshipped Him, saying, “Of a truth thou art the Son of God.”",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "prodigal-son",
+    title: "The Prodigal Son",
+    verse: "Luke 15:11-32",
+    keywords: "prodigal son, father’s love, welcome home, lost and found, forgiveness, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: a joyful father running with open arms to welcome his tired younger son on the path home, with the family home and feast table in the distance. Focus on the heart moment of being welcomed back with love. Calm, tender, joyful, reverent.",
+    retelling: "A man had two sons. The younger son asked for his share of the inheritance and went far away into a strange land. There he wasted all he had. When a famine came he was hungry and alone. He remembered his father’s house and said, “I will arise and go to my father.” While he was still a long way off, his father saw him, ran to him, threw his arms around him, and kissed him. The father called for the best robe, a ring, shoes, and a feast. He said, “This my son was dead, and is alive again; he was lost, and is found.”",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "mustard-seed",
+    title: "The Mustard Seed",
+    verse: "Matthew 13:31-32",
+    keywords: "mustard seed, kingdom of heaven, small to big, growth, birds, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: a small mustard seed in a child’s open hand beside a tall, leafy mustard tree full of birds resting in the branches. Soft field and sky. Focus on the heart moment of small things growing big with God. Calm, hopeful, joyful, reverent.",
+    retelling: "Jesus said, “The kingdom of heaven is like to a grain of mustard seed, which a man took, and sowed in his field: which indeed is the least of all seeds: but when it is grown, it is the greatest among herbs, and becometh a tree, so that the birds of the air come and lodge in the branches thereof.” Even the smallest beginning with God can grow into something big and beautiful that blesses many.",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "good-samaritan",
+    title: "The Good Samaritan",
+    verse: "Luke 10:25-37",
+    keywords: "good samaritan, neighbor, mercy, help, compassion, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: the Good Samaritan gently bandaging the wounded man’s leg beside the road, with his donkey waiting nearby and the road stretching into the distance. Focus on the heart moment of showing mercy. Calm, kind, joyful, reverent.",
+    retelling: "A man was going down from Jerusalem to Jericho and fell among thieves. They stripped him, wounded him, and left him half dead. A priest came by and passed on the other side. A Levite came and did the same. But a certain Samaritan, as he journeyed, came where the man was. When he saw him, he had compassion on him. He bound up his wounds, poured in oil and wine, set him on his own beast, brought him to an inn, and took care of him. The next day he gave the innkeeper two pence and said, “Take care of him; and whatsoever thou spendest more, when I come again, I will repay thee.” Jesus asked, “Which now of these three was neighbour unto him that fell among the thieves?” The answer was, “He that shewed mercy on him.” Jesus said, “Go, and do thou likewise.”",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "zacchaeus",
+    title: "Zacchaeus",
+    verse: "Luke 19:1-10",
+    keywords: "zacchaeus, sycamore tree, jesus calls, salvation, seek and save, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: Zacchaeus in the sycamore tree looking down at Jesus, who is looking up with a kind smile, with the crowd and road below. Focus on the heart moment of Jesus calling him by name. Calm, welcoming, joyful, reverent.",
+    retelling: "Jesus entered Jericho. A man named Zacchaeus was chief among the publicans and he was rich. He was little of stature, so he ran ahead and climbed up into a sycamore tree to see Jesus. When Jesus came to the place, He looked up and said, “Zacchaeus, make haste, and come down; for to day I must abide at thy house.” Zacchaeus came down and received Him joyfully. He said, “Behold, Lord, the half of my goods I give to the poor; and if I have taken any thing from any man by false accusation, I restore him fourfold.” Jesus said, “This day is salvation come to this house… For the Son of man is come to seek and to save that which was lost.”",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "lost-coin",
+    title: "The Lost Coin",
+    verse: "Luke 15:8-10",
+    keywords: "lost coin, woman searching, joy in heaven, found, repent, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: a smiling woman on her knees sweeping the floor with a lamp beside her, a shiny lost coin in her open hand. Soft room with a few simple things in the background. Focus on the heart moment of finding what was lost. Calm, joyful, reverent.",
+    retelling: "Jesus told this gentle story: a woman had ten silver coins. She lost one of them. She lit a lamp, swept the house, and searched carefully until she found it. When she found the coin, she called her friends and neighbours together and said, “Rejoice with me; for I have found the piece which I had lost.” Jesus said, “There is joy in the presence of the angels of God over one sinner that repenteth.” God cares about every single one of us.",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "house-on-rock",
+    title: "The House on the Rock",
+    verse: "Matthew 7:24-27",
+    keywords: "house on the rock, wise man, obey jesus, strong foundation, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: a sturdy house built on a big rock with a happy family inside, while rain and wind blow around it (the house stays strong). A sandy house nearby that has fallen. Focus on the heart moment of building on Jesus’ words. Calm, safe, hopeful, reverent — never scary.",
+    retelling: "Jesus said, “Whosoever heareth these sayings of mine, and doeth them, I will liken him unto a wise man, which built his house upon a rock. The rain descended, the floods came, the winds blew, and beat upon that house; and it fell not: for it was founded upon a rock. And every one that heareth these sayings of mine, and doeth them not, shall be likened unto a foolish man, which built his house upon the sand. The rain descended, the floods came, the winds blew, and beat upon that house; and it fell: and great was the fall of it.” When we listen to Jesus and obey Him, our lives stand strong no matter what comes.",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "the-sower",
+    title: "The Sower",
+    verse: "Matthew 13:1-9, 18-23",
+    keywords: "sower, seed, good ground, hear the word, fruit, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: a kind sower scattering seed from a basket into four small patches of ground — path with birds, rocky soil, thorny patch, and rich dark soil with green shoots growing tall. Focus on the heart moment of seed in good ground. Calm, hopeful, joyful, reverent.",
+    retelling: "Jesus told this story: A sower went forth to sow. Some seed fell by the way side and the fowls came and devoured it. Some fell upon stony places and sprang up quickly but withered away when the sun was up. Some fell among thorns and the thorns sprang up and choked them. But other fell into good ground and brought forth fruit, some an hundredfold, some sixty, some thirty. He that hath ears to hear, let him hear. Jesus said the good ground is a heart that hears the word and understands it and brings forth fruit.",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "pearl-of-great-price",
+    title: "The Pearl of Great Price",
+    verse: "Matthew 13:45-46",
+    keywords: "pearl of great price, kingdom of heaven, worth everything, merchant, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: a happy merchant man holding up one shining pearl in his open hand, with his bag of coins and other treasures set aside on the ground. Soft market background. Focus on the heart moment of choosing the one priceless pearl. Calm, joyful, reverent.",
+    retelling: "Jesus said, “Again, the kingdom of heaven is like unto a merchant man, seeking goodly pearls: who, when he had found one pearl of great price, went and sold all that he had, and bought it.” The kingdom of heaven is worth more than anything else in the whole world. When we find it, we gladly give everything to have it.",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "hidden-treasure",
+    title: "The Hidden Treasure",
+    verse: "Matthew 13:44",
+    keywords: "hidden treasure, kingdom of heaven, worth everything, joy, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: a joyful man kneeling in a field, carefully digging up a shining treasure chest, with his other belongings set aside nearby. Soft hills and sky. Focus on the heart moment of discovering something priceless. Calm, joyful, reverent.",
+    retelling: "Jesus said, “Again, the kingdom of heaven is like unto treasure hid in a field; the which when a man hath found, he hideth, and for joy thereof goeth and selleth all that he hath, and buyeth that field.” The kingdom of heaven is like a wonderful treasure worth giving everything to have. When we find it, we are filled with joy.",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "the-leaven",
+    title: "The Leaven",
+    verse: "Matthew 13:33",
+    keywords: "leaven, kingdom of heaven, quiet growth, yeast, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: a gentle woman smiling as she mixes a small bit of leaven into a large bowl of dough, with the dough beginning to rise and a loaf baking in the background. Focus on the heart moment of quiet growth. Calm, hopeful, joyful, reverent.",
+    retelling: "Jesus said, “The kingdom of heaven is like unto leaven, which a woman took, and hid in three measures of meal, till the whole was leavened.” Just a little bit of the kingdom of heaven works quietly and grows until it changes everything, like yeast making the whole loaf rise.",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "friend-at-midnight",
+    title: "The Friend at Midnight",
+    verse: "Luke 11:5-8",
+    keywords: "friend at midnight, ask seek knock, prayer, help at night, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: a man standing at a closed door at night holding a lantern, gently knocking while his friend inside the house smiles and hands out loaves of bread through the window. Soft moonlight. Focus on the heart moment of a friend helping at midnight. Calm, kind, hopeful, reverent.",
+    retelling: "Jesus told this gentle story: a man had a friend who came to him at midnight and said, “Friend, lend me three loaves; for a friend of mine is come to me and I have nothing to set before him.” The man inside answered, “Trouble me not: the door is now shut, and my children are with me in bed; I cannot rise and give thee.” But because the friend kept asking, the man rose and gave him as many as he needed. Jesus said, “Ask, and it shall be given you; seek, and ye shall find; knock, and it shall be opened unto you.” God loves to hear us when we pray.",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "widows-mite",
+    title: "The Widow’s Mite",
+    verse: "Mark 12:41-44",
+    keywords: "widow’s mite, giving from the heart, two mites, temple offering, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: a gentle widow quietly dropping two small coins into the temple treasury box while rich people with big bags walk past. Soft temple background. Focus on the heart moment of giving everything with love. Calm, humble, joyful, reverent.",
+    retelling: "Jesus sat over against the treasury and watched how the people cast money into it. Many that were rich cast in much. A poor widow came and cast in two mites, which make a farthing. Jesus called His disciples and said, “Verily I say unto you, That this poor widow hath cast more in than all they which have cast into the treasury: for all they did cast in of their abundance; but she of her want did cast in all that she had, even all her living.” God sees the heart that gives with love, even when it is small.",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "persistent-widow",
+    title: "The Persistent Widow",
+    verse: "Luke 18:1-8",
+    keywords: "persistent widow, pray and not give up, keep asking, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: a gentle widow standing calmly at the door of a judge’s house, knocking again with a hopeful face, while the judge inside looks surprised. Soft city background. Focus on the heart moment of not giving up. Calm, hopeful, reverent.",
+    retelling: "Jesus told this story so people would always pray and not give up. There was a judge in a city who did not fear God or care about people. A widow kept coming to him and saying, “Avenge me of mine adversary.” For a while he refused, but finally he said to himself, “Though I fear not God, nor regard man; yet because this widow troubleth me, I will avenge her, lest by her continual coming she weary me.” Jesus said, “Hear what the unjust judge saith. And shall not God avenge his own elect, which cry day and night unto him, though he bear long with them?” God hears His children when they pray.",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "pharisee-publican",
+    title: "The Pharisee and the Publican",
+    verse: "Luke 18:9-14",
+    keywords: "pharisee and publican, humble prayer, mercy, exalted, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: inside the temple, a proud Pharisee standing tall with hands raised, while a humble publican kneels farther away with head bowed. Soft light from above. Focus on the heart moment of humble prayer. Calm, gentle, reverent.",
+    retelling: "Jesus told this story to those who trusted in themselves that they were righteous. Two men went up into the temple to pray. The Pharisee stood and prayed, “God, I thank thee, that I am not as other men are… I fast twice in the week, I give tithes of all that I possess.” The publican, standing afar off, would not lift up so much as his eyes unto heaven, but smote upon his breast, saying, “God be merciful to me a sinner.” Jesus said, “This man went down to his house justified rather than the other: for every one that exalteth himself shall be abased; and he that humbleth himself shall be exalted.”",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "the-sower",
+    title: "The Sower",
+    verse: "Matthew 13:1-9, 18-23",
+    keywords: "sower, seed, good ground, hear the word, fruit, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: a kind sower scattering seed from a basket into four small patches of ground — path with birds, rocky soil, thorny patch, and rich dark soil with green shoots growing tall. Focus on the heart moment of seed in good ground. Calm, hopeful, joyful, reverent.",
+    retelling: "Jesus told this story: A sower went forth to sow. Some seed fell by the way side and the fowls came and devoured it. Some fell upon stony places and sprang up quickly but withered away when the sun was up. Some fell among thorns and the thorns sprang up and choked them. But other fell into good ground and brought forth fruit, some an hundredfold, some sixty, some thirty. He that hath ears to hear, let him hear. Jesus said the good ground is a heart that hears the word and understands it and brings forth fruit.",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "pearl-of-great-price",
+    title: "The Pearl of Great Price",
+    verse: "Matthew 13:45-46",
+    keywords: "pearl of great price, kingdom of heaven, worth everything, merchant, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: a happy merchant man holding up one shining pearl in his open hand, with his bag of coins and other treasures set aside on the ground. Soft market background. Focus on the heart moment of choosing the one priceless pearl. Calm, joyful, reverent.",
+    retelling: "Jesus said, “Again, the kingdom of heaven is like unto a merchant man, seeking goodly pearls: who, when he had found one pearl of great price, went and sold all that he had, and bought it.” The kingdom of heaven is worth more than anything else in the whole world. When we find it, we gladly give everything to have it.",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "persistent-widow",
+    title: "The Persistent Widow",
+    verse: "Luke 18:1-8",
+    keywords: "persistent widow, pray and not give up, keep asking, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: a gentle widow standing calmly at the door of a judge’s house, knocking again with a hopeful face, while the judge inside looks surprised. Soft city background. Focus on the heart moment of not giving up. Calm, hopeful, reverent.",
+    retelling: "Jesus told this story so people would always pray and not give up. There was a judge in a city who did not fear God or care about people. A widow kept coming to him and saying, “Avenge me of mine adversary.” For a while he refused, but finally he said to himself, “Though I fear not God, nor regard man; yet because this widow troubleth me, I will avenge her.” Jesus said, “Hear what the unjust judge saith. And shall not God avenge his own elect, which cry day and night unto him?” God loves to hear His children when they pray.",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "pharisee-publican",
+    title: "The Pharisee and the Publican",
+    verse: "Luke 18:9-14",
+    keywords: "pharisee and publican, humble prayer, mercy, exalted, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: inside the temple, a proud Pharisee standing tall with hands raised, while a humble publican kneels farther away with head bowed. Soft light from above. Focus on the heart moment of humble prayer. Calm, gentle, reverent.",
+    retelling: "Jesus told this story to those who trusted in themselves that they were righteous. Two men went up into the temple to pray. The Pharisee stood and prayed, “God, I thank thee, that I am not as other men are… I fast twice in the week, I give tithes of all that I possess.” The publican, standing afar off, would not lift up so much as his eyes unto heaven, but smote upon his breast, saying, “God be merciful to me a sinner.” Jesus said, “This man went down to his house justified rather than the other: for every one that exalteth himself shall be abased; and he that humbleth himself shall be exalted.”",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "the-talents",
+    title: "The Talents",
+    verse: "Matthew 25:14-30",
+    keywords: "talents, faithful servant, well done, use what God gives, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: a joyful servant standing before his lord, handing over bags of coins while the lord smiles and praises him. Soft road and distant city in the background. Focus on the heart moment of faithful work. Calm, joyful, reverent.",
+    retelling: "Jesus told this story: A man going into a far country called his servants and gave them talents — five to one, two to another, and one to another. The servant with five talents traded with them and gained five more. The servant with two talents gained two more. But the servant with one talent dug in the earth and hid his lord’s money. When the lord returned, he was pleased with the first two servants and said, “Well done, thou good and faithful servant: thou hast been faithful over a few things, I will make thee ruler over many things.” But the servant who hid the talent was afraid and gave back only what he had been given. The lord called him wicked and slothful and took the talent away. Jesus said, “For unto every one that hath shall be given, and he shall have abundance: but from him that hath not shall be taken away even that which he hath.” God is pleased when we use what He gives us.",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "unforgiving-servant",
+    title: "The Unforgiving Servant",
+    verse: "Matthew 18:21-35",
+    keywords: "unforgiving servant, forgive others, mercy, king and servant, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: the king on his throne forgiving the first servant who is kneeling with hands together, while the forgiven servant later grabs a smaller servant by the shoulder. Focus on the heart moment of showing (or failing to show) mercy. Calm, gentle, reverent.",
+    retelling: "Jesus told this story when Peter asked how often he should forgive. A king forgave a servant who owed him ten thousand talents because the servant begged for mercy. But that same servant went out and found a fellow servant who owed him only a hundred pence. He grabbed him by the throat and demanded payment. The fellow servant begged for patience, but the first servant would not forgive and threw him into prison. When the king heard, he called the unforgiving servant and said, “O thou wicked servant, I forgave thee all that debt, because thou desiredst me: shouldest not thou also have had compassion on thy fellowservant?” The king was angry and delivered him to the tormentors. Jesus said, “So likewise shall my heavenly Father do also unto you, if ye from your hearts forgive not every one his brother their trespasses.” God forgives us completely, so we should forgive others.",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "the-two-sons",
+    title: "The Two Sons",
+    verse: "Matthew 21:28-32",
+    keywords: "two sons, vineyard, obey, repentance, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: a father speaking kindly to his two sons in a vineyard; the first son walking away with head down but later working happily among the vines, while the second son nods but stands still. Focus on the heart moment of true obedience. Calm, gentle, hopeful, reverent.",
+    retelling: "Jesus said, “A certain man had two sons; and he came to the first, and said, Son, go work to day in my vineyard. He answered and said, I will not: but afterward he repented, and went. And he came to the second, and said likewise. And he answered and said, I go, sir: and went not. Whether of them twain did the will of his father?” They said, “The first.” Jesus said, “Verily I say unto you, That the publicans and the harlots go into the kingdom of God before you.” It is better to obey God even if we first say no, than to say yes and never do it.",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "the-rich-fool",
+    title: "The Rich Fool",
+    verse: "Luke 12:16-21",
+    keywords: "rich fool, barns, treasure in heaven, rich toward God, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: a rich man smiling as he looks at overflowing barns and fields, while a small simple house and a gentle reminder of God’s word appear softly in the distance. Focus on the heart moment of choosing what truly lasts. Calm, thoughtful, reverent.",
+    retelling: "Jesus told this story: The ground of a certain rich man brought forth plentifully. He thought within himself, “What shall I do, because I have no room where to bestow my fruits?” He said, “I will pull down my barns, and build greater; and there will I bestow all my fruits and my goods. And I will say to my soul, Soul, thou hast much goods laid up for many years; take thine ease, eat, drink, and be merry.” But God said unto him, “Thou fool, this night thy soul shall be required of thee: then whose shall those things be, which thou hast provided?” Jesus said, “So is he that layeth up treasure for himself, and is not rich toward God.”",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "ten-virgins",
+    title: "The Ten Virgins",
+    verse: "Matthew 25:1-13",
+    keywords: "ten virgins, wise and foolish, ready, bridegroom, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: five wise virgins with bright lamps standing ready at a closed door while the bridegroom arrives with light, and five foolish virgins with dim lamps looking worried in the distance. Focus on the heart moment of being ready. Calm, hopeful, reverent.",
+    retelling: "Jesus said, “The kingdom of heaven is like unto ten virgins, which took their lamps, and went forth to meet the bridegroom. Five of them were wise, and five were foolish. The foolish took their lamps, but took no oil with them. The wise took oil in their vessels with their lamps. While the bridegroom tarried, they all slumbered and slept. At midnight there was a cry made, ‘Behold, the bridegroom cometh; go ye out to meet him.’ Then all those virgins arose, and trimmed their lamps. The foolish said unto the wise, ‘Give us of your oil; for our lamps are gone out.’ But the wise answered, ‘Not so; lest there be not enough for us and you: but go ye rather to them that sell, and buy for yourselves.’ While they went to buy, the bridegroom came; and they that were ready went in with him to the marriage: and the door was shut. Afterward came also the other virgins, saying, ‘Lord, Lord, open to us.’ But he answered, ‘Verily I say unto you, I know you not.’ Watch therefore, for ye know neither the day nor the hour wherein the Son of man cometh.”",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "sheep-and-goats",
+    title: "The Sheep and the Goats",
+    verse: "Matthew 25:31-46",
+    keywords: "sheep and goats, least of these, caring for others, king jesus, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: Jesus as the King gently separating sheep on his right from goats on his left, with people offering food, water, and clothing to the “least of these” in the foreground. Focus on the heart moment of caring for others as caring for Jesus. Calm, kind, hopeful, reverent.",
+    retelling: "Jesus said, “When the Son of man shall come in his glory… he shall separate them one from another, as a shepherd divideth his sheep from the goats. He shall set the sheep on his right hand, but the goats on the left. Then shall the King say unto them on his right hand, ‘Come, ye blessed of my Father, inherit the kingdom prepared for you from the foundation of the world: for I was an hungred, and ye gave me meat: I was thirsty, and ye gave me drink: I was a stranger, and ye took me in…’ Then shall the righteous answer him, ‘Lord, when saw we thee an hungred, and fed thee?’ And the King shall answer, ‘Inasmuch as ye have done it unto one of the least of these my brethren, ye have done it unto me.’”",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "vineyard-workers",
+    title: "The Vineyard Workers",
+    verse: "Matthew 20:1-16",
+    keywords: "vineyard workers, generous, last first, kingdom of heaven, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: the vineyard owner standing kindly with a smiling face, handing the same wage to both early workers and late-arriving workers in the vineyard, with grapes and vines all around. Focus on the heart moment of the owner’s generous goodness. Calm, joyful, reverent.",
+    retelling: "Jesus said, “The kingdom of heaven is like unto a man that is an householder, which went out early in the morning to hire labourers into his vineyard. He agreed with the labourers for a penny a day, and sent them into his vineyard. He went out about the third hour, and saw others standing idle, and said unto them, Go ye also into the vineyard, and whatsoever is right I will give you. Again he went out about the sixth and ninth hour, and did likewise. About the eleventh hour he went out, and found others standing idle, and said unto them, Why stand ye here all the day idle? They said unto him, Because no man hath hired us. He said unto them, Go ye also into the vineyard. When even was come, the lord of the vineyard said unto his steward, Call the labourers, and give them their hire. They which were hired about the eleventh hour received every man a penny. When the first came, they supposed that they should have received more; and they likewise received every man a penny. They murmured against the goodman of the house, saying, These last have wrought but one hour, and thou hast made them equal unto us. But he answered one of them, Friend, I do thee no wrong: didst not thou agree with me for a penny? Take that thine is, and go thy way: I will give unto this last, even as unto thee. Is it not lawful for me to do what I will with mine own? Is thine eye evil, because I am good?” Jesus said, “So the last shall be first, and the first last: for many be called, but few chosen.” God is good and generous to all who come to Him.",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "great-banquet",
+    title: "The Great Banquet",
+    verse: "Luke 14:15-24",
+    keywords: "great banquet, invitation, come to the table, kingdom feast, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: a joyful master at a big banquet table with empty seats, while poor, maimed, and blind people are gently led in from the streets by the servant. Focus on the heart moment of the generous invitation. Calm, welcoming, joyful, reverent.",
+    retelling: "Jesus said, “A certain man made a great supper, and bade many. When the time came, he sent his servant to say to them that were bidden, Come; for all things are now ready. They all with one consent began to make excuse. One said, I have bought a piece of ground, and I must needs go and see it. Another said, I have bought five yoke of oxen, and I go to prove them. Another said, I have married a wife, and therefore I cannot come. The servant came and told his lord. Then the master of the house being angry said to his servant, Go out quickly into the streets and lanes of the city, and bring in hither the poor, and the maimed, and the halt, and the blind. The servant said, It is done as thou hast commanded. The lord said, Go out into the highways and hedges, and compel them to come in, that my house may be filled. For I say unto you, That none of those men which were bidden shall taste of my supper.” God’s invitation to His kingdom is for everyone who will come.",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "barren-fig-tree",
+    title: "The Barren Fig Tree",
+    verse: "Luke 13:6-9",
+    keywords: "barren fig tree, patience, fruit, vineyard, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: a kind man standing beside a fig tree in a vineyard, gently digging around its roots while the tree has a few hopeful green leaves and tiny figs beginning to grow. Focus on the heart moment of patient care. Calm, hopeful, reverent.",
+    retelling: "Jesus told this story: A certain man had a fig tree planted in his vineyard; and he came and sought fruit thereon, and found none. Then said he unto the dresser of his vineyard, “Behold, these three years I come seeking fruit on this fig tree, and find none: cut it down; why cumbereth it the ground?” And he answering said unto him, “Lord, let it alone this year also, till I shall dig about it, and dung it: and if it bear fruit, well: and if not, then after that thou shalt cut it down.” God is patient and gives us time to bring forth good fruit.",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "wedding-feast",
+    title: "The Wedding Feast",
+    verse: "Matthew 22:1-14",
+    keywords: "wedding feast, invitation, wedding garment, kingdom of heaven, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: a joyful king at a wedding feast table with many guests in fine robes, while one man without a wedding garment stands quietly aside. Focus on the heart moment of being properly prepared for the feast. Calm, welcoming, reverent.",
+    retelling: "Jesus said, “The kingdom of heaven is like unto a certain king, which made a marriage for his son, and sent forth his servants to call them that were bidden to the wedding: and they would not come.” The king sent more servants, but the invited guests made light of it and went their ways. The king was angry and said, “Go ye therefore into the highways, and as many as ye shall find, bid to the marriage.” So the servants gathered all they found, both bad and good, and the wedding was furnished with guests. But when the king came in to see the guests, he saw a man which had not on a wedding garment. The king said, “Friend, how camest thou in hither not having a wedding garment?” And he was speechless. Then said the king to the servants, “Bind him hand and foot, and take him away, and cast him into outer darkness; there shall be weeping and gnashing of teeth.” Many are called, but few are chosen.",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "unjust-steward",
+    title: "The Unjust Steward",
+    verse: "Luke 16:1-13",
+    keywords: "unjust steward, faithful in little, serve God, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: the unjust steward sitting at a table, carefully writing on bills while debtors stand nearby with relieved faces. Focus on the heart moment of clever planning. Calm, thoughtful, reverent.",
+    retelling: "Jesus said, “There was a certain rich man, which had a steward; and the same was accused unto him that he had wasted his goods. And he called him, and said unto him, How is it that I hear this of thee? give an account of thy stewardship; for thou mayest be no longer steward. Then the steward said within himself, What shall I do? for my lord taketh away from me the stewardship: I cannot dig; to beg I am ashamed. I am resolved what to do, that, when I am put out of the stewardship, they may receive me into their houses. So he called every one of his lord’s debtors, and said unto the first, How much owest thou unto my lord? And he said, An hundred measures of oil. And he said unto him, Take thy bill, and sit down quickly, and write fifty. Then said he to another, And how much owest thou? And he said, An hundred measures of wheat. And he said unto him, Take thy bill, and write fourscore. And the lord commended the unjust steward, because he had done wisely: for the children of this world are in their generation wiser than the children of light. And I say unto you, Make to yourselves friends of the mammon of unrighteousness; that, when ye fail, they may receive you into everlasting habitations. He that is faithful in that which is least is faithful also in much: and he that is unjust in the least is unjust also in much. If therefore ye have not been faithful in the unrighteous mammon, who will commit to your trust the true riches? And if ye have not been faithful in that which is another man’s, who shall give you that which is your own? No servant can serve two masters: for either he will hate the one, and love the other; or else he will hold to the one, and despise the other. Ye cannot serve God and mammon.”",
+    flow: "color → I’m finished → read-along → gentle loop or next"
+  },
+  {
+    id: "rich-man-lazarus",
+    title: "The Rich Man and Lazarus",
+    verse: "Luke 16:19-31",
+    keywords: "rich man and lazarus, comfort for the humble, angels, every day",
+    type: "bible-story",
+    colorPrompt: "Create one simple black-and-white line-art coloring page for ages 3–8. Clean bold outlines, large open spaces. Peaceful scene: Lazarus being gently carried by angels into Abraham’s bosom while the rich man looks on from a place of torment in the distance. Focus on the heart moment of comfort for the humble. Calm, compassionate, reverent — never scary.",
+    retelling: "There was a certain rich man, which was clothed in purple and fine linen, and fared sumptuously every day. And there was a certain beggar named Lazarus, which was laid at his gate, full of sores, and desiring to be fed with the crumbs which fell from the rich man’s table. Moreover the dogs came and licked his sores. And it came to pass, that the beggar died, and was carried by the angels into Abraham’s bosom. The rich man also died, and was buried. And in hell he lift up his eyes, being in torments, and seeth Abraham afar off, and Lazarus in his bosom. And he cried and said, “Father Abraham, have mercy on me, and send Lazarus, that he may dip the tip of his finger in water, and cool my tongue; for I am tormented in this flame.” But Abraham said, “Son, remember that thou in thy lifetime receivedst thy good things, and likewise Lazarus evil things: but now he is comforted, and thou art tormented.”",
+    flow: "color → I’m finished → read-along → gentle loop or next"
   }
 ];
 })(typeof window !== 'undefined' ? window : this);

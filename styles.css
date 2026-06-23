@@ -18141,24 +18141,38 @@ body[data-topic-gem="rose"] .message-avatar.topic-gem-message-rose { box-shadow:
   padding-right: 1.25rem;
   box-sizing: border-box;
 }
-.feel-view-more {
+/* Strengthened for reliable axe contrast on dark porch surfaces */
+a.feel-view-more,
+.content-inner a.feel-view-more,
+.feel-view-more:link,
+.feel-view-more:visited {
   display: block;
   margin-top: 0.5rem;
   text-align: right;
   font-size: 0.82rem;
-  color: var(--gold, #c9a227);
+  color: var(--gold, #e3bc67) !important;
   text-decoration: none;
   letter-spacing: 0.03em;
   padding: 0.25rem 0;
-  opacity: 0.85;
+  opacity: 0.92;
   transition: opacity 0.15s ease;
 }
 .feel-view-more:hover,
 .feel-view-more:focus-visible {
   opacity: 1;
   text-decoration: underline;
-  outline: 2px solid var(--gold, #c9a227);
+  outline: 2px solid var(--gold, #e3bc67);
   outline-offset: 2px;
+}
+
+/* Fix low-contrast blue links on dark porch/glass cards introduced by swoop polish */
+.tdb-porch-card,
+.tdb-porch-card *,
+a.feel-view-more,
+.feel-view-more:link,
+.feel-view-more:visited,
+.tdb-porch-card a {
+  color: var(--gold, #e3bc67) !important;
 }
 
 /* ── Smart Feel Search ─────────────────────────────────────────────────────── */
@@ -24694,4 +24708,109 @@ html.tdb-backup-reminder-open body {
     color: #e8e4d9;
     border-color: #d4b88a;
   }
+}
+
+/* ================================================================
+   Site-wide Visual Lift — Jun 2026
+   Applies existing tokens consistently; no new design concepts.
+   ================================================================ */
+
+/* --- Responsive card grid utility -------------------------------- */
+.tdb-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+  gap: var(--space-md, 1.5rem);
+}
+
+/* --- Section landmark spacing ------------------------------------ */
+/* Add class .tdb-section-landmark to any major homepage section
+   that needs breathing room and a subtle top divider. */
+.tdb-section-landmark {
+  padding-block: var(--space-lg, 2.25rem);
+  border-top: 1px solid var(--border-subtle, rgba(148,163,184,0.14));
+}
+
+/* --- Nav More panel: labeled groups + 44 px tap targets ---------- */
+.tdb-nav-more-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.tdb-nav-more-group {
+  border-top: 1px solid var(--border-subtle, rgba(148,163,184,0.14));
+  padding: 0.25rem 0;
+}
+.tdb-nav-more-group:first-child { border-top: none; }
+.tdb-nav-more-group-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted, #b3c1d3);
+  padding: 0.55rem 0.85rem 0.15rem;
+  pointer-events: none;
+  user-select: none;
+}
+.tdb-nav-more-panel a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.45rem 0.85rem;
+  border-radius: 6px;
+  transition: background 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+.tdb-nav-more-panel a:hover,
+.tdb-nav-more-panel a:focus-visible {
+  background: color-mix(in srgb, var(--accent, #8ba6d9) 12%, transparent);
+  color: var(--accent-hover, #a8c5e8);
+  outline: none;
+}
+
+/* --- Porch cards: slightly more gap on wider screens ------------- */
+@media (min-width: 600px) {
+  .tdb-porch-cards { gap: 1.1rem; }
+}
+@media (min-width: 900px) {
+  .tdb-porch-cards { gap: 1.35rem; }
+}
+
+/* --- Top-links row: hide secondary links, keep auth+appearance -- */
+/* About / FAQ / Privacy / Terms live in footer and More panel;
+   hide them from the noisy top header row. */
+.site-top-links .site-top-links-secondary {
+  display: none;
+}
+
+/* --- Homepage major section spacing ------------------------------ */
+.tdb-home-section-gap {
+  margin-top: var(--space-lg, 2.25rem);
+  padding-top: var(--space-md, 1.5rem);
+  border-top: 1px solid var(--border-subtle, rgba(148,163,184,0.14));
+}
+
+/* Companion doors: extra side-padding on wider screens */
+@media (min-width: 600px) {
+  #tdb-home-companion-doors { padding-inline: var(--space-sm, 1rem); }
+}
+
+/* --- Ask the Word verse breakdown injection --------------------- */
+/* Space between the verse card text and the injected breakdown toggle */
+.qa-verse-card .tdb-verse-breakdown-inline {
+  margin-top: 0.65rem;
+}
+.qa-verse-card .tdb-vb-inline-toggle {
+  font-size: 0.82rem;
+  padding: 0.3rem 0.75rem;
+  min-height: 36px;
+}
+.qa-verse-card .tdb-vb-inline-panel {
+  margin-top: 0.5rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 0 0 6px 6px;
+  background: rgba(255,255,255,0.03);
+  border-top: 1px solid var(--border-subtle, rgba(148,163,184,0.14));
 }

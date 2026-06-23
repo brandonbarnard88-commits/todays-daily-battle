@@ -19,6 +19,9 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260503-consent-persist-fix" as="style">
   <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix">
+  <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
+  <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
+
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -104,6 +107,14 @@
         </section>
       </div>
     </main>
+    <nav class="tdb-bottom-dock" aria-label="Main site navigation">
+      <a href="/verse.html" aria-label="Verse of the Day">☀️ Verse</a>
+      <a href="/#feel-section" aria-label="Ask the Word">💬 Ask</a>
+      <a href="/plans.html" aria-label="Battle Plans">🗓️ Plans</a>
+      <a href="/prayer-wall.html" aria-label="Prayer Wall">🙏 Pray</a>
+      <a href="/explore.html" class="tdb-bottom-dock-more" aria-label="More tools">☰ More</a>
+    </nav>
+
 
     <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
   <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
@@ -141,7 +152,7 @@
 
   <nav class="bottom-nav" role="navigation" aria-label="Plans, kids, and Spanish topics">
     <a href="/plans.html">Plans</a>
-    <a href="/kids/">Kids Battle</a>
+    <a href="/kids/">Kids Corner</a>
     <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
       <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
       <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
@@ -205,6 +216,8 @@
         <a href="/mystudy">My Study</a>
         <a href="/calm.html">Calm</a>
         <a href="/mobius.html">Grace Ribbon</a>
+        <a href="/one-family-in-christ.html">One Family in Christ</a>
+        <a href="/red-letters.html">Red letters</a>
         <a href="/plans.html">Courses</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
@@ -222,22 +235,21 @@
         <a href="/family.html">Family hub</a>
         <a href="/little-ones.html">For the Little Ones</a>
         <a href="/family-armor.html">Family Armor</a>
-        <a href="/kids/">Kids Battle home</a>
-        <a href="/kids/corner.html">Bible Story Library</a>
-        <a href="/kids-corner.html">Bible Loop Library</a>
+        <a href="/kids/">Kids Corner</a>
         <a href="/coloring.html">Color &amp; Tell</a>
       </div>
       <div class="footer-sitemap-col">
         <h3>Further In</h3>
         <a href="/prayer-wall.html">Prayer</a>
         <a href="/offline-porch.html">Offline porch</a>
+        <a href="/porch-map-one-page-print.html">Porch map (print)</a>
+        <a href="/porch-pathways-ribbon-one-page-print.html">Ribbon pathways (print)</a>
         <a href="/bible-study.html">Bible studies</a>
         <a href="/shop.html">Shop</a>
         <a href="/story.html">Story</a>
         <a href="/media.html">Media</a>
         <a href="/roadmap.html">Roadmap</a>
         <a href="/approach.html">How we respond</a>
-        <a href="/why-not-ai.html">Why not AI?</a>
         <a href="/curriculum.html">Curriculum</a>
         <a href="/verse-cards/">Verse cards</a>
         <a href="/contact.html">Contact</a>
@@ -268,7 +280,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">May 26, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">June 23, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
@@ -280,5 +292,7 @@
   <script nonce="tdb2025s">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260503-consent-persist-fix" data-cfasync="false"></script>
+
+  <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
 </body>
 </html>

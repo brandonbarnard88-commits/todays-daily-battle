@@ -112,6 +112,20 @@ if (!headersForCsp.includes('trusted-types default dompurify')) {
 if (!headersForCsp.includes("default-src 'self'") && !headersForCsp.includes('default-src \'self\'')) {
   warn('CSP may be weak: default-src should include self');
 }
+if (!headersForCsp.includes('https://www.google.com')) {
+  fail('_headers: connect-src must include https://www.google.com for GA4 /g/collect');
+} else {
+  ok('CSP: connect-src allows GA4 /g/collect (www.google.com)');
+}
+for (const metaCspPage of ['message.html', 'pricing.html', 'prayer-wall.html']) {
+  const page = read(metaCspPage);
+  if (!page.includes('Content-Security-Policy')) continue;
+  if (!page.includes('https://www.google.com')) {
+    fail(metaCspPage + ': meta CSP connect-src must include https://www.google.com for GA4 /g/collect');
+  } else {
+    ok(metaCspPage + ': meta CSP allows GA4 /g/collect (www.google.com)');
+  }
+}
 
 // 1b. vercel.json catch-all headers are generated from _headers (see scripts/sync-vercel-headers-from-headers.mjs)
 try {
@@ -519,6 +533,11 @@ if (
   fail('functions/_middleware.js: Pages middleware fallback security headers missing');
 } else {
   ok('functions/_middleware.js: Pages middleware fallback security headers present');
+}
+if (!pagesMiddlewareJs.includes('https://www.google.com')) {
+  fail('functions/_middleware.js: connect-src must include https://www.google.com for GA4 /g/collect');
+} else {
+  ok('functions/_middleware.js: connect-src allows GA4 /g/collect (www.google.com)');
 }
 const purgeMjs = read('scripts/cloudflare-purge.mjs');
 const verifyLive = read('scripts/verify-live-key-html.mjs');

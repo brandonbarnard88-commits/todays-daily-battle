@@ -312,6 +312,7 @@ const topics = [
   'topic-fear.html',
   'topic-forgiveness.html',
   'topic-grief.html',
+  'topic-trauma.html',
   'topic-hope.html',
   'topic-guilt.html',
   'topic-loneliness.html',
@@ -1227,8 +1228,8 @@ if (missingRedirects.length) {
   missingRedirects.forEach(function (r) { console.error('  - ' + r.desc); });
   process.exit(1);
 }
-if (!/^\/why-not-ai\s+\/why-not-ai\.html\s+200!/m.test(redirectsContent)) {
-  console.error('BUILD FAIL: _redirects must map /why-not-ai → /why-not-ai.html (200!) for Cloudflare Pages.');
+if (!/^\/why-not-ai\s+\/about\.html\s+301/m.test(redirectsContent)) {
+  console.error('BUILD FAIL: _redirects must map /why-not-ai → /about.html (301) for retired moat page.');
   process.exit(1);
 }
 const LOCALE_HUB_REDIRECTS = [

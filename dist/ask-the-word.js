@@ -28,7 +28,7 @@
       return d.innerHTML;
     }
 
-    /** Plain answer line for Ask the Word (see tt-bootstrap tdbCleanForPlainDisplay). */
+    /** Strip any stray markup from plain-text answers. */
     function plainAnswerText(s) {
       if (typeof window.tdbCleanForPlainDisplay === 'function') {
         return window.tdbCleanForPlainDisplay(s);
@@ -77,13 +77,29 @@
 
     function isOffTopic(q) {
       var l = q.toLowerCase();
-      return /pineapple|pizza|football|sports|movie|netflix|recipe|cooking/.test(l);
+      return /pineapple|pizza|football|nfl|nba|sports|movie|netflix|recipe|cooking|stock market|crypto|weather/.test(l);
     }
 
-    function verseLink(ref) {
-      var r = String(ref || '').trim();
-      if (!r) return '';
-      return '<a href="reader.html?ref=' + encodeURIComponent(r) + '" class="qa-verse-link">' + escapeHtml(r) + '</a>';
+    function cacheKey(q) {
+      return q.toLowerCase().replace(/\s+/g, ' ').trim();
+    }
+
+    /** Render a single verse as a card element. */
+    function verseCardHtml(ref, text) {
+      var r = escapeHtml(String(ref || '').trim());
+      var t = escapeHtml(String(text || '').trim());
+      var refRaw = String(ref || '').trim();
+      var textRaw = String(text || '').trim();
+      var link = refRaw ? 'reader.html?ref=' + encodeURIComponent(refRaw) : '';
+      return '<div class="qa-verse-card"' +
+        (refRaw ? ' data-ref="' + r + '"' : '') +
+        (textRaw ? ' data-verse-text="' + t + '"' : '') +
+        '>' +
+        '<span class="qa-verse-ref">' +
+          (link ? '<a href="' + link + '" class="qa-verse-link">' + r + '</a>' : r) +
+        '</span>' +
+        (textRaw ? '<span class="qa-verse-text">\u201c' + textRaw + '\u201d</span>' : '') +
+        '</div>';
     }
 
     function localSearch(q) {
@@ -96,7 +112,12 @@
       }
       return tryF(0).then(function (arr) {
         if (!Array.isArray(arr)) {
-          return { answer: 'Not sure—try "hope" or read John 14.', sources: ['John 14:6'] };
+          return {
+            answer: 'Not sure\u2014try searching \u201chope\u201d or \u201cpeace.\u201d',
+            verses: [],
+            sources: ['John 14:6'],
+            prayer_prompt: 'Lord, meet me in this. Let Your Word be my anchor right now. Amen.'
+          };
         }
         var words = q.toLowerCase().replace(/[^\w\s]/g, ' ').split(/\s+/).filter(Boolean);
         var syn = { love: ['love', 'charity'], wrote: ['wrote', 'paul', 'author'] };
@@ -117,13 +138,13 @@
         scored.sort(function (a, b) { return b.sc - a.sc; });
         var top = scored.slice(0, 3).map(function (x) { return x.v; });
         if (!top.length) top = arr.slice(0, 3).filter(function (v) { return v && v.ref; });
-        var parts = top.map(function (v) {
-          var s = (v.text || '').substring(0, 80);
-          return v.ref + ' — ' + (v.text && v.text.length > 80 ? s + '…' : s);
-        });
         return {
-          answer: parts.length ? 'From the Word: ' + parts.join(' ') : 'Not sure—try "hope" or read John 14.',
-          sources: top.map(function (v) { return v.ref; })
+          answer: top.length
+            ? 'Here is what the Word says about that:'
+            : 'Not sure\u2014try searching \u201chope\u201d or \u201cpeace.\u201d',
+          verses: top.map(function (v) { return { ref: v.ref, text: v.text }; }),
+          sources: top.map(function (v) { return v.ref; }),
+          prayer_prompt: 'Lord, meet me in this. Let Your Word be my anchor right now. Amen.'
         };
       });
     }
@@ -146,21 +167,54 @@
     }
 
     function render(data) {
-      var src = Array.isArray(data.sources) && data.sources.length
-        ? data.sources.map(verseLink).join(', ')
-        : '';
-      result.innerHTML = '<p class="qa-answer">' + escapeHtml(plainAnswerText(data.answer)) + '</p>' +
-        (src ? '<p class="qa-sources">Sources: ' + src + '</p>' : '');
+      var answerHtml = '<p class="qa-answer">' + escapeHtml(plainAnswerText(data.answer)) + '</p>';
+
+      // Inline verse cards (preferred) — show full KJV text
+      var versesHtml = '';
+      if (Array.isArray(data.verses) && data.verses.length) {
+        versesHtml = '<div class="qa-verse-list">' +
+          data.verses
+            .filter(function (v) { return v && (v.ref || v.text); })
+            .map(function (v) { return verseCardHtml(v.ref, v.text); })
+            .join('') +
+          '</div>';
+      } else if (Array.isArray(data.sources) && data.sources.length) {
+        // Fallback: ref links only (old response shape)
+        var srcLinks = data.sources.map(function (ref) {
+          var r = String(ref || '').trim();
+          if (!r) return '';
+          return '<a href="reader.html?ref=' + encodeURIComponent(r) + '" class="qa-verse-link">' + escapeHtml(r) + '</a>';
+        }).filter(Boolean).join(', ');
+        if (srcLinks) versesHtml = '<p class="qa-sources">Sources: ' + srcLinks + '</p>';
+      }
+
+      result.innerHTML = answerHtml + versesHtml;
       result.classList.remove('hidden');
       result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+      // Wire "Break it down" toggle for each verse card using the existing
+      // verse-breakdown.js infrastructure (already loaded on bible-tool.html).
+      if (typeof window.TDBVerseBreakdown === 'object' &&
+          typeof window.TDBVerseBreakdown.injectInlineBreakdown === 'function') {
+        result.querySelectorAll('.qa-verse-card[data-ref]').forEach(function (card) {
+          var ref = card.getAttribute('data-ref') || '';
+          var text = card.getAttribute('data-verse-text') || '';
+          if (ref) {
+            try { window.TDBVerseBreakdown.injectInlineBreakdown(card, ref, text); } catch (e) {}
+          }
+        });
+      }
+
+      // Prayer prompt
       if (prayerEl) {
         prayerEl.classList.add('hidden');
         prayerEl.setAttribute('aria-hidden', 'true');
       }
       if (data.prayer_prompt) {
         var pt = String(data.prayer_prompt).trim();
-        if (pt && prayerEl) {
-          prayerEl.querySelector('.prompt-text').textContent = '\u201c' + pt + '\u201d';
+        var promptTextEl = prayerEl && prayerEl.querySelector('.prompt-text');
+        if (pt && prayerEl && promptTextEl) {
+          promptTextEl.textContent = '\u201c' + pt + '\u201d';
           prayerEl.classList.remove('hidden');
           prayerEl.setAttribute('aria-hidden', 'false');
           var cb = prayerEl.querySelector('.copy-btn');
@@ -177,7 +231,7 @@
 
     function setLoading(on) {
       btn.disabled = on;
-      btn.innerHTML = on ? '<span class="qa-spinner" aria-hidden="true"></span> Asking…' : 'Ask';
+      btn.innerHTML = on ? '<span class="qa-spinner" aria-hidden="true"></span> Asking\u2026' : 'Ask';
     }
 
     function runAsk() {
@@ -185,7 +239,7 @@
       if (!q) return;
       if (isOffTopic(q)) {
         result.classList.remove('hidden');
-        result.innerHTML = '<p class="qa-answer">I don\'t know—talk to a pastor.</p>';
+        result.innerHTML = '<p class="qa-answer">That one\u2019s outside what I can help with\u2014talk to a pastor for things outside the Word.</p>';
         if (prayerEl) prayerEl.classList.add('hidden');
         return;
       }
@@ -196,29 +250,29 @@
       }
       setLoading(true);
       result.classList.remove('hidden');
-      result.innerHTML = '<p class="empty">Seeking the Word…</p>';
+      result.innerHTML = '<p class="empty">Seeking the Word\u2026</p>';
       var cfg = window.TDB_CONFIG || {};
       var hasSupabase = !!(cfg.SUPABASE_URL && cfg.SUPABASE_ANON_KEY);
       var req = hasSupabase ? invokeBibleQa(q) : Promise.reject(new Error('Config missing'));
       req.then(function (res) {
         setLoading(false);
         if (res && res.answer) {
-          setCache(q.toLowerCase().replace(/\s+/g, ' ').trim(), res);
+          setCache(cacheKey(q), res);
           render(res);
           return;
         }
         return localSearch(q).then(function (d) {
-          setCache(q.toLowerCase().replace(/\s+/g, ' ').trim(), d);
+          setCache(cacheKey(q), d);
           render(d);
         });
       }).catch(function () {
         return localSearch(q).then(function (d) {
           setLoading(false);
-          setCache(q.toLowerCase().replace(/\s+/g, ' ').trim(), d);
+          setCache(cacheKey(q), d);
           render(d);
         }).catch(function () {
           setLoading(false);
-          result.innerHTML = '<p class="empty">We couldn&rsquo;t reach an answer just now—that is all right. Check your connection, or use verse lookup below.</p>';
+          result.innerHTML = '<p class="empty">We couldn\u2019t reach an answer just now\u2014that is all right. Check your connection, or use verse lookup below.</p>';
           if (prayerEl) prayerEl.classList.add('hidden');
         });
       });

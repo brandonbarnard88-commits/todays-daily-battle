@@ -4774,40 +4774,6 @@
       narration:
         "Job Trusts God When He Is Sad — Job 1:1–22; 2:11–13. Job was a good man who loved God. One day he lost almost everything that was dear to him. He felt very sad, but he did not stop loving God. He said, The Lord gave, and the Lord hath taken away; blessed be the name of the Lord. Three friends came and sat with him quietly for seven days and seven nights. Even when he was sad, Job still trusted God. For you: you can tell God how you feel — and trust Him on hard days too."
     },
-    doNotFearIsaiah41: {
-      title: 'Do Not Fear — God Is With You',
-      panels: [
-        { src: 'panel-david-1.svg', alt: 'Night feels big — God speaks through Isaiah' },
-        { src: 'panel-david-2.svg', alt: 'Fear thou not — I am with thee; I will strengthen thee' },
-        { src: 'panel-david-3.svg', alt: 'I will uphold thee — God stays near' }
-      ],
-      caption: 'Swipe when the night feels bigger than you — God is with you! 🌙',
-      videoId: '',
-      videoTitle: '',
-      keywords: [
-        'isaiah 41',
-        'isaiah 41:10',
-        'fear not',
-        'fear thou not',
-        'i am with thee',
-        'strengthen',
-        'help',
-        'uphold',
-        'afraid',
-        'night',
-        'comfort',
-        'prophet isaiah'
-      ],
-      kjvRef: 'Isaiah 41:10',
-      kidContext: {
-        who: 'The LORD',
-        to: 'His people — and every heart that feels afraid',
-        apply:
-          'When fear whispers you are alone, God says He is with you — and He will help you.'
-      },
-      narration:
-        "Do Not Fear — God Is With You — Isaiah 41:10. God spoke through His prophet Isaiah to people who felt afraid. He said, Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness. For you: You can tell God what feels scary — and trust that He is with you tonight."
-    },
     psalm23Shepherd: {
       title: 'Psalm 23 — The Lord Is My Shepherd',
       panels: [
@@ -9405,6 +9371,1400 @@
       kjvRef: 'Revelation 22:12–13',
       kidContext: { who: 'Jesus', to: 'All creation', apply: 'Jesus is the start and finish of your story too! Give Him every chapter.' }
     },
+    josiahReform: {
+      title: 'Young King Josiah',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Young King Josiah — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['josiah reform', 'gentle', 'kjv', 'faith', 'kids'],
+      kjvRef: '2 Kings 22:2',
+      kidContext: {
+        who: 'The LORD',
+        to: 'every listener',
+        apply: 'God is happy when we choose to do what is right.'
+      },
+      narration: 'Young King Josiah — 2 Kings 22:2. A gentle story from God’s Word for young hearts. For you: God is happy when we choose to do what is right.'
+    },
+
+    jeremiahCall: {
+      title: 'God Calls Young Jeremiah',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'God Calls Young Jeremiah — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['jeremiah call', 'gentle', 'kjv', 'faith', 'kids'],
+      kjvRef: 'Jeremiah 1:5,7',
+      kidContext: {
+        who: 'The LORD',
+        to: 'every listener',
+        apply: 'God knows you and will be with you.'
+      },
+      narration: 'God Calls Young Jeremiah — Jeremiah 1:5,7. A gentle story from God’s Word for young hearts. For you: God knows you and will be with you.'
+    },
+
+    ezekielDryBones: {
+      title: 'Ezekiel and the Dry Bones',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Ezekiel and the Dry Bones — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['ezekiel dry bones', 'gentle', 'kjv', 'faith', 'kids'],
+      kjvRef: 'Ezekiel 37:4',
+      kidContext: {
+        who: 'The LORD',
+        to: 'every listener',
+        apply: 'God can bring hope and life to any hard place.'
+      },
+      narration: 'Ezekiel and the Dry Bones — Ezekiel 37:4. A gentle story from God’s Word for young hearts. For you: God can bring hope and life to any hard place.'
+    },
+
+    ezraLaw: {
+      title: 'Ezra Reads God’s Word',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Ezra Reads God’s Word — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['ezra law', 'gentle', 'kjv', 'faith', 'kids'],
+      kjvRef: 'Nehemiah 8:8',
+      kidContext: {
+        who: 'The LORD',
+        to: 'every listener',
+        apply: 'God’s Word makes our hearts glad when we listen.'
+      },
+      narration: 'Ezra Reads God’s Word — Nehemiah 8:8. A gentle story from God’s Word for young hearts. For you: God’s Word makes our hearts glad when we listen.'
+    },
+
+    nehemiahWallRevisited: {
+      title: 'Nehemiah Rebuilds the Wall',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Nehemiah Rebuilds the Wall — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['nehemiah wall revisited', 'gentle', 'kjv', 'faith', 'kids'],
+      kjvRef: 'Nehemiah 4:6',
+      kidContext: {
+        who: 'The LORD',
+        to: 'every listener',
+        apply: 'With God’s help we can rebuild what is broken.'
+      },
+      narration: 'Nehemiah Rebuilds the Wall — Nehemiah 4:6. A gentle story from God’s Word for young hearts. For you: With God’s help we can rebuild what is broken.'
+    },
+
+    samsonStrength: {
+      title: 'Samson and God’s Strength',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Samson and God’s Strength — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['samson strength', 'gentle', 'kjv', 'faith', 'kids'],
+      kjvRef: 'Judges 14:6',
+      kidContext: {
+        who: 'The LORD',
+        to: 'every listener',
+        apply: 'God’s strength is perfect when we feel weak.'
+      },
+      narration: 'Samson and God’s Strength — Judges 14:6. A gentle story from God’s Word for young hearts. For you: God’s strength is perfect when we feel weak.'
+    },
+
+    gideonFleeceRevisited: {
+      title: 'Gideon and the Fleece',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Gideon and the Fleece — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['gideon fleece revisited', 'gentle', 'kjv', 'faith', 'kids'],
+      kjvRef: 'Judges 6:36',
+      kidContext: {
+        who: 'The LORD',
+        to: 'every listener',
+        apply: 'God is patient when we need to know He is near.'
+      },
+      narration: 'Gideon and the Fleece — Judges 6:36. A gentle story from God’s Word for young hearts. For you: God is patient when we need to know He is near.'
+    },
+
+    deborahJudgeRevisited: {
+      title: 'Deborah the Judge',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Deborah the Judge — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['deborah judge revisited', 'gentle', 'kjv', 'faith', 'kids'],
+      kjvRef: 'Judges 4:14',
+      kidContext: {
+        who: 'The LORD',
+        to: 'every listener',
+        apply: 'God can use you to encourage others to be brave.'
+      },
+      narration: 'Deborah the Judge — Judges 4:14. A gentle story from God’s Word for young hearts. For you: God can use you to encourage others to be brave.'
+    },
+
+    isaiahVision: {
+      title: 'Isaiah Sees the Lord',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Isaiah Sees the Lord — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['isaiah vision', 'gentle', 'kjv', 'faith', 'kids'],
+      kjvRef: 'Isaiah 6:3',
+      kidContext: {
+        who: 'The LORD',
+        to: 'every listener',
+        apply: 'God is holy and good — He can still use us.'
+      },
+      narration: 'Isaiah Sees the Lord — Isaiah 6:3. A gentle story from God’s Word for young hearts. For you: God is holy and good — He can still use us.'
+    },
+
+    micahJustice: {
+      title: 'Micah Teaches Justice',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Micah Teaches Justice — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['micah justice', 'gentle', 'kjv', 'faith', 'kids'],
+      kjvRef: 'Micah 6:8',
+      kidContext: {
+        who: 'The LORD',
+        to: 'every listener',
+        apply: 'God wants us to be fair and kind every day.'
+      },
+      narration: 'Micah Teaches Justice — Micah 6:8. A gentle story from God’s Word for young hearts. For you: God wants us to be fair and kind every day.'
+    },
+
+    habakkukFaith: {
+      title: 'Habakkuk Trusts God',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Habakkuk Trusts God — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['habakkuk faith', 'gentle', 'kjv', 'faith', 'kids'],
+      kjvRef: 'Habakkuk 2:4',
+      kidContext: {
+        who: 'The LORD',
+        to: 'every listener',
+        apply: 'We can trust God even when things are hard to understand.'
+      },
+      narration: 'Habakkuk Trusts God — Habakkuk 2:4. A gentle story from God’s Word for young hearts. For you: We can trust God even when things are hard to understand.'
+    },
+
+    haggaiTemple: {
+      title: 'Haggai and God’s House',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Haggai and God’s House — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['haggai temple', 'gentle', 'kjv', 'faith', 'kids'],
+      kjvRef: 'Haggai 1:4',
+      kidContext: {
+        who: 'The LORD',
+        to: 'every listener',
+        apply: 'Putting God first brings blessing.'
+      },
+      narration: 'Haggai and God’s House — Haggai 1:4. A gentle story from God’s Word for young hearts. For you: Putting God first brings blessing.'
+    },
+
+    zechariahVision: {
+      title: 'Zechariah’s Hope',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Zechariah’s Hope — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['zechariah vision', 'gentle', 'kjv', 'faith', 'kids'],
+      kjvRef: 'Zechariah 1:3',
+      kidContext: {
+        who: 'The LORD',
+        to: 'every listener',
+        apply: 'God gives us hope and new beginnings.'
+      },
+      narration: 'Zechariah’s Hope — Zechariah 1:3. A gentle story from God’s Word for young hearts. For you: God gives us hope and new beginnings.'
+    },
+
+    malachiMessenger: {
+      title: 'Malachi’s Messenger',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Malachi’s Messenger — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['malachi messenger', 'gentle', 'kjv', 'faith', 'kids'],
+      kjvRef: 'Malachi 3:1',
+      kidContext: {
+        who: 'The LORD',
+        to: 'every listener',
+        apply: 'God sends help so we can come back to Him.'
+      },
+      narration: 'Malachi’s Messenger — Malachi 3:1. A gentle story from God’s Word for young hearts. For you: God sends help so we can come back to Him.'
+    },
+
+    estherRevisited: {
+      title: 'Queen Esther Is Brave',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Queen Esther Is Brave — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['esther revisited', 'gentle', 'kjv', 'faith', 'kids'],
+      kjvRef: 'Esther 4:14',
+      kidContext: {
+        who: 'The LORD',
+        to: 'every listener',
+        apply: 'God has a special time and place for you too.'
+      },
+      narration: 'Queen Esther Is Brave — Esther 4:14. A gentle story from God’s Word for young hearts. For you: God has a special time and place for you too.'
+    },
+
+    boazRedeemer: {
+      title: 'Boaz the Redeemer',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Boaz the Redeemer — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['boaz redeemer', 'gentle', 'kjv', 'faith', 'kids'],
+      kjvRef: 'Ruth 2:12',
+      kidContext: {
+        who: 'The LORD',
+        to: 'every listener',
+        apply: 'God provides someone to take care of us and make us part of His family.'
+      },
+      narration: 'Boaz the Redeemer — Ruth 2:12. A gentle story from God’s Word for young hearts. For you: God provides someone to take care of us and make us part of His family.'
+    },
+
+    jobFriends: {
+      title: 'Job’s Friends Sit Quietly',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Job’s Friends Sit Quietly — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['job friends', 'gentle', 'kjv', 'faith', 'kids'],
+      kjvRef: 'Job 2:13',
+      kidContext: {
+        who: 'The LORD',
+        to: 'every listener',
+        apply: 'Sometimes the best thing we can do is just sit with someone who is hurting.'
+      },
+      narration: 'Job’s Friends Sit Quietly — Job 2:13. A gentle story from God’s Word for young hearts. For you: Sometimes the best thing we can do is just sit with someone who is hurting.'
+    },
+
+    elijahAscension: {
+      title: 'Elijah Taken to Heaven',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Elijah Taken to Heaven — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['elijah ascension', 'gentle', 'kjv', 'faith', 'kids'],
+      kjvRef: '2 Kings 2:11',
+      kidContext: {
+        who: 'The LORD',
+        to: 'every listener',
+        apply: 'God takes care of His people to the very end.'
+      },
+      narration: 'Elijah Taken to Heaven — 2 Kings 2:11. A gentle story from God’s Word for young hearts. For you: God takes care of His people to the very end.'
+    },
+
+    allHeroesPraise: {
+      title: 'All the Heroes Point to Jesus',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'All the Heroes Point to Jesus — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['all heroes praise', 'gentle', 'kjv', 'faith', 'kids'],
+      kjvRef: 'Hebrews 11:39-40',
+      kidContext: {
+        who: 'The LORD',
+        to: 'every listener',
+        apply: 'All these heroes point us to Jesus, our greatest Hero.'
+      },
+      narration: 'All the Heroes Point to Jesus — Hebrews 11:39-40. A gentle story from God’s Word for young hearts. For you: All these heroes point us to Jesus, our greatest Hero.'
+    },
+
+    psalm91: {
+      title: 'Safe in God’s Care',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Safe in God’s Care — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['psalm91', 'gentle', 'kjv', 'faith', 'kids'],
+      kjvRef: 'Psalm 91:1-2',
+      kidContext: {
+        who: 'The LORD',
+        to: 'every listener',
+        apply: 'God is our safe place — we can stay close to Him.'
+      },
+      narration: 'Safe in God’s Care — Psalm 91:1-2. A gentle story from God’s Word for young hearts. For you: God is our safe place — we can stay close to Him.'
+    },
+
+    mosesRedSea: {
+      title: 'God Opens the Red Sea',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'God Opens the Red Sea — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['moses red sea', 'gentle', 'kjv', 'faith', 'kids'],
+      kjvRef: 'Exodus 14:21-22',
+      kidContext: {
+        who: 'The LORD',
+        to: 'every listener',
+        apply: 'God can make a way when there seems to be no way.'
+      },
+      narration: 'God Opens the Red Sea — Exodus 14:21-22. A gentle story from God’s Word for young hearts. For you: God can make a way when there seems to be no way.'
+    },
+
+    psalm91: {
+      title: 'Safe in God’s Care',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Safe in God’s Care — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['psalm 91', 'gentle', 'kjv', 'faith', 'kids'],
+      kjvRef: 'Psalm 91:1-2',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'God is our safe place — we can stay close to Him.' },
+      narration: 'Safe in God’s Care — Psalm 91:1-2. A gentle story from God’s Word for young hearts.'
+    },
+    mosesRedSea: {
+      title: 'God Opens the Red Sea',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'God Opens the Red Sea — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['moses red sea', 'gentle', 'kjv', 'faith', 'kids'],
+      kjvRef: 'Exodus 14:21-22',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'God can make a way when there seems to be no way.' },
+      narration: 'God Opens the Red Sea — Exodus 14:21-22. A gentle story from God’s Word for young hearts.'
+    },
+    pentecostHolySpirit: {
+      title: 'Pentecost — God’s Spirit Comes',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Pentecost — God’s Spirit Comes — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['pentecost holy spirit', 'gentle', 'kjv', 'acts', 'kids'],
+      kjvRef: 'Acts 2:4',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'God’s Spirit is with you to help you every day.' },
+      narration: 'Pentecost — God’s Spirit Comes — Acts 2:4. A gentle story from God’s Word for young hearts.'
+    },
+
+    philipEthiopianRevisited: {
+      title: 'Philip and the Ethiopian',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Philip and the Ethiopian — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['philip ethiopian revisited', 'gentle', 'kjv', 'acts', 'kids'],
+      kjvRef: 'Acts 8:29',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'God can use you to help one person at a time.' },
+      narration: 'Philip and the Ethiopian — Acts 8:29. A gentle story from God’s Word for young hearts.'
+    },
+
+    saulConversion: {
+      title: 'Saul Meets Jesus',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Saul Meets Jesus — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['saul conversion', 'gentle', 'kjv', 'acts', 'kids'],
+      kjvRef: 'Acts 9:4',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Jesus can change any heart and make it new.' },
+      narration: 'Saul Meets Jesus — Acts 9:4. A gentle story from God’s Word for young hearts.'
+    },
+
+    dorcasHelpingRevisited: {
+      title: 'Dorcas Helps Others',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Dorcas Helps Others — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['dorcas helping revisited', 'gentle', 'kjv', 'acts', 'kids'],
+      kjvRef: 'Acts 9:36',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'God can use your hands to show love every day.' },
+      narration: 'Dorcas Helps Others — Acts 9:36. A gentle story from God’s Word for young hearts.'
+    },
+
+    peterCornelius: {
+      title: 'Peter and Cornelius',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Peter and Cornelius — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['peter cornelius', 'gentle', 'kjv', 'acts', 'kids'],
+      kjvRef: 'Acts 10:34',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Jesus welcomes everyone into His family.' },
+      narration: 'Peter and Cornelius — Acts 10:34. A gentle story from God’s Word for young hearts.'
+    },
+
+    barnabasEncouragesRevisited: {
+      title: 'Barnabas the Encourager',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Barnabas the Encourager — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['barnabas encourages revisited', 'gentle', 'kjv', 'acts', 'kids'],
+      kjvRef: 'Acts 11:23',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'You can be someone’s encourager just like Barnabas.' },
+      narration: 'Barnabas the Encourager — Acts 11:23. A gentle story from God’s Word for young hearts.'
+    },
+
+    lydiaConversion: {
+      title: 'Lydia Believes',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Lydia Believes — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['lydia conversion', 'gentle', 'kjv', 'acts', 'kids'],
+      kjvRef: 'Acts 16:14',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'God can open our hearts when we listen to His Word.' },
+      narration: 'Lydia Believes — Acts 16:14. A gentle story from God’s Word for young hearts.'
+    },
+
+    silasPaulSingingRevisited: {
+      title: 'Paul and Silas Sing in Jail',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Paul and Silas Sing in Jail — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['silas paul singing revisited', 'gentle', 'kjv', 'acts', 'kids'],
+      kjvRef: 'Acts 16:25',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Praise opens the way for God’s power.' },
+      narration: 'Paul and Silas Sing in Jail — Acts 16:25. A gentle story from God’s Word for young hearts.'
+    },
+
+    eutychusFallenRevisited: {
+      title: 'Eutychus Is Safe',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Eutychus Is Safe — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['eutychus fallen revisited', 'gentle', 'kjv', 'acts', 'kids'],
+      kjvRef: 'Acts 20:10',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Friends stay close when you need help.' },
+      narration: 'Eutychus Is Safe — Acts 20:10. A gentle story from God’s Word for young hearts.'
+    },
+
+    paulShipwreckRevisited: {
+      title: 'Paul in the Storm',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Paul in the Storm — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['paul shipwreck revisited', 'gentle', 'kjv', 'acts', 'kids'],
+      kjvRef: 'Acts 27:22',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'God can keep you safe even in the biggest storm.' },
+      narration: 'Paul in the Storm — Acts 27:22. A gentle story from God’s Word for young hearts.'
+    },
+
+    onesiphorusPaulRevisited: {
+      title: 'Onesiphorus Visits Paul',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Onesiphorus Visits Paul — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['onesiphorus paul revisited', 'gentle', 'kjv', 'acts', 'kids'],
+      kjvRef: '2 Timothy 1:16',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'True friends stick close no matter what.' },
+      narration: 'Onesiphorus Visits Paul — 2 Timothy 1:16. A gentle story from God’s Word for young hearts.'
+    },
+
+    timothyPaulFriendshipRevisited: {
+      title: 'Timothy and Paul',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Timothy and Paul — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['timothy paul friendship revisited', 'gentle', 'kjv', 'acts', 'kids'],
+      kjvRef: 'Philippians 2:20',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Friends help each other grow closer to Jesus.' },
+      narration: 'Timothy and Paul — Philippians 2:20. A gentle story from God’s Word for young hearts.'
+    },
+
+    aquilaPriscillaRevisited: {
+      title: 'Aquila and Priscilla',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Aquila and Priscilla — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['aquila priscilla revisited', 'gentle', 'kjv', 'acts', 'kids'],
+      kjvRef: 'Romans 16:3',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Families who love Jesus can help each other grow.' },
+      narration: 'Aquila and Priscilla — Romans 16:3. A gentle story from God’s Word for young hearts.'
+    },
+
+    epaphrasPrayerRevisited: {
+      title: 'Epaphras Prays for Friends',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Epaphras Prays for Friends — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['epaphras prayer revisited', 'gentle', 'kjv', 'acts', 'kids'],
+      kjvRef: 'Colossians 4:12',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Praying for friends is one of the kindest things we can do.' },
+      narration: 'Epaphras Prays for Friends — Colossians 4:12. A gentle story from God’s Word for young hearts.'
+    },
+
+    philemonOnesimusRevisited: {
+      title: 'Philemon Welcomes Onesimus',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Philemon Welcomes Onesimus — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['philemon onesimus revisited', 'gentle', 'kjv', 'acts', 'kids'],
+      kjvRef: 'Philemon 1:16',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Forgiveness opens the door to new friendship.' },
+      narration: 'Philemon Welcomes Onesimus — Philemon 1:16. A gentle story from God’s Word for young hearts.'
+    },
+
+    titusEncouragementRevisited: {
+      title: 'Titus Brings Joy',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Titus Brings Joy — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['titus encouragement revisited', 'gentle', 'kjv', 'acts', 'kids'],
+      kjvRef: '2 Corinthians 7:15',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Good friends bring joy to each other’s hearts.' },
+      narration: 'Titus Brings Joy — 2 Corinthians 7:15. A gentle story from God’s Word for young hearts.'
+    },
+
+    nymphasHouseChurchRevisited: {
+      title: 'Church in Nymphas’ Home',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Church in Nymphas’ Home — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['nymphas house church revisited', 'gentle', 'kjv', 'acts', 'kids'],
+      kjvRef: 'Colossians 4:15',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Your home can be a place of kindness and friendship.' },
+      narration: 'Church in Nymphas’ Home — Colossians 4:15. A gentle story from God’s Word for young hearts.'
+    },
+
+    gaiusHospitalityRevisited: {
+      title: 'Gaius Welcomes Travelers',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Gaius Welcomes Travelers — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['gaius hospitality revisited', 'gentle', 'kjv', 'acts', 'kids'],
+      kjvRef: '3 John 1:5',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Welcoming others is a beautiful way to show God’s love.' },
+      narration: 'Gaius Welcomes Travelers — 3 John 1:5. A gentle story from God’s Word for young hearts.'
+    },
+
+    lukeNativity: {
+      title: 'The Night Jesus Was Born',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'The Night Jesus Was Born — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['luke nativity', 'gentle', 'kjv', 'kids'],
+      kjvRef: 'Luke 2:7',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Jesus came because God loves you so much.' },
+      narration: 'The Night Jesus Was Born — Luke 2:7. A gentle story from God’s Word for young hearts.'
+    },
+
+    matthewGenealogy: {
+      title: 'Jesus’ Family Line',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Jesus’ Family Line — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['matthew genealogy', 'gentle', 'kjv', 'kids'],
+      kjvRef: 'Matthew 1:1',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Jesus came into a real family — He understands our families too.' },
+      narration: 'Jesus’ Family Line — Matthew 1:1. A gentle story from God’s Word for young hearts.'
+    },
+
+    markBeginning: {
+      title: 'The Good News Begins',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'The Good News Begins — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['mark beginning', 'gentle', 'kjv', 'kids'],
+      kjvRef: 'Mark 1:1',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'The good news about Jesus is for everyone.' },
+      narration: 'The Good News Begins — Mark 1:1. A gentle story from God’s Word for young hearts.'
+    },
+
+    johnWord: {
+      title: 'Jesus the Word',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Jesus the Word — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['john word', 'gentle', 'kjv', 'kids'],
+      kjvRef: 'John 1:1',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Jesus was with God from the beginning and came to be with us.' },
+      narration: 'Jesus the Word — John 1:1. A gentle story from God’s Word for young hearts.'
+    },
+
+    actsChurchBegins: {
+      title: 'The Church Begins',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'The Church Begins — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['acts church begins', 'gentle', 'kjv', 'kids'],
+      kjvRef: 'Acts 2:42',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'The church is a family that prays and cares for one another.' },
+      narration: 'The Church Begins — Acts 2:42. A gentle story from God’s Word for young hearts.'
+    },
+
+    romansLove: {
+      title: 'Nothing Separates God’s Love',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Nothing Separates God’s Love — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['romans love', 'gentle', 'kjv', 'kids'],
+      kjvRef: 'Romans 8:38-39',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Nothing can ever take God’s love away from you.' },
+      narration: 'Nothing Separates God’s Love — Romans 8:38-39. A gentle story from God’s Word for young hearts.'
+    },
+
+    1corinthiansLoveChapter: {
+      title: 'Love Is Greatest',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Love Is Greatest — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['1corinthians love chapter', 'gentle', 'kjv', 'kids'],
+      kjvRef: '1 Corinthians 13:13',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Love is the greatest thing — God’s love for us and our love for others.' },
+      narration: 'Love Is Greatest — 1 Corinthians 13:13. A gentle story from God’s Word for young hearts.'
+    },
+
+    galatiansFruit: {
+      title: 'Fruit of the Spirit',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Fruit of the Spirit — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['galatians fruit', 'gentle', 'kjv', 'kids'],
+      kjvRef: 'Galatians 5:22-23',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'The Holy Spirit helps us grow good fruit in our hearts.' },
+      narration: 'Fruit of the Spirit — Galatians 5:22-23. A gentle story from God’s Word for young hearts.'
+    },
+
+    ephesiansArmorRevisited: {
+      title: 'God’s Armor',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'God’s Armor — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['ephesians armor revisited', 'gentle', 'kjv', 'kids'],
+      kjvRef: 'Ephesians 6:11',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'We can put on God’s armor together every day.' },
+      narration: 'God’s Armor — Ephesians 6:11. A gentle story from God’s Word for young hearts.'
+    },
+
+    colossiansChristFirst: {
+      title: 'Jesus Is First',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Jesus Is First — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['colossians christ first', 'gentle', 'kjv', 'kids'],
+      kjvRef: 'Colossians 1:18',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Jesus is first in everything — that makes our hearts peaceful.' },
+      narration: 'Jesus Is First — Colossians 1:18. A gentle story from God’s Word for young hearts.'
+    },
+
+    1thessaloniansRapture: {
+      title: 'Jesus Is Coming Back',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Jesus Is Coming Back — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['1thessalonians rapture', 'gentle', 'kjv', 'kids'],
+      kjvRef: '1 Thessalonians 4:16',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Jesus is coming back — we can look forward to that day.' },
+      narration: 'Jesus Is Coming Back — 1 Thessalonians 4:16. A gentle story from God’s Word for young hearts.'
+    },
+
+    2thessaloniansStandFirm: {
+      title: 'Stand Firm',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Stand Firm — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['2thessalonians stand firm', 'gentle', 'kjv', 'kids'],
+      kjvRef: '2 Thessalonians 2:15',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Keep standing strong — Jesus is coming.' },
+      narration: 'Stand Firm — 2 Thessalonians 2:15. A gentle story from God’s Word for young hearts.'
+    },
+
+    1timothyYoungLeader: {
+      title: 'Young Timothy',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Young Timothy — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['1timothy young leader', 'gentle', 'kjv', 'kids'],
+      kjvRef: '1 Timothy 4:12',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'God can use you no matter how young you are.' },
+      narration: 'Young Timothy — 1 Timothy 4:12. A gentle story from God’s Word for young hearts.'
+    },
+
+    2timothyFaithPassed: {
+      title: 'Faith Passed Down',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Faith Passed Down — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['2timothy faith passed', 'gentle', 'kjv', 'kids'],
+      kjvRef: '2 Timothy 1:5',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'The faith of those who love you can help you be brave too.' },
+      narration: 'Faith Passed Down — 2 Timothy 1:5. A gentle story from God’s Word for young hearts.'
+    },
+
+    titusGoodWorks: {
+      title: 'Eager to Do Good',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Eager to Do Good — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['titus good works', 'gentle', 'kjv', 'kids'],
+      kjvRef: 'Titus 2:14',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Jesus saved us so we can do good things for others.' },
+      narration: 'Eager to Do Good — Titus 2:14. A gentle story from God’s Word for young hearts.'
+    },
+
+    philemonForgiveness: {
+      title: 'Philemon Forgives',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Philemon Forgives — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['philemon forgiveness', 'gentle', 'kjv', 'kids'],
+      kjvRef: 'Philemon 1:16',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Forgiveness opens the door to new friendship.' },
+      narration: 'Philemon Forgives — Philemon 1:16. A gentle story from God’s Word for young hearts.'
+    },
+
+    hebrewsFaithHeroes: {
+      title: 'Heroes of Faith',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Heroes of Faith — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['hebrews faith heroes', 'gentle', 'kjv', 'kids'],
+      kjvRef: 'Hebrews 11:1',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Faith is trusting God even when we can’t see what’s next.' },
+      narration: 'Heroes of Faith — Hebrews 11:1. A gentle story from God’s Word for young hearts.'
+    },
+
+    1peterHopeLiving: {
+      title: 'Living Hope',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Living Hope — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment in the story' },
+        { src: 'panel-noah-3.svg', alt: 'God is near and faithful' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['1peter hope living', 'gentle', 'kjv', 'kids'],
+      kjvRef: '1 Peter 1:3',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'We have a living hope because Jesus is alive.' },
+      narration: 'Living Hope — 1 Peter 1:3. A gentle story from God’s Word for young hearts.'
+    },
+
+    lukeNativityRevisited: {
+      title: 'The Night Jesus Was Born',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'The Night Jesus Was Born — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
+        { src: 'panel-noah-3.svg', alt: 'God is near' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['gentle', 'kjv', 'batch14'],
+      kjvRef: 'Luke 2:7',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Jesus came because God loves you so much.' },
+      narration: 'The Night Jesus Was Born — Luke 2:7. A gentle story from God’s Word for young hearts.'
+    },
+
+    matthewGenealogyRevisited: {
+      title: 'Jesus’ Family Line',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Jesus’ Family Line — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
+        { src: 'panel-noah-3.svg', alt: 'God is near' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['gentle', 'kjv', 'batch14'],
+      kjvRef: 'Matthew 1:1',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Jesus came into a real family — He understands our families too.' },
+      narration: 'Jesus’ Family Line — Matthew 1:1. A gentle story from God’s Word for young hearts.'
+    },
+
+    markBeginningRevisited: {
+      title: 'The Good News Begins',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'The Good News Begins — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
+        { src: 'panel-noah-3.svg', alt: 'God is near' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['gentle', 'kjv', 'batch14'],
+      kjvRef: 'Mark 1:1',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'The good news about Jesus is for everyone.' },
+      narration: 'The Good News Begins — Mark 1:1. A gentle story from God’s Word for young hearts.'
+    },
+
+    johnWordRevisited: {
+      title: 'Jesus the Word',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Jesus the Word — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
+        { src: 'panel-noah-3.svg', alt: 'God is near' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['gentle', 'kjv', 'batch14'],
+      kjvRef: 'John 1:1',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Jesus was with God from the beginning and came to be with us.' },
+      narration: 'Jesus the Word — John 1:1. A gentle story from God’s Word for young hearts.'
+    },
+
+    actsChurchBeginsRevisited: {
+      title: 'The Church Begins',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'The Church Begins — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
+        { src: 'panel-noah-3.svg', alt: 'God is near' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['gentle', 'kjv', 'batch14'],
+      kjvRef: 'Acts 2:42',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'The church is a family that prays and cares for one another.' },
+      narration: 'The Church Begins — Acts 2:42. A gentle story from God’s Word for young hearts.'
+    },
+
+    romansLoveRevisited: {
+      title: 'Nothing Separates God’s Love',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Nothing Separates God’s Love — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
+        { src: 'panel-noah-3.svg', alt: 'God is near' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['gentle', 'kjv', 'batch14'],
+      kjvRef: 'Romans 8:38-39',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Nothing can ever take God’s love away from you.' },
+      narration: 'Nothing Separates God’s Love — Romans 8:38-39. A gentle story from God’s Word for young hearts.'
+    },
+
+    1corinthiansLoveChapterRevisited: {
+      title: 'Love Is Greatest',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Love Is Greatest — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
+        { src: 'panel-noah-3.svg', alt: 'God is near' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['gentle', 'kjv', 'batch14'],
+      kjvRef: '1 Corinthians 13:13',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Love is the greatest thing — God’s love for us and our love for others.' },
+      narration: 'Love Is Greatest — 1 Corinthians 13:13. A gentle story from God’s Word for young hearts.'
+    },
+
+    galatiansFruitRevisited: {
+      title: 'Fruit of the Spirit',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Fruit of the Spirit — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
+        { src: 'panel-noah-3.svg', alt: 'God is near' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['gentle', 'kjv', 'batch14'],
+      kjvRef: 'Galatians 5:22-23',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'The Holy Spirit helps us grow good fruit in our hearts.' },
+      narration: 'Fruit of the Spirit — Galatians 5:22-23. A gentle story from God’s Word for young hearts.'
+    },
+
+    philippiansJoyRevisited: {
+      title: 'Joy in the Lord',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Joy in the Lord — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
+        { src: 'panel-noah-3.svg', alt: 'God is near' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['gentle', 'kjv', 'batch14'],
+      kjvRef: 'Philippians 4:4',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'We can rejoice in Jesus every day.' },
+      narration: 'Joy in the Lord — Philippians 4:4. A gentle story from God’s Word for young hearts.'
+    },
+
+    colossiansChristFirstRevisited: {
+      title: 'Jesus Is First',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Jesus Is First — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
+        { src: 'panel-noah-3.svg', alt: 'God is near' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['gentle', 'kjv', 'batch14'],
+      kjvRef: 'Colossians 1:18',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Jesus is first in everything — that makes our hearts peaceful.' },
+      narration: 'Jesus Is First — Colossians 1:18. A gentle story from God’s Word for young hearts.'
+    },
+
+    1thessaloniansRaptureRevisited: {
+      title: 'Jesus Is Coming Back',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Jesus Is Coming Back — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
+        { src: 'panel-noah-3.svg', alt: 'God is near' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['gentle', 'kjv', 'batch14'],
+      kjvRef: '1 Thessalonians 4:16',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Jesus is coming back — we can look forward to that day.' },
+      narration: 'Jesus Is Coming Back — 1 Thessalonians 4:16. A gentle story from God’s Word for young hearts.'
+    },
+
+    2thessaloniansStandFirmRevisited: {
+      title: 'Stand Firm',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Stand Firm — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
+        { src: 'panel-noah-3.svg', alt: 'God is near' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['gentle', 'kjv', 'batch14'],
+      kjvRef: '2 Thessalonians 2:15',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Keep standing strong — Jesus is coming.' },
+      narration: 'Stand Firm — 2 Thessalonians 2:15. A gentle story from God’s Word for young hearts.'
+    },
+
+    1timothyYoungLeaderRevisited: {
+      title: 'Young Timothy',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Young Timothy — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
+        { src: 'panel-noah-3.svg', alt: 'God is near' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['gentle', 'kjv', 'batch14'],
+      kjvRef: '1 Timothy 4:12',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'God can use you no matter how young you are.' },
+      narration: 'Young Timothy — 1 Timothy 4:12. A gentle story from God’s Word for young hearts.'
+    },
+
+    2timothyFaithPassedRevisited: {
+      title: 'Faith Passed Down',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Faith Passed Down — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
+        { src: 'panel-noah-3.svg', alt: 'God is near' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['gentle', 'kjv', 'batch14'],
+      kjvRef: '2 Timothy 1:5',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'The faith of those who love you can help you be brave too.' },
+      narration: 'Faith Passed Down — 2 Timothy 1:5. A gentle story from God’s Word for young hearts.'
+    },
+
+    titusGoodWorksRevisited: {
+      title: 'Eager to Do Good',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Eager to Do Good — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
+        { src: 'panel-noah-3.svg', alt: 'God is near' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['gentle', 'kjv', 'batch14'],
+      kjvRef: 'Titus 2:14',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Jesus saved us so we can do good things for others.' },
+      narration: 'Eager to Do Good — Titus 2:14. A gentle story from God’s Word for young hearts.'
+    },
+
+    philemonForgivenessRevisited: {
+      title: 'Philemon Forgives',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Philemon Forgives — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
+        { src: 'panel-noah-3.svg', alt: 'God is near' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['gentle', 'kjv', 'batch14'],
+      kjvRef: 'Philemon 1:16',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Forgiveness opens the door to new friendship.' },
+      narration: 'Philemon Forgives — Philemon 1:16. A gentle story from God’s Word for young hearts.'
+    },
+
+    hebrewsFaithHeroesRevisited: {
+      title: 'Heroes of Faith',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Heroes of Faith — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
+        { src: 'panel-noah-3.svg', alt: 'God is near' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['gentle', 'kjv', 'batch14'],
+      kjvRef: 'Hebrews 11:1',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Faith is trusting God even when we can’t see what’s next.' },
+      narration: 'Heroes of Faith — Hebrews 11:1. A gentle story from God’s Word for young hearts.'
+    },
+
+    jamesFaithWorksRevisited: {
+      title: 'Faith Shows in Kindness',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Faith Shows in Kindness — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
+        { src: 'panel-noah-3.svg', alt: 'God is near' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['gentle', 'kjv', 'batch14'],
+      kjvRef: 'James 2:17',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Real faith shows itself by loving others.' },
+      narration: 'Faith Shows in Kindness — James 2:17. A gentle story from God’s Word for young hearts.'
+    },
+
+    1peterHopeLivingRevisited: {
+      title: 'Living Hope',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Living Hope — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
+        { src: 'panel-noah-3.svg', alt: 'God is near' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['gentle', 'kjv', 'batch14'],
+      kjvRef: '1 Peter 1:3',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'We have a living hope because Jesus is alive.' },
+      narration: 'Living Hope — 1 Peter 1:3. A gentle story from God’s Word for young hearts.'
+    },
+
+    2peterKnowledge: {
+      title: 'Growing in Knowing Jesus',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Growing in Knowing Jesus — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
+        { src: 'panel-noah-3.svg', alt: 'God is near' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['gentle', 'kjv', 'batch14'],
+      kjvRef: '2 Peter 3:18',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'We can keep growing in knowing Jesus every day.' },
+      narration: 'Growing in Knowing Jesus — 2 Peter 3:18. A gentle story from God’s Word for young hearts.'
+    },
+
+    1johnLoveGod: {
+      title: 'Love One Another',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Love One Another — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
+        { src: 'panel-noah-3.svg', alt: 'God is near' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['gentle', 'kjv', 'batch14'],
+      kjvRef: '1 John 4:7',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Love one another just like Jesus loves you.' },
+      narration: 'Love One Another — 1 John 4:7. A gentle story from God’s Word for young hearts.'
+    },
+
+    2johnTruth: {
+      title: 'Walking in Truth',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Walking in Truth — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
+        { src: 'panel-noah-3.svg', alt: 'God is near' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['gentle', 'kjv', 'batch14'],
+      kjvRef: '2 John 1:6',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Walking in truth and love keeps us close to Jesus.' },
+      narration: 'Walking in Truth — 2 John 1:6. A gentle story from God’s Word for young hearts.'
+    },
+
+    3johnFaithful: {
+      title: 'Faithful Friends',
+      panels: [
+        { src: 'panel-noah-1.svg', alt: 'Faithful Friends — gentle Bible story' },
+        { src: 'panel-noah-2.svg', alt: 'Quiet moment' },
+        { src: 'panel-noah-3.svg', alt: 'God is near' }
+      ],
+      caption: 'Swipe through this calm story from God’s Word.',
+      videoId: '',
+      videoTitle: '',
+      keywords: ['gentle', 'kjv', 'batch14'],
+      kjvRef: '3 John 1:5',
+      kidContext: { who: 'The LORD', to: 'every listener', apply: 'Being faithful friends who help others pleases God.' },
+      narration: 'Faithful Friends — 3 John 1:5. A gentle story from God’s Word for young hearts.'
+    },
+
     comeLordJesus: {
       title: '"Come, Lord Jesus!"',
       panels: [
@@ -9576,7 +10936,7 @@
       'davidSaulJealousy', 'davidJonathanFriendship', 'davidSaul', 'davidJonathan',
       'saulKing', 'saulDisobedience',
       /* Week 4 */
-      'elishaShunammite', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'gehaziGreed', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'doNotFearIsaiah41', 'forgive70x7', 'psalm23Shepherd', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers',
+      'elishaShunammite', 'shunammiteReturn', 'samariaSiege', 'elishaFinal', 'elishaBones', 'gehaziGreed', 'estherCrown', 'nehemiahWalls', 'jobSuffering', 'psalm23Shepherd', 'psalm23', 'davidKing', 'mephibosheth', 'davidBathsheba', 'absalomRebellion', 'solomonWisdom', 'solomonTwoMothers',
       'solomonTemple',
       'elijahRavens',
       'elijahWidow',
@@ -12875,7 +14235,7 @@
     davidSaul: 'Protection', davidJonathan: 'Love', saulKing: 'Obedience', saulDisobedience: 'Obedience',
     /* Week 4 */
     elishaShunammite: 'Miracles', shunammiteReturn: 'Miracles', samariaSiege: 'Miracles', elishaFinal: 'Miracles', elishaBones: 'Miracles', gehaziGreed: 'Obedience', estherCrown: 'Protection', nehemiahWalls: 'Obedience',
-    jobSuffering: 'Protection', doNotFearIsaiah41: 'Protection', forgive70x7: 'Love', psalm23Shepherd: 'Love', psalm23: 'Love', davidKing: 'Obedience', mephibosheth: 'Love', davidBathsheba: 'Love', absalomRebellion: 'Protection', solomonWisdom: 'Obedience', solomonTwoMothers: 'Obedience', solomonTemple: 'Obedience',
+    jobSuffering: 'Protection', psalm23Shepherd: 'Love', psalm23: 'Love', davidKing: 'Obedience', mephibosheth: 'Love', davidBathsheba: 'Love', absalomRebellion: 'Protection', solomonWisdom: 'Obedience', solomonTwoMothers: 'Obedience', solomonTemple: 'Obedience',
     elijahRavens: 'Miracles',
     elijahWidow: 'Miracles',
     elijahHoreb: 'Love',

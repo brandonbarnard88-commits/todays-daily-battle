@@ -225,7 +225,7 @@ blockquote.day-card-verse-text,
   line-height: 1.45;
 }
 
-/* Hero eyebrow carries Why not AI? — hide duplicate line inside porch feel block */
+/* Hide duplicate porch-feel eyebrow when hero quiet eyebrow is present */
 #tdbPorchFeel > .tdb-porch-feel__eyebrow {
   display: none !important;
 }

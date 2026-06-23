@@ -280,7 +280,7 @@ Supabase Auth uses session cookies (httpOnly, secure) managed by Supabase client
 | **Cloudflare Turnstile** | `challenges.cloudflare.com` | Bot protection (Quick Pray) |
 | **Cloudflare Insights** | `static.cloudflareinsights.com` | Analytics (if enabled) |
 | **Plausible** | `plausible.io` | Privacy-friendly analytics (if enabled) |
-| **Google Tag Manager / GA4** | `googletagmanager.com`, `google-analytics.com` | Analytics (if GA_MEASUREMENT_ID set) |
+| **Google Tag Manager / GA4** | `googletagmanager.com`, `google-analytics.com`, `www.google.com` (`/g/collect`) | Analytics (if GA_MEASUREMENT_ID set) |
 | **Stripe** | `js.stripe.com`, `api.stripe.com`, `hooks.stripe.com` | Payments |
 | **Mailgun** | (Edge Functions server-side) | Transactional email |
 

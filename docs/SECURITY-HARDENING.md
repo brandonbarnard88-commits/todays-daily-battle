@@ -22,7 +22,7 @@ Add or adjust at the edge (e.g. Cloudflare → Transform Rules, or `_headers` fo
 |--------|--------|
 | `Strict-Transport-Security` | `max-age=31536000; includeSubDomains` |
 | `X-Frame-Options` | `DENY` (or `SAMEORIGIN` if you embed your own pages) |
-| `Content-Security-Policy` | Start with e.g. `default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https: data:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.supabase.co https://www.google-analytics.com; frame-ancestors 'none';` — then tighten as needed. |
+| `Content-Security-Policy` | Start with e.g. `default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https: data:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.supabase.co https://www.google-analytics.com https://www.google.com; frame-ancestors 'none';` — then tighten as needed. |
 | `Permissions-Policy` | `geolocation=(), microphone=(), camera=()` |
 
 **Where:** Cloudflare Dashboard → Rules → Transform Rules → Modify response header (or Page Rules / Config if you use that).

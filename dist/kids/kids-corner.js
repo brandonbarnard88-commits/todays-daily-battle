@@ -8433,6 +8433,92 @@
     modalContext.appendChild(p);
   }
 
+  /**
+   * Appends gentle adult/family reflection prompts when available for this story key.
+   * Data from kids/stories/adult-story-reflection-prompts.json (npm run gentle:qa).
+   */
+  function appendAdultReflectionPrompts(modalContext, key) {
+    if (!modalContext || !key) return;
+
+    var adultData = null;
+    try {
+      if (window.TDB_ADULT_STORY_PROMPTS) {
+        adultData = window.TDB_ADULT_STORY_PROMPTS;
+      } else if (typeof fetch === 'function') {
+        fetch('/kids/stories/adult-story-reflection-prompts.json')
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (json) {
+            if (json && json._meta) {
+              window.TDB_ADULT_STORY_PROMPTS = json;
+              var stillOpen = document.getElementById('kids-story-modal');
+              if (stillOpen && !stillOpen.classList.contains('hidden') && currentOpenStoryKey === key) {
+                var existing = modalContext.querySelector('.adult-reflection-block');
+                if (existing) existing.remove();
+                renderAdultBlock(modalContext, key, json);
+              }
+            }
+          })
+          .catch(function () {});
+      }
+    } catch (_) {}
+
+    if (adultData) {
+      renderAdultBlock(modalContext, key, adultData);
+    }
+  }
+
+  function renderAdultBlock(modalContext, key, adultData) {
+    if (!adultData || !adultData[key] || !Array.isArray(adultData[key].prompts)) return;
+
+    var prompts = adultData[key].prompts;
+    if (!prompts.length) return;
+
+    var block = document.createElement('div');
+    block.className = 'adult-reflection-block glass tdb-porch-paper-glass';
+    block.style.marginTop = '1rem';
+    block.style.padding = '0.85rem 1rem';
+    block.style.borderRadius = '12px';
+
+    var h = document.createElement('div');
+    h.style.fontWeight = '700';
+    h.style.fontSize = '0.9rem';
+    h.style.color = '#1e293b';
+    h.style.marginBottom = '0.4rem';
+    h.textContent = 'For grown-ups & families';
+    block.appendChild(h);
+
+    var sub = document.createElement('p');
+    sub.style.fontSize = '0.78rem';
+    sub.style.color = '#4a5568';
+    sub.style.margin = '0 0 0.5rem';
+    sub.textContent = 'Quiet reflection questions (no pressure — use any or none)';
+    block.appendChild(sub);
+
+    var ul = document.createElement('ul');
+    ul.style.margin = '0.25rem 0 0';
+    ul.style.paddingLeft = '1.1rem';
+    ul.style.fontSize = '0.85rem';
+    ul.style.lineHeight = '1.5';
+
+    for (var i = 0; i < prompts.length; i++) {
+      var li = document.createElement('li');
+      li.style.marginBottom = '0.25rem';
+      li.textContent = prompts[i];
+      ul.appendChild(li);
+    }
+    block.appendChild(ul);
+
+    var note = document.createElement('p');
+    note.style.fontSize = '0.72rem';
+    note.style.color = '#64748b';
+    note.style.marginTop = '0.5rem';
+    note.style.marginBottom = '0';
+    note.textContent = 'These pair beautifully with the gentle story your child just heard.';
+    block.appendChild(note);
+
+    modalContext.appendChild(block);
+  }
+
   function syncModalStoryBreadcrumb(plainTitle) {
     var sep = document.getElementById('kids-bc-story-sep');
     var tit = document.getElementById('kids-bc-story-title');
@@ -8636,6 +8722,7 @@
       }
       modalContext.appendChild(buildLiveItOutCards(key, s, pack));
       appendWonderQuestionBlock(modalContext, key, s, pack);
+      appendAdultReflectionPrompts(modalContext, key);
       if (modalContext.childNodes.length) {
         modalContext.classList.remove('hidden');
       } else {

@@ -4759,6 +4759,8 @@ const QUERY_TO_TOPIC = {
   // trauma / healing
   trauma: 'trauma', traumatized: 'trauma', wounded: 'trauma', hurt: 'trauma', healing: 'trauma', ptsd: 'trauma',
   abuse: 'trauma', refuge: 'trauma', safe: 'trauma', broken: 'trauma', restore: 'trauma', restored: 'trauma',
+  assault: 'trauma', assaulted: 'trauma', molested: 'trauma', violated: 'trauma', betrayed: 'trauma',
+  unsafe: 'trauma', predator: 'trauma', grooming: 'trauma',
   // family / parenting
   family: 'family', children: 'parenting', kids: 'parenting', parenting: 'parenting', parents: 'family',
   father: 'family', mother: 'family', son: 'family', daughter: 'family', sibling: 'family',
@@ -5314,6 +5316,9 @@ const PHRASE_TO_TOKENS = {
   'infertility pain': ['grief', 'suffering'],
   'empty womb bible': ['grief'],
   'elder abuse': ['trauma', 'anger'],
+  'child abuse': ['trauma', 'parenting'],
+  'sexual abuse': ['trauma', 'guilt'],
+  'broken trust': ['trauma', 'heartache'],
   'aging alone': ['loneliness', 'fear'],
   'parents old scared': ['caregiver', 'grief'],
   'postpartum depression': ['suffering', 'grief', 'anxiety'],
@@ -5560,17 +5565,17 @@ const topics = {
     }
   },
   trauma: {
-    synonyms: ['traumatized', 'wounded', 'hurt', 'healing', 'ptsd', 'abuse', 'refuge', 'safe', 'war', 'refugee', 'displacement', 'conflict', 'violence', 'fleeing', 'elder abuse', 'racial'],
-    verses: ['Psalms 34:18', 'Psalms 147:3', 'Isaiah 41:10', '2 Corinthians 1:3', 'Revelation 21:4', 'Psalms 46:1', 'Isaiah 43:2', 'Psalms 91:1'],
+    synonyms: ['traumatized', 'wounded', 'hurt', 'healing', 'ptsd', 'abuse', 'refuge', 'safe', 'war', 'refugee', 'displacement', 'conflict', 'violence', 'fleeing', 'elder abuse', 'racial', 'assault', 'assaulted', 'molested', 'violated', 'betrayed', 'unsafe', 'sexual abuse', 'child abuse', 'broken trust'],
+    verses: ['Psalms 34:18', 'Psalms 147:3', 'Psalm 56:8', 'Mark 10:14', 'Isaiah 43:1', '2 Corinthians 1:3', 'Isaiah 61:1', 'Revelation 21:4', 'Isaiah 41:10', 'Psalms 46:1', 'Zephaniah 3:17'],
     guidance: {
-      kid: "When something really scary happened, God is close and wants to help you feel safe.",
-      teen: "God heals the brokenhearted. You don't have to carry this alone; He is your refuge.",
-      adult: "The Lord is near the brokenhearted and binds up wounds. Healing may take time; He walks with you.",
-      pastor: "Comfort with Scripture; encourage professional care and community support alongside pastoral care."
+      kid: "When something really scary happened, it was not your fault. God is close and wants you to feel safe with people who protect you.",
+      teen: "What happened does not define you. God heals the brokenhearted—you do not have to carry this alone, and it is okay to get help from a counselor.",
+      adult: "The Lord is near the brokenhearted and binds up wounds. Healing is often slow; He walks with you. Trauma-informed care belongs alongside Scripture.",
+      pastor: "Comfort with Scripture; never rush forgiveness of abusers. Point to topic-trauma.html and plans.html?plan=trustbroken; insist on professional care and safety."
     },
     explain: {
-      kid: "God sees your hurt and stays with you. He is safe and kind.",
-      teen: "Trauma is real, but so is God's comfort. He is near and He heals."
+      kid: "God sees your hurt and stays with you. Grown-ups who hurt children are wrong; you are safe with God and with safe grown-ups.",
+      teen: "Trauma is real, but so is God's comfort. He is near, He heals, and asking for help is strength—not failure."
     }
   },
   cancer: {
@@ -7588,6 +7593,7 @@ var HEARTFELT_INQUIRY_MESSAGES = [
   { patterns: ['grief', 'grieving', 'sorrow', 'lost someone', 'someone died'], message: 'Grief is heavy, but God is near. He will comfort you and hold you through this.' },
   { patterns: ['addiction', 'addicted', 'bondage'], message: 'You are not defined by this struggle. God offers freedom and walks with you step by step.' },
   { patterns: ['trauma', 'trama', 'traumatized', 'wounded', 'ptsd'], message: 'God is near to the wounded. He sees your pain, brings healing, and gives safe refuge.' },
+  { patterns: ['sexual abuse', 'child abuse', 'molested', 'assaulted', 'broken trust', 'when trust was broken'], message: 'When trust was broken by abuse or assault—recent or long ago—God draws near to the brokenhearted. See topic-trauma.html and the 7-day When Trust Was Broken plan; reach a trauma-informed counselor too.' },
   { patterns: ['depression', 'depressed', 'hopeless'], message: 'You matter deeply. There is hope, and God has not forgotten you.' },
   { patterns: ['anxiety', 'anxious', 'worry', 'worried'], message: 'Take a breath. God cares for you and welcomes every worry in prayer.' },
   { patterns: ['fear', 'afraid', 'scared', 'panic'], message: 'When fear rises, God gives courage and peace for this moment. You are not alone.' },
@@ -14852,6 +14858,7 @@ function sanitizeTrackEventParams(params) {
 
 function trackEvent(eventName, params) {
   bumpStat(eventName);
+  if (!navigator.onLine) return;
   if (hasTdbAnalyticsConsent() && typeof window.gtag === 'function' && GA_MEASUREMENT_ID) {
     window.gtag('event', eventName, sanitizeTrackEventParams(params));
   }
@@ -25092,6 +25099,14 @@ var HOME_SEARCH_PLAN_LIBRARY = [
     topics: ['guilt', 'shame', 'forgiveness', 'condemnation', 'hope']
   },
   {
+    id: 'trustbroken',
+    title: 'When Trust Was Broken',
+    href: 'plans.html?plan=trustbroken',
+    days: 7,
+    description: 'Seven KJV days when abuse, assault, or betrayal broke trust — for survivors, parents, and the long aftermath. No rush to forgive.',
+    topics: ['trauma', 'abuse', 'assault', 'betrayal', 'broken trust', 'ptsd', 'hurt', 'violated', 'child abuse', 'sexual abuse', 'molested', 'unsafe', 'healing']
+  },
+  {
     id: 'overwhelmedburnout',
     title: 'Overwhelmed / Burnout',
     href: 'plans.html?plan=overwhelmedburnout',
@@ -25908,7 +25923,7 @@ var TDB_HOME_FEEL_ANCHORS = {
   trauma: {
     ref: 'Psalm 34:18',
     text: 'The Lord is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.',
-    leadYou: 'Right now, what happened to you does not get to name you first. The Lord is near the broken, and He saves the crushed in spirit.'
+    leadYou: 'Right now, what happened does not get the final word on who you are. The Lord is near the broken—and topic-trauma.html has more quiet verses when you are ready.'
   },
   identity: {
     ref: '2 Corinthians 5:17',
@@ -26276,6 +26291,14 @@ var HOME_SEARCH_RESOURCE_LIBRARY = [
     topics: ['grief', 'heartache', 'loneliness']
   },
   {
+    id: 'topic-trauma',
+    kind: 'Topic',
+    title: 'When Trust Was Broken',
+    href: 'topic-trauma.html',
+    description: 'KJV comfort when abuse or deep harm broke trust — for survivors, parents, and anyone in the long aftermath.',
+    topics: ['trauma', 'abuse', 'assault', 'betrayal', 'broken trust', 'ptsd', 'hurt', 'violated', 'healing', 'unsafe']
+  },
+  {
     id: 'topic-forgiveness',
     kind: 'Topic',
     title: 'Forgiveness topic page',
@@ -26314,6 +26337,14 @@ var HOME_SEARCH_RESOURCE_LIBRARY = [
     href: '/journal/forgiveness-when-you-replay-it.html',
     description: 'When forgiveness is daily surrender again and again, not one clean moment.',
     topics: ['forgiveness', 'guilt', 'anger']
+  },
+  {
+    id: 'journal-when-trust-was-broken',
+    kind: 'Journal',
+    title: 'When trust was broken',
+    href: '/journal/when-trust-was-broken.html',
+    description: 'Three KJV anchors and one quiet step for abuse, assault, or betrayal—survivors and parents.',
+    topics: ['trauma', 'abuse', 'betrayal', 'broken trust', 'hurt', 'healing']
   },
   {
     id: 'journal-loneliness-at-night',

@@ -447,9 +447,16 @@ Deno.serve(async (req) => {
   }
 
   if (!verses.length) {
+    const hardcodedRefs = ["John 14:6", "John 3:16"];
+    const kjvArr = Array.isArray(kjv) ? kjv as LocalBibleVerse[] : [];
+    const fallbackVerses = hardcodedRefs
+      .map((r) => kjvArr.find((v) => (v.ref || "").toLowerCase() === r.toLowerCase()))
+      .filter(Boolean)
+      .map((v) => ({ ref: String(v!.ref || ""), text: String(v!.text || "") }));
     return jsonResponse({
       answer: buildFallbackAnswer(profile),
-      sources: ["John 14:6", "John 3:16"],
+      sources: hardcodedRefs,
+      verses: fallbackVerses,
       prayer_prompt: buildFallbackPrayer(profile),
       answer_mode: profile.answerMode,
       query_kind: profile.kind,
@@ -512,6 +519,7 @@ Verses:\n${versesBlock}`;
   return jsonResponse({
     answer: answer || buildFallbackAnswer(profile),
     sources,
+    verses: verses.map((v) => ({ ref: String(v.ref || ""), text: String(v.verse_text || "") })),
     prayer_prompt: prayerPrompt || buildFallbackPrayer(profile),
     answer_mode: profile.answerMode,
     query_kind: profile.kind,

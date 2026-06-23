@@ -422,6 +422,49 @@
     body.dark-mode .bible-tool .qa-result .qa-sources {
       color: #b8b4a8;
     }
+    /* Inline verse cards */
+    .qa-verse-list {
+      margin-top: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+    .qa-verse-card {
+      border-left: 2px solid rgba(212,175,55,0.45);
+      padding: 0.5rem 0.8rem;
+      background: rgba(255,255,255,0.04);
+      border-radius: 0 4px 4px 0;
+    }
+    .qa-verse-card .qa-verse-ref {
+      display: block;
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: #d4af37;
+      margin-bottom: 0.3rem;
+    }
+    .qa-verse-card .qa-verse-ref a { color: #d4af37; text-decoration: none; }
+    .qa-verse-card .qa-verse-ref a:hover { text-decoration: underline; }
+    .qa-verse-card .qa-verse-text {
+      display: block;
+      font-style: italic;
+      line-height: 1.65;
+      font-size: 1rem;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      color: var(--text);
+    }
+    /* Light theme verse text */
+    html[data-theme="light"] .qa-verse-card .qa-verse-text,
+    :root[data-theme="light"] .qa-verse-card .qa-verse-text { color: var(--text, #1e293b); }
+    /* Sepia theme */
+    html[data-theme="sepia"] .qa-verse-card .qa-verse-text,
+    :root[data-theme="sepia"] .qa-verse-card .qa-verse-text { color: var(--text, #33281d); }
+    html[data-theme="sepia"] .qa-verse-card { background: rgba(180,140,80,0.08); }
+    /* Dark / default theme */
+    html[data-theme="dark"] .qa-verse-card .qa-verse-text,
+    html:not([data-theme]) .qa-verse-card .qa-verse-text,
+    body.dark-mode .qa-verse-card .qa-verse-text { color: #e8e4d8; }
     .qa-server-note {
       display: flex;
       align-items: flex-start;
@@ -693,26 +736,38 @@
         <details class="tdb-nav-more">
           <summary aria-haspopup="true">More tools</summary>
           <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
-            <a href="/verse.html">Today&rsquo;s Lesson</a>
-            <a href="/calm.html">Calm</a>
-            <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map and gentle paths">Curriculum</a>
-            <a href="/university.html" id="nav-university-core" aria-label="University of God — five anchor verses, quiet map">University map</a>
-            <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read</a>
-            <a href="/memorize.html">Memorize</a>
-            <a href="/daily-rhythm.html">Daily Rhythm</a>
-            <a href="/prayer-wall.html">Pray</a>
-            <a href="/kids/corner.html">Kids &amp; Family</a>
-            <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader" aria-current="page">Bible Tool</a>
-            <a href="/mobius.html">M&ouml;bius</a>
-            <a href="/site-guide.html" id="nav-site-guide" aria-label="Start here — calm map of where to begin">Start here</a>
-            <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
-            <a href="/about.html">About</a>
-            <a href="/story.html">Story</a>
-            <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
-            <a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">Family Armor for little ones</a>
-            <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
-            <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar">Print year</a>
-            <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
+            <div class="tdb-nav-more-group">
+              <span class="tdb-nav-more-group-label">Scripture &amp; Study</span>
+              <a href="/verse.html">Today&rsquo;s Lesson</a>
+              <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read the Bible</a>
+              <a href="/memorize.html">Memorize</a>
+              <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader" aria-current="page">Bible Tool</a>
+              <a href="/calm.html">Calm</a>
+            </div>
+            <div class="tdb-nav-more-group">
+              <span class="tdb-nav-more-group-label">Plans &amp; Journey</span>
+              <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map and gentle paths">Curriculum</a>
+              <a href="/university.html" id="nav-university-core" aria-label="University of God — five anchor verses, quiet map">University map</a>
+              <a href="/daily-rhythm.html">Daily Rhythm</a>
+              <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
+              <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar">Print year</a>
+              <a href="/mobius.html">M&ouml;bius Journal</a>
+            </div>
+            <div class="tdb-nav-more-group">
+              <span class="tdb-nav-more-group-label">Family &amp; Community</span>
+              <a href="/kids/corner.html">Kids &amp; Family</a>
+              <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
+              <a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">Family Armor for little ones</a>
+              <a href="/prayer-wall.html">Pray</a>
+              <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
+            </div>
+            <div class="tdb-nav-more-group">
+              <span class="tdb-nav-more-group-label">About the Site</span>
+              <a href="/site-guide.html" id="nav-site-guide" aria-label="Start here — calm map of where to begin">Start here</a>
+              <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
+              <a href="/about.html">About</a>
+              <a href="/story.html">Story</a>
+            </div>
           </div>
         </details>
       </div>
@@ -797,10 +852,7 @@
             <button type="button" class="qa-btn" id="bible-qa-btn" style="min-height:44px;">Ask</button>
           </div>
           <p class="qa-server-note" id="ask-the-word-server-note">
-            <a href="why-not-ai.html" class="qa-server-note-icon-link" aria-label="How Ask the Word fits our privacy stance — Why not AI?">
-              <svg class="qa-server-note-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-            </a>
-            <span>No ads. No tracking. Your prayers and data stay on your device. Just you and God. When you&rsquo;re online, this box may use a short server assist; offline it falls back to on-device lookup. <a class="qa-server-note-inline" href="privacy.html">Privacy</a> · <a class="qa-server-note-inline" href="why-not-ai.html">Why not AI?</a></span>
+            <span>No ads. No tracking. Your prayers and data stay on your device. Just you and God. When you&rsquo;re online, this box may use a short server assist; offline it falls back to on-device lookup. <a class="qa-server-note-inline" href="privacy.html">Privacy</a> ·</span>
           </p>
           <div id="qa-result" class="qa-result hidden" role="region" aria-live="polite" aria-label="Bible Q&A answer">
             <!-- Answer loads here -->
@@ -812,7 +864,7 @@
           <p class="qa-disclaimer">This is not a pastor—just a tool. For deep questions, talk to someone real.</p>
           <p class="section-note util-mt-0_5 util-mb-0">When the heart wonders &ldquo;What gifts hath the Father given me?&rdquo; &mdash; try the calm five-day path <a href="plans.html?plan=giftsfromabove">Gifts from the Father of Lights</a> (notice His gifts, no test, only noticing).</p>
         </section>
-        <script src="ask-the-word.js?v=20260325clean" defer></script>
+        <script src="ask-the-word.js?v=20260623b" defer></script>
 
         <section class="search-hero glass tdb-porch-paper-glass" id="search-hero" role="search" aria-label="Search Scripture">
           <label for="query" class="search-hero-label">Search by emotion or verse</label>

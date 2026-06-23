@@ -65,10 +65,12 @@ Or run the individual files in order:
 2. The workflow `.github/workflows/seed-daily-battle.yml` runs daily at 00:05 UTC
 3. It calls `seed-daily-battle` Edge Function
 
-**Deploy the function first:**
+**Deploy the function first (recommended):**
 ```bash
-npx supabase functions deploy seed-daily-battle
+./scripts/deploy-seed-function.sh
 ```
+
+This guided script handles deployment + secret setup. See also `supabase/functions/seed-daily-battle/README.md`.
 
 **Option B — pg_cron (Supabase Pro):**
 

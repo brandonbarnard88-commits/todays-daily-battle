@@ -5,7 +5,6 @@
   <!-- GA4 + GSC loaded on idle (see script.js loadDeferredScriptsOnIdle) -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preload" href="/today-kjv-verse.json" as="fetch" type="application/json" crossorigin>
   <link rel="preload" href="/core-home.js?v=20260515-strip-legacy-tour-chip" as="script" fetchpriority="high">
   <style id="tdb-critical-shell">html{background:#080c14}body{margin:0;background:#080c14;color:#f0f2f7}#tdb-first-tour-prompt,.tdb-first-tour-prompt{display:none!important;visibility:hidden!important;pointer-events:none!important;position:absolute!important;left:-9999px!important;width:0!important;height:0!important;overflow:hidden!important}</style>
   <link rel="preload" as="script" href="/assets/perf-hint.js?v=20260515-strip-tour-chip-early-v3" fetchpriority="high">
@@ -100,6 +99,7 @@
   <style id="tdb-hero-lcp-critical">@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/cormorant-garamond-hero-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2013-2014,U+2000-206F,U+2122,U+FEFF,U+FFFD}#hero-verse-wrap #heroVerse,#heroVerse.hero-verse.verse-body{font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;font-size:clamp(1.05rem,2.8vw,1.22rem);line-height:1.62;letter-spacing:.012em;font-weight:400;color:#f5f7fb;margin:0;overflow-wrap:break-word;word-break:break-word}#verseCard #heroVerse.hero-verse.is-visible{opacity:1}</style>
   <!-- Idler/third-party: resolve DNS only — avoids early TCP+TLS to GA/Plausible/JSDelivr before first paint. -->
   <link rel="dns-prefetch" href="https://www.google-analytics.com">
+  <link rel="dns-prefetch" href="https://www.google.com">
   <link rel="dns-prefetch" href="https://plausible.io">
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
@@ -222,7 +222,7 @@
             "name": "Is this an AI chat or Bible bot?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "The daily rhythm—today’s lesson, mood search, courses—is not an AI chat. The Bible Tool page includes an optional Ask the Word box that may use server-assisted answers; it is labeled there. For an honest comparison with typical AI tools, see https://todaysdailybattle.com/why-not-ai.html"
+              "text": "The daily rhythm—today’s lesson, mood search, courses—is not an AI chat. The Bible Tool page includes an optional Ask the Word box that may use server-assisted answers; it is labeled there."
             }
           }
         ]
@@ -369,11 +369,10 @@
         <span aria-hidden="true"> · </span>
         <button type="button" class="tdb-tour-open-btn" id="tdb-tour-open-btn" aria-label="Open the five-minute site tour">Site tour</button>
         <button type="button" data-tdb-theme-toggle="home_header" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Appearance</span></button>
-        <a href="/about.html" aria-label="About Today&apos;s Daily Battle">About</a>
-        <a href="faq.html" aria-label="FAQ">FAQ</a>
-        <a href="why-not-ai.html" aria-label="Why we are not an AI chat tool">Why not AI?</a>
-        <a href="privacy.html" aria-label="Privacy policy">Privacy</a>
-        <a href="terms.html" aria-label="Terms of service">Terms</a>
+        <a href="/about.html" aria-label="About Today&apos;s Daily Battle" class="site-top-links-secondary">About</a>
+        <a href="faq.html" aria-label="FAQ" class="site-top-links-secondary">FAQ</a>
+        <a href="privacy.html" aria-label="Privacy policy" class="site-top-links-secondary">Privacy</a>
+        <a href="terms.html" aria-label="Terms of service" class="site-top-links-secondary">Terms</a>
       </nav>
       <nav class="tdb-home-main-nav tdb-primary-site-nav" aria-label="Main site navigation">
         <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel-home" id="tdb-primary-nav-toggle-home">
@@ -476,7 +475,7 @@
 
       <!-- ── Porch feel doorways — collapsed below primary flow; verse lands first ── -->
       <section class="tdb-porch-feel tdb-porch-feel--hero" id="tdbPorchFeel" aria-labelledby="tdbPorchFeelH">
-        <p class="tdb-porch-feel__eyebrow">Today&rsquo;s Daily Battle &mdash; KJV &middot; No account &middot; Offline &middot; Add to home screen &middot; <a class="tdb-porch-feel__eyebrow-link" href="/why-not-ai.html">Why not AI?</a></p>
+        <p class="tdb-porch-feel__eyebrow">Today&rsquo;s Daily Battle &mdash; KJV &middot; No account &middot; Offline &middot; Add to home screen</p>
         <h2 class="tdb-porch-feel__heading" id="tdbPorchFeelH">How is the day sitting with you?</h2>
         <p class="tdb-porch-feel__sub">Heavy week or light heart&mdash;one tap brings matching Scripture beside you. No typing yet.</p>
         <div class="tdb-porch-feel__grid" role="group" aria-label="When the day feels heavy — tap one for a matching KJV verse and gentle plan">
@@ -514,7 +513,7 @@
       <div class="spacer" aria-hidden="true"></div>
 
       <!-- ── Today's verse — primary hero after calm first-visit banner ── -->
-      <p class="tdb-hero-quiet-eyebrow tdb-quiet-container" id="tdbHeroQuietEyebrow">Today&rsquo;s Daily Battle &mdash; KJV &middot; No account &middot; Offline &middot; <a class="tdb-porch-feel__eyebrow-link" href="/why-not-ai.html">Why not AI?</a></p>
+      <p class="tdb-hero-quiet-eyebrow tdb-quiet-container" id="tdbHeroQuietEyebrow">Today&rsquo;s Daily Battle &mdash; KJV &middot; No account &middot; Offline</p>
       <h1 class="tdb-verse-section-label" id="tdbTodaysVerseHeading">Today&rsquo;s verse</h1>
       <div id="hero-verse-wrap" class="hero-verse-wrap tdb-home-soar-aura tdb-quiet-container tdb-micro-hero-dawn" role="region" aria-labelledby="tdbTodaysVerseHeading">
       <section class="card verse-card verse-card-loaded" id="verseCard" aria-live="polite" data-daily-verse="true">
@@ -940,22 +939,22 @@
 
       <!-- ── Three Porch Cards ── -->
       <div class="tdb-porch-cards" role="group" aria-label="Three main rooms">
-        <a class="tdb-porch-card" href="plans.html" aria-label="Battle Plans — 76+ gentle KJV paths for fear, grief, peace, praise, and every kind of week">
+        <a class="tdb-porch-card" href="plans.html" aria-label="Battle Plans — short steady KJV paths for the hard weeks">
           <span class="tdb-porch-card__eyebrow">Need a steady rhythm</span>
           <strong class="tdb-porch-card__title">Battle Plans</strong>
-          <span class="tdb-porch-card__desc">Gentle 7&ndash;40 day <abbr title="King James Version">KJV</abbr> paths for fear, grief, parenting, peace, praise, hard weeks, and good ones you want to anchor in the Word. 76+ plans. Nothing required upfront.</span>
+          <span class="tdb-porch-card__desc">Short, steady KJV paths for the hard weeks — fear, grief, parenting, worry, and the days when life just feels heavy. Open any one you need when you need it. No sign-up, no pressure.</span>
           <span class="tdb-porch-card__arrow" aria-hidden="true">Open Plans &rarr;</span>
         </a>
-        <a class="tdb-porch-card" href="family.html" aria-label="Kids and Family — read-aloud stories, family armor, calm daily rhythms">
+        <a class="tdb-porch-card" href="family.html" aria-label="Kids &amp; Family — stories and rhythms for the table">
           <span class="tdb-porch-card__eyebrow">For home and littles</span>
           <strong class="tdb-porch-card__title">Kids &amp; Family</strong>
-          <span class="tdb-porch-card__desc">Read-aloud Bible stories, family armor, coloring, and calm daily rhythms for the table. KJV at the center. Works offline.</span>
+          <span class="tdb-porch-card__desc">Stories to read out loud at the table, simple ways to bring the Bible into the ordinary mess of family life, and a few quiet rhythms that actually fit real days with kids. All built around the King James.</span>
           <span class="tdb-porch-card__arrow" aria-hidden="true">Open Family &rarr;</span>
         </a>
-        <a class="tdb-porch-card" href="calm.html" aria-label="Calm — one gentle KJV verse for heavy moments, any hour">
+        <a class="tdb-porch-card" href="calm.html" aria-label="Calm — one steady KJV verse when it hurts">
           <span class="tdb-porch-card__eyebrow">Heavy right now</span>
           <strong class="tdb-porch-card__title">Calm</strong>
-          <span class="tdb-porch-card__desc">One verse. No noise. Quiet company when words are hard to find and it just hurts. Any hour counts.</span>
+          <span class="tdb-porch-card__desc">One verse when the words won’t come and it just hurts. Nothing fancy. Just something steady to sit with for a minute or an hour.</span>
           <span class="tdb-porch-card__arrow" aria-hidden="true">Open Calm &rarr;</span>
         </a>
       </div>
@@ -1003,7 +1002,7 @@
         <p class="calm-cta-note">Any hour counts&mdash;heavy day, grateful day, quiet day, or something in between.</p>
       </div>
 
-      <nav class="tdb-campus-schools" id="tdb-campus-schools" aria-label="Schools of Life &mdash; gentle doorways to rooms you already have">
+      <nav class="tdb-campus-schools tdb-section-landmark" id="tdb-campus-schools" aria-label="Schools of Life &mdash; gentle doorways to rooms you already have">
         <p class="tdb-campus-schools-intro"><strong>Gentle rooms, not graded classes.</strong> Six calm doorways open when you need them.</p>
         <ul class="tdb-campus-schools-list">
           <li>
@@ -1125,7 +1124,7 @@
         <p class="tdb-church-callout-foot"><a href="/where-support-goes.html">Where support goes</a> &mdash; every purchase keeps the free porch open.</p>
       </div>
 
-      <section class="tdb-home-companion-doors" id="tdb-home-companion-doors" aria-labelledby="tdb-companion-doors-heading">
+      <section class="tdb-home-companion-doors tdb-section-landmark" id="tdb-home-companion-doors" aria-labelledby="tdb-companion-doors-heading">
         <h2 class="tdb-companion-doors-vis-h2" id="tdb-companion-doors-heading">Quiet doorways into Scripture</h2>
         <ul class="tdb-home-companion-doors-list">
           <li>
@@ -1246,7 +1245,7 @@
         <p id="tdbHomeMobiusWeek" class="tdb-home-mobius-week" role="status" aria-live="polite" hidden></p>
       </nav>
 
-      <section class="glass tdb-porch-paper-glass tdb-home-porch-signs" id="tdb-home-doorways" aria-labelledby="tdb-home-doorways-heading">
+      <section class="glass tdb-porch-paper-glass tdb-home-porch-signs tdb-section-landmark" id="tdb-home-doorways" aria-labelledby="tdb-home-doorways-heading">
         <h2 class="section-divider" id="tdb-home-doorways-heading">Honest porch signs</h2>
         <p class="tdb-home-porch-signs-lead section-note">Pick the line that matches today. Each opens a KJV starting place. No rush, no score.</p>
         <p class="tdb-porch-sign-quick-note section-note">These are not categories you must fit. They are doors already open. Tap the one that feels nearest today.</p>
@@ -1320,7 +1319,7 @@
           <p class="tdb-porch-sign-kids-nudge section-note">Porch read-alouds beside parents: <a href="/kids/corner.html">Kids Story Library</a> &middot; <a href="/kids/corner.html#kids-when-i-feel">When I feel&hellip;</a></p>
         </div>
       </section>
-      <section class="tdb-home-chain-of-hope" aria-labelledby="tdb-home-chain-of-hope-heading">
+      <section class="tdb-home-chain-of-hope tdb-section-landmark" aria-labelledby="tdb-home-chain-of-hope-heading">
         <h2 class="section-divider" id="tdb-home-chain-of-hope-heading">Chain of Hope</h2>
         <p class="tdb-home-chain-of-hope-lead">When one hard week blends into the next, keep moving through a quiet chain instead of starting from scratch: fear to trust, grief to hope, then steadier praise&mdash;and when the sun comes out again, stay on the porch with thanks.</p>
         <div class="tdb-home-chain-of-hope-links">
@@ -1381,7 +1380,7 @@
       <p class="tdb-morning-doorway-hint" id="tdbMorningDoorwayHint">Morning doorway: <a href="#tdb-home-doorways">Porch signs</a> for today&rsquo;s weight, <a href="verse.html">today&rsquo;s verse</a>, one-tap <a href="calm.html">Calm</a>, or <a href="plans.html">Battle Plans</a> when you want rhythm.</p>
       <div class="spacer" aria-hidden="true"></div>
 
-      <!-- ── Feel Search (nav anchor: #quick-search-hero) — below Why not AI teaser, above Battle Plans ── -->
+      <!-- ── Feel Search (nav anchor: #quick-search-hero) — above Battle Plans ── -->
       <div id="quick-search-hero" class="tdb-quiet-container">
       <p class="tdb-back-to-today"><a href="#hero-verse-wrap">Back to today&rsquo;s verse</a></p>
       <p class="tdb-verse-ask-bridge" id="tdbVerseAskBridge">If today&rsquo;s verse is enough, rest here a while. If you&rsquo;re carrying something specific, <a href="#feel-section">Ask the Word</a> below.</p>
@@ -1421,7 +1420,7 @@
           <div class="feel-suggest" id="feelSuggestDropdown" role="listbox" aria-label="Feeling suggestions">
           </div>
         </div>
-        <p class="section-note util-mt-0_5 util-mb-0">Try: "Who is Jesus?", "angry at work", "overwhelmed as a parent", "thankful for my kids", "peaceful ordinary day", or "joy".</p>
+        <p class="section-note util-mt-0_5 util-mb-0">Try honest words like “I feel scared,” “worried about the kids,” or “thankful for today.” Short is fine — the Word meets you where you are.</p>
         <p class="topic-plans-hint section-note" id="topicPlansHint">Short phrases work well. Press <strong>Search</strong> or Enter for the fuller KJV lookup. <span class="topic-plans-hint-detail">Inside a category: tap a chip to search verses fast. Alt-click (desktop) or long-press (phone) opens a matching <a href="plans.html">Battle Plans</a> lane.</span></p>
         <p class="feel-topic-action-strip" id="feelTopicActionStrip"><strong>Quick tip:</strong> Tap a feeling below, or open <strong>Show all feelings</strong> for every topic. <span class="feel-topic-action-strip-detail">On phone, hold a chip for the matching plan.</span></p>
         <p class="tdb-feel-strip-intro section-note" id="tdbFeelStripIntro">Start with a tap—<strong>or</strong> type in the search box. Ten common picks; the full list stays one disclosure away.</p>
@@ -1637,7 +1636,7 @@
           </div>
         </div>
         <a class="feel-view-more" href="bible-tool.html" aria-label="Search more verses in the Bible Tool">More verses →</a>
-        <p class="feel-no-match" id="feelNoMatch">Try a shorter phrase like &ldquo;peace,&rdquo; &ldquo;angry at work,&rdquo; or &ldquo;overwhelmed as a parent&rdquo; — or tap a topic above, then press Search for the fuller lookup.</p>
+        <p class="feel-no-match" id="feelNoMatch">Try a few honest words about how you’re feeling — “peace,” “scared at night,” or “worried about the kids.” The Word will meet you right there.</p>
       </section>
       </div><!-- /#quick-search-hero -->
 
@@ -1701,7 +1700,7 @@
       </div>
 
       <!-- ── Tool teaser grid (collapsed by default — keeps focus on Start My Day + search) ── -->
-      <details class="card tdb-home-tools-shelf tdb-quiet-container" id="tdb-home-tools-shelf" aria-label="Tools and study">
+      <details class="card tdb-home-tools-shelf tdb-quiet-container tdb-section-landmark" id="tdb-home-tools-shelf" aria-label="Tools and study">
         <summary>
           <span>Tools &amp; study rooms</span>
           <span class="tdb-home-tools-shelf-sub">Bible Tool, workshop, Kids Corner, and more. Open when you need the full shelf.</span>
@@ -1883,7 +1882,7 @@
         <details class="tdb-home-porch-light tdb-quiet-container" id="tdb-home-porch-light">
           <summary>
             <span class="tdb-home-porch-light__main">More porch light</span>
-            <span class="tdb-home-porch-light__more section-note">Privacy, Why not AI, sample plans, builder note, and update notes&mdash;expand if you want the stack.</span>
+            <span class="tdb-home-porch-light__more section-note">Privacy, sample plans, builder note, and update notes&mdash;expand if you want the stack.</span>
           </summary>
           <div class="tdb-home-porch-light-stack">
             <section class="tdb-from-builder glass tdb-porch-paper-glass" id="tdb-from-builder" aria-label="A note from the builder">
@@ -1894,13 +1893,12 @@
             </section>
             <div class="tdb-moat-banner tdb-moat-banner--porch-stack" role="region" aria-label="Privacy, AI clarity, and sample week-long plans">
               <div class="tdb-moat-banner-inner">
-                <p class="section-note tdb-moat-deck-teaser"><span class="tdb-moat-summary-main">Grace, not grades &middot; verses and notes stay on this device unless you sync</span><span class="tdb-moat-summary-more">Why not AI, privacy paths, sample plans.</span></p>
+                <p class="section-note tdb-moat-deck-teaser"><span class="tdb-moat-summary-main">Grace, not grades &middot; verses and notes stay on this device unless you sync</span><span class="tdb-moat-summary-more">Privacy paths, sample plans.</span></p>
                 <div class="moat-banner" role="note">
                   No ads; no account wall&mdash;anonymous page stats only, not for profiling. Verses, plans, and notes stay on this device unless you sign in to sync. Read the <a href="/privacy.html">privacy promise</a> or the <a href="/security.html">security notes</a>.
                 </div>
                 <div class="tdb-moat-banner-top">
                   <p id="tdb-moat-lead" class="tdb-moat-banner-lead">AI can explain a verse. We help you live it&mdash;one day at a time.</p>
-                  <a class="tdb-moat-banner-cta" href="why-not-ai.html">Why not AI?</a>
                 </div>
                 <p id="tdb-moat-kicker" class="tdb-moat-banner-kicker">When one week in the Word might help</p>
                 <ul class="tdb-moat-banner-plans" aria-labelledby="tdb-moat-kicker" aria-describedby="tdb-moat-plans-note">
@@ -2024,7 +2022,9 @@
         <a href="/mystudy">My Study</a>
         <a href="/calm.html">Calm</a>
         <a href="/mobius.html">Grace Ribbon</a>
-        <a href="/plans.html">Courses</a>
+        <a href="/one-family-in-christ.html">One Family in Christ</a>
+        <a href="/red-letters.html">Red letters</a>
+        <a href="/plans.html">Battle Plans</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
         <a href="/wins.html">Wins</a>
@@ -2047,13 +2047,15 @@
       <div class="footer-sitemap-col">
         <h3>Further In</h3>
         <a href="/prayer-wall.html">Prayer</a>
+        <a href="/offline-porch.html">Offline porch</a>
+        <a href="/porch-map-one-page-print.html">Porch map (print)</a>
+        <a href="/porch-pathways-ribbon-one-page-print.html">Ribbon pathways (print)</a>
         <a href="/bible-study.html">Bible studies</a>
         <a href="/shop.html">Shop</a>
         <a href="/story.html">Story</a>
         <a href="/media.html">Media</a>
         <a href="/roadmap.html">Roadmap</a>
         <a href="/approach.html">How we respond</a>
-        <a href="/why-not-ai.html">Why not AI?</a>
         <a href="/curriculum.html">Curriculum</a>
         <a href="/verse-cards/">Verse cards</a>
         <a href="/contact.html">Contact</a>
@@ -2068,12 +2070,12 @@
     Steady KJV for honest days&mdash;no ads, no selling your data; prayers stay on this device unless you sync on purpose.
   </p>
 
-  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" aria-label="Friday verse and prayer email signup">
-    <p class="footer-friday-signup-label">Friday recap email&mdash;one message a week; leave anytime.</p>
+  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" aria-labelledby="footerFridaySignupHeading">
+    <p class="footer-friday-signup-label" id="footerFridaySignupHeading">Short <abbr title="King James Version">KJV</abbr> Friday letter only&mdash;one message a week, easy unsubscribe, never sold. Want the daily calendar verse too? <a href="/#newsletter">Use the home signup</a>.</p>
     <div class="footer-friday-signup-row">
-      <label for="footer-friday-email" class="sr-only">Email for Friday recap</label>
-      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="your@email.com" aria-label="Email for Friday recap" autocomplete="email">
-      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit">Subscribe</button>
+      <label for="footer-friday-email" class="sr-only">Email for Friday letter</label>
+      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="you@example.com" aria-label="Email for Friday letter" autocomplete="email">
+      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit" aria-label="Sign up for the short Friday email">Sign me up</button>
     </div>
     <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
   </div>

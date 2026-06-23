@@ -1,7 +1,10 @@
 'use strict';
 
+const gentleFromPackages = require('./read-quiz-gentle-from-packages.cjs');
+
 /**
  * Overrides merged into kids-read-quiz-data.js (see scripts/generate-kids-read-quiz-data.mjs).
+ * Gentle package Q&A: kids/stories/*-package.md via npm run gentle:qa → read-quiz-gentle-from-packages.cjs (spread at end).
  *
  * Keep this file tiny: only keys that must differ from auto-generation.
  * Two library cards share one Joshua 6 read+quiz — same pack for both keys.
@@ -15373,5 +15376,8 @@ module.exports = {
   doNotFearIsaiah41: buildDoNotFearIsaiah41ReadQuiz(),
   forgive70x7: buildUnforgivingServantReadQuiz(),
   goliathChallenge: davidReadQuizPack,
-  jesusCallingDisciples: buildJesusDisciplesReadQuiz()
+  jesusCallingDisciples: buildJesusDisciplesReadQuiz(),
+
+  // Gentle Q&A from user-written package.md (Batches 1–12+); generator keeps in sync (npm run gentle:qa).
+  ...gentleFromPackages
 };

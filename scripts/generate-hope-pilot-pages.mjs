@@ -285,7 +285,7 @@ function shell(html, lang, skip, brand, eyebrow, navLabel, main) {
         <a href="/shop.html">Shop</a>
         <a href="/story.html">Story</a>
         <a href="/approach.html">How we respond</a>
-        <a href="/why-not-ai.html">Why not AI?</a>
+        <a href="/approach.html">How we respond</a>
         <a href="/curriculum.html">Curriculum</a>
         <a href="/verse-cards/">Verse cards</a>
         <a href="/contact.html">Contact</a>

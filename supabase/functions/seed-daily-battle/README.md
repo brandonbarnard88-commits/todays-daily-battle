@@ -2,34 +2,55 @@
 
 Ensures today's row exists in `daily_battles`. If there is no row for today, inserts one with a default verse (Psalm 46:1).
 
-## Deploy
+## Recommended: Use the guided deploy script (one command)
+
+From the repo root:
 
 ```bash
-supabase functions deploy seed-daily-battle
+./scripts/deploy-seed-function.sh
 ```
 
-## Secrets
+This script will:
+- Check for the Supabase CLI and log you in
+- Deploy the function
+- Interactively help you set the two required secrets (`SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY`)
 
-Uses `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` (usually set automatically in Supabase). No extra secrets required.
+After it finishes, verify with:
 
-## Schedule
-
-Call once per day so "today" always has a row.
-
-### Option A: Supabase Cron (Dashboard)
-- Edge Functions → seed-daily-battle → add cron trigger.
-- **Midnight UTC:** `0 0 * * *`
-- **6:00 AM UTC (verse ready by US morning):** `0 6 * * *`
-
-### Option B: External cron (e.g. cron-job.org, GitHub Actions)
-1. Get your function URL: `https://YOUR_PROJECT_REF.supabase.co/functions/v1/seed-daily-battle`
-2. Get an anon or service_role key from Supabase Dashboard → Settings → API.
-3. Run daily:
 ```bash
-curl -X POST "https://YOUR_PROJECT_REF.supabase.co/functions/v1/seed-daily-battle" \
-  -H "Authorization: Bearer YOUR_ANON_OR_SERVICE_KEY" \
-  -H "Content-Type: application/json"
+./scripts/test-seed-function.sh
 ```
-Replace `YOUR_PROJECT_REF` and `YOUR_ANON_OR_SERVICE_KEY`. In cron-job.org: create a job, set URL to the function URL, method POST, add header `Authorization: Bearer <key>`, schedule daily.
 
-**Response:** `{ "ok": true, "date": "YYYY-MM-DD", "action": "inserted" | "already_exists" }`
+## Manual / Advanced
+
+### Deploy only
+
+```bash
+supabase functions deploy seed-daily-battle --project-ref rixsnhpwrlbvvymkfamj
+```
+
+### Secrets
+
+The function requires these two environment variables (set at project level or on the specific Edge Function):
+
+- `SUPABASE_URL` = `https://rixsnhpwrlbvvymkfamj.supabase.co`
+- `SUPABASE_SERVICE_ROLE_KEY` = (from Supabase Dashboard → Settings → API → `service_role` key)
+
+You can set them via the dashboard (Edge Functions → seed-daily-battle → Secrets tab) or with the CLI:
+
+```bash
+supabase secrets set --project-ref rixsnhpwrlbvvymkfamj \
+  SUPABASE_URL=https://rixsnhpwrlbvvymkfamj.supabase.co \
+  SUPABASE_SERVICE_ROLE_KEY=eyJ...
+```
+
+## Schedule / Invocation
+
+The function is currently called by the GitHub Action `.github/workflows/seed-daily-battle.yml` (daily at ~00:05 UTC, with manual trigger support).
+
+**Response format:** `{ "ok": true, "date": "YYYY-MM-DD", "action": "inserted" | "already_exists" }`
+
+For reference only (not recommended as primary method):
+- You can also add a Supabase pg_cron or external scheduler (cron-job.org, etc.) that POSTs to `https://rixsnhpwrlbvvymkfamj.supabase.co/functions/v1/seed-daily-battle`.
+
+See the main project `DEPLOY-2026-05-31-SWOOP-AND-FIXES.md` for the full context of the 2026-05-31 recovery session.

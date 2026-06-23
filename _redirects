@@ -210,9 +210,13 @@
 /family/ /family.html 200!
 /family.html /family 301
 
-# Why not AI (moat page — clean URL + trailing slash)
-/why-not-ai /why-not-ai.html 200!
-/why-not-ai/ /why-not-ai.html 200!
+# Legacy Why not AI URLs → About (page retired from nav)
+/why-not-ai /about.html 301
+/why-not-ai/ /about.html 301
+/why-not-ai.html /about.html 301
+/why-no-ai /about.html 301
+/why-no-ai/ /about.html 301
+/why-no-ai.html /about.html 301
 
 # Auth routes
 /login /login.html 200!

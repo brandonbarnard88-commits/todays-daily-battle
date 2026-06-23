@@ -38,7 +38,7 @@
 
 ### 2.4 Daily battles cron
 
-- **pg_cron** (Supabase Extensions): Schedule `seed-daily-battle` (or equivalent) at midnight UTC (`0 0 * * *`). Function: if no row for `CURRENT_DATE` in `daily_battles`, insert default verse/reflection/prayer. (Alternative: existing `seed-daily-battle` Edge Function called by external cron.)
+- **Seed function**: Run `npm run seed:deploy` to deploy the guided `seed-daily-battle` Edge Function + set secrets. The GitHub Action (`.github/workflows/seed-daily-battle.yml`) now calls it daily with good error handling. pg_cron is optional.
 
 ### 2.5 E2E test
 

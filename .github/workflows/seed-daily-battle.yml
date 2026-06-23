@@ -1,6 +1,15 @@
 # Seed daily_battles: ensure today's verse exists every day at midnight UTC.
-# Requires: Add SUPABASE_URL as repo secret (e.g. https://xxxx.supabase.co)
-# Deploy seed-daily-battle first: npx supabase functions deploy seed-daily-battle
+#
+# ONE-TIME SETUP (do this once):
+#   1. Deploy the function:
+#        supabase functions deploy seed-daily-battle --project-ref rixsnhpwrlbvvymkfamj
+#   2. In Supabase Dashboard → Edge Functions → seed-daily-battle → Secrets, add:
+#        SUPABASE_URL              = https://rixsnhpwrlbvvymkfamj.supabase.co
+#        SUPABASE_SERVICE_ROLE_KEY = (from Settings → API → service_role key)
+#   3. Add SUPABASE_URL as a GitHub repo secret (Settings → Secrets and variables → Actions).
+#
+# The GitHub Action below calls the function daily. It will fail with clear instructions
+# if the function is not deployed or the Supabase secrets are missing on the function.
 name: Seed Daily Battle
 
 on:
@@ -18,16 +27,48 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
         run: |
           if [ -z "$SUPABASE_URL" ]; then
-            echo "Add SUPABASE_URL repo secret (e.g. https://xxxx.supabase.co)"
+            echo "::error::Missing SUPABASE_URL GitHub repo secret."
+            echo "Fix: Settings → Secrets and variables → Actions → New repository secret → SUPABASE_URL = https://rixsnhpwrlbvvymkfamj.supabase.co"
             exit 1
           fi
+
           FUNC_URL="${SUPABASE_URL%/}/functions/v1/seed-daily-battle"
           echo "Calling $FUNC_URL"
+
           res=$(curl -sS -w "\n%{http_code}" -X POST "$FUNC_URL" -H "Content-Type: application/json" -d '{}')
           code=$(echo "$res" | tail -n1)
           body=$(echo "$res" | sed '$d')
+
           echo "Response ($code): $body"
-          if [ "$code" != "200" ]; then
-            echo "Failed to seed daily battle"
+
+          if [ "$code" = "404" ]; then
+            echo ""
+            echo "::error::Edge Function 'seed-daily-battle' not found (404)."
+            echo ""
+            echo "FIX (run from your machine with Supabase CLI):"
+            echo "  supabase functions deploy seed-daily-battle --project-ref rixsnhpwrlbvvymkfamj"
+            echo ""
+            echo "Then add these secrets in Supabase Dashboard → Edge Functions → seed-daily-battle → Secrets:"
+            echo "  SUPABASE_URL              = https://rixsnhpwrlbvvymkfamj.supabase.co"
+            echo "  SUPABASE_SERVICE_ROLE_KEY = (copy from Project Settings → API → service_role)"
+            echo ""
+            echo "See supabase/functions/seed-daily-battle/README.md for details."
             exit 1
           fi
+
+          if [ "$code" != "200" ]; then
+            echo ""
+            echo "::error::Seed function call failed with HTTP $code"
+            echo "Body: $body"
+            echo ""
+            echo "Common fixes:"
+            echo "  - Function exists but is missing SUPABASE_SERVICE_ROLE_KEY secret (add it in Supabase Dashboard)"
+            echo "  - RLS or table permissions on daily_battles"
+            echo "  - Check function logs in Supabase Dashboard → Edge Functions → seed-daily-battle → Logs"
+            echo ""
+            echo "Emergency manual seed (if function is down):"
+            echo "  SUPABASE_SERVICE_ROLE_KEY=eyJ... npm run seed:direct"
+            exit 1
+          fi
+
+          echo "Seed successful for today."

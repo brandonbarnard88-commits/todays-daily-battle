@@ -41,7 +41,7 @@ Concrete breakdown for: **Battle Pro MVP**, **bugs/polish**, **scope to park**, 
 1. **Stripe Payment Links** → Add URLs to `config.js` first (no backend risk).
 2. **Pro detection (client)** → Implement `isProUser()` (Supabase `profiles.tier` or `app_metadata.role`).
 3. **Webhook** → Endpoint to update Supabase on successful payment (set tier/role).
-4. **Cron for daily_battles** → Ensure `seed-daily-battle` runs so today's row always exists.
+4. **Cron for daily_battles** → Deploy and run `seed-daily-battle` so today's row always exists (use `npm run seed:deploy`).
 5. **E2E test** → Checkout → webhook fires → sign in → offline + Wins Report visible.
 
 *(Code snippets for any step on request—e.g. `isProUser()`, webhook handler, cron setup.)*
@@ -100,7 +100,7 @@ Concrete breakdown for: **Battle Pro MVP**, **bugs/polish**, **scope to park**, 
 
 1. **Table:** `public.daily_battles` (date PK, verse_ref, reflection, prayer). RLS: public read; insert restricted (e.g. master email in `daily_battles_write_master`).
 2. **Frontend:** `fetchDailyBattleRaw(dateKey)` → `GET /rest/v1/daily_battles?date=eq.YYYY-MM-DD`. Sets `currentDailyBattle` (ref, verse from bible[ref], reflection, prayer). Fallback: `getDailyVerseRefForKey(key)` + generic reflection/prayer if no row.
-3. **Seeding:** Supabase Edge Function `seed-daily-battle`: if today missing, insert one row with default (Psalm 46:1 + default reflection/prayer). Call via **cron once per day** (e.g. `0 0 * * *` UTC) or manually.
+3. **Seeding:** Deploy `seed-daily-battle` using `npm run seed:deploy`. It inserts a default row if today is missing. The GitHub Action now handles daily calls reliably.
 
 ### What to lock in
 

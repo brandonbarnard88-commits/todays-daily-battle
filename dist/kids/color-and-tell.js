@@ -206,866 +206,555 @@
     {
       id: 'creation',
       title: 'Creation',
-      verse:
-        'And God saw every thing that he had made, and, behold, it was very good. - Genesis 1:31',
-      lead: 'Four pictures of God making the world—save each one, then watch your story.',
+      verse: 'And God saw every thing that he had made, and, behold, it was very good. — Genesis 1:31 (KJV)',
+      lead: 'A beautiful full-page classic Bible coloring book scene of God’s creation. Color it and save your version to My Story.',
       scenes: [
         {
           id: '1',
-          src: '/coloring-pages/creation-s1.svg',
-          alt: 'Creation - Darkness and deep',
-          caption: 'In the beginning God created the heaven and the earth.',
-          verse: 'Genesis 1:2 (KJV)'
-        },
-        {
-          id: '2',
-          src: '/coloring-pages/creation-s2.svg',
-          alt: 'Creation - Light and sky',
-          caption: 'And God said, Let there be light.',
-          verse: 'Genesis 1:3 (KJV)'
-        },
-        {
-          id: '3',
-          src: '/coloring-pages/creation-s3.svg',
-          alt: 'Creation - Plants, sun and moon',
-          caption: 'God made the sun, moon, and stars.',
-          verse: 'Genesis 1:16-18 (KJV)'
-        },
-        {
-          id: '4',
-          src: '/coloring-pages/creation-s4.svg',
-          alt: 'Creation - Animals and people',
-          caption: 'God created man in his own image.',
-          verse:
-            'And God saw every thing that he had made, and, behold, it was very good. Genesis 1:31 (KJV)'
+          src: '/coloring-pages/creation.jpg',
+          alt: 'The beauty of God’s creation — light, sun, animals, plants, and Adam and Eve in the garden',
+          caption: 'In the beginning God created the heaven and the earth. And God saw every thing that he had made, and, behold, it was very good.',
+          verse: 'Genesis 1:1, 31 (KJV)'
         }
       ]
     },
     {
       id: 'baby-moses',
       title: 'Baby Moses',
-      verse:
-        "And the child grew, and she brought him unto Pharaoh's daughter, and he became her son. - Exodus 2:10",
-      lead: 'Four pictures from baby Moses\' story—save each one, then watch your story.',
+      verse: "And the child grew, and she brought him unto Pharaoh's daughter, and he became her son. — Exodus 2:10 (KJV)",
+      lead: 'A beautiful full-page classic Bible coloring book scene of Baby Moses. Color it and save your version to My Story.',
       scenes: [
         {
           id: '1',
-          src: '/coloring-pages/baby-moses-s1.svg',
-          alt: 'Mother hides her baby',
-          caption:
-            'His mother hid him three months—she would not let Pharaoh\'s command take him.',
-          verse: 'Exodus 2:2 (KJV)'
-        },
-        {
-          id: '2',
-          src: '/coloring-pages/baby-moses-s2.svg',
-          alt: 'Basket among the river reeds',
-          caption: 'She made an ark of bulrushes and laid him by the river\'s brink.',
-          verse: 'Exodus 2:3 (KJV)'
-        },
-        {
-          id: '3',
-          src: '/coloring-pages/baby-moses-s3.svg',
-          alt: "Pharaoh's daughter finds the baby",
-          caption: 'Pharaoh\'s daughter opened the ark—and saw the child weep.',
+          src: '/coloring-pages/baby-moses.jpg',
+          alt: 'Pharaoh’s daughter discovers the baby Moses in the basket among the reeds',
+          caption: 'And when she had opened it, she saw the child: and, behold, the babe wept. And she had compassion on him.',
           verse: 'Exodus 2:6 (KJV)'
-        },
-        {
-          id: '4',
-          src: '/coloring-pages/baby-moses-s4.svg',
-          alt: 'His mother nurses him for Pharaoh\'s daughter',
-          caption: 'She sent him home with his own mother to nurse—then he became her son.',
-          verse:
-            'And the child grew, and she brought him unto Pharaoh\'s daughter, and he became her son. Exodus 2:10 (KJV)'
         }
       ]
     },
     {
       id: 'moses-red-sea',
-      title: 'Moses & the Red Sea',
-      verse:
-        'And the children of Israel walked upon dry land in the midst of the sea. - Exodus 14:29',
-      lead: 'Four pictures at the sea—save each one, then watch your story.',
+      title: 'Moses and the Red Sea',
+      verse: 'And the children of Israel walked upon dry land in the midst of the sea. — Exodus 14:29 (KJV)',
+      lead: 'A beautiful full-page classic Bible coloring book scene of Moses and the Red Sea. Color it and save your version to My Story.',
       scenes: [
         {
           id: '1',
-          src: '/coloring-pages/moses-red-sea-s1.svg',
-          alt: 'Israel afraid before the sea',
-          caption: 'They were afraid—the sea before them, Pharaoh\'s army behind.',
-          verse: 'Exodus 14:10 (KJV)'
-        },
-        {
-          id: '2',
-          src: '/coloring-pages/moses-red-sea-s2.svg',
-          alt: 'Moses raises his rod',
-          caption: 'Moses said, Stand still, and see the salvation of the Lord—and he lifted his rod.',
-          verse: 'Exodus 14:16 (KJV)'
-        },
-        {
-          id: '3',
-          src: '/coloring-pages/moses-red-sea-s3.svg',
-          alt: 'Walls of water',
-          caption: 'The sea divided—the children of Israel went on dry ground through the midst.',
-          verse: 'Exodus 14:21-22 (KJV)'
-        },
-        {
-          id: '4',
-          src: '/coloring-pages/moses-red-sea-s4.svg',
-          alt: 'Safe on the other side',
-          caption: 'They walked on dry land in the midst of the sea—God had made a way.',
-          verse:
-            'And the children of Israel walked upon dry land in the midst of the sea; and the waters were a wall unto them on their right hand, and on their left. Exodus 14:29 (KJV)'
+          src: '/coloring-pages/moses-and-the-red-sea.jpg',
+          alt: 'The Israelites walking through the parted Red Sea on dry ground with walls of water on both sides',
+          caption: 'And the children of Israel walked upon dry land in the midst of the sea; and the waters were a wall unto them on their right hand, and on their left.',
+          verse: 'Exodus 14:29 (KJV)'
         }
       ]
     },
     {
       id: 'jonah',
-      title: 'Jonah & the Great Fish',
-      verse:
-        'And the LORD spake unto the fish, and it vomited out Jonah upon the dry land. - Jonah 2:10',
-      lead: 'Four pictures from Jonah\'s story—save each one, then watch your story.',
+      title: 'Jonah and the Great Fish',
+      verse: 'And the LORD spake unto the fish, and it vomited out Jonah upon the dry land. — Jonah 2:10 (KJV)',
+      lead: 'A beautiful full-page classic Bible coloring book scene of Jonah and the Great Fish. Color it and save your version to My Story.',
       scenes: [
         {
           id: '1',
-          src: '/coloring-pages/jonah-s1.svg',
-          alt: 'Jonah runs from God',
-          caption: 'Jonah rose up to flee from the Lord—he went the other way.',
-          verse: 'Jonah 1:3 (KJV)'
-        },
-        {
-          id: '2',
-          src: '/coloring-pages/jonah-s2.svg',
-          alt: 'Storm and cast into the sea',
-          caption: 'The sea grew rough—they cast Jonah into the waves.',
-          verse: 'Jonah 1:15 (KJV)'
-        },
-        {
-          id: '3',
-          src: '/coloring-pages/jonah-s3.svg',
-          alt: 'Jonah inside the great fish',
-          caption: 'The Lord prepared a great fish—and Jonah was inside it three days.',
+          src: '/coloring-pages/jonah-and-the-great-fish.jpg',
+          alt: 'Jonah and the great fish in a dramatic sea scene',
+          caption: 'Now the LORD had prepared a great fish to swallow up Jonah. And Jonah was in the belly of the fish three days and three nights.',
           verse: 'Jonah 1:17 (KJV)'
-        },
-        {
-          id: '4',
-          src: '/coloring-pages/jonah-s4.svg',
-          alt: 'Jonah on dry land',
-          caption: 'The Lord spoke to the fish—and it set Jonah safely on the shore.',
-          verse:
-            'And the LORD spake unto the fish, and it vomited out Jonah upon the dry land. Jonah 2:10 (KJV)'
         }
       ]
     },
     {
       id: 'noah',
-      title: "Noah's ark",
-      lead: 'Four big pictures. Color each one, tap Save, then watch your whole story.',
+      title: 'Noah and the Ark',
+      verse: 'And God remembered Noah, and every living thing... and God made a wind to pass over the earth. — Genesis 8:1 (KJV)',
+      lead: 'A beautiful full-page classic Bible coloring book scene of Noah and the Ark. Color it and save your version to My Story.',
       scenes: [
         {
           id: '1',
-          src: '/coloring-pages/noah-s1.svg',
-          alt: 'Noah builds the ark',
-          caption: 'God told Noah to build an ark—big enough for his family.',
-          verse: 'Genesis 6:14 (KJV)'
-        },
-        {
-          id: '2',
-          src: '/coloring-pages/noah-s2.svg',
-          alt: 'Animals come to the ark',
-          caption: 'God sent the animals. Noah trusted Him.',
-          verse: 'Genesis 7:15 (KJV)'
-        },
-        {
-          id: '3',
-          src: '/coloring-pages/noah-s3.svg',
-          alt: 'Rain and flood',
-          caption: 'The rain came, but God remembered Noah.',
-          verse: 'Genesis 7:12 (KJV)'
-        },
-        {
-          id: '4',
-          src: '/coloring-pages/noah-s4.svg',
-          alt: 'Rainbow promise',
-          caption: 'God set a rainbow in the sky—a sign of His promise.',
-          verse: 'Genesis 9:13 (KJV)'
+          src: '/coloring-pages/noahs-ark.jpg',
+          alt: 'Noah, his family, and pairs of animals entering the ark as the rain begins',
+          caption: 'God told Noah to build a great ark. Noah obeyed, and God brought the animals two by two.',
+          verse: 'And Noah did according unto all that the LORD commanded him. Genesis 7:5 (KJV)'
         }
       ]
     },
     {
       id: 'david',
       title: 'David and Goliath',
-      lead: 'Four pictures from the valley—save each scene to unlock your story.',
+      verse: 'Then said David to the Philistine, Thou comest to me with a sword, and with a spear, and with a shield: but I come to thee in the name of the LORD of hosts. — 1 Samuel 17:45 (KJV)',
+      lead: 'One powerful full-page scene of courage and faith — color young David standing before the giant and save your picture to My Story.',
       scenes: [
         {
           id: '1',
-          src: '/coloring-pages/david-s1.svg',
-          alt: 'Young David',
-          caption: 'David was brave because he trusted the Lord.',
+          src: '/coloring-pages/david-and-goliath.jpg',
+          alt: 'David with his sling facing the armored giant Goliath, with Israelite and Philistine armies on the hills above the valley',
+          caption: 'David was brave because he trusted the Lord. The giant looked strong, but God was stronger.',
           verse: '1 Samuel 17:45 (KJV)'
-        },
-        {
-          id: '2',
-          src: '/coloring-pages/david-s2.svg',
-          alt: 'Goliath',
-          caption: 'The giant looked strong—but God was stronger.',
-          verse: '1 Samuel 17:4 (KJV)'
-        },
-        {
-          id: '3',
-          src: '/coloring-pages/david-s3.svg',
-          alt: 'The stone',
-          caption: 'One stone, one Lord—that was enough.',
-          verse: '1 Samuel 17:49 (KJV)'
-        },
-        {
-          id: '4',
-          src: '/coloring-pages/david-s4.svg',
-          alt: 'Victory',
-          caption: 'The Lord saved Israel that day.',
-          verse: '1 Samuel 17:47 (KJV)'
         }
       ]
     },
     {
       id: 'daniel-lions',
       title: "Daniel in the Lions' Den",
-      verse:
-        "My God hath sent his angel, and hath shut the lions' mouths, that they have not hurt me... - Daniel 6:22",
-      lead: 'Four pictures from Daniel\'s story—save each one, then watch your story.',
+      verse: "My God hath sent his angel, and hath shut the lions' mouths, that they have not hurt me. — Daniel 6:22 (KJV)",
+      lead: 'A beautiful full-page classic Bible coloring book scene of Daniel in the Lions\' Den. Color it and save your version to My Story.',
       scenes: [
         {
           id: '1',
-          src: '/coloring-pages/daniel-lions-s1.svg',
-          alt: 'Daniel praying toward Jerusalem',
-          caption:
-            'Daniel prayed toward Jerusalem with his window open—he trusted God more than the king\'s rule.',
-          verse: 'Daniel 6:10 (KJV)'
-        },
-        {
-          id: '2',
-          src: '/coloring-pages/daniel-lions-s2.svg',
-          alt: 'Daniel cast into the lions den',
-          caption: 'They lifted Daniel and cast him into the den of lions.',
-          verse: 'Daniel 6:16 (KJV)'
-        },
-        {
-          id: '3',
-          src: '/coloring-pages/daniel-lions-s3.svg',
-          alt: 'Daniel safe among the lions',
-          caption: 'The lions were all around—but God kept Daniel safe.',
-          verse: 'Daniel 6:17 (KJV)'
-        },
-        {
-          id: '4',
-          src: '/coloring-pages/daniel-lions-s4.svg',
-          alt: 'King Darius finds Daniel alive',
-          caption: 'At dawn King Darius looked into the den—Daniel was safe. God had kept him.',
-          verse:
-            "My God hath sent his angel, and hath shut the lions' mouths, that they have not hurt me: forasmuch as before him innocency was found in me; and also before thee, O king, have I done no hurt. Daniel 6:22 (KJV)"
+          src: '/coloring-pages/daniel-in-the-lions-den.jpg',
+          alt: 'Daniel standing calmly praying in the lions\' den as the lions surround him peacefully',
+          caption: 'My God hath sent his angel, and hath shut the lions\' mouths, that they have not hurt me.',
+          verse: 'Daniel 6:22 (KJV)'
         }
       ]
     },
     {
       id: 'feeding-5000',
       title: 'The Feeding of the Five Thousand',
-      verse:
-        'And they did all eat, and were filled: and they took up of the fragments that remained twelve baskets full. — Matthew 14:20',
-      lead: 'Four pictures by the grassy hill—save each one, then watch your story.',
+      verse: 'And they did all eat, and were filled: and they took up of the fragments that remained twelve baskets full. — Matthew 14:20 (KJV)',
+      lead: 'A beautiful full-page classic Bible coloring book scene of the Feeding of the Five Thousand. Color it and save your version to My Story.',
       scenes: [
         {
           id: '1',
-          src: '/coloring-pages/feeding-5000-s1.svg',
-          alt: 'Crowd listens to Jesus',
-          caption: 'A great crowd sat on the grass to hear Jesus teach.',
-          verse: 'Mark 6:34 (KJV)'
-        },
-        {
-          id: '2',
-          src: '/coloring-pages/feeding-5000-s2.svg',
-          alt: 'Five loaves and two fishes',
-          caption: 'A lad had five barley loaves and two small fishes—Jesus would bless them.',
-          verse: 'John 6:9 (KJV)'
-        },
-        {
-          id: '3',
-          src: '/coloring-pages/feeding-5000-s3.svg',
-          alt: 'Jesus blesses the food',
-          caption: 'Jesus looked to heaven, blessed the food, and broke the bread.',
-          verse: 'Matthew 14:19 (KJV)'
-        },
-        {
-          id: '4',
-          src: '/coloring-pages/feeding-5000-s4.svg',
-          alt: 'Everyone eats and is filled',
-          caption: 'They all ate and were filled—and there were baskets of pieces left over.',
-          verse:
-            'And they did all eat, and were filled: and they took up of the fragments that remained twelve baskets full. Matthew 14:20 (KJV)'
+          src: '/coloring-pages/feeding-of-the-five-thousand.jpg',
+          alt: 'Jesus blessing and breaking the loaves and fish as the huge crowd watches',
+          caption: 'And they did all eat, and were filled: and they took up of the fragments that remained twelve baskets full.',
+          verse: 'And they did all eat, and were filled: and they took up of the fragments that remained twelve baskets full. Matthew 14:20 (KJV)'
         }
       ]
     },
     {
       id: 'jesus-storm',
       title: 'Jesus Calms the Storm',
-      verse:
-        'And he arose, and rebuked the wind, and said unto the sea, Peace, be still. And the wind ceased, and there was a great calm. — Mark 4:39 (KJV)',
-      lead: 'Four pictures on the sea—save each one, then watch your story.',
+      verse: 'And he arose, and rebuked the wind, and said unto the sea, Peace, be still. And the wind ceased, and there was a great calm. — Mark 4:39 (KJV)',
+      lead: 'Four dramatic scenes from the night Jesus calmed the storm. Color each one, save them, and watch your colored story of the disciples’ fear and Jesus’ power over nature.',
       scenes: [
         {
           id: '1',
-          src: '/coloring-pages/jesus-storm-s1.svg',
-          alt: 'Disciples in the boat while Jesus sleeps',
-          caption: 'The sea was quiet. Jesus slept—His friends were with Him in the boat.',
-          verse: 'Mark 4:36 (KJV)'
+          src: '/coloring-pages/jesus-storm-s1.jpg',
+          alt: 'The disciples in the boat during a fierce storm while Jesus sleeps',
+          caption: 'A great storm arose on the sea. Jesus was asleep in the back of the boat while the waves beat upon it.',
+          verse: 'And there arose a great storm of wind, and the waves beat into the ship... and he was in the hinder part of the ship, asleep on a pillow. Mark 4:37-38 (KJV)'
         },
         {
           id: '2',
-          src: '/coloring-pages/jesus-storm-s2.svg',
-          alt: 'Big waves and storm',
-          caption: 'A great wind rose. The waves beat on the boat.',
-          verse: 'Mark 4:37 (KJV)'
+          src: '/coloring-pages/jesus-storm-s2.jpg',
+          alt: 'The disciples in panic wake Jesus as the storm rages',
+          caption: 'The disciples were filled with fear. They woke Jesus and cried out, Master, carest thou not that we perish?',
+          verse: 'And they awake him, and say unto him, Master, carest thou not that we perish? Mark 4:38 (KJV)'
         },
         {
           id: '3',
-          src: '/coloring-pages/jesus-storm-s3.svg',
-          alt: 'Disciples wake Jesus',
-          caption: 'They woke Him and said, Master, carest thou not that we perish?',
-          verse: 'Mark 4:38 (KJV)'
+          src: '/coloring-pages/jesus-storm-s3.jpg',
+          alt: 'Jesus stands and rebukes the wind and sea with authority',
+          caption: 'Jesus arose and rebuked the wind, and said unto the sea, Peace, be still.',
+          verse: 'And he arose, and rebuked the wind, and said unto the sea, Peace, be still. Mark 4:39 (KJV)'
         },
         {
           id: '4',
-          src: '/coloring-pages/jesus-storm-s4.svg',
-          alt: 'Jesus calms the sea',
-          caption: 'Jesus stood and spoke to the wind and the sea. It grew still.',
-          verse:
-            'And he arose, and rebuked the wind, and said unto the sea, Peace, be still. And the wind ceased, and there was a great calm. Mark 4:39 (KJV)'
+          src: '/coloring-pages/jesus-storm-s4.jpg',
+          alt: 'The sea becomes perfectly calm and the disciples are filled with awe',
+          caption: 'The wind ceased, and there was a great calm. The disciples were amazed and said, What manner of man is this?',
+          verse: 'And the wind ceased, and there was a great calm. And they feared exceedingly, and said one to another, What manner of man is this? Mark 4:39-41 (KJV)'
         }
       ]
     },
     {
       id: 'jesus-children',
       title: 'Jesus Welcomes the Little Children',
-      verse:
-        'Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God. - Mark 10:14',
-      lead: 'Four pictures with Jesus and the children—save each one, then watch your story.',
+      verse: 'Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God. — Mark 10:14 (KJV)',
+      lead: 'A beautiful full-page classic Bible coloring book scene of Jesus Welcoming the Little Children. Color it and save your version to My Story.',
       scenes: [
         {
           id: '1',
-          src: '/coloring-pages/jesus-children-s1.svg',
-          alt: 'Parents bring children to Jesus',
-          caption: 'They brought young children to Him, that He should touch them.',
-          verse: 'Mark 10:13 (KJV)'
-        },
-        {
-          id: '2',
-          src: '/coloring-pages/jesus-children-s2.svg',
-          alt: 'Disciples turn the children away',
-          caption: 'The disciples rebuked those who brought them—Jesus saw it.',
-          verse: 'Mark 10:13 (KJV)'
-        },
-        {
-          id: '3',
-          src: '/coloring-pages/jesus-children-s3.svg',
-          alt: 'Jesus receives the children',
-          caption: 'He said, Suffer the little children to come—and He took them up in His arms.',
-          verse: 'Mark 10:16 (KJV)'
-        },
-        {
-          id: '4',
-          src: '/coloring-pages/jesus-children-s4.svg',
-          alt: 'Jesus blesses the children',
-          caption: 'He laid His hands on them and blessed them.',
-          verse:
-            'Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God. Mark 10:14 (KJV)'
+          src: '/coloring-pages/jesus-welcomes-the-little-children.jpg',
+          alt: 'Jesus blessing and welcoming the little children with great love',
+          caption: 'Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God.',
+          verse: 'Mark 10:14 (KJV)'
         }
       ]
     },
     {
       id: 'good-samaritan',
       title: 'The Good Samaritan',
-      verse: 'Go, and do thou likewise. — Luke 10:37',
-      lead: 'Four pictures on the road—save each one, then watch your story.',
+      verse: 'Go, and do thou likewise. — Luke 10:37 (KJV)',
+      lead: 'Four moving scenes from the parable of the Good Samaritan. Color each one, save them, and watch your colored story of what it truly means to love your neighbor.',
       scenes: [
         {
           id: '1',
-          src: '/coloring-pages/good-samaritan-s1.svg',
-          alt: 'Hurt man on the road',
-          caption: 'A man was hurt on the road—robbers had left him there.',
-          verse: 'Luke 10:30 (KJV)'
+          src: '/coloring-pages/good-samaritan-s1.jpg',
+          alt: 'A traveler is robbed and left half-dead on the dangerous road to Jericho',
+          caption: 'A man traveling from Jerusalem to Jericho was attacked by robbers. They beat him and left him half dead.',
+          verse: 'A certain man went down from Jerusalem to Jericho, and fell among thieves... Luke 10:30 (KJV)'
         },
         {
           id: '2',
-          src: '/coloring-pages/good-samaritan-s2.svg',
-          alt: 'Priest and Levite pass by',
-          caption: 'A priest and a Levite saw him—and passed by on the other side.',
-          verse: 'Luke 10:31-32 (KJV)'
+          src: '/coloring-pages/good-samaritan-s2.jpg',
+          alt: 'A priest and a Levite see the wounded man but pass by on the other side',
+          caption: 'A priest saw him and passed by on the other side. Then a Levite did the same.',
+          verse: 'And by chance there came down a certain priest that way: and when he saw him, he passed by on the other side. Luke 10:31 (KJV)'
         },
         {
           id: '3',
-          src: '/coloring-pages/good-samaritan-s3.svg',
-          alt: 'Samaritan helps on his donkey',
-          caption: 'A Samaritan stopped, bound up his wounds, and set him on his beast.',
-          verse: 'Luke 10:34 (KJV)'
+          src: '/coloring-pages/good-samaritan-s3.jpg',
+          alt: 'The Samaritan stops with compassion, pours oil and wine, and bandages the man',
+          caption: 'But a Samaritan, as he journeyed, came where he was. He had compassion on him, bound up his wounds, and set him on his own beast.',
+          verse: 'But a certain Samaritan... had compassion on him. Luke 10:33-34 (KJV)'
         },
         {
           id: '4',
-          src: '/coloring-pages/good-samaritan-s4.svg',
-          alt: 'Care at the inn',
-          caption: 'He paid the innkeeper to care for him—and went on his way.',
-          verse:
-            'And he said, He that shewed mercy on him. Then said Jesus unto him, Go, and do thou likewise. Luke 10:37 (KJV)'
+          src: '/coloring-pages/good-samaritan-s4.jpg',
+          alt: 'The Samaritan takes the man to an inn and pays the innkeeper to care for him',
+          caption: 'He brought him to an inn, took care of him, and paid the innkeeper to continue caring for him until he returned.',
+          verse: 'And on the morrow when he departed, he took out two pence, and gave them to the host... Luke 10:35 (KJV)'
         }
       ]
     },
     {
       id: 'empty-tomb',
       title: 'The Empty Tomb',
-      verse: 'He is not here: for he is risen, as he said. - Matthew 28:6',
-      lead: 'Four pictures of the cross and the tomb—save each one, then watch your story.',
+      verse: 'He is not here: for he is risen, as he said. — Matthew 28:6 (KJV)',
+      lead: 'One beautiful full-page scene of the empty tomb on Easter morning — color the hope of the resurrection and save your picture.',
       scenes: [
         {
           id: '1',
-          src: '/coloring-pages/empty-tomb-s1.svg',
-          alt: 'The cross',
-          caption: 'Jesus gave His life on the cross—for our sins.',
-          verse: 'Mark 15:37 (KJV)'
-        },
-        {
-          id: '2',
-          src: '/coloring-pages/empty-tomb-s2.svg',
-          alt: 'Tomb sealed with a stone',
-          caption: 'He was laid in a tomb—a great stone sealed the door.',
-          verse: 'Matthew 27:60 (KJV)'
-        },
-        {
-          id: '3',
-          src: '/coloring-pages/empty-tomb-s3.svg',
-          alt: 'Stone rolled away',
-          caption: 'The stone was rolled away—the tomb was empty.',
-          verse: 'Mark 16:4 (KJV)'
-        },
-        {
-          id: '4',
-          src: '/coloring-pages/empty-tomb-s4.svg',
-          alt: 'Angel says He is risen',
-          caption: 'The angel said, He is not here: He is risen, as He said.',
-          verse:
-            'He is not here: for he is risen, as he said. Come, see the place where the Lord lay. Matthew 28:6 (KJV)'
+          src: '/coloring-pages/the-empty-tomb.jpg',
+          alt: 'The open empty tomb with the large stone rolled away, neatly folded grave clothes inside, and two angels near the entrance with morning light',
+          caption: 'The stone was rolled away. The tomb was empty. Jesus is risen — just as He said.',
+          verse: 'Matthew 28:6 (KJV)'
         }
       ]
     },
     {
       id: 'prodigal-son',
       title: 'The Prodigal Son',
-      verse:
-        'For this my son was dead, and is alive again; he was lost, and is found. - Luke 15:24',
-      lead: 'Four pictures from the parable—save each one, then watch your story.',
+      verse: 'For this my son was dead, and is alive again; he was lost, and is found. — Luke 15:24 (KJV)',
+      lead: 'A beautiful full-page classic Bible coloring book scene of the Prodigal Son. Color it and save your version to My Story.',
       scenes: [
         {
           id: '1',
-          src: '/coloring-pages/prodigal-son-s1.svg',
-          alt: 'Prodigal Son leaves home',
-          caption: 'The younger son took his journey into a far country.',
-          verse: 'Luke 15:13 (KJV)'
-        },
-        {
-          id: '2',
-          src: '/coloring-pages/prodigal-son-s2.svg',
-          alt: 'Wasting money',
-          caption: 'He wasted his substance with riotous living.',
-          verse: 'Luke 15:14 (KJV)'
-        },
-        {
-          id: '3',
-          src: '/coloring-pages/prodigal-son-s3.svg',
-          alt: 'Feeding pigs',
-          caption:
-            'He would fain have filled his belly with the husks that the swine did eat.',
-          verse: 'Luke 15:16 (KJV)'
-        },
-        {
-          id: '4',
-          src: '/coloring-pages/prodigal-son-s4.svg',
-          alt: 'Father welcomes him',
-          caption: 'His father saw him and had compassion, and ran.',
-          verse:
-            'For this my son was dead, and is alive again; he was lost, and is found. Luke 15:24 (KJV)'
+          src: '/coloring-pages/prodigal-son.jpg',
+          alt: 'The father running to embrace his returning prodigal son with great joy',
+          caption: 'But when he was yet a great way off, his father saw him, and had compassion, and ran, and fell on his neck, and kissed him.',
+          verse: 'But when he was yet a great way off, his father saw him, and had compassion, and ran... Luke 15:20 (KJV)'
         }
       ]
     },
     {
       id: 'walks-on-water',
       title: 'Jesus Walks on Water',
-      verse:
-        'And he said, Come. And when Peter was come down out of the ship, he walked on the water... - Matthew 14:29',
-      lead: 'Four pictures on the sea at night—save each one, then watch your story.',
+      verse: 'And he said, Come. And when Peter was come down out of the ship, he walked on the water... — Matthew 14:29 (KJV)',
+      lead: 'A beautiful full-page classic Bible coloring book scene of Jesus Walks on Water. Color it and save your version to My Story.',
       scenes: [
         {
           id: '1',
-          src: '/coloring-pages/walks-on-water-s1.svg',
-          alt: 'Disciples in the boat at night',
-          caption: 'The ship was in the midst of the sea, tossed with waves.',
-          verse: 'Matthew 14:24 (KJV)'
-        },
-        {
-          id: '2',
-          src: '/coloring-pages/walks-on-water-s2.svg',
-          alt: 'Jesus walks on the water',
-          caption: 'In the fourth watch Jesus went unto them, walking on the sea.',
+          src: '/coloring-pages/jesus-walks-on-water.jpg',
+          alt: 'Jesus walking on the water toward the disciples in the storm',
+          caption: 'And in the fourth watch of the night Jesus went unto them, walking on the sea.',
           verse: 'Matthew 14:25 (KJV)'
-        },
-        {
-          id: '3',
-          src: '/coloring-pages/walks-on-water-s3.svg',
-          alt: 'Peter steps onto the water',
-          caption: 'Peter walked on the water to go to Jesus—but when he saw the wind, he was afraid.',
-          verse: 'Matthew 14:30 (KJV)'
-        },
-        {
-          id: '4',
-          src: '/coloring-pages/walks-on-water-s4.svg',
-          alt: 'Jesus stills Peter and the wind',
-          caption: 'Jesus caught him, and said, O thou of little faith. The wind ceased.',
-          verse:
-            'And immediately Jesus stretched forth his hand, and caught him, and said unto him, O thou of little faith, wherefore didst thou doubt? Matthew 14:31 (KJV)'
         }
       ]
     },
     {
       id: 'zacchaeus',
       title: 'Jesus Loves Zacchaeus',
-      verse:
-        'For the Son of man is come to seek and to save that which was lost. - Luke 19:10',
-      lead: 'Four pictures in Jericho—save each one, then watch your story.',
+      verse: 'For the Son of man is come to seek and to save that which was lost. — Luke 19:10 (KJV)',
+      lead: 'Four joyful scenes from the story of Zacchaeus. Color each one, save them, and watch your colored story of Jesus seeking and saving the lost.',
       scenes: [
         {
           id: '1',
-          src: '/coloring-pages/zacchaeus-s1.svg',
-          alt: 'Zacchaeus climbs the tree',
-          caption: 'He ran before and climbed up into a sycamore tree to see Jesus.',
-          verse: 'Luke 19:4 (KJV)'
+          src: '/coloring-pages/zacchaeus-s1.jpg',
+          alt: 'Short Zacchaeus climbing the sycamore tree to see Jesus',
+          caption: 'Zacchaeus was a rich tax collector and very short. He climbed a tree so he could see Jesus passing by.',
+          verse: 'And he ran before, and climbed up into a sycomore tree to see him... Luke 19:4 (KJV)'
         },
         {
           id: '2',
-          src: '/coloring-pages/zacchaeus-s2.svg',
-          alt: 'Jesus calls Zacchaeus down',
-          caption: 'Jesus said, Zacchaeus, make haste, and come down—I must abide at thy house.',
-          verse: 'Luke 19:5 (KJV)'
+          src: '/coloring-pages/zacchaeus-s2.jpg',
+          alt: 'Jesus looking up and calling Zacchaeus by name',
+          caption: 'Jesus stopped and looked up. He called him by name and said He must stay at his house that day.',
+          verse: 'Zacchaeus, make haste, and come down; for to day I must abide at thy house. Luke 19:5 (KJV)'
         },
         {
           id: '3',
-          src: '/coloring-pages/zacchaeus-s3.svg',
-          alt: 'Jesus at Zacchaeus house',
-          caption: 'He received him joyfully and they sat down together.',
-          verse: 'Luke 19:6 (KJV)'
+          src: '/coloring-pages/zacchaeus-s3.jpg',
+          alt: 'Jesus eating at Zacchaeus’ house while some people complain',
+          caption: 'Zacchaeus received Jesus joyfully, but some people grumbled that Jesus would eat with a sinner.',
+          verse: 'And when they saw it, they all murmured... Luke 19:7 (KJV)'
         },
         {
           id: '4',
-          src: '/coloring-pages/zacchaeus-s4.svg',
-          alt: 'Zacchaeus gives back',
-          caption: 'He said, Lord, half my goods I give to the poor—and I restore fourfold.',
-          verse:
-            'For the Son of man is come to seek and to save that which was lost. Luke 19:10 (KJV)'
+          src: '/coloring-pages/zacchaeus-s4.jpg',
+          alt: 'Zacchaeus standing and joyfully promising to give to the poor and repay everyone',
+          caption: 'Zacchaeus stood and said he would give half his goods to the poor and repay four times anything he had taken wrongly.',
+          verse: 'Behold, Lord, the half of my goods I give to the poor... Luke 19:8 (KJV)'
         }
       ]
     },
     {
       id: 'woman-at-well',
       title: 'Woman at the Well',
-      verse:
-        'Whosoever drinketh of this water shall thirst again: But whosoever drinketh of the water that I shall give him shall never thirst. - John 4:13-14',
-      lead: 'Four pictures at Jacob\'s well—save each one, then watch your story.',
+      verse: 'Whosoever drinketh of this water shall thirst again: But whosoever drinketh of the water that I shall give him shall never thirst. — John 4:13-14 (KJV)',
+      lead: 'Four beautiful scenes from the Woman at the Well. Color each one, save them, and watch your colored story of Jesus offering living water to a thirsty heart.',
       scenes: [
         {
           id: '1',
-          src: '/coloring-pages/woman-at-well-s1.svg',
-          alt: 'Jesus at the well',
-          caption: 'Jesus sat by Jacob\'s well, wearied with His journey.',
-          verse: 'John 4:6 (KJV)'
+          src: '/coloring-pages/woman-at-well-s1.jpg',
+          alt: 'Jesus sits weary by Jacob’s well at noon in Samaria',
+          caption: 'Jesus, being wearied with his journey, sat thus on the well: and it was about the sixth hour.',
+          verse: 'Now Jacob’s well was there. Jesus therefore, being wearied with his journey, sat thus on the well... John 4:6 (KJV)'
         },
         {
           id: '2',
-          src: '/coloring-pages/woman-at-well-s2.svg',
-          alt: 'Jesus talks with the woman',
-          caption: 'He said unto her, Give me to drink. She wondered that He asked her.',
-          verse: 'John 4:7-9 (KJV)'
+          src: '/coloring-pages/woman-at-well-s2.jpg',
+          alt: 'A Samaritan woman comes to draw water and meets Jesus',
+          caption: 'There cometh a woman of Samaria to draw water: Jesus saith unto her, Give me to drink.',
+          verse: 'There cometh a woman of Samaria to draw water: Jesus saith unto her, Give me to drink. John 4:7 (KJV)'
         },
         {
           id: '3',
-          src: '/coloring-pages/woman-at-well-s3.svg',
-          alt: 'She leaves her waterpot',
-          caption: 'The woman left her waterpot, and went her way into the city.',
-          verse: 'John 4:28 (KJV)'
+          src: '/coloring-pages/woman-at-well-s3.jpg',
+          alt: 'Jesus speaks with the woman about living water',
+          caption: 'Jesus answered and said unto her, Whosoever drinketh of this water shall thirst again: But whosoever drinketh of the water that I shall give him shall never thirst.',
+          verse: 'But whosoever drinketh of the water that I shall give him shall never thirst; but the water that I shall give him shall be in him a well of water springing up into everlasting life. John 4:14 (KJV)'
         },
         {
           id: '4',
-          src: '/coloring-pages/woman-at-well-s4.svg',
-          alt: 'She tells the town',
-          caption: 'She said, Come, see a man which told me all things that ever I did.',
-          verse:
-            'Whosoever drinketh of this water shall thirst again: But whosoever drinketh of the water that I shall give him shall never thirst; but the water that I shall give him shall be in him a well of water springing up into everlasting life. John 4:14 (KJV)'
+          src: '/coloring-pages/woman-at-well-s4.jpg',
+          alt: 'The woman leaves her waterpot and runs to tell the city about Jesus',
+          caption: 'The woman then left her waterpot, and went her way into the city, and saith to the men, Come, see a man which told me all things that ever I did.',
+          verse: 'The woman then left her waterpot, and went her way into the city... John 4:28-29 (KJV)'
         }
       ]
     },
     {
       id: 'ruth-naomi',
       title: 'Ruth & Naomi',
-      verse: 'Intreat me not to leave thee... for whither thou goest, I will go. - Ruth 1:16',
-      lead: 'Four pictures from Ruth\'s story—save each one, then watch your story.',
+      verse: 'Intreat me not to leave thee... for whither thou goest, I will go. — Ruth 1:16 (KJV)',
+      lead: 'Four beautiful scenes from the story of Ruth and Naomi. Color each one, save them, and watch your colored story of loyalty, redemption, and God’s lovingkindness.',
       scenes: [
         {
           id: '1',
-          src: '/coloring-pages/ruth-naomi-s1.svg',
-          alt: 'Ruth stays with Naomi',
-          caption: 'Ruth said, Intreat me not to leave thee—thy people shall be my people.',
-          verse: 'Ruth 1:16 (KJV)'
+          src: '/coloring-pages/ruth-naomi-s1.jpg',
+          alt: 'Naomi urges her daughters-in-law to return home as they leave Moab',
+          caption: 'Naomi said unto her two daughters in law, Go, return each to her mother’s house.',
+          verse: 'And Naomi said unto her two daughters in law, Go, return each to her mother’s house. Ruth 1:8 (KJV)'
         },
         {
           id: '2',
-          src: '/coloring-pages/ruth-naomi-s2.svg',
-          alt: 'They come to Bethlehem',
-          caption: 'They went until they came to Bethlehem—and all the city was moved.',
-          verse: 'Ruth 1:19 (KJV)'
+          src: '/coloring-pages/ruth-naomi-s2.jpg',
+          alt: 'Ruth clings to Naomi and makes her famous vow of loyalty',
+          caption: 'Ruth said, Intreat me not to leave thee: for whither thou goest, I will go; and where thou lodgest, I will lodge: thy people shall be my people, and thy God my God.',
+          verse: 'Intreat me not to leave thee, or to return from following after thee: for whither thou goest, I will go... Ruth 1:16 (KJV)'
         },
         {
           id: '3',
-          src: '/coloring-pages/ruth-naomi-s3.svg',
-          alt: 'Ruth gleans in the field',
-          caption: 'She went to glean in the field after the reapers—and met Boaz\'s field.',
-          verse: 'Ruth 2:3 (KJV)'
+          src: '/coloring-pages/ruth-naomi-s3.jpg',
+          alt: 'Ruth gleans in the fields of Boaz near Bethlehem',
+          caption: 'Ruth the Moabitess said unto Naomi, Let me now go to the field, and glean ears of corn after him in whose sight I shall find grace.',
+          verse: 'And Ruth the Moabitess said unto Naomi, Let me now go to the field, and glean ears of corn... Ruth 2:2 (KJV)'
         },
         {
           id: '4',
-          src: '/coloring-pages/ruth-naomi-s4.svg',
-          alt: 'Boaz helps Ruth',
-          caption: 'Boaz said, The Lord recompense thy work, and a full reward be given thee.',
-          verse:
-            'The LORD recompense thy work, and a full reward be given thee of the LORD God of Israel, under whose wings thou art come to trust. Ruth 2:12 (KJV)'
+          src: '/coloring-pages/ruth-naomi-s4.jpg',
+          alt: 'Boaz redeems Ruth at the city gate in the presence of the elders',
+          caption: 'Boaz said unto the elders, Ye are witnesses this day, that I have bought all that was Elimelech’s, and all that was Chilion’s and Mahlon’s, of the hand of Naomi. Moreover Ruth the Moabitess, the wife of Mahlon, have I purchased to be my wife.',
+          verse: 'Moreover Ruth the Moabitess, the wife of Mahlon, have I purchased to be my wife... Ruth 4:9-10 (KJV)'
         }
       ]
     },
     {
       id: 'lazarus',
       title: 'Lazarus Raised from the Dead',
-      verse:
-        'Jesus said unto her, I am the resurrection, and the life... - John 11:25',
-      lead: 'Four pictures from Bethany—save each one, then watch your story.',
+      verse: 'I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live. — John 11:25 (KJV)',
+      lead: 'A beautiful full-page classic Bible coloring book scene of Lazarus Raised from the Dead. Color it and save your version to My Story.',
       scenes: [
         {
           id: '1',
-          src: '/coloring-pages/lazarus-s1.svg',
-          alt: 'Lazarus is sick and dies',
-          caption: 'Lazarus was sick; word was sent to Jesus—and then, Lazarus died.',
-          verse: 'John 11:14 (KJV)'
-        },
-        {
-          id: '2',
-          src: '/coloring-pages/lazarus-s2.svg',
-          alt: 'Mary and Martha mourn',
-          caption: 'Martha and Mary grieved—he had lain in the grave four days.',
-          verse: 'John 11:39 (KJV)'
-        },
-        {
-          id: '3',
-          src: '/coloring-pages/lazarus-s3.svg',
-          alt: 'Jesus calls Lazarus',
-          caption: 'He cried with a loud voice, Lazarus, come forth.',
-          verse: 'John 11:43 (KJV)'
-        },
-        {
-          id: '4',
-          src: '/coloring-pages/lazarus-s4.svg',
-          alt: 'Lazarus comes out alive',
-          caption: 'He that was dead came forth, bound hand and foot with graveclothes.',
-          verse:
-            'Jesus said unto her, I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live. John 11:25 (KJV)'
+          src: '/coloring-pages/lazarus.jpg',
+          alt: 'Jesus calling Lazarus out of the tomb as he comes forth alive',
+          caption: 'Lazarus, come forth. And he that was dead came forth, bound hand and foot with graveclothes.',
+          verse: 'John 11:43-44 (KJV)'
         }
       ]
     },
     {
       id: 'lost-sheep',
       title: 'The Lost Sheep',
-      verse:
-        'Rejoice with me; for I have found my sheep which was lost. - Luke 15:6',
-      lead: 'Four pictures from the fold—save each one, then watch your story.',
+      verse: 'Rejoice with me; for I have found my sheep which was lost. — Luke 15:6 (KJV)',
+      lead: 'Four beautiful scenes from the parable of the Lost Sheep. Color each one, save them, and watch your colored story of the Shepherd who leaves the ninety-nine to rescue the one.',
       scenes: [
         {
           id: '1',
-          src: '/coloring-pages/lost-sheep-s1.svg',
-          alt: 'Ninety-nine sheep safe in the fold',
-          caption: 'What man of you, having an hundred sheep, if he lose one of them, doth not leave the ninety and nine?',
-          verse: 'Luke 15:4 (KJV)'
+          src: '/coloring-pages/lost-sheep-s1.jpg',
+          alt: 'The shepherd with ninety-nine sheep, noticing one is missing',
+          caption: 'What man of you, having an hundred sheep, if he lose one of them, doth not leave the ninety and nine in the wilderness?',
+          verse: 'What man of you, having an hundred sheep, if he lose one of them... Luke 15:4 (KJV)'
         },
         {
           id: '2',
-          src: '/coloring-pages/lost-sheep-s2.svg',
-          alt: 'One sheep is lost',
-          caption: 'If he lose one of them, doth not leave the ninety and nine, and go after that which is lost?',
-          verse: 'Luke 15:4 (KJV)'
+          src: '/coloring-pages/lost-sheep-s2.jpg',
+          alt: 'The shepherd searching through the wilderness for the lost sheep',
+          caption: 'He goeth after that which is lost, until he find it.',
+          verse: 'And go after that which is lost, until he find it. Luke 15:4 (KJV)'
         },
         {
           id: '3',
-          src: '/coloring-pages/lost-sheep-s3.svg',
-          alt: 'The shepherd searches',
-          caption: 'He goeth after that which is lost, until he find it.',
-          verse: 'Luke 15:4 (KJV)'
+          src: '/coloring-pages/lost-sheep-s3.jpg',
+          alt: 'The shepherd finding and gently rescuing the lost sheep',
+          caption: 'And when he hath found it, he layeth it on his shoulders, rejoicing.',
+          verse: 'And when he hath found it, he layeth it on his shoulders, rejoicing. Luke 15:5 (KJV)'
         },
         {
           id: '4',
-          src: '/coloring-pages/lost-sheep-s4.svg',
-          alt: 'The shepherd carries the sheep home',
-          caption: 'And when he hath found it, he layeth it on his shoulders, rejoicing.',
-          verse:
-            'Rejoice with me; for I have found my sheep which was lost. Luke 15:5-6 (KJV)'
+          src: '/coloring-pages/lost-sheep-s4.jpg',
+          alt: 'The shepherd bringing the sheep home to a joyful celebration',
+          caption: 'And when he cometh home, he calleth together his friends and neighbours, saying, Rejoice with me.',
+          verse: 'Rejoice with me; for I have found my sheep which was lost. Luke 15:6 (KJV)'
         }
       ]
     },
     {
       id: 'jairus-daughter',
       title: 'Jairus\' Daughter',
-      verse:
-        'Talitha cumi; which is, being interpreted, Damsel, I say unto thee, arise. - Mark 5:41',
-      lead: 'Four pictures by the ruler\'s house—save each one, then watch your story.',
+      verse: 'Talitha cumi; which is, being interpreted, Damsel, I say unto thee, arise. — Mark 5:41 (KJV)',
+      lead: 'Four powerful scenes from the raising of Jairus’ daughter. Color each one, save them, and watch your colored story of faith, grief, and the power of Jesus over death.',
       scenes: [
         {
           id: '1',
-          src: '/coloring-pages/jairus-daughter-s1.svg',
-          alt: 'Jairus falls at Jesus\' feet',
-          caption: 'There came one of the rulers of the synagogue, Jairus, and fell at his feet.',
-          verse: 'Mark 5:22 (KJV)'
+          src: '/coloring-pages/jairus-daughter-s1.jpg',
+          alt: 'Jairus, a ruler of the synagogue, falls at Jesus’ feet begging for his dying daughter',
+          caption: 'There came one of the rulers of the synagogue, Jairus by name; and when he saw him, he fell at his feet.',
+          verse: 'And when he saw him, he fell at his feet, and besought him greatly, saying, My little daughter lieth at the point of death. Mark 5:22-23 (KJV)'
         },
         {
           id: '2',
-          src: '/coloring-pages/jairus-daughter-s2.svg',
-          alt: 'The girl is very sick',
-          caption: 'My little daughter lieth at the point of death: I pray thee, come and lay thy hands on her.',
-          verse: 'Mark 5:23 (KJV)'
+          src: '/coloring-pages/jairus-daughter-s2.jpg',
+          alt: 'Messengers bring the devastating news that the daughter has died',
+          caption: 'While he yet spake, there came from the ruler of the synagogue’s house certain which said, Thy daughter is dead.',
+          verse: 'Thy daughter is dead: why troublest thou the Master any further? Mark 5:35 (KJV)'
         },
         {
           id: '3',
-          src: '/coloring-pages/jairus-daughter-s3.svg',
-          alt: 'Jesus comes to the house',
-          caption: 'He cometh to the house of the ruler of the synagogue, and seeth the tumult, and them that wept.',
-          verse: 'Mark 5:38 (KJV)'
+          src: '/coloring-pages/jairus-daughter-s3.jpg',
+          alt: 'Jesus enters the house with only Peter, James, John and the girl’s parents',
+          caption: 'He suffered no man to follow him, save Peter, and James, and John, and the father and the mother of the maiden.',
+          verse: 'And he suffered no man to follow him, save Peter, and James, and John the brother of James. Mark 5:37 (KJV)'
         },
         {
           id: '4',
-          src: '/coloring-pages/jairus-daughter-s4.svg',
-          alt: 'The damsel arises',
+          src: '/coloring-pages/jairus-daughter-s4.jpg',
+          alt: 'Jesus takes the girl by the hand and raises her, saying Talitha cumi',
           caption: 'He took the damsel by the hand, and said unto her, Talitha cumi; which is, Damsel, I say unto thee, arise.',
-          verse:
-            'And straightway the damsel arose, and walked; for she was of the age of twelve years. Mark 5:42 (KJV)'
+          verse: 'And straightway the damsel arose, and walked; for she was of the age of twelve years. Mark 5:41-42 (KJV)'
         }
       ]
     },
     {
       id: 'blind-man',
       title: 'Jesus Heals the Blind Man',
-      verse: 'Receive thy sight: thy faith hath saved thee. - Luke 18:42',
-      lead: 'Four pictures by the way—save each one, then watch your story.',
+      verse: 'Receive thy sight: thy faith hath saved thee. — Luke 18:42 (KJV)',
+      lead: 'Four beautiful scenes from the healing of the man born blind. Color each one, save them, and watch your colored story of Jesus bringing both physical and spiritual sight.',
       scenes: [
         {
           id: '1',
-          src: '/coloring-pages/blind-man-s1.svg',
-          alt: 'A blind man calls to Jesus',
-          caption: 'He cried, Jesus, thou Son of David, have mercy on me.',
-          verse: 'Luke 18:38 (KJV)'
+          src: '/coloring-pages/blind-man-s1.jpg',
+          alt: 'Jesus anoints the eyes of the man born blind with clay',
+          caption: 'Jesus spat on the ground, made clay of the spittle, and anointed the eyes of the man born blind.',
+          verse: 'He spat on the ground, and made clay of the spittle, and he anointed the eyes of the blind man with the clay. John 9:6 (KJV)'
         },
         {
           id: '2',
-          src: '/coloring-pages/blind-man-s2.svg',
-          alt: 'Jesus stops for him',
-          caption: 'Jesus stood, and commanded him to be brought unto him.',
-          verse: 'Luke 18:40 (KJV)'
+          src: '/coloring-pages/blind-man-s2.jpg',
+          alt: 'The man washes in the Pool of Siloam and receives his sight',
+          caption: 'The man went and washed, and came seeing. For the first time in his life, he could see.',
+          verse: 'He went his way therefore, and washed, and came seeing. John 9:7 (KJV)'
         },
         {
           id: '3',
-          src: '/coloring-pages/blind-man-s3.svg',
-          alt: 'Jesus touches him',
-          caption: 'Jesus said unto him, Receive thy sight: thy faith hath saved thee.',
-          verse: 'Luke 18:42 (KJV)'
+          src: '/coloring-pages/blind-man-s3.jpg',
+          alt: 'The Pharisees question the man and his parents about the miracle',
+          caption: 'The Pharisees called the parents and the man, demanding to know how he had received his sight.',
+          verse: 'They asked them, saying, Is this your son, who ye say was born blind? how then doth he now see? John 9:19 (KJV)'
         },
         {
           id: '4',
-          src: '/coloring-pages/blind-man-s4.svg',
-          alt: 'He sees and follows',
-          caption: 'Immediately he received his sight, and followed him, glorifying God.',
-          verse:
-            'And all the people, when they saw it, gave praise unto God. Luke 18:43 (KJV)'
+          src: '/coloring-pages/blind-man-s4.jpg',
+          alt: 'Jesus finds the man and reveals Himself; the man worships Him',
+          caption: 'Jesus said, Dost thou believe on the Son of God? The man said, Lord, I believe. And he worshipped him.',
+          verse: 'And he said, Lord, I believe. And he worshipped him. John 9:38 (KJV)'
         }
       ]
     },
     {
       id: 'fishers-of-men',
       title: 'Fishers of Men',
-      verse: 'Follow me, and I will make you fishers of men. - Matthew 4:19',
-      lead: 'Four pictures by the sea—save each one, then watch your story.',
+      verse: 'Follow me, and I will make you fishers of men. — Matthew 4:19 (KJV)',
+      lead: 'Four powerful scenes from the calling of the first disciples. Color each one, save them, and watch your colored story of Jesus calling ordinary men to an extraordinary mission.',
       scenes: [
         {
           id: '1',
-          src: '/coloring-pages/fishers-of-men-s1.svg',
-          alt: 'Fishermen mend their nets',
-          caption: 'Jesus saw two brethren, Simon called Peter, and Andrew his brother, casting a net into the sea.',
-          verse: 'Matthew 4:18 (KJV)'
+          src: '/coloring-pages/fishers-of-men-s1.jpg',
+          alt: 'Jesus walks by the Sea of Galilee and sees Peter and Andrew casting their net',
+          caption: 'Jesus, walking by the sea of Galilee, saw two brethren, Simon called Peter, and Andrew his brother, casting a net into the sea.',
+          verse: 'And Jesus, walking by the sea of Galilee, saw two brethren, Simon called Peter, and Andrew his brother, casting a net into the sea: for they were fishers. Matthew 4:18 (KJV)'
         },
         {
           id: '2',
-          src: '/coloring-pages/fishers-of-men-s2.svg',
-          alt: 'Jesus calls them',
-          caption: 'And he saith unto them, Follow me, and I will make you fishers of men.',
-          verse: 'Matthew 4:19 (KJV)'
+          src: '/coloring-pages/fishers-of-men-s2.jpg',
+          alt: 'Jesus calls Peter and Andrew: Follow me, and I will make you fishers of men',
+          caption: 'And he saith unto them, Follow me, and I will make you fishers of men. And they straightway left their nets, and followed him.',
+          verse: 'And he saith unto them, Follow me, and I will make you fishers of men. And they straightway left their nets, and followed him. Matthew 4:19-20 (KJV)'
         },
         {
           id: '3',
-          src: '/coloring-pages/fishers-of-men-s3.svg',
-          alt: 'They leave their nets',
-          caption: 'They straightway left their nets, and followed him.',
-          verse: 'Matthew 4:20 (KJV)'
+          src: '/coloring-pages/fishers-of-men-s3.jpg',
+          alt: 'Jesus calls James and John, the sons of Zebedee, in their boat',
+          caption: 'And going on from thence, he saw two other brethren, James the son of Zebedee, and John his brother, in a ship with Zebedee their father, mending their nets; and he called them.',
+          verse: 'And going on from thence, he saw two other brethren, James the son of Zebedee, and John his brother... and he called them. Matthew 4:21 (KJV)'
         },
         {
           id: '4',
-          src: '/coloring-pages/fishers-of-men-s4.svg',
-          alt: 'They walk with Jesus',
-          caption: 'Going on from thence, he saw two other brethren... and he called them.',
-          verse:
-            'And they immediately left the ship and their father, and followed him. Matthew 4:22 (KJV)'
+          src: '/coloring-pages/fishers-of-men-s4.jpg',
+          alt: 'A miraculous catch of fish – Peter falls at Jesus’ feet as the nets break',
+          caption: 'When they had this done, they inclosed a great multitude of fishes: and their net brake... And when they had brought their ships to land, they forsook all, and followed him.',
+          verse: 'And when they had brought their ships to land, they forsook all, and followed him. Luke 5:11 (KJV)'
         }
       ]
     },
     {
       id: 'wedding-cana',
       title: 'Wedding at Cana',
-      verse:
-        'This beginning of miracles did Jesus in Cana of Galilee... - John 2:11',
-      lead: 'Four pictures at the feast—save each one, then watch your story.',
+      verse: 'This beginning of miracles did Jesus in Cana of Galilee... — John 2:11 (KJV)',
+      lead: 'Four joyful scenes from the first miracle at the wedding in Cana. Color each one, save them, and watch your colored story of Jesus turning water into the best wine.',
       scenes: [
         {
           id: '1',
-          src: '/coloring-pages/wedding-cana-s1.svg',
-          alt: 'A wedding in Cana',
-          caption: 'There was a marriage in Cana of Galilee; and the mother of Jesus was there.',
-          verse: 'John 2:1 (KJV)'
+          src: '/coloring-pages/wedding-cana-s1.jpg',
+          alt: 'A joyful wedding feast in Cana of Galilee with Jesus and Mary among the guests',
+          caption: 'There was a marriage in Cana of Galilee; and the mother of Jesus was there: and both Jesus was called, and his disciples, to the marriage.',
+          verse: 'And the third day there was a marriage in Cana of Galilee; and the mother of Jesus was there. John 2:1-2 (KJV)'
         },
         {
           id: '2',
-          src: '/coloring-pages/wedding-cana-s2.svg',
-          alt: 'They have no wine',
-          caption: 'The mother of Jesus saith unto him, They have no wine.',
-          verse: 'John 2:3 (KJV)'
+          src: '/coloring-pages/wedding-cana-s2.jpg',
+          alt: 'The servants discover there is no more wine at the wedding',
+          caption: 'And when they wanted wine, the mother of Jesus saith unto him, They have no wine.',
+          verse: 'And when they wanted wine, the mother of Jesus saith unto him, They have no wine. John 2:3 (KJV)'
         },
         {
           id: '3',
-          src: '/coloring-pages/wedding-cana-s3.svg',
-          alt: 'Water filled the pots',
+          src: '/coloring-pages/wedding-cana-s3.jpg',
+          alt: 'Jesus tells the servants to fill the six stone waterpots with water',
           caption: 'Jesus saith unto them, Fill the waterpots with water. And they filled them up to the brim.',
-          verse: 'John 2:7 (KJV)'
+          verse: 'Jesus saith unto them, Fill the waterpots with water. And they filled them up to the brim. John 2:7 (KJV)'
         },
         {
           id: '4',
-          src: '/coloring-pages/wedding-cana-s4.svg',
-          alt: 'The water becomes wine',
-          caption: 'This beginning of miracles did Jesus in Cana of Galilee, and manifested forth his glory.',
-          verse:
-            'But thou hast kept the good wine until now. John 2:10 (KJV)'
+          src: '/coloring-pages/wedding-cana-s4.jpg',
+          alt: 'The master of the feast tastes the water that was made wine and is amazed',
+          caption: 'When the ruler of the feast had tasted the water that was made wine... he saith unto the bridegroom, Thou hast kept the good wine until now.',
+          verse: 'This beginning of miracles did Jesus in Cana of Galilee, and manifested forth his glory; and his disciples believed on him. John 2:11 (KJV)'
         }
       ]
     },
@@ -1073,8 +762,8 @@
       id: 'mustard-seed',
       title: 'The Mustard Seed',
       verse:
-        'The kingdom of heaven is like to a grain of mustard seed... - Matthew 13:31',
-      lead: 'Four pictures of a tiny seed—save each one, then watch your story.',
+        'The kingdom of heaven is like to a grain of mustard seed... — Matthew 13:31',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -1111,8 +800,8 @@
       id: 'the-sower',
       title: 'The Parable of the Sower',
       verse:
-        'But he that received seed into the good ground is he that heareth the word... - Matthew 13:23',
-      lead: 'Four pictures of seed on the ground—save each one, then watch your story.',
+        'But he that received seed into the good ground is he that heareth the word... — Matthew 13:23',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -1149,8 +838,8 @@
       id: 'triumphal-entry',
       title: 'Triumphal Entry',
       verse:
-        'Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord. - Matthew 21:9',
-      lead: 'Four pictures into Jerusalem—save each one, then watch your story.',
+        'Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord. — Matthew 21:9',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -1187,8 +876,8 @@
       id: 'lost-coin',
       title: 'The Lost Coin',
       verse:
-        'Rejoice with me; for I have found the piece which I had lost. - Luke 15:9',
-      lead: 'Four pictures in one house—save each one, then watch your story.',
+        'Rejoice with me; for I have found the piece which I had lost. — Luke 15:9',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -1225,8 +914,8 @@
     {
       id: 'healing-paralytic',
       title: 'Jesus Heals the Paralytic',
-      verse: 'Arise, take up thy bed, and go unto thine house. - Matthew 9:6',
-      lead: 'Four pictures at Capernaum—save each one, then watch your story.',
+      verse: 'Arise, take up thy bed, and go unto thine house. — Matthew 9:6',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -1264,38 +953,36 @@
     {
       id: 'good-shepherd',
       title: 'The Good Shepherd',
-      verse:
-        'I am the good shepherd: the good shepherd giveth his life for the sheep. - John 10:11',
-      lead: 'Four pictures by the fold—save each one, then watch your story.',
+      verse: 'I am the good shepherd: the good shepherd giveth his life for the sheep. — John 10:11 (KJV)',
+      lead: 'Four beautiful scenes from Jesus the Good Shepherd. Color each one, save them, and watch your colored story of the Shepherd who knows, leads, protects, and lays down His life for His sheep.',
       scenes: [
         {
           id: '1',
-          src: '/coloring-pages/good-shepherd-s1.svg',
-          alt: 'The shepherd with his sheep',
-          caption: 'He calleth his own sheep by name, and leadeth them out.',
-          verse: 'John 10:3 (KJV)'
+          src: '/coloring-pages/good-shepherd-s1.jpg',
+          alt: 'Jesus the Good Shepherd peacefully with His flock in green pastures',
+          caption: 'I am the good shepherd: the good shepherd giveth his life for the sheep. He knoweth His sheep, and they know Him.',
+          verse: 'I am the good shepherd: the good shepherd giveth his life for the sheep. John 10:11 (KJV)'
         },
         {
           id: '2',
-          src: '/coloring-pages/good-shepherd-s2.svg',
-          alt: 'One sheep is not with the flock',
-          caption: 'When he putteth forth his own sheep, he goeth before them, and the sheep follow him.',
-          verse: 'John 10:4 (KJV)'
+          src: '/coloring-pages/good-shepherd-s2.jpg',
+          alt: 'A wolf threatens the flock and the shepherd stands to protect them',
+          caption: 'The hireling fleeth because he is an hireling, and careth not for the sheep. But the good shepherd protects His own.',
+          verse: 'But he that is an hireling... seeth the wolf coming, and leaveth the sheep... John 10:12-13 (KJV)'
         },
         {
           id: '3',
-          src: '/coloring-pages/good-shepherd-s3.svg',
-          alt: 'The shepherd goes after the one',
-          caption: 'I am the good shepherd, and know my sheep, and am known of mine.',
-          verse: 'John 10:14 (KJV)'
+          src: '/coloring-pages/good-shepherd-s3.jpg',
+          alt: 'The Good Shepherd lays down His life for the sheep',
+          caption: 'I am the good shepherd... I lay down my life for the sheep.',
+          verse: 'I am the good shepherd... I lay down my life for the sheep. John 10:14-15 (KJV)'
         },
         {
           id: '4',
-          src: '/coloring-pages/good-shepherd-s4.svg',
-          alt: 'The good shepherd carries a sheep',
-          caption: 'I am the good shepherd, and know my sheep, and am known of mine.',
-          verse:
-            'I am the good shepherd: the good shepherd giveth his life for the sheep. John 10:11 (KJV)'
+          src: '/coloring-pages/good-shepherd-s4.jpg',
+          alt: 'The shepherd joyfully carries the rescued sheep home on His shoulders',
+          caption: 'And when he hath found it, he layeth it on his shoulders, rejoicing.',
+          verse: 'And when he hath found it, he layeth it on his shoulders, rejoicing. Luke 15:5 (KJV)'
         }
       ]
     },
@@ -1303,8 +990,8 @@
       id: 'feeding-4000',
       title: 'Jesus Feeds the Four Thousand',
       verse:
-        'And they did all eat, and were filled: and they took up of the broken meat that was left seven baskets full. - Matthew 15:37',
-      lead: 'Four pictures in the wilderness—save each one, then watch your story.',
+        'And they did all eat, and were filled: and they took up of the broken meat that was left seven baskets full. — Matthew 15:37',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -1342,8 +1029,8 @@
       id: 'wise-foolish-builders',
       title: 'The Wise and Foolish Builders',
       verse:
-        'Therefore whosoever heareth these sayings of mine, and doeth them, I will liken him unto a wise man... - Matthew 7:24',
-      lead: 'Four pictures by two houses—save each one, then watch your story.',
+        'Therefore whosoever heareth these sayings of mine, and doeth them, I will liken him unto a wise man... — Matthew 7:24',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -1383,8 +1070,8 @@
       id: 'the-talents',
       title: 'The Parable of the Talents',
       verse:
-        'Well done, thou good and faithful servant: thou hast been faithful over a few things... - Matthew 25:21',
-      lead: 'Four pictures of the servants—save each one, then watch your story.',
+        'Well done, thou good and faithful servant: thou hast been faithful over a few things... — Matthew 25:21',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -1424,8 +1111,8 @@
       id: 'persistent-widow',
       title: 'The Persistent Widow',
       verse:
-        'And shall not God avenge his own elect, which cry day and night unto him, though he bear long with them? - Luke 18:7',
-      lead: 'Four pictures at the judge\'s door—save each one, then watch your story.',
+        'And shall not God avenge his own elect, which cry day and night unto him, though he bear long with them? — Luke 18:7',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -1462,8 +1149,8 @@
     {
       id: 'healing-leper',
       title: 'Jesus Heals the Leper',
-      verse: 'I will; be thou clean. - Matthew 8:3',
-      lead: 'Four pictures on the road—save each one, then watch your story.',
+      verse: 'I will; be thou clean. — Matthew 8:3',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -1501,48 +1188,23 @@
     {
       id: 'joseph-coat',
       title: 'Joseph\'s Coat of Many Colours',
-      verse:
-        'Now Israel loved Joseph more than all his children, because he was the son of his old age: and he made him a coat of many colours. - Genesis 37:3',
-      lead: 'Four pictures in Canaan—save each one, then watch your story.',
+      verse: 'Now Israel loved Joseph more than all his children, because he was the son of his old age: and he made him a coat of many colours. — Genesis 37:3 (KJV)',
+      lead: 'A beautiful full-page classic Bible coloring book scene of Joseph and his coat of many colours. Color it and save your version to My Story.',
       scenes: [
         {
           id: '1',
-          src: '/coloring-pages/joseph-coat-s1.svg',
-          alt: 'Joseph receives a coat of many colours',
-          caption:
-            'Israel loved Joseph more than all his children, and he made him a coat of many colours.',
+          src: '/coloring-pages/joseph-coat.jpg',
+          alt: 'Jacob giving the beautiful coat of many colours to young Joseph while his brothers watch with jealousy',
+          caption: 'Israel loved Joseph more than all his children, and he made him a coat of many colours.',
           verse: 'Genesis 37:3 (KJV)'
-        },
-        {
-          id: '2',
-          src: '/coloring-pages/joseph-coat-s2.svg',
-          alt: 'His brothers hate him',
-          caption: 'His brethren hated him, and could not speak peaceably unto him.',
-          verse: 'Genesis 37:4 (KJV)'
-        },
-        {
-          id: '3',
-          src: '/coloring-pages/joseph-coat-s3.svg',
-          alt: 'Joseph cast into a pit',
-          caption: 'They took him, and cast him into a pit: and the pit was empty, there was no water in it.',
-          verse: 'Genesis 37:24 (KJV)'
-        },
-        {
-          id: '4',
-          src: '/coloring-pages/joseph-coat-s4.svg',
-          alt: 'Sold to merchants',
-          caption:
-            'They drew and lifted up Joseph out of the pit, and sold Joseph to the Ishmeelites for twenty pieces of silver.',
-          verse:
-            'And they brought Joseph into Egypt. Genesis 37:28 (KJV)'
         }
       ]
     },
     {
       id: 'joseph-dreams',
       title: 'Joseph Interprets Dreams',
-      verse: 'God shall give Pharaoh an answer of peace. - Genesis 41:16',
-      lead: 'Four pictures from prison to palace—save each one, then watch your story.',
+      verse: 'God shall give Pharaoh an answer of peace. — Genesis 41:16',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -1582,8 +1244,8 @@
     {
       id: 'burning-bush',
       title: 'Moses and the Burning Bush',
-      verse: 'I AM THAT I AM. - Exodus 3:14',
-      lead: 'Four pictures at Horeb—save each one, then watch your story.',
+      verse: 'I AM THAT I AM. — Exodus 3:14',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -1623,8 +1285,8 @@
       id: 'jericho',
       title: 'Joshua and the Walls of Jericho',
       verse:
-        'And it shall come to pass, that when they make a long blast with the ram\'s horn... the wall of the city shall fall down flat. - Joshua 6:5',
-      lead: 'Four pictures around the city—save each one, then watch your story.',
+        'And it shall come to pass, that when they make a long blast with the ram\'s horn... the wall of the city shall fall down flat. — Joshua 6:5',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -1665,8 +1327,8 @@
       id: 'gideon-fleece',
       title: 'Gideon and the Fleece',
       verse:
-        'If thou wilt save Israel by mine hand, as thou hast said... - Judges 6:36',
-      lead: 'Four pictures in the threshingfloor—save each one, then watch your story.',
+        'If thou wilt save Israel by mine hand, as thou hast said... — Judges 6:36',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -1706,8 +1368,8 @@
     {
       id: 'samson',
       title: 'Samson',
-      verse: 'The Spirit of the LORD began to move him. - Judges 13:25',
-      lead: 'Four pictures of God\'s strength—save each one, then watch your story.',
+      verse: 'The Spirit of the LORD began to move him. — Judges 13:25',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -1748,8 +1410,8 @@
       id: 'esther',
       title: 'Esther Saves Her People',
       verse:
-        'Who knoweth whether thou art come to the kingdom for such a time as this? - Esther 4:14',
-      lead: 'Four pictures in Shushan—save each one, then watch your story.',
+        'Who knoweth whether thou art come to the kingdom for such a time as this? — Esther 4:14',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -1790,8 +1452,8 @@
       id: 'fiery-furnace',
       title: 'Shadrach, Meshach, and Abednego',
       verse:
-        'Our God whom we serve is able to deliver us from the burning fiery furnace... - Daniel 3:17',
-      lead: 'Four pictures in Babylon—save each one, then watch your story.',
+        'Our God whom we serve is able to deliver us from the burning fiery furnace... — Daniel 3:17',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -1832,8 +1494,8 @@
       id: 'abraham-isaac',
       title: 'Abraham & Isaac',
       verse:
-        'And Abraham called the name of that place Jehovahjireh: as it is said to this day, In the mount of the LORD it shall be seen. - Genesis 22:14',
-      lead: 'Four pictures on Moriah—save each one, then watch your story.',
+        'And Abraham called the name of that place Jehovahjireh: as it is said to this day, In the mount of the LORD it shall be seen. — Genesis 22:14',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -1874,7 +1536,7 @@
       id: 'elijah-carmel',
       title: 'Elijah & the Fire on Mount Carmel',
       verse: 'The LORD, he is the God; the LORD, he is the God. - 1 Kings 18:39',
-      lead: 'Four pictures on Carmel—save each one, then watch your story.',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -1915,7 +1577,7 @@
       title: 'Naaman Healed of Leprosy',
       verse:
         'Go and wash in Jordan seven times, and thy flesh shall come again to thee, and thou shalt be clean. - 2 Kings 5:10',
-      lead: 'Four pictures by the river—save each one, then watch your story.',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -1955,7 +1617,7 @@
       id: 'boy-samuel',
       title: 'The Boy Samuel',
       verse: 'Speak, LORD; for thy servant heareth. - 1 Samuel 3:9',
-      lead: 'Four pictures in Shiloh—save each one, then watch your story.',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -1994,8 +1656,8 @@
     {
       id: 'ten-lepers',
       title: 'Jesus Heals the Ten Lepers',
-      verse: 'Arise, go thy way: thy faith hath made thee whole. - Luke 17:19',
-      lead: 'Four pictures by the way—save each one, then watch your story.',
+      verse: 'Arise, go thy way: thy faith hath made thee whole. — Luke 17:19',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -2035,8 +1697,8 @@
     {
       id: 'pharisee-tax-collector',
       title: 'The Pharisee and the Tax Collector',
-      verse: 'God be merciful to me a sinner. - Luke 18:13',
-      lead: 'Four pictures at the temple—save each one, then watch your story.',
+      verse: 'God be merciful to me a sinner. — Luke 18:13',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -2076,8 +1738,8 @@
       id: 'widows-mite',
       title: 'The Widow\'s Mite',
       verse:
-        'This poor widow hath cast more in, than all they which have cast into the treasury. - Mark 12:43',
-      lead: 'Four pictures at the treasury—save each one, then watch your story.',
+        'This poor widow hath cast more in, than all they which have cast into the treasury. — Mark 12:43',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -2118,8 +1780,8 @@
       id: 'centurion-servant',
       title: 'The Centurion\'s Servant',
       verse:
-        'I have not found so great faith, no, not in Israel. - Matthew 8:10',
-      lead: 'Four pictures in Capernaum—save each one, then watch your story.',
+        'I have not found so great faith, no, not in Israel. — Matthew 8:10',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -2159,8 +1821,8 @@
       id: 'abraham-sarah',
       title: 'Abraham & Sarah',
       verse:
-        'Sarah laughed within herself, saying, After I am waxed old shall I have pleasure, my lord being old also? - Genesis 18:12',
-      lead: 'Four pictures by the tent door—save each one, then watch your story.',
+        'Sarah laughed within herself, saying, After I am waxed old shall I have pleasure, my lord being old also? — Genesis 18:12',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -2201,7 +1863,7 @@
       title: 'Elisha & the Widow\'s Oil',
       verse:
         'Go, sell the oil, and pay thy debt, and live thou and thy children of the rest. - 2 Kings 4:7',
-      lead: 'Four pictures at home—save each one, then watch your story.',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -2242,7 +1904,7 @@
       title: 'Hannah & Samuel',
       verse:
         'For this child I prayed; and the LORD hath given me my petition which I asked of him. - 1 Samuel 1:27',
-      lead: 'Four pictures at Shiloh—save each one, then watch your story.',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -2283,7 +1945,7 @@
       title: 'David & Jonathan',
       verse:
         'The soul of Jonathan was knit with the soul of David, and Jonathan loved him as his own soul. - 1 Samuel 18:1',
-      lead: 'Four pictures of true friendship—save each one, then watch your story.',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -2323,8 +1985,8 @@
       id: 'rich-young-ruler',
       title: 'Jesus Talks with a Rich Young Man',
       verse:
-        'Jesus said unto him, If thou wilt be perfect, go and sell that thou hast, and give to the poor... - Matthew 19:21',
-      lead: 'Four pictures on the road—save each one, then watch your story.',
+        'Jesus said unto him, If thou wilt be perfect, go and sell that thou hast, and give to the poor... — Matthew 19:21',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -2365,8 +2027,8 @@
       id: 'pearl-great-price',
       title: 'The Pearl of Great Price',
       verse:
-        'Again, the kingdom of heaven is like unto a merchant man, seeking goodly pearls... - Matthew 13:45',
-      lead: 'Four pictures of one treasure—save each one, then watch your story.',
+        'Again, the kingdom of heaven is like unto a merchant man, seeking goodly pearls... — Matthew 13:45',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -2406,8 +2068,8 @@
       id: 'withered-hand',
       title: 'Jesus Heals the Man with the Withered Hand',
       verse:
-        'Stretch forth thine hand. And he stretched it forth; and it was restored whole, like as the other. - Matthew 12:13',
-      lead: 'Four pictures in the synagogue—save each one, then watch your story.',
+        'Stretch forth thine hand. And he stretched it forth; and it was restored whole, like as the other. — Matthew 12:13',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -2447,8 +2109,8 @@
       id: 'unforgiving-servant',
       title: 'The Unforgiving Servant',
       verse:
-        'Shouldest not thou also have had compassion on thy fellowservant, even as I had pity on thee? - Matthew 18:33',
-      lead: 'Four pictures from a king\'s court—save each one, then watch your story.',
+        'Shouldest not thou also have had compassion on thy fellowservant, even as I had pity on thee? — Matthew 18:33',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -2490,7 +2152,7 @@
       title: 'The Boy David',
       verse:
         'Then Samuel took the horn of oil, and anointed him in the midst of his brethren: and the Spirit of the LORD came upon David from that day forward. - 1 Samuel 16:13',
-      lead: 'Four pictures at Jesse\'s house and the field—save each one, then watch your story.',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -2531,7 +2193,7 @@
       title: 'Elijah Fed by Ravens',
       verse:
         'And the ravens brought him bread and flesh in the morning, and bread and flesh in the evening; and he drank of the brook. - 1 Kings 17:6',
-      lead: 'Four pictures by the brook—save each one, then watch your story.',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -2571,8 +2233,8 @@
       id: 'writing-on-wall',
       title: 'The Writing on the Wall',
       verse:
-        'And this is the writing that was written, MENE, MENE, TEKEL, UPHARSIN. - Daniel 5:25',
-      lead: 'Four pictures in the king\'s feast hall—save each one, then watch your story.',
+        'And this is the writing that was written, MENE, MENE, TEKEL, UPHARSIN. — Daniel 5:25',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -2612,8 +2274,8 @@
       id: 'ruth-boaz',
       title: 'Ruth & Boaz',
       verse:
-        'The LORD recompense thy work, and a full reward be given thee of the LORD God of Israel, under whose wings thou art come to trust. - Ruth 2:12',
-      lead: 'Four pictures in the field and at the gate—save each one, then watch your story.',
+        'The LORD recompense thy work, and a full reward be given thee of the LORD God of Israel, under whose wings thou art come to trust. — Ruth 2:12',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -2653,8 +2315,8 @@
       id: 'jesus-baptism',
       title: 'Jesus Is Baptized',
       verse:
-        'And Jesus, when he was baptized, went up straightway out of the water: and, lo, the heavens were opened unto him. - Matthew 3:16',
-      lead: 'Four pictures at the Jordan River—save each one, then watch your story.',
+        'And Jesus, when he was baptized, went up straightway out of the water: and, lo, the heavens were opened unto him. — Matthew 3:16',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -2694,8 +2356,8 @@
       id: 'emmaus-road',
       title: 'The Road to Emmaus',
       verse:
-        'Did not our heart burn within us, while he talked with us by the way, and while he opened to us the scriptures? - Luke 24:32',
-      lead: 'Four pictures on the road and at the table—save each one, then watch your story.',
+        'Did not our heart burn within us, while he talked with us by the way, and while he opened to us the scriptures? — Luke 24:32',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -2735,8 +2397,8 @@
       id: 'jesus-washes-feet',
       title: "Jesus Washes the Disciples' Feet",
       verse:
-        "If I then, your Lord and Master, have washed your feet; ye also ought to wash one another's feet. - John 13:14",
-      lead: 'Four pictures at the supper—save each one, then watch your story.',
+        "If I then, your Lord and Master, have washed your feet; ye also ought to wash one another's feet. — John 13:14",
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -2776,8 +2438,8 @@
       id: 'transfiguration',
       title: 'The Transfiguration',
       verse:
-        'And he was transfigured before them: and his face did shine as the sun, and his raiment was white as the light. - Matthew 17:2',
-      lead: 'Four pictures on the holy mountain—save each one, then watch your story.',
+        'And he was transfigured before them: and his face did shine as the sun, and his raiment was white as the light. — Matthew 17:2',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -2817,8 +2479,8 @@
       id: 'jordan-crossing',
       title: 'Crossing the Jordan',
       verse:
-        'And the priests that bare the ark of the covenant of the LORD stood firm on dry ground in the midst of Jordan, and all the Israelites passed over on dry ground. - Joshua 3:17',
-      lead: 'Four pictures at the river—save each one, then watch your story.',
+        'And the priests that bare the ark of the covenant of the LORD stood firm on dry ground in the midst of Jordan, and all the Israelites passed over on dry ground. — Joshua 3:17',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -2858,8 +2520,8 @@
       id: 'balaams-donkey',
       title: 'Balaam and the Donkey',
       verse:
-        'The LORD opened the mouth of the ass, and she said unto Balaam, What have I done unto thee, that thou hast smitten me these three times? - Numbers 22:28',
-      lead: 'Four pictures on the road—save each one, then watch your story.',
+        'The LORD opened the mouth of the ass, and she said unto Balaam, What have I done unto thee, that thou hast smitten me these three times? — Numbers 22:28',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -2900,7 +2562,7 @@
       title: 'Elijah Taken to Heaven',
       verse:
         'And Elijah went up by a whirlwind into heaven. - 2 Kings 2:11',
-      lead: 'Four pictures with Elijah and Elisha—save each one, then watch your story.',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -2940,8 +2602,8 @@
       id: 'nehemiah-walls',
       title: 'Nehemiah Builds the Wall',
       verse:
-        'So built we the wall; and all the wall was joined together unto the half thereof: for the people had a mind to work. - Nehemiah 4:6',
-      lead: 'Four pictures in Jerusalem—save each one, then watch your story.',
+        'So built we the wall; and all the wall was joined together unto the half thereof: for the people had a mind to work. — Nehemiah 4:6',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -2981,8 +2643,8 @@
       id: 'jesus-tempted',
       title: 'Jesus Tempted in the Wilderness',
       verse:
-        'Man shall not live by bread alone, but by every word that proceedeth out of the mouth of God. - Matthew 4:4',
-      lead: 'Four pictures in the wilderness—save each one, then watch your story.',
+        'Man shall not live by bread alone, but by every word that proceedeth out of the mouth of God. — Matthew 4:4',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -3022,8 +2684,8 @@
       id: 'paul-silas-prison',
       title: 'Paul and Silas in Prison',
       verse:
-        'And suddenly there was a great earthquake, so that the foundations of the prison were shaken: and immediately all the doors were opened, and every one\'s bands were loosed. - Acts 16:26',
-      lead: 'Four pictures in the jail at Philippi—save each one, then watch your story.',
+        'And suddenly there was a great earthquake, so that the foundations of the prison were shaken: and immediately all the doors were opened, and every one\'s bands were loosed. — Acts 16:26',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -3063,8 +2725,8 @@
       id: 'lydia-purple',
       title: 'Lydia Believes',
       verse:
-        'Whose heart the Lord opened, that she attended unto the things which were spoken of Paul. - Acts 16:14',
-      lead: 'Four pictures by the river—save each one, then watch your story.',
+        'Whose heart the Lord opened, that she attended unto the things which were spoken of Paul. — Acts 16:14',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -3104,8 +2766,8 @@
       id: 'tabitha-dorcas',
       title: 'Tabitha Raised',
       verse:
-        'But Peter put them all forth, and kneeled down, and prayed; and turning him to the body said, Tabitha, arise. And she opened her eyes. - Acts 9:40',
-      lead: 'Four pictures in Joppa—save each one, then watch your story.',
+        'But Peter put them all forth, and kneeled down, and prayed; and turning him to the body said, Tabitha, arise. And she opened her eyes. — Acts 9:40',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -3143,42 +2805,37 @@
     },
     {
       id: 'nativity',
-      title: 'Jesus Born (the Nativity)',
-      verse:
-        'And the shepherds returned, glorifying and praising God for all the things that they had heard and seen, as it was told unto them. - Luke 2:20',
-      lead: 'Four pictures of that holy night—save each one, then watch your story.',
+      title: 'The Nativity — Jesus Is Born',
+      verse: 'For unto you is born this day in the city of David a Saviour, which is Christ the Lord. — Luke 2:11 (KJV)',
+      lead: 'Four sacred scenes from the birth of Jesus. Color each one, save them, and watch your colored story of the night the Savior came into the world.',
       scenes: [
         {
           id: '1',
-          src: '/coloring-pages/nativity-s1.svg',
-          alt: 'Mary and Joseph travel toward Bethlehem',
-          caption:
-            'Joseph went to be taxed with Mary his espoused wife, being great with child—and Bethlehem was the city of David.',
-          verse: 'Luke 2:4-5 (KJV)'
+          src: '/coloring-pages/nativity-s1.jpg',
+          alt: 'Mary and Joseph traveling the long road to Bethlehem',
+          caption: 'Mary and Joseph traveled from Nazareth to Bethlehem to be taxed. There was no room for them in the inn.',
+          verse: 'And she brought forth her firstborn son, and wrapped him in swaddling clothes, and laid him in a manger; because there was no room for them in the inn. Luke 2:7 (KJV)'
         },
         {
           id: '2',
-          src: '/coloring-pages/nativity-s2.svg',
-          alt: 'Baby Jesus laid in a manger',
-          caption:
-            'She brought forth her firstborn son, and wrapped him in swaddling clothes, and laid him in a manger; because there was no room for them in the inn.',
-          verse: 'Luke 2:7 (KJV)'
+          src: '/coloring-pages/nativity-s2.jpg',
+          alt: 'Baby Jesus born and laid in a manger in the stable',
+          caption: 'The baby Jesus was born and laid in a manger. Mary and Joseph watched over him in the humble stable.',
+          verse: 'And she brought forth her firstborn son... and laid him in a manger. Luke 2:7 (KJV)'
         },
         {
           id: '3',
-          src: '/coloring-pages/nativity-s3.svg',
-          alt: 'Angels tell shepherds the good news',
-          caption:
-            'The angel said unto them, Fear not: for, behold, I bring you good tidings of great joy, which shall be to all people. For unto you is born this day in the city of David a Saviour, which is Christ the Lord.',
-          verse: 'Luke 2:10-11 (KJV)'
+          src: '/coloring-pages/nativity-s3.jpg',
+          alt: 'An angel appears to the shepherds in the fields with great glory',
+          caption: 'The angel of the Lord appeared to shepherds keeping watch over their flock by night, bringing good tidings of great joy.',
+          verse: 'Fear not: for, behold, I bring you good tidings of great joy, which shall be to all people. Luke 2:10 (KJV)'
         },
         {
           id: '4',
-          src: '/coloring-pages/nativity-s4.svg',
-          alt: 'Shepherds come to the manger',
-          caption:
-            'They came with haste, and found Mary, and Joseph, and the babe lying in a manger… And the shepherds returned, glorifying and praising God.',
-          verse: 'Luke 2:16-20 (KJV)'
+          src: '/coloring-pages/nativity-s4.jpg',
+          alt: 'The shepherds come to the stable and worship the baby Jesus',
+          caption: 'The shepherds came with haste and found Mary, Joseph, and the baby lying in a manger. They returned glorifying and praising God.',
+          verse: 'And the shepherds returned, glorifying and praising God for all the things that they had heard and seen. Luke 2:20 (KJV)'
         }
       ]
     },
@@ -3186,8 +2843,8 @@
       id: 'paul-shipwreck',
       title: 'Paul & the Storm at Sea',
       verse:
-        'And so it came to pass, that they escaped all safe to land. - Acts 27:44',
-      lead: 'Four pictures on the voyage—save each one, then watch your story.',
+        'And so it came to pass, that they escaped all safe to land. — Acts 27:44',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -3227,8 +2884,8 @@
       id: 'rahab-spies',
       title: 'Rahab & the Spies',
       verse:
-        'Behold, when we come into the land, thou shalt bind this line of scarlet thread in the window which thou didst let us down by. - Joshua 2:18',
-      lead: 'Four pictures in Jericho—save each one, then watch your story.',
+        'Behold, when we come into the land, thou shalt bind this line of scarlet thread in the window which thou didst let us down by. — Joshua 2:18',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -3269,7 +2926,7 @@
       title: 'Elijah & the Widow’s Oil',
       verse:
         'For thus saith the LORD God of Israel, The barrel of meal shall not waste, neither shall the cruse of oil fail. - 1 Kings 17:14',
-      lead: 'Four pictures at Zarephath—save each one, then watch your story.',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -3309,8 +2966,8 @@
       id: 'philip-ethiopian',
       title: 'Philip & the Ethiopian',
       verse:
-        'And they went down both into the water, both Philip and the eunuch; and he baptized him. - Acts 8:38',
-      lead: 'Four pictures on the road—save each one, then watch your story.',
+        'And they went down both into the water, both Philip and the eunuch; and he baptized him. — Acts 8:38',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -3351,7 +3008,7 @@
       title: 'David Spares Saul',
       verse:
         'Thou art more righteous than I: for thou hast rewarded me good, whereas I have rewarded thee evil. - 1 Samuel 24:17',
-      lead: 'Four pictures in the wilderness—save each one, then watch your story.',
+      lead: 'Color the scenes, save each one, then watch your own colored story.',
       scenes: [
         {
           id: '1',
@@ -3391,7 +3048,7 @@
       id: 'll-honesty',
       title: 'Life Lesson — Walk in Honesty',
       verse:
-        'Lying lips are abomination to the LORD: but they that deal truly are his delight. - Proverbs 12:22',
+        'Lying lips are abomination to the LORD: but they that deal truly are his delight. — Proverbs 12:22',
       lead: 'Two calm scenes from the honesty lesson—save each, then watch your story.',
       scenes: [
         {
@@ -3414,7 +3071,7 @@
       id: 'll-commandments',
       title: 'Life Lesson — Love God & Neighbor',
       verse:
-        'On these two commandments hang all the law and the prophets. - Matthew 22:40',
+        'On these two commandments hang all the law and the prophets. — Matthew 22:40',
       lead: 'Two scenes from the commandments lesson—tablets and helping hands.',
       scenes: [
         {
@@ -3921,7 +3578,7 @@
     var note = document.createElement('p');
     note.className = 'tdb-cat-hero-note';
     note.textContent =
-      'Color & Tell: each Bible story has a few big scenes. When you save all of them on this device, you can watch your own slideshow—your colors, your story. No account needed.';
+      'Color & Tell: Color the scenes, save each one on this device, then watch your own colored story come to life in a personal slideshow. Some stories are one beautiful full page; others have several scenes. No account needed.';
 
     var progressOuter = document.createElement('div');
     progressOuter.className = 'tdb-cat-progress-outer';
@@ -4011,6 +3668,9 @@
       (function (story) {
         var section = document.createElement('section');
         section.className = 'tdb-cat-story';
+        if (story.scenes.length === 1) {
+          section.classList.add('is-single-scene');
+        }
         section.setAttribute('data-tdb-story', story.id);
         if (STORIES[0] && story.id === STORIES[0].id) {
           section.id = 'tdb-cat-story-start';
@@ -4031,13 +3691,17 @@
         celebrate.className = 'tdb-cat-story-celebrate';
         celebrate.setAttribute('role', 'status');
 
-        var tablist = document.createElement('div');
-        tablist.className = 'tdb-cat-tabs';
-        tablist.setAttribute('role', 'tablist');
-        tablist.setAttribute('aria-label', story.title + ' scenes');
+        var isSingle = story.scenes.length === 1;
+        var tablist = null;
+        if (!isSingle) {
+          tablist = document.createElement('div');
+          tablist.className = 'tdb-cat-tabs';
+          tablist.setAttribute('role', 'tablist');
+          tablist.setAttribute('aria-label', story.title + ' scenes');
+        }
 
         var panelsWrap = document.createElement('div');
-        panelsWrap.className = 'tdb-cat-panels';
+        panelsWrap.className = 'tdb-cat-panels' + (isSingle ? ' tdb-cat-single-panel' : '');
 
         for (var ti = 0; ti < story.scenes.length; ti++) {
           (function (sceneIdx) {
@@ -4054,13 +3718,17 @@
             tab.addEventListener('click', function () {
               selectTab(story, sceneIdx, section);
             });
-            tablist.appendChild(tab);
+            if (tablist) {
+              tablist.appendChild(tab);
+            }
 
             var panel = document.createElement('div');
             panel.className = 'tdb-cat-panel';
             panel.id = 'panel-' + story.id + '-' + sc.id;
             panel.setAttribute('role', 'tabpanel');
-            panel.setAttribute('aria-labelledby', 'tab-' + story.id + '-' + sc.id);
+            if (tablist) {
+              panel.setAttribute('aria-labelledby', 'tab-' + story.id + '-' + sc.id);
+            }
             panel.hidden = sceneIdx !== 0;
 
             var cap = document.createElement('p');
@@ -4182,7 +3850,9 @@
         section.appendChild(h2);
         section.appendChild(lead);
         section.appendChild(celebrate);
-        section.appendChild(tablist);
+        if (tablist) {
+          section.appendChild(tablist);
+        }
         section.appendChild(panelsWrap);
         section.appendChild(actions);
 

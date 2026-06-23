@@ -376,6 +376,23 @@
   display: none !important;
 }
 
+/* Premium treatment for the special single full-page scenes (like the 5 hero stories) */
+.is-single-scene .tdb-cat-story-lead {
+  font-size: 1.02rem;
+  margin-bottom: 0.6rem;
+}
+
+.tdb-cat-single-panel {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.is-single-scene .kids-gold-frame {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+}
+
 .tdb-cat-scene-caption {
   margin: 0 0 0.5rem;
   font-size: 0.95rem;

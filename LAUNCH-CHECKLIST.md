@@ -140,10 +140,13 @@ STRIPE_CHURCH_YEARLY_LINK: 'https://buy.stripe.com/xxxxx',
 **How:**
 
 1. **Table:** Ensure **`supabase-daily-battles.sql`** (and any seed script you use) has been run in Supabase.
-2. **Seed function:** You have a Supabase Edge Function `seed-daily-battle` that inserts today’s row if missing (e.g. default verse Psalm 46:1 + default reflection/prayer).
-3. **Cron:** Call that function **once per day** (e.g. midnight UTC):
-   - **Option A:** Supabase cron (if available in your plan) to trigger the Edge Function.
-   - **Option B:** External cron (e.g. cron-job.org, GitHub Actions) that does `POST https://your-project.supabase.co/functions/v1/seed-daily-battle` with the right auth.
+2. **Seed function:** Deploy `seed-daily-battle` using the guided script:
+   ```bash
+   ./scripts/deploy-seed-function.sh
+   ```
+   This handles both deployment and the required secrets (`SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY`).
+
+3. **Invocation:** The GitHub Action `.github/workflows/seed-daily-battle.yml` now calls the function daily (with excellent error messages if something is wrong). You can also trigger it manually via the GitHub UI or `gh workflow run`.
 4. **Optional:** Use a spreadsheet or admin UI to set `verse_ref`, `reflection`, `prayer` for specific dates so key days are curated.
 
 ---

@@ -4138,17 +4138,9 @@ document.addEventListener('DOMContentLoaded', function () {
   var welcomeBack = document.getElementById('welcomeBackMsg');
   if (welcomeBack) {
     var v = parseInt(localStorage.getItem('tdb-visit-count') || '0', 10) || 0;
-    if (v >= 3) {
-      try {
-        var streakData = JSON.parse(localStorage.getItem('tdb-streak') || '{}');
-        var count = parseInt(streakData.count || '0', 10) || 0;
-        if (count >= 1) {
-          welcomeBack.textContent = 'Welcome back — ' + count + ' day' + (count === 1 ? '' : 's') + ' and counting.';
-        } else {
-          welcomeBack.textContent = 'Welcome back.';
-        }
-        welcomeBack.hidden = false;
-      } catch (e) { welcomeBack.textContent = 'Welcome back.'; welcomeBack.hidden = false; }
+    if (v >= 2) {
+      welcomeBack.textContent = 'Good to see you again.';
+      welcomeBack.hidden = false;
     }
   }
   if (typeof updateStreak === 'function') updateStreak();

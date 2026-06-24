@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-23T13:14:56.692Z",
+  "generatedAt": "2026-06-24T16:22:55.401Z",
   "surfacedRefCount": 3439,
   "overrideCount": 3439,
   "sourceCounts": {
@@ -765,10 +765,6 @@
     },
     "bible-characters.json": {
       "refs": 106,
-      "pairs": 0
-    },
-    "bible-heritage-data 2.js": {
-      "refs": 65,
       "pairs": 0
     },
     "bible-heritage-data.js": {
@@ -1842,10 +1838,6 @@
     "offline.html": {
       "refs": 5,
       "pairs": 5
-    },
-    "one-family-in-christ-print 2.html": {
-      "refs": 19,
-      "pairs": 0
     },
     "one-family-in-christ-print.html": {
       "refs": 19,

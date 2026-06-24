@@ -18686,14 +18686,11 @@ function tdbUpdateWelcomeBackMsg() {
       var planCtx = getActivePlanContext();
       el.textContent = planCtx
         ? 'You were here yesterday. ' + planCtx
-        : 'You were here yesterday. Glad you came back.';
+        : 'You were here yesterday. The Word is still here.';
       el.removeAttribute('hidden');
       el.setAttribute('aria-hidden', 'false');
-    } else {
-      el.textContent = '';
-      el.setAttribute('hidden', '');
-      el.setAttribute('aria-hidden', 'true');
     }
+    // Not yesterday — don't hide; let the returning-visitor greeting stand
     localStorage.setItem(key, yToday);
   } catch (eW) {
     el.textContent = '';

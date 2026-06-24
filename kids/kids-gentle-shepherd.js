@@ -176,6 +176,33 @@
     var lineEl = document.getElementById('kids-today-adventure-line');
     var linkEl = document.getElementById('kids-today-adventure-link');
     if (!lineEl || !linkEl) return;
+
+    var journey = global.TDB_GENTLE_JOURNEY;
+    var stories = global.TDB_BIBLE_STORIES;
+
+    // If story data isn't ready yet, wait for it then retry once
+    if (!journey || !stories) {
+      global.addEventListener('tdb-kids-bible-stories-ready', function () {
+        fillTodayAdventure();
+      }, { once: true });
+      return;
+    }
+
+    try {
+      var order = journey.ORDER;
+      if (order && order.length) {
+        var key = order[dayKey() % order.length];
+        var storyData = stories[key];
+        if (storyData && storyData.title) {
+          lineEl.textContent = 'Today\u2019s story: ' + storyData.title;
+          linkEl.textContent = 'Read today\u2019s story';
+          linkEl.setAttribute('href', '/kids/corner.html?story=' + encodeURIComponent(key));
+          return;
+        }
+      }
+    } catch (e) { /* fall through to generic */ }
+
+    // Fallback: generic rotating activity
     var a = ADVENTURES[dayKey() % ADVENTURES.length];
     lineEl.textContent = a.line;
     linkEl.textContent = a.label;

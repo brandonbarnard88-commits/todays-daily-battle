@@ -473,6 +473,58 @@
     if (empty) empty.classList.toggle('hidden', any);
   }
 
+  function gatherPlanDayReflections() {
+    try {
+      var raw = localStorage.getItem('tdb_plan_day_reflections_v1');
+      var map = raw ? JSON.parse(raw) : {};
+      if (!map || typeof map !== 'object') return [];
+      return Object.keys(map)
+        .map(function (k) { return map[k]; })
+        .filter(function (entry) { return entry && String(entry.text || '').trim(); })
+        .sort(function (a, b) {
+          return String(b.updatedAt || '').localeCompare(String(a.updatedAt || ''));
+        });
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function renderPlanReflections() {
+    var section = byId('mystudy-plan-reflections');
+    var list = byId('mystudy-plan-reflections-list');
+    var empty = byId('mystudy-plan-reflections-empty');
+    if (!section || !list) return;
+    clearNode(list);
+    var items = gatherPlanDayReflections();
+    if (!items.length) {
+      if (empty) empty.classList.remove('hidden');
+      return;
+    }
+    if (empty) empty.classList.add('hidden');
+    items.slice(0, 12).forEach(function (entry) {
+      var li = document.createElement('li');
+      li.className = 'mystudy-plan-reflection-item';
+      var meta = document.createElement('p');
+      meta.className = 'mystudy-plan-reflection-meta';
+      var planId = String(entry.planId || '').trim();
+      var dayNum = entry.dayNum || (entry.dayIndex != null ? entry.dayIndex + 1 : '');
+      var label = String(entry.planLabel || planId || 'Battle Plan').trim();
+      var link = document.createElement('a');
+      link.href =
+        'plans.html?plan=' +
+        encodeURIComponent(planId) +
+        (dayNum ? '&day=' + encodeURIComponent(dayNum) : '');
+      link.textContent = label + (dayNum ? ' \u2014 Day ' + dayNum : '');
+      var text = document.createElement('p');
+      text.className = 'mystudy-plan-reflection-text';
+      text.textContent = String(entry.text || '').trim();
+      meta.appendChild(link);
+      li.appendChild(meta);
+      li.appendChild(text);
+      list.appendChild(li);
+    });
+  }
+
   function renderProgressSummary() {
     var el = byId('mystudy-progress-summary');
     if (!el) return;
@@ -487,6 +539,7 @@
       renderStreakBadges();
       renderActivityCalendar();
       maybeRenderBackupNudge();
+      renderPlanReflections();
       return;
     }
     var s = comp.getDashboardStats();
@@ -575,6 +628,7 @@
       renderStreakBadges();
       renderActivityCalendar();
       maybeRenderBackupNudge();
+      renderPlanReflections();
       return;
     }
     lines.forEach(function (line) {
@@ -586,6 +640,7 @@
     renderStreakBadges();
     renderActivityCalendar();
     maybeRenderBackupNudge();
+    renderPlanReflections();
   }
 
   function renderStreakBadges() {
@@ -1312,7 +1367,7 @@
       } catch (e) { return []; }
     }
 
-    function buildExportHtml(plans, savedVerses, studyNotes, battleLog, moodNotes) {
+    function buildExportHtml(plans, savedVerses, studyNotes, battleLog, moodNotes, planReflections) {
       var now = new Date();
       var dateStr = now.toISOString().split('T')[0];
       var dateLong = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
@@ -1441,6 +1496,22 @@
         html += '</div>\n';
       }
 
+      if (planReflections && planReflections.length > 0) {
+        html += '<h2>What Stood Out on the Path</h2>\n';
+        html += '<div class="study-block">\n';
+        planReflections.slice(0, 50).forEach(function (entry) {
+          var label = String(entry.planLabel || entry.planId || 'Battle Plan').trim();
+          var dayNum = entry.dayNum || (entry.dayIndex != null ? entry.dayIndex + 1 : '');
+          var text = String(entry.text || '').trim();
+          if (!text) return;
+          html += '  <div class="mood-note">';
+          html += '<strong>' + escapeHtml(label + (dayNum ? ' — Day ' + dayNum : '')) + '</strong><br>';
+          html += escapeHtml(text);
+          html += '</div>\n';
+        });
+        html += '</div>\n';
+      }
+
       // Footer
       html += '<div class="footer">\n';
       html += '  Generated from <strong>todaysdailybattle.com</strong> &mdash; KJV-only &middot; No ads &middot; No account required<br>\n';
@@ -1460,7 +1531,8 @@
         var studyNotes = gatherStudyNotes();
         var battleLog = gatherBattleLog();
         var moodNotes = gatherDailyMoodNotes();
-        var html = buildExportHtml(plans, savedVerses, studyNotes, battleLog, moodNotes);
+        var planReflections = gatherPlanDayReflections();
+        var html = buildExportHtml(plans, savedVerses, studyNotes, battleLog, moodNotes, planReflections);
         var blob = new Blob([html], { type: 'text/html;charset=utf-8' });
         var url = URL.createObjectURL(blob);
         var now = new Date();

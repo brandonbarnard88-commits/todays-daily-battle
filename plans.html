@@ -1655,6 +1655,49 @@
       }
     }
 
+    .plan-day-reflection {
+      margin: 1.15rem 0 0.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid color-mix(in srgb, var(--line, #2a3344) 55%, transparent);
+    }
+    .plan-day-reflection__label {
+      margin: 0 0 0.35rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .plan-day-reflection__hint {
+      margin: 0 0 0.55rem;
+      font-size: 0.88rem;
+      line-height: 1.52;
+      color: color-mix(in srgb, var(--muted) 88%, var(--text) 12%);
+    }
+    .plan-day-reflection__input {
+      width: 100%;
+      min-height: 3.1rem;
+      padding: 0.65rem 0.75rem;
+      border-radius: 10px;
+      border: 1px solid color-mix(in srgb, var(--line, #2a3344) 70%, var(--gold) 12%);
+      background: color-mix(in srgb, var(--card) 92%, transparent);
+      color: var(--text);
+      font: inherit;
+      font-size: 0.94rem;
+      line-height: 1.5;
+      resize: vertical;
+    }
+    .plan-day-reflection__input:focus {
+      outline: 2px solid color-mix(in srgb, var(--gold) 55%, transparent);
+      outline-offset: 2px;
+    }
+    .plan-day-reflection__status {
+      margin: 0.35rem 0 0;
+      min-height: 1.1em;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
     .plan-complete-card {
       display: none;
       background: color-mix(in srgb, var(--gold) 8%, var(--card));
@@ -6838,6 +6881,50 @@
       tdbPlansSafeSetItem(plan.key, String(day));
     }
 
+    var PLAN_DAY_REFLECTIONS_KEY = 'tdb_plan_day_reflections_v1';
+
+    function planDayReflectionStorageKey(planId, dayIndex) {
+      return String(planId || '') + ':' + String(dayIndex);
+    }
+
+    function loadPlanDayReflectionsMap() {
+      try {
+        var raw = localStorage.getItem(PLAN_DAY_REFLECTIONS_KEY);
+        var obj = raw ? JSON.parse(raw) : {};
+        return obj && typeof obj === 'object' ? obj : {};
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function getPlanDayReflection(planId, dayIndex) {
+      var map = loadPlanDayReflectionsMap();
+      var entry = map[planDayReflectionStorageKey(planId, dayIndex)];
+      return entry && typeof entry.text === 'string' ? entry.text : '';
+    }
+
+    function savePlanDayReflection(plan, dayIndex, text) {
+      var trimmed = String(text || '').trim();
+      var storageKey = planDayReflectionStorageKey(plan.id, dayIndex);
+      var map = loadPlanDayReflectionsMap();
+      if (!trimmed) {
+        if (map[storageKey]) {
+          delete map[storageKey];
+          tdbPlansSafeSetItem(PLAN_DAY_REFLECTIONS_KEY, JSON.stringify(map));
+        }
+        return { ok: true, empty: true };
+      }
+      map[storageKey] = {
+        planId: plan.id,
+        dayIndex: dayIndex,
+        dayNum: dayIndex + 1,
+        planLabel: cleanPlanPlain(plan.label == null ? '' : String(plan.label)),
+        text: trimmed.slice(0, 800),
+        updatedAt: new Date().toISOString()
+      };
+      return { ok: tdbPlansSafeSetItem(PLAN_DAY_REFLECTIONS_KEY, JSON.stringify(map)), empty: false };
+    }
+
     // ── Helpers ───────────────────────────────────────────────────────────────
     function showToast(msg) {
       var t = document.getElementById('toast');
@@ -9221,6 +9308,66 @@
       breakdown.appendChild(primary);
       breakdown.appendChild(digDet);
       card.appendChild(breakdown);
+
+      var reflectBlock = document.createElement('div');
+      reflectBlock.className = 'plan-day-reflection';
+      var reflectLab = document.createElement('p');
+      reflectLab.className = 'plan-day-reflection__label';
+      reflectLab.textContent = 'What stayed with you?';
+      var reflectHint = document.createElement('p');
+      reflectHint.className = 'plan-day-reflection__hint';
+      reflectHint.textContent =
+        'Optional. A quiet line for yourself\u2014saved on this device only. Skip if nothing comes.';
+      var reflectTa = document.createElement('textarea');
+      reflectTa.className = 'plan-day-reflection__input';
+      reflectTa.setAttribute('rows', '2');
+      reflectTa.setAttribute('maxlength', '800');
+      reflectTa.setAttribute(
+        'aria-label',
+        'Optional: what stayed with you from today\u2019s plan day'
+      );
+      reflectTa.setAttribute('autocomplete', 'off');
+      reflectTa.value = getPlanDayReflection(plan.id, currentDay);
+      var reflectStat = document.createElement('p');
+      reflectStat.className = 'plan-day-reflection__status';
+      reflectStat.setAttribute('role', 'status');
+      reflectStat.setAttribute('aria-live', 'polite');
+      reflectStat.hidden = true;
+      var reflectSaveTimer = null;
+      function flushPlanDayReflectionSave(showStatus) {
+        var result = savePlanDayReflection(plan, currentDay, reflectTa.value);
+        if (!showStatus) return;
+        if (result.ok && !result.empty) {
+          reflectStat.hidden = false;
+          reflectStat.textContent = 'Saved quietly on this device.';
+        } else if (result.ok && result.empty) {
+          reflectStat.hidden = true;
+          reflectStat.textContent = '';
+        } else {
+          reflectStat.hidden = false;
+          reflectStat.textContent =
+            'Could not save just now\u2014your words are still here. Try again when you can.';
+        }
+      }
+      reflectTa.addEventListener('input', function () {
+        if (reflectSaveTimer) clearTimeout(reflectSaveTimer);
+        reflectSaveTimer = setTimeout(function () {
+          reflectSaveTimer = null;
+          flushPlanDayReflectionSave(true);
+        }, 500);
+      });
+      reflectTa.addEventListener('blur', function () {
+        if (reflectSaveTimer) {
+          clearTimeout(reflectSaveTimer);
+          reflectSaveTimer = null;
+        }
+        flushPlanDayReflectionSave(true);
+      });
+      reflectBlock.appendChild(reflectLab);
+      reflectBlock.appendChild(reflectHint);
+      reflectBlock.appendChild(reflectTa);
+      reflectBlock.appendChild(reflectStat);
+      card.appendChild(reflectBlock);
 
       var nextInPlan = null;
       var nextDayIdx = currentDay + 1;

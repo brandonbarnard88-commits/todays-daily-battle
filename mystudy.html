@@ -19,7 +19,7 @@
   <link rel="preload" href="tdb-visual-tokens.css?v=20260521-discover-b" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260521-discover-b">
   <link rel="preload" href="mystudy.css?v=20260426mystudy-porch-d" as="style">
-  <link rel="stylesheet" href="mystudy.css?v=20260426mystudy-porch-d">
+  <link rel="stylesheet" href="mystudy.css?v=20260626-plan-reflections">
 </head>
 <body class="dark-mode tdb-inner-page mystudy-body">
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -27,6 +27,9 @@
   <main id="main-content" class="mystudy-shell tdb-quiet-container porch-section">
     <nav class="mystudy-topbar" aria-label="My Study quick links">
       <a href="/" class="mystudy-home-link">← Back to Home</a>
+      <a href="plans.html" class="mystudy-home-link">Battle Plans</a>
+      <a href="calm.html" class="mystudy-home-link">Calm</a>
+      <a href="family.html" class="mystudy-home-link">Family</a>
       <a href="explore.html" class="mystudy-home-link">Explore</a>
       <a href="bible-tool.html" class="mystudy-home-link">Bible Tool</a>
       <a href="progress.html" class="mystudy-home-link">Progress</a>
@@ -77,6 +80,7 @@
           <ul class="mystudy-onpage-nav__list" aria-labelledby="mystudy-onpage-toc-label">
             <li><a href="#mystudy-overview">Overview</a></li>
             <li><a href="#mystudy-quiet-steps">My Quiet Steps</a></li>
+            <li><a href="#mystudy-plan-reflections">What stood out</a></li>
             <li><a href="#mystudy-progress-summary">Your rhythm</a></li>
             <li><a href="#mystudy-streak-badges">Quiet markers</a></li>
             <li><a href="#mystudy-memorize-strip">Memorize</a></li>
@@ -93,6 +97,12 @@
           <div id="mystudy-quiet-steps-grid" class="mystudy-quiet-steps-grid" role="group" aria-label="Last 28 days on this device"></div>
           <p id="mystudy-quiet-steps-empty" class="section-note mystudy-quiet-steps-empty hidden" role="status">No check-ins in this window yet&mdash;that is all right. One verse today is enough.</p>
           <p class="section-note util-mb-0"><a href="progress.html">Open full progress view</a> for plans, stats, and milestones.</p>
+        </section>
+        <section id="mystudy-plan-reflections" class="mystudy-plan-reflections glass tdb-porch-paper-glass" aria-labelledby="mystudy-plan-reflections-heading">
+          <h2 id="mystudy-plan-reflections-heading" class="section-divider mystudy-h2 mystudy-h2-tight">What stood out on the path</h2>
+          <p class="section-note mystudy-plan-reflections-lead">Quiet lines you left on Battle Plan days&mdash;optional harvest, saved on this device only. Tap a row to return to that day.</p>
+          <ul id="mystudy-plan-reflections-list" class="mystudy-plan-reflections-list"></ul>
+          <p id="mystudy-plan-reflections-empty" class="section-note mystudy-plan-reflections-empty" role="status">Nothing saved yet&mdash;that is all right. On any plan day, after the prayer, you can leave one honest line if something stood out.</p>
         </section>
         <div id="mystudy-progress-summary" class="mystudy-progress-summary" role="region" aria-label="Your gentle study rhythm on this device"></div>
         <div id="mystudy-backup-nudge" class="mystudy-backup-nudge hidden" role="region" aria-live="polite" aria-label="Backup reminder"></div>
@@ -223,7 +233,7 @@
             <details class="mystudy-data-peek util-mb-0_75">
               <summary class="mystudy-data-peek-summary">What stays on this device</summary>
               <div class="mystudy-data-peek-body">
-                <p class="section-note util-mb-0_5">No raw storage dump&mdash;just an honest scope. This browser may keep: saved verse list, verse notes and tags, ribbon journal lines (M&ouml;bius path), prayer text you type here, highlight marks, memorize review times, recent reader chapters, and gentle activity dots for the month view. Signed-in sync uses your account only for that feature; we do not sell data.</p>
+                <p class="section-note util-mb-0_5">No raw storage dump&mdash;just an honest scope. This browser may keep: saved verse list, verse notes and tags, ribbon journal lines (M&ouml;bius path), plan-day reflections (&ldquo;what stood out&rdquo;), prayer text you type here, highlight marks, memorize review times, recent reader chapters, and gentle activity dots for the month view. Signed-in sync uses your account only for that feature; we do not sell data.</p>
                 <p class="section-note util-mb-0">Use <strong>Download JSON backup</strong> below when you switch phones or want a file in your own hands.</p>
               </div>
             </details>
@@ -334,7 +344,7 @@
   <script src="word-study.js?v=20260329pass2off" defer></script>
   <script src="verse-narration.js?v=20260329narr12" defer></script>
   <script src="verse-study.js?v=20260328pass4vs" defer></script>
-  <script src="mystudy.js?v=20260422mystudy-onpage" defer></script>
+  <script src="mystudy.js?v=20260626-plan-reflections" defer></script>
   <script src="mobius-deep-lesson-stations.js?v=20260518ribbon" defer></script>
   <script src="tdb-mobius-journal.js?v=20260518ribbon" defer></script>
   <script src="mystudy-ribbon-journal.js?v=20260518ribbon" defer></script>

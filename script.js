@@ -6883,6 +6883,264 @@ var TDB_BIBLICAL_ANSWERS = [
     answer: 'Hebrews is a letter — author unknown — written to Jewish believers tempted to return to Judaism under persecution. Its central argument is "Jesus is better": better than angels, better than Moses, better than the Levitical priesthood, a better covenant, a better sacrifice. Chapter 11 is the "faith hall of fame" — a long, honest list of Old Testament figures who trusted God without receiving the fullness of what was promised. Chapter 12 follows with the call to "run with endurance the race that is set before us, looking unto Jesus the author and finisher of our faith." Hebrews also contains the New Testament\'s most extended treatment of Jesus as High Priest — not a distant God but one who "was in all points tempted like as we are, yet without sin" (Hebrews 4:15), and who intercedes for believers continuously.',
     verses: ['Hebrews 4:15', 'Hebrews 11:1', 'Hebrews 12:1', 'Hebrews 13:8'],
     plan: 'sufferendure'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE — Batch 2: Characters
+  // ============================================================
+  {
+    id: 'who-was-ruth',
+    type: 'knowledge',
+    triggers: [
+      'who was ruth in the bible', 'tell me about ruth', 'ruth in the bible',
+      'story of ruth', 'ruth and naomi', 'ruth and boaz', 'ruth kinsman redeemer',
+      'where thou goest i will go', 'whither thou goest bible', 'ruth old testament'
+    ],
+    answer: 'Ruth was a Moabite woman who chose to stay with her widowed mother-in-law Naomi after her own husband died. "Whither thou goest, I will go" (Ruth 1:16) is her declaration of loyalty — one of the most celebrated in all of Scripture. She was a foreigner who showed more faithfulness than many Israelites in the story. Her loyalty brought her to the fields of Boaz, a kinsman-redeemer who married her and restored both women. Ruth became the great-grandmother of King David — and by extension, an ancestor of Jesus (Matthew 1:5). Her story is one of God\'s faithfulness working through ordinary loyalty, grief accepted with grace, and quiet provision that came through staying rather than running.',
+    verses: ['Ruth 1:16', 'Ruth 2:12', 'Ruth 3:11', 'Matthew 1:5'],
+    plan: 'grief'
+  },
+  {
+    id: 'who-was-esther',
+    type: 'knowledge',
+    triggers: [
+      'who was esther in the bible', 'tell me about esther', 'esther in the bible',
+      'story of esther', 'esther and mordecai', 'esther and haman', 'esther bible story',
+      'for such a time as this', 'esther queen bible', 'esther old testament'
+    ],
+    answer: 'Esther was a Jewish woman raised by her cousin Mordecai in Persia who became queen through circumstances she did not seek. When Haman plotted to destroy all the Jews in the empire, Mordecai pressed her with the defining question of her life: "who knoweth whether thou art come to the kingdom for such a time as this?" (Esther 4:14). She risked her life by approaching the king uninvited — a potentially capital offense — and through wisdom and courage exposed the plot and saved her people. The book of Esther never directly names God, yet His hand is visible on every page. Her story is a picture of God placing ordinary people in extraordinary positions and calling them to act with courage precisely when it is most costly.',
+    verses: ['Esther 4:14', 'Esther 4:16', 'Esther 8:16', 'Proverbs 31:25'],
+    plan: 'strength'
+  },
+  {
+    id: 'who-was-job',
+    type: 'knowledge',
+    triggers: [
+      'who was job in the bible', 'tell me about job', 'job in the bible',
+      'story of job', 'job and suffering', 'job and his friends', 'job old testament',
+      'why did job suffer', 'patience of job', 'job bible character'
+    ],
+    answer: 'Job was a man described as "perfect and upright" (Job 1:1) who lost his wealth, his children, and his health in rapid succession — not as punishment for sin but as part of a larger story he could not see. His three friends insisted his suffering must be the result of hidden sin; God rebuked them, not Job. Job cried out, argued, and demanded an answer — and was met not with an explanation but with an overwhelming encounter with God from the whirlwind (Job 38–41). His final word is telling: "I have heard of thee by the hearing of the ear: but now mine eye seeth thee" (Job 42:5). Job\'s story is the Bible\'s longest meditation on suffering: real, unanswered, and ultimately resolved not by explanation but by presence.',
+    verses: ['Job 1:1', 'Job 13:15', 'Job 42:5', 'James 5:11'],
+    plan: 'sufferendure'
+  },
+  {
+    id: 'who-was-daniel',
+    type: 'knowledge',
+    triggers: [
+      'who was daniel in the bible', 'tell me about daniel', 'daniel in the bible',
+      'daniel and the lions den', 'story of daniel', 'daniel and nebuchadnezzar',
+      'daniel bible story', 'shadrach meshach abednego', 'fiery furnace bible', 'daniel old testament'
+    ],
+    answer: 'Daniel was a young Jewish man taken into Babylonian captivity who rose to prominence in pagan courts without abandoning his faith. He refused the king\'s food (Daniel 1), interpreted dreams and visions that baffled everyone else (Daniel 2, 4, 5), and was thrown into a lions\' den for continuing to pray three times daily when it was outlawed — and survived (Daniel 6). His companions Shadrach, Meshach, and Abednego were thrown into a furnace for refusing to worship the king\'s statue, and a fourth figure appeared walking with them in the flames (Daniel 3:25). Daniel is a portrait of steady faithfulness under sustained pressure — not heroism in one dramatic moment alone, but in the daily decisions that made the dramatic moment possible.',
+    verses: ['Daniel 1:8', 'Daniel 3:17', 'Daniel 6:10', 'Daniel 6:22'],
+    plan: 'standfirm'
+  },
+  {
+    id: 'who-was-jonah',
+    type: 'knowledge',
+    triggers: [
+      'who was jonah in the bible', 'tell me about jonah', 'jonah in the bible',
+      'story of jonah', 'jonah and the whale', 'jonah and the big fish', 'jonah and nineveh',
+      'jonah running from god', 'jonah bible story', 'jonah old testament'
+    ],
+    answer: 'Jonah was a prophet whom God called to go to Nineveh — the capital of Israel\'s most feared enemy — and preach repentance. He ran the opposite direction, boarded a ship to Tarshish, caused a storm, was thrown overboard by sailors, swallowed by a great fish, and prayed from inside it before being deposited on shore. He then went to Nineveh, the city repented en masse, and Jonah was furious — because he knew God was merciful and did not want mercy extended to Israel\'s enemies (Jonah 4:2). Jesus cited Jonah as a sign of His own death and resurrection (Matthew 12:40). Jonah\'s story is not primarily about a fish. It is about a God who pursues the unwilling prophet and the undeserving city with equal persistence, because His mercy does not run out.',
+    verses: ['Jonah 1:3', 'Jonah 2:1', 'Jonah 3:10', 'Jonah 4:2'],
+    plan: 'trust'
+  },
+  {
+    id: 'who-was-mary-magdalene',
+    type: 'knowledge',
+    triggers: [
+      'who was mary magdalene', 'tell me about mary magdalene', 'mary magdalene in the bible',
+      'mary magdalene and jesus', 'who was mary magdalene really', 'mary magdalene bible story',
+      'what did mary magdalene do', 'mary magdalene at the tomb', 'mary magdalene resurrection'
+    ],
+    answer: 'Mary Magdalene is one of the most prominent women in the Gospels. What is clear: Jesus cast seven demons out of her (Luke 8:2), she was among the women who followed and financially supported Jesus\' ministry, she stood at the cross when most disciples had fled (John 19:25), and she was the first person to see the risen Jesus and the first commissioned to tell others (John 20:11–18). In the garden she did not recognize Him until He called her by name: "Mary." She turned and said "Rabboni" — Teacher. That moment — personal, immediate, and irreversible — is the heart of what the resurrection means for every person who hears their name called by Him.',
+    verses: ['Luke 8:2', 'John 19:25', 'John 20:16', 'John 20:18'],
+    plan: 'forgiveness'
+  },
+  {
+    id: 'who-was-nehemiah',
+    type: 'knowledge',
+    triggers: [
+      'who was nehemiah in the bible', 'tell me about nehemiah', 'nehemiah in the bible',
+      'story of nehemiah', 'nehemiah rebuilding the wall', 'nehemiah and ezra', 'nehemiah old testament',
+      'nehemiah bible story', 'what did nehemiah do', 'rebuilding jerusalem walls bible'
+    ],
+    answer: 'Nehemiah was a Jewish cupbearer to the Persian king Artaxerxes who wept when he heard Jerusalem\'s walls lay in ruins, prayed for months, asked the king to let him go and rebuild — and the king agreed. He returned to Jerusalem, organized the people against threat and opposition, and completed the walls in 52 days: "the work was wrought of our God" (Nehemiah 6:16). His pattern throughout was prayer followed immediately by practical action — he did not substitute one for the other. He later served as governor of Jerusalem and led the people in repentance and renewed covenant commitment to God\'s law. Nehemiah is a portrait of what it looks like to carry a burden given by God, take concrete steps, lead others through opposition, and keep pointing people back to the Word.',
+    verses: ['Nehemiah 1:4', 'Nehemiah 2:4', 'Nehemiah 6:16', 'Nehemiah 8:8'],
+    plan: 'dailylabor'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE — Batch 2: Theological
+  // ============================================================
+  {
+    id: 'atonement-bible',
+    type: 'knowledge',
+    triggers: [
+      'what is the atonement', 'what does atonement mean in the bible', 'what did jesus do on the cross',
+      'why did jesus have to die', 'what is propitiation', 'what does the cross accomplish',
+      'atonement bible meaning', 'what is substitutionary atonement', 'why the cross bible',
+      'what did the death of jesus accomplish'
+    ],
+    answer: 'Atonement means the covering or removal of sin through sacrifice. In the Old Testament, the Day of Atonement required the high priest to make sacrifice for the entire nation, with a goat symbolically bearing its sins into the wilderness (Leviticus 16). These were shadows. Hebrews 10:4 says it plainly: "it is not possible that the blood of bulls and of goats should take away sins." Jesus is the fulfillment — "the Lamb of God, which taketh away the sin of the world" (John 1:29). First John 2:2 says He is "the propitiation for our sins" — meaning the satisfying of God\'s just response to sin. The cross is not God being persuaded to forgive; it is God providing, at His own cost, everything justice required.',
+    verses: ['John 1:29', '1 John 2:2', 'Hebrews 10:4', 'Romans 3:25'],
+    plan: 'roadtosalvation'
+  },
+  {
+    id: 'repentance-bible',
+    type: 'knowledge',
+    triggers: [
+      'what is repentance', 'what does repentance mean in the bible', 'how do i repent',
+      'what does the bible say about repentance', 'is repentance necessary for salvation',
+      'repentance bible meaning', 'what is true repentance', 'how to repent biblically',
+      'repent and believe bible', 'what does repent mean'
+    ],
+    answer: 'Repentance in Scripture is not primarily an emotion — it is a change of direction. The Greek word metanoia means a change of mind that produces a change of course. Second Corinthians 7:10 distinguishes godly sorrow (which produces repentance that leads to salvation) from worldly sorrow (which only produces regret). Acts 3:19 says: "Repent ye therefore, and be converted, that your sins may be blotted out." Repentance is not punishing yourself or performing sufficient guilt — it is turning from a direction that leads away from God toward Him. Jesus\' first public words were "Repent: for the kingdom of heaven is at hand" (Matthew 4:17). It is the consistent call of every prophet, John the Baptist, and Jesus Himself: not "try harder" but "turn around."',
+    verses: ['Matthew 4:17', 'Acts 3:19', '2 Corinthians 7:10', 'Luke 15:7'],
+    plan: 'firststeps'
+  },
+  {
+    id: 'spiritual-gifts-bible',
+    type: 'knowledge',
+    triggers: [
+      'what are spiritual gifts', 'what does the bible say about spiritual gifts', 'spiritual gifts in the bible',
+      'list of spiritual gifts bible', 'what is my spiritual gift', 'spiritual gifts explained',
+      'do spiritual gifts still exist', 'spiritual gifts 1 corinthians', 'gifts of the spirit bible',
+      'what gifts does the holy spirit give'
+    ],
+    answer: 'Spiritual gifts are specific abilities given by the Holy Spirit to believers for the building up of the church — not for personal achievement or status. First Corinthians 12 lists wisdom, knowledge, faith, healing, miracles, prophecy, discernment, tongues, and interpretation. Romans 12:6–8 names serving, teaching, exhortation, giving, leadership, and mercy. Ephesians 4:11–12 adds apostles, prophets, evangelists, and pastor-teachers — given "for the perfecting of the saints." The consistent point across all these passages is that gifts are given for others, not for self. First Corinthians 13 makes the hard point: gifts exercised without love are worth nothing. Every believer has at least one; none has all of them.',
+    verses: ['1 Corinthians 12:4', 'Romans 12:6', 'Ephesians 4:11', '1 Corinthians 13:1'],
+    plan: 'holyspirit'
+  },
+  {
+    id: 'second-coming-bible',
+    type: 'knowledge',
+    triggers: [
+      'what does the bible say about the second coming', 'will jesus come back', 'second coming of jesus bible',
+      'rapture bible', 'when will jesus return', 'what is the rapture', 'second coming explained',
+      'return of christ bible', 'jesus coming again bible', 'end times second coming'
+    ],
+    answer: 'The Second Coming of Jesus is one of the most prominent themes in the New Testament. Jesus Himself promised it: "I will come again, and receive you unto myself" (John 14:3). Acts 1:11 records the angels\' promise at the Ascension: "this same Jesus...shall so come in like manner as ye have seen him go into heaven." First Thessalonians 4:16–17 describes the dead in Christ rising first, then the living being "caught up" to meet the Lord. Matthew 24 and 25 contain Jesus\' own extended teaching on the signs and character of the end — and the consistent call is not to predict timing but to be ready. Matthew 24:36 settles the timeline question: no one knows the day or the hour. The focus of Scripture is not the calendar but the character — staying faithful and watchful.',
+    verses: ['John 14:3', 'Acts 1:11', '1 Thessalonians 4:16', 'Matthew 24:36'],
+    plan: 'heavyhope'
+  },
+  {
+    id: 'what-is-sin',
+    type: 'knowledge',
+    triggers: [
+      'what is sin in the bible', 'what does the bible say about sin', 'what is sin according to scripture',
+      'bible definition of sin', 'what counts as sin', 'what is the nature of sin',
+      'what does it mean to sin', 'sin bible meaning', 'all have sinned bible', 'what makes something a sin'
+    ],
+    answer: 'Sin in Scripture is not primarily a list of bad behaviors — it is a condition before it is a catalog of actions. Romans 3:23 says all have sinned and fall short of the glory of God. First John 3:4 defines sin as "transgression of the law." Romans 6:23 names its consequence: "the wages of sin is death." But in its deepest form sin is the posture of independence from God — the original human choice to determine good and evil on our own terms (Genesis 3). James 4:17 adds a dimension often missed: "to him that knoweth to do good, and doeth it not, to him it is sin." Sin is not only what is done wrong but what is left undone — not just action but allegiance. And its remedy is not effort but the cross.',
+    verses: ['Romans 3:23', '1 John 3:4', 'Romans 6:23', 'James 4:17'],
+    plan: 'roadtosalvation'
+  },
+  {
+    id: 'angels-bible',
+    type: 'knowledge',
+    triggers: [
+      'what does the bible say about angels', 'are angels real in the bible', 'angels in scripture',
+      'what are angels', 'what do angels do in the bible', 'do angels exist bible',
+      'guardian angels bible', 'angels as messengers bible', 'what are angels like in the bible',
+      'bible teaching on angels'
+    ],
+    answer: 'Angels in Scripture are not soft-winged decorations — they are powerful spirit beings created by God to serve Him and minister to His people. Hebrews 1:14 calls them "ministering spirits, sent forth to minister for them who shall be heirs of salvation." They deliver messages (Gabriel to Mary, Luke 1:26), protect (an angel in the lions\' den, Daniel 6:22), worship before God (Revelation 4–5), and carry out His purposes in history. They are never to be worshiped — in Revelation 22:8–9, an angel redirects John\'s worship immediately to God alone. Matthew 18:10 suggests children have angels before the Father. They are real, they are active, and they are not the center of the story — God is.',
+    verses: ['Hebrews 1:14', 'Psalm 91:11', 'Luke 1:26', 'Matthew 18:10'],
+    plan: 'trust'
+  },
+  {
+    id: 'what-is-the-church',
+    type: 'knowledge',
+    triggers: [
+      'what is the church in the bible', 'what does the bible say about church', 'what is the body of christ',
+      'is church important bible', 'what is the purpose of the church', 'church in the new testament',
+      'what does ekklesia mean', 'church bible meaning', 'why does church matter', 'what is a biblical church'
+    ],
+    answer: '"Church" in the New Testament (Greek: ekklesia) means a called-out assembly — not a building but a people. Matthew 16:18 has Jesus saying "upon this rock I will build my church; and the gates of hell shall not prevail against it." Ephesians describes the church as the body of Christ (1:22–23) and as His bride (5:25–27). The early church gathered to learn, pray, break bread, and care for one another (Acts 2:42–47). Hebrews 10:25 calls believers not to forsake gathering together. The church is not perfect — Paul\'s letters are largely written to churches with serious problems — but it is the community God chose as His primary means of making disciples and displaying His wisdom to the world (Ephesians 3:10).',
+    verses: ['Matthew 16:18', 'Acts 2:42', 'Ephesians 1:22', 'Hebrews 10:25'],
+    plan: 'firststeps'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE — Batch 2: Books
+  // ============================================================
+  {
+    id: 'what-is-acts-about',
+    type: 'knowledge',
+    triggers: [
+      'what is the book of acts about', 'acts overview', 'what does acts teach', 'acts of the apostles explained',
+      'book of acts summary', 'what happens in acts', 'acts in the bible', 'what is acts of the apostles',
+      'pentecost in acts', 'acts chapters summary'
+    ],
+    answer: 'Acts is the story of the early church from the ascension of Jesus to Paul\'s arrival in Rome — written by Luke as a continuation of his Gospel. It opens with the Holy Spirit\'s descent at Pentecost (Acts 2) and three thousand people coming to faith in a single day. It follows the gospel expanding from Jerusalem outward to Judea, Samaria, and "the uttermost part of the earth" (Acts 1:8). Paul\'s dramatic conversion (Acts 9) and three missionary journeys take up the second half of the book. Acts is not a blueprint prescribing how every church must look — it is a record of how the gospel moved through the ancient world by the power of the Spirit, through ordinary people who had been with Jesus. It ends with Paul in Rome, under house arrest, still preaching "with all confidence, no man forbidding him" (Acts 28:31).',
+    verses: ['Acts 1:8', 'Acts 2:42', 'Acts 9:3', 'Acts 28:31'],
+    plan: 'firststeps'
+  },
+  {
+    id: 'what-is-galatians-about',
+    type: 'knowledge',
+    triggers: [
+      'what is galatians about', 'galatians overview', 'what does galatians teach',
+      'book of galatians explained', 'galatians summary', 'what is paul saying in galatians',
+      'galatians faith and law', 'galatians fruit of the spirit', 'what is galatians in the bible',
+      'galatians chapters summary'
+    ],
+    answer: 'Galatians is Paul\'s most urgent letter — written without his usual opening thanksgiving, directly to churches that had added law-keeping to the gospel as a requirement for salvation. False teachers were telling Gentile believers they needed to be circumcised and keep the Jewish law to be truly saved. Paul\'s answer is sharp: "there is no other gospel" (Galatians 1:7); anyone adding to the gospel of grace stands under God\'s judgment. Chapter 3 argues from Abraham — declared righteous by faith before the law existed — that the law was never the path to right standing with God. Chapter 5 describes the freedom of life in the Spirit and its fruit: love, joy, peace, longsuffering, gentleness, goodness, faith, meekness, temperance. Galatians protects the gospel from every addition to grace.',
+    verses: ['Galatians 1:7', 'Galatians 2:16', 'Galatians 5:1', 'Galatians 5:22'],
+    plan: 'galatiansfreedom'
+  },
+  {
+    id: 'what-is-philippians-about',
+    type: 'knowledge',
+    triggers: [
+      'what is philippians about', 'philippians overview', 'what does philippians teach',
+      'book of philippians explained', 'philippians summary', 'rejoice in the lord always explained',
+      'philippians 4 explained', 'what is philippians in the bible', 'philippians joy bible',
+      'i can do all things through christ philippians'
+    ],
+    answer: 'Philippians is a letter Paul wrote from prison to a church he deeply loved — and it may be the most joyful book in the New Testament. "Rejoice in the Lord alway: and again I say, Rejoice" (Philippians 4:4), written from a Roman cell. Chapter 2 opens with one of the most beautiful portraits of Jesus\' humility — the Christ who emptied Himself to become a servant and was obedient unto death. Chapter 3 is Paul\'s personal testimony: counting everything as loss for the excellency of knowing Christ. Chapter 4 gives the most practical passage on peace in Scripture: bring everything to God in prayer with thanksgiving, and the peace that passes understanding will guard your heart. Philippians is what contentment and joy look like when rooted in something circumstances cannot take.',
+    verses: ['Philippians 4:4', 'Philippians 2:5', 'Philippians 4:6', 'Philippians 4:11'],
+    plan: 'peace'
+  },
+  {
+    id: 'what-is-james-about',
+    type: 'knowledge',
+    triggers: [
+      'what is james about', 'james overview', 'what does james teach', 'book of james explained',
+      'james summary', 'faith without works is dead explained', 'what is james in the bible',
+      'james brother of jesus bible', 'book of james main message', 'james chapters summary'
+    ],
+    answer: 'James is a practical letter — likely written by the brother of Jesus — to Jewish believers scattered by persecution. It presses one consistent question: does your faith show? James 2:17 says faith without works is dead. This is not a contradiction of Paul (who says salvation is by faith, not works) but a companion truth: genuine saving faith produces visible fruit. James addresses trials (1:2–4), wisdom (1:5), care for the poor (2:14–17), controlling the tongue (3:1–12), pride and humility (4:6–10), and prayer for healing (5:14–15). It is the most intensely practical book in the New Testament — less about doctrine than about what doctrine does in daily life. "Be ye doers of the word, and not hearers only" (James 1:22).',
+    verses: ['James 1:2', 'James 1:22', 'James 2:17', 'James 5:16'],
+    plan: 'standfirm'
+  },
+  {
+    id: 'what-is-1-john-about',
+    type: 'knowledge',
+    triggers: [
+      'what is 1 john about', 'first john overview', 'what does 1 john teach', 'book of 1 john explained',
+      'first john summary', 'god is love 1 john', 'what is 1 john in the bible',
+      'greater is he that is in you explained', 'perfect love casts out fear 1 john', '1 john main message'
+    ],
+    answer: 'First John is a late letter from the apostle John to believers facing false teaching that denied Jesus had truly come in the flesh. John responds by returning to fundamentals: God is light (1:5), God is love (4:8), and Jesus Christ came in the flesh (4:2). The letter is full of the word "know" — written so believers could have settled assurance, not endless uncertainty (5:13). It contains some of the most beloved declarations in all of Scripture: "God is love" (4:8); "perfect love casteth out fear" (4:18); "greater is he that is in you, than he that is in the world" (4:4). First John is one of the most reassuring books in Scripture — written for the person who needs their footing confirmed rather than their knowledge expanded.',
+    verses: ['1 John 4:8', '1 John 4:18', '1 John 4:4', '1 John 5:13'],
+    plan: 'trust'
+  },
+  {
+    id: 'what-is-job-about',
+    type: 'knowledge',
+    triggers: [
+      'what is the book of job about', 'job overview', 'what does job teach', 'book of job explained',
+      'job summary', 'what is job in the bible', 'job suffering bible', 'why did job suffer bible',
+      'book of job main message', 'job chapters summary'
+    ],
+    answer: 'The book of Job is the Bible\'s longest meditation on suffering and the question "why?" Job loses his wealth, children, and health — and the reader is told from the beginning that it is not punishment for sin. His friends argue it must be; God rebukes them. Job himself is anguished, honest, and demanding — he argues directly with God and refuses to pretend his suffering makes theological sense. God\'s response from the whirlwind (Job 38–41) is not an explanation but a revelation of vastness and presence: "Where wast thou when I laid the foundations of the earth?" The final word is not that suffering is explained but that Job had spoken of God what was right — and that the encounter with God in the suffering was itself the gift: "now mine eye seeth thee" (Job 42:5).',
+    verses: ['Job 1:21', 'Job 13:15', 'Job 42:5', 'James 5:11'],
+    plan: 'sufferendure'
   }
 ];
 

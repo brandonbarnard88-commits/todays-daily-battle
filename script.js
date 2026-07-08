@@ -5653,6 +5653,46 @@ const PHRASE_TO_TOKENS = {
   'who was peter in the bible': ['faith', 'trust', 'hope', 'wisdom'],
   'who was john the baptist': ['faith', 'hope', 'wisdom', 'salvation'],
 
+  // === BIBLE KNOWLEDGE: Characters (batch 6) ===
+  'who was elisha': ['faith', 'hope', 'strength', 'trust'],
+  'elisha double portion': ['faith', 'hope', 'strength', 'trust'],
+  'who was king saul': ['faith', 'wisdom', 'trust', 'hope'],
+  'saul first king of israel': ['faith', 'wisdom', 'trust', 'hope'],
+  'who was rahab': ['faith', 'hope', 'trust', 'grace'],
+  'rahab and the spies': ['faith', 'hope', 'trust', 'grace'],
+  'who was timothy': ['faith', 'wisdom', 'strength', 'trust'],
+  'let no man despise thy youth': ['faith', 'wisdom', 'strength', 'trust'],
+  'who was barnabas': ['faith', 'hope', 'love', 'trust'],
+  'barnabas son of encouragement': ['faith', 'hope', 'love', 'trust'],
+
+  // === BIBLE KNOWLEDGE: Theological (batch 6) ===
+  'what does the holy spirit do': ['faith', 'wisdom', 'hope', 'trust'],
+  'work of the holy spirit': ['faith', 'wisdom', 'hope', 'trust'],
+  'what is faith in the bible': ['faith', 'trust', 'hope', 'wisdom'],
+  'faith is the substance of things hoped for': ['faith', 'trust', 'hope', 'wisdom'],
+  'how to resist temptation': ['faith', 'strength', 'trust', 'wisdom'],
+  'god will not let you be tempted beyond': ['faith', 'strength', 'trust', 'wisdom'],
+  'what is baptism': ['faith', 'salvation', 'wisdom', 'trust'],
+  'why be baptized': ['faith', 'salvation', 'wisdom', 'trust'],
+  'what is communion': ['faith', 'wisdom', 'grace', 'trust'],
+  'lords supper meaning': ['faith', 'wisdom', 'grace', 'trust'],
+  'what is spiritual warfare': ['faith', 'strength', 'trust', 'wisdom'],
+  'we wrestle not against flesh and blood': ['faith', 'strength', 'trust', 'wisdom'],
+
+  // === BIBLE KNOWLEDGE: Books (batch 6) ===
+  'what is 1 samuel about': ['faith', 'wisdom', 'trust', 'hope'],
+  'samuel saul and david': ['faith', 'wisdom', 'trust', 'hope'],
+  'what is 1 kings about': ['faith', 'wisdom', 'trust', 'hope'],
+  'still small voice bible': ['faith', 'peace', 'trust', 'hope'],
+  'what is hosea about': ['faith', 'hope', 'love', 'trust'],
+  'hosea married gomer': ['faith', 'hope', 'love', 'trust'],
+  'what is amos about': ['faith', 'wisdom', 'hope', 'trust'],
+  'let justice roll down like waters': ['faith', 'wisdom', 'hope', 'trust'],
+  'what is lamentations about': ['faith', 'grief', 'hope', 'trust'],
+  'great is thy faithfulness lamentations': ['faith', 'hope', 'trust', 'grief'],
+  'what is titus about': ['faith', 'wisdom', 'trust', 'hope'],
+  'paul and titus letter': ['faith', 'wisdom', 'trust', 'hope'],
+
   // === BIBLE KNOWLEDGE: Characters (batch 5) ===
   'who was jonathan': ['faith', 'trust', 'love', 'hope'],
   'jonathan and david friendship': ['faith', 'trust', 'love', 'hope'],
@@ -7610,7 +7650,7 @@ var TDB_BIBLICAL_ANSWERS = [
       'matthew main message', 'who wrote matthew', 'matthew written for jewish audience',
       'sermon on the mount matthew'
     ],
-    answer: 'The Gospel of Matthew was written primarily for a Jewish audience, which is why it opens with a genealogy tracing Jesus through Abraham and David — placing Him squarely within the covenant story of Israel. It includes the Sermon on the Mount (chapters 5–7), the longest sustained teaching of Jesus recorded anywhere, beginning with the Beatitudes. Matthew organizes Jesus\' teaching into five major discourses, likely mirroring the five books of Moses. He uses the phrase "kingdom of heaven" where other Gospels say "kingdom of God" — a Jewish sensitivity to the name of God. Matthew records the Great Commission in full (28:18–20), which has shaped the church\'s mission ever since. His repeated phrase "that it might be fulfilled which was spoken by the prophets" ties every major event to Old Testament prophecy — the whole story is one story.',
+    answer: 'Matthew opens with a genealogy — 42 generations from Abraham to Jesus — and that opening choice signals everything about the Gospel: it was written for people who knew the Hebrew Scriptures and needed to see exactly where Jesus fit. He traces the line through Abraham and David, placing Jesus squarely within Israel\'s covenant story. It includes the Sermon on the Mount (chapters 5–7), the longest sustained teaching of Jesus recorded anywhere, beginning with the Beatitudes. Matthew organizes Jesus\' teaching into five major discourses, likely mirroring the five books of Moses. He uses "kingdom of heaven" where other Gospels say "kingdom of God" — a Jewish sensitivity to the name of God. His repeated phrase "that it might be fulfilled which was spoken by the prophets" ties every major event to Old Testament prophecy. The Great Commission in 28:18–20 closes it all, sending the same story outward to every nation.',
     verses: ['Matthew 5:3', 'Matthew 5:17', 'Matthew 28:18', 'Matthew 1:1'],
     plan: 'walktheword'
   },
@@ -7740,7 +7780,7 @@ var TDB_BIBLICAL_ANSWERS = [
       'doubting thomas bible', 'story of thomas', 'thomas and the resurrection', 'john 20 thomas',
       'my lord and my god thomas', 'thomas put his hand in jesus side', 'thomas apostle faith'
     ],
-    answer: '"Doubting Thomas" is an incomplete portrait. The first time Thomas speaks in the Gospel of John, Lazarus has just died and returning to Judea seems like suicide. Thomas says to the other disciples: "Let us also go, that we may die with him" (John 11:16) — not doubt but loyalty. He appears again at the Last Supper, asking Jesus to clarify where He is going (John 14:5) — a genuine question, not unbelief. When the risen Jesus appeared to the disciples, Thomas was absent. Told that the others had seen the Lord, he said he would not believe without touching the wounds himself. Jesus appeared again a week later and invited Thomas to do exactly that. Thomas\' response was the highest confession in the Gospel: "My Lord and my God" (John 20:28). Jesus\' final word was not rebuke but blessing: "blessed are they that have not seen, and yet have believed." Thomas went on, by tradition, to carry the gospel as far as India.',
+    answer: '"Doubting Thomas" is an incomplete portrait. The first time Thomas speaks in the Gospel of John, Lazarus has just died and returning to Judea seems like suicide. Thomas says to the other disciples: "Let us also go, that we may die with him" (John 11:16) — not doubt but loyalty. He appears again at the Last Supper, asking Jesus to clarify where He is going (John 14:5) — a genuine question, not unbelief. When the risen Jesus appeared to the disciples, Thomas was absent. Told that the others had seen the Lord, he said he would not believe without touching the wounds himself. Jesus appeared a week later and invited Thomas to do exactly that. Thomas\' response was the highest confession in the Gospel: "My Lord and my God" (John 20:28). Jesus\' final word was not rebuke but a promise that reaches forward to everyone who has ever believed without seeing: "blessed are they that have not seen, and yet have believed."',
     verses: ['John 20:28', 'John 11:16', 'John 14:5', 'John 20:29'],
     plan: 'universitydoubt'
   },
@@ -7907,6 +7947,235 @@ var TDB_BIBLICAL_ANSWERS = [
     answer: 'Jude is one of the shortest books in the Bible — only 25 verses — and one of the most direct. Jude, the brother of James (and therefore of Jesus), intended to write about the salvation believers share, but instead felt urgently compelled to warn about false teachers who had crept into the church. His charge is pointed: "earnestly contend for the faith which was once delivered unto the saints" (v. 3). He catalogues historical examples of judgment on unfaithfulness — the Israelites in the wilderness, the fallen angels, Sodom and Gomorrah — as precedents that those who twist grace into license have not considered carefully. But the letter does not end in alarm. It ends in one of the most beautiful doxologies in Scripture: "Now unto him that is able to keep you from falling, and to present you faultless before the presence of his glory with exceeding joy, to the only wise God our Saviour, be glory and majesty, dominion and power, both now and ever. Amen." (vv. 24–25).',
     verses: ['Jude 3', 'Jude 20', 'Jude 24', 'Jude 25'],
     plan: 'standfirm'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE — Batch 6: Characters
+  // ============================================================
+  {
+    id: 'who-was-elisha',
+    type: 'knowledge',
+    triggers: [
+      'who was elisha in the bible', 'tell me about elisha', 'elisha in the bible',
+      'story of elisha', 'elisha and elijah', 'elisha double portion', 'elisha miracles bible',
+      'elisha old testament prophet', 'elisha naaman leper', 'elisha raised the dead'
+    ],
+    answer: 'Elisha was the successor to the prophet Elijah, anointed while Elijah was still alive. When Elijah was taken up in a whirlwind, Elisha saw it and cried out "My father, my father, the chariot of Israel" (2 Kings 2:12) — and received the double portion of the spirit he had asked for. His ministry is marked by more recorded miracles than Elijah\'s: he purified a poisoned water supply, multiplied a widow\'s oil to pay off her debts, raised a dead boy (Shunem), healed Naaman the Syrian commander of leprosy (who had to humble himself to wash seven times in the Jordan), and even after his own death, a dead man thrown into his tomb came to life when it touched his bones (2 Kings 13:21). He served kings for roughly sixty years. His ministry is a sustained picture of the Spirit\'s power working through an ordinary man who asked for more of it.',
+    verses: ['2 Kings 2:9', '2 Kings 2:12', '2 Kings 5:14', '2 Kings 4:35'],
+    plan: 'heavyhope'
+  },
+  {
+    id: 'who-was-king-saul',
+    type: 'knowledge',
+    triggers: [
+      'who was king saul in the bible', 'tell me about king saul', 'saul first king of israel',
+      'story of saul in the bible', 'saul and david bible', 'saul rejected as king',
+      'to obey is better than sacrifice saul', 'saul old testament king', 'king saul jealous of david',
+      'why was saul rejected by god'
+    ],
+    answer: 'Saul was Israel\'s first king — chosen by God, anointed by Samuel at a moment when Israel demanded a king like the nations around them. He was head and shoulders taller than the people and began well: humble, reluctant, and militarily effective. The turning point came in 1 Samuel 15: God commanded him to utterly destroy the Amalekites and spare nothing. Saul obeyed partially, keeping the best livestock and sparing the king. When confronted by Samuel, he claimed the animals were kept for sacrifice. Samuel\'s rebuke became one of the clearest statements about religious form replacing genuine obedience: "to obey is better than sacrifice" (1 Samuel 15:22). God rejected Saul as king that day. The rest of his story is a downward arc — growing paranoia, jealousy of David\'s popularity, attempts on David\'s life, consultation with the witch of Endor, and finally death in battle. Saul is not a villain in the simple sense; he is a warning about what partial obedience and self-justification can do over time.',
+    verses: ['1 Samuel 15:22', '1 Samuel 16:14', '1 Samuel 9:2', '1 Samuel 13:14'],
+    plan: 'walktheword'
+  },
+  {
+    id: 'who-was-rahab',
+    type: 'knowledge',
+    triggers: [
+      'who was rahab in the bible', 'tell me about rahab', 'rahab in the bible',
+      'story of rahab', 'rahab the harlot bible', 'rahab and the spies jericho',
+      'rahab scarlet cord bible', 'rahab in hebrews 11', 'rahab ancestor of jesus',
+      'rahab faith bible story'
+    ],
+    answer: 'Rahab was a Canaanite woman living in Jericho who hid the two Israelite spies Joshua sent before the conquest. She was a prostitute — the text does not soften this — and yet she had come to a clear faith: "I know that the LORD hath given you the land" (Joshua 2:9), because she had heard what God had done in the exodus. She hid the spies on her roof and lowered them from the wall by a rope, and they promised her safety if she bound a scarlet thread in her window when the city fell. Jericho was destroyed; Rahab and her family survived. Hebrews 11:31 names her in the hall of faith alongside Abraham and Moses: "By faith the harlot Rahab perished not with them that believed not." She married an Israelite man named Salmon, and their son was Boaz — the kinsman-redeemer of Ruth — making Rahab the great-great-grandmother of David and, by lineage, an ancestor of Jesus (Matthew 1:5).',
+    verses: ['Joshua 2:9', 'Joshua 2:18', 'Hebrews 11:31', 'Matthew 1:5'],
+    plan: 'trust'
+  },
+  {
+    id: 'who-was-timothy',
+    type: 'knowledge',
+    triggers: [
+      'who was timothy in the bible', 'tell me about timothy', 'timothy in the bible',
+      'timothy paul protege', 'story of timothy', 'let no man despise thy youth bible',
+      'timothy new testament', 'timothy young pastor', 'timothy son of paul bible',
+      'paul and timothy relationship'
+    ],
+    answer: 'Timothy was Paul\'s closest protégé — a young man of mixed heritage (Jewish mother, Greek father) from Lystra, who joined Paul\'s second missionary journey and became one of his most trusted companions. Paul referred to him as "my own son in the faith" (1 Timothy 1:2). He was apparently timid by temperament — Paul\'s letters to him repeatedly address fear, hesitancy, and the difficulty of leading older people as a young man: "Let no man despise thy youth; but be thou an example of the believers" (1 Timothy 4:12). Paul also mentions that Timothy had stomach problems and urged him to drink a little wine for his health (1 Timothy 5:23) — a detail that makes the letter feel remarkably personal. Paul sent him as his representative to Corinth and Thessalonica when he could not go himself. Two of the Pastoral Epistles (1 and 2 Timothy) are addressed to him — the final letter written as Paul faced execution.',
+    verses: ['1 Timothy 1:2', '1 Timothy 4:12', '2 Timothy 1:7', '2 Timothy 1:5'],
+    plan: 'firststeps'
+  },
+  {
+    id: 'who-was-barnabas',
+    type: 'knowledge',
+    triggers: [
+      'who was barnabas in the bible', 'tell me about barnabas', 'barnabas in the bible',
+      'barnabas son of encouragement', 'barnabas and paul bible', 'barnabas sold his land',
+      'barnabas new testament', 'barnabas gave paul a chance', 'barnabas and mark bible',
+      'what does barnabas mean in the bible'
+    ],
+    answer: 'Barnabas was a Levite from Cyprus whose given name was Joseph, but the apostles renamed him Barnabas — which means "son of consolation" or encouragement (Acts 4:36). He sold a field and laid the proceeds at the apostles\' feet. When Saul came to Jerusalem after his conversion and no one would receive him, Barnabas vouched for him and brought him to the apostles — a moment of trust that changed the course of Christian history (Acts 9:27). He was sent to Antioch to strengthen the new believers there, and then went to Tarsus to find Paul and bring him back. The two traveled together on the first missionary journey. Their partnership ended sharply over John Mark: Barnabas wanted to give his cousin Mark a second chance after Mark had turned back from an earlier journey; Paul refused, and they parted ways. Barnabas took Mark; Paul took Silas. Years later, Paul would write that Mark was "profitable to me for the ministry" (2 Timothy 4:11) — perhaps Barnabas had been right.',
+    verses: ['Acts 4:36', 'Acts 9:27', 'Acts 11:24', '2 Timothy 4:11'],
+    plan: 'trust'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE — Batch 6: Theological
+  // ============================================================
+  {
+    id: 'holy-spirit-work',
+    type: 'knowledge',
+    triggers: [
+      'what does the holy spirit do', 'what is the work of the holy spirit', 'holy spirit role bible',
+      'what does the holy spirit do in a believer', 'who is the holy spirit bible',
+      'comforter holy spirit bible', 'holy spirit convicts of sin', 'holy spirit seal bible',
+      'what is the holy spirit in the new testament', 'holy spirit believer bible'
+    ],
+    answer: 'The Holy Spirit is the third person of the Trinity — not a force or a feeling but a person, referred to throughout Scripture with personal pronouns. Jesus promised the disciples He would send a "Comforter" (paraklete — one called alongside) after His departure (John 14:16–17). The Spirit\'s work is multifaceted: He convicts the world "of sin, and of righteousness, and of judgment" (John 16:8), leads believers into truth (John 16:13), intercedes for them when they cannot find words ("with groanings which cannot be uttered" — Romans 8:26), seals them as belonging to God (Ephesians 1:13), and produces the fruit of love, joy, and peace in them over time (Galatians 5:22). First Corinthians 12 describes the Spirit distributing gifts to the body. He came on the church at Pentecost (Acts 2) and has not left. His presence is the distinguishing mark of belonging to Christ: "if any man have not the Spirit of Christ, he is none of his" (Romans 8:9).',
+    verses: ['John 14:16', 'Romans 8:26', 'Galatians 5:22', 'Ephesians 1:13'],
+    plan: 'firststeps'
+  },
+  {
+    id: 'what-is-faith-hebrews',
+    type: 'knowledge',
+    triggers: [
+      'what is faith in the bible', 'hebrews 11 1 faith explained', 'what does the bible say about faith',
+      'faith is the substance of things hoped for', 'what is faith according to the bible',
+      'biblical definition of faith', 'faith vs belief bible', 'what does faith mean bible',
+      'hebrews 11 faith definition', 'faith without works is dead bible'
+    ],
+    answer: 'Hebrews 11:1 gives Scripture\'s clearest definition: "Now faith is the substance of things hoped for, the evidence of things not seen." Faith is not wishful thinking — it is a conviction about things that are real but not yet visible. The chapter that follows is sometimes called the "hall of faith" — it surveys Abel, Enoch, Noah, Abraham, Sarah, Moses, Rahab, and many others, showing that faith in every case was action that proceeded from trust rather than certainty of outcome. Abraham "went out, not knowing whither he went" (11:8). Noah "moved with fear, prepared an ark" for a flood that had not happened (11:7). Romans 10:17 says faith comes "by hearing, and hearing by the word of God" — it is not generated by effort but formed by encounter with Scripture. James adds the necessary correction: "faith without works is dead" (James 2:17) — genuine faith produces action. Faith is not the opposite of doubt; it is trust that acts before it can see the end.',
+    verses: ['Hebrews 11:1', 'Hebrews 11:6', 'Romans 10:17', 'James 2:17'],
+    plan: 'trust'
+  },
+  {
+    id: 'temptation-bible',
+    type: 'knowledge',
+    triggers: [
+      'what does the bible say about temptation', 'how to resist temptation bible',
+      'what is temptation in the bible', 'temptation bible meaning', 'god will not let you be tempted beyond',
+      '1 corinthians 10 13 temptation', 'how did jesus resist temptation', 'flee temptation bible',
+      'james 1 temptation bible', 'temptation vs testing bible'
+    ],
+    answer: 'Temptation in Scripture is the pull toward sin — toward choosing self, appetite, or the world over God. James 1:13–14 is precise: God does not tempt anyone. Temptation arises from desire that draws us away. But the same chapter says the testing of faith produces patience (1:3) — testing (permitted difficulty that strengthens) and temptation (enticement toward sin) are related but distinct. Jesus was tempted in all ways as we are, yet without sin (Hebrews 4:15), which means He knows the terrain personally and is a merciful high priest toward those who struggle. First Corinthians 10:13 is the key promise: "There hath no temptation taken you but such as is common to man: but God is faithful, who will not suffer you to be tempted above that ye are able; but will with the temptation also make a way to escape, that ye may be able to bear it." The instruction in James 4:7 is twofold: "Submit yourselves therefore to God. Resist the devil, and he will flee from you." Submission before resistance — the order matters.',
+    verses: ['1 Corinthians 10:13', 'Hebrews 4:15', 'James 1:14', 'James 4:7'],
+    plan: 'standfirm'
+  },
+  {
+    id: 'what-is-baptism',
+    type: 'knowledge',
+    triggers: [
+      'what does the bible say about baptism', 'what is baptism in the bible', 'baptism meaning bible',
+      'why be baptized bible', 'what does baptism mean', 'baptism explained simply',
+      'is baptism necessary for salvation', 'what does baptism symbolize bible',
+      'jesus baptism bible', 'be baptized in the name of jesus'
+    ],
+    answer: 'Baptism in Scripture is an outward act that marks a decisive inward reality — belonging to Christ. The word means immersion or dipping. Jesus was baptized by John in the Jordan (Matthew 3:13–17) not because He needed repentance but to "fulfil all righteousness" and identify with the people He came to save. He commanded His followers to baptize in the name of the Father, Son, and Holy Spirit (Matthew 28:19). In Acts 2:38, Peter calls the crowd to repent and be baptized. Romans 6:3–4 gives the richest meaning: being buried with Christ in baptism and raised with Him to new life — the water as a picture of death and resurrection. The New Testament treats baptism as a natural and expected next step for believers, closely associated with faith and the reception of the Spirit. Whether it produces grace or expresses it is a point churches discuss; that it is significant and expected is consistent throughout.',
+    verses: ['Matthew 28:19', 'Romans 6:4', 'Acts 2:38', 'Mark 16:16'],
+    plan: 'roadtosalvation'
+  },
+  {
+    id: 'lords-supper-communion',
+    type: 'knowledge',
+    triggers: [
+      'what is communion in the bible', 'lords supper bible', 'what is the lords supper',
+      'bread and wine bible meaning', 'do this in remembrance of me bible', 'eucharist bible',
+      'communion meaning bible', '1 corinthians 11 communion', 'last supper meaning bible',
+      'what does communion mean in the bible'
+    ],
+    answer: 'The Lord\'s Supper was instituted by Jesus at His final meal with the disciples before the crucifixion. He took bread, broke it, and said "This is my body, which is broken for you: this do in remembrance of me." Then He took the cup: "This cup is the new testament in my blood: this do ye, as oft as ye drink it, in remembrance of me" (1 Corinthians 11:24–25). Paul says participating in it "shew ye the Lord\'s death till he come" — it is an act of proclamation, not only memory. He also warns against taking it in an unworthy manner, without discerning the Lord\'s body (11:29). Churches differ on exactly what happens to the bread and cup — whether they become the body and blood of Christ or represent them — but the table as a central act of the church\'s life is universal. Its backward look (the cross), forward look (His return), and inward call (self-examination) make it unlike any other practice in the church.',
+    verses: ['1 Corinthians 11:24', '1 Corinthians 11:26', 'Matthew 26:26', 'Luke 22:20'],
+    plan: 'firststeps'
+  },
+  {
+    id: 'spiritual-warfare-bible',
+    type: 'knowledge',
+    triggers: [
+      'what does the bible say about spiritual warfare', 'what is spiritual warfare',
+      'spiritual warfare bible meaning', 'we wrestle not against flesh and blood',
+      'ephesians 6 spiritual warfare', 'the enemy the devil bible', 'how to fight spiritual warfare',
+      'satan in the bible', 'principalities and powers bible', 'how to overcome the enemy bible'
+    ],
+    answer: 'Ephesians 6:12 is the clearest statement: "we wrestle not against flesh and blood, but against principalities, against powers, against the rulers of the darkness of this world, against spiritual wickedness in high places." Scripture presents a real unseen dimension of conflict — not a vague concept but a described reality. The devil is called "the father of lies" (John 8:44), "the god of this world" who blinds minds (2 Corinthians 4:4), and a "roaring lion" who seeks those he may devour (1 Peter 5:8). The weapons the Bible prescribes are not emotional or physical: the armor of God (Ephesians 6:10–17), prayer (6:18), the word of God (Hebrews 4:12), and the blood of Christ (Revelation 12:11 — "they overcame him by the blood of the Lamb"). James 4:7 gives the clear posture: "Submit yourselves therefore to God. Resist the devil, and he will flee from you." Submission to God is the precondition of effective resistance. Spiritual warfare is not a specialty of certain believers; Scripture treats it as the common context of everyone who follows Christ.',
+    verses: ['Ephesians 6:12', '1 Peter 5:8', 'James 4:7', 'Revelation 12:11'],
+    plan: 'standfirm'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE — Batch 6: Books & Passages
+  // ============================================================
+  {
+    id: 'what-is-1-samuel-about',
+    type: 'knowledge',
+    triggers: [
+      'what is 1 samuel about', 'first samuel overview', 'what does 1 samuel teach',
+      'book of 1 samuel explained', '1 samuel summary', 'what is 1 samuel in the bible',
+      '1 samuel main message', 'samuel saul david bible', 'hannah and samuel 1 samuel',
+      'the lord looketh on the heart 1 samuel'
+    ],
+    answer: 'First Samuel covers one of the most turbulent transitions in Israel\'s history: from judges to monarchy. It opens with Hannah\'s desperate prayer and the birth of Samuel, who becomes the last great judge and the first major prophet. Israel demands a king — "that we also may be like all the nations" (8:5) — and God grants their request while warning them what it will cost. Saul is anointed first and begins well, but his partial obedience leads to his rejection: "to obey is better than sacrifice" (15:22). God then sends Samuel to anoint David — the youngest, overlooked son of Jesse — with the defining principle: "the LORD looketh not as man looketh; for man looketh on the outward appearance, but the LORD looketh on the heart" (16:7). The rest of the book is David\'s difficult road: killing Goliath, becoming close to Jonathan, surviving Saul\'s murderous jealousy. It is a book about what genuine leadership looks like — and how rarely it is valued until afterward.',
+    verses: ['1 Samuel 16:7', '1 Samuel 15:22', '1 Samuel 3:10', '1 Samuel 18:1'],
+    plan: 'walktheword'
+  },
+  {
+    id: 'what-is-1-kings-about',
+    type: 'knowledge',
+    triggers: [
+      'what is 1 kings about', 'first kings overview', 'what does 1 kings teach',
+      'book of 1 kings explained', '1 kings summary', 'what is 1 kings in the bible',
+      '1 kings main message', 'solomon builds the temple 1 kings', 'elijah and the prophets of baal',
+      'still small voice 1 kings'
+    ],
+    answer: 'First Kings opens at the height of Israel\'s glory — Solomon\'s reign, the building of the Temple, the famous test of wisdom with two mothers and one child. Solomon\'s prayer at the Temple\'s dedication (chapter 8) is one of the longest and most theologically rich prayers in Scripture. But the book\'s arc is descent: Solomon\'s many foreign wives turn his heart to other gods (11:4), and the kingdom splits after his death. The northern kingdom (Israel) and southern kingdom (Judah) go separate ways, and the book evaluates each king by one criterion: did he do what was right in the eyes of the LORD? Most did not. Elijah appears in chapters 17–22 — calling down drought, raising a widow\'s son, confronting the prophets of Baal at Carmel, and then collapsing in exhaustion under a juniper tree where God met him not in wind or earthquake or fire but in a "still small voice" (19:12). First Kings is a book about what happens when faithfulness to God is treated as optional by those with power.',
+    verses: ['1 Kings 3:9', '1 Kings 8:27', '1 Kings 11:4', '1 Kings 19:12'],
+    plan: 'walktheword'
+  },
+  {
+    id: 'what-is-hosea-about',
+    type: 'knowledge',
+    triggers: [
+      'what is hosea about', 'hosea overview', 'what does hosea teach', 'book of hosea explained',
+      'hosea summary', 'what is hosea in the bible', 'hosea main message',
+      'hosea married gomer bible', 'god loved israel hosea', 'hosea the prophet bible'
+    ],
+    answer: 'Hosea is one of the most unusual books in the prophets — because God told Hosea to live out the message rather than only speak it. Hosea married Gomer, a woman who was unfaithful and eventually left him. God told him to go and buy her back, love her again (3:1–2) — because this was exactly the shape of God\'s love for Israel, who had gone after other gods like an unfaithful wife. The book is suffused with grief and longing rather than only condemnation: "How shall I give thee up, Ephraim?...mine heart is turned within me, my repentings are kindled together" (11:8). Hosea 6:6 gives the famous line Jesus quoted twice in Matthew: "I desired mercy, and not sacrifice; and the knowledge of God more than burnt offerings." The book ends with an invitation to return and a promise of restoration: "I will heal their backsliding, I will love them freely" (14:4). Hosea may be the single clearest picture in the Old Testament of what God\'s love actually costs.',
+    verses: ['Hosea 6:6', 'Hosea 11:8', 'Hosea 14:4', 'Hosea 2:19'],
+    plan: 'heavyhope'
+  },
+  {
+    id: 'what-is-amos-about',
+    type: 'knowledge',
+    triggers: [
+      'what is amos about', 'amos overview', 'what does amos teach', 'book of amos explained',
+      'amos summary', 'what is amos in the bible', 'amos main message',
+      'amos prophet of justice', 'let justice roll down like waters amos', 'amos shepherd prophet'
+    ],
+    answer: 'Amos was not a professional prophet — he was a shepherd and dresser of sycamore trees from Tekoa who was called by God to preach to the prosperous northern kingdom of Israel around 760 BC. He arrived when the nation was economically flourishing but morally corrupt: the wealthy were selling the poor for a pair of shoes (Amos 2:6), religious observance was enthusiastic while the poor were exploited, and the people assumed God was pleased with their worship. Amos said otherwise. He condemned both their injustice and their hollow religion with equal force, and his most quoted words describe what God actually wants: "let judgment run down as waters, and righteousness as a mighty stream" (5:24) — words Martin Luther King Jr. made famous again. The book ends with a glimpse of restoration (9:11–15), but it is surrounded by warnings. Amos is the prophets\' voice for economic injustice — the insistence that genuine religion cannot be separated from how the poor are treated.',
+    verses: ['Amos 5:24', 'Amos 2:6', 'Amos 5:21', 'Amos 9:11'],
+    plan: 'walktheword'
+  },
+  {
+    id: 'what-is-lamentations-about',
+    type: 'knowledge',
+    triggers: [
+      'what is lamentations about', 'lamentations overview', 'what does lamentations teach',
+      'book of lamentations explained', 'lamentations summary', 'what is lamentations in the bible',
+      'lamentations main message', 'jeremiah lamentations bible', 'great is thy faithfulness lamentations',
+      'his mercies are new every morning lamentations'
+    ],
+    answer: 'Lamentations is five poems of raw grief written in the aftermath of Jerusalem\'s destruction by Babylon in 586 BC. Tradition attributes it to Jeremiah, who watched the city he had wept over for decades finally fall. The book does not explain away the suffering or reach quickly for comfort — it sits in the wreckage. Chapter 1 begins: "How doth the city sit solitary, that was full of people!" Each poem uses a tight acrostic structure (Hebrew alphabet, 22 letters), as if grief is being held in a container of form when it would otherwise be shapeless. In the very center of the book, in chapter 3, something shifts: "It is of the LORD\'s mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness" (3:22–23). This affirmation does not arrive easily — it is surrounded by anguish on both sides. But it holds. Lamentations gives permission to grieve fully and proves that even the darkest prayer is prayer.',
+    verses: ['Lamentations 3:22', 'Lamentations 3:23', 'Lamentations 3:26', 'Lamentations 1:1'],
+    plan: 'grief'
+  },
+  {
+    id: 'what-is-titus-about',
+    type: 'knowledge',
+    triggers: [
+      'what is titus about', 'titus overview', 'what does titus teach', 'book of titus explained',
+      'titus summary', 'what is titus in the bible', 'titus main message',
+      'paul and titus bible', 'titus qualifications for elders', 'titus sound doctrine bible'
+    ],
+    answer: 'Titus is a short letter from Paul to a trusted co-worker he left in Crete to organize the churches there. It is practical and direct — less personal than the Timothy letters and more structural. Paul gives Titus the qualifications for elders (1:5–9), instructions for how to teach different groups (older men, older women, younger women, young men, slaves), and the theological grounding for it all. The summary of the gospel in 2:11–14 is one of the most compact and complete in the New Testament: the grace of God has appeared, bringing salvation to all, teaching us to deny ungodliness and live soberly, "looking for that blessed hope, and the glorious appearing of the great God and our Saviour Jesus Christ." The book also contains one of Scripture\'s most encouraging statements about Christian motivation: believers do good works not to earn God\'s favor but because grace itself trains them toward it. Titus is a manual for what a healthy church looks like in a difficult culture.',
+    verses: ['Titus 2:11', 'Titus 2:13', 'Titus 3:5', 'Titus 1:9'],
+    plan: 'firststeps'
   }
 ];
 
@@ -30064,20 +30333,41 @@ function findBiblicalAnswer(queryText) {
   if (!queryText || !Array.isArray(TDB_BIBLICAL_ANSWERS)) return null;
   var norm = normalizeInput(String(queryText || ''));
   if (!norm || norm.split(/\s+/).filter(Boolean).length < 2) return null;
-  for (var i = 0; i < TDB_BIBLICAL_ANSWERS.length; i++) {
-    var entry = TDB_BIBLICAL_ANSWERS[i];
-    if (!entry || !Array.isArray(entry.triggers)) continue;
+
+  // Detect question intent — queries that are clearly asking about Bible content
+  // rather than expressing a feeling or situation. When detected, knowledge answers
+  // are checked first so they win over life/pastoral answers.
+  var questionIntent = /^(who (was|is|were|are)|what (is|are|does|did|is the|are the|does the|happened|book)|tell me about|explain |which book|when did|where (is|did|was)|why (did|does|do)|how (do|did|does|can i)|what (is|was) the|is (there|the)|what (does|did) the bible say about|what did jesus|is it|did god|did jesus|does god|how to (pray|fast|worship|read the bible|study the bible)|what are the)/.test(norm);
+
+  function matchEntry(entry) {
+    if (!entry || !Array.isArray(entry.triggers)) return false;
     for (var t = 0; t < entry.triggers.length; t++) {
       var trigger = normalizeInput(entry.triggers[t]);
       if (!trigger) continue;
-      if (norm.indexOf(trigger) !== -1 || trigger.indexOf(norm) !== -1) return entry;
+      if (norm.indexOf(trigger) !== -1 || trigger.indexOf(norm) !== -1) return true;
       // Fuzzy: all meaningful words of the trigger appear in the query
       var trigWords = trigger.split(/\s+/).filter(function (w) { return w.length > 3 && !STOP_WORDS.has(w); });
       if (trigWords.length >= 3) {
-        var allPresent = trigWords.every(function (w) { return norm.indexOf(w) !== -1; });
-        if (allPresent) return entry;
+        if (trigWords.every(function (w) { return norm.indexOf(w) !== -1; })) return true;
       }
     }
+    return false;
+  }
+
+  // Split into typed buckets so we can search them in the right order
+  var knowledgeEntries = [], lifeEntries = [];
+  for (var k = 0; k < TDB_BIBLICAL_ANSWERS.length; k++) {
+    (TDB_BIBLICAL_ANSWERS[k].type === 'knowledge' ? knowledgeEntries : lifeEntries).push(TDB_BIBLICAL_ANSWERS[k]);
+  }
+
+  var primary = questionIntent ? knowledgeEntries : lifeEntries;
+  var secondary = questionIntent ? lifeEntries : knowledgeEntries;
+
+  for (var i = 0; i < primary.length; i++) {
+    if (matchEntry(primary[i])) return primary[i];
+  }
+  for (var j = 0; j < secondary.length; j++) {
+    if (matchEntry(secondary[j])) return secondary[j];
   }
   return null;
 }

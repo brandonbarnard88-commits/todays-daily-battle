@@ -5552,6 +5552,53 @@ const PHRASE_TO_TOKENS = {
   'lost my faith': ['doubt', 'faith', 'hope', 'trust'],
   'walking away from god': ['doubt', 'faith', 'hope', 'grace'],
 
+  // === LIFE SITUATIONS: Divorce, job loss, failure, sleep, spiritual warfare, prayer ===
+  'going through a divorce': ['grief', 'healing', 'trust', 'loneliness'],
+  'my marriage is ending': ['grief', 'healing', 'trust', 'loneliness'],
+  'separated from my spouse': ['grief', 'loneliness', 'trust', 'healing'],
+  'after a divorce': ['grief', 'healing', 'trust', 'hope'],
+  'i lost my job': ['provision', 'trust', 'fear', 'hope'],
+  'i just got fired': ['provision', 'trust', 'fear', 'hope'],
+  'laid off': ['provision', 'trust', 'fear', 'hope'],
+  'unemployed and scared': ['provision', 'trust', 'fear', 'hope'],
+  'i feel like a failure': ['worth', 'identity', 'grace', 'faith'],
+  'never good enough': ['worth', 'identity', 'grace', 'faith'],
+  'i am not enough': ['worth', 'identity', 'grace', 'faith'],
+  'i fail at everything': ['worth', 'identity', 'grace', 'faith'],
+  'i cant sleep': ['peace', 'rest', 'anxiety', 'trust'],
+  'lying awake worrying': ['peace', 'rest', 'anxiety', 'trust'],
+  'sleepless nights': ['peace', 'rest', 'anxiety', 'trust'],
+  'racing mind at night': ['peace', 'rest', 'anxiety', 'trust'],
+  'spiritual warfare': ['strength', 'faith', 'armor', 'trust'],
+  'under spiritual attack': ['strength', 'faith', 'armor', 'trust'],
+  'spiritual oppression': ['strength', 'faith', 'armor', 'trust'],
+  'armor of god': ['strength', 'faith', 'armor', 'trust'],
+  'unanswered prayer': ['prayer', 'trust', 'faith', 'hope'],
+  'my prayers arent being answered': ['prayer', 'trust', 'faith', 'hope'],
+  'god not answering my prayers': ['prayer', 'trust', 'faith', 'hope'],
+  'praying for years and nothing': ['prayer', 'trust', 'faith', 'hope'],
+
+  // === RELATIONSHIPS, FAITH, MENTAL HEALTH, DEATH ===
+  'toxic family member': ['trust', 'grief', 'loneliness', 'healing'],
+  'difficult family member': ['trust', 'grief', 'loneliness', 'healing'],
+  'harmful family': ['trust', 'grief', 'healing', 'faith'],
+  'prayer feels empty': ['prayer', 'faith', 'trust', 'renewal'],
+  'prayer feels hollow': ['prayer', 'faith', 'trust', 'renewal'],
+  'no desire to pray': ['prayer', 'faith', 'trust', 'renewal'],
+  'what does the bible say about singleness': ['loneliness', 'hope', 'trust', 'faith'],
+  'bible and being single': ['loneliness', 'hope', 'trust', 'faith'],
+  'how to set boundaries as a christian': ['identity', 'worth', 'wisdom', 'faith'],
+  'christian boundaries': ['identity', 'worth', 'wisdom', 'faith'],
+  'my faith is weak': ['doubt', 'faith', 'trust', 'hope'],
+  'i feel like a bad christian': ['doubt', 'faith', 'grace', 'hope'],
+  'mental health and faith': ['exhaustion', 'healing', 'grace', 'trust'],
+  'is depression a sin': ['exhaustion', 'healing', 'grace', 'trust'],
+  'how to love someone who keeps hurting me': ['forgiveness', 'love', 'strength', 'grace'],
+  'loving difficult people': ['forgiveness', 'love', 'strength', 'grace'],
+  'scared of dying': ['hope', 'faith', 'trust', 'peace'],
+  'fear of death bible': ['hope', 'faith', 'trust', 'peace'],
+  'afraid of death': ['hope', 'faith', 'trust', 'peace'],
+
   // === KIDS & FAMILY: Parent/child-specific search terms ===
   'bedtime bible story': ['kids', 'family', 'peace', 'faith'],
   'bible story for kids': ['kids', 'family', 'faith', 'hope'],
@@ -6089,6 +6136,188 @@ var TDB_BIBLICAL_ANSWERS = [
     answer: 'Regret is the weight of a door that can no longer be opened. Scripture takes that seriously — it does not pretend the past can be unchanged. But it insists the past is not the final word. Joel 2:25 contains one of the most remarkable promises in the Old Testament: "I will restore to you the years that the locust hath eaten." God does not erase regret; He redeems what remains. Paul\'s past included standing by while Stephen was killed — and he carried that. Yet Philippians 3:13–14 was written by that same man: "forgetting those things which are behind, and reaching forth unto those things which are before." That posture — hands open toward what is still ahead — is available to you today.',
     verses: ['Joel 2:25', 'Philippians 3:13', 'Romans 8:28', 'Isaiah 43:18'],
     plan: 'universityregret'
+  },
+  {
+    id: 'divorce-separation',
+    triggers: [
+      'going through a divorce', 'my marriage is ending', 'separated from my spouse',
+      'getting a divorce', 'divorce bible', 'what does the bible say about divorce',
+      'marriage falling apart', 'husband left me', 'wife left me', 'marriage is over',
+      'my spouse left', 'dealing with divorce', 'divorcing', 'after a divorce',
+      'how to survive divorce', 'divorce and faith'
+    ],
+    answer: 'Divorce carries the weight of what was meant to last — and that weight is real. God takes marriage seriously, which is also why its ending is so painful. But grace is not withheld from people in the middle of it. Psalm 34:18 says the Lord is near to the brokenhearted and saves those whose spirit is crushed — and a marriage ending is one of the heaviest ways a spirit gets crushed. Isaiah 54:5 says "thy Maker is thine husband" — a word spoken to people who had lost everything and were starting over. Wherever you are in this — fighting to save it, grieving what was lost, or finding your footing after — He does not abandon you in the in-between.',
+    verses: ['Psalm 34:18', 'Isaiah 54:5', 'Matthew 11:28', 'Romans 8:28'],
+    plan: 'universitybroken'
+  },
+  {
+    id: 'job-loss',
+    triggers: [
+      'i lost my job', 'i just got fired', 'laid off from work', 'job loss bible',
+      'bible verses for losing a job', 'unemployed and scared', 'lost my income',
+      'cant find work', 'fear after losing my job', 'my job ended',
+      'between jobs', 'no job right now', 'unemployed', 'bible about losing a job',
+      'laid off and scared'
+    ],
+    answer: 'Losing a job pulls at more than income — it pulls at identity, security, routine, and often the sense that God is providing. Matthew 6:32 says your Father knows what you need. That is not a promise of a quick resolution, but a steady reminder that He is not unaware of your situation. Psalm 37:25 is a long view from someone who had watched God provide over many years: "Yet have I not seen the righteous forsaken, nor his seed begging bread." The in-between season is real and it can stretch. But the God who has provided before knows this moment too — and He will not overlook you in it.',
+    verses: ['Matthew 6:32', 'Psalm 37:25', 'Philippians 4:19', 'Proverbs 3:5'],
+    plan: 'dailylabor'
+  },
+  {
+    id: 'feeling-like-failure',
+    triggers: [
+      'i feel like a failure', 'i am a failure', 'i keep failing', 'never good enough',
+      'i am not enough', 'feeling like i cant do anything right', 'constant failure',
+      'i fail at everything', 'feeling worthless and like a failure', 'not enough bible',
+      'bible for feeling like a failure', 'i will never be enough', 'i always mess up',
+      'failure at life', 'i disappoint everyone'
+    ],
+    answer: 'The "not enough" feeling is one of the most persistent lies a person carries. The Bible does not address it by listing your accomplishments — it addresses it by naming who you are. Second Corinthians 5:17 says if you are in Christ, you are a new creation. Romans 8:1 says there is no condemnation. These are not motivational statements — they are declarations about your standing before God that do not shift based on how your week went. Galatians 4:7 says you are no longer a servant but a son — an heir. That is not a title you earn by performing well enough. It is one you receive by belonging to Him.',
+    verses: ['2 Corinthians 5:17', 'Romans 8:1', 'Galatians 4:7', 'Philippians 4:13'],
+    plan: 'universityidentity'
+  },
+  {
+    id: 'insomnia-sleep',
+    triggers: [
+      'i cant sleep', 'racing mind at night', 'insomnia bible', 'bible for sleep',
+      'cant sleep at night', 'mind wont stop at night', 'lying awake worrying',
+      'sleepless nights', 'fear at night', 'nighttime anxiety', 'cant stop thinking at night',
+      '3am and cant sleep', 'waking up anxious', 'no rest at night', 'sleep problems bible'
+    ],
+    answer: 'Psalm 127:2 says God gives sleep to those He loves — not as a reward for having things sorted out, but as a quiet gift. Psalm 4:8 is one of the most honest bedtime prayers in Scripture: "I will both lay me down in peace, and sleep: for thou, LORD, only makest me dwell in safety." Night is when fear tends to speak loudest — the mind runs through everything at once. Philippians 4:7 promises a peace that "passeth all understanding," not one you reason your way to, but one that comes from bringing it to God and leaving it there. The night hours can be some of the most honest prayer you ever do. You do not need to be composed for that.',
+    verses: ['Psalm 4:8', 'Psalm 127:2', 'Philippians 4:7', 'Psalm 121:4'],
+    plan: 'restlessnights'
+  },
+  {
+    id: 'spiritual-warfare',
+    triggers: [
+      'spiritual warfare', 'under spiritual attack', 'feeling spiritually attacked',
+      'spiritual oppression', 'dark spiritual presence', 'demonic oppression',
+      'spiritual battle bible', 'evil presence', 'spiritual warfare bible',
+      'i feel like i am under attack spiritually', 'armor of god', 'enemy attacking me',
+      'the devil is attacking me', 'spiritual attacks', 'wrestle against principalities'
+    ],
+    answer: 'Spiritual warfare is real in Scripture — Paul names it plainly in Ephesians 6:12: "we wrestle not against flesh and blood, but against principalities, against powers." The answer is not fear but readiness: the armor of God is given in that same passage precisely so you can stand in a day of pressure. James 4:7 puts it simply: "resist the devil, and he will flee from you." The name of Jesus carries weight that no darkness can ignore (Philippians 2:9–10). First John 4:4 is the steady anchor: "greater is he that is in you, than he that is in the world." You are not left unguarded.',
+    verses: ['Ephesians 6:12', 'James 4:7', '1 John 4:4', 'Philippians 2:9'],
+    plan: 'armorofgod'
+  },
+  {
+    id: 'unanswered-prayer',
+    triggers: [
+      'my prayers arent being answered', 'god isnt answering my prayers', 'praying for years and nothing',
+      'praying and not getting an answer', 'unanswered prayer', 'why doesnt god answer my prayers',
+      'i have been praying and nothing changes', 'prayer not working', 'god not answering',
+      'no answer to my prayer', 'how long do i have to wait for god to answer',
+      'i have prayed so long', 'praying for healing and nothing', 'god silent to my prayers'
+    ],
+    answer: 'Unanswered prayer is one of the most honest and difficult seasons a believer can be in. The disciples themselves asked Jesus directly: "Lord, teach us to pray" — meaning they were not always certain it was working. Scripture holds that God answers prayer in three ways: yes, not yet, and something better than what was asked for. Habakkuk prayed and waited and got a vision — but the waiting was real: "Though it tarry, wait for it; because it will surely come" (Habakkuk 2:3). Luke 18:1–8 gives the parable of the persistent widow specifically so that you would "not faint." The long wait is not a sign He is not listening. Keep bringing it.',
+    verses: ['Habakkuk 2:3', 'Luke 18:1', 'Matthew 7:7', '1 John 5:14'],
+    plan: 'universitysecretprayer'
+  },
+  {
+    id: 'toxic-family',
+    triggers: [
+      'toxic family member', 'difficult family member', 'how to deal with toxic family',
+      'family member who hurts me', 'toxic parent', 'harmful family member',
+      'family that hurts me', 'how to love a difficult family member', 'toxic relatives',
+      'family conflict bible', 'abusive family member', 'family member who is hurtful',
+      'hard family relationship', 'dealing with a difficult parent', 'family hurting me'
+    ],
+    answer: 'Family pain runs deep precisely because those ties are supposed to be the safest ones. The Bible does not pretend otherwise — Joseph\'s brothers sold him into slavery, David\'s son turned against him, and Jesus himself was not believed by his own family (John 7:5). Scripture calls us to honor family and to love — and it also calls us to wisdom. Romans 12:18 puts it carefully: "If it be possible, as much as lieth in you, live peaceably with all men." The "if it be possible" is not an accident. Proverbs 22:24 warns about those who carry destructive anger. You can love someone and still limit what you receive from them. Healthy limits are not unforgiveness — they are how you protect both yourself and the relationship from continued harm.',
+    verses: ['Romans 12:18', 'Proverbs 22:24', 'Matthew 10:36', 'Ephesians 4:15'],
+    plan: 'trustbroken'
+  },
+  {
+    id: 'prayer-when-dry',
+    triggers: [
+      'how do i pray when i dont feel anything', 'prayer feels empty', 'prayer feels like talking to a wall',
+      'cant feel god when i pray', 'prayer feels pointless', 'how to pray when faith is dry',
+      'praying without feeling', 'prayer feels hollow', 'how to keep praying when nothing happens',
+      'prayer feels like nothing', 'going through the motions in prayer', 'prayer feels dead',
+      'no desire to pray', 'i dont want to pray anymore', 'how do i pray when dry'
+    ],
+    answer: 'Prayer does not require feeling to be real. The Psalms are full of honest, dry, even desperate prayers — many of them open with God feeling absent and end without the feeling changing. Psalm 13 starts "How long wilt thou forget me, O LORD?" — that is prayer. Romans 8:26 says the Spirit helps us in our weakness and "maketh intercession for us with groanings which cannot be uttered" — meaning there are moments you do not know how to pray, and He prays through you anyway. The discipline of returning to God even when nothing feels warm is not a lesser form of prayer. It is often the deepest. Bring what you have. Even the silence counts.',
+    verses: ['Psalm 13:1', 'Romans 8:26', 'Matthew 6:6', '1 Thessalonians 5:17'],
+    plan: 'lordsprayer'
+  },
+  {
+    id: 'singleness',
+    triggers: [
+      'what does the bible say about singleness', 'bible and being single', 'is being single okay as a christian',
+      'lonely and single', 'unmarried and lonely', 'is it okay to be single', 'single and struggling',
+      'singleness bible', 'how to be content while single', 'will god bring me a spouse',
+      'single and feeling incomplete', 'god and singleness', 'bible for single people',
+      'not married and struggling', 'single christian life'
+    ],
+    answer: 'Singleness in Scripture is not a waiting room. Paul calls it a gift — a specific capacity to be wholly devoted to God and others without the divided heart that comes with family responsibility (1 Corinthians 7:32–35). That does not mean the longing for companionship is wrong; God himself said "it is not good for man to be alone" (Genesis 2:18). Both realities are true in the same breath: the ache is real, and the season is not wasted. Psalm 16:11 says fullness of joy is in His presence — not in a particular relationship status. The life you are living right now is not a lesser life while you wait for another one to begin.',
+    verses: ['1 Corinthians 7:32', 'Genesis 2:18', 'Psalm 16:11', 'Psalm 73:25'],
+    plan: 'loneliness'
+  },
+  {
+    id: 'boundaries-christian',
+    triggers: [
+      'how to set boundaries as a christian', 'boundaries bible', 'is it okay to have boundaries',
+      'christian boundaries', 'setting limits as a christian', 'is it selfish to have boundaries',
+      'can christians set boundaries', 'bible and personal limits', 'setting limits with family',
+      'how do i protect myself as a christian', 'where does bible talk about boundaries',
+      'is having boundaries unbiblical', 'boundaries and faith', 'limits with toxic people bible'
+    ],
+    answer: '"Boundaries" reflects something the Bible already describes. Proverbs 4:23 says "keep thy heart with all diligence; for out of it are the issues of life." Guarding your heart is not selfishness — it is stewardship. Jesus himself withdrew from crowds when He needed rest (Mark 1:35). Paul said love "beareth all things" and also named specific relationships that require wisdom and distance (2 Thessalonians 3:6). Healthy limits protect both you and the relationship. They are not unforgiveness or judgment — they are how you stay a person who can keep loving others without being emptied in the process. Galatians 6:5 says each person must bear their own load; you are not required to carry what belongs to someone else.',
+    verses: ['Proverbs 4:23', 'Mark 1:35', 'Romans 12:18', 'Galatians 6:5'],
+    plan: 'identityinchrist'
+  },
+  {
+    id: 'weak-faith',
+    triggers: [
+      'what if my faith feels weak', 'i feel like a bad christian', 'my faith is weak',
+      'not a good christian', 'i feel like my faith is failing', 'weak faith bible',
+      'i dont feel like a real christian', 'bad christian guilt', 'i have such little faith',
+      'struggling with faith guilt', 'i feel spiritually weak', 'faith not strong enough',
+      'i keep falling short as a christian', 'not living up to my faith', 'weak faith'
+    ],
+    answer: 'Jesus did not rebuke the disciples for having small faith — He rebuked the storm, and then He said "O ye of little faith" the way a parent speaks to a child they are not abandoning. The mustard seed parable is not about faith needing to be large; it is about faith needing only to be real (Matthew 17:20). Second Corinthians 12:9 says His strength is made perfect in weakness — not after the weakness is resolved, but inside it. The feeling of having strong faith and actually having it are not the same thing. You are here. You are bringing it to God. That is not weak faith failing — that is faith.',
+    verses: ['Matthew 17:20', '2 Corinthians 12:9', 'Hebrews 11:1', 'Romans 5:1'],
+    plan: 'universitydoubt'
+  },
+  {
+    id: 'mental-health',
+    triggers: [
+      'what does the bible say about mental health', 'mental health and faith', 'is depression a sin',
+      'can christians have mental illness', 'bible and depression and anxiety', 'mental health bible',
+      'struggling with mental health as a christian', 'is it okay to get therapy as a christian',
+      'christian mental health', 'is having mental illness a lack of faith', 'depression anxiety bible',
+      'bible for mental health', 'mental health struggles and god', 'christian and mental illness',
+      'faith and mental health'
+    ],
+    answer: 'The Bible does not treat mental health as a failure of faith. Elijah, one of the most powerful prophets in Scripture, collapsed under a tree and asked God to let him die (1 Kings 19:4). God\'s response was not a rebuke — it was rest, food, and water. Depression, anxiety, and deep emotional struggle are not signs that God has left you or that your faith is insufficient. Jeremiah wept; David cried out repeatedly; Paul named a "thorn in the flesh" that was not removed. Getting help — through prayer, Scripture, trusted people, or a counselor — is not weakness or lack of faith. It is wisdom. God is not limited to one path of healing.',
+    verses: ['1 Kings 19:4', 'Psalm 34:18', '2 Corinthians 12:9', 'Matthew 11:28'],
+    plan: 'longheavydays'
+  },
+  {
+    id: 'love-difficult-people',
+    triggers: [
+      'how to love someone who keeps hurting me', 'loving difficult people', 'how do i love someone who hurts me',
+      'how to love a toxic person', 'how to love my enemy', 'love someone who is hard to love',
+      'bible about loving difficult people', 'how do i keep loving someone who hurts me',
+      'love your enemies bible', 'loving someone who is unkind', 'how to love hard people',
+      'bible for loving enemies', 'loving someone hurtful', 'love for difficult person'
+    ],
+    answer: 'Jesus raised the standard deliberately: "Love your enemies, bless them that curse you" (Matthew 5:44). He was not describing a feeling but a posture — a choice to seek the good of someone who has not earned it. That does not mean absorbing ongoing harm without limit. Romans 12 says love sincerely, hate evil, and as much as it depends on you, live peaceably. Both halves belong together. You can love someone, pray for them, and wish them well — while also being wise about proximity and what you receive from them. Loving difficult people is one of the most costly things the gospel asks of us. The strength for it does not come from within; it comes from having been loved first (1 John 4:19).',
+    verses: ['Matthew 5:44', 'Romans 12:9', 'Romans 12:18', '1 John 4:19'],
+    plan: 'forgiveness'
+  },
+  {
+    id: 'fear-of-dying',
+    triggers: [
+      'scared of dying', 'fear of death bible', 'what if i am scared of dying', 'afraid of death',
+      'fear of death as a christian', 'scared of death bible', 'what does bible say about death',
+      'fear of dying bible', 'dying and scared', 'how do i not be afraid of death',
+      'death anxiety christian', 'terrified of dying', 'scared about dying',
+      'fear of death and god', 'bible about fear of death'
+    ],
+    answer: 'Fear of death is one of the most honest fears a person carries — and Scripture does not dismiss it. Hebrews 2:15 says Jesus came specifically to "deliver them who through fear of death were all their lifetime subject to bondage." That means this fear is real, it is common, and it is something He came to address. Philippians 1:21 says "to live is Christ, and to die is gain" — not a glib statement, but something Paul wrote from prison, facing a real execution. First Thessalonians 4:13–14 says those who die in Christ are not gone forever. The sting of death is real. But it is not the final word for anyone who belongs to Him.',
+    verses: ['Hebrews 2:15', 'Philippians 1:21', '1 Thessalonians 4:13', 'John 11:25'],
+    plan: 'heavyhope'
   }
 ];
 

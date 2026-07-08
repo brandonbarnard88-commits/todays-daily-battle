@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kids Corner Style Guide • Today's Daily Battle</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="../styles.css?v=20260503-consent-persist-fix" as="style">
+  <link rel="stylesheet" href="../styles.css?v=20260503-consent-persist-fix">
+  <link rel="preload" href="kids-design-tokens.css" as="style">
+  <link rel="stylesheet" href="kids-design-tokens.css">
+  <style>
+    body {
+      max-width: 640px;
+      margin: 2rem auto;
+      padding: 1rem;
+      line-height: var(--kids-line-height);
+      font-family: var(--kids-font-body);
+      color: var(--kids-text);
+      background: var(--kids-soft-bg);
+    }
+
+    h1 {
+      color: var(--kids-gold);
+      font-family: var(--kids-font-heading);
+    }
+
+    h2 {
+      font-family: var(--kids-font-heading);
+      font-size: 1.15rem;
+      margin-top: 1.75rem;
+    }
+
+    ul {
+      padding-left: 1.25rem;
+    }
+
+    li {
+      margin-bottom: 0.45rem;
+    }
+
+    a {
+      color: var(--kids-gold);
+    }
+  </style>
+</head>
+<body>
+  <h1>Kids Corner Style Guide</h1>
+  <p style="color: var(--kids-muted);">A quiet reference so every coloring page, story, and loop feels like one peaceful place.</p>
+
+  <h2>Core principles (always)</h2>
+  <ul>
+    <li>Calm and reverent — never busy or cartoonish</li>
+    <li>King James Version only — accurate and italic where it feels gentle</li>
+    <li>Plenty of breathing room — line-height 1.75, soft gold accents</li>
+    <li>Print-friendly — minimal ink, good contrast</li>
+    <li>Offline-first and private — nothing extra loads</li>
+  </ul>
+
+  <h2>Colors &amp; accents</h2>
+  <p>Use <span style="color: var(--kids-gold);">--kids-gold</span> for gentle frames and highlights.</p>
+
+  <h2>Typography</h2>
+  <p>Georgia serif for stories and verses — feels like an old family Bible.</p>
+
+  <h2>Step 3 — Story library</h2>
+  <ul>
+    <li>Story cards: soft gold border, calm shadow, gentle hover (respects reduced motion).</li>
+    <li>Read-aloud: line-height 1.75, max-width 40rem in the read-quiz panel.</li>
+    <li>Loop cards on the Bible Loop Library page use the same gold accent.</li>
+  </ul>
+
+  <p><a href="corner.html">← Back to Kids Corner</a></p>
+</body>
+</html>

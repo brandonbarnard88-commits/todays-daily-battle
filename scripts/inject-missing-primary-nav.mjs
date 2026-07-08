@@ -6,6 +6,7 @@
  * life-lessons hub + lessons, curriculum.html
  *
  * Run: node scripts/inject-missing-primary-nav.mjs
+ * Also invoked at end of scripts/sync-primary-site-nav.mjs for journal/bible/life-lessons shells.
  */
 import fs from 'fs';
 import path from 'path';
@@ -186,6 +187,15 @@ function main() {
     if (processFile(rel)) updated++;
   }
   console.log('inject-missing-primary-nav:', updated, 'files');
+  return updated;
 }
 
-main();
+export { main as injectMissingPrimaryNav };
+
+const isDirectRun =
+  process.argv[1] &&
+  path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
+
+if (isDirectRun) {
+  main();
+}

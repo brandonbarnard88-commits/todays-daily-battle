@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=20260503-consent-persist-fix"></script>
+  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260503-consent-persist-fix"></script>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260503-consent-persist-fix"></script>
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Church Starter Pack for Small Churches &amp; Weary Pastors (KJV Tools)</title>
+  <meta name="description" content="Weekly operating system for small churches: Sermon Builder, pastor reset tools, family printables, announcement templates, and thin-week guides. Calm &amp; ready-to-use.">
+  <meta name="robots" content="index, follow">
+  <meta name="referrer" content="no-referrer">
+  <link rel="canonical" href="https://todaysdailybattle.com/church-starter-pack.html">
+  <meta property="og:title" content="Church Starter Pack for Small Churches &amp; Weary Pastors (KJV Tools)">
+  <meta property="og:description" content="Weekly operating system for small churches: Sermon Builder, pastor reset tools, family printables, announcement templates, and thin-week guides. Calm &amp; ready-to-use.">
+  <meta property="og:url" content="https://todaysdailybattle.com/church-starter-pack.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://todaysdailybattle.com/assets/share/testimonials-og.jpg?v=20260322">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Church Starter Pack for Small Churches &amp; Weary Pastors (KJV Tools)">
+  <meta name="twitter:description" content="Weekly operating system for small churches: Sermon Builder, pastor reset tools, printables, and thin-week guides. Calm &amp; ready-to-use.">
+  <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/testimonials-og.jpg?v=20260322">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="script.js?v=20260503-consent-persist-fix" as="script" fetchpriority="low">
+  <link rel="preload" href="/today-kjv-verse.json" as="fetch" type="application/json" crossorigin>
+  <link rel="preload" href="styles.css?v=20260503-consent-persist-fix" as="style" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix" fetchpriority="high">
+  <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
+  <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
+
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
+  <script nonce="tdb2025s" type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"Church Starter Pack for Small Churches & Weary Pastors (KJV Tools)","url":"https://todaysdailybattle.com/church-starter-pack.html","description":"Weekly operating system for small churches: Sermon Builder, pastor reset tools, family printables, announcement templates, and thin-week guides. Calm & ready-to-use.","isPartOf":{"@type":"WebSite","name":"Today's Daily Battle","url":"https://todaysdailybattle.com"},"publisher":{"@type":"Organization","name":"Today's Daily Battle","url":"https://todaysdailybattle.com"}}
+  </script>
+  <script nonce="tdb2025s" type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://todaysdailybattle.com/"},{"@type":"ListItem","position":2,"name":"Church Starter Pack","item":"https://todaysdailybattle.com/church-starter-pack.html"}]}
+  </script>
+  <script nonce="tdb2025s" type="application/ld+json">
+  {"@context":"https://schema.org","@type":"HowTo","name":"How to Use the Church Starter Pack","description":"A 15-minute weekly workflow for small churches and weary pastors.","step":[{"@type":"HowToStep","position":1,"name":"Prep","text":"Open the Sermon Builder with today's verse and let the text speak first."},{"@type":"HowToStep","position":2,"name":"Team","text":"Share one clear message and assign simple tasks — no extra meetings needed."},{"@type":"HowToStep","position":3,"name":"Follow-through","text":"Send one family printable home so Sunday keeps breathing through the week."}]}
+  </script>
+  <style>
+    .church-hub-wins-grid {
+      display: grid;
+      gap: 0.85rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 760px) {
+      .church-hub-wins-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    .church-hub-win-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: rgba(0, 0, 0, 0.16);
+      padding: 0.9rem 1rem;
+    }
+    :root[data-theme="light"] .church-hub-win-card {
+      background: #f8fafc;
+      border-color: rgba(148, 163, 184, 0.4);
+    }
+    .church-hub-win-card strong {
+      display: block;
+      color: var(--gold-soft, #e3bc67);
+      margin-bottom: 0.35rem;
+    }
+    .church-hub-win-card .win-desc {
+      display: block;
+      margin-bottom: 0.65rem;
+      line-height: 1.55;
+      font-size: 0.88rem;
+    }
+    .church-hub-win-card .btn.small {
+      display: inline-flex;
+      min-height: 38px;
+      align-items: center;
+      padding: 0.4rem 0.7rem;
+      font-size: 0.82rem;
+    }
+    .fp-workflow-list {
+      margin: 0.45rem 0 0;
+      padding-left: 1.2rem;
+      line-height: 1.6;
+    }
+    .fp-workflow-list li { margin: 0.35rem 0; }
+    .csp-quick-strip {
+      margin-top: 0.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+    .csp-quick-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.32);
+      background: rgba(0, 0, 0, 0.12);
+      font-size: 0.79rem;
+      line-height: 1.35;
+      color: var(--text);
+    }
+    :root[data-theme="light"] .csp-quick-pill {
+      background: #f8fafc;
+      border-color: rgba(148, 163, 184, 0.42);
+    }
+    .csp-premium-hero {
+      border: 1px solid color-mix(in srgb, var(--gold-soft, #e3bc67) 22%, rgba(148, 163, 184, 0.34));
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+    }
+    .lead {
+      margin: 0.2rem 0 0;
+      font-size: 1.08rem;
+      line-height: 1.45;
+      color: var(--text);
+      font-weight: 600;
+    }
+    .reassurance {
+      margin: 0.65rem 0 0;
+      font-size: 0.88rem;
+      line-height: 1.56;
+      color: var(--muted, #9ca3af);
+      max-width: 44rem;
+    }
+    .promise-pills {
+      margin-top: 0.7rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.44rem;
+      font-size: 0.76rem;
+      letter-spacing: 0.01em;
+      color: var(--muted, #9ca3af);
+    }
+    .three-lanes {
+      margin-top: 0.55rem;
+      display: grid;
+      gap: 0.5rem;
+      grid-template-columns: 1fr;
+    }
+    .three-lanes > div {
+      border: 1px solid rgba(148, 163, 184, 0.32);
+      border-radius: 10px;
+      padding: 0.55rem 0.65rem;
+      background: color-mix(in srgb, var(--card, #161c26) 92%, rgba(227, 188, 103, 0.08));
+      font-size: 0.86rem;
+      line-height: 1.5;
+      color: var(--text, #e6edf3);
+    }
+    @media (min-width: 760px) {
+      .three-lanes {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    .csp-hero-grid {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    @media (min-width: 820px) {
+      .csp-hero-grid {
+        grid-template-columns: 1.4fr 1fr;
+        align-items: stretch;
+      }
+    }
+    .csp-hero-panel {
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      background: rgba(0, 0, 0, 0.18);
+      padding: 0.9rem 1rem;
+    }
+    :root[data-theme="light"] .csp-hero-panel {
+      background: #f8fafc;
+      border-color: rgba(148, 163, 184, 0.45);
+    }
+    .csp-hero-panel h2 {
+      margin: 0 0 0.45rem;
+      font-size: 1rem;
+      color: var(--gold-soft, #e3bc67);
+      letter-spacing: 0.01em;
+    }
+    .csp-hero-panel p {
+      margin: 0;
+      line-height: 1.55;
+      font-size: 0.9rem;
+    }
+    .csp-quick-week-list {
+      margin: 0.6rem 0 0;
+      padding-left: 1.15rem;
+      line-height: 1.55;
+      font-size: 0.88rem;
+    }
+    .csp-quick-week-list li { margin: 0.3rem 0; }
+    .csp-section {
+      margin-top: 1.6rem;
+      padding-top: 0.35rem;
+    }
+    .csp-section + .csp-section {
+      border-top: 1px solid color-mix(in srgb, var(--line, rgba(148, 163, 184, 0.32)) 88%, transparent);
+      padding-top: 1.2rem;
+    }
+    .csp-section .section-divider { margin-bottom: 0.55rem; }
+    .csp-section .section-note { max-width: 44rem; }
+    .csp-how-grid {
+      margin-top: 0.7rem;
+      display: grid;
+      gap: 0.6rem;
+      grid-template-columns: 1fr;
+    }
+    .csp-how-card {
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      border-radius: 12px;
+      padding: 0.65rem 0.75rem;
+      background: color-mix(in srgb, var(--card, #161c26) 94%, rgba(227, 188, 103, 0.06));
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: var(--text, #e6edf3);
+    }
+    .csp-quickstart-card {
+      border: 1px solid color-mix(in srgb, var(--gold-soft, #e3bc67) 30%, rgba(148, 163, 184, 0.34));
+      border-radius: 14px;
+      padding: 0.9rem 1rem;
+      background: color-mix(in srgb, rgba(0, 0, 0, 0.14) 84%, var(--gold-soft, #e3bc67) 16%);
+    }
+    .csp-quickstart-title {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--gold-soft, #e3bc67);
+      letter-spacing: 0.01em;
+    }
+    .csp-quickstart-links {
+      margin: 0.55rem 0 0;
+      display: grid;
+      gap: 0.45rem;
+      grid-template-columns: 1fr;
+    }
+    .csp-quickstart-links a {
+      text-decoration: none;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      border-radius: 10px;
+      padding: 0.52rem 0.62rem;
+      background: rgba(0, 0, 0, 0.15);
+      color: var(--text);
+      font-size: 0.86rem;
+      line-height: 1.45;
+    }
+    @media (min-width: 760px) {
+      .csp-quickstart-links {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    .csp-packet-builder {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.65rem;
+    }
+    .csp-packet-real.hidden {
+      display: none;
+    }
+    .csp-packet-placeholder {
+      border: 1px dashed rgba(148, 163, 184, 0.35);
+      border-radius: 12px;
+      padding: 0.95rem 0.9rem;
+      text-align: center;
+      color: var(--muted, #9ca3af);
+      font-style: italic;
+      font-size: 0.84rem;
+      background: rgba(0, 0, 0, 0.12);
+    }
+    .csp-smart-default-notice {
+      margin: 0;
+      font-size: 0.84rem;
+      line-height: 1.55;
+      color: var(--muted, #9ca3af);
+    }
+    .csp-auto-verse-card {
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      border-radius: 12px;
+      padding: 0.72rem 0.78rem;
+      background: rgba(0, 0, 0, 0.14);
+    }
+    .csp-auto-verse-card h3 {
+      margin: 0 0 0.4rem;
+      font-size: 0.9rem;
+      color: var(--gold-soft, #e3bc67);
+    }
+    .csp-auto-verse-card p {
+      margin: 0.28rem 0 0;
+      font-size: 0.86rem;
+      line-height: 1.55;
+      color: var(--text);
+    }
+    .csp-auto-verse-card .meta {
+      color: var(--muted, #9ca3af);
+      font-size: 0.8rem;
+    }
+    .csp-packet-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .csp-packet-controls label {
+      font-size: 0.86rem;
+      color: var(--muted, #9ca3af);
+    }
+    .csp-packet-controls select {
+      min-height: 40px;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: rgba(15, 23, 42, 0.52);
+      color: var(--text);
+      padding: 0.25rem 0.6rem;
+      font: inherit;
+    }
+    :root[data-theme="light"] .csp-packet-controls select {
+      background: #ffffff;
+      color: #0f172a;
+    }
+    .csp-change-plan-link {
+      border: none;
+      background: transparent;
+      color: var(--muted, #9ca3af);
+      text-decoration: underline;
+      cursor: pointer;
+      padding: 0;
+      font: inherit;
+      font-size: 0.8rem;
+    }
+    .csp-blurbs-list {
+      margin-top: 0.7rem;
+      display: grid;
+      gap: 0.55rem;
+      grid-template-columns: 1fr;
+    }
+    .csp-blurb-item {
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      border-radius: 10px;
+      padding: 0.58rem 0.65rem;
+      background: rgba(0, 0, 0, 0.12);
+      display: grid;
+      gap: 0.5rem;
+    }
+    .csp-blurb-item p {
+      margin: 0;
+      font-size: 0.86rem;
+      line-height: 1.55;
+      color: var(--text);
+    }
+    @media (min-width: 860px) {
+      .csp-how-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    .church-hub-win-card:hover,
+    .church-hub-win-card:focus-visible {
+      border-color: color-mix(in srgb, var(--gold-soft, #e3bc67) 45%, rgba(148, 163, 184, 0.35));
+      background: color-mix(in srgb, rgba(0, 0, 0, 0.16) 84%, var(--gold-soft, #e3bc67) 8%);
+      outline: none;
+    }
+    :root[data-theme="light"] .church-hub-win-card:hover,
+    :root[data-theme="light"] .church-hub-win-card:focus-visible {
+      background: color-mix(in srgb, #f8fafc 88%, #e3bc67 12%);
+    }
+    .csp-spotlight-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+      margin-top: 0.65rem;
+    }
+    @media (min-width: 760px) {
+      .csp-spotlight-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    .csp-spotlight-card {
+      border: 1px solid color-mix(in srgb, var(--gold-soft, #e3bc67) 24%, rgba(148, 163, 184, 0.35));
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+      background: color-mix(in srgb, rgba(0, 0, 0, 0.2) 84%, var(--gold-soft, #e3bc67) 8%);
+    }
+    :root[data-theme="light"] .csp-spotlight-card {
+      background: color-mix(in srgb, #f8fafc 88%, #e3bc67 12%);
+      border-color: rgba(148, 163, 184, 0.45);
+    }
+    .csp-spotlight-card h3 {
+      margin: 0 0 0.3rem;
+      font-size: 0.98rem;
+    }
+    .csp-spotlight-card p {
+      margin: 0;
+      line-height: 1.55;
+      font-size: 0.88rem;
+    }
+    .csp-spotlight-card ul {
+      margin: 0.6rem 0 0;
+      padding-left: 1.1rem;
+      line-height: 1.45;
+      font-size: 0.82rem;
+    }
+    .csp-spotlight-card li { margin: 0.24rem 0; }
+    .csp-assets-grid {
+      margin-top: 1.1rem;
+      display: grid;
+      gap: 1.15rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 880px) {
+      .csp-assets-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    .csp-asset-card {
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      border-radius: 14px;
+      padding: 0.95rem 1rem;
+      background: rgba(0, 0, 0, 0.14);
+    }
+    :root[data-theme="light"] .csp-asset-card {
+      background: #f8fafc;
+      border-color: rgba(148, 163, 184, 0.42);
+    }
+    .csp-asset-card h3 {
+      margin: 0 0 0.45rem;
+      font-size: 0.96rem;
+      letter-spacing: 0.01em;
+    }
+    .csp-asset-card p {
+      margin: 0.45rem 0 0.85rem;
+      font-size: 0.85rem;
+      line-height: 1.56;
+      color: var(--muted, #9ca3af);
+    }
+    .csp-asset-card textarea {
+      width: 100%;
+      min-height: 166px;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.42);
+      background: rgba(15, 23, 42, 0.52);
+      color: var(--text);
+      padding: 0.7rem 0.75rem;
+      font: inherit;
+      line-height: 1.5;
+      resize: vertical;
+    }
+    :root[data-theme="light"] .csp-asset-card textarea {
+      background: #ffffff;
+      color: #0f172a;
+      border-color: rgba(148, 163, 184, 0.6);
+    }
+    .csp-template-actions {
+      margin-top: 0.65rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+    .csp-template-actions .btn { min-height: 40px; }
+    .csp-thin-week-list {
+      margin: 0.5rem 0 0;
+      padding-left: 1rem;
+      line-height: 1.56;
+      font-size: 0.83rem;
+    }
+    .csp-thin-week-list li { margin: 0.3rem 0; }
+    .csp-status {
+      margin-top: 0.5rem;
+      min-height: 1.35rem;
+      font-size: 0.8rem;
+      color: var(--muted, #9ca3af);
+    }
+  </style>
+</head>
+<body class="dark-mode tdb-inner-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <p class="tdb-header-heartbeat site-tagline">For Family, For Country, For GOD</p>
+        <span class="brand-subtitle">Church Starter Pack</span>
+      </div>
+      <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+      <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
+        <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+        <span class="tdb-nav-flyout-toggle__label">Site</span>
+      </button>
+      <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
+        <a href="/">Home</a>
+        <a href="/#feel-section">How I Feel</a>
+        <a href="/plans.html" id="nav-browse-curriculum" aria-label="Battle Plans — KJV tracks for hard weeks and quiet seasons">Battle Plans</a>
+        <a href="/mystudy">My Study</a>
+        <a href="/family.html" aria-label="Family hub — verse, plans, printables">Family &amp; Kids</a>
+        <a href="/explore.html">Explore</a>
+        <a href="/church-hub.html" id="nav-pastors" aria-label="Pastor and church tools">Pastors</a>
+        <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
+        <details class="tdb-nav-more">
+          <summary aria-haspopup="true">More tools</summary>
+          <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+            <div class="tdb-nav-more-group">
+              <span class="tdb-nav-more-group-label">Scripture &amp; Study</span>
+              <a href="/verse.html">Today&rsquo;s Lesson</a>
+              <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read the Bible</a>
+              <a href="/memorize.html">Memorize</a>
+              <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
+              <a href="/calm.html">Calm</a>
+            </div>
+            <div class="tdb-nav-more-group">
+              <span class="tdb-nav-more-group-label">Plans &amp; Journey</span>
+              <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map and gentle paths">Curriculum</a>
+              <a href="/university.html" id="nav-university-core" aria-label="University of God — five anchor verses, quiet map">University map</a>
+              <a href="/daily-rhythm.html">Daily Rhythm</a>
+              <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
+              <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar">Print year</a>
+              <a href="/mobius.html">M&ouml;bius Journal</a>
+            </div>
+            <div class="tdb-nav-more-group">
+              <span class="tdb-nav-more-group-label">Family &amp; Community</span>
+              <a href="/kids/corner.html">Kids &amp; Family</a>
+              <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
+              <a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">Family Armor for little ones</a>
+              <a href="/prayer-wall.html">Pray</a>
+              <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
+            </div>
+            <div class="tdb-nav-more-group">
+              <span class="tdb-nav-more-group-label">About the Site</span>
+              <a href="/site-guide.html" id="nav-site-guide" aria-label="Start here — calm map of where to begin">Start here</a>
+              <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
+              <a href="/about.html">About</a>
+              <a href="/story.html">Story</a>
+            </div>
+          </div>
+        </details>
+      </div>
+    </nav>
+      <div class="tdb-header-account-nudge" role="group" aria-label="Account shortcuts">
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" aria-label="Open the five-minute site tour">Site tour</button>
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-restart-btn" aria-label="Restart the five-minute site tour from the beginning">Restart</button>
+        <a href="/login.html" class="tdb-header-account-nudge__link">Log in</a>
+        <a href="/mystudy" class="tdb-header-account-nudge__link">My Study</a>
+      </div>
+
+      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
+    </header>
+
+    <aside id="sidebar" class="sidebar">
+      <nav class="side-nav" aria-label="Site navigation">
+        <a href="/">Home</a>
+        <a href="/for-pastors.html">For pastors</a>
+        <a href="/church.html">Church center</a>
+        <a href="/church-sharing-kit.html">Church sharing kit</a>
+        <a href="/sermon.html">Sermon builder</a>
+        <a href="/plans.html">Battle plans</a>
+        <a href="/printables.html">Printables</a>
+      </nav>
+    </aside>
+
+    <main class="app-content" id="main-content">
+      <div class="content-inner">
+        <header class="hero-banner tdb-dawn-bg--mist csp-premium-hero">
+          <p class="for-pastors-eyebrow">Plug-and-play for small churches</p>
+          <h1>Church Starter Pack</h1>
+          <p class="lead">You are not behind.</p>
+          <p class="hero-tagline">Start where you are with one verse, one practical step, and one honest prayer.</p>
+          <p class="csp-premium-note">This is your quiet weekly operating system for small churches and weary pastors: message prep, team alignment, and family follow-through in one calm lane.</p>
+          <p class="reassurance">This is enough. Faithful Sunday does not require a perfect week. You are not failing if this is all you use this week.</p>
+          <div class="promise-pills" aria-label="Starter pack promises">
+            KJV-only • Works offline • Print-ready • No signup • Built for thin weeks
+          </div>
+          <div class="csp-hero-grid">
+            <section class="csp-hero-panel" aria-label="Weekly launch strip">
+              <h2>Weekly Launch Strip — 15 minutes to faithful</h2>
+              <div class="three-lanes">
+                <div><strong>Prep</strong><br>Open the text first.</div>
+                <div><strong>Team</strong><br>One clear message + assignments.</div>
+                <div><strong>Follow-through</strong><br>One printable that goes home.</div>
+              </div>
+              <p><a href="/sermon.html">Start Prep Now &rarr;</a> &middot; <a href="#pastor-reset">Pastor Reset Tools</a></p>
+            </section>
+            <section class="csp-hero-panel" aria-label="Pastor utility shortcuts">
+              <h2>Pastor Reset &amp; Ready Copy</h2>
+              <p>Three tools you can reach for this week without new setup.</p>
+            </section>
+          </div>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="/sermon.html">Open Sermon Builder</a>
+            <a class="btn btn-secondary" href="/church-sharing-kit.html">Open Church Sharing Kit</a>
+            <a class="btn btn-secondary" href="/printables.html">Open Family Printables</a>
+          </div>
+        </header>
+
+        <section class="glass tdb-porch-paper-glass csp-section" aria-labelledby="csp-thin-week-heading">
+          <h2 class="section-divider" id="csp-thin-week-heading">Thin-week quick start</h2>
+          <div class="csp-quickstart-card">
+            <p class="csp-quickstart-title">Feeling behind already? Start here in 3 minutes.</p>
+            <div class="csp-quickstart-links">
+              <a href="/">Open today&rsquo;s verse and pray one short prayer.</a>
+              <a href="/plans.html?plan=preachingthroughexhaustion">Open Preaching Through Exhaustion and do day one only.</a>
+              <a href="#pastor-reset">Print the Thin Week Survival Guide.</a>
+              <a href="/prayer-wall.html?tab=with-others">Tap in for prayer support with others.</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass csp-section" aria-labelledby="csp-first-hour-heading">
+          <h2 class="section-divider" id="csp-first-hour-heading">First hour workflow</h2>
+          <p class="section-note">When the week feels thin, run this order and stop there. It is enough for a faithful Sunday.</p>
+          <p class="section-note">You do not need to touch every tool. One faithful pass is still faithful ministry.</p>
+          <ol class="fp-workflow-list">
+            <li>Choose a text and draft in <a href="/sermon.html">Sermon Builder</a>; use <strong>One-Tap Export</strong> when ready.</li>
+            <li>Pull church-ready blurbs, QR paths, and social copy from <a href="/church-sharing-kit.html">Church Sharing Kit</a>.</li>
+            <li>Assign next steps in <a href="/team-toolkit.html">Team Toolkit</a> and keep volunteers aligned.</li>
+            <li>Send families to one printable from <a href="/printables.html">Printables</a> before Sunday closes.</li>
+          </ol>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass csp-section" aria-labelledby="csp-how-church-heading">
+          <h2 class="section-divider" id="csp-how-church-heading">How to use this as a church</h2>
+          <p class="section-note">Use one calm rhythm every week so your team and families know exactly where to begin.</p>
+          <div class="csp-how-grid">
+            <article class="csp-how-card"><strong>Step 1: Wednesday prep</strong><br>Pastor picks one passage and one clear burden in Sermon Builder.</article>
+            <article class="csp-how-card"><strong>Step 2: Friday alignment</strong><br>Team shares one announcement line, one volunteer assignment, and one prayer focus.</article>
+            <article class="csp-how-card"><strong>Step 3: Sunday follow-through</strong><br>Send one printable home and point the church to one plan day for the week.</article>
+          </div>
+          <div class="csp-packet-builder" id="csp-packet-builder-section">
+            <p class="section-note">Need one button that does the work? Build a clean weekly packet and print or save as PDF.</p>
+            <div class="csp-packet-placeholder" id="csp-packet-placeholder" aria-live="polite">
+              Loading packet builder...
+            </div>
+            <div class="csp-packet-real hidden" id="csp-packet-real">
+              <p class="csp-smart-default-notice">We started with <strong>today&rsquo;s verse</strong> and a plan that fits many heavy weeks. Change anything below if you&rsquo;d like.</p>
+              <div class="csp-auto-verse-card" aria-live="polite">
+                <h3>This week&rsquo;s anchor</h3>
+                <p id="csp-auto-verse-text">Loading today&rsquo;s KJV verse…</p>
+                <p id="csp-auto-small-step">Loading today&rsquo;s small step…</p>
+                <p class="meta" id="csp-auto-verse-ref"></p>
+              </div>
+              <div class="csp-packet-controls">
+                <label for="csp-packet-plan">Choose your plan for this packet:</label>
+                <select id="csp-packet-plan" aria-label="Choose weekly packet plan">
+                  <option value="preachingthroughexhaustion" selected>Preaching Through Exhaustion (recommended for tired weeks)</option>
+                  <option value="smallchurchencouragement">Small Church Encouragement</option>
+                </select>
+                <button type="button" class="csp-change-plan-link" id="csp-change-plan-link">Change plan</button>
+                <button type="button" class="btn btn-primary" id="csp-build-weekly-packet-btn">Build My Full Weekly Packet (PDF)</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass csp-section" aria-labelledby="csp-core-tools-heading">
+          <h2 class="section-divider" id="csp-core-tools-heading">Core tools in one place</h2>
+          <p class="section-note">Use these as your weekly base so prep, team communication, and family follow-through stay connected.</p>
+          <div class="church-hub-wins-grid">
+            <a href="/church-sharing-kit.html" class="church-hub-win-card">
+              <strong>Church Sharing Kit</strong>
+              <span class="win-desc">Bulletin blurbs, email/SMS copy, and group prompts that are ready to paste.</span>
+              <span class="btn btn-secondary small">Open kit →</span>
+            </a>
+            <a href="/pastor-toolkit.html" class="church-hub-win-card">
+              <strong>Pastor Toolkit</strong>
+              <span class="win-desc">Pastor-focused prep helpers for message flow and scripture support.</span>
+              <span class="btn btn-secondary small">Open pastor toolkit →</span>
+            </a>
+            <a href="/team-toolkit.html" class="church-hub-win-card">
+              <strong>Team Toolkit</strong>
+              <span class="win-desc">Simple planning support for volunteers and leaders serving together.</span>
+              <span class="btn btn-secondary small">Open team toolkit →</span>
+            </a>
+            <a href="/sermon.html" class="church-hub-win-card">
+              <strong>Sermon Builder + One-Tap Export</strong>
+              <span class="win-desc">Export outline, points, application, and closing prayer in one move.</span>
+              <span class="btn btn-secondary small">Build and export →</span>
+            </a>
+            <a href="/printables.html" class="church-hub-win-card">
+              <strong>Family printable packs</strong>
+              <span class="win-desc">Take-home pages for kids and households so Sunday keeps breathing midweek.</span>
+              <span class="btn btn-secondary small">Open printables →</span>
+            </a>
+            <a href="/for-pastors.html" class="church-hub-win-card">
+              <strong>For Pastors hub</strong>
+              <span class="win-desc">Practical preaching examples, OIA workflow, and quick links for bi-vocational weeks.</span>
+              <span class="btn btn-secondary small">Open pastor hub →</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass csp-section" aria-labelledby="csp-pastor-plans-heading">
+          <h2 class="section-divider" id="csp-pastor-plans-heading">Pastor-focused Battle Plans</h2>
+          <p class="section-note">Built for real ministry load, not ideal weeks. Keep each lane short, calm, and printable for your own rhythm.</p>
+          <div class="csp-spotlight-grid" aria-label="Pastor plan spotlights">
+            <article class="csp-spotlight-card">
+              <h3><a href="/plans.html?plan=preachingthroughexhaustion">Preaching Through Exhaustion</a></h3>
+              <p>For sermon weeks when your body is tired but your calling still stands.</p>
+              <ul>
+                <li>Day 1-2: weakness and mercy</li>
+                <li>Day 3-4: shepherding with humility</li>
+                <li>Day 5-7: word-fed strength and steady endurance</li>
+              </ul>
+            </article>
+            <article class="csp-spotlight-card">
+              <h3><a href="/plans.html?plan=smallchurchencouragement">Small Church Encouragement</a></h3>
+              <p>For bi-vocational pastors and faithful little flocks serving with limited capacity.</p>
+              <ul>
+                <li>Day 1-2: small beginnings and faithfulness</li>
+                <li>Day 3-4: labor seen by God</li>
+                <li>Day 5-7: hope, joy, and gathered courage</li>
+              </ul>
+            </article>
+          </div>
+          <ul class="fp-workflow-list">
+            <li><a href="/plans.html?plan=preachingthroughexhaustion">Preaching Through Exhaustion</a> — seven KJV days for sermon weeks when strength runs thin.</li>
+            <li><a href="/plans.html?plan=smallchurchencouragement">Small Church Encouragement</a> — seven KJV days for bi-vocational and small-flock faithfulness.</li>
+            <li><a href="/plans.html?plan=wearyhands">Grace for Weary Hands</a> — reset for hidden ministry fatigue.</li>
+          </ul>
+          <div class="cta-group">
+            <a class="btn btn-secondary" href="/plans.html">Browse all plans</a>
+            <a class="btn btn-secondary" href="#pastor-reset">Monthly Pastor Reset (print)</a>
+            <a class="btn btn-secondary" href="/print-pack-generator.html">Build a print packet</a>
+          </div>
+          <div style="margin-top:1.1rem;padding:0.9rem 1rem;border-radius:12px;border:1px solid rgba(227,188,103,0.22);background:rgba(0,0,0,0.14);">
+            <p style="margin:0 0 0.55rem;font-size:0.82rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted,#9ca3af);">Recommended Pastor Plans</p>
+            <p style="margin:0 0 0.65rem;font-size:0.85rem;line-height:1.5;color:var(--muted,#9ca3af);">Pair this Starter Pack with a 7-day plan for a complete weekly rhythm.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+              <a href="/plans.html?plan=preachingthroughexhaustion" class="btn btn-secondary" style="font-size:0.83rem;">Preaching Through Exhaustion &rarr;<br><span style="font-size:0.78rem;opacity:0.75;">For weary weeks &amp; ministry fatigue</span></a>
+              <a href="/plans.html?plan=smallchurchencouragement" class="btn btn-secondary" style="font-size:0.83rem;">Small Church Encouragement &rarr;<br><span style="font-size:0.78rem;opacity:0.75;">For bi-vocational pastors &amp; small flocks</span></a>
+            </div>
+          </div>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass csp-section" aria-labelledby="csp-pastor-assets-heading" id="pastor-reset">
+          <h2 class="section-divider" id="csp-pastor-assets-heading">Pastor Reset &amp; Ready Copy</h2>
+          <p class="section-note">Three practical helpers you can use this week without new setup: monthly reset, thin-week guide, and copy-ready church templates.</p>
+          <div class="csp-assets-grid">
+            <article class="csp-asset-card">
+              <h3>Monthly Pastor Reset (print-ready)</h3>
+              <p>For the thin weeks when you are running on fumes:</p>
+              <ul class="csp-quick-week-list">
+                <li>One quiet hour with the Lord (Psalm 23 or Isaiah 40:31 recommended).</li>
+                <li>Review one Battle Plan (<a href="/plans.html?plan=preachingthroughexhaustion">Preaching Through Exhaustion</a> or <a href="/plans.html?plan=wearyhands">Grace for Weary Hands</a>).</li>
+                <li>Export one sermon point + prayer and give it to a deacon or elder.</li>
+                <li>Hand one family printable to one household personally.</li>
+                <li>Guard one rest block as faithful stewardship.</li>
+              </ul>
+              <div class="csp-template-actions">
+                <button type="button" class="btn btn-secondary" id="csp-print-reset-btn">Print Monthly Reset</button>
+              </div>
+            </article>
+            <article class="csp-asset-card">
+              <h3>Thin Week Survival Guide (one page)</h3>
+              <p>When Sunday is coming and you feel under water:</p>
+              <ol class="csp-thin-week-list">
+                <li>Preach one clear burden, not five competing ideas.</li>
+                <li>Call one weary member before polishing the message.</li>
+                <li>Delegate one task that does not need your voice.</li>
+                <li>Choose one family printable and repeat it.</li>
+                <li>Guard one rest block — this is ministry, not performance.</li>
+              </ol>
+              <div class="csp-template-actions">
+                <button type="button" class="btn btn-secondary" id="csp-print-thin-week-btn">Print Thin Week Guide</button>
+              </div>
+            </article>
+            <article class="csp-asset-card">
+              <h3>Sunday Morning Survival Sheet (one page)</h3>
+              <p>For the mornings when you are preaching tired:</p>
+              <ul class="csp-thin-week-list">
+                <li>One verse you are standing on today.</li>
+                <li>One main burden for your people.</li>
+                <li>One thing you are trusting God to do (not you).</li>
+                <li>One person you will encourage after service.</li>
+                <li>One rest block you will protect this week.</li>
+              </ul>
+              <div class="csp-template-actions">
+                <button type="button" class="btn btn-secondary" id="csp-print-sunday-survival-btn">Print Sunday Survival Sheet</button>
+              </div>
+            </article>
+            <article class="csp-asset-card">
+              <h3>Weekly announcement template (copy/paste)</h3>
+              <p>Use this in bulletin, SMS, or email to direct your church to one clear weekly next step.</p>
+              <label for="csp-announcement-template" class="sr-only">Church announcement template text</label>
+              <textarea id="csp-announcement-template" readonly>Church family,
+
+This week’s Scripture pathway is now posted: [INSERT PLAN LINK].
+
+If your week feels heavy, start with one day only. Read the KJV verse, take one next step, and pray the short prayer.
+
+For households, we also posted one printable for family follow-through: [INSERT PRINTABLE LINK].
+
+Grace and peace,
+[PASTOR / CHURCH NAME]</textarea>
+              <div class="csp-template-actions">
+                <button type="button" class="btn btn-secondary" id="csp-copy-announcement-btn">Copy template</button>
+                <button type="button" class="btn btn-secondary" id="csp-copy-bulletin-btn">Copy for bulletin</button>
+                <button type="button" class="btn btn-secondary" id="csp-print-announcement-btn">Print template</button>
+              </div>
+            </article>
+            <article class="csp-asset-card">
+              <h3>Monthly church email template (copy/paste)</h3>
+              <p>Use this at month-start to align your church around one calm rhythm.</p>
+              <label for="csp-monthly-email-template" class="sr-only">Monthly church email template text</label>
+              <textarea id="csp-monthly-email-template" readonly>Church family,
+
+As we begin a new month, we are keeping one simple ministry rhythm:
+
+1) One Scripture pathway for adults: [INSERT PLAN LINK]
+2) One family follow-through printable: [INSERT PRINTABLE LINK]
+3) One prayer invitation with others: [INSERT PRAYER LINK]
+
+If your week is heavy, do not try to carry everything. Start with one day, one verse, one next step.
+
+With love,
+[PASTOR / CHURCH NAME]</textarea>
+              <div class="csp-template-actions">
+                <button type="button" class="btn btn-secondary" id="csp-copy-monthly-email-btn">Copy monthly email</button>
+                <button type="button" class="btn btn-secondary" id="csp-copy-monthly-bulletin-btn">Copy for bulletin</button>
+                <button type="button" class="btn btn-secondary" id="csp-print-monthly-email-btn">Print monthly email</button>
+              </div>
+              <p class="csp-status" id="csp-template-status" aria-live="polite"></p>
+            </article>
+            <article class="csp-asset-card">
+              <h3>Ready-to-copy church blurbs</h3>
+              <p>Paste these short lines into bulletin, SMS, or email without extra editing.</p>
+              <div class="csp-blurbs-list">
+                <div class="csp-blurb-item">
+                  <p id="csp-blurb-1">This week we are walking the Preaching Through Exhaustion plan together. No pressure, just one verse, one small step, and one honest prayer.</p>
+                  <button type="button" class="btn btn-secondary csp-copy-blurb-btn" data-target="csp-blurb-1">Copy blurb</button>
+                </div>
+                <div class="csp-blurb-item">
+                  <p id="csp-blurb-2">If your week feels heavy, you are not behind. Start with one plan day and one printable from the Church Starter Pack.</p>
+                  <button type="button" class="btn btn-secondary csp-copy-blurb-btn" data-target="csp-blurb-2">Copy blurb</button>
+                </div>
+                <div class="csp-blurb-item">
+                  <p id="csp-blurb-3">Small church does not mean small faithfulness. Join us in the Small Church Encouragement plan this week.</p>
+                  <button type="button" class="btn btn-secondary csp-copy-blurb-btn" data-target="csp-blurb-3">Copy blurb</button>
+                </div>
+                <div class="csp-blurb-item">
+                  <p id="csp-blurb-4">Families can take one calm next step this week with a single printable and one short prayer together.</p>
+                  <button type="button" class="btn btn-secondary csp-copy-blurb-btn" data-target="csp-blurb-4">Copy blurb</button>
+                </div>
+                <div class="csp-blurb-item">
+                  <p id="csp-blurb-5">Need a thin-week reset? Open the Church Starter Pack and follow the 15-minute launch strip.</p>
+                  <button type="button" class="btn btn-secondary csp-copy-blurb-btn" data-target="csp-blurb-5">Copy blurb</button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass csp-section" aria-labelledby="csp-send-home-heading">
+          <h2 class="section-divider" id="csp-send-home-heading">Send-home print pathway</h2>
+          <p class="section-note">If your church can only share one thing this week, share one calm printable and one verse. Keep it simple and repeatable.</p>
+          <p class="section-note">Small, repeated faithfulness builds more than one overloaded week ever will.</p>
+          <p class="section-note">You are not failing if this is all your team can carry this week. Keep the lane calm and faithful.</p>
+          <ul class="fp-workflow-list">
+            <li>Open <a href="/printables.html">Printables</a> and choose one family page.</li>
+            <li>Pair it with one of the pastor plans above.</li>
+            <li>Add that link to your bulletin line from <a href="/church-sharing-kit.html">Church Sharing Kit</a>.</li>
+          </ul>
+        </section>
+      </div>
+    </main>
+    <nav class="tdb-bottom-dock" aria-label="Main site navigation">
+      <a href="/verse.html" aria-label="Verse of the Day">☀️ Verse</a>
+      <a href="/#feel-section" aria-label="Ask the Word">💬 Ask</a>
+      <a href="/plans.html" aria-label="Battle Plans">🗓️ Plans</a>
+      <a href="/prayer-wall.html" aria-label="Prayer Wall">🙏 Pray</a>
+      <a href="/explore.html" class="tdb-bottom-dock-more" aria-label="More tools">☰ More</a>
+    </nav>
+
+
+    <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
+  <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+    <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+    <span class="tdb-lang-switcher-inner">
+      <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-essentials" aria-label="Key pages">
+    <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/verse.html">Today&rsquo;s Lesson</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <p class="site-footer-share-wrap">
+    <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
+    <span class="site-footer-share-sep" aria-hidden="true">·</span>
+    <button type="button" class="share-page-btn site-footer-tour-restart tdb-tour-restart-btn" aria-label="Restart the five-minute site tour">Restart site tour</button>
+  </p>
+
+  <nav class="bottom-nav" role="navigation" aria-label="Plans, kids, and Spanish topics">
+    <a href="/plans.html">Plans</a>
+    <a href="/kids/">Kids Corner</a>
+    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
+      <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
+      <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
+      <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-nav" aria-label="Footer links">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/media.html">Media</a>
+    <a href="/roadmap.html">Roadmap</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/for-pastors.html">For pastors &amp; teachers</a>
+    <a href="/reader.html">Chapter reader</a>
+    <a href="/bible/tools.html">Study workshop</a>
+    <a href="/bible-tool.html">Bible tool</a>
+    <a href="/testimonials.html">Reader stories</a>
+    <a href="/journal/">Journal</a>
+    <a href="/updates.html">Monthly updates</a>
+    <a href="/emergency-calm-pack.html">Emergency calm pack</a>
+    <a href="/where-support-goes.html">Where support goes</a>
+    <a href="/verse-cards/">Verse cards</a>
+    <a href="/security.html">Security</a>
+    <a href="/contact.html">Contact</a>
+    <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
+  </nav>
+
+  <details class="footer-sitemap">
+    <summary>Sitemap — topics, tools, church &amp; family (tap to expand)</summary>
+    <div class="footer-sitemap-grid">
+      <div class="footer-sitemap-col">
+        <h3>The Narrow Paths</h3>
+        <a href="/explore.html">Full list (all pages)</a>
+        <a href="/topic-anxiety.html">Anxiety</a>
+        <a href="/topic-fear.html">Fear</a>
+        <a href="/topic-grief.html">Grief</a>
+        <a href="/topic-hope.html">Hope</a>
+        <a href="/topic-strength.html">Strength</a>
+        <a href="/topic-parenting.html">Parenting</a>
+        <a href="/topic-loneliness.html">Loneliness</a>
+        <a href="/topic-forgiveness.html">Forgiveness</a>
+        <a href="/topic-guilt.html">Guilt</a>
+        <a href="/topic-overwhelmed.html">Overwhelmed</a>
+        <a href="/topic-worthless.html">Worth / identity</a>
+      </div>
+      <div class="footer-sitemap-col footer-sitemap-col--es-links">
+        <h3>Spanish devotionals</h3>
+        <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es">Paz</a>
+        <a href="/explore.html#topics-es">All Spanish topics on Explore</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Tools of the Quiet Trade</h3>
+        <a href="/verse.html">Verse of the Day</a>
+        <a href="/reader.html">Chapter reader</a>
+        <a href="/bible/tools.html">Study workshop</a>
+        <a href="/bible-tool.html">Bible tool</a>
+        <a href="/mystudy">My Study</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/mobius.html">Grace Ribbon</a>
+        <a href="/one-family-in-christ.html">One Family in Christ</a>
+        <a href="/red-letters.html">Red letters</a>
+        <a href="/plans.html">Battle Plans</a>
+        <a href="/reading-plan.html">7-day plan</a>
+        <a href="/study.html">Study workspace</a>
+        <a href="/wins.html">Wins</a>
+        <a href="/progress.html">Progress</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>For the Household of Faith</h3>
+        <a href="/church.html">Church center</a>
+        <a href="/church/">Church join hub</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit</a>
+        <a href="/pastor/">Pastor hub</a>
+        <a href="/sermon.html">Sermon builder</a>
+        <a href="/family.html">Family hub</a>
+        <a href="/little-ones.html">For the Little Ones</a>
+        <a href="/family-armor.html">Family Armor</a>
+        <a href="/kids/">Kids Corner</a>
+        <a href="/coloring.html">Color &amp; Tell</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Further In</h3>
+        <a href="/prayer-wall.html">Prayer</a>
+        <a href="/offline-porch.html">Offline porch</a>
+        <a href="/porch-map-one-page-print.html">Porch map (print)</a>
+        <a href="/porch-pathways-ribbon-one-page-print.html">Ribbon pathways (print)</a>
+        <a href="/bible-study.html">Bible studies</a>
+        <a href="/shop.html">Shop</a>
+        <a href="/story.html">Story</a>
+        <a href="/media.html">Media</a>
+        <a href="/roadmap.html">Roadmap</a>
+        <a href="/approach.html">How we respond</a>
+        <a href="/curriculum.html">Curriculum</a>
+        <a href="/verse-cards/">Verse cards</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </details>
+
+  <p class="footer-humility">We battle. He wins.</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): footer story lives in .site-footer-story below -->
+  <p class="site-footer-story">
+    Steady KJV for honest days&mdash;no ads, no selling your data; prayers stay on this device unless you sync on purpose.
+  </p>
+
+  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" aria-labelledby="footerFridaySignupHeading">
+    <p class="footer-friday-signup-label" id="footerFridaySignupHeading">Short <abbr title="King James Version">KJV</abbr> Friday letter only&mdash;one message a week, easy unsubscribe, never sold. Want the daily calendar verse too? <a href="/#newsletter">Use the home signup</a>.</p>
+    <div class="footer-friday-signup-row">
+      <label for="footer-friday-email" class="sr-only">Email for Friday letter</label>
+      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="you@example.com" aria-label="Email for Friday letter" autocomplete="email">
+      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit" aria-label="Sign up for the short Friday email">Sign me up</button>
+    </div>
+    <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
+  </div>
+
+  <p class="site-footer-copy site-footer-legal-line">&copy; 2026 Today&rsquo;s Daily Battle &middot; Christian Messenger Service. All rights reserved.</p>
+  <p class="site-footer-copy site-footer-legal-line">All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
+
+  <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
+  <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">July 8, 2026</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
+  </div>
+  <script defer src="/language-switcher.js?v=20260503-consent-persist-fix"></script>
+</footer>
+  </div>
+  <script src="inline-bootstrap.js"></script>
+  <script nonce="tdb2025s">
+    (function () {
+      var template = document.getElementById('csp-announcement-template');
+      var monthlyTemplate = document.getElementById('csp-monthly-email-template');
+      var status = document.getElementById('csp-template-status');
+      function setStatus(message) {
+        if (status) status.textContent = message || '';
+      }
+      function printChecklistSheet(options) {
+        var popup = window.open('', '_blank', 'noopener,noreferrer,width=960,height=780');
+        if (!popup || !popup.document) {
+          setStatus('Print popup blocked. Allow popups for this page to print the sheet.');
+          return;
+        }
+        var doc = popup.document;
+        doc.title = options.title + ' | Church Starter Pack';
+        var html = doc.documentElement;
+        var head = doc.head;
+        var body = doc.body;
+        if (html) html.setAttribute('lang', 'en');
+        var style = doc.createElement('style');
+        style.textContent = [
+          'body{font-family:Georgia,serif;margin:0;padding:0;color:#111;background:#fff;}',
+          '.wrap{max-width:780px;margin:0 auto;padding:30px 24px;}',
+          'h1{margin:0 0 8px;font-size:1.7rem;line-height:1.25;}',
+          '.sub{margin:0 0 14px;font-size:1rem;line-height:1.5;color:#333;}',
+          '.meta{margin:0 0 12px;font-size:0.86rem;color:#555;}',
+          'ul,ol{margin:0;padding-left:20px;line-height:1.6;font-size:1rem;}',
+          'li{margin:0 0 7px;}',
+          '.close{margin-top:18px;font-size:0.9rem;color:#444;}',
+          '@media print {.close{display:none;} .wrap{padding:12mm 10mm;}}'
+        ].join('');
+        head.appendChild(style);
+
+        var wrap = doc.createElement('main');
+        wrap.className = 'wrap';
+        var h1 = doc.createElement('h1');
+        h1.textContent = options.title;
+        wrap.appendChild(h1);
+        if (options.subtitle) {
+          var sub = doc.createElement('p');
+          sub.className = 'sub';
+          sub.textContent = options.subtitle;
+          wrap.appendChild(sub);
+        }
+        if (options.ref) {
+          var meta = doc.createElement('p');
+          meta.className = 'meta';
+          meta.textContent = 'KJV anchor: ' + options.ref;
+          wrap.appendChild(meta);
+        }
+        var list = doc.createElement(options.ordered ? 'ol' : 'ul');
+        options.items.forEach(function (item) {
+          var li = doc.createElement('li');
+          li.textContent = item;
+          list.appendChild(li);
+        });
+        wrap.appendChild(list);
+        var close = doc.createElement('p');
+        close.className = 'close';
+        close.textContent = 'This printable is from Church Starter Pack on Today\'s Daily Battle.';
+        wrap.appendChild(close);
+        body.appendChild(wrap);
+        popup.focus();
+        popup.print();
+        popup.close();
+      }
+      function copyTemplate(text, fallbackEl, okMessage) {
+        if (!text || !text.trim()) {
+          setStatus('Template text is empty.');
+          return;
+        }
+        if (!navigator.clipboard || typeof navigator.clipboard.writeText !== 'function') {
+          if (fallbackEl) { fallbackEl.focus(); fallbackEl.select(); }
+          setStatus('Clipboard unavailable. Template selected for manual copy.');
+          return;
+        }
+        navigator.clipboard.writeText(text).then(function () {
+          setStatus(okMessage || 'Copied.');
+        }).catch(function () {
+          if (fallbackEl) { fallbackEl.focus(); fallbackEl.select(); }
+          setStatus('Copy failed. Template selected for manual copy.');
+        });
+      }
+      function getCurrentPlanDayIndex() {
+        var day = new Date().getDay();
+        if (day === 0) return 6;
+        return day - 1;
+      }
+      var packetPlansCache = null;
+      function getPacketPlans() {
+        if (packetPlansCache) return packetPlansCache;
+        packetPlansCache = {
+          preachingthroughexhaustion: {
+            label: 'Preaching Through Exhaustion',
+            url: 'https://www.todaysdailybattle.com/plans.html?plan=preachingthroughexhaustion',
+            days: [
+              { ref: 'Isaiah 40:31', text: 'But they that wait upon the LORD shall renew their strength...', step: 'Cancel one non-essential meeting and spend it in the text.', prayer: 'Lord, I am empty. Renew my strength as I wait on You.' },
+              { ref: 'Psalm 27:13-14', text: 'I had fainted, unless I had believed to see the goodness of the LORD...', step: 'Write one thing you are believing God for in your church this month.', prayer: 'I would have fainted, Lord. Strengthen my heart while I wait.' },
+              { ref: '2 Corinthians 4:8-9', text: 'We are troubled on every side, yet not distressed...', step: 'Name one pressure out loud to the Lord today.', prayer: 'I feel pressed on every side, Lord. Hold me together so I do not break.' },
+              { ref: 'Galatians 6:9', text: 'Let us not be weary in well doing...', step: 'Do one small act of faithfulness today even if you feel nothing.', prayer: 'Keep me from fainting, Lord. Help me keep doing good.' },
+              { ref: 'Matthew 11:28-30', text: 'Come unto me, all ye that labour and are heavy laden...', step: 'Preach from rest this week, not from striving.', prayer: 'Jesus, I am heavy laden. Teach me Your yoke. Give me rest for my soul.' },
+              { ref: '2 Timothy 4:6-7', text: 'I have fought a good fight, I have finished my course, I have kept the faith...', step: 'Thank God for the grace to still be standing this far.', prayer: 'Lord, help me keep the faith even when I feel I have nothing left to give.' },
+              { ref: 'Psalm 73:26', text: 'My flesh and my heart faileth: but God is the strength of my heart...', step: 'Rest without guilt this Sabbath. Let Him be your portion.', prayer: 'My flesh and heart are failing, Lord. Be my strength and my portion.' }
+            ]
+          },
+          smallchurchencouragement: {
+            label: 'Small Church Encouragement',
+            url: 'https://www.todaysdailybattle.com/plans.html?plan=smallchurchencouragement',
+            days: [
+              { ref: 'Zechariah 4:10', text: 'For who hath despised the day of small things?', step: 'Write the names of your faithful few and thank God for them by name.', prayer: 'Lord, I will not despise these small things.' },
+              { ref: '1 Corinthians 15:58', text: 'Be ye stedfast, unmoveable, always abounding in the work of the Lord...', step: 'Do one thing well today even if no one sees it.', prayer: 'Make me steadfast when no one is watching.' },
+              { ref: 'Haggai 2:3-4', text: 'Be strong... for I am with you, saith the LORD of hosts.', step: 'Say out loud: "The LORD of hosts is with us."', prayer: 'Lord, this feels smaller than I hoped. Be with us.' },
+              { ref: 'Colossians 3:23-24', text: 'Whatsoever ye do, do it heartily, as to the Lord, and not unto men...', step: 'Do today\'s ministry as unto the Lord, not for visible results.', prayer: 'Help me work heartily for You, not for men.' },
+              { ref: 'Psalm 37:3-5', text: 'Trust in the LORD, and do good... Delight thyself also in the LORD...', step: 'Delight in the Lord today before asking for growth.', prayer: 'I trust You. Help me delight in You even when the church is small.' },
+              { ref: '2 Corinthians 12:9', text: 'My grace is sufficient for thee: for my strength is made perfect in weakness.', step: 'Tell the Lord one area where you feel weak right now.', prayer: 'Your grace is enough for me. Let Your strength be perfect in my weakness.' },
+              { ref: 'Hebrews 6:10', text: 'God is not unrighteous to forget your work and labour of love...', step: 'Rest in the truth that God remembers what you have done.', prayer: 'Thank You that You see every act of love I have given in this small place.' }
+            ]
+          }
+        };
+        return packetPlansCache;
+      }
+      var smartDailyAnchor = null;
+      var smartAnchorLoadStarted = false;
+      function normalizeDailyAnchor(payload) {
+        if (!payload || typeof payload !== 'object') return null;
+        var ref = payload.ref || payload.reference || payload.verseRef || '';
+        var text = payload.text || payload.verse || payload.kjv || payload.kjv_text || '';
+        if (!ref || !text) return null;
+        return { ref: String(ref), text: String(text) };
+      }
+      function getBundledDailyAnchorFallback() {
+        var fb = (typeof window !== 'undefined' && window.DAILY_VERSE_BUNDLED_FALLBACK) ? window.DAILY_VERSE_BUNDLED_FALLBACK : null;
+        var normalized = normalizeDailyAnchor(fb || {});
+        if (normalized) return normalized;
+        return { ref: 'Psalm 23:1', text: 'The LORD is my shepherd; I shall not want.' };
+      }
+      function updateSmartDefaultCard(planKey) {
+        var packetPlans = getPacketPlans();
+        var chosen = packetPlans[planKey] || packetPlans.preachingthroughexhaustion;
+        var todayPlanDay = chosen.days[getCurrentPlanDayIndex()] || chosen.days[0];
+        var verseEl = document.getElementById('csp-auto-verse-text');
+        var stepEl = document.getElementById('csp-auto-small-step');
+        var refEl = document.getElementById('csp-auto-verse-ref');
+        if (verseEl) verseEl.textContent = smartDailyAnchor ? smartDailyAnchor.text : getBundledDailyAnchorFallback().text;
+        if (stepEl) stepEl.textContent = 'Small step: ' + (todayPlanDay && todayPlanDay.step ? todayPlanDay.step : 'Start with one verse and one honest prayer.');
+        if (refEl) refEl.textContent = smartDailyAnchor ? smartDailyAnchor.ref : getBundledDailyAnchorFallback().ref;
+      }
+      function loadSmartDailyAnchor(planKey) {
+        return fetch('/today-kjv-verse.json', { cache: 'no-store' })
+          .then(function (res) { return res && res.ok ? res.json() : null; })
+          .then(function (data) {
+            var normalized = normalizeDailyAnchor(data || {});
+            smartDailyAnchor = normalized || getBundledDailyAnchorFallback();
+            updateSmartDefaultCard(planKey);
+          })
+          .catch(function () {
+            smartDailyAnchor = getBundledDailyAnchorFallback();
+            updateSmartDefaultCard(planKey);
+          });
+      }
+      function buildWeeklyPacket(planKey) {
+        var packetPlans = getPacketPlans();
+        var chosen = packetPlans[planKey] || packetPlans.preachingthroughexhaustion;
+        var todayPlanDay = chosen.days[getCurrentPlanDayIndex()] || chosen.days[0];
+        var verseAnchor = smartDailyAnchor || getBundledDailyAnchorFallback();
+        var popup = window.open('', '_blank', 'noopener,noreferrer,width=980,height=820');
+        if (!popup || !popup.document) {
+          setStatus('Packet popup blocked. Allow popups to build your weekly packet.');
+          return;
+        }
+        var doc = popup.document;
+        doc.title = 'Weekly Church Packet';
+        doc.open();
+        doc.write('<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Weekly Church Packet</title><style>body{font-family:Georgia,serif;margin:0;color:#101828;background:#fff}main{max-width:900px;margin:0 auto;padding:26px 24px}h1{margin:0 0 8px;font-size:1.9rem}h2{margin:22px 0 8px;font-size:1.2rem}p,li{font-size:1rem;line-height:1.6}ul,ol{margin:0;padding-left:21px}.card{border:1px solid #d0d7de;border-radius:12px;padding:12px 14px;margin:10px 0 0}.meta{font-size:0.9rem;color:#475467;margin-top:4px}.small{font-size:0.92rem;color:#344054}@media print{main{padding:10mm}.noprint{display:none}}</style></head><body>
+  <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
+</body></html>');
+        var body = doc.body;
+        var main = doc.createElement('main');
+        var h1 = doc.createElement('h1');
+        h1.textContent = 'Weekly Church Packet';
+        main.appendChild(h1);
+        var intro = doc.createElement('p');
+        intro.className = 'small';
+        intro.textContent = 'One verse, one step, one prayer, one plan lane, one family follow-through.';
+        main.appendChild(intro);
+        var verse = doc.createElement('section');
+        verse.className = 'card';
+        var verseTitle = doc.createElement('h2');
+        verseTitle.textContent = 'This week\'s verse + step + prayer';
+        verse.appendChild(verseTitle);
+        var verseLine = doc.createElement('p');
+        var verseRefStrong = doc.createElement('strong');
+        verseRefStrong.textContent = verseAnchor.ref;
+        verseLine.appendChild(verseRefStrong);
+        verseLine.appendChild(doc.createTextNode(' — ' + verseAnchor.text));
+        verse.appendChild(verseLine);
+        var stepP = doc.createElement('p');
+        var stepStrong = doc.createElement('strong');
+        stepStrong.textContent = 'Small step:';
+        stepP.appendChild(stepStrong);
+        stepP.appendChild(doc.createTextNode(' ' + todayPlanDay.step));
+        verse.appendChild(stepP);
+        var prayerP = doc.createElement('p');
+        var prayerStrong = doc.createElement('strong');
+        prayerStrong.textContent = 'Prayer:';
+        prayerP.appendChild(prayerStrong);
+        prayerP.appendChild(doc.createTextNode(' ' + todayPlanDay.prayer));
+        verse.appendChild(prayerP);
+        main.appendChild(verse);
+        var plan = doc.createElement('section');
+        plan.className = 'card';
+        var refs = chosen.days.map(function (d, i) { return 'Day ' + (i + 1) + ': ' + d.ref; });
+        var planTitle = doc.createElement('h2');
+        planTitle.textContent = 'Chosen plan lane: ' + chosen.label;
+        plan.appendChild(planTitle);
+        var planMeta = doc.createElement('p');
+        planMeta.className = 'meta';
+        planMeta.textContent = 'Open plan online: ' + chosen.url;
+        plan.appendChild(planMeta);
+        var planList = doc.createElement('ul');
+        refs.forEach(function (entry) {
+          var liRef = doc.createElement('li');
+          liRef.textContent = entry;
+          planList.appendChild(liRef);
+        });
+        plan.appendChild(planList);
+        main.appendChild(plan);
+        var sunday = doc.createElement('section');
+        sunday.className = 'card';
+        var sundayTitle = doc.createElement('h2');
+        sundayTitle.textContent = 'Sunday Morning Survival Sheet';
+        sunday.appendChild(sundayTitle);
+        var sundayList = doc.createElement('ul');
+        [
+          'One verse you are standing on today.',
+          'One main burden for your people.',
+          'One thing you are trusting God to do (not you).',
+          'One person you will encourage after service.',
+          'One rest block you will protect this week.'
+        ].forEach(function (line) {
+          var liSunday = doc.createElement('li');
+          liSunday.textContent = line;
+          sundayList.appendChild(liSunday);
+        });
+        sunday.appendChild(sundayList);
+        main.appendChild(sunday);
+        var family = doc.createElement('section');
+        family.className = 'card';
+        var familyTitle = doc.createElement('h2');
+        familyTitle.textContent = 'Family follow-through';
+        family.appendChild(familyTitle);
+        var familyP = doc.createElement('p');
+        familyP.textContent = 'Choose one printable page and share it Sunday.';
+        family.appendChild(familyP);
+        var familyMeta = doc.createElement('p');
+        familyMeta.className = 'meta';
+        familyMeta.textContent = 'Printables: https://www.todaysdailybattle.com/printables.html';
+        family.appendChild(familyMeta);
+        main.appendChild(family);
+        var tip = doc.createElement('p');
+        tip.className = 'noprint small';
+        tip.textContent = 'Use your browser Print dialog and choose Save as PDF if needed.';
+        main.appendChild(tip);
+        body.appendChild(main);
+        doc.close();
+        popup.focus();
+        popup.print();
+        setStatus('Weekly packet opened. Print or save as PDF from the dialog.');
+      }
+      function warmSmartDailyAnchor(planKey) {
+        if (smartAnchorLoadStarted) return;
+        smartAnchorLoadStarted = true;
+        loadSmartDailyAnchor(planKey);
+      }
+      var packetBuilderBooted = false;
+      function hydratePacketBuilder() {
+        if (packetBuilderBooted) return;
+        packetBuilderBooted = true;
+        var placeholder = document.getElementById('csp-packet-placeholder');
+        var realBuilder = document.getElementById('csp-packet-real');
+        if (placeholder) placeholder.style.display = 'none';
+        if (realBuilder) realBuilder.classList.remove('hidden');
+        var packetBtn = document.getElementById('csp-build-weekly-packet-btn');
+        if (packetBtn) {
+          packetBtn.addEventListener('click', function () {
+            var select = document.getElementById('csp-packet-plan');
+            var key = select ? select.value : 'preachingthroughexhaustion';
+            warmSmartDailyAnchor(key);
+            buildWeeklyPacket(key);
+          });
+        }
+        var packetPlanSelect = document.getElementById('csp-packet-plan');
+        if (packetPlanSelect) {
+          packetPlanSelect.addEventListener('change', function () {
+            updateSmartDefaultCard(packetPlanSelect.value || 'preachingthroughexhaustion');
+            warmSmartDailyAnchor(packetPlanSelect.value || 'preachingthroughexhaustion');
+          });
+          packetPlanSelect.addEventListener('focus', function () {
+            warmSmartDailyAnchor(packetPlanSelect.value || 'preachingthroughexhaustion');
+          });
+        }
+        var changePlanLink = document.getElementById('csp-change-plan-link');
+        if (changePlanLink) {
+          changePlanLink.addEventListener('click', function () {
+            if (packetPlanSelect) packetPlanSelect.focus();
+          });
+        }
+        var initialPlanKey = packetPlanSelect ? packetPlanSelect.value : 'preachingthroughexhaustion';
+        updateSmartDefaultCard(initialPlanKey);
+        if (typeof window.requestIdleCallback === 'function') {
+          window.requestIdleCallback(function () { warmSmartDailyAnchor(initialPlanKey); }, { timeout: 1400 });
+        } else {
+          setTimeout(function () { warmSmartDailyAnchor(initialPlanKey); }, 380);
+        }
+      }
+      function initConditionalPacketBuilder() {
+        var section = document.getElementById('csp-packet-builder-section');
+        if (!section) return;
+        var intentBoot = function () {
+          hydratePacketBuilder();
+        };
+        var scheduleGentleHydration = function () {
+          if (typeof window.requestIdleCallback === 'function') {
+            window.requestIdleCallback(hydratePacketBuilder, { timeout: 1000 });
+          } else {
+            setTimeout(hydratePacketBuilder, 900);
+          }
+        };
+        var prewarmAnchor = function () {
+          var defaultPlan = 'preachingthroughexhaustion';
+          if (typeof window.requestIdleCallback === 'function') {
+            window.requestIdleCallback(function () { warmSmartDailyAnchor(defaultPlan); }, { timeout: 700 });
+          } else {
+            setTimeout(function () { warmSmartDailyAnchor(defaultPlan); }, 280);
+          }
+        };
+        section.addEventListener('pointerdown', intentBoot, { passive: true, capture: true });
+        section.addEventListener('focusin', intentBoot, { capture: true });
+        if (typeof window.IntersectionObserver === 'function') {
+          var observer = new IntersectionObserver(function (entries) {
+            if (!entries || !entries[0] || !entries[0].isIntersecting) return;
+            hydratePacketBuilder();
+            observer.disconnect();
+          }, { threshold: 0.1 });
+          observer.observe(section);
+        }
+        scheduleGentleHydration();
+        prewarmAnchor();
+      }
+      var copyAnnouncementBtn = document.getElementById('csp-copy-announcement-btn');
+      if (copyAnnouncementBtn && template) {
+        copyAnnouncementBtn.addEventListener('click', function () {
+          copyTemplate(template.value || '', template, 'Weekly template copied.');
+        });
+      }
+      var copyBulletinBtn = document.getElementById('csp-copy-bulletin-btn');
+      if (copyBulletinBtn && template) {
+        copyBulletinBtn.addEventListener('click', function () {
+          copyTemplate((template.value || '').replace(/\n\s*\n/g, '\n').trim(), template, 'Bulletin copy is ready.');
+        });
+      }
+      var copyMonthlyBtn = document.getElementById('csp-copy-monthly-email-btn');
+      if (copyMonthlyBtn && monthlyTemplate) {
+        copyMonthlyBtn.addEventListener('click', function () {
+          copyTemplate(monthlyTemplate.value || '', monthlyTemplate, 'Monthly email copied.');
+        });
+      }
+      var copyMonthlyBulletinBtn = document.getElementById('csp-copy-monthly-bulletin-btn');
+      if (copyMonthlyBulletinBtn && monthlyTemplate) {
+        copyMonthlyBulletinBtn.addEventListener('click', function () {
+          copyTemplate((monthlyTemplate.value || '').replace(/\n\s*\n/g, '\n').trim(), monthlyTemplate, 'Monthly bulletin copy is ready.');
+        });
+      }
+      var blurbButtons = document.querySelectorAll('.csp-copy-blurb-btn');
+      blurbButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var targetId = btn.getAttribute('data-target');
+          if (!targetId) return;
+          var el = document.getElementById(targetId);
+          if (!el) return;
+          copyTemplate(el.textContent || '', null, 'Blurb copied.');
+        });
+      });
+      initConditionalPacketBuilder();
+      var printResetBtn = document.getElementById('csp-print-reset-btn');
+      if (printResetBtn) {
+        printResetBtn.addEventListener('click', function () {
+          printChecklistSheet({
+            title: 'Monthly Pastor Reset',
+            subtitle: 'For thin weeks when you are running on fumes.',
+            ref: 'Psalm 23 or Isaiah 40:31',
+            ordered: false,
+            items: [
+              'One quiet hour with the Lord.',
+              'Review one Battle Plan for weary leaders.',
+              'Export one sermon point and prayer.',
+              'Hand one family printable to one household personally.',
+              'Guard one rest block as stewardship.'
+            ]
+          });
+        });
+      }
+      var printSundayBtn = document.getElementById('csp-print-sunday-survival-btn');
+      if (printSundayBtn) {
+        printSundayBtn.addEventListener('click', function () {
+          printChecklistSheet({
+            title: 'Sunday Morning Survival Sheet',
+            subtitle: 'For mornings when you are preaching tired.',
+            ref: 'Psalm 73:26',
+            ordered: false,
+            items: [
+              'One verse you are standing on today.',
+              'One main burden for your people.',
+              'One thing you are trusting God to do (not you).',
+              'One person you will encourage after service.',
+              'One rest block you will protect this week.'
+            ]
+          });
+        });
+      }
+      ['csp-print-thin-week-btn', 'csp-print-announcement-btn', 'csp-print-monthly-email-btn'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.addEventListener('click', function () { window.print(); });
+      });
+    })();
+  </script>
+  <script type="module" src="config.js"></script>
+  <script type="module" src="script.js?v=20260503-consent-persist-fix" data-cfasync="false"></script>
+</body>
+</html>

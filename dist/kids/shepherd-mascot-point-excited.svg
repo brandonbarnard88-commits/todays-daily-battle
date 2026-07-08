@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 200" width="160" height="200" role="img" aria-labelledby="sm-pe-t">
+  <title id="sm-pe-t">Little Shepherd points to your surprise story</title>
+  <defs>
+    <radialGradient id="fg-pe" cx="40%" cy="35%" r="58%">
+      <stop offset="0%" stop-color="#fffbf0"/>
+      <stop offset="100%" stop-color="#fde68a"/>
+    </radialGradient>
+  </defs>
+  <!-- robe (slightly angled — excited lean) -->
+  <path d="M50,105 C46,124 41,157 39,192 L121,192 C119,157 114,124 110,105 Z" fill="#fef9eb" stroke="#c9a55a" stroke-width="2" stroke-linejoin="round"/>
+  <line x1="69" y1="108" x2="63" y2="148" stroke="#c9a55a" stroke-width="1.2" opacity="0.45" stroke-linecap="round"/>
+  <line x1="91" y1="108" x2="97" y2="148" stroke="#c9a55a" stroke-width="1.2" opacity="0.45" stroke-linecap="round"/>
+  <!-- left arm (down/back) -->
+  <path d="M52,112 Q43,133 39,153" fill="none" stroke="#c9a55a" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="38" cy="155" r="7" fill="#fef3c7" stroke="#d97706" stroke-width="1.6"/>
+  <!-- right arm (pointing up and forward — excited) -->
+  <path d="M108,112 Q124,100 138,86" fill="none" stroke="#c9a55a" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="140" cy="84" r="5.5" fill="#fef3c7" stroke="#d97706" stroke-width="1.6"/>
+  <!-- small star burst near pointing hand -->
+  <path d="M144,76 L146,71 L148,76 L153,74 L149,78 L153,82 L148,80 L146,85 L144,80 L139,82 L143,78 L139,74 Z" fill="#fde68a" stroke="#d97706" stroke-width="1" opacity="0.7"/>
+  <!-- woolly bumps -->
+  <circle cx="63" cy="57" r="13" fill="#fef9eb" stroke="#d97706" stroke-width="1.8"/>
+  <circle cx="80" cy="50" r="15" fill="#fef9eb" stroke="#d97706" stroke-width="1.8"/>
+  <circle cx="97" cy="57" r="12" fill="#fef9eb" stroke="#d97706" stroke-width="1.8"/>
+  <!-- face -->
+  <circle cx="80" cy="78" r="30" fill="url(#fg-pe)" stroke="#d97706" stroke-width="2"/>
+  <!-- bright excited eyes -->
+  <circle cx="70" cy="73" r="5" fill="#2d1a0e"/>
+  <circle cx="72" cy="71.5" r="1.5" fill="#fff" opacity="0.8"/>
+  <circle cx="90" cy="73" r="5" fill="#2d1a0e"/>
+  <circle cx="92" cy="71.5" r="1.5" fill="#fff" opacity="0.8"/>
+  <!-- excited big smile -->
+  <path d="M67,87 Q80,99 93,87" fill="none" stroke="#92400e" stroke-width="2.6" stroke-linecap="round"/>
+  <ellipse cx="63" cy="83" rx="6" ry="3.5" fill="#f87171" opacity="0.24"/>
+  <ellipse cx="97" cy="83" rx="6" ry="3.5" fill="#f87171" opacity="0.24"/>
+</svg>

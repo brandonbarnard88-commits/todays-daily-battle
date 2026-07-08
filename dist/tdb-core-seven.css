@@ -1,0 +1,77 @@
+/* Shared “Seven calm doors” strip — Home, Explore, Plans, Family hub */
+.tdb-core-seven {
+  margin: clamp(0.85rem, 2vw, 1.35rem) 0;
+}
+.tdb-core-seven__label {
+  margin: 0 0 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted, #a8b3c4);
+}
+.tdb-core-seven__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+@media (min-width: 640px) {
+  .tdb-core-seven__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 900px) {
+  .tdb-core-seven__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+.tdb-core-seven__link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-height: 44px;
+  padding: 0.72rem 0.85rem;
+  border-radius: 12px;
+  border: 1px solid var(--line, #2a3344);
+  background: color-mix(in srgb, var(--card, #0f1520) 92%, var(--accent, #8ba6d9) 8%);
+  color: var(--text, #f5f7fb);
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1.35;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.tdb-core-seven__link:hover,
+.tdb-core-seven__link:focus-visible {
+  border-color: color-mix(in srgb, var(--accent, #8ba6d9) 55%, var(--line, #2a3344));
+  outline: none;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--gold, #e3bc67) 45%, transparent);
+}
+.tdb-core-seven__link[aria-current="page"] {
+  border-color: color-mix(in srgb, var(--accent, #8ba6d9) 65%, var(--line, #2a3344));
+  background: color-mix(in srgb, var(--accent, #8ba6d9) 14%, var(--card, #0f1520));
+}
+.tdb-core-seven__desc {
+  font-size: 0.82rem;
+  font-weight: 450;
+  color: var(--muted, #a8b3c4);
+}
+.tdb-hub-disclosure {
+  margin: clamp(0.85rem, 2vw, 1.25rem) 0;
+  border: 1px solid var(--line, #2a3344);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--card, #0f1520) 96%, transparent);
+}
+.tdb-hub-disclosure__summary {
+  cursor: pointer;
+  padding: 0.9rem 1rem;
+  font-weight: 600;
+  line-height: 1.45;
+  list-style: none;
+  min-height: 44px;
+}
+.tdb-hub-disclosure__summary::-webkit-details-marker { display: none; }
+.tdb-hub-disclosure__inner {
+  padding: 0 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}

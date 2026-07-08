@@ -1,0 +1,488 @@
+/* One Family in Christ — calm pedigree layout */
+.one-family-page {
+  --of-gold: #e3bc67;
+  --of-muted: #8896b0;
+  --of-line: rgba(148, 163, 184, 0.28);
+  --of-card: rgba(15, 23, 42, 0.55);
+  --of-card-hover: rgba(227, 188, 103, 0.08);
+}
+
+.one-family-page main {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 2rem 1.15rem 4rem;
+}
+
+.one-family-hero h1 {
+  font-size: clamp(1.55rem, 4.5vw, 2.1rem);
+  color: var(--of-gold);
+  margin: 0 0 0.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.one-family-porch {
+  color: var(--of-muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 0 0 1rem;
+}
+
+.one-family-intro p {
+  margin: 0 0 0.85rem;
+  color: rgba(245, 247, 251, 0.9);
+  line-height: 1.65;
+}
+
+.one-family-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+  margin: 1.25rem 0 1.5rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 12px;
+  border: 1px solid var(--of-line);
+  background: var(--of-card);
+}
+
+.one-family-search {
+  flex: 1 1 12rem;
+  min-height: 44px;
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--of-line);
+  background: rgba(8, 12, 22, 0.6);
+  color: #f5f7fb;
+  font-size: 0.95rem;
+}
+
+.one-family-search::placeholder {
+  color: var(--of-muted);
+}
+
+.one-family-expand-all {
+  min-height: 44px;
+  padding: 0.45rem 0.85rem;
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--of-gold) 45%, transparent);
+  background: rgba(227, 188, 103, 0.1);
+  color: var(--of-gold);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.one-family-expand-all:hover,
+.one-family-expand-all:focus-visible {
+  background: rgba(227, 188, 103, 0.2);
+  outline: 2px solid rgba(227, 188, 103, 0.5);
+  outline-offset: 2px;
+}
+
+.one-family-toc {
+  margin: 0 0 1.75rem;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.5rem;
+}
+
+.one-family-toc a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--of-line);
+  font-size: 0.8rem;
+  text-decoration: none;
+  color: rgba(226, 232, 240, 0.9);
+}
+
+.one-family-toc a:hover,
+.one-family-toc a:focus-visible {
+  border-color: color-mix(in srgb, var(--of-gold) 50%, transparent);
+  color: var(--of-gold);
+}
+
+.one-family-section {
+  margin-bottom: 2.25rem;
+}
+
+.one-family-section h2 {
+  font-size: 1.05rem;
+  color: var(--of-gold);
+  margin: 0 0 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.heritage-tree {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.heritage-tree--branch {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.heritage-node {
+  position: relative;
+  margin: 0;
+  padding: 0 0 0 1.35rem;
+}
+
+.heritage-node::before {
+  content: '';
+  position: absolute;
+  left: 0.35rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--of-gold) 35%, transparent), var(--of-line));
+  border-radius: 2px;
+}
+
+.heritage-node:last-child::before {
+  bottom: 50%;
+}
+
+.heritage-node::after {
+  content: '';
+  position: absolute;
+  left: 0.35rem;
+  top: 1.35rem;
+  width: 0.65rem;
+  height: 2px;
+  background: color-mix(in srgb, var(--of-gold) 40%, transparent);
+}
+
+.heritage-person {
+  width: 100%;
+  text-align: left;
+  margin: 0 0 0.35rem;
+  min-height: 48px;
+  padding: 0.85rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid var(--of-line);
+  background: var(--of-card);
+  color: #f5f7fb;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.heritage-person:hover,
+.heritage-person:focus-visible {
+  background: var(--of-card-hover);
+  border-color: color-mix(in srgb, var(--of-gold) 35%, transparent);
+  outline: none;
+}
+
+.heritage-person[aria-expanded='true'] {
+  border-color: color-mix(in srgb, var(--of-gold) 55%, transparent);
+  background: var(--of-card-hover);
+}
+
+.heritage-person--fulfillment {
+  border-color: color-mix(in srgb, var(--of-gold) 45%, transparent);
+}
+
+.heritage-person__name {
+  display: block;
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--of-gold);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.heritage-person__relation {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.82rem;
+  color: var(--of-muted);
+  line-height: 1.45;
+}
+
+.heritage-person__era {
+  display: inline-block;
+  margin-top: 0.35rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--of-gold) 75%, var(--of-muted));
+}
+
+.heritage-detail {
+  margin: 0 0 0.85rem 0.15rem;
+  padding: 0.85rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid var(--of-line);
+  background: rgba(8, 12, 22, 0.45);
+}
+
+.heritage-detail[hidden] {
+  display: none;
+}
+
+.heritage-verse {
+  margin: 0 0 0.75rem;
+  padding: 0;
+}
+
+.heritage-verse:last-child {
+  margin-bottom: 0;
+}
+
+.heritage-verse__ref {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--of-muted);
+  margin-bottom: 0.35rem;
+}
+
+.heritage-verse__text {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: rgba(245, 247, 251, 0.94);
+  font-style: italic;
+}
+
+.heritage-note {
+  margin: 0.75rem 0 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: rgba(245, 247, 251, 0.88);
+}
+
+.heritage-branch-card {
+  padding: 0.85rem 0.95rem;
+  border-radius: 12px;
+  border: 1px dashed color-mix(in srgb, var(--of-gold) 30%, var(--of-line));
+  background: rgba(8, 12, 22, 0.35);
+}
+
+.heritage-branch-card__connect {
+  font-size: 0.78rem;
+  color: var(--of-muted);
+  margin: 0 0 0.5rem;
+}
+
+.one-family-wider__intro {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(245, 247, 251, 0.88);
+}
+
+.one-family-wider__anchor {
+  margin: 0 0 1.1rem;
+  padding: 0.85rem 1rem;
+  border-left: 3px solid var(--of-gold);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: rgba(245, 247, 251, 0.92);
+  background: rgba(8, 12, 22, 0.25);
+  border-radius: 0 8px 8px 0;
+}
+
+.one-family-wider__closing {
+  margin: 1.15rem 0 0;
+  padding: 0.9rem 1rem;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  font-style: italic;
+  color: rgba(245, 247, 251, 0.85);
+  border: 1px solid var(--of-line);
+  border-radius: 10px;
+  background: rgba(8, 12, 22, 0.28);
+}
+
+.heritage-wider-accordion {
+  border: 1px solid var(--of-line);
+  border-radius: 12px;
+  background: rgba(8, 12, 22, 0.35);
+  overflow: hidden;
+}
+
+.heritage-wider-accordion__summary {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0.85rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--of-gold);
+  list-style: none;
+  user-select: none;
+}
+
+.heritage-wider-accordion__summary::-webkit-details-marker {
+  display: none;
+}
+
+.heritage-wider-accordion__summary::before {
+  content: '▸';
+  display: inline-block;
+  margin-right: 0.5rem;
+  transition: transform 0.2s ease;
+  color: var(--of-muted);
+}
+
+.heritage-wider-accordion[open] .heritage-wider-accordion__summary::before {
+  transform: rotate(90deg);
+}
+
+.heritage-wider-accordion__summary:hover,
+.heritage-wider-accordion__summary:focus-visible {
+  background: var(--of-card-hover);
+  outline: none;
+}
+
+.heritage-wider-accordion__summary:focus-visible {
+  outline: 2px solid rgba(227, 188, 103, 0.55);
+  outline-offset: -2px;
+}
+
+.heritage-wider-list {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0 0.85rem 1rem;
+  border-top: 1px solid var(--of-line);
+}
+
+.heritage-wider-card {
+  margin: 0;
+}
+
+.heritage-wider-card.is-filtered-out {
+  display: none;
+}
+
+.heritage-wider-card.is-search-hit .heritage-person {
+  border-color: color-mix(in srgb, var(--of-gold) 65%, transparent);
+}
+
+.heritage-person--wider {
+  margin-top: 0.35rem;
+}
+
+.one-family-adoption blockquote {
+  margin: 0 0 0.85rem;
+  padding: 0.85rem 1rem;
+  border-left: 3px solid color-mix(in srgb, var(--of-gold) 55%, transparent);
+  background: color-mix(in srgb, #0d1117 88%, var(--of-gold));
+  border-radius: 0 10px 10px 0;
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.one-family-adoption__close {
+  margin: 1rem 0 0;
+  font-size: 1rem;
+  color: var(--of-gold);
+  font-weight: 600;
+}
+
+.one-family-links {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--of-line);
+}
+
+.one-family-links ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.15rem;
+}
+
+.one-family-links li {
+  margin-bottom: 0.4rem;
+}
+
+.heritage-node.is-filtered-out {
+  display: none;
+}
+
+.heritage-node.is-search-hit .heritage-person {
+  border-color: color-mix(in srgb, var(--of-gold) 65%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heritage-person {
+    transition: none;
+  }
+}
+
+.one-family-back-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1.25rem;
+  z-index: 120;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--of-gold) 50%, transparent);
+  background: rgba(13, 17, 23, 0.92);
+  color: var(--of-gold);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.one-family-back-top:hover,
+.one-family-back-top:focus-visible {
+  background: rgba(227, 188, 103, 0.15);
+  outline: 2px solid rgba(227, 188, 103, 0.55);
+  outline-offset: 2px;
+}
+
+.family-tree-figure-link {
+  display: block;
+  text-decoration: none;
+}
+
+.family-tree-caption a {
+  color: #e3bc67;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heritage-wider-accordion__summary::before {
+    transition: none;
+  }
+}
+
+@media print {
+  .one-family-toolbar,
+  .one-family-toc,
+  .one-family-back-top {
+    display: none !important;
+  }
+  .heritage-wider-accordion {
+    border: none;
+  }
+  .heritage-wider-accordion[open] summary,
+  .heritage-wider-accordion summary {
+    display: none;
+  }
+  .heritage-wider-list {
+    padding: 0;
+    border: none;
+  }
+  .heritage-detail[hidden] {
+    display: block !important;
+  }
+  .heritage-person {
+    cursor: default;
+  }
+}

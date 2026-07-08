@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=20260503-consent-persist-fix"></script>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260503-consent-persist-fix"></script>
+  <script src="/vendor/dompurify.min.js"></script>
+  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Red Letters &mdash; Words of Jesus in the Gospels (KJV) | Today&rsquo;s Daily Battle</title>
+  <meta name="description" content="Optional red-letter view for the words of Jesus in Matthew, Mark, Luke, and John (KJV). One calm toggle works in search, reader, heritage tree, and here. Private, offline after first visit.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/red-letters.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Today's Daily Battle">
+  <meta property="og:title" content="Red Letters — Words of Jesus (KJV)">
+  <meta property="og:description" content="Turn Christ's words red in the Gospels across the site. Calm, optional, on your device only.">
+  <meta property="og:url" content="https://todaysdailybattle.com/red-letters.html">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260503-consent-persist-fix" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix">
+  <link rel="preload" href="tool-pages.css?v=20260331surface-final" as="style">
+  <link rel="stylesheet" href="tool-pages.css?v=20260331surface-final">
+  <script nonce="tdb2025s" type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"Red Letters — Words of Jesus in the Gospels (KJV)","url":"https://todaysdailybattle.com/red-letters.html","description":"Optional red-letter highlighting for the words of Jesus in the four Gospels. Private toggle; works offline after first visit.","isPartOf":{"@type":"WebSite","name":"Today's Daily Battle","url":"https://todaysdailybattle.com"}}
+  </script>
+  <style>
+    .rl-tool-page { max-width: 40rem; margin: 0 auto; padding: 0 1rem 2.5rem; }
+    .rl-hero { text-align: center; margin: 1rem 0 1.25rem; }
+    .rl-hero h1 { margin: 0 0 0.5rem; font-size: clamp(1.35rem, 4vw, 1.75rem); color: var(--tool-gold-soft, #f2dc98); font-weight: 600; }
+    .rl-hero-lead { margin: 0; font-size: 0.95rem; line-height: 1.55; color: var(--tool-muted, #94a3b8); max-width: 34rem; margin-left: auto; margin-right: auto; }
+    .rl-porch-note { margin: 0.85rem auto 0; max-width: 34rem; font-size: 0.92rem; line-height: 1.55; color: color-mix(in srgb, var(--tool-text, #e2e8f0) 88%, var(--tool-muted, #94a3b8)); font-style: italic; }
+    .rl-toggle-panel { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem 1rem; padding: 1rem 1.1rem; margin-bottom: 1.25rem; border: 1px solid var(--tool-line, rgba(227, 188, 103, 0.22)); border-radius: 12px; background: var(--tool-bg-soft, rgba(16, 20, 30, 0.85)); }
+    .rl-toggle-copy { flex: 1 1 14rem; }
+    .rl-toggle-label { margin: 0; font-size: 1rem; font-weight: 600; color: var(--tool-text, #e2e8f0); }
+    .rl-toggle-hint { margin: 0.2rem 0 0; font-size: 0.82rem; color: var(--tool-muted, #94a3b8); line-height: 1.45; }
+    .rl-toggle-switch { position: relative; display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; cursor: pointer; }
+    .rl-toggle-switch input { position: absolute; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+    .rl-toggle-track { width: 3rem; height: 1.65rem; border-radius: 999px; background: rgba(148, 163, 184, 0.35); border: 1px solid var(--tool-line); transition: background 0.15s, border-color 0.15s; position: relative; }
+    .rl-toggle-switch input:checked + .rl-toggle-track { background: rgba(185, 28, 28, 0.55); border-color: rgba(248, 113, 113, 0.65); }
+    .rl-toggle-thumb { position: absolute; top: 2px; left: 2px; width: 1.25rem; height: 1.25rem; border-radius: 50%; background: #f8fafc; transition: transform 0.15s; box-shadow: 0 1px 3px rgba(0,0,0,0.35); }
+    .rl-toggle-switch input:checked + .rl-toggle-track .rl-toggle-thumb { transform: translateX(1.35rem); }
+    .rl-toggle-switch input:focus-visible + .rl-toggle-track { outline: 2px solid rgba(227, 188, 103, 0.75); outline-offset: 2px; }
+    .rl-sample-list { list-style: none; margin: 0; padding: 0; }
+    .rl-sample-list li { margin-bottom: 1rem; padding: 1rem 1.05rem; border: 1px solid var(--tool-line); border-radius: 12px; background: var(--tool-bg-soft); }
+    .rl-sample-ref { display: block; margin: 0 0 0.5rem; font-size: 0.88rem; font-weight: 600; color: var(--tool-gold, #e3bc67); }
+    .rl-sample-text { margin: 0; font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(1.05rem, 3.2vw, 1.25rem); line-height: 1.55; color: var(--tool-text, #e2e8f0); }
+    .rl-next-tools { margin-top: 1.5rem; }
+    .rl-next-tools h2 { font-size: 1rem; color: var(--tool-gold-soft); margin: 0 0 0.65rem; font-weight: 600; }
+    .rl-tool-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .rl-tool-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 0.45rem 0.85rem; border-radius: 10px; border: 1px solid var(--tool-line); color: var(--tool-gold-soft); text-decoration: none; font-size: 0.88rem; font-weight: 600; }
+    .rl-tool-links a:hover, .rl-tool-links a:focus-visible { border-color: var(--tool-gold); background: rgba(227, 188, 103, 0.1); outline: none; }
+    .rl-words-fail {
+      margin: 1.25rem 0 0;
+      padding: 1rem 1.05rem;
+      border: 1px solid var(--tool-line);
+      border-radius: 12px;
+      background: var(--tool-bg-soft);
+    }
+    .rl-words-fail h2 { margin: 0 0 0.45rem; font-size: 0.95rem; font-weight: 600; color: var(--tool-gold-soft); }
+    .rl-words-fail p { margin: 0; font-size: 0.88rem; line-height: 1.5; color: var(--tool-muted); }
+    .rl-words-fail a { color: var(--tool-gold-soft); font-weight: 600; }
+    .rl-offline-note { margin: 0 0 1rem; padding: 0.6rem 0.85rem; font-size: 0.82rem; line-height: 1.45; color: var(--tool-muted); text-align: center; border-radius: 10px; border: 1px solid color-mix(in srgb, var(--tool-gold) 22%, transparent); }
+    .rl-global-nav { display: flex; align-items: center; gap: 0.2rem 0.5rem; flex-wrap: wrap; padding: 0.35rem 0.75rem; min-height: 52px; border-bottom: 1px solid var(--tool-line); background: rgba(10, 12, 20, 0.92); font-size: 0.86rem; position: sticky; top: 0; z-index: 50; }
+    .rl-global-nav a { color: rgba(226, 232, 240, 0.88); text-decoration: none; padding: 0.3rem 0.5rem; border-radius: 6px; min-height: 44px; display: inline-flex; align-items: center; }
+    .rl-global-nav a:hover, .rl-global-nav a:focus-visible { color: var(--tool-gold); background: rgba(227, 188, 103, 0.1); outline: 2px solid rgba(227, 188, 103, 0.55); outline-offset: 2px; }
+    .rl-global-nav a[aria-current="page"] { color: var(--tool-gold); font-weight: 600; }
+    .skip-link { position: absolute; left: -9999px; }
+    .skip-link:focus { left: 1rem; top: 1rem; z-index: 999; padding: 0.5rem 0.75rem; background: var(--tool-gold); color: #111; }
+  </style>
+</head>
+<body class="tool-page-body">
+  <a href="#main" class="skip-link">Skip to content</a>
+  
+  <nav class="tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+    <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel-standalone" id="tdb-primary-nav-toggle-standalone">
+      <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+      <span class="tdb-nav-flyout-toggle__label">Site</span>
+    </button>
+    <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-standalone">
+      <a href="/">Home</a>
+      <a href="/#feel-section">How I Feel</a>
+      <a href="/plans.html" id="nav-browse-curriculum" aria-label="Battle Plans — KJV tracks for hard weeks and quiet seasons">Battle Plans</a>
+      <a href="/mystudy">My Study</a>
+      <a href="/family.html" aria-label="Family hub — verse, plans, printables">Family &amp; Kids</a>
+      <a href="/explore.html">Explore</a>
+      <a href="/church-hub.html" id="nav-pastors" aria-label="Pastor and church tools">Pastors</a>
+      <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
+      <details class="tdb-nav-more">
+        <summary aria-haspopup="true">More tools</summary>
+        <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+            <div class="tdb-nav-more-group">
+              <span class="tdb-nav-more-group-label">Scripture &amp; Study</span>
+              <a href="/verse.html">Today&rsquo;s Lesson</a>
+              <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read the Bible</a>
+              <a href="/memorize.html">Memorize</a>
+              <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
+              <a href="/calm.html">Calm</a>
+            </div>
+            <div class="tdb-nav-more-group">
+              <span class="tdb-nav-more-group-label">Plans &amp; Journey</span>
+              <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map and gentle paths">Curriculum</a>
+              <a href="/university.html" id="nav-university-core" aria-label="University of God — five anchor verses, quiet map">University map</a>
+              <a href="/daily-rhythm.html">Daily Rhythm</a>
+              <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
+              <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar">Print year</a>
+              <a href="/mobius.html">M&ouml;bius Journal</a>
+            </div>
+            <div class="tdb-nav-more-group">
+              <span class="tdb-nav-more-group-label">Family &amp; Community</span>
+              <a href="/kids/corner.html">Kids &amp; Family</a>
+              <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
+              <a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">Family Armor for little ones</a>
+              <a href="/prayer-wall.html">Pray</a>
+              <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
+            </div>
+            <div class="tdb-nav-more-group">
+              <span class="tdb-nav-more-group-label">About the Site</span>
+              <a href="/site-guide.html" id="nav-site-guide" aria-label="Start here — calm map of where to begin">Start here</a>
+              <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
+              <a href="/about.html">About</a>
+              <a href="/story.html">Story</a>
+            </div>
+          </div>
+      </details>
+    </div>
+  </nav>
+<main id="main" class="rl-tool-page tool-page-main">
+    <header class="rl-hero">
+      <h1>Red letters</h1>
+      <p class="rl-hero-lead">An optional way to see the words of Jesus in Matthew, Mark, Luke, and John. KJV only. The choice stays on this device&mdash;no account, no tracking.</p>
+      <p class="rl-porch-note">Here you may read the words of the Lord Jesus in red, exactly as they stand in the King James Version. No added commentary, just His words for weary hearts.</p>
+    </header>
+
+    <p class="rl-offline-note" role="status">Offline&mdash;still got you after your first visit. The toggle below also updates search, reader, plans, and the heritage tree when those pages load.</p>
+
+    <section class="rl-toggle-panel" aria-labelledby="rl-toggle-heading">
+      <div class="rl-toggle-copy">
+        <h2 id="rl-toggle-heading" class="rl-toggle-label">Show words of Jesus in red</h2>
+        <p class="rl-toggle-hint">Applies in the four Gospels across search, reader, plans, coloring, and <a href="one-family-in-christ.html">One Family in Christ</a>. You can also switch it from Home &rarr; footer Appearance.</p>
+      </div>
+      <label class="rl-toggle-switch">
+        <input type="checkbox" id="rl-toggle" role="switch" aria-labelledby="rl-toggle-heading">
+        <span class="rl-toggle-track" aria-hidden="true"><span class="rl-toggle-thumb"></span></span>
+      </label>
+    </section>
+
+    <section class="rl-words-fail rl-featured-plan" aria-labelledby="rl-his-own-words-heading">
+      <h2 id="rl-his-own-words-heading">Only His voice &mdash; five-day plan</h2>
+      <p>Sometimes the kindest thing is to silence every other voice and listen to the Lord Jesus Himself. <a href="plans.html?plan=hisownwords">Only His Voice</a> is a pure Red-Letters path&mdash;just the words Jesus spoke in the KJV. No commentary. No other voices. <a href="his-own-words-one-page-print.html">Print all five</a> when paper helps. Turn on the toggle above so His words show in red across the site.</p>
+    </section>
+
+    <section aria-labelledby="rl-samples-heading">
+      <h2 id="rl-samples-heading" class="rl-toggle-label" style="margin:0 0 0.75rem;font-size:1rem;">Sample verses</h2>
+      <p class="rl-toggle-hint" style="margin:0 0 1rem;">Turn the toggle on to see Christ&rsquo;s speech marked in red. Narration stays in the default color.</p>
+      <ul class="rl-sample-list" id="rl-sample-list"></ul>
+    </section>
+
+    <section class="rl-words-fail" aria-labelledby="rl-words-fail-heading">
+      <h2 id="rl-words-fail-heading">When words fail</h2>
+      <p>When your own prayers feel empty, start with <a href="plans.html?plan=hisownwords">Only His Voice</a>&mdash;only the Saviour&rsquo;s speech&mdash;or walk <a href="plans.html?plan=comeuntome">Come Unto Me</a> for five quiet days (KJV). <a href="his-own-words-one-page-print.html">Print Only His Voice</a> or <a href="come-unto-me-one-page-print.html">Come Unto Me</a> when paper helps.</p>
+    </section>
+
+    <section class="rl-words-fail rl-fear-presses" aria-labelledby="rl-fear-presses-heading">
+      <h2 id="rl-fear-presses-heading">When fear presses in</h2>
+      <p>When fear speaks louder than reason, walk <a href="plans.html?plan=fearpressesin">When Fear Presses In</a>&mdash;gentle Scripture for anxious days, His voice and sure promises. <a href="when-fear-presses-in-one-page-print.html">Print all five</a> when paper helps. For <strong>pure red letters only</strong>, rest in <a href="plans.html?plan=hisownwords">Only His Voice</a>. Pairs with <a href="plans.html?plan=comeuntome">Come Unto Me</a> when weariness and fear share the same hour.</p>
+    </section>
+
+    <section class="rl-words-fail rl-salvation-path" aria-labelledby="rl-salvation-heading">
+      <h2 id="rl-salvation-heading">The gospel path</h2>
+      <p>Wondering how a sinner can be made right with God? <a href="plans.html?plan=roadtosalvation">The Road to Salvation</a> walks five quiet KJV days&mdash;no test at the end, only an open invitation. <a href="road-to-salvation-one-page-print.html">Print all five</a> when paper helps.</p>
+    </section>
+
+    <section class="rl-next-tools" aria-labelledby="rl-tools-heading">
+      <h2 id="rl-tools-heading">Other tool rooms</h2>
+      <div class="rl-tool-links">
+        <a href="reader.html">Chapter reader</a>
+        <a href="bible-tool.html">Bible Tool</a>
+        <a href="/#feel-section">Home search</a>
+        <a href="one-family-in-christ.html">One Family in Christ</a>
+        <a href="mobius.html">M&ouml;bius Loop</a>
+        <a href="calm.html">Calm</a>
+      </div>
+      <p class="rl-toggle-hint" style="margin:0.85rem 0 0;">On Home, try searching <strong>jesus said</strong> or <strong>red letter</strong> for Gospel results with red speech.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
+  <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+    <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+    <span class="tdb-lang-switcher-inner">
+      <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-essentials" aria-label="Key pages">
+    <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/verse.html">Today&rsquo;s Lesson</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <p class="site-footer-share-wrap">
+    <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
+    <span class="site-footer-share-sep" aria-hidden="true">·</span>
+    <button type="button" class="share-page-btn site-footer-tour-restart tdb-tour-restart-btn" aria-label="Restart the five-minute site tour">Restart site tour</button>
+  </p>
+
+  <nav class="bottom-nav" role="navigation" aria-label="Plans, kids, and Spanish topics">
+    <a href="/plans.html">Plans</a>
+    <a href="/kids/">Kids Corner</a>
+    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
+      <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
+      <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
+      <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-nav" aria-label="Footer links">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/media.html">Media</a>
+    <a href="/roadmap.html">Roadmap</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/for-pastors.html">For pastors &amp; teachers</a>
+    <a href="/reader.html">Chapter reader</a>
+    <a href="/bible/tools.html">Study workshop</a>
+    <a href="/bible-tool.html">Bible tool</a>
+    <a href="/testimonials.html">Reader stories</a>
+    <a href="/journal/">Journal</a>
+    <a href="/updates.html">Monthly updates</a>
+    <a href="/emergency-calm-pack.html">Emergency calm pack</a>
+    <a href="/where-support-goes.html">Where support goes</a>
+    <a href="/verse-cards/">Verse cards</a>
+    <a href="/security.html">Security</a>
+    <a href="/contact.html">Contact</a>
+    <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
+  </nav>
+
+  <details class="footer-sitemap">
+    <summary>Sitemap — topics, tools, church &amp; family (tap to expand)</summary>
+    <div class="footer-sitemap-grid">
+      <div class="footer-sitemap-col">
+        <h3>The Narrow Paths</h3>
+        <a href="/explore.html">Full list (all pages)</a>
+        <a href="/topic-anxiety.html">Anxiety</a>
+        <a href="/topic-fear.html">Fear</a>
+        <a href="/topic-grief.html">Grief</a>
+        <a href="/topic-hope.html">Hope</a>
+        <a href="/topic-strength.html">Strength</a>
+        <a href="/topic-parenting.html">Parenting</a>
+        <a href="/topic-loneliness.html">Loneliness</a>
+        <a href="/topic-forgiveness.html">Forgiveness</a>
+        <a href="/topic-guilt.html">Guilt</a>
+        <a href="/topic-overwhelmed.html">Overwhelmed</a>
+        <a href="/topic-worthless.html">Worth / identity</a>
+      </div>
+      <div class="footer-sitemap-col footer-sitemap-col--es-links">
+        <h3>Spanish devotionals</h3>
+        <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es">Paz</a>
+        <a href="/explore.html#topics-es">All Spanish topics on Explore</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Tools of the Quiet Trade</h3>
+        <a href="/verse.html">Verse of the Day</a>
+        <a href="/reader.html">Chapter reader</a>
+        <a href="/bible/tools.html">Study workshop</a>
+        <a href="/bible-tool.html">Bible tool</a>
+        <a href="/mystudy">My Study</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/mobius.html">Grace Ribbon</a>
+        <a href="/one-family-in-christ.html">One Family in Christ</a>
+        <a href="/red-letters.html">Red letters</a>
+        <a href="/plans.html">Courses</a>
+        <a href="/reading-plan.html">7-day plan</a>
+        <a href="/study.html">Study workspace</a>
+        <a href="/wins.html">Wins</a>
+        <a href="/progress.html">Progress</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>For the Household of Faith</h3>
+        <a href="/church.html">Church center</a>
+        <a href="/church/">Church join hub</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit</a>
+        <a href="/pastor/">Pastor hub</a>
+        <a href="/sermon.html">Sermon builder</a>
+        <a href="/family.html">Family hub</a>
+        <a href="/little-ones.html">For the Little Ones</a>
+        <a href="/family-armor.html">Family Armor</a>
+        <a href="/kids/">Kids Corner</a>
+        <a href="/coloring.html">Color &amp; Tell</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Further In</h3>
+        <a href="/prayer-wall.html">Prayer</a>
+        <a href="/offline-porch.html">Offline porch</a>
+        <a href="/porch-map-one-page-print.html">Porch map (print)</a>
+        <a href="/porch-pathways-ribbon-one-page-print.html">Ribbon pathways (print)</a>
+        <a href="/bible-study.html">Bible studies</a>
+        <a href="/shop.html">Shop</a>
+        <a href="/story.html">Story</a>
+        <a href="/media.html">Media</a>
+        <a href="/roadmap.html">Roadmap</a>
+        <a href="/approach.html">How we respond</a>
+        <a href="/curriculum.html">Curriculum</a>
+        <a href="/verse-cards/">Verse cards</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </details>
+
+  <p class="footer-humility">We battle. He wins.</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): footer story lives in .site-footer-story below -->
+  <p class="site-footer-story">
+    Steady KJV for honest days&mdash;no ads, no selling your data; prayers stay on this device unless you sync on purpose.
+  </p>
+
+  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" aria-labelledby="footerFridaySignupHeading">
+    <p class="footer-friday-signup-label" id="footerFridaySignupHeading">Short <abbr title="King James Version">KJV</abbr> Friday letter only&mdash;one message a week, easy unsubscribe, never sold. Want the daily calendar verse too? <a href="/#newsletter">Use the home signup</a>.</p>
+    <div class="footer-friday-signup-row">
+      <label for="footer-friday-email" class="sr-only">Email for Friday letter</label>
+      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="you@example.com" aria-label="Email for Friday letter" autocomplete="email">
+      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit" aria-label="Sign up for the short Friday email">Sign me up</button>
+    </div>
+    <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
+  </div>
+
+  <p class="site-footer-copy site-footer-legal-line">&copy; 2026 Today&rsquo;s Daily Battle &middot; Christian Messenger Service. All rights reserved.</p>
+  <p class="site-footer-copy site-footer-legal-line">All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
+
+  <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
+  <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">July 8, 2026</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
+  </div>
+  <script defer src="/language-switcher.js?v=20260503-consent-persist-fix"></script>
+</footer>
+
+  <script src="/red-letter.js?v=20260518-rl"></script>
+  <script nonce="tdb2025s">
+  (function () {
+    var SAMPLES = [
+      { ref: 'John 14:6', text: 'Jesus saith unto him, I am the way, the truth, and the life: no man cometh unto the Father, but by me.' },
+      { ref: 'Matthew 11:28', text: 'Come unto me, all ye that labour and are heavy laden, and I will give you rest.' },
+      { ref: 'Luke 23:34', text: 'Then said Jesus, Father, forgive them; for they know not what they do. And they parted his raiment, and cast lots.' },
+      { ref: 'John 11:25', text: 'Jesus said unto her, I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live:' }
+    ];
+    var toggle = document.getElementById('rl-toggle');
+    var list = document.getElementById('rl-sample-list');
+    function syncToggle() {
+      if (!window.TDBRedLetter) return;
+      toggle.checked = window.TDBRedLetter.isEnabled();
+    }
+    function renderSamples() {
+      if (!list || !window.TDBRedLetter) return;
+      list.innerHTML = '';
+      SAMPLES.forEach(function (v) {
+        var li = document.createElement('li');
+        var ref = document.createElement('span');
+        ref.className = 'rl-sample-ref';
+        ref.textContent = v.ref;
+        var p = document.createElement('p');
+        p.className = 'rl-sample-text';
+        window.TDBRedLetter.applyToElement(p, v.ref, v.text, { quote: false });
+        li.appendChild(ref);
+        li.appendChild(p);
+        list.appendChild(li);
+      });
+    }
+    function setEnabled(on) {
+      if (window.TDBRedLetter) window.TDBRedLetter.setEnabled(on);
+      renderSamples();
+    }
+    if (toggle) {
+      syncToggle();
+      toggle.addEventListener('change', function () { setEnabled(toggle.checked); });
+    }
+    window.addEventListener('tdb-red-letter-changed', function () {
+      syncToggle();
+      renderSamples();
+    });
+    if (window.TDBRedLetter) {
+      renderSamples();
+    } else {
+      document.addEventListener('DOMContentLoaded', renderSamples);
+    }
+  })();
+  </script>
+  <script type="module" src="script.js?v=20260503-consent-persist-fix" data-cfasync="false"></script>
+</body>
+</html>

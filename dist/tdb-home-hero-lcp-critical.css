@@ -1,0 +1,29 @@
+/**
+ * Home hero LCP critical slice — @font-face + #heroVerse paint before tdb-home-page.css.
+ * Inlined in index.html <head>; keep in sync with tdb-visual-tokens polish + hero verse body.
+ */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/cormorant-garamond-hero-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2013-2014, U+2000-206F, U+2122, U+FEFF, U+FFFD;
+}
+
+#hero-verse-wrap #heroVerse,
+#heroVerse.hero-verse.verse-body {
+  font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.05rem, 2.8vw, 1.22rem);
+  line-height: 1.62;
+  letter-spacing: 0.012em;
+  font-weight: 400;
+  color: #f5f7fb;
+  margin: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+#verseCard #heroVerse.hero-verse.is-visible {
+  opacity: 1;
+}

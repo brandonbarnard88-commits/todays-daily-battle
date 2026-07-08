@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=20260503-consent-persist-fix"></script>
+  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260503-consent-persist-fix"></script>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260503-consent-persist-fix"></script>
+  <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+  <script defer src="analytics-loader.js"></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Church Hub &mdash; KJV Tools for Small Churches &amp; Bi-Vocational Pastors &bull; Today&rsquo;s Daily Battle</title>
+  <meta name="description" content="Sermon Builder, Sharing Kit, embeddable verse widgets, Church Starter Pack, and pastor-specific KJV Battle Plans. Low-prep tools built for small churches that run lean. No signup required.">
+  <meta name="robots" content="index, follow">
+  <meta name="referrer" content="no-referrer">
+  <link rel="canonical" href="https://todaysdailybattle.com/church-hub.html">
+  <meta property="og:title" content="Church Hub &mdash; KJV Tools for Small Churches &amp; Bi-Vocational Pastors">
+  <meta property="og:description" content="Sermon Builder with OIA workflow, Sharing Kit, embeddable widgets, Church Starter Pack, and pastor-specific Battle Plans. Free, offline-first, no pressure.">
+  <meta property="og:url" content="https://todaysdailybattle.com/church-hub.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://todaysdailybattle.com/assets/share/testimonials-og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Church Hub &mdash; KJV Tools for Small Churches &amp; Pastors">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Church Hub &mdash; KJV Tools for Small Churches &amp; Bi-Vocational Pastors">
+  <meta name="twitter:description" content="Sermon Builder, Sharing Kit, embeddable widgets, Church Starter Pack, and pastor-specific Battle Plans. Free, offline-first.">
+  <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/testimonials-og.jpg">
+  <meta name="twitter:image:alt" content="Church Hub &mdash; Today&rsquo;s Daily Battle">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="styles.css?v=20260503-consent-persist-fix" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260503-consent-persist-fix">
+  <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
+  <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
+
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
+</head>
+<body class="dark-mode tdb-inner-page church-hub-page">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <p class="tdb-header-heartbeat site-tagline">For Family, For Country, For GOD</p>
+        <span class="brand-subtitle">Pastor &amp; Church Tools</span>
+      </div>
+      <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+      <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
+        <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
+        <span class="tdb-nav-flyout-toggle__label">Site</span>
+      </button>
+      <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
+        <a href="/">Home</a>
+        <a href="/#feel-section">How I Feel</a>
+        <a href="/plans.html" id="nav-browse-curriculum" aria-label="Battle Plans — KJV tracks for hard weeks and quiet seasons">Battle Plans</a>
+        <a href="/mystudy">My Study</a>
+        <a href="/family.html" aria-label="Family hub — verse, plans, printables">Family &amp; Kids</a>
+        <a href="/explore.html">Explore</a>
+        <a href="/church-hub.html" id="nav-pastors" aria-label="Pastor and church tools">Pastors</a>
+        <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
+        <details class="tdb-nav-more">
+          <summary aria-haspopup="true">More tools</summary>
+          <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
+            <div class="tdb-nav-more-group">
+              <span class="tdb-nav-more-group-label">Scripture &amp; Study</span>
+              <a href="/verse.html">Today&rsquo;s Lesson</a>
+              <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read the Bible</a>
+              <a href="/memorize.html">Memorize</a>
+              <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
+              <a href="/calm.html">Calm</a>
+            </div>
+            <div class="tdb-nav-more-group">
+              <span class="tdb-nav-more-group-label">Plans &amp; Journey</span>
+              <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map and gentle paths">Curriculum</a>
+              <a href="/university.html" id="nav-university-core" aria-label="University of God — five anchor verses, quiet map">University map</a>
+              <a href="/daily-rhythm.html">Daily Rhythm</a>
+              <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
+              <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar">Print year</a>
+              <a href="/mobius.html">M&ouml;bius Journal</a>
+            </div>
+            <div class="tdb-nav-more-group">
+              <span class="tdb-nav-more-group-label">Family &amp; Community</span>
+              <a href="/kids/corner.html">Kids &amp; Family</a>
+              <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
+              <a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">Family Armor for little ones</a>
+              <a href="/prayer-wall.html">Pray</a>
+              <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
+            </div>
+            <div class="tdb-nav-more-group">
+              <span class="tdb-nav-more-group-label">About the Site</span>
+              <a href="/site-guide.html" id="nav-site-guide" aria-label="Start here — calm map of where to begin">Start here</a>
+              <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
+              <a href="/about.html">About</a>
+              <a href="/story.html">Story</a>
+            </div>
+          </div>
+        </details>
+      </div>
+    </nav>
+      <div class="tdb-header-account-nudge" role="group" aria-label="Account shortcuts">
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-open-btn" id="tdb-tour-open-btn" aria-label="Open the five-minute site tour">Site tour</button>
+        <button type="button" class="tdb-header-account-nudge__link tdb-tour-restart-btn" aria-label="Restart the five-minute site tour from the beginning">Restart</button>
+        <a href="/login.html" class="tdb-header-account-nudge__link">Log in</a>
+        <a href="/mystudy" class="tdb-header-account-nudge__link">My Study</a>
+      </div>
+
+      <a href="#sidebar" class="header-menu-link" id="sidebar-toggle" aria-label="Open menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-text">Menu</span></a>
+    </header>
+
+    <aside id="sidebar" class="sidebar">
+      <nav class="side-nav" aria-label="Site navigation">
+        <a href="/">Home</a>
+        <a href="/explore.html">Explore</a>
+        <a href="/church-hub.html" aria-current="page">Church Hub</a>
+        <a href="/church-sharing-kit.html">Church Sharing Kit</a>
+        <a href="/for-pastors.html">For Pastors</a>
+        <a href="/testimonials.html">Stories</a>
+        <a href="/about.html">About</a>
+      </nav>
+    </aside>
+
+    <main class="app-content" id="main-content">
+      <div class="content-inner">
+        <header class="hero-banner tdb-dawn-hub--mist church-hub-hero">
+          <p class="for-pastors-eyebrow">For pastors, small churches, and families</p>
+          <h1>Pastor &amp; Church Tools</h1>
+          <p class="section-note topic-mood-porch">Hey Pastor — you and your people are already welcome here. This is a calm porch of free KJV tools designed as a supplement, never a replacement, for the local church. One verse. One small step. Tools that work offline. No login required. No pressure to adopt everything.</p>
+          <p class="hero-tagline">Practical resources that help families stay in the Word between Sundays and give you ready material without adding to your load.</p>
+        </header>
+
+        <section class="glass tdb-porch-paper-glass">
+          <h2 class="section-divider">Biggest wins for churches</h2>
+          <p class="section-note">Here are the most practical on-ramps pastors and leaders tell us they use first. Take what serves your congregation — nothing is required.</p>
+
+          <div class="church-hub-wins-grid">
+            <a href="/church-sharing-kit.html" class="church-hub-win-card">
+              <strong>Church Sharing Kit</strong>
+              <span class="win-desc">Copy-paste bulletin blurbs, VBS packs, small group outlines, QR codes, printable verse cards, and seasonal bundles. Ready in minutes.</span>
+              <span class="btn btn-secondary small">Open the Kit →</span>
+            </a>
+
+            <a href="/sermon.html" class="church-hub-win-card">
+              <strong>Sermon Builder</strong>
+              <span class="win-desc">OIA workflow (Observation, Interpretation, Application) with live preview, supporting context from the Bible Tool, and PDF/handout export. Drafts stay on your device.</span>
+              <span class="btn btn-secondary small">Start Sermon Workspace →</span>
+            </a>
+
+            <a href="/embeddable-widgets.html" class="church-hub-win-card">
+              <strong>Embeddable Verse Widgets</strong>
+              <span class="win-desc">Drop a daily KJV verse + calm breakdown directly on your church website with one script tag. Customizable and privacy-first.</span>
+              <span class="btn btn-secondary small">Get Embed Code →</span>
+            </a>
+
+            <a href="/plans.html" class="church-hub-win-card">
+              <strong>Battle Plans for Groups</strong>
+              <span class="win-desc">Short (7–40 day) KJV rhythms for fear, grief, parenting, anxiety, and more. Perfect for midweek groups or one-on-one counseling. No streaks, just honest steps.</span>
+              <span class="btn btn-secondary small">Browse Plans →</span>
+            </a>
+
+            <a href="/family.html" class="church-hub-win-card">
+              <strong>Family &amp; Kids Tools</strong>
+              <span class="win-desc">Gentle family rhythms, Kids Corner stories, coloring, memory aids, and little-ones pages. Helps parents lead at the table without adding guilt.</span>
+              <span class="btn btn-secondary small">Family Hub →</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass">
+          <h2 class="section-divider">Trusted by small churches &amp; families</h2>
+          <div class="trusted-quotes-grid">
+            <div class="quote-card">
+              <p class="quote">"Used the Lord’s Prayer plan as a 4-week midweek series. Families actually followed through and the kids remembered the verses. The kit made preparation simple."</p>
+              <cite>— Rural Pastor, Midwest (2026)</cite>
+            </div>
+            <div class="quote-card">
+              <p class="quote">"The offline verse and coloring pages were a lifeline during a storm when our internet was down. Our small congregation felt cared for."</p>
+              <cite>— Small Church Elder, Appalachia</cite>
+            </div>
+            <div class="quote-card">
+              <p class="quote">"The VBS and summer packs saved us hours. The stories stayed faithfully KJV and the activities were gentle enough for all ages. Our children’s leader loved it."</p>
+              <cite>— Children’s Ministry Leader, Family Church</cite>
+            </div>
+            <div class="quote-card">
+              <p class="quote">"The embeddable widget lets us show the daily verse on our church site without maintaining another system. It just works."</p>
+              <cite>— Pastor, Suburban Church Plant</cite>
+            </div>
+          </div>
+          <p class="section-note" style="text-align:center;margin-top:2rem;">These are real, anonymous notes from pastors and leaders who have used the tools. We protect privacy and never pressure churches to promote us.</p>
+        </section>
+
+        <section class="glass tdb-porch-paper-glass">
+          <h2 class="section-divider">Supplement, never replacement</h2>
+          <p class="section-note">We exist to help your people stay in the Word between Sundays and to give you practical, low-prep resources. The local church is the primary place of discipleship. This porch is simply a quiet side porch — free, private, offline-first, and built with reverence for the KJV. Take what serves. Ignore the rest. You and your congregation are already welcome here.</p>
+          <div class="cta-group" style="margin-top:2rem;text-align:center;">
+            <a href="/church-sharing-kit.html" class="btn btn-primary">Open Church Sharing Kit</a>
+            <a href="/for-pastors.html" class="btn btn-secondary">For Pastors &amp; Mobile Ministers</a>
+            <a href="/where-support-goes.html" class="btn btn-secondary">Where Support Goes</a>
+          </div>
+        </section>
+
+        <div style="text-align:center;margin:4rem 0;">
+          <a href="/" class="btn btn-primary">← Return to Today’s Verse</a>
+        </div>
+      </div>
+    </main>
+    <nav class="tdb-bottom-dock" aria-label="Main site navigation">
+      <a href="/verse.html" aria-label="Verse of the Day">☀️ Verse</a>
+      <a href="/#feel-section" aria-label="Ask the Word">💬 Ask</a>
+      <a href="/plans.html" aria-label="Battle Plans">🗓️ Plans</a>
+      <a href="/prayer-wall.html" aria-label="Prayer Wall">🙏 Pray</a>
+      <a href="/explore.html" class="tdb-bottom-dock-more" aria-label="More tools">☰ More</a>
+    </nav>
+
+
+    <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
+  <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+    <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+    <span class="tdb-lang-switcher-inner">
+      <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+      <span class="tdb-lang-sep" aria-hidden="true">·</span>
+      <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-essentials" aria-label="Key pages">
+    <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/verse.html">Today&rsquo;s Lesson</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
+  </nav>
+
+  <p class="site-footer-share-wrap">
+    <button type="button" id="share-page" class="share-page-btn" aria-label="Share this page">Share this page</button>
+    <span class="site-footer-share-sep" aria-hidden="true">·</span>
+    <button type="button" class="share-page-btn site-footer-tour-restart tdb-tour-restart-btn" aria-label="Restart the five-minute site tour">Restart site tour</button>
+  </p>
+
+  <nav class="bottom-nav" role="navigation" aria-label="Plans, kids, and Spanish topics">
+    <a href="/plans.html">Plans</a>
+    <a href="/kids/">Kids Corner</a>
+    <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
+      <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
+      <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
+      <a href="/paz.html" hreflang="es" aria-label="Spanish topic: Paz (peace)">Peace (ES)</a>
+    </span>
+  </nav>
+
+  <nav class="site-footer-nav" aria-label="Footer links">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/media.html">Media</a>
+    <a href="/roadmap.html">Roadmap</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/for-pastors.html">For pastors &amp; teachers</a>
+    <a href="/reader.html">Chapter reader</a>
+    <a href="/bible/tools.html">Study workshop</a>
+    <a href="/bible-tool.html">Bible tool</a>
+    <a href="/testimonials.html">Reader stories</a>
+    <a href="/journal/">Journal</a>
+    <a href="/updates.html">Monthly updates</a>
+    <a href="/emergency-calm-pack.html">Emergency calm pack</a>
+    <a href="/where-support-goes.html">Where support goes</a>
+    <a href="/verse-cards/">Verse cards</a>
+    <a href="/security.html">Security</a>
+    <a href="/contact.html">Contact</a>
+    <button type="button" id="footer-open-settings" class="footer-appearance-link">Appearance</button>
+  </nav>
+
+  <details class="footer-sitemap">
+    <summary>Sitemap — topics, tools, church &amp; family (tap to expand)</summary>
+    <div class="footer-sitemap-grid">
+      <div class="footer-sitemap-col">
+        <h3>The Narrow Paths</h3>
+        <a href="/explore.html">Full list (all pages)</a>
+        <a href="/topic-anxiety.html">Anxiety</a>
+        <a href="/topic-fear.html">Fear</a>
+        <a href="/topic-grief.html">Grief</a>
+        <a href="/topic-hope.html">Hope</a>
+        <a href="/topic-strength.html">Strength</a>
+        <a href="/topic-parenting.html">Parenting</a>
+        <a href="/topic-loneliness.html">Loneliness</a>
+        <a href="/topic-forgiveness.html">Forgiveness</a>
+        <a href="/topic-guilt.html">Guilt</a>
+        <a href="/topic-overwhelmed.html">Overwhelmed</a>
+        <a href="/topic-worthless.html">Worth / identity</a>
+      </div>
+      <div class="footer-sitemap-col footer-sitemap-col--es-links">
+        <h3>Spanish devotionals</h3>
+        <a href="/ansiedad.html" hreflang="es" lang="es">Ansiedad</a>
+        <a href="/fuerza.html" hreflang="es" lang="es">Fuerza</a>
+        <a href="/paz.html" hreflang="es" lang="es">Paz</a>
+        <a href="/explore.html#topics-es">All Spanish topics on Explore</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Tools of the Quiet Trade</h3>
+        <a href="/verse.html">Verse of the Day</a>
+        <a href="/reader.html">Chapter reader</a>
+        <a href="/bible/tools.html">Study workshop</a>
+        <a href="/bible-tool.html">Bible tool</a>
+        <a href="/mystudy">My Study</a>
+        <a href="/calm.html">Calm</a>
+        <a href="/mobius.html">Grace Ribbon</a>
+        <a href="/one-family-in-christ.html">One Family in Christ</a>
+        <a href="/red-letters.html">Red letters</a>
+        <a href="/plans.html">Courses</a>
+        <a href="/reading-plan.html">7-day plan</a>
+        <a href="/study.html">Study workspace</a>
+        <a href="/wins.html">Wins</a>
+        <a href="/progress.html">Progress</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>For the Household of Faith</h3>
+        <a href="/church.html">Church center</a>
+        <a href="/church/">Church join hub</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit</a>
+        <a href="/pastor/">Pastor hub</a>
+        <a href="/sermon.html">Sermon builder</a>
+        <a href="/family.html">Family hub</a>
+        <a href="/little-ones.html">For the Little Ones</a>
+        <a href="/family-armor.html">Family Armor</a>
+        <a href="/kids/">Kids Corner</a>
+        <a href="/coloring.html">Color &amp; Tell</a>
+      </div>
+      <div class="footer-sitemap-col">
+        <h3>Further In</h3>
+        <a href="/prayer-wall.html">Prayer</a>
+        <a href="/offline-porch.html">Offline porch</a>
+        <a href="/porch-map-one-page-print.html">Porch map (print)</a>
+        <a href="/porch-pathways-ribbon-one-page-print.html">Ribbon pathways (print)</a>
+        <a href="/bible-study.html">Bible studies</a>
+        <a href="/shop.html">Shop</a>
+        <a href="/story.html">Story</a>
+        <a href="/media.html">Media</a>
+        <a href="/roadmap.html">Roadmap</a>
+        <a href="/approach.html">How we respond</a>
+        <a href="/curriculum.html">Curriculum</a>
+        <a href="/verse-cards/">Verse cards</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </details>
+
+  <p class="footer-humility">We battle. He wins.</p>
+  <!-- Canonical short signature (edit here; run npm run sync:footer): footer story lives in .site-footer-story below -->
+  <p class="site-footer-story">
+    Steady KJV for honest days&mdash;no ads, no selling your data; prayers stay on this device unless you sync on purpose.
+  </p>
+
+  <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" aria-labelledby="footerFridaySignupHeading">
+    <p class="footer-friday-signup-label" id="footerFridaySignupHeading">Short <abbr title="King James Version">KJV</abbr> Friday letter only&mdash;one message a week, easy unsubscribe, never sold. Want the daily calendar verse too? <a href="/#newsletter">Use the home signup</a>.</p>
+    <div class="footer-friday-signup-row">
+      <label for="footer-friday-email" class="sr-only">Email for Friday letter</label>
+      <input type="email" id="footer-friday-email" class="footer-friday-email" placeholder="you@example.com" aria-label="Email for Friday letter" autocomplete="email">
+      <button type="button" id="footer-friday-submit" class="btn btn-secondary footer-friday-submit" aria-label="Sign up for the short Friday email">Sign me up</button>
+    </div>
+    <p class="footer-friday-status section-note" id="footerFridayStatus" aria-live="polite"></p>
+  </div>
+
+  <p class="site-footer-copy site-footer-legal-line">&copy; 2026 Today&rsquo;s Daily Battle &middot; Christian Messenger Service. All rights reserved.</p>
+  <p class="site-footer-copy site-footer-legal-line">All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
+
+  <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
+  <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">July 8, 2026</span></p>
+  <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
+    <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
+  </div>
+  <script defer src="/language-switcher.js?v=20260503-consent-persist-fix"></script>
+</footer>
+  </div>
+
+  <script src="inline-bootstrap.js"></script>
+  <script type="module" src="config.js"></script>
+  <script type="module" src="script.js?v=20260503-consent-persist-fix"></script>
+
+  <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
+</body>
+</html>

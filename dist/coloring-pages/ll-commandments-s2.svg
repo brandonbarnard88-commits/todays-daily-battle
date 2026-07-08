@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" width="900" height="680" aria-hidden="true">
+  <path d="M200,520 L200,360 Q200,280 280,240 Q360,200 450,240" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+  <path d="M700,520 L700,360 Q700,280 620,240 Q540,200 450,240" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+  <path d="M280,520 Q450,580 620,520" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="450" cy="160" r="70" fill="none" stroke="#111" stroke-width="4"/>
+  <path d="M420,200 L450,140 L480,200" fill="none" stroke="#111" stroke-width="3" stroke-linejoin="round"/>
+  <text x="450" y="640" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#111">Love God · Love neighbor</text>
+</svg>

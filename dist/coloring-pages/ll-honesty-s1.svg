@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" width="900" height="680" aria-hidden="true">
+  <path d="M120,420 Q120,280 220,220 Q320,160 450,200 Q580,240 680,200 Q780,160 780,320 L780,420 Q780,520 680,560 Q580,600 450,580 Q320,560 220,520 Q120,480 120,420 Z" fill="none" stroke="#111" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M200,360 Q200,300 260,270 Q320,240 380,270 Q440,300 440,360" fill="none" stroke="#111" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M460,360 Q460,300 520,270 Q580,240 640,270 Q700,300 700,360" fill="none" stroke="#111" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M280,520 Q450,560 620,520" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  <text x="450" y="120" text-anchor="middle" font-family="Georgia, serif" font-size="42" fill="#111">Open hands</text>
+</svg>

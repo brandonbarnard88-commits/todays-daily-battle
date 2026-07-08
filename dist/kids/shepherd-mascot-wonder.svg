@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 200" width="160" height="200" role="img" aria-labelledby="sm-wo-t">
+  <title id="sm-wo-t">Little Shepherd looks up in wonder</title>
+  <defs>
+    <radialGradient id="fg-wo" cx="40%" cy="35%" r="58%">
+      <stop offset="0%" stop-color="#fffbf0"/>
+      <stop offset="100%" stop-color="#fde68a"/>
+    </radialGradient>
+  </defs>
+  <!-- robe -->
+  <path d="M50,105 C46,124 41,157 39,192 L121,192 C119,157 114,124 110,105 Z" fill="#fef9eb" stroke="#c9a55a" stroke-width="2" stroke-linejoin="round"/>
+  <line x1="69" y1="108" x2="63" y2="148" stroke="#c9a55a" stroke-width="1.2" opacity="0.45" stroke-linecap="round"/>
+  <line x1="91" y1="108" x2="97" y2="148" stroke="#c9a55a" stroke-width="1.2" opacity="0.45" stroke-linecap="round"/>
+  <!-- staff -->
+  <path d="M116,110 Q119,150 117,192" fill="none" stroke="#92400e" stroke-width="3" stroke-linecap="round"/>
+  <path d="M116,112 Q125,103 121,95" fill="none" stroke="#92400e" stroke-width="3" stroke-linecap="round"/>
+  <!-- arms relaxed at sides -->
+  <path d="M52,112 Q42,133 38,153" fill="none" stroke="#c9a55a" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="37" cy="155" r="7" fill="#fef3c7" stroke="#d97706" stroke-width="1.6"/>
+  <path d="M108,112 Q118,133 122,153" fill="none" stroke="#c9a55a" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="123" cy="155" r="7" fill="#fef3c7" stroke="#d97706" stroke-width="1.6"/>
+  <!-- woolly bumps -->
+  <circle cx="63" cy="57" r="13" fill="#fef9eb" stroke="#d97706" stroke-width="1.8"/>
+  <circle cx="80" cy="50" r="15" fill="#fef9eb" stroke="#d97706" stroke-width="1.8"/>
+  <circle cx="97" cy="57" r="12" fill="#fef9eb" stroke="#d97706" stroke-width="1.8"/>
+  <!-- face (looking up — face tilted upward) -->
+  <circle cx="80" cy="80" r="30" fill="url(#fg-wo)" stroke="#d97706" stroke-width="2"/>
+  <!-- wide wonder eyes (larger, looking up) -->
+  <circle cx="70" cy="74" r="5.5" fill="#2d1a0e"/>
+  <circle cx="71.8" cy="72" r="1.6" fill="#fff" opacity="0.75"/>
+  <circle cx="90" cy="74" r="5.5" fill="#2d1a0e"/>
+  <circle cx="91.8" cy="72" r="1.6" fill="#fff" opacity="0.75"/>
+  <!-- small "O" mouth of wonder -->
+  <ellipse cx="80" cy="92" rx="5" ry="4" fill="#ffe4b5" stroke="#92400e" stroke-width="1.8"/>
+  <ellipse cx="63" cy="85" rx="5" ry="3" fill="#f87171" opacity="0.17"/>
+  <ellipse cx="97" cy="85" rx="5" ry="3" fill="#f87171" opacity="0.17"/>
+</svg>

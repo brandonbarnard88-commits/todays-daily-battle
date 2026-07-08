@@ -1,0 +1,291 @@
+/* Kids Corner Design Tokens — calm, consistent, print-friendly */
+/* Link this into every Kids page for professional but peaceful unity */
+
+:root {
+  /* Gentle color palette — warm neutrals + soft gold */
+  --kids-gold: #d4b88a;
+  --kids-soft-bg: #f8f4ee;
+  --kids-text: #3c2f2f;
+  --kids-muted: #6b5e5e;
+  --kids-line: #e5d9c8;
+  --kids-card: #fffdf7;
+
+  /* Typography for read-aloud comfort */
+  --kids-font-body: "Georgia", serif;
+  --kids-font-heading: "Georgia", serif;
+  --kids-line-height: 1.75;
+  --kids-spacing: 1.5rem;
+
+  /* Print-friendly */
+  --kids-print-ink: #222;
+  --kids-print-bg: #fff;
+}
+
+/* Site night theme (coloring + story pages use .dark-mode on body) */
+.dark-mode {
+  --kids-soft-bg: #1f1c18;
+  --kids-text: #e8e4d9;
+  --kids-muted: #c8c3b8;
+  --kids-line: #3c3c3c;
+  --kids-card: #2a2722;
+}
+
+/* Gentle night reading when OS prefers dark but page is light */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light-mode) {
+    --kids-soft-bg: #1f1c18;
+    --kids-text: #e8e4d9;
+    --kids-muted: #c8c3b8;
+    --kids-line: #3c3c3c;
+    --kids-card: #2a2722;
+  }
+}
+
+/* Utility classes used across coloring, stories, and loops */
+.kids-gold-frame {
+  border: 3px solid var(--kids-gold);
+  border-radius: 8px;
+}
+
+.kids-print-only {
+  display: none;
+}
+
+@media print {
+  .kids-print-only {
+    display: block;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Coloring page polish — Step 2 (spacing softened) */
+.kids-verse-strip {
+  font-style: italic;
+  color: var(--kids-muted);
+  text-align: center;
+  padding: 1.5rem 1rem 1rem;
+  margin-top: 1.75rem;
+  border-top: 1px solid var(--kids-line);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.kids-verse-strip p {
+  margin: 0 0 0.4rem;
+}
+
+.kids-verse-strip small {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--kids-muted);
+}
+
+.kids-print-btn {
+  background: transparent;
+  border: 1px solid var(--kids-line);
+  color: var(--kids-text);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 2rem auto 1rem;
+  display: block;
+  min-height: 44px;
+  min-width: 11rem;
+  font-family: var(--kids-font-body);
+}
+
+.kids-print-btn:hover,
+.kids-print-btn:focus-visible {
+  background: var(--kids-gold);
+  color: #fff;
+  outline: none;
+}
+
+/* Color & Tell panel — keep canvas + verse rhythm on narrow phones */
+.tdb-cat-panel .kids-gold-frame {
+  margin-bottom: 0;
+}
+
+@media (max-width: 480px) {
+  .kids-verse-strip {
+    padding: 1.35rem 0.85rem 0.85rem;
+    margin-top: 1.5rem;
+  }
+
+  .kids-print-btn {
+    margin: 1.75rem auto 0.85rem;
+    width: min(100%, 18rem);
+  }
+}
+
+/* Print-friendly spacing */
+@media print {
+  .kids-verse-strip {
+    margin-top: 2rem;
+    padding: 1.5rem 0;
+    border-top: 2px solid var(--kids-print-ink);
+    color: var(--kids-print-ink);
+    page-break-inside: avoid;
+  }
+
+  body.tdb-kids-printing .top-bar,
+  body.tdb-kids-printing .tdb-cat-progress-outer,
+  body.tdb-kids-printing .tdb-cat-tabs,
+  body.tdb-kids-printing .tdb-cat-save-scene,
+  body.tdb-kids-printing .tdb-cat-story-actions,
+  body.tdb-kids-printing footer,
+  body.tdb-kids-printing .skip-link,
+  body.tdb-kids-printing .no-print {
+    display: none !important;
+  }
+
+  body.tdb-kids-printing .tdb-cat-panel[hidden] {
+    display: none !important;
+  }
+
+  body.tdb-kids-printing .tdb-cat-panel:not([hidden]) {
+    display: block !important;
+  }
+
+  body.tdb-kids-printing .tdb-cat-jl-wrap {
+    border: 1px solid var(--kids-print-ink);
+    box-shadow: none;
+    background: var(--kids-print-bg) !important;
+  }
+}
+
+/* Bridge legacy Kids Battle vars to calm gold tokens */
+.kids-battle-page,
+.kids-corner-page {
+  --kids-yellow: var(--kids-gold);
+}
+
+/* Step 3 — Bible Story Library: calmer cards + read-aloud spacing (tokens only) */
+.kids-library-grid {
+  gap: var(--kids-spacing, 1.5rem);
+}
+
+.kids-library-card {
+  border: 2px solid var(--kids-gold);
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.14);
+  padding: 1.15rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .kids-library-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kids-library-card:hover {
+    transform: none;
+  }
+}
+
+.kids-library-card-title {
+  color: var(--kids-gold);
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+}
+
+.kids-library-card-desc {
+  line-height: var(--kids-line-height, 1.75);
+}
+
+.kids-library-card-btn {
+  border-color: var(--kids-gold);
+  background: linear-gradient(135deg, rgba(212, 176, 138, 0.95), rgba(180, 130, 110, 0.9));
+  letter-spacing: 0.01em;
+}
+
+.kids-read-quiz-wrap {
+  border: 2px solid rgba(212, 184, 138, 0.55);
+  border-radius: 12px;
+  padding: 1.15rem 1.2rem 1.25rem;
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.kids-read-quiz-verse-excerpt {
+  font-family: var(--kids-font-body);
+  line-height: var(--kids-line-height, 1.75);
+  border-left-color: var(--kids-gold);
+  padding: 0.75rem 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.kids-read-quiz-para,
+.kids-read-quiz-qtext {
+  font-family: var(--kids-font-body);
+  font-size: 1.05rem;
+  line-height: var(--kids-line-height, 1.75);
+  max-width: 38rem;
+  margin-bottom: 0.9rem;
+}
+
+.kids-read-quiz-ref,
+.kids-read-quiz-h4 {
+  color: var(--kids-gold);
+}
+
+.kids-library-modal .comic-panel,
+.kids-video-modal-content .comic-panel {
+  border-width: 2px;
+  border-color: rgba(212, 184, 138, 0.5);
+}
+
+.kids-read-quiz-choice {
+  line-height: 1.5;
+  min-height: 44px;
+  align-items: center;
+}
+
+/* Step 3 — Loop library cards (calmer, token-aligned) */
+.kids-corner-page .loop-card {
+  border-radius: 10px;
+  border-color: rgba(212, 184, 138, 0.45);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .kids-corner-page .loop-card:hover,
+  .kids-corner-page .loop-card:focus-within {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.14);
+  }
+}
+
+@media print {
+  .kids-library-card,
+  .kids-read-quiz-wrap {
+    break-inside: avoid;
+    box-shadow: none;
+    border-color: var(--kids-print-ink);
+  }
+
+  .kids-read-quiz-para,
+  .kids-read-quiz-qtext {
+    color: var(--kids-print-ink);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 11pt;
+    line-height: 1.6;
+  }
+
+  .kids-read-quiz-verse-excerpt {
+    color: var(--kids-muted);
+    font-size: 9.5pt;
+  }
+}

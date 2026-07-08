@@ -7,10 +7,13 @@
  * Spanish topical root pages, templates, and 404/offline shells.
  *
  * Run: node scripts/sync-primary-site-nav.mjs
+ *
+ * Finishes with inject-missing-primary-nav for journal/, bible/, life-lessons/, etc.
  */
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { injectMissingPrimaryNav } from './inject-missing-primary-nav.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
@@ -297,6 +300,8 @@ function main() {
     }
   }
   console.log('sync-primary-site-nav:', updated, 'files');
+  const injected = injectMissingPrimaryNav();
+  console.log('sync-primary-site-nav: inject pass complete (' + injected + ' orphan shells)');
 }
 
 main();

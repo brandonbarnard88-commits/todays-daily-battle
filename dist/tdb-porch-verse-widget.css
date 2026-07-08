@@ -1,0 +1,91 @@
+/* Soft Today's Verse widget — optional porch card (Explore, Plans, Family) */
+.tdb-explore-sidebar-stack {
+  margin: 0 0 var(--tdb-porch-space-md, 1.25rem);
+}
+
+.tdb-porch-verse-widget {
+  margin: 0 0 var(--tdb-porch-space-md, 1.25rem);
+  padding: var(--tdb-porch-card-pad-compact-y, 0.9rem) var(--tdb-porch-card-pad-compact-x, 1.05rem);
+  border-radius: var(--tdb-porch-card-radius, 16px);
+  background-color: var(--tdb-porch-card-bg);
+  border: 1px solid var(--tdb-porch-card-border);
+  box-shadow: var(--tdb-porch-card-shadow);
+}
+
+.tdb-porch-verse-widget__label {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-ui, system-ui, sans-serif);
+  font-size: var(--tdb-heading-eyebrow-size, 0.72rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--gold, #e3bc67) 72%, var(--muted, #a8b3c4) 28%);
+}
+
+.tdb-porch-verse-widget__ref {
+  margin: 0 0 0.45rem;
+  font-family: var(--font-ui, system-ui, sans-serif);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--tdb-heading-muted, var(--muted));
+}
+
+.tdb-porch-verse-widget__text {
+  margin: 0 0 0.75rem;
+  padding: 0;
+  border: none;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.05rem, 2.4vw, 1.22rem);
+  line-height: 1.55;
+  font-weight: 500;
+  color: var(--tdb-heading-color, var(--text));
+}
+
+.tdb-porch-verse-widget__text p {
+  margin: 0;
+}
+
+.tdb-porch-verse-widget__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  align-items: center;
+}
+
+.tdb-porch-verse-widget__actions .btn {
+  min-height: 44px;
+}
+
+.tdb-porch-verse-widget__actions .link-button {
+  min-height: 44px;
+  padding: 0.35rem 0.15rem;
+}
+
+html.tdb-porch-verse-hidden #tdbPorchVerseWidget {
+  display: none !important;
+}
+
+.plans-page .tdb-porch-verse-widget {
+  margin: var(--tdb-porch-space-md, 1.25rem) auto var(--tdb-porch-space-lg, 1.75rem);
+  max-width: min(46rem, 100%);
+}
+
+.family-hub-page .tdb-porch-verse-widget {
+  margin: 0.35rem auto var(--tdb-porch-space-lg, 1.75rem);
+  max-width: min(46rem, 100%);
+}
+
+@media (min-width: 1100px) {
+  .tdb-explore-sidebar-stack {
+    position: sticky;
+    top: 3.25rem;
+    z-index: 8;
+    margin-bottom: 1.2rem;
+  }
+
+  .tdb-porch-verse-widget {
+    margin-bottom: 0.85rem;
+  }
+}

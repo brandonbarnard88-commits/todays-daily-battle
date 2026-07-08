@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 200" width="160" height="200" role="img" aria-labelledby="sm-pr-t">
+  <title id="sm-pr-t">Little Shepherd prays quietly with you</title>
+  <defs>
+    <radialGradient id="fg-pr" cx="40%" cy="35%" r="58%">
+      <stop offset="0%" stop-color="#fffbf0"/>
+      <stop offset="100%" stop-color="#fde68a"/>
+    </radialGradient>
+  </defs>
+  <!-- robe -->
+  <path d="M50,105 C46,124 41,157 39,192 L121,192 C119,157 114,124 110,105 Z" fill="#fef9eb" stroke="#c9a55a" stroke-width="2" stroke-linejoin="round"/>
+  <line x1="69" y1="108" x2="63" y2="148" stroke="#c9a55a" stroke-width="1.2" opacity="0.45" stroke-linecap="round"/>
+  <line x1="91" y1="108" x2="97" y2="148" stroke="#c9a55a" stroke-width="1.2" opacity="0.45" stroke-linecap="round"/>
+  <!-- left arm (angled inward) -->
+  <path d="M52,112 Q58,128 72,140" fill="none" stroke="#c9a55a" stroke-width="8" stroke-linecap="round"/>
+  <!-- right arm (angled inward) -->
+  <path d="M108,112 Q102,128 88,140" fill="none" stroke="#c9a55a" stroke-width="8" stroke-linecap="round"/>
+  <!-- folded hands together at chest -->
+  <ellipse cx="80" cy="148" rx="14" ry="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.8"/>
+  <!-- subtle finger lines -->
+  <line x1="68" y1="150" x2="70" y2="158" stroke="#d97706" stroke-width="1" opacity="0.35" stroke-linecap="round"/>
+  <line x1="74" y1="149" x2="76" y2="158" stroke="#d97706" stroke-width="1" opacity="0.35" stroke-linecap="round"/>
+  <line x1="80" y1="149" x2="80" y2="158" stroke="#d97706" stroke-width="1" opacity="0.35" stroke-linecap="round"/>
+  <line x1="86" y1="149" x2="84" y2="158" stroke="#d97706" stroke-width="1" opacity="0.35" stroke-linecap="round"/>
+  <line x1="92" y1="150" x2="90" y2="158" stroke="#d97706" stroke-width="1" opacity="0.35" stroke-linecap="round"/>
+  <!-- woolly bumps -->
+  <circle cx="63" cy="57" r="13" fill="#fef9eb" stroke="#d97706" stroke-width="1.8"/>
+  <circle cx="80" cy="50" r="15" fill="#fef9eb" stroke="#d97706" stroke-width="1.8"/>
+  <circle cx="97" cy="57" r="12" fill="#fef9eb" stroke="#d97706" stroke-width="1.8"/>
+  <!-- face -->
+  <circle cx="80" cy="78" r="30" fill="url(#fg-pr)" stroke="#d97706" stroke-width="2"/>
+  <!-- closed eyes (praying — soft curved lines) -->
+  <path d="M64,74 Q70,70 76,74" fill="none" stroke="#2d1a0e" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M84,74 Q90,70 96,74" fill="none" stroke="#2d1a0e" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- gentle closed-mouth calm -->
+  <path d="M72,88 Q80,93 88,88" fill="none" stroke="#92400e" stroke-width="2" stroke-linecap="round"/>
+  <ellipse cx="63" cy="84" rx="5" ry="3" fill="#f87171" opacity="0.17"/>
+  <ellipse cx="97" cy="84" rx="5" ry="3" fill="#f87171" opacity="0.17"/>
+</svg>

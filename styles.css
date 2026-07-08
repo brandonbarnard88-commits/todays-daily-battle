@@ -11251,6 +11251,167 @@ html[data-theme="sepia"] details.verse-breakdown[open] > .verse-breakdown-conten
   margin-bottom: 0.5rem;
 }
 
+/* Biblical answer block — curated Q&A above verse results */
+.tdb-biblical-answer {
+  margin: 1.25rem 0 1rem;
+  padding: 1.1rem 1.25rem 1rem;
+  border: 1px solid var(--border, rgba(255,255,255,0.1));
+  border-left: 3px solid var(--gold, #e3bc67);
+  border-radius: 8px;
+  background: var(--card-bg, rgba(255,255,255,0.04));
+}
+.tdb-biblical-answer--compact {
+  padding: 0.9rem 1.1rem 0.85rem;
+  margin: 0.85rem 0 0.75rem;
+}
+.tdb-ba-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold, #e3bc67);
+  margin-bottom: 0.55rem;
+}
+.tdb-ba-answer {
+  margin: 0 0 0.85rem;
+  font-size: 0.97rem;
+  line-height: 1.65;
+  color: var(--text, #e2e8f0);
+}
+.tdb-ba-verses {
+  margin-bottom: 0.65rem;
+  font-size: 0.85rem;
+  color: var(--muted, #bcc5d6);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem 0.5rem;
+}
+.tdb-ba-verse-label {
+  flex-shrink: 0;
+}
+.tdb-ba-verse-chip {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border: 1px solid var(--border, rgba(255,255,255,0.15));
+  border-radius: 999px;
+  font-size: 0.82rem;
+  color: var(--primary, #7da3c8);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  font-family: inherit;
+}
+.tdb-ba-verse-chip:hover,
+.tdb-ba-verse-chip:focus-visible {
+  background: var(--primary, #7da3c8);
+  color: var(--bg, #0f172a);
+  outline: none;
+}
+.tdb-ba-plan-hint {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--muted, #bcc5d6);
+}
+.tdb-ba-plan-link {
+  color: var(--gold, #e3bc67);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 2px;
+}
+.tdb-ba-plan-link:hover,
+.tdb-ba-plan-link:focus-visible {
+  color: var(--gold-soft, #f2dc98);
+  outline: none;
+}
+.tdb-ba-feedback {
+  margin-top: 0.6rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border, rgba(255,255,255,0.07));
+  font-size: 0.78rem;
+  color: var(--muted, #bcc5d6);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+.tdb-ba-feedback-label {
+  flex-shrink: 0;
+}
+.tdb-ba-feedback-btn {
+  background: none;
+  border: 1px solid var(--border, rgba(255,255,255,0.15));
+  border-radius: 4px;
+  color: var(--muted, #bcc5d6);
+  font-size: 0.78rem;
+  padding: 0.1rem 0.45rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.12s, color 0.12s;
+}
+.tdb-ba-feedback-btn:hover,
+.tdb-ba-feedback-btn:focus-visible {
+  background: var(--primary, #7da3c8);
+  color: var(--bg, #0f172a);
+  border-color: transparent;
+  outline: none;
+}
+.tdb-ba-feedback-thanks {
+  color: var(--muted, #bcc5d6);
+  font-style: italic;
+}
+
+/* Story intent card — Phase 1 search enhancement */
+.story-intent-card {
+  margin: 1.25rem 0;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border, rgba(255,255,255,0.1));
+  border-left: 3px solid var(--gold, #e3bc67);
+  border-radius: 8px;
+  background: var(--card-bg, rgba(255,255,255,0.04));
+}
+.story-intent-card--compact {
+  padding: 0.75rem 1rem;
+  margin: 0.75rem 0;
+}
+.story-intent-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gold, #e3bc67);
+  margin-bottom: 0.4rem;
+}
+.story-intent-heading {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+  color: var(--text, #e2e8f0);
+  line-height: 1.4;
+}
+.story-intent-sub {
+  margin: 0 0 0.75rem;
+  font-size: 0.875rem;
+  color: var(--muted, #bcc5d6);
+  line-height: 1.5;
+}
+.story-intent-btn {
+  display: inline-block;
+  margin-bottom: 0.6rem;
+}
+.story-intent-fallback {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--muted, #bcc5d6);
+}
+.story-intent-fallback a {
+  color: var(--primary, #7da3c8);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 2px;
+}
+
 .loop-teaser {
   margin: 0.75rem 0;
   font-size: 0.9rem;

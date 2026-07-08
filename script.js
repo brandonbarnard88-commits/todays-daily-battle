@@ -5406,8 +5406,580 @@ const PHRASE_TO_TOKENS = {
   'worried about my children if i die': ['parenting', 'fear', 'faith', 'hope'],
   'afraid what happens to my kids': ['parenting', 'fear', 'anxiety', 'faith'],
   'what happens to my kids': ['parenting', 'fear', 'faith', 'hope'],
-  'who will take care of my children': ['parenting', 'fear', 'faith', 'trust']
+  'who will take care of my children': ['parenting', 'fear', 'faith', 'trust'],
+
+  // === PHASE 2: Verse-by-feel / remembered phrases (~40 entries) ===
+  'renewing your mind': ['transform', 'mind', 'renew', 'faith'],
+  'be still and know': ['peace', 'still', 'rest', 'faith'],
+  'love is patient love is kind': ['love', 'patience', 'kindness'],
+  'weeping may endure for a night': ['grief', 'hope', 'joy', 'morning'],
+  'cast your cares on him': ['anxiety', 'trust', 'peace', 'rest'],
+  'i can do all things through christ': ['strength', 'faith', 'courage'],
+  'peace that passes understanding': ['peace', 'anxiety', 'trust', 'faith'],
+  'come to me all who are weary': ['rest', 'weary', 'burden', 'peace'],
+  'the lord is my shepherd': ['peace', 'provision', 'rest', 'trust'],
+  'greater is he that is in you': ['strength', 'faith', 'courage', 'victory'],
+  'faith as small as a mustard seed': ['faith', 'trust', 'courage'],
+  'do not be anxious about anything': ['anxiety', 'peace', 'trust', 'faith'],
+  'trust in the lord with all your heart': ['trust', 'faith', 'peace', 'wisdom'],
+  'this is the day the lord has made': ['gratitude', 'joy', 'hope', 'praise'],
+  'god works all things together for good': ['hope', 'trust', 'faith', 'suffering'],
+  'be strong and courageous': ['courage', 'strength', 'fear', 'faith'],
+  'the joy of the lord is my strength': ['joy', 'strength', 'faith'],
+  'my grace is sufficient for you': ['grace', 'suffering', 'strength', 'faith'],
+  'i will never leave you nor forsake you': ['loneliness', 'trust', 'peace', 'faith'],
+  'perfect love casts out fear': ['love', 'fear', 'peace', 'faith'],
+  'he heals the brokenhearted': ['grief', 'hope', 'healing', 'comfort'],
+  'wait on the lord': ['patience', 'trust', 'hope', 'faith'],
+  'thy word is a lamp unto my feet': ['guidance', 'wisdom', 'faith', 'trust'],
+  'blessed are the peacemakers': ['peace', 'love', 'wisdom'],
+  'come boldly to the throne of grace': ['prayer', 'grace', 'faith', 'trust'],
+  'let not your heart be troubled': ['peace', 'fear', 'faith', 'trust'],
+  'the lord fights for you': ['strength', 'trust', 'courage', 'fear'],
+  'behold i make all things new': ['hope', 'healing', 'faith', 'renewal'],
+  'i have loved you with an everlasting love': ['love', 'hope', 'security', 'faith'],
+  'he is able to do exceeding abundantly': ['faith', 'hope', 'trust', 'strength'],
+  'the lord is close to the brokenhearted': ['grief', 'comfort', 'hope', 'healing'],
+  'whatever is true whatever is noble': ['peace', 'wisdom', 'gratitude', 'faith'],
+  'my help comes from the lord': ['trust', 'strength', 'faith', 'peace'],
+  'he gives power to the faint': ['strength', 'weary', 'faith', 'hope'],
+  'stand still and see the salvation of the lord': ['trust', 'faith', 'courage', 'fear'],
+  'god is our refuge and strength': ['peace', 'strength', 'trust', 'faith'],
+  'a soft answer turns away wrath': ['anger', 'wisdom', 'peace', 'love'],
+  'train up a child in the way he should go': ['parenting', 'faith', 'wisdom'],
+  'the lord will fight for you': ['courage', 'trust', 'faith', 'fear'],
+  'he who began a good work in you': ['hope', 'faith', 'trust', 'perseverance'],
+
+  // === PHASE 3: Additional life-situation phrases (~30 entries) ===
+  'i just lost my job': ['provision', 'trust', 'fear', 'hope'],
+  'laid off from work': ['provision', 'trust', 'fear', 'anxiety'],
+  'going through a divorce': ['grief', 'healing', 'trust', 'loneliness'],
+  'my teenager is pulling away': ['parenting', 'prodigal', 'trust', 'grief'],
+  'my teen wont talk to me': ['parenting', 'grief', 'trust', 'loneliness'],
+  'waiting on surgery results': ['fear', 'trust', 'peace', 'faith'],
+  'waiting on test results': ['fear', 'anxiety', 'trust', 'peace'],
+  'postpartum depression bible verse': ['suffering', 'hope', 'grace', 'rest'],
+  'new mom exhausted': ['weary', 'grace', 'rest', 'strength'],
+  'miscarriage grief': ['grief', 'comfort', 'hope', 'healing'],
+  'pregnancy loss': ['grief', 'hope', 'healing', 'comfort'],
+  'abortion grief': ['grief', 'forgiveness', 'healing', 'grace'],
+  'chronic daily pain': ['suffering', 'endurance', 'hope', 'strength'],
+  'pain every day': ['suffering', 'strength', 'faith', 'hope'],
+  'cant forgive myself': ['guilt', 'forgiveness', 'grace', 'healing'],
+  'cant forgive myself for what i did': ['guilt', 'shame', 'forgiveness', 'grace'],
+  'my marriage is struggling': ['marriage', 'forgiveness', 'love', 'hope'],
+  'marriage in trouble': ['marriage', 'grief', 'healing', 'trust'],
+  'elderly parent declining': ['grief', 'caregiver', 'trust', 'strength'],
+  'parent with dementia': ['grief', 'caregiver', 'loneliness', 'strength'],
+  'financial collapse': ['provision', 'trust', 'fear', 'faith'],
+  'drowning in debt': ['provision', 'anxiety', 'trust', 'hope'],
+  'betrayed by someone close': ['grief', 'forgiveness', 'healing', 'trust'],
+  'someone i trusted hurt me': ['grief', 'anger', 'forgiveness', 'healing'],
+  'waiting on god for a long time': ['patience', 'hope', 'trust', 'faith'],
+  'god feels silent': ['trust', 'hope', 'loneliness', 'faith'],
+  'feeling like a failure as a parent': ['parenting', 'guilt', 'grace', 'hope'],
+  'feel like a bad mom': ['parenting', 'guilt', 'grace', 'hope'],
+  'feel like a bad dad': ['parenting', 'guilt', 'grace', 'hope'],
+  'prodigal child': ['parenting', 'grief', 'hope', 'trust'],
+  'child away from god': ['parenting', 'grief', 'hope', 'prayer'],
+
+  // === BATCH B: Theological / "what is" / salvation / Holy Spirit / assurance ===
+  'what is salvation': ['salvation', 'faith', 'grace', 'hope'],
+  'how do i get saved': ['salvation', 'faith', 'grace', 'trust'],
+  'how to be saved': ['salvation', 'faith', 'grace', 'hope'],
+  'am i saved': ['salvation', 'assurance', 'faith', 'hope'],
+  'assurance of salvation': ['salvation', 'assurance', 'faith', 'hope'],
+  'once saved always saved': ['salvation', 'assurance', 'faith', 'security'],
+  'what is grace': ['grace', 'forgiveness', 'love', 'salvation'],
+  'unmerited favor': ['grace', 'love', 'salvation', 'faith'],
+  'what is the holy spirit': ['holy spirit', 'faith', 'comfort', 'guidance'],
+  'who is the holy spirit': ['holy spirit', 'faith', 'comfort', 'guidance'],
+  'what does the holy spirit do': ['holy spirit', 'faith', 'guidance', 'comfort'],
+  'how do i pray': ['prayer', 'faith', 'guidance', 'peace'],
+  'how to pray right': ['prayer', 'faith', 'guidance'],
+  'does god hear my prayers': ['prayer', 'faith', 'trust', 'hope'],
+  'does god answer prayer': ['prayer', 'faith', 'trust', 'hope'],
+  'what is faith': ['faith', 'trust', 'hope', 'strength'],
+  'how do i have more faith': ['faith', 'trust', 'strength', 'hope'],
+  'what does repentance mean': ['repentance', 'forgiveness', 'grace', 'salvation'],
+  'how do i repent': ['repentance', 'forgiveness', 'grace', 'faith'],
+  'is god real': ['faith', 'doubt', 'trust', 'hope'],
+  'how do i know god is real': ['faith', 'doubt', 'trust', 'hope'],
+  'why does god allow suffering': ['suffering', 'faith', 'trust', 'hope'],
+  'why is there so much pain in the world': ['suffering', 'grief', 'faith', 'hope'],
+  'does god still love me after what i did': ['grace', 'forgiveness', 'love', 'guilt'],
+  'can god forgive anything': ['forgiveness', 'grace', 'love', 'salvation'],
+  'is anything too hard for god': ['faith', 'trust', 'hope', 'strength'],
+
+  // === BATCH B: Relationship & family edge cases ===
+  'husband and wife fighting': ['marriage', 'anger', 'forgiveness', 'love'],
+  'my husband is cold to me': ['marriage', 'loneliness', 'grief', 'love'],
+  'my wife doesnt respect me': ['marriage', 'anger', 'loneliness', 'love'],
+  'feeling unloved in my marriage': ['marriage', 'loneliness', 'love', 'grief'],
+  'in laws causing problems': ['marriage', 'anger', 'peace', 'wisdom'],
+  'toxic family member': ['anger', 'forgiveness', 'peace', 'wisdom'],
+  'cutting off family': ['grief', 'forgiveness', 'peace', 'wisdom'],
+  'estranged from family': ['grief', 'loneliness', 'forgiveness', 'hope'],
+  'sibling rivalry': ['anger', 'forgiveness', 'peace', 'love'],
+  'jealous of others blessings': ['envy', 'gratitude', 'trust', 'peace'],
+  'why does everyone else have it easier': ['envy', 'trust', 'peace', 'suffering'],
+  'friend ghosted me': ['loneliness', 'grief', 'trust', 'forgiveness'],
+  'lonely even with people around me': ['loneliness', 'grief', 'love', 'hope'],
+
+  // === BATCH B: Nearly-remembered verse phrases ===
+  'all things are possible with god': ['faith', 'trust', 'strength', 'hope'],
+  'knock and the door will be opened': ['prayer', 'faith', 'hope', 'trust'],
+  'seek and you will find': ['faith', 'wisdom', 'guidance', 'trust'],
+  'ask and it shall be given': ['prayer', 'faith', 'trust', 'hope'],
+  'the truth will set you free': ['truth', 'freedom', 'faith', 'wisdom'],
+  'where two or three are gathered': ['prayer', 'community', 'faith', 'worship'],
+  'do unto others': ['love', 'wisdom', 'peace', 'kindness'],
+  'love your enemies': ['love', 'forgiveness', 'peace', 'wisdom'],
+  'blessed are the meek': ['peace', 'humility', 'faith', 'wisdom'],
+  'blessed are the pure in heart': ['purity', 'faith', 'peace', 'hope'],
+  'forgive seventy times seven': ['forgiveness', 'love', 'patience', 'wisdom'],
+  'fear not for i am with you': ['fear', 'trust', 'peace', 'faith'],
+  'every good gift comes from above': ['gratitude', 'faith', 'hope', 'trust'],
+  'the battle is not yours but gods': ['trust', 'faith', 'strength', 'courage'],
+  'all have sinned and fall short': ['guilt', 'grace', 'forgiveness', 'salvation']
 };
+
+/**
+ * TDB_BIBLICAL_ANSWERS — curated, human-written answers to common real questions.
+ * Each entry: { id, triggers[], answer, verses[], plan? }
+ * answer: 3–5 sentences, warm KJV-grounded, porch-style voice. No fluff.
+ * triggers: normalized lowercase phrases that detect this question in a search.
+ * plan: optional topic key to link a Battle Plan.
+ */
+var TDB_BIBLICAL_ANSWERS = [
+  {
+    id: 'forgiveness-of-others',
+    triggers: [
+      'how do i forgive someone', 'how to forgive someone', 'how do you forgive someone',
+      'cant forgive someone', 'how to forgive', 'forgive someone who hurt me',
+      'should i forgive', 'forgiving someone who hurt you', 'how do i forgive someone who hurt me',
+      'bible says about forgiving others', 'forgiving people who hurt you', 'how can i forgive'
+    ],
+    answer: 'The Bible does not ask you to pretend the hurt did not happen or to trust that person again right away. It calls you to release the debt — to choose not to hold it against them, the same way God has released yours (Ephesians 4:32; Colossians 3:13). Forgiveness is less about what they deserve and more about your heart being free. Jesus modeled it from the cross, even toward people who had not asked for it. It often takes time and repeated surrender — start by bringing the hurt honestly to God.',
+    verses: ['Ephesians 4:32', 'Colossians 3:13', 'Matthew 6:14'],
+    plan: 'forgiveness'
+  },
+  {
+    id: 'anxiety-trust-future',
+    triggers: [
+      'what does the bible say about anxiety', 'bible verses for anxiety', 'anxious about everything',
+      'how to deal with anxiety', 'bible help for anxiety', 'what does god say about anxiety',
+      'scripture for anxiety', 'verses about anxiety', 'i have anxiety', 'feeling anxious',
+      'constant anxiety', 'struggling with anxiety'
+    ],
+    answer: 'The Bible takes anxiety seriously — it does not shame you for it. Philippians 4:6–7 gives the most direct path: bring everything to God in prayer and the peace "which passeth all understanding" will guard your heart and mind. First Peter 5:7 goes further: cast your care on Him because He cares for you — not as an obligation, but as an invitation. God\'s steadiness is the anchor, not your ability to stop worrying. The one step Scripture keeps returning to is honest prayer, not managed calm.',
+    verses: ['Philippians 4:6', 'Philippians 4:7', '1 Peter 5:7', 'Isaiah 41:10'],
+    plan: 'anxiety'
+  },
+  {
+    id: 'does-god-hear-prayer',
+    triggers: [
+      'does god hear my prayers', 'does god answer prayer', 'does god listen to me',
+      'god is not listening', 'god is not answering', 'why does god not answer',
+      'why is god silent', 'does prayer work', 'does god hear me', 'is god listening',
+      'feels like god does not hear me'
+    ],
+    answer: 'He does. First John 5:14 says if we ask according to His will, He hears us. Psalm 34:18 says He is near to the brokenhearted — meaning He is closest when you feel most uncertain. Sometimes the answer is not what you expected, and sometimes it comes slower than you hoped — but silence is not absence. Jesus taught to keep asking, keep seeking, keep knocking (Matthew 7:7–8). Bring what you have honestly, and trust the One who never sleeps nor slumbers (Psalm 121:4).',
+    verses: ['1 John 5:14', 'Psalm 34:18', 'Matthew 7:7', 'Psalm 121:4'],
+    plan: 'prayer'
+  },
+  {
+    id: 'how-do-i-know-god-loves-me',
+    triggers: [
+      'how do i know god loves me', 'does god love me', 'does god still love me',
+      'does god love me after what i did', 'god loves me', 'does god care about me',
+      'does god care', 'what is gods love', 'how much does god love me',
+      'why would god love me', 'does god love me even when i sin'
+    ],
+    answer: 'The clearest proof in Scripture is Romans 5:8: God demonstrated His love toward us by sending Christ to die for us while we were still sinners — not after we cleaned up. Nothing you have done earned it, and nothing you have done can undo it (Romans 8:38–39). John 3:16 frames the whole gospel as the reason Jesus came. His love is not a reward for good behavior; it is the foundation everything else stands on. You do not have to feel it to trust it, but bringing that question honestly to Him is exactly the right place to start.',
+    verses: ['Romans 5:8', 'John 3:16', 'Romans 8:38', 'Romans 8:39'],
+    plan: 'hope'
+  },
+  {
+    id: 'why-is-there-suffering',
+    triggers: [
+      'why is there suffering', 'why does god allow suffering', 'why does god let bad things happen',
+      'why is there so much pain', 'why does god allow pain', 'why do bad things happen to good people',
+      'why is life so hard', 'why does god let people suffer', 'why suffering in the world',
+      'why would god allow this', 'where is god when i suffer'
+    ],
+    answer: 'That is one of the hardest questions a person can bring to God, and the Bible does not give a tidy formula in return. What it makes clear is this: God is not standing at a distance. He entered suffering — Jesus wept, was rejected, and was forsaken (John 11:35; Isaiah 53:3–4). Romans 8:28 promises He works all things together for good — not that all things are good, but that nothing is wasted. James 1:2–4 says trials build endurance, which builds something that could not have come any other way. God does not explain every pain, but He promises to be in it with you and to bring you through it.',
+    verses: ['John 11:35', 'Isaiah 53:3', 'Romans 8:28', 'James 1:3'],
+    plan: 'suffering'
+  },
+  {
+    id: 'depression-bible',
+    triggers: [
+      'what does the bible say about depression', 'bible help for depression', 'i am depressed',
+      'feeling depressed', 'struggling with depression', 'scripture for depression',
+      'verses about depression', 'how to deal with depression', 'deeply depressed',
+      'hopeless and depressed', 'bible verses for when you are depressed'
+    ],
+    answer: 'Scripture contains people who were so low they asked God to let them die — Elijah under the juniper tree (1 Kings 19), the writers of Psalms 88 and 22. God\'s response to Elijah was not a sermon — it was food, water, rest, and then a quiet voice (1 Kings 19:12). Psalm 34:18 says He is near to the brokenhearted and saves the crushed in spirit. Depression is not a sign of weak faith; many of the most faithful people in Scripture went through it. Tell God exactly where you are, and let the people around you in too.',
+    verses: ['Psalm 34:18', '1 Kings 19:5', 'Psalm 88:1', 'Isaiah 41:10'],
+    plan: 'suffering'
+  },
+  {
+    id: 'assurance-salvation',
+    triggers: [
+      'am i saved', 'how do i know i am saved', 'how to be saved', 'what is salvation',
+      'how do i get saved', 'assurance of salvation', 'am i really saved',
+      'what does it mean to be saved', 'once saved always saved', 'how do i know if im saved',
+      'do i have eternal life', 'how do you get saved', 'what does salvation mean'
+    ],
+    answer: 'If you are asking this question sincerely, bring it straight to God — He is not put off by it. Assurance rests on what Jesus did, not on how you feel on a given day. Romans 10:9–10 puts it plainly: confess with your mouth and believe in your heart that God raised Jesus from the dead. First John 5:13 was written so you can know you have eternal life — not wonder, know. If you have turned to Christ, that turning is not erased by doubt or by a hard season. Doubt and faith can live in the same heart; what anchors you is His promise, not your certainty.',
+    verses: ['Romans 10:9', '1 John 5:13', 'John 3:16', 'Ephesians 2:8'],
+    plan: 'faith'
+  },
+  {
+    id: 'marriage-bible',
+    triggers: [
+      'what does the bible say about marriage', 'bible and marriage', 'marriage struggles bible',
+      'scripture about marriage', 'marriage problems bible', 'how to have a good marriage',
+      'what god says about marriage', 'bible verses for marriage', 'marriage advice bible',
+      'my marriage is falling apart', 'struggling in marriage'
+    ],
+    answer: 'God designed marriage as a picture of His covenant love — not a contract that runs out, but a committed giving of oneself (Ephesians 5:25–33). The pattern He gives is mutual sacrifice and honor, not one person carrying everything. First Corinthians 13 describes the kind of love that holds a marriage through hard seasons: patient, kind, not keeping a record of wrongs. No marriage is beyond what God can restore, but it takes honesty, humility, and a willingness to return to Him together. The hardest prayer is often the truest one: Lord, change me first.',
+    verses: ['Ephesians 5:25', '1 Corinthians 13:4', 'Colossians 3:14', 'Proverbs 18:22'],
+    plan: 'marriage'
+  },
+  {
+    id: 'self-forgiveness',
+    triggers: [
+      'how do i forgive myself', 'cant forgive myself', 'i cant forgive myself for what i did',
+      'how to forgive yourself', 'struggling to forgive myself', 'i feel so guilty',
+      'overwhelmed by guilt', 'bible says about self forgiveness', 'how to let go of guilt',
+      'will god forgive what i did', 'i feel like i cant be forgiven'
+    ],
+    answer: 'The Bible grounds self-forgiveness not in feeling better about yourself but in receiving what God has already declared true: He has removed your sin "as far as the east is from the west" (Psalm 103:12). First John 1:9 is a promise, not a suggestion — confess, and He is faithful and just to forgive and to cleanse. If God has forgiven it, continuing to carry it is not humility; it is refusing a gift already given. That does not mean the damage disappears overnight, but you can lay the guilt down because Jesus carried it on the cross.',
+    verses: ['Psalm 103:12', '1 John 1:9', 'Isaiah 43:25', 'Romans 8:1'],
+    plan: 'guilt'
+  },
+  {
+    id: 'fear-bible',
+    triggers: [
+      'what does the bible say about fear', 'bible verses about fear', 'how to overcome fear',
+      'scared all the time', 'living in fear', 'i am afraid', 'how does the bible address fear',
+      'scripture about fear', 'bible help for fear', 'what does god say about fear',
+      'i feel fearful', 'overwhelmed by fear', 'afraid and dont know why'
+    ],
+    answer: '"Fear not" appears throughout Scripture — not as a command to feel a certain way, but as a reminder of who is with you. Isaiah 41:10 is one of the clearest: "Fear thou not; for I am with thee." Psalm 56:3 is David\'s honest confession: "What time I am afraid, I will trust in thee" — not I will stop being afraid, but I will trust through it. Fear and faith can coexist; Scripture does not ask you to pretend you are not scared. The anchor is not your courage — it is His presence. Bring the fear honestly and let the truth of who He is be the steadier voice.',
+    verses: ['Isaiah 41:10', 'Psalm 56:3', '2 Timothy 1:7', 'Psalm 27:1'],
+    plan: 'fear'
+  },
+  {
+    id: 'grief-bible',
+    triggers: [
+      'what does the bible say about grief', 'bible help for grief', 'how to grieve',
+      'grieving a loss', 'bible says about loss', 'scripture for grief', 'how does god comfort grief',
+      'dealing with loss', 'my loved one died', 'help with grief', 'grieving someone i lost',
+      'bible comfort for grief', 'can you grieve and still have faith'
+    ],
+    answer: 'Jesus wept at the tomb of Lazarus even knowing what was about to happen (John 11:35). Grief is not a failure of faith — it is the honest cost of love. Psalm 34:18 says the Lord is near to the brokenhearted. Ecclesiastes 3:4 says there is a time to mourn — it is built into the rhythm of human life, not a sign of being stuck. God does not hurry grief. He sits with it. What Revelation 21:4 promises — that He will wipe every tear — is a picture of a God who has held every one of them (Psalm 56:8).',
+    verses: ['John 11:35', 'Psalm 34:18', 'Revelation 21:4', 'Psalm 56:8'],
+    plan: 'grief'
+  },
+  {
+    id: 'worth-value-god',
+    triggers: [
+      'what does god say about my worth', 'am i worth anything', 'do i matter to god',
+      'feeling worthless', 'i feel worthless', 'i have no value', 'does god care about me',
+      'bible says about self worth', 'bible says about worth', 'am i enough',
+      'feeling like i dont matter', 'does anyone care about me', 'god sees me'
+    ],
+    answer: 'Your worth in Scripture is not based on what you produce, how you look, or how you feel about yourself. Psalm 139:13–14 says God formed you and you are "fearfully and wonderfully made." Matthew 10:31 says you are worth more than many sparrows — and God notices when even one of those falls. You do not have to earn your worth or prove it. The cross is the most definitive statement God ever made about what a human life is worth to Him. You were worth that.',
+    verses: ['Psalm 139:14', 'Matthew 10:31', 'Romans 5:8', 'Jeremiah 1:5'],
+    plan: 'worth'
+  },
+  {
+    id: 'trusting-god-when-life-is-hard',
+    triggers: [
+      'how do i trust god when life is hard', 'how to trust god', 'how do i trust god',
+      'hard to trust god', 'trusting god is hard', 'how do you trust god through hard times',
+      'trusting god when nothing makes sense', 'why should i trust god', 'faith when life is hard',
+      'how to keep faith when things are hard', 'trust god through pain'
+    ],
+    answer: 'Proverbs 3:5–6 puts it plainly: "Trust in the Lord with all thine heart; and lean not unto thine own understanding." But trust is not a feeling you manufacture — it is a choice to keep bringing what you are carrying to Him even when answers are not visible. Job trusted through devastation (Job 13:15). Habakkuk praised even when everything was stripped (Habakkuk 3:17–18). The pattern in Scripture is not "trust because it makes sense" but "trust because of who He is, not because of what you see." The most honest prayer you can pray is Mark 9:24: Lord, I believe — help my unbelief.',
+    verses: ['Proverbs 3:5', 'Proverbs 3:6', 'Job 13:15', 'Habakkuk 3:18'],
+    plan: 'faith'
+  },
+  {
+    id: 'waiting-on-god',
+    triggers: [
+      'what does the bible say about waiting', 'how to wait on god', 'waiting on god',
+      'how do you wait on god', 'tired of waiting', 'god is taking too long', 'why does god make you wait',
+      'how long do i have to wait', 'waiting for god to answer', 'why is god slow',
+      'i have been waiting so long', 'god still has not answered'
+    ],
+    answer: 'Waiting in Scripture is not passive — it is active trust. Isaiah 40:31 says those who wait on the Lord will renew their strength. Psalm 27:14 says "wait on the Lord: be of good courage." God works in the silence. Lamentations 3:25–26 says He is good to those who wait quietly for Him. One of the harder truths of Scripture is that God is rarely in a hurry, and His timing is better than any timeline you or I would have chosen. What waiting builds, rushing cannot.',
+    verses: ['Isaiah 40:31', 'Psalm 27:14', 'Lamentations 3:25', 'Habakkuk 2:3'],
+    plan: 'patience'
+  },
+  {
+    id: 'parenting-bible',
+    triggers: [
+      'what does the bible say about parenting', 'bible help for parents', 'how to be a good parent',
+      'scripture about parenting', 'parenting advice bible', 'what does god say about raising children',
+      'how should i raise my kids', 'bible verses for parents', 'parenting when i feel like i am failing',
+      'am i a bad parent', 'how to parent from the bible', 'struggling as a parent'
+    ],
+    answer: 'Deuteronomy 6:6–7 puts the calling plainly: the words of God are to be in your heart first, then spoken to your children throughout the ordinary day — walking, sitting, waking up. Parenting in Scripture is not about producing perfect outcomes but about faithful presence and honest faith. Proverbs 22:6 promises that training a child in the right way lasts — but that training comes through years of patient daily work, not one defining moment. Ephesians 6:4 calls fathers not to exasperate their children; gentleness is part of the biblical picture. You do not have to be a perfect parent — you have to be an honest one who keeps pointing back to God.',
+    verses: ['Deuteronomy 6:6', 'Proverbs 22:6', 'Ephesians 6:4', 'Psalm 127:3'],
+    plan: 'parenting'
+  },
+  {
+    id: 'anger-bible',
+    triggers: [
+      'what does the bible say about anger', 'bible verses about anger', 'how to control anger',
+      'dealing with anger', 'i am always angry', 'struggling with anger', 'how to stop being angry',
+      'scripture about anger', 'god and anger', 'is anger a sin', 'being angry all the time',
+      'help with anger', 'bible help for anger'
+    ],
+    answer: 'Anger itself is not sin — "Be ye angry, and sin not" (Ephesians 4:26) shows the anger and the sin are separable. What Scripture guards against is letting anger settle in and become something else: bitterness, resentment, rash words. James 1:19–20 is direct: be slow to anger, because human anger does not produce God\'s righteousness. Proverbs 15:1 says a soft answer turns away wrath. The question the Bible keeps pressing is not "did you feel it" but "what did you do with it" — and whether you brought it to God before it took root.',
+    verses: ['Ephesians 4:26', 'James 1:19', 'Proverbs 15:1', 'Psalm 37:8'],
+    plan: 'anger'
+  },
+  {
+    id: 'worry-bible',
+    triggers: [
+      'what does the bible say about worry', 'bible verses for worry', 'how to stop worrying',
+      'i worry about everything', 'worried all the time', 'scripture for worry', 'worrying too much',
+      'help with worry', 'what does god say about worry', 'how to deal with worry',
+      'constant worry', 'worry is consuming me', 'worried about the future'
+    ],
+    answer: 'Matthew 6:25–34 is Jesus\' longest direct teaching on worry — not a quick verse but a careful argument. He points to the birds and flowers: if God clothes what is temporary, will He not care for you? The conclusion is not "stop worrying" as a command of willpower, but "seek ye first the kingdom of God, and all these things shall be added unto you." Philippians 4:6–7 gives the practical step: instead of anxiety, bring it to God in prayer with thanksgiving. The peace that follows "passeth all understanding" — it is not something you generate, it is something you receive.',
+    verses: ['Matthew 6:25', 'Matthew 6:33', 'Philippians 4:6', 'Philippians 4:7'],
+    plan: 'worry'
+  },
+  {
+    id: 'loneliness-bible',
+    triggers: [
+      'what does the bible say about loneliness', 'bible help for loneliness', 'feeling lonely',
+      'i am so lonely', 'alone all the time', 'no one cares about me', 'feeling isolated',
+      'lonely and no one understands', 'scripture for loneliness', 'god and loneliness',
+      'why do i feel so alone', 'does god see my loneliness', 'alone and hurting'
+    ],
+    answer: 'Loneliness is in Scripture. David wrote about it. Elijah sat alone under a juniper tree and asked to die. Jesus was abandoned by everyone in His darkest hour. Psalm 68:6 says "God setteth the solitary in families" — He sees the alone. Hebrews 13:5 carries His direct promise: "I will never leave thee, nor forsake thee." That does not always dissolve the ache of being unknown by the people around you — but it means you are never unseen. If you are in a lonely season, it is worth praying honestly and asking Him to open a door toward one other person.',
+    verses: ['Psalm 68:6', 'Hebrews 13:5', 'Psalm 34:18', 'Isaiah 41:10'],
+    plan: 'loneliness'
+  },
+  {
+    id: 'how-to-pray',
+    triggers: [
+      'how do i pray', 'how to pray', 'how to pray correctly', 'how do you pray',
+      'what is prayer', 'does prayer matter', 'i do not know how to pray', 'prayer for beginners',
+      'how to start praying', 'what should i say when i pray', 'how do i talk to god',
+      'how do you talk to god', 'i dont know how to pray'
+    ],
+    answer: 'Jesus gave a simple model in Matthew 6:9–13 — come to the Father, honor who He is, ask for what you need day by day, ask to be forgiven and to forgive, ask to be kept from the things that would destroy you. That is all of life in a short prayer. What matters most is honesty, not form. The Psalms show people bringing raw anger, exhaustion, confusion, and praise — sometimes all at once. First Thessalonians 5:17 says to pray without ceasing, meaning a running conversation, not a formal performance. You do not need the right words. Start with where you actually are.',
+    verses: ['Matthew 6:9', 'Philippians 4:6', '1 Thessalonians 5:17', 'Psalm 62:8'],
+    plan: 'prayer'
+  },
+  {
+    id: 'money-finances-bible',
+    triggers: [
+      'what does the bible say about money', 'bible verses about money', 'bible and finances',
+      'financial worry bible', 'how to handle money bible', 'god and money', 'scripture about money',
+      'bible help with finances', 'what does god say about money', 'struggling financially',
+      'money problems bible', 'how should christians handle money', 'debt and the bible'
+    ],
+    answer: 'More verses in Scripture address money than almost any other topic — which tells you how seriously it presses on real life. The core warning is in 1 Timothy 6:10: it is the love of money, not money itself, that is the root of all kinds of evil. Jesus said in Matthew 6:24 that you cannot serve both God and money — one will always compete with the other for your trust. Proverbs 11:24–25 says the generous person gains; the one who hoards loses something too. The biblical pattern is open hands and a deep trust that provision comes from God, not from what you can hold on to.',
+    verses: ['1 Timothy 6:10', 'Matthew 6:24', 'Proverbs 11:24', 'Philippians 4:19'],
+    plan: 'provision'
+  },
+
+  // === BATCH 2: 10 additional high-value answers ===
+  {
+    id: 'god-feels-silent',
+    triggers: [
+      'god feels silent', 'god feels far away', 'i cant feel god', 'where is god',
+      'god seems distant', 'god is not there', 'i feel abandoned by god', 'god feels absent',
+      'does god still care', 'god has gone quiet', 'i feel far from god',
+      'i dont feel gods presence', 'why has god gone silent'
+    ],
+    answer: 'There are stretches in Scripture where God felt silent too — Psalm 88 ends without resolution, and Jesus cried from the cross "My God, my God, why hast thou forsaken me?" (Matthew 27:46). That cry is in the Bible because God is not afraid of it. Silence is not the same as absence. Lamentations 3:22–23 was written out of real devastation, not comfort: "Great is his faithfulness." The practice the Bible keeps returning to in those dry seasons is honest, stubborn perseverance — keep praying even when nothing seems to come back. The silence is a chapter, not the end.',
+    verses: ['Matthew 27:46', 'Psalm 88:1', 'Lamentations 3:22', 'Psalm 22:2'],
+    plan: 'faith'
+  },
+  {
+    id: 'chronic-pain-illness',
+    triggers: [
+      'chronic pain bible', 'what does the bible say about chronic pain', 'never getting better',
+      'sick all the time', 'pain that does not go away', 'living with illness',
+      'chronic illness faith', 'how to have faith when sick', 'bible help for chronic illness',
+      'my body is broken', 'illness and faith', 'long term illness bible', 'pain every single day'
+    ],
+    answer: 'The Bible does not offer a formula for healing, but something steadier: a God who is present in a body that does not cooperate. Paul had a persistent affliction God did not remove — and what he received instead was: "My grace is sufficient for thee: for my strength is made perfect in weakness" (2 Corinthians 12:9). Psalm 22 — which Jesus prayed from the cross — moves from raw anguish to trust without the pain being resolved first. You do not need healing to have God. Some things are built in suffering that cannot be built anywhere else (Romans 5:3–4), and that does not make the pain good — it means God will not let it be wasted.',
+    verses: ['2 Corinthians 12:9', 'Romans 5:3', 'Psalm 34:18', 'Isaiah 40:29'],
+    plan: 'suffering'
+  },
+  {
+    id: 'prodigal-family-faith',
+    triggers: [
+      'my child walked away from god', 'prodigal child', 'family member away from god',
+      'my child is not a christian', 'my son does not believe', 'my daughter left the faith',
+      'how to pray for a prodigal', 'child left the church', 'praying for a wayward child',
+      'spouse not a christian', 'unbelieving family member', 'my loved one rejected god',
+      'my teenager left the faith'
+    ],
+    answer: 'The father in Jesus\' parable saw his son "yet a great way off" — which means he was watching the road (Luke 15:20). That is the picture Jesus chose for God watching over a wandering child. If someone you love has walked away, you are not the first person to carry that weight, and the Bible does not promise you can control another person\'s faith. What it does promise is that God\'s pursuit is longer than yours, that your prayers matter (James 5:16), and that you can keep the welcome ready without it depending on their return. The prodigal "came to himself" in his own time — that work happens in God\'s hands, not yours.',
+    verses: ['Luke 15:20', 'James 5:16', 'Romans 8:28', '1 Peter 3:1'],
+    plan: 'hope'
+  },
+  {
+    id: 'doubt-hard-to-believe',
+    triggers: [
+      'i have doubts about god', 'struggling to believe', 'hard to have faith', 'i doubt god',
+      'questioning my faith', 'not sure i believe anymore', 'faith seems hard', 'i question everything',
+      'doubting everything i believed', 'losing my faith', 'what if none of it is real',
+      'bible and doubt', 'is it ok to doubt god', 'can christians doubt'
+    ],
+    answer: 'Scripture is full of doubters who were not dismissed. Thomas wanted proof and Jesus gave it to him gently (John 20:27–28). Habakkuk complained directly to God and God answered without rebuking him. Psalm 73 opens with a man who nearly lost his faith entirely and shows how he found his footing again — not by having his questions answered, but by returning to God\'s presence (Psalm 73:17). Doubt is not the opposite of faith; it is often the beginning of a deeper one. Mark 9:24 is one of the most honest prayers in Scripture: "Lord, I believe; help thou mine unbelief." You can bring exactly that to Him.',
+    verses: ['John 20:27', 'Psalm 73:17', 'Mark 9:24', 'Habakkuk 1:2'],
+    plan: 'faith'
+  },
+  {
+    id: 'shame-bible',
+    triggers: [
+      'what does the bible say about shame', 'i feel ashamed', 'overcome shame', 'dealing with shame',
+      'shame from my past', 'bible help for shame', 'so much shame', 'i am full of shame',
+      'how to deal with shame', 'shame will not let me go', 'past shame', 'shame and the bible',
+      'scripture about shame'
+    ],
+    answer: 'Shame says you are what you did — or what was done to you. The Bible makes a different claim: "There is therefore now no condemnation to them which are in Christ Jesus" (Romans 8:1). Shame wants to hide; Scripture keeps calling people out of hiding. Adam and Eve hid after the fall, and God came looking for them (Genesis 3:9). The woman placed at the center of public shame was defended by Jesus and sent away free (John 8:10–11). Isaiah 54:4 says "thou shalt not be ashamed" — not because the past is erased, but because God\'s love is greater than what shame holds over you. You are allowed to come out of hiding.',
+    verses: ['Romans 8:1', 'Isaiah 54:4', 'John 8:11', 'Psalm 34:5'],
+    plan: 'guilt'
+  },
+  {
+    id: 'addiction-bible',
+    triggers: [
+      'what does the bible say about addiction', 'struggling with addiction', 'bible help for addiction',
+      'how to stop an addiction', 'i keep going back to the same sin', 'cant break free',
+      'addiction and faith', 'bible verses for addiction', 'scripture for addiction',
+      'breaking a bad habit bible', 'enslaved to a habit', 'trapped in addiction'
+    ],
+    answer: 'The Bible\'s description of sin as something that "easily besets" (Hebrews 12:1) fits what addiction does — it wraps itself around you and does not let go easily. First Corinthians 10:13 is the anchor: God is faithful and will not let you face more than you can bear, and He will always make a way out. That way of escape almost always runs through other people — James 5:16 says confession to one another and prayer together is part of what brings healing. Addiction is not evidence that you are too far gone; it is a very human battle, and it was never meant to be fought alone. The path forward is rarely one dramatic moment — it is one honest conversation, one day, one exit taken at a time.',
+    verses: ['1 Corinthians 10:13', 'Hebrews 12:1', 'James 5:16', 'Romans 7:24'],
+    plan: 'strength'
+  },
+  {
+    id: 'death-dying-bible',
+    triggers: [
+      'what does the bible say about death', 'bible about dying', 'afraid of dying', 'fear of death',
+      'what happens when you die', 'is there life after death', 'bible and death', 'dying soon',
+      'scripture about death', 'my loved one is dying', 'death and the bible', 'eternity bible',
+      'will i see my loved ones again'
+    ],
+    answer: 'The Bible takes death seriously and does not minimize it — Paul calls it "the last enemy" (1 Corinthians 15:26). But the resurrection changes what death is. Jesus said plainly: "I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live" (John 11:25). For the dying, Psalm 23:4 has been a steady companion for centuries: "Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me." Death is not the end of the story for those who trust in Christ. It is a door, and He is already on the other side of it.',
+    verses: ['John 11:25', 'Psalm 23:4', '1 Corinthians 15:55', 'Revelation 21:4'],
+    plan: 'hope'
+  },
+  {
+    id: 'betrayal-broken-trust',
+    triggers: [
+      'i was betrayed', 'someone i trusted betrayed me', 'my friend betrayed me',
+      'how to handle betrayal', 'dealing with betrayal', 'how to heal from betrayal',
+      'betrayed by a close friend', 'trust was broken', 'i was backstabbed',
+      'bible help for betrayal', 'scripture about betrayal', 'how to move on after betrayal'
+    ],
+    answer: 'Being betrayed by someone you trusted is one of the most destabilizing things a person can experience — and it is in Scripture. Joseph\'s brothers sold him. David was betrayed by his own son. Jesus was betrayed at a supper He had just shared with the betrayer. Psalm 55:12–14 is David writing about a close friend who turned against him — the pain is real and God does not rush past it. What the Bible does not require is immediate trust in that person again. Forgiveness and restored trust are different things. Bring the wound to God first, and let Him be the safe place while you heal slowly and wisely.',
+    verses: ['Psalm 55:12', 'Genesis 50:20', 'John 13:18', 'Romans 12:19'],
+    plan: 'forgiveness'
+  },
+  {
+    id: 'exhaustion-burnout',
+    triggers: [
+      'i am exhausted', 'i am burnt out', 'i am so tired', 'running on empty', 'nothing left',
+      'completely drained', 'burned out', 'too tired to go on', 'emotionally exhausted',
+      'i have nothing left to give', 'bone tired', 'tired of everything', 'bible help for exhaustion',
+      'rest bible', 'i need rest'
+    ],
+    answer: 'Elijah sat under a juniper tree, exhausted enough to ask God to let him die — right after one of his greatest victories (1 Kings 19:4). God\'s response was not a sermon. It was bread, water, and sleep. Twice. The angel said: "Arise and eat; because the journey is too great for thee." That is one of the most tender moments in the Old Testament. Burnout is not a character failure — it is what happens when finite people carry more than they were built for. Isaiah 40:29–31 says God gives power to the faint and renews the strength of those who wait on Him. The step Scripture offers is rest — actual rest — and bringing yourself, emptied, to the One who never grows weary.',
+    verses: ['1 Kings 19:5', 'Isaiah 40:29', 'Matthew 11:28', 'Psalm 62:5'],
+    plan: 'rest'
+  },
+  {
+    id: 'healing-bible',
+    triggers: [
+      'what does the bible say about healing', 'does god still heal', 'how to pray for healing',
+      'bible verses about healing', 'praying for healing', 'can god heal me',
+      'scripture about healing', 'does god heal today', 'i need healing', 'asking god for healing',
+      'healing prayer bible', 'will god heal my sickness', 'bible promise of healing'
+    ],
+    answer: 'The Bible holds both realities without forcing one over the other: God heals, and God also walks with people who have not been healed yet. James 5:14–15 calls the church to pray for healing with real expectation. At the same time, Paul\'s thorn was not removed (2 Corinthians 12:7–9), Timothy had recurring illness (1 Timothy 5:23), and the man at Bethesda had waited 38 years (John 5:5). Healing is not a reward for enough faith — if it were, the cross was unnecessary. Pray for it honestly and fully. Hold the answer with open hands, trusting the God who says He will one day make all things new (Revelation 21:5).',
+    verses: ['James 5:14', '2 Corinthians 12:9', 'Psalm 103:3', 'Revelation 21:5'],
+    plan: 'hope'
+  },
+
+  // === BATCH 3: 5 additional answers ===
+  {
+    id: 'ruined-my-life',
+    triggers: [
+      'i feel like i ruined my life', 'i ruined everything', 'i have made too many mistakes',
+      'i have messed up too badly', 'my past is too bad', 'i cant come back from this',
+      'too many bad choices', 'how do i come back from my mistakes', 'is it too late for me',
+      'i have wasted my life', 'its too late to change', 'god cant use me after what i did'
+    ],
+    answer: 'The Bible has people in it who made catastrophic choices and came back — not by pretending the consequences were not real, but through encountering a God who specializes in redemption. David committed adultery and arranged a murder; the cross of God\'s mercy still held him (Psalm 51). Peter denied Jesus three times, to His face, and went on to be the rock of the early church. Joel 2:25 carries a direct promise: "I will restore to you the years that the locust hath eaten." The road back is rarely fast or clean. But it is real, and as long as you are still breathing, you are not past the reach of a God who makes dead things live.',
+    verses: ['Joel 2:25', 'Psalm 51:10', 'Romans 8:1', 'Isaiah 43:18'],
+    plan: 'hope'
+  },
+  {
+    id: 'angry-at-god',
+    triggers: [
+      'i am angry at god', 'angry at god', 'mad at god', 'how do i pray when angry at god',
+      'can i be angry at god', 'is it ok to be angry at god', 'how to pray when i am angry',
+      'i am furious at god', 'i resent god', 'i blame god', 'does god understand my anger',
+      'is it wrong to be mad at god', 'yelling at god'
+    ],
+    answer: 'The Bible makes full room for anger toward God — it is in the Psalms dozens of times. Psalm 13 opens with "How long wilt thou forget me, O Lord? for ever?" Jeremiah told God directly he felt deceived (Jeremiah 20:7). Habakkuk accused God of not acting when He should have. Every one of them was heard. Anger at God is not the opposite of relationship with Him — it is often the most honest relationship you can have. The danger is not bringing the anger; it is going quiet and closing the door. Bring it the way the Psalms do: out loud, all of it, directed at Him. He already knows. And He can take it.',
+    verses: ['Psalm 13:1', 'Jeremiah 20:7', 'Habakkuk 1:2', 'Psalm 62:8'],
+    plan: 'prayer'
+  },
+  {
+    id: 'bible-feels-dry',
+    triggers: [
+      'the bible feels dry', 'i dont feel anything when i read the bible', 'bible is boring to me',
+      'i cant connect with scripture', 'reading the bible does nothing for me', 'bible feels empty',
+      'i used to love the bible but not anymore', 'going through the motions reading the bible',
+      'how to get more from reading the bible', 'scripture feels flat', 'bible not speaking to me',
+      'dont feel anything reading scripture', 'why cant i feel god when i read the bible'
+    ],
+    answer: 'Dryness in reading Scripture happens to nearly everyone who takes it seriously over a long stretch of time. It is not a sign that God has left, or that you are failing — it is one of the ordinary seasons of faith. What the Bible recommends is not waiting until you feel something, but choosing to keep showing up: Psalm 119 was written by someone with a deep love for Scripture who still had to choose to return to it before dawn (Psalm 119:147–148). Sometimes reading a short passage slowly, or a part of the Bible you have not been to before, opens something that was sealed. Stay with it. The drought does not last forever, and the seeds planted in dry ground still take root.',
+    verses: ['Psalm 119:147', 'Jeremiah 15:16', 'Psalm 42:1', 'Romans 10:17'],
+    plan: 'faith'
+  },
+  {
+    id: 'provision-fear',
+    triggers: [
+      'scared about money', 'afraid we wont have enough', 'scared of losing everything financially',
+      'what if i cant provide', 'scared about paying bills', 'financial fear', 'afraid of being poor',
+      'worried about losing our home', 'scared we will run out of money', 'provision anxiety',
+      'terrified about finances', 'what if we go broke', 'fear of financial ruin'
+    ],
+    answer: 'Jesus names this fear specifically in Matthew 6:31–33: "What shall we eat? What shall we drink?" — He knows it is real. His answer is not a promise of plenty but a grounding: "your Father knoweth that ye have need of all these things." Philippians 4:19 carries the promise plainly: "My God shall supply all your need according to his riches in glory." That is not a guarantee of comfort or ease — it is a promise that need will be met, even in lean seasons. The invitation is to seek His kingdom first and let tomorrow\'s provision rest where it belongs — not in your hands. That is a daily act of trust, not a one-time feeling.',
+    verses: ['Matthew 6:33', 'Philippians 4:19', 'Psalm 37:25', 'Matthew 6:31'],
+    plan: 'provision'
+  },
+  {
+    id: 'purpose-direction',
+    triggers: [
+      'what is gods will for my life', 'i dont know what to do with my life', 'i feel purposeless',
+      'how do i know gods plan for me', 'what is my purpose', 'i dont know where to go',
+      'how do i find direction', 'i feel lost', 'what does god want me to do',
+      'i have no direction', 'how do i find gods will', 'what am i supposed to do with my life',
+      'bible verses about purpose', 'feeling lost and without direction'
+    ],
+    answer: 'If you are asking what God\'s will for your life is, the Bible is more specific about character than about career. Romans 12:2 says the path to knowing His will is the renewing of your mind — becoming someone who thinks differently — not a map handed to you at once. First Thessalonians 4:3 names sanctification (being made holy in how you live) as God\'s will for you. Micah 6:8 puts it with striking simplicity: do justly, love mercy, walk humbly with your God. Most of what you are wondering about — what to do next, where to go — tends to become clearer as you walk those three things faithfully in your current step. The way forward usually opens one step at a time, not all at once.',
+    verses: ['Romans 12:2', 'Micah 6:8', 'Proverbs 3:6', 'Jeremiah 29:11'],
+    plan: 'guidance'
+  }
+];
 
 const topics = {
   anger: {
@@ -24478,6 +25050,216 @@ function parseQuery(input) {
     payload.semanticBlendedTopics = semanticBlendedTopics;
     if (semanticBlendedMatches && semanticBlendedMatches.length >= 2) payload.semanticBlendedMatches = semanticBlendedMatches;
   }
+
+  // === PHASE 1: Story intent detection ===
+  var STORY_KEY_MAP = {
+    // Creation & Eden
+    'creation': 'creation', 'creation story': 'creation', 'god creates the world': 'creationLight',
+    'let there be light': 'creationLight', 'adam and eve': 'adamEve', 'adam eve': 'adamEve',
+    'garden of eden': 'adamEve', 'fall of man': 'adamEve', 'forbidden fruit': 'adamEve',
+    'cain and abel': 'cainAbel', 'cain abel': 'cainAbel',
+    'tower of babel': 'towerBabel', 'babel': 'towerBabel',
+    // Noah
+    'noah': 'noah', 'noahs ark': 'noah', 'noah ark': 'noah', 'noah and the flood': 'noah',
+    'the flood': 'noah', 'ark': 'noah', 'noahbuildsark': 'noah',
+    // Abraham & family
+    'abraham and isaac': 'abrahamIsaac', 'abraham isaac': 'abrahamIsaac',
+    'abraham': 'abrahamIsaac', 'isaac': 'abrahamIsaac',
+    'sarah laughs': 'sarahLaughs', 'sarah promise': 'sarahPromise',
+    'jacob': 'jacobLadder', 'jacobs ladder': 'jacobLadder', 'jacob ladder': 'jacobLadder',
+    // Joseph
+    'joseph': 'josephCoat', 'joseph brothers': 'josephCoat', 'joseph and his brothers': 'josephCoat',
+    'joseph coat': 'josephCoat', 'coat of many colors': 'josephCoat',
+    'joseph coat of many colors': 'josephCoat', 'joseph sold': 'josephSold',
+    'joseph in prison': 'josephPrison', 'joseph interprets dreams': 'josephDreams',
+    'joseph ruler egypt': 'josephRuler',
+    // Moses
+    'moses': 'mosesBush', 'burning bush': 'mosesBush', 'moses burning bush': 'mosesBush',
+    'baby moses': 'mosesBaby', 'moses in the basket': 'mosesBaby',
+    'moses staff snake': 'mosesStaffSnake', 'ten plagues': 'tenPlagues', 'plagues of egypt': 'tenPlagues',
+    'passover': 'passoverLamb', 'passover lamb': 'passoverLamb',
+    'parting of the red sea': 'redSea', 'red sea': 'redSea', 'moses parts the sea': 'redSeaCrossing',
+    'israelites cross the red sea': 'redSeaCrossing',
+    'manna in the wilderness': 'manna', 'manna': 'manna',
+    'ten commandments': 'tenCommandments', 'moses ten commandments': 'tenCommandments',
+    'golden calf': 'goldenCalf',
+    // Joshua & Judges
+    'rahab': 'rahab', 'rahab and the spies': 'rahab',
+    'jericho': 'fallOfJericho', 'battle of jericho': 'jerichoWalls', 'walls of jericho': 'jerichoWalls',
+    'deborah': 'deborahJudge', 'deborah and barak': 'deborahBarak',
+    'gideon': 'gideonFleece', 'gideons fleece': 'gideonFleece', 'gideon and the midianites': 'gideonMidianites',
+    'samson': 'samson', 'samson and delilah': 'samsonDelilah', 'samson delilah': 'samsonDelilah',
+    'samson lion': 'samsonLion',
+    // Ruth
+    'ruth': 'ruth', 'ruth and naomi': 'ruthNaomi', 'ruth naomi': 'ruthNaomi',
+    'ruth and boaz': 'ruthBoaz', 'ruth boaz': 'ruthBoaz',
+    // Hannah & Samuel
+    'hannah': 'hannahPrayer', 'hannahs prayer': 'hannahPrayer', 'hannah prayer': 'hannahPrayer',
+    'samuel': 'samuelCalls', 'young samuel': 'samuelCalls', 'god calls samuel': 'samuelCalls',
+    'samuel hears god': 'samuelCalls', 'samuel birth': 'samuelBirth',
+    // David
+    'david': 'david', 'david and goliath': 'davidGoliath', 'young david': 'david',
+    'david goliath': 'davidGoliath', 'david kills goliath': 'davidGoliath',
+    'david shepherd': 'davidSheep', 'david sheep': 'davidSheep',
+    'david anointed': 'davidAnointed', 'david and jonathan': 'davidJonathan',
+    'david jonathan': 'davidJonathan', 'david abigail': 'davidAbigail',
+    'mephibosheth': 'mephibosheth', 'david and mephibosheth': 'mephibosheth',
+    'psalm 23': 'psalm23', 'the lord is my shepherd': 'psalm23',
+    // Solomon
+    'solomon': 'solomonWisdom', 'solomons wisdom': 'solomonWisdom', 'two mothers': 'solomonTwoMothers',
+    'solomons temple': 'solomonTemple', 'temple': 'solomonTemple',
+    // Elijah & Elisha
+    'elijah': 'elijahRavens', 'elijah ravens': 'elijahRavens', 'elijah fire': 'elijahFire',
+    'elijah on mount carmel': 'elijahFire', 'elijah still small voice': 'elijahHoreb',
+    'elijah chariot': 'elijahChariot', 'elijah taken to heaven': 'elijahChariot',
+    'elisha': 'elishaMiracles', 'elisha miracles': 'elishaMiracles',
+    'naaman': 'naamanHealed', 'naaman healed': 'naamanHealed', 'naaman dips in river': 'naamanDip',
+    'elisha widow oil': 'elishaOil', 'widow oil': 'widowOil',
+    // Esther
+    'esther': 'esther', 'queen esther': 'estherCrown', 'esther fast': 'estherFast',
+    // Job
+    'job': 'jobSuffering', 'job suffering': 'jobSuffering',
+    // Daniel
+    'daniel': 'danielLionsDen', 'daniel lions den': 'danielLionsDen', 'daniel in the lions den': 'danielLionsDen',
+    'daniel prays': 'danielPray', 'shadrach meshach abednego': 'fieryFurnace',
+    'fiery furnace': 'fieryFurnace', 'three in the fire': 'danielFieryFurnace',
+    // Jonah
+    'jonah': 'jonah', 'jonah whale': 'jonah', 'jonah and the whale': 'jonah', 'jonah fish': 'jonah',
+    'jonah and the fish': 'jonah', 'jonah vine': 'jonahVine', 'jonah second chance': 'jonahObeysSecondChance',
+    // Nehemiah & Ezra
+    'nehemiah': 'nehemiahWalls', 'rebuilding the wall': 'nehemiahWalls', 'nehemiah wall': 'nehemiahWalls',
+    'ezra': 'ezraReturn', 'ezra returns': 'ezraReturn',
+    // Prophecy
+    'dry bones': 'ezekielValleyBones', 'valley of dry bones': 'ezekielValleyBones',
+    'isaiah servant': 'isaiahMessianic',
+    // Christmas / Birth of Jesus
+    'christmas': 'jesusBirth', 'birth of jesus': 'jesusBirth', 'nativity': 'jesusManger',
+    'manger': 'jesusManger', 'baby jesus': 'jesusManger',
+    'wise men': 'wiseMen', 'three wise men': 'wiseMen', 'magi': 'wiseMen',
+    'shepherds': 'shepherdsStar', 'shepherds and angels': 'shepherdsStar',
+    'simeon': 'simeonAnna', 'anna the prophetess': 'simeonAnna',
+    'john the baptist': 'johnBaptist', 'jesus baptism': 'jesusBaptism',
+    // Jesus Ministry
+    'jesus tempted': 'jesusTempted', 'temptation of jesus': 'jesusTemptation',
+    'sermon on the mount': 'jesusSermon', 'beatitudes': 'jesusSermon',
+    'woman at the well': 'samaritanWoman', 'samaritan woman': 'samaritanWoman',
+    'jesus and the woman at the well': 'samaritanWoman',
+    'jesus calms the storm': 'jesusCalmsStorm', 'calming the storm': 'jesusCalmsStorm',
+    'jesus walks on water': 'jesusWalksWater', 'walking on water': 'jesusWalksWater',
+    'feeding five thousand': 'jesusFeeds5000', 'five loaves two fish': 'jesusFeeds5000',
+    'loaves and fish': 'jesusFeeds5000', 'loaves and fishes': 'jesusFeeds5000',
+    'five loaves and two fish': 'jesusFeeds5000', 'feeding the multitude': 'jesusFeeds5000',
+    'feeding four thousand': 'jesusFeeds4000',
+    'jairus daughter': 'jairus', 'jesus raises jairus daughter': 'jairus',
+    'man born blind': 'manBornBlind', 'blind man healed': 'manBornBlind',
+    'ten lepers': 'tenLepers', 'healing of ten lepers': 'tenLepers',
+    'jesus blesses children': 'jesusBlessKids', 'let the children come': 'jesusBlessKids',
+    'mary and martha': 'maryMartha', 'mary martha': 'maryMartha',
+    'zacchaeus': 'zacchaeus', 'zaccheus': 'zacchaeus', 'zacchaeus in the tree': 'zacchaeus',
+    'lazarus': 'lazarus', 'raising of lazarus': 'lazarus', 'jesus raises lazarus': 'lazarus',
+    // Parables
+    'good samaritan': 'goodSamaritan', 'samaritan': 'goodSamaritan', 'love your neighbor': 'loveNeighbor',
+    'prodigal': 'prodigalSon', 'prodigal son': 'prodigalSon', 'lost son': 'prodigalSon',
+    'father runs to son': 'prodigalFatherWelcome',
+    'lost sheep': 'lostSheep', 'parable of the lost sheep': 'parableLostSheep',
+    'lost coin': 'lostCoin', 'parable of the sower': 'parableSower',
+    'mustard seed': 'mustardSeed', 'faith like a mustard seed': 'faithMustard',
+    'parable of the talents': 'parableTalents', 'talents': 'parableTalents',
+    'ten virgins': 'tenVirgins', 'wise and foolish virgins': 'tenVirgins',
+    'unforgiving servant': 'unforgivingServant', 'seventy times seven': 'unforgivingServant',
+    'rich fool': 'richFool', 'rich young ruler': 'richYoungRuler',
+    'persistent widow': 'persistentWidow', 'widow and the judge': 'persistentWidow',
+    'pharisee and the tax collector': 'phariseeTaxCollector',
+    'wise and foolish builders': 'wiseFoolishBuilders', 'house on the rock': 'wiseFoolishBuilders',
+    'great banquet': 'greatBanquet',
+    // Final Week
+    'triumphal entry': 'triumphalEntry', 'palm sunday': 'palmSunday',
+    'last supper': 'lastSupper', 'lords supper': 'jesusLastSupper',
+    'garden of gethsemane': 'jesusGardenGethsemane', 'gethsemane': 'gardenPrayer',
+    'betrayal of jesus': 'betrayal', 'judas kiss': 'judasKiss',
+    'peter denies jesus': 'peterDenial', 'peter denial': 'peterDenial',
+    'crucifixion': 'crucifixion', 'cross': 'jesusCrucifixion',
+    // Resurrection & After
+    'resurrection': 'resurrection', 'easter': 'jesusResurrection', 'empty tomb': 'tombEmpty',
+    'mary magdalene': 'maryMagdalene', 'doubting thomas': 'thomasDoubt', 'thomas': 'thomasDoubt',
+    'road to emmaus': 'roadToEmmaus', 'emmaus road': 'emmausRoad',
+    'great commission': 'greatCommission', 'go into all the world': 'jesusGreatCommission',
+    'ascension': 'ascension', 'jesus ascends': 'jesusAscension',
+    // Acts & Early Church
+    'pentecost': 'pentecost', 'holy spirit at pentecost': 'holySpiritPentecost',
+    'tongues of fire': 'pentecostFire', 'day of pentecost': 'pentecostTongues',
+    'stephen': 'stephen', 'stephen martyr': 'stephenMartyr', 'stephen stoned': 'stephenStones',
+    'philip and the ethiopian': 'philipEthiopian', 'ethiopian eunuch': 'philipChariot',
+    'paul on the road to damascus': 'paulDamascus', 'saul conversion': 'saulConversion',
+    'paul conversion': 'paulConversion', 'paul damascus': 'paulDamascus',
+    'peter in jail': 'peterJailBreak', 'peter freed from prison': 'peterJailBreak',
+    'paul and silas in prison': 'paulSilas', 'paul silas singing in prison': 'silasPaulSinging',
+    'dorcas': 'dorcasRaise', 'dorcas raised': 'dorcasHelping',
+    'lydia': 'lydiaSell', 'lydia seller of purple': 'lydiaConversion',
+    'paul shipwreck': 'paulShipwreck',
+    // Epistles
+    'armor of god': 'armorOfGod', 'full armor of god': 'armorOfGod',
+    'love chapter': 'loveChapter', '1 corinthians 13': 'loveChapter',
+    'fruit of the spirit': 'fruitSpirit',
+    // Revelation
+    'revelation': 'revelation', 'new heaven and new earth': 'newHeaven',
+    'new jerusalem': 'revelationNewJerusalem', 'alpha and omega': 'alphaOmega',
+    'four horsemen': 'fourHorsemen', 'tree of life': 'treeOfLife',
+    // Prayer stories
+    'lords prayer': 'lordPrayerJesus', 'our father': 'lordPrayerJesus',
+    'jesuss washing feet': 'jesusWashesFeet', 'jesus washes feet': 'jesusWashesFeet',
+    // Old Testament women
+    'abigail': 'abigailDavid', 'priscilla': 'aquilaPriscilla', 'aquila and priscilla': 'aquilaPriscilla',
+    'barnabas': 'barnabasEncourages',
+    'widows mite': 'widowsMite', 'widow mite': 'widowMite', 'widows offering': 'widowsMite'
+  };
+  var storyTriggerPhrases = [
+    'story about ', 'tell me the story of ', 'tell me story of ', 'the story of ',
+    'who was ', 'who is ', 'tell me about ', 'what happened to ', 'what happened with ',
+    'read me the story of ', 'kids story about ', 'bible story about ', 'bible story of '
+  ];
+  var detectedStoryKey = null;
+  var detectedStoryOriginal = null;
+  // Check explicit trigger phrases first
+  for (var si = 0; si < storyTriggerPhrases.length && !detectedStoryKey; si++) {
+    var trigger = storyTriggerPhrases[si];
+    var triggerIdx = normalized.indexOf(trigger);
+    if (triggerIdx !== -1) {
+      var afterTrigger = normalized.slice(triggerIdx + trigger.length).trim().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, ' ');
+      // Try exact map lookup, then longest prefix match
+      if (STORY_KEY_MAP[afterTrigger]) {
+        detectedStoryKey = STORY_KEY_MAP[afterTrigger];
+        detectedStoryOriginal = afterTrigger;
+      } else {
+        var mapKeys = Object.keys(STORY_KEY_MAP);
+        for (var mk = 0; mk < mapKeys.length; mk++) {
+          if (afterTrigger.indexOf(mapKeys[mk]) !== -1 || mapKeys[mk].indexOf(afterTrigger) !== -1) {
+            detectedStoryKey = STORY_KEY_MAP[mapKeys[mk]];
+            detectedStoryOriginal = mapKeys[mk];
+            break;
+          }
+        }
+      }
+    }
+  }
+  // Standalone story-name detection (no trigger phrase required)
+  if (!detectedStoryKey) {
+    var storyMapKeys = Object.keys(STORY_KEY_MAP);
+    for (var smk = 0; smk < storyMapKeys.length; smk++) {
+      var storyPhrase = storyMapKeys[smk];
+      if (storyPhrase.length < 4) continue; // skip ambiguous single words like 'ruth' in unrelated queries
+      var storyRe = new RegExp('(?:^|\\s)' + storyPhrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(?:\\s|$)');
+      if (storyRe.test(normalized)) {
+        detectedStoryKey = STORY_KEY_MAP[storyPhrase];
+        detectedStoryOriginal = storyPhrase;
+        break;
+      }
+    }
+  }
+  if (detectedStoryKey) {
+    payload.storyIntent = { key: detectedStoryKey, original: detectedStoryOriginal };
+  }
+
   return { intent: 'keyword', payload: payload };
 }
 
@@ -24672,6 +25454,7 @@ function executeQuery(parsed, tier, filters) {
       results.semanticScore = parsed.payload.semanticScore || 0;
     }
     if (blendedTopics.length >= 2) results.semanticBlendedTopics = blendedTopics;
+    if (parsed.payload && parsed.payload.storyIntent) results.storyIntent = parsed.payload.storyIntent;
 
     const wordRegex = buildWordRegex(keywords);
     const phraseRegex = phrase && phrase.length > 3 ? new RegExp(escapeRegExp(phrase), 'i') : null;
@@ -27341,6 +28124,205 @@ function buildHomeSearchRelatedAnglesSection(activeTopics, queryText) {
   return section;
 }
 
+/**
+ * Find a curated biblical answer for a query.
+ * Returns the matching TDB_BIBLICAL_ANSWERS entry or null.
+ * Matching: exact trigger substring in normalized query, or key words all present.
+ */
+function findBiblicalAnswer(queryText) {
+  if (!queryText || !Array.isArray(TDB_BIBLICAL_ANSWERS)) return null;
+  var norm = normalizeInput(String(queryText || ''));
+  if (!norm || norm.split(/\s+/).filter(Boolean).length < 2) return null;
+  for (var i = 0; i < TDB_BIBLICAL_ANSWERS.length; i++) {
+    var entry = TDB_BIBLICAL_ANSWERS[i];
+    if (!entry || !Array.isArray(entry.triggers)) continue;
+    for (var t = 0; t < entry.triggers.length; t++) {
+      var trigger = normalizeInput(entry.triggers[t]);
+      if (!trigger) continue;
+      if (norm.indexOf(trigger) !== -1 || trigger.indexOf(norm) !== -1) return entry;
+      // Fuzzy: all meaningful words of the trigger appear in the query
+      var trigWords = trigger.split(/\s+/).filter(function (w) { return w.length > 3 && !STOP_WORDS.has(w); });
+      if (trigWords.length >= 3) {
+        var allPresent = trigWords.every(function (w) { return norm.indexOf(w) !== -1; });
+        if (allPresent) return entry;
+      }
+    }
+  }
+  return null;
+}
+
+/**
+ * Build a DOM-safe biblical answer block for search results.
+ * @param {object} entry - TDB_BIBLICAL_ANSWERS entry
+ * @param {boolean} compact - true for homepage, false for tool-page
+ * @returns {HTMLElement|null}
+ */
+function buildBiblicalAnswerSection(entry, compact) {
+  if (!entry || !entry.answer) return null;
+
+  var section = document.createElement('div');
+  section.className = compact ? 'tdb-biblical-answer tdb-biblical-answer--compact' : 'tdb-biblical-answer';
+  section.setAttribute('role', 'complementary');
+  section.setAttribute('aria-label', 'What the Bible says');
+
+  var badge = document.createElement('span');
+  badge.className = 'tdb-ba-badge';
+  badge.textContent = 'What the Bible says';
+  section.appendChild(badge);
+
+  var answerP = document.createElement('p');
+  answerP.className = 'tdb-ba-answer';
+  answerP.textContent = entry.answer;
+  section.appendChild(answerP);
+
+  if (Array.isArray(entry.verses) && entry.verses.length) {
+    var versesRow = document.createElement('div');
+    versesRow.className = 'tdb-ba-verses';
+    var verseLabel = document.createElement('span');
+    verseLabel.className = 'tdb-ba-verse-label';
+    verseLabel.textContent = 'Key verses: ';
+    versesRow.appendChild(verseLabel);
+    entry.verses.forEach(function (ref, idx) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'tdb-ba-verse-chip';
+      btn.textContent = ref;
+      btn.setAttribute('aria-label', 'Look up ' + ref);
+      btn.addEventListener('click', function () {
+        if (typeof window.runSearchWithInput === 'function') window.runSearchWithInput(ref);
+        else if (typeof runTopicSearch === 'function') {
+          runTopicSearch(ref).then(function (results) { if (results) renderResults(results); });
+        }
+      });
+      if (idx > 0) versesRow.appendChild(document.createTextNode(' '));
+      versesRow.appendChild(btn);
+    });
+    section.appendChild(versesRow);
+  }
+
+  if (entry.plan) {
+    var planRow = document.createElement('p');
+    planRow.className = 'tdb-ba-plan-hint';
+    var planText = document.createTextNode('Want a steadier path through this? ');
+    var planLink = document.createElement('a');
+    planLink.href = 'plans.html?topic=' + encodeURIComponent(entry.plan);
+    planLink.textContent = 'See the Battle Plan \u2192';
+    planLink.className = 'tdb-ba-plan-link';
+    planRow.appendChild(planText);
+    planRow.appendChild(planLink);
+    section.appendChild(planRow);
+  }
+
+  // Quiet local feedback row — yes/no, stored only in localStorage, never sent anywhere
+  var feedbackKey = 'tdb_ba_helpful_' + (entry.id || '');
+  var feedbackRow = document.createElement('div');
+  feedbackRow.className = 'tdb-ba-feedback';
+  try {
+    var existingVote = localStorage.getItem(feedbackKey);
+    if (existingVote) {
+      var thanks = document.createElement('span');
+      thanks.className = 'tdb-ba-feedback-thanks';
+      thanks.textContent = 'Thanks for the feedback.';
+      feedbackRow.appendChild(thanks);
+    } else {
+      var feedbackLabel = document.createElement('span');
+      feedbackLabel.className = 'tdb-ba-feedback-label';
+      feedbackLabel.textContent = 'Was this helpful? ';
+      var yesBtn = document.createElement('button');
+      yesBtn.type = 'button';
+      yesBtn.className = 'tdb-ba-feedback-btn';
+      yesBtn.textContent = 'Yes';
+      var noBtn = document.createElement('button');
+      noBtn.type = 'button';
+      noBtn.className = 'tdb-ba-feedback-btn';
+      noBtn.textContent = 'No';
+      var recordFeedback = function (value) {
+        try {
+          localStorage.setItem(feedbackKey, value);
+          var stats = JSON.parse(localStorage.getItem('tdb_ba_stats') || '{}');
+          if (!stats[entry.id]) stats[entry.id] = { yes: 0, no: 0 };
+          stats[entry.id][value] = (stats[entry.id][value] || 0) + 1;
+          localStorage.setItem('tdb_ba_stats', JSON.stringify(stats));
+        } catch (e) {}
+        feedbackRow.textContent = '';
+        var thanks2 = document.createElement('span');
+        thanks2.className = 'tdb-ba-feedback-thanks';
+        thanks2.textContent = 'Thanks for the feedback.';
+        feedbackRow.appendChild(thanks2);
+      };
+      yesBtn.addEventListener('click', function () { recordFeedback('yes'); });
+      noBtn.addEventListener('click', function () { recordFeedback('no'); });
+      feedbackRow.appendChild(feedbackLabel);
+      feedbackRow.appendChild(yesBtn);
+      feedbackRow.appendChild(document.createTextNode(' '));
+      feedbackRow.appendChild(noBtn);
+    }
+  } catch (e) {}
+  section.appendChild(feedbackRow);
+
+  return section;
+}
+
+/**
+ * Build a DOM-safe story intent card for renderResults and renderHomeSearchResults.
+ * @param {{key: string, original: string}} storyIntent
+ * @param {boolean} compact - true for homepage inline style, false for full-width tool page style
+ * @returns {HTMLElement}
+ */
+function buildStoryIntentCard(storyIntent, compact) {
+  if (!storyIntent || !storyIntent.key) return null;
+  var storyUrl = 'kids/corner.html?story=' + encodeURIComponent(storyIntent.key);
+  var libraryUrl = 'kids/corner.html';
+
+  var card = document.createElement('div');
+  card.className = compact ? 'story-intent-card story-intent-card--compact' : 'story-intent-card';
+  card.setAttribute('role', 'complementary');
+  card.setAttribute('aria-label', 'Bible story suggestion');
+
+  var badge = document.createElement('span');
+  badge.className = 'story-intent-badge';
+  badge.textContent = 'Bible Story';
+  card.appendChild(badge);
+
+  var heading = document.createElement('p');
+  heading.className = 'story-intent-heading';
+  var headingText = document.createTextNode('Read the story of ');
+  heading.appendChild(headingText);
+  var nameStrong = document.createElement('strong');
+  // Capitalize first letter of each word, textContent prevents XSS
+  var displayName = (storyIntent.original || storyIntent.key)
+    .replace(/-/g, ' ')
+    .replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+  nameStrong.textContent = displayName;
+  heading.appendChild(nameStrong);
+  card.appendChild(heading);
+
+  var sub = document.createElement('p');
+  sub.className = 'story-intent-sub';
+  sub.textContent = 'Read-aloud, coloring page, and gentle quiz — made for kids and parents at the table.';
+  card.appendChild(sub);
+
+  var openBtn = document.createElement('a');
+  openBtn.href = storyUrl;
+  openBtn.className = 'btn btn-primary story-intent-btn';
+  openBtn.textContent = 'Open in Kids Corner';
+  openBtn.setAttribute('aria-label', 'Open the ' + displayName + ' story in Kids Corner');
+  card.appendChild(openBtn);
+
+  var fallback = document.createElement('p');
+  fallback.className = 'story-intent-fallback';
+  var fallbackText = document.createTextNode('Or browse the full ');
+  var fallbackLink = document.createElement('a');
+  fallbackLink.href = libraryUrl;
+  fallbackLink.textContent = 'Kids Story Library';
+  fallback.appendChild(fallbackText);
+  fallback.appendChild(fallbackLink);
+  fallback.appendChild(document.createTextNode('.'));
+  card.appendChild(fallback);
+
+  return card;
+}
+
 function renderHomeSearchResults(results, output, queryText) {
   if (!output) return;
   output.removeAttribute('hidden');
@@ -27405,6 +28387,13 @@ function renderHomeSearchResults(results, output, queryText) {
     shell.appendChild(detailHost);
   }
 
+  // Biblical answer block — appears above verses when a curated Q&A matches
+  var biblicalAnswer = findBiblicalAnswer(queryText);
+  if (biblicalAnswer) {
+    var baSection = buildBiblicalAnswerSection(biblicalAnswer, true);
+    if (baSection) shell.appendChild(baSection);
+  }
+
   if (results && results.fallback) {
     var fallback = document.createElement('p');
     fallback.className = 'home-search-note';
@@ -27454,6 +28443,12 @@ function renderHomeSearchResults(results, output, queryText) {
 
   var relatedAnglesSection = buildHomeSearchRelatedAnglesSection(activeTopics, queryText);
   if (relatedAnglesSection) shell.appendChild(relatedAnglesSection);
+
+  // === PHASE 1: Story card (homepage) ===
+  if (results && results.storyIntent) {
+    var homeStoryCard = buildStoryIntentCard(results.storyIntent, true);
+    if (homeStoryCard) shell.appendChild(homeStoryCard);
+  }
 
   if (planMatches.length) {
     var rankedPlans = planMatches.map(function (entry, index) {
@@ -27513,6 +28508,7 @@ function renderHomeSearchResults(results, output, queryText) {
   shell.appendChild(footerNote);
 
   output.appendChild(shell);
+  tdbLogWeakQuery(queryText, results);
 }
 
 function renderResults(results) {
@@ -28065,6 +29061,20 @@ function renderResults(results) {
   }
   var initialVerseLimit = (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(max-width: 768px)').matches) ? 6 : 10;
   renderSection(resultsTitle, verses, initialVerseLimit, isJesusSaidQuery);
+
+  // Biblical answer block (tool-page path)
+  var toolBiblicalAnswer = findBiblicalAnswer(queryText);
+  if (toolBiblicalAnswer) {
+    var toolBaSection = buildBiblicalAnswerSection(toolBiblicalAnswer, false);
+    if (toolBaSection) output.appendChild(toolBaSection);
+  }
+
+  // === PHASE 1: Story card ===
+  if (results.storyIntent) {
+    var storyCard = buildStoryIntentCard(results.storyIntent, false);
+    if (storyCard) output.appendChild(storyCard);
+  }
+
   if (
     queryText.includes('family') ||
     queryText.includes('parenting') ||
@@ -28158,6 +29168,8 @@ function renderResults(results) {
     sharePrompt.appendChild(shareBtn);
     output.appendChild(sharePrompt);
   }
+  // Quiet missed-query log — local-only, no network, dev curation aid
+  tdbLogWeakQuery(lastQueryInput || queryText, results);
   triggerResultsFade(output);
 }
 
@@ -28172,6 +29184,40 @@ function triggerResultsFade(el) {
     }
     setTimeout(function () { el.classList.remove('results-updated'); }, 600);
   });
+}
+
+/**
+ * Quiet missed-query logger — 100% local, zero network, zero analytics.
+ * Stores weak-result queries in localStorage['tdb_weak_queries'] for builder review.
+ * "Weak" = fallback triggered, fewer than 3 verses, or no phrase/related matches.
+ * To review: open browser console and type: JSON.parse(localStorage.getItem('tdb_weak_queries')||'[]')
+ * To clear: localStorage.removeItem('tdb_weak_queries')
+ */
+function tdbLogWeakQuery(input, results) {
+  if (!input || !results) return;
+  var isWeak = results.fallback ||
+    (!results.verses || results.verses.length < 3) ||
+    (results.intent === 'keyword' &&
+      (!results.phraseMatches || results.phraseMatches.length === 0) &&
+      (!results.relatedMatches || results.relatedMatches.length === 0));
+  if (!isWeak) return;
+  try {
+    var existing = JSON.parse(localStorage.getItem('tdb_weak_queries') || '[]');
+    var normalized = (input || '').toLowerCase().trim().replace(/\s+/g, ' ');
+    if (existing.indexOf(normalized) === -1) {
+      existing.unshift({ q: normalized, ts: new Date().toISOString().slice(0, 10), verses: (results.verses || []).length });
+      if (existing.length > 200) existing = existing.slice(0, 200);
+      localStorage.setItem('tdb_weak_queries', JSON.stringify(existing));
+    }
+    if (typeof console !== 'undefined' && console.groupCollapsed) {
+      console.groupCollapsed('[TDB] Weak search result — "' + normalized + '"');
+      console.log('Verses returned:', (results.verses || []).length);
+      console.log('Fallback:', !!results.fallback);
+      console.log('Phrase matches:', (results.phraseMatches || []).length);
+      console.log('To review all weak queries: JSON.parse(localStorage.getItem("tdb_weak_queries")||"[]")');
+      console.groupEnd();
+    }
+  } catch (e) {}
 }
 
 function getDefaultBibleStudies() {

@@ -5574,7 +5574,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'The Bible takes anxiety seriously — it does not shame you for it. Philippians 4:6–7 gives the most direct path: bring everything to God in prayer and the peace "which passeth all understanding" will guard your heart and mind. First Peter 5:7 goes further: cast your care on Him because He cares for you — not as an obligation, but as an invitation. God\'s steadiness is the anchor, not your ability to stop worrying. The one step Scripture keeps returning to is honest prayer, not managed calm.',
     verses: ['Philippians 4:6', 'Philippians 4:7', '1 Peter 5:7', 'Isaiah 41:10'],
-    plan: 'anxiety'
+    plan: 'universityanxiety'
   },
   {
     id: 'does-god-hear-prayer',
@@ -5586,7 +5586,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'He does. First John 5:14 says if we ask according to His will, He hears us. Psalm 34:18 says He is near to the brokenhearted — meaning He is closest when you feel most uncertain. Sometimes the answer is not what you expected, and sometimes it comes slower than you hoped — but silence is not absence. Jesus taught to keep asking, keep seeking, keep knocking (Matthew 7:7–8). Bring what you have honestly, and trust the One who never sleeps nor slumbers (Psalm 121:4).',
     verses: ['1 John 5:14', 'Psalm 34:18', 'Matthew 7:7', 'Psalm 121:4'],
-    plan: 'prayer'
+    plan: 'lordsprayer'
   },
   {
     id: 'how-do-i-know-god-loves-me',
@@ -5598,7 +5598,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'The clearest proof in Scripture is Romans 5:8: God demonstrated His love toward us by sending Christ to die for us while we were still sinners — not after we cleaned up. Nothing you have done earned it, and nothing you have done can undo it (Romans 8:38–39). John 3:16 frames the whole gospel as the reason Jesus came. His love is not a reward for good behavior; it is the foundation everything else stands on. You do not have to feel it to trust it, but bringing that question honestly to Him is exactly the right place to start.',
     verses: ['Romans 5:8', 'John 3:16', 'Romans 8:38', 'Romans 8:39'],
-    plan: 'hope'
+    plan: 'heavyhope'
   },
   {
     id: 'why-is-there-suffering',
@@ -5610,7 +5610,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'That is one of the hardest questions a person can bring to God, and the Bible does not give a tidy formula in return. What it makes clear is this: God is not standing at a distance. He entered suffering — Jesus wept, was rejected, and was forsaken (John 11:35; Isaiah 53:3–4). Romans 8:28 promises He works all things together for good — not that all things are good, but that nothing is wasted. James 1:2–4 says trials build endurance, which builds something that could not have come any other way. God does not explain every pain, but He promises to be in it with you and to bring you through it.',
     verses: ['John 11:35', 'Isaiah 53:3', 'Romans 8:28', 'James 1:3'],
-    plan: 'suffering'
+    plan: 'sufferendure'
   },
   {
     id: 'depression-bible',
@@ -5622,7 +5622,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'Scripture contains people who were so low they asked God to let them die — Elijah under the juniper tree (1 Kings 19), the writers of Psalms 88 and 22. God\'s response to Elijah was not a sermon — it was food, water, rest, and then a quiet voice (1 Kings 19:12). Psalm 34:18 says He is near to the brokenhearted and saves the crushed in spirit. Depression is not a sign of weak faith; many of the most faithful people in Scripture went through it. Tell God exactly where you are, and let the people around you in too.',
     verses: ['Psalm 34:18', '1 Kings 19:5', 'Psalm 88:1', 'Isaiah 41:10'],
-    plan: 'suffering'
+    plan: 'sufferendure'
   },
   {
     id: 'assurance-salvation',
@@ -5634,7 +5634,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'If you are asking this question sincerely, bring it straight to God — He is not put off by it. Assurance rests on what Jesus did, not on how you feel on a given day. Romans 10:9–10 puts it plainly: confess with your mouth and believe in your heart that God raised Jesus from the dead. First John 5:13 was written so you can know you have eternal life — not wonder, know. If you have turned to Christ, that turning is not erased by doubt or by a hard season. Doubt and faith can live in the same heart; what anchors you is His promise, not your certainty.',
     verses: ['Romans 10:9', '1 John 5:13', 'John 3:16', 'Ephesians 2:8'],
-    plan: 'faith'
+    plan: 'trust'
   },
   {
     id: 'marriage-bible',
@@ -5658,7 +5658,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'The Bible grounds self-forgiveness not in feeling better about yourself but in receiving what God has already declared true: He has removed your sin "as far as the east is from the west" (Psalm 103:12). First John 1:9 is a promise, not a suggestion — confess, and He is faithful and just to forgive and to cleanse. If God has forgiven it, continuing to carry it is not humility; it is refusing a gift already given. That does not mean the damage disappears overnight, but you can lay the guilt down because Jesus carried it on the cross.',
     verses: ['Psalm 103:12', '1 John 1:9', 'Isaiah 43:25', 'Romans 8:1'],
-    plan: 'guilt'
+    plan: 'guiltshame'
   },
   {
     id: 'fear-bible',
@@ -5670,7 +5670,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: '"Fear not" appears throughout Scripture — not as a command to feel a certain way, but as a reminder of who is with you. Isaiah 41:10 is one of the clearest: "Fear thou not; for I am with thee." Psalm 56:3 is David\'s honest confession: "What time I am afraid, I will trust in thee" — not I will stop being afraid, but I will trust through it. Fear and faith can coexist; Scripture does not ask you to pretend you are not scared. The anchor is not your courage — it is His presence. Bring the fear honestly and let the truth of who He is be the steadier voice.',
     verses: ['Isaiah 41:10', 'Psalm 56:3', '2 Timothy 1:7', 'Psalm 27:1'],
-    plan: 'fear'
+    plan: 'fearfaith'
   },
   {
     id: 'grief-bible',
@@ -5694,7 +5694,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'Your worth in Scripture is not based on what you produce, how you look, or how you feel about yourself. Psalm 139:13–14 says God formed you and you are "fearfully and wonderfully made." Matthew 10:31 says you are worth more than many sparrows — and God notices when even one of those falls. You do not have to earn your worth or prove it. The cross is the most definitive statement God ever made about what a human life is worth to Him. You were worth that.',
     verses: ['Psalm 139:14', 'Matthew 10:31', 'Romans 5:8', 'Jeremiah 1:5'],
-    plan: 'worth'
+    plan: 'selfworth'
   },
   {
     id: 'trusting-god-when-life-is-hard',
@@ -5706,7 +5706,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'Proverbs 3:5–6 puts it plainly: "Trust in the Lord with all thine heart; and lean not unto thine own understanding." But trust is not a feeling you manufacture — it is a choice to keep bringing what you are carrying to Him even when answers are not visible. Job trusted through devastation (Job 13:15). Habakkuk praised even when everything was stripped (Habakkuk 3:17–18). The pattern in Scripture is not "trust because it makes sense" but "trust because of who He is, not because of what you see." The most honest prayer you can pray is Mark 9:24: Lord, I believe — help my unbelief.',
     verses: ['Proverbs 3:5', 'Proverbs 3:6', 'Job 13:15', 'Habakkuk 3:18'],
-    plan: 'faith'
+    plan: 'trust'
   },
   {
     id: 'waiting-on-god',
@@ -5718,7 +5718,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'Waiting in Scripture is not passive — it is active trust. Isaiah 40:31 says those who wait on the Lord will renew their strength. Psalm 27:14 says "wait on the Lord: be of good courage." God works in the silence. Lamentations 3:25–26 says He is good to those who wait quietly for Him. One of the harder truths of Scripture is that God is rarely in a hurry, and His timing is better than any timeline you or I would have chosen. What waiting builds, rushing cannot.',
     verses: ['Isaiah 40:31', 'Psalm 27:14', 'Lamentations 3:25', 'Habakkuk 2:3'],
-    plan: 'patience'
+    plan: 'universitywaiting'
   },
   {
     id: 'parenting-bible',
@@ -5754,7 +5754,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'Matthew 6:25–34 is Jesus\' longest direct teaching on worry — not a quick verse but a careful argument. He points to the birds and flowers: if God clothes what is temporary, will He not care for you? The conclusion is not "stop worrying" as a command of willpower, but "seek ye first the kingdom of God, and all these things shall be added unto you." Philippians 4:6–7 gives the practical step: instead of anxiety, bring it to God in prayer with thanksgiving. The peace that follows "passeth all understanding" — it is not something you generate, it is something you receive.',
     verses: ['Matthew 6:25', 'Matthew 6:33', 'Philippians 4:6', 'Philippians 4:7'],
-    plan: 'worry'
+    plan: 'worrytrust'
   },
   {
     id: 'loneliness-bible',
@@ -5778,7 +5778,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'Jesus gave a simple model in Matthew 6:9–13 — come to the Father, honor who He is, ask for what you need day by day, ask to be forgiven and to forgive, ask to be kept from the things that would destroy you. That is all of life in a short prayer. What matters most is honesty, not form. The Psalms show people bringing raw anger, exhaustion, confusion, and praise — sometimes all at once. First Thessalonians 5:17 says to pray without ceasing, meaning a running conversation, not a formal performance. You do not need the right words. Start with where you actually are.',
     verses: ['Matthew 6:9', 'Philippians 4:6', '1 Thessalonians 5:17', 'Psalm 62:8'],
-    plan: 'prayer'
+    plan: 'lordsprayer'
   },
   {
     id: 'money-finances-bible',
@@ -5790,7 +5790,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'More verses in Scripture address money than almost any other topic — which tells you how seriously it presses on real life. The core warning is in 1 Timothy 6:10: it is the love of money, not money itself, that is the root of all kinds of evil. Jesus said in Matthew 6:24 that you cannot serve both God and money — one will always compete with the other for your trust. Proverbs 11:24–25 says the generous person gains; the one who hoards loses something too. The biblical pattern is open hands and a deep trust that provision comes from God, not from what you can hold on to.',
     verses: ['1 Timothy 6:10', 'Matthew 6:24', 'Proverbs 11:24', 'Philippians 4:19'],
-    plan: 'provision'
+    plan: 'moneyworry'
   },
 
   // === BATCH 2: 10 additional high-value answers ===
@@ -5804,7 +5804,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'There are stretches in Scripture where God felt silent too — Psalm 88 ends without resolution, and Jesus cried from the cross "My God, my God, why hast thou forsaken me?" (Matthew 27:46). That cry is in the Bible because God is not afraid of it. Silence is not the same as absence. Lamentations 3:22–23 was written out of real devastation, not comfort: "Great is his faithfulness." The practice the Bible keeps returning to in those dry seasons is honest, stubborn perseverance — keep praying even when nothing seems to come back. The silence is a chapter, not the end.',
     verses: ['Matthew 27:46', 'Psalm 88:1', 'Lamentations 3:22', 'Psalm 22:2'],
-    plan: 'faith'
+    plan: 'trust'
   },
   {
     id: 'chronic-pain-illness',
@@ -5816,7 +5816,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'The Bible does not offer a formula for healing, but something steadier: a God who is present in a body that does not cooperate. Paul had a persistent affliction God did not remove — and what he received instead was: "My grace is sufficient for thee: for my strength is made perfect in weakness" (2 Corinthians 12:9). Psalm 22 — which Jesus prayed from the cross — moves from raw anguish to trust without the pain being resolved first. You do not need healing to have God. Some things are built in suffering that cannot be built anywhere else (Romans 5:3–4), and that does not make the pain good — it means God will not let it be wasted.',
     verses: ['2 Corinthians 12:9', 'Romans 5:3', 'Psalm 34:18', 'Isaiah 40:29'],
-    plan: 'suffering'
+    plan: 'sufferendure'
   },
   {
     id: 'prodigal-family-faith',
@@ -5829,7 +5829,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'The father in Jesus\' parable saw his son "yet a great way off" — which means he was watching the road (Luke 15:20). That is the picture Jesus chose for God watching over a wandering child. If someone you love has walked away, you are not the first person to carry that weight, and the Bible does not promise you can control another person\'s faith. What it does promise is that God\'s pursuit is longer than yours, that your prayers matter (James 5:16), and that you can keep the welcome ready without it depending on their return. The prodigal "came to himself" in his own time — that work happens in God\'s hands, not yours.',
     verses: ['Luke 15:20', 'James 5:16', 'Romans 8:28', '1 Peter 3:1'],
-    plan: 'hope'
+    plan: 'heavyhope'
   },
   {
     id: 'doubt-hard-to-believe',
@@ -5841,7 +5841,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'Scripture is full of doubters who were not dismissed. Thomas wanted proof and Jesus gave it to him gently (John 20:27–28). Habakkuk complained directly to God and God answered without rebuking him. Psalm 73 opens with a man who nearly lost his faith entirely and shows how he found his footing again — not by having his questions answered, but by returning to God\'s presence (Psalm 73:17). Doubt is not the opposite of faith; it is often the beginning of a deeper one. Mark 9:24 is one of the most honest prayers in Scripture: "Lord, I believe; help thou mine unbelief." You can bring exactly that to Him.',
     verses: ['John 20:27', 'Psalm 73:17', 'Mark 9:24', 'Habakkuk 1:2'],
-    plan: 'faith'
+    plan: 'trust'
   },
   {
     id: 'shame-bible',
@@ -5853,7 +5853,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'Shame says you are what you did — or what was done to you. The Bible makes a different claim: "There is therefore now no condemnation to them which are in Christ Jesus" (Romans 8:1). Shame wants to hide; Scripture keeps calling people out of hiding. Adam and Eve hid after the fall, and God came looking for them (Genesis 3:9). The woman placed at the center of public shame was defended by Jesus and sent away free (John 8:10–11). Isaiah 54:4 says "thou shalt not be ashamed" — not because the past is erased, but because God\'s love is greater than what shame holds over you. You are allowed to come out of hiding.',
     verses: ['Romans 8:1', 'Isaiah 54:4', 'John 8:11', 'Psalm 34:5'],
-    plan: 'guilt'
+    plan: 'guiltshame'
   },
   {
     id: 'addiction-bible',
@@ -5877,7 +5877,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'The Bible takes death seriously and does not minimize it — Paul calls it "the last enemy" (1 Corinthians 15:26). But the resurrection changes what death is. Jesus said plainly: "I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live" (John 11:25). For the dying, Psalm 23:4 has been a steady companion for centuries: "Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me." Death is not the end of the story for those who trust in Christ. It is a door, and He is already on the other side of it.',
     verses: ['John 11:25', 'Psalm 23:4', '1 Corinthians 15:55', 'Revelation 21:4'],
-    plan: 'hope'
+    plan: 'heavyhope'
   },
   {
     id: 'betrayal-broken-trust',
@@ -5901,7 +5901,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'Elijah sat under a juniper tree, exhausted enough to ask God to let him die — right after one of his greatest victories (1 Kings 19:4). God\'s response was not a sermon. It was bread, water, and sleep. Twice. The angel said: "Arise and eat; because the journey is too great for thee." That is one of the most tender moments in the Old Testament. Burnout is not a character failure — it is what happens when finite people carry more than they were built for. Isaiah 40:29–31 says God gives power to the faint and renews the strength of those who wait on Him. The step Scripture offers is rest — actual rest — and bringing yourself, emptied, to the One who never grows weary.',
     verses: ['1 Kings 19:5', 'Isaiah 40:29', 'Matthew 11:28', 'Psalm 62:5'],
-    plan: 'rest'
+    plan: 'restlessnights'
   },
   {
     id: 'healing-bible',
@@ -5913,7 +5913,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'The Bible holds both realities without forcing one over the other: God heals, and God also walks with people who have not been healed yet. James 5:14–15 calls the church to pray for healing with real expectation. At the same time, Paul\'s thorn was not removed (2 Corinthians 12:7–9), Timothy had recurring illness (1 Timothy 5:23), and the man at Bethesda had waited 38 years (John 5:5). Healing is not a reward for enough faith — if it were, the cross was unnecessary. Pray for it honestly and fully. Hold the answer with open hands, trusting the God who says He will one day make all things new (Revelation 21:5).',
     verses: ['James 5:14', '2 Corinthians 12:9', 'Psalm 103:3', 'Revelation 21:5'],
-    plan: 'hope'
+    plan: 'heavyhope'
   },
 
   // === BATCH 3: 5 additional answers ===
@@ -5927,7 +5927,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'The Bible has people in it who made catastrophic choices and came back — not by pretending the consequences were not real, but through encountering a God who specializes in redemption. David committed adultery and arranged a murder; the cross of God\'s mercy still held him (Psalm 51). Peter denied Jesus three times, to His face, and went on to be the rock of the early church. Joel 2:25 carries a direct promise: "I will restore to you the years that the locust hath eaten." The road back is rarely fast or clean. But it is real, and as long as you are still breathing, you are not past the reach of a God who makes dead things live.',
     verses: ['Joel 2:25', 'Psalm 51:10', 'Romans 8:1', 'Isaiah 43:18'],
-    plan: 'hope'
+    plan: 'heavyhope'
   },
   {
     id: 'angry-at-god',
@@ -5939,7 +5939,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'The Bible makes full room for anger toward God — it is in the Psalms dozens of times. Psalm 13 opens with "How long wilt thou forget me, O Lord? for ever?" Jeremiah told God directly he felt deceived (Jeremiah 20:7). Habakkuk accused God of not acting when He should have. Every one of them was heard. Anger at God is not the opposite of relationship with Him — it is often the most honest relationship you can have. The danger is not bringing the anger; it is going quiet and closing the door. Bring it the way the Psalms do: out loud, all of it, directed at Him. He already knows. And He can take it.',
     verses: ['Psalm 13:1', 'Jeremiah 20:7', 'Habakkuk 1:2', 'Psalm 62:8'],
-    plan: 'prayer'
+    plan: 'lordsprayer'
   },
   {
     id: 'bible-feels-dry',
@@ -5952,7 +5952,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'Dryness in reading Scripture happens to nearly everyone who takes it seriously over a long stretch of time. It is not a sign that God has left, or that you are failing — it is one of the ordinary seasons of faith. What the Bible recommends is not waiting until you feel something, but choosing to keep showing up: Psalm 119 was written by someone with a deep love for Scripture who still had to choose to return to it before dawn (Psalm 119:147–148). Sometimes reading a short passage slowly, or a part of the Bible you have not been to before, opens something that was sealed. Stay with it. The drought does not last forever, and the seeds planted in dry ground still take root.',
     verses: ['Psalm 119:147', 'Jeremiah 15:16', 'Psalm 42:1', 'Romans 10:17'],
-    plan: 'faith'
+    plan: 'trust'
   },
   {
     id: 'provision-fear',
@@ -5964,7 +5964,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'Jesus names this fear specifically in Matthew 6:31–33: "What shall we eat? What shall we drink?" — He knows it is real. His answer is not a promise of plenty but a grounding: "your Father knoweth that ye have need of all these things." Philippians 4:19 carries the promise plainly: "My God shall supply all your need according to his riches in glory." That is not a guarantee of comfort or ease — it is a promise that need will be met, even in lean seasons. The invitation is to seek His kingdom first and let tomorrow\'s provision rest where it belongs — not in your hands. That is a daily act of trust, not a one-time feeling.',
     verses: ['Matthew 6:33', 'Philippians 4:19', 'Psalm 37:25', 'Matthew 6:31'],
-    plan: 'provision'
+    plan: 'moneyworry'
   },
   {
     id: 'purpose-direction',
@@ -5977,7 +5977,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'If you are asking what God\'s will for your life is, the Bible is more specific about character than about career. Romans 12:2 says the path to knowing His will is the renewing of your mind — becoming someone who thinks differently — not a map handed to you at once. First Thessalonians 4:3 names sanctification (being made holy in how you live) as God\'s will for you. Micah 6:8 puts it with striking simplicity: do justly, love mercy, walk humbly with your God. Most of what you are wondering about — what to do next, where to go — tends to become clearer as you walk those three things faithfully in your current step. The way forward usually opens one step at a time, not all at once.',
     verses: ['Romans 12:2', 'Micah 6:8', 'Proverbs 3:6', 'Jeremiah 29:11'],
-    plan: 'guidance'
+    plan: 'proverbswisdom'
   }
 ];
 

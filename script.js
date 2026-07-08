@@ -5541,7 +5541,28 @@ const PHRASE_TO_TOKENS = {
   'fear not for i am with you': ['fear', 'trust', 'peace', 'faith'],
   'every good gift comes from above': ['gratitude', 'faith', 'hope', 'trust'],
   'the battle is not yours but gods': ['trust', 'faith', 'strength', 'courage'],
-  'all have sinned and fall short': ['guilt', 'grace', 'forgiveness', 'salvation']
+  'all have sinned and fall short': ['guilt', 'grace', 'forgiveness', 'salvation'],
+
+  // === KIDS & FAMILY: Parent/child-specific search terms ===
+  'bedtime bible story': ['kids', 'family', 'peace', 'faith'],
+  'bible story for kids': ['kids', 'family', 'faith', 'hope'],
+  'morning devotion for kids': ['kids', 'family', 'faith', 'wisdom'],
+  'family devotion': ['family', 'faith', 'prayer', 'love'],
+  'family worship': ['family', 'faith', 'prayer', 'love'],
+  'family bible study': ['family', 'faith', 'wisdom', 'love'],
+  'help my child pray': ['parenting', 'prayer', 'kids', 'faith'],
+  'teaching kids about god': ['parenting', 'kids', 'faith', 'wisdom'],
+  'raising godly children': ['parenting', 'kids', 'faith', 'wisdom'],
+  'how do i pray with my kids': ['prayer', 'parenting', 'kids', 'faith'],
+  'kids not listening': ['parenting', 'patience', 'wisdom', 'love'],
+  'overwhelmed as a parent': ['parenting', 'exhaustion', 'grace', 'strength'],
+  'single parent struggling': ['parenting', 'loneliness', 'trust', 'strength'],
+  'scared for my child': ['parenting', 'fear', 'trust', 'peace'],
+  'prodigal child': ['parenting', 'grief', 'hope', 'prayer'],
+  'my child is angry at god': ['parenting', 'doubt', 'faith', 'hope'],
+  'my child is struggling': ['parenting', 'grief', 'trust', 'hope'],
+  'how to raise kids in the word': ['parenting', 'kids', 'faith', 'wisdom'],
+  'raising kids in a hard world': ['parenting', 'fear', 'trust', 'strength']
 };
 
 /**
@@ -25216,7 +25237,9 @@ function parseQuery(input) {
   var storyTriggerPhrases = [
     'story about ', 'tell me the story of ', 'tell me story of ', 'the story of ',
     'who was ', 'who is ', 'tell me about ', 'what happened to ', 'what happened with ',
-    'read me the story of ', 'kids story about ', 'bible story about ', 'bible story of '
+    'read me the story of ', 'kids story about ', 'bible story about ', 'bible story of ',
+    'read about ', 'read me about ', 'what is the story of ', 'what is the story about ',
+    'show me the story of ', 'teach me about ', 'story of '
   ];
   var detectedStoryKey = null;
   var detectedStoryOriginal = null;

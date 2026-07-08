@@ -5653,6 +5653,42 @@ const PHRASE_TO_TOKENS = {
   'who was peter in the bible': ['faith', 'trust', 'hope', 'wisdom'],
   'who was john the baptist': ['faith', 'hope', 'wisdom', 'salvation'],
 
+  // === BIBLE KNOWLEDGE: Characters (batch 8) ===
+  'cain and abel bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'am i my brothers keeper': ['faith', 'wisdom', 'trust', 'hope'],
+  'who was miriam': ['faith', 'strength', 'wisdom', 'hope'],
+  'miriam sister of moses': ['faith', 'strength', 'wisdom', 'hope'],
+  'who was philip in the bible': ['faith', 'salvation', 'wisdom', 'hope'],
+  'philip and the ethiopian eunuch': ['faith', 'salvation', 'wisdom', 'hope'],
+  'who was naomi': ['faith', 'grief', 'hope', 'trust'],
+  'naomi called herself mara': ['faith', 'grief', 'hope', 'trust'],
+  'who was simeon in the bible': ['faith', 'hope', 'wisdom', 'trust'],
+  'simeon held baby jesus': ['faith', 'hope', 'wisdom', 'trust'],
+
+  // === BIBLE KNOWLEDGE: Theological (batch 8) ===
+  'what is a parable': ['faith', 'wisdom', 'hope', 'trust'],
+  'why did jesus teach in parables': ['faith', 'wisdom', 'hope', 'trust'],
+  'is the bible true': ['faith', 'wisdom', 'trust', 'hope'],
+  'can i trust the bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'what is prayer in the bible': ['faith', 'prayer', 'wisdom', 'peace'],
+  'does prayer work': ['faith', 'prayer', 'wisdom', 'peace'],
+  'what does the bible say about tithing': ['faith', 'trust', 'wisdom', 'hope'],
+  'should christians tithe': ['faith', 'trust', 'wisdom', 'hope'],
+  'what is the rapture': ['faith', 'hope', 'trust', 'wisdom'],
+  'is the rapture in the bible': ['faith', 'hope', 'trust', 'wisdom'],
+
+  // === BIBLE KNOWLEDGE: Books (batch 8) ===
+  'what is ezekiel about': ['faith', 'hope', 'wisdom', 'trust'],
+  'valley of dry bones bible': ['faith', 'hope', 'wisdom', 'trust'],
+  'what is joel about': ['faith', 'hope', 'wisdom', 'trust'],
+  'spirit poured out on all flesh': ['faith', 'hope', 'wisdom', 'trust'],
+  'what is 1 timothy about': ['faith', 'wisdom', 'trust', 'hope'],
+  'godliness with contentment': ['faith', 'wisdom', 'trust', 'hope'],
+  'what is numbers about': ['faith', 'trust', 'hope', 'wisdom'],
+  'forty years in the wilderness': ['faith', 'trust', 'hope', 'wisdom'],
+  'what is 2 kings about': ['faith', 'wisdom', 'trust', 'hope'],
+  'israel falls to assyria bible': ['faith', 'wisdom', 'trust', 'hope'],
+
   // === BIBLE KNOWLEDGE: Characters (batch 7) ===
   'who was jacob': ['faith', 'trust', 'wisdom', 'hope'],
   'jacob wrestled with god': ['faith', 'trust', 'strength', 'hope'],
@@ -8419,6 +8455,211 @@ var TDB_BIBLICAL_ANSWERS = [
     answer: 'Zechariah is one of the longest and most visionary of the minor prophets — written around 520 BC to encourage Jews who had returned from Babylon and were rebuilding the Temple. It opens with a call to return to God and contains eight night visions given to Zechariah, dense with symbolic imagery. Its best-known verse may be 4:6: "Not by might, nor by power, but by my spirit, saith the LORD of hosts" — spoken to the governor Zerubbabel about completing the Temple against overwhelming odds. Zechariah\'s later chapters (9–14) shift into sharp messianic prophecy: "Rejoice greatly, O daughter of Zion; shout, O daughter of Jerusalem: behold, thy King cometh unto thee: he is just, and having salvation; lowly, and riding upon an ass" (9:9) — fulfilled on Palm Sunday (Matthew 21:4–5). Chapter 12:10 prophesies "they shall look upon me whom they have pierced" — quoted in John 19:37 at the crucifixion. Zechariah contains more messianic references than any other Old Testament prophet except Isaiah.',
     verses: ['Zechariah 4:6', 'Zechariah 9:9', 'Zechariah 12:10', 'Zechariah 13:7'],
     plan: 'heavyhope'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE — Batch 8: Characters
+  // ============================================================
+  {
+    id: 'cain-and-abel',
+    type: 'knowledge',
+    triggers: [
+      'who were cain and abel', 'cain and abel bible story', 'tell me about cain and abel',
+      'cain killed abel', 'am i my brothers keeper bible', 'first murder in the bible',
+      'cain and abel genesis 4', 'why did cain kill abel', 'abel first martyr bible',
+      'cain offering rejected by god'
+    ],
+    answer: 'Cain and Abel were the first sons of Adam and Eve — and theirs is the first murder in Scripture. Both brought offerings to God; Abel brought "the firstlings of his flock," Cain brought produce from the ground. God regarded Abel\'s offering and not Cain\'s — why is debated, but Hebrews 11:4 says Abel offered "by faith," suggesting the heart behind it was the difference. Cain\'s response was rage, and God warned him before anything happened: "sin lieth at the door. And unto thee shall be his desire, and thou shalt rule over it" (Genesis 4:7) — an offer of grace that was refused. Cain killed Abel in the field, and when God asked where his brother was, he answered with the oldest deflection in human history: "Am I my brother\'s keeper?" (4:9). Abel is named in Hebrews 11\'s hall of faith, and Jesus calls him "righteous Abel" (Matthew 23:35). Their story is the first of many in Scripture showing that what we bring to God, and why, matters more than the form.',
+    verses: ['Genesis 4:7', 'Genesis 4:9', 'Hebrews 11:4', 'Matthew 23:35'],
+    plan: 'walktheword'
+  },
+  {
+    id: 'who-was-miriam',
+    type: 'knowledge',
+    triggers: [
+      'who was miriam in the bible', 'tell me about miriam', 'miriam in the bible',
+      'miriam sister of moses', 'miriam led worship bible', 'miriam struck with leprosy',
+      'miriam the prophetess', 'miriam old testament', 'miriam timbrel bible',
+      'miriam and aaron spoke against moses'
+    ],
+    answer: 'Miriam was the older sister of Moses and Aaron — the one who watched over the basket holding infant Moses on the Nile and arranged for his own mother to nurse him (Exodus 2:7–8). She is called a prophetess: after the crossing of the Red Sea she led the women of Israel in song and dancing with a timbrel, singing "Sing ye to the LORD, for he hath triumphed gloriously" (Exodus 15:21) — one of the oldest songs in Scripture. But her story also includes a difficult chapter: she and Aaron spoke against Moses because of his Cushite wife and, more deeply, challenged his unique prophetic authority. God\'s response was immediate — Miriam was struck with leprosy, shut outside the camp for seven days. Moses prayed for her: "Heal her now, O God, I beseech thee" (Numbers 12:13). She was healed. Her life holds both genuine gifting and a costly failure — a full portrait rather than a tidy one.',
+    verses: ['Exodus 15:21', 'Numbers 12:2', 'Numbers 12:13', 'Micah 6:4'],
+    plan: 'trust'
+  },
+  {
+    id: 'who-was-philip',
+    type: 'knowledge',
+    triggers: [
+      'who was philip in the bible', 'tell me about philip', 'philip the apostle bible',
+      'show us the father philip', 'philip the evangelist bible', 'philip and the ethiopian eunuch',
+      'acts 8 philip', 'philip in the new testament', 'philip brought nathanael to jesus',
+      'philip john 14 bible'
+    ],
+    answer: 'Two men named Philip appear prominently in the New Testament. Philip the apostle was one of the twelve disciples — a fisherman from Bethsaida like Peter and Andrew. He found Nathanael and brought him to Jesus ("Come and see" — John 1:46). At the Last Supper he asked the question that prompted one of Jesus\' most direct self-declarations: "Lord, shew us the Father, and it sufficeth us" — and Jesus answered: "he that hath seen me hath seen the Father" (John 14:9). Philip the evangelist was one of the first seven deacons (Acts 6:5), later sent by the Spirit to a desert road where he met an Ethiopian official reading Isaiah 53 in his chariot. Philip explained the passage and the official was baptized on the spot: "what doth hinder me to be baptized?" (Acts 8:36). Two different men, the same name — both defined by bringing people to Jesus.',
+    verses: ['John 1:46', 'John 14:9', 'Acts 8:35', 'Acts 8:36'],
+    plan: 'roadtosalvation'
+  },
+  {
+    id: 'who-was-naomi',
+    type: 'knowledge',
+    triggers: [
+      'who was naomi in the bible', 'tell me about naomi', 'naomi in the bible',
+      'naomi and ruth bible', 'call me mara bible', 'naomi lost her husband and sons',
+      'naomi old testament', 'naomi returned to bethlehem', 'naomi meaning pleasant',
+      'naomi grief bible story'
+    ],
+    answer: 'Naomi is one of the most honest portraits of grief in the Old Testament. She left Bethlehem with her husband and two sons during a famine, went to Moab, and there her husband died. Her two sons married Moabite women (Ruth and Orpah) — and then both sons also died. She told her daughters-in-law to return to their own people: "it grieveth me much for your sakes that the hand of the LORD is gone out against me" (Ruth 1:13). When she returned to Bethlehem empty, she told the townswomen not to call her Naomi ("pleasant") but Mara ("bitter"): "I went out full, and the LORD hath brought me home again empty" (1:21). Ruth refused to leave her. What follows is one of Scripture\'s quietest restoration stories: through Ruth\'s loyalty and Boaz\'s kindness, Naomi was restored — holding Ruth\'s son Obed in her arms at the end, the town women saying "There is a son born to Naomi" (4:17). She named herself by her emptiness; God named her by what He still planned to do.',
+    verses: ['Ruth 1:20', 'Ruth 1:21', 'Ruth 4:15', 'Ruth 4:17'],
+    plan: 'grief'
+  },
+  {
+    id: 'simeon-and-anna',
+    type: 'knowledge',
+    triggers: [
+      'who was simeon in the bible', 'simeon and anna in the bible', 'tell me about simeon and anna',
+      'now lettest thou thy servant depart bible', 'simeon held baby jesus', 'anna the prophetess bible',
+      'luke 2 simeon anna', 'nunc dimittis bible', 'simeon saw the lord salvation',
+      'simeon and anna recognized jesus'
+    ],
+    answer: 'Simeon and Anna appear together in Luke 2 at the presentation of the infant Jesus in the Temple — two elderly people who had been waiting, in their different ways, for the consolation of Israel. Simeon had been promised by the Holy Spirit that he would not die before seeing the Lord\'s Christ. When Mary and Joseph brought the baby, Simeon took him in his arms and prayed what became known as the Nunc Dimittis: "Lord, now lettest thou thy servant depart in peace, according to thy word: for mine eyes have seen thy salvation" (Luke 2:29–30). He also told Mary quietly: "a sword shall pierce through thy own soul also" (2:35). Anna was an eighty-four-year-old widow who had been in the Temple fasting and praying for decades. She arrived at the same moment and gave thanks to God and "spake of him to all them that looked for redemption in Jerusalem" (2:38). Both of them recognized what everyone else walked past.',
+    verses: ['Luke 2:29', 'Luke 2:30', 'Luke 2:35', 'Luke 2:38'],
+    plan: 'heavyhope'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE — Batch 8: Theological
+  // ============================================================
+  {
+    id: 'what-is-a-parable',
+    type: 'knowledge',
+    triggers: [
+      'what is a parable in the bible', 'what does parable mean in the bible', 'parable meaning bible',
+      'why did jesus teach in parables', 'what is a parable explained', 'parables of jesus list',
+      'why did jesus use parables', 'parable definition bible', 'what are the parables of jesus',
+      'why did jesus speak in parables matthew 13'
+    ],
+    answer: 'A parable is a short story drawn from ordinary life that carries a deeper truth — the word in Greek means "to place alongside," as if the story stands next to the truth it reveals and illuminates it. Jesus used them constantly, and His disciples asked why. His answer in Matthew 13:11–13 is surprising: He said He spoke in parables so that those who truly sought understanding would find it, while those who were indifferent would hear without perceiving. Parables reward engagement; they are not simply cute illustrations but riddles that demand a response. The same story — the Prodigal Son, the Good Samaritan, the Sower — can land differently depending on who you are in it. Jesus\' parables consistently do the same thing: they overturn the expected outcome (the father runs toward the prodigal, the Samaritan stops), revealing what the kingdom of God actually looks like rather than what religion tends to assume.',
+    verses: ['Matthew 13:11', 'Matthew 13:34', 'Luke 15:3', 'Mark 4:11'],
+    plan: 'walktheword'
+  },
+  {
+    id: 'is-the-bible-reliable',
+    type: 'knowledge',
+    triggers: [
+      'is the bible true', 'can i trust the bible', 'is the bible reliable', 'how do we know the bible is true',
+      'why should i trust the bible', 'is the bible historically accurate', 'has the bible been changed',
+      'is the bible gods word', 'how was the bible written', 'can the bible be trusted'
+    ],
+    answer: 'The Bible\'s reliability rests on several converging lines of evidence. Manuscript evidence: the New Testament has more early manuscript copies than any other ancient document — over 5,800 Greek manuscripts — and the gap between original writing and earliest copies is remarkably short compared to other accepted ancient texts. Historical corroboration: events, people, places, and rulers named in Scripture have been repeatedly confirmed by archaeology. Internal consistency: 66 books written by about 40 authors across 1,500 years maintain a coherent theological thread — a unity that is difficult to explain apart from a common divine source. The Bible also makes an internal claim about itself: "All scripture is given by inspiration of God" (2 Timothy 3:16). Peter wrote that Scripture did not originate in human will but came from men "moved by the Holy Ghost" (2 Peter 1:21). These are claims to be weighed, not dismissed. For the Christian, the strongest evidence is experiential: the living Word has proven itself by transforming lives across every culture and century.',
+    verses: ['2 Timothy 3:16', '2 Peter 1:21', 'Psalm 119:89', 'Isaiah 40:8'],
+    plan: 'walktheword'
+  },
+  {
+    id: 'what-is-prayer',
+    type: 'knowledge',
+    triggers: [
+      'what is prayer in the bible', 'what does the bible say about prayer', 'how to pray bible',
+      'does prayer work bible', 'why pray if god knows everything', 'prayer meaning bible',
+      'what does prayer do bible', 'types of prayer in the bible', 'how does prayer work',
+      'why does prayer matter bible'
+    ],
+    answer: 'Prayer in Scripture is simply conversation with God — not a ritual or formula but a relationship between the creature and the Creator. It takes many forms in Scripture: praise, confession, intercession (praying for others), petition (asking for yourself), lament, and silent trust. Jesus modeled it throughout his ministry — rising early to pray alone (Mark 1:35), praying through the night before choosing disciples, weeping and pleading in Gethsemane. Paul said to "pray without ceasing" (1 Thessalonians 5:17) — not unbroken words but an ongoing orientation of the heart toward God. Philippians 4:6 gives the practical instruction: "Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God." The most honest answer to "does prayer change things" is that Scripture teaches it does: "The effectual fervent prayer of a righteous man availeth much" (James 5:16). But it also changes the person praying — which may be the deeper answer.',
+    verses: ['Philippians 4:6', 'James 5:16', '1 Thessalonians 5:17', 'Matthew 6:6'],
+    plan: 'firststeps'
+  },
+  {
+    id: 'giving-tithing-bible',
+    type: 'knowledge',
+    triggers: [
+      'what does the bible say about tithing', 'what is tithing in the bible', 'should christians tithe',
+      'giving in the bible', 'what does the bible say about giving money', 'bring the whole tithe bible',
+      'malachi 3 10 tithing', 'cheerful giver bible', '2 corinthians 9 7 giving',
+      'tithing ten percent bible'
+    ],
+    answer: 'Tithing — giving a tenth — was commanded under the Mosaic law as the basic expression of Israel\'s dependence on God and their participation in the covenant community. Malachi 3:10 is the most direct: "Bring ye all the tithes into the storehouse, that there may be meat in mine house, and prove me now herewith, saith the LORD of hosts, if I will not open you the windows of heaven." Under the new covenant, Paul does not repeat a ten-percent mandate but lays down principles: "He which soweth sparingly shall reap also sparingly; and he which soweth bountifully shall reap also bountifully" (2 Corinthians 9:6). And: "Every man according as he purposeth in his heart, so let him give; not grudgingly, or of necessity: for God loveth a cheerful giver" (9:7). Jesus commended the widow who gave everything she had — not a percentage but a posture (Mark 12:41–44). The consistent teaching is not a specific amount but a freely given, joyful, and trust-filled release of what God has provided.',
+    verses: ['Malachi 3:10', '2 Corinthians 9:7', 'Luke 6:38', 'Mark 12:43'],
+    plan: 'trust'
+  },
+  {
+    id: 'what-is-the-rapture',
+    type: 'knowledge',
+    triggers: [
+      'what is the rapture', 'rapture bible', 'is the rapture in the bible', 'rapture explained simply',
+      'caught up in the clouds bible', 'what does the bible say about the rapture',
+      '1 thessalonians 4 rapture', 'pre tribulation rapture bible', 'will there be a rapture',
+      'rapture vs second coming bible'
+    ],
+    answer: 'The word "rapture" does not appear in the English Bible, but it comes from the Latin rapturo — a translation of the Greek harpazo in 1 Thessalonians 4:17: "we which are alive and remain shall be caught up together with them in the clouds, to meet the Lord in the air." Paul wrote this to comfort believers who were anxious about those who had died before Christ returned. The passage clearly teaches a gathering of believers to the Lord at His coming. Where Christians differ is on timing and sequence: whether this gathering happens before, during, or after a period of tribulation described in Revelation, and whether it is the same event as or distinct from the Second Coming. These are questions believers have held different positions on for centuries — often with conviction but without dividing over the core hope. The common ground is the hope itself: "even so, come, Lord Jesus" (Revelation 22:20).',
+    verses: ['1 Thessalonians 4:17', '1 Corinthians 15:52', 'Revelation 22:20', '1 Thessalonians 4:16'],
+    plan: 'heavyhope'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE — Batch 8: Books & Passages
+  // ============================================================
+  {
+    id: 'what-is-ezekiel-about',
+    type: 'knowledge',
+    triggers: [
+      'what is ezekiel about', 'ezekiel overview', 'what does ezekiel teach',
+      'book of ezekiel explained', 'ezekiel summary', 'what is ezekiel in the bible',
+      'ezekiel main message', 'valley of dry bones ezekiel', 'ezekiel vision of god',
+      'new heart new spirit ezekiel'
+    ],
+    answer: 'Ezekiel was a priest taken to Babylon in the first deportation (597 BC) — before Jerusalem fell — and called to prophesy to the exiles. His book opens with one of the most elaborate visions in Scripture: a storm, fire, four living creatures, and the overwhelming glory of God on a chariot-throne. Ezekiel\'s task was difficult: to preach to people who did not want to hear (3:7). His prophecies against Jerusalem are severe — the glory of God is shown departing from the Temple step by step (chapters 8–11) because of Israel\'s idolatry. But the book also contains some of the most hope-filled promises in all of prophecy: the valley of dry bones (chapter 37), where God breathes life into what is utterly dead — a picture of resurrection and national restoration. Chapter 36 contains the new covenant promise: "A new heart also will I give you, and a new spirit will I put within you" (36:26). Ezekiel is the book of the departed glory that will return — and does.',
+    verses: ['Ezekiel 36:26', 'Ezekiel 37:4', 'Ezekiel 36:27', 'Ezekiel 1:28'],
+    plan: 'heavyhope'
+  },
+  {
+    id: 'what-is-joel-about',
+    type: 'knowledge',
+    triggers: [
+      'what is joel about', 'joel overview', 'what does joel teach', 'book of joel explained',
+      'joel summary', 'what is joel in the bible', 'joel main message',
+      'spirit poured out on all flesh joel', 'joel 2 28 29 explained', 'peter quoted joel at pentecost'
+    ],
+    answer: 'Joel is a short but striking prophetic book — only three chapters, written in response to a devastating locust plague that had stripped the land bare. Joel takes the disaster as a call to repentance: "rend your heart, and not your garments, and turn unto the LORD your God; for he is gracious and merciful, slow to anger, and of great kindness" (2:13). He promises restoration of what the locusts had eaten. But the book\'s most enduring passage is Joel 2:28–29: "And it shall come to pass afterward, that I will pour out my spirit upon all flesh; and your sons and your daughters shall prophesy, your old men shall dream dreams, your young men shall see visions." Peter quoted this directly on the day of Pentecost (Acts 2:16–17) to explain what had just happened — the Spirit falling on the early church was the fulfillment of Joel\'s promise. Joel is short but it stretches from a locust plague all the way to Pentecost.',
+    verses: ['Joel 2:13', 'Joel 2:28', 'Joel 2:25', 'Acts 2:16'],
+    plan: 'firststeps'
+  },
+  {
+    id: 'what-is-1-timothy-about',
+    type: 'knowledge',
+    triggers: [
+      'what is 1 timothy about', 'first timothy overview', 'what does 1 timothy teach',
+      'book of 1 timothy explained', '1 timothy summary', 'what is 1 timothy in the bible',
+      '1 timothy main message', 'paul letter to timothy 1', 'godliness with contentment great gain',
+      '1 timothy qualifications for elders'
+    ],
+    answer: 'First Timothy is a letter from Paul to his young co-worker Timothy, whom he had left in Ephesus to address false teaching and bring order to the church there. Paul gives Timothy practical instructions about prayer (pray for all men, including rulers — 2:1–2), qualifications for overseers and deacons (chapter 3), care for widows (chapter 5), and warnings about love of money (6:10 — "the love of money is the root of all evil"). The letter contains an encouragement that has steadied many young leaders: "Let no man despise thy youth; but be thou an example of the believers, in word, in conversation, in charity, in spirit, in faith, in purity" (4:12). It also includes Paul\'s own astonished summary of the gospel: "Christ Jesus came into the world to save sinners; of whom I am chief" (1:15). First Timothy is a manual for what faithful, ordered, love-driven church life looks like.',
+    verses: ['1 Timothy 1:15', '1 Timothy 4:12', '1 Timothy 6:6', '1 Timothy 2:5'],
+    plan: 'firststeps'
+  },
+  {
+    id: 'what-is-numbers-about',
+    type: 'knowledge',
+    triggers: [
+      'what is numbers about', 'numbers overview', 'what does numbers teach',
+      'book of numbers explained', 'numbers summary', 'what is numbers in the bible',
+      'numbers main message', 'israel wandered in the desert numbers', 'bronze serpent numbers bible',
+      'forty years in the wilderness numbers'
+    ],
+    answer: 'Numbers takes its name from two censuses — one at the beginning (chapter 1) and one near the end (chapter 26) — but the heart of the book is the forty years Israel spent in the wilderness between Egypt and Canaan. It is largely a record of failure: the people complained about food, about Moses, about the lack of water; they sent twelve spies and believed the ten fearful ones over the two faithful ones (Caleb and Joshua); they rebelled repeatedly. God\'s patience is on display throughout — so is His discipline. Numbers 21 contains the bronze serpent: Moses made a serpent of bronze at God\'s command; those bitten by snakes who looked at it lived. Jesus used this image directly: "as Moses lifted up the serpent in the wilderness, even so must the Son of man be lifted up" (John 3:14). Despite the consistent failure of the people, the book ends on the plains of Moab with a new generation ready to enter the land — God\'s purposes had not been stopped by human faithlessness.',
+    verses: ['Numbers 14:8', 'Numbers 21:9', 'Numbers 6:24', 'John 3:14'],
+    plan: 'trust'
+  },
+  {
+    id: 'what-is-2-kings-about',
+    type: 'knowledge',
+    triggers: [
+      'what is 2 kings about', 'second kings overview', 'what does 2 kings teach',
+      'book of 2 kings explained', '2 kings summary', 'what is 2 kings in the bible',
+      '2 kings main message', 'israel falls in 2 kings', 'hezekiah 2 kings',
+      'elijah taken up in a chariot 2 kings'
+    ],
+    answer: 'Second Kings continues where 1 Kings ended — and its arc is descent toward judgment. It opens with Elijah being taken up in a chariot of fire (2:11), and Elisha inheriting his ministry. The divided kingdom (Israel in the north, Judah in the south) deteriorates through a succession of largely unfaithful kings, measured always by the same standard: did they do what was right in the eyes of the LORD? The northern kingdom of Israel falls to Assyria in 722 BC (chapter 17) because of persistent idolatry. Among the few bright moments is Hezekiah — a king who "trusted in the LORD God of Israel; so that after him was none like him among all the kings of Judah" (18:5). When Sennacherib threatened Jerusalem, Hezekiah spread the threatening letter before God in the Temple and prayed; the Assyrian army was struck down overnight. But Hezekiah\'s son Manasseh undid his father\'s faithfulness, and the southern kingdom of Judah eventually fell to Babylon in 586 BC. Second Kings is a long answer to what happens when a nation slowly turns away.',
+    verses: ['2 Kings 2:11', '2 Kings 18:5', '2 Kings 19:19', '2 Kings 17:6'],
+    plan: 'trust'
   }
 ];
 

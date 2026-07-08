@@ -14,10 +14,10 @@
   <!-- DOMPurify + tt-bootstrap stay synchronous before any body innerHTML (Trusted Types). Low fetch priority reduces contention with LCP text paint. -->
   <link rel="preload" as="script" href="/vendor/dompurify.min.js" fetchpriority="low">
   <script nonce="tdb2025s" src="/vendor/dompurify.min.js" fetchpriority="low"></script>
-  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260708-biblical-answers-search" fetchpriority="low"></script>
+  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260708-kb-expand-ux" fetchpriority="low"></script>
   <!-- Quiet room lives only on prayer-wall.html; old /#prayer-wall bookmarks still work -->
   <script nonce="tdb2025s">(function(){try{if(location.hash!=='#prayer-wall')return;location.replace('prayer-wall.html'+location.search);}catch(e){}})();</script>
-  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260708-biblical-answers-search"></script>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260708-kb-expand-ux"></script>
 
   <title>Today&rsquo;s Daily Battle &mdash; One KJV Verse, One Small Step &middot; Free, Offline, No Ads</title>
   <meta name="description" content="One honest feeling → one KJV verse → one small plain-English step. 80+ Battle Plans, family tools, private study on your device. No ads, no account required. Works offline after first load — helpful when signal is thin.">
@@ -1420,6 +1420,9 @@
           </div>
         </div>
         <p class="section-note util-mt-0_5 util-mb-0">Try honest words (“I feel scared”), a story name (“prodigal son”), a remembered verse feel (“be still and know”), a direct question (“How do I forgive someone?”), or a Bible question (“Who was Ruth?” “What is grace?” “What is Romans about?”). The Word meets you where you are.</p>
+        <p class="tdb-kb-examples-row" aria-label="Example Bible questions">
+          <span class="tdb-kb-label">Try:</span><button class="tdb-kb-chip" data-query="Who was Moses?" type="button">Who was Moses?</button><button class="tdb-kb-chip" data-query="What is grace?" type="button">What is grace?</button><button class="tdb-kb-chip" data-query="What is Romans about?" type="button">What is Romans about?</button><button class="tdb-kb-chip" data-query="What happened at Pentecost?" type="button">What happened at Pentecost?</button>
+        </p>
         <p class="topic-plans-hint section-note" id="topicPlansHint">Press <strong>Search</strong> or Enter for the fuller KJV lookup.</p>
         <p class="feel-topic-action-strip" id="feelTopicActionStrip">Tap a feeling below, or open <strong>Show all feelings</strong> for every topic. <span class="feel-topic-action-strip-detail">On phone, hold a chip to open the matching <a href="plans.html">Battle Plan</a> lane.</span></p>
         <p class="tdb-feel-strip-intro section-note" id="tdbFeelStripIntro">Ten common picks below — the full list is one tap away.</p>
@@ -2089,7 +2092,7 @@
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
-  <script defer src="/language-switcher.js?v=20260708-biblical-answers-search"></script>
+  <script defer src="/language-switcher.js?v=20260708-kb-expand-ux"></script>
 </footer>
 
   </div>

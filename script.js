@@ -5653,6 +5653,29 @@ const PHRASE_TO_TOKENS = {
   'who was peter in the bible': ['faith', 'trust', 'hope', 'wisdom'],
   'who was john the baptist': ['faith', 'hope', 'wisdom', 'salvation'],
 
+  // === BIBLE KNOWLEDGE: Characters (batch 3) ===
+  'who was noah': ['faith', 'trust', 'hope', 'wisdom'],
+  'who was isaiah': ['faith', 'wisdom', 'hope', 'strength'],
+  'who was john the apostle': ['faith', 'hope', 'love', 'wisdom'],
+  'who was nicodemus': ['faith', 'salvation', 'wisdom', 'hope'],
+  'who were mary and martha': ['faith', 'trust', 'wisdom', 'hope'],
+
+  // === BIBLE KNOWLEDGE: Theological (batch 3) ===
+  'did jesus rise from the dead': ['salvation', 'faith', 'hope', 'trust'],
+  'what is the resurrection': ['salvation', 'faith', 'hope', 'trust'],
+  'what is the gospel': ['salvation', 'faith', 'grace', 'hope'],
+  'what is the great commission': ['faith', 'wisdom', 'hope', 'trust'],
+  'what is a covenant in the bible': ['faith', 'trust', 'wisdom', 'salvation'],
+  'what is predestination': ['faith', 'trust', 'wisdom', 'hope'],
+  'does god choose who is saved': ['faith', 'salvation', 'trust', 'wisdom'],
+
+  // === BIBLE KNOWLEDGE: Books & Passages (batch 3) ===
+  'what is the gospel of john about': ['salvation', 'faith', 'grace', 'hope'],
+  'what is 1 corinthians about': ['faith', 'wisdom', 'love', 'strength'],
+  'what is colossians about': ['faith', 'identity', 'wisdom', 'hope'],
+  'what is 1 peter about': ['faith', 'hope', 'strength', 'trust'],
+  'what is ecclesiastes about': ['wisdom', 'faith', 'trust', 'hope'],
+
   // === BIBLE KNOWLEDGE: Books & Passages ===
   'what is romans about': ['salvation', 'faith', 'grace', 'hope'],
   'what is revelation about': ['hope', 'faith', 'trust', 'peace'],
@@ -6801,7 +6824,7 @@ var TDB_BIBLICAL_ANSWERS = [
       'what is psalms in the bible', 'what are the psalms', 'psalms summary',
       'how many psalms are there', 'what kind of book is psalms'
     ],
-    answer: 'Psalms is a collection of 150 poems, songs, and prayers — the hymnbook of ancient Israel and the most personally honest book in Scripture. It covers the full range of human experience: praise, grief, anger, fear, confusion, exhaustion, repentance, and wonder. David wrote roughly half of them, with contributions from Moses, Asaph, and others. Psalms does not explain God as much as it speaks to Him — and in doing so gives language to generations of believers who had no words. Psalm 22 opens with "My God, my God, why hast thou forsaken me?" — the words Jesus quoted from the cross. Psalm 23 is the most recognized comfort in Scripture. Psalms models what honest prayer looks like from every angle of life, which is why it remains the most-read book in the Bible.',
+    answer: 'Psalms is a collection of 150 poems, songs, and prayers — the hymnbook of ancient Israel and the most personally honest book in Scripture. It covers the full range of human experience: praise, grief, anger, fear, confusion, exhaustion, repentance, and wonder. David wrote roughly half of them, with contributions from Moses, Asaph, and others. Psalms does not explain God as much as it speaks to Him — and in doing so gives language to generations of believers who had no words for what they were carrying. Psalm 22 opens with "My God, my God, why hast thou forsaken me?" — the words Jesus quoted from the cross. Psalm 23 is the most recognized comfort in Scripture. Psalms models what honest prayer looks like from every angle of life.',
     verses: ['Psalm 23:1', 'Psalm 22:1', 'Psalm 119:105', 'Psalm 46:1'],
     plan: 'psalmscomfort'
   },
@@ -7141,6 +7164,209 @@ var TDB_BIBLICAL_ANSWERS = [
     answer: 'The book of Job is the Bible\'s longest meditation on suffering and the question "why?" Job loses his wealth, children, and health — and the reader is told from the beginning that it is not punishment for sin. His friends argue it must be; God rebukes them. Job himself is anguished, honest, and demanding — he argues directly with God and refuses to pretend his suffering makes theological sense. God\'s response from the whirlwind (Job 38–41) is not an explanation but a revelation of vastness and presence: "Where wast thou when I laid the foundations of the earth?" The final word is not that suffering is explained but that Job had spoken of God what was right — and that the encounter with God in the suffering was itself the gift: "now mine eye seeth thee" (Job 42:5).',
     verses: ['Job 1:21', 'Job 13:15', 'Job 42:5', 'James 5:11'],
     plan: 'sufferendure'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE — Batch 3: Characters
+  // ============================================================
+  {
+    id: 'who-was-noah',
+    type: 'knowledge',
+    triggers: [
+      'who was noah in the bible', 'tell me about noah', 'noah in the bible', 'story of noah',
+      'noah and the ark', 'noahs ark bible', 'noah and the flood', 'god told noah to build an ark',
+      'noah bible character', 'noah old testament'
+    ],
+    answer: 'Noah was a man described as "just" and "perfect in his generations" in an age when "the wickedness of man was great in the earth" (Genesis 6:5–9). God instructed him to build an ark — a structure with no precedent and no visible reason, since it had never rained — and Noah obeyed. The flood came, the ark preserved his family and the animals, and the waters receded to a world that would have to begin again. God sealed the covenant with a rainbow and a promise that He would never again destroy the earth by flood (Genesis 9:13–15). Hebrews 11:7 says Noah "moved with fear, prepared an ark to the saving of his house" and by doing so "condemned the world" — meaning his obedience was itself a witness. He is one of the earliest and clearest pictures in Scripture of faith obeying before it can see.',
+    verses: ['Genesis 6:9', 'Genesis 9:13', 'Hebrews 11:7', '2 Peter 2:5'],
+    plan: 'trust'
+  },
+  {
+    id: 'who-was-isaiah',
+    type: 'knowledge',
+    triggers: [
+      'who was isaiah in the bible', 'tell me about isaiah', 'isaiah in the bible', 'story of isaiah',
+      'isaiah the prophet', 'what did isaiah prophesy', 'isaiah and jesus', 'isaiah old testament',
+      'isaiah messianic prophecy', 'who wrote the book of isaiah'
+    ],
+    answer: 'Isaiah was a prophet in Jerusalem during the reigns of four kings of Judah — approximately 740–680 BC. He is called to his mission by a vision of God in His holiness ("Holy, holy, holy, is the LORD of hosts" — Isaiah 6:3) that leaves him undone before he is commissioned. His 66-chapter book is sometimes called "the fifth Gospel" because its messianic prophecies are the most detailed in the Old Testament: a virgin conceiving (7:14), a child called Wonderful, Counsellor, Prince of Peace (9:6), a servant who would be despised, rejected, wounded for our transgressions, and bear our griefs (Isaiah 53). That chapter — written 700 years before the crucifixion — is quoted throughout the New Testament as the clearest prophetic description of Jesus\' death. Jesus himself opened His ministry by reading from Isaiah 61 in the synagogue (Luke 4:17–21).',
+    verses: ['Isaiah 6:3', 'Isaiah 53:5', 'Isaiah 9:6', 'Luke 4:18'],
+    plan: 'heavyhope'
+  },
+  {
+    id: 'who-was-john-apostle',
+    type: 'knowledge',
+    triggers: [
+      'who was john the apostle', 'tell me about john the apostle', 'john in the bible',
+      'john son of zebedee', 'john the beloved apostle', 'who wrote the gospel of john',
+      'john and jesus bible', 'john revelation writer', 'john at the last supper',
+      'beloved disciple bible'
+    ],
+    answer: 'John was one of the twelve apostles — a fisherman and the son of Zebedee, and the brother of James. He was one of the inner three (with Peter and James) closest to Jesus, present at the Transfiguration (Matthew 17:1) and in the garden of Gethsemane (Matthew 26:37). He is believed to be "the disciple whom Jesus loved" — the one who leaned on Jesus at the Last Supper and to whom Jesus entrusted His mother from the cross (John 19:26–27). He wrote the Gospel of John, three letters (1–3 John), and Revelation. He outlived all the other apostles, dying of old age in Ephesus rather than martyrdom. His writing returns repeatedly to one theme: that God is love, and that love is the mark of belonging to Him.',
+    verses: ['John 13:23', 'John 19:26', '1 John 4:8', 'Revelation 1:9'],
+    plan: 'heavyhope'
+  },
+  {
+    id: 'who-was-nicodemus',
+    type: 'knowledge',
+    triggers: [
+      'who was nicodemus in the bible', 'tell me about nicodemus', 'nicodemus in the bible',
+      'nicodemus and jesus', 'born again nicodemus', 'nicodemus at night', 'john 3 nicodemus',
+      'what did nicodemus ask jesus', 'nicodemus bible story', 'nicodemus pharisee'
+    ],
+    answer: 'Nicodemus was a Pharisee and a ruler of the Jews who came to Jesus at night — likely to avoid being seen. He acknowledged that Jesus must be from God, since no one could perform the signs He did otherwise. Jesus told him he must be "born again" to see the kingdom of God — a concept Nicodemus could not understand (John 3:3–4). It is in this conversation that Jesus speaks the words of John 3:16. Nicodemus appears twice more: defending Jesus before the Pharisees (John 7:50–51) and bringing burial spices for Jesus\' body after the crucifixion alongside Joseph of Arimathea (John 19:39) — a costly and public act for a man who had come to Jesus in secret. His story traces a quiet arc from private curiosity to open, costly discipleship.',
+    verses: ['John 3:3', 'John 3:16', 'John 7:50', 'John 19:39'],
+    plan: 'roadtosalvation'
+  },
+  {
+    id: 'who-were-mary-and-martha',
+    type: 'knowledge',
+    triggers: [
+      'who were mary and martha', 'mary and martha in the bible', 'tell me about mary and martha',
+      'mary sat at jesus feet', 'martha was cumbered about', 'mary chose the better part',
+      'lazarus sisters bible', 'mary and martha bible story', 'one thing is needful bible',
+      'bethany sisters bible'
+    ],
+    answer: 'Mary and Martha were sisters who lived in Bethany with their brother Lazarus — a family Jesus loved (John 11:5). The defining scene between them is in Luke 10:38–42: Martha is "cumbered about with much serving" while Mary sits at Jesus\' feet listening. Martha asks Jesus to send Mary to help her. Jesus\' response is gentle but clear: "thou art careful and troubled about many things: but one thing is needful: and Mary hath chosen that good part, which shall not be taken away from her." Jesus is not dismissing service — He is naming what must not be displaced. Later, when Lazarus died, it is Martha who runs to meet Jesus first and declares "I know, that he shall rise again" (John 11:24) — and it is to her that Jesus says "I am the resurrection, and the life."',
+    verses: ['Luke 10:41', 'John 11:5', 'John 11:25', 'John 11:35'],
+    plan: 'trust'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE — Batch 3: Theological
+  // ============================================================
+  {
+    id: 'resurrection-bible',
+    type: 'knowledge',
+    triggers: [
+      'what does the bible say about the resurrection', 'did jesus really rise from the dead',
+      'resurrection of jesus bible', 'why is the resurrection important', 'what is the resurrection',
+      'easter resurrection bible', 'jesus rose from the dead bible', 'resurrection explained',
+      'what happened when jesus rose', 'is the resurrection historical'
+    ],
+    answer: 'The resurrection of Jesus is the pivot on which the entire Christian faith turns. Paul states it plainly in 1 Corinthians 15:17: "if Christ be not raised, your faith is vain; ye are yet in your sins." It is not one doctrine among many — it is the claim that changes everything. The Gospels record that the tomb was empty three days after the crucifixion, that Jesus appeared to Mary Magdalene, to Peter, to the eleven, and then to more than five hundred people at once (1 Corinthians 15:6). His resurrection body was real — he ate, spoke, and was touched — but was no longer subject to the same limitations. Romans 1:4 says He was "declared to be the Son of God with power" by the resurrection from the dead. The resurrection is what makes every promise in Scripture credible: the One who made them conquered death.',
+    verses: ['1 Corinthians 15:17', '1 Corinthians 15:6', 'Romans 1:4', 'John 20:27'],
+    plan: 'roadtosalvation'
+  },
+  {
+    id: 'what-is-the-gospel',
+    type: 'knowledge',
+    triggers: [
+      'what is the gospel', 'what does gospel mean in the bible', 'what is the good news',
+      'what is the christian gospel', 'gospel explained simply', 'what is the gospel of jesus',
+      'gospel meaning bible', 'what is the message of the gospel', 'explain the gospel',
+      'what is the good news of the bible'
+    ],
+    answer: '"Gospel" means good news. First Corinthians 15:3–4 gives the clearest summary: "Christ died for our sins according to the scriptures; and...he was buried, and...he rose again the third day." The good news is that the problem of human sin — separation from a holy God — has been addressed not by human improvement but by God Himself entering the story. Romans 5:8 says He demonstrated His love while we were still sinners. The result, for everyone who believes, is reconciliation with God, forgiveness of sin, and life that death cannot end (John 3:16). The gospel is not "be better" or "try harder" — it is news about something that has already been accomplished. All that is asked is that it be received.',
+    verses: ['1 Corinthians 15:3', 'Romans 5:8', 'John 3:16', 'Romans 1:16'],
+    plan: 'roadtosalvation'
+  },
+  {
+    id: 'great-commission-bible',
+    type: 'knowledge',
+    triggers: [
+      'what is the great commission', 'great commission bible', 'go and make disciples bible',
+      'what did jesus say to go and do', 'making disciples bible', 'matthew 28 19 20 explained',
+      'go ye therefore into all the world', 'what is the mission of the church bible',
+      'great commission explained', 'jesus final command bible'
+    ],
+    answer: 'The Great Commission is Jesus\' final instruction to His disciples before His ascension, recorded in Matthew 28:18–20: "Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Ghost: teaching them to observe all things whatsoever I have commanded you." It begins with an authority claim — "All power is given unto me in heaven and in earth" — which grounds the command. The mission is making disciples, not just decisions: the word "teach" means to instruct toward obedience, not just to convert. It closes with the promise that makes it possible: "lo, I am with you alway, even unto the end of the world." Acts 1:8 gives the same commission with a geographic frame: Jerusalem, Judea, Samaria, and the uttermost part of the earth.',
+    verses: ['Matthew 28:18', 'Matthew 28:19', 'Matthew 28:20', 'Acts 1:8'],
+    plan: 'firststeps'
+  },
+  {
+    id: 'covenant-bible',
+    type: 'knowledge',
+    triggers: [
+      'what is a covenant in the bible', 'old covenant vs new covenant', 'what does covenant mean in the bible',
+      'what is the new covenant', 'bible covenant meaning', 'what is the abrahamic covenant',
+      'what is the covenant of grace', 'covenant theology bible', 'what did jesus mean by new covenant',
+      'covenants in scripture'
+    ],
+    answer: 'A covenant in Scripture is a binding promise — not a contract between equals but a commitment initiated and upheld by God. The Bible traces a series of covenants: with Noah (never to destroy the earth by flood again), with Abraham (a chosen people through whom all nations would be blessed), with Moses at Sinai (the law as the terms of Israel\'s relationship with God), and with David (a king from his line forever). These all point forward. Jeremiah 31:31–33 prophesied a new covenant — not written on stone but on the heart. At the Last Supper, Jesus said "this cup is the new testament in my blood" (Luke 22:20). Hebrews 8:6 says Jesus is the mediator of a "better covenant, established upon better promises." The new covenant does not abolish God\'s faithfulness — it fulfills it.',
+    verses: ['Jeremiah 31:33', 'Luke 22:20', 'Hebrews 8:6', 'Genesis 12:2'],
+    plan: 'galatiansfreedom'
+  },
+  {
+    id: 'predestination-election',
+    type: 'knowledge',
+    triggers: [
+      'what does the bible say about predestination', 'what is election in the bible',
+      'does god choose who is saved', 'predestination bible meaning', 'are some people chosen by god',
+      'chosen before the foundation of the world', 'what is predestination', 'calvinism bible',
+      'does free will exist in the bible', 'predestination vs free will bible'
+    ],
+    answer: 'Predestination and election are taught clearly in Scripture — and they have been debated carefully within the church for centuries. Ephesians 1:4–5 says God chose us "in him before the foundation of the world" and predestined us to adoption as sons. Romans 8:29–30 traces the chain: foreknown, predestined, called, justified, glorified. At the same time, Scripture holds genuine human responsibility in tension with divine sovereignty. John 3:16 says "whosoever believeth" — and Revelation 22:17 says "whosoever will, let him take the water of life freely." Both are true in the text, and the church has held them together rather than sacrificing one to explain the other. The practical landing point is the same in both traditions: come. The invitation is real and the welcome is certain.',
+    verses: ['Ephesians 1:4', 'Romans 8:29', 'John 3:16', 'Revelation 22:17'],
+    plan: 'universitydoubt'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE — Batch 3: Books
+  // ============================================================
+  {
+    id: 'what-is-john-gospel-about',
+    type: 'knowledge',
+    triggers: [
+      'what is the gospel of john about', 'john gospel overview', 'what does the gospel of john teach',
+      'gospel of john explained', 'john gospel summary', 'what is john in the new testament',
+      'what is the book of john about', 'john gospel main message', 'why is john different from the other gospels',
+      'john gospel beginning was the word'
+    ],
+    answer: 'The Gospel of John is the fourth Gospel — and the most theologically distinct. Where Matthew, Mark, and Luke share much of the same narrative structure, John opens with cosmic declaration: "In the beginning was the Word, and the Word was with God, and the Word was God" (John 1:1). John selects seven specific miracles ("signs") and seven "I am" statements of Jesus — I am the bread of life, the light of the world, the good shepherd, the resurrection and the life, the way, the truth, and the life, the true vine. John himself states his purpose in 20:31: "that ye might believe that Jesus is the Christ, the Son of God; and that believing ye might have life through his name." John 3, 4, 11, 14–17, and 20–21 are among the most beloved chapters in all of Scripture.',
+    verses: ['John 1:1', 'John 1:14', 'John 20:31', 'John 14:6'],
+    plan: 'roadtosalvation'
+  },
+  {
+    id: 'what-is-1-corinthians-about',
+    type: 'knowledge',
+    triggers: [
+      'what is 1 corinthians about', 'first corinthians overview', 'what does 1 corinthians teach',
+      'book of 1 corinthians explained', 'corinthians summary', '1 corinthians love chapter',
+      'what is 1 corinthians in the bible', '1 corinthians main message', 'love is patient 1 corinthians',
+      'corinthian church problems bible'
+    ],
+    answer: 'First Corinthians is a letter from Paul to a church in the wealthy Greek city of Corinth that had significant problems: factions and divisions (chapters 1–4), sexual immorality (5–6), lawsuits between believers (6), and confusion about marriage, food sacrificed to idols, and spiritual gifts (7–14). Chapter 13 — the "love chapter" — appears in the middle of a dispute about spiritual gifts, making the point that gifts exercised without love are worthless. Chapter 15 is Paul\'s most sustained argument for the resurrection: if Christ has not been raised, the faith collapses. Despite the church\'s many failures, Paul addresses them as "them that are sanctified in Christ Jesus" (1:2). The letter is a picture of grace operating in the middle of a very messy church — which makes it perpetually relevant.',
+    verses: ['1 Corinthians 1:2', '1 Corinthians 13:1', '1 Corinthians 15:17', '1 Corinthians 10:13'],
+    plan: 'standfirm'
+  },
+  {
+    id: 'what-is-colossians-about',
+    type: 'knowledge',
+    triggers: [
+      'what is colossians about', 'colossians overview', 'what does colossians teach',
+      'book of colossians explained', 'colossians summary', 'what is colossians in the bible',
+      'colossians main message', 'christ in you the hope of glory', 'colossians identity in christ',
+      'colossians chapters summary'
+    ],
+    answer: 'Colossians is a letter from Paul to a church in Colossae facing a false teaching that added human philosophy, rituals, and angelic hierarchies to the gospel. Paul\'s answer is the supremacy of Christ: "in him dwelleth all the fulness of the Godhead bodily" (Colossians 2:9), and "ye are complete in him" (2:10) — nothing needs to be added. Chapter 1 contains one of the most exalted descriptions of Jesus in Scripture: firstborn over all creation, holding all things together, head of the church, the fullness of God pleased to dwell in Him. The practical section (chapters 3–4) grounds identity before behavior: "set your affection on things above" because you have died and your life is hidden with Christ in God (3:1–3). Colossians is the antidote to every teaching that makes the gospel insufficient.',
+    verses: ['Colossians 1:16', 'Colossians 2:9', 'Colossians 3:1', 'Colossians 1:27'],
+    plan: 'identityinchrist'
+  },
+  {
+    id: 'what-is-1-peter-about',
+    type: 'knowledge',
+    triggers: [
+      'what is 1 peter about', 'first peter overview', 'what does 1 peter teach',
+      'book of 1 peter explained', '1 peter summary', 'what is 1 peter in the bible',
+      '1 peter main message', '1 peter suffering bible', 'suffering in 1 peter', '1 peter hope'
+    ],
+    answer: 'First Peter is a letter from the apostle Peter to believers scattered across Asia Minor who were facing real suffering and social hostility because of their faith. Its opening declares the ground they stand on: an inheritance "incorruptible, and undefiled, and that fadeth not away, reserved in heaven for you" (1 Peter 1:4). It calls them to holy living (1:13–2:12), to submission to governing authorities and to one another (2:13–3:7), and to endurance in suffering — because Christ Himself suffered first (2:21–25). First Peter 5:8 warns that "your adversary the devil, as a roaring lion, walketh about, seeking whom he may devour" — and immediately follows with the call to resist, firm in the faith. The letter is sustained encouragement for people paying a real cost for what they believe.',
+    verses: ['1 Peter 1:4', '1 Peter 2:21', '1 Peter 5:7', '1 Peter 5:10'],
+    plan: 'sufferendure'
+  },
+  {
+    id: 'what-is-ecclesiastes-about',
+    type: 'knowledge',
+    triggers: [
+      'what is ecclesiastes about', 'ecclesiastes overview', 'what does ecclesiastes teach',
+      'book of ecclesiastes explained', 'ecclesiastes summary', 'vanity of vanities bible',
+      'what is ecclesiastes in the bible', 'ecclesiastes main message', 'preacher in ecclesiastes',
+      'ecclesiastes meaning of life'
+    ],
+    answer: 'Ecclesiastes is one of the most surprising books in Scripture — a sustained, honest meditation on the limits of human wisdom, pleasure, work, and achievement "under the sun." Its repeated phrase is "vanity of vanities" (hebel in Hebrew — breath, vapor, mist): all the things humans reach for fade. Its author — likely Solomon near the end of his life — has tried wisdom, pleasure, work, wealth, and fame, and found that none of them deliver what they promise. The book does not reach nihilism but honesty: there is pleasure in simple things (eating, work, companionship), and the proper response to the brevity of life is to "fear God, and keep his commandments: for this is the whole duty of man" (Ecclesiastes 12:13). It is the Bible\'s most honest word on what a life lived away from God eventually discovers.',
+    verses: ['Ecclesiastes 1:2', 'Ecclesiastes 3:11', 'Ecclesiastes 12:13', 'Ecclesiastes 5:18'],
+    plan: 'proverbswisdom'
   }
 ];
 
@@ -36740,6 +36966,25 @@ function wireRandomBattleVerseHero() {
         panels[i].setAttribute('aria-hidden', on ? 'false' : 'true');
       }
     } catch (eHubRot) {}
+  }());
+
+  /** Wire .tdb-kb-chip buttons — clickable example Bible Knowledge questions near search hint. */
+  (function wireKbChips() {
+    function bindChip(btn) {
+      btn.addEventListener('click', function () {
+        var q = btn.getAttribute('data-query');
+        if (!q) return;
+        if (typeof window.runSearchWithInput === 'function') {
+          window.runSearchWithInput(q);
+        } else {
+          var inp = document.getElementById('feel-search');
+          if (inp) { inp.value = q; inp.dispatchEvent(new Event('input', { bubbles: true })); }
+          var sb = document.getElementById('search-btn');
+          if (sb) sb.click();
+        }
+      });
+    }
+    document.querySelectorAll('.tdb-kb-chip').forEach(bindChip);
   }());
 
   /** Final a11y helper: main H1 can receive programmatic focus (skip links / in-app nav). No auto-focus on load. */

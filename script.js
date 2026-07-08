@@ -5599,6 +5599,22 @@ const PHRASE_TO_TOKENS = {
   'fear of death bible': ['hope', 'faith', 'trust', 'peace'],
   'afraid of death': ['hope', 'faith', 'trust', 'peace'],
 
+  // === HOW TO READ, CHURCH HURT, WAITING FOR CHANGE, PARENTING COMPARISON ===
+  'how do i study the bible': ['wisdom', 'faith', 'renewal', 'trust'],
+  'how to read the bible': ['wisdom', 'faith', 'renewal', 'trust'],
+  'where do i start in the bible': ['wisdom', 'faith', 'renewal', 'trust'],
+  'i dont understand the bible': ['wisdom', 'faith', 'renewal', 'trust'],
+  'i was hurt by a church': ['grief', 'healing', 'loneliness', 'trust'],
+  'church people hurt me': ['grief', 'healing', 'loneliness', 'trust'],
+  'toxic church experience': ['grief', 'healing', 'loneliness', 'trust'],
+  'disillusioned with church': ['grief', 'healing', 'loneliness', 'faith'],
+  'waiting for my spouse to change': ['trust', 'prayer', 'hope', 'patience'],
+  'waiting for my child to change': ['trust', 'prayer', 'hope', 'patience'],
+  'praying for someone who wont change': ['trust', 'prayer', 'hope', 'patience'],
+  'comparing myself to other parents': ['comparison', 'parenting', 'grace', 'identity'],
+  'parenting comparison': ['comparison', 'parenting', 'grace', 'identity'],
+  'mom guilt from comparing': ['comparison', 'parenting', 'grace', 'identity'],
+
   // === KIDS & FAMILY: Parent/child-specific search terms ===
   'bedtime bible story': ['kids', 'family', 'peace', 'faith'],
   'bible story for kids': ['kids', 'family', 'faith', 'hope'],
@@ -5781,7 +5797,7 @@ var TDB_BIBLICAL_ANSWERS = [
       'trusting god when nothing makes sense', 'why should i trust god', 'faith when life is hard',
       'how to keep faith when things are hard', 'trust god through pain'
     ],
-    answer: 'Proverbs 3:5–6 puts it plainly: "Trust in the Lord with all thine heart; and lean not unto thine own understanding." But trust is not a feeling you manufacture — it is a choice to keep bringing what you are carrying to Him even when answers are not visible. Job trusted through devastation (Job 13:15). Habakkuk praised even when everything was stripped (Habakkuk 3:17–18). The pattern in Scripture is not "trust because it makes sense" but "trust because of who He is, not because of what you see." The most honest prayer you can pray is Mark 9:24: Lord, I believe — help my unbelief.',
+    answer: 'Trust is not a feeling you arrive at — it is a choice you keep making when answers are nowhere visible. Proverbs 3:5–6 names it: "Trust in the Lord with all thine heart; and lean not unto thine own understanding." Job said "Though he slay me, yet will I trust in him" (Job 13:15) — not because things made sense, but because of who God was. Habakkuk praised even when everything was stripped (Habakkuk 3:17–18). The pattern in Scripture is not "trust because it makes sense" but "trust because of who He is, regardless of what you see." The most honest prayer you can pray is Mark 9:24: Lord, I believe — help my unbelief.',
     verses: ['Proverbs 3:5', 'Proverbs 3:6', 'Job 13:15', 'Habakkuk 3:18'],
     plan: 'trust'
   },
@@ -5805,7 +5821,7 @@ var TDB_BIBLICAL_ANSWERS = [
       'how should i raise my kids', 'bible verses for parents', 'parenting when i feel like i am failing',
       'am i a bad parent', 'how to parent from the bible', 'struggling as a parent'
     ],
-    answer: 'Deuteronomy 6:6–7 puts the calling plainly: the words of God are to be in your heart first, then spoken to your children throughout the ordinary day — walking, sitting, waking up. Parenting in Scripture is not about producing perfect outcomes but about faithful presence and honest faith. Proverbs 22:6 promises that training a child in the right way lasts — but that training comes through years of patient daily work, not one defining moment. Ephesians 6:4 calls fathers not to exasperate their children; gentleness is part of the biblical picture. You do not have to be a perfect parent — you have to be an honest one who keeps pointing back to God.',
+    answer: 'Parenting in Scripture is not about producing perfect outcomes — it is about faithful presence and honest faith passed through ordinary days. Deuteronomy 6:6–7 puts it plainly: the words of God are to be in your heart first, then spoken to your children as you walk, sit, and wake. Not a program — a rhythm. Proverbs 22:6 promises that training a child in the right way lasts, but that training comes through patient daily work, not one defining moment. Ephesians 6:4 adds a word about gentleness — do not exasperate them. You do not have to be a perfect parent. You have to be an honest one who keeps pointing back to God.',
     verses: ['Deuteronomy 6:6', 'Proverbs 22:6', 'Ephesians 6:4', 'Psalm 127:3'],
     plan: 'parenting'
   },
@@ -5906,7 +5922,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'The father in Jesus\' parable saw his son "yet a great way off" — which means he was watching the road (Luke 15:20). That is the picture Jesus chose for God watching over a wandering child. If someone you love has walked away, you are not the first person to carry that weight, and the Bible does not promise you can control another person\'s faith. What it does promise is that God\'s pursuit is longer than yours, that your prayers matter (James 5:16), and that you can keep the welcome ready without it depending on their return. The prodigal "came to himself" in his own time — that work happens in God\'s hands, not yours.',
     verses: ['Luke 15:20', 'James 5:16', 'Romans 8:28', '1 Peter 3:1'],
-    plan: 'heavyhope'
+    plan: 'universityparentfear'
   },
   {
     id: 'doubt-hard-to-believe',
@@ -5994,7 +6010,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'The Bible holds both realities without forcing one over the other: God heals, and God also walks with people who have not been healed yet. James 5:14–15 calls the church to pray for healing with real expectation. At the same time, Paul\'s thorn was not removed (2 Corinthians 12:7–9), Timothy had recurring illness (1 Timothy 5:23), and the man at Bethesda had waited 38 years (John 5:5). Healing is not a reward for enough faith — if it were, the cross was unnecessary. Pray for it honestly and fully. Hold the answer with open hands, trusting the God who says He will one day make all things new (Revelation 21:5).',
     verses: ['James 5:14', '2 Corinthians 12:9', 'Psalm 103:3', 'Revelation 21:5'],
-    plan: 'heavyhope'
+    plan: 'painwontquit'
   },
 
   // === BATCH 3: 5 additional answers ===
@@ -6318,6 +6334,62 @@ var TDB_BIBLICAL_ANSWERS = [
     answer: 'Fear of death is one of the most honest fears a person carries — and Scripture does not dismiss it. Hebrews 2:15 says Jesus came specifically to "deliver them who through fear of death were all their lifetime subject to bondage." That means this fear is real, it is common, and it is something He came to address. Philippians 1:21 says "to live is Christ, and to die is gain" — not a glib statement, but something Paul wrote from prison, facing a real execution. First Thessalonians 4:13–14 says those who die in Christ are not gone forever. The sting of death is real. But it is not the final word for anyone who belongs to Him.',
     verses: ['Hebrews 2:15', 'Philippians 1:21', '1 Thessalonians 4:13', 'John 11:25'],
     plan: 'heavyhope'
+  },
+  {
+    id: 'how-to-study-bible',
+    triggers: [
+      'how do i study the bible', 'how to read the bible', 'where do i start in the bible',
+      'how to understand the bible', 'bible study tips', 'how to begin reading the bible',
+      'i dont know how to read the bible', 'how do i get into the word', 'how to read scripture',
+      'how to approach the bible', 'i dont understand the bible', 'how to open the bible',
+      'how do i study scripture', 'getting into the bible', 'tips for bible reading',
+      'how to start reading the bible', 'bible is confusing'
+    ],
+    answer: 'The best starting place is not a plan or program — it is a prayer and an open page. Psalm 119:18 says "Open thou mine eyes, that I may behold wondrous things out of thy law." Scripture is meant to be read the way you would talk to someone you want to know — honestly, repeatedly, without pressure to extract something useful every time. A good beginning is the Gospel of John, which is written specifically so that people would "believe that Jesus is the Christ" (John 20:31). Read small amounts slowly. Read the same passage more than once. Ask what it says about God first, then what it says about people, then what it asks of you. The Spirit is the real teacher — you do not have to understand everything before it starts working.',
+    verses: ['Psalm 119:18', 'John 20:31', '2 Timothy 3:16', 'James 1:5'],
+    plan: 'kjvhowtoread'
+  },
+  {
+    id: 'church-hurt',
+    triggers: [
+      'i was hurt by a church', 'toxic church experience', 'church people hurt me',
+      'how to heal from church hurt', 'i dont trust church anymore', 'church trauma',
+      'how to forgive church leaders', 'hurt by christians', 'left church because of people',
+      'disillusioned with church', 'how do i go back to church after being hurt',
+      'burned by church', 'church let me down', 'church wounded me', 'church abuse',
+      'christians hurt me', 'church politics hurt me'
+    ],
+    answer: 'Being hurt by people in a church is one of the most painful kinds of betrayal — because it happens in a place that was supposed to be safe. The Bible does not idealize the church. Paul\'s letters are largely written to correct churches that were failing their people. Peter was rebuked by Paul to his face (Galatians 2:11). Corinth was a mess. The institution is imperfect because it is made of people — and that is not an excuse for the harm done to you, but an honest acknowledgment that the church is a hospital, not a gathering of perfect people. Psalm 27:10 says even when others forsake you, the Lord will take you up. God has not left you, and what was done by His people in His name is not His endorsement of it.',
+    verses: ['Psalm 27:10', 'Galatians 2:11', 'Hebrews 10:25', 'Romans 8:35'],
+    plan: 'heartalone'
+  },
+  {
+    id: 'waiting-for-change',
+    triggers: [
+      'waiting for my spouse to change', 'waiting for my child to change', 'waiting for someone to change',
+      'praying for someone who wont change', 'my husband wont change', 'my wife wont change',
+      'how long do i wait for someone to change', 'waiting on a wayward loved one',
+      'praying for a difficult person to change', 'will my spouse ever change',
+      'how do i love someone who wont change', 'praying for a prodigal to return',
+      'waiting on my child to come back to god', 'my loved one wont change'
+    ],
+    answer: 'Waiting for another person to change is one of the loneliest kinds of waiting — because you cannot control the outcome you are hoping for. The Bible is honest about this: you cannot make someone choose God, humility, or repentance. What Scripture gives you is 1 Corinthians 13:7 — love "hopeth all things, endureth all things." That is not passive resignation; it is sustained, grounded hope. Second Peter 3:9 says God is "not willing that any should perish" — His patience for wandering people outlasts yours. Your prayers matter (James 5:16). Your steady presence matters. But the outcome belongs to God, not to you — and releasing that is not giving up. It is trusting.',
+    verses: ['1 Corinthians 13:7', '2 Peter 3:9', 'James 5:16', 'Galatians 6:9'],
+    plan: 'universitywaiting'
+  },
+  {
+    id: 'comparison-parenting',
+    triggers: [
+      'comparing myself to other parents', 'other parents seem better than me', 'parenting comparison',
+      'comparing my kids to others', 'my kids arent as good as other kids',
+      'feeling like a failure compared to other parents', 'why do other parents have it together',
+      'parenting envy', 'parents who do it better', 'mom guilt from comparing',
+      'i compare my parenting to others', 'parenting social media comparison',
+      'other moms seem better', 'other dads seem better', 'i am a worse parent than others'
+    ],
+    answer: 'Parenting comparison runs on the worst possible data — everyone else\'s highlight reel against your most exhausted moments. The Bible\'s picture of parenting has no performance table in it. Deuteronomy 6:6–7 describes faith passed through ordinary, imperfect daily life — walking, sitting, waking up — not curated moments. Galatians 6:4 says "let every man prove his own work, and then shall he have rejoicing in himself alone, and not in another." You are not called to raise someone else\'s children or parent by someone else\'s strengths. Your particular presence in your particular child\'s life is not an accident. Be faithful in the place God put you. That is enough.',
+    verses: ['Galatians 6:4', 'Deuteronomy 6:6', 'Psalm 139:14', 'Romans 12:6'],
+    plan: 'universitycomparison'
   }
 ];
 

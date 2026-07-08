@@ -5867,7 +5867,9 @@ var TDB_BIBLICAL_ANSWERS = [
       'i have doubts about god', 'struggling to believe', 'hard to have faith', 'i doubt god',
       'questioning my faith', 'not sure i believe anymore', 'faith seems hard', 'i question everything',
       'doubting everything i believed', 'losing my faith', 'what if none of it is real',
-      'bible and doubt', 'is it ok to doubt god', 'can christians doubt'
+      'bible and doubt', 'is it ok to doubt god', 'can christians doubt',
+      'hard to believe in god', 'hard to believe the bible', 'hard to believe in christianity',
+      'i find it hard to believe', 'christianity hard to believe', 'doubt about christianity'
     ],
     answer: 'Scripture is full of doubters who were not dismissed. Thomas wanted proof and Jesus gave it to him gently (John 20:27–28). Habakkuk complained directly to God and God answered without rebuking him. Psalm 73 opens with a man who nearly lost his faith entirely and shows how he found his footing again — not by having his questions answered, but by returning to God\'s presence (Psalm 73:17). Doubt is not the opposite of faith; it is often the beginning of a deeper one. Mark 9:24 is one of the most honest prayers in Scripture: "Lord, I believe; help thou mine unbelief." You can bring exactly that to Him.',
     verses: ['John 20:27', 'Psalm 73:17', 'Mark 9:24', 'Habakkuk 1:2'],
@@ -5891,7 +5893,9 @@ var TDB_BIBLICAL_ANSWERS = [
       'what does the bible say about addiction', 'struggling with addiction', 'bible help for addiction',
       'how to stop an addiction', 'i keep going back to the same sin', 'cant break free',
       'addiction and faith', 'bible verses for addiction', 'scripture for addiction',
-      'breaking a bad habit bible', 'enslaved to a habit', 'trapped in addiction'
+      'breaking a bad habit bible', 'enslaved to a habit', 'trapped in addiction',
+      'addicted to alcohol', 'addicted to drugs', 'addicted to pornography', 'addicted to gambling',
+      'alcohol addiction bible', 'drug addiction bible', 'i am addicted', 'i have an addiction'
     ],
     answer: 'The Bible\'s description of sin as something that "easily besets" (Hebrews 12:1) fits what addiction does — it wraps itself around you and does not let go easily. First Corinthians 10:13 is the anchor: God is faithful and will not let you face more than you can bear, and He will always make a way out. That way of escape almost always runs through other people — James 5:16 says confession to one another and prayer together is part of what brings healing. Addiction is not evidence that you are too far gone; it is a very human battle, and it was never meant to be fought alone. The path forward is rarely one dramatic moment — it is one honest conversation, one day, one exit taken at a time.',
     verses: ['1 Corinthians 10:13', 'Hebrews 12:1', 'James 5:16', 'Romans 7:24'],
@@ -6008,6 +6012,83 @@ var TDB_BIBLICAL_ANSWERS = [
     answer: 'If you are asking what God\'s will for your life is, the Bible is more specific about character than about career. Romans 12:2 says the path to knowing His will is the renewing of your mind — becoming someone who thinks differently — not a map handed to you at once. First Thessalonians 4:3 names sanctification (being made holy in how you live) as God\'s will for you. Micah 6:8 puts it with striking simplicity: do justly, love mercy, walk humbly with your God. Most of what you are wondering about — what to do next, where to go — tends to become clearer as you walk those three things faithfully in your current step. The way forward usually opens one step at a time, not all at once.',
     verses: ['Romans 12:2', 'Micah 6:8', 'Proverbs 3:6', 'Jeremiah 29:11'],
     plan: 'proverbswisdom'
+  },
+  {
+    id: 'comparison-envy',
+    triggers: [
+      'i keep comparing myself to others', 'comparing myself to others', 'why does everyone else have it better',
+      'i am jealous of what others have', 'jealousy is ruining me', 'envy bible', 'jealousy bible',
+      'what does the bible say about envy', 'jealous of others blessings', 'i compare myself all the time',
+      'covet', 'coveting', 'green with envy', 'why does everyone else seem blessed',
+      'i cannot stop comparing myself', 'comparison trap'
+    ],
+    answer: 'The comparison trap starts with a lie — that God\'s goodness to someone else is evidence of His neglect of you. Psalm 73 is the whole journey: Asaph nearly abandoned faith because the wicked prospered while he suffered. The turning point came not when his circumstances changed but when he entered God\'s presence and stopped measuring his life against theirs (Psalm 73:17). Galatians 6:4 gives the clear remedy: "let every man prove his own work, and then shall he have rejoicing in himself alone, and not in another." God did not give you someone else\'s story. He gave you yours, and He has not finished writing it.',
+    verses: ['Psalm 73:17', 'Galatians 6:4', 'Proverbs 14:30', '1 Corinthians 12:18'],
+    plan: 'universitycomparison'
+  },
+  {
+    id: 'bitterness-resentment',
+    triggers: [
+      'i am bitter', 'bitterness i cannot let go', 'bitter about what happened', 'resentment i cant shake',
+      'bitterness eating me alive', 'how to let go of bitterness', 'i resent someone',
+      'resentment and bitterness', 'bitter root', 'bitterness bible', 'what does the bible say about bitterness',
+      'holding onto bitterness', 'i cannot stop resenting', 'root of bitterness'
+    ],
+    answer: 'Bitterness is grief that found nowhere to land and hardened there. The Bible names it and warns about it — not because God has no sympathy for the wound beneath it, but because it eventually poisons the one holding it. Hebrews 12:15 calls it a "root of bitterness" that grows quietly beneath the surface and spreads. Ephesians 4:31–32 does not ask you to feel differently all at once — it asks you to release, and to let the tenderness of God be larger than the offense. That release is not saying what happened was acceptable. It is saying you are no longer willing to let it be the loudest thing in your life.',
+    verses: ['Hebrews 12:15', 'Ephesians 4:31', 'Ephesians 4:32', 'Psalm 73:21'],
+    plan: 'universitybitterness'
+  },
+  {
+    id: 'overwhelmed-too-much',
+    triggers: [
+      'i am overwhelmed', 'feeling overwhelmed', 'too much at once', 'everything is too much',
+      'i cannot handle this', 'overwhelmed and dont know what to do', 'too much on my plate',
+      'drowning in responsibilities', 'life is too much right now', 'overwhelmed by life',
+      'how do you deal with being overwhelmed', 'overwhelm bible', 'i feel like i am drowning',
+      'buried under everything', 'too many things at once'
+    ],
+    answer: 'When everything presses in at once, Scripture does not offer a productivity fix — it offers a Person. "Come unto me, all ye that labour and are heavy laden, and I will give you rest" (Matthew 11:28) was spoken to people who were genuinely overburdened, not just inconvenienced. Psalm 55:22 says "cast thy burden upon the LORD, and he shall sustain thee" — not necessarily remove it, but sustain you through it. Overwhelm often comes when we carry more than was meant for us alone, or when we try to see all the way to the end before we take the next step. The next step is small enough. He can hold the rest.',
+    verses: ['Matthew 11:28', 'Psalm 55:22', 'Isaiah 46:4', 'Philippians 4:7'],
+    plan: 'universityoverwhelm'
+  },
+  {
+    id: 'new-believer-start',
+    triggers: [
+      'i just became a christian', 'i just got saved', 'new christian where do i start',
+      'just accepted jesus', 'recently saved what now', 'new to faith', 'how do i start following jesus',
+      'just gave my life to god', 'new believer', 'i prayed the sinners prayer',
+      'where do i start in the bible', 'i said yes to jesus what now', 'first steps as a christian',
+      'what do i do after getting saved', 'how do i grow in faith'
+    ],
+    answer: 'If you have just come to faith, the most important thing is this: nothing about your start disqualifies you from everything that comes next. The disciples were ordinary — fishermen, tax collectors — and Jesus\'s first words to most of them were simply "follow me" (Matthew 4:19). You do not need to have it figured out first. Start slowly in the Gospel of John. Pray simply and honestly — God is not waiting for eloquence. "If we confess our sins, he is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness" (1 John 1:9). Find even one person who knows the Word and is willing to walk beside you. The life of faith begins one small, honest step at a time.',
+    verses: ['Matthew 4:19', '2 Corinthians 5:17', '1 John 1:9', 'John 1:12'],
+    plan: 'firststeps'
+  },
+  {
+    id: 'temptation-resistance',
+    triggers: [
+      'how to resist temptation', 'temptation is too strong', 'i keep giving in to temptation',
+      'struggling with temptation', 'how to overcome temptation', 'what does the bible say about temptation',
+      'temptation bible', 'i cant resist', 'my flesh is weak', 'bible verses for temptation',
+      'help with temptation', 'i keep sinning the same sin', 'i cannot stop doing this',
+      'tempted and falling', 'strength to resist sin'
+    ],
+    answer: 'One of the most specific promises in Scripture is about this: "God is faithful, who will not suffer you to be tempted above that ye are able; but will with the temptation also make a way to escape" (1 Corinthians 10:13). The "way of escape" is not always obvious in the moment, but the promise is that it is always there. Jesus was tempted — genuinely — and because He endured it, He is able to help those who are being tempted (Hebrews 2:18). The battle is not to feel no pull toward the thing. It is to pause long enough to find the door. James 4:7 is a reliable anchor: "resist the devil, and he will flee from you." Submit first; resist second. That order matters.',
+    verses: ['1 Corinthians 10:13', 'Hebrews 2:18', 'James 4:7', 'Psalm 119:11'],
+    plan: 'standfirm'
+  },
+  {
+    id: 'regret-past-choices',
+    triggers: [
+      'i regret so much', 'living with regret', 'mistakes i cannot undo', 'regret from my past',
+      'haunted by past mistakes', 'i wish i could go back', 'past choices that hurt people',
+      'dealing with regret', 'regret bible', 'how to move on from past mistakes',
+      'shame from past decisions', 'past regret that wont leave', 'i regret how i lived',
+      'cannot stop thinking about my past', 'regret keeps coming back'
+    ],
+    answer: 'Regret is the weight of a door that can no longer be opened. Scripture takes that seriously — it does not pretend the past can be unchanged. But it insists the past is not the final word. Joel 2:25 contains one of the most remarkable promises in the Old Testament: "I will restore to you the years that the locust hath eaten." God does not erase regret; He redeems what remains. Paul\'s past included standing by while Stephen was killed — and he carried that. Yet Philippians 3:13–14 was written by that same man: "forgetting those things which are behind, and reaching forth unto those things which are before." That posture — hands open toward what is still ahead — is available to you today.',
+    verses: ['Joel 2:25', 'Philippians 3:13', 'Romans 8:28', 'Isaiah 43:18'],
+    plan: 'universityregret'
   }
 ];
 

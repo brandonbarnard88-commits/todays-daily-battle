@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-08T15:03:10.850Z",
-  "surfacedRefCount": 3466,
-  "overrideCount": 3466,
+  "generatedAt": "2026-07-08T15:14:23.053Z",
+  "surfacedRefCount": 3469,
+  "overrideCount": 3469,
   "sourceCounts": {
     ".worktrees/main-hotfix/404-admin.html": {
       "refs": 1,
@@ -1960,7 +1960,7 @@
       "pairs": 0
     },
     "script.js": {
-      "refs": 504,
+      "refs": 513,
       "pairs": 261
     },
     "search.js": {
@@ -2246,6 +2246,7 @@
     "1 Corinthians 10:31",
     "1 Corinthians 10:6",
     "1 Corinthians 11:23-26",
+    "1 Corinthians 12:18",
     "1 Corinthians 12:27",
     "1 Corinthians 12:4-11",
     "1 Corinthians 12:4-7",
@@ -3523,6 +3524,7 @@
     "Hebrews 1:5",
     "Hebrews 2:11",
     "Hebrews 2:17",
+    "Hebrews 2:18",
     "Hebrews 3:1",
     "Hebrews 3:10",
     "Hebrews 3:13",
@@ -3609,6 +3611,7 @@
     "Isaiah 43:5",
     "Isaiah 44:28",
     "Isaiah 45:16",
+    "Isaiah 46:4",
     "Isaiah 48:17-18",
     "Isaiah 48:18",
     "Isaiah 49:15",
@@ -6453,6 +6456,14 @@
     "1 Corinthians 11:23-26": {
       "general": {
         "plainExplanation": "Key idea: For I have received of the Lord that which also I delivered to you, That the Lord Jesus the same night in which he was betrayed took bread: And when he had...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Corinth"
+      }
+    },
+    "1 Corinthians 12:18": {
+      "general": {
+        "plainExplanation": "But now has God set the members every one of them in the body, as it has pleased him.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Paul",
         "to": "Corinth"
@@ -16554,6 +16565,14 @@
         "to": "Hebrew believers"
       }
     },
+    "Hebrews 2:18": {
+      "general": {
+        "plainExplanation": "For in that he himself has suffered being tempted, he is able to succour them that are tempted.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Hebrew believers"
+      }
+    },
     "Hebrews 3:1": {
       "general": {
         "plainExplanation": "Wherefore, holy brothers, partakers of the heavenly calling, consider the Apostle and High Priest of our profession, Christ Jesus;",
@@ -17237,6 +17256,14 @@
     "Isaiah 45:16": {
       "general": {
         "plainExplanation": "They shall be ashamed, and also confounded, all of them: they shall go to confusion together that are makers of idols.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Isaiah",
+        "to": "Judah"
+      }
+    },
+    "Isaiah 46:4": {
+      "general": {
+        "plainExplanation": "And even to your old age I am he; and even to hoar hairs will I carry you: I have made, and I will bear; even I will carry, and will deliver you.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Isaiah",
         "to": "Judah"

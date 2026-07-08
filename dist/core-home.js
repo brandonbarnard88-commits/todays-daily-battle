@@ -16,7 +16,7 @@
     }
   } catch (_) {}
 
-  var INTERACTIVE_SRC = 'script.js?v=20260515-strip-legacy-tour-chip';
+  var INTERACTIVE_SRC = 'script.js?v=20260708-biblical-answers-search';
   var loaded = false;
   var pendingQuery = '';
 

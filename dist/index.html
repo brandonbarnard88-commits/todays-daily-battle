@@ -14,10 +14,10 @@
   <!-- DOMPurify + tt-bootstrap stay synchronous before any body innerHTML (Trusted Types). Low fetch priority reduces contention with LCP text paint. -->
   <link rel="preload" as="script" href="/vendor/dompurify.min.js" fetchpriority="low">
   <script nonce="tdb2025s" src="/vendor/dompurify.min.js" fetchpriority="low"></script>
-  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260503-consent-persist-fix" fetchpriority="low"></script>
+  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260708-biblical-answers-search" fetchpriority="low"></script>
   <!-- Quiet room lives only on prayer-wall.html; old /#prayer-wall bookmarks still work -->
   <script nonce="tdb2025s">(function(){try{if(location.hash!=='#prayer-wall')return;location.replace('prayer-wall.html'+location.search);}catch(e){}})();</script>
-  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260503-consent-persist-fix"></script>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260708-biblical-answers-search"></script>
 
   <title>Today’s Daily Battle — One KJV Verse, One Small Step, One Prayer</title>
   <meta name="description" content="Today’s KJV: Psalm 6:9. Quiet KJV daily devotional. No ads, no login. Start with today’s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.">
@@ -535,7 +535,7 @@
             <button type="button" class="tdb-porch-feel__btn" data-porch-topic="faith" data-porch-label="Ordinary but blessed" aria-pressed="false">Ordinary but blessed</button>
             <button type="button" class="tdb-porch-feel__btn" data-porch-topic="joy" data-porch-label="Celebrating God's goodness" aria-pressed="false">Celebrating God&rsquo;s goodness</button>
           </div>
-          <p class="tdb-porch-feel__thanks-foot">Want a slower rhythm of praise? <a href="plans.html?plan=simplethanks">Simple Thanks</a> (seven light-or-ordinary days) &middot; <a href="simple-thanks-one-page-print.html">print all seven on one page</a> &middot; <a href="plans.html?plan=steadydays">Steady Days</a> (five, even softer) &middot; <a href="plans.html?plan=steadydays-kids">same five at the family table</a> &middot; <a href="steady-days-one-page-print.html">print Steady Days on one page</a> &middot; <a href="plans.html?plan=giftsfromabove">gifts from the Father of lights</a> (five days, no test) &middot; <a href="gifts-from-above-one-page-print.html">print those five on one page</a> &middot; <a href="plans.html?plan=praisethanks30">Praise &amp; Thanksgiving</a> (flexible length), or <a href="plans.html?plan=universitygratitude">University of Gratitude</a>&mdash;same gentle pace, no rush.</p>
+          <p class="tdb-porch-feel__thanks-foot">Want a slower rhythm of praise? <a href="plans.html?plan=simplethanks">Simple Thanks</a> (seven gentle days) &middot; <a href="plans.html?plan=steadydays">Steady Days</a> (five, even softer) &middot; <a href="plans.html?plan=universitygratitude">University of Gratitude</a>&mdash;or <a href="plans.html">browse all praise paths</a>.</p>
         </div>
         <p class="tdb-porch-feel__status" id="tdbPorchFeelStatus" role="status" aria-live="polite"></p>
         <p class="tdb-porch-feel__last" id="tdbPorchFeelLast" hidden></p>
@@ -1434,7 +1434,7 @@
             autocomplete="off"
             autocorrect="off"
             spellcheck="false"
-            placeholder="Type a question, a battle, or how you're really feeling... (e.g. &quot;Who is Jesus?&quot;, &quot;toxic people&quot;, or &quot;joy&quot;)"
+            placeholder="Type a question, a battle, or how you&apos;re really feeling&hellip;"
             aria-label="Ask the Word by question, battle, feeling, or verse"
             aria-describedby="topicPlansHint"
             aria-autocomplete="list"
@@ -1453,10 +1453,10 @@
           <div class="feel-suggest" id="feelSuggestDropdown" role="listbox" aria-label="Feeling suggestions">
           </div>
         </div>
-        <p class="section-note util-mt-0_5 util-mb-0">Try honest words (“I feel scared”), a story name (“prodigal son”, “david and goliath”), or a remembered verse feel (“be still and know”, “cast your cares”). Short is fine — the Word meets you where you are.</p>
-        <p class="topic-plans-hint section-note" id="topicPlansHint">Short phrases work well. Press <strong>Search</strong> or Enter for the fuller KJV lookup. <span class="topic-plans-hint-detail">Inside a category: tap a chip to search verses fast. Alt-click (desktop) or long-press (phone) opens a matching <a href="plans.html">Battle Plans</a> lane.</span></p>
-        <p class="feel-topic-action-strip" id="feelTopicActionStrip"><strong>Quick tip:</strong> Tap a feeling below, or open <strong>Show all feelings</strong> for every topic. <span class="feel-topic-action-strip-detail">On phone, hold a chip for the matching plan.</span></p>
-        <p class="tdb-feel-strip-intro section-note" id="tdbFeelStripIntro">Start with a tap—<strong>or</strong> type in the search box. Ten common picks; the full list stays one disclosure away.</p>
+        <p class="section-note util-mt-0_5 util-mb-0">Try honest words (“I feel scared”), a story name (“prodigal son”), a remembered verse feel (“be still and know”), or a direct question (“How do I forgive someone?” “What if I’m angry at God?”). The Word meets you where you are.</p>
+        <p class="topic-plans-hint section-note" id="topicPlansHint">Press <strong>Search</strong> or Enter for the fuller KJV lookup.</p>
+        <p class="feel-topic-action-strip" id="feelTopicActionStrip">Tap a feeling below, or open <strong>Show all feelings</strong> for every topic. <span class="feel-topic-action-strip-detail">On phone, hold a chip to open the matching <a href="plans.html">Battle Plan</a> lane.</span></p>
+        <p class="tdb-feel-strip-intro section-note" id="tdbFeelStripIntro">Ten common picks below — the full list is one tap away.</p>
         <p class="tdb-discover-quiet-tools section-note" id="tdbDiscoverQuietTools">When the day feels mixed, try <a href="#tdbFeelComboToggle">Combine two feelings</a> below. When you want your own rhythm, <a href="plans.html#plans-builder-section">Build your own lane</a> on Courses.</p>
         <div class="tdb-feel-combo-bar" id="tdbFeelComboBar" data-combo-on="0" hidden role="region" aria-label="Combine two feelings">
           <p class="tdb-feel-combo-lead">Pick up to two feelings, then search both together.</p>
@@ -2123,7 +2123,7 @@
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
-  <script defer src="/language-switcher.js?v=20260503-consent-persist-fix"></script>
+  <script defer src="/language-switcher.js?v=20260708-biblical-answers-search"></script>
 </footer>
 
   </div>

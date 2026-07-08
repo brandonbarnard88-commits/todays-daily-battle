@@ -5615,6 +5615,20 @@ const PHRASE_TO_TOKENS = {
   'parenting comparison': ['comparison', 'parenting', 'grace', 'identity'],
   'mom guilt from comparing': ['comparison', 'parenting', 'grace', 'identity'],
 
+  // === SPOUSE FAITH, END TIMES, INFERTILITY ===
+  'my spouse doesnt share my faith': ['marriage', 'prayer', 'trust', 'faith'],
+  'married to an unbeliever': ['marriage', 'prayer', 'trust', 'faith'],
+  'unequally yoked': ['marriage', 'prayer', 'trust', 'faith'],
+  'my husband isnt a christian': ['marriage', 'prayer', 'trust', 'faith'],
+  'fear about end times': ['trust', 'hope', 'faith', 'peace'],
+  'end times anxiety': ['trust', 'hope', 'faith', 'peace'],
+  'scared about world events': ['trust', 'hope', 'faith', 'peace'],
+  'news anxiety bible': ['trust', 'anxiety', 'peace', 'faith'],
+  'struggling with infertility': ['grief', 'hope', 'trust', 'faith'],
+  'waiting for a baby': ['grief', 'hope', 'trust', 'faith'],
+  'miscarriage and faith': ['grief', 'hope', 'trust', 'healing'],
+  'childless and hurting': ['grief', 'hope', 'loneliness', 'trust'],
+
   // === KIDS & FAMILY: Parent/child-specific search terms ===
   'bedtime bible story': ['kids', 'family', 'peace', 'faith'],
   'bible story for kids': ['kids', 'family', 'faith', 'hope'],
@@ -5737,7 +5751,7 @@ var TDB_BIBLICAL_ANSWERS = [
       'what god says about marriage', 'bible verses for marriage', 'marriage advice bible',
       'my marriage is falling apart', 'struggling in marriage'
     ],
-    answer: 'God designed marriage as a picture of His covenant love — not a contract that runs out, but a committed giving of oneself (Ephesians 5:25–33). The pattern He gives is mutual sacrifice and honor, not one person carrying everything. First Corinthians 13 describes the kind of love that holds a marriage through hard seasons: patient, kind, not keeping a record of wrongs. No marriage is beyond what God can restore, but it takes honesty, humility, and a willingness to return to Him together. The hardest prayer is often the truest one: Lord, change me first.',
+    answer: 'Marriage was not designed to run on performance — it was designed to run on covenant: a committed giving of oneself regardless of return (Ephesians 5:25–33). The pattern Scripture gives is mutual sacrifice and honor, not one person carrying everything. First Corinthians 13 describes the kind of love that holds a marriage through hard seasons: patient, kind, not keeping a record of wrongs. No marriage is beyond what God can restore, but it takes honesty, humility, and a willingness to return to Him together. The hardest prayer is often the truest one: Lord, change me first.',
     verses: ['Ephesians 5:25', '1 Corinthians 13:4', 'Colossians 3:14', 'Proverbs 18:22'],
     plan: 'marriage'
   },
@@ -5881,7 +5895,7 @@ var TDB_BIBLICAL_ANSWERS = [
       'bible help with finances', 'what does god say about money', 'struggling financially',
       'money problems bible', 'how should christians handle money', 'debt and the bible'
     ],
-    answer: 'More verses in Scripture address money than almost any other topic — which tells you how seriously it presses on real life. The core warning is in 1 Timothy 6:10: it is the love of money, not money itself, that is the root of all kinds of evil. Jesus said in Matthew 6:24 that you cannot serve both God and money — one will always compete with the other for your trust. Proverbs 11:24–25 says the generous person gains; the one who hoards loses something too. The biblical pattern is open hands and a deep trust that provision comes from God, not from what you can hold on to.',
+    answer: 'Money presses on almost every dimension of real life — security, relationships, identity, fear. That is likely why Scripture addresses it more than almost any other topic. The core warning in 1 Timothy 6:10 is not that money is evil, but that the love of it is a root of all kinds of evil. Jesus said in Matthew 6:24 that you cannot serve both God and money — one will always compete with the other for your trust. Proverbs 11:24–25 says the generous person gains; the one who hoards loses something too. The biblical pattern is open hands and a deep trust that provision comes from God, not from what you can hold on to.',
     verses: ['1 Timothy 6:10', 'Matthew 6:24', 'Proverbs 11:24', 'Philippians 4:19'],
     plan: 'moneyworry'
   },
@@ -6390,6 +6404,48 @@ var TDB_BIBLICAL_ANSWERS = [
     answer: 'Parenting comparison runs on the worst possible data — everyone else\'s highlight reel against your most exhausted moments. The Bible\'s picture of parenting has no performance table in it. Deuteronomy 6:6–7 describes faith passed through ordinary, imperfect daily life — walking, sitting, waking up — not curated moments. Galatians 6:4 says "let every man prove his own work, and then shall he have rejoicing in himself alone, and not in another." You are not called to raise someone else\'s children or parent by someone else\'s strengths. Your particular presence in your particular child\'s life is not an accident. Be faithful in the place God put you. That is enough.',
     verses: ['Galatians 6:4', 'Deuteronomy 6:6', 'Psalm 139:14', 'Romans 12:6'],
     plan: 'universitycomparison'
+  },
+  {
+    id: 'spouse-not-spiritual',
+    triggers: [
+      'my spouse doesnt share my faith', 'my husband isnt a christian', 'my wife isnt a christian',
+      'married to an unbeliever', 'unequally yoked', 'my spouse isnt walking with god',
+      'my partner doesnt believe', 'how do i live with a spouse who doesnt believe',
+      'unequally yoked bible', 'praying for my unbelieving spouse', 'my husband doesnt go to church',
+      'my wife doesnt go to church', 'spouse and i disagree on faith', 'my husband doesnt believe in god',
+      'my wife doesnt believe in god', 'spiritually mismatched marriage'
+    ],
+    answer: 'First Peter 3:1–2 addresses this directly: wives who have unbelieving husbands may win them "without the word" — meaning by manner of life, not by argument. Paul addresses this in 1 Corinthians 7:12–16 and tells believers with unbelieving spouses not to leave, because the unbelieving spouse is "sanctified" by the believing one — your faithful presence in that home matters. First Corinthians 7:16 asks honestly: "What knowest thou, O wife, whether thou shalt save thy husband?" — a question that holds both uncertainty and real hope. Pray for them. Love steadily. Let your life carry what your words cannot force. And do not carry the outcome alone — it belongs to God.',
+    verses: ['1 Peter 3:1', '1 Corinthians 7:14', '1 Corinthians 7:16', '1 Peter 3:4'],
+    plan: 'marriage'
+  },
+  {
+    id: 'end-times-anxiety',
+    triggers: [
+      'fear about end times', 'scared about the end of the world', 'end times anxiety',
+      'what does the bible say about end times', 'scared about world events',
+      'fear of the future bible', 'is the end near', 'tribulation fear',
+      'apocalypse anxiety', 'afraid of what is coming in the world', 'scared of the future of the world',
+      'news anxiety bible', 'world getting worse bible', 'fear about wars and catastrophe',
+      'end of days fear', 'revelation anxiety', 'scared of revelation'
+    ],
+    answer: 'End times anxiety is one of the oldest fears in the church — believers in every generation have looked at the world and wondered if the end was near. What Scripture is clear about: no one knows the day or the hour (Matthew 24:36), and the instruction is not to calculate it but to be ready and unafraid. Luke 21:26 warns of men\'s hearts "failing them for fear" of what is coming — and immediately Jesus says "look up, and lift up your heads; for your redemption draweth nigh" (Luke 21:28). The news of the world is not the final word. Hebrews 12:28 says we have a kingdom that cannot be shaken. Fix your eyes there, not on what is trembling.',
+    verses: ['Matthew 24:36', 'Luke 21:28', 'Hebrews 12:28', 'Philippians 4:7'],
+    plan: 'trust'
+  },
+  {
+    id: 'infertility',
+    triggers: [
+      'struggling with infertility', 'unable to have children', 'infertility and faith',
+      'waiting for a baby', 'wanting children and it hasnt happened', 'infertility bible',
+      'god and infertility', 'why wont god give me a child', 'miscarriage and faith',
+      'praying for a child and nothing happens', 'fertility struggles bible', 'waiting to conceive',
+      'childless and hurting', 'longing for a child bible', 'empty arms bible',
+      'can god give me a child', 'childlessness faith'
+    ],
+    answer: 'Scripture holds the stories of women who waited in silence and believed God through it — Hannah, who prayed so desperately that the priest thought she was drunk (1 Samuel 1:13), and Sarah, who waited decades. The ache of longing for a child is not minimized anywhere in the Bible. Psalm 113:9 says God "maketh the barren woman to keep house, and to be a joyful mother of children" — a promise that has been realized in some lives and, in this broken world, not yet in others. That tension is real. What Scripture holds out is that this grief is seen, this waiting is not forgotten, and God is near to the hope that has not yet arrived. You are not invisible in this.',
+    verses: ['Psalm 113:9', '1 Samuel 1:13', 'Psalm 34:18', 'Romans 8:26'],
+    plan: 'longillness'
   }
 ];
 

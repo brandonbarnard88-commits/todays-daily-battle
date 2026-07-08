@@ -11293,7 +11293,7 @@ html[data-theme="sepia"] details.verse-breakdown[open] > .verse-breakdown-conten
 }
 .tdb-ba-verse-chip {
   display: inline-block;
-  padding: 0.15rem 0.55rem;
+  padding: 0.28rem 0.65rem;
   border: 1px solid var(--border, rgba(255,255,255,0.15));
   border-radius: 999px;
   font-size: 0.82rem;
@@ -11302,6 +11302,7 @@ html[data-theme="sepia"] details.verse-breakdown[open] > .verse-breakdown-conten
   cursor: pointer;
   transition: background 0.15s, color 0.15s;
   font-family: inherit;
+  min-height: 2rem;
 }
 .tdb-ba-verse-chip:hover,
 .tdb-ba-verse-chip:focus-visible {
@@ -11345,10 +11346,11 @@ html[data-theme="sepia"] details.verse-breakdown[open] > .verse-breakdown-conten
   border-radius: 4px;
   color: var(--muted, #bcc5d6);
   font-size: 0.78rem;
-  padding: 0.1rem 0.45rem;
+  padding: 0.3rem 0.65rem;
   cursor: pointer;
   font-family: inherit;
   transition: background 0.12s, color 0.12s;
+  min-height: 2rem;
 }
 .tdb-ba-feedback-btn:hover,
 .tdb-ba-feedback-btn:focus-visible {

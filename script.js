@@ -5543,6 +5543,15 @@ const PHRASE_TO_TOKENS = {
   'the battle is not yours but gods': ['trust', 'faith', 'strength', 'courage'],
   'all have sinned and fall short': ['guilt', 'grace', 'forgiveness', 'salvation'],
 
+  // === Spiritual dryness / faith gaps ===
+  'bible feels dry': ['faith', 'worship', 'renewal', 'hope'],
+  'spiritually dry': ['faith', 'worship', 'renewal', 'hope'],
+  'faith feels dry': ['faith', 'worship', 'renewal', 'doubt'],
+  'going through the motions': ['faith', 'worship', 'renewal', 'doubt'],
+  'bible is boring': ['faith', 'wisdom', 'renewal', 'worship'],
+  'lost my faith': ['doubt', 'faith', 'hope', 'trust'],
+  'walking away from god': ['doubt', 'faith', 'hope', 'grace'],
+
   // === KIDS & FAMILY: Parent/child-specific search terms ===
   'bedtime bible story': ['kids', 'family', 'peace', 'faith'],
   'bible story for kids': ['kids', 'family', 'faith', 'hope'],
@@ -5643,7 +5652,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'Scripture contains people who were so low they asked God to let them die — Elijah under the juniper tree (1 Kings 19), the writers of Psalms 88 and 22. God\'s response to Elijah was not a sermon — it was food, water, rest, and then a quiet voice (1 Kings 19:12). Psalm 34:18 says He is near to the brokenhearted and saves the crushed in spirit. Depression is not a sign of weak faith; many of the most faithful people in Scripture went through it. Tell God exactly where you are, and let the people around you in too.',
     verses: ['Psalm 34:18', '1 Kings 19:5', 'Psalm 88:1', 'Isaiah 41:10'],
-    plan: 'sufferendure'
+    plan: 'longheavydays'
   },
   {
     id: 'assurance-salvation',
@@ -5655,7 +5664,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'If you are asking this question sincerely, bring it straight to God — He is not put off by it. Assurance rests on what Jesus did, not on how you feel on a given day. Romans 10:9–10 puts it plainly: confess with your mouth and believe in your heart that God raised Jesus from the dead. First John 5:13 was written so you can know you have eternal life — not wonder, know. If you have turned to Christ, that turning is not erased by doubt or by a hard season. Doubt and faith can live in the same heart; what anchors you is His promise, not your certainty.',
     verses: ['Romans 10:9', '1 John 5:13', 'John 3:16', 'Ephesians 2:8'],
-    plan: 'trust'
+    plan: 'roadtosalvation'
   },
   {
     id: 'marriage-bible',
@@ -5825,7 +5834,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'There are stretches in Scripture where God felt silent too — Psalm 88 ends without resolution, and Jesus cried from the cross "My God, my God, why hast thou forsaken me?" (Matthew 27:46). That cry is in the Bible because God is not afraid of it. Silence is not the same as absence. Lamentations 3:22–23 was written out of real devastation, not comfort: "Great is his faithfulness." The practice the Bible keeps returning to in those dry seasons is honest, stubborn perseverance — keep praying even when nothing seems to come back. The silence is a chapter, not the end.',
     verses: ['Matthew 27:46', 'Psalm 88:1', 'Lamentations 3:22', 'Psalm 22:2'],
-    plan: 'trust'
+    plan: 'universitywaiting'
   },
   {
     id: 'chronic-pain-illness',
@@ -5837,7 +5846,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'The Bible does not offer a formula for healing, but something steadier: a God who is present in a body that does not cooperate. Paul had a persistent affliction God did not remove — and what he received instead was: "My grace is sufficient for thee: for my strength is made perfect in weakness" (2 Corinthians 12:9). Psalm 22 — which Jesus prayed from the cross — moves from raw anguish to trust without the pain being resolved first. You do not need healing to have God. Some things are built in suffering that cannot be built anywhere else (Romans 5:3–4), and that does not make the pain good — it means God will not let it be wasted.',
     verses: ['2 Corinthians 12:9', 'Romans 5:3', 'Psalm 34:18', 'Isaiah 40:29'],
-    plan: 'sufferendure'
+    plan: 'longillness'
   },
   {
     id: 'prodigal-family-faith',
@@ -5862,7 +5871,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'Scripture is full of doubters who were not dismissed. Thomas wanted proof and Jesus gave it to him gently (John 20:27–28). Habakkuk complained directly to God and God answered without rebuking him. Psalm 73 opens with a man who nearly lost his faith entirely and shows how he found his footing again — not by having his questions answered, but by returning to God\'s presence (Psalm 73:17). Doubt is not the opposite of faith; it is often the beginning of a deeper one. Mark 9:24 is one of the most honest prayers in Scripture: "Lord, I believe; help thou mine unbelief." You can bring exactly that to Him.',
     verses: ['John 20:27', 'Psalm 73:17', 'Mark 9:24', 'Habakkuk 1:2'],
-    plan: 'trust'
+    plan: 'universitydoubt'
   },
   {
     id: 'shame-bible',
@@ -5886,7 +5895,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'The Bible\'s description of sin as something that "easily besets" (Hebrews 12:1) fits what addiction does — it wraps itself around you and does not let go easily. First Corinthians 10:13 is the anchor: God is faithful and will not let you face more than you can bear, and He will always make a way out. That way of escape almost always runs through other people — James 5:16 says confession to one another and prayer together is part of what brings healing. Addiction is not evidence that you are too far gone; it is a very human battle, and it was never meant to be fought alone. The path forward is rarely one dramatic moment — it is one honest conversation, one day, one exit taken at a time.',
     verses: ['1 Corinthians 10:13', 'Hebrews 12:1', 'James 5:16', 'Romans 7:24'],
-    plan: 'strength'
+    plan: 'addictionhope'
   },
   {
     id: 'death-dying-bible',
@@ -5910,7 +5919,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'Being betrayed by someone you trusted is one of the most destabilizing things a person can experience — and it is in Scripture. Joseph\'s brothers sold him. David was betrayed by his own son. Jesus was betrayed at a supper He had just shared with the betrayer. Psalm 55:12–14 is David writing about a close friend who turned against him — the pain is real and God does not rush past it. What the Bible does not require is immediate trust in that person again. Forgiveness and restored trust are different things. Bring the wound to God first, and let Him be the safe place while you heal slowly and wisely.',
     verses: ['Psalm 55:12', 'Genesis 50:20', 'John 13:18', 'Romans 12:19'],
-    plan: 'forgiveness'
+    plan: 'trustbroken'
   },
   {
     id: 'exhaustion-burnout',
@@ -5922,7 +5931,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'Elijah sat under a juniper tree, exhausted enough to ask God to let him die — right after one of his greatest victories (1 Kings 19:4). God\'s response was not a sermon. It was bread, water, and sleep. Twice. The angel said: "Arise and eat; because the journey is too great for thee." That is one of the most tender moments in the Old Testament. Burnout is not a character failure — it is what happens when finite people carry more than they were built for. Isaiah 40:29–31 says God gives power to the faint and renews the strength of those who wait on Him. The step Scripture offers is rest — actual rest — and bringing yourself, emptied, to the One who never grows weary.',
     verses: ['1 Kings 19:5', 'Isaiah 40:29', 'Matthew 11:28', 'Psalm 62:5'],
-    plan: 'restlessnights'
+    plan: 'universityexhaustion'
   },
   {
     id: 'healing-bible',
@@ -5948,7 +5957,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'The Bible has people in it who made catastrophic choices and came back — not by pretending the consequences were not real, but through encountering a God who specializes in redemption. David committed adultery and arranged a murder; the cross of God\'s mercy still held him (Psalm 51). Peter denied Jesus three times, to His face, and went on to be the rock of the early church. Joel 2:25 carries a direct promise: "I will restore to you the years that the locust hath eaten." The road back is rarely fast or clean. But it is real, and as long as you are still breathing, you are not past the reach of a God who makes dead things live.',
     verses: ['Joel 2:25', 'Psalm 51:10', 'Romans 8:1', 'Isaiah 43:18'],
-    plan: 'heavyhope'
+    plan: 'universityregret'
   },
   {
     id: 'angry-at-god',
@@ -5960,7 +5969,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'The Bible makes full room for anger toward God — it is in the Psalms dozens of times. Psalm 13 opens with "How long wilt thou forget me, O Lord? for ever?" Jeremiah told God directly he felt deceived (Jeremiah 20:7). Habakkuk accused God of not acting when He should have. Every one of them was heard. Anger at God is not the opposite of relationship with Him — it is often the most honest relationship you can have. The danger is not bringing the anger; it is going quiet and closing the door. Bring it the way the Psalms do: out loud, all of it, directed at Him. He already knows. And He can take it.',
     verses: ['Psalm 13:1', 'Jeremiah 20:7', 'Habakkuk 1:2', 'Psalm 62:8'],
-    plan: 'lordsprayer'
+    plan: 'universitydoubt'
   },
   {
     id: 'bible-feels-dry',
@@ -5973,7 +5982,7 @@ var TDB_BIBLICAL_ANSWERS = [
     ],
     answer: 'Dryness in reading Scripture happens to nearly everyone who takes it seriously over a long stretch of time. It is not a sign that God has left, or that you are failing — it is one of the ordinary seasons of faith. What the Bible recommends is not waiting until you feel something, but choosing to keep showing up: Psalm 119 was written by someone with a deep love for Scripture who still had to choose to return to it before dawn (Psalm 119:147–148). Sometimes reading a short passage slowly, or a part of the Bible you have not been to before, opens something that was sealed. Stay with it. The drought does not last forever, and the seeds planted in dry ground still take root.',
     verses: ['Psalm 119:147', 'Jeremiah 15:16', 'Psalm 42:1', 'Romans 10:17'],
-    plan: 'trust'
+    plan: 'spirituallydry'
   },
   {
     id: 'provision-fear',
@@ -28228,7 +28237,7 @@ function buildBiblicalAnswerSection(entry, compact) {
     planRow.className = 'tdb-ba-plan-hint';
     var planText = document.createTextNode('Want a steadier path through this? ');
     var planLink = document.createElement('a');
-    planLink.href = 'plans.html?topic=' + encodeURIComponent(entry.plan);
+    planLink.href = 'plans.html?plan=' + encodeURIComponent(entry.plan);
     planLink.textContent = 'See the Battle Plan \u2192';
     planLink.className = 'tdb-ba-plan-link';
     planRow.appendChild(planText);

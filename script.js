@@ -5629,6 +5629,42 @@ const PHRASE_TO_TOKENS = {
   'miscarriage and faith': ['grief', 'hope', 'trust', 'healing'],
   'childless and hurting': ['grief', 'hope', 'loneliness', 'trust'],
 
+  // === BIBLE KNOWLEDGE: Theological ===
+  'what is the trinity': ['faith', 'wisdom', 'salvation', 'hope'],
+  'what is grace in the bible': ['grace', 'salvation', 'faith', 'hope'],
+  'faith vs works bible': ['salvation', 'faith', 'grace', 'wisdom'],
+  'who is the holy spirit': ['faith', 'wisdom', 'salvation', 'hope'],
+  'what does the bible say about heaven': ['hope', 'faith', 'trust', 'peace'],
+  'what does the bible say about hell': ['salvation', 'faith', 'hope', 'trust'],
+  'what does the bible say about baptism': ['faith', 'salvation', 'trust', 'hope'],
+  'what is the sabbath': ['faith', 'wisdom', 'rest', 'trust'],
+  'what is justification': ['salvation', 'faith', 'grace', 'hope'],
+  'what is sanctification': ['faith', 'holiness', 'growth', 'wisdom'],
+
+  // === BIBLE KNOWLEDGE: Characters ===
+  'who was moses': ['faith', 'wisdom', 'strength', 'trust'],
+  'who was david': ['faith', 'wisdom', 'hope', 'trust'],
+  'who was paul in the bible': ['faith', 'wisdom', 'salvation', 'hope'],
+  'who was abraham': ['faith', 'trust', 'hope', 'wisdom'],
+  'who was joseph in the bible': ['trust', 'faith', 'hope', 'wisdom'],
+  'who was elijah': ['faith', 'strength', 'hope', 'trust'],
+  'who was mary in the bible': ['faith', 'hope', 'wisdom', 'trust'],
+  'who was solomon': ['wisdom', 'faith', 'hope', 'trust'],
+  'who was peter in the bible': ['faith', 'trust', 'hope', 'wisdom'],
+  'who was john the baptist': ['faith', 'hope', 'wisdom', 'salvation'],
+
+  // === BIBLE KNOWLEDGE: Books & Passages ===
+  'what is romans about': ['salvation', 'faith', 'grace', 'hope'],
+  'what is revelation about': ['hope', 'faith', 'trust', 'peace'],
+  'what does john 3 16 mean': ['salvation', 'faith', 'hope', 'grace'],
+  'what is psalms about': ['peace', 'faith', 'hope', 'prayer'],
+  'what is proverbs about': ['wisdom', 'faith', 'trust', 'hope'],
+  'what is genesis about': ['faith', 'wisdom', 'hope', 'trust'],
+  'what does romans 8 say': ['trust', 'faith', 'hope', 'peace'],
+  'what is ephesians about': ['faith', 'identity', 'wisdom', 'grace'],
+  'what is the sermon on the mount': ['faith', 'wisdom', 'hope', 'grace'],
+  'what is hebrews about': ['faith', 'trust', 'hope', 'strength'],
+
   // === KIDS & FAMILY: Parent/child-specific search terms ===
   'bedtime bible story': ['kids', 'family', 'peace', 'faith'],
   'bible story for kids': ['kids', 'family', 'faith', 'hope'],
@@ -6446,6 +6482,407 @@ var TDB_BIBLICAL_ANSWERS = [
     answer: 'Scripture holds the stories of women who waited in silence and believed God through it — Hannah, who prayed so desperately that the priest thought she was drunk (1 Samuel 1:13), and Sarah, who waited decades. The ache of longing for a child is not minimized anywhere in the Bible. Psalm 113:9 says God "maketh the barren woman to keep house, and to be a joyful mother of children" — a promise that has been realized in some lives and, in this broken world, not yet in others. That tension is real. What Scripture holds out is that this grief is seen, this waiting is not forgotten, and God is near to the hope that has not yet arrived. You are not invisible in this.',
     verses: ['Psalm 113:9', '1 Samuel 1:13', 'Psalm 34:18', 'Romans 8:26'],
     plan: 'longillness'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE ANSWERS — type: 'knowledge'
+  // Theological / Doctrinal
+  // ============================================================
+  {
+    id: 'trinity-bible',
+    type: 'knowledge',
+    triggers: [
+      'what does the bible say about the trinity', 'is the trinity in the bible', 'what is the trinity',
+      'father son holy spirit', 'three persons one god', 'does the bible teach the trinity',
+      'god the father son and holy ghost', 'trinity doctrine bible', 'is god three persons',
+      'trinity explained biblically', 'what is the doctrine of the trinity'
+    ],
+    answer: 'The word "Trinity" is not in Scripture, but the truth it names is. Matthew 28:19 gives Jesus\' own words: baptizing "in the name of the Father, and of the Son, and of the Holy Ghost" — one name, three persons. Second Corinthians 13:14 blesses in the name of all three. First John 5:7 (KJV) states it plainly: "there are three that bear record in heaven, the Father, the Word, and the Holy Ghost: and these three are one." At Jesus\' baptism all three are simultaneously present — the Son being baptized, the Spirit descending as a dove, and the Father speaking from heaven (Matthew 3:16–17). The doctrine of the Trinity is not invented by the church; it is drawn from how Scripture consistently describes God.',
+    verses: ['Matthew 28:19', '1 John 5:7', '2 Corinthians 13:14', 'Matthew 3:16'],
+    plan: 'holyspirit'
+  },
+  {
+    id: 'grace-what-is',
+    type: 'knowledge',
+    triggers: [
+      'what is grace in the bible', 'what does grace mean', 'what is gods grace', 'define grace biblically',
+      'bible definition of grace', 'what is grace and mercy', 'what does the bible say about grace',
+      'grace meaning bible', 'what is unmerited favor', 'grace explained bible', 'what is saving grace'
+    ],
+    answer: 'Grace in Scripture is God\'s favor given to those who have not earned it and cannot earn it. Ephesians 2:8–9 is the clearest statement: "For by grace are ye saved through faith; and that not of yourselves: it is the gift of God: not of works, lest any man should boast." It is not a reward — it is a rescue. Romans 5:8 shows the timing: God demonstrated His love while we were still sinners, not after we improved. Grace does not lower the standard of holiness; it provides what the standard demands and gives it freely. Titus 2:11–12 adds that grace also teaches — it trains us toward godliness, not away from it.',
+    verses: ['Ephesians 2:8', 'Romans 5:8', 'Titus 2:11', 'John 1:17'],
+    plan: 'galatiansfreedom'
+  },
+  {
+    id: 'faith-vs-works',
+    type: 'knowledge',
+    triggers: [
+      'faith vs works bible', 'saved by faith or works', 'faith without works is dead explained',
+      'are we saved by faith alone', 'james vs paul faith works', 'bible faith and works',
+      'what does bible say about faith and works', 'saved by grace through faith not works',
+      'james 2 faith and works', 'can i be saved by good works'
+    ],
+    answer: 'Paul and James are answering different questions, not contradicting each other. Paul in Romans and Galatians answers "How are we saved?" — by faith alone, not by works (Romans 3:28). James in chapter 2 answers "How do we know if faith is real?" — by whether it produces action (James 2:17). Genuine saving faith is not the same as intellectual agreement; even the demons believe and tremble (James 2:19). Ephesians 2:8–10 holds both together: saved by grace through faith (not works), yet created in Christ Jesus for good works that God prepared beforehand. The works do not produce the salvation — they flow from it.',
+    verses: ['Romans 3:28', 'James 2:17', 'Ephesians 2:8', 'Ephesians 2:10'],
+    plan: 'galatiansfreedom'
+  },
+  {
+    id: 'holy-spirit-bible',
+    type: 'knowledge',
+    triggers: [
+      'who is the holy spirit', 'what does the bible say about the holy spirit', 'what is the holy spirit',
+      'what does the holy spirit do', 'holy spirit in the bible', 'what is the work of the holy spirit',
+      'holy spirit and believers', 'is the holy spirit a person', 'bible holy spirit role',
+      'what is the holy ghost', 'holy ghost in the bible', 'does the holy spirit live in me'
+    ],
+    answer: 'The Holy Spirit is not a force or an energy — He is a person. Jesus calls Him the Comforter (John 14:26) and says He will teach, remind, guide into all truth, and convict the world of sin (John 16:8–13). He indwells every believer (Romans 8:9–11) and intercedes with groanings when we do not know how to pray (Romans 8:26). He produces fruit in the life of a believer: love, joy, peace, longsuffering, gentleness, goodness, faith, meekness, temperance (Galatians 5:22–23). First Corinthians 6:19 says the believer\'s body is His temple. He is not an occasional visitor but a permanent resident — and His presence is the marker of belonging to Christ.',
+    verses: ['John 14:26', 'Romans 8:9', 'Galatians 5:22', '1 Corinthians 6:19'],
+    plan: 'holyspirit'
+  },
+  {
+    id: 'heaven-what-is',
+    type: 'knowledge',
+    triggers: [
+      'what does the bible say about heaven', 'what is heaven like in the bible', 'is heaven real bible',
+      'what happens in heaven', 'bible description of heaven', 'what does revelation say about heaven',
+      'new jerusalem bible', 'will we know each other in heaven', 'what is heaven scripture',
+      'heaven in the bible explained', 'what does heaven look like'
+    ],
+    answer: 'Heaven in Scripture is primarily the presence of God — not a place of passive comfort but of redeemed relationship and renewed creation. Revelation 21 describes a new heaven and new earth where God dwells with His people, there is no more death or crying or pain, and all things are made new. Second Corinthians 5:8 says to be absent from the body is to be present with the Lord. John 14:2–3 has Jesus preparing a place and promising to return for His people. First Corinthians 15 describes resurrection bodies — not disembodied spirits but real, renewed persons. Heaven is not a reward for good behavior; it is the destination of everyone who belongs to Christ.',
+    verses: ['Revelation 21:4', 'John 14:2', '2 Corinthians 5:8', '1 Corinthians 15:42'],
+    plan: 'heavyhope'
+  },
+  {
+    id: 'hell-what-is',
+    type: 'knowledge',
+    triggers: [
+      'what does the bible say about hell', 'is hell real in the bible', 'what is hell like bible',
+      'what does the bible teach about hell', 'who goes to hell bible', 'eternal punishment bible',
+      'lake of fire bible', 'does hell really exist', 'what is gehenna', 'bible teaching on hell',
+      'eternal separation from god', 'outer darkness bible'
+    ],
+    answer: 'Scripture speaks of hell seriously and without relish. Jesus uses the word "Gehenna" — a real valley outside Jerusalem that had become a symbol of fire and destruction. Matthew 25:46 describes "everlasting punishment" for those who rejected God. Revelation 20:14–15 names a "lake of fire" as the second death. Luke 16:19–31 (the rich man and Lazarus) shows consciousness and separation after death as real. The consistent message is that hell is a real consequence of rejecting God — not cruelty for its own sake, but permanent separation from all that is good. The entire gospel exists because God is "not willing that any should perish" (2 Peter 3:9) — and He went to extraordinary lengths to provide another way.',
+    verses: ['Matthew 25:46', 'Luke 16:24', 'Revelation 20:15', '2 Peter 3:9'],
+    plan: 'roadtosalvation'
+  },
+  {
+    id: 'baptism-bible',
+    type: 'knowledge',
+    triggers: [
+      'what does the bible say about baptism', 'is baptism necessary for salvation', 'what is baptism',
+      'baptism bible meaning', 'should i be baptized', 'does baptism save you',
+      'what does baptism represent', 'believer baptism bible', 'what does baptism mean',
+      'baptism in water bible', 'should a christian be baptized', 'why get baptized'
+    ],
+    answer: 'Baptism in Scripture is an outward declaration of an inward reality. Jesus commanded it in Matthew 28:19 as part of making disciples, and it follows immediately after belief throughout Acts (Acts 2:41, 8:36–38, 10:47–48). Romans 6:3–4 describes it as a picture of death, burial, and resurrection — identifying with Christ\'s own death and new life. Most Protestant traditions teach that baptism does not save (Ephesians 2:8–9 is clear: salvation is by faith, not ritual), but that it is a public, obedient act declaring what has already happened inside. The thief on the cross was promised paradise without baptism (Luke 23:43), which shows that faith, not the act itself, is the decisive thing.',
+    verses: ['Matthew 28:19', 'Romans 6:4', 'Acts 2:41', 'Ephesians 2:8'],
+    plan: 'roadtosalvation'
+  },
+  {
+    id: 'sabbath-bible',
+    type: 'knowledge',
+    triggers: [
+      'what is the sabbath', 'what does the bible say about the sabbath', 'should christians keep the sabbath',
+      'is sunday the sabbath', 'sabbath rest bible', 'sabbath day bible', 'why did god rest on the seventh day',
+      'what day is the sabbath', 'new testament sabbath', 'christians and the sabbath',
+      'is it a sin to work on the sabbath', 'what does the bible say about sunday worship'
+    ],
+    answer: 'The Sabbath was given to Israel at Sinai as a weekly day of rest on the seventh day (Saturday), modeled on God\'s rest at creation (Exodus 20:8–11). In the New Testament, Jesus declared Himself "Lord of the sabbath" (Mark 2:28) and consistently healed and worked on it — reframing it around mercy rather than strict restriction. Colossians 2:16–17 calls Sabbath observance a shadow pointing to Christ, the substance. Most early Christians shifted corporate worship to the first day of the week in recognition of the resurrection (Acts 20:7, Revelation 1:10). Romans 14:5–6 says each person should be "fully persuaded in his own mind." The deeper rest Scripture ultimately points toward is not a day but a Person: Hebrews 4 describes a rest found in Christ that no weekly observance fully captures.',
+    verses: ['Exodus 20:8', 'Mark 2:28', 'Colossians 2:16', 'Hebrews 4:9'],
+    plan: 'dailyrenewing'
+  },
+  {
+    id: 'justification-bible',
+    type: 'knowledge',
+    triggers: [
+      'what is justification in the bible', 'what does justified mean in the bible', 'justified by faith',
+      'what is justification by faith', 'bible justification meaning', 'what does it mean to be justified',
+      'justified in scripture', 'how is a person justified before god', 'righteousness imputed bible',
+      'being made right with god', 'what is imputed righteousness'
+    ],
+    answer: 'Justification is a legal term in Scripture — being declared righteous before God, not merely made righteous over time. Romans 3:28 says a person is justified by faith apart from the works of the law. Romans 4 makes it concrete through Abraham: he believed God, and it was "counted unto him for righteousness" before he did anything to earn it. The righteousness that justifies is not yours — it is Christ\'s, credited to your account (2 Corinthians 5:21): "he hath made him to be sin for us, who knew no sin; that we might be made the righteousness of God in him." This is the heartbeat of the Reformation and of Paul\'s argument in Romans and Galatians: you are not earning your way to God; you are received on the basis of what Another has done.',
+    verses: ['Romans 3:28', 'Romans 4:3', '2 Corinthians 5:21', 'Galatians 2:16'],
+    plan: 'galatiansfreedom'
+  },
+  {
+    id: 'sanctification-bible',
+    type: 'knowledge',
+    triggers: [
+      'what is sanctification', 'what does sanctification mean', 'sanctification in the bible',
+      'how does sanctification work', 'growing in holiness bible', 'becoming more like christ',
+      'progressive sanctification', 'what does it mean to be sanctified', 'bible teaching on holiness',
+      'being made holy in scripture', 'what is the process of becoming holy', 'how do i grow spiritually'
+    ],
+    answer: 'Sanctification is the ongoing process of being made holy — becoming more like Christ over a lifetime. It is distinct from justification (the moment you are declared righteous) in that it is gradual and, in this life, never complete. First Thessalonians 4:3 says "this is the will of God, even your sanctification." Philippians 2:12–13 holds both sides: "work out your own salvation with fear and trembling — for it is God which worketh in you both to will and to do." You participate; He empowers. Second Corinthians 3:18 describes it as transformation "from glory to glory." Sanctification is not striving to earn what you already have — it is growing into who you already are in Christ.',
+    verses: ['1 Thessalonians 4:3', 'Philippians 2:12', '2 Corinthians 3:18', 'Romans 8:29'],
+    plan: 'firststeps'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE ANSWERS — Characters
+  // ============================================================
+  {
+    id: 'who-was-moses',
+    type: 'knowledge',
+    triggers: [
+      'who was moses', 'tell me about moses', 'moses in the bible', 'what did moses do',
+      'life of moses', 'moses and pharaoh', 'moses and the ten commandments', 'did god speak to moses',
+      'moses parting the red sea', 'what did moses accomplish', 'story of moses'
+    ],
+    answer: 'Moses is one of the most significant figures in all of Scripture — a man raised in Pharaoh\'s household who became the deliverer of God\'s people from Egypt. God called him at the burning bush (Exodus 3) when he was eighty years old and had already failed once. He led Israel through the Red Sea, received the Ten Commandments at Sinai, and guided the people for forty years through the wilderness. He spoke with God "face to face, as a man speaketh unto his friend" (Exodus 33:11). He did not enter the promised land — a consequence of disobedience at Meribah (Numbers 20). He appears alongside Elijah at the Transfiguration of Jesus (Matthew 17:3). Deuteronomy 34:10 says no prophet like him arose again in Israel — until Jesus, whom Moses himself predicted would come (Deuteronomy 18:15).',
+    verses: ['Exodus 3:4', 'Exodus 33:11', 'Deuteronomy 34:10', 'Deuteronomy 18:15'],
+    plan: 'walktheword'
+  },
+  {
+    id: 'who-was-david',
+    type: 'knowledge',
+    triggers: [
+      'who was david in the bible', 'tell me about king david', 'david in the bible',
+      'what did david do', 'life of david', 'why was david a man after gods heart',
+      'king david bible', 'david and bathsheba', 'david and goliath bible', 'david the shepherd king'
+    ],
+    answer: 'David was a shepherd boy from Bethlehem who became Israel\'s greatest king. He was chosen while his brothers were passed over: "the Lord looketh on the heart" (1 Samuel 16:7). He killed Goliath as a young man, spent years fleeing from King Saul before being crowned, and wrote many of the Psalms. He was a warrior, a poet, and a man of deep and honest prayer. He also sinned catastrophically — adultery with Bathsheba, having her husband Uriah killed — and bore the consequences for the rest of his life. He is called "a man after mine own heart" (Acts 13:22) not because he was perfect, but because he returned to God with total honesty when he fell. His lineage carries the Messiah: Jesus is called "the Son of David" throughout the New Testament (Matthew 1:1).',
+    verses: ['1 Samuel 16:7', 'Acts 13:22', 'Psalm 51:1', 'Matthew 1:1'],
+    plan: 'psalmscomfort'
+  },
+  {
+    id: 'who-was-paul-apostle',
+    type: 'knowledge',
+    triggers: [
+      'who was paul in the bible', 'tell me about the apostle paul', 'paul in the bible',
+      'who wrote most of the new testament', 'what did paul do', 'life of paul',
+      'was paul a pharisee', 'saul who became paul', 'pauls conversion story',
+      'paul missionary journeys', 'who wrote romans'
+    ],
+    answer: 'Paul — originally Saul — was a Pharisee who zealously persecuted the early church before a dramatic encounter with the risen Jesus on the road to Damascus left him blinded for three days (Acts 9). He became the most prolific missionary in the New Testament, traveling through modern-day Turkey, Greece, and eventually to Rome. He wrote at least 13 of the 27 New Testament books, including Romans, Galatians, Ephesians, Philippians, and Corinthians. He was imprisoned, beaten, shipwrecked, and ultimately executed under Nero. His own summary of his life is in 2 Timothy 4:7: "I have fought a good fight, I have finished my course, I have kept the faith." His transformation from persecutor to proclaimer is itself one of the most powerful arguments for the resurrection.',
+    verses: ['Acts 9:3', '2 Timothy 4:7', 'Galatians 1:13', 'Philippians 3:8'],
+    plan: 'firststeps'
+  },
+  {
+    id: 'who-was-abraham',
+    type: 'knowledge',
+    triggers: [
+      'who was abraham in the bible', 'tell me about abraham', 'abraham in the bible',
+      'father of faith bible', 'what did abraham do', 'life of abraham', 'abraham and isaac',
+      'why is abraham important in the bible', 'what is the abrahamic covenant', 'god called abraham',
+      'abraham and sarah bible'
+    ],
+    answer: 'Abraham was a man from Ur whom God called to leave his homeland without telling him where he was going — and he obeyed (Hebrews 11:8). He is called "the father of the faithful" because his trust is the model Scripture returns to repeatedly: he believed God\'s promise of a son when he and Sarah were far past childbearing age, and it was "counted unto him for righteousness" (Romans 4:3). His greatest test was God\'s command to sacrifice that son, Isaac — and his willingness led to God providing a ram and renewing the covenant promise (Genesis 22). That covenant — through his offspring all nations would be blessed — finds its fulfillment in Jesus, described in Galatians 3:16 as the singular "seed" in view.',
+    verses: ['Romans 4:3', 'Hebrews 11:8', 'Genesis 22:18', 'Galatians 3:16'],
+    plan: 'trust'
+  },
+  {
+    id: 'who-was-joseph-genesis',
+    type: 'knowledge',
+    triggers: [
+      'who was joseph in the bible', 'joseph and his brothers', 'joseph in the old testament',
+      'joseph coat of many colors', 'joseph and potiphar', 'joseph dreams in the bible',
+      'joseph sold into slavery', 'what happened to joseph in the bible', 'joseph in egypt',
+      'joseph son of jacob', 'story of joseph old testament'
+    ],
+    answer: 'Joseph was the eleventh son of Jacob — favored by his father and despised by his brothers, who sold him into slavery in Egypt when he was seventeen. In Egypt he was falsely accused by Potiphar\'s wife and imprisoned, yet "the LORD was with Joseph" through it all (Genesis 39:21). His gift for interpreting dreams eventually brought him before Pharaoh, who made him second in command over all Egypt. When famine struck and his brothers came to buy grain, he revealed himself and forgave them. His summary of his own story is one of the most remarkable lines in Scripture: "ye meant evil against me; but God meant it unto good" (Genesis 50:20). His life is one of the clearest pictures in all of Scripture of God\'s sovereign care working through betrayal and years of waiting toward something larger than anyone could see.',
+    verses: ['Genesis 39:21', 'Genesis 50:20', 'Romans 8:28', 'Psalm 105:17'],
+    plan: 'trust'
+  },
+  {
+    id: 'who-was-elijah',
+    type: 'knowledge',
+    triggers: [
+      'who was elijah in the bible', 'tell me about elijah', 'elijah in the bible',
+      'elijah and ahab', 'elijah and jezebel', 'mount carmel elijah fire',
+      'elijah under the juniper tree', 'what did elijah do', 'elijah chariot of fire',
+      'elijah and the prophets of baal', 'elijah bible story'
+    ],
+    answer: 'Elijah was one of Israel\'s most dramatic prophets — a man who called fire down from heaven on Mount Carmel before 850 false prophets (1 Kings 18), then immediately fled alone into the wilderness and asked God to let him die (1 Kings 19). God\'s response was not a rebuke but rest, food, water, and a quiet word. He was taken to heaven without dying, carried up in a chariot of fire (2 Kings 2:11), appeared with Moses at the Transfiguration of Jesus (Matthew 17:3), and is prophesied to return before the "great and dreadful day of the LORD" (Malachi 4:5) — a role Jesus connected to John the Baptist (Matthew 11:14). His story gives Scripture one of its most honest pictures of the exhaustion that can follow great faith, and the grace that meets it.',
+    verses: ['1 Kings 18:38', '1 Kings 19:12', '2 Kings 2:11', 'Malachi 4:5'],
+    plan: 'longheavydays'
+  },
+  {
+    id: 'who-was-mary',
+    type: 'knowledge',
+    triggers: [
+      'who was mary in the bible', 'tell me about mary the mother of jesus', 'mary mother of jesus bible',
+      'the virgin mary', 'what do we know about mary', 'mary in the new testament',
+      'mary and gabriel bible', 'mary and the annunciation', 'what does the bible say about mary',
+      'mary blessed among women'
+    ],
+    answer: 'Mary was a young woman from Nazareth — likely a teenager — chosen by God to carry and raise the Son of God. Luke 1:26–38 records the angel Gabriel\'s announcement and her response: "be it unto me according to thy word." She was betrothed to Joseph, a carpenter of David\'s lineage. She treasured the events of Jesus\' childhood quietly: "Mary kept all these things, and pondered them in her heart" (Luke 2:19). She was present at the cross (John 19:25–27), where Jesus entrusted her to the care of John. The Bible presents her as a servant of remarkable faith and obedience — honored among women, but not divine. Her own words in Luke 1:46–55 (the Magnificat) are among the most beautiful in all of Scripture: "My soul doth magnify the Lord."',
+    verses: ['Luke 1:38', 'Luke 2:19', 'Luke 1:46', 'John 19:26'],
+    plan: 'adventbridge'
+  },
+  {
+    id: 'who-was-solomon',
+    type: 'knowledge',
+    triggers: [
+      'who was solomon in the bible', 'tell me about king solomon', 'solomon in the bible',
+      'solomon and wisdom', 'what did solomon do', 'solomon built the temple',
+      'solomon and the queen of sheba', 'solomons proverbs', 'why was solomon wise',
+      'solomon bible story', 'solomon son of david'
+    ],
+    answer: 'Solomon was the son of David and Bathsheba — and became Israel\'s most magnificent king. God appeared to him at Gibeon and offered him anything he asked; Solomon asked for wisdom to govern God\'s people, and God gave it to him along with unmatched riches and honor (1 Kings 3:5–13). He built the Temple in Jerusalem — the permanent dwelling of God\'s presence among Israel. He authored most of Proverbs, Ecclesiastes, and the Song of Solomon. Yet his story ends in tragedy: his many foreign wives turned his heart toward their gods (1 Kings 11:3–4), and the kingdom divided after his death. Ecclesiastes — likely written late in his life — is his honest reckoning with everything sought apart from God: "Vanity of vanities; all is vanity." Fear God and keep His commandments is its final word (Ecclesiastes 12:13).',
+    verses: ['1 Kings 3:12', 'Proverbs 1:7', 'Ecclesiastes 12:13', '1 Kings 11:4'],
+    plan: 'proverbswisdom'
+  },
+  {
+    id: 'who-was-peter-apostle',
+    type: 'knowledge',
+    triggers: [
+      'who was peter in the bible', 'tell me about the apostle peter', 'peter in the bible',
+      'simon peter bible', 'peter and jesus', 'peter denying jesus', 'peter walked on water',
+      'what did peter do', 'peter rock of the church', 'peter fisherman bible',
+      'who was simon peter'
+    ],
+    answer: 'Peter — originally Simon — was a fisherman from Galilee who became one of Jesus\' closest disciples and a foundational leader of the early church. He was impulsive and bold: he walked on water (Matthew 14:29), declared Jesus the Christ at Caesarea Philippi (Matthew 16:16), and drew a sword in Gethsemane. He also denied Jesus three times on the night of His arrest, exactly as Jesus had predicted. After the resurrection, Jesus restored him with three questions mirroring the three denials: "Lovest thou me?" (John 21:15–17). He preached at Pentecost and saw thousands come to faith. According to early church tradition, he was crucified upside down in Rome, unwilling to be executed in the same manner as Jesus. He wrote 1 and 2 Peter — two letters of encouragement to scattered believers enduring hardship.',
+    verses: ['Matthew 16:16', 'John 21:15', 'Acts 2:41', '1 Peter 5:10'],
+    plan: 'firststeps'
+  },
+  {
+    id: 'who-was-john-the-baptist',
+    type: 'knowledge',
+    triggers: [
+      'who was john the baptist', 'tell me about john the baptist', 'john the baptist bible',
+      'what did john the baptist do', 'john the baptist and jesus', 'was john the baptist related to jesus',
+      'john the baptist in the wilderness', 'john the baptist beheading', 'john baptized jesus',
+      'greatest born of woman bible', 'john the forerunner'
+    ],
+    answer: 'John the Baptist was the forerunner of Jesus — the one prophesied by Isaiah as "the voice of one crying in the wilderness, Prepare ye the way of the Lord" (Isaiah 40:3; Matthew 3:3). He was the son of the priest Zechariah and Elizabeth (a relative of Mary), filled with the Holy Spirit from before birth (Luke 1:15). He preached repentance in the wilderness, dressed in camel\'s hair and ate locusts and wild honey, and baptized Jesus in the Jordan — at which moment the Father and Spirit were both audibly and visibly present. He was later imprisoned by Herod Antipas and beheaded at the request of Herodias\'s daughter (Matthew 14:3–12). Jesus said of him: "Among them that are born of women there hath not risen a greater than John the Baptist" (Matthew 11:11).',
+    verses: ['Matthew 3:3', 'Luke 1:15', 'Matthew 11:11', 'John 1:29'],
+    plan: 'firststeps'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE ANSWERS — Books & Passages
+  // ============================================================
+  {
+    id: 'what-is-romans-about',
+    type: 'knowledge',
+    triggers: [
+      'what is the book of romans about', 'summary of romans bible', 'what does romans teach',
+      'what is romans in the bible', 'romans overview', 'what is paul saying in romans',
+      'book of romans explained simply', 'what is the main message of romans',
+      'romans theology explained', 'what does romans chapter by chapter mean'
+    ],
+    answer: 'Romans is Paul\'s most systematic presentation of the gospel — written to a church in Rome he had not yet visited. It opens with the problem: all have sinned and fall short of God\'s glory (Romans 3:23). It presents the solution: justification by faith alone, not by keeping the law (Romans 3–5). It works out the implications for daily life — dying to sin, living by the Spirit, Israel and the Gentiles, practical Christian love (Romans 6–15). Chapter 8 is one of the most celebrated in all of Scripture, moving from "no condemnation" (v.1) to "nothing can separate us from the love of God" (vv.38–39). Romans answers the oldest question in religion: how can a sinful person stand before a holy God? The answer: through the righteousness of Another, received by faith.',
+    verses: ['Romans 3:23', 'Romans 3:28', 'Romans 8:1', 'Romans 8:39'],
+    plan: 'roadtosalvation'
+  },
+  {
+    id: 'what-is-revelation-about',
+    type: 'knowledge',
+    triggers: [
+      'what is the book of revelation about', 'revelation explained simply', 'what does revelation mean',
+      'what is revelation in the bible', 'revelation overview', 'is revelation a prophecy',
+      'what does revelation teach', 'book of revelation for beginners', 'revelation summary',
+      'what is the book of revelation saying', 'understanding revelation bible'
+    ],
+    answer: 'Revelation is a letter written by John from exile on the island of Patmos to seven real churches in Asia Minor facing persecution. It uses highly symbolic apocalyptic language — a genre well-understood by its first readers through Old Testament imagery. Its central message is not a detailed map of the future but a declaration of who wins: Jesus Christ, "King of kings, and Lord of lords" (Revelation 19:16). It describes God\'s judgment on evil, the fall of the world systems that oppose Him, and the arrival of a new heaven and new earth (Revelation 21–22) where God dwells with His people and death is no more. Its opening promise applies to everyone who reads it: "Blessed is he that readeth, and they that hear the words of this prophecy" (Revelation 1:3).',
+    verses: ['Revelation 1:3', 'Revelation 19:16', 'Revelation 21:4', 'Revelation 22:20'],
+    plan: 'heavyhope'
+  },
+  {
+    id: 'john-3-16-meaning',
+    type: 'knowledge',
+    triggers: [
+      'what does john 3:16 mean', 'john 3 16 explained', 'what is john 316', 'john 3 16 meaning',
+      'for god so loved the world explained', 'what does for god so loved the world mean',
+      'john 3:16 explained simply', 'what is the meaning of john 3:16',
+      'the most famous bible verse', 'john three sixteen meaning'
+    ],
+    answer: 'John 3:16 is often called "the gospel in miniature." "For God so loved the world" — the word "so" here is not intensity but manner: this is how God loved. "That he gave his only begotten Son" — a sacrifice, not a gesture. "That whosoever believeth in him should not perish" — the condition is belief, not performance or moral achievement. "But have everlasting life" — the result is not rescue from difficulty but rescue from death itself. The verse appears mid-conversation with Nicodemus, a Pharisee who came to Jesus at night with questions. Jesus was saying: the entire reason for my coming is contained right here. God is not against the world. He is for it — enough to enter it Himself.',
+    verses: ['John 3:16', 'John 3:17', 'Romans 5:8', 'John 10:10'],
+    plan: 'roadtosalvation'
+  },
+  {
+    id: 'what-is-psalms-about',
+    type: 'knowledge',
+    triggers: [
+      'what is the book of psalms about', 'psalms overview', 'what does psalms teach',
+      'book of psalms explained', 'why are the psalms important', 'who wrote the psalms',
+      'what is psalms in the bible', 'what are the psalms', 'psalms summary',
+      'how many psalms are there', 'what kind of book is psalms'
+    ],
+    answer: 'Psalms is a collection of 150 poems, songs, and prayers — the hymnbook of ancient Israel and the most personally honest book in Scripture. It covers the full range of human experience: praise, grief, anger, fear, confusion, exhaustion, repentance, and wonder. David wrote roughly half of them, with contributions from Moses, Asaph, and others. Psalms does not explain God as much as it speaks to Him — and in doing so gives language to generations of believers who had no words. Psalm 22 opens with "My God, my God, why hast thou forsaken me?" — the words Jesus quoted from the cross. Psalm 23 is the most recognized comfort in Scripture. Psalms models what honest prayer looks like from every angle of life, which is why it remains the most-read book in the Bible.',
+    verses: ['Psalm 23:1', 'Psalm 22:1', 'Psalm 119:105', 'Psalm 46:1'],
+    plan: 'psalmscomfort'
+  },
+  {
+    id: 'what-is-proverbs-about',
+    type: 'knowledge',
+    triggers: [
+      'what is the book of proverbs about', 'proverbs overview', 'what does proverbs teach',
+      'book of proverbs explained', 'why read proverbs', 'who wrote proverbs',
+      'what is proverbs in the bible', 'proverbs wisdom', 'summary of proverbs',
+      'what is the main theme of proverbs', 'how to read proverbs'
+    ],
+    answer: 'Proverbs is a collection of wisdom — short, memorable observations about how life tends to go when you walk in God\'s ways, and how it tends to go wrong when you do not. Most is attributed to Solomon (Proverbs 1:1, 10:1), with the final chapters from Agur and King Lemuel\'s mother. Its core declaration is the opening: "The fear of the Lord is the beginning of wisdom" (Proverbs 1:7). From there it addresses practical life: speech, money, work, marriage, parenting, pride, friendship, anger, and integrity. Proverbs does not promise that wisdom always produces ease — it promises that wisdom is the most reliable path through an unpredictable world. The famous Proverbs 31 woman is its closing portrait of a life well-lived.',
+    verses: ['Proverbs 1:7', 'Proverbs 3:5', 'Proverbs 9:10', 'Proverbs 31:30'],
+    plan: 'proverbswisdom'
+  },
+  {
+    id: 'what-is-genesis-about',
+    type: 'knowledge',
+    triggers: [
+      'what is genesis about', 'genesis overview', 'what does genesis teach',
+      'genesis in the bible explained', 'what happens in genesis', 'book of genesis summary',
+      'what is the book of genesis about', 'creation story bible', 'adam and eve story bible',
+      'genesis first book of the bible', 'genesis chapters summary'
+    ],
+    answer: 'Genesis means "beginnings" — and it covers them all: creation, the fall of man, the flood, the Tower of Babel, and then the unfolding story of one family through whom God would bless all nations. Chapters 1–11 address the origins of the world and the human problem (sin entered through Adam and Eve in chapter 3, and everything that follows carries that weight). Chapters 12–50 follow Abraham, Isaac, Jacob, and Joseph — four generations in whom God planted a covenant promise that arrives ultimately in Jesus (Galatians 3:16). Genesis does not answer every scientific question about origins, but it answers the most important ones: the universe was made by a personal God; human beings are made in His image and have dignity; something went deeply wrong; and God did not walk away.',
+    verses: ['Genesis 1:1', 'Genesis 1:27', 'Genesis 3:15', 'Genesis 50:20'],
+    plan: 'walktheword'
+  },
+  {
+    id: 'romans-8-meaning',
+    type: 'knowledge',
+    triggers: [
+      'what does romans 8 say', 'romans 8 explained', 'what is romans 8 about',
+      'nothing can separate us from the love of god', 'romans 8:28 meaning',
+      'all things work together for good explained', 'romans 8 overview',
+      'who shall separate us from the love of christ', 'romans 8:1 no condemnation',
+      'romans chapter 8 summary', 'romans 8 for beginners'
+    ],
+    answer: 'Romans 8 is arguably the most complete and comforting chapter in Scripture. It opens at the bottom: "There is therefore now no condemnation to them which are in Christ Jesus" (v.1). It moves through the Spirit\'s life in the believer (vv.5–17), the suffering and hope of this present age (vv.18–25), the Spirit interceding when we cannot pray (vv.26–27), and the famous promise that all things work together for good for those who love God (v.28). It closes with an unbroken chain of certainty — foreknown, predestined, called, justified, glorified (vv.29–30) — and then the sweeping declaration that nothing: death, life, angels, powers, height, depth, or any created thing can separate us from the love of God in Christ Jesus (vv.38–39). It is a chapter people return to for the rest of their lives.',
+    verses: ['Romans 8:1', 'Romans 8:26', 'Romans 8:28', 'Romans 8:39'],
+    plan: 'trust'
+  },
+  {
+    id: 'what-is-ephesians-about',
+    type: 'knowledge',
+    triggers: [
+      'what is ephesians about', 'ephesians overview', 'what does ephesians teach',
+      'book of ephesians explained', 'ephesians summary', 'what is the armor of god in ephesians',
+      'ephesians 2 explained', 'what does ephesians say', 'book of ephesians main message',
+      'ephesians identity in christ', 'ephesians chapters summary'
+    ],
+    answer: 'Ephesians is a letter from Paul to a church in Ephesus, and it moves in two deliberate halves. The first three chapters declare what God has done and who believers are in Christ — chosen before the foundation of the world, adopted as sons, seated with Christ in the heavenly places (Ephesians 1–3). The second three chapters describe how to live from that identity — unity in the body, marriage, parenting, work relationships, and the full armor of God (Ephesians 4–6). The most quoted passage may be Ephesians 2:8–9 on salvation by grace through faith. But the whole letter is built on one conviction: if you know who you are, the way you live follows. Identity before behavior. Belonging before striving.',
+    verses: ['Ephesians 2:8', 'Ephesians 1:4', 'Ephesians 2:10', 'Ephesians 6:11'],
+    plan: 'identityinchrist'
+  },
+  {
+    id: 'sermon-on-the-mount',
+    type: 'knowledge',
+    triggers: [
+      'what is the sermon on the mount', 'sermon on the mount explained', 'matthew 5 6 7 explained',
+      'what did jesus say in the sermon on the mount', 'beatitudes meaning', 'what does the sermon on the mount teach',
+      'salt of the earth light of the world', 'sermon on mount bible', 'matthew 5 summary',
+      'what are the beatitudes', 'beatitudes explained'
+    ],
+    answer: 'The Sermon on the Mount (Matthew 5–7) is Jesus\' most extended teaching — delivered to His disciples and a growing crowd on a hillside in Galilee. He begins with the Beatitudes: "Blessed are..." statements that overturn every human expectation of who is favored by God ("Blessed are the poor in spirit," "the meek," "those who mourn"). He raises the law\'s standard beyond outward behavior to the heart — anger is like murder; lust is like adultery. He teaches on prayer (including the Lord\'s Prayer in 6:9–13), fasting, laying up treasure, refusing worry, and not judging hypocritically. It closes with the parable of the wise and foolish builders: those who hear and do versus those who hear and do not. The whole sermon is less a list of rules than a portrait of what a life that genuinely knows God looks like — from the inside out.',
+    verses: ['Matthew 5:3', 'Matthew 5:14', 'Matthew 6:9', 'Matthew 7:24'],
+    plan: 'beatitudes'
+  },
+  {
+    id: 'what-is-hebrews-about',
+    type: 'knowledge',
+    triggers: [
+      'what is hebrews about', 'hebrews overview', 'what does hebrews teach',
+      'book of hebrews explained', 'hebrews summary', 'who wrote hebrews',
+      'hebrews faith hall of fame', 'hebrews 11 explained', 'what does hebrews say about jesus',
+      'hebrews high priest', 'hebrews for beginners', 'hebrews chapters summary'
+    ],
+    answer: 'Hebrews is a letter — author unknown — written to Jewish believers tempted to return to Judaism under persecution. Its central argument is "Jesus is better": better than angels, better than Moses, better than the Levitical priesthood, a better covenant, a better sacrifice. Chapter 11 is the "faith hall of fame" — a long, honest list of Old Testament figures who trusted God without receiving the fullness of what was promised. Chapter 12 follows with the call to "run with endurance the race that is set before us, looking unto Jesus the author and finisher of our faith." Hebrews also contains the New Testament\'s most extended treatment of Jesus as High Priest — not a distant God but one who "was in all points tempted like as we are, yet without sin" (Hebrews 4:15), and who intercedes for believers continuously.',
+    verses: ['Hebrews 4:15', 'Hebrews 11:1', 'Hebrews 12:1', 'Hebrews 13:8'],
+    plan: 'sufferendure'
   }
 ];
 
@@ -28630,14 +29067,16 @@ function findBiblicalAnswer(queryText) {
 function buildBiblicalAnswerSection(entry, compact) {
   if (!entry || !entry.answer) return null;
 
+  var isKnowledge = entry.type === 'knowledge';
   var section = document.createElement('div');
   section.className = compact ? 'tdb-biblical-answer tdb-biblical-answer--compact' : 'tdb-biblical-answer';
+  if (isKnowledge) section.classList.add('tdb-biblical-answer--knowledge');
   section.setAttribute('role', 'complementary');
-  section.setAttribute('aria-label', 'What the Bible says');
+  section.setAttribute('aria-label', isKnowledge ? 'Bible Answer' : 'What the Bible says');
 
   var badge = document.createElement('span');
   badge.className = 'tdb-ba-badge';
-  badge.textContent = 'What the Bible says';
+  badge.textContent = isKnowledge ? 'Bible Answer' : 'What the Bible says';
   section.appendChild(badge);
 
   var answerP = document.createElement('p');

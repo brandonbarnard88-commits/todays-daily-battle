@@ -5653,6 +5653,42 @@ const PHRASE_TO_TOKENS = {
   'who was peter in the bible': ['faith', 'trust', 'hope', 'wisdom'],
   'who was john the baptist': ['faith', 'hope', 'wisdom', 'salvation'],
 
+  // === BIBLE KNOWLEDGE: Characters (batch 7) ===
+  'who was jacob': ['faith', 'trust', 'wisdom', 'hope'],
+  'jacob wrestled with god': ['faith', 'trust', 'strength', 'hope'],
+  'who was lydia': ['faith', 'hope', 'wisdom', 'trust'],
+  'lydia first european convert': ['faith', 'hope', 'wisdom', 'trust'],
+  'who was andrew the apostle': ['faith', 'hope', 'wisdom', 'trust'],
+  'andrew brought peter to jesus': ['faith', 'hope', 'wisdom', 'trust'],
+  'who was cornelius': ['faith', 'salvation', 'hope', 'trust'],
+  'cornelius first gentile convert': ['faith', 'salvation', 'hope', 'trust'],
+  'who was joseph of arimathea': ['faith', 'hope', 'wisdom', 'trust'],
+  'joseph gave his tomb to jesus': ['faith', 'hope', 'wisdom', 'trust'],
+
+  // === BIBLE KNOWLEDGE: Theological (batch 7) ===
+  'what is redemption': ['salvation', 'faith', 'grace', 'hope'],
+  'what does redeemed mean': ['salvation', 'faith', 'grace', 'hope'],
+  'what is the kingdom of god': ['faith', 'wisdom', 'hope', 'trust'],
+  'seek first the kingdom of god': ['faith', 'wisdom', 'hope', 'trust'],
+  'what is the law in the bible': ['faith', 'wisdom', 'grace', 'trust'],
+  'does the old testament law still apply': ['faith', 'wisdom', 'grace', 'trust'],
+  'what is the difference between mercy and grace': ['faith', 'grace', 'wisdom', 'hope'],
+  'mercy and grace bible': ['faith', 'grace', 'wisdom', 'hope'],
+  'what is hope in the bible': ['faith', 'hope', 'trust', 'wisdom'],
+  'hope as an anchor bible': ['faith', 'hope', 'trust', 'wisdom'],
+
+  // === BIBLE KNOWLEDGE: Books (batch 7) ===
+  'what is 2 samuel about': ['faith', 'wisdom', 'trust', 'grief'],
+  'david and bathsheba bible': ['faith', 'wisdom', 'trust', 'grief'],
+  'what is micah about': ['faith', 'wisdom', 'hope', 'trust'],
+  'do justly love mercy walk humbly': ['faith', 'wisdom', 'hope', 'trust'],
+  'what is 1 thessalonians about': ['faith', 'hope', 'trust', 'grief'],
+  'those who have no hope bible': ['faith', 'hope', 'trust', 'grief'],
+  'what is 2 peter about': ['faith', 'strength', 'trust', 'hope'],
+  'lord is not slack concerning his promise': ['faith', 'strength', 'trust', 'hope'],
+  'what is zechariah about': ['faith', 'hope', 'wisdom', 'trust'],
+  'not by might nor by power': ['faith', 'hope', 'wisdom', 'trust'],
+
   // === BIBLE KNOWLEDGE: Characters (batch 6) ===
   'who was elisha': ['faith', 'hope', 'strength', 'trust'],
   'elisha double portion': ['faith', 'hope', 'strength', 'trust'],
@@ -7270,7 +7306,7 @@ var TDB_BIBLICAL_ANSWERS = [
       'first john summary', 'god is love 1 john', 'what is 1 john in the bible',
       'greater is he that is in you explained', 'perfect love casts out fear 1 john', '1 john main message'
     ],
-    answer: 'First John is a late letter from the apostle John to believers facing false teaching that denied Jesus had truly come in the flesh. John responds by returning to fundamentals: God is light (1:5), God is love (4:8), and Jesus Christ came in the flesh (4:2). The letter is full of the word "know" — written so believers could have settled assurance, not endless uncertainty (5:13). It contains some of the most beloved declarations in all of Scripture: "God is love" (4:8); "perfect love casteth out fear" (4:18); "greater is he that is in you, than he that is in the world" (4:4). First John is one of the most reassuring books in Scripture — written for the person who needs their footing confirmed rather than their knowledge expanded.',
+    answer: '"I write unto you, that ye may know" — John repeats the word "know" more than thirty times in this short letter, which tells you everything about its purpose. He wrote to believers who were being unsettled by false teachers denying that Jesus had truly come in the flesh. His answer was not argument but assurance: God is light (1:5), God is love (4:8), and Jesus Christ is real, physical, and risen. It contains some of the most beloved declarations in all of Scripture: "perfect love casteth out fear" (4:18); "greater is he that is in you, than he that is in the world" (4:4). First John is the book for the person who needs their footing confirmed rather than their theology expanded.',
     verses: ['1 John 4:8', '1 John 4:18', '1 John 4:4', '1 John 5:13'],
     plan: 'trust'
   },
@@ -7434,7 +7470,7 @@ var TDB_BIBLICAL_ANSWERS = [
       'what is the book of john about', 'john gospel main message', 'why is john different from the other gospels',
       'john gospel beginning was the word'
     ],
-    answer: 'The Gospel of John is the fourth Gospel — and the most theologically distinct. Where Matthew, Mark, and Luke share much of the same narrative structure, John opens with cosmic declaration: "In the beginning was the Word, and the Word was with God, and the Word was God" (John 1:1). John selects seven specific miracles ("signs") and seven "I am" statements of Jesus — I am the bread of life, the light of the world, the good shepherd, the resurrection and the life, the way, the truth, and the life, the true vine. John himself states his purpose in 20:31: "that ye might believe that Jesus is the Christ, the Son of God; and that believing ye might have life through his name." John 3, 4, 11, 14–17, and 20–21 are among the most beloved chapters in all of Scripture.',
+    answer: 'No other biography in history begins the way John begins: "In the beginning was the Word, and the Word was with God, and the Word was God" (John 1:1). Where Matthew, Mark, and Luke share a common narrative frame, John selects seven specific miracles ("signs") and seven "I am" statements of Jesus — I am the bread of life, the light of the world, the good shepherd, the resurrection and the life, the way, the truth, and the life, the true vine. Each one is a claim about identity, not just capability. John himself states his purpose in 20:31: "that ye might believe that Jesus is the Christ, the Son of God; and that believing ye might have life through his name." John 3, 4, 11, and 14–17 are among the most beloved chapters in all of Scripture.',
     verses: ['John 1:1', 'John 1:14', 'John 20:31', 'John 14:6'],
     plan: 'roadtosalvation'
   },
@@ -7879,7 +7915,7 @@ var TDB_BIBLICAL_ANSWERS = [
       'mark main message', 'who wrote mark', 'mark written for roman audience',
       'mark shortest gospel bible'
     ],
-    answer: 'The Gospel of Mark is the shortest and almost certainly the earliest of the four Gospels — written for a Roman audience with urgency and speed. Its signature word is "straightway" or "immediately" (euthys in Greek), which appears over 40 times: Jesus did this, and immediately He did that. Mark wastes no words. There is no birth narrative, no genealogy — Mark opens with Jesus already at the Jordan being baptized, and the Spirit drives Him into the wilderness the very next verse. He presents Jesus primarily as a servant and a doer: healing, casting out demons, commanding the storm. Suffering is close to the surface throughout — Mark 10:45 gives the clearest statement of purpose: "the Son of man came not to be ministered unto, but to minister, and to give his life a ransom for many." The early church believed Mark recorded Peter\'s eyewitness testimony, which would explain both its vividness and its speed.',
+    answer: '"Straightway" — Mark\'s favorite word — appears over forty times. Jesus did this, and immediately He did that. No other Gospel moves at this pace. Written for a Roman audience with no patience for genealogies, Mark opens not with a birth narrative but with Jesus already at the Jordan, being baptized, and the Spirit driving Him into the wilderness the very next verse. Mark presents Jesus as a servant and a doer: healing, casting out demons, stilling storms. Suffering is close to the surface throughout — Mark 10:45 gives the clearest single-sentence statement of His purpose: "the Son of man came not to be ministered unto, but to minister, and to give his life a ransom for many." The early church believed Mark was recording Peter\'s eyewitness testimony, which would explain both its vividness and its speed.',
     verses: ['Mark 1:12', 'Mark 10:45', 'Mark 1:1', 'Mark 9:23'],
     plan: 'walktheword'
   },
@@ -8176,6 +8212,213 @@ var TDB_BIBLICAL_ANSWERS = [
     answer: 'Titus is a short letter from Paul to a trusted co-worker he left in Crete to organize the churches there. It is practical and direct — less personal than the Timothy letters and more structural. Paul gives Titus the qualifications for elders (1:5–9), instructions for how to teach different groups (older men, older women, younger women, young men, slaves), and the theological grounding for it all. The summary of the gospel in 2:11–14 is one of the most compact and complete in the New Testament: the grace of God has appeared, bringing salvation to all, teaching us to deny ungodliness and live soberly, "looking for that blessed hope, and the glorious appearing of the great God and our Saviour Jesus Christ." The book also contains one of Scripture\'s most encouraging statements about Christian motivation: believers do good works not to earn God\'s favor but because grace itself trains them toward it. Titus is a manual for what a healthy church looks like in a difficult culture.',
     verses: ['Titus 2:11', 'Titus 2:13', 'Titus 3:5', 'Titus 1:9'],
     plan: 'firststeps'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE — Batch 7: Characters
+  // ============================================================
+  {
+    id: 'who-was-jacob',
+    type: 'knowledge',
+    triggers: [
+      'who was jacob in the bible', 'tell me about jacob', 'jacob in the bible',
+      'story of jacob', 'jacob and esau bible', 'jacob wrestled with god', 'jacob israel bible',
+      'jacob twelve sons bible', 'jacob old testament', 'jacob became israel'
+    ],
+    answer: 'Jacob is one of the most complex figures in Genesis — a man whose name meant "supplanter" or "heel-grabber," and who lived up to it early on. He deceived his father Isaac to steal the blessing meant for his older brother Esau, then fled for his life. He spent twenty years working for his uncle Laban, being deceived in turn, and slowly acquiring wives, children, and livestock. The night before he was to face Esau again after all those years, he wrestled alone with a mysterious figure — "a man" who was God — through the night and would not let go until he received a blessing. His name was changed to Israel: "for as a prince hast thou power with God and with men, and hast prevailed" (Genesis 32:28). He limped from that encounter for the rest of his life. His twelve sons became the twelve tribes of Israel. Jacob\'s story is not about moral perfection — it is about God pursuing a flawed man across decades and making him into something he could never have made himself.',
+    verses: ['Genesis 32:28', 'Genesis 28:15', 'Genesis 32:24', 'Genesis 50:20'],
+    plan: 'trust'
+  },
+  {
+    id: 'who-was-lydia',
+    type: 'knowledge',
+    triggers: [
+      'who was lydia in the bible', 'tell me about lydia', 'lydia in the bible',
+      'lydia first european convert', 'lydia seller of purple bible', 'lydia and paul acts 16',
+      'lydia philippi bible', 'lydia businesswoman bible', 'first convert in europe bible',
+      'lydia whose heart the lord opened'
+    ],
+    answer: 'Lydia appears in just a few verses of Acts 16, but she carries enormous significance: she is the first recorded convert in Europe, marking a pivot point in the spread of the gospel westward. She was a businesswoman from Thyatira who sold purple cloth — a luxury trade that suggests she was prosperous and independent. She was already a worshipper of God (a Gentile drawn to Jewish faith) when Paul found a small group of women gathered by a river outside Philippi for prayer. As Paul spoke, "the Lord opened her heart, that she attended unto the things which were spoken of Paul" (Acts 16:14). She and her household were baptized immediately. She then insisted that Paul and his companions stay at her home — a practical hospitality that became the base of operations for the Philippian church. The church Paul later wrote to in Philippians began in Lydia\'s house.',
+    verses: ['Acts 16:14', 'Acts 16:15', 'Acts 16:40', 'Philippians 4:1'],
+    plan: 'firststeps'
+  },
+  {
+    id: 'who-was-andrew',
+    type: 'knowledge',
+    triggers: [
+      'who was andrew in the bible', 'tell me about andrew the apostle', 'andrew in the bible',
+      'andrew and peter bible', 'andrew first called apostle', 'story of andrew',
+      'andrew found peter', 'andrew the fisherman bible', 'andrew feeds 5000',
+      'andrew brother of peter bible'
+    ],
+    answer: 'Andrew was a fisherman from Bethsaida — the brother of Simon Peter — and the first of the disciples to follow Jesus. He had been a follower of John the Baptist; when John pointed to Jesus and said "Behold the Lamb of God" (John 1:36), Andrew followed. His very next act was to find his brother Simon and bring him to Jesus: "We have found the Messias" (John 1:41). That introduction changed history. Andrew appears at a few quiet but significant moments: it was he who found the boy with five loaves and two fish before the feeding of the five thousand (John 6:8–9), and he who brought the inquiring Greeks to Jesus before the final week (John 12:21–22). He is not one of the three inner disciples (Peter, James, John), but his instinct — whenever he encountered something remarkable, he went and found someone else and brought them — defined him. His patronage across Scotland and Greece is ancient; his feast day is still observed.',
+    verses: ['John 1:40', 'John 1:41', 'John 6:8', 'John 12:22'],
+    plan: 'firststeps'
+  },
+  {
+    id: 'who-was-cornelius',
+    type: 'knowledge',
+    triggers: [
+      'who was cornelius in the bible', 'tell me about cornelius', 'cornelius in the bible',
+      'cornelius first gentile convert', 'cornelius and peter acts 10', 'cornelius centurion bible',
+      'god shows no partiality acts 10', 'cornelius devout man bible', 'peter and cornelius vision',
+      'gentiles receive the holy spirit cornelius'
+    ],
+    answer: 'Cornelius was a Roman centurion stationed at Caesarea — a Gentile soldier who was "a devout man, and one that feared God with all his house" and gave generously to the poor (Acts 10:2). He had not become a Jew but had come, somehow, to genuine reverence for the God of Israel. An angel told him to send for the apostle Peter. Meanwhile, God gave Peter a vision of a sheet lowered from heaven containing all kinds of animals — and the command to eat. Peter was confused until Cornelius\'s messengers arrived. Peter went, saying: "God hath shewed me that I should not call any man common or unclean" (10:28). He preached Jesus to the gathered household. Before Peter even finished, the Holy Spirit fell on Cornelius and his household — Gentiles receiving the same gift the Jewish disciples had received at Pentecost. This was the moment that made clear the gospel was not being offered to one nation but to every nation: "God is no respecter of persons" (10:34).',
+    verses: ['Acts 10:2', 'Acts 10:28', 'Acts 10:34', 'Acts 10:44'],
+    plan: 'roadtosalvation'
+  },
+  {
+    id: 'who-was-joseph-of-arimathea',
+    type: 'knowledge',
+    triggers: [
+      'who was joseph of arimathea in the bible', 'tell me about joseph of arimathea',
+      'joseph of arimathea bible', 'joseph of arimathea gave his tomb', 'secret disciple bible',
+      'joseph of arimathea asked for jesus body', 'joseph arimathea new testament',
+      'who buried jesus bible', 'joseph of arimathea and nicodemus', 'joseph arimathea rich man'
+    ],
+    answer: 'Joseph of Arimathea appears at the most unlikely moment — after the crucifixion, when Jesus\' disciples had scattered. He was "an honourable counsellor" (Mark 15:43) and a member of the Sanhedrin, the same body that had condemned Jesus. John 19:38 describes him as a disciple "but secretly for fear of the Jews." After the death of Jesus he went to Pilate and asked for the body — a bold act that could have cost him his position and his safety. He, together with Nicodemus (who brought burial spices), took down the body, wrapped it in linen, and laid it in a new tomb that Joseph had prepared for himself. Matthew 27:60 says it was hewn from rock and sealed with a great stone. His quiet courage at the cross — when public devotion carried the greatest risk — fulfills Isaiah 53:9: "he made his grave with the wicked, and with the rich in his death." The tomb he gave was the one the resurrection would empty.',
+    verses: ['Mark 15:43', 'John 19:38', 'Matthew 27:60', 'Isaiah 53:9'],
+    plan: 'heavyhope'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE — Batch 7: Theological
+  // ============================================================
+  {
+    id: 'what-is-redemption',
+    type: 'knowledge',
+    triggers: [
+      'what is redemption in the bible', 'what does redemption mean in the bible',
+      'redemption bible meaning', 'what does redeemed mean bible', 'what is a redeemer bible',
+      'redemption explained simply', 'redeemed by the blood of christ', 'what does it mean to be redeemed',
+      'biblical definition of redemption', 'kinsman redeemer bible meaning'
+    ],
+    answer: 'Redemption in Scripture means to buy back something that was lost or enslaved — paying the price to release it. The Hebrew go\'el (kinsman-redeemer) was a family member who could reclaim a relative\'s land, freedom, or name: Boaz did this for Ruth. Paul draws the same language directly: "Christ hath redeemed us from the curse of the law, being made a curse for us" (Galatians 3:13). Ephesians 1:7 defines it: "In whom we have redemption through his blood, the forgiveness of sins." The price paid was not gold or silver — "ye were not redeemed with corruptible things" (1 Peter 1:18) but with the blood of Christ. Redemption means someone who had the right and the resources to buy you back entered the market and did it at personal cost. Romans 3:24 says it is given freely "through the redemption that is in Christ Jesus" — the cost was His; the release is ours.',
+    verses: ['Galatians 3:13', 'Ephesians 1:7', '1 Peter 1:18', 'Romans 3:24'],
+    plan: 'roadtosalvation'
+  },
+  {
+    id: 'kingdom-of-god',
+    type: 'knowledge',
+    triggers: [
+      'what is the kingdom of god', 'kingdom of god bible', 'what is the kingdom of heaven',
+      'kingdom of god explained', 'what does kingdom of god mean in the bible',
+      'the kingdom of god is within you', 'when does the kingdom of god come',
+      'seek first the kingdom of god', 'kingdom of heaven bible meaning',
+      'what did jesus say about the kingdom of god'
+    ],
+    answer: 'The kingdom of God is the central theme of Jesus\' preaching — he mentioned it in nearly every sermon. It is not primarily a place but a reign: the active rule of God breaking into the present world. Jesus said it was "at hand" (Mark 1:15) — already arriving in His own person and works. When He cast out demons, He said "the kingdom of God is come unto you" (Luke 11:20). The kingdom is present but not yet fully consummated: believers live in its reality now while awaiting its complete arrival. Matthew 6:33 gives the practical priority: "seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you." Entry requires a new birth (John 3:3) and is available to anyone — the poor in spirit, the mourning, the meek (Matthew 5:3–5). The kingdom is not built by human effort or political means; it comes by the reign of God through His people until the King returns.',
+    verses: ['Mark 1:15', 'Matthew 6:33', 'Luke 17:21', 'John 3:3'],
+    plan: 'firststeps'
+  },
+  {
+    id: 'the-law-torah',
+    type: 'knowledge',
+    triggers: [
+      'what is the law in the bible', 'what is the torah', 'does the old testament law still apply',
+      'old testament law bible explained', 'what does the bible say about the law',
+      'law of moses bible', 'do christians have to follow the old testament law',
+      'what is the purpose of the law bible', 'law and grace bible', 'ten commandments and the law'
+    ],
+    answer: 'The Law (Torah in Hebrew) refers primarily to the five books of Moses — but more narrowly to the commandments and ordinances God gave Israel at Sinai. It served several purposes: revealing God\'s character and standards, defining Israel\'s identity and covenant obligations, and — according to Paul — acting as a "schoolmaster" to bring people to Christ (Galatians 3:24). Romans 7:7 says the law showed what sin was: "I had not known sin, but by the law." Hebrews says the law was "a shadow of good things to come" (10:1) — pointing forward to what Christ would fulfill. Jesus said He came not to abolish the law but to fulfill it (Matthew 5:17). Christians under the new covenant are not under the Mosaic law as a system of justification — "by the works of the law shall no flesh be justified" (Galatians 2:16). But the moral heart of the law (love God, love neighbor) is not abolished; it is now written on the heart by the Spirit (Romans 8:4, Jeremiah 31:33).',
+    verses: ['Matthew 5:17', 'Galatians 3:24', 'Romans 7:7', 'Romans 8:4'],
+    plan: 'galatiansfreedom'
+  },
+  {
+    id: 'mercy-vs-grace',
+    type: 'knowledge',
+    triggers: [
+      'what is the difference between mercy and grace', 'mercy vs grace bible',
+      'what is mercy in the bible', 'what is grace in the bible', 'mercy and grace explained',
+      'grace is getting what you dont deserve', 'mercy is not getting what you deserve',
+      'biblical definition of mercy', 'biblical definition of grace and mercy',
+      'mercy and grace difference bible'
+    ],
+    answer: 'Grace and mercy are related but distinct: mercy is not receiving the punishment we deserve; grace is receiving the blessing we have not earned. Mercy withholds judgment; grace bestows favor. Both flow from the same source — the character of God. Lamentations 3:22 says His mercies "fail not." Ephesians 2:8–9 captures grace: "by grace are ye saved through faith; and that not of yourselves: it is the gift of God: not of works, lest any man should boast." Both appear together in Hebrews 4:16: "Let us therefore come boldly unto the throne of grace, that we may obtain mercy, and find grace to help in time of need." You come needing mercy (forgiveness, relief from what you owe) and receive grace (provision, favor, power) in addition. The two work together in every genuine encounter with God — and Paul opens nearly every letter with the same paired blessing: "grace and peace."',
+    verses: ['Ephesians 2:8', 'Lamentations 3:22', 'Hebrews 4:16', 'Titus 3:5'],
+    plan: 'galatiansfreedom'
+  },
+  {
+    id: 'what-is-biblical-hope',
+    type: 'knowledge',
+    triggers: [
+      'what is hope in the bible', 'what does hope mean in the bible', 'biblical hope explained',
+      'hope as an anchor bible', 'hebrews 6 19 hope', 'what does the bible say about hope',
+      'hope is not wishful thinking bible', 'biblical definition of hope', 'hope that does not disappoint',
+      'romans 5 5 hope bible'
+    ],
+    answer: 'Hope in Scripture is not wishful thinking or optimism — it is confident expectation based on what God has promised. The Greek word elpis carries the sense of settled assurance about what is certain to come. Hebrews 6:19 calls it "an anchor of the soul, both sure and stedfast" — an anchor holds against current and storm, not by being tied to something you wish for but to something fixed. Romans 5:5 says this hope "maketh not ashamed" — it does not disappoint — "because the love of God is shed abroad in our hearts by the Holy Ghost." Romans 8:24–25 adds the honest qualification: "hope that is seen is not hope: for what a man seeth, why doth he yet hope for? But if we hope for that we see not, then do we with patience wait for it." Biblical hope is always forward-looking and always grounded — not in circumstances but in the character of God and the certainty of His promises.',
+    verses: ['Hebrews 6:19', 'Romans 5:5', 'Romans 8:25', 'Lamentations 3:24'],
+    plan: 'heavyhope'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE — Batch 7: Books & Passages
+  // ============================================================
+  {
+    id: 'what-is-2-samuel-about',
+    type: 'knowledge',
+    triggers: [
+      'what is 2 samuel about', 'second samuel overview', 'what does 2 samuel teach',
+      'book of 2 samuel explained', '2 samuel summary', 'what is 2 samuel in the bible',
+      '2 samuel main message', 'david and bathsheba 2 samuel', 'david king 2 samuel',
+      'absalom rebellion 2 samuel'
+    ],
+    answer: 'No ancient royal biography is as honest as Second Samuel. It records David\'s reign over a united Israel alongside his most catastrophic failures — without softening either. The covenant God made with David in chapter 7 is foundational to everything that follows in the Old Testament: "thine house and thy kingdom shall be established for ever before thee" (7:16) — a promise that points to the Messiah. Then comes the story most remembered for its failure: David sees Bathsheba, commits adultery, arranges the death of her husband Uriah, and believes he has gotten away with it — until Nathan the prophet says "Thou art the man" (12:7). David\'s response was total repentance (Psalm 51). The consequences still unfolded: the child died, his son Amnon committed assault, his son Absalom rebelled and drove him from Jerusalem. Second Samuel holds together covenant faithfulness and human failure without resolving the tension cheaply.',
+    verses: ['2 Samuel 7:16', '2 Samuel 12:7', '2 Samuel 22:2', 'Psalm 51:1'],
+    plan: 'grief'
+  },
+  {
+    id: 'what-is-micah-about',
+    type: 'knowledge',
+    triggers: [
+      'what is micah about', 'micah overview', 'what does micah teach', 'book of micah explained',
+      'micah summary', 'what is micah in the bible', 'micah main message',
+      'do justly love mercy walk humbly micah', 'micah 6 8 explained', 'micah prophet bible'
+    ],
+    answer: 'Micah was an eighth-century prophet from a small village in Judah — a country voice speaking to Jerusalem\'s power — contemporary with Isaiah. He brought God\'s case against a nation where the wealthy devoured the poor, rulers perverted justice for bribes, and religious leaders prophesied for money. His most quoted verse may be the clearest ethical summary in the Old Testament: "He hath shewed thee, O man, what is good; and what doth the LORD require of thee, but to do justly, and to love mercy, and to walk humbly with thy God?" (Micah 6:8). He also contains one of the most precise messianic prophecies in Scripture: "But thou, Bethlehem Ephratah, though thou be little among the thousands of Judah, yet out of thee shall he come forth unto me that is to be ruler in Israel" (5:2) — the verse the chief priests cited when Herod asked where Christ should be born (Matthew 2:5–6). Micah balances fierce indictment with deep tenderness: "Who is a God like unto thee, that pardoneth iniquity?" (7:18).',
+    verses: ['Micah 6:8', 'Micah 5:2', 'Micah 7:18', 'Micah 6:3'],
+    plan: 'walktheword'
+  },
+  {
+    id: 'what-is-1-thessalonians-about',
+    type: 'knowledge',
+    triggers: [
+      'what is 1 thessalonians about', 'first thessalonians overview', 'what does 1 thessalonians teach',
+      'book of 1 thessalonians explained', '1 thessalonians summary', 'what is 1 thessalonians in the bible',
+      '1 thessalonians main message', 'paul earliest letter thessalonians', 'grieve not as those who have no hope',
+      '1 thessalonians rapture coming of the lord'
+    ],
+    answer: 'First Thessalonians is believed to be Paul\'s earliest surviving letter — written around AD 50, just weeks or months after he had left Thessalonica under pressure. He writes with the warmth of someone who misses the people he had to leave too soon: "we were gentle among you, even as a nurse cherisheth her children" (2:7). The church there was young, facing persecution, and confused about what had happened to believers who had already died before Christ returned. Would they miss the resurrection? Paul answers directly in chapter 4: those who died in Christ will rise first, then the living will be "caught up together with them in the clouds, to meet the Lord in the air" (4:17). He closes: "comfort one another with these words." The letter also contains a compact summary of the Christian life: "Rejoice evermore. Pray without ceasing. In every thing give thanks" (5:16–18).',
+    verses: ['1 Thessalonians 4:13', '1 Thessalonians 4:17', '1 Thessalonians 5:16', '1 Thessalonians 2:13'],
+    plan: 'grief'
+  },
+  {
+    id: 'what-is-2-peter-about',
+    type: 'knowledge',
+    triggers: [
+      'what is 2 peter about', 'second peter overview', 'what does 2 peter teach',
+      'book of 2 peter explained', '2 peter summary', 'what is 2 peter in the bible',
+      '2 peter main message', 'the lord is not slack concerning his promise', 'false teachers 2 peter',
+      '2 peter day of the lord'
+    ],
+    answer: 'Second Peter is a final letter from Peter, written as he anticipated his own death ("shortly I must put off this my tabernacle" — 1:14). It falls into three movements. The first urges spiritual growth: add to your faith virtue, to virtue knowledge, to knowledge temperance, and so on — "an entrance shall be ministered unto you abundantly into the everlasting kingdom of our Lord" (1:11). The second is a fierce warning about false teachers who bring in "damnable heresies" and whose judgment is certain. The third addresses those who mocked the promise of Christ\'s return: "all things continue as they were from the beginning." Peter\'s answer is that a day with the Lord is as a thousand years — "the Lord is not slack concerning his promise, as some men count slackness; but is longsuffering to us-ward, not willing that any should perish, but that all should come to repentance" (3:9). The letter closes with the expectation of a new heaven and new earth.',
+    verses: ['2 Peter 1:3', '2 Peter 1:21', '2 Peter 3:9', '2 Peter 3:13'],
+    plan: 'standfirm'
+  },
+  {
+    id: 'what-is-zechariah-about',
+    type: 'knowledge',
+    triggers: [
+      'what is zechariah about', 'zechariah overview', 'what does zechariah teach',
+      'book of zechariah explained', 'zechariah summary', 'what is zechariah in the bible',
+      'zechariah main message', 'zechariah messianic prophecy', 'your king cometh zechariah',
+      'not by might nor by power zechariah'
+    ],
+    answer: 'Zechariah is one of the longest and most visionary of the minor prophets — written around 520 BC to encourage Jews who had returned from Babylon and were rebuilding the Temple. It opens with a call to return to God and contains eight night visions given to Zechariah, dense with symbolic imagery. Its best-known verse may be 4:6: "Not by might, nor by power, but by my spirit, saith the LORD of hosts" — spoken to the governor Zerubbabel about completing the Temple against overwhelming odds. Zechariah\'s later chapters (9–14) shift into sharp messianic prophecy: "Rejoice greatly, O daughter of Zion; shout, O daughter of Jerusalem: behold, thy King cometh unto thee: he is just, and having salvation; lowly, and riding upon an ass" (9:9) — fulfilled on Palm Sunday (Matthew 21:4–5). Chapter 12:10 prophesies "they shall look upon me whom they have pierced" — quoted in John 19:37 at the crucifixion. Zechariah contains more messianic references than any other Old Testament prophet except Isaiah.',
+    verses: ['Zechariah 4:6', 'Zechariah 9:9', 'Zechariah 12:10', 'Zechariah 13:7'],
+    plan: 'heavyhope'
   }
 ];
 
@@ -30334,10 +30577,13 @@ function findBiblicalAnswer(queryText) {
   var norm = normalizeInput(String(queryText || ''));
   if (!norm || norm.split(/\s+/).filter(Boolean).length < 2) return null;
 
-  // Detect question intent — queries that are clearly asking about Bible content
-  // rather than expressing a feeling or situation. When detected, knowledge answers
-  // are checked first so they win over life/pastoral answers.
-  var questionIntent = /^(who (was|is|were|are)|what (is|are|does|did|is the|are the|does the|happened|book)|tell me about|explain |which book|when did|where (is|did|was)|why (did|does|do)|how (do|did|does|can i)|what (is|was) the|is (there|the)|what (does|did) the bible say about|what did jesus|is it|did god|did jesus|does god|how to (pray|fast|worship|read the bible|study the bible)|what are the)/.test(norm);
+  // Pastoral override: queries that start with first-person feeling/situation language
+  // should always route life answers first, even if they contain question words.
+  var pastoralOverride = /^(i (feel|am|cant|cant|was|need|keep|dont|dont|have|lost|made|hate|love|miss|fear|wish)|im |i'm |help me|my (wife|husband|child|son|daughter|mom|dad|family|marriage|job|health|heart|anxiety|depression|addiction|grief)|we (are|cant|dont|lost|need)|feeling |struggling |cant stop|cannot stop|going through|dealing with|i just |i cant |im afraid|im scared|im angry|i dont know why|i dont understand|why does god|i feel like)/.test(norm);
+
+  // Question intent: queries clearly asking about Bible content rather than expressing
+  // a feeling or situation. Knowledge answers are checked first for these.
+  var questionIntent = !pastoralOverride && /^(who (was|is|were|are)|what (is|are|does|did|is the|are the|does the|happened|book)|tell me about|explain |which book|when did|where (is|did|was)|why (did|does|is|are) (the|a |an |jesus|god|paul|moses|david)|how (do|did|does|can i) (i |you |we )?(?:pray|fast|worship|read|study|know|get to|become|follow)|what (is|was) the (meaning|significance|story|purpose|difference|point)|what (does|did) the bible say about|what did jesus (say|mean|teach|do)|is (baptism|prayer|fasting|communion|salvation|heaven|hell|grace)|did (jesus|god|paul|moses|david)|does (god|the bible|jesus|scripture)|how to (pray|fast|worship|read the bible|study the bible|forgive|be saved)|what are the (ten commandments|beatitudes|fruits|gifts)|is (the )?(trinity|rapture|resurrection|sabbath)|what is (a |an )?(covenant|parable|prophecy|gospel|epistle|testament|canon))/.test(norm);
 
   function matchEntry(entry) {
     if (!entry || !Array.isArray(entry.triggers)) return false;

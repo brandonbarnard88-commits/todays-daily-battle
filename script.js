@@ -5653,6 +5653,46 @@ const PHRASE_TO_TOKENS = {
   'who was peter in the bible': ['faith', 'trust', 'hope', 'wisdom'],
   'who was john the baptist': ['faith', 'hope', 'wisdom', 'salvation'],
 
+  // === BIBLE KNOWLEDGE: Characters (batch 5) ===
+  'who was jonathan': ['faith', 'trust', 'love', 'hope'],
+  'jonathan and david friendship': ['faith', 'trust', 'love', 'hope'],
+  'who was gideon': ['faith', 'trust', 'strength', 'hope'],
+  'gideon 300 men': ['faith', 'strength', 'trust', 'hope'],
+  'who was deborah': ['faith', 'strength', 'wisdom', 'hope'],
+  'deborah prophetess': ['faith', 'strength', 'wisdom', 'hope'],
+  'who was stephen': ['faith', 'strength', 'hope', 'trust'],
+  'stephen first martyr': ['faith', 'strength', 'hope', 'trust'],
+  'who was thomas': ['faith', 'trust', 'hope', 'wisdom'],
+  'doubting thomas bible': ['faith', 'trust', 'hope', 'wisdom'],
+  'woman at the well': ['faith', 'salvation', 'hope', 'grace'],
+  'samaritan woman at the well': ['faith', 'salvation', 'hope', 'grace'],
+
+  // === BIBLE KNOWLEDGE: Theological (batch 5) ===
+  'what is the lords prayer': ['faith', 'prayer', 'wisdom', 'peace'],
+  'how to pray our father': ['faith', 'prayer', 'wisdom', 'peace'],
+  'what is the armor of god': ['faith', 'strength', 'trust', 'wisdom'],
+  'put on the whole armor of god': ['faith', 'strength', 'trust', 'wisdom'],
+  'what is agape love': ['faith', 'love', 'hope', 'grace'],
+  'what does the bible say about love': ['faith', 'love', 'hope', 'grace'],
+  'what is holiness': ['faith', 'identity', 'wisdom', 'trust'],
+  'be ye holy as i am holy': ['faith', 'identity', 'wisdom', 'trust'],
+  'what is discipleship': ['faith', 'wisdom', 'trust', 'hope'],
+  'what does it mean to follow jesus': ['faith', 'wisdom', 'trust', 'hope'],
+
+  // === BIBLE KNOWLEDGE: Books (batch 5) ===
+  'what is mark about': ['faith', 'wisdom', 'strength', 'hope'],
+  'gospel of mark': ['faith', 'wisdom', 'strength', 'hope'],
+  'what is deuteronomy about': ['faith', 'wisdom', 'trust', 'hope'],
+  'shema hear o israel': ['faith', 'wisdom', 'trust', 'hope'],
+  'what is the book of jeremiah about': ['faith', 'hope', 'strength', 'trust'],
+  'jeremiah book summary': ['faith', 'hope', 'strength', 'trust'],
+  'what is malachi about': ['faith', 'hope', 'wisdom', 'trust'],
+  'last book of the old testament': ['faith', 'hope', 'wisdom', 'trust'],
+  'what is 2 timothy about': ['faith', 'strength', 'wisdom', 'trust'],
+  'paul final letter': ['faith', 'strength', 'wisdom', 'trust'],
+  'what is jude about': ['faith', 'strength', 'wisdom', 'trust'],
+  'contend for the faith bible': ['faith', 'strength', 'wisdom', 'trust'],
+
   // === BIBLE KNOWLEDGE: Characters (batch 4) ===
   'who was jeremiah': ['faith', 'strength', 'hope', 'trust'],
   'jeremiah weeping prophet': ['grief', 'faith', 'hope', 'strength'],
@@ -7637,6 +7677,236 @@ var TDB_BIBLICAL_ANSWERS = [
     answer: 'The Song of Solomon (also called Song of Songs) is a love poem between a bride and bridegroom — the most intimate book in the Bible and the one that most surprised early readers about its inclusion in Scripture. On its surface it celebrates physical love, longing, and the joy of marriage with frankness and beauty. The Jewish rabbis called it "the holy of holies of Scripture." Christian interpreters have long read it also as an allegory of God\'s love for Israel and Christ\'s love for the church — a reading that Paul echoes in Ephesians 5:25–32 when he calls marriage a picture of Christ and the church. Either way, the book says something important: love, beauty, desire, and joy between a man and woman are not shameful — they are celebrated in Scripture. The recurring phrase "my beloved is mine, and I am his" (2:16) is one of the most tender declarations of belonging in all of God\'s word.',
     verses: ['Song of Solomon 2:16', 'Song of Solomon 8:6', 'Song of Solomon 2:4', 'Ephesians 5:25'],
     plan: 'walktheword'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE — Batch 5: Characters
+  // ============================================================
+  {
+    id: 'who-was-jonathan',
+    type: 'knowledge',
+    triggers: [
+      'who was jonathan in the bible', 'tell me about jonathan', 'jonathan and david bible',
+      'jonathan son of saul', 'jonathan and david friendship', 'covenant friendship bible',
+      'soul knit with david jonathan', 'jonathan gave david his robe', 'jonathan bible story',
+      'david and jonathan friendship bible'
+    ],
+    answer: 'Jonathan was the son of King Saul and David\'s closest friend — which made their relationship costly, since David was the very person destined to take the throne Jonathan stood to inherit. When they first met, "the soul of Jonathan was knit with the soul of David, and Jonathan loved him as his own soul" (1 Samuel 18:1). He gave David his own robe, armor, and weapons — symbols of transferring his royal claim. When Saul turned against David and wanted him dead, Jonathan warned David at personal risk and defended him before his father. He and David made a covenant together, and Jonathan asked David to protect his descendants if he should die. He was killed at the battle of Jezreel alongside Saul. David\'s lament over him is one of the most moving elegies in Scripture: "thy love to me was wonderful, passing the love of women" (2 Samuel 1:26). His friendship is one of the clearest models of covenant loyalty in the Bible.',
+    verses: ['1 Samuel 18:1', '1 Samuel 20:17', '2 Samuel 1:26', '1 Samuel 23:17'],
+    plan: 'trust'
+  },
+  {
+    id: 'who-was-gideon',
+    type: 'knowledge',
+    triggers: [
+      'who was gideon in the bible', 'tell me about gideon', 'gideon in the bible',
+      'story of gideon', 'gideon and the fleece', 'gideon 300 men bible', 'gideon judge bible',
+      'mighty man of valour gideon', 'gideon old testament', 'gideon fought with torches and trumpets'
+    ],
+    answer: 'Gideon was a judge in Israel during a time when the Midianites had terrorized the land for seven years, stripping harvests and driving Israelites into caves. The angel of the LORD appeared to Gideon while he was threshing wheat hidden in a winepress — hiding — and called him "thou mighty man of valour" (Judges 6:12). Gideon\'s first response was a list of objections: my family is the poorest, I am the least. God\'s answer was not a rebuttal of his weakness but a simple statement: "I will be with thee." He then tested God twice with a fleece — asking for dew one way and then the other — and God patiently answered both times. God then reduced his army from 32,000 to 300 to ensure the victory could not be credited to human strength. Those 300 carried torches inside clay jars and trumpets: they broke the jars, held the torches, and shouted "the sword of the LORD, and of Gideon" — and the enemy fled. His story is a sustained lesson that God tends to call people through their weakness, not around it.',
+    verses: ['Judges 6:12', 'Judges 6:16', 'Judges 7:7', 'Judges 7:18'],
+    plan: 'trust'
+  },
+  {
+    id: 'who-was-deborah',
+    type: 'knowledge',
+    triggers: [
+      'who was deborah in the bible', 'tell me about deborah', 'deborah in the bible',
+      'deborah prophetess judge', 'story of deborah', 'deborah old testament',
+      'deborah and barak bible', 'deborah arose a mother in israel', 'women leaders in the bible',
+      'deborah female judge in scripture'
+    ],
+    answer: 'Deborah was one of the judges of Israel — and the only woman named as a judge in the book of Judges. She was also a prophetess, and people came from across Israel to bring their disputes to her for judgment (Judges 4:4–5). When Israel was under oppression from Jabin, king of Canaan, God spoke through her to summon Barak to lead Israel\'s army. Barak said he would only go if Deborah came with him. She agreed, but told him that the honor of the victory would go to a woman because of his hesitation. Her song of victory in Judges 5 — one of the oldest poems in Scripture — celebrates God\'s deliverance with vivid, warrior poetry. She called herself "a mother in Israel" (5:7), which captures her role: one who bore the weight of her people\'s survival. Her presence in the judges narrative is unembellished — the text presents her authority without commentary or apology.',
+    verses: ['Judges 4:4', 'Judges 4:9', 'Judges 5:7', 'Judges 5:2'],
+    plan: 'heavyhope'
+  },
+  {
+    id: 'who-was-stephen',
+    type: 'knowledge',
+    triggers: [
+      'who was stephen in the bible', 'tell me about stephen', 'stephen in the bible',
+      'stephen first martyr', 'story of stephen', 'stephen stoned bible', 'acts 7 stephen',
+      'stephen saw jesus standing bible', 'stephen forgave his killers', 'stephen new testament'
+    ],
+    answer: 'Stephen was one of the first seven deacons appointed by the early church in Jerusalem — chosen because he was "full of faith and of the Holy Ghost" (Acts 6:5). He began working miracles and preaching with such authority that the religious authorities could not refute him, so they brought false charges and dragged him before the council. Stephen\'s defense in Acts 7 is the longest recorded speech in Acts — a full retelling of Israel\'s history that ends by calling his hearers stiff-necked betrayers of the prophets. They stopped their ears and rushed him. As he was being stoned, he saw "the heavens opened, and the Son of man standing on the right hand of God" (7:56) — the only New Testament description of Jesus standing rather than seated at the Father\'s right hand, as if rising to receive him. His final words echoed Jesus\' own: "Lord, lay not this sin to their charge" (7:60). Among those standing by, approving the stoning, was a young man named Saul — who would later become Paul.',
+    verses: ['Acts 6:5', 'Acts 7:55', 'Acts 7:56', 'Acts 7:60'],
+    plan: 'standfirm'
+  },
+  {
+    id: 'who-was-thomas',
+    type: 'knowledge',
+    triggers: [
+      'who was thomas in the bible', 'tell me about thomas the apostle', 'thomas in the bible',
+      'doubting thomas bible', 'story of thomas', 'thomas and the resurrection', 'john 20 thomas',
+      'my lord and my god thomas', 'thomas put his hand in jesus side', 'thomas apostle faith'
+    ],
+    answer: '"Doubting Thomas" is an incomplete portrait. The first time Thomas speaks in the Gospel of John, Lazarus has just died and returning to Judea seems like suicide. Thomas says to the other disciples: "Let us also go, that we may die with him" (John 11:16) — not doubt but loyalty. He appears again at the Last Supper, asking Jesus to clarify where He is going (John 14:5) — a genuine question, not unbelief. When the risen Jesus appeared to the disciples, Thomas was absent. Told that the others had seen the Lord, he said he would not believe without touching the wounds himself. Jesus appeared again a week later and invited Thomas to do exactly that. Thomas\' response was the highest confession in the Gospel: "My Lord and my God" (John 20:28). Jesus\' final word was not rebuke but blessing: "blessed are they that have not seen, and yet have believed." Thomas went on, by tradition, to carry the gospel as far as India.',
+    verses: ['John 20:28', 'John 11:16', 'John 14:5', 'John 20:29'],
+    plan: 'universitydoubt'
+  },
+  {
+    id: 'woman-at-the-well',
+    type: 'knowledge',
+    triggers: [
+      'woman at the well bible', 'samaritan woman at the well', 'jesus and the woman at the well',
+      'john 4 woman at the well', 'living water john 4', 'give me this water bible',
+      'samaritan woman five husbands', 'jesus knew everything about her', 'woman at the well john 4',
+      'samaritan woman evangelist bible'
+    ],
+    answer: 'The woman at the well in John 4 is one of the longest one-on-one conversations Jesus has with anyone in the Gospels — and she was socially the last person it would be expected with: a Samaritan (Jews and Samaritans had deep mutual contempt), a woman (Jewish men did not speak publicly with women they did not know), and someone with a complicated history. She came to draw water alone at the sixth hour — midday, when no one else would be there. Jesus asked her for a drink, which startled her. He offered her "living water" — water that becomes "a well of water springing up into everlasting life" (John 4:14). When she went to get her husband, Jesus gently surfaced the truth of her life — five husbands, and the man she was with was not hers. Instead of leaving, she ran back to the village and said: "Come, see a man, which told me all things that ever I did: is not this the Christ?" (4:29). She became the first evangelist to the Samaritans.',
+    verses: ['John 4:14', 'John 4:29', 'John 4:39', 'John 4:42'],
+    plan: 'roadtosalvation'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE — Batch 5: Theological
+  // ============================================================
+  {
+    id: 'lords-prayer-explained',
+    type: 'knowledge',
+    triggers: [
+      'what is the lords prayer', 'lords prayer explained', 'our father in heaven bible',
+      'how to pray the lords prayer', 'matthew 6 lords prayer', 'our father prayer meaning',
+      'what does the lords prayer mean', 'hallowed be thy name meaning', 'thy will be done meaning',
+      'lords prayer line by line bible'
+    ],
+    answer: 'The Lord\'s Prayer in Matthew 6:9–13 is not a rote formula but a pattern — Jesus prefaced it by saying "after this manner therefore pray ye." It opens by establishing orientation: "Our Father which art in heaven" — God is intimate (Father) and transcendent (heaven). "Hallowed be thy name" places His glory as the first concern, before any request. "Thy kingdom come, thy will be done in earth, as it is in heaven" is a genuine surrender of personal agenda. Only then come the requests: daily bread (present physical need), forgiveness (with the striking conditional — as we forgive), deliverance from temptation and the evil one. The doxology ("thine is the kingdom, the power, and the glory") closes by returning to where it started: God\'s supremacy, not human need. The structure teaches that prayer is not primarily a request list — it is reorienting yourself to who God is before bringing what you carry.',
+    verses: ['Matthew 6:9', 'Matthew 6:10', 'Matthew 6:12', 'Luke 11:2'],
+    plan: 'firststeps'
+  },
+  {
+    id: 'armor-of-god',
+    type: 'knowledge',
+    triggers: [
+      'what is the armor of god', 'armor of god ephesians 6', 'put on the whole armor of god',
+      'armor of god explained', 'belt of truth breastplate of righteousness', 'shield of faith bible',
+      'sword of the spirit bible', 'ephesians 6 10 18 explained', 'spiritual warfare armor of god',
+      'helmet of salvation bible'
+    ],
+    answer: 'The armor of God in Ephesians 6:10–18 is Paul\'s image for spiritual warfare — the equipment of a Roman soldier applied to the believer\'s daily life. He lists six pieces: the belt of truth (integrity as foundation — everything hangs from it), the breastplate of righteousness (the protection of a right standing with God, covering the heart), the shoes of the gospel of peace (readiness, stability, the solid footing of good news), the shield of faith (large enough to quench "the fiery darts of the wicked"), the helmet of salvation (protecting the mind with the certainty of what Christ has done), and the sword of the Spirit — "which is the word of God." Five of the six are defensive. The armor is described as something to stand in, not charge with: "having done all, to stand" (6:13). The context is not physical battle but the schemes of the devil, which Paul says are what believers are truly wrestling against.',
+    verses: ['Ephesians 6:11', 'Ephesians 6:13', 'Ephesians 6:16', 'Ephesians 6:17'],
+    plan: 'standfirm'
+  },
+  {
+    id: 'what-is-agape-love',
+    type: 'knowledge',
+    triggers: [
+      'what does the bible say about love', 'what is love in the bible', 'what is agape love',
+      'agape love meaning bible', 'what is biblical love', 'god is love bible meaning',
+      '1 john 4 8 god is love', 'love in the bible explained', 'what is love according to the bible',
+      'difference between love and feeling bible'
+    ],
+    answer: 'The Bible\'s primary word for love — agape in Greek — is not primarily a feeling but a decision to seek the genuine good of another regardless of whether it is returned. First John 4:8 states it as definition: "God is love." Not that God happens to love, but that love is the nature of who He is. The most famous description is 1 Corinthians 13:4–7: patient, kind, not envious, not self-seeking, not easily provoked, bearing all things, enduring all things. Jesus called the two great commandments love of God and love of neighbor (Matthew 22:37–39). John 3:16 shows what agape looks like from God\'s side — giving the Son for the world, not because the world earned it. Romans 5:8 is the same: "while we were yet sinners, Christ died for us." Love in Scripture moves toward its object; it does not wait for its object to deserve it.',
+    verses: ['1 John 4:8', '1 Corinthians 13:4', 'Romans 5:8', 'John 3:16'],
+    plan: 'heavyhope'
+  },
+  {
+    id: 'what-is-holiness',
+    type: 'knowledge',
+    triggers: [
+      'what does the bible say about holiness', 'what is holiness in the bible',
+      'be ye holy as i am holy bible', 'what does it mean to be holy', 'holiness meaning bible',
+      'set apart for god bible', 'holiness explained simply', 'what is sanctification holiness',
+      'holy means set apart bible', '1 peter 1 15 16 holiness'
+    ],
+    answer: 'The word "holy" in Hebrew (qadosh) and Greek (hagios) fundamentally means set apart — separated from common use for a sacred purpose. God is holy in the fullest sense: utterly distinct from everything created, without mixture or compromise. First Peter 1:15–16 quotes Leviticus directly: "Be ye holy; for I am holy." This is not a call to moral perfectionism but to belonging — to being set apart for God as He is set apart from everything else. Holiness in the believer is not primarily about rule-keeping; it is about being shaped by the character of the One you belong to. Hebrews 12:14 says "without holiness no man shall see the Lord" — not as a threat but as a statement of trajectory: holiness and the vision of God go together. The Holy Spirit is named for this quality because His work is to make people more and more like the holy God.',
+    verses: ['1 Peter 1:16', 'Hebrews 12:14', 'Isaiah 6:3', 'Romans 12:1'],
+    plan: 'identityinchrist'
+  },
+  {
+    id: 'what-is-discipleship',
+    type: 'knowledge',
+    triggers: [
+      'what is discipleship in the bible', 'what does it mean to be a disciple', 'discipleship bible meaning',
+      'how to be a disciple of jesus', 'take up your cross bible', 'follow me bible discipleship',
+      'what does it mean to follow jesus', 'counting the cost bible', 'luke 9 23 discipleship',
+      'what did jesus say about being his disciple'
+    ],
+    answer: 'Discipleship in Scripture is more than church attendance or holding a belief — it is the sustained, life-shaping practice of following Jesus. He defined it plainly in Luke 9:23: "If any man will come after me, let him deny himself, and take up his cross daily, and follow me." The cross here is not suffering in general — it is the willing surrender of your own agenda to His. In John 8:31 He said: "If ye continue in my word, then are ye my disciples indeed" — discipleship is measured by continuance, not by a single decision. The cost is real: Jesus told prospective followers to count it the way a builder counts the cost of a tower (Luke 14:28). The Great Commission frames the church\'s mission as making disciples, not just converts — people taught to "observe all things whatsoever I have commanded you" (Matthew 28:20). Discipleship is not a program; it is a relationship that reshapes everything.',
+    verses: ['Luke 9:23', 'John 8:31', 'Matthew 28:20', 'Luke 14:28'],
+    plan: 'firststeps'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE — Batch 5: Books & Passages
+  // ============================================================
+  {
+    id: 'what-is-mark-about',
+    type: 'knowledge',
+    triggers: [
+      'what is mark about', 'gospel of mark overview', 'what does mark teach',
+      'gospel of mark explained', 'mark summary', 'what is the book of mark about',
+      'mark main message', 'who wrote mark', 'mark written for roman audience',
+      'mark shortest gospel bible'
+    ],
+    answer: 'The Gospel of Mark is the shortest and almost certainly the earliest of the four Gospels — written for a Roman audience with urgency and speed. Its signature word is "straightway" or "immediately" (euthys in Greek), which appears over 40 times: Jesus did this, and immediately He did that. Mark wastes no words. There is no birth narrative, no genealogy — Mark opens with Jesus already at the Jordan being baptized, and the Spirit drives Him into the wilderness the very next verse. He presents Jesus primarily as a servant and a doer: healing, casting out demons, commanding the storm. Suffering is close to the surface throughout — Mark 10:45 gives the clearest statement of purpose: "the Son of man came not to be ministered unto, but to minister, and to give his life a ransom for many." The early church believed Mark recorded Peter\'s eyewitness testimony, which would explain both its vividness and its speed.',
+    verses: ['Mark 1:12', 'Mark 10:45', 'Mark 1:1', 'Mark 9:23'],
+    plan: 'walktheword'
+  },
+  {
+    id: 'what-is-deuteronomy-about',
+    type: 'knowledge',
+    triggers: [
+      'what is deuteronomy about', 'deuteronomy overview', 'what does deuteronomy teach',
+      'book of deuteronomy explained', 'deuteronomy summary', 'what is deuteronomy in the bible',
+      'shema deuteronomy 6', 'hear o israel the lord our god', 'love the lord with all your heart deuteronomy',
+      'deuteronomy moses final sermon'
+    ],
+    answer: 'Deuteronomy is Moses\' final address to Israel — three long sermons delivered on the plains of Moab, just before the people entered the Promised Land without him. He would not cross the Jordan. The book is essentially a retelling and renewing of the covenant: what God has done, what He requires, and what will happen depending on obedience or disobedience. It contains the Shema — Israel\'s defining declaration: "Hear, O Israel: The LORD our God is one LORD: and thou shalt love the LORD thy God with all thine heart, and with all thy soul, and with all thy might" (Deuteronomy 6:4–5). Jesus called this the greatest commandment. Deuteronomy also gives the blessings and curses of the covenant (chapters 27–28), which paint the stakes vividly. Moses died on Mount Nebo within sight of the land he could not enter. The book closes with Deuteronomy 34\'s quiet grief: "there arose not a prophet since in Israel like unto Moses."',
+    verses: ['Deuteronomy 6:4', 'Deuteronomy 6:5', 'Deuteronomy 31:6', 'Deuteronomy 34:10'],
+    plan: 'walktheword'
+  },
+  {
+    id: 'what-is-jeremiah-book-about',
+    type: 'knowledge',
+    triggers: [
+      'what is the book of jeremiah about', 'jeremiah book overview', 'what does jeremiah teach',
+      'book of jeremiah explained', 'jeremiah summary', 'jeremiah book main message',
+      'jeremiah 29 11 in context', 'lamentations jeremiah bible', 'jeremiah new covenant prophecy',
+      'what is jeremiah in the bible'
+    ],
+    answer: 'The book of Jeremiah spans forty years of prophecy — from the reign of Josiah through the fall of Jerusalem to Babylon in 586 BC. It is the longest book in the Bible by word count and one of the most emotionally raw. It includes Jeremiah\'s "confessions" — deeply personal laments where he wrestles with God about why his faithfulness has brought him nothing but suffering. It also contains some of the most hope-filled promises in Scripture: Jeremiah 29:11 ("I know the thoughts that I think toward you... thoughts of peace and not of evil") comes in the middle of a letter to exiles — people who had lost everything — telling them to settle in, plant gardens, and trust that God had not abandoned them. Chapter 31 contains the new covenant prophecy: "I will put my law in their inward parts, and write it in their hearts." The book is not just history; it is a theology of faithfulness when the world around you collapses.',
+    verses: ['Jeremiah 29:11', 'Jeremiah 31:33', 'Jeremiah 1:5', 'Jeremiah 33:3'],
+    plan: 'sufferendure'
+  },
+  {
+    id: 'what-is-malachi-about',
+    type: 'knowledge',
+    triggers: [
+      'what is malachi about', 'malachi overview', 'what does malachi teach',
+      'book of malachi explained', 'malachi summary', 'what is malachi in the bible',
+      'malachi main message', 'will a man rob god malachi', 'last book of the old testament',
+      'malachi and the messenger bible'
+    ],
+    answer: 'Malachi is the last book of the Old Testament — and after it, there were approximately four hundred years of prophetic silence before John the Baptist\'s voice in the wilderness. The book is structured as a series of disputes between God and a weary, cynical people who had grown slack in worship: bringing blemished sacrifices, divorcing faithful wives, robbing God in tithes. God\'s tone is sharp but not distant: "I have loved you, saith the LORD" is the opening line, and Israel\'s response is "Wherein hast thou loved us?" (Malachi 1:2). The book closes with the promise of a messenger to prepare the way (3:1) and the return of "Elijah the prophet before the coming of the great and dreadful day of the LORD" (4:5) — a prophecy Jesus said was fulfilled in John the Baptist (Matthew 11:14). After this: silence. And then, four centuries later, an angel appeared to a priest named Zacharias.',
+    verses: ['Malachi 1:2', 'Malachi 3:1', 'Malachi 3:10', 'Malachi 4:5'],
+    plan: 'heavyhope'
+  },
+  {
+    id: 'what-is-2-timothy-about',
+    type: 'knowledge',
+    triggers: [
+      'what is 2 timothy about', 'second timothy overview', 'what does 2 timothy teach',
+      'book of 2 timothy explained', '2 timothy summary', 'what is 2 timothy in the bible',
+      '2 timothy main message', 'paul last letter 2 timothy', 'i have fought a good fight bible',
+      '2 timothy charge to timothy'
+    ],
+    answer: 'Second Timothy is Paul\'s final letter — written from prison in Rome shortly before his execution under Nero. It reads like a deathbed charge from an old soldier to a young one. Timothy was timid by temperament (1:7 — "God hath not given us the spirit of fear; but of power, and of love, and of a sound mind"), and Paul urges him to be bold, to guard the deposit of the gospel, and to "preach the word" in and out of season (4:2). He warns that "in the last days" men will have a form of godliness but deny its power — and instructs Timothy to turn away from it. The letter contains Paul\'s most personal farewell: "I have fought a good fight, I have finished my course, I have kept the faith: henceforth there is laid up for me a crown of righteousness" (4:7–8). Written by a man who knew he was about to die, it is one of the most dignified documents in the New Testament.',
+    verses: ['2 Timothy 1:7', '2 Timothy 3:16', '2 Timothy 4:7', '2 Timothy 2:15'],
+    plan: 'standfirm'
+  },
+  {
+    id: 'what-is-jude-about',
+    type: 'knowledge',
+    triggers: [
+      'what is jude about', 'jude overview', 'what does jude teach',
+      'book of jude explained', 'jude summary', 'what is jude in the bible',
+      'jude main message', 'contend earnestly for the faith jude', 'jude false teachers bible',
+      'jude doxology now unto him bible'
+    ],
+    answer: 'Jude is one of the shortest books in the Bible — only 25 verses — and one of the most direct. Jude, the brother of James (and therefore of Jesus), intended to write about the salvation believers share, but instead felt urgently compelled to warn about false teachers who had crept into the church. His charge is pointed: "earnestly contend for the faith which was once delivered unto the saints" (v. 3). He catalogues historical examples of judgment on unfaithfulness — the Israelites in the wilderness, the fallen angels, Sodom and Gomorrah — as precedents that those who twist grace into license have not considered carefully. But the letter does not end in alarm. It ends in one of the most beautiful doxologies in Scripture: "Now unto him that is able to keep you from falling, and to present you faultless before the presence of his glory with exceeding joy, to the only wise God our Saviour, be glory and majesty, dominion and power, both now and ever. Amen." (vv. 24–25).',
+    verses: ['Jude 3', 'Jude 20', 'Jude 24', 'Jude 25'],
+    plan: 'standfirm'
   }
 ];
 

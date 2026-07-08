@@ -5653,6 +5653,47 @@ const PHRASE_TO_TOKENS = {
   'who was peter in the bible': ['faith', 'trust', 'hope', 'wisdom'],
   'who was john the baptist': ['faith', 'hope', 'wisdom', 'salvation'],
 
+  // === BIBLE KNOWLEDGE: Characters (batch 4) ===
+  'who was jeremiah': ['faith', 'strength', 'hope', 'trust'],
+  'jeremiah weeping prophet': ['grief', 'faith', 'hope', 'strength'],
+  'who was joshua': ['faith', 'strength', 'trust', 'hope'],
+  'be strong and courageous bible': ['strength', 'faith', 'trust', 'hope'],
+  'as for me and my house': ['faith', 'family', 'wisdom', 'trust'],
+  'who was samuel': ['faith', 'wisdom', 'trust', 'hope'],
+  'speak lord thy servant heareth': ['faith', 'wisdom', 'prayer', 'trust'],
+  'who was hannah': ['faith', 'grief', 'hope', 'prayer'],
+  'hannah prayer for a son': ['faith', 'hope', 'prayer', 'grief'],
+  'who was zacchaeus': ['faith', 'salvation', 'hope', 'grace'],
+  'zacchaeus climbed a tree': ['faith', 'salvation', 'hope', 'grace'],
+  'who was lazarus': ['faith', 'hope', 'grief', 'trust'],
+  'jesus raised lazarus': ['faith', 'hope', 'healing', 'trust'],
+
+  // === BIBLE KNOWLEDGE: Theological (batch 4) ===
+  'what is worship': ['faith', 'prayer', 'wisdom', 'peace'],
+  'how to worship god': ['faith', 'prayer', 'wisdom', 'peace'],
+  'what is fasting': ['faith', 'prayer', 'wisdom', 'strength'],
+  'should christians fast': ['faith', 'prayer', 'wisdom', 'strength'],
+  'what is eternal life': ['salvation', 'faith', 'hope', 'trust'],
+  'how do you get eternal life': ['salvation', 'faith', 'hope', 'grace'],
+  'what is the fruit of the spirit': ['faith', 'identity', 'wisdom', 'peace'],
+  'galatians 5 fruit of the spirit': ['faith', 'identity', 'wisdom', 'peace'],
+  'what is heaven': ['faith', 'hope', 'trust', 'peace'],
+  'what does heaven look like': ['faith', 'hope', 'trust', 'peace'],
+
+  // === BIBLE KNOWLEDGE: Books (batch 4) ===
+  'what is matthew about': ['faith', 'wisdom', 'salvation', 'hope'],
+  'gospel of matthew': ['faith', 'wisdom', 'salvation', 'hope'],
+  'what is luke about': ['faith', 'hope', 'salvation', 'grace'],
+  'gospel of luke': ['faith', 'hope', 'salvation', 'grace'],
+  'what is isaiah about': ['faith', 'hope', 'strength', 'salvation'],
+  'what is the book of isaiah': ['faith', 'hope', 'strength', 'salvation'],
+  'what is daniel about': ['faith', 'strength', 'trust', 'hope'],
+  'book of daniel bible': ['faith', 'strength', 'trust', 'hope'],
+  'what is 2 corinthians about': ['faith', 'strength', 'grace', 'hope'],
+  'my grace is sufficient': ['faith', 'strength', 'grace', 'hope'],
+  'what is song of solomon about': ['faith', 'wisdom', 'love', 'trust'],
+  'song of songs bible': ['faith', 'wisdom', 'love', 'trust'],
+
   // === BIBLE KNOWLEDGE: Characters (batch 3) ===
   'who was noah': ['faith', 'trust', 'hope', 'wisdom'],
   'who was isaiah': ['faith', 'wisdom', 'hope', 'strength'],
@@ -7367,6 +7408,235 @@ var TDB_BIBLICAL_ANSWERS = [
     answer: 'Ecclesiastes is one of the most surprising books in Scripture — a sustained, honest meditation on the limits of human wisdom, pleasure, work, and achievement "under the sun." Its repeated phrase is "vanity of vanities" (hebel in Hebrew — breath, vapor, mist): all the things humans reach for fade. Its author — likely Solomon near the end of his life — has tried wisdom, pleasure, work, wealth, and fame, and found that none of them deliver what they promise. The book does not reach nihilism but honesty: there is pleasure in simple things (eating, work, companionship), and the proper response to the brevity of life is to "fear God, and keep his commandments: for this is the whole duty of man" (Ecclesiastes 12:13). It is the Bible\'s most honest word on what a life lived away from God eventually discovers.',
     verses: ['Ecclesiastes 1:2', 'Ecclesiastes 3:11', 'Ecclesiastes 12:13', 'Ecclesiastes 5:18'],
     plan: 'proverbswisdom'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE — Batch 4: Characters
+  // ============================================================
+  {
+    id: 'who-was-jeremiah',
+    type: 'knowledge',
+    triggers: [
+      'who was jeremiah in the bible', 'tell me about jeremiah', 'jeremiah the prophet',
+      'jeremiah weeping prophet', 'story of jeremiah', 'jeremiah old testament',
+      'book of jeremiah who wrote it', 'jeremiah and the potter', 'jeremiah 29 11 context',
+      'jeremiah called from the womb'
+    ],
+    answer: 'Jeremiah was a prophet in Jerusalem from roughly 627 BC until the fall of the city to Babylon in 586 BC — a span of forty years during which almost no one listened to him. He is often called the "weeping prophet" because he was required to preach a message of coming judgment he desperately wished were not true: "O LORD, thou hast deceived me, and I was deceived" (Jeremiah 20:7). He was thrown into a cistern, imprisoned, mocked, and watched the city he loved destroyed. He also wrote Lamentations — the raw grief of watching Jerusalem burn. Yet Jeremiah carries some of the most hope-filled words in Scripture: the promise of a new covenant written on the heart (31:31–33), and the assurance to exiles that God had plans for them — "to give you an expected end" (29:11). He is the prophet who stayed when everyone else fled.',
+    verses: ['Jeremiah 1:5', 'Jeremiah 29:11', 'Jeremiah 31:33', 'Lamentations 3:22'],
+    plan: 'sufferendure'
+  },
+  {
+    id: 'who-was-joshua',
+    type: 'knowledge',
+    triggers: [
+      'who was joshua in the bible', 'tell me about joshua', 'joshua in the bible',
+      'story of joshua', 'joshua and the walls of jericho', 'as for me and my house joshua',
+      'joshua old testament', 'joshua leads israel into canaan', 'joshua successor to moses',
+      'be strong and courageous bible'
+    ],
+    answer: 'Joshua was Moses\' successor — the man who led Israel into Canaan after forty years of wilderness wandering. He had been one of only two spies (with Caleb) who believed God could give them the land when the other ten returned with fear (Numbers 14:6–9). His name in Hebrew is the same root as the name Jesus: salvation, deliverance. God commissioned him with a repeated charge: "Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest" (Joshua 1:9). Under his leadership the walls of Jericho fell not by military force but by obedience to a strange command. He closed his life with one of the most quoted declarations in Scripture: "as for me and my house, we will serve the LORD" (Joshua 24:15).',
+    verses: ['Joshua 1:9', 'Joshua 24:15', 'Numbers 14:8', 'Joshua 3:5'],
+    plan: 'trust'
+  },
+  {
+    id: 'who-was-samuel',
+    type: 'knowledge',
+    triggers: [
+      'who was samuel in the bible', 'tell me about samuel', 'samuel in the bible',
+      'story of samuel', 'samuel and eli', 'god called samuel', 'speak lord thy servant heareth',
+      'samuel anointed david', 'samuel old testament', 'samuel the prophet judge'
+    ],
+    answer: 'Samuel was the last of Israel\'s judges and the first of its great prophets — a bridge between two eras. His birth came through the desperate, honest prayer of his mother Hannah, who had been barren and cried so deeply in the temple that the priest Eli thought she was drunk (1 Samuel 1:13). Hannah gave him to the LORD before he was born, and he was raised by Eli in the tabernacle. God began speaking to Samuel as a boy while Eli was still alive, calling him in the night: "Samuel, Samuel" (1 Samuel 3:10). He grew into the voice that shaped Israel\'s monarchy, anointing first Saul and then David. His well-known rebuke to Saul remains one of the sharpest statements in Scripture: "to obey is better than sacrifice" (1 Samuel 15:22).',
+    verses: ['1 Samuel 3:10', '1 Samuel 15:22', '1 Samuel 16:7', '1 Samuel 2:2'],
+    plan: 'walktheword'
+  },
+  {
+    id: 'who-was-hannah',
+    type: 'knowledge',
+    triggers: [
+      'who was hannah in the bible', 'tell me about hannah', 'hannah in the bible',
+      'story of hannah', 'hannah prayer for a son', 'hannah and samuel', 'hannah barren bible',
+      'hannah old testament', 'hannah vow to god', 'hannah wept bitterly'
+    ],
+    answer: 'Hannah was the mother of Samuel and one of the most vivid examples of desperate, honest prayer in all of Scripture. She was barren in a culture where that carried deep shame — and her husband\'s second wife Peninnah "provoked her sore" about it year after year (1 Samuel 1:6). She went to the tabernacle and wept before God in silent prayer so intense that Eli the priest misread it as drunkenness. Her prayer was not a formula but a broken heart poured out: "O LORD of hosts, if thou wilt indeed look on the affliction of thine handmaid" (1:11). God answered, and she conceived Samuel. Her response was to give him back — to raise him in the tabernacle as she had vowed. Her prayer of praise in 1 Samuel 2 prefigures Mary\'s Magnificat and models what it looks like to be completely honest with God and completely surrendered to Him.',
+    verses: ['1 Samuel 1:10', '1 Samuel 1:27', '1 Samuel 2:1', '1 Samuel 2:2'],
+    plan: 'grief'
+  },
+  {
+    id: 'who-was-zacchaeus',
+    type: 'knowledge',
+    triggers: [
+      'who was zacchaeus in the bible', 'tell me about zacchaeus', 'zacchaeus in the bible',
+      'story of zacchaeus', 'zacchaeus climbed a tree', 'zacchaeus tax collector bible',
+      'zacchaeus sycamore tree', 'jesus and zacchaeus', 'salvation is come to this house',
+      'zacchaeus short man bible'
+    ],
+    answer: 'Zacchaeus was a chief tax collector in Jericho — which made him both wealthy and despised. Tax collectors in Roman-occupied Judea worked for the empire and typically overcharged their own people, pocketing the difference. He was also short, and when Jesus passed through Jericho, Zacchaeus climbed a sycamore tree to see over the crowd (Luke 19:4). Jesus stopped directly beneath it and called him by name: "Zacchaeus, make haste, and come down; for to day I must abide at thy house" (19:5). The crowd grumbled — Jesus was going to the home of a sinner. But that visit changed Zacchaeus entirely. He stood up and declared he would give half his goods to the poor and repay fourfold anyone he had defrauded. Jesus said: "This day is salvation come to this house" (19:9). His story is a compressed picture of what an encounter with Jesus actually does to a person.',
+    verses: ['Luke 19:4', 'Luke 19:5', 'Luke 19:8', 'Luke 19:10'],
+    plan: 'roadtosalvation'
+  },
+  {
+    id: 'who-was-lazarus',
+    type: 'knowledge',
+    triggers: [
+      'who was lazarus in the bible', 'tell me about lazarus', 'lazarus in the bible',
+      'story of lazarus', 'lazarus raised from the dead', 'jesus raised lazarus', 'john 11 lazarus',
+      'lazarus come forth', 'jesus wept lazarus', 'lazarus four days dead'
+    ],
+    answer: 'Lazarus was the brother of Mary and Martha, who lived in Bethany — a family Jesus loved (John 11:5). When Lazarus fell ill, his sisters sent word to Jesus, but Jesus waited two days before going. By the time He arrived, Lazarus had been dead four days. Martha said, "Lord, if thou hadst been here, my brother had not died" — and Jesus wept (John 11:35), the shortest verse in Scripture, showing the God of the universe grieving alongside a grieving friend. He then commanded the stone to be removed and called out: "Lazarus, come forth" (11:43). Lazarus walked out, still bound in grave clothes. The miracle is not only a sign of resurrection power — it is placed here, just before the crucifixion, as a deliberate marker: the One who claims to be "the resurrection, and the life" is about to prove it not just for Lazarus but for everyone who believes.',
+    verses: ['John 11:25', 'John 11:35', 'John 11:43', 'John 11:44'],
+    plan: 'heavyhope'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE — Batch 4: Theological
+  // ============================================================
+  {
+    id: 'what-is-worship',
+    type: 'knowledge',
+    triggers: [
+      'what does the bible say about worship', 'what is worship in the bible',
+      'how to worship god bible', 'worship in spirit and truth bible', 'what is true worship',
+      'worship meaning bible', 'john 4 24 worship', 'what does it mean to worship god',
+      'worship more than singing bible', 'biblical definition of worship'
+    ],
+    answer: 'Worship in Scripture is far broader than singing in a building. Jesus defined it directly in John 4:24: "God is a Spirit: and they that worship him must worship him in spirit and in truth." Spirit — engaged heart and will, not performance. Truth — aligned with who God actually is. Romans 12:1 calls presenting your body as a living sacrifice "your reasonable service" — the same word translated "worship" in other contexts. Isaiah 58 rebukes a people whose fasting and worship were religious forms while they ignored the hungry and oppressed: God said He did not want it. Throughout Scripture, worship is the posture of a creature before its Creator — expressed in prayer, obedience, generosity, stillness, and song. Music is one expression of worship, not its definition.',
+    verses: ['John 4:24', 'Romans 12:1', 'Psalm 95:6', 'Isaiah 58:6'],
+    plan: 'firststeps'
+  },
+  {
+    id: 'what-is-fasting',
+    type: 'knowledge',
+    triggers: [
+      'what does the bible say about fasting', 'what is fasting in the bible',
+      'how to fast biblically', 'fasting bible meaning', 'should christians fast',
+      'jesus fasted bible', 'matthew 6 fasting', 'isaiah 58 fasting', 'what is a biblical fast',
+      'fasting and prayer bible'
+    ],
+    answer: 'Fasting in Scripture is the voluntary setting aside of food (and sometimes other things) to seek God with undivided attention. Jesus assumed His followers would fast — not "if you fast" but "when ye fast" (Matthew 6:16–17) — and instructed them to do it quietly, not for human approval. He fasted forty days before His public ministry began (Matthew 4:2). Isaiah 58 gives the starkest correction about it: God told Israel their fasting was meaningless because they fasted and then oppressed workers and quarreled. The fast He chose was "to loose the bands of wickedness, to undo the heavy burdens" — justice and mercy. Fasting is not hunger as leverage over God. It is deliberately denying the body\'s loudest voice so another voice can be heard more clearly.',
+    verses: ['Matthew 6:16', 'Isaiah 58:6', 'Matthew 4:2', 'Acts 13:3'],
+    plan: 'firststeps'
+  },
+  {
+    id: 'what-is-eternal-life',
+    type: 'knowledge',
+    triggers: [
+      'what does the bible say about eternal life', 'what is eternal life in the bible',
+      'what is eternal life', 'how do you get eternal life', 'eternal life meaning bible',
+      'john 17 3 eternal life', 'what does it mean to have eternal life', 'everlasting life bible',
+      'eternal life starts now bible', 'eternal life explained simply'
+    ],
+    answer: 'Eternal life in Scripture is not simply life that goes on forever — it is a quality of life that comes from knowing God. Jesus defines it precisely in John 17:3: "And this is life eternal, that they might know thee the only true God, and Jesus Christ, whom thou hast sent." The Greek word is zoe aionios — life of the age to come, life of a different kind, not just extended duration. John 3:16 says it is available to "whosoever believeth" in the Son. Romans 6:23 frames it as a gift: "the wages of sin is death; but the gift of God is eternal life through Jesus Christ our Lord." Importantly, Scripture treats eternal life as something that begins now in the person who believes (1 John 5:13), not only as a future reward after death.',
+    verses: ['John 3:16', 'John 17:3', 'Romans 6:23', '1 John 5:13'],
+    plan: 'roadtosalvation'
+  },
+  {
+    id: 'fruit-of-the-spirit',
+    type: 'knowledge',
+    triggers: [
+      'what is the fruit of the spirit', 'galatians 5 fruit of the spirit', 'fruit of the spirit bible',
+      'love joy peace bible galatians', 'what does fruit of the spirit mean', 'nine fruits of the spirit',
+      'fruit of the spirit explained', 'what is the fruit of the holy spirit', 'how do i grow in the fruit',
+      'galatians 5 22 23 explained'
+    ],
+    answer: 'The fruit of the Spirit is the list given in Galatians 5:22–23: "love, joy, peace, longsuffering, gentleness, goodness, faith, meekness, temperance: against such there is no law." Paul names it "fruit" (singular, not fruits) — it is one integrated character produced by the Spirit\'s presence, not nine separate items to achieve individually. The context matters: Galatians 5 contrasts the works of the flesh (which are produced by human effort and appetite) with the fruit of the Spirit (which is grown, not manufactured). Fruit grows naturally from a healthy tree — the goal is not to produce peace by willpower but to remain connected to the vine (John 15:4–5). The fruit is descriptive of what a Spirit-filled life looks like over time, not a standard you perform to earn approval.',
+    verses: ['Galatians 5:22', 'Galatians 5:23', 'John 15:5', 'Romans 8:6'],
+    plan: 'identityinchrist'
+  },
+  {
+    id: 'what-is-heaven',
+    type: 'knowledge',
+    triggers: [
+      'what does the bible say about heaven', 'what is heaven in the bible', 'what is heaven like',
+      'where is heaven bible', 'will we know each other in heaven', 'what happens in heaven',
+      'heaven described in the bible', 'revelation 21 heaven', 'new jerusalem heaven bible',
+      'heaven explained simply bible'
+    ],
+    answer: 'Heaven in Scripture is primarily the dwelling place of God — where His full glory is not veiled. Jesus told His disciples: "In my Father\'s house are many mansions: if it were not so, I would have told you. I go to prepare a place for you" (John 14:2). Paul described his near-death experience as being caught up to "the third heaven" and hearing things too profound for words (2 Corinthians 12:2–4). Revelation 21 gives the most detailed vision: a new heaven and new earth, the holy city Jerusalem descending from God, with no more tears, death, sorrow, or pain — "for the former things are passed away." The New Testament emphasis is not on disembodied souls floating in clouds but on resurrection, restoration, and the presence of God dwelling fully with His people. C. S. Lewis\' image is apt: it is the real country, of which everything good here is only a shadow.',
+    verses: ['John 14:2', 'Revelation 21:4', 'Revelation 21:3', '1 Corinthians 2:9'],
+    plan: 'heavyhope'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE — Batch 4: Books & Passages
+  // ============================================================
+  {
+    id: 'what-is-matthew-about',
+    type: 'knowledge',
+    triggers: [
+      'what is matthew about', 'matthew gospel overview', 'what does matthew teach',
+      'gospel of matthew explained', 'matthew summary', 'what is matthew in the bible',
+      'matthew main message', 'who wrote matthew', 'matthew written for jewish audience',
+      'sermon on the mount matthew'
+    ],
+    answer: 'The Gospel of Matthew was written primarily for a Jewish audience, which is why it opens with a genealogy tracing Jesus through Abraham and David — placing Him squarely within the covenant story of Israel. It includes the Sermon on the Mount (chapters 5–7), the longest sustained teaching of Jesus recorded anywhere, beginning with the Beatitudes. Matthew organizes Jesus\' teaching into five major discourses, likely mirroring the five books of Moses. He uses the phrase "kingdom of heaven" where other Gospels say "kingdom of God" — a Jewish sensitivity to the name of God. Matthew records the Great Commission in full (28:18–20), which has shaped the church\'s mission ever since. His repeated phrase "that it might be fulfilled which was spoken by the prophets" ties every major event to Old Testament prophecy — the whole story is one story.',
+    verses: ['Matthew 5:3', 'Matthew 5:17', 'Matthew 28:18', 'Matthew 1:1'],
+    plan: 'walktheword'
+  },
+  {
+    id: 'what-is-luke-about',
+    type: 'knowledge',
+    triggers: [
+      'what is luke about', 'luke gospel overview', 'what does luke teach', 'gospel of luke explained',
+      'luke summary', 'what is the book of luke about', 'luke main message', 'who wrote luke',
+      'luke the physician gospel', 'luke written for gentiles'
+    ],
+    answer: 'Luke is the longest Gospel — and was written by a physician, likely a Gentile, addressed to "Theophilus" (meaning "friend of God" or a real patron of that name). Luke emphasizes the people Jesus paid attention to that others overlooked: the poor, the outcast, women, Samaritans, and Gentiles. He records the most parables of any Gospel — including the three famous "lost" parables of Luke 15 (lost sheep, lost coin, and the prodigal son). Luke also gives the longest birth narrative of any Gospel (chapters 1–2), including Mary\'s Magnificat and the account of shepherds rather than wise men. Acts was written as a sequel by the same author. Luke\'s theme is that the gospel breaks every social barrier — no one is outside its reach.',
+    verses: ['Luke 4:18', 'Luke 15:7', 'Luke 19:10', 'Luke 1:46'],
+    plan: 'heavyhope'
+  },
+  {
+    id: 'what-is-isaiah-about',
+    type: 'knowledge',
+    triggers: [
+      'what is isaiah about', 'isaiah book overview', 'what does isaiah teach',
+      'book of isaiah explained', 'isaiah summary', 'what is the book of isaiah',
+      'isaiah main message', 'isaiah 53 meaning', 'who wrote the book of isaiah',
+      'isaiah 40 he giveth power to the faint'
+    ],
+    answer: 'Isaiah is 66 chapters long — structured in two clear halves (1–39: judgment and warning; 40–66: comfort and restoration) in a way that mirrors the 66 books of the Bible itself. Chapter 40 opens with "Comfort ye, comfort ye my people" — a complete change in register after decades of warning. Isaiah contains more prophecy about Jesus than any other Old Testament book: chapter 7 (a virgin shall conceive), chapter 9 (unto us a child is born, Wonderful, Counsellor, Prince of Peace), and especially chapter 53 (He was despised and rejected, wounded for our transgressions, bruised for our iniquities). That chapter was written seven hundred years before the crucifixion. Chapter 40:31 — "they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles" — is one of the most memorized comfort passages in all of Scripture.',
+    verses: ['Isaiah 40:31', 'Isaiah 53:5', 'Isaiah 9:6', 'Isaiah 40:1'],
+    plan: 'sufferendure'
+  },
+  {
+    id: 'what-is-daniel-book-about',
+    type: 'knowledge',
+    triggers: [
+      'what is daniel about', 'daniel book overview', 'what does daniel teach',
+      'book of daniel explained', 'daniel summary', 'what is the book of daniel',
+      'daniel main message', 'daniel and the lions den book', 'daniel prophecy bible',
+      'fiery furnace daniel shadrach meshach'
+    ],
+    answer: 'Daniel is in two distinct parts: chapters 1–6 are narrative (Daniel and his friends in Babylon — the fiery furnace, the lions\' den, the writing on the wall), and chapters 7–12 are apocalyptic vision, the most complex prophetic material outside of Revelation. The narrative section is full of faithful courage: Daniel refused the king\'s food to avoid defilement (chapter 1), his three friends refused to bow to the gold statue ("our God whom we serve is able to deliver us — but if not, we will not serve thy gods" — Daniel 3:17–18), and Daniel prayed toward Jerusalem three times daily even when it was made a capital offense. The visions in chapters 7–12 include imagery of world empires and a final kingdom — and "the Son of man" coming in clouds of heaven (7:13), a title Jesus applied to Himself. Daniel is the textbook for faithfulness under pressure.',
+    verses: ['Daniel 3:17', 'Daniel 6:10', 'Daniel 7:13', 'Daniel 12:3'],
+    plan: 'standfirm'
+  },
+  {
+    id: 'what-is-2-corinthians-about',
+    type: 'knowledge',
+    triggers: [
+      'what is 2 corinthians about', 'second corinthians overview', 'what does 2 corinthians teach',
+      'book of 2 corinthians explained', '2 corinthians summary', 'what is 2 corinthians in the bible',
+      '2 corinthians main message', 'paul thorn in the flesh 2 corinthians', 'my grace is sufficient',
+      '2 corinthians strength in weakness'
+    ],
+    answer: 'Second Corinthians is Paul\'s most personal letter — raw, candid, and at times deeply vulnerable. He writes to defend his ministry against opponents who called him weak and unimpressive in person, and in doing so he inverts every worldly measure of leadership. He catalogues his sufferings as credentials rather than failures: shipwrecked three times, beaten, stoned, in danger constantly (11:24–27). The letter\'s most famous passage is his account of a "thorn in the flesh" — some affliction God refused to remove — and God\'s answer: "My grace is sufficient for thee: for my strength is made perfect in weakness" (12:9). Second Corinthians also contains the clearest statement of the believer\'s new identity: "if any man be in Christ, he is a new creature: old things are passed away; behold, all things are become new" (5:17). It is the book for people who feel their weakness disqualifies them.',
+    verses: ['2 Corinthians 5:17', '2 Corinthians 12:9', '2 Corinthians 4:17', '2 Corinthians 1:3'],
+    plan: 'sufferendure'
+  },
+  {
+    id: 'what-is-song-of-solomon-about',
+    type: 'knowledge',
+    triggers: [
+      'what is song of solomon about', 'song of solomon overview', 'what does song of solomon teach',
+      'song of songs bible', 'what is song of songs about', 'song of solomon meaning',
+      'is song of solomon about marriage', 'song of solomon and christ', 'beloved in song of solomon',
+      'song of solomon explained simply'
+    ],
+    answer: 'The Song of Solomon (also called Song of Songs) is a love poem between a bride and bridegroom — the most intimate book in the Bible and the one that most surprised early readers about its inclusion in Scripture. On its surface it celebrates physical love, longing, and the joy of marriage with frankness and beauty. The Jewish rabbis called it "the holy of holies of Scripture." Christian interpreters have long read it also as an allegory of God\'s love for Israel and Christ\'s love for the church — a reading that Paul echoes in Ephesians 5:25–32 when he calls marriage a picture of Christ and the church. Either way, the book says something important: love, beauty, desire, and joy between a man and woman are not shameful — they are celebrated in Scripture. The recurring phrase "my beloved is mine, and I am his" (2:16) is one of the most tender declarations of belonging in all of God\'s word.',
+    verses: ['Song of Solomon 2:16', 'Song of Solomon 8:6', 'Song of Solomon 2:4', 'Ephesians 5:25'],
+    plan: 'walktheword'
   }
 ];
 

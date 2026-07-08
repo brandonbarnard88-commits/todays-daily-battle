@@ -16,7 +16,7 @@
     }
   } catch (_) {}
 
-  var INTERACTIVE_SRC = 'script.js?v=20260708-kb-expand-ux';
+  var INTERACTIVE_SRC = 'script.js?v=20260708-kb-batch4';
   var loaded = false;
   var pendingQuery = '';
 

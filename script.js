@@ -5889,6 +5889,73 @@ const PHRASE_TO_TOKENS = {
   'he that dwelleth in the secret place': ['faith', 'protection', 'trust', 'hope'],
   'under his wings psalm 91': ['faith', 'protection', 'trust', 'hope'],
 
+  // === LIFE/PASTORAL: Expansion Round 3 ===
+  'being treated unfairly at work': ['trust', 'faith', 'strength', 'hope'],
+  'workplace bullying bible': ['trust', 'faith', 'strength', 'hope'],
+  'persecuted at work for faith': ['trust', 'faith', 'strength', 'hope'],
+  'coworkers mock my faith': ['trust', 'faith', 'strength', 'hope'],
+  'postpartum depression bible': ['exhaustion', 'hope', 'trust', 'grace'],
+  'after having a baby i feel empty': ['exhaustion', 'hope', 'trust', 'grace'],
+  'new mom struggling bible': ['exhaustion', 'hope', 'trust', 'grace'],
+  'god answered differently than i expected': ['trust', 'faith', 'hope', 'peace'],
+  'god said no to my prayer': ['trust', 'faith', 'hope', 'peace'],
+  'prayer answered differently bible': ['trust', 'faith', 'hope', 'peace'],
+  'feeling spiritually numb': ['faith', 'hope', 'trust', 'peace'],
+  'i feel nothing when i pray': ['faith', 'hope', 'trust', 'peace'],
+  'spiritually empty': ['faith', 'hope', 'trust', 'peace'],
+  'stepfamily bible': ['family', 'trust', 'hope', 'grace'],
+  'blended family struggles bible': ['family', 'trust', 'hope', 'grace'],
+  'step parenting bible': ['family', 'trust', 'hope', 'grace'],
+  'retirement bible': ['purpose', 'hope', 'trust', 'faith'],
+  'feeling purposeless after retiring': ['purpose', 'hope', 'trust', 'faith'],
+  'who am i without my job': ['purpose', 'hope', 'trust', 'faith'],
+  'someone i love died by suicide': ['grief', 'loss', 'hope', 'trust'],
+  'grieving after someone took their life': ['grief', 'loss', 'hope', 'trust'],
+  'suicide loss grief bible': ['grief', 'loss', 'hope', 'trust'],
+  'living with a disability bible': ['suffering', 'hope', 'trust', 'faith'],
+  'chronic disability bible': ['suffering', 'hope', 'trust', 'faith'],
+  'disability and purpose bible': ['suffering', 'hope', 'trust', 'faith'],
+  'i chose to forgive but dont feel it': ['forgiveness', 'grace', 'trust', 'hope'],
+  'forgiveness without feeling bible': ['forgiveness', 'grace', 'trust', 'hope'],
+  'how to forgive when you still feel angry': ['forgiveness', 'grace', 'trust', 'hope'],
+  'i hurt someone and feel guilty bible': ['guilt', 'forgiveness', 'trust', 'hope'],
+  'how to make things right with someone i wronged': ['guilt', 'forgiveness', 'trust', 'hope'],
+  'making amends bible': ['guilt', 'forgiveness', 'trust', 'hope'],
+  'homesick bible': ['loneliness', 'hope', 'trust', 'faith'],
+  'far from family bible': ['loneliness', 'hope', 'trust', 'faith'],
+  'feeling displaced bible': ['loneliness', 'hope', 'trust', 'faith'],
+  'i walked away from god and came back': ['hope', 'faith', 'trust', 'grace'],
+  'returning to god after years away': ['hope', 'faith', 'trust', 'grace'],
+  'i was the prodigal': ['hope', 'faith', 'trust', 'grace'],
+  'starting over with god bible': ['hope', 'faith', 'trust', 'grace'],
+
+  // === KNOWLEDGE: Secondary Passages Round 2 ===
+  'be still and know that i am god meaning': ['faith', 'peace', 'trust', 'hope'],
+  'psalm 46 explained': ['faith', 'peace', 'trust', 'hope'],
+  'god is our refuge and strength psalm 46': ['faith', 'peace', 'trust', 'hope'],
+  'vine and branches john 15': ['faith', 'wisdom', 'trust', 'hope'],
+  'abide in me meaning bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'i am the vine ye are the branches': ['faith', 'wisdom', 'trust', 'hope'],
+  'consider the lilies of the field bible': ['faith', 'trust', 'peace', 'hope'],
+  'seek ye first the kingdom of god meaning': ['faith', 'trust', 'peace', 'hope'],
+  'take no thought for tomorrow bible': ['faith', 'trust', 'peace', 'hope'],
+  'rejoice in the lord alway meaning': ['faith', 'peace', 'trust', 'hope'],
+  'peace that passes all understanding bible': ['faith', 'peace', 'trust', 'hope'],
+  'philippians 4 6 7 meaning': ['faith', 'peace', 'trust', 'hope'],
+  'glory in tribulations romans 5': ['faith', 'suffering', 'trust', 'hope'],
+  'while we were yet sinners christ died for us': ['faith', 'salvation', 'hope', 'trust'],
+  'justified by faith romans 5': ['faith', 'salvation', 'hope', 'trust'],
+  'great is thy faithfulness lamentations 3': ['faith', 'hope', 'trust', 'grief'],
+  'his mercies are new every morning meaning': ['faith', 'hope', 'trust', 'grief'],
+  'lamentations 3 explained': ['faith', 'hope', 'trust', 'grief'],
+  'count it all joy james 1': ['faith', 'suffering', 'trust', 'hope'],
+  'the trying of your faith worketh patience': ['faith', 'suffering', 'trust', 'hope'],
+  'james 1 explained': ['faith', 'suffering', 'trust', 'hope'],
+  'hebrews 11 explained': ['faith', 'wisdom', 'trust', 'hope'],
+  'hall of faith bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'faith is the substance of things hoped for': ['faith', 'wisdom', 'trust', 'hope'],
+  'cloud of witnesses hebrews 12': ['faith', 'wisdom', 'trust', 'hope'],
+
   // === BIBLE KNOWLEDGE: Characters (batch 7) ===
   'who was jacob': ['faith', 'trust', 'wisdom', 'hope'],
   'jacob wrestled with god': ['faith', 'trust', 'strength', 'hope'],
@@ -9548,7 +9615,7 @@ var TDB_BIBLICAL_ANSWERS = [
       'healing from abuse bible', 'i was hurt as a child bible', 'god and abuse victims',
       'trauma healing bible'
     ],
-    answer: 'What happened to you was wrong. Scripture does not minimize evil done against the vulnerable — God says He is near to the brokenhearted, and that He "healeth the broken in heart, and bindeth up their wounds" (Psalm 147:3). The binding up is a medical image — careful, attentive tending of real injury. Jesus, when he rose from the dead, still had wounds (John 20:27). He did not leave His body behind to seem more spiritual. He knows what it is to be harmed by people, betrayed, hurt in the body. Psalm 10:14 says "Thou hast seen it; for thou beholdest mischief and spite, to requite it with thy hand: the poor committeth himself unto thee; thou art the helper of the fatherless." God saw what happened. He does not look away from it. Recovery from abuse and trauma is real, it takes time, and it often requires help from others — that help is not a failure of faith but part of how God heals. You deserve to be safe, and to be held carefully.',
+    answer: 'What happened to you was wrong. God says He "healeth the broken in heart, and bindeth up their wounds" (Psalm 147:3) — the binding up is a medical image, careful tending of real injury. Jesus rose from the dead still bearing wounds (John 20:27); He did not leave His body behind to seem more spiritual. He knows what it is to be harmed. Psalm 10:14 says "Thou hast seen it...thou art the helper of the fatherless" — God does not look away from what happened to you. Recovery from abuse is real, it takes time, and it often requires help from others. That help is not a failure of faith; it is part of how God heals. You deserve to be safe.',
     verses: ['Psalm 147:3', 'Psalm 10:14', 'Isaiah 61:1', 'Psalm 34:18'],
     plan: 'grief'
   },
@@ -9578,7 +9645,158 @@ var TDB_BIBLICAL_ANSWERS = [
   },
 
   // ============================================================
-  // KNOWLEDGE — Secondary / Deep-Dive Passage Entries
+  // LIFE / PASTORAL — Expansion Round 3
+  // ============================================================
+  {
+    id: 'workplace-persecution',
+    triggers: [
+      'being treated unfairly at work', 'workplace bullying bible', 'boss is mistreating me',
+      'persecuted at work for faith', 'work is making my life miserable', 'hostile work environment bible',
+      'coworkers mock my faith', 'how to handle a bad boss bible', 'mistreated at work bible',
+      'discriminated against at work bible'
+    ],
+    answer: 'Joseph worked faithfully in Potiphar\'s house and ended up in prison because of it. Daniel served faithfully in Babylon and ended up in a lions\' den. The pattern of faithful work meeting unjust treatment is woven through Scripture, which means God does not consider it exceptional — He has equipped people for it. First Peter 2:18–20 addresses servants under difficult masters directly: "For this is thankworthy, if a man for conscience toward God endure grief, suffering wrongfully." The call is not passivity but integrity maintained without compromise. Colossians 3:23 gives the frame: "whatsoever ye do, do it heartily, as to the Lord, and not unto men" — the audience of your work is God, not the person making it miserable. That does not mean staying in every harmful situation without limit. But it does mean the quality of your character is not controlled by the quality of your boss. Bring this specifically to God — He is a righteous judge, and nothing is hidden from Him.',
+    verses: ['Colossians 3:23', '1 Peter 2:20', 'Genesis 39:21', 'Psalm 37:7'],
+    plan: 'standfirm'
+  },
+  {
+    id: 'postpartum-depression',
+    triggers: [
+      'postpartum depression bible', 'after having a baby i feel empty', 'i dont feel bonded to my baby',
+      'new mom struggling bible', 'baby blues bible', 'postpartum anxiety bible',
+      'i had a baby and feel terrible', 'feeling like a bad mother after birth',
+      'overwhelmed as a new mother bible', 'can i feel depressed after having a baby bible'
+    ],
+    answer: 'The exhaustion, the disconnection, the unexpected darkness after a baby arrives — these are real and they are not a sign that something is wrong with your faith or your love for your child. God does not shame Elijah for collapsing with exhaustion after enormous labor; He brings food, water, and rest, and meets him in a still small voice (1 Kings 19). That same tender, practical care is available to you. Psalm 22:9–10 says "Thou art he that took me out of the womb" — God\'s familiarity with the body, with birth, with that threshold moment is not abstract. He is not surprised by what your body and mind are going through. This is a season that calls for honest help — from a doctor, from people who love you, from God in the quiet moments when the baby finally sleeps. You are not a bad mother. You are a person carrying something heavy, and there is grace for exactly this.',
+    verses: ['Psalm 22:9', '1 Kings 19:5', 'Isaiah 66:13', 'Psalm 34:18'],
+    plan: 'universityexhaustion'
+  },
+  {
+    id: 'god-answered-differently',
+    triggers: [
+      'god answered my prayer differently than i expected', 'god said no to my prayer',
+      'i prayed and it did not happen', 'why did god not answer my prayer the way i asked',
+      'god gave me a different answer', 'prayed for healing but not healed', 'god said no bible',
+      'prayer answered in unexpected way', 'god did not give me what i prayed for',
+      'when gods answer is not what you wanted'
+    ],
+    answer: 'Paul prayed three times for his thorn to be removed. God said no — and gave a reason: "My grace is sufficient for thee: for my strength is made perfect in weakness" (2 Corinthians 12:9). The answer was not the absence of an answer; it was a better provision than the one Paul asked for. Jesus himself prayed in Gethsemane "let this cup pass from me" and followed it immediately with "nevertheless not as I will, but as thou wilt" (Matthew 26:39) — honest desire held inside a larger trust. God is not indifferent when He answers differently than we hoped. He is working from a vantage point we do not have, toward ends we often cannot yet see. Romans 8:28 holds this: "all things work together for good to them that love God." Not that everything that happens is good, but that God is working the whole of it — including the no, including the unexpected — toward something good. The hardest part of faith is trusting what we cannot yet see.',
+    verses: ['2 Corinthians 12:9', 'Matthew 26:39', 'Romans 8:28', 'Isaiah 55:9'],
+    plan: 'trust'
+  },
+  {
+    id: 'spiritual-numbness',
+    triggers: [
+      'feeling spiritually numb', 'i feel nothing when i pray', 'no emotion in worship anymore',
+      'spiritually empty', 'i feel disconnected from god', 'faith feels mechanical and empty',
+      'going through the motions with god', 'i used to feel god but dont anymore',
+      'spiritual deadness bible', 'feeling nothing toward god'
+    ],
+    answer: 'Numbness is different from dryness — it is not that the Bible feels hard to read, it is that nothing feels like anything at all. The Psalms hold this space too: "My God, my God, why hast thou forsaken me?" (Psalm 22:1) is not absence of faith — it is faith crying from a place where feeling has gone silent. Feelings are not the foundation of relationship with God; they are the weather on top of it. Lamentations 3:17–18 gives a starting place: "my soul is far removed from peace: I forgat prosperity. And I said, My strength and my hope is perished from the LORD" — raw and honest — and by verse 22 the same writer reaches: "the LORD\'s mercies...are new every morning." The path through numbness is rarely dramatic. It is often small, consistent acts of return: a short honest prayer, a psalm read aloud, one verse written down. God is not absent when He is quiet. He is not disturbed by the silence you are in. Keep showing up in the small.',
+    verses: ['Psalm 22:1', 'Lamentations 3:22', 'Psalm 42:5', 'Hosea 6:3'],
+    plan: 'spirituallydry'
+  },
+  {
+    id: 'stepfamily-blended',
+    triggers: [
+      'stepfamily bible', 'blended family struggles bible', 'step-parenting bible',
+      'my stepchildren dont accept me', 'stepparent problems bible', 'blended family conflict',
+      'how to love stepchildren bible', 'second marriage children problems',
+      'building a blended family bible', 'step parent step child relationship bible'
+    ],
+    answer: 'Blended families carry a particular kind of weight — roles that are ambiguous, loyalties that are divided, grief layered under the surface for children who had no say in the change. There is no step-by-step formula in Scripture for blended families by name, but there is a God who specializes in making something whole out of what has been fractured. Ruth and Naomi were family across two cultures and one of them was widowed — their bond was chosen, not biological, and it became the line David came from. Joseph raised a child who was not biologically his. The framework Scripture consistently gives is love as committed action rather than guaranteed feeling: "Love is longsuffering, and is kind" (1 Corinthians 13:4) — it can be practiced before it is fully felt. Ephesians 4:32 is practical: "Be ye kind one to another, tenderhearted, forgiving one another." These families are built slowly, in the ordinary moments. The grace you need for today is available for today.',
+    verses: ['1 Corinthians 13:4', 'Ephesians 4:32', 'Ruth 1:16', 'Colossians 3:12'],
+    plan: 'familyrhythm'
+  },
+  {
+    id: 'retirement-loss-of-identity',
+    triggers: [
+      'retirement bible', 'lost my identity after retirement', 'who am i without my job',
+      'feeling purposeless after retiring', 'life after work bible', 'empty after retirement',
+      'too old to matter bible', 'what is my purpose after retirement', 'i feel useless in retirement',
+      'older age and purpose bible'
+    ],
+    answer: 'When work has been the frame of your identity for decades, its absence can leave a disorienting silence. But Scripture never grounds identity in productivity. Psalm 71 is the prayer of an older person: "Cast me not off in the time of old age; forsake me not when my strength faileth" (71:9) — and through it, a settled confidence that God\'s purpose continues. Verse 18 says "when I am old and grayheaded, O God, forsake me not; until I have shewed thy strength unto this generation." Purpose does not end; it shifts. Caleb at 85 was still asking for mountains to climb. Moses began his greatest work at 80. The "fruit" of Psalm 92:14 is described as coming in old age: "They shall still bring forth fruit in old age; they shall be fat and flourishing." God does not measure usefulness in career years. You are held, known, and not done — and the quiet, steady years may carry more weight than the busy ones did.',
+    verses: ['Psalm 71:9', 'Psalm 71:18', 'Psalm 92:14', 'Joshua 14:11'],
+    plan: 'heavyhope'
+  },
+  {
+    id: 'suicide-loss',
+    triggers: [
+      'someone i love died by suicide', 'my friend killed themselves', 'my child died by suicide',
+      'suicide loss grief bible', 'grieving after someone took their life', 'my husband killed himself',
+      'my wife took her life', 'how do i grieve suicide', 'after a suicide loss bible',
+      'did my loved one go to heaven after suicide'
+    ],
+    answer: 'Losing someone to suicide carries the weight of grief plus a particular torment of questions that may never be fully answered, and sometimes guilt that has no fair basis. God alone fully knows the heart, the pain, and the moment — He is the judge of what He alone sees, and His mercy is far beyond what we can calculate. Psalm 34:18 says He is near to the brokenhearted and saves the crushed in spirit — near to you in this specific grief, not generically. The questions you carry about heaven, about what they were thinking, about what you could have done — bring them honestly to God. He can hold them. This weight was not meant to be carried alone; let people in, and let professional support in. You are not failing by needing help.',
+    verses: ['Psalm 34:18', 'Romans 8:38', 'Isaiah 57:15', 'Deuteronomy 29:29'],
+    plan: 'grief'
+  },
+  {
+    id: 'disability-chronic',
+    triggers: [
+      'living with a disability bible', 'what does the bible say about disability',
+      'i am disabled and struggling with faith', 'chronic disability bible',
+      'disability and purpose bible', 'wheelchair and faith bible', 'blind deaf disabled bible',
+      'does god care about disabled people', 'disability is not punishment bible',
+      'born with a disability bible'
+    ],
+    answer: 'When the disciples asked Jesus about the man born blind — "Master, who did sin, this man, or his parents?" — Jesus answered plainly: "Neither hath this man sinned, nor his parents: but that the works of God should be made manifest in him" (John 9:2–3). Disability is not punishment and not a signal of God\'s absence. Paul\'s "thorn in the flesh" — whatever it was — was not removed despite earnest prayer, and through it God said "my grace is sufficient for thee" and "my strength is made perfect in weakness" (2 Corinthians 12:9). The body you live in now is not the final version of your body. First Corinthians 15:43 says the resurrection body is "raised in power" — incorruption, glory, power. Whatever your body cannot do now does not define your worth, your witness, or your future. You are made in the image of God, fully, as you are — and your life has a weight and purpose that is not measured in physical capacity.',
+    verses: ['John 9:3', '2 Corinthians 12:9', '1 Corinthians 15:43', 'Psalm 139:14'],
+    plan: 'sufferendure'
+  },
+  {
+    id: 'forgiveness-without-feeling',
+    triggers: [
+      'i chose to forgive but dont feel it', 'forgiveness without feeling', 'i said i forgive but still hurt',
+      'how to forgive when you still feel angry', 'forgiving but not feeling it bible',
+      'i forgave but the pain is still there', 'how do i forgive when i still feel hurt',
+      'forgiveness is a choice not a feeling bible', 'forgiven but not over it',
+      'why does forgiveness still feel like anger'
+    ],
+    answer: 'Forgiveness in Scripture is consistently described as a decision, not a feeling — and the feelings are not required to arrive first. Joseph told his brothers "God meant it unto good" (Genesis 50:20) — but he had also wept privately, more than once, before that moment. The feelings and the choice existed in the same person at the same time. Ephesians 4:32 says "forgiving one another, even as God for Christ\'s sake hath forgiven you" — the model is what God has done, not how we feel about the person. The ongoing pain after choosing to forgive does not mean the forgiveness was false or failed. It means you are human and the wound was real. Anger can resurface without undoing the decision. What forgiveness changes is the posture — you are releasing the debt, not pretending it was not owed. The feelings often follow the decision over time, especially as you bring the hurt honestly to God and let Him tend it rather than carrying it yourself.',
+    verses: ['Ephesians 4:32', 'Genesis 50:20', 'Matthew 18:22', 'Colossians 3:13'],
+    plan: 'forgiven'
+  },
+  {
+    id: 'guilt-toward-person',
+    triggers: [
+      'i hurt someone and feel guilty bible', 'how to make things right with someone i wronged',
+      'guilt for what i did to someone bible', 'i damaged a relationship and feel terrible',
+      'made someone suffer because of me bible', 'i was cruel to someone bible',
+      'how to ask forgiveness from someone you hurt', 'i betrayed someone bible',
+      'restitution bible', 'making amends bible'
+    ],
+    answer: 'The guilt that comes from knowing you have harmed a specific person is one of the most focused and honest forms of conscience — and Scripture takes it seriously. Zacchaeus, when he encountered Jesus, did not wait to be told — "if I have taken any thing from any man by false accusation, I restore him fourfold" (Luke 19:8). Restitution is a biblical concept: where it is possible, you make right what you made wrong. Proverbs 28:13 says "whoso confesseth and forsaketh them shall have mercy" — but James 5:16 adds the human dimension: "confess your faults one to another, and pray one for another, that ye may be healed." The guilt is pointing toward an action: go to the person, acknowledge the harm honestly without self-protection, and ask what making it right looks like. You may not receive forgiveness from them — that is their choice. But you can do what is within your power. God\'s forgiveness is already available (1 John 1:9). The harder step is the human one, and it is worth taking.',
+    verses: ['Luke 19:8', 'Proverbs 28:13', 'James 5:16', '1 John 1:9'],
+    plan: 'universityregret'
+  },
+  {
+    id: 'homesickness-displacement',
+    triggers: [
+      'homesick bible', 'far from family bible', 'i miss home', 'feeling displaced bible',
+      'moved away and lonely', 'living far from family bible', 'homesickness as a christian',
+      'new city lonely bible', 'transplanted and lonely bible', 'missing home bible'
+    ],
+    answer: 'Abraham was called to leave his country, his kindred, and his father\'s house, "unto a land that I will shew thee" (Genesis 12:1) — and Hebrews 11:10 says he went "looking for a city which hath foundations, whose builder and maker is God." He spent his life as a stranger and pilgrim, never fully arriving. That was not a failure of the plan. First Peter 2:11 calls all believers "strangers and pilgrims" — the sense of not-quite-home is not an accident of your circumstances; it is a real feature of life between creation and its renewal. The specific ache of missing familiar people and places is real and should not be hurried. Psalm 84:3 speaks of longing for God\'s house with a tenderness that maps onto longing for home. God is not less present in your new place. Bring the loneliness to Him honestly, let it surface as prayer, and look deliberately for the Priscilla and Aquila God may be placing in your path — community is not automatic; it is built, usually slowly, one honest conversation at a time.',
+    verses: ['Genesis 12:1', 'Hebrews 11:10', '1 Peter 2:11', 'Psalm 84:3'],
+    plan: 'heavyhope'
+  },
+  {
+    id: 'prodigal-yourself',
+    triggers: [
+      'i walked away from god and came back', 'i was the prodigal', 'i left my faith and returned',
+      'returning to god after years away', 'i came back to god', 'i used to believe and stopped',
+      'starting over with god bible', 'i backslid and want to come back',
+      'running back to god bible', 'can god take me back after i left'
+    ],
+    answer: 'The son in Luke 15 did not wait to be in a better condition to come home. He "arose, and came to his father" — and his father "saw him yet a great way off" and ran (15:20). The running is the detail that matters: the father had been watching the road. Whatever road brought you back, God is not standing with arms crossed waiting for an explanation. The son had rehearsed a speech; the father did not let him finish it. He called for the robe, the ring, the feast. The return is not a negotiation — it is a homecoming. The years away do not disqualify you; they are part of your story. "Come unto me" (Matthew 11:28) has no asterisk. Come as you are, right now.',
+    verses: ['Luke 15:20', 'Luke 15:24', 'Matthew 11:28', 'Hosea 14:4'],
+    plan: 'roadtosalvation'
+  },
+
+  // ============================================================
+  // KNOWLEDGE — Secondary / Deep-Dive Passage Entries Round 2
   // ============================================================
   {
     id: 'romans-8-passage',
@@ -9683,6 +9901,116 @@ var TDB_BIBLICAL_ANSWERS = [
     answer: 'Psalm 91 is the great shelter psalm — a sustained meditation on what it means to dwell in the protection of God. It opens with two names for the place: "the secret place of the most High" and "the shadow of the Almighty" (91:1). Verse 2 is the response of the one who has found it: "He is my refuge and my fortress: my God; in him will I trust." The psalm then catalogs the threats it protects against: terror by night, arrow by day, pestilence, destruction, ten thousand falling at your side. The cover offered is not distance from danger but presence through it — "he shall give his angels charge over thee, to keep thee in all thy ways" (91:11). Satan quoted this verse when he tempted Jesus in the wilderness (Matthew 4:6), which is a reminder that promises can be tested and twisted. Jesus answered back with another Scripture — which is itself a model. The psalm closes with God\'s own voice: "Because he hath set his love upon me, therefore will I deliver him" (91:14). The protection flows from relationship.',
     verses: ['Psalm 91:1', 'Psalm 91:2', 'Psalm 91:11', 'Psalm 91:14'],
     plan: 'standfirm'
+  },
+
+  // ============================================================
+  // KNOWLEDGE — Secondary / Deep-Dive Passage Entries Round 2
+  // ============================================================
+  {
+    id: 'psalm-46-be-still',
+    type: 'knowledge',
+    triggers: [
+      'be still and know that i am god meaning', 'psalm 46 explained', 'psalm 46 overview',
+      'what does psalm 46 mean', 'god is our refuge and strength psalm 46',
+      'be still and know explained', 'very present help in trouble bible',
+      'god is a refuge and strength explained', 'psalm 46 be still meaning',
+      'cease striving and know that i am god'
+    ],
+    answer: '"Be still, and know that I am God" (Psalm 46:10) is one of the most quoted verses in Scripture — and one of the most misread. It is not an invitation to quiet personal meditation; it is a command to nations at war: "He maketh wars to cease unto the end of the earth; he breaketh the bow" (46:9). In that context, "be still" means stop fighting, stop striving, stand down — because God is moving in ways that make your effort irrelevant. The psalm opens with its anchor: "God is our refuge and strength, a very present help in trouble" (46:1) — not a distant help or a theoretical one, but "very present," the Hebrew meaning at hand, within reach. "Therefore will not we fear, though the earth be removed" (46:2) — the "therefore" does the work: the stability comes from what God is, not from the circumstances staying stable. Verse 5 says "God is in the midst of her; she shall not be moved." The peace of Psalm 46 is not tranquility — it is settled trust in the middle of the storm.',
+    verses: ['Psalm 46:1', 'Psalm 46:5', 'Psalm 46:10', 'Psalm 46:2'],
+    plan: 'trust'
+  },
+  {
+    id: 'john-15-vine-branches',
+    type: 'knowledge',
+    triggers: [
+      'john 15 vine and branches explained', 'i am the vine ye are the branches meaning',
+      'abide in me meaning bible', 'what does abide in the vine mean', 'john 15 explained',
+      'abiding in christ bible', 'without me ye can do nothing meaning', 'pruning in john 15',
+      'john 15 overview', 'what does john 15 teach'
+    ],
+    answer: '"I am the true vine" — Jesus spoke John 15 in the upper room, on the way to Gethsemane, probably passing vineyards. The image was one His disciples lived with: a branch cut from the vine is useless, no matter how much effort it applies to itself. "He that abideth in me, and I in him, the same bringeth forth much fruit: for without me ye can do nothing" (15:5). The word "abide" (meno) means to remain, to stay, not to go elsewhere — a continuous, unhurried dwelling rather than a periodic visit. The Father is described as the husbandman who prunes: cutting back what is living to make it bear more (15:2). Pruning is not punishment — it is the work of a gardener who knows the plant\'s potential better than the plant does. The chapter also holds the fruit: "that your joy might be full" (15:11), and the command that the disciples are to love one another as Jesus has loved them (15:12). John 15 is the architecture of a life connected to its source — not striving, but staying.',
+    verses: ['John 15:5', 'John 15:2', 'John 15:11', 'John 15:12'],
+    plan: 'walktheword'
+  },
+  {
+    id: 'matthew-6-consider-lilies',
+    type: 'knowledge',
+    triggers: [
+      'consider the lilies of the field bible', 'matthew 6 25 34 explained', 'take no thought for tomorrow bible',
+      'do not worry about tomorrow meaning', 'sufficient unto the day is the evil thereof',
+      'matthew 6 worry passage', 'birds of the air god feeds them bible', 'sermon on the mount worry',
+      'seek first the kingdom of god meaning', 'which of you by taking thought can add one cubit'
+    ],
+    answer: 'Matthew 6:25–34 is Jesus\' sustained argument against anxiety — and it is not "try harder to trust." It is a logical case built on observed evidence. Look at the birds: they do not sow, reap, or store in barns, "yet your heavenly Father feedeth them" (6:26) — and you are worth more than they are. Look at the lilies: they do not toil or spin, yet "Solomon in all his glory was not arrayed like one of these" (6:29). "Shall he not much more clothe you, O ye of little faith?" The argument is: God is competent. He feeds things that cannot ask Him. How much more will He care for those who belong to Him? "Which of you by taking thought can add one cubit unto his stature?" (6:27) — worry is not just painful, it is ineffective. The conclusion is not laziness but priority: "seek ye first the kingdom of God and his righteousness; and all these things shall be added unto you" (6:33). And then: "Take therefore no thought for the morrow" — not a command to have no plan, but to have no torment.',
+    verses: ['Matthew 6:26', 'Matthew 6:33', 'Matthew 6:34', 'Matthew 6:27'],
+    plan: 'universityanxiety'
+  },
+  {
+    id: 'philippians-4-peace-passage',
+    type: 'knowledge',
+    triggers: [
+      'philippians 4 4 7 explained', 'the peace that passes understanding bible',
+      'rejoice in the lord always meaning', 'philippians 4 peace passage', 'whatsoever is true think on these things',
+      'be anxious for nothing bible', 'philippians 4 6 7 meaning', 'i can do all things through christ meaning',
+      'contentment in philippians 4', 'philippians 4 overview'
+    ],
+    answer: 'Philippians 4:4–9 is a short passage that holds together joy, prayer, peace, and the discipline of thought — written from a prison cell. "Rejoice in the Lord alway: and again I say, Rejoice" (4:4) — the repetition is for the person who heard it the first time and thought: I cannot. Paul says it again. Verse 6 follows: "Be careful for nothing" — careful here means anxious — "but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God." The result is not the removal of difficulty but "the peace of God, which passeth all understanding" (4:7) — a peace that makes no logical sense given the circumstances, which is why it passes understanding. Verse 8 turns to the mind: what you fix your attention on shapes what you become. "Whatsoever things are true, whatsoever things are honest...think on these things." Then 4:11 gives the testimony behind it all: "I have learned, in whatsoever state I am, therewith to be content." That word "learned" is crucial — Paul was not born content. He learned it, probably the hard way, and he is teaching what he found.',
+    verses: ['Philippians 4:4', 'Philippians 4:6', 'Philippians 4:7', 'Philippians 4:8'],
+    plan: 'universityanxiety'
+  },
+  {
+    id: 'romans-5-glory-in-tribulation',
+    type: 'knowledge',
+    triggers: [
+      'glory in tribulations romans 5', 'romans 5 1 8 explained', 'we also glory in tribulations meaning',
+      'tribulation worketh patience bible', 'god commendeth his love romans 5',
+      'justified by faith romans 5', 'while we were yet sinners christ died for us meaning',
+      'romans 5 explained', 'hope maketh not ashamed bible', 'romans 5 overview'
+    ],
+    answer: 'Romans 5 opens with one of the most assured statements in the New Testament: "being justified by faith, we have peace with God through our Lord Jesus Christ" (5:1). The peace is a legal reality — the hostility between God and the sinner has ended through Christ. Paul then says something unexpected: "we glory in tribulations also" (5:3). Not despite them, but in them. The logic follows: tribulation works patience; patience works experience; experience works hope — and "hope maketh not ashamed; because the love of God is shed abroad in our hearts by the Holy Ghost" (5:5). The suffering is not meaningless; it is producing something, working through a sequence. The confidence for all of this rests on Romans 5:8 — "God commendeth his love toward us, in that, while we were yet sinners, Christ died for us." That love was demonstrated at the worst possible moment for its recipients. If He loved us then, the love is not going to fail now that we are His.',
+    verses: ['Romans 5:1', 'Romans 5:3', 'Romans 5:5', 'Romans 5:8'],
+    plan: 'sufferendure'
+  },
+  {
+    id: 'lamentations-3-great-faithfulness',
+    type: 'knowledge',
+    triggers: [
+      'great is thy faithfulness lamentations 3', 'lamentations 3 explained', 'lamentations 3 overview',
+      'his mercies are new every morning meaning', 'it is of the lord s mercies that we are not consumed',
+      'lamentations 3 22 23 meaning', 'the lord is my portion lamentations',
+      'i called upon thy name in the low dungeon', 'lamentations 3 great faithfulness meaning',
+      'great is thy faithfulness bible passage'
+    ],
+    answer: 'Lamentations 3 contains some of the most famous words of hope in all of Scripture — written inside one of the Bible\'s darkest books, by a man sitting in the ruins of Jerusalem. Chapters 1 and 2 are grief without relief. Chapter 3 opens the same way: "I am the man that hath seen affliction" (3:1), working through verse after verse of suffering, being led into darkness, "walled about, that I cannot get out" (3:7). Then the turn — one of the most earned in Scripture: "This I recall to my mind, therefore have I hope. It is of the LORD\'s mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness" (3:21–23). The writer does not say the suffering is over. He says this — specifically this — I will recall to mind. It is an act of will, a turning of the eyes. The faithfulness he names is not something he can see yet in his circumstances; it is something he knows despite his circumstances. "The LORD is my portion, saith my soul; therefore will I hope in him" (3:24).',
+    verses: ['Lamentations 3:22', 'Lamentations 3:23', 'Lamentations 3:24', 'Lamentations 3:21'],
+    plan: 'grief'
+  },
+  {
+    id: 'james-1-count-it-all-joy',
+    type: 'knowledge',
+    triggers: [
+      'count it all joy james 1', 'james 1 2 4 explained', 'the trying of your faith worketh patience',
+      'james 1 overview', 'what does james 1 2 mean', 'count it all joy when ye fall into divers temptations',
+      'james 1 tribulation passage', 'patience have her perfect work james 1',
+      'ask god for wisdom james 1 5', 'if any of you lack wisdom james 1'
+    ],
+    answer: 'James opens his letter without warm-up: "My brethren, count it all joy when ye fall into divers temptations; knowing this, that the trying of your faith worketh patience" (1:2–3). The word "count" is an accounting term — a deliberate reckoning, not a spontaneous feeling. He is not saying trials feel joyful. He is saying to reckon them as gain because of what they produce. Patience (the Greek hupomone — endurance, staying under the weight) is the product, and "let patience have her perfect work, that ye may be perfect and entire, wanting nothing" (1:4) — the trial is completing something. Verse 5 then offers the practical resource for navigating this: "If any of you lack wisdom, let him ask of God, that giveth to all men liberally, and upbraideth not." God does not scold you for needing wisdom in the trial; He gives it generously to anyone who asks without doubting. James 1 frames the life of faith not as smooth progress but as tested growth — and it makes the case that the testing, handled rightly, is not a setback to God\'s purpose but part of it.',
+    verses: ['James 1:2', 'James 1:3', 'James 1:4', 'James 1:5'],
+    plan: 'sufferendure'
+  },
+  {
+    id: 'hebrews-11-hall-of-faith',
+    type: 'knowledge',
+    triggers: [
+      'hebrews 11 explained', 'hall of faith bible', 'by faith they bible hebrews 11',
+      'faith is the substance of things hoped for', 'hebrews 11 overview', 'what is hebrews 11 about',
+      'cloud of witnesses hebrews 11', 'by faith abel enoch noah hebrews 11',
+      'faith definition hebrews 11 1', 'who are the heroes of faith bible'
+    ],
+    answer: 'Hebrews 11 opens with the only explicit definition of faith in the New Testament: "Now faith is the substance of things hoped for, the evidence of things not seen" (11:1). Then it demonstrates the definition with lives: Abel, Enoch, Noah, Abraham, Sarah, Isaac, Jacob, Joseph, Moses — each introduced with "by faith." These were not perfect people. Abraham lied about his wife twice. Moses killed a man. Rahab was a prostitute. The hall of faith does not celebrate moral perfection; it celebrates people who kept acting on what they believed about God even when circumstances did not confirm it. Verse 13 is the honest middle of the chapter: "These all died in faith, not having received the promises" — they saw them from a long way off and embraced them without arrival. Verse 39 confirms: "these all, having obtained a good report through faith, received not the promise" — they are waiting for us. Chapter 12 opens with the application: "seeing we also are compassed about with so great a cloud of witnesses...let us run with patience the race." The people in chapter 11 are still watching.',
+    verses: ['Hebrews 11:1', 'Hebrews 11:13', 'Hebrews 11:6', 'Hebrews 12:1'],
+    plan: 'walktheword'
   }
 ];
 
@@ -31847,9 +32175,13 @@ function findBiblicalAnswer(queryText) {
   // struggle route to life answers first, even if they contain question words.
   var pastoralOverride = /^(i (feel|am|cant|can't|was|need|keep|dont|don't|have|lost|made|hate|love|miss|fear|wish|struggle|used to)|im |i'm |help me|my (wife|husband|child|son|daughter|mom|dad|family|marriage|job|health|heart|anxiety|depression|addiction|grief|spouse|pastor|church|friend|sister|brother|adult child|grown child)|we (are|cant|dont|lost|need|keep)|feeling |struggling |cant stop|can't stop|cannot stop|going through|dealing with|i just |i cant |i can't |im afraid|im scared|im angry|i dont|i don't|i dont know why|i dont understand|why does god (let|allow|make)|i feel like|i was abused|i was hurt|i had a|i lost my|watching my|listening to my|tired of|sick of|scared of dying|scared of getting|when my|when your|our (family|marriage|son|daughter|child)|he left|she left|they left|nobody (sees|cares|notices)|nobody sees me|i hate my|i am drowning|i am trapped)/.test(norm);
 
+  // Life-topic override: even question-phrased queries about personal hardship topics
+  // should route to life answers. This fires before questionIntent is evaluated.
+  var lifeTopicOverride = !pastoralOverride && /\b(miscarriage|pregnancy loss|stillbirth|pornography|porn|sexual abuse|sexual sin|caregiver|cancer|chronic pain|chronic illness|suicide|self.harm|eating disorder|anorexia|widowed|widower|widow|divorce|infertility|addiction|domestic abuse|bereavement|postpartum|post.partum|disability|blended family|stepfamily|step.parent|homesickness|job loss|unemployment|debt crisis|financial desperation|drowning in debt|abuse survivor|trauma survivor|falsely accused|feeling invisible|feeling trapped|prodigal yourself|prodigal son yourself|retirement identity|spiritual numbness|body image|body hate)\b/.test(norm);
+
   // Question intent: queries clearly asking about Bible content rather than expressing
   // a feeling or situation. Knowledge answers are checked first for these.
-  var questionIntent = !pastoralOverride && /^(who (was|is|were|are)|what (is|are|does|did|is the|are the|does the|happened|book)|tell me about|explain |explain the|which book|when did|where (is|did|was)|why (did|does|is|are) (the|a |an |jesus|god|paul|moses|david|israel)|how (do|did|does|can i) (i |you |we )?(?:pray|fast|worship|read|study|know|get to|become|follow|be saved)|what (is|was) the (meaning|significance|story|purpose|difference|point|message)|what (does|did) the bible say about|what did jesus (say|mean|teach|do)|is (baptism|prayer|fasting|communion|salvation|heaven|hell|grace|speaking in tongues|the rapture)|did (jesus|god|paul|moses|david|peter|john)|does (god|the bible|jesus|scripture)|how to (pray|fast|worship|read the bible|study the bible|forgive|be saved|confess)|what are the (ten commandments|beatitudes|fruits|gifts|books)|is (the )?(trinity|rapture|resurrection|sabbath|soul real)|what is (a |an )?(covenant|parable|prophecy|gospel|epistle|testament|canon|denomination)|who wrote|what book|what chapter|what psalm|what proverb|overview of|summary of|background of|meaning of|significance of)/.test(norm);
+  var questionIntent = !pastoralOverride && !lifeTopicOverride && /^(who (was|is|were|are)|what (is|are|does|did|is the|are the|does the|happened|book)|tell me about|explain |explain the|which book|when did|where (is|did|was)|why (did|does|is|are) (the|a |an |jesus|god|paul|moses|david|israel)|how (do|did|does|can i) (i |you |we )?(?:pray|fast|worship|read|study|know|get to|become|follow|be saved)|what (is|was) the (meaning|significance|story|purpose|difference|point|message)|what (does|did) the bible say about|what did jesus (say|mean|teach|do)|is (baptism|prayer|fasting|communion|salvation|heaven|hell|grace|speaking in tongues|the rapture)|did (jesus|god|paul|moses|david|peter|john)|does (god|the bible|jesus|scripture)|how to (pray|fast|worship|read the bible|study the bible|forgive|be saved|confess)|what are the (ten commandments|beatitudes|fruits|gifts|books)|is (the )?(trinity|rapture|resurrection|sabbath|soul real)|what is (a |an )?(covenant|parable|prophecy|gospel|epistle|testament|canon|denomination)|who wrote|what book|what chapter|what psalm|what proverb|overview of|summary of|background of|meaning of|significance of)/.test(norm);
 
   function matchEntry(entry) {
     if (!entry || !Array.isArray(entry.triggers)) return false;

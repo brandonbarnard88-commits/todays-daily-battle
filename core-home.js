@@ -16,7 +16,7 @@
     }
   } catch (_) {}
 
-  var INTERACTIVE_SRC = 'script.js?v=20260709-polish-r2';
+  var INTERACTIVE_SRC = 'script.js?v=20260709-r3-290';
   var loaded = false;
   var pendingQuery = '';
 

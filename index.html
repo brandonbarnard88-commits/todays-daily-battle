@@ -14,10 +14,10 @@
   <!-- DOMPurify + tt-bootstrap stay synchronous before any body innerHTML (Trusted Types). Low fetch priority reduces contention with LCP text paint. -->
   <link rel="preload" as="script" href="/vendor/dompurify.min.js" fetchpriority="low">
   <script nonce="tdb2025s" src="/vendor/dompurify.min.js" fetchpriority="low"></script>
-  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260709-paired-hero" fetchpriority="low"></script>
+  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260709-ba-discover" fetchpriority="low"></script>
   <!-- Quiet room lives only on prayer-wall.html; old /#prayer-wall bookmarks still work -->
   <script nonce="tdb2025s">(function(){try{if(location.hash!=='#prayer-wall')return;location.replace('prayer-wall.html'+location.search);}catch(e){}})();</script>
-  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260709-paired-hero"></script>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260709-ba-discover"></script>
 
   <title>Today&rsquo;s Daily Battle &mdash; One KJV Verse, One Small Step &middot; Free, Offline, No Ads</title>
   <meta name="description" content="One honest feeling → one KJV verse → one small plain-English step. 80+ Battle Plans, family tools, private study on your device. No ads, no account required. Works offline after first load — helpful when signal is thin.">
@@ -714,15 +714,15 @@
 
       <!-- ── Feel Search (nav anchor: #quick-search-hero) — above Battle Plans ── -->
       <div id="quick-search-hero" class="tdb-quiet-container">
-            <p class="tdb-verse-ask-bridge" id="tdbVerseAskBridge">Carrying something specific? Ask the Word here—feelings, questions, or a remembered verse.</p>
+            <p class="tdb-verse-ask-bridge" id="tdbVerseAskBridge">Carrying something specific? Ask here&mdash;a feeling, a life question, or a Bible question.</p>
       <!-- ── First-visit hint (dismissible, once per device) ── -->
       <div class="first-visit-hint" id="firstVisitHint" role="status" aria-live="polite" hidden>
-        <p class="first-visit-text">Short honest phrases work best here: &ldquo;I feel numb,&rdquo; &ldquo;angry at work,&rdquo; &ldquo;overwhelmed as a parent,&rdquo; or &ldquo;thankful for answered prayer.&rdquo; You can also open a calm category below, then press Search when you want the fuller lookup.</p>
+        <p class="first-visit-text">Short honest phrases work well: &ldquo;I feel numb,&rdquo; &ldquo;How do I forgive someone?,&rdquo; or &ldquo;Who was Ruth?&rdquo; Clear questions can bring a short biblical answer above the verses. You can also tap a feeling below, then press Search.</p>
         <button type="button" class="first-visit-dismiss" id="firstVisitDismiss" aria-label="Dismiss welcome tip">Understood</button>
       </div>
       <section class="card" id="feel-section" aria-label="Ask the Word search">
         <h2 class="mood-title">Ask the Word</h2>
-        <p class="mood-subtitle section-note" id="feelSectionSubtitle">Tell it what you&rsquo;re carrying&mdash;a word, a weight, or a plain honest sentence. <abbr title="King James Version">KJV</abbr> only. No account. Works offline.</p>
+        <p class="mood-subtitle section-note" id="feelSectionSubtitle">Name a weight you&rsquo;re carrying, or ask a plain question. <abbr title="King James Version">KJV</abbr> only. No account. Works offline.</p>
         <div class="feel-search-wrap">
           <label for="feel-search" class="sr-only">Ask the Word</label>
           <input
@@ -750,9 +750,9 @@
           <div class="feel-suggest" id="feelSuggestDropdown" role="listbox" aria-label="Feeling suggestions">
           </div>
         </div>
-        <p class="section-note util-mt-0_5 util-mb-0" id="topicPlansHint">Honest words, a story name, a remembered verse, or a Bible question—then Search or Enter. Tap a feeling below, or open Show all.</p>
-        <p class="tdb-kb-examples-row" aria-label="Example Bible questions">
-          <span class="tdb-kb-label">Try:</span><button class="tdb-kb-chip" data-query="Who was Moses?" type="button">Who was Moses?</button><button class="tdb-kb-chip" data-query="What is grace?" type="button">What is grace?</button><button class="tdb-kb-chip" data-query="What is Romans about?" type="button">What is Romans about?</button><button class="tdb-kb-chip" data-query="What happened at Pentecost?" type="button">What happened at Pentecost?</button>
+        <p class="section-note util-mt-0_5 util-mb-0" id="topicPlansHint">Clear questions can bring a short biblical answer above the verses&mdash;then Search or Enter. Tap a feeling below, or open Show all.</p>
+        <p class="tdb-kb-examples-row" aria-label="Example questions">
+          <span class="tdb-kb-label">Try asking:</span><button class="tdb-kb-chip" data-query="How do I forgive someone?" type="button">How do I forgive someone?</button><button class="tdb-kb-chip" data-query="What if God feels silent?" type="button">What if God feels silent?</button><button class="tdb-kb-chip" data-query="Who was Ruth?" type="button">Who was Ruth?</button><button class="tdb-kb-chip" data-query="What is grace?" type="button">What is grace?</button>
         </p>
         <p class="feel-topic-action-strip sr-only" id="feelTopicActionStrip">Tap a feeling below, or open Show all feelings for every topic. On phone, hold a chip to open the matching Battle Plan lane.</p>
         <p class="tdb-feel-strip-intro sr-only" id="tdbFeelStripIntro">Ten common picks below — the full list is one tap away.</p>
@@ -1370,7 +1370,7 @@
         <div class="tdb-home-welcome-body">
           <p class="tdb-home-welcome-lead">One verse. One honest feeling. One small step.</p>
           <h3 id="new-here-steps-heading" class="new-here-steps-heading">Best next step</h3>
-          <p class="new-here-ribbon">After the verse, tap <strong>Open today&rsquo;s Battle Plan</strong> or use <strong>Ask the Word</strong> below when you need Scripture matched to what you&rsquo;re carrying.</p>
+          <p class="new-here-ribbon">After the verse, tap <strong>Open today&rsquo;s Battle Plan</strong> or use <strong>Ask the Word</strong> here when you need Scripture&mdash;or a short biblical answer&mdash;for what you&rsquo;re carrying.</p>
           <ol class="new-here-steps-ol" aria-labelledby="new-here-steps-heading">
             <li>Read today’s verse slowly.</li>
             <li>Name how you feel (search or category below).</li>
@@ -2118,7 +2118,7 @@
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
-  <script defer src="/language-switcher.js?v=20260709-paired-hero"></script>
+  <script defer src="/language-switcher.js?v=20260709-ba-discover"></script>
 </footer>
 
   </div>

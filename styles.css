@@ -5445,7 +5445,15 @@ body:has(.search-hero-home) #search-hero {
 .search-hero.glass { padding: var(--space-xl) var(--space-lg); }
 #search-hero, #quick-search-hero { scroll-margin-top: calc(var(--tdb-header-offset, 5rem) + 0.25rem); }
 #feel-results { scroll-margin-top: 1rem; scroll-margin-bottom: 2rem; }
-#quick-search-hero { position: sticky; top: var(--tdb-header-offset, 0px); z-index: 40; background: linear-gradient(180deg, rgba(10, 12, 20, 0.98) 0%, rgba(10, 12, 20, 0.95) 100%); padding-top: 0.5rem; padding-bottom: 0.75rem; margin-bottom: -0.25rem; }
+/* Paired hero: keep Ask the Word in the first stretch without sticky stacking over the verse */
+#quick-search-hero {
+  position: relative;
+  z-index: 2;
+  background: transparent;
+  padding-top: 0.35rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0;
+}
 
 /* Bible Tool — search hero + results: inherit appearance tokens (Quiet night / Daylight / Dawn parchment) */
 body.bible-tool-page #search-hero.search-hero.glass,

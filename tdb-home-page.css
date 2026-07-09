@@ -3247,29 +3247,35 @@
         grid-column: 1 / -1;
       }
       main#home-primary-flow > #tdbFirstVisitBanner { order: 1; }
-      main#home-primary-flow > #tdbQuietCornerStrip { order: 2; }
-      main#home-primary-flow > #tdbTodaysVerseHeading { order: 4; grid-column: 1; }
-      main#home-primary-flow > #tdbHeroQuietEyebrow { order: 3; grid-column: 1; }
+      main#home-primary-flow > #tdbHeavyNow { order: 2; }
+      main#home-primary-flow > #tdbQuietCornerStrip { order: 3; }
+      main#home-primary-flow > #tdbHeroQuietEyebrow { order: 4; grid-column: 1; }
+      main#home-primary-flow > #tdbTodaysVerseHeading { order: 5; grid-column: 1; }
       main#home-primary-flow > #hero-verse-wrap {
-        order: 5;
+        order: 6;
         grid-column: 1;
         grid-row: auto !important;
       }
-      main#home-primary-flow > #tdbStartMyDayBand { order: 6; grid-column: 1; }
-      main#home-primary-flow > #tdbHeroTrustQuotes,
-      main#home-primary-flow > .tdb-home-reader-stories--hero-trust { order: 7; grid-column: 1; }
       main#home-primary-flow > #quick-search-hero {
-        order: 8;
+        order: 7;
         grid-column: 1;
         grid-row: auto !important;
         display: flex;
         flex-direction: column;
         gap: 0.75rem;
       }
-      main#home-primary-flow > #tdb-home-core-seven { order: 8; grid-column: 1; }
-      main#home-primary-flow > #tdbNewHereCard { order: 9; grid-column: 1; }
+      main#home-primary-flow > #tdbPorchFeelDetails { order: 8; grid-column: 1; }
+      main#home-primary-flow > #tdbHomeVerseExtras { order: 9; grid-column: 1; }
+      main#home-primary-flow > #tdbHomePastorPlans { order: 10; grid-column: 1; }
+      main#home-primary-flow > #tdbStartMyDayBand { order: 11; grid-column: 1; }
+      main#home-primary-flow > #tdbHomeLaterDetails { order: 12; grid-column: 1; }
+      main#home-primary-flow > #tdbHeroTrustQuotes,
+      main#home-primary-flow > .tdb-home-reader-stories--hero-trust { order: 12; grid-column: 1; }
+      main#home-primary-flow > #tdb-home-core-seven { order: 13; grid-column: 1; }
+      main#home-primary-flow > #tdbFirstVisitNextStep { order: 14; grid-column: 1; }
+      main#home-primary-flow > #tdbNewHereCard { order: 15; grid-column: 1; }
       main#home-primary-flow > #plan-progress-card {
-        order: 5;
+        order: 6;
         grid-column: 2;
         grid-row: auto;
         align-self: start;
@@ -5355,16 +5361,19 @@
       main#home-primary-flow > #tdbFirstVisitBanner { order: 0; }
       main#home-primary-flow > #tdbHeavyNow { order: 1; }
       main#home-primary-flow > #tdbQuietCornerStrip { order: 2; }
-      main#home-primary-flow > #tdbTodaysVerseHeading { order: 4; }
       main#home-primary-flow > #tdbHeroQuietEyebrow { order: 3; }
+      main#home-primary-flow > #tdbTodaysVerseHeading { order: 4; }
       main#home-primary-flow > #hero-verse-wrap { order: 5; }
-      main#home-primary-flow > #tdbStartMyDayBand { order: 6; }
+      main#home-primary-flow > #quick-search-hero { order: 6; }
+      main#home-primary-flow > #tdbPorchFeelDetails { order: 7; }
+      main#home-primary-flow > #tdbHomeVerseExtras { order: 8; }
+      main#home-primary-flow > #tdbStartMyDayBand { order: 9; }
+      main#home-primary-flow > #tdbHomeLaterDetails { order: 10; }
       main#home-primary-flow > #tdbHeroTrustQuotes,
-      main#home-primary-flow > .tdb-home-reader-stories--hero-trust { order: 7; }
-      main#home-primary-flow > #quick-search-hero { order: 8; }
-      main#home-primary-flow > #tdbFirstVisitNextStep { order: 9; }
-      main#home-primary-flow > #tdb-home-core-seven { order: 10; }
-      main#home-primary-flow > #plan-progress-card { order: 11; }
+      main#home-primary-flow > .tdb-home-reader-stories--hero-trust { order: 10; }
+      main#home-primary-flow > #tdbFirstVisitNextStep { order: 11; }
+      main#home-primary-flow > #tdb-home-core-seven { order: 12; }
+      main#home-primary-flow > #plan-progress-card { order: 13; }
     }
 
     .tdb-home-resume {
@@ -10243,7 +10252,7 @@
         gap: clamp(1.22rem, 3.45vw, 1.95rem);
       }
       #quick-search-hero {
-        margin-top: 0.5rem;
+        margin-top: 0.35rem;
       }
       #tdbPorchFeel > .tdb-porch-feel__grid,
       #tdbPorchThanks .tdb-porch-feel__grid {
@@ -10260,8 +10269,71 @@
     }
     @media (max-width: 480px) {
       #quick-search-hero {
-        margin-top: 1rem;
+        margin-top: 0.5rem;
       }
+    }
+
+    /* Paired hero density — calm first stretch + below-fold disclosures */
+    #hero-verse-wrap + #quick-search-hero,
+    #hero-verse-wrap ~ #quick-search-hero {
+      margin-top: 0.25rem;
+    }
+    #feel-section.card {
+      margin-top: 0.15rem;
+    }
+    .tdb-verse-ask-bridge {
+      margin: 0.35rem 0 0.5rem;
+      font-size: 0.92rem;
+      line-height: 1.45;
+      color: var(--muted, #8a95a8);
+    }
+    .tdb-porch-feel-details,
+    .tdb-home-verse-extras,
+    .tdb-home-pastor-plans,
+    .tdb-home-later-details,
+    .tdb-home-campus-details,
+    .tdb-home-doorways-details,
+    .tdb-home-more-paths {
+      margin: 0.75rem 0;
+      border: 1px solid rgba(163, 183, 209, 0.16);
+      border-radius: 12px;
+      padding: 0.35rem 0.75rem 0.55rem;
+      background: color-mix(in srgb, var(--tdb-surface-panel-bg, rgba(16, 20, 32, 0.55)) 88%, transparent);
+    }
+    .tdb-porch-feel-details > summary,
+    .tdb-home-verse-extras > summary,
+    .tdb-home-pastor-plans > summary,
+    .tdb-home-later-details > summary,
+    .tdb-home-campus-details > summary,
+    .tdb-home-doorways-details > summary,
+    .tdb-home-more-paths > summary {
+      cursor: pointer;
+      list-style: none;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      padding: 0.55rem 0.15rem;
+      color: var(--text, #e8eef8);
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+    }
+    .tdb-porch-feel-details > summary::-webkit-details-marker,
+    .tdb-home-verse-extras > summary::-webkit-details-marker,
+    .tdb-home-pastor-plans > summary::-webkit-details-marker,
+    .tdb-home-later-details > summary::-webkit-details-marker,
+    .tdb-home-campus-details > summary::-webkit-details-marker,
+    .tdb-home-doorways-details > summary::-webkit-details-marker,
+    .tdb-home-more-paths > summary::-webkit-details-marker {
+      display: none;
+    }
+    .tdb-porch-feel--below {
+      margin: 0.35rem 0 0.5rem;
+      padding: 0;
+      border: 0;
+      background: transparent;
+    }
+    .tdb-path-secondary {
+      margin: 0.35rem 0;
     }
     /* Even vertical pause — same heights above .app and inside #home-primary-flow (redeploy so live matches) */
     body > .spacer,

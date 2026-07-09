@@ -5689,6 +5689,121 @@ const PHRASE_TO_TOKENS = {
   'what is 2 kings about': ['faith', 'wisdom', 'trust', 'hope'],
   'israel falls to assyria bible': ['faith', 'wisdom', 'trust', 'hope'],
 
+  // === BIBLE KNOWLEDGE: Batch 9 — Characters ===
+  'who were adam and eve': ['faith', 'wisdom', 'trust', 'hope'],
+  'adam and eve in the garden': ['faith', 'wisdom', 'trust', 'hope'],
+  'the fall of man bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'original sin bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'who was judas iscariot': ['faith', 'wisdom', 'trust', 'hope'],
+  'judas betrayed jesus': ['faith', 'wisdom', 'trust', 'hope'],
+  'thirty pieces of silver bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'who was aaron in the bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'aaron brother of moses': ['faith', 'wisdom', 'trust', 'hope'],
+  'golden calf aaron bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'who were priscilla and aquila': ['faith', 'wisdom', 'trust', 'hope'],
+  'priscilla aquila tentmakers bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'who was james brother of jesus': ['faith', 'wisdom', 'trust', 'hope'],
+  'james who wrote the epistle': ['faith', 'wisdom', 'trust', 'hope'],
+
+  // === BIBLE KNOWLEDGE: Batch 9 — Theological ===
+  'what does born again mean': ['faith', 'salvation', 'hope', 'trust'],
+  'you must be born again bible': ['faith', 'salvation', 'hope', 'trust'],
+  'what is the soul in the bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'body soul spirit bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'what is the sabbath in the bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'remember the sabbath day': ['faith', 'wisdom', 'trust', 'hope'],
+  'sabbath rest for christians': ['faith', 'wisdom', 'trust', 'hope'],
+  'what does the bible say about confession': ['faith', 'forgiveness', 'trust', 'hope'],
+  'if we confess our sins bible': ['faith', 'forgiveness', 'trust', 'hope'],
+  'what does the bible say about speaking in tongues': ['faith', 'wisdom', 'trust', 'hope'],
+  'gift of tongues bible': ['faith', 'wisdom', 'trust', 'hope'],
+
+  // === BIBLE KNOWLEDGE: Batch 9 — Books ===
+  'what is exodus about': ['faith', 'wisdom', 'trust', 'hope'],
+  'ten plagues of egypt bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'passover exodus bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'what is leviticus about': ['faith', 'wisdom', 'trust', 'hope'],
+  'be holy for i am holy bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'love your neighbor leviticus': ['faith', 'wisdom', 'trust', 'hope'],
+  'what is esther about': ['faith', 'wisdom', 'trust', 'hope'],
+  'for such a time as this bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'what is nehemiah about': ['faith', 'wisdom', 'trust', 'hope'],
+  'nehemiah rebuilt the wall': ['faith', 'wisdom', 'trust', 'hope'],
+  'the joy of the lord is your strength': ['faith', 'wisdom', 'trust', 'hope'],
+  'what is 2 thessalonians about': ['faith', 'wisdom', 'trust', 'hope'],
+  'if any man not work not eat': ['faith', 'wisdom', 'trust', 'hope'],
+
+  // === BIBLE KNOWLEDGE: Batch 10 — Characters ===
+  'who was caleb in the bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'caleb give me this mountain': ['faith', 'wisdom', 'trust', 'hope'],
+  'caleb had a different spirit': ['faith', 'wisdom', 'trust', 'hope'],
+  'who was pontius pilate': ['faith', 'wisdom', 'trust', 'hope'],
+  'pilate washed his hands bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'i find no fault in him pilate': ['faith', 'wisdom', 'trust', 'hope'],
+  'who was joseph husband of mary': ['faith', 'wisdom', 'trust', 'hope'],
+  'joseph carpenter nazareth bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'who was absalom in the bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'absalom rebellion against david': ['faith', 'wisdom', 'trust', 'hope'],
+  'o absalom my son bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'who were james and john sons of zebedee': ['faith', 'wisdom', 'trust', 'hope'],
+  'sons of thunder bible': ['faith', 'wisdom', 'trust', 'hope'],
+
+  // === BIBLE KNOWLEDGE: Batch 10 — Theological ===
+  'what does the bible say about healing': ['faith', 'wisdom', 'trust', 'hope'],
+  'does god still heal today': ['faith', 'wisdom', 'trust', 'hope'],
+  'by his stripes we are healed': ['faith', 'wisdom', 'trust', 'hope'],
+  'what is intercessory prayer': ['faith', 'wisdom', 'trust', 'hope'],
+  'standing in the gap bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'what is the body of christ': ['faith', 'wisdom', 'trust', 'hope'],
+  'members of one body bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'what does the bible say about demons': ['faith', 'wisdom', 'trust', 'hope'],
+  'evil spirits in the bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'jesus cast out demons bible': ['faith', 'wisdom', 'trust', 'hope'],
+
+  // === BIBLE KNOWLEDGE: Batch 10 — Books ===
+  'what is joshua book about': ['faith', 'wisdom', 'trust', 'hope'],
+  'be strong and courageous joshua': ['faith', 'wisdom', 'trust', 'hope'],
+  'as for me and my house joshua': ['faith', 'wisdom', 'trust', 'hope'],
+  'what is judges about': ['faith', 'wisdom', 'trust', 'hope'],
+  'cycle of sin in judges bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'every man did what was right in his own eyes': ['faith', 'wisdom', 'trust', 'hope'],
+  'what is ruth about': ['faith', 'wisdom', 'trust', 'hope'],
+  'ruth and boaz bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'ruth lovingkindness bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'what is 1 chronicles about': ['faith', 'wisdom', 'trust', 'hope'],
+  'david prepared for the temple 1 chronicles': ['faith', 'wisdom', 'trust', 'hope'],
+  'what is habakkuk about': ['faith', 'wisdom', 'trust', 'hope'],
+  'the just shall live by faith habakkuk': ['faith', 'wisdom', 'trust', 'hope'],
+  'even though the fig tree bible': ['faith', 'wisdom', 'trust', 'hope'],
+
+  // === BIBLE KNOWLEDGE: Batch 11 — Remaining Books ===
+  'what is 2 chronicles about': ['faith', 'wisdom', 'trust', 'hope'],
+  'if my people 2 chronicles 7 14': ['faith', 'wisdom', 'trust', 'hope'],
+  'solomon temple dedication bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'what is ezra about': ['faith', 'wisdom', 'trust', 'hope'],
+  'return from exile bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'ezra scribe of the law': ['faith', 'wisdom', 'trust', 'hope'],
+  'what is haggai about': ['faith', 'wisdom', 'trust', 'hope'],
+  'consider your ways haggai': ['faith', 'wisdom', 'trust', 'hope'],
+  'what is zephaniah about': ['faith', 'wisdom', 'trust', 'hope'],
+  'lord rejoices over you with singing': ['faith', 'wisdom', 'trust', 'hope'],
+  'mighty to save zephaniah': ['faith', 'wisdom', 'trust', 'hope'],
+  'what is nahum about': ['faith', 'wisdom', 'trust', 'hope'],
+  'fall of nineveh bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'what is obadiah about': ['faith', 'wisdom', 'trust', 'hope'],
+  'shortest book old testament': ['faith', 'wisdom', 'trust', 'hope'],
+  'edom in the bible obadiah': ['faith', 'wisdom', 'trust', 'hope'],
+  'what is jonah about': ['faith', 'wisdom', 'trust', 'hope'],
+  'jonah ran from god bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'jonah three days in the fish': ['faith', 'wisdom', 'trust', 'hope'],
+  'what is philemon about': ['faith', 'wisdom', 'trust', 'hope'],
+  'onesimus and philemon bible': ['faith', 'wisdom', 'trust', 'hope'],
+  'what is 2 john about': ['faith', 'wisdom', 'trust', 'hope'],
+  'love one another 2 john': ['faith', 'wisdom', 'trust', 'hope'],
+  'what is 3 john about': ['faith', 'wisdom', 'trust', 'hope'],
+  'walking in truth 3 john': ['faith', 'wisdom', 'trust', 'hope'],
+  'gaius in the bible': ['faith', 'wisdom', 'trust', 'hope'],
+
   // === BIBLE KNOWLEDGE: Characters (batch 7) ===
   'who was jacob': ['faith', 'trust', 'wisdom', 'hope'],
   'jacob wrestled with god': ['faith', 'trust', 'strength', 'hope'],
@@ -8660,6 +8775,541 @@ var TDB_BIBLICAL_ANSWERS = [
     answer: 'Second Kings continues where 1 Kings ended — and its arc is descent toward judgment. It opens with Elijah being taken up in a chariot of fire (2:11), and Elisha inheriting his ministry. The divided kingdom (Israel in the north, Judah in the south) deteriorates through a succession of largely unfaithful kings, measured always by the same standard: did they do what was right in the eyes of the LORD? The northern kingdom of Israel falls to Assyria in 722 BC (chapter 17) because of persistent idolatry. Among the few bright moments is Hezekiah — a king who "trusted in the LORD God of Israel; so that after him was none like him among all the kings of Judah" (18:5). When Sennacherib threatened Jerusalem, Hezekiah spread the threatening letter before God in the Temple and prayed; the Assyrian army was struck down overnight. But Hezekiah\'s son Manasseh undid his father\'s faithfulness, and the southern kingdom of Judah eventually fell to Babylon in 586 BC. Second Kings is a long answer to what happens when a nation slowly turns away.',
     verses: ['2 Kings 2:11', '2 Kings 18:5', '2 Kings 19:19', '2 Kings 17:6'],
     plan: 'trust'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE — Batch 9: Characters
+  // ============================================================
+  {
+    id: 'adam-and-eve',
+    type: 'knowledge',
+    triggers: [
+      'who were adam and eve', 'adam and eve bible story', 'tell me about adam and eve',
+      'adam and eve in the garden', 'the fall of adam and eve', 'original sin adam and eve',
+      'adam and eve genesis 3', 'god made adam from dust', 'adam and eve ate the fruit',
+      'adam and eve covering with fig leaves'
+    ],
+    answer: 'Adam and Eve are the first man and woman in Scripture — created in the image of God (Genesis 1:27), placed in the Garden of Eden, and given everything they needed. The one prohibition was the tree of the knowledge of good and evil. The serpent questioned God\'s word ("Yea, hath God said?"), Eve ate, Adam ate. The effects were immediate: shame, hiding, the first covering with fig leaves — human attempts to manage what only God could address. God\'s response was both discipline and provision: He pronounced consequences — toil, pain in childbirth, death — but also promised that the seed of the woman would bruise the serpent\'s head (Genesis 3:15), the first glimpse of the gospel. He made them coats of skins — the first sacrifice to cover what human effort could not. Their story is not just ancient history; it is the story every person re-enacts: the reach for autonomy, the immediate sense that something has been lost, and the grace that meets us before we ask for it.',
+    verses: ['Genesis 1:27', 'Genesis 3:15', 'Genesis 3:21', 'Romans 5:12'],
+    plan: 'roadtosalvation'
+  },
+  {
+    id: 'who-was-judas-iscariot',
+    type: 'knowledge',
+    triggers: [
+      'who was judas iscariot', 'tell me about judas', 'judas in the bible',
+      'judas betrayed jesus', 'judas thirty pieces of silver', 'judas kiss in the garden',
+      'why did judas betray jesus', 'judas iscariot bible story', 'judas apostle bible',
+      'what happened to judas iscariot'
+    ],
+    answer: 'Judas Iscariot was one of the twelve apostles — trusted enough to carry the disciples\' money bag — who agreed to betray Jesus to the chief priests for thirty pieces of silver (Matthew 26:14–15). His betrayal came through a kiss in the garden of Gethsemane: a greeting of friendship used as a signal to the soldiers. What drove him is not entirely explained in Scripture. John 12:6 notes he was a thief who helped himself from the bag. Luke 22:3 says "Satan entered into Judas." Both things appear to be true — human choice and spiritual influence operating together. After Jesus was condemned, Judas was filled with remorse, threw the silver back in the Temple, and hanged himself (Matthew 27:3–5). The chief priests used the money to buy a burial field for strangers — which Matthew notes as fulfillment of Zechariah 11:12–13. His story raises questions that Scripture does not fully resolve: how much did he understand, and how much did he choose. The honest answer is that both his free act and God\'s purpose were at work in the same night.',
+    verses: ['Matthew 26:15', 'Luke 22:3', 'John 17:12', 'Acts 1:18'],
+    plan: 'trust'
+  },
+  {
+    id: 'who-was-aaron',
+    type: 'knowledge',
+    triggers: [
+      'who was aaron in the bible', 'tell me about aaron', 'aaron in the bible',
+      'aaron brother of moses', 'aaron the high priest', 'aaron and the golden calf',
+      'aaron old testament', 'aaron levite bible', 'aaron spoke for moses',
+      'aaron and miriam bible'
+    ],
+    answer: 'Aaron was Moses\' older brother — a Levite appointed by God to speak for Moses when Moses said he was "slow of speech" (Exodus 4:14–16). He was Israel\'s first high priest and the father of the priestly line that would serve the Tabernacle and Temple for generations. His story has light and shadow in equal measure. On Mount Sinai, while Moses received the Law, Aaron responded to the people\'s impatience by fashioning a golden calf from their jewelry and declaring "These be thy gods, O Israel" (Exodus 32:4) — one of the most catastrophic acts of leadership failure in Scripture. When confronted, he blamed the people: "they gave it me: then I cast it into the fire, and there came out this calf." Yet God did not remove him from the priesthood. He held the office until his death on Mount Hor, where his garments were transferred to his son Eleazar — a quiet picture of succession and grace operating through imperfect servants. Hebrews draws the contrast between Aaron\'s temporary priesthood and Christ\'s eternal one.',
+    verses: ['Exodus 4:14', 'Exodus 32:4', 'Numbers 20:28', 'Hebrews 5:4'],
+    plan: 'trust'
+  },
+  {
+    id: 'priscilla-and-aquila',
+    type: 'knowledge',
+    triggers: [
+      'who were priscilla and aquila', 'priscilla and aquila bible', 'tell me about priscilla and aquila',
+      'priscilla aquila tentmakers bible', 'priscilla and aquila corrected apollos',
+      'priscilla aquila new testament', 'priscilla aquila rome bible', 'aquila and priscilla acts 18',
+      'husband and wife team in the bible', 'priscilla aquila taught apollos'
+    ],
+    answer: 'Priscilla and Aquila were a married Jewish couple — tentmakers by trade — who became two of the most significant co-workers in Paul\'s missionary network. They had been expelled from Rome under Emperor Claudius\'s edict against Jews (Acts 18:2), and Paul met them in Corinth, worked alongside them, and eventually brought them to Ephesus. Their most notable act was taking the gifted preacher Apollos — who was "mighty in the scriptures" but knew only John\'s baptism — privately aside and explaining "the way of God more perfectly" (Acts 18:26). Notably, Priscilla is named first in most references, which likely indicates her leadership in the teaching. Paul refers to them in Romans 16:3–4 as those who "for my life laid down their own necks" — a sacrifice that had earned the gratitude of every Gentile church. They were the model of a marriage that functioned as a ministry, opening their home as a church gathering place in multiple cities.',
+    verses: ['Acts 18:26', 'Romans 16:3', 'Acts 18:2', '1 Corinthians 16:19'],
+    plan: 'firststeps'
+  },
+  {
+    id: 'who-was-james-brother-of-jesus',
+    type: 'knowledge',
+    triggers: [
+      'who was james the brother of jesus', 'james brother of jesus bible', 'tell me about james',
+      'james who wrote the epistle', 'james leader of jerusalem church', 'james apostle bible',
+      'james the lord s brother', 'james in the new testament', 'james pillar of the church',
+      'who wrote the book of james'
+    ],
+    answer: 'James was the brother of Jesus — not one of the twelve apostles and not a believer during Jesus\' earthly ministry (John 7:5 says his brothers did not believe in him). His conversion appears to have come through the resurrection: Paul records that the risen Jesus appeared specifically to James (1 Corinthians 15:7). He became the leader of the Jerusalem church — the one Paul called a "pillar" alongside Peter and John (Galatians 2:9). He presided over the Jerusalem Council in Acts 15, which resolved whether Gentile believers needed to be circumcised. He is called "James the Just" in early church tradition, known for his constant prayer in the Temple — his knees, they said, were calloused like a camel\'s from kneeling. He wrote the letter that bears his name — one of the most practical in the New Testament, focused relentlessly on the visible evidence of living faith. He was martyred around AD 62, thrown from the Temple wall by those who could not silence him otherwise.',
+    verses: ['James 1:22', '1 Corinthians 15:7', 'Galatians 2:9', 'Acts 15:13'],
+    plan: 'walktheword'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE — Batch 9: Theological
+  // ============================================================
+  {
+    id: 'born-again-meaning',
+    type: 'knowledge',
+    triggers: [
+      'what does born again mean', 'what is being born again', 'born again bible meaning',
+      'you must be born again bible', 'john 3 3 born again', 'what does it mean to be born again',
+      'born again christian meaning', 'how do you become born again', 'spiritual rebirth bible',
+      'nicodemus you must be born again'
+    ],
+    answer: 'Jesus said it plainly in John 3:3: "Verily, verily, I say unto thee, Except a man be born again, he cannot see the kingdom of God." Nicodemus, a teacher of Israel, was confused — must a man re-enter his mother\'s womb? Jesus clarified: "That which is born of the flesh is flesh; and that which is born of the Spirit is spirit" (3:6). Being born again is not a physical second birth but a spiritual one — a genuine regeneration by the Holy Spirit that produces a new nature, new desires, and a new relationship with God. Titus 3:5 calls it "the renewing of the Holy Ghost." Second Corinthians 5:17 describes the result: "if any man be in Christ, he is a new creature: old things are passed away; behold, all things are become new." Jesus placed it before any other step — not confirmation, not church membership, not moral improvement. Before you can see the kingdom, you must be born into it. It is not something you do; it is something that is done to you as you believe.',
+    verses: ['John 3:3', 'John 3:6', '2 Corinthians 5:17', 'Titus 3:5'],
+    plan: 'roadtosalvation'
+  },
+  {
+    id: 'what-is-the-soul',
+    type: 'knowledge',
+    triggers: [
+      'what is the soul in the bible', 'what does the bible say about the soul',
+      'what is the soul', 'soul vs spirit bible', 'what is the human soul',
+      'does the soul exist bible', 'what is soul meaning bible', 'soul and spirit difference bible',
+      'what happens to the soul after death', 'body soul spirit bible'
+    ],
+    answer: 'Scripture speaks of humans as having body, soul, and spirit — though these are not always neatly separated, and theologians have long debated their exact distinctions. The word "soul" in Hebrew (nephesh) and Greek (psyche) often simply means "life" or "person" — the self that is alive. Genesis 2:7 says God breathed into Adam and he "became a living soul." The soul in Scripture is the seat of personal identity, emotion, and will — Jesus said to love God with "all thy soul" (Matthew 22:37), and Mary declared "my soul doth magnify the Lord" (Luke 1:46). The spirit (pneuma/ruach) is more specifically the part that relates directly to God — "God is a Spirit: and they that worship him must worship him in spirit and in truth" (John 4:24). Hebrews 4:12 says the word of God can divide "soul and spirit" — suggesting they are real but closely intertwined. What is consistent throughout is that human beings are not merely physical: there is something that lives, that relates to God, that persists beyond the body.',
+    verses: ['Genesis 2:7', 'Matthew 22:37', 'Hebrews 4:12', '1 Thessalonians 5:23'],
+    plan: 'firststeps'
+  },
+  {
+    id: 'what-is-the-sabbath',
+    type: 'knowledge',
+    triggers: [
+      'what is the sabbath in the bible', 'what does the bible say about the sabbath',
+      'sabbath meaning bible', 'is the sabbath still required', 'what day is the sabbath',
+      'sabbath rest bible', 'remember the sabbath day', 'should christians keep the sabbath',
+      'what is sabbath rest for christians', 'hebrews 4 sabbath rest'
+    ],
+    answer: 'The Sabbath — the seventh day of rest — is rooted in creation: God worked six days and rested on the seventh, and Genesis 2:3 says He "sanctified it." Under the Mosaic law it was the fourth commandment: "Remember the sabbath day, to keep it holy" (Exodus 20:8). It was a day of complete rest from labor, tied to the rhythm of worship, family, and dependence on God rather than productivity. Jesus observed the Sabbath but consistently confronted its legalistic distortion — healing on the Sabbath repeatedly and declaring "The sabbath was made for man, and not man for the sabbath" (Mark 2:27). For Christians, the early church shifted their primary gathering to the first day of the week (Acts 20:7, Revelation 1:10) in recognition of the resurrection. Hebrews 4 draws out the deeper principle: a spiritual rest remains for the people of God — a rest from self-effort and performance found in Christ. The Sabbath was always meant to be more than a day; it was meant to be a posture.',
+    verses: ['Exodus 20:8', 'Mark 2:27', 'Hebrews 4:9', 'Matthew 11:28'],
+    plan: 'firststeps'
+  },
+  {
+    id: 'confession-to-god',
+    type: 'knowledge',
+    triggers: [
+      'what does the bible say about confession', 'confession in the bible', 'how to confess to god',
+      'what is confession of sin bible', 'if we confess our sins bible', '1 john 1 9 confession',
+      'why confess sin to god', 'confess your sins bible meaning', 'confession and forgiveness bible',
+      'how to receive forgiveness from god bible'
+    ],
+    answer: 'Confession in Scripture is honest acknowledgment of sin before God — not the earning of forgiveness but the reception of it. First John 1:9 is the clearest statement: "If we confess our sins, he is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness." The Greek word for confess (homologeo) means to say the same thing — to agree with God about what is true rather than minimizing, explaining away, or hiding. Psalm 51 is David\'s great confession after his sin with Bathsheba — raw, specific, without excuse. He does not ask God to overlook the sin but to create a clean heart (51:10). Proverbs 28:13 frames it practically: "He that covereth his sins shall not prosper: but whoso confesseth and forsaketh them shall have mercy." Confession is not a ritual to perform before God reluctantly grants pardon — it is the honest returning of a person to the God who is already waiting to receive them.',
+    verses: ['1 John 1:9', 'Psalm 51:10', 'Proverbs 28:13', 'James 5:16'],
+    plan: 'firststeps'
+  },
+  {
+    id: 'speaking-in-tongues',
+    type: 'knowledge',
+    triggers: [
+      'what does the bible say about speaking in tongues', 'speaking in tongues bible',
+      'what is speaking in tongues', 'glossolalia bible', 'tongues of fire pentecost',
+      'is speaking in tongues for today', '1 corinthians 12 tongues', 'acts 2 speaking in tongues',
+      'what are tongues in the bible', 'gift of tongues bible meaning'
+    ],
+    answer: 'Speaking in tongues appears in two primary contexts in the New Testament. At Pentecost (Acts 2), the disciples spoke in recognizable human languages they had not learned — people from across the Roman world each heard the gospel in their own dialect. This was a sign of the Spirit\'s arrival and the gospel\'s boundary-crossing reach. In 1 Corinthians 12–14, Paul addresses a different expression in the Corinthian church — a form of ecstatic speech that required interpretation and was creating disorder. He affirms it as a genuine gift but subordinates it firmly to intelligible speech: "in the church I had rather speak five words with my understanding...than ten thousand words in an unknown tongue" (14:19). He does not forbid it: "forbid not to speak with tongues" (14:39). Christians across traditions have held different views on whether these gifts continue today. What is clear in Scripture: tongues must be ordered, must be interpretable in the congregation, and must serve the building up of others — not the spiritual display of the individual.',
+    verses: ['Acts 2:4', '1 Corinthians 14:19', '1 Corinthians 12:10', '1 Corinthians 14:39'],
+    plan: 'firststeps'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE — Batch 9: Books & Passages
+  // ============================================================
+  {
+    id: 'what-is-exodus-about',
+    type: 'knowledge',
+    triggers: [
+      'what is exodus about', 'exodus overview', 'what does exodus teach',
+      'book of exodus explained', 'exodus summary', 'what is exodus in the bible',
+      'exodus main message', 'moses and pharaoh exodus', 'ten plagues of egypt bible',
+      'passover exodus bible'
+    ],
+    answer: 'Exodus is the story of liberation — 430 years of slavery in Egypt ended by the power of God through a very reluctant leader named Moses. The ten plagues escalate in response to Pharaoh\'s repeated hardening against God\'s command to let Israel go, culminating in the death of the firstborn from which God\'s people were protected by the blood of a lamb on their doorposts — the Passover, which Paul calls Christ our Passover sacrificed for us (1 Corinthians 5:7). The Red Sea crossing, the giving of the Law at Sinai (including the Ten Commandments), the Tabernacle instructions, and the golden calf incident are all in Exodus. The book\'s theological center is the covenant at Sinai and the name God gave Moses at the burning bush: "I AM THAT I AM" (3:14). Exodus establishes the pattern the whole Bible follows: bondage, redemption by blood, covenant, and the presence of God dwelling with His people.',
+    verses: ['Exodus 3:14', 'Exodus 12:13', 'Exodus 20:2', '1 Corinthians 5:7'],
+    plan: 'roadtosalvation'
+  },
+  {
+    id: 'what-is-leviticus-about',
+    type: 'knowledge',
+    triggers: [
+      'what is leviticus about', 'leviticus overview', 'what does leviticus teach',
+      'book of leviticus explained', 'leviticus summary', 'what is leviticus in the bible',
+      'leviticus main message', 'why is leviticus in the bible', 'leviticus clean unclean laws',
+      'love your neighbor leviticus'
+    ],
+    answer: 'Leviticus is one of the most challenging books for modern readers — dense with sacrificial regulations, priestly duties, and purity laws. Its purpose is stated in its recurring phrase: "Be holy, for I the LORD your God am holy" (19:2). It sits immediately after Exodus because the Tabernacle has just been built; now the question is how a holy God can dwell with an imperfect people. The sacrificial system — burnt offerings, sin offerings, guilt offerings, peace offerings — was not about earning favor but maintaining the relationship in the presence of a holy God. Two surprises hide in Leviticus: chapter 16 contains the Day of Atonement (Yom Kippur), when the high priest entered the Most Holy Place once a year with blood — a pattern Hebrews 9–10 applies directly to Christ. And chapter 19 contains "thou shalt love thy neighbour as thyself" (19:18) — the command Jesus called the second greatest (Matthew 22:39). Leviticus is not obsolete; it is the theological foundation beneath the cross.',
+    verses: ['Leviticus 19:2', 'Leviticus 19:18', 'Leviticus 16:34', 'Hebrews 9:12'],
+    plan: 'walktheword'
+  },
+  {
+    id: 'what-is-esther-book-about',
+    type: 'knowledge',
+    triggers: [
+      'what is esther about', 'esther book overview', 'what does esther teach',
+      'book of esther explained', 'esther summary', 'what is the book of esther about',
+      'esther main message', 'for such a time as this bible', 'esther and mordecai bible',
+      'haman and esther bible story'
+    ],
+    answer: 'The book of Esther is unique: God\'s name is never mentioned anywhere in its text — and yet His hand is unmistakable on every page. It tells the story of a Jewish orphan girl named Esther who became queen of Persia without revealing her heritage, and who faced a crisis when the king\'s chief minister Haman plotted to exterminate the Jewish people throughout the empire. Her cousin Mordecai urged her to go before the king unsummoned — a potentially fatal act — with the famous challenge: "who knoweth whether thou art come to the kingdom for such a time as this?" (4:14). Esther fasted, risked her life, and the plot was reversed: Haman was executed on the very gallows he had built for Mordecai. The feast of Purim, still celebrated by Jewish people today, commemorates this deliverance. Esther is a book about hidden providence — the conviction that God is working in circumstances that appear entirely secular, through ordinary courage in an impossible moment.',
+    verses: ['Esther 4:14', 'Esther 4:16', 'Esther 8:17', 'Esther 9:22'],
+    plan: 'trust'
+  },
+  {
+    id: 'what-is-nehemiah-about',
+    type: 'knowledge',
+    triggers: [
+      'what is nehemiah about', 'nehemiah overview', 'what does nehemiah teach',
+      'book of nehemiah explained', 'nehemiah summary', 'what is nehemiah in the bible',
+      'nehemiah main message', 'nehemiah rebuilt the wall', 'nehemiah cupbearer to king bible',
+      'the joy of the lord is your strength nehemiah'
+    ],
+    answer: 'Nehemiah was the cupbearer to the Persian king Artaxerxes — a trusted position of access and influence — who wept when he heard that Jerusalem\'s walls remained rubble decades after the exiles returned. He prayed, requested permission to go rebuild, and led one of the most practical leadership stories in Scripture: organizing workers, assigning sections of wall to family groups, working with a trowel in one hand and a sword in the other as enemies threatened. The wall was completed in 52 days — an extraordinary achievement that his opponents recognized as the work of God (Nehemiah 6:16). Chapter 8 contains one of the great moments of biblical revival: Ezra read the Law to the people publicly, the Levites explained it, and the people wept at what they heard. Nehemiah\'s instruction was: "the joy of the LORD is your strength" (8:10) — not the occasion for weeping but for celebration of the grace that still received them. Nehemiah is a book about leadership that prays, serves, and refuses to be distracted from the task.',
+    verses: ['Nehemiah 2:4', 'Nehemiah 4:17', 'Nehemiah 6:16', 'Nehemiah 8:10'],
+    plan: 'walktheword'
+  },
+  {
+    id: 'what-is-2-thessalonians-about',
+    type: 'knowledge',
+    triggers: [
+      'what is 2 thessalonians about', 'second thessalonians overview', 'what does 2 thessalonians teach',
+      'book of 2 thessalonians explained', '2 thessalonians summary', 'what is 2 thessalonians in the bible',
+      '2 thessalonians main message', 'man of sin 2 thessalonians', 'if any man not work not eat',
+      '2 thessalonians second coming'
+    ],
+    answer: 'Second Thessalonians was written shortly after 1 Thessalonians to address a new problem: some in the church had become convinced that the Day of the Lord had already arrived, and were using that as an excuse to stop working and depend on others. Paul corrects both errors directly. On the timing of the Lord\'s return: certain things must happen first — a "falling away" and the revealing of "that man of sin" (2:3) — so the day has not already come. On the idleness: "if any would not work, neither should he eat" (3:10), a command delivered with apostolic authority. The letter also contains a beautiful prayer: "The Lord direct your hearts into the love of God, and into the patient waiting for Christ" (3:5). Second Thessalonians holds together the church\'s forward hope and its present responsibility — you wait for the Lord by working faithfully, not by stopping.',
+    verses: ['2 Thessalonians 3:10', '2 Thessalonians 2:3', '2 Thessalonians 3:5', '2 Thessalonians 1:11'],
+    plan: 'standfirm'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE — Batch 10: Characters
+  // ============================================================
+  {
+    id: 'who-was-caleb',
+    type: 'knowledge',
+    triggers: [
+      'who was caleb in the bible', 'tell me about caleb', 'caleb in the bible',
+      'caleb and joshua spies', 'caleb had a different spirit', 'caleb old testament',
+      'caleb followed god fully', 'caleb at 85 years old', 'caleb give me this mountain',
+      'caleb son of jephunneh bible'
+    ],
+    answer: 'Caleb was one of the twelve spies Moses sent into Canaan — and one of only two who came back with a good report. The other ten saw the giants and said Israel could not take the land. Caleb "stilled the people before Moses, and said, Let us go up at once, and possess it; for we are well able to overcome it" (Numbers 13:30). Numbers 14:24 gives God\'s verdict on Caleb: he had "another spirit" and had "followed me fully." Because of that faithfulness, God promised that Caleb alone of his generation would enter the land — and would receive an inheritance there. He waited forty-five years for that promise while the unbelieving generation died in the wilderness. At eighty-five years old he stood before Joshua and said: "as yet I am as strong this day as I was in the day that Moses sent me...give me this mountain" (Joshua 14:11–12). He drove out the giants himself. Caleb is the Bible\'s picture of a promise held without wavering, across decades.',
+    verses: ['Numbers 13:30', 'Numbers 14:24', 'Joshua 14:11', 'Joshua 14:12'],
+    plan: 'trust'
+  },
+  {
+    id: 'who-was-pontius-pilate',
+    type: 'knowledge',
+    triggers: [
+      'who was pontius pilate', 'tell me about pontius pilate', 'pontius pilate in the bible',
+      'pilate and jesus trial', 'pilate washed his hands bible', 'what is truth pilate bible',
+      'i find no fault in him pilate', 'pilate roman governor bible', 'pilate new testament',
+      'why did pilate crucify jesus'
+    ],
+    answer: 'Pontius Pilate was the Roman governor of Judea from approximately AD 26 to 36 — the man who presided over Jesus\' trial and authorized the crucifixion despite finding no guilt in him. John\'s account is the most extended: Pilate moved back and forth between Jesus and the crowds, asking Jesus "What is truth?" (John 18:38) moments after Truth Himself had spoken it, and repeatedly declaring "I find no fault in him" while lacking the will to act on his own conclusion. He offered the crowd a choice between Jesus and Barabbas; they chose Barabbas. He washed his hands publicly, saying "I am innocent of the blood of this just person" (Matthew 27:24) — and immediately ordered the crucifixion. Pilate is the portrait of a man who knew what was right, could not be convinced Jesus was guilty, and chose political survival over justice anyway. His name appears in every major creed of the church: "suffered under Pontius Pilate" — anchoring the crucifixion as a datable historical event.',
+    verses: ['John 18:38', 'John 19:6', 'Matthew 27:24', 'Luke 23:22'],
+    plan: 'roadtosalvation'
+  },
+  {
+    id: 'who-was-joseph-husband-of-mary',
+    type: 'knowledge',
+    triggers: [
+      'who was joseph husband of mary', 'tell me about joseph in the new testament',
+      'joseph father of jesus bible', 'joseph the carpenter bible', 'joseph and mary bible',
+      'joseph took mary as his wife', 'joseph dream angel bible', 'joseph fled to egypt with mary',
+      'joseph in the nativity', 'joseph just man bible'
+    ],
+    answer: 'Joseph was a carpenter from Nazareth, betrothed to Mary, and the man God chose to raise His Son. Matthew 1:19 calls him "a just man" — the same word used of Noah and Zechariah. When he discovered Mary was pregnant before they had come together, his first instinct was to protect her: he planned to put her away quietly rather than make a public example of her. An angel appeared to him in a dream and told him not to fear — that the child was of the Holy Ghost. He obeyed immediately: he took Mary as his wife and named the child Jesus as instructed. He was the one who fled with Mary and the infant to Egypt when Herod sought to kill the child, and who returned to Nazareth when it was safe. He appears in Luke 2 at the Temple when Jesus was twelve — and then disappears from the narrative entirely, suggesting he had died before Jesus\' public ministry. He held the most unusual assignment in human history — to protect and raise the Son of God — and the text notes simply that he did it.',
+    verses: ['Matthew 1:19', 'Matthew 1:24', 'Matthew 2:13', 'Luke 2:52'],
+    plan: 'trust'
+  },
+  {
+    id: 'who-was-absalom',
+    type: 'knowledge',
+    triggers: [
+      'who was absalom in the bible', 'tell me about absalom', 'absalom in the bible',
+      'absalom rebellion against david', 'david and absalom bible', 'absalom son of david',
+      'o absalom my son bible', 'absalom old testament', 'absalom killed ammon',
+      'absalom revolt 2 samuel'
+    ],
+    answer: 'Absalom was David\'s third son — described as the most handsome man in all Israel, "from the sole of his foot even to the crown of his head there was no blemish in him" (2 Samuel 14:25). His story is one of the most tragic in the Old Testament. After his sister Tamar was assaulted by their half-brother Amnon and David failed to act, Absalom took justice into his own hands: he killed Amnon and fled. He was eventually restored but nursed a long grievance, systematically "stealing the hearts of the men of Israel" through charm and false promises of justice (15:6). He launched a full rebellion, drove David from Jerusalem, and briefly captured the throne. His death came in battle — his hair, which he cut annually because of its weight and which was his pride, caught in a tree as he fled on a mule, and David\'s general Joab killed him. David\'s lament is one of the most heartbroken in Scripture: "O my son Absalom, my son, my son Absalom! would God I had died for thee" (2 Samuel 18:33). The beauty, the wasted potential, the irreparable consequence.',
+    verses: ['2 Samuel 14:25', '2 Samuel 15:6', '2 Samuel 18:33', '2 Samuel 15:14'],
+    plan: 'grief'
+  },
+  {
+    id: 'james-and-john-sons-of-zebedee',
+    type: 'knowledge',
+    triggers: [
+      'who were james and john in the bible', 'sons of zebedee bible', 'james and john apostles',
+      'sons of thunder bible', 'boanerges bible meaning', 'james and john left their nets',
+      'james and john mother asked jesus', 'john brother of james bible',
+      'james son of zebedee martyred', 'james and john new testament'
+    ],
+    answer: 'James and John were brothers — fishermen and sons of Zebedee — who left their boat and their father on the spot when Jesus called them (Matthew 4:21–22). Jesus named them "Boanerges," meaning "sons of thunder" (Mark 3:17) — a name earned by their temperament: they once asked Jesus if they should call fire from heaven on a Samaritan village (Luke 9:54), and their mother asked Jesus if they could sit at His right and left in His kingdom (Matthew 20:20–21). Along with Peter, they formed the inner circle of the twelve — present at the Transfiguration and in Gethsemane. James was the first of the twelve to be martyred, killed by Herod Agrippa around AD 44 (Acts 12:2) — and notably, Jesus had told them they would indeed drink the cup He drank. John outlived all of them, wrote the Gospel, three letters, and Revelation, and died in old age at Ephesus. Two brothers, same calling, very different deaths — both faithful.',
+    verses: ['Matthew 4:21', 'Mark 3:17', 'Acts 12:2', 'John 19:26'],
+    plan: 'trust'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE — Batch 10: Theological
+  // ============================================================
+  {
+    id: 'healing-bible',
+    type: 'knowledge',
+    triggers: [
+      'what does the bible say about healing', 'does god still heal today', 'healing in the bible',
+      'is healing in the atonement', 'by his stripes we are healed', 'james 5 healing prayer',
+      'does god heal the sick bible', 'prayer for healing bible', 'miracles of healing bible',
+      'why doesnt god always heal bible'
+    ],
+    answer: 'Scripture consistently presents God as the healer: "I am the LORD that healeth thee" (Exodus 15:26), and healing was central to Jesus\' ministry — the Gospels record over thirty specific healings. Isaiah 53:5 says "by his stripes we are healed," a verse Peter applies to spiritual healing in 1 Peter 2:24, though some traditions apply it to physical healing as well. James 5:14–15 gives clear instruction: the elders should anoint the sick with oil and pray in faith, "and the Lord shall raise him up." This is a genuine promise for the church. The honest complexity: not everyone who is prayed for is healed physically — Paul\'s thorn was not removed (2 Corinthians 12:9), Trophimus was left sick (2 Timothy 4:20), and Lazarus was raised only to die again eventually. Scripture holds physical healing as genuinely available by faith and prayer, while also holding the reality that God\'s purposes sometimes work through suffering rather than despite it. The final healing is resurrection — the body that "is sown in weakness; it is raised in power" (1 Corinthians 15:43).',
+    verses: ['James 5:14', 'Isaiah 53:5', 'Exodus 15:26', '1 Corinthians 15:43'],
+    plan: 'sufferendure'
+  },
+  {
+    id: 'intercessory-prayer',
+    type: 'knowledge',
+    triggers: [
+      'what is intercessory prayer', 'what is intercession in the bible', 'intercessory prayer bible',
+      'what does intercessory prayer mean', 'intercession for others bible', 'praying for others bible',
+      'romans 8 26 intercession holy spirit', 'jesus intercedes for us bible', 'who intercedes in the bible',
+      'standing in the gap bible'
+    ],
+    answer: 'Intercessory prayer is praying on behalf of others — standing before God as a representative for people who may not be praying for themselves. Abraham interceded for Sodom (Genesis 18:23–33). Moses stood in the gap for Israel after the golden calf: "the LORD said that he would destroy them. But Moses prayed before the LORD" (Deuteronomy 9:18). Paul gave instruction: "I exhort therefore, that, first of all, supplications, prayers, intercessions...be made for all men; for kings, and for all that are in authority" (1 Timothy 2:1–2). Two supernatural intercessors make intercession constantly: the Holy Spirit intercedes "with groanings which cannot be uttered" for believers (Romans 8:26), and Jesus, seated at the right hand of the Father, "ever liveth to make intercession" for those who come to God through Him (Hebrews 7:25). Intercession is one of the most concrete expressions of love available to a believer — entering God\'s presence on behalf of someone else.',
+    verses: ['Hebrews 7:25', 'Romans 8:26', '1 Timothy 2:1', 'Ezekiel 22:30'],
+    plan: 'firststeps'
+  },
+  {
+    id: 'body-of-christ',
+    type: 'knowledge',
+    triggers: [
+      'what is the body of christ', 'body of christ bible meaning', 'what does body of christ mean',
+      'church as the body of christ', '1 corinthians 12 body of christ', 'members of one body bible',
+      'each member of the body bible', 'spiritual gifts body of christ', 'we are one body in christ',
+      'body of christ explained simply'
+    ],
+    answer: 'The body of Christ is Paul\'s primary image for the church — not a building or an institution but a living body where Christ is the head and every believer is a member (1 Corinthians 12:12–27). Each member has a different function: "if the whole body were an eye, where were the hearing?" (12:17). The parts that seem least impressive are often the most necessary; those that seem the greatest cannot say to the lesser "I have no need of thee" (12:21). The image makes two things clear: every believer has a place and a function, and no believer is designed to function alone. Romans 12:4–5 extends it: "as we have many members in one body, and all members have not the same office: so we, being many, are one body in Christ, and every one members one of another." Ephesians 4:15–16 adds the growth dimension: the body grows as each part does its work. The body of Christ is not a metaphor for belonging — it is a description of what the church actually is.',
+    verses: ['1 Corinthians 12:12', '1 Corinthians 12:27', 'Romans 12:5', 'Ephesians 4:16'],
+    plan: 'firststeps'
+  },
+  {
+    id: 'demons-evil-spirits',
+    type: 'knowledge',
+    triggers: [
+      'what does the bible say about demons', 'what are demons in the bible', 'demons bible',
+      'evil spirits in the bible', 'are demons real bible', 'what are evil spirits',
+      'jesus cast out demons bible', 'demon possession bible', 'how to deal with demons bible',
+      'fallen angels demons bible'
+    ],
+    answer: 'Demons in Scripture are real spiritual beings — fallen angels who followed Satan in his rebellion against God (Revelation 12:9, Jude 6). Jesus encountered them regularly throughout His ministry, and they recognized Him clearly: "I know thee who thou art; the Holy One of God" (Mark 1:24). He cast them out by His word alone — no elaborate ritual, simply authority. They are called "unclean spirits" and are consistently presented as malevolent, seeking to afflict, deceive, and destroy. First Peter 5:8 frames the enemy\'s activity in broader terms, while Ephesians 6:12 describes "principalities and powers" as the true forces behind much that appears merely human. James 2:19 notes that demons believe God exists and tremble — belief alone does not mean allegiance. The Christian\'s standing against demonic influence is grounded not in personal power but in Christ\'s finished work: Colossians 2:15 says He "spoiled principalities and powers" at the cross, making a public display of them. The response Scripture gives is not fascination but sobriety, submission to God, and resistance (James 4:7).',
+    verses: ['Mark 1:24', 'Ephesians 6:12', 'Colossians 2:15', 'James 4:7'],
+    plan: 'standfirm'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE — Batch 10: Books & Passages
+  // ============================================================
+  {
+    id: 'what-is-joshua-book-about',
+    type: 'knowledge',
+    triggers: [
+      'what is joshua about', 'joshua book overview', 'what does joshua teach',
+      'book of joshua explained', 'joshua summary', 'what is the book of joshua about',
+      'joshua main message', 'israel enters the promised land joshua', 'battle of jericho joshua',
+      'as for me and my house joshua book'
+    ],
+    answer: 'Joshua is the book of entry — after forty years of wilderness, Israel finally crosses the Jordan into Canaan under Joshua\'s leadership. It opens with God\'s commission: "Be strong and of a good courage...for the LORD thy God is with thee whithersoever thou goest" (1:9). The Jordan crossing echoes the Red Sea. Jericho falls not through military tactics but through obedience to a strange command — march, blow trumpets, shout — and the walls fell (chapter 6). The central chapter, chapter 24, brings the whole nation before Joshua for a covenant renewal, ending with his famous declaration: "as for me and my house, we will serve the LORD" (24:15). The book is honest about incomplete obedience: Israel did not drive out all the inhabitants as commanded, and those compromises created problems that lasted for generations. Joshua is a book about the faithfulness of God to His promises — He gave what He said He would give — and about the difference between partial and full obedience.',
+    verses: ['Joshua 1:9', 'Joshua 6:20', 'Joshua 24:15', 'Joshua 21:45'],
+    plan: 'trust'
+  },
+  {
+    id: 'what-is-judges-about',
+    type: 'knowledge',
+    triggers: [
+      'what is judges about', 'judges overview', 'what does judges teach',
+      'book of judges explained', 'judges summary', 'what is judges in the bible',
+      'judges main message', 'cycle in judges bible', 'gideon deborah samson judges',
+      'in those days there was no king in israel'
+    ],
+    answer: 'Judges covers the period between Joshua\'s death and Israel\'s monarchy — a repeating cycle that the book describes with painful clarity: Israel abandons God, God allows oppression from surrounding nations, the people cry out, God raises a judge (a military deliverer), peace follows, then the cycle repeats. This cycle appears at least seven times. The judges include Gideon (300 men and torches), Deborah (prophetess and military leader), Samson (whose strength was supernatural but whose discipline was not), and others. The book grows darker as it progresses — the final chapters contain some of the most disturbing events in the Old Testament. The closing refrain explains everything: "In those days there was no king in Israel: every man did that which was right in his own eyes" (21:25). Judges is not a celebration of the judges but an honest documentation of what happens when a people have no settled orientation toward God — the same slide that threatens any generation that forgets what it inherited.',
+    verses: ['Judges 2:16', 'Judges 21:25', 'Judges 2:19', 'Judges 5:2'],
+    plan: 'walktheword'
+  },
+  {
+    id: 'what-is-ruth-book-about',
+    type: 'knowledge',
+    triggers: [
+      'what is ruth about', 'ruth book overview', 'what does ruth teach',
+      'book of ruth explained', 'ruth summary', 'what is the book of ruth about',
+      'ruth main message', 'ruth and boaz bible', 'kindness in the book of ruth',
+      'hesed in the book of ruth'
+    ],
+    answer: 'Ruth is a short book — four chapters — set during the time of the judges, and it is a deliberate contrast to the darkness surrounding it. A Moabite woman\'s loyalty to her Israelite mother-in-law, a wealthy man\'s quiet generosity, a redeemer who steps forward to restore what was lost — all of it in a single harvest season in Bethlehem. The book\'s key word is hesed — the Hebrew word for lovingkindness, covenant loyalty, faithful love. It is used of Ruth\'s devotion to Naomi, of Boaz\'s generosity to Ruth, and ultimately points to the character of God behind all of it. What looks like human kindness is framed throughout as the hand of God working through ordinary people. Ruth the Moabite outsider becomes the great-grandmother of David — and therefore an ancestor of Jesus (Matthew 1:5). The book is short enough to read in one sitting and deep enough to sustain a lifetime of reflection on what faithful, unspectacular love actually does.',
+    verses: ['Ruth 1:16', 'Ruth 2:12', 'Ruth 3:9', 'Ruth 4:14'],
+    plan: 'trust'
+  },
+  {
+    id: 'what-is-1-chronicles-about',
+    type: 'knowledge',
+    triggers: [
+      'what is 1 chronicles about', 'first chronicles overview', 'what does 1 chronicles teach',
+      'book of 1 chronicles explained', '1 chronicles summary', 'what is 1 chronicles in the bible',
+      '1 chronicles main message', 'genealogies in 1 chronicles', 'david prepares for the temple',
+      '1 chronicles david bible'
+    ],
+    answer: 'First Chronicles covers much of the same history as 2 Samuel but from a different angle — written for the returned exiles in the post-captivity period who needed to understand their identity and heritage. It opens with nine chapters of genealogies: from Adam through the twelve tribes, emphasizing the line of Judah and the family of David. These are not filler — they are the theological claim that God\'s story has been continuous and intentional across every generation. The narrative then focuses on David\'s reign, with an important difference from 2 Samuel: the Bathsheba incident is not mentioned. This is not dishonesty but emphasis — Chronicles is concerned with the preparation for the Temple and the pattern of worship, not the full biographical arc. David\'s great contribution in Chronicles is organizing the priests and Levites, preparing the materials, and passing the detailed plans for the Temple to Solomon — everything except building it himself, because he was "a man of war" (22:8).',
+    verses: ['1 Chronicles 16:11', '1 Chronicles 22:8', '1 Chronicles 29:14', '1 Chronicles 17:27'],
+    plan: 'walktheword'
+  },
+  {
+    id: 'what-is-habakkuk-about',
+    type: 'knowledge',
+    triggers: [
+      'what is habakkuk about', 'habakkuk overview', 'what does habakkuk teach',
+      'book of habakkuk explained', 'habakkuk summary', 'what is habakkuk in the bible',
+      'habakkuk main message', 'the just shall live by faith habakkuk', 'habakkuk why god',
+      'habakkuk complains to god bible'
+    ],
+    answer: 'Habakkuk is structured as a conversation between the prophet and God — one of the most honest in Scripture. Habakkuk opens by complaining to God about the violence and injustice he sees in Judah: "O LORD, how long shall I cry, and thou wilt not hear?" (1:2). God answers that He is raising up the Babylonians to judge them. Habakkuk is horrified — how can God use a nation more wicked than Judah as His instrument? He takes his stand at his watchtower and waits for God\'s answer. God\'s answer is that the just shall live by faith — a sentence that becomes one of the most quoted in the New Testament (Romans 1:17, Galatians 3:11, Hebrews 10:38). The book closes with one of the most remarkable statements of settled trust in Scripture: even if the fig tree does not blossom, the olive fails, the fields yield nothing, and the flocks are cut off — "yet I will rejoice in the LORD, I will joy in the God of my salvation" (3:17–18). Habakkuk starts with complaint and ends with praise — without the circumstances changing.',
+    verses: ['Habakkuk 1:2', 'Habakkuk 2:4', 'Habakkuk 3:17', 'Habakkuk 3:18'],
+    plan: 'trust'
+  },
+
+  // ============================================================
+  // BIBLE KNOWLEDGE — Batch 11: Remaining Books
+  // ============================================================
+  {
+    id: 'what-is-2-chronicles-about',
+    type: 'knowledge',
+    triggers: [
+      'what is 2 chronicles about', 'second chronicles overview', 'what does 2 chronicles teach',
+      'book of 2 chronicles explained', '2 chronicles summary', 'what is 2 chronicles in the bible',
+      '2 chronicles main message', 'solomon temple 2 chronicles', 'hezekiah 2 chronicles',
+      'if my people 2 chronicles 7 14'
+    ],
+    answer: 'Second Chronicles covers Solomon\'s reign and then the kings of Judah (the northern kingdom of Israel is largely ignored, as Chronicles focuses on the line of David and the Temple). It opens with Solomon\'s prayer at the Temple dedication — one of the greatest in Scripture — and God\'s response, which includes the verse most quoted from Chronicles: "If my people, which are called by my name, shall humble themselves, and pray, and seek my face, and turn from their wicked ways; then will I hear from heaven, and will forgive their sin, and will heal their land" (7:14). The book measures each king by a single consistent standard: did they seek God or not? Hezekiah and Josiah stand out as reformers who tore down idols and restored Temple worship. The book ends with the fall of Jerusalem and the Babylonian captivity — but then ends again with Cyrus\'s decree allowing the exiles to return, the same decree that opens Ezra. The last words of Chronicles are the first words of Ezra: the story was always going to continue.',
+    verses: ['2 Chronicles 7:14', '2 Chronicles 1:7', '2 Chronicles 34:3', '2 Chronicles 36:23'],
+    plan: 'walktheword'
+  },
+  {
+    id: 'what-is-ezra-about',
+    type: 'knowledge',
+    triggers: [
+      'what is ezra about', 'ezra overview', 'what does ezra teach',
+      'book of ezra explained', 'ezra summary', 'what is ezra in the bible',
+      'ezra main message', 'return from exile ezra', 'ezra rebuilt the temple',
+      'ezra scribe bible'
+    ],
+    answer: 'Ezra records the return of the Jewish exiles from Babylon to Jerusalem — the beginning of the fulfillment of God\'s promise through Jeremiah that the captivity would last seventy years. Two waves of returnees are described: the first under Zerubbabel, who rebuilt the Temple (chapters 1–6), and the second under Ezra himself, a "ready scribe in the law of Moses" (7:6) sent by the Persian king Artaxerxes to teach the Law and appoint judges. Ezra\'s great contribution was the ministry of the Word — he prepared his heart "to seek the law of the LORD, and to do it, and to teach in Israel statutes and judgments" (7:10), a sequence that has never been improved upon: personal appropriation first, then teaching. The book also documents the painful crisis of intermarriage with surrounding peoples who worshipped other gods — Ezra\'s response was public grief and a call to repentance. Ezra and Nehemiah together tell the story of a people reconstructing not just a city but an identity, a covenant, and a way of life.',
+    verses: ['Ezra 7:10', 'Ezra 1:1', 'Ezra 7:6', 'Ezra 9:5'],
+    plan: 'walktheword'
+  },
+  {
+    id: 'what-is-haggai-about',
+    type: 'knowledge',
+    triggers: [
+      'what is haggai about', 'haggai overview', 'what does haggai teach',
+      'book of haggai explained', 'haggai summary', 'what is haggai in the bible',
+      'haggai main message', 'consider your ways haggai', 'haggai rebuild the temple',
+      'haggai short book bible'
+    ],
+    answer: 'Haggai is one of the shortest books in the Old Testament — two chapters, four messages, a few months in 520 BC — but its message cut straight through. The returned exiles had come home with good intentions but had stopped rebuilding the Temple, building their own paneled houses while God\'s house lay in ruins. The people\'s explanation was practical: "The time is not come, the time that the LORD\'s house should be built" (1:2). Haggai\'s commission from God was to confront this with a simple question: "Consider your ways" — you planted much and brought in little, you eat but are not satisfied, you earn wages but they disappear. Why? Because "mine house...is waste" (1:9). Within three weeks the people obeyed and construction restarted. The second message addressed the discouragement of those who had seen Solomon\'s Temple: this new building was smaller and plainer. God\'s answer was that the glory of this latter house would exceed the former — a promise fulfilled when Jesus, God incarnate, taught in its courts.',
+    verses: ['Haggai 1:2', 'Haggai 1:9', 'Haggai 2:9', 'Haggai 2:4'],
+    plan: 'trust'
+  },
+  {
+    id: 'what-is-zephaniah-about',
+    type: 'knowledge',
+    triggers: [
+      'what is zephaniah about', 'zephaniah overview', 'what does zephaniah teach',
+      'book of zephaniah explained', 'zephaniah summary', 'what is zephaniah in the bible',
+      'zephaniah main message', 'day of the lord zephaniah', 'mighty to save zephaniah',
+      'the lord thy god in the midst of thee zephaniah'
+    ],
+    answer: 'Zephaniah prophesied during the reign of Josiah — one of the good kings — but addressed a people still entangled in the idolatry and injustice of the previous generation. His opening chapters are stark: "The great day of the LORD is near, it is near, and hasteth greatly" (1:14). Judgment is coming on Judah and the surrounding nations — Zephaniah does not soften it. But the final chapter turns with remarkable beauty: God promises a gathered remnant, restored and rejoicing. The climax is one of the most striking verses in the minor prophets: "The LORD thy God in the midst of thee is mighty; he will save, he will rejoice over thee with joy; he will rest in his love, he will joy over thee with singing" (3:17). The God who comes in judgment also comes singing over His people. Zephaniah holds both realities without resolving them cheaply: the weight of what sin costs, and the wonder that God\'s ultimate posture toward His own is delight.',
+    verses: ['Zephaniah 1:14', 'Zephaniah 3:17', 'Zephaniah 3:9', 'Zephaniah 2:3'],
+    plan: 'trust'
+  },
+  {
+    id: 'what-is-nahum-about',
+    type: 'knowledge',
+    triggers: [
+      'what is nahum about', 'nahum overview', 'what does nahum teach',
+      'book of nahum explained', 'nahum summary', 'what is nahum in the bible',
+      'nahum main message', 'fall of nineveh nahum', 'nahum the lord is slow to anger',
+      'nahum good news on the mountains'
+    ],
+    answer: 'Nahum is a difficult book for modern readers — it is a sustained, vivid prophecy of the destruction of Nineveh, capital of the Assyrian empire. Read alongside Jonah, the two books form a pair: Jonah went to Nineveh and the city repented; roughly a century later, Nahum declared that repentance had not held and judgment was certain. The Assyrians had been the most brutal empire of their age, known for their systematic cruelty to conquered peoples. Nahum\'s opening frames God\'s character before the judgment: "The LORD is slow to anger, and great in power, and will not at all acquit the wicked" (1:3). God is patient — but not infinitely permissive toward unrepentant cruelty. Nineveh fell to Babylon in 612 BC, exactly as Nahum described. The book also contains a moment of beautiful contrast: "Behold upon the mountains the feet of him that bringeth good tidings, that publisheth peace" (1:15) — a picture of the gospel news arriving even amid judgment. Paul quotes this verse in Romans 10:15.',
+    verses: ['Nahum 1:3', 'Nahum 1:7', 'Nahum 1:15', 'Romans 10:15'],
+    plan: 'trust'
+  },
+  {
+    id: 'what-is-obadiah-about',
+    type: 'knowledge',
+    triggers: [
+      'what is obadiah about', 'obadiah overview', 'what does obadiah teach',
+      'book of obadiah explained', 'obadiah summary', 'what is obadiah in the bible',
+      'obadiah main message', 'edom in the bible obadiah', 'shortest book of the old testament',
+      'obadiah judgment on edom'
+    ],
+    answer: 'Obadiah is the shortest book in the Old Testament — 21 verses — and it is a focused pronouncement of judgment against Edom. The Edomites were the descendants of Esau, Jacob\'s brother, who had long been Israel\'s neighbor and rival. When Jerusalem fell to Babylon, the Edomites not only stood by and did nothing — they participated in the plunder, cut off those trying to escape, and gloated: "In the day that thou stoodest on the other side, in the day that the strangers carried away captive his forces...thou wast as one of them" (1:11). Obadiah\'s message is that Edom\'s pride ("The pride of thine heart hath deceived thee," 1:3) and its betrayal of its own kinship with Israel will result in complete destruction. Edom did eventually cease to exist as a people group. Obadiah also contains a forward note: "the kingdom shall be the LORD\'s" (1:21). The smallest book carries the same weight as the largest: there is a God who sees betrayal, who judges what history often ignores, and whose kingdom will stand when all others have fallen.',
+    verses: ['Obadiah 1:3', 'Obadiah 1:11', 'Obadiah 1:15', 'Obadiah 1:21'],
+    plan: 'trust'
+  },
+  {
+    id: 'what-is-jonah-book-about',
+    type: 'knowledge',
+    triggers: [
+      'what is jonah about', 'jonah book overview', 'what does jonah teach',
+      'book of jonah explained', 'jonah summary', 'what is the book of jonah about',
+      'jonah main message', 'jonah and the whale', 'jonah ran from god bible',
+      'jonah did not want to go to nineveh'
+    ],
+    answer: 'Jonah is unique among the prophets: it is almost entirely a story about the prophet rather than a collection of his prophecies. God commanded Jonah to go to Nineveh — the capital of Israel\'s most feared enemy — and proclaim coming judgment. Jonah boarded a ship going the opposite direction. The storm, the sailors\' discovery, the casting overboard, and the great fish are all God\'s relentless pursuit of a prophet in flight — not a punishment so much as a redirection. Three days and nights in the fish, Jonah prayed and was delivered. He went to Nineveh, preached the briefest recorded sermon ("Yet forty days, and Nineveh shall be overthrown," 3:4), and the entire city — king to cattle — repented in sackcloth. Then comes the most uncomfortable part: Jonah was angry that God relented (4:1). God\'s final question to Jonah closes the book without a recorded answer: "Should I not spare Nineveh?" — addressed not just to Jonah but to every reader who has ever wanted God\'s mercy for themselves and His judgment for everyone else.',
+    verses: ['Jonah 1:3', 'Jonah 2:9', 'Jonah 3:5', 'Jonah 4:2'],
+    plan: 'trust'
+  },
+  {
+    id: 'what-is-philemon-about',
+    type: 'knowledge',
+    triggers: [
+      'what is philemon about', 'philemon overview', 'what does philemon teach',
+      'book of philemon explained', 'philemon summary', 'what is philemon in the bible',
+      'philemon main message', 'onesimus and philemon bible', 'shortest new testament letter',
+      'paul intercedes for onesimus philemon'
+    ],
+    answer: 'Philemon is the shortest of Paul\'s letters — one chapter, 25 verses — written to a man named Philemon whose slave Onesimus had apparently run away. Onesimus had encountered Paul in prison and become a Christian. Now Paul sends him back with this letter, appealing — not commanding — for Philemon to receive him "not now as a servant, but above a servant, a brother beloved" (verse 16). Paul offers to pay any debt Onesimus owes and notes quietly that Philemon owes Paul his very soul. He makes no explicit demand for Onesimus\'s freedom, but the logic of the letter makes it almost impossible not to grant it. This is how Paul navigates the institution of slavery — not by legal challenge, which would have been politically impossible, but by introducing a principle (all who are in Christ are brothers) that is incompatible with the institution if followed seriously. Philemon is a masterclass in the gentle, personal application of the gospel to a specific, awkward, real-life situation.',
+    verses: ['Philemon 1:16', 'Philemon 1:10', 'Philemon 1:19', 'Philemon 1:21'],
+    plan: 'firststeps'
+  },
+  {
+    id: 'what-is-2-john-about',
+    type: 'knowledge',
+    triggers: [
+      'what is 2 john about', 'second john overview', 'what does 2 john teach',
+      'book of 2 john explained', '2 john summary', 'what is 2 john in the bible',
+      '2 john main message', 'love one another 2 john', 'false teaching 2 john',
+      'elect lady 2 john'
+    ],
+    answer: 'Second John is the second shortest book in the New Testament — 13 verses — addressed to "the elect lady and her children," likely a local congregation. John opens with love and truth held together: "I beseech thee, lady, not as though I wrote a new commandment unto thee, but that which we had from the beginning, that we love one another" (verse 5). The warning that follows is the letter\'s other concern: deceivers had gone out who did not confess that Jesus Christ came in the flesh — the same anti-incarnation teaching John confronted in 1 John. He instructs the congregation not to receive or welcome such teachers, because to do so is to participate in their deception. The love command and the discernment command sit side by side in this tiny letter — a reminder that love without truth is not the kind of love Scripture calls for, and truth held without love is not the kind of truth that builds a community.',
+    verses: ['2 John 1:5', '2 John 1:7', '2 John 1:9', '2 John 1:6'],
+    plan: 'firststeps'
+  },
+  {
+    id: 'what-is-3-john-about',
+    type: 'knowledge',
+    triggers: [
+      'what is 3 john about', 'third john overview', 'what does 3 john teach',
+      'book of 3 john explained', '3 john summary', 'what is 3 john in the bible',
+      '3 john main message', 'gaius in the bible 3 john', 'diotrephes bible',
+      'walking in truth 3 john'
+    ],
+    answer: 'Third John is the shortest book in the New Testament — 15 verses — a personal letter from John to a man named Gaius, commending him for his faithfulness in welcoming traveling missionaries. "I have no greater joy than to hear that my children walk in truth" (verse 4) is the opening note — and it is one of the warmest lines in all of Paul\'s and John\'s letters. The rest of the letter contrasts two men: Diotrephes, who loved to have the preeminence, rejected the missionaries, and would not receive correction from John himself; and Demetrius, who had a good report from all. John\'s straightforward counsel: "Beloved, follow not that which is evil, but that which is good" (verse 11). Third John is a snapshot of real church life in the first century — specific personalities, real conflicts over hospitality and authority. It is brief and practical, and it captures something enduringly true: the health of a church community is visible in how it treats those who come to it in the name of Christ.',
+    verses: ['3 John 1:4', '3 John 1:11', '3 John 1:5', '3 John 1:12'],
+    plan: 'firststeps'
   }
 ];
 

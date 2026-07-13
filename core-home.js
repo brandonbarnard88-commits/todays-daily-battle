@@ -88,7 +88,7 @@
     if (!target || !target.closest) return;
     var chip = target.closest('.topic-chip, .quick-topic, [data-topic]');
     if (!chip) return;
-    var inSearchSurface = chip.closest('#quick-search-hero, #search-hero, #quick-search-priority, #main-search, #quick-actions-priority, #quick-actions-accordion, #feel-section, #tdbHomeFastFeel');
+    var inSearchSurface = chip.closest('#quick-search-hero, #search-hero, #quick-search-priority, #main-search, #quick-actions-priority, #quick-actions-accordion, #feel-section');
     if (!inSearchSurface) return;
     var topic = (chip.getAttribute('data-topic') || '').trim();
     if (!topic) topic = String(chip.textContent || '').trim();

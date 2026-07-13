@@ -594,7 +594,10 @@
       dismissBtn.addEventListener('click', function () {
         var card = document.getElementById('tdbNewHereCard');
         var hint = document.getElementById('tdbNewHereHint');
-        if (card) card.style.display = 'none';
+        if (card) {
+          card.setAttribute('hidden', '');
+          card.style.display = '';
+        }
         if (hint) hint.style.display = 'block';
       });
     } catch (_) { /* non-fatal */ }

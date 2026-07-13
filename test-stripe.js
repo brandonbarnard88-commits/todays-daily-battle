@@ -5,9 +5,10 @@
  * Optional: set BASE_URL for create-checkout-session (default: from config SUPABASE_URL).
  *
  * Does NOT use real Stripe keys or charge cards. It checks:
- * - config.js has STRIPE_PRICE_IDS and create-checkout-session URL
- * - create-checkout-session endpoint responds (401 without auth = expected)
- * - pricing.html has Subscribe / Stripe-related content
+ * - config still has create-checkout-session URL (endpoint now returns subscriptions_closed)
+ * - create-checkout-session responds (410 subscriptions closed = expected after Phase 2b-1)
+ * - pricing / script redirect subscription checkouts toward Give
+ * - donation path remains separate (create-donation-session)
  */
 
 const fs = require('fs');
@@ -69,13 +70,12 @@ async function run() {
 
   const config = readConfig();
 
-  // 1. STRIPE_PRICE_IDS present and has expected structure
+  // 1. STRIPE_PRICE_IDS — legacy; not required for new feature checkouts (Phase 2b-1)
   const ids = config.STRIPE_PRICE_IDS;
   const tiers = ['supporter', 'battle_pro', 'church'];
   const periods = ['monthly', 'yearly'];
   if (!ids || typeof ids !== 'object') {
-    console.log('FAIL STRIPE_PRICE_IDS missing or invalid in config.js');
-    failed++;
+    console.log('INFO STRIPE_PRICE_IDS absent in config.js (OK — feature subscriptions closed)');
   } else {
     const missing = [];
     for (const t of tiers) {
@@ -85,10 +85,9 @@ async function run() {
       }
     }
     if (missing.length) {
-      console.log('FAIL STRIPE_PRICE_IDS missing or invalid:', missing.join(', '));
-      failed++;
+      console.log('INFO STRIPE_PRICE_IDS incomplete (unused for new checkouts):', missing.join(', '));
     } else {
-      console.log('OK   STRIPE_PRICE_IDS present (supporter, battle_pro, church × monthly, yearly)');
+      console.log('INFO STRIPE_PRICE_IDS still present (legacy; unused for new feature checkouts)');
     }
   }
 
@@ -103,14 +102,16 @@ async function run() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ price_id: 'price_fake' })
       });
-      if (res.statusCode === 401) {
-        console.log('OK   create-checkout-session reachable (401 without auth = expected)');
+      if (res.statusCode === 410 && res.body && res.body.indexOf('subscriptions_closed') !== -1) {
+        console.log('OK   create-checkout-session closed (410 subscriptions_closed = Phase 2b-1)');
+      } else if (res.statusCode === 401) {
+        console.log('INFO create-checkout-session still requires auth (redeploy function for 410 closed response)');
       } else if (res.statusCode === 404) {
         console.log('INFO create-checkout-session returned 404 (deploy with: supabase functions deploy create-checkout-session)');
       } else if (res.statusCode === 500 && res.body && res.body.includes('Stripe not configured')) {
-        console.log('OK   create-checkout-session reachable (Stripe not configured on server)');
+        console.log('INFO create-checkout-session reachable (Stripe not configured on server)');
       } else if (res.statusCode === 400) {
-        console.log('OK   create-checkout-session reachable (400 = invalid price_id)');
+        console.log('INFO create-checkout-session returned 400 (redeploy for subscriptions_closed)');
       } else {
         console.log('INFO create-checkout-session returned', res.statusCode);
       }
@@ -120,44 +121,48 @@ async function run() {
     }
   }
 
-  // 3. Payment Links (optional)
+  // 3. Payment Links (optional / legacy)
   if (config.paymentLinksSet) {
-    console.log('OK   At least one Stripe Payment Link URL set in config');
+    console.log('INFO Payment Link URLs still present in config (unused for feature tiers; Give uses donations)');
   } else {
-    console.log('INFO No Payment Link URLs set (Subscribe buttons will show Notify me / waitlist)');
+    console.log('OK   No subscription Payment Link URLs required');
   }
 
-  // 4. pricing.html content
+  // 4. pricing.html content — free + giving model
   if (!fs.existsSync(pricingPath)) {
     console.log('FAIL pricing.html not found');
     failed++;
   } else {
     const pricing = fs.readFileSync(pricingPath, 'utf8');
-    const hasSubscribe = /Subscribe|Subscribe now|Unlock/i.test(pricing);
-    const hasPricing = /Pricing|price|plan/i.test(pricing);
+    const hasFreeModel = /Everything is free|Giving is completely optional/i.test(pricing);
+    const hasGive = /\/give/.test(pricing);
     const hasTerms = /terms\.html|Terms/i.test(pricing);
-    if (!hasSubscribe || !hasPricing) {
-      console.log('FAIL pricing.html missing expected content (Subscribe, Pricing)');
+    const hasSubscribeUpsell = /Subscribe \$|Join Battle Pro|Unlock with/i.test(pricing);
+    if (!hasFreeModel || !hasGive) {
+      console.log('FAIL pricing.html missing free + giving messaging');
+      failed++;
+    } else if (hasSubscribeUpsell) {
+      console.log('FAIL pricing.html still has subscription upsell CTAs');
       failed++;
     } else {
-      console.log('OK   pricing.html has Subscribe / plan content');
+      console.log('OK   pricing.html free + giving model (no subscription upsell)');
     }
     if (!hasTerms) console.log('INFO pricing.html: add link to terms.html for compliance');
   }
 
-  // 5. script.js TDB_GO_TO_CHECKOUT and openStripeCheckout
+  // 5. script.js — subscription checkout kill switch
   const scriptPath = require('path').join(__dirname, 'script.js');
   const script = fs.readFileSync(scriptPath, 'utf8');
-  if (!script.includes('TDB_GO_TO_CHECKOUT') || !script.includes('create-checkout-session')) {
-    console.log('FAIL script.js missing TDB_GO_TO_CHECKOUT or create-checkout-session usage');
+  if (!script.includes('TDB_GO_TO_CHECKOUT') || !script.includes('subscription_checkout_closed') || !script.includes("'/give'")) {
+    console.log('FAIL script.js missing subscription kill switch (TDB_GO_TO_CHECKOUT → /give)');
     failed++;
   } else {
-    console.log('OK   script.js wires TDB_GO_TO_CHECKOUT and create-checkout-session');
+    console.log('OK   script.js redirects closed subscription checkouts to /give');
   }
 
   console.log('\n' + (failed ? failed + ' failure(s).' : 'All Stripe checks passed.'));
-  console.log('\nManual test: Use Stripe test card 4242 4242 4242 4242 on pricing.html.');
-  console.log('Webhook: Use "stripe listen" and "stripe trigger checkout.session.completed" to test.');
+  console.log('\nDonations: test Give page / create-donation-session. Feature subscriptions are closed.');
+  console.log('Deploy closed checkout: supabase functions deploy create-checkout-session');
   process.exit(failed ? 1 : 0);
 }
 

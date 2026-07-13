@@ -679,13 +679,22 @@
   }
 
   function downloadStudyLocalBackup() {
+    /* v3: include hero/collection saves + workspace + highlights + ribbon + plan reflections. */
     var keyMap = {
       tdb_bible_tool_notes: NOTES_KEY,
       tdb_study_notes_meta_v1: META_KEY,
       tdb_reader_recent_chapters_v1: RECENT_KEY,
       tdb_reader_bookmarks_v1: BOOKMARKS_KEY,
       tdb_reader_resume_v1: RESUME_KEY,
-      tdb_memorize_lite_v1: MEM_KEY
+      tdb_memorize_lite_v1: MEM_KEY,
+      savedCollectionItems: 'savedCollectionItems',
+      savedCollections: 'savedCollections',
+      savedVerses: 'savedVerses',
+      tdb_my_study_v1: 'tdb_my_study_v1',
+      tdb_mystudy_highlights_v1: 'tdb_mystudy_highlights_v1',
+      tdb_mobius_loop_journal_v1: 'tdb_mobius_loop_journal_v1',
+      tdb_plan_day_reflections_v1: 'tdb_plan_day_reflections_v1',
+      tdb_shared_studies_v1: 'tdb_shared_studies_v1'
     };
     var data = {};
     Object.keys(keyMap).forEach(function (logical) {
@@ -696,7 +705,7 @@
       }
     });
     var payload = {
-      v: 2,
+      v: 3,
       exportedAt: new Date().toISOString(),
       source: 'todaysdailybattle-mystudy-backup',
       data: data
@@ -735,7 +744,15 @@
       tdb_reader_recent_chapters_v1: RECENT_KEY,
       tdb_reader_bookmarks_v1: BOOKMARKS_KEY,
       tdb_reader_resume_v1: RESUME_KEY,
-      tdb_memorize_lite_v1: MEM_KEY
+      tdb_memorize_lite_v1: MEM_KEY,
+      savedCollectionItems: 'savedCollectionItems',
+      savedCollections: 'savedCollections',
+      savedVerses: 'savedVerses',
+      tdb_my_study_v1: 'tdb_my_study_v1',
+      tdb_mystudy_highlights_v1: 'tdb_mystudy_highlights_v1',
+      tdb_mobius_loop_journal_v1: 'tdb_mobius_loop_journal_v1',
+      tdb_plan_day_reflections_v1: 'tdb_plan_day_reflections_v1',
+      tdb_shared_studies_v1: 'tdb_shared_studies_v1'
     };
     var restored = 0;
     Object.keys(keyMap).forEach(function (logical) {

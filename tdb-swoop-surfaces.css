@@ -295,6 +295,14 @@ blockquote.day-card-verse-text,
   border-color: color-mix(in srgb, var(--gold, #f4c95d) 35%, transparent);
 }
 
+/* VP2: current page on dock (inner pages + home) */
+.tdb-bottom-dock a[aria-current="page"] {
+  color: var(--gold-soft, #e8d088);
+  font-weight: 650;
+  background: color-mix(in srgb, var(--gold, #f4c95d) 16%, var(--bg-soft, var(--card, #1b212d)));
+  border-color: color-mix(in srgb, var(--gold, #f4c95d) 42%, var(--line, #2a3344));
+}
+
 body.tdb-inner-page:has(.tdb-bottom-dock),
 body.no-tdb-bottom-nav:has(.tdb-bottom-dock) {
   padding-bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px));

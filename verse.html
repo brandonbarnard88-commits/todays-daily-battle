@@ -3,7 +3,7 @@
 <head>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js?v=20260709-ba-discover"></script>
+  <script src="/tt-bootstrap.js?v=20260709-wave4"></script>
   <!-- tdb-cache-hygiene: _headers no-cache /verse (+ /verse); purge SOCIAL_PURGE_PATHS; bump service-worker CACHE_NAME — homepage / already no-cache -->
 
   <!-- GA4 lazy-loaded after interaction -->
@@ -30,8 +30,8 @@
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260422og">
   <meta name="twitter:image:alt" content="Today&apos;s Verse • Deep KJV study and breakdown">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260709-ba-discover" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260709-ba-discover">
+  <link rel="preload" href="styles.css?v=20260709-wave4" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260709-wave4">
   <link rel="preload" href="tdb-visual-tokens.css?v=20260521-discover-b" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260521-discover-b">
   <link rel="preload" href="cormorant-latin-subset.css?v=20260423-phase5-perf" as="style">
@@ -335,8 +335,9 @@
       </button>
       <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
         <a href="/">Home</a>
-        <a href="/#feel-section">How I Feel</a>
+        <a href="/#feel-section">Ask the Word</a>
         <a href="/plans.html" id="nav-browse-curriculum" aria-label="Battle Plans — KJV tracks for hard weeks and quiet seasons">Battle Plans</a>
+        <a href="/calm.html" aria-label="Calm — one steady KJV verse when the moment is heavy">Calm</a>
         <a href="/mystudy">My Study</a>
         <a href="/family.html" aria-label="Family hub — verse, plans, printables">Family &amp; Kids</a>
         <a href="/explore.html">Explore</a>
@@ -351,7 +352,6 @@
               <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read the Bible</a>
               <a href="/memorize.html">Memorize</a>
               <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
-              <a href="/calm.html">Calm</a>
             </div>
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">Plans &amp; Journey</span>
@@ -411,7 +411,7 @@
         <a href="shop.html" data-section="shop" data-icon="SH">Shop</a>
         <a href="about.html" data-section="about" data-icon="AB">About</a>
         <a href="faq.html" data-section="faq" data-icon="FQ">FAQ</a>
-        <a href="pricing.html" data-section="pricing" data-icon="PC">Pricing</a>
+        <a href="pricing.html" data-section="pricing" data-icon="PC">Support</a>
       </nav>
       <div class="sidebar-options">
         <label class="inline-toggle">
@@ -558,12 +558,11 @@
 
   <nav class="site-footer-essentials" aria-label="Key pages">
     <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/verse.html">Today&rsquo;s Lesson</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">Ask the Word</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/plans.html">Plans</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/calm.html">Calm</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
   </nav>
@@ -588,9 +587,12 @@
     <a href="/privacy.html">Privacy</a>
     <a href="/terms.html">Terms</a>
     <a href="/faq.html">FAQ</a>
+    <a href="/verse.html">Today&rsquo;s Lesson</a>
+    <a href="/mystudy">My Study</a>
+    <a href="/prayer-wall.html">Prayer</a>
     <a href="/media.html">Media</a>
     <a href="/roadmap.html">Roadmap</a>
-    <a href="/pricing.html">Pricing</a>
+    <a href="/pricing.html">Support</a>
     <a href="/for-pastors.html">For pastors &amp; teachers</a>
     <a href="/reader.html">Chapter reader</a>
     <a href="/bible/tools.html">Study workshop</a>
@@ -708,7 +710,7 @@
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
-  <script defer src="/language-switcher.js?v=20260709-ba-discover"></script>
+  <script defer src="/language-switcher.js?v=20260709-wave4"></script>
 </footer>
   </div>
 
@@ -716,7 +718,7 @@
   <!-- Phase 6: verse breakdown + narration + word-study + tdb-mobius-journal (ribbon) load from script.js after idle (tdbScheduleDeferredVodAndReaderTooling). Same cache tokens as injected head scripts: verse-breakdown-overrides.js?v=20260417-hydration then verse-breakdown.js?v=20260417-hydration -->
   <script type="module" src="config.js"></script>
   <script src="tdb-offline-strip.js?v=20260421pwa1"></script>
-  <script type="module" src="script.js?v=20260709-ba-discover" data-cfasync="false"></script>
+  <script type="module" src="script.js?v=20260709-wave4" data-cfasync="false"></script>
   <script defer src="porch-effects.js?v=20260507"></script>
   <script src="/easter-season.js"></script>
   <script nonce="tdb2025s">

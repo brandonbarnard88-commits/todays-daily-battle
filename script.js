@@ -1217,13 +1217,8 @@ function tdbGetWelcomeTourAnchorSelector(pageTag, stepIndex) {
 function openTdbWelcomeTour(opts) {
   opts = opts || {};
   var manual = opts.manual === true;
-  if (!manual) {
-    try {
-      if (localStorage.getItem(TDB_TOUR_SEEN_KEY) === '1') return false;
-    } catch (_) {
-      return false;
-    }
-  }
+  /* FT2: auto tour off — only Site tour / Restart (manual: true) may open. */
+  if (!manual) return false;
 
   var existingOv = document.getElementById('tdb-welcome-tour-overlay');
   if (existingOv) {
@@ -1306,6 +1301,10 @@ function openTdbWelcomeTour(opts) {
   function markSeen() {
     try {
       localStorage.setItem(TDB_TOUR_SEEN_KEY, '1');
+      /* FT2: completing/skipping the tour also clears first-visit chrome keys */
+      localStorage.setItem('has_visited_porch', '1');
+      localStorage.setItem('tdb-home-first-visit-seen', '1');
+      localStorage.setItem('tdb-new-here-dismissed', '1');
     } catch (_) {}
     try {
       if (typeof window !== 'undefined' && window.dispatchEvent) {
@@ -1554,25 +1553,10 @@ function wireWelcomeTour() {
     true
   );
 
-  function shouldAutoTour() {
-    try {
-      if (localStorage.getItem(TDB_TOUR_SEEN_KEY) === '1') return false;
-    } catch (_) {
-      return false;
-    }
-    var tag = getWelcomeTourPageTag();
-    return tag === 'home' || tag === 'verse' || tag === 'explore';
-  }
-
+  /* FT2: auto tour off — Site tour / Restart stay manual only (calm first paint). */
   ensureVisibleThemeShortcut();
   syncThemeToggleButtons();
   window.addEventListener('tdb-theme-change', syncThemeToggleButtons);
-
-  if (shouldAutoTour()) {
-    window.setTimeout(function () {
-      openTdbWelcomeTour({ manual: false });
-    }, 1800);
-  }
 }
 
 function normalizeLegacyShellLinks() {
@@ -4292,12 +4276,11 @@ function renderQuickTopicButtons(containerId, firstIsPrimary, useHeroTopics) {
   });
   container.innerHTML = html;
 }
-// Pro gate: master, subscriptionTier (session/profiles/battle_pro_subscriptions), or __tdb_battle_pro_active.
-// Call fetchProfileTier() and fetchBattleProStatus() on load when session exists to gate Wins Report, offline PDFs, Armor series.
+// Phase 1 (paywalls off): all spiritual/study tools are free. Tier lookup still runs for
+// admin/compat and existing subscribers; feature gates treat everyone as welcome.
+// Call fetchProfileTier() and fetchBattleProStatus() on load when session exists (legacy status only).
 function isProUser() {
-  return isMasterUser ||
-    subscriptionTier === 'pro' || subscriptionTier === 'supporter' || subscriptionTier === 'church_team' ||
-    (window.__tdb_battle_pro_active === true);
+  return true;
 }
 window.isProUser = isProUser;
 
@@ -5929,6 +5912,80 @@ const PHRASE_TO_TOKENS = {
   'i was the prodigal': ['hope', 'faith', 'trust', 'grace'],
   'starting over with god bible': ['hope', 'faith', 'trust', 'grace'],
 
+  // === LIFE/PASTORAL: Expansion Round 4 (Wave 1) ===
+  'i want to die': ['hope', 'grief', 'trust', 'peace'],
+  'i want to kill myself': ['hope', 'grief', 'trust', 'peace'],
+  'feeling suicidal': ['hope', 'grief', 'trust', 'peace'],
+  'suicidal thoughts bible': ['hope', 'grief', 'trust', 'peace'],
+  'self harm bible': ['hope', 'grief', 'trust', 'peace'],
+  'my spouse cheated': ['marriage', 'forgiveness', 'trust', 'grief'],
+  'i had an affair': ['marriage', 'forgiveness', 'guilt', 'grace'],
+  'can god forgive adultery': ['marriage', 'forgiveness', 'guilt', 'grace'],
+  'i had an abortion': ['guilt', 'grief', 'forgiveness', 'hope'],
+  'abortion grief': ['guilt', 'grief', 'forgiveness', 'hope'],
+  'can god forgive abortion': ['guilt', 'grief', 'forgiveness', 'hope'],
+  'i have cancer': ['suffering', 'hope', 'trust', 'peace'],
+  'terminal illness bible': ['suffering', 'hope', 'trust', 'peace'],
+  'cancer bible': ['suffering', 'hope', 'trust', 'peace'],
+  'controlling husband': ['marriage', 'trust', 'boundaries', 'hope'],
+  'emotionally abusive spouse': ['marriage', 'trust', 'boundaries', 'hope'],
+  'abusive marriage bible': ['marriage', 'trust', 'boundaries', 'hope'],
+
+  // === LIFE/PASTORAL: Expansion Round 5 (Wave 2) ===
+  'i keep hurting myself': ['hope', 'grief', 'trust', 'peace'],
+  'i cut myself': ['hope', 'grief', 'trust', 'peace'],
+  'cutting myself': ['hope', 'grief', 'trust', 'peace'],
+  'self injury bible': ['hope', 'grief', 'trust', 'peace'],
+  'god hates me': ['hope', 'trust', 'grace', 'peace'],
+  'does god hate me': ['hope', 'trust', 'grace', 'peace'],
+  'i hate myself': ['hope', 'trust', 'grace', 'identity'],
+  'i was raped': ['grief', 'hope', 'trust', 'peace'],
+  'i was sexually assaulted': ['grief', 'hope', 'trust', 'peace'],
+  'sexual assault bible': ['grief', 'hope', 'trust', 'peace'],
+  'why wont god heal me': ['suffering', 'hope', 'trust', 'peace'],
+  "why won't god heal me": ['suffering', 'hope', 'trust', 'peace'],
+  'still sick after praying': ['suffering', 'hope', 'trust', 'peace'],
+  'died suddenly': ['grief', 'loss', 'hope', 'trust'],
+  'sudden death': ['grief', 'loss', 'hope', 'trust'],
+  'unexpected death': ['grief', 'loss', 'hope', 'trust'],
+  'sudden loss bible': ['grief', 'loss', 'hope', 'trust'],
+
+  // === LIFE/PASTORAL: Expansion Round 6 (Wave 3) ===
+  'dad has alzheimers': ['grief', 'exhaustion', 'hope', 'trust'],
+  'mom has dementia': ['grief', 'exhaustion', 'hope', 'trust'],
+  'dementia bible': ['grief', 'exhaustion', 'hope', 'trust'],
+  'alzheimers bible': ['grief', 'exhaustion', 'hope', 'trust'],
+  'empty nest': ['loneliness', 'hope', 'trust', 'purpose'],
+  'kids left home': ['loneliness', 'hope', 'trust', 'purpose'],
+  'empty nest bible': ['loneliness', 'hope', 'trust', 'purpose'],
+  'eating disorder bible': ['hope', 'grief', 'trust', 'peace'],
+  'anorexia bible': ['hope', 'grief', 'trust', 'peace'],
+  'bulimia bible': ['hope', 'grief', 'trust', 'peace'],
+  'should i leave this church': ['hope', 'trust', 'forgiveness', 'peace'],
+  'should i leave my church': ['hope', 'trust', 'forgiveness', 'peace'],
+  'when to leave a church bible': ['hope', 'trust', 'forgiveness', 'peace'],
+  'panic attack bible': ['anxiety', 'fear', 'hope', 'peace'],
+  'i had a panic attack': ['anxiety', 'fear', 'hope', 'peace'],
+  'bible for panic attacks': ['anxiety', 'fear', 'hope', 'peace'],
+
+  // === LIFE/PASTORAL: Expansion Round 7 (Wave 4) ===
+  'my family cut me off': ['grief', 'loneliness', 'trust', 'hope'],
+  'estranged from family': ['grief', 'loneliness', 'trust', 'hope'],
+  'no contact with family': ['grief', 'loneliness', 'trust', 'hope'],
+  'estrangement bible': ['grief', 'loneliness', 'trust', 'hope'],
+  'special needs child bible': ['parenting', 'hope', 'trust', 'exhaustion'],
+  'my child has autism': ['parenting', 'hope', 'trust', 'exhaustion'],
+  'special needs parenting': ['parenting', 'hope', 'trust', 'exhaustion'],
+  'facing eviction': ['hope', 'trust', 'peace', 'fear'],
+  'homeless bible': ['hope', 'trust', 'peace', 'fear'],
+  'losing our home': ['hope', 'trust', 'peace', 'fear'],
+  'remarriage bible': ['marriage', 'hope', 'grace', 'trust'],
+  'should i remarry': ['marriage', 'hope', 'grace', 'trust'],
+  'can i remarry after divorce': ['marriage', 'hope', 'grace', 'trust'],
+  'perfectionism bible': ['identity', 'hope', 'trust', 'peace'],
+  'i am a perfectionist': ['identity', 'hope', 'trust', 'peace'],
+  'paralyzed by perfectionism': ['identity', 'hope', 'trust', 'peace'],
+
   // === KNOWLEDGE: Secondary Passages Round 2 ===
   'be still and know that i am god meaning': ['faith', 'peace', 'trust', 'hope'],
   'psalm 46 explained': ['faith', 'peace', 'trust', 'hope'],
@@ -6182,12 +6239,14 @@ var TDB_BIBLICAL_ANSWERS = [
     id: 'forgiveness-of-others',
     triggers: [
       'how do i forgive someone', 'how to forgive someone', 'how do you forgive someone',
-      'cant forgive someone', 'how to forgive', 'forgive someone who hurt me',
+      'cant forgive someone', "can't forgive someone", 'how to forgive', 'forgive someone who hurt me',
       'should i forgive', 'forgiving someone who hurt you', 'how do i forgive someone who hurt me',
-      'bible says about forgiving others', 'forgiving people who hurt you', 'how can i forgive'
+      'bible says about forgiving others', 'forgiving people who hurt you', 'how can i forgive',
+      'i refuse to forgive', 'they dont deserve forgiveness', "they don't deserve forgiveness",
+      'holding a grudge bible', 'how do i let go of what they did', 'forgive but not forget bible'
     ],
-    answer: 'The Bible does not ask you to pretend the hurt did not happen or to trust that person again right away. It calls you to release the debt — to choose not to hold it against them, the same way God has released yours (Ephesians 4:32; Colossians 3:13). Forgiveness is less about what they deserve and more about your heart being free. Jesus modeled it from the cross, even toward people who had not asked for it. It often takes time and repeated surrender — start by bringing the hurt honestly to God.',
-    verses: ['Ephesians 4:32', 'Colossians 3:13', 'Matthew 6:14'],
+    answer: 'The hurt is real — and Scripture does not ask you to pretend it was small or to trust that person again tonight. What it does call you to is releasing the debt: choosing not to hold it as a claim against them, the same way God has released yours. Ephesians 4:32 says "be ye kind one to another, tenderhearted, forgiving one another, even as God for Christ\'s sake hath forgiven you." Colossians 3:13 adds "forgiving one another, if any man have a quarrel against any: even as Christ forgave you, so also do ye." Forgiveness is less about what they deserve and more about your heart being free; Jesus prayed from the cross even toward people who had not asked. It often takes time and repeated surrender. One quiet step: name the wound honestly to God tonight, and ask Him for the willingness you do not yet feel — that prayer is already a beginning.',
+    verses: ['Ephesians 4:32', 'Colossians 3:13', 'Matthew 6:14', 'Luke 23:34'],
     plan: 'forgiveness'
   },
   {
@@ -6196,10 +6255,12 @@ var TDB_BIBLICAL_ANSWERS = [
       'what does the bible say about anxiety', 'bible verses for anxiety', 'anxious about everything',
       'how to deal with anxiety', 'bible help for anxiety', 'what does god say about anxiety',
       'scripture for anxiety', 'verses about anxiety', 'i have anxiety', 'feeling anxious',
-      'constant anxiety', 'struggling with anxiety'
+      'constant anxiety', 'struggling with anxiety', 'anxious about tomorrow', 'worried about the future',
+      'cant stop worrying', "can't stop worrying", 'anxiety about whats next', "anxiety about what's next",
+      'what if everything falls apart', 'scared of the future bible'
     ],
-    answer: 'The Bible takes anxiety seriously — it does not shame you for it. Philippians 4:6–7 gives the most direct path: bring everything to God in prayer and the peace "which passeth all understanding" will guard your heart and mind. First Peter 5:7 goes further: cast your care on Him because He cares for you — not as an obligation, but as an invitation. God\'s steadiness is the anchor, not your ability to stop worrying. The one step Scripture keeps returning to is honest prayer, not managed calm.',
-    verses: ['Philippians 4:6', 'Philippians 4:7', '1 Peter 5:7', 'Isaiah 41:10'],
+    answer: 'When your mind races ahead of the day — tomorrow, next month, what if — Scripture does not shame you for caring. It invites you to bring the care somewhere safer than your own grip. Philippians 4:6–7 says "Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus." First Peter 5:7 is even more personal: "Casting all your care upon him; for he careth for you." God\'s steadiness is the anchor, not your ability to stop worrying. Matthew 6:34 keeps the horizon near: "Sufficient unto the day is the evil thereof." One small step for today: name one fear out loud to Him, then take the next ordinary duty in front of you — and if panic keeps flooding the body, wise help is wisdom, not failure.',
+    verses: ['Philippians 4:6', 'Philippians 4:7', '1 Peter 5:7', 'Matthew 6:34'],
     plan: 'universityanxiety'
   },
   {
@@ -6208,9 +6269,11 @@ var TDB_BIBLICAL_ANSWERS = [
       'does god hear my prayers', 'does god answer prayer', 'does god listen to me',
       'god is not listening', 'god is not answering', 'why does god not answer',
       'why is god silent', 'does prayer work', 'does god hear me', 'is god listening',
-      'feels like god does not hear me'
+      'feels like god does not hear me', 'prayers bouncing off the ceiling',
+      'god never answers me', 'my prayers go unanswered', 'does god still hear prayer',
+      'i pray and nothing happens', 'silent when i pray'
     ],
-    answer: 'He does. First John 5:14 says if we ask according to His will, He hears us. Psalm 34:18 says He is near to the brokenhearted — meaning He is closest when you feel most uncertain. Sometimes the answer is not what you expected, and sometimes it comes slower than you hoped — but silence is not absence. Jesus taught to keep asking, keep seeking, keep knocking (Matthew 7:7–8). Bring what you have honestly, and trust the One who never sleeps nor slumbers (Psalm 121:4).',
+    answer: 'When prayer feels like it is hitting a ceiling, the ache is real — and Scripture does not treat that ache as small. First John 5:14 says "if we ask any thing according to his will, he heareth us." Psalm 34:18 says "The LORD is nigh unto them that are of a broken heart" — closest, often, when you feel most uncertain. Silence is not the same as absence. Jesus taught keep asking, keep seeking, keep knocking: "Ask, and it shall be given you; seek, and ye shall find; knock, and it shall be opened unto you" (Matthew 7:7). Psalm 121:4 adds that He "shall neither slumber nor sleep." One quiet step tonight: pray one honest sentence — even "Lord, it feels like You are not listening" — and leave it with the One who hears before you finish speaking.',
     verses: ['1 John 5:14', 'Psalm 34:18', 'Matthew 7:7', 'Psalm 121:4'],
     plan: 'lordsprayer'
   },
@@ -6220,9 +6283,12 @@ var TDB_BIBLICAL_ANSWERS = [
       'how do i know god loves me', 'does god love me', 'does god still love me',
       'does god love me after what i did', 'god loves me', 'does god care about me',
       'does god care', 'what is gods love', 'how much does god love me',
-      'why would god love me', 'does god love me even when i sin'
+      'why would god love me', 'does god love me even when i sin',
+      'god hates me', 'god doesnt love me', "god doesn't love me", 'does god hate me',
+      'i think god hates me', 'god is against me', 'god is mad at me',
+      'god abandoned me', 'god doesnt care about me', "god doesn't care about me"
     ],
-    answer: 'The clearest proof in Scripture is Romans 5:8: God demonstrated His love toward us by sending Christ to die for us while we were still sinners — not after we cleaned up. Nothing you have done earned it, and nothing you have done can undo it (Romans 8:38–39). John 3:16 frames the whole gospel as the reason Jesus came. His love is not a reward for good behavior; it is the foundation everything else stands on. You do not have to feel it to trust it, but bringing that question honestly to Him is exactly the right place to start.',
+    answer: 'When the heart says "God hates me," that is not a small question — it is a felt verdict. Scripture answers it with a cross, not a pep talk. Romans 5:8 says God demonstrated His love toward us by sending Christ to die for us while we were still sinners — not after we cleaned up, not after we felt lovable. Nothing you have done earned that love, and nothing you have done can undo it (Romans 8:38–39). John 3:16 frames the whole gospel as the reason Jesus came. His love is not a reward for good behavior; it is the foundation everything else stands on. Feeling abandoned is real, and it is not the same as being abandoned. You do not have to feel His love to trust what He has already shown. Bring the accusation honestly to Him — that is exactly the right place to start.',
     verses: ['Romans 5:8', 'John 3:16', 'Romans 8:38', 'Romans 8:39'],
     plan: 'heavyhope'
   },
@@ -6244,10 +6310,12 @@ var TDB_BIBLICAL_ANSWERS = [
       'what does the bible say about depression', 'bible help for depression', 'i am depressed',
       'feeling depressed', 'struggling with depression', 'scripture for depression',
       'verses about depression', 'how to deal with depression', 'deeply depressed',
-      'hopeless and depressed', 'bible verses for when you are depressed'
+      'hopeless and depressed', 'bible verses for when you are depressed', 'i feel numb and empty',
+      'cant get out of bed faith', "can't get out of bed faith", 'dark cloud over me bible',
+      'clinical depression bible', 'depressed christian', 'no joy left bible'
     ],
-    answer: 'Scripture contains people who were so low they asked God to let them die — Elijah under the juniper tree (1 Kings 19), the writers of Psalms 88 and 22. God\'s response to Elijah was not a sermon — it was food, water, rest, and then a quiet voice (1 Kings 19:12). Psalm 34:18 says He is near to the brokenhearted and saves the crushed in spirit. Depression is not a sign of weak faith; many of the most faithful people in Scripture went through it. Tell God exactly where you are, and let the people around you in too.',
-    verses: ['Psalm 34:18', '1 Kings 19:5', 'Psalm 88:1', 'Isaiah 41:10'],
+    answer: 'When the weight will not lift — when the day feels heavy before it begins — you are not outside the story Scripture tells. Elijah sat under a juniper tree and asked that he might die (1 Kings 19:4). God\'s first answer was not a lecture; it was rest, food, water, and then "a still small voice" (1 Kings 19:12). Psalm 34:18 says "The LORD is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit." Psalm 42:5 names the honest question: "Why art thou cast down, O my soul?" Depression is not proof of weak faith; some of the most faithful people in Scripture walked through deep darkness. One gentle step for today: tell God exactly where you are, even if it\'s only one sentence, and let one trusted person know you are carrying this — and if the darkness includes thoughts of ending your life, please reach for 988 or local crisis help first. You do not have to climb out alone.',
+    verses: ['Psalm 34:18', '1 Kings 19:12', 'Psalm 42:5', 'Isaiah 41:10'],
     plan: 'longheavydays'
   },
   {
@@ -6268,9 +6336,11 @@ var TDB_BIBLICAL_ANSWERS = [
       'what does the bible say about marriage', 'bible and marriage', 'marriage struggles bible',
       'scripture about marriage', 'marriage problems bible', 'how to have a good marriage',
       'what god says about marriage', 'bible verses for marriage', 'marriage advice bible',
-      'my marriage is falling apart', 'struggling in marriage'
+      'my marriage is falling apart', 'struggling in marriage', 'marriage in crisis bible',
+      'we fight all the time bible', 'distant from my spouse', 'how to love my husband bible',
+      'how to love my wife bible', 'marriage feels hopeless'
     ],
-    answer: 'Marriage was not designed to run on performance — it was designed to run on covenant: a committed giving of oneself regardless of return (Ephesians 5:25–33). The pattern Scripture gives is mutual sacrifice and honor, not one person carrying everything. First Corinthians 13 describes the kind of love that holds a marriage through hard seasons: patient, kind, not keeping a record of wrongs. No marriage is beyond what God can restore, but it takes honesty, humility, and a willingness to return to Him together. The hardest prayer is often the truest one: Lord, change me first.',
+    answer: 'When marriage feels more like a battlefield than a covenant, Scripture does not ask you to pretend everything is fine. It points to a pattern of costly love. Ephesians 5:25 says "Husbands, love your wives, even as Christ also loved the church, and gave himself for it" — and the wider passage calls both toward mutual honor, not one person carrying everything alone. First Corinthians 13:4 names the kind of love that holds through hard seasons: "Charity suffereth long, and is kind." Colossians 3:14 adds "above all these things put on charity, which is the bond of perfectness." No marriage is beyond what God can restore, but restoration usually begins with honesty, humility, and a willingness to return to Him — sometimes one prayer at a time. The hardest prayer is often the truest: Lord, change me first. One step today: pray that line quietly, then take one ordinary kindness toward your spouse without keeping score.',
     verses: ['Ephesians 5:25', '1 Corinthians 13:4', 'Colossians 3:14', 'Proverbs 18:22'],
     plan: 'marriage'
   },
@@ -6304,9 +6374,12 @@ var TDB_BIBLICAL_ANSWERS = [
       'what does the bible say about grief', 'bible help for grief', 'how to grieve',
       'grieving a loss', 'bible says about loss', 'scripture for grief', 'how does god comfort grief',
       'dealing with loss', 'my loved one died', 'help with grief', 'grieving someone i lost',
-      'bible comfort for grief', 'can you grieve and still have faith'
+      'bible comfort for grief', 'can you grieve and still have faith',
+      'died suddenly', 'sudden death', 'unexpected death', 'died in an accident',
+      'car accident death', 'they died without warning', 'shock grief bible',
+      'sudden loss bible', 'unexpected loss', 'gone so suddenly'
     ],
-    answer: 'Jesus wept at the tomb of Lazarus even knowing what was about to happen (John 11:35). Grief is not a failure of faith — it is the honest cost of love. Psalm 34:18 says the Lord is near to the brokenhearted. Ecclesiastes 3:4 says there is a time to mourn — it is built into the rhythm of human life, not a sign of being stuck. God does not hurry grief. He sits with it. What Revelation 21:4 promises — that He will wipe every tear — is a picture of a God who has held every one of them (Psalm 56:8).',
+    answer: 'Jesus wept at the tomb of Lazarus even knowing what was about to happen (John 11:35). Grief is not a failure of faith — it is the honest cost of love. When death comes suddenly — an accident, a shock, no time to say goodbye — the first days often feel like numbness more than tears, and the "why" may have no tidy answer. That is still grief, and God does not hurry it. Psalm 34:18 says the Lord is near to the brokenhearted. Ecclesiastes 3:4 says there is a time to mourn — it is built into the rhythm of human life, not a sign of being stuck. He sits with it. What Revelation 21:4 promises — that He will wipe every tear — is a picture of a God who has held every one of them (Psalm 56:8). You do not have to invent a reason for the suddenness. You can bring the shock to Him as it is.',
     verses: ['John 11:35', 'Psalm 34:18', 'Revelation 21:4', 'Psalm 56:8'],
     plan: 'grief'
   },
@@ -6316,9 +6389,10 @@ var TDB_BIBLICAL_ANSWERS = [
       'what does god say about my worth', 'am i worth anything', 'do i matter to god',
       'feeling worthless', 'i feel worthless', 'i have no value', 'does god care about me',
       'bible says about self worth', 'bible says about worth', 'am i enough',
-      'feeling like i dont matter', 'does anyone care about me', 'god sees me'
+      'feeling like i dont matter', 'does anyone care about me', 'god sees me',
+      'i hate myself', 'hate myself', 'i despise myself', 'i am worthless to god'
     ],
-    answer: 'Your worth in Scripture is not based on what you produce, how you look, or how you feel about yourself. Psalm 139:13–14 says God formed you and you are "fearfully and wonderfully made." Matthew 10:31 says you are worth more than many sparrows — and God notices when even one of those falls. You do not have to earn your worth or prove it. The cross is the most definitive statement God ever made about what a human life is worth to Him. You were worth that.',
+    answer: 'When the voice inside says "I hate myself" or "I do not matter," Scripture does not answer with a list of your accomplishments. It answers with who made you and what He paid. Psalm 139:13–14 says God formed you and you are "fearfully and wonderfully made." Matthew 10:31 says you are worth more than many sparrows — and God notices when even one of those falls. Jeremiah 1:5 says He knew you before you were formed. You do not have to earn your worth or prove it on a hard day. The cross is the most definitive statement God ever made about what a human life is worth to Him. Self-hatred is not humility; it is a lie that cannot outrank His love. You were worth that — and you still are.',
     verses: ['Psalm 139:14', 'Matthew 10:31', 'Romans 5:8', 'Jeremiah 1:5'],
     plan: 'selfworth'
   },
@@ -6340,9 +6414,11 @@ var TDB_BIBLICAL_ANSWERS = [
       'what does the bible say about waiting', 'how to wait on god', 'waiting on god',
       'how do you wait on god', 'tired of waiting', 'god is taking too long', 'why does god make you wait',
       'how long do i have to wait', 'waiting for god to answer', 'why is god slow',
-      'i have been waiting so long', 'god still has not answered'
+      'i have been waiting so long', 'god still has not answered', 'waiting forever on god',
+      'im tired of waiting on god', "i'm tired of waiting on god", 'when will god answer',
+      'still waiting for a breakthrough', 'waiting season bible'
     ],
-    answer: 'Waiting in Scripture is not passive — it is active trust. Isaiah 40:31 says those who wait on the Lord will renew their strength. Psalm 27:14 says "wait on the Lord: be of good courage." God works in the silence. Lamentations 3:25–26 says He is good to those who wait quietly for Him. One of the harder truths of Scripture is that God is rarely in a hurry, and His timing is better than any timeline you or I would have chosen. What waiting builds, rushing cannot.',
+    answer: 'Waiting can feel like standing still while everything in you wants to move — and Scripture does not call that weakness. Waiting here is active trust, not empty idleness. Isaiah 40:31 says "they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles." Psalm 27:14 says "Wait on the LORD: be of good courage, and he shall strengthen thine heart: wait, I say, on the LORD." Lamentations 3:25–26 adds "The LORD is good unto them that wait for him... It is good that a man should both hope and quietly wait for the salvation of the LORD." God works in the silence more often than in the hurry. One small step for today: do the next faithful ordinary thing in front of you, and leave the timeline with Him — what waiting builds, rushing cannot.',
     verses: ['Isaiah 40:31', 'Psalm 27:14', 'Lamentations 3:25', 'Habakkuk 2:3'],
     plan: 'universitywaiting'
   },
@@ -6515,10 +6591,12 @@ var TDB_BIBLICAL_ANSWERS = [
       'i was betrayed', 'someone i trusted betrayed me', 'my friend betrayed me',
       'how to handle betrayal', 'dealing with betrayal', 'how to heal from betrayal',
       'betrayed by a close friend', 'trust was broken', 'i was backstabbed',
-      'bible help for betrayal', 'scripture about betrayal', 'how to move on after betrayal'
+      'bible help for betrayal', 'scripture about betrayal', 'how to move on after betrayal',
+      'spouse betrayed me', 'pastor betrayed me', 'family betrayed me',
+      'cant trust anyone again', "can't trust anyone again", 'broken trust bible'
     ],
-    answer: 'Being betrayed by someone you trusted is one of the most destabilizing things a person can experience — and it is in Scripture. Joseph\'s brothers sold him. David was betrayed by his own son. Jesus was betrayed at a supper He had just shared with the betrayer. Psalm 55:12–14 is David writing about a close friend who turned against him — the pain is real and God does not rush past it. What the Bible does not require is immediate trust in that person again. Forgiveness and restored trust are different things. Bring the wound to God first, and let Him be the safe place while you heal slowly and wisely.',
-    verses: ['Psalm 55:12', 'Genesis 50:20', 'John 13:18', 'Romans 12:19'],
+    answer: 'Being betrayed by someone you trusted can shake the ground under ordinary life — and Scripture does not rush past that wound. David wrote of a close companion who turned: "For it was not an enemy that reproached me... But it was thou, a man mine equal, my guide, and mine acquaintance" (Psalm 55:12–13). Joseph was sold by his brothers; Jesus was betrayed at a table He had just shared. What the Bible does not require is immediate trust in that person again. Forgiveness and restored trust are different things. Romans 12:19 says "Vengeance is mine; I will repay, saith the Lord" — you do not have to carry the case alone. One quiet step: name the betrayal honestly to God today, and take counsel slowly with one wise person before you reopen any door. Heal at a pace that is wise, not hurried.',
+    verses: ['Psalm 55:12', 'Psalm 55:13', 'Genesis 50:20', 'Romans 12:19'],
     plan: 'trustbroken'
   },
   {
@@ -6539,9 +6617,12 @@ var TDB_BIBLICAL_ANSWERS = [
       'what does the bible say about healing', 'does god still heal', 'how to pray for healing',
       'bible verses about healing', 'praying for healing', 'can god heal me',
       'scripture about healing', 'does god heal today', 'i need healing', 'asking god for healing',
-      'healing prayer bible', 'will god heal my sickness', 'bible promise of healing'
+      'healing prayer bible', 'will god heal my sickness', 'bible promise of healing',
+      'why wont god heal me', "why won't god heal me", 'god wont heal me', "god won't heal me",
+      'why am i not healed', 'prayed for healing nothing happened', 'still sick after praying',
+      'why doesnt god heal me', "why doesn't god heal me", 'i keep praying for healing'
     ],
-    answer: 'The Bible holds both realities without forcing one over the other: God heals, and God also walks with people who have not been healed yet. James 5:14–15 calls the church to pray for healing with real expectation. At the same time, Paul\'s thorn was not removed (2 Corinthians 12:7–9), Timothy had recurring illness (1 Timothy 5:23), and the man at Bethesda had waited 38 years (John 5:5). Healing is not a reward for enough faith — if it were, the cross was unnecessary. Pray for it honestly and fully. Hold the answer with open hands, trusting the God who says He will one day make all things new (Revelation 21:5).',
+    answer: 'The Bible holds both realities without forcing one over the other: God heals, and God also walks with people who have not been healed yet. When the cry is "Why won\'t God heal me?" — after honest prayer, after waiting — Scripture does not blame the sick for lacking faith. James 5:14–15 calls the church to pray for healing with real expectation. At the same time, Paul\'s thorn was not removed (2 Corinthians 12:7–9), Timothy had recurring illness (1 Timothy 5:23), and the man at Bethesda had waited 38 years (John 5:5). Delay is not proof that God has rejected you. Healing is not a reward for enough faith — if it were, the cross was unnecessary. Keep praying honestly. Hold the answer with open hands. Trust the God who walks with the not-yet-healed and who says He will one day make all things new (Revelation 21:5).',
     verses: ['James 5:14', '2 Corinthians 12:9', 'Psalm 103:3', 'Revelation 21:5'],
     plan: 'painwontquit'
   },
@@ -6626,11 +6707,12 @@ var TDB_BIBLICAL_ANSWERS = [
     id: 'bitterness-resentment',
     triggers: [
       'i am bitter', 'bitterness i cannot let go', 'bitter about what happened', 'resentment i cant shake',
-      'bitterness eating me alive', 'how to let go of bitterness', 'i resent someone',
+      "resentment i can't shake", 'bitterness eating me alive', 'how to let go of bitterness', 'i resent someone',
       'resentment and bitterness', 'bitter root', 'bitterness bible', 'what does the bible say about bitterness',
-      'holding onto bitterness', 'i cannot stop resenting', 'root of bitterness'
+      'holding onto bitterness', 'i cannot stop resenting', 'root of bitterness',
+      'bitter toward god', 'bitter toward my family', 'cant let go of what they did', "can't let go of what they did"
     ],
-    answer: 'Bitterness is grief that found nowhere to land and hardened there. The Bible names it and warns about it — not because God has no sympathy for the wound beneath it, but because it eventually poisons the one holding it. Hebrews 12:15 calls it a "root of bitterness" that grows quietly beneath the surface and spreads. Ephesians 4:31–32 does not ask you to feel differently all at once — it asks you to release, and to let the tenderness of God be larger than the offense. That release is not saying what happened was acceptable. It is saying you are no longer willing to let it be the loudest thing in your life.',
+    answer: 'Bitterness is often grief that found nowhere safe to land and hardened there — and God sees the wound under it, not only the hardness. Hebrews 12:15 warns of a "root of bitterness" that springs up and troubles many. Ephesians 4:31–32 does not demand instant soft feelings; it points a path: "Let all bitterness, and wrath, and anger... be put away from you... And be ye kind one to another, tenderhearted, forgiving one another, even as God for Christ\'s sake hath forgiven you." That release is not saying what happened was acceptable. It is saying you are no longer willing to let the offense be the loudest voice in your life. Psalm 73:21 names the honest middle: "Thus my heart was grieved, and I was pricked in my reins." One quiet step: name the bitterness honestly to God tonight, and ask Him for the willingness to loosen your grip — even a little.',
     verses: ['Hebrews 12:15', 'Ephesians 4:31', 'Ephesians 4:32', 'Psalm 73:21'],
     plan: 'universitybitterness'
   },
@@ -6693,9 +6775,10 @@ var TDB_BIBLICAL_ANSWERS = [
       'getting a divorce', 'divorce bible', 'what does the bible say about divorce',
       'marriage falling apart', 'husband left me', 'wife left me', 'marriage is over',
       'my spouse left', 'dealing with divorce', 'divorcing', 'after a divorce',
-      'how to survive divorce', 'divorce and faith'
+      'how to survive divorce', 'divorce and faith', 'filing for divorce',
+      'separation from husband', 'separation from wife', 'life after divorce bible'
     ],
-    answer: 'Divorce carries the weight of what was meant to last — and that weight is real. God takes marriage seriously, which is also why its ending is so painful. But grace is not withheld from people in the middle of it. Psalm 34:18 says the Lord is near to the brokenhearted and saves those whose spirit is crushed — and a marriage ending is one of the heaviest ways a spirit gets crushed. Isaiah 54:5 says "thy Maker is thine husband" — a word spoken to people who had lost everything and were starting over. Wherever you are in this — fighting to save it, grieving what was lost, or finding your footing after — He does not abandon you in the in-between.',
+    answer: 'Divorce carries the weight of what was meant to last — and that weight is real. God takes marriage seriously, which is also why its ending cuts so deep. Grace is not withheld from people in the middle of it. Psalm 34:18 says "The LORD is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit." Isaiah 54:5 speaks to people starting over: "For thy Maker is thine husband; the LORD of hosts is his name." Matthew 11:28 still stands open: "Come unto me, all ye that labour and are heavy laden, and I will give you rest." Wherever you are — fighting to save it, grieving what was lost, or finding your footing after — He does not abandon you in the in-between. One gentle step today: bring one honest sentence about this loss to God, and let one trusted person walk near you this week.',
     verses: ['Psalm 34:18', 'Isaiah 54:5', 'Matthew 11:28', 'Romans 8:28'],
     plan: 'universitybroken'
   },
@@ -6719,10 +6802,14 @@ var TDB_BIBLICAL_ANSWERS = [
       'i am not enough', 'feeling like i cant do anything right', 'constant failure',
       'i fail at everything', 'feeling worthless and like a failure', 'not enough bible',
       'bible for feeling like a failure', 'i will never be enough', 'i always mess up',
-      'failure at life', 'i disappoint everyone'
+      'failure at life', 'i disappoint everyone',
+      'perfectionism bible', 'i am a perfectionist', 'all or nothing thinking',
+      'nothing i do is good enough', 'obsessed with doing it right',
+      'paralyzed by perfectionism', 'fear of making mistakes bible',
+      'cant rest until its perfect', "can't rest until it's perfect"
     ],
-    answer: 'The "not enough" feeling is one of the most persistent lies a person carries. The Bible does not address it by listing your accomplishments — it addresses it by naming who you are. Second Corinthians 5:17 says if you are in Christ, you are a new creation. Romans 8:1 says there is no condemnation. These are not motivational statements — they are declarations about your standing before God that do not shift based on how your week went. Galatians 4:7 says you are no longer a servant but a son — an heir. That is not a title you earn by performing well enough. It is one you receive by belonging to Him.',
-    verses: ['2 Corinthians 5:17', 'Romans 8:1', 'Galatians 4:7', 'Philippians 4:13'],
+    answer: 'The "not enough" feeling is one of the most persistent lies a person carries — and perfectionism is often its driven form: not only "I failed," but "I cannot rest until it is flawless." The Bible does not address that by listing your accomplishments — it addresses it by naming who you are. Second Corinthians 5:17 says if you are in Christ, you are a new creation. Romans 8:1 says there is no condemnation. These are not motivational statements — they are declarations about your standing before God that do not shift based on how your week went. Galatians 4:7 says you are no longer a servant but a son — an heir. That is not a title you earn by performing well enough. It is one you receive by belonging to Him. Matthew 11:28 invites the weary and heavy laden to rest — including the weary who cannot stop proving. Belonging is not earned by flawless work.',
+    verses: ['2 Corinthians 5:17', 'Romans 8:1', 'Galatians 4:7', 'Matthew 11:28'],
     plan: 'universityidentity'
   },
   {
@@ -6890,9 +6977,12 @@ var TDB_BIBLICAL_ANSWERS = [
       'how to forgive church leaders', 'hurt by christians', 'left church because of people',
       'disillusioned with church', 'how do i go back to church after being hurt',
       'burned by church', 'church let me down', 'church wounded me', 'church abuse',
-      'christians hurt me', 'church politics hurt me'
+      'christians hurt me', 'church politics hurt me',
+      'should i leave this church', 'should i leave my church', 'find a new church',
+      'is it ok to leave a church', 'leaving a toxic church', 'when to leave a church bible',
+      'church shopping after hurt', 'do i have to stay at this church'
     ],
-    answer: 'Being hurt by people in a church is one of the most painful kinds of betrayal — because it happens in a place that was supposed to be safe. The Bible does not idealize the church. Paul\'s letters are largely written to correct churches that were failing their people. Peter was rebuked by Paul to his face (Galatians 2:11). Corinth was a mess. The institution is imperfect because it is made of people — and that is not an excuse for the harm done to you, but an honest acknowledgment that the church is a hospital, not a gathering of perfect people. Psalm 27:10 says even when others forsake you, the Lord will take you up. God has not left you, and what was done by His people in His name is not His endorsement of it.',
+    answer: 'Being hurt by people in a church is one of the most painful kinds of betrayal — because it happens in a place that was supposed to be safe. The Bible does not idealize the church. Paul\'s letters are largely written to correct churches that were failing their people. Peter was rebuked by Paul to his face (Galatians 2:11). Corinth was a mess. The institution is imperfect because it is made of people — and that is not an excuse for the harm done to you, but an honest acknowledgment that the church is a hospital, not a gathering of perfect people. If you are asking whether to leave: preference and preference-frustration are not the same as wolves, abuse, or ongoing harm. Leaving a building is not abandoning Christ. Hebrews 10:25 calls believers not to forsake assembling together — it does not require staying in a place that keeps wounding you. Seek a healthy flock slowly, with wise counsel, without rushing back into harm. Psalm 27:10 says even when others forsake you, the Lord will take you up. God has not left you, and what was done by His people in His name is not His endorsement of it.',
     verses: ['Psalm 27:10', 'Galatians 2:11', 'Hebrews 10:25', 'Romans 8:35'],
     plan: 'heartalone'
   },
@@ -9613,9 +9703,11 @@ var TDB_BIBLICAL_ANSWERS = [
       'i was abused bible', 'sexual abuse bible', 'trauma and faith bible', 'childhood trauma bible',
       'does god care about what happened to me', 'abuse survivor bible',
       'healing from abuse bible', 'i was hurt as a child bible', 'god and abuse victims',
-      'trauma healing bible'
+      'trauma healing bible', 'i was raped', 'i was sexually assaulted', 'sexual assault bible',
+      'rape survivor bible', 'i was molested', 'adult sexual assault', 'someone assaulted me',
+      'healing after rape bible', 'god and rape survivors'
     ],
-    answer: 'What happened to you was wrong. God says He "healeth the broken in heart, and bindeth up their wounds" (Psalm 147:3) — the binding up is a medical image, careful tending of real injury. Jesus rose from the dead still bearing wounds (John 20:27); He did not leave His body behind to seem more spiritual. He knows what it is to be harmed. Psalm 10:14 says "Thou hast seen it...thou art the helper of the fatherless" — God does not look away from what happened to you. Recovery from abuse is real, it takes time, and it often requires help from others. That help is not a failure of faith; it is part of how God heals. You deserve to be safe.',
+    answer: 'What happened to you was wrong — including sexual assault and rape, if that is part of your story. God says He "healeth the broken in heart, and bindeth up their wounds" (Psalm 147:3) — the binding up is a medical image, careful tending of real injury. Jesus rose from the dead still bearing wounds (John 20:27); He did not leave His body behind to seem more spiritual. He knows what it is to be harmed. Psalm 10:14 says "Thou hast seen it...thou art the helper of the fatherless" — God does not look away from what happened to you. There is no rush to forgive, and no spiritual prize for pretending you are fine. Recovery from abuse is real, it takes time, and it often requires help from others. That help is not a failure of faith; it is part of how God heals. You deserve to be safe.',
     verses: ['Psalm 147:3', 'Psalm 10:14', 'Isaiah 61:1', 'Psalm 34:18'],
     plan: 'grief'
   },
@@ -9726,10 +9818,12 @@ var TDB_BIBLICAL_ANSWERS = [
       'someone i love died by suicide', 'my friend killed themselves', 'my child died by suicide',
       'suicide loss grief bible', 'grieving after someone took their life', 'my husband killed himself',
       'my wife took her life', 'how do i grieve suicide', 'after a suicide loss bible',
-      'did my loved one go to heaven after suicide'
+      'did my loved one go to heaven after suicide', 'sibling died by suicide', 'parent died by suicide',
+      'grieving a suicide', 'survivor of suicide loss', 'questions after suicide',
+      'guilt after suicide loss', 'could i have stopped the suicide'
     ],
-    answer: 'Losing someone to suicide carries the weight of grief plus a particular torment of questions that may never be fully answered, and sometimes guilt that has no fair basis. God alone fully knows the heart, the pain, and the moment — He is the judge of what He alone sees, and His mercy is far beyond what we can calculate. Psalm 34:18 says He is near to the brokenhearted and saves the crushed in spirit — near to you in this specific grief, not generically. The questions you carry about heaven, about what they were thinking, about what you could have done — bring them honestly to God. He can hold them. This weight was not meant to be carried alone; let people in, and let professional support in. You are not failing by needing help.',
-    verses: ['Psalm 34:18', 'Romans 8:38', 'Isaiah 57:15', 'Deuteronomy 29:29'],
+    answer: 'Losing someone to suicide carries ordinary grief plus a particular torment — questions that may never fully answer, and sometimes guilt that has no fair basis. God alone fully knows the heart, the pain, and the moment. Deuteronomy 29:29 says "The secret things belong unto the LORD our God." Psalm 34:18 meets you in this specific ache: "The LORD is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit." Romans 8:38–39 holds that nothing — not death, not the present, not things to come — can separate us from the love of God in Christ. Bring the questions as they are. This weight was not meant to be carried alone; let trusted people in, and let professional grief support in. And if you yourself are also thinking of dying, please reach for help now — call or text 988 in the U.S., or local crisis care where you live. Needing that help is wisdom, not failure.',
+    verses: ['Psalm 34:18', 'Deuteronomy 29:29', 'Romans 8:38', 'Romans 8:39'],
     plan: 'grief'
   },
   {
@@ -9793,6 +9887,195 @@ var TDB_BIBLICAL_ANSWERS = [
     answer: 'The son in Luke 15 did not wait to be in a better condition to come home. He "arose, and came to his father" — and his father "saw him yet a great way off" and ran (15:20). The running is the detail that matters: the father had been watching the road. Whatever road brought you back, God is not standing with arms crossed waiting for an explanation. The son had rehearsed a speech; the father did not let him finish it. He called for the robe, the ring, the feast. The return is not a negotiation — it is a homecoming. The years away do not disqualify you; they are part of your story. "Come unto me" (Matthew 11:28) has no asterisk. Come as you are, right now.',
     verses: ['Luke 15:20', 'Luke 15:24', 'Matthew 11:28', 'Hosea 14:4'],
     plan: 'roadtosalvation'
+  },
+
+  // ============================================================
+  // LIFE / PASTORAL — Expansion Round 4 (Wave 1 high-pain gaps)
+  // ============================================================
+  {
+    id: 'suicidal-despair',
+    triggers: [
+      'i want to die', 'i wanna die', 'i want to kill myself', 'feeling suicidal',
+      'suicidal thoughts bible', 'bible when i want to die', 'dont want to live',
+      "don't want to live", 'dont want to be alive', "don't want to be alive",
+      'end it all', 'end my life', 'better off dead', 'thinking about suicide',
+      'god and suicide', 'is it a sin to want to die', 'i wish i was dead',
+      'i wish i were dead'
+    ],
+    answer: 'Scripture knows people who asked God to let them die. Elijah sat under a juniper tree and said, "It is enough; now, O LORD, take away my life" (1 Kings 19:4) — and God\'s first response was not a lecture. It was food, water, rest, and then a quiet voice. Psalm 34:18 says the Lord is "nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit." Wanting to die is not proof that God has left you, and it is not a sign that your faith has failed. Bring the darkness to Him honestly. Let people in. Reaching for real help is wisdom, not weakness — and the help listed above is there for this exact moment.',
+    verses: ['Psalm 34:18', 'Psalm 42:5', '1 Kings 19:4', 'Isaiah 41:10'],
+    plan: 'longheavydays'
+  },
+  {
+    id: 'self-harm',
+    triggers: [
+      'i keep hurting myself', 'i cut myself', 'cutting myself', 'self harm', 'self-harm',
+      'i want to hurt myself', 'hurting my body', 'i punish myself', 'self injury bible',
+      'bible about cutting', 'i keep cutting', 'why do i hurt myself', 'hurting myself',
+      'self harm bible', 'self-harm bible', 'self injury', 'i hurt myself on purpose'
+    ],
+    answer: 'If you are hurting your own body — cutting, punishing yourself, turning pain inward — you are not beyond God\'s care, and you are not alone in the dark. Psalm 34:18 says He is near to the brokenhearted. Psalm 147:3 says He "healeth the broken in heart, and bindeth up their wounds" — careful tending, not a scolding. Your body is not an enemy; Scripture treats it as something God cares for (1 Corinthians 6:19–20). This is not a call to try harder in secret. It is a call to bring the pain into the light and let wise help in. Reaching for real help is wisdom, not weakness — and the help listed above is there for this exact moment. Isaiah 41:10 still holds: He is with you; He will strengthen you.',
+    verses: ['Psalm 34:18', 'Psalm 147:3', '1 Corinthians 6:19', 'Isaiah 41:10'],
+    plan: 'longheavydays'
+  },
+  {
+    id: 'affair-adultery',
+    triggers: [
+      'my spouse cheated', 'my husband had an affair', 'my wife cheated',
+      'spouse committed adultery', 'caught my spouse cheating', 'marriage after affair',
+      'how to heal after adultery', 'i had an affair', 'i cheated on my spouse',
+      'i committed adultery', 'can god forgive adultery', 'i had an affair bible',
+      'adultery and forgiveness bible', 'affair bible', 'infidelity bible'
+    ],
+    answer: 'Adultery breaks something that was meant to hold — and Scripture does not soften that. "Thou shalt not commit adultery" (Exodus 20:14) names the wound clearly. If you were betrayed, the pain is real; God hates treachery, and forgiveness is not pretending nothing happened or rushing past safety and truth. If you are the one who broke trust, David\'s path in Psalm 51 is confession before God without self-destruction: "Against thee, thee only, have I sinned" — and still, mercy. Jesus told the woman taken in adultery, "Neither do I condemn thee: go, and sin no more" (John 8:11) — grace that does not erase consequence, and does not abandon the person. Whether you are rebuilding, grieving, or starting over, bring the whole of it to God. Hard honesty and wise help belong here; cheap slogans do not.',
+    verses: ['Exodus 20:14', 'Psalm 51:1', 'John 8:11', 'Ephesians 4:32'],
+    plan: 'universitybroken'
+  },
+  {
+    id: 'abortion-grief',
+    triggers: [
+      'i had an abortion', 'after abortion bible', 'abortion guilt', 'abortion grief',
+      'can god forgive abortion', 'regretting abortion', 'bible after abortion',
+      'post abortion', 'i ended a pregnancy', 'shame after abortion',
+      'abortion and forgiveness bible', 'grieving after abortion'
+    ],
+    answer: 'If you are carrying grief or guilt after an abortion, you do not need a debate — you need a God who is near the crushed. Psalm 34:18 says He is nigh unto them that are of a broken heart. Psalm 51:17 says "a broken and a contrite heart, O God, thou wilt not despise." Isaiah 1:18 holds out cleansing without minimizing what is real: "though your sins be as scarlet, they shall be as white as snow." First John 1:9 is the open door of confession and forgiveness. This is not culture-war language; it is mercy for a heavy private weight. Bring what you are carrying to Him honestly. Let a trusted person in if you can. You are not beyond the reach of grace.',
+    verses: ['Psalm 34:18', 'Psalm 51:17', 'Isaiah 1:18', '1 John 1:9'],
+    plan: 'guiltshame'
+  },
+  {
+    id: 'cancer-terminal',
+    triggers: [
+      'i have cancer', 'cancer bible', 'diagnosed with cancer', 'terminal illness bible',
+      'terminal diagnosis', 'chemo and faith', 'cancer and god', 'dying of cancer',
+      'stage 4 cancer bible', 'what does the bible say about cancer',
+      'praying with cancer', 'terminal cancer faith', 'cancer diagnosis bible'
+    ],
+    answer: 'A cancer diagnosis — or a terminal word — changes the air in a room, and Scripture does not ask you to pretend otherwise. Psalm 23:4 walks through the valley without denying the shadow: "I will fear no evil: for thou art with me." Paul prayed for his thorn to be removed and heard, "My grace is sufficient for thee: for my strength is made perfect in weakness" (2 Corinthians 12:9) — presence and strength, not a formula. Psalm 73:26 is honest about failing flesh: "My flesh and my heart faileth: but God is the strength of my heart, and my portion for ever." God can heal, and God also walks with those not yet healed. Fear of death is human; Romans 8:38–39 says nothing — not death itself — can separate you from the love of God in Christ. Carry one verse into the appointments. You are not alone in the waiting room.',
+    verses: ['Psalm 23:4', '2 Corinthians 12:9', 'Psalm 73:26', 'Romans 8:38'],
+    plan: 'longillness'
+  },
+  {
+    id: 'controlling-abusive-spouse',
+    triggers: [
+      'controlling husband', 'controlling wife', 'emotionally abusive spouse',
+      'emotional abuse marriage', 'my spouse controls me', 'abusive marriage bible',
+      'narcissistic spouse bible', 'husband gaslights me', 'wife manipulates me',
+      'unsafe marriage', 'should i stay in abusive marriage', 'controlling spouse bible',
+      'emotional abuse bible marriage'
+    ],
+    answer: 'Control and emotional harm in a marriage are not the same thing as ordinary conflict. Scripture defends the oppressed: "Defend the poor and fatherless: do justice to the afflicted and needy" (Psalm 82:3). Love in Ephesians 5 is not domination — husbands are called to give themselves up, not to crush. Proverbs 22:3 says "A prudent man foreseeth the evil, and hideth himself" — wisdom and safety are not unfaithfulness. A hard marriage and an unsafe marriage are not the same room; name which one you are in without shame. If you are in danger, get help now. Truth-telling, wise counsel, and protecting yourself and any children are not failures of faith. Psalm 34:18 still holds: God is near the brokenhearted. You do not have to carry this alone or call harm "love."',
+    verses: ['Psalm 82:3', 'Proverbs 22:3', 'Psalm 10:17', 'Ephesians 5:25'],
+    plan: 'trustbroken'
+  },
+
+  // ============================================================
+  // LIFE / PASTORAL — Expansion Round 6 (Wave 3 high-pain gaps)
+  // ============================================================
+  {
+    id: 'dementia-caregiving',
+    triggers: [
+      'dad has alzheimers', 'mom has dementia', 'alzheimers bible', 'dementia bible',
+      'parent doesnt know me', "parent doesn't know me", 'caring for parent with dementia',
+      'alzheimers caregiver bible', 'memory loss parent bible', 'watching parent forget me',
+      'dementia grief bible', 'ambiguous loss dementia', 'mom has alzheimers',
+      'dad has dementia', 'parent with alzheimers bible'
+    ],
+    answer: 'Watching a parent forget your name — or forget who they are — is a grief with no clean funeral. The person is still here, and also gone. That ambiguous loss is real, and Scripture does not ask you to pretend it is ordinary caregiving. Isaiah 46:4 says God carries His people "even to your old age" and "even to hoar hairs" — He does not abandon the one whose memory is failing, and He does not abandon you either. Psalm 71:9 is the honest cry of later years: "Cast me not off in the time of old age." You can still honor father and mother when they cannot reciprocate; honor is not measured by their recognition of you. Anger and guilt are common in this room — bring both to God without shame. Galatians 6:2 still holds: you are bearing a burden, and you are allowed to receive care too. Keep praying when memory is gone. God still knows their name.',
+    verses: ['Psalm 71:9', 'Isaiah 46:4', 'Galatians 6:2', 'Psalm 34:18'],
+    plan: 'universityexhaustion'
+  },
+  {
+    id: 'empty-nest',
+    triggers: [
+      'empty nest', 'empty nest bible', 'kids left home', 'house feels empty',
+      'who am i now that kids are gone', 'children moved out', 'lonely after kids left',
+      'identity after kids leave', 'empty nest syndrome bible', 'quiet house after kids',
+      'kids went to college lonely', 'life after children leave home'
+    ],
+    answer: 'When the house goes quiet after years of noise, the loss is not only practical — it is a loss of role, rhythm, and a way of seeing yourself. That grief deserves to be named without drama and without being hurried into "enjoy the freedom." Scripture never grounds your worth only in parenting. Psalm 71:18 looks toward later years with purpose still ahead: "when I am old and grayheaded, O God, forsake me not; until I have shewed thy strength unto this generation." Isaiah 46:4 says He carries you still. Philippians 1:6 holds that He who began a good work will perform it — including in a quieter season. Psalm 92:14 says they shall still bring forth fruit in old age. You are not finished because the children have left. Bring the loneliness honestly to God, and ask what faithfulness looks like in this house now.',
+    verses: ['Psalm 71:18', 'Isaiah 46:4', 'Philippians 1:6', 'Psalm 92:14'],
+    plan: 'heavyhope'
+  },
+  {
+    id: 'eating-disorder',
+    triggers: [
+      'eating disorder bible', 'anorexia bible', 'bulimia bible', 'i hate food',
+      'starving myself', 'binge eating bible', 'punishing my body with food',
+      'food control bible', 'eating disorder and faith', 'i cant stop bingeing',
+      "i can't stop bingeing", 'anorexic christian', 'body and food shame bible',
+      'bulimia and faith', 'restricting food bible'
+    ],
+    answer: 'If food has become a battlefield — control, punishment, binge, shame — you are not beyond God\'s care, and this is not a small private failure of willpower. Psalm 147:3 says He "healeth the broken in heart, and bindeth up their wounds." Your body is not an enemy; Scripture treats it as something God cares for (1 Corinthians 6:19–20). The cruelty of food-shame is a voice God did not author. Psalm 34:18 says He is near to the brokenhearted. Isaiah 61:1 speaks of binding up the brokenhearted and liberty for the bruised. This is not a diet pep talk. Wise help — medical care, counseling, a trusted person — is part of how healing often comes. Bring the shame into the light. You do not have to fight this alone in secret.',
+    verses: ['Psalm 147:3', '1 Corinthians 6:19', 'Psalm 34:18', 'Isaiah 61:1'],
+    plan: 'longheavydays'
+  },
+  {
+    id: 'panic-attacks',
+    triggers: [
+      'panic attack bible', 'i had a panic attack', 'panic attacks and faith',
+      'cant breathe anxiety', "can't breathe anxiety", 'heart racing fear bible',
+      'sudden panic bible', 'panic disorder bible', 'bible for panic attacks',
+      'scared im dying panic', "scared i'm dying panic", 'overwhelming panic',
+      'panic attack christian', 'what does the bible say about panic attacks'
+    ],
+    answer: 'A panic attack can feel like the body has sounded an alarm you did not choose — heart racing, breath short, fear that something terrible is happening right now. That is not proof of weak faith. Psalm 56:3 is honest: "What time I am afraid, I will trust in thee" — afraid and trusting can share the same moment. Isaiah 41:10 says "Fear thou not; for I am with thee... I will strengthen thee." Philippians 4:6–7 points the anxious care toward prayer, with the promise of peace that "passeth all understanding." Psalm 94:19 says in the multitude of thoughts within, God\'s comforts delight the soul. In the middle of an attack, one slow breath and one short verse can be enough for the next minute. If panic keeps returning, wise help is not a failure — it is wisdom. You are not alone in the alarm.',
+    verses: ['Psalm 56:3', 'Isaiah 41:10', 'Philippians 4:6', 'Psalm 94:19'],
+    plan: 'universityanxiety'
+  },
+
+  // ============================================================
+  // LIFE / PASTORAL — Expansion Round 7 (Wave 4 high-pain gaps)
+  // ============================================================
+  {
+    id: 'family-estrangement',
+    triggers: [
+      'my family cut me off', 'family wont speak to me', "family won't speak to me",
+      'no contact with family', 'estranged from family', 'family disowned me',
+      'parents cut me off', 'my kids wont talk to me', "my kids won't talk to me",
+      'estrangement bible', 'family silent treatment', 'cut off from my family',
+      'family ghosted me', 'family stopped talking to me'
+    ],
+    answer: 'When family goes silent — cut off, no contact, a closed door — the grief is different from ordinary conflict. It is the ache of a relationship that was supposed to hold and now will not answer. Psalm 27:10 says "When my father and my mother forsake me, then the LORD will take me up." That is not poetry stretched thin; it is a claim that God steps into the forsaken place. Romans 12:18 puts peace carefully: "If it be possible, as much as lieth in you, live peaceably with all men" — the "if it be possible" leaves room for doors you cannot force open. The father in Luke 15 kept watching the road without chasing the son down. You can keep the door open without pretending the cut does not hurt. Psalm 68:6 says God sets the solitary in families — He sees the loneliness of estrangement. Bring the silence to Him honestly. You are not invisible in it.',
+    verses: ['Psalm 27:10', 'Romans 12:18', 'Luke 15:20', 'Psalm 68:6'],
+    plan: 'trustbroken'
+  },
+  {
+    id: 'special-needs-parenting',
+    triggers: [
+      'special needs child bible', 'parenting a disabled child', 'autism and faith',
+      'my child has autism', 'down syndrome bible', 'special needs parenting',
+      'iep and faith', 'raising a child with disabilities', 'exhausted special needs parent',
+      'god and special needs kids', 'my child has special needs',
+      'parenting autism bible', 'disabled child and faith'
+    ],
+    answer: 'Raising a child with special needs is a long faithfulness most people never see — appointments, advocacy, exhaustion, and a love that does not quit. When the disciples asked about the man born blind, Jesus answered: "Neither hath this man sinned, nor his parents: but that the works of God should be made manifest in him" (John 9:3). Disability is not punishment. Psalm 139:14 says your child is "fearfully and wonderfully made" — with the same intentional care as any other life. Isaiah 40:29 says God gives power to the faint; Galatians 6:2 says bear one another\'s burdens — which includes letting others bear yours. This is not an inspiration story. It is ordinary, costly love. You are allowed to be tired. You are allowed to ask for help. God is not measuring your parenting by other families\' highlight reels.',
+    verses: ['John 9:3', 'Psalm 139:14', 'Isaiah 40:29', 'Galatians 6:2'],
+    plan: 'universityparentfear'
+  },
+  {
+    id: 'housing-eviction',
+    triggers: [
+      'facing eviction', 'we are being evicted', 'homeless bible', 'losing our home',
+      'about to be homeless', 'eviction notice bible', 'no place to live',
+      'housing crisis bible', 'cant afford rent', "can't afford rent",
+      'sleeping in car bible', 'lost our housing', 'being kicked out of our home'
+    ],
+    answer: 'Facing eviction — or having nowhere stable to sleep — is a fear that sits in the body differently than general money worry. It is the ground under your feet going soft. Psalm 68:6 says God "setteth the solitary in families" and brings out those who are bound — He is not indifferent to housing and belonging. Jesus named the fear of provision in Matthew 6:31–33: what shall we eat, what shall we drink, wherewithal shall we be clothed — "your heavenly Father knoweth that ye have need of all these things." Psalm 34:18 says He is near to the brokenhearted in this exact kind of crushing. Philippians 4:19 holds that God shall supply need according to His riches in glory — not always on our timeline, but not as a distant theory either. Ask for practical help without shame. Bring the fear to Him honestly. You are not overlooked in the crisis.',
+    verses: ['Psalm 68:6', 'Matthew 6:31', 'Psalm 34:18', 'Philippians 4:19'],
+    plan: 'heavyhope'
+  },
+  {
+    id: 'remarriage-after-divorce',
+    triggers: [
+      'remarriage bible', 'should i remarry', 'marrying again after divorce',
+      'second marriage bible', 'can i remarry after divorce', 'dating after divorce bible',
+      'is remarriage a sin', 'blended marriage bible',
+      'starting over after divorce marriage', 'getting married again after divorce'
+    ],
+    answer: 'Thinking about remarriage after divorce carries both hope and fear — hope that life can hold again, fear of getting it wrong, and sometimes the weight of other people\'s opinions. God takes marriage seriously; Jesus spoke of what God has joined (Matthew 19:6) without treating brokenness as invisible. Grace is also real. Romans 8:1 says there is no condemnation to them which are in Christ Jesus. Psalm 34:18 says He is near to the brokenhearted — including those rebuilding after a marriage ended. Isaiah 54:5 speaks with tenderness to people who had lost what was meant to last: "thy Maker is thine husband." This is not a debate essay covering every case. It is a pastoral word: seek wisdom, go slowly, tell the truth about the past, and do not let either cheap permission or crushing shame be the only voices in the room. Bring the question to God honestly. He can hold the complexity.',
+    verses: ['Psalm 34:18', 'Isaiah 54:5', 'Romans 8:1', 'Matthew 19:6'],
+    plan: 'universitybroken'
   },
 
   // ============================================================
@@ -10974,46 +11257,29 @@ async function updateHeaderAuth() {
 }
 
 /**
- * Go to Stripe Checkout: if signed in and Price ID + create-checkout-session URL exist,
- * calls Edge Function (metadata.user_id set); else redirects to Payment Link.
- * Call from pricing buttons: TDB_GO_TO_CHECKOUT('battle_pro', 'monthly').
+ * Phase 2b-1: paid feature subscriptions are closed. All tools are free;
+ * voluntary giving lives on /give. Kept as a named API so old callers still resolve safely.
  */
 window.TDB_GO_TO_CHECKOUT = async function (tier, period) {
-  var c = window.TDB_CONFIG || {};
-  var fnUrl = c.CREATE_CHECKOUT_SESSION_URL || '';
-  var priceIds = c.STRIPE_PRICE_IDS || {};
-  var priceId = (priceIds[tier] && priceIds[tier][period]) || '';
-  var link = typeof window.TDB_GET_STRIPE_LINK === 'function' ? window.TDB_GET_STRIPE_LINK(tier, period) : '';
-  if (!supabaseClient) {
-    if (link) window.location.href = link;
-    return;
-  }
-  var session = await supabaseClient.auth.getSession();
-  var token = session && session.data && session.data.session && session.data.session.access_token;
-  if (!token || !priceId || !fnUrl) {
-    if (link) window.location.href = link;
-    return;
-  }
   try {
-    var res = await fetch(fnUrl, {
-      method: 'POST',
-      headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ price_id: priceId, tier: tier })
-    });
-    var data = await res.json();
-    if (data && data.url) {
-      var url = String(data.url);
-      var allowed = /^https:\/\/(checkout\.stripe\.com|pay\.stripe\.com)\//.test(url) ||
-        (url.indexOf('https://' + (typeof window !== 'undefined' && window.location && window.location.hostname ? window.location.hostname : 'todaysdailybattle.com') + '/') === 0 && url.indexOf('pricing') !== -1);
-      if (allowed) window.location.href = url;
-      else if (link) window.location.href = link;
-      return;
+    if (typeof trackEvent === 'function') {
+      trackEvent('subscription_checkout_closed', { tier: String(tier || ''), period: String(period || '') });
     }
-  } catch (e) {
-    if (typeof window.__tdb_reportError === 'function') window.__tdb_reportError('create_checkout_session', e);
+  } catch (e) {}
+  if (typeof showEliteToast === 'function') {
+    showEliteToast('Everything is free. Giving is optional — opening Give.');
   }
-  if (link) window.location.href = link;
+  window.location.href = '/give';
 };
+
+function tdbRedirectSubscriptionCheckoutToGive(source) {
+  try {
+    if (typeof trackEvent === 'function') {
+      trackEvent('subscription_checkout_closed', { source: String(source || '') });
+    }
+  } catch (e) {}
+  window.location.href = '/give';
+}
 
 function isPrayersApiAvailable() {
   return !(window.__tdb_prayers_404 === true);
@@ -14158,42 +14424,24 @@ function wireIntentModal() {
 }
 
 function wireBattleProUpgradeModal() {
+  // Phase 2b-1: subscription upsell modal disabled — tools are free; giving is optional.
   var modal = document.getElementById('battle-pro-upgrade-modal');
   var openBtn = document.getElementById('battle-pro-upgrade-btn');
-  var closeBtn = document.getElementById('battle-pro-upgrade-close');
-  var noteEl = document.getElementById('battle-pro-upgrade-note');
-  if (!modal) return;
-  function openModal() {
-    modal.classList.remove('hidden');
-    modal.setAttribute('aria-label', 'Upgrade to Battle Pro');
-    if (_tdbModalUntrap) _tdbModalUntrap();
-    _tdbModalUntrap = trapModalFocus(modal, { focusFirst: true, restoreOnClose: true });
-    if (closeBtn) closeBtn.focus();
-  }
-  function closeModal() {
+  if (modal) {
     modal.classList.add('hidden');
-    if (_tdbModalUntrap) { _tdbModalUntrap(); _tdbModalUntrap = null; }
-    if (noteEl) { noteEl.style.display = 'none'; noteEl.textContent = ''; }
+    modal.setAttribute('hidden', '');
+    modal.setAttribute('aria-hidden', 'true');
   }
-  if (openBtn) openBtn.addEventListener('click', openModal);
-  if (closeBtn) closeBtn.addEventListener('click', closeModal);
-  modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+  if (openBtn) {
+    openBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      tdbRedirectSubscriptionCheckoutToGive('battle_pro_upgrade_btn');
+    });
+  }
   document.querySelectorAll('.battle-pro-choose').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var plan = btn.getAttribute('data-plan');
-      var interval = btn.getAttribute('data-interval');
-      if (typeof trackEvent === 'function') trackEvent('upgrade_click', { plan: plan || '', interval: interval || '' });
-      var url = '';
-      if (plan === 'supporter' && interval === 'monthly') url = typeof STRIPE_SUPPORTER_MONTHLY_URL !== 'undefined' ? STRIPE_SUPPORTER_MONTHLY_URL : '';
-      else if (plan === 'supporter' && interval === 'yearly') url = typeof STRIPE_SUPPORTER_YEARLY_URL !== 'undefined' ? STRIPE_SUPPORTER_YEARLY_URL : '';
-      else if (plan === 'battlepro' && interval === 'monthly') url = typeof STRIPE_BATTLEPRO_MONTHLY_URL !== 'undefined' ? STRIPE_BATTLEPRO_MONTHLY_URL : '';
-      else if (plan === 'battlepro' && interval === 'yearly') url = typeof STRIPE_BATTLEPRO_YEARLY_URL !== 'undefined' ? STRIPE_BATTLEPRO_YEARLY_URL : '';
-      else if (plan === 'battlepro_military' && interval === 'monthly') url = typeof STRIPE_BATTLEPRO_MILITARY_MONTHLY_URL !== 'undefined' ? STRIPE_BATTLEPRO_MILITARY_MONTHLY_URL : '';
-      else if (plan === 'battlepro_military' && interval === 'yearly') url = typeof STRIPE_BATTLEPRO_MILITARY_YEARLY_URL !== 'undefined' ? STRIPE_BATTLEPRO_MILITARY_YEARLY_URL : '';
-      else if (plan === 'church' && interval === 'monthly') url = typeof STRIPE_CHURCH_MONTHLY_URL !== 'undefined' ? STRIPE_CHURCH_MONTHLY_URL : '';
-      else if (plan === 'church' && interval === 'yearly') url = typeof STRIPE_CHURCH_YEARLY_URL !== 'undefined' ? STRIPE_CHURCH_YEARLY_URL : '';
-      if (url) window.location.href = url;
-      else if (noteEl) { noteEl.textContent = 'Add Stripe Payment Links to config to enable checkout.'; noteEl.style.display = 'block'; }
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      tdbRedirectSubscriptionCheckoutToGive('battle_pro_choose');
     });
   });
 }
@@ -18220,20 +18468,26 @@ function wireHomeContinueLoopCard() {
       }
     }
 
-    // ── 3. Show section ───────────────────────────────────────────────────
+    // ── 3. Show section (only when there is something real to continue) ───
+    var pickup = document.getElementById('tdb-home-pickup');
     if (hasContent) {
       wrap.hidden = false;
+      wrap.removeAttribute('hidden');
       if (loopHeading) loopHeading.removeAttribute('hidden');
+      if (pickup) {
+        pickup.hidden = false;
+        pickup.removeAttribute('hidden');
+      }
     } else {
-      wrap.hidden = false;
-      wrap.classList.add('tdb-home-continue-loop-wrap--soft');
+      wrap.hidden = true;
+      wrap.setAttribute('hidden', '');
       if (loopHeading) loopHeading.setAttribute('hidden', '');
-      link.removeAttribute('hidden');
-      eyebrow.textContent = 'Pick up where you left off';
-      title.textContent = 'Start a new ribbon on Grace Ribbon Journal — or open gentle memorize when you are ready.';
-      link.href = 'mobius.html';
-      link.setAttribute('data-tdb-continue-kind', 'soft_mobius');
-      link.setAttribute('aria-label', 'Open Grace Ribbon Journal to start or continue a quiet ribbon on this device');
+      if (planLink) planLink.setAttribute('hidden', '');
+      link.setAttribute('hidden', '');
+      if (pickup) {
+        pickup.hidden = true;
+        pickup.setAttribute('hidden', '');
+      }
     }
   }
 
@@ -22284,11 +22538,11 @@ function renderMessages(items, previewLimit) {
     const lead = document.createElement('p');
     lead.className = 'message-list-empty-lead';
     lead.textContent =
-      'The wall is quiet right now. That is not failure—it often means people are praying without posting. When you are ready, your few lines belong here too.';
+      'The wall is quiet right now. That is not emptiness—it often means people are praying without posting. When you are ready, one honest line is enough.';
     const sub = document.createElement('p');
     sub.className = 'section-note';
     sub.textContent =
-      'You can still lift others silently, or scroll up and share a short prayer, a praise, or a verse that held you today.';
+      'You can still lift others with Amen (on this device), or scroll up and share a short prayer, a praise, or a verse that held you.';
     const jump = document.createElement('a');
     jump.className = 'btn btn-secondary';
     jump.style.marginTop = '0.65rem';
@@ -22384,8 +22638,24 @@ function renderMessages(items, previewLimit) {
     const amenCount = itemId != null ? (amenCounts[itemId] || 0) : 0;
     amenBtn.type = 'button';
     amenBtn.className = 'message-amen-btn';
-    amenBtn.setAttribute('aria-label', amenCount ? 'Amen, ' + amenCount + ' on this device' : 'Amen — count on this device only');
-    amenBtn.textContent = amenCount ? `Amen (${amenCount})` : 'Amen';
+    amenBtn.setAttribute(
+      'aria-label',
+      amenCount ? 'Amen, ' + amenCount + ' on this device' : 'Amen — counted on this device only'
+    );
+    amenBtn.replaceChildren();
+    if (amenCount) {
+      amenBtn.appendChild(document.createTextNode('Amen · ' + amenCount));
+      const quiet = document.createElement('span');
+      quiet.className = 'amen-count-quiet';
+      quiet.textContent = ' on this device';
+      amenBtn.appendChild(quiet);
+    } else {
+      amenBtn.appendChild(document.createTextNode('Amen'));
+      const quiet = document.createElement('span');
+      quiet.className = 'amen-count-quiet';
+      quiet.textContent = ' (on this device)';
+      amenBtn.appendChild(quiet);
+    }
     amenBtn.onclick = () => {
       if (itemId == null) return;
       try {
@@ -28020,7 +28290,8 @@ function updateReaderResumeHint(currentBook, currentChapter) {
     return;
   }
   wrap.classList.remove('hidden');
-  textEl.textContent = `Last place you opened: ${r.book} ${r.chapter} (KJV).`;
+  textEl.textContent = 'Continue this chapter: ' + r.book + ' ' + r.chapter + ' (KJV).';
+  goBtn.textContent = 'Continue this chapter';
   goBtn.onclick = () => {
     selectReaderChapter(r.book, r.chapter);
   };
@@ -28448,6 +28719,14 @@ function appendSavedListMemorizeLink(actionsEl, ref) {
 }
 
 function renderSavedVerses() {
+  if (document.documentElement && document.documentElement.dataset.tdbMystudyOwnsSaved === '1') {
+    if (typeof window.tdbRenderMystudySavedShelf === 'function') {
+      try {
+        window.tdbRenderMystudySavedShelf();
+      } catch (eOwn) { /* non-fatal */ }
+    }
+    return;
+  }
   const container = document.getElementById('saved-verses');
   if (!container) return;
   container.innerHTML = '';
@@ -32160,9 +32439,167 @@ function buildHomeSearchRelatedAnglesSection(activeTopics, queryText) {
 }
 
 /**
+ * Part A — Crisis help (safety first).
+ * Direct high-risk language only. Soft despair ("hopeless", "can't go on") does NOT force this block.
+ * Returns { active: boolean, variant: 'self'|'others'|null }.
+ */
+function detectCrisisIntent(queryText) {
+  var raw = String(queryText || '');
+  if (!raw.trim()) return { active: false, variant: null };
+  var norm = typeof normalizeInput === 'function'
+    ? normalizeInput(raw)
+    : raw.toLowerCase().replace(/['\u2019]/g, "'").replace(/\s+/g, ' ').trim();
+  if (!norm) return { active: false, variant: null };
+
+  // Harm to others: first-person / clear intent only (avoid Bible-history false positives).
+  var othersRe = /\b(i want to (hurt|harm|kill) (someone|somebody|them|him|her|my)\b|i('m| am) going to (hurt|harm|kill) (someone|somebody|him|her|my)\b)/;
+  if (othersRe.test(norm)) {
+    return { active: true, variant: 'others' };
+  }
+
+  // Self-harm / suicidal despair — direct crisis language only.
+  // Note: bare "suicide" alone is NOT enough (avoids grief/Q&A false positives).
+  var selfRe = /\b(i want to die|i wanna die|want to kill myself|kill myself|killing myself|end my life|end it all|ending it all|better off dead|(dont|don't) want to (live|be alive)|wish i (was|were) dead|suicidal|(thinking about|considering|commit) suicide|self[-\s]?harm|hurt(ing)? myself|cut(ting)? myself|i keep cutting|i want to hurt myself)\b/;
+  if (selfRe.test(norm)) {
+    return { active: true, variant: 'self' };
+  }
+
+  return { active: false, variant: null };
+}
+
+/**
+ * Build a DOM-safe crisis help block. Always intended to render above other search results.
+ * @param {'self'|'others'} variant
+ * @param {boolean} [compact]
+ * @returns {HTMLElement|null}
+ */
+function buildCrisisHelpSection(variant, compact) {
+  var kind = variant === 'others' ? 'others' : 'self';
+  var section = document.createElement('section');
+  section.className = compact
+    ? 'tdb-crisis-block tdb-crisis-block--compact'
+    : 'tdb-crisis-block';
+  section.classList.add(kind === 'others' ? 'tdb-crisis-block--others' : 'tdb-crisis-block--self');
+  section.setAttribute('role', 'alert');
+  section.setAttribute('aria-label', 'Crisis help');
+  section.setAttribute('data-tdb-crisis-variant', kind);
+
+  var eyebrow = document.createElement('p');
+  eyebrow.className = 'tdb-crisis-block__eyebrow';
+  eyebrow.textContent = 'Crisis help';
+  section.appendChild(eyebrow);
+
+  var title = document.createElement('h2');
+  title.className = 'tdb-crisis-block__title';
+  title.textContent = kind === 'others' ? 'Get help right away' : 'Help is available now';
+  section.appendChild(title);
+
+  var lead = document.createElement('p');
+  lead.className = 'tdb-crisis-block__lead';
+  lead.textContent = kind === 'others'
+    ? 'If you are thinking about hurting someone else, please get help now.'
+    : 'You are not alone. If you are in crisis right now, please reach out for help.';
+  section.appendChild(lead);
+
+  var actions = document.createElement('ul');
+  actions.className = 'tdb-crisis-block__actions';
+
+  function addAction(href, linkClass, linkText, hintText, external) {
+    var li = document.createElement('li');
+    li.className = 'tdb-crisis-block__action';
+    var a = document.createElement('a');
+    a.className = linkClass;
+    a.href = href;
+    a.textContent = linkText;
+    if (external) {
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+    }
+    li.appendChild(a);
+    if (hintText) {
+      var hint = document.createElement('span');
+      hint.className = 'tdb-crisis-block__hint';
+      hint.textContent = hintText;
+      li.appendChild(hint);
+    }
+    actions.appendChild(li);
+  }
+
+  if (kind === 'others') {
+    addAction('tel:911', 'tdb-crisis-block__primary', 'Call 911', 'If anyone is in immediate danger (U.S.)', false);
+    addAction('tel:988', 'tdb-crisis-block__secondary', 'Call or text 988', 'U.S. Suicide & Crisis Lifeline', false);
+  } else {
+    addAction('tel:988', 'tdb-crisis-block__primary', 'Call or text 988', 'U.S. Suicide & Crisis Lifeline (24/7)', false);
+    addAction('tel:911', 'tdb-crisis-block__secondary', 'Call 911', 'If you are in immediate danger (U.S.)', false);
+  }
+  addAction(
+    'https://www.iasp.info/suicidalthoughts/',
+    'tdb-crisis-block__link',
+    'Find local help outside the U.S.',
+    null,
+    true
+  );
+  section.appendChild(actions);
+
+  var note = document.createElement('p');
+  note.className = 'tdb-crisis-block__note';
+  note.textContent = kind === 'others'
+    ? 'This site is not a substitute for emergency services.'
+    : 'This site offers Scripture and quiet company. It is not a substitute for emergency or professional care.';
+  section.appendChild(note);
+
+  var whisper = document.createElement('p');
+  whisper.className = 'tdb-crisis-block__whisper';
+  whisper.textContent = 'God is near the brokenhearted \u2014 and reaching for help is wisdom, not weakness.';
+  section.appendChild(whisper);
+
+  try {
+    if (typeof trackEvent === 'function') {
+      trackEvent('crisis_block_shown', { variant: kind });
+    }
+  } catch (e) { /* never block help UI on analytics */ }
+
+  return section;
+}
+
+/**
+ * Insert crisis help at the top of a results host when high-risk language is detected.
+ * Returns the crisis intent object (always), whether or not a node was inserted.
+ */
+function prependCrisisHelpIfNeeded(host, queryText, compact) {
+  var intent = detectCrisisIntent(queryText);
+  if (!intent || !intent.active || !host) return intent || { active: false, variant: null };
+  if (host.querySelector && host.querySelector('.tdb-crisis-block')) return intent;
+  var block = buildCrisisHelpSection(intent.variant, !!compact);
+  if (!block) return intent;
+  if (host.firstChild) host.insertBefore(block, host.firstChild);
+  else host.appendChild(block);
+  return intent;
+}
+
+/**
+ * Force-show the self crisis block (used when suicidal-despair or self-harm matches).
+ * Never skip this for those pastoral answers.
+ */
+function ensureCrisisHelpForSelfCrisis(host, compact) {
+  if (!host) return;
+  if (host.querySelector && host.querySelector('.tdb-crisis-block')) return;
+  var block = buildCrisisHelpSection('self', !!compact);
+  if (!block) return;
+  if (host.firstChild) host.insertBefore(block, host.firstChild);
+  else host.appendChild(block);
+}
+
+/** @deprecated Use ensureCrisisHelpForSelfCrisis */
+function ensureCrisisHelpForSuicidalDespair(host, compact) {
+  ensureCrisisHelpForSelfCrisis(host, compact);
+}
+
+/**
  * Find a curated biblical answer for a query.
  * Returns the matching TDB_BIBLICAL_ANSWERS entry or null.
  * Matching: exact trigger substring in normalized query, or key words all present.
+ * When crisis self-intent is active, prefer suicidal-despair if it matches.
  */
 function findBiblicalAnswer(queryText) {
   if (!queryText || !Array.isArray(TDB_BIBLICAL_ANSWERS)) return null;
@@ -32177,7 +32614,7 @@ function findBiblicalAnswer(queryText) {
 
   // Life-topic override: even question-phrased queries about personal hardship topics
   // should route to life answers. This fires before questionIntent is evaluated.
-  var lifeTopicOverride = !pastoralOverride && /\b(miscarriage|pregnancy loss|stillbirth|pornography|porn|sexual abuse|sexual sin|caregiver|cancer|chronic pain|chronic illness|suicide|self.harm|eating disorder|anorexia|widowed|widower|widow|divorce|infertility|addiction|domestic abuse|bereavement|postpartum|post.partum|disability|blended family|stepfamily|step.parent|homesickness|job loss|unemployment|debt crisis|financial desperation|drowning in debt|abuse survivor|trauma survivor|falsely accused|feeling invisible|feeling trapped|prodigal yourself|prodigal son yourself|retirement identity|spiritual numbness|body image|body hate)\b/.test(norm);
+  var lifeTopicOverride = !pastoralOverride && /\b(miscarriage|pregnancy loss|stillbirth|pornography|porn|sexual abuse|sexual sin|sexual assault|rape|caregiver|cancer|chronic pain|chronic illness|suicide|self.harm|cutting myself|eating disorder|anorexia|bulimia|widowed|widower|widow|divorce|infertility|addiction|domestic abuse|bereavement|postpartum|post.partum|disability|blended family|stepfamily|step.parent|homesickness|job loss|unemployment|debt crisis|financial desperation|drowning in debt|abuse survivor|trauma survivor|falsely accused|feeling invisible|feeling trapped|prodigal yourself|prodigal son yourself|retirement identity|spiritual numbness|body image|body hate|adultery|affair|abortion|terminal|controlling (husband|wife|spouse)|emotional abuse|god hates me|hate myself|sudden death|unexpected death|dementia|alzheimers|alzheimer|empty nest|panic attack|leave (this |my )?church|estrang|cut me off|no contact|special needs|autism|evict|homeless|remarriage|remarry|perfectionis)\b/.test(norm);
 
   // Question intent: queries clearly asking about Bible content rather than expressing
   // a feeling or situation. Knowledge answers are checked first for these.
@@ -32204,6 +32641,22 @@ function findBiblicalAnswer(queryText) {
     (TDB_BIBLICAL_ANSWERS[k].type === 'knowledge' ? knowledgeEntries : lifeEntries).push(TDB_BIBLICAL_ANSWERS[k]);
   }
 
+  // Part B safety: on self-crisis intent, prefer self-harm (body injury) or suicidal-despair.
+  var crisisIntent = detectCrisisIntent(queryText);
+  if (crisisIntent && crisisIntent.active && crisisIntent.variant === 'self') {
+    var selfHarmInjury = /\b(self[-\s]?harm|hurt(ing)? myself|cut(ting)? myself|i keep cutting|i cut myself|self injury|punish myself|hurting my body)\b/.test(norm);
+    var preferIds = selfHarmInjury
+      ? ['self-harm', 'suicidal-despair']
+      : ['suicidal-despair', 'self-harm'];
+    for (var p = 0; p < preferIds.length; p++) {
+      for (var sd = 0; sd < lifeEntries.length; sd++) {
+        if (lifeEntries[sd].id === preferIds[p] && matchEntry(lifeEntries[sd])) {
+          return lifeEntries[sd];
+        }
+      }
+    }
+  }
+
   var primary = questionIntent ? knowledgeEntries : lifeEntries;
   var secondary = questionIntent ? lifeEntries : knowledgeEntries;
 
@@ -32214,6 +32667,22 @@ function findBiblicalAnswer(queryText) {
     if (matchEntry(secondary[j])) return secondary[j];
   }
   return null;
+}
+
+/**
+ * Append a biblical answer, forcing crisis help first for suicidal-despair / self-harm.
+ * Those answers must never appear without the crisis block.
+ */
+function appendBiblicalAnswerSection(host, queryText, compact) {
+  if (!host) return null;
+  var entry = findBiblicalAnswer(queryText);
+  if (!entry) return null;
+  if (entry.id === 'suicidal-despair' || entry.id === 'self-harm') {
+    ensureCrisisHelpForSelfCrisis(host, compact);
+  }
+  var section = buildBiblicalAnswerSection(entry, !!compact);
+  if (section) host.appendChild(section);
+  return section;
 }
 
 /**
@@ -32402,6 +32871,9 @@ function renderHomeSearchResults(results, output, queryText) {
   var shell = document.createElement('div');
   shell.className = 'home-search-results-shell';
 
+  // Part A: crisis help always first when high-risk language is detected
+  prependCrisisHelpIfNeeded(shell, queryText, true);
+
   var planMatches = buildHomeSearchPlanMatches(results, queryText);
   var resourceMatches = buildHomeSearchResourceMatches(results, queryText);
   var activeTopics = getHomeSearchActiveTopics(results, queryText);
@@ -32455,11 +32927,8 @@ function renderHomeSearchResults(results, output, queryText) {
   }
 
   // Biblical answer block — appears above verses when a curated Q&A matches
-  var biblicalAnswer = findBiblicalAnswer(queryText);
-  if (biblicalAnswer) {
-    var baSection = buildBiblicalAnswerSection(biblicalAnswer, true);
-    if (baSection) shell.appendChild(baSection);
-  }
+  // suicidal-despair is specially wired to never appear without the crisis block
+  appendBiblicalAnswerSection(shell, queryText, true);
 
   if (results && results.fallback) {
     var fallback = document.createElement('p');
@@ -32617,14 +33086,21 @@ function renderResults(results) {
   updateNoteSelect(results);
   updateGroupPrompts(results);
   const queryText = (results && results.queryText) || normalizeInput(lastQueryInput || '');
+  // Part A: crisis help always first (tool path + any non-home host)
+  if (output.id !== 'feel-results') {
+    prependCrisisHelpIfNeeded(output, queryText, false);
+  }
   if (output && output.id === 'feel-results') {
     renderHomeSearchResults(results, output, queryText);
     triggerResultsFade(output);
     return;
   }
   if (results.intent === 'empty') {
-    output.innerHTML =
-      '<p class="empty">Nothing here yet—the space is quiet. Type a topic, a feeling, or a Bible reference when you are ready. The Lord meets you right where you are.</p>';
+    var emptyMsg = document.createElement('p');
+    emptyMsg.className = 'empty';
+    emptyMsg.textContent =
+      'Nothing here yet—the space is quiet. Type a topic, a feeling, or a Bible reference when you are ready. The Lord meets you right where you are.';
+    output.appendChild(emptyMsg);
     triggerResultsFade(output);
     return;
   }
@@ -33130,11 +33606,8 @@ function renderResults(results) {
   renderSection(resultsTitle, verses, initialVerseLimit, isJesusSaidQuery);
 
   // Biblical answer block (tool-page path)
-  var toolBiblicalAnswer = findBiblicalAnswer(queryText);
-  if (toolBiblicalAnswer) {
-    var toolBaSection = buildBiblicalAnswerSection(toolBiblicalAnswer, false);
-    if (toolBaSection) output.appendChild(toolBaSection);
-  }
+  // suicidal-despair is specially wired to never appear without the crisis block
+  appendBiblicalAnswerSection(output, queryText, false);
 
   // === PHASE 1: Story card ===
   if (results.storyIntent) {
@@ -34448,7 +34921,7 @@ async function tdbInitImpl() {
       function onTopicChipTap(e) {
         var btn = e.target && (e.target.closest ? e.target.closest('.topic-chip, .quick-topic, [data-topic]') : null);
         if (!btn) return;
-        var inSearchSurface = btn.closest && btn.closest('#quick-search-hero, #search-hero, #quick-search-priority, #main-search, #quick-actions-priority, #quick-actions-accordion, #feel-section, #tdbHomeFastFeel');
+        var inSearchSurface = btn.closest && btn.closest('#quick-search-hero, #search-hero, #quick-search-priority, #main-search, #quick-actions-priority, #quick-actions-accordion, #feel-section');
         if (!inSearchSurface) return;
         try {
           if (e.type === 'touchend') e.preventDefault();
@@ -34469,10 +34942,6 @@ async function tdbInitImpl() {
           var q = getQueryInput();
           if (q) q.value = topic;
           ensureBattleSearchVisible();
-          if (document.getElementById('tdbHomeFeelResult') && typeof window.tdbRunFeelTopicWithInstantCard === 'function') {
-            window.tdbRunFeelTopicWithInstantCard(topic);
-            return;
-          }
           if (typeof window.runSearchWithInput === 'function') window.runSearchWithInput(topic);
         } catch (err) { if (typeof console !== 'undefined' && console.warn) console.warn('TDB quick-topic click:', err); }
       }
@@ -34492,14 +34961,14 @@ async function tdbInitImpl() {
       }
 
       (function wireHomeTopicPlansDeepLinks() {
-        if (!document.getElementById('quick-search-hero') && !document.getElementById('tdbHomeFastFeel')) return;
+        if (!document.getElementById('quick-search-hero')) return;
         document.addEventListener(
           'click',
           function (e) {
             if (!e.altKey) return;
             var btn = e.target && e.target.closest ? e.target.closest('.topic-chip, .quick-topic, [data-topic]') : null;
             if (!btn || !btn.getAttribute('data-topic')) return;
-            if (!btn.closest('#quick-search-hero, #main-search, #tdbHomeFastFeel')) return;
+            if (!btn.closest('#quick-search-hero, #main-search, #feel-section')) return;
             var topic = String(topicFromChip(btn) || '')
               .trim()
               .toLowerCase();
@@ -34583,7 +35052,7 @@ async function tdbInitImpl() {
           );
         }
         bindTopicLongPressSurface(document.getElementById('quick-search-hero'));
-        bindTopicLongPressSurface(document.getElementById('tdbHomeFastFeel'));
+        bindTopicLongPressSurface(document.getElementById('feel-section'));
       })();
     })();
   } catch (wireErr) { if (typeof console !== 'undefined' && console.error) console.error('TDB search wire:', wireErr); }
@@ -35031,11 +35500,9 @@ async function tdbInitImpl() {
     shopBattleMugCta.rel = 'noopener noreferrer';
   }
   var battleProBanner = document.getElementById('battle-pro-banner');
-  var allStripeLinksSet = STRIPE_SUPPORTER_MONTHLY_URL && STRIPE_SUPPORTER_YEARLY_URL &&
-    STRIPE_BATTLEPRO_MONTHLY_URL && STRIPE_BATTLEPRO_YEARLY_URL &&
-    STRIPE_CHURCH_MONTHLY_URL && STRIPE_CHURCH_YEARLY_URL;
-  if (battleProBanner && allStripeLinksSet) {
-    battleProBanner.innerHTML = '<strong>Battle Pro</strong> now available—offline, premium devotionals, your 2026 Wins Report. <a href="pricing.html">Unlock now</a>';
+  if (battleProBanner) {
+    battleProBanner.hidden = true;
+    battleProBanner.setAttribute('aria-hidden', 'true');
   }
   if (typeof window !== 'undefined' && window.TDB_CONFIG && window.TDB_CONFIG.GOOGLE_SITE_VERIFICATION) {
     var meta = document.createElement('meta');
@@ -38694,64 +39161,33 @@ async function tdbInitImpl() {
   const supporterCtaBtn = document.getElementById('pricing-supporter-cta');
   const pricingNote = document.getElementById('pricing-availability-note');
 
-  const stripeReady = STRIPE_SUPPORTER_MONTHLY_URL && STRIPE_SUPPORTER_YEARLY_URL && STRIPE_CHURCH_MONTHLY_URL && STRIPE_CHURCH_YEARLY_URL;
-  if (!stripeReady) {
-    if (pricingNote) pricingNote.textContent = 'Subscriptions open soon — join the waitlist below to get notified.';
-    if (supporterMonthlyBtn) { supporterMonthlyBtn.textContent = 'Notify me'; supporterMonthlyBtn.disabled = false; }
-    if (supporterYearlyBtn) { supporterYearlyBtn.textContent = 'Notify me'; supporterYearlyBtn.disabled = false; }
-    if (churchMonthlyBtn) { churchMonthlyBtn.textContent = 'Notify me'; churchMonthlyBtn.disabled = false; }
-    if (churchYearlyBtn) { churchYearlyBtn.textContent = 'Notify me'; churchYearlyBtn.disabled = false; }
+  // Phase 2b-1: no subscription checkouts — send any leftover buttons to Give.
+  if (pricingNote) {
+    pricingNote.textContent = 'Everything is free. Giving is completely optional — use Give if you want to support the porch.';
   }
-
-  supporterMonthlyBtn?.addEventListener('click', () => {
-    if (STRIPE_SUPPORTER_MONTHLY_URL) openStripeCheckout(STRIPE_SUPPORTER_MONTHLY_URL);
-    else scrollToWaitlist();
-  });
-  supporterYearlyBtn?.addEventListener('click', () => {
-    if (STRIPE_SUPPORTER_YEARLY_URL) openStripeCheckout(STRIPE_SUPPORTER_YEARLY_URL);
-    else scrollToWaitlist();
-  });
-  churchMonthlyBtn?.addEventListener('click', () => {
-    if (STRIPE_CHURCH_MONTHLY_URL) openStripeCheckout(STRIPE_CHURCH_MONTHLY_URL);
-    else scrollToWaitlist();
-  });
-  churchYearlyBtn?.addEventListener('click', () => {
-    if (STRIPE_CHURCH_YEARLY_URL) openStripeCheckout(STRIPE_CHURCH_YEARLY_URL);
-    else scrollToWaitlist();
-  });
-  supporterCtaBtn?.addEventListener('click', () => {
-    if (!STRIPE_SUPPORTER_MONTHLY_URL) {
-      scrollToWaitlist();
-      return;
-    }
-    openStripeCheckout(STRIPE_SUPPORTER_MONTHLY_URL);
-  });
+  function wirePricingBtnToGive(btn, source) {
+    if (!btn) return;
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      tdbRedirectSubscriptionCheckoutToGive(source);
+    });
+  }
+  wirePricingBtnToGive(supporterMonthlyBtn, 'pricing_supporter_monthly');
+  wirePricingBtnToGive(supporterYearlyBtn, 'pricing_supporter_yearly');
+  wirePricingBtnToGive(churchMonthlyBtn, 'pricing_church_monthly');
+  wirePricingBtnToGive(churchYearlyBtn, 'pricing_church_yearly');
+  wirePricingBtnToGive(supporterCtaBtn, 'pricing_supporter_cta');
 
   const waitlistBtn = document.getElementById('supporter-waitlist-btn');
   const waitlistEmail = document.getElementById('supporter-waitlist-email');
   const waitlistStatus = document.getElementById('supporter-waitlist-status');
   if (waitlistBtn && waitlistEmail) {
-    waitlistBtn.addEventListener('click', () => {
-      const email = waitlistEmail.value.trim().toLowerCase();
-      if (!email || !email.includes('@')) {
-        if (waitlistStatus) waitlistStatus.textContent = 'Please enter a valid email.';
-        return;
-      }
-      const items = loadSupporterWaitlist();
-      var safeEmail = truncateForDb(email, MAX_NEWSLETTER_EMAIL_LENGTH);
-      if (items.some(item => item.email === safeEmail)) {
-        if (waitlistStatus) waitlistStatus.textContent = 'You are already on the waitlist.';
-        return;
-      }
-      items.unshift({ email: safeEmail, created_at: new Date().toISOString() });
-      saveSupporterWaitlist(items);
-      trackEvent('waitlist_click', { list: 'battle_pro' });
-      if (isSupabaseConfigured()) {
-        supabaseClient.from('supporter_waitlist').insert({ email: safeEmail }).then(() => {});
-      }
-      waitlistEmail.value = '';
-      if (waitlistStatus) waitlistStatus.textContent = 'Thanks! We will email you when Battle Pro launches.';
+    waitlistBtn.addEventListener('click', function () {
+      tdbRedirectSubscriptionCheckoutToGive('supporter_waitlist');
     });
+  }
+  if (waitlistBtn && waitlistStatus && !waitlistEmail) {
+    waitlistStatus.textContent = 'Subscriptions are closed. Giving is optional on Give.';
   }
   if (typeof window.location !== 'undefined' && window.location.pathname && window.location.pathname.indexOf('pricing') !== -1) {
     trackEvent('pricing_view');

@@ -65,6 +65,16 @@ function main() {
   assertMatch(idx, /id="heroShareBtn"[^>]*aria-label="/, 'dist/index.html: #heroShareBtn needs aria-label');
   assertMatch(idx, /id="hero-save-my-verses"[^>]*aria-label="/, 'dist/index.html: #hero-save-my-verses needs aria-label');
   assertMatch(idx, /id="tdbFamilyModeListen"[^>]*aria-label="/, 'dist/index.html: #tdbFamilyModeListen needs aria-label');
+  assertMatch(
+    idx,
+    /id="tdbFeelPathCard"[^>]*aria-live="polite"/,
+    'dist/index.html: #tdbFeelPathCard needs aria-live="polite"'
+  );
+  assertMatch(
+    idx,
+    /id="tdbHomeFirstDoors"[^>]*aria-label="/,
+    'dist/index.html: #tdbHomeFirstDoors needs aria-label'
+  );
 
   const wall = read('dist/prayer-wall.html');
   assertMatch(
@@ -76,6 +86,35 @@ function main() {
     wall,
     /id="silentAmenBtn"[^>]*aria-label="/,
     'dist/prayer-wall.html: #silentAmenBtn needs aria-label'
+  );
+  assertMatch(
+    wall,
+    /id="prayer-private-template-btn"[^>]*aria-label="Fill the private line with a weight and promise starter"/,
+    'dist/prayer-wall.html: #prayer-private-template-btn needs weight/promise aria-label'
+  );
+  assertMatch(
+    wall,
+    /id="prayer-door-tabs"[^>]*role="tablist"/,
+    'dist/prayer-wall.html: #prayer-door-tabs needs role="tablist"'
+  );
+  assertMatch(
+    wall,
+    /id="prayer-tab-private"[^>]*aria-controls="prayer-panel-private"/,
+    'dist/prayer-wall.html: #prayer-tab-private needs aria-controls'
+  );
+
+  const mystudy = read('dist/mystudy.html');
+  assertMatch(
+    mystudy,
+    /id="tdb-continue-surface"[^>]*aria-label="Pick up on this device"/,
+    'dist/mystudy.html: #tdb-continue-surface needs aria-label'
+  );
+
+  const reader = read('dist/reader.html');
+  assertMatch(
+    reader,
+    /id="tdb-continue-surface"[^>]*aria-label="Pick up on this device"/,
+    'dist/reader.html: #tdb-continue-surface needs aria-label'
   );
 
   console.log('verify-a11y-controls: OK');

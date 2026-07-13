@@ -79,6 +79,29 @@
     try { localStorage.setItem(SHARED_KEY, JSON.stringify(items)); } catch (e) {}
   }
 
+  function openRhythmDrawerForHash() {
+    var h = String(window.location.hash || '').trim().toLowerCase();
+    var rhythmHashes = {
+      '#mystudy-rhythm-drawer': true,
+      '#mystudy-quiet-steps': true,
+      '#mystudy-plan-reflections': true,
+      '#mystudy-progress-summary': true,
+      '#mystudy-activity-calendar': true,
+      '#mystudy-streak-badges': true,
+      '#mystudy-faith-loop': true,
+      '#mystudy-plans-walking': true,
+      '#mystudy-plans-finished': true,
+      '#mystudy-progress-tools': true
+    };
+    if (!rhythmHashes[h]) return;
+    var drawer = byId('mystudy-rhythm-drawer');
+    if (drawer) drawer.open = true;
+    if (h === '#mystudy-progress-tools') {
+      var tools = byId('mystudy-progress-tools');
+      if (tools) tools.open = true;
+    }
+  }
+
   function getRequestedTab() {
     try {
       var params = new URLSearchParams(window.location.search || '');
@@ -92,7 +115,21 @@
       if (hash === '#panel-join-study') return 'join';
       if (hash === '#panel-my-study') return 'my';
     } catch (e) {}
+    /* MS2: returning visitors with saves land on the shelf, not an empty desk. */
+    if (userHasSavedShelf()) return 'library';
     return 'my';
+  }
+
+  function userHasSavedShelf() {
+    try {
+      var items = JSON.parse(localStorage.getItem('savedCollectionItems') || '[]');
+      if (Array.isArray(items) && items.length > 0) return true;
+    } catch (e1) { /* non-fatal */ }
+    try {
+      var legacy = JSON.parse(localStorage.getItem('savedVerses') || '[]');
+      if (Array.isArray(legacy) && legacy.length > 0) return true;
+    } catch (e2) { /* non-fatal */ }
+    return false;
   }
 
   function syncTabQuery(tabName) {
@@ -210,8 +247,29 @@
     highlightsPanel.classList.toggle('hidden', !isHighlights);
     joinPanel.classList.toggle('hidden', !isJoin);
     syncTabQuery(tabName);
-    if (isLib) renderNoteLibrary();
+    if (isLib) {
+      renderNoteLibrary();
+      if (typeof window.tdbEnsureMystudyRibbonScripts === 'function') {
+        window.tdbEnsureMystudyRibbonScripts();
+      }
+      if (typeof window.tdbRenderMystudySavedShelf === 'function') {
+        window.tdbRenderMystudySavedShelf();
+      }
+    }
     updateMemorizePill();
+    syncMobileJumpActive(tabName);
+  }
+
+  function syncMobileJumpActive(tabName) {
+    var nav = byId('mystudyMobileJump');
+    if (!nav) return;
+    nav.querySelectorAll('[data-mystudy-jump]').forEach(function (el) {
+      var jump = el.getAttribute('data-mystudy-jump');
+      var on = jump === tabName || (jump === 'library' && tabName === 'library');
+      el.classList.toggle('is-active', !!on);
+      if (on) el.setAttribute('aria-current', 'true');
+      else el.removeAttribute('aria-current');
+    });
   }
 
   function createBibleToolOpenAnchor(ref, label) {
@@ -525,12 +583,162 @@
     });
   }
 
+  function renderPlanProgressHandoff() {
+    var PP = window.TDBPlanProgress;
+    var parts = PP && typeof PP.partitionActiveCompleted === 'function'
+      ? PP.partitionActiveCompleted()
+      : { active: [], completed: [] };
+    var active = parts.active || [];
+    var completed = parts.completed || [];
+
+    var walkList = byId('mystudy-plans-walking-list');
+    var walkEmpty = byId('mystudy-plans-walking-empty');
+    if (walkList) {
+      clearNode(walkList);
+      active.forEach(function (p) {
+        var card = document.createElement('div');
+        card.className = 'mystudy-plan-card';
+        card.setAttribute('role', 'listitem');
+        var h = document.createElement('h3');
+        h.className = 'mystudy-plan-card__title';
+        h.textContent = p.label;
+        var meta = document.createElement('p');
+        meta.className = 'section-note mystudy-plan-card__meta';
+        meta.textContent = 'Day ' + p.day + ' of ' + p.max;
+        var barWrap = document.createElement('div');
+        barWrap.className = 'mystudy-plan-card__bar';
+        var barFill = document.createElement('div');
+        barFill.className = 'mystudy-plan-card__bar-fill';
+        barFill.style.width = Math.min(100, Math.max(0, p.percent || 0)) + '%';
+        barWrap.appendChild(barFill);
+        var a = document.createElement('a');
+        a.className = 'mystudy-plan-card__continue';
+        a.href = 'plans.html?plan=' + encodeURIComponent(p.planId);
+        a.textContent = 'Continue \u2192';
+        card.appendChild(h);
+        card.appendChild(meta);
+        card.appendChild(barWrap);
+        card.appendChild(a);
+        walkList.appendChild(card);
+      });
+    }
+    if (walkEmpty) walkEmpty.classList.toggle('hidden', active.length > 0);
+    if (walkList) walkList.hidden = active.length === 0;
+
+    var finList = byId('mystudy-plans-finished-list');
+    var finEmpty = byId('mystudy-plans-finished-empty');
+    var finSection = byId('mystudy-plans-finished');
+    if (finList) {
+      clearNode(finList);
+      completed.forEach(function (p) {
+        var item = document.createElement('div');
+        item.className = 'mystudy-plan-finished';
+        item.setAttribute('role', 'listitem');
+        item.textContent = '\u2713 ' + p.label + ' \u2014 ' + p.max + '/' + p.max;
+        finList.appendChild(item);
+      });
+    }
+    if (finEmpty) finEmpty.classList.toggle('hidden', completed.length > 0);
+    if (finList) finList.hidden = completed.length === 0;
+    if (finSection && completed.length === 0) {
+      /* Keep section reachable; empty copy stays visible */
+    }
+
+    var floop = byId('mystudy-faith-loop-line');
+    if (floop) {
+      floop.textContent =
+        PP && typeof PP.faithLoopLine === 'function'
+          ? PP.faithLoopLine(parts)
+          : 'When you are ready for a day-by-day lane, open Battle Plans.';
+    }
+
+    var totalDays = 0;
+    active.concat(completed).forEach(function (p) {
+      totalDays += p.day || 0;
+    });
+    var elDays = byId('mystudy-stat-days');
+    var elStarted = byId('mystudy-stat-started');
+    var elFinished = byId('mystudy-stat-finished');
+    if (elDays) elDays.textContent = String(totalDays);
+    if (elStarted) elStarted.textContent = String(active.length + completed.length);
+    if (elFinished) elFinished.textContent = String(completed.length);
+  }
+
+  function wireProgressTools() {
+    var copyBtn = byId('mystudy-copy-progress-stats');
+    var resetBtn = byId('mystudy-reset-plan-progress');
+    var status = byId('mystudy-progress-tools-status');
+    function setStatus(msg) {
+      if (status) status.textContent = msg || '';
+    }
+    if (copyBtn && !copyBtn._tdbWired) {
+      copyBtn._tdbWired = true;
+      copyBtn.addEventListener('click', function () {
+        var days = (byId('mystudy-stat-days') || {}).textContent || '0';
+        var started = (byId('mystudy-stat-started') || {}).textContent || '0';
+        var finished = (byId('mystudy-stat-finished') || {}).textContent || '0';
+        var text =
+          "My Today's Daily Battle progress:\n" +
+          'Days marked: ' +
+          days +
+          '\nPlans started: ' +
+          started +
+          ' (' +
+          finished +
+          ' finished)\n\nJoin me at https://todaysdailybattle.com';
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(
+            function () {
+              setStatus('Copied.');
+            },
+            function () {
+              setStatus('Copy failed—that is all right. Try again when you can.');
+            }
+          );
+        } else {
+          setStatus('Copy not available on this device.');
+        }
+      });
+    }
+    if (resetBtn && !resetBtn._tdbWired) {
+      resetBtn._tdbWired = true;
+      resetBtn.addEventListener('click', function () {
+        var ok = window.confirm(
+          'Clear plan checkmarks and plan streaks on this device? Quiet steps and saved verses stay.'
+        );
+        if (!ok) return;
+        try {
+          var keys = [];
+          var i;
+          for (i = 0; i < localStorage.length; i++) {
+            var k = localStorage.key(i);
+            if (
+              k &&
+              (k.indexOf('tdb-plan') === 0 ||
+                k.indexOf('tdb-streak') === 0 ||
+                k === 'tdb-longest-streak')
+            ) {
+              keys.push(k);
+            }
+          }
+          keys.forEach(function (k) {
+            localStorage.removeItem(k);
+          });
+        } catch (e) { /* non-fatal */ }
+        setStatus('Plan progress cleared on this device.');
+        renderPlanProgressHandoff();
+      });
+    }
+  }
+
   function renderProgressSummary() {
     var el = byId('mystudy-progress-summary');
     if (!el) return;
     el.textContent = '';
     var comp = window.TDBStudyCompanion;
     renderQuietSteps();
+    renderPlanProgressHandoff();
+    wireProgressTools();
     if (!comp || typeof comp.getDashboardStats !== 'function') {
       var err = document.createElement('p');
       err.className = 'mystudy-progress-summary-line';
@@ -825,69 +1033,14 @@
     });
   }
 
-  function renderRecentlyTagged(comp) {
+  function renderRecentlyTagged() {
+    /* MS3: recently-tagged relocated into tag filter pills on the main notes list. */
     var el = byId('mystudy-recent-tagged');
-    if (!el) return;
-    if (!comp || typeof comp.listVerseNotes !== 'function') {
+    if (el) {
       el.innerHTML = '';
-      var err = document.createElement('li');
-      err.className = 'section-note';
-      err.textContent = 'Note library needs the study helper script. Refresh the page.';
-      el.appendChild(err);
-      return;
+      el.hidden = true;
+      el.setAttribute('aria-hidden', 'true');
     }
-    el.innerHTML = '';
-    var tagged = comp.listVerseNotes().filter(function (row) {
-      return row.tags && row.tags.length;
-    });
-    tagged.sort(function (a, b) {
-      var ta = a.updated ? Date.parse(a.updated) : 0;
-      var tb = b.updated ? Date.parse(b.updated) : 0;
-      if (tb !== ta) return tb - ta;
-      return (a.ref || '').localeCompare(b.ref || '');
-    });
-    var top = tagged.slice(0, 8);
-    if (!top.length) {
-      var empty = document.createElement('li');
-      empty.className = 'section-note mystudy-empty-hint';
-      empty.appendChild(document.createTextNode('Nothing here yet. When a verse touches your heart, save a note in the '));
-      var elBt = document.createElement('a');
-      elBt.href = 'bible-tool.html';
-      elBt.className = 'mystudy-inline-tool-link';
-      elBt.textContent = 'Bible Tool';
-      empty.appendChild(elBt);
-      empty.appendChild(
-        document.createTextNode(' and add a comma-separated tag—themes you care about gather here. The Lord meets you right where you are.')
-      );
-      el.appendChild(empty);
-      return;
-    }
-    top.forEach(function (row) {
-      var li = document.createElement('li');
-      li.className = 'mystudy-library-item mystudy-recent-tagged-item';
-      var rowWrap = document.createElement('div');
-      rowWrap.className = 'mystudy-library-item-row';
-      var main = document.createElement('div');
-      main.className = 'mystudy-library-item-main';
-      var a = document.createElement('a');
-      a.className = 'mystudy-library-link';
-      a.href = 'bible-tool.html?ref=' + encodeURIComponent(row.ref);
-      a.setAttribute('aria-label', 'Open ' + row.ref + ' in Bible Tool');
-      var refStrong = document.createElement('strong');
-      refStrong.textContent = row.ref;
-      a.appendChild(refStrong);
-      var tagSpan = document.createElement('span');
-      tagSpan.className = 'mystudy-library-tags';
-      tagSpan.textContent = row.tags.join(' · ');
-      a.appendChild(document.createTextNode(' '));
-      a.appendChild(tagSpan);
-      main.appendChild(a);
-      rowWrap.appendChild(main);
-      rowWrap.appendChild(createWordStudyButton(row.ref, row.preview || ''));
-      rowWrap.appendChild(createBibleToolOpenAnchor(row.ref, 'Open'));
-      li.appendChild(rowWrap);
-      el.appendChild(li);
-    });
   }
 
   var _noteLibraryInitialized = false;
@@ -972,8 +1125,19 @@
       main.appendChild(a);
       main.appendChild(prev);
       rowWrap.appendChild(main);
+      var openHereBtn = document.createElement('button');
+      openHereBtn.type = 'button';
+      openHereBtn.className = 'btn btn-secondary mystudy-open-here-btn';
+      openHereBtn.textContent = 'Open here';
+      openHereBtn.setAttribute('aria-label', 'Open ' + row.ref + ' in My Study workspace');
+      openHereBtn.addEventListener('click', function () {
+        if (typeof window.tdbOpenVerseInMyStudyWorkspace === 'function') {
+          window.tdbOpenVerseInMyStudyWorkspace(row.ref, row.preview || '');
+        }
+      });
+      rowWrap.appendChild(openHereBtn);
       rowWrap.appendChild(createWordStudyButton(row.ref, row.preview || ''));
-      rowWrap.appendChild(createBibleToolOpenAnchor(row.ref, 'Open'));
+      rowWrap.appendChild(createBibleToolOpenAnchor(row.ref, 'Bible Tool'));
       li.appendChild(rowWrap);
       listEl.appendChild(li);
     });
@@ -1019,6 +1183,11 @@
       setTab(getRequestedTab());
     }
     updateMemorizePill();
+    try {
+      if (typeof window.TDB_paintContinueSurface === 'function') {
+        window.TDB_paintContinueSurface('tdb-continue-surface', { preferChapter: true });
+      }
+    } catch (_) {}
   }
 
   function renderSelectedVerse(study) {
@@ -1201,140 +1370,40 @@
     }
 
     // ── Export Progress & Notes ───────────────────────────────────────────────
-    var PLAN_LABEL_MAP = {
-      'battle': 'Battle Distraction (7 days)',
-      'gratitude': 'Gratitude (7 days)',
-      'simplethanks': 'Simple Thanks — Seven Gentle Days (7 days)',
-      'steadydays': 'Steady Days — Five Gentle Steps (5 days)',
-      'steadydays-kids': 'Steady Days for Families (5 days)',
-      giftsfromabove: 'Gifts from the Father of Lights (5 days)',
-      'strength': '30-Day Strength',
-      'marriage': 'Marriage (7 days)',
-      'peace': '7-Day Peace',
-      'trust': 'Worry to Trust (7 days)',
-      'universitywaiting': 'The University of Waiting (6 days)',
-      'universitygrief': 'The University of Grief (6 days)',
-      'universityparenting': 'The University of Parenting Young Kids (21 days)',
-      'universitysecretprayer': 'The University of Secret Prayer (6 days)',
-      'universityanxiety': 'The University of Anxiety & Fear (7 days)',
-      'universityexhaustion': 'The University of Exhaustion (21 days)',
-      'universitygratitude': 'The University of Gratitude (6 days)',
-      'universityloneliness': 'The University of Loneliness (21 days)',
-      'universityforgiveness': 'The University of Forgiveness (6 days)',
-      'universitydoubt': 'The University of Doubt (6 days)',
-      'universitybitterness': 'The University of Bitterness (6 days)',
-      'eveninguog': 'Evening in the University — Family (4 days)',
-      'universitybroken': 'The University of Broken Relationships (21 days)',
-      'universitycomparison': 'The University of Comparison & Contentment (6 days)',
-      'universityanger': 'The University of Anger (6 days)',
-      'universityregret': 'The University of Regret (21 days)',
-      'universityoverwhelm': 'The University of Overwhelm (21 days)',
-      'universitycontentment': 'The University of Contentment in Small Seasons (6 days)',
-      'universityparentfear': 'The University of Fear for My Children (28 days)',
-      'fearfaith': 'Fear to Faith (7 days)',
-      'worrytrust': 'Worry to Trust (7 days)',
-      'psalmscomfort': 'Psalms of Comfort (7 days)',
-      'heavyhope': 'The University of Depression & Hopelessness (7 days)',
-      'heartalone': 'When the Heart Feels Alone (7 days)',
-      'littlehearts': 'When Little Hearts Feel Big Fear (7 days)',
-      'restlessnights': 'Peace for Restless Nights (7 days)',
-      'wearyhands': 'Grace for Weary Hands (7 days)',
-      'longheavydays': 'When the Days Feel Long and Heavy (7 days)',
-      'preachingthroughexhaustion': 'Preaching Through Exhaustion (7 days)',
-      'smallchurchencouragement': 'Small Church Encouragement (7 days)',
-      'hopeuncertain': 'Hope in Uncertainty (7 days)',
-      'moneyworry': 'Financial Stress & Provision (7 days)',
-      'addictionhope': 'Addiction & Strongholds (7 days)',
-      'guiltshame': 'Guilt & Shame (7 days)',
-      'overwhelmedburnout': 'Overwhelmed / Burnout (7 days)',
-      'selfworth': 'Self-Worth / Identity (7 days)',
-      'caregiverrest': 'Caregiver Rest (7 days)',
-      'familyworship': 'Family Worship in the Trenches (7 days)',
-      'psalmscomfortfamily': 'Psalms of Comfort — Family Edition (7 days)',
-      'galatiansfreedom': 'Galatians: Freedom in Christ (7 days)',
-      'gospeljohn': 'Gospel of John Sampler (7 days)',
-      'firststeps': 'New Believer — First Steps (14 days)',
-      'griefhope': 'Grief → Hope (7 days)',
-      'grief': 'Healing from Grief & Loss (7 days)',
-      'painwontquit': 'When Pain Won\'t Quit (7 days)',
-      'cancercomfort': 'Cancer Comfort (7 days)',
-      'longillness': 'Long Illness — Steady Mercies (7 days)',
-      'sufferendure': 'Suffering & Endurance (7 days)',
-      'anxiety7': 'Anxiety — Steady Peace (7 days)',
-      'fearnot14': 'Fear Not — 14 Days',
-      'anger': 'Anger Release (7 days)',
-      'forgiveness': 'Forgiveness (7 days)',
-      'lettinggo': 'Bitterness & Letting Go (7 days)',
-      'dailylabor': 'Work & Daily Labor (7 days)',
-      'stewardship': 'Stewardship — Contentment & Giving (7 days)',
-      'identityinchrist': 'Who God Says You Are (7 days)',
-      'armorofgod': 'Armor of God — Daily Battle (7 days)',
-      'standfirm': 'Stand Firm — Temptation (7 days)',
-      'holyspirit': 'Holy Spirit — Comforter & Walk (7 days)',
-      'walktheword': 'Walk the Word — Hear & Do (7 days)',
-      'sower': 'Parable of the Sower (7 days)',
-      'greatcommission': 'Great Commission — Witness (7 days)',
-      'adventquiet': 'Advent Quiet (7 days)',
-      'christmas7': 'Christmas Week — Christ the Light (7 days)',
-      'newyear7': 'New Year Week (7 days)',
-      'gentleyear': 'Gentle New Year Reset (7 days)',
-      'easter': 'Resurrection Hope (7 days)',
-      'aftereaster': 'After Easter — Quiet Mondays (7 days)',
-      'schoolcourage': 'Back-to-School Courage (7 days)',
-      'harvestthanks': 'Harvest Gratitude (7 days)',
-      'summerstill': 'Summer Stillness (7 days)',
-      'summertimesadness': 'Summertime Sadness (7 days)',
-      'summergrief': 'When Grief Feels Heavy in Summer (7 days)',
-      'backtoschoolfear': 'Back-to-School Fear (7 days)',
-      'longdayslittle': 'Long Days with Little Ones (7 days)',
-      'praisethanks30': '30-Day Praise & Thanksgiving',
-      'dailyrenewing': 'Daily Renewing of the Inner Man (7 days)',
-      'quietfallharvest': 'Quiet Fall Harvest (5 days)',
-      'latefallwinter': 'Late Fall, Quiet Winter (7 days)',
-      'parenting': 'Parenting (7 days)',
-      'reading': '7-Day Reading Plan',
-      'doubtassurance': 'From Doubt to Assurance (7 days)',
-      'latesummerrest': 'Late Summer, Early Rest (5 days)',
-      'beatitudeskids': 'Beatitudes for Kids (8 days)'
-    };
-
-    function getPlanLabelFromKey(lsKey) {
-      var m = String(lsKey || '').match(/^tdb-plan-(.+)-day$/);
-      if (!m) {
-        if (lsKey === 'tdb-plan-day') return PLAN_LABEL_MAP['battle'] || 'Battle Distraction (7 days)';
-        return null;
-      }
-      var planId = m[1];
-      return PLAN_LABEL_MAP[planId] || ('Plan: ' + planId);
-    }
-
     function gatherPlanProgress() {
-      var plans = [];
-      try {
-        var keys = [];
-        for (var i = 0; i < localStorage.length; i++) {
-          var k = localStorage.key(i);
-          if (k && (k === 'tdb-plan-day' || /^tdb-plan-.+-day$/.test(k))) {
-            keys.push(k);
-          }
-        }
-        keys.sort();
-        keys.forEach(function (k) {
-          var day = parseInt(localStorage.getItem(k) || '0', 10);
-          if (day <= 0) return;
-          var label = getPlanLabelFromKey(k);
-          if (!label) return;
-          plans.push({ label: label, day: day, key: k });
-        });
-      } catch (e) {}
-      return plans;
+      var PP = window.TDBPlanProgress;
+      if (PP && typeof PP.gatherForExport === 'function') {
+        return PP.gatherForExport();
+      }
+      return [];
     }
+
 
     function gatherSavedVerses() {
+      /* Prefer savedCollectionItems (hero / Bible Tool / search saves); merge legacy savedVerses. */
+      var out = [];
+      var seen = Object.create(null);
+      function pushItem(item) {
+        if (!item || typeof item !== 'object') return;
+        var ref = String(item.ref || '').replace(/\s*\(KJV\)\s*$/i, '').trim();
+        if (!ref || seen[ref]) return;
+        seen[ref] = true;
+        out.push({
+          ref: ref,
+          text: String(item.text || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim(),
+          note: String(item.note || '').trim(),
+          date: String(item.date || item.created_at || item.savedAt || '').trim()
+        });
+      }
       try {
-        var arr = JSON.parse(localStorage.getItem('savedVerses') || '[]');
-        return Array.isArray(arr) ? arr : [];
-      } catch (e) { return []; }
+        var collectionItems = JSON.parse(localStorage.getItem('savedCollectionItems') || '[]');
+        if (Array.isArray(collectionItems)) collectionItems.forEach(pushItem);
+      } catch (eCol) { /* non-fatal */ }
+      try {
+        var legacy = JSON.parse(localStorage.getItem('savedVerses') || '[]');
+        if (Array.isArray(legacy)) legacy.forEach(pushItem);
+      } catch (eLeg) { /* non-fatal */ }
+      return out;
     }
 
     function gatherStudyNotes() {
@@ -1564,6 +1633,419 @@
     renderSelectedVerse(study);
     renderSharedList();
 
+    function openVerseInWorkspace(refRaw, textRaw) {
+      var ref = String(refRaw || '').replace(/\s*\(KJV\)\s*$/i, '').trim();
+      var text = String(textRaw || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+      if (!ref) return false;
+      study.verseRef = ref;
+      study.verseText = text;
+      saveStudy(study);
+      if (notesEl) notesEl.value = study.notes || '';
+      if (prayerEl) prayerEl.value = study.prayer || '';
+      renderSelectedVerse(study);
+      setTab('my');
+      var panel = byId('panel-my-study');
+      if (panel && typeof panel.scrollIntoView === 'function') {
+        try {
+          panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } catch (eScroll) {
+          panel.scrollIntoView(true);
+        }
+      }
+      if (typeof window.showEliteToast === 'function') {
+        window.showEliteToast('Opened in your desk: ' + ref, { duration: 1800 });
+      }
+      return true;
+    }
+    window.tdbOpenVerseInMyStudyWorkspace = openVerseInWorkspace;
+    window.addEventListener('tdb-mystudy-open-verse', function (ev) {
+      var d = ev && ev.detail ? ev.detail : null;
+      if (!d) return;
+      openVerseInWorkspace(d.ref, d.text);
+    });
+
+    function normalizeRef(ref) {
+      return String(ref || '').replace(/\s*\(KJV\)\s*$/i, '').trim();
+    }
+
+    function readBibleToolNotesLocal() {
+      try {
+        var raw = localStorage.getItem('tdb_bible_tool_notes');
+        if (!raw) return { battleLog: '', verseNotes: [] };
+        var obj = JSON.parse(raw);
+        var verseNotes = [];
+        var battleLog = '';
+        if (obj && typeof obj === 'object') {
+          Object.keys(obj).forEach(function (key) {
+            if (key === 'Battle log') battleLog = String(obj[key] || '').trim();
+            else if (key && obj[key]) verseNotes.push({ ref: key, note: String(obj[key]).trim() });
+          });
+        }
+        return { battleLog: battleLog, verseNotes: verseNotes };
+      } catch (e) {
+        return { battleLog: '', verseNotes: [] };
+      }
+    }
+
+    function removeBibleToolNoteLocal(ref) {
+      try {
+        var raw = localStorage.getItem('tdb_bible_tool_notes');
+        var obj = raw ? JSON.parse(raw) : {};
+        if (obj && typeof obj === 'object' && ref) {
+          delete obj[ref];
+          localStorage.setItem('tdb_bible_tool_notes', JSON.stringify(obj));
+        }
+      } catch (e) { /* non-fatal */ }
+    }
+
+    function gatherUnifiedSavedRows() {
+      var rows = [];
+      var seen = Object.create(null);
+      function pushRow(row) {
+        if (!row || !row.ref) return;
+        var ref = normalizeRef(row.ref);
+        if (!ref || seen[ref]) return;
+        seen[ref] = true;
+        rows.push({
+          ref: ref,
+          text: String(row.text || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim(),
+          note: String(row.note || '').trim(),
+          source: row.source || 'saved',
+          id: row.id || null,
+          collectionName: row.collectionName || ''
+        });
+      }
+      try {
+        var items = JSON.parse(localStorage.getItem('savedCollectionItems') || '[]');
+        var cols = JSON.parse(localStorage.getItem('savedCollections') || '[]');
+        var colNames = Object.create(null);
+        if (Array.isArray(cols)) {
+          cols.forEach(function (c) {
+            if (c && c.id) colNames[c.id] = c.name || 'Saved';
+          });
+        }
+        if (Array.isArray(items)) {
+          items.forEach(function (item) {
+            if (!item) return;
+            pushRow({
+              ref: item.ref,
+              text: item.text,
+              note: item.note,
+              source: 'collection',
+              id: item.id || null,
+              collectionName: colNames[item.collection_id] || 'Saved'
+            });
+          });
+        }
+      } catch (e1) { /* non-fatal */ }
+      try {
+        var legacy = JSON.parse(localStorage.getItem('savedVerses') || '[]');
+        if (Array.isArray(legacy)) {
+          legacy.forEach(function (item) {
+            if (!item) return;
+            pushRow({
+              ref: item.ref,
+              text: item.text,
+              note: item.note,
+              source: 'legacy'
+            });
+          });
+        }
+      } catch (e2) { /* non-fatal */ }
+      var tool = readBibleToolNotesLocal();
+      (tool.verseNotes || []).forEach(function (v) {
+        pushRow({
+          ref: v.ref,
+          text: '',
+          note: v.note,
+          source: 'bible-tool'
+        });
+      });
+      return { rows: rows, battleLog: tool.battleLog || '' };
+    }
+
+    function appendMemorizeLink(actions, ref) {
+      var a = document.createElement('a');
+      a.className = 'btn btn-secondary';
+      a.href = 'memorize.html';
+      a.textContent = 'Memorize';
+      a.setAttribute('aria-label', 'Open memorize for ' + ref);
+      try {
+        if (window.TDBStudyCompanion && typeof window.TDBStudyCompanion.addToMemorizeQueue === 'function') {
+          a.addEventListener('click', function (ev) {
+            ev.preventDefault();
+            window.TDBStudyCompanion.addToMemorizeQueue(ref, '');
+            if (typeof window.showEliteToast === 'function') {
+              window.showEliteToast('Added to memorize on this device', { duration: 1600 });
+            }
+            updateMemorizePill();
+            renderNoteLibrary();
+          });
+        }
+      } catch (e) { /* non-fatal */ }
+      actions.appendChild(a);
+    }
+
+    function removeSavedRow(row) {
+      var ref = row.ref;
+      if (row.source === 'bible-tool') {
+        removeBibleToolNoteLocal(ref);
+        return;
+      }
+      if (row.source === 'collection' || row.source === 'legacy') {
+        try {
+          var items = JSON.parse(localStorage.getItem('savedCollectionItems') || '[]');
+          if (Array.isArray(items)) {
+            var next = items.filter(function (v) {
+              if (row.id && v.id) return v.id !== row.id;
+              return normalizeRef(v.ref) !== ref;
+            });
+            localStorage.setItem('savedCollectionItems', JSON.stringify(next));
+          }
+        } catch (e1) { /* non-fatal */ }
+        try {
+          var legacy = JSON.parse(localStorage.getItem('savedVerses') || '[]');
+          if (Array.isArray(legacy)) {
+            localStorage.setItem(
+              'savedVerses',
+              JSON.stringify(
+                legacy.filter(function (v) {
+                  return normalizeRef(v.ref) !== ref;
+                })
+              )
+            );
+          }
+        } catch (e2) { /* non-fatal */ }
+        if (row.id && typeof window.deleteCollectionItemFromSupabase === 'function') {
+          try {
+            window.deleteCollectionItemFromSupabase(row.id);
+          } catch (e3) { /* non-fatal */ }
+        }
+      }
+    }
+
+    function renderMystudySavedShelf() {
+      var container = byId('saved-verses');
+      if (!container) return;
+      clearNode(container);
+      var packed = gatherUnifiedSavedRows();
+      var rows = packed.rows;
+      if (!rows.length && !packed.battleLog) {
+        var empty = document.createElement('p');
+        empty.className = 'empty section-note';
+        empty.appendChild(
+          document.createTextNode(
+            'Nothing here yet—that is all right. When a verse touches your heart, save one from the '
+          )
+        );
+        var a = document.createElement('a');
+        a.href = 'bible-tool.html';
+        a.textContent = 'Bible Tool';
+        empty.appendChild(a);
+        empty.appendChild(
+          document.createTextNode(' or Study workspace. The Lord meets you right where you are.')
+        );
+        container.appendChild(empty);
+        return;
+      }
+      rows.forEach(function (row) {
+        var card = document.createElement('div');
+        card.className = 'list-item saved-note-card mystudy-saved-row';
+        card.setAttribute('role', 'listitem');
+        var body = document.createElement('div');
+        var strong = document.createElement('strong');
+        strong.textContent = row.ref;
+        body.appendChild(strong);
+        if (row.text) {
+          var p = document.createElement('p');
+          p.textContent = row.text;
+          body.appendChild(p);
+        }
+        if (row.note) {
+          var np = document.createElement('p');
+          np.className = 'saved-note-note';
+          np.textContent = row.note;
+          body.appendChild(np);
+        }
+        if (row.collectionName) {
+          var src = document.createElement('span');
+          src.className = 'section-note';
+          src.textContent = row.collectionName;
+          body.appendChild(src);
+        } else if (row.source === 'bible-tool') {
+          var src2 = document.createElement('span');
+          src2.className = 'section-note';
+          src2.textContent = 'Bible Tool note';
+          body.appendChild(src2);
+        }
+        card.appendChild(body);
+        var actions = document.createElement('div');
+        actions.className = 'item-actions';
+        var openHere = document.createElement('button');
+        openHere.type = 'button';
+        openHere.className = 'btn btn-secondary mystudy-open-here-btn';
+        openHere.textContent = 'Open here';
+        openHere.setAttribute('aria-label', 'Open ' + row.ref + ' in My Study workspace on this page');
+        openHere.addEventListener('click', function () {
+          openVerseInWorkspace(row.ref, row.text || row.note || '');
+        });
+        actions.appendChild(openHere);
+        var toolA = document.createElement('a');
+        toolA.className = 'btn btn-secondary';
+        toolA.href = 'bible-tool.html?ref=' + encodeURIComponent(row.ref);
+        toolA.textContent = 'Bible Tool';
+        toolA.setAttribute('aria-label', 'Open ' + row.ref + ' in Bible Tool');
+        actions.appendChild(toolA);
+        var copyBtn = document.createElement('button');
+        copyBtn.type = 'button';
+        copyBtn.className = 'btn btn-secondary';
+        copyBtn.textContent = 'Copy';
+        copyBtn.setAttribute('aria-label', 'Copy ' + row.ref);
+        copyBtn.addEventListener('click', function () {
+          var blob = row.ref + (row.text ? ': ' + row.text : row.note ? ': ' + row.note : '');
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(blob);
+          }
+        });
+        actions.appendChild(copyBtn);
+        appendMemorizeLink(actions, row.ref);
+        if (typeof createWordStudyButton === 'function') {
+          try {
+            actions.appendChild(createWordStudyButton(row.ref, row.text || row.note || ''));
+          } catch (eWs) { /* non-fatal */ }
+        }
+        var delBtn = document.createElement('button');
+        delBtn.type = 'button';
+        delBtn.className = 'btn btn-secondary';
+        delBtn.textContent = row.source === 'collection' ? 'Remove' : 'Delete';
+        delBtn.setAttribute('aria-label', 'Remove ' + row.ref + ' from this device');
+        delBtn.addEventListener('click', function () {
+          removeSavedRow(row);
+          renderMystudySavedShelf();
+          try {
+            window.dispatchEvent(new CustomEvent('tdb-my-verses-updated'));
+          } catch (eEv) { /* non-fatal */ }
+        });
+        actions.appendChild(delBtn);
+        card.appendChild(actions);
+        container.appendChild(card);
+      });
+      if (packed.battleLog) {
+        var logP = document.createElement('p');
+        logP.className = 'section-note';
+        var logStrong = document.createElement('strong');
+        logStrong.textContent = 'Battle log';
+        logP.appendChild(logStrong);
+        logP.appendChild(
+          document.createTextNode(
+            ': ' +
+              (packed.battleLog.length > 200
+                ? packed.battleLog.slice(0, 200).trim() + '\u2026'
+                : packed.battleLog.trim())
+          )
+        );
+        container.appendChild(logP);
+      }
+    }
+
+    function wireSavedVersesOpenHere() {
+      renderMystudySavedShelf();
+      window.addEventListener('tdb-my-verses-updated', function () {
+        setTimeout(renderMystudySavedShelf, 40);
+      });
+      window.addEventListener('storage', function (ev) {
+        if (!ev || !ev.key) return;
+        if (
+          ev.key === 'savedCollectionItems' ||
+          ev.key === 'savedVerses' ||
+          ev.key === 'tdb_bible_tool_notes' ||
+          ev.key === 'savedCollections'
+        ) {
+          renderMystudySavedShelf();
+        }
+      });
+    }
+    wireSavedVersesOpenHere();
+    window.tdbRenderMystudySavedShelf = renderMystudySavedShelf;
+
+    var _ribbonScriptsPromise = null;
+    function ensureRibbonScripts() {
+      if (_ribbonScriptsPromise) return _ribbonScriptsPromise;
+      if (document.querySelector('script[data-tdb-mystudy-ribbon-loaded="1"]')) {
+        _ribbonScriptsPromise = Promise.resolve();
+        return _ribbonScriptsPromise;
+      }
+      var cfg = byId('mystudy-deferred-ribbon-scripts');
+      var list = [];
+      try {
+        list = cfg ? JSON.parse(cfg.textContent || '[]') : [];
+      } catch (e) {
+        list = [
+          'mobius-deep-lesson-stations.js?v=20260518ribbon',
+          'tdb-mobius-journal.js?v=20260518ribbon',
+          'mystudy-ribbon-journal.js?v=20260518ribbon'
+        ];
+      }
+      if (!Array.isArray(list) || !list.length) {
+        _ribbonScriptsPromise = Promise.resolve();
+        return _ribbonScriptsPromise;
+      }
+      _ribbonScriptsPromise = list.reduce(function (chain, src) {
+        return chain.then(function () {
+          return new Promise(function (resolve) {
+            var s = document.createElement('script');
+            s.src = src;
+            s.defer = true;
+            s.setAttribute('data-tdb-mystudy-ribbon-loaded', '1');
+            s.onload = function () {
+              resolve();
+            };
+            s.onerror = function () {
+              resolve();
+            };
+            document.body.appendChild(s);
+          });
+        });
+      }, Promise.resolve());
+      return _ribbonScriptsPromise;
+    }
+    window.tdbEnsureMystudyRibbonScripts = ensureRibbonScripts;
+    if (getRequestedTab() === 'library') {
+      ensureRibbonScripts();
+    }
+
+    function wireMobileJumpChips() {
+      var nav = byId('mystudyMobileJump');
+      if (!nav) return;
+      nav.querySelectorAll('[data-mystudy-jump]').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          var jump = String(el.getAttribute('data-mystudy-jump') || '').trim();
+          var tabName = jump === 'library' ? 'library' : jump === 'highlights' ? 'highlights' : 'my';
+          var targetId =
+            jump === 'library'
+              ? 'panel-note-library'
+              : jump === 'highlights'
+                ? 'panel-highlights'
+                : 'panel-my-study';
+          setTab(tabName);
+          var target = byId(targetId);
+          if (jump === 'library') {
+            var saved = byId('saved-verses');
+            if (saved) target = saved;
+          }
+          if (target && typeof target.scrollIntoView === 'function') {
+            try {
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } catch (e2) {
+              target.scrollIntoView(true);
+            }
+          }
+        });
+      });
+    }
+    wireMobileJumpChips();
+
     byId('tab-my-study')?.addEventListener('click', function () { setTab('my'); });
     byId('tab-note-library')?.addEventListener('click', function () { setTab('library'); });
     byId('mystudy-print-notes')?.addEventListener('click', function () {
@@ -1582,7 +2064,7 @@
       window.TDBStudyCompanion.downloadStudyLocalBackup();
       recordBackupExported();
       var backupStatus = byId('mystudy-backup-status');
-      if (backupStatus) backupStatus.textContent = 'Backup download started. Keep the file somewhere safe—notes, verses, and plan marks are inside.';
+      if (backupStatus) backupStatus.textContent = 'Backup download started. Keep the file somewhere safe—saved verses, workspace notes, highlights, ribbon journal, and plan reflections are inside.';
     });
     byId('mystudy-restore-json')?.addEventListener('click', function () {
       byId('mystudy-restore-file')?.click();
@@ -1637,7 +2119,9 @@
       else if (h === '#panel-highlights') setTab('highlights');
       else if (h === '#panel-join-study') setTab('join');
       else if (h === '#panel-my-study') setTab('my');
+      openRhythmDrawerForHash();
     });
+    openRhythmDrawerForHash();
 
     var libFilter = byId('mystudy-library-filter');
     if (libFilter) {
@@ -1655,6 +2139,13 @@
         runSearch(study, { saveHighlight: saveHighlight });
       }
     });
+    byId('mystudy-search')?.addEventListener(
+      'focus',
+      function () {
+        ensureBibleLoaded();
+      },
+      { once: true }
+    );
     byId('mystudy-highlight-selected')?.addEventListener('click', function () {
       if (!study.verseRef || !study.verseText) return;
       saveHighlight(study.verseRef, study.verseText);
@@ -1737,6 +2228,8 @@
       window.TDBHighlights.initMyStudyHighlights({ setTab: setTab });
     }
 
+    setTab(getRequestedTab());
+    openRhythmDrawerForHash();
     updateMemorizePill();
     window.addEventListener('load', renderStreakBadges, { once: true });
     window.addEventListener('tdb-streak-badges-updated', renderStreakBadges);

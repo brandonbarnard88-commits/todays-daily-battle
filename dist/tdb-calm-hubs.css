@@ -1,1 +1,381 @@
-main.tdb-calm-hub{box-sizing:border-box;max-width:40rem;margin-left:auto;margin-right:auto;padding:2rem 1.25rem 5rem}footer.tdb-calm-hub-footer{box-sizing:border-box;max-width:40rem;margin-left:auto;margin-right:auto;padding-left:1.25rem;padding-right:1.25rem}main.tdb-calm-hub>h1{font-weight:800;letter-spacing:-.02em;line-height:1.2}main.tdb-calm-hub h2{line-height:1.3;margin-top:0}main.tdb-calm-hub>p.subtitle,main.tdb-calm-hub>p[class*=subtitle]{line-height:1.55}main.tdb-calm-hub>p.lead,main.tdb-calm-hub>p[class*=lead]{max-width:38rem;line-height:1.65}main.tdb-calm-hub section{scroll-margin-top:0.75rem}main.tdb-calm-hub .section-note{max-width:38rem}main.tdb-calm-hub a:focus-visible{outline:rgba(227,188,103,.55) solid 2px;outline-offset:3px}@media (max-width:380px){main.tdb-calm-hub{padding-left:1rem;padding-right:1rem;padding-bottom:4.5rem}main.tdb-calm-hub>h1{font-size:clamp(1.38rem, 5.8vw, 1.85rem)}main.tdb-calm-hub section{scroll-margin-top:5.25rem}footer.tdb-calm-hub-footer{padding-left:1rem;padding-right:1rem}}.tdb-offline-strip{box-sizing:border-box;margin:0;padding:.55rem 1.25rem;background-color:color-mix(in srgb,var(--tdb-surface-panel-bg,rgba(13,17,23,.96)) 82%,rgba(227,188,103,.22));background-image:var(--tdb-surface-veil-subtle,none);border-bottom:1px solid var(--tdb-surface-panel-border,rgba(227,188,103,.25));color:rgba(245,247,251,.92);font-size:.88rem;line-height:1.45;text-align:center}.tdb-offline-strip.hidden{display:none!important}.tdb-offline-strip .offline-msg{margin:0}.tdb-january-quiet{box-sizing:border-box;max-width:var(--tdb-home-content-max,40rem);width:100%;margin:.5rem auto .75rem;padding:.85rem 1rem .95rem;border-radius:16px;border:1px solid color-mix(in srgb,var(--gold,#d4af7b) 20%,var(--line,#2a2520));background:color-mix(in srgb,var(--card,#121826) 94%,rgba(227,188,103,.06));text-align:left;align-self:center}.tdb-january-quiet[hidden]{display:none!important}.tdb-january-quiet--show{animation:.7s ease-out both tdb-january-quiet-in}@keyframes tdb-january-quiet-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}@media (prefers-reduced-motion:reduce){.tdb-january-quiet--show{animation:none}}.tdb-january-quiet__eyebrow{margin:0 0 .2rem;font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:color-mix(in srgb,var(--muted,#a8a29e) 75%,var(--gold,#d4af7b) 25%)}.tdb-january-quiet__label{margin:0 0 .45rem;font-size:.92rem;font-weight:600;color:color-mix(in srgb,var(--text,#f5f4f0) 92%,var(--gold,#d4af7b) 8%)}.tdb-january-quiet__ref{margin:0 0 .35rem;font-size:.78rem;font-weight:600;letter-spacing:.04em;color:var(--gold,#d4af7b)}.tdb-january-quiet__text{margin:0;font-family:"Cormorant Garamond",Georgia,serif;font-size:1.04rem;line-height:1.48;color:#e8e4d9}.tdb-january-quiet__actions{margin:.6rem 0 0}.tdb-january-quiet__dismiss{margin:0;padding:.4rem .65rem;font-size:.8rem;color:var(--muted,#a8a29e);background:0 0;border:1px solid color-mix(in srgb,var(--line,#2a2520) 88%,var(--gold,#d4af7b) 12%);border-radius:999px;cursor:pointer;min-height:44px}.tdb-january-quiet__dismiss:focus-visible,.tdb-january-quiet__dismiss:hover{color:var(--text,#f5f4f0);border-color:color-mix(in srgb,var(--gold,#d4af7b) 35%,var(--line,#2a2520));outline:0}.tdb-january-quiet__foot{margin:.65rem 0 0;font-size:.82rem;line-height:1.5;color:var(--muted,#a8a29e)}.tdb-january-quiet__foot a{color:var(--gold,#d4af7b);font-weight:600;text-decoration:none}.tdb-january-quiet__foot a:focus-visible,.tdb-january-quiet__foot a:hover{text-decoration:underline;outline:0}:root[data-theme=light] .tdb-january-quiet{background:color-mix(in srgb,var(--card,#fff) 96%,rgba(201,162,39,.08));border-color:color-mix(in srgb,#c9a84c 35%,#e5e7eb)}:root[data-theme=light] .tdb-january-quiet__text{color:#1e293b}.tdb-uog-month[hidden]{display:none!important}.tdb-uog-month{box-sizing:border-box;margin:.75rem 0 0;padding:.75rem .9rem .85rem;border-radius:16px;border:1px solid color-mix(in srgb,var(--gold,#d4af7b) 18%,var(--line,#2a2520));background:color-mix(in srgb,var(--card,#141210) 94%,rgba(227,188,103,.05))}.tdb-uog-month--show{animation:.65s ease-out both tdb-uog-month-in}@keyframes tdb-uog-month-in{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}@media (prefers-reduced-motion:reduce){.tdb-uog-month--show{animation:none}}.tdb-uog-month__h{margin:0 0 .4rem;font-size:.95rem;font-weight:600;line-height:1.35;color:color-mix(in srgb,var(--text,#f5f4f0) 90%,var(--gold,#d4af7b) 10%)}.tdb-uog-month__label{font-weight:600;color:color-mix(in srgb,var(--text,#f5f4f0) 88%,var(--gold,#d4af7b) 12%)}.tdb-uog-month__sep{font-weight:400;color:var(--muted,#a8a29e)}.tdb-uog-month__lead{margin:0 0 .5rem;font-size:.86rem;line-height:1.55;color:var(--muted,#a8a29e)}.tdb-uog-month__whisper{margin:0 0 .5rem;font-size:.82rem;line-height:1.5;color:var(--muted,#a8a29e);font-style:italic}.tdb-uog-month__whisper[hidden]{display:none!important}.tdb-uog-month__links{margin:0;padding:0 0 0 1.1rem;font-size:.86rem;line-height:1.55;color:var(--text,#f5f4f0)}.tdb-uog-month__links li{margin:.3rem 0 0}.tdb-uog-month__links a{color:var(--gold,#d4af7b);font-weight:600;text-decoration:none}.tdb-uog-month__links a:focus-visible,.tdb-uog-month__links a:hover{text-decoration:underline;outline:0}.tdb-uog-month__foot{margin:.6rem 0 0;font-size:.8rem;line-height:1.45;color:var(--muted,#a8a29e)}.tdb-uog-month__foot a{color:var(--gold,#d4af7b);font-weight:600;text-decoration:none}.tdb-uog-month__foot a:focus-visible,.tdb-uog-month__foot a:hover{text-decoration:underline;outline:0}:root[data-theme=light] .tdb-uog-month{background:color-mix(in srgb,var(--card,#fff) 97%,rgba(201,162,39,.06));border-color:color-mix(in srgb,#c9a84c 32%,#e5e7eb)}:root[data-theme=light] .tdb-uog-month__h,:root[data-theme=light] .tdb-uog-month__label{color:#0f172a}.calm-rest-kit-launch{margin:1.25rem 0 0;padding:1rem 1.05rem;border-radius:14px;border:1px solid color-mix(in srgb,var(--gold,#c9a227) 22%,var(--line,#334155));background:color-mix(in srgb,var(--card,#0f1419) 92%,rgba(201,162,55,.08))}.calm-rest-kit-launch__title{margin:0 0 .35rem;font-size:1.05rem}.calm-rest-kit-launch__lead{margin:0 0 .85rem}.calm-rest-kit-launch__btn{width:100%;max-width:22rem}.calm-rest-kit-panel{position:fixed;inset:0;z-index:1200;display:flex;align-items:stretch;justify-content:center;padding:0;background:rgba(6,10,18,.72);backdrop-filter:blur(4px)}.calm-rest-kit-panel[hidden]{display:none!important}.calm-rest-kit-panel__sheet{width:100%;max-width:42rem;max-height:100vh;overflow:auto;background:var(--bg,#0a0c14);border-left:1px solid var(--line,#334155);box-shadow:-8px 0 32px rgba(0,0,0,.35)}.calm-rest-kit-panel__head{position:sticky;top:0;z-index:1;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.65rem;padding:.85rem 1rem;background:color-mix(in srgb,var(--bg,#0a0c14) 94%,transparent);border-bottom:1px solid var(--line,#334155)}.calm-rest-kit-panel__title{margin:0;font-size:1.05rem}.calm-rest-kit-panel__close{min-height:44px}.calm-rest-kit-panel__body{padding:.75rem 1rem 2rem}body.calm-rest-kit-open{overflow:hidden}:root[data-theme=light] .tdb-uog-month__links{color:#1e293b}
+/**
+ * Shared rhythm for calm tool hubs (what-god-has-done, memorize, kjv-story, daily-quiet-time optional).
+ * Keeps width, padding, and small-screen breathing room aligned.
+ */
+main.tdb-calm-hub {
+  box-sizing: border-box;
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem 1.25rem 5rem;
+}
+
+footer.tdb-calm-hub-footer {
+  box-sizing: border-box;
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+main.tdb-calm-hub > h1 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+main.tdb-calm-hub h2 {
+  line-height: 1.3;
+  margin-top: 0;
+}
+
+main.tdb-calm-hub > p.subtitle,
+main.tdb-calm-hub > p[class*="subtitle"] {
+  line-height: 1.55;
+}
+
+main.tdb-calm-hub > p.lead,
+main.tdb-calm-hub > p[class*="lead"] {
+  max-width: 38rem;
+  line-height: 1.65;
+}
+
+main.tdb-calm-hub section {
+  scroll-margin-top: 0.75rem;
+}
+
+main.tdb-calm-hub .section-note {
+  max-width: 38rem;
+}
+
+main.tdb-calm-hub a:focus-visible {
+  outline: 2px solid rgba(227, 188, 103, 0.55);
+  outline-offset: 3px;
+}
+
+@media (max-width: 380px) {
+  main.tdb-calm-hub {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 4.5rem;
+  }
+  main.tdb-calm-hub > h1 {
+    font-size: clamp(1.38rem, 5.8vw, 1.85rem);
+  }
+  main.tdb-calm-hub section {
+    scroll-margin-top: 5.25rem;
+  }
+  footer.tdb-calm-hub-footer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Offline reassurance (calm hubs); toggled by tdb-offline-strip.js */
+.tdb-offline-strip {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.55rem 1.25rem;
+  background-color: color-mix(
+    in srgb,
+    var(--tdb-surface-panel-bg, rgba(13, 17, 23, 0.96)) 82%,
+    rgba(227, 188, 103, 0.22)
+  );
+  background-image: var(--tdb-surface-veil-subtle, none);
+  border-bottom: 1px solid var(--tdb-surface-panel-border, rgba(227, 188, 103, 0.25));
+  color: rgba(245, 247, 251, 0.92);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  text-align: center;
+}
+.tdb-offline-strip.hidden {
+  display: none !important;
+}
+.tdb-offline-strip .offline-msg {
+  margin: 0;
+}
+
+/* January: one quiet KJV line per day (tdb-january-quiet.js) */
+.tdb-january-quiet {
+  box-sizing: border-box;
+  max-width: var(--tdb-home-content-max, 40rem);
+  width: 100%;
+  margin: 0.5rem auto 0.75rem;
+  padding: 0.85rem 1rem 0.95rem;
+  border-radius: 16px;
+  border: 1px solid color-mix(in srgb, var(--gold, #d4af7b) 20%, var(--line, #2a2520));
+  background: color-mix(in srgb, var(--card, #121826) 94%, rgba(227, 188, 103, 0.06));
+  text-align: left;
+  align-self: center;
+}
+.tdb-january-quiet[hidden] {
+  display: none !important;
+}
+.tdb-january-quiet--show {
+  animation: tdb-january-quiet-in 0.7s ease-out both;
+}
+@keyframes tdb-january-quiet-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tdb-january-quiet--show {
+    animation: none;
+  }
+}
+.tdb-january-quiet__eyebrow {
+  margin: 0 0 0.2rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--muted, #a8a29e) 75%, var(--gold, #d4af7b) 25%);
+}
+.tdb-january-quiet__label {
+  margin: 0 0 0.45rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--text, #f5f4f0) 92%, var(--gold, #d4af7b) 8%);
+}
+.tdb-january-quiet__ref {
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--gold, #d4af7b);
+}
+.tdb-january-quiet__text {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.04rem;
+  line-height: 1.48;
+  color: #e8e4d9;
+}
+.tdb-january-quiet__actions {
+  margin: 0.6rem 0 0;
+}
+.tdb-january-quiet__dismiss {
+  margin: 0;
+  padding: 0.4rem 0.65rem;
+  font-size: 0.8rem;
+  color: var(--muted, #a8a29e);
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--line, #2a2520) 88%, var(--gold, #d4af7b) 12%);
+  border-radius: 999px;
+  cursor: pointer;
+  min-height: 44px;
+}
+.tdb-january-quiet__dismiss:hover,
+.tdb-january-quiet__dismiss:focus-visible {
+  color: var(--text, #f5f4f0);
+  border-color: color-mix(in srgb, var(--gold, #d4af7b) 35%, var(--line, #2a2520));
+  outline: none;
+}
+.tdb-january-quiet__foot {
+  margin: 0.65rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--muted, #a8a29e);
+}
+.tdb-january-quiet__foot a {
+  color: var(--gold, #d4af7b);
+  font-weight: 600;
+  text-decoration: none;
+}
+.tdb-january-quiet__foot a:hover,
+.tdb-january-quiet__foot a:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
+:root[data-theme="light"] .tdb-january-quiet {
+  background: color-mix(in srgb, var(--card, #fff) 96%, rgba(201, 162, 39, 0.08));
+  border-color: color-mix(in srgb, #c9a84c 35%, #e5e7eb);
+}
+:root[data-theme="light"] .tdb-january-quiet__text {
+  color: #1e293b;
+}
+
+/* "This month in the University" — Feb–Dec (tdb-uog-month-signpost.js) */
+.tdb-uog-month[hidden] {
+  display: none !important;
+}
+.tdb-uog-month {
+  box-sizing: border-box;
+  margin: 0.75rem 0 0;
+  padding: 0.75rem 0.9rem 0.85rem;
+  border-radius: 16px;
+  border: 1px solid color-mix(in srgb, var(--gold, #d4af7b) 18%, var(--line, #2a2520));
+  background: color-mix(in srgb, var(--card, #141210) 94%, rgba(227, 188, 103, 0.05));
+}
+.tdb-uog-month--show {
+  animation: tdb-uog-month-in 0.65s ease-out both;
+}
+@keyframes tdb-uog-month-in {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tdb-uog-month--show {
+    animation: none;
+  }
+}
+.tdb-uog-month__h {
+  margin: 0 0 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: color-mix(in srgb, var(--text, #f5f4f0) 90%, var(--gold, #d4af7b) 10%);
+}
+.tdb-uog-month__label {
+  font-weight: 600;
+  color: color-mix(in srgb, var(--text, #f5f4f0) 88%, var(--gold, #d4af7b) 12%);
+}
+.tdb-uog-month__sep {
+  font-weight: 400;
+  color: var(--muted, #a8a29e);
+}
+.tdb-uog-month__lead {
+  margin: 0 0 0.5rem;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--muted, #a8a29e);
+}
+.tdb-uog-month__whisper {
+  margin: 0 0 0.5rem;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--muted, #a8a29e);
+  font-style: italic;
+}
+.tdb-uog-month__whisper[hidden] {
+  display: none !important;
+}
+.tdb-uog-month__links {
+  margin: 0;
+  padding: 0 0 0 1.1rem;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--text, #f5f4f0);
+}
+.tdb-uog-month__links li {
+  margin: 0.3rem 0 0;
+}
+.tdb-uog-month__links a {
+  color: var(--gold, #d4af7b);
+  font-weight: 600;
+  text-decoration: none;
+}
+.tdb-uog-month__links a:hover,
+.tdb-uog-month__links a:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
+.tdb-uog-month__foot {
+  margin: 0.6rem 0 0;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--muted, #a8a29e);
+}
+.tdb-uog-month__foot a {
+  color: var(--gold, #d4af7b);
+  font-weight: 600;
+  text-decoration: none;
+}
+.tdb-uog-month__foot a:hover,
+.tdb-uog-month__foot a:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
+:root[data-theme="light"] .tdb-uog-month {
+  background: color-mix(in srgb, var(--card, #fff) 97%, rgba(201, 162, 39, 0.06));
+  border-color: color-mix(in srgb, #c9a84c 32%, #e5e7eb);
+}
+:root[data-theme="light"] .tdb-uog-month__h,
+:root[data-theme="light"] .tdb-uog-month__label {
+  color: #0f172a;
+}
+
+/* Calm — inline 7-Day Rest Kit panel */
+.calm-rest-kit-launch {
+  margin: 1.25rem 0 0;
+  padding: 1rem 1.05rem;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--gold, #c9a227) 22%, var(--line, #334155));
+  background: color-mix(in srgb, var(--card, #0f1419) 92%, rgba(201, 162, 55, 0.08));
+}
+.calm-rest-kit-launch__title {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+}
+.calm-rest-kit-launch__lead {
+  margin: 0 0 0.85rem;
+}
+.calm-rest-kit-launch__btn {
+  width: 100%;
+  max-width: 22rem;
+}
+.calm-rest-kit-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: 0;
+  background: rgba(6, 10, 18, 0.72);
+  backdrop-filter: blur(4px);
+}
+.calm-rest-kit-panel[hidden] {
+  display: none !important;
+}
+.calm-rest-kit-panel__sheet {
+  width: 100%;
+  max-width: 42rem;
+  max-height: 100vh;
+  overflow: auto;
+  background: var(--bg, #0a0c14);
+  border-left: 1px solid var(--line, #334155);
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.35);
+}
+.calm-rest-kit-panel__head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  padding: 0.85rem 1rem;
+  background: color-mix(in srgb, var(--bg, #0a0c14) 94%, transparent);
+  border-bottom: 1px solid var(--line, #334155);
+}
+.calm-rest-kit-panel__title {
+  margin: 0;
+  font-size: 1.05rem;
+}
+.calm-rest-kit-panel__close {
+  min-height: 44px;
+}
+.calm-rest-kit-panel__body {
+  padding: 0.75rem 1rem 2rem;
+}
+body.calm-rest-kit-open {
+  overflow: hidden;
+}
+:root[data-theme="light"] .tdb-uog-month__links {
+  color: #1e293b;
+}

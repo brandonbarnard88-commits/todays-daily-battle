@@ -50,6 +50,31 @@
   font-weight: 650;
 }
 
+/* VP3: demote Heavy secondaries to text links (one primary CTA) */
+.tdb-heavy-now__text-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.2rem 0.15rem;
+  font-size: 0.9rem;
+  font-weight: 550;
+  color: var(--muted, #a8b3c4);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+.tdb-heavy-now__text-link:hover,
+.tdb-heavy-now__text-link:focus-visible {
+  color: var(--gold-soft, #e8d088);
+  outline: none;
+}
+.tdb-heavy-now__text-link:focus-visible {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--gold, #e3bc67) 55%, transparent);
+  border-radius: 4px;
+}
+
 .tdb-heavy-now__foot {
   margin: 0.75rem 0 0;
   font-size: 0.88rem;

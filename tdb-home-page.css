@@ -1103,12 +1103,54 @@
       .tdb-global-nav { overflow-x: auto; overflow-y: hidden; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 0.3rem 0.55rem; gap: 0.15rem; }
       .tdb-global-nav::-webkit-scrollbar { display: none; }
       .tdb-global-nav a { flex-shrink: 0; padding: 0.35rem 0.55rem; }
-      .tdb-home-main-nav.tdb-primary-site-nav .tdb-nav-flyout-toggle { display: inline-flex; }
+      /* VP2: quieter header chrome — dock owns primary mobile doors */
+      .site-top-links {
+        margin-top: 0.35rem;
+        padding: 0.28rem 0.55rem;
+        font-size: 0.8rem;
+        background: transparent;
+        border-color: color-mix(in srgb, var(--line) 55%, transparent);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        box-shadow: none;
+      }
+      :root[data-theme="light"] .site-top-links,
+      :root[data-theme="daylight"] .site-top-links,
+      :root[data-theme="parchment"] .site-top-links {
+        background: transparent;
+        border-color: color-mix(in srgb, var(--line) 65%, transparent);
+      }
+      .tdb-home-main-nav {
+        margin-top: 0.4rem;
+        padding: 0.35rem 0.45rem;
+        background: transparent;
+        border-color: color-mix(in srgb, var(--line) 50%, transparent);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        box-shadow: none;
+        font-size: 0.8rem;
+      }
+      :root[data-theme="light"] .tdb-home-main-nav {
+        background: transparent;
+        border-color: color-mix(in srgb, var(--line) 60%, transparent);
+      }
+      .tdb-home-main-nav.tdb-primary-site-nav .tdb-nav-flyout-toggle {
+        display: inline-flex;
+        background: transparent;
+        border-color: color-mix(in srgb, var(--line) 65%, transparent);
+        color: var(--muted, #a8b3c4);
+        font-weight: 550;
+      }
+      .tdb-home-main-nav.tdb-primary-site-nav .tdb-nav-flyout-toggle:hover,
+      .tdb-home-main-nav.tdb-primary-site-nav .tdb-nav-flyout-toggle:focus-visible {
+        color: var(--gold-soft, #e8d088);
+        background: color-mix(in srgb, var(--gold) 10%, transparent);
+      }
       .tdb-home-main-nav.tdb-primary-site-nav {
         overflow-x: visible;
         flex-wrap: wrap;
         justify-content: center;
-        padding: 0.5rem 0.6rem;
+        padding: 0.35rem 0.45rem;
       }
       .tdb-home-main-nav.tdb-primary-site-nav .tdb-primary-nav-panel {
         display: none;
@@ -3413,10 +3455,14 @@
     .tdb-home-tools-shelf > summary {
       cursor: pointer;
       list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
       font-weight: 700;
       color: var(--gold-soft, #c9a24d);
       font-size: 0.98rem;
       padding: 0.2rem 0 0.5rem;
+      min-height: 44px;
     }
     .tdb-home-tools-shelf > summary::-webkit-details-marker { display: none; }
     .tdb-home-tools-shelf-sub {
@@ -3666,6 +3712,10 @@
       padding-right: 1.65rem;
       font-size: clamp(1rem, 2.5vw, 1.06rem);
     }
+    /* VP3: Save stays toolbar-weight; Battle Plan CTA is the sole gold primary */
+    #verseCard .hero-votd-save-btn {
+      font-weight: 600;
+    }
     .tdb-home-breath-divider {
       height: 1px;
       margin: clamp(1.05rem, 2.6vw, 1.55rem) 0 clamp(0.35rem, 1.2vw, 0.65rem);
@@ -3698,12 +3748,53 @@
         font-size: 0.92rem;
         margin-bottom: 0.55rem;
       }
-      html.tdb-first-visit-mode #tdbHeavyNow .tdb-heavy-now__secondary {
-        display: none;
-      }
+      /* VP3: secondaries stay as quiet text links (no longer hidden) */
       html.tdb-first-visit-mode #tdbHeavyNow .tdb-heavy-now__foot {
         display: none;
       }
+    }
+    /* VP3: Heavy secondaries — text links (homepage does not load styles.css) */
+    #tdbHeavyNow .tdb-heavy-now__text-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0.2rem 0.15rem;
+      font-size: 0.9rem;
+      font-weight: 550;
+      color: var(--muted, #a8b3c4);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      background: none;
+      border: none;
+      box-shadow: none;
+    }
+    #tdbHeavyNow .tdb-heavy-now__text-link:hover,
+    #tdbHeavyNow .tdb-heavy-now__text-link:focus-visible {
+      color: var(--gold-soft, #e8d088);
+      outline: none;
+    }
+    #tdbHeavyNow .tdb-heavy-now__text-link:focus-visible {
+      box-shadow: 0 0 0 2px color-mix(in srgb, var(--gold, #e3bc67) 55%, transparent);
+      border-radius: 4px;
+    }
+    #tdbHeavyNow .heavy-week-packs-link {
+      margin: 0.55rem 0 0;
+      font-size: 0.88rem;
+      line-height: 1.4;
+    }
+    #tdbHeavyNow .heavy-week-packs-link a {
+      color: var(--gold-soft, #e8d088);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    #tdbHeavyNow .heavy-week-packs-link a:hover,
+    #tdbHeavyNow .heavy-week-packs-link a:focus-visible {
+      color: var(--gold, #e3bc67);
+      outline: none;
+    }
+    #tdbHeavyNow .heavy-week-packs-link a:focus-visible {
+      box-shadow: 0 0 0 2px color-mix(in srgb, var(--gold, #e3bc67) 55%, transparent);
+      border-radius: 4px;
     }
     /* Pass 5 — mid-page rest: lighter secondary blocks below the hero stack */
     .tdb-home-mid-rest {
@@ -4033,11 +4124,15 @@
     }
     details.tdb-dig-deeper > summary.tdb-dig-deeper__summary {
       list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
       cursor: pointer;
       padding: 0.72rem 0 0.65rem;
       font-size: 0.88rem;
       line-height: 1.45;
       color: color-mix(in srgb, var(--muted) 88%, var(--text) 12%);
+      min-height: 44px;
     }
     details.tdb-dig-deeper > summary.tdb-dig-deeper__summary::-webkit-details-marker {
       display: none;
@@ -6278,6 +6373,14 @@
       border-color: color-mix(in srgb, var(--gold) 35%, transparent);
     }
 
+    /* VP2: clear “you are here” on the dock (primary mobile chrome) */
+    .tdb-bottom-dock a[aria-current="page"] {
+      color: var(--gold-soft, #e8d088);
+      font-weight: 650;
+      background: color-mix(in srgb, var(--gold) 16%, var(--bg-soft, var(--card)));
+      border-color: color-mix(in srgb, var(--gold) 42%, var(--line));
+    }
+
     :root[data-theme="light"] .tdb-bottom-dock {
       background: color-mix(in srgb, var(--card) 99%, #fff 1%);
       border-color: color-mix(in srgb, var(--line) 70%, #000 8%);
@@ -6312,6 +6415,10 @@
       .tdb-bottom-dock button.tdb-bottom-dock-more:hover,
       .tdb-bottom-dock button.tdb-bottom-dock-more:focus-visible {
         background: color-mix(in srgb, var(--gold) 22%, var(--bg-soft));
+      }
+      .tdb-bottom-dock a[aria-current="page"] {
+        background: color-mix(in srgb, var(--gold) 20%, var(--bg-soft));
+        border-color: color-mix(in srgb, var(--gold) 48%, var(--line));
       }
     }
 
@@ -8711,11 +8818,15 @@
     }
     .tdb-feel-show-all-sum {
       list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
       padding: 0.65rem 0.9rem;
       font-size: 0.92rem;
       font-weight: 600;
       color: var(--text);
       cursor: pointer;
+      min-height: 44px;
     }
     .tdb-feel-show-all-sum::-webkit-details-marker { display: none; }
     .tdb-feel-show-all[open] .tdb-feel-show-all-sum {
@@ -8979,6 +9090,14 @@
         font-size: 1rem;
         padding: 0.88rem 0.62rem;
         min-height: 54px;
+      }
+    }
+    /* Mobile thumb floor — Feel chips + hero Listen (already ≥44px in most paths; keep the floor) */
+    @media (max-width: 640px) {
+      #feel-section .quick-topic,
+      #feel-section .quick-topic-group-toggle,
+      #hero .read-aloud-btn {
+        min-height: 44px;
       }
     }
     @media (max-width: 480px) {
@@ -9944,24 +10063,32 @@
     #tdbHomeFeelResult { display: none !important; }
 
     /* === Hide mid-page clutter (quiet porch restructure) === */
+    /* Pass 3: companion doors / church / VOTM live in drawers — do not force-hide those. */
     .tdb-campus-schools,
-    #tdbNewHereCard,
     .tdb-new-here-hint,
     .tdb-home-proof-strip,
     .tdb-home-reader-stories:not(.tdb-home-reader-stories--hero-trust),
-    .quiet-launch-banner,
-    .tdb-home-companion-doors,
     .tdb-home-spotlight-deeper,
     .tdb-whats-new-hint,
     #porch-rooms,
     .tdb-start-here-nav,
     .tdb-home-chain-of-hope,
     .tdb-home-todays-battle-card,
-    .tdb-verse-ask-bridge,
     .first-visit-hint,
     #tdb-hero-lang-hint,
     .calm-cta-wrap,
     .tdb-back-to-today:not(.tdb-back-to-today--footer) { display: none !important; }
+
+    /* Pass 3: Ask the Word bridge stays visible in the paired hero */
+    .tdb-verse-ask-bridge {
+      display: block !important;
+    }
+
+    /* Pass 3: Welcome / first-visit next step use the HTML hidden attribute (JS reveals) */
+    #tdbNewHereCard[hidden],
+    #tdbFirstVisitNextStep[hidden] {
+      display: none !important;
+    }
 
     /* Feel section: reduce copy overhead */
     .feel-first-action-assurance,
@@ -10366,6 +10493,175 @@
     }
 
     /* ── Experience audit (May 2026): calmer surface, stronger hierarchy ── */
+    /* ── FT1 / VP1: soft Welcome strip (Heavy stays the only crisis card) ── */
+    .tdb-first-visit-strip {
+      margin: 0 0 clamp(0.75rem, 2vw, 1rem);
+      padding: clamp(0.65rem, 1.8vw, 0.9rem) 0.15rem clamp(0.75rem, 2vw, 1rem);
+      border-radius: 0;
+      border: none;
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+      background: transparent;
+      box-shadow: none;
+    }
+    .tdb-first-visit-strip__crest {
+      font-size: 1.15rem;
+      line-height: 1;
+      margin: 0 0 0.25rem;
+      opacity: 0.85;
+    }
+    .tdb-first-visit-strip__title {
+      margin: 0 0 0.3rem;
+      font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+      font-weight: 650;
+      color: var(--text);
+    }
+    .tdb-first-visit-strip__lead {
+      margin: 0 0 0.65rem;
+      font-size: clamp(0.94rem, 2.2vw, 1.02rem);
+      line-height: 1.55;
+      color: var(--muted, #a8b3c4);
+    }
+    .tdb-first-visit-strip__lead strong {
+      color: var(--text);
+      font-weight: 650;
+    }
+    .tdb-first-visit-strip__steps-h {
+      margin: 0 0 0.35rem;
+      font-size: 0.82rem;
+      font-weight: 650;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted, #a8b3c4);
+    }
+    .tdb-first-visit-strip__steps {
+      margin: 0 0 0.75rem;
+      padding-left: 1.15rem;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: var(--text);
+    }
+    .tdb-first-visit-strip__steps a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .tdb-first-visit-strip__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem 0.85rem;
+      align-items: center;
+    }
+    .tdb-first-visit-strip__actions .btn {
+      min-height: 44px;
+    }
+    .tdb-first-visit-strip__text-link,
+    .tdb-first-visit-strip__actions .link-button {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0.2rem 0.1rem;
+      font-size: 0.92rem;
+      font-weight: 550;
+      color: var(--muted, #a8b3c4);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .tdb-first-visit-strip__text-link:hover,
+    .tdb-first-visit-strip__text-link:focus-visible,
+    .tdb-first-visit-strip__actions .link-button:hover,
+    .tdb-first-visit-strip__actions .link-button:focus-visible {
+      color: var(--text);
+      outline: none;
+    }
+    .tdb-first-visit-strip__text-link:focus-visible,
+    .tdb-first-visit-strip__actions .link-button:focus-visible {
+      box-shadow: 0 0 0 2px color-mix(in srgb, var(--tdb-focus-ring, var(--gold, #e3bc67)) 50%, transparent);
+      border-radius: 4px;
+    }
+    /* VP3: optional Start My Day + calm links sit under the primary action row */
+    .tdb-first-visit-strip__more {
+      margin: 0.55rem 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 0.45rem;
+      align-items: center;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: var(--muted, #a8b3c4);
+    }
+    .tdb-first-visit-strip__more .link-button,
+    .tdb-first-visit-strip__more a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font: inherit;
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0.15rem 0;
+    }
+    .tdb-first-visit-strip__more .link-button:hover,
+    .tdb-first-visit-strip__more .link-button:focus-visible,
+    .tdb-first-visit-strip__more a:hover,
+    .tdb-first-visit-strip__more a:focus-visible {
+      color: var(--text);
+      outline: none;
+    }
+    .tdb-first-visit-strip__sep {
+      opacity: 0.65;
+      user-select: none;
+    }
+    .tdb-first-visit-strip__foot {
+      margin: 0.7rem 0 0;
+    }
+    .tdb-first-visit-strip__foot .link-button {
+      min-height: 44px;
+      padding: 0.25rem 0.15rem;
+    }
+    .tdb-first-visit-strip .tdb-home-welcome-story-links {
+      margin: 0.55rem 0 0;
+      font-size: 0.84rem;
+      opacity: 0.9;
+    }
+    :root[data-theme="light"] .tdb-first-visit-strip,
+    :root[data-theme="daylight"] .tdb-first-visit-strip,
+    :root[data-theme="parchment"] .tdb-first-visit-strip {
+      background: transparent;
+      border-bottom-color: color-mix(in srgb, var(--line) 85%, transparent);
+    }
+
+    /* VP1: first-visit vertical rhythm — Heavy → Welcome → verse */
+    html.tdb-first-visit-mode #tdbHeavyNow {
+      margin-bottom: clamp(0.65rem, 1.8vw, 0.9rem);
+    }
+    html.tdb-first-visit-mode #tdbFirstVisitStrip {
+      margin-bottom: clamp(0.85rem, 2.2vw, 1.15rem);
+    }
+    html.tdb-first-visit-mode #tdbTodaysVerseHeading {
+      margin-top: 0.15rem;
+    }
+    .tdb-start-my-day-band[hidden] {
+      display: none !important;
+    }
+    .tdb-start-my-day-band--quiet {
+      margin-top: 0.55rem;
+      padding: 0.55rem 0.75rem;
+      border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
+      background: transparent;
+      box-shadow: none;
+    }
+    .tdb-start-my-day-band--quiet .tdb-start-my-day-line {
+      font-size: 0.88rem;
+      opacity: 0.9;
+    }
+
     .tdb-first-visit-banner {
       margin: 0 0 clamp(1rem, 2.5vw, 1.35rem);
       padding: clamp(0.85rem, 2.2vw, 1.15rem) clamp(1rem, 2.4vw, 1.35rem);
@@ -10450,6 +10746,9 @@
     }
     .tdb-home-disclosure__summary {
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
       padding: 0.9rem 1rem;
       font-weight: 600;
       line-height: 1.45;
@@ -10457,6 +10756,40 @@
       min-height: 44px;
     }
     .tdb-home-disclosure__summary::-webkit-details-marker { display: none; }
+    /* VP1 + VP3: expand chevron (Ask, dig deeper, share-more, drawers) */
+    .tdb-home-disclosure__summary::after,
+    #tdbHomeVerseExtras > summary::after,
+    #tdbHomePastorPlans > summary::after,
+    #tdbHomeLaterDetails > summary::after,
+    #tdbHomeFullShelf > summary::after,
+    .tdb-ask-quiet-details > summary::after,
+    .tdb-feel-show-all-sum::after,
+    details.tdb-dig-deeper > summary.tdb-dig-deeper__summary::after,
+    .tdb-hero-share-more__sum::after,
+    .tdb-home-tools-shelf > summary::after {
+      content: '';
+      margin-left: auto;
+      flex-shrink: 0;
+      width: 0.45rem;
+      height: 0.45rem;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(45deg);
+      opacity: 0.75;
+    }
+    .tdb-home-disclosure[open] > .tdb-home-disclosure__summary::after,
+    #tdbHomeVerseExtras[open] > summary::after,
+    #tdbHomePastorPlans[open] > summary::after,
+    #tdbHomeLaterDetails[open] > summary::after,
+    #tdbHomeFullShelf[open] > summary::after,
+    .tdb-ask-quiet-details[open] > summary::after,
+    .tdb-feel-show-all[open] > .tdb-feel-show-all-sum::after,
+    details.tdb-dig-deeper[open] > summary.tdb-dig-deeper__summary::after,
+    .tdb-hero-share-more[open] > .tdb-hero-share-more__sum::after,
+    .tdb-home-tools-shelf[open] > summary::after {
+      transform: rotate(-135deg);
+      margin-top: 0.15rem;
+    }
     .tdb-home-disclosure__inner {
       padding: 0 1rem 1rem;
       display: flex;
@@ -10615,3 +10948,413 @@
       color: color-mix(in srgb, var(--muted) 70%, transparent 30%);
       letter-spacing: 0.01em;
     }
+
+
+/* Pass 1 homepage: next-door strip + slim share-more */
+.tdb-hero-share-more {
+  margin: 0.55rem 0 0;
+  border: 0;
+  background: transparent;
+}
+.tdb-hero-share-more__sum {
+  cursor: pointer;
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 44px;
+  padding: 0.35rem 0.15rem;
+  font-size: 0.88rem;
+  line-height: 1.35;
+  color: var(--muted, #8a95a8);
+}
+.tdb-hero-share-more__sum::-webkit-details-marker { display: none; }
+
+/* VP3: Ask the Word — examples + feeling pairs behind quiet disclosures */
+.tdb-ask-quiet-details {
+  margin: 0.45rem 0 0.15rem;
+  border: 0;
+  background: transparent;
+}
+.tdb-ask-quiet-details > summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 44px;
+  padding: 0.25rem 0.1rem;
+  font-size: 0.88rem;
+  font-weight: 550;
+  line-height: 1.4;
+  color: var(--muted, #8a95a8);
+  cursor: pointer;
+}
+.tdb-ask-quiet-details > summary::-webkit-details-marker { display: none; }
+.tdb-ask-quiet-details > summary:hover,
+.tdb-ask-quiet-details > summary:focus-visible {
+  color: var(--text, #e8eef8);
+  outline: none;
+}
+.tdb-ask-quiet-details > summary:focus-visible {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--gold, #e3bc67) 50%, transparent);
+  border-radius: 4px;
+}
+.tdb-ask-quiet-details[open] > summary {
+  color: var(--text, #e8eef8);
+  margin-bottom: 0.25rem;
+}
+.feel-combo-presets-wrap.tdb-ask-quiet-details .feel-combo-presets {
+  margin: 0.35rem 0 0.65rem;
+  justify-content: flex-start;
+}
+.tdb-hero-share-more__tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  padding: 0.15rem 0 0.35rem;
+}
+/* Three calm doors — between verse and Ask the Word */
+.tdb-home-first-doors {
+  margin: 1.15rem auto 1.35rem;
+  padding: 0.85rem 0.9rem 1rem;
+  max-width: 40rem;
+  text-align: center;
+}
+.tdb-home-first-doors__quiet {
+  margin: 0 0 0.35rem;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--muted, #8a95a8);
+}
+.tdb-home-first-doors__lead {
+  margin: 0 0 0.85rem;
+  font-size: 1.08rem;
+  line-height: 1.4;
+  font-weight: 600;
+  color: var(--text, #e8eef8);
+}
+.tdb-home-first-doors__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  align-items: stretch;
+}
+.tdb-home-first-doors__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.65rem 1rem;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--line, #3a4558) 88%, transparent);
+  background: color-mix(in srgb, var(--card, #1a2230) 94%, rgba(227, 188, 103, 0.04));
+  color: var(--text, #e8eef8);
+  text-decoration: none;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  text-align: center;
+}
+.tdb-home-first-doors__btn:hover,
+.tdb-home-first-doors__btn:focus-visible {
+  border-color: color-mix(in srgb, var(--gold, #e3bc67) 55%, transparent);
+  color: var(--gold, #e3bc67);
+  outline: none;
+}
+.tdb-home-first-doors__btn:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--gold, #e3bc67) 70%, transparent);
+  outline-offset: 2px;
+}
+:root[data-theme="light"] .tdb-home-first-doors__btn:focus-visible {
+  outline-color: color-mix(in srgb, #9e7625 75%, transparent);
+}
+.tdb-home-first-doors__btn--primary {
+  border-color: color-mix(in srgb, var(--gold, #e3bc67) 42%, transparent);
+  background: color-mix(in srgb, var(--card, #1a2230) 82%, rgba(227, 188, 103, 0.12));
+  font-weight: 600;
+}
+.tdb-home-first-doors .section-note {
+  margin: 0.75rem 0 0;
+}
+.tdb-home-first-doors .tdb-offline-ready {
+  margin: 0.45rem 0 0;
+}
+.tdb-home-pickup {
+  margin: 0.85rem auto 1.15rem;
+  padding: 0.85rem 0.95rem 0.95rem;
+  max-width: 40rem;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--line, #3a4558) 78%, rgba(227, 188, 103, 0.2));
+  background: color-mix(in srgb, var(--card, #1a2230) 94%, rgba(227, 188, 103, 0.05));
+}
+.tdb-home-pickup[hidden] {
+  display: none !important;
+}
+.tdb-home-pickup .tdb-home-continue-loop-wrap {
+  margin: 0;
+}
+.tdb-home-pickup__note {
+  margin: 0.55rem 0 0;
+}
+
+/* Feel path card — one gentle plan + print + anchors */
+.tdb-feel-path-card {
+  margin: 1rem 0 0.85rem;
+  padding: 0.9rem 0.95rem 1rem;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--line, #3a4558) 80%, rgba(227, 188, 103, 0.18));
+  background: color-mix(in srgb, var(--card, #1a2230) 94%, rgba(227, 188, 103, 0.05));
+  text-align: left;
+}
+@media (max-width: 640px) {
+  #tdbFeelPathCard {
+    margin-top: 12px;
+    margin-bottom: 1rem;
+  }
+  .tdb-feel-path-card__clear {
+    margin-bottom: 0.15rem;
+  }
+}
+.tdb-feel-path-card[hidden] {
+  display: none !important;
+}
+.tdb-feel-path-card__lead {
+  margin: 0 0 0.7rem;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--text, #e8eef8);
+}
+.tdb-feel-path-card__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+.tdb-feel-path-card__btn {
+  min-height: 44px;
+  justify-content: center;
+  text-align: center;
+}
+.tdb-feel-path-card__btn:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--gold, #e3bc67) 70%, transparent);
+  outline-offset: 2px;
+}
+.tdb-feel-path-card__secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  font-size: 0.88rem;
+  color: var(--muted, #8a95a8);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+.tdb-feel-path-card__secondary:hover,
+.tdb-feel-path-card__secondary:focus-visible {
+  color: var(--gold, #e3bc67);
+  outline: none;
+}
+.tdb-feel-path-card__secondary:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--gold, #e3bc67) 70%, transparent);
+  outline-offset: 2px;
+}
+.tdb-feel-path-card__anchors {
+  margin: 0.75rem 0 0.55rem;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--muted, #8a95a8);
+}
+.tdb-feel-path-card__anchors span {
+  color: var(--text, #e8eef8);
+  white-space: nowrap;
+}
+.tdb-feel-path-card__clear {
+  margin: 0;
+  padding: 0.35rem 0;
+  min-height: 44px;
+  font-size: 0.88rem;
+  color: var(--muted, #8a95a8);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+.tdb-feel-path-card__clear:hover,
+.tdb-feel-path-card__clear:focus-visible {
+  color: var(--gold, #e3bc67);
+  outline: none;
+}
+.tdb-feel-path-card__clear:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--gold, #e3bc67) 70%, transparent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+@media (min-width: 640px) {
+  .tdb-home-first-doors__list {
+    gap: 0.65rem;
+  }
+  .tdb-feel-path-card__actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .tdb-feel-path-card__btn {
+    flex: 1 1 12rem;
+  }
+}
+
+.tdb-home-next-doors {
+  margin: 2rem 0 1.35rem;
+  padding: 1.35rem 0.85rem 0.35rem;
+  border-top: 1px solid color-mix(in srgb, var(--muted, #8a95a8) 22%, transparent);
+}
+.tdb-home-next-doors__label {
+  margin: 0 0 0.75rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted, #8a95a8);
+}
+.tdb-home-next-doors__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 0.35rem;
+  align-items: center;
+}
+.tdb-home-next-doors__list > li {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.tdb-home-next-doors__list > li:not(:last-child)::after {
+  content: "·";
+  margin-left: 0.55rem;
+  color: color-mix(in srgb, var(--muted, #8a95a8) 70%, transparent);
+}
+.tdb-home-next-doors__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.35rem 0.2rem;
+  font-size: 1rem;
+  line-height: 1.35;
+  color: var(--text, #e8eef8);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+.tdb-home-next-doors__link:hover,
+.tdb-home-next-doors__link:focus-visible {
+  color: var(--gold, #e3bc67);
+  border-bottom-color: color-mix(in srgb, var(--gold, #e3bc67) 55%, transparent);
+  outline: none;
+}
+@media (max-width: 640px) {
+  .tdb-home-next-doors {
+    margin-top: 2.35rem;
+    padding-top: 1.6rem;
+  }
+  /* VP3 stretch: dock already carries main rooms — quiet the third nav layer */
+  body:has(.tdb-bottom-dock) #tdbHomeNextDoors {
+    margin-top: 1.15rem;
+    margin-bottom: 0.55rem;
+    padding-top: 0.85rem;
+    padding-bottom: 0.15rem;
+    border-top-color: color-mix(in srgb, var(--muted, #8a95a8) 12%, transparent);
+    opacity: 0.78;
+  }
+  body:has(.tdb-bottom-dock) #tdbHomeNextDoors .tdb-home-next-doors__label {
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.35rem;
+    opacity: 0.85;
+  }
+  body:has(.tdb-bottom-dock) #tdbHomeNextDoors .tdb-home-next-doors__link {
+    min-height: 40px;
+    padding: 0.2rem 0.15rem;
+    font-size: 0.9rem;
+    color: var(--muted, #8a95a8);
+  }
+  body:has(.tdb-bottom-dock) #tdbHomeNextDoors .tdb-home-next-doors__link:hover,
+  body:has(.tdb-bottom-dock) #tdbHomeNextDoors .tdb-home-next-doors__link:focus-visible {
+    color: var(--gold, #e3bc67);
+  }
+}
+.tdb-home-verse-extras {
+  margin-top: 0.85rem;
+}
+.tdb-grace-ribbon-drawer-note {
+  margin: 0.65rem 0 0.25rem;
+  padding: 0 0.85rem 0.75rem;
+}
+
+
+/* Pass 2: feel UIs retired from homepage surface — Ask the Word only */
+#tdbHomeFastFeel,
+#tdbHomeFeelResult,
+#tdbPorchFeelDetails,
+#tdbPorchFeel {
+  display: none !important;
+}
+
+
+/* Pass 3: mid-page drawers */
+#tdbHomeMidQuietDrawer,
+#tdbHomeMorePathsMid,
+#tdbHomeLaterDetails {
+  margin: 0.85rem 0;
+}
+#tdbHomeMidQuietDrawer .tdb-home-companion-doors,
+#tdbHomeMidQuietDrawer .tdb-home-votm,
+#tdbHomeMidQuietDrawer .quiet-launch-banner {
+  margin-top: 0.85rem;
+}
+
+
+/* Pass 4: four porch drawers */
+#tdbHomeVerseExtras,
+#tdbHomePastorPlans,
+#tdbHomeLaterDetails,
+#tdbHomeFullShelf {
+  margin: 0.85rem 0;
+}
+#tdbHomeVerseExtras > summary,
+#tdbHomePastorPlans > summary,
+#tdbHomeLaterDetails > summary,
+#tdbHomeFullShelf > summary {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  cursor: pointer;
+  list-style: none;
+  min-height: 44px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+#tdbHomeVerseExtras > summary::-webkit-details-marker,
+#tdbHomePastorPlans > summary::-webkit-details-marker,
+#tdbHomeLaterDetails > summary::-webkit-details-marker,
+#tdbHomeFullShelf > summary::-webkit-details-marker {
+  display: none;
+}
+.tdb-home-shelf-section {
+  margin: 0.75rem 0 1rem;
+  padding: 0;
+}
+#tdbHomeFullShelf .tdb-home-shelf-section + .tdb-home-shelf-section {
+  border-top: 1px solid color-mix(in srgb, var(--muted, #8a95a8) 18%, transparent);
+  padding-top: 0.85rem;
+}
+
+.tdb-home-shelf-section__title {
+  margin: 0 0 0.55rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text, #e8eef8);
+}

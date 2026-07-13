@@ -766,6 +766,16 @@ body.tdb-inner-page .progress-app-inner .progress-faith-loop-section .progress-f
   color: var(--gold, #e3bc67);
   outline: none;
 }
+.message-amen-btn:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--gold, #e3bc67) 70%, transparent);
+  outline-offset: 2px;
+}
+.message-amen-btn .amen-count-quiet {
+  font-weight: 500;
+  font-size: 0.78em;
+  opacity: 0.78;
+  margin-left: 0.15em;
+}
 
 body.tdb-inner-page #reset-modal.modal-overlay {
   display: none;
@@ -1864,6 +1874,15 @@ button.download-btn:focus-visible {
 }
 .tdb-offline-strip .offline-msg {
   margin: 0;
+}
+.tdb-offline-ready {
+  margin: 0.45rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--muted, #8a95a8);
+}
+.tdb-offline-ready[hidden] {
+  display: none !important;
 }
 .tdb-soft-retry-row {
   margin: 0.45rem 0 0;
@@ -3182,6 +3201,18 @@ button.tdb-header-account-nudge__link {
   -webkit-appearance: none;
 }
 @media (max-width: 768px) {
+  /* VP2: quieter Site flyout chrome on inner pages — dock owns primary doors */
+  .tdb-primary-site-nav .tdb-nav-flyout-toggle {
+    background: transparent;
+    border-color: color-mix(in srgb, var(--line, #2a3344) 65%, transparent);
+    color: var(--muted, #a8b3c4);
+    font-weight: 550;
+  }
+  .tdb-primary-site-nav .tdb-nav-flyout-toggle:hover,
+  .tdb-primary-site-nav .tdb-nav-flyout-toggle:focus-visible {
+    color: var(--gold-soft, #e8d088);
+    background: color-mix(in srgb, var(--gold, #f4c95d) 10%, transparent);
+  }
   .tdb-primary-site-nav.tdb-global-nav .tdb-nav-flyout-toggle,
   .tdb-home-main-nav.tdb-primary-site-nav .tdb-nav-flyout-toggle {
     display: inline-flex;
@@ -7043,6 +7074,17 @@ body.has-promo-banner .app-shell { padding-top: 4.25rem; }
   padding: 0.2rem;
   color: rgba(255,255,255,0.4);
   transition: color 0.2s, transform 0.2s;
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.prayer-wall-heart:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--gold, #e3bc67) 70%, transparent);
+  outline-offset: 2px;
+  border-radius: 8px;
+  color: #f87171;
 }
 .prayer-wall-heart:hover { color: #f87171; transform: scale(1.1); }
 .prayer-wall-heart.hearted { color: #f87171; }
@@ -8639,6 +8681,40 @@ body.family-hub-deep-page .family-hub-hero.family-hub-hero--soar-dawn .section-n
 .tdb-topic-mood-page .content-inner > header.hero-banner .topic-mood-footnote,
 .tdb-topic-mood-page .content-inner > header.hero-banner .topic-mood-pair-note {
   color: #334155;
+}
+
+/* Topic CTAs — thumb-friendly stack on small phones (anxiety + peer mood pages) */
+@media (max-width: 640px) {
+  .tdb-topic-mood-page .cta-group.topic-mood-cta,
+  .tdb-topic-mood-page .cta-group.topic-related-ctas,
+  .tdb-topic-mood-page .cta-group.tdb-mobius-loop-door-actions,
+  .tdb-topic-mood-page .cta-group.tdb-mood-door-hope-cluster {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+  .tdb-topic-mood-page .cta-group.topic-mood-cta a,
+  .tdb-topic-mood-page .cta-group.topic-mood-cta button,
+  .tdb-topic-mood-page .cta-group.topic-related-ctas a,
+  .tdb-topic-mood-page .cta-group.topic-related-ctas button,
+  .tdb-topic-mood-page .cta-group.tdb-mobius-loop-door-actions a,
+  .tdb-topic-mood-page .cta-group.tdb-mobius-loop-door-actions button,
+  .tdb-topic-mood-page .cta-group.tdb-mood-door-hope-cluster a,
+  .tdb-topic-mood-page .cta-group.tdb-mood-door-hope-cluster button {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .tdb-topic-mood-page .cta-group.topic-mood-cta a.btn-secondary,
+  .tdb-topic-mood-page .cta-group.topic-related-ctas a.btn-secondary,
+  .tdb-topic-mood-page .cta-group .btn-secondary {
+    opacity: 0.85;
+    font-size: 0.95rem;
+  }
 }
 
 .pricing-page .pricing-beta-banner {
@@ -11267,6 +11343,128 @@ html[data-theme="sepia"] details.verse-breakdown[open] > .verse-breakdown-conten
   border-left: 3px solid var(--gold, #e3bc67);
   border-radius: 8px;
   background: var(--card-bg, rgba(255,255,255,0.04));
+}
+
+/* Part A — Crisis help block (forced above search results on high-risk queries) */
+.tdb-crisis-block {
+  margin: 0 0 1.1rem;
+  padding: 1.05rem 1.2rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 42%, transparent);
+  border-left: 4px solid var(--gold, #e3bc67);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--gold, #e3bc67) 8%, var(--card, rgba(255,255,255,0.04)));
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+}
+.tdb-crisis-block--compact {
+  margin: 0 0 0.9rem;
+  padding: 0.95rem 1.05rem 0.9rem;
+}
+.tdb-crisis-block__eyebrow {
+  margin: 0 0 0.25rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold, #e3bc67);
+}
+.tdb-crisis-block__title {
+  margin: 0 0 0.55rem;
+  font-size: 1.12rem;
+  font-weight: 650;
+  line-height: 1.3;
+  color: var(--text, #e2e8f0);
+}
+.tdb-crisis-block__lead {
+  margin: 0 0 0.85rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--text, #e2e8f0);
+}
+.tdb-crisis-block__actions {
+  list-style: none;
+  margin: 0 0 0.85rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.tdb-crisis-block__action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+}
+.tdb-crisis-block__primary,
+.tdb-crisis-block__secondary,
+.tdb-crisis-block__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.45rem 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+.tdb-crisis-block__primary {
+  border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 55%, transparent);
+  background: color-mix(in srgb, var(--gold, #e3bc67) 16%, transparent);
+  color: var(--gold-soft, #e8d088);
+}
+.tdb-crisis-block__secondary {
+  border: 1px solid color-mix(in srgb, var(--line, #2a3344) 80%, transparent);
+  background: color-mix(in srgb, var(--bg-soft, #1b212d) 80%, transparent);
+  color: var(--text, #e2e8f0);
+}
+.tdb-crisis-block__link {
+  border: none;
+  background: transparent;
+  color: var(--gold-soft, #d4b87a);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  min-height: 40px;
+  padding: 0.25rem 0;
+  justify-content: flex-start;
+  font-weight: 550;
+}
+.tdb-crisis-block__primary:hover,
+.tdb-crisis-block__primary:focus-visible,
+.tdb-crisis-block__secondary:hover,
+.tdb-crisis-block__secondary:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--gold, #e3bc67) 65%, transparent);
+  outline-offset: 2px;
+}
+.tdb-crisis-block__link:hover,
+.tdb-crisis-block__link:focus-visible {
+  color: var(--gold, #e3bc67);
+  outline: 2px solid color-mix(in srgb, var(--gold, #e3bc67) 55%, transparent);
+  outline-offset: 2px;
+}
+.tdb-crisis-block__hint {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--muted, #a8b3c4);
+}
+.tdb-crisis-block__note {
+  margin: 0 0 0.45rem;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--muted, #a8b3c4);
+}
+.tdb-crisis-block__whisper {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--gold-soft, #d4b87a);
+}
+:root[data-theme="light"] .tdb-crisis-block,
+:root[data-theme="daylight"] .tdb-crisis-block,
+:root[data-theme="parchment"] .tdb-crisis-block {
+  background: color-mix(in srgb, var(--gold, #c9a84c) 10%, var(--card, #f8f9fc));
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
 }
 .tdb-biblical-answer--compact {
   padding: 0.9rem 1.1rem 0.85rem;
@@ -14654,6 +14852,57 @@ button.family-armor-stories-btn {
 .prayer-echo-amen-wrap { flex-shrink: 0; }
 .prayer-echo-amen { font-size: 0.85rem; padding: 0 0.25rem; }
 .prayer-echo-amen-count { font-size: 0.85rem; opacity: 0.9; }
+.tdb-continue-surface {
+  margin: 0.85rem 0 0.35rem;
+  padding: 0.85rem 0.95rem 0.95rem;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--line, #3a4558) 82%, var(--gold, #e3bc67) 16%);
+  background: color-mix(in srgb, var(--card, #161c26) 94%, rgba(227, 188, 103, 0.06));
+  text-align: left;
+}
+.tdb-continue-surface[hidden] {
+  display: none !important;
+}
+.tdb-continue-surface__eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--muted, #8a95a8) 88%, var(--gold, #e3bc67) 12%);
+}
+.tdb-continue-surface__link {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.35rem 0.15rem;
+  color: var(--gold-soft, #d4b87a);
+  text-decoration: none;
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.tdb-continue-surface__link:hover,
+.tdb-continue-surface__link:focus-visible {
+  color: var(--gold, #e3bc67);
+  outline: none;
+}
+.tdb-continue-surface__link:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--gold, #e3bc67) 70%, transparent);
+  outline-offset: 2px;
+  box-shadow: none;
+  border-radius: 6px;
+}
+.tdb-continue-surface__note {
+  margin: 0.25rem 0 0;
+  font-size: 0.85rem;
+}
+@media (max-width: 640px) {
+  .tdb-continue-surface__link {
+    min-height: 44px;
+  }
+}
+
 .prayer-choice-guide,
 .prayer-queue-card,
 .prayer-verse-echo-card,
@@ -14663,6 +14912,40 @@ button.family-armor-stories-btn {
   border-radius: 14px;
   border: 1px solid rgba(148, 163, 184, 0.22);
   background: rgba(2, 6, 23, 0.2);
+}
+.prayer-choice-guide {
+  border-color: color-mix(in srgb, var(--gold, #e3bc67) 28%, rgba(148, 163, 184, 0.22));
+  background: color-mix(in srgb, rgba(2, 6, 23, 0.28) 88%, rgba(227, 188, 103, 0.08));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--gold, #e3bc67) 12%, transparent);
+}
+.prayer-choice-guide .section-divider {
+  color: color-mix(in srgb, var(--gold, #e3bc67) 82%, var(--text, #e8ecf4));
+}
+.prayer-privacy-note {
+  margin: 0.35rem 0 0.65rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: color-mix(in srgb, var(--gold-soft, #d4b87a) 70%, var(--muted, #8896b0));
+}
+.prayer-private-prompt {
+  margin: 0.35rem 0 0.75rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--line, #3a4558) 85%, var(--gold, #e3bc67) 12%);
+  background: color-mix(in srgb, var(--card, #161c26) 94%, rgba(227, 188, 103, 0.05));
+}
+.prayer-private-prompt__lead {
+  margin: 0 0 0.55rem;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--text, #e8ecf4);
+}
+.prayer-private-prompt__btn {
+  width: 100%;
+  justify-content: center;
+}
+.prayer-private-prompt[data-used="1"] .prayer-private-prompt__btn[hidden] {
+  display: none !important;
 }
 .prayer-choice-guide .section-divider,
 .prayer-queue-card .section-divider,
@@ -14855,6 +15138,50 @@ body.prayer-wall-page .prayer-wall-item.prayer-wall-top {
 .silent-amen-wrap { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.75rem; flex-wrap: wrap; }
 .btn-silent-amen { display: inline-flex; align-items: center; gap: 0.35rem; background: rgba(212, 175, 55, 0.15); border: 1px solid var(--elite-gold-dim); color: var(--elite-gold-solid); padding: 0.4rem 0.75rem; border-radius: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer; }
 .btn-silent-amen:hover { box-shadow: 0 0 12px var(--elite-gold-dim); border-color: var(--elite-gold); }
+.silent-amen-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.55rem 1rem;
+  margin: 0.65rem 0 0.25rem;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 35%, transparent);
+  background: color-mix(in srgb, var(--gold, #e3bc67) 10%, transparent);
+  color: var(--gold-soft, #d4b87a);
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.silent-amen-btn:hover,
+.silent-amen-btn:focus-visible {
+  border-color: color-mix(in srgb, var(--gold, #e3bc67) 55%, transparent);
+  color: var(--gold, #e3bc67);
+  outline: none;
+}
+.silent-amen-btn:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--gold, #e3bc67) 70%, transparent);
+  outline-offset: 2px;
+}
+.prayer-private-prompt__btn:focus-visible,
+#prayer-private-template-btn:focus-visible,
+#loop-prayer-use-btn:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--gold, #e3bc67) 70%, transparent);
+  outline-offset: 2px;
+}
+@media (max-width: 640px) {
+  .message-amen-btn,
+  .prayer-private-prompt__btn,
+  #prayer-private-template-btn,
+  #loop-prayer-use-btn,
+  .silent-amen-btn {
+    min-height: 44px;
+  }
+  .prayer-wall-heart {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
 .silent-amen-count { font-size: 0.9rem; color: var(--elite-gold-solid); margin-left: 0.25rem; }
 .silent-amens-badge { display: inline-flex; align-items: center; padding: 0.25rem 0.5rem; border-radius: 6px; border: 1px solid var(--elite-gold-dim); color: var(--elite-gold-solid); font-size: 0.8rem; font-weight: 600; }
 .silent-amens-badge.hidden { display: none; }

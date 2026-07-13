@@ -4,7 +4,7 @@
 <head>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js?v=20260709-ba-discover"></script>
+  <script src="/tt-bootstrap.js?v=20260709-wave4"></script>
   <!-- tdb-cache-hygiene: _headers no-cache /plans (+ /plans); purge SOCIAL_PURGE_PATHS; bump service-worker CACHE_NAME if edge/PWA stale -->
 
   <!-- GA4 lazy-loaded after interaction -->
@@ -42,8 +42,8 @@
   </script>
   <link rel="preload" href="/plans-data.js" as="script" fetchpriority="low">
   <!-- Full stylesheet: no print/onload unlock (CSP blocks inline handlers; preload still warms the fetch). -->
-  <link rel="preload" href="styles.css?v=20260709-ba-discover" as="style" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=20260709-ba-discover" media="all">
+  <link rel="preload" href="styles.css?v=20260709-wave4" as="style" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css?v=20260709-wave4" media="all">
   <link rel="preload" href="tdb-visual-tokens.css?v=20260521-discover-b" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260521-discover-b">
   <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
@@ -1100,6 +1100,12 @@
       flex-shrink: 0;
     }
     .day-pill:hover { border-color: var(--gold); color: var(--gold); }
+    .day-pill:focus-visible {
+      border-color: var(--gold);
+      color: var(--gold);
+      outline: 3px solid color-mix(in srgb, var(--gold) 55%, transparent);
+      outline-offset: 2px;
+    }
     .day-pill.current {
       border-color: var(--gold); color: var(--gold);
       box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 18%, transparent);
@@ -1549,32 +1555,173 @@
       margin-right: 0.35rem;
     }
 
-    /* Action row */
-    .day-actions { display: flex; gap: 0.65rem; flex-wrap: wrap; align-items: center; }
+    /* Action row — BP1: one clear primary (Mark Complete) */
+    .day-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      align-items: stretch;
+      margin-top: 0.35rem;
+    }
+    .day-actions__primary {
+      display: flex;
+      width: 100%;
+    }
     .btn-complete {
-      flex: 1; min-width: 140px;
+      flex: 1;
+      min-width: 140px;
+      min-height: 48px;
       background: linear-gradient(135deg, var(--gold-soft), var(--gold));
       color: #1a1000; font-weight: 800;
       border: none; border-radius: 12px;
-      padding: 0.75rem 1.25rem; font-size: 0.95rem;
+      padding: 0.85rem 1.35rem; font-size: 1rem;
       cursor: pointer; transition: opacity 0.15s, transform 0.1s;
+      box-shadow: 0 6px 18px color-mix(in srgb, var(--gold, #e3bc67) 28%, transparent);
     }
-    .btn-complete:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-complete:hover { opacity: 0.92; transform: translateY(-1px); }
     .btn-complete:active { transform: translateY(0); }
+    .btn-complete:focus-visible {
+      outline: 2px solid color-mix(in srgb, var(--gold, #e3bc67) 70%, transparent);
+      outline-offset: 3px;
+    }
     @media (prefers-reduced-motion: reduce) {
       .btn-complete:hover, .btn-complete:active { transform: none; }
     }
     .btn-complete.done {
       background: color-mix(in srgb, var(--green) 18%, var(--card));
       color: var(--green); border: 1px solid var(--green);
+      box-shadow: none;
+    }
+    .day-actions__more {
+      margin: 0;
+      border: 0;
+      background: transparent;
+    }
+    .day-actions__more > summary {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      min-height: 44px;
+      padding: 0.2rem 0.1rem;
+      font-size: 0.88rem;
+      font-weight: 550;
+      color: var(--muted, #8a95a8);
+      cursor: pointer;
+    }
+    .day-actions__more > summary::-webkit-details-marker { display: none; }
+    .day-actions__more > summary::after {
+      content: '';
+      margin-left: auto;
+      width: 0.4rem;
+      height: 0.4rem;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(45deg);
+      opacity: 0.75;
+    }
+    .day-actions__more[open] > summary::after {
+      transform: rotate(-135deg);
+      margin-top: 0.1rem;
+    }
+    .day-actions__secondary {
+      display: flex;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+      align-items: center;
+      padding-top: 0.25rem;
     }
     .btn-read-aloud, .btn-share {
       background: none; border: 1px solid var(--line);
       color: var(--muted); border-radius: 12px;
       padding: 0.75rem 1rem; font-size: 0.85rem;
+      min-height: 44px;
       cursor: pointer; transition: color 0.15s, border-color 0.15s;
     }
     .btn-read-aloud:hover, .btn-share:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* Mobile thumb zone — day Listen, day chips, quieter list, filter scroll */
+    @media (max-width: 640px) {
+      .day-actions__primary {
+        flex-direction: column;
+        gap: 0.55rem;
+        width: 100%;
+      }
+      .day-actions__primary .btn-read-aloud,
+      .day-actions__primary .btn-complete {
+        width: 100%;
+        min-width: 0;
+      }
+      .btn-read-aloud {
+        min-height: 48px;
+        padding: 12px 16px;
+        font-size: 1rem;
+      }
+      .day-actions__secondary .btn-share {
+        min-height: 44px;
+        width: 100%;
+      }
+      .day-actions__more > summary {
+        min-height: 48px;
+        padding: 10px 14px;
+      }
+      .day-pills {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 6px;
+        padding-bottom: 4px;
+        margin-bottom: 1.25rem;
+      }
+      .day-pill {
+        min-width: 44px;
+        min-height: 44px;
+        width: 44px;
+        height: 44px;
+        scroll-snap-align: start;
+      }
+      .plan-row {
+        padding: 14px 12px;
+      }
+      .plan-row .plan-best-for,
+      .plan-row .plan-pace {
+        margin-top: 4px;
+        font-size: 0.9rem;
+        line-height: 1.3;
+      }
+      .plan-row-icon {
+        font-size: 1.15rem;
+        line-height: 1;
+        flex-shrink: 0;
+      }
+      #plansBrowseMore[open] > .plans-browse-more__inner {
+        max-height: 240px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-right: 2px;
+      }
+      .plans-plan-filter-bar {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: 6px;
+        padding-bottom: 4px;
+      }
+      .plans-plan-filter-chip {
+        flex-shrink: 0;
+        min-height: 44px;
+      }
+    }
+
+    .plans-browse-more {
+      margin: 0.65rem 0 1rem;
+    }
+    .plans-browse-more__inner {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
 
     /* Streak badge */
     .streak-banner {
@@ -1891,6 +2038,227 @@
       pointer-events: none; z-index: 100; white-space: nowrap;
     }
     .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    .plans-heavy-week-packs {
+      margin: 1.15rem 0 1rem;
+      padding: 1rem 1.05rem 1.1rem;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--line, #30363d) 88%, var(--gold, #e3bc67) 12%);
+      background: color-mix(in srgb, var(--card, #161c26) 96%, rgba(227, 188, 103, 0.04));
+    }
+    .plans-heavy-week-packs h2,
+    #plans-heavy-week-packs-h {
+      margin: 0 0 0.35rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text, #e6edf3);
+      letter-spacing: 0.01em;
+    }
+    .plans-heavy-week-packs__lead {
+      margin: 0 0 0.85rem;
+      font-size: 0.9rem;
+      line-height: 1.45;
+      color: var(--muted, #8b949e);
+    }
+    .heavy-pack-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .heavy-pack {
+      margin: 0;
+      border: 1px solid color-mix(in srgb, var(--line, #30363d) 85%, transparent);
+      border-radius: 12px;
+      background: color-mix(in srgb, var(--card, #161c26) 92%, transparent);
+    }
+    .heavy-pack > summary {
+      list-style: none;
+      cursor: pointer;
+      min-height: 44px;
+      padding: 0.7rem 0.9rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text, #e6edf3);
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      border-radius: 12px;
+    }
+    .heavy-pack > summary:focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--gold, #e3bc67) 55%, transparent);
+      outline-offset: 2px;
+    }
+    .heavy-pack > summary::-webkit-details-marker { display: none; }
+    .heavy-pack > summary::after {
+      content: '';
+      margin-left: auto;
+      width: 0.4rem;
+      height: 0.4rem;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(45deg);
+      opacity: 0.7;
+      flex-shrink: 0;
+    }
+    .heavy-pack[open] > summary::after {
+      transform: rotate(-135deg);
+      margin-top: 0.15rem;
+    }
+    .heavy-pack__doors {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 0 0.9rem 0.9rem;
+    }
+    .heavy-pack__door {
+      display: flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0.55rem 0.75rem;
+      border-radius: 10px;
+      border: 1px solid color-mix(in srgb, var(--line, #30363d) 80%, var(--gold, #e3bc67) 16%);
+      background: color-mix(in srgb, var(--card, #161c26) 88%, rgba(227, 188, 103, 0.05));
+      color: var(--gold-soft, #d4b56a);
+      text-decoration: none;
+      font-size: 0.9rem;
+      line-height: 1.35;
+      box-sizing: border-box;
+    }
+    .heavy-pack__door:hover,
+    .heavy-pack__door:focus-visible {
+      color: var(--gold, #e3bc67);
+      border-color: color-mix(in srgb, var(--gold, #e3bc67) 45%, var(--line, #30363d));
+      outline: none;
+    }
+    .heavy-pack__door:focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--gold, #e3bc67) 65%, transparent);
+      outline-offset: 2px;
+    }
+    .plans-heavy-week-packs .section-note {
+      margin: 0.85rem 0 0;
+    }
+    .plans-heavy-week-packs .section-note a {
+      color: var(--gold-soft, #d4b56a);
+    }
+    @media (max-width: 640px) {
+      .heavy-pack__door {
+        min-height: 44px;
+        padding: 0.65rem 0.8rem;
+      }
+    }
+
+    .plans-short-paths {
+      margin: 1.25rem 0 1.5rem;
+      padding: 1.05rem 1.1rem 1.15rem;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--line, #30363d) 80%, var(--gold, #e3bc67) 18%);
+      background: color-mix(in srgb, var(--card, #161c26) 93%, rgba(227, 188, 103, 0.06));
+    }
+    .plans-short-paths h2,
+    #plans-short-paths-h {
+      margin: 0 0 0.35rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text, #e6edf3);
+      letter-spacing: 0.01em;
+    }
+    .plans-short-paths__lead {
+      margin: 0 0 0.85rem;
+      font-size: 0.9rem;
+      line-height: 1.45;
+      color: var(--muted, #8b949e);
+    }
+    .plans-continue-line {
+      margin: 0 0 0.75rem;
+      font-size: 0.9rem;
+      line-height: 1.45;
+      color: var(--text, #e6edf3);
+    }
+    .plans-continue-line[hidden] {
+      display: none !important;
+    }
+    .plans-continue-line a {
+      color: var(--gold, #e3bc67);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
+    }
+    .plans-short-paths .tdb-offline-ready {
+      margin: -0.35rem 0 0.85rem;
+    }
+    .plans-short-paths__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.55rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) {
+      .plans-short-paths__list {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .plan-short-card {
+      margin: 0;
+      padding: 0;
+    }
+    .plan-short-card__link {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 0.2rem;
+      min-height: 44px;
+      padding: 0.7rem 0.85rem;
+      border-radius: 10px;
+      border: 1px solid color-mix(in srgb, var(--line, #30363d) 88%, transparent);
+      background: color-mix(in srgb, var(--card, #161c26) 96%, #1a2332);
+      color: var(--text, #e6edf3);
+      text-decoration: none;
+      box-sizing: border-box;
+    }
+    .plan-short-card__link:hover,
+    .plan-short-card__link:focus-visible {
+      border-color: color-mix(in srgb, var(--gold, #e3bc67) 55%, transparent);
+      outline: none;
+    }
+    .plan-short-card__link:focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--gold, #e3bc67) 55%, transparent);
+      outline-offset: 2px;
+    }
+    .plan-short-card__title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+    .plan-short-card__meta {
+      font-size: 0.78rem;
+      line-height: 1.35;
+      color: var(--muted, #8b949e);
+    }
+    #plans-still-in-the-works {
+      margin: 0.85rem 0 0;
+    }
+    .plan-best-for {
+      margin: 0.35rem 0 0;
+      font-size: 0.8rem;
+      line-height: 1.4;
+      color: color-mix(in srgb, var(--gold, #e3bc67) 72%, var(--muted, #8b949e));
+    }
+    .plan-pace {
+      display: inline-block;
+      margin-top: 0.25rem;
+      font-size: 0.75rem;
+      line-height: 1.35;
+      color: var(--muted, #8b949e);
+    }
+    .plan-row-info .plan-pace {
+      margin-top: 0.2rem;
+    }
+    .plan-row .plan-best-for + .plan-pace {
+      margin-top: 3px;
+    }
 
     .plans-editorial-picks {
       margin-bottom: 1.35rem;
@@ -2301,8 +2669,9 @@
     </button>
     <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-standalone">
       <a href="/">Home</a>
-      <a href="/#feel-section">How I Feel</a>
+      <a href="/#feel-section">Ask the Word</a>
       <a href="/plans.html" id="nav-browse-curriculum" aria-label="Battle Plans — KJV tracks for hard weeks and quiet seasons">Battle Plans</a>
+      <a href="/calm.html" aria-label="Calm — one steady KJV verse when the moment is heavy">Calm</a>
       <a href="/mystudy">My Study</a>
       <a href="/family.html" aria-label="Family hub — verse, plans, printables">Family &amp; Kids</a>
       <a href="/explore.html">Explore</a>
@@ -2317,7 +2686,6 @@
               <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read the Bible</a>
               <a href="/memorize.html">Memorize</a>
               <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
-              <a href="/calm.html">Calm</a>
             </div>
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">Plans &amp; Journey</span>
@@ -2360,6 +2728,7 @@
   </div>
   <div id="tdb-offline-strip" class="tdb-offline-strip hidden" role="status" aria-live="polite" data-tdb-offline-page="plans"><p class="offline-msg"></p></div>
   <script nonce="tdb2025s">(function(){try{if(localStorage.getItem('tdb_plans_quiet_update_dismiss')==='2026-05-11-plans')document.documentElement.classList.add('tdb-plans-quiet-update-dismissed');}catch(e){}})();</script>
+  <script nonce="tdb2025s">(function(){function openBrowseMoreForHash(){try{var id=(location.hash||'').replace(/^#/,'');if(!id)return;var el=document.getElementById(id);var wrap=document.getElementById('plansBrowseMore');if(!el||!wrap||!wrap.contains(el))return;wrap.open=true;}catch(e){}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',openBrowseMoreForHash);else openBrowseMoreForHash();window.addEventListener('hashchange',openBrowseMoreForHash);})();</script>
   <div id="plans-quiet-update" class="tdb-quiet-update-strip tdb-quiet-update-strip--plans" data-tdb-plans-quiet-version="2026-05-11-plans" role="status" aria-live="polite">
     <p class="tdb-quiet-update-strip__text">Update: these are KJV Battle Plans.</p>
     <button type="button" class="tdb-quiet-update-strip__dismiss" id="plans-quiet-update-dismiss" aria-label="Dismiss this update">✕</button>
@@ -2407,20 +2776,137 @@
           <li><a href="#plan-row-overwhelmedburnout">Too much</a></li>
           <li><a href="#plan-row-selfworth">Worth &amp; identity</a></li>
         </ul>
-        <p class="plans-situation-jump__more section-note" role="note">Still scanning? <a href="#plans-browse-by-feeling">More by feeling</a> &middot; <a href="#plans-start-here-title">Start here</a> &middot; <a href="index.html#feel-section">How I feel (home)</a></p>
+        <p class="plans-situation-jump__more section-note" role="note">Still scanning? <a href="#plans-browse-by-feeling">More by feeling</a> &middot; <a href="#plans-start-here-title">Start here</a> &middot; <a href="index.html#feel-section">Ask the Word (home)</a></p>
+      </section>
+
+      <section id="plans-heavy-week-packs" class="plans-heavy-week-packs" aria-labelledby="plans-heavy-week-packs-h">
+        <h2 id="plans-heavy-week-packs-h">Heavy week packs</h2>
+        <p class="plans-heavy-week-packs__lead">
+          Three quiet doors when the week feels heavy. Open one. Leave the rest.
+        </p>
+        <div class="heavy-pack-list">
+          <details class="heavy-pack">
+            <summary>When worry won&rsquo;t quiet</summary>
+            <div class="heavy-pack__doors">
+              <a href="calm.html" class="heavy-pack__door">Right now &mdash; Calm</a>
+              <a href="plans.html?plan=worrytrust" class="heavy-pack__door">This week &mdash; Worry to Trust</a>
+              <a href="life-lessons/anxious-for-nothing-peace-of-god-print.html" class="heavy-pack__door">Off-screen &mdash; One page to print</a>
+            </div>
+          </details>
+          <details class="heavy-pack">
+            <summary>When fear is loud</summary>
+            <div class="heavy-pack__doors">
+              <a href="calm.html" class="heavy-pack__door">Right now &mdash; Calm</a>
+              <a href="plans.html?plan=fearpressesin" class="heavy-pack__door">This week &mdash; When Fear Presses In</a>
+              <a href="topic-fear.html" class="heavy-pack__door">Off-screen &mdash; Fear topic page</a>
+            </div>
+          </details>
+          <details class="heavy-pack">
+            <summary>When grief is heavy</summary>
+            <div class="heavy-pack__doors">
+              <a href="calm.html" class="heavy-pack__door">Right now &mdash; Calm</a>
+              <a href="plans.html?plan=griefhope" class="heavy-pack__door">This week &mdash; Grief to Hope</a>
+              <a href="topic-grief.html" class="heavy-pack__door">Off-screen &mdash; Grief topic page</a>
+            </div>
+          </details>
+          <details class="heavy-pack">
+            <summary>When everything lands at once</summary>
+            <div class="heavy-pack__doors">
+              <a href="calm.html" class="heavy-pack__door">Right now &mdash; Calm</a>
+              <a href="plans.html?plan=overwhelmedburnout" class="heavy-pack__door">This week &mdash; Overwhelmed / Burnout</a>
+              <a href="university-overwhelm-one-page-print.html" class="heavy-pack__door">Off-screen &mdash; One page to print</a>
+            </div>
+          </details>
+          <details class="heavy-pack">
+            <summary>When parenting has worn you thin</summary>
+            <div class="heavy-pack__doors">
+              <a href="calm.html" class="heavy-pack__door">Right now &mdash; Calm</a>
+              <a href="plans.html?plan=parentweary" class="heavy-pack__door">This week &mdash; Parent Weary</a>
+              <a href="university-at-the-table-print.html" class="heavy-pack__door">Off-screen &mdash; Family table print</a>
+            </div>
+          </details>
+        </div>
+        <p class="section-note">
+          These point to what already exists. The <a href="emergency-calm-pack.html">7-day Emergency Calm Pack</a> remains the quickest acute door.
+        </p>
+      </section>
+
+      <section class="plans-short-paths" id="plans-short-paths-heavy-weeks" aria-labelledby="plans-short-paths-h">
+        <p class="plans-continue-line" id="plansContinueLine" hidden>
+          Continue: <a id="plansContinueLineLink" href="plans.html">a quiet plan</a>
+        </p>
+        <h2 id="plans-short-paths-h">Short paths for heavy weeks</h2>
+        <p class="plans-short-paths__lead">
+          Five to seven quiet days. Start any day. No catch-up.
+        </p>
+        <p class="tdb-offline-ready" role="note">Works offline after you&rsquo;ve opened it once on this device.</p>
+        <ul class="plans-short-paths__list">
+          <li class="plan-short-card">
+            <a href="plans.html?plan=worrytrust" class="plan-short-card__link">
+              <span class="plan-short-card__title">When worry won&rsquo;t quiet</span>
+              <span class="plan-short-card__meta">7 days · one verse a day</span>
+            </a>
+          </li>
+          <li class="plan-short-card">
+            <a href="plans.html?plan=fearpressesin" class="plan-short-card__link">
+              <span class="plan-short-card__title">When fear is loud</span>
+              <span class="plan-short-card__meta">5–7 days · quiet pace</span>
+            </a>
+          </li>
+          <li class="plan-short-card">
+            <a href="plans.html?plan=peace" class="plan-short-card__link">
+              <span class="plan-short-card__title">When you need a quieter pace</span>
+              <span class="plan-short-card__meta">7 days</span>
+            </a>
+          </li>
+          <li class="plan-short-card">
+            <a href="plans.html?plan=griefhope" class="plan-short-card__link">
+              <span class="plan-short-card__title">When grief is heavy</span>
+              <span class="plan-short-card__meta">7 days</span>
+            </a>
+          </li>
+          <li class="plan-short-card">
+            <a href="plans.html?plan=overwhelmedburnout" class="plan-short-card__link">
+              <span class="plan-short-card__title">When everything lands at once</span>
+              <span class="plan-short-card__meta">7 days</span>
+            </a>
+          </li>
+          <li class="plan-short-card">
+            <a href="plans.html?plan=parentweary" class="plan-short-card__link">
+              <span class="plan-short-card__title">When parenting has worn you thin</span>
+              <span class="plan-short-card__meta">Short lane</span>
+            </a>
+          </li>
+          <li class="plan-short-card">
+            <a href="plans.html?plan=roadtosalvation" class="plan-short-card__link">
+              <span class="plan-short-card__title">Brand-new to faith</span>
+              <span class="plan-short-card__meta">5 days</span>
+            </a>
+          </li>
+          <li class="plan-short-card">
+            <a href="plans.html?plan=comeuntome" class="plan-short-card__link">
+              <span class="plan-short-card__title">When even a &ldquo;plan&rdquo; feels like too much</span>
+              <span class="plan-short-card__meta">5 days · very gentle</span>
+            </a>
+          </li>
+        </ul>
+        <p class="section-note" id="plans-still-in-the-works" role="note">
+          Still in the works: a few longer lanes are being written slowly.
+          Everything linked above is ready today.
+        </p>
       </section>
 
       <nav class="tdb-core-seven tdb-quiet-container" aria-labelledby="plans-core-seven-label">
-        <p class="tdb-core-seven__label" id="plans-core-seven-label">Seven calm doors</p>
+        <p class="tdb-core-seven__label" id="plans-core-seven-label">Main doors</p>
         <ul class="tdb-core-seven__grid">
-          <li><a class="tdb-core-seven__link" href="/"><span>Today&rsquo;s verse</span><span class="tdb-core-seven__desc">Read or listen</span></a></li>
-          <li><a class="tdb-core-seven__link" href="/#feel-section"><span>How I feel</span><span class="tdb-core-seven__desc">Ask the Word</span></a></li>
+          <li><a class="tdb-core-seven__link" href="/"><span>Home</span><span class="tdb-core-seven__desc">Today&rsquo;s verse</span></a></li>
+          <li><a class="tdb-core-seven__link" href="/#feel-section"><span>Ask the Word</span><span class="tdb-core-seven__desc">Feelings &amp; questions</span></a></li>
           <li><a class="tdb-core-seven__link" href="/plans.html" aria-current="page"><span>Battle Plans</span><span class="tdb-core-seven__desc">You are here</span></a></li>
-          <li><a class="tdb-core-seven__link" href="/mystudy"><span>My Study</span><span class="tdb-core-seven__desc">Saved on device</span></a></li>
+          <li><a class="tdb-core-seven__link" href="/calm.html"><span>Calm</span><span class="tdb-core-seven__desc">One verse now</span></a></li>
           <li><a class="tdb-core-seven__link" href="/family.html"><span>Family &amp; Kids</span><span class="tdb-core-seven__desc">Table &amp; stories</span></a></li>
           <li><a class="tdb-core-seven__link" href="/explore.html#start-here"><span>Explore</span><span class="tdb-core-seven__desc">Full site map</span></a></li>
+          <li><a class="tdb-core-seven__link" href="/mystudy"><span>My Study</span><span class="tdb-core-seven__desc">Saved on device</span></a></li>
           <li><a class="tdb-core-seven__link" href="/church-hub.html"><span>Pastors</span><span class="tdb-core-seven__desc">Sermon &amp; church tools</span></a></li>
-          <li><a class="tdb-core-seven__link" href="/calm.html"><span>Calm</span><span class="tdb-core-seven__desc">One verse now</span></a></li>
         </ul>
       </nav>
 
@@ -2472,112 +2958,118 @@
         <a class="plans-plan-filter-chip" href="#plans-anchor-school-year">School year</a>
         <a class="plans-plan-filter-chip" href="#plans-anchor-summer-spine">Summer</a>
       </nav>
-      <nav class="plans-plan-filter-bar plans-plan-filter-bar--secondary" aria-label="Browse plans by feel, length, and calm doorways">
-        <span class="plans-plan-filter-label">By feel &amp; length</span>
-        <a class="plans-plan-filter-chip" href="#plans-editorial-picks">Hand-picked</a>
-        <a class="plans-plan-filter-chip" href="#plans-lane-grief">Grief</a>
-        <a class="plans-plan-filter-chip" href="#plans-lane-fear">Fear &amp; worry</a>
-        <a class="plans-plan-filter-chip" href="#plans-lane-pain">Pain &amp; trials</a>
-        <a class="plans-plan-filter-chip" href="#plans-lane-family">Family</a>
-        <a class="plans-plan-filter-chip" href="index.html#feel-section">Homepage topics</a>
-        <a class="plans-plan-filter-chip" href="sos.html">When now is too much</a>
-        <a class="plans-plan-filter-chip" href="calm.html">Calm room</a>
-      </nav>
-      <div id="plans-browse-by-feeling" class="plans-browse-feeling-skip" tabindex="-1">
-      <nav class="plans-plan-filter-bar plans-plan-filter-bar--quaternary" aria-label="Open a course by how you feel right now">
-        <span class="plans-plan-filter-label">By feeling</span>
-        <a class="plans-plan-filter-chip" href="plans.html?plan=fearfaith" title="When fear is loud">Fear is loud</a>
-        <a class="plans-plan-filter-chip" href="plans.html?plan=worrytrust" title="When the mind will not stop">Mind won&rsquo;t stop</a>
-        <a class="plans-plan-filter-chip" href="plans.html?plan=anxiety7" title="When anxiety sits on your chest">Anxiety plan</a>
-        <a class="plans-plan-filter-chip" href="plans.html?plan=universityexhaustion" title="When body and soul are weary">Weary</a>
-        <a class="plans-plan-filter-chip" href="plans.html?plan=universityanger" title="When anger rises">Anger rises</a>
-        <a class="plans-plan-filter-chip" href="plans.html?plan=griefhope" title="When grief is heavy">Grief is heavy</a>
-        <a class="plans-plan-filter-chip" href="plans.html?plan=universityregret" title="When yesterday replays">Replay yesterday</a>
-        <a class="plans-plan-filter-chip" href="plans.html?plan=universitycontentment" title="When ordinary days weigh more than they ought">Small seasons</a>
-        <a class="plans-plan-filter-chip" href="plans.html?plan=universityoverwhelm" title="When everything lands at once">Too much at once</a>
-        <a class="plans-plan-filter-chip" href="plans.html?plan=universityparentfear" title="When love for kids runs ahead into fear">Fear for kids</a>
-        <a class="plans-plan-filter-chip" href="plans.html?plan=peace" title="When you need a quiet pace">Need quiet</a>
-        <a class="plans-plan-filter-chip" href="plans.html?plan=heavyhope" title="The University of Depression &amp; Hopelessness">Depression &amp; hope</a>
-        <a class="plans-plan-filter-chip" href="plans.html?plan=heartalone" title="When the heart feels alone">Heart alone</a>
-        <a class="plans-plan-filter-chip" href="plans.html?plan=guiltshame" title="Guilt and shame">Guilt &amp; shame</a>
-        <a class="plans-plan-filter-chip" href="plans.html?plan=overwhelmedburnout" title="Overwhelmed or burnt out">Too much</a>
-        <a class="plans-plan-filter-chip" href="plans.html?plan=longheavydays" title="When the days feel long and heavy">Long heavy days</a>
-        <a class="plans-plan-filter-chip" href="plans.html?plan=selfworth" title="Worth and identity">Worth &amp; identity</a>
-      </nav>
-      </div>
-      <nav class="plans-plan-filter-bar plans-plan-filter-bar--tertiary" aria-label="Jump to plans by season of the year">
-        <span class="plans-plan-filter-label">By season</span>
-        <a class="plans-plan-filter-chip" href="#plans-browse-winter">Winter</a>
-        <a class="plans-plan-filter-chip" href="#plans-browse-spring">Spring</a>
-        <a class="plans-plan-filter-chip" href="#plans-browse-summer">Summer</a>
-        <a class="plans-plan-filter-chip" href="#plans-browse-fall">Fall</a>
-      </nav>
-      <section class="plans-browse-by-season" id="plans-browse-by-season" aria-labelledby="plans-browse-season-h">
-        <h2 class="plans-browse-by-season__h" id="plans-browse-season-h">Browse by season</h2>
-        <p class="plans-browse-by-season__lead">A soft map&mdash;not every plan, just calm doorways that match the light outside. The full list stays below; <a class="plans-browse-by-season__link" href="#all-plans">every plan</a> is still here.</p>
-        <div class="plans-browse-by-season__grid">
-          <div class="plans-browse-by-season__col" id="plans-browse-winter" tabindex="-1">
-            <h3>Winter (Dec&ndash;Feb)</h3>
-            <ul>
-              <li><a href="plans.html?plan=latefallwinter">Late fall, quiet winter</a> &mdash; when light thins before the noise</li>
-              <li><a href="plans.html?plan=winterwaiting">Winter Waiting</a> (five days)</li>
-              <li><a href="advent-christmas-university.html">Advent &amp; Christmas hub</a> &mdash; one room for the weeks</li>
-              <li><a href="plans.html?plan=adventbridge">Quiet Advent Bridge</a> &mdash; five days into Advent Quiet</li>
-              <li><a href="plans.html?plan=adventquiet">Advent Quiet</a></li>
-              <li><a href="plans.html?plan=christmas7">Christmas Week &mdash; Christ the Light</a></li>
-              <li><a href="plans.html?plan=newyear7">New Year week</a> &amp; <a href="plans.html?plan=gentleyear">Gentle New Year reset</a></li>
-            </ul>
-          </div>
-          <div class="plans-browse-by-season__col" id="plans-browse-spring" tabindex="-1">
-            <h3>Spring (Mar&ndash;May)</h3>
-            <ul>
-              <li><a href="he-is-risen.html">He is risen</a> &mdash; readings anytime</li>
-              <li><a href="plans.html?plan=easter">Resurrection Hope</a> (7 days)</li>
-              <li><a href="plans.html?plan=aftereaster">After Easter: quiet Mondays</a></li>
-              <li><a href="plans.html?plan=springhopemud">Spring Hope in the Mud</a> (five days)</li>
-              <li><a href="plans.html?plan=firststeps">New Believer &mdash; First Steps</a> (14 days)</li>
-              <li><a href="plans.html?plan=identityinchrist">Who God says you are</a> (7 days)</li>
-            </ul>
-          </div>
-          <div class="plans-browse-by-season__col" id="plans-browse-summer" tabindex="-1">
-            <h3>Summer (Jun&ndash;Aug)</h3>
-            <ul>
-              <li><a href="plans.html?plan=summerstill">Summer stillness</a></li>
-              <li><a href="plans.html?plan=summer-seeds">Summer Seeds for Kids</a> (8 weeks)</li>
-              <li><a href="plans.html?plan=latesummerrest">Late summer, early rest</a> (bridge)</li>
-              <li><a href="plans.html?plan=latesummergentle">Late Summer Gentle Close</a> (five days)</li>
-              <li><a href="plans.html?plan=universitygratitude">The University of Gratitude</a> (six days)</li>
-              <li><a href="seasonal.html#summer-still">Seasonal &mdash; summer</a></li>
-            </ul>
-          </div>
-          <div class="plans-browse-by-season__col" id="plans-browse-fall" tabindex="-1">
-            <h3>Fall (Sep&ndash;Nov)</h3>
-            <ul>
-              <li><a href="plans.html?plan=schoolcourage">Back-to-School Courage</a></li>
-              <li><a href="plans.html?plan=harvestthanks">Harvest Gratitude</a></li>
-              <li><a href="plans.html?plan=quietfallharvest">Quiet fall harvest</a> (five days)</li>
-              <li><a href="plans.html?plan=latesummerrest">Late summer bridge</a> (into thanks)</li>
-              <li><a href="seasonal.html#quiet-fall-harvest">Seasonal &mdash; fall harvest</a></li>
-            </ul>
-          </div>
+      <details class="tdb-hub-disclosure plans-browse-more" id="plansBrowseMore">
+        <summary class="tdb-hub-disclosure__summary">More ways to browse (filters, seasons, page map)</summary>
+        <div class="tdb-hub-disclosure__inner plans-browse-more__inner">
+        <nav class="plans-plan-filter-bar plans-plan-filter-bar--secondary" aria-label="Browse plans by feel, length, and calm doorways">
+          <span class="plans-plan-filter-label">By feel &amp; length</span>
+          <a class="plans-plan-filter-chip" href="#plans-editorial-picks">Hand-picked</a>
+          <a class="plans-plan-filter-chip" href="#plans-lane-grief">Grief</a>
+          <a class="plans-plan-filter-chip" href="#plans-lane-fear">Fear &amp; worry</a>
+          <a class="plans-plan-filter-chip" href="#plans-lane-pain">Pain &amp; trials</a>
+          <a class="plans-plan-filter-chip" href="#plans-lane-family">Family</a>
+          <a class="plans-plan-filter-chip" href="index.html#feel-section">Homepage topics</a>
+          <a class="plans-plan-filter-chip" href="sos.html">When now is too much</a>
+          <a class="plans-plan-filter-chip" href="calm.html">Calm room</a>
+        </nav>
+        <div id="plans-browse-by-feeling" class="plans-browse-feeling-skip" tabindex="-1">
+        <nav class="plans-plan-filter-bar plans-plan-filter-bar--quaternary" aria-label="Open a course by how you feel right now">
+          <span class="plans-plan-filter-label">By feeling</span>
+          <a class="plans-plan-filter-chip" href="plans.html?plan=fearfaith" title="When fear is loud">Fear is loud</a>
+          <a class="plans-plan-filter-chip" href="plans.html?plan=worrytrust" title="When the mind will not stop">Mind won&rsquo;t stop</a>
+          <a class="plans-plan-filter-chip" href="plans.html?plan=anxiety7" title="When anxiety sits on your chest">Anxiety plan</a>
+          <a class="plans-plan-filter-chip" href="plans.html?plan=universityexhaustion" title="When body and soul are weary">Weary</a>
+          <a class="plans-plan-filter-chip" href="plans.html?plan=universityanger" title="When anger rises">Anger rises</a>
+          <a class="plans-plan-filter-chip" href="plans.html?plan=griefhope" title="When grief is heavy">Grief is heavy</a>
+          <a class="plans-plan-filter-chip" href="plans.html?plan=universityregret" title="When yesterday replays">Replay yesterday</a>
+          <a class="plans-plan-filter-chip" href="plans.html?plan=universitycontentment" title="When ordinary days weigh more than they ought">Small seasons</a>
+          <a class="plans-plan-filter-chip" href="plans.html?plan=universityoverwhelm" title="When everything lands at once">Too much at once</a>
+          <a class="plans-plan-filter-chip" href="plans.html?plan=universityparentfear" title="When love for kids runs ahead into fear">Fear for kids</a>
+          <a class="plans-plan-filter-chip" href="plans.html?plan=peace" title="When you need a quiet pace">Need quiet</a>
+          <a class="plans-plan-filter-chip" href="plans.html?plan=heavyhope" title="The University of Depression &amp; Hopelessness">Depression &amp; hope</a>
+          <a class="plans-plan-filter-chip" href="plans.html?plan=heartalone" title="When the heart feels alone">Heart alone</a>
+          <a class="plans-plan-filter-chip" href="plans.html?plan=guiltshame" title="Guilt and shame">Guilt &amp; shame</a>
+          <a class="plans-plan-filter-chip" href="plans.html?plan=overwhelmedburnout" title="Overwhelmed or burnt out">Too much</a>
+          <a class="plans-plan-filter-chip" href="plans.html?plan=longheavydays" title="When the days feel long and heavy">Long heavy days</a>
+          <a class="plans-plan-filter-chip" href="plans.html?plan=selfworth" title="Worth and identity">Worth &amp; identity</a>
+        </nav>
         </div>
-      </section>
-      <nav class="plans-onpage-nav" aria-label="On this page">
-        <p class="plans-onpage-nav__label" id="plans-onpage-toc-label">On this page</p>
-        <ul class="plans-onpage-nav__list" aria-labelledby="plans-onpage-toc-label">
-          <li><a href="#find-your-plan">Find your plan</a></li>
-          <li><a href="#plans-browse-by-feeling">By feeling</a></li>
-          <li><a href="#plans-browse-by-season">Browse by season</a></li>
-          <li><a href="#plans-start-here-title">Start here</a></li>
-          <li><a href="#sermon-on-mount-intro">Sermon on the Mount</a></li>
-          <li><a href="#bible-studies-free-title">Bible studies (free)</a></li>
-          <li><a href="#plans-editorial-picks-title">Hand-picked</a></li>
-          <li><a href="#plans-builder-heading">Build your lane</a></li>
-          <li><a href="custom-plan-builder.html">Create gentle plan</a></li>
-          <li><a href="#plan-suggestions-title">Suggest a plan</a></li>
-          <li><a href="#all-plans">Every plan</a></li>
-        </ul>
-      </nav>
+        <nav class="plans-plan-filter-bar plans-plan-filter-bar--tertiary" aria-label="Jump to plans by season of the year">
+          <span class="plans-plan-filter-label">By season</span>
+          <a class="plans-plan-filter-chip" href="#plans-browse-winter">Winter</a>
+          <a class="plans-plan-filter-chip" href="#plans-browse-spring">Spring</a>
+          <a class="plans-plan-filter-chip" href="#plans-browse-summer">Summer</a>
+          <a class="plans-plan-filter-chip" href="#plans-browse-fall">Fall</a>
+        </nav>
+        <section class="plans-browse-by-season" id="plans-browse-by-season" aria-labelledby="plans-browse-season-h">
+          <h2 class="plans-browse-by-season__h" id="plans-browse-season-h">Browse by season</h2>
+          <p class="plans-browse-by-season__lead">A soft map&mdash;not every plan, just calm doorways that match the light outside. The full list stays below; <a class="plans-browse-by-season__link" href="#all-plans">every plan</a> is still here.</p>
+          <div class="plans-browse-by-season__grid">
+            <div class="plans-browse-by-season__col" id="plans-browse-winter" tabindex="-1">
+              <h3>Winter (Dec&ndash;Feb)</h3>
+              <ul>
+                <li><a href="plans.html?plan=latefallwinter">Late fall, quiet winter</a> &mdash; when light thins before the noise</li>
+                <li><a href="plans.html?plan=winterwaiting">Winter Waiting</a> (five days)</li>
+                <li><a href="advent-christmas-university.html">Advent &amp; Christmas hub</a> &mdash; one room for the weeks</li>
+                <li><a href="plans.html?plan=adventbridge">Quiet Advent Bridge</a> &mdash; five days into Advent Quiet</li>
+                <li><a href="plans.html?plan=adventquiet">Advent Quiet</a></li>
+                <li><a href="plans.html?plan=christmas7">Christmas Week &mdash; Christ the Light</a></li>
+                <li><a href="plans.html?plan=newyear7">New Year week</a> &amp; <a href="plans.html?plan=gentleyear">Gentle New Year reset</a></li>
+              </ul>
+            </div>
+            <div class="plans-browse-by-season__col" id="plans-browse-spring" tabindex="-1">
+              <h3>Spring (Mar&ndash;May)</h3>
+              <ul>
+                <li><a href="he-is-risen.html">He is risen</a> &mdash; readings anytime</li>
+                <li><a href="plans.html?plan=easter">Resurrection Hope</a> (7 days)</li>
+                <li><a href="plans.html?plan=aftereaster">After Easter: quiet Mondays</a></li>
+                <li><a href="plans.html?plan=springhopemud">Spring Hope in the Mud</a> (five days)</li>
+                <li><a href="plans.html?plan=firststeps">New Believer &mdash; First Steps</a> (14 days)</li>
+                <li><a href="plans.html?plan=identityinchrist">Who God says you are</a> (7 days)</li>
+              </ul>
+            </div>
+            <div class="plans-browse-by-season__col" id="plans-browse-summer" tabindex="-1">
+              <h3>Summer (Jun&ndash;Aug)</h3>
+              <ul>
+                <li><a href="plans.html?plan=summerstill">Summer stillness</a></li>
+                <li><a href="plans.html?plan=summer-seeds">Summer Seeds for Kids</a> (8 weeks)</li>
+                <li><a href="plans.html?plan=latesummerrest">Late summer, early rest</a> (bridge)</li>
+                <li><a href="plans.html?plan=latesummergentle">Late Summer Gentle Close</a> (five days)</li>
+                <li><a href="plans.html?plan=universitygratitude">The University of Gratitude</a> (six days)</li>
+                <li><a href="seasonal.html#summer-still">Seasonal &mdash; summer</a></li>
+              </ul>
+            </div>
+            <div class="plans-browse-by-season__col" id="plans-browse-fall" tabindex="-1">
+              <h3>Fall (Sep&ndash;Nov)</h3>
+              <ul>
+                <li><a href="plans.html?plan=schoolcourage">Back-to-School Courage</a></li>
+                <li><a href="plans.html?plan=harvestthanks">Harvest Gratitude</a></li>
+                <li><a href="plans.html?plan=quietfallharvest">Quiet fall harvest</a> (five days)</li>
+                <li><a href="plans.html?plan=latesummerrest">Late summer bridge</a> (into thanks)</li>
+                <li><a href="seasonal.html#quiet-fall-harvest">Seasonal &mdash; fall harvest</a></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <nav class="plans-onpage-nav" aria-label="On this page">
+          <p class="plans-onpage-nav__label" id="plans-onpage-toc-label">On this page</p>
+          <ul class="plans-onpage-nav__list" aria-labelledby="plans-onpage-toc-label">
+            <li><a href="#find-your-plan">Find your plan</a></li>
+            <li><a href="#plans-browse-by-feeling">By feeling</a></li>
+            <li><a href="#plans-browse-by-season">Browse by season</a></li>
+            <li><a href="#plans-start-here-title">Start here</a></li>
+            <li><a href="#sermon-on-mount-intro">Sermon on the Mount</a></li>
+            <li><a href="#bible-studies-free-title">Bible studies (free)</a></li>
+            <li><a href="#plans-editorial-picks-title">Hand-picked</a></li>
+            <li><a href="#plans-builder-heading">Build your lane</a></li>
+            <li><a href="custom-plan-builder.html">Create gentle plan</a></li>
+            <li><a href="#plan-suggestions-title">Suggest a plan</a></li>
+            <li><a href="#all-plans">Every plan</a></li>
+          </ul>
+        </nav>
+        </div>
+      </details>
+
       <section class="plans-start-here" aria-labelledby="plans-start-here-title">
         <h2 class="plans-start-here-title" id="plans-start-here-title">Start here</h2>
         <p class="plans-start-here-lead">If choosing feels like too much, start with the lane that fits today. Each link opens the same plan you will see in the full list below.</p>
@@ -2949,7 +3441,7 @@
       </div>
       <section class="plans-editorial-picks" id="plans-editorial-picks" aria-labelledby="plans-editorial-picks-title">
         <h2 class="plans-editorial-picks-title" id="plans-editorial-picks-title">Plans we often point people to</h2>
-        <p class="plans-editorial-picks-lead">Chosen by hand for common hard weeks—not a popularity score, not analytics. Same rhythm as everything else: one KJV verse a day, plain words, a step, a prayer.</p>
+        <p class="plans-editorial-picks-lead">A longer shelf of paths people often need. Prefer something shorter first? See <a href="#plans-short-paths-heavy-weeks">Short paths for heavy weeks</a> above. Same rhythm as everything else: one KJV verse a day, plain words, a step, a prayer.</p>
         <div class="plans-editorial-picks-row">
           <a class="plans-editorial-pick" href="plans.html?plan=roadtosalvation"><span class="plans-editorial-pick-icon" aria-hidden="true">&#10024;</span> The Road to Salvation</a>
           <a class="plans-editorial-pick" href="plans.html?plan=firststeps"><span class="plans-editorial-pick-icon" aria-hidden="true">🌱</span> New believer — first steps</a>
@@ -3943,12 +4435,11 @@
 
   <nav class="site-footer-essentials" aria-label="Key pages">
     <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/verse.html">Today&rsquo;s Lesson</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">Ask the Word</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/plans.html">Plans</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/calm.html">Calm</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
   </nav>
@@ -3973,9 +4464,12 @@
     <a href="/privacy.html">Privacy</a>
     <a href="/terms.html">Terms</a>
     <a href="/faq.html">FAQ</a>
+    <a href="/verse.html">Today&rsquo;s Lesson</a>
+    <a href="/mystudy">My Study</a>
+    <a href="/prayer-wall.html">Prayer</a>
     <a href="/media.html">Media</a>
     <a href="/roadmap.html">Roadmap</a>
-    <a href="/pricing.html">Pricing</a>
+    <a href="/pricing.html">Support</a>
     <a href="/for-pastors.html">For pastors &amp; teachers</a>
     <a href="/reader.html">Chapter reader</a>
     <a href="/bible/tools.html">Study workshop</a>
@@ -4027,7 +4521,7 @@
         <a href="/mobius.html">Grace Ribbon</a>
         <a href="/one-family-in-christ.html">One Family in Christ</a>
         <a href="/red-letters.html">Red letters</a>
-        <a href="/plans.html" aria-current="page">Battle Plans</a>
+        <a href="/plans.html">Battle Plans</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
         <a href="/wins.html">Wins</a>
@@ -4093,7 +4587,7 @@
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
-  <script defer src="/language-switcher.js?v=20260709-ba-discover"></script>
+  <script defer src="/language-switcher.js?v=20260709-wave4"></script>
 </footer>
 
   <noscript>
@@ -4136,7 +4630,7 @@
     (function () {
       var optionalScripts = [
         '/memory-verses.js',
-        '/tdb-offline-strip.js?v=20260329pass2off',
+        '/tdb-offline-strip.js?v=20260712-pickup',
         '/word-study.js?v=20260329pass2off',
         '/verse-narration.js?v=20260329narr12',
         '/verse-study.js?v=20260328pass4vs',
@@ -6997,6 +7491,101 @@
       });
       wrap.appendChild(row);
     }
+    var PLAN_META = {
+      worrytrust: { bestFor: 'When the mind will not stop', pace: '7 days · one verse a day' },
+      anxiety7: { bestFor: 'When anxiety sits heavy', pace: '7 days · start any day' },
+      fearpressesin: { bestFor: 'When fear is loud', pace: '5–7 days · quiet pace' },
+      fearfaith: { bestFor: 'When fear is loud', pace: '7 days' },
+      peace: { bestFor: 'When you need a quieter pace', pace: '7 days' },
+      griefhope: { bestFor: 'When grief is heavy', pace: '7 days' },
+      overwhelmedburnout: { bestFor: 'When everything lands at once', pace: '7 days' },
+      parentweary: { bestFor: 'When parenting has worn you thin', pace: 'Short lane' },
+      parenting: { bestFor: 'When parenting feels hard', pace: '7 days' },
+      roadtosalvation: { bestFor: 'Brand-new to faith', pace: '5 days' },
+      comeuntome: { bestFor: 'When even a plan feels like too much', pace: '5 days · very gentle' },
+      firststeps: { bestFor: 'Taking first steps in faith', pace: '14 days · gentle pace' },
+      universityanxiety: { bestFor: 'When anxiety sits heavy', pace: '7 days' },
+      loneliness: { bestFor: 'When you feel alone', pace: 'Short lane' },
+      forgiveness: { bestFor: 'When forgiveness feels hard', pace: '7 days' },
+      angerpeace: { bestFor: 'When anger rises', pace: '7 days' },
+      universityexhaustion: { bestFor: 'When body and soul are weary', pace: 'Quiet University lane' },
+      universitygrief: { bestFor: 'When grief is heavy', pace: 'Quiet University lane' },
+      universityoverwhelm: { bestFor: 'When everything lands at once', pace: 'Quiet University lane' },
+      steadydays: { bestFor: 'When the week is plain and quiet', pace: '5 days · soft' },
+      hisownwords: { bestFor: 'When you only need His words', pace: '5 days · red letters' }
+    };
+
+    function paintPlanMeta() {
+      var rows = document.querySelectorAll('.plan-row[data-plan]');
+      if (!rows || !rows.length) return;
+      rows.forEach(function (row) {
+        var planId = row.getAttribute('data-plan') || '';
+        if (!planId || !PLAN_META[planId]) return;
+        var meta = PLAN_META[planId];
+        var info = row.querySelector('.plan-row-info') || row;
+        if (meta.bestFor && !info.querySelector('.plan-best-for')) {
+          var p = document.createElement('p');
+          p.className = 'plan-best-for';
+          p.textContent = 'Often helpful when: ' + meta.bestFor;
+          info.appendChild(p);
+        }
+        if (meta.pace && !info.querySelector('.plan-pace')) {
+          var span = document.createElement('span');
+          span.className = 'plan-pace';
+          span.textContent = meta.pace;
+          info.appendChild(span);
+        }
+      });
+    }
+
+    function paintPlansContinueLine() {
+      var line = document.getElementById('plansContinueLine');
+      var link = document.getElementById('plansContinueLineLink');
+      if (!line || !link) return;
+      try {
+        var raw = localStorage.getItem('tdb_recent_plans_v1');
+        if (!raw) {
+          line.hidden = true;
+          line.setAttribute('hidden', '');
+          return;
+        }
+        var ids = JSON.parse(raw);
+        if (!Array.isArray(ids) || !ids.length) {
+          line.hidden = true;
+          line.setAttribute('hidden', '');
+          return;
+        }
+        var found = null;
+        for (var i = 0; i < ids.length; i++) {
+          var pid = String(ids[i] || '').trim();
+          if (!pid) continue;
+          var pkey = pid === 'battle' ? 'tdb-plan-day' : 'tdb-plan-' + pid + '-day';
+          var prog = parseInt(localStorage.getItem(pkey) || '0', 10) || 0;
+          if (prog <= 0) continue;
+          var maxRaw = localStorage.getItem('tdb-plan-' + pid + '-max');
+          var pmax = maxRaw ? (parseInt(maxRaw, 10) || 0) : 0;
+          if (pmax > 0 && prog >= pmax) continue;
+          var plabel = String(localStorage.getItem('tdb-plan-' + pid + '-label') || pid).trim() || pid;
+          if (plabel.length > 52) plabel = plabel.slice(0, 52);
+          found = { id: pid, label: plabel, dayNumber: prog + 1, max: pmax || null };
+          break;
+        }
+        if (!found) {
+          line.hidden = true;
+          line.setAttribute('hidden', '');
+          return;
+        }
+        link.href = 'plans.html?plan=' + encodeURIComponent(found.id);
+        link.textContent = found.label + ' — Day ' + found.dayNumber;
+        link.setAttribute('aria-label', 'Continue ' + found.label + ', Day ' + found.dayNumber);
+        line.hidden = false;
+        line.removeAttribute('hidden');
+      } catch (eCont) {
+        line.hidden = true;
+        line.setAttribute('hidden', '');
+      }
+    }
+
     function renderIndex() {
       ensurePlansLoaded();
       renderRecentCarousel();
@@ -7027,6 +7616,8 @@
       var rblk = document.getElementById('planReflectionBlock');
       if (rblk) rblk.hidden = true;
       groupPlanListByCategory();
+      paintPlanMeta();
+      paintPlansContinueLine();
     }
     function renderIndexShell() {
       var index = document.getElementById('planIndex');
@@ -9554,14 +10145,8 @@
       var actions = document.createElement('div');
       actions.className = 'day-actions';
 
-      var btnComplete = document.createElement('button');
-      btnComplete.type = 'button';
-      btnComplete.className = 'btn-complete' + (isDone ? ' done' : '');
-      btnComplete.id = 'btnComplete';
-      btnComplete.setAttribute('aria-label', isDone ? 'Day complete' : 'Mark day complete');
-      btnComplete.textContent = isDone ? '\u2713 Day Complete' : 'Mark Complete';
-      btnComplete.addEventListener('click', markComplete);
-      actions.appendChild(btnComplete);
+      var primaryRow = document.createElement('div');
+      primaryRow.className = 'day-actions__primary';
 
       var readAloudBtn = document.createElement('button');
       readAloudBtn.type = 'button';
@@ -9571,7 +10156,26 @@
       readAloudBtn.setAttribute('aria-pressed', 'false');
       readAloudBtn.textContent = '\uD83D\uDD0A Listen';
       readAloudBtn.addEventListener('click', function () { readDayAloud(dayData, readAloudBtn); });
-      actions.appendChild(readAloudBtn);
+      primaryRow.appendChild(readAloudBtn);
+
+      var btnComplete = document.createElement('button');
+      btnComplete.type = 'button';
+      btnComplete.className = 'btn-complete' + (isDone ? ' done' : '');
+      btnComplete.id = 'btnComplete';
+      btnComplete.setAttribute('aria-label', isDone ? 'Day complete' : 'Mark day complete');
+      btnComplete.textContent = isDone ? '\u2713 Day Complete' : 'Mark Complete';
+      btnComplete.addEventListener('click', markComplete);
+      primaryRow.appendChild(btnComplete);
+      actions.appendChild(primaryRow);
+
+      var moreWrap = document.createElement('details');
+      moreWrap.className = 'day-actions__more';
+      var moreSummary = document.createElement('summary');
+      moreSummary.textContent = 'Share & more';
+      moreWrap.appendChild(moreSummary);
+
+      var secondary = document.createElement('div');
+      secondary.className = 'day-actions__secondary';
 
       var btnShareDay = document.createElement('button');
       btnShareDay.type = 'button';
@@ -9580,7 +10184,10 @@
       btnShareDay.setAttribute('aria-label', 'Share this verse');
       btnShareDay.textContent = 'Share \u2197';
       btnShareDay.addEventListener('click', shareDay);
-      actions.appendChild(btnShareDay);
+      secondary.appendChild(btnShareDay);
+
+      moreWrap.appendChild(secondary);
+      actions.appendChild(moreWrap);
 
       card.appendChild(actions);
       container.appendChild(card);
@@ -10581,6 +11188,8 @@
 
     // ── URL routing — open plan directly if ?plan=id in URL ──────────────────
     function init() {
+      paintPlanMeta();
+      paintPlansContinueLine();
       var list = document.getElementById('planList');
       if (list) {
         list.setAttribute('aria-busy', 'true');
@@ -10665,14 +11274,14 @@
   <!-- sync-shell-parity:plans-scripts -->
 
   <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260709-ba-discover" data-cfasync="false"></script>
+  <script type="module" src="script.js?v=20260709-wave4" data-cfasync="false"></script>
   <script nonce="tdb2025s">
     (function () {
       var nonCriticalScripts = [
         '/porch-effects.js?v=20260507',
         '/plan-suggest-form.js',
-        '/share-page.js?v=20260709-ba-discover',
-        '/footer-build-stamp.js?v=20260709-ba-discover'
+        '/share-page.js?v=20260709-wave4',
+        '/footer-build-stamp.js?v=20260709-wave4'
       ];
       var loadNonCriticalPlansScripts = function () {
         nonCriticalScripts.forEach(function (src) {

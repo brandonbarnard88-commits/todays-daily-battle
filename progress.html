@@ -3,7 +3,7 @@
 <head>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js?v=20260709-ba-discover"></script>
+  <script src="/tt-bootstrap.js?v=20260709-wave4"></script>
 
   <!-- GA4 lazy-loaded after interaction -->
   <script defer src="analytics-loader.js"></script>
@@ -20,8 +20,8 @@
   <meta property="og:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260709-ba-discover" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260709-ba-discover">
+  <link rel="preload" href="styles.css?v=20260709-wave4" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260709-wave4">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,8 +61,9 @@
       </button>
       <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
         <a href="/">Home</a>
-        <a href="/#feel-section">How I Feel</a>
+        <a href="/#feel-section">Ask the Word</a>
         <a href="/plans.html" id="nav-browse-curriculum" aria-label="Battle Plans — KJV tracks for hard weeks and quiet seasons">Battle Plans</a>
+        <a href="/calm.html" aria-label="Calm — one steady KJV verse when the moment is heavy">Calm</a>
         <a href="/mystudy">My Study</a>
         <a href="/family.html" aria-label="Family hub — verse, plans, printables">Family &amp; Kids</a>
         <a href="/explore.html">Explore</a>
@@ -77,7 +78,6 @@
               <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read the Bible</a>
               <a href="/memorize.html">Memorize</a>
               <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
-              <a href="/calm.html">Calm</a>
             </div>
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">Plans &amp; Journey</span>
@@ -136,7 +136,7 @@
         <a href="shop.html" data-section="shop" data-icon="SH">Shop</a>
         <a href="about.html" data-section="about" data-icon="AB">About</a>
         <a href="faq.html" data-section="faq" data-icon="FQ">FAQ</a>
-        <a href="pricing.html" data-section="pricing" data-icon="PC">Pricing</a>
+        <a href="pricing.html" data-section="pricing" data-icon="PC">Support</a>
       </nav>
       <div class="sidebar-options">
         <label class="inline-toggle">
@@ -151,10 +151,18 @@
         <section class="glass tdb-porch-paper-glass progress-moved-notice" aria-labelledby="progress-moved-h">
           <h2 class="section-divider" id="progress-moved-h">Progress lives in My Study now</h2>
           <p class="section-note">Your quiet steps, visit rhythm, and plan progress are gathered under <strong>My Quiet Steps</strong> in My Study&mdash;same device-only data, one calmer desk.</p>
-          <p class="section-note util-mb-0"><a class="btn btn-primary" href="/mystudy.html#mystudy-quiet-steps">Open My Quiet Steps</a> &nbsp; <span class="section-note">This page still works if you bookmarked it.</span></p>
+          <p class="section-note util-mb-0_75">
+            <a class="btn btn-primary" href="/mystudy.html#mystudy-quiet-steps">Open My Quiet Steps</a>
+            <a class="btn btn-secondary" href="/mystudy.html#mystudy-plans-walking">Plans you&rsquo;re walking</a>
+            <a class="btn btn-secondary" href="/mystudy.html#mystudy-faith-loop">Faith loop</a>
+          </p>
+          <p class="section-note util-mb-0">This page still works if you bookmarked it&mdash;open the legacy view below when you want the old layout.</p>
         </section>
 
-        <header class="hero-banner progress-hero tdb-micro-hero-dawn tdb-dawn-bg--mist">
+                <details class="progress-legacy-view" id="progressLegacyView">
+          <summary class="progress-legacy-view__summary">Legacy full view (bookmark)</summary>
+          <div class="progress-legacy-view__body">
+<header class="hero-banner progress-hero tdb-micro-hero-dawn tdb-dawn-bg--mist">
           <h1>Progress</h1>
           <p class="progress-hero-lead topic-mood-porch">You&rsquo;re already welcome here. This isn&rsquo;t a scoreboard&mdash;you don&rsquo;t have to earn your seat on the porch.</p>
           <p class="progress-hero-sub">A light week is still a real week with God. One verse and closing the page is enough. There&rsquo;s always room to breathe.</p>
@@ -231,6 +239,9 @@
             <button type="button" id="reset-progress" class="btn-reset" aria-label="Reset all progress">Reset Progress</button>
           </div>
         </section>
+          </div>
+        </details>
+
       </div>
     </main>
 
@@ -252,12 +263,11 @@
 
   <nav class="site-footer-essentials" aria-label="Key pages">
     <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/verse.html">Today&rsquo;s Lesson</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">Ask the Word</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/plans.html">Plans</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/calm.html">Calm</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
   </nav>
@@ -282,9 +292,12 @@
     <a href="/privacy.html">Privacy</a>
     <a href="/terms.html">Terms</a>
     <a href="/faq.html">FAQ</a>
+    <a href="/verse.html">Today&rsquo;s Lesson</a>
+    <a href="/mystudy">My Study</a>
+    <a href="/prayer-wall.html">Prayer</a>
     <a href="/media.html">Media</a>
     <a href="/roadmap.html">Roadmap</a>
-    <a href="/pricing.html">Pricing</a>
+    <a href="/pricing.html">Support</a>
     <a href="/for-pastors.html">For pastors &amp; teachers</a>
     <a href="/reader.html">Chapter reader</a>
     <a href="/bible/tools.html">Study workshop</a>
@@ -336,7 +349,7 @@
         <a href="/mobius.html">Grace Ribbon</a>
         <a href="/one-family-in-christ.html">One Family in Christ</a>
         <a href="/red-letters.html">Red letters</a>
-        <a href="/plans.html">Courses</a>
+        <a href="/plans.html">Battle Plans</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
         <a href="/wins.html">Wins</a>
@@ -402,7 +415,7 @@
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
-  <script defer src="/language-switcher.js?v=20260709-ba-discover"></script>
+  <script defer src="/language-switcher.js?v=20260709-wave4"></script>
 </footer>
   </div>
 
@@ -419,6 +432,7 @@
 
   <div id="toast-container" aria-live="polite"></div>
 
+  <script src="/js/tdb-plan-progress.js?v=20260711-ms3-desk"></script>
   <script nonce="tdb2025s">
   (function () {
     'use strict';
@@ -572,6 +586,31 @@
       var plansStarted = 0;
       var maxStreak = 0;
 
+      var PP = window.TDBPlanProgress;
+      if (PP && typeof PP.partitionActiveCompleted === 'function') {
+        var parts = PP.partitionActiveCompleted();
+        (parts.active || []).forEach(function (m) {
+          active.push({
+            plan: { id: m.planId, label: m.label, max: m.max, key: m.key },
+            day: m.day,
+            percent: m.percent
+          });
+          plansStarted++;
+          totalVerses += m.day;
+          var streak = getStreak(m.planId);
+          if (streak > maxStreak) maxStreak = streak;
+        });
+        (parts.completed || []).forEach(function (m) {
+          completed.push({
+            plan: { id: m.planId, label: m.label, max: m.max, key: m.key },
+            day: m.day
+          });
+          plansStarted++;
+          totalVerses += m.day;
+          var streakC = getStreak(m.planId);
+          if (streakC > maxStreak) maxStreak = streakC;
+        });
+      } else {
       Object.keys(PLAN_CONFIGS).forEach(function (planId) {
         var plan = PLAN_CONFIGS[planId];
         var day = Math.min(Math.max(getDay(plan), 0), plan.max);
@@ -589,6 +628,7 @@
           active.push({ plan: plan, day: day, percent: Math.round((day / plan.max) * 100) });
         }
       });
+      }
 
       var displayStreak = maxStreak;
       if (displayStreak === 0 && active.length > 0) {
@@ -805,6 +845,6 @@
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script nonce="tdb2025s">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
   <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260709-ba-discover" data-cfasync="false"></script>
+  <script type="module" src="script.js?v=20260709-wave4" data-cfasync="false"></script>
 </body>
 </html>

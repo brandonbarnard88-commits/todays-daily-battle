@@ -4,7 +4,7 @@
   <!-- tdb-cache-hygiene: bump purge if prayer-wall layout or CSP changes -->
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js?v=20260709-ba-discover"></script>
+  <script src="/tt-bootstrap.js?v=20260709-wave4"></script>
 
   <!-- GA4 lazy-loaded after interaction -->
   <script defer src="/analytics-loader.js"></script>
@@ -28,8 +28,8 @@
   <meta name="twitter:description" content="Rest first. Private prayer on this device, or a moderated wall with others when you&rsquo;re ready&mdash;no performance.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/logo-shield-600.png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="/styles.css?v=20260709-ba-discover" as="style">
-  <link rel="stylesheet" href="/styles.css?v=20260709-ba-discover" nonce="tdb2025s">
+  <link rel="preload" href="/styles.css?v=20260709-wave4" as="style">
+  <link rel="stylesheet" href="/styles.css?v=20260709-wave4" nonce="tdb2025s">
   <link rel="manifest" href="/manifest.json">
   <noscript>
     <meta http-equiv="refresh" content="0;url=/explore.html#prayer">
@@ -80,8 +80,9 @@
       </button>
       <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
         <a href="/">Home</a>
-        <a href="/#feel-section">How I Feel</a>
+        <a href="/#feel-section">Ask the Word</a>
         <a href="/plans.html" id="nav-browse-curriculum" aria-label="Battle Plans — KJV tracks for hard weeks and quiet seasons">Battle Plans</a>
+        <a href="/calm.html" aria-label="Calm — one steady KJV verse when the moment is heavy">Calm</a>
         <a href="/mystudy">My Study</a>
         <a href="/family.html" aria-label="Family hub — verse, plans, printables">Family &amp; Kids</a>
         <a href="/explore.html">Explore</a>
@@ -96,7 +97,6 @@
               <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read the Bible</a>
               <a href="/memorize.html">Memorize</a>
               <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
-              <a href="/calm.html">Calm</a>
             </div>
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">Plans &amp; Journey</span>
@@ -155,7 +155,7 @@
         <a href="shop.html" data-section="shop" data-icon="SH">Shop</a>
         <a href="about.html" data-section="about" data-icon="AB">About</a>
         <a href="faq.html" data-section="faq" data-icon="FQ">FAQ</a>
-        <a href="pricing.html" data-section="pricing" data-icon="PC">Pricing</a>
+        <a href="pricing.html" data-section="pricing" data-icon="PC">Support</a>
       </nav>
       <div class="sidebar-options">
         <label class="inline-toggle">
@@ -197,6 +197,8 @@
             <span id="prayerWallStreakBadge" class="prayer-wall-streak-badge" aria-live="polite" hidden></span>
           </div>
           <p class="prayer-wall-privacy-note landing-privacy-teaser section-note">Everything in this tab stays on this device until <em>you</em> open the shared wall and post while signed in. Your words are not uploaded as “private” lines. <a href="privacy.html">Read the promise</a>.</p>
+          <p class="prayer-privacy-note section-note" id="prayer-privacy-stay-note">Your private prayers stay on this device until you choose to share.</p>
+          <p class="tdb-offline-ready" role="note">Works offline after you&rsquo;ve opened it once on this device.</p>
           <p class="section-note">Human-curated. All anonymous by default. Report any concern: <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
           <p class="prayer-wall-community-line section-note">The shared wall is in the other tab. It waits until you are ready and signed in.</p>
           <section class="prayer-choice-guide glass tdb-porch-paper-glass" aria-label="Private and shared prayer guide">
@@ -238,6 +240,12 @@
           </button>
           <p class="prayer-wall-nudge-silent section-note" aria-live="polite">No one sees this. Just you and God.</p>
           <p class="prayer-wall-battle-q" id="prayer-wall-battle-prompt">What battle are you facing today?</p>
+          <div id="prayer-private-prompt" class="prayer-private-prompt">
+            <p class="prayer-private-prompt__lead">One line is enough. You can write a burden, a thanks, or just sit here quietly.</p>
+            <button type="button" id="prayer-private-template-btn" class="btn btn-secondary prayer-private-prompt__btn" aria-label="Fill the private line with a weight and promise starter">
+              Use a simple weight &amp; promise prompt
+            </button>
+          </div>
           <!-- Community wall: name the battle in a few words; stored as "Facing … today" -->
           <div class="prayer-wall-input-row">
             <label for="prayer-wall-input" class="sr-only">Name your battle in a few words (posts anonymously)</label>
@@ -283,7 +291,7 @@
           <!-- Enhanced offline resilience for prayer wall per rules and eval feedback on load issues. Private prayers cached locally first. -->
           <div class="prayer-wall-alive" role="region" aria-label="Your prayers on this device">
             <div class="today-count" id="prayer-device-today-block">
-              <span id="prayer-device-quiet" class="prayer-device-quiet">Quiet on this device today. Silent Amen still counts as prayer.</span>
+              <span id="prayer-device-quiet" class="prayer-device-quiet">Quiet on this device today. One line is enough when you are ready—Silent Amen still counts as prayer.</span>
               <span id="prayer-device-count-wrap" class="prayer-device-count-wrap hidden" aria-live="polite">
                 <strong><span id="prayer-count-today">0</span></strong> prayers today on this device
               </span>
@@ -366,7 +374,7 @@
             <label class="inline-toggle" for="message-sort">Sort</label>
             <select id="message-sort" aria-label="Sort messages">
               <option value="newest" selected>Newest</option>
-              <option value="popular">Popular</option>
+              <option value="popular">Amen · this device</option>
               <option value="oldest">Oldest</option>
             </select>
           </div>
@@ -394,7 +402,7 @@
           </div>
           <div id="message-featured-wrap" class="message-featured-wrap" hidden>
             <h3 class="message-featured-heading">Lifted lately on this device</h3>
-            <p class="section-note message-featured-note">These are the three posts with the most <strong>Amen</strong> taps stored <em>on this phone or browser</em>—a quiet reminder of who you prayed with. Use sort <strong>Popular</strong> below for the full list.</p>
+            <p class="section-note message-featured-note">These are the three posts with the most <strong>Amen</strong> taps stored <em>on this phone or browser</em>&mdash;a quiet reminder, not a ranking. Sort by <strong>Amen · this device</strong> below for the fuller list.</p>
             <div id="message-featured-strip" class="message-featured-strip" role="list" aria-label="Featured prayers by local Amen count"></div>
           </div>
           <div id="message-list-wrap" class="message-list-wrap" role="region" aria-live="polite" aria-relevant="additions" aria-busy="false" aria-label="Latest shared prayers">
@@ -429,12 +437,11 @@
 
   <nav class="site-footer-essentials" aria-label="Key pages">
     <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/verse.html">Today&rsquo;s Lesson</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">Ask the Word</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/plans.html">Plans</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/calm.html">Calm</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
   </nav>
@@ -459,9 +466,12 @@
     <a href="/privacy.html">Privacy</a>
     <a href="/terms.html">Terms</a>
     <a href="/faq.html">FAQ</a>
+    <a href="/verse.html">Today&rsquo;s Lesson</a>
+    <a href="/mystudy">My Study</a>
+    <a href="/prayer-wall.html">Prayer</a>
     <a href="/media.html">Media</a>
     <a href="/roadmap.html">Roadmap</a>
-    <a href="/pricing.html">Pricing</a>
+    <a href="/pricing.html">Support</a>
     <a href="/for-pastors.html">For pastors &amp; teachers</a>
     <a href="/reader.html">Chapter reader</a>
     <a href="/bible/tools.html">Study workshop</a>
@@ -513,7 +523,7 @@
         <a href="/mobius.html">Grace Ribbon</a>
         <a href="/one-family-in-christ.html">One Family in Christ</a>
         <a href="/red-letters.html">Red letters</a>
-        <a href="/plans.html">Courses</a>
+        <a href="/plans.html">Battle Plans</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
         <a href="/wins.html">Wins</a>
@@ -579,13 +589,14 @@
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
-  <script defer src="/language-switcher.js?v=20260709-ba-discover"></script>
+  <script defer src="/language-switcher.js?v=20260709-wave4"></script>
 </footer>
   </div>
 
   <script src="inline-bootstrap.js"></script>
   <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260709-ba-discover" data-cfasync="false"></script>
+  <script type="module" src="script.js?v=20260709-wave4" data-cfasync="false"></script>
+  <script defer src="tdb-offline-strip.js?v=20260712-pickup"></script>
   <script defer src="porch-effects.js?v=20260507"></script>
   <script nonce="tdb2025s">
     (function wirePrayerDoorTabs() {
@@ -651,6 +662,64 @@
       } catch (_) {}
     }());
   </script>
-  <script src="share-page.js?v=20260709-ba-discover" defer></script>
+  <script nonce="tdb2025s">
+    (function wirePrayerWallPolish() {
+      var PRIVATE_TEMPLATE = "I'm carrying… I'm asking / trusting…";
+      var privateBtn = document.getElementById('prayer-private-template-btn');
+      var privateInput = document.getElementById('prayer-wall-input');
+      var privatePrompt = document.getElementById('prayer-private-prompt');
+      if (privateBtn && privateInput) {
+        privateBtn.addEventListener('click', function () {
+          if (!String(privateInput.value || '').trim()) {
+            privateInput.value = PRIVATE_TEMPLATE;
+          }
+          privateInput.focus();
+          try {
+            var len = privateInput.value.length;
+            privateInput.setSelectionRange(0, Math.min(len, 14));
+          } catch (_) {}
+          if (privatePrompt) privatePrompt.setAttribute('data-used', '1');
+          privateBtn.hidden = true;
+          try {
+            if (typeof window.trackEvent === 'function') {
+              window.trackEvent('prayer_loop_template_use', { source: 'prayer_wall_private' });
+            }
+          } catch (_) {}
+        });
+      }
+
+      var sharedBtn = document.getElementById('loop-prayer-use-btn');
+      var wEl = document.getElementById('loop-prayer-weight');
+      var pEl = document.getElementById('loop-prayer-promise');
+      var ta = document.getElementById('message-text');
+      if (sharedBtn && wEl && pEl && ta) {
+        sharedBtn.addEventListener('click', function () {
+          var w = (wEl.value || '').trim();
+          var p = (pEl.value || '').trim();
+          var block;
+          if (!w && !p) {
+            block = "I'm carrying…\nI'm asking / trusting…";
+          } else {
+            var weightPhrase = w || 'what I cannot carry alone';
+            var receivePhrase = p || 'what You have said is true';
+            block = 'God, I lay down ' + weightPhrase + '. I receive ' + receivePhrase + '. Amen.';
+          }
+          if (!ta.value.trim()) ta.value = block;
+          else ta.value = ta.value.trim() + '\n\n' + block;
+          ta.focus();
+          try {
+            var details = document.getElementById('message-loop-prayer-details');
+            if (details) details.open = false;
+          } catch (_) {}
+          try {
+            if (typeof window.trackEvent === 'function') {
+              window.trackEvent('prayer_loop_template_use', { source: 'prayer_wall_shared' });
+            }
+          } catch (_) {}
+        });
+      }
+    }());
+  </script>
+  <script src="share-page.js?v=20260709-wave4" defer></script>
 </body>
 </html>

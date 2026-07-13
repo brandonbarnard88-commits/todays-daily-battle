@@ -1770,20 +1770,15 @@
   }
 
   function updateGate() {
+    // Phase 1: verse image is free for everyone — no paywall.
     var locked = document.getElementById('verse-image-locked');
     var app = document.getElementById('verse-image-app');
-    var ok = typeof window.isProUser === 'function' && window.isProUser();
-    if (locked) locked.hidden = ok;
-    if (app) app.hidden = !ok;
-    if (!ok) {
-      try {
-        if (!sessionStorage.getItem(PROMPT_KEY)) {
-          sessionStorage.setItem(PROMPT_KEY, '1');
-          trackEvent('supporter_upgrade_prompted', { source: 'verse_image' });
-        }
-      } catch (e) {}
+    if (locked) {
+      locked.hidden = true;
+      locked.setAttribute('aria-hidden', 'true');
     }
-    return ok;
+    if (app) app.hidden = false;
+    return true;
   }
 
   var wired = false;
@@ -2415,21 +2410,7 @@
     applyVerseImageRefFromQuery();
     setVerseImageAutoloadFromQuery();
     updateGate();
-    if (typeof window.isProUser === 'function' && window.isProUser()) wire();
-  }
-
-  function waitForIsProUser(cb) {
-    var n = 0;
-    var t = setInterval(function () {
-      n++;
-      if (typeof window.isProUser === 'function') {
-        clearInterval(t);
-        cb();
-      } else if (n > 120) {
-        clearInterval(t);
-        cb();
-      }
-    }, 50);
+    wire();
   }
 
   (function wireUogPromptCopy() {
@@ -2720,41 +2701,12 @@
     });
   })();
 
-  waitForIsProUser(function () {
-    var up = document.getElementById('verse-image-upgrade-cta');
-    if (up) {
-      up.addEventListener('click', function () {
-        trackEvent('supporter_upgrade_prompted', { source: 'verse_image_cta' });
-      });
-    }
-
+  tryWire();
+  var poll = setInterval(function () {
     tryWire();
-    var poll = setInterval(function () {
-      tryWire();
-      if (wired) clearInterval(poll);
-    }, 400);
-    setTimeout(function () {
-      clearInterval(poll);
-    }, 20000);
-
-    var authClient = window.__tdbSupabaseClient;
-    if (authClient && authClient.auth && typeof authClient.auth.onAuthStateChange === 'function') {
-      authClient.auth.onAuthStateChange(function () {
-        tryWire();
-      });
-    } else {
-      var waitAuth = setInterval(function () {
-        var c = window.__tdbSupabaseClient;
-        if (c && c.auth && typeof c.auth.onAuthStateChange === 'function') {
-          clearInterval(waitAuth);
-          c.auth.onAuthStateChange(function () {
-            tryWire();
-          });
-        }
-      }, 200);
-      setTimeout(function () {
-        clearInterval(waitAuth);
-      }, 10000);
-    }
-  });
+    if (wired) clearInterval(poll);
+  }, 400);
+  setTimeout(function () {
+    clearInterval(poll);
+  }, 20000);
 })();

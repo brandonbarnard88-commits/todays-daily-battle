@@ -85,6 +85,13 @@
     if (typeof window.tdbShowHomeFeelResult === 'function') {
       window.tdbShowHomeFeelResult(selected[0]);
     }
+    if (typeof window.tdbRenderFeelPathCard === 'function') {
+      var pathKey =
+        selected.length === 2
+          ? selected[0] + ' + ' + selected[1]
+          : selected[0];
+      window.tdbRenderFeelPathCard(pathKey);
+    }
     try {
       window.__tdbSuppressNextSearchScroll = true;
     } catch (e) {}

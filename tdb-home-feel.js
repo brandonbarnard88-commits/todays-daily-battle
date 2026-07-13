@@ -1057,6 +1057,276 @@ const FEEL_MORE = {
     difficult: "lettinggo"
   };
 
+  /** Curated feel → short plan + one-pager + anchors (local, human-chosen — not algorithmic). */
+  const TDB_TOPIC_TO_PATH = {
+    anxiety: {
+      plan: "worrytrust",
+      print: "life-lessons/anxious-for-nothing-peace-of-god-print.html",
+      anchors: ["Philippians 4:6-7", "Psalm 56:3", "Isaiah 41:10"]
+    },
+    worry: {
+      plan: "worrytrust",
+      print: "life-lessons/anxious-for-nothing-peace-of-god-print.html",
+      anchors: ["Philippians 4:6-7", "Psalm 56:3", "Matthew 6:34"]
+    },
+    fear: {
+      plan: "fearnot14",
+      print: "topic-fear.html",
+      anchors: ["2 Timothy 1:7", "Psalm 34:4", "Isaiah 41:10"]
+    },
+    overwhelmed: {
+      plan: "overwhelmedburnout",
+      print: "university-overwhelm-one-page-print.html",
+      anchors: ["Psalm 55:22", "Matthew 11:28", "1 Peter 5:7"]
+    },
+    grief: {
+      plan: "griefhope",
+      print: "topic-grief.html",
+      anchors: ["Psalm 34:18", "Matthew 5:4", "Revelation 21:4"]
+    },
+    tired: {
+      plan: "peace",
+      print: "life-lessons/come-unto-me-when-weary-heavy-laden-print.html",
+      anchors: ["Matthew 11:28", "Isaiah 40:31", "Psalm 23:2-3"]
+    },
+    exhaustion: {
+      plan: "peace",
+      print: "life-lessons/come-unto-me-when-weary-heavy-laden-print.html",
+      anchors: ["Matthew 11:28", "Isaiah 40:31", "Galatians 6:9"]
+    },
+    anger: {
+      plan: "angerpeace",
+      print: "university-anger-one-page-print.html",
+      anchors: ["James 1:19-20", "Proverbs 15:1", "Ephesians 4:26"]
+    },
+    loneliness: {
+      plan: "loneliness",
+      print: "life-lessons/when-the-heart-feels-alone-print.html",
+      anchors: ["Psalm 25:16", "Hebrews 13:5", "Isaiah 41:10"]
+    },
+    parenting: {
+      plan: "parenting",
+      print: "university-at-the-table-print.html",
+      anchors: ["Deuteronomy 6:6-7", "Proverbs 22:6", "Psalm 127:3"]
+    },
+    forgiveness: {
+      plan: "forgiveness",
+      print: "life-lessons/forgive-seventy-times-seven-when-hurt-lingers-print.html",
+      anchors: ["Matthew 18:21-22", "Colossians 3:13", "Ephesians 4:32"]
+    },
+    peace: {
+      plan: "peace",
+      print: "life-lessons/peace-in-the-storm-when-waves-are-louder-print.html",
+      anchors: ["John 14:27", "Isaiah 26:3", "Philippians 4:7"]
+    },
+    hope: {
+      plan: "hopeuncertain",
+      print: "life-lessons/when-the-heart-feels-alone-print.html",
+      anchors: ["Romans 15:13", "Psalm 42:11", "Lamentations 3:22-23"]
+    },
+    "anxiety + parenting": {
+      plan: "parenting",
+      secondaryPlan: "worrytrust",
+      print: "university-at-the-table-print.html",
+      anchors: ["Philippians 4:6-7", "Deuteronomy 6:6-7", "1 Peter 5:7"]
+    },
+    "grief + exhaustion": {
+      plan: "griefhope",
+      print: "life-lessons/come-unto-me-when-weary-heavy-laden-print.html",
+      anchors: ["Matthew 11:28", "Psalm 34:18", "Isaiah 40:31"]
+    },
+    "anger + forgiveness": {
+      plan: "forgiveness",
+      print: "university-anger-one-page-print.html",
+      anchors: ["Matthew 18:21-22", "James 1:19-20", "Ephesians 4:32"]
+    },
+    "loneliness + hope": {
+      plan: "loneliness",
+      print: "life-lessons/when-the-heart-feels-alone-print.html",
+      anchors: ["Psalm 25:16", "Hebrews 13:5", "Romans 15:13"]
+    }
+  };
+
+  const TDB_PATH_ALIASES = {
+    anxious: "anxiety",
+    restless: "anxiety",
+    strength: "tired",
+    weary: "tired",
+    heavy: "overwhelmed",
+    burnout: "overwhelmed",
+    sad: "grief",
+    grieving: "grief",
+    lonely: "loneliness",
+    angry: "anger"
+  };
+
+  const TDB_PATH_COMBO_PAIRS = [
+    [["anxiety", "parenting"], "anxiety + parenting"],
+    [["parenting", "anxiety"], "anxiety + parenting"],
+    [["grief", "exhaustion"], "grief + exhaustion"],
+    [["exhaustion", "grief"], "grief + exhaustion"],
+    [["anger", "forgiveness"], "anger + forgiveness"],
+    [["forgiveness", "anger"], "anger + forgiveness"],
+    [["loneliness", "hope"], "loneliness + hope"],
+    [["hope", "loneliness"], "loneliness + hope"]
+  ];
+
+  function normalizeFeelPathKey(raw) {
+    var q = String(raw || "")
+      .trim()
+      .toLowerCase()
+      .replace(/\s+/g, " ");
+    if (!q) return null;
+    if (TDB_TOPIC_TO_PATH[q]) return q;
+    var plusNorm = q.replace(/\s*\+\s*/g, " + ");
+    if (TDB_TOPIC_TO_PATH[plusNorm]) return plusNorm;
+    var parts = q.split(/[+,]|\band\b/).map(function (p) {
+      return String(p || "").trim();
+    }).filter(Boolean);
+    if (parts.length === 2) {
+      var a = TDB_PATH_ALIASES[parts[0]] || parts[0];
+      var b = TDB_PATH_ALIASES[parts[1]] || parts[1];
+      for (var i = 0; i < TDB_PATH_COMBO_PAIRS.length; i++) {
+        var pair = TDB_PATH_COMBO_PAIRS[i][0];
+        if (pair[0] === a && pair[1] === b) return TDB_PATH_COMBO_PAIRS[i][1];
+      }
+      var comboKey = a + " + " + b;
+      if (TDB_TOPIC_TO_PATH[comboKey]) return comboKey;
+    }
+    var single = q.split(/\s+/)[0];
+    if (TDB_PATH_ALIASES[single]) return TDB_PATH_ALIASES[single];
+    if (TDB_TOPIC_TO_PATH[single]) return single;
+    var mood = resolveFeelMoodKey(q);
+    if (mood && TDB_PATH_ALIASES[mood]) return TDB_PATH_ALIASES[mood];
+    if (mood && TDB_TOPIC_TO_PATH[mood]) return mood;
+    return null;
+  }
+
+  function clearFeelPathCard() {
+    var card = document.getElementById("tdbFeelPathCard");
+    if (!card) return;
+    card.setAttribute("hidden", "");
+    card.hidden = true;
+    try {
+      card.removeAttribute("aria-labelledby");
+      card.setAttribute("aria-label", "A gentle next path");
+    } catch (_) {}
+    while (card.firstChild) card.removeChild(card.firstChild);
+  }
+
+  function renderFeelPathCard(topicOrQuery) {
+    var card = document.getElementById("tdbFeelPathCard");
+    if (!card) return false;
+    var key = normalizeFeelPathKey(topicOrQuery);
+    var data = key ? TDB_TOPIC_TO_PATH[key] : null;
+    if (!data) {
+      clearFeelPathCard();
+      return false;
+    }
+    while (card.firstChild) card.removeChild(card.firstChild);
+
+    var feelLabel = sanitizeText(String(topicOrQuery || key || "this feeling").replace(/\+/g, " ")).slice(0, 48);
+    if (!feelLabel) feelLabel = "this feeling";
+
+    card.setAttribute("aria-live", "polite");
+    card.setAttribute("aria-atomic", "false");
+
+    var lead = document.createElement("p");
+    lead.className = "tdb-feel-path-card__lead";
+    lead.id = "tdbFeelPathCardLead";
+    lead.textContent = "Here\u2019s one gentle path that often helps with this.";
+    card.appendChild(lead);
+    card.setAttribute("aria-labelledby", "tdbFeelPathCardLead");
+
+    var actions = document.createElement("div");
+    actions.className = "tdb-feel-path-card__actions";
+
+    var planLink = document.createElement("a");
+    planLink.className = "tdb-feel-path-card__btn btn btn-primary";
+    planLink.href = "plans.html?plan=" + encodeURIComponent(data.plan);
+    planLink.textContent = "A short plan you can start any day";
+    planLink.setAttribute(
+      "aria-label",
+      "Open a short plan for " + feelLabel + " — start any day"
+    );
+    actions.appendChild(planLink);
+
+    var printLink = document.createElement("a");
+    printLink.className = "tdb-feel-path-card__btn btn btn-secondary tdb-feel-path-card__btn--print";
+    printLink.href = data.print;
+    printLink.textContent = "One page you can print tonight";
+    printLink.setAttribute(
+      "aria-label",
+      "Open a one-page print for " + feelLabel
+    );
+    actions.appendChild(printLink);
+
+    if (data.secondaryPlan) {
+      var secondary = document.createElement("a");
+      secondary.className = "tdb-feel-path-card__secondary";
+      secondary.href = "plans.html?plan=" + encodeURIComponent(data.secondaryPlan);
+      secondary.textContent = "or this short plan";
+      secondary.setAttribute(
+        "aria-label",
+        "Open another short plan for " + feelLabel
+      );
+      actions.appendChild(secondary);
+    }
+    card.appendChild(actions);
+
+    if (data.anchors && data.anchors.length) {
+      var anchors = document.createElement("p");
+      anchors.className = "tdb-feel-path-card__anchors";
+      anchors.appendChild(document.createTextNode("These verses have steadied many in the same place: "));
+      data.anchors.forEach(function (ref, idx) {
+        if (idx) anchors.appendChild(document.createTextNode(" \u00b7 "));
+        var span = document.createElement("span");
+        span.textContent = ref;
+        anchors.appendChild(span);
+      });
+      card.appendChild(anchors);
+    }
+
+    var clearBtn = document.createElement("button");
+    clearBtn.type = "button";
+    clearBtn.className = "tdb-feel-path-card__clear link-button";
+    clearBtn.textContent = "Try a different feeling";
+    clearBtn.setAttribute(
+      "aria-label",
+      "Try a different feeling — clear this path and search again"
+    );
+    clearBtn.addEventListener("click", function () {
+      clearFeelPathCard();
+      hideFeelPlanCta();
+      hideSearchNextStep();
+      if (cards) {
+        cards.replaceChildren();
+        cards.classList.remove("has-results");
+      }
+      if (welcome) {
+        welcome.classList.remove("show");
+        welcome.textContent = "";
+      }
+      if (noMatch) noMatch.classList.remove("visible");
+      clearFullResults();
+      if (input) {
+        input.value = "";
+        try { input.focus(); } catch (err) {}
+      }
+    });
+    card.appendChild(clearBtn);
+
+    card.removeAttribute("hidden");
+    card.hidden = false;
+    return true;
+  }
+
+  try {
+    window.tdbRenderFeelPathCard = renderFeelPathCard;
+    window.tdbClearFeelPathCard = clearFeelPathCard;
+    window.tdbNormalizeFeelPathKey = normalizeFeelPathKey;
+  } catch (ePath) {}
+
   function resolveFeelMoodKey(raw) {
     const q = String(raw || "").trim().toLowerCase();
     if (!q) return null;
@@ -1135,6 +1405,7 @@ const FEEL_MORE = {
       const mood = resolveFeelMoodKey(topicOrQuery);
       if (mood && FEEL_MOOD_TO_PLAN[mood]) planId = FEEL_MOOD_TO_PLAN[mood];
     }
+    renderFeelPathCard(topicOrQuery);
     if (!planId) {
       hideFeelPlanCta();
       return;
@@ -1259,6 +1530,7 @@ const FEEL_MORE = {
     });
     const topEntry = group && Array.isArray(group.verses) && group.verses.length ? group.verses[0] : null;
     updateSearchNextStep(rawQuery || (group && group.label) || "", topEntry);
+    renderFeelPathCard(rawQuery || (group && group.label) || "");
     // View More button
     const moreKey = group.label;
     const moreVerses = (FEEL_MORE[moreKey] || []);
@@ -1296,6 +1568,7 @@ const FEEL_MORE = {
     clearFullResults();
     hideFeelPlanCta();
     hideSearchNextStep();
+    clearFeelPathCard();
     cards.replaceChildren();
     cards.classList.remove("has-results");
     if (welcome) { welcome.classList.remove("show"); welcome.textContent = ""; }
@@ -1306,6 +1579,7 @@ const FEEL_MORE = {
     clearFullResults();
     hideFeelPlanCta();
     hideSearchNextStep();
+    clearFeelPathCard();
     cards.replaceChildren();
     cards.classList.remove("has-results");
     if (welcome) { welcome.classList.remove("show"); welcome.textContent = ""; }
@@ -2246,6 +2520,54 @@ function tdbParsePlanDayRaw(raw) {
   return isNaN(day) ? 0 : day;
 }
 
+/** Resolve progress for any plan id — PLAN_CONFIGS plus label/max written by plans.html openPlan. */
+function tdbResolvePlanProgressMeta(planId) {
+  if (!planId) return null;
+  var id = String(planId);
+  var cfg = PLAN_CONFIGS[id];
+  var key = cfg && cfg.key ? cfg.key : ('tdb-plan-' + id + '-day');
+  var day = tdbParsePlanDayRaw(localStorage.getItem(key));
+  var max = cfg && cfg.max ? cfg.max : 0;
+  var label = cfg && cfg.label ? cfg.label : '';
+  try {
+    var storedMax = parseInt(localStorage.getItem('tdb-plan-' + id + '-max') || '0', 10);
+    if (!isNaN(storedMax) && storedMax > 0) max = storedMax;
+  } catch (_) { /* non-fatal */ }
+  try {
+    var storedLabel = localStorage.getItem('tdb-plan-' + id + '-label');
+    if (storedLabel && String(storedLabel).trim()) label = String(storedLabel).trim();
+  } catch (_) { /* non-fatal */ }
+  if (!max || max < 1) max = 7;
+  if (!label) label = id;
+  day = Math.min(Math.max(day, 0), max);
+  return { planId: id, day: day, max: max, label: label, key: key };
+}
+
+function tdbScanLocalPlanIdsWithProgress() {
+  var ids = [];
+  var seen = Object.create(null);
+  function add(id) {
+    if (!id || seen[id]) return;
+    seen[id] = true;
+    ids.push(id);
+  }
+  try {
+    var i;
+    for (i = 0; i < localStorage.length; i++) {
+      var k = localStorage.key(i);
+      if (!k) continue;
+      if (k === 'tdb-plan-day') {
+        add('battle');
+        continue;
+      }
+      var m = /^tdb-plan-(.+)-day$/.exec(k);
+      if (m) add(m[1]);
+    }
+  } catch (_) { /* non-fatal */ }
+  Object.keys(PLAN_CONFIGS).forEach(add);
+  return ids;
+}
+
 function tdbPickActivePlanForHome() {
   var recent = [];
   try {
@@ -2254,21 +2576,39 @@ function tdbPickActivePlanForHome() {
   if (!Array.isArray(recent)) recent = [];
   var i;
   for (i = 0; i < recent.length; i++) {
-    var rid = recent[i];
-    var cfgR = PLAN_CONFIGS[rid];
-    if (!cfgR) continue;
-    var dR = tdbParsePlanDayRaw(localStorage.getItem(cfgR.key));
-    dR = Math.min(Math.max(dR, 0), cfgR.max);
-    if (dR > 0) return { planId: rid, day: dR, max: cfgR.max, label: cfgR.label };
+    var metaR = tdbResolvePlanProgressMeta(recent[i]);
+    if (metaR && metaR.day > 0) return metaR;
   }
   var best = { planId: null, day: 0, max: 7, label: '' };
-  Object.keys(PLAN_CONFIGS).forEach(function (planId) {
-    var cfg = PLAN_CONFIGS[planId];
-    var d = tdbParsePlanDayRaw(localStorage.getItem(cfg.key));
-    d = Math.min(Math.max(d, 0), cfg.max);
-    if (d > best.day) best = { planId: planId, day: d, max: cfg.max, label: cfg.label };
+  tdbScanLocalPlanIdsWithProgress().forEach(function (planId) {
+    var meta = tdbResolvePlanProgressMeta(planId);
+    if (!meta || meta.day <= 0) return;
+    if (meta.day > best.day) best = meta;
   });
   return best;
+}
+
+function tdbSyncHomeHeroPlanCta(best) {
+  var a = document.getElementById('tdbHomeHeroPrimaryPlan');
+  if (!a) return;
+  if (best && best.planId && best.day > 0 && best.day < best.max) {
+    a.href = 'plans.html?plan=' + encodeURIComponent(best.planId);
+    a.textContent = 'Continue today\u2019s Battle Plan';
+    a.setAttribute(
+      'aria-label',
+      'Continue ' + (best.label || 'Battle Plan') + ' \u2014 day ' + best.day + ' of ' + best.max
+    );
+    return;
+  }
+  if (best && best.planId && best.day >= best.max) {
+    a.href = 'plans.html';
+    a.textContent = 'Open a Battle Plan';
+    a.setAttribute('aria-label', 'Browse Battle Plans \u2014 pick a new short path');
+    return;
+  }
+  a.href = 'plans.html?plan=battle';
+  a.textContent = 'Open today\u2019s Battle Plan';
+  a.setAttribute('aria-label', 'Open today\u2019s Battle Plan');
 }
 
 function tdbCountSavedVersesHome() {
@@ -2299,6 +2639,7 @@ function updatePlanStreak() {
   if (best.day >= best.max) setTimeout(burstConfetti, 600);
   if (best.day >= 2) setTimeout(maybeShowNotifPrompt, 2000);
   updatePlanChips();
+  tdbSyncHomeHeroPlanCta(best);
   tdbRenderHomeResumeStrip(best);
 }
 

@@ -16,7 +16,7 @@
     }
   } catch (_) {}
 
-  var INTERACTIVE_SRC = 'script.js?v=20260708-biblical-answers-search';
+  var INTERACTIVE_SRC = 'script.js?v=20260709-ba-discover
   var loaded = false;
   var pendingQuery = '';
 
@@ -88,7 +88,7 @@
     if (!target || !target.closest) return;
     var chip = target.closest('.topic-chip, .quick-topic, [data-topic]');
     if (!chip) return;
-    var inSearchSurface = chip.closest('#quick-search-hero, #search-hero, #quick-search-priority, #main-search, #quick-actions-priority, #quick-actions-accordion, #feel-section, #tdbHomeFastFeel');
+    var inSearchSurface = chip.closest('#quick-search-hero, #search-hero, #quick-search-priority, #main-search, #quick-actions-priority, #quick-actions-accordion, #feel-section');
     if (!inSearchSurface) return;
     var topic = (chip.getAttribute('data-topic') || '').trim();
     if (!topic) topic = String(chip.textContent || '').trim();

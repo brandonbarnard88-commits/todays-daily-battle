@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260708-biblical-answers-search"></script>
+  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260709-wave4"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js?v=20260709-ba-discover"></script>
+  <script src="/tt-bootstrap.js?v=20260709-wave4"></script>
 
   <!-- GA4 lazy-loaded after interaction -->
   <script defer src="analytics-loader.js"></script>
@@ -15,17 +15,18 @@
   <meta name="description" content="Your quiet desk with God on this device: saved verses, notes, prayer, and highlights&mdash;no report card, your pace.">
   <link rel="canonical" href="https://todaysdailybattle.com/mystudy">
   <meta name="theme-color" content="#0a0c14">
-  <link rel="preload" href="styles.css?v=20260709-ba-discover" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260709-ba-discover">
+  <link rel="preload" href="styles.css?v=20260709-wave4" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260709-wave4">
   <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
   <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
 
   <link rel="preload" href="tdb-visual-tokens.css?v=20260521-discover-b" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260521-discover-b">
-  <link rel="preload" href="mystudy.css?v=20260626-plan-reflections" as="style">
-  <link rel="stylesheet" href="mystudy.css?v=20260626-plan-reflections">
+  <link rel="preload" href="mystudy.css?v=20260711-ms3-desk" as="style">
+  <link rel="stylesheet" href="mystudy.css?v=20260711-ms3-desk">
+  <script nonce="tdb2025s">(function(){try{document.documentElement.dataset.tdbMystudyOwnsSaved='1';}catch(e){}})();</script>
 </head>
-<body class="dark-mode tdb-inner-page mystudy-body">
+<body class="dark-mode tdb-inner-page mystudy-body" data-tdb-continue-page="mystudy">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div id="tdb-offline-strip" class="tdb-offline-strip hidden" role="status" aria-live="polite" data-tdb-offline-page="mystudy"><p class="offline-msg"></p></div>
   <main id="main-content" class="mystudy-shell tdb-quiet-container porch-section">
@@ -36,7 +37,7 @@
       <a href="family.html" class="mystudy-home-link">Family</a>
       <a href="explore.html" class="mystudy-home-link">Explore</a>
       <a href="bible-tool.html" class="mystudy-home-link">Bible Tool</a>
-      <a href="progress.html" class="mystudy-home-link">Progress</a>
+      <a href="#mystudy-rhythm-drawer" class="mystudy-home-link">Progress</a>
       <a href="search.html" class="mystudy-home-link">Search site</a>
     </nav>
     <section class="mystudy-card glass tdb-porch-paper-glass mystudy-card--porch" aria-label="My Study">
@@ -44,13 +45,27 @@
         <div id="mystudy-overview" class="mystudy-hero-copy" tabindex="-1">
           <h1 class="section-divider mystudy-title">My Study</h1>
           <p class="tdb-sync-honesty-line section-note" id="mystudySyncHonesty">Saved privately on this device only. Nothing is sent to our servers.</p>
-          <p class="section-note mystudy-subtitle topic-mood-porch">You&rsquo;re already welcome here. Pull up a chair&mdash;this is your quiet desk with God on this device, no report card, no pressure.</p>
-          <p class="section-note mystudy-subtitle mystudy-overview-text">Some days you&rsquo;ll read one verse and that&rsquo;s all. That&rsquo;s enough. The shelf is here when you&rsquo;re ready, never when you&rsquo;re not. Stays on this device unless you sign in to sync. <a href="/login.html" class="mystudy-sync-nudge">Sign in free to never lose it</a>.</p>
-          <p class="section-note mystudy-subtitle" id="mystudy-whats-new-note" role="note">What&rsquo;s new on the site&mdash;not a sales pitch: the <a href="/university.html">University map</a> has more six-day paths (including <a href="/plans.html?plan=universitybroken">broken relationships</a>, <a href="/plans.html?plan=universitycomparison">comparison and contentment</a>, <a href="/plans.html?plan=universityanger">anger and a quiet tongue</a>, <a href="/plans.html?plan=universityregret">honest regret</a>, <a href="/plans.html?plan=universitydoubt">honest doubt</a>, and <a href="/plans.html?plan=universitybitterness">gall, root, and peace</a>); a five-day <a href="/plans.html?plan=quietfallharvest">quiet fall harvest</a>, a <a href="/plans.html?plan=latesummerrest">late-summer bridge</a> of thanks and rest, and <a href="/plans.html?plan=latefallwinter">late fall, quiet winter</a> before Advent; a four-night <a href="/plans.html?plan=eveninguog">Evening in the University</a> with a <a href="/evening-university-print.html">one-page print</a>, a <a href="/morning-evening-family-print.html">morning &amp; evening two-card print</a>, and a <a href="/one-week-in-the-university-print.html">one-week family sheet</a> (also listed on <a href="/family-rhythm.html">Simple family rhythm</a>); calmer <a href="/verse-image.html#verse-image-uog-prompts">verse-image preset</a> filters; and Family Armor&rsquo;s <a href="/family-armor-little-ones.html#fa-littles-morning-reset">morning reset</a> beside the bedtime card.</p>
+          <p class="tdb-offline-ready" role="note">Works offline after you&rsquo;ve opened it once on this device.</p>
+          <p class="section-note mystudy-subtitle topic-mood-porch">Your quiet desk with God on this device&mdash;saved verses, notes, and prayer. No report card.</p>
+          <p class="section-note mystudy-subtitle mystudy-overview-text">One verse is enough for today. <a href="/login.html" class="mystudy-sync-nudge">Sign in free</a> if you want optional sync later.</p>
+          <section id="tdb-continue-surface" class="tdb-continue-surface" hidden aria-label="Pick up on this device">
+            <p class="tdb-continue-surface__eyebrow">Pick up where you left off</p>
+            <a id="tdb-continue-surface-link" class="tdb-continue-surface__link" href="#">
+              <span id="tdb-continue-surface-title"></span>
+            </a>
+            <p class="section-note tdb-continue-surface__note">Whenever you&rsquo;re ready &mdash; no catch-up.</p>
+          </section>
+          <details class="mystudy-whats-new-details mystudy-quiet-details" id="mystudy-whats-new-note">
+            <summary class="mystudy-quiet-details__sum">What&rsquo;s new on the site</summary>
+            <p class="section-note mystudy-whats-new-body" role="note">The <a href="/university.html">University map</a> has more six-day paths (including <a href="/plans.html?plan=universitybroken">broken relationships</a>, <a href="/plans.html?plan=universitycomparison">comparison and contentment</a>, <a href="/plans.html?plan=universityanger">anger and a quiet tongue</a>, <a href="/plans.html?plan=universityregret">honest regret</a>, <a href="/plans.html?plan=universitydoubt">honest doubt</a>, and <a href="/plans.html?plan=universitybitterness">gall, root, and peace</a>); a five-day <a href="/plans.html?plan=quietfallharvest">quiet fall harvest</a>, a <a href="/plans.html?plan=latesummerrest">late-summer bridge</a> of thanks and rest, and <a href="/plans.html?plan=latefallwinter">late fall, quiet winter</a> before Advent; a four-night <a href="/plans.html?plan=eveninguog">Evening in the University</a> with a <a href="/evening-university-print.html">one-page print</a>, a <a href="/morning-evening-family-print.html">morning &amp; evening two-card print</a>, and a <a href="/one-week-in-the-university-print.html">one-week family sheet</a> (also listed on <a href="/family-rhythm.html">Simple family rhythm</a>); calmer <a href="/verse-image.html#verse-image-uog-prompts">verse-image preset</a> filters; and Family Armor&rsquo;s <a href="/family-armor-little-ones.html#fa-littles-morning-reset">morning reset</a> beside the bedtime card.</p>
+          </details>
         </div>
         <div class="mystudy-hero-support">
           <p class="section-note tdb-kjv-dict-hint mystudy-hint-card" role="note">Underlined KJV word? Tap for a short, plain meaning.</p>
-          <div class="tdb-soft-retry-row mystudy-retry-row"><button type="button" class="btn btn-secondary tdb-soft-retry-btn">Reload page</button><span class="section-note util-mb-0">Use this if your saved study, notes, or highlights open blank on first load.</span></div>
+          <details class="mystudy-quiet-details mystudy-reload-details">
+            <summary class="mystudy-quiet-details__sum">Page looks blank?</summary>
+            <div class="tdb-soft-retry-row mystudy-retry-row"><button type="button" class="btn btn-secondary tdb-soft-retry-btn">Reload page</button><span class="section-note util-mb-0">Use this if your saved study, notes, or highlights open blank on first load.</span></div>
+          </details>
           <details class="tdb-gentle-suggest-disclosure mystudy-gentle-disclosure" data-tdb-gentle-root>
             <summary class="tdb-gentle-suggest-summary">Gentle suggestions?</summary>
             <div class="tdb-gentle-suggest-body">
@@ -83,7 +98,10 @@
           <p class="mystudy-onpage-nav__label" id="mystudy-onpage-toc-label">On this page</p>
           <ul class="mystudy-onpage-nav__list" aria-labelledby="mystudy-onpage-toc-label">
             <li><a href="#mystudy-overview">Overview</a></li>
+            <li><a href="#mystudy-rhythm-drawer">Quiet rhythm</a></li>
             <li><a href="#mystudy-quiet-steps">My Quiet Steps</a></li>
+            <li><a href="#mystudy-plans-walking">Plans you&rsquo;re walking</a></li>
+            <li><a href="#mystudy-faith-loop">Faith loop</a></li>
             <li><a href="#mystudy-plan-reflections">What stood out</a></li>
             <li><a href="#mystudy-progress-summary">Your rhythm</a></li>
             <li><a href="#mystudy-streak-badges">Quiet markers</a></li>
@@ -95,35 +113,72 @@
             <li><a href="#panel-join-study">Join Study</a></li>
           </ul>
         </nav>
-        <section id="mystudy-quiet-steps" class="mystudy-quiet-steps glass tdb-porch-paper-glass" aria-labelledby="mystudy-quiet-steps-heading">
-          <h2 id="mystudy-quiet-steps-heading" class="section-divider mystudy-h2 mystudy-h2-tight">My Quiet Steps</h2>
-          <p class="section-note mystudy-quiet-steps-lead">Not behind&mdash;just here. A soft map of days you showed up on this device (home check-ins). No score.</p>
-          <div id="mystudy-quiet-steps-grid" class="mystudy-quiet-steps-grid" role="group" aria-label="Last 28 days on this device"></div>
-          <p id="mystudy-quiet-steps-empty" class="section-note mystudy-quiet-steps-empty hidden" role="status">No check-ins in this window yet&mdash;that is all right. One verse today is enough.</p>
-          <p class="section-note util-mb-0"><a href="progress.html">Open full progress view</a> for plans, stats, and milestones.</p>
-        </section>
-        <section id="mystudy-plan-reflections" class="mystudy-plan-reflections glass tdb-porch-paper-glass" aria-labelledby="mystudy-plan-reflections-heading">
-          <h2 id="mystudy-plan-reflections-heading" class="section-divider mystudy-h2 mystudy-h2-tight">What stood out on the path</h2>
-          <p class="section-note mystudy-plan-reflections-lead">Quiet lines you left on Battle Plan days&mdash;optional harvest, saved on this device only. Tap a row to return to that day.</p>
-          <ul id="mystudy-plan-reflections-list" class="mystudy-plan-reflections-list"></ul>
-          <p id="mystudy-plan-reflections-empty" class="section-note mystudy-plan-reflections-empty" role="status">Nothing saved yet&mdash;that is all right. On any plan day, after the prayer, you can leave one honest line if something stood out.</p>
-        </section>
-        <div id="mystudy-progress-summary" class="mystudy-progress-summary" role="region" aria-label="Your gentle study rhythm on this device"></div>
-        <div id="mystudy-backup-nudge" class="mystudy-backup-nudge hidden" role="region" aria-live="polite" aria-label="Backup reminder"></div>
-        <section id="mystudy-activity-calendar" class="mystudy-activity-calendar" role="region" aria-labelledby="mystudy-activity-cal-heading" hidden>
-          <h2 id="mystudy-activity-cal-heading" class="mystudy-h2 mystudy-h2-tight mystudy-cal-heading">This month on this device</h2>
-          <p class="section-note mystudy-cal-legend">A quiet preview only: days you opened this English home, the daily rhythm, a verse note, or a memorize review. Not a score&mdash;grace for the weeks that only had room for a little.</p>
-          <div id="mystudy-activity-cal-grid" class="mystudy-activity-cal-grid" aria-hidden="true"></div>
-        </section>
-        <section id="mystudy-streak-badges" class="mystudy-streak-badges" role="region" aria-labelledby="mystudy-streak-badges-heading">
-          <div class="mystudy-streak-badges-head">
-            <h2 id="mystudy-streak-badges-heading" class="section-divider mystudy-h2 mystudy-h2-tight">Quiet markers</h2>
-            <p class="section-note mystudy-streak-badges-copy">A quiet marker of faithfulness, not a public score&mdash;God sees your heart, not your streak. Stored on this device unless you choose to sync later.</p>
+        <details class="mystudy-rhythm-drawer mystudy-quiet-details" id="mystudy-rhythm-drawer">
+          <summary class="mystudy-quiet-details__sum">Quiet rhythm on this device</summary>
+          <div class="mystudy-rhythm-drawer__body">
+            <section id="mystudy-quiet-steps" class="mystudy-quiet-steps glass tdb-porch-paper-glass" aria-labelledby="mystudy-quiet-steps-heading">
+              <h2 id="mystudy-quiet-steps-heading" class="section-divider mystudy-h2 mystudy-h2-tight">My Quiet Steps</h2>
+              <p class="section-note mystudy-quiet-steps-lead">Not behind&mdash;just here. A soft map of days you showed up on this device (home check-ins). No score.</p>
+              <div id="mystudy-quiet-steps-grid" class="mystudy-quiet-steps-grid" role="group" aria-label="Last 28 days on this device"></div>
+              <p id="mystudy-quiet-steps-empty" class="section-note mystudy-quiet-steps-empty hidden" role="status">No check-ins in this window yet&mdash;that is all right. One verse today is enough.</p>
+              <p class="section-note util-mb-0"><a href="#mystudy-plans-walking">Plans you&rsquo;re walking</a> · <a href="wins.html">Your Wins</a></p>
+            </section>
+            <section id="mystudy-faith-loop" class="mystudy-faith-loop glass tdb-porch-paper-glass" aria-labelledby="mystudy-faith-loop-heading">
+              <h2 id="mystudy-faith-loop-heading" class="section-divider mystudy-h2 mystudy-h2-tight">Faith loop</h2>
+              <p id="mystudy-faith-loop-line" class="section-note mystudy-faith-loop-line" role="status" aria-live="polite"></p>
+              <p class="section-note util-mb-0">No trial here&mdash;when a plan pauses, you&rsquo;re welcome to <a href="plans.html">begin again</a> or stay still. <a href="mobius.html">Grace Ribbon Journal</a> shows the same gentle line: one path, room to turn.</p>
+            </section>
+            <section id="mystudy-plans-walking" class="mystudy-plans-walking glass tdb-porch-paper-glass" aria-labelledby="mystudy-plans-walking-heading">
+              <h2 id="mystudy-plans-walking-heading" class="section-divider mystudy-h2 mystudy-h2-tight">Plans you&rsquo;re walking</h2>
+              <div id="mystudy-plans-walking-list" class="mystudy-plans-list" role="list"></div>
+              <p id="mystudy-plans-walking-empty" class="section-note mystudy-plans-empty" role="status">No plan open right now&mdash;that&rsquo;s allowed. When you want a slow lane again, <a href="plans.html">pick one</a>.</p>
+            </section>
+            <section id="mystudy-plans-finished" class="mystudy-plans-finished glass tdb-porch-paper-glass" aria-labelledby="mystudy-plans-finished-heading">
+              <h2 id="mystudy-plans-finished-heading" class="section-divider mystudy-h2 mystudy-h2-tight">Plans you&rsquo;ve finished</h2>
+              <div id="mystudy-plans-finished-list" class="mystudy-plans-list" role="list"></div>
+              <p id="mystudy-plans-finished-empty" class="section-note mystudy-plans-empty" role="status">No finished plans here yet&mdash;first steps count even when nothing is &ldquo;done.&rdquo;</p>
+            </section>
+            <details class="mystudy-quiet-details mystudy-progress-tools" id="mystudy-progress-tools">
+              <summary class="mystudy-quiet-details__sum">Quiet numbers &amp; reset on this device</summary>
+              <div class="mystudy-progress-tools__body">
+                <p class="section-note">A glance at this browser only&mdash;not a grade. You can copy a short snapshot, or clear plan checkmarks if you need a gentle fresh start.</p>
+                <div class="mystudy-progress-stats" aria-label="Quiet numbers on this device">
+                  <div class="mystudy-progress-stat"><span class="mystudy-progress-stat-value" id="mystudy-stat-days">0</span><span class="mystudy-progress-stat-label">Days marked</span></div>
+                  <div class="mystudy-progress-stat"><span class="mystudy-progress-stat-value" id="mystudy-stat-started">0</span><span class="mystudy-progress-stat-label">Plans started</span></div>
+                  <div class="mystudy-progress-stat"><span class="mystudy-progress-stat-value" id="mystudy-stat-finished">0</span><span class="mystudy-progress-stat-label">Finished</span></div>
+                </div>
+                <div class="mystudy-progress-tools-actions">
+                  <button type="button" id="mystudy-copy-progress-stats" class="btn btn-secondary">Copy my stats</button>
+                  <button type="button" id="mystudy-reset-plan-progress" class="btn btn-secondary">Reset plan progress</button>
+                </div>
+                <p id="mystudy-progress-tools-status" class="section-note" role="status" aria-live="polite"></p>
+                <p class="section-note util-mb-0"><a href="progress.html">Bookmark page</a> still opens if you saved the old Progress URL.</p>
+              </div>
+            </details>
+            <section id="mystudy-plan-reflections" class="mystudy-plan-reflections glass tdb-porch-paper-glass" aria-labelledby="mystudy-plan-reflections-heading">
+              <h2 id="mystudy-plan-reflections-heading" class="section-divider mystudy-h2 mystudy-h2-tight">What stood out on the path</h2>
+              <p class="section-note mystudy-plan-reflections-lead">Quiet lines you left on Battle Plan days&mdash;optional harvest, saved on this device only. Tap a row to return to that day.</p>
+              <ul id="mystudy-plan-reflections-list" class="mystudy-plan-reflections-list"></ul>
+              <p id="mystudy-plan-reflections-empty" class="section-note mystudy-plan-reflections-empty" role="status">Nothing saved yet&mdash;that is all right. On any plan day, after the prayer, you can leave one honest line if something stood out.</p>
+            </section>
+            <div id="mystudy-progress-summary" class="mystudy-progress-summary" role="region" aria-label="Your gentle study rhythm on this device"></div>
+            <section id="mystudy-activity-calendar" class="mystudy-activity-calendar" role="region" aria-labelledby="mystudy-activity-cal-heading" hidden>
+              <h2 id="mystudy-activity-cal-heading" class="mystudy-h2 mystudy-h2-tight mystudy-cal-heading">This month on this device</h2>
+              <p class="section-note mystudy-cal-legend">A quiet preview only: days you opened this English home, the daily rhythm, a verse note, or a memorize review. Not a score&mdash;grace for the weeks that only had room for a little.</p>
+              <div id="mystudy-activity-cal-grid" class="mystudy-activity-cal-grid" aria-hidden="true"></div>
+            </section>
+            <section id="mystudy-streak-badges" class="mystudy-streak-badges" role="region" aria-labelledby="mystudy-streak-badges-heading">
+              <div class="mystudy-streak-badges-head">
+                <h2 id="mystudy-streak-badges-heading" class="section-divider mystudy-h2 mystudy-h2-tight">Quiet markers</h2>
+                <p class="section-note mystudy-streak-badges-copy">A quiet marker of faithfulness, not a public score&mdash;God sees your heart, not your streak. Stored on this device unless you choose to sync later.</p>
+              </div>
+              <div id="mystudy-streak-badge-featured" class="mystudy-streak-badge-featured" aria-live="polite"></div>
+              <p id="mystudy-streak-badge-progress" class="mystudy-streak-badge-progress" aria-live="polite"></p>
+              <div id="mystudy-streak-badge-rail" class="mystudy-streak-badge-rail" role="list" aria-label="Streak badges"></div>
+            </section>
           </div>
-          <div id="mystudy-streak-badge-featured" class="mystudy-streak-badge-featured" aria-live="polite"></div>
-          <p id="mystudy-streak-badge-progress" class="mystudy-streak-badge-progress" aria-live="polite"></p>
-          <div id="mystudy-streak-badge-rail" class="mystudy-streak-badge-rail" role="list" aria-label="Streak badges"></div>
-        </section>
+        </details>
+        <div id="mystudy-backup-nudge" class="mystudy-backup-nudge hidden" role="region" aria-live="polite" aria-label="Backup reminder"></div>
         <div id="mystudy-memorize-strip" class="mystudy-memorize-strip mystudy-memorize-strip--empty" role="region" aria-label="Memorize queue summary">
           <p id="mystudy-memorize-pill" class="mystudy-memorize-pill" role="status" aria-live="polite"></p>
           <button type="button" id="mystudy-memorize-review-next" class="btn btn-secondary mystudy-mem-review-next hidden">Mark next reviewed</button>
@@ -136,6 +191,11 @@
         <button id="tab-highlights" class="mystudy-tab" role="tab" aria-selected="false" aria-controls="panel-highlights" type="button">Highlights</button>
         <button id="tab-join-study" class="mystudy-tab" role="tab" aria-selected="false" aria-controls="panel-join-study" type="button">Join Study</button>
       </div>
+      <nav class="mystudy-mobile-jump" id="mystudyMobileJump" aria-label="Jump on this page">
+        <a class="mystudy-mobile-jump__chip" href="#panel-my-study" data-mystudy-jump="my">Workspace</a>
+        <a class="mystudy-mobile-jump__chip" href="#panel-note-library" data-mystudy-jump="library">Saved</a>
+        <a class="mystudy-mobile-jump__chip" href="#panel-highlights" data-mystudy-jump="highlights">Highlights</a>
+      </nav>
 
       <section id="panel-my-study" class="mystudy-panel" role="tabpanel" aria-labelledby="tab-my-study" data-mobile-label="My Study">
         <div class="mystudy-panel-flow">
@@ -238,12 +298,12 @@
               <summary class="mystudy-data-peek-summary">What stays on this device</summary>
               <div class="mystudy-data-peek-body">
                 <p class="section-note util-mb-0_5">No raw storage dump&mdash;just an honest scope. This browser may keep: saved verse list, verse notes and tags, ribbon journal lines (M&ouml;bius path), plan-day reflections (&ldquo;what stood out&rdquo;), prayer text you type here, highlight marks, memorize review times, recent reader chapters, and gentle activity dots for the month view. Signed-in sync uses your account only for that feature; we do not sell data.</p>
-                <p class="section-note util-mb-0">Use <strong>Download JSON backup</strong> below when you switch phones or want a file in your own hands.</p>
+                <p class="section-note util-mb-0">Use <strong>Download JSON backup</strong> below when you switch phones or want a file in your own hands. That file includes saved verses, workspace notes, highlights, ribbon journal, plan reflections, and Bible Tool notes.</p>
               </div>
             </details>
-            <h2 class="section-divider mystudy-h2 mystudy-h2-tight">Saved verses</h2>
+            <h2 class="section-divider mystudy-h2 mystudy-h2-tight">Saved verses &amp; notes</h2>
             <p class="tdb-sync-honesty-line section-note" id="mystudySavedSyncHonesty">Saved privately on this device only. Nothing is sent to our servers.</p>
-            <p class="section-note">Verses you saved from Home, search, or the Bible Tool. Tap a reference to reopen it, or keep moving with memorize and notes right here.</p>
+            <p class="section-note">One shelf for verses you saved from Home, search, or the Bible Tool&mdash;plus notes. Open here keeps you on this desk.</p>
             <div id="saved-verses" class="list my-verses-saved-list" role="list" aria-label="Saved verses" aria-live="polite" aria-relevant="additions text"></div>
             <div class="mystudy-export-progress-wrap" role="region" aria-labelledby="mystudy-export-heading">
               <h3 id="mystudy-export-heading" class="mystudy-h2 mystudy-h2-tight">Export my progress &amp; notes</h3>
@@ -264,25 +324,25 @@
               <button type="button" id="mystudy-restore-json" class="btn btn-secondary mystudy-print-btn" aria-label="Restore My Study backup from a JSON file">Restore JSON backup</button>
               <input type="file" id="mystudy-restore-file" accept="application/json,.json" hidden aria-hidden="true">
             </div>
-            <p id="mystudy-backup-status" class="section-note" aria-live="polite">Need to move this device or recover after a reset? Download a backup here, then restore it later from the same section.</p>
+            <p id="mystudy-backup-status" class="section-note" aria-live="polite">Need to move this device or recover after a reset? Download a full JSON backup here (saved verses, notes, highlights, ribbon, plan reflections), then restore it later from the same section.</p>
             <p class="section-note mystudy-backup-hint util-mb-0" role="note">After a good stretch of notes, a fresh JSON file is a quiet gift to your future self.</p>
           </section>
 
           <section class="mystudy-section-card">
-            <h2 class="section-divider mystudy-h2 mystudy-h2-tight">Memorize (lite)</h2>
-            <p class="section-note">Verses you mark on the Bible Tool. Gentle spaced rhythm on this device: intervals stretch when you tap &ldquo;Remembered well&rdquo; and ease sooner when you need another pass&mdash;no scores.</p>
-            <ul id="mystudy-memorize-list" class="mystudy-memorize-list" aria-label="Memorize queue"></ul>
-            <label for="mystudy-library-filter" class="mystudy-label">Filter by reference, tag, or note text</label>
+            <details class="mystudy-quiet-details" id="mystudy-memorize-details">
+              <summary class="mystudy-quiet-details__sum">Memorize queue (full list)</summary>
+              <div class="mystudy-memorize-details__body">
+                <h2 class="section-divider mystudy-h2 mystudy-h2-tight">Memorize (lite)</h2>
+                <p class="section-note">Verses you mark on the Bible Tool. Gentle spaced rhythm on this device: intervals stretch when you tap &ldquo;Remembered well&rdquo; and ease sooner when you need another pass&mdash;no scores.</p>
+                <ul id="mystudy-memorize-list" class="mystudy-memorize-list" aria-label="Memorize queue"></ul>
+              </div>
+            </details>
+            <label for="mystudy-library-filter" class="mystudy-label">Filter notes by reference, tag, or text</label>
             <div id="mystudy-tag-pills" class="mystudy-tag-pills" role="group" aria-label="Filter by tag"></div>
             <input id="mystudy-library-filter" type="search" class="mystudy-library-filter" placeholder="e.g. Romans, fear, peace…" autocomplete="off" aria-label="Filter verse notes" />
-          </section>
-
-          <section class="mystudy-section-card">
-            <h2 class="section-divider mystudy-h2 mystudy-h2-tight">Recently tagged</h2>
-            <p class="section-note mystudy-recent-tagged-lead">Verse notes that have tags, with the most recent tag edit first (this device).</p>
-            <ul id="mystudy-recent-tagged" class="mystudy-library-list mystudy-recent-tagged-list" aria-label="Recently tagged verse notes"></ul>
             <p id="mystudy-library-status" class="section-note" aria-live="polite"></p>
             <ul id="mystudy-library-list" class="mystudy-library-list" aria-label="Saved verse notes"></ul>
+            <ul id="mystudy-recent-tagged" class="mystudy-library-list mystudy-recent-tagged-list visually-hidden" aria-hidden="true" hidden></ul>
           </section>
 
           <section class="mystudy-section-card">
@@ -339,29 +399,30 @@
   </main>
 
   <script type="module" src="config.js"></script>
-  <script src="tdb-offline-strip.js?v=20260329pass2off"></script>
+  <script src="tdb-offline-strip.js?v=20260712-pickup"></script>
   <!-- Supabase SDK managed exclusively by script.js (singleton prevents duplicate GoTrueClient instances and auth token races) -->
   <script src="verse-breakdown.js?v=20260405-relations-fix" defer></script>
   <script src="gentle-suggest.js?v=20260418gentle" defer></script>
   <script src="highlights.js?v=20260305" defer></script>
-  <script src="bible-study-companion.js?v=20260328printpolish" defer></script>
+  <script src="bible-study-companion.js?v=20260711-ms3-desk" defer></script>
   <script src="word-study.js?v=20260329pass2off" defer></script>
   <script src="verse-narration.js?v=20260329narr12" defer></script>
   <script src="verse-study.js?v=20260328pass4vs" defer></script>
-  <script src="mystudy.js?v=20260626-plan-reflections" defer></script>
-  <script src="mobius-deep-lesson-stations.js?v=20260518ribbon" defer></script>
-  <script src="tdb-mobius-journal.js?v=20260518ribbon" defer></script>
-  <script src="mystudy-ribbon-journal.js?v=20260518ribbon" defer></script>
+  <script src="/js/tdb-plan-progress.js?v=20260711-ms3-desk" defer></script>
+  <script src="tdb-continue-surface.js?v=20260712-continue" defer></script>
+  <script src="mystudy.js?v=20260711-ms3-desk" defer></script>
+  <!-- MS3: ribbon scripts load on first Saved-tab open — mobius-deep-lesson-stations.js, tdb-mobius-journal.js, mystudy-ribbon-journal.js -->
+  <script type="application/json" id="mystudy-deferred-ribbon-scripts">["mobius-deep-lesson-stations.js?v=20260518ribbon","tdb-mobius-journal.js?v=20260518ribbon","mystudy-ribbon-journal.js?v=20260518ribbon"]</script>
   <script defer src="/js/mystudy-mobile.js"></script>
-  <script type="module" src="script.js?v=20260709-ba-discover" data-cfasync="false"></script>
+  <script type="module" src="script.js?v=20260709-wave4" data-cfasync="false"></script>
   <script src="/easter-eggs.js" defer data-tdb-easter-eggs="1"></script>
 
   <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
     <nav class="tdb-bottom-dock" aria-label="Main site navigation">
-      <a href="/verse.html" aria-label="Verse of the Day">☀️ Verse</a>
+      <a href="/" aria-label="Home — today’s verse">🏠 Home</a>
       <a href="/#feel-section" aria-label="Ask the Word">💬 Ask</a>
       <a href="/plans.html" aria-label="Battle Plans">🗓️ Plans</a>
-      <a href="/prayer-wall.html" aria-label="Prayer Wall">🙏 Pray</a>
+      <a href="/calm.html" aria-label="Calm — one steady verse">🌿 Calm</a>
       <a href="/explore.html" class="tdb-bottom-dock-more" aria-label="More tools">☰ More</a>
     </nav>
 </body>

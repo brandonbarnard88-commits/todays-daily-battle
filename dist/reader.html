@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=20260708-biblical-answers-search"></script>
-  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260708-biblical-answers-search"></script>
-  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260709-ba-discover"></script>
+  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=20260709-wave4"></script>
+  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260709-wave4"></script>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260709-wave4"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js" defer fetchpriority="low"></script>
-  <script src="/tt-bootstrap.js?v=20260709-ba-discover" defer fetchpriority="low"></script>
+  <script src="/tt-bootstrap.js?v=20260709-wave4" defer fetchpriority="low"></script>
 
   <!-- GA4 lazy-loaded after interaction -->
   <meta charset="UTF-8">
@@ -28,8 +28,8 @@
   <meta name="twitter:description" content="Clean, calm KJV chapter reader. No ads. No account. Just Scripture.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/verse-share.jpg">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260709-ba-discover" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260709-ba-discover">
+  <link rel="preload" href="styles.css?v=20260709-wave4" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260709-wave4">
   <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
   <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
 
@@ -131,7 +131,11 @@
       background: rgba(12, 18, 30, 0.55);
     }
     .reader-resume-strip.hidden { display: none !important; }
-    .reader-resume-text { margin: 0 !important; flex: 1 1 12rem; color: rgba(226, 232, 240, 0.92); }
+    .reader-resume-text { margin: 0 !important; flex: 1 1 12rem; color: rgba(226, 232, 240, 0.92); font-weight: 550; }
+    .reader-resume-go { min-height: 44px; min-width: 5.5rem; }
+    @media (max-width: 640px) {
+      .reader-resume-go { width: 100%; justify-content: center; }
+    }
     .reader-recent-strip { margin: 0 0 1rem; }
     .reader-recent-strip.hidden { display: none !important; }
     .reader-strip-label { font-weight: 600; color: rgba(227, 188, 103, 0.88); margin-top: 0 !important; }
@@ -568,7 +572,7 @@
     }
   </style>
 </head>
-<body class="dark-mode tdb-inner-page chapter-reader-page">
+<body class="dark-mode tdb-inner-page chapter-reader-page" data-tdb-continue-page="reader">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div id="tdb-offline-strip" class="tdb-offline-strip hidden" role="status" aria-live="polite" data-tdb-offline-page="reader"><p class="offline-msg"></p></div>
   <div class="app-shell">
@@ -602,8 +606,9 @@
       </button>
       <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
         <a href="/">Home</a>
-        <a href="/#feel-section">How I Feel</a>
+        <a href="/#feel-section">Ask the Word</a>
         <a href="/plans.html" id="nav-browse-curriculum" aria-label="Battle Plans — KJV tracks for hard weeks and quiet seasons">Battle Plans</a>
+        <a href="/calm.html" aria-label="Calm — one steady KJV verse when the moment is heavy">Calm</a>
         <a href="/mystudy">My Study</a>
         <a href="/family.html" aria-label="Family hub — verse, plans, printables">Family &amp; Kids</a>
         <a href="/explore.html">Explore</a>
@@ -618,7 +623,6 @@
               <a href="/reader.html" id="nav-reader" aria-current="page" aria-label="KJV chapter reader">Read the Bible</a>
               <a href="/memorize.html">Memorize</a>
               <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
-              <a href="/calm.html">Calm</a>
             </div>
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">Plans &amp; Journey</span>
@@ -679,7 +683,7 @@
         <a href="shop.html" data-section="shop" data-icon="SH">Shop</a>
         <a href="about.html" data-section="about" data-icon="AB">About</a>
         <a href="faq.html" data-section="faq" data-icon="FQ">FAQ</a>
-        <a href="pricing.html" data-section="pricing" data-icon="PC">Pricing</a>
+        <a href="pricing.html" data-section="pricing" data-icon="PC">Support</a>
       </nav>
       <div class="sidebar-options">
         <label class="inline-toggle">
@@ -696,6 +700,14 @@
           <p class="section-note util-mb-0_5 topic-mood-porch">You are not behind.</p>
           <p class="reader-hero-tagline">Open any chapter. Stay as long as you need. No rush, no test.</p>
           <p class="reader-hero-lead">One verse or one whole chapter &mdash; whichever your heart needs today. Word lookup, private notes, and listen-aloud are all here when you&rsquo;re ready.</p>
+          <p class="tdb-offline-ready" role="note">Works offline after you&rsquo;ve opened it once on this device.</p>
+          <section id="tdb-continue-surface" class="tdb-continue-surface" hidden aria-label="Pick up on this device">
+            <p class="tdb-continue-surface__eyebrow">Pick up where you left off</p>
+            <a id="tdb-continue-surface-link" class="tdb-continue-surface__link" href="#">
+              <span id="tdb-continue-surface-title"></span>
+            </a>
+            <p class="section-note tdb-continue-surface__note">Whenever you&rsquo;re ready &mdash; no catch-up.</p>
+          </section>
           <div class="promise-pills reader-pills">
             KJV only &nbsp;&bull;&nbsp; Works offline &nbsp;&bull;&nbsp; Private notes &nbsp;&bull;&nbsp; No performance
           </div>
@@ -746,9 +758,9 @@
               <p class="section-note util-mb-0 reader-audio-hint tdb-listen-privacy-hint"><span id="reader-listen-hint">KJV loads on this device—tap Listen for a quiet hear-through; tap again to stop. </span>KJV Audio opens the passage in a new tab when you want that player.</p>
             </div>
           </div>
-          <div id="reader-resume-strip" class="reader-resume-strip hidden" role="region" aria-label="Resume last chapter">
+          <div id="reader-resume-strip" class="reader-resume-strip hidden" role="region" aria-label="Continue this chapter">
             <p id="reader-resume-text" class="reader-resume-text section-note"></p>
-            <button type="button" id="reader-resume-go" class="btn btn-secondary reader-resume-go">Open</button>
+            <button type="button" id="reader-resume-go" class="btn btn-secondary reader-resume-go">Continue this chapter</button>
           </div>
           <div id="reader-recent-strip" class="reader-recent-strip hidden" role="region" aria-label="Recently opened chapters on this device">
             <p class="reader-strip-label section-note util-mb-0_5">Recently opened (this device)</p>
@@ -845,10 +857,10 @@
       </div>
     </main>
     <nav class="tdb-bottom-dock" aria-label="Main site navigation">
-      <a href="/verse.html" aria-label="Verse of the Day">☀️ Verse</a>
+      <a href="/" aria-label="Home — today’s verse">🏠 Home</a>
       <a href="/#feel-section" aria-label="Ask the Word">💬 Ask</a>
       <a href="/plans.html" aria-label="Battle Plans">🗓️ Plans</a>
-      <a href="/prayer-wall.html" aria-label="Prayer Wall">🙏 Pray</a>
+      <a href="/calm.html" aria-label="Calm — one steady verse">🌿 Calm</a>
       <a href="/explore.html" class="tdb-bottom-dock-more" aria-label="More tools">☰ More</a>
     </nav>
 
@@ -871,12 +883,11 @@
 
   <nav class="site-footer-essentials" aria-label="Key pages">
     <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/verse.html">Today&rsquo;s Lesson</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/#feel-section">How I Feel</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/prayer-wall.html">Prayer</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/mystudy">My Study</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">Ask the Word</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/plans.html">Plans</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/calm.html">Calm</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
   </nav>
@@ -901,9 +912,12 @@
     <a href="/privacy.html">Privacy</a>
     <a href="/terms.html">Terms</a>
     <a href="/faq.html">FAQ</a>
+    <a href="/verse.html">Today&rsquo;s Lesson</a>
+    <a href="/mystudy">My Study</a>
+    <a href="/prayer-wall.html">Prayer</a>
     <a href="/media.html">Media</a>
     <a href="/roadmap.html">Roadmap</a>
-    <a href="/pricing.html">Pricing</a>
+    <a href="/pricing.html">Support</a>
     <a href="/for-pastors.html">For pastors &amp; teachers</a>
     <a href="/reader.html">Chapter reader</a>
     <a href="/bible/tools.html">Study workshop</a>
@@ -955,7 +969,7 @@
         <a href="/mobius.html">Grace Ribbon</a>
         <a href="/one-family-in-christ.html">One Family in Christ</a>
         <a href="/red-letters.html">Red letters</a>
-        <a href="/plans.html">Courses</a>
+        <a href="/plans.html">Battle Plans</a>
         <a href="/reading-plan.html">7-day plan</a>
         <a href="/study.html">Study workspace</a>
         <a href="/wins.html">Wins</a>
@@ -1017,18 +1031,20 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">July 8, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">July 12, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
-  <script defer src="/language-switcher.js?v=20260709-ba-discover"></script>
+  <script defer src="/language-switcher.js?v=20260709-wave4"></script>
 </footer>
   </div>
 
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script nonce="tdb2025s">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
   <script type="module" src="config.js"></script>
-  <script src="tdb-offline-strip.js?v=20260329pass2off"></script>
+  <script src="tdb-offline-strip.js?v=20260712-pickup"></script>
+  <script src="/js/tdb-plan-progress.js?v=20260711-ms3-desk" defer></script>
+  <script src="tdb-continue-surface.js?v=20260712-continue" defer></script>
   <script defer src="reader-core.js?v=20260508-reader-core-pass1" data-cfasync="false" fetchpriority="high"></script>
 
   <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>

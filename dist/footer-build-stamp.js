@@ -6,7 +6,7 @@
 (function () {
   'use strict';
   /** Replaced in dist only: real build date from npm run build (survives missing build-date.txt). */
-  var INLINE_STAMP = 'July 8, 2026';
+  var INLINE_STAMP = 'July 12, 2026';
   function fallbackDate() {
     var d = new Date();
     var m = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];

@@ -9,17 +9,22 @@
   var FIRST_VISIT_KEY = 'tdb-home-first-visit-seen';
   var NEW_HERE_KEY = 'tdb-new-here-dismissed';
   var RETURNING_KEY = 'has_visited_porch';
+  var TOUR_SEEN_KEY = 'tdb-tour-seen';
 
   var FIRST_VISIT_KEEP_IDS = {
     tdbHeavyNow: true,
+    tdbFirstVisitStrip: true,
     tdbFirstVisitBanner: true,
-    tdbPorchFeel: true,
     tdbTodaysVerseHeading: true,
     tdbHeroQuietEyebrow: true,
     'hero-verse-wrap': true,
     tdbStartMyDayBand: true,
     tdbHeroTrustQuotes: true,
     'quick-search-hero': true,
+    tdbHomeNextDoors: true,
+    tdbHomeVerseExtras: true,
+    tdbHomeLaterDetails: true,
+    tdbHomePastorPlans: true,
     tdbFirstVisitNextStep: true,
     'tdb-first-visit-more-porch': true
   };
@@ -56,18 +61,34 @@
     return details;
   }
 
+  /** FT2: any one completion key means returning — sync siblings so chrome stays gone. */
+  function syncReturningKeys() {
+    try {
+      localStorage.setItem(RETURNING_KEY, '1');
+      localStorage.setItem(FIRST_VISIT_KEY, '1');
+      localStorage.setItem(NEW_HERE_KEY, '1');
+    } catch (e) { /* ignore */ }
+  }
+
   function isReturningVisitor() {
     try {
-      return localStorage.getItem(RETURNING_KEY) === '1';
+      if (localStorage.getItem(RETURNING_KEY) === '1') return true;
+      if (
+        localStorage.getItem(FIRST_VISIT_KEY) === '1' ||
+        localStorage.getItem(NEW_HERE_KEY) === '1' ||
+        localStorage.getItem(TOUR_SEEN_KEY) === '1'
+      ) {
+        syncReturningKeys();
+        return true;
+      }
+      return false;
     } catch (e) {
       return false;
     }
   }
 
   function markReturningVisitor() {
-    try {
-      localStorage.setItem(RETURNING_KEY, '1');
-    } catch (e) { /* ignore */ }
+    syncReturningKeys();
 
     document.documentElement.classList.remove('tdb-first-visit-mode');
     unwrapFirstVisitMorePorch();
@@ -99,27 +120,26 @@
     var verse = document.getElementById('hero-verse-wrap');
     var search = document.getElementById('quick-search-hero');
     var nextStep = document.getElementById('tdbFirstVisitNextStep');
+    var nextDoors = document.getElementById('tdbHomeNextDoors');
     var core7 = document.getElementById('tdb-home-core-seven');
-    var banner = document.getElementById('tdbFirstVisitBanner');
-    var porch = document.getElementById('tdbPorchFeel');
+    var strip = document.getElementById('tdbFirstVisitStrip');
     var startBand = document.getElementById('tdbStartMyDayBand') || document.querySelector('.tdb-start-my-day-band');
     if (!main || !verse || !search) return;
 
+    /* VP1: Heavy first (crisis card), then soft Welcome strip, then verse → Ask */
     if (heavyNow && heavyNow.parentNode === main) {
-      if (banner && banner.parentNode === main) {
-        main.insertBefore(heavyNow, banner.nextSibling);
+      main.insertBefore(heavyNow, main.firstChild);
+    }
+
+    if (strip && strip.parentNode === main) {
+      if (heavyNow && heavyNow.parentNode === main) {
+        after(strip, heavyNow);
       } else {
-        main.insertBefore(heavyNow, main.firstChild);
+        main.insertBefore(strip, main.firstChild);
       }
     }
 
-    var flowAnchor = heavyNow || banner;
-    if (porch && porch.parentNode === main) {
-      if (flowAnchor && flowAnchor.parentNode === main) {
-        after(porch, flowAnchor);
-        flowAnchor = porch;
-      }
-    }
+    var flowAnchor = strip || heavyNow;
 
     if (heading && heading.parentNode === main) {
       if (flowAnchor && flowAnchor.parentNode === main) {
@@ -135,46 +155,36 @@
       }
     }
 
+    /* Start My Day band stays hidden; keep it after verse for DOM order only */
     if (startBand && verse) {
-      if (verse.contains(startBand) || startBand.previousElementSibling !== verse) {
-        after(startBand, verse);
-      }
-      flowAnchor = startBand;
+      after(startBand, verse);
     }
 
     var readerTrust = document.getElementById('tdbHeroTrustQuotes') ||
       document.querySelector('.tdb-home-reader-stories--hero-trust');
-    if (readerTrust && readerTrust.parentNode === main && startBand) {
-      after(readerTrust, startBand);
+    if (readerTrust && readerTrust.parentNode === main) {
+      after(readerTrust, verse);
       flowAnchor = readerTrust;
     }
 
     after(search, flowAnchor || verse);
 
+    if (nextDoors && nextDoors.parentNode === main) {
+      after(nextDoors, search);
+    }
+
     if (nextStep && nextStep.parentNode === main) {
-      after(nextStep, search);
+      after(nextStep, nextDoors || search);
     }
 
     if (core7 && core7.parentNode === main) {
-      after(core7, nextStep || search);
+      after(core7, nextStep || nextDoors || search);
     }
   }
 
   function collapseDuplicateFeel() {
-    if (document.getElementById('tdb-home-more-feelings')) return;
-
-    var fastFeel = document.getElementById('tdbHomeFastFeel');
-    var feelResult = document.getElementById('tdbHomeFeelResult');
-    var nodes = [fastFeel, feelResult].filter(Boolean);
-    if (!nodes.length) return;
-
-    var details = wrapInDetails(
-      'tdb-home-more-feelings',
-      'More feelings \u2014 same one-tap verses',
-      nodes,
-      'tdb-home-more-feelings'
-    );
-    if (details) details.open = false;
+    /* Pass 2: fast-feel / porch-feel retired from homepage — Ask the Word is sole feel entry. */
+    return;
   }
 
   function collapseHeroExtras() {
@@ -257,9 +267,19 @@
     if (isReturningVisitor()) return;
 
     document.documentElement.classList.add('tdb-first-visit-mode');
+    revealFirstVisitStrip();
+    /* Legacy next-step host stays hidden — CTAs live in the strip */
+    var legacyNext = document.getElementById('tdbFirstVisitNextStep');
+    if (legacyNext) legacyNext.setAttribute('hidden', '');
+    /* Welcome card stays demoted; strip is the only prominent first-visit surface */
+    var card = document.getElementById('tdbNewHereCard');
+    if (card) {
+      card.setAttribute('hidden', '');
+      card.classList.remove('tdb-new-here-card--prominent');
+    }
 
     var main = document.getElementById('home-primary-flow');
-    var anchor = document.getElementById('tdbFirstVisitNextStep');
+    var anchor = document.getElementById('tdbHomeNextDoors') || document.getElementById('tdbFirstVisitStrip');
     if (!main || !anchor || document.getElementById('tdb-first-visit-more-porch')) return;
 
     var nodes = [];
@@ -298,15 +318,50 @@
     wireReturningTriggers();
   }
 
+  function placeStartMyDayForReturning() {
+    var btn = document.getElementById('tdbStartMyDayBtn');
+    var band = document.getElementById('tdbStartMyDayBand');
+    if (!btn || !band) return;
+    if (!band.contains(btn)) band.appendChild(btn);
+    btn.textContent = 'Start My Day';
+    btn.classList.remove('link-button');
+    btn.classList.add('btn', 'btn-secondary');
+    band.removeAttribute('hidden');
+    band.classList.add('tdb-start-my-day-band--quiet');
+  }
+
+  function placeStartMyDayInStrip() {
+    var btn = document.getElementById('tdbStartMyDayBtn');
+    var strip = document.getElementById('tdbFirstVisitStrip');
+    var actions = strip && strip.querySelector('.tdb-first-visit-strip__actions');
+    var band = document.getElementById('tdbStartMyDayBand');
+    if (!btn || !actions) return;
+    if (!actions.contains(btn)) actions.appendChild(btn);
+    btn.textContent = 'Start My Day (optional)';
+    btn.classList.add('link-button');
+    btn.classList.remove('btn', 'btn-secondary', 'btn-primary');
+    if (band) {
+      band.setAttribute('hidden', '');
+      band.classList.remove('tdb-start-my-day-band--quiet');
+    }
+  }
+
   function applyReturningLayout() {
     document.documentElement.classList.add('tdb-home-calm-hero');
-    moveNewHereAfterCore7();
+    hideFirstVisitStrip();
+    var legacyNext = document.getElementById('tdbFirstVisitNextStep');
+    if (legacyNext) legacyNext.setAttribute('hidden', '');
+    var card = document.getElementById('tdbNewHereCard');
+    if (card) {
+      card.setAttribute('hidden', '');
+      card.classList.remove('tdb-new-here-card--prominent');
+    }
+    placeStartMyDayForReturning();
     positionSidebarCards();
     collapseDoorwayInvitations();
     collapseMidPageOptionalRows();
     pushDisclosuresBelowPrimary();
     collapseMidPageClutter();
-    initNewHereProminence();
   }
 
   function wireReturningTriggers() {
@@ -356,66 +411,73 @@
     if (startMyDay) startMyDay.addEventListener('click', go);
   }
 
-  function initFirstVisitBanner() {
-    var banner = document.getElementById('tdbFirstVisitBanner');
-    if (!banner) return;
+  function hideFirstVisitStrip() {
+    var strip = document.getElementById('tdbFirstVisitStrip');
+    if (strip) strip.setAttribute('hidden', '');
+  }
+
+  function revealFirstVisitStrip() {
+    var strip = document.getElementById('tdbFirstVisitStrip');
+    if (!strip) return;
+    if (isReturningVisitor()) {
+      strip.setAttribute('hidden', '');
+      placeStartMyDayForReturning();
+      return;
+    }
+    try {
+      if (localStorage.getItem(FIRST_VISIT_KEY) === '1' || localStorage.getItem(NEW_HERE_KEY) === '1') {
+        strip.setAttribute('hidden', '');
+        placeStartMyDayForReturning();
+        return;
+      }
+    } catch (e) { /* ignore */ }
+    strip.removeAttribute('hidden');
+    placeStartMyDayInStrip();
+  }
+
+  function initFirstVisitStrip() {
+    var strip = document.getElementById('tdbFirstVisitStrip');
+    if (!strip) return;
 
     var dismiss = document.getElementById('tdbFirstVisitBannerDismiss');
-    var tourBtn = document.getElementById('tdbFirstVisitBannerTour');
-    var guideLink = banner.querySelector('a[href*="site-guide"]');
+    var knowWay = document.getElementById('tdbFirstVisitKnowWay');
+    var newHereDismiss = document.getElementById('tdbNewHereDismissBtn');
 
-    try {
-      if (localStorage.getItem(FIRST_VISIT_KEY) === '1') {
-        banner.hidden = true;
-        return;
-      }
-    } catch (e) { /* ignore */ }
-
-    banner.hidden = false;
-
-    function markBannerSeen() {
-      try { localStorage.setItem(FIRST_VISIT_KEY, '1'); } catch (e) { /* ignore */ }
-      banner.hidden = true;
+    function markStripSeen() {
+      /* FT2: strip dismiss syncs returning keys so first-visit chrome does not return */
+      markReturningVisitor();
+      var hint = document.getElementById('tdbNewHereHint');
+      if (hint) hint.style.display = 'block';
     }
 
-    if (dismiss) dismiss.addEventListener('click', markBannerSeen);
-    if (guideLink) guideLink.addEventListener('click', markBannerSeen);
-    if (tourBtn) {
-      tourBtn.addEventListener('click', function () {
-        markBannerSeen();
-        var openTour = document.getElementById('tdb-tour-open-btn');
-        if (openTour) openTour.click();
-        else if (typeof window.openTdbWelcomeTour === 'function') window.openTdbWelcomeTour();
-      });
-    }
-  }
-
-  function initNewHereProminence() {
-    var card = document.getElementById('tdbNewHereCard');
-    if (!card) return;
-
-    try {
-      if (localStorage.getItem(NEW_HERE_KEY) === '1') {
-        card.classList.remove('tdb-new-here-card--prominent');
-        return;
-      }
-    } catch (e) { /* ignore */ }
-
-    card.classList.add('tdb-new-here-card--prominent');
-
-    var dismiss = document.getElementById('tdbNewHereDismissBtn');
-    if (dismiss) {
+    if (dismiss && dismiss.dataset.tdbFt1Wired !== '1') {
+      dismiss.dataset.tdbFt1Wired = '1';
       dismiss.addEventListener('click', function () {
-        try { localStorage.setItem(NEW_HERE_KEY, '1'); } catch (e) { /* ignore */ }
-        card.classList.remove('tdb-new-here-card--prominent');
+        markStripSeen();
+        var verse = document.getElementById('hero-verse-wrap') || document.getElementById('tdbTodaysVerseHeading');
+        if (verse && typeof verse.scrollIntoView === 'function') {
+          try { verse.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch (e2) { verse.scrollIntoView(true); }
+        }
       });
     }
+
+    if (knowWay && knowWay.dataset.tdbFt1KnowWired !== '1') {
+      knowWay.dataset.tdbFt1KnowWired = '1';
+      knowWay.addEventListener('click', markStripSeen);
+    }
+
+    if (newHereDismiss && newHereDismiss.dataset.tdbNewHereWired !== '1') {
+      newHereDismiss.dataset.tdbNewHereWired = '1';
+      newHereDismiss.addEventListener('click', markStripSeen);
+    }
+
+    revealFirstVisitStrip();
   }
 
-  function moveNewHereAfterCore7() {
-    var card = document.getElementById('tdbNewHereCard');
-    var core7 = document.getElementById('tdb-home-core-seven');
-    if (card && core7) after(card, core7);
+  function revealFirstVisitNextStep() {
+    /* FT1: legacy host stays hidden */
+    var next = document.getElementById('tdbFirstVisitNextStep');
+    if (next) next.setAttribute('hidden', '');
   }
 
   function positionSidebarCards() {
@@ -427,17 +489,20 @@
   }
 
   function pushDisclosuresBelowPrimary() {
-    var anchor = document.getElementById('tdbNewHereCard') || document.getElementById('tdb-home-core-seven');
+    var anchor = document.getElementById('tdbHomeNextDoors') ||
+      document.getElementById('tdbNewHereCard') ||
+      document.getElementById('tdb-home-core-seven');
     if (!anchor) return;
     var ids = [
+      'tdbHomeVerseExtras',
+      'tdbHomePastorPlans',
+      'tdbHomeLaterDetails',
+      'tdbHomeFullShelf',
       'tdb-home-more-feelings',
       'tdb-hero-more-tools',
       'tdb-home-doorway-invites',
       'tdb-home-optional-rows',
-      'tdb-home-more-porch',
-      'tdb-home-tools-shelf',
-      'tdb-home-more-rooms',
-      'patriotic-home-bundle'
+      'tdb-home-more-porch'
     ];
     var ref = anchor;
     ids.forEach(function (id) {
@@ -461,7 +526,15 @@
       applyFirstVisitSurface();
     }
 
-    initFirstVisitBanner();
+    initFirstVisitStrip();
+
+    /* Tour complete/skip (manual) → same returning layout as strip dismiss */
+    try {
+      window.addEventListener('tdb-welcome-tour-seen', function () {
+        if (!document.getElementById('home-primary-flow')) return;
+        markReturningVisitor();
+      });
+    } catch (e) { /* ignore */ }
   }
 
   if (document.readyState === 'loading') {

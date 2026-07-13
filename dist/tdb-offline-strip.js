@@ -147,11 +147,15 @@
 
   function syncFromNavigator() {
     var strip = document.getElementById('tdb-offline-strip');
-    if (!strip) return;
+    if (!strip) {
+      toggleOfflineReadyBadges();
+      return;
+    }
     ensureMsgEl(strip);
     var online = typeof navigator !== 'undefined' && navigator.onLine;
     if (online && strip.getAttribute('data-tdb-offline-forced') !== '1') {
       strip.classList.add('hidden');
+      toggleOfflineReadyBadges();
       return;
     }
     if (!online) {
@@ -159,6 +163,22 @@
       applyMessage(strip, key || 'default');
       strip.classList.remove('hidden');
     }
+    toggleOfflineReadyBadges();
+  }
+
+  function toggleOfflineReadyBadges() {
+    var badges = document.querySelectorAll('.tdb-offline-ready');
+    if (!badges.length) return;
+    var online = typeof navigator === 'undefined' || navigator.onLine !== false;
+    badges.forEach(function (badge) {
+      if (online) {
+        badge.hidden = false;
+        badge.removeAttribute('hidden');
+      } else {
+        badge.hidden = true;
+        badge.setAttribute('hidden', '');
+      }
+    });
   }
 
   function handleStorageError() {
@@ -186,6 +206,7 @@
   global.TDB_hideOfflineStripIfOnline = hideOfflineStripIfOnline;
   global.TDB_handleStorageError = handleStorageError;
   global.TDB_syncOfflineStrip = syncFromNavigator;
+  global.TDB_toggleOfflineReadyBadges = toggleOfflineReadyBadges;
 
   if (typeof document !== 'undefined') {
     if (document.readyState === 'loading') {

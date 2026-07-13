@@ -286,7 +286,10 @@ function main() {
     }
 
     if (rel === 'calm.html' && touched) {
-      next = next.replace(/<a href="\/calm\.html">Calm<\/a>/, '<a href="/calm.html" aria-current="page">Calm</a>');
+      next = next.replace(
+        /<a href="\/calm\.html"(?: aria-label="[^"]*")?>Calm<\/a>/,
+        '<a href="/calm.html" aria-current="page" aria-label="Calm — one steady KJV verse when the moment is heavy">Calm</a>'
+      );
     }
 
     if (rel === 'story.html' && touched) {

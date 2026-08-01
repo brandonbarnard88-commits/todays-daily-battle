@@ -16,7 +16,7 @@
     }
   } catch (_) {}
 
-  var INTERACTIVE_SRC = 'script.js?v=20260709-ba-discover
+  var INTERACTIVE_SRC = 'script.js?v=20260709-wave4';
   var loaded = false;
   var pendingQuery = '';
 

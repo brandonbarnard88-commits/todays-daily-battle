@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260709-wave4"></script>
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learn the Word — A gentle KJV path through Scripture • Today's Daily Battle</title>
+  <meta name="description" content="A pressure-free spine through the Bible story: creation, fall, Israel, Christ, church, and hope. KJV links, Battle Plans, Life Lessons, and Ask the Word — no grades.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/learn-the-word.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="preload" href="tdb-quiet-luxury.css?v=20260709-wave4" as="style">
+  <link rel="stylesheet" href="tdb-quiet-luxury.css?v=20260709-wave4">
+  <style>
+    :root { --bg:#0d1117; --text:#f5f7fb; --muted:#8896b0; --gold:#e3bc67; --line:#242d3d; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: ui-rounded,"Avenir Next","Segoe UI","Inter",sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; font-size: 1rem; }
+    .skip-link { position: absolute; left: -9999px; }
+    .skip-link:focus { left: 1rem; top: 1rem; z-index: 999; padding: 0.5rem 0.75rem; background: var(--gold); color: #111; }
+    .tdb-global-nav {
+      display: flex; align-items: center; gap: 0.2rem 0.5rem; flex-wrap: wrap;
+      padding: 0.35rem 0.75rem; min-height: 52px;
+      background: rgba(8, 12, 22, 0.55); border-bottom: 1px solid rgba(227, 188, 103, 0.22);
+      position: sticky; top: 0; z-index: 201; backdrop-filter: blur(10px); font-size: 0.86rem;
+    }
+    .tdb-global-nav a {
+      color: rgba(226, 232, 240, 0.85); text-decoration: none; padding: 0.3rem 0.5rem; border-radius: 6px;
+      min-height: 44px; display: inline-flex; align-items: center;
+    }
+    .tdb-global-nav a:hover, .tdb-global-nav a:focus-visible { color: var(--gold); background: rgba(227, 188, 103, 0.1); outline: 2px solid rgba(227, 188, 103, 0.55); outline-offset: 2px; }
+    .tdb-global-nav a[aria-current="page"] { color: var(--gold); font-weight: 600; }
+    main { max-width: 42rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+    h1 { font-size: clamp(1.5rem, 4vw, 2rem); color: var(--gold); margin: 0 0 0.75rem; font-weight: 800; }
+    .lead { color: var(--muted); font-size: 0.95rem; margin: 0 0 1.5rem; }
+    .spine-nav { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 1.75rem; padding: 0; list-style: none; }
+    .spine-nav a {
+      display: inline-flex; align-items: center; min-height: 40px; padding: 0.35rem 0.7rem;
+      border-radius: 999px; border: 1px solid rgba(227, 188, 103, 0.35);
+      color: var(--gold); text-decoration: none; font-size: 0.85rem; background: rgba(227, 188, 103, 0.06);
+    }
+    .spine-nav a:hover, .spine-nav a:focus-visible { background: rgba(227, 188, 103, 0.16); outline: 2px solid rgba(227, 188, 103, 0.5); outline-offset: 2px; }
+    section.spine-block {
+      margin-bottom: 2rem; padding: 1.15rem 1.1rem 1.25rem;
+      border: 1px solid var(--line); border-radius: 14px;
+      background: rgba(15, 20, 32, 0.65);
+    }
+    section.spine-block h2 { font-size: 1.15rem; color: var(--gold); margin: 0 0 0.5rem; font-weight: 700; }
+    section.spine-block .step-num { font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.35rem; }
+    p { margin: 0 0 0.75rem; color: rgba(245, 247, 251, 0.92); }
+    ul { margin: 0.25rem 0 0.85rem; padding-left: 1.2rem; color: rgba(245, 247, 251, 0.9); }
+    li { margin-bottom: 0.4rem; }
+    a { color: var(--gold); text-underline-offset: 2px; }
+    a:hover, a:focus-visible { color: #f0d28a; }
+    .verse-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0 0.85rem; }
+    .verse-chips a {
+      display: inline-flex; min-height: 36px; align-items: center; padding: 0.25rem 0.55rem;
+      border-radius: 8px; border: 1px solid rgba(148, 163, 184, 0.25);
+      text-decoration: none; font-size: 0.82rem; color: rgba(226, 232, 240, 0.95);
+      background: rgba(30, 41, 59, 0.5);
+    }
+    .verse-chips a:hover { border-color: var(--gold); color: var(--gold); }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 0.75rem; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
+      padding: 0.5rem 0.95rem; border-radius: 10px; font-size: 0.88rem; font-weight: 600;
+      text-decoration: none; border: 1px solid rgba(227, 188, 103, 0.45);
+      background: rgba(227, 188, 103, 0.12); color: var(--gold);
+    }
+    .btn:hover, .btn:focus-visible { background: rgba(227, 188, 103, 0.22); outline: 2px solid rgba(227, 188, 103, 0.55); outline-offset: 2px; }
+    .btn-secondary { background: transparent; color: rgba(226, 232, 240, 0.9); border-color: var(--line); }
+    .ask-box {
+      margin: 1.5rem 0 2rem; padding: 1rem 1.1rem; border-radius: 14px;
+      border: 1px solid rgba(227, 188, 103, 0.3); background: rgba(227, 188, 103, 0.06);
+    }
+    .ask-box h2 { margin: 0 0 0.4rem; font-size: 1.05rem; color: var(--gold); }
+    footer { max-width: 42rem; margin: 0 auto; padding: 0 1.25rem 2.5rem; font-size: 0.82rem; color: var(--muted); }
+    footer a { color: var(--gold); }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <nav class="tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
+    <a href="/">Home</a>
+    <a href="/#feel-section">Ask the Word</a>
+    <a href="/plans.html">Battle Plans</a>
+    <a href="/calm.html">Calm</a>
+    <a href="/mystudy">My Study</a>
+    <a href="/family.html">Family &amp; Kids</a>
+    <a href="/explore.html">Explore</a>
+    <a href="/learn-the-word.html" aria-current="page">Learn the Word</a>
+  </nav>
+
+  <main id="main">
+    <h1>Learn the Word</h1>
+    <p class="lead">
+      A quiet spine through the Bible story — not a school grade, not a streak.
+      The textbook is the <strong>King James</strong>. The Teacher is the Holy Spirit.
+      Walk one room when you can; pause anytime.
+    </p>
+
+    <p class="lead" style="font-size:0.92rem;">
+      Prefer the porch sequence without a new app?
+      <a href="/explore.html#explore-grow-path">Explore</a> →
+      <a href="/university.html">University</a> →
+      <a href="/plans.html">Battle Plans</a> →
+      <a href="/life-lessons.html">Life Lessons</a>.
+      This page is the <strong>story spine</strong> that sits beside that path.
+    </p>
+
+    <div class="ask-box">
+      <h2>Have a question right now?</h2>
+      <p class="util-mb-0" style="margin:0 0 0.75rem;color:var(--muted);font-size:0.92rem;">
+        Feelings, doctrine, people, or a verse reference — same porch brain as Ask the Word.
+      </p>
+      <div class="cta-row">
+        <a class="btn" href="/#feel-section">Ask on Home</a>
+        <a class="btn btn-secondary" href="/bible-tool.html#ask-the-word-section">Bible Tool Ask</a>
+      </div>
+    </div>
+
+    <nav aria-label="Story spine">
+      <ul class="spine-nav">
+        <li><a href="#spine-creation">1 · Creation</a></li>
+        <li><a href="#spine-fall">2 · Fall</a></li>
+        <li><a href="#spine-israel">3 · Israel</a></li>
+        <li><a href="#spine-christ">4 · Christ</a></li>
+        <li><a href="#spine-church">5 · Church</a></li>
+        <li><a href="#spine-hope">6 · Hope</a></li>
+      </ul>
+    </nav>
+
+    <section class="spine-block" id="spine-creation" aria-labelledby="h-creation">
+      <p class="step-num">Step 1 of 6</p>
+      <h2 id="h-creation">God &amp; creation</h2>
+      <p>Before anything else: God is. He made heaven and earth, and all things were made by the Word.</p>
+      <div class="verse-chips" aria-label="Key verses">
+        <a href="/reader.html?ref=Genesis%201:1">Genesis 1:1</a>
+        <a href="/reader.html?ref=John%201:1">John 1:1</a>
+        <a href="/reader.html?ref=Psalm%2019:1">Psalm 19:1</a>
+        <a href="/reader.html?ref=Colossians%201:16">Colossians 1:16</a>
+      </div>
+      <ul>
+        <li>Sit with <a href="/life-lessons.html">Life Lessons</a> when you want depth on one teaching.</li>
+        <li>Wonder questions (creation, “dinosaurs”) — try Ask the Word; honesty over speculation.</li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn" href="/bible-tool.html?ref=Genesis%201:1">Open Genesis 1:1</a>
+        <a class="btn btn-secondary" href="/one-family-in-christ.html">One Family in Christ</a>
+      </div>
+    </section>
+
+    <section class="spine-block" id="spine-fall" aria-labelledby="h-fall">
+      <p class="step-num">Step 2 of 6</p>
+      <h2 id="h-fall">Fall &amp; promise</h2>
+      <p>Sin enters; death spreads; God still speaks hope. The story of Scripture is rescue, not mere advice.</p>
+      <div class="verse-chips">
+        <a href="/reader.html?ref=Genesis%203:15">Genesis 3:15</a>
+        <a href="/reader.html?ref=Romans%203:23">Romans 3:23</a>
+        <a href="/reader.html?ref=Romans%205:12">Romans 5:12</a>
+        <a href="/reader.html?ref=Romans%205:19">Romans 5:19</a>
+      </div>
+      <ul>
+        <li><a href="/life-lessons/forgiveness-that-heals.html">Forgiveness that heals</a> — when guilt is loud.</li>
+        <li><a href="/plans.html?plan=identityinchrist">Identity in Christ</a> — who you are after grace finds you.</li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn" href="/bible-tool.html?ref=Romans%203:23">Open Romans 3:23</a>
+        <a class="btn btn-secondary" href="/#feel-section">I feel guilty…</a>
+      </div>
+    </section>
+
+    <section class="spine-block" id="spine-israel" aria-labelledby="h-israel">
+      <p class="step-num">Step 3 of 6</p>
+      <h2 id="h-israel">Israel &amp; covenant</h2>
+      <p>Promise to Abraham, deliverance under Moses, kings and prophets — God keeps covenant even when people wander.</p>
+      <div class="verse-chips">
+        <a href="/reader.html?ref=Genesis%2012:1">Genesis 12:1</a>
+        <a href="/reader.html?ref=Exodus%2020:1">Exodus 20:1</a>
+        <a href="/reader.html?ref=Ruth%201:16">Ruth 1:16</a>
+        <a href="/reader.html?ref=Jeremiah%2031:33">Jeremiah 31:33</a>
+      </div>
+      <ul>
+        <li><a href="/life-lessons/ruth-stays-loyal.html">Ruth stays loyal</a> — faithfulness on an uncertain road.</li>
+        <li><a href="/life-lessons/ten-commandments-guardrails.html">Ten Commandments — guardrails</a>.</li>
+        <li>Kids: <a href="/kids/corner.html?story=david">David &amp; Goliath</a> and the Story Library.</li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn" href="/plans.html?plan=psalmscomfort">Psalms of Comfort</a>
+        <a class="btn btn-secondary" href="/bible-tool.html#ask-the-word-section">Who was Ruth?</a>
+      </div>
+    </section>
+
+    <section class="spine-block" id="spine-christ" aria-labelledby="h-christ">
+      <p class="step-num">Step 4 of 6</p>
+      <h2 id="h-christ">Christ in the Gospels</h2>
+      <p>Jesus — Word made flesh, man of sorrows, risen Lord. Read Him slowly. His own words still call the weary.</p>
+      <div class="verse-chips">
+        <a href="/reader.html?ref=John%201:14">John 1:14</a>
+        <a href="/reader.html?ref=John%203:16">John 3:16</a>
+        <a href="/reader.html?ref=Matthew%2011:28">Matthew 11:28</a>
+        <a href="/reader.html?ref=John%2011:35">John 11:35</a>
+        <a href="/reader.html?ref=Luke%2019:10">Luke 19:10</a>
+      </div>
+      <ul>
+        <li><a href="/life-lessons/come-unto-me-when-weary-heavy-laden.html">Come unto Me</a> — when weariness outlasts the season.</li>
+        <li><a href="/life-lessons.html">Sermon on the Mount deep rooms</a> — Golden Rule, peacemakers, house on the rock.</li>
+        <li><a href="/red-letters.html">Red letters</a> — rest in the Saviour’s words.</li>
+        <li><a href="/plans.html?plan=gospeljohn">Gospel of John</a> (7-day sampler) · <a href="/plans.html?plan=beatitudes">Beatitudes</a>.</li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn" href="/plans.html?plan=comeuntome">Come unto Me plan</a>
+        <a class="btn btn-secondary" href="/he-is-risen.html">He is risen</a>
+      </div>
+    </section>
+
+    <section class="spine-block" id="spine-church" aria-labelledby="h-church">
+      <p class="step-num">Step 5 of 6</p>
+      <h2 id="h-church">Church &amp; walk</h2>
+      <p>Acts and the letters: people gathered, gifts shared, hard days endured, Christ formed in ordinary life.</p>
+      <div class="verse-chips">
+        <a href="/reader.html?ref=Acts%202:42">Acts 2:42</a>
+        <a href="/reader.html?ref=Ephesians%202:8">Ephesians 2:8</a>
+        <a href="/reader.html?ref=Galatians%205:22">Galatians 5:22</a>
+        <a href="/reader.html?ref=Philippians%204:6">Philippians 4:6</a>
+      </div>
+      <ul>
+        <li><a href="/bible-study.html">Free Bible Studies</a> — Armor of God, Fruit of the Spirit, and more.</li>
+        <li><a href="/life-lessons/anxious-for-nothing-peace-of-god.html">Be anxious for nothing</a>.</li>
+        <li><a href="/plans.html?plan=armorofgod">Armor of God</a> · <a href="/plans.html?plan=peacemakers">Peacemakers</a>.</li>
+        <li>Pastors: <a href="/church-hub.html">Church hub</a> · <a href="/sermon.html">Sermon Builder</a>.</li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn" href="/bible-study.html">Bible Studies</a>
+        <a class="btn btn-secondary" href="/plans.html">All Battle Plans</a>
+      </div>
+    </section>
+
+    <section class="spine-block" id="spine-hope" aria-labelledby="h-hope">
+      <p class="step-num">Step 6 of 6</p>
+      <h2 id="h-hope">Hope &amp; forever</h2>
+      <p>Christ will return. Tears end. The Lamb reigns. Hold this hope when the week feels long.</p>
+      <div class="verse-chips">
+        <a href="/reader.html?ref=Revelation%2021:4">Revelation 21:4</a>
+        <a href="/reader.html?ref=1%20Thessalonians%204:16">1 Thessalonians 4:16</a>
+        <a href="/reader.html?ref=Titus%202:13">Titus 2:13</a>
+        <a href="/reader.html?ref=John%2014:1">John 14:1</a>
+      </div>
+      <ul>
+        <li><a href="/plans.html?plan=griefhope">Grief → Hope</a> · <a href="/plans.html?plan=easter">Resurrection Hope</a>.</li>
+        <li><a href="/calm.html">Calm</a> when words are thin — one verse is enough for tonight.</li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn" href="/plans.html?plan=griefhope">Grief → Hope</a>
+        <a class="btn btn-secondary" href="/mystudy">Save a verse in My Study</a>
+      </div>
+    </section>
+
+    <section class="spine-block" aria-labelledby="h-rhythm">
+      <h2 id="h-rhythm">A simple weekly rhythm (optional)</h2>
+      <ol>
+        <li><strong>One spine step</strong> — reread the verses above for that room.</li>
+        <li><strong>One plan day</strong> — any <a href="/plans.html">Battle Plan</a> that matches the week.</li>
+        <li><strong>One question</strong> — <a href="/#feel-section">Ask the Word</a> or write it in My Study.</li>
+        <li><strong>One prayer</strong> — short and honest; no performance.</li>
+      </ol>
+      <p style="margin-bottom:0;color:var(--muted);font-size:0.92rem;">
+        Prefer a calendar map? <a href="/university.html">University of God</a> ·
+        <a href="/yearly-rhythm.html">Year-round rhythm</a> ·
+        <a href="/first-steps.html">First steps in faith</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      <a href="/">Home</a> ·
+      <a href="/explore.html">Explore</a> ·
+      <a href="/life-lessons.html">Life Lessons</a> ·
+      <a href="/bible-study.html">Bible Studies</a> ·
+      <a href="/bible/tools.html">Study workshop</a> ·
+      <a href="/privacy.html">Privacy</a>
+    </p>
+    <p>KJV only · No ads · Notes stay on this device unless you sync. We battle. He wins.</p>
+  </footer>
+</body>
+</html>

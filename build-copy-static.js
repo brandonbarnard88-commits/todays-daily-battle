@@ -195,6 +195,9 @@ const rootFiles = [
   'embed-verse-widget.js',
   'embeddable-widgets-page.js',
   'ask-the-word.js',
+  'ask-the-word-core.js',
+  'ask-the-word-answers.json',
+  'learn-the-word.html',
   'search-widget.js',
   'print-pack-generator.js',
   'embeddable-widgets.html',
@@ -545,10 +548,33 @@ for (const f of otherHtml) {
       console.error('BUILD FAIL: ask-the-word.js must exist in dist/ (add to rootFiles in build-copy-static.js).');
       process.exit(1);
     }
+    if (!content.includes('ask-the-word-core.js')) {
+      console.error('BUILD FAIL: bible-tool.html must load ask-the-word-core.js (unified Q&A brain).');
+      process.exit(1);
+    }
+    if (!fs.existsSync(path.join(dist, 'ask-the-word-core.js'))) {
+      console.error('BUILD FAIL: ask-the-word-core.js must exist in dist/.');
+      process.exit(1);
+    }
     console.log('Copied bible-tool.html (Ask the Word wired)');
+  }
+  if (f === 'learn-the-word.html') {
+    if (!content.includes('Learn the Word') || !content.includes('spine-christ')) {
+      console.error('BUILD FAIL: learn-the-word.html must include spine teaching path.');
+      process.exit(1);
+    }
+    console.log('Copied learn-the-word.html (teaching spine)');
   }
   if (f === 'index.html') {
     const indexContent = fs.readFileSync(path.join(root, f), 'utf8');
+    if (!indexContent.includes('ask-the-word-core.js')) {
+      console.error('BUILD FAIL: index.html must load ask-the-word-core.js (unified Ask the Word).');
+      process.exit(1);
+    }
+    if (!indexContent.includes('tdbHomeGrowPath') || !indexContent.includes('university.html')) {
+      console.error('BUILD FAIL: index.html must include grow path (Explore → University → Plans → Life Lessons).');
+      process.exit(1);
+    }
     const required = [
       ['id="quick-actions-hero"', 'quick-topic buttons'],
       ['id="query"', 'search input'],
@@ -629,6 +655,23 @@ if (fs.existsSync(path.join(root, 'fonts'))) {
 if (fs.existsSync(path.join(root, 'data'))) {
   copyDir(path.join(root, 'data'), path.join(dist, 'data'));
   console.log('Copied data/ folder (KJV dictionary and future JSON)');
+  const fullKjv = path.join(dist, 'data', 'kjv-full.json');
+  if (!fs.existsSync(fullKjv)) {
+    console.error('BUILD FAIL: data/kjv-full.json missing in dist/ — search requires full KJV corpus.');
+    process.exit(1);
+  }
+  try {
+    const raw = fs.readFileSync(fullKjv, 'utf8');
+    const sample = raw.slice(0, 200);
+    if (raw.length < 1000000 || sample.indexOf('Genesis') === -1) {
+      console.error('BUILD FAIL: dist/data/kjv-full.json looks too small or invalid.');
+      process.exit(1);
+    }
+    console.log('Verified dist/data/kjv-full.json (' + Math.round(raw.length / 1024) + ' KB)');
+  } catch (eFull) {
+    console.error('BUILD FAIL: could not read dist/data/kjv-full.json');
+    process.exit(1);
+  }
 }
 // Some production edges do not serve /data/*; mirror index at root (same pattern as kjv-lexicon.json).
 const siteSearchIdx = path.join(dist, 'data', 'site-search-index.json');

@@ -43,8 +43,8 @@
   <link rel="stylesheet" href="tdb-core-seven.css?v=20260519-audit">
   <link rel="preload" href="tdb-porch-verse-widget.css?v=20260519-porch-verse" as="style">
   <link rel="stylesheet" href="tdb-porch-verse-widget.css?v=20260519-porch-verse">
-  <link rel="preload" href="tdb-visual-tokens.css?v=20260521-discover-b" as="style">
-  <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260521-discover-b">
+  <link rel="preload" href="tdb-visual-tokens.css?v=20260712-phase2b" as="style">
+  <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260712-phase2b">
   <link rel="manifest" href="manifest.json">
   <script nonce="tdb2025s">(function(){try{var d=new Date();var k=d.getUTCFullYear()+'-'+String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0');if(localStorage.getItem('tdb-porch-verse-hidden')===k)document.documentElement.classList.add('tdb-porch-verse-hidden');}catch(e){}})();</script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
@@ -243,6 +243,174 @@
       text-decoration: underline;
       outline: none;
     }
+
+    /* ═══════════════════════════════════════════════════════════════════
+     * Phase 2B — Explore cohesion (tokens + map + hub + quiet lift)
+     * No IA/content changes; reuses Home/Plans button & porch language.
+     * ═══════════════════════════════════════════════════════════════════ */
+
+    /* Slice 1 — buttons */
+    .tdb-explore-page .btn-primary,
+    .tdb-explore-page a.btn-primary {
+      min-height: var(--tdb-btn-min-height, 44px);
+      padding: var(--tdb-btn-pad-y, 0.55rem) var(--tdb-btn-pad-x, 1.15rem);
+      border-radius: var(--tdb-btn-radius, 13px);
+      background: var(--tdb-btn-primary-bg);
+      color: var(--tdb-btn-primary-fg, #fff);
+      border: 1.5px solid var(--tdb-btn-primary-border);
+      box-shadow: var(--tdb-porch-chip-shadow);
+      filter: none;
+      transition:
+        background var(--tdb-transition-quiet, 0.2s ease),
+        border-color var(--tdb-transition-quiet, 0.2s ease),
+        box-shadow var(--tdb-transition-quiet, 0.2s ease),
+        transform var(--tdb-transition-quiet, 0.2s ease);
+    }
+    .tdb-explore-page .btn-primary:hover,
+    .tdb-explore-page a.btn-primary:hover {
+      filter: none;
+      border-color: color-mix(in srgb, var(--gold) 55%, var(--accent, #8ba6d9));
+      box-shadow: var(--tdb-lift-shadow);
+      transform: none;
+    }
+    .tdb-explore-page .btn-primary:focus-visible,
+    .tdb-explore-page a.btn-primary:focus-visible {
+      filter: none;
+      outline: none;
+      box-shadow: var(--tdb-lift-shadow), var(--tdb-btn-focus-ring);
+      transform: none;
+    }
+
+    .tdb-explore-page .btn-secondary,
+    .tdb-explore-page a.btn-secondary {
+      min-height: var(--tdb-btn-min-height, 44px);
+      padding: var(--tdb-btn-pad-y, 0.55rem) var(--tdb-btn-pad-x, 1.15rem);
+      border-radius: var(--tdb-btn-radius, 13px);
+      background: var(--tdb-btn-secondary-bg);
+      color: var(--text);
+      border: 1.5px solid var(--tdb-btn-secondary-border);
+      box-shadow: var(--tdb-porch-chip-shadow);
+      transition:
+        background var(--tdb-transition-quiet, 0.2s ease),
+        border-color var(--tdb-transition-quiet, 0.2s ease),
+        box-shadow var(--tdb-transition-quiet, 0.2s ease),
+        color var(--tdb-transition-quiet, 0.2s ease),
+        transform var(--tdb-transition-quiet, 0.2s ease);
+    }
+    .tdb-explore-page .btn-secondary:hover,
+    .tdb-explore-page a.btn-secondary:hover {
+      border-color: color-mix(in srgb, var(--gold) 48%, var(--line));
+      color: color-mix(in srgb, var(--text) 88%, var(--gold));
+      background: color-mix(in srgb, var(--gold) 8%, var(--tdb-btn-secondary-bg));
+      box-shadow: var(--tdb-lift-shadow);
+      transform: none;
+    }
+    .tdb-explore-page .btn-secondary:focus-visible,
+    .tdb-explore-page a.btn-secondary:focus-visible {
+      outline: none;
+      box-shadow: var(--tdb-lift-shadow), var(--tdb-btn-focus-ring);
+      transform: none;
+    }
+
+    /* Slice 1 — quick doors as chips */
+    .tdb-explore-page a.explore-quick-door {
+      border-radius: var(--tdb-porch-chip-radius, 13px);
+      box-shadow: var(--tdb-porch-chip-shadow);
+      font-size: var(--tdb-text-chip, 0.88rem);
+      transition:
+        border-color var(--tdb-transition-quiet, 0.2s ease),
+        box-shadow var(--tdb-transition-quiet, 0.2s ease),
+        background-color var(--tdb-transition-quiet, 0.2s ease),
+        transform var(--tdb-transition-quiet, 0.2s ease);
+    }
+    .tdb-explore-page a.explore-quick-door:hover,
+    .tdb-explore-page a.explore-quick-door:focus-visible {
+      box-shadow: var(--tdb-lift-shadow);
+    }
+    .tdb-explore-page a.explore-quick-door:focus-visible {
+      outline: none;
+      box-shadow: var(--tdb-lift-shadow), var(--tdb-btn-focus-ring);
+    }
+
+    /* Slice 2 — porch map band */
+    .tdb-explore-page #explore-porch-map {
+      padding: var(--tdb-explore-map-pad, 1.2rem) clamp(1rem, 2.6vw, 1.4rem);
+      border-radius: var(--tdb-porch-card-radius, 16px);
+      margin-bottom: var(--tdb-porch-gap-stack, 1.25rem);
+    }
+    .tdb-explore-page #explore-porch-map .section-divider {
+      margin-bottom: var(--tdb-porch-space-sm, 0.85rem);
+    }
+    .tdb-explore-page #explore-porch-map .section-note,
+    .tdb-explore-page #explore-porch-map li {
+      line-height: var(--tdb-line-ui, 1.55);
+    }
+    .tdb-explore-page #explore-porch-map ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      margin: 0.65rem 0 0;
+      padding-left: 1.15rem;
+    }
+
+    /* Slice 3 — hub tiles */
+    .tdb-explore-page .explore-hub-grid {
+      gap: var(--tdb-porch-gap-cards, 0.75rem);
+      margin-top: var(--tdb-porch-space-md, 1.1rem);
+    }
+    .tdb-explore-page .explore-hub-card.tdb-surface-card,
+    .tdb-explore-page .explore-hub-grid a.explore-hub-card:not(.tdb-surface-card) {
+      border-radius: var(--tdb-porch-card-radius, 16px);
+      border-color: var(--tdb-porch-card-border);
+      background-color: var(--tdb-porch-card-bg);
+      box-shadow: var(--tdb-porch-card-shadow);
+      transition:
+        box-shadow var(--tdb-transition-quiet, 0.2s ease),
+        border-color var(--tdb-transition-quiet, 0.2s ease),
+        background-color var(--tdb-transition-quiet, 0.2s ease),
+        transform var(--tdb-transition-quiet, 0.2s ease);
+    }
+    .tdb-explore-page .explore-hub-card.tdb-surface-card:hover,
+    .tdb-explore-page .explore-hub-card.tdb-surface-card:focus-visible,
+    .tdb-explore-page .explore-hub-grid a.explore-hub-card:not(.tdb-surface-card):hover,
+    .tdb-explore-page .explore-hub-grid a.explore-hub-card:not(.tdb-surface-card):focus-visible {
+      box-shadow: var(--tdb-porch-card-shadow-hover);
+      border-color: color-mix(in srgb, var(--tdb-porch-card-border) 55%, var(--gold) 45%);
+      outline: none;
+    }
+    .tdb-explore-page .explore-hub-card.tdb-surface-card:focus-visible,
+    .tdb-explore-page .explore-hub-grid a.explore-hub-card:not(.tdb-surface-card):focus-visible {
+      box-shadow: var(--tdb-porch-card-shadow-hover), var(--tdb-btn-focus-ring);
+    }
+    .tdb-explore-page .explore-hub-card-desc {
+      line-height: var(--tdb-line-ui, 1.55);
+      color: var(--tdb-section-note-color, var(--muted));
+    }
+
+    /* Slice 4 — soft lift (motion allowed) */
+    @media (prefers-reduced-motion: no-preference) {
+      .tdb-explore-page .btn-primary:hover,
+      .tdb-explore-page a.btn-primary:hover,
+      .tdb-explore-page .btn-secondary:hover,
+      .tdb-explore-page a.btn-secondary:hover,
+      .tdb-explore-page a.explore-quick-door:hover,
+      .tdb-explore-page .explore-hub-card.tdb-surface-card:hover,
+      .tdb-explore-page .explore-hub-grid a.explore-hub-card:not(.tdb-surface-card):hover {
+        transform: translateY(-1px);
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .tdb-explore-page .btn-primary,
+      .tdb-explore-page a.btn-primary,
+      .tdb-explore-page .btn-secondary,
+      .tdb-explore-page a.btn-secondary,
+      .tdb-explore-page a.explore-quick-door,
+      .tdb-explore-page .explore-hub-card.tdb-surface-card,
+      .tdb-explore-page .explore-hub-grid a.explore-hub-card:not(.tdb-surface-card) {
+        transition: none !important;
+        transform: none !important;
+      }
+    }
   </style>
 </head>
 <body class="dark-mode tdb-inner-page tdb-explore-page">
@@ -394,8 +562,8 @@
         <div class="tdb-explore-sidebar-stack" id="tdb-explore-sidebar-stack">
         <aside class="tdb-porch-verse-widget tdb-surface-card" id="tdbPorchVerseWidget" role="complementary" aria-labelledby="tdbPorchVerseWidgetH" data-tdb-porch-verse-prebuilt="1">
           <p class="tdb-porch-verse-widget__label" id="tdbPorchVerseWidgetH">Today&rsquo;s verse</p>
-          <p class="tdb-porch-verse-widget__ref" id="tdbPorchVerseRef">Psalm 12:6 (KJV)</p>
-          <blockquote class="tdb-porch-verse-widget__text" id="tdbPorchVerseText"><p>“The words of the Lord are pure words.”</p></blockquote>
+          <p class="tdb-porch-verse-widget__ref" id="tdbPorchVerseRef">Psalm 90:14 (KJV)</p>
+          <blockquote class="tdb-porch-verse-widget__text" id="tdbPorchVerseText"><p>“O satisfy us early with thy mercy; that we may rejoice and be glad all our days.”</p></blockquote>
           <div class="tdb-porch-verse-widget__actions">
             <a class="btn btn-secondary" href="/">Read with breakdown</a>
             <button type="button" class="link-button" id="tdbPorchVerseHide">Hide for today</button>
@@ -438,11 +606,24 @@
         <section class="glass tdb-porch-paper-glass explore-start-here" id="start-here" aria-labelledby="start-here-heading">
           <h2 class="section-divider" id="start-here-heading">Start here</h2>
           <p class="section-note util-mb-0_5">If you are new, try these few steps in order&mdash;then open the full walkthrough or <a href="#explore-hub-heading">jump to a section</a> below whenever you are ready. Glance when you like; progress stays on your device.</p>
+
+          <div class="explore-grow-path" id="explore-grow-path" aria-labelledby="explore-grow-path-heading">
+            <h3 class="explore-grow-path__title" id="explore-grow-path-heading">Grow in the Word (one calm sequence)</h3>
+            <p class="section-note util-mb-0_5">When you want more than today&rsquo;s verse&mdash;not a new app, just deeper rooms on this porch:</p>
+            <ol class="explore-grow-path__list section-note">
+              <li><a href="#start-here-heading"><strong>Explore</strong></a> &mdash; you are here; orient without rush</li>
+              <li><a href="/university.html"><strong>University</strong></a> &mdash; five anchor verses; God&rsquo;s classroom, no grades</li>
+              <li><a href="/plans.html"><strong>Battle Plans</strong></a> &mdash; short multi-day KJV paths for real battles</li>
+              <li><a href="/life-lessons.html"><strong>Life Lessons</strong></a> &mdash; sit longer with one teaching</li>
+            </ol>
+            <p class="section-note util-mb-0_75">Story spine (creation → hope): <a href="/learn-the-word.html">Learn the Word</a>. Heavy right now? <a href="/calm.html">Calm</a> or <a href="/#feel-section">Home Ask the Word</a> first&mdash;growth can wait.</p>
+          </div>
+
           <ol class="explore-start-here-list explore-start-here-essentials section-note">
             <li><strong>Main doors</strong> are already listed above (same names as Home, header, and the phone dock). Use that grid first; this list only adds order and deeper rooms.</li>
             <li><a href="site-guide.html">Start here guide</a> — calm first-visit map. Not the same as <a href="first-steps.html">First steps in faith</a>. Quiet proof before tools: <a href="testimonials.html">Reader stories</a>.</li>
-            <li><a href="/">Home</a> — today&rsquo;s verse and <a href="/#feel-section">Ask the Word</a>. Need a shared or private line? <a href="/prayer-wall.html">Prayer</a>.</li>
-            <li><a href="calm.html">Calm</a> for one verse and breath, or <a href="plans.html">Battle Plans</a> for a multi-day path — progress stays on your device. Heavy moment: <a href="sos.html">Steady now</a>.</li>
+            <li><a href="/">Home</a> — today&rsquo;s verse and <a href="/#feel-section">Ask the Word</a> (same offline brain as the Bible Tool). Need a shared or private line? <a href="/prayer-wall.html">Prayer</a>.</li>
+            <li><a href="calm.html">Calm</a> for one verse and breath, or the grow path above (<a href="/university.html">University</a> → <a href="plans.html">Battle Plans</a> → <a href="life-lessons.html">Life Lessons</a>). Heavy moment: <a href="sos.html">Steady now</a>.</li>
             <li><a href="/family.html">Family</a> at the table, or <a href="/mystudy">My Study</a> for saved verses on this device.</li>
             <li>Leaders: <a href="church-hub.html">Church hub</a> / <a href="for-pastors.html">For pastors &amp; ministers</a> — Sermon Builder, Pastor Toolkit, Team Toolkit.</li>
             <li>Homeschool, classroom, or family table pacing: <a href="yearly-rhythm.html">Year-round rhythm</a>, or language pilots under <a href="#languages">Languages</a>. Quiet corners: <a href="/kids/corner.html">Kids Story Library</a>, <a href="emergency-calm-pack.html">7-Day Calm Pack</a>, <a href="memorize.html">Memorize</a>.</li>
@@ -488,9 +669,9 @@
           <ol class="explore-start-here-list explore-five-tour-list section-note util-mb-0">
             <li><strong>Minute 1 &mdash; Today&rsquo;s verse.</strong> Open <a href="/">Home</a>. Read (or tap Listen) once. That is enough for this step.</li>
             <li><strong>Minute 2 &mdash; Ask the Word.</strong> On Home, open <a href="/#feel-section">Ask the Word</a>. Type a few honest words or tap one topic chip. Results stay on your device.</li>
-            <li><strong>Minute 3 &mdash; Battle Plans.</strong> Open <a href="plans.html">Battle Plans</a>. Skim one row that fits the week; you do not have to start today.</li>
+            <li><strong>Minute 3 &mdash; Grow path.</strong> Glance <a href="#explore-grow-path">Explore → University → Plans → Life Lessons</a>. You do not have to start a plan today.</li>
             <li><strong>Minute 4 &mdash; Prayer (optional).</strong> <a href="/prayer-wall.html">Prayer</a> &mdash; one line, no account, if that would help.</li>
-            <li><strong>Minute 5 &mdash; Save or explore.</strong> <a href="/mystudy?tab=library#saved-verses">My Study</a> if you want to keep a verse, or <a href="#start-here-heading">Start here</a> / <a href="#explore-hub-heading">Jump to a section</a> when you are ready for more tools.</li>
+            <li><strong>Minute 5 &mdash; Save or explore.</strong> <a href="/mystudy?tab=library#saved-verses">My Study</a> if you want to keep a verse, or <a href="/learn-the-word.html">Learn the Word</a> for the story spine.</li>
           </ol>
           <p class="section-note util-mb-0 util-mt-0_75">Done? You have already used the site well. Come back when you need the next quiet step.</p>
         </section>
@@ -771,6 +952,8 @@
             <li><a href="mobius.html">Grace Ribbon Journal</a> &mdash; Meditative loop: graph, breath, quiet walk, private journal.</li>
             <li><a href="one-family-in-christ.html">One Family in Christ</a> — Heritage tree from Adam to Jesus (KJV).</li>
             <li><a href="red-letters.html">Red letters</a> — Optional words of Jesus in red across the Gospels.</li>
+            <li><a href="learn-the-word.html">Learn the Word</a> — Gentle spine through the Bible story (creation → hope), linked to plans and lessons.</li>
+            <li><a href="life-lessons.html">Life Lessons</a> — Deep rooms to sit with one teaching.</li>
             <li><a href="bible-study.html">Bible studies</a> — Study starters and helps.</li>
             <li><a href="curriculum.html">Curriculum</a> — Structured learning tracks.</li>
             <li><a href="mystudy.html">My Study</a> — Private verse, notes, and prayer; tagged note library, light memorize queue, and print from this device.</li>
@@ -1054,7 +1237,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">July 12, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">August 2, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>

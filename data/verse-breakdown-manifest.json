@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-12T16:53:43.659Z",
-  "surfacedRefCount": 3815,
-  "overrideCount": 3815,
+  "generatedAt": "2026-08-02T23:48:45.841Z",
+  "surfacedRefCount": 3868,
+  "overrideCount": 3868,
   "sourceCounts": {
     ".worktrees/main-hotfix/404-admin.html": {
       "refs": 1,
@@ -735,8 +735,8 @@
       "refs": 5,
       "pairs": 0
     },
-    "ask-the-word.js": {
-      "refs": 1,
+    "ask-the-word-core.js": {
+      "refs": 19,
       "pairs": 0
     },
     "back-to-school-university.html": {
@@ -871,6 +871,14 @@
       "refs": 40,
       "pairs": 40
     },
+    "data/ask-the-word-knowledge.json": {
+      "refs": 987,
+      "pairs": 1206
+    },
+    "data/ask-the-word-verse-pocket.json": {
+      "refs": 845,
+      "pairs": 845
+    },
     "data/plans-battle-shared.json": {
       "refs": 315,
       "pairs": 455
@@ -952,7 +960,7 @@
       "pairs": 365
     },
     "hero-daily-first-paint.js": {
-      "refs": 7,
+      "refs": 8,
       "pairs": 0
     },
     "hero-hero-pools.js": {
@@ -1221,6 +1229,10 @@
     },
     "late-summer-reset-one-page-print.html": {
       "refs": 6,
+      "pairs": 0
+    },
+    "learn-the-word.html": {
+      "refs": 25,
       "pairs": 0
     },
     "lessons-from-the-valley-print.html": {
@@ -1960,7 +1972,7 @@
       "pairs": 0
     },
     "script.js": {
-      "refs": 1231,
+      "refs": 1272,
       "pairs": 261
     },
     "search.js": {
@@ -2014,6 +2026,14 @@
     "summer-harvest-university.html": {
       "refs": 3,
       "pairs": 0
+    },
+    "supabase/functions/bible-qa/knowledge.json": {
+      "refs": 987,
+      "pairs": 1206
+    },
+    "supabase/functions/bible-qa/verse-pocket.json": {
+      "refs": 845,
+      "pairs": 845
     },
     "tdb-home-feel.js": {
       "refs": 112,
@@ -2281,6 +2301,7 @@
     "1 Corinthians 15:20-22",
     "1 Corinthians 15:26",
     "1 Corinthians 15:3",
+    "1 Corinthians 15:3-4",
     "1 Corinthians 15:42",
     "1 Corinthians 15:43",
     "1 Corinthians 15:52",
@@ -2315,6 +2336,7 @@
     "1 Corinthians 6:19-20",
     "1 Corinthians 7:12-16",
     "1 Corinthians 7:14",
+    "1 Corinthians 7:15",
     "1 Corinthians 7:16",
     "1 Corinthians 7:32",
     "1 Corinthians 7:32-35",
@@ -2545,6 +2567,7 @@
     "1 Thessalonians 4:13-18",
     "1 Thessalonians 4:15",
     "1 Thessalonians 4:16",
+    "1 Thessalonians 4:16-17",
     "1 Thessalonians 4:17",
     "1 Thessalonians 4:3",
     "1 Thessalonians 4:4",
@@ -2885,6 +2908,7 @@
     "Acts 17:23",
     "Acts 17:25",
     "Acts 17:28",
+    "Acts 17:30",
     "Acts 17:34",
     "Acts 17:5",
     "Acts 18:1-3",
@@ -2963,6 +2987,7 @@
     "Acts 3:3",
     "Acts 3:6",
     "Acts 3:8",
+    "Acts 4:12",
     "Acts 4:14",
     "Acts 4:19",
     "Acts 4:19-20",
@@ -3007,6 +3032,7 @@
     "Acts 9:18",
     "Acts 9:27",
     "Acts 9:3",
+    "Acts 9:3-6",
     "Acts 9:36",
     "Acts 9:36-43",
     "Acts 9:37",
@@ -3174,6 +3200,7 @@
     "Ephesians 1:11",
     "Ephesians 1:13",
     "Ephesians 1:22",
+    "Ephesians 1:22-23",
     "Ephesians 1:3-14",
     "Ephesians 1:4",
     "Ephesians 1:4-5",
@@ -3299,6 +3326,7 @@
     "Exodus 1:17",
     "Exodus 20:1",
     "Exodus 20:1-17",
+    "Exodus 20:1-3",
     "Exodus 20:12",
     "Exodus 20:14",
     "Exodus 20:17",
@@ -3327,6 +3355,7 @@
     "Exodus 33:11",
     "Exodus 33:14",
     "Exodus 34:19",
+    "Exodus 34:6",
     "Exodus 35:32",
     "Exodus 3:1",
     "Exodus 3:1-15",
@@ -3409,6 +3438,7 @@
     "Galatians 3:26-28",
     "Galatians 3:27",
     "Galatians 3:28-29",
+    "Galatians 3:6-7",
     "Galatians 4:24",
     "Galatians 4:4-5",
     "Galatians 4:5",
@@ -3453,6 +3483,7 @@
     "Genesis 11:7",
     "Genesis 12:1",
     "Genesis 12:1-2",
+    "Genesis 12:1-3",
     "Genesis 12:2",
     "Genesis 13:10",
     "Genesis 14:18",
@@ -3483,6 +3514,7 @@
     "Genesis 1:1-31",
     "Genesis 1:16-18",
     "Genesis 1:2",
+    "Genesis 1:21",
     "Genesis 1:22",
     "Genesis 1:25",
     "Genesis 1:26",
@@ -3615,6 +3647,7 @@
     "Genesis 9:20",
     "Genesis 9:26",
     "Genesis 9:27",
+    "Genesis 9:9",
     "Habakkuk 1:2",
     "Habakkuk 2:18",
     "Habakkuk 2:3",
@@ -3635,6 +3668,7 @@
     "Haggai 2:4",
     "Haggai 2:9",
     "Hebrews 10:10",
+    "Hebrews 10:14",
     "Hebrews 10:22",
     "Hebrews 10:23",
     "Hebrews 10:24-25",
@@ -3650,6 +3684,7 @@
     "Hebrews 11:13",
     "Hebrews 11:20",
     "Hebrews 11:21",
+    "Hebrews 11:24-25",
     "Hebrews 11:31",
     "Hebrews 11:32",
     "Hebrews 11:39-40",
@@ -3775,6 +3810,7 @@
     "Isaiah 43:5",
     "Isaiah 44:28",
     "Isaiah 45:16",
+    "Isaiah 45:5",
     "Isaiah 46:4",
     "Isaiah 48:17-18",
     "Isaiah 48:18",
@@ -3951,6 +3987,7 @@
     "Job 37:14",
     "Job 38:3",
     "Job 39:27",
+    "Job 40:15",
     "Job 40:2",
     "Job 42:10",
     "Job 42:5",
@@ -3988,7 +4025,9 @@
     "John 11:21",
     "John 11:24",
     "John 11:25",
+    "John 11:25-26",
     "John 11:27",
+    "John 11:33",
     "John 11:35",
     "John 11:39",
     "John 11:43",
@@ -4074,6 +4113,7 @@
     "John 19:39",
     "John 19:6",
     "John 1:1",
+    "John 1:1-3",
     "John 1:1-5",
     "John 1:10",
     "John 1:12",
@@ -4083,6 +4123,7 @@
     "John 1:18",
     "John 1:28",
     "John 1:29",
+    "John 1:3",
     "John 1:36",
     "John 1:4",
     "John 1:40",
@@ -4871,6 +4912,7 @@
     "Matthew 19:23",
     "Matthew 19:26",
     "Matthew 19:6",
+    "Matthew 19:9",
     "Matthew 1:1",
     "Matthew 1:10",
     "Matthew 1:11",
@@ -5275,6 +5317,7 @@
     "Philippians 3:19",
     "Philippians 3:2",
     "Philippians 3:20",
+    "Philippians 3:7-8",
     "Philippians 3:8",
     "Philippians 4:1",
     "Philippians 4:11",
@@ -5416,8 +5459,10 @@
     "Psalm 103:5",
     "Psalm 103:8",
     "Psalm 104:1",
+    "Psalm 104:24",
     "Psalm 104:33",
     "Psalm 105:1",
+    "Psalm 105:17",
     "Psalm 106:1",
     "Psalm 107:1",
     "Psalm 107:1, 8",
@@ -5427,6 +5472,7 @@
     "Psalm 108:1",
     "Psalm 108:4",
     "Psalm 109:30",
+    "Psalm 10:14",
     "Psalm 10:17",
     "Psalm 111:1",
     "Psalm 111:4",
@@ -5434,6 +5480,7 @@
     "Psalm 112:4",
     "Psalm 113:2",
     "Psalm 113:3",
+    "Psalm 113:9",
     "Psalm 115:12",
     "Psalm 116:1",
     "Psalm 116:1-2",
@@ -5462,6 +5509,7 @@
     "Psalm 119:116",
     "Psalm 119:130",
     "Psalm 119:140",
+    "Psalm 119:147",
     "Psalm 119:151",
     "Psalm 119:160",
     "Psalm 119:162",
@@ -5531,11 +5579,14 @@
     "Psalm 138:8",
     "Psalm 139:1",
     "Psalm 139:12",
+    "Psalm 139:13",
     "Psalm 139:14",
     "Psalm 139:16",
     "Psalm 139:17",
     "Psalm 139:23-24",
+    "Psalm 139:3",
     "Psalm 139:8",
+    "Psalm 13:1",
     "Psalm 13:5",
     "Psalm 142:3",
     "Psalm 142:7",
@@ -5546,6 +5597,7 @@
     "Psalm 145:16",
     "Psalm 145:18",
     "Psalm 145:2",
+    "Psalm 145:8",
     "Psalm 145:9",
     "Psalm 147:3",
     "Psalm 147:7",
@@ -5563,7 +5615,10 @@
     "Psalm 19:7",
     "Psalm 1:1-3",
     "Psalm 20:4",
+    "Psalm 22:1",
+    "Psalm 22:2",
     "Psalm 22:4",
+    "Psalm 22:9",
     "Psalm 23:1",
     "Psalm 23:1-2",
     "Psalm 23:1-4",
@@ -5629,6 +5684,7 @@
     "Psalm 37:39",
     "Psalm 37:4",
     "Psalm 37:5",
+    "Psalm 37:6",
     "Psalm 37:7",
     "Psalm 37:8",
     "Psalm 38:4",
@@ -5639,6 +5695,7 @@
     "Psalm 40:3",
     "Psalm 40:4",
     "Psalm 41:1",
+    "Psalm 42:1",
     "Psalm 42:1-2",
     "Psalm 42:11",
     "Psalm 42:5",
@@ -5648,6 +5705,7 @@
     "Psalm 44:8",
     "Psalm 46:1",
     "Psalm 46:10",
+    "Psalm 46:2",
     "Psalm 46:5",
     "Psalm 46:7",
     "Psalm 47:1",
@@ -5657,11 +5715,14 @@
     "Psalm 4:8",
     "Psalm 50:15",
     "Psalm 50:23",
+    "Psalm 51:1",
     "Psalm 51:10",
     "Psalm 51:12",
     "Psalm 51:17",
     "Psalm 52:8",
     "Psalm 54:4",
+    "Psalm 55:12",
+    "Psalm 55:13",
     "Psalm 55:16",
     "Psalm 55:17",
     "Psalm 55:22",
@@ -5692,15 +5753,19 @@
     "Psalm 67:2",
     "Psalm 67:5-7",
     "Psalm 68:19",
+    "Psalm 68:5",
     "Psalm 68:6",
     "Psalm 69:32",
     "Psalm 6:9",
     "Psalm 70:4",
     "Psalm 71:14",
+    "Psalm 71:18",
     "Psalm 71:5",
     "Psalm 71:8",
+    "Psalm 71:9",
     "Psalm 72:18",
     "Psalm 73:17",
+    "Psalm 73:21",
     "Psalm 73:25",
     "Psalm 73:26",
     "Psalm 73:28",
@@ -5718,6 +5783,7 @@
     "Psalm 84:10",
     "Psalm 84:11",
     "Psalm 84:12",
+    "Psalm 84:3",
     "Psalm 84:5",
     "Psalm 85:6",
     "Psalm 86:11",
@@ -5725,6 +5791,7 @@
     "Psalm 86:5",
     "Psalm 86:6",
     "Psalm 87:3",
+    "Psalm 88:1",
     "Psalm 88:13",
     "Psalm 89:1",
     "Psalm 89:15",
@@ -5737,12 +5804,14 @@
     "Psalm 91:1",
     "Psalm 91:1-2",
     "Psalm 91:11",
+    "Psalm 91:14",
     "Psalm 91:15",
     "Psalm 91:16",
     "Psalm 91:2",
     "Psalm 91:4",
     "Psalm 92:1",
     "Psalm 92:1-4",
+    "Psalm 92:14",
     "Psalm 92:4",
     "Psalm 93:4",
     "Psalm 94:18",
@@ -5752,6 +5821,7 @@
     "Psalm 95:1-2",
     "Psalm 95:1-7",
     "Psalm 95:2",
+    "Psalm 95:6",
     "Psalm 95:7",
     "Psalm 96:1",
     "Psalm 96:2",
@@ -5872,6 +5942,7 @@
     "Romans 16:7",
     "Romans 1:1",
     "Romans 1:16",
+    "Romans 1:16-17",
     "Romans 1:17",
     "Romans 1:25",
     "Romans 1:28",
@@ -5879,6 +5950,7 @@
     "Romans 1:8",
     "Romans 2:15",
     "Romans 2:24",
+    "Romans 2:4",
     "Romans 3:22",
     "Romans 3:23",
     "Romans 3:23; 6:23",
@@ -5897,6 +5969,7 @@
     "Romans 5:11",
     "Romans 5:12",
     "Romans 5:16",
+    "Romans 5:19",
     "Romans 5:3",
     "Romans 5:3-4",
     "Romans 5:3-5",
@@ -6073,6 +6146,7 @@
     "1 Corinthians 12:4-11": "Now there are diversities of gifts, but the same Spirit. And there are differences of administrations, but the same Lord. And there are diversities of operations, but it is the same God which worketh all in all. But the manifestation of the Spirit is given to every man to profit withal. For to one is given by the Spirit the word of wisdom; to another the word of knowledge by the same Spirit; To another faith by the same Spirit; to another the gifts of healing by the same Spirit; To another the working of miracles; to another prophecy; to another discerning of spirits; to another divers kinds of tongues; to another the interpretation of tongues: But all these worketh that one and the selfsame Spirit, dividing to every man severally as he will.",
     "1 Corinthians 12:4-7": "Now there are diversities of gifts, but the same Spirit. And there are differences of administrations, but the same Lord. And there are diversities of operations, but it is the same God which worketh all in all. But the manifestation of the Spirit is given to every man to profit withal.",
     "1 Corinthians 13:4-7": "Charity suffereth long, and is kind; charity envieth not; charity vaunteth not itself, is not puffed up, Doth not behave itself unseemly, seeketh not her own, is not easily provoked, thinketh no evil; Rejoiceth not in iniquity, but rejoiceth in the truth; Beareth all things, believeth all things, hopeth all things, endureth all things.",
+    "1 Corinthians 15:3-4": "For I delivered unto you first of all that which I also received, how that Christ died for our sins according to the scriptures;",
     "1 Kings 19:5-8": "And as he lay and slept under a juniper tree, behold, then an angel touched him, and said unto him, Arise and eat. And he looked, and, behold, there was a cake baken on the coals, and a cruse of water at his head. And he did eat and drink, and laid him down again. And the angel of the LORD came again the second time, and touched him, and said, Arise and eat; because the journey is too great for thee.",
     "1 Peter 3:8-9": "Finally, be ye all of one mind, having compassion one of another, love as brethren, be pitiful, be courteous: Not rendering evil for evil, or railing for railing: but contrariwise blessing; knowing that ye are thereunto called, that ye should inherit a blessing.",
     "1 Peter 4:10-11": "As every man hath received the gift, even so minister the same one to another, as good stewards of the manifold grace of God. If any man speak, let him speak as the oracles of God; if any man minister, let him do it as of the ability which God giveth: that God in all things may be glorified through Jesus Christ, to whom be praise and dominion for ever and ever. Amen.",
@@ -6095,6 +6169,7 @@
     "2\\u00a0Corinthians\\u00a04:18": "While we look not at the things which are seen, but at the things which are not seen: for the things which are seen are temporal; but the things which are not seen are eternal.",
     "2\\u00a0Corinthians\\u00a04:7": "But we have this treasure in earthen vessels, that the excellency of the power may be of God, and not of us.",
     "2\\u00a0Corinthians\\u00a04:8-9": "We are troubled on every side, yet not distressed; we are perplexed, but not in despair; Persecuted, but not forsaken; cast down, but not destroyed.",
+    "Acts 9:3-6": "And as he journeyed, he came near Damascus: and suddenly there shined round about him a light from heaven:",
     "Colossians 1:13-14": "Who hath delivered us from the power of darkness, and hath translated us into the kingdom of his dear Son: In whom we have redemption through his blood, even the forgiveness of sins:",
     "Colossians 3:1-3": "If ye then be risen with Christ, seek those things which are above, where Christ sitteth on the right hand of God. Set your affection on things above, not on things on the earth. For ye are dead, and your life is hid with Christ in God.",
     "Colossians 3:12-14": "Put on therefore, as the elect of God, holy and beloved, bowels of mercies, kindness, humbleness of mind, meekness, longsuffering; Forbearing one another, and forgiving one another, if any man have a quarrel against any: even as Christ forgave you, so also do ye. And above all these things put on charity, which is the bond of perfectness.",
@@ -6107,6 +6182,7 @@
     "Deuteronomy\\u00a06:6-7": "And these words, which I command thee this day, shall be in thine heart: And thou shalt teach them diligently unto thy children, and shalt talk of them when thou sittest in thine house, and when thou walkest by the way, and when thou liest down, and when thou risest up.",
     "Ecclesiastes 3:12-13": "I know that there is no good in them, but for a man to rejoice, and to do good in his life. And also that every man should eat and drink, and enjoy the good of all his labour, it is the gift of God.",
     "Ecclesiastes 4:9-10": "Two are better than one; because they have a good reward for their labour. For if they fall, the one will lift up his fellow: but woe to him that is alone when he falleth; for he hath not another to help him up.",
+    "Ephesians 1:22-23": "And hath put all things under his feet, and gave him to be the head over all things to the church,",
     "Ephesians 2:8-9": "For by grace are ye saved through faith; and that not of yourselves: it is the gift of God: Not of works, lest any man should boast.",
     "Ephesians 2:8-9; Acts 16:31": "For by grace are ye saved through faith; and that not of yourselves: it is the gift of God: Not of works, lest any man should boast. And they said, Believe on the Lord Jesus Christ, and thou shalt be saved, and thy house.",
     "Ephesians 4:23-24": "And be renewed in the spirit of your mind; And that ye put on the new man, which after God is created in righteousness and true holiness.",
@@ -6120,14 +6196,18 @@
     "Ephesians\\u00a06:15": "And your feet shod with the preparation of the gospel of peace.",
     "Ephesians\\u00a06:16": "Above all, taking the shield of faith, wherewith ye shall be able to quench all the fiery darts of the wicked.",
     "Ephesians\\u00a06:17": "And the sword of the Spirit, which is the word of God.",
+    "Exodus 14:13-14": "And Moses said unto the people, Fear ye not, stand still, and see the salvation of the LORD, which he will shew to you to day: for the Egyptians whom ye have seen to day, ye shall see them again no more for ever.",
     "Exodus 31:1-6": "And the LORD spake unto Moses, saying, See, I have called by name Bezaleel the son of Uri, the son of Hur, of the tribe of Judah: And I have filled him with the spirit of God, in wisdom, and in understanding, and in knowledge, and in all manner of workmanship, To devise cunning works, to work in gold, and in silver, and in brass, And in cutting of stones, to set them, and in carving of timber, to work in all manner of workmanship. And I, behold, I have appointed with him Aholiab, the son of Ahisamach, of the tribe of Dan: and in the hearts of all that are wise hearted I have put wisdom, that they may make all that I have commanded them:",
     "Galatians 3:26-28": "For ye are all the children of God by faith in Christ Jesus. For as many of you as have been baptized into Christ have put on Christ. There is neither Jew nor Greek, there is neither bond nor free, there is neither male nor female: for ye are all one in Christ Jesus.",
+    "Galatians 3:6-7": "Even as Abraham believed God, and it was accounted to him for righteousness.",
     "Galatians 5:22-23": "But the fruit of the Spirit is love, joy, peace, longsuffering, gentleness, goodness, faith, Meekness, temperance: against such there is no law.",
     "Galatians 6:1-2": "Brethren, if a man be overtaken in a fault, ye which are spiritual, restore such an one in the spirit of meekness; considering thyself, lest thou also be tempted. Bear ye one another's burdens, and so fulfil the law of Christ.",
     "Galatians 6:4-5": "But let every man prove his own work, and then shall he have rejoicing in himself alone, and not in another. For every man shall bear his own burden.",
+    "Genesis 12:1-2": "Now the LORD had said unto Abram, Get thee out of thy country, and from thy kindred, and from thy father’s house, unto a land that I will shew thee:",
     "Habakkuk 3:17-18": "Although the fig tree shall not blossom, neither shall fruit be in the vines; the labour of the olive shall fail, and the fields shall yield no meat; the flock shall be cut off from the fold, and there shall be no herd in the stalls: Yet I will rejoice in the LORD, I will joy in the God of my salvation.",
     "Haggai 2:3-4": "Who is left among you that saw this house in her first glory? and how do ye see it now? is it not in your eyes in comparison of it as nothing? Yet now be strong, O Zerubbabel, saith the LORD; and be strong, O Joshua, son of Josedech, the high priest; and be strong, all ye people of the land, saith the LORD, and work: for I am with you, saith the LORD of hosts:",
     "Hebrews 10:24-25": "And let us consider one another to provoke unto love and to good works: Not forsaking the assembling of ourselves together, as the manner of some is; but exhorting one another: and so much the more, as ye see the day approaching.",
+    "Hebrews 11:24-25": "By faith Moses, when he was come to years, refused to be called the son of Pharaoh’s daughter;",
     "Hebrews 12:1-2": "Wherefore seeing we also are compassed about with so great a cloud of witnesses, let us lay aside every weight, and the sin which doth so easily beset us, and let us run with patience the race that is set before us, Looking unto Jesus the author and finisher of our faith; who for the joy that was set before him endured the cross, despising the shame, and is set down at the right hand of the throne of God.",
     "Hebrews 13:5-6": "Let your conversation be without covetousness; and be content with such things as ye have: for he hath said, I will never leave thee, nor forsake thee. So that we may boldly say, The Lord is my helper, and I will not fear what man shall do unto me.",
     "Hebrews 4:9-10": "There remaineth therefore a rest to the people of God. For he that is entered into his rest, he also hath ceased from his own works, as God did from his.",
@@ -6148,6 +6228,8 @@
     "Jeremiah 29:12-13": "Then shall ye call upon me, and ye shall go and pray unto me, and I will hearken unto you. And ye shall seek me, and find me, when ye shall search for me with all your heart.",
     "Job 19:25-26": "For I know that my redeemer liveth, and that he shall stand at the latter day upon the earth: And though after my skin worms destroy this body, yet in my flesh shall I see God:",
     "John 10:27-28": "My sheep hear my voice, and I know them, and they follow me: And I give unto them eternal life; and they shall never perish, neither shall any man pluck them out of my hand.",
+    "John 11:25-26": "Jesus said unto her, I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live:",
+    "John 11:43-44": "And when he thus had spoken, he cried with a loud voice, Lazarus, come forth.",
     "John 14:1, 27": "Let not your heart be troubled: ye believe in God, believe also in me. Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid.",
     "John 14:1-6": "Let not your heart be troubled: ye believe in God, believe also in me. In my Father's house are many mansions: if it were not so, I would have told you. I go to prepare a place for you. And if I go and prepare a place for you, I will come again, and receive you unto myself; that where I am, there ye may be also. And whither I go ye know, and the way ye know. Thomas saith unto him, Lord, we know not whither thou goest; and how can we know the way? Jesus saith unto him, I am the way, the truth, and the life: no man cometh unto the Father, but by me.",
     "John 14:16-17": "And I will pray the Father, and he shall give you another Comforter, that he may abide with you for ever; Even the Spirit of truth; whom the world cannot receive, because it seeth him not, neither knoweth him: but ye know him; for he dwelleth with you, and shall be in you.",
@@ -6193,6 +6275,7 @@
     "Nehemiah\\u00a08:8": "So they read in the book in the law of God distinctly, and gave the sense, and caused them to understand the reading.",
     "Numbers 6:24-26": "The Lord bless thee, and keep thee: The LORD make his face shine upon thee, and be gracious unto thee: The LORD lift up his countenance upon thee, and give thee peace.",
     "Philippians 3:13-14": "Brethren, I count not myself to have apprehended: but this one thing I do, forgetting those things which are behind, and reaching forth unto those things which are before, I press toward the mark for the prize of the high calling of God in Christ Jesus.",
+    "Philippians 3:7-8": "But what things were gain to me, those I counted loss for Christ.",
     "Philippians 4:11-13": "Not that I speak in respect of want: for I have learned, in whatsoever state I am, therewith to be content. I know both how to be abased, and I know how to abound: every where and in all things I am instructed both to be full and to be hungry, both to abound and to suffer need. I can do all things through Christ which strengtheneth me.",
     "Philippians 4:6-7": "Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.",
     "Proverbs 22:24-25": "Make no friendship with an angry man; and with a furious man shalt thou not go: Lest thou learn his ways, and get a snare to thy soul.",
@@ -6221,8 +6304,10 @@
     "Psalm 103:5": "Who satisfieth thy mouth with good things; so that thy youth is renewed like the eagle's.",
     "Psalm 103:8": "The Lord is merciful and gracious, slow to anger, and plenteous in mercy.",
     "Psalm 104:1": "Bless the Lord, O my soul. O Lord my God, thou art very great.",
+    "Psalm 104:24": "O LORD, how manifold are thy works! in wisdom hast thou made them all: the earth is full of thy riches.",
     "Psalm 104:33": "I will sing unto the Lord as long as I live: I will sing praise to my God while I have my being.",
     "Psalm 105:1": "O give thanks unto the Lord; call upon his name: make known his deeds among the people.",
+    "Psalm 105:17": "He sent a man before them, even Joseph, who was sold for a servant:",
     "Psalm 106:1": "Praise ye the Lord. O give thanks unto the Lord; for he is good.",
     "Psalm 107:1": "O give thanks unto the LORD, for he is good: for his mercy endureth for ever.",
     "Psalm 107:1, 8": "O give thanks unto the LORD, for he is good: for his mercy endureth for ever. Oh that men would praise the LORD for his goodness, and for his wonderful works to the children of men!",
@@ -6232,13 +6317,15 @@
     "Psalm 108:1": "O God, my heart is fixed; I will sing and give praise, even with my glory.",
     "Psalm 108:4": "For thy mercy is great above the heavens: and thy truth reacheth unto the clouds.",
     "Psalm 109:30": "I will greatly praise the Lord with my mouth; yea, I will praise him among the multitude.",
-    "Psalm 10:17": "Lord, thou hast heard the desire of the humble: thou wilt prepare their heart.",
+    "Psalm 10:14": "Thou hast seen it; for thou beholdest mischief and spite, to requite it with thy hand: the poor committeth himself unto thee; thou art the helper of the fatherless.",
+    "Psalm 10:17": "LORD, thou hast heard the desire of the humble: thou wilt prepare their heart, thou wilt cause thine ear to hear:",
     "Psalm 111:1": "Praise ye the Lord. I will praise the Lord with my whole heart.",
     "Psalm 111:4": "He hath made his wonderful works to be remembered: the Lord is gracious and full of compassion.",
     "Psalm 112:1": "Praise ye the Lord. Blessed is the man that feareth the Lord.",
     "Psalm 112:4": "Unto the upright there ariseth light in the darkness: he is gracious, and full of compassion, and righteous.",
     "Psalm 113:2": "Blessed be the name of the Lord from this time forth and for evermore.",
     "Psalm 113:3": "From the rising of the sun unto the going down of the same the LORD's name is to be praised.",
+    "Psalm 113:9": "He maketh the barren woman to keep house, and to be a joyful mother of children. Praise ye the LORD.",
     "Psalm 115:12": "The Lord hath been mindful of us: he will bless us.",
     "Psalm 116:1": "I love the Lord, because he hath heard my voice and my supplications.",
     "Psalm 116:1-2": "I love the Lord, because he hath heard my voice and my supplications. Because he hath inclined his ear unto me, therefore will I call upon him as long as I live.",
@@ -6267,6 +6354,7 @@
     "Psalm 119:116": "Uphold me according unto thy word, that I may live: and let me not be ashamed of my hope.",
     "Psalm 119:130": "The entrance of thy words giveth light; it giveth understanding unto the simple.",
     "Psalm 119:140": "Thy word is very pure: therefore thy servant loveth it.",
+    "Psalm 119:147": "I prevented the dawning of the morning, and cried: I hoped in thy word.",
     "Psalm 119:151": "Thou art near, O Lord; and all thy commandments are truth.",
     "Psalm 119:160": "Thy word is true from the beginning: and every one of thy righteous judgments endureth for ever.",
     "Psalm 119:162": "I rejoice at thy word, as one that findeth great spoil.",
@@ -6336,11 +6424,14 @@
     "Psalm 138:8": "The Lord will perfect that which concerneth me: thy mercy, O Lord, endureth for ever: forsake not the works of thine own hands.",
     "Psalm 139:1": "O LORD, thou hast searched me, and known me.",
     "Psalm 139:12": "Yea, the darkness hideth not from thee; but the night shineth as the day: the darkness and the light are both alike to thee.",
+    "Psalm 139:13": "For thou hast possessed my reins: thou hast covered me in my mother’s womb.",
     "Psalm 139:14": "I will praise thee; for I am fearfully and wonderfully made: marvellous are thy works; and that my soul knoweth right well.",
     "Psalm 139:16": "Thine eyes did see my substance, yet being unperfect; and in thy book all my members were written, which in continuance were fashioned, when as yet there was none of them.",
     "Psalm 139:17": "How precious also are thy thoughts unto me, O God! how great is the sum of them!",
     "Psalm 139:23-24": "Search me, O God, and know my heart: try me, and know my thoughts: And see if there be any wicked way in me, and lead me in the way everlasting.",
+    "Psalm 139:3": "Thou compassest my path and my lying down, and art acquainted with all my ways.",
     "Psalm 139:8": "If I ascend up into heaven, thou art there: if I make my bed in hell, behold, thou art there.",
+    "Psalm 13:1": "How long wilt thou forget me, O LORD? for ever? how long wilt thou hide thy face from me?",
     "Psalm 13:5": "I have trusted in thy mercy; my heart shall rejoice in thy salvation.",
     "Psalm 142:3": "When my spirit was overwhelmed within me, then thou knewest my path. In the way wherein I walked have they privily laid a snare for me.",
     "Psalm 142:7": "Bring my soul out of prison, that I may praise thy name: the righteous shall compass me about; for thou shalt deal bountifully with me.",
@@ -6351,6 +6442,7 @@
     "Psalm 145:16": "Thou openest thine hand, and satisfiest the desire of every living thing.",
     "Psalm 145:18": "The Lord is nigh unto all them that call upon him, to all that call upon him in truth.",
     "Psalm 145:2": "Every day will I bless thee; and I will praise thy name for ever and ever.",
+    "Psalm 145:8": "The LORD is gracious, and full of compassion; slow to anger, and of great mercy.",
     "Psalm 145:9": "The Lord is good to all: and his tender mercies are over all his works.",
     "Psalm 147:3": "He healeth the broken in heart, and bindeth up their wounds.",
     "Psalm 147:7": "Sing unto the LORD with thanksgiving; sing praise upon the harp unto our God:",
@@ -6368,7 +6460,10 @@
     "Psalm 19:7": "The law of the LORD is perfect, converting the soul: the testimony of the LORD is sure, making wise the simple.",
     "Psalm 1:1-3": "Blessed is the man that walketh not in the counsel of the ungodly, nor standeth in the way of sinners, nor sitteth in the seat of the scornful. But his delight is in the law of the LORD; and in his law doth he meditate day and night. And he shall be like a tree planted by the rivers of water, that bringeth forth his fruit in his season; his leaf also shall not wither; and whatsoever he doeth shall prosper.",
     "Psalm 20:4": "Grant thee according to thine own heart, and fulfil all thy counsel.",
+    "Psalm 22:1": "My God, my God, why hast thou forsaken me? why art thou so far from helping me, and from the words of my roaring?",
+    "Psalm 22:2": "O my God, I cry in the day time, but thou hearest not; and in the night season, and am not silent.",
     "Psalm 22:4": "Our fathers trusted in thee: they trusted, and thou didst deliver them.",
+    "Psalm 22:9": "But thou art he that took me out of the womb: thou didst make me hope when I was upon my mother’s breasts.",
     "Psalm 23:1": "Trust in the LORD with all thine heart; and lean not unto thine own understanding.",
     "Psalm 23:1-2": "The LORD is my shepherd; I shall not want. He maketh me to lie down in green pastures.",
     "Psalm 23:1-4": "The LORD is my shepherd; I shall not want. He maketh me to lie down in green pastures: he leadeth me beside the still waters. He restoreth my soul: he leadeth me in the paths of righteousness for his name's sake. Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.",
@@ -6434,6 +6529,7 @@
     "Psalm 37:39": "But the salvation of the righteous is of the Lord: he is their strength in the time of trouble.",
     "Psalm 37:4": "Delight thyself also in the Lord; and he shall give thee the desires of thine heart.",
     "Psalm 37:5": "Commit thy way unto the LORD; trust also in him; and he shall bring it to pass.",
+    "Psalm 37:6": "And he shall bring forth thy righteousness as the light, and thy judgment as the noonday.",
     "Psalm 37:7": "Rest in the LORD, and wait patiently for him: fret not thyself because of him who prospereth in his way, because of the man who bringeth wicked devices to pass.",
     "Psalm 37:8": "Cease from anger, and forsake wrath: fret not thyself in any wise to do evil.",
     "Psalm 38:4": "For mine iniquities are gone over mine head: as an heavy burden they are too heavy for me.",
@@ -6444,6 +6540,7 @@
     "Psalm 40:3": "And he hath put a new song in my mouth, even praise unto our God: many shall see it, and fear, and shall trust in the LORD.",
     "Psalm 40:4": "Blessed is that man that maketh the Lord his trust.",
     "Psalm 41:1": "Blessed is he that considereth the poor: the Lord will deliver him in time of trouble.",
+    "Psalm 42:1": "As the hart panteth after the water brooks, so panteth my soul after thee, O God.",
     "Psalm 42:1-2": "As the hart panteth after the water brooks, so panteth my soul after thee, O God. My soul thirsteth for God, for the living God: when shall I come and appear before God?",
     "Psalm 42:11": "Why art thou cast down, O my soul? and why art thou disquieted within me? hope thou in God: for I shall yet praise him, who is the health of my countenance, and my God.",
     "Psalm 42:5": "Why art thou cast down, O my soul? and why art thou disquieted in me? hope thou in God: for I shall yet praise him, who is the health of my countenance, and my God.",
@@ -6453,6 +6550,7 @@
     "Psalm 44:8": "In God we boast all the day long, and praise thy name for ever.",
     "Psalm 46:1": "God is our refuge and strength, a very present help in trouble.",
     "Psalm 46:10": "Be still, and know that I am God: I will be exalted among the heathen, I will be exalted in the earth.",
+    "Psalm 46:2": "Therefore will not we fear, though the earth be removed, and though the mountains be carried into the midst of the sea;",
     "Psalm 46:5": "God is in the midst of her; she shall not be moved: God shall help her, and that right early.",
     "Psalm 46:7": "The Lord of hosts is with us; the God of Jacob is our refuge.",
     "Psalm 47:1": "O clap your hands, all ye people; shout unto God with the voice of triumph.",
@@ -6462,11 +6560,14 @@
     "Psalm 4:8": "I will both lay me down in peace, and sleep: for thou, LORD, only makest me dwell in safety.",
     "Psalm 50:15": "Call upon me in the day of trouble: I will deliver thee.",
     "Psalm 50:23": "Whoso offereth praise glorifieth me: and to him that ordereth his conversation aright will I shew the salvation of God.",
+    "Psalm 51:1": "Have mercy upon me, O God, according to thy lovingkindness: according unto the multitude of thy tender mercies blot out my transgressions.",
     "Psalm 51:10": "Create in me a clean heart, O God; and renew a right spirit within me.",
     "Psalm 51:12": "Restore unto me the joy of thy salvation; and uphold me with thy free spirit.",
     "Psalm 51:17": "The sacrifices of God are a broken spirit: a broken and a contrite heart, O God, thou wilt not despise.",
     "Psalm 52:8": "I am like a green olive tree in the house of God: I trust in the mercy of God for ever and ever.",
     "Psalm 54:4": "Behold, God is mine helper: the Lord is with them that uphold my soul.",
+    "Psalm 55:12": "For it was not an enemy that reproached me; then I could have borne it: neither was it he that hated me that did magnify himself against me; then I would have hid myself from him:",
+    "Psalm 55:13": "But it was thou, a man mine equal, my guide, and mine acquaintance.",
     "Psalm 55:16": "As for me, I will call upon God; and the Lord shall save me.",
     "Psalm 55:17": "Evening, and morning, and at noon, will I pray, and cry aloud: and he shall hear my voice.",
     "Psalm 55:22": "Cast thy burden upon the LORD, and he shall sustain thee: he shall never suffer the righteous to be moved.",
@@ -6497,15 +6598,19 @@
     "Psalm 67:2": "That thy way may be known upon earth, thy saving health among all nations.",
     "Psalm 67:5-7": "Let the people praise thee, O God; let all the people praise thee. Then shall the earth yield her increase; and God, even our own God, shall bless us. God shall bless us; and all the ends of the earth shall fear him.",
     "Psalm 68:19": "Blessed be the Lord, who daily loadeth us with benefits.",
+    "Psalm 68:5": "A father of the fatherless, and a judge of the widows, is God in his holy habitation.",
     "Psalm 68:6": "God setteth the solitary in families: he bringeth out those which are bound with chains: but the rebellious dwell in a dry land.",
     "Psalm 69:32": "The humble shall see this, and be glad: and your heart shall live that seek God.",
     "Psalm 6:9": "The Lord hath heard my supplication; the Lord will receive my prayer.",
     "Psalm 70:4": "Let all those that seek thee rejoice and be glad in thee.",
     "Psalm 71:14": "I will hope continually, and will yet praise thee more and more.",
+    "Psalm 71:18": "Now also when I am old and greyheaded, O God, forsake me not; until I have shewed thy strength unto this generation, and thy power to every one that is to come.",
     "Psalm 71:5": "For thou art my hope, O Lord God: thou art my trust from my youth.",
     "Psalm 71:8": "Let my mouth be filled with thy praise and with thy honour all the day.",
+    "Psalm 71:9": "Cast me not off in the time of old age; forsake me not when my strength faileth.",
     "Psalm 72:18": "Blessed be the Lord God, the God of Israel, who only doeth wondrous things.",
     "Psalm 73:17": "Until I went into the sanctuary of God; then understood I their end.",
+    "Psalm 73:21": "Thus my heart was grieved, and I was pricked in my reins.",
     "Psalm 73:25": "Whom have I in heaven but thee? and there is none upon earth that I desire beside thee.",
     "Psalm 73:26": "My flesh and my heart faileth: but God is the strength of my heart, and my portion for ever.",
     "Psalm 73:28": "But it is good for me to draw near to God: I have put my trust in the Lord GOD, that I may declare all thy works.",
@@ -6523,6 +6628,7 @@
     "Psalm 84:10": "For a day in thy courts is better than a thousand. I had rather be a doorkeeper in the house of my God, than to dwell in the tents of wickedness.",
     "Psalm 84:11": "For the Lord God is a sun and shield: the Lord will give grace and glory.",
     "Psalm 84:12": "O Lord of hosts, blessed is the man that trusteth in thee.",
+    "Psalm 84:3": "Yea, the sparrow hath found an house, and the swallow a nest for herself, where she may lay her young, even thine altars, O LORD of hosts, my King, and my God.",
     "Psalm 84:5": "Blessed is the man whose strength is in thee; in whose heart are the ways of them.",
     "Psalm 85:6": "Wilt thou not revive us again: that thy people may rejoice in thee?",
     "Psalm 86:11": "Teach me thy way, O LORD; I will walk in thy truth: unite my heart to fear thy name.",
@@ -6530,6 +6636,7 @@
     "Psalm 86:5": "For thou, Lord, art good, and ready to forgive.",
     "Psalm 86:6": "Give ear, O LORD, unto my prayer; and attend to the voice of my supplications.",
     "Psalm 87:3": "Glorious things are spoken of thee, O city of God.",
+    "Psalm 88:1": "O LORD God of my salvation, I have cried day and night before thee:",
     "Psalm 88:13": "But unto thee have I cried, O Lord; and in the morning shall my prayer prevent thee.",
     "Psalm 89:1": "I will sing of the mercies of the Lord for ever.",
     "Psalm 89:15": "Blessed is the people that know the joyful sound: they shall walk, O Lord, in the light of thy countenance.",
@@ -6542,12 +6649,14 @@
     "Psalm 91:1": "He that dwelleth in the secret place of the most High shall abide under the shadow of the Almighty.",
     "Psalm 91:1-2": "He that dwelleth in the secret place of the most High shall abide under the shadow of the Almighty. I will say of the Lord, He is my refuge and my fortress: my God; in him will I trust.",
     "Psalm 91:11": "For he shall give his angels charge over thee, to keep thee in all thy ways.",
+    "Psalm 91:14": "Because he hath set his love upon me, therefore will I deliver him: I will set him on high, because he hath known my name.",
     "Psalm 91:15": "He shall call upon me, and I will answer him: I will be with him in trouble; I will deliver him, and honour him.",
     "Psalm 91:16": "With long life will I satisfy him, and shew him my salvation.",
     "Psalm 91:2": "I will say of the Lord, He is my refuge and my fortress: my God; in him will I trust.",
     "Psalm 91:4": "He shall cover thee with his feathers, and under his wings shalt thou trust: his truth shall be thy shield and buckler.",
     "Psalm 92:1": "It is a good thing to give thanks unto the LORD, and to sing praises unto thy name, O most High:",
     "Psalm 92:1-4": "It is a good thing to give thanks unto the LORD, and to sing praises unto thy name, O most High: To shew forth thy lovingkindness in the morning, and thy faithfulness every night, Upon an instrument of ten strings, and upon the psaltery; upon the harp with a solemn sound. For thou, LORD, hast made me glad through thy work: I will triumph in the works of thy hands.",
+    "Psalm 92:14": "They shall still bring forth fruit in old age; they shall be fat and flourishing;",
     "Psalm 92:4": "For thou, Lord, hast made me glad through thy work.",
     "Psalm 93:4": "The Lord on high is mightier than the noise of many waters.",
     "Psalm 94:18": "When I said, My foot slippeth; thy mercy, O Lord, held me up.",
@@ -6557,6 +6666,7 @@
     "Psalm 95:1-2": "O come, let us sing unto the LORD: let us make a joyful noise to the rock of our salvation. Let us come before his presence with thanksgiving, and make a joyful noise unto him with psalms.",
     "Psalm 95:1-7": "O come, let us sing unto the LORD: let us make a joyful noise to the rock of our salvation. Let us come before his presence with thanksgiving, and make a joyful noise unto him with psalms. For the LORD is a great God, and a great King above all gods. In his hand are the deep places of the earth: the strength of the hills is his also. The sea is his, and he made it: and his hands formed the dry land. O come, let us worship and bow down: let us kneel before the LORD our maker. For he is our God; and we are the people of his pasture, and the sheep of his hand. To day if ye will hear his voice,",
     "Psalm 95:2": "Let us come before his presence with thanksgiving, and make a joyful noise unto him with psalms.",
+    "Psalm 95:6": "O come, let us worship and bow down: let us kneel before the LORD our maker.",
     "Psalm 95:7": "For he is our God; and we are the people of his pasture, and the sheep of his hand.",
     "Psalm 96:1": "O sing unto the Lord a new song: sing unto the Lord, all the earth.",
     "Psalm 96:2": "Sing unto the Lord, bless his name; shew forth his salvation from day to day.",
@@ -6571,6 +6681,7 @@
     "Romans 10:9-10": "That if thou shalt confess with thy mouth the Lord Jesus, and shalt believe in thine heart that God hath raised him from the dead, thou shalt be saved. For with the heart man believeth unto righteousness; and with the mouth confession is made unto salvation.",
     "Romans 10:9-10, 13; John 5:24": "That if thou shalt confess with thy mouth the Lord Jesus, and shalt believe in thine heart that God hath raised him from the dead, thou shalt be saved. For with the heart man believeth unto righteousness; and with the mouth confession is made unto salvation. For whosoever shall call upon the name of the Lord shall be saved. Verily, verily, I say unto you, He that heareth my word, and believeth on him that sent me, hath everlasting life, and shall not come into condemnation; but is passed from death unto life.",
     "Romans 12:6-8": "Having then gifts differing according to the grace that is given unto us, whether prophecy, let us prophesy according to the proportion of faith; Or ministry, let us wait on our ministering: or he that teacheth, on teaching; Or he that exhorteth, on exhortation: he that giveth, let him do it with simplicity; he that ruleth, with diligence; he that sheweth mercy, with cheerfulness.",
+    "Romans 1:16-17": "For I am not ashamed of the gospel of Christ: for it is the power of God unto salvation to every one that believeth; to the Jew first, and also to the Greek.",
     "Romans 3:23; 6:23": "For all have sinned, and come short of the glory of God; For the wages of sin is death; but the gift of God is eternal life through Jesus Christ our Lord.",
     "Romans 4:20-21": "He staggered not at the promise of God through unbelief; but was strong in faith, giving glory to God; And being fully persuaded that, what he had promised, he was able also to perform.",
     "Romans 5:3-4": "And not only so, but we glory in tribulations also: knowing that tribulation worketh patience; And patience, experience; and experience, hope:",
@@ -7087,6 +7198,14 @@
         "to": "Corinth"
       }
     },
+    "1 Corinthians 15:3-4": {
+      "general": {
+        "plainExplanation": "For I delivered to you first of all that which I also received, how that Christ died for our sins according to the scriptures;",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Corinth"
+      }
+    },
     "1 Corinthians 15:42": {
       "general": {
         "plainExplanation": "So also is the resurrection of the dead. It is sown in corruption; it is raised in incorruption:",
@@ -7359,6 +7478,14 @@
         "to": "Corinth"
       }
     },
+    "1 Corinthians 7:15": {
+      "general": {
+        "plainExplanation": "But if the unbelieving depart, let him depart. A brother or a sister is not under bondage in such cases: but God has called us to peace.",
+        "modernApplication": "This verse makes room to breathe, slow down, and let God settle your heart.",
+        "about": "Paul",
+        "to": "Corinth"
+      }
+    },
     "1 Corinthians 7:16": {
       "general": {
         "plainExplanation": "For what knowest you, O wife, whether you shalt save your husband? or how knowest you, O man, whether you shalt save your wife?",
@@ -7545,7 +7672,7 @@
     },
     "1 John 4:4": {
       "general": {
-        "plainExplanation": "Greater is he that is in you, than he that is in the world.",
+        "plainExplanation": "you are of God, little children, and have overcome them: because greater is he that is in you, than he that is in the world.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "John",
         "to": "Believers"
@@ -8497,7 +8624,7 @@
     },
     "1 Samuel 15:22": {
       "general": {
-        "plainExplanation": "look, to obey is better than sacrifice, and to hearken than the fat of rams.",
+        "plainExplanation": "Key idea: And Samuel said, has the LORD as great delight in burnt offerings and sacrifices, as in obeying the voice of the LORD? look, to obey is better than sacrific...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Samuel",
         "to": "Israel"
@@ -9194,6 +9321,14 @@
     "1 Thessalonians 4:16": {
       "general": {
         "plainExplanation": "For the Lord himself shall descend from heaven with a shout, with the voice of the archangel, and with the trump of God: and the dead in Christ shall rise first:",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Thessalonica"
+      }
+    },
+    "1 Thessalonians 4:16-17": {
+      "general": {
+        "plainExplanation": "Key idea: For the Lord himself shall descend from heaven with a shout, with the voice of the archangel, and with the trump of God: and the dead in Christ shall rise f...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Paul",
         "to": "Thessalonica"
@@ -10609,7 +10744,7 @@
     },
     "2 Peter 1:3": {
       "general": {
-        "plainExplanation": "According as his divine power has given to us all things that pertain to life and godliness, through the knowledge of him that has called us.",
+        "plainExplanation": "According as his divine power has given to us all things that pertain to life and godliness, through the knowledge of him that has called us to glory and virtue:",
         "modernApplication": "This verse reminds you that God gives strength that does not start with your own reserves.",
         "about": "Peter",
         "to": "Believers"
@@ -11081,7 +11216,7 @@
     },
     "2 Timothy 2:15": {
       "general": {
-        "plainExplanation": "Study to shew thyself approved to God, a workman that needeth not to be ashamed.",
+        "plainExplanation": "Study to shew thyself approved to God, a workman that needeth not to be ashamed, rightly dividing the word of truth.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Paul",
         "to": "Timothy"
@@ -11799,6 +11934,14 @@
         "to": "Church"
       }
     },
+    "Acts 17:30": {
+      "general": {
+        "plainExplanation": "And the times of this ignorance God winked at; but now commandeth all men every where to repent:",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Luke",
+        "to": "Church"
+      }
+    },
     "Acts 17:34": {
       "general": {
         "plainExplanation": "Howbeit certain men clave to him, and believed: among the which was Dionysius the Areopagite, and a woman named Damaris, and others with them.",
@@ -12423,6 +12566,14 @@
         "to": "Church"
       }
     },
+    "Acts 4:12": {
+      "general": {
+        "plainExplanation": "Neither is there salvation in any other: for there is none other name under heaven given among men, whereby we must be saved.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Luke",
+        "to": "Church"
+      }
+    },
     "Acts 4:14": {
       "general": {
         "plainExplanation": "And beholding the man which was healed standing with them, they could say nothing against it.",
@@ -12775,6 +12926,14 @@
         "to": "Church"
       }
     },
+    "Acts 9:3-6": {
+      "general": {
+        "plainExplanation": "And as he journeyed, he came near Damascus: and suddenly there shined round about him a light from heaven:",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Luke",
+        "to": "Church"
+      }
+    },
     "Acts 9:36": {
       "general": {
         "plainExplanation": "Now there was at Joppa a certain disciple named Tabitha, which by interpretation is called Dorcas: this woman was full of good works and almsdeeds which she did.",
@@ -13113,7 +13272,7 @@
     },
     "Colossians 3:12": {
       "general": {
-        "plainExplanation": "Put on therefore, as the elect of God, bowels of mercies, kindness, humbleness of mind.",
+        "plainExplanation": "Put on therefore, as the elect of God, holy and beloved, bowels of mercies, kindness, humbleness of mind, meekness, longsuffering;",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Paul",
         "to": "Colosse"
@@ -14104,6 +14263,14 @@
       }
     },
     "Ephesians 1:22": {
+      "general": {
+        "plainExplanation": "And has put all things under his feet, and gave him to be the head over all things to the church,",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Ephesus"
+      }
+    },
+    "Ephesians 1:22-23": {
       "general": {
         "plainExplanation": "And has put all things under his feet, and gave him to be the head over all things to the church,",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
@@ -15111,6 +15278,14 @@
         "to": "Israel"
       }
     },
+    "Exodus 20:1-3": {
+      "general": {
+        "plainExplanation": "And God spake all these words, saying, I am the LORD your God, which have brought you out of the land of Egypt, out of the house of bondage. you shalt have no other gods before me.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
     "Exodus 20:12": {
       "general": {
         "plainExplanation": "Honour your father and your mother: that your days may be long upon the land which the LORD your God gives you.",
@@ -15330,6 +15505,14 @@
     "Exodus 34:19": {
       "general": {
         "plainExplanation": "All that openeth the matrix is mine; and every firstling among your cattle, whether ox or sheep, that is male.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Exodus 34:6": {
+      "general": {
+        "plainExplanation": "And the LORD passed by before him, and proclaimed, The LORD, The LORD God, merciful and gracious, longsuffering, and abundant in goodness and truth,",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Moses",
         "to": "Israel"
@@ -15991,6 +16174,14 @@
         "to": "Galatia"
       }
     },
+    "Galatians 3:6-7": {
+      "general": {
+        "plainExplanation": "Even as Abraham believed God, and it was accounted to him for righteousness.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Galatia"
+      }
+    },
     "Galatians 4:24": {
       "general": {
         "plainExplanation": "Which things are an allegory: for these are the two covenants; the one from the mount Sinai, which gendereth to bondage, which is Agar.",
@@ -16337,6 +16528,14 @@
     },
     "Genesis 12:1-2": {
       "general": {
+        "plainExplanation": "Now the LORD had said to Abram, Get you out of your country, and from your kindred, and from your father’s house, to a land that I will shew you:",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Genesis 12:1-3": {
+      "general": {
         "plainExplanation": "Key idea: Now the LORD had said to Abram, Get you out of your country, and from your kindred, and from your father’s house, to a land that I will shew you: And I will...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Moses",
@@ -16578,6 +16777,14 @@
     "Genesis 1:2": {
       "general": {
         "plainExplanation": "And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
+    "Genesis 1:21": {
+      "general": {
+        "plainExplanation": "Key idea: And God created great whales, and every living creature that moveth, which the waters brought forth abundantly, after their kind, and every winged fowl afte...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Moses",
         "to": "Israel"
@@ -17639,6 +17846,14 @@
         "to": "Israel"
       }
     },
+    "Genesis 9:9": {
+      "general": {
+        "plainExplanation": "And I, look, I establish my covenant with you, and with your seed after you;",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Moses",
+        "to": "Israel"
+      }
+    },
     "Habakkuk 1:2": {
       "general": {
         "plainExplanation": "O LORD, how long shall I cry, and you wilt not hear! even cry out to you of violence, and you wilt not save!",
@@ -17799,6 +18014,14 @@
         "to": "Hebrew believers"
       }
     },
+    "Hebrews 10:14": {
+      "general": {
+        "plainExplanation": "For by one offering he has perfected for ever them that are sanctified.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Hebrew believers"
+      }
+    },
     "Hebrews 10:22": {
       "general": {
         "plainExplanation": "Let us draw near with a true heart in full assurance of faith, having our hearts sprinkled from an evil conscience, and our bodies washed with pure water.",
@@ -17914,6 +18137,14 @@
     "Hebrews 11:21": {
       "general": {
         "plainExplanation": "By faith Jacob, when he was a dying, blessed both the sons of Joseph; and worshipped, leaning upon the top of his staff.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Unknown",
+        "to": "Hebrew believers"
+      }
+    },
+    "Hebrews 11:24-25": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Unknown",
         "to": "Hebrew believers"
@@ -18041,7 +18272,7 @@
     },
     "Hebrews 12:2": {
       "general": {
-        "plainExplanation": "Looking to Jesus the author and finisher of our faith.",
+        "plainExplanation": "Key idea: Looking to Jesus the author and finisher of our faith; who for the joy that was set before him endured the cross, despising the shame, and is set down at th...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Unknown",
         "to": "Hebrew believers"
@@ -18914,6 +19145,14 @@
     "Isaiah 45:16": {
       "general": {
         "plainExplanation": "They shall be ashamed, and also confounded, all of them: they shall go to confusion together that are makers of idols.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Isaiah",
+        "to": "Judah"
+      }
+    },
+    "Isaiah 45:5": {
+      "general": {
+        "plainExplanation": "I am the LORD, and there is none else, there is no God beside me: I girded you, though you hast not known me:",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Isaiah",
         "to": "Judah"
@@ -20327,6 +20566,14 @@
         "to": "All"
       }
     },
+    "Job 40:15": {
+      "general": {
+        "plainExplanation": "look now behemoth, which I made with you; he eateth grass as an ox.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Job and the Lord",
+        "to": "All"
+      }
+    },
     "Job 40:2": {
       "general": {
         "plainExplanation": "Shall he that contendeth with the Almighty instruct him? he that reproveth God, let him answer it.",
@@ -20623,10 +20870,26 @@
         "to": "Believers"
       }
     },
+    "John 11:25-26": {
+      "general": {
+        "plainExplanation": "Jesus said to her, I am the resurrection, and the life: he that believes in me, though he were dead, yet shall he live:",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "John 11:27": {
       "general": {
         "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "John 11:33": {
+      "general": {
+        "plainExplanation": "When Jesus therefore saw her weeping, and the Jews also weeping which came with her, he groaned in the spirit, and was troubled,",
+        "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
         "about": "Jesus",
         "to": "Believers"
       }
@@ -20657,7 +20920,7 @@
     },
     "John 11:43-44": {
       "general": {
-        "plainExplanation": "Key idea: And when he thus had spoken, he cried with a loud voice, Lazarus, come forth. And he that was dead came forth, bound hand and foot with graveclothes: and hi...",
+        "plainExplanation": "And when he thus had spoken, he cried with a loud voice, Lazarus, come forth.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -21311,6 +21574,14 @@
         "to": "Believers"
       }
     },
+    "John 1:1-3": {
+      "general": {
+        "plainExplanation": "Key idea: In the beginning was the Word, and the Word was with God, and the Word was God. The same was in the beginning with God. All things were made by him; and wit...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
     "John 1:1-5": {
       "general": {
         "plainExplanation": "Key idea: In the beginning was the Word, and the Word was with God, and the Word was God. The same was in the beginning with God. All things were made by him; and wit...",
@@ -21378,6 +21649,14 @@
     "John 1:29": {
       "general": {
         "plainExplanation": "The next day John seeth Jesus coming to him, and says, look the Lamb of God, which taketh away the sin of the world.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "John 1:3": {
+      "general": {
+        "plainExplanation": "All things were made by him; and without him was not any thing made that was made.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -25481,7 +25760,7 @@
     },
     "Luke 6:38": {
       "general": {
-        "plainExplanation": "Give, and it shall be given to you; good measure, pressed down, and shaken together, and running over, shall men give into your bosom.",
+        "plainExplanation": "Key idea: Give, and it shall be given to you; good measure, pressed down, and shaken together, and running over, shall men give into your bosom. For with the same mea...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -26673,7 +26952,7 @@
     },
     "Mark 9:23": {
       "general": {
-        "plainExplanation": "All things are possible to him that believes.",
+        "plainExplanation": "Jesus said to him, If you canst believe, all things are possible to him that believes.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -27682,6 +27961,14 @@
     "Matthew 19:6": {
       "general": {
         "plainExplanation": "Wherefore they are no more twain, but one flesh. What therefore God has joined together, let not man put asunder.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Jesus",
+        "to": "Believers"
+      }
+    },
+    "Matthew 19:9": {
+      "general": {
+        "plainExplanation": "Key idea: And I say to you, whoever shall put away his wife, except it be for fornication, and shall marry another, committeth adultery: and whoso marrieth her which...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -29697,7 +29984,7 @@
     },
     "Matthew 6:9": {
       "general": {
-        "plainExplanation": "After this manner therefore pray you: Our Father which art in heaven,",
+        "plainExplanation": "After this manner therefore pray you: Our Father which art in heaven, Hallowed be your name.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Jesus",
         "to": "Believers"
@@ -30865,7 +31152,7 @@
     },
     "Philippians 3:13": {
       "general": {
-        "plainExplanation": "Forgetting those things which are behind, and reaching forth to those things which are before.",
+        "plainExplanation": "brothers, I count not myself to have apprehended: but this one thing I do, forgetting those things which are behind, and reaching forth to those things which are before,",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Paul",
         "to": "Philippi"
@@ -30914,6 +31201,14 @@
     "Philippians 3:20": {
       "general": {
         "plainExplanation": "For our conversation is in heaven; from whence also we look for the Saviour, the Lord Jesus Christ:",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Philippi"
+      }
+    },
+    "Philippians 3:7-8": {
+      "general": {
+        "plainExplanation": "But what things were gain to me, those I counted loss for Christ.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Paul",
         "to": "Philippi"
@@ -32047,6 +32342,14 @@
         "to": "Everyone hurting or thankful"
       }
     },
+    "Psalm 104:24": {
+      "general": {
+        "plainExplanation": "O LORD, how manifold are your works! in wisdom hast you made them all: the earth is full of your riches.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
     "Psalm 104:33": {
       "general": {
         "plainExplanation": "I will sing to the Lord as long as I live: I will sing praise to my God while I have my being.",
@@ -32058,6 +32361,14 @@
     "Psalm 105:1": {
       "general": {
         "plainExplanation": "O give thanks to the Lord; call upon his name: make known his deeds among the people.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
+    "Psalm 105:17": {
+      "general": {
+        "plainExplanation": "He sent a man before them, even Joseph, who was sold for a servant:",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"
@@ -32135,9 +32446,17 @@
         "to": "Everyone hurting or thankful"
       }
     },
+    "Psalm 10:14": {
+      "general": {
+        "plainExplanation": "you hast seen it; for you beholdest mischief and spite, to requite it with your hand: the poor committeth himself to you; you art the helper of the fatherless.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
     "Psalm 10:17": {
       "general": {
-        "plainExplanation": "Lord, you hast heard the desire of the humble: you wilt prepare their heart.",
+        "plainExplanation": "LORD, you hast heard the desire of the humble: you wilt prepare their heart, you wilt cause thine ear to hear:",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"
@@ -32186,6 +32505,14 @@
     "Psalm 113:3": {
       "general": {
         "plainExplanation": "From the rising of the sun to the going down of the same the LORD's name is to be praised.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
+    "Psalm 113:9": {
+      "general": {
+        "plainExplanation": "He makes the barren woman to keep house, and to be a joyful mother of children. Praise you the LORD.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"
@@ -32411,6 +32738,14 @@
       "general": {
         "plainExplanation": "your word is very pure: therefore your servant loves it.",
         "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
+    "Psalm 119:147": {
+      "general": {
+        "plainExplanation": "I prevented the dawning of the morning, and cried: I hoped in your word.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"
       }
@@ -32967,6 +33302,14 @@
         "to": "Everyone hurting or thankful"
       }
     },
+    "Psalm 139:13": {
+      "general": {
+        "plainExplanation": "For you hast possessed my reins: you hast covered me in my mother’s womb.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
     "Psalm 139:14": {
       "general": {
         "plainExplanation": "I will praise you; for I am fearfully and wonderfully made: marvellous are your works; and that my soul knows right well.",
@@ -32999,9 +33342,25 @@
         "to": "Everyone hurting or thankful"
       }
     },
+    "Psalm 139:3": {
+      "general": {
+        "plainExplanation": "you compassest my path and my lying down, and art acquainted with all my ways.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
     "Psalm 139:8": {
       "general": {
         "plainExplanation": "If I ascend up into heaven, you art there: if I make my bed in hell, look, you art there.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
+    "Psalm 13:1": {
+      "general": {
+        "plainExplanation": "How long wilt you forget me, O LORD? for ever? how long wilt you hide your face from me?",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"
@@ -33083,6 +33442,14 @@
       "general": {
         "plainExplanation": "Every day will I bless you; and I will praise your name for ever and ever.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
+    "Psalm 145:8": {
+      "general": {
+        "plainExplanation": "The LORD is gracious, and full of compassion; slow to anger, and of great mercy.",
+        "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"
       }
@@ -33223,10 +33590,34 @@
         "to": "Everyone hurting or thankful"
       }
     },
+    "Psalm 22:1": {
+      "general": {
+        "plainExplanation": "My God, my God, why hast you forsaken me? why art you so far from helping me, and from the words of my roaring?",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
+    "Psalm 22:2": {
+      "general": {
+        "plainExplanation": "O my God, I cry in the day time, but you hearest not; and in the night season, and am not silent.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
     "Psalm 22:4": {
       "general": {
         "plainExplanation": "Our fathers trusted in you: they trusted, and you didst deliver them.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
+    "Psalm 22:9": {
+      "general": {
+        "plainExplanation": "But you art he that took me out of the womb: you didst make me hope when I was upon my mother’s breasts.",
+        "modernApplication": "This verse keeps your eyes up when the day feels slow, heavy, or unfinished.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"
       }
@@ -33751,6 +34142,14 @@
         "to": "Everyone hurting or thankful"
       }
     },
+    "Psalm 37:6": {
+      "general": {
+        "plainExplanation": "And he shall bring forth your righteousness as the light, and your judgment as the noonday.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
     "Psalm 37:7": {
       "general": {
         "plainExplanation": "Rest in the LORD, and wait patiently for him: fret not thyself because of him who prospereth in his way, because of the man who bringeth wicked devices to pass.",
@@ -33831,6 +34230,14 @@
         "to": "Everyone hurting or thankful"
       }
     },
+    "Psalm 42:1": {
+      "general": {
+        "plainExplanation": "As the hart panteth after the water brooks, so panteth my soul after you, O God.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
     "Psalm 42:1-2": {
       "general": {
         "plainExplanation": "As the hart panteth after the water brooks, so panteth my soul after you, O God. My soul thirsteth for God, for the living God: when shall I come and appear before God?",
@@ -33899,6 +34306,14 @@
       "general": {
         "plainExplanation": "Be still and know that I am God; I will be exalted.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
+    "Psalm 46:2": {
+      "general": {
+        "plainExplanation": "Therefore will not we fear, though the earth be removed, and though the mountains be carried into the midst of the sea;",
+        "modernApplication": "This verse meets anxious moments with steady help instead of more noise.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"
       }
@@ -33975,6 +34390,14 @@
         "to": "Everyone hurting or thankful"
       }
     },
+    "Psalm 51:1": {
+      "general": {
+        "plainExplanation": "Have mercy upon me, O God, according to your lovingkindness: according to the multitude of your tender mercies blot out my transgressions.",
+        "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
     "Psalm 51:10": {
       "general": {
         "plainExplanation": "Create in me a clean heart, O God; and renew a right spirit within me.",
@@ -34010,6 +34433,22 @@
     "Psalm 54:4": {
       "general": {
         "plainExplanation": "look, God is mine helper: the Lord is with them that uphold my soul.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
+    "Psalm 55:12": {
+      "general": {
+        "plainExplanation": "For it was not an enemy that reproached me; then I could have borne it: neither was it he that hated me that did magnify himself against me; then I would have hid myself from him:",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
+    "Psalm 55:13": {
+      "general": {
+        "plainExplanation": "But it was you, a man mine equal, my guide, and mine acquaintance.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"
@@ -34255,6 +34694,14 @@
         "to": "Everyone hurting or thankful"
       }
     },
+    "Psalm 68:5": {
+      "general": {
+        "plainExplanation": "This verse keeps track of family lines inside God's larger story, showing that real names and real lives matter to Him.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
     "Psalm 68:6": {
       "general": {
         "plainExplanation": "God setteth the solitary in families: he bringeth out those which are bound with chains: but the rebellious dwell in a dry land.",
@@ -34295,6 +34742,14 @@
         "to": "Everyone hurting or thankful"
       }
     },
+    "Psalm 71:18": {
+      "general": {
+        "plainExplanation": "Now also when I am old and greyheaded, O God, forsake me not; until I have shewed your strength to this generation, and your power to every one that is to come.",
+        "modernApplication": "This verse reminds you that God gives strength that does not start with your own reserves.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
     "Psalm 71:5": {
       "general": {
         "plainExplanation": "For you art my hope, O Lord God: you art my trust from my youth.",
@@ -34311,6 +34766,14 @@
         "to": "Everyone hurting or thankful"
       }
     },
+    "Psalm 71:9": {
+      "general": {
+        "plainExplanation": "Cast me not off in the time of old age; forsake me not when my strength faileth.",
+        "modernApplication": "This verse reminds you that God gives strength that does not start with your own reserves.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
     "Psalm 72:18": {
       "general": {
         "plainExplanation": "Blessed be the Lord God, the God of Israel, who only doeth wondrous things.",
@@ -34322,6 +34785,14 @@
     "Psalm 73:17": {
       "general": {
         "plainExplanation": "Until I went into the sanctuary of God; then understood I their end.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
+    "Psalm 73:21": {
+      "general": {
+        "plainExplanation": "Thus my heart was grieved, and I was pricked in my reins.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"
@@ -34463,6 +34934,14 @@
         "to": "Everyone hurting or thankful"
       }
     },
+    "Psalm 84:3": {
+      "general": {
+        "plainExplanation": "Yea, the sparrow has found an house, and the swallow a nest for herself, where she may lay her young, even thine altars, O LORD of hosts, my King, and my God.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
     "Psalm 84:5": {
       "general": {
         "plainExplanation": "Blessed is the man whose strength is in you; in whose heart are the ways of them.",
@@ -34514,6 +34993,14 @@
     "Psalm 87:3": {
       "general": {
         "plainExplanation": "Glorious things are spoken of you, O city of God.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
+    "Psalm 88:1": {
+      "general": {
+        "plainExplanation": "O LORD God of my salvation, I have cried day and night before you:",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"
@@ -34615,6 +35102,14 @@
         "to": "Everyone hurting or thankful"
       }
     },
+    "Psalm 91:14": {
+      "general": {
+        "plainExplanation": "Because he has set his love upon me, therefore will I deliver him: I will set him on high, because he has known my name.",
+        "modernApplication": "This verse calls you to live with the same mercy and steadiness you need from God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
     "Psalm 91:15": {
       "general": {
         "plainExplanation": "He shall call upon me, and I will answer him: I will be with him in trouble; I will deliver him, and honour him.",
@@ -34658,6 +35153,14 @@
     "Psalm 92:1-4": {
       "general": {
         "plainExplanation": "Key idea: It is a good thing to give thanks to the LORD, and to sing praises to your name, O most High: To shew forth your lovingkindness in the morning, and your fai...",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
+    "Psalm 92:14": {
+      "general": {
+        "plainExplanation": "They shall still bring forth fruit in old age; they shall be fat and flourishing;",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"
@@ -34730,6 +35233,14 @@
     "Psalm 95:2": {
       "general": {
         "plainExplanation": "Let us come before his presence with thanksgiving, and make a joyful noise to him with psalms.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "David or another psalm writer",
+        "to": "Everyone hurting or thankful"
+      }
+    },
+    "Psalm 95:6": {
+      "general": {
+        "plainExplanation": "O come, let us worship and bow down: let us kneel before the LORD our maker.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "David or another psalm writer",
         "to": "Everyone hurting or thankful"
@@ -35695,6 +36206,14 @@
         "to": "Rome"
       }
     },
+    "Romans 1:16-17": {
+      "general": {
+        "plainExplanation": "For I am not ashamed of the gospel of Christ: for it is the power of God to salvation to every one that believes; to the Jew first, and also to the Greek.",
+        "modernApplication": "This verse reminds you that God gives strength that does not start with your own reserves.",
+        "about": "Paul",
+        "to": "Rome"
+      }
+    },
     "Romans 1:17": {
       "general": {
         "plainExplanation": "For therein is the righteousness of God revealed from faith to faith: as it is written, The just shall live by faith.",
@@ -35746,6 +36265,14 @@
     "Romans 2:24": {
       "general": {
         "plainExplanation": "For the name of God is blasphemed among the Gentiles through you, as it is written.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Rome"
+      }
+    },
+    "Romans 2:4": {
+      "general": {
+        "plainExplanation": "Or despisest you the riches of his goodness and forbearance and longsuffering; not knowing that the goodness of God leadeth you to repentance?",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Paul",
         "to": "Rome"
@@ -35890,6 +36417,14 @@
     "Romans 5:16": {
       "general": {
         "plainExplanation": "And not as it was by one that sinned, so is the gift: for the judgment was by one to condemnation, but the free gift is of many offences to justification.",
+        "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
+        "about": "Paul",
+        "to": "Rome"
+      }
+    },
+    "Romans 5:19": {
+      "general": {
+        "plainExplanation": "For as by one man’s disobedience many were made sinners, so by the obedience of one shall many be made righteous.",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Paul",
         "to": "Rome"
@@ -36417,7 +36952,7 @@
     },
     "Ruth 1:16": {
       "general": {
-        "plainExplanation": "Whither you goest, I will go; and where you lodgest, I will lodge.",
+        "plainExplanation": "Key idea: And Ruth said, Intreat me not to leave you, or to return from following after you: for whither you goest, I will go; and where you lodgest, I will lodge: yo...",
         "modernApplication": "Carry this verse into the next choice, the next conversation, and the next quiet minute with God.",
         "about": "Unknown",
         "to": "Israel"
@@ -37001,7 +37536,7 @@
     },
     "Zechariah 4:6": {
       "general": {
-        "plainExplanation": "Not by might, nor by power, but by my spirit, says the LORD of hosts.",
+        "plainExplanation": "Then he answered and spake to me, saying, This is the word of the LORD to Zerubbabel, saying, Not by might, nor by power, but by my spirit, says the LORD of hosts.",
         "modernApplication": "This verse reminds you that God gives strength that does not start with your own reserves.",
         "about": "Zechariah",
         "to": "Exiles"

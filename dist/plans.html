@@ -49,8 +49,8 @@
   <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
   <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
 
-  <link rel="preload" href="tdb-visual-tokens.css?v=20260521-discover-b" as="style">
-  <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260521-discover-b">
+  <link rel="preload" href="tdb-visual-tokens.css?v=20260712-phase2a" as="style">
+  <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260712-phase2a">
   <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
   <link rel="stylesheet" href="tdb-core-seven.css?v=20260519-audit" media="all">
   <link rel="preload" href="tdb-porch-verse-widget.css?v=20260519-porch-verse" as="style">
@@ -2663,6 +2663,313 @@
         margin-bottom: 1.1rem;
       }
     }
+
+    /* ═══════════════════════════════════════════════════════════════════
+     * Phase 2A — Plans day view (token bump + day card cohesion)
+     * Reuses Home button/chip/lift language; no plan data or JS changes.
+     * ═══════════════════════════════════════════════════════════════════ */
+
+    /* Slice 1 — buttons & chips on Plans */
+    .plans-page .btn-primary,
+    .plans-page a.btn-primary {
+      min-height: var(--tdb-btn-min-height, 44px);
+      padding: var(--tdb-btn-pad-y, 0.55rem) var(--tdb-btn-pad-x, 1.15rem);
+      border-radius: var(--tdb-btn-radius, 13px);
+      background: var(--tdb-btn-primary-bg);
+      color: var(--tdb-btn-primary-fg, #fff);
+      border: 1.5px solid var(--tdb-btn-primary-border);
+      box-shadow: var(--tdb-porch-chip-shadow);
+      filter: none;
+      transition:
+        background var(--tdb-transition-quiet, 0.2s ease),
+        border-color var(--tdb-transition-quiet, 0.2s ease),
+        box-shadow var(--tdb-transition-quiet, 0.2s ease),
+        transform var(--tdb-transition-quiet, 0.2s ease);
+    }
+    .plans-page .btn-primary:hover,
+    .plans-page a.btn-primary:hover {
+      filter: none;
+      border-color: color-mix(in srgb, var(--gold) 55%, var(--accent, #8ba6d9));
+      box-shadow: var(--tdb-lift-shadow);
+    }
+    .plans-page .btn-primary:focus-visible,
+    .plans-page a.btn-primary:focus-visible {
+      filter: none;
+      outline: none;
+      box-shadow: var(--tdb-lift-shadow), var(--tdb-btn-focus-ring);
+    }
+
+    .plans-page .btn-secondary,
+    .plans-page a.btn-secondary {
+      min-height: var(--tdb-btn-min-height, 44px);
+      padding: var(--tdb-btn-pad-y, 0.55rem) var(--tdb-btn-pad-x, 1.15rem);
+      border-radius: var(--tdb-btn-radius, 13px);
+      background: var(--tdb-btn-secondary-bg);
+      color: var(--text);
+      border: 1.5px solid var(--tdb-btn-secondary-border);
+      box-shadow: var(--tdb-porch-chip-shadow);
+      transition:
+        background var(--tdb-transition-quiet, 0.2s ease),
+        border-color var(--tdb-transition-quiet, 0.2s ease),
+        box-shadow var(--tdb-transition-quiet, 0.2s ease),
+        color var(--tdb-transition-quiet, 0.2s ease),
+        transform var(--tdb-transition-quiet, 0.2s ease);
+    }
+    .plans-page .btn-secondary:hover,
+    .plans-page a.btn-secondary:hover {
+      border-color: color-mix(in srgb, var(--gold) 48%, var(--line));
+      color: color-mix(in srgb, var(--text) 88%, var(--gold));
+      background: color-mix(in srgb, var(--gold) 8%, var(--tdb-btn-secondary-bg));
+      box-shadow: var(--tdb-lift-shadow);
+    }
+    .plans-page .btn-secondary:focus-visible,
+    .plans-page a.btn-secondary:focus-visible {
+      outline: none;
+      box-shadow: var(--tdb-lift-shadow), var(--tdb-btn-focus-ring);
+    }
+
+    .plans-lane-chip,
+    .plans-plan-filter-chip {
+      border-radius: var(--tdb-porch-chip-radius, 13px);
+      box-shadow: var(--tdb-porch-chip-shadow);
+      transition:
+        border-color var(--tdb-transition-quiet, 0.2s ease),
+        background var(--tdb-transition-quiet, 0.2s ease),
+        color var(--tdb-transition-quiet, 0.2s ease),
+        box-shadow var(--tdb-transition-quiet, 0.2s ease),
+        transform var(--tdb-transition-quiet, 0.2s ease);
+    }
+    .plans-lane-chip:hover,
+    .plans-lane-chip:focus-visible,
+    .plans-plan-filter-chip:hover,
+    .plans-plan-filter-chip:focus-visible {
+      box-shadow: var(--tdb-lift-shadow);
+    }
+    .plans-lane-chip:focus-visible,
+    .plans-plan-filter-chip:focus-visible {
+      outline: none;
+      box-shadow: var(--tdb-lift-shadow), var(--tdb-btn-focus-ring);
+    }
+
+    .btn-read-aloud,
+    .btn-share {
+      border-radius: var(--tdb-btn-radius, 13px);
+      box-shadow: var(--tdb-porch-chip-shadow);
+      transition:
+        color var(--tdb-transition-quiet, 0.2s ease),
+        border-color var(--tdb-transition-quiet, 0.2s ease),
+        box-shadow var(--tdb-transition-quiet, 0.2s ease),
+        transform var(--tdb-transition-quiet, 0.2s ease);
+    }
+    .btn-read-aloud:focus-visible,
+    .btn-share:focus-visible {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: var(--tdb-lift-shadow), var(--tdb-btn-focus-ring);
+    }
+    .btn-complete {
+      border-radius: var(--tdb-btn-radius, 13px);
+      transition:
+        opacity var(--tdb-transition-quiet, 0.2s ease),
+        transform var(--tdb-transition-quiet, 0.2s ease),
+        box-shadow var(--tdb-transition-quiet, 0.2s ease);
+    }
+    .btn-complete:focus-visible {
+      outline: none;
+      box-shadow: 0 6px 18px color-mix(in srgb, var(--gold) 28%, transparent), var(--tdb-btn-focus-ring);
+    }
+
+    /* Slice 2 — day card hierarchy; verse shell is the emotional center */
+    .day-card {
+      display: flex;
+      flex-direction: column;
+      gap: var(--tdb-day-card-gap, 1rem);
+      background: var(--tdb-porch-card-bg, var(--card));
+      border: 1px solid var(--tdb-porch-card-border, color-mix(in srgb, var(--gold) 22%, transparent));
+      border-radius: var(--tdb-day-card-radius, 16px);
+      box-shadow: var(--tdb-porch-card-shadow);
+      padding: clamp(1.35rem, 3vw, 1.85rem) clamp(1.15rem, 2.6vw, 1.55rem);
+      margin-bottom: var(--tdb-porch-gap-stack, 1.25rem);
+    }
+    .day-card-header {
+      margin-bottom: 0;
+      gap: 0.65rem;
+    }
+    .day-card-title {
+      font-size: clamp(1.05rem, 2.4vw, 1.18rem);
+      line-height: 1.35;
+    }
+
+    .plan-day-verse-shell {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      padding: var(--tdb-day-verse-pad, 1.1rem);
+      border-radius: var(--tdb-porch-card-radius-sm, 14px);
+      border: 1px solid color-mix(in srgb, var(--gold) 28%, var(--line));
+      background: color-mix(in srgb, var(--card) 88%, var(--gold) 6%);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+    .plan-day-verse-shell .day-card-verse-ref {
+      margin-bottom: 0;
+      font-size: 0.78rem;
+      letter-spacing: 0.07em;
+    }
+    .plan-day-verse-shell .day-card-verse-text,
+    .plan-day-verse-shell .daily-verse-body {
+      font-size: var(--tdb-text-verse, 1.12rem);
+      line-height: var(--tdb-line-verse, 1.7);
+      letter-spacing: 0.012em;
+      margin: 0;
+      border-left: 3px solid color-mix(in srgb, var(--gold) 48%, transparent);
+      padding-left: 0.95rem;
+      font-style: italic;
+    }
+    .day-card-verse-text {
+      font-size: var(--tdb-text-verse, 1.12rem);
+      line-height: var(--tdb-line-verse, 1.7);
+      margin: 0;
+    }
+
+    .day-bp {
+      padding: var(--tdb-day-section-pad, 0.85rem) clamp(0.85rem, 2vw, 1.05rem);
+      border-radius: 0 var(--tdb-porch-chip-radius, 13px) var(--tdb-porch-chip-radius, 13px) 0;
+      margin: 0;
+    }
+    .day-bp.action-panel {
+      padding: clamp(0.85rem, 2vw, 1.05rem) clamp(0.95rem, 2.2vw, 1.15rem);
+      border-radius: 0 var(--tdb-porch-card-radius-sm, 14px) var(--tdb-porch-card-radius-sm, 14px) 0;
+      margin-top: 0;
+    }
+    .day-bp.action-panel .day-bp-text {
+      line-height: var(--tdb-line-ui, 1.55);
+    }
+    .day-bp.prayer-panel .day-bp-text {
+      line-height: 1.6;
+    }
+    .day-bp-text {
+      line-height: var(--tdb-line-ui, 1.55);
+    }
+    .day-breakdown,
+    .day-breakdown.plan-verse-card {
+      gap: var(--tdb-day-card-gap, 0.95rem);
+      margin-bottom: 0;
+    }
+    .day-card-ws-row,
+    .day-card-reader-row,
+    .day-card-ribbon-note,
+    .plan-day-reflection {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .day-actions {
+      margin-top: 0.15rem;
+      gap: 0.65rem;
+    }
+
+    /* Slice 3 — progress + day nav quiet interactions */
+    .day-pill {
+      border-radius: 50%;
+      box-shadow: var(--tdb-porch-chip-shadow);
+      transition:
+        border-color var(--tdb-transition-quiet, 0.2s ease),
+        color var(--tdb-transition-quiet, 0.2s ease),
+        background var(--tdb-transition-quiet, 0.2s ease),
+        box-shadow var(--tdb-transition-quiet, 0.2s ease),
+        transform var(--tdb-transition-quiet, 0.2s ease);
+    }
+    .day-pill:hover:not(.locked) {
+      box-shadow: var(--tdb-lift-shadow);
+    }
+    .day-pill:focus-visible {
+      outline: none;
+      box-shadow: var(--tdb-lift-shadow), var(--tdb-btn-focus-ring);
+    }
+    .day-pill.locked:hover {
+      transform: none;
+      box-shadow: var(--tdb-porch-chip-shadow);
+    }
+    .detail-progress-track {
+      height: 7px;
+      border-radius: 99px;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.18);
+    }
+    .detail-progress-bar {
+      transition: width 0.4s var(--tdb-transition-quiet, ease);
+    }
+    .detail-back-btn {
+      min-height: 44px;
+      border-radius: var(--tdb-btn-radius, 13px);
+      box-shadow: var(--tdb-porch-chip-shadow);
+      transition:
+        color var(--tdb-transition-quiet, 0.2s ease),
+        border-color var(--tdb-transition-quiet, 0.2s ease),
+        box-shadow var(--tdb-transition-quiet, 0.2s ease),
+        transform var(--tdb-transition-quiet, 0.2s ease);
+    }
+    .detail-back-btn:hover,
+    .detail-back-btn:focus-visible {
+      box-shadow: var(--tdb-lift-shadow);
+    }
+    .detail-back-btn:focus-visible {
+      outline: none;
+      box-shadow: var(--tdb-lift-shadow), var(--tdb-btn-focus-ring);
+    }
+
+    /* Slice 4 — breakdown presentation (structure unchanged) */
+    .day-breakdown.plan-verse-card .verse-breakdown-container,
+    .day-card .verse-breakdown-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .day-card details.tdb-dig-deeper {
+      margin-top: 0.15rem;
+      padding-top: 0.15rem;
+    }
+    .day-card details.tdb-dig-deeper > summary.tdb-dig-deeper__summary:focus-visible {
+      outline: none;
+      box-shadow: var(--tdb-btn-focus-ring);
+      border-radius: 8px;
+    }
+    .day-card-more-context {
+      border-radius: var(--tdb-porch-chip-radius, 13px);
+      padding: var(--tdb-day-section-pad, 0.85rem);
+      border-color: color-mix(in srgb, var(--gold) 24%, var(--line));
+      background: color-mix(in srgb, var(--card) 92%, transparent);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .plans-page .btn-primary:hover,
+      .plans-page a.btn-primary:hover,
+      .plans-page .btn-secondary:hover,
+      .plans-page a.btn-secondary:hover,
+      .plans-lane-chip:hover,
+      .plans-plan-filter-chip:hover,
+      .btn-read-aloud:hover,
+      .btn-share:hover,
+      .detail-back-btn:hover,
+      .day-pill:hover:not(.locked) {
+        transform: translateY(-1px);
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .plans-page .btn-primary,
+      .plans-page a.btn-primary,
+      .plans-page .btn-secondary,
+      .plans-page a.btn-secondary,
+      .plans-lane-chip,
+      .plans-plan-filter-chip,
+      .btn-read-aloud,
+      .btn-share,
+      .btn-complete,
+      .day-pill,
+      .detail-back-btn,
+      .detail-progress-bar {
+        transition: none !important;
+        transform: none !important;
+      }
+    }
   </style>
   </head>
   <body class="tdb-inner-page">
@@ -2917,8 +3224,8 @@
 
       <aside class="tdb-porch-verse-widget tdb-surface-card" id="tdbPorchVerseWidget" role="complementary" aria-labelledby="tdbPorchVerseWidgetH" data-tdb-porch-verse-prebuilt="1">
         <p class="tdb-porch-verse-widget__label" id="tdbPorchVerseWidgetH">Today&rsquo;s verse</p>
-        <p class="tdb-porch-verse-widget__ref" id="tdbPorchVerseRef">Psalm 12:6 (KJV)</p>
-        <blockquote class="tdb-porch-verse-widget__text" id="tdbPorchVerseText"><p>“The words of the Lord are pure words.”</p></blockquote>
+        <p class="tdb-porch-verse-widget__ref" id="tdbPorchVerseRef">Psalm 90:14 (KJV)</p>
+        <blockquote class="tdb-porch-verse-widget__text" id="tdbPorchVerseText"><p>“O satisfy us early with thy mercy; that we may rejoice and be glad all our days.”</p></blockquote>
         <div class="tdb-porch-verse-widget__actions">
           <a class="btn btn-secondary" href="/">Read with breakdown</a>
           <button type="button" class="link-button" id="tdbPorchVerseHide">Hide for today</button>
@@ -4594,7 +4901,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">July 12, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">August 2, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>

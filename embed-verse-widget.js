@@ -77,11 +77,15 @@
 
   function ensureKjvLookup() {
     if (kjvLookupPromise) return kjvLookupPromise;
-    kjvLookupPromise = fetch(assetUrl('/kjv.json'))
-      .then(function (response) {
+    function fetchJson(url) {
+      return fetch(url, { cache: 'force-cache' }).then(function (response) {
         if (!response.ok) throw new Error('KJV text did not load');
         return response.json();
-      })
+      });
+    }
+    kjvLookupPromise = fetchJson(assetUrl('/data/kjv-full.json'))
+      .catch(function () { return fetchJson(assetUrl('/data/kjv-verses.json')); })
+      .catch(function () { return fetchJson(assetUrl('/kjv.json')); })
       .then(function (raw) {
         if (Array.isArray(raw)) {
           var out = {};

@@ -14,8 +14,46 @@
   --tdb-porch-space-md: 1.25rem;
   --tdb-porch-space-lg: 1.75rem;
   --tdb-porch-space-xl: 2.5rem;
-  --tdb-porch-gap-stack: clamp(0.85rem, 2.2vw, 1.35rem);
-  --tdb-porch-gap-cards: clamp(0.65rem, 1.8vw, 0.85rem);
+  /* Phase 1: ~12% more vertical breath between porch stacks */
+  --tdb-porch-gap-stack: clamp(0.95rem, 2.4vw, 1.5rem);
+  --tdb-porch-gap-cards: clamp(0.7rem, 1.9vw, 0.95rem);
+
+  /* ── Type scale (calmly contemporary, clamp-responsive) ── */
+  --tdb-text-verse: clamp(1.08rem, 2.9vw, 1.28rem);
+  --tdb-text-ui: clamp(0.95rem, 2.2vw, 1.05rem);
+  --tdb-text-chip: clamp(0.84rem, 2.1vw, 0.95rem);
+  --tdb-text-trust: clamp(0.78rem, 1.8vw, 0.86rem);
+  --tdb-line-verse: 1.7;
+  --tdb-line-ui: 1.55;
+
+  /* ── Quiet motion ── */
+  --tdb-transition-quiet: 0.2s ease;
+
+  /* ── Buttons (Home Phase 1 Steps 3–4; reusable site-wide later) ── */
+  --tdb-btn-radius: var(--tdb-porch-chip-radius);
+  --tdb-btn-min-height: 44px;
+  --tdb-btn-pad-y: 0.55rem;
+  --tdb-btn-pad-x: 1.15rem;
+  --tdb-btn-primary-fg: #fff;
+  --tdb-btn-primary-bg: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--accent, #8ba6d9) 85%, #fff) 0%,
+    var(--accent, #8ba6d9) 100%
+  );
+  --tdb-btn-primary-border: color-mix(in srgb, var(--gold, #e3bc67) 32%, transparent);
+  --tdb-btn-secondary-bg: color-mix(in srgb, var(--muted, #a8b3c4) 12%, var(--card, #1b212d));
+  --tdb-btn-secondary-border: color-mix(in srgb, var(--line, #2a3344) 82%, var(--gold, #e3bc67) 10%);
+  --tdb-btn-focus-ring: 0 0 0 3px color-mix(in srgb, var(--tdb-focus-ring, #e3bc67) 55%, transparent);
+  --tdb-lift-shadow: var(--tdb-porch-chip-shadow-hover);
+
+  /* ── Plan day card rhythm (Phase 2A) ── */
+  --tdb-day-card-gap: clamp(0.85rem, 2vw, 1.15rem);
+  --tdb-day-section-pad: clamp(0.75rem, 1.8vw, 1rem);
+  --tdb-day-verse-pad: clamp(0.95rem, 2.2vw, 1.25rem);
+  --tdb-day-card-radius: var(--tdb-porch-card-radius, 16px);
+
+  /* ── Explore porch map (Phase 2B) ── */
+  --tdb-explore-map-pad: clamp(1.05rem, 2.6vw, 1.45rem);
 
   /* ── Heading rhythm ── */
   --tdb-heading-display-size: clamp(1.35rem, 3.2vw, 1.75rem);
@@ -33,20 +71,29 @@
   /* ── Porch card surface (Home verse frame + Explore hub tiles) ── */
   --tdb-porch-card-radius: 16px;
   --tdb-porch-card-radius-sm: 14px;
-  --tdb-porch-card-pad-y: clamp(1.35rem, 2.8vw, 2.75rem);
-  --tdb-porch-card-pad-x: clamp(1rem, 2.4vw, 1.75rem);
-  --tdb-porch-card-pad-compact-y: 0.9rem;
-  --tdb-porch-card-pad-compact-x: 1.05rem;
+  /* Chips / inputs: slightly tighter than cards for soft hierarchy */
+  --tdb-porch-chip-radius: 13px;
+  --tdb-porch-input-radius: 14px;
+  --tdb-porch-card-pad-y: clamp(1.45rem, 3vw, 2.9rem);
+  --tdb-porch-card-pad-x: clamp(1.05rem, 2.5vw, 1.85rem);
+  --tdb-porch-card-pad-compact-y: 0.95rem;
+  --tdb-porch-card-pad-compact-x: 1.1rem;
   --tdb-porch-card-bg: color-mix(in srgb, var(--card, #1b212d) 96%, #fff 4%);
   --tdb-porch-card-border: color-mix(in srgb, var(--line, #2a3344) 88%, rgba(227, 188, 103, 0.12));
+  /* Phase 1: softer default depth; clearer hover lift without glow spam */
   --tdb-porch-card-shadow:
-    0 10px 32px rgba(0, 0, 0, 0.26),
-    0 0 0 1px color-mix(in srgb, rgba(227, 188, 103, 0.18) 45%, transparent),
+    0 8px 28px rgba(0, 0, 0, 0.22),
+    0 0 0 1px color-mix(in srgb, rgba(227, 188, 103, 0.16) 45%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
   --tdb-porch-card-shadow-hover:
-    0 14px 38px rgba(0, 0, 0, 0.3),
-    0 0 0 1px color-mix(in srgb, rgba(227, 188, 103, 0.28) 50%, transparent),
+    0 12px 34px rgba(0, 0, 0, 0.28),
+    0 0 0 1px color-mix(in srgb, rgba(227, 188, 103, 0.26) 50%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  --tdb-porch-chip-shadow: 0 1px 0 color-mix(in srgb, var(--line, #2a3344) 55%, transparent);
+  --tdb-porch-chip-shadow-hover: 0 3px 10px rgba(0, 0, 0, 0.18);
+  --tdb-porch-input-inset:
+    inset 0 1px 2px rgba(0, 0, 0, 0.18),
+    inset 0 0 0 1px color-mix(in srgb, var(--line, #2a3344) 40%, transparent);
 
   /* Bridge to existing surface system (Explore + inner pages) */
   --tdb-surface-radius: var(--tdb-porch-card-radius);
@@ -63,17 +110,24 @@
   --tdb-porch-card-bg: #faf7f2;
   --tdb-porch-card-border: rgba(191, 164, 111, 0.11);
   --tdb-porch-card-shadow:
-    0 8px 28px rgba(28, 42, 68, 0.08),
+    0 6px 24px rgba(28, 42, 68, 0.07),
     0 0 0 1px rgba(191, 164, 111, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.75);
   --tdb-porch-card-shadow-hover:
-    0 12px 34px rgba(28, 42, 68, 0.1),
+    0 10px 30px rgba(28, 42, 68, 0.09),
     0 0 0 1px rgba(191, 164, 111, 0.18),
     inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  --tdb-porch-input-inset:
+    inset 0 1px 2px rgba(28, 42, 68, 0.06),
+    inset 0 0 0 1px rgba(191, 164, 111, 0.08);
+  --tdb-porch-chip-shadow: 0 1px 0 rgba(191, 164, 111, 0.12);
+  --tdb-porch-chip-shadow-hover: 0 3px 10px rgba(28, 42, 68, 0.08);
   --tdb-heading-color: #1c2a44;
   --tdb-heading-muted: #4d5f72;
   --tdb-heading-rule: color-mix(in srgb, rgba(191, 164, 111, 0.35) 28%, rgba(76, 90, 108, 0.22) 72%);
   --tdb-section-note-color: #4a5a6e;
+  --tdb-btn-secondary-bg: color-mix(in srgb, var(--text, #1c2a44) 7%, var(--card, #faf7f2));
+  --tdb-btn-secondary-border: color-mix(in srgb, var(--text, #1c2a44) 16%, transparent);
 }
 
 /* ── Porch card surfaces ── */
@@ -128,12 +182,12 @@ body.tdb-inner-page .section-note {
   line-height: 1.55;
 }
 
-/* ── Porch polish pass (May 2026) — visual tier without clutter ── */
+/* ── Porch polish pass (May 2026 + Phase 1 calmly contemporary) ── */
 #hero-verse-wrap .hero-verse-wrap-inner #heroVerse,
 #hero-verse-wrap #heroVerse {
-  line-height: 1.62;
+  line-height: var(--tdb-line-verse);
   letter-spacing: 0.012em;
-  font-size: clamp(1.05rem, 2.8vw, 1.22rem);
+  font-size: var(--tdb-text-verse);
 }
 
 #hero-verse-wrap .tdb-home-verse-sticky-shell {
@@ -328,4 +382,27 @@ body.tdb-inner-page .section-note {
   background: color-mix(in srgb, #faf7f2 92%, #fff);
   color: #1c2a44;
   border-color: color-mix(in srgb, #c9b896 35%, #d8dce6);
+}
+
+/* ── Phase 1 (Jul 2026) — calmly contemporary: verse frame breath ── */
+#hero-verse-wrap {
+  transition: box-shadow var(--tdb-transition-quiet), border-color var(--tdb-transition-quiet);
+}
+
+#hero-verse-wrap .tdb-home-verse-sticky-shell {
+  padding: clamp(0.25rem, 0.7vw, 0.45rem) 0 clamp(0.45rem, 1.1vw, 0.7rem);
+}
+
+#hero-verse-wrap .tdb-home-breath-divider {
+  margin: clamp(0.95rem, 2.2vw, 1.3rem) auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #hero-verse-wrap,
+  .feel-search-btn,
+  .feel-quick-topics-root .quick-topic,
+  .quick-topic-group-chips .quick-topic,
+  #feel-search {
+    transition: none !important;
+  }
 }

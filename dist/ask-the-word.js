@@ -1,7 +1,7 @@
 /**
  * Ask the Word — Bible Q&A on bible-tool.html
- * Wires input, button, fetch to Supabase bible-qa Edge Function, fallback to kjv.json keyword search.
- * Runs on DOMContentLoaded so elements exist. Cache-busted via ?v= in script src.
+ * Unified brain: ask-the-word-core.js (curated + full KJV offline).
+ * Optional online assist via Supabase bible-qa when curated/local is thin.
  */
 (function () {
   'use strict';
@@ -19,7 +19,7 @@
       return;
     }
 
-    var CACHE_KEY = 'tdb-ask-the-word-cache';
+    var CACHE_KEY = 'tdb-ask-the-word-cache-v2';
     var CACHE_TTL = 24 * 60 * 60 * 1000;
 
     function escapeHtml(s) {
@@ -28,7 +28,6 @@
       return d.innerHTML;
     }
 
-    /** Strip any stray markup from plain-text answers. */
     function plainAnswerText(s) {
       if (typeof window.tdbCleanForPlainDisplay === 'function') {
         return window.tdbCleanForPlainDisplay(s);
@@ -75,16 +74,10 @@
       return e.v;
     }
 
-    function isOffTopic(q) {
-      var l = q.toLowerCase();
-      return /pineapple|pizza|football|nfl|nba|sports|movie|netflix|recipe|cooking|stock market|crypto|weather/.test(l);
-    }
-
     function cacheKey(q) {
       return q.toLowerCase().replace(/\s+/g, ' ').trim();
     }
 
-    /** Render a single verse as a card element. */
     function verseCardHtml(ref, text) {
       var r = escapeHtml(String(ref || '').trim());
       var t = escapeHtml(String(text || '').trim());
@@ -98,55 +91,30 @@
         '<span class="qa-verse-ref">' +
           (link ? '<a href="' + link + '" class="qa-verse-link">' + r + '</a>' : r) +
         '</span>' +
-        (textRaw ? '<span class="qa-verse-text">\u201c' + textRaw + '\u201d</span>' : '') +
+        (textRaw ? '<span class="qa-verse-text">\u201c' + t + '\u201d</span>' : '') +
         '</div>';
     }
 
-    function localSearch(q) {
-      var urls = ['/kjv.json', 'https://todaysdailybattle.com/kjv.json'];
-      function tryF(i) {
-        if (i >= urls.length) return Promise.reject();
-        return fetch(urls[i])
-          .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
-          .catch(function () { return tryF(i + 1); });
+    function nextStepsBlock(data) {
+      if (window.TDBAskTheWord && typeof window.TDBAskTheWord.nextStepsHtml === 'function') {
+        return window.TDBAskTheWord.nextStepsHtml(data.next_steps || [], escapeHtml);
       }
-      return tryF(0).then(function (arr) {
-        if (!Array.isArray(arr)) {
-          return {
-            answer: 'Not sure\u2014try searching \u201chope\u201d or \u201cpeace.\u201d',
-            verses: [],
-            sources: ['John 14:6'],
-            prayer_prompt: 'Lord, meet me in this. Let Your Word be my anchor right now. Amen.'
-          };
-        }
-        var words = q.toLowerCase().replace(/[^\w\s]/g, ' ').split(/\s+/).filter(Boolean);
-        var syn = { love: ['love', 'charity'], wrote: ['wrote', 'paul', 'author'] };
-        for (var i = 0; i < words.length; i++) {
-          if (syn[words[i]]) words = words.concat(syn[words[i]]);
-        }
-        var scored = [];
-        for (var j = 0; j < arr.length; j++) {
-          var v = arr[j];
-          if (!v || !v.ref || !v.text) continue;
-          var txt = ((v.ref || '') + ' ' + (v.text || '')).toLowerCase();
-          var sc = 0;
-          for (var k = 0; k < words.length; k++) {
-            if (words[k].length >= 2 && txt.indexOf(words[k]) !== -1) sc++;
-          }
-          if (sc > 0) scored.push({ v: v, sc: sc });
-        }
-        scored.sort(function (a, b) { return b.sc - a.sc; });
-        var top = scored.slice(0, 3).map(function (x) { return x.v; });
-        if (!top.length) top = arr.slice(0, 3).filter(function (v) { return v && v.ref; });
-        return {
-          answer: top.length
-            ? 'Here is what the Word says about that:'
-            : 'Not sure\u2014try searching \u201chope\u201d or \u201cpeace.\u201d',
-          verses: top.map(function (v) { return { ref: v.ref, text: v.text }; }),
-          sources: top.map(function (v) { return v.ref; }),
-          prayer_prompt: 'Lord, meet me in this. Let Your Word be my anchor right now. Amen.'
-        };
-      });
+      return '';
+    }
+
+    function ensureNextStepsStyles() {
+      if (document.getElementById('tdb-qa-next-steps-style')) return;
+      var st = document.createElement('style');
+      st.id = 'tdb-qa-next-steps-style';
+      st.textContent =
+        '.qa-next-steps{margin-top:1rem;padding-top:0.75rem;border-top:1px solid rgba(148,163,184,0.2);}' +
+        '.qa-next-steps-label{font-size:0.85rem;opacity:0.85;margin:0 0 0.4rem;}' +
+        '.qa-next-steps-row{display:flex;flex-wrap:wrap;gap:0.45rem;}' +
+        '.qa-next-step{display:inline-block;padding:0.35rem 0.7rem;border-radius:999px;border:1px solid rgba(212,175,55,0.45);' +
+        'color:inherit;text-decoration:none;font-size:0.88rem;background:rgba(212,175,55,0.08);}' +
+        '.qa-next-step:hover,.qa-next-step:focus{background:rgba(212,175,55,0.18);outline:none;}' +
+        '.qa-from-note{font-size:0.8rem;opacity:0.7;margin:0.5rem 0 0;}';
+      document.head.appendChild(st);
     }
 
     function invokeBibleQa(q) {
@@ -158,18 +126,75 @@
       }
       return fetch(url, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + key },
+        headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + key },
         body: JSON.stringify({ query: q })
       }).then(function (r) {
-        if (!r.ok && r.status === 404) return Promise.reject(new Error('not deployed'));
-        return r.json().catch(function () { return Promise.reject(); });
+        if (!r.ok) return Promise.reject(new Error('not ok ' + r.status));
+        return r.json().catch(function () { return Promise.reject(new Error('bad json')); });
+      });
+    }
+
+    function normalizeServerPayload(res) {
+      if (!res || !res.answer) return null;
+      var verses = [];
+      if (Array.isArray(res.verses) && res.verses.length) {
+        verses = res.verses.map(function (v) {
+          return { ref: v.ref || v.reference || '', text: v.text || v.verse_text || '' };
+        }).filter(function (v) { return v.ref; });
+      } else if (Array.isArray(res.sources) && res.sources.length) {
+        verses = res.sources.map(function (ref) {
+          return { ref: String(ref || ''), text: '' };
+        }).filter(function (v) { return v.ref; });
+      }
+      // Reject useless generic-only server payloads with wrong/empty verses
+      var generic = /that is a real question, not small talk/i.test(res.answer || '');
+      var hasText = verses.some(function (v) { return v.text && v.text.length > 5; });
+      if (generic && !hasText) return null;
+      return {
+        answer: res.answer,
+        verses: verses,
+        sources: verses.map(function (v) { return v.ref; }),
+        prayer_prompt: res.prayer_prompt || '',
+        answer_mode: res.answer_mode,
+        query_kind: res.query_kind,
+        next_steps: res.next_steps || null,
+        from: 'server'
+      };
+    }
+
+    function qualityScore(data) {
+      if (!data || !data.answer) return 0;
+      var score = 10;
+      if (data.curated_id || data.from === 'curated') score += 100;
+      if (data.from === 'reference') score += 80;
+      var verses = data.verses || [];
+      score += Math.min(verses.length, 5) * 8;
+      verses.forEach(function (v) {
+        if (v.text && v.text.length > 10) score += 12;
+      });
+      if (/not small talk|fake certainty|soft-focus fluff/i.test(data.answer)) score -= 40;
+      if (data.from === 'empty') score -= 20;
+      return score;
+    }
+
+    function localAnswer(q) {
+      if (window.TDBAskTheWord && typeof window.TDBAskTheWord.answer === 'function') {
+        return window.TDBAskTheWord.answer(q);
+      }
+      return Promise.resolve({
+        answer: 'Ask the Word core is still loading. Try again in a moment, or use verse lookup below.',
+        verses: [],
+        sources: [],
+        prayer_prompt: 'Lord, meet me in Your Word. Amen.',
+        next_steps: [{ kind: 'spine', label: 'Learn the Word path', href: '/learn-the-word.html' }],
+        from: 'empty'
       });
     }
 
     function render(data) {
+      ensureNextStepsStyles();
       var answerHtml = '<p class="qa-answer">' + escapeHtml(plainAnswerText(data.answer)) + '</p>';
 
-      // Inline verse cards (preferred) — show full KJV text
       var versesHtml = '';
       if (Array.isArray(data.verses) && data.verses.length) {
         versesHtml = '<div class="qa-verse-list">' +
@@ -179,7 +204,6 @@
             .join('') +
           '</div>';
       } else if (Array.isArray(data.sources) && data.sources.length) {
-        // Fallback: ref links only (old response shape)
         var srcLinks = data.sources.map(function (ref) {
           var r = String(ref || '').trim();
           if (!r) return '';
@@ -188,12 +212,21 @@
         if (srcLinks) versesHtml = '<p class="qa-sources">Sources: ' + srcLinks + '</p>';
       }
 
-      result.innerHTML = answerHtml + versesHtml;
+      var stepsHtml = nextStepsBlock(data);
+      if (!data.next_steps || !data.next_steps.length) {
+        // ensure teaching loop even on server payloads
+        data.next_steps = [
+          { kind: 'spine', label: 'Learn the Word path', href: '/learn-the-word.html' },
+          { kind: 'plans', label: 'Battle Plans', href: '/plans.html' },
+          { kind: 'lessons', label: 'Life Lessons', href: '/life-lessons.html' }
+        ];
+        stepsHtml = nextStepsBlock(data);
+      }
+
+      result.innerHTML = answerHtml + versesHtml + stepsHtml;
       result.classList.remove('hidden');
       result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
-      // Wire "Break it down" toggle for each verse card using the existing
-      // verse-breakdown.js infrastructure (already loaded on bible-tool.html).
       if (typeof window.TDBVerseBreakdown === 'object' &&
           typeof window.TDBVerseBreakdown.injectInlineBreakdown === 'function') {
         result.querySelectorAll('.qa-verse-card[data-ref]').forEach(function (card) {
@@ -205,7 +238,6 @@
         });
       }
 
-      // Prayer prompt
       if (prayerEl) {
         prayerEl.classList.add('hidden');
         prayerEl.setAttribute('aria-hidden', 'true');
@@ -237,12 +269,6 @@
     function runAsk() {
       var q = (input.value || '').trim();
       if (!q) return;
-      if (isOffTopic(q)) {
-        result.classList.remove('hidden');
-        result.innerHTML = '<p class="qa-answer">That one\u2019s outside what I can help with\u2014talk to a pastor for things outside the Word.</p>';
-        if (prayerEl) prayerEl.classList.add('hidden');
-        return;
-      }
       var cached = getCached(q);
       if (cached) {
         render(cached);
@@ -251,30 +277,48 @@
       setLoading(true);
       result.classList.remove('hidden');
       result.innerHTML = '<p class="empty">Seeking the Word\u2026</p>';
-      var cfg = window.TDB_CONFIG || {};
-      var hasSupabase = !!(cfg.SUPABASE_URL && cfg.SUPABASE_ANON_KEY);
-      var req = hasSupabase ? invokeBibleQa(q) : Promise.reject(new Error('Config missing'));
-      req.then(function (res) {
-        setLoading(false);
-        if (res && res.answer) {
-          setCache(cacheKey(q), res);
-          render(res);
-          return;
-        }
-        return localSearch(q).then(function (d) {
-          setCache(cacheKey(q), d);
-          render(d);
-        });
-      }).catch(function () {
-        return localSearch(q).then(function (d) {
+
+      // Offline-first: core always runs; server only upgrades if better
+      localAnswer(q).then(function (local) {
+        var cfg = window.TDB_CONFIG || {};
+        var hasSupabase = !!(cfg.SUPABASE_URL && cfg.SUPABASE_ANON_KEY);
+        var localScore = qualityScore(local);
+        // If curated or solid local hit, skip flaky server
+        if (localScore >= 80 || local.from === 'curated' || local.from === 'reference') {
           setLoading(false);
-          setCache(cacheKey(q), d);
-          render(d);
+          setCache(cacheKey(q), local);
+          render(local);
+          return null;
+        }
+        if (!hasSupabase) {
+          setLoading(false);
+          setCache(cacheKey(q), local);
+          render(local);
+          return null;
+        }
+        return invokeBibleQa(q).then(function (res) {
+          setLoading(false);
+          var remote = normalizeServerPayload(res);
+          if (remote && qualityScore(remote) > localScore) {
+            // Attach teaching loops if server omitted them
+            if (!remote.next_steps || !remote.next_steps.length) {
+              remote.next_steps = local.next_steps;
+            }
+            setCache(cacheKey(q), remote);
+            render(remote);
+          } else {
+            setCache(cacheKey(q), local);
+            render(local);
+          }
         }).catch(function () {
           setLoading(false);
-          result.innerHTML = '<p class="empty">We couldn\u2019t reach an answer just now\u2014that is all right. Check your connection, or use verse lookup below.</p>';
-          if (prayerEl) prayerEl.classList.add('hidden');
+          setCache(cacheKey(q), local);
+          render(local);
         });
+      }).catch(function () {
+        setLoading(false);
+        result.innerHTML = '<p class="empty">We couldn\u2019t reach an answer just now\u2014that is all right. Check your connection, or use verse lookup below. <a href="/learn-the-word.html">Learn the Word</a> stays ready when you are.</p>';
+        if (prayerEl) prayerEl.classList.add('hidden');
       });
     }
 
@@ -285,6 +329,12 @@
         runAsk();
       }
     });
+
+    // Prefetch core data idle
+    if (window.TDBAskTheWord && typeof window.TDBAskTheWord.prefetch === 'function') {
+      var idle = window.requestIdleCallback || function (cb) { setTimeout(cb, 400); };
+      idle(function () { window.TDBAskTheWord.prefetch(); });
+    }
   }
 
   if (document.readyState === 'loading') {

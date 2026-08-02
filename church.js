@@ -105,11 +105,33 @@
     try { localStorage.setItem(CURRENT_CODE_KEY, code); } catch (e) {}
   }
   async function loadKjv() {
-    if (KJV_CACHE) return KJV_CACHE;
-    var res = await fetch('/kjv.json');
-    if (!res.ok) throw new Error('kjv_load_failed');
-    KJV_CACHE = await res.json();
-    return KJV_CACHE;
+    if (KJV_CACHE && Object.keys(KJV_CACHE).length >= 1000) return KJV_CACHE;
+    var urls = ['/data/kjv-full.json', '/data/kjv-verses.json', '/kjv.json', '/assets/data/kjv.json'];
+    var last = null;
+    for (var i = 0; i < urls.length; i++) {
+      try {
+        var res = await fetch(urls[i], { cache: 'force-cache' });
+        if (!res.ok) continue;
+        var raw = await res.json();
+        var map = raw;
+        if (Array.isArray(raw)) {
+          map = {};
+          raw.forEach(function (row) {
+            if (row && row.ref) map[row.ref] = row.text || '';
+          });
+        }
+        last = map || {};
+        if (Object.keys(last).length >= 1000) {
+          KJV_CACHE = last;
+          return KJV_CACHE;
+        }
+      } catch (e) { /* try next */ }
+    }
+    if (last && Object.keys(last).length) {
+      KJV_CACHE = last;
+      return KJV_CACHE;
+    }
+    throw new Error('kjv_load_failed');
   }
   async function dailyVerseForCode(code) {
     var bible = await loadKjv();
@@ -117,7 +139,10 @@
     if (!refs.length) return { ref: 'Psalm 27:1', text: 'The LORD is my light and my salvation; whom shall I fear?' };
     var idx = parseInt(hashFNV1a(code + ':' + dayKey(new Date())).slice(0, 8), 16) % refs.length;
     var ref = refs[idx];
-    return { ref: ref, text: String(bible[ref] || '') };
+    var text = String(bible[ref] || '');
+    if (!text && /^Psalm\s+/i.test(ref)) text = String(bible[ref.replace(/^Psalm\s+/i, 'Psalms ')] || '');
+    if (!text && /^Psalms\s+/i.test(ref)) text = String(bible[ref.replace(/^Psalms\s+/i, 'Psalm ')] || '');
+    return { ref: ref, text: text };
   }
   function upsertFamilyMerge(group, code) {
     var familyId = parseFamilyId();

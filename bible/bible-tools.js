@@ -7,7 +7,7 @@
   const HIGHLIGHTS_KEY = 'bibleHighlights';
   const CONCORDANCE_URL = '../concordance.json';
   const CROSS_REFS_URL = '../cross-refs.json';
-  const KJV_URL = '../kjv.json';
+  const KJV_URL = '../data/kjv-full.json';
   const CHAPTERS_URL = '../chapters.json';
   const KJV_WORD_NOTES_URL = '../kjv-word-notes.json';
   const BOOK_INTROS_URL = '../book-intros.json';

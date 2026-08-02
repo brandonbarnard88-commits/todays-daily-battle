@@ -10205,7 +10205,7 @@
       narration: 'Nothing Separates God’s Love — Romans 8:38-39. A gentle story from God’s Word for young hearts.'
     },
 
-    1corinthiansLoveChapter: {
+    '1corinthiansLoveChapter': {
       title: 'Love Is Greatest',
       panels: [
         { src: 'panel-noah-1.svg', alt: 'Love Is Greatest — gentle Bible story' },
@@ -10269,7 +10269,7 @@
       narration: 'Jesus Is First — Colossians 1:18. A gentle story from God’s Word for young hearts.'
     },
 
-    1thessaloniansRapture: {
+    '1thessaloniansRapture': {
       title: 'Jesus Is Coming Back',
       panels: [
         { src: 'panel-noah-1.svg', alt: 'Jesus Is Coming Back — gentle Bible story' },
@@ -10285,7 +10285,7 @@
       narration: 'Jesus Is Coming Back — 1 Thessalonians 4:16. A gentle story from God’s Word for young hearts.'
     },
 
-    2thessaloniansStandFirm: {
+    '2thessaloniansStandFirm': {
       title: 'Stand Firm',
       panels: [
         { src: 'panel-noah-1.svg', alt: 'Stand Firm — gentle Bible story' },
@@ -10301,7 +10301,7 @@
       narration: 'Stand Firm — 2 Thessalonians 2:15. A gentle story from God’s Word for young hearts.'
     },
 
-    1timothyYoungLeader: {
+    '1timothyYoungLeader': {
       title: 'Young Timothy',
       panels: [
         { src: 'panel-noah-1.svg', alt: 'Young Timothy — gentle Bible story' },
@@ -10317,7 +10317,7 @@
       narration: 'Young Timothy — 1 Timothy 4:12. A gentle story from God’s Word for young hearts.'
     },
 
-    2timothyFaithPassed: {
+    '2timothyFaithPassed': {
       title: 'Faith Passed Down',
       panels: [
         { src: 'panel-noah-1.svg', alt: 'Faith Passed Down — gentle Bible story' },
@@ -10381,7 +10381,7 @@
       narration: 'Heroes of Faith — Hebrews 11:1. A gentle story from God’s Word for young hearts.'
     },
 
-    1peterHopeLiving: {
+    '1peterHopeLiving': {
       title: 'Living Hope',
       panels: [
         { src: 'panel-noah-1.svg', alt: 'Living Hope — gentle Bible story' },
@@ -10493,7 +10493,7 @@
       narration: 'Nothing Separates God’s Love — Romans 8:38-39. A gentle story from God’s Word for young hearts.'
     },
 
-    1corinthiansLoveChapterRevisited: {
+    '1corinthiansLoveChapterRevisited': {
       title: 'Love Is Greatest',
       panels: [
         { src: 'panel-noah-1.svg', alt: 'Love Is Greatest — gentle Bible story' },
@@ -10557,7 +10557,7 @@
       narration: 'Jesus Is First — Colossians 1:18. A gentle story from God’s Word for young hearts.'
     },
 
-    1thessaloniansRaptureRevisited: {
+    '1thessaloniansRaptureRevisited': {
       title: 'Jesus Is Coming Back',
       panels: [
         { src: 'panel-noah-1.svg', alt: 'Jesus Is Coming Back — gentle Bible story' },
@@ -10573,7 +10573,7 @@
       narration: 'Jesus Is Coming Back — 1 Thessalonians 4:16. A gentle story from God’s Word for young hearts.'
     },
 
-    2thessaloniansStandFirmRevisited: {
+    '2thessaloniansStandFirmRevisited': {
       title: 'Stand Firm',
       panels: [
         { src: 'panel-noah-1.svg', alt: 'Stand Firm — gentle Bible story' },
@@ -10589,7 +10589,7 @@
       narration: 'Stand Firm — 2 Thessalonians 2:15. A gentle story from God’s Word for young hearts.'
     },
 
-    1timothyYoungLeaderRevisited: {
+    '1timothyYoungLeaderRevisited': {
       title: 'Young Timothy',
       panels: [
         { src: 'panel-noah-1.svg', alt: 'Young Timothy — gentle Bible story' },
@@ -10605,7 +10605,7 @@
       narration: 'Young Timothy — 1 Timothy 4:12. A gentle story from God’s Word for young hearts.'
     },
 
-    2timothyFaithPassedRevisited: {
+    '2timothyFaithPassedRevisited': {
       title: 'Faith Passed Down',
       panels: [
         { src: 'panel-noah-1.svg', alt: 'Faith Passed Down — gentle Bible story' },
@@ -10685,7 +10685,7 @@
       narration: 'Faith Shows in Kindness — James 2:17. A gentle story from God’s Word for young hearts.'
     },
 
-    1peterHopeLivingRevisited: {
+    '1peterHopeLivingRevisited': {
       title: 'Living Hope',
       panels: [
         { src: 'panel-noah-1.svg', alt: 'Living Hope — gentle Bible story' },
@@ -10701,7 +10701,7 @@
       narration: 'Living Hope — 1 Peter 1:3. A gentle story from God’s Word for young hearts.'
     },
 
-    2peterKnowledge: {
+    '2peterKnowledge': {
       title: 'Growing in Knowing Jesus',
       panels: [
         { src: 'panel-noah-1.svg', alt: 'Growing in Knowing Jesus — gentle Bible story' },
@@ -10717,7 +10717,7 @@
       narration: 'Growing in Knowing Jesus — 2 Peter 3:18. A gentle story from God’s Word for young hearts.'
     },
 
-    1johnLoveGod: {
+    '1johnLoveGod': {
       title: 'Love One Another',
       panels: [
         { src: 'panel-noah-1.svg', alt: 'Love One Another — gentle Bible story' },
@@ -10733,7 +10733,7 @@
       narration: 'Love One Another — 1 John 4:7. A gentle story from God’s Word for young hearts.'
     },
 
-    2johnTruth: {
+    '2johnTruth': {
       title: 'Walking in Truth',
       panels: [
         { src: 'panel-noah-1.svg', alt: 'Walking in Truth — gentle Bible story' },
@@ -10749,7 +10749,7 @@
       narration: 'Walking in Truth — 2 John 1:6. A gentle story from God’s Word for young hearts.'
     },
 
-    3johnFaithful: {
+    '3johnFaithful': {
       title: 'Faithful Friends',
       panels: [
         { src: 'panel-noah-1.svg', alt: 'Faithful Friends — gentle Bible story' },

@@ -2977,19 +2977,20 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   document.head.appendChild(script);
 })();
 
-/* Preload Bible data after first paint/idle so startup stays fast; loadBible() still falls back normally. */
+/* Preload full KJV after first paint/idle so startup stays fast; loadBible() still falls back normally. */
 (function preloadBibleWhenIdle() {
   if (typeof window === 'undefined') return;
-  var bust = 'v=' + encodeURIComponent('20260403bible');
+  var bust = 'v=' + encodeURIComponent('20260802fullkjv');
   var urls = [
+    '/data/kjv-full.json',
+    '/data/kjv-full.json?' + bust,
+    '/data/kjv-verses.json',
+    '/data/kjv-verses.json?' + bust,
+    'https://todaysdailybattle.com/data/kjv-full.json',
+    'https://todaysdailybattle.com/data/kjv-full.json?' + bust,
+    /* last-resort stub only if full corpus missing from host */
     '/kjv.json',
-    '/kjv.json?' + bust,
-    '/assets/data/kjv.json',
-    '/assets/data/kjv.json?' + bust,
-    'https://todaysdailybattle.com/assets/data/kjv.json',
-    'https://todaysdailybattle.com/assets/data/kjv.json?' + bust,
-    'https://todaysdailybattle.com/kjv.json',
-    'https://todaysdailybattle.com/kjv.json?' + bust
+    '/assets/data/kjv.json'
   ];
   var started = false;
 
@@ -3001,11 +3002,25 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     return type !== 'slow-2g' && type !== '2g';
   }
 
+  function verseCount(d) {
+    if (!d) return 0;
+    if (Array.isArray(d)) return d.length;
+    if (typeof d === 'object') return Object.keys(d).length;
+    return 0;
+  }
+
   function tryNext(i) {
     if (i >= urls.length) return;
-    fetch(urls[i], { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+    fetch(urls[i], { cache: 'force-cache' }).then(function (r) { return r.ok ? r.json() : Promise.reject(); })
       .then(function (d) {
-        if (d && typeof window !== 'undefined' && !window.kjvData) window.kjvData = d;
+        if (!d || typeof window === 'undefined') return tryNext(i + 1);
+        var n = verseCount(d);
+        /* Prefer full corpus; only accept stub if nothing better loaded yet */
+        if (n < 1000 && window.kjvData && verseCount(window.kjvData) >= 1000) return;
+        if (n < 1000 && i < urls.length - 2) return tryNext(i + 1);
+        if (!window.kjvData || verseCount(window.kjvData) < n) {
+          window.kjvData = typeof normalizeBibleData === 'function' ? normalizeBibleData(d) : d;
+        }
       })
       .catch(function () { tryNext(i + 1); });
   }
@@ -3014,7 +3029,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     if (started) return;
     started = true;
     if (!canPreloadNow()) return;
-    if (window.kjvData) return;
+    if (window.kjvData && verseCount(window.kjvData) >= 1000) return;
     tryNext(0);
   }
 
@@ -7339,8 +7354,7 @@ var TDB_BIBLICAL_ANSWERS = [
       'who was paul in the bible', 'tell me about the apostle paul', 'paul in the bible',
       'who wrote most of the new testament', 'what did paul do', 'life of paul',
       'was paul a pharisee', 'saul who became paul', 'pauls conversion story',
-      'paul missionary journeys', 'who wrote romans'
-    ],
+      'paul missionary journeys'],
     answer: 'Paul — originally Saul — was a Pharisee who zealously persecuted the early church before a dramatic encounter with the risen Jesus on the road to Damascus left him blinded for three days (Acts 9). He became the most prolific missionary in the New Testament, traveling through modern-day Turkey, Greece, and eventually to Rome. He wrote at least 13 of the 27 New Testament books, including Romans, Galatians, Ephesians, Philippians, and Corinthians. He was imprisoned, beaten, shipwrecked, and ultimately executed under Nero. His own summary of his life is in 2 Timothy 4:7: "I have fought a good fight, I have finished my course, I have kept the faith." His transformation from persecutor to proclaimer is itself one of the most powerful arguments for the resurrection.',
     verses: ['Acts 9:3', '2 Timothy 4:7', 'Galatians 1:13', 'Philippians 3:8'],
     plan: 'firststeps'
@@ -10412,7 +10426,172 @@ var TDB_BIBLICAL_ANSWERS = [
     answer: 'Hebrews 11 opens with the only explicit definition of faith in the New Testament: "Now faith is the substance of things hoped for, the evidence of things not seen" (11:1). Then it demonstrates the definition with lives: Abel, Enoch, Noah, Abraham, Sarah, Isaac, Jacob, Joseph, Moses — each introduced with "by faith." These were not perfect people. Abraham lied about his wife twice. Moses killed a man. Rahab was a prostitute. The hall of faith does not celebrate moral perfection; it celebrates people who kept acting on what they believed about God even when circumstances did not confirm it. Verse 13 is the honest middle of the chapter: "These all died in faith, not having received the promises" — they saw them from a long way off and embraced them without arrival. Verse 39 confirms: "these all, having obtained a good report through faith, received not the promise" — they are waiting for us. Chapter 12 opens with the application: "seeing we also are compassed about with so great a cloud of witnesses...let us run with patience the race." The people in chapter 11 are still watching.',
     verses: ['Hebrews 11:1', 'Hebrews 11:13', 'Hebrews 11:6', 'Hebrews 12:1'],
     plan: 'walktheword'
-  }
+  },
+
+  // --- Teaching/Q&A expansion (2026-08): knowledge packs shared with Ask the Word core ---
+  {
+    id: 'why-did-jesus-weep',
+    type: 'knowledge',
+    triggers: [
+      'why did jesus weep', 'why does jesus weep', 'jesus wept why', 'why did jesus cry',
+      'shortest verse in the bible', 'what is the shortest verse', 'john 11:35',
+      'why was jesus weeping', 'jesus wept meaning', 'why jesus wept at lazarus'
+    ],
+    answer: 'John 11:35 simply says "Jesus wept." He stood at the tomb of His friend Lazarus, with Mary and Martha grieving, and He entered their sorrow even though He was about to raise Lazarus. His tears show that the Son of God is not distant from real loss. Isaiah 53:3 calls Him "a man of sorrows, and acquainted with grief." The verse is short; the comfort is deep: God does not scold honest tears — He shares them, and He still holds resurrection hope.',
+    verses: ['John 11:35', 'John 11:33', 'Isaiah 53:3', 'Hebrews 4:15'],
+    plan: 'griefhope'
+  },
+  {
+    id: 'where-jesus-wept-verse',
+    type: 'knowledge',
+    triggers: [
+      'where does it say jesus wept', 'where in the bible does jesus weep',
+      'bible verse jesus wept', 'find jesus wept'
+    ],
+    answer: 'The words "Jesus wept" are in John 11:35 (KJV), at the tomb of Lazarus before Jesus raised him from the dead. Read the whole scene in John 11:1–44 to see His love, His tears, and His power together.',
+    verses: ['John 11:35', 'John 11:25-26', 'John 11:43-44'],
+    plan: 'griefhope'
+  },
+  {
+    id: 'dinosaurs-creation',
+    type: 'knowledge',
+    triggers: [
+      'what does the bible say about dinosaurs', 'dinosaurs in the bible', 'are dinosaurs in the bible',
+      'bible and dinosaurs', 'did dinosaurs exist bible', 'creation dinosaurs', 'behemoth dinosaur'
+    ],
+    answer: 'The Bible does not use the modern word "dinosaur." It does speak clearly of God as Creator of all things: "In the beginning God created the heaven and the earth" (Genesis 1:1). Job describes great creatures such as behemoth and leviathan (Job 40–41) in poetic, awe-filled language — not a modern field guide. Stay honest: Scripture centers on who made the world and why we exist, not on every scientific category. Read Genesis 1, Job 38–41, and Psalm 104, and let worship lead where speculation wants to run ahead.',
+    verses: ['Genesis 1:1', 'Genesis 1:21', 'Job 40:15', 'Psalm 104:24', 'John 1:3'],
+    plan: null
+  },
+  {
+    id: 'who-wrote-romans',
+    type: 'knowledge',
+    triggers: [
+      'who wrote romans', 'who wrote the book of romans', 'author of romans', 'paul write romans'
+    ],
+    answer: 'The apostle Paul wrote Romans. The letter opens "Paul, a servant of Jesus Christ, called to be an apostle" (Romans 1:1). He wrote to believers in Rome about the gospel, justification by faith, life in the Spirit, and God\'s mercy to Jew and Gentile. Romans 1:16–17 is a key: the gospel is "the power of God unto salvation to every one that believeth."',
+    verses: ['Romans 1:1', 'Romans 1:16-17', 'Romans 3:23', 'Romans 5:1'],
+    plan: 'gospeljohn'
+  },
+  {
+    id: 'what-is-a-covenant',
+    type: 'knowledge',
+    triggers: [
+      'what is a covenant', 'what is covenant in the bible', 'bible covenant meaning',
+      'old covenant new covenant', 'what does covenant mean'
+    ],
+    answer: 'A covenant in Scripture is a binding promise-relationship God makes — not a casual deal. God cut covenants with Noah, Abraham, Israel at Sinai, and fulfilled the new covenant in Christ\'s blood (Luke 22:20; Hebrews 8). The point is God\'s faithful commitment, not our ability to invent terms.',
+    verses: ['Genesis 9:9', 'Genesis 15:18', 'Jeremiah 31:33', 'Luke 22:20', 'Hebrews 8:6'],
+    plan: null
+  },
+  {
+    id: 'what-is-justification',
+    type: 'knowledge',
+    triggers: [
+      'what is justification', 'what does justified mean bible', 'justification by faith',
+      'what is justification by faith', 'define justification biblically'
+    ],
+    answer: 'Justification is God declaring a sinner righteous through faith in Jesus Christ — not by works of the law. Romans 3:24 says we are "justified freely by his grace through the redemption that is in Christ Jesus." Romans 5:1: "Therefore being justified by faith, we have peace with God through our Lord Jesus Christ."',
+    verses: ['Romans 3:24', 'Romans 5:1', 'Galatians 2:16', 'Ephesians 2:8-9'],
+    plan: null
+  },
+  {
+    id: 'what-is-sanctification',
+    type: 'knowledge',
+    triggers: [
+      'what is sanctification', 'what does sanctified mean', 'sanctification bible',
+      'define sanctification', 'being sanctified meaning'
+    ],
+    answer: 'Sanctification is being set apart for God — made holy in Christ and then grown in holy living by the Spirit. 1 Thessalonians 4:3 says "this is the will of God, even your sanctification." It is both a position (you are already in Christ) and a process (you grow).',
+    verses: ['1 Thessalonians 4:3', 'John 17:17', 'Hebrews 10:10', 'Hebrews 10:14'],
+    plan: null
+  },
+  {
+    id: 'who-was-moses',
+    type: 'knowledge',
+    triggers: [
+      'who was moses', 'who is moses', 'moses in the bible', 'story of moses', 'tell me about moses'
+    ],
+    answer: 'Moses was the Hebrew child saved from Pharaoh, raised in Egypt, then called by God at the burning bush to lead Israel out of slavery (Exodus 1–14). God gave the law through him at Sinai. He points forward to Christ the greater Deliverer (Deuteronomy 18:15; Hebrews 3).',
+    verses: ['Exodus 3:10', 'Exodus 14:13-14', 'Deuteronomy 34:10', 'Hebrews 11:24-25'],
+    plan: null
+  },
+  {
+    id: 'who-was-david',
+    type: 'knowledge',
+    triggers: [
+      'who was david', 'who is david bible', 'king david', 'story of david', 'tell me about david'
+    ],
+    answer: 'David was the shepherd boy who trusted God against Goliath, later king of Israel, and a man after God\'s heart — yet also a sinner who repented deeply (Psalm 51). God promised a lasting throne through his line, fulfilled in Jesus the Son of David (2 Samuel 7; Matthew 1:1).',
+    verses: ['1 Samuel 16:7', '1 Samuel 17:45', '2 Samuel 7:16', 'Psalm 23:1', 'Acts 13:22'],
+    plan: null
+  },
+  {
+    id: 'who-was-paul',
+    type: 'knowledge',
+    triggers: [
+      'who was paul', 'who is paul bible', 'who was saul of tarsus', 'apostle paul',
+      'story of paul', 'tell me about paul', 'who wrote most of the new testament'
+    ],
+    answer: 'Paul (first called Saul) was a Pharisee who persecuted the church until Jesus met him on the Damascus road (Acts 9). He became apostle to the Gentiles and wrote many New Testament letters. His message centers on Christ crucified and risen, grace through faith, and new life in the Spirit.',
+    verses: ['Acts 9:3-6', 'Acts 9:15', '1 Corinthians 15:3-4', 'Galatians 2:20', 'Philippians 3:7-8'],
+    plan: null
+  },
+  {
+    id: 'who-was-abraham',
+    type: 'knowledge',
+    triggers: [
+      'who was abraham', 'who is abraham', 'abraham in the bible', 'story of abraham', 'tell me about abraham'
+    ],
+    answer: 'Abraham (first called Abram) was called by God to leave his country and trust a promise of land, offspring, and blessing to all nations (Genesis 12). He believed God, and it was counted to him for righteousness (Genesis 15:6; Romans 4). He is father of faith for those who trust Christ (Galatians 3).',
+    verses: ['Genesis 12:1-2', 'Genesis 15:6', 'Romans 4:3', 'Galatians 3:6-7'],
+    plan: null
+  },
+  {
+    id: 'what-is-the-church',
+    type: 'knowledge',
+    triggers: [
+      'what is the church', 'what is the church in the bible', 'who is the church',
+      'body of christ meaning', 'define church biblically'
+    ],
+    answer: 'The church is not primarily a building — it is the people of God in Christ, His body (Ephesians 1:22–23; 1 Corinthians 12). Jesus said "I will build my church" (Matthew 16:18). Local churches gather to teach the Word, break bread, pray, and love one another (Acts 2:42).',
+    verses: ['Matthew 16:18', 'Acts 2:42', '1 Corinthians 12:27', 'Ephesians 1:22-23'],
+    plan: 'smallchurchheavy'
+  },
+  {
+    id: 'how-to-read-the-bible',
+    type: 'knowledge',
+    triggers: [
+      'how do i read the bible', 'how to read the bible', 'where do i start reading the bible',
+      'how should i study the bible', 'bible reading for beginners', 'i dont know how to read the bible'
+    ],
+    answer: 'Start small and steady. Pray Psalm 119:18, then read a short passage slowly in the KJV — many begin with the Gospel of John or Mark, or a Psalm a day. Ask: Who is speaking? What does it say about God? What is one step of obedience? The goal is not speed; it is meeting the living God through His Word.',
+    verses: ['Psalm 119:18', 'Psalm 119:105', '2 Timothy 3:16-17', 'John 1:1', 'Joshua 1:8'],
+    plan: 'gospeljohn'
+  },
+  {
+    id: 'what-is-repentance',
+    type: 'knowledge',
+    triggers: [
+      'what is repentance', 'what does repent mean', 'bible definition of repentance',
+      'how do i repent', 'what is true repentance'
+    ],
+    answer: 'Repentance is a turning — mind, heart, and direction — from sin toward God. Acts 3:19: "Repent ye therefore, and be converted, that your sins may be blotted out." It is more than feeling sorry; it is change under God\'s kindness (Romans 2:4). Confession agrees with God about sin (1 John 1:9); repentance walks a new way by His grace.',
+    verses: ['Acts 3:19', 'Acts 17:30', '2 Corinthians 7:10', '1 John 1:9'],
+    plan: null
+  },
+  {
+    id: 'what-is-faith-bible',
+    type: 'knowledge',
+    triggers: [
+      'what is faith', 'what is faith in the bible', 'bible definition of faith',
+      'what does faith mean', 'define faith biblically', 'hebrews 11 faith'
+    ],
+    answer: 'Hebrews 11:1 says "faith is the substance of things hoped for, the evidence of things not seen." Biblical faith is trust in the true God and His Word — receiving what He says and resting on Christ. Romans 10:17: "faith cometh by hearing, and hearing by the word of God."',
+    verses: ['Hebrews 11:1', 'Hebrews 11:6', 'Romans 10:17', 'Ephesians 2:8'],
+    plan: 'fearfaith'
+  },
+
 ];
 
 const topics = {
@@ -19651,6 +19830,35 @@ function normalizeBibleRef(ref) {
   return cleaned.trim();
 }
 
+/**
+ * Resolve verse text from a ref→text map. Handles Psalm/Psalms and common alias keys.
+ * data/kjv-full.json stores Psalms N:M (plural); many UI refs use Psalm N:M (singular).
+ */
+function resolveBibleTextFromMap(map, ref) {
+  if (!map || !ref) return '';
+  var direct = map[ref];
+  if (direct) return direct;
+  var normalized = normalizeBibleRef(ref);
+  if (normalized && map[normalized]) return map[normalized];
+  var candidates = [];
+  if (normalized) candidates.push(normalized);
+  if (ref && ref !== normalized) candidates.push(String(ref).trim());
+  for (var i = 0; i < candidates.length; i++) {
+    var c = candidates[i];
+    if (!c) continue;
+    if (map[c]) return map[c];
+    if (/^Psalm\s+/i.test(c)) {
+      var plural = c.replace(/^Psalm\s+/i, 'Psalms ');
+      if (map[plural]) return map[plural];
+    }
+    if (/^Psalms\s+/i.test(c)) {
+      var singular = c.replace(/^Psalms\s+/i, 'Psalm ');
+      if (map[singular]) return map[singular];
+    }
+  }
+  return '';
+}
+
 /** Parse book from ref (e.g. "Philippians 4:6" -> "Philippians", "1 Corinthians 2:3" -> "1 Corinthians"). */
 function parseBookFromRef(ref) {
   if (!ref) return '';
@@ -19723,9 +19931,12 @@ function getVerseBreakdown(ref, text, options) {
 
 function getBibleVerseText(ref) {
   if (!ref) return '';
-  if (bible[ref]) return bible[ref];
-  const normalized = normalizeBibleRef(ref);
-  if (normalized && bible[normalized]) return bible[normalized];
+  var fromMain = resolveBibleTextFromMap(bible, ref);
+  if (fromMain) return fromMain;
+  if (typeof window !== 'undefined' && window.kjvData && window.kjvData !== bible) {
+    var fromWin = resolveBibleTextFromMap(window.kjvData, ref);
+    if (fromWin) return fromWin;
+  }
   return '';
 }
 
@@ -20153,14 +20364,26 @@ const templates = [
 ];
 
 const versionFiles = {
-  KJV: '/kjv.json',
+  /* Full public-domain KJV (~31k verses). Tiny root /kjv.json is a 44-verse emergency stub only. */
+  KJV: '/data/kjv-full.json',
   NIV: '/niv.json',
   ESV: '/esv.json',
   NLT: '/nlt.json',
   NKJV: '/nkjv.json'
 };
 const BIBLE_DATA_ORIGIN = 'https://todaysdailybattle.com';
-const BIBLE_DATA_CACHE_BUST = '20260403bible';
+const BIBLE_DATA_CACHE_BUST = '20260802fullkjv';
+/** Prefer full corpus; reject stub packs (&lt;1k keys) when loading KJV. */
+const KJV_MIN_VERSE_COUNT = 1000;
+const KJV_FULL_URLS = [
+  '/data/kjv-full.json',
+  '/data/kjv-verses.json',
+  '/kjv-full.json'
+];
+const KJV_STUB_URLS = [
+  '/kjv.json',
+  '/assets/data/kjv.json'
+];
 
 var READER_BOOKS_ORDER = ['Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Joshua','Judges','Ruth','1 Samuel','2 Samuel','1 Kings','2 Kings','1 Chronicles','2 Chronicles','Ezra','Nehemiah','Esther','Job','Psalm','Proverbs','Ecclesiastes','Song of Solomon','Isaiah','Jeremiah','Lamentations','Ezekiel','Daniel','Hosea','Joel','Amos','Obadiah','Jonah','Micah','Nahum','Habakkuk','Zephaniah','Haggai','Zechariah','Malachi','Matthew','Mark','Luke','John','Acts','Romans','1 Corinthians','2 Corinthians','Galatians','Ephesians','Philippians','Colossians','1 Thessalonians','2 Thessalonians','1 Timothy','2 Timothy','Titus','Philemon','Hebrews','James','1 Peter','2 Peter','1 John','2 John','3 John','Jude','Revelation'];
 var READER_CHAPTER_COUNTS = { 'Genesis':50,'Exodus':40,'Leviticus':27,'Numbers':36,'Deuteronomy':34,'Joshua':24,'Judges':21,'Ruth':4,'1 Samuel':31,'2 Samuel':24,'1 Kings':22,'2 Kings':25,'1 Chronicles':29,'2 Chronicles':36,'Ezra':10,'Nehemiah':13,'Esther':10,'Job':42,'Psalm':150,'Proverbs':31,'Ecclesiastes':12,'Song of Solomon':8,'Isaiah':66,'Jeremiah':52,'Lamentations':5,'Ezekiel':48,'Daniel':12,'Hosea':14,'Joel':3,'Amos':9,'Obadiah':1,'Jonah':4,'Micah':7,'Nahum':3,'Habakkuk':3,'Zephaniah':3,'Haggai':2,'Zechariah':14,'Malachi':4,'Matthew':28,'Mark':16,'Luke':24,'John':21,'Acts':28,'Romans':16,'1 Corinthians':16,'2 Corinthians':13,'Galatians':6,'Ephesians':6,'Philippians':4,'Colossians':4,'1 Thessalonians':5,'2 Thessalonians':3,'1 Timothy':6,'2 Timothy':4,'Titus':3,'Philemon':1,'Hebrews':13,'James':5,'1 Peter':5,'2 Peter':3,'1 John':5,'2 John':1,'3 John':1,'Jude':1,'Revelation':22 };
@@ -20998,6 +21221,7 @@ if (typeof document !== 'undefined' && document.addEventListener) {
 if (typeof window !== 'undefined') {
   window.getDailyVerseRef = getDailyVerseRef;
   window.getBibleVerseText = getBibleVerseText;
+  window.resolveBibleTextFromMap = resolveBibleTextFromMap;
   window.getDailyKey = getDailyKey;
   window.getDailyBattleFromSupabaseForKey = getDailyBattleFromSupabaseForKey;
   window.getDailyBattleFallbackForKey = getDailyBattleFallbackForKey;
@@ -23272,40 +23496,75 @@ function normalizeBibleData(data) {
 }
 
 async function loadBible(version = currentVersion) {
-  if (version === 'KJV' && typeof window !== 'undefined' && window.kjvData) {
-    bible = normalizeBibleData(window.kjvData);
-    bibleVersions.KJV = bible;
-    currentVersion = 'KJV';
+  function corpusSize(map) {
+    if (!map) return 0;
+    if (Array.isArray(map)) return map.length;
+    return Object.keys(map).length;
+  }
+  function applyBibleMap(map, ver) {
+    bible = normalizeBibleData(map);
+    if (ver === 'KJV' && typeof window !== 'undefined') window.kjvData = bible;
+    bibleVersions[ver] = bible;
+    currentVersion = ver;
     bibleEntries = Object.entries(bible);
     searchCache.clear();
-    renderDailyVerse();
+    if (typeof renderDailyVerse === 'function') {
+      try { renderDailyVerse(); } catch (eRd) { /* non-fatal */ }
+    }
     try {
-      if (typeof window.dispatchEvent === 'function') window.dispatchEvent(new CustomEvent('tdb-bible-ready'));
+      if (typeof window !== 'undefined' && typeof window.dispatchEvent === 'function') {
+        window.dispatchEvent(new CustomEvent('tdb-bible-ready', {
+          detail: { version: ver, verseCount: corpusSize(bible) }
+        }));
+      }
     } catch (eBr) { /* non-fatal */ }
-    return;
+  }
+
+  if (version === 'KJV' && typeof window !== 'undefined' && window.kjvData) {
+    var pre = normalizeBibleData(window.kjvData);
+    if (corpusSize(pre) >= KJV_MIN_VERSE_COUNT) {
+      applyBibleMap(pre, 'KJV');
+      return;
+    }
+    /* Preload only got the 44-verse stub — fall through and fetch full corpus. */
   }
   const file = versionFiles[version] || versionFiles.KJV;
   const isFileProtocol = typeof location !== 'undefined' && location.protocol === 'file:';
   const rootPath = file.startsWith('/') ? file : '/' + file;
   const urlsToTry = [];
-  const kjvFallbacks = version === 'KJV'
-    ? ['/kjv.json', '/kjv.json?v=' + encodeURIComponent(BIBLE_DATA_CACHE_BUST)]
+  const kjvPreferred = version === 'KJV'
+    ? KJV_FULL_URLS.concat(KJV_FULL_URLS.map(function (u) {
+        return u + '?v=' + encodeURIComponent(BIBLE_DATA_CACHE_BUST);
+      }))
     : [];
-  if (isFileProtocol) {
-    urlsToTry.push(BIBLE_DATA_ORIGIN + rootPath);
-    urlsToTry.push(BIBLE_DATA_ORIGIN + rootPath + '?v=' + encodeURIComponent(BIBLE_DATA_CACHE_BUST));
-    kjvFallbacks.forEach(function (u) {
-      urlsToTry.push(BIBLE_DATA_ORIGIN + u);
-    });
+  const kjvFallbacks = version === 'KJV'
+    ? KJV_STUB_URLS.concat(KJV_STUB_URLS.map(function (u) {
+        return u + '?v=' + encodeURIComponent(BIBLE_DATA_CACHE_BUST);
+      }))
+    : [];
+  function pushUrl(u) {
+    if (!u) return;
+    if (isFileProtocol && u.indexOf('http') !== 0) {
+      urlsToTry.push(BIBLE_DATA_ORIGIN + (u.charAt(0) === '/' ? u : '/' + u));
+    } else {
+      urlsToTry.push(u);
+    }
+  }
+  if (version === 'KJV') {
+    kjvPreferred.forEach(pushUrl);
+    if (!isFileProtocol) {
+      kjvPreferred.forEach(function (u) {
+        if (u.indexOf('http') !== 0) urlsToTry.push(BIBLE_DATA_ORIGIN + u);
+      });
+    }
+    kjvFallbacks.forEach(pushUrl);
   } else {
-    urlsToTry.push(rootPath);
-    urlsToTry.push(rootPath + '?v=' + encodeURIComponent(BIBLE_DATA_CACHE_BUST));
-    kjvFallbacks.forEach(function (u) { urlsToTry.push(u); });
-    urlsToTry.push(BIBLE_DATA_ORIGIN + rootPath);
-    urlsToTry.push(BIBLE_DATA_ORIGIN + rootPath + '?v=' + encodeURIComponent(BIBLE_DATA_CACHE_BUST));
-    kjvFallbacks.forEach(function (u) {
-      urlsToTry.push(BIBLE_DATA_ORIGIN + u);
-    });
+    pushUrl(rootPath);
+    pushUrl(rootPath + '?v=' + encodeURIComponent(BIBLE_DATA_CACHE_BUST));
+    if (!isFileProtocol) {
+      urlsToTry.push(BIBLE_DATA_ORIGIN + rootPath);
+      urlsToTry.push(BIBLE_DATA_ORIGIN + rootPath + '?v=' + encodeURIComponent(BIBLE_DATA_CACHE_BUST));
+    }
   }
   const seenUrls = {};
   const dedupedUrls = urlsToTry.filter(function (u) {
@@ -23317,7 +23576,7 @@ async function loadBible(version = currentVersion) {
     var lastErr = null;
     for (var attempt = 0; attempt < 2; attempt++) {
       try {
-        const response = await fetch(url, { cache: 'no-store' });
+        const response = await fetch(url, { cache: 'force-cache' });
         if (!response.ok) throw new Error('status ' + response.status);
         return await response.json();
       } catch (err) {
@@ -23334,25 +23593,30 @@ async function loadBible(version = currentVersion) {
     }
     throw lastErr || new Error('load failed');
   }
+  var lastStubMap = null;
   for (let i = 0; i < dedupedUrls.length; i++) {
     try {
       var raw = await fetchBibleJsonWithRetry(dedupedUrls[i]);
-      bible = normalizeBibleData(raw);
-      if (version === 'KJV' && typeof window !== 'undefined') window.kjvData = bible;
-      bibleVersions[version] = bible;
-      currentVersion = version;
-      bibleEntries = Object.entries(bible);
-      searchCache.clear();
-      renderDailyVerse();
-      try {
-        if (typeof window.dispatchEvent === 'function') window.dispatchEvent(new CustomEvent('tdb-bible-ready'));
-      } catch (eBr2) { /* non-fatal */ }
+      var mapped = normalizeBibleData(raw);
+      var n = corpusSize(mapped);
+      if (version === 'KJV' && n < KJV_MIN_VERSE_COUNT) {
+        lastStubMap = mapped;
+        /* Keep trying preferred full-corpus URLs before accepting stub. */
+        if (i < dedupedUrls.length - 1) continue;
+        applyBibleMap(mapped, version);
+        return;
+      }
+      applyBibleMap(mapped, version);
       return;
     } catch (err) {
       if (i === 0 && version !== 'KJV') {
         return loadBible('KJV');
       }
       if (i < dedupedUrls.length - 1) continue;
+      if (lastStubMap && corpusSize(lastStubMap) > 0) {
+        applyBibleMap(lastStubMap, version);
+        return;
+      }
       if (typeof console !== 'undefined' && console.error) {
         console.error('Error loading Bible data:', err.message);
       }
@@ -33281,6 +33545,47 @@ function buildBiblicalAnswerSection(entry, compact) {
     section.appendChild(planRow);
   }
 
+  // Teaching loop: chapter · Life Lesson · Learn the Word spine
+  var teachRow = document.createElement('div');
+  teachRow.className = 'tdb-ba-teach-next';
+  teachRow.setAttribute('role', 'navigation');
+  teachRow.setAttribute('aria-label', 'Keep learning');
+  var teachLabel = document.createElement('span');
+  teachLabel.className = 'tdb-ba-teach-label';
+  teachLabel.textContent = 'Keep walking: ';
+  teachRow.appendChild(teachLabel);
+  var firstRef = Array.isArray(entry.verses) && entry.verses.length ? entry.verses[0] : '';
+  if (firstRef) {
+    var chLink = document.createElement('a');
+    chLink.className = 'tdb-ba-teach-link';
+    chLink.href = 'reader.html?ref=' + encodeURIComponent(firstRef);
+    chLink.textContent = 'Read the chapter';
+    teachRow.appendChild(chLink);
+    teachRow.appendChild(document.createTextNode(' · '));
+  }
+  if (entry.lesson) {
+    var lesHref = String(entry.lesson).charAt(0) === '/' ? entry.lesson : '/' + entry.lesson;
+    var lesLink = document.createElement('a');
+    lesLink.className = 'tdb-ba-teach-link';
+    lesLink.href = lesHref;
+    lesLink.textContent = 'Life Lesson';
+    teachRow.appendChild(lesLink);
+    teachRow.appendChild(document.createTextNode(' · '));
+  } else {
+    var llLink = document.createElement('a');
+    llLink.className = 'tdb-ba-teach-link';
+    llLink.href = 'life-lessons.html';
+    llLink.textContent = 'Life Lessons';
+    teachRow.appendChild(llLink);
+    teachRow.appendChild(document.createTextNode(' · '));
+  }
+  var spineLink = document.createElement('a');
+  spineLink.className = 'tdb-ba-teach-link';
+  spineLink.href = 'learn-the-word.html';
+  spineLink.textContent = 'Learn the Word path';
+  teachRow.appendChild(spineLink);
+  section.appendChild(teachRow);
+
   // Quiet local feedback row — yes/no, stored only in localStorage, never sent anywhere
   var feedbackKey = 'tdb_ba_helpful_' + (entry.id || '');
   var feedbackRow = document.createElement('div');
@@ -35125,18 +35430,90 @@ async function tdbInitImpl() {
           els.helpful.textContent = '';
         }
       }
+      function homeQaIsGenericFluff(answer) {
+        var a = String(answer || '');
+        return /that is a real question, not small talk|fake certainty|soft-focus fluff|Seeking the Word/i.test(a);
+      }
+      function homeQaQuality(data) {
+        if (!data || !data.answer) return 0;
+        var score = 10;
+        if (data.curated_id || data.from === 'curated' || data.from === 'core') score += 100;
+        if (data.from === 'reference') score += 80;
+        if (data.from === 'findBiblicalAnswer' || data.from === 'catalog') score += 100;
+        var sources = data.sources || [];
+        score += Math.min(sources.length, 5) * 6;
+        if (Array.isArray(data.verses)) {
+          data.verses.forEach(function (v) {
+            if (v && v.text && String(v.text).length > 10) score += 12;
+          });
+        }
+        if (homeQaIsGenericFluff(data.answer)) score -= 50;
+        return score;
+      }
+      function renderHomeQaNextSteps(els, data) {
+        var host = els.wrap;
+        if (!host) return;
+        var existing = host.querySelector('.home-qa-next-steps');
+        if (existing) existing.remove();
+        var steps = (data && data.next_steps) || [];
+        if (!steps.length) {
+          steps = [
+            { label: 'Learn the Word path', href: '/learn-the-word.html' },
+            { label: 'Battle Plans', href: '/plans.html' },
+            { label: 'Life Lessons', href: '/life-lessons.html' }
+          ];
+        }
+        var row = document.createElement('div');
+        row.className = 'home-qa-next-steps';
+        row.setAttribute('role', 'navigation');
+        row.setAttribute('aria-label', 'Keep learning');
+        var lab = document.createElement('span');
+        lab.className = 'home-qa-next-steps-label';
+        lab.textContent = 'Keep walking: ';
+        row.appendChild(lab);
+        steps.slice(0, 4).forEach(function (step, idx) {
+          if (!step || !step.href) return;
+          if (idx > 0) row.appendChild(document.createTextNode(' · '));
+          var a = document.createElement('a');
+          a.className = 'home-qa-next-step';
+          a.href = step.href;
+          a.textContent = step.label || 'Continue';
+          row.appendChild(a);
+        });
+        host.appendChild(row);
+      }
       function renderHomeQaResult(data, queryText, results) {
         var els = getHomeQaElements();
         if (!els.wrap || !els.answer) return;
-        if (!queryText || !results || results.intent === 'reference' || results.intent === 'empty' || !results.verses || !results.verses.length) {
+        var hasVerses = results && Array.isArray(results.verses) && results.verses.length;
+        var hasStrongAnswer = data && data.answer && !homeQaIsGenericFluff(data.answer) && homeQaQuality(data) >= 40;
+        if (!queryText) {
           hideHomeQaResult();
           return;
         }
-        var answerText = buildAskTheWordFooterCopy(queryText, results);
+        if (results && (results.intent === 'reference' || results.intent === 'empty') && !hasStrongAnswer) {
+          hideHomeQaResult();
+          return;
+        }
+        if (!hasVerses && !hasStrongAnswer) {
+          hideHomeQaResult();
+          return;
+        }
+        var answerText = '';
+        if (data && data.answer && !homeQaIsGenericFluff(data.answer) && homeQaQuality(data) >= 40) {
+          answerText = tdbPlainTextForUi(data.answer);
+        } else if (results) {
+          answerText = buildAskTheWordFooterCopy(queryText, results);
+        }
+        if (!answerText) {
+          hideHomeQaResult();
+          return;
+        }
         var prayerText = data && data.prayer_prompt
           ? tdbPlainTextForUi(data.prayer_prompt)
-          : getHomeSearchPrayerText(results.verses[0]);
-        var sources = getAskTheWordSources(queryText, results, data);
+          : (results && results.verses && results.verses[0] ? getHomeSearchPrayerText(results.verses[0]) : '');
+        var sources = getAskTheWordSources(queryText, results || { verses: [] }, data);
+        if ((!sources || !sources.length) && data && Array.isArray(data.sources)) sources = data.sources;
         els.wrap.classList.remove('hidden');
         els.wrap.removeAttribute('hidden');
         els.answer.textContent = answerText;
@@ -35158,6 +35535,7 @@ async function tdbInitImpl() {
           els.sources.setAttribute('hidden', '');
           els.sources.textContent = '';
         }
+        renderHomeQaNextSteps(els, data);
         if (els.helpful) {
           var helpfulKey = 'tdb_ask_word_helpful_' + getHomeAskTheWordKey(queryText);
           var saved = '';
@@ -35192,17 +35570,84 @@ async function tdbInitImpl() {
           }
         }
       }
+      /**
+       * Home Ask the Word — offline core / curated catalog first.
+       * Never prefer HF “pastor voice” fluff over local Scripture answers.
+       */
       async function getHomeQaResponse(query, tier, results) {
         var q = String(query || '').trim();
         if (!q) return null;
-        var cacheKey = 'tdb_home_qa_' + normalizeInput(q);
+        var cacheKey = 'tdb_home_qa_v2_' + normalizeInput(q);
         try {
           var cachedRaw = localStorage.getItem(cacheKey);
           if (cachedRaw) {
             var cached = JSON.parse(cachedRaw);
-            if (cached && (cached.answer || cached.prayer_prompt) && Date.now() - (cached.ts || 0) < (24 * 60 * 60 * 1000)) return cached;
+            if (cached && cached.answer && !homeQaIsGenericFluff(cached.answer) && Date.now() - (cached.ts || 0) < (24 * 60 * 60 * 1000)) {
+              return cached;
+            }
           }
         } catch (_) {}
+
+        function packLocal(answer, sources, prayer, extra) {
+          extra = extra || {};
+          return {
+            answer: answer || '',
+            sources: sources || [],
+            prayer_prompt: prayer || '',
+            answer_mode: extra.answer_mode || '',
+            query_kind: extra.query_kind || '',
+            curated_id: extra.curated_id || null,
+            next_steps: extra.next_steps || null,
+            verses: extra.verses || null,
+            from: extra.from || 'local',
+            ts: Date.now()
+          };
+        }
+
+        // 1) Shared Ask the Word core (same brain as bible-tool)
+        if (window.TDBAskTheWord && typeof window.TDBAskTheWord.answer === 'function') {
+          try {
+            var core = await window.TDBAskTheWord.answer(q);
+            if (core && core.answer && !homeQaIsGenericFluff(core.answer)) {
+              var corePack = packLocal(core.answer, core.sources || [], core.prayer_prompt || '', {
+                answer_mode: core.answer_mode,
+                query_kind: core.query_kind,
+                curated_id: core.curated_id,
+                next_steps: core.next_steps,
+                verses: core.verses,
+                from: core.from === 'curated' ? 'curated' : (core.from || 'core')
+              });
+              if (homeQaQuality(corePack) >= 40) {
+                try { localStorage.setItem(cacheKey, JSON.stringify(corePack)); } catch (_) {}
+                return corePack;
+              }
+            }
+          } catch (_) {}
+        }
+
+        // 2) Homepage catalog (TDB_BIBLICAL_ANSWERS)
+        if (typeof findBiblicalAnswer === 'function') {
+          try {
+            var entry = findBiblicalAnswer(q);
+            if (entry && entry.answer) {
+              var catPack = packLocal(entry.answer, entry.verses || [], entry.prayer || 'Lord, meet me in Your Word. Amen.', {
+                curated_id: entry.id,
+                from: 'catalog',
+                next_steps: entry.plan
+                  ? [
+                      { label: 'Related Battle Plan', href: '/plans.html?plan=' + encodeURIComponent(entry.plan) },
+                      { label: 'Learn the Word path', href: '/learn-the-word.html' },
+                      { label: 'Life Lessons', href: '/life-lessons.html' }
+                    ]
+                  : null
+              });
+              try { localStorage.setItem(cacheKey, JSON.stringify(catPack)); } catch (_) {}
+              return catPack;
+            }
+          } catch (_) {}
+        }
+
+        // 3) Optional server assist — only accept curated / high-quality non-fluff
         var cfg = window.TDB_CONFIG || {};
         var supabaseUrl = String(cfg.SUPABASE_URL || '').replace(/\/$/, '');
         var anon = String(cfg.SUPABASE_ANON_KEY || '');
@@ -35215,39 +35660,58 @@ async function tdbInitImpl() {
             });
             if (res.ok) {
               var payload = await res.json();
-              if (payload && (payload.answer || payload.prayer_prompt)) {
-                var apiData = {
-                  answer: payload.answer || '',
-                  sources: Array.isArray(payload.sources) ? payload.sources : [],
-                  prayer_prompt: payload.prayer_prompt || '',
+              if (payload && payload.answer && !homeQaIsGenericFluff(payload.answer)) {
+                var apiData = packLocal(payload.answer, Array.isArray(payload.sources) ? payload.sources : [], payload.prayer_prompt || '', {
                   answer_mode: payload.answer_mode || '',
                   query_kind: payload.query_kind || '',
-                  ts: Date.now()
-                };
-                try { localStorage.setItem(cacheKey, JSON.stringify(apiData)); } catch (_) {}
-                return apiData;
+                  curated_id: payload.curated_id || null,
+                  next_steps: payload.next_steps || null,
+                  verses: payload.verses || null,
+                  from: payload.from === 'curated' ? 'curated' : 'server'
+                });
+                // Prefer server only when curated or clearly stronger than weak local
+                if (payload.from === 'curated' || payload.curated_id || homeQaQuality(apiData) >= 80) {
+                  try { localStorage.setItem(cacheKey, JSON.stringify(apiData)); } catch (_) {}
+                  return apiData;
+                }
               }
             }
           } catch (_) {}
         }
+
+        // 4) Search-result lead from verses already on the page
         var fallback = results || {};
         var verses = Array.isArray(fallback.verses) ? fallback.verses.slice(0, 6) : [];
         if (!verses.length) {
-          return {
-            answer: 'I did not find a strong match yet—that is all right. Shorten the search a little and let Scripture meet you there.',
-            prayer_prompt: 'Lord, meet me in what I cannot sort out yet, and guide me into truth. Amen.',
-            sources: [],
-            ts: Date.now()
-          };
+          return packLocal(
+            'I did not find a strong match yet—that is all right. Shorten the search a little, or open Learn the Word for a steady path.',
+            [],
+            'Lord, meet me in what I cannot sort out yet, and guide me into truth. Amen.',
+            {
+              from: 'empty',
+              next_steps: [
+                { label: 'Learn the Word path', href: '/learn-the-word.html' },
+                { label: 'Battle Plans', href: '/plans.html' }
+              ]
+            }
+          );
         }
-        var result = {
-          answer: buildAskTheWordLocalLead(q, fallback),
-          sources: verses.map(function (v) { return v.ref; }).filter(Boolean),
-          prayer_prompt: getHomeSearchPrayerText(verses[0]),
-          answer_mode: isAskTheWordSingleWordTopic(q, fallback) ? 'strong_verses' : '',
-          query_kind: (q.indexOf('?') !== -1 || /\b(who|what|when|where|why|how|is|are|can|should|does|do|did|will|would|could)\b/i.test(q)) ? 'question' : '',
-          ts: Date.now()
-        };
+        var result = packLocal(
+          buildAskTheWordLocalLead(q, fallback),
+          verses.map(function (v) { return v.ref; }).filter(Boolean),
+          getHomeSearchPrayerText(verses[0]),
+          {
+            answer_mode: isAskTheWordSingleWordTopic(q, fallback) ? 'strong_verses' : '',
+            query_kind: (q.indexOf('?') !== -1 || /\b(who|what|when|where|why|how|is|are|can|should|does|do|did|will|would|could)\b/i.test(q)) ? 'question' : '',
+            from: 'search-lead',
+            next_steps: [
+              { label: 'Learn the Word path', href: '/learn-the-word.html' },
+              { label: 'University map', href: '/university.html' },
+              { label: 'Battle Plans', href: '/plans.html' },
+              { label: 'Life Lessons', href: '/life-lessons.html' }
+            ]
+          }
+        );
         try { localStorage.setItem(cacheKey, JSON.stringify(result)); } catch (_) {}
         return result;
       }

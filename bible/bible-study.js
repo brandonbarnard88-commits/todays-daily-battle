@@ -6,7 +6,7 @@
 
   const HIGHLIGHTS_KEY = 'bibleHighlights';
   const BIBLE_REFLECTION_KEY = 'bibleReflection';
-  const KJV_URL = '../kjv.json';
+  const KJV_URL = '../data/kjv-full.json';
   const BIBLE_USER_NAME_KEY = 'bibleUserName';
   const CHALLENGE_SHARED_KEY = 'challengeShared';
   const CHALLENGE_BONUS_APPLIED_KEY = 'challengeBonusApplied';

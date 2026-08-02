@@ -957,24 +957,44 @@ a.explore-quick-door {
   justify-content: center;
   min-height: 44px;
   padding: 0.5rem 1rem;
-  border-radius: calc(var(--tdb-surface-radius) - 4px);
+  border-radius: var(--tdb-porch-chip-radius, 13px);
   font-family: var(--font-ui);
-  font-size: 0.88rem;
+  font-size: var(--tdb-text-chip, 0.88rem);
   font-weight: 600;
   text-decoration: none;
   color: var(--text, #e6edf3);
   background-color: color-mix(in srgb, var(--tdb-surface-card-bg) 90%, rgba(139, 166, 217, 0.05));
   background-image: var(--tdb-surface-veil-subtle);
   border: 1px solid var(--tdb-surface-card-border);
-  box-shadow: var(--tdb-surface-card-shadow);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: var(--tdb-porch-chip-shadow, var(--tdb-surface-card-shadow));
+  transition:
+    border-color var(--tdb-transition-quiet, 0.2s ease),
+    box-shadow var(--tdb-transition-quiet, 0.2s ease),
+    transform var(--tdb-transition-quiet, 0.2s ease);
 }
 
 a.explore-quick-door:hover,
 a.explore-quick-door:focus-visible {
   border-color: color-mix(in srgb, var(--tdb-surface-card-border) 65%, rgba(227, 188, 103, 0.38));
-  box-shadow: var(--tdb-surface-card-shadow-hover);
+  box-shadow: var(--tdb-lift-shadow, var(--tdb-surface-card-shadow-hover));
   outline: none;
+}
+
+a.explore-quick-door:focus-visible {
+  box-shadow: var(--tdb-lift-shadow, var(--tdb-surface-card-shadow-hover)), var(--tdb-btn-focus-ring);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a.explore-quick-door:hover {
+    transform: translateY(-1px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a.explore-quick-door {
+    transition: none;
+    transform: none;
+  }
 }
 
 :root[data-theme="light"] .explore-quick-doors {
@@ -11539,6 +11559,26 @@ html[data-theme="sepia"] details.verse-breakdown[open] > .verse-breakdown-conten
   color: var(--gold-soft, #f2dc98);
   outline: none;
 }
+.tdb-ba-teach-next {
+  margin: 0.55rem 0 0;
+  font-size: 0.82rem;
+  color: var(--muted, #bcc5d6);
+  line-height: 1.45;
+}
+.tdb-ba-teach-label {
+  opacity: 0.9;
+}
+.tdb-ba-teach-link {
+  color: var(--gold, #e3bc67);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 2px;
+}
+.tdb-ba-teach-link:hover,
+.tdb-ba-teach-link:focus-visible {
+  color: var(--gold-soft, #f2dc98);
+  outline: none;
+}
 .tdb-ba-feedback {
   margin-top: 0.6rem;
   padding-top: 0.5rem;
@@ -18930,6 +18970,29 @@ html[data-theme="sepia"] details.verse-breakdown[open] {
   font-size: 0.86rem;
 }
 
+.home-qa-next-steps {
+  margin: 0.75rem 0 0;
+  padding-top: 0.55rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.18);
+  font-size: 0.86rem;
+  color: var(--muted, #bcc5d6);
+  line-height: 1.5;
+}
+.home-qa-next-steps-label {
+  opacity: 0.9;
+}
+.home-qa-next-step {
+  color: var(--gold, #e3bc67);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 2px;
+}
+.home-qa-next-step:hover,
+.home-qa-next-step:focus-visible {
+  color: var(--gold-soft, #f2dc98);
+  outline: none;
+}
+
 .home-qa-helpful {
   margin-top: 0.7rem;
   color: var(--text-muted, #cbd5e1);
@@ -19998,31 +20061,50 @@ main > .card {
 /* Explicit luxury surface — Explore jump links (+ locale hubs missing .tdb-surface-card) */
 .explore-hub-card.tdb-surface-card,
 .explore-hub-grid a.explore-hub-card:not(.tdb-surface-card) {
-  border-radius: var(--tdb-surface-radius);
-  border: 1px solid var(--tdb-surface-card-border);
-  background-color: var(--tdb-surface-card-bg);
+  border-radius: var(--tdb-porch-card-radius, var(--tdb-surface-radius));
+  border: 1px solid var(--tdb-porch-card-border, var(--tdb-surface-card-border));
+  background-color: var(--tdb-porch-card-bg, var(--tdb-surface-card-bg));
   background-image: var(--tdb-surface-veil-subtle);
-  box-shadow: var(--tdb-surface-card-shadow);
-  transition: box-shadow 0.35s cubic-bezier(0.33, 1, 0.68, 1), border-color 0.25s ease, background-color 0.25s ease, transform 0.2s ease;
+  box-shadow: var(--tdb-porch-card-shadow, var(--tdb-surface-card-shadow));
+  transition:
+    box-shadow var(--tdb-transition-quiet, 0.2s ease),
+    border-color var(--tdb-transition-quiet, 0.2s ease),
+    background-color var(--tdb-transition-quiet, 0.2s ease),
+    transform var(--tdb-transition-quiet, 0.2s ease);
 }
 
 .explore-hub-card.tdb-surface-card:hover,
 .explore-hub-card.tdb-surface-card:focus-visible,
 .explore-hub-grid a.explore-hub-card:not(.tdb-surface-card):hover,
 .explore-hub-grid a.explore-hub-card:not(.tdb-surface-card):focus-visible {
-  box-shadow: var(--tdb-surface-card-shadow-hover);
-  border-color: color-mix(in srgb, var(--tdb-surface-card-border) 72%, rgba(227, 188, 103, 0.32));
-  background-color: color-mix(in srgb, var(--tdb-surface-card-bg) 90%, rgba(227, 188, 103, 0.1));
-  outline: 2px solid color-mix(in srgb, var(--gold, #e3bc67) 45%, transparent);
-  outline-offset: 2px;
-  transform: translateY(-1px);
+  box-shadow: var(--tdb-porch-card-shadow-hover, var(--tdb-surface-card-shadow-hover));
+  border-color: color-mix(in srgb, var(--tdb-porch-card-border, var(--tdb-surface-card-border)) 55%, rgba(227, 188, 103, 0.4));
+  background-color: color-mix(in srgb, var(--tdb-porch-card-bg, var(--tdb-surface-card-bg)) 90%, rgba(227, 188, 103, 0.1));
+  outline: none;
+}
+
+.explore-hub-card.tdb-surface-card:focus-visible,
+.explore-hub-grid a.explore-hub-card:not(.tdb-surface-card):focus-visible {
+  box-shadow:
+    var(--tdb-porch-card-shadow-hover, var(--tdb-surface-card-shadow-hover)),
+    var(--tdb-btn-focus-ring, 0 0 0 3px color-mix(in srgb, var(--gold, #e3bc67) 55%, transparent));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .explore-hub-card.tdb-surface-card:hover,
+  .explore-hub-grid a.explore-hub-card:not(.tdb-surface-card):hover {
+    transform: translateY(-1px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .explore-hub-card.tdb-surface-card,
+  .explore-hub-grid a.explore-hub-card:not(.tdb-surface-card),
   .explore-hub-card.tdb-surface-card:hover,
   .explore-hub-card.tdb-surface-card:focus-visible,
   .explore-hub-grid a.explore-hub-card:not(.tdb-surface-card):hover,
   .explore-hub-grid a.explore-hub-card:not(.tdb-surface-card):focus-visible {
+    transition: none;
     transform: none;
   }
 }
@@ -25355,3 +25437,24 @@ html.tdb-backup-reminder-open body {
   background: rgba(255,255,255,0.03);
   border-top: 1px solid var(--border-subtle, rgba(148,163,184,0.14));
 }
+
+
+/* Explore grow path — University → Plans → Life Lessons */
+.explore-grow-path {
+  margin: 0 0 1.1rem;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(227, 188, 103, 0.28);
+  background: rgba(227, 188, 103, 0.06);
+}
+.explore-grow-path__title {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  color: var(--gold, #e3bc67);
+  font-weight: 700;
+}
+.explore-grow-path__list {
+  margin: 0.35rem 0 0.5rem;
+  padding-left: 1.2rem;
+}
+.explore-grow-path__list li { margin-bottom: 0.3rem; }

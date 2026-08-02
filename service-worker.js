@@ -280,6 +280,12 @@ const CORE_ASSETS = [
   '/world-map-source.svg',
   '/kjv.json',
   '/assets/data/kjv.json',
+  '/data/kjv-full.json',
+  '/data/kjv-verses.json',
+  '/data/ask-the-word-answers.json',
+  '/ask-the-word-answers.json',
+  '/ask-the-word-core.js',
+  '/learn-the-word.html',
   '/bible-characters.json',
   '/people-verse-map.js',
   '/daily-verses.js',
@@ -530,8 +536,16 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Today's verse (KJV text) – offline-first: cache then network
-  if (url.pathname.endsWith('kjv.json') || url.pathname.endsWith('/kjv.json') || url.pathname.endsWith('/assets/data/kjv.json')) {
+  // Full KJV corpus (~31k) + legacy stub – offline-first: cache then network
+  if (
+    url.pathname.endsWith('kjv-full.json') ||
+    url.pathname.endsWith('/data/kjv-full.json') ||
+    url.pathname.endsWith('kjv-verses.json') ||
+    url.pathname.endsWith('/data/kjv-verses.json') ||
+    url.pathname.endsWith('kjv.json') ||
+    url.pathname.endsWith('/kjv.json') ||
+    url.pathname.endsWith('/assets/data/kjv.json')
+  ) {
     event.respondWith(
       caches.match(event.request).then((cached) => {
         if (cached) return cached;
@@ -541,15 +555,27 @@ self.addEventListener('fetch', (event) => {
             caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone)).catch(() => {});
             return res;
           }
-          return fetch('/assets/data/kjv.json').then((altRes) => {
-            if (altRes && altRes.ok) {
-              const altClone = altRes.clone();
-              caches.open(CACHE_NAME).then((cache) => cache.put('/assets/data/kjv.json', altClone)).catch(() => {});
-            }
-            return altRes;
-          });
+          /* Prefer full corpus alts, then stub */
+          return fetch('/data/kjv-full.json')
+            .then((fullRes) => {
+              if (fullRes && fullRes.ok) {
+                const fullClone = fullRes.clone();
+                caches.open(CACHE_NAME).then((cache) => cache.put('/data/kjv-full.json', fullClone)).catch(() => {});
+                return fullRes;
+              }
+              return fetch('/assets/data/kjv.json').then((altRes) => {
+                if (altRes && altRes.ok) {
+                  const altClone = altRes.clone();
+                  caches.open(CACHE_NAME).then((cache) => cache.put('/assets/data/kjv.json', altClone)).catch(() => {});
+                }
+                return altRes;
+              });
+            })
+            .catch(() =>
+              fetch('/assets/data/kjv.json').catch(() => fetch('/kjv.json'))
+            );
         });
-      }).catch(() => fetch('/assets/data/kjv.json'))
+      }).catch(() => fetch('/data/kjv-full.json').catch(() => fetch('/assets/data/kjv.json')))
     );
     return;
   }
@@ -580,7 +606,10 @@ self.addEventListener('fetch', (event) => {
     url.pathname.includes('/daily-verse') ||
     url.pathname.endsWith('/daily-verses.js') ||
     url.pathname.endsWith('/kjv.json') ||
-    url.pathname.endsWith('/assets/data/kjv.json')
+    url.pathname.endsWith('/assets/data/kjv.json') ||
+    url.pathname.endsWith('/data/kjv-full.json') ||
+    url.pathname.endsWith('/kjv-full.json') ||
+    url.pathname.endsWith('/data/kjv-verses.json')
   );
   if (isVerseRequest) {
     event.respondWith(

@@ -72,21 +72,37 @@
     if (!out) return;
     out.innerHTML = '<p class="empty" style="text-align:center;padding:1.5rem;">Seeking God\'s truth…</p>';
     out.style.display = 'grid';
-    var urls = ['/kjv.json', 'https://todaysdailybattle.com/kjv.json'];
+    var urls = [
+      '/data/kjv-full.json',
+      '/data/kjv-verses.json',
+      '/kjv.json',
+      'https://todaysdailybattle.com/data/kjv-full.json',
+      'https://todaysdailybattle.com/kjv.json'
+    ];
     function tryFetch(i) {
       if (i >= urls.length) return Promise.reject();
-      return fetch(urls[i])
+      return fetch(urls[i], { cache: 'force-cache' })
         .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
         .catch(function () { return tryFetch(i + 1); });
     }
-    tryFetch(0).then(function (arr) {
-      if (!Array.isArray(arr)) return;
+    function toVerseList(data) {
+      if (Array.isArray(data)) return data;
+      if (data && typeof data === 'object') {
+        return Object.keys(data).map(function (ref) {
+          return { ref: ref, text: data[ref] };
+        });
+      }
+      return [];
+    }
+    tryFetch(0).then(function (raw) {
+      var arr = toVerseList(raw);
+      if (!arr.length) return;
       var term = q.toLowerCase();
       var matches = [];
       for (var i = 0; i < arr.length; i++) {
         var v = arr[i];
         if (!v || !v.ref || !v.text) continue;
-        if (v.text.toLowerCase().indexOf(term) !== -1) matches.push(v);
+        if (v.text.toLowerCase().indexOf(term) !== -1 || String(v.ref).toLowerCase().indexOf(term) !== -1) matches.push(v);
       }
       if (matches.length === 0) matches = arr.slice(0, 8);
       var html = '<div class="results"><h4 class="section-divider">Verses for "' +

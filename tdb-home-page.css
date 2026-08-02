@@ -11081,6 +11081,51 @@
 .tdb-home-first-doors .tdb-offline-ready {
   margin: 0.45rem 0 0;
 }
+
+/* Grow path — Explore → University → Plans → Life Lessons */
+.tdb-home-grow-path {
+  margin: 0.5rem auto 1.25rem;
+  padding: 0.95rem 1rem 1.05rem;
+  max-width: 40rem;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--line, #3a4558) 75%, rgba(227, 188, 103, 0.22));
+  background: color-mix(in srgb, var(--card, #1a2230) 92%, rgba(227, 188, 103, 0.06));
+}
+.tdb-home-grow-path__title {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--gold, #e3bc67);
+}
+.tdb-home-grow-path__lead {
+  margin: 0 0 0.65rem;
+}
+.tdb-home-grow-path__list {
+  margin: 0 0 0.65rem;
+  padding-left: 1.25rem;
+  color: rgba(245, 247, 251, 0.92);
+  line-height: 1.55;
+}
+.tdb-home-grow-path__list li {
+  margin-bottom: 0.35rem;
+}
+.tdb-home-grow-path__list a {
+  color: var(--gold, #e3bc67);
+  text-underline-offset: 2px;
+}
+.tdb-home-grow-path__more {
+  margin: 0;
+}
+:root[data-theme="light"] .tdb-home-grow-path,
+html[data-theme="light"] .tdb-home-grow-path {
+  background: color-mix(in srgb, #faf6ee 92%, rgba(227, 188, 103, 0.12));
+  border-color: color-mix(in srgb, #d4b87a 40%, transparent);
+}
+:root[data-theme="light"] .tdb-home-grow-path__list,
+html[data-theme="light"] .tdb-home-grow-path__list {
+  color: #2a3344;
+}
+
 .tdb-home-pickup {
   margin: 0.85rem auto 1.15rem;
   padding: 0.85rem 0.95rem 0.95rem;
@@ -11357,4 +11402,422 @@
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--text, #e8eef8);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+ * Phase 1 — calmly contemporary (Home Ask the Word + chips)
+ * Tokens live in tdb-visual-tokens.css; these rules win on Home cascade.
+ * ═══════════════════════════════════════════════════════════════════ */
+
+#feel-section {
+  padding-block: clamp(1.15rem, 2.6vw, 1.55rem);
+}
+
+#feel-section .mood-title {
+  margin-bottom: var(--tdb-porch-space-xs, 0.5rem);
+}
+
+#feel-section .mood-subtitle {
+  margin-bottom: var(--tdb-porch-space-md, 1.25rem);
+  line-height: var(--tdb-line-ui, 1.55);
+}
+
+/* Ask the Word input — taller, softer border, quiet inset */
+#feel-search {
+  min-height: 48px;
+  font-size: var(--tdb-text-ui, 1rem);
+  line-height: var(--tdb-line-ui, 1.55);
+  border-radius: var(--tdb-porch-input-radius, 14px);
+  border: 1.5px solid color-mix(in srgb, var(--line) 88%, var(--gold) 12%);
+  padding: 0.85rem 1.15rem;
+  background: color-mix(in srgb, var(--bg-soft) 92%, var(--card) 8%);
+  box-shadow: var(--tdb-porch-input-inset);
+  transition:
+    border-color var(--tdb-transition-quiet, 0.2s ease),
+    box-shadow var(--tdb-transition-quiet, 0.2s ease);
+}
+
+#feel-search:hover {
+  border-color: color-mix(in srgb, var(--line) 70%, var(--gold) 30%);
+}
+
+#feel-search:focus,
+#feel-search:focus-visible {
+  border-color: var(--gold);
+  box-shadow:
+    var(--tdb-porch-input-inset),
+    0 0 0 3px color-mix(in srgb, var(--gold) 22%, transparent);
+  outline: none;
+}
+
+.feel-search-btn {
+  border-radius: var(--tdb-porch-chip-radius, 13px);
+  min-height: 48px;
+  padding: 0.55rem 1.15rem;
+  font-size: var(--tdb-text-ui, 0.95rem);
+  transition:
+    background var(--tdb-transition-quiet, 0.2s ease),
+    color var(--tdb-transition-quiet, 0.2s ease),
+    border-color var(--tdb-transition-quiet, 0.2s ease),
+    box-shadow var(--tdb-transition-quiet, 0.2s ease),
+    transform var(--tdb-transition-quiet, 0.2s ease);
+}
+
+.feel-search-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--tdb-focus-ring, var(--gold)) 55%, transparent);
+}
+
+/* Trust signal — honest, quiet, under the search row */
+.tdb-feel-trust-line {
+  margin: 0.55rem 0 0;
+  font-size: var(--tdb-text-trust, 0.82rem);
+  line-height: 1.5;
+  color: var(--tdb-section-note-color, var(--muted));
+  letter-spacing: 0.01em;
+}
+
+/* Unified quick-topic chips (pinned strip + Show all groups) */
+.feel-quick-topics-root .quick-topic,
+.quick-topic-group-chips .quick-topic {
+  font-size: var(--tdb-text-chip, 0.88rem);
+  border-radius: var(--tdb-porch-chip-radius, 13px);
+  box-shadow: var(--tdb-porch-chip-shadow);
+  transition:
+    border-color var(--tdb-transition-quiet, 0.2s ease),
+    color var(--tdb-transition-quiet, 0.2s ease),
+    background var(--tdb-transition-quiet, 0.2s ease),
+    box-shadow var(--tdb-transition-quiet, 0.2s ease),
+    transform var(--tdb-transition-quiet, 0.2s ease);
+}
+
+.feel-quick-topics-root .quick-topic:focus-visible,
+.quick-topic-group-chips .quick-topic:focus-visible {
+  outline: none;
+  box-shadow:
+    var(--tdb-porch-chip-shadow-hover),
+    0 0 0 3px color-mix(in srgb, var(--tdb-focus-ring, var(--gold)) 55%, transparent);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .feel-search-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--tdb-porch-chip-shadow-hover);
+  }
+
+  .feel-quick-topics-root .quick-topic:hover,
+  .quick-topic-group-chips .quick-topic:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--tdb-porch-chip-shadow-hover);
+  }
+
+  #hero-verse-wrap:hover {
+    box-shadow: var(--tdb-porch-card-shadow-hover);
+  }
+}
+
+:root[data-theme="light"] #feel-search,
+:root[data-theme="daylight"] #feel-search,
+:root[data-theme="parchment"] #feel-search {
+  background: #fffdf9;
+  border-color: color-mix(in srgb, var(--line) 80%, #9e7625 20%);
+}
+
+:root[data-theme="light"] .tdb-feel-trust-line,
+:root[data-theme="daylight"] .tdb-feel-trust-line,
+:root[data-theme="parchment"] .tdb-feel-trust-line {
+  color: #4a5a6e;
+}
+
+/* Verse frame: keep phone line-height from fighting Phase 1 token */
+@media (max-width: 1023px) {
+  #heroVerse.hero-verse,
+  #heroVerse.hero-verse.verse-body {
+    line-height: var(--tdb-line-verse, 1.7);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+ * Phase 1 Steps 3–4 — Home button / card / chip cohesion + soft lift
+ * ═══════════════════════════════════════════════════════════════════ */
+
+/* —— Buttons —— */
+.btn-primary,
+a.btn-primary {
+  min-height: var(--tdb-btn-min-height, 44px);
+  padding: var(--tdb-btn-pad-y, 0.55rem) var(--tdb-btn-pad-x, 1.15rem);
+  border-radius: var(--tdb-btn-radius, 13px);
+  background: var(--tdb-btn-primary-bg);
+  color: var(--tdb-btn-primary-fg, #fff);
+  border: 1.5px solid var(--tdb-btn-primary-border);
+  box-shadow: var(--tdb-porch-chip-shadow);
+  filter: none;
+  transition:
+    background var(--tdb-transition-quiet, 0.2s ease),
+    border-color var(--tdb-transition-quiet, 0.2s ease),
+    box-shadow var(--tdb-transition-quiet, 0.2s ease),
+    transform var(--tdb-transition-quiet, 0.2s ease),
+    color var(--tdb-transition-quiet, 0.2s ease);
+}
+
+.btn-primary:hover,
+a.btn-primary:hover {
+  filter: none;
+  border-color: color-mix(in srgb, var(--gold) 55%, var(--accent, #8ba6d9));
+  box-shadow: var(--tdb-lift-shadow, var(--tdb-porch-chip-shadow-hover));
+}
+
+.btn-primary:focus-visible,
+a.btn-primary:focus-visible {
+  filter: none;
+  outline: none;
+  box-shadow:
+    var(--tdb-lift-shadow, var(--tdb-porch-chip-shadow-hover)),
+    var(--tdb-btn-focus-ring);
+}
+
+.btn-primary:disabled,
+a.btn-primary[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none;
+}
+
+/* Secondary buttons (exclude feel chips — they use the chip recipe) */
+.btn-secondary:not(.quick-topic),
+a.btn-secondary:not(.quick-topic) {
+  min-height: var(--tdb-btn-min-height, 44px);
+  padding: var(--tdb-btn-pad-y, 0.55rem) var(--tdb-btn-pad-x, 1.15rem);
+  border-radius: var(--tdb-btn-radius, 13px);
+  background: var(--tdb-btn-secondary-bg);
+  color: var(--text);
+  border: 1.5px solid var(--tdb-btn-secondary-border);
+  box-shadow: var(--tdb-porch-chip-shadow);
+  transition:
+    background var(--tdb-transition-quiet, 0.2s ease),
+    border-color var(--tdb-transition-quiet, 0.2s ease),
+    box-shadow var(--tdb-transition-quiet, 0.2s ease),
+    transform var(--tdb-transition-quiet, 0.2s ease),
+    color var(--tdb-transition-quiet, 0.2s ease);
+}
+
+.btn-secondary:not(.quick-topic):hover,
+a.btn-secondary:not(.quick-topic):hover {
+  border-color: color-mix(in srgb, var(--gold) 48%, var(--line));
+  color: color-mix(in srgb, var(--text) 88%, var(--gold));
+  background: color-mix(in srgb, var(--gold) 8%, var(--tdb-btn-secondary-bg));
+  box-shadow: var(--tdb-lift-shadow, var(--tdb-porch-chip-shadow-hover));
+}
+
+.btn-secondary:not(.quick-topic):focus-visible,
+a.btn-secondary:not(.quick-topic):focus-visible {
+  outline: none;
+  border-color: color-mix(in srgb, var(--gold) 55%, var(--line));
+  box-shadow:
+    var(--tdb-lift-shadow, var(--tdb-porch-chip-shadow-hover)),
+    var(--tdb-btn-focus-ring);
+}
+
+.feel-search-btn {
+  /* Align search CTA with primary button language */
+  background: color-mix(in srgb, var(--gold) 14%, transparent);
+  border: 1.5px solid color-mix(in srgb, var(--gold) 55%, transparent);
+  color: var(--gold);
+  box-shadow: var(--tdb-porch-chip-shadow);
+}
+
+.feel-search-btn:hover {
+  background: color-mix(in srgb, var(--gold) 22%, transparent);
+  border-color: var(--gold);
+  color: color-mix(in srgb, var(--gold) 70%, var(--text));
+}
+
+/* —— Cards —— */
+.tdb-porch-card,
+.tdb-surface-card,
+.tdb-home-pickup,
+.tdb-home-first-doors {
+  border-radius: var(--tdb-porch-card-radius, 16px);
+  border-color: var(--tdb-porch-card-border);
+  background: var(--tdb-porch-card-bg);
+  box-shadow: var(--tdb-porch-card-shadow);
+  transition:
+    border-color var(--tdb-transition-quiet, 0.2s ease),
+    box-shadow var(--tdb-transition-quiet, 0.2s ease),
+    background var(--tdb-transition-quiet, 0.2s ease),
+    transform var(--tdb-transition-quiet, 0.2s ease);
+}
+
+.tdb-porch-card:hover,
+.tdb-porch-card:focus-visible,
+.tdb-surface-card:hover,
+.tdb-surface-card:focus-within {
+  border-color: color-mix(in srgb, var(--tdb-porch-card-border) 55%, var(--gold) 45%);
+  box-shadow: var(--tdb-porch-card-shadow-hover);
+  outline: none;
+}
+
+.tdb-porch-card:focus-visible {
+  box-shadow:
+    var(--tdb-porch-card-shadow-hover),
+    var(--tdb-btn-focus-ring);
+}
+
+.tdb-home-first-doors__btn {
+  border-radius: var(--tdb-btn-radius, 13px);
+  box-shadow: var(--tdb-porch-chip-shadow);
+  transition:
+    border-color var(--tdb-transition-quiet, 0.2s ease),
+    background var(--tdb-transition-quiet, 0.2s ease),
+    color var(--tdb-transition-quiet, 0.2s ease),
+    box-shadow var(--tdb-transition-quiet, 0.2s ease),
+    transform var(--tdb-transition-quiet, 0.2s ease);
+}
+
+.tdb-home-first-doors__btn:hover,
+.tdb-home-first-doors__btn:focus-visible {
+  box-shadow: var(--tdb-lift-shadow, var(--tdb-porch-chip-shadow-hover));
+}
+
+.tdb-home-first-doors__btn:focus-visible {
+  outline: none;
+  box-shadow:
+    var(--tdb-lift-shadow, var(--tdb-porch-chip-shadow-hover)),
+    var(--tdb-btn-focus-ring);
+}
+
+/* —— Extended Home chips (styles.css is not loaded on Home) —— */
+.tdb-kb-chip,
+.feel-preset-btn,
+.tdb-porch-sign-quick-chip,
+a.plan-category-chip,
+.hero-toolbar-btn {
+  border-radius: var(--tdb-porch-chip-radius, 13px);
+  box-shadow: var(--tdb-porch-chip-shadow);
+  transition:
+    border-color var(--tdb-transition-quiet, 0.2s ease),
+    background var(--tdb-transition-quiet, 0.2s ease),
+    color var(--tdb-transition-quiet, 0.2s ease),
+    box-shadow var(--tdb-transition-quiet, 0.2s ease),
+    transform var(--tdb-transition-quiet, 0.2s ease);
+}
+
+.tdb-kb-chip,
+.feel-preset-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--line) 82%, var(--gold) 12%);
+  background: color-mix(in srgb, var(--bg-soft) 40%, var(--card) 60%);
+  color: color-mix(in srgb, var(--text) 90%, var(--muted) 10%);
+  font-size: var(--tdb-text-chip, 0.86rem);
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.tdb-porch-sign-quick-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--gold) 35%, var(--line));
+  background: color-mix(in srgb, var(--tdb-porch-card-bg) 92%, rgba(139, 166, 217, 0.08));
+  color: var(--text);
+  font-size: var(--tdb-text-chip, 0.88rem);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a.plan-category-chip {
+  border-radius: var(--tdb-porch-chip-radius, 13px);
+}
+
+.tdb-kb-chip:hover,
+.tdb-kb-chip:focus-visible,
+.feel-preset-btn:hover,
+.feel-preset-btn:focus-visible,
+.tdb-porch-sign-quick-chip:hover,
+.tdb-porch-sign-quick-chip:focus-visible,
+a.plan-category-chip:hover,
+a.plan-category-chip:focus-visible,
+.hero-toolbar-btn:hover,
+.hero-toolbar-btn:focus-visible {
+  border-color: color-mix(in srgb, var(--gold) 52%, var(--line));
+  color: color-mix(in srgb, var(--text) 82%, var(--gold));
+  background: color-mix(in srgb, var(--gold) 10%, var(--card));
+  outline: none;
+}
+
+.tdb-kb-chip:focus-visible,
+.feel-preset-btn:focus-visible,
+.tdb-porch-sign-quick-chip:focus-visible,
+a.plan-category-chip:focus-visible,
+.hero-toolbar-btn:focus-visible {
+  box-shadow:
+    var(--tdb-lift-shadow, var(--tdb-porch-chip-shadow-hover)),
+    var(--tdb-btn-focus-ring);
+}
+
+:root[data-theme="light"] .tdb-kb-chip,
+:root[data-theme="daylight"] .tdb-kb-chip,
+:root[data-theme="parchment"] .tdb-kb-chip,
+:root[data-theme="light"] .feel-preset-btn,
+:root[data-theme="daylight"] .feel-preset-btn,
+:root[data-theme="parchment"] .feel-preset-btn {
+  background: #fffdf9;
+  border-color: color-mix(in srgb, #c9b896 35%, #d8dce6);
+  color: #1c2a44;
+}
+
+/* —— Soft lift (motion allowed only) —— */
+@media (prefers-reduced-motion: no-preference) {
+  .btn-primary:hover:not(:disabled),
+  a.btn-primary:hover:not([aria-disabled="true"]),
+  .btn-secondary:not(.quick-topic):hover,
+  a.btn-secondary:not(.quick-topic):hover,
+  .feel-search-btn:hover,
+  .tdb-home-first-doors__btn:hover,
+  .tdb-kb-chip:hover,
+  .feel-preset-btn:hover,
+  .tdb-porch-sign-quick-chip:hover,
+  a.plan-category-chip:hover,
+  .hero-toolbar-btn:hover,
+  .feel-quick-topics-root .quick-topic:hover,
+  .quick-topic-group-chips .quick-topic:hover {
+    transform: translateY(-1px);
+  }
+
+  .tdb-porch-card:hover,
+  .tdb-porch-card:focus-visible,
+  .tdb-surface-card:hover,
+  .tdb-surface-card:focus-within,
+  #hero-verse-wrap:hover {
+    transform: translateY(-1px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary,
+  a.btn-primary,
+  .btn-secondary:not(.quick-topic),
+  a.btn-secondary:not(.quick-topic),
+  .feel-search-btn,
+  .tdb-porch-card,
+  .tdb-surface-card,
+  .tdb-home-first-doors__btn,
+  .tdb-kb-chip,
+  .feel-preset-btn,
+  .tdb-porch-sign-quick-chip,
+  a.plan-category-chip,
+  .hero-toolbar-btn,
+  .feel-quick-topics-root .quick-topic,
+  .quick-topic-group-chips .quick-topic,
+  #hero-verse-wrap {
+    transition: none !important;
+    transform: none !important;
+  }
 }

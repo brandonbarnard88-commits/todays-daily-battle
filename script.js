@@ -6385,7 +6385,9 @@ var TDB_BIBLICAL_ANSWERS = [
       'am i saved', 'how do i know i am saved', 'how to be saved', 'what is salvation',
       'how do i get saved', 'assurance of salvation', 'am i really saved',
       'what does it mean to be saved', 'once saved always saved', 'how do i know if im saved',
-      'do i have eternal life', 'how do you get saved', 'what does salvation mean'
+      'do i have eternal life', 'how do you get saved', 'what does salvation mean',
+      'how can i be saved', 'how can someone be saved', 'how do i become a christian',
+      'what must i do to be saved', 'how to become a christian', 'i want to be saved'
     ],
     answer: 'If you are asking this question sincerely, bring it straight to God — He is not put off by it. Assurance rests on what Jesus did, not on how you feel on a given day. Romans 10:9–10 puts it plainly: confess with your mouth and believe in your heart that God raised Jesus from the dead. First John 5:13 was written so you can know you have eternal life — not wonder, know. If you have turned to Christ, that turning is not erased by doubt or by a hard season. Doubt and faith can live in the same heart; what anchors you is His promise, not your certainty.',
     verses: ['Romans 10:9', '1 John 5:13', 'John 3:16', 'Ephesians 2:8'],
@@ -7251,10 +7253,61 @@ var TDB_BIBLICAL_ANSWERS = [
     verses: ['1 Thessalonians 4:3', 'Philippians 2:12', '2 Corinthians 3:18', 'Romans 8:29'],
     plan: 'firststeps'
   },
+  {
+    id: 'who-is-god',
+    type: 'knowledge',
+    triggers: [
+      'who is god', 'who is the lord', 'what is god like', 'who is god in the bible',
+      'tell me about god', 'what does the bible say about god', 'attributes of god bible',
+      'what is god', 'describe god bible', 'who is the god of the bible',
+      'what kind of god is the bible god', 'is god loving bible'
+    ],
+    answer: 'Scripture does not leave God as a vague force. He is the living Lord who made heaven and earth (Genesis 1:1), holy and near, just and merciful. When Moses asked to see His glory, the Lord proclaimed His name: "The LORD, The LORD God, merciful and gracious, longsuffering, and abundant in goodness and truth" (Exodus 34:6). Psalm 145:8–9 says He is gracious and full of compassion. John 4:24 says "God is a Spirit: and they that worship him must worship him in spirit and in truth." He is not one god among many options — Isaiah 45:5 says "I am the LORD, and there is none else." The clearest picture of who God is comes in Jesus Christ: "he that hath seen me hath seen the Father" (John 14:9).',
+    verses: ['Genesis 1:1', 'Exodus 34:6', 'Psalm 145:8', 'John 4:24', 'John 14:9'],
+    plan: 'firststeps'
+  },
+  {
+    id: 'what-is-sin',
+    type: 'knowledge',
+    triggers: [
+      'what is sin', 'what does the bible say about sin', 'what is sin in the bible',
+      'define sin biblically', 'what does sin mean', 'bible definition of sin',
+      'what is sin according to the bible', 'why is sin a problem', 'what makes something a sin'
+    ],
+    answer: 'Sin in Scripture is more than a mistake — it is missing the mark of God\'s holiness and rebelling against His good rule. First John 3:4 says "sin is the transgression of the law." Romans 3:23 puts every person in the same place: "For all have sinned, and come short of the glory of God." Sin is not only outward acts; Jesus traces it to the heart (Matthew 15:19). The wages of sin is death (Romans 6:23) — separation from God — but that same verse names the gift: eternal life through Jesus Christ our Lord. Scripture is honest about sin so the gospel can be honest about grace: Christ died for our sins according to the scriptures (1 Corinthians 15:3).',
+    verses: ['1 John 3:4', 'Romans 3:23', 'Romans 6:23', '1 Corinthians 15:3'],
+    plan: 'roadtosalvation'
+  },
+  {
+    id: 'what-is-repentance',
+    type: 'knowledge',
+    triggers: [
+      'what is repentance', 'what does repent mean', 'what is repentance in the bible',
+      'how do i repent', 'bible definition of repentance', 'what does it mean to repent',
+      'repent and believe', 'true repentance bible', 'how to repent of sin',
+      'what does the bible say about repentance'
+    ],
+    answer: 'Repentance in Scripture is a turning — not only feeling sorry, but turning from sin toward God. Acts 3:19 says "Repent ye therefore, and be converted, that your sins may be blotted out." Jesus began His preaching with "Repent: for the kingdom of heaven is at hand" (Matthew 4:17). Second Corinthians 7:10 distinguishes godly sorrow that works repentance from the sorrow of the world that leaves a person stuck. Repentance is not earning forgiveness; it is the honest change of mind and direction that receives the mercy God already holds out in Christ. Acts 17:30 says God "commandeth all men every where to repent" — and the welcome on the other side of that turn is real.',
+    verses: ['Acts 3:19', 'Matthew 4:17', '2 Corinthians 7:10', 'Acts 17:30'],
+    plan: 'roadtosalvation'
+  },
 
   // ============================================================
   // BIBLE KNOWLEDGE ANSWERS — Characters
   // ============================================================
+  {
+    id: 'who-was-jesus',
+    type: 'knowledge',
+    triggers: [
+      'who is jesus', 'who was jesus', 'who is jesus christ', 'who was jesus christ',
+      'who is jesus in the bible', 'who was jesus in the bible',
+      'tell me about jesus', 'tell me about jesus christ', 'jesus in the bible',
+      'what did jesus do', 'life of jesus', 'who is the son of god', 'jesus of nazareth'
+    ],
+    answer: 'Jesus is the Son of God — fully God and fully man — who came into the world to save sinners. The Gospels record His birth in Bethlehem, His teaching, His miracles, His death on the cross, and His resurrection on the third day. John 1:14 says, "And the Word was made flesh, and dwelt among us." He is the promised Messiah of the Old Testament, the "Lamb of God, which taketh away the sin of the world" (John 1:29). He called ordinary people to follow Him, healed the sick, forgave sins, and laid down His life "a ransom for many" (Mark 10:45). After He rose, He appeared to many witnesses and ascended into heaven. Acts 4:12 says there is salvation in no other name. Scripture presents Him not as a vague idea, but as a real Person who lived, died, rose, and still reigns — the same yesterday, and to day, and for ever (Hebrews 13:8).',
+    verses: ['John 1:14', 'John 1:29', 'Mark 10:45', 'Acts 4:12', 'Hebrews 13:8'],
+    plan: 'firststeps'
+  },
   {
     id: 'who-was-moses',
     type: 'knowledge',
@@ -7868,7 +7921,9 @@ var TDB_BIBLICAL_ANSWERS = [
       'what is the gospel', 'what does gospel mean in the bible', 'what is the good news',
       'what is the christian gospel', 'gospel explained simply', 'what is the gospel of jesus',
       'gospel meaning bible', 'what is the message of the gospel', 'explain the gospel',
-      'what is the good news of the bible'
+      'what is the good news of the bible', 'what is the good news of jesus',
+      'share the gospel', 'how do i share the gospel', 'gospel of jesus christ',
+      'what does the bible say about the gospel', 'define the gospel'
     ],
     answer: '"Gospel" means good news. First Corinthians 15:3–4 gives the clearest summary: "Christ died for our sins according to the scriptures; and...he was buried, and...he rose again the third day." The good news is that the problem of human sin — separation from a holy God — has been addressed not by human improvement but by God Himself entering the story. Romans 5:8 says He demonstrated His love while we were still sinners. The result, for everyone who believes, is reconciliation with God, forgiveness of sin, and life that death cannot end (John 3:16). The gospel is not "be better" or "try harder" — it is news about something that has already been accomplished. All that is asked is that it be received.',
     verses: ['1 Corinthians 15:3', 'Romans 5:8', 'John 3:16', 'Romans 1:16'],
@@ -29254,6 +29309,10 @@ function parseQuery(input) {
       correctedQuery = correctedQuery.replace(re, TYPO_CORRECTION[typoKey]);
     }
   }
+  // Bible-name typos before topic fuzzy correction ("marry" → "mary", not "worry")
+  if (typeof applyBibleNameTypos === 'function') {
+    correctedQuery = applyBibleNameTypos(correctedQuery) || correctedQuery;
+  }
   const normalized = normalizeInput(correctedQuery);
   if (normalized.includes('jesus said') || normalized.includes('what jesus said') || normalized.includes('red letter')) {
     return { intent: 'jesus_said', payload: null };
@@ -29283,6 +29342,7 @@ function parseQuery(input) {
   var questionPrefixes = [
     'what does god say about ', 'what does the bible say about ', 'what does scripture say about ',
     'how do i find ', 'how can i find ', 'how do i get ', 'how can i get ',
+    'how can i be ', 'how do i become ', 'how can someone be ', 'how does someone get ',
     'why do i feel ', 'why am i ', 'why do i ', 'how do i deal with ', 'how can i deal with ',
     'where do i find ', 'verses about ', 'bible verses about ', 'scripture about ',
     'what does god say about', 'what does the bible say about', 'help with ',
@@ -29292,13 +29352,18 @@ function parseQuery(input) {
     'encouraging verses for ', 'scripture on ', 'what the bible says about ',
     'help me pray for ', 'lord give me ', 'god i need ', 'jesus help me with ',
     'i feel like ', 'i feel ', 'im feeling ', 'i am feeling ',
-    'find peace in ', 'find hope when ', 'verses when i feel ', 'verses for when '
+    'find peace in ', 'find hope when ', 'verses when i feel ', 'verses for when ',
+    'who is ', 'who was ', 'who were ', 'who are ', 'tell me about ', 'explain ',
+    'what is ', 'what was ', 'what are ', 'what does ', 'why did ', 'why does ',
+    'when did ', 'where is ', 'where did ', 'how did ', 'how does '
   ];
   for (var qi = 0; qi < questionPrefixes.length && phraseTokens.length === 0; qi++) {
     var prefix = questionPrefixes[qi];
     var idx = normalized.indexOf(prefix);
     if (idx !== -1) {
       var rest = normalized.slice(idx + prefix.length).trim();
+      // Strip trailing "in the bible" / "bible" for who/what questions
+      rest = rest.replace(/\s+in the bible\s*$/i, '').replace(/\s+bible\s*$/i, '').trim();
       if (rest) {
         var topic = resolveTopicFromToken(rest) || (QUERY_TO_TOPIC && QUERY_TO_TOPIC[rest]);
         if (topic && topics[topic]) {
@@ -29376,6 +29441,11 @@ function parseQuery(input) {
     phraseTokens = Array.from(new Set(phraseTokens.concat(['courage', 'faith', 'strength', 'peace'])));
   }
   if (phraseTokens.length) keywords = keywords.concat(phraseTokens);
+  // Universal Ask the Word: boost doctrine/person/topic search terms for free-form questions
+  if (typeof getAskTheWordSearchBoostTerms === 'function') {
+    var askBoosts = getAskTheWordSearchBoostTerms(trimmed);
+    if (askBoosts && askBoosts.length) keywords = keywords.concat(askBoosts);
+  }
   // Compound feelings: "giving up" → givingup, "feel like" → check next tokens
   for (var ci = 0; ci < rawTokens.length - 1; ci++) {
     var compound = rawTokens[ci] + rawTokens[ci + 1];
@@ -31829,6 +31899,17 @@ function getAskTheWordHeading(queryText, results, response) {
 }
 
 function buildAskTheWordLocalLead(queryText, results) {
+  var profile = typeof classifyAskTheWordQuery === 'function' ? classifyAskTheWordQuery(queryText) : null;
+  if (profile && profile.offTopic && profile.fallbackLead) {
+    return profile.fallbackLead;
+  }
+  // When a curated answer will render below, keep the header lead short.
+  if (typeof findBiblicalAnswer === 'function' && findBiblicalAnswer(queryText)) {
+    return 'A short Bible answer sits below, then the verses. Stay with what Scripture says.';
+  }
+  if (profile && profile.fallbackLead && (profile.kind === 'knowledge' || profile.kind === 'say_about')) {
+    return profile.fallbackLead;
+  }
   var heartfelt = typeof getHeartfeltMessageForQuery === 'function' ? getHeartfeltMessageForQuery(queryText, results) : '';
   if (isAskTheWordSingleWordTopic(queryText, results)) {
     var title = getAskTheWordHeading(queryText, results);
@@ -31837,6 +31918,7 @@ function buildAskTheWordLocalLead(queryText, results) {
       : (title + '. God meets real life with real truth. Start with these KJV verses.');
   }
   if (heartfelt) return heartfelt + ' The Bible does not turn away. Start with these KJV verses.';
+  if (profile && profile.fallbackLead) return profile.fallbackLead;
   return 'This moment is real. Scripture meets it plainly. Start with these KJV verses.';
 }
 
@@ -31858,6 +31940,10 @@ function getAskTheWordSources(queryText, results, response) {
 function shouldFetchHomeQa(queryText, parsed) {
   var raw = String(queryText || '').trim();
   if (!raw) return false;
+  if (typeof classifyAskTheWordQuery === 'function') {
+    var offHome = classifyAskTheWordQuery(raw);
+    if (offHome && offHome.offTopic) return false;
+  }
   if (parsed && parsed.intent === 'reference') return false;
   if (raw.indexOf('?') !== -1) return true;
   var normalized = normalizeInput(raw);
@@ -32659,6 +32745,374 @@ function ensureCrisisHelpForSuicidalDespair(host, compact) {
 }
 
 /**
+ * Universal Ask the Word — Scripture-first classifier + answer frame.
+ * Curated TDB_BIBLICAL_ANSWERS still win; this fills every other Bible-related question
+ * with an honest structured lead + key verse refs (no generative AI pastor voice).
+ */
+var ASK_THE_WORD_OFF_TOPIC_RE = /\b(recipe|recipes|pizza|football|nfl|nba|mlb|soccer score|sports score|movie|netflix|hulu|crypto|bitcoin|stock market|weather forecast|weather today|video game|playstation|xbox|tiktok|instagram followers)\b/i;
+var ASK_THE_WORD_QUESTION_START_RE = /^(who|what|when|where|why|how|is|are|can|should|does|do|did|will|would|could|tell|explain)\b/i;
+var ASK_THE_WORD_SEARCH_STOP = new Set([
+  'i', 'me', 'my', 'mine', 'the', 'a', 'an', 'and', 'or', 'to', 'of', 'for', 'with', 'at',
+  'is', 'am', 'are', 'was', 'were', 'be', 'been', 'being', 'it', 'this', 'that', 'these', 'those',
+  'do', 'does', 'did', 'how', 'what', 'who', 'when', 'where', 'why', 'tell', 'about', 'would',
+  'should', 'could', 'can', 'if', 'than', 'then', 'there', 'their', 'them', 'they', 'you', 'your',
+  'our', 'ours', 'please', 'just', 'really', 'very', 'into', 'from', 'bible', 'scripture', 'kjv'
+]);
+
+var ASK_THE_WORD_QUERY_TERM_MAP = [
+  { pattern: /\b(asshole|toxic|coworker|co-worker|boss|manager|difficult person|difficult people|enemy)\b/i, terms: ['enemy', 'enemies', 'wrath', 'labour', 'patience', 'peace'] },
+  { pattern: /\b(joy|rejoice|glad|gladness)\b/i, terms: ['joy', 'rejoice', 'glad', 'gladness'] },
+  { pattern: /\bwho is jesus\b/i, terms: ['jesus', 'christ', 'lord', 'son', 'truth', 'life'] },
+  { pattern: /\bjesus\b/i, terms: ['jesus', 'christ', 'lord'] },
+  { pattern: /\b(fear|afraid|scared|anxiety|anxious)\b/i, terms: ['fear', 'afraid', 'peace', 'courage'] },
+  { pattern: /\b(angry|anger|furious|rage)\b/i, terms: ['anger', 'wrath', 'peace', 'soft'] },
+  { pattern: /\b(suffer|suffering|pain|trouble|trials|why does god allow)\b/i, terms: ['trouble', 'comfort', 'hope', 'peace', 'glory', 'tribulation'] },
+  { pattern: /\b(saved|salvation|born again|assurance|how can i be saved)\b/i, terms: ['saved', 'salvation', 'believe', 'faith', 'grace', 'everlasting'] },
+  { pattern: /\b(divorce|remarriage)\b/i, terms: ['marriage', 'put away', 'fornication', 'heart', 'peace'] },
+  { pattern: /\b(predestination|elect|chosen|foreknow)\b/i, terms: ['predestinate', 'called', 'purpose', 'chosen', 'election'] },
+  { pattern: /\b(hear the gospel|never hear|never heard|gospel)\b/i, terms: ['gospel', 'world', 'witness', 'faith', 'word', 'truth'] },
+  { pattern: /\b(creation|dinosaurs|earth|genesis)\b/i, terms: ['creation', 'beginning', 'made', 'heavens', 'earth'] },
+  { pattern: /\b(repent|repentance)\b/i, terms: ['repent', 'repentance', 'turn', 'sin', 'forgive'] },
+  { pattern: /\b(sin|sinner|sinned)\b/i, terms: ['sin', 'sinned', 'transgression', 'iniquity', 'forgive'] },
+  { pattern: /\b(who is god|what is god like|who is the lord)\b/i, terms: ['god', 'lord', 'holy', 'merciful', 'almighty'] },
+  { pattern: /\b(prayer|pray|praying)\b/i, terms: ['pray', 'prayer', 'ask', 'seek', 'knock'] },
+  { pattern: /\b(forgive|forgiveness|unforgiveness)\b/i, terms: ['forgive', 'forgiveness', 'mercy', 'trespass'] },
+  { pattern: /\b(holy spirit|holy ghost)\b/i, terms: ['spirit', 'comforter', 'ghost', 'truth'] },
+  { pattern: /\b(heaven|hell|eternal life)\b/i, terms: ['heaven', 'hell', 'everlasting', 'life', 'death'] },
+  { pattern: /\b(baptism|baptize|baptized)\b/i, terms: ['baptize', 'baptism', 'water', 'believe'] },
+  { pattern: /\b(faith|believe|belief)\b/i, terms: ['faith', 'believe', 'believeth', 'trust'] },
+  { pattern: /\b(love|charity)\b/i, terms: ['love', 'charity', 'loveth'] },
+  { pattern: /\b(wisdom|wise|proverb)\b/i, terms: ['wisdom', 'wise', 'understanding', 'knowledge'] }
+];
+
+var ASK_THE_WORD_QUERY_PRESETS = [
+  {
+    pattern: /\bwho is jesus\b/i,
+    answerMode: 'key_scriptures',
+    searchTerms: ['jesus', 'christ', 'lord', 'son', 'word', 'truth', 'life'],
+    preferredRefs: ['John 1:1', 'John 1:14', 'John 14:6', 'Philippians 2:5', 'Colossians 1:15'],
+    fallbackLead: 'Who Jesus is changes everything. These KJV verses show Him as more than a teacher or comfort figure. Stay with what they say plainly.',
+    principleHonesty: ''
+  },
+  {
+    pattern: /\b(how do i know if i'?m saved|am i saved|how can i be saved|how to be saved|salvation|assurance)\b/i,
+    answerMode: 'key_scriptures',
+    searchTerms: ['saved', 'salvation', 'believe', 'faith', 'grace', 'everlasting', 'confess'],
+    preferredRefs: ['John 3:16', 'Ephesians 2:8', 'Romans 10:9', '1 John 5:13', 'Acts 16:31'],
+    fallbackLead: 'Questions about being saved are too important for fake comfort. Let these KJV verses answer with clarity.',
+    principleHonesty: ''
+  },
+  {
+    pattern: /\b(why does god allow suffering|why do we suffer|why does god allow pain|suffering)\b/i,
+    answerMode: 'closest_principles',
+    searchTerms: ['trouble', 'comfort', 'hope', 'peace', 'tribulation', 'sustain'],
+    preferredRefs: ['Romans 8:28', '2 Corinthians 1:3', 'Psalm 34:18', 'Romans 5:5'],
+    fallbackLead: 'Suffering cuts deep because it is not theoretical. Scripture does not give a cheap one-line fix, but it does give solid ground.',
+    principleHonesty: 'Scripture does not hand us a neat explanation for every wound, but it does tell the truth about suffering, comfort, hope, and the Lord staying near.'
+  },
+  {
+    pattern: /\b(divorce|remarriage)\b/i,
+    answerMode: 'closest_principles',
+    searchTerms: ['marriage', 'fornication', 'peace', 'heart', 'love'],
+    preferredRefs: ['Matthew 19:6', 'Matthew 19:9', '1 Corinthians 7:15', '1 Corinthians 13:4'],
+    fallbackLead: 'Questions about divorce usually come with real damage behind them. Scripture speaks soberly here.',
+    principleHonesty: 'Scripture does speak to marriage and divorce, but these situations are often painful and specific. Do not pretend it is simple where lives are tangled.'
+  },
+  {
+    pattern: /\b(predestination|elect|chosen|foreknow)\b/i,
+    answerMode: 'closest_principles',
+    searchTerms: ['predestinate', 'called', 'purpose', 'faith', 'grace', 'word'],
+    preferredRefs: ['Romans 8:28', 'Romans 10:17', 'Ephesians 2:8'],
+    fallbackLead: 'Predestination questions can get loud fast. Stay close to the KJV text itself.',
+    principleHonesty: 'Scripture speaks about God\'s purpose and calling, but do not pretend every hard edge of this doctrine is easy to flatten into a slogan.'
+  },
+  {
+    pattern: /\b(creation|dinosaurs|earth|genesis)\b/i,
+    answerMode: 'closest_principles',
+    searchTerms: ['beginning', 'created', 'earth', 'heavens', 'made', 'lord'],
+    preferredRefs: ['Genesis 1:1', 'John 1:1', 'Psalm 19:1'],
+    fallbackLead: 'People often want more detail than Scripture directly gives. Be honest about that, then stay grounded in what the KJV does say about creation.',
+    principleHonesty: 'The Bible does not directly name every creature or modern category people ask about, but it speaks clearly about God as Creator.'
+  },
+  {
+    pattern: /\b(what is the gospel|what is the good news|explain the gospel)\b/i,
+    answerMode: 'key_scriptures',
+    searchTerms: ['gospel', 'christ', 'died', 'sins', 'rose', 'believe'],
+    preferredRefs: ['1 Corinthians 15:3', 'Romans 5:8', 'John 3:16', 'Romans 1:16'],
+    fallbackLead: 'The gospel is good news about what Christ has done. Let these KJV verses say it plainly.',
+    principleHonesty: ''
+  },
+  {
+    pattern: /\b(who is god|what is god like|who is the lord)\b/i,
+    answerMode: 'key_scriptures',
+    searchTerms: ['god', 'lord', 'holy', 'merciful', 'almighty'],
+    preferredRefs: ['Exodus 34:6', 'Psalm 145:8', 'John 4:24', 'John 14:9'],
+    fallbackLead: 'Scripture does not leave God as a vague idea. These KJV verses speak to who He is.',
+    principleHonesty: ''
+  }
+];
+
+function extractAskTheWordSearchTokens(query) {
+  return String(query || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .split(/\s+/)
+    .map(function (t) { return t.trim(); })
+    .filter(function (t) { return t.length > 1 && !ASK_THE_WORD_SEARCH_STOP.has(t); });
+}
+
+/**
+ * Classify an Ask the Word query for universal Scripture-led answering.
+ * @returns {{kind:string,answerMode:string,offTopic:boolean,searchTerms:string[],preferredRefs:string[],principleHonesty:string,fallbackLead:string,singleWordTopic:boolean,raw:string,normalized:string}}
+ */
+function classifyAskTheWordQuery(queryText) {
+  var raw = String(queryText || '').trim();
+  var normalized = typeof applyBibleNameTypos === 'function'
+    ? applyBibleNameTypos(normalizeInput(raw))
+    : normalizeInput(raw);
+  var empty = {
+    kind: 'empty',
+    answerMode: 'strong_verses',
+    offTopic: false,
+    searchTerms: [],
+    preferredRefs: [],
+    principleHonesty: '',
+    fallbackLead: '',
+    singleWordTopic: false,
+    raw: raw,
+    normalized: normalized
+  };
+  if (!normalized) return empty;
+
+  if (ASK_THE_WORD_OFF_TOPIC_RE.test(raw) && !/\b(bible|scripture|god|jesus|christ|lord|pray|prayer|psalm|gospel|church|sin|faith)\b/i.test(raw)) {
+    return {
+      kind: 'off_topic',
+      answerMode: 'closest_principles',
+      offTopic: true,
+      searchTerms: [],
+      preferredRefs: [],
+      principleHonesty: '',
+      fallbackLead: 'This porch stays with Scripture. Ask a Bible question, name a feeling, or look up a verse — and the Word will meet you here.',
+      singleWordTopic: false,
+      raw: raw,
+      normalized: normalized
+    };
+  }
+
+  if (typeof parseReference === 'function' && parseReference(raw)) {
+    return {
+      kind: 'reference',
+      answerMode: 'key_scriptures',
+      offTopic: false,
+      searchTerms: extractAskTheWordSearchTokens(normalized),
+      preferredRefs: [],
+      principleHonesty: '',
+      fallbackLead: 'Here is that passage in the King James. Read it slowly, then stay with what it actually says.',
+      singleWordTopic: false,
+      raw: raw,
+      normalized: normalized
+    };
+  }
+
+  var singleWordTopic = /^[a-z]+$/i.test(raw.trim());
+  var preset = null;
+  for (var pi = 0; pi < ASK_THE_WORD_QUERY_PRESETS.length; pi++) {
+    if (ASK_THE_WORD_QUERY_PRESETS[pi].pattern.test(raw) || ASK_THE_WORD_QUERY_PRESETS[pi].pattern.test(normalized)) {
+      preset = ASK_THE_WORD_QUERY_PRESETS[pi];
+      break;
+    }
+  }
+
+  var pastoralLife = /^(i (feel|am|cant|can't|was|need|keep|dont|don't|have|lost)|im |i'm |help me|my |feeling |struggling |tired of|scared of)/.test(normalized);
+  var sayAbout = /\b(what does (the )?bible say|what does (god|scripture) say|bible verses? (about|for)|scripture (about|for)|verses? (about|for))\b/.test(normalized);
+  var knowledgeQ = !pastoralLife && (
+    ASK_THE_WORD_QUESTION_START_RE.test(normalized) ||
+    /^(tell me about|explain )\b/.test(normalized) ||
+    raw.indexOf('?') !== -1
+  );
+
+  var kind = 'topic';
+  if (pastoralLife) kind = 'life';
+  else if (sayAbout) kind = 'say_about';
+  else if (knowledgeQ) kind = 'knowledge';
+  else if (singleWordTopic) kind = 'topic';
+
+  var answerMode = preset
+    ? preset.answerMode
+    : (singleWordTopic
+      ? 'strong_verses'
+      : (kind === 'knowledge' || kind === 'say_about' ? 'key_scriptures' : (kind === 'life' ? 'strong_verses' : 'strong_verses')));
+
+  if (!preset && (kind === 'knowledge' || kind === 'say_about') && /\b(why|how come|dinosaurs|evolution|aliens|modern)\b/.test(normalized)) {
+    answerMode = 'closest_principles';
+  }
+
+  var boosted = [];
+  ASK_THE_WORD_QUERY_TERM_MAP.forEach(function (entry) {
+    if (entry.pattern.test(raw) || entry.pattern.test(normalized)) {
+      boosted = boosted.concat(entry.terms);
+    }
+  });
+  var searchTerms = [];
+  var seen = {};
+  (preset && preset.searchTerms ? preset.searchTerms : [])
+    .concat(boosted)
+    .concat(extractAskTheWordSearchTokens(normalized))
+    .forEach(function (t) {
+      var key = String(t || '').toLowerCase();
+      if (!key || seen[key]) return;
+      seen[key] = true;
+      searchTerms.push(key);
+    });
+  searchTerms = searchTerms.slice(0, 12);
+
+  var fallbackLead = preset && preset.fallbackLead
+    ? preset.fallbackLead
+    : singleWordTopic
+      ? ('Verses about ' + (raw.charAt(0).toUpperCase() + raw.slice(1).toLowerCase()) + '. God meets real life with real truth. Start with these KJV verses.')
+      : (kind === 'knowledge' || kind === 'say_about')
+        ? 'That is a real question. Let Scripture answer it as honestly as it can — without fake certainty.'
+        : 'This moment is real. Scripture meets it plainly. Start with these KJV verses.';
+
+  var principleHonesty = preset && preset.principleHonesty
+    ? preset.principleHonesty
+    : (answerMode === 'closest_principles'
+      ? 'Scripture may not name this exact modern scenario directly, but it does give nearby truth that still matters.'
+      : '');
+
+  return {
+    kind: kind,
+    answerMode: answerMode,
+    offTopic: false,
+    searchTerms: searchTerms,
+    preferredRefs: preset && preset.preferredRefs ? preset.preferredRefs.slice() : [],
+    principleHonesty: principleHonesty,
+    fallbackLead: fallbackLead,
+    singleWordTopic: singleWordTopic,
+    raw: raw,
+    normalized: normalized
+  };
+}
+
+/**
+ * Boost keywords for free-form Bible questions (used by parseQuery).
+ */
+function getAskTheWordSearchBoostTerms(queryText) {
+  var profile = classifyAskTheWordQuery(queryText);
+  if (profile.offTopic || profile.kind === 'empty') return [];
+  return (profile.searchTerms || []).slice(0, 10);
+}
+
+/**
+ * Build a pseudo curated entry for universal Scripture-led answering.
+ * Returns null when there is nothing useful to say (empty query).
+ */
+function buildUniversalScriptureAnswerEntry(queryText, results, profileOpt) {
+  var profile = profileOpt || classifyAskTheWordQuery(queryText);
+  if (!profile || profile.kind === 'empty') return null;
+
+  if (profile.offTopic) {
+    return {
+      id: 'universal-off-topic',
+      type: 'knowledge',
+      answer: profile.fallbackLead,
+      verses: []
+    };
+  }
+
+  var resultVerses = (results && Array.isArray(results.verses)) ? results.verses : [];
+  var refs = [];
+  var seenRef = {};
+  function pushRef(ref) {
+    var key = String(ref || '').trim();
+    if (!key || seenRef[key]) return;
+    seenRef[key] = true;
+    refs.push(key);
+  }
+  (profile.preferredRefs || []).forEach(pushRef);
+  resultVerses.forEach(function (v) {
+    if (v && v.ref) pushRef(v.ref);
+  });
+  refs = refs.slice(0, 5);
+
+  var weak = !!(results && results.fallback) || resultVerses.length === 0;
+  var mode = weak && profile.answerMode !== 'closest_principles' ? 'closest_principles' : profile.answerMode;
+  var parts = [];
+
+  if (mode === 'key_scriptures') {
+    parts.push(profile.fallbackLead || 'Let these KJV verses answer as plainly as they can.');
+    if (refs.length) {
+      parts.push('Key Scriptures: ' + refs.join(' · ') + '.');
+    }
+    parts.push('Stay with what the text says. Open a card below for plain help, one small step, and a prayer.');
+  } else if (mode === 'closest_principles') {
+    if (profile.principleHonesty) parts.push(profile.principleHonesty);
+    else parts.push('Scripture does not always name this exact wording, but it still speaks nearby truth.');
+    parts.push(profile.fallbackLead || 'Start with these KJV anchors and take the next faithful step.');
+    if (refs.length) {
+      parts.push('Closest passages: ' + refs.join(' · ') + '.');
+    }
+  } else {
+    parts.push(profile.fallbackLead || 'Start with these KJV verses.');
+    if (refs.length) {
+      parts.push('Begin here: ' + refs.slice(0, 3).join(' · ') + '.');
+    }
+  }
+
+  if (!refs.length) {
+    parts.push('If nothing below lands, try a feeling word (hope, peace, fear) or a clear verse like John 3:16.');
+  }
+
+  return {
+    id: 'universal-' + mode,
+    type: 'knowledge',
+    answer: parts.join(' ').replace(/\s+/g, ' ').trim(),
+    verses: refs
+  };
+}
+
+/**
+ * Append curated biblical answer when matched; otherwise a universal Scripture-led frame.
+ * Curated answers always win. Universal frame fills the gap so questions are not verse-only.
+ */
+function appendAskTheWordAnswerSection(host, queryText, results, compact) {
+  if (!host) return null;
+  var curated = findBiblicalAnswer(queryText);
+  if (curated) {
+    return appendBiblicalAnswerSection(host, queryText, compact);
+  }
+  var profile = classifyAskTheWordQuery(queryText);
+  if (profile.kind === 'empty') return null;
+  // Off-topic: always show the honest redirect.
+  // Otherwise need verses (or preferred refs) so we do not invent pastoral prose.
+  if (!profile.offTopic) {
+    var hasVerses = results && Array.isArray(results.verses) && results.verses.length > 0;
+    var hasPreferred = profile.preferredRefs && profile.preferredRefs.length > 0;
+    if (!hasVerses && !hasPreferred) {
+      // Still frame weak/empty searches honestly when the user asked a real question.
+      if (!(profile.kind === 'knowledge' || profile.kind === 'say_about' || profile.kind === 'life')) {
+        return null;
+      }
+    }
+  }
+  var entry = buildUniversalScriptureAnswerEntry(queryText, results, profile);
+  if (!entry || !entry.answer) return null;
+  if (entry.id === 'suicidal-despair' || entry.id === 'self-harm') {
+    ensureCrisisHelpForSelfCrisis(host, compact);
+  }
+  var section = buildBiblicalAnswerSection(entry, !!compact);
+  if (!section) return null;
+  section.classList.add('tdb-biblical-answer--universal');
+  if (profile.offTopic) section.classList.add('tdb-biblical-answer--off-topic');
+  var badge = section.querySelector('.tdb-ba-badge');
+  if (badge) {
+    badge.textContent = profile.offTopic ? 'Stay with the Word' : 'From Scripture';
+  }
+  host.appendChild(section);
+  return section;
+}
+
+/**
  * Find a curated biblical answer for a query.
  * Returns the matching TDB_BIBLICAL_ANSWERS entry or null.
  * Matching: exact trigger substring in normalized query, or key words all present.
@@ -32698,9 +33152,16 @@ function findBiblicalAnswer(queryText) {
       if (trigWords.length >= 3) {
         if (trigWords.every(function (w) { return norm.indexOf(w) !== -1; })) return true;
       }
-      // Short who-is/was NAME: match knowledge entries whose triggers mention that name.
+      // Short who-is/was NAME: match only when that name is the subject of the trigger.
+      // Avoid stealing answers via secondary mentions (e.g. "mother of jesus" ≠ "who is jesus").
       if (entry.type === 'knowledge' && whoName && whoName.length >= 3 && !/\s/.test(whoName)) {
-        if (new RegExp('\\b' + whoName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b').test(trigger)) return true;
+        var escWhoName = whoName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        if (
+          new RegExp('^(?:who (?:is|was|were|are)|tell me about)(?: the)? ' + escWhoName + '\\b').test(trigger) ||
+          new RegExp('^' + escWhoName + '(?: in the bible| bible story| the apostle| the prophet| of nazareth)?$').test(trigger)
+        ) {
+          return true;
+        }
       }
     }
     return false;
@@ -32945,10 +33406,21 @@ function renderHomeSearchResults(results, output, queryText) {
   // Part A: crisis help always first when high-risk language is detected
   prependCrisisHelpIfNeeded(shell, queryText, true);
 
-  var planMatches = buildHomeSearchPlanMatches(results, queryText);
-  var resourceMatches = buildHomeSearchResourceMatches(results, queryText);
-  var activeTopics = getHomeSearchActiveTopics(results, queryText);
-  var askResponse = getHomeAskTheWordResponse(queryText);
+  var askProfile = typeof classifyAskTheWordQuery === 'function' ? classifyAskTheWordQuery(queryText) : null;
+  // Off-topic: honest redirect only — do not dump unrelated verse packs.
+  if (askProfile && askProfile.offTopic) {
+    results = {
+      verses: [],
+      queryText: queryText,
+      intent: 'off_topic',
+      fallback: false
+    };
+  }
+
+  var planMatches = askProfile && askProfile.offTopic ? [] : buildHomeSearchPlanMatches(results, queryText);
+  var resourceMatches = askProfile && askProfile.offTopic ? [] : buildHomeSearchResourceMatches(results, queryText);
+  var activeTopics = askProfile && askProfile.offTopic ? [] : getHomeSearchActiveTopics(results, queryText);
+  var askResponse = askProfile && askProfile.offTopic ? null : getHomeAskTheWordResponse(queryText);
   var askLead = askResponse && askResponse.answer
     ? tdbPlainTextForUi(askResponse.answer)
     : buildAskTheWordLocalLead(queryText, results);
@@ -32963,7 +33435,9 @@ function renderHomeSearchResults(results, output, queryText) {
 
   var title = document.createElement('h3');
   title.className = 'home-search-response-title';
-  title.textContent = getAskTheWordHeading(queryText, results, askResponse);
+  title.textContent = (askProfile && askProfile.offTopic)
+    ? 'Stay with the Word'
+    : getAskTheWordHeading(queryText, results, askResponse);
   header.appendChild(title);
 
   var lead = document.createElement('p');
@@ -32997,9 +33471,9 @@ function renderHomeSearchResults(results, output, queryText) {
     shell.appendChild(detailHost);
   }
 
-  // Biblical answer block — appears above verses when a curated Q&A matches
+  // Curated Bible Answer when matched; otherwise universal Scripture-led frame
   // suicidal-despair is specially wired to never appear without the crisis block
-  appendBiblicalAnswerSection(shell, queryText, true);
+  appendAskTheWordAnswerSection(shell, queryText, results, true);
 
   if (results && results.fallback) {
     var fallback = document.createElement('p');
@@ -33676,9 +34150,9 @@ function renderResults(results) {
   var initialVerseLimit = (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(max-width: 768px)').matches) ? 6 : 10;
   renderSection(resultsTitle, verses, initialVerseLimit, isJesusSaidQuery);
 
-  // Biblical answer block (tool-page path)
+  // Curated Bible Answer when matched; otherwise universal Scripture-led frame
   // suicidal-despair is specially wired to never appear without the crisis block
-  appendBiblicalAnswerSection(output, queryText, false);
+  appendAskTheWordAnswerSection(output, queryText, results, false);
 
   // === PHASE 1: Story card ===
   if (results.storyIntent) {
@@ -34861,7 +35335,10 @@ async function tdbInitImpl() {
               }
             }
             if (out && !hasSearchCards(out)) {
-              renderEmergencySearchResults(input);
+              var offCheck = typeof classifyAskTheWordQuery === 'function' ? classifyAskTheWordQuery(input) : null;
+              if (!(offCheck && offCheck.offTopic)) {
+                renderEmergencySearchResults(input);
+              }
             }
             if (out) {
               out.style.display = 'grid';

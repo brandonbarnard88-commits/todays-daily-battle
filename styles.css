@@ -11470,6 +11470,13 @@ html[data-theme="sepia"] details.verse-breakdown[open] > .verse-breakdown-conten
   padding: 0.9rem 1.1rem 0.85rem;
   margin: 0.85rem 0 0.75rem;
 }
+/* Universal Ask the Word frame (no curated match — Scripture-led, not AI chat) */
+.tdb-biblical-answer--universal {
+  border-left-color: color-mix(in srgb, var(--gold, #e3bc67) 70%, var(--muted, #94a3b8));
+}
+.tdb-biblical-answer--off-topic {
+  border-left-color: var(--muted, #94a3b8);
+}
 .tdb-ba-badge {
   display: inline-block;
   font-size: 0.68rem;

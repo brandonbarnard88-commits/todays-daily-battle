@@ -51,7 +51,7 @@ export const STORY_HTML_MARKERS = [
   'kids-corner.js?v=20260524readquiz',
   'kids-page-sky.css?v=20260326playful',
   'uFuzzy.iife.min.js',
-  'kids-verses-365.js?v=20260325kidsmeans',
+  'kids-verses-365.js?v=20260802-calendar-mix',
   'kids-battle.js?v=20260524readquiz',
   'kids-read-quiz-data.js?v=20260524readquiz',
   'TDB_PANEL_RASTER',

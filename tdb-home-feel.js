@@ -415,22 +415,36 @@ function heroVotdSimpleHydrated() {
   return el && String(el.textContent || '').trim().length > 0;
 }
 
+/** Weak / placeholder plains that should not block a real getBreakdown upgrade. */
+function isWeakHeroPlain(plain, verseText) {
+  const p = String(plain || '').replace(/\s+/g, ' ').trim();
+  if (!p) return true;
+  if (/God can do what looks impossible to us\.?\s*$/i.test(p)) return true;
+  if (/^This word from Scripture meets you/i.test(p)) return true;
+  if (/A steady truth from Scripture for real life today\.?$/i.test(p)) return true;
+  const vt = String(verseText || '').replace(/\s+/g, ' ').trim();
+  if (vt && p === vt) return true;
+  if (vt && p.indexOf(vt) === 0 && p.length < vt.length + 48) return true;
+  return false;
+}
+
 function queueHeroBreakdownRefresh(data, attempt) {
   const tries = Number(attempt || 0);
-  if (tries >= 24) return;
+  if (tries >= 32) return;
   window.setTimeout(function () {
-    const hasVotd = heroVotdSimpleHydrated();
     const sharedReady = !!(
       (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.getBreakdown === 'function') ||
       typeof window.getVerseBreakdown === 'function'
     );
-    if (hasVotd && sharedReady) return;
     if (!sharedReady) {
       queueHeroBreakdownRefresh(data, tries + 1);
       return;
     }
+    // Upgrade once the shared engine is ready — even if a first-paint placeholder already filled the box.
+    if (window.__tdbHeroBreakdownEngineApplied) return;
+    window.__tdbHeroBreakdownEngineApplied = true;
     renderVerseContent(data);
-  }, 250);
+  }, 200);
 }
 
   function renderVerseContent(data) {
@@ -530,20 +544,24 @@ function queueHeroBreakdownRefresh(data, attempt) {
 
   // ── Verse of the day: simple + deep (see hero-daily-first-paint.js __TDB_applyHeroVotdFromInputs) ──
   const panelsEl = document.getElementById('heroBreakdownPanels');
+  const weakPlain = isWeakHeroPlain(v.plain, v.text);
+  const curatedPlain = !weakPlain && v.plain ? v.plain : '';
+  const curatedToday = v.today && !isWeakHeroPlain(v.today, v.text) ? v.today : '';
+  const curatedStep = v.action || v.app || '';
 
-  if (v && v.ref) {
+  // Only register strong curated fields — never lock in weak placeholder plains as overrides.
+  if (v && v.ref && (curatedPlain || curatedToday || curatedStep || v.speaker)) {
     window.TDB_VERSE_BREAKDOWN_OVERRIDES = window.TDB_VERSE_BREAKDOWN_OVERRIDES || {};
     window.TDB_VERSE_BREAKDOWN_OVERRIDES[v.ref] = window.TDB_VERSE_BREAKDOWN_OVERRIDES[v.ref] || {};
+    const patch = {};
+    if (curatedPlain) patch.plainExplanation = curatedPlain;
+    if (curatedToday) patch.groupApplication = curatedToday;
+    if (curatedStep) patch.practicalStep = curatedStep;
+    if (v.speaker) patch.about = v.speaker;
     window.TDB_VERSE_BREAKDOWN_OVERRIDES[v.ref].general = Object.assign(
       {},
       window.TDB_VERSE_BREAKDOWN_OVERRIDES[v.ref].general || {},
-      {
-        plainExplanation: v.plain || '',
-        groupApplication: v.today || '',
-        modernApplication: '',
-        practicalStep: v.action || v.app || '',
-        about: v.speaker || ''
-      }
+      patch
     );
     if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.registerOverrides === 'function') {
       window.TDBVerseBreakdown.registerOverrides(window.TDB_VERSE_BREAKDOWN_OVERRIDES);
@@ -553,15 +571,14 @@ function queueHeroBreakdownRefresh(data, attempt) {
   let heroSharedBreakdown = null;
   if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.getBreakdown === 'function') {
     try {
+      const override = {};
+      if (curatedPlain) override.plainExplanation = curatedPlain;
+      if (curatedToday) override.groupApplication = curatedToday;
+      if (curatedStep) override.practicalStep = curatedStep;
+      if (v.speaker) override.about = v.speaker;
       heroSharedBreakdown = window.TDBVerseBreakdown.getBreakdown(v.ref, v.text, {
         group: 'general',
-        override: {
-          plainExplanation: v.plain,
-          groupApplication: v.today,
-          modernApplication: '',
-          practicalStep: v.action || v.app,
-          about: v.speaker
-        }
+        override: override
       });
     } catch (heroBreakdownErr) {}
   }
@@ -578,7 +595,15 @@ function queueHeroBreakdownRefresh(data, attempt) {
       }
     } catch (heroFallbackBreakdownErr) {}
   }
-  const hasRich = heroSharedBreakdown || v.speaker || v.plain || v.today || v.action;
+  const enginePlain = heroSharedBreakdown && (heroSharedBreakdown.plainExplanation || heroSharedBreakdown.layman);
+  const bestPlain = (enginePlain && !isWeakHeroPlain(enginePlain, v.text))
+    ? enginePlain
+    : (curatedPlain || enginePlain || v.plain || '');
+  const hasRich = !!(bestPlain || (heroSharedBreakdown && heroSharedBreakdown.about) || v.speaker || curatedToday || curatedStep);
+  const sharedReady = !!(
+    (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.getBreakdown === 'function') ||
+    typeof window.getVerseBreakdown === 'function'
+  );
 
   if (typeof window.__TDB_applyHeroVotdFromInputs === 'function') {
     if (!hasRich) {
@@ -593,15 +618,19 @@ function queueHeroBreakdownRefresh(data, attempt) {
         heroApplication.style.display = 'none';
       }
       window.__TDB_applyHeroVotdFromInputs(v, null);
-      queueHeroBreakdownRefresh(data, 0);
+      if (!sharedReady) queueHeroBreakdownRefresh(data, 0);
     } else {
       window.__TDB_applyHeroVotdFromInputs(v, {
-        plainExplanation: (heroSharedBreakdown && heroSharedBreakdown.plainExplanation) || v.plain,
-        groupApplication: (heroSharedBreakdown && heroSharedBreakdown.groupApplication) || v.today,
+        plainExplanation: bestPlain,
+        groupApplication: (heroSharedBreakdown && heroSharedBreakdown.groupApplication) || curatedToday || v.today,
         modernApplication: (heroSharedBreakdown && heroSharedBreakdown.modernApplication) || '',
-        practicalStep: v.action || v.app,
+        practicalStep: curatedStep || v.action || v.app,
         about: (heroSharedBreakdown && heroSharedBreakdown.about) || v.speaker
       });
+      // First paint may have filled a placeholder before the engine loaded — keep polling for a real upgrade.
+      if (!sharedReady || (weakPlain && !window.__tdbHeroBreakdownEngineApplied)) {
+        queueHeroBreakdownRefresh(data, 0);
+      }
     }
   } else {
     if (hasRich && panelsEl) {
@@ -718,6 +747,7 @@ function dailyVerseByOffset(offsetDays) {
 
 async function loadTodaysVerse() {
   verseNote.hidden = true;
+  window.__tdbHeroBreakdownEngineApplied = false;
 
   const pickFn = typeof window.__TDB_pickRawHeroByUtcDay === 'function' ? window.__TDB_pickRawHeroByUtcDay : null;
   const verseData = pickFn ? pickFn() : null;

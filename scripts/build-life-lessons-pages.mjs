@@ -6,11 +6,13 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { LIFE_LESSONS } from './life-lessons-content.mjs';
+import { SITE_ASSET_VERSION } from './site-asset-version.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 const lessonsDir = path.join(root, 'life-lessons');
 const cssV = '20260519lldeep5';
+const assetV = SITE_ASSET_VERSION;
 
 /** Deep dives named on the hub before pages exist — honest, no fake links */
 const DEEP_COMING_SOON = [];
@@ -114,7 +116,7 @@ ${listItems(lesson.reflection)}
 <html lang="en">
 <head>
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+  <script src="/tt-bootstrap.js?v=${assetV}"></script>
   <script defer src="../analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -123,8 +125,8 @@ ${listItems(lesson.reflection)}
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="${canonical}">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="../styles.css?v=20260503-consent-persist-fix" as="style">
-  <link rel="stylesheet" href="../styles.css?v=20260503-consent-persist-fix">
+  <link rel="preload" href="../styles.css?v=${assetV}" as="style">
+  <link rel="stylesheet" href="../styles.css?v=${assetV}">
   <link rel="preload" href="../life-lessons.css?v=${cssV}" as="style">
   <link rel="stylesheet" href="../life-lessons.css?v=${cssV}">
 </head>
@@ -342,7 +344,7 @@ ${listItems(lesson.reflection)}
 <html lang="en">
 <head>
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js?v=20260503-consent-persist-fix"></script>
+  <script src="/tt-bootstrap.js?v=${assetV}"></script>
   <script defer src="../analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -351,8 +353,8 @@ ${listItems(lesson.reflection)}
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="${canonical}">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="../styles.css?v=20260503-consent-persist-fix" as="style">
-  <link rel="stylesheet" href="../styles.css?v=20260503-consent-persist-fix">
+  <link rel="preload" href="../styles.css?v=${assetV}" as="style">
+  <link rel="stylesheet" href="../styles.css?v=${assetV}">
   <link rel="preload" href="../life-lessons.css?v=${cssV}" as="style">
   <link rel="stylesheet" href="../life-lessons.css?v=${cssV}">
 </head>

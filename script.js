@@ -4418,10 +4418,55 @@ function getFuzzyTopicSuggestions(query, limit) {
   return out;
 }
 
+/**
+ * Common Bible-name typos for Ask the Word / who-is questions.
+ * Applied before topic fuzzy correction so "marry" does not become "worry".
+ */
+var TDB_BIBLE_NAME_TYPOS = {
+  marry: 'mary',
+  marie: 'mary',
+  marey: 'mary',
+  jeseus: 'jesus',
+  jezus: 'jesus',
+  moseses: 'moses',
+  paull: 'paul',
+  peater: 'peter',
+  petar: 'peter',
+  johh: 'john',
+  davd: 'david',
+  abrahm: 'abraham',
+  noaah: 'noah',
+  elija: 'elijah',
+  elishaah: 'elisha',
+  isiah: 'isaiah',
+  isaia: 'isaiah',
+  jerimiah: 'jeremiah',
+  solomn: 'solomon',
+  samsonn: 'samson',
+  gideon: 'gideon',
+  esther: 'esther',
+  ruthh: 'ruth',
+  lazarous: 'lazarus',
+  lazaras: 'lazarus'
+};
+
+function applyBibleNameTypos(text) {
+  var s = normalizeInput(String(text || ''));
+  if (!s) return s;
+  Object.keys(TDB_BIBLE_NAME_TYPOS).forEach(function (typo) {
+    var fixed = TDB_BIBLE_NAME_TYPOS[typo];
+    var re = new RegExp('\\b' + typo.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'g');
+    s = s.replace(re, fixed);
+  });
+  return s;
+}
+
 /** Fuzzy-correct a single token if it doesn't match. Returns corrected token or original. */
 function fuzzyCorrectToken(token) {
   var norm = normalizeInput(String(token || ''));
   if (!norm || norm.length < 3) return token;
+  // Prefer Bible-name typo fixes over topic Levenshtein ("marry" → "mary", not "worry").
+  if (TDB_BIBLE_NAME_TYPOS[norm]) return TDB_BIBLE_NAME_TYPOS[norm];
   if (resolveTopicFromToken(norm)) return token;
   if (QUERY_TO_TOPIC && QUERY_TO_TOPIC[norm]) return token;
   var candidates = getFuzzyTopicCandidates();
@@ -5642,6 +5687,12 @@ const PHRASE_TO_TOKENS = {
   'who was joseph in the bible': ['trust', 'faith', 'hope', 'wisdom'],
   'who was elijah': ['faith', 'strength', 'hope', 'trust'],
   'who was mary in the bible': ['faith', 'hope', 'wisdom', 'trust'],
+  'who is mary': ['faith', 'hope', 'wisdom', 'trust'],
+  'who is mary in the bible': ['faith', 'hope', 'wisdom', 'trust'],
+  'who was mary': ['faith', 'hope', 'wisdom', 'trust'],
+  'who is marry': ['faith', 'hope', 'wisdom', 'trust'],
+  'who was marry': ['faith', 'hope', 'wisdom', 'trust'],
+  'tell me about mary': ['faith', 'hope', 'wisdom', 'trust'],
   'who was solomon': ['wisdom', 'faith', 'hope', 'trust'],
   'who was peter in the bible': ['faith', 'trust', 'hope', 'wisdom'],
   'who was john the baptist': ['faith', 'hope', 'wisdom', 'salvation'],
@@ -7284,10 +7335,12 @@ var TDB_BIBLICAL_ANSWERS = [
     id: 'who-was-mary',
     type: 'knowledge',
     triggers: [
-      'who was mary in the bible', 'tell me about mary the mother of jesus', 'mary mother of jesus bible',
+      'who was mary in the bible', 'who is mary', 'who is mary in the bible', 'who was mary',
+      'who is marry', 'who was marry', 'who is marry in the bible',
+      'tell me about mary', 'tell me about mary the mother of jesus', 'mary mother of jesus bible',
       'the virgin mary', 'what do we know about mary', 'mary in the new testament',
       'mary and gabriel bible', 'mary and the annunciation', 'what does the bible say about mary',
-      'mary blessed among women'
+      'mary blessed among women', 'who is the mother of jesus', 'mother of jesus bible'
     ],
     answer: 'Mary was a young woman from Nazareth — likely a teenager — chosen by God to carry and raise the Son of God. Luke 1:26–38 records the angel Gabriel\'s announcement and her response: "be it unto me according to thy word." She was betrothed to Joseph, a carpenter of David\'s lineage. She treasured the events of Jesus\' childhood quietly: "Mary kept all these things, and pondered them in her heart" (Luke 2:19). She was present at the cross (John 19:25–27), where Jesus entrusted her to the care of John. The Bible presents her as a servant of remarkable faith and obedience — honored among women, but not divine. Her own words in Luke 1:46–55 (the Magnificat) are among the most beautiful in all of Scripture: "My soul doth magnify the Lord."',
     verses: ['Luke 1:38', 'Luke 2:19', 'Luke 1:46', 'John 19:26'],
@@ -32613,7 +32666,7 @@ function ensureCrisisHelpForSuicidalDespair(host, compact) {
  */
 function findBiblicalAnswer(queryText) {
   if (!queryText || !Array.isArray(TDB_BIBLICAL_ANSWERS)) return null;
-  var norm = normalizeInput(String(queryText || ''));
+  var norm = applyBibleNameTypos(normalizeInput(String(queryText || '')));
   if (!norm || norm.split(/\s+/).filter(Boolean).length < 2) return null;
 
   // Pastoral override: queries that start with first-person feeling/situation language
@@ -32632,6 +32685,10 @@ function findBiblicalAnswer(queryText) {
 
   function matchEntry(entry) {
     if (!entry || !Array.isArray(entry.triggers)) return false;
+    var whoNameMatch = norm.match(/^who (?:is|was|were|are)\s+(.+?)(?:\s+in the bible|\s+bible)?$/);
+    var whoName = whoNameMatch ? String(whoNameMatch[1] || '').trim() : '';
+    // Strip leading articles for name checks ("the virgin mary" style queries already covered by triggers).
+    if (whoName.indexOf('the ') === 0) whoName = whoName.slice(4).trim();
     for (var t = 0; t < entry.triggers.length; t++) {
       var trigger = normalizeInput(entry.triggers[t]);
       if (!trigger) continue;
@@ -32640,6 +32697,10 @@ function findBiblicalAnswer(queryText) {
       var trigWords = trigger.split(/\s+/).filter(function (w) { return w.length > 3 && !STOP_WORDS.has(w); });
       if (trigWords.length >= 3) {
         if (trigWords.every(function (w) { return norm.indexOf(w) !== -1; })) return true;
+      }
+      // Short who-is/was NAME: match knowledge entries whose triggers mention that name.
+      if (entry.type === 'knowledge' && whoName && whoName.length >= 3 && !/\s/.test(whoName)) {
+        if (new RegExp('\\b' + whoName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b').test(trigger)) return true;
       }
     }
     return false;

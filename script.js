@@ -58,7 +58,7 @@ function tdbIsHomePage() {
   function injectVerseBreakdownStack() {
     if (!window.TDB_VERSE_BREAKDOWN_DATA && !document.querySelector('script[data-tdb-verse-breakdown-overrides]')) {
       var seed = document.createElement('script');
-      seed.src = '/verse-breakdown-overrides.js?v=20260417-hydration';
+      seed.src = '/verse-breakdown-overrides.js?v=20260802-votd-plain';
       seed.defer = true;
       seed.setAttribute('data-tdb-verse-breakdown-overrides', '1');
       (document.head || document.documentElement).appendChild(seed);
@@ -75,12 +75,14 @@ function tdbIsHomePage() {
     if (window.TDBVerseBreakdown) return;
     if (document.querySelector('script[data-tdb-verse-breakdown]')) return;
     var s = document.createElement('script');
-    s.src = '/verse-breakdown.js?v=20260417-hydration';
+    s.src = '/verse-breakdown.js?v=20260802-votd-plain';
     s.defer = true;
     s.setAttribute('data-tdb-verse-breakdown', '1');
     (document.head || document.documentElement).appendChild(s);
   }
   if (tdbIsChapterReaderPage() || tdbIsVerseOfDayPage() || tdbIsHomePage()) {
+    // Homepage needs plain-English breakdown soon after the hero verse paints — do not wait 5s idle.
+    var homeEager = tdbIsHomePage();
     var ric = window.requestIdleCallback || function (fn) {
       return setTimeout(function () {
         try {
@@ -88,6 +90,14 @@ function tdbIsHomePage() {
         } catch (e) {}
       }, 1);
     };
+    if (homeEager) {
+      setTimeout(function () {
+        try {
+          injectVerseBreakdownStack();
+        } catch (eHomeVb) {}
+      }, 120);
+      return;
+    }
     ric(
       function () {
         injectVerseBreakdownStack();
@@ -2756,7 +2766,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[data-lazy-src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
   var trustedStd = trustedScriptURL('/verse-breakdown-standard.js?v=20260428-vbd');
-  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260417-hydration');
+  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260802-votd-plain');
   if (!trustedStd || !trusted) return;
   var stdScr = document.createElement('script');
   stdScr.src = trustedStd;
@@ -40057,7 +40067,7 @@ function wireRandomBattleVerseHero() {
     try { localStorage.setItem(LAST_SEEN_KEY, today); } catch (_) {}
   }());
 
-  /** Locale hubs: one anchor verse per UTC day. EN homepage companion: random panel each load (still not the calendar verse). */
+  /** Locale hubs: one anchor verse per UTC day. EN homepage companion: opposite-side calendar verse (not the same few). */
   (function initHubDailyAnchorRotate() {
     try {
       var root = document.querySelector('[data-tdb-hub-daily-rotate]');
@@ -40067,9 +40077,36 @@ function wireRandomBattleVerseHero() {
       var d = new Date();
       var dayKey = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
       var isHomeEnCompanion = root.closest && root.closest('#en-hub-daily-verse');
-      var idx = isHomeEnCompanion
-        ? Math.floor(Math.random() * panels.length)
-        : (Math.floor(dayKey / 86400000) % panels.length);
+      var year365 = typeof window !== 'undefined' ? window.__TDB_HERO_DAILY_YEAR : null;
+      if (isHomeEnCompanion && year365 && year365.length) {
+        var jan1 = Date.UTC(d.getUTCFullYear(), 0, 1);
+        var dayOfYear = Math.floor((dayKey - jan1) / 86400000) + 1;
+        // Half-year offset so Extra stays different from the hero calendar verse.
+        var companion = year365[((dayOfYear - 1 + 182) % year365.length + year365.length) % year365.length];
+        if (companion && companion.ref && companion.text) {
+          for (var hi = 0; hi < panels.length; hi++) {
+            panels[hi].hidden = true;
+            panels[hi].setAttribute('aria-hidden', 'true');
+          }
+          var host = root.querySelector('[data-tdb-hub-companion-live]') || panels[0];
+          if (host) {
+            host.hidden = false;
+            host.setAttribute('aria-hidden', 'false');
+            var verseEl = host.querySelector('.hero-verse');
+            if (verseEl) {
+              while (verseEl.firstChild) verseEl.removeChild(verseEl.firstChild);
+              verseEl.appendChild(document.createTextNode('\u201c' + String(companion.text) + '\u201d'));
+              verseEl.appendChild(document.createTextNode(' \u2014 '));
+              var refSpan = document.createElement('span');
+              refSpan.style.cssText = 'display:block;margin-top:0.35rem;font-size:0.78rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted)';
+              refSpan.textContent = String(companion.ref) + ' (KJV)';
+              verseEl.appendChild(refSpan);
+            }
+          }
+          return;
+        }
+      }
+      var idx = Math.floor(dayKey / 86400000) % panels.length;
       for (var i = 0; i < panels.length; i++) {
         var on = i === idx;
         panels[i].hidden = !on;

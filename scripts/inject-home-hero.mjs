@@ -12,6 +12,7 @@ import { loadYear365, pickVerseForToday, utcDayOfYear } from './lib/hero-daily-v
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 const distIndex = path.join(root, 'dist', 'index.html');
+const rootIndex = path.join(root, 'index.html');
 
 /** Replace stub id="tdb-home-daily-graph" (source index.html → dist) with UTC verse graph. */
 const HOME_DAILY_LD_RE =
@@ -114,36 +115,44 @@ function buildReadChapterHref(refStr) {
   );
 }
 
-function main() {
-  if (!fs.existsSync(distIndex)) {
-    fail('dist/index.html missing — run build-copy-static first.');
+/** Easy first-paint lesson copy for inject (mirrors hero-daily-first-paint tone). */
+function buildInjectedHeroLesson(refPlain, textPlain) {
+  const ref = normalizeRefBare(refPlain);
+  const text = String(textPlain || '').replace(/\s+/g, ' ').trim();
+  const lower = text.toLowerCase();
+  if (/^psalm\s+90\s*:\s*14$/i.test(ref) || /satisfy us early with thy mercy/i.test(lower)) {
+    return {
+      plain: 'God, fill us early with Your kindness, so we can rejoice and be glad all day long.',
+      step: 'Before you open messages, pray once: “Satisfy me early with Your mercy.” Then name one thing you can be glad for today.',
+      prayer: 'Lord, sink Psalm 90:14 into my heart—not as noise, but as truth that changes how I walk. In Jesus’ name, Amen.',
+    };
   }
-  const year365 = loadYear365(root);
-  const v = pickVerseForToday(year365);
-  if (!v || !v.ref || !v.text) {
-    fail('invalid verse from 365 list');
-  }
+  const archaic = {
+    thee: 'you', thou: 'you', thy: 'your', ye: 'you', hath: 'has', unto: 'to',
+    saith: 'says', mercy: 'kindness', rejoice: 'be glad', labour: 'work',
+  };
+  let plain = text;
+  Object.keys(archaic).forEach((k) => {
+    plain = plain.replace(new RegExp('\\b' + k + '\\b', 'gi'), archaic[k]);
+  });
+  plain = 'In plain words: ' + plain;
+  return {
+    plain,
+    step: 'Read it slowly one more time out loud. Thank God for one clear thing it says, then take the next small step with that line in mind.',
+    prayer: 'Lord, sink ' + refPlain + ' into my heart—not as noise, but as truth that changes how I walk. In Jesus’ name, Amen.',
+  };
+}
 
-  const refPlain = String(v.ref).trim();
-  const refNorm = normalizeRefBare(refPlain);
-  let textPlain = normalizeHeroKjvLine(v.text);
-  if (/^matthew\s+5\s*:\s*14$/i.test(refNorm) && !/^ye\s+/i.test(textPlain.replace(/\uFEFF/g, '').trim())) {
-    textPlain = 'Ye are the light of the world.';
-  }
-  const verseInner = '\u201c' + escapeHtmlText(textPlain) + '\u201d';
-  const refInner = escapeHtmlText(refPlain) + ' (KJV)';
-
-  let html = fs.readFileSync(distIndex, 'utf8');
-
+function applyHeroInject(html, label, refPlain, textPlain, verseInner) {
   const heroVerseRe = /<p[^>]*\bid="heroVerse"[^>]*>[\s\S]*?<\/p>/;
-  if (!heroVerseRe.test(html)) fail('could not find #heroVerse paragraph in dist/index.html');
+  if (!heroVerseRe.test(html)) fail('could not find #heroVerse paragraph in ' + label);
   html = html.replace(
     heroVerseRe,
     '<p class="hero-verse verse-body is-visible" id="heroVerse" elementtiming="tdb-hero-verse">' + verseInner + '</p>'
   );
 
   const heroRefRe = /<p[^>]*\bid="heroRef"[^>]*>[\s\S]*?<\/p>/;
-  if (!heroRefRe.test(html)) fail('could not find #heroRef in dist/index.html');
+  if (!heroRefRe.test(html)) fail('could not find #heroRef in ' + label);
   html = html.replace(
     heroRefRe,
     '<p class="big-kjv verse-ref hero-daily-ref-above" id="heroRef"><strong>' + escapeHtmlText(refPlain) + ' (KJV)</strong></p>'
@@ -151,7 +160,7 @@ function main() {
 
   if (!html.includes('data-tdb-hero-prebuilt')) {
     const verseCardRe = /<section\b[^>]*\bid="verseCard"[^>]*>/;
-    if (!verseCardRe.test(html)) fail('could not find #verseCard <section> in dist/index.html');
+    if (!verseCardRe.test(html)) fail('could not find #verseCard <section> in ' + label);
     html = html.replace(verseCardRe, function (full) {
       if (full.includes('data-tdb-hero-prebuilt')) return full;
       return full.slice(0, -1) + ' data-tdb-hero-prebuilt="1">';
@@ -169,6 +178,21 @@ function main() {
     );
     return '<button' + u + '>';
   });
+
+  // Prefill easy breakdown so first paint is never an empty “Simple layman terms” box.
+  const lesson = buildInjectedHeroLesson(refPlain, textPlain);
+  html = html.replace(
+    /<p id="heroSimpleBreakdown">[\s\S]*?<\/p>/,
+    '<p id="heroSimpleBreakdown">' + escapeHtmlText(lesson.plain) + '</p>'
+  );
+  html = html.replace(
+    /(<span id="heroVotdOneStep">)[\s\S]*?(<\/span>)/,
+    '$1' + escapeHtmlText(lesson.step) + '$2'
+  );
+  html = html.replace(
+    /(<span id="heroVotdPrayer">)[\s\S]*?(<\/span>)/,
+    '$1' + escapeHtmlText(lesson.prayer) + '$2'
+  );
 
   html = html.replace(
     /<p class="verse-img-text" id="verseImgText"><\/p>/,
@@ -231,9 +255,7 @@ function main() {
   );
 
   if (!HOME_DAILY_LD_RE.test(html)) {
-    fail(
-      'dist/index.html missing id="tdb-home-daily-graph" stub — sync index.html comment block into dist',
-    );
+    fail(label + ' missing id="tdb-home-daily-graph" stub — sync index.html comment block');
   }
   const homeLdPretty = JSON.stringify(buildHomeLdGraph(ldWebPageName, desc, refPlain, textPlain), null, 2);
   html = html.replace(
@@ -257,7 +279,36 @@ function main() {
     .replace(/^\s*```\s*$/gm, '')
     .replace(/\n(?:\s*```\s*\n){2,}/g, '\n');
 
-  fs.writeFileSync(distIndex, html, 'utf8');
+  return html;
+}
+
+function main() {
+  if (!fs.existsSync(distIndex)) {
+    fail('dist/index.html missing — run build-copy-static first.');
+  }
+  const year365 = loadYear365(root);
+  const v = pickVerseForToday(year365);
+  if (!v || !v.ref || !v.text) {
+    fail('invalid verse from 365 list');
+  }
+
+  const refPlain = String(v.ref).trim();
+  const refNorm = normalizeRefBare(refPlain);
+  let textPlain = normalizeHeroKjvLine(v.text);
+  if (/^matthew\s+5\s*:\s*14$/i.test(refNorm) && !/^ye\s+/i.test(textPlain.replace(/\uFEFF/g, '').trim())) {
+    textPlain = 'Ye are the light of the world.';
+  }
+  const verseInner = '\u201c' + escapeHtmlText(textPlain) + '\u201d';
+
+  const targets = [
+    { path: distIndex, label: 'dist/index.html' },
+    { path: rootIndex, label: 'index.html' },
+  ];
+  for (const t of targets) {
+    if (!fs.existsSync(t.path)) continue;
+    const next = applyHeroInject(fs.readFileSync(t.path, 'utf8'), t.label, refPlain, textPlain, verseInner);
+    fs.writeFileSync(t.path, next, 'utf8');
+  }
 
   // Match preloads in index.html + verse.html — must exist on origin before SW install or 404 in console.
   const distDir = path.join(root, 'dist');

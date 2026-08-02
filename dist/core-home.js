@@ -16,7 +16,7 @@
     }
   } catch (_) {}
 
-  var INTERACTIVE_SRC = 'script.js?v=20260709-wave4';
+  var INTERACTIVE_SRC = 'script.js?v=20260802-votd-plain';
   var loaded = false;
   var pendingQuery = '';
 

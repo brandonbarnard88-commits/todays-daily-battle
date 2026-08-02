@@ -154,30 +154,112 @@
       };
     }
 
-    // Strong generic fallback — verse-aware using book context + simple theme detection. Always provides full who/audience/year-context/you-now/layman/step per rule + skill. No vague "companion" meta.
+    // Psalm 90:14 — mercy that wakes joy (common calendar verse; keep specific).
+    if (/^psalm\s+90\s*:\s*14$/i.test(r) || /satisfy us early with thy mercy/i.test(tLower)) {
+      return {
+        lines: [
+          'Ask God to meet you early with kindness, so your whole day can hold real joy.',
+          sanitizeText(text),
+          'Mercy first — then gladness that lasts longer than a mood.'
+        ],
+        speaker: 'Moses (Psalm 90)',
+        about: 'Moses, praying for God’s people who felt how short and hard life can be.',
+        to: 'Israel learning to number their days — and anyone today who needs mercy before the day runs them.',
+        plain: 'God, fill us early with Your kindness, so we can rejoice and be glad all day long.',
+        modernApplication: 'In ' + yr + ', mornings often start with a phone, a worry list, or a rush. This verse asks for mercy first — kindness from God before the day starts pushing.',
+        today: 'Before the noise starts, ask God for mercy early. Joy grows better after kindness than after hurry.',
+        action: 'So do this: Before you open messages, pray once: “Satisfy me early with Your mercy.” Then name one thing you can be glad for today.'
+      };
+    }
+
+    // Strong generic fallback — rephrase the KJV into easy English + theme-aware today/step.
     var book = parseHeroBookName(ref);
     var ctx = heroBookRow(book) || { s: 'The biblical writer', a: 'God’s people in their time' };
-    var theme = '';
-    var bodyLower = sanitizeText(text).toLowerCase();
-    if (/anxious|careful|worry|fear|afraid|trouble|peace|rest|heavy|burden|cast|wait|strength|weary|faint|eagle|mount|renew/i.test(bodyLower)) theme = 'weariness or fear';
-    else if (/hope|trust|believe|pray|receive|ask|faith|possible/i.test(bodyLower)) theme = 'trust and prayer';
-    else if (/love|grace|mercy|forgiv|comfort|shepherd|light|salvation/i.test(bodyLower)) theme = 'God’s care';
-    else theme = 'your current battle';
+    var body = sanitizeText(text);
+    var bodyLower = body.toLowerCase();
+    var plainEasy = rephraseHeroKjvToPlain(body);
+    var themeKey = 'steady';
+    var todayLine = '';
+    var youLine = '';
+    var stepLine = '';
+    if (/anxious|careful|worry|fear|afraid|trouble|dismay|terror/i.test(bodyLower)) {
+      themeKey = 'fear';
+      todayLine = 'In ' + yr + ', fear still shows up in texts, bills, headlines, and quiet 2 AM thoughts. This verse meets that pressure with God’s steady word.';
+      youLine = 'You do not have to pretend you are fine. Bring the fear to God and let this verse hold you while you take the next small step.';
+      stepLine = 'So do this: Say the verse out loud once. Name the fear in one short sentence. Then ask God to carry it with you for the next hour.';
+    } else if (/peace|rest|still|quiet|calm/i.test(bodyLower)) {
+      themeKey = 'peace';
+      todayLine = 'In ' + yr + ', quiet is rare. This verse offers a real place to set the day down — not by escaping life, but by turning to God in it.';
+      youLine = 'If your mind will not settle, this word is for that exact restlessness.';
+      stepLine = 'So do this: Sit still for thirty seconds. Read the verse slowly. Whisper, “I receive Your peace,” then take one calm next step.';
+    } else if (/mercy|grace|forgiv|compassion|lovingkindness|kind/i.test(bodyLower)) {
+      themeKey = 'mercy';
+      todayLine = 'In ' + yr + ', people often feel behind, ashamed, or hard on themselves. This verse points to God’s kindness, not your performance.';
+      youLine = 'You can come to God as you are. Mercy is not a prize for finishing strong — it is help for right now.';
+      stepLine = 'So do this: Tell God one place you need mercy today. Thank Him for it before you try to fix anything.';
+    } else if (/strength|strong|courage|wait|weary|faint|renew|help|uphold/i.test(bodyLower)) {
+      themeKey = 'strength';
+      todayLine = 'In ' + yr + ', tiredness can feel like failure. This verse reminds you there is strength beyond your own.';
+      youLine = 'When you feel empty, this word is not asking you to push harder — it is inviting you to lean on God.';
+      stepLine = 'So do this: Read the verse once out loud. Ask God for strength for the next task only — not the whole week.';
+    } else if (/hope|trust|believe|faith|pray|ask|cast|burden|care/i.test(bodyLower)) {
+      themeKey = 'trust';
+      todayLine = 'In ' + yr + ', trust gets tested by waiting, silence, and unanswered questions. This verse calls you to hand the weight to God.';
+      youLine = 'You can bring Him the real thing on your mind — not a polished prayer.';
+      stepLine = 'So do this: Name one worry. Pray it in one sentence. Then say, “I trust You with this,” and leave it there for now.';
+    } else if (/love|light|shepherd|save|salvation|rejoice|glad|joy|bless/i.test(bodyLower)) {
+      themeKey = 'care';
+      todayLine = 'In ' + yr + ', good news can feel thin. This verse holds God’s care in plain sight — something solid to rejoice in.';
+      youLine = 'Let this word remind you that God is for you, not against you, even on an ordinary hard day.';
+      stepLine = 'So do this: Read the verse again. Thank God for one true kindness in it. Carry that one line into your next conversation.';
+    } else {
+      todayLine = 'In ' + yr + ', this verse still speaks into ordinary pressure — work, home, waiting, and quiet battles nobody else sees.';
+      youLine = 'Hold this word as God speaking kindly to you today — not as a slogan, but as truth for your next step.';
+      stepLine = 'So do this: Read it slowly one more time out loud. Thank God for one clear thing it says, then take the next small step with that line in mind.';
+    }
+    if (!plainEasy) {
+      plainEasy = 'This verse says something true from God for real life today. Read it slowly until one phrase stays with you.';
+    } else if (plainEasy.length > 180) {
+      plainEasy = 'In plain words: ' + plainEasy.slice(0, 160).trim() + '…';
+    } else {
+      plainEasy = 'In plain words: ' + plainEasy;
+    }
 
     return {
       lines: [
-        'This word from Scripture meets you exactly where you are today.',
-        sanitizeText(text),
+        plainEasy,
+        body,
         'Let one clear promise or command stay with you as you walk the next hour.'
       ],
       speaker: ctx.s,
       about: ctx.s + ' (through the words of the KJV).',
       to: ctx.a + ' — and for you in ' + yr + ' facing the same kind of battle.',
-      plain: sanitizeText(text) + ' — God can do what looks impossible to us.',
-      modernApplication: 'In ' + yr + ', ' + theme + ' can feel heavy or confusing. This verse cuts through with a quiet, steady truth you can carry without performing or pretending.',
-      today: 'In ' + yr + ', ' + theme + ' can feel heavy or confusing. This verse cuts through with a quiet, steady truth you can carry without performing or pretending.',
-      action: 'So do this: Read the verse slowly one more time out loud. Thank God for one true thing it says to your exact situation today, then take the next small step with that line in mind.'
+      plain: plainEasy,
+      modernApplication: todayLine,
+      today: youLine,
+      action: stepLine,
+      themeKey: themeKey
     };
+  }
+
+  /** Light KJV → easy English for first-paint layman terms (full engine may refine later). */
+  function rephraseHeroKjvToPlain(text) {
+    var map = {
+      careful: 'worried', beseech: 'ask', thee: 'you', thou: 'you', thy: 'your', thine: 'your', ye: 'you',
+      hath: 'has', doth: 'does', shalt: 'shall', wilt: 'will', art: 'are',
+      believeth: 'believes', loveth: 'loves', giveth: 'gives', knoweth: 'knows', maketh: 'makes',
+      strengtheneth: 'strengthens', keepeth: 'keeps', worketh: 'works', satisfieth: 'satisfies',
+      unto: 'to', saith: 'says', verily: 'truly', behold: 'look',
+      labour: 'work', laden: 'burdened', dismayed: 'discouraged', whosoever: 'whoever', whatsoever: 'whatever',
+      brethren: 'brothers', everlasting: 'forever', mercy: 'kindness', rejoice: 'be glad',
+      sustain: 'hold you up', cast: 'give', burden: 'heavy worry'
+    };
+    var s = sanitizeText(text);
+    Object.keys(map).forEach(function (k) {
+      var re = new RegExp('\\b' + k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'gi');
+      s = s.replace(re, map[k]);
+    });
+    return s.replace(/\s+/g, ' ').trim();
   }
 
   function normalizeVerse(data) {
@@ -337,9 +419,7 @@
       }
     }
     var audience = row
-      ? (row.s === 'Jesus'
-          ? 'His disciples who had just seen His word wither a fig tree — and for us when we bring real needs to Him.'
-          : 'Originally for ' + row.a + ' in their time. The same word speaks to us today.')
+      ? 'Originally for ' + row.a + ' in their time. The same word speaks to us today.'
       : 'Written for God’s people in Scripture—and for anyone listening now, including you.';
     var relatesToday = modernA;
     if (!relatesToday) {
@@ -556,7 +636,7 @@
     if (window.__TDB_HERO_DAILY_YEAR && window.__TDB_HERO_DAILY_YEAR.length) return;
     window.__TDB_HERO365_LOAD_SCHEDULED = true;
     var s = document.createElement('script');
-    s.src = 'hero-daily-365-data.js?v=20260325b';
+    s.src = 'hero-daily-365-data.js?v=20260802-calendar-mix';
     s.async = true;
     s.setAttribute('data-tdb-hero365', '1');
     s.onload = function () {

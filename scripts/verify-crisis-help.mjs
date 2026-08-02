@@ -22,6 +22,7 @@ const requiredFns = [
   'function prependCrisisHelpIfNeeded',
   'function ensureCrisisHelpForSelfCrisis',
   'function appendBiblicalAnswerSection',
+  'function appendAskTheWordAnswerSection',
 ];
 for (const fn of requiredFns) {
   if (!src.includes(fn)) {
@@ -38,12 +39,18 @@ if (!src.includes('prependCrisisHelpIfNeeded(output, queryText, false)')) {
   console.error('FAIL tool search path missing crisis prepend');
   process.exit(1);
 }
-if (!src.includes('appendBiblicalAnswerSection(shell, queryText, true)')) {
-  console.error('FAIL home path missing appendBiblicalAnswerSection');
+// Home/tool search paths call the universal Ask the Word wrapper, which still
+// prefers curated appendBiblicalAnswerSection when a pastoral entry matches.
+if (!src.includes('appendAskTheWordAnswerSection(shell, queryText, results, true)')) {
+  console.error('FAIL home path missing appendAskTheWordAnswerSection');
   process.exit(1);
 }
-if (!src.includes('appendBiblicalAnswerSection(output, queryText, false)')) {
-  console.error('FAIL tool path missing appendBiblicalAnswerSection');
+if (!src.includes('appendAskTheWordAnswerSection(output, queryText, results, false)')) {
+  console.error('FAIL tool path missing appendAskTheWordAnswerSection');
+  process.exit(1);
+}
+if (!src.includes('return appendBiblicalAnswerSection(host, queryText, compact)')) {
+  console.error('FAIL Ask the Word wrapper missing curated biblical-answer handoff');
   process.exit(1);
 }
 if (!src.includes("entry.id === 'suicidal-despair' || entry.id === 'self-harm'")) {

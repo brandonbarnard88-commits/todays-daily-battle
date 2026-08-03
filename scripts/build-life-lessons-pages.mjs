@@ -42,6 +42,23 @@ function listItems(arr, allowHtml) {
     .join('\n');
 }
 
+/** Deep unfolding arrays, or prose with blank-line breaks. Optional trusted HTML. */
+function paragraphs(textOrArr, allowHtml) {
+  const chunks = Array.isArray(textOrArr)
+    ? (textOrArr || []).map((p) => String(p ?? '').trim()).filter(Boolean)
+    : String(textOrArr ?? '')
+        .split(/\n\n+/)
+        .map((p) => p.trim())
+        .filter(Boolean);
+  if (!chunks.length) return '<p></p>';
+  return chunks.map((p) => `      <p>${allowHtml ? p : esc(p)}</p>`).join('\n');
+}
+
+/** smallStep may include porch <a href> links (same trust model as prepare / littleOnes). */
+function smallStepHtml(step) {
+  return String(step ?? '');
+}
+
 function porchLinks(porch) {
   return (porch || [])
     .map((p) => `<li><a href="${esc(p.href)}">${esc(p.label)}</a></li>`)
@@ -56,12 +73,6 @@ const mobiusRibbonBlock = `    <section class="glass tdb-porch-paper-glass tdb-l
         <a class="btn btn-secondary" href="../mobius.html#mobius-ribbon-stations">Stations on the ribbon</a>
       </p>
     </section>`;
-
-function paragraphs(arr, allowHtml) {
-  return (arr || [])
-    .map((p) => `      <p>${allowHtml ? p : esc(p)}</p>`)
-    .join('\n');
-}
 
 function deepLessonPage(lesson) {
   const canonical = `https://todaysdailybattle.com/life-lessons/${lesson.slug}.html`;
@@ -181,7 +192,7 @@ ${crossHtml}
     </section>
     <section class="glass tdb-porch-paper-glass tdb-ll-section" aria-labelledby="tdb-ll-step-h">
       <h2 id="tdb-ll-step-h">One small step today</h2>
-      <p>${esc(lesson.smallStep)}</p>
+      <p>${smallStepHtml(lesson.smallStep)}</p>
     </section>
     <section class="glass tdb-porch-paper-glass tdb-ll-section" aria-labelledby="tdb-ll-prayer-h">
       <h2 id="tdb-ll-prayer-h">A simple prayer</h2>
@@ -297,7 +308,7 @@ ${paragraphs(lesson.unfolding, false).replace(/^      /gm, '      ')}
     ${crossPrint}
     <div class="block">
       <h2>One small step today</h2>
-      <p>${esc(lesson.smallStep)}</p>
+      <p>${smallStepHtml(lesson.smallStep)}</p>
     </div>
     <div class="block">
       <h2>A simple prayer</h2>
@@ -336,7 +347,21 @@ ${listItems(lesson.reflection)}
   const storyBlock = lesson.story
     ? `    <section class="glass tdb-porch-paper-glass tdb-ll-section" aria-labelledby="tdb-ll-story-h">
       <h2 id="tdb-ll-story-h">The story / setting</h2>
-      <p>${esc(lesson.story)}</p>
+${paragraphs(lesson.story)}
+    </section>`
+    : '';
+
+  const stepBlock = lesson.smallStep
+    ? `    <section class="glass tdb-porch-paper-glass tdb-ll-section" aria-labelledby="tdb-ll-step-h">
+      <h2 id="tdb-ll-step-h">One small step today</h2>
+      <p>${smallStepHtml(lesson.smallStep)}</p>
+    </section>`
+    : '';
+
+  const prayerBlock = lesson.prayer
+    ? `    <section class="glass tdb-porch-paper-glass tdb-ll-section" aria-labelledby="tdb-ll-prayer-h">
+      <h2 id="tdb-ll-prayer-h">A simple prayer</h2>
+      <p class="tdb-ll-prayer">${esc(lesson.prayer)}</p>
     </section>`
     : '';
 
@@ -391,11 +416,11 @@ ${listItems(lesson.reflection)}
 ${storyBlock}
     <section class="glass tdb-porch-paper-glass tdb-ll-section" aria-labelledby="tdb-ll-learned-h">
       <h2 id="tdb-ll-learned-h">The lesson learned</h2>
-      <p>${esc(lesson.learned)}</p>
+${paragraphs(lesson.learned)}
     </section>
     <section class="glass tdb-porch-paper-glass tdb-ll-section" aria-labelledby="tdb-ll-applies-h">
       <h2 id="tdb-ll-applies-h">How it applies today</h2>
-      <p>${esc(lesson.applies)}</p>
+${paragraphs(lesson.applies)}
     </section>
     <section class="glass tdb-porch-paper-glass tdb-ll-section" aria-labelledby="tdb-ll-prepare-h">
       <h2 id="tdb-ll-prepare-h">How to prepare the heart</h2>
@@ -403,6 +428,8 @@ ${storyBlock}
 ${listItems(lesson.prepare, true)}
       </ul>
     </section>
+${stepBlock}
+${prayerBlock}
 ${reflectionBlock}
     <section class="glass tdb-porch-paper-glass tdb-ll-section" aria-labelledby="tdb-ll-little-h">
       <h2 id="tdb-ll-little-h">For little ones</h2>
@@ -442,6 +469,18 @@ ${redScript}
 function printPage(lesson) {
   const canonical = `https://todaysdailybattle.com/life-lessons/${lesson.slug}-print.html`;
   const lessonHref = `${lesson.slug}.html`;
+  const stepPrint = lesson.smallStep
+    ? `    <div class="block">
+      <h2>One small step today</h2>
+      <p>${String(lesson.smallStep).replace(/<[^>]+>/g, '')}</p>
+    </div>`
+    : '';
+  const prayerPrint = lesson.prayer
+    ? `    <div class="block">
+      <h2>A simple prayer</h2>
+      <p class="prayer">${esc(lesson.prayer)}</p>
+    </div>`
+    : '';
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -466,6 +505,7 @@ function printPage(lesson) {
     ul { margin: 0.1rem 0 0; padding-left: 1rem; font-size: 0.66rem; }
     li { margin-bottom: 0.12rem; }
     p { font-size: 0.66rem; margin: 0.08rem 0 0; }
+    .prayer { font-family: Georgia, serif; font-style: italic; }
     .footer { margin-top: 0.35rem; font-size: 0.68rem; color: var(--soft); }
     .no-print { margin-bottom: 0.35rem; font-size: 0.78rem; }
     .no-print a { color: #2d4a6f; }
@@ -485,15 +525,15 @@ function printPage(lesson) {
     </div>
     <div class="block">
       <h2>The story / setting</h2>
-      <p>${esc(lesson.story)}</p>
+${paragraphs(lesson.story)}
     </div>
     <div class="block">
       <h2>The lesson learned</h2>
-      <p>${esc(lesson.learned)}</p>
+${paragraphs(lesson.learned)}
     </div>
     <div class="block">
       <h2>How it applies today</h2>
-      <p>${esc(lesson.applies)}</p>
+${paragraphs(lesson.applies)}
     </div>
     <div class="block">
       <h2>How to prepare the heart</h2>
@@ -501,6 +541,8 @@ function printPage(lesson) {
 ${listItems(lesson.prepare, true)}
       </ul>
     </div>
+${stepPrint}
+${prayerPrint}
     <div class="block">
       <h2>Quiet reflection (optional)</h2>
       <ul>

@@ -28,7 +28,8 @@ Many people from the town came to meet Jesus because of her words. They said to 
 
 ## Coloring Page Prompt
 
-Simple, warm black-and-white line art for ages 3–8. Jesus sitting by a well talking kindly to a woman holding a water jar. A bucket and rope on the well. Soft hills and a few houses in the distance. Gentle, welcoming, and hopeful feeling. Clean bold lines with large open spaces for easy coloring.
+Black and white coloring book page for Christian children, clean vector-style line art. Age band: Littles (ages 3–6). Extra-thick outlines, very large simple shapes, almost no internal lines, maximum white space, preschool coloring page. Subject: Jesus sitting by a well talking kindly to a woman holding a water jar, a bucket and rope on the well, minimal distant shapes, gentle welcoming hopeful mood. Style: Thick bold consistent black outlines (3–5 px visual weight). Large simple closed shapes for little hands or digital fill. Generous white space. Minimal internal detail — no tiny patterns, no cross-hatching, no texture. Pure black lines only on pure white background. Flat 2D, no perspective tricks. Friendly, warm, peaceful, respectful (never cartoonish, never scary, never irreverent). Centered composition with room for a short KJV verse at the bottom if needed. High contrast, print-ready at 300 DPI, letter size (8.5×11). Technical: no shading, no gray tones, no gradients, no halftone, no soft edges, no color of any kind; no background scenery unless extremely simple and large; closed outlines only (no gaps so flood-fill works); clean edges, no anti-aliased fringes. Mood: calm, gentle, wonder-filled, “Little Shepherd” feel — God’s story is the bright part. Avoid: shading, shadows, gradients, gray, grayscale, color, texture, crosshatching, stippling, noise, watermark, text, signature, photorealistic, 3d, realistic, scary, violent, detailed background, small details, thin lines, broken outlines
+
 
 ---
 

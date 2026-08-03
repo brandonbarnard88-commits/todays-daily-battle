@@ -4,7 +4,7 @@
 
 This lane deepens what already exists. It does not add performance pressure, new nav chrome, or “complete the journey” language.
 
-These principles sit beside [PORCH-DISCOVERABILITY-PRINCIPLES.md](./PORCH-DISCOVERABILITY-PRINCIPLES.md), [PORCH-VISUAL-PRINCIPLES.md](./PORCH-VISUAL-PRINCIPLES.md), and the four foundations ([NORTH-STAR-PRINCIPLES.md](./NORTH-STAR-PRINCIPLES.md)).
+These principles sit beside [PORCH-DISCOVERABILITY-PRINCIPLES.md](./PORCH-DISCOVERABILITY-PRINCIPLES.md), [PORCH-VISUAL-PRINCIPLES.md](./PORCH-VISUAL-PRINCIPLES.md), the four foundations ([NORTH-STAR-PRINCIPLES.md](./NORTH-STAR-PRINCIPLES.md)), and Color & Tell line-art rules ([COLOR-AND-TELL-HOUSE-STYLE.md](./COLOR-AND-TELL-HOUSE-STYLE.md)).
 
 ---
 

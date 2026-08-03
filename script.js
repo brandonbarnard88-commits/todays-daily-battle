@@ -30449,17 +30449,28 @@ function scrollTdbSearchSurfaceIntoView() {
   tdbScrollIntoView(el, 'start', 'nearest');
 }
 
-/** Scroll the results bucket into view; homepage uses #feel-results (centered), other pages use #output. */
+/** Scroll the results bucket into view; homepage uses #feel-results, other pages use #output. */
 function scrollTdbSearchResultsIntoView() {
   /* Intentionally does NOT respect __tdbSuppressNextSearchScroll: feel-topic flow suppresses
    * scrollTdbSearchSurfaceIntoView for ~600ms so the instant card is not jumped away, but
-   * Ask The Word / #feel-results must still scroll into view or users never see the results. */
+   * Ask The Word / #feel-results must still scroll into view or users never see the results.
+   * Use block:start (not center): centering a tall results shell jumps past the first answer
+   * toward the middle/bottom of the page. Prefer the first result anchor when present. */
   var fr = document.getElementById('feel-results');
   var out = typeof getSearchOutputElement === 'function' ? getSearchOutputElement() : document.getElementById('output');
-  var el = fr || out;
-  if (!el) return;
-  var block = fr ? 'center' : 'start';
-  tdbScrollIntoView(el, block, 'nearest');
+  var bucket = fr || out;
+  if (!bucket) return;
+  var anchor = null;
+  try {
+    anchor =
+      bucket.querySelector(
+        '.home-search-header, .home-search-response-title, .home-search-kicker, .home-search-card, .verse-card, .smart-card, [data-home-search-section], h3, p'
+      ) || bucket.firstElementChild;
+  } catch (_) {
+    anchor = bucket.firstElementChild || null;
+  }
+  var el = anchor || bucket;
+  tdbScrollIntoView(el, 'start', 'nearest');
 }
 
 try {
@@ -34568,9 +34579,16 @@ function triggerResultsFade(el) {
   el.classList.remove('results-updated');
   requestAnimationFrame(function () {
     el.classList.add('results-updated');
-    // Always scroll so results are visible without hunting
-    if (typeof el.scrollIntoView === 'function') {
-      el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    // Land on the first result, not the middle of a tall results shell.
+    if (typeof scrollTdbSearchResultsIntoView === 'function') {
+      scrollTdbSearchResultsIntoView();
+    } else if (typeof el.scrollIntoView === 'function') {
+      var first = el.firstElementChild || el;
+      try {
+        first.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } catch (_) {
+        el.scrollIntoView(true);
+      }
     }
     setTimeout(function () { el.classList.remove('results-updated'); }, 600);
   });
@@ -35806,7 +35824,7 @@ async function tdbInitImpl() {
             }
             if (out) {
               out.style.display = 'grid';
-              scrollTdbSearchSurfaceIntoView();
+              /* Results only — surface scroll + center-on-shell was jumping past the first answer. */
               setTimeout(function () {
                 scrollTdbSearchResultsIntoView();
               }, 80);
@@ -35848,7 +35866,6 @@ async function tdbInitImpl() {
                   });
                 }
               }
-              scrollTdbSearchSurfaceIntoView();
               scrollTdbSearchResultsIntoView();
             }
             if (typeof console !== 'undefined' && console.error) console.error('TDB search error:', err);

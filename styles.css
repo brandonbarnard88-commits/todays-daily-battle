@@ -5495,7 +5495,12 @@ body:has(.search-hero-home) #search-hero {
 .search-hero:not(.glass) { background: transparent; }
 .search-hero.glass { padding: var(--space-xl) var(--space-lg); }
 #search-hero, #quick-search-hero { scroll-margin-top: calc(var(--tdb-header-offset, 5rem) + 0.25rem); }
-#feel-results { scroll-margin-top: 1rem; scroll-margin-bottom: 2rem; }
+#feel-results,
+#feel-results .home-search-header,
+#feel-results .home-search-response-title {
+  scroll-margin-top: calc(var(--tdb-header-offset, 5rem) + 0.35rem);
+  scroll-margin-bottom: 2rem;
+}
 /* Paired hero: keep Ask the Word in the first stretch without sticky stacking over the verse */
 #quick-search-hero {
   position: relative;

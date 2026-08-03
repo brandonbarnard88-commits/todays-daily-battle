@@ -139,8 +139,8 @@
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <link rel="preload" href="tdb-visual-tokens.css?v=20260712-phase1-s34" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260712-phase1-s34">
-  <link rel="preload" href="tdb-home-page.css?v=20260712-phase1-s34" as="style">
-  <link rel="stylesheet" href="tdb-home-page.css?v=20260712-phase1-s34">
+  <link rel="preload" href="tdb-home-page.css?v=20260803-calm-cut" as="style">
+  <link rel="stylesheet" href="tdb-home-page.css?v=20260803-calm-cut">
   <link rel="preload" href="tdb-swoop-surfaces.css?v=20260709-vp3-polish" as="style">
   <link rel="stylesheet" href="tdb-swoop-surfaces.css?v=20260709-vp3-polish">
   <!-- JSON-LD: DailyVerse + WebSite schema for SEO -->
@@ -482,12 +482,15 @@
         <p class="tdb-heavy-now__lead">One KJV verse, one breath, one small step.</p>
         <div class="tdb-heavy-now__actions">
           <a class="btn btn-primary tdb-heavy-now__primary" href="/calm.html" id="tdbHeavyNowCalm">Take me to Calm</a>
-          <a class="tdb-heavy-now__text-link tdb-heavy-now__secondary" href="/emergency-calm-pack.html">7-day emergency pack</a>
-          <a class="tdb-heavy-now__text-link tdb-heavy-now__secondary" href="/sos.html">Steady now (3 anchors)</a>
         </div>
-        <p class="heavy-week-packs-link section-note">
-          Or explore <a href="plans.html#plans-heavy-week-packs">Heavy week packs</a> (Calm + short plan + print).
-        </p>
+        <details class="tdb-heavy-now__more">
+          <summary>More help for a heavy week</summary>
+          <div class="tdb-heavy-now__more-links">
+            <a class="tdb-heavy-now__text-link tdb-heavy-now__secondary" href="/emergency-calm-pack.html">7-day emergency pack</a>
+            <a class="tdb-heavy-now__text-link tdb-heavy-now__secondary" href="/sos.html">Steady now (3 anchors)</a>
+            <a class="tdb-heavy-now__text-link tdb-heavy-now__secondary" href="plans.html#plans-heavy-week-packs">Heavy week packs</a>
+          </div>
+        </details>
         <p class="tdb-heavy-now__foot section-note">The rest of the page can wait.</p>
       </section>
 
@@ -730,24 +733,27 @@
       <a href="#tdb-home-votm" class="tdb-float-memory-pill" id="tdb-float-memory-pill" hidden aria-label="Jump to verse of the month">Memory</a>
       <button type="button" class="tdb-float-share-verse" id="tdb-float-share-verse-home" aria-label="Share today’s verse">Share verse</button>
       </div><!-- /#hero-verse-wrap -->
-      <!-- Three calm doors: verse · Ask · family table — clarifies paths without a second hero -->
-      <nav class="tdb-home-first-doors tdb-quiet-container" id="tdbHomeFirstDoors" aria-label="Three calm doors">
-        <p class="tdb-home-first-doors__quiet">You&rsquo;re already welcome here.</p>
-        <p class="tdb-home-first-doors__lead">One verse. One small step. One prayer.</p>
-        <ul class="tdb-home-first-doors__list">
-          <li>
-            <a class="tdb-home-first-doors__btn" href="#hero-verse-wrap">Today&rsquo;s verse + one step</a>
-          </li>
-          <li>
-            <a class="tdb-home-first-doors__btn tdb-home-first-doors__btn--primary" href="#feel-section">I don&rsquo;t know what I need &mdash; help me find it</a>
-          </li>
-          <li>
-            <a class="tdb-home-first-doors__btn" href="#tdbFamilyModeBridge">At the table with kids tonight</a>
-          </li>
-        </ul>
-        <p class="section-note">No account. No pressure. Much of this works offline after your first visit.</p>
-        <p class="tdb-offline-ready" role="note">Works offline after you&rsquo;ve opened it once on this device.</p>
-      </nav>
+      <!-- Secondary doors remain nearby without competing with the verse and Ask the Word. -->
+      <details class="tdb-home-first-doors tdb-quiet-container" id="tdbHomeFirstDoors" aria-label="Three calm doors">
+        <summary class="tdb-home-first-doors__summary">Need a different doorway?</summary>
+        <nav class="tdb-home-first-doors__content" aria-label="Three calm doors">
+          <p class="tdb-home-first-doors__quiet">You&rsquo;re already welcome here.</p>
+          <p class="tdb-home-first-doors__lead">One verse. One small step. One prayer.</p>
+          <ul class="tdb-home-first-doors__list">
+            <li>
+              <a class="tdb-home-first-doors__btn" href="#hero-verse-wrap">Today&rsquo;s verse + one step</a>
+            </li>
+            <li>
+              <a class="tdb-home-first-doors__btn tdb-home-first-doors__btn--primary" href="#feel-section">I don&rsquo;t know what I need &mdash; help me find it</a>
+            </li>
+            <li>
+              <a class="tdb-home-first-doors__btn" href="#tdbFamilyModeBridge">At the table with kids tonight</a>
+            </li>
+          </ul>
+          <p class="section-note">No account. No pressure. Much of this works offline after your first visit.</p>
+          <p class="tdb-offline-ready" role="note">Works offline after you&rsquo;ve opened it once on this device.</p>
+        </nav>
+      </details>
 
       <section id="tdb-home-pickup" class="tdb-home-pickup tdb-quiet-container" hidden aria-labelledby="tdb-home-continue-loop-heading">
         <div id="tdb-home-continue-loop-wrap" class="tdb-home-continue-loop-wrap" role="region" aria-label="Pick up on this device" hidden>
@@ -971,17 +977,19 @@
       </section>
       </div><!-- /#quick-search-hero -->
 
-      <!-- Pass 1: single open post-hero door row -->
-      <nav class="tdb-home-next-doors tdb-quiet-container" id="tdbHomeNextDoors" aria-label="Main rooms after today&rsquo;s verse">
-        <p class="tdb-home-next-doors__label" id="tdbHomeNextDoorsLabel">When you&rsquo;re ready</p>
-        <ul class="tdb-home-next-doors__list">
-          <li><a class="tdb-home-next-doors__link" href="plans.html">Battle Plans</a></li>
-          <li><a class="tdb-home-next-doors__link" href="family.html">Family</a></li>
-          <li><a class="tdb-home-next-doors__link" href="calm.html">Calm</a></li>
-          <li><a class="tdb-home-next-doors__link" href="/mystudy">My Study</a></li>
-          <li><a class="tdb-home-next-doors__link" href="explore.html">Explore</a></li>
-        </ul>
-      </nav>
+      <!-- Main rooms stay one tap away without forming a third open navigation row. -->
+      <details class="tdb-home-next-doors tdb-quiet-container" id="tdbHomeNextDoors">
+        <summary class="tdb-home-next-doors__label" id="tdbHomeNextDoorsLabel">Choose another room</summary>
+        <nav aria-label="Main rooms after today&rsquo;s verse">
+          <ul class="tdb-home-next-doors__list">
+            <li><a class="tdb-home-next-doors__link" href="plans.html">Battle Plans</a></li>
+            <li><a class="tdb-home-next-doors__link" href="family.html">Family</a></li>
+            <li><a class="tdb-home-next-doors__link" href="calm.html">Calm</a></li>
+            <li><a class="tdb-home-next-doors__link" href="/mystudy">My Study</a></li>
+            <li><a class="tdb-home-next-doors__link" href="explore.html">Explore</a></li>
+          </ul>
+        </nav>
+      </details>
 
       <!-- FT1: next-step CTAs live in #tdbFirstVisitStrip; host kept for progressive-disclosure anchors -->
       <section class="tdb-first-visit-next-step tdb-quiet-container" id="tdbFirstVisitNextStep" aria-labelledby="tdbFirstVisitNextStepH" hidden>

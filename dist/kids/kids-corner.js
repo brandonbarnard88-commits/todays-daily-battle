@@ -7164,11 +7164,38 @@
     var qList = pack.questions || [];
     var qIndex = { v: 0 };
 
+    // Journey strip: Hear → Remember → Color (optional) — fun retention before school-quiz feel
+    var journeyTop = document.createElement('p');
+    journeyTop.className = 'kids-read-quiz-journey';
+    journeyTop.setAttribute('aria-label', 'Story path: Hear, Remember, optional Color');
+    function journeyPart(text, className, ariaHidden) {
+      var el = document.createElement('span');
+      if (className) el.className = className;
+      if (ariaHidden) el.setAttribute('aria-hidden', 'true');
+      el.textContent = text;
+      return el;
+    }
+    journeyTop.appendChild(journeyPart('1 · Hear the story', ''));
+    journeyTop.appendChild(journeyPart(' → ', '', true));
+    journeyTop.appendChild(journeyPart('2 · Remember', 'kids-read-quiz-journey-now'));
+    journeyTop.appendChild(journeyPart(' → ', '', true));
+    journeyTop.appendChild(journeyPart('3 · Color (optional)', ''));
+    wrap.insertBefore(journeyTop, wrap.firstChild);
+
+    var rememberHost = document.createElement('div');
+    rememberHost.className = 'kids-read-quiz-remember-host';
+    wrap.appendChild(rememberHost);
+
     var quizBanner = document.createElement('div');
     quizBanner.className = 'kids-read-quiz-quiz-banner';
+    quizBanner.hidden = true;
     var qh = document.createElement('h4');
     qh.className = 'kids-read-quiz-h4 kids-read-quiz-quiz-title';
-    qh.textContent = tdbPlainTextForUi(pack.quizHeading || 'Quiz Time!');
+    qh.textContent = tdbPlainTextForUi(pack.quizHeading || 'Remember with me!');
+    // Soften school-y default headings still in data packs
+    if (/^quiz/i.test(String(pack.quizHeading || '').trim())) {
+      qh.textContent = 'Remember with me!';
+    }
     var progEl = document.createElement('div');
     progEl.className = 'kids-read-quiz-progress';
     progEl.setAttribute('role', 'status');
@@ -7181,7 +7208,36 @@
 
     var quizHost = document.createElement('div');
     quizHost.className = 'kids-read-quiz-host';
+    quizHost.hidden = true;
     wrap.appendChild(quizHost);
+
+    function revealRememberQuestions() {
+      quizBanner.hidden = false;
+      quizHost.hidden = false;
+      try {
+        quizBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } catch (eSc) {}
+      renderQuestion();
+    }
+
+    var mountedRemember = false;
+    if (window.TDBKidsStoryRemember && typeof window.TDBKidsStoryRemember.mountRememberGame === 'function') {
+      mountedRemember = !!window.TDBKidsStoryRemember.mountRememberGame(rememberHost, {
+        storyKey: key,
+        readQuizPack: pack,
+        onComplete: function () {
+          revealRememberQuestions();
+        },
+        onSkip: function () {
+          revealRememberQuestions();
+        }
+      });
+    }
+    if (!mountedRemember) {
+      // No sequence data — go straight to remember questions (still soft heading)
+      quizBanner.hidden = false;
+      quizHost.hidden = false;
+    }
 
     function updateQuizProgressUi() {
       if (!progEl || !qList.length) return;
@@ -7203,12 +7259,16 @@
         done.className = 'kids-read-quiz-done';
         var dh = document.createElement('h4');
         dh.className = 'kids-read-quiz-done-title';
-        dh.textContent = tdbPlainTextForUi(pack.doneHeading || 'All done!');
+        dh.textContent = tdbPlainTextForUi(pack.doneHeading || 'You remembered the story!');
         done.appendChild(dh);
         if (pack.doneMessage) {
           var dm = document.createElement('p');
           dm.textContent = tdbPlainTextForUi(pack.doneMessage);
           done.appendChild(dm);
+        } else {
+          var dmDef = document.createElement('p');
+          dmDef.textContent = 'God’s Word is in your heart. Want another story, or a quiet color time?';
+          done.appendChild(dmDef);
         }
         if (pack.takeaway) {
           var tk = document.createElement('p');
@@ -7222,13 +7282,31 @@
           pr.textContent = tdbPlainTextForUi(pack.prayer);
           done.appendChild(pr);
         }
+        // Keep learning first — color is optional calm, not the only door out
+        var moreStories = document.createElement('p');
+        moreStories.className = 'kids-read-quiz-color-wrap kids-read-quiz-more-stories';
+        var moreBtn = document.createElement('button');
+        moreBtn.type = 'button';
+        moreBtn.className = 'btn kids-btn-primary kids-read-quiz-color-link';
+        moreBtn.textContent = 'Pick another story!';
+        moreBtn.addEventListener('click', function () {
+          var back = document.getElementById('kids-story-modal-back-library');
+          if (back) back.click();
+          else {
+            var close = document.getElementById('kids-story-modal-close');
+            if (close) close.click();
+          }
+        });
+        moreStories.appendChild(moreBtn);
+        done.appendChild(moreStories);
+
         var colorSlug = tdbColoringSlugForLibraryKey(key);
         var colorWrap = document.createElement('p');
-        colorWrap.className = 'kids-read-quiz-color-wrap';
+        colorWrap.className = 'kids-read-quiz-color-wrap kids-read-quiz-color-wrap--secondary';
         var colorBtn = document.createElement('button');
         colorBtn.type = 'button';
-        colorBtn.className = 'btn kids-btn-primary kids-read-quiz-color-link';
-        colorBtn.textContent = 'Color on this page';
+        colorBtn.className = 'btn btn-secondary kids-read-quiz-color-link';
+        colorBtn.textContent = 'Color the story (optional)';
         colorBtn.addEventListener('click', function () {
           var st = getStories()[key];
           var t = st && st.title ? String(st.title) : key;
@@ -7239,7 +7317,7 @@
           var colorA = document.createElement('a');
           colorA.href = '/coloring.html?story=' + encodeURIComponent(colorSlug) + '&gentle=1&gentleStory=' + encodeURIComponent(key);
           colorA.className = 'btn btn-secondary kids-read-quiz-color-link';
-          colorA.textContent = 'Open Color & Tell (full story)';
+          colorA.textContent = 'Open Color & Tell';
           colorWrap.appendChild(colorA);
         }
         done.appendChild(colorWrap);
@@ -7362,7 +7440,10 @@
       quizHost.appendChild(step);
     }
 
-    renderQuestion();
+    // If Remember game mounted, questions wait until complete/skip; else show now
+    if (!mountedRemember) {
+      renderQuestion();
+    }
     var winFoot = document.createElement('p');
     winFoot.className = 'kids-read-quiz-mission-foot';
     winFoot.textContent = 'We battle. He wins.';

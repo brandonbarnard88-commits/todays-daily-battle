@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "generatedAt": "2026-08-02T23:48:45.093Z",
+  "generatedAt": "2026-08-03T20:37:19.316Z",
   "entries": [
     {
       "t": "Home — Today's Daily Battle",
@@ -136,6 +136,16 @@
       "t": "Site guide — where to start",
       "u": "/site-guide.html",
       "k": "map help new"
+    },
+    {
+      "t": "Find a path — feeling-first doors",
+      "u": "/find-a-path.html",
+      "k": "capacity feel overwhelmed calm plan anxiety grief path start here low energy heavy room"
+    },
+    {
+      "t": "Learn the Word — teaching spine",
+      "u": "/learn-the-word.html",
+      "k": "teach learn bible study ask the word path"
     },
     {
       "t": "Explore full site map",

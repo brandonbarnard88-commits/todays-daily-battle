@@ -41,6 +41,8 @@ const ENTRIES = [
   { t: "When Pain Won't Quit", u: '/plans.html?plan=painwontquit', k: 'pain illness body' },
   { t: 'Psalms of Comfort', u: '/plans.html?plan=psalmscomfort', k: 'grief fear psalm' },
   { t: 'Site guide — where to start', u: '/site-guide.html', k: 'map help new' },
+  { t: 'Find a path — feeling-first doors', u: '/find-a-path.html', k: 'capacity feel overwhelmed calm plan anxiety grief path start here low energy heavy room' },
+  { t: 'Learn the Word — teaching spine', u: '/learn-the-word.html', k: 'teach learn bible study ask the word path' },
   { t: 'Explore full site map', u: '/explore.html', k: 'topics tools languages' },
   { t: 'One Family in Christ — Bible heritage tree', u: '/one-family-in-christ.html', k: 'adam jesus lineage genealogy family tree heritage cloud witnesses women' },
   { t: 'Site search (this page)', u: '/search.html', k: 'find page tool' },

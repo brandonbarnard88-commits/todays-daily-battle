@@ -476,10 +476,50 @@
 
     <main id="home-primary-flow" class="porch-section">
 
-      <section class="tdb-heavy-now tdb-quiet-container" id="tdbHeavyNow" role="region" aria-labelledby="tdbHeavyNowH">
+      <!-- Mercy front door: one choice when capacity is low (friend evaluation 2026-08) -->
+      <section class="tdb-capacity-door tdb-quiet-container" id="tdbCapacityDoor" role="region" aria-labelledby="tdbCapacityDoorH">
+        <p class="tdb-capacity-door__eyebrow">Start where capacity is</p>
+        <h2 class="tdb-capacity-door__title" id="tdbCapacityDoorH">How much room do you have?</h2>
+        <p class="tdb-capacity-door__lead">Pick one. You do not need the whole porch today.</p>
+        <ul class="tdb-capacity-door__list">
+          <li>
+            <a class="tdb-capacity-door__btn tdb-capacity-door__btn--primary" href="/calm.html" id="tdbCapacityTooMuch">
+              <strong>Too much</strong>
+              <span>One verse + breath in Calm</span>
+            </a>
+          </li>
+          <li>
+            <a class="tdb-capacity-door__btn" href="#hero-verse-wrap" id="tdbCapacityOneVerse">
+              <strong>One verse is enough</strong>
+              <span>Today&rsquo;s KJV lesson below</span>
+            </a>
+          </li>
+          <li>
+            <a class="tdb-capacity-door__btn" href="/find-a-path.html" id="tdbCapacityLittleMore">
+              <strong>A little more room</strong>
+              <span>Find a path by how you feel</span>
+            </a>
+          </li>
+        </ul>
+        <p class="tdb-capacity-door__find section-note">
+          Or name it in your own words:
+          <a href="#feel-section" id="tdbCapacityAskWord">Ask the Word</a>
+        </p>
+        <details class="tdb-capacity-door__crisis">
+          <summary>Heavy week options</summary>
+          <div class="tdb-capacity-door__crisis-links">
+            <a href="/emergency-calm-pack.html">7-day emergency pack</a>
+            <a href="/sos.html">Steady now (3 anchors)</a>
+            <a href="plans.html#plans-heavy-week-packs">Heavy week packs</a>
+          </div>
+        </details>
+      </section>
+
+      <!-- Legacy #tdbHeavyNow kept for tests/deep links; content lives in capacity door above -->
+      <section class="tdb-heavy-now tdb-quiet-container tdb-heavy-now--legacy-anchor" id="tdbHeavyNow" role="region" aria-labelledby="tdbHeavyNowH">
         <p class="tdb-heavy-now__eyebrow">When the moment is too much</p>
         <h2 class="tdb-heavy-now__title" id="tdbHeavyNowH">Heavy right now?</h2>
-        <p class="tdb-heavy-now__lead">One KJV verse, one breath, one small step.</p>
+        <p class="tdb-heavy-now__lead">Same mercy as <a href="#tdbCapacityDoor">How much room do you have?</a> above — or go straight to Calm.</p>
         <div class="tdb-heavy-now__actions">
           <a class="btn btn-primary tdb-heavy-now__primary" href="/calm.html" id="tdbHeavyNowCalm">Take me to Calm</a>
         </div>
@@ -503,12 +543,12 @@
         <ol class="tdb-first-visit-strip__steps" aria-labelledby="new-here-steps-heading">
           <li>Read <a href="#hero-verse-wrap">today&rsquo;s verse</a> slowly.</li>
           <li>Name how you feel in <a href="#feel-section">Ask the Word</a>.</li>
-          <li>When ready, open <a href="/plans.html">Battle Plans</a>, <a href="/calm.html">Calm</a>, or grow via <a href="#tdbHomeGrowPath">Explore → University → Plans → Life Lessons</a>.</li>
+          <li>When you have a little more room, use <a href="/find-a-path.html">Find a path</a> or grow via <a href="#tdbHomeGrowPath">Explore → University → Plans → Life Lessons</a>.</li>
         </ol>
         <div class="tdb-first-visit-strip__actions">
           <button type="button" class="btn btn-primary" id="tdbFirstVisitBannerDismiss">Continue to today&rsquo;s verse</button>
+          <a class="tdb-first-visit-strip__text-link" href="/find-a-path.html">Find a path</a>
           <a class="tdb-first-visit-strip__text-link" href="#feel-section">Ask the Word</a>
-          <a class="tdb-first-visit-strip__text-link" href="/explore.html#start-here">Fuller map</a>
         </div>
         <p class="tdb-first-visit-strip__more section-note">
           <button type="button" id="tdbStartMyDayBtn" class="link-button tdb-start-my-day-btn" aria-haspopup="dialog" aria-controls="tdbStartMyDayDialog">Start My Day (optional)</button>
@@ -744,7 +784,7 @@
               <a class="tdb-home-first-doors__btn" href="#hero-verse-wrap">Today&rsquo;s verse + one step</a>
             </li>
             <li>
-              <a class="tdb-home-first-doors__btn tdb-home-first-doors__btn--primary" href="#feel-section">I don&rsquo;t know what I need &mdash; help me find it</a>
+              <a class="tdb-home-first-doors__btn tdb-home-first-doors__btn--primary" href="/find-a-path.html">I don&rsquo;t know what I need &mdash; Find a path</a>
             </li>
             <li>
               <a class="tdb-home-first-doors__btn" href="#tdbFamilyModeBridge">At the table with kids tonight</a>
@@ -1943,7 +1983,8 @@
       <!-- Grow path: one calm sequence — not a new app -->
       <section class="tdb-home-grow-path tdb-quiet-container" id="tdbHomeGrowPath" aria-labelledby="tdbHomeGrowPathH">
         <h2 class="tdb-home-grow-path__title" id="tdbHomeGrowPathH">Want to grow in the Word?</h2>
-        <p class="tdb-home-grow-path__lead section-note">One quiet sequence when you&rsquo;re ready&mdash;no grades, no rush. Same porch, deeper rooms.</p>
+        <p class="tdb-home-grow-path__lead section-note">Only when you have more room. Feeling-first doors first; full map after. No grades, no rush.</p>
+        <p class="section-note"><a href="/find-a-path.html"><strong>Find a path</strong></a> &mdash; one feeling, one existing plan or Calm (recommended first).</p>
         <ol class="tdb-home-grow-path__list">
           <li><a href="/explore.html#start-here"><strong>Explore</strong></a> &mdash; map the porch and pick a door</li>
           <li><a href="/university.html"><strong>University</strong></a> &mdash; five anchor verses, God&rsquo;s classroom</li>

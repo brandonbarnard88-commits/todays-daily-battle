@@ -11946,3 +11946,134 @@ a.plan-category-chip:focus-visible,
     min-height: 44px;
   }
 }
+
+
+/* Mercy front door — capacity chooser (before verse) */
+.tdb-capacity-door {
+  margin: 0.75rem auto 1.15rem;
+  max-width: 40rem;
+  padding: 1.05rem 1.1rem 1.15rem;
+  border-radius: 16px;
+  border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 42%, transparent);
+  background: color-mix(in srgb, var(--card, #1a2230) 88%, rgba(227, 188, 103, 0.1));
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+}
+.tdb-capacity-door__eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted, #94a3b8);
+}
+.tdb-capacity-door__title {
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.15rem, 3.5vw, 1.35rem);
+  font-weight: 800;
+  color: var(--gold, #e3bc67);
+}
+.tdb-capacity-door__lead {
+  margin: 0 0 0.85rem;
+  font-size: 0.92rem;
+  color: var(--muted, #94a3b8);
+  line-height: 1.45;
+}
+.tdb-capacity-door__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.tdb-capacity-door__btn {
+  display: block;
+  padding: 0.75rem 0.95rem;
+  min-height: 48px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--line, #3a4558) 80%, transparent);
+  background: color-mix(in srgb, var(--bg, #0d1117) 70%, transparent);
+  text-decoration: none;
+  color: inherit;
+}
+.tdb-capacity-door__btn strong {
+  display: block;
+  font-size: 1rem;
+  color: var(--text, #f5f7fb);
+  margin-bottom: 0.15rem;
+}
+.tdb-capacity-door__btn span {
+  font-size: 0.86rem;
+  color: var(--muted, #94a3b8);
+  line-height: 1.4;
+}
+.tdb-capacity-door__btn:hover,
+.tdb-capacity-door__btn:focus-visible {
+  border-color: color-mix(in srgb, var(--gold, #e3bc67) 55%, transparent);
+  background: color-mix(in srgb, var(--gold, #e3bc67) 10%, transparent);
+  outline: 2px solid color-mix(in srgb, var(--gold, #e3bc67) 50%, transparent);
+  outline-offset: 2px;
+}
+.tdb-capacity-door__btn--primary {
+  border-color: color-mix(in srgb, var(--gold, #e3bc67) 50%, transparent);
+  background: color-mix(in srgb, var(--gold, #e3bc67) 14%, transparent);
+}
+.tdb-capacity-door__btn--primary strong {
+  color: var(--gold, #e3bc67);
+}
+.tdb-capacity-door__find {
+  margin: 0.75rem 0 0;
+}
+.tdb-capacity-door__find a {
+  color: var(--gold, #e3bc67);
+}
+.tdb-capacity-door__crisis {
+  margin: 0.65rem 0 0;
+  font-size: 0.88rem;
+}
+.tdb-capacity-door__crisis summary {
+  cursor: pointer;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  color: var(--muted, #94a3b8);
+  font-weight: 600;
+}
+.tdb-capacity-door__crisis-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.45rem;
+  padding-left: 0.15rem;
+}
+.tdb-capacity-door__crisis-links a {
+  color: var(--gold, #e3bc67);
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+}
+/* Legacy heavy block: quieter after capacity door */
+.tdb-heavy-now--legacy-anchor {
+  opacity: 0.92;
+  margin-top: 0.35rem;
+  border-style: dashed;
+}
+.tdb-return-quiet {
+  margin: 1.5rem 0 0.5rem;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--line, #3a4558) 85%, transparent);
+  background: color-mix(in srgb, var(--card, #1a2230) 94%, transparent);
+}
+.tdb-return-quiet__label {
+  margin: 0 0 0.35rem;
+  font-size: 0.9rem;
+  color: var(--gold, #e3bc67);
+}
+.tdb-return-quiet__links {
+  margin: 0;
+  line-height: 1.55;
+}
+.tdb-return-quiet__links a {
+  color: var(--gold, #e3bc67);
+}

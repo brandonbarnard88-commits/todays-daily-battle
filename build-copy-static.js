@@ -198,6 +198,7 @@ const rootFiles = [
   'ask-the-word-core.js',
   'ask-the-word-answers.json',
   'learn-the-word.html',
+  'find-a-path.html',
   'search-widget.js',
   'print-pack-generator.js',
   'embeddable-widgets.html',
@@ -565,8 +566,20 @@ for (const f of otherHtml) {
     }
     console.log('Copied learn-the-word.html (teaching spine)');
   }
+  if (f === 'find-a-path.html') {
+    if (!content.includes('Find a path') || !content.includes('calm.html') || !content.includes('Capacity is low')) {
+      console.error('BUILD FAIL: find-a-path.html must be feeling-first with Calm + capacity note.');
+      process.exit(1);
+    }
+    console.log('Copied find-a-path.html (feeling-first finder)');
+  }
   if (f === 'index.html') {
     const indexContent = fs.readFileSync(path.join(root, f), 'utf8');
+
+    if (!indexContent.includes('tdbCapacityDoor') || !indexContent.includes('find-a-path.html')) {
+      console.error('BUILD FAIL: index.html must include capacity door + Find a path (mercy front door).');
+      process.exit(1);
+    }
     if (!indexContent.includes('ask-the-word-core.js')) {
       console.error('BUILD FAIL: index.html must load ask-the-word-core.js (unified Ask the Word).');
       process.exit(1);

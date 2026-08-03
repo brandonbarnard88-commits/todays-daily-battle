@@ -567,7 +567,13 @@ for (const f of otherHtml) {
     console.log('Copied learn-the-word.html (teaching spine)');
   }
   if (f === 'find-a-path.html') {
-    if (!content.includes('Find a path') || !content.includes('calm.html') || !content.includes('Capacity is low')) {
+    // Feeling-first finder: Calm as first door + capacity note (copy may soften; keep class/anchors).
+    if (
+      !content.includes('Find a path') ||
+      !content.includes('calm.html') ||
+      !content.includes('capacity-note') ||
+      !content.includes('path-card--calm')
+    ) {
       console.error('BUILD FAIL: find-a-path.html must be feeling-first with Calm + capacity note.');
       process.exit(1);
     }

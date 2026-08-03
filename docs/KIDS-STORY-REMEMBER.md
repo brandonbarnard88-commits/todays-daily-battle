@@ -13,7 +13,7 @@
 
 | File | Role |
 |------|------|
-| `kids/kids-story-remember-data.js` | Handcrafted beats for 16 flagship stories |
+| `kids/kids-story-remember-data.js` | Handcrafted beats for 44 flagship stories |
 | `kids/kids-story-remember.js` | Sequence UI (tap order, gentle retry) |
 | `kids/kids-story-remember.css` | Look & feel |
 | `kids/kids-corner.js` | Mounts remember between read-along and questions |

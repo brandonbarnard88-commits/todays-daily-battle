@@ -12106,12 +12106,14 @@
 
     function renderQuizButton() {
       var done = isQuizDoneToday();
-      btn.disabled = done;
-      btn.textContent = done ? 'Quiz done today! ✓' : 'Quiz Time! 🎉';
+      // Soft porch language — no “locked out until tomorrow” feel
+      btn.disabled = false;
+      btn.textContent = done ? 'Remember again 🌟' : 'Remember with me!';
+      btn.setAttribute('aria-label', done ? 'Practice remembering today’s verse again' : 'Remember today’s verse with a gentle quiz');
     }
 
     function openQuiz() {
-      if (isQuizDoneToday()) return;
+      // Always allow practice — “done today” is a quiet badge, not a lock
       var ref = getCurrentVerseRef();
       var questions = getQuizForVerse(ref);
       tdbClearHtml(questionsEl);
@@ -12166,27 +12168,40 @@
       var total = questionsEl.querySelectorAll('.kids-quiz-q-wrap').length;
       submitBtn.classList.add('hidden');
       resultEl.classList.remove('hidden');
-      if (score === total && total >= 3) {
-        resultMsg.textContent = 'Awesome! +1 streak 🔥';
+      var firstPerfectToday = false;
+      if (score === total && total >= 1) {
+        firstPerfectToday = !isQuizDoneToday();
+        resultMsg.textContent = firstPerfectToday
+          ? 'You remembered God’s Word! 🌟'
+          : 'Beautiful — you remembered it again! 🌟';
         resultMsg.classList.remove('kids-quiz-fail');
         resultMsg.classList.add('kids-quiz-win');
         triggerQuizConfetti();
-        var prevStreak = getCurrentStreak();
-        var data = getStreakData();
-        var count = Number(data.count || 0);
-        saveStreakData({ lastKey: getDailyKey(), count: count + 1 });
-        setQuizDoneToday();
-        syncKidStreak();
-        renderStreak();
-        renderDoneState();
-        renderComeBackNudge();
-        renderBadges(Math.ceil(prevStreak));
-        renderFaithTrail();
+        // Optional quiet streak: only once per day, never the main message
+        if (firstPerfectToday) {
+          var prevStreak = getCurrentStreak();
+          var data = getStreakData();
+          var count = Number(data.count || 0);
+          saveStreakData({ lastKey: getDailyKey(), count: count + 1 });
+          setQuizDoneToday();
+          syncKidStreak();
+          renderStreak();
+          renderDoneState();
+          renderComeBackNudge();
+          renderBadges(Math.ceil(prevStreak));
+          renderFaithTrail();
+        }
       } else {
-        resultMsg.textContent = 'Great effort - review the verse prompts and try again tomorrow. 🌟';
+        // No “try again tomorrow” lock — practice is always welcome
+        resultMsg.textContent = total
+          ? 'You got ' + score + ' of ' + total + '. That’s okay — peek at the verse and try again whenever you want. 💛'
+          : 'Peek at the verse and try again whenever you want. 💛';
         resultMsg.classList.remove('kids-quiz-win');
         resultMsg.classList.add('kids-quiz-fail');
+        // Keep submit available after close for another round
+        submitBtn.classList.remove('hidden');
       }
+      renderQuizButton();
     });
     resultClose && resultClose.addEventListener('click', closeQuiz);
     modal.addEventListener('click', function (e) {
@@ -12342,7 +12357,7 @@
       if (correct === wraps.length && wraps.length >= 1) {
         submitBtn.classList.add('hidden');
         resultEl.classList.remove('hidden');
-        resultMsg.textContent = 'You got it! +0.5 streak 🔥';
+        resultMsg.textContent = 'You got it! God’s Word is in your heart. 🌟';
         resultMsg.classList.remove('kids-memory-fail');
         resultMsg.classList.add('kids-memory-win');
         triggerMemoryConfetti();

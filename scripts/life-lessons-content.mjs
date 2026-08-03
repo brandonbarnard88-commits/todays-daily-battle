@@ -65,23 +65,29 @@ export const LIFE_LESSONS = [
     scriptureRef: 'Matthew 6:25-34',
     scriptureText: MATTHEW_6_25_34,
     story:
-      'Jesus spoke these words on a hillside to ordinary people who carried real burdens\u2014food for their families, clothes for their children, fear of tomorrow. He did not scold them. He pointed to the birds and the wild lilies.',
+      'Jesus spoke these words on a hillside to ordinary people who carried real burdens\u2014food for their families, clothes for their children, fear of tomorrow. He is speaking as Lord and Teacher in the Sermon on the Mount, not as a distant philosopher. He did not scold anxious hearts. He pointed to the birds and the wild lilies.\n\n\u201cTake no thought\u201d does not mean \u201cnever plan.\u201d In plain English: stop the anxious spinning that tries to live next month before God has given you today. The Father already knows what you need.',
     learned:
-      'Our heavenly Father knows every need. He faithfully cares for the birds that do not sow and the flowers that do not toil. We are of far more value to Him than they.',
+      'Our heavenly Father knows every need. He feeds birds that do not plant and clothes flowers that do not sew. You are of far more value to Him than they.\n\nWorry cannot add an hour to your life. Seeking His kingdom first is not pretending the bills are imaginary\u2014it is refusing to let tomorrow\u2019s unknowns own today\u2019s peace. \u201cSufficient unto the day is the evil thereof\u201d means today already has enough to carry; you do not have to haul the whole week at once.',
     applies:
-      'When bills pile up, a child is sick, the job feels unsteady, or anxiety whispers about next month\u2014these same words still speak. Worry does not add a single hour to our life, but turning to the Father does bring peace.',
+      'When bills pile up, a child is sick, the job feels unsteady, or anxiety whispers about next month\u2014these same words still speak.\n\nRight now: name one fear that belongs to tomorrow. Hand it to the Father for today only. If you want to sit longer with this hillside teaching, open the deep room Take No Thought When Tomorrow Roars from the porch links below.',
     prepare: [
       'Each morning, name one worry out loud or in writing, then speak Matthew 6:34 back to the Lord.',
       'Keep a small \u201cProvision List\u201d\u2014note one way God provided today (even something tiny).',
       'When worry returns, whisper: \u201cFather, You see this. I am choosing to trust You for today.\u201d',
     ],
+    smallStep:
+      'Write one tomorrow-worry on a slip of paper. Pray Matthew 6:34 once over it. Fold it away for today\u2014not forever, just for this day. If you want five quiet days in His voice, open <a href="/plans.html?plan=comeuntome">Come Unto Me</a>.',
+    prayer:
+      'Father, You see what I fear about tomorrow. Teach me to take no anxious thought for the morrow. Feed me with today\u2019s bread and today\u2019s grace. I trust that You know what I need. In Jesus\u2019 name, Amen.',
     reflection: [
       'What worry am I carrying that belongs to tomorrow?',
       'When has God provided in the past, even in hard seasons?',
+      'What would \u201csufficient unto the day\u201d look like for the next hour?',
     ],
     littleOnes:
       'Use the <a href="/kids/porch-read-lilies.html">Lilies read-aloud</a> at the table. Simple activity: draw or color something God made that does not worry\u2014a bird, a flower, a tree. Talk about how God takes care of them and of us.',
     porch: [
+      { label: 'Take No Thought (deep lesson)', href: '/life-lessons/take-no-thought-when-tomorrow-roars.html' },
       { label: 'Come Unto Me (Day 3)', href: '/plans.html?plan=comeuntome' },
       { label: 'Only His Voice (Matthew 6)', href: '/plans.html?plan=hisownwords' },
       { label: 'When Fear Presses In', href: '/plans.html?plan=fearpressesin' },
@@ -106,9 +112,9 @@ export const LIFE_LESSONS = [
     story:
       'Israel wandered forty years. They grumbled about bread and water. Yet each morning, except Sabbath, manna lay on the ground\u2014enough for that day. The Lord was teaching them to depend on His word, not only on a full pantry.',
     learned:
-      'Even when God\u2019s people were hungry and lost, He provided exactly what they needed each day\u2014not ahead of time, but day by day.',
+      'Even when God’s people were hungry and lost, He provided exactly what they needed each day—not ahead of time, but day by day.\n\nManna taught dependence: gather today’s portion, trust Him for tomorrow’s. Bread alone never was enough; every word from the Lord’s mouth sustains the heart.',
     applies:
-      'When money is tight, when the week feels long, when we do not know how we will make it through tomorrow\u2014God still gives daily bread and daily grace.',
+      'When money is tight, when the week feels long, when we do not know how we will make it through tomorrow—God still gives daily bread and daily grace.\n\nYou do not have to stockpile peace for next month. Ask for today’s portion, then notice what He already set on the ground.',
     prepare: [
       'Start each morning with one verse and one simple prayer: \u201cLord, give me today\u2019s portion.\u201d',
       'Keep a small notebook or use <a href="/mystudy.html">My Study</a> to write what He provided that day.',
@@ -118,6 +124,10 @@ export const LIFE_LESSONS = [
       'Where am I demanding tomorrow\u2019s answer today?',
       'What has God already given me that I forgot to notice?',
     ],
+    smallStep:
+      'Before bed, write one line: \u201cToday God gave ___.\u201d Tomorrow morning ask only for today\u2019s portion\u2014not the whole wilderness map.',
+    prayer:
+      'Lord, I am hungry for certainty. Teach me to gather today\u2019s manna with a quiet heart. Feed me with Your word when the pantry feels thin. Amen.',
     littleOnes:
       'Pretend to gather manna: tear small pieces of bread or paper and place them in a bowl. \u201cGod gave enough for today.\u201d',
     porch: [
@@ -143,9 +153,9 @@ export const LIFE_LESSONS = [
     story:
       'Joseph\u2019s brothers had sold him into slavery. Years later, famine drove them to Egypt. Joseph held power they did not recognize at first. When he revealed himself, they feared revenge. Instead he spoke kindness.',
     learned:
-      'Joseph did not pretend the hurt never happened. He named it honestly\u2014and still chose kindness because God had been at work in the long story.',
+      'Joseph did not pretend the hurt never happened. He named it honestly—and still chose kindness because God had been at work in the long story.\n\nForgiveness here is not amnesia. It is refusing to play God with revenge while trusting that God can mean even evil for a larger good.',
     applies:
-      'Family rifts, old words, unfair seasons\u2014forgiveness is rarely instant. We can take one step: speak kindly today without pretending the past did not hurt.',
+      'Family rifts, old words, unfair seasons—forgiveness is rarely instant. We can take one step: speak kindly today without pretending the past did not hurt.\n\nIf safety requires distance, kindness can still mean truthful boundaries without a bitter script.',
     prepare: [
       'Write one sentence you wish you could take back\u2014then pray and release it (private, on this device).',
       'If safe and wise, send one short kind note\u2014no lecture, only warmth.',
@@ -155,6 +165,10 @@ export const LIFE_LESSONS = [
       'Is there a hurt I am still rehearsing that God asks me to hand to Him?',
       'What small kindness is possible today without denying truth?',
     ],
+    smallStep:
+      'Pray Genesis 50:20 once over one old wound. Then choose one kind sentence—or one quiet silence instead of a rehearsed jab.',
+    prayer:
+      'Lord, You see the years of hurt I carry. I am not You. Help me release revenge and trust that You can mean good even where others meant harm. Give me kindness without pretending. Amen.',
     littleOnes:
       'Act out Joseph hugging his brothers with stuffed animals. One line: \u201cJoseph chose kindness.\u201d',
     porch: [
@@ -181,9 +195,9 @@ export const LIFE_LESSONS = [
     story:
       'Jesus taught His disciples to pray for forgiveness in the same breath they ask for daily bread. On the cross He showed it: \u201cFather, forgive them; for they know not what they do.\u201d Forgiveness is not a small thing in the kingdom.',
     learned:
-      'Unforgiveness binds the heart. True forgiveness releases us\u2014not because the wrong was small, but because Christ\u2019s forgiveness of us was so great.',
+      'Unforgiveness binds the heart. True forgiveness releases us—not because the wrong was small, but because Christ’s forgiveness of us was so great.\n\nJesus places forgiving others in the same prayer as daily bread. Bitterness is not a private hobby; it crowds the place where mercy should live.',
     applies:
-      'Family wounds, betrayal by a friend, repeated hurts from a child or spouse\u2014the weight of carrying old pain grows heavier than the original blow. Forgiveness is not pretending it did not hurt. It is handing the debt to the only One who can pay it.',
+      'Family wounds, betrayal by a friend, repeated hurts from a child or spouse—the weight of carrying old pain grows heavier than the original blow.\n\nForgiveness is not pretending it did not hurt, and it is not always restoring unsafe closeness. It is handing the debt to the only One who can pay it, then asking your heart to follow.',
     prepare: [
       'Quietly name the hurt to the Lord (no need for fancy words).',
       'Pray: \u201cLord, I choose to forgive ___ as You have forgiven me. Help my heart follow.\u201d',
@@ -194,6 +208,10 @@ export const LIFE_LESSONS = [
       'What burden would lift if I released this?',
       'How has holding onto hurt affected my peace with God?',
     ],
+    smallStep:
+      'Quietly name one person before the Lord. Pray once: “I choose to forgive ___ as You have forgiven me. Help my heart follow.” When the pain returns later, repeat the release—not the courtroom replay.',
+    prayer:
+      'Father, forgive me my debts as I forgive my debtors. Where I am stuck, soften what I cannot soften alone. Put away bitterness from me, and make me tenderhearted for Christ’s sake. Amen.',
     littleOnes:
       'Read <a href="/life-lessons/joseph-forgives.html">Joseph Forgives</a> together. Draw a heavy rock, then hands letting it go into a river. Talk about how God takes heavy feelings when we forgive.',
     porch: [
@@ -221,9 +239,9 @@ export const LIFE_LESSONS = [
     story:
       'David waited while enemies pressed in. Jeremiah wrote from ruin yet still named the Lord good to those who wait. Isaiah spoke to exiles whose strength was gone. Waiting was not wasted\u2014it was where God met them in the middle.',
     learned:
-      'Waiting is not wasted. God strengthens the heart in the quiet middle while we hope and quietly wait for His salvation.',
+      'Waiting is not wasted. God strengthens the heart in the quiet middle while we hope and quietly wait for His salvation.\n\nDavid, Jeremiah, and Isaiah all name waiting as a place of courage and renewed strength—not empty delay.',
     applies:
-      'Doctor\u2019s reports, job uncertainty, wayward children, long seasons of exhaustion\u2014waiting feels heavy, but God is never late. He renews what hurry cannot fix.',
+      'Doctor’s reports, job uncertainty, wayward children, long seasons of exhaustion—waiting feels heavy, but God is never late.\n\nHe renews what hurry cannot fix. Your Tuesday faithfulness in the middle still counts.',
     prepare: [
       'Choose one promise to speak aloud each morning (start with Psalm 27:14).',
       'Keep a small \u201cWaiting Journal\u201d\u2014one line of God\u2019s nearness per day.',
@@ -233,6 +251,10 @@ export const LIFE_LESSONS = [
       'What am I trying to force that belongs in God\u2019s timing?',
       'Where have I seen Him strengthen a weary heart in the middle?',
     ],
+    smallStep:
+      'Speak Psalm 27:14 aloud once this morning. Then do one small faithful thing while you wait—send the email, make the meal, pray for the person you cannot change.',
+    prayer:
+      'Lord, I wait, and I am tired of waiting. Strengthen my heart. Teach me to hope quietly in Your salvation and not force what belongs to Your timing. Amen.',
     littleOnes:
       'Tell the story of Joseph in prison or Abraham and Sarah waiting\u2014brief, gentle. Draw a seed under ground: \u201cGod is working where we cannot see.\u201d',
     porch: [
@@ -270,6 +292,10 @@ export const LIFE_LESSONS = [
       'When did my anger last outrun my listening?',
       'Is there wrath I am letting sit past sunset?',
     ],
+    smallStep:
+      'When heat rises today, pause long enough to whisper Psalm 46:10. Then choose one slower sentence—or none—before the sun goes down on wrath.',
+    prayer:
+      'Father, I am quick to heat and slow to hear. Make me swift to listen, slow to speak, slow to wrath. Do not let anger sleep in my house. Amen.',
     littleOnes:
       'Tell the story of the older brother in the prodigal son\u2014or Jonah\u2019s anger, briefly and gently. Color calm water after a storm.',
     porch: [
@@ -307,6 +333,10 @@ export const LIFE_LESSONS = [
       'Where am I carrying words I have not made true?',
       'Who needs one honest, kind sentence from me today?',
     ],
+    smallStep:
+      'Practice one small honest word today: “I don’t know,” “I was wrong,” or the true answer you almost softened.',
+    prayer:
+      'Lord, You delight in truth. Put away lying from my lips. Give me courage for kind honesty with those I belong to. Amen.',
     littleOnes:
       'Tell the story of Zacchaeus choosing honesty. <a href="/coloring.html?story=ll-honesty">Color open hands &amp; true words</a> or <a href="/coloring.html?story=zacchaeus">Zacchaeus scenes</a>.',
     porch: [
@@ -344,6 +374,10 @@ export const LIFE_LESSONS = [
       'Where is comparison loudest in my life right now?',
       'What does Christ\u2019s strength look like in my actual Tuesday?',
     ],
+    smallStep:
+      'Thank God out loud for three ordinary provisions you already have—before asking for anything else.',
+    prayer:
+      'Father, teach my heart to be content with what You have given. Guard me from craving that steals today’s peace. Amen.',
     littleOnes:
       'Thank God for three things you can see on the table. Draw them simple and bright.',
     porch: [
@@ -380,6 +414,10 @@ export const LIFE_LESSONS = [
       'Who have I walked past that God might be asking me to notice?',
       'What would mercy look like in one concrete act this week?',
     ],
+    smallStep:
+      'Do one concrete kindness for a near neighbor today—a text, a meal share, a quiet errand—without announcing it.',
+    prayer:
+      'Lord Jesus, who is my neighbor today? Soften my eyes to see them, and strengthen my hands to love them as myself. Amen.',
     littleOnes:
       'Bandage a doll or stuffed animal. \u201cThe Samaritan helped when others hurried by.\u201d',
     porch: [
@@ -417,6 +455,10 @@ export const LIFE_LESSONS = [
       'Who needs my steady presence more than my advice?',
       'How does Ruth\u2019s choice point me toward God\u2019s faithfulness?',
     ],
+    smallStep:
+      'Name one person you will not abandon this week. Take one loyal action—a call, a visit, a steady presence.',
+    prayer:
+      'Lord, give me Ruth’s loyal love where You have placed me. Keep me faithful in ordinary belonging. Amen.',
     littleOnes:
       'Walk holding hands in a circle. \u201cRuth stayed with Naomi.\u201d',
     porch: [
@@ -454,6 +496,10 @@ export const LIFE_LESSONS = [
       'Which guardrail do I treat as burden instead of gift?',
       'How does loving God first change how I treat my neighbor?',
     ],
+    smallStep:
+      'Read the Ten Commandments slowly once. Ask: which guardrail is love trying to keep me inside today?',
+    prayer:
+      'Lord, Your law is not a cage but a kindness. Write Your ways on my heart and keep me from harming those I love. Amen.',
     littleOnes:
       'One commandment per week at the table. <a href="/coloring.html?story=ll-commandments">Color love God &amp; neighbor hands</a> or <a href="/coloring.html?story=jesus">Jesus welcomes children</a>.',
     porch: [
@@ -480,9 +526,9 @@ export const LIFE_LESSONS = [
     story:
       'Crowds pressed Jesus on the Galilean roads. Many were worn out\u2014religious burden, private grief, words that would not come. He did not demand eloquent prayer. He invited them to come to Him and receive rest.',
     learned:
-      'We do not have to manufacture the right speech. The Lord Jesus invites the heavy-hearted to come\u2014and He gives rest.',
+      'We do not have to manufacture the right speech. The Lord Jesus invites the heavy-hearted to come—and He gives rest.\n\nThis shorter porch lesson shares Matthew 11:28 with the deep room Come Unto Me. Here the focus is simple: when language runs dry, His invitation still stands. You may come without a polished prayer.',
     applies:
-      'Hard weeks when prayer feels empty, when you sit at 2 a.m. beside a sleeping child, when grief steals language\u2014this is not failure. It is an invitation to come without a polished speech.',
+      'Hard weeks when prayer feels empty, when you sit at 2 a.m. beside a sleeping child, when grief steals language—this is not failure. It is an invitation to come without a polished speech.\n\nIf you can sit longer, open Come Unto Me When Weary and Heavy Laden. Tonight it may be enough to whisper one word: come.',
     prepare: [
       'Sit five minutes with Matthew 11:28 open\u2014no commentary, only His words.',
       'Whisper the verse once; if tears come, let them; He is not disappointed.',
@@ -492,6 +538,10 @@ export const LIFE_LESSONS = [
       'Where am I demanding words from myself that God never asked for?',
       'What would it look like to come to Him today without performing?',
     ],
+    smallStep:
+      'Sit five minutes with Matthew 11:28 only. Whisper the verse once. If tears come, let them. For a longer path, open the <a href="/plans.html?plan=comeuntome">Come Unto Me plan</a> or the deep lesson <a href="/life-lessons/come-unto-me-when-weary-heavy-laden.html">Come Unto Me When Weary</a>.',
+    prayer:
+      'Lord Jesus, my words are few. I come weary and heavy laden. Give rest unto my soul. Amen.',
     littleOnes:
       'Hug a stuffed animal and say: \u201cJesus says come.\u201d Pair with <a href="/kids/porch-read-lilies.html">Lilies read-aloud</a> on a worried day.',
     porch: [
@@ -518,9 +568,9 @@ export const LIFE_LESSONS = [
     story:
       'Moses was gone. Joshua faced a nation to lead and a land to enter. God did not pretend the task was small. He commanded courage rooted in one truth: I am with you wherever you go.',
     learned:
-      'God does not shame trembling hearts. He commands strength and courage because He goes with us\u2014not because the road is easy.',
+      'God does not shame trembling hearts. He commands strength and courage because He goes with us—not because the road is easy.\n\nJoshua’s courage was not self-talk. It was obedience rooted in presence: the Lord thy God is with thee whithersoever thou goest.',
     applies:
-      'A hard conversation, a new school, a medical test, showing up for family when you feel small inside\u2014courage is often one obedient step while afraid.',
+      'A hard conversation, a new school, a medical test, showing up for family when you feel small inside—courage is often one obedient step while afraid.\n\nYou do not wait to feel brave. You walk with the God who already promised to go with you.',
     prepare: [
       'Name the fear out loud to God; then speak Joshua 1:9 slowly.',
       'Take one small brave action today (a call, an apology, a boundary).',
@@ -530,6 +580,10 @@ export const LIFE_LESSONS = [
       'What is the next step God is asking me to take, even while afraid?',
       'Where have I seen Him with me in a hard place before?',
     ],
+    smallStep:
+      'Name the fear to God in one sentence. Speak Joshua 1:9 slowly. Then take one small brave action before noon.',
+    prayer:
+      'Lord, I am afraid of what is ahead. Be with me wherever I go. Make me strong and of a good courage—not loud, only faithful. Amen.',
     littleOnes:
       'Tell David and Goliath briefly\u2014God was bigger than the giant. <a href="/coloring.html?story=david">Color courage scenes</a>.',
     porch: [
@@ -567,6 +621,10 @@ export const LIFE_LESSONS = [
       'Where do I feel unseen that God still sees?',
       'Is there one gentle step toward community I can take this week?',
     ],
+    smallStep:
+      'Tell God one honest sentence: “I feel alone about ___.” Then send one gentle connection text—not to fix everything, only to reach.',
+    prayer:
+      'Lord, You have said You will never leave me nor forsake me. Meet me in this lonely place. Be my helper when people feel far. Amen.',
     littleOnes:
       'Draw your family or church friends around a stick figure\u2014God sets the lonely in families. Hold hands in a circle for ten seconds.',
     porch: [
@@ -603,6 +661,10 @@ export const LIFE_LESSONS = [
       'What am I afraid will fall apart if I stop?',
       'How can I receive rest as gift instead of guilt?',
     ],
+    smallStep:
+      'Choose one small Sabbath gift this week: an hour without work email, one unrushed meal, or a walk with no podcast.',
+    prayer:
+      'Lord of the Sabbath, teach me to receive rest as gift, not guilt. The day was made for weary people—help me keep it holy. Amen.',
     littleOnes:
       'Lie on a blanket together, look at the ceiling, and thank God for three gifts. No rushing to stand up.',
     porch: [
@@ -639,6 +701,10 @@ export const LIFE_LESSONS = [
       'When have I hurried past a child who needed presence?',
       'How can I come to Jesus with a simpler heart today?',
     ],
+    smallStep:
+      'Give a child five minutes of full attention today—no phone. Or, if you are the weary grown-up, read Mark 10:14 and receive the welcome yourself.',
+    prayer:
+      'Lord Jesus, thank You for welcoming the small. Soften my hurry. Let little ones come to You through my patience, and let me come too. Amen.',
     littleOnes:
       'Open arms game: parent opens arms; child runs in. \u201cJesus says come.\u201d',
     porch: [

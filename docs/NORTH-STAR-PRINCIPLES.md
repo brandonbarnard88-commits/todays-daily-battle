@@ -10,3 +10,5 @@ todaysdailybattle.com is built on four fixed, non-negotiable foundations:
 **Verse presentation** — Every surfaced verse follows **`VERSE-BREAKDOWN-RULE.md`** (same folder): plain layman unpacking, relational context, one step, and prayer—consistent with practical tools above.
 
 These four principles never change. Every future feature or suggestion must protect them.
+
+**Seasonal capacity:** See [SCOPE-FREEZE-AND-CAPACITY.md](./SCOPE-FREEZE-AND-CAPACITY.md) — protect the front door and the founder before adding new campus wings.

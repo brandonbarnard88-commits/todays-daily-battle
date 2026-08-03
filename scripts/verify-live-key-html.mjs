@@ -131,8 +131,9 @@ const checks = [
     path: '/explore.html',
     needles: [
       'Five calm minutes (optional)',
-      'Home, Calm, plans, My Study, prayer',
-      'saved verses, notes, highlights, and progress in one place.',
+      'Find a path',
+      'My Study',
+      'Start here',
     ],
     forbidden: [
       'My Verses',

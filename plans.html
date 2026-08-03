@@ -671,6 +671,50 @@
       margin-top: -0.35rem;
       margin-bottom: 1rem;
     }
+    /* Mobile calm: lane chips live behind one tap so Start here can breathe */
+    .plans-lane-quick-wrap {
+      margin: 0 0 1rem;
+    }
+    .plans-lane-quick-wrap > summary {
+      cursor: pointer;
+      list-style: none;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--gold, #e3bc67);
+      padding: 0.35rem 0;
+    }
+    .plans-lane-quick-wrap > summary::-webkit-details-marker { display: none; }
+    .plans-lane-quick-wrap > summary::before {
+      content: '▸';
+      display: inline-block;
+      transition: transform 0.15s ease;
+      opacity: 0.85;
+    }
+    .plans-lane-quick-wrap[open] > summary::before {
+      transform: rotate(90deg);
+    }
+    @media (min-width: 720px) {
+      .plans-lane-quick-wrap > summary {
+        display: none;
+      }
+      .plans-lane-quick-wrap .plans-lane-quick {
+        display: flex !important;
+      }
+    }
+    @media (max-width: 719px) {
+      .plans-lane-quick-wrap:not([open]) .plans-lane-quick {
+        display: none;
+      }
+      .plans-lane-quick-wrap[open] .plans-lane-quick {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 0.35rem;
+      }
+    }
     /* Top "Find your plan" → scroll targets in the full list */
     .plans-situation-jump,
     #find-your-plan {
@@ -3380,19 +3424,22 @@
       <section class="plans-start-here" aria-labelledby="plans-start-here-title">
         <h2 class="plans-start-here-title" id="plans-start-here-title">Start here</h2>
         <p class="plans-start-here-lead">If choosing feels like too much, start with the lane that fits today. Each link opens the same plan you will see in the full list below.</p>
-        <div class="plans-lane-quick" role="navigation" aria-label="Jump to a plan lane">
-          <a class="plans-lane-chip" href="#sermon-on-mount-intro">Sermon on the Mount</a>
-          <a class="plans-lane-chip" href="#bible-studies-free">Bible Studies</a>
-          <a class="plans-lane-chip" href="#plans-lane-foundations">Foundations</a>
-          <a class="plans-lane-chip" href="#plans-lane-fear">Fear &amp; worry</a>
-          <a class="plans-lane-chip" href="#plans-lane-grief">Grief</a>
-          <a class="plans-lane-chip" href="#plans-lane-pain">Pain &amp; trials</a>
-          <a class="plans-lane-chip" href="#plans-lane-money">Money &amp; habits</a>
-          <a class="plans-lane-chip" href="#plans-lane-anger">Anger</a>
-          <a class="plans-lane-chip" href="#plans-lane-uncertainty">Shaky ground</a>
-          <a class="plans-lane-chip" href="#plans-lane-family">Family</a>
-          <a class="plans-lane-chip" href="#plans-lane-habits">Steady habits</a>
-        </div>
+        <details class="plans-lane-quick-wrap" id="plansLaneQuickWrap">
+          <summary>Jump to a plan lane</summary>
+          <div class="plans-lane-quick" role="navigation" aria-label="Jump to a plan lane">
+            <a class="plans-lane-chip" href="#sermon-on-mount-intro">Sermon on the Mount</a>
+            <a class="plans-lane-chip" href="#bible-studies-free">Bible Studies</a>
+            <a class="plans-lane-chip" href="#plans-lane-foundations">Foundations</a>
+            <a class="plans-lane-chip" href="#plans-lane-fear">Fear &amp; worry</a>
+            <a class="plans-lane-chip" href="#plans-lane-grief">Grief</a>
+            <a class="plans-lane-chip" href="#plans-lane-pain">Pain &amp; trials</a>
+            <a class="plans-lane-chip" href="#plans-lane-money">Money &amp; habits</a>
+            <a class="plans-lane-chip" href="#plans-lane-anger">Anger</a>
+            <a class="plans-lane-chip" href="#plans-lane-uncertainty">Shaky ground</a>
+            <a class="plans-lane-chip" href="#plans-lane-family">Family</a>
+            <a class="plans-lane-chip" href="#plans-lane-habits">Steady habits</a>
+          </div>
+        </details>
         <div class="plans-start-here-grid">
           <div class="plans-start-here-card" id="plans-lane-foundations">
             <h3>Foundations, identity &amp; seasons</h3>

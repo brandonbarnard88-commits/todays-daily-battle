@@ -23,7 +23,8 @@
   };
   var AGE_KEY = 'tdb_age_mode_v1';
   var NOTE_FALLBACK_KEY = 'tdb_breakdown_notes_v1';
-  var BREAKDOWN_CACHE_PREFIX = 'tdb_vb_cache_v2::';
+  /* v3: reject near-verbatim override plains so all 31k+ verses get real layman text */
+  var BREAKDOWN_CACHE_PREFIX = 'tdb_vb_cache_v3::';
   var BREAKDOWN_MAX_MEMORY_CACHE = 600;
   var KJV_DICT_URLS = ['/data/kjv-full.json', '/kjv.json'];
   var BREAKDOWN_OVERRIDES_SCRIPT_URL = '/verse-breakdown-overrides.js';
@@ -140,14 +141,18 @@
     if (!p) return true;
     if (v && p === v) return true;
     if (v && (p.indexOf(v) === 0 || v.indexOf(p) === 0) && Math.abs(p.length - v.length) < 48) return true;
-    if (v) {
+    /*
+     * Token-overlap only flags *echoes* (near same length + mostly same words).
+     * Short summaries share keywords (God, love, world) but are not verbatim swaps.
+     */
+    if (v && p.length >= Math.max(24, v.length * 0.72)) {
       var pTok = p.split(' ').filter(Boolean);
       var vSet = {};
       v.split(' ').filter(Boolean).forEach(function (tok) { vSet[tok] = true; });
       if (pTok.length >= 6) {
         var hit = 0;
         pTok.forEach(function (tok) { if (vSet[tok]) hit += 1; });
-        if (hit / pTok.length >= 0.72) return true;
+        if (hit / pTok.length >= 0.78) return true;
       }
     }
     return false;
@@ -157,7 +162,16 @@
     var body = String(text || '').replace(/\s+/g, ' ').trim();
     var lower = body.toLowerCase();
     var r = String(ref || '').toLowerCase();
-    if (/91:1/.test(r) || /secret place|shadow of the almighty|dwell/.test(lower)) {
+
+    /* Well-known anchors first */
+    if (/genesis\s+1:1/.test(r) || /^in the beginning\s+god\s+created/.test(lower)) {
+      return 'God made everything. He started it all — heaven, earth, and life.';
+    }
+    if (/john\s+3:16/.test(r) || /for god so loved the world/.test(lower)) {
+      return 'God loved the world so much He gave His Son so you can have life with Him forever.';
+    }
+    if (/91:1/.test(r) || /secret place|shadow of the almighty/.test(lower) ||
+        (/dwell/.test(lower) && /most high|almighty/.test(lower))) {
       return 'When you stay close to God, you rest under His protection — safe in His care.';
     }
     if (/11:28/.test(r) || /come unto me|heavy laden|give you rest/.test(lower)) {
@@ -166,25 +180,99 @@
     if (/23:1/.test(r) || /lord is my shepherd|shall not want/.test(lower)) {
       return 'The Lord takes care of me like a shepherd. With Him, I have what I need.';
     }
-    if (/anxious|careful|worry|fear|afraid|dismay|terror/.test(lower)) {
+
+    /* Theme lanes — covers the full KJV without storing 31k hand-written plains */
+    if (/\bcreat(ed|e|ion|or)\b|\bmade the heaven|\bmade heaven and earth\b|\bformed\b.*\b(man|dust|earth)\b/.test(lower)) {
+      return 'God is the Maker. Nothing exists outside His hand.';
+    }
+    if (/\banxious|careful for nothing|worry|fear|afraid|dismay|terror|troubled\b/.test(lower)) {
       return 'You do not have to carry fear alone. Bring it to God and let Him steady you.';
     }
-    if (/peace|rest|still|quiet|calm/.test(lower)) {
+    if (/\bpeace|rest|still|quiet|calm|be still\b/.test(lower)) {
       return 'God offers real rest — a quiet place to set the day down with Him.';
     }
-    if (/mercy|grace|forgiv|compassion|lovingkindness/.test(lower)) {
+    if (/\bmercy|grace|forgiv|compassion|lovingkindness|longsuffering\b/.test(lower)) {
       return "God's kindness meets you as you are — not after you perform.";
     }
-    if (/strength|strong|courage|weary|faint|renew|uphold/.test(lower)) {
+    if (/\bstrength|strong|courage|weary|faint|renew|uphold|power\b/.test(lower)) {
       return 'When you feel empty, God gives strength beyond your own.';
     }
-    if (/hope|trust|believe|faith|pray|cast|burden/.test(lower)) {
+    if (/\bhope|trust|believe|faith|pray|prayer|cast.*care|burden\b/.test(lower)) {
       return 'Hand the real weight to God. Trust that He hears and holds you.';
     }
-    if (/love|shepherd|save|salvation|rejoice|glad|joy|bless/.test(lower)) {
+    if (/\blove|charity|shepherd|save|salvation|rejoice|glad|joy|bless\b/.test(lower)) {
       return "God's care is for you today — something solid to hold when the day feels thin.";
     }
+    if (/\brepent|turn ye|turn to the lord|return unto me\b/.test(lower)) {
+      return 'Turn back to God. He welcomes the one who comes home.';
+    }
+    if (/\bworship|praise|sing unto|glorify|hallelujah|give thanks|thanksgiving\b/.test(lower)) {
+      return 'Give God your attention and thanks — He is worthy of it.';
+    }
+    if (/\bwisdom|wise|understand|understanding|knowledge|instruction|proverb\b/.test(lower)) {
+      return 'Real wisdom starts with taking God seriously and walking in His way.';
+    }
+    if (/\bcommand|thou shalt|ye shall|statute|precept|ordinance|law of the lord\b/.test(lower)) {
+      return 'God shows a clear way to live. His instructions are for your good.';
+    }
+    if (/\bword of the lord|thus saith|it is written|thy word|my words|scripture\b/.test(lower)) {
+      return "God's Word is not empty talk. It teaches, steadies, and leads.";
+    }
+    if (/\bholy|sanctify|clean|pure|righteous|upright\b/.test(lower)) {
+      return 'God calls His people to a clean, set-apart life with Him.';
+    }
+    if (/\bneighbou?r|brother|one another|enemy|friend|stranger\b/.test(lower)) {
+      return 'This verse shapes how you treat people — close, hard, and everyday.';
+    }
+    if (/\bkingdom|reign|throne|king of kings\b/.test(lower)) {
+      return 'God rules. His kingdom is real, and it still shapes how we live today.';
+    }
+    if (/\bcross|crucif|blood of|resurrection|risen|die for|gave himself\b/.test(lower)) {
+      return 'Jesus gave Himself so you could be brought near to God. Hold that gift carefully.';
+    }
+    if (/\bdeath|grave|die|dust|mortality\b/.test(lower)) {
+      return 'Life and death are in view here. God is not far from either one.';
+    }
+    if (/\blight\b/.test(lower) && /\bdark|darkness\b/.test(lower)) {
+      return 'God brings light into dark places — and that light is for you too.';
+    }
+    if (/\bmoney|riches|poor|tithe|offering|give alms|mammon\b/.test(lower)) {
+      return 'How you handle what you have is part of walking with God.';
+    }
+    if (/\bangel|heaven|eternal|everlasting|forever\b/.test(lower)) {
+      return 'This verse lifts your eyes past the moment — God holds what lasts.';
+    }
+    if (/\bjudg(e|ment)|wrath|punish|condemn|vengeance\b/.test(lower)) {
+      return 'God takes wrong seriously. This verse keeps justice and holiness in view.';
+    }
+    if (/\bhear(ken)?|listen|ears|cry unto|call upon\b/.test(lower)) {
+      return 'God invites you to call on Him — and to listen when He speaks.';
+    }
+    if (/\bwait|patience|patient|endure|persevere\b/.test(lower)) {
+      return 'Waiting with God is not wasted time. Stay steady; He is still at work.';
+    }
+
     return 'This verse says something true from God for real life today. Hold one clear phrase until it stays with you.';
+  }
+
+  /** Drop override fields that only echo the KJV (archaic word-swap). */
+  function scrubWeakPlainFields(obj, verseText) {
+    if (!obj || typeof obj !== 'object') return obj || {};
+    var out = Object.assign({}, obj);
+    ['plainExplanation', 'layman', 'plain', 'plainEnglish'].forEach(function (key) {
+      if (out[key] != null && isNearVerbatimPlain(out[key], verseText)) {
+        delete out[key];
+      }
+    });
+    return out;
+  }
+
+  function ensureStrongPlain(ref, verseText, plain) {
+    var p = tdbPlainTextForUi(plain || '');
+    if (!p || isNearVerbatimPlain(p, verseText)) {
+      return buildThemeLaymanPlain(ref, verseText);
+    }
+    return p;
   }
 
   function inferApplies(text) {
@@ -607,21 +695,20 @@
       };
     }
     var curatedPlain = getCuratedPlainMeaning(ref);
-    var plain = curatedPlain || '';
-    if (!plain || isNearVerbatimPlain(plain, raw)) {
-      plain = buildThemeLaymanPlain(ref, raw);
+    var plain = ensureStrongPlain(ref, raw, curatedPlain || '');
+    if (raw.length > 150 && plain.length > 160 && !isNearVerbatimPlain(plain, raw)) {
+      /* Only trim long theme lines; never leave a truncated KJV echo. */
+      if (plain.indexOf(raw.slice(0, 40)) === -1) {
+        plain = plain.slice(0, 157) + '…';
+      }
     }
-    if (raw.length > 150 && !curatedPlain && plain.length > 120) {
-      plain = plain.slice(0, 117) + '...';
-    }
-    if (!plain) plain = 'A steady truth from Scripture for real life today.';
     return {
       about: ctx.s,
       to: ctx.a,
       plainExplanation: plain,
       groupApplication: '',
       modernApplication: inferApplies(raw),
-      source: curatedPlain ? 'override' : 'generated'
+      source: (curatedPlain && !isNearVerbatimPlain(curatedPlain, raw)) ? 'override' : 'generated'
     };
   }
 
@@ -646,15 +733,26 @@
   function getBreakdown(ref, text, options) {
     var raw = tdbPlainTextForUi(String(text || '').replace(/<[^>]+>/g, ' ').trim());
     var group = resolveGroupContext(options, options && options.host ? options.host : null);
-    var manualOverride = normalizeOverrideMap(options && options.override ? options.override : null);
+    var manualOverride = scrubWeakPlainFields(
+      normalizeOverrideMap(options && options.override ? options.override : null),
+      raw
+    );
     var useCache = Object.keys(manualOverride).length === 0;
     var cached = useCache ? readCachedBreakdown(ref, group, raw) : null;
-    if (cached) return cached;
+    if (cached) {
+      /* Re-validate cache: older v2 entries (and any weak seed) must not stick as “plain.” */
+      var cachedPlain = cached.plainExplanation || cached.layman || '';
+      if (cachedPlain && !isNearVerbatimPlain(cachedPlain, raw)) return cached;
+    }
     var base = buildGeneratedBase(ref, raw);
-    var merged = Object.assign({}, base, getRegisteredOverride(ref, group), manualOverride);
+    var registered = scrubWeakPlainFields(getRegisteredOverride(ref, group), raw);
+    var merged = Object.assign({}, base, registered, manualOverride);
+    merged.plainExplanation = ensureStrongPlain(ref, raw, merged.plainExplanation || merged.layman || merged.plain || '');
     if (!merged.groupApplication) merged.groupApplication = buildGroupApplication(group, inferRelationTopic(ref, raw));
     if (!merged.modernApplication) merged.modernApplication = inferApplies(raw);
     var finalBreakdown = finalizeBreakdown(merged, group);
+    finalBreakdown.plainExplanation = ensureStrongPlain(ref, raw, finalBreakdown.plainExplanation);
+    finalBreakdown.layman = finalBreakdown.plainExplanation;
     if (useCache) writeCachedBreakdown(ref, group, raw, finalBreakdown);
     return finalBreakdown;
   }

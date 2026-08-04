@@ -11,7 +11,7 @@
   <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="https://todaysdailybattle.com/founder-analytics.html">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260804-sr-only-fix">
+  <link rel="stylesheet" href="styles.css?v=20260804-audit-pass">
 </head>
 <body class="dark-mode tdb-inner-page">
   <a href="#main" class="skip-link">Skip to content</a>
@@ -57,10 +57,11 @@
 
       <section class="card glass tdb-porch-paper-glass" style="margin-top:1rem;">
         <h2>Cloudflare Web Analytics</h2>
+        <p class="section-note"><strong>Wire or hide:</strong> empty <code>CF_ANALYTICS_TOKEN</code> in <code>config.js</code> means Cloudflare analytics stay off (by design). Only set a token when you want cookieless page views.</p>
         <ol>
           <li>Cloudflare → <strong>Web Analytics</strong> → add site → copy beacon token.</li>
-          <li>Cloudflare Pages → Settings → Environment variables → <code>CF_ANALYTICS_TOKEN</code> = that token.</li>
-          <li>Redeploy. Beacon loads from <code>script.js</code> when set.</li>
+          <li>Put the token in <code>config.js</code> as <code>CF_ANALYTICS_TOKEN</code> (or inject via your deploy env into config).</li>
+          <li>Redeploy. Beacon loads from <code>script.js</code> only when set.</li>
           <li>View page views / top paths in Cloudflare (no Google cookies).</li>
         </ol>
       </section>
@@ -76,7 +77,7 @@
       <p class="section-note" style="margin-top:1.5rem;">Full markdown copy also lives in the repo: <code>docs/FOUNDER-ANALYTICS.md</code> · Privacy rules: <code>PRIVACY-ANALYTICS.md</code></p>
     </main>
   </div>
-  <script src="/tdb-home-funnel.js?v=20260804-sr-only-fix" defer></script>
+  <script src="/tdb-home-funnel.js?v=20260804-audit-pass" defer></script>
   <script defer src="/config.js" type="module"></script>
   <script>
     (function () {

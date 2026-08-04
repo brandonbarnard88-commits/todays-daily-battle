@@ -277,9 +277,9 @@
 
     var grid = createElement(document, 'div', 'tdb-widget__grid');
     [
-      { label: 'Plain English', text: breakdown.plainExplanation || 'A steady truth from Scripture for the hour in front of you.' },
+      { label: 'What it means', text: breakdown.plainExplanation || 'A steady truth from Scripture for the hour in front of you.' },
       { label: 'For your group', text: breakdown.groupApplication || 'Let this verse shape the next faithful step together.' },
-      { label: 'Real life today', text: breakdown.modernApplication || 'Carry this verse into the next honest moment.' }
+      { label: 'For today', text: breakdown.modernApplication || 'Carry this verse into the next honest moment.' }
     ].forEach(function (item) {
       var block = createElement(document, 'section', 'tdb-widget__block');
       block.appendChild(createElement(document, 'h3', 'tdb-widget__label', item.label));

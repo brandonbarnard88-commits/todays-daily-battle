@@ -1235,13 +1235,33 @@
   }
 
   async function ensureBibleLoaded() {
-    if (kjvEntries.length) return true;
+    if (kjvEntries.length >= 1000) return true;
     var status = byId('mystudy-search-status');
+    var urls = ['/data/kjv-full.json', '/data/kjv-verses.json', '/kjv.json', '/assets/data/kjv.json'];
     try {
       if (status) status.textContent = 'Loading Bible...';
-      var res = await fetch('/kjv.json');
-      if (!res.ok) throw new Error('bible_fetch_failed');
-      var data = await res.json();
+      var data = null;
+      for (var i = 0; i < urls.length; i++) {
+        try {
+          var res = await fetch(urls[i], { cache: 'force-cache' });
+          if (!res.ok) continue;
+          var raw = await res.json();
+          if (Array.isArray(raw)) {
+            data = {};
+            raw.forEach(function (row) {
+              if (row && row.ref) data[row.ref] = row.text || '';
+            });
+          } else {
+            data = raw;
+          }
+          if (data && Object.keys(data).length >= 1000) break;
+          if (i < urls.length - 1 && (!data || Object.keys(data).length < 1000)) {
+            data = null;
+            continue;
+          }
+        } catch (eTry) { /* try next */ }
+      }
+      if (!data) throw new Error('bible_fetch_failed');
       kjvEntries = Object.keys(data || {}).map(function (ref) {
         var text = String(data[ref] || '');
         return { ref: ref, text: text, refLower: ref.toLowerCase(), textLower: text.toLowerCase() };

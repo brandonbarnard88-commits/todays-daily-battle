@@ -145,6 +145,16 @@
           r.textContent = battle.ref + ' (KJV)';
         }
       }
+      /* Optional BBE simpler English on kids corner / family hub */
+      try {
+        var bbeEl = byId('kidsBbeSimple') || byId('familyBbeSimple');
+        if (bbeEl && battle.ref) {
+          bbeEl.setAttribute('data-bbe-ref', String(battle.ref).replace(/\s*\(KJV\)\s*$/i, '').trim());
+          if (bbeEl.open && window.TDBBbeSimple && typeof window.TDBBbeSimple.fillHost === 'function') {
+            window.TDBBbeSimple.fillHost(bbeEl.querySelector('.tdb-bbe-simple__body') || bbeEl, battle.ref);
+          }
+        }
+      } catch (eBbe) { /* ignore */ }
       fillFamilyQuickStart(battle.ref, verse ? clipVerseSnippet(verse, 200) : '');
       if (kpq && battle.ref) {
         try {

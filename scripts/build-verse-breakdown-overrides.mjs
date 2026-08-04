@@ -21,7 +21,13 @@ const EXCLUDED_DIRS = new Set([
   'scripts',
   'tests',
   'test-results',
-  'playwright-report'
+  'playwright-report',
+  '.worktrees',
+  'next-app',
+  'tmp',
+  'backup',
+  'firebase-functions',
+  'api'
 ]);
 const LARGE_FILE_ALLOWLIST = new Set([
   'hero-daily-365-data.js',
@@ -104,14 +110,35 @@ function rephraseArchaic(text) {
   return out.replace(/\s+/g, ' ').trim();
 }
 
-function inferApplies(text) {
+function hashRef(ref) {
+  let h = 0;
+  const s = String(ref || '');
+  for (let i = 0; i < s.length; i += 1) h = ((h << 5) - h + s.charCodeAt(i)) | 0;
+  return Math.abs(h);
+}
+
+/** Varied "For today" lines — avoid one stamp across thousands of verses. */
+const FALLBACK_APPLICATIONS = [
+  'Sit with one phrase from this verse before you move on.',
+  'Take one honest step today that matches what this verse says.',
+  'Return to this line when the day gets loud.',
+  'Pray this verse once, then act as if God heard you.',
+  'Share one sentence of this verse with someone who needs steady words.',
+  'Write one word from this verse where you will see it later.',
+  'Let this verse set the pace of your next conversation.',
+  'Hold this truth when you feel pressed to hurry past God.',
+  'Use this verse as a quiet answer when worry starts talking first.',
+  'End the day by reading this line again, slowly.'
+];
+
+function inferApplies(text, ref) {
   const lower = String(text || '').toLowerCase();
   if (/\b(careful|worry|anxious|fear|afraid|troubled)\b/.test(lower)) return 'This verse meets anxious moments with steady help instead of more noise.';
   if (/\b(hope|wait|waiting|trust)\b/.test(lower)) return 'This verse keeps your eyes up when the day feels slow, heavy, or unfinished.';
   if (/\b(peace|rest|quiet)\b/.test(lower)) return 'This verse makes room to breathe, slow down, and let God settle your heart.';
   if (/\b(strength|strong|strengthen|power)\b/.test(lower)) return 'This verse reminds you that God gives strength that does not start with your own reserves.';
   if (/\b(love|loveth|charity|mercy|forgive)\b/.test(lower)) return 'This verse calls you to live with the same mercy and steadiness you need from God.';
-  return 'Carry this verse into the next choice, the next conversation, and the next quiet minute with God.';
+  return FALLBACK_APPLICATIONS[hashRef(ref || text) % FALLBACK_APPLICATIONS.length];
 }
 
 function isNearVerbatimPlain(plain, verseText) {
@@ -237,7 +264,21 @@ function buildThemeLaymanPlain(ref, text) {
   if (/\bwait|patience|patient|endure|persevere\b/.test(lower)) {
     return 'Waiting with God is not wasted time. Stay steady; He is still at work.';
   }
-  return 'This verse says something true from God for real life today. Hold one clear phrase until it stays with you.';
+
+  /** Last-resort plains — rotated by ref so bulk coverage is not one generic stamp. */
+  const FALLBACK_PLAINS = [
+    'Read this verse slowly. Let one clear phrase stay with you through the next hour.',
+    'God is speaking something steady here — hold the part that meets you today.',
+    'This line of Scripture is for real life, not only for a quiet moment later.',
+    'Keep one truth from this verse close when the day pulls your attention everywhere.',
+    'God\'s Word here is practical: receive it, then walk a little differently.',
+    'Pause on this verse until it feels less like noise and more like a handhold.',
+    'Something true from God is on the page — take the part that steadies you first.',
+    'This verse is short enough to carry. Let it shape one choice you make next.',
+    'Scripture meets ordinary hours here. Stay with it until one sentence lands.',
+    'God is not far from this moment. Let this verse name what you need from Him.'
+  ];
+  return FALLBACK_PLAINS[hashRef(ref || r) % FALLBACK_PLAINS.length];
 }
 
 function getPlainExplanation(ref, text, plainMeanings) {
@@ -364,7 +405,7 @@ function buildManifest(surfacedRefs, textByRef, plainMeanings, kjv, sourceCounts
     overrides[normalized] = {
       general: {
         plainExplanation: getPlainExplanation(normalized, text, plainMeanings),
-        modernApplication: inferApplies(text),
+        modernApplication: inferApplies(text, normalized),
         about: ctx.s,
         to: ctx.a
       }

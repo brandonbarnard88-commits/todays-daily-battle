@@ -227,7 +227,7 @@
       stepLine = 'So do this: Read it slowly one more time out loud. Thank God for one clear thing it says, then take the next small step with that line in mind.';
     }
     if (!plainEasy) {
-      plainEasy = 'This verse says something true from God for real life today. Read it slowly until one phrase stays with you.';
+      plainEasy = 'Read this verse slowly. Let one clear phrase stay with you through the next hour.';
     } else if (plainEasy.length > 180) {
       plainEasy = plainEasy.slice(0, 177).trim() + '…';
     }
@@ -335,7 +335,7 @@
     if (/love|shepherd|save|salvation|rejoice|glad|joy|bless/.test(lower)) {
       return "God's care is for you today — something solid to hold when the day feels thin.";
     }
-    return 'This verse says something true from God for real life today. Hold one clear phrase until it stays with you.';
+    return 'Read this verse slowly. Let one clear phrase stay with you through the next hour.';
   }
 
   function normalizeVerse(data) {

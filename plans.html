@@ -10225,12 +10225,12 @@
       var nextLinkEl = nextSection ? nextSection.link : null;
 
       if (isFamilyPlanStyle) {
-        appendDayBpIf(primary, 'Plain English', breakdownData.plainExplanation || dayData.familyUnderstand || dayData.familySee, '');
+        appendDayBpIf(primary, 'What it means', breakdownData.plainExplanation || dayData.familyUnderstand || dayData.familySee, '');
         appendDayBpIf(primary, 'One small step together', dayData.familyTogether, 'action-panel');
         appendDayBpIf(primary, 'Family prayer', dayData.prayer, 'prayer-panel');
         appendDayBpIf(digDeep, 'Context', dayData.speaker, '');
         appendDayBpIf(digDeep, 'For your group', breakdownData.groupApplication || dayData.familyLive || dayData.parentPrompt, '');
-        appendDayBpIf(digDeep, 'Real life today', breakdownData.modernApplication || dayData.familyTogether || dayData.action, '');
+        appendDayBpIf(digDeep, 'For today', breakdownData.modernApplication || dayData.familyTogether || dayData.action, '');
         appendDayBpIf(digDeep, 'Parent prompt', dayData.parentPrompt, '');
         appendDayBpIf(digDeep, 'For kids', dayData.kidQ, '');
         appendDayBpIf(digDeep, 'Gentle direction (optional)', goalText, 'plan-day-goal');
@@ -10239,12 +10239,12 @@
         appendDayBpIf(primary, 'Prayer', dayData.prayer, 'prayer-panel');
         appendDayBpIf(digDeep, 'Gentle direction (optional)', goalText, 'plan-day-goal');
       } else {
-        appendDayBpIf(primary, 'Plain English', breakdownData.plainExplanation || dayData.plain, '');
+        appendDayBpIf(primary, 'What it means', breakdownData.plainExplanation || dayData.plain, '');
         appendDayBpIf(primary, 'One small step', dayData.action, 'action-panel');
         appendDayBpIf(primary, 'Prayer', dayData.prayer, 'prayer-panel');
         appendDayBpIf(digDeep, 'Who\u2019s speaking', dayData.speaker, '');
         appendDayBpIf(digDeep, 'For your group', breakdownData.groupApplication || dayData.today, '');
-        appendDayBpIf(digDeep, 'Real life today', breakdownData.modernApplication || dayData.action, '');
+        appendDayBpIf(digDeep, 'For today', breakdownData.modernApplication || dayData.action, '');
         appendDayBpIf(digDeep, 'Gentle direction (optional)', goalText, 'plan-day-goal');
       }
 

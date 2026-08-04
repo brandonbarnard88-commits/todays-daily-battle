@@ -59,7 +59,14 @@
       return currentBibleData();
     }
 
-    var urls = ['../kjv.json', '/kjv.json', 'https://todaysdailybattle.com/kjv.json'];
+    var urls = [
+      '../data/kjv-full.json',
+      '/data/kjv-full.json',
+      '../kjv.json',
+      '/kjv.json',
+      'https://todaysdailybattle.com/data/kjv-full.json',
+      'https://todaysdailybattle.com/kjv.json'
+    ];
     localBibleLoading = (async function () {
       for (var i = 0; i < urls.length; i++) {
         try {

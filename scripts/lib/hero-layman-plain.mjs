@@ -134,7 +134,7 @@ export function buildThemeLaymanPlain(ref, text) {
   if (/love|shepherd|save|salvation|rejoice|glad|joy|bless/.test(lower)) {
     return "God's care is for you today — something solid to hold when the day feels thin.";
   }
-  return 'This verse says something true from God for real life today. Hold one clear phrase until it stays with you.';
+  return 'Read this verse slowly. Let one clear phrase stay with you through the next hour.';
 }
 
 export function loadVersePlainMeanings(rootDir) {
@@ -179,5 +179,5 @@ export function buildHeroLaymanPlain(ref, text, map) {
   if (curated && !isWeakLaymanPlain(curated, text)) return curated;
   const theme = buildThemeLaymanPlain(ref, text);
   if (theme && !isWeakLaymanPlain(theme, text)) return theme;
-  return 'This verse says something true from God for real life today. Hold one clear phrase until it stays with you.';
+  return 'Read this verse slowly. Let one clear phrase stay with you through the next hour.';
 }

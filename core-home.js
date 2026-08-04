@@ -16,7 +16,7 @@
     }
   } catch (_) {}
 
-  var INTERACTIVE_SRC = 'script.js?v=20260802-core-home-eof';
+  var INTERACTIVE_SRC = 'script.js?v=20260804-audit-pass';
   var loaded = false;
   var pendingQuery = '';
 

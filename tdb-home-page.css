@@ -12135,3 +12135,20 @@ a.plan-category-chip:focus-visible,
 .tdb-home-after-ask details.tdb-dig-deeper {
   margin-top: 0.5rem;
 }
+
+/* audit-pass: more when ready */
+.tdb-home-more-when-ready {
+  margin: 0.75rem 0 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: rgba(15, 23, 42, 0.28);
+  padding: 0.35rem 0.85rem 0.85rem;
+}
+.tdb-home-more-when-ready__summary {
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+  padding: 0.65rem 0.15rem;
+}
+.tdb-home-more-when-ready__summary::-webkit-details-marker { display: none; }
+.tdb-home-more-when-ready__body { margin-top: 0.35rem; }

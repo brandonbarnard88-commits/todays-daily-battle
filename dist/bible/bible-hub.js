@@ -11,7 +11,7 @@
   const BIBLE_REFLECTION_KEY = 'bibleReflection';
   const CHAPTERS_URL = '../chapters.json';
   const HIGHLIGHTS_KEY = 'bibleHighlights';
-  const KJV_URL = '../kjv.json';
+  const KJV_URL = '../data/kjv-full.json';
 
   /* Verse of the Week: 5 themes, 5 verses each. Date-based cycle. */
   var VERSE_OF_WEEK_THEMES = [

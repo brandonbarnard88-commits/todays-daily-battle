@@ -230,6 +230,7 @@ const rootFiles = [
   'home-votm.js',
   'verse-breakdown.js',
   'verse-breakdown-overrides.js',
+  'bbe-simple.js',
   'kjv-dictionary.js',
   'bible-study-companion.js',
   'word-study.js',

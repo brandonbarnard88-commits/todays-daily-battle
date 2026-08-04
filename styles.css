@@ -25664,3 +25664,34 @@ details.hero-vbd-primary.tdb-layman-collapse > summary + p#heroSimpleBreakdown {
 @media (prefers-reduced-motion: reduce) {
   .tdb-bbe-simple { transition: none; }
 }
+
+/* --- Home primary pair: verse + Ask the Word first --- */
+.tdb-home-primary-pair {
+  display: block;
+  margin: 0 0 1.25rem;
+  padding: 0;
+}
+.tdb-home-primary-pair #tdbHeroQuietEyebrow {
+  margin-top: 0.35rem;
+}
+.tdb-home-primary-pair #quick-search-hero {
+  margin-top: 0.85rem;
+}
+.tdb-home-primary-pair #feel-section {
+  margin-top: 0.25rem;
+}
+.tdb-home-secondary-stack {
+  margin-top: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid color-mix(in srgb, var(--line, rgba(200,180,140,0.35)) 80%, transparent);
+}
+.tdb-home-secondary-stack > .tdb-capacity-door,
+.tdb-home-secondary-stack > .tdb-first-visit-strip,
+.tdb-home-secondary-stack > .tdb-heavy-now {
+  margin-top: 0.85rem;
+}
+@media (min-width: 720px) {
+  .tdb-home-primary-pair #quick-search-hero {
+    margin-top: 1rem;
+  }
+}

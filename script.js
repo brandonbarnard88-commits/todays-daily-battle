@@ -12,7 +12,7 @@
   if (!('serviceWorker' in navigator)) return;
   if (document.querySelector('script[data-tdb-sw-register]')) return;
   var s = document.createElement('script');
-  s.src = '/register-sw.js?v=20260524-porch-week';
+  s.src = '/register-sw.js?v=20260804-quiet-chrome';
   s.defer = true;
   s.setAttribute('data-tdb-sw-register', '1');
   (document.head || document.documentElement).appendChild(s);
@@ -58,7 +58,7 @@ function tdbIsHomePage() {
   function injectVerseBreakdownStack() {
     if (!window.TDB_VERSE_BREAKDOWN_DATA && !document.querySelector('script[data-tdb-verse-breakdown-overrides]')) {
       var seed = document.createElement('script');
-      seed.src = '/verse-breakdown-overrides.js?v=20260804-live-porch';
+      seed.src = '/verse-breakdown-overrides.js?v=20260804-quiet-chrome';
       seed.defer = true;
       seed.setAttribute('data-tdb-verse-breakdown-overrides', '1');
       (document.head || document.documentElement).appendChild(seed);
@@ -75,7 +75,7 @@ function tdbIsHomePage() {
     /* Optional BBE simpler English — load even if verse-breakdown already present. */
     if (!document.querySelector('script[data-tdb-bbe-simple]')) {
       var bbe = document.createElement('script');
-      bbe.src = '/bbe-simple.js?v=20260804-live-porch';
+      bbe.src = '/bbe-simple.js?v=20260804-quiet-chrome';
       bbe.defer = true;
       bbe.setAttribute('data-tdb-bbe-simple', '1');
       (document.head || document.documentElement).appendChild(bbe);
@@ -83,7 +83,7 @@ function tdbIsHomePage() {
     if (window.TDBVerseBreakdown) return;
     if (document.querySelector('script[data-tdb-verse-breakdown]')) return;
     var s = document.createElement('script');
-    s.src = '/verse-breakdown.js?v=20260804-live-porch';
+    s.src = '/verse-breakdown.js?v=20260804-quiet-chrome';
     s.defer = true;
     s.setAttribute('data-tdb-verse-breakdown', '1');
     (document.head || document.documentElement).appendChild(s);
@@ -2774,7 +2774,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[data-lazy-src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
   var trustedStd = trustedScriptURL('/verse-breakdown-standard.js?v=20260428-vbd');
-  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260804-live-porch');
+  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260804-quiet-chrome');
   if (!trustedStd || !trusted) return;
   var stdScr = document.createElement('script');
   stdScr.src = trustedStd;

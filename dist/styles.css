@@ -162,3 +162,10 @@ body.no-tdb-bottom-nav .spacer {
   font-size: 0.82rem;
   opacity: 0.8;
 }
+
+#heroVotdBreakdown .tdb-bbe-simple__note,
+#heroVotdBreakdown .tdb-bbe-simple__credit,
+#heroBbeSimple .tdb-bbe-simple__note,
+#heroBbeSimple .tdb-bbe-simple__credit,
+#heroDailySubline,
+#heroVerseEyebrow{display:none!important}

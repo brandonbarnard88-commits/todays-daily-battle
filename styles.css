@@ -25723,6 +25723,15 @@ details.hero-vbd-primary.tdb-layman-collapse > summary + p#heroSimpleBreakdown {
   font-size: 0.82rem;
   opacity: 0.8;
 }
+/* Never show disclaimer/ad-echo chrome inside today's verse path (even if old HTML is cached) */
+#heroVotdBreakdown .tdb-bbe-simple__note,
+#heroVotdBreakdown .tdb-bbe-simple__credit,
+#heroBbeSimple .tdb-bbe-simple__note,
+#heroBbeSimple .tdb-bbe-simple__credit,
+#heroDailySubline,
+#heroVerseEyebrow {
+  display: none !important;
+}
 .tdb-bbe-simple--always-open .tdb-bbe-simple__text {
   margin: 0.25rem 0 0;
   font-size: 1.08rem;

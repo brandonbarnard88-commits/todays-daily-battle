@@ -624,12 +624,8 @@
         </div>
         <p class="tdb-verse-of-day-eyebrow" id="heroVerseEyebrow">Today&rsquo;s lesson</p>
 
-        <div class="hero-vbd-primary" id="heroVbdPrimary">
-          <h4>Simple layman terms</h4>
-          <p id="heroSimpleBreakdown">When you stay close to God, you rest in His protection and care.</p>
-        </div>
-
-        <details class="tdb-bbe-simple tdb-bbe-simple--hero" id="heroBbeSimple" data-bbe-simple="1" data-bbe-ref="Psalm 91:1">
+        <!-- BBE first (open by default): plain Bible English, then optional layman teaching -->
+        <details class="tdb-bbe-simple tdb-bbe-simple--hero" id="heroBbeSimple" data-bbe-simple="1" data-bbe-ref="Psalm 91:1" open>
           <summary class="tdb-bbe-simple__summary">Simpler English (BBE)</summary>
           <div class="tdb-bbe-simple__body">
             <p class="tdb-bbe-simple__note section-note">Plain words from the Bible in Basic English (public domain) &mdash; a help for children and new readers. The King James text above stays primary.</p>
@@ -637,6 +633,11 @@
             <p class="tdb-bbe-simple__text" data-bbe-text="1" lang="en"></p>
             <p class="tdb-bbe-simple__credit section-note">BBE &middot; public domain &middot; <a href="/bible-credits.html">Bible credits</a></p>
           </div>
+        </details>
+
+        <details class="tdb-layman-collapse hero-vbd-primary" id="heroVbdPrimary">
+          <summary class="tdb-layman-collapse__summary">Simple layman terms</summary>
+          <p id="heroSimpleBreakdown">When you stay close to God, you rest in His protection and care.</p>
         </details>
 
         <details class="tdb-dig-deeper" id="heroDigDeeper">

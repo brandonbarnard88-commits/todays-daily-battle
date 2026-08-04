@@ -982,13 +982,24 @@
       breakdown.appendChild(p);
     }
 
-    addBkH4('Simple layman terms', 'layman');
-
-    /* Optional BBE bridge — lazy-filled when opened; KJV stays primary above. */
+    /* BBE first (simpler Bible English), then optional layman teaching underneath. */
     var bbeHost = document.createElement('div');
     bbeHost.className = 'tdb-vb-bbe-slot';
     bbeHost.setAttribute('data-bbe-slot', '1');
     breakdown.appendChild(bbeHost);
+
+    var layWrap = document.createElement('details');
+    layWrap.className = 'tdb-layman-collapse tdb-vb-layman-collapse';
+    var laySum = document.createElement('summary');
+    laySum.className = 'tdb-layman-collapse__summary';
+    laySum.appendChild(document.createTextNode('Simple layman terms'));
+    layWrap.appendChild(laySum);
+    var layP = document.createElement('p');
+    var laySpan = document.createElement('span');
+    laySpan.setAttribute('data-bk', 'layman');
+    layP.appendChild(laySpan);
+    layWrap.appendChild(layP);
+    breakdown.appendChild(layWrap);
 
     addBkH4('Who\'s talking?', 'about');
     addBkH4('Who is He / she talking to?', 'to');
@@ -1287,7 +1298,10 @@
     slot.innerHTML = '';
     if (window.TDBBbeSimple && typeof window.TDBBbeSimple.buildDetailsBlock === 'function') {
       try {
-        slot.appendChild(window.TDBBbeSimple.buildDetailsBlock(ref, { className: 'tdb-bbe-simple--inline' }));
+        /* Open by default so simpler English leads; layman stays collapsed under it. */
+        slot.appendChild(
+          window.TDBBbeSimple.buildDetailsBlock(ref, { className: 'tdb-bbe-simple--inline', open: true })
+        );
       } catch (eBbe) {}
     }
   }

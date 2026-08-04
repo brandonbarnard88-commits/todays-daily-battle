@@ -25576,9 +25576,47 @@ html.tdb-backup-reminder-open body {
 }
 .explore-grow-path__list li { margin-bottom: 0.3rem; }
 
-/* --- Simpler English (BBE) optional bridge — KJV stays primary --- */
+/* --- Simple layman terms: collapsed under BBE --- */
+.tdb-layman-collapse {
+  margin: 0.45rem 0 0.75rem;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--border, #c9b89a) 55%, transparent);
+  background: transparent;
+  padding: 0.1rem 0.75rem 0.25rem;
+}
+.tdb-layman-collapse__summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.1rem;
+  list-style: none;
+  color: var(--text, #2c2416);
+}
+.tdb-layman-collapse__summary::-webkit-details-marker { display: none; }
+.tdb-layman-collapse__summary::before {
+  content: '▸ ';
+  opacity: 0.7;
+  font-size: 0.85em;
+}
+.tdb-layman-collapse[open] > .tdb-layman-collapse__summary::before { content: '▾ '; }
+.tdb-layman-collapse__summary:focus-visible {
+  outline: 2px solid var(--accent, #8b6914);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+.tdb-layman-collapse > p,
+.tdb-layman-collapse .hero-vbd-primary > p {
+  margin: 0 0 0.55rem;
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+details.hero-vbd-primary.tdb-layman-collapse > summary + p#heroSimpleBreakdown {
+  margin: 0 0 0.55rem;
+}
+
+/* --- Simpler English (BBE) bridge — leads under KJV; layman collapses under it --- */
 .tdb-bbe-simple {
-  margin: 0.65rem 0 0.85rem;
+  margin: 0.65rem 0 0.45rem;
   border-radius: 12px;
   border: 1px solid color-mix(in srgb, var(--border, #c9b89a) 70%, transparent);
   background: color-mix(in srgb, var(--surface, #f7f1e6) 88%, transparent);

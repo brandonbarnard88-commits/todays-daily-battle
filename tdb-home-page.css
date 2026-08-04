@@ -4115,6 +4115,30 @@
       line-height: 1.58;
       color: var(--text);
     }
+    details.hero-vbd-primary.tdb-layman-collapse {
+      margin: 0.45rem 0 0.75rem;
+      border: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+      border-radius: 12px;
+      padding: 0.1rem 0.75rem 0.25rem;
+    }
+    details.hero-vbd-primary.tdb-layman-collapse > summary.tdb-layman-collapse__summary {
+      list-style: none;
+      cursor: pointer;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0.5rem 0.1rem;
+    }
+    details.hero-vbd-primary.tdb-layman-collapse > summary.tdb-layman-collapse__summary::-webkit-details-marker { display: none; }
+    details.hero-vbd-primary.tdb-layman-collapse > #heroSimpleBreakdown {
+      margin: 0 0 0.55rem;
+      font-size: 0.96rem;
+      line-height: 1.58;
+      color: var(--text);
+    }
+
     details.tdb-dig-deeper {
       margin-top: 1rem;
       border-top: 1px solid color-mix(in srgb, var(--line) 78%, var(--gold) 12%);

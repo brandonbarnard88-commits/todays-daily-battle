@@ -6,7 +6,7 @@
 (function () {
   'use strict';
 
-  var KJV_URL = '/kjv.json';
+  var KJV_URLS = ['/data/kjv-full.json', '/data/kjv-verses.json', '/kjv.json', '/assets/data/kjv.json'];
   var KJV_LOADED = false;
 
   var MOCK_VERSE_REFS = [
@@ -50,21 +50,32 @@
 
   function loadKJV(cb) {
     if (KJV_LOADED && window.kjvData) {
-      cb(getBible());
-      return;
+      var existing = getBible();
+      if (Object.keys(existing).length >= 1000 || existing === MOCK_VERSES) {
+        cb(existing);
+        return;
+      }
     }
-    fetch(KJV_URL)
-      .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
-      .then(function (d) {
+    function tryUrl(i) {
+      if (i >= KJV_URLS.length) {
         KJV_LOADED = true;
-        window.kjvData = Array.isArray(d) ? d : d;
+        if (!window.kjvData) window.kjvData = MOCK_VERSES;
         cb(getBible());
-      })
-      .catch(function () {
-        KJV_LOADED = true;
-        window.kjvData = MOCK_VERSES;
-        cb(getBible());
-      });
+        return;
+      }
+      fetch(KJV_URLS[i], { cache: 'force-cache' })
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+        .then(function (d) {
+          var map = Array.isArray(d) ? arrayToBibleObj(d) : (d || {});
+          var n = Object.keys(map).length;
+          if (n < 1000 && i < KJV_URLS.length - 1) return tryUrl(i + 1);
+          KJV_LOADED = true;
+          window.kjvData = map;
+          cb(getBible());
+        })
+        .catch(function () { tryUrl(i + 1); });
+    }
+    tryUrl(0);
   }
 
   function getBible() {

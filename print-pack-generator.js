@@ -331,9 +331,9 @@
     article.appendChild(verse);
 
     var breakdownGrid = el('div', 'ppg-breakdown-grid');
-    addTextSection(breakdownGrid, 'Plain English', cardData.plainEnglish);
+    addTextSection(breakdownGrid, 'What it means', cardData.plainEnglish);
     addTextSection(breakdownGrid, 'For your group', cardData.forGroup);
-    addTextSection(breakdownGrid, 'Real life today', cardData.realLifeToday);
+    addTextSection(breakdownGrid, 'For today', cardData.realLifeToday);
     article.appendChild(breakdownGrid);
 
     if (cardData.extraSections.length) {

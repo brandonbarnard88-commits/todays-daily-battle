@@ -405,8 +405,12 @@
     } catch (e) {
       origin = '';
     }
-    var urls = ['/kjv.json'];
-    if (origin) urls.push(origin.replace(/\/$/, '') + '/kjv.json');
+    var urls = ['/data/kjv-full.json', '/data/kjv-verses.json', '/kjv.json'];
+    if (origin) {
+      urls.push(origin.replace(/\/$/, '') + '/data/kjv-full.json');
+      urls.push(origin.replace(/\/$/, '') + '/kjv.json');
+    }
+    urls.push('https://todaysdailybattle.com/data/kjv-full.json');
     urls.push('https://todaysdailybattle.com/kjv.json');
     bibleMapPromise = (function tryFetch(i) {
       if (i >= urls.length) return Promise.resolve({});

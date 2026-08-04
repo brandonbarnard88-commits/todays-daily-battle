@@ -93,9 +93,26 @@
   }
 
   async function hydrateFromLocalKjv(cache) {
+    var urls = ['/data/kjv-full.json', '/data/kjv-verses.json', '/kjv.json'];
     try {
-      var local = await fetch('/kjv.json').then(function (r) { return r.json(); });
-      var merged = (Array.isArray(cache) ? cache : []).concat(normalizeRows(local || []));
+      var local = null;
+      for (var i = 0; i < urls.length; i++) {
+        try {
+          var r = await fetch(urls[i], { cache: 'force-cache' });
+          if (!r.ok) continue;
+          local = await r.json();
+          var n = Array.isArray(local) ? local.length : Object.keys(local || {}).length;
+          if (n >= 1000) break;
+        } catch (eTry) { /* next */ }
+      }
+      if (!local) return Array.isArray(cache) ? cache : [];
+      var rows = local;
+      if (!Array.isArray(local) && local && typeof local === 'object') {
+        rows = Object.keys(local).map(function (ref) {
+          return { ref: ref, text: local[ref] };
+        });
+      }
+      var merged = (Array.isArray(cache) ? cache : []).concat(normalizeRows(rows || []));
       var dedup = {};
       merged.forEach(function (v) { dedup[v.ref] = v; });
       var next = Object.keys(dedup).map(function (k) { return dedup[k]; });

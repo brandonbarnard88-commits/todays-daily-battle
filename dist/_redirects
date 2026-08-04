@@ -5,8 +5,10 @@
 /admin/ /admin.html 200!
 /test-search-diagnosis.html /blocked.html 404
 /test-search-diagnosis /blocked.html 404
-/stats.html /blocked.html 404
-/stats /blocked.html 404
+# Force-block owner stats at the edge (do not rely on client password alone).
+/stats.html /blocked.html 404!
+/stats /blocked.html 404!
+/stats/ /blocked.html 404!
 /secrets /secrets.html 200!
 /mystudy /mystudy.html 200!
 /mystudy/ /mystudy.html 200!
@@ -190,6 +192,9 @@
 # URL truth table (see config/urls-truth-table.json) — guessed slugs + clean paths
 /ask-the-word /bible-tool.html?tdb_focus=ask 301
 /ask-the-word/ /bible-tool.html?tdb_focus=ask 301
+/ask /bible-tool.html?tdb_focus=ask 301
+/ask/ /bible-tool.html?tdb_focus=ask 301
+/ask.html /bible-tool.html?tdb_focus=ask 301
 /battle-plans /plans 301
 /battle-plans/ /plans 301
 /my-study /mystudy 301
@@ -202,6 +207,10 @@
 /quiet-evening/ /quiet-evening.html 200!
 /explore /explore.html 200!
 /explore/ /explore.html 200!
+/find-a-path /find-a-path.html 200!
+/find-a-path/ /find-a-path.html 200!
+/learn-the-word /learn-the-word.html 200!
+/learn-the-word/ /learn-the-word.html 200!
 /site-guide /site-guide.html 200!
 /site-guide/ /site-guide.html 200!
 /university /university.html 200!

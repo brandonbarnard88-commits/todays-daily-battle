@@ -125,13 +125,19 @@
   }
 
   function ensureKjv() {
-    if (KJV_LOOKUP) return Promise.resolve(KJV_LOOKUP);
+    if (KJV_LOOKUP && Object.keys(KJV_LOOKUP).length >= 1000) return Promise.resolve(KJV_LOOKUP);
     if (KJV_PROMISE) return KJV_PROMISE;
-    KJV_PROMISE = fetch('/kjv.json')
-      .then(function (r) {
-        if (!r.ok) throw new Error('kjv');
-        return r.json();
-      })
+    var urls = ['/data/kjv-full.json', '/data/kjv-verses.json', '/kjv.json', '/assets/data/kjv.json'];
+    function tryFetch(i) {
+      if (i >= urls.length) return Promise.reject(new Error('kjv'));
+      return fetch(urls[i], { cache: 'force-cache' })
+        .then(function (r) {
+          if (!r.ok) throw new Error('kjv');
+          return r.json();
+        })
+        .catch(function () { return tryFetch(i + 1); });
+    }
+    KJV_PROMISE = tryFetch(0)
       .then(function (raw) {
         if (Array.isArray(raw)) {
           var o = {};
@@ -144,10 +150,13 @@
         } else {
           KJV_LOOKUP = raw || {};
         }
+        if (typeof window !== 'undefined' && (!window.kjvData || Object.keys(window.kjvData).length < Object.keys(KJV_LOOKUP).length)) {
+          window.kjvData = KJV_LOOKUP;
+        }
         return KJV_LOOKUP;
       })
       .catch(function () {
-        KJV_LOOKUP = {};
+        KJV_LOOKUP = KJV_LOOKUP || {};
         return KJV_LOOKUP;
       });
     return KJV_PROMISE;
@@ -157,6 +166,14 @@
     if (!map || !ref) return '';
     var t = map[ref];
     if (t) return t;
+    if (/^Psalm\s+/i.test(ref)) {
+      t = map[ref.replace(/^Psalm\s+/i, 'Psalms ')];
+      if (t) return t;
+    }
+    if (/^Psalms\s+/i.test(ref)) {
+      t = map[ref.replace(/^Psalms\s+/i, 'Psalm ')];
+      if (t) return t;
+    }
     var compact = String(ref).replace(/\s+/g, ' ').trim();
     if (map[compact]) return map[compact];
     return '';

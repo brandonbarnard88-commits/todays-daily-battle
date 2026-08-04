@@ -33,6 +33,9 @@ window.TDB_CONFIG = {
   STRIPE_CHURCH_YEARLY_LINK: '',
   // GA4: analytics.google.com → Admin → Create Property → Web → copy Measurement ID (G-XXXXXXXXXX)
   GA_MEASUREMENT_ID: 'G-NFQ5GWJXCB',
+  // Cloudflare Web Analytics beacon token (dashboard.cloudflare.com → Web Analytics). Empty = off.
+  // Cookieless page views; does not replace GA4 product events. See docs/FOUNDER-ANALYTICS.md
+  CF_ANALYTICS_TOKEN: '',
   // GSC: search.google.com/search-console → Add Property → HTML tag → copy content value
   GOOGLE_SITE_VERIFICATION: ''
 };
@@ -65,8 +68,8 @@ window.TDB_CONFIG.PRAYERS_TODAY_COUNT_ENABLED = false;
 // .org = movement site; .com = product site. Same codebase, different messaging.
 window.TDB_IS_ORG = typeof location !== 'undefined' && location.hostname === 'todaysdailybattle.org';
 
-// Single source of truth for "First 50" promo countdown (home + pricing). ISO string, e.g. '2026-03-07T23:59:59Z'.
-window.TDB_CONFIG.PROMO_END_DATE = '2026-03-07T23:59:59Z';
+// Promo countdown (home + pricing). Empty string = no active promo (do not leave expired dates).
+window.TDB_CONFIG.PROMO_END_DATE = '';
 
 /**
  * Get Stripe Payment Link URL for a given tier and period.
@@ -84,4 +87,27 @@ window.TDB_GET_STRIPE_LINK = function (tier, period) {
   if (!key) return '';
   var link = c[key] || (tier === 'supporter' && period === 'monthly' ? c.STRIPE_SUPPORTER_LINK : null) || (tier === 'church' && period === 'monthly' ? c.STRIPE_CHURCH_LINK : null);
   return link || '';
+};
+
+/** True when at least one Stripe checkout path is configured (links or publishable key). */
+window.TDB_SUPPORT_CHECKOUT_READY = function () {
+  var c = window.TDB_CONFIG || {};
+  if (c.STRIPE_PUBLISHABLE_KEY) return true;
+  if (c.STRIPE_SUPPORTER_LINK || c.STRIPE_SUPPORTER_MONTHLY_LINK || c.STRIPE_SUPPORTER_YEARLY_LINK) return true;
+  if (c.STRIPE_BATTLEPRO_MONTHLY_LINK || c.STRIPE_BATTLEPRO_YEARLY_LINK) return true;
+  if (c.STRIPE_CHURCH_LINK || c.STRIPE_CHURCH_MONTHLY_LINK || c.STRIPE_CHURCH_YEARLY_LINK) return true;
+  if (typeof window.TDB_GET_STRIPE_LINK === 'function') {
+    return !!(
+      window.TDB_GET_STRIPE_LINK('supporter', 'monthly') ||
+      window.TDB_GET_STRIPE_LINK('battle_pro', 'monthly') ||
+      window.TDB_GET_STRIPE_LINK('church', 'monthly')
+    );
+  }
+  return false;
+};
+
+/** True when Cloudflare Web Analytics token is set. */
+window.TDB_CF_ANALYTICS_READY = function () {
+  var c = window.TDB_CONFIG || {};
+  return !!(c.CF_ANALYTICS_TOKEN && String(c.CF_ANALYTICS_TOKEN).trim());
 };

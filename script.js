@@ -12,7 +12,7 @@
   if (!('serviceWorker' in navigator)) return;
   if (document.querySelector('script[data-tdb-sw-register]')) return;
   var s = document.createElement('script');
-  s.src = '/register-sw.js?v=20260804-sr-only-fix';
+  s.src = '/register-sw.js?v=20260804-audit-pass';
   s.defer = true;
   s.setAttribute('data-tdb-sw-register', '1');
   (document.head || document.documentElement).appendChild(s);
@@ -58,7 +58,7 @@ function tdbIsHomePage() {
   function injectVerseBreakdownStack() {
     if (!window.TDB_VERSE_BREAKDOWN_DATA && !document.querySelector('script[data-tdb-verse-breakdown-overrides]')) {
       var seed = document.createElement('script');
-      seed.src = '/verse-breakdown-overrides.js?v=20260804-sr-only-fix';
+      seed.src = '/verse-breakdown-overrides.js?v=20260804-audit-pass';
       seed.defer = true;
       seed.setAttribute('data-tdb-verse-breakdown-overrides', '1');
       (document.head || document.documentElement).appendChild(seed);
@@ -75,7 +75,7 @@ function tdbIsHomePage() {
     /* Optional BBE simpler English — load even if verse-breakdown already present. */
     if (!document.querySelector('script[data-tdb-bbe-simple]')) {
       var bbe = document.createElement('script');
-      bbe.src = '/bbe-simple.js?v=20260804-sr-only-fix';
+      bbe.src = '/bbe-simple.js?v=20260804-audit-pass';
       bbe.defer = true;
       bbe.setAttribute('data-tdb-bbe-simple', '1');
       (document.head || document.documentElement).appendChild(bbe);
@@ -83,7 +83,7 @@ function tdbIsHomePage() {
     if (window.TDBVerseBreakdown) return;
     if (document.querySelector('script[data-tdb-verse-breakdown]')) return;
     var s = document.createElement('script');
-    s.src = '/verse-breakdown.js?v=20260804-sr-only-fix';
+    s.src = '/verse-breakdown.js?v=20260804-audit-pass';
     s.defer = true;
     s.setAttribute('data-tdb-verse-breakdown', '1');
     (document.head || document.documentElement).appendChild(s);
@@ -2774,7 +2774,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[data-lazy-src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
   var trustedStd = trustedScriptURL('/verse-breakdown-standard.js?v=20260428-vbd');
-  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260804-sr-only-fix');
+  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260804-audit-pass');
   if (!trustedStd || !trusted) return;
   var stdScr = document.createElement('script');
   stdScr.src = trustedStd;
@@ -14809,13 +14809,13 @@ function wireDonationModal() {
     var amountCents = Math.round(dollars * 100);
 
     if (!navigator.onLine) {
-      if (statusEl) { statusEl.textContent = 'Donations need a connection—that is all right. Try again when you are online.'; statusEl.classList.remove('hidden'); }
+      if (statusEl) { statusEl.textContent = 'Donations need a connection. Try again when you are online.'; statusEl.classList.remove('hidden'); }
       return;
     }
 
     var url = (window.TDB_CONFIG && window.TDB_CONFIG.CREATE_DONATION_SESSION_URL) || '';
     if (!url) {
-      if (statusEl) { statusEl.textContent = 'Donations are not wired on this host yet—that is all right. Try again later.'; statusEl.classList.remove('hidden'); }
+      if (statusEl) { statusEl.textContent = 'Donations are not available on this host yet. Check back later or use Support when checkout is ready.'; statusEl.classList.remove('hidden'); }
       return;
     }
 
@@ -14838,7 +14838,7 @@ function wireDonationModal() {
       .catch(function (err) {
         submitBtn.disabled = false;
         if (statusEl) {
-          statusEl.textContent = 'Payment did not go through—that is all right. Try again when you are ready.';
+          statusEl.textContent = 'Payment did not go through. Try again when you are ready.';
           statusEl.classList.remove('hidden');
         }
         if (typeof console !== 'undefined' && console.warn) console.warn('TDB donation error:', err);
@@ -19979,7 +19979,7 @@ function getVerseBreakdown(ref, text, options) {
       } else if (/peace|rest|still|quiet/.test(lower)) {
         layman = 'God offers real rest — a quiet place to set the day down with Him.';
       } else {
-        layman = 'This verse says something true from God for real life today. Hold one clear phrase until it stays with you.';
+        layman = 'Read this verse slowly. Let one clear phrase stay with you through the next hour.';
       }
     }
   })();
@@ -36506,13 +36506,22 @@ async function tdbInitImpl() {
   }
   loadLocalSermons();
   (function () {
-    // Promo end: use config so home and pricing stay in sync.
-    var endDateStr = (window.TDB_CONFIG && window.TDB_CONFIG.PROMO_END_DATE) || '2026-03-07T23:59:59Z';
-    var endDate = new Date(endDateStr);
+    // Promo end: use config so home and pricing stay in sync. Empty = no active promo.
+    var endDateStr = (window.TDB_CONFIG && window.TDB_CONFIG.PROMO_END_DATE) || '';
     var earlyBirdDays = document.getElementById('early-bird-days');
     var battleProCountdown = document.getElementById('battle-pro-countdown');
     var promoBannerDays = document.getElementById('promo-banner-days');
     var promoBanner = document.getElementById('promo-banner');
+    if (!String(endDateStr).trim()) {
+      if (promoBanner) promoBanner.hidden = true;
+      if (battleProCountdown) battleProCountdown.hidden = true;
+      return;
+    }
+    var endDate = new Date(endDateStr);
+    if (isNaN(endDate.getTime())) {
+      if (promoBanner) promoBanner.hidden = true;
+      return;
+    }
     function updateCountdown() {
       var now = new Date();
       var diff = endDate - now;

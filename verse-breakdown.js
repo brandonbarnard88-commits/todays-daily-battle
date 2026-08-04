@@ -252,7 +252,7 @@
       return 'Waiting with God is not wasted time. Stay steady; He is still at work.';
     }
 
-    return 'This verse says something true from God for real life today. Hold one clear phrase until it stays with you.';
+    return 'Read this verse slowly. Let one clear phrase stay with you through the next hour.';
   }
 
   /** Drop override fields that only echo the KJV (archaic word-swap). */

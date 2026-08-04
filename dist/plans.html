@@ -4818,6 +4818,7 @@
     <a href="/privacy.html">Privacy</a>
     <a href="/terms.html">Terms</a>
     <a href="/faq.html">FAQ</a>
+    <a href="/bible-credits.html">Bible credits</a>
     <a href="/verse.html">Today&rsquo;s Lesson</a>
     <a href="/mystudy">My Study</a>
     <a href="/prayer-wall.html">Prayer</a>
@@ -4901,6 +4902,8 @@
         <a href="/offline-porch.html">Offline porch</a>
         <a href="/porch-map-one-page-print.html">Porch map (print)</a>
         <a href="/porch-pathways-ribbon-one-page-print.html">Ribbon pathways (print)</a>
+        <a href="/find-a-path.html">Find a path</a>
+        <a href="/learn-the-word.html">Learn the Word</a>
         <a href="/bible-study.html">Bible studies</a>
         <a href="/shop.html">Shop</a>
         <a href="/story.html">Story</a>
@@ -4918,7 +4921,7 @@
   <p class="footer-humility">We battle. He wins.</p>
   <!-- Canonical short signature (edit here; run npm run sync:footer): footer story lives in .site-footer-story below -->
   <p class="site-footer-story">
-    Steady KJV for honest days&mdash;no ads, no selling your data; prayers stay on this device unless you sync on purpose.
+    Steady KJV for honest days. Prayers and notes stay on this device unless you sync on purpose.
   </p>
 
   <div class="footer-friday-signup footer-friday-signup--compact" id="footerFridaySignup" aria-labelledby="footerFridaySignupHeading">
@@ -4932,7 +4935,7 @@
   </div>
 
   <p class="site-footer-copy site-footer-legal-line">&copy; 2026 Today&rsquo;s Daily Battle &middot; Christian Messenger Service. All rights reserved.</p>
-  <p class="site-footer-copy site-footer-legal-line">All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="site-footer-copy site-footer-legal-line">Primary Scripture is the <abbr title="King James Version">KJV</abbr> (public domain). Optional simpler English may quote the <abbr title="Bible in Basic English">BBE</abbr> (public domain). <a href="/bible-credits.html">Bible credits</a>.</p>
   <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
@@ -10222,12 +10225,12 @@
       var nextLinkEl = nextSection ? nextSection.link : null;
 
       if (isFamilyPlanStyle) {
-        appendDayBpIf(primary, 'Plain English', breakdownData.plainExplanation || dayData.familyUnderstand || dayData.familySee, '');
+        appendDayBpIf(primary, 'What it means', breakdownData.plainExplanation || dayData.familyUnderstand || dayData.familySee, '');
         appendDayBpIf(primary, 'One small step together', dayData.familyTogether, 'action-panel');
         appendDayBpIf(primary, 'Family prayer', dayData.prayer, 'prayer-panel');
         appendDayBpIf(digDeep, 'Context', dayData.speaker, '');
         appendDayBpIf(digDeep, 'For your group', breakdownData.groupApplication || dayData.familyLive || dayData.parentPrompt, '');
-        appendDayBpIf(digDeep, 'Real life today', breakdownData.modernApplication || dayData.familyTogether || dayData.action, '');
+        appendDayBpIf(digDeep, 'For today', breakdownData.modernApplication || dayData.familyTogether || dayData.action, '');
         appendDayBpIf(digDeep, 'Parent prompt', dayData.parentPrompt, '');
         appendDayBpIf(digDeep, 'For kids', dayData.kidQ, '');
         appendDayBpIf(digDeep, 'Gentle direction (optional)', goalText, 'plan-day-goal');
@@ -10236,12 +10239,12 @@
         appendDayBpIf(primary, 'Prayer', dayData.prayer, 'prayer-panel');
         appendDayBpIf(digDeep, 'Gentle direction (optional)', goalText, 'plan-day-goal');
       } else {
-        appendDayBpIf(primary, 'Plain English', breakdownData.plainExplanation || dayData.plain, '');
+        appendDayBpIf(primary, 'What it means', breakdownData.plainExplanation || dayData.plain, '');
         appendDayBpIf(primary, 'One small step', dayData.action, 'action-panel');
         appendDayBpIf(primary, 'Prayer', dayData.prayer, 'prayer-panel');
         appendDayBpIf(digDeep, 'Who\u2019s speaking', dayData.speaker, '');
         appendDayBpIf(digDeep, 'For your group', breakdownData.groupApplication || dayData.today, '');
-        appendDayBpIf(digDeep, 'Real life today', breakdownData.modernApplication || dayData.action, '');
+        appendDayBpIf(digDeep, 'For today', breakdownData.modernApplication || dayData.action, '');
         appendDayBpIf(digDeep, 'Gentle direction (optional)', goalText, 'plan-day-goal');
       }
 

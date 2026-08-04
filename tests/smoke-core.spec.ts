@@ -79,6 +79,24 @@ test.describe('core smoke (dist)', () => {
     await expect(page.locator('#heroVerse')).not.toHaveText('', { timeout: 15000 });
   });
 
+  test('home: main-search plumbing stays off-screen', async ({ page }) => {
+    await page.goto('/');
+    await dismissFirstVisitIfPresent(page);
+    const mainSearch = page.locator('#main-search');
+    await expect(mainSearch).toHaveCount(1);
+    const box = await mainSearch.boundingBox();
+    // Must not paint a full-width search dump (private-window regression class).
+    if (box) {
+      expect(box.width).toBeLessThanOrEqual(2);
+      expect(box.height).toBeLessThanOrEqual(2);
+    }
+    await expect(mainSearch).toHaveClass(/sr-only/);
+    await expect(page.locator('#hero-verse-wrap')).toBeVisible();
+    await expect(page.locator('#feel-section')).toBeVisible();
+    // Secondary density collapses under one disclosure after capacity.
+    await expect(page.locator('#tdbHomeMoreWhenReady')).toHaveCount(1);
+  });
+
   test('home: Hope topic shows verse cards', async ({ page }) => {
     await page.addInitScript(() => {
       try {

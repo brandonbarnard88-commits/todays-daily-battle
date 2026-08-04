@@ -292,7 +292,7 @@
     else stripLegacyFirstTourChip();
   })();
   </script>
-  <a href="#home-primary-flow" class="skip-link">Skip to main content</a>
+  <a href="#hero-verse-wrap" class="skip-link">Skip to today&rsquo;s verse</a>
   <div id="backup-reminder" class="gentle-banner" hidden role="region" aria-label="Quiet backup reminder">
     <p>Your quiet work here stays on this device. When you have a calm minute, a simple JSON backup can keep your notes and verses safe.</p>
     <div class="gentle-banner__actions">
@@ -476,106 +476,9 @@
 
     <main id="home-primary-flow" class="porch-section">
 
-      <!-- Mercy front door: one choice when capacity is low (friend evaluation 2026-08) -->
-      <section class="tdb-capacity-door tdb-quiet-container" id="tdbCapacityDoor" role="region" aria-labelledby="tdbCapacityDoorH">
-        <p class="tdb-capacity-door__eyebrow">Start where capacity is</p>
-        <h2 class="tdb-capacity-door__title" id="tdbCapacityDoorH">How much room do you have?</h2>
-        <p class="tdb-capacity-door__lead">Pick one. You do not need the whole porch today.</p>
-        <ul class="tdb-capacity-door__list">
-          <li>
-            <a class="tdb-capacity-door__btn tdb-capacity-door__btn--primary" href="/calm.html" id="tdbCapacityTooMuch">
-              <strong>Too much</strong>
-              <span>One verse + breath in Calm</span>
-            </a>
-          </li>
-          <li>
-            <a class="tdb-capacity-door__btn" href="#hero-verse-wrap" id="tdbCapacityOneVerse">
-              <strong>One verse is enough</strong>
-              <span>Today&rsquo;s KJV lesson below</span>
-            </a>
-          </li>
-          <li>
-            <a class="tdb-capacity-door__btn" href="/find-a-path.html" id="tdbCapacityLittleMore">
-              <strong>A little more room</strong>
-              <span>Find a path by how you feel</span>
-            </a>
-          </li>
-        </ul>
-        <p class="tdb-capacity-door__find section-note">
-          Or name it in your own words:
-          <a href="#feel-section" id="tdbCapacityAskWord">Ask the Word</a>
-        </p>
-        <details class="tdb-capacity-door__crisis">
-          <summary>Heavy week options</summary>
-          <div class="tdb-capacity-door__crisis-links">
-            <a href="/emergency-calm-pack.html">7-day emergency pack</a>
-            <a href="/sos.html">Steady now (3 anchors)</a>
-            <a href="plans.html#plans-heavy-week-packs">Heavy week packs</a>
-          </div>
-        </details>
-      </section>
-
-      <!-- Legacy #tdbHeavyNow kept for tests/deep links; content lives in capacity door above -->
-      <section class="tdb-heavy-now tdb-quiet-container tdb-heavy-now--legacy-anchor" id="tdbHeavyNow" role="region" aria-labelledby="tdbHeavyNowH">
-        <p class="tdb-heavy-now__eyebrow">When the moment is too much</p>
-        <h2 class="tdb-heavy-now__title" id="tdbHeavyNowH">Heavy right now?</h2>
-        <p class="tdb-heavy-now__lead">Same mercy as <a href="#tdbCapacityDoor">How much room do you have?</a> above — or go straight to Calm.</p>
-        <div class="tdb-heavy-now__actions">
-          <a class="btn btn-primary tdb-heavy-now__primary" href="/calm.html" id="tdbHeavyNowCalm">Take me to Calm</a>
-        </div>
-        <details class="tdb-heavy-now__more">
-          <summary>More help for a heavy week</summary>
-          <div class="tdb-heavy-now__more-links">
-            <a class="tdb-heavy-now__text-link tdb-heavy-now__secondary" href="/emergency-calm-pack.html">7-day emergency pack</a>
-            <a class="tdb-heavy-now__text-link tdb-heavy-now__secondary" href="/sos.html">Steady now (3 anchors)</a>
-            <a class="tdb-heavy-now__text-link tdb-heavy-now__secondary" href="plans.html#plans-heavy-week-packs">Heavy week packs</a>
-          </div>
-        </details>
-        <p class="tdb-heavy-now__foot section-note">The rest of the page can wait.</p>
-      </section>
-
-      <!-- FT1 / VP1: soft Welcome strip after Heavy (crisis card stays primary) -->
-      <section class="tdb-first-visit-strip tdb-quiet-container" id="tdbFirstVisitStrip" role="region" aria-labelledby="tdb-home-welcome-heading" hidden>
-        <div class="tdb-first-visit-strip__crest" aria-hidden="true">🕊️</div>
-        <h2 id="tdb-home-welcome-heading" class="tdb-first-visit-strip__title">Welcome</h2>
-        <p class="tdb-first-visit-strip__lead" id="tdbFirstVisitBannerH"><strong>New here?</strong> One verse, one honest feeling, one small step. No account. Works offline after your first visit.</p>
-        <h3 id="new-here-steps-heading" class="tdb-first-visit-strip__steps-h">Best next step</h3>
-        <ol class="tdb-first-visit-strip__steps" aria-labelledby="new-here-steps-heading">
-          <li>Read <a href="#hero-verse-wrap">today&rsquo;s verse</a> slowly.</li>
-          <li>Name how you feel in <a href="#feel-section">Ask the Word</a>.</li>
-          <li>When you have a little more room, use <a href="/find-a-path.html">Find a path</a> or grow via <a href="#tdbHomeGrowPath">Explore → University → Plans → Life Lessons</a>.</li>
-        </ol>
-        <div class="tdb-first-visit-strip__actions">
-          <button type="button" class="btn btn-primary" id="tdbFirstVisitBannerDismiss">Continue to today&rsquo;s verse</button>
-          <a class="tdb-first-visit-strip__text-link" href="/find-a-path.html">Find a path</a>
-          <a class="tdb-first-visit-strip__text-link" href="#feel-section">Ask the Word</a>
-        </div>
-        <p class="tdb-first-visit-strip__more section-note">
-          <button type="button" id="tdbStartMyDayBtn" class="link-button tdb-start-my-day-btn" aria-haspopup="dialog" aria-controls="tdbStartMyDayDialog">Start My Day (optional)</button>
-          <span class="tdb-first-visit-strip__sep" aria-hidden="true">&middot;</span>
-          Heavy? <a href="/calm.html" id="tdbFirstVisitCalmCta">Calm</a>
-          <span class="tdb-first-visit-strip__sep" aria-hidden="true">&middot;</span>
-          <a href="/plans.html?plan=universityanxiety" id="tdbFirstVisitPlanCta">7-day anxiety plan</a>
-          <span class="tdb-first-visit-strip__sep" aria-hidden="true">&middot;</span>
-          <button type="button" class="link-button" id="tdbFirstVisitKnowWay">I know my way around</button>
-        </p>
-        <p class="section-note tdb-home-welcome-story-links"><a href="/story.html">Our story</a> &middot; <a href="about.html#gods-university-quiet-name">Why &ldquo;God&rsquo;s University of Life&rdquo;</a> (a name, not a school) &middot; <a href="/testimonials.html">Reader notes</a></p>
-        <!-- Legacy banner host kept for JS/tests that still look up the id -->
-        <div id="tdbFirstVisitBanner" hidden></div>
-      </section>
-
-      <div class="tdb-quiet-corner-strip" id="tdbQuietCornerStrip" role="navigation" aria-label="Your quiet corner" hidden>
-        <p class="tdb-quiet-corner-strip__label" id="tdbQuietCornerLabel">Your quiet corner</p>
-        <ul class="tdb-quiet-corner-strip__list">
-          <li><a href="#hero-verse-wrap" id="tdbQuietCornerVerse">Today&rsquo;s verse</a></li>
-          <li><a href="/mystudy">My Study</a></li>
-          <li><a href="#plan-progress-card" aria-label="Battle plan progress on this page">Plan progress</a></li>
-          <li><a href="/prayer-wall.html">Prayer Wall</a></li>
-        </ul>
-      </div>
-
-
-      <!-- ══ Paired hero: Today's verse + Ask the Word ══ -->
+      <!-- Primary home: Today's verse + Ask the Word first; all other doors below -->
+      <div class="tdb-home-primary-pair" id="tdbHomePrimaryPair">
+      <!-- ══ Primary: Today's verse (top of page) ══ -->
       <!-- ── Today's verse — primary hero after calm first-visit banner ── -->
       <p class="tdb-hero-quiet-eyebrow tdb-quiet-container" id="tdbHeroQuietEyebrow">Today&rsquo;s Daily Battle &mdash; KJV &middot; No account &middot; Offline</p>
       <h1 class="tdb-verse-section-label" id="tdbTodaysVerseHeading">Today&rsquo;s verse</h1>
@@ -784,44 +687,8 @@
       <a href="#tdb-home-votm" class="tdb-float-memory-pill" id="tdb-float-memory-pill" hidden aria-label="Jump to verse of the month">Memory</a>
       <button type="button" class="tdb-float-share-verse" id="tdb-float-share-verse-home" aria-label="Share today’s verse">Share verse</button>
       </div><!-- /#hero-verse-wrap -->
-      <!-- Secondary doors remain nearby without competing with the verse and Ask the Word. -->
-      <details class="tdb-home-first-doors tdb-quiet-container" id="tdbHomeFirstDoors" aria-label="Three calm doors">
-        <summary class="tdb-home-first-doors__summary">Need a different doorway?</summary>
-        <nav class="tdb-home-first-doors__content" aria-label="Three calm doors">
-          <p class="tdb-home-first-doors__quiet">You&rsquo;re already welcome here.</p>
-          <p class="tdb-home-first-doors__lead">One verse. One small step. One prayer.</p>
-          <ul class="tdb-home-first-doors__list">
-            <li>
-              <a class="tdb-home-first-doors__btn" href="#hero-verse-wrap">Today&rsquo;s verse + one step</a>
-            </li>
-            <li>
-              <a class="tdb-home-first-doors__btn tdb-home-first-doors__btn--primary" href="/find-a-path.html">I don&rsquo;t know what I need &mdash; Find a path</a>
-            </li>
-            <li>
-              <a class="tdb-home-first-doors__btn" href="#tdbFamilyModeBridge">At the table with kids tonight</a>
-            </li>
-          </ul>
-          <p class="section-note">No account. No pressure. Much of this works offline after your first visit.</p>
-          <p class="tdb-offline-ready" role="note">Works offline after you&rsquo;ve opened it once on this device.</p>
-        </nav>
-      </details>
 
-      <section id="tdb-home-pickup" class="tdb-home-pickup tdb-quiet-container" hidden aria-labelledby="tdb-home-continue-loop-heading">
-        <div id="tdb-home-continue-loop-wrap" class="tdb-home-continue-loop-wrap" role="region" aria-label="Pick up on this device" hidden>
-          <p class="tdb-continue-loop-heading" id="tdb-home-continue-loop-heading" hidden>Pick up where you left off</p>
-          <a id="tdb-home-plan-loop-link" class="tdb-home-continue-loop-link tdb-home-plan-loop-link" href="plans.html" hidden>
-            <span class="tdb-home-continue-loop-eyebrow" id="tdb-home-plan-loop-eyebrow"></span>
-            <span class="tdb-home-continue-loop-title" id="tdb-home-plan-loop-title"></span>
-          </a>
-          <a id="tdb-home-continue-loop-link" class="tdb-home-continue-loop-link" href="mobius.html#mobius-loop-journal" hidden>
-            <span class="tdb-home-continue-loop-eyebrow" id="tdb-home-continue-loop-eyebrow"></span>
-            <span class="tdb-home-continue-loop-title" id="tdb-home-continue-loop-title"></span>
-          </a>
-        </div>
-        <p class="section-note tdb-home-pickup__note">Whenever you&rsquo;re ready &mdash; no catch-up.</p>
-      </section>
-
-      <!-- ── Feel Search (nav anchor: #quick-search-hero) — above Battle Plans ── -->
+      <!-- ══ Primary: Ask the Word (paired under verse) ══ -->
       <div id="quick-search-hero" class="tdb-quiet-container">
             <p class="tdb-verse-ask-bridge" id="tdbVerseAskBridge">Carrying something specific? Ask here&mdash;a feeling, a life question, or a Bible question.</p>
       <!-- ── First-visit hint (dismissible, once per device) ── -->
@@ -1027,6 +894,147 @@
         <p class="feel-no-match" id="feelNoMatch">Try a few honest words about how you’re feeling — “peace,” “scared at night,” or “worried about the kids.” The Word will meet you right there.</p>
       </section>
       </div><!-- /#quick-search-hero -->
+      </div><!-- /#tdbHomePrimaryPair -->
+
+      <!-- Secondary: capacity, welcome, doors, and the rest of the porch -->
+      <div class="tdb-home-secondary-stack" id="tdbHomeSecondaryStack">
+      <!-- Mercy front door: one choice when capacity is low (friend evaluation 2026-08) -->
+      <section class="tdb-capacity-door tdb-quiet-container" id="tdbCapacityDoor" role="region" aria-labelledby="tdbCapacityDoorH">
+        <p class="tdb-capacity-door__eyebrow">Start where capacity is</p>
+        <h2 class="tdb-capacity-door__title" id="tdbCapacityDoorH">How much room do you have?</h2>
+        <p class="tdb-capacity-door__lead">Pick one. You do not need the whole porch today.</p>
+        <ul class="tdb-capacity-door__list">
+          <li>
+            <a class="tdb-capacity-door__btn tdb-capacity-door__btn--primary" href="/calm.html" id="tdbCapacityTooMuch">
+              <strong>Too much</strong>
+              <span>One verse + breath in Calm</span>
+            </a>
+          </li>
+          <li>
+            <a class="tdb-capacity-door__btn" href="#hero-verse-wrap" id="tdbCapacityOneVerse">
+              <strong>One verse is enough</strong>
+              <span>Today&rsquo;s KJV lesson above</span>
+            </a>
+          </li>
+          <li>
+            <a class="tdb-capacity-door__btn" href="/find-a-path.html" id="tdbCapacityLittleMore">
+              <strong>A little more room</strong>
+              <span>Find a path by how you feel</span>
+            </a>
+          </li>
+        </ul>
+        <p class="tdb-capacity-door__find section-note">
+          Or name it in your own words:
+          <a href="#feel-section" id="tdbCapacityAskWord">Ask the Word</a>
+        </p>
+        <details class="tdb-capacity-door__crisis">
+          <summary>Heavy week options</summary>
+          <div class="tdb-capacity-door__crisis-links">
+            <a href="/emergency-calm-pack.html">7-day emergency pack</a>
+            <a href="/sos.html">Steady now (3 anchors)</a>
+            <a href="plans.html#plans-heavy-week-packs">Heavy week packs</a>
+          </div>
+        </details>
+      </section>
+
+      <!-- Legacy #tdbHeavyNow kept for tests/deep links; content lives in capacity door above -->
+      <section class="tdb-heavy-now tdb-quiet-container tdb-heavy-now--legacy-anchor" id="tdbHeavyNow" role="region" aria-labelledby="tdbHeavyNowH">
+        <p class="tdb-heavy-now__eyebrow">When the moment is too much</p>
+        <h2 class="tdb-heavy-now__title" id="tdbHeavyNowH">Heavy right now?</h2>
+        <p class="tdb-heavy-now__lead">Same mercy as <a href="#tdbCapacityDoor">How much room do you have?</a> above — or go straight to Calm.</p>
+        <div class="tdb-heavy-now__actions">
+          <a class="btn btn-primary tdb-heavy-now__primary" href="/calm.html" id="tdbHeavyNowCalm">Take me to Calm</a>
+        </div>
+        <details class="tdb-heavy-now__more">
+          <summary>More help for a heavy week</summary>
+          <div class="tdb-heavy-now__more-links">
+            <a class="tdb-heavy-now__text-link tdb-heavy-now__secondary" href="/emergency-calm-pack.html">7-day emergency pack</a>
+            <a class="tdb-heavy-now__text-link tdb-heavy-now__secondary" href="/sos.html">Steady now (3 anchors)</a>
+            <a class="tdb-heavy-now__text-link tdb-heavy-now__secondary" href="plans.html#plans-heavy-week-packs">Heavy week packs</a>
+          </div>
+        </details>
+        <p class="tdb-heavy-now__foot section-note">The rest of the page can wait.</p>
+      </section>
+
+      <!-- FT1 / VP1: soft Welcome strip after Heavy (crisis card stays primary) -->
+      <section class="tdb-first-visit-strip tdb-quiet-container" id="tdbFirstVisitStrip" role="region" aria-labelledby="tdb-home-welcome-heading" hidden>
+        <div class="tdb-first-visit-strip__crest" aria-hidden="true">🕊️</div>
+        <h2 id="tdb-home-welcome-heading" class="tdb-first-visit-strip__title">Welcome</h2>
+        <p class="tdb-first-visit-strip__lead" id="tdbFirstVisitBannerH"><strong>New here?</strong> One verse, one honest feeling, one small step. No account. Works offline after your first visit.</p>
+        <h3 id="new-here-steps-heading" class="tdb-first-visit-strip__steps-h">Best next step</h3>
+        <ol class="tdb-first-visit-strip__steps" aria-labelledby="new-here-steps-heading">
+          <li>Read <a href="#hero-verse-wrap">today&rsquo;s verse</a> slowly.</li>
+          <li>Name how you feel in <a href="#feel-section">Ask the Word</a>.</li>
+          <li>When you have a little more room, use <a href="/find-a-path.html">Find a path</a> or grow via <a href="#tdbHomeGrowPath">Explore → University → Plans → Life Lessons</a>.</li>
+        </ol>
+        <div class="tdb-first-visit-strip__actions">
+          <button type="button" class="btn btn-primary" id="tdbFirstVisitBannerDismiss">I&rsquo;m ready — back to the verse</button>
+          <a class="tdb-first-visit-strip__text-link" href="/find-a-path.html">Find a path</a>
+          <a class="tdb-first-visit-strip__text-link" href="#feel-section">Ask the Word</a>
+        </div>
+        <p class="tdb-first-visit-strip__more section-note">
+          <button type="button" id="tdbStartMyDayBtn" class="link-button tdb-start-my-day-btn" aria-haspopup="dialog" aria-controls="tdbStartMyDayDialog">Start My Day (optional)</button>
+          <span class="tdb-first-visit-strip__sep" aria-hidden="true">&middot;</span>
+          Heavy? <a href="/calm.html" id="tdbFirstVisitCalmCta">Calm</a>
+          <span class="tdb-first-visit-strip__sep" aria-hidden="true">&middot;</span>
+          <a href="/plans.html?plan=universityanxiety" id="tdbFirstVisitPlanCta">7-day anxiety plan</a>
+          <span class="tdb-first-visit-strip__sep" aria-hidden="true">&middot;</span>
+          <button type="button" class="link-button" id="tdbFirstVisitKnowWay">I know my way around</button>
+        </p>
+        <p class="section-note tdb-home-welcome-story-links"><a href="/story.html">Our story</a> &middot; <a href="about.html#gods-university-quiet-name">Why &ldquo;God&rsquo;s University of Life&rdquo;</a> (a name, not a school) &middot; <a href="/testimonials.html">Reader notes</a></p>
+        <!-- Legacy banner host kept for JS/tests that still look up the id -->
+        <div id="tdbFirstVisitBanner" hidden></div>
+      </section>
+
+      <div class="tdb-quiet-corner-strip" id="tdbQuietCornerStrip" role="navigation" aria-label="Your quiet corner" hidden>
+        <p class="tdb-quiet-corner-strip__label" id="tdbQuietCornerLabel">Your quiet corner</p>
+        <ul class="tdb-quiet-corner-strip__list">
+          <li><a href="#hero-verse-wrap" id="tdbQuietCornerVerse">Today&rsquo;s verse</a></li>
+          <li><a href="/mystudy">My Study</a></li>
+          <li><a href="#plan-progress-card" aria-label="Battle plan progress on this page">Plan progress</a></li>
+          <li><a href="/prayer-wall.html">Prayer Wall</a></li>
+        </ul>
+      </div>
+
+
+      <!-- Secondary doors remain nearby without competing with the verse and Ask the Word. -->
+      <details class="tdb-home-first-doors tdb-quiet-container" id="tdbHomeFirstDoors" aria-label="Three calm doors">
+        <summary class="tdb-home-first-doors__summary">Need a different doorway?</summary>
+        <nav class="tdb-home-first-doors__content" aria-label="Three calm doors">
+          <p class="tdb-home-first-doors__quiet">You&rsquo;re already welcome here.</p>
+          <p class="tdb-home-first-doors__lead">One verse. One small step. One prayer.</p>
+          <ul class="tdb-home-first-doors__list">
+            <li>
+              <a class="tdb-home-first-doors__btn" href="#hero-verse-wrap">Today&rsquo;s verse + one step</a>
+            </li>
+            <li>
+              <a class="tdb-home-first-doors__btn tdb-home-first-doors__btn--primary" href="/find-a-path.html">I don&rsquo;t know what I need &mdash; Find a path</a>
+            </li>
+            <li>
+              <a class="tdb-home-first-doors__btn" href="#tdbFamilyModeBridge">At the table with kids tonight</a>
+            </li>
+          </ul>
+          <p class="section-note">No account. No pressure. Much of this works offline after your first visit.</p>
+          <p class="tdb-offline-ready" role="note">Works offline after you&rsquo;ve opened it once on this device.</p>
+        </nav>
+      </details>
+
+      <section id="tdb-home-pickup" class="tdb-home-pickup tdb-quiet-container" hidden aria-labelledby="tdb-home-continue-loop-heading">
+        <div id="tdb-home-continue-loop-wrap" class="tdb-home-continue-loop-wrap" role="region" aria-label="Pick up on this device" hidden>
+          <p class="tdb-continue-loop-heading" id="tdb-home-continue-loop-heading" hidden>Pick up where you left off</p>
+          <a id="tdb-home-plan-loop-link" class="tdb-home-continue-loop-link tdb-home-plan-loop-link" href="plans.html" hidden>
+            <span class="tdb-home-continue-loop-eyebrow" id="tdb-home-plan-loop-eyebrow"></span>
+            <span class="tdb-home-continue-loop-title" id="tdb-home-plan-loop-title"></span>
+          </a>
+          <a id="tdb-home-continue-loop-link" class="tdb-home-continue-loop-link" href="mobius.html#mobius-loop-journal" hidden>
+            <span class="tdb-home-continue-loop-eyebrow" id="tdb-home-continue-loop-eyebrow"></span>
+            <span class="tdb-home-continue-loop-title" id="tdb-home-continue-loop-title"></span>
+          </a>
+        </div>
+        <p class="section-note tdb-home-pickup__note">Whenever you&rsquo;re ready &mdash; no catch-up.</p>
+      </section>
+
+      </div><!-- /#tdbHomeSecondaryStack -->
 
       <!-- Main rooms stay one tap away without forming a third open navigation row. -->
       <details class="tdb-home-next-doors tdb-quiet-container" id="tdbHomeNextDoors">

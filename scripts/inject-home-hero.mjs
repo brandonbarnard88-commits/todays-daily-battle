@@ -8,6 +8,10 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { loadYear365, pickVerseForToday, utcDayOfYear } from './lib/hero-daily-verse-pick.mjs';
+import {
+  buildHeroLaymanPlain,
+  loadVersePlainMeanings,
+} from './lib/hero-layman-plain.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
@@ -116,7 +120,7 @@ function buildReadChapterHref(refStr) {
 }
 
 /** Easy first-paint lesson copy for inject (mirrors hero-daily-first-paint tone). */
-function buildInjectedHeroLesson(refPlain, textPlain) {
+function buildInjectedHeroLesson(refPlain, textPlain, plainMap) {
   const ref = normalizeRefBare(refPlain);
   const text = String(textPlain || '').replace(/\s+/g, ' ').trim();
   const lower = text.toLowerCase();
@@ -127,15 +131,8 @@ function buildInjectedHeroLesson(refPlain, textPlain) {
       prayer: 'Lord, sink Psalm 90:14 into my heart—not as noise, but as truth that changes how I walk. In Jesus’ name, Amen.',
     };
   }
-  const archaic = {
-    thee: 'you', thou: 'you', thy: 'your', ye: 'you', hath: 'has', unto: 'to',
-    saith: 'says', mercy: 'kindness', rejoice: 'be glad', labour: 'work',
-  };
-  let plain = text;
-  Object.keys(archaic).forEach((k) => {
-    plain = plain.replace(new RegExp('\\b' + k + '\\b', 'gi'), archaic[k]);
-  });
-  plain = 'In plain words: ' + plain;
+  // Prefer curated plain meanings (Psalm/Psalms alias-safe). Never echo the KJV with a prefix.
+  const plain = buildHeroLaymanPlain(ref, text, plainMap);
   return {
     plain,
     step: 'Read it slowly one more time out loud. Thank God for one clear thing it says, then take the next small step with that line in mind.',
@@ -143,7 +140,7 @@ function buildInjectedHeroLesson(refPlain, textPlain) {
   };
 }
 
-function applyHeroInject(html, label, refPlain, textPlain, verseInner) {
+function applyHeroInject(html, label, refPlain, textPlain, verseInner, plainMap) {
   const heroVerseRe = /<p[^>]*\bid="heroVerse"[^>]*>[\s\S]*?<\/p>/;
   if (!heroVerseRe.test(html)) fail('could not find #heroVerse paragraph in ' + label);
   html = html.replace(
@@ -180,7 +177,7 @@ function applyHeroInject(html, label, refPlain, textPlain, verseInner) {
   });
 
   // Prefill easy breakdown so first paint is never an empty “Simple layman terms” box.
-  const lesson = buildInjectedHeroLesson(refPlain, textPlain);
+  const lesson = buildInjectedHeroLesson(refPlain, textPlain, plainMap);
   html = html.replace(
     /<p id="heroSimpleBreakdown">[\s\S]*?<\/p>/,
     '<p id="heroSimpleBreakdown">' + escapeHtmlText(lesson.plain) + '</p>'
@@ -291,6 +288,7 @@ function main() {
   if (!v || !v.ref || !v.text) {
     fail('invalid verse from 365 list');
   }
+  const plainMap = loadVersePlainMeanings(root);
 
   const refPlain = String(v.ref).trim();
   const refNorm = normalizeRefBare(refPlain);
@@ -306,7 +304,14 @@ function main() {
   ];
   for (const t of targets) {
     if (!fs.existsSync(t.path)) continue;
-    const next = applyHeroInject(fs.readFileSync(t.path, 'utf8'), t.label, refPlain, textPlain, verseInner);
+    const next = applyHeroInject(
+      fs.readFileSync(t.path, 'utf8'),
+      t.label,
+      refPlain,
+      textPlain,
+      verseInner,
+      plainMap
+    );
     fs.writeFileSync(t.path, next, 'utf8');
   }
 

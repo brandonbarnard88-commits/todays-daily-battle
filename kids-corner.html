@@ -365,13 +365,21 @@
 
         <section class="glass tdb-porch-paper-glass card-gold kids-daily-verse-section" id="kids-daily-verse-root" aria-label="Verse of the day for kids">
           <h2 class="section-divider kids-section-divider">Verse of the day</h2>
-          <p class="kids-daily-verse-lead section-note">Same Bible pick as the grown-up page today&mdash;King James (KJV).</p>
+          <p class="kids-daily-verse-lead section-note">Same Bible pick as the grown-up page today&mdash;King James (KJV). You can open simpler words below if you want.</p>
           <div class="kids-daily-verse-card" id="kids-daily-verse-card">
             <p class="kids-daily-verse-ref daily-verse-ref" id="kids-daily-verse-ref"></p>
             <blockquote class="daily-verse-body kids-daily-verse-body" aria-labelledby="kids-daily-verse-ref">
               <p class="kids-daily-verse-quote daily-verse-text" id="kids-daily-verse-text" aria-live="polite">The same KJV verse from home will appear here. If the connection is slow, open <a href="/verse.html">Verse of the Day</a> or come back in a moment.</p>
             </blockquote>
           </div>
+          <details class="tdb-bbe-simple tdb-bbe-simple--kids" id="kidsBbeSimple" data-bbe-simple="1" data-bbe-ref="">
+            <summary class="tdb-bbe-simple__summary">Simpler words (BBE)</summary>
+            <div class="tdb-bbe-simple__body">
+              <p class="tdb-bbe-simple__note section-note">Easier English from the Bible in Basic English (public domain). The King James verse above is still the main one. <a href="/bible-credits.html">Bible credits</a></p>
+              <p class="tdb-bbe-simple__status section-note" data-bbe-status="1" aria-live="polite"></p>
+              <p class="tdb-bbe-simple__text" data-bbe-text="1" lang="en"></p>
+            </div>
+          </details>
           <p class="section-note tdb-privacy-whisper kids-family-privacy-whisper" role="note">Stars and loop taps stay on this device unless a grown-up turns on sync&mdash;we don&rsquo;t sell play data. <a href="/privacy.html">Privacy</a> has the short version.</p>
           <p class="section-note kids-daily-verse-foot">Grown-ups: <a href="/verse.html">Verse of the Day</a> has the full page.</p>
           <p class="section-note kids-daily-verse-foot"><a href="family.html">Family hub</a> &mdash; worship together, printable activity packs, and a teen journal sheet (KJV, on-device).</p>
@@ -511,6 +519,7 @@
     <a href="/privacy.html">Privacy</a>
     <a href="/terms.html">Terms</a>
     <a href="/faq.html">FAQ</a>
+    <a href="/bible-credits.html">Bible credits</a>
     <a href="/verse.html">Today&rsquo;s Lesson</a>
     <a href="/mystudy">My Study</a>
     <a href="/prayer-wall.html">Prayer</a>
@@ -594,6 +603,8 @@
         <a href="/offline-porch.html">Offline porch</a>
         <a href="/porch-map-one-page-print.html">Porch map (print)</a>
         <a href="/porch-pathways-ribbon-one-page-print.html">Ribbon pathways (print)</a>
+        <a href="/find-a-path.html">Find a path</a>
+        <a href="/learn-the-word.html">Learn the Word</a>
         <a href="/bible-study.html">Bible studies</a>
         <a href="/shop.html">Shop</a>
         <a href="/story.html">Story</a>
@@ -625,7 +636,7 @@
   </div>
 
   <p class="site-footer-copy site-footer-legal-line">&copy; 2026 Today&rsquo;s Daily Battle &middot; Christian Messenger Service. All rights reserved.</p>
-  <p class="site-footer-copy site-footer-legal-line">All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="site-footer-copy site-footer-legal-line">Primary Scripture is the <abbr title="King James Version">KJV</abbr> (public domain). Optional simpler English may quote the <abbr title="Bible in Basic English">BBE</abbr> (public domain). <a href="/bible-credits.html">Bible credits</a>.</p>
   <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
@@ -645,6 +656,7 @@
   <script src="kids/kids-hub-play.js?v=20260428kids100" defer></script>
   <script src="kids/kids-gentle-shepherd.js?v=20260428kids100" defer></script>
   <script type="module" src="script.js?v=20260709-wave4" data-cfasync="false"></script>
+  <script src="/bbe-simple.js?v=20260804-bbe" data-tdb-bbe-simple="1" defer></script>
   <script src="kids-corner-daily-verse.js?v=4" defer></script>
   <script src="sky-ip-geo.js?v=20260327ipgeo" defer></script>
   <script src="kids/kids-page-sky.js?v=20260327ipgeo" defer></script>

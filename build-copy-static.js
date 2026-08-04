@@ -1278,9 +1278,10 @@ const DONATION_REDIRECTS = [
   { path: '/donations/*', desc: '/donations/* wildcard → Buy Me a Coffee' }
 ];
 const buymeacoffee = 'https://buymeacoffee.com/todaysdailybattle';
-const givePageMatch = /^\/give\s+\/give\.html\s+301/m;
+// Prefer 200! rewrite (avoids CF clean-URL 308 ↔ 301 infinite loop). 301 accepted only as legacy.
+const givePageMatch = /^\/give\s+\/give\.html\s+(200!?|301)\s*$/m;
 if (!givePageMatch.test(redirectsContent)) {
-  console.error('BUILD FAIL: _redirects must map /give → /give.html (301) for the calm support page.');
+  console.error('BUILD FAIL: _redirects must map /give → /give.html (200! rewrite preferred; 301 legacy) for the calm support page.');
   process.exit(1);
 }
 const missingRedirects = DONATION_REDIRECTS.filter(function (r) {
@@ -1343,10 +1344,14 @@ if (fs.existsSync(vercelPath)) {
   const requiredSources = ['/donate', '/stripe', '/support', '/donations', '/donations/:path*'];
   const dest = 'https://buymeacoffee.com/todaysdailybattle';
   const hasGivePageRedirect = redirects.some(function (r) {
-    return r.source === '/give' && r.destination === '/give.html' && r.permanent === true;
+    return r.source === '/give' && r.destination === '/give.html';
   });
-  if (!hasGivePageRedirect) {
-    console.error('BUILD FAIL: vercel.json missing /give → /give.html redirect.');
+  const rewrites = Array.isArray(vercel.rewrites) ? vercel.rewrites : [];
+  const hasGivePageRewrite = rewrites.some(function (r) {
+    return r.source === '/give' && r.destination === '/give.html';
+  });
+  if (!hasGivePageRedirect && !hasGivePageRewrite) {
+    console.error('BUILD FAIL: vercel.json missing /give → /give.html rewrite or redirect.');
     process.exit(1);
   }
   const missingVercel = requiredSources.filter(function (src) {

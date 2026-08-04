@@ -148,11 +148,6 @@
       "permanent": true
     },
     {
-      "source": "/give",
-      "destination": "/give.html",
-      "permanent": true
-    },
-    {
       "source": "/donate",
       "destination": "https://buymeacoffee.com/todaysdailybattle",
       "permanent": true
@@ -214,6 +209,14 @@
     }
   ],
   "rewrites": [
+    {
+      "source": "/give",
+      "destination": "/give.html"
+    },
+    {
+      "source": "/give/",
+      "destination": "/give.html"
+    },
     {
       "source": "/memorize",
       "destination": "/memorize.html"

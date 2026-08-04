@@ -58,7 +58,7 @@ function tdbIsHomePage() {
   function injectVerseBreakdownStack() {
     if (!window.TDB_VERSE_BREAKDOWN_DATA && !document.querySelector('script[data-tdb-verse-breakdown-overrides]')) {
       var seed = document.createElement('script');
-      seed.src = '/verse-breakdown-overrides.js?v=20260802-votd-plain';
+      seed.src = '/verse-breakdown-overrides.js?v=20260804-votd-layman';
       seed.defer = true;
       seed.setAttribute('data-tdb-verse-breakdown-overrides', '1');
       (document.head || document.documentElement).appendChild(seed);
@@ -75,7 +75,7 @@ function tdbIsHomePage() {
     if (window.TDBVerseBreakdown) return;
     if (document.querySelector('script[data-tdb-verse-breakdown]')) return;
     var s = document.createElement('script');
-    s.src = '/verse-breakdown.js?v=20260802-votd-plain';
+    s.src = '/verse-breakdown.js?v=20260804-votd-layman';
     s.defer = true;
     s.setAttribute('data-tdb-verse-breakdown', '1');
     (document.head || document.documentElement).appendChild(s);
@@ -2766,7 +2766,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[data-lazy-src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
   var trustedStd = trustedScriptURL('/verse-breakdown-standard.js?v=20260428-vbd');
-  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260802-votd-plain');
+  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260804-votd-layman');
   if (!trustedStd || !trusted) return;
   var stdScr = document.createElement('script');
   stdScr.src = trustedStd;
@@ -13272,10 +13272,20 @@ var MODERN_TO_KJV = (function () {
 
 function getPlainMeaning(ref) {
   if (!ref) return '';
-  var r = (ref || '').trim();
+  var r = String(ref || '').trim();
   if (VERSE_PLAIN_MEANINGS[r]) return VERSE_PLAIN_MEANINGS[r];
   var norm = normalizeBibleRef(r);
-  return (norm && VERSE_PLAIN_MEANINGS[norm]) ? VERSE_PLAIN_MEANINGS[norm] : '';
+  if (norm && VERSE_PLAIN_MEANINGS[norm]) return VERSE_PLAIN_MEANINGS[norm];
+  // UI often uses Psalm N:M; curated map historically used Psalms N:M (and the reverse).
+  if (norm && /^Psalm\s+/i.test(norm)) {
+    var plural = norm.replace(/^Psalm\s+/i, 'Psalms ');
+    if (VERSE_PLAIN_MEANINGS[plural]) return VERSE_PLAIN_MEANINGS[plural];
+  }
+  if (norm && /^Psalms\s+/i.test(norm)) {
+    var singular = norm.replace(/^Psalms\s+/i, 'Psalm ');
+    if (VERSE_PLAIN_MEANINGS[singular]) return VERSE_PLAIN_MEANINGS[singular];
+  }
+  return '';
 }
 
 function getAnchorVerseForDay() {
@@ -19919,7 +19929,52 @@ function getVerseBreakdown(ref, text, options) {
   if (/^in the beginning\s+god\s+created/i.test(txt)) {
     return { layman: "God creating everything—He started it all.", about: 'God', to: 'All humanity', applies: "God made it all—He's still in control today." };
   }
-  var layman = rephraseArchaic(txt);
+  var layman = typeof getPlainMeaning === 'function' ? (getPlainMeaning(r) || '') : '';
+  if (!layman) layman = rephraseArchaic(txt);
+  // Reject near-verbatim archaic swaps — those are not a breakdown.
+  (function rejectVerbatim() {
+    function strip(s) {
+      return String(s || '')
+        .replace(/^\s*In plain words:\s*/i, '')
+        .replace(/^\s*Plain English:\s*/i, '')
+        .replace(/^\s*Key idea:\s*/i, '')
+        .trim();
+    }
+    function norm(s) {
+      return rephraseArchaic(strip(s))
+        .toLowerCase()
+        .replace(/[^a-z0-9\s]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+    var p = norm(layman);
+    var v = norm(txt);
+    var weak = !p || (v && p === v);
+    if (!weak && v && p) {
+      var pTok = p.split(' ').filter(Boolean);
+      var vSet = {};
+      v.split(' ').filter(Boolean).forEach(function (tok) { vSet[tok] = true; });
+      if (pTok.length >= 6) {
+        var hit = 0;
+        pTok.forEach(function (tok) { if (vSet[tok]) hit += 1; });
+        if (hit / pTok.length >= 0.72) weak = true;
+      }
+    }
+    if (weak) {
+      var lower = txt.toLowerCase();
+      if (/secret place|shadow of the almighty|dwell/.test(lower)) {
+        layman = 'When you stay close to God, you rest under His protection — safe in His care.';
+      } else if (/come unto me|heavy laden|give you rest/.test(lower)) {
+        layman = 'Come to Jesus as you are, tired and carrying too much. He will give you rest.';
+      } else if (/anxious|careful|worry|fear|afraid/.test(lower)) {
+        layman = 'You do not have to carry fear alone. Bring it to God and let Him steady you.';
+      } else if (/peace|rest|still|quiet/.test(lower)) {
+        layman = 'God offers real rest — a quiet place to set the day down with Him.';
+      } else {
+        layman = 'This verse says something true from God for real life today. Hold one clear phrase until it stays with you.';
+      }
+    }
+  })();
   if (txt.length > 150) {
     layman = layman.length > 100 ? ('Key idea: ' + layman.substring(0, 97) + '… Read full verse.') : ('Key idea: ' + layman + ' Read full verse.');
   } else if (layman.length > 180) {

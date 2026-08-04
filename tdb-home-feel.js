@@ -417,14 +417,48 @@ function heroVotdSimpleHydrated() {
 
 /** Weak / placeholder plains that should not block a real getBreakdown upgrade. */
 function isWeakHeroPlain(plain, verseText) {
-  const p = String(plain || '').replace(/\s+/g, ' ').trim();
+  const pRaw = String(plain || '').replace(/\s+/g, ' ').trim();
+  if (!pRaw) return true;
+  if (/God can do what looks impossible to us\.?\s*$/i.test(pRaw)) return true;
+  if (/^This word from Scripture meets you/i.test(pRaw)) return true;
+  if (/A steady truth from Scripture for real life today\.?$/i.test(pRaw)) return true;
+  if (/This verse says something true from God for real life today/i.test(pRaw)) return true;
+
+  function stripPrefix(s) {
+    return String(s || '')
+      .replace(/^\s*In plain words:\s*/i, '')
+      .replace(/^\s*Plain English:\s*/i, '')
+      .replace(/^\s*Key idea:\s*/i, '')
+      .trim();
+  }
+  function normCompare(s) {
+    let t = stripPrefix(s).toLowerCase();
+    const map = {
+      thee: 'you', thou: 'you', thy: 'your', ye: 'you', hath: 'has', doth: 'does',
+      unto: 'to', saith: 'says', dwelleth: 'lives', abide: 'stay', abideth: 'stays',
+      labour: 'work', laden: 'burdened'
+    };
+    Object.keys(map).forEach(function (k) {
+      t = t.replace(new RegExp('\\b' + k + '\\b', 'gi'), map[k]);
+    });
+    return t.replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
+  }
+
+  const p = normCompare(pRaw);
+  const vt = normCompare(verseText);
   if (!p) return true;
-  if (/God can do what looks impossible to us\.?\s*$/i.test(p)) return true;
-  if (/^This word from Scripture meets you/i.test(p)) return true;
-  if (/A steady truth from Scripture for real life today\.?$/i.test(p)) return true;
-  const vt = String(verseText || '').replace(/\s+/g, ' ').trim();
   if (vt && p === vt) return true;
-  if (vt && p.indexOf(vt) === 0 && p.length < vt.length + 48) return true;
+  if (vt && (p.indexOf(vt) === 0 || vt.indexOf(p) === 0) && Math.abs(p.length - vt.length) < 48) return true;
+  if (vt) {
+    const pTok = p.split(' ').filter(Boolean);
+    const vSet = {};
+    vt.split(' ').filter(Boolean).forEach(function (tok) { vSet[tok] = true; });
+    if (pTok.length >= 6) {
+      let hit = 0;
+      pTok.forEach(function (tok) { if (vSet[tok]) hit += 1; });
+      if (hit / pTok.length >= 0.72) return true;
+    }
+  }
   return false;
 }
 

@@ -172,12 +172,21 @@
       };
     }
 
-    // Strong generic fallback — rephrase the KJV into easy English + theme-aware today/step.
+    // Strong generic fallback — real layman restatement (not archaic word-swap of the KJV).
     var book = parseHeroBookName(ref);
     var ctx = heroBookRow(book) || { s: 'The biblical writer', a: 'God’s people in their time' };
     var body = sanitizeText(text);
     var bodyLower = body.toLowerCase();
-    var plainEasy = rephraseHeroKjvToPlain(body);
+    var curatedPlain = '';
+    try {
+      if (typeof window.getPlainMeaning === 'function') {
+        curatedPlain = sanitizeText(window.getPlainMeaning(ref) || '');
+      }
+    } catch (_) {}
+    var plainEasy = curatedPlain;
+    if (!plainEasy || isWeakHeroPlainPaint(plainEasy, body)) {
+      plainEasy = buildThemeLaymanPlainPaint(ref, body);
+    }
     var themeKey = 'steady';
     var todayLine = '';
     var youLine = '';
@@ -220,9 +229,7 @@
     if (!plainEasy) {
       plainEasy = 'This verse says something true from God for real life today. Read it slowly until one phrase stays with you.';
     } else if (plainEasy.length > 180) {
-      plainEasy = 'In plain words: ' + plainEasy.slice(0, 160).trim() + '…';
-    } else {
-      plainEasy = 'In plain words: ' + plainEasy;
+      plainEasy = plainEasy.slice(0, 177).trim() + '…';
     }
 
     return {
@@ -260,6 +267,75 @@
       s = s.replace(re, map[k]);
     });
     return s.replace(/\s+/g, ' ').trim();
+  }
+
+  /** Detect near-verbatim “plain” lines (archaic swap / In plain words: echo). */
+  function isWeakHeroPlainPaint(plain, verseText) {
+    var pRaw = sanitizeText(plain);
+    if (!pRaw) return true;
+    if (/^This verse says something true from God for real life today/i.test(pRaw)) return true;
+    var strip = function (s) {
+      return String(s || '')
+        .replace(/^\s*In plain words:\s*/i, '')
+        .replace(/^\s*Plain English:\s*/i, '')
+        .replace(/^\s*Key idea:\s*/i, '')
+        .trim();
+    };
+    var norm = function (s) {
+      var t = strip(s).toLowerCase();
+      t = rephraseHeroKjvToPlain(t).toLowerCase();
+      return t.replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
+    };
+    var p = norm(pRaw);
+    var v = norm(verseText);
+    if (!p) return true;
+    if (v && p === v) return true;
+    if (v && (p.indexOf(v) === 0 || v.indexOf(p) === 0) && Math.abs(p.length - v.length) < 48) return true;
+    if (v) {
+      var pTok = p.split(' ').filter(Boolean);
+      var vSet = {};
+      v.split(' ').filter(Boolean).forEach(function (tok) { vSet[tok] = true; });
+      if (pTok.length >= 6) {
+        var hit = 0;
+        pTok.forEach(function (tok) { if (vSet[tok]) hit += 1; });
+        if (hit / pTok.length >= 0.72) return true;
+      }
+    }
+    return false;
+  }
+
+  function buildThemeLaymanPlainPaint(ref, text) {
+    var body = sanitizeText(text);
+    var lower = body.toLowerCase();
+    var r = sanitizeText(ref).toLowerCase();
+    if (/91:1/.test(r) || /secret place|shadow of the almighty|dwell/.test(lower)) {
+      return 'When you stay close to God, you rest under His protection — safe in His care.';
+    }
+    if (/11:28/.test(r) || /come unto me|heavy laden|give you rest/.test(lower)) {
+      return 'Come to Jesus as you are, tired and carrying too much. He will give you rest.';
+    }
+    if (/23:1/.test(r) || /lord is my shepherd|shall not want/.test(lower)) {
+      return 'The Lord takes care of me like a shepherd. With Him, I have what I need.';
+    }
+    if (/anxious|careful|worry|fear|afraid|dismay|terror/.test(lower)) {
+      return 'You do not have to carry fear alone. Bring it to God and let Him steady you.';
+    }
+    if (/peace|rest|still|quiet|calm/.test(lower)) {
+      return 'God offers real rest — a quiet place to set the day down with Him.';
+    }
+    if (/mercy|grace|forgiv|compassion|lovingkindness/.test(lower)) {
+      return "God's kindness meets you as you are — not after you perform.";
+    }
+    if (/strength|strong|courage|weary|faint|renew|uphold/.test(lower)) {
+      return 'When you feel empty, God gives strength beyond your own.';
+    }
+    if (/hope|trust|believe|faith|pray|cast|burden/.test(lower)) {
+      return 'Hand the real weight to God. Trust that He hears and holds you.';
+    }
+    if (/love|shepherd|save|salvation|rejoice|glad|joy|bless/.test(lower)) {
+      return "God's care is for you today — something solid to hold when the day feels thin.";
+    }
+    return 'This verse says something true from God for real life today. Hold one clear phrase until it stays with you.';
   }
 
   function normalizeVerse(data) {

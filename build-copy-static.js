@@ -310,7 +310,7 @@ const scriptFiles = ['scripts/header-search-bar.js'];
 
 // All HTML in root (includes index.html, topic-anxiety.html, topic-*.html, etc.)
 const htmlFiles = fs.readdirSync(root, { withFileTypes: false })
-  .filter((f) => f.endsWith('.html'));
+  .filter((f) => f.endsWith('.html') && f !== 'stats.html' && f !== 'test-search-diagnosis.html');
 
 // Hard-force topic copy first (before any other copy) — CI must not skip.
 const topics = [

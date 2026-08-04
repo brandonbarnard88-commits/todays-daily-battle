@@ -13,7 +13,7 @@ const runtimePath = path.join(repoRoot, 'verse-breakdown.js');
 const heroFirstPaintPath = path.join(repoRoot, 'hero-daily-first-paint.js');
 const distRoot = path.join(repoRoot, 'dist');
 const distSeedPath = path.join(distRoot, 'verse-breakdown-overrides.js');
-const CURRENT_BREAKDOWN_TOKEN = '20260804-votd-layman';
+const CURRENT_BREAKDOWN_TOKEN = '20260804-full-kjv-plain';
 const GROUPS = ['general', 'kid', 'teen', 'family', 'pastor', 'church-leader', 'missionary', 'street-preacher', 'bible-study-group'];
 const STATIC_PAGE_CHECKS = [
   'dist/verse.html',
@@ -182,6 +182,103 @@ async function ensureDistExists() {
   }
 }
 
+function isNearVerbatimPlain(plain, verseText) {
+  const strip = (s) => String(s || '')
+    .replace(/^\s*In plain words:\s*/i, '')
+    .replace(/^\s*Plain English:\s*/i, '')
+    .replace(/^\s*Key idea:\s*/i, '')
+    .trim();
+  const archaic = {
+    thee: 'you', thou: 'you', thy: 'your', ye: 'you', hath: 'has', doth: 'does',
+    unto: 'to', saith: 'says', labour: 'labor', laden: 'burdened', dwelleth: 'lives'
+  };
+  const rephrase = (s) => {
+    let out = String(s || '');
+    Object.keys(archaic).forEach((k) => {
+      out = out.replace(new RegExp(`\\b${k}\\b`, 'gi'), archaic[k]);
+    });
+    return out;
+  };
+  const norm = (s) => rephrase(strip(s))
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const p = norm(plain);
+  const v = norm(verseText);
+  if (!p) return true;
+  if (v && p === v) return true;
+  if (v && (p.indexOf(v) === 0 || v.indexOf(p) === 0) && Math.abs(p.length - v.length) < 48) return true;
+  /* Short summaries share keywords; only flag near-same-length echoes. */
+  if (v && p.length >= Math.max(24, v.length * 0.72)) {
+    const pTok = p.split(' ').filter(Boolean);
+    const vSet = new Set(v.split(' ').filter(Boolean));
+    if (pTok.length >= 6) {
+      let hit = 0;
+      pTok.forEach((tok) => { if (vSet.has(tok)) hit += 1; });
+      if (hit / pTok.length >= 0.78) return true;
+    }
+  }
+  return false;
+}
+
+/**
+ * Full KJV queue: every verse in data/kjv-full.json must return a breakdown
+ * with a non-empty plainExplanation that is not a near-verbatim KJV echo.
+ */
+async function verifyFullKjvCoverage(kjv) {
+  const refs = Object.keys(kjv);
+  if (refs.length < 30000) {
+    throw new Error(`Expected full KJV (~31k verses); got ${refs.length}`);
+  }
+  const data = { surfacedRefs: [], overrides: {} };
+  const dom = createDom('<!doctype html><html><body></body></html>', data);
+  await loadRuntime(dom);
+  const api = dom.window.TDBVerseBreakdown;
+  if (!api || typeof api.getBreakdown !== 'function') {
+    throw new Error('TDBVerseBreakdown.getBreakdown missing — cannot verify full KJV queue.');
+  }
+
+  let missing = 0;
+  let weak = 0;
+  const weakSamples = [];
+  const missingSamples = [];
+  const t0 = Date.now();
+
+  for (let i = 0; i < refs.length; i += 1) {
+    const ref = refs[i];
+    const text = kjv[ref];
+    let bd;
+    try {
+      bd = api.getBreakdown(ref, text, { group: 'general' });
+    } catch {
+      bd = null;
+    }
+    const plain = bd && (bd.plainExplanation || bd.layman || bd.plain || '');
+    if (!bd || !String(plain).trim()) {
+      missing += 1;
+      if (missingSamples.length < 12) missingSamples.push(ref);
+      continue;
+    }
+    if (isNearVerbatimPlain(plain, text)) {
+      weak += 1;
+      if (weakSamples.length < 12) {
+        weakSamples.push({ ref, plain: String(plain).slice(0, 100) });
+      }
+    }
+  }
+
+  const ms = Date.now() - t0;
+  if (missing || weak) {
+    throw new Error(
+      `Full KJV breakdown queue failed: ${refs.length} verses, missing=${missing}, weak_echo=${weak} (${ms}ms)\n` +
+      `missing samples: ${missingSamples.join(', ') || '—'}\n` +
+      `weak samples: ${JSON.stringify(weakSamples)}`
+    );
+  }
+  console.log(`verify-verse-breakdown-coverage: full KJV queue OK — ${refs.length} verses, 0 missing, 0 weak echo (${ms}ms)`);
+}
+
 async function main() {
   const kjvSourcePath = await fs.stat(kjvFullPath).then(() => kjvFullPath).catch(() => kjvPath);
   const [manifestRaw, kjvRaw] = await Promise.all([
@@ -200,6 +297,7 @@ async function main() {
     throw new Error('Verse breakdown manifest is empty.');
   }
   await verifySurfacedRefs(manifest, kjv);
+  await verifyFullKjvCoverage(kjv);
   await ensureDistExists();
   await verifyStaticPages(manifest);
   await verifyHydrationAssets();

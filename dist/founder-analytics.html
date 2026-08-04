@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/vendor/dompurify.min.js"></script>
+  <script src="/tt-bootstrap.js?v=20260709-wave4"></script>
+  <script defer src="analytics-loader.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Founder analytics · Today's Daily Battle</title>
+  <meta name="description" content="Private builder guide: how to see what visitors do without breaking privacy.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://todaysdailybattle.com/founder-analytics.html">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260804-funnel">
+</head>
+<body class="dark-mode tdb-inner-page">
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="brand">
+        <a class="brand-title" href="/">Today's Daily Battle</a>
+        <span class="brand-subtitle">Founder visibility (not for public)</span>
+      </div>
+      <nav class="header-nav" aria-label="Builder">
+        <a href="/admin.html">Admin</a>
+        <a href="/stats.html">Stats</a>
+        <a href="/">Home</a>
+      </nav>
+    </header>
+    <main id="main" class="tdb-quiet-container" style="max-width:42rem;margin:0 auto;padding:1.25rem 1rem 3rem;">
+      <p class="section-note">noindex · builder guide · privacy-safe</p>
+      <h1>Know the porch without knowing the person</h1>
+      <p>You can see <strong>patterns</strong> (pages, topics, funnel steps). You will not see who typed what prayer or exact search text — by design.</p>
+
+      <section class="card glass tdb-porch-paper-glass" style="margin-top:1rem;">
+        <h2>Weekly 10-minute checklist</h2>
+        <ol>
+          <li>Open <a href="https://analytics.google.com/" rel="noopener" target="_blank">GA4</a> → <strong>Realtime</strong>.</li>
+          <li>Visit the live site, <strong>accept analytics cookies</strong>, view the verse, open BBE, focus Ask, search once, click Plans.</li>
+          <li>Confirm events: <code>home_verse_view</code>, <code>home_ask_search</code>, <code>search_query</code>.</li>
+          <li><strong>Pages and screens</strong> (7/28 days): home, plans, calm, kids, explore.</li>
+          <li><strong>Events</strong>: funnel names below.</li>
+          <li><strong>Explore</strong>: event param <code>topic</code> on <code>search_query</code> / <code>quick_search</code>.</li>
+        </ol>
+      </section>
+
+      <section class="card glass tdb-porch-paper-glass" style="margin-top:1rem;">
+        <h2>Home funnel events</h2>
+        <ul>
+          <li><code>home_verse_view</code> — verse on screen</li>
+          <li><code>home_bbe_open</code> / <code>home_layman_open</code> / <code>home_dig_deeper_open</code></li>
+          <li><code>home_ask_focus</code> → <code>home_ask_search</code></li>
+          <li><code>home_plans_click</code> / <code>home_calm_click</code> / <code>home_capacity_click</code></li>
+        </ul>
+        <p class="section-note">Search topics stay anonymous via <code>trackSearchAnalytics</code> only.</p>
+      </section>
+
+      <section class="card glass tdb-porch-paper-glass" style="margin-top:1rem;">
+        <h2>Cloudflare Web Analytics</h2>
+        <ol>
+          <li>Cloudflare → <strong>Web Analytics</strong> → add site → copy beacon token.</li>
+          <li>Cloudflare Pages → Settings → Environment variables → <code>CF_ANALYTICS_TOKEN</code> = that token.</li>
+          <li>Redeploy. Beacon loads from <code>script.js</code> when set.</li>
+          <li>View page views / top paths in Cloudflare (no Google cookies).</li>
+        </ol>
+      </section>
+
+      <section class="card glass tdb-porch-paper-glass" style="margin-top:1rem;">
+        <h2>Local funnel (this browser)</h2>
+        <p class="section-note">Last 7 days of home funnel bumps on <em>this device</em> only.</p>
+        <div id="founder-funnel-grid" class="admin-grid" style="display:grid;gap:0.65rem;grid-template-columns:repeat(auto-fill,minmax(9rem,1fr));"></div>
+        <p style="margin-top:0.75rem;"><button type="button" class="btn btn-secondary" id="founder-funnel-refresh">Refresh</button>
+        <a class="btn btn-secondary" href="/admin.html">Admin Visibility tab</a></p>
+      </section>
+
+      <p class="section-note" style="margin-top:1.5rem;">Full markdown copy also lives in the repo: <code>docs/FOUNDER-ANALYTICS.md</code> · Privacy rules: <code>PRIVACY-ANALYTICS.md</code></p>
+    </main>
+  </div>
+  <script src="/tdb-home-funnel.js?v=20260804-funnel" defer></script>
+  <script defer src="/config.js" type="module"></script>
+  <script>
+    (function () {
+      function paint() {
+        var host = document.getElementById('founder-funnel-grid');
+        if (!host) return;
+        var summary = window.TDBHomeFunnel && window.TDBHomeFunnel.getSummary
+          ? window.TDBHomeFunnel.getSummary(7)
+          : { totals: {} };
+        var labels = {
+          home_verse_view: 'Verse viewed',
+          home_bbe_open: 'BBE open',
+          home_layman_open: 'Layman open',
+          home_ask_focus: 'Ask focus',
+          home_ask_search: 'Ask search',
+          home_plans_click: 'Plans',
+          home_calm_click: 'Calm'
+        };
+        host.innerHTML = '';
+        Object.keys(labels).forEach(function (k) {
+          var card = document.createElement('div');
+          card.className = 'stats-card';
+          card.style.cssText = 'padding:0.75rem;border-radius:10px;border:1px solid rgba(200,180,120,0.25);';
+          card.innerHTML = '<strong style="display:block;font-size:1.35rem;">' +
+            String((summary.totals && summary.totals[k]) || 0) +
+            '</strong><span class="section-note">' + labels[k] + '</span>';
+          host.appendChild(card);
+        });
+      }
+      document.getElementById('founder-funnel-refresh') &&
+        document.getElementById('founder-funnel-refresh').addEventListener('click', paint);
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { setTimeout(paint, 50); });
+      else setTimeout(paint, 50);
+    })();
+  </script>
+</body>
+</html>

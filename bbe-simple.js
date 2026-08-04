@@ -217,7 +217,7 @@
     if (host) {
       host.setAttribute('data-bbe-ref', r);
       var body = host.querySelector('.tdb-bbe-simple__body') || host;
-      if (host.tagName === 'DETAILS') {
+      if (host.tagName === 'DETAILS' && host.getAttribute('data-bbe-always-open') !== '1') {
         host.addEventListener('toggle', function onToggle() {
           if (host.open) fillHost(body, r);
         });
@@ -246,13 +246,14 @@
       (function (el) {
         var ref = el.getAttribute('data-bbe-ref') || '';
         if (!ref) return;
-        if (el.tagName === 'DETAILS') {
+        var always = el.getAttribute('data-bbe-always-open') === '1' || el.classList.contains('tdb-bbe-simple--always-open');
+        if (el.tagName === 'DETAILS' && !always) {
           el.addEventListener('toggle', function () {
             if (el.open) fillHost(el, ref);
           });
-          /* Already open (e.g. hero defaults open) — load without waiting for a toggle. */
           if (el.open) fillHost(el, ref);
         } else {
+          /* Always-open blocks (home hero): load immediately, no dropdown. */
           fillHost(el, ref);
         }
       })(nodes[i]);

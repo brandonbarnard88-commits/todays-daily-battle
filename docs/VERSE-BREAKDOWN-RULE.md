@@ -11,8 +11,9 @@ This is how we keep the site warm, clear, and personal. It aligns with **`docs/N
 For each verse surface, ship **all** of the following sections. Copy may vary by context (kids vs adults) but **the sections and intent stay**.
 
 1. **Reference + KJV label** — e.g. `John 3:16 (KJV)` with the verse reference clearly marked.
-2. **Full KJV verse** — exact text, quoted faithfully (no alternate translations).
+2. **Full KJV verse** — exact text, quoted faithfully. The KJV remains primary Scripture.
 3. **Simple layman terms** — short, plain English that unpacks meaning without slangy hype.
+3b. **Optional Simpler English (BBE)** — public-domain Bible in Basic English, clearly labeled, only when the user opens it. Never replace or relabel KJV as BBE. See **`bible-credits.html`**.
 4. **Who’s talking?** — speaker / voice (Jesus, Paul, David, narrator, etc.), stated simply.
 5. **Who is He/she talking to?** — original audience first; include “for us too” where helpful.
 6. **How it relates today** — anchored to the **current calendar year** in the heading (e.g. “How it relates today (2026)”). Body: honest, culturally aware, steady—not fear-mongering or political.

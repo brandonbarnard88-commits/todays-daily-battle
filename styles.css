@@ -25575,3 +25575,54 @@ html.tdb-backup-reminder-open body {
   padding-left: 1.2rem;
 }
 .explore-grow-path__list li { margin-bottom: 0.3rem; }
+
+/* --- Simpler English (BBE) optional bridge — KJV stays primary --- */
+.tdb-bbe-simple {
+  margin: 0.65rem 0 0.85rem;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--border, #c9b89a) 70%, transparent);
+  background: color-mix(in srgb, var(--surface, #f7f1e6) 88%, transparent);
+  padding: 0.15rem 0.75rem 0.35rem;
+}
+.tdb-bbe-simple__summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.55rem 0.15rem;
+  list-style: none;
+  color: var(--text, #2c2416);
+}
+.tdb-bbe-simple__summary::-webkit-details-marker { display: none; }
+.tdb-bbe-simple__summary::before {
+  content: '▸ ';
+  opacity: 0.7;
+  font-size: 0.85em;
+}
+.tdb-bbe-simple[open] > .tdb-bbe-simple__summary::before { content: '▾ '; }
+.tdb-bbe-simple__summary:focus-visible {
+  outline: 2px solid var(--accent, #8b6914);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+.tdb-bbe-simple__body { padding: 0 0.1rem 0.55rem; }
+.tdb-bbe-simple__note,
+.tdb-bbe-simple__credit,
+.tdb-bbe-simple__status {
+  margin: 0.25rem 0 0.4rem;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+.tdb-bbe-simple__text {
+  margin: 0.35rem 0 0.5rem;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  color: var(--text, #2c2416);
+}
+.tdb-bbe-simple__credit a { text-decoration: underline; text-underline-offset: 2px; }
+.tdb-bbe-simple--hero { margin-top: 0.5rem; }
+.tdb-vb-bbe-slot { margin: 0.35rem 0 0.55rem; }
+.tdb-bbe-simple--inline { margin: 0.25rem 0 0.5rem; }
+@media (prefers-reduced-motion: reduce) {
+  .tdb-bbe-simple { transition: none; }
+}

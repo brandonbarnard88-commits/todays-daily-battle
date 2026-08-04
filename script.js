@@ -72,6 +72,14 @@ function tdbIsHomePage() {
       sv.setAttribute('data-tdb-verse-breakdown-standard', '1');
       (document.head || document.documentElement).appendChild(sv);
     }
+    /* Optional BBE simpler English — load even if verse-breakdown already present. */
+    if (!document.querySelector('script[data-tdb-bbe-simple]')) {
+      var bbe = document.createElement('script');
+      bbe.src = '/bbe-simple.js?v=20260804-bbe';
+      bbe.defer = true;
+      bbe.setAttribute('data-tdb-bbe-simple', '1');
+      (document.head || document.documentElement).appendChild(bbe);
+    }
     if (window.TDBVerseBreakdown) return;
     if (document.querySelector('script[data-tdb-verse-breakdown]')) return;
     var s = document.createElement('script');

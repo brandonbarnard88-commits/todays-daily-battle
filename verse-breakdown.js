@@ -983,6 +983,13 @@
     }
 
     addBkH4('Simple layman terms', 'layman');
+
+    /* Optional BBE bridge — lazy-filled when opened; KJV stays primary above. */
+    var bbeHost = document.createElement('div');
+    bbeHost.className = 'tdb-vb-bbe-slot';
+    bbeHost.setAttribute('data-bbe-slot', '1');
+    breakdown.appendChild(bbeHost);
+
     addBkH4('Who\'s talking?', 'about');
     addBkH4('Who is He / she talking to?', 'to');
 
@@ -1273,6 +1280,18 @@
     }
   }
 
+  function ensureBbeSlot(details, ref) {
+    if (!details || !ref) return;
+    var slot = details.querySelector('[data-bbe-slot]');
+    if (!slot) return;
+    slot.innerHTML = '';
+    if (window.TDBBbeSimple && typeof window.TDBBbeSimple.buildDetailsBlock === 'function') {
+      try {
+        slot.appendChild(window.TDBBbeSimple.buildDetailsBlock(ref, { className: 'tdb-bbe-simple--inline' }));
+      } catch (eBbe) {}
+    }
+  }
+
   function populateInlineDetails(details, ref, text) {
     if (!details) return;
     var refEl = details.querySelector('.tdb-vb-inline-ref');
@@ -1364,6 +1383,8 @@
     var curList = details.querySelector('[data-tdb-vb-curriculum-list]');
     var uogInfluence = buildUogInfluenceString(ref, resolvedText, breakdown);
     fillUogCurriculumList(curList, ref, uogInfluence);
+
+    ensureBbeSlot(details, ref);
 
     details.setAttribute('data-ref', tdbPlainTextForUi(ref || ''));
     details.setAttribute('data-text', resolvedText || '');

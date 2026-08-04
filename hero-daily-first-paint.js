@@ -583,6 +583,24 @@
         wrap.setAttribute('data-tdb-hero-votd', '1');
       } catch (e) { /* non-fatal */ }
     }
+    /* Optional BBE simpler English — update ref; text loads only when user opens the details. */
+    try {
+      var bbeRef = v && v.ref ? String(v.ref).replace(/\s*\(KJV\)\s*$/i, '').trim() : '';
+      var bbeHost = document.getElementById('heroBbeSimple');
+      if (bbeHost && bbeRef) {
+        bbeHost.setAttribute('data-bbe-ref', bbeRef);
+        var bbeStatus = bbeHost.querySelector('[data-bbe-status]');
+        var bbeText = bbeHost.querySelector('[data-bbe-text]');
+        if (bbeStatus) bbeStatus.textContent = '';
+        if (bbeText) bbeText.textContent = '';
+        bbeHost.removeAttribute('data-bbe-loaded');
+        if (bbeHost.open && window.TDBBbeSimple && typeof window.TDBBbeSimple.fillHost === 'function') {
+          window.TDBBbeSimple.fillHost(bbeHost.querySelector('.tdb-bbe-simple__body') || bbeHost, bbeRef);
+        }
+      } else if (bbeRef && window.TDBBbeSimple && typeof window.TDBBbeSimple.wireHero === 'function') {
+        window.TDBBbeSimple.wireHero(bbeRef);
+      }
+    } catch (eBbe) { /* non-fatal */ }
     var heroBreakdown = document.getElementById('heroBreakdown');
     var panelsEl = document.getElementById('heroBreakdownPanels');
     var heroApplication = document.getElementById('heroApplication');

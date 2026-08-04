@@ -97,14 +97,39 @@
    * Fill a host element with BBE text for ref.
    * host may be the text node target, or a container with [data-bbe-text].
    */
+  function stripHeroDisclaimerChrome(host) {
+    if (!host || !host.querySelectorAll) return;
+    try {
+      host.querySelectorAll('.tdb-bbe-simple__note, .tdb-bbe-simple__credit').forEach(function (el) {
+        if (el && el.parentNode) el.parentNode.removeChild(el);
+      });
+      var sub = document.getElementById('heroDailySubline');
+      if (sub) {
+        sub.textContent = '';
+        sub.setAttribute('hidden', '');
+      }
+      var eye = document.getElementById('heroVerseEyebrow');
+      if (eye) {
+        eye.textContent = '';
+        eye.setAttribute('hidden', '');
+      }
+    } catch (e) {}
+  }
+
   function fillHost(host, ref, options) {
     var opts = options || {};
     if (!host) return Promise.resolve('');
+    stripHeroDisclaimerChrome(host);
+    var root = host.closest ? host.closest('#heroBbeSimple, [data-bbe-always-open="1"]') : null;
+    if (root) stripHeroDisclaimerChrome(root);
     var textEl = host.getAttribute && host.getAttribute('data-bbe-text') != null
       ? host
       : (host.querySelector && host.querySelector('[data-bbe-text]')) || host;
     var statusEl = host.querySelector ? host.querySelector('[data-bbe-status]') : null;
-    if (statusEl) setTextContent(statusEl, opts.loadingLabel || 'Loading simpler English…');
+    if (statusEl) {
+      statusEl.setAttribute('hidden', '');
+      setTextContent(statusEl, '');
+    }
     if (textEl && textEl !== statusEl) setTextContent(textEl, '');
 
     return getText(ref)
@@ -149,20 +174,25 @@
     var body = document.createElement('div');
     body.className = 'tdb-bbe-simple__body';
 
-    var note = document.createElement('p');
-    note.className = 'tdb-bbe-simple__note section-note';
-    note.appendChild(
-      document.createTextNode(
-        opts.note ||
-          'Plain words from the Bible in Basic English (public domain) — a help for children and new readers. The King James text above stays primary.'
-      )
-    );
-    body.appendChild(note);
+    /* Quiet mode (home hero / opts.quiet): text only — no disclaimer that reads like ad chrome. */
+    var quiet = !!opts.quiet || !!(opts.className && String(opts.className).indexOf('always-open') !== -1);
+    if (!quiet && opts.note !== false) {
+      var note = document.createElement('p');
+      note.className = 'tdb-bbe-simple__note section-note';
+      note.appendChild(
+        document.createTextNode(
+          opts.note ||
+            'Plain words from the Bible in Basic English — optional simpler wording under the KJV.'
+        )
+      );
+      body.appendChild(note);
+    }
 
     var status = document.createElement('p');
     status.className = 'tdb-bbe-simple__status section-note';
     status.setAttribute('data-bbe-status', '1');
     status.setAttribute('aria-live', 'polite');
+    if (quiet) status.setAttribute('hidden', '');
     body.appendChild(status);
 
     var textP = document.createElement('p');
@@ -171,14 +201,16 @@
     textP.setAttribute('lang', 'en');
     body.appendChild(textP);
 
-    var credit = document.createElement('p');
-    credit.className = 'tdb-bbe-simple__credit section-note';
-    credit.appendChild(document.createTextNode('BBE · public domain · '));
-    var a = document.createElement('a');
-    a.href = CREDIT_HREF;
-    a.appendChild(document.createTextNode('Bible credits'));
-    credit.appendChild(a);
-    body.appendChild(credit);
+    if (!quiet && opts.credit !== false) {
+      var credit = document.createElement('p');
+      credit.className = 'tdb-bbe-simple__credit section-note';
+      credit.appendChild(document.createTextNode('BBE · '));
+      var a = document.createElement('a');
+      a.href = CREDIT_HREF;
+      a.appendChild(document.createTextNode('Bible credits'));
+      credit.appendChild(a);
+      body.appendChild(credit);
+    }
 
     details.appendChild(body);
 

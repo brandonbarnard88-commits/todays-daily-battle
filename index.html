@@ -139,8 +139,8 @@
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <link rel="preload" href="tdb-visual-tokens.css?v=20260712-phase1-s34" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260712-phase1-s34">
-  <link rel="preload" href="tdb-home-page.css?v=20260803-calm-cut" as="style">
-  <link rel="stylesheet" href="tdb-home-page.css?v=20260803-calm-cut">
+  <link rel="preload" href="tdb-home-page.css?v=20260804-sr-only-fix" as="style">
+  <link rel="stylesheet" href="tdb-home-page.css?v=20260804-sr-only-fix">
   <link rel="preload" href="tdb-swoop-surfaces.css?v=20260709-vp3-polish" as="style">
   <link rel="stylesheet" href="tdb-swoop-surfaces.css?v=20260709-vp3-polish">
   <!-- JSON-LD: DailyVerse + WebSite schema for SEO -->
@@ -2335,11 +2335,11 @@
   <script nonce="tdb2025s" src="hero-hero-pools.js?v=20260328pools" fetchpriority="low"></script>
   <script nonce="tdb2025s" src="hero-daily-365-data.js?v=20260802-calendar-mix" fetchpriority="low"></script>
   <script nonce="tdb2025s" src="verse-breakdown-standard.js?v=20260520-att-ask" data-tdb-verse-breakdown-standard="1"></script>
-  <script nonce="tdb2025s" src="verse-breakdown-overrides.js?v=20260804-quiet-chrome" data-tdb-verse-breakdown-overrides="1" defer></script>
-  <script nonce="tdb2025s" src="verse-breakdown.js?v=20260804-quiet-chrome" data-tdb-verse-breakdown="1" defer></script>
-  <script nonce="tdb2025s" src="bbe-simple.js?v=20260804-quiet-chrome" data-tdb-bbe-simple="1" defer></script>
+  <script nonce="tdb2025s" src="verse-breakdown-overrides.js?v=20260804-sr-only-fix" data-tdb-verse-breakdown-overrides="1" defer></script>
+  <script nonce="tdb2025s" src="verse-breakdown.js?v=20260804-sr-only-fix" data-tdb-verse-breakdown="1" defer></script>
+  <script nonce="tdb2025s" src="bbe-simple.js?v=20260804-sr-only-fix" data-tdb-bbe-simple="1" defer></script>
   <script nonce="tdb2025s" src="red-letter.js?v=20260518-rl" data-tdb-red-letter="1"></script>
-  <script nonce="tdb2025s" src="hero-daily-first-paint.js?v=20260804-quiet-chrome" fetchpriority="low"></script>
+  <script nonce="tdb2025s" src="hero-daily-first-paint.js?v=20260804-sr-only-fix" fetchpriority="low"></script>
   <!-- Phase 6: tdb-home-mobius-week.js?v=20260330home + /sky-ip-geo.js?v=20260327ipgeo load with home secondary stack (see script.js tdbScheduleDeferredVodAndReaderTooling) -->
   <!-- ── SOS Button ── -->
   <button type="button" id="sos-btn" class="sos-btn" aria-label="SOS">SOS</button>
@@ -2592,11 +2592,11 @@
   <!-- Phase 6: home secondary stack (injected by script.js after idle): memory-verses.js home-votm.js?v=20260402homevotm4 tdb-home-mobius-week.js?v=20260330home sky-ip-geo.js?v=20260327ipgeo word-study.js verse-narration.js verse-study.js family-verse-bridge.js gentle-suggest.js verse-breakdown-overrides.js?v=20260417-hydration verse-breakdown.js?v=20260417-hydration -->
   <script nonce="tdb2025s" type="module" fetchpriority="high" src="config.js"></script>
   <script nonce="tdb2025s" defer src="tdb-home-experience.js?v=20260709-vp1-polish"></script>
-  <script nonce="tdb2025s" defer src="tdb-home-funnel.js?v=20260804-quiet-chrome"></script>
+  <script nonce="tdb2025s" defer src="tdb-home-funnel.js?v=20260804-sr-only-fix"></script>
   <script nonce="tdb2025s" defer src="tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
   <script nonce="tdb2025s" defer src="start-my-day.js?v=20260423-phase5-perf"></script>
   <!-- Homepage feel-search + FEEL_GROUPS (deferred — was ~209KB inline) -->
-  <script nonce="tdb2025s" defer src="tdb-home-feel.js?v=20260804-quiet-chrome"></script>
+  <script nonce="tdb2025s" defer src="tdb-home-feel.js?v=20260804-sr-only-fix"></script>
   <script nonce="tdb2025s" defer src="tdb-feel-combo.js?v=20260712-first-doors"></script>
   <script nonce="tdb2025s" defer src="tdb-offline-strip.js?v=20260712-pickup"></script>
   <script nonce="tdb2025s" defer src="/js/feel-combo-presets.js"></script>

@@ -12,7 +12,7 @@
   if (!('serviceWorker' in navigator)) return;
   if (document.querySelector('script[data-tdb-sw-register]')) return;
   var s = document.createElement('script');
-  s.src = '/register-sw.js?v=20260804-quiet-chrome';
+  s.src = '/register-sw.js?v=20260804-sr-only-fix';
   s.defer = true;
   s.setAttribute('data-tdb-sw-register', '1');
   (document.head || document.documentElement).appendChild(s);
@@ -58,7 +58,7 @@ function tdbIsHomePage() {
   function injectVerseBreakdownStack() {
     if (!window.TDB_VERSE_BREAKDOWN_DATA && !document.querySelector('script[data-tdb-verse-breakdown-overrides]')) {
       var seed = document.createElement('script');
-      seed.src = '/verse-breakdown-overrides.js?v=20260804-quiet-chrome';
+      seed.src = '/verse-breakdown-overrides.js?v=20260804-sr-only-fix';
       seed.defer = true;
       seed.setAttribute('data-tdb-verse-breakdown-overrides', '1');
       (document.head || document.documentElement).appendChild(seed);
@@ -75,7 +75,7 @@ function tdbIsHomePage() {
     /* Optional BBE simpler English — load even if verse-breakdown already present. */
     if (!document.querySelector('script[data-tdb-bbe-simple]')) {
       var bbe = document.createElement('script');
-      bbe.src = '/bbe-simple.js?v=20260804-quiet-chrome';
+      bbe.src = '/bbe-simple.js?v=20260804-sr-only-fix';
       bbe.defer = true;
       bbe.setAttribute('data-tdb-bbe-simple', '1');
       (document.head || document.documentElement).appendChild(bbe);
@@ -83,7 +83,7 @@ function tdbIsHomePage() {
     if (window.TDBVerseBreakdown) return;
     if (document.querySelector('script[data-tdb-verse-breakdown]')) return;
     var s = document.createElement('script');
-    s.src = '/verse-breakdown.js?v=20260804-quiet-chrome';
+    s.src = '/verse-breakdown.js?v=20260804-sr-only-fix';
     s.defer = true;
     s.setAttribute('data-tdb-verse-breakdown', '1');
     (document.head || document.documentElement).appendChild(s);
@@ -2774,7 +2774,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[data-lazy-src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
   var trustedStd = trustedScriptURL('/verse-breakdown-standard.js?v=20260428-vbd');
-  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260804-quiet-chrome');
+  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260804-sr-only-fix');
   if (!trustedStd || !trusted) return;
   var stdScr = document.createElement('script');
   stdScr.src = trustedStd;
@@ -3359,7 +3359,7 @@ function ensureTdbCookieNotice() {
 
     var copy = document.createElement('p');
     copy.className = 'tdb-cookie-notice__copy';
-    copy.textContent = 'We use a small amount of cookie and on-device storage to keep this quiet place working well and to understand anonymous usage. No targeted ads. No selling your data.';
+    copy.textContent = 'A little on-device storage keeps this place working. Optional anonymous usage helps us improve the porch—nothing for sale, nothing targeted.';
 
     var actions = document.createElement('div');
     actions.className = 'tdb-cookie-notice__actions';
@@ -3367,8 +3367,8 @@ function ensureTdbCookieNotice() {
     var acceptBtn = document.createElement('button');
     acceptBtn.type = 'button';
     acceptBtn.className = 'tdb-cookie-notice__btn tdb-cookie-notice__btn--primary';
-    acceptBtn.textContent = 'Accept all';
-    acceptBtn.setAttribute('aria-label', 'Accept all cookies and anonymous usage analytics');
+    acceptBtn.textContent = 'OK';
+    acceptBtn.setAttribute('aria-label', 'OK — allow anonymous usage analytics');
 
     var laterBtn = document.createElement('button');
     laterBtn.type = 'button';

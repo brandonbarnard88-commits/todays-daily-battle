@@ -13,7 +13,7 @@ const runtimePath = path.join(repoRoot, 'verse-breakdown.js');
 const heroFirstPaintPath = path.join(repoRoot, 'hero-daily-first-paint.js');
 const distRoot = path.join(repoRoot, 'dist');
 const distSeedPath = path.join(distRoot, 'verse-breakdown-overrides.js');
-const CURRENT_BREAKDOWN_TOKEN = '20260804-quiet-chrome';
+const CURRENT_BREAKDOWN_TOKEN = '20260804-sr-only-fix';
 const GROUPS = ['general', 'kid', 'teen', 'family', 'pastor', 'church-leader', 'missionary', 'street-preacher', 'bible-study-group'];
 const STATIC_PAGE_CHECKS = [
   'dist/verse.html',

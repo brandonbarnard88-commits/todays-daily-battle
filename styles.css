@@ -25778,3 +25778,19 @@ body.no-tdb-bottom-nav .spacer {
   body.no-tdb-bottom-nav .site-header .site-crest-svg { max-height: 2.75rem; }
   body.no-tdb-bottom-nav .site-top-links-secondary { display: none; }
 }
+
+/* Fortify screen-reader-only (must stay clipped even under theme z-index rules) */
+.sr-only,
+.sr-only-focusable:not(:focus):not(:focus-within){
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  padding:0!important;
+  margin:-1px!important;
+  overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;
+  clip-path:inset(50%)!important;
+  white-space:nowrap!important;
+  border:0!important
+}
+#main-search.sr-only{pointer-events:none!important}

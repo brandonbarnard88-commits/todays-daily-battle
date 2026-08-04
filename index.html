@@ -522,15 +522,16 @@
             </button>
         </div>
 
-        <p class="tdb-verse-of-day-eyebrow" id="heroVerseEyebrow" hidden>Today&rsquo;s verse</p>
+        <!-- Keep id for scripts; never show instructional chrome in the verse path -->
+        <p class="tdb-verse-of-day-eyebrow" id="heroVerseEyebrow" hidden></p>
+        <p class="hero-daily-subline" id="heroDailySubline" hidden></p>
 
-        <!-- Always open under KJV: plain BBE + short meaning -->
+        <!-- Always open under KJV: plain BBE text + short meaning only (no credit/disclaimer in this block) -->
         <div class="tdb-bbe-simple tdb-bbe-simple--hero tdb-bbe-simple--always-open" id="heroBbeSimple" data-bbe-simple="1" data-bbe-ref="Psalm 91:1" data-bbe-always-open="1">
           <h4 class="tdb-bbe-simple__heading">In simpler words</h4>
           <div class="tdb-bbe-simple__body">
-            <p class="tdb-bbe-simple__status section-note" data-bbe-status="1" aria-live="polite"></p>
+            <p class="tdb-bbe-simple__status section-note" data-bbe-status="1" aria-live="polite" hidden></p>
             <p class="tdb-bbe-simple__text" data-bbe-text="1" lang="en"></p>
-            <p class="tdb-bbe-simple__credit section-note"><span class="sr-only">Source: </span>BBE · public domain · <a href="/bible-credits.html">Credits</a></p>
           </div>
         </div>
 
@@ -538,8 +539,6 @@
           <h4 class="tdb-layman-heading">What it means</h4>
           <p id="heroSimpleBreakdown">When you stay close to God, you rest under His protection — safe in His care.</p>
         </div>
-
-        <p class="hero-daily-subline tdb-hero-trust-whisper" id="heroDailySubline">No ads. No account. No pressure.</p>
 
         <ul class="breakdown" id="heroBreakdown" hidden></ul>
         <div class="hero-breakdown-panels" id="heroBreakdownPanels" hidden></div>

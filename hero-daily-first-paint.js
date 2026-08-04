@@ -583,7 +583,7 @@
         wrap.setAttribute('data-tdb-hero-votd', '1');
       } catch (e) { /* non-fatal */ }
     }
-    /* Optional BBE simpler English — update ref; text loads only when user opens the details. */
+    /* BBE simpler English — always-open on home; fill as soon as ref is known. */
     try {
       var bbeRef = v && v.ref ? String(v.ref).replace(/\s*\(KJV\)\s*$/i, '').trim() : '';
       var bbeHost = document.getElementById('heroBbeSimple');
@@ -594,7 +594,8 @@
         if (bbeStatus) bbeStatus.textContent = '';
         if (bbeText) bbeText.textContent = '';
         bbeHost.removeAttribute('data-bbe-loaded');
-        if (bbeHost.open && window.TDBBbeSimple && typeof window.TDBBbeSimple.fillHost === 'function') {
+        var alwaysOpen = bbeHost.getAttribute('data-bbe-always-open') === '1' || bbeHost.tagName !== 'DETAILS';
+        if ((alwaysOpen || bbeHost.open) && window.TDBBbeSimple && typeof window.TDBBbeSimple.fillHost === 'function') {
           window.TDBBbeSimple.fillHost(bbeHost.querySelector('.tdb-bbe-simple__body') || bbeHost, bbeRef);
         }
       } else if (bbeRef && window.TDBBbeSimple && typeof window.TDBBbeSimple.wireHero === 'function') {

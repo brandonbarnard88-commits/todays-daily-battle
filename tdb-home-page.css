@@ -12101,3 +12101,22 @@ a.plan-category-chip:focus-visible,
 .tdb-return-quiet__links a {
   color: var(--gold, #e3bc67);
 }
+
+/* Always-open layman on home (not details) */
+.tdb-layman-always-open > .tdb-layman-heading {
+  margin: 0.45rem 0 0.3rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.tdb-layman-always-open > #heroSimpleBreakdown {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.58;
+  color: var(--text);
+}
+.tdb-home-after-ask details.tdb-dig-deeper {
+  margin-top: 0.5rem;
+}

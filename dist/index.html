@@ -525,76 +525,23 @@
         <div class="tdb-home-hero-gentle-after-verse">
         <p class="hero-daily-subline" id="heroDailySubline">No ads. No account. No pressure.</p>
         </div>
-        <p class="tdb-verse-of-day-eyebrow" id="heroVerseEyebrow">Today&rsquo;s lesson</p>
+        <p class="tdb-verse-of-day-eyebrow" id="heroVerseEyebrow">Today&rsquo;s verse, plain words, then Ask</p>
 
-        <!-- BBE first (open by default): plain Bible English, then optional layman teaching -->
-        <details class="tdb-bbe-simple tdb-bbe-simple--hero" id="heroBbeSimple" data-bbe-simple="1" data-bbe-ref="Psalm 91:1" open>
-          <summary class="tdb-bbe-simple__summary">Simpler English (BBE)</summary>
+        <!-- Always open: BBE + layman (not dropdowns) — verse stays scannable at top -->
+        <div class="tdb-bbe-simple tdb-bbe-simple--hero tdb-bbe-simple--always-open" id="heroBbeSimple" data-bbe-simple="1" data-bbe-ref="Psalm 91:1" data-bbe-always-open="1">
+          <h4 class="tdb-bbe-simple__heading">Simpler English (BBE)</h4>
           <div class="tdb-bbe-simple__body">
-            <p class="tdb-bbe-simple__note section-note">Plain words from the Bible in Basic English (public domain) &mdash; a help for children and new readers. The King James text above stays primary.</p>
+            <p class="tdb-bbe-simple__note section-note">Plain words from the Bible in Basic English (public domain). KJV above stays primary. <a href="/bible-credits.html">Credits</a></p>
             <p class="tdb-bbe-simple__status section-note" data-bbe-status="1" aria-live="polite"></p>
             <p class="tdb-bbe-simple__text" data-bbe-text="1" lang="en"></p>
-            <p class="tdb-bbe-simple__credit section-note">BBE &middot; public domain &middot; <a href="/bible-credits.html">Bible credits</a></p>
           </div>
-        </details>
+        </div>
 
-        <details class="tdb-layman-collapse hero-vbd-primary" id="heroVbdPrimary">
-          <summary class="tdb-layman-collapse__summary">Simple layman terms</summary>
+        <div class="hero-vbd-primary tdb-layman-always-open" id="heroVbdPrimary">
+          <h4 class="tdb-layman-heading">Simple layman terms</h4>
           <p id="heroSimpleBreakdown">When you stay close to God, you rest in His protection and care.</p>
-        </details>
+        </div>
 
-        <details class="tdb-dig-deeper" id="heroDigDeeper">
-          <summary class="tdb-dig-deeper__summary">
-            <span class="tdb-dig-deeper__main">More from the Word</span>
-            <span class="tdb-dig-deeper__hint">Cross-references and plain notes &mdash; only if you want them</span>
-          </summary>
-          <div class="tdb-dig-deeper__content">
-            <div class="verse-breakdown" id="heroDeepBreakdown" role="group" aria-label="More context from the Word">
-              <div class="hero-vbd-bundle" id="heroVbdRowWho" hidden>
-                <h4>Who&rsquo;s talking?</h4>
-                <p id="heroDeepWho"></p>
-              </div>
-              <div class="hero-vbd-bundle" id="heroVbdRowAud" hidden>
-                <h4>Who is He / she talking to?</h4>
-                <p id="heroDeepAudience"></p>
-              </div>
-              <div class="hero-vbd-bundle" id="heroVbdRowCtx" hidden>
-                <h4>How it relates today (<span id="heroVotdBreakdownYear">2026</span>)</h4>
-                <p id="heroDeepContext"></p>
-              </div>
-              <div class="hero-vbd-bundle" id="heroVbdRowYou" hidden>
-                <h4>How it relates to you right now</h4>
-                <p id="heroDeepYou"></p>
-              </div>
-            </div>
-            <div class="tdb-dig-deeper__cross" id="heroDigDeeperCross" hidden>
-              <h4 class="tdb-dig-deeper__cross-label">See also (KJV)</h4>
-              <p class="tdb-dig-deeper__cross-list" id="heroDigDeeperCrossList"></p>
-            </div>
-            <p class="tdb-dig-deeper__plan" id="heroDigDeeperPlan" hidden>
-              <a class="tdb-dig-deeper__plan-link" id="heroDigDeeperPlanLink" href="/plans.html?plan=battle">Continue in this Battle Plan &rarr;</a>
-            </p>
-          </div>
-        </details>
-
-        <div class="next-step" id="heroVotdNextStep">
-          <strong>One honest step, just for today:</strong> <span id="heroVotdOneStep">Read it slowly one more time out loud. Thank God for one clear thing it says, then take the next small step with that line in mind.</span>
-        </div>
-        <div class="prayer-block" id="heroVotdPrayerBlock" role="region" aria-label="A simple prayer tied to today&rsquo;s verse">
-          <p class="tdb-prayer-invite">Say this if you want to. If words aren&rsquo;t there today, that&rsquo;s okay.</p>
-          <p><strong>A simple prayer:</strong><br />
-          <span id="heroVotdPrayer">Lord, sink Psalm 91:1 into my heart—not as noise, but as truth that changes how I walk. In Jesus’ name, Amen.</span></p>
-        </div>
-        <p class="tdb-verse-human-note">Someone put this here for days like this one.</p>
-        <nav class="tdb-home-hero-primary-cta" id="tdbHomeHeroPrimaryCta" aria-label="One gentle next step">
-          <p class="tdb-home-hero-primary-cta__lead">When you&rsquo;re ready:</p>
-          <a class="btn btn-primary tdb-home-hero-primary-cta__btn" href="plans.html?plan=battle" id="tdbHomeHeroPrimaryPlan">Open today&rsquo;s Battle Plan</a>
-        </nav>
-        <div class="tdb-home-breath-divider" aria-hidden="true"></div>
-        <div class="tdb-hero-curriculum" id="tdb-hero-curriculum-slot" role="region" aria-labelledby="tdb-hero-curriculum-h" hidden>
-          <h3 class="tdb-hero-curriculum-heading" id="tdb-hero-curriculum-h">Where this lesson fits in your battle plan</h3>
-          <ul class="tdb-hero-curriculum-list" id="tdb-hero-curriculum-list"></ul>
-        </div>
         <ul class="breakdown" id="heroBreakdown" hidden></ul>
         <div class="hero-breakdown-panels" id="heroBreakdownPanels" hidden></div>
         <p class="application" id="heroApplication" hidden></p>
@@ -894,6 +841,63 @@
         <p class="feel-no-match" id="feelNoMatch">Try a few honest words about how you’re feeling — “peace,” “scared at night,” or “worried about the kids.” The Word will meet you right there.</p>
       </section>
       </div><!-- /#quick-search-hero -->
+
+      <!-- After Ask the Word: deeper teaching, prayer, plan (not blocking the top) -->
+      <div class="tdb-home-after-ask tdb-quiet-container" id="tdbHomeAfterAsk">
+<details class="tdb-dig-deeper" id="heroDigDeeper">
+          <summary class="tdb-dig-deeper__summary">
+            <span class="tdb-dig-deeper__main">More from the Word</span>
+            <span class="tdb-dig-deeper__hint">Cross-references and plain notes &mdash; only if you want them</span>
+          </summary>
+          <div class="tdb-dig-deeper__content">
+            <div class="verse-breakdown" id="heroDeepBreakdown" role="group" aria-label="More context from the Word">
+              <div class="hero-vbd-bundle" id="heroVbdRowWho" hidden>
+                <h4>Who&rsquo;s talking?</h4>
+                <p id="heroDeepWho"></p>
+              </div>
+              <div class="hero-vbd-bundle" id="heroVbdRowAud" hidden>
+                <h4>Who is He / she talking to?</h4>
+                <p id="heroDeepAudience"></p>
+              </div>
+              <div class="hero-vbd-bundle" id="heroVbdRowCtx" hidden>
+                <h4>How it relates today (<span id="heroVotdBreakdownYear">2026</span>)</h4>
+                <p id="heroDeepContext"></p>
+              </div>
+              <div class="hero-vbd-bundle" id="heroVbdRowYou" hidden>
+                <h4>How it relates to you right now</h4>
+                <p id="heroDeepYou"></p>
+              </div>
+            </div>
+            <div class="tdb-dig-deeper__cross" id="heroDigDeeperCross" hidden>
+              <h4 class="tdb-dig-deeper__cross-label">See also (KJV)</h4>
+              <p class="tdb-dig-deeper__cross-list" id="heroDigDeeperCrossList"></p>
+            </div>
+            <p class="tdb-dig-deeper__plan" id="heroDigDeeperPlan" hidden>
+              <a class="tdb-dig-deeper__plan-link" id="heroDigDeeperPlanLink" href="/plans.html?plan=battle">Continue in this Battle Plan &rarr;</a>
+            </p>
+          </div>
+        </details>
+
+        <div class="next-step" id="heroVotdNextStep">
+          <strong>One honest step, just for today:</strong> <span id="heroVotdOneStep">Read it slowly one more time out loud. Thank God for one clear thing it says, then take the next small step with that line in mind.</span>
+        </div>
+        <div class="prayer-block" id="heroVotdPrayerBlock" role="region" aria-label="A simple prayer tied to today&rsquo;s verse">
+          <p class="tdb-prayer-invite">Say this if you want to. If words aren&rsquo;t there today, that&rsquo;s okay.</p>
+          <p><strong>A simple prayer:</strong><br />
+          <span id="heroVotdPrayer">Lord, sink Psalm 91:1 into my heart—not as noise, but as truth that changes how I walk. In Jesus’ name, Amen.</span></p>
+        </div>
+        <p class="tdb-verse-human-note">Someone put this here for days like this one.</p>
+        <nav class="tdb-home-hero-primary-cta" id="tdbHomeHeroPrimaryCta" aria-label="One gentle next step">
+          <p class="tdb-home-hero-primary-cta__lead">When you&rsquo;re ready:</p>
+          <a class="btn btn-primary tdb-home-hero-primary-cta__btn" href="plans.html?plan=battle" id="tdbHomeHeroPrimaryPlan">Open today&rsquo;s Battle Plan</a>
+        </nav>
+        <div class="tdb-home-breath-divider" aria-hidden="true"></div>
+        <div class="tdb-hero-curriculum" id="tdb-hero-curriculum-slot" role="region" aria-labelledby="tdb-hero-curriculum-h" hidden>
+          <h3 class="tdb-hero-curriculum-heading" id="tdb-hero-curriculum-h">Where this lesson fits in your battle plan</h3>
+          <ul class="tdb-hero-curriculum-list" id="tdb-hero-curriculum-list"></ul>
+        </div>
+              </div><!-- /#tdbHomeAfterAsk -->
+
       </div><!-- /#tdbHomePrimaryPair -->
 
       <!-- Secondary: capacity, welcome, doors, and the rest of the porch -->
@@ -2336,9 +2340,9 @@
   <script nonce="tdb2025s" src="verse-breakdown-standard.js?v=20260520-att-ask" data-tdb-verse-breakdown-standard="1"></script>
   <script nonce="tdb2025s" src="verse-breakdown-overrides.js?v=20260804-full-kjv-plain" data-tdb-verse-breakdown-overrides="1" defer></script>
   <script nonce="tdb2025s" src="verse-breakdown.js?v=20260804-full-kjv-plain" data-tdb-verse-breakdown="1" defer></script>
-  <script nonce="tdb2025s" src="bbe-simple.js?v=20260804-bbe" data-tdb-bbe-simple="1" defer></script>
+  <script nonce="tdb2025s" src="bbe-simple.js?v=20260804-open-top" data-tdb-bbe-simple="1" defer></script>
   <script nonce="tdb2025s" src="red-letter.js?v=20260518-rl" data-tdb-red-letter="1"></script>
-  <script nonce="tdb2025s" src="hero-daily-first-paint.js?v=20260804-full-kjv-plain" fetchpriority="low"></script>
+  <script nonce="tdb2025s" src="hero-daily-first-paint.js?v=20260804-open-top" fetchpriority="low"></script>
   <!-- Phase 6: tdb-home-mobius-week.js?v=20260330home + /sky-ip-geo.js?v=20260327ipgeo load with home secondary stack (see script.js tdbScheduleDeferredVodAndReaderTooling) -->
   <!-- ── SOS Button ── -->
   <button type="button" id="sos-btn" class="sos-btn" aria-label="SOS">SOS</button>
@@ -2591,7 +2595,7 @@
   <!-- Phase 6: home secondary stack (injected by script.js after idle): memory-verses.js home-votm.js?v=20260402homevotm4 tdb-home-mobius-week.js?v=20260330home sky-ip-geo.js?v=20260327ipgeo word-study.js verse-narration.js verse-study.js family-verse-bridge.js gentle-suggest.js verse-breakdown-overrides.js?v=20260417-hydration verse-breakdown.js?v=20260417-hydration -->
   <script nonce="tdb2025s" type="module" fetchpriority="high" src="config.js"></script>
   <script nonce="tdb2025s" defer src="tdb-home-experience.js?v=20260709-vp1-polish"></script>
-  <script nonce="tdb2025s" defer src="tdb-home-funnel.js?v=20260804-funnel"></script>
+  <script nonce="tdb2025s" defer src="tdb-home-funnel.js?v=20260804-open-top"></script>
   <script nonce="tdb2025s" defer src="tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
   <script nonce="tdb2025s" defer src="start-my-day.js?v=20260423-phase5-perf"></script>
   <!-- Homepage feel-search + FEEL_GROUPS (deferred — was ~209KB inline) -->

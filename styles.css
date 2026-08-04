@@ -25695,3 +25695,67 @@ details.hero-vbd-primary.tdb-layman-collapse > summary + p#heroSimpleBreakdown {
     margin-top: 1rem;
   }
 }
+
+/* --- Home: verse + Ask always open at top (no dropdown chrome) --- */
+.tdb-bbe-simple--always-open {
+  margin: 0.55rem 0 0.45rem;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--border, #c9b89a) 70%, transparent);
+  background: color-mix(in srgb, var(--surface, #f7f1e6) 88%, transparent);
+  padding: 0.55rem 0.85rem 0.65rem;
+}
+.tdb-bbe-simple--always-open .tdb-bbe-simple__heading,
+.tdb-layman-always-open .tdb-layman-heading {
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted, #6b7280);
+}
+.tdb-bbe-simple--always-open .tdb-bbe-simple__text {
+  margin: 0.25rem 0 0;
+  font-size: 1.08rem;
+  line-height: 1.55;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+.tdb-layman-always-open {
+  margin: 0.35rem 0 0.65rem;
+  padding: 0.15rem 0;
+}
+.tdb-layman-always-open #heroSimpleBreakdown {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.55;
+}
+.tdb-home-after-ask {
+  margin-top: 1.25rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid color-mix(in srgb, var(--line, rgba(200,180,140,0.35)) 85%, transparent);
+}
+.tdb-home-primary-pair {
+  margin-top: 0.15rem;
+}
+/* Pull primary content up under a quieter home header */
+body.no-tdb-bottom-nav .site-header .site-logo-wrap {
+  max-height: 4.5rem;
+}
+body.no-tdb-bottom-nav .site-header .site-crest-svg {
+  max-height: 3.75rem;
+  width: auto;
+}
+body.no-tdb-bottom-nav .hero-brand-taglines .soul-tag {
+  font-size: 0.85rem;
+}
+body.no-tdb-bottom-nav #home-primary-flow.porch-section {
+  padding-top: 0.35rem;
+}
+body.no-tdb-bottom-nav .spacer {
+  min-height: 0.25rem;
+  height: 0.35rem;
+}
+@media (max-width: 720px) {
+  body.no-tdb-bottom-nav .site-header .site-logo-wrap { max-height: 3.25rem; }
+  body.no-tdb-bottom-nav .site-header .site-crest-svg { max-height: 2.75rem; }
+  body.no-tdb-bottom-nav .site-top-links-secondary { display: none; }
+}

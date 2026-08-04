@@ -194,8 +194,19 @@
       return;
     }
     wireVerseView();
-    onToggle(document.getElementById('heroBbeSimple'), EVENTS.BBE_OPEN, 'bbe_open');
-    onToggle(document.getElementById('heroVbdPrimary'), EVENTS.LAYMAN_OPEN, 'layman_open');
+    /* BBE + layman are always open on home (not details) — count as shown with verse. */
+    var bbe = document.getElementById('heroBbeSimple');
+    if (bbe && (bbe.getAttribute('data-bbe-always-open') === '1' || bbe.tagName !== 'DETAILS')) {
+      fire(EVENTS.BBE_OPEN, { surface: 'home', mode: 'always' }, 'bbe_open');
+    } else {
+      onToggle(bbe, EVENTS.BBE_OPEN, 'bbe_open');
+    }
+    var lay = document.getElementById('heroVbdPrimary');
+    if (lay && lay.tagName !== 'DETAILS') {
+      fire(EVENTS.LAYMAN_OPEN, { surface: 'home', mode: 'always' }, 'layman_open');
+    } else {
+      onToggle(lay, EVENTS.LAYMAN_OPEN, 'layman_open');
+    }
     onToggle(document.getElementById('heroDigDeeper'), EVENTS.DIG_DEEPER_OPEN, 'dig_open');
     wireAsk();
     wireNavClicks();

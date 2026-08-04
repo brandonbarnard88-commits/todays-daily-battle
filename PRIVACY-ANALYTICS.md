@@ -113,6 +113,26 @@ Do **not** add verse reference or verse text to these calls.
 | `chapter_reader_listen` | `{ book: string, chapter: string }` (structural labels only) |
 | `chapter_reader_listen_stop` | `{}` |
 
+### Home funnel (`tdb-home-funnel.js`) — aggregate only
+
+No verse text, no refs, no search query strings.
+
+| Event | Params (allowed) |
+|-------|------------------|
+| `home_verse_view` | `{ surface: 'home' }` |
+| `home_bbe_open` | `{ surface: 'home' }` |
+| `home_layman_open` | `{ surface: 'home' }` |
+| `home_dig_deeper_open` | `{ surface: 'home' }` |
+| `home_ask_focus` | `{ surface: 'home' }` |
+| `home_ask_search` | `{ surface: 'home' }` |
+| `home_secondary_open` | `{ surface: 'home' }` |
+| `home_secondary_seen` | `{ surface: 'home' }` |
+| `home_plans_click` | `{ surface: 'home' }` |
+| `home_calm_click` | `{ surface: 'home' }` |
+| `home_capacity_click` | `{ surface: 'home', which: string }` (element id prefix only) |
+
+Founder guide: **`docs/FOUNDER-ANALYTICS.md`**.
+
 ### Home / verse page / church (aggregate only)
 
 | Event | Params (allowed) |

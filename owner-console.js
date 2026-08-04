@@ -216,9 +216,63 @@
     var buttons = document.querySelectorAll('[data-owner-tab]');
     buttons.forEach(function (button) {
       button.addEventListener('click', function () {
-        selectTab(button.getAttribute('data-owner-tab'));
+        var name = button.getAttribute('data-owner-tab');
+        selectTab(name);
+        if (name === 'visibility') renderFunnelSummary();
       });
     });
+    var refresh = document.getElementById('owner-funnel-refresh');
+    if (refresh) {
+      refresh.addEventListener('click', function () {
+        renderFunnelSummary();
+      });
+    }
+  }
+
+  function renderFunnelSummary() {
+    var host = document.getElementById('owner-funnel-summary');
+    if (!host) return;
+    var summary = null;
+    try {
+      if (window.TDBHomeFunnel && typeof window.TDBHomeFunnel.getSummary === 'function') {
+        summary = window.TDBHomeFunnel.getSummary(7);
+      }
+    } catch (e) {}
+    if (!summary) {
+      try {
+        var raw = localStorage.getItem('tdb_home_funnel_v1');
+        var store = raw ? JSON.parse(raw) : {};
+        summary = { days: [], totals: {} };
+        for (var i = 0; i < 7; i++) {
+          var d = new Date(Date.now() - i * 86400000).toISOString().slice(0, 10);
+          var row = (store && store[d]) || {};
+          summary.days.push({ date: d, counts: row });
+          Object.keys(row).forEach(function (k) {
+            summary.totals[k] = (summary.totals[k] || 0) + (row[k] || 0);
+          });
+        }
+      } catch (e2) {
+        summary = { days: [], totals: {} };
+      }
+    }
+    var labels = {
+      home_verse_view: 'Verse viewed',
+      home_bbe_open: 'BBE opened',
+      home_layman_open: 'Layman opened',
+      home_dig_deeper_open: 'Dig deeper',
+      home_ask_focus: 'Ask focused',
+      home_ask_search: 'Ask search',
+      home_plans_click: 'Plans click',
+      home_calm_click: 'Calm click',
+      home_capacity_click: 'Capacity click',
+      home_secondary_seen: 'Secondary seen',
+      home_secondary_open: 'Secondary open'
+    };
+    var order = Object.keys(labels);
+    var items = order.map(function (k) {
+      return { label: labels[k], value: summary.totals[k] || 0, highlight: k === 'home_verse_view' || k === 'home_ask_search' };
+    });
+    renderStatGrid(host, items);
   }
 
   function renderOverview(data) {

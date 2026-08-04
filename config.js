@@ -33,6 +33,9 @@ window.TDB_CONFIG = {
   STRIPE_CHURCH_YEARLY_LINK: '',
   // GA4: analytics.google.com → Admin → Create Property → Web → copy Measurement ID (G-XXXXXXXXXX)
   GA_MEASUREMENT_ID: 'G-NFQ5GWJXCB',
+  // Cloudflare Web Analytics beacon token (dashboard.cloudflare.com → Web Analytics). Empty = off.
+  // Cookieless page views; does not replace GA4 product events. See docs/FOUNDER-ANALYTICS.md
+  CF_ANALYTICS_TOKEN: '',
   // GSC: search.google.com/search-console → Add Property → HTML tag → copy content value
   GOOGLE_SITE_VERIFICATION: ''
 };

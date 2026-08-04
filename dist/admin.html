@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=20260709-wave4"></script>
-  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260709-wave4"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260709-wave4"></script>
@@ -435,6 +433,7 @@
               <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="data" aria-pressed="false">Data &amp; Exports</button>
               <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="billing" aria-pressed="false">Billing</button>
               <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="ops" aria-pressed="false">Ops &amp; Deploy</button>
+              <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="visibility" aria-pressed="false">Visibility</button>
               <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="audit" aria-pressed="false">Audit Log</button>
               <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="inbox" aria-pressed="false">&#x1F4E9; Inbox</button>
               <button class="btn btn-secondary owner-tab-btn" type="button" data-owner-tab="journal" aria-pressed="false">&#x1F4D3; Journal</button>
@@ -660,6 +659,35 @@ todaysdailybattle.com/where-support-goes</textarea>
                 </div>
               </div>
             </section>
+            <section class="owner-pane owner-pane-grid" data-owner-pane="visibility" hidden>
+              <div class="owner-card">
+                <h3>Founder visibility</h3>
+                <p class="owner-section-note">Know the porch without knowing the person. Aggregate only — no raw search text, no journals.</p>
+                <ul class="section-note" style="margin:0.5rem 0 0;padding-left:1.2rem;line-height:1.55;">
+                  <li><a href="https://analytics.google.com/" target="_blank" rel="noopener">Open GA4</a> → Realtime (test with cookie consent)</li>
+                  <li>GA4 → Events: look for <code>home_verse_view</code>, <code>home_ask_search</code>, <code>search_query</code></li>
+                  <li>Cloudflare Web Analytics: set <code>CF_ANALYTICS_TOKEN</code> in Pages env (see <a href="/founder-analytics.html">founder guide</a>)</li>
+                  <li>Full checklist: <a href="/founder-analytics.html">founder-analytics.html</a></li>
+                </ul>
+              </div>
+              <div class="owner-card">
+                <h3>Home funnel (this browser, last 7 days)</h3>
+                <p class="owner-section-note">Local counters from <code>tdb-home-funnel.js</code> on this device. World traffic is in GA4 / Cloudflare.</p>
+                <div id="owner-funnel-summary" class="admin-grid"></div>
+                <div class="owner-console-actions" style="margin-top:0.75rem;">
+                  <button type="button" class="btn btn-secondary" id="owner-funnel-refresh">Refresh funnel</button>
+                  <a class="btn btn-secondary" href="/stats.html">Open /stats.html</a>
+                </div>
+              </div>
+              <div class="owner-card">
+                <h3>Self-test (2 minutes)</h3>
+                <ol class="section-note" style="margin:0.35rem 0 0;padding-left:1.2rem;line-height:1.55;">
+                  <li>Open home in a private window, accept analytics cookies.</li>
+                  <li>Scroll the verse into view; open BBE; open layman; focus Ask; run a search; click Plans.</li>
+                  <li>GA4 Realtime should show those events; funnel cards here should tick if this same browser hit home with funnel script.</li>
+                </ol>
+              </div>
+            </section>
             <section class="owner-pane owner-pane-grid" data-owner-pane="ops" hidden>
               <div class="admin-actions">
                 <button id="admin-refresh-dashboard" class="btn btn-secondary" type="button">Refresh Dashboard</button>
@@ -785,7 +813,7 @@ todaysdailybattle.com/where-support-goes</textarea>
           </div>
           <h2 class="section-divider">Analytics</h2>
           <div class="list">
-            <div class="list-item"><div><strong>Cloudflare Web Analytics</strong><p>Set CF_ANALYTICS_TOKEN in script.js to enable the beacon.</p></div></div>
+            <div class="list-item"><div><strong>Cloudflare Web Analytics</strong><p>Set <code>CF_ANALYTICS_TOKEN</code> in Cloudflare Pages env (or config.js). Beacon loads from script.js when set. Guide: <a href="/founder-analytics.html">founder-analytics.html</a>.</p></div></div>
             <div class="list-item"><div><strong>Search verification</strong><p>Add Google/Bing verification meta tags to index.html when tokens are ready.</p></div></div>
             <div class="list-item"><div><strong>Sitemap submit</strong><p>Submit https://todaysdailybattle.com/sitemap.xml in Search Console and Bing Webmaster Tools.</p></div></div>
           </div>
@@ -840,6 +868,7 @@ todaysdailybattle.com/where-support-goes</textarea>
     <a href="/privacy.html">Privacy</a>
     <a href="/terms.html">Terms</a>
     <a href="/faq.html">FAQ</a>
+    <a href="/bible-credits.html">Bible credits</a>
     <a href="/verse.html">Today&rsquo;s Lesson</a>
     <a href="/mystudy">My Study</a>
     <a href="/prayer-wall.html">Prayer</a>
@@ -923,6 +952,8 @@ todaysdailybattle.com/where-support-goes</textarea>
         <a href="/offline-porch.html">Offline porch</a>
         <a href="/porch-map-one-page-print.html">Porch map (print)</a>
         <a href="/porch-pathways-ribbon-one-page-print.html">Ribbon pathways (print)</a>
+        <a href="/find-a-path.html">Find a path</a>
+        <a href="/learn-the-word.html">Learn the Word</a>
         <a href="/bible-study.html">Bible studies</a>
         <a href="/shop.html">Shop</a>
         <a href="/story.html">Story</a>
@@ -954,12 +985,12 @@ todaysdailybattle.com/where-support-goes</textarea>
   </div>
 
   <p class="site-footer-copy site-footer-legal-line">&copy; 2026 Today&rsquo;s Daily Battle &middot; Christian Messenger Service. All rights reserved.</p>
-  <p class="site-footer-copy site-footer-legal-line">All Scripture <abbr title="King James Version">KJV</abbr> unless noted on the page.</p>
+  <p class="site-footer-copy site-footer-legal-line">Primary Scripture is the <abbr title="King James Version">KJV</abbr> (public domain). Optional simpler English may quote the <abbr title="Bible in Basic English">BBE</abbr> (public domain). <a href="/bible-credits.html">Bible credits</a>.</p>
   <p class="section-note site-footer-safety-line">Report safety/moderation concerns: <a href="/contact.html?topic=safety">contact form (topic=safety)</a> or <a href="/contact.html" class="tdb-support-email" data-email-query="?subject=Moderation%20%2F%20Safety%20Concern" data-email-display="address">support email</a>.</p>
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">July 12, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
@@ -970,9 +1001,10 @@ todaysdailybattle.com/where-support-goes</textarea>
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <script nonce="tdb2025s">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
   <script type="module" src="config.js"></script>
-  <script src="browser-shared.js?v=20260413authhardening" defer></script>
-  <script src="auth.js?v=20260413authhardening" defer></script>
+  <script src="browser-shared.js" defer></script>
+  <script src="auth.js" defer></script>
   <script type="module" src="script.js?v=20260709-wave4" data-cfasync="false"></script>
-  <script src="owner-console.js?v=20260413authhardening" defer></script>
+  <script src="tdb-home-funnel.js?v=20260804-funnel" defer></script>
+  <script src="owner-console.js" defer></script>
 </body>
 </html>

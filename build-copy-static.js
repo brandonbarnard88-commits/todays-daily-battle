@@ -231,6 +231,7 @@ const rootFiles = [
   'verse-breakdown.js',
   'verse-breakdown-overrides.js',
   'bbe-simple.js',
+  'tdb-home-funnel.js',
   'kjv-dictionary.js',
   'bible-study-companion.js',
   'word-study.js',

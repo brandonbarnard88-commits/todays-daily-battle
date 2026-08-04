@@ -49,8 +49,10 @@
         <div class="stats-card"><strong id="stat-push-sent">—</strong> Push sent (last run)</div>
       </div>
       <p id="stats-push-note" class="stats-note">Push health: loading latest run...</p>
-      <p class="stats-note">Connect Cloudflare Analytics (or your backend) to show real numbers. See CONFIG.md for CF_ANALYTICS_TOKEN and API usage.</p>
-      <p><a href="index.html" class="btn btn-secondary">Back to site</a></p>
+      <h3 style="margin-top:1.25rem;">Home funnel (this browser, 7 days)</h3>
+      <div class="stats-row" id="stat-funnel-row"></div>
+      <p class="stats-note">Local only. World traffic: <a href="https://analytics.google.com/" rel="noopener" target="_blank">GA4</a> · guide: <a href="/founder-analytics.html">founder-analytics.html</a> · set <code>CF_ANALYTICS_TOKEN</code> for Cloudflare Web Analytics.</p>
+      <p><a href="index.html" class="btn btn-secondary">Back to site</a> <a href="/admin.html" class="btn btn-secondary">Admin</a></p>
     </div>
     <p class="stats-note" style="margin-top: 1.25rem; text-align: center;">
       <a href="explore.html">Explore</a>
@@ -125,6 +127,26 @@
           alert('Wrong password.');
         }
       });
+    })();
+  </script>
+  <script src="/tdb-home-funnel.js?v=20260804-funnel" defer></script>
+  <script>
+    (function(){
+      function paintFunnel(){
+        var row=document.getElementById("stat-funnel-row");
+        if(!row) return;
+        var sum=window.TDBHomeFunnel&&window.TDBHomeFunnel.getSummary?window.TDBHomeFunnel.getSummary(7):{totals:{}};
+        var map={home_verse_view:"Verse",home_bbe_open:"BBE",home_ask_search:"Ask",home_plans_click:"Plans",home_calm_click:"Calm"};
+        row.innerHTML="";
+        Object.keys(map).forEach(function(k){
+          var d=document.createElement("div"); d.className="stats-card";
+          d.innerHTML="<strong>"+((sum.totals&&sum.totals[k])||0)+"</strong> "+map[k];
+          row.appendChild(d);
+        });
+      }
+      var obs=new MutationObserver(function(){ if(document.getElementById("stats-dashboard")&&document.getElementById("stats-dashboard").style.display!=="none") paintFunnel(); });
+      if(document.body) obs.observe(document.body,{attributes:true,subtree:true,attributeFilter:["style"]});
+      setTimeout(paintFunnel, 400);
     })();
   </script>
 </body>

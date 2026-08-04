@@ -144,6 +144,7 @@
     summary.className = 'tdb-bbe-simple__summary';
     summary.appendChild(document.createTextNode(opts.summaryLabel || 'Simpler English (BBE)'));
     details.appendChild(summary);
+    if (opts.open) details.open = true;
 
     var body = document.createElement('div');
     body.className = 'tdb-bbe-simple__body';
@@ -208,7 +209,7 @@
     return block;
   }
 
-  /** Wire homepage hero: #heroBbeSimple or inject after #heroVbdPrimary. */
+  /** Wire homepage hero: #heroBbeSimple (preferred before layman) or inject before layman. */
   function wireHero(ref) {
     var r = normalizeRef(ref);
     if (!r) return;
@@ -226,8 +227,14 @@
       }
       return host;
     }
-    var anchor = document.getElementById('heroVbdPrimary') || document.getElementById('heroSimpleBreakdown');
-    if (anchor) return attachAfter(anchor, r, { className: 'tdb-bbe-simple--hero' });
+    /* Prefer inserting BBE before collapsed layman, not after it. */
+    var layman = document.getElementById('heroVbdPrimary') || document.getElementById('heroSimpleBreakdown');
+    if (layman && layman.parentNode) {
+      var block = buildDetailsBlock(r, { className: 'tdb-bbe-simple--hero', open: true });
+      layman.parentNode.insertBefore(block, layman);
+      if (block.open) fillHost(block.querySelector('.tdb-bbe-simple__body') || block, r);
+      return block;
+    }
     return null;
   }
 
@@ -243,6 +250,8 @@
           el.addEventListener('toggle', function () {
             if (el.open) fillHost(el, ref);
           });
+          /* Already open (e.g. hero defaults open) — load without waiting for a toggle. */
+          if (el.open) fillHost(el, ref);
         } else {
           fillHost(el, ref);
         }

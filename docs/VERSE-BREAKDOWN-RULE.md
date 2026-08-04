@@ -12,14 +12,14 @@ For each verse surface, ship **all** of the following sections. Copy may vary by
 
 1. **Reference + KJV label** — e.g. `John 3:16 (KJV)` with the verse reference clearly marked.
 2. **Full KJV verse** — exact text, quoted faithfully. The KJV remains primary Scripture.
-3. **Simple layman terms** — short, plain English that unpacks meaning without slangy hype.
-3b. **Optional Simpler English (BBE)** — public-domain Bible in Basic English, clearly labeled, only when the user opens it. Never replace or relabel KJV as BBE. See **`bible-credits.html`**.
-4. **Who’s talking?** — speaker / voice (Jesus, Paul, David, narrator, etc.), stated simply.
-5. **Who is He/she talking to?** — original audience first; include “for us too” where helpful.
-6. **How it relates today** — anchored to the **current calendar year** in the heading (e.g. “How it relates today (2026)”). Body: honest, culturally aware, steady—not fear-mongering or political.
-7. **How it relates to you right now** — gentle, personal application for the reader’s daily battle.
-8. **One small step today** — one practical, doable action.
-9. **A simple prayer** — short, honest words the user can pray immediately.
+3. **Simpler English (BBE)** — public-domain Bible in Basic English, clearly labeled, under the KJV (often open by default as a reading bridge). Never replace or relabel KJV as BBE. See **`bible-credits.html`**.
+4. **Simple layman terms** — short, plain English that unpacks meaning without slangy hype (may sit collapsed under BBE).
+5. **Who’s talking?** — speaker / voice (Jesus, Paul, David, narrator, etc.), stated simply.
+6. **Who is He/she talking to?** — original audience first; include “for us too” where helpful.
+7. **How it relates today** — anchored to the **current calendar year** in the heading (e.g. “How it relates today (2026)”). Body: honest, culturally aware, steady—not fear-mongering or political.
+8. **How it relates to you right now** — gentle, personal application for the reader’s daily battle.
+9. **One small step today** — one practical, doable action.
+10. **A simple prayer** — short, honest words the user can pray immediately.
 
 ---
 
@@ -30,7 +30,7 @@ Use the shared structure so hydration, styles, and future tools stay predictable
 - Wrapper: **`verse-breakdown-container`**
 - Reference line: **`big-kjv`** (`<strong>Book Chapter:Verse (KJV)</strong>`)
 - Verse line: **`verse-body`** with the full verse in quotation marks
-- Teaching block: **`verse-breakdown`** containing **`h4` + `p`** pairs in the order above (layman → speaker → audience → relates today → relates to you)
+- Teaching block: **`verse-breakdown`** containing BBE (optional) then **`h4` + `p`** pairs (layman → speaker → audience → relates today → relates to you)
 - **`next-step`** — line beginning with **One small step today:**
 - **`prayer-block`** — **A simple prayer:** then the prayer text
 

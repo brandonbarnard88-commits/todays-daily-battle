@@ -142,3 +142,23 @@ body.no-tdb-bottom-nav .spacer {
   body.no-tdb-bottom-nav .site-header .site-crest-svg { max-height: 2.75rem; }
   body.no-tdb-bottom-nav .site-top-links-secondary { display: none; }
 }
+
+.tdb-bbe-simple--always-open .tdb-bbe-simple__heading,
+.tdb-layman-always-open .tdb-layman-heading {
+  margin: 0 0 0.35rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--muted, #6b7280);
+}
+.tdb-bbe-simple--always-open .tdb-bbe-simple__credit {
+  margin: 0.4rem 0 0;
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+.tdb-hero-trust-whisper {
+  margin: 0.35rem 0 0.55rem;
+  font-size: 0.82rem;
+  opacity: 0.8;
+}

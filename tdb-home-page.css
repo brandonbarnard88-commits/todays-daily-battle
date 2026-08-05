@@ -784,6 +784,7 @@
       z-index: 2;
       border-radius: 50%;
       background: #fff;
+      box-shadow: 0 0 2px 0.5px rgba(220, 235, 255, 0.55);
       animation: star-twinkle ease-in-out infinite;
       will-change: opacity, transform;
     }

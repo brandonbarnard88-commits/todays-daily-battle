@@ -2,6 +2,7 @@
  * Homepage feel-search, FEEL_GROUPS, plan modals, and companion wiring.
  * Extracted from index.html for faster first paint (defer after DOM).
  * 20260805-sky-night: keep initHeaderSky reachable after PWA null-guard.
+ * 20260805-sky-stars: night stars always paint (incl. reduce-motion); shooters on mobile.
  */
 // Hero verse: pools + first-paint above; 365 idle. Dist injects today’s verse into HTML for LCP.
 const OFFLINE_PACK = window.__TDB_HERO_OFFLINE_PACK || [];
@@ -4149,10 +4150,14 @@ function readSkyGeoForSolar() {
 }
 
 function getSkyClassFixed(h) {
+  /* Night 9p–5a (stars/moon); dawn 5–7:30a; day 7:30a–6:30p; dusk 6:30p–9p. */
   var isDawn  = h >= 5   && h < 7.5;
   var isDusk  = h >= 18.5 && h < 21;
-  var isNight = !(h >= 6 && h < 21);
-  return isDawn ? 'sky-dawn' : isDusk ? 'sky-dusk' : isNight ? 'sky-night' : 'sky-day';
+  var isNight = h < 5 || h >= 21;
+  if (isNight) return 'sky-night';
+  if (isDawn) return 'sky-dawn';
+  if (isDusk) return 'sky-dusk';
+  return 'sky-day';
 }
 
 function resolveSkyClassNow() {
@@ -4195,7 +4200,10 @@ function paintSkyDecorations(layer, r, skyClass) {
   var plane = getSkyCelestialPlane(layer);
   if (!plane) return;
   var isMobile = window.innerWidth < 600;
-  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduced = false;
+  try {
+    reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  } catch (eRed) { reduced = false; }
   var isNightSky = skyClass === 'sky-night';
 
   if (!isNightSky) {
@@ -4205,28 +4213,34 @@ function paintSkyDecorations(layer, r, skyClass) {
   var isDawn = skyClass === 'sky-dawn';
   var isDusk = skyClass === 'sky-dusk';
 
-  if (isNightSky && !reduced) {
-    var starCount = isMobile ? 55 : 110;
+  /* Night sky: always paint stars (static when reduce-motion). Moon always. Shooters when motion OK. */
+  if (isNightSky) {
+    var starCount = isMobile ? 70 : 120;
     for (var i = 0; i < starCount; i++) {
       var st = document.createElement('div');
-      st.className = 'sky-star' + (r() > 0.82 ? ' glow' : '');
-      var sz = r() * 1.5 + 0.5;
-      var lo = r() * 0.25 + 0.15, hi = lo + r() * 0.5 + 0.25;
+      st.className = 'sky-star' + (r() > 0.78 ? ' glow' : '');
+      /* Slightly larger so stars read on retina / bright screens */
+      var sz = (isMobile ? 1.1 : 0.9) + r() * (isMobile ? 2.2 : 1.9);
+      var lo = r() * 0.25 + 0.22, hi = Math.min(0.95, lo + r() * 0.5 + 0.28);
       var scale = (1.08 + r() * 0.18).toFixed(2);
+      var anim = reduced
+        ? 'animation:none;opacity:' + (0.55 + r() * 0.4).toFixed(2) + ';'
+        : 'animation-duration:' + (r() * 3 + 2) + 's;animation-delay:-' + (r() * 5) + 's;';
       st.style.cssText =
         'left:' + (r() * 98) + '%;' +
-        'top:'  + (r() * 82) + '%;' +
-        'width:' + sz + 'px;height:' + sz + 'px;' +
+        'top:'  + (r() * 78) + '%;' +
+        'width:' + sz.toFixed(2) + 'px;height:' + sz.toFixed(2) + 'px;' +
         '--so-lo:' + lo.toFixed(2) + ';--so-hi:' + hi.toFixed(2) + ';' +
         '--so-scale:' + scale + ';' +
-        'animation-duration:' + (r() * 3 + 2) + 's;' +
-        'animation-delay:-' + (r() * 5) + 's;';
+        anim;
       var cv = r();
       st.style.background = cv > 0.65 ? 'rgba(220,228,255,1)' : cv > 0.3 ? 'rgba(255,248,230,1)' : '#fff';
       plane.appendChild(st);
     }
-    if (!isMobile) {
-      for (var si = 0; si < 2; si++) {
+    if (!reduced) {
+      /* Mobile gets one recurring shooter; desktop two. */
+      var shooterCount = isMobile ? 1 : 2;
+      for (var si = 0; si < shooterCount; si++) {
         (function scheduleShooter(delay) {
           setTimeout(function fire() {
             if (!document.body.classList.contains('sky-night')) return;
@@ -4241,8 +4255,8 @@ function paintSkyDecorations(layer, r, skyClass) {
               '--shoot-angle:' + angle.toFixed(1) + 'deg;' +
               'animation-duration:' + dur.toFixed(2) + 's;';
             plane.appendChild(sh);
-            setTimeout(function() { sh.remove(); }, (dur + 0.5) * 1000);
-            setTimeout(fire, 9000 + r() * 12000);
+            setTimeout(function() { if (sh.parentNode) sh.parentNode.removeChild(sh); }, (dur + 0.5) * 1000);
+            setTimeout(fire, (isMobile ? 14000 : 9000) + r() * 12000);
           }, delay);
         })(si * 6000 + r() * 4000);
       }

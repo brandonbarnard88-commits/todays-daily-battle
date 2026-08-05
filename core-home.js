@@ -16,7 +16,7 @@
     }
   } catch (_) {}
 
-  var INTERACTIVE_SRC = 'script.js?v=20260804-free-forever';
+  var INTERACTIVE_SRC = 'script.js?v=20260805-campus-grove';
   var loaded = false;
   var pendingQuery = '';
 

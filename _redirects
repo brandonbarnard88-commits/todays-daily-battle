@@ -14,6 +14,16 @@
 /mystudy/ /mystudy.html 200!
 /mystudy.html /mystudy 301
 
+# Campus map (Grove + buildings)
+/campus /campus.html 200!
+/campus/ /campus.html 200!
+# Campus building clean URLs
+/bible-tool /bible-tool.html 200!
+/bible-tool/ /bible-tool.html 200!
+/church-hub /church-hub.html 200!
+/church-hub/ /church-hub.html 200!
+
+
 # About (clean URL; links use /about.html but /about must resolve on Cloudflare Pages)
 /about /about.html 200!
 /about/ /about.html 200!

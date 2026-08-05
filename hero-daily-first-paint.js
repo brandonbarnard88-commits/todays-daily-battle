@@ -178,8 +178,17 @@
     var body = sanitizeText(text);
     var bodyLower = body.toLowerCase();
     var curatedPlain = '';
+    var dayStep = '';
     try {
-      if (typeof window.getPlainMeaning === 'function') {
+      // Prefer the 365 hand-crafted Grove explanations (quality over bulk stamps).
+      if (typeof window.TDB_GET_HERO_EXPLANATION_BY_REF === 'function') {
+        var dayEx = window.TDB_GET_HERO_EXPLANATION_BY_REF(ref);
+        if (dayEx && dayEx.plain) {
+          curatedPlain = sanitizeText(dayEx.plain || '');
+          dayStep = sanitizeText(dayEx.step || '');
+        }
+      }
+      if ((!curatedPlain || isWeakHeroPlainPaint(curatedPlain, body)) && typeof window.getPlainMeaning === 'function') {
         curatedPlain = sanitizeText(window.getPlainMeaning(ref) || '');
       }
     } catch (_) {}
@@ -228,8 +237,11 @@
     }
     if (!plainEasy) {
       plainEasy = 'Read this verse slowly. Let one clear phrase stay with you through the next hour.';
-    } else if (plainEasy.length > 180) {
-      plainEasy = plainEasy.slice(0, 177).trim() + '…';
+    } else if (plainEasy.length > 220) {
+      plainEasy = plainEasy.slice(0, 217).trim() + '…';
+    }
+    if (dayStep) {
+      stepLine = 'So do this: ' + dayStep;
     }
 
     return {

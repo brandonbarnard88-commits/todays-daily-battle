@@ -16,7 +16,7 @@
     }
   } catch (_) {}
 
-  var INTERACTIVE_SRC = 'script.js?v=20260804-audit-pass';
+  var INTERACTIVE_SRC = 'script.js?v=20260805-four-pillars';
   var loaded = false;
   var pendingQuery = '';
 

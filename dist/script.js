@@ -6,13 +6,33 @@
  * Public APIs locked: getSearchOutputElement(22318), wireSmartSearch early-return on #feelSuggestDropdown(30155+), TDB_TOPICS(2979), runSearchWithInput(stub 335/impl 25191).
  * Safe pure for extraction to daily-battle-core.js (Strangler Fig facade at 2580): getVerseBreakdown(12567), normalizeBibleRef(12512), parseBookFromRef(12528), rephraseArchaic(12538), inferApplies(12551), getBibleVerseText(12592), getDailyVerseRef*, getVerseContext(13169), getRelatedRefsForVerse(13472+), normalizeEmotionSignal(13405), offline pure helpers, DAILY_VERSE_SAFE_REFS/BOOK_CONTEXT/ARCHAIC_WORDS/ROTATING_HERO_VERSES data. Aligns to KJV-only, breakdown template, concordance (meaning/action/outcome), offline cache rule. No DOM/search/wiring moved. Tests pass.
  */
+/** Infer surface (home / plans / church) when page loaders did not set TDB_SURFACE. See docs/SCRIPT-SURFACES.md */
+(function tdbInferSurface() {
+  if (typeof window === 'undefined') return;
+  if (window.TDB_SURFACE) return;
+  try {
+    var p = (typeof location !== 'undefined' && location.pathname) ? String(location.pathname) : '';
+    if (p === '/' || p === '/index.html' || p === '') {
+      window.TDB_SURFACE = 'home';
+    } else if (/\/plans(\.html)?$/i.test(p) || p.indexOf('/plans/') === 0) {
+      window.TDB_SURFACE = 'plans';
+    } else if (/church|pastor|sermon/i.test(p)) {
+      window.TDB_SURFACE = 'church';
+    } else {
+      window.TDB_SURFACE = 'shared';
+    }
+  } catch (_) {
+    window.TDB_SURFACE = 'shared';
+  }
+})();
+
 (function tdbEnsureRegisterSwScript() {
   if (typeof window === 'undefined' || typeof document === 'undefined') return;
   if (typeof window.tdbRegisterServiceWorker === 'function') return;
   if (!('serviceWorker' in navigator)) return;
   if (document.querySelector('script[data-tdb-sw-register]')) return;
   var s = document.createElement('script');
-  s.src = '/register-sw.js?v=20260804-audit-pass';
+  s.src = '/register-sw.js?v=20260805-four-pillars';
   s.defer = true;
   s.setAttribute('data-tdb-sw-register', '1');
   (document.head || document.documentElement).appendChild(s);
@@ -58,7 +78,7 @@ function tdbIsHomePage() {
   function injectVerseBreakdownStack() {
     if (!window.TDB_VERSE_BREAKDOWN_DATA && !document.querySelector('script[data-tdb-verse-breakdown-overrides]')) {
       var seed = document.createElement('script');
-      seed.src = '/verse-breakdown-overrides.js?v=20260804-audit-pass';
+      seed.src = '/verse-breakdown-overrides.js?v=20260805-audit-focus-lock';
       seed.defer = true;
       seed.setAttribute('data-tdb-verse-breakdown-overrides', '1');
       (document.head || document.documentElement).appendChild(seed);
@@ -75,7 +95,7 @@ function tdbIsHomePage() {
     /* Optional BBE simpler English — load even if verse-breakdown already present. */
     if (!document.querySelector('script[data-tdb-bbe-simple]')) {
       var bbe = document.createElement('script');
-      bbe.src = '/bbe-simple.js?v=20260804-audit-pass';
+      bbe.src = '/bbe-simple.js?v=20260805-audit-focus-lock';
       bbe.defer = true;
       bbe.setAttribute('data-tdb-bbe-simple', '1');
       (document.head || document.documentElement).appendChild(bbe);
@@ -83,7 +103,7 @@ function tdbIsHomePage() {
     if (window.TDBVerseBreakdown) return;
     if (document.querySelector('script[data-tdb-verse-breakdown]')) return;
     var s = document.createElement('script');
-    s.src = '/verse-breakdown.js?v=20260804-audit-pass';
+    s.src = '/verse-breakdown.js?v=20260805-audit-focus-lock';
     s.defer = true;
     s.setAttribute('data-tdb-verse-breakdown', '1');
     (document.head || document.documentElement).appendChild(s);
@@ -2774,7 +2794,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[data-lazy-src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
   var trustedStd = trustedScriptURL('/verse-breakdown-standard.js?v=20260428-vbd');
-  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260804-audit-pass');
+  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260805-audit-focus-lock');
   if (!trustedStd || !trusted) return;
   var stdScr = document.createElement('script');
   stdScr.src = trustedStd;
@@ -4309,13 +4329,18 @@ function renderQuickTopicButtons(containerId, firstIsPrimary, useHeroTopics) {
   });
   container.innerHTML = html;
 }
-// Phase 1 (paywalls off): all spiritual/study tools are free. Tier lookup still runs for
-// admin/compat and existing subscribers; feature gates treat everyone as welcome.
-// Call fetchProfileTier() and fetchBattleProStatus() on load when session exists (legacy status only).
+// FREE FOREVER: all spiritual/study tools stay free for everyone. No paywalls for Scripture,
+// plans, prayer, kids, offline helpers, or pastor tools. Optional gifts never unlock access.
+// Tier lookup may still run for legacy data; feature gates always welcome the visitor.
 function isProUser() {
   return true;
 }
+function isProOrSupporter() {
+  return true;
+}
 window.isProUser = isProUser;
+window.isProOrSupporter = isProOrSupporter;
+window.TDB_FREE_FOREVER = true;
 
 function updateMasterStatus(user) {
   const email = (user?.email || '').toLowerCase();
@@ -11580,10 +11605,11 @@ window.TDB_GO_TO_CHECKOUT = async function (tier, period) {
 function tdbRedirectSubscriptionCheckoutToGive(source) {
   try {
     if (typeof trackEvent === 'function') {
-      trackEvent('subscription_checkout_closed', { source: String(source || '') });
+      trackEvent('subscription_checkout_closed', { source: String(source || 'free_forever'), free_forever: true });
     }
   } catch (e) {}
-  window.location.href = '/give';
+  // No paid tiers — only optional gifts. Tools stay free either way.
+  window.location.href = '/give#free-forever';
 }
 
 function isPrayersApiAvailable() {
@@ -18854,7 +18880,8 @@ function updateFirstPrayerBadge() {
 function updateOfflinePrefetchUI() {
   const wrap = document.getElementById('offline-prefetch-wrap');
   if (!wrap) return;
-  wrap.style.display = (typeof isProUser === 'function' && isProUser()) ? 'block' : 'none';
+  // Free forever — offline helpers are for everyone who wants them.
+  wrap.style.display = 'block';
 }
 
 function wireOfflinePrefetch() {
@@ -26617,58 +26644,57 @@ function updateAuthUI(session) {
     if (loggedInEl) loggedInEl.classList.add('hidden');
     const headerNudge = document.querySelector('.header-signin-nudge');
     if (headerNudge) headerNudge.classList.remove('hidden');
+    // Free forever: never show Pro badges or premium locks.
     var proBadge = document.getElementById('battle-pro-badge');
     if (proBadge) proBadge.classList.add('hidden');
-    try { window.__tdb_battle_pro_active = false; localStorage.removeItem('tdb_battle_pro'); } catch (e) {}
+    try { window.__tdb_battle_pro_active = true; localStorage.setItem('tdb_battle_pro', '1'); } catch (e) {}
     var downloadWrap = document.getElementById('download-devotional-wrap');
-    if (downloadWrap) downloadWrap.classList.add('hidden');
+    if (downloadWrap) downloadWrap.classList.remove('hidden');
     var lockEl = document.getElementById('premium-devotionals-lock');
-    if (lockEl) lockEl.classList.remove('hidden');
+    if (lockEl) {
+      lockEl.classList.add('hidden');
+      lockEl.setAttribute('hidden', '');
+      lockEl.setAttribute('aria-hidden', 'true');
+    }
   }
   if (session && currentUserId) {
     fetchBattleProStatus();
     fetchProfileTier();
   }
+  // Apply free-forever UI even without a session.
+  try {
+    var lockAlways = document.getElementById('premium-devotionals-lock');
+    if (lockAlways) {
+      lockAlways.classList.add('hidden');
+      lockAlways.setAttribute('hidden', '');
+      lockAlways.setAttribute('aria-hidden', 'true');
+    }
+    var dwAlways = document.getElementById('download-devotional-wrap');
+    if (dwAlways) dwAlways.classList.remove('hidden');
+    if (typeof updateOfflinePrefetchUI === 'function') updateOfflinePrefetchUI();
+    if (typeof updateRoleViews === 'function') updateRoleViews();
+  } catch (e) {}
 }
 
 function fetchBattleProStatus() {
+  // Free forever: ignore paid subscription rows for access. Hide Pro badge always.
   var badge = document.getElementById('battle-pro-badge');
-  if (!supabaseClient || !currentUserId) {
-    if (badge) badge.classList.add('hidden');
-    try { window.__tdb_battle_pro_active = false; localStorage.removeItem('tdb_battle_pro'); } catch (e) {}
-    var dw = document.getElementById('download-devotional-wrap');
-    if (dw) dw.classList.add('hidden');
-    var lockEl = document.getElementById('premium-devotionals-lock');
-    if (lockEl) lockEl.classList.remove('hidden');
-    return;
+  if (badge) badge.classList.add('hidden');
+  try { window.__tdb_battle_pro_active = true; localStorage.setItem('tdb_battle_pro', '1'); } catch (e) {}
+  var dw = document.getElementById('download-devotional-wrap');
+  if (dw) dw.classList.remove('hidden');
+  var lockEl = document.getElementById('premium-devotionals-lock');
+  if (lockEl) {
+    lockEl.classList.add('hidden');
+    lockEl.setAttribute('hidden', '');
+    lockEl.setAttribute('aria-hidden', 'true');
   }
-  supabaseClient.from('battle_pro_subscriptions').select('plan, wins_report_unlocked, offline_downloads_enabled').eq('user_id', currentUserId).maybeSingle().then(function (r) {
-    if (r.error || !r.data) {
-      if (badge) badge.classList.add('hidden');
-      try { window.__tdb_battle_pro_active = false; localStorage.removeItem('tdb_battle_pro'); } catch (e) {}
-      var dw = document.getElementById('download-devotional-wrap');
-      if (dw) dw.classList.add('hidden');
-      var lockEl = document.getElementById('premium-devotionals-lock');
-      if (lockEl) lockEl.classList.remove('hidden');
-      return;
-    }
-    var row = r.data;
-    subscriptionTier = row.plan === 'church_team' || row.plan === 'church' ? 'church_team'
-      : (row.plan === 'supporter' ? 'supporter'
-      : (row.plan === 'pro' || row.plan === 'battlepro' ? 'pro'
-      : subscriptionTier));
-    if (badge) badge.classList.remove('hidden');
-    try {
-      window.__tdb_battle_pro_active = !!(row.wins_report_unlocked || row.offline_downloads_enabled);
-      if (window.__tdb_battle_pro_active) localStorage.setItem('tdb_battle_pro', '1');
-      else localStorage.removeItem('tdb_battle_pro');
-    } catch (e) {}
-    var downloadWrap = document.getElementById('download-devotional-wrap');
-    if (downloadWrap) downloadWrap.classList.remove('hidden');
-    var lockEl = document.getElementById('premium-devotionals-lock');
-    if (lockEl) lockEl.classList.add('hidden');
-    if (typeof updateRoleViews === 'function') updateRoleViews();
-  });
+  if (typeof updateRoleViews === 'function') updateRoleViews();
+  // Optional: keep legacy row fetch for admin analytics only — never gates access.
+  if (!supabaseClient || !currentUserId) return;
+  supabaseClient.from('battle_pro_subscriptions').select('plan').eq('user_id', currentUserId).maybeSingle().then(function () {
+    /* access is free forever; no UI lock from this row */
+  }).catch(function () {});
 }
 
 /**
@@ -27601,39 +27627,33 @@ function applyRoleAccess() {
     }
   });
 
-  const showPro = typeof isProOrSupporter === 'function' && isProOrSupporter();
-  const showChurch = subscriptionTier === 'church_team' || isMasterUser;
+  // Free forever: every visitor sees every tool link. No paid tiers.
+  const showPro = true;
+  const showChurch = true;
 
   const navLinks = document.querySelectorAll('.side-nav a[data-section], .site-nav a[data-section]');
   navLinks.forEach(link => {
-    const section = link.getAttribute('data-section');
-    if (section === 'wins-report') {
-      link.style.display = (showPro || isMasterUser) ? 'inline-flex' : 'none';
-    } else if (section === 'sermon-builder' || section === 'pastor-toolkit' || section === 'team-toolkit') {
-      link.style.display = showChurch ? 'inline-flex' : 'none';
-    } else {
-      link.style.display = 'inline-flex';
-    }
+    link.style.display = 'inline-flex';
   });
 
   document.querySelectorAll('.header-nav a[href="wins-report.html"]').forEach(function (a) {
-    a.style.display = (showPro || isMasterUser) ? '' : 'none';
+    a.style.display = '';
   });
   document.querySelectorAll('.header-nav a[href="sermon.html"]').forEach(function (a) {
-    a.style.display = showChurch ? '' : 'none';
+    a.style.display = '';
   });
 
   document.querySelectorAll('.quick-links a[href="sermon.html"]').forEach(function (a) {
-    a.style.display = showChurch ? '' : 'none';
+    a.style.display = '';
   });
   document.querySelectorAll('.quick-links a[href="wins-report.html"]').forEach(function (a) {
-    a.style.display = (showPro || isMasterUser) ? '' : 'none';
+    a.style.display = '';
   });
   document.querySelectorAll('.quick-links a[href="pastor-toolkit.html"]').forEach(function (a) {
-    a.style.display = showChurch ? '' : 'none';
+    a.style.display = '';
   });
   document.querySelectorAll('.quick-links a[href="team-toolkit.html"]').forEach(function (a) {
-    a.style.display = showChurch ? '' : 'none';
+    a.style.display = '';
   });
 }
 
@@ -39770,8 +39790,9 @@ async function tdbInitImpl() {
     const verseEl = document.getElementById('church-verse-of-day');
     const verseAdmin = document.getElementById('church-verse-admin');
     const assignWrap = document.getElementById('church-assign-wrap');
-    if (verseAdmin) verseAdmin.style.display = (subscriptionTier === 'church_team' || isMasterUser) ? 'block' : 'none';
-    if (assignWrap) assignWrap.style.display = (subscriptionTier === 'church_team' || isMasterUser) ? 'block' : 'none';
+    // Free forever: pastor tools visible to all (not a paid church tier).
+    if (verseAdmin) verseAdmin.style.display = 'block';
+    if (assignWrap) assignWrap.style.display = 'block';
     if (verseEl) {
       if (currentChurch) {
         const data = (churchVerseFromSupabase && churchVerseFromSupabase.ref) ? churchVerseFromSupabase : loadChurchVerseOfDay();

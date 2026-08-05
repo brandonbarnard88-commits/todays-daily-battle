@@ -14,6 +14,16 @@
 /mystudy/ /mystudy.html 200!
 /mystudy.html /mystudy 301
 
+# Campus map (Grove + buildings)
+/campus /campus.html 200!
+/campus/ /campus.html 200!
+# Campus building clean URLs
+/bible-tool /bible-tool.html 200!
+/bible-tool/ /bible-tool.html 200!
+/church-hub /church-hub.html 200!
+/church-hub/ /church-hub.html 200!
+
+
 # About (clean URL; links use /about.html but /about must resolve on Cloudflare Pages)
 /about /about.html 200!
 /about/ /about.html 200!
@@ -259,6 +269,11 @@
 /our-approach /about.html 301
 /contract /faq.html 301
 
+# Free forever: old "pricing" routes → optional gift page only (never a paywall).
+/pricing /give 301
+/pricing/ /give 301
+/pricing.html /give 301
+
 # Donation/support. /give must be a rewrite (200!), never 301↔.html — CF clean-URL
 # 308 (/give.html → /give) + our 301 (/give → /give.html) caused infinite redirect.
 /give /give.html 200!
@@ -280,7 +295,8 @@
 /billing /give 301
 /buymeacoffee /give 301
 /coffee /give 301
-/premium /pricing.html 301
+/premium /give 301
+/premium/ /give 301
 # Site-wide hand-built page list (search.html). Legacy /search used to send people to home Feel search.
 /search /search.html 200!
 /search/ /search.html 302

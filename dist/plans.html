@@ -2,9 +2,11 @@
 <!-- tdb build 20260404plans-bible-studies -->
 <html lang="en">
 <head>
+  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=20260805-four-pillars"></script>
+  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260805-four-pillars"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js?v=20260709-wave4"></script>
+  <script src="/tt-bootstrap.js?v=20260805-four-pillars"></script>
   <!-- tdb-cache-hygiene: _headers no-cache /plans (+ /plans); purge SOCIAL_PURGE_PATHS; bump service-worker CACHE_NAME if edge/PWA stale -->
 
   <!-- GA4 lazy-loaded after interaction -->
@@ -42,8 +44,11 @@
   </script>
   <link rel="preload" href="/plans-data.js" as="script" fetchpriority="low">
   <!-- Full stylesheet: no print/onload unlock (CSP blocks inline handlers; preload still warms the fetch). -->
-  <link rel="preload" href="styles.css?v=20260709-wave4" as="style" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=20260709-wave4" media="all">
+  <link rel="preload" href="styles.css?v=20260805-four-pillars" as="style" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css?v=20260805-four-pillars" media="all">
+  <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
+  <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
+
   <link rel="preload" href="tdb-visual-tokens.css?v=20260712-phase2a" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260712-phase2a">
   <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
@@ -3016,17 +3021,18 @@
   <nav class="tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
     <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel-standalone" id="tdb-primary-nav-toggle-standalone">
       <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
-      <span class="tdb-nav-flyout-toggle__label">Site</span>
+      <span class="tdb-nav-flyout-toggle__label">Campus</span>
     </button>
     <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-standalone">
-      <a href="/">Home</a>
+      <a href="/" aria-label="The Grove — today's verse">The Grove</a>
+      <a href="/campus">Campus</a>
       <a href="/#feel-section">Ask the Word</a>
-      <a href="/plans.html" id="nav-browse-curriculum" aria-label="Battle Plans — KJV tracks for hard weeks and quiet seasons">Battle Plans</a>
-      <a href="/calm.html" aria-label="Calm — one steady KJV verse when the moment is heavy">Calm</a>
+      <a href="/plans.html" id="nav-browse-curriculum" aria-label="The Paths — Battle Plans for hard weeks">The Paths</a>
+      <a href="/calm.html" aria-label="Quiet Hall — one steady KJV verse when the moment is heavy">Quiet Hall</a>
       <a href="/mystudy">My Study</a>
-      <a href="/family.html" aria-label="Family hub — verse, plans, printables">Family &amp; Kids</a>
+      <a href="/family.html" aria-label="Family Yard — verse, plans, printables">Family Yard</a>
       <a href="/explore.html">Explore</a>
-      <a href="/church-hub.html" id="nav-pastors" aria-label="Pastor and church tools">Pastors</a>
+      <a href="/church-hub.html" id="nav-pastors" aria-label="Pastor's Study — church tools">Pastor's Study</a>
       <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
       <details class="tdb-nav-more">
         <summary aria-haspopup="true">More tools</summary>
@@ -3248,7 +3254,7 @@
       </section>
 
       <nav class="tdb-core-seven tdb-quiet-container" aria-labelledby="plans-core-seven-label">
-        <p class="tdb-core-seven__label" id="plans-core-seven-label">Main doors</p>
+        <p class="tdb-core-seven__label" id="plans-core-seven-label">Campus</p>
         <ul class="tdb-core-seven__grid">
           <li><a class="tdb-core-seven__link" href="/"><span>Home</span><span class="tdb-core-seven__desc">Today&rsquo;s verse</span></a></li>
           <li><a class="tdb-core-seven__link" href="/#feel-section"><span>Ask the Word</span><span class="tdb-core-seven__desc">Feelings &amp; questions</span></a></li>
@@ -3261,12 +3267,10 @@
         </ul>
       </nav>
 
-      <aside class="tdb-porch-verse-widget tdb-surface-card" id="tdbPorchVerseWidget" role="complementary" aria-labelledby="tdbPorchVerseWidgetH" data-tdb-porch-verse-prebuilt="0">
+      <aside class="tdb-porch-verse-widget tdb-surface-card" id="tdbPorchVerseWidget" role="complementary" aria-labelledby="tdbPorchVerseWidgetH" data-tdb-porch-verse-prebuilt="1">
         <p class="tdb-porch-verse-widget__label" id="tdbPorchVerseWidgetH">Today&rsquo;s verse</p>
-        <p class="tdb-porch-verse-widget__ref" id="tdbPorchVerseRef">&mdash;</p>
-        <blockquote class="tdb-porch-verse-widget__text" id="tdbPorchVerseText">
-          <p class="section-note">Same quiet KJV calendar as Home.</p>
-        </blockquote>
+        <p class="tdb-porch-verse-widget__ref" id="tdbPorchVerseRef">Psalm 91:2 (KJV)</p>
+        <blockquote class="tdb-porch-verse-widget__text" id="tdbPorchVerseText"><p>“I will say of the Lord, He is my refuge and my fortress: my God; in him will I trust.”</p></blockquote>
         <div class="tdb-porch-verse-widget__actions">
           <a class="btn btn-secondary" href="/">Read with breakdown</a>
           <button type="button" class="link-button" id="tdbPorchVerseHide">Hide for today</button>
@@ -4616,7 +4620,7 @@
       <div class="detail-header">
         <button type="button" class="detail-back-btn" id="detailBackBtn" aria-label="Back to all plans">← Plans</button>
         <span class="detail-title" id="detailTitle"></span>
-        <a href="/" class="plans-home-link" aria-label="Back to Today's Daily Battle home">🏠 Home</a>
+        <a href="/" class="plans-home-link" aria-label="Back to Today's Daily Battle home">🏠 Grove</a>
       </div>
       <div class="detail-subtitle-row">
         <span class="detail-subtitle" id="detailSubtitle"></span>
@@ -4770,6 +4774,14 @@
     </div>
 
   </main>
+    <nav class="tdb-bottom-dock" aria-label="Campus navigation">
+      <a href="/" aria-label="The Grove — today’s verse">🌳 Grove</a>
+      <a href="/#feel-section" aria-label="Ask the Word">💬 Ask</a>
+      <a href="/plans.html" aria-label="The Paths — Battle Plans">🗓️ Paths</a>
+      <a href="/calm.html" aria-label="Quiet Hall — one steady verse">🌿 Quiet</a>
+      <a href="/campus" class="tdb-bottom-dock-more" aria-label="Campus map">🗺️ Campus</a>
+    </nav>
+
 
 <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
   <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
@@ -4788,11 +4800,12 @@
   </nav>
 
   <nav class="site-footer-essentials" aria-label="Key pages">
-    <a href="/">Home</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/" aria-label="The Grove — today's verse and Ask the Word">The Grove</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/#feel-section">Ask the Word</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/plans.html">Plans</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/calm.html">Calm</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/family.html">Family</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/plans.html">The Paths</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/calm.html">Quiet Hall</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/family.html">Family Yard</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/campus">Campus</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
@@ -4824,7 +4837,7 @@
     <a href="/prayer-wall.html">Prayer</a>
     <a href="/media.html">Media</a>
     <a href="/roadmap.html">Roadmap</a>
-    <a href="/pricing.html">Support</a>
+    <a href="/give">Support</a>
     <a href="/for-pastors.html">For pastors &amp; teachers</a>
     <a href="/reader.html">Chapter reader</a>
     <a href="/bible/tools.html">Study workshop</a>
@@ -4940,11 +4953,11 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">August 4, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
-  <script defer src="/language-switcher.js?v=20260709-wave4"></script>
+  <script defer src="/language-switcher.js?v=20260805-four-pillars"></script>
 </footer>
 
   <noscript>
@@ -5488,7 +5501,7 @@
             speaker: 'Paul — running hard toward something worth running toward', plain: 'You\'re not wandering. There\'s a mark. Press toward it.', today: 'What is the mark you\'re pressing toward right now?', action: 'Write it down. Put it somewhere you\'ll see it. Keep running.', prayer: 'Lord, I press toward the mark. Amen.',
             goal: 'If you want, one visible mark on paper — slow running still counts.' },
           { title: 'Already won', ref: '1 Corinthians 15:57', text: 'But thanks be to God, which giveth us the victory through our Lord Jesus Christ.',
-            speaker: 'Paul after explaining the resurrection — the victory is the point', plain: 'You\'re not fighting for victory. You\'re fighting from it.', today: 'Start from victory, not toward it. The battle is already decided.', action: 'Face today\'s hardest thing from this place: "He already won this."', prayer: 'Thanks be to God. He already won. Amen.',
+            speaker: 'Paul after explaining the resurrection — the victory is the point', plain: 'You\'re not fighting for victory. You\'re fighting from it.', today: 'Start from victory, not toward it. The battle is already decided.', action: 'Face today's hardest thing from this place: "He already won this."', prayer: 'Thanks be to God. He already won. Amen.',
             goal: 'If it helps, face one hard thing from \u201calready won\u201d — stance before effort.' },
           { title: 'Everlasting arms', ref: 'Deuteronomy 33:27', text: 'The eternal God is thy refuge, and underneath are the everlasting arms.',
             speaker: 'Moses\' final blessing over Israel before his death', plain: 'Under everything — the falls, the failures, the free dives — His arms are there.', today: 'You can\'t fall past His arms. They\'re eternal.', action: 'Breathe that in today. Really. He\'s got you underneath.', prayer: 'Lord, You\'ve got me underneath. Amen.',
@@ -5789,7 +5802,7 @@
             speaker: 'Paul, who received comfort in his own troubles', plain: 'Comfort is not a scarce secret for you alone. God comforts in tribulation so mercy can travel — gently, when you are ready — to another hurting soul.', today: 'Who might one day need the comfort you are receiving now — not today, perhaps, but someday?', action: 'Pray for one person in trouble by name; ask God to comfort them as He has comforted you.', prayer: 'God of all comfort, comfort me — and when the time is right, help me comfort another. Amen.',
             goal: 'If you want, pray one name by heart this week — no advice, just mercy asked.' },
           { title: 'No more tears', ref: 'Revelation 21:4', text: 'And God shall wipe away all tears from their eyes; and there shall be no more death, neither sorrow, nor crying, neither shall there be any more pain: for the former things are passed away.',
-            speaker: 'John, shown the city where grief meets its end', plain: 'This is the far shore — not a denial of today\'s tears, but a pledge that tears do not have the last word. The former things pass; His hand wipes every one.', today: 'After six days, what hope do you want to carry from this class into tomorrow?', action: 'Light a candle or open a window at dusk; thank God aloud for the coming end of sorrow.', prayer: 'Lord, wipe my tears in Your time; hold me while I wait. Thank You for the end of pain in Your presence. Amen.',
+            speaker: 'John, shown the city where grief meets its end', plain: 'This is the far shore — not a denial of today's tears, but a pledge that tears do not have the last word. The former things pass; His hand wipes every one.', today: 'After six days, what hope do you want to carry from this class into tomorrow?', action: 'Light a candle or open a window at dusk; thank God aloud for the coming end of sorrow.', prayer: 'Lord, wipe my tears in Your time; hold me while I wait. Thank You for the end of pain in Your presence. Amen.',
             goal: 'If it feels right, bookmark this plan — come back when grief is loud; you\u2019re already welcome here.' }
         ]
       },
@@ -6847,7 +6860,7 @@
             prayer: 'Lord, this feels smaller than I hoped. Be with us. Amen.' },
           { title: 'Work heartily unto the Lord', ref: 'Colossians 3:23-24', text: 'And whatsoever ye do, do it heartily, as to the Lord, and not unto men; Knowing that of the Lord ye shall receive the reward of the inheritance: for ye serve the Lord Christ.',
             plain: 'You are not ultimately working for attendance numbers or approval. You are working for the Lord.',
-            action: 'Do today\'s ministry as unto the Lord, not for visible results.',
+            action: 'Do today's ministry as unto the Lord, not for visible results.',
             prayer: 'Help me work heartily for You, not for men. Amen.' },
           { title: 'Trust and do good', ref: 'Psalm 37:3-5', text: 'Trust in the LORD, and do good; so shalt thou dwell in the land, and verily thou shalt be fed. Delight thyself also in the LORD; and he shall give thee the desires of thine heart. Commit thy way unto the LORD; trust also in him; and he shall bring it to pass.',
             plain: 'Small-church pastoring can make you question if your desires for growth will ever happen. God still sees them.',
@@ -11631,14 +11644,15 @@
   <!-- sync-shell-parity:plans-scripts -->
 
   <script type="module" src="config.js"></script>
-  <script type="module" src="script.js?v=20260709-wave4" data-cfasync="false"></script>
+  <script src="js/surfaces/plans.js?v=20260805-four-pillars"></script>
+  <script type="module" src="script.js?v=20260805-four-pillars" data-cfasync="false"></script>
   <script nonce="tdb2025s">
     (function () {
       var nonCriticalScripts = [
         '/porch-effects.js?v=20260507',
         '/plan-suggest-form.js',
-        '/share-page.js?v=20260709-wave4',
-        '/footer-build-stamp.js?v=20260709-wave4'
+        '/share-page.js?v=20260805-four-pillars',
+        '/footer-build-stamp.js?v=20260805-four-pillars'
       ];
       var loadNonCriticalPlansScripts = function () {
         nonCriticalScripts.forEach(function (src) {
@@ -11657,5 +11671,7 @@
   </script>
   <script defer src="tdb-porch-verse-widget.js?v=20260519-porch-verse"></script>
 
+
+  <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
 </body>
 </html>

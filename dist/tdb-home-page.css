@@ -12152,3 +12152,237 @@ a.plan-category-chip:focus-visible,
 }
 .tdb-home-more-when-ready__summary::-webkit-details-marker { display: none; }
 .tdb-home-more-when-ready__body { margin-top: 0.35rem; }
+
+/* campus-grove: lawn first, buildings second */
+.tdb-grove__sign {
+  margin: 0.35rem auto 0.15rem;
+  max-width: 42rem;
+  padding: 0 1rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(167, 210, 170, 0.92);
+}
+.tdb-grove__tagline {
+  margin: 0 auto 0.65rem;
+  max-width: 42rem;
+  padding: 0 1rem;
+  font-size: 0.95rem;
+  color: rgba(226, 232, 240, 0.78);
+  line-height: 1.45;
+}
+.tdb-home-primary-pair.tdb-grove {
+  position: relative;
+}
+.tdb-grove-paths {
+  margin: 1rem auto 1.25rem;
+  max-width: 42rem;
+  padding: 0 0.75rem;
+}
+.tdb-grove-paths__label {
+  margin: 0 0 0.55rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(227, 188, 103, 0.9);
+  letter-spacing: 0.04em;
+}
+.tdb-grove-paths__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .tdb-grove-paths__list { grid-template-columns: repeat(3, 1fr); }
+}
+.tdb-grove-paths__stone {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-height: 44px;
+  padding: 0.85rem 0.9rem;
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: rgba(15, 23, 42, 0.5);
+}
+.tdb-grove-paths__stone strong {
+  font-size: 0.98rem;
+  color: rgba(227, 188, 103, 0.95);
+}
+.tdb-grove-paths__stone span {
+  font-size: 0.82rem;
+  color: rgba(203, 213, 225, 0.88);
+  line-height: 1.35;
+}
+.tdb-grove-paths__stone:hover,
+.tdb-grove-paths__stone:focus-visible {
+  border-color: rgba(227, 188, 103, 0.45);
+  outline: 2px solid rgba(227, 188, 103, 0.35);
+  outline-offset: 2px;
+}
+.tdb-campus-map-home {
+  margin: 0.5rem auto 1.5rem;
+  max-width: 42rem;
+  padding: 1rem 1rem 1.15rem;
+  border-radius: 16px;
+  border: 1px solid rgba(167, 210, 170, 0.2);
+  background: linear-gradient(165deg, rgba(34, 80, 48, 0.14), rgba(8, 12, 22, 0.55));
+}
+.tdb-campus-map-home__eyebrow {
+  margin: 0 0 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(167, 210, 170, 0.9);
+}
+.tdb-campus-map-home__title {
+  margin: 0 0 0.35rem;
+  font-size: 1.2rem;
+  color: rgba(227, 188, 103, 0.95);
+}
+.tdb-campus-map-home__lead {
+  margin: 0 0 0.85rem;
+  font-size: 0.92rem;
+  color: rgba(226, 232, 240, 0.82);
+  line-height: 1.5;
+}
+.tdb-campus-buildings {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+.tdb-campus-building {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  padding: 0.7rem 0.8rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(8, 12, 22, 0.45);
+  min-height: 44px;
+}
+.tdb-campus-building__name {
+  font-weight: 650;
+  font-size: 0.95rem;
+  color: rgba(227, 188, 103, 0.95);
+}
+.tdb-campus-building__job {
+  font-size: 0.82rem;
+  color: rgba(203, 213, 225, 0.88);
+  line-height: 1.35;
+}
+.tdb-campus-building:hover,
+.tdb-campus-building:focus-visible {
+  border-color: rgba(227, 188, 103, 0.4);
+  outline: 2px solid rgba(227, 188, 103, 0.3);
+  outline-offset: 2px;
+}
+.tdb-campus-map-home__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  margin: 0.95rem 0 0;
+}
+.tdb-campus-map-home__study {
+  font-size: 0.9rem;
+  color: rgba(227, 188, 103, 0.9);
+}
+
+/* grove-best: quiet lawn, hide duplicate campus dump */
+.tdb-grove__free {
+  margin: 0 auto 0.75rem;
+  max-width: 42rem;
+  padding: 0 1rem;
+  font-size: 0.88rem;
+  color: rgba(167, 210, 170, 0.95);
+  line-height: 1.45;
+}
+.tdb-grove__free a { color: rgba(227, 188, 103, 0.95); }
+.tdb-campus-map-home__rest {
+  margin: 0.65rem 0 0;
+  font-size: 0.88rem;
+  color: rgba(203, 213, 225, 0.85);
+}
+/* Hide duplicate wayfinding below the real campus map — keep DOM for legacy anchors/scripts */
+body:has(#tdbCampusMapHome) #tdb-home-core-seven,
+body:has(#tdbCampusMapHome) #tdb-campus-schools,
+body:has(#tdbCampusMapHome) .tdb-porch-cards,
+body:has(#tdbCampusMapHome) .tdb-morning-doorway-hint,
+body:has(#tdbCampusMapHome) .site-plan-nudge,
+body:has(#tdbCampusMapHome) .site-family-mission-nudge,
+body:has(#tdbCampusMapHome) #patriotic-home-bundle,
+body:has(#tdbCampusMapHome) #whats-new-spring-2026,
+body:has(#tdbCampusMapHome) #challenge-30-banner,
+body:has(#tdbCampusMapHome) #referralNudge,
+body:has(#tdbCampusMapHome) #tdb-january-quiet {
+  display: none !important;
+}
+/* Capacity: calmer after map */
+body:has(#tdbCampusMapHome) #tdbCapacityDoor {
+  margin-top: 0.75rem;
+}
+/* Soft default: full shelf stays closed; summary clearer */
+#tdbHomeFullShelf > summary {
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.75rem 0.25rem;
+}
+
+/* audit-focus-love: persona lawn — hide lower campus noise */
+/* After Grove + paths + map + capacity, hide bulk optional UI (DOM kept for scripts/anchors) */
+body:has(#tdbCampusMapHome) #tdbHomeVerseExtras,
+body:has(#tdbCampusMapHome) #tdbHomePastorPlans,
+body:has(#tdbCampusMapHome) #tdbHomeMidQuietDrawer,
+body:has(#tdbCampusMapHome) #tdb-home-companion-doors,
+body:has(#tdbCampusMapHome) #tdb-home-votm,
+body:has(#tdbCampusMapHome) #newsletter,
+body:has(#tdbCampusMapHome) #tdbHeroTrustQuotes,
+body:has(#tdbCampusMapHome) .tdb-home-reader-stories--hero-trust,
+body:has(#tdbCampusMapHome) #tdbHomeFullShelf,
+body:has(#tdbCampusMapHome) #tdb-home-tools-shelf,
+body:has(#tdbCampusMapHome) #tdb-home-more-rooms,
+body:has(#tdbCampusMapHome) #tdb-home-doorways,
+body:has(#tdbCampusMapHome) #tdbDoorwaysDetails,
+body:has(#tdbCampusMapHome) #tdb-porch-sign-shelf,
+body:has(#tdbCampusMapHome) #tdbHomeMorePathsAlso,
+body:has(#tdbCampusMapHome) #tdbHomeMorePathsAfter,
+body:has(#tdbCampusMapHome) #tdbHomeMorePathsMid,
+body:has(#tdbCampusMapHome) #tdbStartMyDayBand,
+body:has(#tdbCampusMapHome) #plan-progress-card,
+body:has(#tdbCampusMapHome) #notifPermCard,
+body:has(#tdbCampusMapHome) #tdb-home-kids-ribbon,
+body:has(#tdbCampusMapHome) #tdbFamilyModeBridge,
+body:has(#tdbCampusMapHome) #en-hub-daily-verse,
+body:has(#tdbCampusMapHome) #tdbGentleRhythmSoft,
+body:has(#tdbCampusMapHome) #tdbHomeMobiusWeek,
+body:has(#tdbCampusMapHome) #quick-pray-wrap,
+body:has(#tdbCampusMapHome) #offline-banner,
+body:has(#tdbCampusMapHome) #pwaNudge,
+body:has(#tdbCampusMapHome) #install-cta,
+body:has(#tdbCampusMapHome) #tdb-from-builder,
+body:has(#tdbCampusMapHome) #prayer-counter-home,
+body:has(#tdbCampusMapHome) .explore-hero-row,
+body:has(#tdbCampusMapHome) .read-chapter-row,
+body:has(#tdbCampusMapHome) #tdbGentleNextSteps {
+  display: none !important;
+}
+.tdb-campus-map-home__persona {
+  margin: 0.4rem 0 0;
+  font-size: 0.86rem;
+  color: rgba(167, 210, 170, 0.9);
+}
+/* Capacity stays; keep it compact */
+body:has(#tdbCampusMapHome) #tdbCapacityDoor .tdb-capacity-door__list {
+  gap: 0.45rem;
+}

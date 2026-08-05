@@ -57,3 +57,6 @@ audio/mobius-guided-human-temp.*
 audio/mobius-guided-pad-temp.wav
 audio/mobius-guided-merged-temp.wav
 tmp/
+
+# Never commit git worktrees
+.worktrees/

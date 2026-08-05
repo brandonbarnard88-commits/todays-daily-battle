@@ -1,5 +1,0 @@
----
-alwaysApply: true
----
-
-"Always cache verse/loops for offline. Show 'Offline—still got you' if fetch fails."

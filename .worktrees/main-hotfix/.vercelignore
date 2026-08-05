@@ -1,7 +1,0 @@
-# CLI deploys upload the working tree (not only git-tracked files). Keep uploads small.
-node_modules/
-dist/
-.git/
-*.tar.gz
-*.zip
-.tmp-names.tsv

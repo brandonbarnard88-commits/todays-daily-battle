@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="900" height="600" aria-hidden="true">
-  <g fill="none" stroke="#0a0a0a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M200 360 L700 360"/>
-    <circle cx="300" cy="280" r="16"/><circle cx="420" cy="270" r="16"/><circle cx="540" cy="275" r="16"/>
-    <circle cx="660" cy="280" r="16"/>
-    <line x1="300" y1="296" x2="300" y2="340"/><line x1="420" y1="286" x2="420" y2="340"/>
-    <path d="M260 320 L340 300 M600 320 L680 300"/>
-  </g>
-</svg>

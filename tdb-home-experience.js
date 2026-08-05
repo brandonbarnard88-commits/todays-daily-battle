@@ -12,7 +12,14 @@
   var TOUR_SEEN_KEY = 'tdb-tour-seen';
 
   var FIRST_VISIT_KEEP_IDS = {
+    /* Grove wrapper holds verse + Ask after Campus+Grove / four-pillars.
+       Without this, first-visit mode (private windows) collapses the whole porch
+       into “See the rest of the porch…” and hides today’s verse. */
+    tdbHomePrimaryPair: true,
     tdbHeavyNow: true,
+    tdbCapacityDoor: true,
+    tdbGrovePaths: true,
+    tdbCampusMapHome: true,
     tdbFirstVisitStrip: true,
     tdbFirstVisitBanner: true,
     tdbTodaysVerseHeading: true,
@@ -22,11 +29,16 @@
     tdbHeroTrustQuotes: true,
     'quick-search-hero': true,
     tdbHomeNextDoors: true,
+    tdbHomeFirstDoors: true,
+    tdbHomeMoreWhenReady: true,
     tdbHomeVerseExtras: true,
     tdbHomeLaterDetails: true,
     tdbHomePastorPlans: true,
     tdbFirstVisitNextStep: true,
-    'tdb-first-visit-more-porch': true
+    'tdb-first-visit-more-porch': true,
+    'armor-builder-btn': true,
+    tdbHomeQuickLinks: true,
+    tdbCampusOptionalRest: true
   };
 
   /** Insert `el` immediately after `ref`. Safe when `el` is nested inside `ref`. */
@@ -115,6 +127,7 @@
 
   function reorderPrimaryFlow() {
     var main = document.getElementById('home-primary-flow');
+    var grove = document.getElementById('tdbHomePrimaryPair');
     var heavyNow = document.getElementById('tdbHeavyNow');
     var heading = document.getElementById('tdbTodaysVerseHeading');
     var verse = document.getElementById('hero-verse-wrap');
@@ -125,6 +138,21 @@
     var strip = document.getElementById('tdbFirstVisitStrip');
     var startBand = document.getElementById('tdbStartMyDayBand') || document.querySelector('.tdb-start-my-day-band');
     if (!main || !verse || !search) return;
+
+    /* Grove wrapper: verse + Ask already sit together. Prefer ordering that unit. */
+    if (grove && grove.parentNode === main) {
+      if (heavyNow && heavyNow.parentNode === main) {
+        main.insertBefore(heavyNow, main.firstChild);
+      }
+      if (strip && strip.parentNode === main) {
+        if (heavyNow && heavyNow.parentNode === main) after(strip, heavyNow);
+        else main.insertBefore(strip, main.firstChild);
+      }
+      var groveAnchor = strip || heavyNow;
+      if (groveAnchor && groveAnchor.parentNode === main) after(grove, groveAnchor);
+      else main.insertBefore(grove, main.firstChild);
+      return;
+    }
 
     /* VP1: Heavy first (crisis card), then soft Welcome strip, then verse → Ask */
     if (heavyNow && heavyNow.parentNode === main) {

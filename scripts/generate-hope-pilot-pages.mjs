@@ -218,7 +218,7 @@ function shell(html, lang, skip, brand, eyebrow, navLabel, main) {
     <a href="/privacy.html">Privacy</a>
     <a href="/terms.html">Terms</a>
     <a href="/faq.html">FAQ</a>
-    <a href="/pricing.html">Pricing</a>
+    <a href="/give">Pricing</a>
     <a href="/reader.html">Chapter reader</a>
     <a href="/bible-tool.html">Bible tool</a>
     <a href="/testimonials.html">Reader stories</a>

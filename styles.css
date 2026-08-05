@@ -25797,3 +25797,13 @@ body.no-tdb-bottom-nav .spacer {
   border:0!important
 }
 #main-search.sr-only{pointer-events:none!important}
+
+/* free-forever: never show premium locks */
+#premium-devotionals-lock,
+.premium-devotionals-lock,
+#battle-pro-badge,
+.battle-pro-upgrade-modal,
+#battle-pro-upgrade-modal {
+  display: none !important;
+  visibility: hidden !important;
+}

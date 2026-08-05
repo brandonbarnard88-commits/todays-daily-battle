@@ -1,6 +1,7 @@
 /**
  * Homepage feel-search, FEEL_GROUPS, plan modals, and companion wiring.
  * Extracted from index.html for faster first paint (defer after DOM).
+ * 20260805-sky-night: keep initHeaderSky reachable after PWA null-guard.
  */
 // Hero verse: pools + first-paint above; 365 idle. Dist injects today’s verse into HTML for LCP.
 const OFFLINE_PACK = window.__TDB_HERO_OFFLINE_PACK || [];

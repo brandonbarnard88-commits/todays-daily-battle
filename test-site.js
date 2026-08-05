@@ -95,7 +95,7 @@ const pages = [
   'Support this quiet place',
   'href="/give"',
   'hero-hero-pools.js?v=20260328pools',
-  'hero-daily-first-paint.js?v=20260805-four-pillars',
+  'hero-daily-first-paint.js?v=20260805-audit-focus-lock',
   'hero-daily-365-explanations.js?v=20260805-four-pillars',
   'js/surfaces/home.js?v=20260805-four-pillars',
   'archive/home-lower-blocks.html',

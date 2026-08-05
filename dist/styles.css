@@ -22059,6 +22059,139 @@ body.tdb-inner-page.tdb-calm-shelf-page main#main-content.app-content.tdb-quiet-
 }
 
 /* —— About page: typography utilities + reader stories toggle —— */
+.about-page {
+  max-width: 46rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.about-page > .glass.about-section {
+  margin-top: 1rem;
+  padding: 1.15rem 1.2rem 1.25rem;
+}
+.about-page > .glass.about-section + .glass.about-section {
+  margin-top: 0.85rem;
+}
+.about-onpage-nav {
+  margin: 0.85rem 0 0.35rem;
+  padding: 0.75rem 1rem;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--line, #334155) 80%, transparent);
+  background: color-mix(in srgb, var(--card, #161b22) 92%, var(--gold, #c9a44a) 5%);
+}
+.about-onpage-nav__label {
+  margin: 0 0 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted, #94a3b8);
+}
+.about-onpage-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.85rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.about-onpage-nav__list a {
+  font-size: 0.92rem;
+  font-weight: 550;
+  color: color-mix(in srgb, var(--text) 88%, var(--gold, #c9a44a));
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--gold, #c9a44a) 35%, transparent);
+}
+.about-onpage-nav__list a:hover,
+.about-onpage-nav__list a:focus-visible {
+  color: var(--gold-soft, #d4b06a);
+  outline: none;
+}
+.about-hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.85rem;
+}
+.about-doors {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0.85rem 0 1rem;
+}
+@media (min-width: 640px) {
+  .about-doors {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.85rem;
+  }
+}
+.about-door {
+  margin: 0;
+  padding: 0.85rem 0.9rem;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--line, #334155) 75%, var(--gold, #c9a44a) 12%);
+  background: color-mix(in srgb, var(--card, #161b22) 94%, transparent);
+}
+.about-door__title {
+  margin: 0 0 0.35rem;
+  font-size: 0.98rem;
+  font-weight: 650;
+  color: color-mix(in srgb, var(--text) 90%, var(--gold, #c9a44a));
+}
+.about-door__text {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+.about-plans-note {
+  margin-top: 0.55rem;
+  border-left: 2px solid rgba(227, 188, 103, 0.35);
+  padding-left: 0.85rem;
+}
+.about-whats-new-wrap {
+  padding: 0.85rem 1.1rem 1rem;
+}
+.about-whats-new-summary {
+  cursor: pointer;
+  list-style: none;
+}
+.about-whats-new-summary::-webkit-details-marker {
+  display: none;
+}
+.about-whats-new-summary .section-divider {
+  display: inline;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  font-size: 1.05rem;
+}
+.about-whats-new-hint {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.82rem;
+  color: var(--muted, #94a3b8);
+}
+.about-whats-new-body {
+  margin-top: 0.75rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid color-mix(in srgb, var(--line, #334155) 70%, transparent);
+}
+.about-subhead {
+  margin: 0.35rem 0 0.45rem;
+  font-size: 0.98rem;
+  font-weight: 650;
+}
+.about-closing {
+  text-align: left;
+}
+.about-feature-list {
+  margin: 0.5rem 0 0.75rem;
+  padding-left: 1.15rem;
+}
+.about-feature-list li {
+  margin: 0.25rem 0;
+}
+
 .about-byline--accent {
   font-weight: 700;
   font-size: 1.1rem;

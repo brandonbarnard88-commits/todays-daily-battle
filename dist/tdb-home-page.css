@@ -762,20 +762,39 @@
     html.tdb-perf-mode body.sky-night #sky-moon { animation: none !important; }
     html.tdb-perf-mode .sky-moon-svg { animation: none !important; }
 
-    /* Narrow viewports: calmer sky — fewer always-on animations (easier on battery/GPU on phones). */
-    @media (max-width: 600px) {
+    /* Narrow viewports: calmer continuous loops, but night stars + shooters stay visible. */
+    @media (max-width: 768px) {
       html:not(.tdb-perf-mode) .sky-stars-parallax,
       html:not(.tdb-perf-mode) .sky-aurora-veil,
       html:not(.tdb-perf-mode) .sky-aurora::before,
       html:not(.tdb-perf-mode) .sky-aurora::after { animation: none !important; }
-      html:not(.tdb-perf-mode) .sky-star { animation: none !important; }
+      /* Static stars (no twinkle loop) — keep solid opacity so they still read on phones */
+      html:not(.tdb-perf-mode) body.sky-night .sky-star {
+        animation: none !important;
+        opacity: 0.88 !important;
+        min-width: 1.5px;
+        min-height: 1.5px;
+        box-shadow: 0 0 3px 0.5px rgba(220, 235, 255, 0.65);
+      }
+      html:not(.tdb-perf-mode) body.sky-night .sky-star.glow {
+        opacity: 1 !important;
+        box-shadow: 0 0 5px 1px rgba(200, 220, 255, 0.75);
+      }
+      /* Keep shooting-star keyframes on mobile — do not kill .sky-shooter animation here */
       html:not(.tdb-perf-mode) body:not(.sky-night) .sky-sun { animation: none !important; }
       html:not(.tdb-perf-mode) .sky-sun::after { animation: none !important; }
-      html:not(.tdb-perf-mode) body.sky-night #sky-moon { animation: none !important; }
+      html:not(.tdb-perf-mode) body.sky-night #sky-moon { animation: moon-drift 90s ease-in-out infinite; }
       html:not(.tdb-perf-mode) .sky-cloud { animation: none !important; }
       html:not(.tdb-perf-mode) .sky-bird { animation: none !important; }
       html:not(.tdb-perf-mode) .sky-bird::before,
       html:not(.tdb-perf-mode) .sky-bird::after { animation: none !important; transform: rotate(-5deg); }
+    }
+
+    /* Perf mode still shows stars (static); allow rare shooters only when not hard-disabled via profile */
+    html.tdb-perf-mode body.sky-night .sky-star {
+      display: block !important;
+      opacity: 0.8 !important;
+      animation: none !important;
     }
 
     /* Stars — CSS animated, JS places them */
@@ -784,6 +803,7 @@
       z-index: 2;
       border-radius: 50%;
       background: #fff;
+      box-shadow: 0 0 2px 0.5px rgba(220, 235, 255, 0.55);
       animation: star-twinkle ease-in-out infinite;
       will-change: opacity, transform;
     }
@@ -4137,6 +4157,59 @@
       font-size: 0.96rem;
       line-height: 1.58;
       color: var(--text);
+    }
+
+    /* Always-open teaching block inside #verseCard (no <details> dropdown) */
+    #verseCard .tdb-dig-deeper--always-open {
+      display: block;
+      margin: 0.85rem 0 0.65rem;
+      padding: 0.85rem 0 0;
+      border-top: 1px solid color-mix(in srgb, var(--line, #334155) 70%, transparent);
+    }
+    #verseCard .tdb-dig-deeper--always-open[hidden] {
+      display: none !important;
+    }
+    #verseCard .tdb-dig-deeper__always-heading {
+      margin: 0 0 0.65rem;
+      font-size: 0.95rem;
+      font-weight: 650;
+      letter-spacing: 0.01em;
+      color: color-mix(in srgb, var(--text) 88%, var(--gold, #e3bc67));
+    }
+    #verseCard .tdb-dig-deeper--always-open .hero-vbd-bundle {
+      margin: 0 0 0.7rem;
+    }
+    #verseCard .tdb-dig-deeper--always-open .hero-vbd-bundle h4 {
+      margin: 0 0 0.25rem;
+      font-size: 0.88rem;
+      font-weight: 650;
+      color: var(--gold-soft, #d4b06a);
+    }
+    #verseCard .tdb-dig-deeper--always-open .hero-vbd-bundle p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: var(--text);
+    }
+    #verseCard .next-step {
+      margin: 0.75rem 0 0.5rem;
+      padding: 0.7rem 0.85rem;
+      border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 28%, var(--line));
+      background: color-mix(in srgb, var(--gold, #e3bc67) 8%, var(--card, #161b22));
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    #verseCard .prayer-block {
+      margin: 0.55rem 0 0.35rem;
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+    #verseCard .tdb-verse-human-note {
+      margin: 0.35rem 0 0.5rem;
+      font-size: 0.82rem;
+      color: var(--muted, #94a3b8);
+      font-style: italic;
     }
 
     details.tdb-dig-deeper {

@@ -736,3 +736,129 @@
     transition: none;
   }
 }
+
+/* Screen: storyboard print root stays off-page until print */
+.tdb-cat-storyboard-print {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  width: 8.5in;
+  pointer-events: none;
+}
+
+.tdb-cat-print-storyboard {
+  min-height: 48px;
+}
+
+@media print {
+  body.tdb-cat-printing-storyboard .app-shell,
+  body.tdb-cat-printing-storyboard .top-bar,
+  body.tdb-cat-printing-storyboard footer,
+  body.tdb-cat-printing-storyboard .skip-link,
+  body.tdb-cat-printing-storyboard .tdb-bottom-dock,
+  body.tdb-cat-printing-storyboard #tdb-cat-root > *:not(#tdb-cat-storyboard-print) {
+    display: none !important;
+  }
+
+  body.tdb-cat-printing-storyboard .tdb-cat-storyboard-print {
+    position: static;
+    left: auto;
+    width: 100%;
+    max-width: 8.5in;
+    margin: 0 auto;
+    color: #111;
+    background: #fff;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+
+  body.tdb-cat-printing-storyboard .tdb-cat-storyboard-print__banner {
+    text-align: center;
+    margin-bottom: 0.45rem;
+    page-break-inside: avoid;
+  }
+
+  body.tdb-cat-printing-storyboard .tdb-cat-storyboard-print__banner h1 {
+    margin: 0 0 0.25rem;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+
+  body.tdb-cat-printing-storyboard .tdb-cat-storyboard-print__top-verse {
+    margin: 0;
+    font-size: 0.78rem;
+    line-height: 1.35;
+    opacity: 0.9;
+  }
+
+  body.tdb-cat-printing-storyboard .tdb-cat-storyboard-print__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem 0.5rem;
+  }
+
+  body.tdb-cat-printing-storyboard .tdb-cat-storyboard-print__grid--two {
+    grid-template-columns: 1fr;
+    max-width: 5.5in;
+    margin: 0 auto;
+  }
+
+  body.tdb-cat-printing-storyboard .tdb-cat-storyboard-print__cell {
+    margin: 0;
+    border: 1.5px solid #222;
+    border-radius: 0.45rem;
+    padding: 0.3rem;
+    page-break-inside: avoid;
+    background: #fff;
+  }
+
+  body.tdb-cat-printing-storyboard .tdb-cat-storyboard-print__cell img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 3.15in;
+    object-fit: contain;
+  }
+
+  body.tdb-cat-printing-storyboard .tdb-cat-storyboard-print__cell figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    margin-top: 0.2rem;
+    text-align: center;
+  }
+
+  body.tdb-cat-printing-storyboard .tdb-cat-storyboard-print__caption {
+    font-size: 0.72rem;
+    font-weight: 600;
+  }
+
+  body.tdb-cat-printing-storyboard .tdb-cat-storyboard-print__kjv {
+    font-size: 0.68rem;
+    line-height: 1.3;
+  }
+
+  body.tdb-cat-printing-storyboard .tdb-cat-storyboard-print__foot {
+    margin-top: 0.55rem;
+    text-align: center;
+    page-break-inside: avoid;
+  }
+
+  body.tdb-cat-printing-storyboard .tdb-cat-storyboard-print__idea {
+    margin: 0 0 0.2rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+
+  body.tdb-cat-printing-storyboard .tdb-cat-storyboard-print__memory {
+    margin: 0 0 0.35rem;
+    font-size: 0.72rem;
+    line-height: 1.35;
+  }
+
+  body.tdb-cat-printing-storyboard .tdb-cat-storyboard-print__name {
+    margin: 0;
+    font-size: 0.78rem;
+    font-family: system-ui, sans-serif;
+  }
+}

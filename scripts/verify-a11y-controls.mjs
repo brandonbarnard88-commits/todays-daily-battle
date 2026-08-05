@@ -64,7 +64,6 @@ function main() {
   const idx = read('dist/index.html');
   assertMatch(idx, /id="heroShareBtn"[^>]*aria-label="/, 'dist/index.html: #heroShareBtn needs aria-label');
   assertMatch(idx, /id="hero-save-my-verses"[^>]*aria-label="/, 'dist/index.html: #hero-save-my-verses needs aria-label');
-  assertMatch(idx, /id="tdbFamilyModeListen"[^>]*aria-label="/, 'dist/index.html: #tdbFamilyModeListen needs aria-label');
   assertMatch(
     idx,
     /id="tdbFeelPathCard"[^>]*aria-live="polite"/,

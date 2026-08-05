@@ -1,6 +1,9 @@
 /**
  * Homepage feel-search, FEEL_GROUPS, plan modals, and companion wiring.
  * Extracted from index.html for faster first paint (defer after DOM).
+ * 20260805-sky-night: keep initHeaderSky reachable after PWA null-guard.
+ * 20260805-sky-stars: night stars always paint (incl. reduce-motion); shooters on mobile.
+ * 20260805-sky-mobile: phone-first stars (larger/denser) + 2 shooters; solid opacity under mobile CSS.
  */
 // Hero verse: pools + first-paint above; 365 idle. Dist injects today’s verse into HTML for LCP.
 const OFFLINE_PACK = window.__TDB_HERO_OFFLINE_PACK || [];
@@ -369,8 +372,9 @@ const heroBreakdown   = document.getElementById("heroBreakdown");
 const heroApplication = document.getElementById("heroApplication");
 const verseCard       = document.getElementById("verseCard");
 const verseNote       = document.getElementById("verseNote");
-const pwaNudge        = document.getElementById("pwaNudge");
-const pwaDismiss      = document.getElementById("pwaDismiss");
+/* Legacy #pwaNudge/#pwaDismiss archived; home uses #tdb-pwa-nudge (wired in script.js). */
+const pwaNudge        = document.getElementById("pwaNudge") || document.getElementById("tdb-pwa-nudge");
+const pwaDismiss      = document.getElementById("pwaDismiss") || document.getElementById("tdb-pwa-nudge-dismiss");
 
 function sanitizeText(value) {
   if (window.DOMPurify && typeof window.DOMPurify.sanitize === "function") {
@@ -1994,8 +1998,9 @@ function recordVerseFeedback(sentiment) {
     if (typeof trackEvent === 'function') trackEvent('verse_feedback', { sentiment: sentiment });
   } catch (e) {}
 }
-// ── PWA Nudge ──
+// ── PWA Nudge (optional; primary wiring lives in script.js for #tdb-pwa-nudge) ──
 function initPwaNudge() {
+  if (!pwaNudge) return;
   if (localStorage.getItem("tdb-pwa-nudge-dismissed")) return;
   const visitKey = "tdb-visit-count";
   const visits = (parseInt(localStorage.getItem(visitKey) || "0", 10) || 0) + 1;
@@ -2003,7 +2008,12 @@ function initPwaNudge() {
   const isStandalone = window.matchMedia("(display-mode: standalone)").matches
     || window.navigator.standalone === true;
   if (!isStandalone && visits >= 2) {
-    setTimeout(function () { pwaNudge.classList.add("show"); }, 5000);
+    setTimeout(function () {
+      if (!pwaNudge) return;
+      pwaNudge.classList.add("show");
+      pwaNudge.hidden = false;
+      pwaNudge.setAttribute("aria-hidden", "false");
+    }, 5000);
   }
 }
 function showPwaNudgeAfterEngagement() {
@@ -2012,15 +2022,23 @@ function showPwaNudgeAfterEngagement() {
     || window.navigator.standalone === true;
   if (!isStandalone && pwaNudge && !pwaNudge.classList.contains("show")) {
     pwaNudge.classList.add("show");
+    pwaNudge.hidden = false;
+    pwaNudge.setAttribute("aria-hidden", "false");
   }
   if (typeof window.__showInstallPromptWhenReady === "function") window.__showInstallPromptWhenReady();
 }
 window.showPwaNudgeAfterEngagement = showPwaNudgeAfterEngagement;
 
-pwaDismiss.addEventListener("click", () => {
-  pwaNudge.classList.remove("show");
-  localStorage.setItem("tdb-pwa-nudge-dismissed", "1");
-});
+if (pwaDismiss) {
+  pwaDismiss.addEventListener("click", () => {
+    if (pwaNudge) {
+      pwaNudge.classList.remove("show");
+      pwaNudge.hidden = true;
+      pwaNudge.setAttribute("aria-hidden", "true");
+    }
+    try { localStorage.setItem("tdb-pwa-nudge-dismissed", "1"); } catch (e) {}
+  });
+}
 
 // ── Verse image card: optional legacy share control (toolbar uses wireHeroImageBtn) ──
 (function wireVerseImgShare() {
@@ -4133,10 +4151,14 @@ function readSkyGeoForSolar() {
 }
 
 function getSkyClassFixed(h) {
+  /* Night 9p–5a (stars/moon); dawn 5–7:30a; day 7:30a–6:30p; dusk 6:30p–9p. */
   var isDawn  = h >= 5   && h < 7.5;
   var isDusk  = h >= 18.5 && h < 21;
-  var isNight = !(h >= 6 && h < 21);
-  return isDawn ? 'sky-dawn' : isDusk ? 'sky-dusk' : isNight ? 'sky-night' : 'sky-day';
+  var isNight = h < 5 || h >= 21;
+  if (isNight) return 'sky-night';
+  if (isDawn) return 'sky-dawn';
+  if (isDusk) return 'sky-dusk';
+  return 'sky-day';
 }
 
 function resolveSkyClassNow() {
@@ -4178,8 +4200,23 @@ function paintSkyDecorations(layer, r, skyClass) {
   if (!layer) return;
   var plane = getSkyCelestialPlane(layer);
   if (!plane) return;
-  var isMobile = window.innerWidth < 600;
-  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* Phones often report layout width; prefer visualViewport when present. */
+  var vw = window.innerWidth || 0;
+  try {
+    if (window.visualViewport && window.visualViewport.width) {
+      vw = Math.min(vw || 9999, window.visualViewport.width);
+    }
+  } catch (eVw) {}
+  var isMobile = vw > 0 && vw < 768;
+  var reduced = false;
+  try {
+    reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  } catch (eRed) { reduced = false; }
+  /* Explicit profile perf mode only — do not treat reduced-motion alone as "no sky" on mobile. */
+  var perfHard = false;
+  try {
+    perfHard = localStorage.getItem('tdb_perf_mode') === '1';
+  } catch (ePerf) { perfHard = false; }
   var isNightSky = skyClass === 'sky-night';
 
   if (!isNightSky) {
@@ -4189,46 +4226,56 @@ function paintSkyDecorations(layer, r, skyClass) {
   var isDawn = skyClass === 'sky-dawn';
   var isDusk = skyClass === 'sky-dusk';
 
-  if (isNightSky && !reduced) {
-    var starCount = isMobile ? 55 : 110;
+  /* Night sky — first-class on mobile: denser/larger stars + shooters (unless hard perf mode). */
+  if (isNightSky) {
+    var starCount = isMobile ? 95 : 120;
     for (var i = 0; i < starCount; i++) {
       var st = document.createElement('div');
-      st.className = 'sky-star' + (r() > 0.82 ? ' glow' : '');
-      var sz = r() * 1.5 + 0.5;
-      var lo = r() * 0.25 + 0.15, hi = lo + r() * 0.5 + 0.25;
+      st.className = 'sky-star' + (r() > 0.72 ? ' glow' : '');
+      /* Mobile: larger dots so stars read on retina LCDs */
+      var sz = (isMobile ? 1.6 : 0.9) + r() * (isMobile ? 2.8 : 1.9);
+      var lo = r() * 0.2 + 0.35, hi = Math.min(0.98, lo + r() * 0.45 + 0.25);
       var scale = (1.08 + r() * 0.18).toFixed(2);
+      var baseOp = (0.7 + r() * 0.3).toFixed(2);
+      /* Always set opacity — mobile CSS may force animation:none */
+      var anim = (reduced || isMobile)
+        ? 'animation:none;opacity:' + baseOp + ';'
+        : 'animation-duration:' + (r() * 3 + 2) + 's;animation-delay:-' + (r() * 5) + 's;opacity:' + baseOp + ';';
       st.style.cssText =
         'left:' + (r() * 98) + '%;' +
-        'top:'  + (r() * 82) + '%;' +
-        'width:' + sz + 'px;height:' + sz + 'px;' +
+        'top:'  + (r() * 72) + '%;' +
+        'width:' + sz.toFixed(2) + 'px;height:' + sz.toFixed(2) + 'px;' +
         '--so-lo:' + lo.toFixed(2) + ';--so-hi:' + hi.toFixed(2) + ';' +
         '--so-scale:' + scale + ';' +
-        'animation-duration:' + (r() * 3 + 2) + 's;' +
-        'animation-delay:-' + (r() * 5) + 's;';
+        anim;
       var cv = r();
       st.style.background = cv > 0.65 ? 'rgba(220,228,255,1)' : cv > 0.3 ? 'rgba(255,248,230,1)' : '#fff';
       plane.appendChild(st);
     }
-    if (!isMobile) {
-      for (var si = 0; si < 2; si++) {
+    /* Shooters on phone + desktop. Skip only when user opted into hard perf mode. */
+    if (!perfHard && !reduced) {
+      var shooterCount = isMobile ? 2 : 2;
+      for (var si = 0; si < shooterCount; si++) {
         (function scheduleShooter(delay) {
           setTimeout(function fire() {
             if (!document.body.classList.contains('sky-night')) return;
             var sh = document.createElement('div');
             sh.className = 'sky-shooter';
-            var angle = 12 + r() * 18;
-            var dur   = 1.8 + r() * 1.2;
+            var angle = 10 + r() * 22;
+            var dur   = (isMobile ? 1.5 : 1.8) + r() * 1.1;
             sh.style.cssText =
-              'top:' + (8 + r() * 30) + '%;' +
+              'top:' + (6 + r() * 34) + '%;' +
               'left:0;' +
-              'width:' + (90 + r() * 80) + 'px;' +
+              'width:' + ((isMobile ? 70 : 90) + r() * 80) + 'px;' +
               '--shoot-angle:' + angle.toFixed(1) + 'deg;' +
-              'animation-duration:' + dur.toFixed(2) + 's;';
+              'animation-duration:' + dur.toFixed(2) + 's;' +
+              'animation-name:shoot;animation-timing-function:linear;animation-fill-mode:forwards;';
             plane.appendChild(sh);
-            setTimeout(function() { sh.remove(); }, (dur + 0.5) * 1000);
-            setTimeout(fire, 9000 + r() * 12000);
+            setTimeout(function() { if (sh.parentNode) sh.parentNode.removeChild(sh); }, (dur + 0.5) * 1000);
+            /* First return sooner on mobile so a shooting star is noticeable within ~15s */
+            setTimeout(fire, (isMobile ? 10000 : 9000) + r() * 10000);
           }, delay);
-        })(si * 6000 + r() * 4000);
+        })(isMobile ? (si * 3500 + 900 + r() * 2000) : (si * 6000 + r() * 4000));
       }
     }
   }

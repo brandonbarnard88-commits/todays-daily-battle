@@ -16,7 +16,7 @@
     }
   } catch (_) {}
 
-  var INTERACTIVE_SRC = 'script.js?v=20260805-campus-grove';
+  var INTERACTIVE_SRC = 'script.js?v=20260805-grove-love';
   var loaded = false;
   var pendingQuery = '';
 

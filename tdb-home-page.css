@@ -12298,3 +12298,43 @@ a.plan-category-chip:focus-visible,
   font-size: 0.9rem;
   color: rgba(227, 188, 103, 0.9);
 }
+
+/* grove-best: quiet lawn, hide duplicate campus dump */
+.tdb-grove__free {
+  margin: 0 auto 0.75rem;
+  max-width: 42rem;
+  padding: 0 1rem;
+  font-size: 0.88rem;
+  color: rgba(167, 210, 170, 0.95);
+  line-height: 1.45;
+}
+.tdb-grove__free a { color: rgba(227, 188, 103, 0.95); }
+.tdb-campus-map-home__rest {
+  margin: 0.65rem 0 0;
+  font-size: 0.88rem;
+  color: rgba(203, 213, 225, 0.85);
+}
+/* Hide duplicate wayfinding below the real campus map — keep DOM for legacy anchors/scripts */
+body:has(#tdbCampusMapHome) #tdb-home-core-seven,
+body:has(#tdbCampusMapHome) #tdb-campus-schools,
+body:has(#tdbCampusMapHome) .tdb-porch-cards,
+body:has(#tdbCampusMapHome) .tdb-morning-doorway-hint,
+body:has(#tdbCampusMapHome) .site-plan-nudge,
+body:has(#tdbCampusMapHome) .site-family-mission-nudge,
+body:has(#tdbCampusMapHome) #patriotic-home-bundle,
+body:has(#tdbCampusMapHome) #whats-new-spring-2026,
+body:has(#tdbCampusMapHome) #challenge-30-banner,
+body:has(#tdbCampusMapHome) #referralNudge,
+body:has(#tdbCampusMapHome) #tdb-january-quiet {
+  display: none !important;
+}
+/* Capacity: calmer after map */
+body:has(#tdbCampusMapHome) #tdbCapacityDoor {
+  margin-top: 0.75rem;
+}
+/* Soft default: full shelf stays closed; summary clearer */
+#tdbHomeFullShelf > summary {
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.75rem 0.25rem;
+}

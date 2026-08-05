@@ -762,20 +762,39 @@
     html.tdb-perf-mode body.sky-night #sky-moon { animation: none !important; }
     html.tdb-perf-mode .sky-moon-svg { animation: none !important; }
 
-    /* Narrow viewports: calmer sky — fewer always-on animations (easier on battery/GPU on phones). */
-    @media (max-width: 600px) {
+    /* Narrow viewports: calmer continuous loops, but night stars + shooters stay visible. */
+    @media (max-width: 768px) {
       html:not(.tdb-perf-mode) .sky-stars-parallax,
       html:not(.tdb-perf-mode) .sky-aurora-veil,
       html:not(.tdb-perf-mode) .sky-aurora::before,
       html:not(.tdb-perf-mode) .sky-aurora::after { animation: none !important; }
-      html:not(.tdb-perf-mode) .sky-star { animation: none !important; }
+      /* Static stars (no twinkle loop) — keep solid opacity so they still read on phones */
+      html:not(.tdb-perf-mode) body.sky-night .sky-star {
+        animation: none !important;
+        opacity: 0.88 !important;
+        min-width: 1.5px;
+        min-height: 1.5px;
+        box-shadow: 0 0 3px 0.5px rgba(220, 235, 255, 0.65);
+      }
+      html:not(.tdb-perf-mode) body.sky-night .sky-star.glow {
+        opacity: 1 !important;
+        box-shadow: 0 0 5px 1px rgba(200, 220, 255, 0.75);
+      }
+      /* Keep shooting-star keyframes on mobile — do not kill .sky-shooter animation here */
       html:not(.tdb-perf-mode) body:not(.sky-night) .sky-sun { animation: none !important; }
       html:not(.tdb-perf-mode) .sky-sun::after { animation: none !important; }
-      html:not(.tdb-perf-mode) body.sky-night #sky-moon { animation: none !important; }
+      html:not(.tdb-perf-mode) body.sky-night #sky-moon { animation: moon-drift 90s ease-in-out infinite; }
       html:not(.tdb-perf-mode) .sky-cloud { animation: none !important; }
       html:not(.tdb-perf-mode) .sky-bird { animation: none !important; }
       html:not(.tdb-perf-mode) .sky-bird::before,
       html:not(.tdb-perf-mode) .sky-bird::after { animation: none !important; transform: rotate(-5deg); }
+    }
+
+    /* Perf mode still shows stars (static); allow rare shooters only when not hard-disabled via profile */
+    html.tdb-perf-mode body.sky-night .sky-star {
+      display: block !important;
+      opacity: 0.8 !important;
+      animation: none !important;
     }
 
     /* Stars — CSS animated, JS places them */

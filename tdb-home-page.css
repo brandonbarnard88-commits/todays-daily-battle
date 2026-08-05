@@ -4159,6 +4159,59 @@
       color: var(--text);
     }
 
+    /* Always-open teaching block inside #verseCard (no <details> dropdown) */
+    #verseCard .tdb-dig-deeper--always-open {
+      display: block;
+      margin: 0.85rem 0 0.65rem;
+      padding: 0.85rem 0 0;
+      border-top: 1px solid color-mix(in srgb, var(--line, #334155) 70%, transparent);
+    }
+    #verseCard .tdb-dig-deeper--always-open[hidden] {
+      display: none !important;
+    }
+    #verseCard .tdb-dig-deeper__always-heading {
+      margin: 0 0 0.65rem;
+      font-size: 0.95rem;
+      font-weight: 650;
+      letter-spacing: 0.01em;
+      color: color-mix(in srgb, var(--text) 88%, var(--gold, #e3bc67));
+    }
+    #verseCard .tdb-dig-deeper--always-open .hero-vbd-bundle {
+      margin: 0 0 0.7rem;
+    }
+    #verseCard .tdb-dig-deeper--always-open .hero-vbd-bundle h4 {
+      margin: 0 0 0.25rem;
+      font-size: 0.88rem;
+      font-weight: 650;
+      color: var(--gold-soft, #d4b06a);
+    }
+    #verseCard .tdb-dig-deeper--always-open .hero-vbd-bundle p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: var(--text);
+    }
+    #verseCard .next-step {
+      margin: 0.75rem 0 0.5rem;
+      padding: 0.7rem 0.85rem;
+      border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 28%, var(--line));
+      background: color-mix(in srgb, var(--gold, #e3bc67) 8%, var(--card, #161b22));
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    #verseCard .prayer-block {
+      margin: 0.55rem 0 0.35rem;
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+    #verseCard .tdb-verse-human-note {
+      margin: 0.35rem 0 0.5rem;
+      font-size: 0.82rem;
+      color: var(--muted, #94a3b8);
+      font-style: italic;
+    }
+
     details.tdb-dig-deeper {
       margin-top: 1rem;
       border-top: 1px solid color-mix(in srgb, var(--line) 78%, var(--gold) 12%);

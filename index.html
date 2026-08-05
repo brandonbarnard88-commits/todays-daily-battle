@@ -139,8 +139,8 @@
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <link rel="preload" href="tdb-visual-tokens.css?v=20260712-phase1-s34" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260712-phase1-s34">
-  <link rel="preload" href="tdb-home-page.css?v=20260805-sky-mobile" as="style">
-  <link rel="stylesheet" href="tdb-home-page.css?v=20260805-sky-mobile">
+  <link rel="preload" href="tdb-home-page.css?v=20260805-verse-open" as="style">
+  <link rel="stylesheet" href="tdb-home-page.css?v=20260805-verse-open">
   <link rel="preload" href="tdb-swoop-surfaces.css?v=20260709-vp3-polish" as="style">
   <link rel="stylesheet" href="tdb-swoop-surfaces.css?v=20260709-vp3-polish">
   <!-- JSON-LD: DailyVerse + WebSite schema for SEO -->
@@ -553,6 +553,48 @@
           <p id="heroSimpleBreakdown">Hand the real weight to God. Trust that He hears and holds you.</p>
         </div>
 
+        <!-- Full teaching always open in the verse card (no dropdown). IDs keep first-paint / dig-deeper JS working. -->
+        <div class="tdb-dig-deeper tdb-dig-deeper--always-open" id="heroDigDeeper" data-tdb-dig-always-open="1" role="region" aria-label="More from the Word">
+          <h3 class="tdb-dig-deeper__always-heading">More from the Word</h3>
+          <div class="tdb-dig-deeper__content">
+            <div class="verse-breakdown" id="heroDeepBreakdown" role="group" aria-label="Context from the Word">
+              <div class="hero-vbd-bundle" id="heroVbdRowWho" hidden>
+                <h4>Who&rsquo;s talking?</h4>
+                <p id="heroDeepWho"></p>
+              </div>
+              <div class="hero-vbd-bundle" id="heroVbdRowAud" hidden>
+                <h4>Who is He / she talking to?</h4>
+                <p id="heroDeepAudience"></p>
+              </div>
+              <div class="hero-vbd-bundle" id="heroVbdRowCtx" hidden>
+                <h4>How it relates today (<span id="heroVotdBreakdownYear">2026</span>)</h4>
+                <p id="heroDeepContext"></p>
+              </div>
+              <div class="hero-vbd-bundle" id="heroVbdRowYou" hidden>
+                <h4>How it relates to you right now</h4>
+                <p id="heroDeepYou"></p>
+              </div>
+            </div>
+            <div class="tdb-dig-deeper__cross" id="heroDigDeeperCross" hidden>
+              <h4 class="tdb-dig-deeper__cross-label">See also (KJV)</h4>
+              <p class="tdb-dig-deeper__cross-list" id="heroDigDeeperCrossList"></p>
+            </div>
+            <p class="tdb-dig-deeper__plan" id="heroDigDeeperPlan" hidden>
+              <a class="tdb-dig-deeper__plan-link" id="heroDigDeeperPlanLink" href="/plans.html?plan=battle">Continue in this Battle Plan &rarr;</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="next-step" id="heroVotdNextStep">
+          <strong>One honest step, just for today:</strong> <span id="heroVotdOneStep">Read it slowly one more time out loud. Thank God for one clear thing it says, then take the next small step with that line in mind.</span>
+        </div>
+        <div class="prayer-block" id="heroVotdPrayerBlock" role="region" aria-label="A simple prayer tied to today&rsquo;s verse">
+          <p class="tdb-prayer-invite">Say this if you want to. If words aren&rsquo;t there today, that&rsquo;s okay.</p>
+          <p><strong>A simple prayer:</strong><br />
+          <span id="heroVotdPrayer">Lord, sink Psalm 91:2 into my heart—not as noise, but as truth that changes how I walk. In Jesus’ name, Amen.</span></p>
+        </div>
+        <p class="tdb-verse-human-note">Someone put this here for days like this one.</p>
+
         <ul class="breakdown" id="heroBreakdown" hidden></ul>
         <div class="hero-breakdown-panels" id="heroBreakdownPanels" hidden></div>
         <p class="application" id="heroApplication" hidden></p>
@@ -855,51 +897,8 @@
       </section>
       </div><!-- /#quick-search-hero -->
 
-      <!-- After Ask the Word: deeper teaching, prayer, plan (not blocking the top) -->
+      <!-- After Ask the Word: plan CTA (teaching block lives always-open in the verse card above) -->
       <div class="tdb-home-after-ask tdb-quiet-container" id="tdbHomeAfterAsk">
-<details class="tdb-dig-deeper" id="heroDigDeeper">
-          <summary class="tdb-dig-deeper__summary">
-            <span class="tdb-dig-deeper__main">More from the Word</span>
-            <span class="tdb-dig-deeper__hint">Cross-references and plain notes &mdash; only if you want them</span>
-          </summary>
-          <div class="tdb-dig-deeper__content">
-            <div class="verse-breakdown" id="heroDeepBreakdown" role="group" aria-label="More context from the Word">
-              <div class="hero-vbd-bundle" id="heroVbdRowWho" hidden>
-                <h4>Who&rsquo;s talking?</h4>
-                <p id="heroDeepWho"></p>
-              </div>
-              <div class="hero-vbd-bundle" id="heroVbdRowAud" hidden>
-                <h4>Who is He / she talking to?</h4>
-                <p id="heroDeepAudience"></p>
-              </div>
-              <div class="hero-vbd-bundle" id="heroVbdRowCtx" hidden>
-                <h4>How it relates today (<span id="heroVotdBreakdownYear">2026</span>)</h4>
-                <p id="heroDeepContext"></p>
-              </div>
-              <div class="hero-vbd-bundle" id="heroVbdRowYou" hidden>
-                <h4>How it relates to you right now</h4>
-                <p id="heroDeepYou"></p>
-              </div>
-            </div>
-            <div class="tdb-dig-deeper__cross" id="heroDigDeeperCross" hidden>
-              <h4 class="tdb-dig-deeper__cross-label">See also (KJV)</h4>
-              <p class="tdb-dig-deeper__cross-list" id="heroDigDeeperCrossList"></p>
-            </div>
-            <p class="tdb-dig-deeper__plan" id="heroDigDeeperPlan" hidden>
-              <a class="tdb-dig-deeper__plan-link" id="heroDigDeeperPlanLink" href="/plans.html?plan=battle">Continue in this Battle Plan &rarr;</a>
-            </p>
-          </div>
-        </details>
-
-        <div class="next-step" id="heroVotdNextStep">
-          <strong>One honest step, just for today:</strong> <span id="heroVotdOneStep">Read it slowly one more time out loud. Thank God for one clear thing it says, then take the next small step with that line in mind.</span>
-        </div>
-        <div class="prayer-block" id="heroVotdPrayerBlock" role="region" aria-label="A simple prayer tied to today&rsquo;s verse">
-          <p class="tdb-prayer-invite">Say this if you want to. If words aren&rsquo;t there today, that&rsquo;s okay.</p>
-          <p><strong>A simple prayer:</strong><br />
-          <span id="heroVotdPrayer">Lord, sink Psalm 91:2 into my heart—not as noise, but as truth that changes how I walk. In Jesus’ name, Amen.</span></p>
-        </div>
-        <p class="tdb-verse-human-note">Someone put this here for days like this one.</p>
         <nav class="tdb-home-hero-primary-cta" id="tdbHomeHeroPrimaryCta" aria-label="One gentle next step">
           <p class="tdb-home-hero-primary-cta__lead">When you&rsquo;re ready:</p>
           <a class="btn btn-primary tdb-home-hero-primary-cta__btn" href="plans.html?plan=battle" id="tdbHomeHeroPrimaryPlan">Open today&rsquo;s Battle Plan</a>

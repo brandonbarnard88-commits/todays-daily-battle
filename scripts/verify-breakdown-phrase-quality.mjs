@@ -15,12 +15,14 @@ const BANNED_PLAIN_PREFIXES = [
   'This verse says something true from God for real life today'
 ];
 const BANNED_APP_EXACT = [
-  'Carry this verse into the next choice, the next conversation, and the next quiet minute with God.'
+  'Carry this verse into the next choice, the next conversation, and the next quiet minute with God.',
+  'This verse meets anxious moments with steady help instead of more noise.',
+  'This verse keeps your eyes up when the day feels slow, heavy, or unfinished.'
 ];
 
-const MAX_SINGLE_PLAIN_SHARE = 0.18;
-const MAX_BANNED_PLAIN_SHARE = 0.12;
-const MAX_SINGLE_APP_SHARE = 0.35;
+const MAX_SINGLE_PLAIN_SHARE = 0.12;
+const MAX_BANNED_PLAIN_SHARE = 0.08;
+const MAX_SINGLE_APP_SHARE = 0.25;
 const MAX_BANNED_APP_SHARE = 0.05;
 
 function extractOverrides(source) {

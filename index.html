@@ -5,7 +5,7 @@
   <!-- GA4 + GSC loaded on idle (see script.js loadDeferredScriptsOnIdle) -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preload" href="/core-home.js?v=20260805-campus-grove-lock-lock" as="script" fetchpriority="high">
+  <link rel="preload" href="/core-home.js?v=20260805-audit-focus-lock" as="script" fetchpriority="high">
   <style id="tdb-critical-shell">html{background:#080c14}body{margin:0;background:#080c14;color:#f0f2f7}#tdb-first-tour-prompt,.tdb-first-tour-prompt{display:none!important;visibility:hidden!important;pointer-events:none!important;position:absolute!important;left:-9999px!important;width:0!important;height:0!important;overflow:hidden!important}</style>
   <link rel="preload" as="script" href="/assets/perf-hint.js?v=20260515-strip-tour-chip-early-v3" fetchpriority="high">
   <script nonce="tdb2025s" src="/assets/perf-hint.js?v=20260515-strip-tour-chip-early-v3"></script>
@@ -139,8 +139,8 @@
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <link rel="preload" href="tdb-visual-tokens.css?v=20260712-phase1-s34" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260712-phase1-s34">
-  <link rel="preload" href="tdb-home-page.css?v=20260805-campus-grove-lock" as="style">
-  <link rel="stylesheet" href="tdb-home-page.css?v=20260805-campus-grove-lock">
+  <link rel="preload" href="tdb-home-page.css?v=20260805-audit-focus" as="style">
+  <link rel="stylesheet" href="tdb-home-page.css?v=20260805-audit-focus">
   <link rel="preload" href="tdb-swoop-surfaces.css?v=20260709-vp3-polish" as="style">
   <link rel="stylesheet" href="tdb-swoop-surfaces.css?v=20260709-vp3-polish">
   <!-- JSON-LD: DailyVerse + WebSite schema for SEO -->
@@ -415,7 +415,7 @@
         </button>
         <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-home">
           <a href="/" aria-current="page" aria-label="The Grove — today's verse">The Grove</a>
-          <a href="/#feel-section">Ask the Word</a>
+          <a href="/#feel-section">Ask</a>
           <a href="/plans.html" id="nav-browse-curriculum" aria-label="Battle Plans — KJV tracks for hard weeks and quiet seasons">Battle Plans</a>
           <a href="/calm.html" aria-label="Calm — one steady KJV verse when the moment is heavy">Calm</a>
           <a href="/mystudy" aria-label="My Study — saved verses, notes, and progress">My Study</a>
@@ -815,7 +815,7 @@
         <div id="tdbFeelPathCard" class="tdb-feel-path-card" hidden role="region" aria-label="A gentle next path" aria-live="polite"></div>
         <div id="feel-results" aria-live="polite" hidden></div>
         <section id="homeQaResult" class="home-qa-result hidden" role="region" aria-live="polite" aria-label="Ask the Word follow-up" hidden>
-          <p class="home-qa-kicker">Ask the Word</p>
+          <p class="home-qa-kicker">Answer</p>
           <h3 class="home-qa-title">How does this hit you today?</h3>
           <p id="homeQaAnswer" class="home-qa-answer"></p>
           <p id="homeQaPrayer" class="home-qa-prayer hidden" hidden></p>
@@ -902,9 +902,9 @@
       <nav class="tdb-grove-paths tdb-quiet-container" id="tdbGrovePaths" aria-label="Three paths off the Grove">
         <p class="tdb-grove-paths__label" id="tdbGrovePathsLabel">When you&rsquo;re ready to walk</p>
         <ul class="tdb-grove-paths__list">
-          <li><a class="tdb-grove-paths__stone tdb-grove-paths__stone--calm" href="/calm"><strong>Quiet Hall</strong><span>One verse when it&rsquo;s heavy</span></a></li>
-          <li><a class="tdb-grove-paths__stone tdb-grove-paths__stone--plans" href="/plans"><strong>The Paths</strong><span>7&ndash;40 day Battle Plans</span></a></li>
-          <li><a class="tdb-grove-paths__stone tdb-grove-paths__stone--family" href="/family"><strong>Family Yard</strong><span>Kids &amp; table rhythms</span></a></li>
+          <li><a class="tdb-grove-paths__stone tdb-grove-paths__stone--calm" href="/calm"><strong>Afraid or heavy?</strong><span>Quiet Hall · one verse now</span></a></li>
+          <li><a class="tdb-grove-paths__stone tdb-grove-paths__stone--plans" href="/plans"><strong>Need a plan?</strong><span>The Paths · 7&ndash;40 day tracks</span></a></li>
+          <li><a class="tdb-grove-paths__stone tdb-grove-paths__stone--family" href="/family"><strong>With kids?</strong><span>Family Yard · table &amp; stories</span></a></li>
         </ul>
       </nav>
 
@@ -914,19 +914,20 @@
         <h2 class="tdb-campus-map-home__title" id="tdbCampusMapHomeH">Campus map</h2>
         <p class="tdb-campus-map-home__lead">Lots to learn, simple to walk. Not a school with grades&mdash;just a calm campus. Free forever. Start in the Grove; open a building only when you need it.</p>
         <ul class="tdb-campus-buildings" id="tdbCampusBuildings">
-          <li><a class="tdb-campus-building" href="#tdbHomePrimaryPair"><span class="tdb-campus-building__name">The Grove</span><span class="tdb-campus-building__job">Today&rsquo;s verse &amp; Ask the Word</span></a></li>
-          <li><a class="tdb-campus-building" href="/calm"><span class="tdb-campus-building__name">Quiet Hall</span><span class="tdb-campus-building__job">Calm when the moment is too much</span></a></li>
-          <li><a class="tdb-campus-building" href="/plans"><span class="tdb-campus-building__name">The Paths</span><span class="tdb-campus-building__job">Battle Plans for hard weeks</span></a></li>
-          <li><a class="tdb-campus-building" href="/family"><span class="tdb-campus-building__name">Family Yard</span><span class="tdb-campus-building__job">Kids, little ones, table</span></a></li>
-          <li><a class="tdb-campus-building" href="/bible-tool"><span class="tdb-campus-building__name">The Library</span><span class="tdb-campus-building__job">Lookup, reader, deeper study</span></a></li>
-          <li><a class="tdb-campus-building" href="/prayer-wall"><span class="tdb-campus-building__name">Prayer Walk</span><span class="tdb-campus-building__job">Pray alone or with others</span></a></li>
-          <li><a class="tdb-campus-building" href="/church-hub"><span class="tdb-campus-building__name">Pastor&rsquo;s Study</span><span class="tdb-campus-building__job">Sermon &amp; church tools</span></a></li>
+          <li><a class="tdb-campus-building" href="#tdbHomePrimaryPair"><span class="tdb-campus-building__name">The Grove</span><span class="tdb-campus-building__job">Today&rsquo;s verse · Ask · start here</span></a></li>
+          <li><a class="tdb-campus-building" href="/calm"><span class="tdb-campus-building__name">Quiet Hall</span><span class="tdb-campus-building__job">Afraid / heavy · one verse now</span></a></li>
+          <li><a class="tdb-campus-building" href="/plans"><span class="tdb-campus-building__name">The Paths</span><span class="tdb-campus-building__job">Need a plan · 7-day tracks</span></a></li>
+          <li><a class="tdb-campus-building" href="/family"><span class="tdb-campus-building__name">Family Yard</span><span class="tdb-campus-building__job">Kids · family · table</span></a></li>
+          <li><a class="tdb-campus-building" href="/bible-tool"><span class="tdb-campus-building__name">The Library</span><span class="tdb-campus-building__job">Look up a verse · read more</span></a></li>
+          <li><a class="tdb-campus-building" href="/prayer-wall"><span class="tdb-campus-building__name">Prayer Walk</span><span class="tdb-campus-building__job">Pray · with others if you want</span></a></li>
+          <li><a class="tdb-campus-building" href="/church-hub"><span class="tdb-campus-building__name">Pastor&rsquo;s Study</span><span class="tdb-campus-building__job">Pastors · church tools</span></a></li>
         </ul>
         <p class="tdb-campus-map-home__foot">
           <a class="btn btn-secondary" href="/campus">Open full campus map</a>
           <a class="tdb-campus-map-home__study" href="/mystudy">My Study (this device)</a>
         </p>
         <p class="tdb-campus-map-home__rest section-note">If the Grove was enough for today, you can stop scrolling. Everything below is optional.</p>
+        <p class="tdb-campus-map-home__persona section-note" id="tdbPersonaFocus">Built first for a hard night: one KJV verse, plain words, one next step&mdash;no account required.</p>
       </section>
 
       <!-- Secondary: capacity stays open; denser porch doors collapse under "More when you're ready" -->
@@ -1156,7 +1157,7 @@
             <input type="search" id="hero-votd-word-search" name="q" inputmode="search" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="e.g. peace, courage, rest" aria-label="Type one word to find matching KJV verses" />
             <button type="button" class="btn btn-secondary tdb-hero-votd-search-go" id="hero-votd-word-search-btn" aria-label="Search for KJV verses for this word">Find verses</button>
           </div>
-          <p class="section-note tdb-hero-votd-search-hint" id="hero-votd-search-hint">Same gentle lookup as <a href="#quick-search-hero">Ask the Word</a>&mdash;full results open in the search above. Press Enter or tap Find.</p>
+          <p class="section-note tdb-hero-votd-search-hint" id="hero-votd-search-hint">Same lookup as <a href="#quick-search-hero">Ask above</a>&mdash;full results open in the search above. Press Enter or tap Find.</p>
         </form>
         </div>
         <section class="hero-family-mode" id="tdbFamilyModeBridge" aria-labelledby="tdbFamilyModeTitle">
@@ -1430,7 +1431,7 @@
         <ul class="tdb-campus-schools-list">
           <li>
             <a href="/#tdbHomePrimaryPair">The Grove</a>
-            <span class="tdb-campus-hint">Today&rsquo;s verse &amp; Ask the Word</span>
+            <span class="tdb-campus-hint">Today&rsquo;s verse &amp; Ask</span>
           </li>
           <li>
             <a href="/plans">The Paths</a>
@@ -1480,7 +1481,7 @@
 
             <div class="room-card">
               <strong>Daily Tools</strong>
-              <a href="#quick-search-hero">Ask the Word — speak what’s on your heart</a>
+              <a href="#quick-search-hero">Ask above — speak what&rsquo;s on your heart</a>
               <a href="calm.html">Calm — one gentle verse when words are hard</a>
               <a href="plans.html">Battle Plans — short KJV rhythms</a>
               <a href="daily-rhythm.html">Quiet Morning &amp; Evening</a>
@@ -1506,7 +1507,7 @@
 
             <div class="room-card">
               <strong>Support the Porch</strong>
-              <a href="/give">Optional gifts — one-time, Porch Partner, legacy</a>
+              <a href="/give">Optional gifts — never required for access</a>
               <a href="/shop.html">The Shop — journals, printed plans, family packs</a>
               <a href="/where-support-goes.html">Where support goes — full transparency</a>
               <p class="section-note">Giving is never required. The porch stays free for anyone who needs it.</p>
@@ -1523,7 +1524,7 @@
       <nav class="hero-daily-path tdb-start-here-nav tdb-path-secondary" aria-label="Start here — core tools">
         <span class="hero-daily-path-label">After today</span>
         <span class="hero-daily-path-links">
-          <a href="#quick-search-hero">Ask the Word</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
+          <a href="#quick-search-hero">Ask above</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
           <a href="calm.html">Calm</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
           <a href="plans.html">Battle Plans</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
           <a href="/mystudy">My Study</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
@@ -1595,10 +1596,10 @@
             <span class="tdb-porch-sign-title">Pastor / small church feels heavy</span>
             <span class="tdb-porch-sign-desc">Six KJV days for a little flock that still matters to heaven.</span>
           </a>
-          <a class="tdb-porch-sign-card" role="listitem" href="#quick-search-hero" aria-label="Need a true answer now: go to Ask the Word search on this page">
+          <a class="tdb-porch-sign-card" role="listitem" href="#quick-search-hero" aria-label="Need a true answer now: go to Ask above">
             <span class="tdb-porch-sign-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6"/><circle cx="11" cy="7" r="0.5" fill="currentColor"/></svg></span>
             <span class="tdb-porch-sign-title">Need a true answer now</span>
-            <span class="tdb-porch-sign-desc">Ask the Word&mdash;search by feeling, question, topic, or verse; same quiet KJV porch.</span>
+            <span class="tdb-porch-sign-desc">Ask above&mdash;feeling, question, topic, or verse.</span>
           </a>
         </div>
         </details>
@@ -1966,7 +1967,7 @@
         <span class="hero-daily-path-label">Today</span>
         <span class="hero-daily-path-links">
           <a href="#hero-verse-wrap">Today&rsquo;s Verse</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
-          <a href="#feel-section">Ask the Word</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
+          <a href="#feel-section">Ask</a><span class="hero-daily-path-sep" aria-hidden="true">·</span>
           <a href="/prayer-wall.html">Pray</a>
         </span>
       </nav>
@@ -1997,13 +1998,13 @@
       <!-- FT1: welcome card demoted — content lives in #tdbFirstVisitStrip; host + dismiss kept for returning-visitor wiring -->
       <section class="tdb-new-here-card tdb-home-welcome-campus" id="tdbNewHereCard" role="region" aria-label="Welcome (moved to first-visit strip)" hidden>
         <p class="tdb-home-welcome-lead">One verse. One honest feeling. One small step.</p>
-        <p class="new-here-ribbon">After the verse, tap <strong>Open today&rsquo;s Battle Plan</strong> or use <strong>Ask the Word</strong> here when you need Scripture&mdash;or a short biblical answer&mdash;for what you&rsquo;re carrying.</p>
+        <p class="new-here-ribbon">After the verse, tap <strong>Open today&rsquo;s Battle Plan</strong> or use <strong>Ask</strong> above when you need Scripture&mdash;or a short biblical answer&mdash;for what you&rsquo;re carrying.</p>
         <div class="new-here-cta-row">
           <button type="button" class="new-here-cta secondary" id="tdbNewHereDismissBtn">I know my way around</button>
         </div>
       </section>
 
-      <p class="tdb-new-here-hint" id="tdbNewHereHint" style="display:none"><span class="tdb-new-here-muted">New here?</span> If you only have a minute, start with <a href="#hero-verse-wrap">today&rsquo;s lesson</a>. Need Scripture for a more specific pain? Open <a href="#feel-section">Ask the Word</a>. Want the fuller map? <a href="/explore.html#start-here">Start here</a>.</p>
+      <p class="tdb-new-here-hint" id="tdbNewHereHint" style="display:none"><span class="tdb-new-here-muted">New here?</span> If you only have a minute, start with <a href="#hero-verse-wrap">today&rsquo;s lesson</a>. Need Scripture for a more specific pain? Open <a href="#feel-section">Ask</a>. Want the fuller map? <a href="/explore.html#start-here">Start here</a>.</p>
       <div class="tdb-home-proof-strip tdb-quiet-container" role="list" aria-label="Why people trust this quiet place">
         <p class="tdb-home-proof-pill" role="listitem"><strong>King James Scripture</strong><span> Steady and plain.</span></p>
         <p class="tdb-home-proof-pill" role="listitem"><strong>Private by default</strong><span> Notes stay on this device unless you sync. <a href="/privacy.html" style="text-decoration:underline;color:inherit;">Privacy</a></span></p>
@@ -2113,7 +2114,7 @@
 
   <nav class="site-footer-essentials" aria-label="Key pages">
     <a href="/" aria-label="The Grove — today's verse and Ask the Word">The Grove</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/#feel-section">Ask the Word</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/#feel-section">Ask</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/plans.html">The Paths</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/calm.html">Quiet Hall</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/family.html">Family Yard</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
@@ -2372,11 +2373,11 @@
   <script nonce="tdb2025s" src="hero-hero-pools.js?v=20260328pools" fetchpriority="low"></script>
   <script nonce="tdb2025s" src="hero-daily-365-data.js?v=20260802-calendar-mix" fetchpriority="low"></script>
   <script nonce="tdb2025s" src="verse-breakdown-standard.js?v=20260520-att-ask" data-tdb-verse-breakdown-standard="1"></script>
-  <script nonce="tdb2025s" src="verse-breakdown-overrides.js?v=20260805-campus-grove-lock-lock" data-tdb-verse-breakdown-overrides="1" defer></script>
-  <script nonce="tdb2025s" src="verse-breakdown.js?v=20260805-campus-grove-lock-lock" data-tdb-verse-breakdown="1" defer></script>
-  <script nonce="tdb2025s" src="bbe-simple.js?v=20260805-campus-grove-lock-lock" data-tdb-bbe-simple="1" defer></script>
+  <script nonce="tdb2025s" src="verse-breakdown-overrides.js?v=20260805-audit-focus-lock" data-tdb-verse-breakdown-overrides="1" defer></script>
+  <script nonce="tdb2025s" src="verse-breakdown.js?v=20260805-audit-focus-lock" data-tdb-verse-breakdown="1" defer></script>
+  <script nonce="tdb2025s" src="bbe-simple.js?v=20260805-audit-focus-lock" data-tdb-bbe-simple="1" defer></script>
   <script nonce="tdb2025s" src="red-letter.js?v=20260518-rl" data-tdb-red-letter="1"></script>
-  <script nonce="tdb2025s" src="hero-daily-first-paint.js?v=20260805-campus-grove-lock-lock" fetchpriority="low"></script>
+  <script nonce="tdb2025s" src="hero-daily-first-paint.js?v=20260805-audit-focus-lock" fetchpriority="low"></script>
   <!-- Phase 6: tdb-home-mobius-week.js?v=20260330home + /sky-ip-geo.js?v=20260327ipgeo load with home secondary stack (see script.js tdbScheduleDeferredVodAndReaderTooling) -->
   <!-- ── SOS Button ── -->
   <button type="button" id="sos-btn" class="sos-btn" aria-label="SOS">SOS</button>
@@ -2629,11 +2630,11 @@
   <!-- Phase 6: home secondary stack (injected by script.js after idle): memory-verses.js home-votm.js?v=20260402homevotm4 tdb-home-mobius-week.js?v=20260330home sky-ip-geo.js?v=20260327ipgeo word-study.js verse-narration.js verse-study.js family-verse-bridge.js gentle-suggest.js verse-breakdown-overrides.js?v=20260417-hydration verse-breakdown.js?v=20260417-hydration -->
   <script nonce="tdb2025s" type="module" fetchpriority="high" src="config.js"></script>
   <script nonce="tdb2025s" defer src="tdb-home-experience.js?v=20260709-vp1-polish"></script>
-  <script nonce="tdb2025s" defer src="tdb-home-funnel.js?v=20260805-campus-grove-lock-lock"></script>
+  <script nonce="tdb2025s" defer src="tdb-home-funnel.js?v=20260805-audit-focus-lock"></script>
   <script nonce="tdb2025s" defer src="tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
   <script nonce="tdb2025s" defer src="start-my-day.js?v=20260423-phase5-perf"></script>
   <!-- Homepage feel-search + FEEL_GROUPS (deferred — was ~209KB inline) -->
-  <script nonce="tdb2025s" defer src="tdb-home-feel.js?v=20260805-campus-grove-lock-lock"></script>
+  <script nonce="tdb2025s" defer src="tdb-home-feel.js?v=20260805-audit-focus-lock"></script>
   <script nonce="tdb2025s" defer src="tdb-feel-combo.js?v=20260712-first-doors"></script>
   <script nonce="tdb2025s" defer src="tdb-offline-strip.js?v=20260712-pickup"></script>
   <script nonce="tdb2025s" defer src="/js/feel-combo-presets.js"></script>
@@ -2641,7 +2642,7 @@
   <!-- Unified Ask the Word brain (curated + full KJV) — same as bible-tool; before core-home/script.js -->
   <script nonce="tdb2025s" defer src="ask-the-word-core.js?v=20260802-teach"></script>
   <!-- Home core first: load script.js interaction stack on user intent/idle (core-home.js). -->
-  <script nonce="tdb2025s" defer src="core-home.js?v=20260805-campus-grove-lock-lock" data-cfasync="false" fetchpriority="high"></script>
+  <script nonce="tdb2025s" defer src="core-home.js?v=20260805-audit-focus-lock" data-cfasync="false" fetchpriority="high"></script>
   <script nonce="tdb2025s">
     (function () {
       var loadPorchEffects = function () {

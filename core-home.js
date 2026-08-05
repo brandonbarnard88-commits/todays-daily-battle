@@ -16,7 +16,7 @@
     }
   } catch (_) {}
 
-  var INTERACTIVE_SRC = 'script.js?v=20260805-campus-grove-lock-lock';
+  var INTERACTIVE_SRC = 'script.js?v=20260805-audit-focus-lock';
   var loaded = false;
   var pendingQuery = '';
 

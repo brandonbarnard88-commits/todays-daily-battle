@@ -44,7 +44,7 @@ window.TDB_CONFIG = {
 window.TDB_CONFIG.TURNSTILE_SITE_KEY = '';
 
 // Price IDs for create-checkout-session (signed-in flow with metadata). Paste from Stripe Dashboard → Products → [price] ID (e.g. price_1ABC...).
-// Order: Supporter $5/$50, Battle Pro $10/$100, Church $10/$100 — monthly then yearly per tier.
+// Legacy price IDs only if optional gifts use Checkout later — never paid feature tiers.
 window.TDB_CONFIG.STRIPE_PRICE_IDS = {
   supporter: { monthly: 'price_1T5C10PyNV9eq3QeHyy5RLdy', yearly: 'price_1T5C20PyNV9eq3Qe70Bida8E' },
   battle_pro: { monthly: 'price_1T5C3aPyNV9eq3QeJx4Xg9Ej', yearly: 'price_1T5C47PyNV9eq3QeDXr6hz5A' },

@@ -14,3 +14,11 @@ todaysdailybattle.com is built on four fixed, non-negotiable foundations:
 These four principles never change. Every future feature or suggestion must protect them.
 
 **Seasonal capacity:** See [SCOPE-FREEZE-AND-CAPACITY.md](./SCOPE-FREEZE-AND-CAPACITY.md) — protect the front door and the founder before adding new campus wings.
+
+## Primary visitor (90-day focus)
+
+Build and judge the homepage for this person first:
+
+> Adult in the US, anxious at night, wants KJV, no account, one verse + one plain step.
+
+Kids, pastors, Spanish hubs, and printables stay on campus as **buildings**—not competing for the Grove. Say no to new wings until the Grove is unmistakably calm on a phone at midnight.

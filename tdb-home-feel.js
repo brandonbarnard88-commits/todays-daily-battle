@@ -369,8 +369,9 @@ const heroBreakdown   = document.getElementById("heroBreakdown");
 const heroApplication = document.getElementById("heroApplication");
 const verseCard       = document.getElementById("verseCard");
 const verseNote       = document.getElementById("verseNote");
-const pwaNudge        = document.getElementById("pwaNudge");
-const pwaDismiss      = document.getElementById("pwaDismiss");
+/* Legacy #pwaNudge/#pwaDismiss archived; home uses #tdb-pwa-nudge (wired in script.js). */
+const pwaNudge        = document.getElementById("pwaNudge") || document.getElementById("tdb-pwa-nudge");
+const pwaDismiss      = document.getElementById("pwaDismiss") || document.getElementById("tdb-pwa-nudge-dismiss");
 
 function sanitizeText(value) {
   if (window.DOMPurify && typeof window.DOMPurify.sanitize === "function") {
@@ -1994,8 +1995,9 @@ function recordVerseFeedback(sentiment) {
     if (typeof trackEvent === 'function') trackEvent('verse_feedback', { sentiment: sentiment });
   } catch (e) {}
 }
-// ── PWA Nudge ──
+// ── PWA Nudge (optional; primary wiring lives in script.js for #tdb-pwa-nudge) ──
 function initPwaNudge() {
+  if (!pwaNudge) return;
   if (localStorage.getItem("tdb-pwa-nudge-dismissed")) return;
   const visitKey = "tdb-visit-count";
   const visits = (parseInt(localStorage.getItem(visitKey) || "0", 10) || 0) + 1;
@@ -2003,7 +2005,12 @@ function initPwaNudge() {
   const isStandalone = window.matchMedia("(display-mode: standalone)").matches
     || window.navigator.standalone === true;
   if (!isStandalone && visits >= 2) {
-    setTimeout(function () { pwaNudge.classList.add("show"); }, 5000);
+    setTimeout(function () {
+      if (!pwaNudge) return;
+      pwaNudge.classList.add("show");
+      pwaNudge.hidden = false;
+      pwaNudge.setAttribute("aria-hidden", "false");
+    }, 5000);
   }
 }
 function showPwaNudgeAfterEngagement() {
@@ -2012,15 +2019,23 @@ function showPwaNudgeAfterEngagement() {
     || window.navigator.standalone === true;
   if (!isStandalone && pwaNudge && !pwaNudge.classList.contains("show")) {
     pwaNudge.classList.add("show");
+    pwaNudge.hidden = false;
+    pwaNudge.setAttribute("aria-hidden", "false");
   }
   if (typeof window.__showInstallPromptWhenReady === "function") window.__showInstallPromptWhenReady();
 }
 window.showPwaNudgeAfterEngagement = showPwaNudgeAfterEngagement;
 
-pwaDismiss.addEventListener("click", () => {
-  pwaNudge.classList.remove("show");
-  localStorage.setItem("tdb-pwa-nudge-dismissed", "1");
-});
+if (pwaDismiss) {
+  pwaDismiss.addEventListener("click", () => {
+    if (pwaNudge) {
+      pwaNudge.classList.remove("show");
+      pwaNudge.hidden = true;
+      pwaNudge.setAttribute("aria-hidden", "true");
+    }
+    try { localStorage.setItem("tdb-pwa-nudge-dismissed", "1"); } catch (e) {}
+  });
+}
 
 // ── Verse image card: optional legacy share control (toolbar uses wireHeroImageBtn) ──
 (function wireVerseImgShare() {

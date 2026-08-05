@@ -6,13 +6,33 @@
  * Public APIs locked: getSearchOutputElement(22318), wireSmartSearch early-return on #feelSuggestDropdown(30155+), TDB_TOPICS(2979), runSearchWithInput(stub 335/impl 25191).
  * Safe pure for extraction to daily-battle-core.js (Strangler Fig facade at 2580): getVerseBreakdown(12567), normalizeBibleRef(12512), parseBookFromRef(12528), rephraseArchaic(12538), inferApplies(12551), getBibleVerseText(12592), getDailyVerseRef*, getVerseContext(13169), getRelatedRefsForVerse(13472+), normalizeEmotionSignal(13405), offline pure helpers, DAILY_VERSE_SAFE_REFS/BOOK_CONTEXT/ARCHAIC_WORDS/ROTATING_HERO_VERSES data. Aligns to KJV-only, breakdown template, concordance (meaning/action/outcome), offline cache rule. No DOM/search/wiring moved. Tests pass.
  */
+/** Infer surface (home / plans / church) when page loaders did not set TDB_SURFACE. See docs/SCRIPT-SURFACES.md */
+(function tdbInferSurface() {
+  if (typeof window === 'undefined') return;
+  if (window.TDB_SURFACE) return;
+  try {
+    var p = (typeof location !== 'undefined' && location.pathname) ? String(location.pathname) : '';
+    if (p === '/' || p === '/index.html' || p === '') {
+      window.TDB_SURFACE = 'home';
+    } else if (/\/plans(\.html)?$/i.test(p) || p.indexOf('/plans/') === 0) {
+      window.TDB_SURFACE = 'plans';
+    } else if (/church|pastor|sermon/i.test(p)) {
+      window.TDB_SURFACE = 'church';
+    } else {
+      window.TDB_SURFACE = 'shared';
+    }
+  } catch (_) {
+    window.TDB_SURFACE = 'shared';
+  }
+})();
+
 (function tdbEnsureRegisterSwScript() {
   if (typeof window === 'undefined' || typeof document === 'undefined') return;
   if (typeof window.tdbRegisterServiceWorker === 'function') return;
   if (!('serviceWorker' in navigator)) return;
   if (document.querySelector('script[data-tdb-sw-register]')) return;
   var s = document.createElement('script');
-  s.src = '/register-sw.js?v=20260805-audit-focus-lock';
+  s.src = '/register-sw.js?v=20260805-four-pillars';
   s.defer = true;
   s.setAttribute('data-tdb-sw-register', '1');
   (document.head || document.documentElement).appendChild(s);

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260709-wave4"></script>
+  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260805-four-pillars"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js?v=20260709-wave4"></script>
+  <script src="/tt-bootstrap.js?v=20260805-four-pillars"></script>
   <!-- tdb-cache-hygiene: _headers no-cache /bible-tool (+ alias); purge SOCIAL_PURGE_PATHS; bump service-worker CACHE_NAME if edge/PWA stale -->
 
   <!-- GA4 lazy-loaded after interaction -->
@@ -29,8 +29,8 @@
   <meta name="twitter:description" content="Look up verses, take notes, follow a reading plan, and get Win the Day verses by topic. KJV, no login.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/verse-share.jpg?v=20260322">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260709-wave4" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260709-wave4">
+  <link rel="preload" href="styles.css?v=20260805-four-pillars" as="style">
+  <link rel="stylesheet" href="styles.css?v=20260805-four-pillars">
   <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
   <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
 
@@ -726,17 +726,18 @@
       <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
       <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
         <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
-        <span class="tdb-nav-flyout-toggle__label">Site</span>
+        <span class="tdb-nav-flyout-toggle__label">Campus</span>
       </button>
       <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
-        <a href="/">Home</a>
+        <a href="/" aria-label="The Grove — today's verse">The Grove</a>
+        <a href="/campus">Campus</a>
         <a href="/#feel-section">Ask the Word</a>
-        <a href="/plans.html" id="nav-browse-curriculum" aria-label="Battle Plans — KJV tracks for hard weeks and quiet seasons">Battle Plans</a>
-        <a href="/calm.html" aria-label="Calm — one steady KJV verse when the moment is heavy">Calm</a>
+        <a href="/plans.html" id="nav-browse-curriculum" aria-label="The Paths — Battle Plans for hard weeks">The Paths</a>
+        <a href="/calm.html" aria-label="Quiet Hall — one steady KJV verse when the moment is heavy">Quiet Hall</a>
         <a href="/mystudy">My Study</a>
-        <a href="/family.html" aria-label="Family hub — verse, plans, printables">Family &amp; Kids</a>
+        <a href="/family.html" aria-label="Family Yard — verse, plans, printables">Family Yard</a>
         <a href="/explore.html">Explore</a>
-        <a href="/church-hub.html" id="nav-pastors" aria-label="Pastor and church tools">Pastors</a>
+        <a href="/church-hub.html" id="nav-pastors" aria-label="Pastor's Study — church tools">Pastor's Study</a>
         <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
         <details class="tdb-nav-more">
           <summary aria-haspopup="true">More tools</summary>
@@ -805,7 +806,7 @@
         <a href="wins-report.html" data-section="wins-report" data-icon="WR">Wins Report</a>
         <a href="about.html" data-section="about" data-icon="AB">About</a>
         <a href="faq.html" data-section="faq" data-icon="FQ">FAQ</a>
-        <a href="pricing.html" data-section="pricing" data-icon="PC">Support</a>
+        <a href="/give" data-section="pricing" data-icon="PC">Support</a>
       </nav>
     </aside>
 
@@ -1138,7 +1139,7 @@
     </main>
   </div>
 
-  <script type="module" src="script.js?v=20260709-wave4"></script>
+  <script type="module" src="script.js?v=20260805-four-pillars"></script>
   <script src="tdb-offline-strip.js?v=20260329pass2off"></script>
   <script src="bible-study-companion.js?v=20260328printpolish"></script>
   <script src="word-study.js?v=20260329pass2off"></script>
@@ -2922,12 +2923,12 @@
   </script>
 
   <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
-    <nav class="tdb-bottom-dock" aria-label="Main site navigation">
-      <a href="/" aria-label="Home — today’s verse">🏠 Home</a>
+    <nav class="tdb-bottom-dock" aria-label="Campus navigation">
+      <a href="/" aria-label="The Grove — today’s verse">🌳 Grove</a>
       <a href="/#feel-section" aria-label="Ask the Word">💬 Ask</a>
-      <a href="/plans.html" aria-label="Battle Plans">🗓️ Plans</a>
-      <a href="/calm.html" aria-label="Calm — one steady verse">🌿 Calm</a>
-      <a href="/explore.html" class="tdb-bottom-dock-more" aria-label="More tools">☰ More</a>
+      <a href="/plans.html" aria-label="The Paths — Battle Plans">🗓️ Paths</a>
+      <a href="/calm.html" aria-label="Quiet Hall — one steady verse">🌿 Quiet</a>
+      <a href="/campus" class="tdb-bottom-dock-more" aria-label="Campus map">🗺️ Campus</a>
     </nav>
 </body>
 </html>

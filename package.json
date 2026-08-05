@@ -128,7 +128,8 @@
     "pre-launch:full": "npm run quality:gate && npm run audit:lighthouse && npm run qa:smoke:local",
     "pre-launch:verify-live": "npm run verify:live:critical && npm run validate:prod",
     "api:dev": "npm --prefix api run dev",
-    "api:build": "npm --prefix api run build"
+    "api:build": "npm --prefix api run build",
+    "verify:freeze": "node scripts/verify-feature-freeze.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.1",

@@ -15,19 +15,18 @@ window.TDB_CONFIG = {
   VAPID_PUBLIC_KEY: '',
   PUSH_SUBSCRIBE_URL: 'https://rixsnhpwrlbvvymkfamj.supabase.co/functions/v1/save-push-subscription',
   PUSH_UNSUBSCRIBE_URL: 'https://rixsnhpwrlbvvymkfamj.supabase.co/functions/v1/remove-push-subscription',
-  // Battle Pro / Stripe — paste Payment Link URLs from Stripe Dashboard; see STRIPE-CONFIG.md
+  // FREE FOREVER: no paid tiers for Scripture or tools. Stripe fields below are only for
+  // optional gifts on /give if you ever wire them — never for unlocking access.
   STRIPE_PUBLISHABLE_KEY: '',
-  // Supporter: $5/mo, $50/yr
+  // Optional gift links (not subscriptions / not paywalls)
   STRIPE_SUPPORTER_LINK: '',
   STRIPE_SUPPORTER_MONTHLY_LINK: '',
   STRIPE_SUPPORTER_YEARLY_LINK: '',
-  // Battle Pro: $10/mo, $100/yr
+  // Legacy unused tier keys (kept empty; do not productize)
   STRIPE_BATTLEPRO_MONTHLY_LINK: '',
   STRIPE_BATTLEPRO_YEARLY_LINK: '',
-  // Military discount: Battle Pro $1/mo, $10/yr
   STRIPE_BATTLEPRO_MILITARY_MONTHLY_LINK: '',
   STRIPE_BATTLEPRO_MILITARY_YEARLY_LINK: '',
-  // Church/Team: $10/mo, $100/yr (beta)
   STRIPE_CHURCH_LINK: '',
   STRIPE_CHURCH_MONTHLY_LINK: '',
   STRIPE_CHURCH_YEARLY_LINK: '',
@@ -45,7 +44,7 @@ window.TDB_CONFIG = {
 window.TDB_CONFIG.TURNSTILE_SITE_KEY = '';
 
 // Price IDs for create-checkout-session (signed-in flow with metadata). Paste from Stripe Dashboard → Products → [price] ID (e.g. price_1ABC...).
-// Order: Supporter $5/$50, Battle Pro $10/$100, Church $10/$100 — monthly then yearly per tier.
+// Legacy price IDs only if optional gifts use Checkout later — never paid feature tiers.
 window.TDB_CONFIG.STRIPE_PRICE_IDS = {
   supporter: { monthly: 'price_1T5C10PyNV9eq3QeHyy5RLdy', yearly: 'price_1T5C20PyNV9eq3Qe70Bida8E' },
   battle_pro: { monthly: 'price_1T5C3aPyNV9eq3QeJx4Xg9Ej', yearly: 'price_1T5C47PyNV9eq3QeDXr6hz5A' },

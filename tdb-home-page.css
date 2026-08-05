@@ -12338,3 +12338,51 @@ body:has(#tdbCampusMapHome) #tdbCapacityDoor {
   cursor: pointer;
   padding: 0.75rem 0.25rem;
 }
+
+/* audit-focus-love: persona lawn — hide lower campus noise */
+/* After Grove + paths + map + capacity, hide bulk optional UI (DOM kept for scripts/anchors) */
+body:has(#tdbCampusMapHome) #tdbHomeVerseExtras,
+body:has(#tdbCampusMapHome) #tdbHomePastorPlans,
+body:has(#tdbCampusMapHome) #tdbHomeMidQuietDrawer,
+body:has(#tdbCampusMapHome) #tdb-home-companion-doors,
+body:has(#tdbCampusMapHome) #tdb-home-votm,
+body:has(#tdbCampusMapHome) #newsletter,
+body:has(#tdbCampusMapHome) #tdbHeroTrustQuotes,
+body:has(#tdbCampusMapHome) .tdb-home-reader-stories--hero-trust,
+body:has(#tdbCampusMapHome) #tdbHomeFullShelf,
+body:has(#tdbCampusMapHome) #tdb-home-tools-shelf,
+body:has(#tdbCampusMapHome) #tdb-home-more-rooms,
+body:has(#tdbCampusMapHome) #tdb-home-doorways,
+body:has(#tdbCampusMapHome) #tdbDoorwaysDetails,
+body:has(#tdbCampusMapHome) #tdb-porch-sign-shelf,
+body:has(#tdbCampusMapHome) #tdbHomeMorePathsAlso,
+body:has(#tdbCampusMapHome) #tdbHomeMorePathsAfter,
+body:has(#tdbCampusMapHome) #tdbHomeMorePathsMid,
+body:has(#tdbCampusMapHome) #tdbStartMyDayBand,
+body:has(#tdbCampusMapHome) #plan-progress-card,
+body:has(#tdbCampusMapHome) #notifPermCard,
+body:has(#tdbCampusMapHome) #tdb-home-kids-ribbon,
+body:has(#tdbCampusMapHome) #tdbFamilyModeBridge,
+body:has(#tdbCampusMapHome) #en-hub-daily-verse,
+body:has(#tdbCampusMapHome) #tdbGentleRhythmSoft,
+body:has(#tdbCampusMapHome) #tdbHomeMobiusWeek,
+body:has(#tdbCampusMapHome) #quick-pray-wrap,
+body:has(#tdbCampusMapHome) #offline-banner,
+body:has(#tdbCampusMapHome) #pwaNudge,
+body:has(#tdbCampusMapHome) #install-cta,
+body:has(#tdbCampusMapHome) #tdb-from-builder,
+body:has(#tdbCampusMapHome) #prayer-counter-home,
+body:has(#tdbCampusMapHome) .explore-hero-row,
+body:has(#tdbCampusMapHome) .read-chapter-row,
+body:has(#tdbCampusMapHome) #tdbGentleNextSteps {
+  display: none !important;
+}
+.tdb-campus-map-home__persona {
+  margin: 0.4rem 0 0;
+  font-size: 0.86rem;
+  color: rgba(167, 210, 170, 0.9);
+}
+/* Capacity stays; keep it compact */
+body:has(#tdbCampusMapHome) #tdbCapacityDoor .tdb-capacity-door__list {
+  gap: 0.45rem;
+}

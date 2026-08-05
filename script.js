@@ -12,7 +12,7 @@
   if (!('serviceWorker' in navigator)) return;
   if (document.querySelector('script[data-tdb-sw-register]')) return;
   var s = document.createElement('script');
-  s.src = '/register-sw.js?v=20260805-campus-grove-lock-lock';
+  s.src = '/register-sw.js?v=20260805-audit-focus-lock';
   s.defer = true;
   s.setAttribute('data-tdb-sw-register', '1');
   (document.head || document.documentElement).appendChild(s);
@@ -58,7 +58,7 @@ function tdbIsHomePage() {
   function injectVerseBreakdownStack() {
     if (!window.TDB_VERSE_BREAKDOWN_DATA && !document.querySelector('script[data-tdb-verse-breakdown-overrides]')) {
       var seed = document.createElement('script');
-      seed.src = '/verse-breakdown-overrides.js?v=20260805-campus-grove-lock-lock';
+      seed.src = '/verse-breakdown-overrides.js?v=20260805-audit-focus-lock';
       seed.defer = true;
       seed.setAttribute('data-tdb-verse-breakdown-overrides', '1');
       (document.head || document.documentElement).appendChild(seed);
@@ -75,7 +75,7 @@ function tdbIsHomePage() {
     /* Optional BBE simpler English — load even if verse-breakdown already present. */
     if (!document.querySelector('script[data-tdb-bbe-simple]')) {
       var bbe = document.createElement('script');
-      bbe.src = '/bbe-simple.js?v=20260805-campus-grove-lock-lock';
+      bbe.src = '/bbe-simple.js?v=20260805-audit-focus-lock';
       bbe.defer = true;
       bbe.setAttribute('data-tdb-bbe-simple', '1');
       (document.head || document.documentElement).appendChild(bbe);
@@ -83,7 +83,7 @@ function tdbIsHomePage() {
     if (window.TDBVerseBreakdown) return;
     if (document.querySelector('script[data-tdb-verse-breakdown]')) return;
     var s = document.createElement('script');
-    s.src = '/verse-breakdown.js?v=20260805-campus-grove-lock-lock';
+    s.src = '/verse-breakdown.js?v=20260805-audit-focus-lock';
     s.defer = true;
     s.setAttribute('data-tdb-verse-breakdown', '1');
     (document.head || document.documentElement).appendChild(s);
@@ -2774,7 +2774,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[data-lazy-src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
   var trustedStd = trustedScriptURL('/verse-breakdown-standard.js?v=20260428-vbd');
-  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260805-campus-grove-lock-lock');
+  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260805-audit-focus-lock');
   if (!trustedStd || !trusted) return;
   var stdScr = document.createElement('script');
   stdScr.src = trustedStd;
@@ -39770,8 +39770,9 @@ async function tdbInitImpl() {
     const verseEl = document.getElementById('church-verse-of-day');
     const verseAdmin = document.getElementById('church-verse-admin');
     const assignWrap = document.getElementById('church-assign-wrap');
-    if (verseAdmin) verseAdmin.style.display = (subscriptionTier === 'church_team' || isMasterUser) ? 'block' : 'none';
-    if (assignWrap) assignWrap.style.display = (subscriptionTier === 'church_team' || isMasterUser) ? 'block' : 'none';
+    // Free forever: pastor tools visible to all (not a paid church tier).
+    if (verseAdmin) verseAdmin.style.display = 'block';
+    if (assignWrap) assignWrap.style.display = 'block';
     if (verseEl) {
       if (currentChurch) {
         const data = (churchVerseFromSupabase && churchVerseFromSupabase.ref) ? churchVerseFromSupabase : loadChurchVerseOfDay();

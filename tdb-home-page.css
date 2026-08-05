@@ -12152,3 +12152,149 @@ a.plan-category-chip:focus-visible,
 }
 .tdb-home-more-when-ready__summary::-webkit-details-marker { display: none; }
 .tdb-home-more-when-ready__body { margin-top: 0.35rem; }
+
+/* campus-grove: lawn first, buildings second */
+.tdb-grove__sign {
+  margin: 0.35rem auto 0.15rem;
+  max-width: 42rem;
+  padding: 0 1rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(167, 210, 170, 0.92);
+}
+.tdb-grove__tagline {
+  margin: 0 auto 0.65rem;
+  max-width: 42rem;
+  padding: 0 1rem;
+  font-size: 0.95rem;
+  color: rgba(226, 232, 240, 0.78);
+  line-height: 1.45;
+}
+.tdb-home-primary-pair.tdb-grove {
+  position: relative;
+}
+.tdb-grove-paths {
+  margin: 1rem auto 1.25rem;
+  max-width: 42rem;
+  padding: 0 0.75rem;
+}
+.tdb-grove-paths__label {
+  margin: 0 0 0.55rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(227, 188, 103, 0.9);
+  letter-spacing: 0.04em;
+}
+.tdb-grove-paths__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .tdb-grove-paths__list { grid-template-columns: repeat(3, 1fr); }
+}
+.tdb-grove-paths__stone {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-height: 44px;
+  padding: 0.85rem 0.9rem;
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: rgba(15, 23, 42, 0.5);
+}
+.tdb-grove-paths__stone strong {
+  font-size: 0.98rem;
+  color: rgba(227, 188, 103, 0.95);
+}
+.tdb-grove-paths__stone span {
+  font-size: 0.82rem;
+  color: rgba(203, 213, 225, 0.88);
+  line-height: 1.35;
+}
+.tdb-grove-paths__stone:hover,
+.tdb-grove-paths__stone:focus-visible {
+  border-color: rgba(227, 188, 103, 0.45);
+  outline: 2px solid rgba(227, 188, 103, 0.35);
+  outline-offset: 2px;
+}
+.tdb-campus-map-home {
+  margin: 0.5rem auto 1.5rem;
+  max-width: 42rem;
+  padding: 1rem 1rem 1.15rem;
+  border-radius: 16px;
+  border: 1px solid rgba(167, 210, 170, 0.2);
+  background: linear-gradient(165deg, rgba(34, 80, 48, 0.14), rgba(8, 12, 22, 0.55));
+}
+.tdb-campus-map-home__eyebrow {
+  margin: 0 0 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(167, 210, 170, 0.9);
+}
+.tdb-campus-map-home__title {
+  margin: 0 0 0.35rem;
+  font-size: 1.2rem;
+  color: rgba(227, 188, 103, 0.95);
+}
+.tdb-campus-map-home__lead {
+  margin: 0 0 0.85rem;
+  font-size: 0.92rem;
+  color: rgba(226, 232, 240, 0.82);
+  line-height: 1.5;
+}
+.tdb-campus-buildings {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+.tdb-campus-building {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  padding: 0.7rem 0.8rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(8, 12, 22, 0.45);
+  min-height: 44px;
+}
+.tdb-campus-building__name {
+  font-weight: 650;
+  font-size: 0.95rem;
+  color: rgba(227, 188, 103, 0.95);
+}
+.tdb-campus-building__job {
+  font-size: 0.82rem;
+  color: rgba(203, 213, 225, 0.88);
+  line-height: 1.35;
+}
+.tdb-campus-building:hover,
+.tdb-campus-building:focus-visible {
+  border-color: rgba(227, 188, 103, 0.4);
+  outline: 2px solid rgba(227, 188, 103, 0.3);
+  outline-offset: 2px;
+}
+.tdb-campus-map-home__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  margin: 0.95rem 0 0;
+}
+.tdb-campus-map-home__study {
+  font-size: 0.9rem;
+  color: rgba(227, 188, 103, 0.9);
+}

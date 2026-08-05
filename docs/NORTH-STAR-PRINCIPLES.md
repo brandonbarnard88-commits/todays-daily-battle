@@ -4,6 +4,7 @@ todaysdailybattle.com is built on four fixed, non-negotiable foundations:
 
 - **KJV-only primary** — Every main verse, battle plan, prayer, and tool quotes the King James Version as primary Scripture. Optional **Simpler English (BBE)** may appear as a clearly labeled public-domain helper for children and new readers; it never replaces or is mislabeled as KJV. See `bible-credits.html`.
 - **Privacy-first & ad-free** — No advertisements, no data selling, no targeted tracking. Only anonymous country-level page stats. All user notes, prayers, and progress stay on-device in localStorage unless the user explicitly chooses to sync.
+- **Campus + Grove** — The Grove (today’s verse + plain words + Ask) is first. Named buildings wait off the lawn. Free forever still holds in every building.
 - **Free forever** — Salvation is not for sale. Every spiritual and study tool (verse, plans, Ask the Word, Calm, kids, prayer, pastor tools) stays free with no paywall. Optional gifts may support the ministry; giving never unlocks more of the Word.
 - **Offline-first** — The entire site works completely offline after the first visit.
 - **Practical, human-scale tools** — Focused on short, actionable 7/21/40-day battle plans for real-life struggles (anxiety, grief, parenting, fear, etc.). No AI devotionals, no generic verse feeds, no bloat.

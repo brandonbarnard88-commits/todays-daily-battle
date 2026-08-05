@@ -1,4 +1,6 @@
 /**
+/* 20260805-sky-night: keep initHeaderSky reachable after PWA null-guard */
+
  * Homepage feel-search, FEEL_GROUPS, plan modals, and companion wiring.
  * Extracted from index.html for faster first paint (defer after DOM).
  */

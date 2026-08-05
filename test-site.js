@@ -61,7 +61,7 @@ const pages = [
   'tdb-home-page.css?v=20260805-four-pillars',
   'id="tdbHeroQuietEyebrow"',
   'class="tdb-bottom-dock"',
-  'tdb-home-feel.js?v=20260805-pwa-null',
+  'tdb-home-feel.js?v=20260805-sky-night',
   'tdb-feel-combo.js?v=20260712-first-doors',
   'cormorant-garamond-hero-latin.woff2',
   'id="tdb-hero-lcp-critical"',

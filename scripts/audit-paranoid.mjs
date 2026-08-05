@@ -9,7 +9,8 @@ const root = path.resolve(__dirname, '..');
 
 const IGNORE_DIRS = new Set(['.git', 'node_modules', '.worktrees']);
 /* next-app/ is an optional Next subtree with its own build outputs (.next/*.html); skip so anchor scan matches static site only. */
-const SOURCE_IGNORE_DIRS = new Set(['.git', 'node_modules', 'vendor', 'dist', 'next-app', '.worktrees', 'partials']);
+/* archive/ holds HTML fragments (not live pages); skip so relative hrefs are not treated as missing. */
+const SOURCE_IGNORE_DIRS = new Set(['.git', 'node_modules', 'vendor', 'dist', 'next-app', '.worktrees', 'partials', 'archive']);
 
 function walkFiles(startDir, extensions, ignoreDirs = IGNORE_DIRS) {
   const out = [];

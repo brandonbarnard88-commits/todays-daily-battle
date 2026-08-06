@@ -26,8 +26,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Install Playwright Firefox
-        run: npx playwright install firefox
+      - name: Install Playwright Chromium
+        # Chromium first in scripts/qa-smoke.mjs — Firefox stalls on Action Bible under python http.server in CI.
+        run: npx playwright install chromium
 
       - name: Run smoke checks
         env:

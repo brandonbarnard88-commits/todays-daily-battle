@@ -3020,14 +3020,13 @@
     </button>
     <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel-standalone">
       <a href="/" aria-label="The Grove — today's verse">The Grove</a>
-      <a href="/campus">Campus</a>
+      <a href="/explore.html" aria-label="Explore — full campus map">Explore</a>
       <a href="/#feel-section">Ask the Word</a>
-      <a href="/plans.html" id="nav-browse-curriculum" aria-label="The Paths — Battle Plans for hard weeks">The Paths</a>
+      <a href="/plans.html" id="nav-browse-curriculum" aria-current="page" aria-label="The Paths — KJV tracks for hard weeks and quiet seasons">The Paths</a>
       <a href="/calm.html" aria-label="Quiet Hall — one steady KJV verse when the moment is heavy">Quiet Hall</a>
       <a href="/mystudy">My Study</a>
-      <a href="/family.html" aria-label="Family Yard — verse, plans, printables">Family Yard</a>
-      <a href="/explore.html">Explore</a>
-      <a href="/church-hub.html" id="nav-pastors" aria-label="Pastor's Study — church tools">Pastor's Study</a>
+      <a href="/family.html" aria-label="Family hub — verse, plans, printables">Family hub</a>
+      <a href="/church-hub.html" id="nav-pastors" aria-label="Pastor’s Study — church tools">Pastor’s Study</a>
       <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
       <details class="tdb-nav-more">
         <summary aria-haspopup="true">More tools</summary>
@@ -3037,28 +3036,34 @@
               <a href="/verse.html">Today&rsquo;s Lesson</a>
               <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read the Bible</a>
               <a href="/memorize.html">Memorize</a>
-              <a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool</a>
+              <a href="/bible-tool.html#bible-tool-hub" aria-label="The Library — lookup, verse image, chapter reader">The Library</a>
+              <a href="/study.html">Study workspace</a>
             </div>
             <div class="tdb-nav-more-group">
-              <span class="tdb-nav-more-group-label">Plans &amp; Journey</span>
-              <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map and gentle paths">Curriculum</a>
-              <a href="/university.html" id="nav-university-core" aria-label="University of God — five anchor verses, quiet map">University map</a>
+              <span class="tdb-nav-more-group-label">Maps into The Paths</span>
+              <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map nested under The Paths">Curriculum map</a>
+              <a href="/university.html" id="nav-university-core" aria-label="University map — five anchor verses">University map</a>
+              <a href="/reading-plan.html">7-day reading plan</a>
               <a href="/daily-rhythm.html">Daily Rhythm</a>
               <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
               <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar">Print year</a>
               <a href="/mobius.html">M&ouml;bius Journal</a>
             </div>
             <div class="tdb-nav-more-group">
-              <span class="tdb-nav-more-group-label">Family &amp; Community</span>
-              <a href="/kids/corner.html">Kids &amp; Family</a>
+              <span class="tdb-nav-more-group-label">Family &amp; Kids</span>
+              <a href="/kids/">Kids Battle</a>
+              <a href="/kids/corner.html">Bible Story Library</a>
+              <a href="/coloring.html">Kids Coloring</a>
+              <a href="/little-ones.html">For the Little Ones</a>
               <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
               <a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">Family Armor for little ones</a>
               <a href="/prayer-wall.html">Pray</a>
-              <a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub</a>
+              <a href="/printables.html" aria-label="Print hub — verse cards, Quiet Hall sheets, family packs">Print hub</a>
             </div>
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">About the Site</span>
-              <a href="/site-guide.html" id="nav-site-guide" aria-label="Start here — calm map of where to begin">Start here</a>
+              <a href="/explore.html#start-here" id="nav-site-guide" aria-label="Start here — calm map on Explore">Start here</a>
+              <a href="/campus">Campus map (alias)</a>
               <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
               <a href="/about.html">About</a>
               <a href="/story.html">Story</a>
@@ -3082,7 +3087,7 @@
   <script nonce="tdb2025s">(function(){try{if(localStorage.getItem('tdb_plans_quiet_update_dismiss')==='2026-05-11-plans')document.documentElement.classList.add('tdb-plans-quiet-update-dismissed');}catch(e){}})();</script>
   <script nonce="tdb2025s">(function(){function openBrowseMoreForHash(){try{var id=(location.hash||'').replace(/^#/,'');if(!id)return;var el=document.getElementById(id);var wrap=document.getElementById('plansBrowseMore');if(!el||!wrap||!wrap.contains(el))return;wrap.open=true;}catch(e){}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',openBrowseMoreForHash);else openBrowseMoreForHash();window.addEventListener('hashchange',openBrowseMoreForHash);})();</script>
   <div id="plans-quiet-update" class="tdb-quiet-update-strip tdb-quiet-update-strip--plans" data-tdb-plans-quiet-version="2026-05-11-plans" role="status" aria-live="polite">
-    <p class="tdb-quiet-update-strip__text">Update: these are KJV Battle Plans.</p>
+    <p class="tdb-quiet-update-strip__text">Update: these tracks are The Paths (KJV Battle Plans).</p>
     <button type="button" class="tdb-quiet-update-strip__dismiss" id="plans-quiet-update-dismiss" aria-label="Dismiss this update">✕</button>
   </div>
 
@@ -3092,8 +3097,8 @@
     <div class="plan-index" id="planIndex">
       <a href="index.html" class="plans-back" aria-label="Back to homepage">← Today's Battle</a>
       <div class="plans-hero plans-hero--soar-dawn tdb-micro-hero-dawn">
-        <h1>Battle Plans</h1>
-        <p class="plans-hero-subtitle">Short, steady KJV paths for the hard weeks and the quiet ones too. Pick one that fits what you’re carrying today. Nothing to sign up for — just open it and sit with the Word a spell.</p>
+        <h1>The Paths</h1>
+        <p class="plans-hero-subtitle">Short, steady KJV Battle Plans for the hard weeks and the quiet ones too. Pick one that fits what you’re carrying today. Nothing to sign up for — just open it and sit with the Word a spell.</p>
       </div>
 
       <section class="tdb-heavy-now tdb-heavy-now--hub" id="plansHeavyNow" role="region" aria-labelledby="plansHeavyNowH">
@@ -3101,10 +3106,23 @@
         <h2 class="tdb-heavy-now__title" id="plansHeavyNowH">Need something for tonight?</h2>
         <p class="tdb-heavy-now__lead">Before you scan every lane&mdash;one verse, one week, or one honest plan for a hard day.</p>
         <div class="tdb-heavy-now__actions">
-          <a class="btn btn-primary tdb-heavy-now__primary" href="/calm.html">Calm room</a>
+          <a class="btn btn-primary tdb-heavy-now__primary" href="/calm.html">Quiet Hall</a>
           <a class="btn btn-secondary" href="/emergency-calm-pack.html">7-day emergency pack</a>
           <a class="btn btn-secondary" href="/plans.html?plan=anxiety7">7-day peace plan</a>
         </div>
+      </section>
+
+      <section class="plans-maps-into-paths tdb-quiet-container" id="plansMapsIntoPaths" aria-labelledby="plansMapsIntoPathsH">
+        <h2 class="plans-find-your-plan-h" id="plansMapsIntoPathsH">Maps into The Paths</h2>
+        <p class="section-note">Same ministry, quieter nesting. Open a map only when you want orientation—not a second home page.</p>
+        <ul class="plans-situation-jump__list" role="list" aria-label="Maps nested under The Paths">
+          <li><a href="/gods-university-of-life.html">God&rsquo;s University of Life</a></li>
+          <li><a href="/university.html">University map</a></li>
+          <li><a href="/curriculum.html">Curriculum (lesson shelf)</a></li>
+          <li><a href="/reading-plan.html">7-day reading plan</a></li>
+          <li><a href="/daily-rhythm.html">Daily rhythm</a></li>
+          <li><a href="/yearly-rhythm.html">Year-round rhythm</a></li>
+        </ul>
       </section>
 
       <section class="plans-situation-jump" id="find-your-plan" aria-labelledby="plans-situation-jump-h">
@@ -3251,14 +3269,14 @@
       <nav class="tdb-core-seven tdb-quiet-container" aria-labelledby="plans-core-seven-label">
         <p class="tdb-core-seven__label" id="plans-core-seven-label">Campus</p>
         <ul class="tdb-core-seven__grid">
-          <li><a class="tdb-core-seven__link" href="/"><span>Home</span><span class="tdb-core-seven__desc">Today&rsquo;s verse</span></a></li>
-          <li><a class="tdb-core-seven__link" href="/#feel-section"><span>Ask the Word</span><span class="tdb-core-seven__desc">Feelings &amp; questions</span></a></li>
-          <li><a class="tdb-core-seven__link" href="/plans.html" aria-current="page"><span>Battle Plans</span><span class="tdb-core-seven__desc">You are here</span></a></li>
-          <li><a class="tdb-core-seven__link" href="/calm.html"><span>Calm</span><span class="tdb-core-seven__desc">One verse now</span></a></li>
-          <li><a class="tdb-core-seven__link" href="/family.html"><span>Family &amp; Kids</span><span class="tdb-core-seven__desc">Table &amp; stories</span></a></li>
-          <li><a class="tdb-core-seven__link" href="/explore.html#start-here"><span>Explore</span><span class="tdb-core-seven__desc">Full site map</span></a></li>
+          <li><a class="tdb-core-seven__link" href="/"><span>The Grove</span><span class="tdb-core-seven__desc">Today&rsquo;s verse</span></a></li>
+          <li><a class="tdb-core-seven__link" href="/calm.html"><span>Quiet Hall</span><span class="tdb-core-seven__desc">One verse now</span></a></li>
+          <li><a class="tdb-core-seven__link" href="/plans.html" aria-current="page"><span>The Paths</span><span class="tdb-core-seven__desc">You are here</span></a></li>
+          <li><a class="tdb-core-seven__link" href="/family.html"><span>Family hub</span><span class="tdb-core-seven__desc">Table &amp; kids</span></a></li>
+          <li><a class="tdb-core-seven__link" href="/bible-tool.html"><span>The Library</span><span class="tdb-core-seven__desc">Look up Scripture</span></a></li>
           <li><a class="tdb-core-seven__link" href="/mystudy"><span>My Study</span><span class="tdb-core-seven__desc">Saved on device</span></a></li>
-          <li><a class="tdb-core-seven__link" href="/church-hub.html"><span>Pastors</span><span class="tdb-core-seven__desc">Sermon &amp; church tools</span></a></li>
+          <li><a class="tdb-core-seven__link" href="/church-hub.html"><span>Pastor&rsquo;s Study</span><span class="tdb-core-seven__desc">Church tools</span></a></li>
+          <li><a class="tdb-core-seven__link" href="/explore.html#start-here"><span>Explore</span><span class="tdb-core-seven__desc">Full site map</span></a></li>
         </ul>
       </nav>
 
@@ -4793,9 +4811,9 @@
     <a href="/#feel-section">Ask the Word</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/plans.html">The Paths</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/calm.html">Quiet Hall</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/family.html">Family Yard</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/campus">Campus</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/family.html">Family hub</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/campus">Campus (alias)</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
   </nav>
@@ -4807,8 +4825,8 @@
   </p>
 
   <nav class="bottom-nav" role="navigation" aria-label="Plans, kids, and Spanish topics">
-    <a href="/plans.html">Plans</a>
-    <a href="/kids/">Kids Corner</a>
+    <a href="/plans.html">The Paths</a>
+    <a href="/kids/">Kids Battle</a>
     <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
       <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
       <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
@@ -4830,7 +4848,7 @@
     <a href="/for-pastors.html">For pastors &amp; teachers</a>
     <a href="/reader.html">Chapter reader</a>
     <a href="/bible/tools.html">Study workshop</a>
-    <a href="/bible-tool.html">Bible tool</a>
+    <a href="/bible-tool.html">The Library</a>
     <a href="/testimonials.html">Reader stories</a>
     <a href="/journal/">Journal</a>
     <a href="/updates.html">Monthly updates</a>
@@ -4872,14 +4890,14 @@
         <a href="/verse.html">Verse of the Day</a>
         <a href="/reader.html">Chapter reader</a>
         <a href="/bible/tools.html">Study workshop</a>
-        <a href="/bible-tool.html">Bible tool</a>
+        <a href="/bible-tool.html">The Library</a>
         <a href="/mystudy">My Study</a>
-        <a href="/calm.html">Calm</a>
+        <a href="/calm.html">Quiet Hall</a>
         <a href="/mobius.html">Grace Ribbon</a>
         <a href="/one-family-in-christ.html">One Family in Christ</a>
         <a href="/red-letters.html">Red letters</a>
-        <a href="/plans.html">Battle Plans</a>
-        <a href="/reading-plan.html">7-day plan</a>
+        <a href="/plans.html">The Paths</a>
+        <a href="/reading-plan.html">7-day plan (under Paths)</a>
         <a href="/study.html">Study workspace</a>
         <a href="/wins.html">Wins</a>
         <a href="/progress.html">Progress</a>
@@ -4895,8 +4913,8 @@
         <a href="/family.html">Family hub</a>
         <a href="/little-ones.html">For the Little Ones</a>
         <a href="/family-armor.html">Family Armor</a>
-        <a href="/kids/">Kids Corner</a>
-        <a href="/coloring.html">Color &amp; Tell</a>
+        <a href="/kids/">Kids Battle</a>
+        <a href="/coloring.html">Kids Coloring</a>
       </div>
       <div class="footer-sitemap-col">
         <h3>Further In</h3>
@@ -4904,7 +4922,8 @@
         <a href="/offline-porch.html">Offline porch</a>
         <a href="/porch-map-one-page-print.html">Porch map (print)</a>
         <a href="/porch-pathways-ribbon-one-page-print.html">Ribbon pathways (print)</a>
-        <a href="/find-a-path.html">Find a path</a>
+        <a href="/explore.html#start-here">Explore start here</a>
+        <a href="/find-a-path.html">Find a path (alias)</a>
         <a href="/learn-the-word.html">Learn the Word</a>
         <a href="/bible-study.html">Bible studies</a>
         <a href="/shop.html">Shop</a>

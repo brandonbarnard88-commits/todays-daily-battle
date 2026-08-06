@@ -163,6 +163,8 @@ Keep characters simple and recognizable from panel to panel. Leave clear space s
 
 **Usage tip:** Generate each panel with the exact same character description block so the figures stay consistent across the slideshow.
 
+**Hybrid Color → Story (live for Creation + Jesus & the children):** Four SVG panels drive Color & Tell (short KJV under each panel). Coloring stays the hands-on core; Watch My Story works after **one** saved scene. Full-page JPGs may remain for print pack sheets, but they are not part of the digital Watch sequence. See `kids/stories/creation-package.md` and `kids/stories/jesus-children-package.md`.
+
 ### 3. KJV verse footer
 
 ```text
@@ -179,6 +181,61 @@ Hard rules: no shading, no gray tones, no gradients, no soft edges, no texture, 
 
 **Negative:** same as the Grok Imagine version.  
 Add the KJV reference and text in the page HTML / print CSS — never bake verse text into the artwork.
+
+### 4. Hybrid Color → Story print one-pager (master)
+
+Use this when generating a **single US Letter page** that is both a coloring sheet and a simple story infographic (2×2 panels + title + big idea). For the on-site Color & Tell tabs, still generate **separate** `-s1`…`-s4` panels with variant 2 above so each scene can be painted and saved alone.
+
+```text
+Create a clean, printable colorable Bible story infographic for kids ages 4–10 in a gentle, calm style.
+
+Layout:
+- Vertical US Letter (8.5 x 11) portrait page
+- Soft cream or pure white background
+- Thick, bold black outlines only (no gray shading, no filled blacks, no gradients)
+- Large open colorable areas, minimal tiny details
+- 4 sequential story panels arranged in a clear 2x2 grid (or vertical stack if needed)
+- Soft rounded panel borders
+- Generous white space so the page feels calm, not crowded
+
+Style:
+- Simple, friendly line art (think classic children’s Bible coloring book mixed with light educational diagram)
+- Warm, approachable characters (not cartoonish or hyper-cute)
+- Clear sequential storytelling that a child can follow left-to-right, top-to-bottom
+- No scary or intense facial expressions
+
+Content structure:
+1. Top banner: Story title in large friendly lettering + one short KJV phrase underneath
+2. Four sequential panels that tell the core story in order
+3. Bottom strip: “One big idea” in simple words + a short memory line from the KJV
+
+Important rules:
+- Pure black line art on white/cream only — ready for crayons or markers
+- No text inside the panels except very short optional labels if helpful
+- Keep all text large and readable
+- Make every major element big enough for little hands to color easily
+- Overall feeling: quiet, welcoming, Scripture-centered, not busy or commercial
+
+Story to illustrate: [INSERT STORY NAME AND KEY MOMENTS]
+Key short KJV line for the top: “[INSERT SHORT VERSE OR PHRASE]”
+One big idea for the bottom: “[INSERT SIMPLE BIG IDEA]”
+
+Strictly black line art only. No gray fills, no color, no shading.
+```
+
+**Ready story slots (swap into the three brackets):**
+
+| Story | Panels (order) | Top KJV | One big idea |
+|-------|----------------|---------|--------------|
+| Jesus & the children | (1) Families bring children / disciples push back (2) Jesus calls them near (3) Jesus welcomes & blesses (4) Open arms — of such is the kingdom | “Suffer the little children to come unto me” | Jesus welcomes little ones |
+| Creation | (1) Light in darkness (2) Sky & waters (3) Land, plants, trees (4) Sun, moon, living creatures & people; rest in the bottom strip | “Behold, it was very good” | God made everything good |
+| David & Goliath | (1) Goliath shouting (2) David with sling & stones (3) Stone released (4) Goliath fallen — God’s help | “The battle is the Lord’s” | Small faith + God is enough |
+| Daniel in the lions’ den | (1) Daniel praying (2) Lowered into the den (3) Calm among the lions (4) King finds him safe | “My God hath sent his angel, and hath shut the lions’ mouths” | God is with us when we are afraid |
+| Empty tomb | (1) Sealed tomb & guards (2) Stone rolled away (3) Empty tomb / grave clothes (4) Women hear “He is risen” | “He is not here: for he is risen” | Jesus is alive |
+
+**Live digital hybrid (Color & Tell tabs):** Every Color & Tell story uses separate SVG panels (`-s1`…`-s4`, or 2 for life-lesson stories) with short KJV under each scene, a One big idea, and Watch-after-one — see `kids/color-and-tell.js` and `kids/color-and-tell-hybrid-copy.json`. Prefer Mark 10 order on digital Jesus panels (bring → rebuke → suffer → kingdom). **Print storyboard** on the coloring page builds a blank 2×2 letter sheet in the browser (no PDF server). Use this one-pager master when regenerating combined line-art sheets.
+
+**Consistency tips:** Keep the layout block identical every time; only change the three story fields. Generate high-res. If the tool adds shade or color, re-run with the strict black-line closing line.
 
 To refresh stored prompts after editing subjects in `scripts/rewrite-color-prompts.mjs`:
 

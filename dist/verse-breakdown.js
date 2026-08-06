@@ -670,6 +670,32 @@
     return '';
   }
 
+  function isWeakContextStamp(about, toAudience) {
+    if (typeof window !== 'undefined' && typeof window.TDB_isWeakVerseContext === 'function') {
+      return window.TDB_isWeakVerseContext(about, toAudience);
+    }
+    var a = tdbPlainTextForUi(about).toLowerCase();
+    var t = tdbPlainTextForUi(toAudience).toLowerCase();
+    if (!a || !t) return true;
+    if (a === 'bible writer' || a === 'the biblical author' || a === 'the biblical writer') return true;
+    if (t === 'people who first heard these words' || t === 'original audience') return true;
+    return false;
+  }
+
+  function resolveContextForRef(ref) {
+    if (typeof window !== 'undefined' && typeof window.TDB_resolveVerseContext === 'function') {
+      try {
+        var hit = window.TDB_resolveVerseContext(ref);
+        if (hit && hit.about && hit.to && !isWeakContextStamp(hit.about, hit.to)) {
+          return { s: tdbPlainTextForUi(hit.about), a: tdbPlainTextForUi(hit.to), setting: tdbPlainTextForUi(hit.setting || '') };
+        }
+      } catch (eCtx) {}
+    }
+    var book = parseBook(ref);
+    var ctx = BOOK_CONTEXT[book] || { s: 'The biblical author', a: 'Original audience' };
+    return { s: ctx.s, a: ctx.a, setting: '' };
+  }
+
   function buildGeneratedBase(ref, text) {
     var raw = tdbPlainTextForUi(String(text || '').replace(/<[^>]+>/g, '').trim());
     var book = parseBook(ref);
@@ -683,7 +709,7 @@
         source: 'generated'
       };
     }
-    var ctx = BOOK_CONTEXT[book] || { s: 'The biblical author', a: 'Original audience' };
+    var ctx = resolveContextForRef(ref);
     if (/begat|son of|daughter of|father of|generations?\s+of/i.test(raw) && raw.length < 140) {
       return {
         about: ctx.s,
@@ -742,11 +768,18 @@
     if (cached) {
       /* Re-validate cache: older v2 entries (and any weak seed) must not stick as “plain.” */
       var cachedPlain = cached.plainExplanation || cached.layman || '';
-      if (cachedPlain && !isNearVerbatimPlain(cachedPlain, raw)) return cached;
+      if (cachedPlain && !isNearVerbatimPlain(cachedPlain, raw) && !isWeakContextStamp(cached.about, cached.to)) {
+        return cached;
+      }
     }
     var base = buildGeneratedBase(ref, raw);
     var registered = scrubWeakPlainFields(getRegisteredOverride(ref, group), raw);
     var merged = Object.assign({}, base, registered, manualOverride);
+    if (isWeakContextStamp(merged.about, merged.to)) {
+      var freshCtx = resolveContextForRef(ref);
+      merged.about = freshCtx.s;
+      merged.to = freshCtx.a;
+    }
     merged.plainExplanation = ensureStrongPlain(ref, raw, merged.plainExplanation || merged.layman || merged.plain || '');
     if (!merged.groupApplication) merged.groupApplication = buildGroupApplication(group, inferRelationTopic(ref, raw));
     if (!merged.modernApplication) merged.modernApplication = inferApplies(raw);

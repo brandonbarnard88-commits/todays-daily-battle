@@ -1,0 +1,2438 @@
+{
+  "creation": {
+    "idea": "God made everything good.",
+    "lead": "Four gentle panels that walk through Creation. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: God made everything good.",
+    "scenes": [
+      {
+        "caption": "God speaks light into the dark.",
+        "verse": "“Let there be light.” — Genesis 1:3 (KJV)",
+        "alt": "God speaks light into the dark on the first day of Creation",
+        "src": "/coloring-pages/creation-s1.svg"
+      },
+      {
+        "caption": "Sky, seas, and land — God shapes a home.",
+        "verse": "“God called the dry land Earth.” — Genesis 1:10 (KJV)",
+        "alt": "Sky, seas, and dry land take shape as God makes a home for life",
+        "src": "/coloring-pages/creation-s2.svg"
+      },
+      {
+        "caption": "Sun, moon, and living creatures fill the world.",
+        "verse": "“And God made two great lights.” — Genesis 1:16 (KJV)",
+        "alt": "Sun, moon, and living creatures fill the world God made",
+        "src": "/coloring-pages/creation-s3.svg"
+      },
+      {
+        "caption": "People in His image; God rests — it is very good.",
+        "verse": "“Behold, it was very good.” — Genesis 1:31 (KJV)",
+        "alt": "People made in God’s image and a world that is very good",
+        "src": "/coloring-pages/creation-s4.svg"
+      }
+    ]
+  },
+  "baby-moses": {
+    "idea": "God watches over little ones.",
+    "lead": "Four gentle panels that walk through Baby Moses. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: God watches over little ones.",
+    "scenes": [
+      {
+        "caption": "A mother hides her baby boy.",
+        "verse": "“She hid him three months.” — Exodus 2:2 (KJV)",
+        "alt": "Moses’ mother hiding baby Moses",
+        "src": "/coloring-pages/baby-moses-s1.svg"
+      },
+      {
+        "caption": "The ark of bulrushes is laid by the river.",
+        "verse": "“She laid it in the flags by the river’s brink.” — Exodus 2:3 (KJV)",
+        "alt": "Baby Moses in a basket by the river",
+        "src": "/coloring-pages/baby-moses-s2.svg"
+      },
+      {
+        "caption": "Pharaoh’s daughter finds the child.",
+        "verse": "“And when she had opened it, she saw the child.” — Exodus 2:6 (KJV)",
+        "alt": "Pharaoh’s daughter finding baby Moses",
+        "src": "/coloring-pages/baby-moses-s3.svg"
+      },
+      {
+        "caption": "Moses grows in Pharaoh’s house.",
+        "verse": "“And the child grew… and he became her son.” — Exodus 2:10 (KJV)",
+        "alt": "Young Moses under Pharaoh’s daughter’s care",
+        "src": "/coloring-pages/baby-moses-s4.svg"
+      }
+    ]
+  },
+  "moses-red-sea": {
+    "idea": "God makes a way when there seems none.",
+    "lead": "Four gentle panels that walk through Moses and the Red Sea. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: God makes a way when there seems none.",
+    "scenes": [
+      {
+        "caption": "Israel stands between the sea and Pharaoh.",
+        "verse": "“Fear ye not, stand still, and see the salvation of the LORD.” — Exodus 14:13 (KJV)",
+        "alt": "Israel camped by the Red Sea",
+        "src": "/coloring-pages/moses-red-sea-s1.svg"
+      },
+      {
+        "caption": "Moses stretches out his hand.",
+        "verse": "“Lift thou up thy rod… and stretch out thine hand over the sea.” — Exodus 14:16 (KJV)",
+        "alt": "Moses stretching his rod over the sea",
+        "src": "/coloring-pages/moses-red-sea-s2.svg"
+      },
+      {
+        "caption": "The waters part; they walk on dry ground.",
+        "verse": "“And the children of Israel went into the midst of the sea upon the dry ground.” — Exodus 14:22 (KJV)",
+        "alt": "Israel walking through the parted Red Sea",
+        "src": "/coloring-pages/moses-red-sea-s3.svg"
+      },
+      {
+        "caption": "God delivers His people.",
+        "verse": "“Thus the LORD saved Israel that day.” — Exodus 14:30 (KJV)",
+        "alt": "Israel safe on the other side of the sea",
+        "src": "/coloring-pages/moses-red-sea-s4.svg"
+      }
+    ]
+  },
+  "jonah": {
+    "idea": "God’s mercy reaches farther than we run.",
+    "lead": "Four gentle panels that walk through Jonah and the Great Fish. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: God’s mercy reaches farther than we run.",
+    "scenes": [
+      {
+        "caption": "Jonah runs from the Lord’s call.",
+        "verse": "“But Jonah rose up to flee unto Tarshish.” — Jonah 1:3 (KJV)",
+        "alt": "Jonah fleeing on a ship",
+        "src": "/coloring-pages/jonah-s1.svg"
+      },
+      {
+        "caption": "A great storm; Jonah is cast into the sea.",
+        "verse": "“So they took up Jonah, and cast him forth into the sea.” — Jonah 1:15 (KJV)",
+        "alt": "Jonah cast into the stormy sea",
+        "src": "/coloring-pages/jonah-s2.svg"
+      },
+      {
+        "caption": "A great fish swallows Jonah.",
+        "verse": "“The LORD had prepared a great fish to swallow up Jonah.” — Jonah 1:17 (KJV)",
+        "alt": "Jonah and the great fish",
+        "src": "/coloring-pages/jonah-s3.svg"
+      },
+      {
+        "caption": "Jonah prays; God brings him to dry land.",
+        "verse": "“And the LORD spake unto the fish, and it vomited out Jonah.” — Jonah 2:10 (KJV)",
+        "alt": "Jonah on dry land after the great fish",
+        "src": "/coloring-pages/jonah-s4.svg"
+      }
+    ]
+  },
+  "noah": {
+    "idea": "God keeps His promises.",
+    "lead": "Four gentle panels that walk through Noah and the Ark. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: God keeps His promises.",
+    "scenes": [
+      {
+        "caption": "God tells Noah to build an ark.",
+        "verse": "“Make thee an ark of gopher wood.” — Genesis 6:14 (KJV)",
+        "alt": "Noah building the ark",
+        "src": "/coloring-pages/noah-s1.svg"
+      },
+      {
+        "caption": "Animals come two by two.",
+        "verse": "“There went in two and two unto Noah into the ark.” — Genesis 7:9 (KJV)",
+        "alt": "Animals entering Noah’s ark",
+        "src": "/coloring-pages/noah-s2.svg"
+      },
+      {
+        "caption": "The flood covers the earth; God remembers Noah.",
+        "verse": "“And God remembered Noah.” — Genesis 8:1 (KJV)",
+        "alt": "The ark on the waters; God remembers Noah",
+        "src": "/coloring-pages/noah-s3.svg"
+      },
+      {
+        "caption": "A rainbow — God’s covenant of mercy.",
+        "verse": "“I do set my bow in the cloud.” — Genesis 9:13 (KJV)",
+        "alt": "Noah sees the rainbow after the flood",
+        "src": "/coloring-pages/noah-s4.svg"
+      }
+    ]
+  },
+  "david": {
+    "idea": "Small faith + God is enough.",
+    "lead": "Four gentle panels that walk through David and Goliath. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Small faith + God is enough.",
+    "scenes": [
+      {
+        "caption": "The giant shouts against God’s people.",
+        "verse": "“I defy the armies of Israel.” — 1 Samuel 17:10 (KJV)",
+        "alt": "Goliath the giant shouts on the battlefield",
+        "src": "/coloring-pages/david-s1.svg"
+      },
+      {
+        "caption": "Young David comes with a sling and stones.",
+        "verse": "“The LORD that delivered me… will deliver me.” — 1 Samuel 17:37 (KJV)",
+        "alt": "Young David with a sling and five smooth stones",
+        "src": "/coloring-pages/david-s2.svg"
+      },
+      {
+        "caption": "David runs to meet Goliath in the Lord’s name.",
+        "verse": "“The battle is the LORD’s.” — 1 Samuel 17:47 (KJV)",
+        "alt": "David runs toward Goliath and releases the stone",
+        "src": "/coloring-pages/david-s3.svg"
+      },
+      {
+        "caption": "The giant falls — God helped His servant.",
+        "verse": "“So David prevailed over the Philistine.” — 1 Samuel 17:50 (KJV)",
+        "alt": "Goliath fallen; David stands with God’s help",
+        "src": "/coloring-pages/david-s4.svg"
+      }
+    ]
+  },
+  "daniel-lions": {
+    "idea": "God is with us when we are afraid.",
+    "lead": "Four gentle panels that walk through Daniel in the Lions' Den. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: God is with us when we are afraid.",
+    "scenes": [
+      {
+        "caption": "Daniel prays to God, as he always did.",
+        "verse": "“He kneeled upon his knees three times a day, and prayed.” — Daniel 6:10 (KJV)",
+        "alt": "Daniel praying by the window",
+        "src": "/coloring-pages/daniel-lions-s1.svg"
+      },
+      {
+        "caption": "Daniel is cast into the lions’ den.",
+        "verse": "“They brought Daniel, and cast him into the den of lions.” — Daniel 6:16 (KJV)",
+        "alt": "Daniel being lowered into the lions’ den",
+        "src": "/coloring-pages/daniel-lions-s2.svg"
+      },
+      {
+        "caption": "Daniel sits calm — God shut the lions’ mouths.",
+        "verse": "“My God hath sent his angel, and hath shut the lions’ mouths.” — Daniel 6:22 (KJV)",
+        "alt": "Daniel sitting calmly among the lions",
+        "src": "/coloring-pages/daniel-lions-s3.svg"
+      },
+      {
+        "caption": "The king finds Daniel safe in the morning.",
+        "verse": "“Is thy God… able to deliver thee from the lions?” — Daniel 6:20 (KJV)",
+        "alt": "The king finding Daniel safe in the morning",
+        "src": "/coloring-pages/daniel-lions-s4.svg"
+      }
+    ]
+  },
+  "feeding-5000": {
+    "idea": "Jesus provides more than enough.",
+    "lead": "Four gentle panels that walk through The Feeding of the Five Thousand. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Jesus provides more than enough.",
+    "scenes": [
+      {
+        "caption": "A great crowd is hungry.",
+        "verse": "“He was moved with compassion toward them.” — Matthew 14:14 (KJV)",
+        "alt": "Jesus looking on a hungry crowd",
+        "src": "/coloring-pages/feeding-5000-s1.svg"
+      },
+      {
+        "caption": "A boy’s five loaves and two fishes.",
+        "verse": "“There is a lad here, which hath five barley loaves, and two small fishes.” — John 6:9 (KJV)",
+        "alt": "A boy offering loaves and fishes",
+        "src": "/coloring-pages/feeding-5000-s2.svg"
+      },
+      {
+        "caption": "Jesus blesses the bread and fish.",
+        "verse": "“And looking up to heaven, he blessed, and brake.” — Matthew 14:19 (KJV)",
+        "alt": "Jesus blessing the loaves and fishes",
+        "src": "/coloring-pages/feeding-5000-s3.svg"
+      },
+      {
+        "caption": "All eat and are filled — twelve baskets left.",
+        "verse": "“And they did all eat, and were filled.” — Matthew 14:20 (KJV)",
+        "alt": "Crowds eating; baskets of leftovers",
+        "src": "/coloring-pages/feeding-5000-s4.svg"
+      }
+    ]
+  },
+  "jesus-storm": {
+    "idea": "Jesus is Lord over the storm.",
+    "lead": "Four gentle panels that walk through Jesus Calms the Storm. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Jesus is Lord over the storm.",
+    "scenes": [
+      {
+        "caption": "A great storm rises on the sea.",
+        "verse": "“There arose a great storm of wind.” — Mark 4:37 (KJV)",
+        "alt": "Disciples in a boat in a great storm",
+        "src": "/coloring-pages/jesus-storm-s1.svg"
+      },
+      {
+        "caption": "The disciples wake Jesus in fear.",
+        "verse": "“Master, carest thou not that we perish?” — Mark 4:38 (KJV)",
+        "alt": "Disciples waking Jesus in the storm",
+        "src": "/coloring-pages/jesus-storm-s2.svg"
+      },
+      {
+        "caption": "Peace, be still.",
+        "verse": "“Peace, be still.” — Mark 4:39 (KJV)",
+        "alt": "Jesus rebuking the wind and sea",
+        "src": "/coloring-pages/jesus-storm-s3.svg"
+      },
+      {
+        "caption": "The wind ceases — a great calm.",
+        "verse": "“And the wind ceased, and there was a great calm.” — Mark 4:39 (KJV)",
+        "alt": "Calm sea after Jesus stills the storm",
+        "src": "/coloring-pages/jesus-storm-s4.svg"
+      }
+    ]
+  },
+  "jesus-children": {
+    "idea": "Jesus welcomes children.",
+    "lead": "Four gentle panels that walk through Jesus Welcomes the Little Children. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Jesus welcomes children.",
+    "scenes": [
+      {
+        "caption": "Families bring little ones to Jesus.",
+        "verse": "“They brought young children to him.” — Mark 10:13 (KJV)",
+        "alt": "Families bring young children to Jesus",
+        "src": "/coloring-pages/jesus-children-s1.svg"
+      },
+      {
+        "caption": "The disciples try to send them away.",
+        "verse": "“And his disciples rebuked those that brought them.” — Mark 10:13 (KJV)",
+        "alt": "The disciples try to send the children away",
+        "src": "/coloring-pages/jesus-children-s2.svg"
+      },
+      {
+        "caption": "Jesus welcomes them with open arms.",
+        "verse": "“Suffer the little children to come unto me.” — Mark 10:14 (KJV)",
+        "alt": "Jesus welcomes the little children with open arms",
+        "src": "/coloring-pages/jesus-children-s3.svg"
+      },
+      {
+        "caption": "Little ones matter to God — and so do you.",
+        "verse": "“For of such is the kingdom of God.” — Mark 10:14 (KJV)",
+        "alt": "Jesus blesses the children — of such is the kingdom of God",
+        "src": "/coloring-pages/jesus-children-s4.svg"
+      }
+    ]
+  },
+  "good-samaritan": {
+    "idea": "Love your neighbor with real help.",
+    "lead": "Four gentle panels that walk through The Good Samaritan. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Love your neighbor with real help.",
+    "scenes": [
+      {
+        "caption": "A man is hurt on the road.",
+        "verse": "“A certain man went down from Jerusalem to Jericho.” — Luke 10:30 (KJV)",
+        "alt": "A wounded traveler on the roadside",
+        "src": "/coloring-pages/good-samaritan-s1.svg"
+      },
+      {
+        "caption": "Others pass by on the other side.",
+        "verse": "“He passed by on the other side.” — Luke 10:31 (KJV)",
+        "alt": "A priest passing by the wounded man",
+        "src": "/coloring-pages/good-samaritan-s2.svg"
+      },
+      {
+        "caption": "A Samaritan has compassion.",
+        "verse": "“He had compassion on him.” — Luke 10:33 (KJV)",
+        "alt": "The good Samaritan helping the wounded man",
+        "src": "/coloring-pages/good-samaritan-s3.svg"
+      },
+      {
+        "caption": "He cares for him — go and do likewise.",
+        "verse": "“Go, and do thou likewise.” — Luke 10:37 (KJV)",
+        "alt": "The Samaritan paying the innkeeper",
+        "src": "/coloring-pages/good-samaritan-s4.svg"
+      }
+    ]
+  },
+  "empty-tomb": {
+    "idea": "Jesus is alive.",
+    "lead": "Four gentle panels that walk through The Empty Tomb. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Jesus is alive.",
+    "scenes": [
+      {
+        "caption": "The tomb is sealed; soldiers keep watch.",
+        "verse": "“So they went, and made the sepulchre sure.” — Matthew 27:66 (KJV)",
+        "alt": "The sealed tomb with guards",
+        "src": "/coloring-pages/empty-tomb-s1.svg"
+      },
+      {
+        "caption": "The stone is rolled away.",
+        "verse": "“The angel of the Lord… rolled back the stone.” — Matthew 28:2 (KJV)",
+        "alt": "The stone rolled away from the tomb",
+        "src": "/coloring-pages/empty-tomb-s2.svg"
+      },
+      {
+        "caption": "The tomb is empty — He is not here.",
+        "verse": "“He is not here: for he is risen.” — Matthew 28:6 (KJV)",
+        "alt": "The empty tomb and folded grave clothes",
+        "src": "/coloring-pages/empty-tomb-s3.svg"
+      },
+      {
+        "caption": "Good news: He is risen, as He said.",
+        "verse": "“Go quickly, and tell his disciples that he is risen.” — Matthew 28:7 (KJV)",
+        "alt": "The women hear that Jesus is risen",
+        "src": "/coloring-pages/empty-tomb-s4.svg"
+      }
+    ]
+  },
+  "prodigal-son": {
+    "idea": "The Father runs to welcome home.",
+    "lead": "Four gentle panels that walk through The Prodigal Son. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: The Father runs to welcome home.",
+    "scenes": [
+      {
+        "caption": "A son asks for his share and leaves.",
+        "verse": "“Father, give me the portion of goods that falleth to me.” — Luke 15:12 (KJV)",
+        "alt": "The younger son leaving home",
+        "src": "/coloring-pages/prodigal-son-s1.svg"
+      },
+      {
+        "caption": "He wastes all and is in want.",
+        "verse": "“He began to be in want.” — Luke 15:14 (KJV)",
+        "alt": "The prodigal son in hunger among swine",
+        "src": "/coloring-pages/prodigal-son-s2.svg"
+      },
+      {
+        "caption": "He comes home; the father runs to him.",
+        "verse": "“His father saw him, and had compassion, and ran.” — Luke 15:20 (KJV)",
+        "alt": "The father running to welcome his son",
+        "src": "/coloring-pages/prodigal-son-s3.svg"
+      },
+      {
+        "caption": "Lost, and is found — celebrate mercy.",
+        "verse": "“This my son was dead, and is alive again.” — Luke 15:24 (KJV)",
+        "alt": "A joyful welcome feast for the returned son",
+        "src": "/coloring-pages/prodigal-son-s4.svg"
+      }
+    ]
+  },
+  "walks-on-water": {
+    "idea": "Keep your eyes on Jesus.",
+    "lead": "Four gentle panels that walk through Jesus Walks on Water. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Keep your eyes on Jesus.",
+    "scenes": [
+      {
+        "caption": "Jesus comes walking on the sea.",
+        "verse": "“Jesus went unto them, walking on the sea.” — Matthew 14:25 (KJV)",
+        "alt": "Jesus walking on the water toward the boat",
+        "src": "/coloring-pages/walks-on-water-s1.svg"
+      },
+      {
+        "caption": "Peter steps out toward Jesus.",
+        "verse": "“Lord, if it be thou, bid me come unto thee.” — Matthew 14:28 (KJV)",
+        "alt": "Peter stepping out of the boat",
+        "src": "/coloring-pages/walks-on-water-s2.svg"
+      },
+      {
+        "caption": "Fear rises; Jesus reaches for him.",
+        "verse": "“O thou of little faith, wherefore didst thou doubt?” — Matthew 14:31 (KJV)",
+        "alt": "Jesus catching Peter on the water",
+        "src": "/coloring-pages/walks-on-water-s3.svg"
+      },
+      {
+        "caption": "They worship Him in the boat.",
+        "verse": "“Of a truth thou art the Son of God.” — Matthew 14:33 (KJV)",
+        "alt": "Jesus and Peter safe in the boat",
+        "src": "/coloring-pages/walks-on-water-s4.svg"
+      }
+    ]
+  },
+  "zacchaeus": {
+    "idea": "Jesus seeks and saves the lost.",
+    "lead": "Four gentle panels that walk through Jesus Loves Zacchaeus. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Jesus seeks and saves the lost.",
+    "scenes": [
+      {
+        "caption": "Zacchaeus climbs a tree to see Jesus.",
+        "verse": "“He climbed up into a sycomore tree to see him.” — Luke 19:4 (KJV)",
+        "alt": "Zacchaeus in a sycamore tree",
+        "src": "/coloring-pages/zacchaeus-s1.svg"
+      },
+      {
+        "caption": "Jesus calls him by name.",
+        "verse": "“Zacchaeus, make haste, and come down.” — Luke 19:5 (KJV)",
+        "alt": "Jesus calling Zacchaeus down",
+        "src": "/coloring-pages/zacchaeus-s2.svg"
+      },
+      {
+        "caption": "Some murmur that Jesus is a guest of a sinner.",
+        "verse": "“That he was gone to be guest with a man that is a sinner.” — Luke 19:7 (KJV)",
+        "alt": "People murmuring as Jesus goes to Zacchaeus’ house",
+        "src": "/coloring-pages/zacchaeus-s3.svg"
+      },
+      {
+        "caption": "A changed heart — salvation comes to this house.",
+        "verse": "“This day is salvation come to this house.” — Luke 19:9 (KJV)",
+        "alt": "Zacchaeus welcoming Jesus with joy",
+        "src": "/coloring-pages/zacchaeus-s4.svg"
+      }
+    ]
+  },
+  "woman-at-well": {
+    "idea": "Jesus offers living water.",
+    "lead": "Four gentle panels that walk through Woman at the Well. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Jesus offers living water.",
+    "scenes": [
+      {
+        "caption": "Jesus, being wearied with his journey, sat thus on.",
+        "verse": "“Whosoever drinketh of this water shall thirst again.” — John 4:6 (KJV)",
+        "alt": "Jesus sits weary by Jacob’s well at noon in Samaria",
+        "src": "/coloring-pages/woman-at-well-s1.svg"
+      },
+      {
+        "caption": "There cometh a woman of Samaria to draw water: Jesus saith unto her, Give me to drink.",
+        "verse": "“Whosoever drinketh of this water shall thirst again.” — John 4:7 (KJV)",
+        "alt": "A Samaritan woman comes to draw water and meets Jesus",
+        "src": "/coloring-pages/woman-at-well-s2.svg"
+      },
+      {
+        "caption": "Jesus answered and said unto her, Whosoever drinketh.",
+        "verse": "“Whosoever drinketh of this water shall thirst again.” — John 4:14 (KJV)",
+        "alt": "Jesus speaks with the woman about living water",
+        "src": "/coloring-pages/woman-at-well-s3.svg"
+      },
+      {
+        "caption": "The woman then left her waterpot.",
+        "verse": "“The.” — John 4:28-29 (KJV)",
+        "alt": "The woman leaves her waterpot and runs to tell the city about Jesus",
+        "src": "/coloring-pages/woman-at-well-s4.svg"
+      }
+    ]
+  },
+  "ruth-naomi": {
+    "idea": "Loyal love is a quiet strength.",
+    "lead": "Four gentle panels that walk through Ruth & Naomi. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Loyal love is a quiet strength.",
+    "scenes": [
+      {
+        "caption": "Naomi said unto her two daughters in law, Go, return each to her mother’s house.",
+        "verse": "“Intreat me not to leave thee for whither thou goest, I will go.” — Ruth 1:8 (KJV)",
+        "alt": "Naomi urges her daughters-in-law to return home as they leave Moab",
+        "src": "/coloring-pages/ruth-naomi-s1.svg"
+      },
+      {
+        "caption": "Ruth said, Intreat me not to leave thee.",
+        "verse": "“Intreat me not to leave thee for whither thou goest, I will go.” — Ruth 1:16 (KJV)",
+        "alt": "Ruth clings to Naomi and makes her famous vow of loyalty",
+        "src": "/coloring-pages/ruth-naomi-s2.svg"
+      },
+      {
+        "caption": "Ruth the Moabitess said unto Naomi, Let me now go to.",
+        "verse": "“Intreat me not to leave thee for whither thou goest, I will go.” — Ruth 2:2 (KJV)",
+        "alt": "Ruth gleans in the fields of Boaz near Bethlehem",
+        "src": "/coloring-pages/ruth-naomi-s3.svg"
+      },
+      {
+        "caption": "Boaz said unto the elders, Ye are witnesses this day.",
+        "verse": "“Moreover.” — Ruth 4:9-10 (KJV)",
+        "alt": "Boaz redeems Ruth at the city gate in the presence of the elders",
+        "src": "/coloring-pages/ruth-naomi-s4.svg"
+      }
+    ]
+  },
+  "lazarus": {
+    "idea": "Jesus is the resurrection and the life.",
+    "lead": "Four gentle panels that walk through Lazarus Raised from the Dead. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Jesus is the resurrection and the life.",
+    "scenes": [
+      {
+        "caption": "Lazarus is sick; friends send for Jesus.",
+        "verse": "“Lord, behold, he whom thou lovest is sick.” — John 11:3 (KJV)",
+        "alt": "Messengers telling Jesus Lazarus is sick",
+        "src": "/coloring-pages/lazarus-s1.svg"
+      },
+      {
+        "caption": "Martha meets Jesus in grief.",
+        "verse": "“Lord, if thou hadst been here, my brother had not died.” — John 11:21 (KJV)",
+        "alt": "Martha meeting Jesus near Bethany",
+        "src": "/coloring-pages/lazarus-s2.svg"
+      },
+      {
+        "caption": "Jesus weeps; then He calls Lazarus.",
+        "verse": "“Lazarus, come forth.” — John 11:43 (KJV)",
+        "alt": "Jesus calling Lazarus from the tomb",
+        "src": "/coloring-pages/lazarus-s3.svg"
+      },
+      {
+        "caption": "Lazarus comes forth — alive.",
+        "verse": "“He that was dead came forth.” — John 11:44 (KJV)",
+        "alt": "Lazarus raised from the dead",
+        "src": "/coloring-pages/lazarus-s4.svg"
+      }
+    ]
+  },
+  "lost-sheep": {
+    "idea": "The Shepherd comes for the one.",
+    "lead": "Four gentle panels that walk through The Lost Sheep. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: The Shepherd comes for the one.",
+    "scenes": [
+      {
+        "caption": "What man of you, having an hundred sheep, if he lose.",
+        "verse": "“Rejoice with me.” — Luke 15:4 (KJV)",
+        "alt": "The shepherd with ninety-nine sheep, noticing one is missing",
+        "src": "/coloring-pages/lost-sheep-s1.svg"
+      },
+      {
+        "caption": "He goeth after that which is lost, until he find it.",
+        "verse": "“Rejoice with me.” — Luke 15:4 (KJV)",
+        "alt": "The shepherd searching through the wilderness for the lost sheep",
+        "src": "/coloring-pages/lost-sheep-s2.svg"
+      },
+      {
+        "caption": "And when he hath found it, he layeth it on his shoulders, rejoicing.",
+        "verse": "“Rejoice with me.” — Luke 15:5 (KJV)",
+        "alt": "The shepherd finding and gently rescuing the lost sheep",
+        "src": "/coloring-pages/lost-sheep-s3.svg"
+      },
+      {
+        "caption": "And when he cometh home, he calleth together his.",
+        "verse": "“Rejoice with me.” — Luke 15:6 (KJV)",
+        "alt": "The shepherd bringing the sheep home to a joyful celebration",
+        "src": "/coloring-pages/lost-sheep-s4.svg"
+      }
+    ]
+  },
+  "jairus-daughter": {
+    "idea": "Jesus’ word brings life.",
+    "lead": "Four gentle panels that walk through Jairus' Daughter. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Jesus’ word brings life.",
+    "scenes": [
+      {
+        "caption": "There came one of the rulers of the synagogue,.",
+        "verse": "“And.” — Mark 5:22-23 (KJV)",
+        "alt": "Jairus, a ruler of the synagogue, falls at Jesus’ feet begging for his dying daughter",
+        "src": "/coloring-pages/jairus-daughter-s1.svg"
+      },
+      {
+        "caption": "While he yet spake, there came from the ruler of the.",
+        "verse": "“Talitha cumi.” — Mark 5:35 (KJV)",
+        "alt": "Messengers bring the devastating news that the daughter has died",
+        "src": "/coloring-pages/jairus-daughter-s2.svg"
+      },
+      {
+        "caption": "He suffered no man to follow him, save Peter.",
+        "verse": "“Talitha cumi.” — Mark 5:37 (KJV)",
+        "alt": "Jesus enters the house with only Peter, James, John and the girl’s parents",
+        "src": "/coloring-pages/jairus-daughter-s3.svg"
+      },
+      {
+        "caption": "He took the damsel by the hand.",
+        "verse": "“And.” — Mark 5:41-42 (KJV)",
+        "alt": "Jesus takes the girl by the hand and raises her, saying Talitha cumi",
+        "src": "/coloring-pages/jairus-daughter-s4.svg"
+      }
+    ]
+  },
+  "blind-man": {
+    "idea": "Jesus opens eyes and hearts.",
+    "lead": "Four gentle panels that walk through Jesus Heals the Blind Man. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Jesus opens eyes and hearts.",
+    "scenes": [
+      {
+        "caption": "Jesus spat on the ground, made clay of the spittle.",
+        "verse": "“Receive thy sight.” — John 9:6 (KJV)",
+        "alt": "Jesus anoints the eyes of the man born blind with clay",
+        "src": "/coloring-pages/blind-man-s1.svg"
+      },
+      {
+        "caption": "The man went and washed, and came seeing. For the first time in his life, he could see.",
+        "verse": "“Receive thy sight.” — John 9:7 (KJV)",
+        "alt": "The man washes in the Pool of Siloam and receives his sight",
+        "src": "/coloring-pages/blind-man-s2.svg"
+      },
+      {
+        "caption": "The Pharisees called the parents and the man,.",
+        "verse": "“Receive thy sight.” — John 9:19 (KJV)",
+        "alt": "The Pharisees question the man and his parents about the miracle",
+        "src": "/coloring-pages/blind-man-s3.svg"
+      },
+      {
+        "caption": "Jesus said, Dost thou believe on the Son of God? The.",
+        "verse": "“Receive thy sight.” — John 9:38 (KJV)",
+        "alt": "Jesus finds the man and reveals Himself; the man worships Him",
+        "src": "/coloring-pages/blind-man-s4.svg"
+      }
+    ]
+  },
+  "fishers-of-men": {
+    "idea": "Jesus calls ordinary people.",
+    "lead": "Four gentle panels that walk through Fishers of Men. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Jesus calls ordinary people.",
+    "scenes": [
+      {
+        "caption": "Jesus, walking by the sea of Galilee, saw two.",
+        "verse": "“Follow me.” — Matthew 4:18 (KJV)",
+        "alt": "Jesus walks by the Sea of Galilee and sees Peter and Andrew casting their net",
+        "src": "/coloring-pages/fishers-of-men-s1.svg"
+      },
+      {
+        "caption": "And he saith unto them, Follow me.",
+        "verse": "“And.” — Matthew 4:19-20 (KJV)",
+        "alt": "Jesus calls Peter and Andrew: Follow me, and I will make you fishers of men",
+        "src": "/coloring-pages/fishers-of-men-s2.svg"
+      },
+      {
+        "caption": "And going on from thence, he saw two other brethren,.",
+        "verse": "“Follow me.” — Matthew 4:21 (KJV)",
+        "alt": "Jesus calls James and John, the sons of Zebedee, in their boat",
+        "src": "/coloring-pages/fishers-of-men-s3.svg"
+      },
+      {
+        "caption": "When they had this done, they inclosed a great.",
+        "verse": "“Follow me.” — Luke 5:11 (KJV)",
+        "alt": "A miraculous catch of fish – Peter falls at Jesus’ feet as the nets break",
+        "src": "/coloring-pages/fishers-of-men-s4.svg"
+      }
+    ]
+  },
+  "wedding-cana": {
+    "idea": "Jesus turns need into joy.",
+    "lead": "Four gentle panels that walk through Wedding at Cana. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Jesus turns need into joy.",
+    "scenes": [
+      {
+        "caption": "There was a marriage in Cana of Galilee.",
+        "verse": "“And.” — John 2:1-2 (KJV)",
+        "alt": "A joyful wedding feast in Cana of Galilee with Jesus and Mary among the guests",
+        "src": "/coloring-pages/wedding-cana-s1.svg"
+      },
+      {
+        "caption": "And when they wanted wine, the mother of Jesus saith unto him, They have no wine.",
+        "verse": "“This beginning of miracles did Jesus in Cana of Galilee.” — John 2:3 (KJV)",
+        "alt": "The servants discover there is no more wine at the wedding",
+        "src": "/coloring-pages/wedding-cana-s2.svg"
+      },
+      {
+        "caption": "Jesus saith unto them, Fill the waterpots with water. And they filled them up to the brim.",
+        "verse": "“This beginning of miracles did Jesus in Cana of Galilee.” — John 2:7 (KJV)",
+        "alt": "Jesus tells the servants to fill the six stone waterpots with water",
+        "src": "/coloring-pages/wedding-cana-s3.svg"
+      },
+      {
+        "caption": "When the ruler of the feast had tasted the water.",
+        "verse": "“This beginning of miracles did Jesus in Cana of Galilee.” — John 2:11 (KJV)",
+        "alt": "The master of the feast tastes the water that was made wine and is amazed",
+        "src": "/coloring-pages/wedding-cana-s4.svg"
+      }
+    ]
+  },
+  "mustard-seed": {
+    "idea": "Small faith can grow.",
+    "lead": "Four gentle panels that walk through The Mustard Seed. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Small faith can grow.",
+    "scenes": [
+      {
+        "caption": "The kingdom of heaven is like to a grain of mustard.",
+        "verse": "“The kingdom of heaven is like to a grain of mustard seed.” — Matthew 13:31 (KJV)",
+        "alt": "A very small seed",
+        "src": "/coloring-pages/mustard-seed-s1.svg"
+      },
+      {
+        "caption": "Which indeed is the least of all seeds.",
+        "verse": "“The kingdom of heaven is like to a grain of mustard seed.” — Matthew 13:32 (KJV)",
+        "alt": "The seed is planted",
+        "src": "/coloring-pages/mustard-seed-s2.svg"
+      },
+      {
+        "caption": "It becometh a tree, so that the birds of the air come and lodge in the branches thereof.",
+        "verse": "“The kingdom of heaven is like to a grain of mustard seed.” — Matthew 13:32 (KJV)",
+        "alt": "It grows into a great tree",
+        "src": "/coloring-pages/mustard-seed-s3.svg"
+      },
+      {
+        "caption": "The birds of the air come and lodge in the branches thereof.",
+        "verse": "“The kingdom of heaven is like to a grain of mustard seed.” — Matthew 13:31 (KJV)",
+        "alt": "Birds nest in the branches",
+        "src": "/coloring-pages/mustard-seed-s4.svg"
+      }
+    ]
+  },
+  "the-sower": {
+    "idea": "God’s Word wants good soil.",
+    "lead": "Four gentle panels that walk through The Parable of the Sower. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: God’s Word wants good soil.",
+    "scenes": [
+      {
+        "caption": "Some seeds fell by the way side, and the fowls came and devoured them up.",
+        "verse": "“But he that received seed into the good ground is he that.” — Matthew 13:4 (KJV)",
+        "alt": "Seed by the wayside",
+        "src": "/coloring-pages/the-sower-s1.svg"
+      },
+      {
+        "caption": "Some fell upon stony places, where they had not much earth: and forthwith they sprung up.",
+        "verse": "“But he that received seed into the good ground is he that.” — Matthew 13:5 (KJV)",
+        "alt": "Seed on stony places",
+        "src": "/coloring-pages/the-sower-s2.svg"
+      },
+      {
+        "caption": "Some fell among thorns; and the thorns sprung up, and choked them.",
+        "verse": "“But he that received seed into the good ground is he that.” — Matthew 13:7 (KJV)",
+        "alt": "Seed among thorns",
+        "src": "/coloring-pages/the-sower-s3.svg"
+      },
+      {
+        "caption": "But other fell into good ground, and brought forth fruit, some an hundredfold.",
+        "verse": "“But he that received seed into the good ground is he that.” — Matthew 13:23 (KJV)",
+        "alt": "Good ground bears fruit",
+        "src": "/coloring-pages/the-sower-s4.svg"
+      }
+    ]
+  },
+  "triumphal-entry": {
+    "idea": "Hosanna — the King comes in peace.",
+    "lead": "Four gentle panels that walk through Triumphal Entry. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Hosanna — the King comes in peace.",
+    "scenes": [
+      {
+        "caption": "They brought the ass, and the colt, and put on them their clothes, and he sat thereon.",
+        "verse": "“Hosanna to the Son of David.” — Matthew 21:7 (KJV)",
+        "alt": "Jesus rides a donkey",
+        "src": "/coloring-pages/triumphal-entry-s1.svg"
+      },
+      {
+        "caption": "A very great multitude spread their garments in the way.",
+        "verse": "“Hosanna to the Son of David.” — Matthew 21:8 (KJV)",
+        "alt": "Cloaks on the road",
+        "src": "/coloring-pages/triumphal-entry-s2.svg"
+      },
+      {
+        "caption": "Others cut down branches from the trees, and strawed them in the way.",
+        "verse": "“Hosanna to the Son of David.” — Matthew 21:8 (KJV)",
+        "alt": "Branches cut from the trees",
+        "src": "/coloring-pages/triumphal-entry-s3.svg"
+      },
+      {
+        "caption": "The multitudes cried, saying, Hosanna to the Son of David.",
+        "verse": "“Hosanna to the Son of David.” — Matthew 21:9 (KJV)",
+        "alt": "The crowd shouts Hosanna",
+        "src": "/coloring-pages/triumphal-entry-s4.svg"
+      }
+    ]
+  },
+  "lost-coin": {
+    "idea": "Heaven rejoices when the lost is found.",
+    "lead": "Four gentle panels that walk through The Lost Coin. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Heaven rejoices when the lost is found.",
+    "scenes": [
+      {
+        "caption": "What woman having ten pieces of silver, if she lose one piece, doth not light a candle?",
+        "verse": "“Rejoice with me.” — Luke 15:8 (KJV)",
+        "alt": "A woman with her silver pieces",
+        "src": "/coloring-pages/lost-coin-s1.svg"
+      },
+      {
+        "caption": "She sweepeth the house, and seeketh diligently till she find it.",
+        "verse": "“Rejoice with me.” — Luke 15:8 (KJV)",
+        "alt": "She sweeps the house",
+        "src": "/coloring-pages/lost-coin-s2.svg"
+      },
+      {
+        "caption": "And when she hath found it, she calleth her friends and her neighbours together.",
+        "verse": "“Rejoice with me.” — Luke 15:9 (KJV)",
+        "alt": "She finds the coin",
+        "src": "/coloring-pages/lost-coin-s3.svg"
+      },
+      {
+        "caption": "Rejoice with me; for I have found the piece which I had lost.",
+        "verse": "“Rejoice with me.” — Luke 15:10 (KJV)",
+        "alt": "Rejoice with friends",
+        "src": "/coloring-pages/lost-coin-s4.svg"
+      }
+    ]
+  },
+  "healing-paralytic": {
+    "idea": "Jesus forgives and heals.",
+    "lead": "Four gentle panels that walk through Jesus Heals the Paralytic. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Jesus forgives and heals.",
+    "scenes": [
+      {
+        "caption": "They brought to him a man sick of the palsy, lying on a bed: and Jesus seeing their faith.",
+        "verse": "“Arise, take up thy bed.” — Matthew 9:2 (KJV)",
+        "alt": "Friends bring a man on a bed",
+        "src": "/coloring-pages/healing-paralytic-s1.svg"
+      },
+      {
+        "caption": "They let him down through the tiling with his couch into the midst before Jesus.",
+        "verse": "“Arise, take up thy bed.” — Luke 5:19 (KJV)",
+        "alt": "They let him down through the roof",
+        "src": "/coloring-pages/healing-paralytic-s2.svg"
+      },
+      {
+        "caption": "Jesus said, Son, be of good cheer; thy sins be forgiven thee.",
+        "verse": "“Arise, take up thy bed.” — Matthew 9:2 (KJV)",
+        "alt": "Jesus forgives and heals",
+        "src": "/coloring-pages/healing-paralytic-s3.svg"
+      },
+      {
+        "caption": "Arise, take up thy bed, and go unto thine house.",
+        "verse": "“He.” — Matthew 9:6-8 (KJV)",
+        "alt": "He takes up his bed and walks",
+        "src": "/coloring-pages/healing-paralytic-s4.svg"
+      }
+    ]
+  },
+  "good-shepherd": {
+    "idea": "The Good Shepherd knows His sheep.",
+    "lead": "Four gentle panels that walk through The Good Shepherd. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: The Good Shepherd knows His sheep.",
+    "scenes": [
+      {
+        "caption": "I am the good shepherd.",
+        "verse": "“I am the good shepherd.” — John 10:11 (KJV)",
+        "alt": "Jesus the Good Shepherd peacefully with His flock in green pastures",
+        "src": "/coloring-pages/good-shepherd-s1.svg"
+      },
+      {
+        "caption": "The hireling fleeth because he is an hireling.",
+        "verse": "“But.” — John 10:12-13 (KJV)",
+        "alt": "A wolf threatens the flock and the shepherd stands to protect them",
+        "src": "/coloring-pages/good-shepherd-s2.svg"
+      },
+      {
+        "caption": "I am the good shepherd... I lay down my life for the sheep.",
+        "verse": "“I.” — John 10:14-15 (KJV)",
+        "alt": "The Good Shepherd lays down His life for the sheep",
+        "src": "/coloring-pages/good-shepherd-s3.svg"
+      },
+      {
+        "caption": "And when he hath found it, he layeth it on his shoulders, rejoicing.",
+        "verse": "“I am the good shepherd.” — Luke 15:5 (KJV)",
+        "alt": "The shepherd joyfully carries the rescued sheep home on His shoulders",
+        "src": "/coloring-pages/good-shepherd-s4.svg"
+      }
+    ]
+  },
+  "feeding-4000": {
+    "idea": "Jesus cares for hungry hearts.",
+    "lead": "Four gentle panels that walk through Jesus Feeds the Four Thousand. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Jesus cares for hungry hearts.",
+    "scenes": [
+      {
+        "caption": "Jesus called his disciples unto him, and said, I have compassion on the multitude.",
+        "verse": "“And they did all eat.” — Matthew 15:32 (KJV)",
+        "alt": "A great multitude with Jesus",
+        "src": "/coloring-pages/feeding-4000-s1.svg"
+      },
+      {
+        "caption": "And Jesus saith unto them, How many loaves have ye?.",
+        "verse": "“And they did all eat.” — Matthew 15:34 (KJV)",
+        "alt": "A few loaves and fishes",
+        "src": "/coloring-pages/feeding-4000-s2.svg"
+      },
+      {
+        "caption": "He took the seven loaves and the fishes.",
+        "verse": "“And they did all eat.” — Matthew 15:36 (KJV)",
+        "alt": "Jesus gives thanks and breaks bread",
+        "src": "/coloring-pages/feeding-4000-s3.svg"
+      },
+      {
+        "caption": "They did all eat, and were filled: and they took up seven baskets full of the broken meat.",
+        "verse": "“And.” — Matthew 15:37-38 (KJV)",
+        "alt": "All eat; baskets left over",
+        "src": "/coloring-pages/feeding-4000-s4.svg"
+      }
+    ]
+  },
+  "wise-foolish-builders": {
+    "idea": "Build your life on His words.",
+    "lead": "Four gentle panels that walk through The Wise and Foolish Builders. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Build your life on His words.",
+    "scenes": [
+      {
+        "caption": "Whosoever heareth these sayings of mine.",
+        "verse": "“Therefore whosoever heareth these sayings of mine.” — Matthew 7:24 (KJV)",
+        "alt": "A house built upon a rock",
+        "src": "/coloring-pages/wise-foolish-builders-s1.svg"
+      },
+      {
+        "caption": "Every one that heareth these sayings of mine.",
+        "verse": "“Therefore whosoever heareth these sayings of mine.” — Matthew 7:26 (KJV)",
+        "alt": "A house built upon the sand",
+        "src": "/coloring-pages/wise-foolish-builders-s2.svg"
+      },
+      {
+        "caption": "The rain descended, and the floods came, and the winds blew, and beat upon that house.",
+        "verse": "“Therefore whosoever heareth these sayings of mine.” — Matthew 7:25 (KJV)",
+        "alt": "Rain and wind beat on both houses",
+        "src": "/coloring-pages/wise-foolish-builders-s3.svg"
+      },
+      {
+        "caption": "It fell not: for it was founded upon a rock... great was the fall of it.",
+        "verse": "“And.” — Matthew 7:26-27 (KJV)",
+        "alt": "The rock house stands; the sand house falls",
+        "src": "/coloring-pages/wise-foolish-builders-s4.svg"
+      }
+    ]
+  },
+  "the-talents": {
+    "idea": "Faithful with a little matters.",
+    "lead": "Four gentle panels that walk through The Parable of the Talents. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Faithful with a little matters.",
+    "scenes": [
+      {
+        "caption": "Unto one he gave five talents, to another two.",
+        "verse": "“Well done, thou good and faithful servant.” — Matthew 25:15 (KJV)",
+        "alt": "The master gives talents",
+        "src": "/coloring-pages/the-talents-s1.svg"
+      },
+      {
+        "caption": "He that had received the five talents went and.",
+        "verse": "“Well done, thou good and faithful servant.” — Matthew 25:16 (KJV)",
+        "alt": "Two servants trade and gain",
+        "src": "/coloring-pages/the-talents-s2.svg"
+      },
+      {
+        "caption": "He that had received one went and digged in the earth, and hid his lord's money.",
+        "verse": "“Well done, thou good and faithful servant.” — Matthew 25:18 (KJV)",
+        "alt": "One servant hides his talent",
+        "src": "/coloring-pages/the-talents-s3.svg"
+      },
+      {
+        "caption": "Well done, thou good and faithful servant: thou hast been faithful over a few things.",
+        "verse": "“Well done, thou good and faithful servant.” — Matthew 25:21 (KJV)",
+        "alt": "The master returns",
+        "src": "/coloring-pages/the-talents-s4.svg"
+      }
+    ]
+  },
+  "persistent-widow": {
+    "idea": "Keep praying; do not faint.",
+    "lead": "Four gentle panels that walk through The Persistent Widow. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Keep praying; do not faint.",
+    "scenes": [
+      {
+        "caption": "There was in a city a judge, which feared not God,.",
+        "verse": "“Luke 18.” — Luke 18:2-3 (KJV)",
+        "alt": "The widow asks the judge",
+        "src": "/coloring-pages/persistent-widow-s1.svg"
+      },
+      {
+        "caption": "She came unto him, saying, Avenge me of mine adversary. And he would not for a while.",
+        "verse": "“Luke 18.” — Luke 18:3-4 (KJV)",
+        "alt": "The judge will not help",
+        "src": "/coloring-pages/persistent-widow-s2.svg"
+      },
+      {
+        "caption": "Though I fear not God, nor regard man.",
+        "verse": "“Luke 18.” — Luke 18:4-5 (KJV)",
+        "alt": "She keeps coming",
+        "src": "/coloring-pages/persistent-widow-s3.svg"
+      },
+      {
+        "caption": "Hear what the unjust judge saith. And shall not God avenge his own elect?",
+        "verse": "“I.” — Luke 18:6-8 (KJV)",
+        "alt": "The judge grants her request",
+        "src": "/coloring-pages/persistent-widow-s4.svg"
+      }
+    ]
+  },
+  "healing-leper": {
+    "idea": "Jesus is willing to make clean.",
+    "lead": "Four gentle panels that walk through Jesus Heals the Leper. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Jesus is willing to make clean.",
+    "scenes": [
+      {
+        "caption": "There came a leper and worshipped him, saying, Lord,.",
+        "verse": "“I will.” — Matthew 8:2 (KJV)",
+        "alt": "A leper kneels before Jesus",
+        "src": "/coloring-pages/healing-leper-s1.svg"
+      },
+      {
+        "caption": "Jesus put forth his hand, and touched him, saying, I will; be thou clean.",
+        "verse": "“I will.” — Matthew 8:3 (KJV)",
+        "alt": "Jesus touches him",
+        "src": "/coloring-pages/healing-leper-s2.svg"
+      },
+      {
+        "caption": "And immediately his leprosy was cleansed.",
+        "verse": "“I will.” — Matthew 8:3 (KJV)",
+        "alt": "He is cleansed",
+        "src": "/coloring-pages/healing-leper-s3.svg"
+      },
+      {
+        "caption": "See thou tell no man.",
+        "verse": "“I will.” — Matthew 8:4 (KJV)",
+        "alt": "Jesus sends him to the priest",
+        "src": "/coloring-pages/healing-leper-s4.svg"
+      }
+    ]
+  },
+  "joseph-coat": {
+    "idea": "God can use hard days for good.",
+    "lead": "Four gentle panels that walk through Joseph's Coat of Many Colours. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: God can use hard days for good.",
+    "scenes": [
+      {
+        "caption": "Jacob loves Joseph and gives him a coat.",
+        "verse": "“He made him a coat of many colours.” — Genesis 37:3 (KJV)",
+        "alt": "Joseph receiving a coat of many colours",
+        "src": "/coloring-pages/joseph-coat-s1.svg"
+      },
+      {
+        "caption": "Joseph’s brothers are jealous.",
+        "verse": "“They hated him, and could not speak peaceably.” — Genesis 37:4 (KJV)",
+        "alt": "Joseph’s brothers looking on with jealousy",
+        "src": "/coloring-pages/joseph-coat-s2.svg"
+      },
+      {
+        "caption": "Joseph is cast into a pit.",
+        "verse": "“They cast him into a pit.” — Genesis 37:24 (KJV)",
+        "alt": "Joseph in a pit",
+        "src": "/coloring-pages/joseph-coat-s3.svg"
+      },
+      {
+        "caption": "Sold into Egypt — yet God is still with him.",
+        "verse": "“The LORD was with Joseph.” — Genesis 39:2 (KJV)",
+        "alt": "Joseph sold and taken toward Egypt",
+        "src": "/coloring-pages/joseph-coat-s4.svg"
+      }
+    ]
+  },
+  "joseph-dreams": {
+    "idea": "God can turn sorrow into saving.",
+    "lead": "Four gentle panels that walk through Joseph Interprets Dreams. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: God can turn sorrow into saving.",
+    "scenes": [
+      {
+        "caption": "Joseph's master took him.",
+        "verse": "“God shall give Pharaoh an answer of peace.” — Genesis 39:20 (KJV)",
+        "alt": "Joseph in prison",
+        "src": "/coloring-pages/joseph-dreams-s1.svg"
+      },
+      {
+        "caption": "The butler and the baker of the king of Egypt dreamed, each man his dream in one night.",
+        "verse": "“God shall give Pharaoh an answer of peace.” — Genesis 40:5 (KJV)",
+        "alt": "The butler and the baker dream",
+        "src": "/coloring-pages/joseph-dreams-s2.svg"
+      },
+      {
+        "caption": "Pharaoh said unto Joseph, I have dreamed a dream.",
+        "verse": "“God shall give Pharaoh an answer of peace.” — Genesis 41:15 (KJV)",
+        "alt": "Joseph before Pharaoh",
+        "src": "/coloring-pages/joseph-dreams-s3.svg"
+      },
+      {
+        "caption": "Pharaoh said unto Joseph, See, I have set thee over all the land of Egypt.",
+        "verse": "“God shall give Pharaoh an answer of peace.” — Genesis 41:40 (KJV)",
+        "alt": "Joseph rules in Egypt",
+        "src": "/coloring-pages/joseph-dreams-s4.svg"
+      }
+    ]
+  },
+  "burning-bush": {
+    "idea": "God sees; God sends.",
+    "lead": "Four gentle panels that walk through Moses and the Burning Bush. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: God sees; God sends.",
+    "scenes": [
+      {
+        "caption": "The angel of the LORD appeared unto him in a flame.",
+        "verse": "“I AM THAT I AM.” — Exodus 3:2 (KJV)",
+        "alt": "The bush burns with fire",
+        "src": "/coloring-pages/burning-bush-s1.svg"
+      },
+      {
+        "caption": "God called unto him out of the midst of the bush, and said, Moses, Moses.",
+        "verse": "“I AM THAT I AM.” — Exodus 3:4 (KJV)",
+        "alt": "God calls Moses",
+        "src": "/coloring-pages/burning-bush-s2.svg"
+      },
+      {
+        "caption": "Draw not nigh hither.",
+        "verse": "“I AM THAT I AM.” — Exodus 3:5 (KJV)",
+        "alt": "Put off thy shoes",
+        "src": "/coloring-pages/burning-bush-s3.svg"
+      },
+      {
+        "caption": "Come now therefore.",
+        "verse": "“And.” — Exodus 3:10-11 (KJV)",
+        "alt": "Go to Pharaoh",
+        "src": "/coloring-pages/burning-bush-s4.svg"
+      }
+    ]
+  },
+  "jericho": {
+    "idea": "Trust and obey — walls fall.",
+    "lead": "Four gentle panels that walk through Joshua and the Walls of Jericho. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Trust and obey — walls fall.",
+    "scenes": [
+      {
+        "caption": "Ye shall compass the city, all ye men of war.",
+        "verse": "“And it shall come to pass.” — Joshua 6:3 (KJV)",
+        "alt": "Israel marches around Jericho",
+        "src": "/coloring-pages/jericho-s1.svg"
+      },
+      {
+        "caption": "Seven priests bearing seven trumpets of rams' horns before the ark of the LORD.",
+        "verse": "“And it shall come to pass.” — Joshua 6:4 (KJV)",
+        "alt": "Seven priests with trumpets",
+        "src": "/coloring-pages/jericho-s2.svg"
+      },
+      {
+        "caption": "It shall come to pass, when they make a long blast.",
+        "verse": "“And it shall come to pass.” — Joshua 6:5 (KJV)",
+        "alt": "The people shout",
+        "src": "/coloring-pages/jericho-s3.svg"
+      },
+      {
+        "caption": "The wall fell down flat, so that the people went up.",
+        "verse": "“So.” — Joshua 6:20 (KJV)",
+        "alt": "The wall falls down",
+        "src": "/coloring-pages/jericho-s4.svg"
+      }
+    ]
+  },
+  "gideon-fleece": {
+    "idea": "God strengthens the weak.",
+    "lead": "Four gentle panels that walk through Gideon and the Fleece. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: God strengthens the weak.",
+    "scenes": [
+      {
+        "caption": "Gideon said unto God, If thou wilt save Israel by.",
+        "verse": "“Judges 6.” — Judges 6:36-37 (KJV)",
+        "alt": "Gideon asks God for a sign",
+        "src": "/coloring-pages/gideon-fleece-s1.svg"
+      },
+      {
+        "caption": "And it was so.",
+        "verse": "“If thou wilt save Israel by mine hand, as thou hast said.” — Judges 6:38 (KJV)",
+        "alt": "The fleece is wet with dew",
+        "src": "/coloring-pages/gideon-fleece-s2.svg"
+      },
+      {
+        "caption": "Let it now be dry only upon the fleece.",
+        "verse": "“If thou wilt save Israel by mine hand, as thou hast said.” — Judges 6:40 (KJV)",
+        "alt": "The fleece is dry, the ground wet",
+        "src": "/coloring-pages/gideon-fleece-s3.svg"
+      },
+      {
+        "caption": "The LORD said unto him, Arise, get thee down unto.",
+        "verse": "“So.” — Judges 7:9-15 (KJV)",
+        "alt": "Gideon leads the army",
+        "src": "/coloring-pages/gideon-fleece-s4.svg"
+      }
+    ]
+  },
+  "samson": {
+    "idea": "Strength is a gift to use for God.",
+    "lead": "Four gentle panels that walk through Samson. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Strength is a gift to use for God.",
+    "scenes": [
+      {
+        "caption": "The Spirit of the LORD came mightily upon him.",
+        "verse": "“The Spirit of the LORD began to move him.” — Judges 14:6 (KJV)",
+        "alt": "Samson's great strength",
+        "src": "/coloring-pages/samson-s1.svg"
+      },
+      {
+        "caption": "Samson took the doors of the gate of the city.",
+        "verse": "“The Spirit of the LORD began to move him.” — Judges 16:3 (KJV)",
+        "alt": "Samson carries the city gates",
+        "src": "/coloring-pages/samson-s2.svg"
+      },
+      {
+        "caption": "He smote them hip and thigh with a great slaughter.",
+        "verse": "“The Spirit of the LORD began to move him.” — Judges 15:8 (KJV)",
+        "alt": "Samson stands against the Philistines",
+        "src": "/coloring-pages/samson-s3.svg"
+      },
+      {
+        "caption": "Samson bowed himself with all his might.",
+        "verse": "“The Spirit of the LORD began to move him.” — Judges 16:30 (KJV)",
+        "alt": "The house falls; God is glorified",
+        "src": "/coloring-pages/samson-s4.svg"
+      }
+    ]
+  },
+  "esther": {
+    "idea": "Courage can serve God’s people.",
+    "lead": "Four gentle panels that walk through Esther Saves Her People. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Courage can serve God’s people.",
+    "scenes": [
+      {
+        "caption": "The king loved Esther above all the women.",
+        "verse": "“Who knoweth whether thou art come to the kingdom for such a time.” — Esther 2:17 (KJV)",
+        "alt": "Esther is chosen queen",
+        "src": "/coloring-pages/esther-s1.svg"
+      },
+      {
+        "caption": "Haman sought to destroy all the Jews that were.",
+        "verse": "“Who knoweth whether thou art come to the kingdom for such a time.” — Esther 3:6 (KJV)",
+        "alt": "Haman's plot",
+        "src": "/coloring-pages/esther-s2.svg"
+      },
+      {
+        "caption": "Esther put on her royal apparel.",
+        "verse": "“Esther 5.” — Esther 5:1-2 (KJV)",
+        "alt": "Esther comes to the king",
+        "src": "/coloring-pages/esther-s3.svg"
+      },
+      {
+        "caption": "Many of the people of the land became Jews; for the fear of the Jews fell upon them.",
+        "verse": "“Who knoweth whether thou art come to the kingdom for such a time.” — Esther 8:17 (KJV)",
+        "alt": "The Jews rejoice",
+        "src": "/coloring-pages/esther-s4.svg"
+      }
+    ]
+  },
+  "fiery-furnace": {
+    "idea": "God is with us in the fire.",
+    "lead": "Four gentle panels that walk through Shadrach, Meshach, and Abednego. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: God is with us in the fire.",
+    "scenes": [
+      {
+        "caption": "Shadrach, Meshach.",
+        "verse": "“Our God whom we serve is able to deliver us from the burning.” — Daniel 3:16 (KJV)",
+        "alt": "They will not bow to the image",
+        "src": "/coloring-pages/fiery-furnace-s1.svg"
+      },
+      {
+        "caption": "These three men, Shadrach, Meshach.",
+        "verse": "“Our God whom we serve is able to deliver us from the burning.” — Daniel 3:23 (KJV)",
+        "alt": "Cast into the furnace",
+        "src": "/coloring-pages/fiery-furnace-s2.svg"
+      },
+      {
+        "caption": "Lo, I see four men loose, walking in the midst of.",
+        "verse": "“Our God whom we serve is able to deliver us from the burning.” — Daniel 3:25 (KJV)",
+        "alt": "Four walk unhurt in the fire",
+        "src": "/coloring-pages/fiery-furnace-s3.svg"
+      },
+      {
+        "caption": "Nebuchadnezzar spake, saying, Blessed be the God of.",
+        "verse": "“Our God whom we serve is able to deliver us from the burning.” — Daniel 3:27 (KJV)",
+        "alt": "They come out; not a hair is singed",
+        "src": "/coloring-pages/fiery-furnace-s4.svg"
+      }
+    ]
+  },
+  "abraham-isaac": {
+    "idea": "God provides.",
+    "lead": "Four gentle panels that walk through Abraham & Isaac. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: God provides.",
+    "scenes": [
+      {
+        "caption": "Take now thy son, thine only son Isaac, whom thou.",
+        "verse": "“And Abraham called the name of that place Jehovahjireh.” — Genesis 22:2 (KJV)",
+        "alt": "God calls Abraham",
+        "src": "/coloring-pages/abraham-isaac-s1.svg"
+      },
+      {
+        "caption": "Abraham took the wood of the burnt offering.",
+        "verse": "“And Abraham called the name of that place Jehovahjireh.” — Genesis 22:6 (KJV)",
+        "alt": "Father and son take wood",
+        "src": "/coloring-pages/abraham-isaac-s2.svg"
+      },
+      {
+        "caption": "Isaac spake unto Abraham his father.",
+        "verse": "“And Abraham called the name of that place Jehovahjireh.” — Genesis 22:7 (KJV)",
+        "alt": "Isaac asks about the lamb",
+        "src": "/coloring-pages/abraham-isaac-s3.svg"
+      },
+      {
+        "caption": "Abraham lifted up his eyes.",
+        "verse": "“And.” — Genesis 22:13-14 (KJV)",
+        "alt": "The LORD provides a ram",
+        "src": "/coloring-pages/abraham-isaac-s4.svg"
+      }
+    ]
+  },
+  "elijah-carmel": {
+    "idea": "The LORD, He is the God.",
+    "lead": "Four gentle panels that walk through Elijah & the Fire on Mount Carmel. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: The LORD, He is the God.",
+    "scenes": [
+      {
+        "caption": "They called on the name of Baal from morning even.",
+        "verse": "“1.” — 1 Kings 18:26 (KJV)",
+        "alt": "The prophets of Baal cry aloud",
+        "src": "/coloring-pages/elijah-carmel-s1.svg"
+      },
+      {
+        "caption": "Elijah took twelve stones and he made a trench about.",
+        "verse": "“1.” — 1 Kings 18:31-32 (KJV)",
+        "alt": "Elijah repairs the altar",
+        "src": "/coloring-pages/elijah-carmel-s2.svg"
+      },
+      {
+        "caption": "Then the fire of the LORD fell.",
+        "verse": "“1.” — 1 Kings 18:38 (KJV)",
+        "alt": "Fire falls from heaven",
+        "src": "/coloring-pages/elijah-carmel-s3.svg"
+      },
+      {
+        "caption": "When all the people saw it, they fell on their faces.",
+        "verse": "“1.” — 1 Kings 18:39 (KJV)",
+        "alt": "The people worship the LORD",
+        "src": "/coloring-pages/elijah-carmel-s4.svg"
+      }
+    ]
+  },
+  "naaman": {
+    "idea": "Simple obedience brings healing.",
+    "lead": "Four gentle panels that walk through Naaman Healed of Leprosy. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Simple obedience brings healing.",
+    "scenes": [
+      {
+        "caption": "Naaman, captain of the host of the king of Syria, was a great man... but he was a leper.",
+        "verse": "“2.” — 2 Kings 5:1 (KJV)",
+        "alt": "Naaman comes with horses and chariot",
+        "src": "/coloring-pages/naaman-s1.svg"
+      },
+      {
+        "caption": "Elisha sent a messenger unto him, saying, Go and.",
+        "verse": "“2.” — 2 Kings 5:10 (KJV)",
+        "alt": "Elisha sends a messenger",
+        "src": "/coloring-pages/naaman-s2.svg"
+      },
+      {
+        "caption": "Then went he down.",
+        "verse": "“2.” — 2 Kings 5:14 (KJV)",
+        "alt": "Naaman dips in Jordan",
+        "src": "/coloring-pages/naaman-s3.svg"
+      },
+      {
+        "caption": "His flesh came again like unto the flesh of a little child, and he was clean.",
+        "verse": "“2.” — 2 Kings 5:14 (KJV)",
+        "alt": "His flesh is clean like a child",
+        "src": "/coloring-pages/naaman-s4.svg"
+      }
+    ]
+  },
+  "boy-samuel": {
+    "idea": "Speak, Lord; Your servant hears.",
+    "lead": "Four gentle panels that walk through The Boy Samuel. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Speak, Lord; Your servant hears.",
+    "scenes": [
+      {
+        "caption": "Ere the lamp of God went out in the temple of the.",
+        "verse": "“1.” — 1 Samuel 3:3 (KJV)",
+        "alt": "Samuel lies down in the house of the LORD",
+        "src": "/coloring-pages/boy-samuel-s1.svg"
+      },
+      {
+        "caption": "The LORD called Samuel.",
+        "verse": "“1.” — 1 Samuel 3:4-5 (KJV)",
+        "alt": "The LORD calls Samuel",
+        "src": "/coloring-pages/boy-samuel-s2.svg"
+      },
+      {
+        "caption": "Eli perceived that the LORD had called the child.",
+        "verse": "“1.” — 1 Samuel 3:8-9 (KJV)",
+        "alt": "Eli tells Samuel how to answer",
+        "src": "/coloring-pages/boy-samuel-s3.svg"
+      },
+      {
+        "caption": "The LORD came.",
+        "verse": "“1.” — 1 Samuel 3:10 (KJV)",
+        "alt": "Samuel speaks to the LORD",
+        "src": "/coloring-pages/boy-samuel-s4.svg"
+      }
+    ]
+  },
+  "ten-lepers": {
+    "idea": "Remember to give thanks.",
+    "lead": "Four gentle panels that walk through Jesus Heals the Ten Lepers. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Remember to give thanks.",
+    "scenes": [
+      {
+        "caption": "There met him ten men that were lepers, which stood.",
+        "verse": "“Luke 17.” — Luke 17:12-13 (KJV)",
+        "alt": "Ten lepers stand afar off",
+        "src": "/coloring-pages/ten-lepers-s1.svg"
+      },
+      {
+        "caption": "When he saw them, he said unto them, Go shew yourselves unto the priests.",
+        "verse": "“Arise, go thy way.” — Luke 17:14 (KJV)",
+        "alt": "Jesus sends them to the priests",
+        "src": "/coloring-pages/ten-lepers-s2.svg"
+      },
+      {
+        "caption": "And it came to pass, that, as they went, they were cleansed.",
+        "verse": "“Arise, go thy way.” — Luke 17:14 (KJV)",
+        "alt": "They are cleansed on the way",
+        "src": "/coloring-pages/ten-lepers-s3.svg"
+      },
+      {
+        "caption": "One of them, when he saw that he was healed, turned.",
+        "verse": "“Arise,.” — Luke 17:15-19 (KJV)",
+        "alt": "One returns to give thanks",
+        "src": "/coloring-pages/ten-lepers-s4.svg"
+      }
+    ]
+  },
+  "pharisee-tax-collector": {
+    "idea": "Humble hearts are heard.",
+    "lead": "Four gentle panels that walk through The Pharisee and the Tax Collector. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Humble hearts are heard.",
+    "scenes": [
+      {
+        "caption": "Two men went up into the temple to pray; the one a Pharisee, and the other a publican.",
+        "verse": "“God be merciful to me a sinner.” — Luke 18:10 (KJV)",
+        "alt": "Two men go up to pray",
+        "src": "/coloring-pages/pharisee-tax-collector-s1.svg"
+      },
+      {
+        "caption": "The Pharisee stood and prayed thus with himself,.",
+        "verse": "“God be merciful to me a sinner.” — Luke 18:11 (KJV)",
+        "alt": "The Pharisee prays proudly",
+        "src": "/coloring-pages/pharisee-tax-collector-s2.svg"
+      },
+      {
+        "caption": "The publican, standing afar off, would not lift up.",
+        "verse": "“God be merciful to me a sinner.” — Luke 18:13 (KJV)",
+        "alt": "The publican prays humbly",
+        "src": "/coloring-pages/pharisee-tax-collector-s3.svg"
+      },
+      {
+        "caption": "I tell you, this man went down to his house.",
+        "verse": "“God be merciful to me a sinner.” — Luke 18:14 (KJV)",
+        "alt": "Jesus teaches who went home justified",
+        "src": "/coloring-pages/pharisee-tax-collector-s4.svg"
+      }
+    ]
+  },
+  "widows-mite": {
+    "idea": "God sees quiet, wholehearted giving.",
+    "lead": "Four gentle panels that walk through The Widow's Mite. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: God sees quiet, wholehearted giving.",
+    "scenes": [
+      {
+        "caption": "Jesus sat over against the treasury.",
+        "verse": "“This poor widow hath cast more in, than all they which have cast.” — Mark 12:41 (KJV)",
+        "alt": "Jesus watches people give",
+        "src": "/coloring-pages/widows-mite-s1.svg"
+      },
+      {
+        "caption": "Many that were rich cast in much.",
+        "verse": "“This poor widow hath cast more in, than all they which have cast.” — Mark 12:41 (KJV)",
+        "alt": "Many rich cast in much",
+        "src": "/coloring-pages/widows-mite-s2.svg"
+      },
+      {
+        "caption": "There came a certain poor widow, and she threw in two mites, which make a farthing.",
+        "verse": "“This poor widow hath cast more in, than all they which have cast.” — Mark 12:42 (KJV)",
+        "alt": "A poor widow gives two mites",
+        "src": "/coloring-pages/widows-mite-s3.svg"
+      },
+      {
+        "caption": "Verily I say unto you.",
+        "verse": "“For.” — Mark 12:43-44 (KJV)",
+        "alt": "Jesus says she gave the most",
+        "src": "/coloring-pages/widows-mite-s4.svg"
+      }
+    ]
+  },
+  "centurion-servant": {
+    "idea": "Great faith trusts Jesus’ word.",
+    "lead": "Four gentle panels that walk through The Centurion's Servant. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Great faith trusts Jesus’ word.",
+    "scenes": [
+      {
+        "caption": "There came unto him a centurion, beseeching him.",
+        "verse": "“Matthew 8.” — Matthew 8:5-6 (KJV)",
+        "alt": "The centurion asks Jesus for help",
+        "src": "/coloring-pages/centurion-servant-s1.svg"
+      },
+      {
+        "caption": "I am not worthy that thou shouldest come under my.",
+        "verse": "“I have not found so great faith, no, not in Israel.” — Matthew 8:8 (KJV)",
+        "alt": "Speak the word only",
+        "src": "/coloring-pages/centurion-servant-s2.svg"
+      },
+      {
+        "caption": "When Jesus heard it, he marvelled.",
+        "verse": "“I have not found so great faith, no, not in Israel.” — Matthew 8:10 (KJV)",
+        "alt": "Jesus marvels at his faith",
+        "src": "/coloring-pages/centurion-servant-s3.svg"
+      },
+      {
+        "caption": "Jesus said unto the centurion, Go thy way.",
+        "verse": "“I have not found so great faith, no, not in Israel.” — Matthew 8:13 (KJV)",
+        "alt": "The servant is healed",
+        "src": "/coloring-pages/centurion-servant-s4.svg"
+      }
+    ]
+  },
+  "abraham-sarah": {
+    "idea": "Nothing is too hard for the Lord.",
+    "lead": "Four gentle panels that walk through Abraham & Sarah. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Nothing is too hard for the Lord.",
+    "scenes": [
+      {
+        "caption": "I will certainly return unto thee according to the.",
+        "verse": "“Sarah laughed within herself, saying, After I am waxed old shall.” — Genesis 18:10 (KJV)",
+        "alt": "Three visitors promise a son",
+        "src": "/coloring-pages/abraham-sarah-s1.svg"
+      },
+      {
+        "caption": "Sarah laughed within herself, saying, After I am.",
+        "verse": "“Sarah laughed within herself, saying, After I am waxed old shall.” — Genesis 18:12 (KJV)",
+        "alt": "Sarah laughs within herself",
+        "src": "/coloring-pages/abraham-sarah-s2.svg"
+      },
+      {
+        "caption": "Sarah conceived.",
+        "verse": "“Sarah laughed within herself, saying, After I am waxed old shall.” — Genesis 21:2 (KJV)",
+        "alt": "Isaac is born",
+        "src": "/coloring-pages/abraham-sarah-s3.svg"
+      },
+      {
+        "caption": "Sarah said, God hath made me to laugh, so that all that hear will laugh with me.",
+        "verse": "“Sarah laughed within herself, saying, After I am waxed old shall.” — Genesis 21:6 (KJV)",
+        "alt": "Sarah rejoices",
+        "src": "/coloring-pages/abraham-sarah-s4.svg"
+      }
+    ]
+  },
+  "elisha-oil": {
+    "idea": "God multiplies what we surrender.",
+    "lead": "Four gentle panels that walk through Elisha & the Widow's Oil. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: God multiplies what we surrender.",
+    "scenes": [
+      {
+        "caption": "The wife of one of the sons of the prophets cried.",
+        "verse": "“2.” — 2 Kings 4:1 (KJV)",
+        "alt": "The widow cries to Elisha",
+        "src": "/coloring-pages/elisha-oil-s1.svg"
+      },
+      {
+        "caption": "Go, borrow thee vessels abroad of all thy.",
+        "verse": "“2.” — 2 Kings 4:3 (KJV)",
+        "alt": "Borrow many empty vessels",
+        "src": "/coloring-pages/elisha-oil-s2.svg"
+      },
+      {
+        "caption": "When the vessels were full.",
+        "verse": "“2.” — 2 Kings 4:6 (KJV)",
+        "alt": "The oil multiplies",
+        "src": "/coloring-pages/elisha-oil-s3.svg"
+      },
+      {
+        "caption": "Then she came and told the man of God. And he said,.",
+        "verse": "“2.” — 2 Kings 4:7 (KJV)",
+        "alt": "She pays her debt",
+        "src": "/coloring-pages/elisha-oil-s4.svg"
+      }
+    ]
+  },
+  "hannah-samuel": {
+    "idea": "God hears earnest prayer.",
+    "lead": "Four gentle panels that walk through Hannah & Samuel. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: God hears earnest prayer.",
+    "scenes": [
+      {
+        "caption": "She was in bitterness of soul.",
+        "verse": "“1.” — 1 Samuel 1:10-11 (KJV)",
+        "alt": "Hannah prays in bitterness of soul",
+        "src": "/coloring-pages/hannah-samuel-s1.svg"
+      },
+      {
+        "caption": "Eli answered and said, Go in peace.",
+        "verse": "“1.” — 1 Samuel 1:17 (KJV)",
+        "alt": "Eli blesses her",
+        "src": "/coloring-pages/hannah-samuel-s2.svg"
+      },
+      {
+        "caption": "Wherefore it came to pass, when the time was come.",
+        "verse": "“1.” — 1 Samuel 1:20 (KJV)",
+        "alt": "Samuel is born",
+        "src": "/coloring-pages/hannah-samuel-s3.svg"
+      },
+      {
+        "caption": "For this child I prayed.",
+        "verse": "“1.” — 1 Samuel 1:27-28 (KJV)",
+        "alt": "Hannah dedicates him to the LORD",
+        "src": "/coloring-pages/hannah-samuel-s4.svg"
+      }
+    ]
+  },
+  "david-jonathan": {
+    "idea": "True friendship is loyal.",
+    "lead": "Four gentle panels that walk through David & Jonathan. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: True friendship is loyal.",
+    "scenes": [
+      {
+        "caption": "Jonathan stripped himself of the robe that was upon.",
+        "verse": "“1.” — 1 Samuel 18:4 (KJV)",
+        "alt": "Jonathan gives David his robe",
+        "src": "/coloring-pages/david-jonathan-s1.svg"
+      },
+      {
+        "caption": "Then Jonathan and David made a covenant, because he loved him as his own soul.",
+        "verse": "“1.” — 1 Samuel 18:3 (KJV)",
+        "alt": "They make a covenant",
+        "src": "/coloring-pages/david-jonathan-s2.svg"
+      },
+      {
+        "caption": "Jonathan said to David, Go in peace, forasmuch as we.",
+        "verse": "“1.” — 1 Samuel 20:42 (KJV)",
+        "alt": "Jonathan sends David in peace",
+        "src": "/coloring-pages/david-jonathan-s3.svg"
+      },
+      {
+        "caption": "The soul of Jonathan was knit with the soul of David.",
+        "verse": "“1.” — 1 Samuel 18:1 (KJV)",
+        "alt": "Their souls were knit together",
+        "src": "/coloring-pages/david-jonathan-s4.svg"
+      }
+    ]
+  },
+  "rich-young-ruler": {
+    "idea": "Follow Jesus above all.",
+    "lead": "Four gentle panels that walk through Jesus Talks with a Rich Young Man. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Follow Jesus above all.",
+    "scenes": [
+      {
+        "caption": "Behold, one came and said unto him, Good Master,.",
+        "verse": "“Jesus said unto him, If thou wilt be perfect, go and sell that.” — Matthew 19:16 (KJV)",
+        "alt": "The young man asks Jesus",
+        "src": "/coloring-pages/rich-young-ruler-s1.svg"
+      },
+      {
+        "caption": "Jesus said unto him, If thou wilt be perfect, go and.",
+        "verse": "“Jesus said unto him, If thou wilt be perfect, go and sell that.” — Matthew 19:21 (KJV)",
+        "alt": "Jesus tells him to sell and follow",
+        "src": "/coloring-pages/rich-young-ruler-s2.svg"
+      },
+      {
+        "caption": "When the young man heard that saying, he went away.",
+        "verse": "“Jesus said unto him, If thou wilt be perfect, go and sell that.” — Matthew 19:22 (KJV)",
+        "alt": "He goes away sorrowful",
+        "src": "/coloring-pages/rich-young-ruler-s3.svg"
+      },
+      {
+        "caption": "Jesus said unto his disciples, Verily I say unto you.",
+        "verse": "“With.” — Matthew 19:23 (KJV)",
+        "alt": "Jesus teaches about riches",
+        "src": "/coloring-pages/rich-young-ruler-s4.svg"
+      }
+    ]
+  },
+  "pearl-great-price": {
+    "idea": "The kingdom is worth everything.",
+    "lead": "Four gentle panels that walk through The Pearl of Great Price. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: The kingdom is worth everything.",
+    "scenes": [
+      {
+        "caption": "Again, the kingdom of heaven is like unto a merchant man, seeking goodly pearls.",
+        "verse": "“Again, the kingdom of heaven is like unto a merchant man,.” — Matthew 13:45 (KJV)",
+        "alt": "A merchant seeks pearls",
+        "src": "/coloring-pages/pearl-great-price-s1.svg"
+      },
+      {
+        "caption": "Who, when he had found one pearl of great price,.",
+        "verse": "“Again, the kingdom of heaven is like unto a merchant man,.” — Matthew 13:46 (KJV)",
+        "alt": "He finds one pearl of great price",
+        "src": "/coloring-pages/pearl-great-price-s2.svg"
+      },
+      {
+        "caption": "He went and sold all that he had, to buy that one pearl.",
+        "verse": "“Again, the kingdom of heaven is like unto a merchant man,.” — Matthew 13:46 (KJV)",
+        "alt": "He sells all that he has",
+        "src": "/coloring-pages/pearl-great-price-s3.svg"
+      },
+      {
+        "caption": "When he had found one pearl of great price, he went.",
+        "verse": "“Again, the kingdom of heaven is like unto a merchant man,.” — Matthew 13:46 (KJV)",
+        "alt": "The kingdom is worth everything",
+        "src": "/coloring-pages/pearl-great-price-s4.svg"
+      }
+    ]
+  },
+  "withered-hand": {
+    "idea": "Jesus restores what is broken.",
+    "lead": "Four gentle panels that walk through Jesus Heals the Man with the Withered Hand. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Jesus restores what is broken.",
+    "scenes": [
+      {
+        "caption": "Behold, there was a man which had his hand withered.",
+        "verse": "“Stretch forth thine hand. And he stretched it forth.” — Matthew 12:10 (KJV)",
+        "alt": "A man with a withered hand",
+        "src": "/coloring-pages/withered-hand-s1.svg"
+      },
+      {
+        "caption": "What man shall there be among you.",
+        "verse": "“Stretch forth thine hand. And he stretched it forth.” — Matthew 12:11 (KJV)",
+        "alt": "Jesus answers the Pharisees",
+        "src": "/coloring-pages/withered-hand-s2.svg"
+      },
+      {
+        "caption": "Then saith he to the man, Stretch forth thine hand. And he stretched it forth.",
+        "verse": "“Stretch forth thine hand. And he stretched it forth.” — Matthew 12:13 (KJV)",
+        "alt": "Stretch forth thine hand",
+        "src": "/coloring-pages/withered-hand-s3.svg"
+      },
+      {
+        "caption": "It was restored whole, like as the other.",
+        "verse": "“Stretch forth thine hand. And he stretched it forth.” — Matthew 12:13 (KJV)",
+        "alt": "His hand is whole like the other",
+        "src": "/coloring-pages/withered-hand-s4.svg"
+      }
+    ]
+  },
+  "unforgiving-servant": {
+    "idea": "Forgiven people forgive.",
+    "lead": "Four gentle panels that walk through The Unforgiving Servant. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Forgiven people forgive.",
+    "scenes": [
+      {
+        "caption": "The kingdom of heaven is likened unto a certain.",
+        "verse": "“Matthew 18.” — Matthew 18:23-24 (KJV)",
+        "alt": "The king reckons with his servant",
+        "src": "/coloring-pages/unforgiving-servant-s1.svg"
+      },
+      {
+        "caption": "The lord of that servant was moved with compassion.",
+        "verse": "“Shouldest not thou also have had compassion on thy.” — Matthew 18:27 (KJV)",
+        "alt": "The king forgives the great debt",
+        "src": "/coloring-pages/unforgiving-servant-s2.svg"
+      },
+      {
+        "caption": "The same servant went out.",
+        "verse": "“Shouldest not thou also have had compassion on thy.” — Matthew 18:28 (KJV)",
+        "alt": "He will not forgive his fellowservant",
+        "src": "/coloring-pages/unforgiving-servant-s3.svg"
+      },
+      {
+        "caption": "Shouldest not thou also have had compassion on thy.",
+        "verse": "“So.” — Matthew 18:33-35 (KJV)",
+        "alt": "The king is angry",
+        "src": "/coloring-pages/unforgiving-servant-s4.svg"
+      }
+    ]
+  },
+  "boy-david": {
+    "idea": "God looks on the heart.",
+    "lead": "Four gentle panels that walk through The Boy David. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: God looks on the heart.",
+    "scenes": [
+      {
+        "caption": "Samuel came to Bethlehem and sanctified Jesse and.",
+        "verse": "“1.” — 1 Samuel 16:4-5 (KJV)",
+        "alt": "Samuel comes to Jesse's house",
+        "src": "/coloring-pages/boy-david-s1.svg"
+      },
+      {
+        "caption": "Jesse made seven of his sons to pass before Samuel.",
+        "verse": "“1.” — 1 Samuel 16:10-11 (KJV)",
+        "alt": "David keeps sheep in the field",
+        "src": "/coloring-pages/boy-david-s2.svg"
+      },
+      {
+        "caption": "Then Samuel took the horn of oil.",
+        "verse": "“1.” — 1 Samuel 16:13 (KJV)",
+        "alt": "David is anointed before his brothers",
+        "src": "/coloring-pages/boy-david-s3.svg"
+      },
+      {
+        "caption": "The LORD said, Arise, anoint him.",
+        "verse": "“1.” — 1 Samuel 16:12-13 (KJV)",
+        "alt": "The Spirit of the LORD is upon David",
+        "src": "/coloring-pages/boy-david-s4.svg"
+      }
+    ]
+  },
+  "elijah-ravens": {
+    "idea": "God provides in quiet ways.",
+    "lead": "Four gentle panels that walk through Elijah Fed by Ravens. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: God provides in quiet ways.",
+    "scenes": [
+      {
+        "caption": "Get thee hence.",
+        "verse": "“1.” — 1 Kings 17:3 (KJV)",
+        "alt": "Elijah by the brook Cherith",
+        "src": "/coloring-pages/elijah-ravens-s1.svg"
+      },
+      {
+        "caption": "The ravens brought him bread and flesh in the morning, and bread and flesh in the evening.",
+        "verse": "“1.” — 1 Kings 17:6 (KJV)",
+        "alt": "Ravens bring food",
+        "src": "/coloring-pages/elijah-ravens-s2.svg"
+      },
+      {
+        "caption": "And it shall be.",
+        "verse": "“1.” — 1 Kings 17:4-5 (KJV)",
+        "alt": "Elijah drinks from the brook",
+        "src": "/coloring-pages/elijah-ravens-s3.svg"
+      },
+      {
+        "caption": "It came to pass after a while.",
+        "verse": "“1.” — 1 Kings 17:7 (KJV)",
+        "alt": "The brook dries up",
+        "src": "/coloring-pages/elijah-ravens-s4.svg"
+      }
+    ]
+  },
+  "writing-on-wall": {
+    "idea": "God weighs the heart.",
+    "lead": "Four gentle panels that walk through The Writing on the Wall. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: God weighs the heart.",
+    "scenes": [
+      {
+        "caption": "Belshazzar the king made a great feast to a thousand.",
+        "verse": "“And this is the writing that was written, MENE, MENE, TEKEL,.” — Daniel 5:1 (KJV)",
+        "alt": "A great feast in the palace",
+        "src": "/coloring-pages/writing-on-wall-s1.svg"
+      },
+      {
+        "caption": "In the same hour came forth fingers of a man's hand.",
+        "verse": "“And this is the writing that was written, MENE, MENE, TEKEL,.” — Daniel 5:5 (KJV)",
+        "alt": "A hand writes on the plaster",
+        "src": "/coloring-pages/writing-on-wall-s2.svg"
+      },
+      {
+        "caption": "Then the king's countenance was changed.",
+        "verse": "“And this is the writing that was written, MENE, MENE, TEKEL,.” — Daniel 5:6 (KJV)",
+        "alt": "The king is afraid",
+        "src": "/coloring-pages/writing-on-wall-s3.svg"
+      },
+      {
+        "caption": "This is the interpretation of the thing.",
+        "verse": "“Daniel 5.” — Daniel 5:26-27 (KJV)",
+        "alt": "Daniel reads the writing",
+        "src": "/coloring-pages/writing-on-wall-s4.svg"
+      }
+    ]
+  },
+  "ruth-boaz": {
+    "idea": "Kindness opens a future of hope.",
+    "lead": "Four gentle panels that walk through Ruth & Boaz. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Kindness opens a future of hope.",
+    "scenes": [
+      {
+        "caption": "She went.",
+        "verse": "“The LORD recompense thy work.” — Ruth 2:3 (KJV)",
+        "alt": "Ruth gleans in Boaz's field",
+        "src": "/coloring-pages/ruth-boaz-s1.svg"
+      },
+      {
+        "caption": "Boaz answered and said unto her, It hath fully been.",
+        "verse": "“The LORD recompense thy work.” — Ruth 2:11 (KJV)",
+        "alt": "Boaz speaks kindly to Ruth",
+        "src": "/coloring-pages/ruth-boaz-s2.svg"
+      },
+      {
+        "caption": "Boaz said unto the elders.",
+        "verse": "“The LORD recompense thy work.” — Ruth 4:9 (KJV)",
+        "alt": "Boaz redeems at the gate",
+        "src": "/coloring-pages/ruth-boaz-s3.svg"
+      },
+      {
+        "caption": "So Boaz took Ruth.",
+        "verse": "“The LORD recompense thy work.” — Ruth 4:13 (KJV)",
+        "alt": "Ruth and Boaz are married",
+        "src": "/coloring-pages/ruth-boaz-s4.svg"
+      }
+    ]
+  },
+  "jesus-baptism": {
+    "idea": "This is My beloved Son.",
+    "lead": "Four gentle panels that walk through Jesus Is Baptized. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: This is My beloved Son.",
+    "scenes": [
+      {
+        "caption": "John the Baptist, preaching in the wilderness of.",
+        "verse": "“Matthew 3.” — Matthew 3:1-2 (KJV)",
+        "alt": "John preaches at the river",
+        "src": "/coloring-pages/jesus-baptism-s1.svg"
+      },
+      {
+        "caption": "Then cometh Jesus from Galilee to Jordan unto John,.",
+        "verse": "“Matthew 3.” — Matthew 3:13-14 (KJV)",
+        "alt": "Jesus comes to John to be baptized",
+        "src": "/coloring-pages/jesus-baptism-s2.svg"
+      },
+      {
+        "caption": "Jesus answering said unto him, Suffer it to be so.",
+        "verse": "“And Jesus, when he was baptized, went up straightway out of the.” — Matthew 3:15 (KJV)",
+        "alt": "John baptizes Jesus in the water",
+        "src": "/coloring-pages/jesus-baptism-s3.svg"
+      },
+      {
+        "caption": "Jesus, when he was baptized, went up straightway out.",
+        "verse": "“And Jesus, when he was baptized, went up straightway out of the.” — Matthew 3:16 (KJV)",
+        "alt": "The Spirit descends like a dove",
+        "src": "/coloring-pages/jesus-baptism-s4.svg"
+      }
+    ]
+  },
+  "emmaus-road": {
+    "idea": "Jesus walks with us and opens the Word.",
+    "lead": "Four gentle panels that walk through The Road to Emmaus. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Jesus walks with us and opens the Word.",
+    "scenes": [
+      {
+        "caption": "Behold, two of them went that same day to a village.",
+        "verse": "“Did not our heart burn within us, while he talked with us by the.” — Luke 24:13 (KJV)",
+        "alt": "Two disciples walk sadly",
+        "src": "/coloring-pages/emmaus-road-s1.svg"
+      },
+      {
+        "caption": "Jesus himself drew near.",
+        "verse": "“Luke 24.” — Luke 24:15-16 (KJV)",
+        "alt": "Jesus draws near and walks with them",
+        "src": "/coloring-pages/emmaus-road-s2.svg"
+      },
+      {
+        "caption": "He took bread.",
+        "verse": "“Luke 24.” — Luke 24:30-31 (KJV)",
+        "alt": "He breaks bread at the table",
+        "src": "/coloring-pages/emmaus-road-s3.svg"
+      },
+      {
+        "caption": "They rose up the same hour.",
+        "verse": "“Luke 24.” — Luke 24:33-34 (KJV)",
+        "alt": "They hurry back to Jerusalem",
+        "src": "/coloring-pages/emmaus-road-s4.svg"
+      }
+    ]
+  },
+  "jesus-washes-feet": {
+    "idea": "The greatest serves.",
+    "lead": "Four gentle panels that walk through Jesus Washes the Disciples' Feet. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: The greatest serves.",
+    "scenes": [
+      {
+        "caption": "Now before the feast of the passover, when Jesus.",
+        "verse": "“John 13.” — John 13:1-2 (KJV)",
+        "alt": "The supper is prepared",
+        "src": "/coloring-pages/jesus-washes-feet-s1.svg"
+      },
+      {
+        "caption": "Jesus riseth from supper.",
+        "verse": "“If I then, your Lord and Master, have washed your feet.” — John 13:4 (KJV)",
+        "alt": "Jesus rises with a towel",
+        "src": "/coloring-pages/jesus-washes-feet-s2.svg"
+      },
+      {
+        "caption": "After that he poureth water into a bason.",
+        "verse": "“If I then, your Lord and Master, have washed your feet.” — John 13:5 (KJV)",
+        "alt": "He pours water and washes feet",
+        "src": "/coloring-pages/jesus-washes-feet-s3.svg"
+      },
+      {
+        "caption": "If I then, your Lord and Master, have washed your.",
+        "verse": "“John 13.” — John 13:14-15 (KJV)",
+        "alt": "He teaches them to love one another",
+        "src": "/coloring-pages/jesus-washes-feet-s4.svg"
+      }
+    ]
+  },
+  "transfiguration": {
+    "idea": "Listen to Him.",
+    "lead": "Four gentle panels that walk through The Transfiguration. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Listen to Him.",
+    "scenes": [
+      {
+        "caption": "After six days Jesus taketh Peter, James.",
+        "verse": "“And he was transfigured before them.” — Matthew 17:1 (KJV)",
+        "alt": "Jesus leads them up a high mountain",
+        "src": "/coloring-pages/transfiguration-s1.svg"
+      },
+      {
+        "caption": "He was transfigured before them.",
+        "verse": "“Matthew 17.” — Matthew 17:2-3 (KJV)",
+        "alt": "Jesus shines with Moses and Elijah",
+        "src": "/coloring-pages/transfiguration-s2.svg"
+      },
+      {
+        "caption": "While he yet spake, behold, a bright cloud.",
+        "verse": "“And he was transfigured before them.” — Matthew 17:5 (KJV)",
+        "alt": "A bright cloud overshadows them",
+        "src": "/coloring-pages/transfiguration-s3.svg"
+      },
+      {
+        "caption": "When the disciples heard it, they fell on their face.",
+        "verse": "“Matthew 17.” — Matthew 17:6-7 (KJV)",
+        "alt": "Jesus stands alone with his friends",
+        "src": "/coloring-pages/transfiguration-s4.svg"
+      }
+    ]
+  },
+  "jordan-crossing": {
+    "idea": "God keeps His promise into the land.",
+    "lead": "Four gentle panels that walk through Crossing the Jordan. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: God keeps His promise into the land.",
+    "scenes": [
+      {
+        "caption": "Joshua rose early.",
+        "verse": "“And the priests that bare the ark of the covenant of the LORD.” — Joshua 3:1 (KJV)",
+        "alt": "Israel camps by the Jordan River",
+        "src": "/coloring-pages/jordan-crossing-s1.svg"
+      },
+      {
+        "caption": "It shall come to pass, as soon as the soles of the.",
+        "verse": "“And the priests that bare the ark of the covenant of the LORD.” — Joshua 3:13 (KJV)",
+        "alt": "The priests carry the ark into the river",
+        "src": "/coloring-pages/jordan-crossing-s2.svg"
+      },
+      {
+        "caption": "The priests which bare the ark of the covenant of.",
+        "verse": "“And the priests that bare the ark of the covenant of the LORD.” — Joshua 3:17 (KJV)",
+        "alt": "The people cross on dry ground",
+        "src": "/coloring-pages/jordan-crossing-s3.svg"
+      },
+      {
+        "caption": "Take you twelve men out of the people and command ye.",
+        "verse": "“Joshua 4.” — Joshua 4:2-3 (KJV)",
+        "alt": "Twelve stones for a memorial",
+        "src": "/coloring-pages/jordan-crossing-s4.svg"
+      }
+    ]
+  },
+  "balaams-donkey": {
+    "idea": "God can open any mouth to warn.",
+    "lead": "Four gentle panels that walk through Balaam and the Donkey. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: God can open any mouth to warn.",
+    "scenes": [
+      {
+        "caption": "Balaam rose up in the morning, and saddled his ass, and went with the princes of Moab.",
+        "verse": "“The LORD opened the mouth of the ass.” — Numbers 22:21 (KJV)",
+        "alt": "Balaam rides his donkey",
+        "src": "/coloring-pages/balaams-donkey-s1.svg"
+      },
+      {
+        "caption": "The angel of the LORD stood in the way for an.",
+        "verse": "“Numbers 22.” — Numbers 22:22-23 (KJV)",
+        "alt": "The donkey sees the angel",
+        "src": "/coloring-pages/balaams-donkey-s2.svg"
+      },
+      {
+        "caption": "The LORD opened the mouth of the ass.",
+        "verse": "“The LORD opened the mouth of the ass.” — Numbers 22:28 (KJV)",
+        "alt": "The donkey speaks",
+        "src": "/coloring-pages/balaams-donkey-s3.svg"
+      },
+      {
+        "caption": "Then the LORD opened the eyes of Balaam.",
+        "verse": "“The LORD opened the mouth of the ass.” — Numbers 22:31 (KJV)",
+        "alt": "Balaam bows before the angel",
+        "src": "/coloring-pages/balaams-donkey-s4.svg"
+      }
+    ]
+  },
+  "elijah-taken-up": {
+    "idea": "God receives His faithful servant.",
+    "lead": "Four gentle panels that walk through Elijah Taken to Heaven. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: God receives His faithful servant.",
+    "scenes": [
+      {
+        "caption": "It came to pass, when the LORD would take up Elijah.",
+        "verse": "“2.” — 2 Kings 2:1 (KJV)",
+        "alt": "Elijah and Elisha walk together",
+        "src": "/coloring-pages/elijah-taken-up-s1.svg"
+      },
+      {
+        "caption": "Elijah took his mantle.",
+        "verse": "“2.” — 2 Kings 2:8 (KJV)",
+        "alt": "Elijah strikes the Jordan with his mantle",
+        "src": "/coloring-pages/elijah-taken-up-s2.svg"
+      },
+      {
+        "caption": "There appeared a chariot of fire.",
+        "verse": "“2.” — 2 Kings 2:11 (KJV)",
+        "alt": "Chariot of fire and horses",
+        "src": "/coloring-pages/elijah-taken-up-s3.svg"
+      },
+      {
+        "caption": "Elisha saw it.",
+        "verse": "“2.” — 2 Kings 2:12 (KJV)",
+        "alt": "Elisha picks up Elijah's mantle",
+        "src": "/coloring-pages/elijah-taken-up-s4.svg"
+      }
+    ]
+  },
+  "nehemiah-walls": {
+    "idea": "Build with prayer and courage.",
+    "lead": "Four gentle panels that walk through Nehemiah Builds the Wall. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Build with prayer and courage.",
+    "scenes": [
+      {
+        "caption": "It came to pass I asked them concerning the Jews.",
+        "verse": "“Nehemiah 1.” — Nehemiah 1:2-3 (KJV)",
+        "alt": "Nehemiah is sad for Jerusalem",
+        "src": "/coloring-pages/nehemiah-walls-s1.svg"
+      },
+      {
+        "caption": "The king said unto me.",
+        "verse": "“Nehemiah 2.” — Nehemiah 2:4-5 (KJV)",
+        "alt": "The king sends Nehemiah",
+        "src": "/coloring-pages/nehemiah-walls-s2.svg"
+      },
+      {
+        "caption": "They which builded on the wall.",
+        "verse": "“So built we the wall.” — Nehemiah 4:17 (KJV)",
+        "alt": "The people build with one hand and guard with the other",
+        "src": "/coloring-pages/nehemiah-walls-s3.svg"
+      },
+      {
+        "caption": "So the wall was finished in the twenty and fifth day.",
+        "verse": "“Nehemiah 6.” — Nehemiah 6:15-16 (KJV)",
+        "alt": "The wall is finished",
+        "src": "/coloring-pages/nehemiah-walls-s4.svg"
+      }
+    ]
+  },
+  "jesus-tempted": {
+    "idea": "Answer temptation with God’s Word.",
+    "lead": "Four gentle panels that walk through Jesus Tempted in the Wilderness. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Answer temptation with God’s Word.",
+    "scenes": [
+      {
+        "caption": "Then was Jesus led up of the Spirit into the.",
+        "verse": "“Matthew 4.” — Matthew 4:1-2 (KJV)",
+        "alt": "Jesus fasts in the wilderness",
+        "src": "/coloring-pages/jesus-tempted-s1.svg"
+      },
+      {
+        "caption": "If thou be the Son of God, command that these stones.",
+        "verse": "“Matthew 4.” — Matthew 4:3-4 (KJV)",
+        "alt": "Command these stones to be made bread",
+        "src": "/coloring-pages/jesus-tempted-s2.svg"
+      },
+      {
+        "caption": "If thou be the Son of God, cast thyself down.",
+        "verse": "“Matthew 4.” — Matthew 4:6-7 (KJV)",
+        "alt": "Cast thyself down from the temple",
+        "src": "/coloring-pages/jesus-tempted-s3.svg"
+      },
+      {
+        "caption": "The devil taketh him up into an exceeding high.",
+        "verse": "“Matthew 4.” — Matthew 4:8-11 (KJV)",
+        "alt": "Get thee hence, Satan",
+        "src": "/coloring-pages/jesus-tempted-s4.svg"
+      }
+    ]
+  },
+  "paul-silas-prison": {
+    "idea": "Praise can rise even in chains.",
+    "lead": "Four gentle panels that walk through Paul and Silas in Prison. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Praise can rise even in chains.",
+    "scenes": [
+      {
+        "caption": "At midnight Paul and Silas prayed.",
+        "verse": "“And suddenly there was a great earthquake, so that the.” — Acts 16:25 (KJV)",
+        "alt": "Paul and Silas sing at midnight",
+        "src": "/coloring-pages/paul-silas-prison-s1.svg"
+      },
+      {
+        "caption": "Suddenly there was a great earthquake, so that the.",
+        "verse": "“And suddenly there was a great earthquake, so that the.” — Acts 16:26 (KJV)",
+        "alt": "A great earthquake shakes the prison",
+        "src": "/coloring-pages/paul-silas-prison-s2.svg"
+      },
+      {
+        "caption": "The keeper of the prison drew out his sword.",
+        "verse": "“Acts 16.” — Acts 16:27-28 (KJV)",
+        "alt": "The jailer draws his sword",
+        "src": "/coloring-pages/paul-silas-prison-s3.svg"
+      },
+      {
+        "caption": "He took them the same hour of the night.",
+        "verse": "“Acts 16.” — Acts 16:33-34 (KJV)",
+        "alt": "The jailer and his house believe",
+        "src": "/coloring-pages/paul-silas-prison-s4.svg"
+      }
+    ]
+  },
+  "lydia-purple": {
+    "idea": "The Lord opens hearts to believe.",
+    "lead": "Four gentle panels that walk through Lydia Believes. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: The Lord opens hearts to believe.",
+    "scenes": [
+      {
+        "caption": "On the sabbath we went out of the city by a river.",
+        "verse": "“Whose heart the Lord opened.” — Acts 16:13 (KJV)",
+        "alt": "Women gather to pray by the river",
+        "src": "/coloring-pages/lydia-purple-s1.svg"
+      },
+      {
+        "caption": "A certain woman named Lydia, a seller of purple, of.",
+        "verse": "“Whose heart the Lord opened.” — Acts 16:14 (KJV)",
+        "alt": "Lydia listens to Paul",
+        "src": "/coloring-pages/lydia-purple-s2.svg"
+      },
+      {
+        "caption": "When she was baptized.",
+        "verse": "“Whose heart the Lord opened.” — Acts 16:15 (KJV)",
+        "alt": "She is baptized with her household",
+        "src": "/coloring-pages/lydia-purple-s3.svg"
+      },
+      {
+        "caption": "She besought us, saying, If ye have judged me to be.",
+        "verse": "“Whose heart the Lord opened.” — Acts 16:15 (KJV)",
+        "alt": "Lydia welcomes Paul and Silas into her home",
+        "src": "/coloring-pages/lydia-purple-s4.svg"
+      }
+    ]
+  },
+  "tabitha-dorcas": {
+    "idea": "Kind deeds matter to God.",
+    "lead": "Four gentle panels that walk through Tabitha Raised. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Kind deeds matter to God.",
+    "scenes": [
+      {
+        "caption": "This woman was full of good works and almsdeeds.",
+        "verse": "“Acts 9.” — Acts 9:36 (KJV)",
+        "alt": "Dorcas helps the poor with coats",
+        "src": "/coloring-pages/tabitha-dorcas-s1.svg"
+      },
+      {
+        "caption": "It came to pass in those days.",
+        "verse": "“But Peter put them all forth.” — Acts 9:37 (KJV)",
+        "alt": "She grows sick and dies",
+        "src": "/coloring-pages/tabitha-dorcas-s2.svg"
+      },
+      {
+        "caption": "Peter put them all forth.",
+        "verse": "“But Peter put them all forth.” — Acts 9:40 (KJV)",
+        "alt": "Peter kneels and prays",
+        "src": "/coloring-pages/tabitha-dorcas-s3.svg"
+      },
+      {
+        "caption": "He gave her his hand.",
+        "verse": "“Acts 9.” — Acts 9:41-42 (KJV)",
+        "alt": "She is alive and many believe",
+        "src": "/coloring-pages/tabitha-dorcas-s4.svg"
+      }
+    ]
+  },
+  "nativity": {
+    "idea": "Jesus, our Savior, is born.",
+    "lead": "Four gentle panels that walk through The Nativity — Jesus Is Born. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Jesus, our Savior, is born.",
+    "scenes": [
+      {
+        "caption": "Mary and Joseph find no room in the inn.",
+        "verse": "“There was no room for them in the inn.” — Luke 2:7 (KJV)",
+        "alt": "Mary and Joseph seeking a place to stay",
+        "src": "/coloring-pages/nativity-s1.svg"
+      },
+      {
+        "caption": "The baby Jesus is laid in a manger.",
+        "verse": "“She brought forth her firstborn son… and laid him in a manger.” — Luke 2:7 (KJV)",
+        "alt": "Baby Jesus in the manger",
+        "src": "/coloring-pages/nativity-s2.svg"
+      },
+      {
+        "caption": "Angels tell shepherds good tidings.",
+        "verse": "“Behold, I bring you good tidings of great joy.” — Luke 2:10 (KJV)",
+        "alt": "Angels announcing Jesus’ birth to shepherds",
+        "src": "/coloring-pages/nativity-s3.svg"
+      },
+      {
+        "caption": "Shepherds find the child and glorify God.",
+        "verse": "“The shepherds returned, glorifying and praising God.” — Luke 2:20 (KJV)",
+        "alt": "Shepherds worshiping at the manger",
+        "src": "/coloring-pages/nativity-s4.svg"
+      }
+    ]
+  },
+  "paul-shipwreck": {
+    "idea": "God keeps His word in the storm.",
+    "lead": "Four gentle panels that walk through Paul & the Storm at Sea. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: God keeps His word in the storm.",
+    "scenes": [
+      {
+        "caption": "They put to sea… But not long after there arose.",
+        "verse": "“Acts 27.” — Acts 27:2 (KJV)",
+        "alt": "A ship sails on the sea",
+        "src": "/coloring-pages/paul-shipwreck-s1.svg"
+      },
+      {
+        "caption": "The ship was caught.",
+        "verse": "“Acts 27.” — Acts 27:15 (KJV)",
+        "alt": "A violent storm batters the ship",
+        "src": "/coloring-pages/paul-shipwreck-s2.svg"
+      },
+      {
+        "caption": "The shipmen deemed it expedient to cast four anchors.",
+        "verse": "“Acts 27.” — Acts 27:29 (KJV)",
+        "alt": "The ship breaks apart",
+        "src": "/coloring-pages/paul-shipwreck-s3.svg"
+      },
+      {
+        "caption": "It came to pass.",
+        "verse": "“And so it came to pass.” — Acts 27:44 (KJV)",
+        "alt": "Everyone reaches shore safely",
+        "src": "/coloring-pages/paul-shipwreck-s4.svg"
+      }
+    ]
+  },
+  "rahab-spies": {
+    "idea": "Faith can shelter God’s people.",
+    "lead": "Four gentle panels that walk through Rahab & the Spies. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Faith can shelter God’s people.",
+    "scenes": [
+      {
+        "caption": "Joshua sent two men to spy secretly, saying, Go view.",
+        "verse": "“Behold, when we come into the land, thou shalt bind this line of.” — Joshua 2:1 (KJV)",
+        "alt": "Two men come to the city wall",
+        "src": "/coloring-pages/rahab-spies-s1.svg"
+      },
+      {
+        "caption": "She let them down by a cord through the window.",
+        "verse": "“Behold, when we come into the land, thou shalt bind this line of.” — Joshua 2:15 (KJV)",
+        "alt": "Rahab lets them down by a cord",
+        "src": "/coloring-pages/rahab-spies-s2.svg"
+      },
+      {
+        "caption": "Bind this line of scarlet thread in the window which.",
+        "verse": "“Behold, when we come into the land, thou shalt bind this line of.” — Joshua 2:18 (KJV)",
+        "alt": "The scarlet cord in the window",
+        "src": "/coloring-pages/rahab-spies-s3.svg"
+      },
+      {
+        "caption": "The men went.",
+        "verse": "“Joshua 2.” — Joshua 2:23-24 (KJV)",
+        "alt": "The men return safely to Joshua",
+        "src": "/coloring-pages/rahab-spies-s4.svg"
+      }
+    ]
+  },
+  "elijah-widow": {
+    "idea": "God’s jar does not fail.",
+    "lead": "Four gentle panels that walk through Elijah & the Widow’s Oil. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: God’s jar does not fail.",
+    "scenes": [
+      {
+        "caption": "He called to her.",
+        "verse": "“1.” — 1 Kings 17:10-11 (KJV)",
+        "alt": "Elijah meets the widow gathering sticks",
+        "src": "/coloring-pages/elijah-widow-s1.svg"
+      },
+      {
+        "caption": "Fear not.",
+        "verse": "“1.” — 1 Kings 17:13 (KJV)",
+        "alt": "She makes a small cake first for Elijah",
+        "src": "/coloring-pages/elijah-widow-s2.svg"
+      },
+      {
+        "caption": "The barrel of meal wasted not, neither did the cruse.",
+        "verse": "“1.” — 1 Kings 17:16 (KJV)",
+        "alt": "Jars and the cruse of oil",
+        "src": "/coloring-pages/elijah-widow-s3.svg"
+      },
+      {
+        "caption": "For thus saith the LORD God of Israel, The barrel of.",
+        "verse": "“1.” — 1 Kings 17:14 (KJV)",
+        "alt": "God provides day after day",
+        "src": "/coloring-pages/elijah-widow-s4.svg"
+      }
+    ]
+  },
+  "philip-ethiopian": {
+    "idea": "Scripture leads to Jesus.",
+    "lead": "Four gentle panels that walk through Philip & the Ethiopian. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Scripture leads to Jesus.",
+    "scenes": [
+      {
+        "caption": "Philip ran thither to him.",
+        "verse": "“And they went down both into the water, both Philip and the.” — Acts 8:30 (KJV)",
+        "alt": "A chariot on the desert road",
+        "src": "/coloring-pages/philip-ethiopian-s1.svg"
+      },
+      {
+        "caption": "The Spirit said unto Philip, Go near.",
+        "verse": "“Acts 8.” — Acts 8:29 (KJV)",
+        "alt": "Philip runs beside the chariot",
+        "src": "/coloring-pages/philip-ethiopian-s2.svg"
+      },
+      {
+        "caption": "Then Philip opened his mouth.",
+        "verse": "“And they went down both into the water, both Philip and the.” — Acts 8:35 (KJV)",
+        "alt": "Philip opens the Scripture",
+        "src": "/coloring-pages/philip-ethiopian-s3.svg"
+      },
+      {
+        "caption": "They went down both into the water, both Philip and.",
+        "verse": "“Acts 8.” — Acts 8:38-39 (KJV)",
+        "alt": "Baptism in the water",
+        "src": "/coloring-pages/philip-ethiopian-s4.svg"
+      }
+    ]
+  },
+  "david-spares-saul": {
+    "idea": "Mercy is stronger than revenge.",
+    "lead": "Four gentle panels that walk through David Spares Saul. Color each one, save as you go (one panel is enough), then Watch My Story to see your storyboard. One big idea: Mercy is stronger than revenge.",
+    "scenes": [
+      {
+        "caption": "Saul came to the sheepcotes by the way… and Saul.",
+        "verse": "“1.” — 1 Samuel 24:3 (KJV)",
+        "alt": "Saul sleeps in the cave",
+        "src": "/coloring-pages/david-spares-saul-s1.svg"
+      },
+      {
+        "caption": "David arose.",
+        "verse": "“1.” — 1 Samuel 24:4-6 (KJV)",
+        "alt": "David cuts the skirt of Saul’s robe",
+        "src": "/coloring-pages/david-spares-saul-s2.svg"
+      },
+      {
+        "caption": "See the skirt of thy robe in my hand.",
+        "verse": "“1.” — 1 Samuel 24:11 (KJV)",
+        "alt": "David shows Saul the piece of robe",
+        "src": "/coloring-pages/david-spares-saul-s3.svg"
+      },
+      {
+        "caption": "Saul lifted up his voice.",
+        "verse": "“1.” — 1 Samuel 24:16 (KJV)",
+        "alt": "Saul weeps and goes home",
+        "src": "/coloring-pages/david-spares-saul-s4.svg"
+      }
+    ]
+  },
+  "ll-honesty": {
+    "idea": "Truth is a kind of love.",
+    "lead": "Two gentle panels. Color each one, save as you go (one panel is enough), then Watch My Story. One big idea: Truth is a kind of love.",
+    "scenes": [
+      {
+        "caption": "Speak truth with a gentle heart.",
+        "verse": "“Speaking the truth in love.” — Ephesians 4:15 (KJV)",
+        "alt": "Children learning to speak truth kindly",
+        "src": "/coloring-pages/ll-honesty-s1.svg"
+      },
+      {
+        "caption": "A soft answer turns away wrath.",
+        "verse": "“A soft answer turneth away wrath.” — Proverbs 15:1 (KJV)",
+        "alt": "A calm conversation after a hard moment",
+        "src": "/coloring-pages/ll-honesty-s2.svg"
+      }
+    ]
+  },
+  "ll-commandments": {
+    "idea": "Love God; love your neighbor.",
+    "lead": "Two gentle panels. Color each one, save as you go (one panel is enough), then Watch My Story. One big idea: Love God; love your neighbor.",
+    "scenes": [
+      {
+        "caption": "Love the Lord with all your heart.",
+        "verse": "“Thou shalt love the Lord thy God.” — Matthew 22:37 (KJV)",
+        "alt": "Children looking up in love toward God",
+        "src": "/coloring-pages/ll-commandments-s1.svg"
+      },
+      {
+        "caption": "Love your neighbor as yourself.",
+        "verse": "“Thou shalt love thy neighbour as thyself.” — Matthew 22:39 (KJV)",
+        "alt": "Children helping one another with kind hands",
+        "src": "/coloring-pages/ll-commandments-s2.svg"
+      }
+    ]
+  }
+}

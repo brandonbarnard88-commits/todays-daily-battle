@@ -12319,6 +12319,15 @@ a.plan-category-chip:focus-visible,
   font-size: 1.2rem;
   color: rgba(227, 188, 103, 0.95);
 }
+details.tdb-campus-map-home > summary.tdb-campus-map-home__title {
+  cursor: pointer;
+  list-style: none;
+  display: list-item;
+  font-weight: 650;
+}
+details.tdb-campus-map-home > summary.tdb-campus-map-home__title::-webkit-details-marker {
+  color: rgba(227, 188, 103, 0.85);
+}
 .tdb-campus-map-home__lead {
   margin: 0 0 0.85rem;
   font-size: 0.92rem;

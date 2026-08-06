@@ -233,6 +233,7 @@ const rootFiles = [
   'mission-outreach-data.js',
   'home-votm.js',
   'verse-breakdown.js',
+  'verse-context.js',
   'verse-breakdown-overrides.js',
   'bbe-simple.js',
   'tdb-home-funnel.js',
@@ -608,7 +609,7 @@ for (const f of otherHtml) {
       ['class="quick-links', 'quick-links tools section'],
       ['bible-tool.html', 'Bible Tool link'],
       ['sermon.html', 'Build a Sermon / Sermon Builder link'],
-      ['kids/index.html', 'Kids Corner link'],
+      ['kids/index.html', 'Kids Battle link'],
       // DO NOT REMOVE: protected core tools — workspace rule "Core tools (DO NOT REMOVE)"
       ['pastor-toolkit.html', 'Pastor Toolkit link'],
       ['team-toolkit.html', 'Team Toolkit link'],

@@ -213,15 +213,15 @@ function main() {
 
     if (rel === 'bible-tool.html' && touched) {
       next = next.replace(
-        /<a href="\/bible-tool\.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader">Bible Tool<\/a>/,
-        '<a href="/bible-tool.html#bible-tool-hub" aria-label="Bible Tool hub — lookup, verse image, chapter reader" aria-current="page">Bible Tool</a>'
+        /<a href="\/bible-tool\.html#bible-tool-hub" aria-label="The Library — lookup, verse image, chapter reader">The Library<\/a>/,
+        '<a href="/bible-tool.html#bible-tool-hub" aria-label="The Library — lookup, verse image, chapter reader" aria-current="page">The Library</a>'
       );
     }
 
     if (rel === 'plans.html' && touched) {
       next = next.replace(
-        /<a href="\/plans\.html">Courses<\/a>/,
-        '<a href="/plans.html" aria-current="page">Battle Plans</a>'
+        /<a href="\/plans\.html" id="nav-browse-curriculum" aria-label="The Paths — KJV tracks for hard weeks and quiet seasons">The Paths<\/a>/,
+        '<a href="/plans.html" id="nav-browse-curriculum" aria-current="page" aria-label="The Paths — KJV tracks for hard weeks and quiet seasons">The Paths</a>'
       );
     }
 
@@ -248,15 +248,15 @@ function main() {
 
     if (rel === 'kids/corner.html' && touched) {
       next = next.replace(
-        /<a href="\/kids\/corner\.html">Kids &amp; Family<\/a>/,
-        '<a href="/kids/corner.html" aria-current="page">Kids &amp; Family</a>'
+        /<a href="\/kids\/corner\.html">Bible Story Library<\/a>/,
+        '<a href="/kids/corner.html" aria-current="page">Bible Story Library</a>'
       );
     }
 
     if (rel === 'site-guide.html' && touched) {
       next = next.replace(
-        /<a href="\/site-guide\.html" id="nav-site-guide"/,
-        '<a href="/site-guide.html" id="nav-site-guide" aria-current="page"'
+        /<a href="\/explore\.html#start-here" id="nav-site-guide"/,
+        '<a href="/explore.html#start-here" id="nav-site-guide" aria-current="page"'
       );
     }
 
@@ -273,8 +273,8 @@ function main() {
 
     if (rel === 'printables.html' && touched) {
       next = next.replace(
-        /<a href="\/printables\.html" aria-label="Print hub — verse cards, Calm sheets, family packs">Print hub<\/a>/,
-        '<a href="/printables.html" aria-label="Print hub — verse cards, Calm sheets, family packs" aria-current="page">Print hub</a>'
+        /<a href="\/printables\.html" aria-label="Print hub — verse cards, Quiet Hall sheets, family packs">Print hub<\/a>/,
+        '<a href="/printables.html" aria-label="Print hub — verse cards, Quiet Hall sheets, family packs" aria-current="page">Print hub</a>'
       );
     }
 
@@ -287,8 +287,22 @@ function main() {
 
     if (rel === 'calm.html' && touched) {
       next = next.replace(
-        /<a href="\/calm\.html"(?: aria-label="[^"]*")?>Calm<\/a>/,
-        '<a href="/calm.html" aria-current="page" aria-label="Calm — one steady KJV verse when the moment is heavy">Calm</a>'
+        /<a href="\/calm\.html"(?: aria-label="[^"]*")?>Quiet Hall<\/a>/,
+        '<a href="/calm.html" aria-current="page" aria-label="Quiet Hall — one steady KJV verse when the moment is heavy">Quiet Hall</a>'
+      );
+    }
+
+    if (rel === 'family.html' && touched) {
+      next = next.replace(
+        /<a href="\/family\.html" aria-label="Family hub — verse, plans, printables">Family hub<\/a>/,
+        '<a href="/family.html" aria-current="page" aria-label="Family hub — verse, plans, printables">Family hub</a>'
+      );
+    }
+
+    if (rel === 'church-hub.html' && touched) {
+      next = next.replace(
+        /<a href="\/church-hub\.html" id="nav-pastors" aria-label="Pastor’s Study — church tools">Pastor’s Study<\/a>/,
+        '<a href="/church-hub.html" id="nav-pastors" aria-current="page" aria-label="Pastor’s Study — church tools">Pastor’s Study</a>'
       );
     }
 

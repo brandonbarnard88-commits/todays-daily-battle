@@ -32,7 +32,7 @@
   if (!('serviceWorker' in navigator)) return;
   if (document.querySelector('script[data-tdb-sw-register]')) return;
   var s = document.createElement('script');
-  s.src = '/register-sw.js?v=20260805-four-pillars';
+  s.src = '/register-sw.js?v=20260805-sky-mobile';
   s.defer = true;
   s.setAttribute('data-tdb-sw-register', '1');
   (document.head || document.documentElement).appendChild(s);
@@ -91,6 +91,13 @@ function tdbIsHomePage() {
       sv.defer = true;
       sv.setAttribute('data-tdb-verse-breakdown-standard', '1');
       (document.head || document.documentElement).appendChild(sv);
+    }
+    if (!document.querySelector('script[data-tdb-verse-context]') && !window.__TDB_VERSE_CONTEXT_READY) {
+      var ctxScr = document.createElement('script');
+      ctxScr.src = '/verse-context.js?v=20260806-context';
+      ctxScr.defer = true;
+      ctxScr.setAttribute('data-tdb-verse-context', '1');
+      (document.head || document.documentElement).appendChild(ctxScr);
     }
     /* Optional BBE simpler English — load even if verse-breakdown already present. */
     if (!document.querySelector('script[data-tdb-bbe-simple]')) {
@@ -2794,6 +2801,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[data-lazy-src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
   var trustedStd = trustedScriptURL('/verse-breakdown-standard.js?v=20260428-vbd');
+  var trustedCtx = trustedScriptURL('/verse-context.js?v=20260806-context');
   var trusted = trustedScriptURL('/verse-breakdown.js?v=20260805-audit-focus-lock');
   if (!trustedStd || !trusted) return;
   var stdScr = document.createElement('script');
@@ -2801,6 +2809,13 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   stdScr.defer = true;
   stdScr.setAttribute('data-tdb-verse-breakdown-standard', '1');
   document.head.appendChild(stdScr);
+  if (trustedCtx && !document.querySelector('script[data-tdb-verse-context]') && !window.__TDB_VERSE_CONTEXT_READY) {
+    var ctxScr = document.createElement('script');
+    ctxScr.src = trustedCtx;
+    ctxScr.defer = true;
+    ctxScr.setAttribute('data-tdb-verse-context', '1');
+    document.head.appendChild(ctxScr);
+  }
   var script = document.createElement('script');
   script.src = trusted;
   script.defer = true;

@@ -10,10 +10,14 @@ const manifestPath = path.join(repoRoot, 'data', 'verse-breakdown-manifest.json'
 const kjvFullPath = path.join(repoRoot, 'data', 'kjv-full.json');
 const kjvPath = path.join(repoRoot, 'kjv.json');
 const runtimePath = path.join(repoRoot, 'verse-breakdown.js');
+const verseContextPath = path.join(repoRoot, 'verse-context.js');
 const heroFirstPaintPath = path.join(repoRoot, 'hero-daily-first-paint.js');
 const distRoot = path.join(repoRoot, 'dist');
 const distSeedPath = path.join(distRoot, 'verse-breakdown-overrides.js');
 const CURRENT_BREAKDOWN_TOKEN = '20260805-audit-focus-lock';
+const CONTEXT_TOKEN = '20260806-context';
+const WEAK_ABOUT = new Set(['bible writer', 'the biblical author', 'the biblical writer']);
+const WEAK_TO = new Set(['people who first heard these words', 'original audience']);
 const GROUPS = ['general', 'kid', 'teen', 'family', 'pastor', 'church-leader', 'missionary', 'street-preacher', 'bible-study-group'];
 const STATIC_PAGE_CHECKS = [
   'dist/verse.html',
@@ -32,6 +36,13 @@ function normalizeRef(ref) {
     .replace(/^Psalms\s+/i, 'Psalm ')
     .replace(/\s*\(KJV\)\s*$/i, '')
     .trim();
+}
+
+function isPlausibleVerseRef(ref) {
+  const normalized = normalizeRef(ref);
+  if (!normalized || normalized.length > 80) return false;
+  if (/[+{}()=]|String\(|item\.|function|typeof|=>/.test(normalized)) return false;
+  return /^(?:[1-3]\s+)?[A-Za-z][A-Za-z\s]+\s+\d+:\d+(?:[-–]\d+(?::\d+)?)?$/.test(normalized);
 }
 
 function resolveVerseText(ref, kjv, sourceTexts) {
@@ -83,19 +94,34 @@ function createDom(html, data) {
 }
 
 async function loadRuntime(dom) {
-  const runtimeCode = await fs.readFile(runtimePath, 'utf8');
+  const [contextCode, runtimeCode] = await Promise.all([
+    fs.readFile(verseContextPath, 'utf8'),
+    fs.readFile(runtimePath, 'utf8')
+  ]);
+  dom.window.eval(contextCode);
   dom.window.eval(runtimeCode);
   dom.window.document.dispatchEvent(new dom.window.Event('DOMContentLoaded', { bubbles: true }));
+}
+
+function isWeakContext(about, toAudience) {
+  const a = String(about || '').replace(/\s+/g, ' ').trim().toLowerCase();
+  const t = String(toAudience || '').replace(/\s+/g, ' ').trim().toLowerCase();
+  if (!a || !t) return true;
+  if (WEAK_ABOUT.has(a) || WEAK_TO.has(t)) return true;
+  return false;
 }
 
 function assertBreakdownShape(ref, group, breakdown) {
   if (!breakdown || typeof breakdown !== 'object') {
     throw new Error(`No breakdown returned for ${ref} [${group}]`);
   }
-  ['plainExplanation', 'groupApplication', 'modernApplication'].forEach((field) => {
+  ['plainExplanation', 'groupApplication', 'modernApplication', 'about', 'to'].forEach((field) => {
     const value = String(breakdown[field] || '').trim();
     if (!value) throw new Error(`Missing ${field} for ${ref} [${group}]`);
   });
+  if (isWeakContext(breakdown.about, breakdown.to)) {
+    throw new Error(`Weak context stamp for ${ref} [${group}]: about="${breakdown.about}" to="${breakdown.to}"`);
+  }
 }
 
 async function verifySurfacedRefs(manifest, kjv) {
@@ -104,6 +130,7 @@ async function verifySurfacedRefs(manifest, kjv) {
   await loadRuntime(dom);
   const api = dom.window.TDBVerseBreakdown;
   manifest.surfacedRefs.forEach((ref) => {
+    if (!isPlausibleVerseRef(ref)) return;
     const text = resolveVerseText(ref, kjv, manifest.sourceTexts);
     if (!text) {
       throw new Error(`Missing verse text for surfaced ref ${ref}`);
@@ -139,16 +166,20 @@ async function verifyStaticPages(manifest) {
 }
 
 async function verifyHydrationAssets() {
-  const [seedAsset, heroFirstPaint, indexHtml, verseHtml] = await Promise.all([
+  const [seedAsset, heroFirstPaint, indexHtml, verseHtml, contextAsset] = await Promise.all([
     fs.readFile(distSeedPath, 'utf8'),
     fs.readFile(heroFirstPaintPath, 'utf8'),
     fs.readFile(path.join(repoRoot, 'index.html'), 'utf8'),
-    fs.readFile(path.join(repoRoot, 'verse.html'), 'utf8')
+    fs.readFile(path.join(repoRoot, 'verse.html'), 'utf8'),
+    fs.readFile(path.join(distRoot, 'verse-context.js'), 'utf8').catch(() => '')
   ]);
   if (!seedAsset.includes('TDB_VERSE_BREAKDOWN_DATA')) {
     throw new Error('verse-breakdown-overrides.js did not build into dist with seed data.');
   }
-  ['__TDB_applyHeroVotdFromInputs', 'heroSimpleBreakdown', 'HERO_BOOK_CTX'].forEach((token) => {
+  if (!contextAsset.includes('TDB_resolveVerseContext')) {
+    throw new Error('dist/verse-context.js missing TDB_resolveVerseContext — run build-copy-static.');
+  }
+  ['__TDB_applyHeroVotdFromInputs', 'heroSimpleBreakdown', 'HERO_BOOK_CTX', 'resolveHeroContext', 'TDB_resolveVerseContext'].forEach((token) => {
     if (!heroFirstPaint.includes(token)) {
       throw new Error(
         `hero-daily-first-paint.js is missing "${token}" (homepage verse-of-the-day simple + deep breakdown).`
@@ -157,6 +188,9 @@ async function verifyHydrationAssets() {
   });
   if (!indexHtml.includes('id="heroSimpleBreakdown"') || !indexHtml.includes('id="heroDeepBreakdown"')) {
     throw new Error('index.html must include #heroSimpleBreakdown and #heroDeepBreakdown (homepage VOTD).');
+  }
+  if (!indexHtml.includes(`verse-context.js?v=${CONTEXT_TOKEN}`)) {
+    throw new Error('index.html is missing the current verse-context include.');
   }
   if (!indexHtml.includes(`verse-breakdown-overrides.js?v=${CURRENT_BREAKDOWN_TOKEN}`)) {
     throw new Error('index.html is missing the current verse-breakdown override seed include.');
@@ -241,8 +275,10 @@ async function verifyFullKjvCoverage(kjv) {
 
   let missing = 0;
   let weak = 0;
+  let weakContext = 0;
   const weakSamples = [];
   const missingSamples = [];
+  const weakContextSamples = [];
   const t0 = Date.now();
 
   for (let i = 0; i < refs.length; i += 1) {
@@ -266,14 +302,21 @@ async function verifyFullKjvCoverage(kjv) {
         weakSamples.push({ ref, plain: String(plain).slice(0, 100) });
       }
     }
+    if (isWeakContext(bd.about, bd.to)) {
+      weakContext += 1;
+      if (weakContextSamples.length < 12) {
+        weakContextSamples.push({ ref, about: bd.about, to: bd.to });
+      }
+    }
   }
 
   const ms = Date.now() - t0;
-  if (missing || weak) {
+  if (missing || weak || weakContext) {
     throw new Error(
-      `Full KJV breakdown queue failed: ${refs.length} verses, missing=${missing}, weak_echo=${weak} (${ms}ms)\n` +
+      `Full KJV breakdown queue failed: ${refs.length} verses, missing=${missing}, weak_echo=${weak}, weak_context=${weakContext} (${ms}ms)\n` +
       `missing samples: ${missingSamples.join(', ') || '—'}\n` +
-      `weak samples: ${JSON.stringify(weakSamples)}`
+      `weak samples: ${JSON.stringify(weakSamples)}\n` +
+      `weak context samples: ${JSON.stringify(weakContextSamples)}`
     );
   }
   console.log(`verify-verse-breakdown-coverage: full KJV queue OK — ${refs.length} verses, 0 missing, 0 weak echo (${ms}ms)`);

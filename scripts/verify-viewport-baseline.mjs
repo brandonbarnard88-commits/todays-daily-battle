@@ -12,7 +12,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 
-const SKIP_DIR = new Set(['node_modules', 'dist', 'next-app', '.git', 'vendor', 'mcps', 'partials']);
+const SKIP_DIR = new Set(['node_modules', 'dist', 'next-app', '.git', 'vendor', 'mcps', 'partials', 'archive']);
 const SKIP_FILE = (name) => /lighthouse|\.report\.html$/i.test(name) || name === 'modal.html';
 
 const VIEWPORT_RE = /name\s*=\s*["']viewport["']/i;

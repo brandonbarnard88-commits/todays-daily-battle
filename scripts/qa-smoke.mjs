@@ -1,4 +1,13 @@
-import { launchBestBrowser, waitForSearchOutput, waitForSearchReady } from './_lib/live-browser-utils.mjs';
+import { waitForSearchOutput, waitForSearchReady } from './_lib/live-browser-utils.mjs';
+
+if (
+  typeof process.env.PLAYWRIGHT_BROWSERS_PATH === 'string' &&
+  process.env.PLAYWRIGHT_BROWSERS_PATH.includes('cursor-sandbox-cache')
+) {
+  delete process.env.PLAYWRIGHT_BROWSERS_PATH;
+}
+
+const { chromium, firefox } = await import('playwright');
 
 const url = process.env.QA_URL || 'https://todaysdailybattle.com/index.html';
 const checks = [];
@@ -13,6 +22,10 @@ function mark(name, ok, evidence) {
 
 function hasFailure() {
   return checks.some((c) => c.status === 'FAIL');
+}
+
+function step(label) {
+  console.error('[qa-smoke]', label);
 }
 
 async function dismissCookieNotice(page) {
@@ -34,11 +47,40 @@ async function dismissCookieNotice(page) {
   }
 }
 
-const browser = await launchBestBrowser();
+/** Prefer evaluate — Playwright locator.textContent auto-wait can hang 30s when a node is missing. */
+async function textOf(page, selector) {
+  return page
+    .evaluate((sel) => {
+      const el = document.querySelector(sel);
+      return el ? String(el.textContent || '').trim() : '';
+    }, selector)
+    .catch(() => '');
+}
+
+async function countOf(page, selector) {
+  return page
+    .evaluate((sel) => document.querySelectorAll(sel).length, selector)
+    .catch(() => 0);
+}
+
+/**
+ * Chromium first: Firefox + python SimpleHTTPServer routinely stalls navigating
+ * heavy Action Bible pages in GitHub Actions (pre-existing main flake).
+ */
+async function launchSmokeBrowser() {
+  try {
+    return await chromium.launch({ headless: true });
+  } catch (_) {
+    return firefox.launch({ headless: true });
+  }
+}
+
+const browser = await launchSmokeBrowser();
 const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
 const page = await ctx.newPage();
 
 try {
+  step('home');
   await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
   const origin = new URL(url).origin;
 
@@ -48,7 +90,7 @@ try {
   await page.reload({ waitUntil: 'domcontentloaded' });
   await page.waitForTimeout(900);
   await page
-    .waitForResponse((r) => /\/verse-breakdown\.js/i.test(r.url()) && r.ok(), { timeout: 35000 })
+    .waitForResponse((r) => /\/verse-breakdown\.js/i.test(r.url()) && r.ok(), { timeout: 20000 })
     .catch(() => {});
 
   const welcomeOverlay = page.locator('#welcome-anointing-overlay');
@@ -71,6 +113,7 @@ try {
     await page.waitForTimeout(200);
   }
 
+  step('prayer-wall');
   await page.goto(origin + '/prayer-wall.html', { waitUntil: 'domcontentloaded', timeout: 60000 });
   await page.waitForTimeout(1200);
   const prayerInput = page.locator('#prayer-wall-input').first();
@@ -106,6 +149,7 @@ try {
     mark('Pray counter increments', false, 'Prayer input/button (#prayer-wall-input, #prayer-wall-add) not found on prayer wall.');
   }
 
+  step('search');
   await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
   await page.waitForTimeout(1200);
 
@@ -160,16 +204,14 @@ try {
       'cards=' + cards + ', empty=' + emptyCount
     );
 
-    const cardSel = '#output .verse-card, #output .smart-card, #feel-results .verse-card, #feel-results .smart-card, #feelCards .verse-card, #feelCards .smart-card, .feel-verse-card';
     if (cards > 0) {
-      let breakdownOk = false;
       try {
         await page.waitForFunction(
           () =>
             typeof window.TDBVerseBreakdown === 'object' &&
             window.TDBVerseBreakdown &&
             typeof window.TDBVerseBreakdown.open === 'function',
-          { timeout: 30000 }
+          { timeout: 20000 }
         );
         await page.waitForTimeout(800);
         // Visible homepage results live in #feel-results; #output is sr-only — scope inline breakdown there.
@@ -183,7 +225,7 @@ try {
         const actionsLoc = scopedDetails.locator('.tdb-vb-inline-actions [data-action]');
         await actionsLoc.first().waitFor({ state: 'visible', timeout: 6000 }).catch(() => {});
         const actions = (await actionsLoc.allTextContents()).join(' | ');
-        breakdownOk = /Pray it/i.test(actions) && /Save/i.test(actions) && /Share/i.test(actions);
+        const breakdownOk = /Pray it/i.test(actions) && /Save/i.test(actions) && /Share/i.test(actions);
         mark('Verse breakdown actions', breakdownOk, actions || 'No inline [data-action] buttons visible');
       } catch (clickErr) {
         mark('Verse breakdown actions', false, 'Breakdown open failed: ' + (clickErr.message || 'timeout'));
@@ -210,98 +252,129 @@ try {
   );
 
   // Action Bible archive runtime checks
-  await page.goto(origin + '/action-bible.html', { waitUntil: 'domcontentloaded', timeout: 60000 });
-  await page.waitForTimeout(1200);
-  await dismissCookieNotice(page);
-  const archiveStatus = ((await page.locator('#ab-status').textContent()) || '').trim();
-  const seasonOpts = await page.locator('#ab-season option').count();
-  const archiveLoaded = /Loaded\s+\d+\s+entries/i.test(archiveStatus) && seasonOpts > 1;
-  mark(
-    'Action Bible archive loads data',
-    archiveLoaded,
-    'status=' + archiveStatus + ', seasonOptions=' + seasonOpts
-  );
-
-  const avatarProfileExists = await page.locator('#ab-avatar-gender').count();
-  mark(
-    'Action Bible witness profile control',
-    avatarProfileExists > 0,
-    'ab-avatar-gender count=' + avatarProfileExists
-  );
-
-  const readAlongBtn = page.locator('#ab-read-along');
-  const listenBtn = page.locator('#ab-listen-entry');
-  const stopAudioBtn = page.locator('#ab-stop-audio');
-  if (await readAlongBtn.count()) {
-    // Avoid scrollIntoViewIfNeeded here — CI can hit "stable" timeouts on long archive pages.
-    await readAlongBtn.first().click({ force: true, timeout: 45000 });
-    await page.waitForTimeout(300);
-    const readAlongText = ((await page.locator('#ab-readalong-text').textContent()) || '').trim();
-    const readAlongOk = /Entry\s+\d+/i.test(readAlongText) || /Verse anchor/i.test(readAlongText);
-    mark(
-      'Action Bible read-along mode',
-      readAlongOk,
-      readAlongText.slice(0, 180)
-    );
-  } else {
-    mark('Action Bible read-along mode', false, 'Read Along button missing.');
-  }
-  const audioControlsOk = (await listenBtn.count()) > 0 && (await stopAudioBtn.count()) > 0;
-  mark(
-    'Action Bible listen controls',
-    audioControlsOk,
-    'listen=' + (await listenBtn.count()) + ', stop=' + (await stopAudioBtn.count())
-  );
-
-  // Workshop runtime checks (dual JSON fetch can exceed a short sleep on CI).
-  // Firefox + python SimpleHTTPServer: reset view before next heavy page avoids rare 60s+ domcontentloaded stalls.
+  step('action-bible');
   try {
-    await page.goto('about:blank');
-  } catch (_) {}
-  await page.goto(origin + '/action-bible-workshop.html', {
-    waitUntil: 'commit',
-    timeout: 120000,
-  });
-  await page.locator('#abw-status').waitFor({ state: 'attached', timeout: 45000 }).catch(() => {});
-  await page
-    .waitForFunction(
-      () => {
-        const el = document.getElementById('abw-status');
-        if (!el) return false;
-        const t = String(el.textContent || '').trim();
-        return (
-          /Loaded\s+\d+\s+entries\s+and\s+\d+\s+weekly packs/i.test(t) ||
-          /could not be loaded/i.test(t)
-        );
-      },
-      { timeout: 45000 }
-    )
-    .catch(() => {});
-  const workshopStatus = ((await page.locator('#abw-status').textContent()) || '').trim();
-  const workshopLoaded = /Loaded\s+\d+\s+entries\s+and\s+\d+\s+weekly packs/i.test(workshopStatus);
-  mark(
-    'Workshop toolkit loads entries and packs',
-    workshopLoaded,
-    'status=' + workshopStatus
-  );
-
-  const loadWeekBtn = page.locator('#abw-load-week');
-  if (await loadWeekBtn.count()) {
-    await page.fill('#abw-week', '1');
-    await loadWeekBtn.first().click();
-    await page.waitForTimeout(450);
-    const productionText = ((await page.locator('#abw-production-output').textContent()) || '').replace(/\s+/g, ' ').trim();
-    const weekOk = /Weekly Pack 1/i.test(productionText) && /Leader objective/i.test(productionText);
+    try {
+      await page.goto('about:blank');
+    } catch (_) {}
+    await page.goto(origin + '/action-bible.html', {
+      waitUntil: 'domcontentloaded',
+      timeout: 60000,
+    });
+    await page
+      .waitForFunction(
+        () => {
+          const el = document.getElementById('ab-status');
+          if (!el) return false;
+          const t = String(el.textContent || '').trim();
+          return /Loaded\s+\d+\s+entries/i.test(t) || /could not be loaded|failed|error/i.test(t);
+        },
+        { timeout: 25000 }
+      )
+      .catch(() => {});
+    await dismissCookieNotice(page);
+    const archiveStatus = await textOf(page, '#ab-status');
+    const seasonOpts = await countOf(page, '#ab-season option');
+    const archiveLoaded = /Loaded\s+\d+\s+entries/i.test(archiveStatus) && seasonOpts > 1;
     mark(
-      'Workshop weekly pack preview',
-      weekOk,
-      productionText.slice(0, 180)
+      'Action Bible archive loads data',
+      archiveLoaded,
+      'status=' + archiveStatus + ', seasonOptions=' + seasonOpts
     );
-  } else {
-    mark('Workshop weekly pack preview', false, 'Load weekly pack button missing.');
+
+    const avatarProfileExists = await countOf(page, '#ab-avatar-gender');
+    mark(
+      'Action Bible witness profile control',
+      avatarProfileExists > 0,
+      'ab-avatar-gender count=' + avatarProfileExists
+    );
+
+    const readAlongBtn = page.locator('#ab-read-along');
+    const listenBtn = page.locator('#ab-listen-entry');
+    const stopAudioBtn = page.locator('#ab-stop-audio');
+    if (await readAlongBtn.count()) {
+      // Avoid scrollIntoViewIfNeeded here — CI can hit "stable" timeouts on long archive pages.
+      await readAlongBtn.first().click({ force: true, timeout: 15000 }).catch(() => {});
+      await page.waitForTimeout(300);
+      const readAlongText = await textOf(page, '#ab-readalong-text');
+      const readAlongOk = /Entry\s+\d+/i.test(readAlongText) || /Verse anchor/i.test(readAlongText);
+      mark(
+        'Action Bible read-along mode',
+        readAlongOk,
+        readAlongText.slice(0, 180)
+      );
+    } else {
+      mark('Action Bible read-along mode', false, 'Read Along button missing.');
+    }
+    const listenCount = await countOf(page, '#ab-listen-entry');
+    const stopCount = await countOf(page, '#ab-stop-audio');
+    mark(
+      'Action Bible listen controls',
+      listenCount > 0 && stopCount > 0,
+      'listen=' + listenCount + ', stop=' + stopCount
+    );
+  } catch (abErr) {
+    mark('Action Bible archive loads data', false, 'Action Bible step error: ' + (abErr.message || abErr));
+    mark('Action Bible witness profile control', false, 'skipped after archive error');
+    mark('Action Bible read-along mode', false, 'skipped after archive error');
+    mark('Action Bible listen controls', false, 'skipped after archive error');
   }
+
+  // Workshop runtime checks
+  step('workshop');
+  try {
+    try {
+      await page.goto('about:blank');
+    } catch (_) {}
+    await page.goto(origin + '/action-bible-workshop.html', {
+      waitUntil: 'domcontentloaded',
+      timeout: 60000,
+    });
+    await page
+      .waitForFunction(
+        () => {
+          const el = document.getElementById('abw-status');
+          if (!el) return false;
+          const t = String(el.textContent || '').trim();
+          return (
+            /Loaded\s+\d+\s+entries\s+and\s+\d+\s+weekly packs/i.test(t) ||
+            /could not be loaded/i.test(t)
+          );
+        },
+        { timeout: 25000 }
+      )
+      .catch(() => {});
+    const workshopStatus = await textOf(page, '#abw-status');
+    const workshopLoaded = /Loaded\s+\d+\s+entries\s+and\s+\d+\s+weekly packs/i.test(workshopStatus);
+    mark(
+      'Workshop toolkit loads entries and packs',
+      workshopLoaded,
+      'status=' + workshopStatus
+    );
+
+    const loadWeekBtn = page.locator('#abw-load-week');
+    if (await loadWeekBtn.count()) {
+      await page.fill('#abw-week', '1');
+      await loadWeekBtn.first().click();
+      await page.waitForTimeout(450);
+      const productionText = (await textOf(page, '#abw-production-output')).replace(/\s+/g, ' ').trim();
+      const weekOk = /Weekly Pack 1/i.test(productionText) && /Leader objective/i.test(productionText);
+      mark(
+        'Workshop weekly pack preview',
+        weekOk,
+        productionText.slice(0, 180)
+      );
+    } else {
+      mark('Workshop weekly pack preview', false, 'Load weekly pack button missing.');
+    }
+  } catch (wsErr) {
+    mark('Workshop toolkit loads entries and packs', false, 'Workshop step error: ' + (wsErr.message || wsErr));
+    mark('Workshop weekly pack preview', false, 'skipped after workshop error');
+  }
+} catch (err) {
+  mark('Smoke harness', false, 'Uncaught: ' + (err && err.message ? err.message : String(err)));
 } finally {
-  await browser.close();
+  await browser.close().catch(() => {});
 }
 
 console.log(JSON.stringify({ url, checks }, null, 2));

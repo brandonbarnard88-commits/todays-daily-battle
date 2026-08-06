@@ -1,5 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
+import vm from 'vm';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -10,6 +11,36 @@ const runtimePath = path.join(repoRoot, 'verse-breakdown-overrides.js');
 const kjvFullPath = path.join(repoRoot, 'data', 'kjv-full.json');
 const kjvPath = path.join(repoRoot, 'kjv.json');
 const scriptPath = path.join(repoRoot, 'script.js');
+const verseContextPath = path.join(repoRoot, 'verse-context.js');
+
+let resolveVerseContextFn = null;
+
+async function loadVerseContextResolver() {
+  if (resolveVerseContextFn) return resolveVerseContextFn;
+  const code = await fs.readFile(verseContextPath, 'utf8');
+  const sandbox = { console };
+  sandbox.window = sandbox;
+  sandbox.globalThis = sandbox;
+  vm.runInNewContext(code, sandbox, { filename: 'verse-context.js' });
+  if (typeof sandbox.TDB_resolveVerseContext !== 'function') {
+    throw new Error('build-verse-breakdown-overrides: TDB_resolveVerseContext missing');
+  }
+  resolveVerseContextFn = sandbox.TDB_resolveVerseContext;
+  return resolveVerseContextFn;
+}
+
+function contextForRef(ref) {
+  if (!resolveVerseContextFn) {
+    return { about: 'The biblical writer', to: 'God’s people in their time (and you today)' };
+  }
+  const hit = resolveVerseContextFn(ref) || {};
+  const about = String(hit.about || '').trim();
+  const to = String(hit.to || '').trim();
+  if (about && to) return { about, to };
+  const book = parseBook(ref);
+  const ctx = BOOK_CONTEXT[book] || { s: 'The biblical writer', a: 'God’s people in their time (and you today)' };
+  return { about: ctx.s, to: ctx.a };
+}
 
 const SCANABLE_EXTENSIONS = new Set(['.html', '.js', '.json']);
 const EXCLUDED_DIRS = new Set([
@@ -88,6 +119,16 @@ function parseBook(ref) {
   const match = normalizeRef(ref).match(/^(.+?)\s+\d+:\d+/);
   if (!match) return '';
   return /^Psalms?$/i.test(match[1]) ? 'Psalm' : match[1].trim();
+}
+
+function isPlausibleVerseRef(ref) {
+  const normalized = normalizeRef(ref);
+  if (!normalized || normalized.length > 80) return false;
+  if (/[+{}()=]|String\(|item\.|function|typeof|=>/.test(normalized)) return false;
+  if (!/^(?:[1-3]\s+)?[A-Za-z][A-Za-z\s]+\s+\d+:\d+(?:[-–]\d+(?::\d+)?)?$/.test(normalized)) return false;
+  const book = parseBook(normalized);
+  if (!book || !BOOKS.includes(book) && book !== 'Psalm') return false;
+  return true;
 }
 
 function decodeSingleQuoted(value) {
@@ -395,19 +436,20 @@ function buildManifest(surfacedRefs, textByRef, plainMeanings, kjv, sourceCounts
   const validSurfacedRefs = [];
   surfacedRefs.forEach((ref) => {
     const normalized = normalizeRef(ref);
+    if (!isPlausibleVerseRef(normalized)) return;
     const pairedText = textByRef.get(normalized) || '';
     const text = resolveVerseText(normalized, kjv, pairedText);
     if (!text) return;
     validSurfacedRefs.push(normalized);
     if (pairedText && !kjv[normalized]) sourceTexts[normalized] = pairedText;
     const book = parseBook(normalized);
-    const ctx = BOOK_CONTEXT[book] || { s: 'Bible writer', a: 'People who first heard these words' };
+    const ctx = contextForRef(normalized);
     overrides[normalized] = {
       general: {
         plainExplanation: getPlainExplanation(normalized, text, plainMeanings),
         modernApplication: inferApplies(text, normalized),
-        about: ctx.s,
-        to: ctx.a
+        about: ctx.about,
+        to: ctx.to
       }
     };
   });
@@ -423,6 +465,7 @@ function buildManifest(surfacedRefs, textByRef, plainMeanings, kjv, sourceCounts
 }
 
 async function main() {
+  await loadVerseContextResolver();
   const kjvSourcePath = await fs.stat(kjvFullPath).then(() => kjvFullPath).catch(() => kjvPath);
   const [files, kjvRaw, scriptRaw] = await Promise.all([
     walk(repoRoot),

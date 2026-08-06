@@ -63,7 +63,10 @@
 
   function ensureRuntime(needsPlans) {
     if (!runtimePromise) {
-      runtimePromise = loadScript(assetUrl('/verse-breakdown-overrides.js'))
+      runtimePromise = loadScript(assetUrl('/verse-context.js'))
+        .then(function () {
+          return loadScript(assetUrl('/verse-breakdown-overrides.js'));
+        })
         .then(function () {
           return loadScript(assetUrl('/verse-breakdown.js'));
         });

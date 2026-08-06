@@ -488,9 +488,9 @@
     <a href="/#feel-section">Ask the Word</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/plans.html">The Paths</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/calm.html">Quiet Hall</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/family.html">Family Yard</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/campus">Campus</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/family.html">Family hub</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
+    <a href="/campus">Campus (alias)</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
   </nav>
@@ -502,8 +502,8 @@
   </p>
 
   <nav class="bottom-nav" role="navigation" aria-label="Plans, kids, and Spanish topics">
-    <a href="/plans.html">Plans</a>
-    <a href="/kids/">Kids Corner</a>
+    <a href="/plans.html">The Paths</a>
+    <a href="/kids/">Kids Battle</a>
     <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
       <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
       <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
@@ -525,7 +525,7 @@
     <a href="/for-pastors.html">For pastors &amp; teachers</a>
     <a href="/reader.html">Chapter reader</a>
     <a href="/bible/tools.html">Study workshop</a>
-    <a href="/bible-tool.html">Bible tool</a>
+    <a href="/bible-tool.html">The Library</a>
     <a href="/testimonials.html">Reader stories</a>
     <a href="/journal/">Journal</a>
     <a href="/updates.html">Monthly updates</a>
@@ -567,14 +567,14 @@
         <a href="/verse.html">Verse of the Day</a>
         <a href="/reader.html">Chapter reader</a>
         <a href="/bible/tools.html">Study workshop</a>
-        <a href="/bible-tool.html">Bible tool</a>
+        <a href="/bible-tool.html">The Library</a>
         <a href="/mystudy">My Study</a>
-        <a href="/calm.html">Calm</a>
+        <a href="/calm.html">Quiet Hall</a>
         <a href="/mobius.html">Grace Ribbon</a>
         <a href="/one-family-in-christ.html">One Family in Christ</a>
         <a href="/red-letters.html">Red letters</a>
-        <a href="/plans.html">Battle Plans</a>
-        <a href="/reading-plan.html">7-day plan</a>
+        <a href="/plans.html">The Paths</a>
+        <a href="/reading-plan.html">7-day plan (under Paths)</a>
         <a href="/study.html">Study workspace</a>
         <a href="/wins.html">Wins</a>
         <a href="/progress.html">Progress</a>
@@ -590,8 +590,8 @@
         <a href="/family.html">Family hub</a>
         <a href="/little-ones.html">For the Little Ones</a>
         <a href="/family-armor.html">Family Armor</a>
-        <a href="/kids/">Kids Corner</a>
-        <a href="/coloring.html">Color &amp; Tell</a>
+        <a href="/kids/">Kids Battle</a>
+        <a href="/coloring.html">Kids Coloring</a>
       </div>
       <div class="footer-sitemap-col">
         <h3>Further In</h3>
@@ -599,7 +599,8 @@
         <a href="/offline-porch.html">Offline porch</a>
         <a href="/porch-map-one-page-print.html">Porch map (print)</a>
         <a href="/porch-pathways-ribbon-one-page-print.html">Ribbon pathways (print)</a>
-        <a href="/find-a-path.html">Find a path</a>
+        <a href="/explore.html#start-here">Explore start here</a>
+        <a href="/find-a-path.html">Find a path (alias)</a>
         <a href="/learn-the-word.html">Learn the Word</a>
         <a href="/bible-study.html">Bible studies</a>
         <a href="/shop.html">Shop</a>
@@ -637,7 +638,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">August 4, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">August 6, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
@@ -693,260 +694,262 @@
 
     var STORIES = [
       /* ── Old Testament: The Beginning ── */
-      { id:'creation',          section:'ot-beginnings', scene:2, title:'Creation',
-        verse:'"And God said, Let there be light: and there was light."',
-        verseRef:'Genesis 1:3 (KJV)' },
-      { id:'noah',              section:'ot-beginnings', scene:4, title:"Noah's Ark",
+      { id:'creation',          section:'ot-beginnings', scene:1, title:'Creation',
+        verse:'"Let there be light."',
+        verseRef:'Genesis 1:3 (KJV)',
+        hybrid:true, idea:'God made everything good.' },
+      { id:'noah',          section:'ot-beginnings', scene:1, title:"Noah's Ark",
         verse:'"I do set my bow in the cloud, and it shall be for a token of a covenant between me and the earth."',
         verseRef:'Genesis 9:13 (KJV)' },
-      { id:'abraham-sarah',     section:'ot-beginnings', scene:1, title:'Abraham & Sarah',
+      { id:'abraham-sarah',          section:'ot-beginnings', scene:1, title:'Abraham & Sarah',
         verse:'"Is any thing too hard for the LORD?"',
         verseRef:'Genesis 18:14 (KJV)' },
-      { id:'abraham-isaac',     section:'ot-beginnings', scene:3, title:'Abraham & Isaac',
+      { id:'abraham-isaac',          section:'ot-beginnings', scene:1, title:'Abraham & Isaac',
         verse:'"Now I know that thou fearest God, seeing thou hast not withheld thy son, thine only son from me."',
         verseRef:'Genesis 22:12 (KJV)' },
-      { id:'joseph-coat',       section:'ot-beginnings', scene:1, title:"Joseph's Coat of Many Colours",
+      { id:'joseph-coat',          section:'ot-beginnings', scene:1, title:"Joseph's Coat of Many Colours",
         verse:'"Now Israel loved Joseph more than all his children."',
         verseRef:'Genesis 37:3 (KJV)' },
-      { id:'joseph-dreams',     section:'ot-beginnings', scene:4, title:"Joseph Forgives His Brothers",
+      { id:'joseph-dreams',          section:'ot-beginnings', scene:1, title:"Joseph Forgives His Brothers",
         verse:'"But as for you, ye thought evil against me; but God meant it unto good."',
         verseRef:'Genesis 50:20 (KJV)' },
 
       /* ── Old Testament: Moses ── */
-      { id:'baby-moses',        section:'ot-moses', scene:2, title:'Baby Moses',
+      { id:'baby-moses',          section:'ot-moses', scene:1, title:'Baby Moses',
         verse:'"She made an ark of bulrushes, and daubed it with slime and with pitch, and put the child therein."',
         verseRef:'Exodus 2:3 (KJV)' },
-      { id:'burning-bush',      section:'ot-moses', scene:2, title:'The Burning Bush',
+      { id:'burning-bush',          section:'ot-moses', scene:1, title:'The Burning Bush',
         verse:'"Draw not nigh hither: put off thy shoes from off thy feet, for the place whereon thou standest is holy ground."',
         verseRef:'Exodus 3:5 (KJV)' },
-      { id:'moses-red-sea',     section:'ot-moses', scene:3, title:'Moses & the Red Sea',
+      { id:'moses-red-sea',          section:'ot-moses', scene:1, title:'Moses & the Red Sea',
         verse:'"And the children of Israel walked upon dry land in the midst of the sea."',
         verseRef:'Exodus 14:29 (KJV)' },
-      { id:'balaams-donkey',    section:'ot-moses', scene:2, title:"Balaam's Donkey",
+      { id:'balaams-donkey',          section:'ot-moses', scene:1, title:"Balaam's Donkey",
         verse:'"And the LORD opened the mouth of the ass, and she said unto Balaam, What have I done unto thee?"',
         verseRef:'Numbers 22:28 (KJV)' },
-      { id:'jordan-crossing',   section:'ot-moses', scene:2, title:'Crossing the Jordan',
+      { id:'jordan-crossing',          section:'ot-moses', scene:1, title:'Crossing the Jordan',
         verse:'"And the priests that bare the ark of the covenant of the LORD stood firm on dry ground in the midst of Jordan."',
         verseRef:'Joshua 3:17 (KJV)' },
-      { id:'rahab-spies',       section:'ot-moses', scene:1, title:'Rahab & the Spies',
+      { id:'rahab-spies',          section:'ot-moses', scene:1, title:'Rahab & the Spies',
         verse:'"For the LORD your God, he is God in heaven above, and in earth beneath."',
         verseRef:'Joshua 2:11 (KJV)' },
-      { id:'jericho',           section:'ot-moses', scene:4, title:'The Walls of Jericho',
+      { id:'jericho',          section:'ot-moses', scene:1, title:'The Walls of Jericho',
         verse:'"And the wall fell down flat, so that the people went up into the city."',
         verseRef:'Joshua 6:20 (KJV)' },
 
       /* ── Old Testament: Judges, Kings & Prophets ── */
-      { id:'gideon-fleece',     section:'ot-kings', scene:2, title:"Gideon's Fleece",
+      { id:'gideon-fleece',          section:'ot-kings', scene:1, title:"Gideon's Fleece",
         verse:'"And it was so: for he rose up early on the morrow, and thrust the fleece together, and wringed the dew out of the fleece, a bowl full of water."',
         verseRef:'Judges 6:38 (KJV)' },
-      { id:'samson',            section:'ot-kings', scene:1, title:'Samson',
+      { id:'samson',          section:'ot-kings', scene:1, title:'Samson',
         verse:'"The Spirit of the LORD came mightily upon him."',
         verseRef:'Judges 14:6 (KJV)' },
-      { id:'ruth-naomi',        section:'ot-kings', scene:1, title:'Ruth & Naomi',
+      { id:'ruth-naomi',          section:'ot-kings', scene:1, title:'Ruth & Naomi',
         verse:'"Whither thou goest, I will go; and where thou lodgest, I will lodge: thy people shall be my people, and thy God my God."',
         verseRef:'Ruth 1:16 (KJV)' },
-      { id:'ruth-boaz',         section:'ot-kings', scene:3, title:'Ruth & Boaz',
+      { id:'ruth-boaz',          section:'ot-kings', scene:1, title:'Ruth & Boaz',
         verse:'"The LORD recompense thy work, and a full reward be given thee of the LORD God of Israel."',
         verseRef:'Ruth 2:12 (KJV)' },
-      { id:'hannah-samuel',     section:'ot-kings', scene:1, title:'Hannah Prays for a Son',
+      { id:'hannah-samuel',          section:'ot-kings', scene:1, title:'Hannah Prays for a Son',
         verse:'"Hannah prayed, and said: My heart rejoiceth in the LORD."',
         verseRef:'1 Samuel 2:1 (KJV)' },
-      { id:'boy-samuel',        section:'ot-kings', scene:2, title:'God Calls Boy Samuel',
+      { id:'boy-samuel',          section:'ot-kings', scene:1, title:'God Calls Boy Samuel',
         verse:'"Speak; for thy servant heareth."',
         verseRef:'1 Samuel 3:10 (KJV)' },
-      { id:'boy-david',         section:'ot-kings', scene:2, title:'Boy David the Shepherd',
+      { id:'boy-david',          section:'ot-kings', scene:1, title:'Boy David the Shepherd',
         verse:'"The LORD seeth not as man seeth; for man looketh on the outward appearance, but the LORD looketh on the heart."',
         verseRef:'1 Samuel 16:7 (KJV)' },
-      { id:'david',             section:'ot-kings', scene:3, title:'David & Goliath',
+      { id:'david',          section:'ot-kings', scene:1, title:'David & Goliath',
         verse:'"The battle is the LORD\'s, and he will give you into our hands."',
         verseRef:'1 Samuel 17:47 (KJV)' },
-      { id:'david-jonathan',    section:'ot-kings', scene:1, title:'David & Jonathan',
+      { id:'david-jonathan',          section:'ot-kings', scene:1, title:'David & Jonathan',
         verse:'"The soul of Jonathan was knit with the soul of David, and Jonathan loved him as his own soul."',
         verseRef:'1 Samuel 18:1 (KJV)' },
-      { id:'david-spares-saul', section:'ot-kings', scene:2, title:'David Spares King Saul',
+      { id:'david-spares-saul',          section:'ot-kings', scene:1, title:'David Spares King Saul',
         verse:'"The LORD forbid that I should stretch forth mine hand against the LORD\'s anointed."',
         verseRef:'1 Samuel 26:11 (KJV)' },
-      { id:'elijah-ravens',     section:'ot-kings', scene:1, title:'Elijah Fed by Ravens',
+      { id:'elijah-ravens',          section:'ot-kings', scene:1, title:'Elijah Fed by Ravens',
         verse:'"I have commanded the ravens to feed thee there."',
         verseRef:'1 Kings 17:4 (KJV)' },
-      { id:'elijah-widow',      section:'ot-kings', scene:2, title:'Elijah & the Widow',
+      { id:'elijah-widow',          section:'ot-kings', scene:1, title:'Elijah & the Widow',
         verse:'"The barrel of meal wasted not, neither did the cruse of oil fail."',
         verseRef:'1 Kings 17:16 (KJV)' },
-      { id:'elijah-carmel',     section:'ot-kings', scene:3, title:'Elijah on Mount Carmel',
+      { id:'elijah-carmel',          section:'ot-kings', scene:1, title:'Elijah on Mount Carmel',
         verse:'"The LORD, he is the God; the LORD, he is the God."',
         verseRef:'1 Kings 18:39 (KJV)' },
-      { id:'elijah-taken-up',   section:'ot-kings', scene:2, title:'Elijah Taken Up to Heaven',
+      { id:'elijah-taken-up',          section:'ot-kings', scene:1, title:'Elijah Taken Up to Heaven',
         verse:'"And Elijah went up by a whirlwind into heaven."',
         verseRef:'2 Kings 2:11 (KJV)' },
-      { id:'elisha-oil',        section:'ot-kings', scene:2, title:"Elisha & the Widow's Oil",
+      { id:'elisha-oil',          section:'ot-kings', scene:1, title:"Elisha & the Widow's Oil",
         verse:'"The oil stayed."',
         verseRef:'2 Kings 4:6 (KJV)' },
-      { id:'naaman',            section:'ot-kings', scene:3, title:'Naaman Healed',
+      { id:'naaman',          section:'ot-kings', scene:1, title:'Naaman Healed',
         verse:'"He went down, and dipped himself seven times in Jordan... and his flesh came again like unto the flesh of a little child."',
         verseRef:'2 Kings 5:14 (KJV)' },
-      { id:'esther',            section:'ot-kings', scene:3, title:'Queen Esther',
+      { id:'esther',          section:'ot-kings', scene:1, title:'Queen Esther',
         verse:'"Who knoweth whether thou art come to the kingdom for such a time as this?"',
         verseRef:'Esther 4:14 (KJV)' },
-      { id:'nehemiah-walls',    section:'ot-kings', scene:2, title:'Nehemiah Rebuilds the Walls',
+      { id:'nehemiah-walls',          section:'ot-kings', scene:1, title:'Nehemiah Rebuilds the Walls',
         verse:'"The God of heaven, he will prosper us; therefore we his servants will arise and build."',
         verseRef:'Nehemiah 2:20 (KJV)' },
 
       /* ── Old Testament: Daniel & the Later Prophets ── */
-      { id:'fiery-furnace',     section:'ot-daniel', scene:3, title:'The Fiery Furnace',
+      { id:'fiery-furnace',          section:'ot-daniel', scene:1, title:'The Fiery Furnace',
         verse:'"Lo, I see four men loose, walking in the midst of the fire, and they have no hurt."',
         verseRef:'Daniel 3:25 (KJV)' },
-      { id:'daniel-lions',      section:'ot-daniel', scene:3, title:"Daniel in the Lions' Den",
+      { id:'daniel-lions',          section:'ot-daniel', scene:1, title:"Daniel in the Lions' Den",
         verse:'"My God hath sent his angel, and hath shut the lions\' mouths, that they have not hurt me."',
         verseRef:'Daniel 6:22 (KJV)' },
-      { id:'writing-on-wall',   section:'ot-daniel', scene:2, title:'The Writing on the Wall',
+      { id:'writing-on-wall',          section:'ot-daniel', scene:1, title:'The Writing on the Wall',
         verse:'"And this is the writing that was written, MENE, MENE, TEKEL, UPHARSIN."',
         verseRef:'Daniel 5:25 (KJV)' },
-      { id:'jonah',             section:'ot-daniel', scene:3, title:'Jonah & the Great Fish',
+      { id:'jonah',          section:'ot-daniel', scene:1, title:'Jonah & the Great Fish',
         verse:'"Now the LORD had prepared a great fish to swallow up Jonah."',
         verseRef:'Jonah 1:17 (KJV)' },
 
       /* ── New Testament: The Life of Jesus ── */
-      { id:'nativity',          section:'nt-life', scene:2, title:'The Nativity',
+      { id:'nativity',          section:'nt-life', scene:1, title:'The Nativity',
         verse:'"And she brought forth her firstborn son, and wrapped him in swaddling clothes, and laid him in a manger."',
         verseRef:'Luke 2:7 (KJV)' },
-      { id:'jesus-baptism',     section:'nt-life', scene:2, title:"Jesus' Baptism",
+      { id:'jesus-baptism',          section:'nt-life', scene:1, title:"Jesus' Baptism",
         verse:'"And lo a voice from heaven, saying, This is my beloved Son, in whom I am well pleased."',
         verseRef:'Matthew 3:17 (KJV)' },
-      { id:'jesus-tempted',     section:'nt-life', scene:1, title:'Jesus Tempted in the Wilderness',
+      { id:'jesus-tempted',          section:'nt-life', scene:1, title:'Jesus Tempted in the Wilderness',
         verse:'"Man shall not live by bread alone, but by every word that proceedeth out of the mouth of God."',
         verseRef:'Matthew 4:4 (KJV)' },
-      { id:'triumphal-entry',   section:'nt-life', scene:2, title:'The Triumphal Entry',
+      { id:'triumphal-entry',          section:'nt-life', scene:1, title:'The Triumphal Entry',
         verse:'"Hosanna to the son of David: Blessed is he that cometh in the name of the Lord."',
         verseRef:'Matthew 21:9 (KJV)' },
-      { id:'jesus-washes-feet', section:'nt-life', scene:2, title:'Jesus Washes the Disciples\' Feet',
+      { id:'jesus-washes-feet',          section:'nt-life', scene:1, title:'Jesus Washes the Disciples\' Feet',
         verse:'"If I then, your Lord and Master, have washed your feet; ye also ought to wash one another\'s feet."',
         verseRef:'John 13:14 (KJV)' },
-      { id:'transfiguration',   section:'nt-life', scene:2, title:'The Transfiguration',
+      { id:'transfiguration',          section:'nt-life', scene:1, title:'The Transfiguration',
         verse:'"And was transfigured before them: and his face did shine as the sun, and his raiment was white as the light."',
         verseRef:'Matthew 17:2 (KJV)' },
-      { id:'empty-tomb',        section:'nt-life', scene:3, title:'The Empty Tomb',
+      { id:'empty-tomb',          section:'nt-life', scene:1, title:'The Empty Tomb',
         verse:'"He is not here: for he is risen, as he said."',
         verseRef:'Matthew 28:6 (KJV)' },
-      { id:'emmaus-road',       section:'nt-life', scene:3, title:'The Road to Emmaus',
+      { id:'emmaus-road',          section:'nt-life', scene:1, title:'The Road to Emmaus',
         verse:'"Did not our heart burn within us, while he talked with us by the way?"',
         verseRef:'Luke 24:32 (KJV)' },
 
       /* ── New Testament: Miracles of Jesus ── */
-      { id:'fishers-of-men',    section:'nt-miracles', scene:2, title:'Fishers of Men',
+      { id:'fishers-of-men',          section:'nt-miracles', scene:1, title:'Fishers of Men',
         verse:'"Follow me, and I will make you fishers of men."',
         verseRef:'Matthew 4:19 (KJV)' },
-      { id:'wedding-cana',      section:'nt-miracles', scene:3, title:'Water into Wine at Cana',
+      { id:'wedding-cana',          section:'nt-miracles', scene:1, title:'Water into Wine at Cana',
         verse:'"Whatsoever he saith unto you, do it."',
         verseRef:'John 2:5 (KJV)' },
-      { id:'healing-paralytic', section:'nt-miracles', scene:3, title:'Jesus Heals the Paralytic',
+      { id:'healing-paralytic',          section:'nt-miracles', scene:1, title:'Jesus Heals the Paralytic',
         verse:'"Arise, and take up thy bed, and go thy way into thine house."',
         verseRef:'Mark 2:11 (KJV)' },
-      { id:'withered-hand',     section:'nt-miracles', scene:2, title:'The Man with the Withered Hand',
+      { id:'withered-hand',          section:'nt-miracles', scene:1, title:'The Man with the Withered Hand',
         verse:'"Stretch forth thine hand. And he stretched it out: and his hand was restored whole as the other."',
         verseRef:'Mark 3:5 (KJV)' },
-      { id:'centurion-servant', section:'nt-miracles', scene:1, title:'The Centurion\'s Servant',
+      { id:'centurion-servant',          section:'nt-miracles', scene:1, title:'The Centurion\'s Servant',
         verse:'"I have not found so great faith, no, not in Israel."',
         verseRef:'Matthew 8:10 (KJV)' },
-      { id:'feeding-5000',      section:'nt-miracles', scene:3, title:'Feeding the Five Thousand',
+      { id:'feeding-5000',          section:'nt-miracles', scene:1, title:'Feeding the Five Thousand',
         verse:'"And they did all eat, and were filled: and they took up of the fragments that remained twelve baskets full."',
         verseRef:'Matthew 14:20 (KJV)' },
-      { id:'feeding-4000',      section:'nt-miracles', scene:3, title:'Feeding the Four Thousand',
+      { id:'feeding-4000',          section:'nt-miracles', scene:1, title:'Feeding the Four Thousand',
         verse:'"And they did all eat, and were filled."',
         verseRef:'Mark 8:8 (KJV)' },
-      { id:'jesus-storm',       section:'nt-miracles', scene:4, title:'Jesus Calms the Storm',
+      { id:'jesus-storm',          section:'nt-miracles', scene:1, title:'Jesus Calms the Storm',
         verse:'"Peace, be still. And the wind ceased, and there was a great calm."',
         verseRef:'Mark 4:39 (KJV)' },
-      { id:'walks-on-water',    section:'nt-miracles', scene:2, title:'Jesus Walks on Water',
+      { id:'walks-on-water',          section:'nt-miracles', scene:1, title:'Jesus Walks on Water',
         verse:'"Be of good cheer; it is I; be not afraid."',
         verseRef:'Matthew 14:27 (KJV)' },
-      { id:'healing-leper',     section:'nt-miracles', scene:2, title:'Jesus Heals a Leper',
+      { id:'healing-leper',          section:'nt-miracles', scene:1, title:'Jesus Heals a Leper',
         verse:'"I will; be thou clean."',
         verseRef:'Mark 1:41 (KJV)' },
-      { id:'ten-lepers',        section:'nt-miracles', scene:2, title:'Ten Lepers Healed',
+      { id:'ten-lepers',          section:'nt-miracles', scene:1, title:'Ten Lepers Healed',
         verse:'"Were there not ten cleansed? but where are the nine?"',
         verseRef:'Luke 17:17 (KJV)' },
-      { id:'jairus-daughter',   section:'nt-miracles', scene:4, title:"Jairus' Daughter Raised",
+      { id:'jairus-daughter',          section:'nt-miracles', scene:1, title:"Jairus' Daughter Raised",
         verse:'"Damsel, I say unto thee, arise."',
         verseRef:'Mark 5:41 (KJV)' },
-      { id:'lazarus',           section:'nt-miracles', scene:3, title:'Lazarus Raised from the Dead',
+      { id:'lazarus',          section:'nt-miracles', scene:1, title:'Lazarus Raised from the Dead',
         verse:'"I am the resurrection, and the life: he that believeth in me, though he were dead, yet shall he live."',
         verseRef:'John 11:25 (KJV)' },
-      { id:'blind-man',         section:'nt-miracles', scene:3, title:'Jesus Heals a Blind Man',
+      { id:'blind-man',          section:'nt-miracles', scene:1, title:'Jesus Heals a Blind Man',
         verse:'"Whereas I was blind, now I see."',
         verseRef:'John 9:25 (KJV)' },
-      { id:'woman-at-well',     section:'nt-miracles', scene:2, title:'Woman at the Well',
+      { id:'woman-at-well',          section:'nt-miracles', scene:1, title:'Woman at the Well',
         verse:'"Whosoever drinketh of the water that I shall give him shall never thirst."',
         verseRef:'John 4:14 (KJV)' },
-      { id:'good-shepherd',     section:'nt-miracles', scene:3, title:'The Good Shepherd',
+      { id:'good-shepherd',          section:'nt-miracles', scene:1, title:'The Good Shepherd',
         verse:'"I am the good shepherd: the good shepherd giveth his life for the sheep."',
         verseRef:'John 10:11 (KJV)' },
 
       /* ── New Testament: Parables of Jesus ── */
-      { id:'good-samaritan',       section:'nt-parables', scene:3, title:'The Good Samaritan',
+      { id:'good-samaritan',          section:'nt-parables', scene:1, title:'The Good Samaritan',
         verse:'"Go, and do thou likewise."',
         verseRef:'Luke 10:37 (KJV)' },
-      { id:'prodigal-son',         section:'nt-parables', scene:4, title:'The Prodigal Son',
+      { id:'prodigal-son',          section:'nt-parables', scene:1, title:'The Prodigal Son',
         verse:'"For this my son was dead, and is alive again; he was lost, and is found."',
         verseRef:'Luke 15:24 (KJV)' },
-      { id:'lost-sheep',           section:'nt-parables', scene:4, title:'The Lost Sheep',
+      { id:'lost-sheep',          section:'nt-parables', scene:1, title:'The Lost Sheep',
         verse:'"There is joy in the presence of the angels of God over one sinner that repenteth."',
         verseRef:'Luke 15:10 (KJV)' },
-      { id:'lost-coin',            section:'nt-parables', scene:4, title:'The Lost Coin',
+      { id:'lost-coin',          section:'nt-parables', scene:1, title:'The Lost Coin',
         verse:'"Rejoice with me; for I have found my piece which I had lost."',
         verseRef:'Luke 15:9 (KJV)' },
-      { id:'mustard-seed',         section:'nt-parables', scene:2, title:'The Mustard Seed',
+      { id:'mustard-seed',          section:'nt-parables', scene:1, title:'The Mustard Seed',
         verse:'"The kingdom of heaven is like to a grain of mustard seed, which... is the greatest among herbs."',
         verseRef:'Matthew 13:31-32 (KJV)' },
-      { id:'the-sower',            section:'nt-parables', scene:1, title:'The Parable of the Sower',
+      { id:'the-sower',          section:'nt-parables', scene:1, title:'The Parable of the Sower',
         verse:'"Behold, a sower went forth to sow."',
         verseRef:'Matthew 13:3 (KJV)' },
-      { id:'the-talents',          section:'nt-parables', scene:2, title:'The Parable of the Talents',
+      { id:'the-talents',          section:'nt-parables', scene:1, title:'The Parable of the Talents',
         verse:'"Well done, thou good and faithful servant."',
         verseRef:'Matthew 25:21 (KJV)' },
-      { id:'wise-foolish-builders', section:'nt-parables', scene:2, title:'Wise & Foolish Builders',
+      { id:'wise-foolish-builders',          section:'nt-parables', scene:1, title:'Wise & Foolish Builders',
         verse:'"Whosoever heareth these sayings of mine, and doeth them, I will liken him unto a wise man, which built his house upon a rock."',
         verseRef:'Matthew 7:24 (KJV)' },
-      { id:'pearl-great-price',    section:'nt-parables', scene:2, title:'The Pearl of Great Price',
+      { id:'pearl-great-price',          section:'nt-parables', scene:1, title:'The Pearl of Great Price',
         verse:'"When he had found one pearl of great price, went and sold all that he had, and bought it."',
         verseRef:'Matthew 13:46 (KJV)' },
-      { id:'persistent-widow',     section:'nt-parables', scene:2, title:'The Persistent Widow',
+      { id:'persistent-widow',          section:'nt-parables', scene:1, title:'The Persistent Widow',
         verse:'"And shall not God avenge his own elect, which cry day and night unto him?"',
         verseRef:'Luke 18:7 (KJV)' },
-      { id:'pharisee-tax-collector', section:'nt-parables', scene:2, title:'The Pharisee & the Tax Collector',
+      { id:'pharisee-tax-collector',          section:'nt-parables', scene:1, title:'The Pharisee & the Tax Collector',
         verse:'"God be merciful to me a sinner."',
         verseRef:'Luke 18:13 (KJV)' },
-      { id:'unforgiving-servant',  section:'nt-parables', scene:2, title:'The Unforgiving Servant',
+      { id:'unforgiving-servant',          section:'nt-parables', scene:1, title:'The Unforgiving Servant',
         verse:'"Shouldest not thou also have had compassion on thy fellowservant, even as I had pity on thee?"',
         verseRef:'Matthew 18:33 (KJV)' },
-      { id:'rich-young-ruler',     section:'nt-parables', scene:1, title:'The Rich Young Ruler',
+      { id:'rich-young-ruler',          section:'nt-parables', scene:1, title:'The Rich Young Ruler',
         verse:'"One thing thou lackest: go thy way, sell whatsoever thou hast, and give to the poor."',
         verseRef:'Mark 10:21 (KJV)' },
-      { id:'widows-mite',          section:'nt-parables', scene:2, title:"The Widow's Mite",
+      { id:'widows-mite',          section:'nt-parables', scene:1, title:"The Widow's Mite",
         verse:'"She of her want did cast in all that she had, even all her living."',
         verseRef:'Mark 12:44 (KJV)' },
 
       /* ── New Testament: Jesus & People ── */
-      { id:'jesus-children',       section:'nt-parables', scene:3, title:'Jesus Welcomes the Children',
-        verse:'"Suffer the little children to come unto me, and forbid them not: for of such is the kingdom of God."',
-        verseRef:'Mark 10:14 (KJV)' },
-      { id:'zacchaeus',            section:'nt-parables', scene:2, title:'Zacchaeus',
+      { id:'jesus-children',          section:'nt-parables', scene:1, title:'Jesus Welcomes the Children',
+        verse:'"They brought young children to him."',
+        verseRef:'Mark 10:13 (KJV)',
+        hybrid:true, idea:'Jesus welcomes children.' },
+      { id:'zacchaeus',          section:'nt-parables', scene:1, title:'Zacchaeus',
         verse:'"For the Son of man is come to seek and to save that which was lost."',
         verseRef:'Luke 19:10 (KJV)' },
 
       /* ── New Testament: Acts & the Early Church ── */
-      { id:'paul-silas-prison',    section:'nt-church', scene:3, title:'Paul & Silas in Prison',
+      { id:'paul-silas-prison',          section:'nt-church', scene:1, title:'Paul & Silas in Prison',
         verse:'"And at midnight Paul and Silas prayed, and sang praises unto God: and the prisoners heard them."',
         verseRef:'Acts 16:25 (KJV)' },
-      { id:'lydia-purple',         section:'nt-church', scene:2, title:'Lydia the Purple Seller',
+      { id:'lydia-purple',          section:'nt-church', scene:1, title:'Lydia the Purple Seller',
         verse:'"Whose heart the Lord opened, that she attended unto the things which were spoken of Paul."',
         verseRef:'Acts 16:14 (KJV)' },
-      { id:'tabitha-dorcas',       section:'nt-church', scene:3, title:'Tabitha Raised by Peter',
+      { id:'tabitha-dorcas',          section:'nt-church', scene:1, title:'Tabitha Raised by Peter',
         verse:'"Tabitha, arise. And she opened her eyes: and when she saw Peter, she sat up."',
         verseRef:'Acts 9:40 (KJV)' },
-      { id:'philip-ethiopian',     section:'nt-church', scene:2, title:'Philip & the Ethiopian',
+      { id:'philip-ethiopian',          section:'nt-church', scene:1, title:'Philip & the Ethiopian',
         verse:'"Philip opened his mouth, and began at the same scripture, and preached unto him Jesus."',
         verseRef:'Acts 8:35 (KJV)' },
-      { id:'paul-shipwreck',       section:'nt-church', scene:2, title:"Paul's Shipwreck",
+      { id:'paul-shipwreck',          section:'nt-church', scene:1, title:"Paul's Shipwreck",
         verse:'"There shall be no loss of any man\'s life among you... for I believe God, that it shall be even as it was told me."',
         verseRef:'Acts 27:22,25 (KJV)' }
     ];
@@ -1134,7 +1137,7 @@
         var digitalLink = document.createElement('a');
         digitalLink.className = 'cb-story__btn';
         digitalLink.href = '/coloring.html?story=' + story.id;
-        digitalLink.textContent = '🎨 Color all 4 scenes';
+        digitalLink.textContent = '🎨 Color the 4 story panels';
         actionsDiv.appendChild(digitalLink);
         var printBtn = document.createElement('button');
         printBtn.className = 'cb-story__btn';
@@ -1177,11 +1180,13 @@
         /* Screen footer */
         var footerDiv = document.createElement('div');
         footerDiv.className = 'cb-story__footer no-print';
-        var sceneNote = document.createTextNode('Scene ' + story.scene + ' of 4 shown \u00b7 ');
+        var sceneNote = document.createTextNode(
+          'Story panel ' + story.scene + ' of 4 (start here for littles) \u00b7 '
+        );
         footerDiv.appendChild(sceneNote);
         var allLink = document.createElement('a');
         allLink.href = '/coloring.html?story=' + story.id;
-        allLink.textContent = 'Color all 4 scenes digitally \u2192';
+        allLink.textContent = 'Color the 4 story panels digitally \u2192';
         allLink.style.color = '#c9a84c';
         footerDiv.appendChild(allLink);
         article.appendChild(footerDiv);

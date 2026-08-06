@@ -8406,7 +8406,7 @@
     fig.setAttribute('aria-hidden', 'true');
     var img = document.createElement('img');
     img.className = 'kids-story-ls-intro-mascot';
-    img.src = 'shepherd-mascot-welcome.svg';
+    img.src = '/kids/shepherd-mascot-welcome.svg';
     img.alt = '';
     img.setAttribute('width', '72');
     img.setAttribute('height', '80');

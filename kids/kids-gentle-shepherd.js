@@ -372,22 +372,23 @@
     } catch (e) { /* no-op */ }
   }
 
+  /* Absolute /kids/ paths so poses resolve from coloring.html, little-ones, and Kids Battle. */
   var MASCOT_POSES = [
-    { src: 'shepherd-mascot-welcome.svg', label: 'Little Shepherd waves hello' },
-    { src: 'shepherd-mascot-point.svg', label: 'Little Shepherd points the way' },
-    { src: 'shepherd-mascot-sheep.svg', label: 'Little Shepherd with a small sheep' },
-    { src: 'shepherd-mascot-cheer.svg', label: 'Little Shepherd cheering for you' },
-    { src: 'shepherd-mascot-sit.svg', label: 'Little Shepherd sitting with a little lamb' },
-    { src: 'shepherd-mascot-listen.svg', label: 'Little Shepherd listens with you' },
-    { src: 'shepherd-mascot-read.svg', label: 'Little Shepherd with Scripture open' },
-    { src: 'shepherd-mascot-pray.svg', label: 'Little Shepherd prays with you' },
-    { src: 'shepherd-mascot-proud.svg', label: 'Little Shepherd is proud of you' },
-    { src: 'shepherd-mascot-comfort.svg', label: 'Little Shepherd is still with you' },
-    { src: 'shepherd-mascot-wonder.svg', label: 'Little Shepherd looks up in wonder' },
-    { src: 'shepherd-mascot-laugh.svg', label: 'Little Shepherd laughs with you' },
-    { src: 'shepherd-mascot-point-excited.svg', label: 'Little Shepherd points to your surprise story' },
-    { src: 'shepherd-mascot-arms-hurray.svg', label: 'Little Shepherd celebrates your surprise with quiet joy' },
-    { src: 'shepherd-mascot-clap-soft.svg', label: 'Little Shepherd is glad for your surprise pick' }
+    { src: '/kids/shepherd-mascot-welcome.svg', label: 'Little Shepherd waves hello' },
+    { src: '/kids/shepherd-mascot-point.svg', label: 'Little Shepherd points the way' },
+    { src: '/kids/shepherd-mascot-sheep.svg', label: 'Little Shepherd with a small sheep' },
+    { src: '/kids/shepherd-mascot-cheer.svg', label: 'Little Shepherd cheering for you' },
+    { src: '/kids/shepherd-mascot-sit.svg', label: 'Little Shepherd sitting with a little lamb' },
+    { src: '/kids/shepherd-mascot-listen.svg', label: 'Little Shepherd listens with you' },
+    { src: '/kids/shepherd-mascot-read.svg', label: 'Little Shepherd with Scripture open' },
+    { src: '/kids/shepherd-mascot-pray.svg', label: 'Little Shepherd prays with you' },
+    { src: '/kids/shepherd-mascot-proud.svg', label: 'Little Shepherd is proud of you' },
+    { src: '/kids/shepherd-mascot-comfort.svg', label: 'Little Shepherd is still with you' },
+    { src: '/kids/shepherd-mascot-wonder.svg', label: 'Little Shepherd looks up in wonder' },
+    { src: '/kids/shepherd-mascot-laugh.svg', label: 'Little Shepherd laughs with you' },
+    { src: '/kids/shepherd-mascot-point-excited.svg', label: 'Little Shepherd points to your surprise story' },
+    { src: '/kids/shepherd-mascot-arms-hurray.svg', label: 'Little Shepherd celebrates your surprise with quiet joy' },
+    { src: '/kids/shepherd-mascot-clap-soft.svg', label: 'Little Shepherd is glad for your surprise pick' }
   ];
 
   var POSE_PROUD = 8;

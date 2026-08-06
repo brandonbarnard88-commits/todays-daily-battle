@@ -248,25 +248,26 @@
    *   ministryspark.com/52-bible-coloring-pages/
    */
 
-  /** Maps the SVG src of each hero scene → the pro PNG path to use instead when available. */
-  var TDB_PRO_SOURCES = {
-    '/coloring-pages/creation-s2.svg':       '/coloring-pages/creation-pro.png',
-    '/coloring-pages/jesus-children-s2.svg': '/coloring-pages/jesus-children-pro.png',
-    '/coloring-pages/good-shepherd-s3.svg':  '/coloring-pages/good-shepherd-pro.png',
-    '/coloring-pages/empty-tomb-s1.svg':     '/coloring-pages/empty-tomb-pro.png',
-    '/coloring-pages/noah-s4.svg':           '/coloring-pages/noah-pro.png',
-    '/coloring-pages/david-s4.svg':          '/coloring-pages/david-pro.png'
-  };
+  /**
+   * Maps SVG scene src → optional pro PNG. Leave empty until the PNG files are
+   * actually shipped under /coloring-pages/ — probing missing paths only fills
+   * the console with 404s (Image() always logs failed loads).
+   * Example when ready:
+   *   '/coloring-pages/creation-s2.svg': '/coloring-pages/creation-pro.png'
+   */
+  var TDB_PRO_SOURCES = {};
 
   /** Populated at init — only entries where the pro PNG actually loaded (HTTP 200). */
   var TDB_PRO_LOADED = {};
 
-  /** Pre-probe each pro path at module init time. Fire-and-forget. */
+  /** Pre-probe each listed pro path. No-op while TDB_PRO_SOURCES is empty. */
   (function probePro() {
     Object.keys(TDB_PRO_SOURCES).forEach(function (svgKey) {
       var proPath = TDB_PRO_SOURCES[svgKey];
+      if (!proPath) return;
       var probe = new window.Image();
       probe.onload = function () { TDB_PRO_LOADED[svgKey] = proPath; };
+      probe.onerror = function () { /* missing optional asset — keep SVG */ };
       probe.src = proPath;
     });
   }());

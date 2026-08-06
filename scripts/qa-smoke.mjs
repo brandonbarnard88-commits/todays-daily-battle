@@ -210,10 +210,29 @@ try {
   );
 
   // Action Bible archive runtime checks
-  await page.goto(origin + '/action-bible.html', { waitUntil: 'domcontentloaded', timeout: 60000 });
-  await page.waitForTimeout(1200);
+  // Firefox + python SimpleHTTPServer: reset view before the next heavy page (same pattern as workshop).
+  try {
+    await page.goto('about:blank');
+  } catch (_) {}
+  await page.goto(origin + '/action-bible.html', {
+    waitUntil: 'commit',
+    timeout: 120000,
+  });
+  await page.locator('#ab-status').waitFor({ state: 'attached', timeout: 45000 }).catch(() => {});
+  await page
+    .waitForFunction(
+      () => {
+        const el = document.getElementById('ab-status');
+        if (!el) return false;
+        const t = String(el.textContent || '').trim();
+        return /Loaded\s+\d+\s+entries/i.test(t) || /could not be loaded|failed|error/i.test(t);
+      },
+      { timeout: 45000 }
+    )
+    .catch(() => {});
   await dismissCookieNotice(page);
-  const archiveStatus = ((await page.locator('#ab-status').textContent()) || '').trim();
+  const archiveStatus =
+    ((await page.locator('#ab-status').textContent().catch(() => '')) || '').trim();
   const seasonOpts = await page.locator('#ab-season option').count();
   const archiveLoaded = /Loaded\s+\d+\s+entries/i.test(archiveStatus) && seasonOpts > 1;
   mark(

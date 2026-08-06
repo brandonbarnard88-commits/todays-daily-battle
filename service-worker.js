@@ -249,6 +249,7 @@ const CORE_ASSETS = [
   '/easter-eggs.js',
   '/easter-eggs.css',
   '/highlights.js',
+  '/verse-context.js',
   '/verse-breakdown.js',
   '/verse-breakdown-overrides.js',
   '/gentle-suggest.js',

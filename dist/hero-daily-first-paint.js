@@ -350,6 +350,32 @@
     return 'Read this verse slowly. Let one clear phrase stay with you through the next hour.';
   }
 
+  function resolveHeroContext(ref, dayEx) {
+    if (dayEx && dayEx.about && dayEx.to) {
+      return {
+        about: sanitizeText(dayEx.about),
+        to: sanitizeText(dayEx.to),
+        setting: sanitizeText(dayEx.setting || '')
+      };
+    }
+    if (typeof window.TDB_resolveVerseContext === 'function') {
+      try {
+        var hit = window.TDB_resolveVerseContext(ref);
+        if (hit && hit.about && hit.to) {
+          return {
+            about: sanitizeText(hit.about),
+            to: sanitizeText(hit.to),
+            setting: sanitizeText(hit.setting || '')
+          };
+        }
+      } catch (eCtx) { /* non-fatal */ }
+    }
+    var book = parseHeroBookName(ref);
+    var row = heroBookRow(book);
+    if (row) return { about: sanitizeText(row.s), to: sanitizeText(row.a), setting: '' };
+    return { about: '', to: '', setting: '' };
+  }
+
   function normalizeVerse(data) {
     var ref = sanitizeText(data.ref);
     var text = sanitizeText(data.text);
@@ -360,6 +386,13 @@
     var offline = findOfflineByRef(ref);
     var mood = findMoodByRef(ref);
     var gen = !offline ? defaultHeroEnrichment(ref, text) : null;
+    var dayEx = null;
+    try {
+      if (typeof window.TDB_GET_HERO_EXPLANATION_BY_REF === 'function') {
+        dayEx = window.TDB_GET_HERO_EXPLANATION_BY_REF(ref);
+      }
+    } catch (eEx) { dayEx = null; }
+    var ctx = resolveHeroContext(ref, dayEx);
 
     var lines = Array.isArray(data.lines) && data.lines.length ? data.lines
       : (offline && Array.isArray(offline.lines) && offline.lines.length) ? offline.lines.slice()
@@ -367,15 +400,20 @@
       : (gen ? gen.lines : [excerptLine(text), 'Let it remind you that God is for you\u2014not distant, not harsh.', 'Give Him thanks for one clear gift in these words, then carry it kindly into your day.']);
 
     var appText = sanitizeText(data.app || (offline && offline.app) || (mood && mood.app) || (gen && gen.app) || '');
+    var curatedPlain = dayEx && dayEx.plain ? sanitizeText(dayEx.plain) : '';
+    var curatedStep = dayEx && dayEx.step ? sanitizeText(dayEx.step) : '';
     return {
       ref: ref || sanitizeText(offline && offline.ref) || sanitizeText(mood && mood.ref) || '',
       text: text || sanitizeText(offline && offline.text) || sanitizeText(mood && mood.text) || '',
       lines: lines,
       app: appText,
-      speaker: sanitizeText(data.speaker || (offline && offline.speaker) || ''),
-      plain: sanitizeText(data.plain || (offline && offline.plain) || (mood && mood.lines && mood.lines[0]) || (gen && gen.plain) || (lines[0] || '')),
+      speaker: sanitizeText(data.speaker || ctx.about || (offline && offline.speaker) || (gen && gen.speaker) || ''),
+      about: sanitizeText(data.about || ctx.about || ''),
+      to: sanitizeText(data.to || ctx.to || ''),
+      setting: sanitizeText(data.setting || ctx.setting || ''),
+      plain: sanitizeText(data.plain || curatedPlain || (offline && offline.plain) || (mood && mood.lines && mood.lines[0]) || (gen && gen.plain) || (lines[0] || '')),
       today: sanitizeText(data.today || (offline && offline.today) || (mood && mood.lines && mood.lines[1]) || (gen && gen.today) || (lines[1] || '')),
-      action: sanitizeText(data.action || (offline && offline.action) || (mood && mood.app) || (gen && gen.action) || appText)
+      action: sanitizeText(data.action || (curatedStep ? ('So do this: ' + curatedStep) : '') || (offline && offline.action) || (mood && mood.app) || (gen && gen.action) || appText)
     };
   }
 
@@ -492,13 +530,19 @@
     var groupA = sanitizeText(sh.groupApplication != null ? sh.groupApplication : sh.group);
     var modernA = sanitizeText(sh.modernApplication != null ? sh.modernApplication : sh.modern);
     var aboutA = sanitizeText(sh.about);
+    var audienceShared = sanitizeText(sh.to != null ? sh.to : sh.audience);
     var stepPrefer = sanitizeText(sh.practicalStep != null ? sh.practicalStep : sh.oneStep);
     var yr = currentYearFresh();
     var lines = Array.isArray(v.lines) ? v.lines : [];
     var book = parseHeroBookName(v.ref);
     var row = heroBookRow(book);
+    var ctx = resolveHeroContext(v.ref, {
+      about: aboutA || sanitizeText(v.about),
+      to: audienceShared || sanitizeText(v.to),
+      setting: sanitizeText(v.setting || sh.setting || '')
+    });
     var simple = plainE || sanitizeText(v.plain) || sanitizeText(lines[0] || '') || sanitizeText(v.app);
-    var who = aboutA || sanitizeText(v.speaker);
+    var who = aboutA || sanitizeText(v.about) || sanitizeText(v.speaker) || ctx.about;
     if (!who) {
       if (row) {
         who = row.s + ' (through the words of Scripture, KJV).';
@@ -506,9 +550,12 @@
         who = 'The Holy Spirit speaking through Scripture (KJV).';
       }
     }
-    var audience = row
-      ? 'Originally for ' + row.a + ' in their time. The same word speaks to us today.'
-      : 'Written for God’s people in Scripture—and for anyone listening now, including you.';
+    var audience = audienceShared || sanitizeText(v.to) || ctx.to;
+    if (!audience) {
+      audience = row
+        ? 'Originally for ' + row.a + ' in their time. The same word speaks to us today.'
+        : 'Written for God’s people in Scripture—and for anyone listening now, including you.';
+    }
     var relatesToday = modernA;
     if (!relatesToday) {
       relatesToday = defaultRelatesTodayLine(yr);
@@ -547,7 +594,8 @@
       relYou: relYou,
       oneStep: oneStep,
       prayer: prayer,
-      year: yr
+      year: yr,
+      setting: sanitizeText(ctx.setting || '')
     };
   }
 
@@ -717,8 +765,14 @@
       groupApplication: v.today,
       modernApplication: '',
       practicalStep: v.action || v.app,
-      about: v.speaker
-    } : null);
+      about: v.about || v.speaker,
+      to: v.to,
+      setting: v.setting || ''
+    } : {
+      about: v.about || v.speaker,
+      to: v.to,
+      setting: v.setting || ''
+    });
 
     var imgText = document.getElementById('verseImgText');
     var imgRef = document.getElementById('verseImgRef');

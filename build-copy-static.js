@@ -233,6 +233,7 @@ const rootFiles = [
   'mission-outreach-data.js',
   'home-votm.js',
   'verse-breakdown.js',
+  'verse-context.js',
   'verse-breakdown-overrides.js',
   'bbe-simple.js',
   'tdb-home-funnel.js',

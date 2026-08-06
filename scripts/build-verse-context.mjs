@@ -1,0 +1,395 @@
+/**
+ * Build full-Bible verse context packs + verse-context.js resolver.
+ * Chapter defaults cover every KJV chapter; ranges override for known passages.
+ *
+ * Usage: node scripts/build-verse-context.mjs
+ */
+import fs from 'fs/promises';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const root = path.resolve(__dirname, '..');
+const kjvFullPath = path.join(root, 'data', 'kjv-full.json');
+const kjvPath = path.join(root, 'kjv.json');
+const rangesPath = path.join(root, 'data', 'verse-context-ranges.json');
+const chaptersOutPath = path.join(root, 'data', 'verse-context-chapters.json');
+const jsOutPath = path.join(root, 'verse-context.js');
+
+/** Warmer book-level speaker/audience (shared with breakdown fallback tone). */
+const BOOK_WARM = {
+  Genesis: { about: 'Moses (recording God’s Word)', to: 'Israel — and you hearing the beginning of the story' },
+  Exodus: { about: 'Moses (recording God’s Word)', to: 'Israel remembering deliverance' },
+  Leviticus: { about: 'Moses (recording God’s Word)', to: 'Israel learning holiness before God' },
+  Numbers: { about: 'Moses (recording God’s Word)', to: 'Israel in the wilderness' },
+  Deuteronomy: { about: 'Moses', to: 'Israel on the edge of the land' },
+  Joshua: { about: 'Joshua (and the narrator)', to: 'Israel entering the land' },
+  Judges: { about: 'The narrator of Judges', to: 'Israel in the days when every man did what was right in his own eyes' },
+  Ruth: { about: 'The narrator of Ruth', to: 'Israel remembering kindness and redemption' },
+  '1 Samuel': { about: 'The narrator of Samuel (with Samuel, Saul, and David)', to: 'Israel in the days of the first kings' },
+  '2 Samuel': { about: 'The narrator of Samuel (with David’s story)', to: 'Israel watching David’s reign' },
+  '1 Kings': { about: 'The narrator of Kings', to: 'Israel and Judah under the kings' },
+  '2 Kings': { about: 'The narrator of Kings', to: 'Israel and Judah under the kings' },
+  '1 Chronicles': { about: 'The chronicler', to: 'Exiles remembering God’s story' },
+  '2 Chronicles': { about: 'The chronicler', to: 'Exiles remembering God’s story' },
+  Ezra: { about: 'Ezra (and the narrator)', to: 'Returned exiles rebuilding' },
+  Nehemiah: { about: 'Nehemiah', to: 'Returned exiles rebuilding walls and faith' },
+  Esther: { about: 'The narrator of Esther', to: 'God’s people under foreign rule' },
+  Job: { about: 'Job, his friends, and the Lord (through the narrator)', to: 'Anyone sitting with suffering and questions' },
+  Psalm: { about: 'David or another psalm writer', to: 'Everyone hurting, thankful, or seeking God' },
+  Psalms: { about: 'David or another psalm writer', to: 'Everyone hurting, thankful, or seeking God' },
+  Proverbs: { about: 'Solomon giving wisdom', to: 'Everyone seeking guidance' },
+  Ecclesiastes: { about: 'Solomon (the Preacher)', to: 'Anyone asking what lasts under the sun' },
+  'Song of Solomon': { about: 'Solomon', to: 'Readers hearing covenant love sung aloud' },
+  Isaiah: { about: 'Isaiah', to: 'Judah — and all who need comfort and warning' },
+  Jeremiah: { about: 'Jeremiah', to: 'Judah and the exiles' },
+  Lamentations: { about: 'Jeremiah', to: 'Exiles mourning Jerusalem' },
+  Ezekiel: { about: 'Ezekiel', to: 'Exiles by the river Chebar' },
+  Daniel: { about: 'Daniel (and the narrator)', to: 'Exiles learning faithfulness under pressure' },
+  Hosea: { about: 'Hosea', to: 'Israel called back to faithful love' },
+  Joel: { about: 'Joel', to: 'Judah facing the day of the Lord' },
+  Amos: { about: 'Amos', to: 'Israel under God’s justice' },
+  Obadiah: { about: 'Obadiah', to: 'Edom — and all who exalt themselves' },
+  Jonah: { about: 'The narrator of Jonah (and the Lord)', to: 'Jonah — and anyone running from mercy' },
+  Micah: { about: 'Micah', to: 'Judah hearing what the Lord requires' },
+  Nahum: { about: 'Nahum', to: 'Nineveh under judgment' },
+  Habakkuk: { about: 'Habakkuk', to: 'Judah waiting for God’s answer' },
+  Zephaniah: { about: 'Zephaniah', to: 'Judah in the day of the Lord' },
+  Haggai: { about: 'Haggai', to: 'Returned exiles rebuilding the house' },
+  Zechariah: { about: 'Zechariah', to: 'Returned exiles needing hope' },
+  Malachi: { about: 'Malachi', to: 'Israel called to return to the Lord' },
+  Matthew: { about: 'Jesus (through Matthew)', to: 'His disciples and the crowds (and you today)' },
+  Mark: { about: 'Jesus (through Mark)', to: 'His disciples and those listening (and you today)' },
+  Luke: { about: 'Jesus (through Luke)', to: 'His disciples and those listening (and you today)' },
+  John: { about: 'Jesus (through John)', to: 'His disciples and those listening (and you today)' },
+  Acts: { about: 'Luke', to: 'The early church — and Theophilus’ readers' },
+  Romans: { about: 'Paul', to: 'believers in Rome (and you today)' },
+  '1 Corinthians': { about: 'Paul', to: 'the church at Corinth (and you today)' },
+  '2 Corinthians': { about: 'Paul', to: 'the church at Corinth (and you today)' },
+  Galatians: { about: 'Paul', to: 'the churches of Galatia (and you today)' },
+  Ephesians: { about: 'Paul', to: 'believers in Ephesus (and you today)' },
+  Philippians: { about: 'Paul', to: 'the church at Philippi (and you today)' },
+  Colossians: { about: 'Paul', to: 'believers in Colosse (and you today)' },
+  '1 Thessalonians': { about: 'Paul', to: 'believers in Thessalonica (and you today)' },
+  '2 Thessalonians': { about: 'Paul', to: 'believers in Thessalonica (and you today)' },
+  '1 Timothy': { about: 'Paul', to: 'Timothy (and every young believer)' },
+  '2 Timothy': { about: 'Paul', to: 'Timothy (and every timid heart)' },
+  Titus: { about: 'Paul', to: 'Titus (and church leaders)' },
+  Philemon: { about: 'Paul', to: 'Philemon (and the church in his house)' },
+  Hebrews: { about: 'The writer of Hebrews', to: 'Hebrew believers holding fast to Christ' },
+  James: { about: 'James', to: 'scattered believers under trial' },
+  '1 Peter': { about: 'Peter', to: 'believers in suffering and hope' },
+  '2 Peter': { about: 'Peter', to: 'believers growing in grace and knowledge' },
+  '1 John': { about: 'John', to: 'beloved children walking in the light' },
+  '2 John': { about: 'John', to: 'the elect lady and her children' },
+  '3 John': { about: 'John', to: 'Gaius' },
+  Jude: { about: 'Jude', to: 'believers called to contend for the faith' },
+  Revelation: { about: 'John (from Jesus Christ)', to: 'the seven churches — and every reader' }
+};
+
+/** Chapter-specific polish for famous chapters (key: Book:chapter). */
+const CHAPTER_OVERRIDES = {
+  'Genesis:1': { about: 'Moses (recording God’s Word)', to: 'Israel — and anyone hearing creation’s beginning', setting: 'Creation' },
+  'Genesis:3': { about: 'The serpent, Eve, Adam, and the Lord God', to: 'Adam and Eve — and all of us after the fall', setting: 'The fall' },
+  'Exodus:20': { about: 'God', to: 'Israel at Sinai', setting: 'Ten Commandments' },
+  'Psalm:23': { about: 'David', to: 'Anyone who needs a Shepherd', setting: 'The Lord is my shepherd' },
+  'Psalm:51': { about: 'David', to: 'God — and any heart needing mercy', setting: 'Repentance' },
+  'Psalm:91': { about: 'A psalm writer', to: 'Those who trust under His wings', setting: 'Refuge' },
+  'Isaiah:40': { about: 'Isaiah (comfort from God)', to: 'Weary Judah — and anyone waiting on the Lord', setting: 'Comfort' },
+  'Isaiah:53': { about: 'Isaiah', to: 'Israel — and all who look to the Suffering Servant', setting: 'Suffering Servant' },
+  'Matthew:5': { about: 'Jesus', to: 'His disciples on the mount (and you today)', setting: 'Sermon on the Mount' },
+  'Matthew:6': { about: 'Jesus', to: 'His disciples learning prayer and trust', setting: 'Sermon on the Mount' },
+  'Matthew:7': { about: 'Jesus', to: 'His disciples on the mount (and you today)', setting: 'Sermon on the Mount' },
+  'John:3': { about: 'Jesus', to: 'Nicodemus (and every seeker of new birth)', setting: 'New birth' },
+  'John:14': { about: 'Jesus', to: 'His disciples the night before the cross', setting: 'Upper room' },
+  'John:15': { about: 'Jesus', to: 'His disciples abiding in Him', setting: 'True vine' },
+  'Romans:8': { about: 'Paul', to: 'Believers learning life in the Spirit', setting: 'Life in the Spirit' },
+  '1 Corinthians:13': { about: 'Paul', to: 'The church at Corinth learning real love', setting: 'Love' },
+  'Philippians:4': { about: 'Paul', to: 'the church at Philippi (and you today)', setting: 'Rejoice and pray' },
+  'Hebrews:11': { about: 'The writer of Hebrews', to: 'Hebrew believers holding faith', setting: 'Hall of faith' },
+  'Revelation:21': { about: 'John (from God)', to: 'The church hoping for the new creation', setting: 'New heaven and earth' }
+};
+
+function normalizeBook(book) {
+  const b = String(book || '').trim();
+  if (/^Psalms?$/i.test(b)) return 'Psalm';
+  return b;
+}
+
+function parseCv(cv) {
+  const m = String(cv || '').match(/^(\d+):(\d+)$/);
+  if (!m) return null;
+  return { c: +m[1], v: +m[2] };
+}
+
+function verseKey(book, c, v) {
+  return normalizeBook(book) + ' ' + c + ':' + v;
+}
+
+async function loadKjv() {
+  const p = await fs.stat(kjvFullPath).then(() => kjvFullPath).catch(() => kjvPath);
+  return JSON.parse(await fs.readFile(p, 'utf8'));
+}
+
+function chapterMapFromKjv(kjv) {
+  const chapters = {};
+  for (const ref of Object.keys(kjv)) {
+    const m = ref.match(/^(.+?)\s+(\d+):(\d+)$/);
+    if (!m) continue;
+    const book = normalizeBook(m[1]);
+    const ch = +m[2];
+    chapters[book] = Math.max(chapters[book] || 0, ch);
+  }
+  return chapters;
+}
+
+function buildChapters(chapterCounts) {
+  const out = {};
+  for (const [book, maxCh] of Object.entries(chapterCounts)) {
+    const warm = BOOK_WARM[book] || BOOK_WARM.Psalm || { about: 'The biblical writer', to: 'God’s people in their time (and you today)' };
+    for (let ch = 1; ch <= maxCh; ch++) {
+      const key = book + ':' + ch;
+      const ov = CHAPTER_OVERRIDES[key];
+      out[key] = {
+        about: (ov && ov.about) || warm.about,
+        to: (ov && ov.to) || warm.to,
+        setting: (ov && ov.setting) || ''
+      };
+    }
+  }
+  return out;
+}
+
+function normalizeRanges(raw) {
+  return (Array.isArray(raw) ? raw : []).map((r) => {
+    const book = normalizeBook(r.book);
+    const from = parseCv(r.from);
+    const thru = parseCv(r.thru || r.to);
+    const audience = String(r.audience || r.hearers || '').trim();
+    if (!book || !from || !thru || !r.about || !audience) return null;
+    return {
+      book,
+      fromC: from.c,
+      fromV: from.v,
+      toC: thru.c,
+      toV: thru.v,
+      about: String(r.about || '').trim(),
+      to: audience,
+      setting: String(r.setting || '').trim()
+    };
+  }).filter(Boolean);
+}
+
+function buildRuntimeJs(chapters, ranges, bookWarm) {
+  return `/**
+ * Full-Bible verse context resolver (who is talking / to whom).
+ * Generated by scripts/build-verse-context.mjs — do not hand-edit the data block.
+ * Cascade: verse map (optional) → passage range → chapter → book.
+ */
+(function (global) {
+  'use strict';
+
+  var CHAPTERS = ${JSON.stringify(chapters)};
+  var RANGES = ${JSON.stringify(ranges)};
+  var BOOK_WARM = ${JSON.stringify(bookWarm)};
+  var VERSE_MAP = Object.create(null);
+
+  function sanitize(s) {
+    return String(s == null ? '' : s).replace(/\\s+/g, ' ').trim();
+  }
+
+  function normalizeBook(book) {
+    var b = sanitize(book);
+    if (/^Psalms?$/i.test(b)) return 'Psalm';
+    return b;
+  }
+
+  function normalizeRef(ref) {
+    return sanitize(ref)
+      .replace(/\\u2013|\\u2014/g, '-')
+      .replace(/[–—]/g, '-')
+      .replace(/^Psalms\\s+/i, 'Psalm ')
+      .replace(/\\s*\\(KJV\\)\\s*$/i, '');
+  }
+
+  function parseRef(ref) {
+    var n = normalizeRef(ref);
+    var m = n.match(/^(.+?)\\s+(\\d+):(\\d+)(?:\\s*-\\s*(?:(\\d+):)?(\\d+))?$/);
+    if (!m) return null;
+    var book = normalizeBook(m[1]);
+    var c1 = +m[2];
+    var v1 = +m[3];
+    var c2 = m[4] ? +m[4] : c1;
+    var v2 = m[5] ? +m[5] : v1;
+    return { book: book, c: c1, v: v1, c2: c2, v2: v2, key: book + ' ' + c1 + ':' + v1 };
+  }
+
+  function pos(c, v) {
+    return c * 1000 + v;
+  }
+
+  function matchRange(book, c, v) {
+    var p = pos(c, v);
+    var best = null;
+    for (var i = 0; i < RANGES.length; i++) {
+      var r = RANGES[i];
+      if (r.book !== book) continue;
+      var a = pos(r.fromC, r.fromV);
+      var b = pos(r.toC, r.toV);
+      if (p < a || p > b) continue;
+      var span = b - a;
+      if (!best || span < best._span) {
+        best = { about: r.about, to: r.to, setting: r.setting || '', source: 'range', _span: span };
+      }
+    }
+    if (best) {
+      delete best._span;
+      return best;
+    }
+    return null;
+  }
+
+  function isWeakContext(about, toAudience) {
+    var a = sanitize(about).toLowerCase();
+    var t = sanitize(toAudience).toLowerCase();
+    if (!a || !t) return true;
+    if (a === 'bible writer' || a === 'the biblical author' || a === 'the biblical writer') return true;
+    if (t === 'people who first heard these words' || t === 'original audience') return true;
+    return false;
+  }
+
+  function resolveVerseContext(ref) {
+    var parsed = parseRef(ref);
+    if (!parsed) {
+      return { about: '', to: '', setting: '', source: 'none' };
+    }
+    var verseHit = VERSE_MAP[parsed.key];
+    if (verseHit && verseHit.about && verseHit.to && !isWeakContext(verseHit.about, verseHit.to)) {
+      return {
+        about: sanitize(verseHit.about),
+        to: sanitize(verseHit.to),
+        setting: sanitize(verseHit.setting || ''),
+        source: 'verse'
+      };
+    }
+    var rangeHit = matchRange(parsed.book, parsed.c, parsed.v);
+    if (rangeHit && !isWeakContext(rangeHit.about, rangeHit.to)) {
+      return rangeHit;
+    }
+    var chap = CHAPTERS[parsed.book + ':' + parsed.c];
+    if (chap && chap.about && chap.to && !isWeakContext(chap.about, chap.to)) {
+      return {
+        about: sanitize(chap.about),
+        to: sanitize(chap.to),
+        setting: sanitize(chap.setting || ''),
+        source: 'chapter'
+      };
+    }
+    var book = BOOK_WARM[parsed.book] || BOOK_WARM.Psalm;
+    if (book) {
+      return {
+        about: sanitize(book.about),
+        to: sanitize(book.to),
+        setting: '',
+        source: 'book'
+      };
+    }
+    return {
+      about: 'The biblical writer',
+      to: 'God’s people in their time (and you today)',
+      setting: '',
+      source: 'fallback'
+    };
+  }
+
+  function registerVerseContext(ref, about, toAudience, setting) {
+    var parsed = parseRef(ref);
+    if (!parsed) return false;
+    var a = sanitize(about);
+    var t = sanitize(toAudience);
+    if (!a || !t || isWeakContext(a, t)) return false;
+    VERSE_MAP[parsed.key] = { about: a, to: t, setting: sanitize(setting || '') };
+    return true;
+  }
+
+  function registerVerseContextMap(map) {
+    if (!map || typeof map !== 'object') return 0;
+    var n = 0;
+    Object.keys(map).forEach(function (ref) {
+      var row = map[ref];
+      if (!row) return;
+      if (registerVerseContext(ref, row.about || row.speaker, row.to || row.audience, row.setting)) n += 1;
+    });
+    return n;
+  }
+
+  global.TDB_resolveVerseContext = resolveVerseContext;
+  global.TDB_registerVerseContext = registerVerseContext;
+  global.TDB_registerVerseContextMap = registerVerseContextMap;
+  global.TDB_isWeakVerseContext = isWeakContext;
+  global.__TDB_VERSE_CONTEXT_READY = true;
+
+  try {
+    var heroList = global.__TDB_HERO_DAILY_EXPLANATIONS;
+    if (heroList && heroList.length) {
+      var heroMap = Object.create(null);
+      for (var hi = 0; hi < heroList.length; hi++) {
+        var hr = heroList[hi];
+        if (!hr || !hr.ref || !hr.about || !hr.to) continue;
+        heroMap[hr.ref] = { about: hr.about, to: hr.to, setting: hr.setting || '' };
+      }
+      registerVerseContextMap(heroMap);
+    }
+  } catch (eHeroMap) { /* non-fatal */ }
+})(typeof window !== 'undefined' ? window : typeof globalThis !== 'undefined' ? globalThis : this);
+`;
+}
+
+async function main() {
+  const kjv = await loadKjv();
+  const chapterCounts = chapterMapFromKjv(kjv);
+  const chapters = buildChapters(chapterCounts);
+  const rangesRaw = JSON.parse(await fs.readFile(rangesPath, 'utf8'));
+  const ranges = normalizeRanges(rangesRaw);
+
+  await fs.writeFile(chaptersOutPath, JSON.stringify(chapters, null, 2) + '\n', 'utf8');
+  await fs.writeFile(jsOutPath, buildRuntimeJs(chapters, ranges, BOOK_WARM), 'utf8');
+
+  // Spot-check a few refs
+  const checks = ['John 3:16', 'Philippians 4:6', 'Psalm 23:1', 'Genesis 1:1', '3 John 1:1'];
+  const vm = { CHAPTERS: chapters, RANGES: ranges, BOOK_WARM };
+  function quickResolve(ref) {
+    const m = ref.match(/^(.+?)\s+(\d+):(\d+)$/);
+    const book = normalizeBook(m[1]);
+    const c = +m[2];
+    const v = +m[3];
+    const p = c * 1000 + v;
+    let best = null;
+    for (const r of ranges) {
+      if (r.book !== book) continue;
+      const a = r.fromC * 1000 + r.fromV;
+      const b = r.toC * 1000 + r.toV;
+      if (p >= a && p <= b) {
+        const span = b - a;
+        if (!best || span < best.span) best = { ...r, span, source: 'range' };
+      }
+    }
+    if (best) return { about: best.about, to: best.to, source: 'range' };
+    const ch = chapters[book + ':' + c];
+    if (ch) return { ...ch, source: 'chapter' };
+    return { ...(BOOK_WARM[book] || {}), source: 'book' };
+  }
+
+  console.log('build-verse-context: chapters', Object.keys(chapters).length, 'ranges', ranges.length);
+  for (const ref of checks) {
+    const r = quickResolve(ref);
+    console.log(' ', ref, '→', r.source, '|', r.about, '→', r.to);
+  }
+  console.log('Wrote', path.relative(root, chaptersOutPath));
+  console.log('Wrote', path.relative(root, jsOutPath));
+}
+
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});

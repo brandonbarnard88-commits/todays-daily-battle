@@ -35470,13 +35470,18 @@ async function tdbInitImpl() {
   var eraseBtn = document.getElementById('erase-all-btn');
   if (eraseBtn) eraseBtn.addEventListener('click', function (e) { e.preventDefault(); try { localStorage.clear(); sessionStorage.clear(); } catch (_) {} try { alert('Wiped—fresh start'); } catch (_) {} window.location.reload(); });
 
-  // Non-negotiable homepage UX order: search bar first, search topics second, V2 command deck third.
+  // Toolbox / legacy search surfaces: keep search stack near the top of that drawer.
+  // Grove homepage: never yank #quick-search-hero above today’s verse + teaching.
   try {
     (function ensureSearchPriorityOrderAtTop() {
       var hero = document.getElementById('quick-search-hero');
       var priority = document.getElementById('quick-search-priority');
       var v2 = document.getElementById('v2-command-deck');
       if (!hero && !priority && !v2) return;
+      /* Home Grove pairs verse → Ask; moving Ask to firstChild hides teaching under feelings. */
+      if (document.getElementById('tdbHomePrimaryPair') || document.getElementById('hero-verse-wrap')) {
+        return;
+      }
       var ordered = [hero, priority, v2].filter(Boolean);
       var targetParent = null;
       var insertionAnchor = null;

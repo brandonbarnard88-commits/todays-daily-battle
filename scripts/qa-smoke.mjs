@@ -165,6 +165,7 @@ try {
   const hasQuickHope = (await quickHope.count()) > 0;
   const searchReady = await waitForSearchReady(page);
 
+  /* Flat feelings: chips are visible without category cards. Keep legacy openers if present. */
   const feelBack = page.locator('#feelBandBack');
   if (await feelBack.isVisible().catch(() => false)) {
     await feelBack.click().catch(() => {});

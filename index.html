@@ -539,10 +539,162 @@
         <!-- Keep id for scripts; never show instructional chrome in the verse path -->
         <p class="tdb-verse-of-day-eyebrow" id="heroVerseEyebrow" hidden></p>
         <p class="hero-daily-subline" id="heroDailySubline" hidden></p>
-        </div><!-- /#heroVotdBreakdown — compact verse only above Ask -->
-        </div><!-- /.tdb-home-verse-sticky-shell -->
 
-      <!-- Ask the Word — directly under today's verse text -->
+
+
+        <!-- Always open under KJV: plain BBE text + short meaning only (no credit/disclaimer in this block) -->
+        <div class="tdb-bbe-simple tdb-bbe-simple--hero tdb-bbe-simple--always-open" id="heroBbeSimple" data-bbe-simple="1" data-bbe-ref="Psalm 91:1" data-bbe-always-open="1">
+          <h4 class="tdb-bbe-simple__heading">In simpler words</h4>
+          <div class="tdb-bbe-simple__body">
+            <p class="tdb-bbe-simple__status section-note" data-bbe-status="1" aria-live="polite" hidden></p>
+            <p class="tdb-bbe-simple__text" data-bbe-text="1" lang="en"></p>
+          </div>
+        </div>
+
+        <div class="hero-vbd-primary tdb-layman-always-open" id="heroVbdPrimary">
+          <h4 class="tdb-layman-heading">What it means</h4>
+          <p id="heroSimpleBreakdown">Read this verse slowly. Let one clear phrase stay with you through the next hour.</p>
+        </div>
+
+        <!-- Dig deeper nests on small screens; meaning + next step + prayer stay open. -->
+        <details class="tdb-dig-deeper tdb-dig-deeper--nest" id="heroDigDeeper" data-tdb-dig-always-open="1">
+          <summary class="tdb-dig-deeper__summary">More from the Word <span class="tdb-dig-deeper__hint">Context &amp; cross-refs — only if you want them</span></summary>
+          <div class="tdb-dig-deeper__content">
+            <div class="verse-breakdown" id="heroDeepBreakdown" role="group" aria-label="Context from the Word">
+              <div class="hero-vbd-bundle" id="heroVbdRowWho" hidden>
+                <h4>Who&rsquo;s talking?</h4>
+                <p id="heroDeepWho"></p>
+              </div>
+              <div class="hero-vbd-bundle" id="heroVbdRowAud" hidden>
+                <h4>Who is He / she talking to?</h4>
+                <p id="heroDeepAudience"></p>
+              </div>
+              <div class="hero-vbd-bundle" id="heroVbdRowCtx" hidden>
+                <h4>How it relates today (<span id="heroVotdBreakdownYear">2026</span>)</h4>
+                <p id="heroDeepContext"></p>
+              </div>
+              <div class="hero-vbd-bundle" id="heroVbdRowYou" hidden>
+                <h4>How it relates to you right now</h4>
+                <p id="heroDeepYou"></p>
+              </div>
+            </div>
+            <div class="tdb-dig-deeper__cross" id="heroDigDeeperCross" hidden>
+              <h4 class="tdb-dig-deeper__cross-label">See also (KJV)</h4>
+              <p class="tdb-dig-deeper__cross-list" id="heroDigDeeperCrossList"></p>
+            </div>
+            <p class="tdb-dig-deeper__plan" id="heroDigDeeperPlan" hidden>
+              <a class="tdb-dig-deeper__plan-link" id="heroDigDeeperPlanLink" href="/plans.html?plan=battle">Continue in this Battle Plan &rarr;</a>
+            </p>
+          </div>
+        </details>
+
+        <div class="next-step" id="heroVotdNextStep">
+          <strong>One honest step, just for today:</strong> <span id="heroVotdOneStep">Read it slowly one more time out loud. Thank God for one clear thing it says, then take the next small step with that line in mind.</span>
+        </div>
+        <div class="prayer-block" id="heroVotdPrayerBlock" role="region" aria-label="A simple prayer tied to today&rsquo;s verse">
+          <p class="tdb-prayer-invite">Say this if you want to. If words aren&rsquo;t there today, that&rsquo;s okay.</p>
+          <p><strong>A simple prayer:</strong><br />
+          <span id="heroVotdPrayer">Lord, sink Psalm 92:1 into my heart—not as noise, but as truth that changes how I walk. In Jesus’ name, Amen.</span></p>
+        </div>
+        <p class="tdb-verse-human-note">Someone put this here for days like this one.</p>
+
+        <ul class="breakdown" id="heroBreakdown" hidden></ul>
+        <div class="hero-breakdown-panels" id="heroBreakdownPanels" hidden></div>
+        <p class="application" id="heroApplication" hidden></p>
+        </div><!-- /#heroVotdBreakdown -->
+        <div class="hero-verse-toolbar hero-verse-primary-toolbar" aria-label="Verse: copy, share, save to My Study">
+            <div class="tdb-hero-votd-tools-wrap" role="toolbar" aria-label="Verse: copy, share, save to My Study">
+            <button type="button" class="hero-toolbar-btn" id="heroCopyVerseBtn" aria-label="Copy verse and page link to clipboard">Copy</button>
+            <button type="button" class="hero-toolbar-btn" id="heroShareBtn" aria-label="Share today’s verse: KJV text, one small step when available, and a link a friend can open without an account">Share</button>
+            <button type="button" id="hero-save-my-verses" class="hero-toolbar-btn hero-votd-save-btn" aria-describedby="hero-my-verses-hint hero-my-verses-privacy-line" aria-label="Save today’s verse to My Study on this device">Save to My Study</button>
+            </div>
+            <details class="tdb-hero-share-more">
+              <summary class="tdb-hero-share-more__sum">Share more</summary>
+              <div class="tdb-hero-share-more__tools" role="toolbar" aria-label="Email, text, or verse image">
+                <button type="button" class="hero-toolbar-btn" id="heroFriendEmailBtn" aria-label="Open your email app with today’s verse, one small step if shown, and a link">Email</button>
+                <button type="button" class="hero-toolbar-btn friend-sms-btn" id="heroFriendSmsBtn" aria-label="Open your texting app with a short prefilled message and link (phone)">Text</button>
+                <button type="button" class="hero-toolbar-btn" id="heroImageBtn" aria-label="Create shareable verse image">Image</button>
+              </div>
+            </details>
+            <p id="hero-my-verses-hint" class="section-note hero-my-verses-hint">Same list as Search and the <a href="/bible-tool.html">Bible tool</a>. <a href="/mystudy?tab=library#saved-verses">Open My Study</a>.</p>
+            <p id="hero-my-verses-privacy-line" class="section-note hero-my-verses-privacy-line">Saves stay on this device unless you choose otherwise.</p>
+        </div>
+        </div><!-- /.tdb-home-verse-sticky-shell -->
+        <dialog id="tdbStartMyDayDialog" class="tdb-start-my-day-dialog" aria-modal="true" aria-labelledby="tdbSmdH1">
+          <div class="tdb-smd-panel">
+            <div class="tdb-smd-top">
+              <div class="tdb-smd-dots" role="status" aria-label="Step">
+                <span class="tdb-smd-dot" data-step="1" aria-current="step">1</span>
+                <span class="tdb-smd-dot-sep" aria-hidden="true">·</span>
+                <span class="tdb-smd-dot" data-step="2" aria-current="false">2</span>
+                <span class="tdb-smd-dot-sep" aria-hidden="true">·</span>
+                <span class="tdb-smd-dot" data-step="3" aria-current="false">3</span>
+              </div>
+              <button type="button" class="tdb-smd-x" id="tdbSmdClose" aria-label="Close">×</button>
+            </div>
+            <div class="tdb-smd-step" data-smd-step="1">
+              <h3 id="tdbSmdH1" class="tdb-smd-title">Step 1 — Today&rsquo;s verse</h3>
+              <p class="tdb-smd-ref" id="tdbSmdStep1Ref">Isaiah 40:31 (KJV)</p>
+              <p class="tdb-smd-verse" id="tdbSmdStep1Text"></p>
+              <p class="tdb-smd-hint">Take a moment and read it slowly.</p>
+              <div class="tdb-smd-actions">
+                <button type="button" class="btn btn-secondary" id="tdbSmdReadAgain">Read again</button>
+                <button type="button" class="btn btn-primary" id="tdbSmdToStep2">Next</button>
+              </div>
+            </div>
+            <div class="tdb-smd-step" data-smd-step="2" hidden>
+              <h3 id="tdbSmdH2" class="tdb-smd-title">Step 2 &mdash; Pick today&rsquo;s mood</h3>
+              <p class="tdb-smd-sub">Choose one. There&rsquo;s no wrong answer.</p>
+              <div class="tdb-smd-feel-grid" id="tdbSmdFeelGrid" role="group" aria-label="How you feel today—pick one">
+                <button type="button" class="tdb-smd-card" data-smd-feel="anxious">Anxious or worried</button>
+                <button type="button" class="tdb-smd-card" data-smd-feel="tired">Tired or discouraged</button>
+                <button type="button" class="tdb-smd-card" data-smd-feel="angry">Angry or frustrated</button>
+                <button type="button" class="tdb-smd-card" data-smd-feel="grieving">Grieving or sad</button>
+                <button type="button" class="tdb-smd-card" data-smd-feel="parenting">Struggling as a parent</button>
+                <button type="button" class="tdb-smd-card" data-smd-feel="fearful">Fearful about the future</button>
+                <button type="button" class="tdb-smd-card" data-smd-feel="peace">Needing peace</button>
+                <button type="button" class="tdb-smd-card" data-smd-feel="thankful">Thankful / wanting to grow</button>
+              </div>
+              <div class="tdb-smd-actions">
+                <button type="button" class="btn btn-secondary" id="tdbSmdBack1">Back</button>
+              </div>
+            </div>
+            <div class="tdb-smd-step" data-smd-step="3" hidden>
+              <h3 id="tdbSmdH3" class="tdb-smd-title">Step 3 — Your 7-day battle plan</h3>
+              <p class="tdb-smd-pick" id="tdbSmdChoice"></p>
+              <p class="tdb-smd-plan-name" id="tdbSmdPlanTitle"></p>
+              <p class="tdb-smd-plan-sub" id="tdbSmdPlanSub"></p>
+              <div class="tdb-smd-day1" id="tdbSmdDay1" role="region" aria-label="Verse preview for this plan day">
+                <p class="tdb-smd-day1-heading" id="tdbSmdDay1Heading"></p>
+                <p class="tdb-smd-day1-verse" id="tdbSmdDay1Verse"></p>
+                <p class="tdb-smd-day1-ref" id="tdbSmdDay1RefKjv"></p>
+                <p class="tdb-smd-day1-plain" id="tdbSmdDay1Plain"></p>
+                <p class="tdb-smd-day1-next" id="tdbSmdDay1Next"></p>
+              </div>
+              <p class="tdb-smd-hint" id="tdbSmdStep3Hint">On the next screen, that day&rsquo;s full card: prayer, audio if available, and a way to check progress—saved on this device as you go.</p>
+              <div class="tdb-smd-actions tdb-smd-actions--stack">
+                <button type="button" class="btn btn-primary" id="tdbSmdStartPlan">Start this plan</button>
+                <button type="button" class="btn btn-secondary" id="tdbSmdBack2">Back</button>
+              </div>
+              <p class="tdb-smd-reassure">You can change your mind or pick a different plan anytime.</p>
+            </div>
+            <p class="tdb-smd-foot">Most people finish this path in under a minute.</p>
+          </div>
+        </dialog>
+        <div class="hero-streak-wrapper">
+          <span id="daily-battle-streak" class="sr-only" aria-live="polite"></span>
+          <span id="heroStreakBadge" class="hero-streak-badge" hidden></span>
+        </div>
+        <div id="streak-milestone-card" class="streak-milestone-card hidden" role="status" aria-live="polite" aria-label="Streak milestone"></div>
+        <p class="verse-note" id="verseNote" hidden></p>
+        <button type="button" id="morningSkipBtn" class="morning-skip-btn" hidden aria-label="Skip morning flow">Skip →</button>
+      </section>
+      <a href="/memorize.html" class="tdb-float-memory-pill" id="tdb-float-memory-pill" hidden aria-label="Open memory verses">Memory</a>
+      <button type="button" class="tdb-float-share-verse" id="tdb-float-share-verse-home" aria-label="Share today’s verse">Share verse</button>
+      </div><!-- /#hero-verse-wrap -->
+
+      <!-- Ask the Word — after today’s verse + teaching -->
+<!-- Ask the Word — after today’s verse + teaching -->
       <div id="quick-search-hero" class="tdb-quiet-container">
             <p class="tdb-verse-ask-bridge" id="tdbVerseAskBridge">Carrying something specific? Ask here&mdash;a feeling, a life question, or a Bible question.</p>
       <!-- ── First-visit hint (dismissible, once per device) ── -->
@@ -723,154 +875,7 @@
       </section>
       </div><!-- /#quick-search-hero -->
 
-        <!-- Always open under KJV: plain BBE text + short meaning only (no credit/disclaimer in this block) -->
-        <div class="tdb-bbe-simple tdb-bbe-simple--hero tdb-bbe-simple--always-open" id="heroBbeSimple" data-bbe-simple="1" data-bbe-ref="Psalm 91:1" data-bbe-always-open="1">
-          <h4 class="tdb-bbe-simple__heading">In simpler words</h4>
-          <div class="tdb-bbe-simple__body">
-            <p class="tdb-bbe-simple__status section-note" data-bbe-status="1" aria-live="polite" hidden></p>
-            <p class="tdb-bbe-simple__text" data-bbe-text="1" lang="en"></p>
-          </div>
-        </div>
 
-        <div class="hero-vbd-primary tdb-layman-always-open" id="heroVbdPrimary">
-          <h4 class="tdb-layman-heading">What it means</h4>
-          <p id="heroSimpleBreakdown">Read this verse slowly. Let one clear phrase stay with you through the next hour.</p>
-        </div>
-
-        <!-- Dig deeper nests on small screens; meaning + next step + prayer stay open. -->
-        <details class="tdb-dig-deeper tdb-dig-deeper--nest" id="heroDigDeeper" data-tdb-dig-always-open="1">
-          <summary class="tdb-dig-deeper__summary">More from the Word <span class="tdb-dig-deeper__hint">Context &amp; cross-refs — only if you want them</span></summary>
-          <div class="tdb-dig-deeper__content">
-            <div class="verse-breakdown" id="heroDeepBreakdown" role="group" aria-label="Context from the Word">
-              <div class="hero-vbd-bundle" id="heroVbdRowWho" hidden>
-                <h4>Who&rsquo;s talking?</h4>
-                <p id="heroDeepWho"></p>
-              </div>
-              <div class="hero-vbd-bundle" id="heroVbdRowAud" hidden>
-                <h4>Who is He / she talking to?</h4>
-                <p id="heroDeepAudience"></p>
-              </div>
-              <div class="hero-vbd-bundle" id="heroVbdRowCtx" hidden>
-                <h4>How it relates today (<span id="heroVotdBreakdownYear">2026</span>)</h4>
-                <p id="heroDeepContext"></p>
-              </div>
-              <div class="hero-vbd-bundle" id="heroVbdRowYou" hidden>
-                <h4>How it relates to you right now</h4>
-                <p id="heroDeepYou"></p>
-              </div>
-            </div>
-            <div class="tdb-dig-deeper__cross" id="heroDigDeeperCross" hidden>
-              <h4 class="tdb-dig-deeper__cross-label">See also (KJV)</h4>
-              <p class="tdb-dig-deeper__cross-list" id="heroDigDeeperCrossList"></p>
-            </div>
-            <p class="tdb-dig-deeper__plan" id="heroDigDeeperPlan" hidden>
-              <a class="tdb-dig-deeper__plan-link" id="heroDigDeeperPlanLink" href="/plans.html?plan=battle">Continue in this Battle Plan &rarr;</a>
-            </p>
-          </div>
-        </details>
-
-        <div class="next-step" id="heroVotdNextStep">
-          <strong>One honest step, just for today:</strong> <span id="heroVotdOneStep">Read it slowly one more time out loud. Thank God for one clear thing it says, then take the next small step with that line in mind.</span>
-        </div>
-        <div class="prayer-block" id="heroVotdPrayerBlock" role="region" aria-label="A simple prayer tied to today&rsquo;s verse">
-          <p class="tdb-prayer-invite">Say this if you want to. If words aren&rsquo;t there today, that&rsquo;s okay.</p>
-          <p><strong>A simple prayer:</strong><br />
-          <span id="heroVotdPrayer">Lord, sink Psalm 92:1 into my heart—not as noise, but as truth that changes how I walk. In Jesus’ name, Amen.</span></p>
-        </div>
-        <p class="tdb-verse-human-note">Someone put this here for days like this one.</p>
-
-        <ul class="breakdown" id="heroBreakdown" hidden></ul>
-        <div class="hero-breakdown-panels" id="heroBreakdownPanels" hidden></div>
-        <p class="application" id="heroApplication" hidden></p>
-        <div class="hero-verse-toolbar hero-verse-primary-toolbar" aria-label="Verse: copy, share, save to My Study">
-            <div class="tdb-hero-votd-tools-wrap" role="toolbar" aria-label="Verse: copy, share, save to My Study">
-            <button type="button" class="hero-toolbar-btn" id="heroCopyVerseBtn" aria-label="Copy verse and page link to clipboard">Copy</button>
-            <button type="button" class="hero-toolbar-btn" id="heroShareBtn" aria-label="Share today’s verse: KJV text, one small step when available, and a link a friend can open without an account">Share</button>
-            <button type="button" id="hero-save-my-verses" class="hero-toolbar-btn hero-votd-save-btn" aria-describedby="hero-my-verses-hint hero-my-verses-privacy-line" aria-label="Save today’s verse to My Study on this device">Save to My Study</button>
-            </div>
-            <details class="tdb-hero-share-more">
-              <summary class="tdb-hero-share-more__sum">Share more</summary>
-              <div class="tdb-hero-share-more__tools" role="toolbar" aria-label="Email, text, or verse image">
-                <button type="button" class="hero-toolbar-btn" id="heroFriendEmailBtn" aria-label="Open your email app with today’s verse, one small step if shown, and a link">Email</button>
-                <button type="button" class="hero-toolbar-btn friend-sms-btn" id="heroFriendSmsBtn" aria-label="Open your texting app with a short prefilled message and link (phone)">Text</button>
-                <button type="button" class="hero-toolbar-btn" id="heroImageBtn" aria-label="Create shareable verse image">Image</button>
-              </div>
-            </details>
-            <p id="hero-my-verses-hint" class="section-note hero-my-verses-hint">Same list as Search and the <a href="/bible-tool.html">Bible tool</a>. <a href="/mystudy?tab=library#saved-verses">Open My Study</a>.</p>
-            <p id="hero-my-verses-privacy-line" class="section-note hero-my-verses-privacy-line">Saves stay on this device unless you choose otherwise.</p>
-        </div>
-        <dialog id="tdbStartMyDayDialog" class="tdb-start-my-day-dialog" aria-modal="true" aria-labelledby="tdbSmdH1">
-          <div class="tdb-smd-panel">
-            <div class="tdb-smd-top">
-              <div class="tdb-smd-dots" role="status" aria-label="Step">
-                <span class="tdb-smd-dot" data-step="1" aria-current="step">1</span>
-                <span class="tdb-smd-dot-sep" aria-hidden="true">·</span>
-                <span class="tdb-smd-dot" data-step="2" aria-current="false">2</span>
-                <span class="tdb-smd-dot-sep" aria-hidden="true">·</span>
-                <span class="tdb-smd-dot" data-step="3" aria-current="false">3</span>
-              </div>
-              <button type="button" class="tdb-smd-x" id="tdbSmdClose" aria-label="Close">×</button>
-            </div>
-            <div class="tdb-smd-step" data-smd-step="1">
-              <h3 id="tdbSmdH1" class="tdb-smd-title">Step 1 — Today&rsquo;s verse</h3>
-              <p class="tdb-smd-ref" id="tdbSmdStep1Ref">Isaiah 40:31 (KJV)</p>
-              <p class="tdb-smd-verse" id="tdbSmdStep1Text"></p>
-              <p class="tdb-smd-hint">Take a moment and read it slowly.</p>
-              <div class="tdb-smd-actions">
-                <button type="button" class="btn btn-secondary" id="tdbSmdReadAgain">Read again</button>
-                <button type="button" class="btn btn-primary" id="tdbSmdToStep2">Next</button>
-              </div>
-            </div>
-            <div class="tdb-smd-step" data-smd-step="2" hidden>
-              <h3 id="tdbSmdH2" class="tdb-smd-title">Step 2 &mdash; Pick today&rsquo;s mood</h3>
-              <p class="tdb-smd-sub">Choose one. There&rsquo;s no wrong answer.</p>
-              <div class="tdb-smd-feel-grid" id="tdbSmdFeelGrid" role="group" aria-label="How you feel today—pick one">
-                <button type="button" class="tdb-smd-card" data-smd-feel="anxious">Anxious or worried</button>
-                <button type="button" class="tdb-smd-card" data-smd-feel="tired">Tired or discouraged</button>
-                <button type="button" class="tdb-smd-card" data-smd-feel="angry">Angry or frustrated</button>
-                <button type="button" class="tdb-smd-card" data-smd-feel="grieving">Grieving or sad</button>
-                <button type="button" class="tdb-smd-card" data-smd-feel="parenting">Struggling as a parent</button>
-                <button type="button" class="tdb-smd-card" data-smd-feel="fearful">Fearful about the future</button>
-                <button type="button" class="tdb-smd-card" data-smd-feel="peace">Needing peace</button>
-                <button type="button" class="tdb-smd-card" data-smd-feel="thankful">Thankful / wanting to grow</button>
-              </div>
-              <div class="tdb-smd-actions">
-                <button type="button" class="btn btn-secondary" id="tdbSmdBack1">Back</button>
-              </div>
-            </div>
-            <div class="tdb-smd-step" data-smd-step="3" hidden>
-              <h3 id="tdbSmdH3" class="tdb-smd-title">Step 3 — Your 7-day battle plan</h3>
-              <p class="tdb-smd-pick" id="tdbSmdChoice"></p>
-              <p class="tdb-smd-plan-name" id="tdbSmdPlanTitle"></p>
-              <p class="tdb-smd-plan-sub" id="tdbSmdPlanSub"></p>
-              <div class="tdb-smd-day1" id="tdbSmdDay1" role="region" aria-label="Verse preview for this plan day">
-                <p class="tdb-smd-day1-heading" id="tdbSmdDay1Heading"></p>
-                <p class="tdb-smd-day1-verse" id="tdbSmdDay1Verse"></p>
-                <p class="tdb-smd-day1-ref" id="tdbSmdDay1RefKjv"></p>
-                <p class="tdb-smd-day1-plain" id="tdbSmdDay1Plain"></p>
-                <p class="tdb-smd-day1-next" id="tdbSmdDay1Next"></p>
-              </div>
-              <p class="tdb-smd-hint" id="tdbSmdStep3Hint">On the next screen, that day&rsquo;s full card: prayer, audio if available, and a way to check progress—saved on this device as you go.</p>
-              <div class="tdb-smd-actions tdb-smd-actions--stack">
-                <button type="button" class="btn btn-primary" id="tdbSmdStartPlan">Start this plan</button>
-                <button type="button" class="btn btn-secondary" id="tdbSmdBack2">Back</button>
-              </div>
-              <p class="tdb-smd-reassure">You can change your mind or pick a different plan anytime.</p>
-            </div>
-            <p class="tdb-smd-foot">Most people finish this path in under a minute.</p>
-          </div>
-        </dialog>
-        <div class="hero-streak-wrapper">
-          <span id="daily-battle-streak" class="sr-only" aria-live="polite"></span>
-          <span id="heroStreakBadge" class="hero-streak-badge" hidden></span>
-        </div>
-        <div id="streak-milestone-card" class="streak-milestone-card hidden" role="status" aria-live="polite" aria-label="Streak milestone"></div>
-        <p class="verse-note" id="verseNote" hidden></p>
-        <button type="button" id="morningSkipBtn" class="morning-skip-btn" hidden aria-label="Skip morning flow">Skip →</button>
-      </section>
-      <a href="/memorize.html" class="tdb-float-memory-pill" id="tdb-float-memory-pill" hidden aria-label="Open memory verses">Memory</a>
-      <button type="button" class="tdb-float-share-verse" id="tdb-float-share-verse-home" aria-label="Share today’s verse">Share verse</button>
-      </div><!-- /#hero-verse-wrap -->
 
       <!-- After Ask: Grove paths are the one chooser; plan CTA nested -->
       <details class="tdb-hub-disclosure tdb-quiet-container" id="tdbHomeAfterAsk">

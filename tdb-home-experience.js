@@ -139,7 +139,7 @@
     var startBand = document.getElementById('tdbStartMyDayBand') || document.querySelector('.tdb-start-my-day-band');
     if (!main || !verse || !search) return;
 
-    /* Grove wrapper: verse + Ask already sit together. Prefer ordering that unit. */
+    /* Grove wrapper: verse + teaching first, Ask directly after #hero-verse-wrap. */
     if (grove && grove.parentNode === main) {
       if (heavyNow && heavyNow.parentNode === main) {
         main.insertBefore(heavyNow, main.firstChild);
@@ -151,6 +151,15 @@
       var groveAnchor = strip || heavyNow;
       if (groveAnchor && groveAnchor.parentNode === main) after(grove, groveAnchor);
       else main.insertBefore(grove, main.firstChild);
+      /* Pin Ask after the verse wrap so stale SW HTML / old movers cannot bury The Grove. */
+      if (search && verse) {
+        try {
+          if (search.parentNode !== grove) grove.appendChild(search);
+          if (verse.nextSibling !== search) after(search, verse);
+          search.classList.remove('quick-search-priority-top');
+          search.removeAttribute('data-priority-top');
+        } catch (eAskPin) { /* non-fatal */ }
+      }
       return;
     }
 

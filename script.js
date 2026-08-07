@@ -24216,13 +24216,14 @@ try {
   window.tdbRunHomeMoodShuffleAndWelcome = tdbRunHomeMoodShuffleAndWelcome;
 } catch (eTdbWin) {}
 
-/** Homepage only: four category cards → expand one band of chips (progressive disclosure). */
+/** Homepage feel bands: legacy category-card disclosure. No-ops when chips are flat (no pickers). */
 function wireFeelTopicProgressive() {
   var root = document.getElementById('quickTopics');
   if (!root || root.getAttribute('data-tdb-feel-progressive') === '1') return;
   var pickers = document.getElementById('feelTopicPickers');
   var expanded = document.getElementById('feelTopicExpanded');
   var backBtn = document.getElementById('feelBandBack');
+  /* Flat mode: all feeling chips visible under #tdbFeelAllChips — skip accordion wiring. */
   if (!pickers || !expanded || !backBtn) return;
   root.setAttribute('data-tdb-feel-progressive', '1');
   var bandButtons = pickers.querySelectorAll('.feel-category-card[data-feel-band]');

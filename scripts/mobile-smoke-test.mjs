@@ -152,6 +152,7 @@ async function runMobileSmokeTest() {
       await page.goto(SITE_URL, { waitUntil: 'domcontentloaded', timeout: 30000 });
       await waitForSearchReady(page);
       await scrollFeelSectionIntoView(page);
+      // Flat feelings: chips visible without category cards. Keep legacy opener if present.
       const bandBack = page.locator('#feelBandBack');
       if (await bandBack.isVisible().catch(() => false)) {
         await bandBack.click();

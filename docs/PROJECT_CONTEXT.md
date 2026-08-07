@@ -64,8 +64,8 @@ Tracked backlog: **`docs/FRIEND-AUDIT-BACKLOG.md`**
 | **Verse of the Day** | `/verse.html` | Standalone daily verse |
 | **Bible tool** | `/bible-tool.html` | Lookup, reader, verse image |
 | **My Study** | `/mystudy.html` | Notes, saved verses, local-first |
-| **Kids Corner** | `/kids/` | Gentle journey, stories, coloring |
-| **Family** | `/family.html`, printables | Family tools and print hub |
+| **Kids play** | `/kids/` | Kid door: story, color, one game |
+| **Family hub** | `/family.html`, printables | Parent hub: verse, plans, print |
 | **Prayer Wall** | `/message.html` | Community prayers |
 | **Möbius** | `/mobius.html` | Fear/faith metaphor loop |
 | **Pastor tools** | sermon/lesson builders | Self-contained ministry workflows |

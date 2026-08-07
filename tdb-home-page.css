@@ -4159,33 +4159,47 @@
       color: var(--text);
     }
 
-    /* Always-open teaching block inside #verseCard (no <details> dropdown) */
-    #verseCard .tdb-dig-deeper--always-open {
+    /* Dig deeper nests under summary — keeps first viewport calmer */
+    #verseCard .tdb-dig-deeper--nest {
       display: block;
       margin: 0.85rem 0 0.65rem;
       padding: 0.85rem 0 0;
       border-top: 1px solid color-mix(in srgb, var(--line, #334155) 70%, transparent);
     }
-    #verseCard .tdb-dig-deeper--always-open[hidden] {
+    #verseCard .tdb-dig-deeper--nest[hidden] {
       display: none !important;
     }
-    #verseCard .tdb-dig-deeper__always-heading {
-      margin: 0 0 0.65rem;
+    #verseCard .tdb-dig-deeper--nest > summary.tdb-dig-deeper__summary {
+      cursor: pointer;
+      list-style: none;
       font-size: 0.95rem;
       font-weight: 650;
       letter-spacing: 0.01em;
       color: color-mix(in srgb, var(--text) 88%, var(--gold, #e3bc67));
+      min-height: 44px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.35rem 0.65rem;
     }
-    #verseCard .tdb-dig-deeper--always-open .hero-vbd-bundle {
+    #verseCard .tdb-dig-deeper--nest > summary.tdb-dig-deeper__summary::-webkit-details-marker {
+      display: none;
+    }
+    #verseCard .tdb-dig-deeper__hint {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: color-mix(in srgb, var(--text) 62%, transparent);
+    }
+    #verseCard .tdb-dig-deeper--nest .hero-vbd-bundle {
       margin: 0 0 0.7rem;
     }
-    #verseCard .tdb-dig-deeper--always-open .hero-vbd-bundle h4 {
+    #verseCard .tdb-dig-deeper--nest .hero-vbd-bundle h4 {
       margin: 0 0 0.25rem;
       font-size: 0.88rem;
       font-weight: 650;
       color: var(--gold-soft, #d4b06a);
     }
-    #verseCard .tdb-dig-deeper--always-open .hero-vbd-bundle p {
+    #verseCard .tdb-dig-deeper--nest .hero-vbd-bundle p {
       margin: 0;
       font-size: 0.95rem;
       line-height: 1.55;

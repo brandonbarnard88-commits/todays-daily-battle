@@ -2366,7 +2366,10 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     syncLoopFilterUi(visibleLoops.length);
     updateProgress();
     if (unlockStatus) {
-      if (state.starredIds.length >= STAR_GOAL) {
+      var playableUnlock = allLoops.filter(function (l) { return !!(l && String(l.file || '').trim()); }).length;
+      if (playableUnlock === 0) {
+        unlockStatus.textContent = 'Roadmap cards are ready to browse. Cartoon clips and gold stars unlock when files land—KJV text stays readable now.';
+      } else if (state.starredIds.length >= STAR_GOAL) {
         unlockStatus.textContent = 'You have ' + STAR_GOAL + ' gold stars—next week’s loops are open early. New drops most Sundays.';
       } else if (state.starredIds.length === 1) {
         unlockStatus.textContent = 'You earned your first gold star. Keep going one loop at a time to unlock next week early.';
@@ -2413,10 +2416,25 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     var gentleNote = document.getElementById('loop-progress-gentle-note');
     if (progressText) {
       if (playable === 0 && roadmap > 0) {
-        progressText.textContent = starCount + ' gold star' + (starCount === 1 ? '' : 's') + ' · ' + roadmap + ' cards on the roadmap · clips arriving';
+        progressText.textContent = roadmap + ' roadmap cards · clips arriving · gold stars wait for playable cartoons';
       } else {
         progressText.textContent = starCount + ' gold star' + (starCount === 1 ? '' : 's') + ' · ' + playable + ' playable of ' + roadmap + ' on the roadmap';
       }
+    }
+    if (progressMeter) {
+      if (playable === 0) {
+        progressMeter.setAttribute('aria-valuemax', String(Math.max(1, roadmap)));
+        progressMeter.setAttribute('aria-valuenow', '0');
+        progressMeter.setAttribute('aria-label', 'Roadmap cards — clips not playable yet');
+        if (progressFill) progressFill.style.width = '0%';
+      } else {
+        progressMeter.setAttribute('aria-valuemax', String(meterMax));
+        progressMeter.setAttribute('aria-valuenow', String(Math.min(meterMax, starCount)));
+        progressMeter.setAttribute('aria-label', 'Gold stars toward next unlock week');
+        if (progressFill) progressFill.style.width = pct + '%';
+      }
+    } else if (progressFill) {
+      progressFill.style.width = (playable === 0 ? 0 : pct) + '%';
     }
     if (gentleNote) {
       gentleNote.textContent = playable === 0
@@ -2427,12 +2445,10 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
           ? 'You already have a start. Keep it light and revisit one loop when you need it.'
           : 'First visit? Your first gold star matters. One finished loop is a real start.');
     }
-    if (progressFill) progressFill.style.width = pct + '%';
-    if (progressMeter) {
-      progressMeter.setAttribute('aria-valuenow', String(starCount));
-      progressMeter.setAttribute('aria-valuemax', String(meterMax));
+    if (progressMeter && playable > 0) {
       progressMeter.setAttribute('aria-valuetext', starCount + ' gold stars · ' + playable + ' playable of ' + roadmap + ' roadmap cards');
-      progressMeter.setAttribute('aria-label', 'Gold stars toward early unlock (' + STAR_GOAL + ' stars)');
+    } else if (progressMeter && playable === 0) {
+      progressMeter.setAttribute('aria-valuetext', roadmap + ' roadmap cards · clips arriving');
     }
     updateLoopPdfExportHint();
   }
@@ -28158,6 +28174,9 @@ function appendReaderVerseLine(container, ref, text, useRedLetter) {
   const line = document.createElement('div');
   line.className = 'context-line context-line--reader-virtual';
   line.dataset.ref = ref;
+  line.setAttribute('tabindex', '0');
+  line.setAttribute('role', 'button');
+  line.setAttribute('aria-label', 'Show breakdown for ' + ref);
   var bodyHtml = escapeHtml(String(text || '').trim());
   if (useRedLetter && typeof isRedLetterEnabled === 'function' && isRedLetterEnabled()) {
     bodyHtml = tdbVerseBodyHtml(ref, text, { quote: false });
@@ -28165,6 +28184,81 @@ function appendReaderVerseLine(container, ref, text, useRedLetter) {
   }
   line.innerHTML = '<strong>' + escapeHtml(ref) + '</strong> ' + bodyHtml;
   container.appendChild(line);
+}
+
+function fillReaderVerseBreakdown(ref, text) {
+  var wrap = document.getElementById('reader-verse-breakdown');
+  if (!wrap) return;
+  var cleanRef = String(ref || '').trim();
+  var cleanText = String(text || '').trim();
+  if (!cleanRef) {
+    wrap.hidden = true;
+    return;
+  }
+  var refEl = document.getElementById('reader-vbd-ref');
+  var textEl = document.getElementById('reader-vbd-text');
+  var laymanEl = document.getElementById('reader-vbd-layman');
+  var stepWrap = document.getElementById('reader-vbd-next-step');
+  var stepText = document.getElementById('reader-vbd-step-text');
+  var prayerWrap = document.getElementById('reader-vbd-prayer');
+  var prayerText = document.getElementById('reader-vbd-prayer-text');
+  var libLink = document.getElementById('reader-vbd-library-link');
+  if (refEl) refEl.textContent = cleanRef + ' (KJV)';
+  if (textEl) textEl.textContent = cleanText ? '\u201C' + cleanText + '\u201D' : '';
+  var bd = typeof getVerseBreakdown === 'function' ? getVerseBreakdown(cleanRef, cleanText, null) : null;
+  if (laymanEl) {
+    laymanEl.textContent = (bd && bd.layman) || 'Read this verse slowly. Let one clear phrase stay with you.';
+  }
+  if (stepWrap && stepText) {
+    var step = (bd && (bd.nextStep || bd.action)) || '';
+    if (step) {
+      stepText.textContent = step;
+      stepWrap.hidden = false;
+    } else {
+      stepWrap.hidden = true;
+    }
+  }
+  if (prayerWrap && prayerText) {
+    var prayer = (bd && bd.prayer) || '';
+    if (prayer) {
+      prayerText.textContent = prayer;
+      prayerWrap.hidden = false;
+    } else {
+      prayerWrap.hidden = true;
+    }
+  }
+  if (libLink) {
+    libLink.href = '/bible-tool.html?ref=' + encodeURIComponent(cleanRef);
+  }
+  wrap.hidden = false;
+}
+
+function wireReaderVerseBreakdownClicks() {
+  var out = document.getElementById('reader-output');
+  if (!out || out.dataset.tdbVbdWired === '1') return;
+  out.dataset.tdbVbdWired = '1';
+  function fromLine(line) {
+    if (!line) return;
+    var ref = line.dataset.ref || '';
+    var strong = line.querySelector('strong');
+    var raw = line.textContent || '';
+    var text = raw;
+    if (strong && strong.textContent) {
+      text = raw.replace(strong.textContent, '').trim();
+    }
+    fillReaderVerseBreakdown(ref, text);
+  }
+  out.addEventListener('click', function (ev) {
+    var line = ev.target && ev.target.closest ? ev.target.closest('.context-line') : null;
+    fromLine(line);
+  });
+  out.addEventListener('keydown', function (ev) {
+    if (ev.key !== 'Enter' && ev.key !== ' ') return;
+    var line = ev.target && ev.target.closest ? ev.target.closest('.context-line') : null;
+    if (!line) return;
+    ev.preventDefault();
+    fromLine(line);
+  });
 }
 
 function renderReaderVersesProgressively(container, rows, onDone) {
@@ -28184,6 +28278,9 @@ function renderReaderVersesProgressively(container, rows, onDone) {
       const line = document.createElement('div');
       line.className = 'context-line context-line--reader-virtual';
       line.dataset.ref = row.ref || '';
+      line.setAttribute('tabindex', '0');
+      line.setAttribute('role', 'button');
+      if (row.ref) line.setAttribute('aria-label', 'Show breakdown for ' + row.ref);
       var rowRef = row.ref || '';
       var rowText = String(row.text || '').trim();
       var rowBody = escapeHtml(rowText);
@@ -28221,6 +28318,9 @@ function renderReaderVersesProgressively(container, rows, onDone) {
 
 function queueReaderChapterEnhancements(book, chapter) {
   const token = ++readerChapterEnhanceToken;
+  try {
+    if (typeof wireReaderVerseBreakdownClicks === 'function') wireReaderVerseBreakdownClicks();
+  } catch (eWireVbd) { /* ignore */ }
   scheduleReaderIdleHydration(() => {
     if (token !== readerChapterEnhanceToken) return;
     try {
@@ -28231,9 +28331,21 @@ function queueReaderChapterEnhancements(book, chapter) {
     }
     try {
       loadReaderChapterStudyNote(book, chapter);
-    } catch (eSn) {
-      /* ignore */
-    }
+    } catch (eNote) { /* ignore */ }
+    try {
+      var params = new URLSearchParams(window.location.search || '');
+      var refRaw = params.get('ref') || '';
+      if (refRaw) {
+        try { refRaw = decodeURIComponent(refRaw); } catch (eDec) { /* ignore */ }
+        var line = document.querySelector('#reader-output .context-line[data-ref="' + CSS.escape(String(refRaw).trim()) + '"]');
+        if (line) {
+          var strong = line.querySelector('strong');
+          var raw = line.textContent || '';
+          var text = strong && strong.textContent ? raw.replace(strong.textContent, '').trim() : raw;
+          fillReaderVerseBreakdown(refRaw, text);
+        }
+      }
+    } catch (eRefVbd) { /* ignore */ }
     try {
       if (window.TdbKjvDictionary && typeof window.TdbKjvDictionary.wrapReaderChapterLines === 'function') {
         window.TdbKjvDictionary.wrapReaderChapterLines(document.getElementById('reader-output'));
@@ -32672,7 +32784,7 @@ function buildHomeVerseCard(output, verse, queryText) {
   }
 
   var primary = document.createElement('div');
-  primary.className = 'search-vbd-primary home-search-vbd';
+  primary.className = 'verse-breakdown-container search-vbd-primary home-search-vbd';
   appendSearchBpIf(primary, 'Plain English', plainMeaning);
   appendSearchBpIf(primary, 'One small step', getHomeSearchNextStepTeaser(verse), 'action-panel');
   appendSearchBpIf(primary, 'Prayer', getHomeSearchPrayerText(verse), 'prayer-panel');
@@ -36465,7 +36577,7 @@ async function tdbInitImpl() {
   function normalizePrimaryNavLabels() {
     const sectionLabelMap = {
       'study-tools': 'Study Workspace',
-      'kids-battle': 'Kids Battle Home',
+      'kids-battle': 'Kids play',
       'kids-corner': 'Kids Coloring',
       'message-board': 'Prayer'
     };
@@ -36474,18 +36586,20 @@ async function tdbInitImpl() {
       var nextLabel = sectionLabelMap[section];
       if (!nextLabel) return;
       link.textContent = nextLabel;
-      if (section === 'kids-battle') link.setAttribute('aria-label', 'Kids Battle Home');
+      if (section === 'kids-battle') link.setAttribute('aria-label', 'Kids play');
       if (section === 'kids-corner') link.setAttribute('aria-label', 'Kids Coloring');
     });
 
     var scopedHrefLabelMap = {
       'study.html': 'Study Workspace',
-      '/kids/': 'Kids Battle Home',
+      '/kids/': 'Kids play',
+      'kids/index.html': 'Kids play',
       'coloring.html': 'Kids Coloring',
-      'kids-corner.html': 'Family Activities',
+      'kids-corner.html': 'Bible Loop Library',
+      '/kids-corner.html': 'Bible Loop Library',
       'message.html': 'Prayer',
       'prayer-wall.html': 'Prayer',
-      '/church/': 'Church Join Hub',
+      '/church/': 'Church group join',
       'church.html': 'Church Center',
       'sermon.html': 'Sermon Builder'
     };

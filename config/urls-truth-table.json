@@ -47,6 +47,33 @@
       "redirect": { "to": "/explore.html#start-here", "status": 301 }
     },
     {
+      "id": "campus-alias",
+      "note": "Campus map aliases land on Explore start-here.",
+      "aliases": ["/campus", "/campus/", "/campus.html"],
+      "redirect": { "to": "/explore.html#start-here", "status": 301 }
+    },
+    {
+      "id": "start-alias",
+      "aliases": ["/start", "/start/", "/start.html"],
+      "redirect": { "to": "/explore.html#start-here", "status": 301 }
+    },
+    {
+      "id": "find-a-path-alias",
+      "aliases": ["/find-a-path", "/find-a-path/", "/find-a-path.html"],
+      "redirect": { "to": "/explore.html#start-here", "status": 301 }
+    },
+    {
+      "id": "pastors-alias",
+      "aliases": ["/pastors", "/pastors/"],
+      "redirect": { "to": "/church-hub.html", "status": 301 }
+    },
+    {
+      "id": "pricing-to-give",
+      "note": "Free forever — pricing routes gift only, never a paywall.",
+      "aliases": ["/pricing", "/pricing/", "/pricing.html"],
+      "redirect": { "to": "/give", "status": 301 }
+    },
+    {
       "id": "university-clean",
       "note": "Quiet University of God anchor-verses map.",
       "aliases": ["/university", "/university/"],

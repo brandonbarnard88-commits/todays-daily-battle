@@ -59,7 +59,72 @@
     },
     {
       "source": "/pricing",
-      "destination": "/pricing.html",
+      "destination": "/give",
+      "permanent": true
+    },
+    {
+      "source": "/pricing/",
+      "destination": "/give",
+      "permanent": true
+    },
+    {
+      "source": "/pricing.html",
+      "destination": "/give",
+      "permanent": true
+    },
+    {
+      "source": "/campus",
+      "destination": "/explore.html#start-here",
+      "permanent": true
+    },
+    {
+      "source": "/campus/",
+      "destination": "/explore.html#start-here",
+      "permanent": true
+    },
+    {
+      "source": "/campus.html",
+      "destination": "/explore.html#start-here",
+      "permanent": true
+    },
+    {
+      "source": "/start",
+      "destination": "/explore.html#start-here",
+      "permanent": true
+    },
+    {
+      "source": "/start/",
+      "destination": "/explore.html#start-here",
+      "permanent": true
+    },
+    {
+      "source": "/start.html",
+      "destination": "/explore.html#start-here",
+      "permanent": true
+    },
+    {
+      "source": "/find-a-path",
+      "destination": "/explore.html#start-here",
+      "permanent": true
+    },
+    {
+      "source": "/find-a-path/",
+      "destination": "/explore.html#start-here",
+      "permanent": true
+    },
+    {
+      "source": "/find-a-path.html",
+      "destination": "/explore.html#start-here",
+      "permanent": true
+    },
+    {
+      "source": "/pastors",
+      "destination": "/church-hub.html",
+      "permanent": true
+    },
+    {
+      "source": "/pastors/",
+      "destination": "/church-hub.html",
       "permanent": true
     },
     {

@@ -7834,7 +7834,7 @@
     var nextIndex = idx + 1;
     setJourneyState({ started: true, nextIndex: nextIndex });
     if (nextIndex >= keys.length) {
-      showToast('Gentle Journey complete! Amazing faith walk!');
+      showToast('End of this path — keep browsing. The long calm goal is 365 distinct stories, not the path length.');
     } else {
       showToast('Gentle Journey progress saved: ' + nextIndex + '/' + keys.length);
     }

@@ -554,9 +554,9 @@
           <p id="heroSimpleBreakdown">Read this verse slowly. Let one clear phrase stay with you through the next hour.</p>
         </div>
 
-        <!-- Full teaching always open in the verse card (no dropdown). IDs keep first-paint / dig-deeper JS working. -->
-        <div class="tdb-dig-deeper tdb-dig-deeper--always-open" id="heroDigDeeper" data-tdb-dig-always-open="1" role="region" aria-label="More from the Word">
-          <h3 class="tdb-dig-deeper__always-heading">More from the Word</h3>
+        <!-- Dig deeper nests on small screens; meaning + next step + prayer stay open. -->
+        <details class="tdb-dig-deeper tdb-dig-deeper--nest" id="heroDigDeeper" data-tdb-dig-always-open="1">
+          <summary class="tdb-dig-deeper__summary">More from the Word <span class="tdb-dig-deeper__hint">Context &amp; cross-refs — only if you want them</span></summary>
           <div class="tdb-dig-deeper__content">
             <div class="verse-breakdown" id="heroDeepBreakdown" role="group" aria-label="Context from the Word">
               <div class="hero-vbd-bundle" id="heroVbdRowWho" hidden>
@@ -584,7 +584,7 @@
               <a class="tdb-dig-deeper__plan-link" id="heroDigDeeperPlanLink" href="/plans.html?plan=battle">Continue in this Battle Plan &rarr;</a>
             </p>
           </div>
-        </div>
+        </details>
 
         <div class="next-step" id="heroVotdNextStep">
           <strong>One honest step, just for today:</strong> <span id="heroVotdOneStep">Read it slowly one more time out loud. Thank God for one clear thing it says, then take the next small step with that line in mind.</span>
@@ -938,12 +938,12 @@
           <li><a class="tdb-campus-building" href="/plans"><span class="tdb-campus-building__name">The Paths</span><span class="tdb-campus-building__job">Need a plan · 7-day tracks</span></a></li>
           <li><a class="tdb-campus-building" href="/family"><span class="tdb-campus-building__name">Family hub</span><span class="tdb-campus-building__job">Kids · family · table</span></a></li>
           <li><a class="tdb-campus-building" href="/bible-tool"><span class="tdb-campus-building__name">The Library</span><span class="tdb-campus-building__job">Look up a verse · read more</span></a></li>
-          <li><a class="tdb-campus-building" href="/prayer-wall"><span class="tdb-campus-building__name">Prayer Walk</span><span class="tdb-campus-building__job">Pray · with others if you want</span></a></li>
+          <li><a class="tdb-campus-building" href="/mystudy"><span class="tdb-campus-building__name">My Study</span><span class="tdb-campus-building__job">Saved on this device</span></a></li>
           <li><a class="tdb-campus-building" href="/church-hub"><span class="tdb-campus-building__name">Pastor&rsquo;s Study</span><span class="tdb-campus-building__job">Pastors · church tools</span></a></li>
         </ul>
         <p class="tdb-campus-map-home__foot">
           <a class="btn btn-secondary" href="/explore.html">Open Explore (full map)</a>
-          <a class="tdb-campus-map-home__study" href="/mystudy">My Study (this device)</a>
+          <a class="tdb-campus-map-home__study" href="/prayer-wall">Prayer Walk</a>
           <a class="tdb-campus-map-home__study" href="/explore.html#start-here">Explore map</a>
         </p>
         <p class="tdb-campus-map-home__rest section-note">If the Grove was enough for today, you can stop scrolling. Everything below is optional.</p>
@@ -1229,10 +1229,8 @@
     <a href="/#feel-section">Ask the Word</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/plans.html">The Paths</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/calm.html">Quiet Hall</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/family.html">Family hub</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
+    <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support</a>
   </nav>
 
   <p class="site-footer-share-wrap">
@@ -1243,7 +1241,7 @@
 
   <nav class="bottom-nav" role="navigation" aria-label="Plans, kids, and Spanish topics">
     <a href="/plans.html">The Paths</a>
-    <a href="/kids/">Kids Battle</a>
+    <a href="/kids/">Kids play</a>
     <span class="bottom-nav-es-inline" role="group" aria-label="Spanish mood pages: verses in Spanish (Reina-Valera 1960, public domain). Site Bible tool stays KJV English.">
       <a href="/ansiedad.html" hreflang="es" aria-label="Spanish topic: Ansiedad (anxiety)">Anxiety (ES)</a>
       <a href="/fuerza.html" hreflang="es" aria-label="Spanish topic: Fuerza (strength)">Strength (ES)</a>
@@ -1331,7 +1329,7 @@
         <a href="/family.html">Family hub</a>
         <a href="/little-ones.html">For the Little Ones</a>
         <a href="/family-armor.html">Family Armor</a>
-        <a href="/kids/">Kids Battle</a>
+        <a href="/kids/">Kids play</a>
         <a href="/coloring.html">Kids Coloring</a>
       </div>
       <div class="footer-sitemap-col">
@@ -1378,7 +1376,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">August 6, 2026</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">August 7, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>

@@ -144,8 +144,8 @@ function main() {
   }
 
   const pastorHub = read('pastor/index.html');
-  if (!/rel=["']preload["'][^>]*pastor\.css/.test(pastorHub) || !pastorHub.includes('as="style"')) {
-    fail('pastor/index.html: expected link rel=preload for pastor.css (as=style)');
+  if (!pastorHub.includes('church-hub.html') || !pastorHub.includes('Pastor hub moved')) {
+    fail('pastor/index.html: expected redirect stub to Pastor’s Study (church-hub.html)');
   }
 
   const home = read('index.html');

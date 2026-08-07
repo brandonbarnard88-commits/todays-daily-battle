@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-06T19:39:06.389Z",
-  "surfacedRefCount": 3799,
-  "overrideCount": 3799,
+  "generatedAt": "2026-08-07T02:24:58.052Z",
+  "surfacedRefCount": 3800,
+  "overrideCount": 3800,
   "sourceCounts": {
     "404-admin.html": {
       "refs": 1,
@@ -333,10 +333,6 @@
     },
     "kids/good-night.html": {
       "refs": 1,
-      "pairs": 0
-    },
-    "kids/index.html": {
-      "refs": 18,
       "pairs": 0
     },
     "kids/kids-corner.js": {
@@ -939,10 +935,6 @@
       "refs": 1,
       "pairs": 0
     },
-    "pastor/index.html": {
-      "refs": 2,
-      "pairs": 0
-    },
     "pastor/pastor-builder.js": {
       "refs": 2,
       "pairs": 0
@@ -1144,7 +1136,7 @@
       "pairs": 0
     },
     "topic-hope.html": {
-      "refs": 5,
+      "refs": 8,
       "pairs": 0
     },
     "topic-loneliness.html": {
@@ -3370,6 +3362,7 @@
     "Lamentations 3:17-18",
     "Lamentations 3:19-20",
     "Lamentations 3:21",
+    "Lamentations 3:21-23",
     "Lamentations 3:22",
     "Lamentations 3:22-23",
     "Lamentations 3:23",
@@ -22090,6 +22083,14 @@
     "Lamentations 3:21": {
       "general": {
         "plainExplanation": "Hand the real weight to God. Trust that He hears and holds you.",
+        "modernApplication": "This verse keeps your eyes up when the day feels slow, heavy, or unfinished.",
+        "about": "Jeremiah",
+        "to": "Exiles mourning Jerusalem"
+      }
+    },
+    "Lamentations 3:21-23": {
+      "general": {
+        "plainExplanation": "God's kindness meets you as you are — not after you perform.",
         "modernApplication": "This verse keeps your eyes up when the day feels slow, heavy, or unfinished.",
         "about": "Jeremiah",
         "to": "Exiles mourning Jerusalem"

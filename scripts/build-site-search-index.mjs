@@ -40,7 +40,7 @@ const ENTRIES = [
   { t: 'When the Days Feel Long and Heavy (7 days)', u: '/plans.html?plan=longheavydays', k: 'exhaustion fatigue weary heavy long week parenting tired rest' },
   { t: "When Pain Won't Quit", u: '/plans.html?plan=painwontquit', k: 'pain illness body' },
   { t: 'Psalms of Comfort', u: '/plans.html?plan=psalmscomfort', k: 'grief fear psalm' },
-  { t: 'Site guide — where to start', u: '/site-guide.html', k: 'map help new' },
+  { t: 'Start here — Explore first-visit map', u: '/explore.html#start-here', k: 'map help new guide' },
   { t: 'Explore — start here (feeling-first doors)', u: '/explore.html#start-here', k: 'capacity feel overwhelmed calm plan anxiety grief path start here low energy heavy room find a path campus map' },
   { t: 'Learn the Word — teaching spine', u: '/learn-the-word.html', k: 'teach learn bible study ask the word path' },
   { t: 'Explore full site map', u: '/explore.html', k: 'topics tools languages' },

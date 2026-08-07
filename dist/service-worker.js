@@ -64,7 +64,7 @@ const CORE_ASSETS = [
   '/embeddable-widgets.html',
   '/printables.html',
   '/print-pack-generator.html',
-  '/site-guide.html',
+  '/explore.html',
   '/gods-university-of-life.html',
   '/university.html',
   '/daily-quiet-time.html',
@@ -338,8 +338,8 @@ function offlineNavigateFallbackPath(pathname) {
     '/kids/': '/kids/index.html',
     '/bible': '/bible/index.html',
     '/bible/': '/bible/index.html',
-    '/pastor': '/pastor/index.html',
-    '/pastor/': '/pastor/index.html',
+    '/pastor': '/church-hub.html',
+    '/pastor/': '/church-hub.html',
     '/church': '/church/index.html',
     '/church/': '/church/index.html'
   };

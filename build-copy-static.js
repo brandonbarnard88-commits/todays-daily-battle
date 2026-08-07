@@ -585,6 +585,17 @@ for (const f of otherHtml) {
     }
     console.log('Copied find-a-path.html (redirect stub → Explore)');
   }
+  if (f === 'site-guide.html') {
+    if (
+      !content.includes('explore.html#start-here') ||
+      !content.includes('Start here moved') ||
+      !content.includes('location.replace')
+    ) {
+      console.error('BUILD FAIL: site-guide.html must redirect to Explore start-here (no second lobby).');
+      process.exit(1);
+    }
+    console.log('Copied site-guide.html (redirect stub → Explore)');
+  }
   if (f === 'index.html') {
     const indexContent = fs.readFileSync(path.join(root, f), 'utf8');
 
@@ -609,9 +620,8 @@ for (const f of otherHtml) {
       ['bible-tool.html', 'Bible Tool link'],
       ['sermon.html', 'Build a Sermon / Sermon Builder link'],
       ['kids/index.html', 'Kids Battle link'],
-      // DO NOT REMOVE: protected core tools — workspace rule "Core tools (DO NOT REMOVE)"
-      ['pastor-toolkit.html', 'Pastor Toolkit link'],
-      ['team-toolkit.html', 'Team Toolkit link'],
+      // Pastor peers nest under Pastor’s Study — home must keep the Study door, not peer toolkits
+      ['church-hub.html', 'Pastor’s Study / Church Hub link'],
       ['prayer-wall.html', 'Prayer link'],
       ['coloring.html', 'Kids Coloring / Coloring page link'],
       // DO NOT REMOVE: core search IDs — build fails if quick-search is missing
@@ -728,7 +738,12 @@ if (fs.existsSync(path.join(root, 'about'))) {
 
 if (fs.existsSync(path.join(root, 'pastor'))) {
   copyDir(path.join(root, 'pastor'), path.join(dist, 'pastor'));
-  console.log('Copied pastor/ folder (hub, tools, builder, library)');
+  const pastorIndex = fs.readFileSync(path.join(dist, 'pastor', 'index.html'), 'utf8');
+  if (!pastorIndex.includes('church-hub.html') || !pastorIndex.includes('Pastor hub moved')) {
+    console.error('BUILD FAIL: pastor/index.html must redirect to church-hub (Pastor’s Study).');
+    process.exit(1);
+  }
+  console.log('Copied pastor/ folder (hub stub → Pastor’s Study; tools/builder/library kept)');
 }
 
 if (fs.existsSync(path.join(root, 'church'))) {
@@ -1060,7 +1075,7 @@ if (fs.existsSync(wellKnown)) {
   var STRIP =
     '\n        <p id="tdb-start-strip" class="tdb-start-strip section-note">' +
     '<strong>New here?</strong> This page meets one hard moment with KJV verses. ' +
-    '<a href="/start.html">See the full map</a> &mdash; hard moment, daily rhythm, family, or church.</p>\n';
+    '<a href="/explore.html#start-here">See the full map</a> &mdash; hard moment, daily rhythm, family, or church.</p>\n';
   function shouldInject(filePath, html) {
     if (path.basename(filePath) === 'index.html') return false;
     if (html.indexOf('id="tdb-start-strip"') !== -1) return false;

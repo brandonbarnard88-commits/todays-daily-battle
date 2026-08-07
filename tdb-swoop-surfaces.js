@@ -18,7 +18,7 @@
     strip.appendChild(strong);
     strip.appendChild(document.createTextNode(' This page meets one hard moment with KJV verses. '));
     var mapLink = document.createElement('a');
-    mapLink.href = '/start.html';
+    mapLink.href = '/explore.html#start-here';
     mapLink.textContent = 'See the full map';
     strip.appendChild(mapLink);
     strip.appendChild(document.createTextNode(' — hard moment, daily rhythm, family, or church.'));

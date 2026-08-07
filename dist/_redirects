@@ -27,6 +27,10 @@
 # Pastors alias → Pastor’s Study hub (Sermon is the real desk)
 /pastors /church-hub.html 301
 /pastors/ /church-hub.html 301
+# Site guide alias → Explore start-here (same door as campus/start/find-a-path)
+/site-guide /explore.html#start-here 301
+/site-guide/ /explore.html#start-here 301
+/site-guide.html /explore.html#start-here 301
 
 # Campus building clean URLs
 /bible-tool /bible-tool.html 200!
@@ -190,8 +194,9 @@
 /bible/ /bible/index.html 200!
 
 # Pastor Hub
-/pastor /pastor/index.html 200!
-/pastor/ /pastor/index.html 200!
+# /pastor lobby → Pastor’s Study (keep pastor/library, builder, tools as nested desks)
+/pastor /church-hub.html 301
+/pastor/ /church-hub.html 301
 # Church Hub
 /church /church/index.html 200!
 /church/ /church/index.html 200!
@@ -227,8 +232,6 @@
 /explore/ /explore.html 200!
 /learn-the-word /learn-the-word.html 200!
 /learn-the-word/ /learn-the-word.html 200!
-/site-guide /site-guide.html 200!
-/site-guide/ /site-guide.html 200!
 /university /university.html 200!
 /university/ /university.html 200!
 /family /family.html 200!

@@ -82,12 +82,13 @@ const pages = [
   'site-tagline-footer',
   'href="/family.html"',
   'id="heroDigDeeper"',
-  'tdb-dig-deeper--always-open',
+  'tdb-dig-deeper--nest',
   'id="heroVotdNextStep"',
   'id="heroVotdPrayer"',
   'More from the Word',
   'tdb-dig-deeper',
   'data-tdb-dig-always-open="1"',
+  'tdb-dig-deeper__summary',
   'year-at-a-glance.html',
   'memory-verses.js',
   'home-votm.js',
@@ -95,7 +96,7 @@ const pages = [
   'tdb-home-soar-aura',
   'hero-my-verses-privacy-line',
   'id="footer-support-quiet-place"',
-  'Support this quiet place',
+  'Support',
   'href="/give"',
   'hero-hero-pools.js?v=20260328pools',
   'hero-daily-first-paint.js?v=20260805-audit-focus-lock',
@@ -389,7 +390,7 @@ const pages = [
   { path: '/zh/kuanshu.html', name: 'ZH forgiveness pilot', mustInclude: ['lang="zh-CN"', 'zh/kuanshu.html', '以弗所书', 'topic-forgiveness.html', 'data-tdb-lang-switcher'] },
   { path: '/ru/proshchenie.html', name: 'RU forgiveness pilot', mustInclude: ['lang="ru"', '/ru/proshchenie.html', 'Ефесянам', 'topic-forgiveness.html', 'data-tdb-lang-switcher'] },
   { path: '/hi/kshama.html', name: 'HI forgiveness pilot', mustInclude: ['lang="hi"', '/hi/kshama.html', 'एफिसियों', 'topic-forgiveness.html', 'data-tdb-lang-switcher'] },
-  { path: '/church/index.html', name: 'Church Join Hub', mustInclude: ['Church Join Hub', 'Join Hub'] },
+  { path: '/church/index.html', name: 'Church group join', mustInclude: ['Church group join', 'Group join', 'Pastor&rsquo;s Study'] },
 ];
 
 for (const page of pages) {

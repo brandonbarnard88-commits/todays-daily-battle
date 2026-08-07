@@ -113,9 +113,27 @@
     .explore-languages h3[id] {
       scroll-margin-top: 5rem;
     }
-    /* Wide viewports: calm “On this page” map — long index; desktop scanning only. */
+    /* On-this-page map lives in a disclosure; show the list whenever the details is open. */
+    .explore-onpage-nav-wrap { margin: 0.25rem 0 1rem; }
+    .explore-onpage-nav-wrap .explore-onpage-nav {
+      display: block;
+      position: static;
+      margin: 0.5rem 0 0;
+      padding: 0.5rem 0.75rem 0.6rem;
+      border-radius: 14px;
+      background: rgba(6, 9, 14, 0.82);
+      border: 1px solid rgba(227, 188, 103, 0.2);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+      backdrop-filter: blur(10px);
+      text-align: left;
+    }
     .explore-onpage-nav { display: none; }
     @media (min-width: 1100px) {
+      .explore-onpage-nav-wrap[open] .explore-onpage-nav {
+        position: sticky;
+        top: 3.25rem;
+        z-index: 8;
+      }
       .explore-onpage-nav {
         display: block;
         position: sticky;
@@ -521,17 +539,14 @@
     <main class="app-content tdb-quiet-container" id="main-content">
       <div class="content-inner explore-page">
         <header id="explore-overview" class="hero-banner explore-hero explore-hero--soar-dawn" tabindex="-1">
-          <p class="explore-eyebrow">Same tools — clearer doors</p>
+          <p class="explore-eyebrow">Campus map</p>
           <div class="explore-hero-motto" role="group" aria-label="Site motto">
             <p class="explore-hero-soul-tag">Less scroll, more soul</p>
             <p class="explore-hero-core-tagline">For God · For Country · For Family</p>
           </div>
           <h1>Explore the site</h1>
-          <p class="section-note util-mb-0_5 topic-mood-porch">You&rsquo;re already welcome here&mdash;this page sorts doors; it doesn&rsquo;t rank you.</p>
-          <p class="privacy-line explore-trust-line">Completely private. No login wall. Grace, not grades &mdash; no ads or selling data. Prayers stay on your device. Anonymous page stats only&mdash;<a href="privacy.html">Privacy</a>.</p>
-          <p class="hero-tagline">KJV-first tools and topic pages — find the right door without memorizing URLs. Human-built, calm, and meant to be lived with&mdash;not chatted at.</p>
+          <p class="section-note util-mb-0_5 topic-mood-porch">You&rsquo;re already welcome here&mdash;pick one Campus door, or find a path below. This page sorts doors; it doesn&rsquo;t rank you.</p>
           <p class="explore-positioning-line">We built scripture-first paths: look up, study, and apply—clear steps, not open-ended AI chat.</p>
-          <p class="section-note explore-first-visit util-mt-0_75 util-mb-0" id="explore-first-visit-hint"><strong>First visit?</strong> You are in the right place. The <strong>Campus</strong> doors below match Home and the phone dock. <a href="#start-here">Start here</a> is the calm first order; the fuller catalog opens below. Prefer the same path stretched to about five minutes? <a href="#first-visit-tour">Optional tour</a>. Alias pages still work: <a href="site-guide.html">Site guide</a> · <a href="/campus">Campus map</a> · <a href="/find-a-path.html">Find a path</a>.</p>
 
         <nav class="tdb-core-seven" aria-labelledby="explore-core-seven-label">
           <p class="tdb-core-seven__label" id="explore-core-seven-label">Campus</p>
@@ -546,6 +561,14 @@
             <li><a class="tdb-core-seven__link" href="#start-here" aria-current="page"><span>Explore</span><span class="tdb-core-seven__desc">You are here</span></a></li>
           </ul>
         </nav>
+          <details class="tdb-hub-disclosure util-mt-0_75" id="explore-hero-more">
+            <summary class="tdb-hub-disclosure__summary">Privacy, first visit, and aliases</summary>
+            <div class="tdb-hub-disclosure__inner">
+              <p class="privacy-line explore-trust-line">Completely private. No login wall. Grace, not grades &mdash; no ads or selling data. Prayers stay on your device. Anonymous page stats only&mdash;<a href="privacy.html">Privacy</a>.</p>
+              <p class="hero-tagline">KJV-first tools and topic pages — find the right door without memorizing URLs. Human-built, calm, and meant to be lived with&mdash;not chatted at.</p>
+              <p class="section-note explore-first-visit util-mb-0" id="explore-first-visit-hint"><strong>First visit?</strong> You are in the right place. The <strong>Campus</strong> doors above match Home and the phone dock. <a href="#start-here">Start here</a> is the calm first order; the fuller catalog opens below. Prefer the same path stretched to about five minutes? <a href="#first-visit-tour">Optional tour</a>. Alias pages still work: <a href="site-guide.html">Site guide</a> · <a href="/campus">Campus map</a> · <a href="/find-a-path.html">Find a path</a>.</p>
+            </div>
+          </details>
         </header>
 
         <section class="tdb-heavy-now tdb-heavy-now--hub" id="exploreHeavyNow" role="region" aria-labelledby="exploreHeavyNowH">
@@ -572,6 +595,8 @@
           </div>
         </aside>
 
+        <details class="explore-onpage-nav-wrap tdb-hub-disclosure">
+          <summary class="tdb-hub-disclosure__summary">On this page</summary>
         <nav class="explore-onpage-nav" aria-label="On this page">
           <p class="explore-onpage-nav__label" id="explore-onpage-toc-label">On this page</p>
           <ul class="explore-onpage-nav__list" aria-labelledby="explore-onpage-toc-label">
@@ -587,8 +612,23 @@
             <li><a href="#daily">Daily &amp; study</a></li>
           </ul>
         </nav>
+        </details>
         </div>
 
+        <section class="glass tdb-porch-paper-glass explore-section" id="explore-porch-map" aria-labelledby="explore-porch-map-heading">
+          <h2 class="section-divider" id="explore-porch-map-heading">Find your path</h2>
+          <p class="section-note util-mb-0_75">Four calm rows when you need orientation&mdash;not a second primary menu. Same Campus as Home; pause anywhere.</p>
+          <ul class="explore-link-list section-note util-mb-0_75">
+            <li><strong>Today&rsquo;s verse</strong> &mdash; <a href="/">Home</a> or <a href="/verse.html">Today&rsquo;s Lesson</a> when you need one honest word.</li>
+            <li><strong>A feeling or a question</strong> &mdash; <a href="/#feel-section">Ask the Word</a> on Home, or <a href="calm.html">Calm</a> for one verse now.</li>
+            <li><strong>When the week feels heavy</strong> &mdash; <a href="plans.html">The Paths</a>, <a href="plans.html?plan=universityanxiety">Anxiety &amp; fear</a>, or the <a href="emergency-calm-pack.html">7-day calm pack</a>.</li>
+            <li><strong>Family or the full map</strong> &mdash; <a href="family.html">Family hub</a>, <a href="#explore-hub">Jump to a section</a>, or <a href="/search.html">Find any page</a>.</li>
+          </ul>
+          <p class="section-note util-mb-0"><a href="porch-map-one-page-print.html">Print the one-page path map</a> for the fridge or bedside table.</p>
+        </section>
+
+        <details class="explore-quick-doors-wrap tdb-hub-disclosure" id="explore-quick-doors-details">
+          <summary class="tdb-hub-disclosure__summary">Deeper tool doors</summary>
         <section class="explore-quick-doors" id="explore-quick-doors" aria-labelledby="explore-quick-doors-h">
           <h2 class="explore-quick-doors-heading" id="explore-quick-doors-h">Deeper tool doors</h2>
           <p class="section-note explore-quick-doors-lead">Beyond the Campus above&mdash;quiet tools when you already know what you need. Same site, fewer taps; not a second primary menu.</p>
@@ -604,35 +644,34 @@
           </ul>
           <p class="section-note explore-quick-doors-search-nudge util-mt-0_75 util-mb-0">Hunting a page by name? <a href="/search.html">Search the site</a> &mdash; hand-built list; your filter stays in this browser.</p>
         </section>
+        </details>
 
         <section class="glass tdb-porch-paper-glass explore-start-here" id="start-here" aria-labelledby="start-here-heading">
           <h2 class="section-divider" id="start-here-heading">Start here</h2>
-          <p class="section-note util-mb-0_5">If you are new, try these few steps in order&mdash;then open the full walkthrough or <a href="#explore-hub-heading">jump to a section</a> below whenever you are ready. Glance when you like; progress stays on your device.</p>
+          <p class="section-note util-mb-0_5">New? Use Campus above first. Then one grow path&mdash;or open the full walkthrough when ready.</p>
 
           <div class="explore-grow-path" id="explore-grow-path" aria-labelledby="explore-grow-path-heading">
             <h3 class="explore-grow-path__title" id="explore-grow-path-heading">Grow in the Word (one calm sequence)</h3>
             <p class="section-note util-mb-0_5"><strong>Capacity low?</strong> Open <a href="/calm.html">Quiet Hall</a> first. Orientation aliases still work: <a href="/find-a-path.html">Find a path</a> · <a href="/site-guide.html">Site guide</a> · <a href="/campus">Campus</a>.</p>
-            <p class="section-note util-mb-0_5">When you want more than today&rsquo;s verse&mdash;not a new app, just deeper rooms on this porch:</p>
             <ol class="explore-grow-path__list section-note">
-              <li><a href="#start-here-heading"><strong>Explore</strong></a> &mdash; you are here; orient without rush</li>
-              <li><a href="/university.html"><strong>University map</strong></a> &mdash; five anchor verses (nested under The Paths)</li>
+              <li><a href="#start-here-heading"><strong>Explore</strong></a> &mdash; you are here</li>
+              <li><a href="/university.html"><strong>University map</strong></a> &mdash; five anchor verses</li>
               <li><a href="/plans.html"><strong>The Paths</strong></a> &mdash; short multi-day KJV tracks (Battle Plans)</li>
               <li><a href="/life-lessons.html"><strong>Life Lessons</strong></a> &mdash; sit longer with one teaching</li>
             </ol>
-            <p class="section-note util-mb-0_75">Story spine (creation → hope): <a href="/learn-the-word.html">Learn the Word</a>. Heavy right now? <a href="/calm.html">Quiet Hall</a> or <a href="/#feel-section">Home Ask the Word</a> first&mdash;growth can wait.</p>
+            <p class="section-note util-mb-0_75">Story spine: <a href="/learn-the-word.html">Learn the Word</a>. Heavy right now? <a href="/calm.html">Quiet Hall</a> or <a href="/#feel-section">Home Ask the Word</a> first.</p>
           </div>
 
-          <ol class="explore-start-here-list explore-start-here-essentials section-note">
-            <li><strong>Campus</strong> are already listed above (same names as Home, header, and the phone dock). Use that grid first; this list only adds order and deeper rooms.</li>
-            <li><a href="site-guide.html">Site guide (alias)</a> — same calm first-visit map; Explore is the primary door. Not the same as <a href="first-steps.html">First steps in faith</a>. Quiet proof before tools: <a href="testimonials.html">Reader stories</a>.</li>
-            <li><a href="/">The Grove</a> — today&rsquo;s verse and <a href="/#feel-section">Ask the Word</a> (same offline brain as The Library). Need a shared or private line? <a href="/prayer-wall.html">Prayer</a>.</li>
-            <li><a href="calm.html">Quiet Hall</a> for one verse and breath, or the grow path above (<a href="/university.html">University map</a> → <a href="plans.html">The Paths</a> → <a href="life-lessons.html">Life Lessons</a>). Heavy moment: <a href="sos.html">Steady now</a>.</li>
-            <li><a href="/family.html">Family hub</a> at the table, or <a href="/mystudy">My Study</a> for saved verses on this device.</li>
-            <li>Leaders: <a href="church-hub.html">Pastor&rsquo;s Study</a> / <a href="for-pastors.html">For pastors &amp; ministers</a> — Sermon Builder, Pastor Toolkit, Team Toolkit.</li>
-            <li>Homeschool, classroom, or family table pacing: <a href="yearly-rhythm.html">Year-round rhythm</a>, or language pilots under <a href="#languages">Languages</a>. Quiet corners: <a href="/kids/corner.html">Kids Story Library</a>, <a href="emergency-calm-pack.html">7-Day Calm Pack</a>, <a href="memorize.html">Memorize</a>.</li>
-          </ol>
           <details class="explore-start-here-details">
-            <summary class="explore-start-here-summary">Full walkthrough — every language entry (continues from Start here above)</summary>
+            <summary class="explore-start-here-summary">More start doors &amp; full language walkthrough</summary>
+            <ol class="explore-start-here-list explore-start-here-essentials section-note">
+              <li><strong>Campus</strong> are already listed above (same names as Home, header, and the phone dock).</li>
+              <li><a href="site-guide.html">Site guide (alias)</a> — Explore is the primary door. Not the same as <a href="first-steps.html">First steps in faith</a>. Quiet proof: <a href="testimonials.html">Reader stories</a>.</li>
+              <li><a href="/">The Grove</a> — today&rsquo;s verse and <a href="/#feel-section">Ask the Word</a>. Need a shared line? <a href="/prayer-wall.html">Prayer</a>.</li>
+              <li><a href="calm.html">Quiet Hall</a> · Heavy moment: <a href="sos.html">Steady now</a>.</li>
+              <li><a href="/family.html">Family hub</a> · <a href="/mystudy">My Study</a> · Leaders: <a href="church-hub.html">Pastor&rsquo;s Study</a> / <a href="for-pastors.html">For pastors &amp; ministers</a>.</li>
+              <li>Homeschool, classroom, or family table pacing: <a href="yearly-rhythm.html">Year-round rhythm</a> · <a href="#languages">Languages</a> · <a href="/kids/">Kids play</a> · <a href="/kids/corner.html">Kids Story Library</a> · <a href="emergency-calm-pack.html">7-Day Calm Pack</a> · <a href="memorize.html">Memorize</a>.</li>
+            </ol>
             <p class="section-note util-mb-0_75 util-mt-0">The first steps match <a href="#start-here-heading">Start here</a>—below is the full language and mood list (including hubs not repeated above).</p>
             <ol class="explore-start-here-list explore-start-here-full section-note">
             <li>Language-row hubs: <a href="/es/" hreflang="es">Español — inicio</a>, <a href="/fr/" hreflang="fr">Français — accueil</a>, <a href="/pt/" hreflang="pt">Português — início</a> — every mood link also lives under <a href="#languages">Languages</a>.</li>
@@ -666,6 +705,9 @@
           </details>
         </section>
 
+        <details class="tdb-hub-disclosure" id="first-visit-tour-details">
+          <summary class="tdb-hub-disclosure__summary">Optional five-minute tour</summary>
+          <div class="tdb-hub-disclosure__inner">
         <section class="glass tdb-porch-paper-glass explore-section explore-five-tour" id="first-visit-tour" aria-labelledby="first-visit-tour-heading">
           <h2 class="section-divider" id="first-visit-tour-heading">Five calm minutes (optional)</h2>
           <p class="section-note util-mb-0_75">Same path as <a href="#start-here-heading">Start here</a> above&mdash;numbered slowly if that fits your pace. About one minute per step. Pause anytime; nothing tracks you through this list.</p>
@@ -678,7 +720,12 @@
           </ol>
           <p class="section-note util-mb-0 util-mt-0_75">Done? You have already used the site well. Come back when you need the next quiet step.</p>
         </section>
+          </div>
+        </details>
 
+        <details class="tdb-hub-disclosure" id="whats-new-spring-details">
+          <summary class="tdb-hub-disclosure__summary">What&rsquo;s new (Spring 2026)</summary>
+          <div class="tdb-hub-disclosure__inner">
         <section class="glass tdb-porch-paper-glass explore-section explore-whats-new" id="whats-new-spring-2026" aria-labelledby="whats-new-spring-heading">
           <h2 class="section-divider" id="whats-new-spring-heading">What&rsquo;s new (Spring 2026)</h2>
           <p class="section-note util-mb-0_5">Small improvements, said plainly&mdash;no hype. Glance when you like; progress stays on your device.</p>
@@ -691,18 +738,8 @@
           <p class="section-note util-mb-0_75">Want the plain public version of what is shipping next? See <a href="/roadmap.html">What&rsquo;s next</a> and <a href="/updates.html">monthly updates</a>.</p>
           <p class="section-note util-mb-0" id="whats-new-march-2026"><strong>Same daily-battle posture, wider doorways:</strong> <strong>Family &amp; home</strong> &mdash; <a href="family.html">Family hub</a>, <a href="family-armor.html">Family Armor &amp; Stories</a>, family plans, <a href="family-activity-packs.html">printable activity packs</a>, <a href="family-youth-journal.html">teen journal</a>&mdash;KJV, on-device, for the people around your table. <strong>Mission &amp; outreach</strong> &mdash; <a href="mission-outreach-packs.html">five print packs</a> (hospital, grief, prison, new believer, missionary): quiet paper for hurting rooms, same reverence as the homepage. <a href="about.html#whats-new-family-mission">A bit more on About</a>. (Older links to &ldquo;March&rdquo; notes resolve here.)</p>
         </section>
-
-        <section class="glass tdb-porch-paper-glass explore-section" id="explore-porch-map" aria-labelledby="explore-porch-map-heading">
-          <h2 class="section-divider" id="explore-porch-map-heading">Find your path</h2>
-          <p class="section-note util-mb-0_75">Four calm rows when you need orientation&mdash;not a second primary menu. Same Campus as Home; pause anywhere.</p>
-          <ul class="explore-link-list section-note util-mb-0_75">
-            <li><strong>Today&rsquo;s verse</strong> &mdash; <a href="/">Home</a> or <a href="/verse.html">Today&rsquo;s Lesson</a> when you need one honest word.</li>
-            <li><strong>A feeling or a question</strong> &mdash; <a href="/#feel-section">Ask the Word</a> on Home, or <a href="calm.html">Calm</a> for one verse now.</li>
-            <li><strong>When the week feels heavy</strong> &mdash; <a href="plans.html">The Paths</a>, <a href="plans.html?plan=universityanxiety">Anxiety &amp; fear</a>, or the <a href="emergency-calm-pack.html">7-day calm pack</a>.</li>
-            <li><strong>Family or the full map</strong> &mdash; <a href="family.html">Family hub</a>, <a href="#explore-hub">Jump to a section</a>, or <a href="/search.html">Find any page</a>.</li>
-          </ul>
-          <p class="section-note util-mb-0"><a href="porch-map-one-page-print.html">Print the one-page path map</a> for the fridge or bedside table.</p>
-        </section>
+          </div>
+        </details>
 
         <section class="glass tdb-porch-paper-glass explore-hub" id="explore-hub" aria-labelledby="explore-hub-heading">
           <h2 class="section-divider explore-hub-section-title" id="explore-hub-heading">Jump to a section</h2>

@@ -52,6 +52,8 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260805-four-pillars" as="style">
   <link rel="stylesheet" href="styles.css?v=20260805-four-pillars">
+  <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
+  <link rel="stylesheet" href="tdb-core-seven.css?v=20260519-audit">
   <link rel="preload" href="tdb-visual-tokens.css?v=20260521-discover-b" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260521-discover-b">
   <link rel="manifest" href="manifest.json">
@@ -218,7 +220,49 @@
       .mobile-only { display: none !important; }
       .desktop-only { display: block !important; }
     }
-    /* Wide viewports: calm “On this page” — desktop scanning; mobile stays one column. */
+    /* On-this-page TOC lives in a disclosure; show the list whenever details is open. */
+    .calm-onpage-nav-wrap { margin: 0 auto 0.75rem; max-width: 28rem; text-align: left; }
+    .calm-onpage-nav-wrap .calm-onpage-nav {
+      display: block;
+      position: static;
+      margin: 0.45rem 0 0;
+      max-width: none;
+      padding: 0.5rem 0.75rem 0.6rem;
+      border-radius: 14px;
+      background: rgba(6, 9, 14, 0.72);
+      border: 1px solid rgba(227, 188, 103, 0.2);
+      text-align: left;
+    }
+    .calm-onpage-nav-wrap .calm-onpage-nav__label {
+      margin: 0 0 0.4rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(227, 188, 103, 0.65);
+    }
+    .calm-onpage-nav-wrap .calm-onpage-nav__list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.55rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
+    .calm-onpage-nav-wrap .calm-onpage-nav__list a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: rgba(226, 232, 240, 0.92);
+      border: 1px solid rgba(227, 188, 103, 0.22);
+      background: rgba(12, 16, 26, 0.55);
+    }
     .calm-onpage-nav { display: none; }
     @media (min-width: 1100px) {
       .calm-onpage-nav {
@@ -412,6 +456,8 @@
           </div>
         </div>
         </div>
+        <details class="tdb-hub-disclosure calm-onpage-nav-wrap">
+          <summary class="tdb-hub-disclosure__summary">On this page</summary>
         <nav class="calm-onpage-nav" aria-label="On this page">
           <p class="calm-onpage-nav__label" id="calm-onpage-toc-label">On this page</p>
           <ul class="calm-onpage-nav__list" aria-labelledby="calm-onpage-toc-label">
@@ -424,6 +470,7 @@
             <li><a href="#calm-back-home">Back home</a></li>
           </ul>
         </nav>
+        </details>
         <div class="calm-input-wrap" id="calm-feel-input">
           <label for="calm-input" class="sr-only">Or type how you feel</label>
           <input type="text" id="calm-input" placeholder="Or type how you feel…" autocomplete="off" aria-label="Type how you feel for a verse">
@@ -438,7 +485,6 @@
           <button type="button" class="calm-btn" data-category="grief" aria-label="Grief or sadness">Grief / Sadness</button>
         </div>
         </section>
-        <p class="calm-prayer-wall-nudge calm-prayer-wall-nudge-always section-note">The <a href="prayer-wall.html">Prayer</a> stays open—copy a verse below and paste there if you want, anonymous.</p>
         <div id="night-prayer" class="verse-centered night-prayer-panel" style="display: none;">
           <div class="night-prayer-wrap">
             <p class="night-prayer-verse" id="night-prayer-verse" aria-live="polite">"Lord, I will both lay me down in peace, and sleep: for thou, LORD, only makest me dwell in safety."</p>

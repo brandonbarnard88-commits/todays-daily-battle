@@ -29,6 +29,8 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260805-four-pillars" as="style">
   <link rel="stylesheet" href="styles.css?v=20260805-four-pillars">
+  <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
+  <link rel="stylesheet" href="tdb-core-seven.css?v=20260519-audit">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
 </head>
@@ -79,7 +81,7 @@
             </div>
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">Family &amp; Kids</span>
-              <a href="/kids/">Kids Battle</a>
+              <a href="/kids/">Kids play</a>
               <a href="/kids/corner.html">Bible Story Library</a>
               <a href="/coloring.html">Kids Coloring</a>
               <a href="/little-ones.html">For the Little Ones</a>
@@ -127,14 +129,13 @@
         <header class="hero-banner tdb-dawn-hub--mist church-hub-hero">
           <p class="for-pastors-eyebrow">Pastor’s Study</p>
           <h1>Pastor &amp; Church Tools</h1>
-          <p class="section-note topic-mood-porch">Hey Pastor — you and your people are already welcome here. This is a calm porch of free KJV tools designed as a supplement, never a replacement, for the local church. One verse. One small step. Tools that work offline. No login required. No pressure to adopt everything.</p>
-          <p class="hero-tagline">Practical resources that help families stay in the Word between Sundays and give you ready material without adding to your load.</p>
+          <p class="section-note topic-mood-porch">Hey Pastor — you and your people are already welcome here. Free KJV tools that supplement the local church. One verse. One small step. Offline when you need it. No login required.</p>
           <p class="section-note">Nested under this Study: <a href="/for-pastors.html">For Pastors &amp; Mobile Ministers</a> · <a href="/pastor-toolkit.html">Pastor toolkit</a> · <a href="/pastor/">Pastor hub</a> · <a href="/sermon.html">Sermon Builder</a>.</p>
         </header>
 
         <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Biggest wins for churches</h2>
-          <p class="section-note">Here are the most practical on-ramps pastors and leaders tell us they use first. Take what serves your congregation — nothing is required.</p>
+          <p class="section-note">Three practical on-ramps first. More tools stay reachable below—nothing is required.</p>
 
           <div class="church-hub-wins-grid">
             <a href="/church-sharing-kit.html" class="church-hub-win-card">
@@ -149,26 +150,36 @@
               <span class="btn btn-secondary small">Start Sermon Workspace →</span>
             </a>
 
+            <a href="/plans.html" class="church-hub-win-card">
+              <strong>The Paths for Groups</strong>
+              <span class="win-desc">Short (7–40 day) KJV Battle Plans for fear, grief, parenting, anxiety, and more. Perfect for midweek groups or one-on-one counseling. No streaks, just honest steps.</span>
+              <span class="btn btn-secondary small">Browse The Paths →</span>
+            </a>
+          </div>
+
+          <details class="tdb-hub-disclosure util-mt-1" id="church-hub-more-wins">
+            <summary class="tdb-hub-disclosure__summary">More church tools</summary>
+            <div class="tdb-hub-disclosure__inner">
+          <div class="church-hub-wins-grid">
             <a href="/embeddable-widgets.html" class="church-hub-win-card">
               <strong>Embeddable Verse Widgets</strong>
               <span class="win-desc">Drop a daily KJV verse + calm breakdown directly on your church website with one script tag. Customizable and privacy-first.</span>
               <span class="btn btn-secondary small">Get Embed Code →</span>
             </a>
 
-            <a href="/plans.html" class="church-hub-win-card">
-              <strong>The Paths for Groups</strong>
-              <span class="win-desc">Short (7–40 day) KJV Battle Plans for fear, grief, parenting, anxiety, and more. Perfect for midweek groups or one-on-one counseling. No streaks, just honest steps.</span>
-              <span class="btn btn-secondary small">Browse The Paths →</span>
-            </a>
-
             <a href="/family.html" class="church-hub-win-card">
-              <strong>Family hub &amp; Kids Battle</strong>
-              <span class="win-desc">Gentle family rhythms, Kids Battle stories, Kids Coloring, memory aids, and little-ones pages. Helps parents lead at the table without adding guilt.</span>
+              <strong>Family hub &amp; Kids play</strong>
+              <span class="win-desc">Parent porch on Family hub; kid play stays at Kids play. Coloring, memory aids, and little-ones pages—without adding guilt.</span>
               <span class="btn btn-secondary small">Family Hub →</span>
             </a>
           </div>
+            </div>
+          </details>
         </section>
 
+        <details class="tdb-hub-disclosure" id="church-hub-trusted-quotes">
+          <summary class="tdb-hub-disclosure__summary">Notes from small churches</summary>
+          <div class="tdb-hub-disclosure__inner">
         <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Trusted by small churches &amp; families</h2>
           <div class="trusted-quotes-grid">
@@ -191,6 +202,8 @@
           </div>
           <p class="section-note" style="text-align:center;margin-top:2rem;">These are real, anonymous notes from pastors and leaders who have used the tools. We protect privacy and never pressure churches to promote us.</p>
         </section>
+          </div>
+        </details>
 
         <section class="glass tdb-porch-paper-glass">
           <h2 class="section-divider">Supplement, never replacement</h2>

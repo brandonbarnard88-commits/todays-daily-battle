@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=20260805-four-pillars"></script>
+  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260805-four-pillars"></script>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260805-four-pillars"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260805-four-pillars"></script>
@@ -25,6 +28,9 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260805-four-pillars" as="style">
   <link rel="stylesheet" href="styles.css?v=20260805-four-pillars">
+  <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
+  <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
+
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <!-- QR generator for team code (minimal, allowed by CSP) -->
@@ -661,9 +667,10 @@
               <a href="/study.html">Study workspace</a>
             </div>
             <div class="tdb-nav-more-group">
-              <span class="tdb-nav-more-group-label">Maps into The Paths</span>
-              <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map nested under The Paths">Curriculum map</a>
-              <a href="/university.html" id="nav-university-core" aria-label="University map — five anchor verses">University map</a>
+              <span class="tdb-nav-more-group-label">Under The Paths</span>
+              <a href="/plans.html#plansDoorChooser">Feeling doors</a>
+              <a href="/plans.html#plans-maps-into-paths-details" id="nav-curriculum" aria-label="Curriculum and university maps live under The Paths">Curriculum &amp; university maps</a>
+              <a href="/university.html" id="nav-university-core" class="sr-only" aria-label="University map — five anchor verses">University map</a>
               <a href="/reading-plan.html">7-day reading plan</a>
               <a href="/daily-rhythm.html">Daily Rhythm</a>
               <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
@@ -684,7 +691,6 @@
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">About the Site</span>
               <a href="/explore.html#start-here" id="nav-site-guide" aria-label="Start here — calm map on Explore">Start here</a>
-              <a href="/campus">Campus map (alias)</a>
               <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
               <a href="/about.html">About</a>
               <a href="/story.html">Story</a>
@@ -1089,6 +1095,14 @@
         </div>
           </div>
     </main>
+    <nav class="tdb-bottom-dock" aria-label="Campus navigation">
+      <a href="/" aria-label="The Grove — today’s verse">🌳 Grove</a>
+      <a href="/#feel-section" aria-label="Ask the Word">💬 Ask</a>
+      <a href="/plans.html" aria-label="The Paths">🗓️ Paths</a>
+      <a href="/calm.html" aria-label="Quiet Hall — one steady verse">🌿 Quiet Hall</a>
+      <a href="/explore.html" class="tdb-bottom-dock-more" aria-label="Explore — full map">🗺️ Explore</a>
+    </nav>
+
 
     <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
   <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
@@ -1113,7 +1127,6 @@
     <a href="/calm.html">Quiet Hall</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/family.html">Family hub</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/campus">Campus (alias)</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
   </nav>
@@ -1145,7 +1158,7 @@
     <a href="/media.html">Media</a>
     <a href="/roadmap.html">Roadmap</a>
     <a href="/give">Support</a>
-    <a href="/for-pastors.html">For pastors &amp; teachers</a>
+    <a href="/church-hub.html">Pastor&rsquo;s Study</a>
     <a href="/reader.html">Chapter reader</a>
     <a href="/bible/tools.html">Study workshop</a>
     <a href="/bible-tool.html">The Library</a>
@@ -1204,12 +1217,13 @@
       </div>
       <div class="footer-sitemap-col">
         <h3>For the Household of Faith</h3>
-        <a href="/church.html">Church center</a>
-        <a href="/church/">Church join hub</a>
-        <a href="/team-toolkit.html">Team toolkit</a>
-        <a href="/pastor-toolkit.html">Pastor toolkit</a>
-        <a href="/pastor/">Pastor hub</a>
+        <a href="/church-hub.html">Pastor&rsquo;s Study</a>
         <a href="/sermon.html">Sermon builder</a>
+        <a href="/church-sharing-kit.html">Church sharing kit</a>
+        <a href="/church.html">Church center</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit (nested)</a>
+        <a href="/for-pastors.html">For pastors (nested)</a>
         <a href="/family.html">Family hub</a>
         <a href="/little-ones.html">For the Little Ones</a>
         <a href="/family-armor.html">Family Armor</a>
@@ -1223,7 +1237,6 @@
         <a href="/porch-map-one-page-print.html">Porch map (print)</a>
         <a href="/porch-pathways-ribbon-one-page-print.html">Ribbon pathways (print)</a>
         <a href="/explore.html#start-here">Explore start here</a>
-        <a href="/find-a-path.html">Find a path (alias)</a>
         <a href="/learn-the-word.html">Learn the Word</a>
         <a href="/bible-study.html">Bible studies</a>
         <a href="/shop.html">Shop</a>
@@ -1261,7 +1274,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">August 6, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
@@ -2808,5 +2821,7 @@
   <script defer src="plans-data.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js" crossorigin="anonymous"></script>
   <script defer src="team-toolkit-packs-pdf.js?v=20260324ttpdf2"></script>
+
+  <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
 </body>
 </html>

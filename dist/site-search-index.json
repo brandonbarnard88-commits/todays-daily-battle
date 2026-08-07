@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "generatedAt": "2026-08-03T20:37:19.316Z",
+  "generatedAt": "2026-08-07T01:48:23.483Z",
   "entries": [
     {
       "t": "Home — Today's Daily Battle",
@@ -18,9 +18,9 @@
       "k": "kjv daily listen"
     },
     {
-      "t": "Battle Plans library",
+      "t": "The Paths (Battle Plans)",
       "u": "/plans.html",
-      "k": "reading plan 7 day 30"
+      "k": "reading plan 7 day 30 paths"
     },
     {
       "t": "University of God — anchor map (KJV)",
@@ -138,9 +138,9 @@
       "k": "map help new"
     },
     {
-      "t": "Find a path — feeling-first doors",
-      "u": "/find-a-path.html",
-      "k": "capacity feel overwhelmed calm plan anxiety grief path start here low energy heavy room"
+      "t": "Explore — start here (feeling-first doors)",
+      "u": "/explore.html#start-here",
+      "k": "capacity feel overwhelmed calm plan anxiety grief path start here low energy heavy room find a path campus map"
     },
     {
       "t": "Learn the Word — teaching spine",
@@ -193,9 +193,29 @@
       "k": "cards review"
     },
     {
-      "t": "Kids Corner",
+      "t": "Kids play (Kids Battle)",
+      "u": "/kids/",
+      "k": "kids play story color game children"
+    },
+    {
+      "t": "Bible Story Library",
       "u": "/kids/corner.html",
-      "k": "family children"
+      "k": "family children stories read aloud"
+    },
+    {
+      "t": "Quiet Hall",
+      "u": "/calm.html",
+      "k": "calm breathe heavy verse"
+    },
+    {
+      "t": "The Library",
+      "u": "/bible-tool.html",
+      "k": "bible tool lookup"
+    },
+    {
+      "t": "Family hub (parents)",
+      "u": "/family.html",
+      "k": "parents family plans printables grown-ups hub"
     },
     {
       "t": "Year-round rhythm",
@@ -333,9 +353,9 @@
       "k": "streak plans"
     },
     {
-      "t": "Family hub",
+      "t": "Family hub (parents)",
       "u": "/family.html",
-      "k": "home marriage"
+      "k": "home marriage parents grown-ups"
     },
     {
       "t": "Family Armor for little ones",
@@ -615,7 +635,7 @@
     {
       "t": "Kids Battle home",
       "u": "/kids/",
-      "k": "children corner stories"
+      "k": "kids play story color game children corner"
     },
     {
       "t": "Kids Bible Story Library",

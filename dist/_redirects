@@ -14,9 +14,20 @@
 /mystudy/ /mystudy.html 200!
 /mystudy.html /mystudy 301
 
-# Campus map (Grove + buildings)
-/campus /campus.html 200!
-/campus/ /campus.html 200!
+# Campus / start / find-a-path → one Explore map (aliases kept as redirects)
+/campus /explore.html#start-here 301
+/campus/ /explore.html#start-here 301
+/campus.html /explore.html#start-here 301
+/start.html /explore.html#start-here 301
+/start /explore.html#start-here 301
+/start/ /explore.html#start-here 301
+/find-a-path /explore.html#start-here 301
+/find-a-path/ /explore.html#start-here 301
+/find-a-path.html /explore.html#start-here 301
+# Pastors alias → Pastor’s Study hub (Sermon is the real desk)
+/pastors /church-hub.html 301
+/pastors/ /church-hub.html 301
+
 # Campus building clean URLs
 /bible-tool /bible-tool.html 200!
 /bible-tool/ /bible-tool.html 200!
@@ -181,9 +192,6 @@
 # Pastor Hub
 /pastor /pastor/index.html 200!
 /pastor/ /pastor/index.html 200!
-/pastors /for-pastors.html 301
-/pastors/ /for-pastors.html 301
-
 # Church Hub
 /church /church/index.html 200!
 /church/ /church/index.html 200!
@@ -217,8 +225,6 @@
 /quiet-evening/ /quiet-evening.html 200!
 /explore /explore.html 200!
 /explore/ /explore.html 200!
-/find-a-path /find-a-path.html 200!
-/find-a-path/ /find-a-path.html 200!
 /learn-the-word /learn-the-word.html 200!
 /learn-the-word/ /learn-the-word.html 200!
 /site-guide /site-guide.html 200!

@@ -574,23 +574,22 @@ for (const f of otherHtml) {
     console.log('Copied learn-the-word.html (teaching spine)');
   }
   if (f === 'find-a-path.html') {
-    // Feeling-first finder: Calm as first door + capacity note (copy may soften; keep class/anchors).
+    // Alias now redirects to Explore start-here; keep a calm redirect stub (not a second lobby).
     if (
-      !content.includes('Find a path') ||
-      !content.includes('calm.html') ||
-      !content.includes('capacity-note') ||
-      !content.includes('path-card--calm')
+      !content.includes('explore.html#start-here') ||
+      !content.includes('Find a path moved') ||
+      !content.includes('Quiet Hall')
     ) {
-      console.error('BUILD FAIL: find-a-path.html must be feeling-first with Calm + capacity note.');
+      console.error('BUILD FAIL: find-a-path.html must redirect to Explore start-here (no second lobby).');
       process.exit(1);
     }
-    console.log('Copied find-a-path.html (feeling-first finder)');
+    console.log('Copied find-a-path.html (redirect stub → Explore)');
   }
   if (f === 'index.html') {
     const indexContent = fs.readFileSync(path.join(root, f), 'utf8');
 
-    if (!indexContent.includes('tdbCapacityDoor') || !indexContent.includes('find-a-path.html')) {
-      console.error('BUILD FAIL: index.html must include capacity door + Find a path (mercy front door).');
+    if (!indexContent.includes('tdbCapacityDoor') || !indexContent.includes('explore.html#start-here')) {
+      console.error('BUILD FAIL: index.html must include capacity door + Explore start-here (mercy front door).');
       process.exit(1);
     }
     if (!indexContent.includes('ask-the-word-core.js')) {

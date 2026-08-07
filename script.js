@@ -35471,17 +35471,28 @@ async function tdbInitImpl() {
   if (eraseBtn) eraseBtn.addEventListener('click', function (e) { e.preventDefault(); try { localStorage.clear(); sessionStorage.clear(); } catch (_) {} try { alert('Wiped—fresh start'); } catch (_) {} window.location.reload(); });
 
   // Toolbox / legacy search surfaces: keep search stack near the top of that drawer.
-  // Grove homepage: never yank #quick-search-hero above today’s verse + teaching.
+  // Grove homepage: verse + teaching first; never leave Ask above The Grove.
   try {
     (function ensureSearchPriorityOrderAtTop() {
       var hero = document.getElementById('quick-search-hero');
       var priority = document.getElementById('quick-search-priority');
       var v2 = document.getElementById('v2-command-deck');
       if (!hero && !priority && !v2) return;
-      /* Home Grove pairs verse → Ask; moving Ask to firstChild hides teaching under feelings. */
-      if (document.getElementById('tdbHomePrimaryPair') || document.getElementById('hero-verse-wrap')) {
+      var grove = document.getElementById('tdbHomePrimaryPair');
+      var verseWrap = document.getElementById('hero-verse-wrap');
+      /* Home Grove: pin Ask after today’s verse wrap (undo stale SW / old movers). */
+      if (grove && verseWrap && hero) {
+        try {
+          if (hero.parentNode !== grove) grove.appendChild(hero);
+          if (verseWrap.nextSibling !== hero) {
+            grove.insertBefore(hero, verseWrap.nextSibling);
+          }
+          hero.classList.remove('quick-search-priority-top');
+          hero.removeAttribute('data-priority-top');
+        } catch (eGroveAsk) { /* non-fatal */ }
         return;
       }
+      if (grove || verseWrap) return;
       var ordered = [hero, priority, v2].filter(Boolean);
       var targetParent = null;
       var insertionAnchor = null;

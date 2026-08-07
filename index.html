@@ -5,7 +5,7 @@
   <!-- GA4 + GSC loaded on idle (see script.js loadDeferredScriptsOnIdle) -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preload" href="/core-home.js?v=20260807-grove-verse-first" as="script" fetchpriority="high">
+  <link rel="preload" href="/core-home.js?v=20260807-dig-always-open" as="script" fetchpriority="high">
   <style id="tdb-critical-shell">html{background:#080c14}body{margin:0;background:#080c14;color:#f0f2f7}#tdb-first-tour-prompt,.tdb-first-tour-prompt{display:none!important;visibility:hidden!important;pointer-events:none!important;position:absolute!important;left:-9999px!important;width:0!important;height:0!important;overflow:hidden!important}</style>
   <link rel="preload" as="script" href="/assets/perf-hint.js?v=20260515-strip-tour-chip-early-v3" fetchpriority="high">
   <script nonce="tdb2025s" src="/assets/perf-hint.js?v=20260515-strip-tour-chip-early-v3"></script>
@@ -14,10 +14,10 @@
   <!-- DOMPurify + tt-bootstrap stay synchronous before any body innerHTML (Trusted Types). Low fetch priority reduces contention with LCP text paint. -->
   <link rel="preload" as="script" href="/vendor/dompurify.min.js" fetchpriority="low">
   <script nonce="tdb2025s" src="/vendor/dompurify.min.js" fetchpriority="low"></script>
-  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260807-grove-verse-first" fetchpriority="low"></script>
+  <script nonce="tdb2025s" src="/tt-bootstrap.js?v=20260807-dig-always-open" fetchpriority="low"></script>
   <!-- Quiet room lives only on prayer-wall.html; old /#prayer-wall bookmarks still work -->
   <script nonce="tdb2025s">(function(){try{if(location.hash!=='#prayer-wall')return;location.replace('prayer-wall.html'+location.search);}catch(e){}})();</script>
-  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260807-grove-verse-first"></script>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260807-dig-always-open"></script>
 
   <title>Today’s Daily Battle — One KJV Verse, One Small Step, One Prayer</title>
   <meta name="description" content="Today’s KJV: Psalm 92:1. Quiet KJV daily devotional. No ads, no login. Start with today’s verse, gentle steps, and prayer. Offline-first, family-friendly, built for real life.">
@@ -139,8 +139,8 @@
   <script nonce="tdb2025s">(function(){if(!/[?&]ttdebug=1/.test(location.search||""))return;var d=Object.getOwnPropertyDescriptor(Element.prototype,"innerHTML");if(!d||!d.set)return;var orig=d.set;Object.defineProperty(Element.prototype,"innerHTML",{set:function(v){console.trace("innerHTML assignment (ttdebug):",typeof v,v&&String(v).slice(0,80));if(typeof v==="string")console.warn("Raw string to innerHTML — TrustedHTML required");return orig.call(this,v)},get:d.get,configurable:true,enumerable:d.enumerable});})();</script>
   <link rel="preload" href="tdb-visual-tokens.css?v=20260712-phase1-s34" as="style">
   <link rel="stylesheet" href="tdb-visual-tokens.css?v=20260712-phase1-s34">
-  <link rel="preload" href="tdb-home-page.css?v=20260805-verse-open" as="style">
-  <link rel="stylesheet" href="tdb-home-page.css?v=20260805-verse-open">
+  <link rel="preload" href="tdb-home-page.css?v=20260807-dig-always-open" as="style">
+  <link rel="stylesheet" href="tdb-home-page.css?v=20260807-dig-always-open">
   <link rel="preload" href="tdb-swoop-surfaces.css?v=20260709-vp3-polish" as="style">
   <link rel="stylesheet" href="tdb-swoop-surfaces.css?v=20260709-vp3-polish">
   <!-- JSON-LD: DailyVerse + WebSite schema for SEO -->
@@ -556,9 +556,9 @@
           <p id="heroSimpleBreakdown">Read this verse slowly. Let one clear phrase stay with you through the next hour.</p>
         </div>
 
-        <!-- Dig deeper nests on small screens; meaning + next step + prayer stay open. -->
-        <details class="tdb-dig-deeper tdb-dig-deeper--nest" id="heroDigDeeper" data-tdb-dig-always-open="1">
-          <summary class="tdb-dig-deeper__summary">More from the Word <span class="tdb-dig-deeper__hint">Context &amp; cross-refs — only if you want them</span></summary>
+        <!-- More from the Word — always open with the verse (no disclosure). -->
+        <div class="tdb-dig-deeper tdb-dig-deeper--always-open" id="heroDigDeeper" data-tdb-dig-always-open="1" role="region" aria-label="More from the Word">
+          <h3 class="tdb-dig-deeper__always-heading">More from the Word</h3>
           <div class="tdb-dig-deeper__content">
             <div class="verse-breakdown" id="heroDeepBreakdown" role="group" aria-label="Context from the Word">
               <div class="hero-vbd-bundle" id="heroVbdRowWho" hidden>
@@ -586,7 +586,7 @@
               <a class="tdb-dig-deeper__plan-link" id="heroDigDeeperPlanLink" href="/plans.html?plan=battle">Continue in this Battle Plan &rarr;</a>
             </p>
           </div>
-        </details>
+        </div>
 
         <div class="next-step" id="heroVotdNextStep">
           <strong>One honest step, just for today:</strong> <span id="heroVotdOneStep">Read it slowly one more time out loud. Thank God for one clear thing it says, then take the next small step with that line in mind.</span>
@@ -1357,7 +1357,7 @@
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
-  <script defer src="/language-switcher.js?v=20260807-grove-verse-first"></script>
+  <script defer src="/language-switcher.js?v=20260807-dig-always-open"></script>
 </footer>
 
   </div>
@@ -1458,10 +1458,10 @@
   <!-- Hero verse: load the 365 calendar before the first-paint helper so first paint uses the real daily verse. -->
   <script nonce="tdb2025s" src="hero-hero-pools.js?v=20260328pools" fetchpriority="low"></script>
   <script nonce="tdb2025s" src="hero-daily-365-data.js?v=20260802-calendar-mix" fetchpriority="low"></script>
-  <script nonce="tdb2025s" src="js/surfaces/home.js?v=20260807-grove-verse-first"></script>
+  <script nonce="tdb2025s" src="js/surfaces/home.js?v=20260807-dig-always-open"></script>
   <script nonce="tdb2025s" src="verse-breakdown-standard.js?v=20260520-att-ask" data-tdb-verse-breakdown-standard="1"></script>
   <script nonce="tdb2025s" src="verse-context.js?v=20260806-context" data-tdb-verse-context="1"></script>
-  <script nonce="tdb2025s" src="hero-daily-365-explanations.js?v=20260807-grove-verse-first" fetchpriority="low"></script>
+  <script nonce="tdb2025s" src="hero-daily-365-explanations.js?v=20260807-dig-always-open" fetchpriority="low"></script>
   <script nonce="tdb2025s" src="verse-breakdown-overrides.js?v=20260805-audit-focus-lock" data-tdb-verse-breakdown-overrides="1" defer></script>
   <script nonce="tdb2025s" src="verse-breakdown.js?v=20260805-audit-focus-lock" data-tdb-verse-breakdown="1" defer></script>
   <script nonce="tdb2025s" src="bbe-simple.js?v=20260805-audit-focus-lock" data-tdb-bbe-simple="1" defer></script>
@@ -1718,12 +1718,12 @@
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
   <!-- Phase 6: home secondary stack (injected by script.js after idle): memory-verses.js home-votm.js?v=20260402homevotm4 tdb-home-mobius-week.js?v=20260330home sky-ip-geo.js?v=20260327ipgeo word-study.js verse-narration.js verse-study.js family-verse-bridge.js gentle-suggest.js verse-breakdown-overrides.js?v=20260417-hydration verse-breakdown.js?v=20260417-hydration -->
   <script nonce="tdb2025s" type="module" fetchpriority="high" src="config.js"></script>
-  <script nonce="tdb2025s" defer src="tdb-home-experience.js?v=20260807-grove-verse-first"></script>
-  <script nonce="tdb2025s" defer src="tdb-home-funnel.js?v=20260807-grove-verse-first"></script>
+  <script nonce="tdb2025s" defer src="tdb-home-experience.js?v=20260807-dig-always-open"></script>
+  <script nonce="tdb2025s" defer src="tdb-home-funnel.js?v=20260807-dig-always-open"></script>
   <script nonce="tdb2025s" defer src="tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
   <script nonce="tdb2025s" defer src="start-my-day.js?v=20260423-phase5-perf"></script>
   <!-- Homepage feel-search + FEEL_GROUPS (deferred — was ~209KB inline) -->
-  <script nonce="tdb2025s" defer src="tdb-home-feel.js?v=20260807-grove-verse-first"></script>
+  <script nonce="tdb2025s" defer src="tdb-home-feel.js?v=20260807-dig-always-open"></script>
   <script nonce="tdb2025s" defer src="tdb-feel-combo.js?v=20260712-first-doors"></script>
   <script nonce="tdb2025s" defer src="tdb-offline-strip.js?v=20260712-pickup"></script>
   <script nonce="tdb2025s" defer src="/js/feel-combo-presets.js"></script>
@@ -1731,7 +1731,7 @@
   <!-- Unified Ask the Word brain (curated + full KJV) — same as bible-tool; before core-home/script.js -->
   <script nonce="tdb2025s" defer src="ask-the-word-core.js?v=20260802-teach"></script>
   <!-- Home core first: load script.js interaction stack on user intent/idle (core-home.js). -->
-  <script nonce="tdb2025s" defer src="core-home.js?v=20260807-grove-verse-first" data-cfasync="false" fetchpriority="high"></script>
+  <script nonce="tdb2025s" defer src="core-home.js?v=20260807-dig-always-open" data-cfasync="false" fetchpriority="high"></script>
   <script nonce="tdb2025s">
     (function () {
       var loadPorchEffects = function () {

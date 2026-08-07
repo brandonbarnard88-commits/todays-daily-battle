@@ -16,7 +16,7 @@
     }
   } catch (_) {}
 
-  var INTERACTIVE_SRC = 'script.js?v=20260807-grove-verse-first';
+  var INTERACTIVE_SRC = 'script.js?v=20260807-dig-always-open';
   var loaded = false;
   var pendingQuery = '';
 

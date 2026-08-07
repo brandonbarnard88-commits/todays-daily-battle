@@ -207,7 +207,12 @@
     } else {
       onToggle(lay, EVENTS.LAYMAN_OPEN, 'layman_open');
     }
-    onToggle(document.getElementById('heroDigDeeper'), EVENTS.DIG_DEEPER_OPEN, 'dig_open');
+    var dig = document.getElementById('heroDigDeeper');
+    if (dig && (dig.getAttribute('data-tdb-dig-always-open') === '1' || dig.tagName !== 'DETAILS')) {
+      fire(EVENTS.DIG_DEEPER_OPEN, { surface: 'home', mode: 'always' }, 'dig_open');
+    } else {
+      onToggle(dig, EVENTS.DIG_DEEPER_OPEN, 'dig_open');
+    }
     wireAsk();
     wireNavClicks();
     wireSecondary();

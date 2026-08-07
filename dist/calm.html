@@ -62,6 +62,41 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" as="style">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
+    .calm-verse-porch {
+      max-width: 32rem;
+      margin: 0.85rem auto 1rem;
+      text-align: left;
+      padding: 0.85rem 1rem;
+      border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--gold, #e3bc67) 22%, transparent);
+      background: color-mix(in srgb, var(--card, #161c26) 92%, rgba(227, 188, 103, 0.08));
+    }
+    .calm-verse-porch .verse-breakdown h4 {
+      margin: 0 0 0.35rem;
+      font-size: 0.82rem;
+      font-weight: 650;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--gold, #e3bc67);
+    }
+    .calm-verse-porch .calm-vbd-plain,
+    .calm-verse-porch .next-step,
+    .calm-verse-porch .prayer-block {
+      margin: 0 0 0.75rem;
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: var(--text, #e2e8f0);
+    }
+    .calm-verse-porch .prayer-block { margin-bottom: 0.35rem; }
+    .calm-hero--soar-dawn .calm-verse-porch {
+      background: rgba(255, 255, 255, 0.55);
+      border-color: rgba(146, 64, 14, 0.22);
+    }
+    .calm-hero--soar-dawn .calm-verse-porch .calm-vbd-plain,
+    .calm-hero--soar-dawn .calm-verse-porch .next-step,
+    .calm-hero--soar-dawn .calm-verse-porch .prayer-block {
+      color: #1e293b;
+    }
     .calm-offline-note {
       max-width: 26rem;
       margin: 0 auto 1rem;
@@ -517,6 +552,17 @@
               <p class="daily-verse-text" id="verse-text" aria-live="polite"></p>
             </blockquote>
           </div>
+          <div class="verse-breakdown-container calm-verse-porch" data-calm-verse-porch="1" hidden>
+            <div class="verse-breakdown">
+              <h4>What it means</h4>
+              <p class="calm-vbd-plain"></p>
+            </div>
+            <p class="next-step calm-vbd-next"></p>
+            <div class="prayer-block calm-vbd-prayer-block">
+              <p><strong>A simple prayer:</strong><br><span class="calm-vbd-prayer"></span></p>
+            </div>
+            <p class="section-note calm-crisis-chain util-mt-0_75 util-mb-0">Still heavy? <a href="/sos.html">Steady now</a> · <a href="/emergency-calm-pack.html">7-day calm pack</a></p>
+          </div>
           <button type="button" class="calm-copy-btn" id="copy-verse-btn" aria-label="Copy verse to clipboard">Copy to clipboard</button>
           <button type="button" class="calm-btn calm-share-btn" id="calm-share-btn" data-calm-share-label="Helped? Share →" aria-label="Share this verse">Helped? Share →</button>
           <p class="calm-prayer-wall-nudge section-note">Copy the verse, then <a href="prayer-wall.html">leave it on the Prayer</a> if you want—anonymous.</p>
@@ -538,6 +584,17 @@
             <blockquote class="daily-verse-body" aria-labelledby="desktop-verse-ref">
               <p class="daily-verse-text" id="desktop-verse-text" aria-live="polite"></p>
             </blockquote>
+          </div>
+          <div class="verse-breakdown-container calm-verse-porch" data-calm-verse-porch="1" hidden>
+            <div class="verse-breakdown">
+              <h4>What it means</h4>
+              <p class="calm-vbd-plain"></p>
+            </div>
+            <p class="next-step calm-vbd-next"></p>
+            <div class="prayer-block calm-vbd-prayer-block">
+              <p><strong>A simple prayer:</strong><br><span class="calm-vbd-prayer"></span></p>
+            </div>
+            <p class="section-note calm-crisis-chain util-mt-0_75 util-mb-0">Still heavy? <a href="/sos.html">Steady now</a> · <a href="/emergency-calm-pack.html">7-day calm pack</a></p>
           </div>
           <button type="button" class="calm-copy-btn" id="desktop-copy-btn" aria-label="Copy verse to clipboard">Copy to clipboard</button>
           <button type="button" class="calm-btn calm-share-btn" id="desktop-share-btn" data-calm-share-label="Helped? Share →" aria-label="Share this verse">Helped? Share →</button>
@@ -824,6 +881,9 @@
       }
     })();
   </script>
+  <script nonce="tdb2025s" src="verse-breakdown-standard.js?v=20260520-att-ask" data-tdb-verse-breakdown-standard="1"></script>
+  <script nonce="tdb2025s" src="verse-breakdown-overrides.js?v=20260805-audit-focus-lock" data-tdb-verse-breakdown-overrides="1"></script>
+  <script nonce="tdb2025s" src="verse-breakdown.js?v=20260805-audit-focus-lock" data-tdb-verse-breakdown="1"></script>
   <script nonce="tdb2025s">
     (function () {
       'use strict';
@@ -912,6 +972,41 @@
         if (!list || !list.length) return FALLBACK_VERSE;
         return list[Math.floor(Math.random() * list.length)];
       }
+      function fillCalmPorch(ref, text) {
+        var porches = document.querySelectorAll('[data-calm-verse-porch]');
+        var plain = '';
+        var step = 'Read it once more slowly. Whisper one honest sentence to God.';
+        var prayer = 'Lord, meet me in this verse. Steady my breath and hold what I cannot hold. Amen.';
+        try {
+          if (window.TDBVerseBreakdown && typeof window.TDBVerseBreakdown.getBreakdown === 'function') {
+            var bd = window.TDBVerseBreakdown.getBreakdown(ref, text, { group: 'adult' });
+            if (bd) {
+              plain = String(bd.plainExplanation || bd.layman || bd.plain || '').trim();
+              if (bd.modernApplication) step = String(bd.modernApplication).trim();
+            }
+          }
+        } catch (eBd) { /* non-fatal */ }
+        try {
+          var std = window.TDB_verseBreakdownStandard;
+          if (std) {
+            if (typeof std.nextStepFallback === 'function') step = std.nextStepFallback() || step;
+            if (typeof std.prayerForRef === 'function') prayer = std.prayerForRef(ref) || prayer;
+          }
+        } catch (eStd) { /* non-fatal */ }
+        if (!plain) {
+          plain = 'God’s Word meets you here—one true line for a heavy moment. Stay with it as long as you need.';
+        }
+        for (var i = 0; i < porches.length; i++) {
+          var porch = porches[i];
+          var pEl = porch.querySelector('.calm-vbd-plain');
+          var nEl = porch.querySelector('.calm-vbd-next');
+          var prEl = porch.querySelector('.calm-vbd-prayer');
+          if (pEl) pEl.textContent = plain;
+          if (nEl) nEl.textContent = 'One small step today: ' + step.replace(/^One small step today:\s*/i, '');
+          if (prEl) prEl.textContent = prayer;
+          porch.hidden = false;
+        }
+      }
       function notifyCalmVerseUpdated() {
         try {
           if (typeof window.dispatchEvent === 'function') {
@@ -929,6 +1024,7 @@
         var desktopRef = document.getElementById('desktop-verse-ref');
         if (desktopText) desktopText.textContent = v.text;
         if (desktopRef) desktopRef.textContent = v.ref;
+        fillCalmPorch(v.ref, v.text);
         notifyCalmVerseUpdated();
       }
       function showDesktopVerse() {
@@ -937,6 +1033,7 @@
         var refEl = document.getElementById('desktop-verse-ref');
         if (textEl) textEl.textContent = v.text;
         if (refEl) refEl.textContent = v.ref;
+        fillCalmPorch(v.ref, v.text);
         notifyCalmVerseUpdated();
       }
       function revealDesktopVerse(cat) {
@@ -949,6 +1046,7 @@
           var refEl = document.getElementById('desktop-verse-ref');
           if (textEl) textEl.textContent = v.text;
           if (refEl) refEl.textContent = v.ref;
+          fillCalmPorch(v.ref, v.text);
           if (ld) ld.hidden = true;
           notifyCalmVerseUpdated();
           requestAnimationFrame(function () { dv.classList.add('verse-reveal'); });
@@ -976,6 +1074,9 @@
         if (mobiusCta) mobiusCta.style.display = 'none';
         var desktopMobius = document.getElementById('desktop-mobius-cta');
         if (desktopMobius) desktopMobius.style.display = 'none';
+        document.querySelectorAll('[data-calm-verse-porch]').forEach(function (porch) {
+          porch.hidden = true;
+        });
         var dv = document.getElementById('desktop-verse');
         if (dv && !isMobile()) dv.style.display = 'flex';
       }

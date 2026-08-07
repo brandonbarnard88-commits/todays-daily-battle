@@ -73,10 +73,17 @@ const checks = [
       'Save to My Study',
       'href="/mystudy?tab=library#saved-verses"',
       'href="/prayer-wall.html"',
+      // Homepage dig-deeper must stay always-open (no nest disclosure).
+      'tdb-dig-deeper--always-open',
+      'tdb-dig-deeper__always-heading',
+      'More from the Word',
     ],
     forbidden: [
       'Save to My Verses',
       'href="/my-verses.html"',
+      'tdb-dig-deeper--nest',
+      'Context &amp; cross-refs — only if you want them',
+      'Dig deeper nests on small screens',
     ],
   },
   {

@@ -729,6 +729,88 @@
     .plans-hero-continued {
       margin: 0 0 1.35rem;
     }
+    .plans-door-chooser {
+      margin: 0 0 1.35rem;
+      padding: 1.15rem 1.2rem 1.25rem;
+      border-radius: 16px;
+      border: 1px solid color-mix(in srgb, var(--line) 88%, var(--gold) 12%);
+      background: color-mix(in srgb, var(--card) 94%, rgba(107, 124, 147, 0.08));
+      scroll-margin-top: 5rem;
+    }
+    :root[data-theme="light"] .plans-door-chooser {
+      background: linear-gradient(180deg, #fbfcfe 0%, #eef2f7 100%);
+      border-color: color-mix(in srgb, var(--line) 90%, var(--gold) 12%);
+    }
+    .plans-door-chooser__grid {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0.85rem 0 0.75rem;
+    }
+    @media (min-width: 640px) {
+      .plans-door-chooser__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (min-width: 980px) {
+      .plans-door-chooser__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    .plans-door {
+      margin: 0;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--card);
+    }
+    .plans-door__summary {
+      list-style: none;
+      cursor: pointer;
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      padding: 0.65rem 0.9rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .plans-door__summary::-webkit-details-marker { display: none; }
+    .plans-door__summary::after {
+      content: '+';
+      margin-left: auto;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .plans-door[open] .plans-door__summary::after { content: '−'; }
+    .plans-door__summary:focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--gold) 55%, transparent);
+      outline-offset: 2px;
+    }
+    .plans-door__list {
+      list-style: none;
+      margin: 0;
+      padding: 0 0.85rem 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .plans-door__list a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0.35rem 0.15rem;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
+    }
+    .plans-door__list li:last-child a { border-bottom: none; }
+    .plans-door__list a:hover,
+    .plans-door__list a:focus-visible {
+      color: var(--gold);
+      outline: none;
+    }
     .plans-situation-jump {
       margin: 0 0 1.35rem;
       padding: 1.15rem 1.2rem 1.2rem;
@@ -3126,6 +3208,64 @@
         </ul>
       </nav>
 
+      <section class="plans-door-chooser tdb-quiet-container" id="plansDoorChooser" aria-labelledby="plansDoorChooserH">
+        <h2 class="plans-find-your-plan-h" id="plansDoorChooserH">What are you carrying?</h2>
+        <p class="plans-situation-jump__lead">Five quiet doors. Open one. The full list stays below whenever you want it.</p>
+        <div class="plans-door-chooser__grid" role="list">
+          <details class="plans-door" role="listitem">
+            <summary class="plans-door__summary">Anxiety or worry</summary>
+            <ul class="plans-door__list">
+              <li><a href="plans.html?plan=anxiety7">Anxiety &mdash; 7-day peace</a></li>
+              <li><a href="plans.html?plan=worrytrust">Worry to Trust</a></li>
+              <li><a href="plans.html?plan=universityanxiety">University of Anxiety &amp; Fear</a></li>
+              <li><a href="plans.html?plan=fearpressesin">When Fear Presses In</a></li>
+              <li><a href="#plan-row-universityanxiety">Jump to anxiety in the full list</a></li>
+            </ul>
+          </details>
+          <details class="plans-door" role="listitem">
+            <summary class="plans-door__summary">Grief or loneliness</summary>
+            <ul class="plans-door__list">
+              <li><a href="plans.html?plan=griefhope">Grief to Hope</a></li>
+              <li><a href="plans.html?plan=universityloneliness">University of Loneliness</a></li>
+              <li><a href="plans.html?plan=heartalone">When the Heart Feels Alone</a></li>
+              <li><a href="plans.html?plan=aftergrief">After grief</a></li>
+              <li><a href="#plan-row-griefhope">Jump to grief in the full list</a></li>
+            </ul>
+          </details>
+          <details class="plans-door" role="listitem">
+            <summary class="plans-door__summary">Exhausted or too much</summary>
+            <ul class="plans-door__list">
+              <li><a href="plans.html?plan=overwhelmedburnout">Overwhelmed / Burnout</a></li>
+              <li><a href="plans.html?plan=comeuntome">Come Unto Me</a></li>
+              <li><a href="plans.html?plan=universityexhaustion">University of Exhaustion</a></li>
+              <li><a href="plans.html?plan=wearyhands">Grace for Weary Hands</a></li>
+              <li><a href="#plan-row-overwhelmedburnout">Jump to overwhelm in the full list</a></li>
+            </ul>
+          </details>
+          <details class="plans-door" role="listitem">
+            <summary class="plans-door__summary">Home or family</summary>
+            <ul class="plans-door__list">
+              <li><a href="plans.html?plan=parentweary">Parent Weary</a></li>
+              <li><a href="plans.html?plan=longdayslittle">Long Days with Little Ones</a></li>
+              <li><a href="plans.html?plan=steadydays-kids">Steady Days for Families</a></li>
+              <li><a href="plans.html?plan=familyworship">Family Worship in the Trenches</a></li>
+              <li><a href="#plan-row-marriage">Jump to marriage / home in the full list</a></li>
+            </ul>
+          </details>
+          <details class="plans-door" role="listitem">
+            <summary class="plans-door__summary">Faith, new, or church</summary>
+            <ul class="plans-door__list">
+              <li><a href="plans.html?plan=roadtosalvation">Road to Salvation</a></li>
+              <li><a href="plans.html?plan=firststeps">New Believer First Steps</a></li>
+              <li><a href="plans.html?plan=smallchurchencouragement">Small Church Encouragement</a></li>
+              <li><a href="plans.html?plan=preachingthroughexhaustion">Preaching Through Exhaustion</a></li>
+              <li><a href="#all-plans">See every plan</a></li>
+            </ul>
+          </details>
+        </div>
+        <p class="section-note util-mb-0 util-mt-0_75" style="text-align:center;">Prefer the long list? <a href="#all-plans">Browse every plan</a> &middot; <a href="#find-your-plan">More situations</a></p>
+      </section>
+
       <section class="plans-situation-jump" id="find-your-plan" aria-labelledby="plans-situation-jump-h">
         <h2 class="plans-find-your-plan-h" id="plans-situation-jump-h">Find your plan</h2>
         <p class="plans-situation-jump__lead">
@@ -3133,6 +3273,9 @@
           Open a day when you want. Stay as long as you need.
         </p>
         <p class="plans-hero-hint">You&rsquo;re not behind. Any day&rsquo;s a door. Pick up where you left off.</p>
+        <details class="tdb-hub-disclosure" id="plans-situation-chips-details">
+          <summary class="tdb-hub-disclosure__summary">More situations (jump into the full list)</summary>
+          <div class="tdb-hub-disclosure__inner">
         <ul class="plans-situation-jump__list" role="list" aria-label="Common situations; jump to a course in the list below">
           <li><a href="#plan-row-universityanxiety">Anxiety</a></li>
           <li><a href="#plan-row-worrytrust">Worry</a></li>
@@ -3147,6 +3290,8 @@
           <li><a href="#plan-row-overwhelmedburnout">Too much</a></li>
           <li><a href="#plan-row-selfworth">Worth &amp; identity</a></li>
         </ul>
+          </div>
+        </details>
         <p class="plans-situation-jump__more section-note" role="note">Still scanning? <a href="#plans-browse-by-feeling">More by feeling</a> &middot; <a href="#plans-start-here-title">Start here</a> &middot; <a href="index.html#feel-section">Ask the Word (home)</a></p>
       </section>
 

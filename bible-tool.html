@@ -30,6 +30,8 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260805-four-pillars" as="style">
   <link rel="stylesheet" href="styles.css?v=20260805-four-pillars">
+  <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
+  <link rel="stylesheet" href="tdb-core-seven.css?v=20260519-audit">
   <script src="scripts/header-search-bar.js?v=3" defer></script>
   <script src="people-verse-map.js" defer></script>
   <script nonce="tdb2025s">window.TDB_CONFIG = window.TDB_CONFIG || {};</script>
@@ -819,6 +821,7 @@
         <p class="section-note util-mb-0_5 topic-mood-porch">You&rsquo;re already welcome at this desk&mdash;look up, linger, or step away. No minimum.</p>
         <p class="section-note">Look up any verse, take notes, track your reading&mdash;<abbr title="King James Version">KJV</abbr>, no account needed. Sign in only if you want sync across devices.</p>
         <p class="tdb-trust-return">Notes and lookups stay on this device unless you sign in to sync. Still here when the signal isn&rsquo;t.</p>
+        <p class="tdb-offline-ready" role="note">Works offline after you&rsquo;ve opened it once on this device.</p>
         <div class="tdb-soft-retry-row"><button type="button" class="btn btn-secondary tdb-soft-retry-btn">Try again</button><span class="section-note util-mb-0">Reloads this page if a verse or panel didn&rsquo;t load.</span></div>
         <nav class="bible-tool-mini-hub" id="bible-tool-hub" aria-label="Verse and reading tools">
           <span class="bible-tool-mini-hub-label">From this hub</span>
@@ -828,6 +831,9 @@
           <span class="bible-tool-mini-hub-sep" aria-hidden="true">·</span>
           <a href="bible/tools.html">Study workshop</a>
         </nav>
+        <details class="tdb-hub-disclosure util-mt-0_75" id="bible-tool-hero-more">
+          <summary class="tdb-hub-disclosure__summary">Supporters, workshop shelf, and peer tools</summary>
+          <div class="tdb-hub-disclosure__inner">
         <p class="section-note util-mt-0_5 util-mb-0" style="padding:0.65rem 0.85rem;border-radius:10px;border:1px solid rgba(212,175,55,0.28);background:rgba(212,175,55,0.06);max-width:42rem;"><strong>Supporters:</strong> <a href="verse-image.html" class="bible-tool-gold-link">Create a custom verse image</a> — pick a verse, style the card, export PNG or share.</p>
 
         <div class="bible-tool-workshop-strip" role="navigation" aria-label="Study workshop">
@@ -845,8 +851,13 @@
             <li><a href="/mystudy">My Study</a> (saved desk)</li>
           </ul>
         </details>
+          </div>
+        </details>
         </header>
 
+        <details class="tdb-hub-disclosure" id="bible-tool-onpage-nav-details">
+          <summary class="tdb-hub-disclosure__summary">On this page</summary>
+          <div class="tdb-hub-disclosure__inner">
         <nav class="bible-tool-onpage-nav" aria-label="On this page">
           <p class="bible-tool-onpage-nav__label" id="bible-tool-onpage-toc-label">On this page</p>
           <ul class="bible-tool-onpage-nav__list" aria-labelledby="bible-tool-onpage-toc-label">
@@ -860,6 +871,8 @@
             <li><a href="#bible-tool-lookup-section">Look up</a></li>
           </ul>
         </nav>
+          </div>
+        </details>
 
         <p class="section-note tdb-kjv-dict-hint util-mb-0_75" role="note">Tap any underlined KJV word for a short, plain meaning.</p>
 
@@ -871,7 +884,7 @@
             <button type="button" class="qa-btn" id="bible-qa-btn" style="min-height:44px;">Ask</button>
           </div>
           <p class="qa-server-note" id="ask-the-word-server-note">
-            <span>No ads. No tracking. Curated KJV answers first (works offline after load). Full-Bible search on this device; optional server assist only when it helps. <a class="qa-server-note-inline" href="learn-the-word.html">Learn the Word</a> · <a class="qa-server-note-inline" href="privacy.html">Privacy</a></span>
+            <span>No ads. No account required. Anonymous page stats only when allowed. Curated KJV answers first (works offline after you&rsquo;ve opened it once on this device). Full-Bible search on this device; optional server assist only when it helps. <a class="qa-server-note-inline" href="learn-the-word.html">Learn the Word</a> · <a class="qa-server-note-inline" href="privacy.html">Privacy</a></span>
           </p>
           <div id="qa-result" class="qa-result hidden" role="region" aria-live="polite" aria-label="Bible Q&A answer">
             <!-- Answer loads here -->
@@ -927,6 +940,9 @@
           }());
         </script>
 
+        <details class="tdb-hub-disclosure" id="bible-tool-secondary-details">
+          <summary class="tdb-hub-disclosure__summary">Verse mode, Bible stories, and today&rsquo;s verse</summary>
+          <div class="tdb-hub-disclosure__inner">
         <section class="verse-card glass tdb-porch-paper-glass" id="bible-tool-verse-mode-section" aria-label="Verse mode">
           <h2 class="section-divider util-mt-0"><svg class="section-divider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>Verse Mode</h2>
           <div class="lookup-controls">
@@ -987,6 +1003,8 @@
             <button type="button" class="btn btn-secondary" id="copy-daily" aria-label="Copy verse to clipboard">Copy</button>
           </div>
         </section>
+          </div>
+        </details>
 
         <!-- Verse lookup -->
         <section class="verse-card glass tdb-porch-paper-glass" id="bible-tool-lookup-section" aria-label="Look up a verse">
@@ -2904,6 +2922,19 @@
   </script>
   <script nonce="tdb2025s">
   (function () {
+    function tdbOpenBibleToolDisclosureForHash() {
+      try {
+        var id = (location.hash || '').replace(/^#/, '');
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (!el) return;
+        var wrapIds = ['bible-tool-hero-more', 'bible-tool-onpage-nav-details', 'bible-tool-secondary-details', 'bibleToolNestedPeers'];
+        for (var i = 0; i < wrapIds.length; i++) {
+          var wrap = document.getElementById(wrapIds[i]);
+          if (wrap && wrap.contains(el)) wrap.open = true;
+        }
+      } catch (e) {}
+    }
     function tdbFocusAskTheWord() {
       try {
         var sp = new URLSearchParams(window.location.search || '');
@@ -2932,8 +2963,13 @@
         }
       } catch (e) {}
     }
-    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', tdbFocusAskTheWord);
-    else tdbFocusAskTheWord();
+    function boot() {
+      tdbOpenBibleToolDisclosureForHash();
+      tdbFocusAskTheWord();
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+    else boot();
+    window.addEventListener('hashchange', tdbOpenBibleToolDisclosureForHash);
   })();
   </script>
 </body>

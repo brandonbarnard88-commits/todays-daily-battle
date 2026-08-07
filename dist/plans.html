@@ -3085,7 +3085,7 @@
   </div>
   <div id="tdb-offline-strip" class="tdb-offline-strip hidden" role="status" aria-live="polite" data-tdb-offline-page="plans"><p class="offline-msg"></p></div>
   <script nonce="tdb2025s">(function(){try{if(localStorage.getItem('tdb_plans_quiet_update_dismiss')==='2026-05-11-plans')document.documentElement.classList.add('tdb-plans-quiet-update-dismissed');}catch(e){}})();</script>
-  <script nonce="tdb2025s">(function(){function openBrowseMoreForHash(){try{var id=(location.hash||'').replace(/^#/,'');if(!id)return;var el=document.getElementById(id);var wrap=document.getElementById('plansBrowseMore');if(!el||!wrap||!wrap.contains(el))return;wrap.open=true;}catch(e){}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',openBrowseMoreForHash);else openBrowseMoreForHash();window.addEventListener('hashchange',openBrowseMoreForHash);})();</script>
+  <script nonce="tdb2025s">(function(){function openPlansDisclosureForHash(){try{var id=(location.hash||'').replace(/^#/,'');if(!id)return;var el=document.getElementById(id);if(!el)return;var wrapIds=['plansBrowseMore','plans-start-here-details','plans-editorial-picks-details','plans-pastor-spotlight-details','plans-maps-into-paths-details','plans-heavy-week-packs-details','plans-hero-more'];for(var i=0;i<wrapIds.length;i++){var wrap=document.getElementById(wrapIds[i]);if(wrap&&wrap.contains(el)){wrap.open=true;}}}catch(e){}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',openPlansDisclosureForHash);else openPlansDisclosureForHash();window.addEventListener('hashchange',openPlansDisclosureForHash);})();</script>
   <div id="plans-quiet-update" class="tdb-quiet-update-strip tdb-quiet-update-strip--plans" data-tdb-plans-quiet-version="2026-05-11-plans" role="status" aria-live="polite">
     <p class="tdb-quiet-update-strip__text">Update: these tracks are The Paths (KJV Battle Plans).</p>
     <button type="button" class="tdb-quiet-update-strip__dismiss" id="plans-quiet-update-dismiss" aria-label="Dismiss this update">✕</button>
@@ -3448,6 +3448,9 @@
         </div>
       </details>
 
+      <details class="tdb-hub-disclosure" id="plans-start-here-details">
+        <summary class="tdb-hub-disclosure__summary">Start here — lane shelves by theme</summary>
+        <div class="tdb-hub-disclosure__inner">
       <section class="plans-start-here" aria-labelledby="plans-start-here-title">
         <h2 class="plans-start-here-title" id="plans-start-here-title">Start here</h2>
         <p class="plans-start-here-lead">If choosing feels like too much, start with the lane that fits today. Each link opens the same plan you will see in the full list below.</p>
@@ -3645,6 +3648,8 @@
         </div>
         <a class="plans-start-here-see-all" href="#all-plans">Browse every plan</a>
       </section>
+        </div>
+      </details>
 
       <section class="plans-sermon-intro" id="sermon-on-mount-intro" aria-labelledby="sermon-on-mount-intro-title">
         <h2 id="sermon-on-mount-intro-title">A Quiet Walk Through the Sermon on the Mount</h2>
@@ -3820,6 +3825,9 @@
         </div>
         <button type="button" class="easter-banner-dismiss" id="easterBannerDismiss" aria-label="Dismiss Easter note">×</button>
       </div>
+      <details class="tdb-hub-disclosure" id="plans-editorial-picks-details">
+        <summary class="tdb-hub-disclosure__summary">Hand-picked plans we often point people to</summary>
+        <div class="tdb-hub-disclosure__inner">
       <section class="plans-editorial-picks" id="plans-editorial-picks" aria-labelledby="plans-editorial-picks-title">
         <h2 class="plans-editorial-picks-title" id="plans-editorial-picks-title">Plans we often point people to</h2>
         <p class="plans-editorial-picks-lead">A longer shelf of paths people often need. Prefer something shorter first? See <a href="#plans-short-paths-heavy-weeks">Short paths for heavy weeks</a> above. Same rhythm as everything else: one KJV verse a day, plain words, a step, a prayer.</p>
@@ -3866,6 +3874,11 @@
           <a class="plans-editorial-pick" href="plans.html?plan=caregiverrest"><span class="plans-editorial-pick-icon" aria-hidden="true">🫶</span> Caregiver rest</a>
         </div>
       </section>
+        </div>
+      </details>
+      <details class="tdb-hub-disclosure" id="plans-pastor-spotlight-details">
+        <summary class="tdb-hub-disclosure__summary">Pastor and small church spotlight</summary>
+        <div class="tdb-hub-disclosure__inner">
       <section class="plans-pastor-spotlight" id="plans-pastor-spotlight" aria-labelledby="plans-pastor-spotlight-title">
         <h2 id="plans-pastor-spotlight-title">Pastor and small church spotlight</h2>
         <p>These two lanes are built for leadership weeks: tired preaching, bi-vocational pressure, and low-capacity ministry that still needs courage and clarity.</p>
@@ -3901,6 +3914,8 @@
         <p style="margin-top:0.65rem;">Need a ready sheet for staff or volunteer rhythm? Use the <a href="/printables.html">Printables hub</a> or the <a href="/pastor-toolkit.html">Pastor Toolkit</a>.</p>
         <p style="margin-top:0.55rem;font-size:0.85rem;color:var(--muted);">These plans are part of the <a href="/church-starter-pack.html" style="color:var(--gold-soft);">Church Starter Pack</a> — your quiet weekly operating system with Sermon Builder, printables, and pastor reset tools. &middot; <a href="/for-pastors.html" style="color:var(--gold-soft);">More tools for pastors &rarr;</a></p>
       </section>
+        </div>
+      </details>
       <section class="glass tdb-porch-paper-glass plans-builder-section" id="plans-builder-section" aria-labelledby="plans-builder-heading">
         <p class="plans-editorial-picks-lead" style="margin:0 0 1rem;">
           <a href="custom-plan-builder.html" class="plans-gentle-plan-link">Create my own gentle plan</a>

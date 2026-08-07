@@ -901,8 +901,10 @@
       </section>
       </div><!-- /#quick-search-hero -->
 
-      <!-- After Ask the Word: plan CTA (teaching block lives always-open in the verse card above) -->
-      <div class="tdb-home-after-ask tdb-quiet-container" id="tdbHomeAfterAsk">
+      <!-- After Ask: Grove paths are the one chooser; plan CTA nested -->
+      <details class="tdb-hub-disclosure tdb-quiet-container" id="tdbHomeAfterAsk">
+        <summary class="tdb-hub-disclosure__summary">Open a Path for today</summary>
+        <div class="tdb-hub-disclosure__inner">
         <nav class="tdb-home-hero-primary-cta" id="tdbHomeHeroPrimaryCta" aria-label="One gentle next step">
           <p class="tdb-home-hero-primary-cta__lead">When you&rsquo;re ready:</p>
           <a class="btn btn-primary tdb-home-hero-primary-cta__btn" href="plans.html?plan=battle" id="tdbHomeHeroPrimaryPlan">Open a Path for today</a>
@@ -912,7 +914,8 @@
           <h3 class="tdb-hero-curriculum-heading" id="tdb-hero-curriculum-h">Where this lesson fits in your battle plan</h3>
           <ul class="tdb-hero-curriculum-list" id="tdb-hero-curriculum-list"></ul>
         </div>
-              </div><!-- /#tdbHomeAfterAsk -->
+        </div>
+      </details>
 
       </div><!-- /#tdbHomePrimaryPair · end The Grove -->
 
@@ -927,8 +930,9 @@
       </nav>
 
       <!-- Campus map demoted: one map lives here; Explore holds the fuller catalog -->
-      <details class="tdb-campus-map-home tdb-quiet-container" id="tdbCampusMapHome" aria-labelledby="tdbCampusMapHomeH">
-        <summary class="tdb-campus-map-home__title" id="tdbCampusMapHomeH">Full campus map</summary>
+      <details class="tdb-campus-map-home tdb-hub-disclosure tdb-quiet-container" id="tdbCampusMapHome" aria-labelledby="tdbCampusMapHomeH">
+        <summary class="tdb-campus-map-home__title tdb-hub-disclosure__summary" id="tdbCampusMapHomeH">Full campus map</summary>
+        <div class="tdb-hub-disclosure__inner">
         <p class="tdb-campus-map-home__eyebrow">Today&rsquo;s Daily Battle campus</p>
         <p class="tdb-campus-map-home__lead">Seven quiet buildings. Start in the Grove; open a building only when you need it.</p>
         <ul class="tdb-campus-buildings" id="tdbCampusBuildings">
@@ -947,13 +951,14 @@
         </p>
         <p class="tdb-campus-map-home__rest section-note">If the Grove was enough for today, you can stop scrolling. Everything below is optional.</p>
         <p class="tdb-campus-map-home__persona section-note" id="tdbPersonaFocus">Built first for a hard night: one KJV verse, plain words, one next step&mdash;no account required.</p>
+        </div>
       </details>
 
       <!-- Secondary: capacity + maps demoted under one details; Grove paths above stay the primary chooser -->
       <div class="tdb-home-secondary-stack" id="tdbHomeSecondaryStack">
-      <details class="tdb-home-more-when-ready tdb-quiet-container" id="tdbHomeMoreWhenReady">
-        <summary class="tdb-home-more-when-ready__summary">More on campus &mdash; capacity, maps, and quieter doors</summary>
-        <div class="tdb-home-more-when-ready__body">
+      <details class="tdb-home-more-when-ready tdb-hub-disclosure tdb-quiet-container" id="tdbHomeMoreWhenReady">
+        <summary class="tdb-home-more-when-ready__summary tdb-hub-disclosure__summary">More on campus &mdash; capacity, maps, and quieter doors</summary>
+        <div class="tdb-home-more-when-ready__body tdb-hub-disclosure__inner">
 
       <!-- Demoted capacity chooser (Quiet Hall / Paths / Ask already on Grove stones) -->
       <section class="tdb-capacity-door tdb-quiet-container" id="tdbCapacityDoor" role="region" aria-labelledby="tdbCapacityDoorH">
@@ -1119,8 +1124,11 @@
 
 
       
-      <!-- Slim Family Armor opener (workspace modal below). Full lower campus dump: archive/home-lower-blocks.html -->
-      <section class="card armor-builder-card tdb-quiet-container" id="armor-builder-btn" aria-label="Family Armor &amp; Stories">
+      <!-- Slim Family Armor + core tools behind one disclosure (IDs preserved) -->
+      <details class="tdb-hub-disclosure tdb-quiet-container" id="tdbHomeCoreToolsDisclosure">
+        <summary class="tdb-hub-disclosure__summary">Core tools &amp; Family Armor</summary>
+        <div class="tdb-hub-disclosure__inner">
+      <section class="card armor-builder-card" id="armor-builder-btn" aria-label="Family Armor &amp; Stories">
         <h2 class="section-divider">Family Armor &amp; Stories</h2>
         <p class="section-note">Pray together with Bible stories. Each story adds a piece of household armor on this device.</p>
         <button type="button" id="family-armor-stories-btn" class="btn btn-secondary family-armor-stories-btn" aria-label="Open Family Armor and Bible stories">Open Family Armor</button>
@@ -1128,7 +1136,7 @@
       </section>
 
       <!-- Core tools (kept lean; denser campus dump stays in archive/home-lower-blocks.html). -->
-      <div class="quick-links tdb-quiet-container calm-grid calm-grid--2 calm-grid--3" id="tdbHomeQuickLinks" aria-label="Core tools">
+      <div class="quick-links calm-grid calm-grid--2 calm-grid--3" id="tdbHomeQuickLinks" aria-label="Core tools">
         <section class="card tool-teaser-card" aria-label="The Library — Bible Tool">
           <a href="bible-tool.html" class="tool-teaser-link" aria-label="The Library — look up verses and notes">
             <span class="tool-teaser-icon" aria-hidden="true">📖</span>
@@ -1190,6 +1198,8 @@
           </a>
         </section>
       </div><!-- /.quick-links -->
+        </div>
+      </details>
 
       <!-- Lower campus dump archived to archive/home-lower-blocks.html (four-pillars). -->
       <section class="tdb-campus-optional-rest tdb-quiet-container" id="tdbCampusOptionalRest" aria-label="More of campus">

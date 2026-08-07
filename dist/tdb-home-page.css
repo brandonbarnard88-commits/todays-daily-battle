@@ -10849,6 +10849,28 @@
       font-weight: 450;
       color: var(--muted);
     }
+    /* Mirror tdb-core-seven.css — home loads tdb-home-page.css only */
+    .tdb-hub-disclosure {
+      margin: clamp(0.85rem, 2vw, 1.25rem) 0;
+      border: 1px solid var(--line, #2a3344);
+      border-radius: 14px;
+      background: color-mix(in srgb, var(--card, #0f1520) 96%, transparent);
+    }
+    .tdb-hub-disclosure__summary {
+      cursor: pointer;
+      padding: 0.9rem 1rem;
+      font-weight: 600;
+      line-height: 1.45;
+      list-style: none;
+      min-height: 44px;
+    }
+    .tdb-hub-disclosure__summary::-webkit-details-marker { display: none; }
+    .tdb-hub-disclosure__inner {
+      padding: 0 1rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
     .tdb-home-audit-collapsed { display: none !important; }
     .tdb-home-disclosure {
       margin: clamp(0.85rem, 2vw, 1.25rem) 0;

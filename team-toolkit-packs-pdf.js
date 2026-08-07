@@ -214,7 +214,7 @@
       lines.push('');
     }
     lines.push('---');
-    lines.push('Printed and shared with love. No ads. No tracking.');
+    lines.push('Printed and shared with love. No ads. Privacy-first.');
     lines.push('Built for the trenches.');
     lines.push('');
     return lines.join('\n');
@@ -240,7 +240,7 @@
     }
     lines.push('---');
     lines.push('KJV only. For groups: read aloud, pray short, share one honest sentence.');
-    lines.push('No ads. No tracking.');
+    lines.push('No ads. Privacy-first.');
     lines.push('');
     return lines.join('\n');
   }
@@ -249,7 +249,7 @@
     doc.setFontSize(8);
     doc.setFont('helvetica', 'normal');
     doc.setTextColor(MUTED[0], MUTED[1], MUTED[2]);
-    doc.text('todaysdailybattle.com · KJV only · No ads. No tracking.', MARGIN, PAGE_H - 28);
+    doc.text('todaysdailybattle.com · KJV only · No ads. Privacy-first.', MARGIN, PAGE_H - 28);
     doc.text('Page ' + pageNum, PAGE_W - MARGIN - 36, PAGE_H - 28);
   }
 
@@ -377,7 +377,7 @@
     y = writeParagraph(
       doc,
       y,
-      'Printed and shared with love. No ads. No tracking. Built for the trenches.',
+      'Printed and shared with love. No ads. Privacy-first. Built for the trenches.',
       9,
       12,
       MUTED,
@@ -416,7 +416,7 @@
       lines.push('');
     }
     lines.push('---');
-    lines.push('Printed with care. No ads. No tracking.');
+    lines.push('Printed with care. No ads. Privacy-first.');
     lines.push('');
     return lines.join('\n');
   }
@@ -482,7 +482,7 @@
     y = writeParagraph(
       doc,
       y,
-      'KJV only. For groups: read aloud, pray short, share one honest sentence. No ads. No tracking.',
+      'KJV only. For groups: read aloud, pray short, share one honest sentence. No ads. Privacy-first.',
       9,
       12,
       MUTED,
@@ -560,7 +560,7 @@
     y = writeParagraph(
       doc,
       y,
-      'KJV only. For groups: read aloud, pray short, share one honest sentence. No ads. No tracking.',
+      'KJV only. For groups: read aloud, pray short, share one honest sentence. No ads. Privacy-first.',
       9,
       12,
       MUTED,

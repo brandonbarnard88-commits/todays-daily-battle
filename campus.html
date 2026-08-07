@@ -1,109 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js?v=20260805-four-pillars"></script>
-  <script defer src="analytics-loader.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Campus map · The Grove · Today’s Daily Battle</title>
-  <meta name="description" content="Campus map for Today’s Daily Battle: start in The Grove (today’s KJV verse), then walk to Quiet Hall, The Paths, Family Yard, Library, Prayer Walk, or Pastor’s Study. Free forever.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://todaysdailybattle.com/campus">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=20260805-four-pillars" as="style">
-  <link rel="stylesheet" href="styles.css?v=20260805-four-pillars">
-  <style>
-    .tdb-campus-page { max-width: 40rem; margin: 0 auto; padding: 1.5rem 1.15rem 3.5rem; }
-    .tdb-campus-page h1 { font-size: clamp(1.55rem, 4vw, 2rem); margin: 0 0 0.5rem; color: var(--gold, #e3bc67); }
-    .tdb-campus-page .lead { color: var(--muted, #94a3b8); margin: 0 0 1.5rem; line-height: 1.55; }
-    .tdb-campus-page .grove-callout {
-      padding: 1rem 1.1rem; margin: 0 0 1.75rem; border-radius: 14px;
-      border: 1px solid rgba(227, 188, 103, 0.28);
-      background: linear-gradient(165deg, rgba(34, 80, 48, 0.22), rgba(8, 12, 22, 0.9));
-    }
-    .tdb-campus-page .grove-callout strong { color: var(--gold, #e3bc67); }
-    .tdb-campus-page .building {
-      display: block; text-decoration: none; color: inherit;
-      padding: 0.95rem 1rem; margin: 0 0 0.65rem;
-      border-radius: 12px; border: 1px solid rgba(148, 163, 184, 0.22);
-      background: rgba(15, 23, 42, 0.45);
-    }
-    .tdb-campus-page .building:hover, .tdb-campus-page .building:focus-visible {
-      border-color: rgba(227, 188, 103, 0.45);
-      outline: 2px solid rgba(227, 188, 103, 0.35); outline-offset: 2px;
-    }
-    .tdb-campus-page .building h2 { margin: 0 0 0.25rem; font-size: 1.05rem; color: var(--gold, #e3bc67); }
-    .tdb-campus-page .building p { margin: 0; font-size: 0.92rem; color: rgba(245, 247, 251, 0.88); line-height: 1.45; }
-    .tdb-campus-page .who { display: block; margin-top: 0.35rem; font-size: 0.82rem; color: var(--muted, #94a3b8); }
-    .tdb-campus-page .back { margin-top: 1.75rem; }
-    .tdb-campus-page .free { font-size: 0.9rem; color: var(--muted, #94a3b8); margin-top: 1.25rem; }
-  </style>
+  <title>Campus map moved · Explore · Today’s Daily Battle</title>
+  <meta name="description" content="The campus map now lives on Explore — one calm map for the whole site.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://todaysdailybattle.com/explore.html#start-here">
+  <meta http-equiv="refresh" content="0;url=/explore.html#start-here">
+  <script>location.replace('/explore.html#start-here');</script>
 </head>
-<body class="dark-mode tdb-inner-page">
-  <a href="#main" class="skip-link">Skip to content</a>
-  <header class="top-bar">
-    <div class="brand">
-      <a class="brand-title" href="/">Today’s Daily Battle</a>
-      <span class="brand-subtitle">Campus map</span>
-    </div>
-    <nav class="header-nav" aria-label="Quick">
-      <a href="/">The Grove</a>
-      <a href="/give#free-forever">Free forever</a>
-    </nav>
-  </header>
-  <main id="main" class="tdb-campus-page">
-    <h1>Campus map</h1>
-    <p class="lead"><strong>Best first step:</strong> open <a href="/">The Grove</a> and sit with today&rsquo;s verse. Then walk a building only if you need it.</p>
-    <p class="lead">There is a lot to learn here&mdash;like a campus&mdash;but it should never feel like school: no grades, no pressure, no homework. Think southern green under the trees: everyone starts in <strong>The Grove</strong>. Buildings have one job each. Free forever.</p>
-
-    <div class="grove-callout" role="note">
-      <strong>How to navigate:</strong> (1) Sit in <a href="/#tdbHomePrimaryPair">The Grove</a> first. (2) Pick one path stone if you need Calm, Plans, or Family. (3) Come back to this map when you want another building. That&rsquo;s it.
-    </div>
-
-    <a class="building" href="/#tdbHomePrimaryPair">
-      <h2>1. The Grove</h2>
-      <p>Daily KJV verse, plain meaning, Ask the Word.</p>
-      <span class="who">For everyone, first</span>
-    </a>
-    <a class="building" href="/calm">
-      <h2>2. Quiet Hall</h2>
-      <p>One steady verse and breath when the moment is heavy.</p>
-      <span class="who">For crisis / overwhelm</span>
-    </a>
-    <a class="building" href="/plans">
-      <h2>3. The Paths</h2>
-      <p>Battle Plans—gentle 7–40 day tracks for real weeks.</p>
-      <span class="who">For “I need a week, not a lecture”</span>
-    </a>
-    <a class="building" href="/family">
-      <h2>4. Family Yard</h2>
-      <p>Kids Corner, little ones, family rhythms and printables.</p>
-      <span class="who">For parents and the table</span>
-    </a>
-    <a class="building" href="/bible-tool">
-      <h2>5. The Library</h2>
-      <p>Lookup, chapter reader, study tools, deeper dig.</p>
-      <span class="who">For digging in</span>
-    </a>
-    <a class="building" href="/prayer-wall">
-      <h2>6. Prayer Walk</h2>
-      <p>Quiet prayer and the wall with others when you want company.</p>
-      <span class="who">For carrying something to God</span>
-    </a>
-    <a class="building" href="/church-hub">
-      <h2>7. Pastor’s Study</h2>
-      <p>Sermon helpers, church packs, tools for leaders.</p>
-      <span class="who">For pastors and teachers</span>
-    </a>
-    <a class="building" href="/mystudy">
-      <h2>My Study (your desk)</h2>
-      <p>Saved verses and notes on this device. Optional sign-in only for sync.</p>
-      <span class="who">Your private shelf</span>
-    </a>
-
-    <p class="free"><strong>Free forever.</strong> Optional gifts support the grounds—they never unlock a building. <a href="/give#free-forever">Support the ministry</a>.</p>
-    <p class="back"><a class="btn btn-primary" href="/">Return to The Grove</a> · <a href="/explore">Explore (fuller map)</a></p>
+<body>
+  <main style="max-width:32rem;margin:2rem auto;padding:1rem;font-family:system-ui,sans-serif;line-height:1.5">
+    <h1>Campus map moved</h1>
+    <p>One map is enough. Continue on <a href="/explore.html#start-here">Explore — start here</a>.</p>
   </main>
 </body>
 </html>

@@ -1812,7 +1812,8 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   var LOOPS_CACHE_KEY = 'tdb_loops_json_cache_v85';
   var MAX_WEEK = 12;
   var STAR_GOAL = 12;
-  var TOTAL_LOOPS = 218;
+  /* Fallback until loops.json loads; then synced to catalog length (roadmap cards). */
+  var TOTAL_LOOPS = 233;
   /* Google Form: set in loop-feedback-config.js (edit that file when ready) or leave null for mailto fallback */
   var LOOP_FEEDBACK_FORM = (typeof window !== 'undefined' && window.LOOP_FEEDBACK_FORM) || null;
 
@@ -2380,8 +2381,9 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
     if (!el) return;
     var starCount = state.starredIds.length;
     var visibleCount = getVisibleLoops().length;
-    var unlockedCount = unlockedLoops.length;
-    el.textContent = starCount + ' gold stars · ' + visibleCount + ' showing · ' + unlockedCount + '/' + TOTAL_LOOPS + ' unlocked total';
+    var roadmap = allLoops.length || TOTAL_LOOPS;
+    var playable = allLoops.filter(function (l) { return !!(l && String(l.file || '').trim()); }).length;
+    el.textContent = starCount + ' gold stars · ' + visibleCount + ' showing · ' + playable + ' playable of ' + roadmap + ' on the roadmap';
   }
 
   function getLoopWatchCount(loopId) {
@@ -2403,23 +2405,34 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   }
 
   function updateProgress() {
-    var unlockedCount = unlockedLoops.length;
+    var roadmap = allLoops.length || TOTAL_LOOPS;
+    var playable = allLoops.filter(function (l) { return !!(l && String(l.file || '').trim()); }).length;
     var starCount = state.starredIds.length;
-    var pct = Math.round((Math.min(TOTAL_LOOPS, unlockedCount) / TOTAL_LOOPS) * 100);
+    var meterMax = Math.max(1, STAR_GOAL);
+    var pct = Math.round((Math.min(meterMax, starCount) / meterMax) * 100);
     var gentleNote = document.getElementById('loop-progress-gentle-note');
     if (progressText) {
-      progressText.textContent = starCount + ' gold star' + (starCount === 1 ? '' : 's') + ' · ' + unlockedCount + '/' + TOTAL_LOOPS + ' loops unlocked';
+      if (playable === 0 && roadmap > 0) {
+        progressText.textContent = starCount + ' gold star' + (starCount === 1 ? '' : 's') + ' · ' + roadmap + ' cards on the roadmap · clips arriving';
+      } else {
+        progressText.textContent = starCount + ' gold star' + (starCount === 1 ? '' : 's') + ' · ' + playable + ' playable of ' + roadmap + ' on the roadmap';
+      }
     }
     if (gentleNote) {
-      gentleNote.textContent = starCount > 0
-        ? 'You already have a start. Keep it light and revisit one loop when you need it.'
-        : 'First visit? Your first gold star matters. One finished loop is a real start.';
+      gentleNote.textContent = playable === 0
+        ? (starCount > 0
+          ? 'Stars still count when clips land. Cards and KJV refs stay here meanwhile.'
+          : 'Stars count finished clips—not empty roadmap slots. Cards and verses stay ready.')
+        : (starCount > 0
+          ? 'You already have a start. Keep it light and revisit one loop when you need it.'
+          : 'First visit? Your first gold star matters. One finished loop is a real start.');
     }
     if (progressFill) progressFill.style.width = pct + '%';
     if (progressMeter) {
-      progressMeter.setAttribute('aria-valuenow', String(unlockedCount));
-      progressMeter.setAttribute('aria-valuemax', String(TOTAL_LOOPS));
-      progressMeter.setAttribute('aria-valuetext', unlockedCount + ' of ' + TOTAL_LOOPS + ' loops unlocked, ' + starCount + ' gold stars');
+      progressMeter.setAttribute('aria-valuenow', String(starCount));
+      progressMeter.setAttribute('aria-valuemax', String(meterMax));
+      progressMeter.setAttribute('aria-valuetext', starCount + ' gold stars · ' + playable + ' playable of ' + roadmap + ' roadmap cards');
+      progressMeter.setAttribute('aria-label', 'Gold stars toward early unlock (' + STAR_GOAL + ' stars)');
     }
     updateLoopPdfExportHint();
   }
@@ -2617,6 +2630,7 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
         };
       });
     try { localStorage.setItem(LOOPS_CACHE_KEY, JSON.stringify(json)); } catch (e) {}
+    TOTAL_LOOPS = Math.max(1, allLoops.length || TOTAL_LOOPS);
     recomputeUnlocked();
   }
 

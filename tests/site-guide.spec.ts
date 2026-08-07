@@ -1,26 +1,24 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('site-guide interactions', () => {
+test.describe('site-guide alias → Explore start-here', () => {
   test.use({ viewport: { width: 390, height: 844 } });
 
-  test.beforeEach(async ({ page }) => {
-    await page.addInitScript(() => {
-      (window as any).__tdbShareCalls = [];
-      Object.defineProperty(navigator, 'share', {
-        configurable: true,
-        value: async (data: unknown) => {
-          (window as any).__tdbShareCalls.push(data);
-        }
-      });
-      Object.defineProperty(navigator, 'canShare', {
-        configurable: true,
-        value: () => true
-      });
-    });
+  test('stub points at Explore start-here', async ({ page }) => {
+    await page.goto('/site-guide.html');
+
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+      'href',
+      'https://todaysdailybattle.com/explore.html#start-here'
+    );
+    await expect(page.getByRole('heading', { name: /start here moved/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: /explore — start here/i })).toHaveAttribute(
+      'href',
+      '/explore.html#start-here'
+    );
   });
 
-  test('mobile nav flyout and share controls work', async ({ page }) => {
-    await page.goto('/site-guide.html');
+  test('Explore start-here keeps Start here nav landmark', async ({ page }) => {
+    await page.goto('/explore.html#start-here');
 
     const toggle = page.locator('#tdb-primary-nav-toggle-standalone');
     await expect(toggle).toBeVisible();
@@ -28,16 +26,6 @@ test.describe('site-guide interactions', () => {
 
     const panel = page.locator('#tdb-primary-nav-panel-standalone');
     await expect(panel).toBeVisible();
-    await expect(page.locator('#nav-site-guide')).toHaveAttribute('aria-current', 'page');
-
-    await page.locator('body').click({ position: { x: 10, y: 10 } });
-    await page.waitForFunction(() => typeof (window as any).sharePage === 'function');
-    await page.locator('#share-page').click();
-    await expect.poll(async () => {
-      return page.evaluate(() => (window as any).__tdbShareCalls.length);
-    }).toBeGreaterThan(0);
-
-    await page.getByRole('button', { name: /restart the five-minute site tour/i }).click();
-    await expect(page.locator('#tdb-welcome-tour-dialog')).toBeVisible();
+    await expect(page.locator('#nav-site-guide')).toHaveAttribute('href', '/explore.html#start-here');
   });
 });

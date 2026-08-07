@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260805-four-pillars"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260805-four-pillars"></script>
@@ -30,6 +31,9 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260805-four-pillars" as="style">
   <link rel="stylesheet" href="styles.css?v=20260805-four-pillars">
+  <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
+  <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
+
   <link rel="preload" href="tdb-core-seven.css?v=20260519-audit" as="style">
   <link rel="stylesheet" href="tdb-core-seven.css?v=20260519-audit">
   <script src="scripts/header-search-bar.js?v=3" defer></script>
@@ -748,9 +752,10 @@
               <a href="/study.html">Study workspace</a>
             </div>
             <div class="tdb-nav-more-group">
-              <span class="tdb-nav-more-group-label">Maps into The Paths</span>
-              <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map nested under The Paths">Curriculum map</a>
-              <a href="/university.html" id="nav-university-core" aria-label="University map — five anchor verses">University map</a>
+              <span class="tdb-nav-more-group-label">Under The Paths</span>
+              <a href="/plans.html#plansDoorChooser">Feeling doors</a>
+              <a href="/plans.html#plans-maps-into-paths-details" id="nav-curriculum" aria-label="Curriculum and university maps live under The Paths">Curriculum &amp; university maps</a>
+              <a href="/university.html" id="nav-university-core" class="sr-only" aria-label="University map — five anchor verses">University map</a>
               <a href="/reading-plan.html">7-day reading plan</a>
               <a href="/daily-rhythm.html">Daily Rhythm</a>
               <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
@@ -771,7 +776,6 @@
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">About the Site</span>
               <a href="/explore.html#start-here" id="nav-site-guide" aria-label="Start here — calm map on Explore">Start here</a>
-              <a href="/campus">Campus map (alias)</a>
               <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
               <a href="/about.html">About</a>
               <a href="/story.html">Story</a>
@@ -2972,5 +2976,14 @@
     window.addEventListener('hashchange', tdbOpenBibleToolDisclosureForHash);
   })();
   </script>
+
+  <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
+    <nav class="tdb-bottom-dock" aria-label="Campus navigation">
+      <a href="/" aria-label="The Grove — today’s verse">🌳 Grove</a>
+      <a href="/#feel-section" aria-label="Ask the Word">💬 Ask</a>
+      <a href="/plans.html" aria-label="The Paths">🗓️ Paths</a>
+      <a href="/calm.html" aria-label="Quiet Hall — one steady verse">🌿 Quiet Hall</a>
+      <a href="/explore.html" class="tdb-bottom-dock-more" aria-label="Explore — full map">🗺️ Explore</a>
+    </nav>
 </body>
 </html>

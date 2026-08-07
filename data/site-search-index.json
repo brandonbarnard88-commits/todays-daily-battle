@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "generatedAt": "2026-08-06T23:58:35.492Z",
+  "generatedAt": "2026-08-07T02:24:57.459Z",
   "entries": [
     {
       "t": "Home — Today's Daily Battle",
@@ -133,14 +133,14 @@
       "k": "grief fear psalm"
     },
     {
-      "t": "Site guide — where to start",
-      "u": "/site-guide.html",
-      "k": "map help new"
+      "t": "Start here — Explore first-visit map",
+      "u": "/explore.html#start-here",
+      "k": "map help new guide"
     },
     {
-      "t": "Find a path — feeling-first doors",
-      "u": "/find-a-path.html",
-      "k": "capacity feel overwhelmed calm plan anxiety grief path start here low energy heavy room"
+      "t": "Explore — start here (feeling-first doors)",
+      "u": "/explore.html#start-here",
+      "k": "capacity feel overwhelmed calm plan anxiety grief path start here low energy heavy room find a path campus map"
     },
     {
       "t": "Learn the Word — teaching spine",

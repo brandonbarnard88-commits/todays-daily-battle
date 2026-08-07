@@ -69,7 +69,7 @@ Tracked backlog: **`docs/FRIEND-AUDIT-BACKLOG.md`**
 | **Prayer Wall** | `/message.html` | Community prayers |
 | **Möbius** | `/mobius.html` | Fear/faith metaphor loop |
 | **Pastor tools** | sermon/lesson builders | Self-contained ministry workflows |
-| **Site guide** | `/site-guide.html` | Onboarding / wayfinding |
+| **Start here** | `/explore.html#start-here` | Onboarding / wayfinding (`/site-guide` aliases here) |
 | **About / Story** | about pages | Mission and builder story |
 | **Search** | `/search.html` | Client-side site-wide search index |
 

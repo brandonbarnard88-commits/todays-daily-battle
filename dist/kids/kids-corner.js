@@ -7780,25 +7780,26 @@
 
   function syncJourneyUi() {
     var keys = getJourneyKeys();
-    var total = keys.length;
+    var pathStops = keys.length;
+    var goal = (window.TDB_GENTLE_JOURNEY && window.TDB_GENTLE_JOURNEY.CANONICAL_DISTINCT_STORY_GOAL) || 365;
     var state = getJourneyState();
-    var next = Math.min(Math.max(0, state.nextIndex), total);
-    var done = next >= total && total > 0;
+    var next = Math.min(Math.max(0, state.nextIndex), pathStops);
+    var endOfPath = next >= pathStops && pathStops > 0;
     if (journeyStatusEl) {
       if (!state.started) {
-        journeyStatusEl.textContent = 'Start the Gentle Journey (' + total + ' stories).';
-      } else if (done) {
-        journeyStatusEl.textContent = 'Gentle Journey complete! ' + total + '/' + total + ' stories done. You can reset to begin again.';
+        journeyStatusEl.textContent = 'Start the Gentle Journey—one calm story at a time. Long goal: ' + goal + ' distinct stories (this path has ' + pathStops + ' stops, including parallel names).';
+      } else if (endOfPath) {
+        journeyStatusEl.textContent = 'You reached the end of this Gentle Journey sequence (' + pathStops + ' stops). That is not the same as finishing all ' + goal + ' distinct calm stories—reset anytime, or keep browsing the library.';
       } else {
         var key = keys[next];
         var title = (getStories()[key] && getStories()[key].title) ? getStories()[key].title : 'Next story';
-        journeyStatusEl.textContent = 'Gentle Journey progress: ' + next + '/' + total + '. Next gentle story: ' + tdbPlainTextForUi(title) + '.';
+        journeyStatusEl.textContent = 'Gentle Journey: stop ' + (next + 1) + ' of ' + pathStops + ' on this path. Long goal: ' + goal + ' distinct stories. Next: ' + tdbPlainTextForUi(title) + '.';
       }
     }
-    if (journeyStartBtn) journeyStartBtn.disabled = total === 0;
-    if (journeyContinueBtn) journeyContinueBtn.disabled = total === 0 || !state.started;
-    if (journeyNextBtn) journeyNextBtn.disabled = total === 0 || !state.started || done;
-    if (journeyResetBtn) journeyResetBtn.disabled = total === 0 || !state.started;
+    if (journeyStartBtn) journeyStartBtn.disabled = pathStops === 0;
+    if (journeyContinueBtn) journeyContinueBtn.disabled = pathStops === 0 || !state.started;
+    if (journeyNextBtn) journeyNextBtn.disabled = pathStops === 0 || !state.started || endOfPath;
+    if (journeyResetBtn) journeyResetBtn.disabled = pathStops === 0 || !state.started;
   }
 
   function startJourney() {
@@ -7807,7 +7808,7 @@
     setJourneyState({ started: true, nextIndex: 0 });
     syncJourneyUi();
     openStory(keys[0], { navMode: 'gentle' });
-    showToast('Gentle Journey started! Story 1 of ' + keys.length + '.');
+    showToast('Gentle Journey started! Stop 1 of ' + keys.length + ' on this path.');
   }
 
   function continueJourney() {

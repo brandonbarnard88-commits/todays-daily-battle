@@ -41,9 +41,10 @@
       "rewrite": { "to": "/explore.html", "status": 200 }
     },
     {
-      "id": "site-guide-clean",
-      "aliases": ["/site-guide", "/site-guide/"],
-      "rewrite": { "to": "/site-guide.html", "status": 200 }
+      "id": "site-guide-alias",
+      "note": "Site guide is an alias door; Explore #start-here is the canonical first-visit map.",
+      "aliases": ["/site-guide", "/site-guide/", "/site-guide.html"],
+      "redirect": { "to": "/explore.html#start-here", "status": 301 }
     },
     {
       "id": "university-clean",

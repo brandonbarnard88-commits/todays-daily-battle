@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=20260805-four-pillars"></script>
+  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260805-four-pillars"></script>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260805-four-pillars"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260805-four-pillars"></script>
@@ -10,7 +13,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Bible Loop Library • Today's Daily Battle</title>
-  <meta name="description" content="Short KJV Bible cartoon loops (10–15s), gold stars, up to 164 over time—animated replay library. For comic panels and read-and-quiz stories, use Bible Story Library (/kids/corner.html).">
+  <meta name="description" content="Short KJV Bible cartoon loops (10–15s) on a growing roadmap—gold stars on this device. Clips land as files are ready. For comic panels and read-and-quiz stories, use Bible Story Library (/kids/corner.html).">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://todaysdailybattle.com/kids/">
   <link rel="alternate" hreflang="en" href="https://todaysdailybattle.com/kids-corner.html">
@@ -18,7 +21,7 @@
   <link rel="alternate" hreflang="x-default" href="https://todaysdailybattle.com/">
   <meta property="og:site_name" content="Today's Daily Battle">
   <meta property="og:title" content="Bible Loop Library • Animated KJV Stories for Kids">
-  <meta property="og:description" content="Short animated Bible loops for kids: hand-drawn, 10–15s replays with ukulele SFX, no voice-over. Earn gold stars by watching to the end and praying. Up to 192 loops—new ones most Sundays. Parents: explore together.">
+  <meta property="og:description" content="Short animated Bible loops for kids: hand-drawn, 10–15s roadmap cards with ukulele SFX, no voice-over. Earn gold stars when a clip plays through. Cartoon files land as they are ready. Parents: explore together.">
   <meta property="og:url" content="https://todaysdailybattle.com/kids-corner.html">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://todaysdailybattle.com/assets/share/kids-loop-og.jpg?v=20260322">
@@ -27,13 +30,16 @@
   <meta property="og:image:alt" content="Bible Loop Library — short animated KJV story loops for kids">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Bible Loop Library • Animated KJV Stories for Kids">
-  <meta name="twitter:description" content="Short animated Bible loops for kids: hand-drawn, 10–15s replays with ukulele SFX, no voice-over. Gold stars, up to 192 loops, new ones most Sundays.">
+  <meta name="twitter:description" content="Short animated Bible loops for kids: hand-drawn, 10–15s roadmap cards. Gold stars on this device. Clips land as files are ready.">
   <meta name="twitter:image" content="https://todaysdailybattle.com/assets/share/kids-loop-og.jpg?v=20260322">
   <meta name="twitter:site" content="@todaysdailybattle">
   <meta name="twitter:creator" content="@todaysdailybattle">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260805-four-pillars" as="style">
   <link rel="stylesheet" href="styles.css?v=20260805-four-pillars">
+  <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
+  <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
+
   <link rel="preload" href="kids/kids-design-tokens.css" as="style">
   <link rel="stylesheet" href="kids/kids-design-tokens.css">
   <link rel="preload" href="kids/kids-page-sky.css?v=20260326playful" as="style">
@@ -50,7 +56,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script nonce="tdb2025s" type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebPage","name":"Bible Loop Library • Today's Daily Battle","url":"https://todaysdailybattle.com/kids-corner.html","description":"Short KJV Bible cartoon loops, gold stars, up to 164 over time. Full comic and quiz stories live on Bible Story Library.","publisher":{"@type":"Organization","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"}}
+  {"@context":"https://schema.org","@type":"WebPage","name":"Bible Loop Library • Today's Daily Battle","url":"https://todaysdailybattle.com/kids-corner.html","description":"Short KJV Bible cartoon loops on a growing roadmap, gold stars on this device. Full comic and quiz stories live on Bible Story Library.","publisher":{"@type":"Organization","name":"Today's Daily Battle","url":"https://todaysdailybattle.com/"}}
   </script>
 </head>
 <body class="dark-mode tdb-inner-page kids-corner-page kids-sky-enabled kids-sky-playful kids-world-surface" aria-label="Bible Loop Library - short kids Bible story loops">
@@ -169,9 +175,10 @@
               <a href="/study.html">Study workspace</a>
             </div>
             <div class="tdb-nav-more-group">
-              <span class="tdb-nav-more-group-label">Maps into The Paths</span>
-              <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map nested under The Paths">Curriculum map</a>
-              <a href="/university.html" id="nav-university-core" aria-label="University map — five anchor verses">University map</a>
+              <span class="tdb-nav-more-group-label">Under The Paths</span>
+              <a href="/plans.html#plansDoorChooser">Feeling doors</a>
+              <a href="/plans.html#plans-maps-into-paths-details" id="nav-curriculum" aria-label="Curriculum and university maps live under The Paths">Curriculum &amp; university maps</a>
+              <a href="/university.html" id="nav-university-core" class="sr-only" aria-label="University map — five anchor verses">University map</a>
               <a href="/reading-plan.html">7-day reading plan</a>
               <a href="/daily-rhythm.html">Daily Rhythm</a>
               <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
@@ -192,7 +199,6 @@
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">About the Site</span>
               <a href="/explore.html#start-here" id="nav-site-guide" aria-label="Start here — calm map on Explore">Start here</a>
-              <a href="/campus">Campus map (alias)</a>
               <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
               <a href="/about.html">About</a>
               <a href="/story.html">Story</a>
@@ -415,13 +421,13 @@
           </div>
           <div class="loop-progress-head">
             <h2 class="section-divider kids-section-divider">Story Stars</h2>
-            <p id="loop-progress-text" class="loop-progress-text">0 gold stars · 0/192 loops unlocked</p>
+            <p id="loop-progress-text" class="loop-progress-text">0 gold stars · roadmap cards loading</p>
           </div>
-          <div class="loop-progress-meter" role="progressbar" aria-valuemin="0" aria-valuemax="192" aria-valuenow="0" aria-label="Bible loops unlocked in your library">
+          <div class="loop-progress-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Gold stars toward next unlock week">
             <div id="loop-progress-fill" class="loop-progress-fill"></div>
           </div>
-          <p class="section-note">Up to 192 loops over time—keep watching and praying through each story. Gold stars track what you have finished.</p>
-          <p id="loop-progress-gentle-note" class="section-note loop-progress-gentle-note" aria-live="polite">First visit? Your first gold star matters. One finished loop is a real start.</p>
+          <p class="section-note">Cards stay on the roadmap; cartoon clips play when their files are ready. Gold stars mark finished watches on this device.</p>
+          <p id="loop-progress-gentle-note" class="section-note loop-progress-gentle-note" aria-live="polite">First visit? Stars count finished clips—not empty roadmap slots.</p>
           <p id="loop-weekly-status" class="section-note" aria-live="polite">Weekly drop checks every Sunday for fresh loops.</p>
           <div class="loop-pdf-export-wrap">
             <div class="loop-pdf-option">
@@ -435,7 +441,7 @@
         </section>
 
         <section class="glass tdb-porch-paper-glass card-gold loop-library-wrap" aria-label="Bible Loop Library infinite grid">
-          <p class="section-note loop-quick-calm-kicker util-mb-0_5"><strong>Quick calm loops</strong> — 10–15s cartoons with verse audio (no quizzes here). For read-aloud words, comic panels, and gentle quizzes, open the <a href="/kids/corner.html">Bible Story Library</a>. When you arrive from a story and tap <strong>Watch a quick loop</strong>, each cartoon now prefers the matching library card—same gentle path for all 192 loops on the roadmap.</p>
+          <p class="section-note loop-quick-calm-kicker util-mb-0_5"><strong>Quick calm loops</strong> — 10–15s cartoons with verse audio when the clip file is ready (no quizzes here). For read-aloud words, comic panels, and gentle quizzes, open the <a href="/kids/corner.html">Bible Story Library</a>. When you arrive from a story and tap <strong>Watch a quick loop</strong>, we prefer the matching roadmap card—same gentle path as clips land.</p>
           <div class="loop-filter-bar" role="group" aria-label="Filter loop cards by starter view">
             <button type="button" class="btn btn-secondary loop-filter-chip is-active" data-loop-filter="all">All unlocked</button>
             <button type="button" class="btn btn-secondary loop-filter-chip" data-loop-filter="starter">Starter 12</button>
@@ -477,6 +483,14 @@
         </section>
       </div>
     </noscript>
+    <nav class="tdb-bottom-dock" aria-label="Campus navigation">
+      <a href="/" aria-label="The Grove — today’s verse">🌳 Grove</a>
+      <a href="/#feel-section" aria-label="Ask the Word">💬 Ask</a>
+      <a href="/plans.html" aria-label="The Paths">🗓️ Paths</a>
+      <a href="/calm.html" aria-label="Quiet Hall — one steady verse">🌿 Quiet Hall</a>
+      <a href="/explore.html" class="tdb-bottom-dock-more" aria-label="Explore — full map">🗺️ Explore</a>
+    </nav>
+
 
     <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
   <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
@@ -501,7 +515,6 @@
     <a href="/calm.html">Quiet Hall</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/family.html">Family hub</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/campus">Campus (alias)</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
   </nav>
@@ -533,7 +546,7 @@
     <a href="/media.html">Media</a>
     <a href="/roadmap.html">Roadmap</a>
     <a href="/give">Support</a>
-    <a href="/for-pastors.html">For pastors &amp; teachers</a>
+    <a href="/church-hub.html">Pastor&rsquo;s Study</a>
     <a href="/reader.html">Chapter reader</a>
     <a href="/bible/tools.html">Study workshop</a>
     <a href="/bible-tool.html">The Library</a>
@@ -592,12 +605,13 @@
       </div>
       <div class="footer-sitemap-col">
         <h3>For the Household of Faith</h3>
-        <a href="/church.html">Church center</a>
-        <a href="/church/">Church join hub</a>
-        <a href="/team-toolkit.html">Team toolkit</a>
-        <a href="/pastor-toolkit.html">Pastor toolkit</a>
-        <a href="/pastor/">Pastor hub</a>
+        <a href="/church-hub.html">Pastor&rsquo;s Study</a>
         <a href="/sermon.html">Sermon builder</a>
+        <a href="/church-sharing-kit.html">Church sharing kit</a>
+        <a href="/church.html">Church center</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit (nested)</a>
+        <a href="/for-pastors.html">For pastors (nested)</a>
         <a href="/family.html">Family hub</a>
         <a href="/little-ones.html">For the Little Ones</a>
         <a href="/family-armor.html">Family Armor</a>
@@ -611,7 +625,6 @@
         <a href="/porch-map-one-page-print.html">Porch map (print)</a>
         <a href="/porch-pathways-ribbon-one-page-print.html">Ribbon pathways (print)</a>
         <a href="/explore.html#start-here">Explore start here</a>
-        <a href="/find-a-path.html">Find a path (alias)</a>
         <a href="/learn-the-word.html">Learn the Word</a>
         <a href="/bible-study.html">Bible studies</a>
         <a href="/shop.html">Shop</a>
@@ -649,7 +662,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">August 6, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
@@ -668,5 +681,7 @@
   <script src="kids-corner-daily-verse.js?v=4" defer></script>
   <script src="sky-ip-geo.js?v=20260327ipgeo" defer></script>
   <script src="kids/kids-page-sky.js?v=20260327ipgeo" defer></script>
+
+  <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
 </body>
 </html>

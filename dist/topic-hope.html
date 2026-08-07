@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script nonce="tdb2025s" defer src="/tdb-backup-reminder.js?v=20260805-four-pillars"></script>
+  <script nonce="tdb2025s" defer src="/tdb-back-to-verse-float.js?v=20260805-four-pillars"></script>
+  <script nonce="tdb2025s" defer src="/footer-build-stamp.js?v=20260805-four-pillars"></script>
   <!-- Trusted Types: DOMPurify + innerHTML bridge (_headers CSP) -->
   <script src="/vendor/dompurify.min.js"></script>
   <script src="/tt-bootstrap.js?v=20260805-four-pillars"></script>
@@ -39,6 +42,9 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="preload" href="styles.css?v=20260805-four-pillars" as="style">
   <link rel="stylesheet" href="styles.css?v=20260805-four-pillars">
+  <link rel="preload" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final" as="style">
+  <link rel="stylesheet" href="/tdb-swoop-surfaces.css?v=20260530-swoop-final">
+
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.99.2/dist/umd/supabase.min.js" integrity="sha384-zETTH+6IXxKQ6zbGcT6H6EDdnGaae9uhI8uO7doTJoNEmPGeTKVOe5S6/XybS9JH" crossorigin="anonymous" data-cfasync="false" data-supabase-sdk="true" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -132,9 +138,10 @@
               <a href="/study.html">Study workspace</a>
             </div>
             <div class="tdb-nav-more-group">
-              <span class="tdb-nav-more-group-label">Maps into The Paths</span>
-              <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map nested under The Paths">Curriculum map</a>
-              <a href="/university.html" id="nav-university-core" aria-label="University map — five anchor verses">University map</a>
+              <span class="tdb-nav-more-group-label">Under The Paths</span>
+              <a href="/plans.html#plansDoorChooser">Feeling doors</a>
+              <a href="/plans.html#plans-maps-into-paths-details" id="nav-curriculum" aria-label="Curriculum and university maps live under The Paths">Curriculum &amp; university maps</a>
+              <a href="/university.html" id="nav-university-core" class="sr-only" aria-label="University map — five anchor verses">University map</a>
               <a href="/reading-plan.html">7-day reading plan</a>
               <a href="/daily-rhythm.html">Daily Rhythm</a>
               <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
@@ -155,7 +162,6 @@
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">About the Site</span>
               <a href="/explore.html#start-here" id="nav-site-guide" aria-label="Start here — calm map on Explore">Start here</a>
-              <a href="/campus">Campus map (alias)</a>
               <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
               <a href="/about.html">About</a>
               <a href="/story.html">Story</a>
@@ -228,6 +234,8 @@
           <p class="section-note topic-mood-footnote">When you want a slow lane: <a href="plans.html">The Paths</a> (7&ndash;40 days, KJV)&mdash;optional.</p>
           <p class="section-note topic-mood-pair-note">Often walks with: <a href="topic-anxiety.html">Anxiety</a> &middot; <a href="topic-grief.html">Grief</a> &middot; <a href="topic-strength.html">Strength</a> &middot; <a href="calm.html">Calm</a>.</p>
         </header>
+        <p id="tdb-start-strip" class="tdb-start-strip section-note"><strong>New here?</strong> This page meets one hard moment with KJV verses. <a href="/explore.html#start-here">See the full map</a> &mdash; hard moment, daily rhythm, family, or church.</p>
+
         <aside class="glass tdb-porch-paper-glass tdb-mobius-loop-door" aria-label="Walk the Grace Ribbon">
           <h2 class="section-divider tdb-mobius-loop-door-heading">Walk the loop</h2>
           <p class="section-note tdb-mobius-loop-door-lead">This page gives you verses in reach. The <a href="/mobius.html">Grace Ribbon</a> is the slow room—breath, silence, one path where what you carry and what God says are not two separate tracks.</p>
@@ -236,10 +244,32 @@
             <a class="btn btn-secondary" href="/mobius.html#mobius-loop-journal">Loop journal</a>
           </div>
         </aside>
+        <section class="glass tdb-porch-paper-glass" aria-labelledby="topic-hope-porch-h">
+          <h2 class="section-divider" id="topic-hope-porch-h">Start with one verse</h2>
+          <div class="verse-breakdown-container topic-verse-porch">
+            <p class="big-kjv"><strong>Romans 15:13 (KJV)</strong></p>
+            <p class="verse-body">&ldquo;Now the God of hope fill you with all joy and peace in believing, that ye may abound in hope, through the power of the Holy Ghost.&rdquo;</p>
+            <div class="verse-breakdown">
+              <h4>In plain words</h4>
+              <p>Hope is not something you manufacture&mdash;He fills, then you abound.</p>
+              <h4>Who&rsquo;s talking?</h4>
+              <p>Paul, writing to believers in Rome.</p>
+              <h4>Who is he talking to?</h4>
+              <p>The church in Rome&mdash;and us too when hope feels thin.</p>
+              <h4>How it relates today (2026)</h4>
+              <p>When headlines and private fears both feel loud, this verse points to God as the source of hope, not your mood.</p>
+              <h4>How it relates to you right now</h4>
+              <p>You do not have to invent cheer before you open the Word. Ask Him to fill you with joy and peace in believing.</p>
+            </div>
+            <p class="next-step"><strong>One small step today:</strong> Read Romans 15:13 once slowly. Say the words &ldquo;God of hope&rdquo; out loud before you check one more screen.</p>
+            <div class="prayer-block">
+              <p><strong>A simple prayer:</strong><br>God of hope, fill me with joy and peace in believing. Help me abound in hope by Your Spirit. Amen.</p>
+            </div>
+          </div>
+        </section>
         <section class="glass tdb-porch-paper-glass">
-          <h2 class="section-divider">Key Verses</h2>
+          <h2 class="section-divider">More Key Verses</h2>
           <div class="list">
-            <div class="list-item"><div><strong>Romans 15:13 (KJV)</strong><p>Now the God of hope fill you with all joy and peace in believing, that ye may abound in hope, through the power of the Holy Ghost.</p><p class="tdb-topic-verse-note">Hope is not something you manufacture&mdash;He fills, then you abound.</p></div></div>
             <div class="list-item"><div><strong>Jeremiah 29:11 (KJV)</strong><p>For I know the thoughts that I think toward you, saith the LORD, thoughts of peace, and not of evil, to give you an expected end.</p><p class="tdb-topic-verse-note">His thoughts toward you are peace, even when your map feels blank.</p></div></div>
             <div class="list-item"><div><strong>Hebrews 6:19 (KJV)</strong><p>Which hope we have as an anchor of the soul, both sure and stedfast, and which entereth into that within the veil;</p><p class="tdb-topic-verse-note">An anchor holds when the water is still moving.</p></div></div>
             <div class="list-item"><div><strong>Romans 5:5 (KJV)</strong><p>And hope maketh not ashamed; because the love of God is shed abroad in our hearts by the Holy Ghost which is given unto us.</p><p class="tdb-topic-verse-note">This hope does not leave you red-faced&mdash;His love is already poured out.</p></div></div>
@@ -278,6 +308,14 @@
         </section>
           </div>
     </main>
+    <nav class="tdb-bottom-dock" aria-label="Campus navigation">
+      <a href="/" aria-label="The Grove — today’s verse">🌳 Grove</a>
+      <a href="/#feel-section" aria-label="Ask the Word">💬 Ask</a>
+      <a href="/plans.html" aria-label="The Paths">🗓️ Paths</a>
+      <a href="/calm.html" aria-label="Quiet Hall — one steady verse">🌿 Quiet Hall</a>
+      <a href="/explore.html" class="tdb-bottom-dock-more" aria-label="Explore — full map">🗺️ Explore</a>
+    </nav>
+
 
     <footer class="site-footer site-footer--canonical" role="contentinfo" aria-label="Site footer">
   <nav class="tdb-lang-switcher tdb-lang-switcher--footer tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
@@ -302,7 +340,6 @@
     <a href="/calm.html">Quiet Hall</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/family.html">Family hub</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/campus">Campus (alias)</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
   </nav>
@@ -334,7 +371,7 @@
     <a href="/media.html">Media</a>
     <a href="/roadmap.html">Roadmap</a>
     <a href="/give">Support</a>
-    <a href="/for-pastors.html">For pastors &amp; teachers</a>
+    <a href="/church-hub.html">Pastor&rsquo;s Study</a>
     <a href="/reader.html">Chapter reader</a>
     <a href="/bible/tools.html">Study workshop</a>
     <a href="/bible-tool.html">The Library</a>
@@ -393,12 +430,13 @@
       </div>
       <div class="footer-sitemap-col">
         <h3>For the Household of Faith</h3>
-        <a href="/church.html">Church center</a>
-        <a href="/church/">Church join hub</a>
-        <a href="/team-toolkit.html">Team toolkit</a>
-        <a href="/pastor-toolkit.html">Pastor toolkit</a>
-        <a href="/pastor/">Pastor hub</a>
+        <a href="/church-hub.html">Pastor&rsquo;s Study</a>
         <a href="/sermon.html">Sermon builder</a>
+        <a href="/church-sharing-kit.html">Church sharing kit</a>
+        <a href="/church.html">Church center</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit (nested)</a>
+        <a href="/for-pastors.html">For pastors (nested)</a>
         <a href="/family.html">Family hub</a>
         <a href="/little-ones.html">For the Little Ones</a>
         <a href="/family-armor.html">Family Armor</a>
@@ -412,7 +450,6 @@
         <a href="/porch-map-one-page-print.html">Porch map (print)</a>
         <a href="/porch-pathways-ribbon-one-page-print.html">Ribbon pathways (print)</a>
         <a href="/explore.html#start-here">Explore start here</a>
-        <a href="/find-a-path.html">Find a path (alias)</a>
         <a href="/learn-the-word.html">Learn the Word</a>
         <a href="/bible-study.html">Bible studies</a>
         <a href="/shop.html">Shop</a>
@@ -450,7 +487,7 @@
 
   <p class="site-footer-mood-insight" id="footerMoodInsight" aria-live="polite"></p>
   <p class="site-footer-hint" aria-hidden="true">Something hidden here...</p>
-  <p class="site-footer-updated">Last updated: <span id="footer-date">TDB_BUILD_DATE</span></p>
+  <p class="site-footer-updated">Last updated: <span id="footer-date">August 6, 2026</span></p>
   <div class="tdb-site-footer-finale" aria-label="A quiet sign-off">
     <p class="tdb-site-footer-finale__love site-tagline-footer">Quietly. Faithfully. One day at a time.</p>
   </div>
@@ -462,5 +499,7 @@
   <script nonce="tdb2025s">window.TDB_CONFIG=window.TDB_CONFIG||{"SUPABASE_URL":"https://rixsnhpwrlbvvymkfamj.supabase.co","SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJpeHNuaHB3cmxidnZ5bWtmYW1qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg5OTExMTMsImV4cCI6MjA4NDU2NzExM30.h5VdhM4L4v_cT6qiRIwY6qoFM4AnzFCluXlM8mcW9Iw","WALKTHROUGH_VIDEO_URL":"","ERROR_REPORT_URL":""};</script>
   <script type="module" src="config.js"></script>
   <script type="module" src="script.js?v=20260805-four-pillars" data-cfasync="false"></script>
+
+  <script nonce="tdb2025s" defer src="/tdb-swoop-surfaces.js?v=20260530-swoop-final"></script>
 </body>
 </html>

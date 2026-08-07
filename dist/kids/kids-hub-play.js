@@ -155,7 +155,7 @@
       var raw = globalThis.localStorage.getItem(LIB_KEY);
       var arr = raw ? JSON.parse(raw) : [];
       var n = Array.isArray(arr) ? arr.length : 0;
-      var max = 307;
+      var max = 365;
       return {
         value: Math.min(n, max),
         max: max,
@@ -163,7 +163,7 @@
         tier: ''
       };
     } catch (e) {
-      return { value: 0, max: 307, pct: 0, tier: '' };
+      return { value: 0, max: 365, pct: 0, tier: '' };
     }
   }
 

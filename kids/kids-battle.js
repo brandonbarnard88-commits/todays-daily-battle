@@ -10822,7 +10822,7 @@
       { name: 'Bronze', min: 7, color: '#cd7f32' },
       { name: 'Silver', min: 30, color: '#c0c0c0' },
       { name: 'Gold', min: 100, color: '#ffd700' },
-      { name: 'Platinum', min: 307, color: '#e5e4e2' }
+      { name: 'Platinum', min: 365, color: '#e5e4e2' }
     ];
 
     /** Shared haystack for Kids Bible story fuzzy search (library grid, URL ?story=, hub preview). */
@@ -13820,8 +13820,11 @@
 
   function tdbComputeStoryMasterState() {
     var stories = window.TDB_BIBLE_STORIES || {};
-    var total = (window.TDB_BIBLE_STORY_KEYS && window.TDB_BIBLE_STORY_KEYS.length) || Object.keys(stories).length;
-    if (!total) total = 1;
+    var keyCount = (window.TDB_BIBLE_STORY_KEYS && window.TDB_BIBLE_STORY_KEYS.length) || Object.keys(stories).length;
+    var goal = (window.TDB_GENTLE_JOURNEY && window.TDB_GENTLE_JOURNEY.CANONICAL_DISTINCT_STORY_GOAL) || 365;
+    /* North-star goal is distinct calm stories (365), not alias/order length. */
+    var total = Math.max(goal, 1);
+    if (!keyCount) total = Math.max(1, total);
     var list = tdbStoryMasterReadListMerged();
     var bonus = tdbStoryMasterBonusRead();
     var effective = Math.min(total, list.length + bonus);
@@ -13845,8 +13848,8 @@
     }
     else if (effective < 30) next = ' Next tier: Silver at 30.';
     else if (effective < 100) next = ' Next tier: Gold at 100.';
-    else if (effective < total) next = ' Next tier: Platinum when you finish all ' + total + '.';
-    else next = ' You finished the whole library!';
+    else if (effective < total) next = ' Next tier: Platinum toward ' + total + ' distinct calm stories (not the same as journey path stops).';
+    else next = ' You reached the ' + total + '-story calm goal. Reset or browse anytime—no streak required.';
     return {
       list: list,
       listLen: list.length,
@@ -13857,7 +13860,7 @@
       tierLabel: labels[tier] || tier,
       pct: pct,
       gentleStart: gentleStart,
-      summaryLine: 'Story Master: ' + labels[tier] + ' • ' + pct + '% (' + effective + '/' + total + ').' + next
+      summaryLine: 'Story Master: ' + labels[tier] + ' • ' + pct + '% (' + effective + '/' + total + ' toward distinct calm stories).' + next
     };
   }
 

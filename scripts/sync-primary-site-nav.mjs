@@ -141,10 +141,17 @@ function main() {
 
     next = next.replace(RE_INLINE_AUTH, '\n');
 
-    if (rel === 'gods-university-of-life.html' && touched) {
+    if (rel === 'plans.html' && touched) {
       next = next.replace(
-        /<a href="\/gods-university-of-life\.html" id="nav-curriculum"/,
-        '<a href="/gods-university-of-life.html" id="nav-curriculum" aria-current="page"'
+        /<a href="\/plans\.html#plans-maps-into-paths-details" id="nav-curriculum"/,
+        '<a href="/plans.html#plans-maps-into-paths-details" id="nav-curriculum" aria-current="page"'
+      );
+    }
+
+    if (rel === 'university.html' && touched) {
+      next = next.replace(
+        /<a href="\/university\.html" id="nav-university-core"/,
+        '<a href="/university.html" id="nav-university-core" aria-current="page"'
       );
     }
 

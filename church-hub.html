@@ -38,6 +38,23 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="app-shell">
     <header class="top-bar">
+      <div class="tdb-lang-switcher-header-wrap">
+        <nav class="tdb-lang-switcher tdb-lang-switcher--header tdb-lang-switcher--labeled" aria-label="Choose language" data-tdb-lang-switcher lang="en">
+          <span class="tdb-lang-switcher-eyebrow" aria-hidden="true">Language</span>
+          <span class="tdb-lang-switcher-inner">
+            <a class="tdb-lang-opt" href="/" hreflang="en" data-tdb-pick="en">English</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/es/" hreflang="es" data-tdb-pick="es">Español</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/fr/" hreflang="fr" data-tdb-pick="fr">Français</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt" href="/pt/" hreflang="pt" data-tdb-pick="pt">Português</a>
+            <span class="tdb-lang-sep" aria-hidden="true">·</span>
+            <a class="tdb-lang-opt tdb-lang-more" href="/explore.html#languages">More languages</a>
+          </span>
+        </nav>
+      </div>
+
       <div class="brand">
         <a class="brand-title" href="/">Today's Daily Battle</a>
         <p class="tdb-header-heartbeat site-tagline">For Family, For Country, For GOD</p>
@@ -70,9 +87,10 @@
               <a href="/study.html">Study workspace</a>
             </div>
             <div class="tdb-nav-more-group">
-              <span class="tdb-nav-more-group-label">Maps into The Paths</span>
-              <a href="/gods-university-of-life.html" id="nav-curriculum" aria-label="God&rsquo;s University of Life — curriculum map nested under The Paths">Curriculum map</a>
-              <a href="/university.html" id="nav-university-core" aria-label="University map — five anchor verses">University map</a>
+              <span class="tdb-nav-more-group-label">Under The Paths</span>
+              <a href="/plans.html#plansDoorChooser">Feeling doors</a>
+              <a href="/plans.html#plans-maps-into-paths-details" id="nav-curriculum" aria-label="Curriculum and university maps live under The Paths">Curriculum &amp; university maps</a>
+              <a href="/university.html" id="nav-university-core" class="sr-only" aria-label="University map — five anchor verses">University map</a>
               <a href="/reading-plan.html">7-day reading plan</a>
               <a href="/daily-rhythm.html">Daily Rhythm</a>
               <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
@@ -81,7 +99,7 @@
             </div>
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">Family &amp; Kids</span>
-              <a href="/kids/">Kids play</a>
+              <a href="/kids/">Kids Battle</a>
               <a href="/kids/corner.html">Bible Story Library</a>
               <a href="/coloring.html">Kids Coloring</a>
               <a href="/little-ones.html">For the Little Ones</a>
@@ -93,7 +111,6 @@
             <div class="tdb-nav-more-group">
               <span class="tdb-nav-more-group-label">About the Site</span>
               <a href="/explore.html#start-here" id="nav-site-guide" aria-label="Start here — calm map on Explore">Start here</a>
-              <a href="/campus">Campus map (alias)</a>
               <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
               <a href="/about.html">About</a>
               <a href="/story.html">Story</a>
@@ -116,9 +133,9 @@
       <nav class="side-nav" aria-label="Site navigation">
         <a href="/">Home</a>
         <a href="/explore.html">Explore</a>
-        <a href="/church-hub.html" aria-current="page">Church Hub</a>
+        <a href="/church-hub.html" aria-current="page">Pastor&rsquo;s Study</a>
         <a href="/church-sharing-kit.html">Church Sharing Kit</a>
-        <a href="/for-pastors.html">For Pastors</a>
+        <a href="/sermon.html">Sermon Builder</a>
         <a href="/testimonials.html">Stories</a>
         <a href="/about.html">About</a>
       </nav>
@@ -130,7 +147,7 @@
           <p class="for-pastors-eyebrow">Pastor’s Study</p>
           <h1>Pastor &amp; Church Tools</h1>
           <p class="section-note topic-mood-porch">Hey Pastor — you and your people are already welcome here. Free KJV tools that supplement the local church. One verse. One small step. Offline when you need it. No login required.</p>
-          <p class="section-note">Nested under this Study: <a href="/for-pastors.html">For Pastors &amp; Mobile Ministers</a> · <a href="/pastor-toolkit.html">Pastor toolkit</a> · <a href="/pastor/">Pastor hub</a> · <a href="/sermon.html">Sermon Builder</a>.</p>
+          <p class="section-note">Nested under this Study (open when you need them): <a href="/sermon.html">Sermon Builder</a> · <a href="/for-pastors.html">For Pastors &amp; Mobile Ministers</a> · <a href="/pastor-toolkit.html">Pastor toolkit</a> · <a href="/team-toolkit.html">Team toolkit</a> · <a href="/church-starter-pack.html">Church starter pack</a>.</p>
         </header>
 
         <section class="glass tdb-porch-paper-glass">
@@ -161,6 +178,30 @@
             <summary class="tdb-hub-disclosure__summary">More church tools</summary>
             <div class="tdb-hub-disclosure__inner">
           <div class="church-hub-wins-grid">
+            <a href="/for-pastors.html" class="church-hub-win-card">
+              <strong>For Pastors &amp; Mobile Ministers</strong>
+              <span class="win-desc">Teaching index, OIA practice, and quiet prep notes—nested under this Study, not a second campus door.</span>
+              <span class="btn btn-secondary small">Open For Pastors →</span>
+            </a>
+
+            <a href="/pastor-toolkit.html" class="church-hub-win-card">
+              <strong>Pastor toolkit</strong>
+              <span class="win-desc">Prep shelf and topic→sermon helpers. Same Study; one more desk when you need it.</span>
+              <span class="btn btn-secondary small">Open Pastor toolkit →</span>
+            </a>
+
+            <a href="/team-toolkit.html" class="church-hub-win-card">
+              <strong>Team toolkit</strong>
+              <span class="win-desc">Small-group and team packs for the household of faith.</span>
+              <span class="btn btn-secondary small">Open Team toolkit →</span>
+            </a>
+
+            <a href="/church-starter-pack.html" class="church-hub-win-card">
+              <strong>Church starter pack</strong>
+              <span class="win-desc">A gentle weekly OS for small churches—discover here, not as a peer nav item.</span>
+              <span class="btn btn-secondary small">Open starter pack →</span>
+            </a>
+
             <a href="/embeddable-widgets.html" class="church-hub-win-card">
               <strong>Embeddable Verse Widgets</strong>
               <span class="win-desc">Drop a daily KJV verse + calm breakdown directly on your church website with one script tag. Customizable and privacy-first.</span>
@@ -210,7 +251,7 @@
           <p class="section-note">We exist to help your people stay in the Word between Sundays and to give you practical, low-prep resources. The local church is the primary place of discipleship. This porch is simply a quiet side porch — free, private, offline-first, and built with reverence for the KJV. Take what serves. Ignore the rest. You and your congregation are already welcome here.</p>
           <div class="cta-group" style="margin-top:2rem;text-align:center;">
             <a href="/church-sharing-kit.html" class="btn btn-primary">Open Church Sharing Kit</a>
-            <a href="/for-pastors.html" class="btn btn-secondary">For Pastors &amp; Mobile Ministers</a>
+            <a href="/sermon.html" class="btn btn-secondary">Start Sermon workspace</a>
             <a href="/where-support-goes.html" class="btn btn-secondary">Where Support Goes</a>
           </div>
         </section>
@@ -244,7 +285,6 @@
     <a href="/calm.html">Quiet Hall</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/family.html">Family hub</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/explore.html">Explore</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
-    <a href="/campus">Campus (alias)</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/about.html">About</a><span class="site-footer-ess-sep" aria-hidden="true">·</span>
     <a href="/give" class="site-footer-ess-support" id="footer-support-quiet-place" aria-label="Support this quiet place — you choose the amount">Support this quiet place</a>
   </nav>
@@ -276,7 +316,7 @@
     <a href="/media.html">Media</a>
     <a href="/roadmap.html">Roadmap</a>
     <a href="/give">Support</a>
-    <a href="/for-pastors.html">For pastors &amp; teachers</a>
+    <a href="/church-hub.html">Pastor&rsquo;s Study</a>
     <a href="/reader.html">Chapter reader</a>
     <a href="/bible/tools.html">Study workshop</a>
     <a href="/bible-tool.html">The Library</a>
@@ -335,12 +375,13 @@
       </div>
       <div class="footer-sitemap-col">
         <h3>For the Household of Faith</h3>
-        <a href="/church.html">Church center</a>
-        <a href="/church/">Church join hub</a>
-        <a href="/team-toolkit.html">Team toolkit</a>
-        <a href="/pastor-toolkit.html">Pastor toolkit</a>
-        <a href="/pastor/">Pastor hub</a>
+        <a href="/church-hub.html">Pastor&rsquo;s Study</a>
         <a href="/sermon.html">Sermon builder</a>
+        <a href="/church-sharing-kit.html">Church sharing kit</a>
+        <a href="/church.html">Church center</a>
+        <a href="/team-toolkit.html">Team toolkit</a>
+        <a href="/pastor-toolkit.html">Pastor toolkit (nested)</a>
+        <a href="/for-pastors.html">For pastors (nested)</a>
         <a href="/family.html">Family hub</a>
         <a href="/little-ones.html">For the Little Ones</a>
         <a href="/family-armor.html">Family Armor</a>
@@ -354,7 +395,6 @@
         <a href="/porch-map-one-page-print.html">Porch map (print)</a>
         <a href="/porch-pathways-ribbon-one-page-print.html">Ribbon pathways (print)</a>
         <a href="/explore.html#start-here">Explore start here</a>
-        <a href="/find-a-path.html">Find a path (alias)</a>
         <a href="/learn-the-word.html">Learn the Word</a>
         <a href="/bible-study.html">Bible studies</a>
         <a href="/shop.html">Shop</a>

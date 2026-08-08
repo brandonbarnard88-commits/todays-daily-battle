@@ -563,7 +563,20 @@
       to: audienceShared || sanitizeText(v.to),
       setting: sanitizeText(v.setting || sh.setting || '')
     });
-    var simple = plainE || sanitizeText(v.plain) || sanitizeText(lines[0] || '') || sanitizeText(v.app);
+    var meaningOnly = plainE || sanitizeText(v.plain) || sanitizeText(lines[0] || '') || sanitizeText(v.app);
+    meaningOnly = meaningOnly.replace(/^What was going on:[\s\S]*?What it means:\s*/i, '').trim();
+    var situation = sanitizeText(sh.situation || sh.setting || ctx.setting || v.setting || '');
+    if (!situation && ctx.about && ctx.to) {
+      situation = sanitizeText(ctx.about) + ' speaking to ' + sanitizeText(ctx.to) + '.';
+    }
+    var simple = meaningOnly;
+    if (situation && meaningOnly) {
+      simple =
+        'What was going on: ' +
+        situation.replace(/\.$/, '') +
+        '. What it means: ' +
+        meaningOnly.replace(/^What it means:\s*/i, '');
+    }
     var who = aboutA || sanitizeText(v.about) || sanitizeText(v.speaker) || ctx.about;
     if (!who) {
       if (row) {
@@ -623,12 +636,13 @@
       simple: simple,
       who: who,
       audience: audience,
+      situation: situation,
       relatesToday: relatesToday,
       relYou: relYou,
       oneStep: oneStep,
       prayer: prayer,
       year: yr,
-      setting: sanitizeText(ctx.setting || '')
+      setting: sanitizeText(ctx.setting || situation || '')
     };
   }
 
@@ -644,12 +658,14 @@
     var simple = lesson.simple;
     var who = lesson.who;
     var audience = lesson.audience;
+    var situation = lesson.situation || lesson.setting || '';
     var relatesToday = lesson.relatesToday;
     var relYou = lesson.relYou;
     var oneStep = lesson.oneStep;
     var prayer = lesson.prayer;
     var yr = lesson.year;
     simpleOut.textContent = simple;
+    setVotdRowVisible(document.getElementById('heroVbdRowSit'), document.getElementById('heroDeepSituation'), situation);
     setVotdRowVisible(document.getElementById('heroVbdRowWho'), document.getElementById('heroDeepWho'), who);
     setVotdRowVisible(document.getElementById('heroVbdRowAud'), document.getElementById('heroDeepAudience'), audience);
     setVotdRowVisible(document.getElementById('heroVbdRowCtx'), document.getElementById('heroDeepContext'), relatesToday);
@@ -800,11 +816,13 @@
       practicalStep: v.action || v.app,
       about: v.about || v.speaker,
       to: v.to,
-      setting: v.setting || ''
+      setting: v.setting || '',
+      situation: v.setting || ''
     } : {
       about: v.about || v.speaker,
       to: v.to,
-      setting: v.setting || ''
+      setting: v.setting || '',
+      situation: v.setting || ''
     });
 
     var imgText = document.getElementById('verseImgText');

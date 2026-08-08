@@ -30,7 +30,7 @@
   var AGE_KEY = 'tdb_age_mode_v1';
   var NOTE_FALLBACK_KEY = 'tdb_breakdown_notes_v1';
   /* v4: verse-grounded plains (BBE/modernized KJV), not mood stamps */
-  var BREAKDOWN_CACHE_PREFIX = 'tdb_vb_cache_v4::';
+  var BREAKDOWN_CACHE_PREFIX = 'tdb_vb_cache_v5::';
   var BREAKDOWN_MAX_MEMORY_CACHE = 600;
   var KJV_DICT_URLS = ['/data/kjv-full.json', '/kjv.json'];
   var BREAKDOWN_OVERRIDES_SCRIPT_URL = '/verse-breakdown-overrides.js';
@@ -761,13 +761,36 @@
       try {
         var hit = window.TDB_resolveVerseContext(ref);
         if (hit && hit.about && hit.to && !isWeakContextStamp(hit.about, hit.to)) {
-          return { s: tdbPlainTextForUi(hit.about), a: tdbPlainTextForUi(hit.to), setting: tdbPlainTextForUi(hit.setting || '') };
+          return {
+            s: tdbPlainTextForUi(hit.about),
+            a: tdbPlainTextForUi(hit.to),
+            setting: tdbPlainTextForUi(hit.setting || ''),
+            situation: tdbPlainTextForUi(hit.situation || hit.setting || '')
+          };
         }
       } catch (eCtx) {}
     }
     var book = parseBook(ref);
     var ctx = BOOK_CONTEXT[book] || { s: 'The biblical author', a: 'Original audience' };
-    return { s: ctx.s, a: ctx.a, setting: '' };
+    return {
+      s: ctx.s,
+      a: ctx.a,
+      setting: '',
+      situation: ctx.s + ' speaking to ' + ctx.a + '.'
+    };
+  }
+
+  /** Combine exact biblical situation + plain meaning (every verse). */
+  function composeContextAndMeaning(situation, plain) {
+    var sit = tdbPlainTextForUi(situation || '').trim();
+    var p = tdbPlainTextForUi(plain || '').trim();
+    if (sit && p) {
+      if (/^What was going on:/i.test(p) || p.toLowerCase().indexOf(sit.slice(0, 20).toLowerCase()) === 0) {
+        return p;
+      }
+      return 'What was going on: ' + sit.replace(/\.$/, '') + '. What it means: ' + p.replace(/^What it means:\s*/i, '');
+    }
+    return p || sit || '';
   }
 
   function buildGeneratedBase(ref, text) {
@@ -814,10 +837,14 @@
         plain = plain.slice(0, 157) + '…';
       }
     }
+    var situation = tdbPlainTextForUi(ctx.situation || ctx.setting || '');
     return {
       about: ctx.s,
       to: ctx.a,
+      setting: tdbPlainTextForUi(ctx.setting || ''),
+      situation: situation,
       plainExplanation: plain,
+      plainMeaningOnly: plain,
       groupApplication: '',
       modernApplication: inferApplies(raw),
       source: (curatedPlain && !isNearVerbatimPlain(curatedPlain, raw)) ? 'override' : (bbePlain ? 'bbe' : 'generated')
@@ -825,10 +852,16 @@
   }
 
   function finalizeBreakdown(base, group) {
+    var meaningOnly = tdbPlainTextForUi(base.plainMeaningOnly || base.plainExplanation || '');
+    var situation = tdbPlainTextForUi(base.situation || base.setting || '');
+    var combined = composeContextAndMeaning(situation, meaningOnly);
     var out = {
       about: plainSpeaker(base.about || ''),
       to: plainAudience(base.to || ''),
-      plainExplanation: tdbPlainTextForUi(base.plainExplanation || ''),
+      setting: tdbPlainTextForUi(base.setting || ''),
+      situation: situation,
+      plainMeaningOnly: meaningOnly,
+      plainExplanation: combined || meaningOnly,
       groupApplication: tdbPlainTextForUi(base.groupApplication || ''),
       modernApplication: tdbPlainTextForUi(base.modernApplication || ''),
       bubbleTitle: 'Verse breakdown',
@@ -852,26 +885,48 @@
     var useCache = Object.keys(manualOverride).length === 0;
     var cached = useCache ? readCachedBreakdown(ref, group, raw) : null;
     if (cached) {
-      /* Re-validate cache: older v2 entries (and any weak seed) must not stick as “plain.” */
+      /* Re-validate cache: older entries (and any weak seed) must not stick as “plain.” */
       var cachedPlain = cached.plainExplanation || cached.layman || '';
-      if (cachedPlain && !isNearVerbatimPlain(cachedPlain, raw) && !isWeakContextStamp(cached.about, cached.to)) {
+      var hasCombined =
+        /^What was going on:/i.test(cachedPlain) ||
+        (!!(cached.situation || cached.setting) && /What it means:/i.test(cachedPlain));
+      if (
+        cachedPlain &&
+        !isNearVerbatimPlain(cachedPlain, raw) &&
+        !isWeakContextStamp(cached.about, cached.to) &&
+        hasCombined
+      ) {
         return cached;
+      }
+      /* Drop incomplete cache so finalize re-combines situation + meaning. */
+      if (useCache) {
+        try {
+          var dropKey = getTextCacheKey(ref, group, raw);
+          BREAKDOWN_MEMORY_CACHE.delete(dropKey);
+          if (typeof localStorage !== 'undefined') localStorage.removeItem(dropKey);
+        } catch (eDrop) {}
       }
     }
     var base = buildGeneratedBase(ref, raw);
     var registered = scrubWeakPlainFields(getRegisteredOverride(ref, group), raw);
     var merged = Object.assign({}, base, registered, manualOverride);
+    var freshCtx = resolveContextForRef(ref);
     if (isWeakContextStamp(merged.about, merged.to)) {
-      var freshCtx = resolveContextForRef(ref);
       merged.about = freshCtx.s;
       merged.to = freshCtx.a;
     }
-    merged.plainExplanation = ensureStrongPlain(ref, raw, merged.plainExplanation || merged.layman || merged.plain || '');
+    if (!merged.setting) merged.setting = freshCtx.setting || '';
+    if (!merged.situation) merged.situation = freshCtx.situation || freshCtx.setting || '';
+    /* Keep meaning-only for combine; strip prior combined stamps from cache/overrides. */
+    var meaningSeed = merged.plainMeaningOnly || merged.plainExplanation || merged.layman || merged.plain || '';
+    meaningSeed = String(meaningSeed || '')
+      .replace(/^What was going on:[\s\S]*?What it means:\s*/i, '')
+      .trim();
+    merged.plainMeaningOnly = ensureStrongPlain(ref, raw, meaningSeed);
+    merged.plainExplanation = merged.plainMeaningOnly;
     if (!merged.groupApplication) merged.groupApplication = buildGroupApplication(group, inferRelationTopic(ref, raw));
     if (!merged.modernApplication) merged.modernApplication = inferApplies(raw);
     var finalBreakdown = finalizeBreakdown(merged, group);
-    finalBreakdown.plainExplanation = ensureStrongPlain(ref, raw, finalBreakdown.plainExplanation);
-    finalBreakdown.layman = finalBreakdown.plainExplanation;
     if (useCache) writeCachedBreakdown(ref, group, raw, finalBreakdown);
     return finalBreakdown;
   }

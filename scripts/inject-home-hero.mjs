@@ -6,6 +6,7 @@
  */
 import fs from 'fs';
 import path from 'path';
+import vm from 'vm';
 import { fileURLToPath } from 'url';
 import { loadYear365, pickVerseForToday, utcDayOfYear } from './lib/hero-daily-verse-pick.mjs';
 import {
@@ -17,6 +18,58 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 const distIndex = path.join(root, 'dist', 'index.html');
 const rootIndex = path.join(root, 'index.html');
+
+function loadHeroExplanationsMap() {
+  try {
+    const code = fs.readFileSync(path.join(root, 'hero-daily-365-explanations.js'), 'utf8');
+    const sandbox = { console };
+    sandbox.window = sandbox;
+    sandbox.globalThis = sandbox;
+    vm.runInNewContext(code, sandbox, { filename: 'hero-daily-365-explanations.js' });
+    const list = sandbox.__TDB_HERO_DAILY_EXPLANATIONS;
+    const map = Object.create(null);
+    if (Array.isArray(list)) {
+      for (const row of list) {
+        if (!row || !row.ref) continue;
+        map[normalizeRefBare(row.ref)] = row;
+      }
+    }
+    return map;
+  } catch (e) {
+    return Object.create(null);
+  }
+}
+
+function loadVerseContextResolver() {
+  try {
+    const code = fs.readFileSync(path.join(root, 'verse-context.js'), 'utf8');
+    const sandbox = { console };
+    sandbox.window = sandbox;
+    sandbox.globalThis = sandbox;
+    vm.runInNewContext(code, sandbox, { filename: 'verse-context.js' });
+    return typeof sandbox.TDB_resolveVerseContext === 'function'
+      ? sandbox.TDB_resolveVerseContext
+      : null;
+  } catch (e) {
+    return null;
+  }
+}
+
+function composeInjectedCombined(situation, plain) {
+  const sit = String(situation || '').replace(/\s+/g, ' ').trim();
+  const p = String(plain || '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .replace(/^What was going on:[\s\S]*?What it means:\s*/i, '')
+    .replace(/^What it means:\s*/i, '');
+  if (sit && p) {
+    if (/^What was going on:/i.test(p) || p.toLowerCase().indexOf(sit.slice(0, 24).toLowerCase()) === 0) {
+      return p;
+    }
+    return 'What was going on: ' + sit.replace(/\.$/, '') + '. What it means: ' + p;
+  }
+  return p || sit || '';
+}
 
 /** Replace stub id="tdb-home-daily-graph" (source index.html → dist) with UTC verse graph. */
 const HOME_DAILY_LD_RE =
@@ -120,27 +173,54 @@ function buildReadChapterHref(refStr) {
 }
 
 /** Easy first-paint lesson copy for inject (mirrors hero-daily-first-paint tone). */
-function buildInjectedHeroLesson(refPlain, textPlain, plainMap) {
+function buildInjectedHeroLesson(refPlain, textPlain, plainMap, explMap, resolveCtx) {
   const ref = normalizeRefBare(refPlain);
   const text = String(textPlain || '').replace(/\s+/g, ' ').trim();
   const lower = text.toLowerCase();
+  const expl = (explMap && explMap[ref]) || null;
+  let meaningOnly = '';
+  let step =
+    'Read it slowly one more time out loud. Thank God for one clear thing it says, then take the next small step with that line in mind.';
+  let prayer =
+    'Lord, sink ' +
+    refPlain +
+    ' into my heart—not as noise, but as truth that changes how I walk. In Jesus’ name, Amen.';
+
   if (/^psalm\s+90\s*:\s*14$/i.test(ref) || /satisfy us early with thy mercy/i.test(lower)) {
-    return {
-      plain: 'God, fill us early with Your kindness, so we can rejoice and be glad all day long.',
-      step: 'Before you open messages, pray once: “Satisfy me early with Your mercy.” Then name one thing you can be glad for today.',
-      prayer: 'Lord, sink Psalm 90:14 into my heart—not as noise, but as truth that changes how I walk. In Jesus’ name, Amen.',
-    };
+    meaningOnly =
+      'God, fill us early with Your kindness, so we can rejoice and be glad all day long.';
+    step =
+      'Before you open messages, pray once: “Satisfy me early with Your mercy.” Then name one thing you can be glad for today.';
+    prayer =
+      'Lord, sink Psalm 90:14 into my heart—not as noise, but as truth that changes how I walk. In Jesus’ name, Amen.';
+  } else if (expl && expl.plain) {
+    meaningOnly = String(expl.plain).replace(/\s+/g, ' ').trim();
+    if (expl.step) step = String(expl.step).replace(/\s+/g, ' ').trim();
+  } else {
+    // Prefer curated plain meanings (Psalm/Psalms alias-safe). Never echo the KJV with a prefix.
+    meaningOnly = buildHeroLaymanPlain(ref, text, plainMap);
   }
-  // Prefer curated plain meanings (Psalm/Psalms alias-safe). Never echo the KJV with a prefix.
-  const plain = buildHeroLaymanPlain(ref, text, plainMap);
+
+  let situation = expl && expl.setting ? String(expl.setting).replace(/\s+/g, ' ').trim() : '';
+  if (!situation && typeof resolveCtx === 'function') {
+    try {
+      const hit = resolveCtx(ref) || {};
+      situation = String(hit.situation || hit.setting || '').replace(/\s+/g, ' ').trim();
+    } catch (eCtx) {
+      /* non-fatal */
+    }
+  }
+  const combined = composeInjectedCombined(situation, meaningOnly);
   return {
-    plain,
-    step: 'Read it slowly one more time out loud. Thank God for one clear thing it says, then take the next small step with that line in mind.',
-    prayer: 'Lord, sink ' + refPlain + ' into my heart—not as noise, but as truth that changes how I walk. In Jesus’ name, Amen.',
+    plain: combined || meaningOnly,
+    meaningOnly,
+    situation,
+    step,
+    prayer,
   };
 }
 
-function applyHeroInject(html, label, refPlain, textPlain, verseInner, plainMap) {
+function applyHeroInject(html, label, refPlain, textPlain, verseInner, plainMap, explMap, resolveCtx) {
   const heroVerseRe = /<p[^>]*\bid="heroVerse"[^>]*>[\s\S]*?<\/p>/;
   if (!heroVerseRe.test(html)) fail('could not find #heroVerse paragraph in ' + label);
   html = html.replace(
@@ -176,12 +256,45 @@ function applyHeroInject(html, label, refPlain, textPlain, verseInner, plainMap)
     return '<button' + u + '>';
   });
 
-  // Prefill easy breakdown so first paint is never an empty “Simple layman terms” box.
-  const lesson = buildInjectedHeroLesson(refPlain, textPlain, plainMap);
+  // Prefill combined situation + meaning so first paint teaches context for every verse.
+  const lesson = buildInjectedHeroLesson(refPlain, textPlain, plainMap, explMap, resolveCtx);
   html = html.replace(
     /<p id="heroSimpleBreakdown">[\s\S]*?<\/p>/,
     '<p id="heroSimpleBreakdown">' + escapeHtmlText(lesson.plain) + '</p>'
   );
+  if (lesson.situation) {
+    html = html.replace(
+      /(<div class="hero-vbd-bundle" id="heroVbdRowSit"[^>]*)\s*hidden/,
+      '$1'
+    );
+    html = html.replace(
+      /(<p id="heroDeepSituation">)[\s\S]*?(<\/p>)/,
+      '$1' + escapeHtmlText(lesson.situation) + '$2'
+    );
+  }
+  if (explMap) {
+    const expl = explMap[normalizeRefBare(refPlain)];
+    if (expl && expl.about) {
+      html = html.replace(
+        /(<div class="hero-vbd-bundle" id="heroVbdRowWho"[^>]*)\s*hidden/,
+        '$1'
+      );
+      html = html.replace(
+        /(<p id="heroDeepWho">)[\s\S]*?(<\/p>)/,
+        '$1' + escapeHtmlText(String(expl.about)) + '$2'
+      );
+    }
+    if (expl && expl.to) {
+      html = html.replace(
+        /(<div class="hero-vbd-bundle" id="heroVbdRowAud"[^>]*)\s*hidden/,
+        '$1'
+      );
+      html = html.replace(
+        /(<p id="heroDeepAudience">)[\s\S]*?(<\/p>)/,
+        '$1' + escapeHtmlText(String(expl.to)) + '$2'
+      );
+    }
+  }
   html = html.replace(
     /(<span id="heroVotdOneStep">)[\s\S]*?(<\/span>)/,
     '$1' + escapeHtmlText(lesson.step) + '$2'
@@ -289,6 +402,8 @@ function main() {
     fail('invalid verse from 365 list');
   }
   const plainMap = loadVersePlainMeanings(root);
+  const explMap = loadHeroExplanationsMap();
+  const resolveCtx = loadVerseContextResolver();
 
   const refPlain = String(v.ref).trim();
   const refNorm = normalizeRefBare(refPlain);
@@ -310,7 +425,9 @@ function main() {
       refPlain,
       textPlain,
       verseInner,
-      plainMap
+      plainMap,
+      explMap,
+      resolveCtx
     );
     fs.writeFileSync(t.path, next, 'utf8');
   }

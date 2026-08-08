@@ -7,6 +7,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { situationForChapter, composeSituationLine } from './lib/bible-situation-map.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
@@ -199,10 +200,19 @@ function buildChapters(chapterCounts) {
     for (let ch = 1; ch <= maxCh; ch++) {
       const key = book + ':' + ch;
       const ov = CHAPTER_OVERRIDES[key];
+      const band = situationForChapter(book, ch);
+      const about = (ov && ov.about) || band.about || warm.about;
+      const to = (ov && ov.to) || band.to || warm.to;
+      /* Prefer full narrative situation over short title-only settings. */
+      let setting = (band && band.situation) || (ov && ov.setting) || '';
+      if (ov && ov.setting && band && band.situation && ov.setting.length > band.situation.length) {
+        setting = ov.setting;
+      }
+      if (ov && ov.setting && !band.situation) setting = ov.setting;
       out[key] = {
-        about: (ov && ov.about) || warm.about,
-        to: (ov && ov.to) || warm.to,
-        setting: (ov && ov.setting) || ''
+        about,
+        to,
+        setting: setting || composeSituationLine('', about, to)
       };
     }
   }
@@ -307,48 +317,76 @@ function buildRuntimeJs(chapters, ranges, bookWarm) {
     return false;
   }
 
+  function isWeakSetting(setting) {
+    var sit = sanitize(setting);
+    if (!sit) return true;
+    /* Full narrative: long enough with real sentence shape */
+    if (sit.length >= 55 && sit.split(/\\s+/).length >= 10) return false;
+    if (sit.length >= 40 && /[.!?]/.test(sit) && sit.split(/\\s+/).length >= 8) return false;
+    return true;
+  }
+
+  function composeSituation(setting, about, to) {
+    var sit = sanitize(setting);
+    var a = sanitize(about);
+    var t = sanitize(to);
+    if (sit && !isWeakSetting(sit)) {
+      return /[.!?]$/.test(sit) ? sit : sit + '.';
+    }
+    /* Short title only — still name the moment with speaker/audience */
+    if (sit && a && t) {
+      return sit.replace(/[.!?]$/, '') + ' — spoken by ' + a + ' to ' + t + '.';
+    }
+    if (a && t) return a + ' speaking to ' + t + '.';
+    if (sit) return /[.!?]$/.test(sit) ? sit : sit + '.';
+    return 'God’s Word spoken into a real moment in history — still true for you.';
+  }
+
+  function packContext(about, to, setting, source) {
+    var a = sanitize(about);
+    var t = sanitize(to);
+    var s = sanitize(setting);
+    return {
+      about: a,
+      to: t,
+      setting: s,
+      situation: composeSituation(s, a, t),
+      source: source || 'none'
+    };
+  }
+
   function resolveVerseContext(ref) {
     var parsed = parseRef(ref);
     if (!parsed) {
-      return { about: '', to: '', setting: '', source: 'none' };
+      return packContext('', '', '', 'none');
     }
+    var chap = CHAPTERS[parsed.book + ':' + parsed.c];
+    var chapSetting = chap && chap.setting ? sanitize(chap.setting) : '';
     var verseHit = VERSE_MAP[parsed.key];
     if (verseHit && verseHit.about && verseHit.to && !isWeakContext(verseHit.about, verseHit.to)) {
-      return {
-        about: sanitize(verseHit.about),
-        to: sanitize(verseHit.to),
-        setting: sanitize(verseHit.setting || ''),
-        source: 'verse'
-      };
+      var vSet = sanitize(verseHit.setting || '');
+      if (isWeakSetting(vSet) && !isWeakSetting(chapSetting)) vSet = chapSetting;
+      return packContext(verseHit.about, verseHit.to, vSet, 'verse');
     }
     var rangeHit = matchRange(parsed.book, parsed.c, parsed.v);
     if (rangeHit && !isWeakContext(rangeHit.about, rangeHit.to)) {
-      return rangeHit;
+      var rSet = sanitize(rangeHit.setting || '');
+      if (isWeakSetting(rSet) && !isWeakSetting(chapSetting)) rSet = chapSetting;
+      return packContext(rangeHit.about, rangeHit.to, rSet, 'range');
     }
-    var chap = CHAPTERS[parsed.book + ':' + parsed.c];
     if (chap && chap.about && chap.to && !isWeakContext(chap.about, chap.to)) {
-      return {
-        about: sanitize(chap.about),
-        to: sanitize(chap.to),
-        setting: sanitize(chap.setting || ''),
-        source: 'chapter'
-      };
+      return packContext(chap.about, chap.to, chap.setting || '', 'chapter');
     }
     var book = BOOK_WARM[parsed.book] || BOOK_WARM.Psalm;
     if (book) {
-      return {
-        about: sanitize(book.about),
-        to: sanitize(book.to),
-        setting: '',
-        source: 'book'
-      };
+      return packContext(book.about, book.to, chapSetting || '', 'book');
     }
-    return {
-      about: 'The biblical writer',
-      to: 'God’s people in their time (and you today)',
-      setting: '',
-      source: 'fallback'
-    };
+    return packContext(
+      'The biblical writer',
+      'God’s people in their time (and you today)',
+      '',
+      'fallback'
+    );
   }
 
   function registerVerseContext(ref, about, toAudience, setting) {

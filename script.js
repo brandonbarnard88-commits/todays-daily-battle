@@ -94,7 +94,7 @@ function tdbIsHomePage() {
     }
     if (!document.querySelector('script[data-tdb-verse-context]') && !window.__TDB_VERSE_CONTEXT_READY) {
       var ctxScr = document.createElement('script');
-      ctxScr.src = '/verse-context.js?v=20260806-context';
+      ctxScr.src = '/verse-context.js?v=20260808-situation-every';
       ctxScr.defer = true;
       ctxScr.setAttribute('data-tdb-verse-context', '1');
       (document.head || document.documentElement).appendChild(ctxScr);
@@ -110,7 +110,7 @@ function tdbIsHomePage() {
     if (window.TDBVerseBreakdown) return;
     if (document.querySelector('script[data-tdb-verse-breakdown]')) return;
     var s = document.createElement('script');
-    s.src = '/verse-breakdown.js?v=20260805-audit-focus-lock';
+    s.src = '/verse-breakdown.js?v=20260808-situation-every';
     s.defer = true;
     s.setAttribute('data-tdb-verse-breakdown', '1');
     (document.head || document.documentElement).appendChild(s);
@@ -2831,8 +2831,8 @@ window.__tdbEmitEasterEgg = emitEasterEgg;
   if (document.querySelector('script[data-lazy-src*="verse-breakdown.js"]')) return;
   if (document.querySelector('script[data-tdb-verse-breakdown="1"]')) return;
   var trustedStd = trustedScriptURL('/verse-breakdown-standard.js?v=20260428-vbd');
-  var trustedCtx = trustedScriptURL('/verse-context.js?v=20260806-context');
-  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260805-audit-focus-lock');
+  var trustedCtx = trustedScriptURL('/verse-context.js?v=20260808-situation-every');
+  var trusted = trustedScriptURL('/verse-breakdown.js?v=20260808-situation-every');
   if (!trustedStd || !trusted) return;
   var stdScr = document.createElement('script');
   stdScr.src = trustedStd;

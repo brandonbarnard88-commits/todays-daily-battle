@@ -14,8 +14,9 @@ const verseContextPath = path.join(repoRoot, 'verse-context.js');
 const heroFirstPaintPath = path.join(repoRoot, 'hero-daily-first-paint.js');
 const distRoot = path.join(repoRoot, 'dist');
 const distSeedPath = path.join(distRoot, 'verse-breakdown-overrides.js');
-const CURRENT_BREAKDOWN_TOKEN = '20260805-audit-focus-lock';
-const CONTEXT_TOKEN = '20260806-context';
+const CURRENT_BREAKDOWN_TOKEN = '20260808-situation-every';
+const CONTEXT_TOKEN = '20260808-situation-every';
+const OVERRIDE_SEED_TOKEN = '20260805-audit-focus-lock';
 const WEAK_ABOUT = new Set(['bible writer', 'the biblical author', 'the biblical writer']);
 const WEAK_TO = new Set(['people who first heard these words', 'original audience']);
 const GROUPS = ['general', 'kid', 'teen', 'family', 'pastor', 'church-leader', 'missionary', 'street-preacher', 'bible-study-group'];
@@ -192,7 +193,7 @@ async function verifyHydrationAssets() {
   if (!indexHtml.includes(`verse-context.js?v=${CONTEXT_TOKEN}`)) {
     throw new Error('index.html is missing the current verse-context include.');
   }
-  if (!indexHtml.includes(`verse-breakdown-overrides.js?v=${CURRENT_BREAKDOWN_TOKEN}`)) {
+  if (!indexHtml.includes(`verse-breakdown-overrides.js?v=${OVERRIDE_SEED_TOKEN}`)) {
     throw new Error('index.html is missing the current verse-breakdown override seed include.');
   }
   if (!indexHtml.includes(`verse-breakdown.js?v=${CURRENT_BREAKDOWN_TOKEN}`)) {
@@ -201,7 +202,7 @@ async function verifyHydrationAssets() {
   if (!/hero-daily-first-paint\.js\?v=/.test(indexHtml)) {
     throw new Error('index.html is missing the hero first-paint script include.');
   }
-  if (!verseHtml.includes(`verse-breakdown-overrides.js?v=${CURRENT_BREAKDOWN_TOKEN}`)) {
+  if (!verseHtml.includes(`verse-breakdown-overrides.js?v=${OVERRIDE_SEED_TOKEN}`)) {
     throw new Error('verse.html is missing the current verse-breakdown override seed include.');
   }
   if (!verseHtml.includes(`verse-breakdown.js?v=${CURRENT_BREAKDOWN_TOKEN}`)) {

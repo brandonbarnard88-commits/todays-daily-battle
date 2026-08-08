@@ -15,7 +15,7 @@
     "step": "Tell God one honest sentence about what this verse touches.",
     "about": "Paul",
     "to": "the church at Philippi (and you today)",
-    "setting": "Letter from prison"
+    "setting": "Content in every state; strength through Christ"
   },
   {
     "ref": "Psalm 23:1",
@@ -50,7 +50,7 @@
     "step": "Sit still for sixty seconds with this verse—phone face down.",
     "about": "A psalm writer",
     "to": "Anyone in trouble who needs a refuge",
-    "setting": "God is our refuge"
+    "setting": "God is our refuge and strength"
   },
   {
     "ref": "Psalm 56:3",
@@ -74,7 +74,7 @@
     "plain": "You are made with care by God. Your life is not an accident to Him.",
     "step": "Before a hard conversation, read this verse once under your breath.",
     "about": "David",
-    "to": "Anyone who needs to know they are known by God",
+    "to": "Anyone who needs to know they are fully known by God",
     "setting": "Wonderfully made"
   },
   {
@@ -100,8 +100,9 @@
     "text": "The Lord is good; his mercy is everlasting.",
     "plain": "The Lord is good; His mercy lasts. That is a foundation you can stand on today.",
     "step": "Text one line of this verse to someone who needs steady words.",
-    "about": "David or another psalm writer",
-    "to": "Everyone hurting, thankful, or seeking God"
+    "about": "A psalm writer",
+    "to": "All lands called to joyful worship",
+    "setting": "Enter with thanksgiving"
   },
   {
     "ref": "Psalm 37:4",
@@ -125,8 +126,9 @@
     "text": "I will lift up mine eyes unto the hills, from whence cometh my help.",
     "plain": "I will lift up mine eyes to the hills, from from where comes my help.",
     "step": "Ask God for strength for the next hour only, then take one small step.",
-    "about": "David or another psalm writer",
-    "to": "Everyone hurting, thankful, or seeking God"
+    "about": "A song of ascents writer",
+    "to": "Travelers and anyone needing help from the Lord",
+    "setting": "I lift up my eyes to the hills"
   },
   {
     "ref": "Psalm 18:2",
@@ -176,7 +178,7 @@
     "step": "If sleep is hard, whisper one line of this verse in the dark.",
     "about": "A psalm writer",
     "to": "Anyone in trouble who needs a refuge",
-    "setting": "God is our refuge"
+    "setting": "God is our refuge and strength"
   },
   {
     "ref": "Psalm 27:1",
@@ -224,8 +226,9 @@
     "text": "The Lord shall preserve thee from all evil.",
     "plain": "The Lord will keep you safe from all evil; he will take care of your soul.",
     "step": "When comparison rises, answer it with one truth from this verse.",
-    "about": "David or another psalm writer",
-    "to": "Everyone hurting, thankful, or seeking God"
+    "about": "A song of ascents writer",
+    "to": "Travelers and anyone needing help from the Lord",
+    "setting": "I lift up my eyes to the hills"
   },
   {
     "ref": "2 Thessalonians 3:3",
@@ -400,8 +403,9 @@
     "text": "Hope thou in God: for I shall yet praise him.",
     "plain": "Put your hope in God; you will again praise Him for His help.",
     "step": "List one mercy you can thank God for that fits this verse.",
-    "about": "David or another psalm writer",
-    "to": "Everyone hurting, thankful, or seeking God"
+    "about": "The sons of Korah",
+    "to": "Anyone whose soul is downcast",
+    "setting": "Why are you cast down, O my soul?"
   },
   {
     "ref": "James 1:5",
@@ -674,16 +678,18 @@
     "text": "He will not suffer thy foot to be moved.",
     "plain": "May he not let your foot be moved: no need of sleep has he who keeps you.",
     "step": "Share the reference only with someone who is carrying a heavy week.",
-    "about": "David or another psalm writer",
-    "to": "Everyone hurting, thankful, or seeking God"
+    "about": "A song of ascents writer",
+    "to": "Travelers and anyone needing help from the Lord",
+    "setting": "I lift up my eyes to the hills"
   },
   {
     "ref": "Psalm 121:8",
     "text": "The Lord shall preserve thy going out and thy coming in.",
     "plain": "The Lord will keep watch over your going out and your coming in, from this time and for ever.",
     "step": "Turn off one noise for two minutes and let this verse fill the quiet.",
-    "about": "David or another psalm writer",
-    "to": "Everyone hurting, thankful, or seeking God"
+    "about": "A song of ascents writer",
+    "to": "Travelers and anyone needing help from the Lord",
+    "setting": "I lift up my eyes to the hills"
   },
   {
     "ref": "Zephaniah 3:17",
@@ -1235,7 +1241,7 @@
     "step": "Before you open messages, pray this verse once as a quiet start.",
     "about": "A psalm writer",
     "to": "Anyone in trouble who needs a refuge",
-    "setting": "God is our refuge"
+    "setting": "God is our refuge and strength"
   },
   {
     "ref": "1 Peter 2:9",
@@ -1815,16 +1821,18 @@
     "text": "It is a good thing to give thanks unto the Lord, and to sing praises unto thy name, O most High.",
     "plain": "- A Psalm. A Song for the Sabbath. - It is a good thing to give praise to the Lord, and to make melody to your name, O Most High;.",
     "step": "End the day by thanking God for one way this verse proved true.",
-    "about": "David or another psalm writer",
-    "to": "Everyone hurting, thankful, or seeking God"
+    "about": "A psalm writer of thanksgiving",
+    "to": "Worshipers giving thanks for God’s works",
+    "setting": "Sabbath song of praise"
   },
   {
     "ref": "Psalm 92:4",
     "text": "For thou, Lord, hast made me glad through thy work.",
     "plain": "God’s work is what makes the heart glad — joy rises when you look at what He has done, not only at how the day feels.",
     "step": "Name one work of God you can see this week — then thank Him for it out loud.",
-    "about": "David or another psalm writer",
-    "to": "Everyone hurting, thankful, or seeking God"
+    "about": "A psalm writer of thanksgiving",
+    "to": "Worshipers giving thanks for God’s works",
+    "setting": "Sabbath song of praise"
   },
   {
     "ref": "Proverbs 16:3",
@@ -1954,16 +1962,18 @@
     "text": "Make a joyful noise unto the Lord, all ye lands.",
     "plain": "- A Psalm of Praise. - Make a glad sound to the Lord, all the earth.",
     "step": "When comparison rises, answer it with one truth from this verse.",
-    "about": "David or another psalm writer",
-    "to": "Everyone hurting, thankful, or seeking God"
+    "about": "A psalm writer",
+    "to": "All lands called to joyful worship",
+    "setting": "Enter with thanksgiving"
   },
   {
     "ref": "Psalm 100:2",
     "text": "Serve the Lord with gladness: come before his presence with singing.",
     "plain": "Give worship to the Lord with joy; come before him with a song.",
     "step": "End the day by reading this verse again, without rushing.",
-    "about": "David or another psalm writer",
-    "to": "Everyone hurting, thankful, or seeking God"
+    "about": "A psalm writer",
+    "to": "All lands called to joyful worship",
+    "setting": "Enter with thanksgiving"
   },
   {
     "ref": "John 8:12",
@@ -1978,16 +1988,18 @@
     "text": "Know ye that the Lord he is God: it is he that hath made us, and not we ourselves.",
     "plain": "Be certain that the Lord is God; it is he who has made us, and we are his; we are his people, and the sheep to whom he gives food.",
     "step": "Share the reference only with someone who is carrying a heavy week.",
-    "about": "David or another psalm writer",
-    "to": "Everyone hurting, thankful, or seeking God"
+    "about": "A psalm writer",
+    "to": "All lands called to joyful worship",
+    "setting": "Enter with thanksgiving"
   },
   {
     "ref": "Psalm 100:4",
     "text": "Enter into his gates with thanksgiving, and into his courts with praise.",
     "plain": "Come into his doors with joy, and into his house with praise; give him honour, blessing his name.",
     "step": "Ask God what one step of obedience looks like before noon.",
-    "about": "David or another psalm writer",
-    "to": "Everyone hurting, thankful, or seeking God"
+    "about": "A psalm writer",
+    "to": "All lands called to joyful worship",
+    "setting": "Enter with thanksgiving"
   },
   {
     "ref": "Luke 12:32",
@@ -2794,8 +2806,9 @@
     "text": "Behold, he that keepeth Israel shall neither slumber nor sleep.",
     "plain": "Look,, the one who keeps Israel will neither slumber nor sleep.",
     "step": "Leave one worry with God for ten minutes after reading this.",
-    "about": "David or another psalm writer",
-    "to": "Everyone hurting, thankful, or seeking God"
+    "about": "A song of ascents writer",
+    "to": "Travelers and anyone needing help from the Lord",
+    "setting": "I lift up my eyes to the hills"
   },
   {
     "ref": "Isaiah 55:6",
@@ -2810,8 +2823,9 @@
     "text": "The Lord is thy keeper: the Lord is thy shade upon thy right hand.",
     "plain": "The Lord is your keeper: the Lord is your shade upon your right hand.",
     "step": "Reread the verse slowly three times; stop on the phrase that lands hardest.",
-    "about": "David or another psalm writer",
-    "to": "Everyone hurting, thankful, or seeking God"
+    "about": "A song of ascents writer",
+    "to": "Travelers and anyone needing help from the Lord",
+    "setting": "I lift up my eyes to the hills"
   },
   {
     "ref": "John 14:6",
@@ -2827,8 +2841,9 @@
     "text": "The sun shall not smite thee by day, nor the moon by night.",
     "plain": "You will not be touched by the sun in the day, or by the moon at night.",
     "step": "Before you open messages, pray this verse once as a quiet start.",
-    "about": "David or another psalm writer",
-    "to": "Everyone hurting, thankful, or seeking God"
+    "about": "A song of ascents writer",
+    "to": "Travelers and anyone needing help from the Lord",
+    "setting": "I lift up my eyes to the hills"
   },
   {
     "ref": "Psalm 124:8",
@@ -3006,7 +3021,7 @@
     "plain": "How precious also are your thoughts to me, O God! How great is the sum of them!",
     "step": "Sit still for sixty seconds with this verse—phone face down.",
     "about": "David",
-    "to": "Anyone who needs to know they are known by God",
+    "to": "Anyone who needs to know they are fully known by God",
     "setting": "Wonderfully made"
   },
   {

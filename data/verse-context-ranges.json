@@ -1,74 +1,658 @@
 [
-  { "book": "Genesis", "from": "1:1", "thru": "2:3", "about": "Moses (recording God’s Word)", "audience": "Israel — and anyone hearing creation’s beginning", "setting": "Creation week" },
-  { "book": "Genesis", "from": "3:1", "thru": "3:24", "about": "The serpent, Eve, Adam, and the Lord God", "audience": "Adam and Eve in the garden — and all of us after the fall", "setting": "The fall" },
-  { "book": "Genesis", "from": "6:1", "thru": "9:17", "about": "The Lord, speaking through Moses’ account of Noah", "audience": "Noah’s household — and every generation under God’s promise", "setting": "Flood and covenant" },
-  { "book": "Genesis", "from": "12:1", "thru": "12:9", "about": "The Lord", "audience": "Abram", "setting": "Call of Abram" },
-  { "book": "Genesis", "from": "22:1", "thru": "22:19", "about": "God and Abraham", "audience": "Abraham (and Isaac beside him)", "setting": "Abraham offers Isaac" },
-  { "book": "Exodus", "from": "3:1", "thru": "4:17", "about": "The Lord", "audience": "Moses at the burning bush", "setting": "Burning bush" },
-  { "book": "Exodus", "from": "14:1", "thru": "14:31", "about": "The Lord (through Moses)", "audience": "Israel at the Red Sea", "setting": "Crossing the Red Sea" },
-  { "book": "Exodus", "from": "20:1", "thru": "20:21", "about": "God", "audience": "Israel at Sinai", "setting": "Ten Commandments" },
-  { "book": "Joshua", "from": "1:1", "thru": "1:9", "about": "The Lord", "audience": "Joshua", "setting": "Charge to Joshua" },
-  { "book": "Ruth", "from": "1:1", "thru": "4:22", "about": "The narrator of Ruth", "audience": "Israel remembering kindness and redemption", "setting": "Ruth and Boaz" },
-  { "book": "1 Samuel", "from": "3:1", "thru": "3:21", "about": "The Lord (and young Samuel)", "audience": "Samuel in the Lord’s house", "setting": "Samuel hears God" },
-  { "book": "1 Samuel", "from": "17:1", "thru": "17:58", "about": "David (and the narrator)", "audience": "Israel facing Goliath — and anyone facing a giant fear", "setting": "David and Goliath" },
-  { "book": "2 Samuel", "from": "7:1", "thru": "7:17", "about": "Nathan the prophet (from the Lord)", "audience": "David", "setting": "Davidic covenant" },
-  { "book": "Job", "from": "1:1", "thru": "2:13", "about": "The narrator of Job (and the Lord in heaven’s counsel)", "audience": "Readers watching Job’s trial begin", "setting": "Job’s testing begins" },
-  { "book": "Job", "from": "38:1", "thru": "41:34", "about": "The Lord", "audience": "Job", "setting": "God answers Job" },
-  { "book": "Psalm", "from": "23:1", "thru": "23:6", "about": "David", "audience": "Anyone who needs a Shepherd", "setting": "The Lord is my shepherd" },
-  { "book": "Psalm", "from": "51:1", "thru": "51:19", "about": "David", "audience": "God — and any heart needing mercy after failure", "setting": "Psalm of repentance" },
-  { "book": "Psalm", "from": "91:1", "thru": "91:16", "about": "A psalm writer", "audience": "Those who dwell in the secret place of the Most High", "setting": "Refuge under His wings" },
-  { "book": "Psalm", "from": "119:1", "thru": "119:176", "about": "A psalm writer devoted to God’s Word", "audience": "Anyone learning to walk by Scripture", "setting": "Love for God’s law" },
-  { "book": "Proverbs", "from": "3:1", "thru": "3:12", "about": "Solomon giving wisdom", "audience": "A son (and every reader seeking guidance)", "setting": "Trust in the Lord" },
-  { "book": "Isaiah", "from": "40:1", "thru": "40:31", "about": "Isaiah (comfort from God)", "audience": "Weary Judah — and anyone waiting on the Lord", "setting": "Comfort and renewed strength" },
-  { "book": "Isaiah", "from": "53:1", "thru": "53:12", "about": "Isaiah", "audience": "Israel — and all who look to the Suffering Servant", "setting": "Suffering Servant" },
-  { "book": "Jeremiah", "from": "29:1", "thru": "29:14", "about": "Jeremiah (the word of the Lord)", "audience": "The exiles in Babylon", "setting": "Letter to the captives" },
-  { "book": "Daniel", "from": "3:1", "thru": "3:30", "about": "The narrator of Daniel", "audience": "Readers watching faith in the fire", "setting": "Fiery furnace" },
-  { "book": "Daniel", "from": "6:1", "thru": "6:28", "about": "The narrator of Daniel", "audience": "Readers watching prayer under pressure", "setting": "Daniel in the lions’ den" },
-  { "book": "Jonah", "from": "1:1", "thru": "4:11", "about": "The narrator of Jonah (and the Lord speaking)", "audience": "Jonah — and anyone running from mercy", "setting": "Jonah and Nineveh" },
-  { "book": "Matthew", "from": "5:1", "thru": "7:29", "about": "Jesus", "audience": "His disciples on the mount (and you today)", "setting": "Sermon on the Mount" },
-  { "book": "Matthew", "from": "6:25", "thru": "6:34", "about": "Jesus", "audience": "His disciples who worry about tomorrow", "setting": "Do not be anxious" },
-  { "book": "Matthew", "from": "11:25", "thru": "11:30", "about": "Jesus", "audience": "The weary and heavy laden", "setting": "Come unto Me" },
-  { "book": "Matthew", "from": "14:22", "thru": "14:33", "about": "Jesus (and Matthew’s account)", "audience": "The disciples in the boat", "setting": "Walking on the water" },
-  { "book": "Matthew", "from": "28:1", "thru": "28:20", "about": "The risen Jesus (through Matthew)", "audience": "The disciples — and all nations", "setting": "Resurrection and great commission" },
-  { "book": "Mark", "from": "4:35", "thru": "4:41", "about": "Jesus", "audience": "His fearful disciples in the storm", "setting": "Peace, be still" },
-  { "book": "Mark", "from": "10:13", "thru": "10:16", "about": "Jesus", "audience": "The disciples — and the little children brought to Him", "setting": "Jesus blesses the children" },
-  { "book": "Mark", "from": "11:20", "thru": "11:26", "about": "Jesus", "audience": "His disciples learning faith and prayer", "setting": "Faith and prayer" },
-  { "book": "Luke", "from": "1:26", "thru": "1:38", "about": "Gabriel (and ultimately God)", "audience": "Mary", "setting": "Annunciation" },
-  { "book": "Luke", "from": "2:1", "thru": "2:20", "about": "Luke (and the angels’ word)", "audience": "Shepherds — and all who hear of Jesus’ birth", "setting": "Nativity" },
-  { "book": "Luke", "from": "10:25", "thru": "10:37", "about": "Jesus", "audience": "A lawyer testing Him — and every neighbor-watcher", "setting": "Good Samaritan" },
-  { "book": "Luke", "from": "15:1", "thru": "15:32", "about": "Jesus", "audience": "Sinners drawing near — and Pharisees listening", "setting": "Lost sheep, coin, and son" },
-  { "book": "Luke", "from": "22:39", "thru": "22:46", "about": "Jesus", "audience": "His disciples in Gethsemane", "setting": "Gethsemane" },
-  { "book": "John", "from": "1:1", "thru": "1:18", "about": "John the apostle", "audience": "Readers meeting the Word made flesh", "setting": "Prologue" },
-  { "book": "John", "from": "3:1", "thru": "3:21", "about": "Jesus", "audience": "Nicodemus (and every seeker of new birth)", "setting": "Jesus and Nicodemus" },
-  { "book": "John", "from": "4:1", "thru": "4:42", "about": "Jesus", "audience": "The woman at the well — and her town", "setting": "Living water" },
-  { "book": "John", "from": "10:1", "thru": "10:18", "about": "Jesus", "audience": "His hearers — sheep who know His voice", "setting": "Good Shepherd" },
-  { "book": "John", "from": "11:1", "thru": "11:44", "about": "Jesus", "audience": "Martha, Mary, and those at Lazarus’ tomb", "setting": "Lazarus raised" },
-  { "book": "John", "from": "14:1", "thru": "14:31", "about": "Jesus", "audience": "His disciples the night before the cross", "setting": "Upper room comfort" },
-  { "book": "John", "from": "15:1", "thru": "15:17", "about": "Jesus", "audience": "His disciples abiding in Him", "setting": "True vine" },
-  { "book": "John", "from": "19:1", "thru": "19:42", "about": "John (witness of the cross)", "audience": "Readers standing near Jesus’ death", "setting": "Crucifixion" },
-  { "book": "John", "from": "20:1", "thru": "20:31", "about": "The risen Jesus (through John)", "audience": "Mary, the disciples, and Thomas — and you who believe", "setting": "Resurrection appearances" },
-  { "book": "Acts", "from": "1:1", "thru": "1:11", "about": "Luke", "audience": "Theophilus — and the waiting church", "setting": "Ascension" },
-  { "book": "Acts", "from": "2:1", "thru": "2:47", "about": "Peter (and Luke’s account)", "audience": "Jerusalem at Pentecost", "setting": "Pentecost" },
-  { "book": "Acts", "from": "9:1", "thru": "9:22", "about": "The risen Jesus (and Luke’s account)", "audience": "Saul of Tarsus", "setting": "Paul’s conversion" },
-  { "book": "Acts", "from": "16:16", "thru": "16:40", "about": "Luke (with Paul and Silas)", "audience": "Readers watching faith in prison", "setting": "Philippi jail" },
-  { "book": "Romans", "from": "1:1", "thru": "16:27", "about": "Paul", "audience": "Believers in Rome (and you today)", "setting": "Letter to Rome" },
-  { "book": "Romans", "from": "8:1", "thru": "8:39", "about": "Paul", "audience": "Believers learning life in the Spirit", "setting": "No condemnation" },
-  { "book": "1 Corinthians", "from": "13:1", "thru": "13:13", "about": "Paul", "audience": "The church at Corinth learning real love", "setting": "Love chapter" },
-  { "book": "1 Corinthians", "from": "15:1", "thru": "15:58", "about": "Paul", "audience": "Believers holding the resurrection", "setting": "Resurrection hope" },
-  { "book": "2 Corinthians", "from": "1:1", "thru": "1:11", "about": "Paul", "audience": "The church at Corinth in affliction", "setting": "God of all comfort" },
-  { "book": "2 Corinthians", "from": "12:1", "thru": "12:10", "about": "Paul", "audience": "Believers learning strength in weakness", "setting": "Thorn and grace" },
-  { "book": "Galatians", "from": "5:1", "thru": "5:26", "about": "Paul", "audience": "The churches of Galatia", "setting": "Freedom in Christ" },
-  { "book": "Ephesians", "from": "6:10", "thru": "6:20", "about": "Paul", "audience": "Believers putting on God’s armor", "setting": "Armor of God" },
-  { "book": "Philippians", "from": "1:1", "thru": "4:23", "about": "Paul", "audience": "the church at Philippi (and you today)", "setting": "Letter from prison" },
-  { "book": "Philippians", "from": "4:4", "thru": "4:9", "about": "Paul", "audience": "Believers learning prayer instead of worry", "setting": "Rejoice and pray" },
-  { "book": "Colossians", "from": "3:1", "thru": "3:17", "about": "Paul", "audience": "Believers setting their minds above", "setting": "Life hidden with Christ" },
-  { "book": "1 Thessalonians", "from": "4:13", "thru": "4:18", "about": "Paul", "audience": "Believers grieving with hope", "setting": "Comfort in Christ’s coming" },
-  { "book": "2 Timothy", "from": "1:1", "thru": "1:18", "about": "Paul", "audience": "Timothy (and every timid heart)", "setting": "Spirit of power and love" },
-  { "book": "Hebrews", "from": "11:1", "thru": "11:40", "about": "The writer of Hebrews", "audience": "Hebrew believers holding faith", "setting": "Hall of faith" },
-  { "book": "Hebrews", "from": "12:1", "thru": "12:13", "about": "The writer of Hebrews", "audience": "Believers running with patience", "setting": "Cloud of witnesses" },
-  { "book": "James", "from": "1:1", "thru": "1:27", "about": "James", "audience": "Scattered believers under trial", "setting": "Faith under pressure" },
-  { "book": "1 Peter", "from": "5:1", "thru": "5:11", "about": "Peter", "audience": "Believers casting care on God", "setting": "Humble under God’s hand" },
-  { "book": "1 John", "from": "4:7", "thru": "4:21", "about": "John", "audience": "Beloved children learning God’s love", "setting": "God is love" },
-  { "book": "Revelation", "from": "1:1", "thru": "1:20", "about": "John (from Jesus Christ)", "audience": "The seven churches — and every reader", "setting": "Revelation opening" },
-  { "book": "Revelation", "from": "21:1", "thru": "22:5", "about": "John (from God)", "audience": "The church hoping for the new creation", "setting": "New heaven and new earth" }
+  {
+    "book": "Genesis",
+    "from": "1:1",
+    "thru": "2:3",
+    "about": "Moses (recording God\u2019s Word)",
+    "audience": "Israel \u2014 and anyone hearing creation\u2019s beginning",
+    "setting": "Creation week"
+  },
+  {
+    "book": "Genesis",
+    "from": "3:1",
+    "thru": "3:24",
+    "about": "The serpent, Eve, Adam, and the Lord God",
+    "audience": "Adam and Eve in the garden \u2014 and all of us after the fall",
+    "setting": "The fall"
+  },
+  {
+    "book": "Genesis",
+    "from": "6:1",
+    "thru": "9:17",
+    "about": "The Lord, speaking through Moses\u2019 account of Noah",
+    "audience": "Noah\u2019s household \u2014 and every generation under God\u2019s promise",
+    "setting": "Flood and covenant"
+  },
+  {
+    "book": "Genesis",
+    "from": "12:1",
+    "thru": "12:9",
+    "about": "The Lord",
+    "audience": "Abram",
+    "setting": "Call of Abram"
+  },
+  {
+    "book": "Genesis",
+    "from": "22:1",
+    "thru": "22:19",
+    "about": "God and Abraham",
+    "audience": "Abraham (and Isaac beside him)",
+    "setting": "Abraham offers Isaac"
+  },
+  {
+    "book": "Exodus",
+    "from": "3:1",
+    "thru": "4:17",
+    "about": "The Lord",
+    "audience": "Moses at the burning bush",
+    "setting": "Burning bush"
+  },
+  {
+    "book": "Exodus",
+    "from": "14:1",
+    "thru": "14:31",
+    "about": "The Lord (through Moses)",
+    "audience": "Israel at the Red Sea",
+    "setting": "Crossing the Red Sea"
+  },
+  {
+    "book": "Exodus",
+    "from": "20:1",
+    "thru": "20:21",
+    "about": "God",
+    "audience": "Israel at Sinai",
+    "setting": "Ten Commandments"
+  },
+  {
+    "book": "Joshua",
+    "from": "1:1",
+    "thru": "1:9",
+    "about": "The Lord",
+    "audience": "Joshua",
+    "setting": "Charge to Joshua"
+  },
+  {
+    "book": "Ruth",
+    "from": "1:1",
+    "thru": "4:22",
+    "about": "The narrator of Ruth",
+    "audience": "Israel remembering kindness and redemption",
+    "setting": "Ruth and Boaz"
+  },
+  {
+    "book": "1 Samuel",
+    "from": "3:1",
+    "thru": "3:21",
+    "about": "The Lord (and young Samuel)",
+    "audience": "Samuel in the Lord\u2019s house",
+    "setting": "Samuel hears God"
+  },
+  {
+    "book": "1 Samuel",
+    "from": "17:1",
+    "thru": "17:58",
+    "about": "David (and the narrator)",
+    "audience": "Israel facing Goliath \u2014 and anyone facing a giant fear",
+    "setting": "David and Goliath"
+  },
+  {
+    "book": "2 Samuel",
+    "from": "7:1",
+    "thru": "7:17",
+    "about": "Nathan the prophet (from the Lord)",
+    "audience": "David",
+    "setting": "Davidic covenant"
+  },
+  {
+    "book": "Job",
+    "from": "1:1",
+    "thru": "2:13",
+    "about": "The narrator of Job (and the Lord in heaven\u2019s counsel)",
+    "audience": "Readers watching Job\u2019s trial begin",
+    "setting": "Job\u2019s testing begins"
+  },
+  {
+    "book": "Job",
+    "from": "38:1",
+    "thru": "41:34",
+    "about": "The Lord",
+    "audience": "Job",
+    "setting": "God answers Job"
+  },
+  {
+    "book": "Psalm",
+    "from": "23:1",
+    "thru": "23:6",
+    "about": "David",
+    "audience": "Anyone who needs a Shepherd",
+    "setting": "The Lord is my shepherd"
+  },
+  {
+    "book": "Psalm",
+    "from": "51:1",
+    "thru": "51:19",
+    "about": "David",
+    "audience": "God \u2014 and any heart needing mercy after failure",
+    "setting": "Psalm of repentance"
+  },
+  {
+    "book": "Psalm",
+    "from": "91:1",
+    "thru": "91:16",
+    "about": "A psalm writer",
+    "audience": "Those who dwell in the secret place of the Most High",
+    "setting": "Refuge under His wings"
+  },
+  {
+    "book": "Psalm",
+    "from": "119:1",
+    "thru": "119:176",
+    "about": "A psalm writer devoted to God\u2019s Word",
+    "audience": "Anyone learning to walk by Scripture",
+    "setting": "Love for God\u2019s law"
+  },
+  {
+    "book": "Proverbs",
+    "from": "3:1",
+    "thru": "3:12",
+    "about": "Solomon giving wisdom",
+    "audience": "A son (and every reader seeking guidance)",
+    "setting": "Trust in the Lord"
+  },
+  {
+    "book": "Isaiah",
+    "from": "40:1",
+    "thru": "40:31",
+    "about": "Isaiah (comfort from God)",
+    "audience": "Weary Judah \u2014 and anyone waiting on the Lord",
+    "setting": "Comfort and renewed strength"
+  },
+  {
+    "book": "Isaiah",
+    "from": "53:1",
+    "thru": "53:12",
+    "about": "Isaiah",
+    "audience": "Israel \u2014 and all who look to the Suffering Servant",
+    "setting": "Suffering Servant"
+  },
+  {
+    "book": "Jeremiah",
+    "from": "29:1",
+    "thru": "29:14",
+    "about": "Jeremiah (the word of the Lord)",
+    "audience": "The exiles in Babylon",
+    "setting": "Letter to the captives"
+  },
+  {
+    "book": "Daniel",
+    "from": "3:1",
+    "thru": "3:30",
+    "about": "The narrator of Daniel",
+    "audience": "Readers watching faith in the fire",
+    "setting": "Fiery furnace"
+  },
+  {
+    "book": "Daniel",
+    "from": "6:1",
+    "thru": "6:28",
+    "about": "The narrator of Daniel",
+    "audience": "Readers watching prayer under pressure",
+    "setting": "Daniel in the lions\u2019 den"
+  },
+  {
+    "book": "Jonah",
+    "from": "1:1",
+    "thru": "4:11",
+    "about": "The narrator of Jonah (and the Lord speaking)",
+    "audience": "Jonah \u2014 and anyone running from mercy",
+    "setting": "Jonah and Nineveh"
+  },
+  {
+    "book": "Matthew",
+    "from": "5:1",
+    "thru": "7:29",
+    "about": "Jesus",
+    "audience": "His disciples on the mount (and you today)",
+    "setting": "Sermon on the Mount"
+  },
+  {
+    "book": "Matthew",
+    "from": "6:25",
+    "thru": "6:34",
+    "about": "Jesus",
+    "audience": "His disciples who worry about tomorrow",
+    "setting": "Do not be anxious"
+  },
+  {
+    "book": "Matthew",
+    "from": "11:25",
+    "thru": "11:30",
+    "about": "Jesus",
+    "audience": "The weary and heavy laden",
+    "setting": "Come unto Me"
+  },
+  {
+    "book": "Matthew",
+    "from": "14:22",
+    "thru": "14:33",
+    "about": "Jesus (and Matthew\u2019s account)",
+    "audience": "The disciples in the boat",
+    "setting": "Walking on the water"
+  },
+  {
+    "book": "Matthew",
+    "from": "28:1",
+    "thru": "28:20",
+    "about": "The risen Jesus (through Matthew)",
+    "audience": "The disciples \u2014 and all nations",
+    "setting": "Resurrection and great commission"
+  },
+  {
+    "book": "Mark",
+    "from": "4:35",
+    "thru": "4:41",
+    "about": "Jesus",
+    "audience": "His fearful disciples in the storm",
+    "setting": "Peace, be still"
+  },
+  {
+    "book": "Mark",
+    "from": "10:13",
+    "thru": "10:16",
+    "about": "Jesus",
+    "audience": "The disciples \u2014 and the little children brought to Him",
+    "setting": "Jesus blesses the children"
+  },
+  {
+    "book": "Mark",
+    "from": "11:20",
+    "thru": "11:26",
+    "about": "Jesus",
+    "audience": "His disciples learning faith and prayer",
+    "setting": "Faith and prayer"
+  },
+  {
+    "book": "Luke",
+    "from": "1:26",
+    "thru": "1:38",
+    "about": "Gabriel (and ultimately God)",
+    "audience": "Mary",
+    "setting": "Annunciation"
+  },
+  {
+    "book": "Luke",
+    "from": "2:1",
+    "thru": "2:20",
+    "about": "Luke (and the angels\u2019 word)",
+    "audience": "Shepherds \u2014 and all who hear of Jesus\u2019 birth",
+    "setting": "Nativity"
+  },
+  {
+    "book": "Luke",
+    "from": "10:25",
+    "thru": "10:37",
+    "about": "Jesus",
+    "audience": "A lawyer testing Him \u2014 and every neighbor-watcher",
+    "setting": "Good Samaritan"
+  },
+  {
+    "book": "Luke",
+    "from": "15:1",
+    "thru": "15:32",
+    "about": "Jesus",
+    "audience": "Sinners drawing near \u2014 and Pharisees listening",
+    "setting": "Lost sheep, coin, and son"
+  },
+  {
+    "book": "Luke",
+    "from": "22:39",
+    "thru": "22:46",
+    "about": "Jesus",
+    "audience": "His disciples in Gethsemane",
+    "setting": "Gethsemane"
+  },
+  {
+    "book": "John",
+    "from": "1:1",
+    "thru": "1:18",
+    "about": "John the apostle",
+    "audience": "Readers meeting the Word made flesh",
+    "setting": "Prologue"
+  },
+  {
+    "book": "John",
+    "from": "3:1",
+    "thru": "3:21",
+    "about": "Jesus",
+    "audience": "Nicodemus (and every seeker of new birth)",
+    "setting": "Jesus and Nicodemus"
+  },
+  {
+    "book": "John",
+    "from": "4:1",
+    "thru": "4:42",
+    "about": "Jesus",
+    "audience": "The woman at the well \u2014 and her town",
+    "setting": "Living water"
+  },
+  {
+    "book": "John",
+    "from": "10:1",
+    "thru": "10:18",
+    "about": "Jesus",
+    "audience": "His hearers \u2014 sheep who know His voice",
+    "setting": "Good Shepherd"
+  },
+  {
+    "book": "John",
+    "from": "11:1",
+    "thru": "11:44",
+    "about": "Jesus",
+    "audience": "Martha, Mary, and those at Lazarus\u2019 tomb",
+    "setting": "Lazarus raised"
+  },
+  {
+    "book": "John",
+    "from": "14:1",
+    "thru": "14:31",
+    "about": "Jesus",
+    "audience": "His disciples the night before the cross",
+    "setting": "Upper room comfort"
+  },
+  {
+    "book": "John",
+    "from": "15:1",
+    "thru": "15:17",
+    "about": "Jesus",
+    "audience": "His disciples abiding in Him",
+    "setting": "True vine"
+  },
+  {
+    "book": "John",
+    "from": "19:1",
+    "thru": "19:42",
+    "about": "John (witness of the cross)",
+    "audience": "Readers standing near Jesus\u2019 death",
+    "setting": "Crucifixion"
+  },
+  {
+    "book": "John",
+    "from": "20:1",
+    "thru": "20:31",
+    "about": "The risen Jesus (through John)",
+    "audience": "Mary, the disciples, and Thomas \u2014 and you who believe",
+    "setting": "Resurrection appearances"
+  },
+  {
+    "book": "Acts",
+    "from": "1:1",
+    "thru": "1:11",
+    "about": "Luke",
+    "audience": "Theophilus \u2014 and the waiting church",
+    "setting": "Ascension"
+  },
+  {
+    "book": "Acts",
+    "from": "2:1",
+    "thru": "2:47",
+    "about": "Peter (and Luke\u2019s account)",
+    "audience": "Jerusalem at Pentecost",
+    "setting": "Pentecost"
+  },
+  {
+    "book": "Acts",
+    "from": "9:1",
+    "thru": "9:22",
+    "about": "The risen Jesus (and Luke\u2019s account)",
+    "audience": "Saul of Tarsus",
+    "setting": "Paul\u2019s conversion"
+  },
+  {
+    "book": "Acts",
+    "from": "16:16",
+    "thru": "16:40",
+    "about": "Luke (with Paul and Silas)",
+    "audience": "Readers watching faith in prison",
+    "setting": "Philippi jail"
+  },
+  {
+    "book": "Romans",
+    "from": "1:1",
+    "thru": "16:27",
+    "about": "Paul",
+    "audience": "Believers in Rome (and you today)",
+    "setting": "Letter to Rome"
+  },
+  {
+    "book": "Romans",
+    "from": "8:1",
+    "thru": "8:39",
+    "about": "Paul",
+    "audience": "Believers learning life in the Spirit",
+    "setting": "No condemnation"
+  },
+  {
+    "book": "1 Corinthians",
+    "from": "13:1",
+    "thru": "13:13",
+    "about": "Paul",
+    "audience": "The church at Corinth learning real love",
+    "setting": "Love chapter"
+  },
+  {
+    "book": "1 Corinthians",
+    "from": "15:1",
+    "thru": "15:58",
+    "about": "Paul",
+    "audience": "Believers holding the resurrection",
+    "setting": "Resurrection hope"
+  },
+  {
+    "book": "2 Corinthians",
+    "from": "1:1",
+    "thru": "1:11",
+    "about": "Paul",
+    "audience": "The church at Corinth in affliction",
+    "setting": "God of all comfort"
+  },
+  {
+    "book": "2 Corinthians",
+    "from": "12:1",
+    "thru": "12:10",
+    "about": "Paul",
+    "audience": "Believers learning strength in weakness",
+    "setting": "Thorn and grace"
+  },
+  {
+    "book": "Galatians",
+    "from": "5:1",
+    "thru": "5:26",
+    "about": "Paul",
+    "audience": "The churches of Galatia",
+    "setting": "Freedom in Christ"
+  },
+  {
+    "book": "Ephesians",
+    "from": "6:10",
+    "thru": "6:20",
+    "about": "Paul",
+    "audience": "Believers putting on God\u2019s armor",
+    "setting": "Armor of God"
+  },
+  {
+    "book": "Philippians",
+    "from": "1:1",
+    "thru": "4:23",
+    "about": "Paul",
+    "audience": "the church at Philippi (and you today)",
+    "setting": "Letter from prison"
+  },
+  {
+    "book": "Philippians",
+    "from": "4:4",
+    "thru": "4:9",
+    "about": "Paul",
+    "audience": "Believers learning prayer instead of worry",
+    "setting": "Rejoice and pray"
+  },
+  {
+    "book": "Colossians",
+    "from": "3:1",
+    "thru": "3:17",
+    "about": "Paul",
+    "audience": "Believers setting their minds above",
+    "setting": "Life hidden with Christ"
+  },
+  {
+    "book": "1 Thessalonians",
+    "from": "4:13",
+    "thru": "4:18",
+    "about": "Paul",
+    "audience": "Believers grieving with hope",
+    "setting": "Comfort in Christ\u2019s coming"
+  },
+  {
+    "book": "2 Timothy",
+    "from": "1:1",
+    "thru": "1:18",
+    "about": "Paul",
+    "audience": "Timothy (and every timid heart)",
+    "setting": "Spirit of power and love"
+  },
+  {
+    "book": "Hebrews",
+    "from": "11:1",
+    "thru": "11:40",
+    "about": "The writer of Hebrews",
+    "audience": "Hebrew believers holding faith",
+    "setting": "Hall of faith"
+  },
+  {
+    "book": "Hebrews",
+    "from": "12:1",
+    "thru": "12:13",
+    "about": "The writer of Hebrews",
+    "audience": "Believers running with patience",
+    "setting": "Cloud of witnesses"
+  },
+  {
+    "book": "James",
+    "from": "1:1",
+    "thru": "1:27",
+    "about": "James",
+    "audience": "Scattered believers under trial",
+    "setting": "Faith under pressure"
+  },
+  {
+    "book": "1 Peter",
+    "from": "5:1",
+    "thru": "5:11",
+    "about": "Peter",
+    "audience": "Believers casting care on God",
+    "setting": "Humble under God\u2019s hand"
+  },
+  {
+    "book": "1 John",
+    "from": "4:7",
+    "thru": "4:21",
+    "about": "John",
+    "audience": "Beloved children learning God\u2019s love",
+    "setting": "God is love"
+  },
+  {
+    "book": "Revelation",
+    "from": "1:1",
+    "thru": "1:20",
+    "about": "John (from Jesus Christ)",
+    "audience": "The seven churches \u2014 and every reader",
+    "setting": "Revelation opening"
+  },
+  {
+    "book": "Revelation",
+    "from": "21:1",
+    "thru": "22:5",
+    "about": "John (from God)",
+    "audience": "The church hoping for the new creation",
+    "setting": "New heaven and new earth"
+  },
+  {
+    "book": "Psalm",
+    "from": "46:1",
+    "thru": "46:11",
+    "about": "A psalm writer",
+    "audience": "Anyone in trouble who needs a refuge",
+    "setting": "God is our refuge and strength"
+  },
+  {
+    "book": "Psalm",
+    "from": "92:1",
+    "thru": "92:15",
+    "about": "A psalm writer of thanksgiving",
+    "audience": "Worshipers giving thanks for God\u2019s works",
+    "setting": "Sabbath song of praise"
+  },
+  {
+    "book": "Psalm",
+    "from": "100:1",
+    "thru": "100:5",
+    "about": "A psalm writer",
+    "audience": "All lands called to joyful worship",
+    "setting": "Enter with thanksgiving"
+  },
+  {
+    "book": "Psalm",
+    "from": "27:1",
+    "thru": "27:14",
+    "about": "David",
+    "audience": "Anyone fighting fear with faith",
+    "setting": "The Lord is my light"
+  },
+  {
+    "book": "Psalm",
+    "from": "34:1",
+    "thru": "34:22",
+    "about": "David",
+    "audience": "Anyone tasting that the Lord is good",
+    "setting": "Taste and see"
+  },
+  {
+    "book": "Psalm",
+    "from": "139:1",
+    "thru": "139:24",
+    "about": "David",
+    "audience": "Anyone who needs to know they are fully known by God",
+    "setting": "Wonderfully made"
+  },
+  {
+    "book": "Psalm",
+    "from": "42:1",
+    "thru": "42:11",
+    "about": "The sons of Korah",
+    "audience": "Anyone whose soul is downcast",
+    "setting": "Why are you cast down, O my soul?"
+  },
+  {
+    "book": "Psalm",
+    "from": "121:1",
+    "thru": "121:8",
+    "about": "A song of ascents writer",
+    "audience": "Travelers and anyone needing help from the Lord",
+    "setting": "I lift up my eyes to the hills"
+  },
+  {
+    "book": "Philippians",
+    "from": "4:10",
+    "thru": "4:13",
+    "about": "Paul",
+    "audience": "the church at Philippi (and you today)",
+    "setting": "Content in every state; strength through Christ"
+  },
+  {
+    "book": "1 Corinthians",
+    "from": "10:1",
+    "thru": "10:13",
+    "about": "Paul",
+    "audience": "the church at Corinth facing temptation (and you today)",
+    "setting": "Warnings from Israel; God is faithful"
+  }
 ]

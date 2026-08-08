@@ -15,16 +15,22 @@
   };
 
   var ARCHAIC = {
-    careful: 'worried', beseech: 'ask', supplication: 'prayer', thee: 'you', thou: 'you', thy: 'your', ye: 'you',
-    hath: 'has', doth: 'does', believeth: 'believes', loveth: 'loves', giveth: 'gives', knoweth: 'knows', maketh: 'makes',
-    strengtheneth: 'strengthens', keepeth: 'keeps', worketh: 'works', unto: 'to', saith: 'says', begotten: 'only', perish: 'be lost',
-    everlasting: 'eternal', labour: 'labor', laden: 'burdened', dismayed: 'discouraged', whosoever: 'whoever', whatsoever: 'whatever',
-    verily: 'truly', behold: 'look', passeth: 'passes', brethren: 'brothers', mount: 'rise', faint: 'give up'
+    careful: 'worried', beseech: 'ask', supplication: 'prayer', thee: 'you', thou: 'you', thy: 'your', thine: 'yours', ye: 'you',
+    hath: 'has', hast: 'have', doth: 'does', dost: 'do', shalt: 'shall', wilt: 'will', art: 'are',
+    believeth: 'believes', loveth: 'loves', giveth: 'gives', knoweth: 'knows', maketh: 'makes',
+    strengtheneth: 'strengthens', keepeth: 'keeps', worketh: 'works', cometh: 'comes', goeth: 'goes',
+    seeth: 'sees', heareth: 'hears', doeth: 'does', dwelleth: 'lives', abideth: 'stays',
+    unto: 'to', saith: 'says', spake: 'spoke', shew: 'show', shewed: 'showed', sheweth: 'shows',
+    begotten: 'only', perish: 'be lost', everlasting: 'eternal', labour: 'work', laden: 'burdened',
+    dismayed: 'discouraged', whosoever: 'whoever', whatsoever: 'whatever', verily: 'truly', behold: 'look',
+    passeth: 'passes', brethren: 'brothers and sisters', mount: 'rise', faint: 'give up', nigh: 'near',
+    charity: 'love', saviour: 'Savior', honour: 'honor', favour: 'favor', neighbour: 'neighbor',
+    canst: 'can', mayest: 'may', shouldest: 'should', wouldest: 'would', didst: 'did', wast: 'were'
   };
   var AGE_KEY = 'tdb_age_mode_v1';
   var NOTE_FALLBACK_KEY = 'tdb_breakdown_notes_v1';
-  /* v3: reject near-verbatim override plains so all 31k+ verses get real layman text */
-  var BREAKDOWN_CACHE_PREFIX = 'tdb_vb_cache_v3::';
+  /* v4: verse-grounded plains (BBE/modernized KJV), not mood stamps */
+  var BREAKDOWN_CACHE_PREFIX = 'tdb_vb_cache_v4::';
   var BREAKDOWN_MAX_MEMORY_CACHE = 600;
   var KJV_DICT_URLS = ['/data/kjv-full.json', '/kjv.json'];
   var BREAKDOWN_OVERRIDES_SCRIPT_URL = '/verse-breakdown-overrides.js';
@@ -158,32 +164,101 @@
     return false;
   }
 
+  function modernizeKjvInline(text) {
+    var out = String(text || '').replace(/\s+/g, ' ').trim();
+    if (!out) return '';
+    var pairs = [
+      [/Holy Ghost/gi, 'Holy Spirit'],
+      [/\bThere hath no\b/gi, 'No'],
+      [/\bwill not suffer you to be\b/gi, 'will not let you be'],
+      [/\bshall not want\b/gi, 'will not lack what I need'],
+      [/\bbe careful for nothing\b/gi, 'do not worry about anything'],
+      [/\btake no thought\b/gi, 'do not worry'],
+      [/\bFear thou not\b/gi, 'Do not be afraid'],
+      [/\bFear not\b/gi, 'Do not be afraid'],
+      [/\bBe not afraid\b/gi, 'Do not be afraid'],
+      [/\bfor ever\b/gi, 'forever']
+    ];
+    pairs.forEach(function (pair) { out = out.replace(pair[0], pair[1]); });
+    out = rephraseArchaic(out);
+    out = out.replace(/\s+/g, ' ').replace(/\s+([,.;:!?])/g, '$1').trim();
+    if (out) out = out.charAt(0).toUpperCase() + out.slice(1);
+    if (out && !/[.!?]"?$/.test(out)) out += '.';
+    return out;
+  }
+
   function buildThemeLaymanPlain(ref, text) {
     var body = String(text || '').replace(/\s+/g, ' ').trim();
     var lower = body.toLowerCase();
     var r = String(ref || '').toLowerCase();
 
-    /* Well-known anchors first */
+    /* Well-known anchors — verse-specific */
     if (/genesis\s+1:1/.test(r) || /^in the beginning\s+god\s+created/.test(lower)) {
-      return 'God made everything. He started it all — heaven, earth, and life.';
+      return 'In the beginning, God created the heavens and the earth — everything starts with Him.';
     }
     if (/john\s+3:16/.test(r) || /for god so loved the world/.test(lower)) {
-      return 'God loved the world so much He gave His Son so you can have life with Him forever.';
+      return 'God loved the world so much He gave His only Son, so whoever believes in Him will not be lost but have eternal life.';
     }
-    if (/91:1/.test(r) || /secret place|shadow of the almighty/.test(lower) ||
-        (/dwell/.test(lower) && /most high|almighty/.test(lower))) {
-      return 'When you stay close to God, you rest under His protection — safe in His care.';
+    if (/philippians\s+4:13/.test(r) || /i can do all things through christ/.test(lower)) {
+      return 'I can face what is in front of me because Christ gives me strength.';
     }
-    if (/11:28/.test(r) || /come unto me|heavy laden|give you rest/.test(lower)) {
-      return 'Come to Jesus as you are, tired and carrying too much. He will give you rest.';
+    if (/philippians\s+4:6/.test(r) || /be careful for nothing/.test(lower)) {
+      return 'Do not let worry run the day — pray about everything, with thanksgiving, and tell God what you need.';
     }
-    if (/23:1/.test(r) || /lord is my shepherd|shall not want/.test(lower)) {
-      return 'The Lord takes care of me like a shepherd. With Him, I have what I need.';
+    if (/1\s+corinthians\s+10:13/.test(r) || /no temptation taken you but such as is common/.test(lower)) {
+      return 'No temptation has seized you except what people commonly face. God is faithful: He will not let you be tempted beyond what you can bear, and He will make a way through it.';
+    }
+    if (/psalm\s+23:1/.test(r) || /lord is my shepherd; i shall not want/.test(lower)) {
+      return 'The Lord is my shepherd; with Him I will not lack what I truly need.';
+    }
+    if (/psalm\s+46:10/.test(r) || /^be still, and know that i am god/.test(lower)) {
+      return 'Stop striving and know that God is God — He is in charge, not your panic.';
+    }
+    if (/psalm\s+91:1/.test(r) || /secret place of the most high/.test(lower)) {
+      return 'The one who stays close to the Most High rests under His shadow — protected near Him.';
+    }
+    if (/matthew\s+11:28/.test(r) || /come unto me, all ye that labour/.test(lower)) {
+      return 'Come to Jesus if you are worn out and carrying too much — He will give you rest.';
+    }
+    if (/isaiah\s+41:10/.test(r) || /fear thou not; for i am with thee/.test(lower)) {
+      return 'Do not be afraid: God is with you. He will strengthen you, help you, and hold you up.';
+    }
+    if (/romans\s+8:28/.test(r) || /all things work together for good/.test(lower)) {
+      return 'God works all things together for good for those who love Him and are called according to His purpose.';
+    }
+    if (/1\s+peter\s+5:7/.test(r) || /casting all your care upon him/.test(lower)) {
+      return 'Throw all your worries on God, because He cares for you.';
+    }
+    if (/john\s+14:27/.test(r) || /peace i leave with you, my peace i give/.test(lower)) {
+      return 'Jesus leaves you His peace — not the thin kind the world gives. Do not let your heart be troubled or afraid.';
+    }
+    if (/psalm\s+92:4/.test(r) || /made me glad through thy work|glad through your work/.test(lower)) {
+      return 'God’s work is what makes the heart glad — joy rises when you look at what He has done, not only at how the day feels.';
+    }
+    if (/psalm\s+118:24/.test(r) || /this is the day which the lord hath made/.test(lower)) {
+      return 'This is the day the Lord has made — a day to rejoice and be glad in it.';
+    }
+    if (/begat|son of|daughter of|the generations of/i.test(body) && body.length < 180) {
+      return 'This verse records real family lines in God’s story — names and people matter to Him.';
     }
 
-    /* Theme lanes — covers the full KJV without storing 31k hand-written plains */
-    if (/\bcreat(ed|e|ion|or)\b|\bmade the heaven|\bmade heaven and earth\b|\bformed\b.*\b(man|dust|earth)\b/.test(lower)) {
-      return 'God is the Maker. Nothing exists outside His hand.';
+    /* Prefer modernized wording of THIS verse over generic mood stamps. */
+    var modern = modernizeKjvInline(body);
+    if (modern && modern.length >= 24 && !isNearVerbatimPlain(modern, body)) {
+      if (modern.length > 220) {
+        modern = modern.slice(0, 217).replace(/\s+\S*$/, '') + '…';
+      }
+      return modern;
+    }
+    if (modern && modern.length >= 24 && modernizeKjvInline(body) !== body) {
+      /* Changed archaic forms even if overlap is high — still useful. */
+      if (modern.length > 220) modern = modern.slice(0, 217).replace(/\s+\S*$/, '') + '…';
+      return modern;
+    }
+
+    /* Theme assist only as last resort, still trying to stay near the text. */
+    if (/\btempt(ation|ed)?\b/.test(lower)) {
+      return 'Temptation is real and common, but God is faithful and makes a way through it.';
     }
     if (/\banxious|careful for nothing|worry|fear|afraid|dismay|terror|troubled\b/.test(lower)) {
       return 'You do not have to carry fear alone. Bring it to God and let Him steady you.';
@@ -191,7 +266,7 @@
     if (/\bpeace|rest|still|quiet|calm|be still\b/.test(lower)) {
       return 'God offers real rest — a quiet place to set the day down with Him.';
     }
-    if (/\bmercy|grace|forgiv|compassion|lovingkindness|longsuffering\b/.test(lower)) {
+    if (/\bmercy|grace|forgiv|compassion|lovingkindness\b/.test(lower)) {
       return "God's kindness meets you as you are — not after you perform.";
     }
     if (/\bstrength|strong|courage|weary|faint|renew|uphold|power\b/.test(lower)) {
@@ -200,59 +275,8 @@
     if (/\bhope|trust|believe|faith|pray|prayer|cast.*care|burden\b/.test(lower)) {
       return 'Hand the real weight to God. Trust that He hears and holds you.';
     }
-    if (/\blove|charity|shepherd|save|salvation|rejoice|glad|joy|bless\b/.test(lower)) {
-      return "God's care is for you today — something solid to hold when the day feels thin.";
-    }
-    if (/\brepent|turn ye|turn to the lord|return unto me\b/.test(lower)) {
-      return 'Turn back to God. He welcomes the one who comes home.';
-    }
-    if (/\bworship|praise|sing unto|glorify|hallelujah|give thanks|thanksgiving\b/.test(lower)) {
-      return 'Give God your attention and thanks — He is worthy of it.';
-    }
-    if (/\bwisdom|wise|understand|understanding|knowledge|instruction|proverb\b/.test(lower)) {
-      return 'Real wisdom starts with taking God seriously and walking in His way.';
-    }
-    if (/\bcommand|thou shalt|ye shall|statute|precept|ordinance|law of the lord\b/.test(lower)) {
-      return 'God shows a clear way to live. His instructions are for your good.';
-    }
-    if (/\bword of the lord|thus saith|it is written|thy word|my words|scripture\b/.test(lower)) {
-      return "God's Word is not empty talk. It teaches, steadies, and leads.";
-    }
-    if (/\bholy|sanctify|clean|pure|righteous|upright\b/.test(lower)) {
-      return 'God calls His people to a clean, set-apart life with Him.';
-    }
-    if (/\bneighbou?r|brother|one another|enemy|friend|stranger\b/.test(lower)) {
-      return 'This verse shapes how you treat people — close, hard, and everyday.';
-    }
-    if (/\bkingdom|reign|throne|king of kings\b/.test(lower)) {
-      return 'God rules. His kingdom is real, and it still shapes how we live today.';
-    }
-    if (/\bcross|crucif|blood of|resurrection|risen|die for|gave himself\b/.test(lower)) {
-      return 'Jesus gave Himself so you could be brought near to God. Hold that gift carefully.';
-    }
-    if (/\bdeath|grave|die|dust|mortality\b/.test(lower)) {
-      return 'Life and death are in view here. God is not far from either one.';
-    }
-    if (/\blight\b/.test(lower) && /\bdark|darkness\b/.test(lower)) {
-      return 'God brings light into dark places — and that light is for you too.';
-    }
-    if (/\bmoney|riches|poor|tithe|offering|give alms|mammon\b/.test(lower)) {
-      return 'How you handle what you have is part of walking with God.';
-    }
-    if (/\bangel|heaven|eternal|everlasting|forever\b/.test(lower)) {
-      return 'This verse lifts your eyes past the moment — God holds what lasts.';
-    }
-    if (/\bjudg(e|ment)|wrath|punish|condemn|vengeance\b/.test(lower)) {
-      return 'God takes wrong seriously. This verse keeps justice and holiness in view.';
-    }
-    if (/\bhear(ken)?|listen|ears|cry unto|call upon\b/.test(lower)) {
-      return 'God invites you to call on Him — and to listen when He speaks.';
-    }
-    if (/\bwait|patience|patient|endure|persevere\b/.test(lower)) {
-      return 'Waiting with God is not wasted time. Stay steady; He is still at work.';
-    }
 
-    return 'Read this verse slowly. Let one clear phrase stay with you through the next hour.';
+    return modern || 'Read this verse slowly and hold the words that land — God is speaking here.';
   }
 
   /** Drop override fields that only echo the KJV (archaic word-swap). */
@@ -277,14 +301,31 @@
 
   function inferApplies(text) {
     var l = String(text || '').toLowerCase();
-    if (/\b(careful|worry|anxious|fear|afraid)\b/.test(l)) return 'This verse meets you when fear presses close. You are not asked to carry it alone.';
-    if (/\b(hope|hopeth|hoped)\b/.test(l)) return 'Even when the day feels thin, this verse holds something steady.';
-    if (/\b(peace|rest)\b/.test(l)) return 'This verse offers a quiet place to set the day down.';
-    if (/\b(strength|strong|strengthen)\b/.test(l)) return 'This verse reminds you there is strength beyond your own.';
-    if (/\b(pray|prayer|believe|believing|ask.*believ|believ.*receive)\b/.test(l)) {
-      return 'Bring your real need to God in prayer. Believe He hears. He answers.';
+    if (/\btempt(ation|ed)?\b|\btrial\b/.test(l)) {
+      return 'When pressure hits, say out loud: God is faithful and makes a way — then take the honest next step.';
     }
-    return 'Sit with this verse for one slow minute. What does it ask of you today?';
+    if (/\b(careful|worry|anxious|fear|afraid|troubled)\b/.test(l)) {
+      return 'Name the worry to God in one sentence, then reread this verse before you react.';
+    }
+    if (/\b(peace|rest|still|quiet)\b/.test(l)) {
+      return 'Sit still for sixty seconds with this verse — phone face down — before the next task.';
+    }
+    if (/\b(strength|strong|weary|faint|power|strengthen)\b/.test(l)) {
+      return 'Ask God for strength for the next hour only, then do the next honest small thing.';
+    }
+    if (/\b(pray|prayer|believe|believing|ask.*believ|believ.*receive|supplication)\b/.test(l)) {
+      return 'Pray this verse once as written, then tell God one real need without polishing it.';
+    }
+    if (/\b(forgiv|mercy|grace)\b/.test(l)) {
+      return 'If someone comes to mind, ask God for the mercy this verse describes — for them and for you.';
+    }
+    if (/\b(love|charity|neighbour|neighbor)\b/.test(l)) {
+      return 'Do one concrete kind act today that matches the love in this verse.';
+    }
+    if (/\b(give thanks|thanksgiving|praise|rejoice)\b/.test(l)) {
+      return 'List three ordinary mercies out loud, then thank God for them before the day ends.';
+    }
+    return 'Sit with one phrase from this verse before you move on. What does it ask of you today?';
   }
 
   function plainSpeaker(raw) {
@@ -721,7 +762,19 @@
       };
     }
     var curatedPlain = getCuratedPlainMeaning(ref);
-    var plain = ensureStrongPlain(ref, raw, curatedPlain || '');
+    var bbePlain = '';
+    try {
+      if (typeof window !== 'undefined' && window.TDBBbeSimple && typeof window.TDBBbeSimple.getTextSync === 'function') {
+        bbePlain = tdbPlainTextForUi(window.TDBBbeSimple.getTextSync(ref) || '');
+      }
+    } catch (eBbe) {}
+    var seedPlain = curatedPlain || '';
+    if (!seedPlain && bbePlain && bbePlain.length >= 24 && !isNearVerbatimPlain(bbePlain, raw)) {
+      seedPlain = bbePlain.length > 200
+        ? bbePlain.slice(0, 197).replace(/\s+\S*$/, '') + '…'
+        : bbePlain;
+    }
+    var plain = ensureStrongPlain(ref, raw, seedPlain);
     if (raw.length > 150 && plain.length > 160 && !isNearVerbatimPlain(plain, raw)) {
       /* Only trim long theme lines; never leave a truncated KJV echo. */
       if (plain.indexOf(raw.slice(0, 40)) === -1) {
@@ -734,7 +787,7 @@
       plainExplanation: plain,
       groupApplication: '',
       modernApplication: inferApplies(raw),
-      source: (curatedPlain && !isNearVerbatimPlain(curatedPlain, raw)) ? 'override' : 'generated'
+      source: (curatedPlain && !isNearVerbatimPlain(curatedPlain, raw)) ? 'override' : (bbePlain ? 'bbe' : 'generated')
     };
   }
 

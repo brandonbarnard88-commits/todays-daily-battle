@@ -280,36 +280,36 @@ function main() {
 
     if (rel === 'printables.html' && touched) {
       next = next.replace(
-        /<a href="\/printables\.html" aria-label="Print hub — verse cards, Quiet Hall sheets, family packs">Print hub<\/a>/,
-        '<a href="/printables.html" aria-label="Print hub — verse cards, Quiet Hall sheets, family packs" aria-current="page">Print hub</a>'
-      );
-    }
-
-    if (rel === 'mobius.html' && touched) {
-      next = next.replace(
-        /<a href="\/mobius\.html">Möbius<\/a>/,
-        '<a href="/mobius.html" aria-current="page">Möbius</a>'
+        /<a href="\/printables\.html"[^>]*>Print(?: pages)?<\/a>/,
+        '<a href="/printables.html" aria-label="Print pages" aria-current="page">Print</a>'
       );
     }
 
     if (rel === 'calm.html' && touched) {
       next = next.replace(
-        /<a href="\/calm\.html"(?: aria-label="[^"]*")?>Quiet Hall<\/a>/,
-        '<a href="/calm.html" aria-current="page" aria-label="Quiet Hall — one steady KJV verse when the moment is heavy">Quiet Hall</a>'
+        /<a href="\/calm\.html"(?: aria-label="[^"]*")?>[^<]*<\/a>/,
+        '<a href="/calm.html" aria-current="page" aria-label="When it’s hard — one steady KJV verse">When it’s hard</a>'
       );
     }
 
     if (rel === 'family.html' && touched) {
       next = next.replace(
-        /<a href="\/family\.html" aria-label="Family hub — verse, plans, printables">Family hub<\/a>/,
-        '<a href="/family.html" aria-current="page" aria-label="Family hub — verse, plans, printables">Family hub</a>'
+        /<a href="\/family\.html"[^>]*>Family(?: hub)?<\/a>/,
+        '<a href="/family.html" aria-current="page">Family</a>'
       );
     }
 
-    if (rel === 'church-hub.html' && touched) {
+    if (rel === 'plans.html' && touched) {
       next = next.replace(
-        /<a href="\/church-hub\.html" id="nav-pastors" aria-label="Pastor’s Study — church tools">Pastor’s Study<\/a>/,
-        '<a href="/church-hub.html" id="nav-pastors" aria-current="page" aria-label="Pastor’s Study — church tools">Pastor’s Study</a>'
+        /<a href="\/plans\.html" id="nav-browse-curriculum"[^>]*>Plans<\/a>/,
+        '<a href="/plans.html" id="nav-browse-curriculum" aria-current="page" aria-label="Plans — short KJV reading tracks">Plans</a>'
+      );
+    }
+
+    if (rel === 'kids/index.html' && touched) {
+      next = next.replace(
+        /<a href="\/kids\/"[^>]*>Kids<\/a>/,
+        '<a href="/kids/" aria-current="page" aria-label="Kids stories and coloring">Kids</a>'
       );
     }
 

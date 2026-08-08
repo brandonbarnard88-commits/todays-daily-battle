@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <script src="/vendor/dompurify.min.js"></script>
-  <script src="/tt-bootstrap.js?v=20260807-dig-always-open"></script>
+  <script src="/tt-bootstrap.js?v=20260808-kiss-simple"></script>
   <script defer src="/analytics-loader.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,8 +14,8 @@
   <link rel="alternate" hreflang="en" href="https://todaysdailybattle.com/bible-tool.html">
   <link rel="alternate" hreflang="x-default" href="https://todaysdailybattle.com/">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="preload" href="/styles.css?v=20260807-dig-always-open" as="style">
-  <link rel="stylesheet" href="/styles.css?v=20260807-dig-always-open">
+  <link rel="preload" href="/styles.css?v=20260808-kiss-simple" as="style">
+  <link rel="stylesheet" href="/styles.css?v=20260808-kiss-simple">
 </head>
 <body class="dark-mode">
   <a href="#main-content" class="skip-link">Ir al contenido principal</a>
@@ -45,57 +45,40 @@
       <nav class="header-nav tdb-global-nav tdb-primary-site-nav" aria-label="Main site navigation">
       <button type="button" class="tdb-nav-flyout-toggle" aria-expanded="false" aria-controls="tdb-primary-nav-panel" id="tdb-primary-nav-toggle">
         <span class="tdb-nav-flyout-toggle__bars" aria-hidden="true"></span>
-        <span class="tdb-nav-flyout-toggle__label">Campus</span>
+        <span class="tdb-nav-flyout-toggle__label">Menu</span>
       </button>
       <div class="tdb-primary-nav-panel" id="tdb-primary-nav-panel">
-        <a href="/" aria-label="The Grove — today's verse">The Grove</a>
-        <a href="/explore.html" aria-label="Explore — full campus map">Explore</a>
-        <a href="/#feel-section">Ask the Word</a>
-        <a href="/plans.html" id="nav-browse-curriculum" aria-label="The Paths — KJV tracks for hard weeks and quiet seasons">The Paths</a>
-        <a href="/calm.html" aria-label="Quiet Hall — one steady KJV verse when the moment is heavy">Quiet Hall</a>
-        <a href="/mystudy">My Study</a>
-        <a href="/family.html" aria-label="Family hub — verse, plans, printables">Family hub</a>
-        <a href="/church-hub.html" id="nav-pastors" aria-label="Pastor’s Study — church tools">Pastor’s Study</a>
+        <a href="/" aria-label="Home — today’s verse">Home</a>
+        <a href="/#feel-section">Ask</a>
+        <a href="/plans.html" id="nav-browse-curriculum" aria-label="Plans — short KJV reading tracks">Plans</a>
+        <a href="/calm.html" aria-label="When it’s hard — one steady KJV verse">When it’s hard</a>
+        <a href="/reader.html" id="nav-reader" aria-label="Read the Bible">Read</a>
+        <a href="/kids/" aria-label="Kids stories and coloring">Kids</a>
+        <a href="/about.html">About</a>
         <button type="button" class="tdb-nav-theme-toggle" data-tdb-theme-toggle="primary_nav" aria-label="Switch theme" aria-pressed="false"><span data-tdb-theme-toggle-text>Calm cream</span></button>
         <details class="tdb-nav-more">
-          <summary aria-haspopup="true">More tools</summary>
+          <summary aria-haspopup="true">More</summary>
           <div class="tdb-nav-more-panel" role="group" aria-label="More site pages">
             <div class="tdb-nav-more-group">
-              <span class="tdb-nav-more-group-label">Scripture &amp; Study</span>
-              <a href="/verse.html">Today&rsquo;s Lesson</a>
-              <a href="/reader.html" id="nav-reader" aria-label="KJV chapter reader">Read the Bible</a>
+              <span class="tdb-nav-more-group-label">Scripture</span>
+              <a href="/verse.html">Today’s verse</a>
+              <a href="/bible-tool.html" aria-label="Look up a verse">Look up</a>
               <a href="/memorize.html">Memorize</a>
-              <a href="/bible-tool.html#bible-tool-hub" aria-label="The Library — lookup, verse image, chapter reader">The Library</a>
-              <a href="/study.html">Study workspace</a>
+              <a href="/mystudy">Saved on this device</a>
+              <a href="/prayer-wall.html">Prayer</a>
             </div>
             <div class="tdb-nav-more-group">
-              <span class="tdb-nav-more-group-label">Under The Paths</span>
-              <a href="/plans.html#plansDoorChooser">Feeling doors</a>
-              <a href="/plans.html#plans-maps-into-paths-details" id="nav-curriculum" aria-label="Curriculum and university maps live under The Paths">Curriculum &amp; university maps</a>
-              <a href="/university.html" id="nav-university-core" class="sr-only" aria-label="University map — five anchor verses">University map</a>
-              <a href="/reading-plan.html">7-day reading plan</a>
-              <a href="/daily-rhythm.html">Daily Rhythm</a>
-              <a href="/yearly-rhythm.html" id="nav-year-round" aria-label="Year-round rhythm — monthly KJV memory grid, seasonal plans, and homeschool pacing">Year-round</a>
-              <a href="/year-at-a-glance.html" id="nav-year-at-a-glance" aria-label="Year at a glance — printable one-page calendar">Print year</a>
-              <a href="/mobius.html">M&ouml;bius Journal</a>
+              <span class="tdb-nav-more-group-label">Family</span>
+              <a href="/family.html">Family</a>
+              <a href="/coloring.html">Kids coloring</a>
+              <a href="/printables.html" aria-label="Print pages">Print</a>
             </div>
             <div class="tdb-nav-more-group">
-              <span class="tdb-nav-more-group-label">Family &amp; Kids</span>
-              <a href="/kids/">Kids play</a>
-              <a href="/kids/corner.html">Bible Story Library</a>
-              <a href="/coloring.html">Kids Coloring</a>
-              <a href="/little-ones.html">For the Little Ones</a>
-              <a href="/family-armor.html" id="nav-family-armor">Family Armor &amp; Stories</a>
-              <a href="/family-armor-little-ones.html" id="nav-family-armor-little-ones" aria-label="Family Armor for little ones — calm KJV doorway">Family Armor for little ones</a>
-              <a href="/prayer-wall.html">Pray</a>
-              <a href="/printables.html" aria-label="Print hub — verse cards, Quiet Hall sheets, family packs">Print hub</a>
-            </div>
-            <div class="tdb-nav-more-group">
-              <span class="tdb-nav-more-group-label">About the Site</span>
-              <a href="/explore.html#start-here" id="nav-site-guide" aria-label="Start here — calm map on Explore">Start here</a>
-              <a href="/search.html" id="nav-site-search" aria-label="Search the site — plans, topics, tools">Search</a>
-              <a href="/about.html">About</a>
-              <a href="/story.html">Story</a>
+              <span class="tdb-nav-more-group-label">Site</span>
+              <a href="/explore.html" id="nav-site-guide" aria-label="All pages">All pages</a>
+              <a href="/search.html" id="nav-site-search" aria-label="Search the site">Search</a>
+              <a href="/faq.html">FAQ</a>
+              <a href="/give" aria-label="Optional support">Support</a>
             </div>
           </div>
         </details>
@@ -131,6 +114,6 @@
     </main>
   </div>
   <script type="module" src="/config.js"></script>
-  <script type="module" src="/script.js?v=20260807-dig-always-open" data-cfasync="false"></script>
+  <script type="module" src="/script.js?v=20260808-kiss-simple" data-cfasync="false"></script>
 </body>
 </html>

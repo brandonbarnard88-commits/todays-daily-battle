@@ -119,12 +119,12 @@
     },
     {
       "source": "/pastors",
-      "destination": "/church-hub.html",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/pastors/",
-      "destination": "/church-hub.html",
+      "destination": "/",
       "permanent": true
     },
     {
@@ -259,7 +259,7 @@
     },
     {
       "source": "/pastor-tools",
-      "destination": "/church-hub.html",
+      "destination": "/",
       "permanent": true
     },
     {
@@ -289,12 +289,12 @@
     },
     {
       "source": "/pastor",
-      "destination": "/church-hub.html",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/pastor/",
-      "destination": "/church-hub.html",
+      "destination": "/",
       "permanent": true
     }
   ],

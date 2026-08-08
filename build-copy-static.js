@@ -249,6 +249,8 @@ const rootFiles = [
   'mystudy.js',
   'what-god-has-done.js',
   'tdb-offline-strip.js',
+  'tdb-continue-surface.js',
+  'reader-core.js',
   'memorize.js',
   'highlights.js',
   'streak.js',

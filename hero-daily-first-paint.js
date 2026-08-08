@@ -225,10 +225,15 @@
       todayLine = 'In ' + yr + ', trust gets tested by waiting, silence, and unanswered questions. This verse calls you to hand the weight to God.';
       youLine = 'You can bring Him the real thing on your mind — not a polished prayer.';
       stepLine = 'So do this: Name one worry. Pray it in one sentence. Then say, “I trust You with this,” and leave it there for now.';
-    } else if (/love|light|shepherd|save|salvation|rejoice|glad|joy|bless/i.test(bodyLower)) {
+    } else if (/made me glad|glad through|works of (thy|your) hands|rejoice|glad|joy|thanks|thanksgiving|praise/i.test(bodyLower)) {
+      themeKey = 'gratitude';
+      todayLine = 'In ' + yr + ', gladness is easy to skip when the day feels ordinary or hard. This verse says real joy can rise from looking at what God has already done.';
+      youLine = 'If your heart feels flat, you do not have to fake cheer. Look at one work of God you can still name — that is enough to start gladness.';
+      stepLine = 'So do this: Name one work of God you can see this week — then thank Him for it out loud.';
+    } else if (/love|light|shepherd|save|salvation|bless/i.test(bodyLower)) {
       themeKey = 'care';
-      todayLine = 'In ' + yr + ', good news can feel thin. This verse holds God’s care in plain sight — something solid to rejoice in.';
-      youLine = 'Let this word remind you that God is for you, not against you, even on an ordinary hard day.';
+      todayLine = 'In ' + yr + ', good news can feel thin. This verse holds God’s care in plain sight — something solid to rest in.';
+      youLine = 'This word is for you personally: God’s care is not abstract. It meets you in the day you are actually living.';
       stepLine = 'So do this: Read the verse again. Thank God for one true kindness in it. Carry that one line into your next conversation.';
     } else {
       todayLine = 'In ' + yr + ', this verse still speaks into ordinary pressure — work, home, waiting, and quiet battles nobody else sees.';
@@ -501,6 +506,23 @@
     return 'In ' + y + ', life can feel loud—headlines, hurry, tension. God’s Word here still cuts through as something steady you can carry today.';
   }
 
+  /** Action/step lines often land in modernApplication by mistake — keep them out of “How it relates today”. */
+  function looksLikeActionStepLine(s) {
+    var t = sanitizeText(s);
+    if (!t) return false;
+    return /^(so do this:|name one |name the |sit still|sit with|write one|list three|list one|ask god|pray this|pray it|return to this|take one|say the|say one|read the verse|read it slowly|thank god|end the day|hold this truth|use this verse|before you open)/i.test(
+      t
+    );
+  }
+
+  function looksLikeCultureLine(s) {
+    var t = sanitizeText(s);
+    if (!t) return false;
+    return /\b20\d{2}\b|headlines|hurry|tension|bills|2 am|phone|ordinary|good news can feel|life can feel|quiet is rare|trust gets tested|tiredness can feel|people often feel/i.test(
+      t
+    );
+  }
+
   /** One short petition tied to today’s verse (never stores user text). */
   function buildHeroVotdPrayer(refFull) {
     var std = window.TDB_verseBreakdownStandard;
@@ -556,25 +578,36 @@
         ? 'Originally for ' + row.a + ' in their time. The same word speaks to us today.'
         : 'Written for God’s people in Scripture—and for anyone listening now, including you.';
     }
+    /* Overrides often put the action in modernApplication — demote those to the step slot. */
+    if (modernA && looksLikeActionStepLine(modernA) && !looksLikeCultureLine(modernA)) {
+      if (!stepPrefer) stepPrefer = modernA;
+      modernA = '';
+    }
     var relatesToday = modernA;
-    if (!relatesToday) {
+    if (!relatesToday || looksLikeActionStepLine(relatesToday)) {
       relatesToday = defaultRelatesTodayLine(yr);
     }
-    var curatorYou = sanitizeText(v.today) || sanitizeText(lines[1] || '');
-    var relYou = curatorYou;
-    if (!relYou && modernA) {
-      relYou = modernA;
+    var curatorYou = sanitizeText(v.today);
+    /* lines[1] is often the raw KJV body — do not use it as a personal line. */
+    if (!curatorYou && lines[1] && lines[1] !== sanitizeText(v.text) && lines[1].length < 160) {
+      var l1 = sanitizeText(lines[1]);
+      if (l1 && l1 !== simple && !looksLikeActionStepLine(l1)) curatorYou = l1;
     }
-    if (!relYou && groupA && !isLikelyAudienceLaneBlurb(groupA)) {
+    var relYou = curatorYou;
+    if (relYou && looksLikeActionStepLine(relYou)) {
+      if (!stepPrefer) stepPrefer = relYou;
+      relYou = '';
+    }
+    if (!relYou && groupA && !isLikelyAudienceLaneBlurb(groupA) && !looksLikeActionStepLine(groupA)) {
       relYou = groupA;
     }
     if (relYou && relatesToday && relYou === relatesToday) {
       relatesToday = defaultRelatesTodayLine(yr);
     }
     if (relYou && relYou === simple) {
-      relYou = 'Hold this word as God speaking kindly to you—today, personally—not as a slogan you have to manufacture.';
+      relYou = 'This word is for you in the day you are actually living — not a slogan, but a truth you can hold.';
     } else if (!relYou) {
-      relYou = 'Hold this word as God speaking kindly to you—today, personally—not as a slogan you have to manufacture.';
+      relYou = 'This word is for you in the day you are actually living — not a slogan, but a truth you can hold.';
     }
     var oneStep = stepPrefer || sanitizeText(v.action) || sanitizeText(v.app);
     if (!oneStep) {
@@ -867,14 +900,13 @@
       if (/\bforgive|forgiveness|forgave|forgiven|trespass|trespasses\b/.test(low)) return 'forgiveness';
       if (/\bbitter(ness|ly)?\b|gall of bitterness|root of bitterness|bitter envying|gall and\b/.test(low)) return 'bitterness';
       if (/\blonely|loneliness|\bforsaken\b|forsake me|no companion|desolate and afflicted|solitary in families|comfortless\b/.test(low)) return 'loneliness';
-      if (/\bthank|thanks|thanksgiving|grateful|praise\w* unto|magnify|joyful noise|bless the lord, o my soul|enter.*thanksgiving\b/.test(low)) return 'gratitude';
+      if (/\bthank|thanks|thanksgiving|grateful|made me glad|glad through|works of (thy|your) hands|rejoice|joyful|joy in|praise\w* unto|magnify|joyful noise|bless the lord, o my soul|enter.*thanksgiving\b/.test(low)) return 'gratitude';
       if (/\bdoubt(s|ed|ful|eth)?\b|unbelief|disbelief|faithless|be not faithless|waver(ing|ed|eth)?\b|staggered not|help thou mine|mine unbelief|look we for another|art thou he that should come\b/.test(low)) return 'doubt';
       if (/\bhope|hopeless|discouraged\b/.test(low)) return 'hope';
-      return 'hope';
+      return 'peace';
     }
     var UOG_PLANS = {
       anxiety: [
-        { href: '/plans.html?plan=universityoverwhelm', label: 'University of Overwhelm' },
         { href: '/plans.html?plan=universityanxiety', label: 'Anxiety & Fear' },
         { href: '/plans.html?plan=worrytrust', label: 'Worry to Trust' },
         { href: '/plans.html?plan=peace', label: '7-Day Peace' }
@@ -890,90 +922,90 @@
         { href: '/plans.html?plan=peace', label: '7-Day Peace' }
       ],
       grief: [
-        { href: '/plans.html?plan=universitygrief', label: 'University of Grief' },
+        { href: '/plans.html?plan=universitygrief', label: 'Grief' },
         { href: '/plans.html?plan=griefhope', label: 'Grief to Hope' },
         { href: '/plans.html?plan=psalmscomfort', label: 'Psalms of Comfort' }
       ],
       waiting: [
-        { href: '/plans.html?plan=universitywaiting', label: 'University of Waiting' },
-        { href: '/plans.html?plan=hopeuncertain', label: 'When Hope Feels Thin' },
-        { href: '/plans.html?plan=trust', label: 'Trust in Uncertainty' }
+        { href: '/plans.html?plan=universitywaiting', label: 'Waiting' },
+        { href: '/plans.html?plan=trust', label: 'Trust in Uncertainty' },
+        { href: '/plans.html?plan=hopeuncertain', label: 'When Hope Feels Thin' }
       ],
       parenting: [
         { href: '/plans.html?plan=universityparenting', label: 'Parenting Young Kids' },
-        { href: '/plans.html?plan=universityparentfear', label: 'Fear for My Children' },
         { href: '/plans.html?plan=parenting', label: 'Parenting' },
         { href: '/plans.html?plan=familyworship', label: 'Family Worship' }
       ],
       exhaustion: [
         { href: '/plans.html?plan=universityexhaustion', label: 'Exhaustion' },
-        { href: '/plans.html?plan=universityoverwhelm', label: 'University of Overwhelm' },
-        { href: '/plans.html?plan=universitycontentment', label: 'Contentment in Small Seasons' },
         { href: '/plans.html?plan=wearyhands', label: 'Weary Hands' },
         { href: '/plans.html?plan=peace', label: '7-Day Peace' }
       ],
       gratitude: [
-        { href: '/plans.html?plan=universitygratitude', label: 'Gratitude' },
-        { href: '/plans.html?plan=universitycontentment', label: 'Contentment in Small Seasons' },
+        { href: '/plans.html?plan=psalmspraise', label: 'Psalms of Praise' },
         { href: '/plans.html?plan=gratitude', label: '7-Day Gratitude' },
-        { href: '/plans.html?plan=psalmspraise', label: 'Psalms of Praise' }
+        { href: '/plans.html?plan=praisethanks30', label: 'Praise and Thanksgiving' },
+        { href: '/plans.html?plan=universitygratitude', label: 'Gratitude track' }
       ],
       loneliness: [
-        { href: '/plans.html?plan=universityloneliness', label: 'University of Loneliness' },
         { href: '/plans.html?plan=heartalone', label: 'Heart Feels Alone' },
-        { href: '/plans.html?plan=universitygrief', label: 'University of Grief' }
+        { href: '/plans.html?plan=universityloneliness', label: 'Loneliness' },
+        { href: '/plans.html?plan=universitygrief', label: 'Grief' }
       ],
       forgiveness: [
-        { href: '/plans.html?plan=universityforgiveness', label: 'University of Forgiveness' },
         { href: '/plans.html?plan=forgiveness', label: 'Forgiveness' },
-        { href: '/plans.html?plan=lettinggo', label: 'Letting Go' }
+        { href: '/plans.html?plan=lettinggo', label: 'Letting Go' },
+        { href: '/plans.html?plan=universityforgiveness', label: 'Forgiveness track' }
       ],
       brokenrelations: [
-        { href: '/plans.html?plan=universitybroken', label: 'University of Broken Relationships' },
-        { href: '/plans.html?plan=universityforgiveness', label: 'University of Forgiveness' },
-        { href: '/plans.html?plan=peacemakers', label: 'Peacemakers' }
+        { href: '/plans.html?plan=peacemakers', label: 'Peacemakers' },
+        { href: '/plans.html?plan=universitybroken', label: 'Broken Relationships' },
+        { href: '/plans.html?plan=forgiveness', label: 'Forgiveness' }
       ],
       comparison: [
-        { href: '/plans.html?plan=universitycontentment', label: 'Contentment in Small Seasons' },
-        { href: '/plans.html?plan=universitycomparison', label: 'University of Comparison' },
-        { href: '/plans.html?plan=universitygratitude', label: 'University of Gratitude' },
+        { href: '/plans.html?plan=universitycontentment', label: 'Contentment' },
+        { href: '/plans.html?plan=universitygratitude', label: 'Gratitude' },
         { href: '/plans.html?plan=peace', label: '7-Day Peace' }
       ],
       anger: [
-        { href: '/plans.html?plan=universityanger', label: 'University of Anger' },
         { href: '/plans.html?plan=angerpeace', label: 'Anger to Peace' },
-        { href: '/plans.html?plan=peacemakers', label: 'Peacemakers' }
+        { href: '/plans.html?plan=peacemakers', label: 'Peacemakers' },
+        { href: '/plans.html?plan=universityanger', label: 'Anger track' }
       ],
       regret: [
-        { href: '/plans.html?plan=universityregret', label: 'University of Regret' },
-        { href: '/plans.html?plan=universitycontentment', label: 'Contentment in Small Seasons' },
-        { href: '/plans.html?plan=universityforgiveness', label: 'University of Forgiveness' },
-        { href: '/plans.html?plan=universitygrief', label: 'University of Grief' }
+        { href: '/plans.html?plan=universityregret', label: 'Regret' },
+        { href: '/plans.html?plan=forgiveness', label: 'Forgiveness' },
+        { href: '/plans.html?plan=universitygrief', label: 'Grief' }
       ],
       doubt: [
-        { href: '/plans.html?plan=universitydoubt', label: 'University of Doubt' },
         { href: '/plans.html?plan=doubtassurance', label: 'Doubt to Assurance' },
-        { href: '/plans.html?plan=trust', label: 'Trust in Uncertainty' }
+        { href: '/plans.html?plan=trust', label: 'Trust in Uncertainty' },
+        { href: '/plans.html?plan=universitydoubt', label: 'Doubt track' }
       ],
       bitterness: [
-        { href: '/plans.html?plan=universitybitterness', label: 'University of Bitterness' },
-        { href: '/plans.html?plan=universityforgiveness', label: 'University of Forgiveness' },
-        { href: '/plans.html?plan=lettinggo', label: 'Letting Go' }
+        { href: '/plans.html?plan=lettinggo', label: 'Letting Go' },
+        { href: '/plans.html?plan=forgiveness', label: 'Forgiveness' },
+        { href: '/plans.html?plan=universitybitterness', label: 'Bitterness track' }
       ],
       overwhelm: [
-        { href: '/plans.html?plan=universityoverwhelm', label: 'University of Overwhelm' },
         { href: '/plans.html?plan=overwhelmedburnout', label: 'Overwhelmed / Burnout' },
-        { href: '/plans.html?plan=universityexhaustion', label: 'Exhaustion' }
+        { href: '/plans.html?plan=universityexhaustion', label: 'Exhaustion' },
+        { href: '/plans.html?plan=peace', label: '7-Day Peace' }
       ],
       parentfear: [
         { href: '/plans.html?plan=universityparentfear', label: 'Fear for My Children' },
-        { href: '/plans.html?plan=universityparenting', label: 'Parenting Young Kids' },
-        { href: '/plans.html?plan=littlehearts', label: 'Little Hearts, Big Fear' }
+        { href: '/plans.html?plan=littlehearts', label: 'Little Hearts, Big Fear' },
+        { href: '/plans.html?plan=universityparenting', label: 'Parenting Young Kids' }
       ],
       hope: [
         { href: '/plans.html?plan=hopeuncertain', label: 'When Hope Feels Thin' },
-        { href: '/plans.html?plan=universitywaiting', label: 'University of Waiting' },
+        { href: '/plans.html?plan=trust', label: 'Trust in Uncertainty' },
         { href: '/plans.html?plan=praisethanks30', label: 'Praise and Thanksgiving' }
+      ],
+      peace: [
+        { href: '/plans.html?plan=peace', label: '7-Day Peace' },
+        { href: '/plans.html?plan=psalmspraise', label: 'Psalms of Praise' },
+        { href: '/plans.html?plan=gratitude', label: '7-Day Gratitude' }
       ]
     };
     window.tdbUogBuildCurriculumPlanList = function (ref, text) {

@@ -658,12 +658,18 @@ function queueHeroBreakdownRefresh(data, attempt) {
       window.__TDB_applyHeroVotdFromInputs(v, null);
       if (!sharedReady) queueHeroBreakdownRefresh(data, 0);
     } else {
+      /* modernApplication from overrides is usually a practical step, not a “culture today” line. */
+      var engineModern = (heroSharedBreakdown && heroSharedBreakdown.modernApplication) || '';
+      var looksAction = /^(so do this:|name one |sit |write |list |ask |pray |return to|take one|say |read |thank |end the day|hold this|use this)/i.test(
+        String(engineModern || '').trim()
+      );
       window.__TDB_applyHeroVotdFromInputs(v, {
         plainExplanation: bestPlain,
         groupApplication: (heroSharedBreakdown && heroSharedBreakdown.groupApplication) || curatedToday || v.today,
-        modernApplication: (heroSharedBreakdown && heroSharedBreakdown.modernApplication) || '',
-        practicalStep: curatedStep || v.action || v.app,
-        about: (heroSharedBreakdown && heroSharedBreakdown.about) || v.speaker
+        modernApplication: looksAction ? '' : engineModern,
+        practicalStep: curatedStep || v.action || v.app || (looksAction ? engineModern : ''),
+        about: (heroSharedBreakdown && heroSharedBreakdown.about) || v.speaker,
+        to: (heroSharedBreakdown && heroSharedBreakdown.to) || v.to
       });
       // First paint may have filled a placeholder before the engine loaded — keep polling for a real upgrade.
       if (!sharedReady || (weakPlain && !window.__tdbHeroBreakdownEngineApplied)) {
